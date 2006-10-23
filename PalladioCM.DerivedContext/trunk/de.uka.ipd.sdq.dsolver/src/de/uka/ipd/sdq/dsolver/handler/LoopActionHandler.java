@@ -15,10 +15,14 @@ import antlr.TokenStreamException;
 import de.uka.ipd.sdq.context.usage.LoopIteration;
 import de.uka.ipd.sdq.context.usage.UsageFactory;
 import de.uka.ipd.sdq.dsolver.Context;
+import de.uka.ipd.sdq.dsolver.visitors.ExpressionSolveSwitch;
+import de.uka.ipd.sdq.dsolver.visitors.ExpressionTypeSwitch;
 import de.uka.ipd.sdq.dsolver.visitors.SeffSwitchDSolver;
+import de.uka.ipd.sdq.dsolver.visitors.UsagemodelSwitchDSolver;
 import de.uka.ipd.sdq.pcm.core.stochastics.CompareExpression;
 import de.uka.ipd.sdq.pcm.core.stochastics.Expression;
 import de.uka.ipd.sdq.pcm.core.stochastics.IntLiteral;
+import de.uka.ipd.sdq.pcm.core.stochastics.ProductExpression;
 import de.uka.ipd.sdq.pcm.core.stochastics.RandomVariable;
 import de.uka.ipd.sdq.pcm.core.stochastics.StochasticsFactory;
 import de.uka.ipd.sdq.pcm.seff.BranchAction;
@@ -26,6 +30,7 @@ import de.uka.ipd.sdq.pcm.seff.LoopAction;
 import de.uka.ipd.sdq.pcm.seff.ResourceDemandingBehaviour;
 import de.uka.ipd.sdq.pcm.stochasticexpressions.parser.StochasticExpressionsLexer;
 import de.uka.ipd.sdq.pcm.stochasticexpressions.parser.StochasticExpressionsParser;
+import de.uka.ipd.sdq.pcm.usagemodel.UsageScenario;
 
 /**
  * @author Koziolek
@@ -77,13 +82,15 @@ public class LoopActionHandler extends AbstractHandler {
 	private void handle(LoopAction loop) {
 		ResourceDemandingBehaviour loopBody = loop.getBodyBehaviour_Loop();
 		// TODO: solve dependencies
+				
 		String iterations = loop.getIterations();
-		RandomVariable rv = stochasticsFactory.createRandomVariable();
+		//RandomVariable rv = stochasticsFactory.createRandomVariable();
 		
-		//Expression expr = parseLoopIterations(iterations);
+		RandomVariable rv = evaluateRandomVariable(iterations);
+		
 		//ProbabilityDistributionFunction pdf = convert(expr);
 		
-		rv.setSpecification(iterations); // TODO: fix here
+		//rv.setSpecification(iterations); // TODO: fix here
 		
 		LoopIteration loopIteration = usageFactory.createLoopIteration();
 		loopIteration.setLoopaction_LoopIteration(loop);
@@ -105,6 +112,22 @@ public class LoopActionHandler extends AbstractHandler {
 		}
 		ArrayList curLoop = myContext.getCurrentLoopIterationNumber();
 		curLoop.remove(curLoop.size()-1);
+	}
+
+	/**
+	 * @param iterations
+	 */
+	private RandomVariable evaluateRandomVariable(String iterations) {
+		Expression expr = parseLoopIterations(iterations);
+		
+		ExpressionSolveSwitch visitor = new ExpressionSolveSwitch(expr);
+		try {
+			return (RandomVariable)visitor.doSwitch(expr);
+		} catch (Exception e) {
+			logger.error("Solving Expression caused Exception!" + e.getMessage());
+			e.printStackTrace();
+		}
+		return null;
 	}
 	
 	

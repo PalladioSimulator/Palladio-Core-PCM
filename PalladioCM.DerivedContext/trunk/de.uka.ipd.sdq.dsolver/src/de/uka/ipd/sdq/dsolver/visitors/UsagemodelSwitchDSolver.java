@@ -3,8 +3,10 @@ package de.uka.ipd.sdq.dsolver.visitors;
 import org.apache.log4j.Logger;
 import org.eclipse.emf.common.util.EList;
 
+import de.uka.ipd.sdq.context.allocation.ActualAllocation;
 import de.uka.ipd.sdq.context.allocation.ActualAllocationContext;
 import de.uka.ipd.sdq.context.allocation.AllocationFactory;
+import de.uka.ipd.sdq.context.usage.Usage;
 import de.uka.ipd.sdq.context.usage.UsageContext;
 import de.uka.ipd.sdq.context.usage.UsageFactory;
 import de.uka.ipd.sdq.dsolver.Context;
@@ -49,6 +51,8 @@ public class UsagemodelSwitchDSolver extends UsagemodelSwitch {
 		pcmInstance = inst;
 		usageFactory = UsageFactory.eINSTANCE;
 		actualAllocationFactory = AllocationFactory.eINSTANCE;
+		ActualAllocation all = actualAllocationFactory.createActualAllocation();
+		Usage usage = usageFactory.createUsage();
 	}
 
 	/*

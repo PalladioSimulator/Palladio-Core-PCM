@@ -10,7 +10,7 @@
         <branches_Branch branchCondition="=3&lt;3.5">
           <branchBehaviour_BranchTransition>
             <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_kQ73ATQbEduaPaOP6VcQiw" entityName="Starting" successor_AbstractAction="_lwvc5jQbEduaPaOP6VcQiw"/>
-            <steps_Behaviour xsi:type="pcm.seff:ExternalCallAction" id="_lwvc5jQbEduaPaOP6VcQiw" entityName="ExternalCalling" predecessor_AbstractAction="_kQ73ATQbEduaPaOP6VcQiw" successor_AbstractAction="_mIlVIDQbEduaPaOP6VcQiw" calledService_ExternalService="//@interfaces__Repository.1/@signatures__Interface.0" parametricParameterUsage_ParametricParameterUsage="//@components__Repository.0/@serviceEffectSpecifications__BasicComponent.0/@parametricParameterUsage_Behaviour.0"/>
+            <steps_Behaviour xsi:type="pcm.seff:ExternalCallAction" id="_lwvc5jQbEduaPaOP6VcQiw" entityName="ExternalCalling" predecessor_AbstractAction="_kQ73ATQbEduaPaOP6VcQiw" successor_AbstractAction="_mIlVIDQbEduaPaOP6VcQiw" calledService_ExternalService="//@interfaces__Repository.1/@signatures__Interface.0"/>
             <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_mIlVIDQbEduaPaOP6VcQiw" entityName="Stopping" predecessor_AbstractAction="_lwvc5jQbEduaPaOP6VcQiw"/>
           </branchBehaviour_BranchTransition>
         </branches_Branch>
@@ -25,14 +25,13 @@
       <parametricResourceDemands_Behaviour demand="1000" unit="CPU cycles" action_ParametricResourceDemand="_Z92dpDQbEduaPaOP6VcQiw">
         <requiredResource_ParametricResourceDemand href="DSolverExample1.resourcetype#_YPBH0TQcEduaPaOP6VcQiw"/>
       </parametricResourceDemands_Behaviour>
-      <parametricParameterUsage_Behaviour xsi:type="pcm.seff:PrimitiveParametricParameterUsage" specification="=priml_param&lt;number;VALUE>" characterisedParameter_ParametricParameterUsage="//@interfaces__Repository.1/@signatures__Interface.0/@parameters__Signature.0"/>
     </serviceEffectSpecifications__BasicComponent>
   </components__Repository>
   <components__Repository xsi:type="pcm.repository:BasicComponent" id="_hj5edDQaEduaPaOP6VcQiw" entityName="SecondComponent">
     <providedRoles__ProvidesComponentType id="_zUQhsDQaEduaPaOP6VcQiw" entityName="ProvidedRoleComponent2" providedInterface__ProvidedRole="_pIeqNDQaEduaPaOP6VcQiw"/>
     <serviceEffectSpecifications__BasicComponent xsi:type="pcm.seff:ResourceDemandingSEFF" seffTypeID="1" describedService__SEFF="//@interfaces__Repository.1/@signatures__Interface.0">
       <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_BH_P8TQeEduaPaOP6VcQiw" entityName="Starting" successor_AbstractAction="_CRToczQeEduaPaOP6VcQiw"/>
-      <steps_Behaviour xsi:type="pcm.seff:LoopAction" id="_CRToczQeEduaPaOP6VcQiw" entityName="Looping" predecessor_AbstractAction="_BH_P8TQeEduaPaOP6VcQiw" successor_AbstractAction="_EqV8YDQeEduaPaOP6VcQiw" iterations="=IntRandomVar[(0.3;8)(0.7;9)]">
+      <steps_Behaviour xsi:type="pcm.seff:LoopAction" id="_CRToczQeEduaPaOP6VcQiw" entityName="Looping" predecessor_AbstractAction="_BH_P8TQeEduaPaOP6VcQiw" successor_AbstractAction="_EqV8YDQeEduaPaOP6VcQiw" iterations="=IntRandomVar[(0.3;8)(0.7;9)]*3">
         <bodyBehaviour_Loop>
           <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_DG83ATQeEduaPaOP6VcQiw" entityName="Starting" successor_AbstractAction="_DZ3zBDQeEduaPaOP6VcQiw"/>
           <steps_Behaviour xsi:type="pcm.seff:InternalAction" id="_DZ3zBDQeEduaPaOP6VcQiw" entityName="Doing" predecessor_AbstractAction="_DG83ATQeEduaPaOP6VcQiw" successor_AbstractAction="_D4awMDQeEduaPaOP6VcQiw" failureProbability="0"/>

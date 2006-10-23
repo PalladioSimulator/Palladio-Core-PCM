@@ -72,6 +72,7 @@ public class InternalActionHandler extends AbstractHandler{
 					// TODO: solve dependency, include branch conditions and loop iterations
 					// here: only copy random variable specification
 					Expression expression = prd.getSpecification_RandomVariable();
+					
 					RandomVariable rv = stochasticsFactory
 							.createRandomVariable();
 					rv.setSpecification_RandomVariable(expression);

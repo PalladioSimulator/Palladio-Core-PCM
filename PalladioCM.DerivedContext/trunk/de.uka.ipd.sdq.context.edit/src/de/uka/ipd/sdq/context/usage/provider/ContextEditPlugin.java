@@ -10,6 +10,8 @@ import de.uka.ipd.sdq.identifier.provider.IdentifierEditPlugin;
 
 import de.uka.ipd.sdq.pcm.assembly.provider.PcmEditPlugin;
 
+import de.uka.ipd.sdq.probfunction.provider.ProbabilityFunctionEditPlugin;
+
 import org.eclipse.emf.common.EMFPlugin;
 
 import org.eclipse.emf.common.util.ResourceLocator;
@@ -48,6 +50,7 @@ public final class ContextEditPlugin extends EMFPlugin {
 		  (new ResourceLocator [] {
 		     IdentifierEditPlugin.INSTANCE,
 		     PcmEditPlugin.INSTANCE,
+		     ProbabilityFunctionEditPlugin.INSTANCE,
 		   });
 	}
 

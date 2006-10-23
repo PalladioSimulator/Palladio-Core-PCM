@@ -43,6 +43,8 @@ import de.uka.ipd.sdq.pcm.system.SystemPackage;
 
 import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
 
+import de.uka.ipd.sdq.probfunction.ProbfunctionPackage;
+
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
@@ -156,6 +158,7 @@ public class UsagePackageImpl extends EPackageImpl implements UsagePackage {
 		ResourceenvironmentPackage.eINSTANCE.eClass();
 		UsagemodelPackage.eINSTANCE.eClass();
 		SystemPackage.eINSTANCE.eClass();
+		ProbfunctionPackage.eINSTANCE.eClass();
 
 		// Obtain or create and register interdependencies
 		AllocationPackageImpl theAllocationPackage_1 = (AllocationPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(de.uka.ipd.sdq.context.allocation.AllocationPackage.eNS_URI) instanceof AllocationPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(de.uka.ipd.sdq.context.allocation.AllocationPackage.eNS_URI) : de.uka.ipd.sdq.context.allocation.AllocationPackage.eINSTANCE);

@@ -186,6 +186,8 @@ import de.uka.ipd.sdq.pcm.system.provider.SystemItemProviderAdapterFactory;
 
 import de.uka.ipd.sdq.pcm.usagemodel.provider.UsagemodelItemProviderAdapterFactory;
 
+import de.uka.ipd.sdq.probfunction.provider.ProbfunctionItemProviderAdapterFactory;
+
 import org.eclipse.ui.actions.WorkspaceModifyOperation;
 
 
@@ -719,6 +721,7 @@ public class UsageEditor
 		factories.add(new ResourceenvironmentItemProviderAdapterFactory());
 		factories.add(new UsagemodelItemProviderAdapterFactory());
 		factories.add(new SystemItemProviderAdapterFactory());
+		factories.add(new ProbfunctionItemProviderAdapterFactory());
 		factories.add(new ReflectiveItemProviderAdapterFactory());
 
 		adapterFactory = new ComposedAdapterFactory(factories);

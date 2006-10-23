@@ -42,6 +42,8 @@ import de.uka.ipd.sdq.pcm.system.SystemPackage;
 
 import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
 
+import de.uka.ipd.sdq.probfunction.ProbfunctionPackage;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
@@ -147,6 +149,7 @@ public class AllocationPackageImpl extends EPackageImpl implements AllocationPac
 		ResourceenvironmentPackage.eINSTANCE.eClass();
 		UsagemodelPackage.eINSTANCE.eClass();
 		SystemPackage.eINSTANCE.eClass();
+		ProbfunctionPackage.eINSTANCE.eClass();
 
 		// Obtain or create and register interdependencies
 		UsagePackageImpl theUsagePackage = (UsagePackageImpl)(EPackage.Registry.INSTANCE.getEPackage(UsagePackage.eNS_URI) instanceof UsagePackageImpl ? EPackage.Registry.INSTANCE.getEPackage(UsagePackage.eNS_URI) : UsagePackage.eINSTANCE);

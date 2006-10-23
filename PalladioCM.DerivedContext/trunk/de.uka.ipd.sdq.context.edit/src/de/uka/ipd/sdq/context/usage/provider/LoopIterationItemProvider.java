@@ -168,6 +168,11 @@ public class LoopIterationItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(UsagePackage.Literals.LOOP_ITERATION__ITERATIONS_LOOP_ITERATION,
+				 SeffFactory.eINSTANCE.createParametricResourceDemand()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(UsagePackage.Literals.LOOP_ITERATION__ITERATIONS_LOOP_ITERATION,
 				 SeffFactory.eINSTANCE.createPrimitiveParametricParameterUsage()));
 
 		newChildDescriptors.add

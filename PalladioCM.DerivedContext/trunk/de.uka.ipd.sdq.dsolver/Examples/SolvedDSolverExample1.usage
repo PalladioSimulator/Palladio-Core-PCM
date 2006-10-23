@@ -3,12 +3,8 @@
   <usageContexts>
     <loopiterations_UsageContext>
       <loopaction_LoopIteration href="DSolverExample1.repository#_CRToczQeEduaPaOP6VcQiw"/>
-      <iterations_LoopIteration specification="=IntRandomVar[(0.3;8)(0.7;9)]"/>
+      <iterations_LoopIteration specification="=IntRandomVar[(0.3;8)(0.7;9)]*3"/>
     </loopiterations_UsageContext>
-    <actualParameterUsage_UsageContext>
-      <parameter_ParameterUsage href="DSolverExample1.repository#//@interfaces__Repository.1/@signatures__Interface.0/@parameters__Signature.0"/>
-      <parameterCharacterisation_ParameterUsage specification="foo"/>
-    </actualParameterUsage_UsageContext>
   </usageContexts>
   <usageContexts>
     <branchprobabilities_UsageContext probability="0.5">
