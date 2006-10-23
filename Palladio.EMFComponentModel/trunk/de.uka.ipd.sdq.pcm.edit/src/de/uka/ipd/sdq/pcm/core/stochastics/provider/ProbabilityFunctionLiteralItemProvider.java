@@ -136,11 +136,6 @@ public class ProbabilityFunctionLiteralItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(StochasticsPackage.Literals.PROBABILITY_FUNCTION_LITERAL__FUNCTION_PROBABILITY_FUNCTION_LITERAL,
-				 ProbfunctionFactory.eINSTANCE.createProbabilityDensityFunction()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(StochasticsPackage.Literals.PROBABILITY_FUNCTION_LITERAL__FUNCTION_PROBABILITY_FUNCTION_LITERAL,
 				 ProbfunctionFactory.eINSTANCE.createBoxedPDF()));
 
 		newChildDescriptors.add

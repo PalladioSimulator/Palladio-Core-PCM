@@ -139,6 +139,7 @@ import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.util.EContentAdapter;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
+import org.eclipse.emf.edit.command.SetCommand;
 import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.domain.IEditingDomainProvider;
@@ -183,6 +184,7 @@ import de.uka.ipd.sdq.pcm.core.connectors.provider.ConnectorsItemProviderAdapter
 import de.uka.ipd.sdq.pcm.core.entity.provider.EntityItemProviderAdapterFactory;
 
 import de.uka.ipd.sdq.pcm.core.stochastics.RandomVariable;
+import de.uka.ipd.sdq.pcm.core.stochastics.StochasticsPackage;
 import de.uka.ipd.sdq.pcm.core.stochastics.provider.StochasticsItemProviderAdapterFactory;
 
 import de.uka.ipd.sdq.pcm.parameter.provider.ParameterItemProviderAdapterFactory;
@@ -1391,49 +1393,58 @@ public class RepositoryEditor
 					protected IPropertySource createPropertySource(Object object, IItemPropertySource itemPropertySource) {
 					    if (object instanceof RandomVariable)
 					    {
-					    	return new PropertySource(object, itemPropertySource){
-
-								@Override
-								protected IPropertyDescriptor createPropertyDescriptor(IItemPropertyDescriptor itemPropertyDescriptor) {
-								    return new PropertyDescriptor(object, itemPropertyDescriptor){
-
-										@Override
-										public CellEditor createPropertyEditor(Composite composite) {
-											CellEditor result = new ExtendedDialogCellEditor(composite, new AdapterFactoryLabelProvider(adapterFactory))
-											{
-
-												@Override
-												protected Object openDialogBox(Control cellEditorWindow) {
-													StoachasticExpressionEditDialog dialog = new StoachasticExpressionEditDialog(cellEditorWindow.getShell());
-													dialog.open();
-													if (dialog.getResult() != null)
-													{
-														// TODO: Use Property sheet mechanism to support undo/redo of this!
-														RandomVariable randVar = (RandomVariable)object;
-														randVar.setSpecification_RandomVariable(dialog.getResult());
-													}
-													return null;
-												}
-												
-											};
-											return result;
-										}
-								    	
-								    };
-								}
-					    		
-					    	};
+					    	return getRandomVariablePropertySheet(object, itemPropertySource);
 					    }
 					    else
 					    	return super.createPropertySource(object, itemPropertySource);
 					}
-					
 				});
 		}
-
 		return propertySheetPage;
 	}
 
+	private IPropertySource getRandomVariablePropertySheet(Object object,IItemPropertySource itemPropertySource) {
+		return new PropertySource(object, itemPropertySource) {
+
+			@Override
+			protected IPropertyDescriptor createPropertyDescriptor(IItemPropertyDescriptor itemPropertyDescriptor) {
+				if (itemPropertyDescriptor.getDisplayName(object).equals("Specification")) {
+					return getDescriptorWithStoExParser(object,itemPropertyDescriptor);
+				} else {
+					return super.createPropertyDescriptor(itemPropertyDescriptor);
+				}
+			}
+			
+		};
+	}
+
+	private IPropertyDescriptor getDescriptorWithStoExParser(Object object, IItemPropertyDescriptor itemPropertyDescriptor) {
+		return new PropertyDescriptor(object,itemPropertyDescriptor) {
+
+			@Override
+			public CellEditor createPropertyEditor(Composite composite) {
+				
+				CellEditor result = new ExtendedDialogCellEditor(composite, new AdapterFactoryLabelProvider(adapterFactory)) {
+
+					@Override
+					protected Object openDialogBox(Control cellEditorWindow) {
+						StoachasticExpressionEditDialog dialog = new StoachasticExpressionEditDialog(cellEditorWindow.getShell());
+						dialog.open();
+						if (dialog.getResult() != null) {
+							RandomVariable randVar = (RandomVariable) object;
+							SetCommand setRandomVariableCommand = new SetCommand(editingDomain, randVar, 
+									StochasticsPackage.eINSTANCE.getRandomVariable_Specification_RandomVariable(), dialog.getResult());
+							editingDomain.getCommandStack().execute(setRandomVariableCommand);
+						}
+						return null;
+					}
+
+				};
+				return result;
+			}
+		};
+	}
+	
 	/**
 	 * This deals with how we want selection in the outliner to affect the other views.
 	 * <!-- begin-user-doc -->
