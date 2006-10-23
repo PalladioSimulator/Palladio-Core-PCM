@@ -11,15 +11,15 @@
  	<target name="allElementsDelegator">
  		<ant antfile="${genericTargets}" target="${target}">
 	 		<property name="type" value="feature" />
+	 		<property name="id" value="de.uka.ipd.sdq.probfunction.feature" />
+ 		</ant>
+ 		<ant antfile="${genericTargets}" target="${target}">
+	 		<property name="type" value="feature" />
 	 		<property name="id" value="de.uka.ipd.sdq.pcm.feature" />
  		</ant>
  		<ant antfile="${genericTargets}" target="${target}">
 	 		<property name="type" value="feature" />
 	 		<property name="id" value="de.uka.ipd.sdq.pcm.diagram.feature" />
- 		</ant>
- 		<ant antfile="${genericTargets}" target="${target}">
-	 		<property name="type" value="feature" />
-	 		<property name="id" value="de.uka.ipd.sdq.probfunction.feature" />
  		</ant>
  	</target>
  
@@ -30,13 +30,13 @@
  	<!-- Add one target for each root element and each configuration           -->
  	<!-- Replace element.id with the id of the top level element being built   -->
  	<!-- ===================================================================== -->
+ 	<target name="assemble.de.uka.ipd.sdq.probfunction.feature">
+ 		<ant antfile="${assembleScriptName}" dir="${buildDirectory}"/>
+ 	</target>
  	<target name="assemble.de.uka.ipd.sdq.pcm.feature">
  		<ant antfile="${assembleScriptName}" dir="${buildDirectory}"/>
  	</target>
  	<target name="assemble.de.uka.ipd.sdq.pcm.diagram.feature">
- 		<ant antfile="${assembleScriptName}" dir="${buildDirectory}"/>
- 	</target>
- 	<target name="assemble.de.uka.ipd.sdq.probfunction.feature">
  		<ant antfile="${assembleScriptName}" dir="${buildDirectory}"/>
  	</target>
 </project>
