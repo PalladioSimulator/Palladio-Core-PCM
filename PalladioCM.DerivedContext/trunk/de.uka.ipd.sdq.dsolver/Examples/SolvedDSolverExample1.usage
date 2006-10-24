@@ -1,9 +1,17 @@
 <?xml version="1.0" encoding="ASCII"?>
-<context.usage:Usage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context.usage="http://sdq.ipd.uka.de/Context/Usage/1.0" xmlns:pcm.core.stochastics="http://sdq.ipd.uka.de/PalladioComponentModel/Core/Stochastics/1.0">
+<context.usage:Usage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context.usage="http://sdq.ipd.uka.de/Context/Usage/1.0" xmlns:pcm.core.stochastics="http://sdq.ipd.uka.de/PalladioComponentModel/Core/Stochastics/1.0" xmlns:probfunction="http://sdq.ipd.uka.de/ProbFunction/1.0">
   <usageContexts>
     <loopiterations_UsageContext>
       <loopaction_LoopIteration href="DSolverExample1.repository#_CRToczQeEduaPaOP6VcQiw"/>
-      <iterations_LoopIteration specification="=IntRandomVar[(0.3;8)(0.7;9)]*3"/>
+      <iterations_LoopIteration>
+        <specification_RandomVariable xsi:type="pcm.core.stochastics:ProbabilityFunctionLiteral">
+          <function_ProbabilityFunctionLiteral xsi:type="probfunction:ProbabilityMassFunction">
+            <unit unitName="sec"/>
+            <samples probability="0.18"/>
+            <samples probability="0.27999999999999997"/>
+          </function_ProbabilityFunctionLiteral>
+        </specification_RandomVariable>
+      </iterations_LoopIteration>
     </loopiterations_UsageContext>
   </usageContexts>
   <usageContexts>

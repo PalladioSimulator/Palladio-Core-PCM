@@ -86,7 +86,8 @@ public class LoopActionHandler extends AbstractHandler {
 		String iterations = loop.getIterations();
 		//RandomVariable rv = stochasticsFactory.createRandomVariable();
 		
-		RandomVariable rv = evaluateRandomVariable(iterations);
+		RandomVariable rv = stochasticsFactory.createRandomVariable(); 
+		rv.setSpecification_RandomVariable(evaluateRandomVariable(iterations));
 		
 		//ProbabilityDistributionFunction pdf = convert(expr);
 		
@@ -117,12 +118,12 @@ public class LoopActionHandler extends AbstractHandler {
 	/**
 	 * @param iterations
 	 */
-	private RandomVariable evaluateRandomVariable(String iterations) {
+	private Expression evaluateRandomVariable(String iterations) {
 		Expression expr = parseLoopIterations(iterations);
 		
 		ExpressionSolveSwitch visitor = new ExpressionSolveSwitch(expr);
 		try {
-			return (RandomVariable)visitor.doSwitch(expr);
+			return (Expression)visitor.doSwitch(expr);
 		} catch (Exception e) {
 			logger.error("Solving Expression caused Exception!" + e.getMessage());
 			e.printStackTrace();
