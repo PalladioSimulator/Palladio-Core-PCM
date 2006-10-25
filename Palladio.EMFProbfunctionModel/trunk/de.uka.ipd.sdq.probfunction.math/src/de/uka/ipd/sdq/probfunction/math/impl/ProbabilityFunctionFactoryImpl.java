@@ -99,7 +99,7 @@ public class ProbabilityFunctionFactoryImpl
 	}
 
 	public IBoxedPDF createBoxedPDF(List<IContinuousSample> samples, IUnit unit)
-			throws ProbabilitySumNotOneException, DoubleSampleException {
+			throws DoubleSampleException {
 		return new BoxedPDFImpl(samples, unit);
 	}
 

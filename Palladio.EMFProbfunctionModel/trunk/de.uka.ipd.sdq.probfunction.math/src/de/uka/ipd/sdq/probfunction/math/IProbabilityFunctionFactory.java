@@ -248,7 +248,7 @@ public interface IProbabilityFunctionFactory {
 	 * @throws ProbabilitySumNotOneException 
 	 * @throws DoubleSampleException 
 	 */
-	IBoxedPDF createBoxedPDF(List<IContinuousSample> samples, IUnit unit) throws ProbabilitySumNotOneException, DoubleSampleException;
+	IBoxedPDF createBoxedPDF(List<IContinuousSample> samples, IUnit unit) throws DoubleSampleException;
 
 	/**
 	 * Converts a arbitrary PDF to a BoxedPDF. So far, only two cases are

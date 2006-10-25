@@ -51,7 +51,6 @@ import de.uka.ipd.sdq.probfunction.math.IProbabilityMassFunction;
 import de.uka.ipd.sdq.probfunction.math.ISample;
 import de.uka.ipd.sdq.probfunction.math.ISamplePDF;
 import de.uka.ipd.sdq.probfunction.math.exception.DoubleSampleException;
-import de.uka.ipd.sdq.probfunction.math.exception.ProbabilitySumNotOneException;
 
 /**
  * @author Ihssane
@@ -96,14 +95,15 @@ public class Visualization  {
 		IBoxedPDF boxed = null;
 		try {
 			boxed = pfFactory.createBoxedPDF(samples, null);
-		} catch (ProbabilitySumNotOneException e) {
-			e.printStackTrace();
 		} catch (DoubleSampleException e) {
 			e.printStackTrace();
 		}
+		
+		
+		
 
 		scv.addBoxedPDF(boxed);
-		scv.startAs(Visualization.SWING_APPL);
+		scv.startAs(Visualization.SWT_APPL);
 		scv.visualize();
 
 	}

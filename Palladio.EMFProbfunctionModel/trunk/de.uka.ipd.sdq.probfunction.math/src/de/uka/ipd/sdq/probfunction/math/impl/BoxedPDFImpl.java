@@ -42,13 +42,12 @@ public class BoxedPDFImpl extends ProbabilityDensityFunctionImpl
 	}
 
 	protected BoxedPDFImpl(List<IContinuousSample> samples, IUnit unit)
-			throws ProbabilitySumNotOneException, DoubleSampleException {
+			throws DoubleSampleException {
 		this(samples, unit, new DefaultRandomGenerator());
 	}
 	
 	protected BoxedPDFImpl(List<IContinuousSample> samples, IUnit unit,
-			IRandomGenerator generator) throws ProbabilitySumNotOneException,
-			DoubleSampleException {
+			IRandomGenerator generator) throws DoubleSampleException {
 		super(unit, false);
 		this.randomGenerator = generator;
 		setSamples(samples); 
@@ -75,11 +74,18 @@ public class BoxedPDFImpl extends ProbabilityDensityFunctionImpl
 					.getProbability()
 					* scalar));
 
-		return pfFactory.createBoxedPDF(list,this.getUnit());
+		IBoxedPDF result = null;
+		try {
+			result = pfFactory.createBoxedPDF(list,this.getUnit());
+		} catch (DoubleSampleException e) {
+			e.printStackTrace();
+			System.exit(1); // should never happen
+		}
+		return result;
 	}
 
 	public List<IContinuousSample> getSamples() {
-		return new ArrayList<IContinuousSample>(samples);
+		return Collections.unmodifiableList( samples);
 	}
 
 	public List<Double> getValues() {
@@ -97,12 +103,9 @@ public class BoxedPDFImpl extends ProbabilityDensityFunctionImpl
 	}
 
 	public void setSamples(List<IContinuousSample> samples)
-			throws ProbabilitySumNotOneException, DoubleSampleException {
+			throws DoubleSampleException {
 		if(containsDoubleSamples(samples))
 			throw new DoubleSampleException();
-		if (!MathTools.equalsDouble(MathTools.sumOfCountinuousSamples(samples),
-				1.0))
-			throw new ProbabilitySumNotOneException();
 
 		Collections.sort(samples, MathTools.getContinuousSampleComparator());
 		this.samples = samples;
