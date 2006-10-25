@@ -9,9 +9,9 @@ import de.uka.ipd.sdq.probfunction.ProbabilityMassFunction;
 import de.uka.ipd.sdq.probfunction.Sample;
 import de.uka.ipd.sdq.probfunction.SamplePDF;
 import de.uka.ipd.sdq.probfunction.Unit;
+import de.uka.ipd.sdq.probfunction.math.exception.DoubleSampleException;
+import de.uka.ipd.sdq.probfunction.math.exception.ProbabilitySumNotOneException;
 import de.uka.ipd.sdq.probfunction.math.exception.UnknownPDFTypeException;
-import de.uka.ipd.sdq.probfunction.math.impl.BoxedPDFImpl;
-import de.uka.ipd.sdq.probfunction.math.impl.ProbabilityMassFunctionImpl;
 import flanagan.complex.Complex;
 
 /**
@@ -212,9 +212,11 @@ public interface IProbabilityFunctionFactory {
 	 * @return New SamplePDF instance.
 	 * @throws UnknownPDFTypeException
 	 *             Thrown in case pdf is neither a BoxedPDF nor a SamplePDF
+	 * @throws DoubleSampleException 
+	 * @throws ProbabilitySumNotOneException 
 	 */
 	ISamplePDF transformToSamplePDF(ProbabilityDensityFunction ePDF)
-			throws UnknownPDFTypeException;
+			throws UnknownPDFTypeException, ProbabilitySumNotOneException, DoubleSampleException;
 
 	/**
 	 * Converts a function object to a model object with the same attributes.
@@ -230,8 +232,10 @@ public interface IProbabilityFunctionFactory {
 	 * Creates a new, empty BoxedPDF.
 	 * 
 	 * @return New BoxedPDF instance.
+	 * @throws ProbabilitySumNotOneException 
+	 * @throws DoubleSampleException 
 	 */
-	IBoxedPDF createBoxedPDF(IUnit unit);
+	IBoxedPDF createBoxedPDF(IUnit unit) throws ProbabilitySumNotOneException, DoubleSampleException;
 	
 	/**
 	 * Creates a new BoxedPDF, whose boxes are defined by 'samples'.
@@ -241,8 +245,10 @@ public interface IProbabilityFunctionFactory {
 	 *            corners of the PDF's boxes. The list may be unsorted. The
 	 *            values of all samples must be greater or equal to zero.
 	 * @return New BoxedPDF instance.
+	 * @throws ProbabilitySumNotOneException 
+	 * @throws DoubleSampleException 
 	 */
-	IBoxedPDF createBoxedPDF(List<IContinuousSample> samples, IUnit unit);
+	IBoxedPDF createBoxedPDF(List<IContinuousSample> samples, IUnit unit) throws ProbabilitySumNotOneException, DoubleSampleException;
 
 	/**
 	 * Converts a arbitrary PDF to a BoxedPDF. So far, only two cases are
@@ -256,9 +262,11 @@ public interface IProbabilityFunctionFactory {
 	 *         same properties as the input pdf.
 	 * @throws UnknownPDFTypeException
 	 *             Thrown in case pdf is neither a BoxedPDF nor a SamplePDF.
+	 * @throws DoubleSampleException 
+	 * @throws ProbabilitySumNotOneException 
 	 */
 	IBoxedPDF transformToBoxedPDF(IProbabilityDensityFunction pdf)
-			throws UnknownPDFTypeException;
+			throws UnknownPDFTypeException, ProbabilitySumNotOneException, DoubleSampleException;
 
 	/**
 	 * Converts a model object to a function object with the same attributes.
@@ -266,8 +274,10 @@ public interface IProbabilityFunctionFactory {
 	 * @param ePDF
 	 *            Object to transform.
 	 * @return New BoxedPDF instance.
+	 * @throws DoubleSampleException 
+	 * @throws ProbabilitySumNotOneException 
 	 */
-	IBoxedPDF transformToBoxedPDF(ProbabilityDensityFunction ePDF);
+	IBoxedPDF transformToBoxedPDF(ProbabilityDensityFunction ePDF) throws ProbabilitySumNotOneException, DoubleSampleException;
 
 	/**
 	 * Converts a function object to a model object with the same attributes.
@@ -275,9 +285,11 @@ public interface IProbabilityFunctionFactory {
 	 * @param pdf
 	 *            Object to transform.
 	 * @return New BoxedPDF instance.
+	 * @throws DoubleSampleException 
+	 * @throws ProbabilitySumNotOneException 
 	 */
 	BoxedPDF transformToModelBoxedPDF(IProbabilityDensityFunction pdf)
-			throws UnknownPDFTypeException;
+			throws UnknownPDFTypeException, ProbabilitySumNotOneException, DoubleSampleException;
 
 	/**
 	 * Creates a new, empty ProbabilityMassFunction.
@@ -326,9 +338,11 @@ public interface IProbabilityFunctionFactory {
 	 * @param ePDF
 	 *            Object to transform.
 	 * @return New ProbabilityDensityFunction instance.
+	 * @throws DoubleSampleException 
+	 * @throws ProbabilitySumNotOneException 
 	 */
 	IProbabilityDensityFunction transformToPDF(ProbabilityDensityFunction ePDF)
-			throws UnknownPDFTypeException;
+			throws UnknownPDFTypeException, ProbabilitySumNotOneException, DoubleSampleException;
 
 	/**
 	 * Converts a function object to a model object with the same attributes.
@@ -336,8 +350,10 @@ public interface IProbabilityFunctionFactory {
 	 * @param pdf
 	 *            Object to transform.
 	 * @return New ProbabilityDensityFunction instance.
+	 * @throws DoubleSampleException 
+	 * @throws ProbabilitySumNotOneException 
 	 */
 	ProbabilityDensityFunction transformToModelPDF(
-			IProbabilityDensityFunction pdf) throws UnknownPDFTypeException;
+			IProbabilityDensityFunction pdf) throws UnknownPDFTypeException, ProbabilitySumNotOneException, DoubleSampleException;
 
 }

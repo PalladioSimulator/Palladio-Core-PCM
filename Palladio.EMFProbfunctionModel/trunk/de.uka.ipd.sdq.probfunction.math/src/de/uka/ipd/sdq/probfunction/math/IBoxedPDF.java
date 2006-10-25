@@ -2,6 +2,7 @@ package de.uka.ipd.sdq.probfunction.math;
 
 import java.util.List;
 
+import de.uka.ipd.sdq.probfunction.math.exception.DoubleSampleException;
 import de.uka.ipd.sdq.probfunction.math.exception.ProbabilitySumNotOneException;
 
 /**
@@ -37,7 +38,8 @@ public interface IBoxedPDF extends IProbabilityDensityFunction {
 	 * 
 	 * @param samples List of sampling points describing a probability density function.
 	 * @throws ProbabilitySumNotOneException 
+	 * @throws DoubleSampleException 
 	 */
-	void setSamples(List<IContinuousSample> samples) throws ProbabilitySumNotOneException;
+	void setSamples(List<IContinuousSample> samples) throws ProbabilitySumNotOneException, DoubleSampleException;
 
 }
