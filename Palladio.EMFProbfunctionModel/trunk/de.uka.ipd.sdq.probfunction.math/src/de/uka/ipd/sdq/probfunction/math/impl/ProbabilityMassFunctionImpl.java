@@ -9,6 +9,7 @@ import java.util.Iterator;
 import java.util.List;
 
 import de.uka.ipd.sdq.probfunction.math.IProbabilityMassFunction;
+import de.uka.ipd.sdq.probfunction.math.IRandomGenerator;
 import de.uka.ipd.sdq.probfunction.math.ISample;
 import de.uka.ipd.sdq.probfunction.math.IUnit;
 import de.uka.ipd.sdq.probfunction.math.exception.DifferentDomainsException;
@@ -22,7 +23,8 @@ import de.uka.ipd.sdq.probfunction.math.util.MathTools;
  * 
  */
 public class ProbabilityMassFunctionImpl extends ProbabilityFunctionImpl
-		implements IProbabilityMassFunction {
+		implements
+			IProbabilityMassFunction {
 
 	private List<ISample> samples;
 
@@ -32,14 +34,24 @@ public class ProbabilityMassFunctionImpl extends ProbabilityFunctionImpl
 
 	protected ProbabilityMassFunctionImpl(IUnit unit, boolean hasOrderedDomain,
 			boolean isInFrequencyDomain) {
-		super(unit, hasOrderedDomain, isInFrequencyDomain);
-		samples = new ArrayList<ISample>();
+		this(new ArrayList<ISample>(), unit, hasOrderedDomain,
+				isInFrequencyDomain);
 	}
 
 	protected ProbabilityMassFunctionImpl(List<ISample> samples, IUnit unit,
 			boolean hasOrderedDomain, boolean isInFrequencyDomain) {
+		this(samples, unit, hasOrderedDomain, isInFrequencyDomain,
+				new DefaultRandomGenerator());
+	}
+
+	protected ProbabilityMassFunctionImpl(List<ISample> samples, IUnit unit,
+			boolean hasOrderedDomain, boolean isInFrequencyDomain,
+			IRandomGenerator generator) {
 		super(unit, hasOrderedDomain, isInFrequencyDomain);
+		Collections.sort(samples, MathTools.getSampleComparator());
 		this.samples = samples;
+
+		randomGenerator = generator;
 	}
 
 	private IProbabilityMassFunction performOperation(Operation op,
@@ -51,21 +63,21 @@ public class ProbabilityMassFunctionImpl extends ProbabilityFunctionImpl
 			ISample s2 = iterator.next();
 			double result;
 			switch (op) {
-			case ADD:
-				result = s1.getProbability() + s2.getProbability();
-				break;
-			case SUB:
-				result = s1.getProbability() - s2.getProbability();
-				break;
-			case MULT:
-				result = s1.getProbability() * s2.getProbability();
-				break;
-			case DIV:
-				result = s1.getProbability() / s2.getProbability();
-				break;
-			default:
-				result = 0.0;
-				break;
+				case ADD :
+					result = s1.getProbability() + s2.getProbability();
+					break;
+				case SUB :
+					result = s1.getProbability() - s2.getProbability();
+					break;
+				case MULT :
+					result = s1.getProbability() * s2.getProbability();
+					break;
+				case DIV :
+					result = s1.getProbability() / s2.getProbability();
+					break;
+				default :
+					result = 0.0;
+					break;
 			}
 			resultList.add(pfFactory.createSample(s1.getValue(), result));
 		}
@@ -218,7 +230,7 @@ public class ProbabilityMassFunctionImpl extends ProbabilityFunctionImpl
 		List<Double> intervals = MathTools
 				.computeIntervalsOfProb(getProbabilities());
 
-		double random = Math.random();
+		double random = randomGenerator.random();
 		for (int j = 0; j < intervals.size(); j++)
 			if (random < intervals.get(j)) {
 				result = samples.get(j).getValue();

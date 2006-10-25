@@ -6,14 +6,17 @@ package de.uka.ipd.sdq.probfunction.math.impl;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 
 import de.uka.ipd.sdq.probfunction.math.IBoxedPDF;
 import de.uka.ipd.sdq.probfunction.math.IContinuousSample;
 import de.uka.ipd.sdq.probfunction.math.IProbabilityDensityFunction;
+import de.uka.ipd.sdq.probfunction.math.IRandomGenerator;
 import de.uka.ipd.sdq.probfunction.math.ISamplePDF;
 import de.uka.ipd.sdq.probfunction.math.IUnit;
 import de.uka.ipd.sdq.probfunction.math.exception.DomainNotNumbersException;
+import de.uka.ipd.sdq.probfunction.math.exception.DoubleSampleException;
 import de.uka.ipd.sdq.probfunction.math.exception.FunctionNotInFrequencyDomainException;
 import de.uka.ipd.sdq.probfunction.math.exception.FunctionNotInTimeDomainException;
 import de.uka.ipd.sdq.probfunction.math.exception.FunctionsInDifferenDomainsException;
@@ -34,14 +37,21 @@ public class BoxedPDFImpl extends ProbabilityDensityFunctionImpl
 
 	private List<IContinuousSample> samples;
 
-	protected BoxedPDFImpl(IUnit unit) {
-		super(unit,false);
-		samples = new ArrayList<IContinuousSample>();
+	protected BoxedPDFImpl(IUnit unit) throws ProbabilitySumNotOneException, DoubleSampleException {
+		this(new ArrayList<IContinuousSample>(), unit);
 	}
 
-	protected BoxedPDFImpl(List<IContinuousSample> samples, IUnit unit) {
-		this(unit);
-		this.samples = samples;
+	protected BoxedPDFImpl(List<IContinuousSample> samples, IUnit unit)
+			throws ProbabilitySumNotOneException, DoubleSampleException {
+		this(samples, unit, new DefaultRandomGenerator());
+	}
+	
+	protected BoxedPDFImpl(List<IContinuousSample> samples, IUnit unit,
+			IRandomGenerator generator) throws ProbabilitySumNotOneException,
+			DoubleSampleException {
+		super(unit, false);
+		this.randomGenerator = generator;
+		setSamples(samples); 
 	}
 
 	public IProbabilityDensityFunction add(IProbabilityDensityFunction pdf)
@@ -87,7 +97,9 @@ public class BoxedPDFImpl extends ProbabilityDensityFunctionImpl
 	}
 
 	public void setSamples(List<IContinuousSample> samples)
-			throws ProbabilitySumNotOneException {
+			throws ProbabilitySumNotOneException, DoubleSampleException {
+		if(containsDoubleSamples(samples))
+			throw new DoubleSampleException();
 		if (!MathTools.equalsDouble(MathTools.sumOfCountinuousSamples(samples),
 				1.0))
 			throw new ProbabilitySumNotOneException();
@@ -110,7 +122,7 @@ public class BoxedPDFImpl extends ProbabilityDensityFunctionImpl
 		HashMap<Double, Line> lines = MathTools
 				.computeLines(samples, intervals);
 
-		double random = Math.random();
+		double random = randomGenerator.random();
 		for (int j = 0; j < intervals.size(); j++)
 			if (random < intervals.get(j)) {
 				result = lines.get(intervals.get(j)).getX(random);
@@ -199,4 +211,11 @@ public class BoxedPDFImpl extends ProbabilityDensityFunctionImpl
 		return sum;
 	}	
 
+	private boolean containsDoubleSamples(List<IContinuousSample> samples) {
+		HashSet<Double> set = new HashSet<Double>();
+		for(IContinuousSample s: samples)
+			set.add(s.getValue());
+		
+		return set.size() != samples.size();
+	}
 }

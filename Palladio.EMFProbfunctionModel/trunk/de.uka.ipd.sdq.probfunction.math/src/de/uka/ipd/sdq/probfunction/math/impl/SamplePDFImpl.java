@@ -9,6 +9,7 @@ import java.util.Iterator;
 import java.util.List;
 
 import de.uka.ipd.sdq.probfunction.math.IProbabilityDensityFunction;
+import de.uka.ipd.sdq.probfunction.math.IRandomGenerator;
 import de.uka.ipd.sdq.probfunction.math.ISamplePDF;
 import de.uka.ipd.sdq.probfunction.math.IUnit;
 import de.uka.ipd.sdq.probfunction.math.exception.DomainNotNumbersException;
@@ -47,21 +48,34 @@ public class SamplePDFImpl extends ProbabilityDensityFunctionImpl
 	private FourierTransform fft = new FourierTransform();
 
 	protected SamplePDFImpl(double distance, List<Double> samples, IUnit unit) {
+		this(distance, samples, unit, new DefaultRandomGenerator());
+
+	}
+
+	protected SamplePDFImpl(double distance, List<Double> samples, IUnit unit,
+			IRandomGenerator generator) {
 		super(unit, false);
 		this.distance = distance;
-		values = new ArrayList<Complex>(MathTools.transformDoubleToComplex(samples));
+		values = new ArrayList<Complex>(MathTools
+				.transformDoubleToComplex(samples));
 		fillValue = DEFAULT_FILL_VALUE;
+		randomGenerator = generator;
 	}
 
 	protected SamplePDFImpl(double distance, List<Complex> samples, IUnit unit,
 			boolean isInFrequencyDomain) {
+		this(distance, samples, unit, isInFrequencyDomain,
+				new DefaultRandomGenerator());
+	}
+
+	protected SamplePDFImpl(double distance, List<Complex> samples, IUnit unit,
+			boolean isInFrequencyDomain, IRandomGenerator generator) {
 		super(unit, isInFrequencyDomain);
 		this.distance = distance;
 		values = new ArrayList<Complex>(samples);
 		fillValue = DEFAULT_FILL_VALUE;
+		randomGenerator = generator;
 	}
-
-
 	public IProbabilityDensityFunction add(IProbabilityDensityFunction pdf)
 			throws UnknownPDFTypeException,
 			FunctionsInDifferenDomainsException, IncompatibleUnitsException {
@@ -124,11 +138,12 @@ public class SamplePDFImpl extends ProbabilityDensityFunctionImpl
 		return MathTools.transformComplexToDouble(values);
 	}
 
-	public void setValuesAsDouble(List<Double> values) throws ProbabilitySumNotOneException {
-		if (!MathTools.equalsDouble(MathTools.sumOfDoubles(values),
-				1.0))
-			throw new ProbabilitySumNotOneException();		
-		this.values = new ArrayList<Complex>( MathTools.transformDoubleToComplex(values));
+	public void setValuesAsDouble(List<Double> values)
+			throws ProbabilitySumNotOneException {
+		if (!MathTools.equalsDouble(MathTools.sumOfDoubles(values), 1.0))
+			throw new ProbabilitySumNotOneException();
+		this.values = new ArrayList<Complex>(MathTools
+				.transformDoubleToComplex(values));
 	}
 
 	/**
@@ -168,11 +183,12 @@ public class SamplePDFImpl extends ProbabilityDensityFunctionImpl
 
 	public void setValues(List<Complex> values, boolean isInFrequencyDomain)
 			throws ProbabilitySumNotOneException {
-		List<Double> valuesAsDouble = MathTools.transformComplexToDouble(values);
-		if (!MathTools.equalsDouble(MathTools.sumOfDoubles(valuesAsDouble),
-				1.0))
-			throw new ProbabilitySumNotOneException();		
-		this.values = new ArrayList<Complex>( values );
+		List<Double> valuesAsDouble = MathTools
+				.transformComplexToDouble(values);
+		if (!MathTools
+				.equalsDouble(MathTools.sumOfDoubles(valuesAsDouble), 1.0))
+			throw new ProbabilitySumNotOneException();
+		this.values = new ArrayList<Complex>(values);
 		this.setInFrequencyDomain(isInFrequencyDomain);
 	}
 
@@ -185,7 +201,7 @@ public class SamplePDFImpl extends ProbabilityDensityFunctionImpl
 		List<Double> intervals = MathTools
 				.computeIntervalsOfProb(getValuesAsDouble());
 
-		double random = Math.random();
+		double random = randomGenerator.random();
 		for (int j = 0; j < intervals.size(); j++)
 			if (random < intervals.get(j)) {
 				result = distance * (j + 1);
@@ -194,7 +210,8 @@ public class SamplePDFImpl extends ProbabilityDensityFunctionImpl
 		return result;
 	}
 
-	public double getArithmeticMeanValue() throws DomainNotNumbersException, FunctionNotInTimeDomainException {
+	public double getArithmeticMeanValue() throws DomainNotNumbersException,
+			FunctionNotInTimeDomainException {
 		if (!isInTimeDomain())
 			throw new FunctionNotInTimeDomainException();
 		double pos = 0;
@@ -219,7 +236,7 @@ public class SamplePDFImpl extends ProbabilityDensityFunctionImpl
 			throw new UnorderedDomainException();
 		if (p < 0 || p > 100)
 			throw new IndexOutOfBoundsException();
-		
+
 		int rank = (int) Math.round((p * (values.size() + 1.0)) / 100.0);
 		return values.get(rank);
 	}
@@ -227,8 +244,6 @@ public class SamplePDFImpl extends ProbabilityDensityFunctionImpl
 	public int numberOfSamples() {
 		return values.size();
 	}
-	
-	
 
 	@Override
 	protected Object clone() throws CloneNotSupportedException {
@@ -239,12 +254,12 @@ public class SamplePDFImpl extends ProbabilityDensityFunctionImpl
 	@Override
 	public boolean equals(Object obj) {
 		boolean result = false;
-		if (obj instanceof ISamplePDF){
+		if (obj instanceof ISamplePDF) {
 			ISamplePDF pdf = (ISamplePDF) obj;
-			if ((pdf.getDistance() == this.getDistance())){
+			if ((pdf.getDistance() == this.getDistance())) {
 				List<Complex> v1 = values;
 				List<Complex> v2 = pdf.getValues();
-				if (v1.size() > v2.size()){
+				if (v1.size() > v2.size()) {
 					List<Complex> tmp = v2;
 					v2 = v1;
 					v1 = tmp;
@@ -252,13 +267,14 @@ public class SamplePDFImpl extends ProbabilityDensityFunctionImpl
 				Iterator<Complex> iter = v2.iterator();
 				result = true;
 				for (Complex z : v1) {
-					if (!MathTools.equalsComplex(iter.next(), z)){
+					if (!MathTools.equalsComplex(iter.next(), z)) {
 						result = false;
 						break;
 					}
 				}
-				while(iter.hasNext() && result){
-					if(!(MathTools.equalsComplex(iter.next(), new Complex(0,0)))){
+				while (iter.hasNext() && result) {
+					if (!(MathTools.equalsComplex(iter.next(),
+							new Complex(0, 0)))) {
 						result = false;
 					}
 				}
@@ -277,15 +293,16 @@ public class SamplePDFImpl extends ProbabilityDensityFunctionImpl
 	public String toString() {
 		String result = "unit = " + getUnit().getUnitName() + "; ";
 		result += "distance = " + getDistance() + "; ";
-		result+= "samples: ";
+		result += "samples: ";
 		boolean isFirst = true;
 		for (Complex z : values) {
-			if (isFirst){
+			if (isFirst) {
 				isFirst = false;
 			} else {
 				result += ", ";
 			}
-			result += "("+ MathTools.asString(z.getReal())+", "+MathTools.asString(z.getImag()) + ")";
+			result += "(" + MathTools.asString(z.getReal()) + ", "
+					+ MathTools.asString(z.getImag()) + ")";
 		}
 		return result;
 	}
@@ -308,7 +325,7 @@ public class SamplePDFImpl extends ProbabilityDensityFunctionImpl
 
 		List<Double> newValues = new ArrayList<Double>();
 
-		if (MathTools.equalsDouble(newDistance, distance)){
+		if (MathTools.equalsDouble(newDistance, distance)) {
 			newValues = getValuesAsDouble();
 		} else if (newDistance < distance) {
 			while (currentIndex < values.size()) {
@@ -456,7 +473,7 @@ public class SamplePDFImpl extends ProbabilityDensityFunctionImpl
 						.createDefaultUnit());
 		return spdf;
 	}
-	
+
 	/**
 	 * Creates two functions with an equal distance, if both functions are in
 	 * the time domain. Precondition: Functions are in the same domain.
@@ -523,7 +540,4 @@ public class SamplePDFImpl extends ProbabilityDensityFunctionImpl
 		}
 		return sum;
 	}
-
-
-
 }
