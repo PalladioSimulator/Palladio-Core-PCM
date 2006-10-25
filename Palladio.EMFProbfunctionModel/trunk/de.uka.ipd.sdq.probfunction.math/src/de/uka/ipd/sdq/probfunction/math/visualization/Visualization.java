@@ -1,24 +1,26 @@
 package de.uka.ipd.sdq.probfunction.math.visualization;
 
+import java.awt.BorderLayout;
+import java.awt.Container;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import javax.swing.JFrame;
+
 import org.eclipse.birt.chart.device.IDeviceRenderer;
 import org.eclipse.birt.chart.exception.ChartException;
-import org.eclipse.birt.chart.factory.GeneratedChartState;
-import org.eclipse.birt.chart.factory.Generator;
 import org.eclipse.birt.chart.internal.log.DefaultLoggerImpl;
 import org.eclipse.birt.chart.model.Chart;
 import org.eclipse.birt.chart.model.ChartWithAxes;
 import org.eclipse.birt.chart.model.attribute.AxisType;
-import org.eclipse.birt.chart.model.attribute.Bounds;
 import org.eclipse.birt.chart.model.attribute.ChartDimension;
 import org.eclipse.birt.chart.model.attribute.ColorDefinition;
 import org.eclipse.birt.chart.model.attribute.IntersectionType;
 import org.eclipse.birt.chart.model.attribute.Position;
 import org.eclipse.birt.chart.model.attribute.TickStyle;
-import org.eclipse.birt.chart.model.attribute.impl.BoundsImpl;
 import org.eclipse.birt.chart.model.attribute.impl.ColorDefinitionImpl;
 import org.eclipse.birt.chart.model.component.Axis;
 import org.eclipse.birt.chart.model.component.Series;
@@ -33,16 +35,11 @@ import org.eclipse.birt.chart.model.impl.ChartWithAxesImpl;
 import org.eclipse.birt.chart.model.layout.Plot;
 import org.eclipse.birt.chart.model.type.BarSeries;
 import org.eclipse.birt.chart.model.type.impl.BarSeriesImpl;
-import org.eclipse.birt.chart.script.IExternalContext;
 import org.eclipse.birt.chart.util.PluginSettings;
 import org.eclipse.swt.SWT;
-import org.eclipse.swt.events.PaintEvent;
-import org.eclipse.swt.events.PaintListener;
-import org.eclipse.swt.graphics.Rectangle;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Canvas;
-import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
 
@@ -53,15 +50,21 @@ import de.uka.ipd.sdq.probfunction.math.IProbabilityFunctionFactory;
 import de.uka.ipd.sdq.probfunction.math.IProbabilityMassFunction;
 import de.uka.ipd.sdq.probfunction.math.ISample;
 import de.uka.ipd.sdq.probfunction.math.ISamplePDF;
+import de.uka.ipd.sdq.probfunction.math.exception.DoubleSampleException;
+import de.uka.ipd.sdq.probfunction.math.exception.ProbabilitySumNotOneException;
 
 /**
  * @author Ihssane
  * 
  */
-public class Visualization implements PaintListener {
+public class Visualization  {
+	
+	public static final int SWING_APPL = 0;
+	public static final int SWT_APPL = 1;
 
 	private IDeviceRenderer idr = null;
 	private Chart cm = null;
+	private int startAs = SWING_APPL;
 
 	private String frameTilte = EMPTY_TITLE;
 	private String chartTitle = EMPTY_TITLE;
@@ -78,12 +81,7 @@ public class Visualization implements PaintListener {
 
 	public Visualization() {
 		System.setProperty("STANDALONE", "true");
-		final PluginSettings ps = PluginSettings.instance();
-		try {
-			idr = ps.getDevice("dv.SWT");
-		} catch (ChartException pex) {
-			DefaultLoggerImpl.instance().log(pex);
-		}
+		
 	}
 
 	public static void main(String[] ihs) {
@@ -95,14 +93,37 @@ public class Visualization implements PaintListener {
 				pfFactory.createContinuousSample(1.5, 0.4), pfFactory
 						.createContinuousSample(1.8, 0.2), pfFactory
 						.createContinuousSample(2.4, 0.1));
-		IBoxedPDF boxed = pfFactory.createBoxedPDF(samples, null);
+		IBoxedPDF boxed = null;
+		try {
+			boxed = pfFactory.createBoxedPDF(samples, null);
+		} catch (ProbabilitySumNotOneException e) {
+			e.printStackTrace();
+		} catch (DoubleSampleException e) {
+			e.printStackTrace();
+		}
 
 		scv.addBoxedPDF(boxed);
+		scv.startAs(Visualization.SWING_APPL);
 		scv.visualize();
 
 	}
 
 	public void visualize() {
+		if(startAs == SWT_APPL)
+			renderOnSwt();
+		else
+			renderOnSwing();
+	}
+	private void renderOnSwt() {
+		final PluginSettings ps = PluginSettings.instance();
+		try {
+			idr = ps.getDevice("dv.SWT");
+		} catch (ChartException pex) {
+			DefaultLoggerImpl.instance().log(pex);
+		}
+		
+		ChartSwtViewer csv = new ChartSwtViewer(idr, cm);
+		
 		GridLayout gl = new GridLayout();
 		gl.numColumns = 1;
 		Display d = Display.getDefault();
@@ -114,13 +135,35 @@ public class Visualization implements PaintListener {
 		GridData gd = new GridData(GridData.FILL_BOTH);
 		Canvas cCenter = new Canvas(sh, SWT.NONE);
 		cCenter.setLayoutData(gd);
-		cCenter.addPaintListener(this);
+		cCenter.addPaintListener(csv);
 		sh.open();
 		while (!sh.isDisposed()) {
 			if (!d.readAndDispatch()) {
 				d.sleep();
 			}
 		}
+	}
+	
+	private void renderOnSwing() {
+		final PluginSettings ps = PluginSettings.instance();
+		try {
+			idr = ps.getDevice("dv.SWING");
+		} catch (ChartException pex) {
+			DefaultLoggerImpl.instance().log(pex);
+		}
+		ChartSwingViewer csv = new ChartSwingViewer(idr, cm);
+		JFrame jf = new JFrame();
+		jf.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		Container co = jf.getContentPane();
+		co.setLayout(new BorderLayout());
+		co.add(csv, BorderLayout.CENTER);
+//		 CENTER WINDOW ON SCREEN, ETC
+		Dimension dScreen = Toolkit.getDefaultToolkit().getScreenSize();
+		Dimension dApp = new Dimension(800, 700);
+		jf.setSize(dApp);
+		jf.setLocation((dScreen.width - dApp.width)/2, (dScreen.height - dApp.height) / 2);
+		jf.setTitle(frameTilte);
+		jf.setVisible(true); 
 	}
 
 	public void addProbabilityFunction(IProbabilityFunction pf) {
@@ -252,23 +295,14 @@ public class Visualization implements PaintListener {
 		cm = cwaBar;
 	}
 
-	public void paintControl(PaintEvent pe) {
-		idr.setProperty(IDeviceRenderer.GRAPHICS_CONTEXT, pe.gc);
-		Composite co = (Composite) pe.getSource();
-		Rectangle re = co.getClientArea();
-		Bounds bo = BoundsImpl.create(re.x, re.y, re.width, re.height);
-		bo.scale(72d / idr.getDisplayServer().getDpiResolution()); // BOUNDS
+	
+	
 
-		Generator gr = Generator.instance();
-		GeneratedChartState state;
-		try {
-			state = gr.build(idr.getDisplayServer(), cm, bo,
-					(IExternalContext) null, null);
-			gr.render(idr, state);
-		} catch (Exception ex) {
-			ex.printStackTrace();
-			System.exit(1);
-		}
+	/**
+	 * 
+	 */
+	public void startAs(int app) {
+		this.startAs = app;
 	}
 
 	/**
