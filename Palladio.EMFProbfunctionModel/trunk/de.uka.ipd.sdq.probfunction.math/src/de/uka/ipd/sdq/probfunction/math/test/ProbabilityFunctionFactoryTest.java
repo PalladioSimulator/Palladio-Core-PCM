@@ -13,14 +13,14 @@ import org.junit.Test;
 
 import de.uka.ipd.sdq.probfunction.ProbabilityMassFunction;
 import de.uka.ipd.sdq.probfunction.Sample;
-import de.uka.ipd.sdq.probfunction.Unit;
 import de.uka.ipd.sdq.probfunction.math.IBoxedPDF;
-import de.uka.ipd.sdq.probfunction.math.IProbabilityFunction;
 import de.uka.ipd.sdq.probfunction.math.IProbabilityFunctionFactory;
 import de.uka.ipd.sdq.probfunction.math.IProbabilityMassFunction;
 import de.uka.ipd.sdq.probfunction.math.ISample;
 import de.uka.ipd.sdq.probfunction.math.ISamplePDF;
 import de.uka.ipd.sdq.probfunction.math.IUnit;
+import de.uka.ipd.sdq.probfunction.math.exception.DoubleSampleException;
+import de.uka.ipd.sdq.probfunction.math.exception.ProbabilitySumNotOneException;
 import de.uka.ipd.sdq.probfunction.math.exception.UnknownPDFTypeException;
 
 /**
@@ -37,7 +37,15 @@ public class ProbabilityFunctionFactoryTest {
 
 	@Before
 	public void setUp() {
-		boxed = pfFactory.createBoxedPDF(null);
+		try {
+			boxed = pfFactory.createBoxedPDF(null);
+		} catch (ProbabilitySumNotOneException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (DoubleSampleException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	@Test
