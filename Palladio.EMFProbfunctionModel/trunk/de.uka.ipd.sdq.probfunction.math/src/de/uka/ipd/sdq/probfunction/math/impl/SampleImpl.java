@@ -47,9 +47,12 @@ public class SampleImpl implements ISample {
 	 */
 	@Override
 	public boolean equals(Object obj) {
+		if(obj instanceof ISample) {
 		return this.getValue().equals(((ISample) obj).getValue())
 				&& MathTools.equalsDouble(this.getProbability(),
 						((ISample) obj).getProbability());
+		}
+		return false;
 	}
 	
 
