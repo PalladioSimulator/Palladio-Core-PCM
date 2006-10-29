@@ -4,6 +4,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import junit.framework.JUnit4TestAdapter;
@@ -14,6 +15,7 @@ import org.junit.Test;
 import de.uka.ipd.sdq.probfunction.ProbabilityMassFunction;
 import de.uka.ipd.sdq.probfunction.Sample;
 import de.uka.ipd.sdq.probfunction.math.IBoxedPDF;
+import de.uka.ipd.sdq.probfunction.math.IContinuousSample;
 import de.uka.ipd.sdq.probfunction.math.IProbabilityFunctionFactory;
 import de.uka.ipd.sdq.probfunction.math.IProbabilityMassFunction;
 import de.uka.ipd.sdq.probfunction.math.ISample;
@@ -50,10 +52,17 @@ public class ProbabilityFunctionFactoryTest {
 
 	@Test
 	public void boxedToSamplePDF() {
-		boxed.getSamples().add(pfFactory.createContinuousSample(0.9, 0.3));
-		boxed.getSamples().add(pfFactory.createContinuousSample(1.5, 0.4));
-		boxed.getSamples().add(pfFactory.createContinuousSample(1.8, 0.2));
-		boxed.getSamples().add(pfFactory.createContinuousSample(2.4, 0.1));
+		List<IContinuousSample> samples = new ArrayList<IContinuousSample>();
+		Collections.addAll(samples, pfFactory.createContinuousSample(0.9, 0.3),
+				pfFactory.createContinuousSample(1.5, 0.4), pfFactory
+						.createContinuousSample(1.8, 0.2), pfFactory
+						.createContinuousSample(2.4, 0.1));
+		try {
+			boxed.setSamples(samples);
+		} catch (DoubleSampleException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 
 		ISamplePDF samplePDF;
 		try {
@@ -85,30 +94,31 @@ public class ProbabilityFunctionFactoryTest {
 	}
 
 	/**
-	 * Transforming IProbabilityMassFunction to ProbabilityMassFunction should 
+	 * Transforming IProbabilityMassFunction to ProbabilityMassFunction should
 	 * leave samples, unit, and ordered domain intact.
 	 */
 	@Test
 	public void iPMFToPMF() {
 		IProbabilityMassFunction iProbFunc = pfFactory
-				.createProbabilityMassFunction(getTestSamples(), getTestUnit(), true);
+				.createProbabilityMassFunction(getTestSamples(), getTestUnit(),
+						true);
 
 		ProbabilityMassFunction probFunc = pfFactory
 				.transformToModelPMF(iProbFunc);
 
-		Sample sample0 = (Sample)probFunc.getSamples().get(0);
-		assertTrue((Integer)sample0.getValue() == 1);
+		Sample sample0 = (Sample) probFunc.getSamples().get(0);
+		assertTrue((Integer) sample0.getValue() == 1);
 		assertTrue(sample0.getProbability() == 0.1);
-		Sample sample1 = (Sample)probFunc.getSamples().get(1);
-		assertTrue((Integer)sample1.getValue() == 2);
+		Sample sample1 = (Sample) probFunc.getSamples().get(1);
+		assertTrue((Integer) sample1.getValue() == 2);
 		assertTrue(sample1.getProbability() == 0.3);
-		Sample sample2 = (Sample)probFunc.getSamples().get(2);
-		assertTrue((Integer)sample2.getValue() == 3);
+		Sample sample2 = (Sample) probFunc.getSamples().get(2);
+		assertTrue((Integer) sample2.getValue() == 3);
 		assertTrue(sample2.getProbability() == 0.5);
-		Sample sample3 = (Sample)probFunc.getSamples().get(3);
-		assertTrue((Integer)sample3.getValue() == 4);
+		Sample sample3 = (Sample) probFunc.getSamples().get(3);
+		assertTrue((Integer) sample3.getValue() == 4);
 		assertTrue(sample3.getProbability() == 0.1);
-		
+
 		assertTrue(probFunc.getUnit().getUnitName().equals("sec"));
 		assertTrue(probFunc.isOrderedDomain());
 	}
@@ -118,7 +128,7 @@ public class ProbabilityFunctionFactoryTest {
 	}
 
 	private List<ISample> getTestSamples() {
-		Object[] testSamples = { 1, 0.1, 2, 0.3, 3, 0.5, 4, 0.1 };
+		Object[] testSamples = {1, 0.1, 2, 0.3, 3, 0.5, 4, 0.1};
 		List<ISample> sList = new ArrayList<ISample>();
 		for (int i = 0; i < testSamples.length; i += 2) {
 			ISample s = pfFactory.createSample(testSamples[i],
@@ -127,8 +137,8 @@ public class ProbabilityFunctionFactoryTest {
 		}
 		return sList;
 	}
-	
-	private IUnit getTestUnit(){
+
+	private IUnit getTestUnit() {
 		return pfFactory.createUnit("sec");
 	}
 }
