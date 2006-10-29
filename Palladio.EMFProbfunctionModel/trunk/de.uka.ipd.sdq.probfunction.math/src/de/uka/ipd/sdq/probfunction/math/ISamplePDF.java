@@ -89,8 +89,7 @@ public interface ISamplePDF extends IProbabilityDensityFunction {
 	 * @throws ProbabilitySumNotOneException
 	 *             Thrown, if the sum of the values is not one.
 	 */
-	void setValuesAsDouble(List<Double> values)
-			throws ProbabilitySumNotOneException;
+	void setValuesAsDouble(List<Double> values);
 
 	/**
 	 * Sets the sampling points of the function.
@@ -102,8 +101,7 @@ public interface ISamplePDF extends IProbabilityDensityFunction {
 	 *             if the function is in the time domain (isInFrequencyDomain ==
 	 *             false).
 	 */
-	void setValues(List<Complex> values, boolean isInFrequencyDomain)
-			throws ProbabilitySumNotOneException;
+	void setValues(List<Complex> values, boolean isInFrequencyDomain);
 
 	/**
 	 * Returns the real part of the value used to fill unset sampling points at
