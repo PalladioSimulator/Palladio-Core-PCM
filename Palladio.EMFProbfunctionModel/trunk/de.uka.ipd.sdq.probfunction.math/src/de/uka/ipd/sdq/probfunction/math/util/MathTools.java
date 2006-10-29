@@ -149,8 +149,10 @@ public class MathTools {
 	 */
 	public static double sumOfSamples(List<ISample> list) {
 		double sum = 0.0;
-		for (ISample s : list)
+		for (ISample s : list) {
 			sum += s.getProbability();
+			System.out.println(sum);
+		}
 		return sum;
 	}
 
@@ -173,10 +175,15 @@ public class MathTools {
 	 */
 	public static List<Double> computeIntervalsOfProb(List<Double> prob) {
 		List<Double> probabilities = new ArrayList<Double>();
+		if (prob == null || prob.size() == 0)
+			throw new IllegalArgumentException("bad parameter");
 		probabilities.add(prob.get(0));
 
-		for (int i = 1; i < probabilities.size(); i++)
+		for (int i = 1; i < prob.size(); i++) {
+			if (equalsDouble(1.0, probabilities.get(i - 1)))
+				break;
 			probabilities.add(probabilities.get(i - 1) + prob.get(i));
+		}
 		return probabilities;
 	}
 
@@ -225,24 +232,52 @@ public class MathTools {
 	}
 
 	public static String asString(double val) {
-		double rVal = (double)Math.round(val * 1000) / 1000.0;
+		double rVal = (double) Math.round(val * 1000) / 1000.0;
 		return Double.toString(rVal);
 	}
-	
+
 	public static BigDecimal over(int n, int k) {
-		return factorial(n).divide(factorial(k).multiply(factorial(n-k)));
+		return factorial(n).divide(factorial(k).multiply(factorial(n - k)));
 	}
 
 	public static BigDecimal factorial(long n) {
-		if (n<0) 
+		if (n < 0)
 			return null;
-		if (n == 0) 
+		if (n == 0)
 			return new BigDecimal(1);
 		BigDecimal fac = new BigDecimal(1);
-		for(long i=1; i<= n; i++){
+		for (long i = 1; i <= n; i++) {
 			fac = fac.multiply(new BigDecimal(i));
 		}
 		return fac;
 	}
-	
+
+	public static boolean isNumeric(Object value) {
+		if ((value instanceof Double) || (value instanceof Integer)
+				|| (value instanceof Long) || (value instanceof Float))
+			return true;
+		return false;
+	}
+
+	public static List<Complex> transformSampleToComplex(List<ISample> samples) {
+		List<Complex> resultList = new ArrayList<Complex>();
+		for (ISample s : samples) {
+			resultList.add(new Complex(s.getProbability(), convertToDouble(s
+					.getValue())));
+		}
+		return resultList;
+	}
+
+	public static double convertToDouble(Object value) {
+		double r = 0.0;
+		if (value instanceof Double) {
+			r = (Double) value;
+		} else if (value instanceof Integer) {
+			r = ((Integer) value).doubleValue();
+		} else if (value instanceof Boolean) {
+			r = ((Boolean) value).booleanValue() ? 1.0 : 0.0;
+		} else if (value instanceof Float)
+			r = ((Float) value).doubleValue();
+		return r;
+	}
 }
