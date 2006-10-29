@@ -9,6 +9,7 @@ import java.util.Iterator;
 import java.util.List;
 
 import de.uka.ipd.sdq.probfunction.math.IProbabilityDensityFunction;
+import de.uka.ipd.sdq.probfunction.math.IProbabilityFunction;
 import de.uka.ipd.sdq.probfunction.math.IRandomGenerator;
 import de.uka.ipd.sdq.probfunction.math.ISamplePDF;
 import de.uka.ipd.sdq.probfunction.math.IUnit;
@@ -18,7 +19,6 @@ import de.uka.ipd.sdq.probfunction.math.exception.FunctionNotInTimeDomainExcepti
 import de.uka.ipd.sdq.probfunction.math.exception.FunctionsInDifferenDomainsException;
 import de.uka.ipd.sdq.probfunction.math.exception.IncompatibleUnitsException;
 import de.uka.ipd.sdq.probfunction.math.exception.NegativeDistanceException;
-import de.uka.ipd.sdq.probfunction.math.exception.ProbabilitySumNotOneException;
 import de.uka.ipd.sdq.probfunction.math.exception.SizeTooSmallException;
 import de.uka.ipd.sdq.probfunction.math.exception.UnknownPDFTypeException;
 import de.uka.ipd.sdq.probfunction.math.exception.UnorderedDomainException;
@@ -47,32 +47,26 @@ public class SamplePDFImpl extends ProbabilityDensityFunctionImpl
 
 	private FourierTransform fft = new FourierTransform();
 
-	protected SamplePDFImpl(double distance, List<Double> samples, IUnit unit) {
-		this(distance, samples, unit, new DefaultRandomGenerator());
+	protected SamplePDFImpl(double distance, IUnit unit) {
+		this(distance, unit, new DefaultRandomGenerator());
 
 	}
 
-	protected SamplePDFImpl(double distance, List<Double> samples, IUnit unit,
+	protected SamplePDFImpl(double distance, IUnit unit,
 			IRandomGenerator generator) {
-		super(unit, false);
-		this.distance = distance;
-		values = new ArrayList<Complex>(MathTools
-				.transformDoubleToComplex(samples));
-		fillValue = DEFAULT_FILL_VALUE;
-		randomGenerator = generator;
+		this(distance, unit, false, new DefaultRandomGenerator());
 	}
 
-	protected SamplePDFImpl(double distance, List<Complex> samples, IUnit unit,
+	protected SamplePDFImpl(double distance, IUnit unit,
 			boolean isInFrequencyDomain) {
-		this(distance, samples, unit, isInFrequencyDomain,
-				new DefaultRandomGenerator());
+		this(distance, unit, isInFrequencyDomain, new DefaultRandomGenerator());
 	}
 
-	protected SamplePDFImpl(double distance, List<Complex> samples, IUnit unit,
+	protected SamplePDFImpl(double distance, IUnit unit,
 			boolean isInFrequencyDomain, IRandomGenerator generator) {
 		super(unit, isInFrequencyDomain);
 		this.distance = distance;
-		values = new ArrayList<Complex>(samples);
+		values = new ArrayList<Complex>();
 		fillValue = DEFAULT_FILL_VALUE;
 		randomGenerator = generator;
 	}
@@ -138,10 +132,7 @@ public class SamplePDFImpl extends ProbabilityDensityFunctionImpl
 		return MathTools.transformComplexToDouble(values);
 	}
 
-	public void setValuesAsDouble(List<Double> values)
-			throws ProbabilitySumNotOneException {
-		if (!MathTools.equalsDouble(MathTools.sumOfDoubles(values), 1.0))
-			throw new ProbabilitySumNotOneException();
+	public void setValuesAsDouble(List<Double> values) {
 		this.values = new ArrayList<Complex>(MathTools
 				.transformDoubleToComplex(values));
 	}
@@ -181,13 +172,7 @@ public class SamplePDFImpl extends ProbabilityDensityFunctionImpl
 
 	}
 
-	public void setValues(List<Complex> values, boolean isInFrequencyDomain)
-			throws ProbabilitySumNotOneException {
-		List<Double> valuesAsDouble = MathTools
-				.transformComplexToDouble(values);
-		if (!MathTools
-				.equalsDouble(MathTools.sumOfDoubles(valuesAsDouble), 1.0))
-			throw new ProbabilitySumNotOneException();
+	public void setValues(List<Complex> values, boolean isInFrequencyDomain) {
 		this.values = new ArrayList<Complex>(values);
 		this.setInFrequencyDomain(isInFrequencyDomain);
 	}
@@ -539,5 +524,31 @@ public class SamplePDFImpl extends ProbabilityDensityFunctionImpl
 			sum += value.getReal();
 		}
 		return sum;
+	}
+
+	public boolean checkConstrains() {
+		try {
+			if (MathTools.equalsDouble(getProbabilitySum(), 1.0))
+				return false;
+		} catch (FunctionNotInTimeDomainException e) {
+			return false;
+		}
+		return true;
+	}
+
+	public IProbabilityFunction getCumulativeFunction() {
+		List<Double> newProb = MathTools
+				.computeIntervalsOfProb(getValuesAsDouble());
+		List<Complex> newValues = new ArrayList<Complex>();
+		int index = 0;
+		for (Double d : newProb) {
+			newValues.add(new Complex(d, values.get(index).getImag()));
+			index++;
+		}
+		ISamplePDF spdf = pfFactory.createSamplePDFFromComplex(distance,
+				newValues, isInFrequencyDomain(), this.getUnit(), this
+						.getRandomGenerator());
+		spdf.setFillValue(new Complex(1.0, 0.0));
+		return spdf;
 	}
 }
