@@ -266,7 +266,7 @@ public interface SeffPackage extends EPackage {
 	int PARAMETRIC_RESOURCE_DEMAND__SPECIFICATION = StochasticsPackage.RANDOM_VARIABLE__SPECIFICATION;
 
 	/**
-	 * The feature id for the '<em><b>Specification Random Variable</b></em>' containment reference.
+	 * The feature id for the '<em><b>Specification Random Variable</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -513,7 +513,7 @@ public interface SeffPackage extends EPackage {
 	int PARAMETRIC_PARAMETER_USAGE__SPECIFICATION = StochasticsPackage.RANDOM_VARIABLE__SPECIFICATION;
 
 	/**
-	 * The feature id for the '<em><b>Specification Random Variable</b></em>' containment reference.
+	 * The feature id for the '<em><b>Specification Random Variable</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -632,7 +632,7 @@ public interface SeffPackage extends EPackage {
 	int PRIMITIVE_PARAMETRIC_PARAMETER_USAGE__SPECIFICATION = PARAMETRIC_PARAMETER_USAGE__SPECIFICATION;
 
 	/**
-	 * The feature id for the '<em><b>Specification Random Variable</b></em>' containment reference.
+	 * The feature id for the '<em><b>Specification Random Variable</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -988,7 +988,7 @@ public interface SeffPackage extends EPackage {
 	int COLLECTION_PARAMETRIC_PARAMETER_USAGE__SPECIFICATION = PARAMETRIC_PARAMETER_USAGE__SPECIFICATION;
 
 	/**
-	 * The feature id for the '<em><b>Specification Random Variable</b></em>' containment reference.
+	 * The feature id for the '<em><b>Specification Random Variable</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated

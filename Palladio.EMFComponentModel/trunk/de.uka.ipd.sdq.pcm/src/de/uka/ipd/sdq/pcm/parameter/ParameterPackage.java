@@ -82,7 +82,7 @@ public interface ParameterPackage extends EPackage {
 	int PRIMITIVE_PARAMETER_CHARACTERISATION__SPECIFICATION = StochasticsPackage.RANDOM_VARIABLE__SPECIFICATION;
 
 	/**
-	 * The feature id for the '<em><b>Specification Random Variable</b></em>' containment reference.
+	 * The feature id for the '<em><b>Specification Random Variable</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -266,7 +266,7 @@ public interface ParameterPackage extends EPackage {
 	int COLLECTION_PARAMETER_CHARACTERISATION__SPECIFICATION = StochasticsPackage.RANDOM_VARIABLE__SPECIFICATION;
 
 	/**
-	 * The feature id for the '<em><b>Specification Random Variable</b></em>' containment reference.
+	 * The feature id for the '<em><b>Specification Random Variable</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated

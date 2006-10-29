@@ -7,15 +7,17 @@
  */
 package de.uka.ipd.sdq.pcm.core.stochastics.impl;
 
+import java.io.StringBufferInputStream;
+
 import de.uka.ipd.sdq.pcm.core.stochastics.Expression;
 import de.uka.ipd.sdq.pcm.core.stochastics.RandomVariable;
 import de.uka.ipd.sdq.pcm.core.stochastics.StochasticsPackage;
+import de.uka.ipd.sdq.pcm.stochasticexpressions.parser.StochasticExpressionsLexer;
+import de.uka.ipd.sdq.pcm.stochasticexpressions.parser.StochasticExpressionsParser;
 
 import org.eclipse.emf.common.notify.Notification;
-
-import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 
 import org.eclipse.emf.ecore.InternalEObject;
 
@@ -56,17 +58,6 @@ public class RandomVariableImpl extends EObjectImpl implements RandomVariable {
 	 * @ordered
 	 */
 	protected String specification = SPECIFICATION_EDEFAULT;
-
-
-	/**
-	 * The cached value of the '{@link #getSpecification_RandomVariable() <em>Specification Random Variable</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getSpecification_RandomVariable()
-	 * @generated
-	 * @ordered
-	 */
-	protected Expression specification_RandomVariable = null;
 
 
 	/**
@@ -114,54 +105,27 @@ public class RandomVariableImpl extends EObjectImpl implements RandomVariable {
 	 * @generated
 	 */
 	public Expression getSpecification_RandomVariable() {
-		return specification_RandomVariable;
+		Expression specification_RandomVariable = basicGetSpecification_RandomVariable();
+		return specification_RandomVariable != null && specification_RandomVariable.eIsProxy() ? (Expression)eResolveProxy((InternalEObject)specification_RandomVariable) : specification_RandomVariable;
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
-	public NotificationChain basicSetSpecification_RandomVariable(Expression newSpecification_RandomVariable, NotificationChain msgs) {
-		Expression oldSpecification_RandomVariable = specification_RandomVariable;
-		specification_RandomVariable = newSpecification_RandomVariable;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, StochasticsPackage.RANDOM_VARIABLE__SPECIFICATION_RANDOM_VARIABLE, oldSpecification_RandomVariable, newSpecification_RandomVariable);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+	public Expression basicGetSpecification_RandomVariable() {
+		EObject value = null;
+		
+		try {
+			StochasticExpressionsLexer lexer = new StochasticExpressionsLexer(
+					new StringBufferInputStream(this.specification));
+			StochasticExpressionsParser parser = new StochasticExpressionsParser(lexer);
+			value = parser.expression();
+		} catch (Exception e) {
+			value = null;
 		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setSpecification_RandomVariable(Expression newSpecification_RandomVariable) {
-		if (newSpecification_RandomVariable != specification_RandomVariable) {
-			NotificationChain msgs = null;
-			if (specification_RandomVariable != null)
-				msgs = ((InternalEObject)specification_RandomVariable).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - StochasticsPackage.RANDOM_VARIABLE__SPECIFICATION_RANDOM_VARIABLE, null, msgs);
-			if (newSpecification_RandomVariable != null)
-				msgs = ((InternalEObject)newSpecification_RandomVariable).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - StochasticsPackage.RANDOM_VARIABLE__SPECIFICATION_RANDOM_VARIABLE, null, msgs);
-			msgs = basicSetSpecification_RandomVariable(newSpecification_RandomVariable, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, StochasticsPackage.RANDOM_VARIABLE__SPECIFICATION_RANDOM_VARIABLE, newSpecification_RandomVariable, newSpecification_RandomVariable));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case StochasticsPackage.RANDOM_VARIABLE__SPECIFICATION_RANDOM_VARIABLE:
-				return basicSetSpecification_RandomVariable(null, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
+		return (Expression)value;
 	}
 
 	/**
@@ -174,7 +138,8 @@ public class RandomVariableImpl extends EObjectImpl implements RandomVariable {
 			case StochasticsPackage.RANDOM_VARIABLE__SPECIFICATION:
 				return getSpecification();
 			case StochasticsPackage.RANDOM_VARIABLE__SPECIFICATION_RANDOM_VARIABLE:
-				return getSpecification_RandomVariable();
+				if (resolve) return getSpecification_RandomVariable();
+				return basicGetSpecification_RandomVariable();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -188,9 +153,6 @@ public class RandomVariableImpl extends EObjectImpl implements RandomVariable {
 		switch (featureID) {
 			case StochasticsPackage.RANDOM_VARIABLE__SPECIFICATION:
 				setSpecification((String)newValue);
-				return;
-			case StochasticsPackage.RANDOM_VARIABLE__SPECIFICATION_RANDOM_VARIABLE:
-				setSpecification_RandomVariable((Expression)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -206,9 +168,6 @@ public class RandomVariableImpl extends EObjectImpl implements RandomVariable {
 			case StochasticsPackage.RANDOM_VARIABLE__SPECIFICATION:
 				setSpecification(SPECIFICATION_EDEFAULT);
 				return;
-			case StochasticsPackage.RANDOM_VARIABLE__SPECIFICATION_RANDOM_VARIABLE:
-				setSpecification_RandomVariable((Expression)null);
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -223,7 +182,7 @@ public class RandomVariableImpl extends EObjectImpl implements RandomVariable {
 			case StochasticsPackage.RANDOM_VARIABLE__SPECIFICATION:
 				return SPECIFICATION_EDEFAULT == null ? specification != null : !SPECIFICATION_EDEFAULT.equals(specification);
 			case StochasticsPackage.RANDOM_VARIABLE__SPECIFICATION_RANDOM_VARIABLE:
-				return specification_RandomVariable != null;
+				return basicGetSpecification_RandomVariable() != null;
 		}
 		return super.eIsSet(featureID);
 	}

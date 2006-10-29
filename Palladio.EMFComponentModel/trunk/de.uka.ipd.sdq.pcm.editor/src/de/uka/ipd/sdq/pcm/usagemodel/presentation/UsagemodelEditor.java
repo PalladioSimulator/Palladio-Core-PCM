@@ -197,6 +197,7 @@ import de.uka.ipd.sdq.pcm.resourcetype.provider.ResourcetypeItemProviderAdapterF
 
 import de.uka.ipd.sdq.pcm.seff.provider.SeffItemProviderAdapterFactory;
 
+import de.uka.ipd.sdq.pcm.stochasticexpressions.StoExPrettyPrintVisitor;
 import de.uka.ipd.sdq.pcm.system.provider.SystemItemProviderAdapterFactory;
 
 import org.eclipse.ui.actions.WorkspaceModifyOperation;
@@ -1425,17 +1426,19 @@ public class UsagemodelEditor
 
 					@Override
 					protected Object openDialogBox(Control cellEditorWindow) {
+						RandomVariable randVar = (RandomVariable) object;
 						StoachasticExpressionEditDialog dialog = new StoachasticExpressionEditDialog(cellEditorWindow.getShell());
+						if (randVar.getSpecification_RandomVariable() != null)
+							dialog.setInitialExpression(randVar.getSpecification_RandomVariable());
 						dialog.open();
 						if (dialog.getResult() != null) {
-							RandomVariable randVar = (RandomVariable) object;
+							String result = "= " + new StoExPrettyPrintVisitor().prettyPrint(dialog.getResult());
 							SetCommand setRandomVariableCommand = new SetCommand(editingDomain, randVar, 
-									StochasticsPackage.eINSTANCE.getRandomVariable_Specification_RandomVariable(), dialog.getResult());
+									StochasticsPackage.eINSTANCE.getRandomVariable_Specification(), result);
 							editingDomain.getCommandStack().execute(setRandomVariableCommand);
 						}
 						return null;
 					}
-
 				};
 				return result;
 			}

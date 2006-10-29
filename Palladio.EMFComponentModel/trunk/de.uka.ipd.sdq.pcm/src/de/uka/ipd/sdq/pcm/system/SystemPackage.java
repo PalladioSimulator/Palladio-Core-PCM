@@ -338,7 +338,7 @@ public interface SystemPackage extends EPackage {
 	int SPECIFIED_TIME_CONSUMPTION__SPECIFICATION = StochasticsPackage.RANDOM_VARIABLE__SPECIFICATION;
 
 	/**
-	 * The feature id for the '<em><b>Specification Random Variable</b></em>' containment reference.
+	 * The feature id for the '<em><b>Specification Random Variable</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated

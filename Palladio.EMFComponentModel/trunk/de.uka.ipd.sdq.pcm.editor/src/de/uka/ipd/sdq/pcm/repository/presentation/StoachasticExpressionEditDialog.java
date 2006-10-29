@@ -16,6 +16,7 @@ import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
 
 import de.uka.ipd.sdq.pcm.core.stochastics.Expression;
+import de.uka.ipd.sdq.pcm.stochasticexpressions.StoExPrettyPrintVisitor;
 import de.uka.ipd.sdq.pcm.stochasticexpressions.parser.StochasticExpressionsLexer;
 import de.uka.ipd.sdq.pcm.stochasticexpressions.parser.StochasticExpressionsParser;
 
@@ -30,6 +31,7 @@ public class StoachasticExpressionEditDialog extends Dialog {
 
 	private Expression result;
 	private Text editText;
+	private String newText = "= ";
 
 	/**
 	 * @param parent
@@ -46,6 +48,11 @@ public class StoachasticExpressionEditDialog extends Dialog {
 		super(parent);
 	}
 
+	public void setInitialExpression(Expression ex)
+	{
+	    newText = "= "+new StoExPrettyPrintVisitor().prettyPrint(ex); 
+	}
+	
 	@Override
 	protected void okPressed() {
 		EObject value = null;
@@ -63,6 +70,10 @@ public class StoachasticExpressionEditDialog extends Dialog {
 			result = null;
 			MessageDialog.openError(this.getParentShell(), "Parser error", e.getMessage());
 			return;
+		} catch (Exception e) {
+			result = null;
+			MessageDialog.openError(this.getParentShell(), "Parser error", e.getMessage());
+			return;
 		}
 		result = (Expression)value;
 		super.okPressed();
@@ -75,6 +86,7 @@ public class StoachasticExpressionEditDialog extends Dialog {
 		layoutData.heightHint = 300;
 		layoutData.widthHint = 450;
 		editText.setLayoutData(layoutData);
+		editText.setText(newText);
 		return editText;
 	}
 	

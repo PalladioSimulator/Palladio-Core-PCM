@@ -81,7 +81,7 @@ public interface StochasticsPackage extends EPackage {
 	int RANDOM_VARIABLE__SPECIFICATION = 0;
 
 	/**
-	 * The feature id for the '<em><b>Specification Random Variable</b></em>' containment reference.
+	 * The feature id for the '<em><b>Specification Random Variable</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -565,10 +565,10 @@ public interface StochasticsPackage extends EPackage {
 	EAttribute getRandomVariable_Specification();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link de.uka.ipd.sdq.pcm.core.stochastics.RandomVariable#getSpecification_RandomVariable <em>Specification Random Variable</em>}'.
+	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.pcm.core.stochastics.RandomVariable#getSpecification_RandomVariable <em>Specification Random Variable</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Specification Random Variable</em>'.
+	 * @return the meta object for the reference '<em>Specification Random Variable</em>'.
 	 * @see de.uka.ipd.sdq.pcm.core.stochastics.RandomVariable#getSpecification_RandomVariable()
 	 * @see #getRandomVariable()
 	 * @generated
@@ -950,7 +950,7 @@ public interface StochasticsPackage extends EPackage {
 		EAttribute RANDOM_VARIABLE__SPECIFICATION = eINSTANCE.getRandomVariable_Specification();
 
 		/**
-		 * The meta object literal for the '<em><b>Specification Random Variable</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Specification Random Variable</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated

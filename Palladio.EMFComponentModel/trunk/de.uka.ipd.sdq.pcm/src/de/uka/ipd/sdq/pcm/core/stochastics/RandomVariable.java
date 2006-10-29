@@ -54,29 +54,18 @@ public interface RandomVariable extends EObject {
 	void setSpecification(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Specification Random Variable</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Specification Random Variable</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Specification Random Variable</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Specification Random Variable</em>' containment reference.
-	 * @see #setSpecification_RandomVariable(Expression)
+	 * @return the value of the '<em>Specification Random Variable</em>' reference.
 	 * @see de.uka.ipd.sdq.pcm.core.stochastics.StochasticsPackage#getRandomVariable_Specification_RandomVariable()
-	 * @model containment="true" required="true" ordered="false"
+	 * @model required="true" transient="true" changeable="false" volatile="true" ordered="false"
 	 * @generated
 	 */
 	Expression getSpecification_RandomVariable();
-
-	/**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.core.stochastics.RandomVariable#getSpecification_RandomVariable <em>Specification Random Variable</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Specification Random Variable</em>' containment reference.
-	 * @see #getSpecification_RandomVariable()
-	 * @generated
-	 */
-	void setSpecification_RandomVariable(Expression value);
 
 } // RandomVariable

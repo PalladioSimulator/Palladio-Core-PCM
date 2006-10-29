@@ -93,22 +93,6 @@ public class RandomVariableItemProvider
 	}
 
 	/**
-	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
-	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
-	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Collection getChildrenFeatures(Object object) {
-		if (childrenFeatures == null) {
-			super.getChildrenFeatures(object);
-			childrenFeatures.add(StochasticsPackage.Literals.RANDOM_VARIABLE__SPECIFICATION_RANDOM_VARIABLE);
-		}
-		return childrenFeatures;
-	}
-
-	/**
 	 * This returns RandomVariable.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -143,10 +127,8 @@ public class RandomVariableItemProvider
 
 		switch (notification.getFeatureID(RandomVariable.class)) {
 			case StochasticsPackage.RANDOM_VARIABLE__SPECIFICATION:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
 			case StochasticsPackage.RANDOM_VARIABLE__SPECIFICATION_RANDOM_VARIABLE:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}
 		super.notifyChanged(notification);
@@ -161,46 +143,6 @@ public class RandomVariableItemProvider
 	 */
 	protected void collectNewChildDescriptors(Collection newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-
-		newChildDescriptors.add
-			(createChildParameter
-				(StochasticsPackage.Literals.RANDOM_VARIABLE__SPECIFICATION_RANDOM_VARIABLE,
-				 StochasticsFactory.eINSTANCE.createVariable()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(StochasticsPackage.Literals.RANDOM_VARIABLE__SPECIFICATION_RANDOM_VARIABLE,
-				 StochasticsFactory.eINSTANCE.createParantesis()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(StochasticsPackage.Literals.RANDOM_VARIABLE__SPECIFICATION_RANDOM_VARIABLE,
-				 StochasticsFactory.eINSTANCE.createIntLiteral()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(StochasticsPackage.Literals.RANDOM_VARIABLE__SPECIFICATION_RANDOM_VARIABLE,
-				 StochasticsFactory.eINSTANCE.createDoubleLiteral()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(StochasticsPackage.Literals.RANDOM_VARIABLE__SPECIFICATION_RANDOM_VARIABLE,
-				 StochasticsFactory.eINSTANCE.createCompareExpression()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(StochasticsPackage.Literals.RANDOM_VARIABLE__SPECIFICATION_RANDOM_VARIABLE,
-				 StochasticsFactory.eINSTANCE.createTermExpression()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(StochasticsPackage.Literals.RANDOM_VARIABLE__SPECIFICATION_RANDOM_VARIABLE,
-				 StochasticsFactory.eINSTANCE.createProductExpression()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(StochasticsPackage.Literals.RANDOM_VARIABLE__SPECIFICATION_RANDOM_VARIABLE,
-				 StochasticsFactory.eINSTANCE.createProbabilityFunctionLiteral()));
 	}
 
 	/**

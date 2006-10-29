@@ -46,7 +46,7 @@
             lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
         <eStructuralFeatures xsi:type="ecore:EReference" name="specification_RandomVariable"
             ordered="false" lowerBound="1" eType="#//core/stochastics/Expression"
-            containment="true"/>
+            changeable="false" volatile="true" transient="true"/>
       </eClassifiers>
       <eClassifiers xsi:type="ecore:EClass" name="Expression" abstract="true"/>
       <eClassifiers xsi:type="ecore:EClass" name="Comparison" abstract="true" eSuperTypes="#//core/stochastics/Expression"/>
@@ -115,13 +115,13 @@
       </eClassifiers>
       <eClassifiers xsi:type="ecore:EClass" name="ProbabilityFunctionLiteral" eSuperTypes="#//core/stochastics/Atom">
         <eStructuralFeatures xsi:type="ecore:EReference" name="function_ProbabilityFunctionLiteral"
-            ordered="false" lowerBound="1" eType="ecore:EClass ../../de.uka.ipd.sdq.probfunction/model/ProbabilityFunction.ecore#//ProbabilityFunction"
+            ordered="false" lowerBound="1" eType="ecore:EClass ../../../plugin/de.uka.ipd.sdq.probfunction/model/ProbabilityFunction.ecore#//ProbabilityFunction"
             containment="true"/>
       </eClassifiers>
     </eSubpackages>
     <eSubpackages name="entity" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Core/Entity/1.0"
         nsPrefix="pcm.core.entity">
-      <eClassifiers xsi:type="ecore:EClass" name="Entity" abstract="true" eSuperTypes="../../de.uka.ipd.sdq.identifier/model/identifier.ecore#//Identifier">
+      <eClassifiers xsi:type="ecore:EClass" name="Entity" abstract="true" eSuperTypes="../../../plugin/de.uka.ipd.sdq.identifier/model/identifier.ecore#//Identifier">
         <eStructuralFeatures xsi:type="ecore:EAttribute" name="entityName" ordered="false"
             lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </eClassifiers>

@@ -39,6 +39,8 @@ Export-Package: de.uka.ipd.sdq.pcm.allocation,
  de.uka.ipd.sdq.pcm.seff,
  de.uka.ipd.sdq.pcm.seff.impl,
  de.uka.ipd.sdq.pcm.seff.util,
+ de.uka.ipd.sdq.pcm.stochasticexpressions,
+ de.uka.ipd.sdq.pcm.stochasticexpressions.parser,
  de.uka.ipd.sdq.pcm.system,
  de.uka.ipd.sdq.pcm.system.impl,
  de.uka.ipd.sdq.pcm.system.util,
@@ -50,5 +52,6 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ocl;visibility:=reexport,
  de.uka.ipd.sdq.identifier;visibility:=reexport,
  org.eclipse.pde.build,
- de.uka.ipd.sdq.probfunction
+ de.uka.ipd.sdq.probfunction,
+ org.antlr
 Eclipse-LazyStart: true

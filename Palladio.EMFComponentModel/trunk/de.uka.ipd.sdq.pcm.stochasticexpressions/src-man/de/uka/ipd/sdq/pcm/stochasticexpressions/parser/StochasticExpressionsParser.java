@@ -144,7 +144,7 @@ public StochasticExpressionsParser(ParserSharedInputState state) {
 		p1=prodExpr();
 		t = p1;
 		{
-		_loop296:
+		_loop80:
 		do {
 			if ((LA(1)==PLUS||LA(1)==MINUS)) {
 				TermExpression termExp = StochasticsFactory.eINSTANCE.createTermExpression();
@@ -172,7 +172,7 @@ public StochasticExpressionsParser(ParserSharedInputState state) {
 				termExp.setLeft(t); termExp.setRight(p2); t = termExp;
 			}
 			else {
-				break _loop296;
+				break _loop80;
 			}
 			
 		} while (true);
@@ -189,7 +189,7 @@ public StochasticExpressionsParser(ParserSharedInputState state) {
 		pw1=powExpr();
 		p = pw1;
 		{
-		_loop300:
+		_loop84:
 		do {
 			if (((LA(1) >= MUL && LA(1) <= MOD))) {
 				ProductExpression prodExp = StochasticsFactory.eINSTANCE.createProductExpression();
@@ -223,7 +223,7 @@ public StochasticExpressionsParser(ParserSharedInputState state) {
 				prodExp.setLeft(p); prodExp.setRight(pw2); p = prodExp;
 			}
 			else {
-				break _loop300;
+				break _loop84;
 			}
 			
 		} while (true);
@@ -340,8 +340,8 @@ public StochasticExpressionsParser(ParserSharedInputState state) {
 							   pfl.setFunction_ProbabilityFunctionLiteral(probFunction);
 			match(SQUARE_PAREN_L);
 			{
-			int _cnt307=0;
-			_loop307:
+			int _cnt91=0;
+			_loop91:
 			do {
 				if ((LA(1)==LPAREN)) {
 					Sample isample=null;
@@ -349,10 +349,10 @@ public StochasticExpressionsParser(ParserSharedInputState state) {
 					((ProbabilityMassFunction)probFunction).getSamples().add(isample);
 				}
 				else {
-					if ( _cnt307>=1 ) { break _loop307; } else {throw new NoViableAltException(LT(1), getFilename());}
+					if ( _cnt91>=1 ) { break _loop91; } else {throw new NoViableAltException(LT(1), getFilename());}
 				}
 				
-				_cnt307++;
+				_cnt91++;
 			} while (true);
 			}
 			match(SQUARE_PAREN_R);
@@ -365,8 +365,8 @@ public StochasticExpressionsParser(ParserSharedInputState state) {
 							   pfl.setFunction_ProbabilityFunctionLiteral(probFunction);
 			match(SQUARE_PAREN_L);
 			{
-			int _cnt309=0;
-			_loop309:
+			int _cnt93=0;
+			_loop93:
 			do {
 				if ((LA(1)==LPAREN)) {
 					Sample rsample=null;
@@ -374,10 +374,10 @@ public StochasticExpressionsParser(ParserSharedInputState state) {
 					((ProbabilityMassFunction)probFunction).getSamples().add(rsample);
 				}
 				else {
-					if ( _cnt309>=1 ) { break _loop309; } else {throw new NoViableAltException(LT(1), getFilename());}
+					if ( _cnt93>=1 ) { break _loop93; } else {throw new NoViableAltException(LT(1), getFilename());}
 				}
 				
-				_cnt309++;
+				_cnt93++;
 			} while (true);
 			}
 			match(SQUARE_PAREN_R);
@@ -390,8 +390,8 @@ public StochasticExpressionsParser(ParserSharedInputState state) {
 							   pfl.setFunction_ProbabilityFunctionLiteral(probFunction);
 			match(SQUARE_PAREN_L);
 			{
-			int _cnt311=0;
-			_loop311:
+			int _cnt95=0;
+			_loop95:
 			do {
 				if ((LA(1)==LPAREN)) {
 					Sample ssample=null;
@@ -399,10 +399,10 @@ public StochasticExpressionsParser(ParserSharedInputState state) {
 					((ProbabilityMassFunction)probFunction).getSamples().add(ssample);
 				}
 				else {
-					if ( _cnt311>=1 ) { break _loop311; } else {throw new NoViableAltException(LT(1), getFilename());}
+					if ( _cnt95>=1 ) { break _loop95; } else {throw new NoViableAltException(LT(1), getFilename());}
 				}
 				
-				_cnt311++;
+				_cnt95++;
 			} while (true);
 			}
 			match(SQUARE_PAREN_R);
