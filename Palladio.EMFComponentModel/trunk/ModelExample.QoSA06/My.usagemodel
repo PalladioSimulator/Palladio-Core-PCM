@@ -8,9 +8,9 @@
         <actualParameterUsage_EntryLevelSystemCall xsi:type="pcm.parameter:CollectionParameterUsage">
           <parameter_ParameterUsage href="My.repository#//@interfaces__Repository.8/@signatures__Interface.0/@parameters__Signature.0"/>
           <innerElement_ParameterUsage>
-            <parameterCharacterisation_ParameterUsage specification="=IntRandomVar[(0.1;3500000)(0.6;4000000)(0.3;4500000)]" type="BYTESIZE"/>
+            <parameterCharacterisation_ParameterUsage specification="= IntRandomVar[ (0.1; 3500000) (0.6; 4000000) (0.3; 4500000) ]" type="BYTESIZE"/>
           </innerElement_ParameterUsage>
-          <parameterCharacterisation_CollectionParameterUsage specification="=IntRandomVar[(0.1;8)(0.1;9)(0.2;10)(0.4;11)(0.2;12)]"/>
+          <parameterCharacterisation_CollectionParameterUsage specification="= IntRandomVar[ (0.1; 8) (0.1; 9) (0.2; 10) (0.4; 11) (0.2; 12) ]"/>
         </actualParameterUsage_EntryLevelSystemCall>
         <systemProvidedRole_EntryLevelSystemCall href="My.system#//@systemProvidedRole_System.0"/>
         <signature_EntryLevelSystemCall href="My.repository#//@interfaces__Repository.8/@signatures__Interface.0"/>

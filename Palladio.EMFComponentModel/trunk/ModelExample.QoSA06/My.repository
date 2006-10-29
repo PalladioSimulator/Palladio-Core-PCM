@@ -11,7 +11,7 @@
       <steps_Behaviour xsi:type="pcm.seff:ExternalCallAction" id="CallInsertAudioFileInfo" entityName="CallInsertAudioFileInfo" predecessor_AbstractAction="CallInsertAudioFile" successor_AbstractAction="CallFinalizeUpload" calledService_ExternalService="//@interfaces__Repository.2/@signatures__Interface.1"/>
       <steps_Behaviour xsi:type="pcm.seff:ExternalCallAction" id="CallFinalizeUpload" entityName="CallFinalizeUpload" predecessor_AbstractAction="CallInsertAudioFileInfo" successor_AbstractAction="_D9aapfGTEdqJcvwivguuBw" calledService_ExternalService="//@interfaces__Repository.2/@signatures__Interface.2"/>
       <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_D9aapfGTEdqJcvwivguuBw" predecessor_AbstractAction="CallFinalizeUpload"/>
-      <parametricParameterUsage_Behaviour xsi:type="pcm.seff:PrimitiveParametricParameterUsage" specification="=prim_param&lt;file;BYTESIZE>" characterisedParameter_ParametricParameterUsage="//@interfaces__Repository.0/@signatures__Interface.0/@parameters__Signature.0" type="BYTESIZE"/>
+      <parametricParameterUsage_Behaviour xsi:type="pcm.seff:PrimitiveParametricParameterUsage" specification="= file.BYTESIZE" characterisedParameter_ParametricParameterUsage="//@interfaces__Repository.0/@signatures__Interface.0/@parameters__Signature.0" type="BYTESIZE"/>
     </serviceEffectSpecifications__BasicComponent>
     <serviceEffectSpecifications__BasicComponent xsi:type="pcm.seff:ResourceDemandingSEFF" describedService__SEFF="//@interfaces__Repository.0/@signatures__Interface.1">
       <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_DvugUflcEdqPpqU6JH4Cog" successor_AbstractAction="_Ff7SpvlcEdqPpqU6JH4Cog"/>
@@ -28,7 +28,7 @@
       <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_D9jklvGTEdqJcvwivguuBw" predecessor_AbstractAction="_D9jkmPGTEdqJcvwivguuBw"/>
       <steps_Behaviour xsi:type="pcm.seff:ExternalCallAction" id="_D9jkl_GTEdqJcvwivguuBw" entityName="IEncoder.EncodeFile" predecessor_AbstractAction="_D9jklfGTEdqJcvwivguuBw" successor_AbstractAction="_D9jkmPGTEdqJcvwivguuBw" calledService_ExternalService="//@interfaces__Repository.3/@signatures__Interface.0" parametricParameterUsage_ParametricParameterUsage="//@components__Repository.1/@serviceEffectSpecifications__BasicComponent.0/@parametricParameterUsage_Behaviour.0"/>
       <steps_Behaviour xsi:type="pcm.seff:ExternalCallAction" id="_D9jkmPGTEdqJcvwivguuBw" entityName="IAudioDB.InsertAudioFile" predecessor_AbstractAction="_D9jkl_GTEdqJcvwivguuBw" successor_AbstractAction="_D9jklvGTEdqJcvwivguuBw" calledService_ExternalService="//@interfaces__Repository.2/@signatures__Interface.0"/>
-      <parametricParameterUsage_Behaviour xsi:type="pcm.seff:PrimitiveParametricParameterUsage" specification="=prim_param&lt;file;BYTESIZE>" characterisedParameter_ParametricParameterUsage="//@interfaces__Repository.0/@signatures__Interface.0/@parameters__Signature.0" type="BYTESIZE"/>
+      <parametricParameterUsage_Behaviour xsi:type="pcm.seff:PrimitiveParametricParameterUsage" specification="= file.BYTESIZE" characterisedParameter_ParametricParameterUsage="//@interfaces__Repository.0/@signatures__Interface.0/@parameters__Signature.0" type="BYTESIZE"/>
     </serviceEffectSpecifications__BasicComponent>
     <serviceEffectSpecifications__BasicComponent xsi:type="pcm.seff:ResourceDemandingSEFF" describedService__SEFF="//@interfaces__Repository.2/@signatures__Interface.1">
       <steps_Behaviour xsi:type="pcm.seff:StartAction" id="EncodingIAFIStart" successor_AbstractAction="EncodingAdapter.IAudioDB.InsertAudioFileInfo"/>
@@ -49,7 +49,7 @@
       <steps_Behaviour xsi:type="pcm.seff:InternalAction" id="_D9jko_GTEdqJcvwivguuBw" entityName="ExecuteEncoder" predecessor_AbstractAction="WriteFileToDisk" successor_AbstractAction="_D9jkpPGTEdqJcvwivguuBw" resourceDemand_Action="//@components__Repository.2/@serviceEffectSpecifications__BasicComponent.0/@parametricResourceDemands_Behaviour.0"/>
       <steps_Behaviour xsi:type="pcm.seff:InternalAction" id="_D9jkpPGTEdqJcvwivguuBw" entityName="ReadEncodedFileFromDisk" predecessor_AbstractAction="_D9jko_GTEdqJcvwivguuBw" successor_AbstractAction="_D9jkpfGTEdqJcvwivguuBw"/>
       <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_D9jkpfGTEdqJcvwivguuBw" predecessor_AbstractAction="_D9jkpPGTEdqJcvwivguuBw"/>
-      <parametricResourceDemands_Behaviour demand="=prim_param&lt;file;BYTESIZE> / 500000" unit="instr" action_ParametricResourceDemand="_D9jko_GTEdqJcvwivguuBw">
+      <parametricResourceDemands_Behaviour specification="= file.BYTESIZE / 500000" demand="=prim_param&lt;file;BYTESIZE> / 500000" unit="instr" action_ParametricResourceDemand="_D9jko_GTEdqJcvwivguuBw">
         <requiredResource_ParametricResourceDemand href="My.resourcetype#cpu"/>
       </parametricResourceDemands_Behaviour>
     </serviceEffectSpecifications__BasicComponent>
@@ -57,6 +57,7 @@
   <components__Repository xsi:type="pcm.repository:BasicComponent" id="WebUI" entityName="WebUI">
     <providedRoles__ProvidesComponentType id="Prov_WebGUI_IHTTP" entityName="Prov_WebGUI_IHTTP" providedInterface__ProvidedRole="IHTTP"/>
     <requiredRoles_ProvidesComponentType id="Req_WebGUI_AudioStore" entityName="Req_WebGUI_AudioStore" requiredInterface__RequiredRole="IAudioStore"/>
+    <requiredRoles_ProvidesComponentType id="_QEyJMF99Eduxjck_DiMhVg" requiredInterface__RequiredRole="IAudioDB"/>
     <serviceEffectSpecifications__BasicComponent xsi:type="pcm.seff:ResourceDemandingSEFF" describedService__SEFF="//@interfaces__Repository.8/@signatures__Interface.0">
       <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_D9tVkPGTEdqJcvwivguuBw" successor_AbstractAction="_D9tVkvGTEdqJcvwivguuBw"/>
       <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_D9tVkfGTEdqJcvwivguuBw" predecessor_AbstractAction="_D9tVlvGTEdqJcvwivguuBw"/>
@@ -65,7 +66,7 @@
           <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_D9tVk_GTEdqJcvwivguuBw" successor_AbstractAction="_D9tVlfGTEdqJcvwivguuBw"/>
           <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_D9tVlPGTEdqJcvwivguuBw" predecessor_AbstractAction="_D9tVlfGTEdqJcvwivguuBw"/>
           <steps_Behaviour xsi:type="pcm.seff:ExternalCallAction" id="_D9tVlfGTEdqJcvwivguuBw" entityName="IAudioStore.HandleUpload" predecessor_AbstractAction="_D9tVk_GTEdqJcvwivguuBw" successor_AbstractAction="_D9tVlPGTEdqJcvwivguuBw" calledService_ExternalService="//@interfaces__Repository.0/@signatures__Interface.0" parametricParameterUsage_ParametricParameterUsage="//@components__Repository.3/@serviceEffectSpecifications__BasicComponent.0/@steps_Behaviour.2/@bodyBehaviour_Loop/@parametricParameterUsage_Behaviour.0"/>
-          <parametricParameterUsage_Behaviour xsi:type="pcm.seff:PrimitiveParametricParameterUsage" specification="=prim_param&lt;inner&lt;files>;BYTESIZE>" characterisedParameter_ParametricParameterUsage="//@interfaces__Repository.0/@signatures__Interface.0/@parameters__Signature.0" type="BYTESIZE"/>
+          <parametricParameterUsage_Behaviour xsi:type="pcm.seff:PrimitiveParametricParameterUsage" specification="= file.inner.BYTESIZE" characterisedParameter_ParametricParameterUsage="//@interfaces__Repository.0/@signatures__Interface.0/@parameters__Signature.0" type="BYTESIZE"/>
         </bodyBehaviour_Loop>
       </steps_Behaviour>
       <steps_Behaviour xsi:type="pcm.seff:ExternalCallAction" id="_D9tVlvGTEdqJcvwivguuBw" entityName="IAudioStore.FinalizeUpload" predecessor_AbstractAction="_D9tVkvGTEdqJcvwivguuBw" successor_AbstractAction="_D9tVkfGTEdqJcvwivguuBw" calledService_ExternalService="//@interfaces__Repository.0/@signatures__Interface.1"/>
