@@ -8,8 +8,6 @@
 package de.uka.ipd.sdq.pcm.seff.impl;
 
 import de.uka.ipd.sdq.pcm.seff.IterationCount;
-import de.uka.ipd.sdq.pcm.core.stochastics.RandomVariable;
-
 import de.uka.ipd.sdq.pcm.seff.LoopAction;
 import de.uka.ipd.sdq.pcm.seff.ResourceDemandingBehaviour;
 import de.uka.ipd.sdq.pcm.seff.SeffPackage;
@@ -67,7 +65,6 @@ public class LoopActionImpl extends AbstractResourceDemandingActionImpl implemen
 	 * @ordered
 	 */
 	protected ResourceDemandingBehaviour bodyBehaviour_Loop = null;
-
 
 	/**
 	 * The cached value of the '{@link #getIterations_LoopAction() <em>Iterations Loop Action</em>}' containment reference.

@@ -481,7 +481,7 @@ public interface ParameterPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	interface Literals  {
+	interface Literals {
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.parameter.impl.PrimitiveParameterCharacterisationImpl <em>Primitive Parameter Characterisation</em>}' class.
 		 * <!-- begin-user-doc -->

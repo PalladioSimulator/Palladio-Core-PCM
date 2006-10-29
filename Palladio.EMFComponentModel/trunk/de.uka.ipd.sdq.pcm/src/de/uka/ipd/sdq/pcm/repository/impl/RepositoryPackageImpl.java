@@ -6,34 +6,38 @@
  */
 package de.uka.ipd.sdq.pcm.repository.impl;
 
-import org.eclipse.emf.ecore.EAttribute;
-import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EEnum;
-import org.eclipse.emf.ecore.EOperation;
-import org.eclipse.emf.ecore.EPackage;
-import org.eclipse.emf.ecore.EReference;
-import org.eclipse.emf.ecore.EValidator;
-import org.eclipse.emf.ecore.impl.EPackageImpl;
-
 import de.uka.ipd.sdq.identifier.IdentifierPackage;
+
 import de.uka.ipd.sdq.pcm.allocation.AllocationPackage;
+
 import de.uka.ipd.sdq.pcm.allocation.impl.AllocationPackageImpl;
-import de.uka.ipd.sdq.pcm.assembly.AssemblyPackage;
-import de.uka.ipd.sdq.pcm.assembly.impl.AssemblyPackageImpl;
+
+import de.uka.ipd.sdq.pcm.core.composition.CompositionPackage;
+
+import de.uka.ipd.sdq.pcm.core.composition.impl.CompositionPackageImpl;
+
 import de.uka.ipd.sdq.pcm.core.connectors.ConnectorsPackage;
+
 import de.uka.ipd.sdq.pcm.core.connectors.impl.ConnectorsPackageImpl;
+
 import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
+
 import de.uka.ipd.sdq.pcm.core.entity.impl.EntityPackageImpl;
+
 import de.uka.ipd.sdq.pcm.core.stochastics.StochasticsPackage;
+
 import de.uka.ipd.sdq.pcm.core.stochastics.impl.StochasticsPackageImpl;
+
 import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
+
 import de.uka.ipd.sdq.pcm.parameter.impl.ParameterPackageImpl;
+
 import de.uka.ipd.sdq.pcm.protocol.ProtocolPackage;
+
 import de.uka.ipd.sdq.pcm.protocol.impl.ProtocolPackageImpl;
+
 import de.uka.ipd.sdq.pcm.repository.BasicComponent;
-import de.uka.ipd.sdq.pcm.repository.ChildComponentContext;
 import de.uka.ipd.sdq.pcm.repository.CompleteComponentType;
-import de.uka.ipd.sdq.pcm.repository.CompositeAssemblyConnector;
 import de.uka.ipd.sdq.pcm.repository.CompositeComponent;
 import de.uka.ipd.sdq.pcm.repository.DataType;
 import de.uka.ipd.sdq.pcm.repository.DelegationConnector;
@@ -42,28 +46,48 @@ import de.uka.ipd.sdq.pcm.repository.ImplementationComponentType;
 import de.uka.ipd.sdq.pcm.repository.Interface;
 import de.uka.ipd.sdq.pcm.repository.Parameter;
 import de.uka.ipd.sdq.pcm.repository.ParameterModifier;
-import de.uka.ipd.sdq.pcm.repository.ProvidedDelegationConnector;
 import de.uka.ipd.sdq.pcm.repository.ProvidedRole;
 import de.uka.ipd.sdq.pcm.repository.ProvidesComponentType;
 import de.uka.ipd.sdq.pcm.repository.Repository;
 import de.uka.ipd.sdq.pcm.repository.RepositoryFactory;
 import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
-import de.uka.ipd.sdq.pcm.repository.RequiredDelegationConnector;
 import de.uka.ipd.sdq.pcm.repository.RequiredRole;
 import de.uka.ipd.sdq.pcm.repository.Role;
 import de.uka.ipd.sdq.pcm.repository.Signature;
+
 import de.uka.ipd.sdq.pcm.repository.util.RepositoryValidator;
+
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage;
+
 import de.uka.ipd.sdq.pcm.resourceenvironment.impl.ResourceenvironmentPackageImpl;
+
 import de.uka.ipd.sdq.pcm.resourcetype.ResourcetypePackage;
+
 import de.uka.ipd.sdq.pcm.resourcetype.impl.ResourcetypePackageImpl;
+
 import de.uka.ipd.sdq.pcm.seff.SeffPackage;
+
 import de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl;
+
 import de.uka.ipd.sdq.pcm.system.SystemPackage;
+
 import de.uka.ipd.sdq.pcm.system.impl.SystemPackageImpl;
+
 import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
+
 import de.uka.ipd.sdq.pcm.usagemodel.impl.UsagemodelPackageImpl;
+
 import de.uka.ipd.sdq.probfunction.ProbfunctionPackage;
+
+import org.eclipse.emf.ecore.EAttribute;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
+import org.eclipse.emf.ecore.EOperation;
+import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.EReference;
+import org.eclipse.emf.ecore.EValidator;
+
+import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -126,27 +150,6 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass requiredDelegationConnectorEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass delegationConnectorEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass childComponentContextEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EClass repositoryEClass = null;
 
 	/**
@@ -154,14 +157,14 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass providedRoleEClass = null;
+	private EClass providesComponentTypeEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass providedDelegationConnectorEClass = null;
+	private EClass providedRoleEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -189,13 +192,6 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass compositeAssemblyConnectorEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EClass basicComponentEClass = null;
 
 	/**
@@ -203,7 +199,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass providesComponentTypeEClass = null;
+	private EClass delegationConnectorEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -273,10 +269,10 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 		ProbfunctionPackage.eINSTANCE.eClass();
 
 		// Obtain or create and register interdependencies
-		AssemblyPackageImpl theAssemblyPackage = (AssemblyPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(AssemblyPackage.eNS_URI) instanceof AssemblyPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(AssemblyPackage.eNS_URI) : AssemblyPackage.eINSTANCE);
 		StochasticsPackageImpl theStochasticsPackage = (StochasticsPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(StochasticsPackage.eNS_URI) instanceof StochasticsPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(StochasticsPackage.eNS_URI) : StochasticsPackage.eINSTANCE);
 		EntityPackageImpl theEntityPackage = (EntityPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(EntityPackage.eNS_URI) instanceof EntityPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(EntityPackage.eNS_URI) : EntityPackage.eINSTANCE);
 		ConnectorsPackageImpl theConnectorsPackage = (ConnectorsPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ConnectorsPackage.eNS_URI) instanceof ConnectorsPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ConnectorsPackage.eNS_URI) : ConnectorsPackage.eINSTANCE);
+		CompositionPackageImpl theCompositionPackage = (CompositionPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(CompositionPackage.eNS_URI) instanceof CompositionPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(CompositionPackage.eNS_URI) : CompositionPackage.eINSTANCE);
 		ProtocolPackageImpl theProtocolPackage = (ProtocolPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ProtocolPackage.eNS_URI) instanceof ProtocolPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ProtocolPackage.eNS_URI) : ProtocolPackage.eINSTANCE);
 		SeffPackageImpl theSeffPackage = (SeffPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(SeffPackage.eNS_URI) instanceof SeffPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(SeffPackage.eNS_URI) : SeffPackage.eINSTANCE);
 		ResourcetypePackageImpl theResourcetypePackage = (ResourcetypePackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ResourcetypePackage.eNS_URI) instanceof ResourcetypePackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ResourcetypePackage.eNS_URI) : ResourcetypePackage.eINSTANCE);
@@ -288,10 +284,10 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 
 		// Create package meta-data objects
 		theRepositoryPackage.createPackageContents();
-		theAssemblyPackage.createPackageContents();
 		theStochasticsPackage.createPackageContents();
 		theEntityPackage.createPackageContents();
 		theConnectorsPackage.createPackageContents();
+		theCompositionPackage.createPackageContents();
 		theProtocolPackage.createPackageContents();
 		theSeffPackage.createPackageContents();
 		theResourcetypePackage.createPackageContents();
@@ -303,10 +299,10 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 
 		// Initialize created meta-data
 		theRepositoryPackage.initializePackageContents();
-		theAssemblyPackage.initializePackageContents();
 		theStochasticsPackage.initializePackageContents();
 		theEntityPackage.initializePackageContents();
 		theConnectorsPackage.initializePackageContents();
+		theCompositionPackage.initializePackageContents();
 		theProtocolPackage.initializePackageContents();
 		theSeffPackage.initializePackageContents();
 		theResourcetypePackage.initializePackageContents();
@@ -543,69 +539,6 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getRequiredDelegationConnector() {
-		return requiredDelegationConnectorEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getRequiredDelegationConnector_InnerRequiredRole_RequiredDelegationConnector() {
-		return (EReference)requiredDelegationConnectorEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getRequiredDelegationConnector_OuterRequiredRole_RequiredDelegationConnector() {
-		return (EReference)requiredDelegationConnectorEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getRequiredDelegationConnector_ChildComponentContext_RequiredDelegationConnector() {
-		return (EReference)requiredDelegationConnectorEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getDelegationConnector() {
-		return delegationConnectorEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getChildComponentContext() {
-		return childComponentContextEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getChildComponentContext_EncapsulatedComponent_ChildComponentContext() {
-		return (EReference)childComponentContextEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getRepository() {
 		return repositoryEClass;
 	}
@@ -651,6 +584,33 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getProvidesComponentType() {
+		return providesComponentTypeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getProvidesComponentType_ProvidedRoles__ProvidesComponentType() {
+		return (EReference)providesComponentTypeEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getProvidesComponentType_RequiredRoles_ProvidesComponentType() {
+		return (EReference)providesComponentTypeEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getProvidedRole() {
 		return providedRoleEClass;
 	}
@@ -671,42 +631,6 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 	 */
 	public EReference getProvidedRole_ProvidingComponent__ProvidedRole() {
 		return (EReference)providedRoleEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getProvidedDelegationConnector() {
-		return providedDelegationConnectorEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getProvidedDelegationConnector_InnerProvidedRole_ProvidedDelegationConnector() {
-		return (EReference)providedDelegationConnectorEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getProvidedDelegationConnector_OuterProvidedRole_ProvidedDelegationConnector() {
-		return (EReference)providedDelegationConnectorEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getProvidedDelegationConnector_ChildComponentContext_ProvidedDelegationConnector() {
-		return (EReference)providedDelegationConnectorEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -759,89 +683,8 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getCompositeComponent_ProvidedDelegationConnectors__CompositeComponent() {
-		return (EReference)compositeComponentEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getCompositeComponent_RequiredDelegationConnectors__CompositeComponent() {
-		return (EReference)compositeComponentEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EReference getCompositeComponent_ImplementationComponentType() {
-		return (EReference)compositeComponentEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getCompositeComponent_ChildComponentContexts_CompositeComponent() {
-		return (EReference)compositeComponentEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getCompositeComponent_CompositeAssemblyConnectors_CompositeComponent() {
-		return (EReference)compositeComponentEClass.getEStructuralFeatures().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getCompositeAssemblyConnector() {
-		return compositeAssemblyConnectorEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getCompositeAssemblyConnector_RequiringChildComponentContext_CompositeAssemblyConnector() {
-		return (EReference)compositeAssemblyConnectorEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getCompositeAssemblyConnector_ProvidingChildComponentContext_CompositeAssemblyConnector() {
-		return (EReference)compositeAssemblyConnectorEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getCompositeAssemblyConnector_ProvidedRole_CompositeAssemblyConnector() {
-		return (EReference)compositeAssemblyConnectorEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getCompositeAssemblyConnector_RequiredRole_CompositeAssemblyConnector() {
-		return (EReference)compositeAssemblyConnectorEClass.getEStructuralFeatures().get(3);
+		return (EReference)compositeComponentEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -876,26 +719,8 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getProvidesComponentType() {
-		return providesComponentTypeEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getProvidesComponentType_ProvidedRoles__ProvidesComponentType() {
-		return (EReference)providesComponentTypeEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getProvidesComponentType_RequiredRoles_ProvidesComponentType() {
-		return (EReference)providesComponentTypeEClass.getEStructuralFeatures().get(1);
+	public EClass getDelegationConnector() {
+		return delegationConnectorEClass;
 	}
 
 	/**
@@ -965,30 +790,19 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 		createEReference(interfaceEClass, INTERFACE__PROTOCOLS_INTERFACE);
 		createEReference(interfaceEClass, INTERFACE__SIGNATURES_INTERFACE);
 
-		requiredDelegationConnectorEClass = createEClass(REQUIRED_DELEGATION_CONNECTOR);
-		createEReference(requiredDelegationConnectorEClass, REQUIRED_DELEGATION_CONNECTOR__INNER_REQUIRED_ROLE_REQUIRED_DELEGATION_CONNECTOR);
-		createEReference(requiredDelegationConnectorEClass, REQUIRED_DELEGATION_CONNECTOR__OUTER_REQUIRED_ROLE_REQUIRED_DELEGATION_CONNECTOR);
-		createEReference(requiredDelegationConnectorEClass, REQUIRED_DELEGATION_CONNECTOR__CHILD_COMPONENT_CONTEXT_REQUIRED_DELEGATION_CONNECTOR);
-
-		delegationConnectorEClass = createEClass(DELEGATION_CONNECTOR);
-
-		childComponentContextEClass = createEClass(CHILD_COMPONENT_CONTEXT);
-		createEReference(childComponentContextEClass, CHILD_COMPONENT_CONTEXT__ENCAPSULATED_COMPONENT_CHILD_COMPONENT_CONTEXT);
-
 		repositoryEClass = createEClass(REPOSITORY);
 		createEAttribute(repositoryEClass, REPOSITORY__REPOSITORY_DESCRIPTION);
 		createEAttribute(repositoryEClass, REPOSITORY__REPOSITORY_NAME);
 		createEReference(repositoryEClass, REPOSITORY__COMPONENTS_REPOSITORY);
 		createEReference(repositoryEClass, REPOSITORY__INTERFACES_REPOSITORY);
 
+		providesComponentTypeEClass = createEClass(PROVIDES_COMPONENT_TYPE);
+		createEReference(providesComponentTypeEClass, PROVIDES_COMPONENT_TYPE__PROVIDED_ROLES_PROVIDES_COMPONENT_TYPE);
+		createEReference(providesComponentTypeEClass, PROVIDES_COMPONENT_TYPE__REQUIRED_ROLES_PROVIDES_COMPONENT_TYPE);
+
 		providedRoleEClass = createEClass(PROVIDED_ROLE);
 		createEReference(providedRoleEClass, PROVIDED_ROLE__PROVIDED_INTERFACE_PROVIDED_ROLE);
 		createEReference(providedRoleEClass, PROVIDED_ROLE__PROVIDING_COMPONENT_PROVIDED_ROLE);
-
-		providedDelegationConnectorEClass = createEClass(PROVIDED_DELEGATION_CONNECTOR);
-		createEReference(providedDelegationConnectorEClass, PROVIDED_DELEGATION_CONNECTOR__INNER_PROVIDED_ROLE_PROVIDED_DELEGATION_CONNECTOR);
-		createEReference(providedDelegationConnectorEClass, PROVIDED_DELEGATION_CONNECTOR__OUTER_PROVIDED_ROLE_PROVIDED_DELEGATION_CONNECTOR);
-		createEReference(providedDelegationConnectorEClass, PROVIDED_DELEGATION_CONNECTOR__CHILD_COMPONENT_CONTEXT_PROVIDED_DELEGATION_CONNECTOR);
 
 		implementationComponentTypeEClass = createEClass(IMPLEMENTATION_COMPONENT_TYPE);
 		createEReference(implementationComponentTypeEClass, IMPLEMENTATION_COMPONENT_TYPE__PARENT_COMPLETE_COMPONENT_TYPES);
@@ -997,25 +811,13 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 		createEReference(completeComponentTypeEClass, COMPLETE_COMPONENT_TYPE__PARENT_PROVIDES_COMPONENT_TYPES);
 
 		compositeComponentEClass = createEClass(COMPOSITE_COMPONENT);
-		createEReference(compositeComponentEClass, COMPOSITE_COMPONENT__PROVIDED_DELEGATION_CONNECTORS_COMPOSITE_COMPONENT);
-		createEReference(compositeComponentEClass, COMPOSITE_COMPONENT__REQUIRED_DELEGATION_CONNECTORS_COMPOSITE_COMPONENT);
 		createEReference(compositeComponentEClass, COMPOSITE_COMPONENT__IMPLEMENTATION_COMPONENT_TYPE);
-		createEReference(compositeComponentEClass, COMPOSITE_COMPONENT__CHILD_COMPONENT_CONTEXTS_COMPOSITE_COMPONENT);
-		createEReference(compositeComponentEClass, COMPOSITE_COMPONENT__COMPOSITE_ASSEMBLY_CONNECTORS_COMPOSITE_COMPONENT);
-
-		compositeAssemblyConnectorEClass = createEClass(COMPOSITE_ASSEMBLY_CONNECTOR);
-		createEReference(compositeAssemblyConnectorEClass, COMPOSITE_ASSEMBLY_CONNECTOR__REQUIRING_CHILD_COMPONENT_CONTEXT_COMPOSITE_ASSEMBLY_CONNECTOR);
-		createEReference(compositeAssemblyConnectorEClass, COMPOSITE_ASSEMBLY_CONNECTOR__PROVIDING_CHILD_COMPONENT_CONTEXT_COMPOSITE_ASSEMBLY_CONNECTOR);
-		createEReference(compositeAssemblyConnectorEClass, COMPOSITE_ASSEMBLY_CONNECTOR__PROVIDED_ROLE_COMPOSITE_ASSEMBLY_CONNECTOR);
-		createEReference(compositeAssemblyConnectorEClass, COMPOSITE_ASSEMBLY_CONNECTOR__REQUIRED_ROLE_COMPOSITE_ASSEMBLY_CONNECTOR);
 
 		basicComponentEClass = createEClass(BASIC_COMPONENT);
 		createEReference(basicComponentEClass, BASIC_COMPONENT__IMPLEMENTATION_COMPONENT_TYPE);
 		createEReference(basicComponentEClass, BASIC_COMPONENT__SERVICE_EFFECT_SPECIFICATIONS_BASIC_COMPONENT);
 
-		providesComponentTypeEClass = createEClass(PROVIDES_COMPONENT_TYPE);
-		createEReference(providesComponentTypeEClass, PROVIDES_COMPONENT_TYPE__PROVIDED_ROLES_PROVIDES_COMPONENT_TYPE);
-		createEReference(providesComponentTypeEClass, PROVIDES_COMPONENT_TYPE__REQUIRED_ROLES_PROVIDES_COMPONENT_TYPE);
+		delegationConnectorEClass = createEClass(DELEGATION_CONNECTOR);
 
 		// Create enums
 		parameterModifierEEnum = createEEnum(PARAMETER_MODIFIER);
@@ -1047,25 +849,22 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 		// Obtain other dependent packages
 		EntityPackage theEntityPackage = (EntityPackage)EPackage.Registry.INSTANCE.getEPackage(EntityPackage.eNS_URI);
 		ProtocolPackage theProtocolPackage = (ProtocolPackage)EPackage.Registry.INSTANCE.getEPackage(ProtocolPackage.eNS_URI);
-		ConnectorsPackage theConnectorsPackage = (ConnectorsPackage)EPackage.Registry.INSTANCE.getEPackage(ConnectorsPackage.eNS_URI);
+		CompositionPackage theCompositionPackage = (CompositionPackage)EPackage.Registry.INSTANCE.getEPackage(CompositionPackage.eNS_URI);
 		SeffPackage theSeffPackage = (SeffPackage)EPackage.Registry.INSTANCE.getEPackage(SeffPackage.eNS_URI);
+		ConnectorsPackage theConnectorsPackage = (ConnectorsPackage)EPackage.Registry.INSTANCE.getEPackage(ConnectorsPackage.eNS_URI);
 
 		// Add supertypes to classes
 		roleEClass.getESuperTypes().add(theEntityPackage.getEntity());
 		requiredRoleEClass.getESuperTypes().add(this.getRole());
 		interfaceEClass.getESuperTypes().add(theEntityPackage.getEntity());
-		requiredDelegationConnectorEClass.getESuperTypes().add(this.getDelegationConnector());
-		delegationConnectorEClass.getESuperTypes().add(theConnectorsPackage.getConnector());
-		childComponentContextEClass.getESuperTypes().add(theEntityPackage.getEntity());
+		providesComponentTypeEClass.getESuperTypes().add(theEntityPackage.getEntity());
 		providedRoleEClass.getESuperTypes().add(this.getRole());
-		providedDelegationConnectorEClass.getESuperTypes().add(this.getDelegationConnector());
 		implementationComponentTypeEClass.getESuperTypes().add(this.getCompleteComponentType());
 		completeComponentTypeEClass.getESuperTypes().add(this.getProvidesComponentType());
 		compositeComponentEClass.getESuperTypes().add(this.getImplementationComponentType());
-		compositeAssemblyConnectorEClass.getESuperTypes().add(theConnectorsPackage.getConnector());
-		compositeAssemblyConnectorEClass.getESuperTypes().add(theEntityPackage.getEntity());
+		compositeComponentEClass.getESuperTypes().add(theCompositionPackage.getComposedStructure());
 		basicComponentEClass.getESuperTypes().add(this.getImplementationComponentType());
-		providesComponentTypeEClass.getESuperTypes().add(theEntityPackage.getEntity());
+		delegationConnectorEClass.getESuperTypes().add(theConnectorsPackage.getConnector());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(signatureEClass, Signature.class, "Signature", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1110,24 +909,6 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1);
 		addEParameter(op, ecorePackage.getEMap(), "context", 0, 1);
 
-		initEClass(requiredDelegationConnectorEClass, RequiredDelegationConnector.class, "RequiredDelegationConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getRequiredDelegationConnector_InnerRequiredRole_RequiredDelegationConnector(), this.getRequiredRole(), null, "innerRequiredRole_RequiredDelegationConnector", null, 1, 1, RequiredDelegationConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getRequiredDelegationConnector_OuterRequiredRole_RequiredDelegationConnector(), this.getRequiredRole(), null, "outerRequiredRole_RequiredDelegationConnector", null, 1, 1, RequiredDelegationConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getRequiredDelegationConnector_ChildComponentContext_RequiredDelegationConnector(), this.getChildComponentContext(), null, "childComponentContext_RequiredDelegationConnector", null, 1, 1, RequiredDelegationConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-
-		op = addEOperation(requiredDelegationConnectorEClass, ecorePackage.getEBoolean(), "innerAndOuterRoleNeedToHaveDifferentContextIDs", 0, 1);
-		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1);
-		addEParameter(op, ecorePackage.getEMap(), "context", 0, 1);
-
-		op = addEOperation(requiredDelegationConnectorEClass, ecorePackage.getEBoolean(), "InnerContainingComponentEqualOuterRequiringComponent", 0, 1);
-		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1);
-		addEParameter(op, ecorePackage.getEMap(), "context", 0, 1);
-
-		initEClass(delegationConnectorEClass, DelegationConnector.class, "DelegationConnector", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(childComponentContextEClass, ChildComponentContext.class, "ChildComponentContext", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getChildComponentContext_EncapsulatedComponent_ChildComponentContext(), this.getProvidesComponentType(), null, "encapsulatedComponent_ChildComponentContext", null, 1, 1, ChildComponentContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-
 		initEClass(repositoryEClass, Repository.class, "Repository", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getRepository_RepositoryDescription(), ecorePackage.getEString(), "repositoryDescription", null, 1, 1, Repository.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getRepository_RepositoryName(), ecorePackage.getEString(), "repositoryName", "New Component Model", 1, 1, Repository.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
@@ -1154,22 +935,17 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1);
 		addEParameter(op, ecorePackage.getEMap(), "context", 0, 1);
 
+		initEClass(providesComponentTypeEClass, ProvidesComponentType.class, "ProvidesComponentType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getProvidesComponentType_ProvidedRoles__ProvidesComponentType(), this.getProvidedRole(), this.getProvidedRole_ProvidingComponent__ProvidedRole(), "providedRoles__ProvidesComponentType", null, 0, -1, ProvidesComponentType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getProvidesComponentType_RequiredRoles_ProvidesComponentType(), this.getRequiredRole(), null, "requiredRoles_ProvidesComponentType", null, 0, -1, ProvidesComponentType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+		op = addEOperation(providesComponentTypeEClass, ecorePackage.getEBoolean(), "AtLeastOneInterfaceHasToBeProvidedByAUsefullProvidesComponentType", 0, 1);
+		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1);
+		addEParameter(op, ecorePackage.getEMap(), "context", 0, 1);
+
 		initEClass(providedRoleEClass, ProvidedRole.class, "ProvidedRole", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getProvidedRole_ProvidedInterface__ProvidedRole(), this.getInterface(), null, "providedInterface__ProvidedRole", null, 1, 1, ProvidedRole.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getProvidedRole_ProvidingComponent__ProvidedRole(), this.getProvidesComponentType(), this.getProvidesComponentType_ProvidedRoles__ProvidesComponentType(), "providingComponent__ProvidedRole", null, 1, 1, ProvidedRole.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-
-		initEClass(providedDelegationConnectorEClass, ProvidedDelegationConnector.class, "ProvidedDelegationConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getProvidedDelegationConnector_InnerProvidedRole_ProvidedDelegationConnector(), this.getProvidedRole(), null, "innerProvidedRole_ProvidedDelegationConnector", null, 1, 1, ProvidedDelegationConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getProvidedDelegationConnector_OuterProvidedRole_ProvidedDelegationConnector(), this.getProvidedRole(), null, "outerProvidedRole_ProvidedDelegationConnector", null, 1, 1, ProvidedDelegationConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getProvidedDelegationConnector_ChildComponentContext_ProvidedDelegationConnector(), this.getChildComponentContext(), null, "childComponentContext_ProvidedDelegationConnector", null, 1, 1, ProvidedDelegationConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-
-		op = addEOperation(providedDelegationConnectorEClass, ecorePackage.getEBoolean(), "innerAndOuterRoleNeedToHaveDifferentContextIDs", 0, 1);
-		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1);
-		addEParameter(op, ecorePackage.getEMap(), "context", 0, 1);
-
-		op = addEOperation(providedDelegationConnectorEClass, ecorePackage.getEBoolean(), "InnerContainingComponentEqualOuterProvidingComponent", 0, 1);
-		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1);
-		addEParameter(op, ecorePackage.getEMap(), "context", 0, 1);
 
 		initEClass(implementationComponentTypeEClass, ImplementationComponentType.class, "ImplementationComponentType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getImplementationComponentType_ParentCompleteComponentTypes(), this.getCompleteComponentType(), null, "parentCompleteComponentTypes", null, 0, -1, ImplementationComponentType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
@@ -1194,11 +970,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 		addEParameter(op, ecorePackage.getEMap(), "context", 0, 1);
 
 		initEClass(compositeComponentEClass, CompositeComponent.class, "CompositeComponent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getCompositeComponent_ProvidedDelegationConnectors__CompositeComponent(), this.getProvidedDelegationConnector(), null, "providedDelegationConnectors__CompositeComponent", null, 0, -1, CompositeComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getCompositeComponent_RequiredDelegationConnectors__CompositeComponent(), this.getRequiredDelegationConnector(), null, "requiredDelegationConnectors__CompositeComponent", null, 0, -1, CompositeComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getCompositeComponent_ImplementationComponentType(), this.getImplementationComponentType(), null, "implementationComponentType", null, 0, 1, CompositeComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getCompositeComponent_ChildComponentContexts_CompositeComponent(), this.getChildComponentContext(), null, "childComponentContexts_CompositeComponent", null, 0, -1, CompositeComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getCompositeComponent_CompositeAssemblyConnectors_CompositeComponent(), this.getCompositeAssemblyConnector(), null, "compositeAssemblyConnectors_CompositeComponent", null, 0, -1, CompositeComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		op = addEOperation(compositeComponentEClass, ecorePackage.getEBoolean(), "ProvideSameInterfaces", 0, 1);
 		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1);
@@ -1207,12 +979,6 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 		op = addEOperation(compositeComponentEClass, ecorePackage.getEBoolean(), "RequireSameInterfaces", 0, 1);
 		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1);
 		addEParameter(op, ecorePackage.getEMap(), "context", 0, 1);
-
-		initEClass(compositeAssemblyConnectorEClass, CompositeAssemblyConnector.class, "CompositeAssemblyConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getCompositeAssemblyConnector_RequiringChildComponentContext_CompositeAssemblyConnector(), this.getChildComponentContext(), null, "requiringChildComponentContext_CompositeAssemblyConnector", null, 1, 1, CompositeAssemblyConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getCompositeAssemblyConnector_ProvidingChildComponentContext_CompositeAssemblyConnector(), this.getChildComponentContext(), null, "providingChildComponentContext_CompositeAssemblyConnector", null, 1, 1, CompositeAssemblyConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getCompositeAssemblyConnector_ProvidedRole_CompositeAssemblyConnector(), this.getProvidedRole(), null, "providedRole_CompositeAssemblyConnector", null, 1, 1, CompositeAssemblyConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getCompositeAssemblyConnector_RequiredRole_CompositeAssemblyConnector(), this.getRequiredRole(), null, "requiredRole_CompositeAssemblyConnector", null, 1, 1, CompositeAssemblyConnector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(basicComponentEClass, BasicComponent.class, "BasicComponent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getBasicComponent_ImplementationComponentType(), this.getImplementationComponentType(), null, "implementationComponentType", null, 0, 1, BasicComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
@@ -1230,13 +996,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1);
 		addEParameter(op, ecorePackage.getEMap(), "context", 0, 1);
 
-		initEClass(providesComponentTypeEClass, ProvidesComponentType.class, "ProvidesComponentType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getProvidesComponentType_ProvidedRoles__ProvidesComponentType(), this.getProvidedRole(), this.getProvidedRole_ProvidingComponent__ProvidedRole(), "providedRoles__ProvidesComponentType", null, 0, -1, ProvidesComponentType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getProvidesComponentType_RequiredRoles_ProvidesComponentType(), this.getRequiredRole(), null, "requiredRoles_ProvidesComponentType", null, 0, -1, ProvidesComponentType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-
-		op = addEOperation(providesComponentTypeEClass, ecorePackage.getEBoolean(), "AtLeastOneInterfaceHasToBeProvidedByAUsefullProvidesComponentType", 0, 1);
-		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1);
-		addEParameter(op, ecorePackage.getEMap(), "context", 0, 1);
+		initEClass(delegationConnectorEClass, DelegationConnector.class, "DelegationConnector", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Initialize enums and add enum literals
 		initEEnum(parameterModifierEEnum, ParameterModifier.class, "ParameterModifier");

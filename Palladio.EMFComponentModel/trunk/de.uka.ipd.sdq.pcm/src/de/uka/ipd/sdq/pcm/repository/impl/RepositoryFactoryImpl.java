@@ -66,17 +66,13 @@ public class RepositoryFactoryImpl extends EFactoryImpl implements RepositoryFac
 			case RepositoryPackage.EXCEPTION_TYPE: return createExceptionType();
 			case RepositoryPackage.REQUIRED_ROLE: return createRequiredRole();
 			case RepositoryPackage.INTERFACE: return createInterface();
-			case RepositoryPackage.REQUIRED_DELEGATION_CONNECTOR: return createRequiredDelegationConnector();
-			case RepositoryPackage.CHILD_COMPONENT_CONTEXT: return createChildComponentContext();
 			case RepositoryPackage.REPOSITORY: return createRepository();
+			case RepositoryPackage.PROVIDES_COMPONENT_TYPE: return createProvidesComponentType();
 			case RepositoryPackage.PROVIDED_ROLE: return createProvidedRole();
-			case RepositoryPackage.PROVIDED_DELEGATION_CONNECTOR: return createProvidedDelegationConnector();
 			case RepositoryPackage.IMPLEMENTATION_COMPONENT_TYPE: return createImplementationComponentType();
 			case RepositoryPackage.COMPLETE_COMPONENT_TYPE: return createCompleteComponentType();
 			case RepositoryPackage.COMPOSITE_COMPONENT: return createCompositeComponent();
-			case RepositoryPackage.COMPOSITE_ASSEMBLY_CONNECTOR: return createCompositeAssemblyConnector();
 			case RepositoryPackage.BASIC_COMPONENT: return createBasicComponent();
-			case RepositoryPackage.PROVIDES_COMPONENT_TYPE: return createProvidesComponentType();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -175,26 +171,6 @@ public class RepositoryFactoryImpl extends EFactoryImpl implements RepositoryFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RequiredDelegationConnector createRequiredDelegationConnector() {
-		RequiredDelegationConnectorImpl requiredDelegationConnector = new RequiredDelegationConnectorImpl();
-		return requiredDelegationConnector;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ChildComponentContext createChildComponentContext() {
-		ChildComponentContextImpl childComponentContext = new ChildComponentContextImpl();
-		return childComponentContext;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public Repository createRepository() {
 		RepositoryImpl repository = new RepositoryImpl();
 		return repository;
@@ -205,9 +181,9 @@ public class RepositoryFactoryImpl extends EFactoryImpl implements RepositoryFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ProvidedRole createProvidedRole() {
-		ProvidedRoleImpl providedRole = new ProvidedRoleImpl();
-		return providedRole;
+	public ProvidesComponentType createProvidesComponentType() {
+		ProvidesComponentTypeImpl providesComponentType = new ProvidesComponentTypeImpl();
+		return providesComponentType;
 	}
 
 	/**
@@ -215,9 +191,9 @@ public class RepositoryFactoryImpl extends EFactoryImpl implements RepositoryFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ProvidedDelegationConnector createProvidedDelegationConnector() {
-		ProvidedDelegationConnectorImpl providedDelegationConnector = new ProvidedDelegationConnectorImpl();
-		return providedDelegationConnector;
+	public ProvidedRole createProvidedRole() {
+		ProvidedRoleImpl providedRole = new ProvidedRoleImpl();
+		return providedRole;
 	}
 
 	/**
@@ -255,29 +231,9 @@ public class RepositoryFactoryImpl extends EFactoryImpl implements RepositoryFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CompositeAssemblyConnector createCompositeAssemblyConnector() {
-		CompositeAssemblyConnectorImpl compositeAssemblyConnector = new CompositeAssemblyConnectorImpl();
-		return compositeAssemblyConnector;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public BasicComponent createBasicComponent() {
 		BasicComponentImpl basicComponent = new BasicComponentImpl();
 		return basicComponent;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ProvidesComponentType createProvidesComponentType() {
-		ProvidesComponentTypeImpl providesComponentType = new ProvidesComponentTypeImpl();
-		return providesComponentType;
 	}
 
 	/**

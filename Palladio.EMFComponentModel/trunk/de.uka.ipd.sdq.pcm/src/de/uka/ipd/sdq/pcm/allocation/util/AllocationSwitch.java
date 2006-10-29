@@ -94,6 +94,8 @@ public class AllocationSwitch {
 			case AllocationPackage.ALLOCATION_CONTEXT: {
 				AllocationContext allocationContext = (AllocationContext)theEObject;
 				Object result = caseAllocationContext(allocationContext);
+				if (result == null) result = caseEntity(allocationContext);
+				if (result == null) result = caseIdentifier(allocationContext);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}

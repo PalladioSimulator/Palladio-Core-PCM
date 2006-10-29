@@ -7,7 +7,7 @@
 package de.uka.ipd.sdq.pcm.seff.provider;
 
 
-import de.uka.ipd.sdq.pcm.assembly.provider.PcmEditPlugin;
+import de.uka.ipd.sdq.pcm.core.stochastics.provider.PcmEditPlugin;
 
 import de.uka.ipd.sdq.pcm.seff.ForkAction;
 import de.uka.ipd.sdq.pcm.seff.SeffFactory;

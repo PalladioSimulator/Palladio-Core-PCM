@@ -9,9 +9,7 @@ package de.uka.ipd.sdq.pcm.core.stochastics.impl;
 
 import de.uka.ipd.sdq.pcm.core.stochastics.CompareExpression;
 import de.uka.ipd.sdq.pcm.core.stochastics.CompareOperations;
-import de.uka.ipd.sdq.pcm.core.stochastics.Comparison;
 import de.uka.ipd.sdq.pcm.core.stochastics.StochasticsPackage;
-
 import de.uka.ipd.sdq.pcm.core.stochastics.Term;
 
 import org.eclipse.emf.common.notify.Notification;

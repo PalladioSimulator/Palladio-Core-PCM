@@ -7,9 +7,9 @@
 package de.uka.ipd.sdq.pcm.system.provider;
 
 
-import de.uka.ipd.sdq.pcm.assembly.provider.PcmEditPlugin;
+import de.uka.ipd.sdq.pcm.core.stochastics.provider.PcmEditPlugin;
 
-import de.uka.ipd.sdq.pcm.core.entity.provider.EntityItemProvider;
+import de.uka.ipd.sdq.pcm.repository.provider.RequiredRoleItemProvider;
 
 import de.uka.ipd.sdq.pcm.system.SystemFactory;
 import de.uka.ipd.sdq.pcm.system.SystemPackage;
@@ -23,7 +23,6 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
 
-import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
@@ -38,7 +37,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * @generated
  */
 public class SystemRequiredRoleItemProvider
-	extends EntityItemProvider
+	extends RequiredRoleItemProvider
 	implements	
 		IEditingDomainItemProvider,	
 		IStructuredItemContentProvider,	
@@ -65,54 +64,8 @@ public class SystemRequiredRoleItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addRequiredDelegationConnector_SystemRequiredRolePropertyDescriptor(object);
-			addInterface_SystemRequiredRolePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Required Delegation Connector System Required Role feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addRequiredDelegationConnector_SystemRequiredRolePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_SystemRequiredRole_requiredDelegationConnector_SystemRequiredRole_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_SystemRequiredRole_requiredDelegationConnector_SystemRequiredRole_feature", "_UI_SystemRequiredRole_type"),
-				 SystemPackage.Literals.SYSTEM_REQUIRED_ROLE__REQUIRED_DELEGATION_CONNECTOR_SYSTEM_REQUIRED_ROLE,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Interface System Required Role feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addInterface_SystemRequiredRolePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_SystemRequiredRole_interface_SystemRequiredRole_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_SystemRequiredRole_interface_SystemRequiredRole_feature", "_UI_SystemRequiredRole_type"),
-				 SystemPackage.Literals.SYSTEM_REQUIRED_ROLE__INTERFACE_SYSTEM_REQUIRED_ROLE,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
 	}
 
 	/**

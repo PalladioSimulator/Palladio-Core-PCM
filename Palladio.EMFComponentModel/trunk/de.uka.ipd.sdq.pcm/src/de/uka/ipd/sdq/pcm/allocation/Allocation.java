@@ -21,7 +21,7 @@ import org.eclipse.emf.common.util.EList;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link de.uka.ipd.sdq.pcm.allocation.Allocation#getAllocationContexts <em>Allocation Contexts</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.allocation.Allocation#getAllocationContexts_Allocation <em>Allocation Contexts Allocation</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.allocation.Allocation#getTargetResourceEnvironment_Allocation <em>Target Resource Environment Allocation</em>}</li>
  * </ul>
  * </p>
@@ -32,20 +32,20 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface Allocation extends Entity {
 	/**
-	 * Returns the value of the '<em><b>Allocation Contexts</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Allocation Contexts Allocation</b></em>' containment reference list.
 	 * The list contents are of type {@link de.uka.ipd.sdq.pcm.allocation.AllocationContext}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Allocation Contexts</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>Allocation Contexts Allocation</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Allocation Contexts</em>' containment reference list.
-	 * @see de.uka.ipd.sdq.pcm.allocation.AllocationPackage#getAllocation_AllocationContexts()
+	 * @return the value of the '<em>Allocation Contexts Allocation</em>' containment reference list.
+	 * @see de.uka.ipd.sdq.pcm.allocation.AllocationPackage#getAllocation_AllocationContexts_Allocation()
 	 * @model type="de.uka.ipd.sdq.pcm.allocation.AllocationContext" containment="true" ordered="false"
 	 * @generated
 	 */
-	EList getAllocationContexts();
+	EList getAllocationContexts_Allocation();
 
 	/**
 	 * Returns the value of the '<em><b>Target Resource Environment Allocation</b></em>' reference.

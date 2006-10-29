@@ -44,24 +44,6 @@ public interface SystemFactory extends EFactory {
 	de.uka.ipd.sdq.pcm.system.System createSystem();
 
 	/**
-	 * Returns a new object of class '<em>Provided Delegation Connector</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Provided Delegation Connector</em>'.
-	 * @generated
-	 */
-	SystemProvidedDelegationConnector createSystemProvidedDelegationConnector();
-
-	/**
-	 * Returns a new object of class '<em>Required Delegation Connector</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Required Delegation Connector</em>'.
-	 * @generated
-	 */
-	SystemRequiredDelegationConnector createSystemRequiredDelegationConnector();
-
-	/**
 	 * Returns a new object of class '<em>Specified Time Consumption</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

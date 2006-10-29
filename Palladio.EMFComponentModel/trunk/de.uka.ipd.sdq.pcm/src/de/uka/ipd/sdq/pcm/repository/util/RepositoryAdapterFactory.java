@@ -8,6 +8,8 @@ package de.uka.ipd.sdq.pcm.repository.util;
 
 import de.uka.ipd.sdq.identifier.Identifier;
 
+import de.uka.ipd.sdq.pcm.core.composition.ComposedStructure;
+
 import de.uka.ipd.sdq.pcm.core.connectors.Connector;
 
 import de.uka.ipd.sdq.pcm.core.entity.Entity;
@@ -97,23 +99,14 @@ public class RepositoryAdapterFactory extends AdapterFactoryImpl {
 			public Object caseInterface(Interface object) {
 				return createInterfaceAdapter();
 			}
-			public Object caseRequiredDelegationConnector(RequiredDelegationConnector object) {
-				return createRequiredDelegationConnectorAdapter();
-			}
-			public Object caseDelegationConnector(DelegationConnector object) {
-				return createDelegationConnectorAdapter();
-			}
-			public Object caseChildComponentContext(ChildComponentContext object) {
-				return createChildComponentContextAdapter();
-			}
 			public Object caseRepository(Repository object) {
 				return createRepositoryAdapter();
 			}
+			public Object caseProvidesComponentType(ProvidesComponentType object) {
+				return createProvidesComponentTypeAdapter();
+			}
 			public Object caseProvidedRole(ProvidedRole object) {
 				return createProvidedRoleAdapter();
-			}
-			public Object caseProvidedDelegationConnector(ProvidedDelegationConnector object) {
-				return createProvidedDelegationConnectorAdapter();
 			}
 			public Object caseImplementationComponentType(ImplementationComponentType object) {
 				return createImplementationComponentTypeAdapter();
@@ -124,20 +117,20 @@ public class RepositoryAdapterFactory extends AdapterFactoryImpl {
 			public Object caseCompositeComponent(CompositeComponent object) {
 				return createCompositeComponentAdapter();
 			}
-			public Object caseCompositeAssemblyConnector(CompositeAssemblyConnector object) {
-				return createCompositeAssemblyConnectorAdapter();
-			}
 			public Object caseBasicComponent(BasicComponent object) {
 				return createBasicComponentAdapter();
 			}
-			public Object caseProvidesComponentType(ProvidesComponentType object) {
-				return createProvidesComponentTypeAdapter();
+			public Object caseDelegationConnector(DelegationConnector object) {
+				return createDelegationConnectorAdapter();
 			}
 			public Object caseIdentifier(Identifier object) {
 				return createIdentifierAdapter();
 			}
 			public Object caseEntity(Entity object) {
 				return createEntityAdapter();
+			}
+			public Object caseComposedStructure(ComposedStructure object) {
+				return createComposedStructureAdapter();
 			}
 			public Object caseConnector(Connector object) {
 				return createConnectorAdapter();
@@ -259,48 +252,6 @@ public class RepositoryAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.repository.RequiredDelegationConnector <em>Required Delegation Connector</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.pcm.repository.RequiredDelegationConnector
-	 * @generated
-	 */
-	public Adapter createRequiredDelegationConnectorAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.repository.DelegationConnector <em>Delegation Connector</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.pcm.repository.DelegationConnector
-	 * @generated
-	 */
-	public Adapter createDelegationConnectorAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.repository.ChildComponentContext <em>Child Component Context</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.pcm.repository.ChildComponentContext
-	 * @generated
-	 */
-	public Adapter createChildComponentContextAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.repository.Repository <em>Repository</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -315,6 +266,20 @@ public class RepositoryAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.repository.ProvidesComponentType <em>Provides Component Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.pcm.repository.ProvidesComponentType
+	 * @generated
+	 */
+	public Adapter createProvidesComponentTypeAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.repository.ProvidedRole <em>Provided Role</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -325,20 +290,6 @@ public class RepositoryAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createProvidedRoleAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.repository.ProvidedDelegationConnector <em>Provided Delegation Connector</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.pcm.repository.ProvidedDelegationConnector
-	 * @generated
-	 */
-	public Adapter createProvidedDelegationConnectorAdapter() {
 		return null;
 	}
 
@@ -385,20 +336,6 @@ public class RepositoryAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.repository.CompositeAssemblyConnector <em>Composite Assembly Connector</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.pcm.repository.CompositeAssemblyConnector
-	 * @generated
-	 */
-	public Adapter createCompositeAssemblyConnectorAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.repository.BasicComponent <em>Basic Component</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -413,16 +350,16 @@ public class RepositoryAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.repository.ProvidesComponentType <em>Provides Component Type</em>}'.
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.repository.DelegationConnector <em>Delegation Connector</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.pcm.repository.ProvidesComponentType
+	 * @see de.uka.ipd.sdq.pcm.repository.DelegationConnector
 	 * @generated
 	 */
-	public Adapter createProvidesComponentTypeAdapter() {
+	public Adapter createDelegationConnectorAdapter() {
 		return null;
 	}
 
@@ -451,6 +388,20 @@ public class RepositoryAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createEntityAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.core.composition.ComposedStructure <em>Composed Structure</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.pcm.core.composition.ComposedStructure
+	 * @generated
+	 */
+	public Adapter createComposedStructureAdapter() {
 		return null;
 	}
 

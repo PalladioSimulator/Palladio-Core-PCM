@@ -10,7 +10,9 @@ package de.uka.ipd.sdq.pcm.allocation.impl;
 import de.uka.ipd.sdq.pcm.allocation.AllocationContext;
 import de.uka.ipd.sdq.pcm.allocation.AllocationPackage;
 
-import de.uka.ipd.sdq.pcm.assembly.AssemblyContext;
+import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
+
+import de.uka.ipd.sdq.pcm.core.entity.impl.EntityImpl;
 
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer;
 
@@ -29,24 +31,14 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link de.uka.ipd.sdq.pcm.allocation.impl.AllocationContextImpl#getReferencedAssemblyContext_AllocationContext <em>Referenced Assembly Context Allocation Context</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.allocation.impl.AllocationContextImpl#getResourceContainer_AllocationContext <em>Resource Container Allocation Context</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.allocation.impl.AllocationContextImpl#getAssemblyContext_AllocationContext <em>Assembly Context Allocation Context</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class AllocationContextImpl extends EObjectImpl implements AllocationContext {
-	/**
-	 * The cached value of the '{@link #getReferencedAssemblyContext_AllocationContext() <em>Referenced Assembly Context Allocation Context</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getReferencedAssemblyContext_AllocationContext()
-	 * @generated
-	 * @ordered
-	 */
-	protected AssemblyContext referencedAssemblyContext_AllocationContext = null;
-
+public class AllocationContextImpl extends EntityImpl implements AllocationContext {
 	/**
 	 * The cached value of the '{@link #getResourceContainer_AllocationContext() <em>Resource Container Allocation Context</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -56,6 +48,16 @@ public class AllocationContextImpl extends EObjectImpl implements AllocationCont
 	 * @ordered
 	 */
 	protected ResourceContainer resourceContainer_AllocationContext = null;
+
+	/**
+	 * The cached value of the '{@link #getAssemblyContext_AllocationContext() <em>Assembly Context Allocation Context</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAssemblyContext_AllocationContext()
+	 * @generated
+	 * @ordered
+	 */
+	protected AssemblyContext assemblyContext_AllocationContext = null;
 
 
 	/**
@@ -74,44 +76,6 @@ public class AllocationContextImpl extends EObjectImpl implements AllocationCont
 	 */
 	protected EClass eStaticClass() {
 		return AllocationPackage.Literals.ALLOCATION_CONTEXT;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public AssemblyContext getReferencedAssemblyContext_AllocationContext() {
-		if (referencedAssemblyContext_AllocationContext != null && referencedAssemblyContext_AllocationContext.eIsProxy()) {
-			InternalEObject oldReferencedAssemblyContext_AllocationContext = (InternalEObject)referencedAssemblyContext_AllocationContext;
-			referencedAssemblyContext_AllocationContext = (AssemblyContext)eResolveProxy(oldReferencedAssemblyContext_AllocationContext);
-			if (referencedAssemblyContext_AllocationContext != oldReferencedAssemblyContext_AllocationContext) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, AllocationPackage.ALLOCATION_CONTEXT__REFERENCED_ASSEMBLY_CONTEXT_ALLOCATION_CONTEXT, oldReferencedAssemblyContext_AllocationContext, referencedAssemblyContext_AllocationContext));
-			}
-		}
-		return referencedAssemblyContext_AllocationContext;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public AssemblyContext basicGetReferencedAssemblyContext_AllocationContext() {
-		return referencedAssemblyContext_AllocationContext;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setReferencedAssemblyContext_AllocationContext(AssemblyContext newReferencedAssemblyContext_AllocationContext) {
-		AssemblyContext oldReferencedAssemblyContext_AllocationContext = referencedAssemblyContext_AllocationContext;
-		referencedAssemblyContext_AllocationContext = newReferencedAssemblyContext_AllocationContext;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AllocationPackage.ALLOCATION_CONTEXT__REFERENCED_ASSEMBLY_CONTEXT_ALLOCATION_CONTEXT, oldReferencedAssemblyContext_AllocationContext, referencedAssemblyContext_AllocationContext));
 	}
 
 	/**
@@ -157,14 +121,52 @@ public class AllocationContextImpl extends EObjectImpl implements AllocationCont
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public AssemblyContext getAssemblyContext_AllocationContext() {
+		if (assemblyContext_AllocationContext != null && assemblyContext_AllocationContext.eIsProxy()) {
+			InternalEObject oldAssemblyContext_AllocationContext = (InternalEObject)assemblyContext_AllocationContext;
+			assemblyContext_AllocationContext = (AssemblyContext)eResolveProxy(oldAssemblyContext_AllocationContext);
+			if (assemblyContext_AllocationContext != oldAssemblyContext_AllocationContext) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, AllocationPackage.ALLOCATION_CONTEXT__ASSEMBLY_CONTEXT_ALLOCATION_CONTEXT, oldAssemblyContext_AllocationContext, assemblyContext_AllocationContext));
+			}
+		}
+		return assemblyContext_AllocationContext;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public AssemblyContext basicGetAssemblyContext_AllocationContext() {
+		return assemblyContext_AllocationContext;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setAssemblyContext_AllocationContext(AssemblyContext newAssemblyContext_AllocationContext) {
+		AssemblyContext oldAssemblyContext_AllocationContext = assemblyContext_AllocationContext;
+		assemblyContext_AllocationContext = newAssemblyContext_AllocationContext;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, AllocationPackage.ALLOCATION_CONTEXT__ASSEMBLY_CONTEXT_ALLOCATION_CONTEXT, oldAssemblyContext_AllocationContext, assemblyContext_AllocationContext));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case AllocationPackage.ALLOCATION_CONTEXT__REFERENCED_ASSEMBLY_CONTEXT_ALLOCATION_CONTEXT:
-				if (resolve) return getReferencedAssemblyContext_AllocationContext();
-				return basicGetReferencedAssemblyContext_AllocationContext();
 			case AllocationPackage.ALLOCATION_CONTEXT__RESOURCE_CONTAINER_ALLOCATION_CONTEXT:
 				if (resolve) return getResourceContainer_AllocationContext();
 				return basicGetResourceContainer_AllocationContext();
+			case AllocationPackage.ALLOCATION_CONTEXT__ASSEMBLY_CONTEXT_ALLOCATION_CONTEXT:
+				if (resolve) return getAssemblyContext_AllocationContext();
+				return basicGetAssemblyContext_AllocationContext();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -176,11 +178,11 @@ public class AllocationContextImpl extends EObjectImpl implements AllocationCont
 	 */
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case AllocationPackage.ALLOCATION_CONTEXT__REFERENCED_ASSEMBLY_CONTEXT_ALLOCATION_CONTEXT:
-				setReferencedAssemblyContext_AllocationContext((AssemblyContext)newValue);
-				return;
 			case AllocationPackage.ALLOCATION_CONTEXT__RESOURCE_CONTAINER_ALLOCATION_CONTEXT:
 				setResourceContainer_AllocationContext((ResourceContainer)newValue);
+				return;
+			case AllocationPackage.ALLOCATION_CONTEXT__ASSEMBLY_CONTEXT_ALLOCATION_CONTEXT:
+				setAssemblyContext_AllocationContext((AssemblyContext)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -193,11 +195,11 @@ public class AllocationContextImpl extends EObjectImpl implements AllocationCont
 	 */
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case AllocationPackage.ALLOCATION_CONTEXT__REFERENCED_ASSEMBLY_CONTEXT_ALLOCATION_CONTEXT:
-				setReferencedAssemblyContext_AllocationContext((AssemblyContext)null);
-				return;
 			case AllocationPackage.ALLOCATION_CONTEXT__RESOURCE_CONTAINER_ALLOCATION_CONTEXT:
 				setResourceContainer_AllocationContext((ResourceContainer)null);
+				return;
+			case AllocationPackage.ALLOCATION_CONTEXT__ASSEMBLY_CONTEXT_ALLOCATION_CONTEXT:
+				setAssemblyContext_AllocationContext((AssemblyContext)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -210,10 +212,10 @@ public class AllocationContextImpl extends EObjectImpl implements AllocationCont
 	 */
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case AllocationPackage.ALLOCATION_CONTEXT__REFERENCED_ASSEMBLY_CONTEXT_ALLOCATION_CONTEXT:
-				return referencedAssemblyContext_AllocationContext != null;
 			case AllocationPackage.ALLOCATION_CONTEXT__RESOURCE_CONTAINER_ALLOCATION_CONTEXT:
 				return resourceContainer_AllocationContext != null;
+			case AllocationPackage.ALLOCATION_CONTEXT__ASSEMBLY_CONTEXT_ALLOCATION_CONTEXT:
+				return assemblyContext_AllocationContext != null;
 		}
 		return super.eIsSet(featureID);
 	}

@@ -7,10 +7,12 @@
 package de.uka.ipd.sdq.pcm.repository.provider;
 
 
-import de.uka.ipd.sdq.pcm.assembly.provider.PcmEditPlugin;
+import de.uka.ipd.sdq.pcm.core.composition.CompositionFactory;
+import de.uka.ipd.sdq.pcm.core.composition.CompositionPackage;
+
+import de.uka.ipd.sdq.pcm.core.stochastics.provider.PcmEditPlugin;
 
 import de.uka.ipd.sdq.pcm.repository.CompositeComponent;
-import de.uka.ipd.sdq.pcm.repository.RepositoryFactory;
 import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
 
 import java.util.Collection;
@@ -103,10 +105,10 @@ public class CompositeComponentItemProvider
 	public Collection getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(RepositoryPackage.Literals.COMPOSITE_COMPONENT__PROVIDED_DELEGATION_CONNECTORS_COMPOSITE_COMPONENT);
-			childrenFeatures.add(RepositoryPackage.Literals.COMPOSITE_COMPONENT__REQUIRED_DELEGATION_CONNECTORS_COMPOSITE_COMPONENT);
-			childrenFeatures.add(RepositoryPackage.Literals.COMPOSITE_COMPONENT__CHILD_COMPONENT_CONTEXTS_COMPOSITE_COMPONENT);
-			childrenFeatures.add(RepositoryPackage.Literals.COMPOSITE_COMPONENT__COMPOSITE_ASSEMBLY_CONNECTORS_COMPOSITE_COMPONENT);
+			childrenFeatures.add(CompositionPackage.Literals.COMPOSED_STRUCTURE__CHILD_COMPONENT_CONTEXTS_COMPOSED_STRUCTURE);
+			childrenFeatures.add(CompositionPackage.Literals.COMPOSED_STRUCTURE__COMPOSITE_ASSEMBLY_CONNECTORS_COMPOSED_STRUCTURE);
+			childrenFeatures.add(CompositionPackage.Literals.COMPOSED_STRUCTURE__PROVIDED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE);
+			childrenFeatures.add(CompositionPackage.Literals.COMPOSED_STRUCTURE__REQUIRED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE);
 		}
 		return childrenFeatures;
 	}
@@ -157,10 +159,10 @@ public class CompositeComponentItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(CompositeComponent.class)) {
-			case RepositoryPackage.COMPOSITE_COMPONENT__PROVIDED_DELEGATION_CONNECTORS_COMPOSITE_COMPONENT:
-			case RepositoryPackage.COMPOSITE_COMPONENT__REQUIRED_DELEGATION_CONNECTORS_COMPOSITE_COMPONENT:
-			case RepositoryPackage.COMPOSITE_COMPONENT__CHILD_COMPONENT_CONTEXTS_COMPOSITE_COMPONENT:
-			case RepositoryPackage.COMPOSITE_COMPONENT__COMPOSITE_ASSEMBLY_CONNECTORS_COMPOSITE_COMPONENT:
+			case RepositoryPackage.COMPOSITE_COMPONENT__CHILD_COMPONENT_CONTEXTS_COMPOSED_STRUCTURE:
+			case RepositoryPackage.COMPOSITE_COMPONENT__COMPOSITE_ASSEMBLY_CONNECTORS_COMPOSED_STRUCTURE:
+			case RepositoryPackage.COMPOSITE_COMPONENT__PROVIDED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE:
+			case RepositoryPackage.COMPOSITE_COMPONENT__REQUIRED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -179,23 +181,23 @@ public class CompositeComponentItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(RepositoryPackage.Literals.COMPOSITE_COMPONENT__PROVIDED_DELEGATION_CONNECTORS_COMPOSITE_COMPONENT,
-				 RepositoryFactory.eINSTANCE.createProvidedDelegationConnector()));
+				(CompositionPackage.Literals.COMPOSED_STRUCTURE__CHILD_COMPONENT_CONTEXTS_COMPOSED_STRUCTURE,
+				 CompositionFactory.eINSTANCE.createAssemblyContext()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(RepositoryPackage.Literals.COMPOSITE_COMPONENT__REQUIRED_DELEGATION_CONNECTORS_COMPOSITE_COMPONENT,
-				 RepositoryFactory.eINSTANCE.createRequiredDelegationConnector()));
+				(CompositionPackage.Literals.COMPOSED_STRUCTURE__COMPOSITE_ASSEMBLY_CONNECTORS_COMPOSED_STRUCTURE,
+				 CompositionFactory.eINSTANCE.createAssemblyConnector()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(RepositoryPackage.Literals.COMPOSITE_COMPONENT__CHILD_COMPONENT_CONTEXTS_COMPOSITE_COMPONENT,
-				 RepositoryFactory.eINSTANCE.createChildComponentContext()));
+				(CompositionPackage.Literals.COMPOSED_STRUCTURE__PROVIDED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE,
+				 CompositionFactory.eINSTANCE.createProvidedDelegationConnector()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(RepositoryPackage.Literals.COMPOSITE_COMPONENT__COMPOSITE_ASSEMBLY_CONNECTORS_COMPOSITE_COMPONENT,
-				 RepositoryFactory.eINSTANCE.createCompositeAssemblyConnector()));
+				(CompositionPackage.Literals.COMPOSED_STRUCTURE__REQUIRED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE,
+				 CompositionFactory.eINSTANCE.createRequiredDelegationConnector()));
 	}
 
 	/**

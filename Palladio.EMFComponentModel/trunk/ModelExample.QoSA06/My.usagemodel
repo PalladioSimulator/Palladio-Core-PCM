@@ -12,7 +12,7 @@
           </innerElement_ParameterUsage>
           <parameterCharacterisation_CollectionParameterUsage specification="= IntRandomVar[ (0.1; 8) (0.1; 9) (0.2; 10) (0.4; 11) (0.2; 12) ]"/>
         </actualParameterUsage_EntryLevelSystemCall>
-        <systemProvidedRole_EntryLevelSystemCall href="My.system#//@systemProvidedRole_System.0"/>
+        <systemProvidedRole_EntryLevelSystemCall href="My.system#Prov_System_IHTTP"/>
         <signature_EntryLevelSystemCall href="My.repository#//@interfaces__Repository.8/@signatures__Interface.0"/>
       </actions_ScenarioBehaviour>
       <actions_ScenarioBehaviour xsi:type="pcm.usagemodel:Stop" predecessor="//@usageScenario_UsageModel.0/@scenarioBehaviour_UsageScenario/@actions_ScenarioBehaviour.1"/>

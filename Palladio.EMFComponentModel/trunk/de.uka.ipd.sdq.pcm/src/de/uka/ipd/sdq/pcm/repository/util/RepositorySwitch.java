@@ -8,6 +8,8 @@ package de.uka.ipd.sdq.pcm.repository.util;
 
 import de.uka.ipd.sdq.identifier.Identifier;
 
+import de.uka.ipd.sdq.pcm.core.composition.ComposedStructure;
+
 import de.uka.ipd.sdq.pcm.core.connectors.Connector;
 
 import de.uka.ipd.sdq.pcm.core.entity.Entity;
@@ -142,36 +144,17 @@ public class RepositorySwitch {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case RepositoryPackage.REQUIRED_DELEGATION_CONNECTOR: {
-				RequiredDelegationConnector requiredDelegationConnector = (RequiredDelegationConnector)theEObject;
-				Object result = caseRequiredDelegationConnector(requiredDelegationConnector);
-				if (result == null) result = caseDelegationConnector(requiredDelegationConnector);
-				if (result == null) result = caseConnector(requiredDelegationConnector);
-				if (result == null) result = caseEntity(requiredDelegationConnector);
-				if (result == null) result = caseIdentifier(requiredDelegationConnector);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case RepositoryPackage.DELEGATION_CONNECTOR: {
-				DelegationConnector delegationConnector = (DelegationConnector)theEObject;
-				Object result = caseDelegationConnector(delegationConnector);
-				if (result == null) result = caseConnector(delegationConnector);
-				if (result == null) result = caseEntity(delegationConnector);
-				if (result == null) result = caseIdentifier(delegationConnector);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case RepositoryPackage.CHILD_COMPONENT_CONTEXT: {
-				ChildComponentContext childComponentContext = (ChildComponentContext)theEObject;
-				Object result = caseChildComponentContext(childComponentContext);
-				if (result == null) result = caseEntity(childComponentContext);
-				if (result == null) result = caseIdentifier(childComponentContext);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case RepositoryPackage.REPOSITORY: {
 				Repository repository = (Repository)theEObject;
 				Object result = caseRepository(repository);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case RepositoryPackage.PROVIDES_COMPONENT_TYPE: {
+				ProvidesComponentType providesComponentType = (ProvidesComponentType)theEObject;
+				Object result = caseProvidesComponentType(providesComponentType);
+				if (result == null) result = caseEntity(providesComponentType);
+				if (result == null) result = caseIdentifier(providesComponentType);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -181,16 +164,6 @@ public class RepositorySwitch {
 				if (result == null) result = caseRole(providedRole);
 				if (result == null) result = caseEntity(providedRole);
 				if (result == null) result = caseIdentifier(providedRole);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case RepositoryPackage.PROVIDED_DELEGATION_CONNECTOR: {
-				ProvidedDelegationConnector providedDelegationConnector = (ProvidedDelegationConnector)theEObject;
-				Object result = caseProvidedDelegationConnector(providedDelegationConnector);
-				if (result == null) result = caseDelegationConnector(providedDelegationConnector);
-				if (result == null) result = caseConnector(providedDelegationConnector);
-				if (result == null) result = caseEntity(providedDelegationConnector);
-				if (result == null) result = caseIdentifier(providedDelegationConnector);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -217,19 +190,11 @@ public class RepositorySwitch {
 				CompositeComponent compositeComponent = (CompositeComponent)theEObject;
 				Object result = caseCompositeComponent(compositeComponent);
 				if (result == null) result = caseImplementationComponentType(compositeComponent);
+				if (result == null) result = caseComposedStructure(compositeComponent);
 				if (result == null) result = caseCompleteComponentType(compositeComponent);
 				if (result == null) result = caseProvidesComponentType(compositeComponent);
 				if (result == null) result = caseEntity(compositeComponent);
 				if (result == null) result = caseIdentifier(compositeComponent);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case RepositoryPackage.COMPOSITE_ASSEMBLY_CONNECTOR: {
-				CompositeAssemblyConnector compositeAssemblyConnector = (CompositeAssemblyConnector)theEObject;
-				Object result = caseCompositeAssemblyConnector(compositeAssemblyConnector);
-				if (result == null) result = caseConnector(compositeAssemblyConnector);
-				if (result == null) result = caseEntity(compositeAssemblyConnector);
-				if (result == null) result = caseIdentifier(compositeAssemblyConnector);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -244,11 +209,12 @@ public class RepositorySwitch {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case RepositoryPackage.PROVIDES_COMPONENT_TYPE: {
-				ProvidesComponentType providesComponentType = (ProvidesComponentType)theEObject;
-				Object result = caseProvidesComponentType(providesComponentType);
-				if (result == null) result = caseEntity(providesComponentType);
-				if (result == null) result = caseIdentifier(providesComponentType);
+			case RepositoryPackage.DELEGATION_CONNECTOR: {
+				DelegationConnector delegationConnector = (DelegationConnector)theEObject;
+				Object result = caseDelegationConnector(delegationConnector);
+				if (result == null) result = caseConnector(delegationConnector);
+				if (result == null) result = caseEntity(delegationConnector);
+				if (result == null) result = caseIdentifier(delegationConnector);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -362,51 +328,6 @@ public class RepositorySwitch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Required Delegation Connector</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Required Delegation Connector</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public Object caseRequiredDelegationConnector(RequiredDelegationConnector object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Delegation Connector</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Delegation Connector</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public Object caseDelegationConnector(DelegationConnector object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Child Component Context</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Child Component Context</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public Object caseChildComponentContext(ChildComponentContext object) {
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpretting the object as an instance of '<em>Repository</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -422,6 +343,21 @@ public class RepositorySwitch {
 	}
 
 	/**
+	 * Returns the result of interpretting the object as an instance of '<em>Provides Component Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpretting the object as an instance of '<em>Provides Component Type</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public Object caseProvidesComponentType(ProvidesComponentType object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpretting the object as an instance of '<em>Provided Role</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -433,21 +369,6 @@ public class RepositorySwitch {
 	 * @generated
 	 */
 	public Object caseProvidedRole(ProvidedRole object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Provided Delegation Connector</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Provided Delegation Connector</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public Object caseProvidedDelegationConnector(ProvidedDelegationConnector object) {
 		return null;
 	}
 
@@ -497,21 +418,6 @@ public class RepositorySwitch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Composite Assembly Connector</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Composite Assembly Connector</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public Object caseCompositeAssemblyConnector(CompositeAssemblyConnector object) {
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpretting the object as an instance of '<em>Basic Component</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -527,17 +433,17 @@ public class RepositorySwitch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Provides Component Type</em>'.
+	 * Returns the result of interpretting the object as an instance of '<em>Delegation Connector</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Provides Component Type</em>'.
+	 * @return the result of interpretting the object as an instance of '<em>Delegation Connector</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public Object caseProvidesComponentType(ProvidesComponentType object) {
+	public Object caseDelegationConnector(DelegationConnector object) {
 		return null;
 	}
 
@@ -568,6 +474,21 @@ public class RepositorySwitch {
 	 * @generated
 	 */
 	public Object caseEntity(Entity object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpretting the object as an instance of '<em>Composed Structure</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpretting the object as an instance of '<em>Composed Structure</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public Object caseComposedStructure(ComposedStructure object) {
 		return null;
 	}
 

@@ -164,7 +164,7 @@ public class PcmVisualIDRegistry {
 		}
 		if (semanticHint != null && semanticHint.equals(""))
 			semanticHint = null;
-		
+
 		int nodeVisualID = semanticHint != null ? getVisualID(semanticHint)
 				: -1;
 		switch (containerVisualID) {

@@ -7,9 +7,12 @@
 package de.uka.ipd.sdq.pcm.allocation.provider;
 
 
+import de.uka.ipd.sdq.pcm.allocation.AllocationContext;
 import de.uka.ipd.sdq.pcm.allocation.AllocationPackage;
 
-import de.uka.ipd.sdq.pcm.assembly.provider.PcmEditPlugin;
+import de.uka.ipd.sdq.pcm.core.entity.provider.EntityItemProvider;
+
+import de.uka.ipd.sdq.pcm.core.stochastics.provider.PcmEditPlugin;
 
 import java.util.Collection;
 import java.util.List;
@@ -34,7 +37,7 @@ import org.eclipse.emf.edit.provider.ItemProviderAdapter;
  * @generated
  */
 public class AllocationContextItemProvider
-	extends ItemProviderAdapter
+	extends EntityItemProvider
 	implements	
 		IEditingDomainItemProvider,	
 		IStructuredItemContentProvider,	
@@ -61,32 +64,10 @@ public class AllocationContextItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addReferencedAssemblyContext_AllocationContextPropertyDescriptor(object);
 			addResourceContainer_AllocationContextPropertyDescriptor(object);
+			addAssemblyContext_AllocationContextPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Referenced Assembly Context Allocation Context feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addReferencedAssemblyContext_AllocationContextPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_AllocationContext_referencedAssemblyContext_AllocationContext_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_AllocationContext_referencedAssemblyContext_AllocationContext_feature", "_UI_AllocationContext_type"),
-				 AllocationPackage.Literals.ALLOCATION_CONTEXT__REFERENCED_ASSEMBLY_CONTEXT_ALLOCATION_CONTEXT,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
 	}
 
 	/**
@@ -112,6 +93,28 @@ public class AllocationContextItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Assembly Context Allocation Context feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addAssemblyContext_AllocationContextPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_AllocationContext_assemblyContext_AllocationContext_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_AllocationContext_assemblyContext_AllocationContext_feature", "_UI_AllocationContext_type"),
+				 AllocationPackage.Literals.ALLOCATION_CONTEXT__ASSEMBLY_CONTEXT_ALLOCATION_CONTEXT,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This returns AllocationContext.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -128,7 +131,10 @@ public class AllocationContextItemProvider
 	 * @generated
 	 */
 	public String getText(Object object) {
-		return getString("_UI_AllocationContext_type");
+		String label = ((AllocationContext)object).getId();
+		return label == null || label.length() == 0 ?
+			getString("_UI_AllocationContext_type") :
+			getString("_UI_AllocationContext_type") + " " + label;
 	}
 
 	/**

@@ -7,9 +7,13 @@
 package de.uka.ipd.sdq.pcm.system.provider;
 
 
-import de.uka.ipd.sdq.pcm.assembly.provider.PcmEditPlugin;
+import de.uka.ipd.sdq.identifier.IdentifierPackage;
 
-import de.uka.ipd.sdq.pcm.core.entity.provider.EntityItemProvider;
+import de.uka.ipd.sdq.pcm.core.composition.provider.ComposedStructureItemProvider;
+
+import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
+
+import de.uka.ipd.sdq.pcm.core.stochastics.provider.PcmEditPlugin;
 
 import de.uka.ipd.sdq.pcm.system.SystemFactory;
 import de.uka.ipd.sdq.pcm.system.SystemPackage;
@@ -30,6 +34,7 @@ import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
@@ -39,7 +44,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * @generated
  */
 public class SystemItemProvider
-	extends EntityItemProvider
+	extends ComposedStructureItemProvider
 	implements	
 		IEditingDomainItemProvider,	
 		IStructuredItemContentProvider,	
@@ -66,30 +71,53 @@ public class SystemItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addAssembly_SystemPropertyDescriptor(object);
+			addIdPropertyDescriptor(object);
+			addEntityNamePropertyDescriptor(object);
 			addAllocation_SystemPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Assembly System feature.
+	 * This adds a property descriptor for the Id feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addAssembly_SystemPropertyDescriptor(Object object) {
+	protected void addIdPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_System_assembly_System_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_System_assembly_System_feature", "_UI_System_type"),
-				 SystemPackage.Literals.SYSTEM__ASSEMBLY_SYSTEM,
+				 getString("_UI_Identifier_id_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Identifier_id_feature", "_UI_Identifier_type"),
+				 IdentifierPackage.Literals.IDENTIFIER__ID,
 				 true,
 				 false,
-				 true,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Entity Name feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addEntityNamePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Entity_entityName_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Entity_entityName_feature", "_UI_Entity_type"),
+				 EntityPackage.Literals.ENTITY__ENTITY_NAME,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -128,8 +156,6 @@ public class SystemItemProvider
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(SystemPackage.Literals.SYSTEM__SYSTEM_PROVIDED_ROLE_SYSTEM);
-			childrenFeatures.add(SystemPackage.Literals.SYSTEM__PROVIDED_DELEGATION_CONNECTOR_SYSTEM);
-			childrenFeatures.add(SystemPackage.Literals.SYSTEM__REQUIRED_DELEGATION_CONNECTOR_SYSTEM);
 			childrenFeatures.add(SystemPackage.Literals.SYSTEM__SYSTEM_REQUIRED_ROLE_SYSTEM);
 		}
 		return childrenFeatures;
@@ -181,9 +207,11 @@ public class SystemItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(de.uka.ipd.sdq.pcm.system.System.class)) {
+			case SystemPackage.SYSTEM__ID:
+			case SystemPackage.SYSTEM__ENTITY_NAME:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
 			case SystemPackage.SYSTEM__SYSTEM_PROVIDED_ROLE_SYSTEM:
-			case SystemPackage.SYSTEM__PROVIDED_DELEGATION_CONNECTOR_SYSTEM:
-			case SystemPackage.SYSTEM__REQUIRED_DELEGATION_CONNECTOR_SYSTEM:
 			case SystemPackage.SYSTEM__SYSTEM_REQUIRED_ROLE_SYSTEM:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
@@ -205,16 +233,6 @@ public class SystemItemProvider
 			(createChildParameter
 				(SystemPackage.Literals.SYSTEM__SYSTEM_PROVIDED_ROLE_SYSTEM,
 				 SystemFactory.eINSTANCE.createSystemProvidedRole()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(SystemPackage.Literals.SYSTEM__PROVIDED_DELEGATION_CONNECTOR_SYSTEM,
-				 SystemFactory.eINSTANCE.createSystemProvidedDelegationConnector()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(SystemPackage.Literals.SYSTEM__REQUIRED_DELEGATION_CONNECTOR_SYSTEM,
-				 SystemFactory.eINSTANCE.createSystemRequiredDelegationConnector()));
 
 		newChildDescriptors.add
 			(createChildParameter

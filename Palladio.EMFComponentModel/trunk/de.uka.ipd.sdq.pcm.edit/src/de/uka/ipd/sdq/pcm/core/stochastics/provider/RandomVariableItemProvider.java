@@ -7,10 +7,7 @@
 package de.uka.ipd.sdq.pcm.core.stochastics.provider;
 
 
-import de.uka.ipd.sdq.pcm.assembly.provider.PcmEditPlugin;
-
 import de.uka.ipd.sdq.pcm.core.stochastics.RandomVariable;
-import de.uka.ipd.sdq.pcm.core.stochastics.StochasticsFactory;
 import de.uka.ipd.sdq.pcm.core.stochastics.StochasticsPackage;
 
 import java.util.Collection;

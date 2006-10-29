@@ -140,7 +140,7 @@ public interface EntityPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	interface Literals  {
+	interface Literals {
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.core.entity.impl.EntityImpl <em>Entity</em>}' class.
 		 * <!-- begin-user-doc -->

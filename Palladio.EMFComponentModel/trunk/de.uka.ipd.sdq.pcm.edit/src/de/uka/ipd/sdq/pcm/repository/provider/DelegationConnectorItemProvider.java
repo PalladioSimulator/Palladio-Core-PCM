@@ -7,9 +7,9 @@
 package de.uka.ipd.sdq.pcm.repository.provider;
 
 
-import de.uka.ipd.sdq.pcm.assembly.provider.PcmEditPlugin;
-
 import de.uka.ipd.sdq.pcm.core.connectors.provider.ConnectorItemProvider;
+
+import de.uka.ipd.sdq.pcm.core.stochastics.provider.PcmEditPlugin;
 
 import de.uka.ipd.sdq.pcm.repository.DelegationConnector;
 

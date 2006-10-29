@@ -7,14 +7,10 @@
 package de.uka.ipd.sdq.pcm.core.stochastics.provider;
 
 
-import de.uka.ipd.sdq.pcm.assembly.provider.PcmEditPlugin;
-
 import de.uka.ipd.sdq.pcm.core.stochastics.ProbabilityFunctionLiteral;
 import de.uka.ipd.sdq.pcm.core.stochastics.StochasticsPackage;
 
 import de.uka.ipd.sdq.probfunction.ProbfunctionFactory;
-
-
 
 import java.util.Collection;
 import java.util.List;

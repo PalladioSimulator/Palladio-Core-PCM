@@ -3,40 +3,6 @@
     xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="pcm"
     nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/1.0" nsPrefix="pcm">
-  <eSubpackages name="assembly" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Assembly/1.0"
-      nsPrefix="pcm.assembly">
-    <eClassifiers xsi:type="ecore:EClass" name="SystemAssemblyConnector" eSuperTypes="#//core/connectors/Connector">
-      <eOperations name="contextIDsOfProvidesRoleNotEqualRequiresRole" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
-        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value="-- Context-IDs of providingRole and requiringRole have to differ #&#xD;&#xA;self.providingRole.parentContext.identifier.id&lt;>self.requiringRole.parentContext.identifier.id"/>
-        </eAnnotations>
-        <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain"/>
-        <eParameters name="context" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap"/>
-      </eOperations>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="providingContext_SystemAssemblyConnector"
-          ordered="false" lowerBound="1" eType="#//assembly/AssemblyContext"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="requiringContext_SystemAssemblyConnector"
-          ordered="false" lowerBound="1" eType="#//assembly/AssemblyContext"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="providedRole_SystemAssemblyConnector"
-          ordered="false" lowerBound="1" eType="#//repository/ProvidedRole"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="requiredRole_SystemAssemblyConnector"
-          ordered="false" lowerBound="1" eType="#//repository/RequiredRole"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="AssemblyContext" eSuperTypes="#//core/entity/Entity">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="the attribute &quot;description&quot; is only used for identifikation by human"/>
-      </eAnnotations>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="encapsulatedComponent__AssemblyContext"
-          ordered="false" lowerBound="1" eType="#//repository/ProvidesComponentType"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Assembly" eSuperTypes="#//core/entity/Entity">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="assemblyContexts_Assembly"
-          ordered="false" upperBound="-1" eType="#//assembly/AssemblyContext" containment="true"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="assemblyConnectors_Assembly"
-          ordered="false" upperBound="-1" eType="#//assembly/SystemAssemblyConnector"
-          containment="true"/>
-    </eClassifiers>
-  </eSubpackages>
   <eSubpackages name="core" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Core/1.0"
       nsPrefix="pcm.core">
     <eSubpackages name="stochastics" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Core/Stochastics/1.0"
@@ -129,6 +95,81 @@
     <eSubpackages name="connectors" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Core/Connectors/1.0"
         nsPrefix="pcm.core.connectors">
       <eClassifiers xsi:type="ecore:EClass" name="Connector" abstract="true" eSuperTypes="#//core/entity/Entity"/>
+    </eSubpackages>
+    <eSubpackages name="composition" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Composition/1.0"
+        nsPrefix="pcm.core.composition">
+      <eClassifiers xsi:type="ecore:EClass" name="ProvidedDelegationConnector" eSuperTypes="#//repository/DelegationConnector">
+        <eOperations name="innerAndOuterRoleNeedToHaveDifferentContextIDs" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+          <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+            <details key="documentation" value="self->forAll(p1, p2 |&#xD;&#xA;p1.innerProvidingRole.parentContext.identifier.id &lt;> p2.outerProvidingRole.parentContext.identifier.id)"/>
+          </eAnnotations>
+          <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain"/>
+          <eParameters name="context" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap"/>
+        </eOperations>
+        <eOperations name="InnerContainingComponentEqualOuterProvidingComponent" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+          <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+            <details key="documentation" value="self.parentCompositeComponent.identifier.id&#xD;&#xA;=&#xD;&#xA;self.outerProvidingRole.encapsulatedRole.providingComponent.identifier.id&#xD;&#xA;&#xD;&#xA;and&#xD;&#xA;&#xD;&#xA;self.parentCompositeComponent.identifier.id&#xD;&#xA;=&#xD;&#xA;self.innerProvidingRole.encapsulatedRole.providingComponent.identifier.id"/>
+          </eAnnotations>
+          <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain"/>
+          <eParameters name="context" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap"/>
+        </eOperations>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="innerProvidedRole_ProvidedDelegationConnector"
+            ordered="false" lowerBound="1" eType="#//repository/ProvidedRole"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="outerProvidedRole_ProvidedDelegationConnector"
+            ordered="false" lowerBound="1" eType="#//repository/ProvidedRole"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="childComponentContext_ProvidedDelegationConnector"
+            ordered="false" lowerBound="1" eType="#//core/composition/AssemblyContext"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="ComposedStructure" abstract="true">
+        <eStructuralFeatures xsi:type="ecore:EReference" name="childComponentContexts_ComposedStructure"
+            ordered="false" upperBound="-1" eType="#//core/composition/AssemblyContext"
+            containment="true"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="compositeAssemblyConnectors_ComposedStructure"
+            ordered="false" upperBound="-1" eType="#//core/composition/AssemblyConnector"
+            containment="true"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="providedDelegationConnectors_ComposedStructure"
+            ordered="false" upperBound="-1" eType="#//core/composition/ProvidedDelegationConnector"
+            containment="true"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="requiredDelegationConnectors_ComposedStructure"
+            ordered="false" upperBound="-1" eType="#//core/composition/RequiredDelegationConnector"
+            containment="true"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="AssemblyContext" eSuperTypes="#//core/entity/Entity">
+        <eStructuralFeatures xsi:type="ecore:EReference" name="encapsulatedComponent_ChildComponentContext"
+            ordered="false" lowerBound="1" eType="#//repository/ProvidesComponentType"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="AssemblyConnector" eSuperTypes="#//core/connectors/Connector #//core/entity/Entity">
+        <eStructuralFeatures xsi:type="ecore:EReference" name="requiringChildComponentContext_CompositeAssemblyConnector"
+            ordered="false" lowerBound="1" eType="#//core/composition/AssemblyContext"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="providingChildComponentContext_CompositeAssemblyConnector"
+            ordered="false" lowerBound="1" eType="#//core/composition/AssemblyContext"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="providedRole_CompositeAssemblyConnector"
+            ordered="false" lowerBound="1" eType="#//repository/ProvidedRole"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="requiredRole_CompositeAssemblyConnector"
+            ordered="false" lowerBound="1" eType="#//repository/RequiredRole"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="RequiredDelegationConnector" eSuperTypes="#//repository/DelegationConnector">
+        <eOperations name="innerAndOuterRoleNeedToHaveDifferentContextIDs" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+          <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+            <details key="documentation" value="self->forAll(p1, p2 |&#xD;&#xA;p1.innerRequiringRole.parentContext.identifier.id &lt;> p2.outerRequiringRole.parentContext.identifier.id)"/>
+          </eAnnotations>
+          <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain"/>
+          <eParameters name="context" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap"/>
+        </eOperations>
+        <eOperations name="InnerContainingComponentEqualOuterRequiringComponent" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+          <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+            <details key="documentation" value="self.parentCompositeComponent.identifier.id&#xD;&#xA;=&#xD;&#xA;self.outerRequiringRole.encapsulatedRole.requiringComponent.identifier.id&#xD;&#xA;&#xD;&#xA;and&#xD;&#xA;&#xD;&#xA;self.parentCompositeComponent.identifier.id&#xD;&#xA;=&#xD;&#xA;self.innerRequiringRole.encapsulatedRole.requiringComponent.identifier.id"/>
+          </eAnnotations>
+          <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain"/>
+          <eParameters name="context" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap"/>
+        </eOperations>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="innerRequiredRole_RequiredDelegationConnector"
+            ordered="false" lowerBound="1" eType="#//repository/RequiredRole"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="outerRequiredRole_RequiredDelegationConnector"
+            ordered="false" lowerBound="1" eType="#//repository/RequiredRole"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="childComponentContext_RequiredDelegationConnector"
+            ordered="false" lowerBound="1" eType="#//core/composition/AssemblyContext"/>
+      </eClassifiers>
     </eSubpackages>
   </eSubpackages>
   <eSubpackages name="repository" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/1.0"
@@ -224,34 +265,6 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="signatures__Interface"
           ordered="false" upperBound="-1" eType="#//repository/Signature" containment="true"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="RequiredDelegationConnector" eSuperTypes="#//repository/DelegationConnector">
-      <eOperations name="innerAndOuterRoleNeedToHaveDifferentContextIDs" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
-        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value="self->forAll(p1, p2 |&#xD;&#xA;p1.innerRequiringRole.parentContext.identifier.id &lt;> p2.outerRequiringRole.parentContext.identifier.id)"/>
-        </eAnnotations>
-        <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain"/>
-        <eParameters name="context" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap"/>
-      </eOperations>
-      <eOperations name="InnerContainingComponentEqualOuterRequiringComponent" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
-        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value="self.parentCompositeComponent.identifier.id&#xD;&#xA;=&#xD;&#xA;self.outerRequiringRole.encapsulatedRole.requiringComponent.identifier.id&#xD;&#xA;&#xD;&#xA;and&#xD;&#xA;&#xD;&#xA;self.parentCompositeComponent.identifier.id&#xD;&#xA;=&#xD;&#xA;self.innerRequiringRole.encapsulatedRole.requiringComponent.identifier.id"/>
-        </eAnnotations>
-        <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain"/>
-        <eParameters name="context" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap"/>
-      </eOperations>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="innerRequiredRole_RequiredDelegationConnector"
-          ordered="false" lowerBound="1" eType="#//repository/RequiredRole"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="outerRequiredRole_RequiredDelegationConnector"
-          ordered="false" lowerBound="1" eType="#//repository/RequiredRole"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="childComponentContext_RequiredDelegationConnector"
-          ordered="false" lowerBound="1" eType="#//repository/ChildComponentContext"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="DelegationConnector" abstract="true"
-        eSuperTypes="#//core/connectors/Connector"/>
-    <eClassifiers xsi:type="ecore:EClass" name="ChildComponentContext" eSuperTypes="#//core/entity/Entity">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="encapsulatedComponent_ChildComponentContext"
-          ordered="false" lowerBound="1" eType="#//repository/ProvidesComponentType"/>
-    </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Repository">
       <eOperations name="GrantFirstClassEntityTypeCompositeComponent" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -299,34 +312,27 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="interfaces__Repository"
           ordered="false" upperBound="-1" eType="#//repository/Interface" containment="true"/>
     </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ProvidesComponentType" eSuperTypes="#//core/entity/Entity">
+      <eOperations name="AtLeastOneInterfaceHasToBeProvidedByAUsefullProvidesComponentType"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="self.oclIsTypeOf(ProvidesComponentType)&#xD;&#xA;implies&#xD;&#xA;self.providedRoles->size() >= 1"/>
+        </eAnnotations>
+        <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain"/>
+        <eParameters name="context" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap"/>
+      </eOperations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="providedRoles__ProvidesComponentType"
+          ordered="false" upperBound="-1" eType="#//repository/ProvidedRole" containment="true"
+          eOpposite="#//repository/ProvidedRole/providingComponent__ProvidedRole"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="requiredRoles_ProvidesComponentType"
+          ordered="false" upperBound="-1" eType="#//repository/RequiredRole" containment="true"/>
+    </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ProvidedRole" eSuperTypes="#//repository/Role">
       <eStructuralFeatures xsi:type="ecore:EReference" name="providedInterface__ProvidedRole"
           ordered="false" lowerBound="1" eType="#//repository/Interface"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="providingComponent__ProvidedRole"
           ordered="false" lowerBound="1" eType="#//repository/ProvidesComponentType"
           eOpposite="#//repository/ProvidesComponentType/providedRoles__ProvidesComponentType"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="ProvidedDelegationConnector" eSuperTypes="#//repository/DelegationConnector">
-      <eOperations name="innerAndOuterRoleNeedToHaveDifferentContextIDs" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
-        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value="self->forAll(p1, p2 |&#xD;&#xA;p1.innerProvidingRole.parentContext.identifier.id &lt;> p2.outerProvidingRole.parentContext.identifier.id)"/>
-        </eAnnotations>
-        <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain"/>
-        <eParameters name="context" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap"/>
-      </eOperations>
-      <eOperations name="InnerContainingComponentEqualOuterProvidingComponent" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
-        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value="self.parentCompositeComponent.identifier.id&#xD;&#xA;=&#xD;&#xA;self.outerProvidingRole.encapsulatedRole.providingComponent.identifier.id&#xD;&#xA;&#xD;&#xA;and&#xD;&#xA;&#xD;&#xA;self.parentCompositeComponent.identifier.id&#xD;&#xA;=&#xD;&#xA;self.innerProvidingRole.encapsulatedRole.providingComponent.identifier.id"/>
-        </eAnnotations>
-        <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain"/>
-        <eParameters name="context" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap"/>
-      </eOperations>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="innerProvidedRole_ProvidedDelegationConnector"
-          ordered="false" lowerBound="1" eType="#//repository/ProvidedRole"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="outerProvidedRole_ProvidedDelegationConnector"
-          ordered="false" lowerBound="1" eType="#//repository/ProvidedRole"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="childComponentContext_ProvidedDelegationConnector"
-          ordered="false" lowerBound="1" eType="#//repository/ChildComponentContext"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ImplementationComponentType" eSuperTypes="#//repository/CompleteComponentType">
       <eOperations name="RequiredInterfacesHaveToConformToCompleteType" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
@@ -365,7 +371,7 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="parentProvidesComponentTypes"
           ordered="false" upperBound="-1" eType="#//repository/ProvidesComponentType"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="CompositeComponent" eSuperTypes="#//repository/ImplementationComponentType">
+    <eClassifiers xsi:type="ecore:EClass" name="CompositeComponent" eSuperTypes="#//repository/ImplementationComponentType #//core/composition/ComposedStructure">
       <eOperations name="ProvideSameInterfaces" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="-- CC has to provide the same interfaces like the implementationComponentType (if set) (same OCL code like BC)#&#xD;&#xA;self.providedRoles->iterate(pr : ProvidedRole; acc1 : Bag(String) = Bag{} |&#xD;&#xA; acc1->union(pr.providedInterface.identifier.id->asBag())&#xD;&#xA;)&#xD;&#xA;=&#xD;&#xA;if&#xD;&#xA;  -- apply constraint only for non-empty ImplementationComponentTypes of a BC #&#xD;&#xA; self.implementationComponentType->notEmpty()&#xD;&#xA;then&#xD;&#xA; self.implementationComponentType.providedRoles->iterate(pr : ProvidedRole; acc2 : Bag(String) = Bag{} |&#xD;&#xA;  acc2->union(pr.providedInterface.identifier.id->asBag())&#xD;&#xA; )&#xD;&#xA;else&#xD;&#xA; Bag{}&#xD;&#xA;endif"/>
@@ -380,30 +386,8 @@
         <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain"/>
         <eParameters name="context" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap"/>
       </eOperations>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="providedDelegationConnectors__CompositeComponent"
-          ordered="false" upperBound="-1" eType="#//repository/ProvidedDelegationConnector"
-          containment="true"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="requiredDelegationConnectors__CompositeComponent"
-          ordered="false" upperBound="-1" eType="#//repository/RequiredDelegationConnector"
-          containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="implementationComponentType"
           ordered="false" eType="#//repository/ImplementationComponentType"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="childComponentContexts_CompositeComponent"
-          ordered="false" upperBound="-1" eType="#//repository/ChildComponentContext"
-          containment="true"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="compositeAssemblyConnectors_CompositeComponent"
-          ordered="false" upperBound="-1" eType="#//repository/CompositeAssemblyConnector"
-          containment="true"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="CompositeAssemblyConnector" eSuperTypes="#//core/connectors/Connector #//core/entity/Entity">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="requiringChildComponentContext_CompositeAssemblyConnector"
-          ordered="false" lowerBound="1" eType="#//repository/ChildComponentContext"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="providingChildComponentContext_CompositeAssemblyConnector"
-          ordered="false" lowerBound="1" eType="#//repository/ChildComponentContext"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="providedRole_CompositeAssemblyConnector"
-          ordered="false" lowerBound="1" eType="#//repository/ProvidedRole"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="requiredRole_CompositeAssemblyConnector"
-          ordered="false" lowerBound="1" eType="#//repository/RequiredRole"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="BasicComponent" eSuperTypes="#//repository/ImplementationComponentType">
       <eOperations name="noSeffTypeUsedTwice" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
@@ -433,21 +417,8 @@
           ordered="false" upperBound="-1" eType="#//seff/ServiceEffectSpecification"
           containment="true"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="ProvidesComponentType" eSuperTypes="#//core/entity/Entity">
-      <eOperations name="AtLeastOneInterfaceHasToBeProvidedByAUsefullProvidesComponentType"
-          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
-        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value="self.oclIsTypeOf(ProvidesComponentType)&#xD;&#xA;implies&#xD;&#xA;self.providedRoles->size() >= 1"/>
-        </eAnnotations>
-        <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain"/>
-        <eParameters name="context" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap"/>
-      </eOperations>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="providedRoles__ProvidesComponentType"
-          ordered="false" upperBound="-1" eType="#//repository/ProvidedRole" containment="true"
-          eOpposite="#//repository/ProvidedRole/providingComponent__ProvidedRole"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="requiredRoles_ProvidesComponentType"
-          ordered="false" upperBound="-1" eType="#//repository/RequiredRole" containment="true"/>
-    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="DelegationConnector" abstract="true"
+        eSuperTypes="#//core/connectors/Connector"/>
   </eSubpackages>
   <eSubpackages name="protocol" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Protocol/1.0"
       nsPrefix="pcm.protocol">
@@ -616,15 +587,16 @@
   </eSubpackages>
   <eSubpackages name="allocation" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Allocation/1.0"
       nsPrefix="pcm.allocation">
-    <eClassifiers xsi:type="ecore:EClass" name="AllocationContext">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="referencedAssemblyContext_AllocationContext"
-          ordered="false" lowerBound="1" eType="#//assembly/AssemblyContext"/>
+    <eClassifiers xsi:type="ecore:EClass" name="AllocationContext" eSuperTypes="#//core/entity/Entity">
       <eStructuralFeatures xsi:type="ecore:EReference" name="resourceContainer_AllocationContext"
           ordered="false" lowerBound="1" eType="#//resourceenvironment/ResourceContainer"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="assemblyContext_AllocationContext"
+          ordered="false" lowerBound="1" eType="#//core/composition/AssemblyContext"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Allocation" eSuperTypes="#//core/entity/Entity">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="allocationContexts" ordered="false"
-          upperBound="-1" eType="#//allocation/AllocationContext" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="allocationContexts_Allocation"
+          ordered="false" upperBound="-1" eType="#//allocation/AllocationContext"
+          containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="targetResourceEnvironment_Allocation"
           ordered="false" eType="#//resourceenvironment/ResourceEnvironment"/>
     </eClassifiers>
@@ -736,64 +708,30 @@
   </eSubpackages>
   <eSubpackages name="system" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/System/1.0"
       nsPrefix="pcm.system">
-    <eClassifiers xsi:type="ecore:EClass" name="SystemRequiredRole" eSuperTypes="#//core/entity/Entity">
+    <eClassifiers xsi:type="ecore:EClass" name="SystemRequiredRole" eSuperTypes="#//repository/RequiredRole #//core/entity/Entity">
       <eStructuralFeatures xsi:type="ecore:EReference" name="system_SystemRequiredRole"
           ordered="false" lowerBound="1" eType="#//system/System" eOpposite="#//system/System/systemRequiredRole_System"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="requiredDelegationConnector_SystemRequiredRole"
-          ordered="false" lowerBound="1" eType="#//system/SystemRequiredDelegationConnector"
-          eOpposite="#//system/SystemRequiredDelegationConnector/systemRequiredRole_SystemRequiredDelegationConnector"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="interface_SystemRequiredRole"
-          ordered="false" lowerBound="1" eType="#//repository/Interface"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="specifiedTimeConsumption_SystemRequiredRole"
           ordered="false" upperBound="-1" eType="#//system/SpecifiedTimeConsumption"
           containment="true"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="System" eSuperTypes="#//core/entity/Entity">
+    <eClassifiers xsi:type="ecore:EClass" name="System" eSuperTypes="#//core/composition/ComposedStructure #//core/entity/Entity">
       <eStructuralFeatures xsi:type="ecore:EReference" name="systemProvidedRole_System"
           ordered="false" upperBound="-1" eType="#//system/SystemProvidedRole" containment="true"
           eOpposite="#//system/SystemProvidedRole/system_SystemProvidedRole"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="assembly_System" ordered="false"
-          lowerBound="1" eType="#//assembly/Assembly"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="providedDelegationConnector_System"
-          ordered="false" upperBound="-1" eType="#//system/SystemProvidedDelegationConnector"
-          containment="true"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="requiredDelegationConnector_System"
-          ordered="false" upperBound="-1" eType="#//system/SystemRequiredDelegationConnector"
-          containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="allocation_System" ordered="false"
           lowerBound="1" eType="#//allocation/Allocation"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="systemRequiredRole_System"
           ordered="false" upperBound="-1" eType="#//system/SystemRequiredRole" containment="true"
           eOpposite="#//system/SystemRequiredRole/system_SystemRequiredRole"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="SystemProvidedDelegationConnector">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="systemProvidedRole_SystemProvidedDelegationConnector"
-          ordered="false" lowerBound="1" eType="#//system/SystemProvidedRole" eOpposite="#//system/SystemProvidedRole/providedDelegationConnector_SystemProvidedRole"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="assemblyContext_SystemProvidedDelegationConnector"
-          ordered="false" lowerBound="1" eType="#//assembly/AssemblyContext"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="componentProvidedRole_SystemProvidedDelegationConnector"
-          ordered="false" lowerBound="1" eType="#//repository/ProvidedRole"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="SystemRequiredDelegationConnector">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="systemRequiredRole_SystemRequiredDelegationConnector"
-          ordered="false" lowerBound="1" eType="#//system/SystemRequiredRole" eOpposite="#//system/SystemRequiredRole/requiredDelegationConnector_SystemRequiredRole"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="assemblyContext_SystemRequiredDelegationConnector"
-          ordered="false" lowerBound="1" eType="#//assembly/AssemblyContext"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="requiredRole_SystemRequiredDelegationConnector"
-          ordered="false" lowerBound="1" eType="#//repository/RequiredRole"/>
-    </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="SpecifiedTimeConsumption" eSuperTypes="#//core/stochastics/RandomVariable">
       <eStructuralFeatures xsi:type="ecore:EReference" name="signature_SpecifiedTimeConsumption"
           ordered="false" lowerBound="1" eType="#//repository/Signature"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="SystemProvidedRole" eSuperTypes="#//core/entity/Entity">
+    <eClassifiers xsi:type="ecore:EClass" name="SystemProvidedRole" eSuperTypes="#//repository/ProvidedRole #//core/entity/Entity">
       <eStructuralFeatures xsi:type="ecore:EReference" name="system_SystemProvidedRole"
           ordered="false" lowerBound="1" eType="#//system/System" eOpposite="#//system/System/systemProvidedRole_System"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="providedDelegationConnector_SystemProvidedRole"
-          ordered="false" lowerBound="1" eType="#//system/SystemProvidedDelegationConnector"
-          eOpposite="#//system/SystemProvidedDelegationConnector/systemProvidedRole_SystemProvidedDelegationConnector"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="interface_SystemProvidedRole"
-          ordered="false" lowerBound="1" eType="#//repository/Interface"/>
     </eClassifiers>
   </eSubpackages>
 </ecore:EPackage>

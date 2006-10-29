@@ -9,7 +9,7 @@ package de.uka.ipd.sdq.pcm.system;
 
 import de.uka.ipd.sdq.pcm.allocation.Allocation;
 
-import de.uka.ipd.sdq.pcm.assembly.Assembly;
+import de.uka.ipd.sdq.pcm.core.composition.ComposedStructure;
 
 import de.uka.ipd.sdq.pcm.core.entity.Entity;
 
@@ -24,9 +24,6 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * <ul>
  *   <li>{@link de.uka.ipd.sdq.pcm.system.System#getSystemProvidedRole_System <em>System Provided Role System</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.system.System#getAssembly_System <em>Assembly System</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.system.System#getProvidedDelegationConnector_System <em>Provided Delegation Connector System</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.system.System#getRequiredDelegationConnector_System <em>Required Delegation Connector System</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.system.System#getAllocation_System <em>Allocation System</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.system.System#getSystemRequiredRole_System <em>System Required Role System</em>}</li>
  * </ul>
@@ -36,7 +33,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface System extends Entity {
+public interface System extends ComposedStructure, Entity {
 	/**
 	 * Returns the value of the '<em><b>System Provided Role System</b></em>' containment reference list.
 	 * The list contents are of type {@link de.uka.ipd.sdq.pcm.system.SystemProvidedRole}.
@@ -54,64 +51,6 @@ public interface System extends Entity {
 	 * @generated
 	 */
 	EList getSystemProvidedRole_System();
-
-	/**
-	 * Returns the value of the '<em><b>Assembly System</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Assembly System</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Assembly System</em>' reference.
-	 * @see #setAssembly_System(Assembly)
-	 * @see de.uka.ipd.sdq.pcm.system.SystemPackage#getSystem_Assembly_System()
-	 * @model required="true" ordered="false"
-	 * @generated
-	 */
-	Assembly getAssembly_System();
-
-	/**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.system.System#getAssembly_System <em>Assembly System</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Assembly System</em>' reference.
-	 * @see #getAssembly_System()
-	 * @generated
-	 */
-	void setAssembly_System(Assembly value);
-
-	/**
-	 * Returns the value of the '<em><b>Provided Delegation Connector System</b></em>' containment reference list.
-	 * The list contents are of type {@link de.uka.ipd.sdq.pcm.system.SystemProvidedDelegationConnector}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Provided Delegation Connector System</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Provided Delegation Connector System</em>' containment reference list.
-	 * @see de.uka.ipd.sdq.pcm.system.SystemPackage#getSystem_ProvidedDelegationConnector_System()
-	 * @model type="de.uka.ipd.sdq.pcm.system.SystemProvidedDelegationConnector" containment="true" ordered="false"
-	 * @generated
-	 */
-	EList getProvidedDelegationConnector_System();
-
-	/**
-	 * Returns the value of the '<em><b>Required Delegation Connector System</b></em>' containment reference list.
-	 * The list contents are of type {@link de.uka.ipd.sdq.pcm.system.SystemRequiredDelegationConnector}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Required Delegation Connector System</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Required Delegation Connector System</em>' containment reference list.
-	 * @see de.uka.ipd.sdq.pcm.system.SystemPackage#getSystem_RequiredDelegationConnector_System()
-	 * @model type="de.uka.ipd.sdq.pcm.system.SystemRequiredDelegationConnector" containment="true" ordered="false"
-	 * @generated
-	 */
-	EList getRequiredDelegationConnector_System();
 
 	/**
 	 * Returns the value of the '<em><b>Allocation System</b></em>' reference.

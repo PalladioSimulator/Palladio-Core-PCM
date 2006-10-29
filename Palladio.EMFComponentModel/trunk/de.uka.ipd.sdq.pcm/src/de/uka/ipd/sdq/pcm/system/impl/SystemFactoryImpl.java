@@ -9,9 +9,7 @@ package de.uka.ipd.sdq.pcm.system.impl;
 import de.uka.ipd.sdq.pcm.system.SpecifiedTimeConsumption;
 import de.uka.ipd.sdq.pcm.system.SystemFactory;
 import de.uka.ipd.sdq.pcm.system.SystemPackage;
-import de.uka.ipd.sdq.pcm.system.SystemProvidedDelegationConnector;
 import de.uka.ipd.sdq.pcm.system.SystemProvidedRole;
-import de.uka.ipd.sdq.pcm.system.SystemRequiredDelegationConnector;
 import de.uka.ipd.sdq.pcm.system.SystemRequiredRole;
 
 import org.eclipse.emf.ecore.EClass;
@@ -67,8 +65,6 @@ public class SystemFactoryImpl extends EFactoryImpl implements SystemFactory {
 		switch (eClass.getClassifierID()) {
 			case SystemPackage.SYSTEM_REQUIRED_ROLE: return createSystemRequiredRole();
 			case SystemPackage.SYSTEM: return createSystem();
-			case SystemPackage.SYSTEM_PROVIDED_DELEGATION_CONNECTOR: return createSystemProvidedDelegationConnector();
-			case SystemPackage.SYSTEM_REQUIRED_DELEGATION_CONNECTOR: return createSystemRequiredDelegationConnector();
 			case SystemPackage.SPECIFIED_TIME_CONSUMPTION: return createSpecifiedTimeConsumption();
 			case SystemPackage.SYSTEM_PROVIDED_ROLE: return createSystemProvidedRole();
 			default:
@@ -94,26 +90,6 @@ public class SystemFactoryImpl extends EFactoryImpl implements SystemFactory {
 	public de.uka.ipd.sdq.pcm.system.System createSystem() {
 		SystemImpl system = new SystemImpl();
 		return system;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public SystemProvidedDelegationConnector createSystemProvidedDelegationConnector() {
-		SystemProvidedDelegationConnectorImpl systemProvidedDelegationConnector = new SystemProvidedDelegationConnectorImpl();
-		return systemProvidedDelegationConnector;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public SystemRequiredDelegationConnector createSystemRequiredDelegationConnector() {
-		SystemRequiredDelegationConnectorImpl systemRequiredDelegationConnector = new SystemRequiredDelegationConnectorImpl();
-		return systemRequiredDelegationConnector;
 	}
 
 	/**

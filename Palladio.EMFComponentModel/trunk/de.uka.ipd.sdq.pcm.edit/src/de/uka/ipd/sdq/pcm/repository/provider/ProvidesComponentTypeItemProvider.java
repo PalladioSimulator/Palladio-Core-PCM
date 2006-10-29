@@ -7,13 +7,15 @@
 package de.uka.ipd.sdq.pcm.repository.provider;
 
 
-import de.uka.ipd.sdq.pcm.assembly.provider.PcmEditPlugin;
-
 import de.uka.ipd.sdq.pcm.core.entity.provider.EntityItemProvider;
+
+import de.uka.ipd.sdq.pcm.core.stochastics.provider.PcmEditPlugin;
 
 import de.uka.ipd.sdq.pcm.repository.ProvidesComponentType;
 import de.uka.ipd.sdq.pcm.repository.RepositoryFactory;
 import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
+
+import de.uka.ipd.sdq.pcm.system.SystemFactory;
 
 import java.util.Collection;
 import java.util.List;
@@ -158,8 +160,18 @@ public class ProvidesComponentTypeItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
+				(RepositoryPackage.Literals.PROVIDES_COMPONENT_TYPE__PROVIDED_ROLES_PROVIDES_COMPONENT_TYPE,
+				 SystemFactory.eINSTANCE.createSystemProvidedRole()));
+
+		newChildDescriptors.add
+			(createChildParameter
 				(RepositoryPackage.Literals.PROVIDES_COMPONENT_TYPE__REQUIRED_ROLES_PROVIDES_COMPONENT_TYPE,
 				 RepositoryFactory.eINSTANCE.createRequiredRole()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(RepositoryPackage.Literals.PROVIDES_COMPONENT_TYPE__REQUIRED_ROLES_PROVIDES_COMPONENT_TYPE,
+				 SystemFactory.eINSTANCE.createSystemRequiredRole()));
 	}
 
 	/**

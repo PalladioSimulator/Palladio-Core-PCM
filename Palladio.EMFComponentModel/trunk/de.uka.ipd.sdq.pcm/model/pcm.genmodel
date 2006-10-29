@@ -23,31 +23,6 @@
   <modelPluginVariables>EMFT_OCL=org.eclipse.emf.ocl</modelPluginVariables>
   <genPackages prefix="Pcm" basePackage="de.uka.ipd.sdq" disposableProviderFactory="true"
       ecorePackage="pcm.ecore#/">
-    <nestedGenPackages prefix="Assembly" basePackage="de.uka.ipd.sdq.pcm" disposableProviderFactory="true"
-        ecorePackage="pcm.ecore#//assembly">
-      <genClasses ecoreClass="pcm.ecore#//assembly/SystemAssemblyConnector">
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference pcm.ecore#//assembly/SystemAssemblyConnector/providingContext_SystemAssemblyConnector"/>
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference pcm.ecore#//assembly/SystemAssemblyConnector/requiringContext_SystemAssemblyConnector"/>
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference pcm.ecore#//assembly/SystemAssemblyConnector/providedRole_SystemAssemblyConnector"/>
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference pcm.ecore#//assembly/SystemAssemblyConnector/requiredRole_SystemAssemblyConnector"/>
-        <genOperations ecoreOperation="pcm.ecore#//assembly/SystemAssemblyConnector/contextIDsOfProvidesRoleNotEqualRequiresRole">
-          <genParameters ecoreParameter="pcm.ecore#//assembly/SystemAssemblyConnector/contextIDsOfProvidesRoleNotEqualRequiresRole/diagnostics"/>
-          <genParameters ecoreParameter="pcm.ecore#//assembly/SystemAssemblyConnector/contextIDsOfProvidesRoleNotEqualRequiresRole/context"/>
-        </genOperations>
-      </genClasses>
-      <genClasses ecoreClass="pcm.ecore#//assembly/AssemblyContext">
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference pcm.ecore#//assembly/AssemblyContext/encapsulatedComponent__AssemblyContext"/>
-      </genClasses>
-      <genClasses ecoreClass="pcm.ecore#//assembly/Assembly">
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//assembly/Assembly/assemblyContexts_Assembly"/>
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//assembly/Assembly/assemblyConnectors_Assembly"/>
-      </genClasses>
-    </nestedGenPackages>
     <nestedGenPackages prefix="Core" basePackage="de.uka.ipd.sdq.pcm" disposableProviderFactory="true"
         ecorePackage="pcm.ecore#//core">
       <nestedGenPackages prefix="Stochastics" basePackage="de.uka.ipd.sdq.pcm.core"
@@ -121,6 +96,61 @@
           disposableProviderFactory="true" ecorePackage="pcm.ecore#//core/connectors">
         <genClasses image="false" ecoreClass="pcm.ecore#//core/connectors/Connector"/>
       </nestedGenPackages>
+      <nestedGenPackages prefix="Composition" basePackage="de.uka.ipd.sdq.pcm.core"
+          disposableProviderFactory="true" ecorePackage="pcm.ecore#//core/composition">
+        <genClasses ecoreClass="pcm.ecore#//core/composition/ProvidedDelegationConnector">
+          <genFeatures notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference pcm.ecore#//core/composition/ProvidedDelegationConnector/innerProvidedRole_ProvidedDelegationConnector"/>
+          <genFeatures notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference pcm.ecore#//core/composition/ProvidedDelegationConnector/outerProvidedRole_ProvidedDelegationConnector"/>
+          <genFeatures notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference pcm.ecore#//core/composition/ProvidedDelegationConnector/childComponentContext_ProvidedDelegationConnector"/>
+          <genOperations ecoreOperation="pcm.ecore#//core/composition/ProvidedDelegationConnector/innerAndOuterRoleNeedToHaveDifferentContextIDs">
+            <genParameters ecoreParameter="pcm.ecore#//core/composition/ProvidedDelegationConnector/innerAndOuterRoleNeedToHaveDifferentContextIDs/diagnostics"/>
+            <genParameters ecoreParameter="pcm.ecore#//core/composition/ProvidedDelegationConnector/innerAndOuterRoleNeedToHaveDifferentContextIDs/context"/>
+          </genOperations>
+          <genOperations ecoreOperation="pcm.ecore#//core/composition/ProvidedDelegationConnector/InnerContainingComponentEqualOuterProvidingComponent">
+            <genParameters ecoreParameter="pcm.ecore#//core/composition/ProvidedDelegationConnector/InnerContainingComponentEqualOuterProvidingComponent/diagnostics"/>
+            <genParameters ecoreParameter="pcm.ecore#//core/composition/ProvidedDelegationConnector/InnerContainingComponentEqualOuterProvidingComponent/context"/>
+          </genOperations>
+        </genClasses>
+        <genClasses image="false" ecoreClass="pcm.ecore#//core/composition/ComposedStructure">
+          <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//core/composition/ComposedStructure/childComponentContexts_ComposedStructure"/>
+          <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//core/composition/ComposedStructure/compositeAssemblyConnectors_ComposedStructure"/>
+          <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//core/composition/ComposedStructure/providedDelegationConnectors_ComposedStructure"/>
+          <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//core/composition/ComposedStructure/requiredDelegationConnectors_ComposedStructure"/>
+        </genClasses>
+        <genClasses ecoreClass="pcm.ecore#//core/composition/AssemblyContext">
+          <genFeatures notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference pcm.ecore#//core/composition/AssemblyContext/encapsulatedComponent_ChildComponentContext"/>
+        </genClasses>
+        <genClasses ecoreClass="pcm.ecore#//core/composition/AssemblyConnector">
+          <genFeatures notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference pcm.ecore#//core/composition/AssemblyConnector/requiringChildComponentContext_CompositeAssemblyConnector"/>
+          <genFeatures notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference pcm.ecore#//core/composition/AssemblyConnector/providingChildComponentContext_CompositeAssemblyConnector"/>
+          <genFeatures notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference pcm.ecore#//core/composition/AssemblyConnector/providedRole_CompositeAssemblyConnector"/>
+          <genFeatures notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference pcm.ecore#//core/composition/AssemblyConnector/requiredRole_CompositeAssemblyConnector"/>
+        </genClasses>
+        <genClasses ecoreClass="pcm.ecore#//core/composition/RequiredDelegationConnector">
+          <genFeatures notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference pcm.ecore#//core/composition/RequiredDelegationConnector/innerRequiredRole_RequiredDelegationConnector"/>
+          <genFeatures notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference pcm.ecore#//core/composition/RequiredDelegationConnector/outerRequiredRole_RequiredDelegationConnector"/>
+          <genFeatures notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference pcm.ecore#//core/composition/RequiredDelegationConnector/childComponentContext_RequiredDelegationConnector"/>
+          <genOperations ecoreOperation="pcm.ecore#//core/composition/RequiredDelegationConnector/innerAndOuterRoleNeedToHaveDifferentContextIDs">
+            <genParameters ecoreParameter="pcm.ecore#//core/composition/RequiredDelegationConnector/innerAndOuterRoleNeedToHaveDifferentContextIDs/diagnostics"/>
+            <genParameters ecoreParameter="pcm.ecore#//core/composition/RequiredDelegationConnector/innerAndOuterRoleNeedToHaveDifferentContextIDs/context"/>
+          </genOperations>
+          <genOperations ecoreOperation="pcm.ecore#//core/composition/RequiredDelegationConnector/InnerContainingComponentEqualOuterRequiringComponent">
+            <genParameters ecoreParameter="pcm.ecore#//core/composition/RequiredDelegationConnector/InnerContainingComponentEqualOuterRequiringComponent/diagnostics"/>
+            <genParameters ecoreParameter="pcm.ecore#//core/composition/RequiredDelegationConnector/InnerContainingComponentEqualOuterRequiringComponent/context"/>
+          </genOperations>
+        </genClasses>
+      </nestedGenPackages>
     </nestedGenPackages>
     <nestedGenPackages prefix="Repository" basePackage="de.uka.ipd.sdq.pcm" disposableProviderFactory="true"
         ecorePackage="pcm.ecore#//repository">
@@ -175,27 +205,6 @@
           <genParameters ecoreParameter="pcm.ecore#//repository/Interface/SignaturesHaveToBeUniqueForAnInterface/context"/>
         </genOperations>
       </genClasses>
-      <genClasses ecoreClass="pcm.ecore#//repository/RequiredDelegationConnector">
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference pcm.ecore#//repository/RequiredDelegationConnector/innerRequiredRole_RequiredDelegationConnector"/>
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference pcm.ecore#//repository/RequiredDelegationConnector/outerRequiredRole_RequiredDelegationConnector"/>
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference pcm.ecore#//repository/RequiredDelegationConnector/childComponentContext_RequiredDelegationConnector"/>
-        <genOperations ecoreOperation="pcm.ecore#//repository/RequiredDelegationConnector/innerAndOuterRoleNeedToHaveDifferentContextIDs">
-          <genParameters ecoreParameter="pcm.ecore#//repository/RequiredDelegationConnector/innerAndOuterRoleNeedToHaveDifferentContextIDs/diagnostics"/>
-          <genParameters ecoreParameter="pcm.ecore#//repository/RequiredDelegationConnector/innerAndOuterRoleNeedToHaveDifferentContextIDs/context"/>
-        </genOperations>
-        <genOperations ecoreOperation="pcm.ecore#//repository/RequiredDelegationConnector/InnerContainingComponentEqualOuterRequiringComponent">
-          <genParameters ecoreParameter="pcm.ecore#//repository/RequiredDelegationConnector/InnerContainingComponentEqualOuterRequiringComponent/diagnostics"/>
-          <genParameters ecoreParameter="pcm.ecore#//repository/RequiredDelegationConnector/InnerContainingComponentEqualOuterRequiringComponent/context"/>
-        </genOperations>
-      </genClasses>
-      <genClasses image="false" ecoreClass="pcm.ecore#//repository/DelegationConnector"/>
-      <genClasses ecoreClass="pcm.ecore#//repository/ChildComponentContext">
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference pcm.ecore#//repository/ChildComponentContext/encapsulatedComponent_ChildComponentContext"/>
-      </genClasses>
       <genClasses ecoreClass="pcm.ecore#//repository/Repository">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pcm.ecore#//repository/Repository/repositoryDescription"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pcm.ecore#//repository/Repository/repositoryName"/>
@@ -222,26 +231,18 @@
           <genParameters ecoreParameter="pcm.ecore#//repository/Repository/GrantFirstClassEntityTypeBasicComponent/context"/>
         </genOperations>
       </genClasses>
+      <genClasses ecoreClass="pcm.ecore#//repository/ProvidesComponentType">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//repository/ProvidesComponentType/providedRoles__ProvidesComponentType"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//repository/ProvidesComponentType/requiredRoles_ProvidesComponentType"/>
+        <genOperations ecoreOperation="pcm.ecore#//repository/ProvidesComponentType/AtLeastOneInterfaceHasToBeProvidedByAUsefullProvidesComponentType">
+          <genParameters ecoreParameter="pcm.ecore#//repository/ProvidesComponentType/AtLeastOneInterfaceHasToBeProvidedByAUsefullProvidesComponentType/diagnostics"/>
+          <genParameters ecoreParameter="pcm.ecore#//repository/ProvidesComponentType/AtLeastOneInterfaceHasToBeProvidedByAUsefullProvidesComponentType/context"/>
+        </genOperations>
+      </genClasses>
       <genClasses ecoreClass="pcm.ecore#//repository/ProvidedRole">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference pcm.ecore#//repository/ProvidedRole/providedInterface__ProvidedRole"/>
         <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference pcm.ecore#//repository/ProvidedRole/providingComponent__ProvidedRole"/>
-      </genClasses>
-      <genClasses ecoreClass="pcm.ecore#//repository/ProvidedDelegationConnector">
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference pcm.ecore#//repository/ProvidedDelegationConnector/innerProvidedRole_ProvidedDelegationConnector"/>
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference pcm.ecore#//repository/ProvidedDelegationConnector/outerProvidedRole_ProvidedDelegationConnector"/>
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference pcm.ecore#//repository/ProvidedDelegationConnector/childComponentContext_ProvidedDelegationConnector"/>
-        <genOperations ecoreOperation="pcm.ecore#//repository/ProvidedDelegationConnector/innerAndOuterRoleNeedToHaveDifferentContextIDs">
-          <genParameters ecoreParameter="pcm.ecore#//repository/ProvidedDelegationConnector/innerAndOuterRoleNeedToHaveDifferentContextIDs/diagnostics"/>
-          <genParameters ecoreParameter="pcm.ecore#//repository/ProvidedDelegationConnector/innerAndOuterRoleNeedToHaveDifferentContextIDs/context"/>
-        </genOperations>
-        <genOperations ecoreOperation="pcm.ecore#//repository/ProvidedDelegationConnector/InnerContainingComponentEqualOuterProvidingComponent">
-          <genParameters ecoreParameter="pcm.ecore#//repository/ProvidedDelegationConnector/InnerContainingComponentEqualOuterProvidingComponent/diagnostics"/>
-          <genParameters ecoreParameter="pcm.ecore#//repository/ProvidedDelegationConnector/InnerContainingComponentEqualOuterProvidingComponent/context"/>
-        </genOperations>
       </genClasses>
       <genClasses ecoreClass="pcm.ecore#//repository/ImplementationComponentType">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
@@ -268,12 +269,8 @@
         </genOperations>
       </genClasses>
       <genClasses ecoreClass="pcm.ecore#//repository/CompositeComponent">
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//repository/CompositeComponent/providedDelegationConnectors__CompositeComponent"/>
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//repository/CompositeComponent/requiredDelegationConnectors__CompositeComponent"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference pcm.ecore#//repository/CompositeComponent/implementationComponentType"/>
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//repository/CompositeComponent/childComponentContexts_CompositeComponent"/>
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//repository/CompositeComponent/compositeAssemblyConnectors_CompositeComponent"/>
         <genOperations ecoreOperation="pcm.ecore#//repository/CompositeComponent/ProvideSameInterfaces">
           <genParameters ecoreParameter="pcm.ecore#//repository/CompositeComponent/ProvideSameInterfaces/diagnostics"/>
           <genParameters ecoreParameter="pcm.ecore#//repository/CompositeComponent/ProvideSameInterfaces/context"/>
@@ -282,16 +279,6 @@
           <genParameters ecoreParameter="pcm.ecore#//repository/CompositeComponent/RequireSameInterfaces/diagnostics"/>
           <genParameters ecoreParameter="pcm.ecore#//repository/CompositeComponent/RequireSameInterfaces/context"/>
         </genOperations>
-      </genClasses>
-      <genClasses ecoreClass="pcm.ecore#//repository/CompositeAssemblyConnector">
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference pcm.ecore#//repository/CompositeAssemblyConnector/requiringChildComponentContext_CompositeAssemblyConnector"/>
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference pcm.ecore#//repository/CompositeAssemblyConnector/providingChildComponentContext_CompositeAssemblyConnector"/>
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference pcm.ecore#//repository/CompositeAssemblyConnector/providedRole_CompositeAssemblyConnector"/>
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference pcm.ecore#//repository/CompositeAssemblyConnector/requiredRole_CompositeAssemblyConnector"/>
       </genClasses>
       <genClasses ecoreClass="pcm.ecore#//repository/BasicComponent">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
@@ -310,14 +297,7 @@
           <genParameters ecoreParameter="pcm.ecore#//repository/BasicComponent/RequireSameInterfaces/context"/>
         </genOperations>
       </genClasses>
-      <genClasses ecoreClass="pcm.ecore#//repository/ProvidesComponentType">
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//repository/ProvidesComponentType/providedRoles__ProvidesComponentType"/>
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//repository/ProvidesComponentType/requiredRoles_ProvidesComponentType"/>
-        <genOperations ecoreOperation="pcm.ecore#//repository/ProvidesComponentType/AtLeastOneInterfaceHasToBeProvidedByAUsefullProvidesComponentType">
-          <genParameters ecoreParameter="pcm.ecore#//repository/ProvidesComponentType/AtLeastOneInterfaceHasToBeProvidedByAUsefullProvidesComponentType/diagnostics"/>
-          <genParameters ecoreParameter="pcm.ecore#//repository/ProvidesComponentType/AtLeastOneInterfaceHasToBeProvidedByAUsefullProvidesComponentType/context"/>
-        </genOperations>
-      </genClasses>
+      <genClasses image="false" ecoreClass="pcm.ecore#//repository/DelegationConnector"/>
     </nestedGenPackages>
     <nestedGenPackages prefix="Protocol" basePackage="de.uka.ipd.sdq.pcm" disposableProviderFactory="true"
         ecorePackage="pcm.ecore#//protocol">
@@ -450,12 +430,12 @@
         ecorePackage="pcm.ecore#//allocation">
       <genClasses ecoreClass="pcm.ecore#//allocation/AllocationContext">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference pcm.ecore#//allocation/AllocationContext/referencedAssemblyContext_AllocationContext"/>
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference pcm.ecore#//allocation/AllocationContext/resourceContainer_AllocationContext"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference pcm.ecore#//allocation/AllocationContext/assemblyContext_AllocationContext"/>
       </genClasses>
       <genClasses ecoreClass="pcm.ecore#//allocation/Allocation">
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//allocation/Allocation/allocationContexts"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//allocation/Allocation/allocationContexts_Allocation"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference pcm.ecore#//allocation/Allocation/targetResourceEnvironment_Allocation"/>
       </genClasses>
@@ -542,37 +522,13 @@
         ecorePackage="pcm.ecore#//system">
       <genClasses ecoreClass="pcm.ecore#//system/SystemRequiredRole">
         <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference pcm.ecore#//system/SystemRequiredRole/system_SystemRequiredRole"/>
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference pcm.ecore#//system/SystemRequiredRole/requiredDelegationConnector_SystemRequiredRole"/>
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference pcm.ecore#//system/SystemRequiredRole/interface_SystemRequiredRole"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//system/SystemRequiredRole/specifiedTimeConsumption_SystemRequiredRole"/>
       </genClasses>
       <genClasses ecoreClass="pcm.ecore#//system/System">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//system/System/systemProvidedRole_System"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference pcm.ecore#//system/System/assembly_System"/>
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//system/System/providedDelegationConnector_System"/>
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//system/System/requiredDelegationConnector_System"/>
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference pcm.ecore#//system/System/allocation_System"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//system/System/systemRequiredRole_System"/>
-      </genClasses>
-      <genClasses ecoreClass="pcm.ecore#//system/SystemProvidedDelegationConnector">
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference pcm.ecore#//system/SystemProvidedDelegationConnector/systemProvidedRole_SystemProvidedDelegationConnector"/>
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference pcm.ecore#//system/SystemProvidedDelegationConnector/assemblyContext_SystemProvidedDelegationConnector"/>
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference pcm.ecore#//system/SystemProvidedDelegationConnector/componentProvidedRole_SystemProvidedDelegationConnector"/>
-      </genClasses>
-      <genClasses ecoreClass="pcm.ecore#//system/SystemRequiredDelegationConnector">
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference pcm.ecore#//system/SystemRequiredDelegationConnector/systemRequiredRole_SystemRequiredDelegationConnector"/>
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference pcm.ecore#//system/SystemRequiredDelegationConnector/assemblyContext_SystemRequiredDelegationConnector"/>
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference pcm.ecore#//system/SystemRequiredDelegationConnector/requiredRole_SystemRequiredDelegationConnector"/>
       </genClasses>
       <genClasses ecoreClass="pcm.ecore#//system/SpecifiedTimeConsumption">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
@@ -580,10 +536,6 @@
       </genClasses>
       <genClasses ecoreClass="pcm.ecore#//system/SystemProvidedRole">
         <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference pcm.ecore#//system/SystemProvidedRole/system_SystemProvidedRole"/>
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference pcm.ecore#//system/SystemProvidedRole/providedDelegationConnector_SystemProvidedRole"/>
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference pcm.ecore#//system/SystemProvidedRole/interface_SystemProvidedRole"/>
       </genClasses>
     </nestedGenPackages>
   </genPackages>

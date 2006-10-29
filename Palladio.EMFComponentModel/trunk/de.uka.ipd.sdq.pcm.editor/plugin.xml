@@ -17,27 +17,7 @@
       id = "org.eclipse.emf.ecore.Wizard.category.ID"
       name="%_UI_Wizard_category">
     </category>
-    <wizard
-      id = "de.uka.ipd.sdq.pcm.assembly.presentation.AssemblyModelWizardID"
-      name = "%_UI_AssemblyModelWizard_label"
-      class = "de.uka.ipd.sdq.pcm.assembly.presentation.AssemblyModelWizard"
-      category = "org.eclipse.emf.ecore.Wizard.category.ID"
-      icon = "icons/full/obj16/AssemblyModelFile.gif">
-      <description>%_UI_AssemblyModelWizard_description</description>
-      <selection class = "org.eclipse.core.resources.IResource" />
-    </wizard>
   </extension>
-
-  <extension point = "org.eclipse.ui.editors">
-    <editor
-        id = "de.uka.ipd.sdq.pcm.assembly.presentation.AssemblyEditorID"
-        name = "%_UI_AssemblyEditor_label"
-        icon = "icons/full/obj16/AssemblyModelFile.gif"
-        extensions = "assembly"
-        class = "de.uka.ipd.sdq.pcm.assembly.presentation.AssemblyEditor" 
-        contributorClass="de.uka.ipd.sdq.pcm.assembly.presentation.AssemblyActionBarContributor" >
-    </editor>
-  </extension>    
 
   <extension
     point = "org.eclipse.ui.newWizards">

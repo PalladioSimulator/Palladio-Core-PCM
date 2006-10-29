@@ -7,8 +7,7 @@ Bundle-ClassPath: .
 Bundle-Activator: de.uka.ipd.sdq.pcm.gmf.repository.part.RepositoryDiagramEditorPlugin
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
-Export-Package: de.uka.ipd.sdq.pcm.gmf.repository.edit.parts,
- de.uka.ipd.sdq.pcm.gmf.repository.edit.policies,
+Export-Package: de.uka.ipd.sdq.pcm.gmf.repository.edit.parts, 
  de.uka.ipd.sdq.pcm.gmf.repository.part,
  de.uka.ipd.sdq.pcm.gmf.repository.providers
 Require-Bundle: org.eclipse.core.runtime,
@@ -38,6 +37,8 @@ Require-Bundle: org.eclipse.core.runtime,
  de.uka.ipd.sdq.pcm.edit;visibility:=reexport,
  de.uka.ipd.sdq.identifier;visibility:=reexport,
  de.uka.ipd.sdq.identifier.edit;visibility:=reexport,
+ de.uka.ipd.sdq.probfunction;visibility:=reexport,
+ de.uka.ipd.sdq.probfunction.edit;visibility:=reexport,
  org.eclipse.gmf.runtime.draw2d.ui;visibility:=reexport,
  org.eclipse.draw2d;visibility:=reexport
 Eclipse-LazyStart: true

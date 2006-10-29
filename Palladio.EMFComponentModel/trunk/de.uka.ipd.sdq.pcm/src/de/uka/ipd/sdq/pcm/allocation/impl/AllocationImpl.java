@@ -37,7 +37,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link de.uka.ipd.sdq.pcm.allocation.impl.AllocationImpl#getAllocationContexts <em>Allocation Contexts</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.allocation.impl.AllocationImpl#getAllocationContexts_Allocation <em>Allocation Contexts Allocation</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.allocation.impl.AllocationImpl#getTargetResourceEnvironment_Allocation <em>Target Resource Environment Allocation</em>}</li>
  * </ul>
  * </p>
@@ -46,15 +46,14 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class AllocationImpl extends EntityImpl implements Allocation {
 	/**
-	 * The cached value of the '{@link #getAllocationContexts() <em>Allocation Contexts</em>}' containment reference list.
+	 * The cached value of the '{@link #getAllocationContexts_Allocation() <em>Allocation Contexts Allocation</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getAllocationContexts()
+	 * @see #getAllocationContexts_Allocation()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList allocationContexts = null;
-
+	protected EList allocationContexts_Allocation = null;
 
 	/**
 	 * The cached value of the '{@link #getTargetResourceEnvironment_Allocation() <em>Target Resource Environment Allocation</em>}' reference.
@@ -90,11 +89,11 @@ public class AllocationImpl extends EntityImpl implements Allocation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList getAllocationContexts() {
-		if (allocationContexts == null) {
-			allocationContexts = new EObjectContainmentEList(AllocationContext.class, this, AllocationPackage.ALLOCATION__ALLOCATION_CONTEXTS);
+	public EList getAllocationContexts_Allocation() {
+		if (allocationContexts_Allocation == null) {
+			allocationContexts_Allocation = new EObjectContainmentEList(AllocationContext.class, this, AllocationPackage.ALLOCATION__ALLOCATION_CONTEXTS_ALLOCATION);
 		}
-		return allocationContexts;
+		return allocationContexts_Allocation;
 	}
 
 	/**
@@ -142,8 +141,8 @@ public class AllocationImpl extends EntityImpl implements Allocation {
 	 */
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case AllocationPackage.ALLOCATION__ALLOCATION_CONTEXTS:
-				return ((InternalEList)getAllocationContexts()).basicRemove(otherEnd, msgs);
+			case AllocationPackage.ALLOCATION__ALLOCATION_CONTEXTS_ALLOCATION:
+				return ((InternalEList)getAllocationContexts_Allocation()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -155,8 +154,8 @@ public class AllocationImpl extends EntityImpl implements Allocation {
 	 */
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case AllocationPackage.ALLOCATION__ALLOCATION_CONTEXTS:
-				return getAllocationContexts();
+			case AllocationPackage.ALLOCATION__ALLOCATION_CONTEXTS_ALLOCATION:
+				return getAllocationContexts_Allocation();
 			case AllocationPackage.ALLOCATION__TARGET_RESOURCE_ENVIRONMENT_ALLOCATION:
 				if (resolve) return getTargetResourceEnvironment_Allocation();
 				return basicGetTargetResourceEnvironment_Allocation();
@@ -171,9 +170,9 @@ public class AllocationImpl extends EntityImpl implements Allocation {
 	 */
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case AllocationPackage.ALLOCATION__ALLOCATION_CONTEXTS:
-				getAllocationContexts().clear();
-				getAllocationContexts().addAll((Collection)newValue);
+			case AllocationPackage.ALLOCATION__ALLOCATION_CONTEXTS_ALLOCATION:
+				getAllocationContexts_Allocation().clear();
+				getAllocationContexts_Allocation().addAll((Collection)newValue);
 				return;
 			case AllocationPackage.ALLOCATION__TARGET_RESOURCE_ENVIRONMENT_ALLOCATION:
 				setTargetResourceEnvironment_Allocation((ResourceEnvironment)newValue);
@@ -189,8 +188,8 @@ public class AllocationImpl extends EntityImpl implements Allocation {
 	 */
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case AllocationPackage.ALLOCATION__ALLOCATION_CONTEXTS:
-				getAllocationContexts().clear();
+			case AllocationPackage.ALLOCATION__ALLOCATION_CONTEXTS_ALLOCATION:
+				getAllocationContexts_Allocation().clear();
 				return;
 			case AllocationPackage.ALLOCATION__TARGET_RESOURCE_ENVIRONMENT_ALLOCATION:
 				setTargetResourceEnvironment_Allocation((ResourceEnvironment)null);
@@ -206,8 +205,8 @@ public class AllocationImpl extends EntityImpl implements Allocation {
 	 */
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case AllocationPackage.ALLOCATION__ALLOCATION_CONTEXTS:
-				return allocationContexts != null && !allocationContexts.isEmpty();
+			case AllocationPackage.ALLOCATION__ALLOCATION_CONTEXTS_ALLOCATION:
+				return allocationContexts_Allocation != null && !allocationContexts_Allocation.isEmpty();
 			case AllocationPackage.ALLOCATION__TARGET_RESOURCE_ENVIRONMENT_ALLOCATION:
 				return targetResourceEnvironment_Allocation != null;
 		}

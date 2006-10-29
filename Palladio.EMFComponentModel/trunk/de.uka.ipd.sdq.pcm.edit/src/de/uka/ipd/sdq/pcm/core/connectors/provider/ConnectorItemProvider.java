@@ -7,11 +7,11 @@
 package de.uka.ipd.sdq.pcm.core.connectors.provider;
 
 
-import de.uka.ipd.sdq.pcm.assembly.provider.PcmEditPlugin;
-
 import de.uka.ipd.sdq.pcm.core.connectors.Connector;
 
 import de.uka.ipd.sdq.pcm.core.entity.provider.EntityItemProvider;
+
+import de.uka.ipd.sdq.pcm.core.stochastics.provider.PcmEditPlugin;
 
 import java.util.Collection;
 import java.util.List;

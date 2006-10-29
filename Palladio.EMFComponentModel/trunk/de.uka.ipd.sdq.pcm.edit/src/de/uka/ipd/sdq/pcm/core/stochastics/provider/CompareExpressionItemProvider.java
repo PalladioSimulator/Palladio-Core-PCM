@@ -7,8 +7,6 @@
 package de.uka.ipd.sdq.pcm.core.stochastics.provider;
 
 
-import de.uka.ipd.sdq.pcm.assembly.provider.PcmEditPlugin;
-
 import de.uka.ipd.sdq.pcm.core.stochastics.CompareExpression;
 import de.uka.ipd.sdq.pcm.core.stochastics.CompareOperations;
 import de.uka.ipd.sdq.pcm.core.stochastics.StochasticsFactory;

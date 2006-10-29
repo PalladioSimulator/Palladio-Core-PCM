@@ -7,19 +7,11 @@
 package de.uka.ipd.sdq.pcm.seff.provider;
 
 
-import de.uka.ipd.sdq.pcm.assembly.provider.PcmEditPlugin;
-
+import de.uka.ipd.sdq.pcm.core.stochastics.provider.PcmEditPlugin;
 import de.uka.ipd.sdq.pcm.core.stochastics.provider.RandomVariableItemProvider;
 
-import de.uka.ipd.sdq.pcm.core.stochastics.StochasticsFactory;
-
-import de.uka.ipd.sdq.pcm.parameter.ParameterFactory;
-
 import de.uka.ipd.sdq.pcm.seff.ParametricResourceDemand;
-import de.uka.ipd.sdq.pcm.seff.SeffFactory;
 import de.uka.ipd.sdq.pcm.seff.SeffPackage;
-
-import de.uka.ipd.sdq.pcm.system.SystemFactory;
 
 import java.util.Collection;
 import java.util.List;
@@ -36,7 +28,6 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**

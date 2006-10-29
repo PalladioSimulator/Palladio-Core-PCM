@@ -4,11 +4,11 @@ Bundle-Name: %pluginName
 Bundle-SymbolicName: de.uka.ipd.sdq.pcm.editor; singleton:=true
 Bundle-Version: 1.2.3.qualifier
 Bundle-ClassPath: .
-Bundle-Activator: de.uka.ipd.sdq.pcm.assembly.presentation.PcmEditorPlugin$Implementation
+Bundle-Activator: de.uka.ipd.sdq.pcm.core.stochastics.presentation.PcmEditorPlugin$Implementation
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Export-Package: de.uka.ipd.sdq.pcm.allocation.presentation,
- de.uka.ipd.sdq.pcm.assembly.presentation,
+ de.uka.ipd.sdq.pcm.core.composition.presentation,
  de.uka.ipd.sdq.pcm.core.stochastics.presentation,
  de.uka.ipd.sdq.pcm.parameter.presentation,
  de.uka.ipd.sdq.pcm.repository.presentation,
@@ -24,5 +24,6 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.edit.ui;visibility:=reexport,
  org.eclipse.ui.ide;visibility:=reexport,
  de.uka.ipd.sdq.identifier.edit;visibility:=reexport,
- org.antlr
+ org.antlr,
+ de.uka.ipd.sdq.probfunction.edit
 Eclipse-LazyStart: true

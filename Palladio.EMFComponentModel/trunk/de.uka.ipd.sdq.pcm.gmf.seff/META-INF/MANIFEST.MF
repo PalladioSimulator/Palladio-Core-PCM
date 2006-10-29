@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: de.uka.ipd.sdq.pcm.gmf.seff; singleton:=true
-Bundle-Version: 1.1.4.qualifier
+Bundle-Version: 1.0.0.qualifier
 Bundle-ClassPath: .
 Bundle-Activator: de.uka.ipd.sdq.pcm.gmf.seff.part.PcmDiagramEditorPlugin
 Bundle-Vendor: %providerName
@@ -37,6 +37,8 @@ Require-Bundle: org.eclipse.core.runtime,
  de.uka.ipd.sdq.pcm.edit;visibility:=reexport,
  de.uka.ipd.sdq.identifier;visibility:=reexport,
  de.uka.ipd.sdq.identifier.edit;visibility:=reexport,
+ de.uka.ipd.sdq.probfunction;visibility:=reexport,
+ de.uka.ipd.sdq.probfunction.edit;visibility:=reexport,
  org.eclipse.gmf.runtime.draw2d.ui;visibility:=reexport,
  org.eclipse.draw2d;visibility:=reexport
 Eclipse-LazyStart: true

@@ -7,11 +7,10 @@
 package de.uka.ipd.sdq.pcm.system.provider;
 
 
-import de.uka.ipd.sdq.pcm.assembly.provider.PcmEditPlugin;
+import de.uka.ipd.sdq.pcm.core.stochastics.provider.PcmEditPlugin;
 
-import de.uka.ipd.sdq.pcm.core.entity.provider.EntityItemProvider;
+import de.uka.ipd.sdq.pcm.repository.provider.ProvidedRoleItemProvider;
 
-import de.uka.ipd.sdq.pcm.system.SystemPackage;
 import de.uka.ipd.sdq.pcm.system.SystemProvidedRole;
 
 import java.util.Collection;
@@ -22,7 +21,6 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
 
-import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
@@ -36,7 +34,7 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
  * @generated
  */
 public class SystemProvidedRoleItemProvider
-	extends EntityItemProvider
+	extends ProvidedRoleItemProvider
 	implements	
 		IEditingDomainItemProvider,	
 		IStructuredItemContentProvider,	
@@ -63,54 +61,8 @@ public class SystemProvidedRoleItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addProvidedDelegationConnector_SystemProvidedRolePropertyDescriptor(object);
-			addInterface_SystemProvidedRolePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Provided Delegation Connector System Provided Role feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addProvidedDelegationConnector_SystemProvidedRolePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_SystemProvidedRole_providedDelegationConnector_SystemProvidedRole_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_SystemProvidedRole_providedDelegationConnector_SystemProvidedRole_feature", "_UI_SystemProvidedRole_type"),
-				 SystemPackage.Literals.SYSTEM_PROVIDED_ROLE__PROVIDED_DELEGATION_CONNECTOR_SYSTEM_PROVIDED_ROLE,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Interface System Provided Role feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addInterface_SystemProvidedRolePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_SystemProvidedRole_interface_SystemProvidedRole_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_SystemProvidedRole_interface_SystemProvidedRole_feature", "_UI_SystemProvidedRole_type"),
-				 SystemPackage.Literals.SYSTEM_PROVIDED_ROLE__INTERFACE_SYSTEM_PROVIDED_ROLE,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
 	}
 
 	/**

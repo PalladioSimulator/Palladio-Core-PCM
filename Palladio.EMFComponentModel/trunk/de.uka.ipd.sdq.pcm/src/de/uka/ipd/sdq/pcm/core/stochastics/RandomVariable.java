@@ -57,7 +57,7 @@ public interface RandomVariable extends EObject {
 	 * Returns the value of the '<em><b>Specification Random Variable</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Specification Random Variable</em>' containment reference isn't clear,
+	 * If the meaning of the '<em>Specification Random Variable</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->

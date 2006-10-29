@@ -80,24 +80,6 @@ public interface RepositoryFactory extends EFactory {
 	Interface createInterface();
 
 	/**
-	 * Returns a new object of class '<em>Required Delegation Connector</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Required Delegation Connector</em>'.
-	 * @generated
-	 */
-	RequiredDelegationConnector createRequiredDelegationConnector();
-
-	/**
-	 * Returns a new object of class '<em>Child Component Context</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Child Component Context</em>'.
-	 * @generated
-	 */
-	ChildComponentContext createChildComponentContext();
-
-	/**
 	 * Returns a new object of class '<em>Repository</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -107,6 +89,15 @@ public interface RepositoryFactory extends EFactory {
 	Repository createRepository();
 
 	/**
+	 * Returns a new object of class '<em>Provides Component Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Provides Component Type</em>'.
+	 * @generated
+	 */
+	ProvidesComponentType createProvidesComponentType();
+
+	/**
 	 * Returns a new object of class '<em>Provided Role</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -114,15 +105,6 @@ public interface RepositoryFactory extends EFactory {
 	 * @generated
 	 */
 	ProvidedRole createProvidedRole();
-
-	/**
-	 * Returns a new object of class '<em>Provided Delegation Connector</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Provided Delegation Connector</em>'.
-	 * @generated
-	 */
-	ProvidedDelegationConnector createProvidedDelegationConnector();
 
 	/**
 	 * Returns a new object of class '<em>Implementation Component Type</em>'.
@@ -152,15 +134,6 @@ public interface RepositoryFactory extends EFactory {
 	CompositeComponent createCompositeComponent();
 
 	/**
-	 * Returns a new object of class '<em>Composite Assembly Connector</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Composite Assembly Connector</em>'.
-	 * @generated
-	 */
-	CompositeAssemblyConnector createCompositeAssemblyConnector();
-
-	/**
 	 * Returns a new object of class '<em>Basic Component</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -168,15 +141,6 @@ public interface RepositoryFactory extends EFactory {
 	 * @generated
 	 */
 	BasicComponent createBasicComponent();
-
-	/**
-	 * Returns a new object of class '<em>Provides Component Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Provides Component Type</em>'.
-	 * @generated
-	 */
-	ProvidesComponentType createProvidesComponentType();
 
 	/**
 	 * Returns the package supported by this factory.

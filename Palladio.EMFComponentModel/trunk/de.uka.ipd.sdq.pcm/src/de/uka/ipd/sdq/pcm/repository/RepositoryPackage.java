@@ -396,153 +396,6 @@ public interface RepositoryPackage extends EPackage {
 	int INTERFACE_FEATURE_COUNT = EntityPackage.ENTITY_FEATURE_COUNT + 4;
 
 	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.repository.impl.DelegationConnectorImpl <em>Delegation Connector</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.pcm.repository.impl.DelegationConnectorImpl
-	 * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getDelegationConnector()
-	 * @generated
-	 */
-	int DELEGATION_CONNECTOR = 8;
-
-	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DELEGATION_CONNECTOR__ID = ConnectorsPackage.CONNECTOR__ID;
-
-	/**
-	 * The feature id for the '<em><b>Entity Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DELEGATION_CONNECTOR__ENTITY_NAME = ConnectorsPackage.CONNECTOR__ENTITY_NAME;
-
-	/**
-	 * The number of structural features of the '<em>Delegation Connector</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DELEGATION_CONNECTOR_FEATURE_COUNT = ConnectorsPackage.CONNECTOR_FEATURE_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.repository.impl.RequiredDelegationConnectorImpl <em>Required Delegation Connector</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.pcm.repository.impl.RequiredDelegationConnectorImpl
-	 * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getRequiredDelegationConnector()
-	 * @generated
-	 */
-	int REQUIRED_DELEGATION_CONNECTOR = 7;
-
-	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int REQUIRED_DELEGATION_CONNECTOR__ID = DELEGATION_CONNECTOR__ID;
-
-	/**
-	 * The feature id for the '<em><b>Entity Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int REQUIRED_DELEGATION_CONNECTOR__ENTITY_NAME = DELEGATION_CONNECTOR__ENTITY_NAME;
-
-	/**
-	 * The feature id for the '<em><b>Inner Required Role Required Delegation Connector</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int REQUIRED_DELEGATION_CONNECTOR__INNER_REQUIRED_ROLE_REQUIRED_DELEGATION_CONNECTOR = DELEGATION_CONNECTOR_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Outer Required Role Required Delegation Connector</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int REQUIRED_DELEGATION_CONNECTOR__OUTER_REQUIRED_ROLE_REQUIRED_DELEGATION_CONNECTOR = DELEGATION_CONNECTOR_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Child Component Context Required Delegation Connector</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int REQUIRED_DELEGATION_CONNECTOR__CHILD_COMPONENT_CONTEXT_REQUIRED_DELEGATION_CONNECTOR = DELEGATION_CONNECTOR_FEATURE_COUNT + 2;
-
-	/**
-	 * The number of structural features of the '<em>Required Delegation Connector</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int REQUIRED_DELEGATION_CONNECTOR_FEATURE_COUNT = DELEGATION_CONNECTOR_FEATURE_COUNT + 3;
-
-	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.repository.impl.ChildComponentContextImpl <em>Child Component Context</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.pcm.repository.impl.ChildComponentContextImpl
-	 * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getChildComponentContext()
-	 * @generated
-	 */
-	int CHILD_COMPONENT_CONTEXT = 9;
-
-	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CHILD_COMPONENT_CONTEXT__ID = EntityPackage.ENTITY__ID;
-
-	/**
-	 * The feature id for the '<em><b>Entity Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CHILD_COMPONENT_CONTEXT__ENTITY_NAME = EntityPackage.ENTITY__ENTITY_NAME;
-
-	/**
-	 * The feature id for the '<em><b>Encapsulated Component Child Component Context</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CHILD_COMPONENT_CONTEXT__ENCAPSULATED_COMPONENT_CHILD_COMPONENT_CONTEXT = EntityPackage.ENTITY_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>Child Component Context</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CHILD_COMPONENT_CONTEXT_FEATURE_COUNT = EntityPackage.ENTITY_FEATURE_COUNT + 1;
-
-	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.repository.impl.RepositoryImpl <em>Repository</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -550,7 +403,7 @@ public interface RepositoryPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getRepository()
 	 * @generated
 	 */
-	int REPOSITORY = 10;
+	int REPOSITORY = 7;
 
 	/**
 	 * The feature id for the '<em><b>Repository Description</b></em>' attribute.
@@ -598,125 +451,6 @@ public interface RepositoryPackage extends EPackage {
 	int REPOSITORY_FEATURE_COUNT = 4;
 
 	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.repository.impl.ProvidedRoleImpl <em>Provided Role</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.pcm.repository.impl.ProvidedRoleImpl
-	 * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getProvidedRole()
-	 * @generated
-	 */
-	int PROVIDED_ROLE = 11;
-
-	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROVIDED_ROLE__ID = ROLE__ID;
-
-	/**
-	 * The feature id for the '<em><b>Entity Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROVIDED_ROLE__ENTITY_NAME = ROLE__ENTITY_NAME;
-
-	/**
-	 * The feature id for the '<em><b>Provided Interface Provided Role</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROVIDED_ROLE__PROVIDED_INTERFACE_PROVIDED_ROLE = ROLE_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Providing Component Provided Role</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROVIDED_ROLE__PROVIDING_COMPONENT_PROVIDED_ROLE = ROLE_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of structural features of the '<em>Provided Role</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROVIDED_ROLE_FEATURE_COUNT = ROLE_FEATURE_COUNT + 2;
-
-	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.repository.impl.ProvidedDelegationConnectorImpl <em>Provided Delegation Connector</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.pcm.repository.impl.ProvidedDelegationConnectorImpl
-	 * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getProvidedDelegationConnector()
-	 * @generated
-	 */
-	int PROVIDED_DELEGATION_CONNECTOR = 12;
-
-	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROVIDED_DELEGATION_CONNECTOR__ID = DELEGATION_CONNECTOR__ID;
-
-	/**
-	 * The feature id for the '<em><b>Entity Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROVIDED_DELEGATION_CONNECTOR__ENTITY_NAME = DELEGATION_CONNECTOR__ENTITY_NAME;
-
-	/**
-	 * The feature id for the '<em><b>Inner Provided Role Provided Delegation Connector</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROVIDED_DELEGATION_CONNECTOR__INNER_PROVIDED_ROLE_PROVIDED_DELEGATION_CONNECTOR = DELEGATION_CONNECTOR_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Outer Provided Role Provided Delegation Connector</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROVIDED_DELEGATION_CONNECTOR__OUTER_PROVIDED_ROLE_PROVIDED_DELEGATION_CONNECTOR = DELEGATION_CONNECTOR_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Child Component Context Provided Delegation Connector</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROVIDED_DELEGATION_CONNECTOR__CHILD_COMPONENT_CONTEXT_PROVIDED_DELEGATION_CONNECTOR = DELEGATION_CONNECTOR_FEATURE_COUNT + 2;
-
-	/**
-	 * The number of structural features of the '<em>Provided Delegation Connector</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROVIDED_DELEGATION_CONNECTOR_FEATURE_COUNT = DELEGATION_CONNECTOR_FEATURE_COUNT + 3;
-
-	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.repository.impl.ProvidesComponentTypeImpl <em>Provides Component Type</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -724,7 +458,7 @@ public interface RepositoryPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getProvidesComponentType()
 	 * @generated
 	 */
-	int PROVIDES_COMPONENT_TYPE = 18;
+	int PROVIDES_COMPONENT_TYPE = 8;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -772,6 +506,61 @@ public interface RepositoryPackage extends EPackage {
 	int PROVIDES_COMPONENT_TYPE_FEATURE_COUNT = EntityPackage.ENTITY_FEATURE_COUNT + 2;
 
 	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.repository.impl.ProvidedRoleImpl <em>Provided Role</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.pcm.repository.impl.ProvidedRoleImpl
+	 * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getProvidedRole()
+	 * @generated
+	 */
+	int PROVIDED_ROLE = 9;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROVIDED_ROLE__ID = ROLE__ID;
+
+	/**
+	 * The feature id for the '<em><b>Entity Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROVIDED_ROLE__ENTITY_NAME = ROLE__ENTITY_NAME;
+
+	/**
+	 * The feature id for the '<em><b>Provided Interface Provided Role</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROVIDED_ROLE__PROVIDED_INTERFACE_PROVIDED_ROLE = ROLE_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Providing Component Provided Role</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROVIDED_ROLE__PROVIDING_COMPONENT_PROVIDED_ROLE = ROLE_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Provided Role</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROVIDED_ROLE_FEATURE_COUNT = ROLE_FEATURE_COUNT + 2;
+
+	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.repository.impl.CompleteComponentTypeImpl <em>Complete Component Type</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -779,7 +568,7 @@ public interface RepositoryPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getCompleteComponentType()
 	 * @generated
 	 */
-	int COMPLETE_COMPONENT_TYPE = 14;
+	int COMPLETE_COMPONENT_TYPE = 11;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -843,7 +632,7 @@ public interface RepositoryPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getImplementationComponentType()
 	 * @generated
 	 */
-	int IMPLEMENTATION_COMPONENT_TYPE = 13;
+	int IMPLEMENTATION_COMPONENT_TYPE = 10;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -916,7 +705,7 @@ public interface RepositoryPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getCompositeComponent()
 	 * @generated
 	 */
-	int COMPOSITE_COMPONENT = 15;
+	int COMPOSITE_COMPONENT = 12;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -973,22 +762,40 @@ public interface RepositoryPackage extends EPackage {
 	int COMPOSITE_COMPONENT__PARENT_COMPLETE_COMPONENT_TYPES = IMPLEMENTATION_COMPONENT_TYPE__PARENT_COMPLETE_COMPONENT_TYPES;
 
 	/**
-	 * The feature id for the '<em><b>Provided Delegation Connectors Composite Component</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Child Component Contexts Composed Structure</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPOSITE_COMPONENT__PROVIDED_DELEGATION_CONNECTORS_COMPOSITE_COMPONENT = IMPLEMENTATION_COMPONENT_TYPE_FEATURE_COUNT + 0;
+	int COMPOSITE_COMPONENT__CHILD_COMPONENT_CONTEXTS_COMPOSED_STRUCTURE = IMPLEMENTATION_COMPONENT_TYPE_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Required Delegation Connectors Composite Component</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Composite Assembly Connectors Composed Structure</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPOSITE_COMPONENT__REQUIRED_DELEGATION_CONNECTORS_COMPOSITE_COMPONENT = IMPLEMENTATION_COMPONENT_TYPE_FEATURE_COUNT + 1;
+	int COMPOSITE_COMPONENT__COMPOSITE_ASSEMBLY_CONNECTORS_COMPOSED_STRUCTURE = IMPLEMENTATION_COMPONENT_TYPE_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Provided Delegation Connectors Composed Structure</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPOSITE_COMPONENT__PROVIDED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE = IMPLEMENTATION_COMPONENT_TYPE_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Required Delegation Connectors Composed Structure</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPOSITE_COMPONENT__REQUIRED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE = IMPLEMENTATION_COMPONENT_TYPE_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Implementation Component Type</b></em>' reference.
@@ -997,25 +804,7 @@ public interface RepositoryPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPOSITE_COMPONENT__IMPLEMENTATION_COMPONENT_TYPE = IMPLEMENTATION_COMPONENT_TYPE_FEATURE_COUNT + 2;
-
-	/**
-	 * The feature id for the '<em><b>Child Component Contexts Composite Component</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPOSITE_COMPONENT__CHILD_COMPONENT_CONTEXTS_COMPOSITE_COMPONENT = IMPLEMENTATION_COMPONENT_TYPE_FEATURE_COUNT + 3;
-
-	/**
-	 * The feature id for the '<em><b>Composite Assembly Connectors Composite Component</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPOSITE_COMPONENT__COMPOSITE_ASSEMBLY_CONNECTORS_COMPOSITE_COMPONENT = IMPLEMENTATION_COMPONENT_TYPE_FEATURE_COUNT + 4;
+	int COMPOSITE_COMPONENT__IMPLEMENTATION_COMPONENT_TYPE = IMPLEMENTATION_COMPONENT_TYPE_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of structural features of the '<em>Composite Component</em>' class.
@@ -1027,79 +816,6 @@ public interface RepositoryPackage extends EPackage {
 	int COMPOSITE_COMPONENT_FEATURE_COUNT = IMPLEMENTATION_COMPONENT_TYPE_FEATURE_COUNT + 5;
 
 	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.repository.impl.CompositeAssemblyConnectorImpl <em>Composite Assembly Connector</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.pcm.repository.impl.CompositeAssemblyConnectorImpl
-	 * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getCompositeAssemblyConnector()
-	 * @generated
-	 */
-	int COMPOSITE_ASSEMBLY_CONNECTOR = 16;
-
-	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPOSITE_ASSEMBLY_CONNECTOR__ID = ConnectorsPackage.CONNECTOR__ID;
-
-	/**
-	 * The feature id for the '<em><b>Entity Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPOSITE_ASSEMBLY_CONNECTOR__ENTITY_NAME = ConnectorsPackage.CONNECTOR__ENTITY_NAME;
-
-	/**
-	 * The feature id for the '<em><b>Requiring Child Component Context Composite Assembly Connector</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPOSITE_ASSEMBLY_CONNECTOR__REQUIRING_CHILD_COMPONENT_CONTEXT_COMPOSITE_ASSEMBLY_CONNECTOR = ConnectorsPackage.CONNECTOR_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Providing Child Component Context Composite Assembly Connector</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPOSITE_ASSEMBLY_CONNECTOR__PROVIDING_CHILD_COMPONENT_CONTEXT_COMPOSITE_ASSEMBLY_CONNECTOR = ConnectorsPackage.CONNECTOR_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Provided Role Composite Assembly Connector</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPOSITE_ASSEMBLY_CONNECTOR__PROVIDED_ROLE_COMPOSITE_ASSEMBLY_CONNECTOR = ConnectorsPackage.CONNECTOR_FEATURE_COUNT + 2;
-
-	/**
-	 * The feature id for the '<em><b>Required Role Composite Assembly Connector</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPOSITE_ASSEMBLY_CONNECTOR__REQUIRED_ROLE_COMPOSITE_ASSEMBLY_CONNECTOR = ConnectorsPackage.CONNECTOR_FEATURE_COUNT + 3;
-
-	/**
-	 * The number of structural features of the '<em>Composite Assembly Connector</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPOSITE_ASSEMBLY_CONNECTOR_FEATURE_COUNT = ConnectorsPackage.CONNECTOR_FEATURE_COUNT + 4;
-
-	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.repository.impl.BasicComponentImpl <em>Basic Component</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1107,7 +823,7 @@ public interface RepositoryPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getBasicComponent()
 	 * @generated
 	 */
-	int BASIC_COMPONENT = 17;
+	int BASIC_COMPONENT = 13;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1191,6 +907,43 @@ public interface RepositoryPackage extends EPackage {
 	int BASIC_COMPONENT_FEATURE_COUNT = IMPLEMENTATION_COMPONENT_TYPE_FEATURE_COUNT + 2;
 
 	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.repository.impl.DelegationConnectorImpl <em>Delegation Connector</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.pcm.repository.impl.DelegationConnectorImpl
+	 * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getDelegationConnector()
+	 * @generated
+	 */
+	int DELEGATION_CONNECTOR = 14;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DELEGATION_CONNECTOR__ID = ConnectorsPackage.CONNECTOR__ID;
+
+	/**
+	 * The feature id for the '<em><b>Entity Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DELEGATION_CONNECTOR__ENTITY_NAME = ConnectorsPackage.CONNECTOR__ENTITY_NAME;
+
+	/**
+	 * The number of structural features of the '<em>Delegation Connector</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DELEGATION_CONNECTOR_FEATURE_COUNT = ConnectorsPackage.CONNECTOR_FEATURE_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.repository.ParameterModifier <em>Parameter Modifier</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1198,7 +951,7 @@ public interface RepositoryPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getParameterModifier()
 	 * @generated
 	 */
-	int PARAMETER_MODIFIER = 19;
+	int PARAMETER_MODIFIER = 15;
 
 
 	/**
@@ -1448,80 +1201,6 @@ public interface RepositoryPackage extends EPackage {
 	EReference getInterface_Signatures__Interface();
 
 	/**
-	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.repository.RequiredDelegationConnector <em>Required Delegation Connector</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Required Delegation Connector</em>'.
-	 * @see de.uka.ipd.sdq.pcm.repository.RequiredDelegationConnector
-	 * @generated
-	 */
-	EClass getRequiredDelegationConnector();
-
-	/**
-	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.pcm.repository.RequiredDelegationConnector#getInnerRequiredRole_RequiredDelegationConnector <em>Inner Required Role Required Delegation Connector</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Inner Required Role Required Delegation Connector</em>'.
-	 * @see de.uka.ipd.sdq.pcm.repository.RequiredDelegationConnector#getInnerRequiredRole_RequiredDelegationConnector()
-	 * @see #getRequiredDelegationConnector()
-	 * @generated
-	 */
-	EReference getRequiredDelegationConnector_InnerRequiredRole_RequiredDelegationConnector();
-
-	/**
-	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.pcm.repository.RequiredDelegationConnector#getOuterRequiredRole_RequiredDelegationConnector <em>Outer Required Role Required Delegation Connector</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Outer Required Role Required Delegation Connector</em>'.
-	 * @see de.uka.ipd.sdq.pcm.repository.RequiredDelegationConnector#getOuterRequiredRole_RequiredDelegationConnector()
-	 * @see #getRequiredDelegationConnector()
-	 * @generated
-	 */
-	EReference getRequiredDelegationConnector_OuterRequiredRole_RequiredDelegationConnector();
-
-	/**
-	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.pcm.repository.RequiredDelegationConnector#getChildComponentContext_RequiredDelegationConnector <em>Child Component Context Required Delegation Connector</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Child Component Context Required Delegation Connector</em>'.
-	 * @see de.uka.ipd.sdq.pcm.repository.RequiredDelegationConnector#getChildComponentContext_RequiredDelegationConnector()
-	 * @see #getRequiredDelegationConnector()
-	 * @generated
-	 */
-	EReference getRequiredDelegationConnector_ChildComponentContext_RequiredDelegationConnector();
-
-	/**
-	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.repository.DelegationConnector <em>Delegation Connector</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Delegation Connector</em>'.
-	 * @see de.uka.ipd.sdq.pcm.repository.DelegationConnector
-	 * @generated
-	 */
-	EClass getDelegationConnector();
-
-	/**
-	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.repository.ChildComponentContext <em>Child Component Context</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Child Component Context</em>'.
-	 * @see de.uka.ipd.sdq.pcm.repository.ChildComponentContext
-	 * @generated
-	 */
-	EClass getChildComponentContext();
-
-	/**
-	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.pcm.repository.ChildComponentContext#getEncapsulatedComponent_ChildComponentContext <em>Encapsulated Component Child Component Context</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Encapsulated Component Child Component Context</em>'.
-	 * @see de.uka.ipd.sdq.pcm.repository.ChildComponentContext#getEncapsulatedComponent_ChildComponentContext()
-	 * @see #getChildComponentContext()
-	 * @generated
-	 */
-	EReference getChildComponentContext_EncapsulatedComponent_ChildComponentContext();
-
-	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.repository.Repository <em>Repository</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1576,6 +1255,38 @@ public interface RepositoryPackage extends EPackage {
 	EReference getRepository_Interfaces__Repository();
 
 	/**
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.repository.ProvidesComponentType <em>Provides Component Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Provides Component Type</em>'.
+	 * @see de.uka.ipd.sdq.pcm.repository.ProvidesComponentType
+	 * @generated
+	 */
+	EClass getProvidesComponentType();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link de.uka.ipd.sdq.pcm.repository.ProvidesComponentType#getProvidedRoles__ProvidesComponentType <em>Provided Roles Provides Component Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Provided Roles Provides Component Type</em>'.
+	 * @see de.uka.ipd.sdq.pcm.repository.ProvidesComponentType#getProvidedRoles__ProvidesComponentType()
+	 * @see #getProvidesComponentType()
+	 * @generated
+	 */
+	EReference getProvidesComponentType_ProvidedRoles__ProvidesComponentType();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link de.uka.ipd.sdq.pcm.repository.ProvidesComponentType#getRequiredRoles_ProvidesComponentType <em>Required Roles Provides Component Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Required Roles Provides Component Type</em>'.
+	 * @see de.uka.ipd.sdq.pcm.repository.ProvidesComponentType#getRequiredRoles_ProvidesComponentType()
+	 * @see #getProvidesComponentType()
+	 * @generated
+	 */
+	EReference getProvidesComponentType_RequiredRoles_ProvidesComponentType();
+
+	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.repository.ProvidedRole <em>Provided Role</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1606,49 +1317,6 @@ public interface RepositoryPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getProvidedRole_ProvidingComponent__ProvidedRole();
-
-	/**
-	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.repository.ProvidedDelegationConnector <em>Provided Delegation Connector</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Provided Delegation Connector</em>'.
-	 * @see de.uka.ipd.sdq.pcm.repository.ProvidedDelegationConnector
-	 * @generated
-	 */
-	EClass getProvidedDelegationConnector();
-
-	/**
-	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.pcm.repository.ProvidedDelegationConnector#getInnerProvidedRole_ProvidedDelegationConnector <em>Inner Provided Role Provided Delegation Connector</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Inner Provided Role Provided Delegation Connector</em>'.
-	 * @see de.uka.ipd.sdq.pcm.repository.ProvidedDelegationConnector#getInnerProvidedRole_ProvidedDelegationConnector()
-	 * @see #getProvidedDelegationConnector()
-	 * @generated
-	 */
-	EReference getProvidedDelegationConnector_InnerProvidedRole_ProvidedDelegationConnector();
-
-	/**
-	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.pcm.repository.ProvidedDelegationConnector#getOuterProvidedRole_ProvidedDelegationConnector <em>Outer Provided Role Provided Delegation Connector</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Outer Provided Role Provided Delegation Connector</em>'.
-	 * @see de.uka.ipd.sdq.pcm.repository.ProvidedDelegationConnector#getOuterProvidedRole_ProvidedDelegationConnector()
-	 * @see #getProvidedDelegationConnector()
-	 * @generated
-	 */
-	EReference getProvidedDelegationConnector_OuterProvidedRole_ProvidedDelegationConnector();
-
-	/**
-	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.pcm.repository.ProvidedDelegationConnector#getChildComponentContext_ProvidedDelegationConnector <em>Child Component Context Provided Delegation Connector</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Child Component Context Provided Delegation Connector</em>'.
-	 * @see de.uka.ipd.sdq.pcm.repository.ProvidedDelegationConnector#getChildComponentContext_ProvidedDelegationConnector()
-	 * @see #getProvidedDelegationConnector()
-	 * @generated
-	 */
-	EReference getProvidedDelegationConnector_ChildComponentContext_ProvidedDelegationConnector();
 
 	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.repository.ImplementationComponentType <em>Implementation Component Type</em>}'.
@@ -1703,28 +1371,6 @@ public interface RepositoryPackage extends EPackage {
 	EClass getCompositeComponent();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link de.uka.ipd.sdq.pcm.repository.CompositeComponent#getProvidedDelegationConnectors__CompositeComponent <em>Provided Delegation Connectors Composite Component</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Provided Delegation Connectors Composite Component</em>'.
-	 * @see de.uka.ipd.sdq.pcm.repository.CompositeComponent#getProvidedDelegationConnectors__CompositeComponent()
-	 * @see #getCompositeComponent()
-	 * @generated
-	 */
-	EReference getCompositeComponent_ProvidedDelegationConnectors__CompositeComponent();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link de.uka.ipd.sdq.pcm.repository.CompositeComponent#getRequiredDelegationConnectors__CompositeComponent <em>Required Delegation Connectors Composite Component</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Required Delegation Connectors Composite Component</em>'.
-	 * @see de.uka.ipd.sdq.pcm.repository.CompositeComponent#getRequiredDelegationConnectors__CompositeComponent()
-	 * @see #getCompositeComponent()
-	 * @generated
-	 */
-	EReference getCompositeComponent_RequiredDelegationConnectors__CompositeComponent();
-
-	/**
 	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.pcm.repository.CompositeComponent#getImplementationComponentType <em>Implementation Component Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1734,82 +1380,6 @@ public interface RepositoryPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getCompositeComponent_ImplementationComponentType();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link de.uka.ipd.sdq.pcm.repository.CompositeComponent#getChildComponentContexts_CompositeComponent <em>Child Component Contexts Composite Component</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Child Component Contexts Composite Component</em>'.
-	 * @see de.uka.ipd.sdq.pcm.repository.CompositeComponent#getChildComponentContexts_CompositeComponent()
-	 * @see #getCompositeComponent()
-	 * @generated
-	 */
-	EReference getCompositeComponent_ChildComponentContexts_CompositeComponent();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link de.uka.ipd.sdq.pcm.repository.CompositeComponent#getCompositeAssemblyConnectors_CompositeComponent <em>Composite Assembly Connectors Composite Component</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Composite Assembly Connectors Composite Component</em>'.
-	 * @see de.uka.ipd.sdq.pcm.repository.CompositeComponent#getCompositeAssemblyConnectors_CompositeComponent()
-	 * @see #getCompositeComponent()
-	 * @generated
-	 */
-	EReference getCompositeComponent_CompositeAssemblyConnectors_CompositeComponent();
-
-	/**
-	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.repository.CompositeAssemblyConnector <em>Composite Assembly Connector</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Composite Assembly Connector</em>'.
-	 * @see de.uka.ipd.sdq.pcm.repository.CompositeAssemblyConnector
-	 * @generated
-	 */
-	EClass getCompositeAssemblyConnector();
-
-	/**
-	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.pcm.repository.CompositeAssemblyConnector#getRequiringChildComponentContext_CompositeAssemblyConnector <em>Requiring Child Component Context Composite Assembly Connector</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Requiring Child Component Context Composite Assembly Connector</em>'.
-	 * @see de.uka.ipd.sdq.pcm.repository.CompositeAssemblyConnector#getRequiringChildComponentContext_CompositeAssemblyConnector()
-	 * @see #getCompositeAssemblyConnector()
-	 * @generated
-	 */
-	EReference getCompositeAssemblyConnector_RequiringChildComponentContext_CompositeAssemblyConnector();
-
-	/**
-	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.pcm.repository.CompositeAssemblyConnector#getProvidingChildComponentContext_CompositeAssemblyConnector <em>Providing Child Component Context Composite Assembly Connector</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Providing Child Component Context Composite Assembly Connector</em>'.
-	 * @see de.uka.ipd.sdq.pcm.repository.CompositeAssemblyConnector#getProvidingChildComponentContext_CompositeAssemblyConnector()
-	 * @see #getCompositeAssemblyConnector()
-	 * @generated
-	 */
-	EReference getCompositeAssemblyConnector_ProvidingChildComponentContext_CompositeAssemblyConnector();
-
-	/**
-	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.pcm.repository.CompositeAssemblyConnector#getProvidedRole_CompositeAssemblyConnector <em>Provided Role Composite Assembly Connector</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Provided Role Composite Assembly Connector</em>'.
-	 * @see de.uka.ipd.sdq.pcm.repository.CompositeAssemblyConnector#getProvidedRole_CompositeAssemblyConnector()
-	 * @see #getCompositeAssemblyConnector()
-	 * @generated
-	 */
-	EReference getCompositeAssemblyConnector_ProvidedRole_CompositeAssemblyConnector();
-
-	/**
-	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.pcm.repository.CompositeAssemblyConnector#getRequiredRole_CompositeAssemblyConnector <em>Required Role Composite Assembly Connector</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Required Role Composite Assembly Connector</em>'.
-	 * @see de.uka.ipd.sdq.pcm.repository.CompositeAssemblyConnector#getRequiredRole_CompositeAssemblyConnector()
-	 * @see #getCompositeAssemblyConnector()
-	 * @generated
-	 */
-	EReference getCompositeAssemblyConnector_RequiredRole_CompositeAssemblyConnector();
 
 	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.repository.BasicComponent <em>Basic Component</em>}'.
@@ -1844,36 +1414,14 @@ public interface RepositoryPackage extends EPackage {
 	EReference getBasicComponent_ServiceEffectSpecifications__BasicComponent();
 
 	/**
-	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.repository.ProvidesComponentType <em>Provides Component Type</em>}'.
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.repository.DelegationConnector <em>Delegation Connector</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Provides Component Type</em>'.
-	 * @see de.uka.ipd.sdq.pcm.repository.ProvidesComponentType
+	 * @return the meta object for class '<em>Delegation Connector</em>'.
+	 * @see de.uka.ipd.sdq.pcm.repository.DelegationConnector
 	 * @generated
 	 */
-	EClass getProvidesComponentType();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link de.uka.ipd.sdq.pcm.repository.ProvidesComponentType#getProvidedRoles__ProvidesComponentType <em>Provided Roles Provides Component Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Provided Roles Provides Component Type</em>'.
-	 * @see de.uka.ipd.sdq.pcm.repository.ProvidesComponentType#getProvidedRoles__ProvidesComponentType()
-	 * @see #getProvidesComponentType()
-	 * @generated
-	 */
-	EReference getProvidesComponentType_ProvidedRoles__ProvidesComponentType();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link de.uka.ipd.sdq.pcm.repository.ProvidesComponentType#getRequiredRoles_ProvidesComponentType <em>Required Roles Provides Component Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Required Roles Provides Component Type</em>'.
-	 * @see de.uka.ipd.sdq.pcm.repository.ProvidesComponentType#getRequiredRoles_ProvidesComponentType()
-	 * @see #getProvidesComponentType()
-	 * @generated
-	 */
-	EReference getProvidesComponentType_RequiredRoles_ProvidesComponentType();
+	EClass getDelegationConnector();
 
 	/**
 	 * Returns the meta object for enum '{@link de.uka.ipd.sdq.pcm.repository.ParameterModifier <em>Parameter Modifier</em>}'.
@@ -1906,7 +1454,7 @@ public interface RepositoryPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	interface Literals  {
+	interface Literals {
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.repository.impl.SignatureImpl <em>Signature</em>}' class.
 		 * <!-- begin-user-doc -->
@@ -2106,68 +1654,6 @@ public interface RepositoryPackage extends EPackage {
 		EReference INTERFACE__SIGNATURES_INTERFACE = eINSTANCE.getInterface_Signatures__Interface();
 
 		/**
-		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.repository.impl.RequiredDelegationConnectorImpl <em>Required Delegation Connector</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see de.uka.ipd.sdq.pcm.repository.impl.RequiredDelegationConnectorImpl
-		 * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getRequiredDelegationConnector()
-		 * @generated
-		 */
-		EClass REQUIRED_DELEGATION_CONNECTOR = eINSTANCE.getRequiredDelegationConnector();
-
-		/**
-		 * The meta object literal for the '<em><b>Inner Required Role Required Delegation Connector</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference REQUIRED_DELEGATION_CONNECTOR__INNER_REQUIRED_ROLE_REQUIRED_DELEGATION_CONNECTOR = eINSTANCE.getRequiredDelegationConnector_InnerRequiredRole_RequiredDelegationConnector();
-
-		/**
-		 * The meta object literal for the '<em><b>Outer Required Role Required Delegation Connector</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference REQUIRED_DELEGATION_CONNECTOR__OUTER_REQUIRED_ROLE_REQUIRED_DELEGATION_CONNECTOR = eINSTANCE.getRequiredDelegationConnector_OuterRequiredRole_RequiredDelegationConnector();
-
-		/**
-		 * The meta object literal for the '<em><b>Child Component Context Required Delegation Connector</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference REQUIRED_DELEGATION_CONNECTOR__CHILD_COMPONENT_CONTEXT_REQUIRED_DELEGATION_CONNECTOR = eINSTANCE.getRequiredDelegationConnector_ChildComponentContext_RequiredDelegationConnector();
-
-		/**
-		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.repository.impl.DelegationConnectorImpl <em>Delegation Connector</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see de.uka.ipd.sdq.pcm.repository.impl.DelegationConnectorImpl
-		 * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getDelegationConnector()
-		 * @generated
-		 */
-		EClass DELEGATION_CONNECTOR = eINSTANCE.getDelegationConnector();
-
-		/**
-		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.repository.impl.ChildComponentContextImpl <em>Child Component Context</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see de.uka.ipd.sdq.pcm.repository.impl.ChildComponentContextImpl
-		 * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getChildComponentContext()
-		 * @generated
-		 */
-		EClass CHILD_COMPONENT_CONTEXT = eINSTANCE.getChildComponentContext();
-
-		/**
-		 * The meta object literal for the '<em><b>Encapsulated Component Child Component Context</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference CHILD_COMPONENT_CONTEXT__ENCAPSULATED_COMPONENT_CHILD_COMPONENT_CONTEXT = eINSTANCE.getChildComponentContext_EncapsulatedComponent_ChildComponentContext();
-
-		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.repository.impl.RepositoryImpl <em>Repository</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2210,6 +1696,32 @@ public interface RepositoryPackage extends EPackage {
 		EReference REPOSITORY__INTERFACES_REPOSITORY = eINSTANCE.getRepository_Interfaces__Repository();
 
 		/**
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.repository.impl.ProvidesComponentTypeImpl <em>Provides Component Type</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.uka.ipd.sdq.pcm.repository.impl.ProvidesComponentTypeImpl
+		 * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getProvidesComponentType()
+		 * @generated
+		 */
+		EClass PROVIDES_COMPONENT_TYPE = eINSTANCE.getProvidesComponentType();
+
+		/**
+		 * The meta object literal for the '<em><b>Provided Roles Provides Component Type</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PROVIDES_COMPONENT_TYPE__PROVIDED_ROLES_PROVIDES_COMPONENT_TYPE = eINSTANCE.getProvidesComponentType_ProvidedRoles__ProvidesComponentType();
+
+		/**
+		 * The meta object literal for the '<em><b>Required Roles Provides Component Type</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PROVIDES_COMPONENT_TYPE__REQUIRED_ROLES_PROVIDES_COMPONENT_TYPE = eINSTANCE.getProvidesComponentType_RequiredRoles_ProvidesComponentType();
+
+		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.repository.impl.ProvidedRoleImpl <em>Provided Role</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2234,40 +1746,6 @@ public interface RepositoryPackage extends EPackage {
 		 * @generated
 		 */
 		EReference PROVIDED_ROLE__PROVIDING_COMPONENT_PROVIDED_ROLE = eINSTANCE.getProvidedRole_ProvidingComponent__ProvidedRole();
-
-		/**
-		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.repository.impl.ProvidedDelegationConnectorImpl <em>Provided Delegation Connector</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see de.uka.ipd.sdq.pcm.repository.impl.ProvidedDelegationConnectorImpl
-		 * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getProvidedDelegationConnector()
-		 * @generated
-		 */
-		EClass PROVIDED_DELEGATION_CONNECTOR = eINSTANCE.getProvidedDelegationConnector();
-
-		/**
-		 * The meta object literal for the '<em><b>Inner Provided Role Provided Delegation Connector</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference PROVIDED_DELEGATION_CONNECTOR__INNER_PROVIDED_ROLE_PROVIDED_DELEGATION_CONNECTOR = eINSTANCE.getProvidedDelegationConnector_InnerProvidedRole_ProvidedDelegationConnector();
-
-		/**
-		 * The meta object literal for the '<em><b>Outer Provided Role Provided Delegation Connector</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference PROVIDED_DELEGATION_CONNECTOR__OUTER_PROVIDED_ROLE_PROVIDED_DELEGATION_CONNECTOR = eINSTANCE.getProvidedDelegationConnector_OuterProvidedRole_ProvidedDelegationConnector();
-
-		/**
-		 * The meta object literal for the '<em><b>Child Component Context Provided Delegation Connector</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference PROVIDED_DELEGATION_CONNECTOR__CHILD_COMPONENT_CONTEXT_PROVIDED_DELEGATION_CONNECTOR = eINSTANCE.getProvidedDelegationConnector_ChildComponentContext_ProvidedDelegationConnector();
 
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.repository.impl.ImplementationComponentTypeImpl <em>Implementation Component Type</em>}' class.
@@ -2316,86 +1794,12 @@ public interface RepositoryPackage extends EPackage {
 		EClass COMPOSITE_COMPONENT = eINSTANCE.getCompositeComponent();
 
 		/**
-		 * The meta object literal for the '<em><b>Provided Delegation Connectors Composite Component</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference COMPOSITE_COMPONENT__PROVIDED_DELEGATION_CONNECTORS_COMPOSITE_COMPONENT = eINSTANCE.getCompositeComponent_ProvidedDelegationConnectors__CompositeComponent();
-
-		/**
-		 * The meta object literal for the '<em><b>Required Delegation Connectors Composite Component</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference COMPOSITE_COMPONENT__REQUIRED_DELEGATION_CONNECTORS_COMPOSITE_COMPONENT = eINSTANCE.getCompositeComponent_RequiredDelegationConnectors__CompositeComponent();
-
-		/**
 		 * The meta object literal for the '<em><b>Implementation Component Type</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EReference COMPOSITE_COMPONENT__IMPLEMENTATION_COMPONENT_TYPE = eINSTANCE.getCompositeComponent_ImplementationComponentType();
-
-		/**
-		 * The meta object literal for the '<em><b>Child Component Contexts Composite Component</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference COMPOSITE_COMPONENT__CHILD_COMPONENT_CONTEXTS_COMPOSITE_COMPONENT = eINSTANCE.getCompositeComponent_ChildComponentContexts_CompositeComponent();
-
-		/**
-		 * The meta object literal for the '<em><b>Composite Assembly Connectors Composite Component</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference COMPOSITE_COMPONENT__COMPOSITE_ASSEMBLY_CONNECTORS_COMPOSITE_COMPONENT = eINSTANCE.getCompositeComponent_CompositeAssemblyConnectors_CompositeComponent();
-
-		/**
-		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.repository.impl.CompositeAssemblyConnectorImpl <em>Composite Assembly Connector</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see de.uka.ipd.sdq.pcm.repository.impl.CompositeAssemblyConnectorImpl
-		 * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getCompositeAssemblyConnector()
-		 * @generated
-		 */
-		EClass COMPOSITE_ASSEMBLY_CONNECTOR = eINSTANCE.getCompositeAssemblyConnector();
-
-		/**
-		 * The meta object literal for the '<em><b>Requiring Child Component Context Composite Assembly Connector</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference COMPOSITE_ASSEMBLY_CONNECTOR__REQUIRING_CHILD_COMPONENT_CONTEXT_COMPOSITE_ASSEMBLY_CONNECTOR = eINSTANCE.getCompositeAssemblyConnector_RequiringChildComponentContext_CompositeAssemblyConnector();
-
-		/**
-		 * The meta object literal for the '<em><b>Providing Child Component Context Composite Assembly Connector</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference COMPOSITE_ASSEMBLY_CONNECTOR__PROVIDING_CHILD_COMPONENT_CONTEXT_COMPOSITE_ASSEMBLY_CONNECTOR = eINSTANCE.getCompositeAssemblyConnector_ProvidingChildComponentContext_CompositeAssemblyConnector();
-
-		/**
-		 * The meta object literal for the '<em><b>Provided Role Composite Assembly Connector</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference COMPOSITE_ASSEMBLY_CONNECTOR__PROVIDED_ROLE_COMPOSITE_ASSEMBLY_CONNECTOR = eINSTANCE.getCompositeAssemblyConnector_ProvidedRole_CompositeAssemblyConnector();
-
-		/**
-		 * The meta object literal for the '<em><b>Required Role Composite Assembly Connector</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference COMPOSITE_ASSEMBLY_CONNECTOR__REQUIRED_ROLE_COMPOSITE_ASSEMBLY_CONNECTOR = eINSTANCE.getCompositeAssemblyConnector_RequiredRole_CompositeAssemblyConnector();
 
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.repository.impl.BasicComponentImpl <em>Basic Component</em>}' class.
@@ -2424,30 +1828,14 @@ public interface RepositoryPackage extends EPackage {
 		EReference BASIC_COMPONENT__SERVICE_EFFECT_SPECIFICATIONS_BASIC_COMPONENT = eINSTANCE.getBasicComponent_ServiceEffectSpecifications__BasicComponent();
 
 		/**
-		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.repository.impl.ProvidesComponentTypeImpl <em>Provides Component Type</em>}' class.
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.repository.impl.DelegationConnectorImpl <em>Delegation Connector</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see de.uka.ipd.sdq.pcm.repository.impl.ProvidesComponentTypeImpl
-		 * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getProvidesComponentType()
+		 * @see de.uka.ipd.sdq.pcm.repository.impl.DelegationConnectorImpl
+		 * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getDelegationConnector()
 		 * @generated
 		 */
-		EClass PROVIDES_COMPONENT_TYPE = eINSTANCE.getProvidesComponentType();
-
-		/**
-		 * The meta object literal for the '<em><b>Provided Roles Provides Component Type</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference PROVIDES_COMPONENT_TYPE__PROVIDED_ROLES_PROVIDES_COMPONENT_TYPE = eINSTANCE.getProvidesComponentType_ProvidedRoles__ProvidesComponentType();
-
-		/**
-		 * The meta object literal for the '<em><b>Required Roles Provides Component Type</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference PROVIDES_COMPONENT_TYPE__REQUIRED_ROLES_PROVIDES_COMPONENT_TYPE = eINSTANCE.getProvidesComponentType_RequiredRoles_ProvidesComponentType();
+		EClass DELEGATION_CONNECTOR = eINSTANCE.getDelegationConnector();
 
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.repository.ParameterModifier <em>Parameter Modifier</em>}' enum.

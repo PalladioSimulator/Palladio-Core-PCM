@@ -8,8 +8,6 @@
 package de.uka.ipd.sdq.pcm.seff;
 
 
-import de.uka.ipd.sdq.pcm.core.stochastics.RandomVariable;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Loop Action</b></em>'.

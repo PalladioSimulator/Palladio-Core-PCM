@@ -26,7 +26,7 @@ import de.uka.ipd.sdq.identifier.provider.IdentifierItemProviderAdapterFactory;
 
 import de.uka.ipd.sdq.pcm.allocation.provider.AllocationItemProviderAdapterFactory;
 
-import de.uka.ipd.sdq.pcm.assembly.provider.AssemblyItemProviderAdapterFactory;
+import de.uka.ipd.sdq.pcm.core.composition.provider.CompositionItemProviderAdapterFactory;
 
 import de.uka.ipd.sdq.pcm.core.connectors.provider.ConnectorsItemProviderAdapterFactory;
 
@@ -49,6 +49,8 @@ import de.uka.ipd.sdq.pcm.seff.provider.SeffItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.system.provider.SystemItemProviderAdapterFactory;
 
 import de.uka.ipd.sdq.pcm.usagemodel.provider.UsagemodelItemProviderAdapterFactory;
+
+import de.uka.ipd.sdq.probfunction.provider.ProbfunctionItemProviderAdapterFactory;
 
 /**
  * @generated
@@ -123,10 +125,10 @@ public class RepositoryDiagramEditorPlugin extends AbstractUIPlugin {
 	 * @generated
 	 */
 	protected void fillItemProviderFactories(List factories) {
-		factories.add(new AssemblyItemProviderAdapterFactory());
 		factories.add(new StochasticsItemProviderAdapterFactory());
 		factories.add(new EntityItemProviderAdapterFactory());
 		factories.add(new ConnectorsItemProviderAdapterFactory());
+		factories.add(new CompositionItemProviderAdapterFactory());
 		factories.add(new RepositoryItemProviderAdapterFactory());
 		factories.add(new ProtocolItemProviderAdapterFactory());
 		factories.add(new SeffItemProviderAdapterFactory());
@@ -137,6 +139,7 @@ public class RepositoryDiagramEditorPlugin extends AbstractUIPlugin {
 		factories.add(new UsagemodelItemProviderAdapterFactory());
 		factories.add(new SystemItemProviderAdapterFactory());
 		factories.add(new IdentifierItemProviderAdapterFactory());
+		factories.add(new ProbfunctionItemProviderAdapterFactory());
 		factories.add(new ResourceItemProviderAdapterFactory());
 		factories.add(new ReflectiveItemProviderAdapterFactory());
 	}

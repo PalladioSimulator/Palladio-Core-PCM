@@ -95,7 +95,6 @@ public class InterfaceImpl extends EntityImpl implements Interface {
 	 */
 	protected EList protocols__Interface = null;
 
-
 	/**
 	 * The cached value of the '{@link #getSignatures__Interface() <em>Signatures Interface</em>}' containment reference list.
 	 * <!-- begin-user-doc -->

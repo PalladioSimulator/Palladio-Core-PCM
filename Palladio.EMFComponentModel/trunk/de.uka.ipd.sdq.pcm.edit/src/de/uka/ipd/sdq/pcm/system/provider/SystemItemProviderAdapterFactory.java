@@ -120,50 +120,6 @@ public class SystemItemProviderAdapterFactory extends SystemAdapterFactory imple
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.system.SystemProvidedDelegationConnector} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected SystemProvidedDelegationConnectorItemProvider systemProvidedDelegationConnectorItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.system.SystemProvidedDelegationConnector}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Adapter createSystemProvidedDelegationConnectorAdapter() {
-		if (systemProvidedDelegationConnectorItemProvider == null) {
-			systemProvidedDelegationConnectorItemProvider = new SystemProvidedDelegationConnectorItemProvider(this);
-		}
-
-		return systemProvidedDelegationConnectorItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.system.SystemRequiredDelegationConnector} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected SystemRequiredDelegationConnectorItemProvider systemRequiredDelegationConnectorItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.system.SystemRequiredDelegationConnector}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Adapter createSystemRequiredDelegationConnectorAdapter() {
-		if (systemRequiredDelegationConnectorItemProvider == null) {
-			systemRequiredDelegationConnectorItemProvider = new SystemRequiredDelegationConnectorItemProvider(this);
-		}
-
-		return systemRequiredDelegationConnectorItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.system.SpecifiedTimeConsumption} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -305,8 +261,6 @@ public class SystemItemProviderAdapterFactory extends SystemAdapterFactory imple
 	public void dispose() {
 		if (systemRequiredRoleItemProvider != null) systemRequiredRoleItemProvider.dispose();
 		if (systemItemProvider != null) systemItemProvider.dispose();
-		if (systemProvidedDelegationConnectorItemProvider != null) systemProvidedDelegationConnectorItemProvider.dispose();
-		if (systemRequiredDelegationConnectorItemProvider != null) systemRequiredDelegationConnectorItemProvider.dispose();
 		if (specifiedTimeConsumptionItemProvider != null) specifiedTimeConsumptionItemProvider.dispose();
 		if (systemProvidedRoleItemProvider != null) systemProvidedRoleItemProvider.dispose();
 	}

@@ -7,10 +7,11 @@
  */
 package de.uka.ipd.sdq.pcm.repository;
 
+import de.uka.ipd.sdq.pcm.core.composition.ComposedStructure;
+
 import java.util.Map;
 
 import org.eclipse.emf.common.util.DiagnosticChain;
-import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
@@ -20,11 +21,7 @@ import org.eclipse.emf.common.util.EList;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link de.uka.ipd.sdq.pcm.repository.CompositeComponent#getProvidedDelegationConnectors__CompositeComponent <em>Provided Delegation Connectors Composite Component</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.repository.CompositeComponent#getRequiredDelegationConnectors__CompositeComponent <em>Required Delegation Connectors Composite Component</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.repository.CompositeComponent#getImplementationComponentType <em>Implementation Component Type</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.repository.CompositeComponent#getChildComponentContexts_CompositeComponent <em>Child Component Contexts Composite Component</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.repository.CompositeComponent#getCompositeAssemblyConnectors_CompositeComponent <em>Composite Assembly Connectors Composite Component</em>}</li>
  * </ul>
  * </p>
  *
@@ -32,39 +29,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface CompositeComponent extends ImplementationComponentType {
-	/**
-	 * Returns the value of the '<em><b>Provided Delegation Connectors Composite Component</b></em>' containment reference list.
-	 * The list contents are of type {@link de.uka.ipd.sdq.pcm.repository.ProvidedDelegationConnector}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Provided Delegation Connectors Composite Component</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Provided Delegation Connectors Composite Component</em>' containment reference list.
-	 * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getCompositeComponent_ProvidedDelegationConnectors__CompositeComponent()
-	 * @model type="de.uka.ipd.sdq.pcm.repository.ProvidedDelegationConnector" containment="true" ordered="false"
-	 * @generated
-	 */
-	EList getProvidedDelegationConnectors__CompositeComponent();
-
-	/**
-	 * Returns the value of the '<em><b>Required Delegation Connectors Composite Component</b></em>' containment reference list.
-	 * The list contents are of type {@link de.uka.ipd.sdq.pcm.repository.RequiredDelegationConnector}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Required Delegation Connectors Composite Component</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Required Delegation Connectors Composite Component</em>' containment reference list.
-	 * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getCompositeComponent_RequiredDelegationConnectors__CompositeComponent()
-	 * @model type="de.uka.ipd.sdq.pcm.repository.RequiredDelegationConnector" containment="true" ordered="false"
-	 * @generated
-	 */
-	EList getRequiredDelegationConnectors__CompositeComponent();
-
+public interface CompositeComponent extends ImplementationComponentType, ComposedStructure {
 	/**
 	 * Returns the value of the '<em><b>Implementation Component Type</b></em>' reference.
 	 * <!-- begin-user-doc -->
@@ -90,38 +55,6 @@ public interface CompositeComponent extends ImplementationComponentType {
 	 * @generated
 	 */
 	void setImplementationComponentType(ImplementationComponentType value);
-
-	/**
-	 * Returns the value of the '<em><b>Child Component Contexts Composite Component</b></em>' containment reference list.
-	 * The list contents are of type {@link de.uka.ipd.sdq.pcm.repository.ChildComponentContext}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Child Component Contexts Composite Component</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Child Component Contexts Composite Component</em>' containment reference list.
-	 * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getCompositeComponent_ChildComponentContexts_CompositeComponent()
-	 * @model type="de.uka.ipd.sdq.pcm.repository.ChildComponentContext" containment="true" ordered="false"
-	 * @generated
-	 */
-	EList getChildComponentContexts_CompositeComponent();
-
-	/**
-	 * Returns the value of the '<em><b>Composite Assembly Connectors Composite Component</b></em>' containment reference list.
-	 * The list contents are of type {@link de.uka.ipd.sdq.pcm.repository.CompositeAssemblyConnector}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Composite Assembly Connectors Composite Component</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Composite Assembly Connectors Composite Component</em>' containment reference list.
-	 * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getCompositeComponent_CompositeAssemblyConnectors_CompositeComponent()
-	 * @model type="de.uka.ipd.sdq.pcm.repository.CompositeAssemblyConnector" containment="true" ordered="false"
-	 * @generated
-	 */
-	EList getCompositeAssemblyConnectors_CompositeComponent();
 
 
 	/**

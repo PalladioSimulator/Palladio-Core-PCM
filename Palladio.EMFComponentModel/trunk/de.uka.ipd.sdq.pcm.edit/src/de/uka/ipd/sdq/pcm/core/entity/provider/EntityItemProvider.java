@@ -9,10 +9,10 @@ package de.uka.ipd.sdq.pcm.core.entity.provider;
 
 import de.uka.ipd.sdq.identifier.provider.IdentifierItemProvider;
 
-import de.uka.ipd.sdq.pcm.assembly.provider.PcmEditPlugin;
-
 import de.uka.ipd.sdq.pcm.core.entity.Entity;
 import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
+
+import de.uka.ipd.sdq.pcm.core.stochastics.provider.PcmEditPlugin;
 
 import java.util.Collection;
 import java.util.List;

@@ -208,50 +208,6 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.repository.RequiredDelegationConnector} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected RequiredDelegationConnectorItemProvider requiredDelegationConnectorItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.repository.RequiredDelegationConnector}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Adapter createRequiredDelegationConnectorAdapter() {
-		if (requiredDelegationConnectorItemProvider == null) {
-			requiredDelegationConnectorItemProvider = new RequiredDelegationConnectorItemProvider(this);
-		}
-
-		return requiredDelegationConnectorItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.repository.ChildComponentContext} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ChildComponentContextItemProvider childComponentContextItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.repository.ChildComponentContext}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Adapter createChildComponentContextAdapter() {
-		if (childComponentContextItemProvider == null) {
-			childComponentContextItemProvider = new ChildComponentContextItemProvider(this);
-		}
-
-		return childComponentContextItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.repository.Repository} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -274,6 +230,28 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.repository.ProvidesComponentType} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ProvidesComponentTypeItemProvider providesComponentTypeItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.repository.ProvidesComponentType}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Adapter createProvidesComponentTypeAdapter() {
+		if (providesComponentTypeItemProvider == null) {
+			providesComponentTypeItemProvider = new ProvidesComponentTypeItemProvider(this);
+		}
+
+		return providesComponentTypeItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.repository.ProvidedRole} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -293,28 +271,6 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
 		}
 
 		return providedRoleItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.repository.ProvidedDelegationConnector} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ProvidedDelegationConnectorItemProvider providedDelegationConnectorItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.repository.ProvidedDelegationConnector}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Adapter createProvidedDelegationConnectorAdapter() {
-		if (providedDelegationConnectorItemProvider == null) {
-			providedDelegationConnectorItemProvider = new ProvidedDelegationConnectorItemProvider(this);
-		}
-
-		return providedDelegationConnectorItemProvider;
 	}
 
 	/**
@@ -384,28 +340,6 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.repository.CompositeAssemblyConnector} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected CompositeAssemblyConnectorItemProvider compositeAssemblyConnectorItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.repository.CompositeAssemblyConnector}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Adapter createCompositeAssemblyConnectorAdapter() {
-		if (compositeAssemblyConnectorItemProvider == null) {
-			compositeAssemblyConnectorItemProvider = new CompositeAssemblyConnectorItemProvider(this);
-		}
-
-		return compositeAssemblyConnectorItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.repository.BasicComponent} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -425,28 +359,6 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
 		}
 
 		return basicComponentItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.repository.ProvidesComponentType} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ProvidesComponentTypeItemProvider providesComponentTypeItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.repository.ProvidesComponentType}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Adapter createProvidesComponentTypeAdapter() {
-		if (providesComponentTypeItemProvider == null) {
-			providesComponentTypeItemProvider = new ProvidesComponentTypeItemProvider(this);
-		}
-
-		return providesComponentTypeItemProvider;
 	}
 
 	/**
@@ -551,17 +463,13 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
 		if (exceptionTypeItemProvider != null) exceptionTypeItemProvider.dispose();
 		if (requiredRoleItemProvider != null) requiredRoleItemProvider.dispose();
 		if (interfaceItemProvider != null) interfaceItemProvider.dispose();
-		if (requiredDelegationConnectorItemProvider != null) requiredDelegationConnectorItemProvider.dispose();
-		if (childComponentContextItemProvider != null) childComponentContextItemProvider.dispose();
 		if (repositoryItemProvider != null) repositoryItemProvider.dispose();
+		if (providesComponentTypeItemProvider != null) providesComponentTypeItemProvider.dispose();
 		if (providedRoleItemProvider != null) providedRoleItemProvider.dispose();
-		if (providedDelegationConnectorItemProvider != null) providedDelegationConnectorItemProvider.dispose();
 		if (implementationComponentTypeItemProvider != null) implementationComponentTypeItemProvider.dispose();
 		if (completeComponentTypeItemProvider != null) completeComponentTypeItemProvider.dispose();
 		if (compositeComponentItemProvider != null) compositeComponentItemProvider.dispose();
-		if (compositeAssemblyConnectorItemProvider != null) compositeAssemblyConnectorItemProvider.dispose();
 		if (basicComponentItemProvider != null) basicComponentItemProvider.dispose();
-		if (providesComponentTypeItemProvider != null) providesComponentTypeItemProvider.dispose();
 	}
 
 }

@@ -7,8 +7,6 @@
 package de.uka.ipd.sdq.pcm.core.stochastics.provider;
 
 
-import de.uka.ipd.sdq.pcm.assembly.provider.PcmEditPlugin;
-
 import java.util.Collection;
 import java.util.List;
 

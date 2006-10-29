@@ -7,13 +7,16 @@
  */
 package de.uka.ipd.sdq.pcm.repository.impl;
 
-import de.uka.ipd.sdq.pcm.repository.ChildComponentContext;
-import de.uka.ipd.sdq.pcm.repository.CompositeAssemblyConnector;
+import de.uka.ipd.sdq.pcm.core.composition.AssemblyConnector;
+import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
+import de.uka.ipd.sdq.pcm.core.composition.ComposedStructure;
+import de.uka.ipd.sdq.pcm.core.composition.CompositionPackage;
+import de.uka.ipd.sdq.pcm.core.composition.ProvidedDelegationConnector;
+import de.uka.ipd.sdq.pcm.core.composition.RequiredDelegationConnector;
+
 import de.uka.ipd.sdq.pcm.repository.CompositeComponent;
 import de.uka.ipd.sdq.pcm.repository.ImplementationComponentType;
-import de.uka.ipd.sdq.pcm.repository.ProvidedDelegationConnector;
 import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
-import de.uka.ipd.sdq.pcm.repository.RequiredDelegationConnector;
 
 import de.uka.ipd.sdq.pcm.repository.util.RepositoryValidator;
 
@@ -57,11 +60,11 @@ import org.eclipse.emf.ocl.query.QueryFactory;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link de.uka.ipd.sdq.pcm.repository.impl.CompositeComponentImpl#getProvidedDelegationConnectors__CompositeComponent <em>Provided Delegation Connectors Composite Component</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.repository.impl.CompositeComponentImpl#getRequiredDelegationConnectors__CompositeComponent <em>Required Delegation Connectors Composite Component</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.repository.impl.CompositeComponentImpl#getChildComponentContexts_ComposedStructure <em>Child Component Contexts Composed Structure</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.repository.impl.CompositeComponentImpl#getCompositeAssemblyConnectors_ComposedStructure <em>Composite Assembly Connectors Composed Structure</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.repository.impl.CompositeComponentImpl#getProvidedDelegationConnectors_ComposedStructure <em>Provided Delegation Connectors Composed Structure</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.repository.impl.CompositeComponentImpl#getRequiredDelegationConnectors_ComposedStructure <em>Required Delegation Connectors Composed Structure</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.repository.impl.CompositeComponentImpl#getImplementationComponentType <em>Implementation Component Type</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.repository.impl.CompositeComponentImpl#getChildComponentContexts_CompositeComponent <em>Child Component Contexts Composite Component</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.repository.impl.CompositeComponentImpl#getCompositeAssemblyConnectors_CompositeComponent <em>Composite Assembly Connectors Composite Component</em>}</li>
  * </ul>
  * </p>
  *
@@ -69,24 +72,44 @@ import org.eclipse.emf.ocl.query.QueryFactory;
  */
 public class CompositeComponentImpl extends ImplementationComponentTypeImpl implements CompositeComponent {
 	/**
-	 * The cached value of the '{@link #getProvidedDelegationConnectors__CompositeComponent() <em>Provided Delegation Connectors Composite Component</em>}' containment reference list.
+	 * The cached value of the '{@link #getChildComponentContexts_ComposedStructure() <em>Child Component Contexts Composed Structure</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getProvidedDelegationConnectors__CompositeComponent()
+	 * @see #getChildComponentContexts_ComposedStructure()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList providedDelegationConnectors__CompositeComponent = null;
+	protected EList childComponentContexts_ComposedStructure = null;
 
 	/**
-	 * The cached value of the '{@link #getRequiredDelegationConnectors__CompositeComponent() <em>Required Delegation Connectors Composite Component</em>}' containment reference list.
+	 * The cached value of the '{@link #getCompositeAssemblyConnectors_ComposedStructure() <em>Composite Assembly Connectors Composed Structure</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getRequiredDelegationConnectors__CompositeComponent()
+	 * @see #getCompositeAssemblyConnectors_ComposedStructure()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList requiredDelegationConnectors__CompositeComponent = null;
+	protected EList compositeAssemblyConnectors_ComposedStructure = null;
+
+	/**
+	 * The cached value of the '{@link #getProvidedDelegationConnectors_ComposedStructure() <em>Provided Delegation Connectors Composed Structure</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getProvidedDelegationConnectors_ComposedStructure()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList providedDelegationConnectors_ComposedStructure = null;
+
+	/**
+	 * The cached value of the '{@link #getRequiredDelegationConnectors_ComposedStructure() <em>Required Delegation Connectors Composed Structure</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRequiredDelegationConnectors_ComposedStructure()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList requiredDelegationConnectors_ComposedStructure = null;
 
 	/**
 	 * The cached value of the '{@link #getImplementationComponentType() <em>Implementation Component Type</em>}' reference.
@@ -97,26 +120,6 @@ public class CompositeComponentImpl extends ImplementationComponentTypeImpl impl
 	 * @ordered
 	 */
 	protected ImplementationComponentType implementationComponentType = null;
-
-	/**
-	 * The cached value of the '{@link #getChildComponentContexts_CompositeComponent() <em>Child Component Contexts Composite Component</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getChildComponentContexts_CompositeComponent()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList childComponentContexts_CompositeComponent = null;
-
-	/**
-	 * The cached value of the '{@link #getCompositeAssemblyConnectors_CompositeComponent() <em>Composite Assembly Connectors Composite Component</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getCompositeAssemblyConnectors_CompositeComponent()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList compositeAssemblyConnectors_CompositeComponent = null;
 
 
 	/**
@@ -162,11 +165,11 @@ public class CompositeComponentImpl extends ImplementationComponentTypeImpl impl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList getProvidedDelegationConnectors__CompositeComponent() {
-		if (providedDelegationConnectors__CompositeComponent == null) {
-			providedDelegationConnectors__CompositeComponent = new EObjectContainmentEList(ProvidedDelegationConnector.class, this, RepositoryPackage.COMPOSITE_COMPONENT__PROVIDED_DELEGATION_CONNECTORS_COMPOSITE_COMPONENT);
+	public EList getChildComponentContexts_ComposedStructure() {
+		if (childComponentContexts_ComposedStructure == null) {
+			childComponentContexts_ComposedStructure = new EObjectContainmentEList(AssemblyContext.class, this, RepositoryPackage.COMPOSITE_COMPONENT__CHILD_COMPONENT_CONTEXTS_COMPOSED_STRUCTURE);
 		}
-		return providedDelegationConnectors__CompositeComponent;
+		return childComponentContexts_ComposedStructure;
 	}
 
 	/**
@@ -174,11 +177,35 @@ public class CompositeComponentImpl extends ImplementationComponentTypeImpl impl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList getRequiredDelegationConnectors__CompositeComponent() {
-		if (requiredDelegationConnectors__CompositeComponent == null) {
-			requiredDelegationConnectors__CompositeComponent = new EObjectContainmentEList(RequiredDelegationConnector.class, this, RepositoryPackage.COMPOSITE_COMPONENT__REQUIRED_DELEGATION_CONNECTORS_COMPOSITE_COMPONENT);
+	public EList getCompositeAssemblyConnectors_ComposedStructure() {
+		if (compositeAssemblyConnectors_ComposedStructure == null) {
+			compositeAssemblyConnectors_ComposedStructure = new EObjectContainmentEList(AssemblyConnector.class, this, RepositoryPackage.COMPOSITE_COMPONENT__COMPOSITE_ASSEMBLY_CONNECTORS_COMPOSED_STRUCTURE);
 		}
-		return requiredDelegationConnectors__CompositeComponent;
+		return compositeAssemblyConnectors_ComposedStructure;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList getProvidedDelegationConnectors_ComposedStructure() {
+		if (providedDelegationConnectors_ComposedStructure == null) {
+			providedDelegationConnectors_ComposedStructure = new EObjectContainmentEList(ProvidedDelegationConnector.class, this, RepositoryPackage.COMPOSITE_COMPONENT__PROVIDED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE);
+		}
+		return providedDelegationConnectors_ComposedStructure;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList getRequiredDelegationConnectors_ComposedStructure() {
+		if (requiredDelegationConnectors_ComposedStructure == null) {
+			requiredDelegationConnectors_ComposedStructure = new EObjectContainmentEList(RequiredDelegationConnector.class, this, RepositoryPackage.COMPOSITE_COMPONENT__REQUIRED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE);
+		}
+		return requiredDelegationConnectors_ComposedStructure;
 	}
 
 	/**
@@ -217,30 +244,6 @@ public class CompositeComponentImpl extends ImplementationComponentTypeImpl impl
 		implementationComponentType = newImplementationComponentType;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, RepositoryPackage.COMPOSITE_COMPONENT__IMPLEMENTATION_COMPONENT_TYPE, oldImplementationComponentType, implementationComponentType));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList getChildComponentContexts_CompositeComponent() {
-		if (childComponentContexts_CompositeComponent == null) {
-			childComponentContexts_CompositeComponent = new EObjectContainmentEList(ChildComponentContext.class, this, RepositoryPackage.COMPOSITE_COMPONENT__CHILD_COMPONENT_CONTEXTS_COMPOSITE_COMPONENT);
-		}
-		return childComponentContexts_CompositeComponent;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList getCompositeAssemblyConnectors_CompositeComponent() {
-		if (compositeAssemblyConnectors_CompositeComponent == null) {
-			compositeAssemblyConnectors_CompositeComponent = new EObjectContainmentEList(CompositeAssemblyConnector.class, this, RepositoryPackage.COMPOSITE_COMPONENT__COMPOSITE_ASSEMBLY_CONNECTORS_COMPOSITE_COMPONENT);
-		}
-		return compositeAssemblyConnectors_CompositeComponent;
 	}
 
 
@@ -330,14 +333,14 @@ public class CompositeComponentImpl extends ImplementationComponentTypeImpl impl
 	 */
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case RepositoryPackage.COMPOSITE_COMPONENT__PROVIDED_DELEGATION_CONNECTORS_COMPOSITE_COMPONENT:
-				return ((InternalEList)getProvidedDelegationConnectors__CompositeComponent()).basicRemove(otherEnd, msgs);
-			case RepositoryPackage.COMPOSITE_COMPONENT__REQUIRED_DELEGATION_CONNECTORS_COMPOSITE_COMPONENT:
-				return ((InternalEList)getRequiredDelegationConnectors__CompositeComponent()).basicRemove(otherEnd, msgs);
-			case RepositoryPackage.COMPOSITE_COMPONENT__CHILD_COMPONENT_CONTEXTS_COMPOSITE_COMPONENT:
-				return ((InternalEList)getChildComponentContexts_CompositeComponent()).basicRemove(otherEnd, msgs);
-			case RepositoryPackage.COMPOSITE_COMPONENT__COMPOSITE_ASSEMBLY_CONNECTORS_COMPOSITE_COMPONENT:
-				return ((InternalEList)getCompositeAssemblyConnectors_CompositeComponent()).basicRemove(otherEnd, msgs);
+			case RepositoryPackage.COMPOSITE_COMPONENT__CHILD_COMPONENT_CONTEXTS_COMPOSED_STRUCTURE:
+				return ((InternalEList)getChildComponentContexts_ComposedStructure()).basicRemove(otherEnd, msgs);
+			case RepositoryPackage.COMPOSITE_COMPONENT__COMPOSITE_ASSEMBLY_CONNECTORS_COMPOSED_STRUCTURE:
+				return ((InternalEList)getCompositeAssemblyConnectors_ComposedStructure()).basicRemove(otherEnd, msgs);
+			case RepositoryPackage.COMPOSITE_COMPONENT__PROVIDED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE:
+				return ((InternalEList)getProvidedDelegationConnectors_ComposedStructure()).basicRemove(otherEnd, msgs);
+			case RepositoryPackage.COMPOSITE_COMPONENT__REQUIRED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE:
+				return ((InternalEList)getRequiredDelegationConnectors_ComposedStructure()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -349,17 +352,17 @@ public class CompositeComponentImpl extends ImplementationComponentTypeImpl impl
 	 */
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case RepositoryPackage.COMPOSITE_COMPONENT__PROVIDED_DELEGATION_CONNECTORS_COMPOSITE_COMPONENT:
-				return getProvidedDelegationConnectors__CompositeComponent();
-			case RepositoryPackage.COMPOSITE_COMPONENT__REQUIRED_DELEGATION_CONNECTORS_COMPOSITE_COMPONENT:
-				return getRequiredDelegationConnectors__CompositeComponent();
+			case RepositoryPackage.COMPOSITE_COMPONENT__CHILD_COMPONENT_CONTEXTS_COMPOSED_STRUCTURE:
+				return getChildComponentContexts_ComposedStructure();
+			case RepositoryPackage.COMPOSITE_COMPONENT__COMPOSITE_ASSEMBLY_CONNECTORS_COMPOSED_STRUCTURE:
+				return getCompositeAssemblyConnectors_ComposedStructure();
+			case RepositoryPackage.COMPOSITE_COMPONENT__PROVIDED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE:
+				return getProvidedDelegationConnectors_ComposedStructure();
+			case RepositoryPackage.COMPOSITE_COMPONENT__REQUIRED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE:
+				return getRequiredDelegationConnectors_ComposedStructure();
 			case RepositoryPackage.COMPOSITE_COMPONENT__IMPLEMENTATION_COMPONENT_TYPE:
 				if (resolve) return getImplementationComponentType();
 				return basicGetImplementationComponentType();
-			case RepositoryPackage.COMPOSITE_COMPONENT__CHILD_COMPONENT_CONTEXTS_COMPOSITE_COMPONENT:
-				return getChildComponentContexts_CompositeComponent();
-			case RepositoryPackage.COMPOSITE_COMPONENT__COMPOSITE_ASSEMBLY_CONNECTORS_COMPOSITE_COMPONENT:
-				return getCompositeAssemblyConnectors_CompositeComponent();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -371,24 +374,24 @@ public class CompositeComponentImpl extends ImplementationComponentTypeImpl impl
 	 */
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case RepositoryPackage.COMPOSITE_COMPONENT__PROVIDED_DELEGATION_CONNECTORS_COMPOSITE_COMPONENT:
-				getProvidedDelegationConnectors__CompositeComponent().clear();
-				getProvidedDelegationConnectors__CompositeComponent().addAll((Collection)newValue);
+			case RepositoryPackage.COMPOSITE_COMPONENT__CHILD_COMPONENT_CONTEXTS_COMPOSED_STRUCTURE:
+				getChildComponentContexts_ComposedStructure().clear();
+				getChildComponentContexts_ComposedStructure().addAll((Collection)newValue);
 				return;
-			case RepositoryPackage.COMPOSITE_COMPONENT__REQUIRED_DELEGATION_CONNECTORS_COMPOSITE_COMPONENT:
-				getRequiredDelegationConnectors__CompositeComponent().clear();
-				getRequiredDelegationConnectors__CompositeComponent().addAll((Collection)newValue);
+			case RepositoryPackage.COMPOSITE_COMPONENT__COMPOSITE_ASSEMBLY_CONNECTORS_COMPOSED_STRUCTURE:
+				getCompositeAssemblyConnectors_ComposedStructure().clear();
+				getCompositeAssemblyConnectors_ComposedStructure().addAll((Collection)newValue);
+				return;
+			case RepositoryPackage.COMPOSITE_COMPONENT__PROVIDED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE:
+				getProvidedDelegationConnectors_ComposedStructure().clear();
+				getProvidedDelegationConnectors_ComposedStructure().addAll((Collection)newValue);
+				return;
+			case RepositoryPackage.COMPOSITE_COMPONENT__REQUIRED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE:
+				getRequiredDelegationConnectors_ComposedStructure().clear();
+				getRequiredDelegationConnectors_ComposedStructure().addAll((Collection)newValue);
 				return;
 			case RepositoryPackage.COMPOSITE_COMPONENT__IMPLEMENTATION_COMPONENT_TYPE:
 				setImplementationComponentType((ImplementationComponentType)newValue);
-				return;
-			case RepositoryPackage.COMPOSITE_COMPONENT__CHILD_COMPONENT_CONTEXTS_COMPOSITE_COMPONENT:
-				getChildComponentContexts_CompositeComponent().clear();
-				getChildComponentContexts_CompositeComponent().addAll((Collection)newValue);
-				return;
-			case RepositoryPackage.COMPOSITE_COMPONENT__COMPOSITE_ASSEMBLY_CONNECTORS_COMPOSITE_COMPONENT:
-				getCompositeAssemblyConnectors_CompositeComponent().clear();
-				getCompositeAssemblyConnectors_CompositeComponent().addAll((Collection)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -401,20 +404,20 @@ public class CompositeComponentImpl extends ImplementationComponentTypeImpl impl
 	 */
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case RepositoryPackage.COMPOSITE_COMPONENT__PROVIDED_DELEGATION_CONNECTORS_COMPOSITE_COMPONENT:
-				getProvidedDelegationConnectors__CompositeComponent().clear();
+			case RepositoryPackage.COMPOSITE_COMPONENT__CHILD_COMPONENT_CONTEXTS_COMPOSED_STRUCTURE:
+				getChildComponentContexts_ComposedStructure().clear();
 				return;
-			case RepositoryPackage.COMPOSITE_COMPONENT__REQUIRED_DELEGATION_CONNECTORS_COMPOSITE_COMPONENT:
-				getRequiredDelegationConnectors__CompositeComponent().clear();
+			case RepositoryPackage.COMPOSITE_COMPONENT__COMPOSITE_ASSEMBLY_CONNECTORS_COMPOSED_STRUCTURE:
+				getCompositeAssemblyConnectors_ComposedStructure().clear();
+				return;
+			case RepositoryPackage.COMPOSITE_COMPONENT__PROVIDED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE:
+				getProvidedDelegationConnectors_ComposedStructure().clear();
+				return;
+			case RepositoryPackage.COMPOSITE_COMPONENT__REQUIRED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE:
+				getRequiredDelegationConnectors_ComposedStructure().clear();
 				return;
 			case RepositoryPackage.COMPOSITE_COMPONENT__IMPLEMENTATION_COMPONENT_TYPE:
 				setImplementationComponentType((ImplementationComponentType)null);
-				return;
-			case RepositoryPackage.COMPOSITE_COMPONENT__CHILD_COMPONENT_CONTEXTS_COMPOSITE_COMPONENT:
-				getChildComponentContexts_CompositeComponent().clear();
-				return;
-			case RepositoryPackage.COMPOSITE_COMPONENT__COMPOSITE_ASSEMBLY_CONNECTORS_COMPOSITE_COMPONENT:
-				getCompositeAssemblyConnectors_CompositeComponent().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -427,18 +430,54 @@ public class CompositeComponentImpl extends ImplementationComponentTypeImpl impl
 	 */
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case RepositoryPackage.COMPOSITE_COMPONENT__PROVIDED_DELEGATION_CONNECTORS_COMPOSITE_COMPONENT:
-				return providedDelegationConnectors__CompositeComponent != null && !providedDelegationConnectors__CompositeComponent.isEmpty();
-			case RepositoryPackage.COMPOSITE_COMPONENT__REQUIRED_DELEGATION_CONNECTORS_COMPOSITE_COMPONENT:
-				return requiredDelegationConnectors__CompositeComponent != null && !requiredDelegationConnectors__CompositeComponent.isEmpty();
+			case RepositoryPackage.COMPOSITE_COMPONENT__CHILD_COMPONENT_CONTEXTS_COMPOSED_STRUCTURE:
+				return childComponentContexts_ComposedStructure != null && !childComponentContexts_ComposedStructure.isEmpty();
+			case RepositoryPackage.COMPOSITE_COMPONENT__COMPOSITE_ASSEMBLY_CONNECTORS_COMPOSED_STRUCTURE:
+				return compositeAssemblyConnectors_ComposedStructure != null && !compositeAssemblyConnectors_ComposedStructure.isEmpty();
+			case RepositoryPackage.COMPOSITE_COMPONENT__PROVIDED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE:
+				return providedDelegationConnectors_ComposedStructure != null && !providedDelegationConnectors_ComposedStructure.isEmpty();
+			case RepositoryPackage.COMPOSITE_COMPONENT__REQUIRED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE:
+				return requiredDelegationConnectors_ComposedStructure != null && !requiredDelegationConnectors_ComposedStructure.isEmpty();
 			case RepositoryPackage.COMPOSITE_COMPONENT__IMPLEMENTATION_COMPONENT_TYPE:
 				return implementationComponentType != null;
-			case RepositoryPackage.COMPOSITE_COMPONENT__CHILD_COMPONENT_CONTEXTS_COMPOSITE_COMPONENT:
-				return childComponentContexts_CompositeComponent != null && !childComponentContexts_CompositeComponent.isEmpty();
-			case RepositoryPackage.COMPOSITE_COMPONENT__COMPOSITE_ASSEMBLY_CONNECTORS_COMPOSITE_COMPONENT:
-				return compositeAssemblyConnectors_CompositeComponent != null && !compositeAssemblyConnectors_CompositeComponent.isEmpty();
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public int eBaseStructuralFeatureID(int derivedFeatureID, Class baseClass) {
+		if (baseClass == ComposedStructure.class) {
+			switch (derivedFeatureID) {
+				case RepositoryPackage.COMPOSITE_COMPONENT__CHILD_COMPONENT_CONTEXTS_COMPOSED_STRUCTURE: return CompositionPackage.COMPOSED_STRUCTURE__CHILD_COMPONENT_CONTEXTS_COMPOSED_STRUCTURE;
+				case RepositoryPackage.COMPOSITE_COMPONENT__COMPOSITE_ASSEMBLY_CONNECTORS_COMPOSED_STRUCTURE: return CompositionPackage.COMPOSED_STRUCTURE__COMPOSITE_ASSEMBLY_CONNECTORS_COMPOSED_STRUCTURE;
+				case RepositoryPackage.COMPOSITE_COMPONENT__PROVIDED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE: return CompositionPackage.COMPOSED_STRUCTURE__PROVIDED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE;
+				case RepositoryPackage.COMPOSITE_COMPONENT__REQUIRED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE: return CompositionPackage.COMPOSED_STRUCTURE__REQUIRED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE;
+				default: return -1;
+			}
+		}
+		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public int eDerivedStructuralFeatureID(int baseFeatureID, Class baseClass) {
+		if (baseClass == ComposedStructure.class) {
+			switch (baseFeatureID) {
+				case CompositionPackage.COMPOSED_STRUCTURE__CHILD_COMPONENT_CONTEXTS_COMPOSED_STRUCTURE: return RepositoryPackage.COMPOSITE_COMPONENT__CHILD_COMPONENT_CONTEXTS_COMPOSED_STRUCTURE;
+				case CompositionPackage.COMPOSED_STRUCTURE__COMPOSITE_ASSEMBLY_CONNECTORS_COMPOSED_STRUCTURE: return RepositoryPackage.COMPOSITE_COMPONENT__COMPOSITE_ASSEMBLY_CONNECTORS_COMPOSED_STRUCTURE;
+				case CompositionPackage.COMPOSED_STRUCTURE__PROVIDED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE: return RepositoryPackage.COMPOSITE_COMPONENT__PROVIDED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE;
+				case CompositionPackage.COMPOSED_STRUCTURE__REQUIRED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE: return RepositoryPackage.COMPOSITE_COMPONENT__REQUIRED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE;
+				default: return -1;
+			}
+		}
+		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
 } //CompositeComponentImpl

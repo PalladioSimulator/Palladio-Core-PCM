@@ -57,7 +57,6 @@ public class ProductExpressionImpl extends ProductImpl implements ProductExpress
 	 */
 	protected Power right = null;
 
-
 	/**
 	 * The default value of the '{@link #getOperation() <em>Operation</em>}' attribute.
 	 * <!-- begin-user-doc -->

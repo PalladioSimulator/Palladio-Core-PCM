@@ -11,9 +11,9 @@ import de.uka.ipd.sdq.pcm.allocation.Allocation;
 import de.uka.ipd.sdq.pcm.allocation.AllocationFactory;
 import de.uka.ipd.sdq.pcm.allocation.AllocationPackage;
 
-import de.uka.ipd.sdq.pcm.assembly.provider.PcmEditPlugin;
-
 import de.uka.ipd.sdq.pcm.core.entity.provider.EntityItemProvider;
+
+import de.uka.ipd.sdq.pcm.core.stochastics.provider.PcmEditPlugin;
 
 import java.util.Collection;
 import java.util.List;
@@ -103,7 +103,7 @@ public class AllocationItemProvider
 	public Collection getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(AllocationPackage.Literals.ALLOCATION__ALLOCATION_CONTEXTS);
+			childrenFeatures.add(AllocationPackage.Literals.ALLOCATION__ALLOCATION_CONTEXTS_ALLOCATION);
 		}
 		return childrenFeatures;
 	}
@@ -142,7 +142,7 @@ public class AllocationItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Allocation.class)) {
-			case AllocationPackage.ALLOCATION__ALLOCATION_CONTEXTS:
+			case AllocationPackage.ALLOCATION__ALLOCATION_CONTEXTS_ALLOCATION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -161,7 +161,7 @@ public class AllocationItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(AllocationPackage.Literals.ALLOCATION__ALLOCATION_CONTEXTS,
+				(AllocationPackage.Literals.ALLOCATION__ALLOCATION_CONTEXTS_ALLOCATION,
 				 AllocationFactory.eINSTANCE.createAllocationContext()));
 	}
 

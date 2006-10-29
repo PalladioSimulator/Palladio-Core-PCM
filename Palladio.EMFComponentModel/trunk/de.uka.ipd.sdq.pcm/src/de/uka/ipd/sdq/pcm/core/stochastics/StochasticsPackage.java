@@ -10,7 +10,6 @@ import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.EReference;
 
 /**
@@ -97,7 +96,6 @@ public interface StochasticsPackage extends EPackage {
 	 * @ordered
 	 */
 	int RANDOM_VARIABLE_FEATURE_COUNT = 2;
-
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.core.stochastics.impl.ExpressionImpl <em>Expression</em>}' class.
@@ -344,7 +342,6 @@ public interface StochasticsPackage extends EPackage {
 	 */
 	int DOUBLE_LITERAL_FEATURE_COUNT = NUMERIC_LITERAL_FEATURE_COUNT + 1;
 
-
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.core.stochastics.impl.CompareExpressionImpl <em>Compare Expression</em>}' class.
 	 * <!-- begin-user-doc -->
@@ -520,7 +517,6 @@ public interface StochasticsPackage extends EPackage {
 	 * @generated
 	 */
 	int COMPARE_OPERATIONS = 16;
-
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.core.stochastics.TermOperations <em>Term Operations</em>}' enum.
@@ -930,7 +926,7 @@ public interface StochasticsPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	interface Literals  {
+	interface Literals {
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.core.stochastics.impl.RandomVariableImpl <em>Random Variable</em>}' class.
 		 * <!-- begin-user-doc -->
