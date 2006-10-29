@@ -8,6 +8,7 @@ import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 
+import de.uka.ipd.sdq.probfunction.math.IProbabilityFunction;
 import de.uka.ipd.sdq.probfunction.math.IProbabilityMassFunction;
 import de.uka.ipd.sdq.probfunction.math.IRandomGenerator;
 import de.uka.ipd.sdq.probfunction.math.ISample;
@@ -274,4 +275,48 @@ public class ProbabilityMassFunctionImpl extends ProbabilityFunctionImpl
 		return sum;
 	}
 
+	public boolean checkConstrains() {
+		if (MathTools.equalsDouble(getProbabilitySum(), 1.0))
+			return false;
+		if (samples.size() > 0
+				|| MathTools.isNumeric(samples.get(0).getValue()))
+			return false;
+
+		boolean result = true;
+		for (ISample sample : this.samples) {
+			Object value = sample.getValue();
+			if (value instanceof Double) {
+				Double d = (Double) value;
+				result = result && (d >= 0);
+			} else if (value instanceof Integer) {
+				Integer i = (Integer) value;
+				result = result && (i >= 0);
+			} else if (value instanceof Long) {
+				Long i = (Long) value;
+				result = result && (i >= 0);
+			} else if (value instanceof Float) {
+				Float i = (Float) value;
+				result = result && (i >= 0);
+			}
+		}
+		return true;
+	}
+
+	public IProbabilityFunction getCumulativeFunction() {
+		List<Double> newProb = MathTools
+				.computeIntervalsOfProb(getProbabilities());
+		List<ISample> newSamples = new ArrayList<ISample>();
+		int index = 0;
+		for (Double d : newProb) {
+			newSamples.add(pfFactory.createSample(
+					samples.get(index).getValue(), d));
+			index++;
+		}
+
+		IProbabilityMassFunction pmf = null;
+		pmf = pfFactory.createProbabilityMassFunction(newSamples, this
+				.getUnit(), this.hasOrderedDomain());
+
+		return pmf;
+	}
 }
