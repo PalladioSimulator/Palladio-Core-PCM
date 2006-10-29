@@ -2,7 +2,7 @@
 <feature
       id="de.uka.ipd.sdq.pcm.diagram.feature"
       label="Palladio Component Model Diagramming Feature"
-      version="1.1.3.qualifier"
+      version="1.2.0.qualifier"
       provider-name="sdq.ipd.uka.de">
 
    <description url="http://i43pc12.ipd.uka.de/eclipse/PCM/">
