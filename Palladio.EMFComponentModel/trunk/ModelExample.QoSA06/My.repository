@@ -68,6 +68,7 @@
           <steps_Behaviour xsi:type="pcm.seff:ExternalCallAction" id="_D9tVlfGTEdqJcvwivguuBw" entityName="IAudioStore.HandleUpload" predecessor_AbstractAction="_D9tVk_GTEdqJcvwivguuBw" successor_AbstractAction="_D9tVlPGTEdqJcvwivguuBw" calledService_ExternalService="//@interfaces__Repository.0/@signatures__Interface.0" parametricParameterUsage_ParametricParameterUsage="//@components__Repository.3/@serviceEffectSpecifications__BasicComponent.0/@steps_Behaviour.2/@bodyBehaviour_Loop/@parametricParameterUsage_Behaviour.0"/>
           <parametricParameterUsage_Behaviour xsi:type="pcm.seff:PrimitiveParametricParameterUsage" specification="= file.inner.BYTESIZE" characterisedParameter_ParametricParameterUsage="//@interfaces__Repository.0/@signatures__Interface.0/@parameters__Signature.0" type="BYTESIZE"/>
         </bodyBehaviour_Loop>
+        <iterations_LoopAction specification="= files.NUMBER_OF_ELEMENTS"/>
       </steps_Behaviour>
       <steps_Behaviour xsi:type="pcm.seff:ExternalCallAction" id="_D9tVlvGTEdqJcvwivguuBw" entityName="IAudioStore.FinalizeUpload" predecessor_AbstractAction="_D9tVkvGTEdqJcvwivguuBw" successor_AbstractAction="_D9tVkfGTEdqJcvwivguuBw" calledService_ExternalService="//@interfaces__Repository.0/@signatures__Interface.1"/>
     </serviceEffectSpecifications__BasicComponent>
