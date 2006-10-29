@@ -98,6 +98,15 @@ public interface SeffFactory extends EFactory {
 	LoopAction createLoopAction();
 
 	/**
+	 * Returns a new object of class '<em>Iteration Count</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Iteration Count</em>'.
+	 * @generated
+	 */
+	IterationCount createIterationCount();
+
+	/**
 	 * Returns a new object of class '<em>Internal Action</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -109,6 +109,9 @@ public class SeffAdapterFactory extends AdapterFactoryImpl {
 			public Object caseLoopAction(LoopAction object) {
 				return createLoopActionAdapter();
 			}
+			public Object caseIterationCount(IterationCount object) {
+				return createIterationCountAdapter();
+			}
 			public Object caseInternalAction(InternalAction object) {
 				return createInternalActionAdapter();
 			}
@@ -311,6 +314,20 @@ public class SeffAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createLoopActionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.seff.IterationCount <em>Iteration Count</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.pcm.seff.IterationCount
+	 * @generated
+	 */
+	public Adapter createIterationCountAdapter() {
 		return null;
 	}
 

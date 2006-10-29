@@ -8,6 +8,8 @@
 package de.uka.ipd.sdq.pcm.seff;
 
 
+import de.uka.ipd.sdq.pcm.core.stochastics.RandomVariable;
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Loop Action</b></em>'.
@@ -18,6 +20,7 @@ package de.uka.ipd.sdq.pcm.seff;
  * <ul>
  *   <li>{@link de.uka.ipd.sdq.pcm.seff.LoopAction#getIterations <em>Iterations</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.seff.LoopAction#getBodyBehaviour_Loop <em>Body Behaviour Loop</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.seff.LoopAction#getIterations_LoopAction <em>Iterations Loop Action</em>}</li>
  * </ul>
  * </p>
  *
@@ -77,5 +80,31 @@ public interface LoopAction extends AbstractResourceDemandingAction {
 	 * @generated
 	 */
 	void setBodyBehaviour_Loop(ResourceDemandingBehaviour value);
+
+	/**
+	 * Returns the value of the '<em><b>Iterations Loop Action</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Iterations Loop Action</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Iterations Loop Action</em>' containment reference.
+	 * @see #setIterations_LoopAction(IterationCount)
+	 * @see de.uka.ipd.sdq.pcm.seff.SeffPackage#getLoopAction_Iterations_LoopAction()
+	 * @model containment="true" required="true" ordered="false"
+	 * @generated
+	 */
+	IterationCount getIterations_LoopAction();
+
+	/**
+	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.seff.LoopAction#getIterations_LoopAction <em>Iterations Loop Action</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Iterations Loop Action</em>' containment reference.
+	 * @see #getIterations_LoopAction()
+	 * @generated
+	 */
+	void setIterations_LoopAction(IterationCount value);
 
 } // LoopAction

@@ -42,6 +42,7 @@ import de.uka.ipd.sdq.pcm.seff.CollectionParametricParameterUsage;
 import de.uka.ipd.sdq.pcm.seff.ExternalCallAction;
 import de.uka.ipd.sdq.pcm.seff.ForkAction;
 import de.uka.ipd.sdq.pcm.seff.InternalAction;
+import de.uka.ipd.sdq.pcm.seff.IterationCount;
 import de.uka.ipd.sdq.pcm.seff.LoopAction;
 import de.uka.ipd.sdq.pcm.seff.ParametricParameterUsage;
 import de.uka.ipd.sdq.pcm.seff.ParametricResourceDemand;
@@ -143,6 +144,13 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 	 * @generated
 	 */
 	private EClass loopActionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass iterationCountEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -549,6 +557,24 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getLoopAction_Iterations_LoopAction() {
+		return (EReference)loopActionEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getIterationCount() {
+		return iterationCountEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getInternalAction() {
 		return internalActionEClass;
 	}
@@ -779,6 +805,9 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 		loopActionEClass = createEClass(LOOP_ACTION);
 		createEAttribute(loopActionEClass, LOOP_ACTION__ITERATIONS);
 		createEReference(loopActionEClass, LOOP_ACTION__BODY_BEHAVIOUR_LOOP);
+		createEReference(loopActionEClass, LOOP_ACTION__ITERATIONS_LOOP_ACTION);
+
+		iterationCountEClass = createEClass(ITERATION_COUNT);
 
 		internalActionEClass = createEClass(INTERNAL_ACTION);
 		createEAttribute(internalActionEClass, INTERNAL_ACTION__FAILURE_PROBABILITY);
@@ -850,6 +879,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 		releaseActionEClass.getESuperTypes().add(this.getAbstractResourceDemandingAction());
 		primitiveParametricParameterUsageEClass.getESuperTypes().add(this.getParametricParameterUsage());
 		loopActionEClass.getESuperTypes().add(this.getAbstractResourceDemandingAction());
+		iterationCountEClass.getESuperTypes().add(theStochasticsPackage.getRandomVariable());
 		internalActionEClass.getESuperTypes().add(this.getAbstractResourceDemandingAction());
 		forkActionEClass.getESuperTypes().add(this.getAbstractResourceDemandingAction());
 		externalCallActionEClass.getESuperTypes().add(this.getAbstractAction());
@@ -894,6 +924,9 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 		initEClass(loopActionEClass, LoopAction.class, "LoopAction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getLoopAction_Iterations(), ecorePackage.getEString(), "iterations", null, 1, 1, LoopAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getLoopAction_BodyBehaviour_Loop(), this.getResourceDemandingBehaviour(), null, "bodyBehaviour_Loop", null, 1, 1, LoopAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getLoopAction_Iterations_LoopAction(), this.getIterationCount(), null, "iterations_LoopAction", null, 1, 1, LoopAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+		initEClass(iterationCountEClass, IterationCount.class, "IterationCount", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(internalActionEClass, InternalAction.class, "InternalAction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getInternalAction_FailureProbability(), ecorePackage.getEString(), "failureProbability", null, 1, 1, InternalAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);

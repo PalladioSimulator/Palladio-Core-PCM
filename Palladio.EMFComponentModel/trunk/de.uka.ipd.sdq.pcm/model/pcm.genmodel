@@ -371,7 +371,9 @@
       <genClasses ecoreClass="pcm.ecore#//seff/LoopAction">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pcm.ecore#//seff/LoopAction/iterations"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//seff/LoopAction/bodyBehaviour_Loop"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//seff/LoopAction/iterations_LoopAction"/>
       </genClasses>
+      <genClasses ecoreClass="pcm.ecore#//seff/IterationCount"/>
       <genClasses ecoreClass="pcm.ecore#//seff/InternalAction">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pcm.ecore#//seff/InternalAction/failureProbability"/>
       </genClasses>

@@ -741,13 +741,59 @@ public interface SeffPackage extends EPackage {
 	int LOOP_ACTION__BODY_BEHAVIOUR_LOOP = ABSTRACT_RESOURCE_DEMANDING_ACTION_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Iterations Loop Action</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LOOP_ACTION__ITERATIONS_LOOP_ACTION = ABSTRACT_RESOURCE_DEMANDING_ACTION_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Loop Action</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LOOP_ACTION_FEATURE_COUNT = ABSTRACT_RESOURCE_DEMANDING_ACTION_FEATURE_COUNT + 2;
+	int LOOP_ACTION_FEATURE_COUNT = ABSTRACT_RESOURCE_DEMANDING_ACTION_FEATURE_COUNT + 3;
+
+	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.seff.impl.IterationCountImpl <em>Iteration Count</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.pcm.seff.impl.IterationCountImpl
+	 * @see de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl#getIterationCount()
+	 * @generated
+	 */
+	int ITERATION_COUNT = 11;
+
+	/**
+	 * The feature id for the '<em><b>Specification</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ITERATION_COUNT__SPECIFICATION = StochasticsPackage.RANDOM_VARIABLE__SPECIFICATION;
+
+	/**
+	 * The feature id for the '<em><b>Specification Random Variable</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ITERATION_COUNT__SPECIFICATION_RANDOM_VARIABLE = StochasticsPackage.RANDOM_VARIABLE__SPECIFICATION_RANDOM_VARIABLE;
+
+	/**
+	 * The number of structural features of the '<em>Iteration Count</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ITERATION_COUNT_FEATURE_COUNT = StochasticsPackage.RANDOM_VARIABLE_FEATURE_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.seff.impl.InternalActionImpl <em>Internal Action</em>}' class.
@@ -757,7 +803,7 @@ public interface SeffPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl#getInternalAction()
 	 * @generated
 	 */
-	int INTERNAL_ACTION = 11;
+	int INTERNAL_ACTION = 12;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -830,7 +876,7 @@ public interface SeffPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl#getForkAction()
 	 * @generated
 	 */
-	int FORK_ACTION = 12;
+	int FORK_ACTION = 13;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -903,7 +949,7 @@ public interface SeffPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl#getExternalCallAction()
 	 * @generated
 	 */
-	int EXTERNAL_CALL_ACTION = 13;
+	int EXTERNAL_CALL_ACTION = 14;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -976,7 +1022,7 @@ public interface SeffPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl#getCollectionParametricParameterUsage()
 	 * @generated
 	 */
-	int COLLECTION_PARAMETRIC_PARAMETER_USAGE = 14;
+	int COLLECTION_PARAMETRIC_PARAMETER_USAGE = 15;
 
 	/**
 	 * The feature id for the '<em><b>Specification</b></em>' attribute.
@@ -1031,7 +1077,7 @@ public interface SeffPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl#getBranchTransition()
 	 * @generated
 	 */
-	int BRANCH_TRANSITION = 15;
+	int BRANCH_TRANSITION = 16;
 
 	/**
 	 * The feature id for the '<em><b>Branch Condition</b></em>' attribute.
@@ -1068,7 +1114,7 @@ public interface SeffPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl#getBranchAction()
 	 * @generated
 	 */
-	int BRANCH_ACTION = 16;
+	int BRANCH_ACTION = 17;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1141,7 +1187,7 @@ public interface SeffPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl#getAquireAction()
 	 * @generated
 	 */
-	int AQUIRE_ACTION = 17;
+	int AQUIRE_ACTION = 18;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1214,7 +1260,7 @@ public interface SeffPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl#getServiceEffectSpecification()
 	 * @generated
 	 */
-	int SERVICE_EFFECT_SPECIFICATION = 18;
+	int SERVICE_EFFECT_SPECIFICATION = 19;
 
 	/**
 	 * The feature id for the '<em><b>Seff Type ID</b></em>' attribute.
@@ -1518,6 +1564,27 @@ public interface SeffPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getLoopAction_BodyBehaviour_Loop();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link de.uka.ipd.sdq.pcm.seff.LoopAction#getIterations_LoopAction <em>Iterations Loop Action</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Iterations Loop Action</em>'.
+	 * @see de.uka.ipd.sdq.pcm.seff.LoopAction#getIterations_LoopAction()
+	 * @see #getLoopAction()
+	 * @generated
+	 */
+	EReference getLoopAction_Iterations_LoopAction();
+
+	/**
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.seff.IterationCount <em>Iteration Count</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Iteration Count</em>'.
+	 * @see de.uka.ipd.sdq.pcm.seff.IterationCount
+	 * @generated
+	 */
+	EClass getIterationCount();
 
 	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.seff.InternalAction <em>Internal Action</em>}'.
@@ -1971,6 +2038,24 @@ public interface SeffPackage extends EPackage {
 		 * @generated
 		 */
 		EReference LOOP_ACTION__BODY_BEHAVIOUR_LOOP = eINSTANCE.getLoopAction_BodyBehaviour_Loop();
+
+		/**
+		 * The meta object literal for the '<em><b>Iterations Loop Action</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference LOOP_ACTION__ITERATIONS_LOOP_ACTION = eINSTANCE.getLoopAction_Iterations_LoopAction();
+
+		/**
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.seff.impl.IterationCountImpl <em>Iteration Count</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.uka.ipd.sdq.pcm.seff.impl.IterationCountImpl
+		 * @see de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl#getIterationCount()
+		 * @generated
+		 */
+		EClass ITERATION_COUNT = eINSTANCE.getIterationCount();
 
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.seff.impl.InternalActionImpl <em>Internal Action</em>}' class.

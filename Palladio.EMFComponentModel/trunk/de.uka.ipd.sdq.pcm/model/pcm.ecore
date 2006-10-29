@@ -517,7 +517,10 @@
           lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="bodyBehaviour_Loop" ordered="false"
           lowerBound="1" eType="#//seff/ResourceDemandingBehaviour" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="iterations_LoopAction"
+          ordered="false" lowerBound="1" eType="#//seff/IterationCount" containment="true"/>
     </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="IterationCount" eSuperTypes="#//core/stochastics/RandomVariable"/>
     <eClassifiers xsi:type="ecore:EClass" name="InternalAction" eSuperTypes="#//seff/AbstractResourceDemandingAction">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="failureProbability" ordered="false"
           lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

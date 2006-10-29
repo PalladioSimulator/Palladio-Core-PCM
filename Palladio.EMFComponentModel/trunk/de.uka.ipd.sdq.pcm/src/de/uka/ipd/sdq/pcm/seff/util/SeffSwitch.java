@@ -186,6 +186,13 @@ public class SeffSwitch {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case SeffPackage.ITERATION_COUNT: {
+				IterationCount iterationCount = (IterationCount)theEObject;
+				Object result = caseIterationCount(iterationCount);
+				if (result == null) result = caseRandomVariable(iterationCount);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case SeffPackage.INTERNAL_ACTION: {
 				InternalAction internalAction = (InternalAction)theEObject;
 				Object result = caseInternalAction(internalAction);
@@ -421,6 +428,21 @@ public class SeffSwitch {
 	 * @generated
 	 */
 	public Object caseLoopAction(LoopAction object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpretting the object as an instance of '<em>Iteration Count</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpretting the object as an instance of '<em>Iteration Count</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public Object caseIterationCount(IterationCount object) {
 		return null;
 	}
 

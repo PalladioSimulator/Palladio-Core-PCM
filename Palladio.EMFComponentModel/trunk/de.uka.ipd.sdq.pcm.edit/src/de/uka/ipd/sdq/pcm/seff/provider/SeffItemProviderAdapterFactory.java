@@ -252,6 +252,28 @@ public class SeffItemProviderAdapterFactory extends SeffAdapterFactory implement
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.seff.IterationCount} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected IterationCountItemProvider iterationCountItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.seff.IterationCount}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Adapter createIterationCountAdapter() {
+		if (iterationCountItemProvider == null) {
+			iterationCountItemProvider = new IterationCountItemProvider(this);
+		}
+
+		return iterationCountItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.seff.InternalAction} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -509,6 +531,7 @@ public class SeffItemProviderAdapterFactory extends SeffAdapterFactory implement
 		if (releaseActionItemProvider != null) releaseActionItemProvider.dispose();
 		if (primitiveParametricParameterUsageItemProvider != null) primitiveParametricParameterUsageItemProvider.dispose();
 		if (loopActionItemProvider != null) loopActionItemProvider.dispose();
+		if (iterationCountItemProvider != null) iterationCountItemProvider.dispose();
 		if (internalActionItemProvider != null) internalActionItemProvider.dispose();
 		if (forkActionItemProvider != null) forkActionItemProvider.dispose();
 		if (externalCallActionItemProvider != null) externalCallActionItemProvider.dispose();

@@ -67,6 +67,7 @@ public class SeffFactoryImpl extends EFactoryImpl implements SeffFactory {
 			case SeffPackage.RELEASE_ACTION: return createReleaseAction();
 			case SeffPackage.PRIMITIVE_PARAMETRIC_PARAMETER_USAGE: return createPrimitiveParametricParameterUsage();
 			case SeffPackage.LOOP_ACTION: return createLoopAction();
+			case SeffPackage.ITERATION_COUNT: return createIterationCount();
 			case SeffPackage.INTERNAL_ACTION: return createInternalAction();
 			case SeffPackage.FORK_ACTION: return createForkAction();
 			case SeffPackage.EXTERNAL_CALL_ACTION: return createExternalCallAction();
@@ -157,6 +158,16 @@ public class SeffFactoryImpl extends EFactoryImpl implements SeffFactory {
 	public LoopAction createLoopAction() {
 		LoopActionImpl loopAction = new LoopActionImpl();
 		return loopAction;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public IterationCount createIterationCount() {
+		IterationCountImpl iterationCount = new IterationCountImpl();
+		return iterationCount;
 	}
 
 	/**
