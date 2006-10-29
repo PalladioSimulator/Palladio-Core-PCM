@@ -12,6 +12,7 @@ import java.util.List;
 import de.uka.ipd.sdq.probfunction.math.IBoxedPDF;
 import de.uka.ipd.sdq.probfunction.math.IContinuousSample;
 import de.uka.ipd.sdq.probfunction.math.IProbabilityDensityFunction;
+import de.uka.ipd.sdq.probfunction.math.IProbabilityFunction;
 import de.uka.ipd.sdq.probfunction.math.IRandomGenerator;
 import de.uka.ipd.sdq.probfunction.math.ISamplePDF;
 import de.uka.ipd.sdq.probfunction.math.IUnit;
@@ -21,7 +22,6 @@ import de.uka.ipd.sdq.probfunction.math.exception.FunctionNotInFrequencyDomainEx
 import de.uka.ipd.sdq.probfunction.math.exception.FunctionNotInTimeDomainException;
 import de.uka.ipd.sdq.probfunction.math.exception.FunctionsInDifferenDomainsException;
 import de.uka.ipd.sdq.probfunction.math.exception.IncompatibleUnitsException;
-import de.uka.ipd.sdq.probfunction.math.exception.ProbabilitySumNotOneException;
 import de.uka.ipd.sdq.probfunction.math.exception.UnknownPDFTypeException;
 import de.uka.ipd.sdq.probfunction.math.exception.UnorderedDomainException;
 import de.uka.ipd.sdq.probfunction.math.util.Line;
@@ -37,20 +37,14 @@ public class BoxedPDFImpl extends ProbabilityDensityFunctionImpl
 
 	private List<IContinuousSample> samples;
 
-	protected BoxedPDFImpl(IUnit unit) throws ProbabilitySumNotOneException, DoubleSampleException {
-		this(new ArrayList<IContinuousSample>(), unit);
+	protected BoxedPDFImpl(IUnit unit) {
+		this(unit, new DefaultRandomGenerator());
 	}
 
-	protected BoxedPDFImpl(List<IContinuousSample> samples, IUnit unit)
-			throws DoubleSampleException {
-		this(samples, unit, new DefaultRandomGenerator());
-	}
-	
-	protected BoxedPDFImpl(List<IContinuousSample> samples, IUnit unit,
-			IRandomGenerator generator) throws DoubleSampleException {
+	protected BoxedPDFImpl(IUnit unit, IRandomGenerator generator) {
 		super(unit, false);
 		this.randomGenerator = generator;
-		setSamples(samples); 
+		samples = new ArrayList<IContinuousSample>();
 	}
 
 	public IProbabilityDensityFunction add(IProbabilityDensityFunction pdf)
@@ -76,7 +70,7 @@ public class BoxedPDFImpl extends ProbabilityDensityFunctionImpl
 
 		IBoxedPDF result = null;
 		try {
-			result = pfFactory.createBoxedPDF(list,this.getUnit());
+			result = pfFactory.createBoxedPDF(list, this.getUnit());
 		} catch (DoubleSampleException e) {
 			e.printStackTrace();
 			System.exit(1); // should never happen
@@ -85,7 +79,7 @@ public class BoxedPDFImpl extends ProbabilityDensityFunctionImpl
 	}
 
 	public List<IContinuousSample> getSamples() {
-		return Collections.unmodifiableList( samples);
+		return Collections.unmodifiableList(samples);
 	}
 
 	public List<Double> getValues() {
@@ -104,7 +98,7 @@ public class BoxedPDFImpl extends ProbabilityDensityFunctionImpl
 
 	public void setSamples(List<IContinuousSample> samples)
 			throws DoubleSampleException {
-		if(containsDoubleSamples(samples))
+		if (containsDoubleSamples(samples))
 			throw new DoubleSampleException();
 
 		Collections.sort(samples, MathTools.getContinuousSampleComparator());
@@ -205,20 +199,52 @@ public class BoxedPDFImpl extends ProbabilityDensityFunctionImpl
 	public boolean isInTimeDomain() {
 		return true;
 	}
-	
+
 	public double getProbabilitySum() {
 		double sum = 0;
 		for (IContinuousSample sample : samples) {
 			sum += sample.getProbability();
 		}
 		return sum;
-	}	
+	}
 
 	private boolean containsDoubleSamples(List<IContinuousSample> samples) {
 		HashSet<Double> set = new HashSet<Double>();
-		for(IContinuousSample s: samples)
+		for (IContinuousSample s : samples)
 			set.add(s.getValue());
-		
+
 		return set.size() != samples.size();
+	}
+
+	public boolean checkConstrains() {
+		if (MathTools.equalsDouble(getProbabilitySum(), 1.0))
+			return false;
+
+		boolean result = true;
+		for (IContinuousSample s : samples)
+			result = result && (s.getValue() >= 0);
+		return result;
+	}
+
+	public IProbabilityFunction getCumulativeFunction() {
+		List<Double> newProb = MathTools
+				.computeIntervalsOfProb(getProbabilities());
+		List<IContinuousSample> newSamples = new ArrayList<IContinuousSample>();
+		int index = 0;
+		for (Double d : newProb) {
+			newSamples.add(pfFactory.createContinuousSample(samples.get(index)
+					.getValue(), d));
+			index++;
+		}
+
+		IBoxedPDF bpdf = null;
+		try {
+			bpdf = pfFactory.createBoxedPDF(newSamples, this.getUnit());
+		} catch (DoubleSampleException e) {
+			// should never happen
+			e.printStackTrace();
+			System.exit(1);
+		}
+		return bpdf;
 	}
 }
