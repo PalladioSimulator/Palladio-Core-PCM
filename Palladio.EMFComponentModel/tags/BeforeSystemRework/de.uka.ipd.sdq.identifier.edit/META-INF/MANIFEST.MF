@@ -1,0 +1,14 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %pluginName
+Bundle-SymbolicName: de.uka.ipd.sdq.identifier.edit; singleton:=true
+Bundle-Version: 1.2.3.qualifier
+Bundle-ClassPath: .
+Bundle-Activator: de.uka.ipd.sdq.identifier.provider.IdentifierEditPlugin$Implementation
+Bundle-Vendor: %providerName
+Bundle-Localization: plugin
+Require-Bundle: org.eclipse.core.runtime,
+ de.uka.ipd.sdq.identifier;visibility:=reexport,
+ org.eclipse.emf.edit;visibility:=reexport
+Eclipse-LazyStart: true
+Export-Package: de.uka.ipd.sdq.identifier.provider

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pcm.system:System xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:pcm.system="http://sdq.ipd.uka.de/PalladioComponentModel/System/1.0" id="_TIvAMBsSEdutieAL11TBXw">
+  <systemRequiredRole_System id="_TIvAMRsSEdutieAL11TBXw" entityName="System_IAudioDB" requiredDelegationConnector_SystemRequiredRole="//@requiredDelegationConnector_System.0">
+    <interface_SystemRequiredRole href="My.repository#IAudioDB"/>
+    <specifiedTimeConsumption_SystemRequiredRole specification="=0">
+      <signature_SpecifiedTimeConsumption href="My.repository#//@interfaces__Repository.2/@signatures__Interface.2"/>
+    </specifiedTimeConsumption_SystemRequiredRole>
+    <specifiedTimeConsumption_SystemRequiredRole specification="=0">
+      <signature_SpecifiedTimeConsumption href="My.repository#//@interfaces__Repository.2/@signatures__Interface.1"/>
+    </specifiedTimeConsumption_SystemRequiredRole>
+    <specifiedTimeConsumption_SystemRequiredRole specification="=RealRandomVar[(0.05;36)(0.03;37)(0.29;41)(0.31;42)(0.11;46)(0.21;47)]">
+      <signature_SpecifiedTimeConsumption href="My.repository#//@interfaces__Repository.2/@signatures__Interface.0"/>
+    </specifiedTimeConsumption_SystemRequiredRole>
+  </systemRequiredRole_System>
+  <systemProvidedRole_System id="_TI4xMBsSEdutieAL11TBXw" entityName="System_IHTTP" providedDelegationConnector_SystemProvidedRole="//@providedDelegationConnector_System.0">
+    <interface_SystemProvidedRole href="My.repository#IHTTP"/>
+  </systemProvidedRole_System>
+  <assembly_System href="My.assembly#_WqyKoBsSEdutieAL11TBXw"/>
+  <providedDelegationConnector_System systemProvidedRole_SystemProvidedDelegationConnector="_TI4xMBsSEdutieAL11TBXw">
+    <assemblyContext_SystemProvidedDelegationConnector href="My.assembly#WebUI_AssCtx"/>
+    <componentProvidedRole_SystemProvidedDelegationConnector href="My.repository#Prov_WebGUI_IHTTP"/>
+  </providedDelegationConnector_System>
+  <requiredDelegationConnector_System systemRequiredRole_SystemRequiredDelegationConnector="_TIvAMRsSEdutieAL11TBXw">
+    <assemblyContext_SystemRequiredDelegationConnector href="My.assembly#EncodingAdapter_AssCtx"/>
+    <requiredRole_SystemRequiredDelegationConnector href="My.repository#Req_EncodingAdapter_IAudioDB"/>
+  </requiredDelegationConnector_System>
+  <allocation_System href="My.allocation#_WrrigBsSEdutieAL11TBXw"/>
+</pcm.system:System>
