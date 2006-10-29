@@ -1938,7 +1938,10 @@
         <ownedAttribute xmi:id="_Hj--MPdxEdqB_7dkOscBPA" name="specification">
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML2_LIBRARIES/UML2PrimitiveTypes.library.uml2#_IXlH8a86EdieaYgxtVWN8Q"/>
         </ownedAttribute>
-        <ownedAttribute xmi:id="_6QCoQTuSEduKtOWw2f6nDA" name="specification_RandomVariable" type="_IPhNoDpQEduKtOWw2f6nDA" association="_6QCoQDuSEduKtOWw2f6nDA" aggregation="composite">
+        <ownedAttribute xmi:id="_6QCoQTuSEduKtOWw2f6nDA" name="specification_RandomVariable" type="_IPhNoDpQEduKtOWw2f6nDA" isReadOnly="true" association="_6QCoQDuSEduKtOWw2f6nDA">
+          <eAnnotations xmi:id="_uiwxIGcpEduCGaQAxkcIwA" source="appliedStereotypes">
+            <contents xmi:type="Ecore_0:Ecore__EReference" xmi:id="_uiwxIWcpEduCGaQAxkcIwA" isTransient="true" isVolatile="true"/>
+          </eAnnotations>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_6QCoRDuSEduKtOWw2f6nDA" value="1"/>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_6QCoQzuSEduKtOWw2f6nDA" value="1"/>
         </ownedAttribute>
