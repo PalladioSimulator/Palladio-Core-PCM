@@ -11,7 +11,6 @@ import org.eclipse.swt.widgets.FileDialog;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.IWorkbenchWindowActionDelegate;
-import org.eclipse.ui.actions.ActionFactory.IWorkbenchAction;
 
 import de.uka.ipd.sdq.pcmbench.EditingDomainFactory;
 

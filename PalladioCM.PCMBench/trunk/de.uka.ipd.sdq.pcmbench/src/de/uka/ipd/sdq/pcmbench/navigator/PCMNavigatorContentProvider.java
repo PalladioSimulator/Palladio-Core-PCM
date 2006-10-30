@@ -9,7 +9,6 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Iterator;
-import java.util.Map;
 
 import org.eclipse.core.resources.IProject;
 import org.eclipse.emf.common.notify.AdapterFactory;
@@ -28,9 +27,10 @@ import org.eclipse.jface.viewers.ITreeContentProvider;
 import org.eclipse.jface.viewers.StructuredViewer;
 import org.eclipse.jface.viewers.Viewer;
 
+import de.uka.ipd.sdq.pcm.core.composition.AssemblyConnector;
+import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
+import de.uka.ipd.sdq.pcm.core.composition.CompositionPackage;
 import de.uka.ipd.sdq.pcm.repository.BasicComponent;
-import de.uka.ipd.sdq.pcm.repository.ChildComponentContext;
-import de.uka.ipd.sdq.pcm.repository.CompositeAssemblyConnector;
 import de.uka.ipd.sdq.pcm.repository.CompositeComponent;
 import de.uka.ipd.sdq.pcm.repository.Interface;
 import de.uka.ipd.sdq.pcm.repository.ProvidedRole;
@@ -151,10 +151,10 @@ public class PCMNavigatorContentProvider implements ITreeContentProvider {
 					}
 					if (object instanceof CompositeComponent)
 					{
-						result.add(new CategoryDescriptor(CompositeComponent.class, ChildComponentContext.class, 
-								RepositoryPackage.eINSTANCE.getCompositeComponent_ChildComponentContexts_CompositeComponent(), "Child Component Contexts" ));
-						result.add(new CategoryDescriptor(CompositeComponent.class, CompositeAssemblyConnector.class, 
-								RepositoryPackage.eINSTANCE.getCompositeComponent_CompositeAssemblyConnectors_CompositeComponent(), "Assembly Connectors" ));
+						result.add(new CategoryDescriptor(CompositeComponent.class, AssemblyContext.class, 
+								CompositionPackage.eINSTANCE.getAssemblyContext_EncapsulatedComponent_ChildComponentContext(), "Child Component Contexts" ));
+						result.add(new CategoryDescriptor(CompositeComponent.class, AssemblyConnector.class, 
+								CompositionPackage.eINSTANCE.getComposedStructure_CompositeAssemblyConnectors_ComposedStructure(), "Assembly Connectors" ));
 					}
 					return Collections.unmodifiableCollection(result);
 				}

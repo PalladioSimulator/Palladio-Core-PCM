@@ -5,7 +5,6 @@ package de.uka.ipd.sdq.pcmbench;
 
 import org.eclipse.ui.IEditorInput;
 
-import de.uka.ipd.sdq.pcm.gmf.seff.part.PcmDocumentProvider;
 import de.uka.ipd.sdq.pcm.gmf.seff.part.SeffDiagramEditor;
 import de.uka.ipd.sdq.pcmbench.gmfintegration.FileAndDiagramElementEditorInput;
 import de.uka.ipd.sdq.pcmbench.gmfintegration.PcmMultipleDocumentProvider;
@@ -35,6 +34,11 @@ public class MySeffDiagramEditor extends SeffDiagramEditor
 		else
 			super.setDocumentProvider(input);
 	}
+
+	//@Override
+	//public String getContributorId() {
+	//	return "de.uka.ipd.sdq.pcmbench.projectview";
+	//}
 
 	
 }

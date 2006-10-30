@@ -3,32 +3,23 @@
  */
 package de.uka.ipd.sdq.pcmbench.gmfintegration;
 
-import java.util.Iterator;
-
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IStorage;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.emf.workspace.util.WorkspaceSynchronizer;
 import org.eclipse.gmf.runtime.diagram.ui.resources.editor.document.IDiagramDocument;
 import org.eclipse.gmf.runtime.diagram.ui.resources.editor.document.IDocument;
-import org.eclipse.gmf.runtime.diagram.ui.resources.editor.ide.document.FileEditorInputProxy;
-import org.eclipse.gmf.runtime.diagram.ui.resources.editor.ide.document.FileDiagramDocumentProvider.DiagramFileInfo;
-import org.eclipse.gmf.runtime.diagram.ui.resources.editor.ide.internal.EditorIDEPlugin;
-import org.eclipse.gmf.runtime.diagram.ui.resources.editor.ide.internal.l10n.EditorMessages;
-import org.eclipse.gmf.runtime.diagram.ui.resources.editor.internal.EditorStatusCodes;
-import org.eclipse.gmf.runtime.diagram.ui.resources.editor.internal.util.DiagramIOUtil;
 import org.eclipse.gmf.runtime.notation.Diagram;
-import org.eclipse.gmf.runtime.notation.NotationFactory;
 import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IFileEditorInput;
 
 import de.uka.ipd.sdq.pcm.gmf.repository.part.PcmDocumentProvider;
+import de.uka.ipd.sdq.pcmbench.PCMBenchActivator;
 
 /**
  * @author Snowball
@@ -77,7 +68,7 @@ public class PcmMultipleDocumentProvider extends PcmDocumentProvider {
 				if(resourceFile.equals(storage)) {
 					document.setContent(null);
 				} else {
-					throw new CoreException(new Status(IStatus.ERROR, EditorIDEPlugin.getPluginId(), EditorStatusCodes.ERROR, EditorMessages.FileDocumentProvider_handleElementContentChanged, null));
+					throw new CoreException(new Status(IStatus.ERROR, PCMBenchActivator.PLUGIN_ID, -1, "Content changed unexpectedly", null));
 				}
 			}
 		}
