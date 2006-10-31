@@ -6,7 +6,9 @@ package de.uka.ipd.sdq.probfunction.math.impl;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 
 import de.uka.ipd.sdq.probfunction.BoxedPDF;
 import de.uka.ipd.sdq.probfunction.ContinuousSample;
@@ -91,8 +93,13 @@ public class ProbabilityFunctionFactoryImpl
 		boolean hasOrderedDomain = epmf.isOrderedDomain();
 		IProbabilityMassFunction pmf = createProbabilityMassFunction(unit,
 				hasOrderedDomain);
-		for (Object s : epmf.getSamples())
-			pmf.getSamples().add(transformToSample((Sample) s));
+		List samples = new ArrayList();
+		for (Object s : epmf.getSamples()){
+			Sample sample = (Sample) s;
+			samples.add(transformToSample(sample));
+		}
+		
+		pmf.setSamples(samples);
 		return pmf;
 	}
 

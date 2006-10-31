@@ -196,6 +196,6 @@ public interface IProbabilityMassFunction extends IProbabilityFunction {
 	 * @throws ProbabilitySumNotOneException
 	 *             Thrown if the sum of the samples probabilities is not one.
 	 */
-	void setSamples(List<ISample> samples) throws ProbabilitySumNotOneException;
+	void setSamples(List<ISample> samples);
 
 }

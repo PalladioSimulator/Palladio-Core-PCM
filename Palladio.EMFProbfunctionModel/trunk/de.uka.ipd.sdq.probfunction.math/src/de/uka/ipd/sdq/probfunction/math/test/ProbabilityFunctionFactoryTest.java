@@ -103,6 +103,7 @@ public class ProbabilityFunctionFactoryTest {
 				.createProbabilityMassFunction(getTestSamples(), getTestUnit(),
 						true);
 
+		// this is the method to be tested:
 		ProbabilityMassFunction probFunc = pfFactory
 				.transformToModelPMF(iProbFunc);
 
