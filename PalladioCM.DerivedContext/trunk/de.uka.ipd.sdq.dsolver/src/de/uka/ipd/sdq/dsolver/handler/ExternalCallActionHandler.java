@@ -13,8 +13,8 @@ import de.uka.ipd.sdq.context.usage.UsageFactory;
 import de.uka.ipd.sdq.dsolver.Context;
 import de.uka.ipd.sdq.dsolver.PCMInstance;
 import de.uka.ipd.sdq.dsolver.helper.EMFHelper;
-import de.uka.ipd.sdq.dsolver.visitors.SeffSwitchDSolver;
-import de.uka.ipd.sdq.pcm.assembly.SystemAssemblyConnector;
+import de.uka.ipd.sdq.dsolver.visitors.SeffVisitor;
+import de.uka.ipd.sdq.pcm.core.composition.AssemblyConnector;
 import de.uka.ipd.sdq.pcm.parameter.CollectionParameterCharacterisation;
 import de.uka.ipd.sdq.pcm.parameter.CollectionParameterUsage;
 import de.uka.ipd.sdq.pcm.parameter.ParameterFactory;
@@ -77,8 +77,8 @@ public class ExternalCallActionHandler extends AbstractHandler{
 		EList parametricParameterUsages = 
 			call.getParametricParameterUsage_ParametricParameterUsage();
 			
-		SystemAssemblyConnector foundAssemblyConnector = 
-			findSystemAssemblyConnector(requiredInterface);
+		AssemblyConnector foundAssemblyConnector = 
+			findAssemblyConnector(requiredInterface);
 		
 		if (foundAssemblyConnector == null) {
 			logger.debug("Found System External Call");
@@ -95,17 +95,21 @@ public class ExternalCallActionHandler extends AbstractHandler{
 	 * @param requiredRole
 	 * @return
 	 */
-	private SystemAssemblyConnector findSystemAssemblyConnector(
+	private AssemblyConnector findAssemblyConnector(
 			Interface requiredRole) {
-		Iterator connectorIterator = myContext.getSystem().getAssembly_System()
-				.getAssemblyConnectors_Assembly().iterator();
-		SystemAssemblyConnector result = null;
+		Iterator connectorIterator = myContext.getSystem()
+				.getCompositeAssemblyConnectors_ComposedStructure().iterator();
+
+		AssemblyConnector result = null;
+
 		while (result == null && connectorIterator.hasNext()) {
-			SystemAssemblyConnector connector = (SystemAssemblyConnector) connectorIterator
+			AssemblyConnector connector = (AssemblyConnector) connectorIterator
 					.next();
-			if (connector.getRequiringContext_SystemAssemblyConnector().getId()
-					.equals(myContext.getDerivedAssemblyContext().getId())
-					&& connector.getRequiredRole_SystemAssemblyConnector()
+			if (connector
+					.getRequiringChildComponentContext_CompositeAssemblyConnector()
+					.getId().equals(
+							myContext.getDerivedAssemblyContext().getId())
+					&& connector.getRequiredRole_CompositeAssemblyConnector()
 							.getRequiredInterface__RequiredRole().getId()
 							.equals(requiredRole.getId())) {
 				result = connector;
@@ -121,12 +125,12 @@ public class ExternalCallActionHandler extends AbstractHandler{
 	 */
 	private void visitNextSeff(Signature serviceToBeCalled,
 			EList parametricParameterUsages, 
-			SystemAssemblyConnector foundAssemblyConnector) {
+			AssemblyConnector foundAssemblyConnector) {
 
 		Context callContext = createCallContext(foundAssemblyConnector, 
 				parametricParameterUsages);
 
-		SeffSwitch visitor = new SeffSwitchDSolver(pcmInstance, callContext);
+		SeffSwitch visitor = new SeffVisitor(pcmInstance, callContext);
 		
 		ResourceDemandingSEFF b = getTargetBehaviourFromAssemblyConnector(
 				foundAssemblyConnector, serviceToBeCalled);
@@ -140,14 +144,20 @@ public class ExternalCallActionHandler extends AbstractHandler{
 	 * @return
 	 */
 	private Context createCallContext(
-			SystemAssemblyConnector foundAssemblyConnector, 
+			AssemblyConnector foundAssemblyConnector, 
 			EList parametricParameterUsages) {
 		Context callContext = new Context();
 
 		callContext.setSystem(myContext.getSystem());
-		callContext.setDerivedAssemblyContext(foundAssemblyConnector
-				.getProvidingContext_SystemAssemblyConnector());
-
+		callContext
+				.setDerivedAssemblyContext(foundAssemblyConnector
+						.getProvidingChildComponentContext_CompositeAssemblyConnector());
+		callContext.setCurrentEvaluatedBranchConditions(myContext
+				.getCurrentEvaluatedBranchConditions());
+		callContext.setCurrentLoopIterationNumber(myContext
+				.getCurrentLoopIterationNumber());
+		
+		
 		UsageContext uc = usageFactory.createUsageContext();
 		createActualParameters(parametricParameterUsages, uc);
 		callContext.setUsageContext(uc);
@@ -157,9 +167,11 @@ public class ExternalCallActionHandler extends AbstractHandler{
 		aac.setUsageContext_ActualAllocationContext(uc);
 		callContext.setActualAllocationContext(aac);
 
-		callContext.setCurrentEvaluatedBranchConditions(myContext.getCurrentEvaluatedBranchConditions());
-		callContext.setCurrentLoopIterationNumber(myContext.getCurrentLoopIterationNumber());
-		
+		callContext.setCurrentEvaluatedBranchConditions(myContext
+				.getCurrentEvaluatedBranchConditions());
+		callContext.setCurrentLoopIterationNumber(myContext
+				.getCurrentLoopIterationNumber());
+
 		return callContext;
 	}
 
@@ -234,9 +246,9 @@ public class ExternalCallActionHandler extends AbstractHandler{
 	 * @return
 	 */
 	private ResourceDemandingSEFF getTargetBehaviourFromAssemblyConnector(
-			SystemAssemblyConnector connector, Signature targetMethod) {
+			AssemblyConnector connector, Signature targetMethod) {
 		BasicComponent targetBasicComponent = (BasicComponent) connector
-				.getProvidedRole_SystemAssemblyConnector()
+				.getProvidedRole_CompositeAssemblyConnector()
 				.getProvidingComponent__ProvidedRole();
 	
 		// TODO: Über Interfaces suchen...

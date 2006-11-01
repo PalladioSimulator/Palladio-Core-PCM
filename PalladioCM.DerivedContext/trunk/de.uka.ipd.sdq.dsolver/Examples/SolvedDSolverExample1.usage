@@ -1,31 +1,21 @@
 <?xml version="1.0" encoding="ASCII"?>
-<context.usage:Usage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context.usage="http://sdq.ipd.uka.de/Context/Usage/1.0" xmlns:pcm.core.stochastics="http://sdq.ipd.uka.de/PalladioComponentModel/Core/Stochastics/1.0" xmlns:probfunction="http://sdq.ipd.uka.de/ProbFunction/1.0">
-  <usageContexts>
+<context.usage:Usage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:context.usage="http://sdq.ipd.uka.de/Context/Usage/1.0">
+  <usageContext_Usage>
     <loopiterations_UsageContext>
       <loopaction_LoopIteration href="DSolverExample1.repository#_CRToczQeEduaPaOP6VcQiw"/>
-      <iterations_LoopIteration>
-        <specification_RandomVariable xsi:type="pcm.core.stochastics:ProbabilityFunctionLiteral">
-          <function_ProbabilityFunctionLiteral xsi:type="probfunction:ProbabilityMassFunction">
-            <unit unitName="sec"/>
-            <samples probability="0.18"/>
-            <samples probability="0.27999999999999997"/>
-          </function_ProbabilityFunctionLiteral>
-        </specification_RandomVariable>
-      </iterations_LoopIteration>
+      <iterations_LoopIteration specification="IntRandomVar[ (0.12; 8) (0.42; 9) ]"/>
     </loopiterations_UsageContext>
-  </usageContexts>
-  <usageContexts>
-    <branchprobabilities_UsageContext probability="0.5">
+  </usageContext_Usage>
+  <usageContext_Usage>
+    <branchprobabilities_UsageContext probability="1.0">
       <branchtransition_BranchProbability href="DSolverExample1.repository#//@components__Repository.0/@serviceEffectSpecifications__BasicComponent.0/@steps_Behaviour.2/@branches_Branch.0"/>
     </branchprobabilities_UsageContext>
-    <branchprobabilities_UsageContext probability="0.5">
+    <branchprobabilities_UsageContext>
       <branchtransition_BranchProbability href="DSolverExample1.repository#//@components__Repository.0/@serviceEffectSpecifications__BasicComponent.0/@steps_Behaviour.2/@branches_Branch.1"/>
     </branchprobabilities_UsageContext>
     <actualParameterUsage_UsageContext>
       <parameter_ParameterUsage href="DSolverExample1.repository#//@interfaces__Repository.0/@signatures__Interface.0/@parameters__Signature.0"/>
-      <parameterCharacterisation_ParameterUsage specification="=IntRandomVar[(0.4;1)(0.6;10)]">
-        <specification_RandomVariable xsi:type="pcm.core.stochastics:Variable" id=""/>
-      </parameterCharacterisation_ParameterUsage>
+      <parameterCharacterisation_ParameterUsage specification="= IntRandomVar[ (0.4; 1) (0.6; 10) ]"/>
     </actualParameterUsage_UsageContext>
-  </usageContexts>
+  </usageContext_Usage>
 </context.usage:Usage>

@@ -13,7 +13,7 @@ import de.uka.ipd.sdq.context.allocation.ActualResourceDemand;
 import de.uka.ipd.sdq.context.allocation.AllocationFactory;
 import de.uka.ipd.sdq.dsolver.Context;
 import de.uka.ipd.sdq.pcm.allocation.AllocationContext;
-import de.uka.ipd.sdq.pcm.assembly.AssemblyContext;
+import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
 import de.uka.ipd.sdq.pcm.core.stochastics.Expression;
 import de.uka.ipd.sdq.pcm.core.stochastics.RandomVariable;
 import de.uka.ipd.sdq.pcm.core.stochastics.StochasticsFactory;
@@ -72,10 +72,12 @@ public class InternalActionHandler extends AbstractHandler{
 					// TODO: solve dependency, include branch conditions and loop iterations
 					// here: only copy random variable specification
 					Expression expression = prd.getSpecification_RandomVariable();
-					
+					String specification = prd.getSpecification();
 					RandomVariable rv = stochasticsFactory
 							.createRandomVariable();
-					rv.setSpecification_RandomVariable(expression);
+					//rv.setSpecification_RandomVariable(expression);
+					rv.setSpecification(specification);
+					
 
 					ActualResourceDemand ard = actualAllocationFactory
 							.createActualResourceDemand();
@@ -97,11 +99,11 @@ public class InternalActionHandler extends AbstractHandler{
 	private AllocationContext findAllocationContext(
 			AssemblyContext derivedAssemblyContext) {
 		Iterator allocationContexts = myContext.getSystem()
-				.getAllocation_System().getAllocationContexts().iterator();
+				.getAllocation_System().getAllocationContexts_Allocation().iterator();
 		while (allocationContexts.hasNext()) {
 			AllocationContext context = (AllocationContext) allocationContexts
 					.next();
-			if (context.getReferencedAssemblyContext_AllocationContext() == derivedAssemblyContext)
+			if (context.getAssemblyContext_AllocationContext() == derivedAssemblyContext)
 				return context;
 		}
 		return null;

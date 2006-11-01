@@ -15,10 +15,12 @@ import antlr.TokenStreamException;
 import de.uka.ipd.sdq.context.usage.BranchProbability;
 import de.uka.ipd.sdq.context.usage.UsageFactory;
 import de.uka.ipd.sdq.dsolver.Context;
-import de.uka.ipd.sdq.dsolver.visitors.SeffSwitchDSolver;
+import de.uka.ipd.sdq.dsolver.visitors.ExpressionSolveVisitor;
+import de.uka.ipd.sdq.dsolver.visitors.SeffVisitor;
 import de.uka.ipd.sdq.pcm.core.stochastics.CompareExpression;
 import de.uka.ipd.sdq.pcm.core.stochastics.CompareOperations;
 import de.uka.ipd.sdq.pcm.core.stochastics.DoubleLiteral;
+import de.uka.ipd.sdq.pcm.core.stochastics.Expression;
 import de.uka.ipd.sdq.pcm.core.stochastics.IntLiteral;
 import de.uka.ipd.sdq.pcm.seff.BranchAction;
 import de.uka.ipd.sdq.pcm.seff.BranchTransition;
@@ -36,7 +38,7 @@ public class BranchActionHandler extends AbstractHandler {
 
 	private UsageFactory usageFactory;
 
-	private SeffSwitchDSolver visitor;
+	private SeffVisitor visitor;
 
 	private Context myContext;
 
@@ -45,7 +47,7 @@ public class BranchActionHandler extends AbstractHandler {
 	 * @param _visitor
 	 * @param nextHandler
 	 */
-	public BranchActionHandler(Context context, SeffSwitchDSolver _visitor,
+	public BranchActionHandler(Context context, SeffVisitor _visitor,
 			AbstractHandler nextHandler) {
 		myContext = context;
 		visitor = _visitor;
@@ -75,35 +77,20 @@ public class BranchActionHandler extends AbstractHandler {
 		for (Iterator i = btList.iterator(); i.hasNext();) {
 			BranchTransition bt = (BranchTransition) i.next();
 
-			BranchProbability prob = usageFactory.createBranchProbability();
 			String branchCondition = bt.getBranchCondition();
 			// TODO: store scope of branch conditions
 			myContext.getCurrentEvaluatedBranchConditions()
 					.add(branchCondition);
 
-//			CompareExpression exp = parseBranchCondition(branchCondition);
-
-			
-//			CompareOperations op = exp.getOperation();
-//			if (op.getValue() == CompareOperations.LESS) {
-//				int foo = 0;
-//				double bar = 0.0;
-//				if (exp.getLeft() instanceof IntLiteral) {
-//					foo = ((IntLiteral) exp.getLeft()).getValue();
-//				}
-//				if (exp.getRight() instanceof DoubleLiteral) {
-//					bar = ((DoubleLiteral) exp.getRight()).getValue();
-//				}
-//				if (foo < bar) {
-//					prob.setProbability(1.0);
-//				} else {
-//					prob.setProbability(0.0);
-//				}
-//			}
-
-			// TODO: solve dependency
+			CompareExpression compExpr = parseBranchCondition(branchCondition);
+			ExpressionSolveVisitor branchConditionVisitor = new ExpressionSolveVisitor(
+					compExpr);
+			Double solvedBranchProb = (Double) branchConditionVisitor
+					.doSwitch(compExpr);
+logger.debug("SolvedBranchProb:"+solvedBranchProb);
+			BranchProbability prob = usageFactory.createBranchProbability();
 			prob.setBranchtransition_BranchProbability(bt);
-			prob.setProbability(0.5);
+			prob.setProbability(solvedBranchProb.doubleValue());
 
 			myContext.getUsageContext().getBranchprobabilities_UsageContext()
 					.add(prob);

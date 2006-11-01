@@ -27,7 +27,7 @@
           containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Usage">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="usageContexts" ordered="false"
+      <eStructuralFeatures xsi:type="ecore:EReference" name="usageContext_Usage" ordered="false"
           upperBound="-1" eType="#//usage/UsageContext" containment="true"/>
     </eClassifiers>
   </eSubpackages>
@@ -47,7 +47,7 @@
           ordered="false" lowerBound="1" eType="ecore:EClass ../../../plugin/de.uka.ipd.sdq.pcm/model/pcm.ecore#//core/stochastics/RandomVariable"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ActualAllocation">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="actualAllocationContexts"
+      <eStructuralFeatures xsi:type="ecore:EReference" name="actualAllocationContext_ActualAllocation"
           ordered="false" upperBound="-1" eType="#//allocation/ActualAllocationContext"
           containment="true"/>
     </eClassifiers>

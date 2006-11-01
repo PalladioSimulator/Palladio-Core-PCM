@@ -14,7 +14,7 @@ import org.apache.log4j.ConsoleAppender;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PatternLayout;
 
-import de.uka.ipd.sdq.dsolver.visitors.UsagemodelSwitchDSolver;
+import de.uka.ipd.sdq.dsolver.visitors.UsageModelVisitor;
 import de.uka.ipd.sdq.pcm.usagemodel.UsageScenario;
 
 
@@ -48,7 +48,7 @@ public class DependencySolver {
 	}
 
 	private void visitScenarioEMFSwitch(){
-		UsagemodelSwitchDSolver visitor = new UsagemodelSwitchDSolver(currentModel);
+		UsageModelVisitor visitor = new UsageModelVisitor(currentModel);
 		try {
 			UsageScenario us = (UsageScenario) currentModel.getUsageModel()
 					.getUsageScenario_UsageModel().get(0);

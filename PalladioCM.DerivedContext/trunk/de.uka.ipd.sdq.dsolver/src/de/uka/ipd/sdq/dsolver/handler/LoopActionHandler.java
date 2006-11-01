@@ -7,30 +7,29 @@ import java.io.StringBufferInputStream;
 import java.util.ArrayList;
 
 import org.apache.log4j.Logger;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
 import antlr.RecognitionException;
 import antlr.TokenStreamException;
-
 import de.uka.ipd.sdq.context.usage.LoopIteration;
 import de.uka.ipd.sdq.context.usage.UsageFactory;
 import de.uka.ipd.sdq.dsolver.Context;
-import de.uka.ipd.sdq.dsolver.visitors.ExpressionSolveSwitch;
-import de.uka.ipd.sdq.dsolver.visitors.ExpressionTypeSwitch;
-import de.uka.ipd.sdq.dsolver.visitors.SeffSwitchDSolver;
-import de.uka.ipd.sdq.dsolver.visitors.UsagemodelSwitchDSolver;
-import de.uka.ipd.sdq.pcm.core.stochastics.CompareExpression;
+import de.uka.ipd.sdq.dsolver.visitors.ExpressionSolveVisitor;
+import de.uka.ipd.sdq.dsolver.visitors.SeffVisitor;
 import de.uka.ipd.sdq.pcm.core.stochastics.Expression;
 import de.uka.ipd.sdq.pcm.core.stochastics.IntLiteral;
-import de.uka.ipd.sdq.pcm.core.stochastics.ProductExpression;
+import de.uka.ipd.sdq.pcm.core.stochastics.ProbabilityFunctionLiteral;
 import de.uka.ipd.sdq.pcm.core.stochastics.RandomVariable;
 import de.uka.ipd.sdq.pcm.core.stochastics.StochasticsFactory;
-import de.uka.ipd.sdq.pcm.seff.BranchAction;
 import de.uka.ipd.sdq.pcm.seff.LoopAction;
 import de.uka.ipd.sdq.pcm.seff.ResourceDemandingBehaviour;
+import de.uka.ipd.sdq.pcm.stochasticexpressions.ProbFunctionPrettyPrint;
 import de.uka.ipd.sdq.pcm.stochasticexpressions.parser.StochasticExpressionsLexer;
 import de.uka.ipd.sdq.pcm.stochasticexpressions.parser.StochasticExpressionsParser;
-import de.uka.ipd.sdq.pcm.usagemodel.UsageScenario;
+import de.uka.ipd.sdq.probfunction.ProbabilityFunction;
+import de.uka.ipd.sdq.probfunction.ProbabilityMassFunction;
+import de.uka.ipd.sdq.probfunction.Sample;
 
 /**
  * @author Koziolek
@@ -44,16 +43,16 @@ public class LoopActionHandler extends AbstractHandler {
 
 	private StochasticsFactory stochasticsFactory;
 	
-	private SeffSwitchDSolver visitor;
+	private SeffVisitor visitor;
 
 	private Context myContext;
-
+	
 	/**
 	 * @param context
 	 * @param _visitor
 	 * @param nextHandler
 	 */
-	public LoopActionHandler(Context context, SeffSwitchDSolver _visitor,
+	public LoopActionHandler(Context context, SeffVisitor _visitor,
 			AbstractHandler nextHandler) {
 		myContext = context;
 		visitor = _visitor;
@@ -80,58 +79,111 @@ public class LoopActionHandler extends AbstractHandler {
 	 * @param loop
 	 */
 	private void handle(LoopAction loop) {
-		ResourceDemandingBehaviour loopBody = loop.getBodyBehaviour_Loop();
-		// TODO: solve dependencies
-				
-		String iterations = loop.getIterations();
-		//RandomVariable rv = stochasticsFactory.createRandomVariable();
+		Expression solvedIterationCountExpr = solveDependenciesIterationCount(loop);
 		
-		RandomVariable rv = stochasticsFactory.createRandomVariable(); 
-		rv.setSpecification_RandomVariable(evaluateRandomVariable(iterations));
+		storeToUsageContext(loop, solvedIterationCountExpr);
 		
-		//ProbabilityDistributionFunction pdf = convert(expr);
-		
-		//rv.setSpecification(iterations); // TODO: fix here
-		
-		LoopIteration loopIteration = usageFactory.createLoopIteration();
-		loopIteration.setLoopaction_LoopIteration(loop);
-		loopIteration.setIterations_LoopIteration(rv);
-		myContext.getUsageContext().getLoopiterations_UsageContext().add(loopIteration);
-		
-		// TODO: read out random variable and execute loop
+		visitLoopBody(loop, solvedIterationCountExpr);
+	}
+
+	/**
+	 * @param loop
+	 * @param solvedIterationCountExpr
+	 */
+	private void visitLoopBody(LoopAction loop, Expression solvedIterationCountExpr) {
 		int lowerBound = 0;
-		//int upperBound = Integer.parseInt(iterations);
-		int upperBound = 10;
+		int upperBound = getUpperBound(solvedIterationCountExpr);
+		
 		myContext.getCurrentLoopIterationNumber().add(lowerBound);
 		
+		ResourceDemandingBehaviour loopBody = loop.getBodyBehaviour_Loop();
 		for (int i=lowerBound; i<upperBound; i++){
+			logger.debug("Loop Execution Number "+i);
 			ArrayList curLoop = myContext.getCurrentLoopIterationNumber();
 			curLoop.remove(curLoop.size()-1); // delete last element
-			curLoop.add(i); // add current loop iteration number
+			curLoop.add(i); // add current loop iteration number to scope
 			
-			visitor.doSwitch(loopBody); // is this really necessary?
+			visitor.doSwitch(loopBody); // is this really necessary? (TODO)
+			// The loop body gets visited as many times as the loop count specifies.
+			// This implies that a usage context will be created for each number
+			// of loop iteration (if there's an external call within the loop), 
+			// which might lead to a huge number of contexts 
+			// for large iteration numbers and thus memory problems.
 		}
 		ArrayList curLoop = myContext.getCurrentLoopIterationNumber();
 		curLoop.remove(curLoop.size()-1);
 	}
 
 	/**
-	 * @param iterations
+	 * @param loop
+	 * @param solvedIterationCountExpr
 	 */
-	private Expression evaluateRandomVariable(String iterations) {
-		Expression expr = parseLoopIterations(iterations);
+	private void storeToUsageContext(LoopAction loop, Expression solvedIterationCountExpr) {
+		RandomVariable rv = stochasticsFactory.createRandomVariable();
+		ProbFunctionPrettyPrint printer = new ProbFunctionPrettyPrint();
+		ProbabilityFunctionLiteral solvedLiteral = (ProbabilityFunctionLiteral) solvedIterationCountExpr;
+		ProbabilityFunction solvedFunction = solvedLiteral
+				.getFunction_ProbabilityFunctionLiteral();
+		String loopSpecification = (String) printer.doSwitch(solvedFunction);
+		rv.setSpecification(loopSpecification);
 		
-		ExpressionSolveSwitch visitor = new ExpressionSolveSwitch(expr);
-		try {
-			return (Expression)visitor.doSwitch(expr);
-		} catch (Exception e) {
-			logger.error("Solving Expression caused Exception!" + e.getMessage());
-			e.printStackTrace();
-		}
-		return null;
+		LoopIteration loopIteration = usageFactory.createLoopIteration();
+		loopIteration.setLoopaction_LoopIteration(loop);
+		loopIteration.setIterations_LoopIteration(rv);
+		myContext.getUsageContext().getLoopiterations_UsageContext().add(loopIteration);
 	}
-	
-	
+
+	/**
+	 * @param loop
+	 * @return
+	 */
+	private Expression solveDependenciesIterationCount(LoopAction loop) {
+		Expression loopCountExpr = loop.getIterations_LoopAction()
+				.getSpecification_RandomVariable();
+		ExpressionSolveVisitor loopCountVisitor = new ExpressionSolveVisitor(
+				loopCountExpr);
+		Expression solvedLoopCountExpr = (Expression) loopCountVisitor
+				.doSwitch(loopCountExpr);
+		return solvedLoopCountExpr;
+	}
+
+	/**
+	 * @param solvedLoopCountExpr
+	 * @param upperBound
+	 * @return
+	 */
+	private int getUpperBound(Expression solvedLoopCountExpr) {
+		int upperBound = 0;
+		if (solvedLoopCountExpr instanceof IntLiteral) {
+			IntLiteral loopInt = (IntLiteral) solvedLoopCountExpr;
+			upperBound = loopInt.getValue();
+		} else if (solvedLoopCountExpr instanceof ProbabilityFunctionLiteral) {
+			ProbabilityFunctionLiteral loopProbLiteral = (ProbabilityFunctionLiteral) solvedLoopCountExpr;
+			if (loopProbLiteral.getFunction_ProbabilityFunctionLiteral() instanceof ProbabilityMassFunction){
+				ProbabilityMassFunction loopPMF = (ProbabilityMassFunction) loopProbLiteral
+						.getFunction_ProbabilityFunctionLiteral();
+				EList sampleList = loopPMF.getSamples();
+				Sample lastSample = (Sample) sampleList.get(sampleList.size() - 1);
+				if (lastSample.getValue() instanceof Integer){
+					upperBound = ((Integer) lastSample.getValue()).intValue();
+				} else {
+					logger.error("Could not determine upper bound for executing loop " +
+							"(PMF for loop count does not contain integer values). " +
+					"Skipping execution of loop body.");
+				}
+			} else {
+				logger.error("Could not determine upper bound for executing loop " +
+						"(loop count is prob function, but not PMF)." +
+				"Skipping execution of loop body.");
+			}
+		} else {
+			logger.error("Could not determine upper bound for executing loop " +
+					"(loop count neither Integer nor PMF). " +
+					"Skipping execution of loop body.");
+		}
+		return upperBound;
+	}
+
 	/**
 	 * @param iterations
 	 * @return

@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="ASCII"?>
 <context.allocation:ActualAllocation xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:context.allocation="http://sdq.ipd.uka.de/Context/Allocation/1.0">
-  <actualAllocationContexts>
-    <usageContext_ActualAllocationContext href="SolvedDSolverExample1.usage#//@usageContexts.0"/>
-  </actualAllocationContexts>
-  <actualAllocationContexts>
+  <actualAllocationContext_ActualAllocation>
+    <usageContext_ActualAllocationContext href="SolvedDSolverExample1.usage#//@usageContext_Usage.0"/>
+  </actualAllocationContext_ActualAllocation>
+  <actualAllocationContext_ActualAllocation>
     <actualResourceDemands_ActualAllocationContext randomVariable_ActualResourceDemand="/">
       <parametricResourceDemand_ActualResourceDemand href="DSolverExample1.repository#//@components__Repository.0/@serviceEffectSpecifications__BasicComponent.0/@parametricResourceDemands_Behaviour.0"/>
     </actualResourceDemands_ActualAllocationContext>
-    <usageContext_ActualAllocationContext href="SolvedDSolverExample1.usage#//@usageContexts.1"/>
-  </actualAllocationContexts>
+    <usageContext_ActualAllocationContext href="SolvedDSolverExample1.usage#//@usageContext_Usage.1"/>
+  </actualAllocationContext_ActualAllocation>
 </context.allocation:ActualAllocation>

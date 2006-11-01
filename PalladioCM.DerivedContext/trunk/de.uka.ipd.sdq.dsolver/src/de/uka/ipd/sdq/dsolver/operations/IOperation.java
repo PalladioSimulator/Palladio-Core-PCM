@@ -5,13 +5,13 @@ import de.uka.ipd.sdq.probfunction.math.exception.DifferentDomainsException;
 
 public interface IOperation {
 
-	public IProbabilityMassFunction opPMFPMF(IProbabilityMassFunction left,
+	public IProbabilityMassFunction compute(IProbabilityMassFunction left,
 			IProbabilityMassFunction right) throws DifferentDomainsException;
 	
-	public int opIntInt(int left, int right);
+	public int compute(int left, int right);
 	
-	public double opDoubleDouble(double left, double right);
+	public double compute(double left, double right);
 	
-	public IProbabilityMassFunction opPMFInt(IProbabilityMassFunction left,
+	public IProbabilityMassFunction compute(IProbabilityMassFunction left,
 			int right);
 }

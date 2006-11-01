@@ -2,7 +2,7 @@ package de.uka.ipd.sdq.dsolver.handler;
 
 import org.eclipse.emf.ecore.EObject;
 
-import de.uka.ipd.sdq.dsolver.visitors.SeffSwitchDSolver;
+import de.uka.ipd.sdq.dsolver.visitors.SeffVisitor;
 
 public abstract class AbstractHandler {
 
@@ -10,7 +10,7 @@ public abstract class AbstractHandler {
 	
 	public void handle(EObject object){}
 
-	public static AbstractHandler createHandler(SeffSwitchDSolver visitor){
+	public static AbstractHandler createHandler(SeffVisitor visitor){
 	
 		// build up chain of responsibility
 		ExternalCallActionHandler ech = 

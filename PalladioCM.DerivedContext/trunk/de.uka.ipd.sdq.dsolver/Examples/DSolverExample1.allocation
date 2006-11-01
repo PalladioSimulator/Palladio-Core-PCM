@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <pcm.allocation:Allocation xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:pcm.allocation="http://sdq.ipd.uka.de/PalladioComponentModel/Allocation/1.0" id="_bF9YMDZrEduqqrLaEKboKw" entityName="Allocation_DSolverExample1">
-  <allocationContexts>
-    <referencedAssemblyContext_AllocationContext href="DSolverExample1.assembly#_SQdT8FOzEduoe89HJlp_NQ"/>
+  <allocationContexts_Allocation id="_NjhGAGgzEduSvIQAACz2GA" entityName="">
     <resourceContainer_AllocationContext href="DSolverExample1.resourceenvironment#_oEjdUDRBEduaPaOP6VcQiw"/>
-  </allocationContexts>
-  <allocationContexts>
-    <referencedAssemblyContext_AllocationContext href="DSolverExample1.assembly#_gGZHsFeSEduN2olq57y0Gw"/>
+    <assemblyContext_AllocationContext href="DSolverExample1.system#_ILouQGgmEduoNbuXVdA7Cg"/>
+  </allocationContexts_Allocation>
+  <allocationContexts_Allocation id="_YBUhoGgzEduSvIQAACz2GA" entityName="">
     <resourceContainer_AllocationContext href="DSolverExample1.resourceenvironment#_oEjdUDRBEduaPaOP6VcQiw"/>
-  </allocationContexts>
+    <assemblyContext_AllocationContext href="DSolverExample1.system#_MYAoEGgmEduoNbuXVdA7Cg"/>
+  </allocationContexts_Allocation>
+  <targetResourceEnvironment_Allocation href="DSolverExample1.resourceenvironment#/"/>
 </pcm.allocation:Allocation>

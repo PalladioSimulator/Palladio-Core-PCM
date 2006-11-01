@@ -15,5 +15,6 @@ Export-Package: de.uka.ipd.sdq.context.allocation,
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
  de.uka.ipd.sdq.identifier;visibility:=reexport,
- de.uka.ipd.sdq.pcm;visibility:=reexport
+ de.uka.ipd.sdq.pcm;visibility:=reexport,
+ de.uka.ipd.sdq.probfunction
 Eclipse-LazyStart: true

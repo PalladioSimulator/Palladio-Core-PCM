@@ -21,8 +21,6 @@ import de.uka.ipd.sdq.context.usage.Usage;
 import de.uka.ipd.sdq.context.usage.UsageFactory;
 import de.uka.ipd.sdq.pcm.allocation.Allocation;
 import de.uka.ipd.sdq.pcm.allocation.AllocationPackage;
-import de.uka.ipd.sdq.pcm.assembly.Assembly;
-import de.uka.ipd.sdq.pcm.assembly.AssemblyPackage;
 import de.uka.ipd.sdq.pcm.core.stochastics.CompareExpression;
 import de.uka.ipd.sdq.pcm.core.stochastics.Expression;
 import de.uka.ipd.sdq.pcm.core.stochastics.StochasticsFactory;
@@ -48,8 +46,6 @@ public class PCMInstance {
 		Logger.getLogger(PCMInstance.class.getName());
 	
 	private Allocation allocation;
-
-	private Assembly assembly;
 
 	private Repository repository;
 
@@ -90,14 +86,6 @@ public class PCMInstance {
 
 	public void setAllocation(Allocation allocation) {
 		this.allocation = allocation;
-	}
-
-	public Assembly getAssembly() {
-		return assembly;
-	}
-
-	public void setAssembly(Assembly assembly) {
-		this.assembly = assembly;
 	}
 
 	public Repository getRepository() {
@@ -160,8 +148,6 @@ public class PCMInstance {
 	public void loadFromFiles(Properties config) {
 		String filename = config.getProperty("Filename_Allocation");
 		this.allocation = ((Allocation) loadFromXMIFile(filename));
-		filename = config.getProperty("Filename_Assembly");
-		this.assembly = ((Assembly) loadFromXMIFile(filename));
 		filename = config.getProperty("Filename_Repository");
 		this.repository = ((Repository) loadFromXMIFile(filename));
 		filename = config.getProperty("Filename_ResourceEnvironment");
@@ -177,7 +163,6 @@ public class PCMInstance {
 	public void saveToFiles(String fileNamePrefix){
 		fileNamePrefix = storagePath + "\\" + fileNamePrefix;
 		saveToXMIFile(allocation, fileNamePrefix+".allocation");
-		saveToXMIFile(assembly, fileNamePrefix+".assembly");
 		saveToXMIFile(repository, fileNamePrefix+".repository");
 		saveToXMIFile(resourceEnvironment, fileNamePrefix+".resourceenvironment");
 		saveToXMIFile(resourceRepository, fileNamePrefix+".resourcetype");
@@ -266,8 +251,6 @@ public class PCMInstance {
 
 		resourceSet.getPackageRegistry().put(AllocationPackage.eNS_URI,
 				AllocationPackage.eINSTANCE);
-		resourceSet.getPackageRegistry().put(AssemblyPackage.eNS_URI,
-				AssemblyPackage.eINSTANCE);
 		resourceSet.getPackageRegistry().put(ParameterPackage.eNS_URI,
 				ParameterPackage.eINSTANCE);
 		resourceSet.getPackageRegistry().put(

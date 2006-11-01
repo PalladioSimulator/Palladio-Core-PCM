@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import de.uka.ipd.sdq.context.allocation.ActualAllocationContext;
 import de.uka.ipd.sdq.context.usage.UsageContext;
-import de.uka.ipd.sdq.pcm.assembly.AssemblyContext;
+import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
 
 public class Context {
 	private de.uka.ipd.sdq.pcm.system.System mySystem;

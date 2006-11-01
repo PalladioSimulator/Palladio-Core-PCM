@@ -5,21 +5,22 @@ import de.uka.ipd.sdq.probfunction.math.exception.DifferentDomainsException;
 
 public class DivOperation implements IOperation {
 
-	public double opDoubleDouble(double left, double right) {
+	public double compute(double left, double right) {
 		return left / right;
 	}
 
-	public int opIntInt(int left, int right) {
+	public int compute(int left, int right) {
 		return left / right;
 	}
 
-	public IProbabilityMassFunction opPMFInt(IProbabilityMassFunction left,
+	public IProbabilityMassFunction compute(IProbabilityMassFunction left,
 			int right) {
+		// TODO
 		//return left.stretchDomain(1/right);
-		return null;
+		throw new UnsupportedOperationException();
 	}
 
-	public IProbabilityMassFunction opPMFPMF(IProbabilityMassFunction left,
+	public IProbabilityMassFunction compute(IProbabilityMassFunction left,
 			IProbabilityMassFunction right) throws DifferentDomainsException {
 		return left.div(right);
 	}

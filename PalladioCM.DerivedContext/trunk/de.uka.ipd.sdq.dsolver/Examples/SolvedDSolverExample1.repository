@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ASCII"?>
-<pcm.repository:Repository xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pcm.core.stochastics="http://sdq.ipd.uka.de/PalladioComponentModel/Core/Stochastics/1.0" xmlns:pcm.repository="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/1.0" xmlns:pcm.seff="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0" xmlns:probfunction="http://sdq.ipd.uka.de/ProbFunction/1.0">
+<pcm.repository:Repository xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pcm.repository="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/1.0" xmlns:pcm.seff="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0">
   <components__Repository xsi:type="pcm.repository:BasicComponent" id="_empqNDQaEduaPaOP6VcQiw" entityName="FirstComponent">
     <providedRoles__ProvidesComponentType id="_sTcKUDQaEduaPaOP6VcQiw" entityName="ProvidedRoleComponent1" providedInterface__ProvidedRole="_iu2OpTQaEduaPaOP6VcQiw"/>
     <requiredRoles_ProvidesComponentType id="_vyqDMTQaEduaPaOP6VcQiw" entityName="RequiredRoleComponent1" requiredInterface__RequiredRole="_pIeqNDQaEduaPaOP6VcQiw"/>
@@ -22,13 +22,7 @@
         </branches_Branch>
       </steps_Behaviour>
       <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_dy1LIDQbEduaPaOP6VcQiw" entityName="Stopping" predecessor_AbstractAction="_a5KPVzQbEduaPaOP6VcQiw"/>
-      <parametricResourceDemands_Behaviour demand="1000" unit="CPU cycles" action_ParametricResourceDemand="_Z92dpDQbEduaPaOP6VcQiw">
-        <specification_RandomVariable xsi:type="pcm.core.stochastics:ProbabilityFunctionLiteral">
-          <function_ProbabilityFunctionLiteral xsi:type="probfunction:ProbabilityMassFunction">
-            <samples probability="0.8"/>
-            <samples probability="0.2"/>
-          </function_ProbabilityFunctionLiteral>
-        </specification_RandomVariable>
+      <parametricResourceDemands_Behaviour specification="= IntRandomVar[ (0.3; 1000) (0.7; 2000) ]" demand="1000" unit="CPU cycles" action_ParametricResourceDemand="_Z92dpDQbEduaPaOP6VcQiw">
         <requiredResource_ParametricResourceDemand href="DSolverExample1.resourcetype#_YPBH0TQcEduaPaOP6VcQiw"/>
       </parametricResourceDemands_Behaviour>
     </serviceEffectSpecifications__BasicComponent>
@@ -37,12 +31,13 @@
     <providedRoles__ProvidesComponentType id="_zUQhsDQaEduaPaOP6VcQiw" entityName="ProvidedRoleComponent2" providedInterface__ProvidedRole="_pIeqNDQaEduaPaOP6VcQiw"/>
     <serviceEffectSpecifications__BasicComponent xsi:type="pcm.seff:ResourceDemandingSEFF" seffTypeID="1" describedService__SEFF="//@interfaces__Repository.1/@signatures__Interface.0">
       <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_BH_P8TQeEduaPaOP6VcQiw" entityName="Starting" successor_AbstractAction="_CRToczQeEduaPaOP6VcQiw"/>
-      <steps_Behaviour xsi:type="pcm.seff:LoopAction" id="_CRToczQeEduaPaOP6VcQiw" entityName="Looping" predecessor_AbstractAction="_BH_P8TQeEduaPaOP6VcQiw" successor_AbstractAction="_EqV8YDQeEduaPaOP6VcQiw" iterations="=IntRandomVar[(0.3;8)(0.7;9)]*IntRandomVar[(0.6;8)(0.4;9)]">
+      <steps_Behaviour xsi:type="pcm.seff:LoopAction" id="_CRToczQeEduaPaOP6VcQiw" entityName="Looping" predecessor_AbstractAction="_BH_P8TQeEduaPaOP6VcQiw" successor_AbstractAction="_EqV8YDQeEduaPaOP6VcQiw" iterations="">
         <bodyBehaviour_Loop>
           <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_DG83ATQeEduaPaOP6VcQiw" entityName="Starting" successor_AbstractAction="_DZ3zBDQeEduaPaOP6VcQiw"/>
           <steps_Behaviour xsi:type="pcm.seff:InternalAction" id="_DZ3zBDQeEduaPaOP6VcQiw" entityName="Doing" predecessor_AbstractAction="_DG83ATQeEduaPaOP6VcQiw" successor_AbstractAction="_D4awMDQeEduaPaOP6VcQiw" failureProbability="0"/>
           <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_D4awMDQeEduaPaOP6VcQiw" entityName="Stopping" predecessor_AbstractAction="_DZ3zBDQeEduaPaOP6VcQiw"/>
         </bodyBehaviour_Loop>
+        <iterations_LoopAction specification="= IntRandomVar[ (0.3; 8) (0.7; 9) ] * IntRandomVar[ (0.4; 8) (0.6; 9) ]"/>
       </steps_Behaviour>
       <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_EqV8YDQeEduaPaOP6VcQiw" entityName="Stopping" predecessor_AbstractAction="_CRToczQeEduaPaOP6VcQiw"/>
     </serviceEffectSpecifications__BasicComponent>

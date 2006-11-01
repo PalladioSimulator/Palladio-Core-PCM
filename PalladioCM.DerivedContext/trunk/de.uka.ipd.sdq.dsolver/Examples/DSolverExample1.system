@@ -1,12 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<pcm.system:System xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:pcm.system="http://sdq.ipd.uka.de/PalladioComponentModel/System/1.0" id="_PidLEDRCEduaPaOP6VcQiw" entityName="">
-  <systemProvidedRole_System id="_P1rCADRCEduaPaOP6VcQiw" entityName="System_FirstInterface" providedDelegationConnector_SystemProvidedRole="//@providedDelegationConnector_System.0">
-    <interface_SystemProvidedRole href="DSolverExample1.repository#_iu2OpTQaEduaPaOP6VcQiw"/>
+<pcm.system:System xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:pcm.system="http://sdq.ipd.uka.de/PalladioComponentModel/System/1.0" id="123" entityName="asdf">
+  <childComponentContexts_ComposedStructure id="_ILouQGgmEduoNbuXVdA7Cg" entityName="Component1_Context">
+    <encapsulatedComponent_ChildComponentContext href="DSolverExample1.repository#_empqNDQaEduaPaOP6VcQiw"/>
+  </childComponentContexts_ComposedStructure>
+  <childComponentContexts_ComposedStructure id="_MYAoEGgmEduoNbuXVdA7Cg" entityName="Component2_Context">
+    <encapsulatedComponent_ChildComponentContext href="DSolverExample1.repository#_hj5edDQaEduaPaOP6VcQiw"/>
+  </childComponentContexts_ComposedStructure>
+  <compositeAssemblyConnectors_ComposedStructure id="_VaBbIWgmEduoNbuXVdA7Cg" entityName="Component1-Component2" requiringChildComponentContext_CompositeAssemblyConnector="_ILouQGgmEduoNbuXVdA7Cg" providingChildComponentContext_CompositeAssemblyConnector="_MYAoEGgmEduoNbuXVdA7Cg">
+    <providedRole_CompositeAssemblyConnector href="DSolverExample1.repository#_zUQhsDQaEduaPaOP6VcQiw"/>
+    <requiredRole_CompositeAssemblyConnector href="DSolverExample1.repository#_vyqDMTQaEduaPaOP6VcQiw"/>
+  </compositeAssemblyConnectors_ComposedStructure>
+  <providedDelegationConnectors_ComposedStructure id="_5zI3UmgoEduoNbuXVdA7Cg" entityName="" outerProvidedRole_ProvidedDelegationConnector="_bnJEtGgmEduoNbuXVdA7Cg" childComponentContext_ProvidedDelegationConnector="_ILouQGgmEduoNbuXVdA7Cg">
+    <innerProvidedRole_ProvidedDelegationConnector href="DSolverExample1.repository#_sTcKUDQaEduaPaOP6VcQiw"/>
+  </providedDelegationConnectors_ComposedStructure>
+  <systemProvidedRole_System id="_bnJEtGgmEduoNbuXVdA7Cg" entityName="">
+    <providedInterface__ProvidedRole href="DSolverExample1.repository#_iu2OpTQaEduaPaOP6VcQiw"/>
   </systemProvidedRole_System>
-  <assembly_System href="DSolverExample1.assembly#_S7wbEDZkEduqqrLaEKboKw"/>
-  <providedDelegationConnector_System systemProvidedRole_SystemProvidedDelegationConnector="_P1rCADRCEduaPaOP6VcQiw">
-    <assemblyContext_SystemProvidedDelegationConnector href="DSolverExample1.assembly#_SQdT8FOzEduoe89HJlp_NQ"/>
-    <componentProvidedRole_SystemProvidedDelegationConnector href="DSolverExample1.repository#_sTcKUDQaEduaPaOP6VcQiw"/>
-  </providedDelegationConnector_System>
   <allocation_System href="DSolverExample1.allocation#_bF9YMDZrEduqqrLaEKboKw"/>
 </pcm.system:System>
