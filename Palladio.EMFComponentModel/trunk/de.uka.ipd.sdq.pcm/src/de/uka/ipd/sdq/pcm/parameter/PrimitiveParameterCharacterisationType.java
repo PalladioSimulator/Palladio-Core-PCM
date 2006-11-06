@@ -23,6 +23,13 @@ import org.eclipse.emf.common.util.AbstractEnumerator;
  */
 public final class PrimitiveParameterCharacterisationType extends AbstractEnumerator {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "(c) by SDQ, IPD, U Karlsruhe (TH), 2006";
+
+	/**
 	 * The '<em><b>VALUE</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <p>

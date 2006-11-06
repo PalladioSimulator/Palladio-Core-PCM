@@ -63,6 +63,13 @@ import org.eclipse.emf.ocl.query.QueryFactory;
  */
 public class ProvidesComponentTypeImpl extends EntityImpl implements ProvidesComponentType {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "(c) by SDQ, IPD, U Karlsruhe (TH), 2006";
+
+	/**
 	 * The cached value of the '{@link #getProvidedRoles__ProvidesComponentType() <em>Provided Roles Provides Component Type</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -28,6 +28,13 @@ import org.eclipse.emf.ecore.plugin.EcorePlugin;
  */
 public class SystemFactoryImpl extends EFactoryImpl implements SystemFactory {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "(c) by SDQ, IPD, U Karlsruhe (TH), 2006";
+
+	/**
 	 * Creates the default factory implementation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -35,6 +35,13 @@ import de.uka.ipd.sdq.pcm.repository.RequiredRole;
  */
 public interface AssemblyConnector extends Connector, Entity {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	String copyright = "(c) by SDQ, IPD, U Karlsruhe (TH), 2006";
+
+	/**
 	 * Returns the value of the '<em><b>Requiring Child Component Context Composite Assembly Connector</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>

@@ -30,6 +30,13 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface ImplementationComponentType extends CompleteComponentType {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	String copyright = "(c) by SDQ, IPD, U Karlsruhe (TH), 2006";
+
+	/**
 	 * Returns the value of the '<em><b>Parent Complete Component Types</b></em>' reference list.
 	 * The list contents are of type {@link de.uka.ipd.sdq.pcm.repository.CompleteComponentType}.
 	 * <!-- begin-user-doc -->

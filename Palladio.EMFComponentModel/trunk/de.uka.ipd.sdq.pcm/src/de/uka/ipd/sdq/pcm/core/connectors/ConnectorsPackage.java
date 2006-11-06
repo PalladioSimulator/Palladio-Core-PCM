@@ -28,6 +28,13 @@ import org.eclipse.emf.ecore.EPackage;
  */
 public interface ConnectorsPackage extends EPackage {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	String copyright = "(c) by SDQ, IPD, U Karlsruhe (TH), 2006";
+
+	/**
 	 * The package name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -128,7 +135,7 @@ public interface ConnectorsPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	interface Literals {
+	interface Literals  {
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.core.connectors.impl.ConnectorImpl <em>Connector</em>}' class.
 		 * <!-- begin-user-doc -->

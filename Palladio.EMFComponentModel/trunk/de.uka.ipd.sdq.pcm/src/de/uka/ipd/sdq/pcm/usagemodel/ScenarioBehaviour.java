@@ -29,6 +29,13 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface ScenarioBehaviour extends EObject {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	String copyright = "(c) by SDQ, IPD, U Karlsruhe (TH), 2006";
+
+	/**
 	 * Returns the value of the '<em><b>Actions Scenario Behaviour</b></em>' containment reference list.
 	 * The list contents are of type {@link de.uka.ipd.sdq.pcm.usagemodel.AbstractUserAction}.
 	 * <!-- begin-user-doc -->

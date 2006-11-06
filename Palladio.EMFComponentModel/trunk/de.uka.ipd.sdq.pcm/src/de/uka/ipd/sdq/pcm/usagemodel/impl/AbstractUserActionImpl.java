@@ -35,6 +35,13 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  */
 public abstract class AbstractUserActionImpl extends EObjectImpl implements AbstractUserAction {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "(c) by SDQ, IPD, U Karlsruhe (TH), 2006";
+
+	/**
 	 * The cached value of the '{@link #getSuccessor() <em>Successor</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -37,6 +37,13 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  */
 public class LoopActionImpl extends AbstractResourceDemandingActionImpl implements LoopAction {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "(c) by SDQ, IPD, U Karlsruhe (TH), 2006";
+
+	/**
 	 * The default value of the '{@link #getIterations() <em>Iterations</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -45,6 +52,7 @@ public class LoopActionImpl extends AbstractResourceDemandingActionImpl implemen
 	 * @ordered
 	 */
 	protected static final String ITERATIONS_EDEFAULT = null;
+
 
 	/**
 	 * The cached value of the '{@link #getIterations() <em>Iterations</em>}' attribute.

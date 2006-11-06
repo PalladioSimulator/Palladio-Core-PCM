@@ -27,6 +27,13 @@ package de.uka.ipd.sdq.pcm.usagemodel;
  */
 public interface Loop extends AbstractUserAction {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	String copyright = "(c) by SDQ, IPD, U Karlsruhe (TH), 2006";
+
+	/**
 	 * Returns the value of the '<em><b>Body Behaviour Loop</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>

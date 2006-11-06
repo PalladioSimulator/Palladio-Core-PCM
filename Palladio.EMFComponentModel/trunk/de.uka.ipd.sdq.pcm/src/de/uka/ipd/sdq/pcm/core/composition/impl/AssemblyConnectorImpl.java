@@ -41,6 +41,13 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  */
 public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConnector {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "(c) by SDQ, IPD, U Karlsruhe (TH), 2006";
+
+	/**
 	 * The cached value of the '{@link #getRequiringChildComponentContext_CompositeAssemblyConnector() <em>Requiring Child Component Context Composite Assembly Connector</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

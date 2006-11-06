@@ -37,6 +37,13 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  */
 public class CommunicationLinkResourceSpecificationImpl extends EObjectImpl implements CommunicationLinkResourceSpecification {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "(c) by SDQ, IPD, U Karlsruhe (TH), 2006";
+
+	/**
 	 * The cached value of the '{@link #getCommunicationLinkResourceType_CommunicationLinkResourceSpecification() <em>Communication Link Resource Type Communication Link Resource Specification</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -75,6 +82,7 @@ public class CommunicationLinkResourceSpecificationImpl extends EObjectImpl impl
 	 * @ordered
 	 */
 	protected static final String UNITS_EDEFAULT = null;
+
 
 	/**
 	 * The cached value of the '{@link #getUnits() <em>Units</em>}' attribute.

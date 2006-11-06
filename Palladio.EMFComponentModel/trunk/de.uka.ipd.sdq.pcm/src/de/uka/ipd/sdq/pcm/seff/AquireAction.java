@@ -27,6 +27,13 @@ import de.uka.ipd.sdq.pcm.resourcetype.PassiveResourceType;
  */
 public interface AquireAction extends AbstractResourceDemandingAction {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	String copyright = "(c) by SDQ, IPD, U Karlsruhe (TH), 2006";
+
+	/**
 	 * Returns the value of the '<em><b>Resource Type Aquire</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>

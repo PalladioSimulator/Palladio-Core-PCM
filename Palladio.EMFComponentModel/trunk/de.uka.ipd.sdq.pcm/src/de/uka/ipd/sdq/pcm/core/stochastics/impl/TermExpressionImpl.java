@@ -38,6 +38,13 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  */
 public class TermExpressionImpl extends TermImpl implements TermExpression {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "(c) by SDQ, IPD, U Karlsruhe (TH), 2006";
+
+	/**
 	 * The cached value of the '{@link #getLeft() <em>Left</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -66,6 +73,7 @@ public class TermExpressionImpl extends TermImpl implements TermExpression {
 	 * @ordered
 	 */
 	protected static final TermOperations OPERATION_EDEFAULT = TermOperations.ADD_LITERAL;
+
 
 	/**
 	 * The cached value of the '{@link #getOperation() <em>Operation</em>}' attribute.

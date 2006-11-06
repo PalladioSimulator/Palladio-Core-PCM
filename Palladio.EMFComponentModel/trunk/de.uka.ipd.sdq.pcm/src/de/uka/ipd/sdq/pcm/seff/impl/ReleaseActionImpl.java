@@ -34,6 +34,13 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  */
 public class ReleaseActionImpl extends AbstractResourceDemandingActionImpl implements ReleaseAction {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "(c) by SDQ, IPD, U Karlsruhe (TH), 2006";
+
+	/**
 	 * The cached value of the '{@link #getResourceType_Release() <em>Resource Type Release</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

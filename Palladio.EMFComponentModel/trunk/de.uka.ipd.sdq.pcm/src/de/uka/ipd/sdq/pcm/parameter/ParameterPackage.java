@@ -31,6 +31,13 @@ import org.eclipse.emf.ecore.EReference;
  */
 public interface ParameterPackage extends EPackage {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	String copyright = "(c) by SDQ, IPD, U Karlsruhe (TH), 2006";
+
+	/**
 	 * The package name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -481,7 +488,7 @@ public interface ParameterPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	interface Literals {
+	interface Literals  {
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.parameter.impl.PrimitiveParameterCharacterisationImpl <em>Primitive Parameter Characterisation</em>}' class.
 		 * <!-- begin-user-doc -->

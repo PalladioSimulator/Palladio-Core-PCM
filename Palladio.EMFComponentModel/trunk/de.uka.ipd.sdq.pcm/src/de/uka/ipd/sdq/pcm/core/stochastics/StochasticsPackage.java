@@ -29,6 +29,13 @@ import org.eclipse.emf.ecore.EReference;
  */
 public interface StochasticsPackage extends EPackage {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	String copyright = "(c) by SDQ, IPD, U Karlsruhe (TH), 2006";
+
+	/**
 	 * The package name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -926,7 +933,7 @@ public interface StochasticsPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	interface Literals {
+	interface Literals  {
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.core.stochastics.impl.RandomVariableImpl <em>Random Variable</em>}' class.
 		 * <!-- begin-user-doc -->

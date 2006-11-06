@@ -34,6 +34,13 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  */
 public class PrimitiveParameterCharacterisationImpl extends RandomVariableImpl implements PrimitiveParameterCharacterisation {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "(c) by SDQ, IPD, U Karlsruhe (TH), 2006";
+
+	/**
 	 * The default value of the '{@link #getType() <em>Type</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -42,6 +49,7 @@ public class PrimitiveParameterCharacterisationImpl extends RandomVariableImpl i
 	 * @ordered
 	 */
 	protected static final PrimitiveParameterCharacterisationType TYPE_EDEFAULT = PrimitiveParameterCharacterisationType.VALUE_LITERAL;
+
 
 	/**
 	 * The cached value of the '{@link #getType() <em>Type</em>}' attribute.

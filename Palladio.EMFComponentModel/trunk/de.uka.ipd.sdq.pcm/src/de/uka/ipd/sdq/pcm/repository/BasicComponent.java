@@ -31,6 +31,13 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface BasicComponent extends ImplementationComponentType {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	String copyright = "(c) by SDQ, IPD, U Karlsruhe (TH), 2006";
+
+	/**
 	 * Returns the value of the '<em><b>Implementation Component Type</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>

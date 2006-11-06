@@ -54,6 +54,13 @@ import org.eclipse.emf.ocl.query.QueryFactory;
  */
 public class ImplementationComponentTypeImpl extends CompleteComponentTypeImpl implements ImplementationComponentType {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "(c) by SDQ, IPD, U Karlsruhe (TH), 2006";
+
+	/**
 	 * The cached value of the '{@link #getParentCompleteComponentTypes() <em>Parent Complete Component Types</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -31,6 +31,13 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface ProcessingResourceSpecification extends EObject {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	String copyright = "(c) by SDQ, IPD, U Karlsruhe (TH), 2006";
+
+	/**
 	 * Returns the value of the '<em><b>Active Resource Type Active Resource Specification</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>

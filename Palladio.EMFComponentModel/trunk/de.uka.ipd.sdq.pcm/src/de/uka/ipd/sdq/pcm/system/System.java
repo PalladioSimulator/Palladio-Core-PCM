@@ -35,6 +35,13 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface System extends ComposedStructure, Entity {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	String copyright = "(c) by SDQ, IPD, U Karlsruhe (TH), 2006";
+
+	/**
 	 * Returns the value of the '<em><b>System Provided Role System</b></em>' containment reference list.
 	 * The list contents are of type {@link de.uka.ipd.sdq.pcm.system.SystemProvidedRole}.
 	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.system.SystemProvidedRole#getSystem_SystemProvidedRole <em>System System Provided Role</em>}'.

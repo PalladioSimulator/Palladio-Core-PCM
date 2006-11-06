@@ -64,6 +64,13 @@ import org.eclipse.emf.ocl.query.QueryFactory;
  */
 public class BasicComponentImpl extends ImplementationComponentTypeImpl implements BasicComponent {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "(c) by SDQ, IPD, U Karlsruhe (TH), 2006";
+
+	/**
 	 * The cached value of the '{@link #getImplementationComponentType() <em>Implementation Component Type</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

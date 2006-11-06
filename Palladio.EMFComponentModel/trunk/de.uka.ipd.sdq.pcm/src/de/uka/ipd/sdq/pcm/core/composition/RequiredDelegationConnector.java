@@ -34,6 +34,13 @@ import org.eclipse.emf.common.util.DiagnosticChain;
  */
 public interface RequiredDelegationConnector extends DelegationConnector {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	String copyright = "(c) by SDQ, IPD, U Karlsruhe (TH), 2006";
+
+	/**
 	 * Returns the value of the '<em><b>Inner Required Role Required Delegation Connector</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>

@@ -33,6 +33,13 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  */
 public class RequiredRoleImpl extends RoleImpl implements RequiredRole {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "(c) by SDQ, IPD, U Karlsruhe (TH), 2006";
+
+	/**
 	 * The cached value of the '{@link #getRequiredInterface__RequiredRole() <em>Required Interface Required Role</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -37,6 +37,13 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  */
 public class ProcessingResourceSpecificationImpl extends EObjectImpl implements ProcessingResourceSpecification {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "(c) by SDQ, IPD, U Karlsruhe (TH), 2006";
+
+	/**
 	 * The cached value of the '{@link #getActiveResourceType_ActiveResourceSpecification() <em>Active Resource Type Active Resource Specification</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -75,6 +82,7 @@ public class ProcessingResourceSpecificationImpl extends EObjectImpl implements 
 	 * @ordered
 	 */
 	protected static final String UNITS_EDEFAULT = null;
+
 
 	/**
 	 * The cached value of the '{@link #getUnits() <em>Units</em>}' attribute.

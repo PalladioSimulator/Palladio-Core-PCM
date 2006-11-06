@@ -40,6 +40,13 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class UsageModelImpl extends EObjectImpl implements UsageModel {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "(c) by SDQ, IPD, U Karlsruhe (TH), 2006";
+
+	/**
 	 * The cached value of the '{@link #getUsageScenario_UsageModel() <em>Usage Scenario Usage Model</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

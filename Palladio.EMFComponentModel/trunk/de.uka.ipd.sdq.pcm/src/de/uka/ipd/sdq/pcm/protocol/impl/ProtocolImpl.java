@@ -32,6 +32,13 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  */
 public abstract class ProtocolImpl extends EObjectImpl implements Protocol {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "(c) by SDQ, IPD, U Karlsruhe (TH), 2006";
+
+	/**
 	 * The default value of the '{@link #getProtocolTypeID() <em>Protocol Type ID</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -40,6 +47,7 @@ public abstract class ProtocolImpl extends EObjectImpl implements Protocol {
 	 * @ordered
 	 */
 	protected static final String PROTOCOL_TYPE_ID_EDEFAULT = null;
+
 
 	/**
 	 * The cached value of the '{@link #getProtocolTypeID() <em>Protocol Type ID</em>}' attribute.

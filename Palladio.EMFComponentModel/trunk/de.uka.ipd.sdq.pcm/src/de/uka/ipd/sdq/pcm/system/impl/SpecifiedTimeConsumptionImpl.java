@@ -36,6 +36,13 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  */
 public class SpecifiedTimeConsumptionImpl extends RandomVariableImpl implements SpecifiedTimeConsumption {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "(c) by SDQ, IPD, U Karlsruhe (TH), 2006";
+
+	/**
 	 * The cached value of the '{@link #getSignature_SpecifiedTimeConsumption() <em>Signature Specified Time Consumption</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -44,6 +44,13 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  */
 public class LinkingResourceImpl extends EObjectImpl implements LinkingResource {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "(c) by SDQ, IPD, U Karlsruhe (TH), 2006";
+
+	/**
 	 * The cached value of the '{@link #getToResourceContainer_LinkingResource() <em>To Resource Container Linking Resource</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

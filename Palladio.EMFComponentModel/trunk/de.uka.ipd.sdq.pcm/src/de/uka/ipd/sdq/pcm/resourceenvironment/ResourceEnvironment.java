@@ -30,6 +30,13 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface ResourceEnvironment extends EObject {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	String copyright = "(c) by SDQ, IPD, U Karlsruhe (TH), 2006";
+
+	/**
 	 * Returns the value of the '<em><b>Linkingresource</b></em>' containment reference list.
 	 * The list contents are of type {@link de.uka.ipd.sdq.pcm.resourceenvironment.LinkingResource}.
 	 * <!-- begin-user-doc -->

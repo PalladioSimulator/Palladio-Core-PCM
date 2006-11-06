@@ -43,6 +43,13 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class CollectionParameterUsageImpl extends ParameterUsageImpl implements CollectionParameterUsage {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "(c) by SDQ, IPD, U Karlsruhe (TH), 2006";
+
+	/**
 	 * The cached value of the '{@link #getInnerElement_ParameterUsage() <em>Inner Element Parameter Usage</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

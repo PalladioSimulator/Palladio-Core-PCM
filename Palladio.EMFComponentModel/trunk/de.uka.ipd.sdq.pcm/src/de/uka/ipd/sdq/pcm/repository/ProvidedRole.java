@@ -27,6 +27,13 @@ package de.uka.ipd.sdq.pcm.repository;
  */
 public interface ProvidedRole extends Role {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	String copyright = "(c) by SDQ, IPD, U Karlsruhe (TH), 2006";
+
+	/**
 	 * Returns the value of the '<em><b>Provided Interface Provided Role</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>

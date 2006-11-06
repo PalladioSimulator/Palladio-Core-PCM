@@ -34,6 +34,13 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  */
 public class DataTypeImpl extends EObjectImpl implements DataType {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "(c) by SDQ, IPD, U Karlsruhe (TH), 2006";
+
+	/**
 	 * The cached value of the '{@link #getParentDataType__DataType() <em>Parent Data Type Data Type</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -52,6 +59,7 @@ public class DataTypeImpl extends EObjectImpl implements DataType {
 	 * @ordered
 	 */
 	protected static final String TYPE_EDEFAULT = null;
+
 
 	/**
 	 * The cached value of the '{@link #getType() <em>Type</em>}' attribute.

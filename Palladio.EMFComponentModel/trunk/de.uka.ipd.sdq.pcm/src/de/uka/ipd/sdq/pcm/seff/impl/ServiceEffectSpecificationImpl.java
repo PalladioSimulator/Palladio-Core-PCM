@@ -36,6 +36,13 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  */
 public abstract class ServiceEffectSpecificationImpl extends EObjectImpl implements ServiceEffectSpecification {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "(c) by SDQ, IPD, U Karlsruhe (TH), 2006";
+
+	/**
 	 * The default value of the '{@link #getSeffTypeID() <em>Seff Type ID</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -44,6 +51,7 @@ public abstract class ServiceEffectSpecificationImpl extends EObjectImpl impleme
 	 * @ordered
 	 */
 	protected static final String SEFF_TYPE_ID_EDEFAULT = null;
+
 
 	/**
 	 * The cached value of the '{@link #getSeffTypeID() <em>Seff Type ID</em>}' attribute.

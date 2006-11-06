@@ -38,6 +38,13 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  */
 public class UsageScenarioImpl extends EntityImpl implements UsageScenario {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "(c) by SDQ, IPD, U Karlsruhe (TH), 2006";
+
+	/**
 	 * The cached value of the '{@link #getWorkload_UsageScenario() <em>Workload Usage Scenario</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -27,6 +27,13 @@ import de.uka.ipd.sdq.identifier.Identifier;
  */
 public interface Entity extends Identifier {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	String copyright = "(c) by SDQ, IPD, U Karlsruhe (TH), 2006";
+
+	/**
 	 * Returns the value of the '<em><b>Entity Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>

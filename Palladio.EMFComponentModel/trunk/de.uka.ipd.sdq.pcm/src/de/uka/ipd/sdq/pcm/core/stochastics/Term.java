@@ -19,4 +19,11 @@ package de.uka.ipd.sdq.pcm.core.stochastics;
  * @generated
  */
 public interface Term extends Comparison {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	String copyright = "(c) by SDQ, IPD, U Karlsruhe (TH), 2006";
+
 } // Term

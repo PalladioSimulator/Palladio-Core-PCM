@@ -33,6 +33,13 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface ProvidesComponentType extends Entity {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	String copyright = "(c) by SDQ, IPD, U Karlsruhe (TH), 2006";
+
+	/**
 	 * Returns the value of the '<em><b>Provided Roles Provides Component Type</b></em>' containment reference list.
 	 * The list contents are of type {@link de.uka.ipd.sdq.pcm.repository.ProvidedRole}.
 	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.repository.ProvidedRole#getProvidingComponent__ProvidedRole <em>Providing Component Provided Role</em>}'.

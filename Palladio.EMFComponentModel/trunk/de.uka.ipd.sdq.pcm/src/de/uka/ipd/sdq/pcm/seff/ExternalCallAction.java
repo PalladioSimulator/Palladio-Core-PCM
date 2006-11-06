@@ -30,6 +30,13 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface ExternalCallAction extends AbstractAction {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	String copyright = "(c) by SDQ, IPD, U Karlsruhe (TH), 2006";
+
+	/**
 	 * Returns the value of the '<em><b>Called Service External Service</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>

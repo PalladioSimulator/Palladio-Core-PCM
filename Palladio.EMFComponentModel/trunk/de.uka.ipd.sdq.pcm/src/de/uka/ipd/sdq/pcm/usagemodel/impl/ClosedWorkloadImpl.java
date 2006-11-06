@@ -32,6 +32,13 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  */
 public class ClosedWorkloadImpl extends WorkloadImpl implements ClosedWorkload {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "(c) by SDQ, IPD, U Karlsruhe (TH), 2006";
+
+	/**
 	 * The default value of the '{@link #getPopulation() <em>Population</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

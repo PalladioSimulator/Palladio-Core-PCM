@@ -48,6 +48,13 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class EntryLevelSystemCallImpl extends AbstractUserActionImpl implements EntryLevelSystemCall {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "(c) by SDQ, IPD, U Karlsruhe (TH), 2006";
+
+	/**
 	 * The cached value of the '{@link #getActualParameterUsage_EntryLevelSystemCall() <em>Actual Parameter Usage Entry Level System Call</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

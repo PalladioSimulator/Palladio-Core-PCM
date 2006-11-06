@@ -26,6 +26,13 @@ package de.uka.ipd.sdq.pcm.core.stochastics;
  */
 public interface Parantesis extends Atom {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	String copyright = "(c) by SDQ, IPD, U Karlsruhe (TH), 2006";
+
+	/**
 	 * Returns the value of the '<em><b>Inner Expression</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>

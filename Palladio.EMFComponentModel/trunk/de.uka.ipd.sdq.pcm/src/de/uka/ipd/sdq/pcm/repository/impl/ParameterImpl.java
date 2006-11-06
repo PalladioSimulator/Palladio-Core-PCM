@@ -38,6 +38,13 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  */
 public class ParameterImpl extends EObjectImpl implements Parameter {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "(c) by SDQ, IPD, U Karlsruhe (TH), 2006";
+
+	/**
 	 * The cached value of the '{@link #getDatatype__Parameter() <em>Datatype Parameter</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -76,6 +83,7 @@ public class ParameterImpl extends EObjectImpl implements Parameter {
 	 * @ordered
 	 */
 	protected static final ParameterModifier MODIFIER_PARAMETER_EDEFAULT = ParameterModifier.NONE_LITERAL;
+
 
 	/**
 	 * The cached value of the '{@link #getModifier__Parameter() <em>Modifier Parameter</em>}' attribute.

@@ -36,6 +36,13 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  */
 public abstract class ParametricParameterUsageImpl extends RandomVariableImpl implements ParametricParameterUsage {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "(c) by SDQ, IPD, U Karlsruhe (TH), 2006";
+
+	/**
 	 * The cached value of the '{@link #getCharacterisedParameter_ParametricParameterUsage() <em>Characterised Parameter Parametric Parameter Usage</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

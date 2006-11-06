@@ -26,6 +26,13 @@ package de.uka.ipd.sdq.pcm.seff;
  */
 public interface InternalAction extends AbstractResourceDemandingAction {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	String copyright = "(c) by SDQ, IPD, U Karlsruhe (TH), 2006";
+
+	/**
 	 * Returns the value of the '<em><b>Failure Probability</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>

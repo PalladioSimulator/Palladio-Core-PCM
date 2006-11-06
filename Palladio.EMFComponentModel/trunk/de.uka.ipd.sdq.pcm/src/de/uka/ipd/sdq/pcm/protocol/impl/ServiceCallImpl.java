@@ -35,6 +35,13 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  */
 public abstract class ServiceCallImpl extends EObjectImpl implements ServiceCall {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "(c) by SDQ, IPD, U Karlsruhe (TH), 2006";
+
+	/**
 	 * The cached value of the '{@link #getSignature__ServiceCall() <em>Signature Service Call</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

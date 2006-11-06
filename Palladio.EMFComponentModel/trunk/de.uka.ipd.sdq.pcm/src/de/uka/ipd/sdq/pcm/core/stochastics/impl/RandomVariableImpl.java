@@ -40,6 +40,13 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  */
 public class RandomVariableImpl extends EObjectImpl implements RandomVariable {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "(c) by SDQ, IPD, U Karlsruhe (TH), 2006";
+
+	/**
 	 * The default value of the '{@link #getSpecification() <em>Specification</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -48,6 +55,7 @@ public class RandomVariableImpl extends EObjectImpl implements RandomVariable {
 	 * @ordered
 	 */
 	protected static final String SPECIFICATION_EDEFAULT = null;
+
 
 	/**
 	 * The cached value of the '{@link #getSpecification() <em>Specification</em>}' attribute.
@@ -119,7 +127,7 @@ public class RandomVariableImpl extends EObjectImpl implements RandomVariable {
 		
 		try {
 			StochasticExpressionsLexer lexer = new StochasticExpressionsLexer(
-					new StringBufferInputStream(this.specification));
+					new StringBufferInputStream(this.getSpecification()));
 			StochasticExpressionsParser parser = new StochasticExpressionsParser(lexer);
 			value = parser.expression();
 		} catch (Exception e) {

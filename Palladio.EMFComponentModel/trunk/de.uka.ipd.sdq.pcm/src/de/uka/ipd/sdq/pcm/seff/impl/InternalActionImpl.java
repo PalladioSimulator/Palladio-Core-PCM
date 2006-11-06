@@ -31,6 +31,13 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  */
 public class InternalActionImpl extends AbstractResourceDemandingActionImpl implements InternalAction {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "(c) by SDQ, IPD, U Karlsruhe (TH), 2006";
+
+	/**
 	 * The default value of the '{@link #getFailureProbability() <em>Failure Probability</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -39,6 +46,7 @@ public class InternalActionImpl extends AbstractResourceDemandingActionImpl impl
 	 * @ordered
 	 */
 	protected static final String FAILURE_PROBABILITY_EDEFAULT = null;
+
 
 	/**
 	 * The cached value of the '{@link #getFailureProbability() <em>Failure Probability</em>}' attribute.

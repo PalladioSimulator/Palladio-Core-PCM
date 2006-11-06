@@ -27,6 +27,13 @@ public abstract class AtomImpl extends PowerImpl implements Atom {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public static final String copyright = "(c) by SDQ, IPD, U Karlsruhe (TH), 2006";
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	protected AtomImpl() {
 		super();
 	}

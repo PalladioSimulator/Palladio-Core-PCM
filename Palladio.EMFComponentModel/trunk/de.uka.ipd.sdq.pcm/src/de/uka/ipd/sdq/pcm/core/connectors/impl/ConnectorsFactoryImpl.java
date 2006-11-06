@@ -24,6 +24,13 @@ import org.eclipse.emf.ecore.plugin.EcorePlugin;
  */
 public class ConnectorsFactoryImpl extends EFactoryImpl implements ConnectorsFactory {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "(c) by SDQ, IPD, U Karlsruhe (TH), 2006";
+
+	/**
 	 * Creates the default factory implementation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

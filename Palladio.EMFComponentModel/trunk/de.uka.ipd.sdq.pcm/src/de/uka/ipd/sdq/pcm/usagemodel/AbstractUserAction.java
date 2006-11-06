@@ -28,6 +28,13 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface AbstractUserAction extends EObject {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	String copyright = "(c) by SDQ, IPD, U Karlsruhe (TH), 2006";
+
+	/**
 	 * Returns the value of the '<em><b>Successor</b></em>' reference.
 	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.usagemodel.AbstractUserAction#getPredecessor <em>Predecessor</em>}'.
 	 * <!-- begin-user-doc -->

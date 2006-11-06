@@ -32,6 +32,13 @@ import de.uka.ipd.sdq.pcm.resourcetype.ProcessingResourceType;
  */
 public interface ParametricResourceDemand extends RandomVariable {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	String copyright = "(c) by SDQ, IPD, U Karlsruhe (TH), 2006";
+
+	/**
 	 * Returns the value of the '<em><b>Demand</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>

@@ -29,6 +29,13 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface ResourceRepository extends EObject {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	String copyright = "(c) by SDQ, IPD, U Karlsruhe (TH), 2006";
+
+	/**
 	 * Returns the value of the '<em><b>Available Resource Types Resource Repository</b></em>' containment reference list.
 	 * The list contents are of type {@link de.uka.ipd.sdq.pcm.resourcetype.ResourceType}.
 	 * <!-- begin-user-doc -->

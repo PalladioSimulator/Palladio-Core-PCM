@@ -29,6 +29,13 @@ import de.uka.ipd.sdq.pcm.repository.ProvidedRole;
  */
 public interface SystemProvidedRole extends ProvidedRole, Entity {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	String copyright = "(c) by SDQ, IPD, U Karlsruhe (TH), 2006";
+
+	/**
 	 * Returns the value of the '<em><b>System System Provided Role</b></em>' container reference.
 	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.system.System#getSystemProvidedRole_System <em>System Provided Role System</em>}'.
 	 * <!-- begin-user-doc -->

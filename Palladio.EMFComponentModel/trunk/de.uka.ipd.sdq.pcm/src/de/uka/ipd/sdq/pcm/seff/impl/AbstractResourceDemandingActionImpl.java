@@ -38,6 +38,13 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public abstract class AbstractResourceDemandingActionImpl extends AbstractActionImpl implements AbstractResourceDemandingAction {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "(c) by SDQ, IPD, U Karlsruhe (TH), 2006";
+
+	/**
 	 * The cached value of the '{@link #getResourceDemand_Action() <em>Resource Demand Action</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

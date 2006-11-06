@@ -67,6 +67,13 @@ import org.eclipse.emf.ocl.query.QueryFactory;
  */
 public class SignatureImpl extends EObjectImpl implements Signature {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "(c) by SDQ, IPD, U Karlsruhe (TH), 2006";
+
+	/**
 	 * The default value of the '{@link #getServiceName() <em>Service Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -75,6 +82,7 @@ public class SignatureImpl extends EObjectImpl implements Signature {
 	 * @ordered
 	 */
 	protected static final String SERVICE_NAME_EDEFAULT = null;
+
 
 	/**
 	 * The cached value of the '{@link #getServiceName() <em>Service Name</em>}' attribute.

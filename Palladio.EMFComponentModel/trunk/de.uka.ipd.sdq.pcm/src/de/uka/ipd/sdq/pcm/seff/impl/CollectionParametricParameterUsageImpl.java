@@ -33,6 +33,13 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  */
 public class CollectionParametricParameterUsageImpl extends ParametricParameterUsageImpl implements CollectionParametricParameterUsage {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "(c) by SDQ, IPD, U Karlsruhe (TH), 2006";
+
+	/**
 	 * The default value of the '{@link #getType() <em>Type</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -41,6 +48,7 @@ public class CollectionParametricParameterUsageImpl extends ParametricParameterU
 	 * @ordered
 	 */
 	protected static final CollectionParameterCharacterisationType TYPE_EDEFAULT = CollectionParameterCharacterisationType.NUMBER_OF_ELEMENTS_LITERAL;
+
 
 	/**
 	 * The cached value of the '{@link #getType() <em>Type</em>}' attribute.

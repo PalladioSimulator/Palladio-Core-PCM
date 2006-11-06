@@ -100,6 +100,13 @@ public class StochasticsPackageImpl extends EPackageImpl implements StochasticsP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public static final String copyright = "(c) by SDQ, IPD, U Karlsruhe (TH), 2006";
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass randomVariableEClass = null;
 
 	/**

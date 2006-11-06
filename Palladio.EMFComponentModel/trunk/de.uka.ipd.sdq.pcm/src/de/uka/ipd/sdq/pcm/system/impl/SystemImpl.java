@@ -75,6 +75,13 @@ import org.eclipse.emf.ocl.query.QueryFactory;
  */
 public class SystemImpl extends ComposedStructureImpl implements de.uka.ipd.sdq.pcm.system.System {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "(c) by SDQ, IPD, U Karlsruhe (TH), 2006";
+
+	/**
 	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -103,6 +110,7 @@ public class SystemImpl extends ComposedStructureImpl implements de.uka.ipd.sdq.
 	 * @ordered
 	 */
 	protected static final String ENTITY_NAME_EDEFAULT = null;
+
 
 	/**
 	 * The cached value of the '{@link #getEntityName() <em>Entity Name</em>}' attribute.

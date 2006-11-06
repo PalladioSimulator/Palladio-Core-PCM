@@ -38,6 +38,13 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class BranchActionImpl extends AbstractResourceDemandingActionImpl implements BranchAction {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "(c) by SDQ, IPD, U Karlsruhe (TH), 2006";
+
+	/**
 	 * The cached value of the '{@link #getBranches_Branch() <em>Branches Branch</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

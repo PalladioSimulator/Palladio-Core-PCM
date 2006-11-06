@@ -33,6 +33,13 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  */
 public class ExceptionTypeImpl extends EObjectImpl implements ExceptionType {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "(c) by SDQ, IPD, U Karlsruhe (TH), 2006";
+
+	/**
 	 * The default value of the '{@link #getExceptionName() <em>Exception Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -61,6 +68,7 @@ public class ExceptionTypeImpl extends EObjectImpl implements ExceptionType {
 	 * @ordered
 	 */
 	protected static final String EXCEPTION_MESSAGE_EDEFAULT = null;
+
 
 	/**
 	 * The cached value of the '{@link #getExceptionMessage() <em>Exception Message</em>}' attribute.

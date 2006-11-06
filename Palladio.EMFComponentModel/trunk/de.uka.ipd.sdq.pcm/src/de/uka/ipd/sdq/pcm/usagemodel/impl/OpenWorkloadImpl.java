@@ -31,6 +31,13 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  */
 public class OpenWorkloadImpl extends WorkloadImpl implements OpenWorkload {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "(c) by SDQ, IPD, U Karlsruhe (TH), 2006";
+
+	/**
 	 * The default value of the '{@link #getArrivalRate() <em>Arrival Rate</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

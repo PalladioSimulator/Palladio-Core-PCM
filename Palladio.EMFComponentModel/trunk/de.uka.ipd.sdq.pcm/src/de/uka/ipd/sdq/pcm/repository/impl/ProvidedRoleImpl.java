@@ -38,6 +38,13 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  */
 public class ProvidedRoleImpl extends RoleImpl implements ProvidedRole {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "(c) by SDQ, IPD, U Karlsruhe (TH), 2006";
+
+	/**
 	 * The cached value of the '{@link #getProvidedInterface__ProvidedRole() <em>Provided Interface Provided Role</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

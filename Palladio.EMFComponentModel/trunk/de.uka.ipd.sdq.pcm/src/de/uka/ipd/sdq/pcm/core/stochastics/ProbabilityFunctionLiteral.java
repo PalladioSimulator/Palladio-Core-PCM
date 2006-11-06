@@ -27,6 +27,13 @@ import de.uka.ipd.sdq.probfunction.ProbabilityFunction;
  */
 public interface ProbabilityFunctionLiteral extends Atom {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	String copyright = "(c) by SDQ, IPD, U Karlsruhe (TH), 2006";
+
+	/**
 	 * Returns the value of the '<em><b>Function Probability Function Literal</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>

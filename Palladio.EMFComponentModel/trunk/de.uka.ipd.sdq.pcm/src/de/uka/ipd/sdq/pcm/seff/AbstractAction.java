@@ -28,6 +28,13 @@ import de.uka.ipd.sdq.pcm.core.entity.Entity;
  */
 public interface AbstractAction extends Entity {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	String copyright = "(c) by SDQ, IPD, U Karlsruhe (TH), 2006";
+
+	/**
 	 * Returns the value of the '<em><b>Predecessor Abstract Action</b></em>' reference.
 	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.seff.AbstractAction#getSuccessor_AbstractAction <em>Successor Abstract Action</em>}'.
 	 * <!-- begin-user-doc -->

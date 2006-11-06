@@ -66,6 +66,13 @@ import org.eclipse.emf.ocl.query.QueryFactory;
  */
 public class RepositoryImpl extends EObjectImpl implements Repository {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "(c) by SDQ, IPD, U Karlsruhe (TH), 2006";
+
+	/**
 	 * The default value of the '{@link #getRepositoryDescription() <em>Repository Description</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -94,6 +101,7 @@ public class RepositoryImpl extends EObjectImpl implements Repository {
 	 * @ordered
 	 */
 	protected static final String REPOSITORY_NAME_EDEFAULT = "New Component Model";
+
 
 	/**
 	 * The cached value of the '{@link #getRepositoryName() <em>Repository Name</em>}' attribute.

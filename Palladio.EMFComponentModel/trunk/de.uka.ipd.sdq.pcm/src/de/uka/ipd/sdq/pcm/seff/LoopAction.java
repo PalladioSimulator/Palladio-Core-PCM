@@ -28,6 +28,13 @@ package de.uka.ipd.sdq.pcm.seff;
  */
 public interface LoopAction extends AbstractResourceDemandingAction {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	String copyright = "(c) by SDQ, IPD, U Karlsruhe (TH), 2006";
+
+	/**
 	 * Returns the value of the '<em><b>Iterations</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>

@@ -35,6 +35,13 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  */
 public class LoopImpl extends AbstractUserActionImpl implements Loop {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "(c) by SDQ, IPD, U Karlsruhe (TH), 2006";
+
+	/**
 	 * The cached value of the '{@link #getBodyBehaviour_Loop() <em>Body Behaviour Loop</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -53,6 +60,7 @@ public class LoopImpl extends AbstractUserActionImpl implements Loop {
 	 * @ordered
 	 */
 	protected static final String ITERATIONS_EDEFAULT = null;
+
 
 	/**
 	 * The cached value of the '{@link #getIterations() <em>Iterations</em>}' attribute.

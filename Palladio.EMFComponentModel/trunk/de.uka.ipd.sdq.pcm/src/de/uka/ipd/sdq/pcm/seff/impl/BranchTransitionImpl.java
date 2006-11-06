@@ -36,6 +36,13 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  */
 public class BranchTransitionImpl extends EObjectImpl implements BranchTransition {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "(c) by SDQ, IPD, U Karlsruhe (TH), 2006";
+
+	/**
 	 * The default value of the '{@link #getBranchCondition() <em>Branch Condition</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -44,6 +51,7 @@ public class BranchTransitionImpl extends EObjectImpl implements BranchTransitio
 	 * @ordered
 	 */
 	protected static final String BRANCH_CONDITION_EDEFAULT = null;
+
 
 	/**
 	 * The cached value of the '{@link #getBranchCondition() <em>Branch Condition</em>}' attribute.

@@ -45,6 +45,13 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class SystemRequiredRoleImpl extends RequiredRoleImpl implements SystemRequiredRole {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "(c) by SDQ, IPD, U Karlsruhe (TH), 2006";
+
+	/**
 	 * The cached value of the '{@link #getSpecifiedTimeConsumption_SystemRequiredRole() <em>Specified Time Consumption System Required Role</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

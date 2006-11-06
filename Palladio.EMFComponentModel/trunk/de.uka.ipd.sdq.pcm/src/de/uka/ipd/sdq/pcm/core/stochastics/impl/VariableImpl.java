@@ -31,6 +31,13 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  */
 public class VariableImpl extends AtomImpl implements Variable {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "(c) by SDQ, IPD, U Karlsruhe (TH), 2006";
+
+	/**
 	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -39,6 +46,7 @@ public class VariableImpl extends AtomImpl implements Variable {
 	 * @ordered
 	 */
 	protected static final String ID_EDEFAULT = null;
+
 
 	/**
 	 * The cached value of the '{@link #getId() <em>Id</em>}' attribute.

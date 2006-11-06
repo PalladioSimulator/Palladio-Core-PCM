@@ -27,6 +27,13 @@ import de.uka.ipd.sdq.pcm.parameter.PrimitiveParameterCharacterisationType;
  */
 public interface PrimitiveParametricParameterUsage extends ParametricParameterUsage {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	String copyright = "(c) by SDQ, IPD, U Karlsruhe (TH), 2006";
+
+	/**
 	 * Returns the value of the '<em><b>Type</b></em>' attribute.
 	 * The literals are from the enumeration {@link de.uka.ipd.sdq.pcm.parameter.PrimitiveParameterCharacterisationType}.
 	 * <!-- begin-user-doc -->

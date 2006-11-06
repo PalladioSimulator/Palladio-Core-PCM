@@ -42,6 +42,13 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class ResourceEnvironmentImpl extends EObjectImpl implements ResourceEnvironment {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "(c) by SDQ, IPD, U Karlsruhe (TH), 2006";
+
+	/**
 	 * The cached value of the '{@link #getLinkingresource() <em>Linkingresource</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -41,6 +41,13 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  */
 public class ParametricResourceDemandImpl extends RandomVariableImpl implements ParametricResourceDemand {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "(c) by SDQ, IPD, U Karlsruhe (TH), 2006";
+
+	/**
 	 * The default value of the '{@link #getDemand() <em>Demand</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -69,6 +76,7 @@ public class ParametricResourceDemandImpl extends RandomVariableImpl implements 
 	 * @ordered
 	 */
 	protected static final String UNIT_EDEFAULT = null;
+
 
 	/**
 	 * The cached value of the '{@link #getUnit() <em>Unit</em>}' attribute.

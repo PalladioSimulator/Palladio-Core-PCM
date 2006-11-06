@@ -33,6 +33,13 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  */
 public abstract class EntityImpl extends IdentifierImpl implements Entity {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "(c) by SDQ, IPD, U Karlsruhe (TH), 2006";
+
+	/**
 	 * The default value of the '{@link #getEntityName() <em>Entity Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -41,6 +48,7 @@ public abstract class EntityImpl extends IdentifierImpl implements Entity {
 	 * @ordered
 	 */
 	protected static final String ENTITY_NAME_EDEFAULT = null;
+
 
 	/**
 	 * The cached value of the '{@link #getEntityName() <em>Entity Name</em>}' attribute.

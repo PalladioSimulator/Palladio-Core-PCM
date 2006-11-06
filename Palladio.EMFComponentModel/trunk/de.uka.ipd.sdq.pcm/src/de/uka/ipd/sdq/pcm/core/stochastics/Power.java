@@ -19,4 +19,11 @@ package de.uka.ipd.sdq.pcm.core.stochastics;
  * @generated
  */
 public interface Power extends Product {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	String copyright = "(c) by SDQ, IPD, U Karlsruhe (TH), 2006";
+
 } // Power

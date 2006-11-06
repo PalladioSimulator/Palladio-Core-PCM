@@ -37,6 +37,13 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  */
 public class CompareExpressionImpl extends ComparisonImpl implements CompareExpression {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "(c) by SDQ, IPD, U Karlsruhe (TH), 2006";
+
+	/**
 	 * The cached value of the '{@link #getLeft() <em>Left</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -65,6 +72,7 @@ public class CompareExpressionImpl extends ComparisonImpl implements CompareExpr
 	 * @ordered
 	 */
 	protected static final CompareOperations OPERATION_EDEFAULT = CompareOperations.GREATER_LITERAL;
+
 
 	/**
 	 * The cached value of the '{@link #getOperation() <em>Operation</em>}' attribute.

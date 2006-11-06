@@ -19,4 +19,11 @@ package de.uka.ipd.sdq.pcm.seff;
  * @generated
  */
 public interface ResourceDemandingSEFF extends ResourceDemandingBehaviour, ServiceEffectSpecification {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	String copyright = "(c) by SDQ, IPD, U Karlsruhe (TH), 2006";
+
 } // ResourceDemandingSEFF

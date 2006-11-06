@@ -36,6 +36,13 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  */
 public class PassiveResourceSpecificationImpl extends EObjectImpl implements PassiveResourceSpecification {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "(c) by SDQ, IPD, U Karlsruhe (TH), 2006";
+
+	/**
 	 * The default value of the '{@link #getCapacity() <em>Capacity</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -54,6 +61,7 @@ public class PassiveResourceSpecificationImpl extends EObjectImpl implements Pas
 	 * @ordered
 	 */
 	protected int capacity = CAPACITY_EDEFAULT;
+
 
 	/**
 	 * The cached value of the '{@link #getPassiveResourceType_PassiveResourceSpecification() <em>Passive Resource Type Passive Resource Specification</em>}' reference.
