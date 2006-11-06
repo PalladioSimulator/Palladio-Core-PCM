@@ -50,19 +50,20 @@ public class ReqRoleItemSemanticEditPolicy extends
 	protected Command getCreateRelationshipCommand(CreateRelationshipRequest req) {
 		AssemblyContext ctx = (AssemblyContext) ((View) getHost().getParent()
 				.getModel()).getElement();
-		req.setParameter("source assembly context", ctx);			
+		req.setParameter("source assembly context", ctx);
 
 		if (PcmElementTypes.AssemblyConnector_3001 == req.getElementType()) {
 			return req.getTarget() == null ? getCreateStartOutgoingAssemblyConnector(req)
 					: null;
 		}
-		if (PcmElementTypes.RequiredDelegationConnector_3003 == req.getElementType()) {
+		if (PcmElementTypes.RequiredDelegationConnector_3003 == req
+				.getElementType()) {
 			return req.getTarget() == null ? getCreateStartOutgoingAssemblyConnector(req)
 					: null;
 		}
 		return super.getCreateRelationshipCommand(req);
 	}
-	
+
 	protected Command getCreateStartOutgoingAssemblyConnector(
 			CreateRelationshipRequest req) {
 		return new Command() {

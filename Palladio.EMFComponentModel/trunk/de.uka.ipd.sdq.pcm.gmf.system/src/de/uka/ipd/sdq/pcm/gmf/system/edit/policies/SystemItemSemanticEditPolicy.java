@@ -62,21 +62,24 @@ public class SystemItemSemanticEditPolicy extends PcmBaseItemSemanticEditPolicy 
 						.setContainmentFeature(CompositionPackage.eINSTANCE
 								.getComposedStructure_ChildComponentContexts_ComposedStructure());
 			}
-			return getMSLWrapper(new CreateAssemblyContext_1001Command(req, (SystemEditPart) getHost()));
+			return getMSLWrapper(new CreateAssemblyContext_1001Command(req,
+					(SystemEditPart) getHost()));
 		}
 		if (PcmElementTypes.SystemProvidedRole_1002 == req.getElementType()) {
 			if (req.getContainmentFeature() == null) {
 				req.setContainmentFeature(SystemPackage.eINSTANCE
 						.getSystem_SystemProvidedRole_System());
 			}
-			return getMSLWrapper(new CreateSystemProvidedRole_1002Command(req, (SystemEditPart) getHost()));
+			return getMSLWrapper(new CreateSystemProvidedRole_1002Command(req,
+					(SystemEditPart) getHost()));
 		}
 		if (PcmElementTypes.SystemRequiredRole_1003 == req.getElementType()) {
 			if (req.getContainmentFeature() == null) {
 				req.setContainmentFeature(SystemPackage.eINSTANCE
 						.getSystem_SystemRequiredRole_System());
 			}
-			return getMSLWrapper(new CreateSystemRequiredRole_1003Command(req, (SystemEditPart)getHost()));
+			return getMSLWrapper(new CreateSystemRequiredRole_1003Command(req,
+					(SystemEditPart) getHost()));
 		}
 		return super.getCreateCommand(req);
 	}
@@ -87,15 +90,25 @@ public class SystemItemSemanticEditPolicy extends PcmBaseItemSemanticEditPolicy 
 	private static class CreateAssemblyContext_1001Command extends
 			CreateElementCommand {
 
-		private SystemEditPart v  = null;
-		private ProvidesComponentType componentToLink;
 		/**
 		 * @generated
 		 */
-		public CreateAssemblyContext_1001Command(CreateElementRequest req, SystemEditPart v) {
+		public CreateAssemblyContext_1001Command(CreateElementRequest req) {
+			super(req);
+		}
+
+		/**
+		 * @generated NOT
+		 */
+		public CreateAssemblyContext_1001Command(CreateElementRequest req,
+				SystemEditPart v) {
 			super(req);
 			this.v = v;
 		}
+
+		private SystemEditPart v = null;
+
+		private ProvidesComponentType componentToLink;
 
 		/**
 		 * @generated
@@ -122,7 +135,8 @@ public class SystemItemSemanticEditPolicy extends PcmBaseItemSemanticEditPolicy 
 		@Override
 		protected EObject doDefaultElementCreation() {
 			EObject result = super.doDefaultElementCreation();
-			((AssemblyContext)result).setEncapsulatedComponent_ChildComponentContext(componentToLink);
+			((AssemblyContext) result)
+					.setEncapsulatedComponent_ChildComponentContext(componentToLink);
 			return result;
 		}
 
@@ -130,25 +144,27 @@ public class SystemItemSemanticEditPolicy extends PcmBaseItemSemanticEditPolicy 
 		 * @see org.eclipse.gmf.runtime.emf.type.core.commands.CreateElementCommand#doExecuteWithResult(org.eclipse.core.runtime.IProgressMonitor, org.eclipse.core.runtime.IAdaptable)
 		 */
 		@Override
-		protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info) throws ExecutionException {
+		protected CommandResult doExecuteWithResult(IProgressMonitor monitor,
+				IAdaptable info) throws ExecutionException {
 			ComposedAdapterFactory adapterFactory = new ComposedAdapterFactory();
 			adapterFactory
-				.addAdapterFactory(new ResourceItemProviderAdapterFactory());
+					.addAdapterFactory(new ResourceItemProviderAdapterFactory());
 			adapterFactory
-				.addAdapterFactory(new RepositoryItemProviderAdapterFactory());
+					.addAdapterFactory(new RepositoryItemProviderAdapterFactory());
 			adapterFactory
-				.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
+					.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
 			ArrayList filterList = new ArrayList();
 			filterList.add(Repository.class);
 			filterList.add(ProvidesComponentType.class);
-			SelectEObjectDialog dialog = new SelectEObjectDialog(
-					v.getRoot().getViewer().getControl().getShell(), adapterFactory, filterList, v.getEditingDomain().getResourceSet());
+			SelectEObjectDialog dialog = new SelectEObjectDialog(v.getRoot()
+					.getViewer().getControl().getShell(), adapterFactory,
+					filterList, v.getEditingDomain().getResourceSet());
 			dialog.open();
 			if (dialog.getResult() == null)
 				return CommandResult.newCancelledCommandResult();
 			if (!(dialog.getResult() instanceof ProvidesComponentType))
 				return CommandResult.newCancelledCommandResult();
-			this.componentToLink = (ProvidesComponentType)dialog.getResult();
+			this.componentToLink = (ProvidesComponentType) dialog.getResult();
 			return super.doExecuteWithResult(monitor, info);
 		}
 	}
@@ -159,7 +175,15 @@ public class SystemItemSemanticEditPolicy extends PcmBaseItemSemanticEditPolicy 
 	private static class CreateSystemProvidedRole_1002Command extends
 			CreateElementCommand {
 
+		/**
+		 * @generated
+		 */
+		public CreateSystemProvidedRole_1002Command(CreateElementRequest req) {
+			super(req);
+		}
+
 		private SystemEditPart v;
+
 		private Interface interfaceToLink;
 
 		/**
@@ -167,79 +191,6 @@ public class SystemItemSemanticEditPolicy extends PcmBaseItemSemanticEditPolicy 
 		 */
 		public CreateSystemProvidedRole_1002Command(CreateElementRequest req,
 				SystemEditPart v) {
-			super(req);
-			this.v  = v;
-		}
-
-		/**
-		 * @generated
-		 */
-		protected EClass getEClassToEdit() {
-			return SystemPackage.eINSTANCE.getSystem();
-		};
-
-		/**
-		 * @generated
-		 */
-		protected EObject getElementToEdit() {
-			EObject container = ((CreateElementRequest) getRequest())
-					.getContainer();
-			if (container instanceof View) {
-				container = ((View) container).getElement();
-			}
-			return container;
-		}
-		
-		/* (non-Javadoc)
-		 * @see org.eclipse.gmf.runtime.emf.type.core.commands.CreateElementCommand#doDefaultElementCreation()
-		 */
-		@Override
-		protected EObject doDefaultElementCreation() {
-			EObject result = super.doDefaultElementCreation();
-			((SystemProvidedRole)result).setProvidedInterface__ProvidedRole(interfaceToLink);
-			return result;
-		}
-
-		/* (non-Javadoc)
-		 * @see org.eclipse.gmf.runtime.emf.type.core.commands.CreateElementCommand#doExecuteWithResult(org.eclipse.core.runtime.IProgressMonitor, org.eclipse.core.runtime.IAdaptable)
-		 */
-		@Override
-		protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info) throws ExecutionException {
-			ComposedAdapterFactory adapterFactory = new ComposedAdapterFactory();
-			adapterFactory
-				.addAdapterFactory(new ResourceItemProviderAdapterFactory());
-			adapterFactory
-				.addAdapterFactory(new RepositoryItemProviderAdapterFactory());
-			adapterFactory
-				.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
-			ArrayList filterList = new ArrayList();
-			filterList.add(Repository.class);
-			filterList.add(Interface.class);
-			SelectEObjectDialog dialog = new SelectEObjectDialog(
-					v.getRoot().getViewer().getControl().getShell(), adapterFactory, filterList, v.getEditingDomain().getResourceSet());
-			dialog.open();
-			if (dialog.getResult() == null)
-				return CommandResult.newCancelledCommandResult();
-			if (!(dialog.getResult() instanceof Interface))
-				return CommandResult.newCancelledCommandResult();
-			this.interfaceToLink = (Interface)dialog.getResult();
-			return super.doExecuteWithResult(monitor, info);
-		}
-	}
-
-	/**
-	 * @generated
-	 */
-	private static class CreateSystemRequiredRole_1003Command extends
-			CreateElementCommand {
-
-		private SystemEditPart v;
-		private Interface interfaceToLink;
-
-		/**
-		 * @generated NOT
-		 */
-		public CreateSystemRequiredRole_1003Command(CreateElementRequest req, SystemEditPart v) {
 			super(req);
 			this.v = v;
 		}
@@ -262,13 +213,15 @@ public class SystemItemSemanticEditPolicy extends PcmBaseItemSemanticEditPolicy 
 			}
 			return container;
 		}
+
 		/* (non-Javadoc)
 		 * @see org.eclipse.gmf.runtime.emf.type.core.commands.CreateElementCommand#doDefaultElementCreation()
 		 */
 		@Override
 		protected EObject doDefaultElementCreation() {
 			EObject result = super.doDefaultElementCreation();
-			((SystemRequiredRole)result).setRequiredInterface__RequiredRole(interfaceToLink);
+			((SystemProvidedRole) result)
+					.setProvidedInterface__ProvidedRole(interfaceToLink);
 			return result;
 		}
 
@@ -276,25 +229,112 @@ public class SystemItemSemanticEditPolicy extends PcmBaseItemSemanticEditPolicy 
 		 * @see org.eclipse.gmf.runtime.emf.type.core.commands.CreateElementCommand#doExecuteWithResult(org.eclipse.core.runtime.IProgressMonitor, org.eclipse.core.runtime.IAdaptable)
 		 */
 		@Override
-		protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info) throws ExecutionException {
+		protected CommandResult doExecuteWithResult(IProgressMonitor monitor,
+				IAdaptable info) throws ExecutionException {
 			ComposedAdapterFactory adapterFactory = new ComposedAdapterFactory();
 			adapterFactory
-				.addAdapterFactory(new ResourceItemProviderAdapterFactory());
+					.addAdapterFactory(new ResourceItemProviderAdapterFactory());
 			adapterFactory
-				.addAdapterFactory(new RepositoryItemProviderAdapterFactory());
+					.addAdapterFactory(new RepositoryItemProviderAdapterFactory());
 			adapterFactory
-				.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
+					.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
 			ArrayList filterList = new ArrayList();
 			filterList.add(Repository.class);
 			filterList.add(Interface.class);
-			SelectEObjectDialog dialog = new SelectEObjectDialog(
-					v.getRoot().getViewer().getControl().getShell(), adapterFactory, filterList, v.getEditingDomain().getResourceSet());
+			SelectEObjectDialog dialog = new SelectEObjectDialog(v.getRoot()
+					.getViewer().getControl().getShell(), adapterFactory,
+					filterList, v.getEditingDomain().getResourceSet());
 			dialog.open();
 			if (dialog.getResult() == null)
 				return CommandResult.newCancelledCommandResult();
 			if (!(dialog.getResult() instanceof Interface))
 				return CommandResult.newCancelledCommandResult();
-			this.interfaceToLink = (Interface)dialog.getResult();
+			this.interfaceToLink = (Interface) dialog.getResult();
+			return super.doExecuteWithResult(monitor, info);
+		}
+	}
+
+	/**
+	 * @generated
+	 */
+	private static class CreateSystemRequiredRole_1003Command extends
+			CreateElementCommand {
+
+		/**
+		 * @generated
+		 */
+		public CreateSystemRequiredRole_1003Command(CreateElementRequest req) {
+			super(req);
+		}
+
+		private SystemEditPart v;
+
+		private Interface interfaceToLink;
+
+		/**
+		 * @generated NOT
+		 */
+		public CreateSystemRequiredRole_1003Command(CreateElementRequest req,
+				SystemEditPart v) {
+			super(req);
+			this.v = v;
+		}
+
+		/**
+		 * @generated
+		 */
+		protected EClass getEClassToEdit() {
+			return SystemPackage.eINSTANCE.getSystem();
+		};
+
+		/**
+		 * @generated
+		 */
+		protected EObject getElementToEdit() {
+			EObject container = ((CreateElementRequest) getRequest())
+					.getContainer();
+			if (container instanceof View) {
+				container = ((View) container).getElement();
+			}
+			return container;
+		}
+
+		/* (non-Javadoc)
+		 * @see org.eclipse.gmf.runtime.emf.type.core.commands.CreateElementCommand#doDefaultElementCreation()
+		 */
+		@Override
+		protected EObject doDefaultElementCreation() {
+			EObject result = super.doDefaultElementCreation();
+			((SystemRequiredRole) result)
+					.setRequiredInterface__RequiredRole(interfaceToLink);
+			return result;
+		}
+
+		/* (non-Javadoc)
+		 * @see org.eclipse.gmf.runtime.emf.type.core.commands.CreateElementCommand#doExecuteWithResult(org.eclipse.core.runtime.IProgressMonitor, org.eclipse.core.runtime.IAdaptable)
+		 */
+		@Override
+		protected CommandResult doExecuteWithResult(IProgressMonitor monitor,
+				IAdaptable info) throws ExecutionException {
+			ComposedAdapterFactory adapterFactory = new ComposedAdapterFactory();
+			adapterFactory
+					.addAdapterFactory(new ResourceItemProviderAdapterFactory());
+			adapterFactory
+					.addAdapterFactory(new RepositoryItemProviderAdapterFactory());
+			adapterFactory
+					.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
+			ArrayList filterList = new ArrayList();
+			filterList.add(Repository.class);
+			filterList.add(Interface.class);
+			SelectEObjectDialog dialog = new SelectEObjectDialog(v.getRoot()
+					.getViewer().getControl().getShell(), adapterFactory,
+					filterList, v.getEditingDomain().getResourceSet());
+			dialog.open();
+			if (dialog.getResult() == null)
+				return CommandResult.newCancelledCommandResult();
+			if (!(dialog.getResult() instanceof Interface))
+				return CommandResult.newCancelledCommandResult();
+			this.interfaceToLink = (Interface) dialog.getResult();
 			return super.doExecuteWithResult(monitor, info);
 		}
 	}

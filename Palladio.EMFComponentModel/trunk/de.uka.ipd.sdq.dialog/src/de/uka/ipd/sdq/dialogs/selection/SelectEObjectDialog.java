@@ -78,7 +78,7 @@ public class SelectEObjectDialog extends Dialog {
 		final GridLayout gridLayout = new GridLayout();
 		shell.setLayout(gridLayout);
 		shell.setSize(487, 365);
-		shell.setText("SWT Dialog");
+		shell.setText("Select Object...");
 
 		final Group selectObjectGroup = new Group(shell, SWT.NONE);
 		selectObjectGroup.setLayoutData(new GridData());

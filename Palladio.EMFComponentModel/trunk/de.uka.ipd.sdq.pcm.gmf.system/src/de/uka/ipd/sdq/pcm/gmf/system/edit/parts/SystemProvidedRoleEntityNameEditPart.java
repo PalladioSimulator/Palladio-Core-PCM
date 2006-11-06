@@ -247,7 +247,6 @@ public class SystemProvidedRoleEntityNameEditPart extends
 		return text;
 	}
 
-
 	/**
 	 * @generated
 	 */
@@ -275,7 +274,7 @@ public class SystemProvidedRoleEntityNameEditPart extends
 	 * @generated
 	 */
 	protected boolean isEditable() {
-		return getEditText() != null;
+		return false;
 	}
 
 	/**

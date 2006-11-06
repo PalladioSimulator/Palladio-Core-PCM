@@ -88,8 +88,8 @@ public class SystemRequiredRoleItemSemanticEditPolicy extends
 		if (!(req.getSource() instanceof RequiredRole)) {
 			return UnexecutableCommand.INSTANCE;
 		}
-		final ComposedStructure element = (ComposedStructure) ((View) getHost().getParent()
-				.getModel()).getElement();
+		final ComposedStructure element = (ComposedStructure) ((View) getHost()
+				.getParent().getModel()).getElement();
 		if (element == null) {
 			return UnexecutableCommand.INSTANCE;
 		}
@@ -99,7 +99,8 @@ public class SystemRequiredRoleItemSemanticEditPolicy extends
 							.getComposedStructure_RequiredDelegationConnectors_ComposedStructure());
 		}
 		return getMSLWrapper(new CreateIncomingRequiredDelegationConnector3003Command(
-				req, (AssemblyContext)req.getParameter("source assembly context")) {
+				req, (AssemblyContext) req
+						.getParameter("source assembly context")) {
 
 			/**
 			 * @generated
@@ -115,6 +116,14 @@ public class SystemRequiredRoleItemSemanticEditPolicy extends
 	 */
 	private static class CreateIncomingRequiredDelegationConnector3003Command
 			extends CreateRelationshipCommand {
+
+		/**
+		 * @generated
+		 */
+		public CreateIncomingRequiredDelegationConnector3003Command(
+				CreateRelationshipRequest req) {
+			super(req);
+		}
 
 		private AssemblyContext sourceContext;
 
@@ -151,9 +160,9 @@ public class SystemRequiredRoleItemSemanticEditPolicy extends
 				newElement
 						.setOuterRequiredRole_RequiredDelegationConnector((RequiredRole) getTarget());
 				newElement
-				.setInnerRequiredRole_RequiredDelegationConnector((RequiredRole) getSource());
+						.setInnerRequiredRole_RequiredDelegationConnector((RequiredRole) getSource());
 				newElement
-				.setChildComponentContext_RequiredDelegationConnector(sourceContext);
+						.setChildComponentContext_RequiredDelegationConnector(sourceContext);
 			}
 			return newElement;
 		}

@@ -1,22 +1,14 @@
-#Mon Nov 06 15:13:00 CET 2006
+#Mon Nov 06 17:34:03 CET 2006
 eclipse.preferences.version=1
 encoding/My.repository_diagram=UTF-8
 encoding/My.repositorypackage_diagram=UTF-8
-encoding/My.seff_diagram=UTF-8
+encoding/My.system_diagram=UTF-8
 encoding/My1.seff_diagram=UTF-8
-encoding/My11.system_diagram=UTF-8
-encoding/My12.system_diagram=UTF-8
-encoding/My13.system_diagram=UTF-8
-encoding/My14.system_diagram=UTF-8
-encoding/My15.system_diagram=UTF-8
-encoding/My16.system_diagram=UTF-8
-encoding/My17.system_diagram=UTF-8
-encoding/My18.system_diagram=UTF-8
-encoding/My19.system_diagram=UTF-8
 encoding/My2.seff_diagram=UTF-8
 encoding/My3.seff_diagram=UTF-8
 encoding/My4.seff_diagram=UTF-8
 encoding/default.repository=UTF-8
 encoding/default.system=UTF-8
 encoding/default.system_diagram=UTF-8
-encoding/default1.system_diagram=UTF-8
+encoding/default2.system=UTF-8
+encoding/default2.system_diagram=UTF-8

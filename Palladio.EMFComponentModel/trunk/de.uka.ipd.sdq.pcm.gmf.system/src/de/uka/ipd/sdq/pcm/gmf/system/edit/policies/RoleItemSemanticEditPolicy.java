@@ -98,8 +98,8 @@ public class RoleItemSemanticEditPolicy extends PcmBaseItemSemanticEditPolicy {
 				|| !(req.getTarget() instanceof ProvidedRole)) {
 			return UnexecutableCommand.INSTANCE;
 		}
-		final ComposedStructure element = (ComposedStructure) ((View) getHost().getParent().getParent()
-				.getModel()).getElement();
+		final ComposedStructure element = (ComposedStructure) ((View) getHost()
+				.getParent().getParent().getModel()).getElement();
 		if (element == null) {
 			return UnexecutableCommand.INSTANCE;
 		}
@@ -111,7 +111,8 @@ public class RoleItemSemanticEditPolicy extends PcmBaseItemSemanticEditPolicy {
 		AssemblyContext ctx = (AssemblyContext) ((View) getHost().getParent()
 				.getModel()).getElement();
 
-		return getMSLWrapper(new CreateIncomingAssemblyConnector(req, ctx, (AssemblyContext)req.getParameter("source assembly context")) {
+		return getMSLWrapper(new CreateIncomingAssemblyConnector(req, ctx,
+				(AssemblyContext) req.getParameter("source assembly context")) {
 
 			protected EObject getElementToEdit() {
 				return element;
@@ -157,10 +158,11 @@ public class RoleItemSemanticEditPolicy extends PcmBaseItemSemanticEditPolicy {
 			CreateRelationshipCommand {
 
 		private AssemblyContext targetClientContext;
+
 		private AssemblyContext sourceClientContext;
 
-		public CreateIncomingAssemblyConnector(
-				CreateRelationshipRequest req, AssemblyContext ctx, AssemblyContext sourceContext) {
+		public CreateIncomingAssemblyConnector(CreateRelationshipRequest req,
+				AssemblyContext ctx, AssemblyContext sourceContext) {
 			super(req);
 			this.targetClientContext = ctx;
 			this.sourceClientContext = sourceContext;
@@ -183,9 +185,9 @@ public class RoleItemSemanticEditPolicy extends PcmBaseItemSemanticEditPolicy {
 				newElement
 						.setRequiredRole_CompositeAssemblyConnector((RequiredRole) getSource());
 				newElement
-				.setProvidingChildComponentContext_CompositeAssemblyConnector(targetClientContext);
+						.setProvidingChildComponentContext_CompositeAssemblyConnector(targetClientContext);
 				newElement
-				.setRequiringChildComponentContext_CompositeAssemblyConnector(sourceClientContext);
+						.setRequiringChildComponentContext_CompositeAssemblyConnector(sourceClientContext);
 			}
 			return newElement;
 		}

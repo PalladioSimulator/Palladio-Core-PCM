@@ -13,7 +13,8 @@
     <ownedChild>
       <domainMetaElement
           href="../../pcm.ecore#//core/composition/AssemblyContext"/>
-      <labelMappings>
+      <labelMappings
+          readOnly="true">
         <diagramLabel
             href="pcm.gmfgraph#AssemblyContextLabel"/>
         <features
@@ -62,7 +63,8 @@
     <ownedChild>
       <domainMetaElement
           href="../../pcm.ecore#//system/SystemProvidedRole"/>
-      <labelMappings>
+      <labelMappings
+          readOnly="true">
         <diagramLabel
             href="pcm.gmfgraph#SystemProvidedRoleLabel"/>
         <features
@@ -83,7 +85,8 @@
     <ownedChild>
       <domainMetaElement
           href="../../pcm.ecore#//system/SystemRequiredRole"/>
-      <labelMappings>
+      <labelMappings
+          readOnly="true">
         <diagramLabel
             href="pcm.gmfgraph#SystemRequiredRoleLabel"/>
         <features

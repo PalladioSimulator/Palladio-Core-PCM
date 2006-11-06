@@ -281,7 +281,7 @@ public class AssemblyContextEntityNameEditPart extends CompartmentEditPart
 	 * @generated
 	 */
 	protected boolean isEditable() {
-		return getEditText() != null;
+		return false;
 	}
 
 	/**

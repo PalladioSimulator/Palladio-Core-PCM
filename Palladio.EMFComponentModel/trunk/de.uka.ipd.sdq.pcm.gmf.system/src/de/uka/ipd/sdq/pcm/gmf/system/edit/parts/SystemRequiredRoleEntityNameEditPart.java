@@ -274,7 +274,7 @@ public class SystemRequiredRoleEntityNameEditPart extends
 	 * @generated
 	 */
 	protected boolean isEditable() {
-		return getEditText() != null;
+		return false;
 	}
 
 	/**

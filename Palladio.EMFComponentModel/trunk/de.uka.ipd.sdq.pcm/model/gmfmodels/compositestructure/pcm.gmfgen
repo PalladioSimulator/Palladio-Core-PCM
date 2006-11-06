@@ -175,6 +175,7 @@
           editPartClassName="SystemProvidedRoleEntityNameEditPart"
           itemSemanticEditPolicyClassName="SystemProvidedRoleEntityNameItemSemanticEditPolicy"
           notationViewFactoryClassName="SystemProvidedRoleEntityNameViewFactory"
+          readOnly="true"
           elementIcon="true">
         <diagramRunTimeClass
             href="../../../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
@@ -224,6 +225,7 @@
           editPartClassName="SystemRequiredRoleEntityNameEditPart"
           itemSemanticEditPolicyClassName="SystemRequiredRoleEntityNameItemSemanticEditPolicy"
           notationViewFactoryClassName="SystemRequiredRoleEntityNameViewFactory"
+          readOnly="true"
           elementIcon="true">
         <diagramRunTimeClass
             href="../../../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
