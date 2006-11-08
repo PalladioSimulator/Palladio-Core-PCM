@@ -101,30 +101,22 @@ by SDQ, IPD, U Karlrsuhe (TH), 2006
             <popupPredefinedItem id="deleteFromModelAction" remove="true"/>
          </popupContribution>
          <popupContribution class="org.eclipse.gmf.runtime.diagram.ui.providers.DiagramContextMenuProvider">
+            <popupStructuredContributionCriteria objectClass="de.uka.ipd.sdq.pcm.gmf.system.edit.parts.SystemProvidedRoleLabelEditPart"/>
+            <popupPredefinedItem id="deleteFromDiagramAction" remove="true"/>
+            <popupPredefinedItem id="deleteFromModelAction" remove="true"/>
+         </popupContribution>
+         <popupContribution class="org.eclipse.gmf.runtime.diagram.ui.providers.DiagramContextMenuProvider">
+            <popupStructuredContributionCriteria objectClass="de.uka.ipd.sdq.pcm.gmf.system.edit.parts.SystemRequiredRoleLabelEditPart"/>
+            <popupPredefinedItem id="deleteFromDiagramAction" remove="true"/>
+            <popupPredefinedItem id="deleteFromModelAction" remove="true"/>
+         </popupContribution>
+         <popupContribution class="org.eclipse.gmf.runtime.diagram.ui.providers.DiagramContextMenuProvider">
             <popupStructuredContributionCriteria objectClass="de.uka.ipd.sdq.pcm.gmf.system.edit.parts.AssemblyContextEditPart"/>
             <popupPredefinedItem id="deleteFromDiagramAction" remove="true"/>
          </popupContribution>
          <popupContribution class="org.eclipse.gmf.runtime.diagram.ui.providers.DiagramContextMenuProvider">
             <popupStructuredContributionCriteria objectClass="de.uka.ipd.sdq.pcm.gmf.system.edit.parts.AssemblyContextEntityNameEditPart"/>
             <popupPredefinedItem id="deleteFromDiagramAction" remove="true"/>
-         </popupContribution>
-         <popupContribution class="org.eclipse.gmf.runtime.diagram.ui.providers.DiagramContextMenuProvider">
-            <popupStructuredContributionCriteria objectClass="de.uka.ipd.sdq.pcm.gmf.system.edit.parts.SystemProvidedRoleEditPart"/>
-            <popupPredefinedItem id="deleteFromDiagramAction" remove="true"/>
-         </popupContribution>
-         <popupContribution class="org.eclipse.gmf.runtime.diagram.ui.providers.DiagramContextMenuProvider">
-            <popupStructuredContributionCriteria objectClass="de.uka.ipd.sdq.pcm.gmf.system.edit.parts.SystemProvidedRoleEntityNameEditPart"/>
-            <popupPredefinedItem id="deleteFromDiagramAction" remove="true"/>
-            <popupPredefinedItem id="deleteFromModelAction" remove="true"/>
-         </popupContribution>
-         <popupContribution class="org.eclipse.gmf.runtime.diagram.ui.providers.DiagramContextMenuProvider">
-            <popupStructuredContributionCriteria objectClass="de.uka.ipd.sdq.pcm.gmf.system.edit.parts.SystemRequiredRoleEditPart"/>
-            <popupPredefinedItem id="deleteFromDiagramAction" remove="true"/>
-         </popupContribution>
-         <popupContribution class="org.eclipse.gmf.runtime.diagram.ui.providers.DiagramContextMenuProvider">
-            <popupStructuredContributionCriteria objectClass="de.uka.ipd.sdq.pcm.gmf.system.edit.parts.SystemRequiredRoleEntityNameEditPart"/>
-            <popupPredefinedItem id="deleteFromDiagramAction" remove="true"/>
-            <popupPredefinedItem id="deleteFromModelAction" remove="true"/>
          </popupContribution>
          <popupContribution class="org.eclipse.gmf.runtime.diagram.ui.providers.DiagramContextMenuProvider">
             <popupStructuredContributionCriteria objectClass="de.uka.ipd.sdq.pcm.gmf.system.edit.parts.AssemblyConnectorEditPart"/>
@@ -259,10 +251,13 @@ by SDQ, IPD, U Karlrsuhe (TH), 2006
 
       <specializationType
             id="de.uka.ipd.sdq.pcm.gmf.system.Node_2002"
-            kind="org.eclipse.gmf.runtime.diagram.ui.util.INotationType">
+            kind="org.eclipse.gmf.runtime.diagram.ui.util.INotationType"
+            name="ReqRole">
          <specializes id="org.eclipse.gmf.runtime.emf.type.core.null"/>
          <param name="semanticHint" value="2002"/>
       </specializationType>
+
+
 
       <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Composition/1.0">
          <metamodelType
@@ -275,27 +270,13 @@ by SDQ, IPD, U Karlrsuhe (TH), 2006
          </metamodelType>
       </metamodel>
 
-      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/System/1.0">
-         <metamodelType
-               id="de.uka.ipd.sdq.pcm.gmf.system.SystemProvidedRole_1002"
-               name="SystemProvidedRole"
-               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
-               eclass="SystemProvidedRole"
-               edithelper="de.uka.ipd.sdq.pcm.gmf.system.edit.helpers.SystemProvidedRoleEditHelper">
-            <param name="semanticHint" value="1002"/>
-         </metamodelType>
-      </metamodel>
-
-      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/System/1.0">
-         <metamodelType
-               id="de.uka.ipd.sdq.pcm.gmf.system.SystemRequiredRole_1003"
-               name="SystemRequiredRole"
-               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
-               eclass="SystemRequiredRole"
-               edithelper="de.uka.ipd.sdq.pcm.gmf.system.edit.helpers.SystemRequiredRoleEditHelper">
-            <param name="semanticHint" value="1003"/>
-         </metamodelType>
-      </metamodel>
+      <specializationType
+            id="de.uka.ipd.sdq.pcm.gmf.system.Node_1002"
+            kind="org.eclipse.gmf.runtime.diagram.ui.util.INotationType"
+            name="SystemNode">
+         <specializes id="de.uka.ipd.sdq.pcm.gmf.system.System_79"/>
+         <param name="semanticHint" value="1002"/>
+      </specializationType>
 
       <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Composition/1.0">
          <metamodelType
@@ -350,6 +331,30 @@ by SDQ, IPD, U Karlrsuhe (TH), 2006
                   value="2001"/>
          </metamodelType>
       </metamodel>
+      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/System/1.0">
+         <metamodelType
+               eclass="SystemRequiredRole"
+               edithelper="de.uka.ipd.sdq.pcm.gmf.system.edit.helpers.SystemRequiredRoleEditHelper"
+               id="de.uka.ipd.sdq.pcm.gmf.system.SystemRequiredRole_1003"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               name="SystemRequiredRole">
+            <param
+                  name="semanticHint"
+                  value="1003"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/System/1.0">
+         <metamodelType
+               eclass="SystemProvidedRole"
+               edithelper="de.uka.ipd.sdq.pcm.gmf.system.edit.helpers.SystemProvidedRoleEditHelper"
+               id="de.uka.ipd.sdq.pcm.gmf.system.SystemProvidedRole_1004"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               name="SystemProvidedRole">
+            <param
+                  name="semanticHint"
+                  value="1004"/>
+         </metamodelType>
+      </metamodel>
    </extension>
 
    <extension point="org.eclipse.gmf.runtime.emf.type.core.elementTypeBindings">
@@ -364,9 +369,12 @@ by SDQ, IPD, U Karlrsuhe (TH), 2006
          <elementType ref="de.uka.ipd.sdq.pcm.gmf.system.System_79"/>
          <elementType ref="de.uka.ipd.sdq.pcm.gmf.system.Node_2001"/>
          <elementType ref="de.uka.ipd.sdq.pcm.gmf.system.Node_2002"/>
+         <elementType ref="de.uka.ipd.sdq.pcm.gmf.system.Node_2003"/>
+         <elementType ref="de.uka.ipd.sdq.pcm.gmf.system.Node_2004"/>
          <elementType ref="de.uka.ipd.sdq.pcm.gmf.system.AssemblyContext_1001"/>
-         <elementType ref="de.uka.ipd.sdq.pcm.gmf.system.SystemProvidedRole_1002"/>
          <elementType ref="de.uka.ipd.sdq.pcm.gmf.system.SystemRequiredRole_1003"/>
+         <elementType ref="de.uka.ipd.sdq.pcm.gmf.system.SystemProvidedRole_1004"/>
+         <elementType ref="de.uka.ipd.sdq.pcm.gmf.system.Node_1002"/>
          <elementType ref="de.uka.ipd.sdq.pcm.gmf.system.AssemblyConnector_3001"/>
          <elementType ref="de.uka.ipd.sdq.pcm.gmf.system.ProvidedDelegationConnector_3002"/>
          <elementType ref="de.uka.ipd.sdq.pcm.gmf.system.RequiredDelegationConnector_3003"/>

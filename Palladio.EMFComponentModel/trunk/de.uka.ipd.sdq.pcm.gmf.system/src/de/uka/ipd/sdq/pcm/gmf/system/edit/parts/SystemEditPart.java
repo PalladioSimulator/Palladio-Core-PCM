@@ -3,12 +3,12 @@
  */
 package de.uka.ipd.sdq.pcm.gmf.system.edit.parts;
 
+import org.eclipse.gmf.runtime.diagram.ui.editparts.DiagramEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.notation.View;
+
 import de.uka.ipd.sdq.pcm.gmf.system.edit.policies.SystemCanonicalEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.system.edit.policies.SystemItemSemanticEditPolicy;
-
-import org.eclipse.gmf.runtime.diagram.ui.editparts.DiagramEditPart;
 
 /**
  * @generated

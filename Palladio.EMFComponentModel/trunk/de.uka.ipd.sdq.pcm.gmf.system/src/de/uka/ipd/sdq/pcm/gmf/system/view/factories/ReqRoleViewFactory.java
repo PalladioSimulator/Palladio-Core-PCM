@@ -3,26 +3,20 @@
  */
 package de.uka.ipd.sdq.pcm.gmf.system.view.factories;
 
-import de.uka.ipd.sdq.pcm.gmf.system.edit.parts.ReqRoleLabelEditPart;
-import de.uka.ipd.sdq.pcm.gmf.system.edit.parts.RoleLabel2EditPart;
-import de.uka.ipd.sdq.pcm.gmf.system.edit.parts.SystemEditPart;
-
-import de.uka.ipd.sdq.pcm.gmf.system.part.PcmVisualIDRegistry;
-
 import java.util.ArrayList;
 import java.util.List;
 
 import org.eclipse.core.runtime.IAdaptable;
-
 import org.eclipse.emf.ecore.EAnnotation;
 import org.eclipse.emf.ecore.EcoreFactory;
-
 import org.eclipse.gmf.runtime.diagram.core.util.ViewUtil;
-
 import org.eclipse.gmf.runtime.diagram.ui.view.factories.AbstractShapeViewFactory;
-
 import org.eclipse.gmf.runtime.notation.NotationFactory;
 import org.eclipse.gmf.runtime.notation.View;
+
+import de.uka.ipd.sdq.pcm.gmf.system.edit.parts.ReqRoleLabelEditPart;
+import de.uka.ipd.sdq.pcm.gmf.system.edit.parts.SystemEditPart;
+import de.uka.ipd.sdq.pcm.gmf.system.part.PcmVisualIDRegistry;
 
 /**
  * @generated

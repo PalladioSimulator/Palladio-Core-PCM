@@ -3,28 +3,24 @@
  */
 package de.uka.ipd.sdq.pcm.gmf.system.edit.policies;
 
+import org.eclipse.emf.ecore.EAnnotation;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.gef.commands.Command;
+import org.eclipse.gef.commands.UnexecutableCommand;
+import org.eclipse.gmf.runtime.emf.type.core.commands.CreateRelationshipCommand;
 import org.eclipse.gmf.runtime.emf.type.core.commands.DestroyElementCommand;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateRelationshipRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.DestroyElementRequest;
-import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.EAnnotation;
 import org.eclipse.gmf.runtime.notation.View;
 
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
 import de.uka.ipd.sdq.pcm.core.composition.ComposedStructure;
 import de.uka.ipd.sdq.pcm.core.composition.CompositionPackage;
 import de.uka.ipd.sdq.pcm.core.composition.RequiredDelegationConnector;
-
 import de.uka.ipd.sdq.pcm.gmf.system.providers.PcmElementTypes;
-
 import de.uka.ipd.sdq.pcm.repository.RequiredRole;
-
-import org.eclipse.emf.ecore.EClass;
-
-import org.eclipse.gef.commands.UnexecutableCommand;
-
-import org.eclipse.gmf.runtime.emf.type.core.commands.CreateRelationshipCommand;
+import de.uka.ipd.sdq.pcm.system.SystemRequiredRole;
 
 /**
  * @generated
@@ -63,24 +59,6 @@ public class SystemRequiredRoleItemSemanticEditPolicy extends
 	}
 
 	/**
-	 * @generated
-	 */
-	protected Command getCreateStartOutgoingAssemblyConnector3001Command(
-			CreateRelationshipRequest req) {
-		return new Command() {
-		};
-	}
-
-	/**
-	 * @generated
-	 */
-	protected Command getCreateStartOutgoingRequiredDelegationConnector3003Command(
-			CreateRelationshipRequest req) {
-		return new Command() {
-		};
-	}
-
-	/**
 	 * @generated NOT
 	 */
 	protected Command getCreateCompleteIncomingRequiredDelegationConnector3003Command(
@@ -108,22 +86,24 @@ public class SystemRequiredRoleItemSemanticEditPolicy extends
 			protected EObject getElementToEdit() {
 				return element;
 			}
+
+			/* (non-Javadoc)
+			 * @see org.eclipse.gmf.runtime.emf.type.core.commands.CreateElementCommand#getEClassToEdit()
+			 */
+			@Override
+			protected EClass getEClassToEdit() {
+				return CompositionPackage.eINSTANCE.getComposedStructure();
+			}
+			
+			
 		});
 	}
 
 	/**
-	 * @generated
+	 * @generated NOT
 	 */
 	private static class CreateIncomingRequiredDelegationConnector3003Command
 			extends CreateRelationshipCommand {
-
-		/**
-		 * @generated
-		 */
-		public CreateIncomingRequiredDelegationConnector3003Command(
-				CreateRelationshipRequest req) {
-			super(req);
-		}
 
 		private AssemblyContext sourceContext;
 
@@ -134,20 +114,6 @@ public class SystemRequiredRoleItemSemanticEditPolicy extends
 				CreateRelationshipRequest req, AssemblyContext ctx) {
 			super(req);
 			this.sourceContext = ctx;
-		}
-
-		/**
-		 * @generated
-		 */
-		protected EClass getEClassToEdit() {
-			return CompositionPackage.eINSTANCE.getComposedStructure();
-		};
-
-		/**
-		 * @generated
-		 */
-		protected void setElementToEdit(EObject element) {
-			throw new UnsupportedOperationException();
 		}
 
 		/**

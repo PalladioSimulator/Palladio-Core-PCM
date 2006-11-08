@@ -17,6 +17,7 @@ import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.jface.viewers.CellEditor;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Text;
+
 import de.uka.ipd.sdq.pcm.gmf.system.part.PcmVisualIDRegistry;
 
 /**
@@ -41,14 +42,8 @@ public class PcmEditPartFactory implements EditPartFactory {
 				return new AssemblyContextEditPart(view);
 			case AssemblyContextEntityNameEditPart.VISUAL_ID:
 				return new AssemblyContextEntityNameEditPart(view);
-			case SystemProvidedRoleEditPart.VISUAL_ID:
-				return new SystemProvidedRoleEditPart(view);
-			case SystemProvidedRoleEntityNameEditPart.VISUAL_ID:
-				return new SystemProvidedRoleEntityNameEditPart(view);
-			case SystemRequiredRoleEditPart.VISUAL_ID:
-				return new SystemRequiredRoleEditPart(view);
-			case SystemRequiredRoleEntityNameEditPart.VISUAL_ID:
-				return new SystemRequiredRoleEntityNameEditPart(view);
+			case SystemNodeEditPart.VISUAL_ID:
+				return new SystemNodeEditPart(view);
 			case RoleEditPart.VISUAL_ID:
 				return new RoleEditPart(view);
 			case RoleLabelEditPart.VISUAL_ID:
@@ -57,6 +52,14 @@ public class PcmEditPartFactory implements EditPartFactory {
 				return new ReqRoleEditPart(view);
 			case ReqRoleLabelEditPart.VISUAL_ID:
 				return new ReqRoleLabelEditPart(view);
+			case SystemProvidedRoleEditPart.VISUAL_ID:
+				return new SystemProvidedRoleEditPart(view);
+			case SystemProvidedRoleLabelEditPart.VISUAL_ID:
+				return new SystemProvidedRoleLabelEditPart(view);
+			case SystemRequiredRoleEditPart.VISUAL_ID:
+				return new SystemRequiredRoleEditPart(view);
+			case SystemRequiredRoleLabelEditPart.VISUAL_ID:
+				return new SystemRequiredRoleLabelEditPart(view);
 			case SystemEditPart.VISUAL_ID:
 				return new SystemEditPart(view);
 			case AssemblyConnectorEditPart.VISUAL_ID:

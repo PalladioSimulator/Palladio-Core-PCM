@@ -3,13 +3,12 @@
  */
 package de.uka.ipd.sdq.pcm.gmf.system.edit.parts;
 
+import org.eclipse.draw2d.Connection;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.ConnectionNodeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.notation.View;
+
 import de.uka.ipd.sdq.pcm.gmf.system.edit.policies.RequiredDelegationConnectorItemSemanticEditPolicy;
-
-import org.eclipse.draw2d.Connection;
-
-import org.eclipse.gmf.runtime.diagram.ui.editparts.ConnectionNodeEditPart;
 
 /**
  * @generated

@@ -3,45 +3,34 @@
  */
 package de.uka.ipd.sdq.pcm.gmf.system.edit.parts;
 
-import de.uka.ipd.sdq.pcm.gmf.system.edit.policies.PcmExtNodeLabelHostLayoutEditPolicy;
-import de.uka.ipd.sdq.pcm.gmf.system.edit.policies.RoleCanonicalEditPolicy;
-import de.uka.ipd.sdq.pcm.gmf.system.edit.policies.RoleGraphicalNodeEditPolicy;
-import de.uka.ipd.sdq.pcm.gmf.system.edit.policies.RoleItemSemanticEditPolicy;
-
-import de.uka.ipd.sdq.pcm.gmf.system.part.PcmVisualIDRegistry;
-
 import java.util.Iterator;
 
+import org.eclipse.draw2d.ConnectionAnchor;
+import org.eclipse.draw2d.Ellipse;
+import org.eclipse.draw2d.EllipseAnchor;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.RectangleFigure;
-import org.eclipse.draw2d.RoundedRectangle;
 import org.eclipse.draw2d.StackLayout;
-
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
 import org.eclipse.gef.GraphicalEditPart;
 import org.eclipse.gef.Request;
-
 import org.eclipse.gef.commands.Command;
-
 import org.eclipse.gef.editparts.LayerManager;
-
 import org.eclipse.gef.editpolicies.LayoutEditPolicy;
 import org.eclipse.gef.editpolicies.NonResizableEditPolicy;
-
 import org.eclipse.gef.requests.CreateRequest;
-
 import org.eclipse.gmf.runtime.diagram.ui.editparts.AbstractBorderItemEditPart;
-import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
-
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
-
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
-
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
-
 import org.eclipse.gmf.runtime.notation.View;
+
+import de.uka.ipd.sdq.pcm.gmf.system.edit.policies.PcmExtNodeLabelHostLayoutEditPolicy;
+import de.uka.ipd.sdq.pcm.gmf.system.edit.policies.RoleCanonicalEditPolicy;
+import de.uka.ipd.sdq.pcm.gmf.system.edit.policies.RoleItemSemanticEditPolicy;
+import de.uka.ipd.sdq.pcm.gmf.system.part.PcmVisualIDRegistry;
 
 /**
  * @generated NOT
@@ -126,25 +115,40 @@ public class RoleEditPart extends AbstractBorderItemEditPart {
 	}
 
 	/**
-	 * @generated
+	 * @generated NOT
 	 */
 	protected IFigure createNodeShape() {
-		return primaryShape = new RectangleFigure();
-	}
-
-	/**
-	 * @generated
-	 */
-	public RectangleFigure getPrimaryShape() {
-		return (RectangleFigure) primaryShape;
+		return primaryShape = new Ellipse();
 	}
 
 	/**
 	 * @generated NOT
 	 */
+	public Ellipse getPrimaryShape() {
+		return (Ellipse) primaryShape;
+	}
+
+	protected ConnectionAnchor defaultAnchor = null;
+	
+	/**
+	 * @generated NOT
+	 */
 	protected NodeFigure createNodePlate() {
 		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(getMapMode()
-				.DPtoLP(20), getMapMode().DPtoLP(20));
+				.DPtoLP(20), getMapMode().DPtoLP(20)) {
+					
+					/* (non-Javadoc)
+					 * @see org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure#createDefaultAnchor()
+					 */
+					@Override
+					protected ConnectionAnchor createDefaultAnchor() {
+					    if (defaultAnchor == null)
+					    	return super.createDefaultAnchor();
+					    else
+					    	return defaultAnchor;
+					}
+
+		};
 		//FIXME: workaround for #154536
 		result.getBounds().setSize(result.getPreferredSize());
 		return result;
@@ -163,6 +167,7 @@ public class RoleEditPart extends AbstractBorderItemEditPart {
 		figure.setLayoutManager(new StackLayout());
 		IFigure shape = createNodeShape();
 		figure.add(shape);
+		defaultAnchor = new EllipseAnchor(figure);
 		contentPane = setupContentPane(shape);
 		return figure;
 	}

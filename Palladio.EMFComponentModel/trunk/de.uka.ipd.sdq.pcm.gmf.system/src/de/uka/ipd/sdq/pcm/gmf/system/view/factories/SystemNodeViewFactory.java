@@ -3,27 +3,23 @@
  */
 package de.uka.ipd.sdq.pcm.gmf.system.view.factories;
 
-import de.uka.ipd.sdq.pcm.gmf.system.edit.parts.SystemEditPart;
-
-import de.uka.ipd.sdq.pcm.gmf.system.part.PcmVisualIDRegistry;
-
 import java.util.ArrayList;
 import java.util.List;
 
 import org.eclipse.core.runtime.IAdaptable;
-
 import org.eclipse.emf.ecore.EAnnotation;
 import org.eclipse.emf.ecore.EcoreFactory;
-
 import org.eclipse.gmf.runtime.diagram.ui.view.factories.AbstractShapeViewFactory;
-
 import org.eclipse.gmf.runtime.notation.NotationFactory;
 import org.eclipse.gmf.runtime.notation.View;
+
+import de.uka.ipd.sdq.pcm.gmf.system.edit.parts.SystemEditPart;
+import de.uka.ipd.sdq.pcm.gmf.system.part.PcmVisualIDRegistry;
 
 /**
  * @generated
  */
-public class ComponentViewFactory extends AbstractShapeViewFactory {
+public class SystemNodeViewFactory extends AbstractShapeViewFactory {
 
 	/**
 	 * @generated 
@@ -45,7 +41,7 @@ public class ComponentViewFactory extends AbstractShapeViewFactory {
 			boolean persisted) {
 		if (semanticHint == null) {
 			semanticHint = PcmVisualIDRegistry
-					.getType(de.uka.ipd.sdq.pcm.gmf.system.edit.parts.ComponentEditPart.VISUAL_ID);
+					.getType(de.uka.ipd.sdq.pcm.gmf.system.edit.parts.SystemNodeEditPart.VISUAL_ID);
 			view.setType(semanticHint);
 		}
 		super.decorateView(containerView, view, semanticAdapter, semanticHint,

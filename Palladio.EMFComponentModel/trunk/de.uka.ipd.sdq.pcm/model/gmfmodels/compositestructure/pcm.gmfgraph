@@ -97,6 +97,15 @@
         referencingElements="SystemProvidedRoleLabel"
         name="SysProvRoleLabelFigure"
         text="&lt;SP>"/>
+    <figures
+        xsi:type="gmfgraph:Rectangle"
+        referencingElements="SystemNode"
+        name="SystemFigure">
+      <children
+          xsi:type="gmfgraph:Label"
+          name="SystemNameLabelFigure"
+          text="&lt;&lt;system>>"/>
+    </figures>
   </figures>
   <nodes
       name="AssemblyContext"
@@ -119,6 +128,9 @@
   <nodes
       name="ReqRole"
       figure="ReqRoleFigure"/>
+  <nodes
+      name="SystemNode"
+      figure="SystemFigure"/>
   <connections
       name="ProvidedDelegationConnector"
       figure="ProvidedDelegationConnectorFigure"/>

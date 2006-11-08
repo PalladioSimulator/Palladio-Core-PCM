@@ -11,6 +11,8 @@ import java.util.Iterator;
 import java.util.List;
 
 import org.eclipse.core.runtime.IAdaptable;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.emf.type.core.ElementTypeRegistry;
 import org.eclipse.gmf.runtime.emf.type.core.IElementType;
@@ -21,13 +23,10 @@ import org.eclipse.jface.window.Window;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.dialogs.ElementListSelectionDialog;
-import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
-import de.uka.ipd.sdq.pcm.gmf.system.edit.parts.AssemblyContextComponent_Context_CompartmentEditPart;
-import de.uka.ipd.sdq.pcm.gmf.system.edit.parts.AssemblyContextEditPart;
-import de.uka.ipd.sdq.pcm.gmf.system.edit.parts.ComponentEditPart;
-import de.uka.ipd.sdq.pcm.gmf.system.edit.parts.SystemEditPart;
 
+import de.uka.ipd.sdq.pcm.gmf.system.edit.parts.AssemblyContextEditPart;
+import de.uka.ipd.sdq.pcm.gmf.system.edit.parts.SystemEditPart;
+import de.uka.ipd.sdq.pcm.gmf.system.edit.parts.SystemNodeEditPart;
 import de.uka.ipd.sdq.pcm.gmf.system.part.SystemDiagramEditorPlugin;
 
 /**
@@ -43,15 +42,18 @@ public class PcmModelingAssistantProvider extends ModelingAssistantProvider {
 				.getAdapter(IGraphicalEditPart.class);
 		if (editPart instanceof AssemblyContextEditPart) {
 			List types = new ArrayList();
-			types.add(PcmElementTypes.Node_2001);
-			types.add(PcmElementTypes.Node_2002);
+			return types;
+		}
+		if (editPart instanceof SystemNodeEditPart) {
+			List types = new ArrayList();
+			types.add(PcmElementTypes.AssemblyContext_1001);
+			types.add(PcmElementTypes.SystemProvidedRole_1004);
+			types.add(PcmElementTypes.SystemRequiredRole_1003);
 			return types;
 		}
 		if (editPart instanceof SystemEditPart) {
 			List types = new ArrayList();
-			types.add(PcmElementTypes.AssemblyContext_1001);
-			types.add(PcmElementTypes.SystemProvidedRole_1002);
-			types.add(PcmElementTypes.SystemRequiredRole_1003);
+			types.add(PcmElementTypes.Node_1002);
 			return types;
 		}
 		return Collections.EMPTY_LIST;

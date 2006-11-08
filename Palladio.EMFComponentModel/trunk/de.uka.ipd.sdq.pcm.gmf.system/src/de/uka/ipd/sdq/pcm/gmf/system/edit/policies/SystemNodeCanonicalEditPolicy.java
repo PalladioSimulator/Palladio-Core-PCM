@@ -3,6 +3,7 @@
  */
 package de.uka.ipd.sdq.pcm.gmf.system.edit.policies;
 
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -14,16 +15,13 @@ import org.eclipse.gmf.runtime.diagram.ui.requests.CreateViewRequest.ViewDescrip
 import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
 
-import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
 import de.uka.ipd.sdq.pcm.gmf.system.part.PcmVisualIDRegistry;
-import de.uka.ipd.sdq.pcm.repository.ProvidedRole;
-import de.uka.ipd.sdq.pcm.repository.ProvidesComponentType;
-import de.uka.ipd.sdq.pcm.repository.RequiredRole;
+import de.uka.ipd.sdq.pcm.system.SystemRequiredRole;
 
 /**
  * @generated
  */
-public class AssemblyContextCanonicalEditPolicy extends CanonicalEditPolicy {
+public class SystemNodeCanonicalEditPolicy extends CanonicalEditPolicy {
 
 	/**
 	 * @generated NOT
@@ -32,16 +30,17 @@ public class AssemblyContextCanonicalEditPolicy extends CanonicalEditPolicy {
 		List result = new LinkedList();
 		EObject modelObject = ((View) getHost().getModel()).getElement();
 		View viewObject = (View) getHost().getModel();
-		AssemblyContext ctx = (AssemblyContext) modelObject;
-		ProvidesComponentType component = ctx
-				.getEncapsulatedComponent_ChildComponentContext();
-		for (ProvidedRole r : (List<ProvidedRole>) component
-				.getProvidedRoles__ProvidesComponentType()) {
-			result.add(r);
+		EObject nextValue;
+		int nodeVID;
+		for (Iterator values = ((de.uka.ipd.sdq.pcm.system.System) modelObject)
+				.getSystemProvidedRole_System().iterator(); values.hasNext();) {
+			nextValue = (EObject) values.next();
+			result.add(nextValue);
 		}
-		for (RequiredRole r : (List<RequiredRole>) component
-				.getRequiredRoles_ProvidesComponentType()) {
-			result.add(r);
+		for (Iterator values = ((de.uka.ipd.sdq.pcm.system.System) modelObject)
+				.getSystemRequiredRole_System().iterator(); values.hasNext();) {
+			nextValue = (EObject) values.next();
+			result.add(nextValue);
 		}
 		return result;
 	}
@@ -74,12 +73,11 @@ public class AssemblyContextCanonicalEditPolicy extends CanonicalEditPolicy {
 
 		int pos = getViewIndexFor(element);
 		String sh = getFactoryHint(elementAdapter, factoryHint);
-		if (element instanceof RequiredRole)
+		if (element instanceof SystemRequiredRole)
 			sh = PcmVisualIDRegistry
-					.getType(de.uka.ipd.sdq.pcm.gmf.system.edit.parts.ReqRoleEditPart.VISUAL_ID);
+					.getType(de.uka.ipd.sdq.pcm.gmf.system.edit.parts.SystemRequiredRoleEditPart.VISUAL_ID);
 		CreateViewRequest.ViewDescriptor descriptor = getViewDescriptor(
 				elementAdapter, Node.class, sh, pos);
 		return descriptor;
 	}
-
 }

@@ -18,7 +18,8 @@ import org.eclipse.gmf.runtime.notation.View;
 /**
  * @generated
  */
-public class ReqRoleLabelViewFactory extends AbstractLabelViewFactory {
+public class SystemProvidedRoleLabelViewFactory extends
+		AbstractLabelViewFactory {
 
 	/**
 	 * @generated

@@ -3,48 +3,39 @@
  */
 package de.uka.ipd.sdq.pcm.gmf.system.edit.parts;
 
-import de.uka.ipd.sdq.pcm.gmf.system.edit.policies.PcmExtNodeLabelHostLayoutEditPolicy;
-import de.uka.ipd.sdq.pcm.gmf.system.edit.policies.SystemRequiredRoleCanonicalEditPolicy;
-import de.uka.ipd.sdq.pcm.gmf.system.edit.policies.SystemRequiredRoleGraphicalNodeEditPolicy;
-import de.uka.ipd.sdq.pcm.gmf.system.edit.policies.SystemRequiredRoleItemSemanticEditPolicy;
-
-import de.uka.ipd.sdq.pcm.gmf.system.part.PcmVisualIDRegistry;
-
 import java.util.Iterator;
 
 import org.eclipse.draw2d.Ellipse;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.StackLayout;
-
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
 import org.eclipse.gef.GraphicalEditPart;
 import org.eclipse.gef.Request;
-
 import org.eclipse.gef.commands.Command;
-
 import org.eclipse.gef.editparts.LayerManager;
-
 import org.eclipse.gef.editpolicies.LayoutEditPolicy;
 import org.eclipse.gef.editpolicies.NonResizableEditPolicy;
-
 import org.eclipse.gef.requests.CreateRequest;
-
+import org.eclipse.gmf.runtime.diagram.ui.editparts.AbstractBorderItemEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
-
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
-
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
-
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
-
 import org.eclipse.gmf.runtime.notation.View;
 
+import de.uka.ipd.sdq.pcm.gmf.system.ArcFigure;
+import de.uka.ipd.sdq.pcm.gmf.system.edit.policies.PcmExtNodeLabelHostLayoutEditPolicy;
+import de.uka.ipd.sdq.pcm.gmf.system.edit.policies.SystemRequiredRoleCanonicalEditPolicy;
+import de.uka.ipd.sdq.pcm.gmf.system.edit.policies.SystemRequiredRoleGraphicalNodeEditPolicy;
+import de.uka.ipd.sdq.pcm.gmf.system.edit.policies.SystemRequiredRoleItemSemanticEditPolicy;
+import de.uka.ipd.sdq.pcm.gmf.system.part.PcmVisualIDRegistry;
+
 /**
- * @generated
+ * @generated NOT
  */
-public class SystemRequiredRoleEditPart extends ShapeNodeEditPart {
+public class SystemRequiredRoleEditPart extends AbstractBorderItemEditPart {
 
 	/**
 	 * @generated
@@ -75,8 +66,8 @@ public class SystemRequiredRoleEditPart extends ShapeNodeEditPart {
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
 				new SystemRequiredRoleItemSemanticEditPolicy());
-		installEditPolicy(EditPolicy.GRAPHICAL_NODE_ROLE,
-				new SystemRequiredRoleGraphicalNodeEditPolicy());
+		installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE,
+				getPrimaryDragEditPolicy());
 		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE,
 				new SystemRequiredRoleCanonicalEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
@@ -124,25 +115,29 @@ public class SystemRequiredRoleEditPart extends ShapeNodeEditPart {
 	}
 
 	/**
-	 * @generated
+	 * @generated NOT
 	 */
 	protected IFigure createNodeShape() {
-		return primaryShape = new Ellipse();
+		ArcFigure fig = new ArcFigure();
+		return primaryShape = fig;
 	}
 
 	/**
-	 * @generated
+	 * @generated NOT
 	 */
-	public Ellipse getPrimaryShape() {
-		return (Ellipse) primaryShape;
+	public ArcFigure getPrimaryShape() {
+		return (ArcFigure) primaryShape;
 	}
 
 	/**
-	 * @generated
+	 * @generated NOT
 	 */
 	protected NodeFigure createNodePlate() {
-		return new DefaultSizeNodeFigure(getMapMode().DPtoLP(40), getMapMode()
-				.DPtoLP(40));
+		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(getMapMode()
+				.DPtoLP(30), getMapMode().DPtoLP(30));
+		//FIXME: workaround for #154536
+		result.getBounds().setSize(result.getPreferredSize());
+		return result;
 	}
 
 	/**
@@ -192,14 +187,14 @@ public class SystemRequiredRoleEditPart extends ShapeNodeEditPart {
 	 */
 	public EditPart getPrimaryChildEditPart() {
 		return getChildBySemanticHint(PcmVisualIDRegistry
-				.getType(SystemRequiredRoleEntityNameEditPart.VISUAL_ID));
+				.getType(SystemRequiredRoleLabelEditPart.VISUAL_ID));
 	}
 
 	/**
 	 * @generated
 	 */
 	protected boolean isExternalLabel(EditPart childEditPart) {
-		if (childEditPart instanceof SystemRequiredRoleEntityNameEditPart) {
+		if (childEditPart instanceof SystemRequiredRoleLabelEditPart) {
 			return true;
 		}
 		return false;

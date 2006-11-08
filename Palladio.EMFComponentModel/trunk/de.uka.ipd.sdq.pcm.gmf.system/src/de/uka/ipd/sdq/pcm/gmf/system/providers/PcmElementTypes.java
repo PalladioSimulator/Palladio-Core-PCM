@@ -7,6 +7,7 @@ import java.util.HashSet;
 import java.util.IdentityHashMap;
 import java.util.Map;
 import java.util.Set;
+
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.ENamedElement;
@@ -16,10 +17,9 @@ import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.resource.ImageRegistry;
 import org.eclipse.swt.graphics.Image;
+
 import de.uka.ipd.sdq.pcm.core.composition.CompositionPackage;
-
 import de.uka.ipd.sdq.pcm.gmf.system.part.SystemDiagramEditorPlugin;
-
 import de.uka.ipd.sdq.pcm.system.SystemPackage;
 
 /**
@@ -139,7 +139,7 @@ public class PcmElementTypes {
 	/**
 	 * Returns 'type' of the ecore object associated with the hint.
 	 * 
-	 * @generated
+	 * @generated NOT
 	 */
 	public static ENamedElement getElement(IAdaptable hint) {
 		Object type = hint.getAdapter(IElementType.class);
@@ -148,10 +148,6 @@ public class PcmElementTypes {
 			elements.put(System_79, SystemPackage.eINSTANCE.getSystem());
 			elements.put(AssemblyContext_1001, CompositionPackage.eINSTANCE
 					.getAssemblyContext());
-			elements.put(SystemProvidedRole_1002, SystemPackage.eINSTANCE
-					.getSystemProvidedRole());
-			elements.put(SystemRequiredRole_1003, SystemPackage.eINSTANCE
-					.getSystemRequiredRole());
 			elements.put(AssemblyConnector_3001, CompositionPackage.eINSTANCE
 					.getAssemblyConnector());
 			elements.put(ProvidedDelegationConnector_3002,
@@ -160,6 +156,12 @@ public class PcmElementTypes {
 			elements.put(RequiredDelegationConnector_3003,
 					CompositionPackage.eINSTANCE
 							.getRequiredDelegationConnector());
+			elements.put(SystemRequiredRole_1003,
+					SystemPackage.eINSTANCE
+							.getSystemRequiredRole());
+			elements.put(SystemProvidedRole_1004,
+					SystemPackage.eINSTANCE
+							.getSystemProvidedRole());
 		}
 		return (ENamedElement) elements.get(type);
 	}
@@ -183,16 +185,13 @@ public class PcmElementTypes {
 	 * @generated
 	 */
 	public static final IElementType AssemblyContext_1001 = getElementType("de.uka.ipd.sdq.pcm.gmf.system.AssemblyContext_1001"); //$NON-NLS-1$
-
-	/**
-	 * @generated
-	 */
-	public static final IElementType SystemProvidedRole_1002 = getElementType("de.uka.ipd.sdq.pcm.gmf.system.SystemProvidedRole_1002"); //$NON-NLS-1$
-
-	/**
-	 * @generated
-	 */
 	public static final IElementType SystemRequiredRole_1003 = getElementType("de.uka.ipd.sdq.pcm.gmf.system.SystemRequiredRole_1003"); //$NON-NLS-1$
+	public static final IElementType SystemProvidedRole_1004 = getElementType("de.uka.ipd.sdq.pcm.gmf.system.SystemProvidedRole_1004"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType Node_1002 = getElementType("de.uka.ipd.sdq.pcm.gmf.system.Node_1002"); //$NON-NLS-1$
 
 	/**
 	 * @generated
@@ -231,9 +230,10 @@ public class PcmElementTypes {
 			KNOWN_ELEMENT_TYPES.add(Node_2001);
 			KNOWN_ELEMENT_TYPES.add(Node_2002);
 			KNOWN_ELEMENT_TYPES.add(AssemblyContext_1001);
-			KNOWN_ELEMENT_TYPES.add(SystemProvidedRole_1002);
-			KNOWN_ELEMENT_TYPES.add(SystemRequiredRole_1003);
+			KNOWN_ELEMENT_TYPES.add(Node_1002);
 			KNOWN_ELEMENT_TYPES.add(AssemblyConnector_3001);
+			KNOWN_ELEMENT_TYPES.add(SystemProvidedRole_1004);
+			KNOWN_ELEMENT_TYPES.add(SystemRequiredRole_1003);
 			KNOWN_ELEMENT_TYPES.add(ProvidedDelegationConnector_3002);
 			KNOWN_ELEMENT_TYPES.add(RequiredDelegationConnector_3003);
 		}

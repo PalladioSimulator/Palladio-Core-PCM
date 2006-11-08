@@ -22,7 +22,7 @@
       </labelMappings>
       <tool
           xsi:type="gmftool:CreationTool"
-          href="pcm.gmftool#//@palette/@tools.0/@tools.1"/>
+          href="pcm.gmftool#//@palette/@tools.0/@tools.0"/>
       <diagramNode
           href="pcm.gmfgraph#AssemblyContext"/>
       <children>
@@ -33,9 +33,6 @@
             <diagramLabel
                 href="pcm.gmfgraph#RoleLabel"/>
           </labelMappings>
-          <tool
-              xsi:type="gmftool:CreationTool"
-              href="pcm.gmftool#//@palette/@tools.0/@tools.8"/>
           <diagramNode
               href="pcm.gmfgraph#Role"/>
         </ownedChild>
@@ -56,47 +53,35 @@
     </ownedChild>
   </nodes>
   <nodes>
-    <containmentFeature
-        href="../../pcm.ecore#//system/System/systemProvidedRole_System"/>
-    <childrenFeature
-        href="../../pcm.ecore#//system/System/systemProvidedRole_System"/>
     <ownedChild>
-      <domainMetaElement
-          href="../../pcm.ecore#//system/SystemProvidedRole"/>
-      <labelMappings
-          readOnly="true">
-        <diagramLabel
-            href="pcm.gmfgraph#SystemProvidedRoleLabel"/>
-        <features
-            href="../../pcm.ecore#//core/entity/Entity/entityName"/>
-      </labelMappings>
-      <tool
-          xsi:type="gmftool:CreationTool"
-          href="pcm.gmftool#//@palette/@tools.0/@tools.6"/>
       <diagramNode
-          href="pcm.gmfgraph#SystemProvidedRole"/>
-    </ownedChild>
-  </nodes>
-  <nodes>
-    <containmentFeature
-        href="../../pcm.ecore#//system/System/systemRequiredRole_System"/>
-    <childrenFeature
-        href="../../pcm.ecore#//system/System/systemRequiredRole_System"/>
-    <ownedChild>
-      <domainMetaElement
-          href="../../pcm.ecore#//system/SystemRequiredRole"/>
-      <labelMappings
-          readOnly="true">
-        <diagramLabel
-            href="pcm.gmfgraph#SystemRequiredRoleLabel"/>
-        <features
-            href="../../pcm.ecore#//core/entity/Entity/entityName"/>
-      </labelMappings>
-      <tool
-          xsi:type="gmftool:CreationTool"
-          href="pcm.gmftool#//@palette/@tools.0/@tools.4"/>
-      <diagramNode
-          href="pcm.gmfgraph#SystemRequiredRole"/>
+          href="pcm.gmfgraph#SystemNode"/>
+      <children>
+        <ownedChild>
+          <labelMappings>
+            <diagramLabel
+                href="pcm.gmfgraph#SystemProvidedRoleLabel"/>
+          </labelMappings>
+          <tool
+              xsi:type="gmftool:CreationTool"
+              href="pcm.gmftool#//@palette/@tools.0/@tools.3"/>
+          <diagramNode
+              href="pcm.gmfgraph#SystemProvidedRole"/>
+        </ownedChild>
+      </children>
+      <children>
+        <ownedChild>
+          <labelMappings>
+            <diagramLabel
+                href="pcm.gmfgraph#SystemRequiredRoleLabel"/>
+          </labelMappings>
+          <tool
+              xsi:type="gmftool:CreationTool"
+              href="pcm.gmftool#//@palette/@tools.0/@tools.1"/>
+          <diagramNode
+              href="pcm.gmfgraph#SystemRequiredRole"/>
+        </ownedChild>
+      </children>
     </ownedChild>
   </nodes>
   <links>
@@ -106,7 +91,7 @@
         href="../../pcm.ecore#//core/composition/ComposedStructure/compositeAssemblyConnectors_ComposedStructure"/>
     <tool
         xsi:type="gmftool:CreationTool"
-        href="pcm.gmftool#//@palette/@tools.0/@tools.2"/>
+        href="pcm.gmftool#//@palette/@tools.1/@tools.1"/>
     <diagramLink
         href="pcm.gmfgraph#AssemblyConnector"/>
     <sourceMetaFeature
@@ -123,7 +108,7 @@
         href="../../pcm.ecore#//core/composition/ComposedStructure/providedDelegationConnectors_ComposedStructure"/>
     <tool
         xsi:type="gmftool:CreationTool"
-        href="pcm.gmftool#//@palette/@tools.0/@tools.0"/>
+        href="pcm.gmftool#//@palette/@tools.1/@tools.2"/>
     <diagramLink
         href="pcm.gmfgraph#ProvidedDelegationConnector"/>
     <sourceMetaFeature
@@ -140,7 +125,7 @@
         href="../../pcm.ecore#//core/composition/ComposedStructure/requiredDelegationConnectors_ComposedStructure"/>
     <tool
         xsi:type="gmftool:CreationTool"
-        href="pcm.gmftool#//@palette/@tools.0/@tools.3"/>
+        href="pcm.gmftool#//@palette/@tools.1/@tools.0"/>
     <diagramLink
         href="pcm.gmfgraph#RequiredDelegationConnector"/>
     <sourceMetaFeature

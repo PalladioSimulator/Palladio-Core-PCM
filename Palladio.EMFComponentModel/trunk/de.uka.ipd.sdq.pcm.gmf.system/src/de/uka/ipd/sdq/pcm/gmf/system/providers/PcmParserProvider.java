@@ -10,12 +10,9 @@ import org.eclipse.gmf.runtime.common.ui.services.parser.GetParserOperation;
 import org.eclipse.gmf.runtime.common.ui.services.parser.IParser;
 import org.eclipse.gmf.runtime.common.ui.services.parser.IParserProvider;
 import org.eclipse.gmf.runtime.notation.View;
+
 import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
-
 import de.uka.ipd.sdq.pcm.gmf.system.edit.parts.AssemblyContextEntityNameEditPart;
-import de.uka.ipd.sdq.pcm.gmf.system.edit.parts.SystemProvidedRoleEntityNameEditPart;
-import de.uka.ipd.sdq.pcm.gmf.system.edit.parts.SystemRequiredRoleEntityNameEditPart;
-
 import de.uka.ipd.sdq.pcm.gmf.system.part.PcmVisualIDRegistry;
 
 /**
@@ -52,64 +49,10 @@ public class PcmParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	private IParser systemProvidedRoleSystemProvidedRoleEntityName_4004Parser;
-
-	/**
-	 * @generated
-	 */
-	private IParser getSystemProvidedRoleSystemProvidedRoleEntityName_4004Parser() {
-		if (systemProvidedRoleSystemProvidedRoleEntityName_4004Parser == null) {
-			systemProvidedRoleSystemProvidedRoleEntityName_4004Parser = createSystemProvidedRoleSystemProvidedRoleEntityName_4004Parser();
-		}
-		return systemProvidedRoleSystemProvidedRoleEntityName_4004Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	protected IParser createSystemProvidedRoleSystemProvidedRoleEntityName_4004Parser() {
-		PcmStructuralFeatureParser parser = new PcmStructuralFeatureParser(
-				EntityPackage.eINSTANCE.getEntity().getEStructuralFeature(
-						"entityName")); //$NON-NLS-1$
-		return parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	private IParser systemRequiredRoleSystemRequiredRoleEntityName_4005Parser;
-
-	/**
-	 * @generated
-	 */
-	private IParser getSystemRequiredRoleSystemRequiredRoleEntityName_4005Parser() {
-		if (systemRequiredRoleSystemRequiredRoleEntityName_4005Parser == null) {
-			systemRequiredRoleSystemRequiredRoleEntityName_4005Parser = createSystemRequiredRoleSystemRequiredRoleEntityName_4005Parser();
-		}
-		return systemRequiredRoleSystemRequiredRoleEntityName_4005Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	protected IParser createSystemRequiredRoleSystemRequiredRoleEntityName_4005Parser() {
-		PcmStructuralFeatureParser parser = new PcmStructuralFeatureParser(
-				EntityPackage.eINSTANCE.getEntity().getEStructuralFeature(
-						"entityName")); //$NON-NLS-1$
-		return parser;
-	}
-
-	/**
-	 * @generated
-	 */
 	protected IParser getParser(int visualID) {
 		switch (visualID) {
 		case AssemblyContextEntityNameEditPart.VISUAL_ID:
 			return getAssemblyContextAssemblyContextEntityName_4003Parser();
-		case SystemProvidedRoleEntityNameEditPart.VISUAL_ID:
-			return getSystemProvidedRoleSystemProvidedRoleEntityName_4004Parser();
-		case SystemRequiredRoleEntityNameEditPart.VISUAL_ID:
-			return getSystemRequiredRoleSystemRequiredRoleEntityName_4005Parser();
 		}
 		return null;
 	}

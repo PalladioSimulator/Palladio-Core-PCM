@@ -6,38 +6,11 @@
   <palette>
     <tools
         xsi:type="gmftool:ToolGroup"
-        title="pcm">
-      <tools
-          xsi:type="gmftool:CreationTool"
-          title="ProvidedDelegationConnector"
-          description="Create new ProvidedDelegationConnector">
-        <smallIcon
-            xsi:type="gmftool:DefaultImage"/>
-        <largeIcon
-            xsi:type="gmftool:DefaultImage"/>
-      </tools>
+        title="Nodes">
       <tools
           xsi:type="gmftool:CreationTool"
           title="AssemblyContext"
           description="Create new AssemblyContext">
-        <smallIcon
-            xsi:type="gmftool:DefaultImage"/>
-        <largeIcon
-            xsi:type="gmftool:DefaultImage"/>
-      </tools>
-      <tools
-          xsi:type="gmftool:CreationTool"
-          title="AssemblyConnector"
-          description="Create new AssemblyConnector">
-        <smallIcon
-            xsi:type="gmftool:DefaultImage"/>
-        <largeIcon
-            xsi:type="gmftool:DefaultImage"/>
-      </tools>
-      <tools
-          xsi:type="gmftool:CreationTool"
-          title="RequiredDelegationConnector"
-          description="Create new RequiredDelegationConnector">
         <smallIcon
             xsi:type="gmftool:DefaultImage"/>
         <largeIcon
@@ -70,9 +43,14 @@
         <largeIcon
             xsi:type="gmftool:DefaultImage"/>
       </tools>
+    </tools>
+    <tools
+        xsi:type="gmftool:ToolGroup"
+        title="Links">
       <tools
           xsi:type="gmftool:CreationTool"
-          title="Component">
+          title="RequiredDelegationConnector"
+          description="Create new RequiredDelegationConnector">
         <smallIcon
             xsi:type="gmftool:DefaultImage"/>
         <largeIcon
@@ -80,7 +58,17 @@
       </tools>
       <tools
           xsi:type="gmftool:CreationTool"
-          title="Role">
+          title="AssemblyConnector"
+          description="Create new AssemblyConnector">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="ProvidedDelegationConnector"
+          description="Create new ProvidedDelegationConnector">
         <smallIcon
             xsi:type="gmftool:DefaultImage"/>
         <largeIcon

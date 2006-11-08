@@ -13,6 +13,7 @@ import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.GraphicalNodeEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.requests.CreateConnectionViewAndElementRequest;
 import org.eclipse.gmf.runtime.emf.type.core.IElementType;
+
 import de.uka.ipd.sdq.pcm.gmf.system.edit.commands.PcmReorientConnectionViewCommand;
 
 /**

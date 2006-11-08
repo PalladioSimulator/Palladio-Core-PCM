@@ -11,8 +11,8 @@ import org.eclipse.gmf.runtime.common.ui.services.properties.ICompositePropertyS
 import org.eclipse.gmf.runtime.common.ui.services.properties.IPropertiesProvider;
 import org.eclipse.gmf.runtime.emf.ui.properties.providers.GenericEMFPropertiesProvider;
 import org.eclipse.gmf.runtime.notation.View;
-import de.uka.ipd.sdq.pcm.gmf.system.edit.parts.SystemEditPart;
 
+import de.uka.ipd.sdq.pcm.gmf.system.edit.parts.SystemEditPart;
 import de.uka.ipd.sdq.pcm.gmf.system.part.PcmVisualIDRegistry;
 
 /**

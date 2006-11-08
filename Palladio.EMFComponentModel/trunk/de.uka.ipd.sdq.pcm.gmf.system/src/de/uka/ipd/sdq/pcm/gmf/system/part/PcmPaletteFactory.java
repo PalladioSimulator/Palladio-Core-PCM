@@ -3,20 +3,19 @@
  */
 package de.uka.ipd.sdq.pcm.gmf.system.part;
 
+import java.util.ArrayList;
 import java.util.List;
+
 import org.eclipse.gef.Tool;
 import org.eclipse.gef.palette.PaletteContainer;
+import org.eclipse.gef.palette.PaletteGroup;
 import org.eclipse.gef.palette.PaletteRoot;
 import org.eclipse.gef.palette.ToolEntry;
-import org.eclipse.jface.resource.ImageDescriptor;
-import de.uka.ipd.sdq.pcm.gmf.system.providers.PcmElementTypes;
-
-import java.util.ArrayList;
-
-import org.eclipse.gef.palette.PaletteGroup;
-
 import org.eclipse.gmf.runtime.diagram.ui.tools.UnspecifiedTypeConnectionTool;
 import org.eclipse.gmf.runtime.diagram.ui.tools.UnspecifiedTypeCreationTool;
+import org.eclipse.jface.resource.ImageDescriptor;
+
+import de.uka.ipd.sdq.pcm.gmf.system.providers.PcmElementTypes;
 
 /**
  * @generated
@@ -27,51 +26,37 @@ public class PcmPaletteFactory {
 	 * @generated
 	 */
 	public void fillPalette(PaletteRoot paletteRoot) {
-		paletteRoot.add(createpcm1Group());
+		paletteRoot.add(createNodes1Group());
+		paletteRoot.add(createLinks2Group());
 	}
 
 	/**
 	 * @generated
 	 */
-	private PaletteContainer createpcm1Group() {
-		PaletteContainer paletteContainer = new PaletteGroup("pcm");
-		paletteContainer.add(createProvidedDelegationConnector1CreationTool());
-		paletteContainer.add(createAssemblyContext2CreationTool());
-		paletteContainer.add(createAssemblyConnector3CreationTool());
-		paletteContainer.add(createRequiredDelegationConnector4CreationTool());
-		paletteContainer.add(createSystemRequiredRole5CreationTool());
-		paletteContainer.add(createSpecifiedTimeConsumption6CreationTool());
-		paletteContainer.add(createSystemProvidedRole7CreationTool());
-		paletteContainer.add(createComponent8CreationTool());
-		paletteContainer.add(createRole9CreationTool());
+	private PaletteContainer createNodes1Group() {
+		PaletteContainer paletteContainer = new PaletteGroup("Nodes");
+		paletteContainer.add(createAssemblyContext1CreationTool());
+		paletteContainer.add(createSystemRequiredRole2CreationTool());
+		paletteContainer.add(createSpecifiedTimeConsumption3CreationTool());
+		paletteContainer.add(createSystemProvidedRole4CreationTool());
 		return paletteContainer;
 	}
 
 	/**
 	 * @generated
 	 */
-	private ToolEntry createProvidedDelegationConnector1CreationTool() {
-		ImageDescriptor smallImage;
-		ImageDescriptor largeImage;
-
-		smallImage = PcmElementTypes
-				.getImageDescriptor(PcmElementTypes.ProvidedDelegationConnector_3002);
-
-		largeImage = smallImage;
-
-		final List relationshipTypes = new ArrayList();
-		relationshipTypes.add(PcmElementTypes.ProvidedDelegationConnector_3002);
-		ToolEntry result = new LinkToolEntry("ProvidedDelegationConnector",
-				"Create new ProvidedDelegationConnector", smallImage,
-				largeImage, relationshipTypes);
-
-		return result;
+	private PaletteContainer createLinks2Group() {
+		PaletteContainer paletteContainer = new PaletteGroup("Links");
+		paletteContainer.add(createRequiredDelegationConnector1CreationTool());
+		paletteContainer.add(createAssemblyConnector2CreationTool());
+		paletteContainer.add(createProvidedDelegationConnector3CreationTool());
+		return paletteContainer;
 	}
 
 	/**
 	 * @generated
 	 */
-	private ToolEntry createAssemblyContext2CreationTool() {
+	private ToolEntry createAssemblyContext1CreationTool() {
 		ImageDescriptor smallImage;
 		ImageDescriptor largeImage;
 
@@ -92,49 +77,7 @@ public class PcmPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createAssemblyConnector3CreationTool() {
-		ImageDescriptor smallImage;
-		ImageDescriptor largeImage;
-
-		smallImage = PcmElementTypes
-				.getImageDescriptor(PcmElementTypes.AssemblyConnector_3001);
-
-		largeImage = smallImage;
-
-		final List relationshipTypes = new ArrayList();
-		relationshipTypes.add(PcmElementTypes.AssemblyConnector_3001);
-		ToolEntry result = new LinkToolEntry("AssemblyConnector",
-				"Create new AssemblyConnector", smallImage, largeImage,
-				relationshipTypes);
-
-		return result;
-	}
-
-	/**
-	 * @generated
-	 */
-	private ToolEntry createRequiredDelegationConnector4CreationTool() {
-		ImageDescriptor smallImage;
-		ImageDescriptor largeImage;
-
-		smallImage = PcmElementTypes
-				.getImageDescriptor(PcmElementTypes.RequiredDelegationConnector_3003);
-
-		largeImage = smallImage;
-
-		final List relationshipTypes = new ArrayList();
-		relationshipTypes.add(PcmElementTypes.RequiredDelegationConnector_3003);
-		ToolEntry result = new LinkToolEntry("RequiredDelegationConnector",
-				"Create new RequiredDelegationConnector", smallImage,
-				largeImage, relationshipTypes);
-
-		return result;
-	}
-
-	/**
-	 * @generated
-	 */
-	private ToolEntry createSystemRequiredRole5CreationTool() {
+	private ToolEntry createSystemRequiredRole2CreationTool() {
 		ImageDescriptor smallImage;
 		ImageDescriptor largeImage;
 
@@ -155,7 +98,7 @@ public class PcmPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createSpecifiedTimeConsumption6CreationTool() {
+	private ToolEntry createSpecifiedTimeConsumption3CreationTool() {
 		ImageDescriptor smallImage;
 		ImageDescriptor largeImage;
 
@@ -173,17 +116,17 @@ public class PcmPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createSystemProvidedRole7CreationTool() {
+	private ToolEntry createSystemProvidedRole4CreationTool() {
 		ImageDescriptor smallImage;
 		ImageDescriptor largeImage;
 
 		smallImage = PcmElementTypes
-				.getImageDescriptor(PcmElementTypes.SystemProvidedRole_1002);
+				.getImageDescriptor(PcmElementTypes.SystemProvidedRole_1004);
 
 		largeImage = smallImage;
 
 		final List elementTypes = new ArrayList();
-		elementTypes.add(PcmElementTypes.SystemProvidedRole_1002);
+		elementTypes.add(PcmElementTypes.SystemProvidedRole_1004);
 		ToolEntry result = new NodeToolEntry("SystemProvidedRole",
 				"Create new SystemProvidedRole", smallImage, largeImage,
 				elementTypes);
@@ -194,17 +137,20 @@ public class PcmPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createComponent8CreationTool() {
+	private ToolEntry createRequiredDelegationConnector1CreationTool() {
 		ImageDescriptor smallImage;
 		ImageDescriptor largeImage;
 
-		smallImage = null;
+		smallImage = PcmElementTypes
+				.getImageDescriptor(PcmElementTypes.RequiredDelegationConnector_3003);
 
 		largeImage = smallImage;
 
-		ToolEntry result = new ToolEntry("Component", "null", smallImage,
-				largeImage) {
-		};
+		final List relationshipTypes = new ArrayList();
+		relationshipTypes.add(PcmElementTypes.RequiredDelegationConnector_3003);
+		ToolEntry result = new LinkToolEntry("RequiredDelegationConnector",
+				"Create new RequiredDelegationConnector", smallImage,
+				largeImage, relationshipTypes);
 
 		return result;
 	}
@@ -212,19 +158,41 @@ public class PcmPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createRole9CreationTool() {
+	private ToolEntry createAssemblyConnector2CreationTool() {
 		ImageDescriptor smallImage;
 		ImageDescriptor largeImage;
 
 		smallImage = PcmElementTypes
-				.getImageDescriptor(PcmElementTypes.Node_2001);
+				.getImageDescriptor(PcmElementTypes.AssemblyConnector_3001);
 
 		largeImage = smallImage;
 
-		final List elementTypes = new ArrayList();
-		elementTypes.add(PcmElementTypes.Node_2001);
-		ToolEntry result = new NodeToolEntry("Role", "null", smallImage,
-				largeImage, elementTypes);
+		final List relationshipTypes = new ArrayList();
+		relationshipTypes.add(PcmElementTypes.AssemblyConnector_3001);
+		ToolEntry result = new LinkToolEntry("AssemblyConnector",
+				"Create new AssemblyConnector", smallImage, largeImage,
+				relationshipTypes);
+
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	private ToolEntry createProvidedDelegationConnector3CreationTool() {
+		ImageDescriptor smallImage;
+		ImageDescriptor largeImage;
+
+		smallImage = PcmElementTypes
+				.getImageDescriptor(PcmElementTypes.ProvidedDelegationConnector_3002);
+
+		largeImage = smallImage;
+
+		final List relationshipTypes = new ArrayList();
+		relationshipTypes.add(PcmElementTypes.ProvidedDelegationConnector_3002);
+		ToolEntry result = new LinkToolEntry("ProvidedDelegationConnector",
+				"Create new ProvidedDelegationConnector", smallImage,
+				largeImage, relationshipTypes);
 
 		return result;
 	}

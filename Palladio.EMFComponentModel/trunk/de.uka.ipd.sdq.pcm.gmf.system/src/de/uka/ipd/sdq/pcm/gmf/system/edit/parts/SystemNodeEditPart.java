@@ -3,8 +3,12 @@
  */
 package de.uka.ipd.sdq.pcm.gmf.system.edit.parts;
 
+import java.util.Iterator;
+
+import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.StackLayout;
+import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
 import org.eclipse.gef.Request;
@@ -12,29 +16,37 @@ import org.eclipse.gef.commands.Command;
 import org.eclipse.gef.editpolicies.LayoutEditPolicy;
 import org.eclipse.gef.editpolicies.NonResizableEditPolicy;
 import org.eclipse.gef.requests.CreateRequest;
+import org.eclipse.gmf.runtime.common.core.command.CompositeCommand;
+import org.eclipse.gmf.runtime.diagram.ui.commands.CreateCommand;
+import org.eclipse.gmf.runtime.diagram.ui.commands.ICommandProxy;
+import org.eclipse.gmf.runtime.diagram.ui.commands.SetBoundsCommand;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.AbstractBorderedShapeEditPart;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CreationEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.DragDropEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
+import org.eclipse.gmf.runtime.diagram.ui.l10n.DiagramUIMessages;
+import org.eclipse.gmf.runtime.diagram.ui.requests.CreateViewRequest;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
+import org.eclipse.gmf.runtime.emf.commands.core.command.CompositeTransactionalCommand;
+import org.eclipse.gmf.runtime.emf.type.core.commands.MoveElementsCommand;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
 
-import de.uka.ipd.sdq.pcm.gmf.system.edit.policies.AssemblyContextCanonicalEditPolicy;
-import de.uka.ipd.sdq.pcm.gmf.system.edit.policies.AssemblyContextGraphicalNodeEditPolicy;
-import de.uka.ipd.sdq.pcm.gmf.system.edit.policies.AssemblyContextItemSemanticEditPolicy;
-import de.uka.ipd.sdq.pcm.gmf.system.part.PcmVisualIDRegistry;
+import de.uka.ipd.sdq.pcm.gmf.system.edit.policies.SystemNodeCanonicalEditPolicy;
+import de.uka.ipd.sdq.pcm.gmf.system.edit.policies.SystemNodeGraphicalNodeEditPolicy;
+import de.uka.ipd.sdq.pcm.gmf.system.edit.policies.SystemNodeItemSemanticEditPolicy;
 
 /**
  * @generated NOT
  */
-public class AssemblyContextEditPart extends AbstractBorderedShapeEditPart {
+public class SystemNodeEditPart extends AbstractBorderedShapeEditPart {
 
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 1001;
+	public static final int VISUAL_ID = 1002;
 
 	/**
 	 * @generated
@@ -49,25 +61,61 @@ public class AssemblyContextEditPart extends AbstractBorderedShapeEditPart {
 	/**
 	 * @generated
 	 */
-	public AssemblyContextEditPart(View view) {
+	public SystemNodeEditPart(View view) {
 		super(view);
 	}
 
 	/**
-	 * @generated
+	 * @generated NOT
 	 */
 	protected void createDefaultEditPolicies() {
 		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
-				new CreationEditPolicy());
+				new CreationEditPolicy(){
+			protected Command getCreateCommand(CreateViewRequest request) {
+
+		        TransactionalEditingDomain editingDomain = ((IGraphicalEditPart) getHost())
+		            .getEditingDomain();
+		        CompositeTransactionalCommand cc = new CompositeTransactionalCommand(
+		            editingDomain, DiagramUIMessages.AddCommand_Label);
+		        
+		        Iterator descriptors = request.getViewDescriptors().iterator();
+
+				while (descriptors.hasNext()) {
+					CreateViewRequest.ViewDescriptor descriptor =
+						(CreateViewRequest.ViewDescriptor)descriptors.next();
+
+					if (descriptor.getSemanticHint().equals("1001")) {
+						CreateCommand createCommand =
+							new CreateCommand(editingDomain,
+								descriptor, 
+								(View)(getHost().getParent().getModel()));
+						SetBoundsCommand setBoundsCmd = new
+							SetBoundsCommand(editingDomain, "Move", 
+									(IAdaptable)createCommand.getCommandResult().getReturnValue(), request.getLocation());
+	
+						cc.compose(createCommand);
+						cc.compose(setBoundsCmd);
+					} else {
+						CreateCommand createCommand =
+							new CreateCommand(editingDomain,
+								descriptor, 
+								(View)(getHost().getModel()));
+						cc.compose(createCommand);
+					}
+				}
+				return new ICommandProxy(cc.reduce());
+
+			}
+		});
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
-				new AssemblyContextItemSemanticEditPolicy());
+				new SystemNodeItemSemanticEditPolicy());
 		installEditPolicy(EditPolicy.GRAPHICAL_NODE_ROLE,
-				new AssemblyContextGraphicalNodeEditPolicy());
+				new SystemNodeGraphicalNodeEditPolicy());
 		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE,
 				new DragDropEditPolicy());
 		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE,
-				new AssemblyContextCanonicalEditPolicy());
+				new SystemNodeCanonicalEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
 	}
 
@@ -101,35 +149,15 @@ public class AssemblyContextEditPart extends AbstractBorderedShapeEditPart {
 	 * @generated
 	 */
 	protected IFigure createNodeShape() {
-		AssemblyContextFigure figure = new AssemblyContextFigure();
+		SystemFigure figure = new SystemFigure();
 		return primaryShape = figure;
 	}
 
 	/**
 	 * @generated
 	 */
-	public AssemblyContextFigure getPrimaryShape() {
-		return (AssemblyContextFigure) primaryShape;
-	}
-
-	/**
-	 * @generated
-	 */
-	protected boolean addFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof AssemblyContextEntityNameEditPart) {
-			((AssemblyContextEntityNameEditPart) childEditPart)
-					.setLabel(getPrimaryShape()
-							.getFigureEntityEntityName2Figure());
-			return true;
-		}
-		return false;
-	}
-
-	/**
-	 * @generated
-	 */
-	protected boolean removeFixedChild(EditPart childEditPart) {
-		return false;
+	public SystemFigure getPrimaryShape() {
+		return (SystemFigure) primaryShape;
 	}
 
 	/**
@@ -177,46 +205,26 @@ public class AssemblyContextEditPart extends AbstractBorderedShapeEditPart {
 		return super.getContentPane();
 	}
 
-	/**
-	 * @generated
-	 */
-	public EditPart getPrimaryChildEditPart() {
-		return getChildBySemanticHint(PcmVisualIDRegistry
-				.getType(AssemblyContextEntityNameEditPart.VISUAL_ID));
+	@Override
+	protected NodeFigure createMainFigure() {
+		NodeFigure figure = createNodePlate();
+		figure.setLayoutManager(new StackLayout());
+		IFigure shape = createNodeShape();
+		figure.add(shape);
+		contentPane = setupContentPane(shape);
+		return figure;
 	}
 
 	/**
 	 * @generated
 	 */
-	protected void addChildVisual(EditPart childEditPart, int index) {
-		if (addFixedChild(childEditPart)) {
-			return;
-		}
-		super.addChildVisual(childEditPart, -1);
-	}
-
-	/**
-	 * @generated
-	 */
-	protected void removeChildVisual(EditPart childEditPart) {
-		if (removeFixedChild(childEditPart)) {
-			return;
-		}
-		super.removeChildVisual(childEditPart);
-	}
-
-	/**
-	 * @generated
-	 */
-	public class AssemblyContextFigure extends
-			org.eclipse.draw2d.RectangleFigure {
+	public class SystemFigure extends org.eclipse.draw2d.RectangleFigure {
 
 		/**
 		 * @generated
 		 */
-		public AssemblyContextFigure() {
+		public SystemFigure() {
 
-			this.setLineStyle(org.eclipse.draw2d.Graphics.LINE_DASH);
 			createContents();
 		}
 
@@ -225,9 +233,9 @@ public class AssemblyContextEditPart extends AbstractBorderedShapeEditPart {
 		 */
 		private void createContents() {
 			org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel fig_0 = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel();
-			fig_0.setText("<...>");
+			fig_0.setText("<<system>>");
 
-			setFigureEntityEntityName2Figure(fig_0);
+			setFigureSystemNameLabelFigure(fig_0);
 
 			Object layData0 = null;
 
@@ -237,21 +245,21 @@ public class AssemblyContextEditPart extends AbstractBorderedShapeEditPart {
 		/**
 		 * @generated
 		 */
-		private org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel fEntityEntityName2Figure;
+		private org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel fSystemNameLabelFigure;
 
 		/**
 		 * @generated
 		 */
-		public org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel getFigureEntityEntityName2Figure() {
-			return fEntityEntityName2Figure;
+		public org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel getFigureSystemNameLabelFigure() {
+			return fSystemNameLabelFigure;
 		}
 
 		/**
 		 * @generated
 		 */
-		private void setFigureEntityEntityName2Figure(
+		private void setFigureSystemNameLabelFigure(
 				org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel fig) {
-			fEntityEntityName2Figure = fig;
+			fSystemNameLabelFigure = fig;
 		}
 
 		/**
@@ -273,16 +281,6 @@ public class AssemblyContextEditPart extends AbstractBorderedShapeEditPart {
 			myUseLocalCoordinates = useLocalCoordinates;
 		}
 
-	}
-
-	@Override
-	protected NodeFigure createMainFigure() {
-		NodeFigure figure = createNodePlate();
-		figure.setLayoutManager(new StackLayout());
-		IFigure shape = createNodeShape();
-		figure.add(shape);
-		contentPane = setupContentPane(shape);
-		return figure;
 	}
 
 }

@@ -6,6 +6,7 @@ package de.uka.ipd.sdq.pcm.gmf.system.part;
 import java.io.InputStream;
 
 import org.eclipse.core.resources.IFile;
+import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.gmf.runtime.diagram.ui.resources.editor.ide.wizards.EditorWizardPage;
@@ -15,8 +16,6 @@ import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.IWorkbenchWindow;
 
 import de.uka.ipd.sdq.pcm.gmf.system.edit.parts.SystemEditPart;
-
-import org.eclipse.core.resources.ResourcesPlugin;
 
 /**
  * @generated

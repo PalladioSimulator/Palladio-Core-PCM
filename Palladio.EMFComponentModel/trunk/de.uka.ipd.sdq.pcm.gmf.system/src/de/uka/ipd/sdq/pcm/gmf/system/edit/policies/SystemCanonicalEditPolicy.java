@@ -3,17 +3,40 @@
  */
 package de.uka.ipd.sdq.pcm.gmf.system.edit.policies;
 
-import java.util.List;
 import java.util.Collection;
-import org.eclipse.gmf.runtime.notation.Edge;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+
+import org.eclipse.core.runtime.IAdaptable;
+import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.gef.EditPart;
+import org.eclipse.gef.commands.Command;
+import org.eclipse.gmf.runtime.diagram.core.util.ViewUtil;
+import org.eclipse.gmf.runtime.diagram.ui.commands.DeferredLayoutCommand;
+import org.eclipse.gmf.runtime.diagram.ui.commands.ICommandProxy;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
+import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CanonicalConnectionEditPolicy;
+import org.eclipse.gmf.runtime.diagram.ui.requests.CreateConnectionViewRequest;
+import org.eclipse.gmf.runtime.diagram.ui.requests.CreateViewRequest;
+import org.eclipse.gmf.runtime.diagram.ui.requests.RequestConstants;
+import org.eclipse.gmf.runtime.diagram.ui.requests.CreateViewRequest.ViewDescriptor;
+import org.eclipse.gmf.runtime.emf.core.util.EObjectAdapter;
+import org.eclipse.gmf.runtime.emf.type.core.IElementType;
+import org.eclipse.gmf.runtime.notation.Diagram;
+import org.eclipse.gmf.runtime.notation.Edge;
+import org.eclipse.gmf.runtime.notation.Node;
+import org.eclipse.gmf.runtime.notation.View;
+
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyConnector;
 import de.uka.ipd.sdq.pcm.core.composition.ComposedStructure;
 import de.uka.ipd.sdq.pcm.core.composition.CompositionPackage;
-
 import de.uka.ipd.sdq.pcm.core.composition.ProvidedDelegationConnector;
 import de.uka.ipd.sdq.pcm.core.composition.RequiredDelegationConnector;
-
 import de.uka.ipd.sdq.pcm.gmf.system.edit.parts.AssemblyConnectorEditPart;
 import de.uka.ipd.sdq.pcm.gmf.system.edit.parts.AssemblyContextEditPart;
 import de.uka.ipd.sdq.pcm.gmf.system.edit.parts.ProvidedDelegationConnectorEditPart;
@@ -23,41 +46,7 @@ import de.uka.ipd.sdq.pcm.gmf.system.edit.parts.RoleEditPart;
 import de.uka.ipd.sdq.pcm.gmf.system.edit.parts.SystemEditPart;
 import de.uka.ipd.sdq.pcm.gmf.system.edit.parts.SystemProvidedRoleEditPart;
 import de.uka.ipd.sdq.pcm.gmf.system.edit.parts.SystemRequiredRoleEditPart;
-
 import de.uka.ipd.sdq.pcm.gmf.system.part.PcmVisualIDRegistry;
-
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.Map;
-
-import org.eclipse.core.runtime.IAdaptable;
-
-import org.eclipse.emf.ecore.EClass;
-
-import org.eclipse.gef.EditPart;
-
-import org.eclipse.gef.commands.Command;
-
-import org.eclipse.gmf.runtime.diagram.core.util.ViewUtil;
-
-import org.eclipse.gmf.runtime.diagram.ui.commands.DeferredLayoutCommand;
-import org.eclipse.gmf.runtime.diagram.ui.commands.ICommandProxy;
-
-import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
-
-import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CanonicalConnectionEditPolicy;
-
-import org.eclipse.gmf.runtime.diagram.ui.requests.CreateConnectionViewRequest;
-import org.eclipse.gmf.runtime.diagram.ui.requests.RequestConstants;
-
-import org.eclipse.gmf.runtime.emf.core.util.EObjectAdapter;
-
-import org.eclipse.gmf.runtime.emf.type.core.IElementType;
-
-import org.eclipse.gmf.runtime.notation.Diagram;
-import org.eclipse.gmf.runtime.notation.View;
 
 /**
  * @generated
@@ -65,7 +54,7 @@ import org.eclipse.gmf.runtime.notation.View;
 public class SystemCanonicalEditPolicy extends CanonicalConnectionEditPolicy {
 
 	/**
-	 * @generated
+	 * @generated NOT
 	 */
 	protected List getSemanticChildrenList() {
 		List result = new LinkedList();
@@ -83,24 +72,7 @@ public class SystemCanonicalEditPolicy extends CanonicalConnectionEditPolicy {
 				result.add(nextValue);
 			}
 		}
-		for (Iterator values = ((de.uka.ipd.sdq.pcm.system.System) modelObject)
-				.getSystemProvidedRole_System().iterator(); values.hasNext();) {
-			nextValue = (EObject) values.next();
-			nodeVID = PcmVisualIDRegistry
-					.getNodeVisualID(viewObject, nextValue);
-			if (SystemProvidedRoleEditPart.VISUAL_ID == nodeVID) {
-				result.add(nextValue);
-			}
-		}
-		for (Iterator values = ((de.uka.ipd.sdq.pcm.system.System) modelObject)
-				.getSystemRequiredRole_System().iterator(); values.hasNext();) {
-			nextValue = (EObject) values.next();
-			nodeVID = PcmVisualIDRegistry
-					.getNodeVisualID(viewObject, nextValue);
-			if (SystemRequiredRoleEditPart.VISUAL_ID == nodeVID) {
-				result.add(nextValue);
-			}
-		}
+		result.add(modelObject);
 		return result;
 	}
 
@@ -506,4 +478,24 @@ public class SystemCanonicalEditPolicy extends CanonicalConnectionEditPolicy {
 		}
 	}
 
+	/* (non-Javadoc)
+	 * @see org.eclipse.gmf.runtime.diagram.ui.editpolicies.CanonicalEditPolicy#getViewDescriptor(org.eclipse.core.runtime.IAdaptable, java.lang.Class, java.lang.String, int)
+	 */
+	@Override
+	protected ViewDescriptor getViewDescriptor(EObject element) {
+		//
+		// create the view descritor
+		String factoryHint = getDefaultFactoryHint();
+		IAdaptable elementAdapter = new CanonicalElementAdapter(element,
+				factoryHint);
+
+		int pos = getViewIndexFor(element);
+		String sh = getFactoryHint(elementAdapter, factoryHint);
+		if (element instanceof de.uka.ipd.sdq.pcm.system.System)
+			sh = PcmVisualIDRegistry
+					.getType(de.uka.ipd.sdq.pcm.gmf.system.edit.parts.SystemNodeEditPart.VISUAL_ID);
+		CreateViewRequest.ViewDescriptor descriptor = getViewDescriptor(
+				elementAdapter, Node.class, sh, pos);
+		return descriptor;
+	}
 }

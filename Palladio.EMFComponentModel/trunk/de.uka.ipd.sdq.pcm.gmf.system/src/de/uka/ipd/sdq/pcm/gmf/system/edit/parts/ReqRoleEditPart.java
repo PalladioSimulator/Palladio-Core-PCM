@@ -3,46 +3,39 @@
  */
 package de.uka.ipd.sdq.pcm.gmf.system.edit.parts;
 
-import de.uka.ipd.sdq.pcm.gmf.system.edit.policies.PcmExtNodeLabelHostLayoutEditPolicy;
-import de.uka.ipd.sdq.pcm.gmf.system.edit.policies.ReqRoleCanonicalEditPolicy;
-import de.uka.ipd.sdq.pcm.gmf.system.edit.policies.ReqRoleGraphicalNodeEditPolicy;
-import de.uka.ipd.sdq.pcm.gmf.system.edit.policies.ReqRoleItemSemanticEditPolicy;
-import de.uka.ipd.sdq.pcm.gmf.system.part.PcmVisualIDRegistry;
-
 import java.util.Iterator;
 
-import de.uka.ipd.sdq.pcm.gmf.system.edit.policies.RoleCanonicalEditPolicy;
-import de.uka.ipd.sdq.pcm.gmf.system.edit.policies.RoleItemSemanticEditPolicy;
-
+import org.eclipse.draw2d.AbstractConnectionAnchor;
+import org.eclipse.draw2d.ColorConstants;
+import org.eclipse.draw2d.ConnectionAnchor;
 import org.eclipse.draw2d.Ellipse;
 import org.eclipse.draw2d.IFigure;
+import org.eclipse.draw2d.RectangleFigure;
 import org.eclipse.draw2d.StackLayout;
-
+import org.eclipse.draw2d.geometry.Point;
+import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
 import org.eclipse.gef.GraphicalEditPart;
 import org.eclipse.gef.Request;
-
 import org.eclipse.gef.commands.Command;
-
 import org.eclipse.gef.editparts.LayerManager;
-
 import org.eclipse.gef.editpolicies.LayoutEditPolicy;
 import org.eclipse.gef.editpolicies.NonResizableEditPolicy;
-
 import org.eclipse.gef.requests.CreateRequest;
-
 import org.eclipse.gmf.runtime.diagram.ui.editparts.AbstractBorderItemEditPart;
-import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
-
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
-
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
-
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
-
 import org.eclipse.gmf.runtime.notation.View;
+import org.eclipse.swt.graphics.Color;
+
+import de.uka.ipd.sdq.pcm.gmf.system.ArcFigure;
+import de.uka.ipd.sdq.pcm.gmf.system.edit.policies.PcmExtNodeLabelHostLayoutEditPolicy;
+import de.uka.ipd.sdq.pcm.gmf.system.edit.policies.ReqRoleItemSemanticEditPolicy;
+import de.uka.ipd.sdq.pcm.gmf.system.edit.policies.RoleCanonicalEditPolicy;
+import de.uka.ipd.sdq.pcm.gmf.system.part.PcmVisualIDRegistry;
 
 /**
  * @generated NOT
@@ -63,6 +56,8 @@ public class ReqRoleEditPart extends AbstractBorderItemEditPart {
 	 * @generated
 	 */
 	protected IFigure primaryShape;
+
+	protected ConnectionAnchor defaultAnchor;
 
 	/**
 	 * @generated
@@ -127,17 +122,20 @@ public class ReqRoleEditPart extends AbstractBorderItemEditPart {
 	}
 
 	/**
-	 * @generated
+	 * @generated NOT
 	 */
 	protected IFigure createNodeShape() {
-		return primaryShape = new Ellipse();
+//		RectangleFigure rect = new RectangleFigure();
+//		rect.setBackgroundColor(ColorConstants.black);
+		ArcFigure fig = new ArcFigure();
+		return primaryShape = fig;
 	}
 
 	/**
-	 * @generated
+	 * @generated NOT
 	 */
-	public Ellipse getPrimaryShape() {
-		return (Ellipse) primaryShape;
+	public ArcFigure getPrimaryShape() {
+		return (ArcFigure) primaryShape;
 	}
 
 	/**
@@ -145,7 +143,19 @@ public class ReqRoleEditPart extends AbstractBorderItemEditPart {
 	 */
 	protected NodeFigure createNodePlate() {
 		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(getMapMode()
-				.DPtoLP(20), getMapMode().DPtoLP(20));
+				.DPtoLP(20), getMapMode().DPtoLP(20)){
+			
+			/* (non-Javadoc)
+			 * @see org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure#createDefaultAnchor()
+			 */
+			@Override
+			protected ConnectionAnchor createDefaultAnchor() {
+			    if (defaultAnchor == null)
+			    	return super.createDefaultAnchor();
+			    else
+			    	return defaultAnchor;
+			}
+		};
 		//FIXME: workaround for #154536
 		result.getBounds().setSize(result.getPreferredSize());
 		return result;
@@ -164,6 +174,19 @@ public class ReqRoleEditPart extends AbstractBorderItemEditPart {
 		figure.setLayoutManager(new StackLayout());
 		IFigure shape = createNodeShape();
 		figure.add(shape);
+		defaultAnchor = new AbstractConnectionAnchor(figure) {
+
+			public Point getLocation(Point reference) {
+				Rectangle r = Rectangle.SINGLETON;
+				r.setBounds(getOwner().getBounds());
+				r.translate(-1, -1);
+				r.resize(1, 1);
+				getOwner().translateToAbsolute(r);
+				
+				return r.getCenter();
+			}
+			
+		};
 		contentPane = setupContentPane(shape);
 		return figure;
 	}

@@ -96,6 +96,78 @@
         </viewmap>
       </labels>
     </childNodes>
+    <childNodes
+        visualID="2003"
+        editPartClassName="SystemProvidedRoleEditPart"
+        itemSemanticEditPolicyClassName="SystemProvidedRoleItemSemanticEditPolicy"
+        notationViewFactoryClassName="SystemProvidedRoleViewFactory"
+        canonicalEditPolicyClassName="SystemProvidedRoleCanonicalEditPolicy"
+        graphicalNodeEditPolicyClassName="SystemProvidedRoleGraphicalNodeEditPolicy"
+        containers="//@diagram/@topLevelNodes.1">
+      <diagramRunTimeClass
+          href="../../../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+      <elementType
+          xsi:type="gmfgen:NotationType"/>
+      <viewmap
+          xsi:type="gmfgen:FigureViewmap"
+          figureQualifiedClassName="org.eclipse.draw2d.Ellipse">
+        <requiredPluginIDs>org.eclipse.draw2d</requiredPluginIDs>
+        <requiredPluginIDs>org.eclipse.gmf.runtime.draw2d.ui</requiredPluginIDs>
+      </viewmap>
+      <labels
+          xsi:type="gmfgen:GenExternalNodeLabel"
+          visualID="4004"
+          editPartClassName="SystemProvidedRoleLabelEditPart"
+          itemSemanticEditPolicyClassName="SystemProvidedRoleLabelItemSemanticEditPolicy"
+          notationViewFactoryClassName="SystemProvidedRoleLabelViewFactory"
+          elementIcon="true">
+        <diagramRunTimeClass
+            href="../../../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+        <viewmap
+            xsi:type="gmfgen:InnerClassViewmap"
+            className="SysProvRoleLabelFigure"
+            classBody="&#xD;&#xA;&#xD;&#xA;/**&#xD;&#xA; * @generated&#xD;&#xA; */&#xD;&#xA;public class SysProvRoleLabelFigure extends org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel {&#xD;&#xA;&#xD;&#xA;&#x9;/**&#xD;&#xA;&#x9; * @generated&#xD;&#xA;&#x9; */&#xD;&#xA;&#x9;public SysProvRoleLabelFigure() {&#x9;&#xD;&#xA;&#x9;&#x9;&#xD;&#xA;&#xD;&#xA;&#x9;&#x9;this.setText(&quot;&lt;SP>&quot;);&#xD;&#xA;&#x9;&#x9;createContents();&#xD;&#xA;&#x9;}&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#x9;/**&#xD;&#xA;&#x9; * @generated&#xD;&#xA;&#x9; */&#xD;&#xA;&#x9;private void createContents(){&#xD;&#xA;&#x9;}&#xD;&#xA;&#x9;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#x9;/**&#xD;&#xA;&#x9; * @generated&#xD;&#xA;&#x9; */&#xD;&#xA;&#x9;private boolean myUseLocalCoordinates = false;&#xD;&#xA;&#xD;&#xA;&#x9;/**&#xD;&#xA;&#x9; * @generated&#xD;&#xA;&#x9; */&#xD;&#xA;&#x9;protected boolean useLocalCoordinates() {&#xD;&#xA;&#x9;&#x9;return myUseLocalCoordinates;&#xD;&#xA;&#x9;}&#xD;&#xA;&#xD;&#xA;&#x9;/**&#xD;&#xA;&#x9; * @generated&#xD;&#xA;&#x9; */&#xD;&#xA;&#x9;protected void setUseLocalCoordinates(boolean useLocalCoordinates) {&#xD;&#xA;&#x9;&#x9;myUseLocalCoordinates = useLocalCoordinates;&#xD;&#xA;&#x9;}&#xD;&#xA;&#x9;&#xD;&#xA;&#xD;&#xA;}&#xD;&#xA;&#x9;&#xD;&#xA;">
+          <requiredPluginIDs>org.eclipse.draw2d</requiredPluginIDs>
+          <requiredPluginIDs>org.eclipse.gmf.runtime.draw2d.ui</requiredPluginIDs>
+        </viewmap>
+      </labels>
+    </childNodes>
+    <childNodes
+        visualID="2004"
+        editPartClassName="SystemRequiredRoleEditPart"
+        itemSemanticEditPolicyClassName="SystemRequiredRoleItemSemanticEditPolicy"
+        notationViewFactoryClassName="SystemRequiredRoleViewFactory"
+        canonicalEditPolicyClassName="SystemRequiredRoleCanonicalEditPolicy"
+        graphicalNodeEditPolicyClassName="SystemRequiredRoleGraphicalNodeEditPolicy"
+        containers="//@diagram/@topLevelNodes.1">
+      <diagramRunTimeClass
+          href="../../../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+      <elementType
+          xsi:type="gmfgen:NotationType"/>
+      <viewmap
+          xsi:type="gmfgen:FigureViewmap"
+          figureQualifiedClassName="org.eclipse.draw2d.Ellipse">
+        <requiredPluginIDs>org.eclipse.draw2d</requiredPluginIDs>
+        <requiredPluginIDs>org.eclipse.gmf.runtime.draw2d.ui</requiredPluginIDs>
+      </viewmap>
+      <labels
+          xsi:type="gmfgen:GenExternalNodeLabel"
+          visualID="4005"
+          editPartClassName="SystemRequiredRoleLabelEditPart"
+          itemSemanticEditPolicyClassName="SystemRequiredRoleLabelItemSemanticEditPolicy"
+          notationViewFactoryClassName="SystemRequiredRoleLabelViewFactory"
+          elementIcon="true">
+        <diagramRunTimeClass
+            href="../../../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+        <viewmap
+            xsi:type="gmfgen:InnerClassViewmap"
+            className="SysReqRoleLabelFigure"
+            classBody="&#xD;&#xA;&#xD;&#xA;/**&#xD;&#xA; * @generated&#xD;&#xA; */&#xD;&#xA;public class SysReqRoleLabelFigure extends org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel {&#xD;&#xA;&#xD;&#xA;&#x9;/**&#xD;&#xA;&#x9; * @generated&#xD;&#xA;&#x9; */&#xD;&#xA;&#x9;public SysReqRoleLabelFigure() {&#x9;&#xD;&#xA;&#x9;&#x9;&#xD;&#xA;&#xD;&#xA;&#x9;&#x9;this.setText(&quot;&lt;SR>&quot;);&#xD;&#xA;&#x9;&#x9;createContents();&#xD;&#xA;&#x9;}&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#x9;/**&#xD;&#xA;&#x9; * @generated&#xD;&#xA;&#x9; */&#xD;&#xA;&#x9;private void createContents(){&#xD;&#xA;&#x9;}&#xD;&#xA;&#x9;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#x9;/**&#xD;&#xA;&#x9; * @generated&#xD;&#xA;&#x9; */&#xD;&#xA;&#x9;private boolean myUseLocalCoordinates = false;&#xD;&#xA;&#xD;&#xA;&#x9;/**&#xD;&#xA;&#x9; * @generated&#xD;&#xA;&#x9; */&#xD;&#xA;&#x9;protected boolean useLocalCoordinates() {&#xD;&#xA;&#x9;&#x9;return myUseLocalCoordinates;&#xD;&#xA;&#x9;}&#xD;&#xA;&#xD;&#xA;&#x9;/**&#xD;&#xA;&#x9; * @generated&#xD;&#xA;&#x9; */&#xD;&#xA;&#x9;protected void setUseLocalCoordinates(boolean useLocalCoordinates) {&#xD;&#xA;&#x9;&#x9;myUseLocalCoordinates = useLocalCoordinates;&#xD;&#xA;&#x9;}&#xD;&#xA;&#x9;&#xD;&#xA;&#xD;&#xA;}&#xD;&#xA;&#x9;&#xD;&#xA;">
+          <requiredPluginIDs>org.eclipse.draw2d</requiredPluginIDs>
+          <requiredPluginIDs>org.eclipse.gmf.runtime.draw2d.ui</requiredPluginIDs>
+        </viewmap>
+      </labels>
+    </childNodes>
     <topLevelNodes
         visualID="1001"
         editPartClassName="AssemblyContextEditPart"
@@ -129,6 +201,7 @@
           editPartClassName="AssemblyContextEntityNameEditPart"
           itemSemanticEditPolicyClassName="AssemblyContextEntityNameItemSemanticEditPolicy"
           notationViewFactoryClassName="AssemblyContextEntityNameViewFactory"
+          readOnly="true"
           elementIcon="true">
         <diagramRunTimeClass
             href="../../../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
@@ -145,103 +218,23 @@
     </topLevelNodes>
     <topLevelNodes
         visualID="1002"
-        editPartClassName="SystemProvidedRoleEditPart"
-        itemSemanticEditPolicyClassName="SystemProvidedRoleItemSemanticEditPolicy"
-        notationViewFactoryClassName="SystemProvidedRoleViewFactory"
-        canonicalEditPolicyClassName="SystemProvidedRoleCanonicalEditPolicy"
-        graphicalNodeEditPolicyClassName="SystemProvidedRoleGraphicalNodeEditPolicy">
+        editPartClassName="SystemNodeEditPart"
+        itemSemanticEditPolicyClassName="SystemNodeItemSemanticEditPolicy"
+        notationViewFactoryClassName="SystemNodeViewFactory"
+        childNodes="//@diagram/@childNodes.2 //@diagram/@childNodes.3"
+        canonicalEditPolicyClassName="SystemNodeCanonicalEditPolicy"
+        graphicalNodeEditPolicyClassName="SystemNodeGraphicalNodeEditPolicy">
       <diagramRunTimeClass
           href="../../../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
-          xsi:type="gmfgen:MetamodelType"
-          editHelperClassName="SystemProvidedRoleEditHelper"/>
+          xsi:type="gmfgen:NotationType"/>
       <viewmap
-          xsi:type="gmfgen:FigureViewmap"
-          figureQualifiedClassName="org.eclipse.draw2d.Ellipse">
+          xsi:type="gmfgen:InnerClassViewmap"
+          className="SystemFigure"
+          classBody="&#xD;&#xA;&#xD;&#xA;/**&#xD;&#xA; * @generated&#xD;&#xA; */&#xD;&#xA;public class SystemFigure extends org.eclipse.draw2d.RectangleFigure {&#xD;&#xA;&#xD;&#xA;&#x9;/**&#xD;&#xA;&#x9; * @generated&#xD;&#xA;&#x9; */&#xD;&#xA;&#x9;public SystemFigure() {&#x9;&#xD;&#xA;&#x9;&#x9;&#xD;&#xA;&#xD;&#xA;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;createContents();&#xD;&#xA;&#x9;}&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#x9;/**&#xD;&#xA;&#x9; * @generated&#xD;&#xA;&#x9; */&#xD;&#xA;&#x9;private void createContents(){&#xD;&#xA;&#x9;&#x9;org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel fig_0 = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel();&#xD;&#xA;fig_0.setText(&quot;&lt;&lt;system>>&quot;);&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#x9;&#x9;setFigureSystemNameLabelFigure(fig_0);&#xD;&#xA;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;Object layData0 = null;&#xD;&#xA;&#xD;&#xA;&#x9;&#x9;this.add(fig_0, layData0);&#xD;&#xA;&#x9;}&#xD;&#xA;&#x9;&#xD;&#xA;&#x9;&#x9;&#xD;&#xA;&#x9;/**&#xD;&#xA;&#x9; * @generated&#xD;&#xA;&#x9; */&#xD;&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel fSystemNameLabelFigure; &#xD;&#xA;&#xD;&#xA;&#x9;/**&#xD;&#xA;&#x9; * @generated&#xD;&#xA;&#x9; */&#xD;&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel getFigureSystemNameLabelFigure() {&#xD;&#xA;&#x9;&#x9;return fSystemNameLabelFigure;&#xD;&#xA;&#x9;}&#xD;&#xA;&#x9;&#xD;&#xA;&#x9;/**&#xD;&#xA;&#x9; * @generated&#xD;&#xA;&#x9; */&#xD;&#xA;&#x9;private void setFigureSystemNameLabelFigure(org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel fig){&#xD;&#xA;&#x9;&#x9;fSystemNameLabelFigure = fig;&#xD;&#xA;&#x9;}&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#x9;/**&#xD;&#xA;&#x9; * @generated&#xD;&#xA;&#x9; */&#xD;&#xA;&#x9;private boolean myUseLocalCoordinates = false;&#xD;&#xA;&#xD;&#xA;&#x9;/**&#xD;&#xA;&#x9; * @generated&#xD;&#xA;&#x9; */&#xD;&#xA;&#x9;protected boolean useLocalCoordinates() {&#xD;&#xA;&#x9;&#x9;return myUseLocalCoordinates;&#xD;&#xA;&#x9;}&#xD;&#xA;&#xD;&#xA;&#x9;/**&#xD;&#xA;&#x9; * @generated&#xD;&#xA;&#x9; */&#xD;&#xA;&#x9;protected void setUseLocalCoordinates(boolean useLocalCoordinates) {&#xD;&#xA;&#x9;&#x9;myUseLocalCoordinates = useLocalCoordinates;&#xD;&#xA;&#x9;}&#xD;&#xA;&#x9;&#xD;&#xA;&#xD;&#xA;}&#xD;&#xA;&#x9;&#xD;&#xA;">
         <requiredPluginIDs>org.eclipse.draw2d</requiredPluginIDs>
         <requiredPluginIDs>org.eclipse.gmf.runtime.draw2d.ui</requiredPluginIDs>
       </viewmap>
-      <modelFacet>
-        <metaClass
-            href="../../pcm.genmodel#//pcm/system/SystemProvidedRole"/>
-        <containmentMetaFeature
-            href="../../pcm.genmodel#//pcm/system/System/systemProvidedRole_System"/>
-        <childMetaFeature
-            href="../../pcm.genmodel#//pcm/system/System/systemProvidedRole_System"/>
-      </modelFacet>
-      <labels
-          xsi:type="gmfgen:GenExternalNodeLabel"
-          visualID="4004"
-          editPartClassName="SystemProvidedRoleEntityNameEditPart"
-          itemSemanticEditPolicyClassName="SystemProvidedRoleEntityNameItemSemanticEditPolicy"
-          notationViewFactoryClassName="SystemProvidedRoleEntityNameViewFactory"
-          readOnly="true"
-          elementIcon="true">
-        <diagramRunTimeClass
-            href="../../../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
-        <viewmap
-            xsi:type="gmfgen:InnerClassViewmap"
-            className="SysProvRoleLabelFigure"
-            classBody="&#xD;&#xA;&#xD;&#xA;/**&#xD;&#xA; * @generated&#xD;&#xA; */&#xD;&#xA;public class SysProvRoleLabelFigure extends org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel {&#xD;&#xA;&#xD;&#xA;&#x9;/**&#xD;&#xA;&#x9; * @generated&#xD;&#xA;&#x9; */&#xD;&#xA;&#x9;public SysProvRoleLabelFigure() {&#x9;&#xD;&#xA;&#x9;&#x9;&#xD;&#xA;&#xD;&#xA;&#x9;&#x9;this.setText(&quot;&lt;SP>&quot;);&#xD;&#xA;&#x9;&#x9;createContents();&#xD;&#xA;&#x9;}&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#x9;/**&#xD;&#xA;&#x9; * @generated&#xD;&#xA;&#x9; */&#xD;&#xA;&#x9;private void createContents(){&#xD;&#xA;&#x9;}&#xD;&#xA;&#x9;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#x9;/**&#xD;&#xA;&#x9; * @generated&#xD;&#xA;&#x9; */&#xD;&#xA;&#x9;private boolean myUseLocalCoordinates = false;&#xD;&#xA;&#xD;&#xA;&#x9;/**&#xD;&#xA;&#x9; * @generated&#xD;&#xA;&#x9; */&#xD;&#xA;&#x9;protected boolean useLocalCoordinates() {&#xD;&#xA;&#x9;&#x9;return myUseLocalCoordinates;&#xD;&#xA;&#x9;}&#xD;&#xA;&#xD;&#xA;&#x9;/**&#xD;&#xA;&#x9; * @generated&#xD;&#xA;&#x9; */&#xD;&#xA;&#x9;protected void setUseLocalCoordinates(boolean useLocalCoordinates) {&#xD;&#xA;&#x9;&#x9;myUseLocalCoordinates = useLocalCoordinates;&#xD;&#xA;&#x9;}&#xD;&#xA;&#x9;&#xD;&#xA;&#xD;&#xA;}&#xD;&#xA;&#x9;&#xD;&#xA;">
-          <requiredPluginIDs>org.eclipse.draw2d</requiredPluginIDs>
-          <requiredPluginIDs>org.eclipse.gmf.runtime.draw2d.ui</requiredPluginIDs>
-        </viewmap>
-        <modelFacet
-            xsi:type="gmfgen:FeatureLabelModelFacet">
-          <metaFeature
-              href="../../pcm.genmodel#//pcm/core/entity/Entity/entityName"/>
-        </modelFacet>
-      </labels>
-    </topLevelNodes>
-    <topLevelNodes
-        visualID="1003"
-        editPartClassName="SystemRequiredRoleEditPart"
-        itemSemanticEditPolicyClassName="SystemRequiredRoleItemSemanticEditPolicy"
-        notationViewFactoryClassName="SystemRequiredRoleViewFactory"
-        canonicalEditPolicyClassName="SystemRequiredRoleCanonicalEditPolicy"
-        graphicalNodeEditPolicyClassName="SystemRequiredRoleGraphicalNodeEditPolicy">
-      <diagramRunTimeClass
-          href="../../../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
-      <elementType
-          xsi:type="gmfgen:MetamodelType"
-          editHelperClassName="SystemRequiredRoleEditHelper"/>
-      <viewmap
-          xsi:type="gmfgen:FigureViewmap"
-          figureQualifiedClassName="org.eclipse.draw2d.Ellipse">
-        <requiredPluginIDs>org.eclipse.draw2d</requiredPluginIDs>
-        <requiredPluginIDs>org.eclipse.gmf.runtime.draw2d.ui</requiredPluginIDs>
-      </viewmap>
-      <modelFacet>
-        <metaClass
-            href="../../pcm.genmodel#//pcm/system/SystemRequiredRole"/>
-        <containmentMetaFeature
-            href="../../pcm.genmodel#//pcm/system/System/systemRequiredRole_System"/>
-        <childMetaFeature
-            href="../../pcm.genmodel#//pcm/system/System/systemRequiredRole_System"/>
-      </modelFacet>
-      <labels
-          xsi:type="gmfgen:GenExternalNodeLabel"
-          visualID="4005"
-          editPartClassName="SystemRequiredRoleEntityNameEditPart"
-          itemSemanticEditPolicyClassName="SystemRequiredRoleEntityNameItemSemanticEditPolicy"
-          notationViewFactoryClassName="SystemRequiredRoleEntityNameViewFactory"
-          readOnly="true"
-          elementIcon="true">
-        <diagramRunTimeClass
-            href="../../../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
-        <viewmap
-            xsi:type="gmfgen:InnerClassViewmap"
-            className="SysReqRoleLabelFigure"
-            classBody="&#xD;&#xA;&#xD;&#xA;/**&#xD;&#xA; * @generated&#xD;&#xA; */&#xD;&#xA;public class SysReqRoleLabelFigure extends org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel {&#xD;&#xA;&#xD;&#xA;&#x9;/**&#xD;&#xA;&#x9; * @generated&#xD;&#xA;&#x9; */&#xD;&#xA;&#x9;public SysReqRoleLabelFigure() {&#x9;&#xD;&#xA;&#x9;&#x9;&#xD;&#xA;&#xD;&#xA;&#x9;&#x9;this.setText(&quot;&lt;SR>&quot;);&#xD;&#xA;&#x9;&#x9;createContents();&#xD;&#xA;&#x9;}&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#x9;/**&#xD;&#xA;&#x9; * @generated&#xD;&#xA;&#x9; */&#xD;&#xA;&#x9;private void createContents(){&#xD;&#xA;&#x9;}&#xD;&#xA;&#x9;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#x9;/**&#xD;&#xA;&#x9; * @generated&#xD;&#xA;&#x9; */&#xD;&#xA;&#x9;private boolean myUseLocalCoordinates = false;&#xD;&#xA;&#xD;&#xA;&#x9;/**&#xD;&#xA;&#x9; * @generated&#xD;&#xA;&#x9; */&#xD;&#xA;&#x9;protected boolean useLocalCoordinates() {&#xD;&#xA;&#x9;&#x9;return myUseLocalCoordinates;&#xD;&#xA;&#x9;}&#xD;&#xA;&#xD;&#xA;&#x9;/**&#xD;&#xA;&#x9; * @generated&#xD;&#xA;&#x9; */&#xD;&#xA;&#x9;protected void setUseLocalCoordinates(boolean useLocalCoordinates) {&#xD;&#xA;&#x9;&#x9;myUseLocalCoordinates = useLocalCoordinates;&#xD;&#xA;&#x9;}&#xD;&#xA;&#x9;&#xD;&#xA;&#xD;&#xA;}&#xD;&#xA;&#x9;&#xD;&#xA;">
-          <requiredPluginIDs>org.eclipse.draw2d</requiredPluginIDs>
-          <requiredPluginIDs>org.eclipse.gmf.runtime.draw2d.ui</requiredPluginIDs>
-        </viewmap>
-        <modelFacet
-            xsi:type="gmfgen:FeatureLabelModelFacet">
-          <metaFeature
-              href="../../pcm.genmodel#//pcm/core/entity/Entity/entityName"/>
-        </modelFacet>
-      </labels>
     </topLevelNodes>
     <links
         visualID="3001"
@@ -338,12 +331,7 @@
     </links>
     <palette>
       <groups
-          title="pcm">
-        <entries
-            xsi:type="gmfgen:ToolEntry"
-            title="ProvidedDelegationConnector"
-            description="Create new ProvidedDelegationConnector"
-            genLinks="//@diagram/@links.1"/>
+          title="Nodes">
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="AssemblyContext"
@@ -351,19 +339,9 @@
             genNodes="//@diagram/@topLevelNodes.0"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
-            title="AssemblyConnector"
-            description="Create new AssemblyConnector"
-            genLinks="//@diagram/@links.0"/>
-        <entries
-            xsi:type="gmfgen:ToolEntry"
-            title="RequiredDelegationConnector"
-            description="Create new RequiredDelegationConnector"
-            genLinks="//@diagram/@links.2"/>
-        <entries
-            xsi:type="gmfgen:ToolEntry"
             title="SystemRequiredRole"
             description="Create new SystemRequiredRole"
-            genNodes="//@diagram/@topLevelNodes.2"/>
+            genNodes="//@diagram/@childNodes.3"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="SpecifiedTimeConsumption"
@@ -372,14 +350,25 @@
             xsi:type="gmfgen:ToolEntry"
             title="SystemProvidedRole"
             description="Create new SystemProvidedRole"
-            genNodes="//@diagram/@topLevelNodes.1"/>
+            genNodes="//@diagram/@childNodes.2"/>
+      </groups>
+      <groups
+          title="Links">
         <entries
             xsi:type="gmfgen:ToolEntry"
-            title="Component"/>
+            title="RequiredDelegationConnector"
+            description="Create new RequiredDelegationConnector"
+            genLinks="//@diagram/@links.2"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
-            title="Role"
-            genNodes="//@diagram/@childNodes.0"/>
+            title="AssemblyConnector"
+            description="Create new AssemblyConnector"
+            genLinks="//@diagram/@links.0"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
+            title="ProvidedDelegationConnector"
+            description="Create new ProvidedDelegationConnector"
+            genLinks="//@diagram/@links.1"/>
       </groups>
     </palette>
   </diagram>
