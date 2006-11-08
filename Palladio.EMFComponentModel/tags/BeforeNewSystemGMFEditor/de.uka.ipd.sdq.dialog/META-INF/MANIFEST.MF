@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Common SDQ Dialogs
+Bundle-SymbolicName: de.uka.ipd.sdq.dialog
+Bundle-Version: 1.0.0.qualifier
+Bundle-Vendor: sdq.ipd.uka.de
+Bundle-Localization: plugin
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.emf,
+ org.eclipse.emf.edit,
+ org.eclipse.emf.edit.ui
+Export-Package: de.uka.ipd.sdq.dialogs.selection
