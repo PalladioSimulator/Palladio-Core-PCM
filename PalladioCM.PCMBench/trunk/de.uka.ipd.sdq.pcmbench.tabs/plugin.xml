@@ -10,6 +10,7 @@
             typeMapper="de.uka.ipd.sdq.pcmbench.tabs.PropertyTypeMapper">
          <propertyCategory category="component"/>
          <propertyCategory category="interface"/>
+         <propertyCategory category="operations"/>
          <propertyCategory category="advanced"/>
       </propertyContributor>
    </extension> <extension
@@ -23,6 +24,10 @@
                category="interface"
                id="de.uka.ipd.sdq.pcmbench.interfaceTab"
                label="Interface"/>
+          <propertyTab
+               category="operations"
+               id="de.uka.ipd.sdq.pcmbench.operationsTab"
+               label="Operations"/>
          <propertyTab
                afterTab="Component,Interface"
                category="advanced"
@@ -45,6 +50,12 @@
                tab="de.uka.ipd.sdq.pcmbench.interfaceTab">
             <input type="de.uka.ipd.sdq.pcm.repository.Interface"/>
         </propertySection>
+          <propertySection
+               class="de.uka.ipd.sdq.pcmbench.tabs.OperationsPropertySection"
+               id="de.uka.ipd.sdq.pcmbench.operationsTab.section"
+               tab="de.uka.ipd.sdq.pcmbench.operationsTab">
+            <input type="de.uka.ipd.sdq.pcm.repository.Interface"/>
+         </propertySection>
          <propertySection
                class="de.uka.ipd.sdq.pcmbench.tabs.AdvancedPropertySection"
                id="de.uka.ipd.sdq.pcmbench.advancedTab.section"
