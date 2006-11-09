@@ -17,13 +17,13 @@ import org.eclipse.swt.widgets.Composite;
 
 /**
  * @author Ihssane
- *
+ * 
  */
-public class ChartSwtViewer implements PaintListener{
-	
+public class ChartSwtViewer implements PaintListener {
+
 	private IDeviceRenderer idr = null;
 	private Chart cm = null;
-	
+
 	/**
 	 * @param idr
 	 * @param cm
@@ -31,17 +31,15 @@ public class ChartSwtViewer implements PaintListener{
 	public ChartSwtViewer(IDeviceRenderer idr, Chart cm) {
 		this.idr = idr;
 		this.cm = cm;
-		
+
 	}
-
-
 
 	public void paintControl(PaintEvent pe) {
 		idr.setProperty(IDeviceRenderer.GRAPHICS_CONTEXT, pe.gc);
 		Composite co = (Composite) pe.getSource();
 		Rectangle re = co.getClientArea();
 		Bounds bo = BoundsImpl.create(re.x, re.y, re.width, re.height);
-		bo.scale(72d / idr.getDisplayServer().getDpiResolution()); // BOUNDS
+		bo.scale(72d / idr.getDisplayServer().getDpiResolution());
 
 		Generator gr = Generator.instance();
 		GeneratedChartState state;
@@ -54,5 +52,5 @@ public class ChartSwtViewer implements PaintListener{
 			System.exit(1);
 		}
 	}
-	
+
 }
