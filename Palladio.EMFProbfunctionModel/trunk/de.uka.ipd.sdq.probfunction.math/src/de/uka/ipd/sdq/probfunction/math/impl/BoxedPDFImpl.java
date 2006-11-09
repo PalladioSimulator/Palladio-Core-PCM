@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
 
 import de.uka.ipd.sdq.probfunction.math.IBoxedPDF;
@@ -188,7 +189,7 @@ public class BoxedPDFImpl extends ProbabilityDensityFunctionImpl
 		if (p < 0 || p > 100)
 			throw new IndexOutOfBoundsException();
 
-		int rank = (int) Math.round((p * (samples.size() + 1.0)) / 100.0);
+		int rank = (int) Math.round((p * (samples.size() - 1.0)) / 100.0);
 		return samples.get(rank).getProbability();
 	}
 
@@ -247,4 +248,25 @@ public class BoxedPDFImpl extends ProbabilityDensityFunctionImpl
 		}
 		return bpdf;
 	}
+
+	/**
+	 * 
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		if (obj instanceof IBoxedPDF) {
+			IBoxedPDF pdf = (IBoxedPDF) obj;
+
+			if (pdf.getSamples().size() != samples.size())
+				return false;
+
+			Iterator<IContinuousSample> iter = pdf.getSamples().iterator();
+			for (IContinuousSample s : samples)
+				if (!s.equals(iter.next()))
+					return false;
+			return true;
+		}
+		return false;
+	}
+
 }
