@@ -9,8 +9,11 @@ import org.eclipse.draw2d.ConnectionAnchor;
 import org.eclipse.draw2d.Ellipse;
 import org.eclipse.draw2d.EllipseAnchor;
 import org.eclipse.draw2d.IFigure;
+import org.eclipse.draw2d.PositionConstants;
 import org.eclipse.draw2d.RectangleFigure;
 import org.eclipse.draw2d.StackLayout;
+import org.eclipse.draw2d.geometry.Point;
+import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
 import org.eclipse.gef.GraphicalEditPart;
@@ -27,6 +30,8 @@ import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
 
+import de.uka.ipd.sdq.pcm.gmf.system.AbstractRotatingBorderItemEditPart;
+import de.uka.ipd.sdq.pcm.gmf.system.BallOrSocketFigure;
 import de.uka.ipd.sdq.pcm.gmf.system.edit.policies.PcmExtNodeLabelHostLayoutEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.system.edit.policies.RoleCanonicalEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.system.edit.policies.RoleItemSemanticEditPolicy;
@@ -35,17 +40,12 @@ import de.uka.ipd.sdq.pcm.gmf.system.part.PcmVisualIDRegistry;
 /**
  * @generated NOT
  */
-public class RoleEditPart extends AbstractBorderItemEditPart {
+public class RoleEditPart extends AbstractRotatingBorderItemEditPart {
 
 	/**
 	 * @generated
 	 */
 	public static final int VISUAL_ID = 2001;
-
-	/**
-	 * @generated
-	 */
-	protected IFigure contentPane;
 
 	/**
 	 * @generated
@@ -56,7 +56,7 @@ public class RoleEditPart extends AbstractBorderItemEditPart {
 	 * @generated
 	 */
 	public RoleEditPart(View view) {
-		super(view);
+		super(view,30,16);
 	}
 
 	/**
@@ -66,9 +66,6 @@ public class RoleEditPart extends AbstractBorderItemEditPart {
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
 				new RoleItemSemanticEditPolicy());
-		installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE,
-				getPrimaryDragEditPolicy());
-
 		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE,
 				new RoleCanonicalEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
@@ -118,84 +115,16 @@ public class RoleEditPart extends AbstractBorderItemEditPart {
 	 * @generated NOT
 	 */
 	protected IFigure createNodeShape() {
-		return primaryShape = new Ellipse();
+		return primaryShape = new BallOrSocketFigure(BallOrSocketFigure.BALL_TYPE);
 	}
 
 	/**
 	 * @generated NOT
 	 */
-	public Ellipse getPrimaryShape() {
-		return (Ellipse) primaryShape;
+	public BallOrSocketFigure getPrimaryShape() {
+		return (BallOrSocketFigure) primaryShape;
 	}
 
-	protected ConnectionAnchor defaultAnchor = null;
-	
-	/**
-	 * @generated NOT
-	 */
-	protected NodeFigure createNodePlate() {
-		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(getMapMode()
-				.DPtoLP(20), getMapMode().DPtoLP(20)) {
-					
-					/* (non-Javadoc)
-					 * @see org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure#createDefaultAnchor()
-					 */
-					@Override
-					protected ConnectionAnchor createDefaultAnchor() {
-					    if (defaultAnchor == null)
-					    	return super.createDefaultAnchor();
-					    else
-					    	return defaultAnchor;
-					}
-
-		};
-		//FIXME: workaround for #154536
-		result.getBounds().setSize(result.getPreferredSize());
-		return result;
-	}
-
-	/**
-	 * Creates figure for this edit part.
-	 * 
-	 * Body of this method does not depend on settings in generation model
-	 * so you may safely remove <i>generated</i> tag and modify it.
-	 * 
-	 * @generated
-	 */
-	protected NodeFigure createNodeFigure() {
-		NodeFigure figure = createNodePlate();
-		figure.setLayoutManager(new StackLayout());
-		IFigure shape = createNodeShape();
-		figure.add(shape);
-		defaultAnchor = new EllipseAnchor(figure);
-		contentPane = setupContentPane(shape);
-		return figure;
-	}
-
-	/**
-	 * Default implementation treats passed figure as content pane.
-	 * Respects layout one may have set for generated figure.
-	 * @param nodeShape instance of generated figure class
-	 * @generated
-	 */
-	protected IFigure setupContentPane(IFigure nodeShape) {
-		if (nodeShape.getLayoutManager() == null) {
-			ConstrainedToolbarLayout layout = new ConstrainedToolbarLayout();
-			layout.setSpacing(getMapMode().DPtoLP(5));
-			nodeShape.setLayoutManager(layout);
-		}
-		return nodeShape; // use nodeShape itself as contentPane
-	}
-
-	/**
-	 * @generated
-	 */
-	public IFigure getContentPane() {
-		if (contentPane != null) {
-			return contentPane;
-		}
-		return super.getContentPane();
-	}
 
 	/**
 	 * @generated
@@ -264,4 +193,29 @@ public class RoleEditPart extends AbstractBorderItemEditPart {
 		super.removeNotify();
 	}
 
+	protected Point getAnchorPoint(Point reference) {
+		Rectangle r = Rectangle.SINGLETON;
+		r.setBounds(getPrimaryShape().getBallBounds());
+		r.translate(-1, -1);
+		r.resize(1, 1);
+		getContentPane().translateToAbsolute(r);
+		
+		Point ref = r.getCenter().negate().translate(reference);
+		
+		if (ref.x == 0)
+			return new Point(reference.x, (ref.y > 0) ? r.bottom() : r.y);
+		if (ref.y == 0)
+			return new Point((ref.x > 0) ? r.right() : r.x, reference.y);
+		
+		float dx = (ref.x > 0) ? 0.5f : -0.5f;
+		float dy = (ref.y > 0) ? 0.5f : -0.5f;
+		  
+		// ref.x, ref.y, r.width, r.height != 0 => safe to proceed
+		  
+		float k = (float)(ref.y * r.width) / (ref.x * r.height);
+		k = k * k;
+		  
+		return r.getCenter().translate((int)(r.width * dx / Math.sqrt(1 + k)),
+		                                (int)(r.height * dy / Math.sqrt(1 + 1 / k)));
+	}		
 }

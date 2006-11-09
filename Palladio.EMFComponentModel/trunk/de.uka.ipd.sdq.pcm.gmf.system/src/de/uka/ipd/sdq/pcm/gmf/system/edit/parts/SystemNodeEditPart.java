@@ -21,10 +21,12 @@ import org.eclipse.gmf.runtime.diagram.ui.commands.CreateCommand;
 import org.eclipse.gmf.runtime.diagram.ui.commands.ICommandProxy;
 import org.eclipse.gmf.runtime.diagram.ui.commands.SetBoundsCommand;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.AbstractBorderedShapeEditPart;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.IBorderItemEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CreationEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.DragDropEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
+import org.eclipse.gmf.runtime.diagram.ui.figures.BorderItemLocator;
 import org.eclipse.gmf.runtime.diagram.ui.l10n.DiagramUIMessages;
 import org.eclipse.gmf.runtime.diagram.ui.requests.CreateViewRequest;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
@@ -34,6 +36,7 @@ import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
 
+import de.uka.ipd.sdq.pcm.gmf.system.RotatingBorderItemLocator;
 import de.uka.ipd.sdq.pcm.gmf.system.edit.policies.SystemNodeCanonicalEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.system.edit.policies.SystemNodeGraphicalNodeEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.system.edit.policies.SystemNodeItemSemanticEditPolicy;
@@ -281,6 +284,12 @@ public class SystemNodeEditPart extends AbstractBorderedShapeEditPart {
 			myUseLocalCoordinates = useLocalCoordinates;
 		}
 
+	}
+	
+	protected void addBorderItem(IFigure borderItemContainer,
+			IBorderItemEditPart borderItemEditPart) {
+		borderItemContainer.add(borderItemEditPart.getFigure(),
+			new RotatingBorderItemLocator(getMainFigure()));
 	}
 
 }

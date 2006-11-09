@@ -18,8 +18,13 @@ import org.eclipse.draw2d.RectangleFigure;
 import org.eclipse.draw2d.StackLayout;
 import org.eclipse.draw2d.XYAnchor;
 import org.eclipse.draw2d.XYLayout;
+import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.draw2d.geometry.Point;
 import org.eclipse.draw2d.geometry.Rectangle;
+import org.eclipse.emf.common.notify.Adapter;
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.Notifier;
+import org.eclipse.emf.ecore.util.EContentAdapter;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
 import org.eclipse.gef.GraphicalEditPart;
@@ -31,14 +36,22 @@ import org.eclipse.gef.editpolicies.NonResizableEditPolicy;
 import org.eclipse.gef.requests.CreateRequest;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.AbstractBorderItemEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
+import org.eclipse.gmf.runtime.diagram.ui.editpolicies.BorderItemSelectionEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
+import org.eclipse.gmf.runtime.diagram.ui.figures.IBorderItemLocator;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.internal.figures.CircleFigure;
+import org.eclipse.gmf.runtime.notation.Bounds;
+import org.eclipse.gmf.runtime.notation.Node;
+import org.eclipse.gmf.runtime.notation.NotationPackage;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.layout.RowData;
 
+import de.uka.ipd.sdq.pcm.gmf.system.AbstractRotatingBorderItemEditPart;
+import de.uka.ipd.sdq.pcm.gmf.system.BallOrSocketFigure;
+import de.uka.ipd.sdq.pcm.gmf.system.RotatingBorderItemSelectionEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.system.edit.policies.PcmExtNodeLabelHostLayoutEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.system.edit.policies.SystemProvidedRoleCanonicalEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.system.edit.policies.SystemProvidedRoleGraphicalNodeEditPolicy;
@@ -48,17 +61,12 @@ import de.uka.ipd.sdq.pcm.gmf.system.part.PcmVisualIDRegistry;
 /**
  * @generated NOT
  */
-public class SystemProvidedRoleEditPart extends AbstractBorderItemEditPart {
+public class SystemProvidedRoleEditPart extends AbstractRotatingBorderItemEditPart {
 
 	/**
 	 * @generated
 	 */
 	public static final int VISUAL_ID = 1004;
-
-	/**
-	 * @generated
-	 */
-	protected IFigure contentPane;
 
 	/**
 	 * @generated
@@ -69,7 +77,7 @@ public class SystemProvidedRoleEditPart extends AbstractBorderItemEditPart {
 	 * @generated
 	 */
 	public SystemProvidedRoleEditPart(View view) {
-		super(view);
+		super(view,60,30);
 	}
 
 	/**
@@ -79,8 +87,6 @@ public class SystemProvidedRoleEditPart extends AbstractBorderItemEditPart {
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
 				new SystemProvidedRoleItemSemanticEditPolicy());
-		installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE,
-				getPrimaryDragEditPolicy());
 		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE,
 				new SystemProvidedRoleCanonicalEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
@@ -131,16 +137,7 @@ public class SystemProvidedRoleEditPart extends AbstractBorderItemEditPart {
 	 * @generated NOT
 	 */
 	protected IFigure createNodeShape() {
-		Figure fig = new Figure();
-		fig.setOpaque(false);
-		fig.setLayoutManager(new XYLayout());
-		Ellipse circ1, circ2;
-		fig.add(circ1 = new Ellipse(), new Rectangle(0, 0, 30, 30));
-		fig.add(circ2 = new Ellipse(), new Rectangle(61, 14, 2, 2));
-		PolylineConnection con;
-		fig.add(con = new PolylineConnection());
-		con.setSourceAnchor(new EllipseAnchor(circ1));
-		con.setTargetAnchor(new EllipseAnchor(circ2));
+		Figure fig = new BallOrSocketFigure(BallOrSocketFigure.BALL_TYPE);
 		return primaryShape = fig;
 	}
 
@@ -149,80 +146,6 @@ public class SystemProvidedRoleEditPart extends AbstractBorderItemEditPart {
 	 */
 	public RectangleFigure getPrimaryShape() {
 		return (RectangleFigure) primaryShape;
-	}
-
-	protected ConnectionAnchor defaultAnchor;
-
-	/**
-	 * @generated NOT
-	 */
-	protected NodeFigure createNodePlate() {
-		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(getMapMode()
-				.DPtoLP(60), getMapMode().DPtoLP(30)) {
-
-			/*
-			 * (non-Javadoc)
-			 * 
-			 * @see org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure#createDefaultAnchor()
-			 */
-			@Override
-			protected ConnectionAnchor createDefaultAnchor() {
-				if (defaultAnchor == null)
-					return super.createDefaultAnchor();
-				else
-					return defaultAnchor;
-			}
-		};
-		// FIXME: workaround for #154536
-		result.getBounds().setSize(result.getPreferredSize());
-		return result;
-	}
-
-	/**
-	 * Creates figure for this edit part.
-	 * 
-	 * Body of this method does not depend on settings in generation model so
-	 * you may safely remove <i>generated</i> tag and modify it.
-	 * 
-	 * @generated
-	 */
-	protected NodeFigure createNodeFigure() {
-		NodeFigure figure = createNodePlate();
-		figure.setLayoutManager(new StackLayout());
-		IFigure shape = createNodeShape();
-		figure.add(shape);
-		defaultAnchor = new AbstractConnectionAnchor(figure) {
-
-			public Point getLocation(Point reference) {
-				Rectangle r = Rectangle.SINGLETON;
-				r.setBounds(getOwner().getBounds());
-				getOwner().translateToAbsolute(r);
-				
-				Point p = new Point(r.width, r.height/2);
-				
-				return r.getTopLeft().translate(p);
-			}
-
-		};
-		contentPane = setupContentPane(shape);
-		return figure;
-	}
-
-	/**
-	 * Default implementation treats passed figure as content pane. Respects
-	 * layout one may have set for generated figure.
-	 * 
-	 * @param nodeShape
-	 *            instance of generated figure class
-	 * @generated
-	 */
-	protected IFigure setupContentPane(IFigure nodeShape) {
-		if (nodeShape.getLayoutManager() == null) {
-			ConstrainedToolbarLayout layout = new ConstrainedToolbarLayout();
-			layout.setSpacing(getMapMode().DPtoLP(5));
-			nodeShape.setLayoutManager(layout);
-		}
-		return nodeShape; // use nodeShape itself as contentPane
 	}
 
 	/**

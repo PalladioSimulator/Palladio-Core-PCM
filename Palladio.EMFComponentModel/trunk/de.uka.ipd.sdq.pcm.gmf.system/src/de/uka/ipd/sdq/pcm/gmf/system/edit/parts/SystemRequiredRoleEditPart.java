@@ -6,8 +6,11 @@ package de.uka.ipd.sdq.pcm.gmf.system.edit.parts;
 import java.util.Iterator;
 
 import org.eclipse.draw2d.Ellipse;
+import org.eclipse.draw2d.Figure;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.StackLayout;
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.ecore.util.EContentAdapter;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
 import org.eclipse.gef.GraphicalEditPart;
@@ -23,9 +26,15 @@ import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
+import org.eclipse.gmf.runtime.notation.Bounds;
+import org.eclipse.gmf.runtime.notation.Node;
+import org.eclipse.gmf.runtime.notation.NotationPackage;
 import org.eclipse.gmf.runtime.notation.View;
 
+import de.uka.ipd.sdq.pcm.gmf.system.AbstractRotatingBorderItemEditPart;
 import de.uka.ipd.sdq.pcm.gmf.system.ArcFigure;
+import de.uka.ipd.sdq.pcm.gmf.system.BallOrSocketFigure;
+import de.uka.ipd.sdq.pcm.gmf.system.RotatingBorderItemSelectionEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.system.edit.policies.PcmExtNodeLabelHostLayoutEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.system.edit.policies.SystemRequiredRoleCanonicalEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.system.edit.policies.SystemRequiredRoleGraphicalNodeEditPolicy;
@@ -35,7 +44,7 @@ import de.uka.ipd.sdq.pcm.gmf.system.part.PcmVisualIDRegistry;
 /**
  * @generated NOT
  */
-public class SystemRequiredRoleEditPart extends AbstractBorderItemEditPart {
+public class SystemRequiredRoleEditPart extends AbstractRotatingBorderItemEditPart {
 
 	/**
 	 * @generated
@@ -56,7 +65,7 @@ public class SystemRequiredRoleEditPart extends AbstractBorderItemEditPart {
 	 * @generated
 	 */
 	public SystemRequiredRoleEditPart(View view) {
-		super(view);
+		super(view,60,30);
 	}
 
 	/**
@@ -66,8 +75,6 @@ public class SystemRequiredRoleEditPart extends AbstractBorderItemEditPart {
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
 				new SystemRequiredRoleItemSemanticEditPolicy());
-		installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE,
-				getPrimaryDragEditPolicy());
 		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE,
 				new SystemRequiredRoleCanonicalEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
@@ -118,7 +125,7 @@ public class SystemRequiredRoleEditPart extends AbstractBorderItemEditPart {
 	 * @generated NOT
 	 */
 	protected IFigure createNodeShape() {
-		ArcFigure fig = new ArcFigure();
+		Figure fig = new BallOrSocketFigure(BallOrSocketFigure.SOCKET_TYPE);
 		return primaryShape = fig;
 	}
 
@@ -127,49 +134,6 @@ public class SystemRequiredRoleEditPart extends AbstractBorderItemEditPart {
 	 */
 	public ArcFigure getPrimaryShape() {
 		return (ArcFigure) primaryShape;
-	}
-
-	/**
-	 * @generated NOT
-	 */
-	protected NodeFigure createNodePlate() {
-		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(getMapMode()
-				.DPtoLP(30), getMapMode().DPtoLP(30));
-		//FIXME: workaround for #154536
-		result.getBounds().setSize(result.getPreferredSize());
-		return result;
-	}
-
-	/**
-	 * Creates figure for this edit part.
-	 * 
-	 * Body of this method does not depend on settings in generation model
-	 * so you may safely remove <i>generated</i> tag and modify it.
-	 * 
-	 * @generated
-	 */
-	protected NodeFigure createNodeFigure() {
-		NodeFigure figure = createNodePlate();
-		figure.setLayoutManager(new StackLayout());
-		IFigure shape = createNodeShape();
-		figure.add(shape);
-		contentPane = setupContentPane(shape);
-		return figure;
-	}
-
-	/**
-	 * Default implementation treats passed figure as content pane.
-	 * Respects layout one may have set for generated figure.
-	 * @param nodeShape instance of generated figure class
-	 * @generated
-	 */
-	protected IFigure setupContentPane(IFigure nodeShape) {
-		if (nodeShape.getLayoutManager() == null) {
-			ConstrainedToolbarLayout layout = new ConstrainedToolbarLayout();
-			layout.setSpacing(getMapMode().DPtoLP(5));
-			nodeShape.setLayoutManager(layout);
-		}
-		return nodeShape; // use nodeShape itself as contentPane
 	}
 
 	/**

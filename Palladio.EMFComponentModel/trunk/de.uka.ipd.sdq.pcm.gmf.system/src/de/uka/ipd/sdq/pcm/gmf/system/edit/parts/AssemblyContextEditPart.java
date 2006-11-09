@@ -13,14 +13,17 @@ import org.eclipse.gef.editpolicies.LayoutEditPolicy;
 import org.eclipse.gef.editpolicies.NonResizableEditPolicy;
 import org.eclipse.gef.requests.CreateRequest;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.AbstractBorderedShapeEditPart;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.IBorderItemEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CreationEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.DragDropEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
+import org.eclipse.gmf.runtime.diagram.ui.editpolicies.RotatableShapeEditPolicy;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
 
+import de.uka.ipd.sdq.pcm.gmf.system.RotatingBorderItemLocator;
 import de.uka.ipd.sdq.pcm.gmf.system.edit.policies.AssemblyContextCanonicalEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.system.edit.policies.AssemblyContextGraphicalNodeEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.system.edit.policies.AssemblyContextItemSemanticEditPolicy;
@@ -285,4 +288,9 @@ public class AssemblyContextEditPart extends AbstractBorderedShapeEditPart {
 		return figure;
 	}
 
+	protected void addBorderItem(IFigure borderItemContainer,
+			IBorderItemEditPart borderItemEditPart) {
+		borderItemContainer.add(borderItemEditPart.getFigure(),
+			new RotatingBorderItemLocator(getMainFigure()));
+	}	
 }

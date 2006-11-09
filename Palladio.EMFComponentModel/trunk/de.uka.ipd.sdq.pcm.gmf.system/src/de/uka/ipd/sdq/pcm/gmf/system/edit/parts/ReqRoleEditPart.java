@@ -31,7 +31,9 @@ import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.graphics.Color;
 
+import de.uka.ipd.sdq.pcm.gmf.system.AbstractRotatingBorderItemEditPart;
 import de.uka.ipd.sdq.pcm.gmf.system.ArcFigure;
+import de.uka.ipd.sdq.pcm.gmf.system.BallOrSocketFigure;
 import de.uka.ipd.sdq.pcm.gmf.system.edit.policies.PcmExtNodeLabelHostLayoutEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.system.edit.policies.ReqRoleItemSemanticEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.system.edit.policies.RoleCanonicalEditPolicy;
@@ -40,7 +42,7 @@ import de.uka.ipd.sdq.pcm.gmf.system.part.PcmVisualIDRegistry;
 /**
  * @generated NOT
  */
-public class ReqRoleEditPart extends AbstractBorderItemEditPart {
+public class ReqRoleEditPart extends AbstractRotatingBorderItemEditPart {
 
 	/**
 	 * @generated
@@ -63,7 +65,7 @@ public class ReqRoleEditPart extends AbstractBorderItemEditPart {
 	 * @generated
 	 */
 	public ReqRoleEditPart(View view) {
-		super(view);
+		super(view,30,16);
 	}
 
 	/**
@@ -73,9 +75,6 @@ public class ReqRoleEditPart extends AbstractBorderItemEditPart {
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
 				new ReqRoleItemSemanticEditPolicy());
-		installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE,
-				getPrimaryDragEditPolicy());
-
 		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE,
 				new RoleCanonicalEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
@@ -125,86 +124,17 @@ public class ReqRoleEditPart extends AbstractBorderItemEditPart {
 	 * @generated NOT
 	 */
 	protected IFigure createNodeShape() {
-//		RectangleFigure rect = new RectangleFigure();
-//		rect.setBackgroundColor(ColorConstants.black);
-		ArcFigure fig = new ArcFigure();
+		BallOrSocketFigure fig = new BallOrSocketFigure(BallOrSocketFigure.SOCKET_TYPE);
 		return primaryShape = fig;
 	}
 
 	/**
 	 * @generated NOT
 	 */
-	public ArcFigure getPrimaryShape() {
-		return (ArcFigure) primaryShape;
+	public BallOrSocketFigure getPrimaryShape() {
+		return (BallOrSocketFigure) primaryShape;
 	}
 
-	/**
-	 * @generated NOT
-	 */
-	protected NodeFigure createNodePlate() {
-		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(getMapMode()
-				.DPtoLP(20), getMapMode().DPtoLP(20)){
-			
-			/* (non-Javadoc)
-			 * @see org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure#createDefaultAnchor()
-			 */
-			@Override
-			protected ConnectionAnchor createDefaultAnchor() {
-			    if (defaultAnchor == null)
-			    	return super.createDefaultAnchor();
-			    else
-			    	return defaultAnchor;
-			}
-		};
-		//FIXME: workaround for #154536
-		result.getBounds().setSize(result.getPreferredSize());
-		return result;
-	}
-
-	/**
-	 * Creates figure for this edit part.
-	 * 
-	 * Body of this method does not depend on settings in generation model
-	 * so you may safely remove <i>generated</i> tag and modify it.
-	 * 
-	 * @generated
-	 */
-	protected NodeFigure createNodeFigure() {
-		NodeFigure figure = createNodePlate();
-		figure.setLayoutManager(new StackLayout());
-		IFigure shape = createNodeShape();
-		figure.add(shape);
-		defaultAnchor = new AbstractConnectionAnchor(figure) {
-
-			public Point getLocation(Point reference) {
-				Rectangle r = Rectangle.SINGLETON;
-				r.setBounds(getOwner().getBounds());
-				r.translate(-1, -1);
-				r.resize(1, 1);
-				getOwner().translateToAbsolute(r);
-				
-				return r.getCenter();
-			}
-			
-		};
-		contentPane = setupContentPane(shape);
-		return figure;
-	}
-
-	/**
-	 * Default implementation treats passed figure as content pane.
-	 * Respects layout one may have set for generated figure.
-	 * @param nodeShape instance of generated figure class
-	 * @generated
-	 */
-	protected IFigure setupContentPane(IFigure nodeShape) {
-		if (nodeShape.getLayoutManager() == null) {
-			ConstrainedToolbarLayout layout = new ConstrainedToolbarLayout();
-			layout.setSpacing(getMapMode().DPtoLP(5));
-			nodeShape.setLayoutManager(layout);
-		}
-		return nodeShape; // use nodeShape itself as contentPane
-	}
 
 	/**
 	 * @generated
@@ -283,4 +213,13 @@ public class ReqRoleEditPart extends AbstractBorderItemEditPart {
 		super.removeNotify();
 	}
 
+	protected Point getAnchorPoint(Point reference) {
+		Rectangle r = Rectangle.SINGLETON;
+		r.setBounds(getPrimaryShape().getBallBounds());
+		r.translate(-1, -1);
+		r.resize(1, 1);
+		getContentPane().translateToAbsolute(r);
+		  
+		return r.getCenter();
+	}		
 }
