@@ -13,7 +13,13 @@
   <providedDelegationConnectors_ComposedStructure id="_5zI3UmgoEduoNbuXVdA7Cg" entityName="" outerProvidedRole_ProvidedDelegationConnector="_bnJEtGgmEduoNbuXVdA7Cg" childComponentContext_ProvidedDelegationConnector="_ILouQGgmEduoNbuXVdA7Cg">
     <innerProvidedRole_ProvidedDelegationConnector href="DSolverExample1.repository#_sTcKUDQaEduaPaOP6VcQiw"/>
   </providedDelegationConnectors_ComposedStructure>
+  <providedDelegationConnectors_ComposedStructure id="_L8vGQHAGEduM17cwNTLmIQ" outerProvidedRole_ProvidedDelegationConnector="_LR9q8HAGEduM17cwNTLmIQ" childComponentContext_ProvidedDelegationConnector="_ILouQGgmEduoNbuXVdA7Cg">
+    <innerProvidedRole_ProvidedDelegationConnector href="DSolverExample1.repository#_sTcKUDQaEduaPaOP6VcQiw"/>
+  </providedDelegationConnectors_ComposedStructure>
   <systemProvidedRole_System id="_bnJEtGgmEduoNbuXVdA7Cg" entityName="">
+    <providedInterface__ProvidedRole href="DSolverExample1.repository#_iu2OpTQaEduaPaOP6VcQiw"/>
+  </systemProvidedRole_System>
+  <systemProvidedRole_System id="_LR9q8HAGEduM17cwNTLmIQ">
     <providedInterface__ProvidedRole href="DSolverExample1.repository#_iu2OpTQaEduaPaOP6VcQiw"/>
   </systemProvidedRole_System>
   <allocation_System href="DSolverExample1.allocation#_bF9YMDZrEduqqrLaEKboKw"/>

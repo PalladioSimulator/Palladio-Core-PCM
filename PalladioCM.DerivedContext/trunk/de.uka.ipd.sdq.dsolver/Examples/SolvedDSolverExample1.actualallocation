@@ -7,6 +7,9 @@
     <actualResourceDemands_ActualAllocationContext randomVariable_ActualResourceDemand="/">
       <parametricResourceDemand_ActualResourceDemand href="DSolverExample1.repository#//@components__Repository.0/@serviceEffectSpecifications__BasicComponent.0/@parametricResourceDemands_Behaviour.0"/>
     </actualResourceDemands_ActualAllocationContext>
+    <actualResourceDemands_ActualAllocationContext randomVariable_ActualResourceDemand="/">
+      <parametricResourceDemand_ActualResourceDemand href="DSolverExample1.repository#//@components__Repository.0/@serviceEffectSpecifications__BasicComponent.0/@parametricResourceDemands_Behaviour.1"/>
+    </actualResourceDemands_ActualAllocationContext>
     <usageContext_ActualAllocationContext href="SolvedDSolverExample1.usage#//@usageContext_Usage.1"/>
   </actualAllocationContext_ActualAllocation>
 </context.allocation:ActualAllocation>
