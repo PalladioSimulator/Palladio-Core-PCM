@@ -15,12 +15,8 @@ import org.eclipse.birt.chart.exception.ChartException;
 import org.eclipse.birt.chart.internal.log.DefaultLoggerImpl;
 import org.eclipse.birt.chart.model.Chart;
 import org.eclipse.birt.chart.model.ChartWithAxes;
-import org.eclipse.birt.chart.model.attribute.AxisType;
 import org.eclipse.birt.chart.model.attribute.ChartDimension;
 import org.eclipse.birt.chart.model.attribute.ColorDefinition;
-import org.eclipse.birt.chart.model.attribute.IntersectionType;
-import org.eclipse.birt.chart.model.attribute.Position;
-import org.eclipse.birt.chart.model.attribute.TickStyle;
 import org.eclipse.birt.chart.model.attribute.impl.ColorDefinitionImpl;
 import org.eclipse.birt.chart.model.component.Axis;
 import org.eclipse.birt.chart.model.component.Series;
@@ -34,7 +30,9 @@ import org.eclipse.birt.chart.model.data.impl.TextDataSetImpl;
 import org.eclipse.birt.chart.model.impl.ChartWithAxesImpl;
 import org.eclipse.birt.chart.model.layout.Plot;
 import org.eclipse.birt.chart.model.type.BarSeries;
+import org.eclipse.birt.chart.model.type.LineSeries;
 import org.eclipse.birt.chart.model.type.impl.BarSeriesImpl;
+import org.eclipse.birt.chart.model.type.impl.LineSeriesImpl;
 import org.eclipse.birt.chart.util.PluginSettings;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.GridData;
@@ -56,14 +54,23 @@ import de.uka.ipd.sdq.probfunction.math.exception.DoubleSampleException;
  * @author Ihssane
  * 
  */
-public class Visualization  {
-	
+public class Visualization {
+
 	public static final int SWING_APPL = 0;
 	public static final int SWT_APPL = 1;
+	public static final int BARCHART = 0;
+	public static final int LINECHART = 1;
+	private static final String EMPTY_TITLE = "";
+	private static final ColorDefinition DEFAULt_BACKGROUND = ColorDefinitionImpl
+			.WHITE();
 
 	private IDeviceRenderer idr = null;
 	private Chart cm = null;
 	private int startAs = SWING_APPL;
+	private int chartTyp = BARCHART;
+	private int domainLength = 0;
+	private List<Object> values;
+	private List<Double> probabilities;
 
 	private String frameTilte = EMPTY_TITLE;
 	private String chartTitle = EMPTY_TITLE;
@@ -74,13 +81,9 @@ public class Visualization  {
 	private boolean isXAxisTitleVisible = false;
 	private boolean isYAxisTitleVisible = false;
 
-	private static final String EMPTY_TITLE = "";
-	private static final ColorDefinition DEFAULt_BACKGROUND = ColorDefinitionImpl
-			.WHITE();
-
 	public Visualization() {
 		System.setProperty("STANDALONE", "true");
-		
+
 	}
 
 	public static void main(String[] ihs) {
@@ -88,32 +91,43 @@ public class Visualization  {
 		IProbabilityFunctionFactory pfFactory = IProbabilityFunctionFactory.eINSTANCE;
 
 		List<IContinuousSample> samples = new ArrayList<IContinuousSample>();
-		Collections.addAll(samples, pfFactory.createContinuousSample(0.9, 0.3),
+		Collections.addAll(samples, pfFactory.createContinuousSample(0.9, 0.2),
 				pfFactory.createContinuousSample(1.5, 0.4), pfFactory
 						.createContinuousSample(1.8, 0.2), pfFactory
-						.createContinuousSample(2.4, 0.1));
+						.createContinuousSample(2.4, 0.1), pfFactory
+						.createContinuousSample(0.7, 0.1));
 		IBoxedPDF boxed = null;
 		try {
 			boxed = pfFactory.createBoxedPDF(samples, null);
 		} catch (DoubleSampleException e) {
 			e.printStackTrace();
 		}
-		
-		
-		
 
-		scv.addBoxedPDF(boxed);
 		scv.startAs(Visualization.SWT_APPL);
+		scv.setChartTyp(Visualization.BARCHART);
+		// scv.setDomainLength(5);
+		scv.addBoxedPDF(boxed);
+		scv.exportChartToPNG("chart.png");
 		scv.visualize();
 
 	}
 
+	private void createChart() {
+		if (values == null || probabilities == null) {
+			System.err.println("no data to visualize !");
+			return;
+		}
+		createChart(values, probabilities);
+	}
+	
 	public void visualize() {
-		if(startAs == SWT_APPL)
+		createChart();
+		if (startAs == SWT_APPL)
 			renderOnSwt();
 		else
 			renderOnSwing();
 	}
+
 	private void renderOnSwt() {
 		final PluginSettings ps = PluginSettings.instance();
 		try {
@@ -121,9 +135,9 @@ public class Visualization  {
 		} catch (ChartException pex) {
 			DefaultLoggerImpl.instance().log(pex);
 		}
-		
+
 		ChartSwtViewer csv = new ChartSwtViewer(idr, cm);
-		
+
 		GridLayout gl = new GridLayout();
 		gl.numColumns = 1;
 		Display d = Display.getDefault();
@@ -143,7 +157,7 @@ public class Visualization  {
 			}
 		}
 	}
-	
+
 	private void renderOnSwing() {
 		final PluginSettings ps = PluginSettings.instance();
 		try {
@@ -157,13 +171,14 @@ public class Visualization  {
 		Container co = jf.getContentPane();
 		co.setLayout(new BorderLayout());
 		co.add(csv, BorderLayout.CENTER);
-//		 CENTER WINDOW ON SCREEN, ETC
+		// CENTER WINDOW ON SCREEN, ETC
 		Dimension dScreen = Toolkit.getDefaultToolkit().getScreenSize();
 		Dimension dApp = new Dimension(800, 700);
 		jf.setSize(dApp);
-		jf.setLocation((dScreen.width - dApp.width)/2, (dScreen.height - dApp.height) / 2);
+		jf.setLocation((dScreen.width - dApp.width) / 2,
+				(dScreen.height - dApp.height) / 2);
 		jf.setTitle(frameTilte);
-		jf.setVisible(true); 
+		jf.setVisible(true);
 	}
 
 	public void addProbabilityFunction(IProbabilityFunction pf) {
@@ -190,7 +205,8 @@ public class Visualization  {
 			values.add(s.getValue());
 			probs.add(s.getProbability());
 		}
-		createChart(values, probs);
+		this.values = values;
+		this.probabilities = probs;
 	}
 
 	/**
@@ -200,7 +216,8 @@ public class Visualization  {
 		List<Object> values = new ArrayList<Object>();
 		for (int i = 1; i <= spdf.getValues().size(); i++)
 			values.add(new Double(i));
-		createChart(values, spdf.getValuesAsDouble());
+		this.values = values;
+		this.probabilities = spdf.getValuesAsDouble();
 	}
 
 	/**
@@ -213,7 +230,8 @@ public class Visualization  {
 			values.add(s.getValue());
 			probs.add(s.getProbability());
 		}
-		createChart(values, probs);
+		this.values = values;
+		this.probabilities = probs;
 	}
 
 	@SuppressWarnings("unchecked")
@@ -223,7 +241,7 @@ public class Visualization  {
 		ChartWithAxes cwaBar = ChartWithAxesImpl.create();
 		cwaBar.getBlock().setBackground(backgroung);
 		cwaBar.getBlock().getOutline().setVisible(true);
-		cwaBar.setDimension(ChartDimension.TWO_DIMENSIONAL_WITH_DEPTH_LITERAL);
+		cwaBar.setDimension(ChartDimension.TWO_DIMENSIONAL_LITERAL);
 
 		// CUSTOMIZE THE PLOT
 		Plot p = cwaBar.getPlot();
@@ -242,26 +260,30 @@ public class Visualization  {
 
 		// CUSTOMIZE THE X-AXIS
 		Axis xAxisPrimary = cwaBar.getPrimaryBaseAxes()[0];
-		xAxisPrimary.setType(AxisType.TEXT_LITERAL);
-		xAxisPrimary.getMajorGrid().setTickStyle(TickStyle.BELOW_LITERAL);
-		xAxisPrimary.getOrigin().setType(IntersectionType.VALUE_LITERAL);
+		// xAxisPrimary.setType(AxisType.TEXT_LITERAL);
+		// xAxisPrimary.getMajorGrid().setTickStyle(TickStyle.BELOW_LITERAL);
+		// xAxisPrimary.getOrigin().setType(IntersectionType.VALUE_LITERAL);
 		xAxisPrimary.getTitle().getCaption().setValue(xAxisTitle);
 		xAxisPrimary.getTitle().setVisible(isXAxisTitleVisible);
 
 		// CUSTOMIZE THE Y-AXIS
 		Axis yAxisPrimary = cwaBar.getPrimaryOrthogonalAxis(xAxisPrimary);
-		yAxisPrimary.getMajorGrid().setTickStyle(TickStyle.LEFT_LITERAL);
-		yAxisPrimary.getMajorGrid().setTickCount(2);
-		yAxisPrimary.getMajorGrid().setTickSize(10);
-		yAxisPrimary.setType(AxisType.LINEAR_LITERAL);
-		yAxisPrimary.getLabel().getCaption().getFont().setRotation(90);
+		// yAxisPrimary.getMajorGrid().setTickStyle(TickStyle.LEFT_LITERAL);
+		// yAxisPrimary.getMajorGrid().setTickCount(2);
+		// yAxisPrimary.getMajorGrid().setTickSize(10);
+		// yAxisPrimary.setType(AxisType.LINEAR_LITERAL);
+		// yAxisPrimary.getLabel().getCaption().getFont().setRotation(90);
 		yAxisPrimary.getTitle().getCaption().setValue(yAxisTitle);
 		yAxisPrimary.getTitle().setVisible(isYAxisTitleVisible);
 
+		if (domainLength > 0 && domainLength <= values.size()) {
+			values = values.subList(0, domainLength);
+			prob = prob.subList(0, domainLength);
+		}
 		// INITIALIZE A COLLECTION WITH THE X-SERIES DATA
-		// INITIALIZE A COLLECTION WITH THE Y-SERIES DATA
-
 		TextDataSet categoryValues = TextDataSetImpl.create(values);
+
+		// INITIALIZE A COLLECTION WITH THE Y-SERIES DATA
 		NumberDataSet orthoValues1 = NumberDataSetImpl.create(prob);
 
 		// CREATE THE CATEGORY BASE SERIES
@@ -270,13 +292,21 @@ public class Visualization  {
 		seCategory.setDataSet(categoryValues);
 
 		// CREATE THE VALUE ORTHOGONAL SERIES
+		Series series = null;
+		if (chartTyp == LINECHART) {
+			series = (LineSeries) LineSeriesImpl.create();
+			cwaBar.setDimension(ChartDimension.TWO_DIMENSIONAL_LITERAL);
+		} else {
+			series = (BarSeries) BarSeriesImpl.create();
+			cwaBar
+					.setDimension(ChartDimension.TWO_DIMENSIONAL_WITH_DEPTH_LITERAL);
+		}
 
-		BarSeries bs1 = (BarSeries) BarSeriesImpl.create();
-		bs1.setSeriesIdentifier("My Bar Series");
-		bs1.setDataSet(orthoValues1);
-		// bs1.setRiserOutline(null);
-		bs1.getLabel().setVisible(true);
-		bs1.setLabelPosition(Position.INSIDE_LITERAL);
+		// CREATE THE VALUE ORTHOGONAL SERIES
+		series.setSeriesIdentifier("My Bar Series");
+		series.setDataSet(orthoValues1);
+		series.getLabel().setVisible(true);
+		// series.setLabelPosition(Position.INSIDE_LITERAL);
 
 		// WRAP THE BASE SERIES IN THE X-AXIS SERIES DEFINITION
 
@@ -290,13 +320,21 @@ public class Visualization  {
 		SeriesDefinition sdY = SeriesDefinitionImpl.create();
 		sdY.getSeriesPalette().update(1); // SET THE COLOR IN THE PALETTE
 		yAxisPrimary.getSeriesDefinitions().add(sdY);
-		sdY.getSeries().add(bs1);
+		sdY.getSeries().add(series);
 
 		cm = cwaBar;
 	}
 
-	
-	
+	public void exportChartToPNG(String fileName) {
+		if (values == null || probabilities == null) {
+			System.err.println("no data to visualize !");
+			return;
+		}
+		createChart(values, probabilities);
+		
+		PNGExporter pngr = new PNGExporter(cm);
+		pngr.exportChartToPNGImage(fileName);
+	}
 
 	/**
 	 * 
@@ -423,6 +461,33 @@ public class Visualization  {
 	 */
 	public void setYAxisTitle(String axisTitle) {
 		yAxisTitle = axisTitle;
+	}
+
+	/**
+	 * @return the chartTyp
+	 */
+	public int getChartTyp() {
+		return chartTyp;
+	}
+
+	/**
+	 * @param chartTyp
+	 *            the chartTyp to set
+	 */
+	public void setChartTyp(int chartTyp) {
+		if (chartTyp != BARCHART && chartTyp != LINECHART) {
+			System.err.println("Illegal chart typ: " + chartTyp);
+			return;
+		}
+		this.chartTyp = chartTyp;
+	}
+
+	/**
+	 * @param domainLength
+	 *            the domainLength to set
+	 */
+	public void setDomainLength(int domainLength) {
+		this.domainLength = domainLength;
 	}
 
 }
