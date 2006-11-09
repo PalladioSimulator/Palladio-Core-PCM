@@ -87,7 +87,7 @@ public class SystemNodeEditPart extends AbstractBorderedShapeEditPart {
 					CreateViewRequest.ViewDescriptor descriptor =
 						(CreateViewRequest.ViewDescriptor)descriptors.next();
 
-					if (descriptor.getSemanticHint().equals("1001")) {
+					if (descriptor.getSemanticHint() != null && descriptor.getSemanticHint().equals("1001")) {
 						CreateCommand createCommand =
 							new CreateCommand(editingDomain,
 								descriptor, 
