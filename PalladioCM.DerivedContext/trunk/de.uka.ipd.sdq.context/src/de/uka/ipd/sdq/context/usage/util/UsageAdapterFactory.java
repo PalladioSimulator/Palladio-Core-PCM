@@ -25,6 +25,13 @@ import org.eclipse.emf.ecore.EObject;
  */
 public class UsageAdapterFactory extends AdapterFactoryImpl {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "Copyright 2006, SDQ Group, University Karlsruhe (TH)";
+
+	/**
 	 * The cached model package.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

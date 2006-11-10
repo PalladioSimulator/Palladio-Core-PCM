@@ -28,6 +28,13 @@ import org.eclipse.emf.ecore.EReference;
  */
 public interface UsagePackage extends EPackage {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	String copyright = "Copyright 2006, SDQ Group, University Karlsruhe (TH)";
+
+	/**
 	 * The package name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

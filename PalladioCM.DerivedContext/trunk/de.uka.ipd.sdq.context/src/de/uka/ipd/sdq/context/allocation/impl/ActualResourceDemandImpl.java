@@ -37,6 +37,13 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  */
 public class ActualResourceDemandImpl extends EObjectImpl implements ActualResourceDemand {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "Copyright 2006, SDQ Group, University Karlsruhe (TH)";
+
+	/**
 	 * The cached value of the '{@link #getParametricResourceDemand_ActualResourceDemand() <em>Parametric Resource Demand Actual Resource Demand</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

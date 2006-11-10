@@ -35,6 +35,13 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  */
 public class BranchProbabilityImpl extends EObjectImpl implements BranchProbability {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "Copyright 2006, SDQ Group, University Karlsruhe (TH)";
+
+	/**
 	 * The default value of the '{@link #getProbability() <em>Probability</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

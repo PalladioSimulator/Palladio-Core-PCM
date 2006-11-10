@@ -24,6 +24,13 @@ import org.eclipse.emf.ecore.plugin.EcorePlugin;
  */
 public class AllocationFactoryImpl extends EFactoryImpl implements AllocationFactory {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "Copyright 2006, SDQ Group, University Karlsruhe (TH)";
+
+	/**
 	 * Creates the default factory implementation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

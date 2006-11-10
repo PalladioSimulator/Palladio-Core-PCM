@@ -39,6 +39,13 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class ActualAllocationImpl extends EObjectImpl implements ActualAllocation {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "Copyright 2006, SDQ Group, University Karlsruhe (TH)";
+
+	/**
 	 * The cached value of the '{@link #getActualAllocationContext_ActualAllocation() <em>Actual Allocation Context Actual Allocation</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -28,6 +28,13 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface ActualAllocation extends EObject {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	String copyright = "Copyright 2006, SDQ Group, University Karlsruhe (TH)";
+
+	/**
 	 * Returns the value of the '<em><b>Actual Allocation Context Actual Allocation</b></em>' containment reference list.
 	 * The list contents are of type {@link de.uka.ipd.sdq.context.allocation.ActualAllocationContext}.
 	 * <!-- begin-user-doc -->

@@ -44,6 +44,13 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class UsageContextImpl extends EObjectImpl implements UsageContext {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "Copyright 2006, SDQ Group, University Karlsruhe (TH)";
+
+	/**
 	 * The cached value of the '{@link #getBranchprobabilities_UsageContext() <em>Branchprobabilities Usage Context</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

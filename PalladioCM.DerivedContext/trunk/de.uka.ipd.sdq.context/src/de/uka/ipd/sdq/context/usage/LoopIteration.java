@@ -31,6 +31,13 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface LoopIteration extends EObject {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	String copyright = "Copyright 2006, SDQ Group, University Karlsruhe (TH)";
+
+	/**
 	 * Returns the value of the '<em><b>Loopaction Loop Iteration</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>

@@ -39,6 +39,13 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class UsageImpl extends EObjectImpl implements Usage {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "Copyright 2006, SDQ Group, University Karlsruhe (TH)";
+
+	/**
 	 * The cached value of the '{@link #getUsageContext_Usage() <em>Usage Context Usage</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
