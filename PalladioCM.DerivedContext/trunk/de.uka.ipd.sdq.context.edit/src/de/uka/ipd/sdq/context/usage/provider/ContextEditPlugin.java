@@ -8,7 +8,7 @@ package de.uka.ipd.sdq.context.usage.provider;
 
 import de.uka.ipd.sdq.identifier.provider.IdentifierEditPlugin;
 
-import de.uka.ipd.sdq.pcm.assembly.provider.PcmEditPlugin;
+import de.uka.ipd.sdq.pcm.core.stochastics.provider.PcmEditPlugin;
 
 import de.uka.ipd.sdq.probfunction.provider.ProbabilityFunctionEditPlugin;
 

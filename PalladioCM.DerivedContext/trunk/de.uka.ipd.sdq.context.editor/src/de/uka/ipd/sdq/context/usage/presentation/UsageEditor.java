@@ -162,7 +162,7 @@ import de.uka.ipd.sdq.context.allocation.provider.AllocationItemProviderAdapterF
 
 import de.uka.ipd.sdq.identifier.provider.IdentifierItemProviderAdapterFactory;
 
-import de.uka.ipd.sdq.pcm.assembly.provider.AssemblyItemProviderAdapterFactory;
+import de.uka.ipd.sdq.pcm.core.composition.provider.CompositionItemProviderAdapterFactory;
 
 import de.uka.ipd.sdq.pcm.core.connectors.provider.ConnectorsItemProviderAdapterFactory;
 
@@ -708,10 +708,10 @@ public class UsageEditor
 		factories.add(new UsageItemProviderAdapterFactory());
 		factories.add(new AllocationItemProviderAdapterFactory());
 		factories.add(new IdentifierItemProviderAdapterFactory());
-		factories.add(new AssemblyItemProviderAdapterFactory());
 		factories.add(new StochasticsItemProviderAdapterFactory());
 		factories.add(new EntityItemProviderAdapterFactory());
 		factories.add(new ConnectorsItemProviderAdapterFactory());
+		factories.add(new CompositionItemProviderAdapterFactory());
 		factories.add(new RepositoryItemProviderAdapterFactory());
 		factories.add(new ProtocolItemProviderAdapterFactory());
 		factories.add(new SeffItemProviderAdapterFactory());

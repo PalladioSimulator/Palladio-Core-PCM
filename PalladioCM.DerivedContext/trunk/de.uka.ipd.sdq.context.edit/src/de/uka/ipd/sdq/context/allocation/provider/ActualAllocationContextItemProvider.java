@@ -4,19 +4,14 @@
  *
  * $Id$
  */
-package de.uka.ipd.sdq.context.usage.provider;
+package de.uka.ipd.sdq.context.allocation.provider;
 
 
-import de.uka.ipd.sdq.context.usage.LoopIteration;
-import de.uka.ipd.sdq.context.usage.UsagePackage;
+import de.uka.ipd.sdq.context.allocation.ActualAllocationContext;
+import de.uka.ipd.sdq.context.allocation.AllocationFactory;
+import de.uka.ipd.sdq.context.allocation.AllocationPackage;
 
-import de.uka.ipd.sdq.pcm.core.stochastics.StochasticsFactory;
-
-import de.uka.ipd.sdq.pcm.parameter.ParameterFactory;
-
-import de.uka.ipd.sdq.pcm.seff.SeffFactory;
-
-import de.uka.ipd.sdq.pcm.system.SystemFactory;
+import de.uka.ipd.sdq.context.usage.provider.ContextEditPlugin;
 
 import java.util.Collection;
 import java.util.List;
@@ -36,12 +31,12 @@ import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link de.uka.ipd.sdq.context.usage.LoopIteration} object.
+ * This is the item provider adapter for a {@link de.uka.ipd.sdq.context.allocation.ActualAllocationContext} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class LoopIterationItemProvider
+public class ActualAllocationContextItemProvider
 	extends ItemProviderAdapter
 	implements	
 		IEditingDomainItemProvider,	
@@ -55,7 +50,7 @@ public class LoopIterationItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public LoopIterationItemProvider(AdapterFactory adapterFactory) {
+	public ActualAllocationContextItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -69,25 +64,25 @@ public class LoopIterationItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addLoopaction_LoopIterationPropertyDescriptor(object);
+			addUsageContext_ActualAllocationContextPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Loopaction Loop Iteration feature.
+	 * This adds a property descriptor for the Usage Context Actual Allocation Context feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addLoopaction_LoopIterationPropertyDescriptor(Object object) {
+	protected void addUsageContext_ActualAllocationContextPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_LoopIteration_loopaction_LoopIteration_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_LoopIteration_loopaction_LoopIteration_feature", "_UI_LoopIteration_type"),
-				 UsagePackage.Literals.LOOP_ITERATION__LOOPACTION_LOOP_ITERATION,
+				 getString("_UI_ActualAllocationContext_usageContext_ActualAllocationContext_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ActualAllocationContext_usageContext_ActualAllocationContext_feature", "_UI_ActualAllocationContext_type"),
+				 AllocationPackage.Literals.ACTUAL_ALLOCATION_CONTEXT__USAGE_CONTEXT_ACTUAL_ALLOCATION_CONTEXT,
 				 true,
 				 false,
 				 true,
@@ -107,19 +102,19 @@ public class LoopIterationItemProvider
 	public Collection getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(UsagePackage.Literals.LOOP_ITERATION__ITERATIONS_LOOP_ITERATION);
+			childrenFeatures.add(AllocationPackage.Literals.ACTUAL_ALLOCATION_CONTEXT__ACTUAL_RESOURCE_DEMANDS_ACTUAL_ALLOCATION_CONTEXT);
 		}
 		return childrenFeatures;
 	}
 
 	/**
-	 * This returns LoopIteration.gif.
+	 * This returns ActualAllocationContext.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/LoopIteration"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/ActualAllocationContext"));
 	}
 
 	/**
@@ -129,7 +124,7 @@ public class LoopIterationItemProvider
 	 * @generated
 	 */
 	public String getText(Object object) {
-		return getString("_UI_LoopIteration_type");
+		return getString("_UI_ActualAllocationContext_type");
 	}
 
 	/**
@@ -142,8 +137,8 @@ public class LoopIterationItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(LoopIteration.class)) {
-			case UsagePackage.LOOP_ITERATION__ITERATIONS_LOOP_ITERATION:
+		switch (notification.getFeatureID(ActualAllocationContext.class)) {
+			case AllocationPackage.ACTUAL_ALLOCATION_CONTEXT__ACTUAL_RESOURCE_DEMANDS_ACTUAL_ALLOCATION_CONTEXT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -162,43 +157,8 @@ public class LoopIterationItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(UsagePackage.Literals.LOOP_ITERATION__ITERATIONS_LOOP_ITERATION,
-				 StochasticsFactory.eINSTANCE.createRandomVariable()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(UsagePackage.Literals.LOOP_ITERATION__ITERATIONS_LOOP_ITERATION,
-				 SeffFactory.eINSTANCE.createParametricResourceDemand()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(UsagePackage.Literals.LOOP_ITERATION__ITERATIONS_LOOP_ITERATION,
-				 SeffFactory.eINSTANCE.createPrimitiveParametricParameterUsage()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(UsagePackage.Literals.LOOP_ITERATION__ITERATIONS_LOOP_ITERATION,
-				 SeffFactory.eINSTANCE.createIterationCount()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(UsagePackage.Literals.LOOP_ITERATION__ITERATIONS_LOOP_ITERATION,
-				 SeffFactory.eINSTANCE.createCollectionParametricParameterUsage()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(UsagePackage.Literals.LOOP_ITERATION__ITERATIONS_LOOP_ITERATION,
-				 ParameterFactory.eINSTANCE.createPrimitiveParameterCharacterisation()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(UsagePackage.Literals.LOOP_ITERATION__ITERATIONS_LOOP_ITERATION,
-				 ParameterFactory.eINSTANCE.createCollectionParameterCharacterisation()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(UsagePackage.Literals.LOOP_ITERATION__ITERATIONS_LOOP_ITERATION,
-				 SystemFactory.eINSTANCE.createSpecifiedTimeConsumption()));
+				(AllocationPackage.Literals.ACTUAL_ALLOCATION_CONTEXT__ACTUAL_RESOURCE_DEMANDS_ACTUAL_ALLOCATION_CONTEXT,
+				 AllocationFactory.eINSTANCE.createActualResourceDemand()));
 	}
 
 	/**
