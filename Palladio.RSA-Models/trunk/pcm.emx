@@ -584,7 +584,7 @@
               <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_kyHtrTpfEduKtOWw2f6nDA"/>
             </children>
             <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_kyHtoTpfEduKtOWw2f6nDA" fillColor="65535" lineColor="0" showStereotype="Label"/>
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_kyHtojpfEduKtOWw2f6nDA" x="-4134" y="2544"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_kyHtojpfEduKtOWw2f6nDA" x="-8883" y="1316"/>
           </children>
           <children xmi:id="_3riEIDuSEduKtOWw2f6nDA" sourceEdges="_6QpFMDuSEduKtOWw2f6nDA" element="_GIDLsPdxEdqB_7dkOscBPA">
             <children xmi:id="_3riEIzuSEduKtOWw2f6nDA" type="ImageCompartment" element="_GIDLsPdxEdqB_7dkOscBPA">
@@ -645,7 +645,7 @@
               <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_avBx3VOqEduyKfhIjBdbtA"/>
             </children>
             <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_avBx0VOqEduyKfhIjBdbtA" lineColor="0" showStereotype="Label"/>
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_avBx0lOqEduyKfhIjBdbtA" x="-4075" y="6376"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_avBx0lOqEduyKfhIjBdbtA" x="-8883" y="5922"/>
           </children>
           <children xmi:id="_uSkp8FOqEduyKfhIjBdbtA" sourceEdges="_v-TzAFOqEduyKfhIjBdbtA _xPE3UFOqEduyKfhIjBdbtA _7r1xIVOqEduyKfhIjBdbtA" element="_uSRvAFOqEduyKfhIjBdbtA">
             <children xmi:id="_uSkp81OqEduyKfhIjBdbtA" type="ImageCompartment" element="_uSRvAFOqEduyKfhIjBdbtA">
@@ -685,7 +685,7 @@
               <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_-aB1t1OqEduyKfhIjBdbtA"/>
             </children>
             <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_-Z4rwVOqEduyKfhIjBdbtA" lineColor="0" showStereotype="Label"/>
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_-Z4rwlOqEduyKfhIjBdbtA" x="-4022" y="8625"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_-Z4rwlOqEduyKfhIjBdbtA" x="-8883" y="8883"/>
           </children>
           <children xmi:id="_eafkMFnPEduKMvr7Yc-C4g" targetEdges="_p8QXMFnPEduKMvr7Yc-C4g">
             <children xmi:id="_eafkM1nPEduKMvr7Yc-C4g" type="ImageCompartment">
@@ -716,7 +716,7 @@
             </children>
             <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_eafkMVnPEduKMvr7Yc-C4g" showStereotype="Label"/>
             <element xmi:type="uml:Class" href="ProbabilityFunction.emx#_zWMAslYOEduVzvtHWuORYA?probfunction/ProbabilityFunction"/>
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_eafkMlnPEduKMvr7Yc-C4g" x="-4452" y="17808"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_eafkMlnPEduKMvr7Yc-C4g" x="-5593" y="18095"/>
           </children>
           <children xmi:id="_mILBkFnPEduKMvr7Yc-C4g" sourceEdges="_oHIooVnPEduKMvr7Yc-C4g _p8QXMFnPEduKMvr7Yc-C4g" element="_mG-uwFnPEduKMvr7Yc-C4g">
             <children xmi:id="_mILBk1nPEduKMvr7Yc-C4g" type="ImageCompartment" element="_mG-uwFnPEduKMvr7Yc-C4g">
