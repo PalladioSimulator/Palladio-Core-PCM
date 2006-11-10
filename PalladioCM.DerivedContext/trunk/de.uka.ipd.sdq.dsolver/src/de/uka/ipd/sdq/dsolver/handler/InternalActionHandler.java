@@ -78,10 +78,12 @@ public class InternalActionHandler extends AbstractHandler{
 					//rv.setSpecification_RandomVariable(expression);
 					rv.setSpecification(specification);
 					
-
+					
 					ActualResourceDemand ard = actualAllocationFactory
 							.createActualResourceDemand();
 					ard.setParametricResourceDemand_ActualResourceDemand(prd);
+					ard.setParametricResourceDemand_ActualResourceDemand(prd);
+
 					ard.setRandomVariable_ActualResourceDemand(rv);
 
 					myContext.getActualAllocationContext()

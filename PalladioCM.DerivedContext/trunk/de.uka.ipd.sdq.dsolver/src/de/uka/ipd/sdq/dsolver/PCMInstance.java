@@ -6,7 +6,6 @@ import java.util.Collections;
 import java.util.Properties;
 
 import org.apache.log4j.Logger;
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -21,12 +20,7 @@ import de.uka.ipd.sdq.context.usage.Usage;
 import de.uka.ipd.sdq.context.usage.UsageFactory;
 import de.uka.ipd.sdq.pcm.allocation.Allocation;
 import de.uka.ipd.sdq.pcm.allocation.AllocationPackage;
-import de.uka.ipd.sdq.pcm.core.stochastics.CompareExpression;
-import de.uka.ipd.sdq.pcm.core.stochastics.Expression;
-import de.uka.ipd.sdq.pcm.core.stochastics.StochasticsFactory;
 import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
-import de.uka.ipd.sdq.pcm.parameter.ParameterUsage;
-import de.uka.ipd.sdq.pcm.parameter.PrimitiveParameterCharacterisation;
 import de.uka.ipd.sdq.pcm.repository.Repository;
 import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceEnvironment;
@@ -35,9 +29,7 @@ import de.uka.ipd.sdq.pcm.resourcetype.ResourceRepository;
 import de.uka.ipd.sdq.pcm.resourcetype.ResourcetypePackage;
 import de.uka.ipd.sdq.pcm.seff.SeffPackage;
 import de.uka.ipd.sdq.pcm.system.SystemPackage;
-import de.uka.ipd.sdq.pcm.usagemodel.EntryLevelSystemCall;
 import de.uka.ipd.sdq.pcm.usagemodel.UsageModel;
-import de.uka.ipd.sdq.pcm.usagemodel.UsageScenario;
 import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
 
 public class PCMInstance {
@@ -68,16 +60,6 @@ public class PCMInstance {
 		this.usage = UsageFactory.eINSTANCE.createUsage();
 		this.actualAllocation = AllocationFactory.eINSTANCE.createActualAllocation();
 		loadFromFiles(config);
-		
-//		UsageScenario us = (UsageScenario) usageModel.getUsageScenario_UsageModel().get(0);
-//		EList actions = us.getScenarioBehaviour_UsageScenario().getActions_ScenarioBehaviour();
-//		EntryLevelSystemCall elsc = (EntryLevelSystemCall) actions.get(1);
-//		EList blah = elsc.getActualParameterUsage_EntryLevelSystemCall();
-//		ParameterUsage parUsage = (ParameterUsage) blah.get(0);
-//		PrimitiveParameterCharacterisation ppc = (PrimitiveParameterCharacterisation) parUsage
-//				.getParameterCharacterisation_ParameterUsage().get(0);
-//		CompareExpression exp = StochasticsFactory.eINSTANCE.createCompareExpression();
-//		ppc.setSpecification_RandomVariable(exp);
 	}
 
 	public Allocation getAllocation() {

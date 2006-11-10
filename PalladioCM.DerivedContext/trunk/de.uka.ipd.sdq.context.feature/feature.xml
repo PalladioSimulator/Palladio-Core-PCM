@@ -231,6 +231,11 @@ litigation.
       <import plugin="org.eclipse.ui.ide"/>
    </requires>
 
+
+   <includes
+         id="de.uka.ipd.sdq.context.feature.source"
+         version="0.0.0"/>
+         
    <plugin
          id="de.uka.ipd.sdq.context"
          download-size="0"

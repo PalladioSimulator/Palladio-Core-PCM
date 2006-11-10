@@ -61,7 +61,7 @@
         id = "de.uka.ipd.sdq.context.allocation.presentation.AllocationEditorID"
         name = "%_UI_AllocationEditor_label"
         icon = "icons/full/obj16/AllocationModelFile.gif"
-        extensions = "allocation"
+        extensions = "actualallocation"
         class = "de.uka.ipd.sdq.context.allocation.presentation.AllocationEditor" 
         contributorClass="de.uka.ipd.sdq.context.allocation.presentation.AllocationActionBarContributor" >
     </editor>
