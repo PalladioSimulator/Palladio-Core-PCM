@@ -17,6 +17,7 @@ import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
+import org.eclipse.gmf.runtime.gef.ui.figures.SlidableAnchor;
 import org.eclipse.gmf.runtime.notation.Bounds;
 import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.NotationPackage;
@@ -77,6 +78,11 @@ public abstract class AbstractRotatingBorderItemEditPart extends
 				else
 					return defaultAnchor;
 			}
+			
+			public ConnectionAnchor getConnectionAnchor(String terminal) {
+				return createDefaultAnchor();
+			}
+			
 		};
 		// FIXME: workaround for #154536
 		result.getBounds().setSize(result.getPreferredSize());
