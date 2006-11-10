@@ -23,6 +23,12 @@ public class OperationsPropertySectionTable {
 	private Table table;
 	private ToolBar toolBar;
 	private ToolItem addItem, deleteItem;
+
+	public static final int EXCEPTIONS_COLUMN_INDEX = 4;
+	public static final int SIGNATURENAME_COLUMN_INDEX = 2;
+	public static final int RETURNTYPE_COLUMN_INDEX = 1;
+	public static final int PARAMETER_COLUMN_INDEX = 3;
+	public static final int ICON_COLUMN_INDEX = 0;
 	
 	final String OWNEDPARAMETER_COLUMN 		= "OwnedParameters";
 	final String RETURNTYPE_COLUMN	 		= "ReturnType";
@@ -32,9 +38,9 @@ public class OperationsPropertySectionTable {
 
 	// Set column names
 	String[] columnNames = new String[] { 
-			OWNEDPARAMETER_COLUMN,
 			RETURNTYPE_COLUMN,
 			SERVICENAME_COLUMN,
+			OWNEDPARAMETER_COLUMN,
 			EXEPTIONTYPE_COLUM 		
 			};
 	

@@ -34,7 +34,7 @@ import de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF;
 import de.uka.ipd.sdq.pcmbench.EditingDomainFactory;
 import de.uka.ipd.sdq.pcmbench.actions.OpenRepositoryAction;
 import de.uka.ipd.sdq.pcmbench.actions.OpenSEFFDiagramAction;
-import de.uka.ipd.sdq.pcmbench.provider.GenericCategoryItemProvider;
+import de.uka.ipd.sdq.pcmbench.ui.provider.categoryaware.GenericCategoryItemProvider;
 
 /**
  * @author Snowball

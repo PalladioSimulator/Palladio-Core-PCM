@@ -56,20 +56,20 @@ public class CellModifierImpl implements ICellModifier {
 			Signature signature = (Signature)element;
 			
 			switch (columnIndex) {
-				case 0:
+				case OperationsPropertySectionTable.ICON_COLUMN_INDEX:
 					break;
-				case 1 :
+				case OperationsPropertySectionTable.PARAMETER_COLUMN_INDEX :
 					result = setParametersToString(signature.getParameters__Signature());
 					break;
-				case 2 :
+				case OperationsPropertySectionTable.RETURNTYPE_COLUMN_INDEX :
 					if(signature.getReturntype__Signature() != null){
 						result = signature.getReturntype__Signature().getType(); 
 					} else result = "void";
 					break;
-				case 3 :
+				case OperationsPropertySectionTable.SIGNATURENAME_COLUMN_INDEX :
 					result = signature.getServiceName();
 					break;
-				case 4 :
+				case OperationsPropertySectionTable.EXCEPTIONS_COLUMN_INDEX :
 					result = setParametersToString(signature.getExceptions__Signature());
 					break;
 				default :
@@ -91,17 +91,17 @@ public class CellModifierImpl implements ICellModifier {
 		String valueString;
 	
 		switch (columnIndex) {
-			case 0 : // COMPLETED_COLUMN 
+			case OperationsPropertySectionTable.ICON_COLUMN_INDEX : // COMPLETED_COLUMN 
 				break;
-			case 1 : // OWNEDPARAMETER_COLUMN 
+			case OperationsPropertySectionTable.PARAMETER_COLUMN_INDEX : // OWNEDPARAMETER_COLUMN 
 				break;
-			case 2 : // RETURNTYPE_COLUMN 
+			case OperationsPropertySectionTable.RETURNTYPE_COLUMN_INDEX : // RETURNTYPE_COLUMN 
 				break;
-			case 3 : // SERVICENAME_COLUMN
+			case OperationsPropertySectionTable.SIGNATURENAME_COLUMN_INDEX : // SERVICENAME_COLUMN
 				valueString = ((String) value).trim();
 				textChanged(valueString);
 				break;
-			case 4 : // EXEPTIONTYPE_COLUM 
+			case OperationsPropertySectionTable.EXCEPTIONS_COLUMN_INDEX : // EXEPTIONTYPE_COLUM 
 				break;
 			default :
 		}

@@ -7,16 +7,16 @@ import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemProviderDecorator;
 import org.eclipse.emf.edit.provider.ITableItemLabelProvider;
 
-public class DecoratedAdapterFactory extends DecoratorAdapterFactory {
+public class OperationsTabItemProviderAdapterFactory extends DecoratorAdapterFactory {
 
-	public DecoratedAdapterFactory(AdapterFactory adapterFactory) {
+	public OperationsTabItemProviderAdapterFactory(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
 	@Override
 	protected IItemProviderDecorator createItemProviderDecorator(Object target,
 			Object type) {
-		IItemProviderDecorator decorator = new DecoratedItemProvider(this);
+		IItemProviderDecorator decorator = new OperationsTabItemProvider(this);
 		if (type == ITableItemLabelProvider.class)
 		{
 			decorator.setDecoratedItemProvider((IChangeNotifier)decoratedAdapterFactory.adapt(target, IItemLabelProvider.class));

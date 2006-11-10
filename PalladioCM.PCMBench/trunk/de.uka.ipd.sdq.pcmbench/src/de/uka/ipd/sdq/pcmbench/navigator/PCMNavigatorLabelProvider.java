@@ -25,10 +25,12 @@ import de.uka.ipd.sdq.pcm.repository.RequiredRole;
 import de.uka.ipd.sdq.pcm.repository.provider.RepositoryItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.seff.ServiceEffectSpecification;
 import de.uka.ipd.sdq.pcm.seff.provider.SeffItemProviderAdapterFactory;
-import de.uka.ipd.sdq.pcmbench.provider.CategoryAwareAdapterFactory;
-import de.uka.ipd.sdq.pcmbench.provider.CategoryDescriptor;
-import de.uka.ipd.sdq.pcmbench.provider.GenericCategoryItemProvider;
-import de.uka.ipd.sdq.pcmbench.provider.ICategoryDescriptions;
+import de.uka.ipd.sdq.pcmbench.nature.PalladioProjectNature;
+import de.uka.ipd.sdq.pcmbench.ui.provider.PalladioItemProviderAdapterFactory;
+import de.uka.ipd.sdq.pcmbench.ui.provider.categoryaware.CategoryAwareItemProviderAdapterFactory;
+import de.uka.ipd.sdq.pcmbench.ui.provider.categoryaware.CategoryDescriptor;
+import de.uka.ipd.sdq.pcmbench.ui.provider.categoryaware.GenericCategoryItemProvider;
+import de.uka.ipd.sdq.pcmbench.ui.provider.categoryaware.ICategoryDescriptions;
 
 public class PCMNavigatorLabelProvider implements ILabelProvider {
 
@@ -46,7 +48,8 @@ public class PCMNavigatorLabelProvider implements ILabelProvider {
 		adapterFactory
 				.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
 		
-		AdapterFactory decoratorFactory = new CategoryAwareAdapterFactory(adapterFactory, new ICategoryDescriptions(){
+		AdapterFactory palladioFactory = new PalladioItemProviderAdapterFactory(adapterFactory);
+		AdapterFactory decoratorFactory = new CategoryAwareItemProviderAdapterFactory(palladioFactory, new ICategoryDescriptions(){
 
 			public Collection<CategoryDescriptor> getCategoriesForObject(EObject object) {
 				if (object instanceof Repository)
@@ -97,26 +100,7 @@ public class PCMNavigatorLabelProvider implements ILabelProvider {
 		{
 			return "Linked Repositories";
 		}
-		if (element instanceof GenericCategoryItemProvider)
-		{
-			return labelContentProvider.getText(element);
-		}
-		if (element instanceof EObject)
-		{
-			EObject selectedObject = (EObject) element;
-			String result = ""; 
-			if (selectedObject instanceof Entity)
-			{
-				Entity e = (Entity)selectedObject;
-				result = e.getEntityName() + " [ID: " + e.getId() +"]";
-			}
-			else
-			{
-				result =  labelContentProvider.getText(selectedObject);
-			}
-			return result;
-		}
-		return null;
+		return labelContentProvider.getText(element);
 	}
 
 	public void addListener(ILabelProviderListener listener) {

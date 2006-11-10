@@ -18,7 +18,8 @@ import de.uka.ipd.sdq.pcm.seff.provider.SeffItemProviderAdapterFactory;
 
 /**
  * @author Snowball
- * An EMF Label Provider (see the EMF bible for details on LabelProvider).
+ * An Label Provider (see the EMF bible for details on LabelProvider) for the labels of the heading
+ * of any single tab sheet.
  * This label provider mostly delegates the calls to it to the generated
  * LabelProvider in the PCM.Edit plugin.
  */
@@ -54,7 +55,6 @@ implements
 			 */
 			@Override
 			public void notifyChanged(Notification notification) {
-				// TODO Auto-generated method stub
 				super.notifyChanged(notification);
 				fireLabelProviderChanged();
 			}

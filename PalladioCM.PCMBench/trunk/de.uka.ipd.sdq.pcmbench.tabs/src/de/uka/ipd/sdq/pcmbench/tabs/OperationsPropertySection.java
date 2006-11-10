@@ -22,7 +22,7 @@ import de.uka.ipd.sdq.pcm.repository.Interface;
 import de.uka.ipd.sdq.pcm.repository.provider.RepositoryItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.seff.provider.SeffItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcmbench.tabs.table.OperationsPropertySectionTable;
-import de.uka.ipd.sdq.pcmbench.tabs.table.DecoratedAdapterFactory;
+import de.uka.ipd.sdq.pcmbench.tabs.table.OperationsTabItemProviderAdapterFactory;
 
 
 /**
@@ -67,7 +67,7 @@ extends AbstractPropertySection {
 		tableViewer.setContentProvider(new AdapterFactoryContentProvider(
 				adapterFactory));
 		tableViewer.setLabelProvider(new AdapterFactoryLabelProvider(
-				new DecoratedAdapterFactory(adapterFactory)));
+				new OperationsTabItemProviderAdapterFactory(adapterFactory)));
 		
 	}
 

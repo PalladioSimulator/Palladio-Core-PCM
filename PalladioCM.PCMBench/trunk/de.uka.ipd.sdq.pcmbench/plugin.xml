@@ -196,13 +196,13 @@
             <or>
                <instanceof value="org.eclipse.core.resources.IProject"/>
                <instanceof value="org.eclipse.emf.ecore.EObject"/>
-               <instanceof value="de.uka.ipd.sdq.pcmbench.provider.GenericCategoryItemProvider"/>
+               <instanceof value="de.uka.ipd.sdq.pcmbench.ui.provider.GenericCategoryItemProvider"/>
             </or>
          </enablement>
          <possibleChildren>
             <or>
                <instanceof value="org.eclipse.emf.ecore.EObject"/>
-               <instanceof value="de.uka.ipd.sdq.pcmbench.provider.GenericCategoryItemProvider"/>
+               <instanceof value="de.uka.ipd.sdq.pcmbench.ui.provider.GenericCategoryItemProvider"/>
             </or>
          </possibleChildren>
          <actionProvider

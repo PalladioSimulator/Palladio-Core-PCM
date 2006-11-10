@@ -42,10 +42,10 @@ import de.uka.ipd.sdq.pcm.repository.provider.RepositoryItemProviderAdapterFacto
 import de.uka.ipd.sdq.pcm.seff.ServiceEffectSpecification;
 import de.uka.ipd.sdq.pcm.seff.provider.SeffItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcmbench.EditingDomainFactory;
-import de.uka.ipd.sdq.pcmbench.provider.CategoryAwareAdapterFactory;
-import de.uka.ipd.sdq.pcmbench.provider.CategoryDescriptor;
-import de.uka.ipd.sdq.pcmbench.provider.GenericCategoryItemProvider;
-import de.uka.ipd.sdq.pcmbench.provider.ICategoryDescriptions;
+import de.uka.ipd.sdq.pcmbench.ui.provider.categoryaware.CategoryAwareItemProviderAdapterFactory;
+import de.uka.ipd.sdq.pcmbench.ui.provider.categoryaware.CategoryDescriptor;
+import de.uka.ipd.sdq.pcmbench.ui.provider.categoryaware.GenericCategoryItemProvider;
+import de.uka.ipd.sdq.pcmbench.ui.provider.categoryaware.ICategoryDescriptions;
 
 class LinkedRepositoriesNode
 {
@@ -125,7 +125,7 @@ public class PCMNavigatorContentProvider implements ITreeContentProvider {
 		adapterFactory
 				.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
 		
-		AdapterFactory decoratorFactory = new CategoryAwareAdapterFactory(adapterFactory, new ICategoryDescriptions(){
+		AdapterFactory decoratorFactory = new CategoryAwareItemProviderAdapterFactory(adapterFactory, new ICategoryDescriptions(){
 
 			public Collection<CategoryDescriptor> getCategoriesForObject(EObject object) {
 				if (object instanceof Repository)

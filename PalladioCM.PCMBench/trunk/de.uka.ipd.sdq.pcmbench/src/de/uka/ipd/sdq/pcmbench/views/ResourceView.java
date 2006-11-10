@@ -38,9 +38,9 @@ import de.uka.ipd.sdq.pcm.seff.ServiceEffectSpecification;
 import de.uka.ipd.sdq.pcm.seff.provider.SeffItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcmbench.EditingDomainFactory;
 import de.uka.ipd.sdq.pcmbench.actions.OpenRepositoryAction;
-import de.uka.ipd.sdq.pcmbench.provider.CategoryAwareAdapterFactory;
-import de.uka.ipd.sdq.pcmbench.provider.CategoryDescriptor;
-import de.uka.ipd.sdq.pcmbench.provider.ICategoryDescriptions;
+import de.uka.ipd.sdq.pcmbench.ui.provider.categoryaware.CategoryAwareItemProviderAdapterFactory;
+import de.uka.ipd.sdq.pcmbench.ui.provider.categoryaware.CategoryDescriptor;
+import de.uka.ipd.sdq.pcmbench.ui.provider.categoryaware.ICategoryDescriptions;
 
 public class ResourceView 
 extends ViewPart {
@@ -122,7 +122,7 @@ extends ViewPart {
 				| SWT.V_SCROLL | SWT.H_SCROLL);
 		getSite().setSelectionProvider(treeViewer);
 		
-		AdapterFactory decoratorFactory = new CategoryAwareAdapterFactory(adapterFactory, new ICategoryDescriptions(){
+		AdapterFactory decoratorFactory = new CategoryAwareItemProviderAdapterFactory(adapterFactory, new ICategoryDescriptions(){
 
 			public Collection<CategoryDescriptor> getCategoriesForObject(EObject object) {
 				if (object instanceof Repository)

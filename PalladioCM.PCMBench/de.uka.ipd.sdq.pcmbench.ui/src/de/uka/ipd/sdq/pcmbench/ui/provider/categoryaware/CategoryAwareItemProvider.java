@@ -1,4 +1,5 @@
-package de.uka.ipd.sdq.pcmbench.provider;
+package de.uka.ipd.sdq.pcmbench.ui.provider.categoryaware;
+
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -16,13 +17,25 @@ import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemProviderDecorator;
 
-public class CategoryAwareItemProviderDecorator extends ItemProviderDecorator
+/**
+ * @author Snowball
+ * This class implements an IItemProvider which is capable of inserting pseudo-
+ * nodes into the tree based view of its items. These pseudo nodes are used to 
+ * categorise the elements of the root nodes (e.g, Component->{Provided Roles, RequiredRoles, ...}.
+ * Categories are configurable using
+ * EMF Refelection and CategoryDescriptors. This class uses GenericCategoryItemProvider
+ * as child provider to actually render the pseudo nodes. It decorated the item provider
+ * of the model object which should be displayed using categories.
+ */
+public class CategoryAwareItemProvider extends ItemProviderDecorator
 		implements IEditingDomainItemProvider, IStructuredItemContentProvider,
 		ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource,
 		IItemProviderDecorator, IDisposable {
 
 	/* (non-Javadoc)
 	 * @see org.eclipse.emf.edit.provider.ItemProviderDecorator#dispose()
+	 * Remember also to send the dispose() signal to our child item providers for the
+	 * categories
 	 */
 	@Override
 	public void dispose() {
@@ -40,14 +53,14 @@ public class CategoryAwareItemProviderDecorator extends ItemProviderDecorator
 
 	private HashMap<EObject, Collection> childCache = new HashMap<EObject, Collection>();
 
-	public CategoryAwareItemProviderDecorator(AdapterFactory adapterFactory,
+	public CategoryAwareItemProvider(AdapterFactory adapterFactory,
 			ICategoryDescriptions categories) {
 		super(adapterFactory);
 		this.categories = categories;
 	}
 
-	public CategoryAwareItemProviderDecorator(
-			CategoryAwareAdapterFactory factory,
+	public CategoryAwareItemProvider(
+			CategoryAwareItemProviderAdapterFactory factory,
 			ICategoryDescriptions categories) {
 		super(factory);
 		this.categories = categories;
@@ -57,6 +70,9 @@ public class CategoryAwareItemProviderDecorator extends ItemProviderDecorator
 	 * (non-Javadoc)
 	 * 
 	 * @see org.eclipse.emf.edit.provider.ItemProviderDecorator#getChildren(java.lang.Object)
+	 * Get children return now pseudo item providers (GenericCategoryItemProvider) which only
+	 * render the categories and contain themselfs the children of our node - sorted now by
+	 * categories
 	 */
 	@Override
 	public Collection getChildren(Object object) {
