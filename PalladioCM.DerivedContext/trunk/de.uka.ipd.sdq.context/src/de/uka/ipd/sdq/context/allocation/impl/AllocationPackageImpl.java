@@ -18,7 +18,7 @@ import de.uka.ipd.sdq.context.usage.impl.UsagePackageImpl;
 
 import de.uka.ipd.sdq.identifier.IdentifierPackage;
 
-import de.uka.ipd.sdq.pcm.assembly.AssemblyPackage;
+import de.uka.ipd.sdq.pcm.core.composition.CompositionPackage;
 
 import de.uka.ipd.sdq.pcm.core.connectors.ConnectorsPackage;
 
@@ -136,10 +136,10 @@ public class AllocationPackageImpl extends EPackageImpl implements AllocationPac
 
 		// Initialize simple dependencies
 		IdentifierPackage.eINSTANCE.eClass();
-		AssemblyPackage.eINSTANCE.eClass();
 		StochasticsPackage.eINSTANCE.eClass();
 		EntityPackage.eINSTANCE.eClass();
 		ConnectorsPackage.eINSTANCE.eClass();
+		CompositionPackage.eINSTANCE.eClass();
 		RepositoryPackage.eINSTANCE.eClass();
 		ProtocolPackage.eINSTANCE.eClass();
 		SeffPackage.eINSTANCE.eClass();
@@ -236,7 +236,7 @@ public class AllocationPackageImpl extends EPackageImpl implements AllocationPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getActualAllocation_ActualAllocationContexts() {
+	public EReference getActualAllocation_ActualAllocationContext_ActualAllocation() {
 		return (EReference)actualAllocationEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -277,7 +277,7 @@ public class AllocationPackageImpl extends EPackageImpl implements AllocationPac
 		createEReference(actualResourceDemandEClass, ACTUAL_RESOURCE_DEMAND__RANDOM_VARIABLE_ACTUAL_RESOURCE_DEMAND);
 
 		actualAllocationEClass = createEClass(ACTUAL_ALLOCATION);
-		createEReference(actualAllocationEClass, ACTUAL_ALLOCATION__ACTUAL_ALLOCATION_CONTEXTS);
+		createEReference(actualAllocationEClass, ACTUAL_ALLOCATION__ACTUAL_ALLOCATION_CONTEXT_ACTUAL_ALLOCATION);
 	}
 
 	/**
@@ -320,7 +320,7 @@ public class AllocationPackageImpl extends EPackageImpl implements AllocationPac
 		initEReference(getActualResourceDemand_RandomVariable_ActualResourceDemand(), theStochasticsPackage.getRandomVariable(), null, "randomVariable_ActualResourceDemand", null, 1, 1, ActualResourceDemand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(actualAllocationEClass, ActualAllocation.class, "ActualAllocation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getActualAllocation_ActualAllocationContexts(), this.getActualAllocationContext(), null, "actualAllocationContexts", null, 0, -1, ActualAllocation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getActualAllocation_ActualAllocationContext_ActualAllocation(), this.getActualAllocationContext(), null, "actualAllocationContext_ActualAllocation", null, 0, -1, ActualAllocation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

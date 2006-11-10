@@ -19,7 +19,7 @@ import de.uka.ipd.sdq.identifier.IdentifierPackage;
 
 import de.uka.ipd.sdq.pcm.allocation.AllocationPackage;
 
-import de.uka.ipd.sdq.pcm.assembly.AssemblyPackage;
+import de.uka.ipd.sdq.pcm.core.composition.CompositionPackage;
 
 import de.uka.ipd.sdq.pcm.core.connectors.ConnectorsPackage;
 
@@ -145,10 +145,10 @@ public class UsagePackageImpl extends EPackageImpl implements UsagePackage {
 
 		// Initialize simple dependencies
 		IdentifierPackage.eINSTANCE.eClass();
-		AssemblyPackage.eINSTANCE.eClass();
 		StochasticsPackage.eINSTANCE.eClass();
 		EntityPackage.eINSTANCE.eClass();
 		ConnectorsPackage.eINSTANCE.eClass();
+		CompositionPackage.eINSTANCE.eClass();
 		RepositoryPackage.eINSTANCE.eClass();
 		ProtocolPackage.eINSTANCE.eClass();
 		SeffPackage.eINSTANCE.eClass();
@@ -281,7 +281,7 @@ public class UsagePackageImpl extends EPackageImpl implements UsagePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getUsage_UsageContexts() {
+	public EReference getUsage_UsageContext_Usage() {
 		return (EReference)usageEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -327,7 +327,7 @@ public class UsagePackageImpl extends EPackageImpl implements UsagePackage {
 		createEReference(loopIterationEClass, LOOP_ITERATION__ITERATIONS_LOOP_ITERATION);
 
 		usageEClass = createEClass(USAGE);
-		createEReference(usageEClass, USAGE__USAGE_CONTEXTS);
+		createEReference(usageEClass, USAGE__USAGE_CONTEXT_USAGE);
 	}
 
 	/**
@@ -375,7 +375,7 @@ public class UsagePackageImpl extends EPackageImpl implements UsagePackage {
 		initEReference(getLoopIteration_Iterations_LoopIteration(), theStochasticsPackage.getRandomVariable(), null, "iterations_LoopIteration", null, 1, 1, LoopIteration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(usageEClass, Usage.class, "Usage", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getUsage_UsageContexts(), this.getUsageContext(), null, "usageContexts", null, 0, -1, Usage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getUsage_UsageContext_Usage(), this.getUsageContext(), null, "usageContext_Usage", null, 0, -1, Usage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);
