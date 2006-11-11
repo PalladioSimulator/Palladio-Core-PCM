@@ -23,7 +23,6 @@ public class AddNewSignature implements SelectionListener{
 
 	private Interface inputInterface;
 	
-	
 	public static final String EDITING_DOMAIN_ID = "de.uka.ipd.sdq.PCMBench.editingDomain";
 
 	/**
@@ -59,7 +58,7 @@ public class AddNewSignature implements SelectionListener{
 			protected void doExecute() {
 				RepositoryFactory repositoryFactory = new RepositoryFactoryImpl();
 				Signature signature = repositoryFactory.eINSTANCE.createSignature();
-				signature.setServiceName("ServiceName");
+				signature.setServiceName("ServiceName" + (inputInterface.getSignatures__Interface().size()+ 1));
 				inputInterface.getSignatures__Interface().add(signature);
 				
 			}

@@ -2,6 +2,8 @@ package de.uka.ipd.sdq.pcmbench.tabs.table;
 
 import java.util.Arrays;
 
+import org.eclipse.jface.resource.ImageDescriptor;
+import org.eclipse.jface.resource.ImageRegistry;
 import org.eclipse.jface.viewers.CellEditor;
 import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.jface.viewers.TextCellEditor;
@@ -16,6 +18,7 @@ import org.eclipse.swt.widgets.ToolBar;
 import org.eclipse.swt.widgets.ToolItem;
 
 import de.uka.ipd.sdq.pcm.repository.Interface;
+import de.uka.ipd.sdq.pcmbench.tabs.PCMBenchTabsActivator;
 
 public class OperationsPropertySectionTable {
 	
@@ -36,7 +39,7 @@ public class OperationsPropertySectionTable {
 	final String EXEPTIONTYPE_COLUM 		= "ExeptionType";
 	
 
-	// Set column names
+	// Set column names of Tabele
 	String[] columnNames = new String[] { 
 			RETURNTYPE_COLUMN,
 			SERVICENAME_COLUMN,
@@ -44,23 +47,56 @@ public class OperationsPropertySectionTable {
 			EXEPTIONTYPE_COLUM 		
 			};
 	
+	private static String PLUGIN_ID = PCMBenchTabsActivator.PLUGIN_ID;
 
+	//	 Names of images used to represent checkboxes
+	public static final String ADD_IMAGE 	= "add";
+	public static final String DELETE_IMAGE  = "delete";
+
+	// For the toolbar images
+	private static ImageRegistry imageRegistry = new ImageRegistry();
+	
+	/**
+	 * Note: An image registry owns all of the image objects registered with it,
+	 * and automatically disposes of them the SWT Display is disposed.
+	 */ 
+
+	static {
+		String iconPath = "icons/";
+		
+		imageRegistry.put(ADD_IMAGE,
+				 getImageDescriptor(iconPath + ADD_IMAGE + ".gif")
+		);
+		
+		imageRegistry.put(DELETE_IMAGE,
+				 getImageDescriptor(iconPath + DELETE_IMAGE + ".gif")
+				);
+	}
+	
+	/**
+	 *@param imageFilePath the relative to the root of the plug-in; the path must be legal
+     *@return an image descriptor, or null if no image could be found
+	 */
+	public static ImageDescriptor getImageDescriptor(String imageFilePath) {
+		return PCMBenchTabsActivator.imageDescriptorFromPlugin(PLUGIN_ID, imageFilePath);
+	}
+	
 	public OperationsPropertySectionTable(Composite composite) {
+		/**
+		 * @See composite - de.uka.ipd.sdq.pcmbench.tabs.OperationsPropertySection#createControls(Composite, TabbedPropertySheetPage)
+		 */
 		this.createToolBar(composite);
 		this.createTable(composite);
 		this.createTableViewer();
 	}
-
-	/**
-	 * @param composite
-	 * @return
-	 */
-	public void createTable(Composite parent) {
+	
+	public void createTable(Composite composite) {
 		
+		//style the style of table to construct
 		int style = SWT.SINGLE | SWT.BORDER | SWT.H_SCROLL | SWT.V_SCROLL | 
 		SWT.FULL_SELECTION | SWT.HIDE_SELECTION;
 		
-		table = new Table(parent,style);
+		table = new Table(composite,style);
 		
 		FormData data = new FormData();
 		data.left = new FormAttachment(0, 0);
@@ -92,14 +128,12 @@ public class OperationsPropertySectionTable {
 		TextCellEditor textEditor;
 		
 		tableViewer = new TableViewer(table);
-		
 		tableViewer.setUseHashlookup(true);
 		tableViewer.setColumnProperties(columnNames);
 	
 		// Create the cell editors
 		CellEditor[] editors = new CellEditor[columnNames.length];
 
-		
 		for(int i = 1; i < columnNames.length ; i++){ 
 			
 			textEditor = new TextCellEditor(table);
@@ -111,10 +145,6 @@ public class OperationsPropertySectionTable {
 		tableViewer.setCellModifier(new CellModifierImpl(getColumnNames()));
 	}    
 	   
-	/**
-	 * @param composite
-	 * @return
-	 */
 	public void createToolBar(Composite composite) {
 		
 		FormData fd = new FormData();
@@ -126,20 +156,20 @@ public class OperationsPropertySectionTable {
 		toolBar = new ToolBar (composite, SWT.VERTICAL | SWT.FLAT | SWT.RIGHT);
 		
 		addItem = new ToolItem (toolBar, SWT.PUSH);
-		//// geht noch nicht...
-		//Image addIcon = new Image(composite.getDisplay(), "G:\\add.gif");
-		//Image addIcon = new Image(composite.getDisplay(), "icons/add.gif");
-		//addItem.setImage(addIcon);
+		Image addIcon = imageRegistry.get(ADD_IMAGE);
+		addItem.setImage(addIcon);
 				
 	    deleteItem = new ToolItem (toolBar, SWT.PUSH);
-	    // geht noch nicht...
-//		Image deleteIcon = new Image(composite.getDisplay(), "G:\\delete.gif");
-//		Image addIcon = new Image(composite.getDisplay(), "icons/delete.gif");
-//		deleteItem.setImage(deleteIcon);
+	    Image deleteIcon = imageRegistry.get(DELETE_IMAGE);
+	    deleteItem.setImage(deleteIcon);
 
 		toolBar.setLayoutData(fd);
 	}
 	
+	/**
+	 * Adds the listener to the collection of listeners for ToolItems: addItem, deleteItem
+	 * @param the selected one interface in the navigator
+	 */
 	public void setToolBarListener(Interface input){
 		addItem.addSelectionListener(new AddNewSignature(input));
 		deleteItem.addSelectionListener(new DeleteSignature());
