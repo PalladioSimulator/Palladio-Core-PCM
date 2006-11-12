@@ -56,20 +56,20 @@ public class CellModifierImpl implements ICellModifier {
 			Signature signature = (Signature)element;
 			
 			switch (columnIndex) {
-				case OperationsPropertySectionTable.ICON_COLUMN_INDEX:
+				case OperationsTabViewer.ICON_COLUMN_INDEX:
 					break;
-				case OperationsPropertySectionTable.PARAMETER_COLUMN_INDEX :
+				case OperationsTabViewer.PARAMETER_COLUMN_INDEX :
 					result = setParametersToString(signature.getParameters__Signature());
 					break;
-				case OperationsPropertySectionTable.RETURNTYPE_COLUMN_INDEX :
+				case OperationsTabViewer.RETURNTYPE_COLUMN_INDEX :
 					if(signature.getReturntype__Signature() != null){
 						result = signature.getReturntype__Signature().getType(); 
 					} else result = "void";
 					break;
-				case OperationsPropertySectionTable.SIGNATURENAME_COLUMN_INDEX :
+				case OperationsTabViewer.SIGNATURENAME_COLUMN_INDEX :
 					result = signature.getServiceName();
 					break;
-				case OperationsPropertySectionTable.EXCEPTIONS_COLUMN_INDEX :
+				case OperationsTabViewer.EXCEPTIONS_COLUMN_INDEX :
 					result = setParametersToString(signature.getExceptions__Signature());
 					break;
 				default :
@@ -91,17 +91,17 @@ public class CellModifierImpl implements ICellModifier {
 		String valueString;
 	
 		switch (columnIndex) {
-			case OperationsPropertySectionTable.ICON_COLUMN_INDEX : // COMPLETED_COLUMN 
+			case OperationsTabViewer.ICON_COLUMN_INDEX : // COMPLETED_COLUMN 
 				break;
-			case OperationsPropertySectionTable.PARAMETER_COLUMN_INDEX : // OWNEDPARAMETER_COLUMN 
+			case OperationsTabViewer.PARAMETER_COLUMN_INDEX : // OWNEDPARAMETER_COLUMN 
 				break;
-			case OperationsPropertySectionTable.RETURNTYPE_COLUMN_INDEX : // RETURNTYPE_COLUMN 
+			case OperationsTabViewer.RETURNTYPE_COLUMN_INDEX : // RETURNTYPE_COLUMN 
 				break;
-			case OperationsPropertySectionTable.SIGNATURENAME_COLUMN_INDEX : // SERVICENAME_COLUMN
+			case OperationsTabViewer.SIGNATURENAME_COLUMN_INDEX : // SERVICENAME_COLUMN
 				valueString = ((String) value).trim();
 				textChanged(valueString);
 				break;
-			case OperationsPropertySectionTable.EXCEPTIONS_COLUMN_INDEX : // EXEPTIONTYPE_COLUM 
+			case OperationsTabViewer.EXCEPTIONS_COLUMN_INDEX : // EXEPTIONTYPE_COLUM 
 				break;
 			default :
 		}

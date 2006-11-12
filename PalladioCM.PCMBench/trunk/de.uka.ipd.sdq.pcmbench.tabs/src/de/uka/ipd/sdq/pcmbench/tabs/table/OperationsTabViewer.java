@@ -2,9 +2,11 @@ package de.uka.ipd.sdq.pcmbench.tabs.table;
 
 import java.util.Arrays;
 
-import org.eclipse.jface.resource.ImageDescriptor;
-import org.eclipse.jface.resource.ImageRegistry;
+import org.eclipse.jface.util.Assert;
 import org.eclipse.jface.viewers.CellEditor;
+import org.eclipse.jface.viewers.ISelectionChangedListener;
+import org.eclipse.jface.viewers.IStructuredSelection;
+import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.jface.viewers.TextCellEditor;
 import org.eclipse.swt.SWT;
@@ -17,10 +19,9 @@ import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.swt.widgets.ToolBar;
 import org.eclipse.swt.widgets.ToolItem;
 
-import de.uka.ipd.sdq.pcm.repository.Interface;
-import de.uka.ipd.sdq.pcmbench.tabs.PCMBenchTabsActivator;
+import de.uka.ipd.sdq.pcm.repository.Signature;
 
-public class OperationsPropertySectionTable {
+public class OperationsTabViewer {
 	
 	private TableViewer tableViewer;
 	private Table table;
@@ -47,41 +48,7 @@ public class OperationsPropertySectionTable {
 			EXEPTIONTYPE_COLUM 		
 			};
 	
-	private static String PLUGIN_ID = PCMBenchTabsActivator.PLUGIN_ID;
-
-	//	 Names of images used to represent checkboxes
-	public static final String ADD_IMAGE 	= "add";
-	public static final String DELETE_IMAGE  = "delete";
-
-	// For the toolbar images
-	private static ImageRegistry imageRegistry = new ImageRegistry();
-	
-	/**
-	 * Note: An image registry owns all of the image objects registered with it,
-	 * and automatically disposes of them the SWT Display is disposed.
-	 */ 
-
-	static {
-		String iconPath = "icons/";
-		
-		imageRegistry.put(ADD_IMAGE,
-				 getImageDescriptor(iconPath + ADD_IMAGE + ".gif")
-		);
-		
-		imageRegistry.put(DELETE_IMAGE,
-				 getImageDescriptor(iconPath + DELETE_IMAGE + ".gif")
-				);
-	}
-	
-	/**
-	 *@param imageFilePath the relative to the root of the plug-in; the path must be legal
-     *@return an image descriptor, or null if no image could be found
-	 */
-	public static ImageDescriptor getImageDescriptor(String imageFilePath) {
-		return PCMBenchTabsActivator.imageDescriptorFromPlugin(PLUGIN_ID, imageFilePath);
-	}
-	
-	public OperationsPropertySectionTable(Composite composite) {
+	public OperationsTabViewer(Composite composite) {
 		/**
 		 * @See composite - de.uka.ipd.sdq.pcmbench.tabs.OperationsPropertySection#createControls(Composite, TabbedPropertySheetPage)
 		 */
@@ -113,7 +80,7 @@ public class OperationsPropertySectionTable {
 		column.setText("");
 		column.setWidth(25);
 		
-		for(int i = 0; i < columnNames.length ; i++){ 
+		for(int i = 0; i < columnNames.length; i++){ 
 			
 			//n-te column with task Description
 			column = new TableColumn(table, SWT.LEFT,i+1);
@@ -121,7 +88,6 @@ public class OperationsPropertySectionTable {
 			column.setWidth(140);
 		}
 	}
-	
 	
 	public void createTableViewer() {
 
@@ -132,9 +98,9 @@ public class OperationsPropertySectionTable {
 		tableViewer.setColumnProperties(columnNames);
 	
 		// Create the cell editors
-		CellEditor[] editors = new CellEditor[columnNames.length];
+		CellEditor[] editors = new CellEditor[columnNames.length +1];
 
-		for(int i = 1; i < columnNames.length ; i++){ 
+		for(int i = 1; i < columnNames.length +1 ; i++){ 
 			
 			textEditor = new TextCellEditor(table);
 			editors[i] = textEditor;
@@ -143,6 +109,21 @@ public class OperationsPropertySectionTable {
 		// Assign the cell editors to the viewer 
 		tableViewer.setCellEditors(editors);
 		tableViewer.setCellModifier(new CellModifierImpl(getColumnNames()));
+		tableViewer.addSelectionChangedListener(new ISelectionChangedListener(){
+
+			public void selectionChanged(SelectionChangedEvent event) {
+				if(!event.getSelection().isEmpty()){
+					deleteItem.setEnabled(true);
+				
+					IStructuredSelection selection = (IStructuredSelection) event.getSelection();
+					Object selected = selection.getFirstElement();
+					Assert.isTrue(selected instanceof Signature);
+				
+					(DeleteActionListener.getSingelton()).setSelectedSignature((Signature) selected);
+					
+				} else deleteItem.setEnabled(false);
+			}
+		});
 	}    
 	   
 	public void createToolBar(Composite composite) {
@@ -156,35 +137,23 @@ public class OperationsPropertySectionTable {
 		toolBar = new ToolBar (composite, SWT.VERTICAL | SWT.FLAT | SWT.RIGHT);
 		
 		addItem = new ToolItem (toolBar, SWT.PUSH);
-		Image addIcon = imageRegistry.get(ADD_IMAGE);
+		Image addIcon = TabResources.imageRegistry.get(TabResources.ADD);
 		addItem.setImage(addIcon);
+		addItem.addSelectionListener(AddActionListener.getSingelton());
 				
 	    deleteItem = new ToolItem (toolBar, SWT.PUSH);
-	    Image deleteIcon = imageRegistry.get(DELETE_IMAGE);
+	    Image deleteIcon = TabResources.imageRegistry.get(TabResources.DELETE);
 	    deleteItem.setImage(deleteIcon);
+	    deleteItem.addSelectionListener(DeleteActionListener.getSingelton());
 
 		toolBar.setLayoutData(fd);
 	}
 	
-	/**
-	 * Adds the listener to the collection of listeners for ToolItems: addItem, deleteItem
-	 * @param the selected one interface in the navigator
-	 */
-	public void setToolBarListener(Interface input){
-		addItem.addSelectionListener(new AddNewSignature(input));
-		deleteItem.addSelectionListener(new DeleteSignature());
-	}
-
 	public TableViewer getTableViewer() {
 		return tableViewer;
 	}
 
-	public void setTableViewer(TableViewer tableViewer) {
-		this.tableViewer = tableViewer;
-	}
-	
 	public java.util.List getColumnNames() {
 		return Arrays.asList(columnNames);
 	}
-
 }

@@ -40,7 +40,7 @@ implements ITableItemLabelProvider, IItemLabelProvider {
 	 */
 	@Override
 	public Object getColumnImage(Object object, int columnIndex) {
-		if (columnIndex == OperationsPropertySectionTable.ICON_COLUMN_INDEX)
+		if (columnIndex == OperationsTabViewer.ICON_COLUMN_INDEX)
 			return this.getImage(object);
 		return null;
 	}
@@ -55,18 +55,18 @@ implements ITableItemLabelProvider, IItemLabelProvider {
 		Signature signature = (Signature)element;
 		
 		switch (columnIndex) {
-			case OperationsPropertySectionTable.ICON_COLUMN_INDEX:
+			case OperationsTabViewer.ICON_COLUMN_INDEX:
 				break;
-			case OperationsPropertySectionTable.PARAMETER_COLUMN_INDEX :
+			case OperationsTabViewer.PARAMETER_COLUMN_INDEX :
 				result = setParametersToString(signature.getParameters__Signature());
 				break;
-			case OperationsPropertySectionTable.RETURNTYPE_COLUMN_INDEX :
+			case OperationsTabViewer.RETURNTYPE_COLUMN_INDEX :
 				result = dataTypeFormater(signature.getReturntype__Signature());
 				break;
-			case OperationsPropertySectionTable.SIGNATURENAME_COLUMN_INDEX :
+			case OperationsTabViewer.SIGNATURENAME_COLUMN_INDEX :
 				result = signature.getServiceName();
 				break;
-			case OperationsPropertySectionTable.EXCEPTIONS_COLUMN_INDEX :
+			case OperationsTabViewer.EXCEPTIONS_COLUMN_INDEX :
 				result = setParametersToString(signature.getExceptions__Signature());
 				break;
 			default :

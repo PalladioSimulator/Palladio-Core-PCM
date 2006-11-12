@@ -1,6 +1,3 @@
-/**
- * 
- */
 package de.uka.ipd.sdq.pcmbench.tabs;
 
 import org.eclipse.emf.ecore.EObject;
@@ -21,14 +18,14 @@ import org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage;
 import de.uka.ipd.sdq.pcm.repository.Interface;
 import de.uka.ipd.sdq.pcm.repository.provider.RepositoryItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.seff.provider.SeffItemProviderAdapterFactory;
-import de.uka.ipd.sdq.pcmbench.tabs.table.OperationsPropertySectionTable;
+import de.uka.ipd.sdq.pcmbench.tabs.table.AddActionListener;
+import de.uka.ipd.sdq.pcmbench.tabs.table.OperationsTabViewer;
 import de.uka.ipd.sdq.pcmbench.tabs.table.OperationsTabItemProviderAdapterFactory;
+import de.uka.ipd.sdq.pcmbench.tabs.table.DeleteActionListener;
 
 
 /**
- * @author Snowball
- * "Advanced" Property Section showing the original generated EMF
- * property sheet
+ * "Operations" Property Section - signature editor
  */
 public class OperationsPropertySection
 extends AbstractPropertySection {
@@ -39,8 +36,8 @@ extends AbstractPropertySection {
 		
 	private TableViewer tableViewer;
 	private ComposedAdapterFactory adapterFactory;
-	private OperationsPropertySectionTable sectionTable;
-
+	private OperationsTabViewer sectionTable;
+	
 	/**
 	 * @see org.eclipse.ui.views.properties.tabbed.ISection#createControls(org.eclipse.swt.widgets.Composite,
 	 *      org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage)
@@ -62,7 +59,7 @@ extends AbstractPropertySection {
 		adapterFactory
 		.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
 		
-		sectionTable = new OperationsPropertySectionTable(composite);
+		sectionTable = new OperationsTabViewer(composite);
 		tableViewer = sectionTable.getTableViewer();
 		tableViewer.setContentProvider(new AdapterFactoryContentProvider(
 				adapterFactory));
@@ -80,12 +77,16 @@ extends AbstractPropertySection {
 		Assert.isTrue(selection instanceof IStructuredSelection);
 		Object input = ((IStructuredSelection)selection).getFirstElement();
 		Assert.isTrue(input instanceof EObject);
-		
 		tableViewer.setInput(input);
 		
-		if (input instanceof Interface) {
-			sectionTable.setToolBarListener((Interface) input);
-		}
+		/* (non-Javadoc)
+		 * set the current selection interface in the AddActionListener
+		 * @See de.uka.ipd.sdq.pcmbench.tabs.table.AddActionListener#setSelectedInterface(Interace)
+		 */
+		Assert.isNotNull(AddActionListener.getSingelton() != null);
+		(AddActionListener.getSingelton()).setSelectedInterface((Interface) input);
+		Assert.isNotNull(DeleteActionListener.getSingelton() != null);
+		(DeleteActionListener.getSingelton()).setSelectedInterface((Interface) input);
 	}
 
 	/**
@@ -93,7 +94,6 @@ extends AbstractPropertySection {
 	 */
 	public void dispose() {
 		super.dispose();
-		
 	}
 
 	/**
