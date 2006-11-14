@@ -169,7 +169,7 @@ public class EMFPropertyTextEdit implements IDisposable {
 			@Override
 			public void notifyChanged(Notification notification) {
 				super.notifyChanged(notification);
-				if (notification.getFeature().equals(attribute) && notification.getEventType() == Notification.SET)
+				if (notification.getEventType() == Notification.SET && notification.getFeature().equals(attribute))
 				{
 					if (!valueText.getText().equals(element.eGet(attribute)))
 						valueText.setText((String)element.eGet(attribute));

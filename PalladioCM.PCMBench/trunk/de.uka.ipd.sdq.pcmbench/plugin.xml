@@ -191,18 +191,21 @@
             id="de.uka.ipd.sdq.pcmbench.navigator.propertiesContent"
             labelProvider="de.uka.ipd.sdq.pcmbench.navigator.PCMNavigatorLabelProvider"
             name="Palladio Modelling Projects Content"
-            priority="normal">
+            priority="normal"
+            providesSaveables="true">
          <enablement>
             <or>
                <instanceof value="org.eclipse.core.resources.IProject"/>
                <instanceof value="org.eclipse.emf.ecore.EObject"/>
                <instanceof value="de.uka.ipd.sdq.pcmbench.ui.provider.categoryaware.GenericCategoryItemProvider"/>
+               <instanceof value="de.uka.ipd.sdq.pcmbench.navigator.LinkedRepositoriesNode"/>
             </or>
          </enablement>
          <possibleChildren>
             <or>
                <instanceof value="org.eclipse.emf.ecore.EObject"/>
                <instanceof value="de.uka.ipd.sdq.pcmbench.ui.provider.categoryaware.GenericCategoryItemProvider"/>
+               <instanceof value="de.uka.ipd.sdq.pcmbench.navigator.LinkedRepositoriesNode"/>
             </or>
          </possibleChildren>
          <actionProvider
