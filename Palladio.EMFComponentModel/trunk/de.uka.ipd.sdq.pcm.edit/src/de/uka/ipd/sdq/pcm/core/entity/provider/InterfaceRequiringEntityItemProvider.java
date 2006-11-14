@@ -4,16 +4,15 @@
  *
  * $Id$
  */
-package de.uka.ipd.sdq.pcm.system.provider;
+package de.uka.ipd.sdq.pcm.core.entity.provider;
 
+
+import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
+import de.uka.ipd.sdq.pcm.core.entity.InterfaceRequiringEntity;
 
 import de.uka.ipd.sdq.pcm.core.stochastics.provider.PcmEditPlugin;
 
-import de.uka.ipd.sdq.pcm.repository.provider.RequiredRoleItemProvider;
-
-import de.uka.ipd.sdq.pcm.system.SystemFactory;
-import de.uka.ipd.sdq.pcm.system.SystemPackage;
-import de.uka.ipd.sdq.pcm.system.SystemRequiredRole;
+import de.uka.ipd.sdq.pcm.repository.RepositoryFactory;
 
 import java.util.Collection;
 import java.util.List;
@@ -28,16 +27,17 @@ import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link de.uka.ipd.sdq.pcm.system.SystemRequiredRole} object.
+ * This is the item provider adapter for a {@link de.uka.ipd.sdq.pcm.core.entity.InterfaceRequiringEntity} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class SystemRequiredRoleItemProvider
-	extends RequiredRoleItemProvider
+public class InterfaceRequiringEntityItemProvider
+	extends ItemProviderAdapter
 	implements	
 		IEditingDomainItemProvider,	
 		IStructuredItemContentProvider,	
@@ -45,12 +45,19 @@ public class SystemRequiredRoleItemProvider
 		IItemLabelProvider,	
 		IItemPropertySource {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "(c) by SDQ, IPD, U Karlsruhe (TH), 2006";
+
+	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SystemRequiredRoleItemProvider(AdapterFactory adapterFactory) {
+	public InterfaceRequiringEntityItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -79,19 +86,9 @@ public class SystemRequiredRoleItemProvider
 	public Collection getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(SystemPackage.Literals.SYSTEM_REQUIRED_ROLE__SPECIFIED_TIME_CONSUMPTION_SYSTEM_REQUIRED_ROLE);
+			childrenFeatures.add(EntityPackage.Literals.INTERFACE_REQUIRING_ENTITY__REQUIRED_ROLES_INTERFACE_REQUIRING_ENTITY);
 		}
 		return childrenFeatures;
-	}
-
-	/**
-	 * This returns SystemRequiredRole.gif.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/SystemRequiredRole"));
 	}
 
 	/**
@@ -101,10 +98,7 @@ public class SystemRequiredRoleItemProvider
 	 * @generated
 	 */
 	public String getText(Object object) {
-		String label = ((SystemRequiredRole)object).getId();
-		return label == null || label.length() == 0 ?
-			getString("_UI_SystemRequiredRole_type") :
-			getString("_UI_SystemRequiredRole_type") + " " + label;
+		return getString("_UI_InterfaceRequiringEntity_type");
 	}
 
 	/**
@@ -117,8 +111,8 @@ public class SystemRequiredRoleItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(SystemRequiredRole.class)) {
-			case SystemPackage.SYSTEM_REQUIRED_ROLE__SPECIFIED_TIME_CONSUMPTION_SYSTEM_REQUIRED_ROLE:
+		switch (notification.getFeatureID(InterfaceRequiringEntity.class)) {
+			case EntityPackage.INTERFACE_REQUIRING_ENTITY__REQUIRED_ROLES_INTERFACE_REQUIRING_ENTITY:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -137,8 +131,8 @@ public class SystemRequiredRoleItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(SystemPackage.Literals.SYSTEM_REQUIRED_ROLE__SPECIFIED_TIME_CONSUMPTION_SYSTEM_REQUIRED_ROLE,
-				 SystemFactory.eINSTANCE.createSpecifiedTimeConsumption()));
+				(EntityPackage.Literals.INTERFACE_REQUIRING_ENTITY__REQUIRED_ROLES_INTERFACE_REQUIRING_ENTITY,
+				 RepositoryFactory.eINSTANCE.createRequiredRole()));
 	}
 
 	/**

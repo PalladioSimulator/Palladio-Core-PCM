@@ -37,6 +37,10 @@ import de.uka.ipd.sdq.pcm.protocol.ProtocolPackage;
 
 import de.uka.ipd.sdq.pcm.protocol.impl.ProtocolPackageImpl;
 
+import de.uka.ipd.sdq.pcm.qosannotations.QosannotationsPackage;
+
+import de.uka.ipd.sdq.pcm.qosannotations.impl.QosannotationsPackageImpl;
+
 import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
 
 import de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl;
@@ -170,6 +174,7 @@ public class AllocationPackageImpl extends EPackageImpl implements AllocationPac
 		ResourceenvironmentPackageImpl theResourceenvironmentPackage = (ResourceenvironmentPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ResourceenvironmentPackage.eNS_URI) instanceof ResourceenvironmentPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ResourceenvironmentPackage.eNS_URI) : ResourceenvironmentPackage.eINSTANCE);
 		UsagemodelPackageImpl theUsagemodelPackage = (UsagemodelPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(UsagemodelPackage.eNS_URI) instanceof UsagemodelPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(UsagemodelPackage.eNS_URI) : UsagemodelPackage.eINSTANCE);
 		SystemPackageImpl theSystemPackage = (SystemPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(SystemPackage.eNS_URI) instanceof SystemPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(SystemPackage.eNS_URI) : SystemPackage.eINSTANCE);
+		QosannotationsPackageImpl theQosannotationsPackage = (QosannotationsPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(QosannotationsPackage.eNS_URI) instanceof QosannotationsPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(QosannotationsPackage.eNS_URI) : QosannotationsPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theAllocationPackage.createPackageContents();
@@ -185,6 +190,7 @@ public class AllocationPackageImpl extends EPackageImpl implements AllocationPac
 		theResourceenvironmentPackage.createPackageContents();
 		theUsagemodelPackage.createPackageContents();
 		theSystemPackage.createPackageContents();
+		theQosannotationsPackage.createPackageContents();
 
 		// Initialize created meta-data
 		theAllocationPackage.initializePackageContents();
@@ -200,6 +206,7 @@ public class AllocationPackageImpl extends EPackageImpl implements AllocationPac
 		theResourceenvironmentPackage.initializePackageContents();
 		theUsagemodelPackage.initializePackageContents();
 		theSystemPackage.initializePackageContents();
+		theQosannotationsPackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		theAllocationPackage.freeze();

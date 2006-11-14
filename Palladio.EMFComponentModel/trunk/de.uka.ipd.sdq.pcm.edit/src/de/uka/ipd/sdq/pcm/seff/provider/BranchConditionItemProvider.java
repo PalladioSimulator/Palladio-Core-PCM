@@ -4,14 +4,13 @@
  *
  * $Id$
  */
-package de.uka.ipd.sdq.pcm.system.provider;
+package de.uka.ipd.sdq.pcm.seff.provider;
 
 
 import de.uka.ipd.sdq.pcm.core.stochastics.provider.PcmEditPlugin;
 import de.uka.ipd.sdq.pcm.core.stochastics.provider.RandomVariableItemProvider;
 
-import de.uka.ipd.sdq.pcm.system.SpecifiedTimeConsumption;
-import de.uka.ipd.sdq.pcm.system.SystemPackage;
+import de.uka.ipd.sdq.pcm.seff.BranchCondition;
 
 import java.util.Collection;
 import java.util.List;
@@ -21,7 +20,6 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
 
-import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
@@ -29,12 +27,12 @@ import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 
 /**
- * This is the item provider adapter for a {@link de.uka.ipd.sdq.pcm.system.SpecifiedTimeConsumption} object.
+ * This is the item provider adapter for a {@link de.uka.ipd.sdq.pcm.seff.BranchCondition} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class SpecifiedTimeConsumptionItemProvider
+public class BranchConditionItemProvider
 	extends RandomVariableItemProvider
 	implements	
 		IEditingDomainItemProvider,	
@@ -43,12 +41,19 @@ public class SpecifiedTimeConsumptionItemProvider
 		IItemLabelProvider,	
 		IItemPropertySource {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "(c) by SDQ, IPD, U Karlsruhe (TH), 2006";
+
+	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SpecifiedTimeConsumptionItemProvider(AdapterFactory adapterFactory) {
+	public BranchConditionItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -62,41 +67,18 @@ public class SpecifiedTimeConsumptionItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addSignature_SpecifiedTimeConsumptionPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Signature Specified Time Consumption feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addSignature_SpecifiedTimeConsumptionPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_SpecifiedTimeConsumption_signature_SpecifiedTimeConsumption_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_SpecifiedTimeConsumption_signature_SpecifiedTimeConsumption_feature", "_UI_SpecifiedTimeConsumption_type"),
-				 SystemPackage.Literals.SPECIFIED_TIME_CONSUMPTION__SIGNATURE_SPECIFIED_TIME_CONSUMPTION,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This returns SpecifiedTimeConsumption.gif.
+	 * This returns BranchCondition.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/SpecifiedTimeConsumption"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/BranchCondition"));
 	}
 
 	/**
@@ -106,10 +88,10 @@ public class SpecifiedTimeConsumptionItemProvider
 	 * @generated
 	 */
 	public String getText(Object object) {
-		String label = ((SpecifiedTimeConsumption)object).getSpecification();
+		String label = ((BranchCondition)object).getSpecification();
 		return label == null || label.length() == 0 ?
-			getString("_UI_SpecifiedTimeConsumption_type") :
-			getString("_UI_SpecifiedTimeConsumption_type") + " " + label;
+			getString("_UI_BranchCondition_type") :
+			getString("_UI_BranchCondition_type") + " " + label;
 	}
 
 	/**

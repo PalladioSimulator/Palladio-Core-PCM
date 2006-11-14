@@ -27,7 +27,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link de.uka.ipd.sdq.pcm.seff.impl.LoopActionImpl#getIterations <em>Iterations</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.seff.impl.LoopActionImpl#getBodyBehaviour_Loop <em>Body Behaviour Loop</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.seff.impl.LoopActionImpl#getIterations_LoopAction <em>Iterations Loop Action</em>}</li>
  * </ul>
@@ -42,27 +41,6 @@ public class LoopActionImpl extends AbstractResourceDemandingActionImpl implemen
 	 * @generated
 	 */
 	public static final String copyright = "(c) by SDQ, IPD, U Karlsruhe (TH), 2006";
-
-	/**
-	 * The default value of the '{@link #getIterations() <em>Iterations</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getIterations()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String ITERATIONS_EDEFAULT = null;
-
-
-	/**
-	 * The cached value of the '{@link #getIterations() <em>Iterations</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getIterations()
-	 * @generated
-	 * @ordered
-	 */
-	protected String iterations = ITERATIONS_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getBodyBehaviour_Loop() <em>Body Behaviour Loop</em>}' containment reference.
@@ -101,27 +79,6 @@ public class LoopActionImpl extends AbstractResourceDemandingActionImpl implemen
 	 */
 	protected EClass eStaticClass() {
 		return SeffPackage.Literals.LOOP_ACTION;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String getIterations() {
-		return iterations;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setIterations(String newIterations) {
-		String oldIterations = iterations;
-		iterations = newIterations;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SeffPackage.LOOP_ACTION__ITERATIONS, oldIterations, iterations));
 	}
 
 	/**
@@ -232,8 +189,6 @@ public class LoopActionImpl extends AbstractResourceDemandingActionImpl implemen
 	 */
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case SeffPackage.LOOP_ACTION__ITERATIONS:
-				return getIterations();
 			case SeffPackage.LOOP_ACTION__BODY_BEHAVIOUR_LOOP:
 				return getBodyBehaviour_Loop();
 			case SeffPackage.LOOP_ACTION__ITERATIONS_LOOP_ACTION:
@@ -249,9 +204,6 @@ public class LoopActionImpl extends AbstractResourceDemandingActionImpl implemen
 	 */
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case SeffPackage.LOOP_ACTION__ITERATIONS:
-				setIterations((String)newValue);
-				return;
 			case SeffPackage.LOOP_ACTION__BODY_BEHAVIOUR_LOOP:
 				setBodyBehaviour_Loop((ResourceDemandingBehaviour)newValue);
 				return;
@@ -269,9 +221,6 @@ public class LoopActionImpl extends AbstractResourceDemandingActionImpl implemen
 	 */
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case SeffPackage.LOOP_ACTION__ITERATIONS:
-				setIterations(ITERATIONS_EDEFAULT);
-				return;
 			case SeffPackage.LOOP_ACTION__BODY_BEHAVIOUR_LOOP:
 				setBodyBehaviour_Loop((ResourceDemandingBehaviour)null);
 				return;
@@ -289,29 +238,12 @@ public class LoopActionImpl extends AbstractResourceDemandingActionImpl implemen
 	 */
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case SeffPackage.LOOP_ACTION__ITERATIONS:
-				return ITERATIONS_EDEFAULT == null ? iterations != null : !ITERATIONS_EDEFAULT.equals(iterations);
 			case SeffPackage.LOOP_ACTION__BODY_BEHAVIOUR_LOOP:
 				return bodyBehaviour_Loop != null;
 			case SeffPackage.LOOP_ACTION__ITERATIONS_LOOP_ACTION:
 				return iterations_LoopAction != null;
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (iterations: ");
-		result.append(iterations);
-		result.append(')');
-		return result.toString();
 	}
 
 } //LoopActionImpl

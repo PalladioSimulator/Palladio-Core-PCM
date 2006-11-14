@@ -27,6 +27,7 @@ import org.eclipse.ui.dialogs.ElementListSelectionDialog;
 import de.uka.ipd.sdq.pcm.gmf.system.edit.parts.AssemblyContextEditPart;
 import de.uka.ipd.sdq.pcm.gmf.system.edit.parts.SystemEditPart;
 import de.uka.ipd.sdq.pcm.gmf.system.edit.parts.SystemNodeEditPart;
+import de.uka.ipd.sdq.pcm.gmf.system.edit.policies.SystemNodeCanonicalEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.system.part.SystemDiagramEditorPlugin;
 
 /**
@@ -46,14 +47,17 @@ public class PcmModelingAssistantProvider extends ModelingAssistantProvider {
 		}
 		if (editPart instanceof SystemNodeEditPart) {
 			List types = new ArrayList();
-			types.add(PcmElementTypes.AssemblyContext_1001);
 			types.add(PcmElementTypes.SystemProvidedRole_1004);
 			types.add(PcmElementTypes.SystemRequiredRole_1003);
 			return types;
 		}
+		if (editPart instanceof SystemNodeCanonicalEditPolicy) {
+			List types = new ArrayList();
+			types.add(PcmElementTypes.AssemblyContext_1001);
+			return types;
+		}
 		if (editPart instanceof SystemEditPart) {
 			List types = new ArrayList();
-			types.add(PcmElementTypes.Node_1002);
 			return types;
 		}
 		return Collections.EMPTY_LIST;

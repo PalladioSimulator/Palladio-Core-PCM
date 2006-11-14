@@ -45,6 +45,29 @@ public class RepositoryItemSemanticEditPolicy extends
 			}
 			return getMSLWrapper(new CreateBasicComponent_1002Command(req));
 		}
+		if (PcmElementTypes.CompleteComponentType_1003 == req.getElementType()) {
+			if (req.getContainmentFeature() == null) {
+				req.setContainmentFeature(RepositoryPackage.eINSTANCE
+						.getRepository_Components__Repository());
+			}
+			return getMSLWrapper(new CreateCompleteComponentType_1003Command(
+					req));
+		}
+		if (PcmElementTypes.ProvidesComponentType_1004 == req.getElementType()) {
+			if (req.getContainmentFeature() == null) {
+				req.setContainmentFeature(RepositoryPackage.eINSTANCE
+						.getRepository_Components__Repository());
+			}
+			return getMSLWrapper(new CreateProvidesComponentType_1004Command(
+					req));
+		}
+		if (PcmElementTypes.CompositeComponent_1005 == req.getElementType()) {
+			if (req.getContainmentFeature() == null) {
+				req.setContainmentFeature(RepositoryPackage.eINSTANCE
+						.getRepository_Components__Repository());
+			}
+			return getMSLWrapper(new CreateCompositeComponent_1005Command(req));
+		}
 		return super.getCreateCommand(req);
 	}
 
@@ -91,6 +114,105 @@ public class RepositoryItemSemanticEditPolicy extends
 		 * @generated
 		 */
 		public CreateBasicComponent_1002Command(CreateElementRequest req) {
+			super(req);
+		}
+
+		/**
+		 * @generated
+		 */
+		protected EClass getEClassToEdit() {
+			return RepositoryPackage.eINSTANCE.getRepository();
+		};
+
+		/**
+		 * @generated
+		 */
+		protected EObject getElementToEdit() {
+			EObject container = ((CreateElementRequest) getRequest())
+					.getContainer();
+			if (container instanceof View) {
+				container = ((View) container).getElement();
+			}
+			return container;
+		}
+	}
+
+	/**
+	 * @generated
+	 */
+	private static class CreateCompleteComponentType_1003Command extends
+			CreateElementCommand {
+
+		/**
+		 * @generated
+		 */
+		public CreateCompleteComponentType_1003Command(CreateElementRequest req) {
+			super(req);
+		}
+
+		/**
+		 * @generated
+		 */
+		protected EClass getEClassToEdit() {
+			return RepositoryPackage.eINSTANCE.getRepository();
+		};
+
+		/**
+		 * @generated
+		 */
+		protected EObject getElementToEdit() {
+			EObject container = ((CreateElementRequest) getRequest())
+					.getContainer();
+			if (container instanceof View) {
+				container = ((View) container).getElement();
+			}
+			return container;
+		}
+	}
+
+	/**
+	 * @generated
+	 */
+	private static class CreateProvidesComponentType_1004Command extends
+			CreateElementCommand {
+
+		/**
+		 * @generated
+		 */
+		public CreateProvidesComponentType_1004Command(CreateElementRequest req) {
+			super(req);
+		}
+
+		/**
+		 * @generated
+		 */
+		protected EClass getEClassToEdit() {
+			return RepositoryPackage.eINSTANCE.getRepository();
+		};
+
+		/**
+		 * @generated
+		 */
+		protected EObject getElementToEdit() {
+			EObject container = ((CreateElementRequest) getRequest())
+					.getContainer();
+			if (container instanceof View) {
+				container = ((View) container).getElement();
+			}
+			return container;
+		}
+	}
+
+	/**
+	 * @generated
+	 */
+	private static class CreateCompositeComponent_1005Command extends
+			CreateElementCommand {
+
+		/**
+		 * @generated
+		 */
+		public CreateCompositeComponent_1005Command(CreateElementRequest req) {
 			super(req);
 		}
 

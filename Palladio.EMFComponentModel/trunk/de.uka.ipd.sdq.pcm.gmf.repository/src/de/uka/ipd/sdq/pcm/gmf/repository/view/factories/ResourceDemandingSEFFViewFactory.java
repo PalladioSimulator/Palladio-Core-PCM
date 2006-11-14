@@ -17,9 +17,6 @@ import org.eclipse.emf.ecore.EcoreFactory;
 
 import org.eclipse.gmf.runtime.diagram.ui.view.factories.AbstractLabelViewFactory;
 
-import org.eclipse.gmf.runtime.diagram.ui.view.factories.AbstractShapeViewFactory;
-
-import org.eclipse.gmf.runtime.notation.NotationFactory;
 import org.eclipse.gmf.runtime.notation.View;
 
 /**

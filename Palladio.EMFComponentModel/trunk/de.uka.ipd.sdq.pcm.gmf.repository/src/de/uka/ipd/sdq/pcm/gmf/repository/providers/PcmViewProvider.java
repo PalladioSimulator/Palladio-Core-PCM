@@ -12,10 +12,15 @@ import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.BasicComponentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.BasicComponentEntityNameEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.BasicComponentSEFFCompartmentEditPart;
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.CompleteComponentTypeEditPart;
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.CompleteComponentTypeEntityNameEditPart;
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.CompositeComponentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.InterfaceEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.InterfaceEntityNameEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.InterfaceSignatureListEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.ProvidedRoleEditPart;
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.ProvidesComponentTypeEditPart;
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.ProvidesComponentTypeEntityNameEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.ProvidesStereotypeLabelEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.RepositoryEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.RequiredRoleEditPart;
@@ -28,10 +33,15 @@ import de.uka.ipd.sdq.pcm.gmf.repository.part.PcmVisualIDRegistry;
 import de.uka.ipd.sdq.pcm.gmf.repository.view.factories.BasicComponentEntityNameViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.repository.view.factories.BasicComponentSEFFCompartmentViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.repository.view.factories.BasicComponentViewFactory;
+import de.uka.ipd.sdq.pcm.gmf.repository.view.factories.CompleteComponentTypeEntityNameViewFactory;
+import de.uka.ipd.sdq.pcm.gmf.repository.view.factories.CompleteComponentTypeViewFactory;
+import de.uka.ipd.sdq.pcm.gmf.repository.view.factories.CompositeComponentViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.repository.view.factories.InterfaceEntityNameViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.repository.view.factories.InterfaceSignatureListViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.repository.view.factories.InterfaceViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.repository.view.factories.ProvidedRoleViewFactory;
+import de.uka.ipd.sdq.pcm.gmf.repository.view.factories.ProvidesComponentTypeEntityNameViewFactory;
+import de.uka.ipd.sdq.pcm.gmf.repository.view.factories.ProvidesComponentTypeViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.repository.view.factories.ProvidesStereotypeLabelViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.repository.view.factories.RepositoryViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.repository.view.factories.RequiredRoleViewFactory;
@@ -83,6 +93,16 @@ public class PcmViewProvider extends AbstractViewProvider {
 			return BasicComponentViewFactory.class;
 		case BasicComponentEntityNameEditPart.VISUAL_ID:
 			return BasicComponentEntityNameViewFactory.class;
+		case CompleteComponentTypeEditPart.VISUAL_ID:
+			return CompleteComponentTypeViewFactory.class;
+		case CompleteComponentTypeEntityNameEditPart.VISUAL_ID:
+			return CompleteComponentTypeEntityNameViewFactory.class;
+		case ProvidesComponentTypeEditPart.VISUAL_ID:
+			return ProvidesComponentTypeViewFactory.class;
+		case ProvidesComponentTypeEntityNameEditPart.VISUAL_ID:
+			return ProvidesComponentTypeEntityNameViewFactory.class;
+		case CompositeComponentEditPart.VISUAL_ID:
+			return CompositeComponentViewFactory.class;
 		case SignatureEditPart.VISUAL_ID:
 			return SignatureViewFactory.class;
 		case ResourceDemandingSEFFEditPart.VISUAL_ID:

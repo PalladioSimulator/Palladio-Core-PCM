@@ -13,7 +13,9 @@ import org.eclipse.gmf.runtime.notation.View;
 import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
 
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.BasicComponentEntityNameEditPart;
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.CompleteComponentTypeEntityNameEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.InterfaceEntityNameEditPart;
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.ProvidesComponentTypeEntityNameEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.ResourceDemandingSEFFEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.SignatureEditPart;
 
@@ -99,8 +101,8 @@ public class PcmParserProvider extends AbstractProvider implements
 	 */
 	protected IParser createInterfaceInterfaceEntityName_4001Parser() {
 		PcmStructuralFeatureParser parser = new PcmStructuralFeatureParser(
-				EntityPackage.eINSTANCE.getEntity().getEStructuralFeature(
-						"entityName")); //$NON-NLS-1$
+				EntityPackage.eINSTANCE.getNamedElement()
+						.getEStructuralFeature("entityName")); //$NON-NLS-1$
 		return parser;
 	}
 
@@ -124,8 +126,58 @@ public class PcmParserProvider extends AbstractProvider implements
 	 */
 	protected IParser createBasicComponentBasicComponentEntityName_4002Parser() {
 		PcmStructuralFeatureParser parser = new PcmStructuralFeatureParser(
-				EntityPackage.eINSTANCE.getEntity().getEStructuralFeature(
-						"entityName")); //$NON-NLS-1$
+				EntityPackage.eINSTANCE.getNamedElement()
+						.getEStructuralFeature("entityName")); //$NON-NLS-1$
+		return parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser completeComponentTypeCompleteComponentTypeEntityName_4003Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getCompleteComponentTypeCompleteComponentTypeEntityName_4003Parser() {
+		if (completeComponentTypeCompleteComponentTypeEntityName_4003Parser == null) {
+			completeComponentTypeCompleteComponentTypeEntityName_4003Parser = createCompleteComponentTypeCompleteComponentTypeEntityName_4003Parser();
+		}
+		return completeComponentTypeCompleteComponentTypeEntityName_4003Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	protected IParser createCompleteComponentTypeCompleteComponentTypeEntityName_4003Parser() {
+		PcmStructuralFeatureParser parser = new PcmStructuralFeatureParser(
+				EntityPackage.eINSTANCE.getNamedElement()
+						.getEStructuralFeature("entityName")); //$NON-NLS-1$
+		return parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser providesComponentTypeProvidesComponentTypeEntityName_4004Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getProvidesComponentTypeProvidesComponentTypeEntityName_4004Parser() {
+		if (providesComponentTypeProvidesComponentTypeEntityName_4004Parser == null) {
+			providesComponentTypeProvidesComponentTypeEntityName_4004Parser = createProvidesComponentTypeProvidesComponentTypeEntityName_4004Parser();
+		}
+		return providesComponentTypeProvidesComponentTypeEntityName_4004Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	protected IParser createProvidesComponentTypeProvidesComponentTypeEntityName_4004Parser() {
+		PcmStructuralFeatureParser parser = new PcmStructuralFeatureParser(
+				EntityPackage.eINSTANCE.getNamedElement()
+						.getEStructuralFeature("entityName")); //$NON-NLS-1$
 		return parser;
 	}
 
@@ -142,6 +194,10 @@ public class PcmParserProvider extends AbstractProvider implements
 			return getInterfaceInterfaceEntityName_4001Parser();
 		case BasicComponentEntityNameEditPart.VISUAL_ID:
 			return getBasicComponentBasicComponentEntityName_4002Parser();
+		case CompleteComponentTypeEntityNameEditPart.VISUAL_ID:
+			return getCompleteComponentTypeCompleteComponentTypeEntityName_4003Parser();
+		case ProvidesComponentTypeEntityNameEditPart.VISUAL_ID:
+			return getProvidesComponentTypeProvidesComponentTypeEntityName_4004Parser();
 		}
 		return null;
 	}

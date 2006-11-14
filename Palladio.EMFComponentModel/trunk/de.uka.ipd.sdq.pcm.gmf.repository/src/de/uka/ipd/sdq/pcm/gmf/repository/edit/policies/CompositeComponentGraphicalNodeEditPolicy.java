@@ -6,6 +6,6 @@ package de.uka.ipd.sdq.pcm.gmf.repository.edit.policies;
 /**
  * @generated
  */
-public class ResourceDemandingSEFFGraphicalNodeEditPolicy extends
+public class CompositeComponentGraphicalNodeEditPolicy extends
 		PcmGraphicalNodeEditPolicy {
 }

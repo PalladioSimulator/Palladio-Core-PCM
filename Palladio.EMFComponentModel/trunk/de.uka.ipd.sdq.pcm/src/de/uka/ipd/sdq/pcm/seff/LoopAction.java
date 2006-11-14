@@ -16,7 +16,6 @@ package de.uka.ipd.sdq.pcm.seff;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link de.uka.ipd.sdq.pcm.seff.LoopAction#getIterations <em>Iterations</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.seff.LoopAction#getBodyBehaviour_Loop <em>Body Behaviour Loop</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.seff.LoopAction#getIterations_LoopAction <em>Iterations Loop Action</em>}</li>
  * </ul>
@@ -33,32 +32,6 @@ public interface LoopAction extends AbstractResourceDemandingAction {
 	 * @generated
 	 */
 	String copyright = "(c) by SDQ, IPD, U Karlsruhe (TH), 2006";
-
-	/**
-	 * Returns the value of the '<em><b>Iterations</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Iterations</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Iterations</em>' attribute.
-	 * @see #setIterations(String)
-	 * @see de.uka.ipd.sdq.pcm.seff.SeffPackage#getLoopAction_Iterations()
-	 * @model required="true" ordered="false"
-	 * @generated
-	 */
-	String getIterations();
-
-	/**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.seff.LoopAction#getIterations <em>Iterations</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Iterations</em>' attribute.
-	 * @see #getIterations()
-	 * @generated
-	 */
-	void setIterations(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Body Behaviour Loop</b></em>' containment reference.

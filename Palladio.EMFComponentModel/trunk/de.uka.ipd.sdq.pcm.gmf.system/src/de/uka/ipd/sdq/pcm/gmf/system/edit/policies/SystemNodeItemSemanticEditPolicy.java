@@ -26,16 +26,16 @@ import org.eclipse.gmf.runtime.notation.View;
 import de.uka.ipd.sdq.dialogs.selection.SelectEObjectDialog;
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
 import de.uka.ipd.sdq.pcm.core.composition.CompositionPackage;
-import de.uka.ipd.sdq.pcm.gmf.system.edit.parts.SystemEditPart;
+import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
 import de.uka.ipd.sdq.pcm.gmf.system.edit.parts.SystemNodeEditPart;
 import de.uka.ipd.sdq.pcm.gmf.system.providers.PcmElementTypes;
 import de.uka.ipd.sdq.pcm.repository.Interface;
+import de.uka.ipd.sdq.pcm.repository.ProvidedRole;
 import de.uka.ipd.sdq.pcm.repository.ProvidesComponentType;
 import de.uka.ipd.sdq.pcm.repository.Repository;
+import de.uka.ipd.sdq.pcm.repository.RequiredRole;
 import de.uka.ipd.sdq.pcm.repository.provider.RepositoryItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.system.SystemPackage;
-import de.uka.ipd.sdq.pcm.system.SystemProvidedRole;
-import de.uka.ipd.sdq.pcm.system.SystemRequiredRole;
 
 /**
  * @generated
@@ -44,117 +44,32 @@ public class SystemNodeItemSemanticEditPolicy extends
 		PcmBaseItemSemanticEditPolicy {
 
 	protected Command getCreateCommand(CreateElementRequest req) {
-		if (PcmElementTypes.AssemblyContext_1001 == req.getElementType()) {
-			if (req.getContainmentFeature() == null) {
-				req
-						.setContainmentFeature(CompositionPackage.eINSTANCE
-								.getComposedStructure_ChildComponentContexts_ComposedStructure());
-			}
-			return getMSLWrapper(new CreateAssemblyContext_1001Command(req,
-					(SystemNodeEditPart) getHost()));
-		}
+//		if (PcmElementTypes.AssemblyContext_1001 == req.getElementType()) {
+//			if (req.getContainmentFeature() == null) {
+//				req
+//						.setContainmentFeature(CompositionPackage.eINSTANCE
+//								.getComposedStructure_ChildComponentContexts_ComposedStructure());
+//			}
+//			return getMSLWrapper(new CreateAssemblyContext_1001Command(req,
+//					(SystemNodeEditPart) getHost()));
+//		}
 		if (PcmElementTypes.SystemProvidedRole_1004 == req.getElementType()) {
 			if (req.getContainmentFeature() == null) {
-				req.setContainmentFeature(SystemPackage.eINSTANCE
-						.getSystem_SystemProvidedRole_System());
+				req.setContainmentFeature(EntityPackage.eINSTANCE.
+						getInterfaceProvidingEntity_ProvidedRoles_InterfaceProvidingEntity());
 			}
 			return getMSLWrapper(new CreateSystemProvidedRole_1002Command(req,
 					(SystemNodeEditPart) getHost()));
 		}
 		if (PcmElementTypes.SystemRequiredRole_1003 == req.getElementType()) {
 			if (req.getContainmentFeature() == null) {
-				req.setContainmentFeature(SystemPackage.eINSTANCE
-						.getSystem_SystemRequiredRole_System());
+				req.setContainmentFeature(EntityPackage.eINSTANCE
+						.getInterfaceRequiringEntity_RequiredRoles_InterfaceRequiringEntity());
 			}
 			return getMSLWrapper(new CreateSystemRequiredRole_1003Command(req,
 					(SystemNodeEditPart) getHost()));
 		}		
 		return super.getCreateCommand(req);
-	}
-
-	/**
-	 * @generated NOT
-	 */
-	private static class CreateAssemblyContext_1001Command extends
-			CreateElementCommand {
-		
-		/**
-		 * @generated
-		 */
-		public CreateAssemblyContext_1001Command(CreateElementRequest req) {
-			super(req);
-		}
-
-		/**
-		 * @generated NOT
-		 */
-		public CreateAssemblyContext_1001Command(CreateElementRequest req,
-				SystemNodeEditPart v) {
-			super(req);
-			this.v = v;
-		}
-
-		private SystemNodeEditPart v = null;
-
-		private ProvidesComponentType componentToLink;
-
-		/**
-		 * @generated
-		 */
-		protected EClass getEClassToEdit() {
-			return SystemPackage.eINSTANCE.getSystem();
-		};
-
-		/**
-		 * @generated
-		 */
-		protected EObject getElementToEdit() {
-			EObject container = ((CreateElementRequest) getRequest())
-					.getContainer();
-			if (container instanceof View) {
-				container = ((View) container).getElement();
-			}
-			return container;
-		}
-
-		/* (non-Javadoc)
-		 * @see org.eclipse.gmf.runtime.emf.type.core.commands.CreateElementCommand#doDefaultElementCreation()
-		 */
-		@Override
-		protected EObject doDefaultElementCreation() {
-			EObject result = super.doDefaultElementCreation();
-			((AssemblyContext) result)
-					.setEncapsulatedComponent_ChildComponentContext(componentToLink);
-			return result;
-		}
-
-		/* (non-Javadoc)
-		 * @see org.eclipse.gmf.runtime.emf.type.core.commands.CreateElementCommand#doExecuteWithResult(org.eclipse.core.runtime.IProgressMonitor, org.eclipse.core.runtime.IAdaptable)
-		 */
-		@Override
-		protected CommandResult doExecuteWithResult(IProgressMonitor monitor,
-				IAdaptable info) throws ExecutionException {
-			ComposedAdapterFactory adapterFactory = new ComposedAdapterFactory();
-			adapterFactory
-					.addAdapterFactory(new ResourceItemProviderAdapterFactory());
-			adapterFactory
-					.addAdapterFactory(new RepositoryItemProviderAdapterFactory());
-			adapterFactory
-					.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
-			ArrayList filterList = new ArrayList();
-			filterList.add(Repository.class);
-			filterList.add(ProvidesComponentType.class);
-			SelectEObjectDialog dialog = new SelectEObjectDialog(v.getRoot()
-					.getViewer().getControl().getShell(), adapterFactory,
-					filterList, v.getEditingDomain().getResourceSet());
-			dialog.open();
-			if (dialog.getResult() == null)
-				return CommandResult.newCancelledCommandResult();
-			if (!(dialog.getResult() instanceof ProvidesComponentType))
-				return CommandResult.newCancelledCommandResult();
-			this.componentToLink = (ProvidesComponentType) dialog.getResult();
-			return super.doExecuteWithResult(monitor, info);
-		}
 	}
 
 	/**
@@ -208,7 +123,7 @@ public class SystemNodeItemSemanticEditPolicy extends
 		@Override
 		protected EObject doDefaultElementCreation() {
 			EObject result = super.doDefaultElementCreation();
-			((SystemProvidedRole) result)
+			((ProvidedRole) result)
 					.setProvidedInterface__ProvidedRole(interfaceToLink);
 			return result;
 		}
@@ -293,7 +208,7 @@ public class SystemNodeItemSemanticEditPolicy extends
 		@Override
 		protected EObject doDefaultElementCreation() {
 			EObject result = super.doDefaultElementCreation();
-			((SystemRequiredRole) result)
+			((RequiredRole) result)
 					.setRequiredInterface__RequiredRole(interfaceToLink);
 			return result;
 		}

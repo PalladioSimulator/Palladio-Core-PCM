@@ -22,6 +22,13 @@ import org.eclipse.emf.common.util.ResourceLocator;
  */
 public final class PcmEditPlugin extends EMFPlugin {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "(c) by SDQ, IPD, U Karlsruhe (TH), 2006";
+
+	/**
 	 * Keep track of the singleton.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

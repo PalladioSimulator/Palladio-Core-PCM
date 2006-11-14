@@ -6,10 +6,15 @@ package de.uka.ipd.sdq.pcm.gmf.repository.part;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.BasicComponentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.BasicComponentEntityNameEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.BasicComponentSEFFCompartmentEditPart;
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.CompleteComponentTypeEditPart;
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.CompleteComponentTypeEntityNameEditPart;
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.CompositeComponentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.InterfaceEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.InterfaceEntityNameEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.InterfaceSignatureListEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.ProvidedRoleEditPart;
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.ProvidesComponentTypeEditPart;
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.ProvidesComponentTypeEntityNameEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.ProvidesStereotypeLabelEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.RepositoryEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.RequiredRoleEditPart;
@@ -18,8 +23,11 @@ import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.ResourceDemandingSEFFEditPar
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.SignatureEditPart;
 
 import de.uka.ipd.sdq.pcm.repository.BasicComponent;
+import de.uka.ipd.sdq.pcm.repository.CompleteComponentType;
+import de.uka.ipd.sdq.pcm.repository.CompositeComponent;
 import de.uka.ipd.sdq.pcm.repository.Interface;
 import de.uka.ipd.sdq.pcm.repository.ProvidedRole;
+import de.uka.ipd.sdq.pcm.repository.ProvidesComponentType;
 import de.uka.ipd.sdq.pcm.repository.Repository;
 import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
 import de.uka.ipd.sdq.pcm.repository.RequiredRole;
@@ -143,7 +151,7 @@ public class PcmVisualIDRegistry {
 	}
 
 	/**
-	 * @generated not
+	 * @generated
 	 */
 	public static int getNodeVisualID(View containerView,
 			EObject domainElement, EClass domainElementMetaclass,
@@ -162,9 +170,6 @@ public class PcmVisualIDRegistry {
 				return -1;
 			}
 		}
-		if (semanticHint != null && semanticHint.equals(""))
-			semanticHint = null;
-
 		int nodeVisualID = semanticHint != null ? getVisualID(semanticHint)
 				: -1;
 		switch (containerVisualID) {
@@ -186,6 +191,21 @@ public class PcmVisualIDRegistry {
 			}
 			return getUnrecognizedBasicComponent_1002ChildNodeID(domainElement,
 					semanticHint);
+		case CompleteComponentTypeEditPart.VISUAL_ID:
+			if (CompleteComponentTypeEntityNameEditPart.VISUAL_ID == nodeVisualID) {
+				return CompleteComponentTypeEntityNameEditPart.VISUAL_ID;
+			}
+			return getUnrecognizedCompleteComponentType_1003ChildNodeID(
+					domainElement, semanticHint);
+		case ProvidesComponentTypeEditPart.VISUAL_ID:
+			if (ProvidesComponentTypeEntityNameEditPart.VISUAL_ID == nodeVisualID) {
+				return ProvidesComponentTypeEntityNameEditPart.VISUAL_ID;
+			}
+			return getUnrecognizedProvidesComponentType_1004ChildNodeID(
+					domainElement, semanticHint);
+		case CompositeComponentEditPart.VISUAL_ID:
+			return getUnrecognizedCompositeComponent_1005ChildNodeID(
+					domainElement, semanticHint);
 		case SignatureEditPart.VISUAL_ID:
 			return getUnrecognizedSignature_2001ChildNodeID(domainElement,
 					semanticHint);
@@ -222,6 +242,24 @@ public class PcmVisualIDRegistry {
 							.isSuperTypeOf(domainElementMetaclass)
 					&& (domainElement == null || isNodeBasicComponent_1002((BasicComponent) domainElement))) {
 				return BasicComponentEditPart.VISUAL_ID;
+			}
+			if ((semanticHint == null || CompleteComponentTypeEditPart.VISUAL_ID == nodeVisualID)
+					&& RepositoryPackage.eINSTANCE.getCompleteComponentType()
+							.isSuperTypeOf(domainElementMetaclass)
+					&& (domainElement == null || isNodeCompleteComponentType_1003((CompleteComponentType) domainElement))) {
+				return CompleteComponentTypeEditPart.VISUAL_ID;
+			}
+			if ((semanticHint == null || ProvidesComponentTypeEditPart.VISUAL_ID == nodeVisualID)
+					&& RepositoryPackage.eINSTANCE.getProvidesComponentType()
+							.isSuperTypeOf(domainElementMetaclass)
+					&& (domainElement == null || isNodeProvidesComponentType_1004((ProvidesComponentType) domainElement))) {
+				return ProvidesComponentTypeEditPart.VISUAL_ID;
+			}
+			if ((semanticHint == null || CompositeComponentEditPart.VISUAL_ID == nodeVisualID)
+					&& RepositoryPackage.eINSTANCE.getCompositeComponent()
+							.isSuperTypeOf(domainElementMetaclass)
+					&& (domainElement == null || isNodeCompositeComponent_1005((CompositeComponent) domainElement))) {
+				return CompositeComponentEditPart.VISUAL_ID;
 			}
 			return getUnrecognizedRepository_79ChildNodeID(domainElement,
 					semanticHint);
@@ -314,6 +352,39 @@ public class PcmVisualIDRegistry {
 	 *
 	 * @generated
 	 */
+	private static boolean isNodeCompleteComponentType_1003(
+			CompleteComponentType element) {
+		return true;
+	}
+
+	/**
+	 * User can change implementation of this method to check some additional 
+	 * conditions here.
+	 *
+	 * @generated
+	 */
+	private static boolean isNodeProvidesComponentType_1004(
+			ProvidesComponentType element) {
+		return true;
+	}
+
+	/**
+	 * User can change implementation of this method to check some additional 
+	 * conditions here.
+	 *
+	 * @generated
+	 */
+	private static boolean isNodeCompositeComponent_1005(
+			CompositeComponent element) {
+		return true;
+	}
+
+	/**
+	 * User can change implementation of this method to check some additional 
+	 * conditions here.
+	 *
+	 * @generated
+	 */
 	private static boolean isNodeSignature_2001(Signature element) {
 		return true;
 	}
@@ -347,6 +418,39 @@ public class PcmVisualIDRegistry {
 	 * @generated
 	 */
 	private static int getUnrecognizedBasicComponent_1002ChildNodeID(
+			EObject domainElement, String semanticHint) {
+		return -1;
+	}
+
+	/**
+	 * User can change implementation of this method to handle some specific
+	 * situations not covered by default logic.
+	 *
+	 * @generated
+	 */
+	private static int getUnrecognizedCompleteComponentType_1003ChildNodeID(
+			EObject domainElement, String semanticHint) {
+		return -1;
+	}
+
+	/**
+	 * User can change implementation of this method to handle some specific
+	 * situations not covered by default logic.
+	 *
+	 * @generated
+	 */
+	private static int getUnrecognizedProvidesComponentType_1004ChildNodeID(
+			EObject domainElement, String semanticHint) {
+		return -1;
+	}
+
+	/**
+	 * User can change implementation of this method to handle some specific
+	 * situations not covered by default logic.
+	 *
+	 * @generated
+	 */
+	private static int getUnrecognizedCompositeComponent_1005ChildNodeID(
 			EObject domainElement, String semanticHint) {
 		return -1;
 	}

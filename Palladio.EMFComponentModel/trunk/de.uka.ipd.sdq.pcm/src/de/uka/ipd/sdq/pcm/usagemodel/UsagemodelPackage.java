@@ -8,6 +8,8 @@ package de.uka.ipd.sdq.pcm.usagemodel;
 
 import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
 
+import de.uka.ipd.sdq.pcm.core.stochastics.StochasticsPackage;
+
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
@@ -375,13 +377,13 @@ public interface UsagemodelPackage extends EPackage {
 	int LOOP__BODY_BEHAVIOUR_LOOP = ABSTRACT_USER_ACTION_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Iterations</b></em>' attribute.
+	 * The feature id for the '<em><b>Iterations Loop</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LOOP__ITERATIONS = ABSTRACT_USER_ACTION_FEATURE_COUNT + 1;
+	int LOOP__ITERATIONS_LOOP = ABSTRACT_USER_ACTION_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Loop</em>' class.
@@ -393,6 +395,43 @@ public interface UsagemodelPackage extends EPackage {
 	int LOOP_FEATURE_COUNT = ABSTRACT_USER_ACTION_FEATURE_COUNT + 2;
 
 	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.usagemodel.impl.LoopIterationsImpl <em>Loop Iterations</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.pcm.usagemodel.impl.LoopIterationsImpl
+	 * @see de.uka.ipd.sdq.pcm.usagemodel.impl.UsagemodelPackageImpl#getLoopIterations()
+	 * @generated
+	 */
+	int LOOP_ITERATIONS = 9;
+
+	/**
+	 * The feature id for the '<em><b>Specification</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LOOP_ITERATIONS__SPECIFICATION = StochasticsPackage.RANDOM_VARIABLE__SPECIFICATION;
+
+	/**
+	 * The feature id for the '<em><b>Specification Random Variable</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LOOP_ITERATIONS__SPECIFICATION_RANDOM_VARIABLE = StochasticsPackage.RANDOM_VARIABLE__SPECIFICATION_RANDOM_VARIABLE;
+
+	/**
+	 * The number of structural features of the '<em>Loop Iterations</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LOOP_ITERATIONS_FEATURE_COUNT = StochasticsPackage.RANDOM_VARIABLE_FEATURE_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.usagemodel.impl.EntryLevelSystemCallImpl <em>Entry Level System Call</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -400,7 +439,7 @@ public interface UsagemodelPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.usagemodel.impl.UsagemodelPackageImpl#getEntryLevelSystemCall()
 	 * @generated
 	 */
-	int ENTRY_LEVEL_SYSTEM_CALL = 9;
+	int ENTRY_LEVEL_SYSTEM_CALL = 10;
 
 	/**
 	 * The feature id for the '<em><b>Successor</b></em>' reference.
@@ -430,22 +469,13 @@ public interface UsagemodelPackage extends EPackage {
 	int ENTRY_LEVEL_SYSTEM_CALL__ACTUAL_PARAMETER_USAGE_ENTRY_LEVEL_SYSTEM_CALL = ABSTRACT_USER_ACTION_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>System Provided Role Entry Level System Call</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ENTRY_LEVEL_SYSTEM_CALL__SYSTEM_PROVIDED_ROLE_ENTRY_LEVEL_SYSTEM_CALL = ABSTRACT_USER_ACTION_FEATURE_COUNT + 1;
-
-	/**
 	 * The feature id for the '<em><b>Signature Entry Level System Call</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ENTRY_LEVEL_SYSTEM_CALL__SIGNATURE_ENTRY_LEVEL_SYSTEM_CALL = ABSTRACT_USER_ACTION_FEATURE_COUNT + 2;
+	int ENTRY_LEVEL_SYSTEM_CALL__SIGNATURE_ENTRY_LEVEL_SYSTEM_CALL = ABSTRACT_USER_ACTION_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Entry Level System Call</em>' class.
@@ -454,7 +484,7 @@ public interface UsagemodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ENTRY_LEVEL_SYSTEM_CALL_FEATURE_COUNT = ABSTRACT_USER_ACTION_FEATURE_COUNT + 3;
+	int ENTRY_LEVEL_SYSTEM_CALL_FEATURE_COUNT = ABSTRACT_USER_ACTION_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.usagemodel.impl.ClosedWorkloadImpl <em>Closed Workload</em>}' class.
@@ -464,7 +494,7 @@ public interface UsagemodelPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.usagemodel.impl.UsagemodelPackageImpl#getClosedWorkload()
 	 * @generated
 	 */
-	int CLOSED_WORKLOAD = 10;
+	int CLOSED_WORKLOAD = 11;
 
 	/**
 	 * The feature id for the '<em><b>Population</b></em>' attribute.
@@ -501,7 +531,7 @@ public interface UsagemodelPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.usagemodel.impl.UsagemodelPackageImpl#getBranch()
 	 * @generated
 	 */
-	int BRANCH = 11;
+	int BRANCH = 12;
 
 	/**
 	 * The feature id for the '<em><b>Successor</b></em>' reference.
@@ -522,13 +552,13 @@ public interface UsagemodelPackage extends EPackage {
 	int BRANCH__PREDECESSOR = ABSTRACT_USER_ACTION__PREDECESSOR;
 
 	/**
-	 * The feature id for the '<em><b>Branched Behaviour Branch</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Branch Transitions Branch</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BRANCH__BRANCHED_BEHAVIOUR_BRANCH = ABSTRACT_USER_ACTION_FEATURE_COUNT + 0;
+	int BRANCH__BRANCH_TRANSITIONS_BRANCH = ABSTRACT_USER_ACTION_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Branch</em>' class.
@@ -538,6 +568,44 @@ public interface UsagemodelPackage extends EPackage {
 	 * @ordered
 	 */
 	int BRANCH_FEATURE_COUNT = ABSTRACT_USER_ACTION_FEATURE_COUNT + 1;
+
+
+	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.usagemodel.impl.BranchTransitionImpl <em>Branch Transition</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.pcm.usagemodel.impl.BranchTransitionImpl
+	 * @see de.uka.ipd.sdq.pcm.usagemodel.impl.UsagemodelPackageImpl#getBranchTransition()
+	 * @generated
+	 */
+	int BRANCH_TRANSITION = 13;
+
+	/**
+	 * The feature id for the '<em><b>Branch Probability</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BRANCH_TRANSITION__BRANCH_PROBABILITY = 0;
+
+	/**
+	 * The feature id for the '<em><b>Branched Behaviour Branch Transition</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BRANCH_TRANSITION__BRANCHED_BEHAVIOUR_BRANCH_TRANSITION = 1;
+
+	/**
+	 * The number of structural features of the '<em>Branch Transition</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BRANCH_TRANSITION_FEATURE_COUNT = 2;
 
 
 	/**
@@ -719,15 +787,25 @@ public interface UsagemodelPackage extends EPackage {
 	EReference getLoop_BodyBehaviour_Loop();
 
 	/**
-	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.pcm.usagemodel.Loop#getIterations <em>Iterations</em>}'.
+	 * Returns the meta object for the containment reference list '{@link de.uka.ipd.sdq.pcm.usagemodel.Loop#getIterations_Loop <em>Iterations Loop</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Iterations</em>'.
-	 * @see de.uka.ipd.sdq.pcm.usagemodel.Loop#getIterations()
+	 * @return the meta object for the containment reference list '<em>Iterations Loop</em>'.
+	 * @see de.uka.ipd.sdq.pcm.usagemodel.Loop#getIterations_Loop()
 	 * @see #getLoop()
 	 * @generated
 	 */
-	EAttribute getLoop_Iterations();
+	EReference getLoop_Iterations_Loop();
+
+	/**
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.usagemodel.LoopIterations <em>Loop Iterations</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Loop Iterations</em>'.
+	 * @see de.uka.ipd.sdq.pcm.usagemodel.LoopIterations
+	 * @generated
+	 */
+	EClass getLoopIterations();
 
 	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.usagemodel.EntryLevelSystemCall <em>Entry Level System Call</em>}'.
@@ -749,17 +827,6 @@ public interface UsagemodelPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getEntryLevelSystemCall_ActualParameterUsage_EntryLevelSystemCall();
-
-	/**
-	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.pcm.usagemodel.EntryLevelSystemCall#getSystemProvidedRole_EntryLevelSystemCall <em>System Provided Role Entry Level System Call</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>System Provided Role Entry Level System Call</em>'.
-	 * @see de.uka.ipd.sdq.pcm.usagemodel.EntryLevelSystemCall#getSystemProvidedRole_EntryLevelSystemCall()
-	 * @see #getEntryLevelSystemCall()
-	 * @generated
-	 */
-	EReference getEntryLevelSystemCall_SystemProvidedRole_EntryLevelSystemCall();
 
 	/**
 	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.pcm.usagemodel.EntryLevelSystemCall#getSignature_EntryLevelSystemCall <em>Signature Entry Level System Call</em>}'.
@@ -815,15 +882,47 @@ public interface UsagemodelPackage extends EPackage {
 	EClass getBranch();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link de.uka.ipd.sdq.pcm.usagemodel.Branch#getBranchedBehaviour_Branch <em>Branched Behaviour Branch</em>}'.
+	 * Returns the meta object for the containment reference list '{@link de.uka.ipd.sdq.pcm.usagemodel.Branch#getBranchTransitions_Branch <em>Branch Transitions Branch</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Branched Behaviour Branch</em>'.
-	 * @see de.uka.ipd.sdq.pcm.usagemodel.Branch#getBranchedBehaviour_Branch()
+	 * @return the meta object for the containment reference list '<em>Branch Transitions Branch</em>'.
+	 * @see de.uka.ipd.sdq.pcm.usagemodel.Branch#getBranchTransitions_Branch()
 	 * @see #getBranch()
 	 * @generated
 	 */
-	EReference getBranch_BranchedBehaviour_Branch();
+	EReference getBranch_BranchTransitions_Branch();
+
+	/**
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.usagemodel.BranchTransition <em>Branch Transition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Branch Transition</em>'.
+	 * @see de.uka.ipd.sdq.pcm.usagemodel.BranchTransition
+	 * @generated
+	 */
+	EClass getBranchTransition();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.pcm.usagemodel.BranchTransition#getBranchProbability <em>Branch Probability</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Branch Probability</em>'.
+	 * @see de.uka.ipd.sdq.pcm.usagemodel.BranchTransition#getBranchProbability()
+	 * @see #getBranchTransition()
+	 * @generated
+	 */
+	EAttribute getBranchTransition_BranchProbability();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link de.uka.ipd.sdq.pcm.usagemodel.BranchTransition#getBranchedBehaviour_BranchTransition <em>Branched Behaviour Branch Transition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Branched Behaviour Branch Transition</em>'.
+	 * @see de.uka.ipd.sdq.pcm.usagemodel.BranchTransition#getBranchedBehaviour_BranchTransition()
+	 * @see #getBranchTransition()
+	 * @generated
+	 */
+	EReference getBranchTransition_BranchedBehaviour_BranchTransition();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -1002,12 +1101,22 @@ public interface UsagemodelPackage extends EPackage {
 		EReference LOOP__BODY_BEHAVIOUR_LOOP = eINSTANCE.getLoop_BodyBehaviour_Loop();
 
 		/**
-		 * The meta object literal for the '<em><b>Iterations</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Iterations Loop</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute LOOP__ITERATIONS = eINSTANCE.getLoop_Iterations();
+		EReference LOOP__ITERATIONS_LOOP = eINSTANCE.getLoop_Iterations_Loop();
+
+		/**
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.usagemodel.impl.LoopIterationsImpl <em>Loop Iterations</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.uka.ipd.sdq.pcm.usagemodel.impl.LoopIterationsImpl
+		 * @see de.uka.ipd.sdq.pcm.usagemodel.impl.UsagemodelPackageImpl#getLoopIterations()
+		 * @generated
+		 */
+		EClass LOOP_ITERATIONS = eINSTANCE.getLoopIterations();
 
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.usagemodel.impl.EntryLevelSystemCallImpl <em>Entry Level System Call</em>}' class.
@@ -1026,14 +1135,6 @@ public interface UsagemodelPackage extends EPackage {
 		 * @generated
 		 */
 		EReference ENTRY_LEVEL_SYSTEM_CALL__ACTUAL_PARAMETER_USAGE_ENTRY_LEVEL_SYSTEM_CALL = eINSTANCE.getEntryLevelSystemCall_ActualParameterUsage_EntryLevelSystemCall();
-
-		/**
-		 * The meta object literal for the '<em><b>System Provided Role Entry Level System Call</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference ENTRY_LEVEL_SYSTEM_CALL__SYSTEM_PROVIDED_ROLE_ENTRY_LEVEL_SYSTEM_CALL = eINSTANCE.getEntryLevelSystemCall_SystemProvidedRole_EntryLevelSystemCall();
 
 		/**
 		 * The meta object literal for the '<em><b>Signature Entry Level System Call</b></em>' reference feature.
@@ -1080,12 +1181,38 @@ public interface UsagemodelPackage extends EPackage {
 		EClass BRANCH = eINSTANCE.getBranch();
 
 		/**
-		 * The meta object literal for the '<em><b>Branched Behaviour Branch</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Branch Transitions Branch</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference BRANCH__BRANCHED_BEHAVIOUR_BRANCH = eINSTANCE.getBranch_BranchedBehaviour_Branch();
+		EReference BRANCH__BRANCH_TRANSITIONS_BRANCH = eINSTANCE.getBranch_BranchTransitions_Branch();
+
+		/**
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.usagemodel.impl.BranchTransitionImpl <em>Branch Transition</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.uka.ipd.sdq.pcm.usagemodel.impl.BranchTransitionImpl
+		 * @see de.uka.ipd.sdq.pcm.usagemodel.impl.UsagemodelPackageImpl#getBranchTransition()
+		 * @generated
+		 */
+		EClass BRANCH_TRANSITION = eINSTANCE.getBranchTransition();
+
+		/**
+		 * The meta object literal for the '<em><b>Branch Probability</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute BRANCH_TRANSITION__BRANCH_PROBABILITY = eINSTANCE.getBranchTransition_BranchProbability();
+
+		/**
+		 * The meta object literal for the '<em><b>Branched Behaviour Branch Transition</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference BRANCH_TRANSITION__BRANCHED_BEHAVIOUR_BRANCH_TRANSITION = eINSTANCE.getBranchTransition_BranchedBehaviour_BranchTransition();
 
 	}
 

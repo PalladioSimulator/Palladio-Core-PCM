@@ -9,8 +9,6 @@ package de.uka.ipd.sdq.pcm.usagemodel;
 
 import de.uka.ipd.sdq.pcm.repository.Signature;
 
-import de.uka.ipd.sdq.pcm.system.SystemProvidedRole;
-
 import org.eclipse.emf.common.util.EList;
 
 /**
@@ -22,7 +20,6 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * <ul>
  *   <li>{@link de.uka.ipd.sdq.pcm.usagemodel.EntryLevelSystemCall#getActualParameterUsage_EntryLevelSystemCall <em>Actual Parameter Usage Entry Level System Call</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.usagemodel.EntryLevelSystemCall#getSystemProvidedRole_EntryLevelSystemCall <em>System Provided Role Entry Level System Call</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.usagemodel.EntryLevelSystemCall#getSignature_EntryLevelSystemCall <em>Signature Entry Level System Call</em>}</li>
  * </ul>
  * </p>
@@ -54,32 +51,6 @@ public interface EntryLevelSystemCall extends AbstractUserAction {
 	 * @generated
 	 */
 	EList getActualParameterUsage_EntryLevelSystemCall();
-
-	/**
-	 * Returns the value of the '<em><b>System Provided Role Entry Level System Call</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>System Provided Role Entry Level System Call</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>System Provided Role Entry Level System Call</em>' reference.
-	 * @see #setSystemProvidedRole_EntryLevelSystemCall(SystemProvidedRole)
-	 * @see de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage#getEntryLevelSystemCall_SystemProvidedRole_EntryLevelSystemCall()
-	 * @model required="true" ordered="false"
-	 * @generated
-	 */
-	SystemProvidedRole getSystemProvidedRole_EntryLevelSystemCall();
-
-	/**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.usagemodel.EntryLevelSystemCall#getSystemProvidedRole_EntryLevelSystemCall <em>System Provided Role Entry Level System Call</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>System Provided Role Entry Level System Call</em>' reference.
-	 * @see #getSystemProvidedRole_EntryLevelSystemCall()
-	 * @generated
-	 */
-	void setSystemProvidedRole_EntryLevelSystemCall(SystemProvidedRole value);
 
 	/**
 	 * Returns the value of the '<em><b>Signature Entry Level System Call</b></em>' reference.

@@ -87,9 +87,20 @@
     </eSubpackages>
     <eSubpackages name="entity" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Core/Entity/1.0"
         nsPrefix="pcm.core.entity">
-      <eClassifiers xsi:type="ecore:EClass" name="Entity" abstract="true" eSuperTypes="../../../plugin/de.uka.ipd.sdq.identifier/model/identifier.ecore#//Identifier">
+      <eClassifiers xsi:type="ecore:EClass" name="Entity" abstract="true" eSuperTypes="../../../plugin/de.uka.ipd.sdq.identifier/model/identifier.ecore#//Identifier #//core/entity/NamedElement"/>
+      <eClassifiers xsi:type="ecore:EClass" name="NamedElement" abstract="true">
         <eStructuralFeatures xsi:type="ecore:EAttribute" name="entityName" ordered="false"
             lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="InterfaceProvidingEntity" abstract="true">
+        <eStructuralFeatures xsi:type="ecore:EReference" name="providedRoles_InterfaceProvidingEntity"
+            ordered="false" upperBound="-1" eType="#//repository/ProvidedRole" containment="true"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="InterfaceProvidingRequiringEntity"
+          abstract="true" eSuperTypes="#//core/entity/InterfaceProvidingEntity #//core/entity/InterfaceRequiringEntity"/>
+      <eClassifiers xsi:type="ecore:EClass" name="InterfaceRequiringEntity" abstract="true">
+        <eStructuralFeatures xsi:type="ecore:EReference" name="requiredRoles_InterfaceRequiringEntity"
+            ordered="false" upperBound="-1" eType="#//repository/RequiredRole" containment="true"/>
       </eClassifiers>
     </eSubpackages>
     <eSubpackages name="connectors" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Core/Connectors/1.0"
@@ -120,33 +131,9 @@
         <eStructuralFeatures xsi:type="ecore:EReference" name="childComponentContext_ProvidedDelegationConnector"
             ordered="false" lowerBound="1" eType="#//core/composition/AssemblyContext"/>
       </eClassifiers>
-      <eClassifiers xsi:type="ecore:EClass" name="ComposedStructure" abstract="true">
-        <eStructuralFeatures xsi:type="ecore:EReference" name="childComponentContexts_ComposedStructure"
-            ordered="false" upperBound="-1" eType="#//core/composition/AssemblyContext"
-            containment="true"/>
-        <eStructuralFeatures xsi:type="ecore:EReference" name="compositeAssemblyConnectors_ComposedStructure"
-            ordered="false" upperBound="-1" eType="#//core/composition/AssemblyConnector"
-            containment="true"/>
-        <eStructuralFeatures xsi:type="ecore:EReference" name="providedDelegationConnectors_ComposedStructure"
-            ordered="false" upperBound="-1" eType="#//core/composition/ProvidedDelegationConnector"
-            containment="true"/>
-        <eStructuralFeatures xsi:type="ecore:EReference" name="requiredDelegationConnectors_ComposedStructure"
-            ordered="false" upperBound="-1" eType="#//core/composition/RequiredDelegationConnector"
-            containment="true"/>
-      </eClassifiers>
       <eClassifiers xsi:type="ecore:EClass" name="AssemblyContext" eSuperTypes="#//core/entity/Entity">
         <eStructuralFeatures xsi:type="ecore:EReference" name="encapsulatedComponent_ChildComponentContext"
             ordered="false" lowerBound="1" eType="#//repository/ProvidesComponentType"/>
-      </eClassifiers>
-      <eClassifiers xsi:type="ecore:EClass" name="AssemblyConnector" eSuperTypes="#//core/connectors/Connector #//core/entity/Entity">
-        <eStructuralFeatures xsi:type="ecore:EReference" name="requiringChildComponentContext_CompositeAssemblyConnector"
-            ordered="false" lowerBound="1" eType="#//core/composition/AssemblyContext"/>
-        <eStructuralFeatures xsi:type="ecore:EReference" name="providingChildComponentContext_CompositeAssemblyConnector"
-            ordered="false" lowerBound="1" eType="#//core/composition/AssemblyContext"/>
-        <eStructuralFeatures xsi:type="ecore:EReference" name="providedRole_CompositeAssemblyConnector"
-            ordered="false" lowerBound="1" eType="#//repository/ProvidedRole"/>
-        <eStructuralFeatures xsi:type="ecore:EReference" name="requiredRole_CompositeAssemblyConnector"
-            ordered="false" lowerBound="1" eType="#//repository/RequiredRole"/>
       </eClassifiers>
       <eClassifiers xsi:type="ecore:EClass" name="RequiredDelegationConnector" eSuperTypes="#//repository/DelegationConnector">
         <eOperations name="innerAndOuterRoleNeedToHaveDifferentContextIDs" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
@@ -169,6 +156,30 @@
             ordered="false" lowerBound="1" eType="#//repository/RequiredRole"/>
         <eStructuralFeatures xsi:type="ecore:EReference" name="childComponentContext_RequiredDelegationConnector"
             ordered="false" lowerBound="1" eType="#//core/composition/AssemblyContext"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="AssemblyConnector" eSuperTypes="#//core/connectors/Connector #//core/entity/Entity">
+        <eStructuralFeatures xsi:type="ecore:EReference" name="requiringChildComponentContext_CompositeAssemblyConnector"
+            ordered="false" lowerBound="1" eType="#//core/composition/AssemblyContext"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="providingChildComponentContext_CompositeAssemblyConnector"
+            ordered="false" lowerBound="1" eType="#//core/composition/AssemblyContext"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="providedRole_CompositeAssemblyConnector"
+            ordered="false" lowerBound="1" eType="#//repository/ProvidedRole"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="requiredRole_CompositeAssemblyConnector"
+            ordered="false" lowerBound="1" eType="#//repository/RequiredRole"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="ComposedStructure" abstract="true">
+        <eStructuralFeatures xsi:type="ecore:EReference" name="childComponentContexts_ComposedStructure"
+            ordered="false" upperBound="-1" eType="#//core/composition/AssemblyContext"
+            containment="true"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="compositeAssemblyConnectors_ComposedStructure"
+            ordered="false" upperBound="-1" eType="#//core/composition/AssemblyConnector"
+            containment="true"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="providedDelegationConnectors_ComposedStructure"
+            ordered="false" upperBound="-1" eType="#//core/composition/ProvidedDelegationConnector"
+            containment="true"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="requiredDelegationConnectors_ComposedStructure"
+            ordered="false" upperBound="-1" eType="#//core/composition/RequiredDelegationConnector"
+            containment="true"/>
       </eClassifiers>
     </eSubpackages>
   </eSubpackages>
@@ -312,7 +323,7 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="interfaces__Repository"
           ordered="false" upperBound="-1" eType="#//repository/Interface" containment="true"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="ProvidesComponentType" eSuperTypes="#//core/entity/Entity">
+    <eClassifiers xsi:type="ecore:EClass" name="ProvidesComponentType" eSuperTypes="#//core/entity/Entity #//core/entity/InterfaceProvidingRequiringEntity">
       <eOperations name="AtLeastOneInterfaceHasToBeProvidedByAUsefullProvidesComponentType"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -321,18 +332,6 @@
         <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain"/>
         <eParameters name="context" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap"/>
       </eOperations>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="providedRoles__ProvidesComponentType"
-          ordered="false" upperBound="-1" eType="#//repository/ProvidedRole" containment="true"
-          eOpposite="#//repository/ProvidedRole/providingComponent__ProvidedRole"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="requiredRoles_ProvidesComponentType"
-          ordered="false" upperBound="-1" eType="#//repository/RequiredRole" containment="true"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="ProvidedRole" eSuperTypes="#//repository/Role">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="providedInterface__ProvidedRole"
-          ordered="false" lowerBound="1" eType="#//repository/Interface"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="providingComponent__ProvidedRole"
-          ordered="false" lowerBound="1" eType="#//repository/ProvidesComponentType"
-          eOpposite="#//repository/ProvidesComponentType/providedRoles__ProvidesComponentType"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ImplementationComponentType" eSuperTypes="#//repository/CompleteComponentType">
       <eOperations name="RequiredInterfacesHaveToConformToCompleteType" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
@@ -371,6 +370,8 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="parentProvidesComponentTypes"
           ordered="false" upperBound="-1" eType="#//repository/ProvidesComponentType"/>
     </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="DelegationConnector" abstract="true"
+        eSuperTypes="#//core/connectors/Connector"/>
     <eClassifiers xsi:type="ecore:EClass" name="CompositeComponent" eSuperTypes="#//repository/ImplementationComponentType #//core/composition/ComposedStructure">
       <eOperations name="ProvideSameInterfaces" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -417,8 +418,10 @@
           ordered="false" upperBound="-1" eType="#//seff/ServiceEffectSpecification"
           containment="true"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="DelegationConnector" abstract="true"
-        eSuperTypes="#//core/connectors/Connector"/>
+    <eClassifiers xsi:type="ecore:EClass" name="ProvidedRole" eSuperTypes="#//repository/Role">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="providedInterface__ProvidedRole"
+          ordered="false" lowerBound="1" eType="#//repository/Interface"/>
+    </eClassifiers>
   </eSubpackages>
   <eSubpackages name="protocol" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Protocol/1.0"
       nsPrefix="pcm.protocol">
@@ -484,8 +487,6 @@
           lowerBound="1" eType="#//parameter/PrimitiveParameterCharacterisationType"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="LoopAction" eSuperTypes="#//seff/AbstractResourceDemandingAction">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="iterations" ordered="false"
-          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="bodyBehaviour_Loop" ordered="false"
           lowerBound="1" eType="#//seff/ResourceDemandingBehaviour" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="iterations_LoopAction"
@@ -513,12 +514,15 @@
           lowerBound="1" eType="#//parameter/CollectionParameterCharacterisationType"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="BranchTransition">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="branchCondition" ordered="false"
-          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="branchBehaviour_BranchTransition"
           ordered="false" lowerBound="1" eType="#//seff/ResourceDemandingBehaviour"
           containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="branchCondition_BranchTransition"
+          ordered="false" lowerBound="1" eType="#//seff/BranchCondition" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="branchProbability" ordered="false"
+          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="BranchCondition" eSuperTypes="#//core/stochastics/RandomVariable"/>
     <eClassifiers xsi:type="ecore:EClass" name="BranchAction" eSuperTypes="#//seff/AbstractResourceDemandingAction">
       <eStructuralFeatures xsi:type="ecore:EReference" name="branches_Branch" ordered="false"
           upperBound="-1" eType="#//seff/BranchTransition" containment="true"/>
@@ -526,6 +530,10 @@
     <eClassifiers xsi:type="ecore:EClass" name="AquireAction" eSuperTypes="#//seff/AbstractResourceDemandingAction">
       <eStructuralFeatures xsi:type="ecore:EReference" name="resourceType_Aquire"
           ordered="false" lowerBound="1" eType="#//resourcetype/PassiveResourceType"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="CollectionIteratorAction" eSuperTypes="#//seff/LoopAction">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="parameter_CollectionIteratorAction"
+          ordered="false" lowerBound="1" eType="#//repository/Parameter"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ServiceEffectSpecification" abstract="true">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="seffTypeID" ordered="false"
@@ -683,14 +691,13 @@
     <eClassifiers xsi:type="ecore:EClass" name="Loop" eSuperTypes="#//usagemodel/AbstractUserAction">
       <eStructuralFeatures xsi:type="ecore:EReference" name="bodyBehaviour_Loop" ordered="false"
           lowerBound="1" eType="#//usagemodel/ScenarioBehaviour" containment="true"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="iterations" ordered="false"
-          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="iterations_Loop" ordered="false"
+          upperBound="-1" eType="#//usagemodel/LoopIterations" containment="true"/>
     </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="LoopIterations" eSuperTypes="#//core/stochastics/RandomVariable"/>
     <eClassifiers xsi:type="ecore:EClass" name="EntryLevelSystemCall" eSuperTypes="#//usagemodel/AbstractUserAction">
       <eStructuralFeatures xsi:type="ecore:EReference" name="actualParameterUsage_EntryLevelSystemCall"
           ordered="false" upperBound="-1" eType="#//parameter/ParameterUsage" containment="true"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="systemProvidedRole_EntryLevelSystemCall"
-          ordered="false" lowerBound="1" eType="#//system/SystemProvidedRole"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="signature_EntryLevelSystemCall"
           ordered="false" lowerBound="1" eType="#//repository/Signature"/>
     </eClassifiers>
@@ -701,37 +708,28 @@
           lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Branch" eSuperTypes="#//usagemodel/AbstractUserAction">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="branchedBehaviour_Branch"
-          ordered="false" upperBound="-1" eType="#//usagemodel/ScenarioBehaviour"
-          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="branchTransitions_Branch"
+          ordered="false" upperBound="-1" eType="#//usagemodel/BranchTransition" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="BranchTransition">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="branchProbability" ordered="false"
+          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="branchedBehaviour_BranchTransition"
+          ordered="false" lowerBound="1" eType="#//usagemodel/ScenarioBehaviour" containment="true"/>
     </eClassifiers>
   </eSubpackages>
   <eSubpackages name="system" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/System/1.0"
       nsPrefix="pcm.system">
-    <eClassifiers xsi:type="ecore:EClass" name="SystemRequiredRole" eSuperTypes="#//repository/RequiredRole #//core/entity/Entity">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="system_SystemRequiredRole"
-          ordered="false" lowerBound="1" eType="#//system/System" eOpposite="#//system/System/systemRequiredRole_System"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="specifiedTimeConsumption_SystemRequiredRole"
-          ordered="false" upperBound="-1" eType="#//system/SpecifiedTimeConsumption"
-          containment="true"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="System" eSuperTypes="#//core/composition/ComposedStructure #//core/entity/Entity">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="systemProvidedRole_System"
-          ordered="false" upperBound="-1" eType="#//system/SystemProvidedRole" containment="true"
-          eOpposite="#//system/SystemProvidedRole/system_SystemProvidedRole"/>
+    <eClassifiers xsi:type="ecore:EClass" name="System" eSuperTypes="#//core/composition/ComposedStructure #//core/entity/Entity #//core/entity/InterfaceProvidingRequiringEntity">
       <eStructuralFeatures xsi:type="ecore:EReference" name="allocation_System" ordered="false"
           lowerBound="1" eType="#//allocation/Allocation"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="systemRequiredRole_System"
-          ordered="false" upperBound="-1" eType="#//system/SystemRequiredRole" containment="true"
-          eOpposite="#//system/SystemRequiredRole/system_SystemRequiredRole"/>
     </eClassifiers>
+  </eSubpackages>
+  <eSubpackages name="qosannotations" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/QoSAnnotations/1.0"
+      nsPrefix="pcm.qosannotations">
     <eClassifiers xsi:type="ecore:EClass" name="SpecifiedTimeConsumption" eSuperTypes="#//core/stochastics/RandomVariable">
       <eStructuralFeatures xsi:type="ecore:EReference" name="signature_SpecifiedTimeConsumption"
           ordered="false" lowerBound="1" eType="#//repository/Signature"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="SystemProvidedRole" eSuperTypes="#//repository/ProvidedRole #//core/entity/Entity">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="system_SystemProvidedRole"
-          ordered="false" lowerBound="1" eType="#//system/System" eOpposite="#//system/System/systemProvidedRole_System"/>
     </eClassifiers>
   </eSubpackages>
 </ecore:EPackage>

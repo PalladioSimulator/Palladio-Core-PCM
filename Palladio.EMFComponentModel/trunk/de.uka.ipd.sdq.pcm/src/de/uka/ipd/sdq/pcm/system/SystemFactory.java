@@ -33,15 +33,6 @@ public interface SystemFactory extends EFactory {
 	SystemFactory eINSTANCE = de.uka.ipd.sdq.pcm.system.impl.SystemFactoryImpl.init();
 
 	/**
-	 * Returns a new object of class '<em>Required Role</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Required Role</em>'.
-	 * @generated
-	 */
-	SystemRequiredRole createSystemRequiredRole();
-
-	/**
 	 * Returns a new object of class '<em>System</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -49,24 +40,6 @@ public interface SystemFactory extends EFactory {
 	 * @generated
 	 */
 	de.uka.ipd.sdq.pcm.system.System createSystem();
-
-	/**
-	 * Returns a new object of class '<em>Specified Time Consumption</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Specified Time Consumption</em>'.
-	 * @generated
-	 */
-	SpecifiedTimeConsumption createSpecifiedTimeConsumption();
-
-	/**
-	 * Returns a new object of class '<em>Provided Role</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Provided Role</em>'.
-	 * @generated
-	 */
-	SystemProvidedRole createSystemProvidedRole();
 
 	/**
 	 * Returns the package supported by this factory.

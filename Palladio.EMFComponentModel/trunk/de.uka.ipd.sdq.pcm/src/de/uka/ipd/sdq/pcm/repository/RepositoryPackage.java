@@ -486,22 +486,22 @@ public interface RepositoryPackage extends EPackage {
 	int PROVIDES_COMPONENT_TYPE__ENTITY_NAME = EntityPackage.ENTITY__ENTITY_NAME;
 
 	/**
-	 * The feature id for the '<em><b>Provided Roles Provides Component Type</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Provided Roles Interface Providing Entity</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROVIDES_COMPONENT_TYPE__PROVIDED_ROLES_PROVIDES_COMPONENT_TYPE = EntityPackage.ENTITY_FEATURE_COUNT + 0;
+	int PROVIDES_COMPONENT_TYPE__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY = EntityPackage.ENTITY_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Required Roles Provides Component Type</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Required Roles Interface Requiring Entity</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROVIDES_COMPONENT_TYPE__REQUIRED_ROLES_PROVIDES_COMPONENT_TYPE = EntityPackage.ENTITY_FEATURE_COUNT + 1;
+	int PROVIDES_COMPONENT_TYPE__REQUIRED_ROLES_INTERFACE_REQUIRING_ENTITY = EntityPackage.ENTITY_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Provides Component Type</em>' class.
@@ -520,52 +520,7 @@ public interface RepositoryPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getProvidedRole()
 	 * @generated
 	 */
-	int PROVIDED_ROLE = 9;
-
-	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROVIDED_ROLE__ID = ROLE__ID;
-
-	/**
-	 * The feature id for the '<em><b>Entity Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROVIDED_ROLE__ENTITY_NAME = ROLE__ENTITY_NAME;
-
-	/**
-	 * The feature id for the '<em><b>Provided Interface Provided Role</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROVIDED_ROLE__PROVIDED_INTERFACE_PROVIDED_ROLE = ROLE_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Providing Component Provided Role</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROVIDED_ROLE__PROVIDING_COMPONENT_PROVIDED_ROLE = ROLE_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of structural features of the '<em>Provided Role</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROVIDED_ROLE_FEATURE_COUNT = ROLE_FEATURE_COUNT + 2;
+	int PROVIDED_ROLE = 14;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.repository.impl.CompleteComponentTypeImpl <em>Complete Component Type</em>}' class.
@@ -575,7 +530,7 @@ public interface RepositoryPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getCompleteComponentType()
 	 * @generated
 	 */
-	int COMPLETE_COMPONENT_TYPE = 11;
+	int COMPLETE_COMPONENT_TYPE = 10;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -596,22 +551,22 @@ public interface RepositoryPackage extends EPackage {
 	int COMPLETE_COMPONENT_TYPE__ENTITY_NAME = PROVIDES_COMPONENT_TYPE__ENTITY_NAME;
 
 	/**
-	 * The feature id for the '<em><b>Provided Roles Provides Component Type</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Provided Roles Interface Providing Entity</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPLETE_COMPONENT_TYPE__PROVIDED_ROLES_PROVIDES_COMPONENT_TYPE = PROVIDES_COMPONENT_TYPE__PROVIDED_ROLES_PROVIDES_COMPONENT_TYPE;
+	int COMPLETE_COMPONENT_TYPE__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY = PROVIDES_COMPONENT_TYPE__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY;
 
 	/**
-	 * The feature id for the '<em><b>Required Roles Provides Component Type</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Required Roles Interface Requiring Entity</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPLETE_COMPONENT_TYPE__REQUIRED_ROLES_PROVIDES_COMPONENT_TYPE = PROVIDES_COMPONENT_TYPE__REQUIRED_ROLES_PROVIDES_COMPONENT_TYPE;
+	int COMPLETE_COMPONENT_TYPE__REQUIRED_ROLES_INTERFACE_REQUIRING_ENTITY = PROVIDES_COMPONENT_TYPE__REQUIRED_ROLES_INTERFACE_REQUIRING_ENTITY;
 
 	/**
 	 * The feature id for the '<em><b>Parent Provides Component Types</b></em>' reference list.
@@ -639,7 +594,7 @@ public interface RepositoryPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getImplementationComponentType()
 	 * @generated
 	 */
-	int IMPLEMENTATION_COMPONENT_TYPE = 10;
+	int IMPLEMENTATION_COMPONENT_TYPE = 9;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -660,22 +615,22 @@ public interface RepositoryPackage extends EPackage {
 	int IMPLEMENTATION_COMPONENT_TYPE__ENTITY_NAME = COMPLETE_COMPONENT_TYPE__ENTITY_NAME;
 
 	/**
-	 * The feature id for the '<em><b>Provided Roles Provides Component Type</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Provided Roles Interface Providing Entity</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int IMPLEMENTATION_COMPONENT_TYPE__PROVIDED_ROLES_PROVIDES_COMPONENT_TYPE = COMPLETE_COMPONENT_TYPE__PROVIDED_ROLES_PROVIDES_COMPONENT_TYPE;
+	int IMPLEMENTATION_COMPONENT_TYPE__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY = COMPLETE_COMPONENT_TYPE__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY;
 
 	/**
-	 * The feature id for the '<em><b>Required Roles Provides Component Type</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Required Roles Interface Requiring Entity</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int IMPLEMENTATION_COMPONENT_TYPE__REQUIRED_ROLES_PROVIDES_COMPONENT_TYPE = COMPLETE_COMPONENT_TYPE__REQUIRED_ROLES_PROVIDES_COMPONENT_TYPE;
+	int IMPLEMENTATION_COMPONENT_TYPE__REQUIRED_ROLES_INTERFACE_REQUIRING_ENTITY = COMPLETE_COMPONENT_TYPE__REQUIRED_ROLES_INTERFACE_REQUIRING_ENTITY;
 
 	/**
 	 * The feature id for the '<em><b>Parent Provides Component Types</b></em>' reference list.
@@ -715,6 +670,53 @@ public interface RepositoryPackage extends EPackage {
 	int COMPOSITE_COMPONENT = 12;
 
 	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.repository.impl.BasicComponentImpl <em>Basic Component</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.pcm.repository.impl.BasicComponentImpl
+	 * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getBasicComponent()
+	 * @generated
+	 */
+	int BASIC_COMPONENT = 13;
+
+	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.repository.impl.DelegationConnectorImpl <em>Delegation Connector</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.pcm.repository.impl.DelegationConnectorImpl
+	 * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getDelegationConnector()
+	 * @generated
+	 */
+	int DELEGATION_CONNECTOR = 11;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DELEGATION_CONNECTOR__ID = ConnectorsPackage.CONNECTOR__ID;
+
+	/**
+	 * The feature id for the '<em><b>Entity Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DELEGATION_CONNECTOR__ENTITY_NAME = ConnectorsPackage.CONNECTOR__ENTITY_NAME;
+
+	/**
+	 * The number of structural features of the '<em>Delegation Connector</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DELEGATION_CONNECTOR_FEATURE_COUNT = ConnectorsPackage.CONNECTOR_FEATURE_COUNT + 0;
+
+	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -733,22 +735,22 @@ public interface RepositoryPackage extends EPackage {
 	int COMPOSITE_COMPONENT__ENTITY_NAME = IMPLEMENTATION_COMPONENT_TYPE__ENTITY_NAME;
 
 	/**
-	 * The feature id for the '<em><b>Provided Roles Provides Component Type</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Provided Roles Interface Providing Entity</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPOSITE_COMPONENT__PROVIDED_ROLES_PROVIDES_COMPONENT_TYPE = IMPLEMENTATION_COMPONENT_TYPE__PROVIDED_ROLES_PROVIDES_COMPONENT_TYPE;
+	int COMPOSITE_COMPONENT__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY = IMPLEMENTATION_COMPONENT_TYPE__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY;
 
 	/**
-	 * The feature id for the '<em><b>Required Roles Provides Component Type</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Required Roles Interface Requiring Entity</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPOSITE_COMPONENT__REQUIRED_ROLES_PROVIDES_COMPONENT_TYPE = IMPLEMENTATION_COMPONENT_TYPE__REQUIRED_ROLES_PROVIDES_COMPONENT_TYPE;
+	int COMPOSITE_COMPONENT__REQUIRED_ROLES_INTERFACE_REQUIRING_ENTITY = IMPLEMENTATION_COMPONENT_TYPE__REQUIRED_ROLES_INTERFACE_REQUIRING_ENTITY;
 
 	/**
 	 * The feature id for the '<em><b>Parent Provides Component Types</b></em>' reference list.
@@ -823,16 +825,6 @@ public interface RepositoryPackage extends EPackage {
 	int COMPOSITE_COMPONENT_FEATURE_COUNT = IMPLEMENTATION_COMPONENT_TYPE_FEATURE_COUNT + 5;
 
 	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.repository.impl.BasicComponentImpl <em>Basic Component</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.pcm.repository.impl.BasicComponentImpl
-	 * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getBasicComponent()
-	 * @generated
-	 */
-	int BASIC_COMPONENT = 13;
-
-	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -851,22 +843,22 @@ public interface RepositoryPackage extends EPackage {
 	int BASIC_COMPONENT__ENTITY_NAME = IMPLEMENTATION_COMPONENT_TYPE__ENTITY_NAME;
 
 	/**
-	 * The feature id for the '<em><b>Provided Roles Provides Component Type</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Provided Roles Interface Providing Entity</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BASIC_COMPONENT__PROVIDED_ROLES_PROVIDES_COMPONENT_TYPE = IMPLEMENTATION_COMPONENT_TYPE__PROVIDED_ROLES_PROVIDES_COMPONENT_TYPE;
+	int BASIC_COMPONENT__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY = IMPLEMENTATION_COMPONENT_TYPE__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY;
 
 	/**
-	 * The feature id for the '<em><b>Required Roles Provides Component Type</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Required Roles Interface Requiring Entity</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BASIC_COMPONENT__REQUIRED_ROLES_PROVIDES_COMPONENT_TYPE = IMPLEMENTATION_COMPONENT_TYPE__REQUIRED_ROLES_PROVIDES_COMPONENT_TYPE;
+	int BASIC_COMPONENT__REQUIRED_ROLES_INTERFACE_REQUIRING_ENTITY = IMPLEMENTATION_COMPONENT_TYPE__REQUIRED_ROLES_INTERFACE_REQUIRING_ENTITY;
 
 	/**
 	 * The feature id for the '<em><b>Parent Provides Component Types</b></em>' reference list.
@@ -914,23 +906,13 @@ public interface RepositoryPackage extends EPackage {
 	int BASIC_COMPONENT_FEATURE_COUNT = IMPLEMENTATION_COMPONENT_TYPE_FEATURE_COUNT + 2;
 
 	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.repository.impl.DelegationConnectorImpl <em>Delegation Connector</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.pcm.repository.impl.DelegationConnectorImpl
-	 * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getDelegationConnector()
-	 * @generated
-	 */
-	int DELEGATION_CONNECTOR = 14;
-
-	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DELEGATION_CONNECTOR__ID = ConnectorsPackage.CONNECTOR__ID;
+	int PROVIDED_ROLE__ID = ROLE__ID;
 
 	/**
 	 * The feature id for the '<em><b>Entity Name</b></em>' attribute.
@@ -939,16 +921,25 @@ public interface RepositoryPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DELEGATION_CONNECTOR__ENTITY_NAME = ConnectorsPackage.CONNECTOR__ENTITY_NAME;
+	int PROVIDED_ROLE__ENTITY_NAME = ROLE__ENTITY_NAME;
 
 	/**
-	 * The number of structural features of the '<em>Delegation Connector</em>' class.
+	 * The feature id for the '<em><b>Provided Interface Provided Role</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DELEGATION_CONNECTOR_FEATURE_COUNT = ConnectorsPackage.CONNECTOR_FEATURE_COUNT + 0;
+	int PROVIDED_ROLE__PROVIDED_INTERFACE_PROVIDED_ROLE = ROLE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Provided Role</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROVIDED_ROLE_FEATURE_COUNT = ROLE_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.repository.ParameterModifier <em>Parameter Modifier</em>}' enum.
@@ -1272,28 +1263,6 @@ public interface RepositoryPackage extends EPackage {
 	EClass getProvidesComponentType();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link de.uka.ipd.sdq.pcm.repository.ProvidesComponentType#getProvidedRoles__ProvidesComponentType <em>Provided Roles Provides Component Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Provided Roles Provides Component Type</em>'.
-	 * @see de.uka.ipd.sdq.pcm.repository.ProvidesComponentType#getProvidedRoles__ProvidesComponentType()
-	 * @see #getProvidesComponentType()
-	 * @generated
-	 */
-	EReference getProvidesComponentType_ProvidedRoles__ProvidesComponentType();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link de.uka.ipd.sdq.pcm.repository.ProvidesComponentType#getRequiredRoles_ProvidesComponentType <em>Required Roles Provides Component Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Required Roles Provides Component Type</em>'.
-	 * @see de.uka.ipd.sdq.pcm.repository.ProvidesComponentType#getRequiredRoles_ProvidesComponentType()
-	 * @see #getProvidesComponentType()
-	 * @generated
-	 */
-	EReference getProvidesComponentType_RequiredRoles_ProvidesComponentType();
-
-	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.repository.ProvidedRole <em>Provided Role</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1313,17 +1282,6 @@ public interface RepositoryPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getProvidedRole_ProvidedInterface__ProvidedRole();
-
-	/**
-	 * Returns the meta object for the container reference '{@link de.uka.ipd.sdq.pcm.repository.ProvidedRole#getProvidingComponent__ProvidedRole <em>Providing Component Provided Role</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Providing Component Provided Role</em>'.
-	 * @see de.uka.ipd.sdq.pcm.repository.ProvidedRole#getProvidingComponent__ProvidedRole()
-	 * @see #getProvidedRole()
-	 * @generated
-	 */
-	EReference getProvidedRole_ProvidingComponent__ProvidedRole();
 
 	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.repository.ImplementationComponentType <em>Implementation Component Type</em>}'.
@@ -1713,22 +1671,6 @@ public interface RepositoryPackage extends EPackage {
 		EClass PROVIDES_COMPONENT_TYPE = eINSTANCE.getProvidesComponentType();
 
 		/**
-		 * The meta object literal for the '<em><b>Provided Roles Provides Component Type</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference PROVIDES_COMPONENT_TYPE__PROVIDED_ROLES_PROVIDES_COMPONENT_TYPE = eINSTANCE.getProvidesComponentType_ProvidedRoles__ProvidesComponentType();
-
-		/**
-		 * The meta object literal for the '<em><b>Required Roles Provides Component Type</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference PROVIDES_COMPONENT_TYPE__REQUIRED_ROLES_PROVIDES_COMPONENT_TYPE = eINSTANCE.getProvidesComponentType_RequiredRoles_ProvidesComponentType();
-
-		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.repository.impl.ProvidedRoleImpl <em>Provided Role</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1745,14 +1687,6 @@ public interface RepositoryPackage extends EPackage {
 		 * @generated
 		 */
 		EReference PROVIDED_ROLE__PROVIDED_INTERFACE_PROVIDED_ROLE = eINSTANCE.getProvidedRole_ProvidedInterface__ProvidedRole();
-
-		/**
-		 * The meta object literal for the '<em><b>Providing Component Provided Role</b></em>' container reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference PROVIDED_ROLE__PROVIDING_COMPONENT_PROVIDED_ROLE = eINSTANCE.getProvidedRole_ProvidingComponent__ProvidedRole();
 
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.repository.impl.ImplementationComponentTypeImpl <em>Implementation Component Type</em>}' class.

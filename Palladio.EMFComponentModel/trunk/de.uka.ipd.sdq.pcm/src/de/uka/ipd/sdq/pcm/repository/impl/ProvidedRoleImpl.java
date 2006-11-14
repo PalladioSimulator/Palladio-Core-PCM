@@ -30,7 +30,6 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  * The following features are implemented:
  * <ul>
  *   <li>{@link de.uka.ipd.sdq.pcm.repository.impl.ProvidedRoleImpl#getProvidedInterface__ProvidedRole <em>Provided Interface Provided Role</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.repository.impl.ProvidedRoleImpl#getProvidingComponent__ProvidedRole <em>Providing Component Provided Role</em>}</li>
  * </ul>
  * </p>
  *
@@ -116,95 +115,11 @@ public class ProvidedRoleImpl extends RoleImpl implements ProvidedRole {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ProvidesComponentType getProvidingComponent__ProvidedRole() {
-		if (eContainerFeatureID != RepositoryPackage.PROVIDED_ROLE__PROVIDING_COMPONENT_PROVIDED_ROLE) return null;
-		return (ProvidesComponentType)eContainer();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetProvidingComponent__ProvidedRole(ProvidesComponentType newProvidingComponent__ProvidedRole, NotificationChain msgs) {
-		msgs = eBasicSetContainer((InternalEObject)newProvidingComponent__ProvidedRole, RepositoryPackage.PROVIDED_ROLE__PROVIDING_COMPONENT_PROVIDED_ROLE, msgs);
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setProvidingComponent__ProvidedRole(ProvidesComponentType newProvidingComponent__ProvidedRole) {
-		if (newProvidingComponent__ProvidedRole != eInternalContainer() || (eContainerFeatureID != RepositoryPackage.PROVIDED_ROLE__PROVIDING_COMPONENT_PROVIDED_ROLE && newProvidingComponent__ProvidedRole != null)) {
-			if (EcoreUtil.isAncestor(this, newProvidingComponent__ProvidedRole))
-				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
-			NotificationChain msgs = null;
-			if (eInternalContainer() != null)
-				msgs = eBasicRemoveFromContainer(msgs);
-			if (newProvidingComponent__ProvidedRole != null)
-				msgs = ((InternalEObject)newProvidingComponent__ProvidedRole).eInverseAdd(this, RepositoryPackage.PROVIDES_COMPONENT_TYPE__PROVIDED_ROLES_PROVIDES_COMPONENT_TYPE, ProvidesComponentType.class, msgs);
-			msgs = basicSetProvidingComponent__ProvidedRole(newProvidingComponent__ProvidedRole, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, RepositoryPackage.PROVIDED_ROLE__PROVIDING_COMPONENT_PROVIDED_ROLE, newProvidingComponent__ProvidedRole, newProvidingComponent__ProvidedRole));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case RepositoryPackage.PROVIDED_ROLE__PROVIDING_COMPONENT_PROVIDED_ROLE:
-				if (eInternalContainer() != null)
-					msgs = eBasicRemoveFromContainer(msgs);
-				return basicSetProvidingComponent__ProvidedRole((ProvidesComponentType)otherEnd, msgs);
-		}
-		return super.eInverseAdd(otherEnd, featureID, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case RepositoryPackage.PROVIDED_ROLE__PROVIDING_COMPONENT_PROVIDED_ROLE:
-				return basicSetProvidingComponent__ProvidedRole(null, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
-		switch (eContainerFeatureID) {
-			case RepositoryPackage.PROVIDED_ROLE__PROVIDING_COMPONENT_PROVIDED_ROLE:
-				return eInternalContainer().eInverseRemove(this, RepositoryPackage.PROVIDES_COMPONENT_TYPE__PROVIDED_ROLES_PROVIDES_COMPONENT_TYPE, ProvidesComponentType.class, msgs);
-		}
-		return super.eBasicRemoveFromContainerFeature(msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case RepositoryPackage.PROVIDED_ROLE__PROVIDED_INTERFACE_PROVIDED_ROLE:
 				if (resolve) return getProvidedInterface__ProvidedRole();
 				return basicGetProvidedInterface__ProvidedRole();
-			case RepositoryPackage.PROVIDED_ROLE__PROVIDING_COMPONENT_PROVIDED_ROLE:
-				return getProvidingComponent__ProvidedRole();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -218,9 +133,6 @@ public class ProvidedRoleImpl extends RoleImpl implements ProvidedRole {
 		switch (featureID) {
 			case RepositoryPackage.PROVIDED_ROLE__PROVIDED_INTERFACE_PROVIDED_ROLE:
 				setProvidedInterface__ProvidedRole((Interface)newValue);
-				return;
-			case RepositoryPackage.PROVIDED_ROLE__PROVIDING_COMPONENT_PROVIDED_ROLE:
-				setProvidingComponent__ProvidedRole((ProvidesComponentType)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -236,9 +148,6 @@ public class ProvidedRoleImpl extends RoleImpl implements ProvidedRole {
 			case RepositoryPackage.PROVIDED_ROLE__PROVIDED_INTERFACE_PROVIDED_ROLE:
 				setProvidedInterface__ProvidedRole((Interface)null);
 				return;
-			case RepositoryPackage.PROVIDED_ROLE__PROVIDING_COMPONENT_PROVIDED_ROLE:
-				setProvidingComponent__ProvidedRole((ProvidesComponentType)null);
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -252,8 +161,6 @@ public class ProvidedRoleImpl extends RoleImpl implements ProvidedRole {
 		switch (featureID) {
 			case RepositoryPackage.PROVIDED_ROLE__PROVIDED_INTERFACE_PROVIDED_ROLE:
 				return providedInterface__ProvidedRole != null;
-			case RepositoryPackage.PROVIDED_ROLE__PROVIDING_COMPONENT_PROVIDED_ROLE:
-				return getProvidingComponent__ProvidedRole() != null;
 		}
 		return super.eIsSet(featureID);
 	}

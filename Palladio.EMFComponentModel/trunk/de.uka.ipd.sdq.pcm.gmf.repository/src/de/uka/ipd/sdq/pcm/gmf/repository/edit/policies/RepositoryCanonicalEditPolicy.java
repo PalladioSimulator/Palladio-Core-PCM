@@ -7,9 +7,16 @@ import java.util.List;
 import java.util.Collection;
 import org.eclipse.gmf.runtime.notation.Edge;
 import org.eclipse.emf.ecore.EObject;
+import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
+import de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingEntity;
+import de.uka.ipd.sdq.pcm.core.entity.InterfaceRequiringEntity;
+
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.BasicComponentEditPart;
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.CompleteComponentTypeEditPart;
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.CompositeComponentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.InterfaceEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.ProvidedRoleEditPart;
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.ProvidesComponentTypeEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.RepositoryEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.RequiredRoleEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.ResourceDemandingSEFFEditPart;
@@ -18,9 +25,7 @@ import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.SignatureEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.part.PcmVisualIDRegistry;
 
 import de.uka.ipd.sdq.pcm.repository.ProvidedRole;
-import de.uka.ipd.sdq.pcm.repository.ProvidesComponentType;
 import de.uka.ipd.sdq.pcm.repository.Repository;
-import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
 import de.uka.ipd.sdq.pcm.repository.RequiredRole;
 
 import java.util.Collections;
@@ -39,7 +44,8 @@ import org.eclipse.gef.commands.Command;
 
 import org.eclipse.gmf.runtime.diagram.core.util.ViewUtil;
 
-import org.eclipse.gmf.runtime.diagram.ui.commands.SetViewMutabilityCommand;
+import org.eclipse.gmf.runtime.diagram.ui.commands.DeferredLayoutCommand;
+import org.eclipse.gmf.runtime.diagram.ui.commands.ICommandProxy;
 
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 
@@ -66,6 +72,43 @@ public class RepositoryCanonicalEditPolicy extends
 	 */
 	protected List getSemanticChildrenList() {
 		List result = new LinkedList();
+		EObject modelObject = ((View) getHost().getModel()).getElement();
+		View viewObject = (View) getHost().getModel();
+		EObject nextValue;
+		int nodeVID;
+		for (Iterator values = ((Repository) modelObject)
+				.getInterfaces__Repository().iterator(); values.hasNext();) {
+			nextValue = (EObject) values.next();
+			nodeVID = PcmVisualIDRegistry
+					.getNodeVisualID(viewObject, nextValue);
+			if (InterfaceEditPart.VISUAL_ID == nodeVID) {
+				result.add(nextValue);
+			}
+		}
+		for (Iterator values = ((Repository) modelObject)
+				.getComponents__Repository().iterator(); values.hasNext();) {
+			nextValue = (EObject) values.next();
+			nodeVID = PcmVisualIDRegistry
+					.getNodeVisualID(viewObject, nextValue);
+			switch (nodeVID) {
+			case BasicComponentEditPart.VISUAL_ID: {
+				result.add(nextValue);
+				break;
+			}
+			case CompleteComponentTypeEditPart.VISUAL_ID: {
+				result.add(nextValue);
+				break;
+			}
+			case ProvidesComponentTypeEditPart.VISUAL_ID: {
+				result.add(nextValue);
+				break;
+			}
+			case CompositeComponentEditPart.VISUAL_ID: {
+				result.add(nextValue);
+				break;
+			}
+			}
+		}
 		return result;
 	}
 
@@ -73,8 +116,8 @@ public class RepositoryCanonicalEditPolicy extends
 	 * @generated
 	 */
 	protected boolean shouldDeleteView(View view) {
-		return true; //view.isSetElement() && view.getElement() != null
-				//&& view.getElement().eIsProxy();
+		return view.isSetElement() && view.getElement() != null
+				&& view.getElement().eIsProxy();
 	}
 
 	/**
@@ -117,8 +160,21 @@ public class RepositoryCanonicalEditPolicy extends
 	 * @generated
 	 */
 	protected void refreshSemantic() {
-		super.refreshSemantic();
-		refreshConnections();
+		List createdViews = new LinkedList();
+		createdViews.addAll(refreshSemanticChildren());
+		List createdConnectionViews = new LinkedList();
+		createdConnectionViews.addAll(refreshSemanticConnections());
+		createdConnectionViews.addAll(refreshConnections());
+
+		if (createdViews.size() > 1) {
+			// perform a layout of the container
+			DeferredLayoutCommand layoutCmd = new DeferredLayoutCommand(host()
+					.getEditingDomain(), createdViews, host());
+			executeCommand(new ICommandProxy(layoutCmd));
+		}
+
+		createdViews.addAll(createdConnectionViews);
+		makeViewsImmutable(createdViews);
 	}
 
 	/**
@@ -134,7 +190,7 @@ public class RepositoryCanonicalEditPolicy extends
 	/**
 	 * @generated
 	 */
-	private void refreshConnections() {
+	private Collection refreshConnections() {
 		try {
 			collectAllLinks(getDiagram());
 			Collection existingLinks = new LinkedList(getDiagram().getEdges());
@@ -165,7 +221,7 @@ public class RepositoryCanonicalEditPolicy extends
 				}
 			}
 			deleteViews(existingLinks.iterator());
-			createConnections(myLinkDescriptors);
+			return createConnections(myLinkDescriptors);
 		} finally {
 			myLinkDescriptors.clear();
 			myEObject2ViewMap.clear();
@@ -181,6 +237,9 @@ public class RepositoryCanonicalEditPolicy extends
 		switch (diagramElementVisualID) {
 		case InterfaceEditPart.VISUAL_ID:
 		case BasicComponentEditPart.VISUAL_ID:
+		case CompleteComponentTypeEditPart.VISUAL_ID:
+		case ProvidesComponentTypeEditPart.VISUAL_ID:
+		case CompositeComponentEditPart.VISUAL_ID:
 		case SignatureEditPart.VISUAL_ID:
 		case ResourceDemandingSEFFEditPart.VISUAL_ID:
 		case RepositoryEditPart.VISUAL_ID: {
@@ -200,10 +259,11 @@ public class RepositoryCanonicalEditPolicy extends
 	/**
 	 * @generated
 	 */
-	private void createConnections(Collection linkDescriptors) {
+	private Collection createConnections(Collection linkDescriptors) {
 		if (linkDescriptors.isEmpty()) {
-			return;
+			return Collections.EMPTY_LIST;
 		}
+		List adapters = new LinkedList();
 		for (Iterator linkDescriptorsIterator = linkDescriptors.iterator(); linkDescriptorsIterator
 				.hasNext();) {
 			final LinkDescriptor nextLinkDescriptor = (LinkDescriptor) linkDescriptorsIterator
@@ -230,9 +290,12 @@ public class RepositoryCanonicalEditPolicy extends
 			if (cmd != null && cmd.canExecute()) {
 				executeCommand(cmd);
 				IAdaptable viewAdapter = (IAdaptable) ccr.getNewObject();
-				SetViewMutabilityCommand.makeImmutable(viewAdapter).execute();
+				if (viewAdapter != null) {
+					adapters.add(viewAdapter);
+				}
 			}
 		}
+		return adapters;
 	}
 
 	/**
@@ -261,10 +324,10 @@ public class RepositoryCanonicalEditPolicy extends
 	 */
 	private void storeTypeModelFacetLinks(EObject container,
 			EClass containerMetaclass) {
-		if (RepositoryPackage.eINSTANCE.getProvidesComponentType()
+		if (EntityPackage.eINSTANCE.getInterfaceProvidingEntity()
 				.isSuperTypeOf(containerMetaclass)) {
-			for (Iterator values = ((ProvidesComponentType) container)
-					.getProvidedRoles__ProvidesComponentType().iterator(); values
+			for (Iterator values = ((InterfaceProvidingEntity) container)
+					.getProvidedRoles_InterfaceProvidingEntity().iterator(); values
 					.hasNext();) {
 				EObject nextValue = ((EObject) values.next());
 				int linkVID = PcmVisualIDRegistry
@@ -274,21 +337,17 @@ public class RepositoryCanonicalEditPolicy extends
 							.getProvidedInterface__ProvidedRole();
 					if (structuralFeatureResult instanceof EObject) {
 						EObject dst = (EObject) structuralFeatureResult;
-						structuralFeatureResult = ((ProvidedRole) nextValue)
-								.getProvidingComponent__ProvidedRole();
-						if (structuralFeatureResult instanceof EObject) {
-							EObject src = (EObject) structuralFeatureResult;
-							myLinkDescriptors.add(new LinkDescriptor(src, dst,
-									nextValue, linkVID));
-						}
+						EObject src = container;
+						myLinkDescriptors.add(new LinkDescriptor(src, dst,
+								nextValue, linkVID));
 					}
 				}
 			}
 		}
-		if (RepositoryPackage.eINSTANCE.getProvidesComponentType()
+		if (EntityPackage.eINSTANCE.getInterfaceRequiringEntity()
 				.isSuperTypeOf(containerMetaclass)) {
-			for (Iterator values = ((ProvidesComponentType) container)
-					.getRequiredRoles_ProvidesComponentType().iterator(); values
+			for (Iterator values = ((InterfaceRequiringEntity) container)
+					.getRequiredRoles_InterfaceRequiringEntity().iterator(); values
 					.hasNext();) {
 				EObject nextValue = ((EObject) values.next());
 				int linkVID = PcmVisualIDRegistry

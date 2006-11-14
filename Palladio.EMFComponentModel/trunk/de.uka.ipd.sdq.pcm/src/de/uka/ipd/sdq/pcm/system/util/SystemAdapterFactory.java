@@ -12,16 +12,18 @@ import de.uka.ipd.sdq.pcm.core.composition.ComposedStructure;
 
 import de.uka.ipd.sdq.pcm.core.entity.Entity;
 
+import de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingEntity;
+import de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingRequiringEntity;
+import de.uka.ipd.sdq.pcm.core.entity.InterfaceRequiringEntity;
+import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
+
 import de.uka.ipd.sdq.pcm.core.stochastics.RandomVariable;
 
 import de.uka.ipd.sdq.pcm.repository.ProvidedRole;
 import de.uka.ipd.sdq.pcm.repository.RequiredRole;
 import de.uka.ipd.sdq.pcm.repository.Role;
 
-import de.uka.ipd.sdq.pcm.system.SpecifiedTimeConsumption;
 import de.uka.ipd.sdq.pcm.system.SystemPackage;
-import de.uka.ipd.sdq.pcm.system.SystemProvidedRole;
-import de.uka.ipd.sdq.pcm.system.SystemRequiredRole;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
@@ -92,38 +94,29 @@ public class SystemAdapterFactory extends AdapterFactoryImpl {
 	 */
 	protected SystemSwitch modelSwitch =
 		new SystemSwitch() {
-			public Object caseSystemRequiredRole(SystemRequiredRole object) {
-				return createSystemRequiredRoleAdapter();
-			}
 			public Object caseSystem(de.uka.ipd.sdq.pcm.system.System object) {
 				return createSystemAdapter();
-			}
-			public Object caseSpecifiedTimeConsumption(SpecifiedTimeConsumption object) {
-				return createSpecifiedTimeConsumptionAdapter();
-			}
-			public Object caseSystemProvidedRole(SystemProvidedRole object) {
-				return createSystemProvidedRoleAdapter();
-			}
-			public Object caseIdentifier(Identifier object) {
-				return createIdentifierAdapter();
-			}
-			public Object caseEntity(Entity object) {
-				return createEntityAdapter();
-			}
-			public Object caseRole(Role object) {
-				return createRoleAdapter();
-			}
-			public Object caseRequiredRole(RequiredRole object) {
-				return createRequiredRoleAdapter();
 			}
 			public Object caseComposedStructure(ComposedStructure object) {
 				return createComposedStructureAdapter();
 			}
-			public Object caseRandomVariable(RandomVariable object) {
-				return createRandomVariableAdapter();
+			public Object caseIdentifier(Identifier object) {
+				return createIdentifierAdapter();
 			}
-			public Object caseProvidedRole(ProvidedRole object) {
-				return createProvidedRoleAdapter();
+			public Object caseNamedElement(NamedElement object) {
+				return createNamedElementAdapter();
+			}
+			public Object caseEntity(Entity object) {
+				return createEntityAdapter();
+			}
+			public Object caseInterfaceProvidingEntity(InterfaceProvidingEntity object) {
+				return createInterfaceProvidingEntityAdapter();
+			}
+			public Object caseInterfaceRequiringEntity(InterfaceRequiringEntity object) {
+				return createInterfaceRequiringEntityAdapter();
+			}
+			public Object caseInterfaceProvidingRequiringEntity(InterfaceProvidingRequiringEntity object) {
+				return createInterfaceProvidingRequiringEntityAdapter();
 			}
 			public Object defaultCase(EObject object) {
 				return createEObjectAdapter();
@@ -144,20 +137,6 @@ public class SystemAdapterFactory extends AdapterFactoryImpl {
 
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.system.SystemRequiredRole <em>Required Role</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.pcm.system.SystemRequiredRole
-	 * @generated
-	 */
-	public Adapter createSystemRequiredRoleAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.system.System <em>System</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -168,34 +147,6 @@ public class SystemAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createSystemAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.system.SpecifiedTimeConsumption <em>Specified Time Consumption</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.pcm.system.SpecifiedTimeConsumption
-	 * @generated
-	 */
-	public Adapter createSpecifiedTimeConsumptionAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.system.SystemProvidedRole <em>Provided Role</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.pcm.system.SystemProvidedRole
-	 * @generated
-	 */
-	public Adapter createSystemProvidedRoleAdapter() {
 		return null;
 	}
 
@@ -214,6 +165,20 @@ public class SystemAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.core.entity.NamedElement <em>Named Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.pcm.core.entity.NamedElement
+	 * @generated
+	 */
+	public Adapter createNamedElementAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.core.entity.Entity <em>Entity</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -228,30 +193,44 @@ public class SystemAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.repository.Role <em>Role</em>}'.
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingEntity <em>Interface Providing Entity</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.pcm.repository.Role
+	 * @see de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingEntity
 	 * @generated
 	 */
-	public Adapter createRoleAdapter() {
+	public Adapter createInterfaceProvidingEntityAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.repository.RequiredRole <em>Required Role</em>}'.
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.core.entity.InterfaceRequiringEntity <em>Interface Requiring Entity</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.pcm.repository.RequiredRole
+	 * @see de.uka.ipd.sdq.pcm.core.entity.InterfaceRequiringEntity
 	 * @generated
 	 */
-	public Adapter createRequiredRoleAdapter() {
+	public Adapter createInterfaceRequiringEntityAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingRequiringEntity <em>Interface Providing Requiring Entity</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingRequiringEntity
+	 * @generated
+	 */
+	public Adapter createInterfaceProvidingRequiringEntityAdapter() {
 		return null;
 	}
 
@@ -266,34 +245,6 @@ public class SystemAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createComposedStructureAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.core.stochastics.RandomVariable <em>Random Variable</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.pcm.core.stochastics.RandomVariable
-	 * @generated
-	 */
-	public Adapter createRandomVariableAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.repository.ProvidedRole <em>Provided Role</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.pcm.repository.ProvidedRole
-	 * @generated
-	 */
-	public Adapter createProvidedRoleAdapter() {
 		return null;
 	}
 

@@ -21,6 +21,8 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
 
+import org.eclipse.emf.ecore.EStructuralFeature;
+
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -46,6 +48,13 @@ public class BranchTransitionItemProvider
 		IItemLabelProvider,	
 		IItemPropertySource {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "(c) by SDQ, IPD, U Karlsruhe (TH), 2006";
+
+	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -65,29 +74,29 @@ public class BranchTransitionItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addBranchConditionPropertyDescriptor(object);
+			addBranchProbabilityPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Branch Condition feature.
+	 * This adds a property descriptor for the Branch Probability feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addBranchConditionPropertyDescriptor(Object object) {
+	protected void addBranchProbabilityPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_BranchTransition_branchCondition_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_BranchTransition_branchCondition_feature", "_UI_BranchTransition_type"),
-				 SeffPackage.Literals.BRANCH_TRANSITION__BRANCH_CONDITION,
+				 getString("_UI_BranchTransition_branchProbability_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_BranchTransition_branchProbability_feature", "_UI_BranchTransition_type"),
+				 SeffPackage.Literals.BRANCH_TRANSITION__BRANCH_PROBABILITY,
 				 true,
 				 false,
 				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -104,8 +113,21 @@ public class BranchTransitionItemProvider
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(SeffPackage.Literals.BRANCH_TRANSITION__BRANCH_BEHAVIOUR_BRANCH_TRANSITION);
+			childrenFeatures.add(SeffPackage.Literals.BRANCH_TRANSITION__BRANCH_CONDITION_BRANCH_TRANSITION);
 		}
 		return childrenFeatures;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected EStructuralFeature getChildFeature(Object object, Object child) {
+		// Check the type of the specified child object and return the proper feature to use for
+		// adding (see {@link AddCommand}) it as a child.
+
+		return super.getChildFeature(object, child);
 	}
 
 	/**
@@ -125,10 +147,8 @@ public class BranchTransitionItemProvider
 	 * @generated
 	 */
 	public String getText(Object object) {
-		String label = ((BranchTransition)object).getBranchCondition();
-		return label == null || label.length() == 0 ?
-			getString("_UI_BranchTransition_type") :
-			getString("_UI_BranchTransition_type") + " " + label;
+		BranchTransition branchTransition = (BranchTransition)object;
+		return getString("_UI_BranchTransition_type") + " " + branchTransition.getBranchProbability();
 	}
 
 	/**
@@ -142,10 +162,11 @@ public class BranchTransitionItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(BranchTransition.class)) {
-			case SeffPackage.BRANCH_TRANSITION__BRANCH_CONDITION:
+			case SeffPackage.BRANCH_TRANSITION__BRANCH_PROBABILITY:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case SeffPackage.BRANCH_TRANSITION__BRANCH_BEHAVIOUR_BRANCH_TRANSITION:
+			case SeffPackage.BRANCH_TRANSITION__BRANCH_CONDITION_BRANCH_TRANSITION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -171,6 +192,11 @@ public class BranchTransitionItemProvider
 			(createChildParameter
 				(SeffPackage.Literals.BRANCH_TRANSITION__BRANCH_BEHAVIOUR_BRANCH_TRANSITION,
 				 SeffFactory.eINSTANCE.createResourceDemandingSEFF()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(SeffPackage.Literals.BRANCH_TRANSITION__BRANCH_CONDITION_BRANCH_TRANSITION,
+				 SeffFactory.eINSTANCE.createBranchCondition()));
 	}
 
 	/**

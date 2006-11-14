@@ -3,26 +3,37 @@
  */
 package de.uka.ipd.sdq.pcm.gmf.system.edit.parts;
 
+import java.util.List;
+
 import org.eclipse.draw2d.IFigure;
+import org.eclipse.draw2d.LayoutListener;
 import org.eclipse.draw2d.StackLayout;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
 import org.eclipse.gef.Request;
 import org.eclipse.gef.commands.Command;
+import org.eclipse.gef.editparts.AbstractEditPart;
 import org.eclipse.gef.editpolicies.LayoutEditPolicy;
 import org.eclipse.gef.editpolicies.NonResizableEditPolicy;
 import org.eclipse.gef.requests.CreateRequest;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.AbstractBorderedShapeEditPart;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.GraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IBorderItemEditPart;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.LabelEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CreationEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.DragDropEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.RotatableShapeEditPolicy;
+import org.eclipse.gmf.runtime.diagram.ui.figures.BorderedNodeFigure;
+import org.eclipse.gmf.runtime.diagram.ui.internal.figures.BorderItemContainerFigure;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
+import org.eclipse.swt.widgets.Event;
+import org.eclipse.swt.widgets.Listener;
 
+import de.uka.ipd.sdq.pcm.gmf.system.LabelUpdatingAbstractBorderedShapeEditPart;
 import de.uka.ipd.sdq.pcm.gmf.system.RotatingBorderItemLocator;
 import de.uka.ipd.sdq.pcm.gmf.system.edit.policies.AssemblyContextCanonicalEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.system.edit.policies.AssemblyContextGraphicalNodeEditPolicy;
@@ -32,7 +43,7 @@ import de.uka.ipd.sdq.pcm.gmf.system.part.PcmVisualIDRegistry;
 /**
  * @generated NOT
  */
-public class AssemblyContextEditPart extends AbstractBorderedShapeEditPart {
+public class AssemblyContextEditPart extends LabelUpdatingAbstractBorderedShapeEditPart implements Listener {
 
 	/**
 	 * @generated
@@ -152,7 +163,35 @@ public class AssemblyContextEditPart extends AbstractBorderedShapeEditPart {
 	 * @generated NOT
 	 */
 	protected NodeFigure createNodeFigure() {
-		return super.createNodeFigure();
+		NodeFigure fig = super.createNodeFigure();
+		((BorderedNodeFigure)fig).getBorderItemContainer().addLayoutListener(new LayoutListener(){
+
+			public void invalidate(IFigure container) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			public boolean layout(IFigure container) {
+				// TODO Auto-generated method stub
+				return false;
+			}
+
+			public void postLayout(IFigure container) {
+				System.out.println("BorderItems layed out");
+			}
+
+			public void remove(IFigure child) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			public void setConstraint(IFigure child, Object constraint) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+		});
+		return fig;
 	}
 
 	/**
@@ -274,8 +313,7 @@ public class AssemblyContextEditPart extends AbstractBorderedShapeEditPart {
 		 */
 		protected void setUseLocalCoordinates(boolean useLocalCoordinates) {
 			myUseLocalCoordinates = useLocalCoordinates;
-		}
-
+		}		
 	}
 
 	@Override
@@ -290,7 +328,13 @@ public class AssemblyContextEditPart extends AbstractBorderedShapeEditPart {
 
 	protected void addBorderItem(IFigure borderItemContainer,
 			IBorderItemEditPart borderItemEditPart) {
+		RotatingBorderItemLocator locator;
 		borderItemContainer.add(borderItemEditPart.getFigure(),
-			new RotatingBorderItemLocator(getMainFigure()));
+			locator = new RotatingBorderItemLocator(getMainFigure()));
+		locator.addListener(this);
+	}
+
+	public void handleEvent(Event event) {
+		refreshChildLabels();
 	}	
 }

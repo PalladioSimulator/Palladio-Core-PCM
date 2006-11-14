@@ -4,8 +4,6 @@
 package de.uka.ipd.sdq.pcm.gmf.repository.edit.parts;
 
 import java.util.Collections;
-import java.util.Iterator;
-
 import org.eclipse.gef.DragTracker;
 import org.eclipse.gef.EditPolicy;
 import org.eclipse.gef.Request;
@@ -23,8 +21,6 @@ import de.uka.ipd.sdq.pcm.gmf.repository.edit.policies.SignatureItemSemanticEdit
 import de.uka.ipd.sdq.pcm.gmf.repository.part.RepositoryDiagramEditorPlugin;
 
 import de.uka.ipd.sdq.pcm.gmf.repository.providers.PcmElementTypes;
-import de.uka.ipd.sdq.pcm.repository.Parameter;
-import de.uka.ipd.sdq.pcm.repository.Signature;
 
 import java.util.List;
 
@@ -239,30 +235,19 @@ public class SignatureEditPart extends CompartmentEditPart implements
 		return descriptor.createImage();
 	}
 
-	private String getStringSafe(String value) {
-		return value == null ? "" : value;
-	}
-
 	/**
-	 * @generated NOT
+	 * @generated
 	 */
 	protected String getLabelText() {
 		String text = null;
-		Signature semanticElement = (Signature) resolveSemanticElement();
-		text = "void ";
-		if (semanticElement.getReturntype__Signature() != null)
-			text = getStringSafe(semanticElement.getReturntype__Signature()
-					.getType());
-		text += getStringSafe(semanticElement.getServiceName()) + "(";
-		for (Iterator it = semanticElement.getParameters__Signature()
-				.iterator(); it.hasNext();) {
-			Parameter p = (Parameter) it.next();
-			String datatype = "Object";
-			if (p.getDatatype__Parameter() != null)
-				datatype = getStringSafe(p.getDatatype__Parameter().getType());
-			text += datatype + " " + getStringSafe(p.getParameterName());
+		if (getParser() != null) {
+			text = getParser().getPrintString(
+					new EObjectAdapter(getParserElement()),
+					getParserOptions().intValue());
 		}
-		text += ")";
+		if (text == null || text.length() == 0) {
+			text = defaultText;
+		}
 		return text;
 	}
 

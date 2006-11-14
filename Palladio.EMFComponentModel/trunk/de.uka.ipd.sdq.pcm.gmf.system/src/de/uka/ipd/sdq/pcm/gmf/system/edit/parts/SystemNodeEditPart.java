@@ -8,9 +8,12 @@ import java.util.Iterator;
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.StackLayout;
+import org.eclipse.draw2d.XYLayout;
+import org.eclipse.draw2d.geometry.Point;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
+import org.eclipse.gef.GraphicalEditPart;
 import org.eclipse.gef.Request;
 import org.eclipse.gef.commands.Command;
 import org.eclipse.gef.editpolicies.LayoutEditPolicy;
@@ -20,13 +23,16 @@ import org.eclipse.gmf.runtime.common.core.command.CompositeCommand;
 import org.eclipse.gmf.runtime.diagram.ui.commands.CreateCommand;
 import org.eclipse.gmf.runtime.diagram.ui.commands.ICommandProxy;
 import org.eclipse.gmf.runtime.diagram.ui.commands.SetBoundsCommand;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.AbstractBorderItemEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.AbstractBorderedShapeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IBorderItemEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CreationEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.DragDropEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
+import org.eclipse.gmf.runtime.diagram.ui.editpolicies.XYLayoutEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.figures.BorderItemLocator;
+import org.eclipse.gmf.runtime.diagram.ui.figures.ResizableCompartmentFigure;
 import org.eclipse.gmf.runtime.diagram.ui.l10n.DiagramUIMessages;
 import org.eclipse.gmf.runtime.diagram.ui.requests.CreateViewRequest;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
@@ -35,7 +41,10 @@ import org.eclipse.gmf.runtime.emf.type.core.commands.MoveElementsCommand;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
+import org.eclipse.swt.widgets.Event;
+import org.eclipse.swt.widgets.Listener;
 
+import de.uka.ipd.sdq.pcm.gmf.system.LabelUpdatingAbstractBorderedShapeEditPart;
 import de.uka.ipd.sdq.pcm.gmf.system.RotatingBorderItemLocator;
 import de.uka.ipd.sdq.pcm.gmf.system.edit.policies.SystemNodeCanonicalEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.system.edit.policies.SystemNodeGraphicalNodeEditPolicy;
@@ -44,7 +53,7 @@ import de.uka.ipd.sdq.pcm.gmf.system.edit.policies.SystemNodeItemSemanticEditPol
 /**
  * @generated NOT
  */
-public class SystemNodeEditPart extends AbstractBorderedShapeEditPart {
+public class SystemNodeEditPart extends LabelUpdatingAbstractBorderedShapeEditPart implements Listener {
 
 	/**
 	 * @generated
@@ -91,10 +100,12 @@ public class SystemNodeEditPart extends AbstractBorderedShapeEditPart {
 						CreateCommand createCommand =
 							new CreateCommand(editingDomain,
 								descriptor, 
-								(View)(getHost().getParent().getModel()));
+								(View)(getHost().getModel()));
+						Point p = request.getLocation();
+						p = SystemNodeEditPart.this.primaryShape.getBounds().getTopLeft().getNegated().getTranslated(p);
 						SetBoundsCommand setBoundsCmd = new
 							SetBoundsCommand(editingDomain, "Move", 
-									(IAdaptable)createCommand.getCommandResult().getReturnValue(), request.getLocation());
+									(IAdaptable)createCommand.getCommandResult().getReturnValue(),p);
 	
 						cc.compose(createCommand);
 						cc.compose(setBoundsCmd);
@@ -120,6 +131,8 @@ public class SystemNodeEditPart extends AbstractBorderedShapeEditPart {
 		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE,
 				new SystemNodeCanonicalEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
+//		installEditPolicy(EditPolicy.LAYOUT_ROLE,
+//				new XYLayoutEditPolicy());
 	}
 
 	/**
@@ -232,7 +245,7 @@ public class SystemNodeEditPart extends AbstractBorderedShapeEditPart {
 		}
 
 		/**
-		 * @generated
+		 * @generated NOT
 		 */
 		private void createContents() {
 			org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel fig_0 = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel();
@@ -288,8 +301,41 @@ public class SystemNodeEditPart extends AbstractBorderedShapeEditPart {
 	
 	protected void addBorderItem(IFigure borderItemContainer,
 			IBorderItemEditPart borderItemEditPart) {
+		RotatingBorderItemLocator locator;
 		borderItemContainer.add(borderItemEditPart.getFigure(),
-			new RotatingBorderItemLocator(getMainFigure()));
+			locator = new RotatingBorderItemLocator(getMainFigure()));
+		locator.addListener(this);
 	}
+
+	/* (non-Javadoc)
+	 * @see org.eclipse.gmf.runtime.diagram.ui.editparts.AbstractBorderedShapeEditPart#addChildVisual(org.eclipse.gef.EditPart, int)
+	 */
+	@Override
+	protected void addChildVisual(EditPart childEditPart, int index) {
+		if (childEditPart instanceof IBorderItemEditPart)
+			super.addChildVisual(childEditPart, index);
+		else {
+			IFigure childFigure = ((GraphicalEditPart) childEditPart).getFigure();
+			// IFigure fig = getContentPaneFor((IGraphicalEditPart) childEditPart);
+			getPrimaryShape().add(childFigure);
+		}
+	}
+
+	/* (non-Javadoc)
+	 * @see org.eclipse.gmf.runtime.diagram.ui.editparts.AbstractBorderedShapeEditPart#setLayoutConstraint(org.eclipse.gef.EditPart, org.eclipse.draw2d.IFigure, java.lang.Object)
+	 */
+	@Override
+	public void setLayoutConstraint(EditPart child, IFigure childFigure, Object constraint) {
+		if (child instanceof AbstractBorderItemEditPart)
+			super.setLayoutConstraint(child, childFigure, constraint);
+		else {
+			getPrimaryShape().setConstraint(childFigure, constraint);
+		}
+	}
+
+	public void handleEvent(Event event) {
+		refreshChildLabels();
+	}
+	
 
 }

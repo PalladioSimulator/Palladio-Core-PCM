@@ -155,6 +155,12 @@ public class PcmElementTypes {
 					.getInterface());
 			elements.put(BasicComponent_1002, RepositoryPackage.eINSTANCE
 					.getBasicComponent());
+			elements.put(CompleteComponentType_1003,
+					RepositoryPackage.eINSTANCE.getCompleteComponentType());
+			elements.put(ProvidesComponentType_1004,
+					RepositoryPackage.eINSTANCE.getProvidesComponentType());
+			elements.put(CompositeComponent_1005, RepositoryPackage.eINSTANCE
+					.getCompositeComponent());
 			elements.put(ProvidedRole_3001, RepositoryPackage.eINSTANCE
 					.getProvidedRole());
 			elements.put(RequiredRole_3002, RepositoryPackage.eINSTANCE
@@ -191,6 +197,21 @@ public class PcmElementTypes {
 	/**
 	 * @generated
 	 */
+	public static final IElementType CompleteComponentType_1003 = getElementType("de.uka.ipd.sdq.pcm.gmf.repository.CompleteComponentType_1003"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType ProvidesComponentType_1004 = getElementType("de.uka.ipd.sdq.pcm.gmf.repository.ProvidesComponentType_1004"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType CompositeComponent_1005 = getElementType("de.uka.ipd.sdq.pcm.gmf.repository.CompositeComponent_1005"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
 	public static final IElementType ProvidedRole_3001 = getElementType("de.uka.ipd.sdq.pcm.gmf.repository.ProvidedRole_3001"); //$NON-NLS-1$
 
 	/**
@@ -221,6 +242,9 @@ public class PcmElementTypes {
 			KNOWN_ELEMENT_TYPES.add(ResourceDemandingSEFF_2002);
 			KNOWN_ELEMENT_TYPES.add(Interface_1001);
 			KNOWN_ELEMENT_TYPES.add(BasicComponent_1002);
+			KNOWN_ELEMENT_TYPES.add(CompleteComponentType_1003);
+			KNOWN_ELEMENT_TYPES.add(ProvidesComponentType_1004);
+			KNOWN_ELEMENT_TYPES.add(CompositeComponent_1005);
 			KNOWN_ELEMENT_TYPES.add(ProvidedRole_3001);
 			KNOWN_ELEMENT_TYPES.add(RequiredRole_3002);
 		}

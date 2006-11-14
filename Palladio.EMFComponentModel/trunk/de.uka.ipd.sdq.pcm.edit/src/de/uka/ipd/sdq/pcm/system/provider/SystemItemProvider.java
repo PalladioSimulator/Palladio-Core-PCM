@@ -15,7 +15,8 @@ import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
 
 import de.uka.ipd.sdq.pcm.core.stochastics.provider.PcmEditPlugin;
 
-import de.uka.ipd.sdq.pcm.system.SystemFactory;
+import de.uka.ipd.sdq.pcm.repository.RepositoryFactory;
+
 import de.uka.ipd.sdq.pcm.system.SystemPackage;
 
 import java.util.Collection;
@@ -51,6 +52,13 @@ public class SystemItemProvider
 		ITreeItemContentProvider,	
 		IItemLabelProvider,	
 		IItemPropertySource {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "(c) by SDQ, IPD, U Karlsruhe (TH), 2006";
+
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -111,9 +119,9 @@ public class SystemItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Entity_entityName_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Entity_entityName_feature", "_UI_Entity_type"),
-				 EntityPackage.Literals.ENTITY__ENTITY_NAME,
+				 getString("_UI_NamedElement_entityName_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_NamedElement_entityName_feature", "_UI_NamedElement_type"),
+				 EntityPackage.Literals.NAMED_ELEMENT__ENTITY_NAME,
 				 true,
 				 false,
 				 false,
@@ -155,8 +163,8 @@ public class SystemItemProvider
 	public Collection getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(SystemPackage.Literals.SYSTEM__SYSTEM_PROVIDED_ROLE_SYSTEM);
-			childrenFeatures.add(SystemPackage.Literals.SYSTEM__SYSTEM_REQUIRED_ROLE_SYSTEM);
+			childrenFeatures.add(EntityPackage.Literals.INTERFACE_PROVIDING_ENTITY__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY);
+			childrenFeatures.add(EntityPackage.Literals.INTERFACE_REQUIRING_ENTITY__REQUIRED_ROLES_INTERFACE_REQUIRING_ENTITY);
 		}
 		return childrenFeatures;
 	}
@@ -211,8 +219,8 @@ public class SystemItemProvider
 			case SystemPackage.SYSTEM__ENTITY_NAME:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case SystemPackage.SYSTEM__SYSTEM_PROVIDED_ROLE_SYSTEM:
-			case SystemPackage.SYSTEM__SYSTEM_REQUIRED_ROLE_SYSTEM:
+			case SystemPackage.SYSTEM__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY:
+			case SystemPackage.SYSTEM__REQUIRED_ROLES_INTERFACE_REQUIRING_ENTITY:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -231,13 +239,13 @@ public class SystemItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(SystemPackage.Literals.SYSTEM__SYSTEM_PROVIDED_ROLE_SYSTEM,
-				 SystemFactory.eINSTANCE.createSystemProvidedRole()));
+				(EntityPackage.Literals.INTERFACE_PROVIDING_ENTITY__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY,
+				 RepositoryFactory.eINSTANCE.createProvidedRole()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(SystemPackage.Literals.SYSTEM__SYSTEM_REQUIRED_ROLE_SYSTEM,
-				 SystemFactory.eINSTANCE.createSystemRequiredRole()));
+				(EntityPackage.Literals.INTERFACE_REQUIRING_ENTITY__REQUIRED_ROLES_INTERFACE_REQUIRING_ENTITY,
+				 RepositoryFactory.eINSTANCE.createRequiredRole()));
 	}
 
 	/**

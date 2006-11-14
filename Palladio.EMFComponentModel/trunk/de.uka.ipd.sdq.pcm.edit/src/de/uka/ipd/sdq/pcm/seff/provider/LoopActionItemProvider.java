@@ -47,6 +47,13 @@ public class LoopActionItemProvider
 		IItemLabelProvider,	
 		IItemPropertySource {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "(c) by SDQ, IPD, U Karlsruhe (TH), 2006";
+
+	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -66,31 +73,8 @@ public class LoopActionItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addIterationsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Iterations feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addIterationsPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_LoopAction_iterations_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_LoopAction_iterations_feature", "_UI_LoopAction_type"),
-				 SeffPackage.Literals.LOOP_ACTION__ITERATIONS,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
 	}
 
 	/**
@@ -156,9 +140,6 @@ public class LoopActionItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(LoopAction.class)) {
-			case SeffPackage.LOOP_ACTION__ITERATIONS:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
 			case SeffPackage.LOOP_ACTION__BODY_BEHAVIOUR_LOOP:
 			case SeffPackage.LOOP_ACTION__ITERATIONS_LOOP_ACTION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));

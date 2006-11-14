@@ -21,6 +21,8 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
 
+import org.eclipse.emf.ecore.EStructuralFeature;
+
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -45,6 +47,13 @@ public class LoopItemProvider
 		IItemLabelProvider,	
 		IItemPropertySource {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "(c) by SDQ, IPD, U Karlsruhe (TH), 2006";
+
+	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -64,31 +73,8 @@ public class LoopItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addIterationsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Iterations feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addIterationsPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Loop_iterations_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Loop_iterations_feature", "_UI_Loop_type"),
-				 UsagemodelPackage.Literals.LOOP__ITERATIONS,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
 	}
 
 	/**
@@ -103,8 +89,21 @@ public class LoopItemProvider
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(UsagemodelPackage.Literals.LOOP__BODY_BEHAVIOUR_LOOP);
+			childrenFeatures.add(UsagemodelPackage.Literals.LOOP__ITERATIONS_LOOP);
 		}
 		return childrenFeatures;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected EStructuralFeature getChildFeature(Object object, Object child) {
+		// Check the type of the specified child object and return the proper feature to use for
+		// adding (see {@link AddCommand}) it as a child.
+
+		return super.getChildFeature(object, child);
 	}
 
 	/**
@@ -124,10 +123,7 @@ public class LoopItemProvider
 	 * @generated
 	 */
 	public String getText(Object object) {
-		String label = ((Loop)object).getIterations();
-		return label == null || label.length() == 0 ?
-			getString("_UI_Loop_type") :
-			getString("_UI_Loop_type") + " " + label;
+		return getString("_UI_Loop_type");
 	}
 
 	/**
@@ -141,10 +137,8 @@ public class LoopItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Loop.class)) {
-			case UsagemodelPackage.LOOP__ITERATIONS:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
 			case UsagemodelPackage.LOOP__BODY_BEHAVIOUR_LOOP:
+			case UsagemodelPackage.LOOP__ITERATIONS_LOOP:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -165,6 +159,11 @@ public class LoopItemProvider
 			(createChildParameter
 				(UsagemodelPackage.Literals.LOOP__BODY_BEHAVIOUR_LOOP,
 				 UsagemodelFactory.eINSTANCE.createScenarioBehaviour()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(UsagemodelPackage.Literals.LOOP__ITERATIONS_LOOP,
+				 UsagemodelFactory.eINSTANCE.createLoopIterations()));
 	}
 
 	/**

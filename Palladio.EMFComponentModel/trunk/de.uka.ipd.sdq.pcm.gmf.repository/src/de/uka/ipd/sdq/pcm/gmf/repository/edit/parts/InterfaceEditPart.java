@@ -3,6 +3,7 @@
  */
 package de.uka.ipd.sdq.pcm.gmf.repository.edit.parts;
 
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.policies.InterfaceCanonicalEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.policies.InterfaceGraphicalNodeEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.policies.InterfaceItemSemanticEditPolicy;
 
@@ -102,6 +103,8 @@ public class InterfaceEditPart extends ShapeNodeEditPart {
 				new InterfaceItemSemanticEditPolicy());
 		installEditPolicy(EditPolicy.GRAPHICAL_NODE_ROLE,
 				new InterfaceGraphicalNodeEditPolicy());
+		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE,
+				new InterfaceCanonicalEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
 	}
 

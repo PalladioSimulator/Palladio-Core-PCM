@@ -80,8 +80,10 @@ public class SeffFactoryImpl extends EFactoryImpl implements SeffFactory {
 			case SeffPackage.EXTERNAL_CALL_ACTION: return createExternalCallAction();
 			case SeffPackage.COLLECTION_PARAMETRIC_PARAMETER_USAGE: return createCollectionParametricParameterUsage();
 			case SeffPackage.BRANCH_TRANSITION: return createBranchTransition();
+			case SeffPackage.BRANCH_CONDITION: return createBranchCondition();
 			case SeffPackage.BRANCH_ACTION: return createBranchAction();
 			case SeffPackage.AQUIRE_ACTION: return createAquireAction();
+			case SeffPackage.COLLECTION_ITERATOR_ACTION: return createCollectionIteratorAction();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -232,6 +234,16 @@ public class SeffFactoryImpl extends EFactoryImpl implements SeffFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public BranchCondition createBranchCondition() {
+		BranchConditionImpl branchCondition = new BranchConditionImpl();
+		return branchCondition;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public BranchAction createBranchAction() {
 		BranchActionImpl branchAction = new BranchActionImpl();
 		return branchAction;
@@ -245,6 +257,16 @@ public class SeffFactoryImpl extends EFactoryImpl implements SeffFactory {
 	public AquireAction createAquireAction() {
 		AquireActionImpl aquireAction = new AquireActionImpl();
 		return aquireAction;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CollectionIteratorAction createCollectionIteratorAction() {
+		CollectionIteratorActionImpl collectionIteratorAction = new CollectionIteratorActionImpl();
+		return collectionIteratorAction;
 	}
 
 	/**

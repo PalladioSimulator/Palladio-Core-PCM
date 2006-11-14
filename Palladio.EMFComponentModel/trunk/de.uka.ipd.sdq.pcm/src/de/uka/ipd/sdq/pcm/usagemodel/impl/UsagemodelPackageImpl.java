@@ -36,6 +36,10 @@ import de.uka.ipd.sdq.pcm.protocol.ProtocolPackage;
 
 import de.uka.ipd.sdq.pcm.protocol.impl.ProtocolPackageImpl;
 
+import de.uka.ipd.sdq.pcm.qosannotations.QosannotationsPackage;
+
+import de.uka.ipd.sdq.pcm.qosannotations.impl.QosannotationsPackageImpl;
+
 import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
 
 import de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl;
@@ -58,9 +62,11 @@ import de.uka.ipd.sdq.pcm.system.impl.SystemPackageImpl;
 
 import de.uka.ipd.sdq.pcm.usagemodel.AbstractUserAction;
 import de.uka.ipd.sdq.pcm.usagemodel.Branch;
+import de.uka.ipd.sdq.pcm.usagemodel.BranchTransition;
 import de.uka.ipd.sdq.pcm.usagemodel.ClosedWorkload;
 import de.uka.ipd.sdq.pcm.usagemodel.EntryLevelSystemCall;
 import de.uka.ipd.sdq.pcm.usagemodel.Loop;
+import de.uka.ipd.sdq.pcm.usagemodel.LoopIterations;
 import de.uka.ipd.sdq.pcm.usagemodel.OpenWorkload;
 import de.uka.ipd.sdq.pcm.usagemodel.ScenarioBehaviour;
 import de.uka.ipd.sdq.pcm.usagemodel.Start;
@@ -162,6 +168,13 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass loopIterationsEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass entryLevelSystemCallEClass = null;
 
 	/**
@@ -177,6 +190,13 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
 	 * @generated
 	 */
 	private EClass branchEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass branchTransitionEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -251,6 +271,7 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
 		AllocationPackageImpl theAllocationPackage = (AllocationPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(AllocationPackage.eNS_URI) instanceof AllocationPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(AllocationPackage.eNS_URI) : AllocationPackage.eINSTANCE);
 		ResourceenvironmentPackageImpl theResourceenvironmentPackage = (ResourceenvironmentPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ResourceenvironmentPackage.eNS_URI) instanceof ResourceenvironmentPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ResourceenvironmentPackage.eNS_URI) : ResourceenvironmentPackage.eINSTANCE);
 		SystemPackageImpl theSystemPackage = (SystemPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(SystemPackage.eNS_URI) instanceof SystemPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(SystemPackage.eNS_URI) : SystemPackage.eINSTANCE);
+		QosannotationsPackageImpl theQosannotationsPackage = (QosannotationsPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(QosannotationsPackage.eNS_URI) instanceof QosannotationsPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(QosannotationsPackage.eNS_URI) : QosannotationsPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theUsagemodelPackage.createPackageContents();
@@ -266,6 +287,7 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
 		theAllocationPackage.createPackageContents();
 		theResourceenvironmentPackage.createPackageContents();
 		theSystemPackage.createPackageContents();
+		theQosannotationsPackage.createPackageContents();
 
 		// Initialize created meta-data
 		theUsagemodelPackage.initializePackageContents();
@@ -281,6 +303,7 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
 		theAllocationPackage.initializePackageContents();
 		theResourceenvironmentPackage.initializePackageContents();
 		theSystemPackage.initializePackageContents();
+		theQosannotationsPackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		theUsagemodelPackage.freeze();
@@ -446,8 +469,17 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getLoop_Iterations() {
-		return (EAttribute)loopEClass.getEStructuralFeatures().get(1);
+	public EReference getLoop_Iterations_Loop() {
+		return (EReference)loopEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getLoopIterations() {
+		return loopIterationsEClass;
 	}
 
 	/**
@@ -473,17 +505,8 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getEntryLevelSystemCall_SystemProvidedRole_EntryLevelSystemCall() {
-		return (EReference)entryLevelSystemCallEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EReference getEntryLevelSystemCall_Signature_EntryLevelSystemCall() {
-		return (EReference)entryLevelSystemCallEClass.getEStructuralFeatures().get(2);
+		return (EReference)entryLevelSystemCallEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -527,8 +550,35 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getBranch_BranchedBehaviour_Branch() {
+	public EReference getBranch_BranchTransitions_Branch() {
 		return (EReference)branchEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getBranchTransition() {
+		return branchTransitionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getBranchTransition_BranchProbability() {
+		return (EAttribute)branchTransitionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getBranchTransition_BranchedBehaviour_BranchTransition() {
+		return (EReference)branchTransitionEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -584,11 +634,12 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
 
 		loopEClass = createEClass(LOOP);
 		createEReference(loopEClass, LOOP__BODY_BEHAVIOUR_LOOP);
-		createEAttribute(loopEClass, LOOP__ITERATIONS);
+		createEReference(loopEClass, LOOP__ITERATIONS_LOOP);
+
+		loopIterationsEClass = createEClass(LOOP_ITERATIONS);
 
 		entryLevelSystemCallEClass = createEClass(ENTRY_LEVEL_SYSTEM_CALL);
 		createEReference(entryLevelSystemCallEClass, ENTRY_LEVEL_SYSTEM_CALL__ACTUAL_PARAMETER_USAGE_ENTRY_LEVEL_SYSTEM_CALL);
-		createEReference(entryLevelSystemCallEClass, ENTRY_LEVEL_SYSTEM_CALL__SYSTEM_PROVIDED_ROLE_ENTRY_LEVEL_SYSTEM_CALL);
 		createEReference(entryLevelSystemCallEClass, ENTRY_LEVEL_SYSTEM_CALL__SIGNATURE_ENTRY_LEVEL_SYSTEM_CALL);
 
 		closedWorkloadEClass = createEClass(CLOSED_WORKLOAD);
@@ -596,7 +647,11 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
 		createEAttribute(closedWorkloadEClass, CLOSED_WORKLOAD__THINK_TIME);
 
 		branchEClass = createEClass(BRANCH);
-		createEReference(branchEClass, BRANCH__BRANCHED_BEHAVIOUR_BRANCH);
+		createEReference(branchEClass, BRANCH__BRANCH_TRANSITIONS_BRANCH);
+
+		branchTransitionEClass = createEClass(BRANCH_TRANSITION);
+		createEAttribute(branchTransitionEClass, BRANCH_TRANSITION__BRANCH_PROBABILITY);
+		createEReference(branchTransitionEClass, BRANCH_TRANSITION__BRANCHED_BEHAVIOUR_BRANCH_TRANSITION);
 	}
 
 	/**
@@ -624,8 +679,8 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
 
 		// Obtain other dependent packages
 		EntityPackage theEntityPackage = (EntityPackage)EPackage.Registry.INSTANCE.getEPackage(EntityPackage.eNS_URI);
+		StochasticsPackage theStochasticsPackage = (StochasticsPackage)EPackage.Registry.INSTANCE.getEPackage(StochasticsPackage.eNS_URI);
 		ParameterPackage theParameterPackage = (ParameterPackage)EPackage.Registry.INSTANCE.getEPackage(ParameterPackage.eNS_URI);
-		SystemPackage theSystemPackage = (SystemPackage)EPackage.Registry.INSTANCE.getEPackage(SystemPackage.eNS_URI);
 		RepositoryPackage theRepositoryPackage = (RepositoryPackage)EPackage.Registry.INSTANCE.getEPackage(RepositoryPackage.eNS_URI);
 
 		// Add supertypes to classes
@@ -634,6 +689,7 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
 		startEClass.getESuperTypes().add(this.getAbstractUserAction());
 		openWorkloadEClass.getESuperTypes().add(this.getWorkload());
 		loopEClass.getESuperTypes().add(this.getAbstractUserAction());
+		loopIterationsEClass.getESuperTypes().add(theStochasticsPackage.getRandomVariable());
 		entryLevelSystemCallEClass.getESuperTypes().add(this.getAbstractUserAction());
 		closedWorkloadEClass.getESuperTypes().add(this.getWorkload());
 		branchEClass.getESuperTypes().add(this.getAbstractUserAction());
@@ -664,11 +720,12 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
 
 		initEClass(loopEClass, Loop.class, "Loop", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getLoop_BodyBehaviour_Loop(), this.getScenarioBehaviour(), null, "bodyBehaviour_Loop", null, 1, 1, Loop.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEAttribute(getLoop_Iterations(), ecorePackage.getEString(), "iterations", null, 1, 1, Loop.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getLoop_Iterations_Loop(), this.getLoopIterations(), null, "iterations_Loop", null, 0, -1, Loop.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+		initEClass(loopIterationsEClass, LoopIterations.class, "LoopIterations", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(entryLevelSystemCallEClass, EntryLevelSystemCall.class, "EntryLevelSystemCall", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getEntryLevelSystemCall_ActualParameterUsage_EntryLevelSystemCall(), theParameterPackage.getParameterUsage(), null, "actualParameterUsage_EntryLevelSystemCall", null, 0, -1, EntryLevelSystemCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getEntryLevelSystemCall_SystemProvidedRole_EntryLevelSystemCall(), theSystemPackage.getSystemProvidedRole(), null, "systemProvidedRole_EntryLevelSystemCall", null, 1, 1, EntryLevelSystemCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getEntryLevelSystemCall_Signature_EntryLevelSystemCall(), theRepositoryPackage.getSignature(), null, "signature_EntryLevelSystemCall", null, 1, 1, EntryLevelSystemCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(closedWorkloadEClass, ClosedWorkload.class, "ClosedWorkload", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -676,7 +733,11 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
 		initEAttribute(getClosedWorkload_ThinkTime(), ecorePackage.getEDouble(), "thinkTime", null, 1, 1, ClosedWorkload.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(branchEClass, Branch.class, "Branch", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getBranch_BranchedBehaviour_Branch(), this.getScenarioBehaviour(), null, "branchedBehaviour_Branch", null, 0, -1, Branch.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getBranch_BranchTransitions_Branch(), this.getBranchTransition(), null, "branchTransitions_Branch", null, 0, -1, Branch.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+		initEClass(branchTransitionEClass, BranchTransition.class, "BranchTransition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getBranchTransition_BranchProbability(), ecorePackage.getEDouble(), "branchProbability", null, 1, 1, BranchTransition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getBranchTransition_BranchedBehaviour_BranchTransition(), this.getScenarioBehaviour(), null, "branchedBehaviour_BranchTransition", null, 1, 1, BranchTransition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

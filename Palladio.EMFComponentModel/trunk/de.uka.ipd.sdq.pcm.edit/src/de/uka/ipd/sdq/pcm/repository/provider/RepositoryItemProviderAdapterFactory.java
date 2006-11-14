@@ -38,6 +38,13 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
  */
 public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFactory implements ComposeableAdapterFactory, IChangeNotifier, IDisposable {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "(c) by SDQ, IPD, U Karlsruhe (TH), 2006";
+
+	/**
 	 * This keeps track of the root adapter factory that delegates to this adapter factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -465,11 +472,11 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
 		if (interfaceItemProvider != null) interfaceItemProvider.dispose();
 		if (repositoryItemProvider != null) repositoryItemProvider.dispose();
 		if (providesComponentTypeItemProvider != null) providesComponentTypeItemProvider.dispose();
-		if (providedRoleItemProvider != null) providedRoleItemProvider.dispose();
 		if (implementationComponentTypeItemProvider != null) implementationComponentTypeItemProvider.dispose();
 		if (completeComponentTypeItemProvider != null) completeComponentTypeItemProvider.dispose();
 		if (compositeComponentItemProvider != null) compositeComponentItemProvider.dispose();
 		if (basicComponentItemProvider != null) basicComponentItemProvider.dispose();
+		if (providedRoleItemProvider != null) providedRoleItemProvider.dispose();
 	}
 
 }

@@ -96,6 +96,15 @@ public interface UsagemodelFactory extends EFactory {
 	Loop createLoop();
 
 	/**
+	 * Returns a new object of class '<em>Loop Iterations</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Loop Iterations</em>'.
+	 * @generated
+	 */
+	LoopIterations createLoopIterations();
+
+	/**
 	 * Returns a new object of class '<em>Entry Level System Call</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -121,6 +130,15 @@ public interface UsagemodelFactory extends EFactory {
 	 * @generated
 	 */
 	Branch createBranch();
+
+	/**
+	 * Returns a new object of class '<em>Branch Transition</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Branch Transition</em>'.
+	 * @generated
+	 */
+	BranchTransition createBranchTransition();
 
 	/**
 	 * Returns the package supported by this factory.

@@ -49,7 +49,7 @@ import de.uka.ipd.sdq.pcm.gmf.system.edit.policies.PcmTextSelectionEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.system.part.PcmVisualIDRegistry;
 import de.uka.ipd.sdq.pcm.gmf.system.part.SystemDiagramEditorPlugin;
 import de.uka.ipd.sdq.pcm.gmf.system.providers.PcmElementTypes;
-import de.uka.ipd.sdq.pcm.system.SystemRequiredRole;
+import de.uka.ipd.sdq.pcm.repository.RequiredRole;
 
 /**
  * @generated
@@ -206,7 +206,7 @@ public class SystemRequiredRoleLabelEditPart extends PcmExtNodeLabelEditPart
 		//					new EObjectAdapter(getParserElement()),
 		//					getParserOptions().intValue());
 		//		}
-		SystemRequiredRole reqRole = (SystemRequiredRole) getParserElement();
+		RequiredRole reqRole = (RequiredRole) getParserElement();
 		if (reqRole.getRequiredInterface__RequiredRole() != null)
 			text = reqRole.getRequiredInterface__RequiredRole().getEntityName();
 		if (text == null || text.length() == 0) {

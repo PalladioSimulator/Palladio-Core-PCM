@@ -5,7 +5,6 @@ package de.uka.ipd.sdq.pcm.gmf.repository.edit.parts;
 
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.notation.View;
-
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.policies.BasicComponentSEFFCompartmentCanonicalEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.policies.BasicComponentSEFFCompartmentItemSemanticEditPolicy;
 
@@ -75,6 +74,8 @@ public class BasicComponentSEFFCompartmentEditPart extends
 				new CreationEditPolicy());
 		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE,
 				new DragDropEditPolicy());
+		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE,
+				new BasicComponentSEFFCompartmentCanonicalEditPolicy());
 	}
 
 	/**

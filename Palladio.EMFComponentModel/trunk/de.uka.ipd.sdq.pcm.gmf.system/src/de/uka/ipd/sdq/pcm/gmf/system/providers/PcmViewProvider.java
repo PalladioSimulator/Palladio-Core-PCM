@@ -20,6 +20,7 @@ import de.uka.ipd.sdq.pcm.gmf.system.edit.parts.RequiredDelegationConnectorEditP
 import de.uka.ipd.sdq.pcm.gmf.system.edit.parts.RoleEditPart;
 import de.uka.ipd.sdq.pcm.gmf.system.edit.parts.RoleLabelEditPart;
 import de.uka.ipd.sdq.pcm.gmf.system.edit.parts.SystemEditPart;
+import de.uka.ipd.sdq.pcm.gmf.system.edit.parts.SystemNodeCompEditPart;
 import de.uka.ipd.sdq.pcm.gmf.system.edit.parts.SystemNodeEditPart;
 import de.uka.ipd.sdq.pcm.gmf.system.edit.parts.SystemProvidedRoleEditPart;
 import de.uka.ipd.sdq.pcm.gmf.system.edit.parts.SystemProvidedRoleLabelEditPart;
@@ -35,6 +36,7 @@ import de.uka.ipd.sdq.pcm.gmf.system.view.factories.ReqRoleViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.system.view.factories.RequiredDelegationConnectorViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.system.view.factories.RoleLabelViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.system.view.factories.RoleViewFactory;
+import de.uka.ipd.sdq.pcm.gmf.system.view.factories.SystemNodeCompViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.system.view.factories.SystemNodeViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.system.view.factories.SystemProvidedRoleLabelViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.system.view.factories.SystemProvidedRoleViewFactory;
@@ -84,6 +86,8 @@ public class PcmViewProvider extends AbstractViewProvider {
 			return AssemblyContextEntityNameViewFactory.class;
 		case SystemNodeEditPart.VISUAL_ID:
 			return SystemNodeViewFactory.class;
+		case SystemNodeCompEditPart.VISUAL_ID:
+			return SystemNodeCompViewFactory.class;
 		case RoleEditPart.VISUAL_ID:
 			return RoleViewFactory.class;
 		case RoleLabelEditPart.VISUAL_ID:

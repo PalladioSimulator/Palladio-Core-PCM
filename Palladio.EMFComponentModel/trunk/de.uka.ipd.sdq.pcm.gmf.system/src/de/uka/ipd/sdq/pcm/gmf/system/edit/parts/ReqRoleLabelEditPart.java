@@ -44,6 +44,7 @@ import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.FontData;
 import org.eclipse.swt.graphics.Image;
 
+import de.uka.ipd.sdq.pcm.gmf.system.XYLayoutLabel;
 import de.uka.ipd.sdq.pcm.gmf.system.edit.policies.PcmTextSelectionEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.system.part.PcmVisualIDRegistry;
 import de.uka.ipd.sdq.pcm.gmf.system.providers.PcmElementTypes;
@@ -52,7 +53,7 @@ import de.uka.ipd.sdq.pcm.repository.RequiredRole;
 /**
  * @generated
  */
-public class ReqRoleLabelEditPart extends PcmExtNodeLabelEditPart implements
+public class ReqRoleLabelEditPart extends XYLayoutLabel implements
 		ITextAwareEditPart {
 
 	/**
@@ -198,11 +199,16 @@ public class ReqRoleLabelEditPart extends PcmExtNodeLabelEditPart implements
 		//					new EObjectAdapter(getParserElement()),
 		//					getParserOptions().intValue());
 		//		}
-		RequiredRole reqRole = (RequiredRole) getParserElement();
-		if (reqRole.getRequiredInterface__RequiredRole() != null)
-			text = reqRole.getRequiredInterface__RequiredRole().getEntityName();
-		if (text == null || text.length() == 0) {
-			text = defaultText;
+		if (getParserElement() instanceof RequiredRole)
+		{
+			RequiredRole reqRole = (RequiredRole) getParserElement();
+			if (reqRole.getRequiredInterface__RequiredRole() != null)
+				text = reqRole.getRequiredInterface__RequiredRole().getEntityName();
+			if (text == null || text.length() == 0) {
+				text = defaultText;
+			}
+		} else {
+			text = "";
 		}
 		return text;
 	}

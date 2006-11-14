@@ -10,6 +10,8 @@ import de.uka.ipd.sdq.identifier.Identifier;
 
 import de.uka.ipd.sdq.pcm.core.entity.Entity;
 
+import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
+
 import de.uka.ipd.sdq.pcm.core.stochastics.RandomVariable;
 
 import de.uka.ipd.sdq.pcm.seff.*;
@@ -134,17 +136,26 @@ public class SeffAdapterFactory extends AdapterFactoryImpl {
 			public Object caseBranchTransition(BranchTransition object) {
 				return createBranchTransitionAdapter();
 			}
+			public Object caseBranchCondition(BranchCondition object) {
+				return createBranchConditionAdapter();
+			}
 			public Object caseBranchAction(BranchAction object) {
 				return createBranchActionAdapter();
 			}
 			public Object caseAquireAction(AquireAction object) {
 				return createAquireActionAdapter();
 			}
+			public Object caseCollectionIteratorAction(CollectionIteratorAction object) {
+				return createCollectionIteratorActionAdapter();
+			}
 			public Object caseServiceEffectSpecification(ServiceEffectSpecification object) {
 				return createServiceEffectSpecificationAdapter();
 			}
 			public Object caseIdentifier(Identifier object) {
 				return createIdentifierAdapter();
+			}
+			public Object caseNamedElement(NamedElement object) {
+				return createNamedElementAdapter();
 			}
 			public Object caseEntity(Entity object) {
 				return createEntityAdapter();
@@ -409,6 +420,20 @@ public class SeffAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.seff.BranchCondition <em>Branch Condition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.pcm.seff.BranchCondition
+	 * @generated
+	 */
+	public Adapter createBranchConditionAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.seff.BranchAction <em>Branch Action</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -437,6 +462,20 @@ public class SeffAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.seff.CollectionIteratorAction <em>Collection Iterator Action</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.pcm.seff.CollectionIteratorAction
+	 * @generated
+	 */
+	public Adapter createCollectionIteratorActionAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.seff.ServiceEffectSpecification <em>Service Effect Specification</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -461,6 +500,20 @@ public class SeffAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createIdentifierAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.core.entity.NamedElement <em>Named Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.pcm.core.entity.NamedElement
+	 * @generated
+	 */
+	public Adapter createNamedElementAdapter() {
 		return null;
 	}
 

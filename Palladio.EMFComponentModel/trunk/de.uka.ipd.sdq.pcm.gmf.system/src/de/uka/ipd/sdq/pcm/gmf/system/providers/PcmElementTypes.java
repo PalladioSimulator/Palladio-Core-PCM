@@ -20,6 +20,8 @@ import org.eclipse.swt.graphics.Image;
 
 import de.uka.ipd.sdq.pcm.core.composition.CompositionPackage;
 import de.uka.ipd.sdq.pcm.gmf.system.part.SystemDiagramEditorPlugin;
+import de.uka.ipd.sdq.pcm.repository.Repository;
+import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
 import de.uka.ipd.sdq.pcm.system.SystemPackage;
 
 /**
@@ -157,11 +159,11 @@ public class PcmElementTypes {
 					CompositionPackage.eINSTANCE
 							.getRequiredDelegationConnector());
 			elements.put(SystemRequiredRole_1003,
-					SystemPackage.eINSTANCE
-							.getSystemRequiredRole());
+					RepositoryPackage.eINSTANCE
+							.getRequiredRole());
 			elements.put(SystemProvidedRole_1004,
-					SystemPackage.eINSTANCE
-							.getSystemProvidedRole());
+					RepositoryPackage.eINSTANCE
+							.getProvidedRole());
 		}
 		return (ENamedElement) elements.get(type);
 	}

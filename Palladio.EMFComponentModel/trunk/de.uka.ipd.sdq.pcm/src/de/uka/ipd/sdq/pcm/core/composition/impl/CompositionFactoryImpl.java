@@ -68,8 +68,8 @@ public class CompositionFactoryImpl extends EFactoryImpl implements CompositionF
 		switch (eClass.getClassifierID()) {
 			case CompositionPackage.PROVIDED_DELEGATION_CONNECTOR: return createProvidedDelegationConnector();
 			case CompositionPackage.ASSEMBLY_CONTEXT: return createAssemblyContext();
-			case CompositionPackage.ASSEMBLY_CONNECTOR: return createAssemblyConnector();
 			case CompositionPackage.REQUIRED_DELEGATION_CONNECTOR: return createRequiredDelegationConnector();
+			case CompositionPackage.ASSEMBLY_CONNECTOR: return createAssemblyConnector();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}

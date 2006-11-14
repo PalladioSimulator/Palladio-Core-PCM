@@ -100,6 +100,33 @@ public class EntitySwitch {
 				Entity entity = (Entity)theEObject;
 				Object result = caseEntity(entity);
 				if (result == null) result = caseIdentifier(entity);
+				if (result == null) result = caseNamedElement(entity);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EntityPackage.NAMED_ELEMENT: {
+				NamedElement namedElement = (NamedElement)theEObject;
+				Object result = caseNamedElement(namedElement);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EntityPackage.INTERFACE_PROVIDING_ENTITY: {
+				InterfaceProvidingEntity interfaceProvidingEntity = (InterfaceProvidingEntity)theEObject;
+				Object result = caseInterfaceProvidingEntity(interfaceProvidingEntity);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EntityPackage.INTERFACE_PROVIDING_REQUIRING_ENTITY: {
+				InterfaceProvidingRequiringEntity interfaceProvidingRequiringEntity = (InterfaceProvidingRequiringEntity)theEObject;
+				Object result = caseInterfaceProvidingRequiringEntity(interfaceProvidingRequiringEntity);
+				if (result == null) result = caseInterfaceProvidingEntity(interfaceProvidingRequiringEntity);
+				if (result == null) result = caseInterfaceRequiringEntity(interfaceProvidingRequiringEntity);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case EntityPackage.INTERFACE_REQUIRING_ENTITY: {
+				InterfaceRequiringEntity interfaceRequiringEntity = (InterfaceRequiringEntity)theEObject;
+				Object result = caseInterfaceRequiringEntity(interfaceRequiringEntity);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -119,6 +146,66 @@ public class EntitySwitch {
 	 * @generated
 	 */
 	public Object caseEntity(Entity object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpretting the object as an instance of '<em>Named Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpretting the object as an instance of '<em>Named Element</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public Object caseNamedElement(NamedElement object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpretting the object as an instance of '<em>Interface Providing Entity</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpretting the object as an instance of '<em>Interface Providing Entity</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public Object caseInterfaceProvidingEntity(InterfaceProvidingEntity object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpretting the object as an instance of '<em>Interface Providing Requiring Entity</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpretting the object as an instance of '<em>Interface Providing Requiring Entity</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public Object caseInterfaceProvidingRequiringEntity(InterfaceProvidingRequiringEntity object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpretting the object as an instance of '<em>Interface Requiring Entity</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpretting the object as an instance of '<em>Interface Requiring Entity</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public Object caseInterfaceRequiringEntity(InterfaceRequiringEntity object) {
 		return null;
 	}
 

@@ -10,6 +10,8 @@ import de.uka.ipd.sdq.identifier.Identifier;
 
 import de.uka.ipd.sdq.pcm.core.entity.Entity;
 
+import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
+
 import de.uka.ipd.sdq.pcm.core.stochastics.RandomVariable;
 
 import de.uka.ipd.sdq.pcm.seff.*;
@@ -107,6 +109,7 @@ public class SeffSwitch {
 				if (result == null) result = caseAbstractAction(stopAction);
 				if (result == null) result = caseEntity(stopAction);
 				if (result == null) result = caseIdentifier(stopAction);
+				if (result == null) result = caseNamedElement(stopAction);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -116,6 +119,7 @@ public class SeffSwitch {
 				if (result == null) result = caseAbstractAction(abstractResourceDemandingAction);
 				if (result == null) result = caseEntity(abstractResourceDemandingAction);
 				if (result == null) result = caseIdentifier(abstractResourceDemandingAction);
+				if (result == null) result = caseNamedElement(abstractResourceDemandingAction);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -124,6 +128,7 @@ public class SeffSwitch {
 				Object result = caseAbstractAction(abstractAction);
 				if (result == null) result = caseEntity(abstractAction);
 				if (result == null) result = caseIdentifier(abstractAction);
+				if (result == null) result = caseNamedElement(abstractAction);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -141,6 +146,7 @@ public class SeffSwitch {
 				if (result == null) result = caseAbstractAction(startAction);
 				if (result == null) result = caseEntity(startAction);
 				if (result == null) result = caseIdentifier(startAction);
+				if (result == null) result = caseNamedElement(startAction);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -172,6 +178,7 @@ public class SeffSwitch {
 				if (result == null) result = caseAbstractAction(releaseAction);
 				if (result == null) result = caseEntity(releaseAction);
 				if (result == null) result = caseIdentifier(releaseAction);
+				if (result == null) result = caseNamedElement(releaseAction);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -190,6 +197,7 @@ public class SeffSwitch {
 				if (result == null) result = caseAbstractAction(loopAction);
 				if (result == null) result = caseEntity(loopAction);
 				if (result == null) result = caseIdentifier(loopAction);
+				if (result == null) result = caseNamedElement(loopAction);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -207,6 +215,7 @@ public class SeffSwitch {
 				if (result == null) result = caseAbstractAction(internalAction);
 				if (result == null) result = caseEntity(internalAction);
 				if (result == null) result = caseIdentifier(internalAction);
+				if (result == null) result = caseNamedElement(internalAction);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -217,6 +226,7 @@ public class SeffSwitch {
 				if (result == null) result = caseAbstractAction(forkAction);
 				if (result == null) result = caseEntity(forkAction);
 				if (result == null) result = caseIdentifier(forkAction);
+				if (result == null) result = caseNamedElement(forkAction);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -226,6 +236,7 @@ public class SeffSwitch {
 				if (result == null) result = caseAbstractAction(externalCallAction);
 				if (result == null) result = caseEntity(externalCallAction);
 				if (result == null) result = caseIdentifier(externalCallAction);
+				if (result == null) result = caseNamedElement(externalCallAction);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -243,6 +254,13 @@ public class SeffSwitch {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case SeffPackage.BRANCH_CONDITION: {
+				BranchCondition branchCondition = (BranchCondition)theEObject;
+				Object result = caseBranchCondition(branchCondition);
+				if (result == null) result = caseRandomVariable(branchCondition);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case SeffPackage.BRANCH_ACTION: {
 				BranchAction branchAction = (BranchAction)theEObject;
 				Object result = caseBranchAction(branchAction);
@@ -250,6 +268,7 @@ public class SeffSwitch {
 				if (result == null) result = caseAbstractAction(branchAction);
 				if (result == null) result = caseEntity(branchAction);
 				if (result == null) result = caseIdentifier(branchAction);
+				if (result == null) result = caseNamedElement(branchAction);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -260,6 +279,19 @@ public class SeffSwitch {
 				if (result == null) result = caseAbstractAction(aquireAction);
 				if (result == null) result = caseEntity(aquireAction);
 				if (result == null) result = caseIdentifier(aquireAction);
+				if (result == null) result = caseNamedElement(aquireAction);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case SeffPackage.COLLECTION_ITERATOR_ACTION: {
+				CollectionIteratorAction collectionIteratorAction = (CollectionIteratorAction)theEObject;
+				Object result = caseCollectionIteratorAction(collectionIteratorAction);
+				if (result == null) result = caseLoopAction(collectionIteratorAction);
+				if (result == null) result = caseAbstractResourceDemandingAction(collectionIteratorAction);
+				if (result == null) result = caseAbstractAction(collectionIteratorAction);
+				if (result == null) result = caseEntity(collectionIteratorAction);
+				if (result == null) result = caseIdentifier(collectionIteratorAction);
+				if (result == null) result = caseNamedElement(collectionIteratorAction);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -529,6 +561,21 @@ public class SeffSwitch {
 	}
 
 	/**
+	 * Returns the result of interpretting the object as an instance of '<em>Branch Condition</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpretting the object as an instance of '<em>Branch Condition</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public Object caseBranchCondition(BranchCondition object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpretting the object as an instance of '<em>Branch Action</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -559,6 +606,21 @@ public class SeffSwitch {
 	}
 
 	/**
+	 * Returns the result of interpretting the object as an instance of '<em>Collection Iterator Action</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpretting the object as an instance of '<em>Collection Iterator Action</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public Object caseCollectionIteratorAction(CollectionIteratorAction object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpretting the object as an instance of '<em>Service Effect Specification</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -585,6 +647,21 @@ public class SeffSwitch {
 	 * @generated
 	 */
 	public Object caseIdentifier(Identifier object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpretting the object as an instance of '<em>Named Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpretting the object as an instance of '<em>Named Element</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public Object caseNamedElement(NamedElement object) {
 		return null;
 	}
 

@@ -14,6 +14,8 @@ import de.uka.ipd.sdq.pcm.core.connectors.Connector;
 
 import de.uka.ipd.sdq.pcm.core.entity.Entity;
 
+import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
+
 import de.uka.ipd.sdq.pcm.repository.DelegationConnector;
 
 import java.util.List;
@@ -109,12 +111,7 @@ public class CompositionSwitch {
 				if (result == null) result = caseConnector(providedDelegationConnector);
 				if (result == null) result = caseEntity(providedDelegationConnector);
 				if (result == null) result = caseIdentifier(providedDelegationConnector);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case CompositionPackage.COMPOSED_STRUCTURE: {
-				ComposedStructure composedStructure = (ComposedStructure)theEObject;
-				Object result = caseComposedStructure(composedStructure);
+				if (result == null) result = caseNamedElement(providedDelegationConnector);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -123,15 +120,7 @@ public class CompositionSwitch {
 				Object result = caseAssemblyContext(assemblyContext);
 				if (result == null) result = caseEntity(assemblyContext);
 				if (result == null) result = caseIdentifier(assemblyContext);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case CompositionPackage.ASSEMBLY_CONNECTOR: {
-				AssemblyConnector assemblyConnector = (AssemblyConnector)theEObject;
-				Object result = caseAssemblyConnector(assemblyConnector);
-				if (result == null) result = caseConnector(assemblyConnector);
-				if (result == null) result = caseEntity(assemblyConnector);
-				if (result == null) result = caseIdentifier(assemblyConnector);
+				if (result == null) result = caseNamedElement(assemblyContext);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -142,6 +131,23 @@ public class CompositionSwitch {
 				if (result == null) result = caseConnector(requiredDelegationConnector);
 				if (result == null) result = caseEntity(requiredDelegationConnector);
 				if (result == null) result = caseIdentifier(requiredDelegationConnector);
+				if (result == null) result = caseNamedElement(requiredDelegationConnector);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CompositionPackage.ASSEMBLY_CONNECTOR: {
+				AssemblyConnector assemblyConnector = (AssemblyConnector)theEObject;
+				Object result = caseAssemblyConnector(assemblyConnector);
+				if (result == null) result = caseConnector(assemblyConnector);
+				if (result == null) result = caseEntity(assemblyConnector);
+				if (result == null) result = caseIdentifier(assemblyConnector);
+				if (result == null) result = caseNamedElement(assemblyConnector);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CompositionPackage.COMPOSED_STRUCTURE: {
+				ComposedStructure composedStructure = (ComposedStructure)theEObject;
+				Object result = caseComposedStructure(composedStructure);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -236,6 +242,21 @@ public class CompositionSwitch {
 	 * @generated
 	 */
 	public Object caseIdentifier(Identifier object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpretting the object as an instance of '<em>Named Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpretting the object as an instance of '<em>Named Element</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public Object caseNamedElement(NamedElement object) {
 		return null;
 	}
 

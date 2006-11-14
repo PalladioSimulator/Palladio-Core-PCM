@@ -95,4 +95,24 @@ public class BallOrSocketFigure extends Figure {
 		return result;
 	}
 
+	/* (non-Javadoc)
+	 * @see org.eclipse.draw2d.Figure#setBounds(org.eclipse.draw2d.geometry.Rectangle)
+	 */
+	@Override
+	public void setBounds(Rectangle rect) {
+		// TODO Auto-generated method stub
+		super.setBounds(rect);
+	}
+
+	/* (non-Javadoc)
+	 * @see org.eclipse.draw2d.Figure#validate()
+	 */
+	@Override
+	public void validate() {
+		// TODO Auto-generated method stub
+		super.validate();
+	}
+	
+
+
 }

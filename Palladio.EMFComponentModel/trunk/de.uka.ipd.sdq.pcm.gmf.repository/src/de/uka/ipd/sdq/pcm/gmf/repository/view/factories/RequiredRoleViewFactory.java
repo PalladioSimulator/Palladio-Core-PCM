@@ -4,7 +4,6 @@
 package de.uka.ipd.sdq.pcm.gmf.repository.view.factories;
 
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.RepositoryEditPart;
-
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.RequiresStereotypeLabelEditPart;
 
 import de.uka.ipd.sdq.pcm.gmf.repository.part.PcmVisualIDRegistry;

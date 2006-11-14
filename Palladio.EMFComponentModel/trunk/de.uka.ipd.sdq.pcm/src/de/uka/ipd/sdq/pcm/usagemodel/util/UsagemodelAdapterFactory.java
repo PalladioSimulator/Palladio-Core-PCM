@@ -10,6 +10,10 @@ import de.uka.ipd.sdq.identifier.Identifier;
 
 import de.uka.ipd.sdq.pcm.core.entity.Entity;
 
+import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
+
+import de.uka.ipd.sdq.pcm.core.stochastics.RandomVariable;
+
 import de.uka.ipd.sdq.pcm.usagemodel.*;
 
 import org.eclipse.emf.common.notify.Adapter;
@@ -108,6 +112,9 @@ public class UsagemodelAdapterFactory extends AdapterFactoryImpl {
 			public Object caseLoop(Loop object) {
 				return createLoopAdapter();
 			}
+			public Object caseLoopIterations(LoopIterations object) {
+				return createLoopIterationsAdapter();
+			}
 			public Object caseEntryLevelSystemCall(EntryLevelSystemCall object) {
 				return createEntryLevelSystemCallAdapter();
 			}
@@ -117,11 +124,20 @@ public class UsagemodelAdapterFactory extends AdapterFactoryImpl {
 			public Object caseBranch(Branch object) {
 				return createBranchAdapter();
 			}
+			public Object caseBranchTransition(BranchTransition object) {
+				return createBranchTransitionAdapter();
+			}
 			public Object caseIdentifier(Identifier object) {
 				return createIdentifierAdapter();
 			}
+			public Object caseNamedElement(NamedElement object) {
+				return createNamedElementAdapter();
+			}
 			public Object caseEntity(Entity object) {
 				return createEntityAdapter();
+			}
+			public Object caseRandomVariable(RandomVariable object) {
+				return createRandomVariableAdapter();
 			}
 			public Object defaultCase(EObject object) {
 				return createEObjectAdapter();
@@ -268,6 +284,20 @@ public class UsagemodelAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.usagemodel.LoopIterations <em>Loop Iterations</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.pcm.usagemodel.LoopIterations
+	 * @generated
+	 */
+	public Adapter createLoopIterationsAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.usagemodel.EntryLevelSystemCall <em>Entry Level System Call</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -310,6 +340,20 @@ public class UsagemodelAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.usagemodel.BranchTransition <em>Branch Transition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.pcm.usagemodel.BranchTransition
+	 * @generated
+	 */
+	public Adapter createBranchTransitionAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.identifier.Identifier <em>Identifier</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -324,6 +368,20 @@ public class UsagemodelAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.core.entity.NamedElement <em>Named Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.pcm.core.entity.NamedElement
+	 * @generated
+	 */
+	public Adapter createNamedElementAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.core.entity.Entity <em>Entity</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -334,6 +392,20 @@ public class UsagemodelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createEntityAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.core.stochastics.RandomVariable <em>Random Variable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.pcm.core.stochastics.RandomVariable
+	 * @generated
+	 */
+	public Adapter createRandomVariableAdapter() {
 		return null;
 	}
 

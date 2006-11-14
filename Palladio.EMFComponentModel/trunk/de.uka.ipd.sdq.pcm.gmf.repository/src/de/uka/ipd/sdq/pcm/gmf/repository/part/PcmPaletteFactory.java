@@ -196,13 +196,16 @@ public class PcmPaletteFactory {
 		ImageDescriptor smallImage;
 		ImageDescriptor largeImage;
 
-		smallImage = null;
+		smallImage = PcmElementTypes
+				.getImageDescriptor(PcmElementTypes.CompleteComponentType_1003);
 
 		largeImage = smallImage;
 
-		ToolEntry result = new ToolEntry("CompleteComponentType",
-				"Create new CompleteComponentType", smallImage, largeImage) {
-		};
+		final List elementTypes = new ArrayList();
+		elementTypes.add(PcmElementTypes.CompleteComponentType_1003);
+		ToolEntry result = new NodeToolEntry("CompleteComponentType",
+				"Create new CompleteComponentType", smallImage, largeImage,
+				elementTypes);
 
 		return result;
 	}
@@ -214,13 +217,16 @@ public class PcmPaletteFactory {
 		ImageDescriptor smallImage;
 		ImageDescriptor largeImage;
 
-		smallImage = null;
+		smallImage = PcmElementTypes
+				.getImageDescriptor(PcmElementTypes.CompositeComponent_1005);
 
 		largeImage = smallImage;
 
-		ToolEntry result = new ToolEntry("CompositeComponent",
-				"Create new CompositeComponent", smallImage, largeImage) {
-		};
+		final List elementTypes = new ArrayList();
+		elementTypes.add(PcmElementTypes.CompositeComponent_1005);
+		ToolEntry result = new NodeToolEntry("CompositeComponent",
+				"Create new CompositeComponent", smallImage, largeImage,
+				elementTypes);
 
 		return result;
 	}
@@ -271,13 +277,16 @@ public class PcmPaletteFactory {
 		ImageDescriptor smallImage;
 		ImageDescriptor largeImage;
 
-		smallImage = null;
+		smallImage = PcmElementTypes
+				.getImageDescriptor(PcmElementTypes.ProvidesComponentType_1004);
 
 		largeImage = smallImage;
 
-		ToolEntry result = new ToolEntry("ProvidesComponentType",
-				"Create new ProvidesComponentType", smallImage, largeImage) {
-		};
+		final List elementTypes = new ArrayList();
+		elementTypes.add(PcmElementTypes.ProvidesComponentType_1004);
+		ToolEntry result = new NodeToolEntry("ProvidesComponentType",
+				"Create new ProvidesComponentType", smallImage, largeImage,
+				elementTypes);
 
 		return result;
 	}

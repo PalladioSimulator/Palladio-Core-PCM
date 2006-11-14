@@ -42,13 +42,11 @@ public class BasicComponentViewFactory extends AbstractShapeViewFactory {
 	}
 
 	/**
-	 * @generated not
+	 * @generated
 	 */
 	protected void decorateView(View containerView, View view,
 			IAdaptable semanticAdapter, String semanticHint, int index,
 			boolean persisted) {
-		if (semanticHint != null && semanticHint.equals(""))
-			semanticHint = null;
 		if (semanticHint == null) {
 			semanticHint = PcmVisualIDRegistry
 					.getType(de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.BasicComponentEditPart.VISUAL_ID);

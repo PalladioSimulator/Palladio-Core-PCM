@@ -38,6 +38,13 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
  */
 public class SystemItemProviderAdapterFactory extends SystemAdapterFactory implements ComposeableAdapterFactory, IChangeNotifier, IDisposable {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "(c) by SDQ, IPD, U Karlsruhe (TH), 2006";
+
+	/**
 	 * This keeps track of the root adapter factory that delegates to this adapter factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -76,28 +83,6 @@ public class SystemItemProviderAdapterFactory extends SystemAdapterFactory imple
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.system.SystemRequiredRole} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected SystemRequiredRoleItemProvider systemRequiredRoleItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.system.SystemRequiredRole}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Adapter createSystemRequiredRoleAdapter() {
-		if (systemRequiredRoleItemProvider == null) {
-			systemRequiredRoleItemProvider = new SystemRequiredRoleItemProvider(this);
-		}
-
-		return systemRequiredRoleItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.system.System} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -117,50 +102,6 @@ public class SystemItemProviderAdapterFactory extends SystemAdapterFactory imple
 		}
 
 		return systemItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.system.SpecifiedTimeConsumption} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected SpecifiedTimeConsumptionItemProvider specifiedTimeConsumptionItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.system.SpecifiedTimeConsumption}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Adapter createSpecifiedTimeConsumptionAdapter() {
-		if (specifiedTimeConsumptionItemProvider == null) {
-			specifiedTimeConsumptionItemProvider = new SpecifiedTimeConsumptionItemProvider(this);
-		}
-
-		return specifiedTimeConsumptionItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.system.SystemProvidedRole} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected SystemProvidedRoleItemProvider systemProvidedRoleItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.system.SystemProvidedRole}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Adapter createSystemProvidedRoleAdapter() {
-		if (systemProvidedRoleItemProvider == null) {
-			systemProvidedRoleItemProvider = new SystemProvidedRoleItemProvider(this);
-		}
-
-		return systemProvidedRoleItemProvider;
 	}
 
 	/**
@@ -259,10 +200,7 @@ public class SystemItemProviderAdapterFactory extends SystemAdapterFactory imple
 	 * @generated
 	 */
 	public void dispose() {
-		if (systemRequiredRoleItemProvider != null) systemRequiredRoleItemProvider.dispose();
 		if (systemItemProvider != null) systemItemProvider.dispose();
-		if (specifiedTimeConsumptionItemProvider != null) specifiedTimeConsumptionItemProvider.dispose();
-		if (systemProvidedRoleItemProvider != null) systemProvidedRoleItemProvider.dispose();
 	}
 
 }

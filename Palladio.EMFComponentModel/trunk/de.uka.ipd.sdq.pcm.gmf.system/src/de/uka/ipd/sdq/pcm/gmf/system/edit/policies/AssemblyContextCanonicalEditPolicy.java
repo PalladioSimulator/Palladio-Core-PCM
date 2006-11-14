@@ -36,11 +36,11 @@ public class AssemblyContextCanonicalEditPolicy extends CanonicalEditPolicy {
 		ProvidesComponentType component = ctx
 				.getEncapsulatedComponent_ChildComponentContext();
 		for (ProvidedRole r : (List<ProvidedRole>) component
-				.getProvidedRoles__ProvidesComponentType()) {
+				.getProvidedRoles_InterfaceProvidingEntity()) {
 			result.add(r);
 		}
 		for (RequiredRole r : (List<RequiredRole>) component
-				.getRequiredRoles_ProvidesComponentType()) {
+				.getRequiredRoles_InterfaceRequiringEntity()) {
 			result.add(r);
 		}
 		return result;

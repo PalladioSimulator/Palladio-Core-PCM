@@ -12,6 +12,8 @@ import de.uka.ipd.sdq.pcm.core.connectors.*;
 
 import de.uka.ipd.sdq.pcm.core.entity.Entity;
 
+import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
+
 import java.util.List;
 
 import org.eclipse.emf.ecore.EClass;
@@ -103,6 +105,7 @@ public class ConnectorsSwitch {
 				Object result = caseConnector(connector);
 				if (result == null) result = caseEntity(connector);
 				if (result == null) result = caseIdentifier(connector);
+				if (result == null) result = caseNamedElement(connector);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -137,6 +140,21 @@ public class ConnectorsSwitch {
 	 * @generated
 	 */
 	public Object caseIdentifier(Identifier object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpretting the object as an instance of '<em>Named Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpretting the object as an instance of '<em>Named Element</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public Object caseNamedElement(NamedElement object) {
 		return null;
 	}
 

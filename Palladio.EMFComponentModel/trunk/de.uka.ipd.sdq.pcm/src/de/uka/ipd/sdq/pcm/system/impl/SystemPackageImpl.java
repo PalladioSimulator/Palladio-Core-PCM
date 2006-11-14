@@ -36,6 +36,10 @@ import de.uka.ipd.sdq.pcm.protocol.ProtocolPackage;
 
 import de.uka.ipd.sdq.pcm.protocol.impl.ProtocolPackageImpl;
 
+import de.uka.ipd.sdq.pcm.qosannotations.QosannotationsPackage;
+
+import de.uka.ipd.sdq.pcm.qosannotations.impl.QosannotationsPackageImpl;
+
 import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
 
 import de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl;
@@ -52,11 +56,8 @@ import de.uka.ipd.sdq.pcm.seff.SeffPackage;
 
 import de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl;
 
-import de.uka.ipd.sdq.pcm.system.SpecifiedTimeConsumption;
 import de.uka.ipd.sdq.pcm.system.SystemFactory;
 import de.uka.ipd.sdq.pcm.system.SystemPackage;
-import de.uka.ipd.sdq.pcm.system.SystemProvidedRole;
-import de.uka.ipd.sdq.pcm.system.SystemRequiredRole;
 
 import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
 
@@ -89,28 +90,7 @@ public class SystemPackageImpl extends EPackageImpl implements SystemPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass systemRequiredRoleEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EClass systemEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass specifiedTimeConsumptionEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass systemProvidedRoleEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -185,6 +165,7 @@ public class SystemPackageImpl extends EPackageImpl implements SystemPackage {
 		AllocationPackageImpl theAllocationPackage = (AllocationPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(AllocationPackage.eNS_URI) instanceof AllocationPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(AllocationPackage.eNS_URI) : AllocationPackage.eINSTANCE);
 		ResourceenvironmentPackageImpl theResourceenvironmentPackage = (ResourceenvironmentPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ResourceenvironmentPackage.eNS_URI) instanceof ResourceenvironmentPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ResourceenvironmentPackage.eNS_URI) : ResourceenvironmentPackage.eINSTANCE);
 		UsagemodelPackageImpl theUsagemodelPackage = (UsagemodelPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(UsagemodelPackage.eNS_URI) instanceof UsagemodelPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(UsagemodelPackage.eNS_URI) : UsagemodelPackage.eINSTANCE);
+		QosannotationsPackageImpl theQosannotationsPackage = (QosannotationsPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(QosannotationsPackage.eNS_URI) instanceof QosannotationsPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(QosannotationsPackage.eNS_URI) : QosannotationsPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theSystemPackage.createPackageContents();
@@ -200,6 +181,7 @@ public class SystemPackageImpl extends EPackageImpl implements SystemPackage {
 		theAllocationPackage.createPackageContents();
 		theResourceenvironmentPackage.createPackageContents();
 		theUsagemodelPackage.createPackageContents();
+		theQosannotationsPackage.createPackageContents();
 
 		// Initialize created meta-data
 		theSystemPackage.initializePackageContents();
@@ -215,38 +197,12 @@ public class SystemPackageImpl extends EPackageImpl implements SystemPackage {
 		theAllocationPackage.initializePackageContents();
 		theResourceenvironmentPackage.initializePackageContents();
 		theUsagemodelPackage.initializePackageContents();
+		theQosannotationsPackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		theSystemPackage.freeze();
 
 		return theSystemPackage;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getSystemRequiredRole() {
-		return systemRequiredRoleEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getSystemRequiredRole_System_SystemRequiredRole() {
-		return (EReference)systemRequiredRoleEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getSystemRequiredRole_SpecifiedTimeConsumption_SystemRequiredRole() {
-		return (EReference)systemRequiredRoleEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -263,62 +219,8 @@ public class SystemPackageImpl extends EPackageImpl implements SystemPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getSystem_SystemProvidedRole_System() {
-		return (EReference)systemEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EReference getSystem_Allocation_System() {
-		return (EReference)systemEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getSystem_SystemRequiredRole_System() {
-		return (EReference)systemEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getSpecifiedTimeConsumption() {
-		return specifiedTimeConsumptionEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getSpecifiedTimeConsumption_Signature_SpecifiedTimeConsumption() {
-		return (EReference)specifiedTimeConsumptionEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getSystemProvidedRole() {
-		return systemProvidedRoleEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getSystemProvidedRole_System_SystemProvidedRole() {
-		return (EReference)systemProvidedRoleEClass.getEStructuralFeatures().get(0);
+		return (EReference)systemEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -349,20 +251,8 @@ public class SystemPackageImpl extends EPackageImpl implements SystemPackage {
 		isCreated = true;
 
 		// Create classes and their features
-		systemRequiredRoleEClass = createEClass(SYSTEM_REQUIRED_ROLE);
-		createEReference(systemRequiredRoleEClass, SYSTEM_REQUIRED_ROLE__SYSTEM_SYSTEM_REQUIRED_ROLE);
-		createEReference(systemRequiredRoleEClass, SYSTEM_REQUIRED_ROLE__SPECIFIED_TIME_CONSUMPTION_SYSTEM_REQUIRED_ROLE);
-
 		systemEClass = createEClass(SYSTEM);
-		createEReference(systemEClass, SYSTEM__SYSTEM_PROVIDED_ROLE_SYSTEM);
 		createEReference(systemEClass, SYSTEM__ALLOCATION_SYSTEM);
-		createEReference(systemEClass, SYSTEM__SYSTEM_REQUIRED_ROLE_SYSTEM);
-
-		specifiedTimeConsumptionEClass = createEClass(SPECIFIED_TIME_CONSUMPTION);
-		createEReference(specifiedTimeConsumptionEClass, SPECIFIED_TIME_CONSUMPTION__SIGNATURE_SPECIFIED_TIME_CONSUMPTION);
-
-		systemProvidedRoleEClass = createEClass(SYSTEM_PROVIDED_ROLE);
-		createEReference(systemProvidedRoleEClass, SYSTEM_PROVIDED_ROLE__SYSTEM_SYSTEM_PROVIDED_ROLE);
 	}
 
 	/**
@@ -389,36 +279,18 @@ public class SystemPackageImpl extends EPackageImpl implements SystemPackage {
 		setNsURI(eNS_URI);
 
 		// Obtain other dependent packages
-		RepositoryPackage theRepositoryPackage = (RepositoryPackage)EPackage.Registry.INSTANCE.getEPackage(RepositoryPackage.eNS_URI);
-		EntityPackage theEntityPackage = (EntityPackage)EPackage.Registry.INSTANCE.getEPackage(EntityPackage.eNS_URI);
 		CompositionPackage theCompositionPackage = (CompositionPackage)EPackage.Registry.INSTANCE.getEPackage(CompositionPackage.eNS_URI);
+		EntityPackage theEntityPackage = (EntityPackage)EPackage.Registry.INSTANCE.getEPackage(EntityPackage.eNS_URI);
 		AllocationPackage theAllocationPackage = (AllocationPackage)EPackage.Registry.INSTANCE.getEPackage(AllocationPackage.eNS_URI);
-		StochasticsPackage theStochasticsPackage = (StochasticsPackage)EPackage.Registry.INSTANCE.getEPackage(StochasticsPackage.eNS_URI);
 
 		// Add supertypes to classes
-		systemRequiredRoleEClass.getESuperTypes().add(theRepositoryPackage.getRequiredRole());
-		systemRequiredRoleEClass.getESuperTypes().add(theEntityPackage.getEntity());
 		systemEClass.getESuperTypes().add(theCompositionPackage.getComposedStructure());
 		systemEClass.getESuperTypes().add(theEntityPackage.getEntity());
-		specifiedTimeConsumptionEClass.getESuperTypes().add(theStochasticsPackage.getRandomVariable());
-		systemProvidedRoleEClass.getESuperTypes().add(theRepositoryPackage.getProvidedRole());
-		systemProvidedRoleEClass.getESuperTypes().add(theEntityPackage.getEntity());
+		systemEClass.getESuperTypes().add(theEntityPackage.getInterfaceProvidingRequiringEntity());
 
 		// Initialize classes and features; add operations and parameters
-		initEClass(systemRequiredRoleEClass, SystemRequiredRole.class, "SystemRequiredRole", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getSystemRequiredRole_System_SystemRequiredRole(), this.getSystem(), this.getSystem_SystemRequiredRole_System(), "system_SystemRequiredRole", null, 1, 1, SystemRequiredRole.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getSystemRequiredRole_SpecifiedTimeConsumption_SystemRequiredRole(), this.getSpecifiedTimeConsumption(), null, "specifiedTimeConsumption_SystemRequiredRole", null, 0, -1, SystemRequiredRole.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-
 		initEClass(systemEClass, de.uka.ipd.sdq.pcm.system.System.class, "System", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getSystem_SystemProvidedRole_System(), this.getSystemProvidedRole(), this.getSystemProvidedRole_System_SystemProvidedRole(), "systemProvidedRole_System", null, 0, -1, de.uka.ipd.sdq.pcm.system.System.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getSystem_Allocation_System(), theAllocationPackage.getAllocation(), null, "allocation_System", null, 1, 1, de.uka.ipd.sdq.pcm.system.System.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getSystem_SystemRequiredRole_System(), this.getSystemRequiredRole(), this.getSystemRequiredRole_System_SystemRequiredRole(), "systemRequiredRole_System", null, 0, -1, de.uka.ipd.sdq.pcm.system.System.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-
-		initEClass(specifiedTimeConsumptionEClass, SpecifiedTimeConsumption.class, "SpecifiedTimeConsumption", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getSpecifiedTimeConsumption_Signature_SpecifiedTimeConsumption(), theRepositoryPackage.getSignature(), null, "signature_SpecifiedTimeConsumption", null, 1, 1, SpecifiedTimeConsumption.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-
-		initEClass(systemProvidedRoleEClass, SystemProvidedRole.class, "SystemProvidedRole", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getSystemProvidedRole_System_SystemProvidedRole(), this.getSystem(), this.getSystem_SystemProvidedRole_System(), "system_SystemProvidedRole", null, 1, 1, SystemProvidedRole.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

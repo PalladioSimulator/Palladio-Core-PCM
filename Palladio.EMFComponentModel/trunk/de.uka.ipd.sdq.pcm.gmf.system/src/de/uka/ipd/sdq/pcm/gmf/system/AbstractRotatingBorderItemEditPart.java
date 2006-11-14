@@ -82,6 +82,17 @@ public abstract class AbstractRotatingBorderItemEditPart extends
 			public ConnectionAnchor getConnectionAnchor(String terminal) {
 				return createDefaultAnchor();
 			}
+
+			/* (non-Javadoc)
+			 * @see org.eclipse.draw2d.Figure#setBounds(org.eclipse.draw2d.geometry.Rectangle)
+			 */
+			@Override
+			public void setBounds(Rectangle rect) {
+				// TODO Auto-generated method stub
+				super.setBounds(rect);
+			}
+			
+			
 			
 		};
 		// FIXME: workaround for #154536

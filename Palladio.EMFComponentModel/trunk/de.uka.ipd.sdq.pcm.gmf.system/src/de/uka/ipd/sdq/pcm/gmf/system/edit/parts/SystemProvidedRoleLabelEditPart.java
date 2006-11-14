@@ -30,7 +30,6 @@ import org.eclipse.gmf.runtime.diagram.ui.requests.RequestConstants;
 import org.eclipse.gmf.runtime.diagram.ui.tools.TextDirectEditManager;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel;
 import org.eclipse.gmf.runtime.emf.core.util.EObjectAdapter;
-import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.gmf.runtime.emf.ui.services.parser.ISemanticParser;
 import org.eclipse.gmf.runtime.emf.ui.services.parser.ParserHintAdapter;
 import org.eclipse.gmf.runtime.notation.FontStyle;
@@ -48,8 +47,7 @@ import org.eclipse.swt.graphics.Image;
 import de.uka.ipd.sdq.pcm.gmf.system.edit.policies.PcmTextSelectionEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.system.part.PcmVisualIDRegistry;
 import de.uka.ipd.sdq.pcm.gmf.system.part.SystemDiagramEditorPlugin;
-import de.uka.ipd.sdq.pcm.gmf.system.providers.PcmElementTypes;
-import de.uka.ipd.sdq.pcm.system.SystemProvidedRole;
+import de.uka.ipd.sdq.pcm.repository.ProvidedRole;
 
 /**
  * @generated
@@ -206,7 +204,7 @@ public class SystemProvidedRoleLabelEditPart extends PcmExtNodeLabelEditPart
 		//					new EObjectAdapter(getParserElement()),
 		//					getParserOptions().intValue());
 		//		}
-		SystemProvidedRole reqRole = (SystemProvidedRole) getParserElement();
+		ProvidedRole reqRole = (ProvidedRole) getParserElement();
 		if (reqRole.getProvidedInterface__ProvidedRole() != null)
 			text = reqRole.getProvidedInterface__ProvidedRole().getEntityName();
 		if (text == null || text.length() == 0) {

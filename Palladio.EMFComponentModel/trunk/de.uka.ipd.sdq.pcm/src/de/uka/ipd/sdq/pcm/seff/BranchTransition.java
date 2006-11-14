@@ -17,8 +17,9 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link de.uka.ipd.sdq.pcm.seff.BranchTransition#getBranchCondition <em>Branch Condition</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.seff.BranchTransition#getBranchBehaviour_BranchTransition <em>Branch Behaviour Branch Transition</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.seff.BranchTransition#getBranchCondition_BranchTransition <em>Branch Condition Branch Transition</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.seff.BranchTransition#getBranchProbability <em>Branch Probability</em>}</li>
  * </ul>
  * </p>
  *
@@ -33,32 +34,6 @@ public interface BranchTransition extends EObject {
 	 * @generated
 	 */
 	String copyright = "(c) by SDQ, IPD, U Karlsruhe (TH), 2006";
-
-	/**
-	 * Returns the value of the '<em><b>Branch Condition</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Branch Condition</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Branch Condition</em>' attribute.
-	 * @see #setBranchCondition(String)
-	 * @see de.uka.ipd.sdq.pcm.seff.SeffPackage#getBranchTransition_BranchCondition()
-	 * @model required="true" ordered="false"
-	 * @generated
-	 */
-	String getBranchCondition();
-
-	/**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.seff.BranchTransition#getBranchCondition <em>Branch Condition</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Branch Condition</em>' attribute.
-	 * @see #getBranchCondition()
-	 * @generated
-	 */
-	void setBranchCondition(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Branch Behaviour Branch Transition</b></em>' containment reference.
@@ -85,5 +60,57 @@ public interface BranchTransition extends EObject {
 	 * @generated
 	 */
 	void setBranchBehaviour_BranchTransition(ResourceDemandingBehaviour value);
+
+	/**
+	 * Returns the value of the '<em><b>Branch Condition Branch Transition</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Branch Condition Branch Transition</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Branch Condition Branch Transition</em>' containment reference.
+	 * @see #setBranchCondition_BranchTransition(BranchCondition)
+	 * @see de.uka.ipd.sdq.pcm.seff.SeffPackage#getBranchTransition_BranchCondition_BranchTransition()
+	 * @model containment="true" required="true" ordered="false"
+	 * @generated
+	 */
+	BranchCondition getBranchCondition_BranchTransition();
+
+	/**
+	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.seff.BranchTransition#getBranchCondition_BranchTransition <em>Branch Condition Branch Transition</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Branch Condition Branch Transition</em>' containment reference.
+	 * @see #getBranchCondition_BranchTransition()
+	 * @generated
+	 */
+	void setBranchCondition_BranchTransition(BranchCondition value);
+
+	/**
+	 * Returns the value of the '<em><b>Branch Probability</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Branch Probability</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Branch Probability</em>' attribute.
+	 * @see #setBranchProbability(double)
+	 * @see de.uka.ipd.sdq.pcm.seff.SeffPackage#getBranchTransition_BranchProbability()
+	 * @model required="true" ordered="false"
+	 * @generated
+	 */
+	double getBranchProbability();
+
+	/**
+	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.seff.BranchTransition#getBranchProbability <em>Branch Probability</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Branch Probability</em>' attribute.
+	 * @see #getBranchProbability()
+	 * @generated
+	 */
+	void setBranchProbability(double value);
 
 } // BranchTransition

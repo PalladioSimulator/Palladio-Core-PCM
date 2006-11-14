@@ -15,8 +15,11 @@ import org.eclipse.gmf.runtime.diagram.ui.requests.CreateViewRequest.ViewDescrip
 import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
 
+import de.uka.ipd.sdq.pcm.core.composition.ComposedStructure;
+import de.uka.ipd.sdq.pcm.gmf.system.edit.parts.AssemblyContextEditPart;
 import de.uka.ipd.sdq.pcm.gmf.system.part.PcmVisualIDRegistry;
-import de.uka.ipd.sdq.pcm.system.SystemRequiredRole;
+import de.uka.ipd.sdq.pcm.gmf.system.providers.PcmElementTypes;
+import de.uka.ipd.sdq.pcm.repository.RequiredRole;
 
 /**
  * @generated
@@ -33,15 +36,25 @@ public class SystemNodeCanonicalEditPolicy extends CanonicalEditPolicy {
 		EObject nextValue;
 		int nodeVID;
 		for (Iterator values = ((de.uka.ipd.sdq.pcm.system.System) modelObject)
-				.getSystemProvidedRole_System().iterator(); values.hasNext();) {
+				.getProvidedRoles_InterfaceProvidingEntity().iterator(); values.hasNext();) {
 			nextValue = (EObject) values.next();
 			result.add(nextValue);
 		}
 		for (Iterator values = ((de.uka.ipd.sdq.pcm.system.System) modelObject)
-				.getSystemRequiredRole_System().iterator(); values.hasNext();) {
+				.getRequiredRoles_InterfaceRequiringEntity().iterator(); values.hasNext();) {
 			nextValue = (EObject) values.next();
 			result.add(nextValue);
 		}
+//		for (Iterator values = ((ComposedStructure) modelObject)
+//				.getChildComponentContexts_ComposedStructure().iterator(); values
+//				.hasNext();) {
+//			nextValue = (EObject) values.next();
+//			nodeVID = PcmVisualIDRegistry
+//					.getNodeVisualID(viewObject, nextValue);
+//			if (AssemblyContextEditPart.VISUAL_ID == nodeVID) {
+//				result.add(nextValue);
+//			}
+//		}		
 		return result;
 	}
 
@@ -73,7 +86,7 @@ public class SystemNodeCanonicalEditPolicy extends CanonicalEditPolicy {
 
 		int pos = getViewIndexFor(element);
 		String sh = getFactoryHint(elementAdapter, factoryHint);
-		if (element instanceof SystemRequiredRole)
+		if (element instanceof RequiredRole)
 			sh = PcmVisualIDRegistry
 					.getType(de.uka.ipd.sdq.pcm.gmf.system.edit.parts.SystemRequiredRoleEditPart.VISUAL_ID);
 		CreateViewRequest.ViewDescriptor descriptor = getViewDescriptor(

@@ -11,8 +11,6 @@ import de.uka.ipd.sdq.pcm.parameter.ParameterUsage;
 
 import de.uka.ipd.sdq.pcm.repository.Signature;
 
-import de.uka.ipd.sdq.pcm.system.SystemProvidedRole;
-
 import de.uka.ipd.sdq.pcm.usagemodel.EntryLevelSystemCall;
 import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
 
@@ -39,7 +37,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * <ul>
  *   <li>{@link de.uka.ipd.sdq.pcm.usagemodel.impl.EntryLevelSystemCallImpl#getActualParameterUsage_EntryLevelSystemCall <em>Actual Parameter Usage Entry Level System Call</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.usagemodel.impl.EntryLevelSystemCallImpl#getSystemProvidedRole_EntryLevelSystemCall <em>System Provided Role Entry Level System Call</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.usagemodel.impl.EntryLevelSystemCallImpl#getSignature_EntryLevelSystemCall <em>Signature Entry Level System Call</em>}</li>
  * </ul>
  * </p>
@@ -63,16 +60,6 @@ public class EntryLevelSystemCallImpl extends AbstractUserActionImpl implements 
 	 * @ordered
 	 */
 	protected EList actualParameterUsage_EntryLevelSystemCall = null;
-
-	/**
-	 * The cached value of the '{@link #getSystemProvidedRole_EntryLevelSystemCall() <em>System Provided Role Entry Level System Call</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getSystemProvidedRole_EntryLevelSystemCall()
-	 * @generated
-	 * @ordered
-	 */
-	protected SystemProvidedRole systemProvidedRole_EntryLevelSystemCall = null;
 
 	/**
 	 * The cached value of the '{@link #getSignature_EntryLevelSystemCall() <em>Signature Entry Level System Call</em>}' reference.
@@ -113,44 +100,6 @@ public class EntryLevelSystemCallImpl extends AbstractUserActionImpl implements 
 			actualParameterUsage_EntryLevelSystemCall = new EObjectContainmentEList(ParameterUsage.class, this, UsagemodelPackage.ENTRY_LEVEL_SYSTEM_CALL__ACTUAL_PARAMETER_USAGE_ENTRY_LEVEL_SYSTEM_CALL);
 		}
 		return actualParameterUsage_EntryLevelSystemCall;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public SystemProvidedRole getSystemProvidedRole_EntryLevelSystemCall() {
-		if (systemProvidedRole_EntryLevelSystemCall != null && systemProvidedRole_EntryLevelSystemCall.eIsProxy()) {
-			InternalEObject oldSystemProvidedRole_EntryLevelSystemCall = (InternalEObject)systemProvidedRole_EntryLevelSystemCall;
-			systemProvidedRole_EntryLevelSystemCall = (SystemProvidedRole)eResolveProxy(oldSystemProvidedRole_EntryLevelSystemCall);
-			if (systemProvidedRole_EntryLevelSystemCall != oldSystemProvidedRole_EntryLevelSystemCall) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, UsagemodelPackage.ENTRY_LEVEL_SYSTEM_CALL__SYSTEM_PROVIDED_ROLE_ENTRY_LEVEL_SYSTEM_CALL, oldSystemProvidedRole_EntryLevelSystemCall, systemProvidedRole_EntryLevelSystemCall));
-			}
-		}
-		return systemProvidedRole_EntryLevelSystemCall;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public SystemProvidedRole basicGetSystemProvidedRole_EntryLevelSystemCall() {
-		return systemProvidedRole_EntryLevelSystemCall;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setSystemProvidedRole_EntryLevelSystemCall(SystemProvidedRole newSystemProvidedRole_EntryLevelSystemCall) {
-		SystemProvidedRole oldSystemProvidedRole_EntryLevelSystemCall = systemProvidedRole_EntryLevelSystemCall;
-		systemProvidedRole_EntryLevelSystemCall = newSystemProvidedRole_EntryLevelSystemCall;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, UsagemodelPackage.ENTRY_LEVEL_SYSTEM_CALL__SYSTEM_PROVIDED_ROLE_ENTRY_LEVEL_SYSTEM_CALL, oldSystemProvidedRole_EntryLevelSystemCall, systemProvidedRole_EntryLevelSystemCall));
 	}
 
 	/**
@@ -213,9 +162,6 @@ public class EntryLevelSystemCallImpl extends AbstractUserActionImpl implements 
 		switch (featureID) {
 			case UsagemodelPackage.ENTRY_LEVEL_SYSTEM_CALL__ACTUAL_PARAMETER_USAGE_ENTRY_LEVEL_SYSTEM_CALL:
 				return getActualParameterUsage_EntryLevelSystemCall();
-			case UsagemodelPackage.ENTRY_LEVEL_SYSTEM_CALL__SYSTEM_PROVIDED_ROLE_ENTRY_LEVEL_SYSTEM_CALL:
-				if (resolve) return getSystemProvidedRole_EntryLevelSystemCall();
-				return basicGetSystemProvidedRole_EntryLevelSystemCall();
 			case UsagemodelPackage.ENTRY_LEVEL_SYSTEM_CALL__SIGNATURE_ENTRY_LEVEL_SYSTEM_CALL:
 				if (resolve) return getSignature_EntryLevelSystemCall();
 				return basicGetSignature_EntryLevelSystemCall();
@@ -234,9 +180,6 @@ public class EntryLevelSystemCallImpl extends AbstractUserActionImpl implements 
 				getActualParameterUsage_EntryLevelSystemCall().clear();
 				getActualParameterUsage_EntryLevelSystemCall().addAll((Collection)newValue);
 				return;
-			case UsagemodelPackage.ENTRY_LEVEL_SYSTEM_CALL__SYSTEM_PROVIDED_ROLE_ENTRY_LEVEL_SYSTEM_CALL:
-				setSystemProvidedRole_EntryLevelSystemCall((SystemProvidedRole)newValue);
-				return;
 			case UsagemodelPackage.ENTRY_LEVEL_SYSTEM_CALL__SIGNATURE_ENTRY_LEVEL_SYSTEM_CALL:
 				setSignature_EntryLevelSystemCall((Signature)newValue);
 				return;
@@ -254,9 +197,6 @@ public class EntryLevelSystemCallImpl extends AbstractUserActionImpl implements 
 			case UsagemodelPackage.ENTRY_LEVEL_SYSTEM_CALL__ACTUAL_PARAMETER_USAGE_ENTRY_LEVEL_SYSTEM_CALL:
 				getActualParameterUsage_EntryLevelSystemCall().clear();
 				return;
-			case UsagemodelPackage.ENTRY_LEVEL_SYSTEM_CALL__SYSTEM_PROVIDED_ROLE_ENTRY_LEVEL_SYSTEM_CALL:
-				setSystemProvidedRole_EntryLevelSystemCall((SystemProvidedRole)null);
-				return;
 			case UsagemodelPackage.ENTRY_LEVEL_SYSTEM_CALL__SIGNATURE_ENTRY_LEVEL_SYSTEM_CALL:
 				setSignature_EntryLevelSystemCall((Signature)null);
 				return;
@@ -273,8 +213,6 @@ public class EntryLevelSystemCallImpl extends AbstractUserActionImpl implements 
 		switch (featureID) {
 			case UsagemodelPackage.ENTRY_LEVEL_SYSTEM_CALL__ACTUAL_PARAMETER_USAGE_ENTRY_LEVEL_SYSTEM_CALL:
 				return actualParameterUsage_EntryLevelSystemCall != null && !actualParameterUsage_EntryLevelSystemCall.isEmpty();
-			case UsagemodelPackage.ENTRY_LEVEL_SYSTEM_CALL__SYSTEM_PROVIDED_ROLE_ENTRY_LEVEL_SYSTEM_CALL:
-				return systemProvidedRole_EntryLevelSystemCall != null;
 			case UsagemodelPackage.ENTRY_LEVEL_SYSTEM_CALL__SIGNATURE_ENTRY_LEVEL_SYSTEM_CALL:
 				return signature_EntryLevelSystemCall != null;
 		}

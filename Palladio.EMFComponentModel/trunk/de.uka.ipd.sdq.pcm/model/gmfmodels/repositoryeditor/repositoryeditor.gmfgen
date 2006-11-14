@@ -5,6 +5,7 @@
     xmlns:gmfgen="http://www.eclipse.org/gmf/2005/GenModel" packageNamePrefix="de.uka.ipd.sdq.pcm.gmf.repository"
     modelID="repository_model"
     domainFileExtension="repository"
+    templateDirectory=""
     copyrightText="Copyright 2006 Institute for Software-Design and Quality, University of Karlsruhe (TH)">
   <diagram
       visualID="79"
@@ -12,8 +13,7 @@
       itemSemanticEditPolicyClassName="RepositoryItemSemanticEditPolicy"
       notationViewFactoryClassName="RepositoryViewFactory"
       iconProviderPriority="Low"
-      canonicalEditPolicyClassName="RepositoryCanonicalEditPolicy"
-      synchronized="false">
+      canonicalEditPolicyClassName="RepositoryCanonicalEditPolicy">
     <diagramRunTimeClass
         href="../../../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Diagram"/>
     <elementType
@@ -142,7 +142,7 @@
         <modelFacet
             xsi:type="gmfgen:FeatureLabelModelFacet">
           <metaFeature
-              href="../../pcm.genmodel#//pcm/core/entity/Entity/entityName"/>
+              href="../../pcm.genmodel#//pcm/core/entity/NamedElement/entityName"/>
         </modelFacet>
       </labels>
     </topLevelNodes>
@@ -189,9 +189,129 @@
         <modelFacet
             xsi:type="gmfgen:FeatureLabelModelFacet">
           <metaFeature
-              href="../../pcm.genmodel#//pcm/core/entity/Entity/entityName"/>
+              href="../../pcm.genmodel#//pcm/core/entity/NamedElement/entityName"/>
         </modelFacet>
       </labels>
+    </topLevelNodes>
+    <topLevelNodes
+        visualID="1003"
+        editPartClassName="CompleteComponentTypeEditPart"
+        itemSemanticEditPolicyClassName="CompleteComponentTypeItemSemanticEditPolicy"
+        notationViewFactoryClassName="CompleteComponentTypeViewFactory"
+        canonicalEditPolicyClassName="CompleteComponentTypeCanonicalEditPolicy"
+        graphicalNodeEditPolicyClassName="CompleteComponentTypeGraphicalNodeEditPolicy">
+      <diagramRunTimeClass
+          href="../../../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+      <elementType
+          xsi:type="gmfgen:MetamodelType"
+          editHelperClassName="CompleteComponentTypeEditHelper"/>
+      <viewmap
+          xsi:type="gmfgen:InnerClassViewmap"
+          className="CompleteComponentTypeFigure"
+          classBody="&#xD;&#xA;&#xD;&#xA;/**&#xD;&#xA; * @generated&#xD;&#xA; */&#xD;&#xA;public class CompleteComponentTypeFigure extends org.eclipse.draw2d.RectangleFigure {&#xD;&#xA;&#xD;&#xA;&#x9;/**&#xD;&#xA;&#x9; * @generated&#xD;&#xA;&#x9; */&#xD;&#xA;&#x9;public CompleteComponentTypeFigure() {&#x9;&#xD;&#xA;&#x9;&#x9;&#xD;&#xA;&#xD;&#xA;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;createContents();&#xD;&#xA;&#x9;}&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#x9;/**&#xD;&#xA;&#x9; * @generated&#xD;&#xA;&#x9; */&#xD;&#xA;&#x9;private void createContents(){&#xD;&#xA;&#x9;&#x9;org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel fig_0 = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel();&#xD;&#xA;fig_0.setText(&quot;&lt;...>&quot;);&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#x9;&#x9;setFigureCompleteComponentTypeLabelFigure(fig_0);&#xD;&#xA;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;Object layData0 = null;&#xD;&#xA;&#xD;&#xA;&#x9;&#x9;this.add(fig_0, layData0);&#xD;&#xA;&#x9;}&#xD;&#xA;&#x9;&#xD;&#xA;&#x9;&#x9;&#xD;&#xA;&#x9;/**&#xD;&#xA;&#x9; * @generated&#xD;&#xA;&#x9; */&#xD;&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel fCompleteComponentTypeLabelFigure; &#xD;&#xA;&#xD;&#xA;&#x9;/**&#xD;&#xA;&#x9; * @generated&#xD;&#xA;&#x9; */&#xD;&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel getFigureCompleteComponentTypeLabelFigure() {&#xD;&#xA;&#x9;&#x9;return fCompleteComponentTypeLabelFigure;&#xD;&#xA;&#x9;}&#xD;&#xA;&#x9;&#xD;&#xA;&#x9;/**&#xD;&#xA;&#x9; * @generated&#xD;&#xA;&#x9; */&#xD;&#xA;&#x9;private void setFigureCompleteComponentTypeLabelFigure(org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel fig){&#xD;&#xA;&#x9;&#x9;fCompleteComponentTypeLabelFigure = fig;&#xD;&#xA;&#x9;}&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#x9;/**&#xD;&#xA;&#x9; * @generated&#xD;&#xA;&#x9; */&#xD;&#xA;&#x9;private boolean myUseLocalCoordinates = false;&#xD;&#xA;&#xD;&#xA;&#x9;/**&#xD;&#xA;&#x9; * @generated&#xD;&#xA;&#x9; */&#xD;&#xA;&#x9;protected boolean useLocalCoordinates() {&#xD;&#xA;&#x9;&#x9;return myUseLocalCoordinates;&#xD;&#xA;&#x9;}&#xD;&#xA;&#xD;&#xA;&#x9;/**&#xD;&#xA;&#x9; * @generated&#xD;&#xA;&#x9; */&#xD;&#xA;&#x9;protected void setUseLocalCoordinates(boolean useLocalCoordinates) {&#xD;&#xA;&#x9;&#x9;myUseLocalCoordinates = useLocalCoordinates;&#xD;&#xA;&#x9;}&#xD;&#xA;&#x9;&#xD;&#xA;&#xD;&#xA;}&#xD;&#xA;&#x9;&#xD;&#xA;">
+        <requiredPluginIDs>org.eclipse.draw2d</requiredPluginIDs>
+        <requiredPluginIDs>org.eclipse.gmf.runtime.draw2d.ui</requiredPluginIDs>
+      </viewmap>
+      <modelFacet>
+        <metaClass
+            href="../../pcm.genmodel#//pcm/repository/CompleteComponentType"/>
+        <containmentMetaFeature
+            href="../../pcm.genmodel#//pcm/repository/Repository/components__Repository"/>
+        <childMetaFeature
+            href="../../pcm.genmodel#//pcm/repository/Repository/components__Repository"/>
+      </modelFacet>
+      <labels
+          visualID="4003"
+          editPartClassName="CompleteComponentTypeEntityNameEditPart"
+          itemSemanticEditPolicyClassName="CompleteComponentTypeEntityNameItemSemanticEditPolicy"
+          notationViewFactoryClassName="CompleteComponentTypeEntityNameViewFactory"
+          elementIcon="true">
+        <diagramRunTimeClass
+            href="../../../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+        <viewmap
+            xsi:type="gmfgen:ParentAssignedViewmap"
+            getterName="getFigureCompleteComponentTypeLabelFigure"
+            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel"/>
+        <modelFacet
+            xsi:type="gmfgen:FeatureLabelModelFacet">
+          <metaFeature
+              href="../../pcm.genmodel#//pcm/core/entity/NamedElement/entityName"/>
+        </modelFacet>
+      </labels>
+    </topLevelNodes>
+    <topLevelNodes
+        visualID="1004"
+        editPartClassName="ProvidesComponentTypeEditPart"
+        itemSemanticEditPolicyClassName="ProvidesComponentTypeItemSemanticEditPolicy"
+        notationViewFactoryClassName="ProvidesComponentTypeViewFactory"
+        canonicalEditPolicyClassName="ProvidesComponentTypeCanonicalEditPolicy"
+        graphicalNodeEditPolicyClassName="ProvidesComponentTypeGraphicalNodeEditPolicy">
+      <diagramRunTimeClass
+          href="../../../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+      <elementType
+          xsi:type="gmfgen:MetamodelType"
+          editHelperClassName="ProvidesComponentTypeEditHelper"/>
+      <viewmap
+          xsi:type="gmfgen:InnerClassViewmap"
+          className="ProvidesComponentTypeFigure"
+          classBody="&#xD;&#xA;&#xD;&#xA;/**&#xD;&#xA; * @generated&#xD;&#xA; */&#xD;&#xA;public class ProvidesComponentTypeFigure extends org.eclipse.draw2d.RectangleFigure {&#xD;&#xA;&#xD;&#xA;&#x9;/**&#xD;&#xA;&#x9; * @generated&#xD;&#xA;&#x9; */&#xD;&#xA;&#x9;public ProvidesComponentTypeFigure() {&#x9;&#xD;&#xA;&#x9;&#x9;&#xD;&#xA;&#xD;&#xA;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;createContents();&#xD;&#xA;&#x9;}&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#x9;/**&#xD;&#xA;&#x9; * @generated&#xD;&#xA;&#x9; */&#xD;&#xA;&#x9;private void createContents(){&#xD;&#xA;&#x9;&#x9;org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel fig_0 = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel();&#xD;&#xA;fig_0.setText(&quot;&lt;...>&quot;);&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#x9;&#x9;setFigureProvidesComponentTypeLabelFigure(fig_0);&#xD;&#xA;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;Object layData0 = null;&#xD;&#xA;&#xD;&#xA;&#x9;&#x9;this.add(fig_0, layData0);&#xD;&#xA;&#x9;}&#xD;&#xA;&#x9;&#xD;&#xA;&#x9;&#x9;&#xD;&#xA;&#x9;/**&#xD;&#xA;&#x9; * @generated&#xD;&#xA;&#x9; */&#xD;&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel fProvidesComponentTypeLabelFigure; &#xD;&#xA;&#xD;&#xA;&#x9;/**&#xD;&#xA;&#x9; * @generated&#xD;&#xA;&#x9; */&#xD;&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel getFigureProvidesComponentTypeLabelFigure() {&#xD;&#xA;&#x9;&#x9;return fProvidesComponentTypeLabelFigure;&#xD;&#xA;&#x9;}&#xD;&#xA;&#x9;&#xD;&#xA;&#x9;/**&#xD;&#xA;&#x9; * @generated&#xD;&#xA;&#x9; */&#xD;&#xA;&#x9;private void setFigureProvidesComponentTypeLabelFigure(org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel fig){&#xD;&#xA;&#x9;&#x9;fProvidesComponentTypeLabelFigure = fig;&#xD;&#xA;&#x9;}&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#x9;/**&#xD;&#xA;&#x9; * @generated&#xD;&#xA;&#x9; */&#xD;&#xA;&#x9;private boolean myUseLocalCoordinates = false;&#xD;&#xA;&#xD;&#xA;&#x9;/**&#xD;&#xA;&#x9; * @generated&#xD;&#xA;&#x9; */&#xD;&#xA;&#x9;protected boolean useLocalCoordinates() {&#xD;&#xA;&#x9;&#x9;return myUseLocalCoordinates;&#xD;&#xA;&#x9;}&#xD;&#xA;&#xD;&#xA;&#x9;/**&#xD;&#xA;&#x9; * @generated&#xD;&#xA;&#x9; */&#xD;&#xA;&#x9;protected void setUseLocalCoordinates(boolean useLocalCoordinates) {&#xD;&#xA;&#x9;&#x9;myUseLocalCoordinates = useLocalCoordinates;&#xD;&#xA;&#x9;}&#xD;&#xA;&#x9;&#xD;&#xA;&#xD;&#xA;}&#xD;&#xA;&#x9;&#xD;&#xA;">
+        <requiredPluginIDs>org.eclipse.draw2d</requiredPluginIDs>
+        <requiredPluginIDs>org.eclipse.gmf.runtime.draw2d.ui</requiredPluginIDs>
+      </viewmap>
+      <modelFacet>
+        <metaClass
+            href="../../pcm.genmodel#//pcm/repository/ProvidesComponentType"/>
+        <containmentMetaFeature
+            href="../../pcm.genmodel#//pcm/repository/Repository/components__Repository"/>
+        <childMetaFeature
+            href="../../pcm.genmodel#//pcm/repository/Repository/components__Repository"/>
+      </modelFacet>
+      <labels
+          visualID="4004"
+          editPartClassName="ProvidesComponentTypeEntityNameEditPart"
+          itemSemanticEditPolicyClassName="ProvidesComponentTypeEntityNameItemSemanticEditPolicy"
+          notationViewFactoryClassName="ProvidesComponentTypeEntityNameViewFactory"
+          elementIcon="true">
+        <diagramRunTimeClass
+            href="../../../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+        <viewmap
+            xsi:type="gmfgen:ParentAssignedViewmap"
+            getterName="getFigureProvidesComponentTypeLabelFigure"
+            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel"/>
+        <modelFacet
+            xsi:type="gmfgen:FeatureLabelModelFacet">
+          <metaFeature
+              href="../../pcm.genmodel#//pcm/core/entity/NamedElement/entityName"/>
+        </modelFacet>
+      </labels>
+    </topLevelNodes>
+    <topLevelNodes
+        visualID="1005"
+        editPartClassName="CompositeComponentEditPart"
+        itemSemanticEditPolicyClassName="CompositeComponentItemSemanticEditPolicy"
+        notationViewFactoryClassName="CompositeComponentViewFactory"
+        canonicalEditPolicyClassName="CompositeComponentCanonicalEditPolicy"
+        graphicalNodeEditPolicyClassName="CompositeComponentGraphicalNodeEditPolicy">
+      <diagramRunTimeClass
+          href="../../../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+      <elementType
+          xsi:type="gmfgen:MetamodelType"
+          editHelperClassName="CompositeComponentEditHelper"/>
+      <viewmap
+          xsi:type="gmfgen:InnerClassViewmap"
+          className="CompositeComponentFigure"
+          classBody="&#xD;&#xA;&#xD;&#xA;/**&#xD;&#xA; * @generated&#xD;&#xA; */&#xD;&#xA;public class CompositeComponentFigure extends org.eclipse.draw2d.RectangleFigure {&#xD;&#xA;&#xD;&#xA;&#x9;/**&#xD;&#xA;&#x9; * @generated&#xD;&#xA;&#x9; */&#xD;&#xA;&#x9;public CompositeComponentFigure() {&#x9;&#xD;&#xA;&#x9;&#x9;&#xD;&#xA;&#xD;&#xA;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;createContents();&#xD;&#xA;&#x9;}&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#x9;/**&#xD;&#xA;&#x9; * @generated&#xD;&#xA;&#x9; */&#xD;&#xA;&#x9;private void createContents(){&#xD;&#xA;&#x9;&#x9;org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel fig_0 = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel();&#xD;&#xA;fig_0.setText(&quot;&lt;...>&quot;);&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#x9;&#x9;setFigureEntityEntityName8Figure(fig_0);&#xD;&#xA;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;Object layData0 = null;&#xD;&#xA;&#xD;&#xA;&#x9;&#x9;this.add(fig_0, layData0);&#xD;&#xA;&#x9;}&#xD;&#xA;&#x9;&#xD;&#xA;&#x9;&#x9;&#xD;&#xA;&#x9;/**&#xD;&#xA;&#x9; * @generated&#xD;&#xA;&#x9; */&#xD;&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel fEntityEntityName8Figure; &#xD;&#xA;&#xD;&#xA;&#x9;/**&#xD;&#xA;&#x9; * @generated&#xD;&#xA;&#x9; */&#xD;&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel getFigureEntityEntityName8Figure() {&#xD;&#xA;&#x9;&#x9;return fEntityEntityName8Figure;&#xD;&#xA;&#x9;}&#xD;&#xA;&#x9;&#xD;&#xA;&#x9;/**&#xD;&#xA;&#x9; * @generated&#xD;&#xA;&#x9; */&#xD;&#xA;&#x9;private void setFigureEntityEntityName8Figure(org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel fig){&#xD;&#xA;&#x9;&#x9;fEntityEntityName8Figure = fig;&#xD;&#xA;&#x9;}&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#x9;/**&#xD;&#xA;&#x9; * @generated&#xD;&#xA;&#x9; */&#xD;&#xA;&#x9;private boolean myUseLocalCoordinates = false;&#xD;&#xA;&#xD;&#xA;&#x9;/**&#xD;&#xA;&#x9; * @generated&#xD;&#xA;&#x9; */&#xD;&#xA;&#x9;protected boolean useLocalCoordinates() {&#xD;&#xA;&#x9;&#x9;return myUseLocalCoordinates;&#xD;&#xA;&#x9;}&#xD;&#xA;&#xD;&#xA;&#x9;/**&#xD;&#xA;&#x9; * @generated&#xD;&#xA;&#x9; */&#xD;&#xA;&#x9;protected void setUseLocalCoordinates(boolean useLocalCoordinates) {&#xD;&#xA;&#x9;&#x9;myUseLocalCoordinates = useLocalCoordinates;&#xD;&#xA;&#x9;}&#xD;&#xA;&#x9;&#xD;&#xA;&#xD;&#xA;}&#xD;&#xA;&#x9;&#xD;&#xA;">
+        <requiredPluginIDs>org.eclipse.draw2d</requiredPluginIDs>
+        <requiredPluginIDs>org.eclipse.gmf.runtime.draw2d.ui</requiredPluginIDs>
+      </viewmap>
+      <modelFacet>
+        <metaClass
+            href="../../pcm.genmodel#//pcm/repository/CompositeComponent"/>
+        <containmentMetaFeature
+            href="../../pcm.genmodel#//pcm/repository/Repository/components__Repository"/>
+        <childMetaFeature
+            href="../../pcm.genmodel#//pcm/repository/Repository/components__Repository"/>
+      </modelFacet>
     </topLevelNodes>
     <links
         visualID="3001"
@@ -215,16 +335,14 @@
         <metaClass
             href="../../pcm.genmodel#//pcm/repository/ProvidedRole"/>
         <containmentMetaFeature
-            href="../../pcm.genmodel#//pcm/repository/ProvidesComponentType/providedRoles__ProvidesComponentType"/>
+            href="../../pcm.genmodel#//pcm/core/entity/InterfaceProvidingEntity/providedRoles_InterfaceProvidingEntity"/>
         <childMetaFeature
-            href="../../pcm.genmodel#//pcm/repository/ProvidesComponentType/providedRoles__ProvidesComponentType"/>
-        <sourceMetaFeature
-            href="../../pcm.genmodel#//pcm/repository/ProvidedRole/providingComponent__ProvidedRole"/>
+            href="../../pcm.genmodel#//pcm/core/entity/InterfaceProvidingEntity/providedRoles_InterfaceProvidingEntity"/>
         <targetMetaFeature
             href="../../pcm.genmodel#//pcm/repository/ProvidedRole/providedInterface__ProvidedRole"/>
       </modelFacet>
       <labels
-          visualID="4003"
+          visualID="4005"
           editPartClassName="ProvidesStereotypeLabelEditPart"
           itemSemanticEditPolicyClassName="ProvidesStereotypeLabelItemSemanticEditPolicy"
           notationViewFactoryClassName="ProvidesStereotypeLabelViewFactory"
@@ -265,14 +383,14 @@
         <metaClass
             href="../../pcm.genmodel#//pcm/repository/RequiredRole"/>
         <containmentMetaFeature
-            href="../../pcm.genmodel#//pcm/repository/ProvidesComponentType/requiredRoles_ProvidesComponentType"/>
+            href="../../pcm.genmodel#//pcm/core/entity/InterfaceRequiringEntity/requiredRoles_InterfaceRequiringEntity"/>
         <childMetaFeature
-            href="../../pcm.genmodel#//pcm/repository/ProvidesComponentType/requiredRoles_ProvidesComponentType"/>
+            href="../../pcm.genmodel#//pcm/core/entity/InterfaceRequiringEntity/requiredRoles_InterfaceRequiringEntity"/>
         <targetMetaFeature
             href="../../pcm.genmodel#//pcm/repository/RequiredRole/requiredInterface__RequiredRole"/>
       </modelFacet>
       <labels
-          visualID="4004"
+          visualID="4006"
           editPartClassName="RequiresStereotypeLabelEditPart"
           itemSemanticEditPolicyClassName="RequiresStereotypeLabelItemSemanticEditPolicy"
           notationViewFactoryClassName="RequiresStereotypeLabelViewFactory"
@@ -370,11 +488,13 @@
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="CompleteComponentType"
-            description="Create new CompleteComponentType"/>
+            description="Create new CompleteComponentType"
+            genNodes="//@diagram/@topLevelNodes.2"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="CompositeComponent"
-            description="Create new CompositeComponent"/>
+            description="Create new CompositeComponent"
+            genNodes="//@diagram/@topLevelNodes.4"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="CompositeAssemblyConnector"
@@ -387,7 +507,8 @@
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="ProvidesComponentType"
-            description="Create new ProvidesComponentType"/>
+            description="Create new ProvidesComponentType"
+            genNodes="//@diagram/@topLevelNodes.3"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="SEFF"

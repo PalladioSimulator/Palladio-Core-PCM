@@ -5,14 +5,14 @@
  *
  * $Id$
  */
-package de.uka.ipd.sdq.pcm.system.impl;
+package de.uka.ipd.sdq.pcm.qosannotations.impl;
 
 import de.uka.ipd.sdq.pcm.core.stochastics.impl.RandomVariableImpl;
 
-import de.uka.ipd.sdq.pcm.repository.Signature;
+import de.uka.ipd.sdq.pcm.qosannotations.QosannotationsPackage;
+import de.uka.ipd.sdq.pcm.qosannotations.SpecifiedTimeConsumption;
 
-import de.uka.ipd.sdq.pcm.system.SpecifiedTimeConsumption;
-import de.uka.ipd.sdq.pcm.system.SystemPackage;
+import de.uka.ipd.sdq.pcm.repository.Signature;
 
 import org.eclipse.emf.common.notify.Notification;
 
@@ -28,7 +28,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link de.uka.ipd.sdq.pcm.system.impl.SpecifiedTimeConsumptionImpl#getSignature_SpecifiedTimeConsumption <em>Signature Specified Time Consumption</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.qosannotations.impl.SpecifiedTimeConsumptionImpl#getSignature_SpecifiedTimeConsumption <em>Signature Specified Time Consumption</em>}</li>
  * </ul>
  * </p>
  *
@@ -68,7 +68,7 @@ public class SpecifiedTimeConsumptionImpl extends RandomVariableImpl implements 
 	 * @generated
 	 */
 	protected EClass eStaticClass() {
-		return SystemPackage.Literals.SPECIFIED_TIME_CONSUMPTION;
+		return QosannotationsPackage.Literals.SPECIFIED_TIME_CONSUMPTION;
 	}
 
 	/**
@@ -82,7 +82,7 @@ public class SpecifiedTimeConsumptionImpl extends RandomVariableImpl implements 
 			signature_SpecifiedTimeConsumption = (Signature)eResolveProxy(oldSignature_SpecifiedTimeConsumption);
 			if (signature_SpecifiedTimeConsumption != oldSignature_SpecifiedTimeConsumption) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, SystemPackage.SPECIFIED_TIME_CONSUMPTION__SIGNATURE_SPECIFIED_TIME_CONSUMPTION, oldSignature_SpecifiedTimeConsumption, signature_SpecifiedTimeConsumption));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, QosannotationsPackage.SPECIFIED_TIME_CONSUMPTION__SIGNATURE_SPECIFIED_TIME_CONSUMPTION, oldSignature_SpecifiedTimeConsumption, signature_SpecifiedTimeConsumption));
 			}
 		}
 		return signature_SpecifiedTimeConsumption;
@@ -106,7 +106,7 @@ public class SpecifiedTimeConsumptionImpl extends RandomVariableImpl implements 
 		Signature oldSignature_SpecifiedTimeConsumption = signature_SpecifiedTimeConsumption;
 		signature_SpecifiedTimeConsumption = newSignature_SpecifiedTimeConsumption;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SystemPackage.SPECIFIED_TIME_CONSUMPTION__SIGNATURE_SPECIFIED_TIME_CONSUMPTION, oldSignature_SpecifiedTimeConsumption, signature_SpecifiedTimeConsumption));
+			eNotify(new ENotificationImpl(this, Notification.SET, QosannotationsPackage.SPECIFIED_TIME_CONSUMPTION__SIGNATURE_SPECIFIED_TIME_CONSUMPTION, oldSignature_SpecifiedTimeConsumption, signature_SpecifiedTimeConsumption));
 	}
 
 	/**
@@ -116,7 +116,7 @@ public class SpecifiedTimeConsumptionImpl extends RandomVariableImpl implements 
 	 */
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case SystemPackage.SPECIFIED_TIME_CONSUMPTION__SIGNATURE_SPECIFIED_TIME_CONSUMPTION:
+			case QosannotationsPackage.SPECIFIED_TIME_CONSUMPTION__SIGNATURE_SPECIFIED_TIME_CONSUMPTION:
 				if (resolve) return getSignature_SpecifiedTimeConsumption();
 				return basicGetSignature_SpecifiedTimeConsumption();
 		}
@@ -130,7 +130,7 @@ public class SpecifiedTimeConsumptionImpl extends RandomVariableImpl implements 
 	 */
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case SystemPackage.SPECIFIED_TIME_CONSUMPTION__SIGNATURE_SPECIFIED_TIME_CONSUMPTION:
+			case QosannotationsPackage.SPECIFIED_TIME_CONSUMPTION__SIGNATURE_SPECIFIED_TIME_CONSUMPTION:
 				setSignature_SpecifiedTimeConsumption((Signature)newValue);
 				return;
 		}
@@ -144,7 +144,7 @@ public class SpecifiedTimeConsumptionImpl extends RandomVariableImpl implements 
 	 */
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case SystemPackage.SPECIFIED_TIME_CONSUMPTION__SIGNATURE_SPECIFIED_TIME_CONSUMPTION:
+			case QosannotationsPackage.SPECIFIED_TIME_CONSUMPTION__SIGNATURE_SPECIFIED_TIME_CONSUMPTION:
 				setSignature_SpecifiedTimeConsumption((Signature)null);
 				return;
 		}
@@ -158,7 +158,7 @@ public class SpecifiedTimeConsumptionImpl extends RandomVariableImpl implements 
 	 */
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case SystemPackage.SPECIFIED_TIME_CONSUMPTION__SIGNATURE_SPECIFIED_TIME_CONSUMPTION:
+			case QosannotationsPackage.SPECIFIED_TIME_CONSUMPTION__SIGNATURE_SPECIFIED_TIME_CONSUMPTION:
 				return signature_SpecifiedTimeConsumption != null;
 		}
 		return super.eIsSet(featureID);

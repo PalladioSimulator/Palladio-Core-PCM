@@ -102,8 +102,8 @@
         name="CompleteComponentTypeFigure">
       <children
           xsi:type="gmfgraph:Label"
-          referencingElements="EntityEntityName7"
-          name="EntityEntityName7Figure"
+          referencingElements="CompleteComponentTypeLabel"
+          name="CompleteComponentTypeLabelFigure"
           text="&lt;...>"/>
     </figures>
     <figures
@@ -142,8 +142,8 @@
         name="ProvidesComponentTypeFigure">
       <children
           xsi:type="gmfgraph:Label"
-          referencingElements="EntityEntityName11"
-          name="EntityEntityName11Figure"
+          referencingElements="ProvidesComponentTypeLabel"
+          name="ProvidesComponentTypeLabelFigure"
           text="&lt;...>"/>
     </figures>
     <figures
@@ -222,8 +222,8 @@
       name="EntityEntityName6"
       figure="EntityEntityName6Figure"/>
   <labels
-      name="EntityEntityName7"
-      figure="EntityEntityName7Figure"/>
+      name="CompleteComponentTypeLabel"
+      figure="CompleteComponentTypeLabelFigure"/>
   <labels
       name="EntityEntityName8"
       figure="EntityEntityName8Figure"/>
@@ -234,8 +234,8 @@
       name="BasicComponent_Name_Label"
       figure="BasicComponent_Name_LabelFigure"/>
   <labels
-      name="EntityEntityName11"
-      figure="EntityEntityName11Figure"/>
+      name="ProvidesComponentTypeLabel"
+      figure="ProvidesComponentTypeLabelFigure"/>
   <labels
       name="ProvidesStereotypeLabel"
       figure="ProvidesStereotypeLabelFigure"

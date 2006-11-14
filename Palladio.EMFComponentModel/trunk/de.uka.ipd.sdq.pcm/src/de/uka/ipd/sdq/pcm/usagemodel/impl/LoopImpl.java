@@ -8,16 +8,24 @@
 package de.uka.ipd.sdq.pcm.usagemodel.impl;
 
 import de.uka.ipd.sdq.pcm.usagemodel.Loop;
+import de.uka.ipd.sdq.pcm.usagemodel.LoopIterations;
 import de.uka.ipd.sdq.pcm.usagemodel.ScenarioBehaviour;
 import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
 
+import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,7 +35,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * <ul>
  *   <li>{@link de.uka.ipd.sdq.pcm.usagemodel.impl.LoopImpl#getBodyBehaviour_Loop <em>Body Behaviour Loop</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.usagemodel.impl.LoopImpl#getIterations <em>Iterations</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.usagemodel.impl.LoopImpl#getIterations_Loop <em>Iterations Loop</em>}</li>
  * </ul>
  * </p>
  *
@@ -52,25 +60,14 @@ public class LoopImpl extends AbstractUserActionImpl implements Loop {
 	protected ScenarioBehaviour bodyBehaviour_Loop = null;
 
 	/**
-	 * The default value of the '{@link #getIterations() <em>Iterations</em>}' attribute.
+	 * The cached value of the '{@link #getIterations_Loop() <em>Iterations Loop</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getIterations()
+	 * @see #getIterations_Loop()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String ITERATIONS_EDEFAULT = null;
-
-
-	/**
-	 * The cached value of the '{@link #getIterations() <em>Iterations</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getIterations()
-	 * @generated
-	 * @ordered
-	 */
-	protected String iterations = ITERATIONS_EDEFAULT;
+	protected EList iterations_Loop = null;
 
 
 	/**
@@ -139,20 +136,11 @@ public class LoopImpl extends AbstractUserActionImpl implements Loop {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getIterations() {
-		return iterations;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setIterations(String newIterations) {
-		String oldIterations = iterations;
-		iterations = newIterations;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, UsagemodelPackage.LOOP__ITERATIONS, oldIterations, iterations));
+	public EList getIterations_Loop() {
+		if (iterations_Loop == null) {
+			iterations_Loop = new EObjectContainmentEList(LoopIterations.class, this, UsagemodelPackage.LOOP__ITERATIONS_LOOP);
+		}
+		return iterations_Loop;
 	}
 
 	/**
@@ -164,6 +152,8 @@ public class LoopImpl extends AbstractUserActionImpl implements Loop {
 		switch (featureID) {
 			case UsagemodelPackage.LOOP__BODY_BEHAVIOUR_LOOP:
 				return basicSetBodyBehaviour_Loop(null, msgs);
+			case UsagemodelPackage.LOOP__ITERATIONS_LOOP:
+				return ((InternalEList)getIterations_Loop()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -177,8 +167,8 @@ public class LoopImpl extends AbstractUserActionImpl implements Loop {
 		switch (featureID) {
 			case UsagemodelPackage.LOOP__BODY_BEHAVIOUR_LOOP:
 				return getBodyBehaviour_Loop();
-			case UsagemodelPackage.LOOP__ITERATIONS:
-				return getIterations();
+			case UsagemodelPackage.LOOP__ITERATIONS_LOOP:
+				return getIterations_Loop();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -193,8 +183,9 @@ public class LoopImpl extends AbstractUserActionImpl implements Loop {
 			case UsagemodelPackage.LOOP__BODY_BEHAVIOUR_LOOP:
 				setBodyBehaviour_Loop((ScenarioBehaviour)newValue);
 				return;
-			case UsagemodelPackage.LOOP__ITERATIONS:
-				setIterations((String)newValue);
+			case UsagemodelPackage.LOOP__ITERATIONS_LOOP:
+				getIterations_Loop().clear();
+				getIterations_Loop().addAll((Collection)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -210,8 +201,8 @@ public class LoopImpl extends AbstractUserActionImpl implements Loop {
 			case UsagemodelPackage.LOOP__BODY_BEHAVIOUR_LOOP:
 				setBodyBehaviour_Loop((ScenarioBehaviour)null);
 				return;
-			case UsagemodelPackage.LOOP__ITERATIONS:
-				setIterations(ITERATIONS_EDEFAULT);
+			case UsagemodelPackage.LOOP__ITERATIONS_LOOP:
+				getIterations_Loop().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -226,25 +217,10 @@ public class LoopImpl extends AbstractUserActionImpl implements Loop {
 		switch (featureID) {
 			case UsagemodelPackage.LOOP__BODY_BEHAVIOUR_LOOP:
 				return bodyBehaviour_Loop != null;
-			case UsagemodelPackage.LOOP__ITERATIONS:
-				return ITERATIONS_EDEFAULT == null ? iterations != null : !ITERATIONS_EDEFAULT.equals(iterations);
+			case UsagemodelPackage.LOOP__ITERATIONS_LOOP:
+				return iterations_Loop != null && !iterations_Loop.isEmpty();
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (iterations: ");
-		result.append(iterations);
-		result.append(')');
-		return result.toString();
 	}
 
 } //LoopImpl

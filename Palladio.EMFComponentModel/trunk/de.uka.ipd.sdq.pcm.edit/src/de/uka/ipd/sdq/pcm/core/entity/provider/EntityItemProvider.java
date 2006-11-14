@@ -46,6 +46,13 @@ public class EntityItemProvider
 		IItemLabelProvider,	
 		IItemPropertySource {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "(c) by SDQ, IPD, U Karlsruhe (TH), 2006";
+
+	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -81,9 +88,9 @@ public class EntityItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Entity_entityName_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Entity_entityName_feature", "_UI_Entity_type"),
-				 EntityPackage.Literals.ENTITY__ENTITY_NAME,
+				 getString("_UI_NamedElement_entityName_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_NamedElement_entityName_feature", "_UI_NamedElement_type"),
+				 EntityPackage.Literals.NAMED_ELEMENT__ENTITY_NAME,
 				 true,
 				 false,
 				 false,

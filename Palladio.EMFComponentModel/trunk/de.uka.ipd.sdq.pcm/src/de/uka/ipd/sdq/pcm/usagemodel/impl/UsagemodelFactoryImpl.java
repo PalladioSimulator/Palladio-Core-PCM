@@ -73,9 +73,11 @@ public class UsagemodelFactoryImpl extends EFactoryImpl implements UsagemodelFac
 			case UsagemodelPackage.START: return createStart();
 			case UsagemodelPackage.OPEN_WORKLOAD: return createOpenWorkload();
 			case UsagemodelPackage.LOOP: return createLoop();
+			case UsagemodelPackage.LOOP_ITERATIONS: return createLoopIterations();
 			case UsagemodelPackage.ENTRY_LEVEL_SYSTEM_CALL: return createEntryLevelSystemCall();
 			case UsagemodelPackage.CLOSED_WORKLOAD: return createClosedWorkload();
 			case UsagemodelPackage.BRANCH: return createBranch();
+			case UsagemodelPackage.BRANCH_TRANSITION: return createBranchTransition();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -156,6 +158,16 @@ public class UsagemodelFactoryImpl extends EFactoryImpl implements UsagemodelFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public LoopIterations createLoopIterations() {
+		LoopIterationsImpl loopIterations = new LoopIterationsImpl();
+		return loopIterations;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EntryLevelSystemCall createEntryLevelSystemCall() {
 		EntryLevelSystemCallImpl entryLevelSystemCall = new EntryLevelSystemCallImpl();
 		return entryLevelSystemCall;
@@ -179,6 +191,16 @@ public class UsagemodelFactoryImpl extends EFactoryImpl implements UsagemodelFac
 	public Branch createBranch() {
 		BranchImpl branch = new BranchImpl();
 		return branch;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public BranchTransition createBranchTransition() {
+		BranchTransitionImpl branchTransition = new BranchTransitionImpl();
+		return branchTransition;
 	}
 
 	/**

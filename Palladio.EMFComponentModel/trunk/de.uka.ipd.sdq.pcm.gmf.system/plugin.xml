@@ -331,9 +331,9 @@ by SDQ, IPD, U Karlrsuhe (TH), 2006
                   value="2001"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/System/1.0">
+      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/1.0">
          <metamodelType
-               eclass="SystemRequiredRole"
+               eclass="RequiredRole"
                edithelper="de.uka.ipd.sdq.pcm.gmf.system.edit.helpers.SystemRequiredRoleEditHelper"
                id="de.uka.ipd.sdq.pcm.gmf.system.SystemRequiredRole_1003"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
@@ -343,9 +343,9 @@ by SDQ, IPD, U Karlrsuhe (TH), 2006
                   value="1003"/>
          </metamodelType>
       </metamodel>
-      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/System/1.0">
+      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/1.0">
          <metamodelType
-               eclass="SystemProvidedRole"
+               eclass="ProvidedRole"
                edithelper="de.uka.ipd.sdq.pcm.gmf.system.edit.helpers.SystemProvidedRoleEditHelper"
                id="de.uka.ipd.sdq.pcm.gmf.system.SystemProvidedRole_1004"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"

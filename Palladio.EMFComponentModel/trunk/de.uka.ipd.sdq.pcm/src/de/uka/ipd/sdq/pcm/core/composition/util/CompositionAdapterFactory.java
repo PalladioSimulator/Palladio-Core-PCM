@@ -14,6 +14,8 @@ import de.uka.ipd.sdq.pcm.core.connectors.Connector;
 
 import de.uka.ipd.sdq.pcm.core.entity.Entity;
 
+import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
+
 import de.uka.ipd.sdq.pcm.repository.DelegationConnector;
 
 import org.eclipse.emf.common.notify.Adapter;
@@ -88,20 +90,23 @@ public class CompositionAdapterFactory extends AdapterFactoryImpl {
 			public Object caseProvidedDelegationConnector(ProvidedDelegationConnector object) {
 				return createProvidedDelegationConnectorAdapter();
 			}
-			public Object caseComposedStructure(ComposedStructure object) {
-				return createComposedStructureAdapter();
-			}
 			public Object caseAssemblyContext(AssemblyContext object) {
 				return createAssemblyContextAdapter();
-			}
-			public Object caseAssemblyConnector(AssemblyConnector object) {
-				return createAssemblyConnectorAdapter();
 			}
 			public Object caseRequiredDelegationConnector(RequiredDelegationConnector object) {
 				return createRequiredDelegationConnectorAdapter();
 			}
+			public Object caseAssemblyConnector(AssemblyConnector object) {
+				return createAssemblyConnectorAdapter();
+			}
+			public Object caseComposedStructure(ComposedStructure object) {
+				return createComposedStructureAdapter();
+			}
 			public Object caseIdentifier(Identifier object) {
 				return createIdentifierAdapter();
+			}
+			public Object caseNamedElement(NamedElement object) {
+				return createNamedElementAdapter();
 			}
 			public Object caseEntity(Entity object) {
 				return createEntityAdapter();
@@ -211,6 +216,20 @@ public class CompositionAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createIdentifierAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.core.entity.NamedElement <em>Named Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.pcm.core.entity.NamedElement
+	 * @generated
+	 */
+	public Adapter createNamedElementAdapter() {
 		return null;
 	}
 

@@ -18,10 +18,15 @@ import de.uka.ipd.sdq.pcm.core.composition.impl.ComposedStructureImpl;
 
 import de.uka.ipd.sdq.pcm.core.entity.Entity;
 import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
+import de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingEntity;
+import de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingRequiringEntity;
+import de.uka.ipd.sdq.pcm.core.entity.InterfaceRequiringEntity;
+import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
+
+import de.uka.ipd.sdq.pcm.repository.ProvidedRole;
+import de.uka.ipd.sdq.pcm.repository.RequiredRole;
 
 import de.uka.ipd.sdq.pcm.system.SystemPackage;
-import de.uka.ipd.sdq.pcm.system.SystemProvidedRole;
-import de.uka.ipd.sdq.pcm.system.SystemRequiredRole;
 
 import java.util.Collection;
 import java.util.Map;
@@ -41,7 +46,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
-import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -65,9 +70,9 @@ import org.eclipse.emf.ocl.query.QueryFactory;
  * <ul>
  *   <li>{@link de.uka.ipd.sdq.pcm.system.impl.SystemImpl#getId <em>Id</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.system.impl.SystemImpl#getEntityName <em>Entity Name</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.system.impl.SystemImpl#getSystemProvidedRole_System <em>System Provided Role System</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.system.impl.SystemImpl#getProvidedRoles_InterfaceProvidingEntity <em>Provided Roles Interface Providing Entity</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.system.impl.SystemImpl#getRequiredRoles_InterfaceRequiringEntity <em>Required Roles Interface Requiring Entity</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.system.impl.SystemImpl#getAllocation_System <em>Allocation System</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.system.impl.SystemImpl#getSystemRequiredRole_System <em>System Required Role System</em>}</li>
  * </ul>
  * </p>
  *
@@ -111,7 +116,6 @@ public class SystemImpl extends ComposedStructureImpl implements de.uka.ipd.sdq.
 	 */
 	protected static final String ENTITY_NAME_EDEFAULT = null;
 
-
 	/**
 	 * The cached value of the '{@link #getEntityName() <em>Entity Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -123,14 +127,24 @@ public class SystemImpl extends ComposedStructureImpl implements de.uka.ipd.sdq.
 	protected String entityName = ENTITY_NAME_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getSystemProvidedRole_System() <em>System Provided Role System</em>}' containment reference list.
+	 * The cached value of the '{@link #getProvidedRoles_InterfaceProvidingEntity() <em>Provided Roles Interface Providing Entity</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getSystemProvidedRole_System()
+	 * @see #getProvidedRoles_InterfaceProvidingEntity()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList systemProvidedRole_System = null;
+	protected EList providedRoles_InterfaceProvidingEntity = null;
+
+	/**
+	 * The cached value of the '{@link #getRequiredRoles_InterfaceRequiringEntity() <em>Required Roles Interface Requiring Entity</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRequiredRoles_InterfaceRequiringEntity()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList requiredRoles_InterfaceRequiringEntity = null;
 
 	/**
 	 * The cached value of the '{@link #getAllocation_System() <em>Allocation System</em>}' reference.
@@ -141,16 +155,6 @@ public class SystemImpl extends ComposedStructureImpl implements de.uka.ipd.sdq.
 	 * @ordered
 	 */
 	protected Allocation allocation_System = null;
-
-	/**
-	 * The cached value of the '{@link #getSystemRequiredRole_System() <em>System Required Role System</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getSystemRequiredRole_System()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList systemRequiredRole_System = null;
 
 
 	/**
@@ -229,11 +233,23 @@ public class SystemImpl extends ComposedStructureImpl implements de.uka.ipd.sdq.
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList getSystemProvidedRole_System() {
-		if (systemProvidedRole_System == null) {
-			systemProvidedRole_System = new EObjectContainmentWithInverseEList(SystemProvidedRole.class, this, SystemPackage.SYSTEM__SYSTEM_PROVIDED_ROLE_SYSTEM, SystemPackage.SYSTEM_PROVIDED_ROLE__SYSTEM_SYSTEM_PROVIDED_ROLE);
+	public EList getProvidedRoles_InterfaceProvidingEntity() {
+		if (providedRoles_InterfaceProvidingEntity == null) {
+			providedRoles_InterfaceProvidingEntity = new EObjectContainmentEList(ProvidedRole.class, this, SystemPackage.SYSTEM__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY);
 		}
-		return systemProvidedRole_System;
+		return providedRoles_InterfaceProvidingEntity;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList getRequiredRoles_InterfaceRequiringEntity() {
+		if (requiredRoles_InterfaceRequiringEntity == null) {
+			requiredRoles_InterfaceRequiringEntity = new EObjectContainmentEList(RequiredRole.class, this, SystemPackage.SYSTEM__REQUIRED_ROLES_INTERFACE_REQUIRING_ENTITY);
+		}
+		return requiredRoles_InterfaceRequiringEntity;
 	}
 
 	/**
@@ -272,18 +288,6 @@ public class SystemImpl extends ComposedStructureImpl implements de.uka.ipd.sdq.
 		allocation_System = newAllocation_System;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, SystemPackage.SYSTEM__ALLOCATION_SYSTEM, oldAllocation_System, allocation_System));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList getSystemRequiredRole_System() {
-		if (systemRequiredRole_System == null) {
-			systemRequiredRole_System = new EObjectContainmentWithInverseEList(SystemRequiredRole.class, this, SystemPackage.SYSTEM__SYSTEM_REQUIRED_ROLE_SYSTEM, SystemPackage.SYSTEM_REQUIRED_ROLE__SYSTEM_SYSTEM_REQUIRED_ROLE);
-		}
-		return systemRequiredRole_System;
 	}
 
 
@@ -331,27 +335,12 @@ public class SystemImpl extends ComposedStructureImpl implements de.uka.ipd.sdq.
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case SystemPackage.SYSTEM__SYSTEM_PROVIDED_ROLE_SYSTEM:
-				return ((InternalEList)getSystemProvidedRole_System()).basicAdd(otherEnd, msgs);
-			case SystemPackage.SYSTEM__SYSTEM_REQUIRED_ROLE_SYSTEM:
-				return ((InternalEList)getSystemRequiredRole_System()).basicAdd(otherEnd, msgs);
-		}
-		return super.eInverseAdd(otherEnd, featureID, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case SystemPackage.SYSTEM__SYSTEM_PROVIDED_ROLE_SYSTEM:
-				return ((InternalEList)getSystemProvidedRole_System()).basicRemove(otherEnd, msgs);
-			case SystemPackage.SYSTEM__SYSTEM_REQUIRED_ROLE_SYSTEM:
-				return ((InternalEList)getSystemRequiredRole_System()).basicRemove(otherEnd, msgs);
+			case SystemPackage.SYSTEM__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY:
+				return ((InternalEList)getProvidedRoles_InterfaceProvidingEntity()).basicRemove(otherEnd, msgs);
+			case SystemPackage.SYSTEM__REQUIRED_ROLES_INTERFACE_REQUIRING_ENTITY:
+				return ((InternalEList)getRequiredRoles_InterfaceRequiringEntity()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -367,13 +356,13 @@ public class SystemImpl extends ComposedStructureImpl implements de.uka.ipd.sdq.
 				return getId();
 			case SystemPackage.SYSTEM__ENTITY_NAME:
 				return getEntityName();
-			case SystemPackage.SYSTEM__SYSTEM_PROVIDED_ROLE_SYSTEM:
-				return getSystemProvidedRole_System();
+			case SystemPackage.SYSTEM__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY:
+				return getProvidedRoles_InterfaceProvidingEntity();
+			case SystemPackage.SYSTEM__REQUIRED_ROLES_INTERFACE_REQUIRING_ENTITY:
+				return getRequiredRoles_InterfaceRequiringEntity();
 			case SystemPackage.SYSTEM__ALLOCATION_SYSTEM:
 				if (resolve) return getAllocation_System();
 				return basicGetAllocation_System();
-			case SystemPackage.SYSTEM__SYSTEM_REQUIRED_ROLE_SYSTEM:
-				return getSystemRequiredRole_System();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -391,16 +380,16 @@ public class SystemImpl extends ComposedStructureImpl implements de.uka.ipd.sdq.
 			case SystemPackage.SYSTEM__ENTITY_NAME:
 				setEntityName((String)newValue);
 				return;
-			case SystemPackage.SYSTEM__SYSTEM_PROVIDED_ROLE_SYSTEM:
-				getSystemProvidedRole_System().clear();
-				getSystemProvidedRole_System().addAll((Collection)newValue);
+			case SystemPackage.SYSTEM__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY:
+				getProvidedRoles_InterfaceProvidingEntity().clear();
+				getProvidedRoles_InterfaceProvidingEntity().addAll((Collection)newValue);
+				return;
+			case SystemPackage.SYSTEM__REQUIRED_ROLES_INTERFACE_REQUIRING_ENTITY:
+				getRequiredRoles_InterfaceRequiringEntity().clear();
+				getRequiredRoles_InterfaceRequiringEntity().addAll((Collection)newValue);
 				return;
 			case SystemPackage.SYSTEM__ALLOCATION_SYSTEM:
 				setAllocation_System((Allocation)newValue);
-				return;
-			case SystemPackage.SYSTEM__SYSTEM_REQUIRED_ROLE_SYSTEM:
-				getSystemRequiredRole_System().clear();
-				getSystemRequiredRole_System().addAll((Collection)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -419,14 +408,14 @@ public class SystemImpl extends ComposedStructureImpl implements de.uka.ipd.sdq.
 			case SystemPackage.SYSTEM__ENTITY_NAME:
 				setEntityName(ENTITY_NAME_EDEFAULT);
 				return;
-			case SystemPackage.SYSTEM__SYSTEM_PROVIDED_ROLE_SYSTEM:
-				getSystemProvidedRole_System().clear();
+			case SystemPackage.SYSTEM__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY:
+				getProvidedRoles_InterfaceProvidingEntity().clear();
+				return;
+			case SystemPackage.SYSTEM__REQUIRED_ROLES_INTERFACE_REQUIRING_ENTITY:
+				getRequiredRoles_InterfaceRequiringEntity().clear();
 				return;
 			case SystemPackage.SYSTEM__ALLOCATION_SYSTEM:
 				setAllocation_System((Allocation)null);
-				return;
-			case SystemPackage.SYSTEM__SYSTEM_REQUIRED_ROLE_SYSTEM:
-				getSystemRequiredRole_System().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -443,12 +432,12 @@ public class SystemImpl extends ComposedStructureImpl implements de.uka.ipd.sdq.
 				return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
 			case SystemPackage.SYSTEM__ENTITY_NAME:
 				return ENTITY_NAME_EDEFAULT == null ? entityName != null : !ENTITY_NAME_EDEFAULT.equals(entityName);
-			case SystemPackage.SYSTEM__SYSTEM_PROVIDED_ROLE_SYSTEM:
-				return systemProvidedRole_System != null && !systemProvidedRole_System.isEmpty();
+			case SystemPackage.SYSTEM__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY:
+				return providedRoles_InterfaceProvidingEntity != null && !providedRoles_InterfaceProvidingEntity.isEmpty();
+			case SystemPackage.SYSTEM__REQUIRED_ROLES_INTERFACE_REQUIRING_ENTITY:
+				return requiredRoles_InterfaceRequiringEntity != null && !requiredRoles_InterfaceRequiringEntity.isEmpty();
 			case SystemPackage.SYSTEM__ALLOCATION_SYSTEM:
 				return allocation_System != null;
-			case SystemPackage.SYSTEM__SYSTEM_REQUIRED_ROLE_SYSTEM:
-				return systemRequiredRole_System != null && !systemRequiredRole_System.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -465,9 +454,31 @@ public class SystemImpl extends ComposedStructureImpl implements de.uka.ipd.sdq.
 				default: return -1;
 			}
 		}
+		if (baseClass == NamedElement.class) {
+			switch (derivedFeatureID) {
+				case SystemPackage.SYSTEM__ENTITY_NAME: return EntityPackage.NAMED_ELEMENT__ENTITY_NAME;
+				default: return -1;
+			}
+		}
 		if (baseClass == Entity.class) {
 			switch (derivedFeatureID) {
-				case SystemPackage.SYSTEM__ENTITY_NAME: return EntityPackage.ENTITY__ENTITY_NAME;
+				default: return -1;
+			}
+		}
+		if (baseClass == InterfaceProvidingEntity.class) {
+			switch (derivedFeatureID) {
+				case SystemPackage.SYSTEM__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY: return EntityPackage.INTERFACE_PROVIDING_ENTITY__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY;
+				default: return -1;
+			}
+		}
+		if (baseClass == InterfaceRequiringEntity.class) {
+			switch (derivedFeatureID) {
+				case SystemPackage.SYSTEM__REQUIRED_ROLES_INTERFACE_REQUIRING_ENTITY: return EntityPackage.INTERFACE_REQUIRING_ENTITY__REQUIRED_ROLES_INTERFACE_REQUIRING_ENTITY;
+				default: return -1;
+			}
+		}
+		if (baseClass == InterfaceProvidingRequiringEntity.class) {
+			switch (derivedFeatureID) {
 				default: return -1;
 			}
 		}
@@ -486,9 +497,31 @@ public class SystemImpl extends ComposedStructureImpl implements de.uka.ipd.sdq.
 				default: return -1;
 			}
 		}
+		if (baseClass == NamedElement.class) {
+			switch (baseFeatureID) {
+				case EntityPackage.NAMED_ELEMENT__ENTITY_NAME: return SystemPackage.SYSTEM__ENTITY_NAME;
+				default: return -1;
+			}
+		}
 		if (baseClass == Entity.class) {
 			switch (baseFeatureID) {
-				case EntityPackage.ENTITY__ENTITY_NAME: return SystemPackage.SYSTEM__ENTITY_NAME;
+				default: return -1;
+			}
+		}
+		if (baseClass == InterfaceProvidingEntity.class) {
+			switch (baseFeatureID) {
+				case EntityPackage.INTERFACE_PROVIDING_ENTITY__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY: return SystemPackage.SYSTEM__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY;
+				default: return -1;
+			}
+		}
+		if (baseClass == InterfaceRequiringEntity.class) {
+			switch (baseFeatureID) {
+				case EntityPackage.INTERFACE_REQUIRING_ENTITY__REQUIRED_ROLES_INTERFACE_REQUIRING_ENTITY: return SystemPackage.SYSTEM__REQUIRED_ROLES_INTERFACE_REQUIRING_ENTITY;
+				default: return -1;
+			}
+		}
+		if (baseClass == InterfaceProvidingRequiringEntity.class) {
+			switch (baseFeatureID) {
 				default: return -1;
 			}
 		}

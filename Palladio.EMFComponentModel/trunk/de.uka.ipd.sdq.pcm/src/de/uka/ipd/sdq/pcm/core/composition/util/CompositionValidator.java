@@ -138,14 +138,14 @@ public class CompositionValidator extends EObjectValidator {
 		switch (classifierID) {
 			case CompositionPackage.PROVIDED_DELEGATION_CONNECTOR:
 				return validateProvidedDelegationConnector((ProvidedDelegationConnector)value, diagnostics, context);
-			case CompositionPackage.COMPOSED_STRUCTURE:
-				return validateComposedStructure((ComposedStructure)value, diagnostics, context);
 			case CompositionPackage.ASSEMBLY_CONTEXT:
 				return validateAssemblyContext((AssemblyContext)value, diagnostics, context);
-			case CompositionPackage.ASSEMBLY_CONNECTOR:
-				return validateAssemblyConnector((AssemblyConnector)value, diagnostics, context);
 			case CompositionPackage.REQUIRED_DELEGATION_CONNECTOR:
 				return validateRequiredDelegationConnector((RequiredDelegationConnector)value, diagnostics, context);
+			case CompositionPackage.ASSEMBLY_CONNECTOR:
+				return validateAssemblyConnector((AssemblyConnector)value, diagnostics, context);
+			case CompositionPackage.COMPOSED_STRUCTURE:
+				return validateComposedStructure((ComposedStructure)value, diagnostics, context);
 			default: 
 				return true;
 		}

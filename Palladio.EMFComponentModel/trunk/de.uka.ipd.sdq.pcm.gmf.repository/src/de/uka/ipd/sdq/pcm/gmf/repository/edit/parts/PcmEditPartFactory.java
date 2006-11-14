@@ -45,6 +45,16 @@ public class PcmEditPartFactory implements EditPartFactory {
 				return new BasicComponentEditPart(view);
 			case BasicComponentEntityNameEditPart.VISUAL_ID:
 				return new BasicComponentEntityNameEditPart(view);
+			case CompleteComponentTypeEditPart.VISUAL_ID:
+				return new CompleteComponentTypeEditPart(view);
+			case CompleteComponentTypeEntityNameEditPart.VISUAL_ID:
+				return new CompleteComponentTypeEntityNameEditPart(view);
+			case ProvidesComponentTypeEditPart.VISUAL_ID:
+				return new ProvidesComponentTypeEditPart(view);
+			case ProvidesComponentTypeEntityNameEditPart.VISUAL_ID:
+				return new ProvidesComponentTypeEntityNameEditPart(view);
+			case CompositeComponentEditPart.VISUAL_ID:
+				return new CompositeComponentEditPart(view);
 			case SignatureEditPart.VISUAL_ID:
 				return new SignatureEditPart(view);
 			case ResourceDemandingSEFFEditPart.VISUAL_ID:

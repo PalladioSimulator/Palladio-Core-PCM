@@ -45,6 +45,13 @@ public class EntryLevelSystemCallItemProvider
 		IItemLabelProvider,	
 		IItemPropertySource {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "(c) by SDQ, IPD, U Karlsruhe (TH), 2006";
+
+	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -64,32 +71,9 @@ public class EntryLevelSystemCallItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addSystemProvidedRole_EntryLevelSystemCallPropertyDescriptor(object);
 			addSignature_EntryLevelSystemCallPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the System Provided Role Entry Level System Call feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addSystemProvidedRole_EntryLevelSystemCallPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_EntryLevelSystemCall_systemProvidedRole_EntryLevelSystemCall_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_EntryLevelSystemCall_systemProvidedRole_EntryLevelSystemCall_feature", "_UI_EntryLevelSystemCall_type"),
-				 UsagemodelPackage.Literals.ENTRY_LEVEL_SYSTEM_CALL__SYSTEM_PROVIDED_ROLE_ENTRY_LEVEL_SYSTEM_CALL,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
 	}
 
 	/**

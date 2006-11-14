@@ -54,6 +54,9 @@ public class PcmModelingAssistantProvider extends ModelingAssistantProvider {
 			List types = new ArrayList();
 			types.add(PcmElementTypes.Interface_1001);
 			types.add(PcmElementTypes.BasicComponent_1002);
+			types.add(PcmElementTypes.CompleteComponentType_1003);
+			types.add(PcmElementTypes.ProvidesComponentType_1004);
+			types.add(PcmElementTypes.CompositeComponent_1005);
 			return types;
 		}
 		return Collections.EMPTY_LIST;

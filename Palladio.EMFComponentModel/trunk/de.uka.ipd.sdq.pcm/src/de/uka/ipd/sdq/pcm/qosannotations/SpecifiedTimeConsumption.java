@@ -5,7 +5,7 @@
  *
  * $Id$
  */
-package de.uka.ipd.sdq.pcm.system;
+package de.uka.ipd.sdq.pcm.qosannotations;
 
 import de.uka.ipd.sdq.pcm.core.stochastics.RandomVariable;
 
@@ -19,11 +19,11 @@ import de.uka.ipd.sdq.pcm.repository.Signature;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link de.uka.ipd.sdq.pcm.system.SpecifiedTimeConsumption#getSignature_SpecifiedTimeConsumption <em>Signature Specified Time Consumption</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.qosannotations.SpecifiedTimeConsumption#getSignature_SpecifiedTimeConsumption <em>Signature Specified Time Consumption</em>}</li>
  * </ul>
  * </p>
  *
- * @see de.uka.ipd.sdq.pcm.system.SystemPackage#getSpecifiedTimeConsumption()
+ * @see de.uka.ipd.sdq.pcm.qosannotations.QosannotationsPackage#getSpecifiedTimeConsumption()
  * @model
  * @generated
  */
@@ -45,14 +45,14 @@ public interface SpecifiedTimeConsumption extends RandomVariable {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Signature Specified Time Consumption</em>' reference.
 	 * @see #setSignature_SpecifiedTimeConsumption(Signature)
-	 * @see de.uka.ipd.sdq.pcm.system.SystemPackage#getSpecifiedTimeConsumption_Signature_SpecifiedTimeConsumption()
+	 * @see de.uka.ipd.sdq.pcm.qosannotations.QosannotationsPackage#getSpecifiedTimeConsumption_Signature_SpecifiedTimeConsumption()
 	 * @model required="true" ordered="false"
 	 * @generated
 	 */
 	Signature getSignature_SpecifiedTimeConsumption();
 
 	/**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.system.SpecifiedTimeConsumption#getSignature_SpecifiedTimeConsumption <em>Signature Specified Time Consumption</em>}' reference.
+	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.qosannotations.SpecifiedTimeConsumption#getSignature_SpecifiedTimeConsumption <em>Signature Specified Time Consumption</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Signature Specified Time Consumption</em>' reference.

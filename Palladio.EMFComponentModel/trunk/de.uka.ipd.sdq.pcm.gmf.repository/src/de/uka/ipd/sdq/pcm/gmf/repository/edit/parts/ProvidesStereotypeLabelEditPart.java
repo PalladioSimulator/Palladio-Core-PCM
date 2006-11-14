@@ -13,7 +13,6 @@ import org.eclipse.gmf.runtime.notation.View;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.policies.PcmTextSelectionEditPolicy;
 
 import de.uka.ipd.sdq.pcm.gmf.repository.part.PcmVisualIDRegistry;
-import de.uka.ipd.sdq.pcm.gmf.repository.part.RepositoryDiagramEditorPlugin;
 
 import de.uka.ipd.sdq.pcm.gmf.repository.providers.PcmElementTypes;
 
@@ -62,8 +61,6 @@ import org.eclipse.gmf.runtime.emf.ui.services.parser.ParserHintAdapter;
 import org.eclipse.gmf.runtime.notation.FontStyle;
 import org.eclipse.gmf.runtime.notation.NotationPackage;
 
-import org.eclipse.jface.resource.ImageDescriptor;
-
 import org.eclipse.jface.text.contentassist.IContentAssistProcessor;
 
 import org.eclipse.jface.viewers.ICellEditorValidator;
@@ -85,7 +82,7 @@ public class ProvidesStereotypeLabelEditPart extends LabelEditPart implements
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 4003;
+	public static final int VISUAL_ID = 4005;
 
 	/**
 	 * @generated

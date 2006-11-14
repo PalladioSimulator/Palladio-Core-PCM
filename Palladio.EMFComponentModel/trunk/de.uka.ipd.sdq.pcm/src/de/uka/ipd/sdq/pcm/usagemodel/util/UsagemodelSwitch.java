@@ -10,6 +10,10 @@ import de.uka.ipd.sdq.identifier.Identifier;
 
 import de.uka.ipd.sdq.pcm.core.entity.Entity;
 
+import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
+
+import de.uka.ipd.sdq.pcm.core.stochastics.RandomVariable;
+
 import de.uka.ipd.sdq.pcm.usagemodel.*;
 
 import java.util.List;
@@ -109,6 +113,7 @@ public class UsagemodelSwitch {
 				Object result = caseUsageScenario(usageScenario);
 				if (result == null) result = caseEntity(usageScenario);
 				if (result == null) result = caseIdentifier(usageScenario);
+				if (result == null) result = caseNamedElement(usageScenario);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -158,6 +163,13 @@ public class UsagemodelSwitch {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case UsagemodelPackage.LOOP_ITERATIONS: {
+				LoopIterations loopIterations = (LoopIterations)theEObject;
+				Object result = caseLoopIterations(loopIterations);
+				if (result == null) result = caseRandomVariable(loopIterations);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case UsagemodelPackage.ENTRY_LEVEL_SYSTEM_CALL: {
 				EntryLevelSystemCall entryLevelSystemCall = (EntryLevelSystemCall)theEObject;
 				Object result = caseEntryLevelSystemCall(entryLevelSystemCall);
@@ -176,6 +188,12 @@ public class UsagemodelSwitch {
 				Branch branch = (Branch)theEObject;
 				Object result = caseBranch(branch);
 				if (result == null) result = caseAbstractUserAction(branch);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case UsagemodelPackage.BRANCH_TRANSITION: {
+				BranchTransition branchTransition = (BranchTransition)theEObject;
+				Object result = caseBranchTransition(branchTransition);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -319,6 +337,21 @@ public class UsagemodelSwitch {
 	}
 
 	/**
+	 * Returns the result of interpretting the object as an instance of '<em>Loop Iterations</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpretting the object as an instance of '<em>Loop Iterations</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public Object caseLoopIterations(LoopIterations object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpretting the object as an instance of '<em>Entry Level System Call</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -364,6 +397,21 @@ public class UsagemodelSwitch {
 	}
 
 	/**
+	 * Returns the result of interpretting the object as an instance of '<em>Branch Transition</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpretting the object as an instance of '<em>Branch Transition</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public Object caseBranchTransition(BranchTransition object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpretting the object as an instance of '<em>Identifier</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -379,6 +427,21 @@ public class UsagemodelSwitch {
 	}
 
 	/**
+	 * Returns the result of interpretting the object as an instance of '<em>Named Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpretting the object as an instance of '<em>Named Element</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public Object caseNamedElement(NamedElement object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpretting the object as an instance of '<em>Entity</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -390,6 +453,21 @@ public class UsagemodelSwitch {
 	 * @generated
 	 */
 	public Object caseEntity(Entity object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpretting the object as an instance of '<em>Random Variable</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpretting the object as an instance of '<em>Random Variable</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public Object caseRandomVariable(RandomVariable object) {
 		return null;
 	}
 

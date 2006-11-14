@@ -38,6 +38,8 @@ import de.uka.ipd.sdq.pcm.parameter.provider.ParameterItemProviderAdapterFactory
 
 import de.uka.ipd.sdq.pcm.protocol.provider.ProtocolItemProviderAdapterFactory;
 
+import de.uka.ipd.sdq.pcm.qosannotations.provider.QosannotationsItemProviderAdapterFactory;
+
 import de.uka.ipd.sdq.pcm.repository.provider.RepositoryItemProviderAdapterFactory;
 
 import de.uka.ipd.sdq.pcm.resourceenvironment.provider.ResourceenvironmentItemProviderAdapterFactory;
@@ -138,6 +140,7 @@ public class RepositoryDiagramEditorPlugin extends AbstractUIPlugin {
 		factories.add(new ResourceenvironmentItemProviderAdapterFactory());
 		factories.add(new UsagemodelItemProviderAdapterFactory());
 		factories.add(new SystemItemProviderAdapterFactory());
+		factories.add(new QosannotationsItemProviderAdapterFactory());
 		factories.add(new IdentifierItemProviderAdapterFactory());
 		factories.add(new ProbfunctionItemProviderAdapterFactory());
 		factories.add(new ResourceItemProviderAdapterFactory());

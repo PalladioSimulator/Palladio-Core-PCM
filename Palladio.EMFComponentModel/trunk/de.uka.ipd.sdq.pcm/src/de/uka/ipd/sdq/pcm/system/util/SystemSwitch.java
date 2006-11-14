@@ -12,16 +12,18 @@ import de.uka.ipd.sdq.pcm.core.composition.ComposedStructure;
 
 import de.uka.ipd.sdq.pcm.core.entity.Entity;
 
+import de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingEntity;
+import de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingRequiringEntity;
+import de.uka.ipd.sdq.pcm.core.entity.InterfaceRequiringEntity;
+import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
+
 import de.uka.ipd.sdq.pcm.core.stochastics.RandomVariable;
 
 import de.uka.ipd.sdq.pcm.repository.ProvidedRole;
 import de.uka.ipd.sdq.pcm.repository.RequiredRole;
 import de.uka.ipd.sdq.pcm.repository.Role;
 
-import de.uka.ipd.sdq.pcm.system.SpecifiedTimeConsumption;
 import de.uka.ipd.sdq.pcm.system.SystemPackage;
-import de.uka.ipd.sdq.pcm.system.SystemProvidedRole;
-import de.uka.ipd.sdq.pcm.system.SystemRequiredRole;
 
 import java.util.List;
 
@@ -109,59 +111,21 @@ public class SystemSwitch {
 	 */
 	protected Object doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
-			case SystemPackage.SYSTEM_REQUIRED_ROLE: {
-				SystemRequiredRole systemRequiredRole = (SystemRequiredRole)theEObject;
-				Object result = caseSystemRequiredRole(systemRequiredRole);
-				if (result == null) result = caseRequiredRole(systemRequiredRole);
-				if (result == null) result = caseEntity(systemRequiredRole);
-				if (result == null) result = caseRole(systemRequiredRole);
-				if (result == null) result = caseIdentifier(systemRequiredRole);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case SystemPackage.SYSTEM: {
 				de.uka.ipd.sdq.pcm.system.System system = (de.uka.ipd.sdq.pcm.system.System)theEObject;
 				Object result = caseSystem(system);
 				if (result == null) result = caseComposedStructure(system);
 				if (result == null) result = caseEntity(system);
+				if (result == null) result = caseInterfaceProvidingRequiringEntity(system);
 				if (result == null) result = caseIdentifier(system);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case SystemPackage.SPECIFIED_TIME_CONSUMPTION: {
-				SpecifiedTimeConsumption specifiedTimeConsumption = (SpecifiedTimeConsumption)theEObject;
-				Object result = caseSpecifiedTimeConsumption(specifiedTimeConsumption);
-				if (result == null) result = caseRandomVariable(specifiedTimeConsumption);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case SystemPackage.SYSTEM_PROVIDED_ROLE: {
-				SystemProvidedRole systemProvidedRole = (SystemProvidedRole)theEObject;
-				Object result = caseSystemProvidedRole(systemProvidedRole);
-				if (result == null) result = caseProvidedRole(systemProvidedRole);
-				if (result == null) result = caseEntity(systemProvidedRole);
-				if (result == null) result = caseRole(systemProvidedRole);
-				if (result == null) result = caseIdentifier(systemProvidedRole);
+				if (result == null) result = caseNamedElement(system);
+				if (result == null) result = caseInterfaceProvidingEntity(system);
+				if (result == null) result = caseInterfaceRequiringEntity(system);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			default: return defaultCase(theEObject);
 		}
-	}
-
-	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Required Role</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Required Role</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public Object caseSystemRequiredRole(SystemRequiredRole object) {
-		return null;
 	}
 
 	/**
@@ -176,36 +140,6 @@ public class SystemSwitch {
 	 * @generated
 	 */
 	public Object caseSystem(de.uka.ipd.sdq.pcm.system.System object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Specified Time Consumption</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Specified Time Consumption</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public Object caseSpecifiedTimeConsumption(SpecifiedTimeConsumption object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Provided Role</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Provided Role</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public Object caseSystemProvidedRole(SystemProvidedRole object) {
 		return null;
 	}
 
@@ -225,6 +159,21 @@ public class SystemSwitch {
 	}
 
 	/**
+	 * Returns the result of interpretting the object as an instance of '<em>Named Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpretting the object as an instance of '<em>Named Element</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public Object caseNamedElement(NamedElement object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpretting the object as an instance of '<em>Entity</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -240,32 +189,47 @@ public class SystemSwitch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Role</em>'.
+	 * Returns the result of interpretting the object as an instance of '<em>Interface Providing Entity</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Role</em>'.
+	 * @return the result of interpretting the object as an instance of '<em>Interface Providing Entity</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public Object caseRole(Role object) {
+	public Object caseInterfaceProvidingEntity(InterfaceProvidingEntity object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Required Role</em>'.
+	 * Returns the result of interpretting the object as an instance of '<em>Interface Requiring Entity</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Required Role</em>'.
+	 * @return the result of interpretting the object as an instance of '<em>Interface Requiring Entity</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public Object caseRequiredRole(RequiredRole object) {
+	public Object caseInterfaceRequiringEntity(InterfaceRequiringEntity object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpretting the object as an instance of '<em>Interface Providing Requiring Entity</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpretting the object as an instance of '<em>Interface Providing Requiring Entity</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public Object caseInterfaceProvidingRequiringEntity(InterfaceProvidingRequiringEntity object) {
 		return null;
 	}
 
@@ -281,36 +245,6 @@ public class SystemSwitch {
 	 * @generated
 	 */
 	public Object caseComposedStructure(ComposedStructure object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Random Variable</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Random Variable</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public Object caseRandomVariable(RandomVariable object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Provided Role</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Provided Role</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public Object caseProvidedRole(ProvidedRole object) {
 		return null;
 	}
 

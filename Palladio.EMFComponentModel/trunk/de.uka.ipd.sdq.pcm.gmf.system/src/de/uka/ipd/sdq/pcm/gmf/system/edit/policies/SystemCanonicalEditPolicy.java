@@ -62,16 +62,16 @@ public class SystemCanonicalEditPolicy extends CanonicalConnectionEditPolicy {
 		View viewObject = (View) getHost().getModel();
 		EObject nextValue;
 		int nodeVID;
-		for (Iterator values = ((ComposedStructure) modelObject)
-				.getChildComponentContexts_ComposedStructure().iterator(); values
-				.hasNext();) {
-			nextValue = (EObject) values.next();
-			nodeVID = PcmVisualIDRegistry
-					.getNodeVisualID(viewObject, nextValue);
-			if (AssemblyContextEditPart.VISUAL_ID == nodeVID) {
-				result.add(nextValue);
-			}
-		}
+//		for (Iterator values = ((ComposedStructure) modelObject)
+//				.getChildComponentContexts_ComposedStructure().iterator(); values
+//				.hasNext();) {
+//			nextValue = (EObject) values.next();
+//			nodeVID = PcmVisualIDRegistry
+//					.getNodeVisualID(viewObject, nextValue);
+//			if (AssemblyContextEditPart.VISUAL_ID == nodeVID) {
+//				result.add(nextValue);
+//			}
+//		}
 		result.add(modelObject);
 		return result;
 	}

@@ -7,6 +7,11 @@
  */
 package de.uka.ipd.sdq.pcm.repository.impl;
 
+import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
+import de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingEntity;
+import de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingRequiringEntity;
+import de.uka.ipd.sdq.pcm.core.entity.InterfaceRequiringEntity;
+
 import de.uka.ipd.sdq.pcm.core.entity.impl.EntityImpl;
 
 import de.uka.ipd.sdq.pcm.repository.ProvidedRole;
@@ -54,8 +59,8 @@ import org.eclipse.emf.ocl.query.QueryFactory;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link de.uka.ipd.sdq.pcm.repository.impl.ProvidesComponentTypeImpl#getProvidedRoles__ProvidesComponentType <em>Provided Roles Provides Component Type</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.repository.impl.ProvidesComponentTypeImpl#getRequiredRoles_ProvidesComponentType <em>Required Roles Provides Component Type</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.repository.impl.ProvidesComponentTypeImpl#getProvidedRoles_InterfaceProvidingEntity <em>Provided Roles Interface Providing Entity</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.repository.impl.ProvidesComponentTypeImpl#getRequiredRoles_InterfaceRequiringEntity <em>Required Roles Interface Requiring Entity</em>}</li>
  * </ul>
  * </p>
  *
@@ -70,24 +75,24 @@ public class ProvidesComponentTypeImpl extends EntityImpl implements ProvidesCom
 	public static final String copyright = "(c) by SDQ, IPD, U Karlsruhe (TH), 2006";
 
 	/**
-	 * The cached value of the '{@link #getProvidedRoles__ProvidesComponentType() <em>Provided Roles Provides Component Type</em>}' containment reference list.
+	 * The cached value of the '{@link #getProvidedRoles_InterfaceProvidingEntity() <em>Provided Roles Interface Providing Entity</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getProvidedRoles__ProvidesComponentType()
+	 * @see #getProvidedRoles_InterfaceProvidingEntity()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList providedRoles__ProvidesComponentType = null;
+	protected EList providedRoles_InterfaceProvidingEntity = null;
 
 	/**
-	 * The cached value of the '{@link #getRequiredRoles_ProvidesComponentType() <em>Required Roles Provides Component Type</em>}' containment reference list.
+	 * The cached value of the '{@link #getRequiredRoles_InterfaceRequiringEntity() <em>Required Roles Interface Requiring Entity</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getRequiredRoles_ProvidesComponentType()
+	 * @see #getRequiredRoles_InterfaceRequiringEntity()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList requiredRoles_ProvidesComponentType = null;
+	protected EList requiredRoles_InterfaceRequiringEntity = null;
 
 
 	/**
@@ -124,11 +129,11 @@ public class ProvidesComponentTypeImpl extends EntityImpl implements ProvidesCom
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList getProvidedRoles__ProvidesComponentType() {
-		if (providedRoles__ProvidesComponentType == null) {
-			providedRoles__ProvidesComponentType = new EObjectContainmentWithInverseEList(ProvidedRole.class, this, RepositoryPackage.PROVIDES_COMPONENT_TYPE__PROVIDED_ROLES_PROVIDES_COMPONENT_TYPE, RepositoryPackage.PROVIDED_ROLE__PROVIDING_COMPONENT_PROVIDED_ROLE);
+	public EList getProvidedRoles_InterfaceProvidingEntity() {
+		if (providedRoles_InterfaceProvidingEntity == null) {
+			providedRoles_InterfaceProvidingEntity = new EObjectContainmentEList(ProvidedRole.class, this, RepositoryPackage.PROVIDES_COMPONENT_TYPE__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY);
 		}
-		return providedRoles__ProvidesComponentType;
+		return providedRoles_InterfaceProvidingEntity;
 	}
 
 	/**
@@ -136,11 +141,11 @@ public class ProvidesComponentTypeImpl extends EntityImpl implements ProvidesCom
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList getRequiredRoles_ProvidesComponentType() {
-		if (requiredRoles_ProvidesComponentType == null) {
-			requiredRoles_ProvidesComponentType = new EObjectContainmentEList(RequiredRole.class, this, RepositoryPackage.PROVIDES_COMPONENT_TYPE__REQUIRED_ROLES_PROVIDES_COMPONENT_TYPE);
+	public EList getRequiredRoles_InterfaceRequiringEntity() {
+		if (requiredRoles_InterfaceRequiringEntity == null) {
+			requiredRoles_InterfaceRequiringEntity = new EObjectContainmentEList(RequiredRole.class, this, RepositoryPackage.PROVIDES_COMPONENT_TYPE__REQUIRED_ROLES_INTERFACE_REQUIRING_ENTITY);
 		}
-		return requiredRoles_ProvidesComponentType;
+		return requiredRoles_InterfaceRequiringEntity;
 	}
 
 
@@ -188,25 +193,12 @@ public class ProvidesComponentTypeImpl extends EntityImpl implements ProvidesCom
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case RepositoryPackage.PROVIDES_COMPONENT_TYPE__PROVIDED_ROLES_PROVIDES_COMPONENT_TYPE:
-				return ((InternalEList)getProvidedRoles__ProvidesComponentType()).basicAdd(otherEnd, msgs);
-		}
-		return super.eInverseAdd(otherEnd, featureID, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case RepositoryPackage.PROVIDES_COMPONENT_TYPE__PROVIDED_ROLES_PROVIDES_COMPONENT_TYPE:
-				return ((InternalEList)getProvidedRoles__ProvidesComponentType()).basicRemove(otherEnd, msgs);
-			case RepositoryPackage.PROVIDES_COMPONENT_TYPE__REQUIRED_ROLES_PROVIDES_COMPONENT_TYPE:
-				return ((InternalEList)getRequiredRoles_ProvidesComponentType()).basicRemove(otherEnd, msgs);
+			case RepositoryPackage.PROVIDES_COMPONENT_TYPE__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY:
+				return ((InternalEList)getProvidedRoles_InterfaceProvidingEntity()).basicRemove(otherEnd, msgs);
+			case RepositoryPackage.PROVIDES_COMPONENT_TYPE__REQUIRED_ROLES_INTERFACE_REQUIRING_ENTITY:
+				return ((InternalEList)getRequiredRoles_InterfaceRequiringEntity()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -218,10 +210,10 @@ public class ProvidesComponentTypeImpl extends EntityImpl implements ProvidesCom
 	 */
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case RepositoryPackage.PROVIDES_COMPONENT_TYPE__PROVIDED_ROLES_PROVIDES_COMPONENT_TYPE:
-				return getProvidedRoles__ProvidesComponentType();
-			case RepositoryPackage.PROVIDES_COMPONENT_TYPE__REQUIRED_ROLES_PROVIDES_COMPONENT_TYPE:
-				return getRequiredRoles_ProvidesComponentType();
+			case RepositoryPackage.PROVIDES_COMPONENT_TYPE__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY:
+				return getProvidedRoles_InterfaceProvidingEntity();
+			case RepositoryPackage.PROVIDES_COMPONENT_TYPE__REQUIRED_ROLES_INTERFACE_REQUIRING_ENTITY:
+				return getRequiredRoles_InterfaceRequiringEntity();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -233,13 +225,13 @@ public class ProvidesComponentTypeImpl extends EntityImpl implements ProvidesCom
 	 */
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case RepositoryPackage.PROVIDES_COMPONENT_TYPE__PROVIDED_ROLES_PROVIDES_COMPONENT_TYPE:
-				getProvidedRoles__ProvidesComponentType().clear();
-				getProvidedRoles__ProvidesComponentType().addAll((Collection)newValue);
+			case RepositoryPackage.PROVIDES_COMPONENT_TYPE__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY:
+				getProvidedRoles_InterfaceProvidingEntity().clear();
+				getProvidedRoles_InterfaceProvidingEntity().addAll((Collection)newValue);
 				return;
-			case RepositoryPackage.PROVIDES_COMPONENT_TYPE__REQUIRED_ROLES_PROVIDES_COMPONENT_TYPE:
-				getRequiredRoles_ProvidesComponentType().clear();
-				getRequiredRoles_ProvidesComponentType().addAll((Collection)newValue);
+			case RepositoryPackage.PROVIDES_COMPONENT_TYPE__REQUIRED_ROLES_INTERFACE_REQUIRING_ENTITY:
+				getRequiredRoles_InterfaceRequiringEntity().clear();
+				getRequiredRoles_InterfaceRequiringEntity().addAll((Collection)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -252,11 +244,11 @@ public class ProvidesComponentTypeImpl extends EntityImpl implements ProvidesCom
 	 */
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case RepositoryPackage.PROVIDES_COMPONENT_TYPE__PROVIDED_ROLES_PROVIDES_COMPONENT_TYPE:
-				getProvidedRoles__ProvidesComponentType().clear();
+			case RepositoryPackage.PROVIDES_COMPONENT_TYPE__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY:
+				getProvidedRoles_InterfaceProvidingEntity().clear();
 				return;
-			case RepositoryPackage.PROVIDES_COMPONENT_TYPE__REQUIRED_ROLES_PROVIDES_COMPONENT_TYPE:
-				getRequiredRoles_ProvidesComponentType().clear();
+			case RepositoryPackage.PROVIDES_COMPONENT_TYPE__REQUIRED_ROLES_INTERFACE_REQUIRING_ENTITY:
+				getRequiredRoles_InterfaceRequiringEntity().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -269,12 +261,64 @@ public class ProvidesComponentTypeImpl extends EntityImpl implements ProvidesCom
 	 */
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case RepositoryPackage.PROVIDES_COMPONENT_TYPE__PROVIDED_ROLES_PROVIDES_COMPONENT_TYPE:
-				return providedRoles__ProvidesComponentType != null && !providedRoles__ProvidesComponentType.isEmpty();
-			case RepositoryPackage.PROVIDES_COMPONENT_TYPE__REQUIRED_ROLES_PROVIDES_COMPONENT_TYPE:
-				return requiredRoles_ProvidesComponentType != null && !requiredRoles_ProvidesComponentType.isEmpty();
+			case RepositoryPackage.PROVIDES_COMPONENT_TYPE__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY:
+				return providedRoles_InterfaceProvidingEntity != null && !providedRoles_InterfaceProvidingEntity.isEmpty();
+			case RepositoryPackage.PROVIDES_COMPONENT_TYPE__REQUIRED_ROLES_INTERFACE_REQUIRING_ENTITY:
+				return requiredRoles_InterfaceRequiringEntity != null && !requiredRoles_InterfaceRequiringEntity.isEmpty();
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public int eBaseStructuralFeatureID(int derivedFeatureID, Class baseClass) {
+		if (baseClass == InterfaceProvidingEntity.class) {
+			switch (derivedFeatureID) {
+				case RepositoryPackage.PROVIDES_COMPONENT_TYPE__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY: return EntityPackage.INTERFACE_PROVIDING_ENTITY__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY;
+				default: return -1;
+			}
+		}
+		if (baseClass == InterfaceRequiringEntity.class) {
+			switch (derivedFeatureID) {
+				case RepositoryPackage.PROVIDES_COMPONENT_TYPE__REQUIRED_ROLES_INTERFACE_REQUIRING_ENTITY: return EntityPackage.INTERFACE_REQUIRING_ENTITY__REQUIRED_ROLES_INTERFACE_REQUIRING_ENTITY;
+				default: return -1;
+			}
+		}
+		if (baseClass == InterfaceProvidingRequiringEntity.class) {
+			switch (derivedFeatureID) {
+				default: return -1;
+			}
+		}
+		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public int eDerivedStructuralFeatureID(int baseFeatureID, Class baseClass) {
+		if (baseClass == InterfaceProvidingEntity.class) {
+			switch (baseFeatureID) {
+				case EntityPackage.INTERFACE_PROVIDING_ENTITY__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY: return RepositoryPackage.PROVIDES_COMPONENT_TYPE__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY;
+				default: return -1;
+			}
+		}
+		if (baseClass == InterfaceRequiringEntity.class) {
+			switch (baseFeatureID) {
+				case EntityPackage.INTERFACE_REQUIRING_ENTITY__REQUIRED_ROLES_INTERFACE_REQUIRING_ENTITY: return RepositoryPackage.PROVIDES_COMPONENT_TYPE__REQUIRED_ROLES_INTERFACE_REQUIRING_ENTITY;
+				default: return -1;
+			}
+		}
+		if (baseClass == InterfaceProvidingRequiringEntity.class) {
+			switch (baseFeatureID) {
+				default: return -1;
+			}
+		}
+		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
 } //ProvidesComponentTypeImpl

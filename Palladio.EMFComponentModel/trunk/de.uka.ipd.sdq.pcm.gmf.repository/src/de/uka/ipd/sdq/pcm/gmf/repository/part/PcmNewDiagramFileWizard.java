@@ -3,33 +3,13 @@
  */
 package de.uka.ipd.sdq.pcm.gmf.repository.part;
 
-import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.BasicComponentEditPart;
-import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.BasicComponentSEFFCompartmentEditPart;
-import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.InterfaceEditPart;
-import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.InterfaceSignatureListEditPart;
-import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.ProvidedRoleEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.RepositoryEditPart;
-import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.RequiredRoleEditPart;
-import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.ResourceDemandingSEFFEditPart;
-import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.SignatureEditPart;
-
-import de.uka.ipd.sdq.pcm.repository.BasicComponent;
-import de.uka.ipd.sdq.pcm.repository.Interface;
-import de.uka.ipd.sdq.pcm.repository.ProvidedRole;
-import de.uka.ipd.sdq.pcm.repository.ProvidesComponentType;
-import de.uka.ipd.sdq.pcm.repository.Repository;
-import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
-import de.uka.ipd.sdq.pcm.repository.RequiredRole;
 
 import java.io.IOException;
 
-import java.util.Collection;
 import java.util.Collections;
-import java.util.HashMap;
-import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Map;
 
 import org.eclipse.core.commands.ExecutionException;
 
@@ -46,7 +26,6 @@ import org.eclipse.core.runtime.Path;
 
 import org.eclipse.emf.common.util.URI;
 
-import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 
 import org.eclipse.emf.ecore.resource.Resource;
@@ -67,18 +46,11 @@ import org.eclipse.gmf.runtime.diagram.core.services.ViewService;
 
 import org.eclipse.gmf.runtime.diagram.core.services.view.CreateDiagramViewOperation;
 
-import org.eclipse.gmf.runtime.diagram.core.util.ViewUtil;
-
 import org.eclipse.gmf.runtime.emf.commands.core.command.AbstractTransactionalCommand;
 
 import org.eclipse.gmf.runtime.emf.core.util.EObjectAdapter;
 
-import org.eclipse.gmf.runtime.emf.type.core.IElementType;
-
 import org.eclipse.gmf.runtime.notation.Diagram;
-import org.eclipse.gmf.runtime.notation.Edge;
-import org.eclipse.gmf.runtime.notation.Node;
-import org.eclipse.gmf.runtime.notation.View;
 
 import org.eclipse.jface.viewers.ISelectionChangedListener;
 import org.eclipse.jface.viewers.IStructuredSelection;
@@ -225,7 +197,6 @@ public class PcmNewDiagramFileWizard extends Wizard {
 						RepositoryEditPart.MODEL_ID,
 						RepositoryDiagramEditorPlugin.DIAGRAM_PREFERENCES_HINT);
 				diagramResource.getContents().add(diagram);
-				initDiagramContents(diagram, myDiagramRoot);
 				return CommandResult.newOKCommandResult();
 			}
 		};
@@ -248,365 +219,6 @@ public class PcmNewDiagramFileWizard extends Wizard {
 					"Unable to open editor", ex); //$NON-NLS-1$
 		}
 		return true;
-	}
-
-	/**
-	 * @generated
-	 */
-	private Collection myLinkDescriptors = new LinkedList();
-
-	/**
-	 * @generated
-	 */
-	private Map myEObject2NodeMap = new HashMap();
-
-	/**
-	 * @generated
-	 */
-	private void initDiagramContents(Diagram diagram, EObject diagramModelObject) {
-		createRepository_79Children(diagram, diagramModelObject);
-
-		createLinks(diagram);
-	}
-
-	/**
-	 * @generated
-	 */
-	private void createInterface_1001Children(View viewObject,
-			EObject modelObject) {
-
-		Node nextCompartment = getCompartment(viewObject, PcmVisualIDRegistry
-				.getType(InterfaceSignatureListEditPart.VISUAL_ID));
-		if (nextCompartment != null) {
-			createInterfaceSignatureList_5001Children(nextCompartment,
-					modelObject);
-		}
-		storeLinks(modelObject, viewObject.getDiagram());
-	}
-
-	/**
-	 * @generated
-	 */
-	private void createBasicComponent_1002Children(View viewObject,
-			EObject modelObject) {
-
-		Node nextCompartment = getCompartment(viewObject, PcmVisualIDRegistry
-				.getType(BasicComponentSEFFCompartmentEditPart.VISUAL_ID));
-		if (nextCompartment != null) {
-			createBasicComponentSEFFCompartment_5002Children(nextCompartment,
-					modelObject);
-		}
-		storeLinks(modelObject, viewObject.getDiagram());
-	}
-
-	/**
-	 * @generated
-	 */
-	private void createSignature_2001Children(View viewObject,
-			EObject modelObject) {
-
-		storeLinks(modelObject, viewObject.getDiagram());
-	}
-
-	/**
-	 * @generated
-	 */
-	private void createResourceDemandingSEFF_2002Children(View viewObject,
-			EObject modelObject) {
-
-		storeLinks(modelObject, viewObject.getDiagram());
-	}
-
-	/**
-	 * @generated
-	 */
-	private void createInterfaceSignatureList_5001Children(View viewObject,
-			EObject modelObject) {
-		EObject nextValue;
-		int nodeVID;
-		for (Iterator values = ((Interface) modelObject)
-				.getSignatures__Interface().iterator(); values.hasNext();) {
-			nextValue = (EObject) values.next();
-			nodeVID = PcmVisualIDRegistry
-					.getNodeVisualID(viewObject, nextValue);
-			if (SignatureEditPart.VISUAL_ID == nodeVID) {
-				Node nextNode = ViewService.createNode(viewObject, nextValue,
-						PcmVisualIDRegistry
-								.getType(SignatureEditPart.VISUAL_ID),
-						RepositoryDiagramEditorPlugin.DIAGRAM_PREFERENCES_HINT);
-				myEObject2NodeMap.put(nextValue, nextNode);
-				createSignature_2001Children(nextNode, nextValue);
-			}
-		}
-	}
-
-	/**
-	 * @generated
-	 */
-	private void createBasicComponentSEFFCompartment_5002Children(
-			View viewObject, EObject modelObject) {
-		EObject nextValue;
-		int nodeVID;
-		for (Iterator values = ((BasicComponent) modelObject)
-				.getServiceEffectSpecifications__BasicComponent().iterator(); values
-				.hasNext();) {
-			nextValue = (EObject) values.next();
-			nodeVID = PcmVisualIDRegistry
-					.getNodeVisualID(viewObject, nextValue);
-			if (ResourceDemandingSEFFEditPart.VISUAL_ID == nodeVID) {
-				Node nextNode = ViewService
-						.createNode(
-								viewObject,
-								nextValue,
-								PcmVisualIDRegistry
-										.getType(ResourceDemandingSEFFEditPart.VISUAL_ID),
-								RepositoryDiagramEditorPlugin.DIAGRAM_PREFERENCES_HINT);
-				myEObject2NodeMap.put(nextValue, nextNode);
-				createResourceDemandingSEFF_2002Children(nextNode, nextValue);
-			}
-		}
-	}
-
-	/**
-	 * @generated
-	 */
-	private void createRepository_79Children(View viewObject,
-			EObject modelObject) {
-		EObject nextValue;
-		int nodeVID;
-		for (Iterator values = ((Repository) modelObject)
-				.getInterfaces__Repository().iterator(); values.hasNext();) {
-			nextValue = (EObject) values.next();
-			nodeVID = PcmVisualIDRegistry
-					.getNodeVisualID(viewObject, nextValue);
-			if (InterfaceEditPart.VISUAL_ID == nodeVID) {
-				Node nextNode = ViewService.createNode(viewObject, nextValue,
-						PcmVisualIDRegistry
-								.getType(InterfaceEditPart.VISUAL_ID),
-						RepositoryDiagramEditorPlugin.DIAGRAM_PREFERENCES_HINT);
-				myEObject2NodeMap.put(nextValue, nextNode);
-				createInterface_1001Children(nextNode, nextValue);
-			}
-		}
-		for (Iterator values = ((Repository) modelObject)
-				.getComponents__Repository().iterator(); values.hasNext();) {
-			nextValue = (EObject) values.next();
-			nodeVID = PcmVisualIDRegistry
-					.getNodeVisualID(viewObject, nextValue);
-			if (BasicComponentEditPart.VISUAL_ID == nodeVID) {
-				Node nextNode = ViewService.createNode(viewObject, nextValue,
-						PcmVisualIDRegistry
-								.getType(BasicComponentEditPart.VISUAL_ID),
-						RepositoryDiagramEditorPlugin.DIAGRAM_PREFERENCES_HINT);
-				myEObject2NodeMap.put(nextValue, nextNode);
-				createBasicComponent_1002Children(nextNode, nextValue);
-			}
-		}
-		storeLinks(modelObject, viewObject.getDiagram());
-	}
-
-	/**
-	 * @generated
-	 */
-	private Node getCompartment(View node, String name) {
-		for (Iterator it = node.getChildren().iterator(); it.hasNext();) {
-			View nextView = (View) it.next();
-			if (nextView instanceof Node && name.equals(nextView.getType())) {
-				return (Node) nextView;
-			}
-		}
-		return null;
-	}
-
-	/**
-	 *@generated
-	 */
-	private void storeLinks(EObject container, Diagram diagram) {
-		EClass containerMetaclass = container.eClass();
-		storeFeatureModelFacetLinks(container, containerMetaclass, diagram);
-		storeTypeModelFacetLinks(container, containerMetaclass);
-	}
-
-	/**
-	 * @generated
-	 */
-	private void storeTypeModelFacetLinks(EObject container,
-			EClass containerMetaclass) {
-		if (RepositoryPackage.eINSTANCE.getProvidesComponentType()
-				.isSuperTypeOf(containerMetaclass)) {
-			for (Iterator values = ((ProvidesComponentType) container)
-					.getProvidedRoles__ProvidesComponentType().iterator(); values
-					.hasNext();) {
-				EObject nextValue = ((EObject) values.next());
-				int linkVID = PcmVisualIDRegistry
-						.getLinkWithClassVisualID(nextValue);
-				if (ProvidedRoleEditPart.VISUAL_ID == linkVID) {
-					Object structuralFeatureResult = ((ProvidedRole) nextValue)
-							.getProvidedInterface__ProvidedRole();
-					if (structuralFeatureResult instanceof EObject) {
-						EObject dst = (EObject) structuralFeatureResult;
-						structuralFeatureResult = ((ProvidedRole) nextValue)
-								.getProvidingComponent__ProvidedRole();
-						if (structuralFeatureResult instanceof EObject) {
-							EObject src = (EObject) structuralFeatureResult;
-							myLinkDescriptors.add(new LinkDescriptor(src, dst,
-									nextValue, linkVID));
-						}
-					}
-				}
-			}
-		}
-		if (RepositoryPackage.eINSTANCE.getProvidesComponentType()
-				.isSuperTypeOf(containerMetaclass)) {
-			for (Iterator values = ((ProvidesComponentType) container)
-					.getRequiredRoles_ProvidesComponentType().iterator(); values
-					.hasNext();) {
-				EObject nextValue = ((EObject) values.next());
-				int linkVID = PcmVisualIDRegistry
-						.getLinkWithClassVisualID(nextValue);
-				if (RequiredRoleEditPart.VISUAL_ID == linkVID) {
-					Object structuralFeatureResult = ((RequiredRole) nextValue)
-							.getRequiredInterface__RequiredRole();
-					if (structuralFeatureResult instanceof EObject) {
-						EObject dst = (EObject) structuralFeatureResult;
-						EObject src = container;
-						myLinkDescriptors.add(new LinkDescriptor(src, dst,
-								nextValue, linkVID));
-					}
-				}
-			}
-		}
-	}
-
-	/**
-	 *@generated
-	 */
-	private void storeFeatureModelFacetLinks(EObject container,
-			EClass containerMetaclass, Diagram diagram) {
-
-	}
-
-	/**
-	 * @generated
-	 */
-	private void createLinks(Diagram diagram) {
-		for (Iterator it = myLinkDescriptors.iterator(); it.hasNext();) {
-			LinkDescriptor nextLinkDescriptor = (LinkDescriptor) it.next();
-			Edge edge = (Edge) ViewService.getInstance().createEdge(
-					nextLinkDescriptor.getSemanticAdapter(), diagram,
-					String.valueOf(nextLinkDescriptor.getVisualID()),
-					ViewUtil.APPEND,
-					RepositoryDiagramEditorPlugin.DIAGRAM_PREFERENCES_HINT);
-			if (edge != null) {
-				edge.setSource((Node) myEObject2NodeMap.get(nextLinkDescriptor
-						.getSource()));
-				edge.setTarget((Node) myEObject2NodeMap.get(nextLinkDescriptor
-						.getDestination()));
-			}
-		}
-	}
-
-	/**
-	 * @generated
-	 */
-	private class LinkDescriptor {
-
-		/**
-		 * @generated
-		 */
-		private EObject mySource;
-
-		/**
-		 * @generated
-		 */
-		private EObject myDestination;
-
-		/**
-		 * @generated
-		 */
-		private EObject myLinkElement;
-
-		/**
-		 * @generated
-		 */
-		private int myVisualID;
-
-		/**
-		 * @generated
-		 */
-		private IAdaptable mySemanticAdapter;
-
-		/**
-		 * @generated
-		 */
-		protected LinkDescriptor(EObject source, EObject destination,
-				EObject linkElement, int linkVID) {
-			this(source, destination, linkVID);
-			myLinkElement = linkElement;
-			mySemanticAdapter = new EObjectAdapter(linkElement);
-		}
-
-		/**
-		 * @generated
-		 */
-		protected LinkDescriptor(EObject source, EObject destination,
-				IElementType elementType, int linkVID) {
-			this(source, destination, linkVID);
-			myLinkElement = null;
-			final IElementType elementTypeCopy = elementType;
-			mySemanticAdapter = new IAdaptable() {
-				public Object getAdapter(Class adapter) {
-					if (IElementType.class.equals(adapter)) {
-						return elementTypeCopy;
-					}
-					return null;
-				}
-			};
-		}
-
-		/**
-		 * @generated
-		 */
-		private LinkDescriptor(EObject source, EObject destination, int linkVID) {
-			mySource = source;
-			myDestination = destination;
-			myVisualID = linkVID;
-		}
-
-		/**
-		 * @generated
-		 */
-		protected EObject getSource() {
-			return mySource;
-		}
-
-		/**
-		 * @generated
-		 */
-		protected EObject getDestination() {
-			return myDestination;
-		}
-
-		/**
-		 * @generated
-		 */
-		protected EObject getLinkElement() {
-			return myLinkElement;
-		}
-
-		/**
-		 * @generated
-		 */
-		protected int getVisualID() {
-			return myVisualID;
-		}
-
-		/**
-		 * @generated
-		 */
-		protected IAdaptable getSemanticAdapter() {
-			return mySemanticAdapter;
-		}
 	}
 
 	/**

@@ -25,11 +25,14 @@ import de.uka.ipd.sdq.pcm.gmf.system.edit.parts.RequiredDelegationConnectorEditP
 import de.uka.ipd.sdq.pcm.gmf.system.edit.parts.RoleEditPart;
 import de.uka.ipd.sdq.pcm.gmf.system.edit.parts.RoleLabelEditPart;
 import de.uka.ipd.sdq.pcm.gmf.system.edit.parts.SystemEditPart;
+import de.uka.ipd.sdq.pcm.gmf.system.edit.parts.SystemNodeCompEditPart;
 import de.uka.ipd.sdq.pcm.gmf.system.edit.parts.SystemNodeEditPart;
 import de.uka.ipd.sdq.pcm.gmf.system.edit.parts.SystemProvidedRoleEditPart;
 import de.uka.ipd.sdq.pcm.gmf.system.edit.parts.SystemProvidedRoleLabelEditPart;
 import de.uka.ipd.sdq.pcm.gmf.system.edit.parts.SystemRequiredRoleEditPart;
 import de.uka.ipd.sdq.pcm.gmf.system.edit.parts.SystemRequiredRoleLabelEditPart;
+import de.uka.ipd.sdq.pcm.repository.ProvidedRole;
+import de.uka.ipd.sdq.pcm.repository.RequiredRole;
 import de.uka.ipd.sdq.pcm.system.SystemPackage;
 
 /**
@@ -172,15 +175,21 @@ public class PcmVisualIDRegistry {
 			}
 			return getUnrecognizedAssemblyContext_1001ChildNodeID(
 					domainElement, semanticHint);
+		case SystemNodeCompEditPart.VISUAL_ID:
+			if ((AssemblyContextEditPart.VISUAL_ID == nodeVisualID)) {
+				return AssemblyContextEditPart.VISUAL_ID;
+			}
+			return getUnrecognizedNode_5001ChildNodeID(domainElement,
+					semanticHint);
 		case SystemNodeEditPart.VISUAL_ID:
-			if ((semanticHint == null || SystemProvidedRoleEditPart.VISUAL_ID == nodeVisualID)) {
+			if (SystemNodeCompEditPart.VISUAL_ID == nodeVisualID) {
+				return SystemNodeCompEditPart.VISUAL_ID;
+			}
+			if ((SystemProvidedRoleEditPart.VISUAL_ID == nodeVisualID)) {
 				return SystemProvidedRoleEditPart.VISUAL_ID;
 			}
-			if ((semanticHint == null || SystemRequiredRoleEditPart.VISUAL_ID == nodeVisualID)) {
+			if ((SystemRequiredRoleEditPart.VISUAL_ID == nodeVisualID)) {
 				return SystemRequiredRoleEditPart.VISUAL_ID;
-			}
-			if ((semanticHint == null || AssemblyContextEditPart.VISUAL_ID == nodeVisualID)) {
-				return AssemblyContextEditPart.VISUAL_ID;
 			}
 			return getUnrecognizedNode_1002ChildNodeID(domainElement,
 					semanticHint);
@@ -305,10 +314,21 @@ public class PcmVisualIDRegistry {
 	 * User can change implementation of this method to handle some specific
 	 * situations not covered by default logic.
 	 *
-	 * @generated
+	 * @generated NOT
 	 */
 	private static int getUnrecognizedNode_1002ChildNodeID(
 			EObject domainElement, String semanticHint) {
+		if (domainElement instanceof RequiredRole)
+			return SystemRequiredRoleEditPart.VISUAL_ID;
+		if (domainElement instanceof ProvidedRole)
+			return SystemProvidedRoleEditPart.VISUAL_ID;
+		return -1;
+	}
+
+	private static int getUnrecognizedNode_5001ChildNodeID(
+			EObject domainElement, String semanticHint) {
+		if (domainElement instanceof AssemblyContext)
+			return AssemblyContextEditPart.VISUAL_ID;
 		return -1;
 	}
 

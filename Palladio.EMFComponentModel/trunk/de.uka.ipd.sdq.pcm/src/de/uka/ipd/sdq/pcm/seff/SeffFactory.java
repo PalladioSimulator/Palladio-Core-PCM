@@ -159,6 +159,15 @@ public interface SeffFactory extends EFactory {
 	BranchTransition createBranchTransition();
 
 	/**
+	 * Returns a new object of class '<em>Branch Condition</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Branch Condition</em>'.
+	 * @generated
+	 */
+	BranchCondition createBranchCondition();
+
+	/**
 	 * Returns a new object of class '<em>Branch Action</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -175,6 +184,15 @@ public interface SeffFactory extends EFactory {
 	 * @generated
 	 */
 	AquireAction createAquireAction();
+
+	/**
+	 * Returns a new object of class '<em>Collection Iterator Action</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Collection Iterator Action</em>'.
+	 * @generated
+	 */
+	CollectionIteratorAction createCollectionIteratorAction();
 
 	/**
 	 * Returns the package supported by this factory.

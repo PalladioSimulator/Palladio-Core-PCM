@@ -68,6 +68,8 @@ public class PcmEditPartFactory implements EditPartFactory {
 				return new ProvidedDelegationConnectorEditPart(view);
 			case RequiredDelegationConnectorEditPart.VISUAL_ID:
 				return new RequiredDelegationConnectorEditPart(view);
+			case SystemNodeCompEditPart.VISUAL_ID:
+				return new SystemNodeCompEditPart(view);
 			}
 		}
 		return createUnrecognizedEditPart(context, model);

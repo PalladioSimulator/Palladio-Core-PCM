@@ -10,12 +10,14 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.DestroyElementRequest;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EAnnotation;
 import org.eclipse.gmf.runtime.notation.View;
+import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
+import de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingEntity;
+import de.uka.ipd.sdq.pcm.core.entity.InterfaceRequiringEntity;
+
 import de.uka.ipd.sdq.pcm.gmf.repository.providers.PcmElementTypes;
 
 import de.uka.ipd.sdq.pcm.repository.Interface;
 import de.uka.ipd.sdq.pcm.repository.ProvidedRole;
-import de.uka.ipd.sdq.pcm.repository.ProvidesComponentType;
-import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
 import de.uka.ipd.sdq.pcm.repository.RequiredRole;
 
 import org.eclipse.emf.ecore.EClass;
@@ -68,19 +70,15 @@ public class InterfaceItemSemanticEditPolicy extends
 	 */
 	protected Command getCreateCompleteIncomingProvidedRole3001Command(
 			CreateRelationshipRequest req) {
-		if (!(req.getSource() instanceof ProvidesComponentType)) {
+		if (!(req.getSource() instanceof InterfaceProvidingEntity)) {
 			return UnexecutableCommand.INSTANCE;
 		}
-		final ProvidesComponentType element = (ProvidesComponentType) getRelationshipContainer(
-				req.getSource(), RepositoryPackage.eINSTANCE
-						.getProvidesComponentType(), req.getElementType());
-		if (element == null) {
-			return UnexecutableCommand.INSTANCE;
-		}
+		final InterfaceProvidingEntity element = (InterfaceProvidingEntity) req
+				.getSource();
 		if (req.getContainmentFeature() == null) {
 			req
-					.setContainmentFeature(RepositoryPackage.eINSTANCE
-							.getProvidesComponentType_ProvidedRoles__ProvidesComponentType());
+					.setContainmentFeature(EntityPackage.eINSTANCE
+							.getInterfaceProvidingEntity_ProvidedRoles_InterfaceProvidingEntity());
 		}
 		return getMSLWrapper(new CreateIncomingProvidedRole3001Command(req) {
 
@@ -111,7 +109,7 @@ public class InterfaceItemSemanticEditPolicy extends
 		 * @generated
 		 */
 		protected EClass getEClassToEdit() {
-			return RepositoryPackage.eINSTANCE.getProvidesComponentType();
+			return EntityPackage.eINSTANCE.getInterfaceProvidingEntity();
 		};
 
 		/**
@@ -130,8 +128,6 @@ public class InterfaceItemSemanticEditPolicy extends
 			if (newElement != null) {
 				newElement
 						.setProvidedInterface__ProvidedRole((Interface) getTarget());
-				newElement
-						.setProvidingComponent__ProvidedRole((ProvidesComponentType) getSource());
 			}
 			return newElement;
 		}
@@ -142,15 +138,15 @@ public class InterfaceItemSemanticEditPolicy extends
 	 */
 	protected Command getCreateCompleteIncomingRequiredRole3002Command(
 			CreateRelationshipRequest req) {
-		if (!(req.getSource() instanceof ProvidesComponentType)) {
+		if (!(req.getSource() instanceof InterfaceRequiringEntity)) {
 			return UnexecutableCommand.INSTANCE;
 		}
-		final ProvidesComponentType element = (ProvidesComponentType) req
+		final InterfaceRequiringEntity element = (InterfaceRequiringEntity) req
 				.getSource();
 		if (req.getContainmentFeature() == null) {
 			req
-					.setContainmentFeature(RepositoryPackage.eINSTANCE
-							.getProvidesComponentType_RequiredRoles_ProvidesComponentType());
+					.setContainmentFeature(EntityPackage.eINSTANCE
+							.getInterfaceRequiringEntity_RequiredRoles_InterfaceRequiringEntity());
 		}
 		return getMSLWrapper(new CreateIncomingRequiredRole3002Command(req) {
 
@@ -181,7 +177,7 @@ public class InterfaceItemSemanticEditPolicy extends
 		 * @generated
 		 */
 		protected EClass getEClassToEdit() {
-			return RepositoryPackage.eINSTANCE.getProvidesComponentType();
+			return EntityPackage.eINSTANCE.getInterfaceRequiringEntity();
 		};
 
 		/**

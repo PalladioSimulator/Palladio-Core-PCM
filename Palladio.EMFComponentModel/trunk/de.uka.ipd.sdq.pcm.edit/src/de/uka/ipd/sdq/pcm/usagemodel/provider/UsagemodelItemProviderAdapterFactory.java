@@ -38,6 +38,13 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
  */
 public class UsagemodelItemProviderAdapterFactory extends UsagemodelAdapterFactory implements ComposeableAdapterFactory, IChangeNotifier, IDisposable {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "(c) by SDQ, IPD, U Karlsruhe (TH), 2006";
+
+	/**
 	 * This keeps track of the root adapter factory that delegates to this adapter factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -230,6 +237,28 @@ public class UsagemodelItemProviderAdapterFactory extends UsagemodelAdapterFacto
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.usagemodel.LoopIterations} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected LoopIterationsItemProvider loopIterationsItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.usagemodel.LoopIterations}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Adapter createLoopIterationsAdapter() {
+		if (loopIterationsItemProvider == null) {
+			loopIterationsItemProvider = new LoopIterationsItemProvider(this);
+		}
+
+		return loopIterationsItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.usagemodel.EntryLevelSystemCall} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -293,6 +322,28 @@ public class UsagemodelItemProviderAdapterFactory extends UsagemodelAdapterFacto
 		}
 
 		return branchItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.usagemodel.BranchTransition} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected BranchTransitionItemProvider branchTransitionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.usagemodel.BranchTransition}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Adapter createBranchTransitionAdapter() {
+		if (branchTransitionItemProvider == null) {
+			branchTransitionItemProvider = new BranchTransitionItemProvider(this);
+		}
+
+		return branchTransitionItemProvider;
 	}
 
 	/**
@@ -398,9 +449,11 @@ public class UsagemodelItemProviderAdapterFactory extends UsagemodelAdapterFacto
 		if (startItemProvider != null) startItemProvider.dispose();
 		if (openWorkloadItemProvider != null) openWorkloadItemProvider.dispose();
 		if (loopItemProvider != null) loopItemProvider.dispose();
+		if (loopIterationsItemProvider != null) loopIterationsItemProvider.dispose();
 		if (entryLevelSystemCallItemProvider != null) entryLevelSystemCallItemProvider.dispose();
 		if (closedWorkloadItemProvider != null) closedWorkloadItemProvider.dispose();
 		if (branchItemProvider != null) branchItemProvider.dispose();
+		if (branchTransitionItemProvider != null) branchTransitionItemProvider.dispose();
 	}
 
 }

@@ -75,11 +75,11 @@ public class RepositoryFactoryImpl extends EFactoryImpl implements RepositoryFac
 			case RepositoryPackage.INTERFACE: return createInterface();
 			case RepositoryPackage.REPOSITORY: return createRepository();
 			case RepositoryPackage.PROVIDES_COMPONENT_TYPE: return createProvidesComponentType();
-			case RepositoryPackage.PROVIDED_ROLE: return createProvidedRole();
 			case RepositoryPackage.IMPLEMENTATION_COMPONENT_TYPE: return createImplementationComponentType();
 			case RepositoryPackage.COMPLETE_COMPONENT_TYPE: return createCompleteComponentType();
 			case RepositoryPackage.COMPOSITE_COMPONENT: return createCompositeComponent();
 			case RepositoryPackage.BASIC_COMPONENT: return createBasicComponent();
+			case RepositoryPackage.PROVIDED_ROLE: return createProvidedRole();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}

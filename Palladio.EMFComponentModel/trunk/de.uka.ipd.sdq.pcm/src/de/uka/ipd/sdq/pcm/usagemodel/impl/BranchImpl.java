@@ -8,6 +8,7 @@
 package de.uka.ipd.sdq.pcm.usagemodel.impl;
 
 import de.uka.ipd.sdq.pcm.usagemodel.Branch;
+import de.uka.ipd.sdq.pcm.usagemodel.BranchTransition;
 import de.uka.ipd.sdq.pcm.usagemodel.ScenarioBehaviour;
 import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
 
@@ -30,7 +31,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link de.uka.ipd.sdq.pcm.usagemodel.impl.BranchImpl#getBranchedBehaviour_Branch <em>Branched Behaviour Branch</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.usagemodel.impl.BranchImpl#getBranchTransitions_Branch <em>Branch Transitions Branch</em>}</li>
  * </ul>
  * </p>
  *
@@ -45,14 +46,14 @@ public class BranchImpl extends AbstractUserActionImpl implements Branch {
 	public static final String copyright = "(c) by SDQ, IPD, U Karlsruhe (TH), 2006";
 
 	/**
-	 * The cached value of the '{@link #getBranchedBehaviour_Branch() <em>Branched Behaviour Branch</em>}' containment reference list.
+	 * The cached value of the '{@link #getBranchTransitions_Branch() <em>Branch Transitions Branch</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getBranchedBehaviour_Branch()
+	 * @see #getBranchTransitions_Branch()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList branchedBehaviour_Branch = null;
+	protected EList branchTransitions_Branch = null;
 
 
 	/**
@@ -78,11 +79,11 @@ public class BranchImpl extends AbstractUserActionImpl implements Branch {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList getBranchedBehaviour_Branch() {
-		if (branchedBehaviour_Branch == null) {
-			branchedBehaviour_Branch = new EObjectContainmentEList(ScenarioBehaviour.class, this, UsagemodelPackage.BRANCH__BRANCHED_BEHAVIOUR_BRANCH);
+	public EList getBranchTransitions_Branch() {
+		if (branchTransitions_Branch == null) {
+			branchTransitions_Branch = new EObjectContainmentEList(BranchTransition.class, this, UsagemodelPackage.BRANCH__BRANCH_TRANSITIONS_BRANCH);
 		}
-		return branchedBehaviour_Branch;
+		return branchTransitions_Branch;
 	}
 
 	/**
@@ -92,8 +93,8 @@ public class BranchImpl extends AbstractUserActionImpl implements Branch {
 	 */
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case UsagemodelPackage.BRANCH__BRANCHED_BEHAVIOUR_BRANCH:
-				return ((InternalEList)getBranchedBehaviour_Branch()).basicRemove(otherEnd, msgs);
+			case UsagemodelPackage.BRANCH__BRANCH_TRANSITIONS_BRANCH:
+				return ((InternalEList)getBranchTransitions_Branch()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -105,8 +106,8 @@ public class BranchImpl extends AbstractUserActionImpl implements Branch {
 	 */
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case UsagemodelPackage.BRANCH__BRANCHED_BEHAVIOUR_BRANCH:
-				return getBranchedBehaviour_Branch();
+			case UsagemodelPackage.BRANCH__BRANCH_TRANSITIONS_BRANCH:
+				return getBranchTransitions_Branch();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -118,9 +119,9 @@ public class BranchImpl extends AbstractUserActionImpl implements Branch {
 	 */
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case UsagemodelPackage.BRANCH__BRANCHED_BEHAVIOUR_BRANCH:
-				getBranchedBehaviour_Branch().clear();
-				getBranchedBehaviour_Branch().addAll((Collection)newValue);
+			case UsagemodelPackage.BRANCH__BRANCH_TRANSITIONS_BRANCH:
+				getBranchTransitions_Branch().clear();
+				getBranchTransitions_Branch().addAll((Collection)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -133,8 +134,8 @@ public class BranchImpl extends AbstractUserActionImpl implements Branch {
 	 */
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case UsagemodelPackage.BRANCH__BRANCHED_BEHAVIOUR_BRANCH:
-				getBranchedBehaviour_Branch().clear();
+			case UsagemodelPackage.BRANCH__BRANCH_TRANSITIONS_BRANCH:
+				getBranchTransitions_Branch().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -147,8 +148,8 @@ public class BranchImpl extends AbstractUserActionImpl implements Branch {
 	 */
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case UsagemodelPackage.BRANCH__BRANCHED_BEHAVIOUR_BRANCH:
-				return branchedBehaviour_Branch != null && !branchedBehaviour_Branch.isEmpty();
+			case UsagemodelPackage.BRANCH__BRANCH_TRANSITIONS_BRANCH:
+				return branchTransitions_Branch != null && !branchTransitions_Branch.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

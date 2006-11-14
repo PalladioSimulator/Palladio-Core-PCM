@@ -43,6 +43,13 @@ public class BranchItemProvider
 		IItemLabelProvider,	
 		IItemPropertySource {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "(c) by SDQ, IPD, U Karlsruhe (TH), 2006";
+
+	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -77,7 +84,7 @@ public class BranchItemProvider
 	public Collection getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(UsagemodelPackage.Literals.BRANCH__BRANCHED_BEHAVIOUR_BRANCH);
+			childrenFeatures.add(UsagemodelPackage.Literals.BRANCH__BRANCH_TRANSITIONS_BRANCH);
 		}
 		return childrenFeatures;
 	}
@@ -113,7 +120,7 @@ public class BranchItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Branch.class)) {
-			case UsagemodelPackage.BRANCH__BRANCHED_BEHAVIOUR_BRANCH:
+			case UsagemodelPackage.BRANCH__BRANCH_TRANSITIONS_BRANCH:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -132,8 +139,8 @@ public class BranchItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(UsagemodelPackage.Literals.BRANCH__BRANCHED_BEHAVIOUR_BRANCH,
-				 UsagemodelFactory.eINSTANCE.createScenarioBehaviour()));
+				(UsagemodelPackage.Literals.BRANCH__BRANCH_TRANSITIONS_BRANCH,
+				 UsagemodelFactory.eINSTANCE.createBranchTransition()));
 	}
 
 	/**

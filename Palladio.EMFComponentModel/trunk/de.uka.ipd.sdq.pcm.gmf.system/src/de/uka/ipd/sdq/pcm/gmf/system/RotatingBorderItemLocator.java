@@ -3,12 +3,16 @@
  */
 package de.uka.ipd.sdq.pcm.gmf.system;
 
+import java.util.ArrayList;
+import java.util.Observer;
+
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.PositionConstants;
 import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.draw2d.geometry.Point;
 import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.gmf.runtime.diagram.ui.figures.BorderItemLocator;
+import org.eclipse.swt.widgets.Listener;
 
 import com.sun.org.apache.bcel.internal.generic.GETSTATIC;
 
@@ -18,10 +22,22 @@ import com.sun.org.apache.bcel.internal.generic.GETSTATIC;
  */
 public class RotatingBorderItemLocator extends BorderItemLocator {
 
+	protected ArrayList<Listener> observers = new ArrayList<Listener>();
+	
 	public RotatingBorderItemLocator(IFigure parentFigure) {
 		super(parentFigure);
 	}
 
+	public void addListener(Listener o)
+	{
+		observers.add(o);
+	}
+	
+	public void removeListener(Listener o)
+	{
+		observers.remove(o);
+	}
+	
 	/* (non-Javadoc)
 	 * @see org.eclipse.gmf.runtime.diagram.ui.figures.BorderItemLocator#setCurrentSideOfParent(int)
 	 */
@@ -52,6 +68,10 @@ public class RotatingBorderItemLocator extends BorderItemLocator {
 			}	
 			borderItem.setSize(dim);
 			super.relocate(borderItem);
+		}
+		for (Listener o : observers)
+		{
+			o.handleEvent(null);
 		}
 	}
 

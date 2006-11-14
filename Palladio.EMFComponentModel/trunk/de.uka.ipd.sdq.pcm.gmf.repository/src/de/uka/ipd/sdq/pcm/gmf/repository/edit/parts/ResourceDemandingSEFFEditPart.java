@@ -5,7 +5,17 @@ package de.uka.ipd.sdq.pcm.gmf.repository.edit.parts;
 
 import java.util.Collections;
 import org.eclipse.gef.DragTracker;
-import de.uka.ipd.sdq.pcm.gmf.repository.edit.policies.ResourceDemandingSEFFGraphicalNodeEditPolicy;
+import org.eclipse.gef.EditPolicy;
+import org.eclipse.gef.Request;
+import org.eclipse.gef.requests.SelectionRequest;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.ITextAwareEditPart;
+import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
+import org.eclipse.gmf.runtime.diagram.ui.editpolicies.LabelDirectEditPolicy;
+import org.eclipse.gmf.runtime.diagram.ui.editpolicies.ListItemComponentEditPolicy;
+import org.eclipse.gmf.runtime.diagram.ui.tools.DragEditPartsTrackerEx;
+import org.eclipse.gmf.runtime.notation.View;
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.policies.PcmTextNonResizableEditPolicy;
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.policies.PcmTextSelectionEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.policies.ResourceDemandingSEFFItemSemanticEditPolicy;
 
 import de.uka.ipd.sdq.pcm.gmf.repository.part.RepositoryDiagramEditorPlugin;
@@ -71,40 +81,6 @@ import org.eclipse.swt.accessibility.AccessibleEvent;
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.FontData;
 import org.eclipse.swt.graphics.Image;
-
-import org.eclipse.draw2d.StackLayout;
-
-import org.eclipse.gef.EditPart;
-import org.eclipse.gef.EditPolicy;
-import org.eclipse.gef.Request;
-
-import org.eclipse.gef.requests.SelectionRequest;
-import org.eclipse.gmf.runtime.diagram.ui.editparts.ITextAwareEditPart;
-import org.eclipse.gef.commands.Command;
-
-import org.eclipse.gef.editpolicies.LayoutEditPolicy;
-import org.eclipse.gef.editpolicies.NonResizableEditPolicy;
-
-import org.eclipse.gef.requests.CreateRequest;
-
-import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
-
-import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
-
-import org.eclipse.gmf.runtime.diagram.ui.editpolicies.LabelDirectEditPolicy;
-import org.eclipse.gmf.runtime.diagram.ui.editpolicies.ListItemComponentEditPolicy;
-import org.eclipse.gmf.runtime.diagram.ui.tools.DragEditPartsTrackerEx;
-import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
-
-import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
-import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
-
-import org.eclipse.gmf.runtime.notation.View;
-
-import de.uka.ipd.sdq.pcm.gmf.repository.edit.policies.PcmTextNonResizableEditPolicy;
-import de.uka.ipd.sdq.pcm.gmf.repository.edit.policies.PcmTextSelectionEditPolicy;
-import de.uka.ipd.sdq.pcm.repository.Signature;
-import de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF;
 
 /**
  * @generated
@@ -260,15 +236,17 @@ public class ResourceDemandingSEFFEditPart extends CompartmentEditPart
 	}
 
 	/**
-	 * @generated NOT
+	 * @generated
 	 */
 	protected String getLabelText() {
-		String text = "";
-		ResourceDemandingSEFF s = (ResourceDemandingSEFF) ((View) this
-				.getModel()).getElement();
-		Signature sig = s.getDescribedService__SEFF();
-		if (sig != null) {
-			text = sig.getServiceName() == null ? "" : sig.getServiceName();
+		String text = null;
+		if (getParser() != null) {
+			text = getParser().getPrintString(
+					new EObjectAdapter(getParserElement()),
+					getParserOptions().intValue());
+		}
+		if (text == null || text.length() == 0) {
+			text = defaultText;
 		}
 		return text;
 	}
@@ -525,7 +503,7 @@ public class ResourceDemandingSEFFEditPart extends CompartmentEditPart
 	}
 
 	/**
-	 * @generated NOT
+	 * @generated
 	 */
 	protected void addSemanticListeners() {
 		if (getParser() instanceof ISemanticParser) {
@@ -539,11 +517,10 @@ public class ResourceDemandingSEFFEditPart extends CompartmentEditPart
 		} else {
 			super.addSemanticListeners();
 		}
-		addListenerFilter("Service", this, resolveSemanticElement());
 	}
 
 	/**
-	 * @generated NOT
+	 * @generated
 	 */
 	protected void removeSemanticListeners() {
 		if (parserElements != null) {
@@ -553,7 +530,6 @@ public class ResourceDemandingSEFFEditPart extends CompartmentEditPart
 		} else {
 			super.removeSemanticListeners();
 		}
-		removeListenerFilter("Service");
 	}
 
 	/**

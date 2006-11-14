@@ -17,7 +17,7 @@
         <diagramLabel
             href="repository.gmfgraph#Interface_Name_Label"/>
         <features
-            href="../../pcm.ecore#//core/entity/Entity/entityName"/>
+            href="../../pcm.ecore#//core/entity/NamedElement/entityName"/>
       </labelMappings>
       <tool
           xsi:type="gmftool:CreationTool"
@@ -66,7 +66,7 @@
         <diagramLabel
             href="repository.gmfgraph#BasicComponent_Name_Label"/>
         <features
-            href="../../pcm.ecore#//core/entity/Entity/entityName"/>
+            href="../../pcm.ecore#//core/entity/NamedElement/entityName"/>
       </labelMappings>
       <tool
           xsi:type="gmftool:CreationTool"
@@ -104,6 +104,63 @@
       </compartments>
     </ownedChild>
   </nodes>
+  <nodes>
+    <containmentFeature
+        href="../../pcm.ecore#//repository/Repository/components__Repository"/>
+    <childrenFeature
+        href="../../pcm.ecore#//repository/Repository/components__Repository"/>
+    <ownedChild>
+      <domainMetaElement
+          href="../../pcm.ecore#//repository/CompleteComponentType"/>
+      <labelMappings>
+        <diagramLabel
+            href="repository.gmfgraph#CompleteComponentTypeLabel"/>
+        <features
+            href="../../pcm.ecore#//core/entity/NamedElement/entityName"/>
+      </labelMappings>
+      <tool
+          xsi:type="gmftool:CreationTool"
+          href="repositoryeditor.gmftool#//@palette/@tools.0/@tools.7"/>
+      <diagramNode
+          href="repository.gmfgraph#CompleteComponentType"/>
+    </ownedChild>
+  </nodes>
+  <nodes>
+    <containmentFeature
+        href="../../pcm.ecore#//repository/Repository/components__Repository"/>
+    <childrenFeature
+        href="../../pcm.ecore#//repository/Repository/components__Repository"/>
+    <ownedChild>
+      <domainMetaElement
+          href="../../pcm.ecore#//repository/ProvidesComponentType"/>
+      <labelMappings>
+        <diagramLabel
+            href="repository.gmfgraph#ProvidesComponentTypeLabel"/>
+        <features
+            href="../../pcm.ecore#//core/entity/NamedElement/entityName"/>
+      </labelMappings>
+      <tool
+          xsi:type="gmftool:CreationTool"
+          href="repositoryeditor.gmftool#//@palette/@tools.0/@tools.11"/>
+      <diagramNode
+          href="repository.gmfgraph#ProvidesComponentType"/>
+    </ownedChild>
+  </nodes>
+  <nodes>
+    <containmentFeature
+        href="../../pcm.ecore#//repository/Repository/components__Repository"/>
+    <childrenFeature
+        href="../../pcm.ecore#//repository/Repository/components__Repository"/>
+    <ownedChild>
+      <domainMetaElement
+          href="../../pcm.ecore#//repository/CompositeComponent"/>
+      <tool
+          xsi:type="gmftool:CreationTool"
+          href="repositoryeditor.gmftool#//@palette/@tools.0/@tools.8"/>
+      <diagramNode
+          href="repository.gmfgraph#CompositeComponent"/>
+    </ownedChild>
+  </nodes>
   <links>
     <domainMetaElement
         href="../../pcm.ecore#//repository/ProvidedRole"/>
@@ -113,15 +170,12 @@
           href="repository.gmfgraph#ProvidesStereotypeLabel"/>
     </labelMappings>
     <containmentFeature
-        href="../../pcm.ecore#//repository/ProvidesComponentType/providedRoles__ProvidesComponentType"/>
+        href="../../pcm.ecore#//core/entity/InterfaceProvidingEntity/providedRoles_InterfaceProvidingEntity"/>
     <tool
         xsi:type="gmftool:CreationTool"
         href="repositoryeditor.gmftool#//@palette/@tools.0/@tools.5"/>
     <diagramLink
         href="repository.gmfgraph#ProvidedRole"/>
-    <sourceMetaFeature
-        xsi:type="ecore:EReference"
-        href="../../pcm.ecore#//repository/ProvidedRole/providingComponent__ProvidedRole"/>
     <linkMetaFeature
         xsi:type="ecore:EReference"
         href="../../pcm.ecore#//repository/ProvidedRole/providedInterface__ProvidedRole"/>
@@ -135,7 +189,7 @@
           href="repository.gmfgraph#RequiresStereotypeLabel"/>
     </labelMappings>
     <containmentFeature
-        href="../../pcm.ecore#//repository/ProvidesComponentType/requiredRoles_ProvidesComponentType"/>
+        href="../../pcm.ecore#//core/entity/InterfaceRequiringEntity/requiredRoles_InterfaceRequiringEntity"/>
     <tool
         xsi:type="gmftool:CreationTool"
         href="repositoryeditor.gmftool#//@palette/@tools.0/@tools.1"/>

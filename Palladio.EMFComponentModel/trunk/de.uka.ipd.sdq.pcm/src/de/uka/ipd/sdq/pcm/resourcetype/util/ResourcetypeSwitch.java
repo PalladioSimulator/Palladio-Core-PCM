@@ -10,6 +10,8 @@ import de.uka.ipd.sdq.identifier.Identifier;
 
 import de.uka.ipd.sdq.pcm.core.entity.Entity;
 
+import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
+
 import de.uka.ipd.sdq.pcm.resourcetype.*;
 
 import java.util.List;
@@ -103,6 +105,7 @@ public class ResourcetypeSwitch {
 				Object result = caseResourceType(resourceType);
 				if (result == null) result = caseEntity(resourceType);
 				if (result == null) result = caseIdentifier(resourceType);
+				if (result == null) result = caseNamedElement(resourceType);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -118,6 +121,7 @@ public class ResourcetypeSwitch {
 				if (result == null) result = caseResourceType(passiveResourceType);
 				if (result == null) result = caseEntity(passiveResourceType);
 				if (result == null) result = caseIdentifier(passiveResourceType);
+				if (result == null) result = caseNamedElement(passiveResourceType);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -128,6 +132,7 @@ public class ResourcetypeSwitch {
 				if (result == null) result = caseResourceType(communicationLinkResourceType);
 				if (result == null) result = caseEntity(communicationLinkResourceType);
 				if (result == null) result = caseIdentifier(communicationLinkResourceType);
+				if (result == null) result = caseNamedElement(communicationLinkResourceType);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -137,6 +142,7 @@ public class ResourcetypeSwitch {
 				if (result == null) result = caseResourceType(processingResourceType);
 				if (result == null) result = caseEntity(processingResourceType);
 				if (result == null) result = caseIdentifier(processingResourceType);
+				if (result == null) result = caseNamedElement(processingResourceType);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -231,6 +237,21 @@ public class ResourcetypeSwitch {
 	 * @generated
 	 */
 	public Object caseIdentifier(Identifier object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpretting the object as an instance of '<em>Named Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpretting the object as an instance of '<em>Named Element</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public Object caseNamedElement(NamedElement object) {
 		return null;
 	}
 

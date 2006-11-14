@@ -4,14 +4,15 @@
  *
  * $Id$
  */
-package de.uka.ipd.sdq.pcm.system.provider;
+package de.uka.ipd.sdq.pcm.core.entity.provider;
 
+
+import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
+import de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingRequiringEntity;
 
 import de.uka.ipd.sdq.pcm.core.stochastics.provider.PcmEditPlugin;
 
-import de.uka.ipd.sdq.pcm.repository.provider.ProvidedRoleItemProvider;
-
-import de.uka.ipd.sdq.pcm.system.SystemProvidedRole;
+import de.uka.ipd.sdq.pcm.repository.RepositoryFactory;
 
 import java.util.Collection;
 import java.util.List;
@@ -26,15 +27,16 @@ import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link de.uka.ipd.sdq.pcm.system.SystemProvidedRole} object.
+ * This is the item provider adapter for a {@link de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingRequiringEntity} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class SystemProvidedRoleItemProvider
-	extends ProvidedRoleItemProvider
+public class InterfaceProvidingRequiringEntityItemProvider
+	extends InterfaceProvidingEntityItemProvider
 	implements	
 		IEditingDomainItemProvider,	
 		IStructuredItemContentProvider,	
@@ -42,12 +44,19 @@ public class SystemProvidedRoleItemProvider
 		IItemLabelProvider,	
 		IItemPropertySource {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "(c) by SDQ, IPD, U Karlsruhe (TH), 2006";
+
+	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SystemProvidedRoleItemProvider(AdapterFactory adapterFactory) {
+	public InterfaceProvidingRequiringEntityItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -66,13 +75,19 @@ public class SystemProvidedRoleItemProvider
 	}
 
 	/**
-	 * This returns SystemProvidedRole.gif.
+	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
+	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
+	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/SystemProvidedRole"));
+	public Collection getChildrenFeatures(Object object) {
+		if (childrenFeatures == null) {
+			super.getChildrenFeatures(object);
+			childrenFeatures.add(EntityPackage.Literals.INTERFACE_REQUIRING_ENTITY__REQUIRED_ROLES_INTERFACE_REQUIRING_ENTITY);
+		}
+		return childrenFeatures;
 	}
 
 	/**
@@ -82,10 +97,7 @@ public class SystemProvidedRoleItemProvider
 	 * @generated
 	 */
 	public String getText(Object object) {
-		String label = ((SystemProvidedRole)object).getId();
-		return label == null || label.length() == 0 ?
-			getString("_UI_SystemProvidedRole_type") :
-			getString("_UI_SystemProvidedRole_type") + " " + label;
+		return getString("_UI_InterfaceProvidingRequiringEntity_type");
 	}
 
 	/**
@@ -97,6 +109,12 @@ public class SystemProvidedRoleItemProvider
 	 */
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
+
+		switch (notification.getFeatureID(InterfaceProvidingRequiringEntity.class)) {
+			case EntityPackage.INTERFACE_PROVIDING_REQUIRING_ENTITY__REQUIRED_ROLES_INTERFACE_REQUIRING_ENTITY:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+				return;
+		}
 		super.notifyChanged(notification);
 	}
 
@@ -109,6 +127,11 @@ public class SystemProvidedRoleItemProvider
 	 */
 	protected void collectNewChildDescriptors(Collection newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+
+		newChildDescriptors.add
+			(createChildParameter
+				(EntityPackage.Literals.INTERFACE_REQUIRING_ENTITY__REQUIRED_ROLES_INTERFACE_REQUIRING_ENTITY,
+				 RepositoryFactory.eINSTANCE.createRequiredRole()));
 	}
 
 	/**

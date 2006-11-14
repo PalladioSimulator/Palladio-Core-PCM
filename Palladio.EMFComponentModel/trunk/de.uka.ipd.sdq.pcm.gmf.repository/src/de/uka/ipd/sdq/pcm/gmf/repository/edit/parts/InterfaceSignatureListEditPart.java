@@ -5,7 +5,6 @@ package de.uka.ipd.sdq.pcm.gmf.repository.edit.parts;
 
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.notation.View;
-
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.policies.InterfaceSignatureListCanonicalEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.policies.InterfaceSignatureListItemSemanticEditPolicy;
 
@@ -79,6 +78,8 @@ public class InterfaceSignatureListEditPart extends ListCompartmentEditPart {
 				new CreationEditPolicy());
 		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE,
 				new DragDropEditPolicy());
+		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE,
+				new InterfaceSignatureListCanonicalEditPolicy());
 	}
 
 	/**

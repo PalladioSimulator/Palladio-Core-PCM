@@ -38,6 +38,13 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
  */
 public class SeffItemProviderAdapterFactory extends SeffAdapterFactory implements ComposeableAdapterFactory, IChangeNotifier, IDisposable {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "(c) by SDQ, IPD, U Karlsruhe (TH), 2006";
+
+	/**
 	 * This keeps track of the root adapter factory that delegates to this adapter factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -384,6 +391,28 @@ public class SeffItemProviderAdapterFactory extends SeffAdapterFactory implement
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.seff.BranchCondition} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected BranchConditionItemProvider branchConditionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.seff.BranchCondition}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Adapter createBranchConditionAdapter() {
+		if (branchConditionItemProvider == null) {
+			branchConditionItemProvider = new BranchConditionItemProvider(this);
+		}
+
+		return branchConditionItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.seff.BranchAction} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -425,6 +454,28 @@ public class SeffItemProviderAdapterFactory extends SeffAdapterFactory implement
 		}
 
 		return aquireActionItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.seff.CollectionIteratorAction} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected CollectionIteratorActionItemProvider collectionIteratorActionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.seff.CollectionIteratorAction}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Adapter createCollectionIteratorActionAdapter() {
+		if (collectionIteratorActionItemProvider == null) {
+			collectionIteratorActionItemProvider = new CollectionIteratorActionItemProvider(this);
+		}
+
+		return collectionIteratorActionItemProvider;
 	}
 
 	/**
@@ -537,8 +588,10 @@ public class SeffItemProviderAdapterFactory extends SeffAdapterFactory implement
 		if (externalCallActionItemProvider != null) externalCallActionItemProvider.dispose();
 		if (collectionParametricParameterUsageItemProvider != null) collectionParametricParameterUsageItemProvider.dispose();
 		if (branchTransitionItemProvider != null) branchTransitionItemProvider.dispose();
+		if (branchConditionItemProvider != null) branchConditionItemProvider.dispose();
 		if (branchActionItemProvider != null) branchActionItemProvider.dispose();
 		if (aquireActionItemProvider != null) aquireActionItemProvider.dispose();
+		if (collectionIteratorActionItemProvider != null) collectionIteratorActionItemProvider.dispose();
 	}
 
 }

@@ -266,18 +266,18 @@ public class RepositoryValidator extends EObjectValidator {
 				return validateRepository((Repository)value, diagnostics, context);
 			case RepositoryPackage.PROVIDES_COMPONENT_TYPE:
 				return validateProvidesComponentType((ProvidesComponentType)value, diagnostics, context);
-			case RepositoryPackage.PROVIDED_ROLE:
-				return validateProvidedRole((ProvidedRole)value, diagnostics, context);
 			case RepositoryPackage.IMPLEMENTATION_COMPONENT_TYPE:
 				return validateImplementationComponentType((ImplementationComponentType)value, diagnostics, context);
 			case RepositoryPackage.COMPLETE_COMPONENT_TYPE:
 				return validateCompleteComponentType((CompleteComponentType)value, diagnostics, context);
+			case RepositoryPackage.DELEGATION_CONNECTOR:
+				return validateDelegationConnector((DelegationConnector)value, diagnostics, context);
 			case RepositoryPackage.COMPOSITE_COMPONENT:
 				return validateCompositeComponent((CompositeComponent)value, diagnostics, context);
 			case RepositoryPackage.BASIC_COMPONENT:
 				return validateBasicComponent((BasicComponent)value, diagnostics, context);
-			case RepositoryPackage.DELEGATION_CONNECTOR:
-				return validateDelegationConnector((DelegationConnector)value, diagnostics, context);
+			case RepositoryPackage.PROVIDED_ROLE:
+				return validateProvidedRole((ProvidedRole)value, diagnostics, context);
 			case RepositoryPackage.PARAMETER_MODIFIER:
 				return validateParameterModifier((ParameterModifier)value, diagnostics, context);
 			default: 
