@@ -16,14 +16,15 @@
         </branches_Branch>
         <branches_Branch branchCondition="=10&lt;=20">
           <branchBehaviour_BranchTransition>
-            <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_1n0DQTQbEduaPaOP6VcQiw" entityName="Starting" successor_AbstractAction="_2Bl1MDQbEduaPaOP6VcQiw"/>
-            <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_2Bl1MDQbEduaPaOP6VcQiw" entityName="Starting" predecessor_AbstractAction="_1n0DQTQbEduaPaOP6VcQiw"/>
+            <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_1n0DQTQbEduaPaOP6VcQiw" entityName="Starting" successor_AbstractAction="_VqZmlHS1Edua9s77tdrqIA"/>
+            <steps_Behaviour xsi:type="pcm.seff:InternalAction" id="_VqZmlHS1Edua9s77tdrqIA" predecessor_AbstractAction="_1n0DQTQbEduaPaOP6VcQiw" successor_AbstractAction="_2Bl1MDQbEduaPaOP6VcQiw" resourceDemand_Action="//@components__Repository.0/@serviceEffectSpecifications__BasicComponent.0/@parametricResourceDemands_Behaviour.1" failureProbability="0.0"/>
+            <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_2Bl1MDQbEduaPaOP6VcQiw" entityName="Starting" predecessor_AbstractAction="_VqZmlHS1Edua9s77tdrqIA"/>
           </branchBehaviour_BranchTransition>
         </branches_Branch>
         <branches_Branch branchCondition="=20&lt;=30">
           <branchBehaviour_BranchTransition>
             <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_KfyKoXAHEduM17cwNTLmIQ" entityName="Starting" successor_AbstractAction="_LzrbdHAHEduM17cwNTLmIQ"/>
-            <steps_Behaviour xsi:type="pcm.seff:InternalAction" id="_LzrbdHAHEduM17cwNTLmIQ" entityName="Doing" predecessor_AbstractAction="_KfyKoXAHEduM17cwNTLmIQ" successor_AbstractAction="_MKVA4HAHEduM17cwNTLmIQ" resourceDemand_Action="//@components__Repository.0/@serviceEffectSpecifications__BasicComponent.0/@parametricResourceDemands_Behaviour.1" failureProbability="0.0"/>
+            <steps_Behaviour xsi:type="pcm.seff:InternalAction" id="_LzrbdHAHEduM17cwNTLmIQ" entityName="Doing" predecessor_AbstractAction="_KfyKoXAHEduM17cwNTLmIQ" successor_AbstractAction="_MKVA4HAHEduM17cwNTLmIQ" resourceDemand_Action="//@components__Repository.0/@serviceEffectSpecifications__BasicComponent.0/@parametricResourceDemands_Behaviour.2" failureProbability="0.0"/>
             <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_MKVA4HAHEduM17cwNTLmIQ" entityName="Stopping" predecessor_AbstractAction="_LzrbdHAHEduM17cwNTLmIQ"/>
           </branchBehaviour_BranchTransition>
         </branches_Branch>
@@ -32,7 +33,10 @@
       <parametricResourceDemands_Behaviour specification="= IntRandomVar[ (0.3; 1000) (0.7; 2000) ]" demand="1000" unit="CPU cycles" action_ParametricResourceDemand="_Z92dpDQbEduaPaOP6VcQiw">
         <requiredResource_ParametricResourceDemand href="DSolverExample1.resourcetype#_YPBH0TQcEduaPaOP6VcQiw"/>
       </parametricResourceDemands_Behaviour>
-      <parametricResourceDemands_Behaviour specification="= 2000" demand="2000" unit="CPU cycles" action_ParametricResourceDemand="_LzrbdHAHEduM17cwNTLmIQ">
+      <parametricResourceDemands_Behaviour specification="= 2000" demand="2000" unit="CPU cycles" action_ParametricResourceDemand="_VqZmlHS1Edua9s77tdrqIA">
+        <requiredResource_ParametricResourceDemand href="DSolverExample1.resourcetype#_YPBH0TQcEduaPaOP6VcQiw"/>
+      </parametricResourceDemands_Behaviour>
+      <parametricResourceDemands_Behaviour specification="= 1000" unit="CPU cycles" action_ParametricResourceDemand="_LzrbdHAHEduM17cwNTLmIQ">
         <requiredResource_ParametricResourceDemand href="DSolverExample1.resourcetype#_YPBH0TQcEduaPaOP6VcQiw"/>
       </parametricResourceDemands_Behaviour>
     </serviceEffectSpecifications__BasicComponent>
