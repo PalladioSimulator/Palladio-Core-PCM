@@ -82,6 +82,9 @@
 		<exec executable="svn.exe">
 		  <arg line="co svn://i43pc13.ipd.uka.de/code/Palladio.EMFProbfunctionModel/trunk ${rootSourceFolder}/ProbFunction --username ${svnUserName}"/>
 		</exec>
+		<exec executable="svn.exe">
+		  <arg line="co svn://i43pc13.ipd.uka.de/code/PalladioCM.DerivedContext/trunk ${rootSourceFolder}/Context --username ${svnUserName}"/>
+		</exec>
 	</target>
 
 	<!-- ===================================================================== -->
@@ -179,6 +182,9 @@
 			<replacefilter
 			    token="@@de.uka.ipd.sdq.probfunction.feature.version@@"
     			    property="de.uka.ipd.sdq.probfunction.feature"/>
+			<replacefilter
+			    token="@@de.uka.ipd.sdq.context.feature.version@@"
+    			    property="de.uka.ipd.sdq.context.feature"/>
 		</replace>
 	</target>
 
