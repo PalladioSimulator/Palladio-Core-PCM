@@ -11,9 +11,6 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.emf.edit,
  org.eclipse.emf,
  de.uka.ipd.sdq.pcm
-EclExport-Package: de.uka.ipd.sdq.pcmbench.ui,
- de.uka.ipd.sdq.pcmbench.ui.provider,
- de.uka.ipd.sdq.pcmbench.ui.provider.categoryaware
 Export-Package: de.uka.ipd.sdq.pcmbench.ui,
  de.uka.ipd.sdq.pcmbench.ui.provider,
  de.uka.ipd.sdq.pcmbench.ui.provider.categoryaware

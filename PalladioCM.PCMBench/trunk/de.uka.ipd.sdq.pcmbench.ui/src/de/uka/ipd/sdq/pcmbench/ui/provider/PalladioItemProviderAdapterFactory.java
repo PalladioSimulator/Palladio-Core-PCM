@@ -5,6 +5,7 @@ package de.uka.ipd.sdq.pcmbench.ui.provider;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.DecoratorAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemProviderDecorator;
 import org.eclipse.emf.edit.provider.INotifyChangedListener;
@@ -17,7 +18,7 @@ import org.eclipse.emf.edit.provider.INotifyChangedListener;
  */
 public class PalladioItemProviderAdapterFactory 
 	extends DecoratorAdapterFactory 
-	implements INotifyChangedListener
+	implements INotifyChangedListener, ComposeableAdapterFactory
 {
 
 	/**
@@ -34,7 +35,7 @@ public class PalladioItemProviderAdapterFactory
 	@Override
 	protected IItemProviderDecorator createItemProviderDecorator(Object target,
 			Object Type) {
-		PalladioItemProvider result = new PalladioItemProvider(this.decoratedAdapterFactory);
+		PalladioItemProvider result = new PalladioItemProvider(this);
 		if (((Class)Type).isInstance(result)) {
 			result.addListener(this);
 			return result;
@@ -44,6 +45,14 @@ public class PalladioItemProviderAdapterFactory
 
 	public void notifyChanged(Notification notification) {
 		fireNotifyChanged(notification);
+	}
+
+	/* (non-Javadoc)
+	 * @see org.eclipse.emf.edit.provider.DecoratorAdapterFactory#getRootAdapterFactory()
+	 */
+	@Override
+	public ComposeableAdapterFactory getRootAdapterFactory() {
+		return this;
 	}
 
 }

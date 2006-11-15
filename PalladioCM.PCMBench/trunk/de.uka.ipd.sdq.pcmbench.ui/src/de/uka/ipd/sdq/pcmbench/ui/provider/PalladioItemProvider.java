@@ -3,6 +3,8 @@
  */
 package de.uka.ipd.sdq.pcmbench.ui.provider;
 
+import java.util.List;
+
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
