@@ -100,7 +100,7 @@ public interface RepositoryPackage extends EPackage {
 	int SIGNATURE__PARAMETERS_SIGNATURE = 1;
 
 	/**
-	 * The feature id for the '<em><b>Returntype Signature</b></em>' containment reference.
+	 * The feature id for the '<em><b>Returntype Signature</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -137,7 +137,7 @@ public interface RepositoryPackage extends EPackage {
 	int PARAMETER = 1;
 
 	/**
-	 * The feature id for the '<em><b>Datatype Parameter</b></em>' containment reference.
+	 * The feature id for the '<em><b>Datatype Parameter</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -183,31 +183,13 @@ public interface RepositoryPackage extends EPackage {
 	int DATA_TYPE = 2;
 
 	/**
-	 * The feature id for the '<em><b>Parent Data Type Data Type</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DATA_TYPE__PARENT_DATA_TYPE_DATA_TYPE = 0;
-
-	/**
-	 * The feature id for the '<em><b>Type</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DATA_TYPE__TYPE = 1;
-
-	/**
 	 * The number of structural features of the '<em>Data Type</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DATA_TYPE_FEATURE_COUNT = 2;
+	int DATA_TYPE_FEATURE_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.repository.impl.ExceptionTypeImpl <em>Exception Type</em>}' class.
@@ -367,13 +349,13 @@ public interface RepositoryPackage extends EPackage {
 	int INTERFACE__PARENT_INTERFACE_INTERFACE = EntityPackage.ENTITY_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Anchestor Interfaces</b></em>' reference list.
+	 * The feature id for the '<em><b>Anchestor Interfaces Interface</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INTERFACE__ANCHESTOR_INTERFACES = EntityPackage.ENTITY_FEATURE_COUNT + 1;
+	int INTERFACE__ANCHESTOR_INTERFACES_INTERFACE = EntityPackage.ENTITY_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Protocols Interface</b></em>' containment reference list.
@@ -449,13 +431,22 @@ public interface RepositoryPackage extends EPackage {
 	int REPOSITORY__INTERFACES_REPOSITORY = 3;
 
 	/**
+	 * The feature id for the '<em><b>Datatypes Repository</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REPOSITORY__DATATYPES_REPOSITORY = 4;
+
+	/**
 	 * The number of structural features of the '<em>Repository</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int REPOSITORY_FEATURE_COUNT = 4;
+	int REPOSITORY_FEATURE_COUNT = 5;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.repository.impl.ProvidesComponentTypeImpl <em>Provides Component Type</em>}' class.
@@ -520,7 +511,7 @@ public interface RepositoryPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getProvidedRole()
 	 * @generated
 	 */
-	int PROVIDED_ROLE = 14;
+	int PROVIDED_ROLE = 18;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.repository.impl.CompleteComponentTypeImpl <em>Complete Component Type</em>}' class.
@@ -780,22 +771,13 @@ public interface RepositoryPackage extends EPackage {
 	int COMPOSITE_COMPONENT__CHILD_COMPONENT_CONTEXTS_COMPOSED_STRUCTURE = IMPLEMENTATION_COMPONENT_TYPE_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Composite Assembly Connectors Composed Structure</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPOSITE_COMPONENT__COMPOSITE_ASSEMBLY_CONNECTORS_COMPOSED_STRUCTURE = IMPLEMENTATION_COMPONENT_TYPE_FEATURE_COUNT + 1;
-
-	/**
 	 * The feature id for the '<em><b>Provided Delegation Connectors Composed Structure</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPOSITE_COMPONENT__PROVIDED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE = IMPLEMENTATION_COMPONENT_TYPE_FEATURE_COUNT + 2;
+	int COMPOSITE_COMPONENT__PROVIDED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE = IMPLEMENTATION_COMPONENT_TYPE_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Required Delegation Connectors Composed Structure</b></em>' containment reference list.
@@ -804,7 +786,16 @@ public interface RepositoryPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPOSITE_COMPONENT__REQUIRED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE = IMPLEMENTATION_COMPONENT_TYPE_FEATURE_COUNT + 3;
+	int COMPOSITE_COMPONENT__REQUIRED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE = IMPLEMENTATION_COMPONENT_TYPE_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Composite Assembly Connectors Composed Structure</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPOSITE_COMPONENT__COMPOSITE_ASSEMBLY_CONNECTORS_COMPOSED_STRUCTURE = IMPLEMENTATION_COMPONENT_TYPE_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Implementation Component Type</b></em>' reference.
@@ -906,6 +897,172 @@ public interface RepositoryPackage extends EPackage {
 	int BASIC_COMPONENT_FEATURE_COUNT = IMPLEMENTATION_COMPONENT_TYPE_FEATURE_COUNT + 2;
 
 	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.repository.impl.PrimitiveDataTypeImpl <em>Primitive Data Type</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.pcm.repository.impl.PrimitiveDataTypeImpl
+	 * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getPrimitiveDataType()
+	 * @generated
+	 */
+	int PRIMITIVE_DATA_TYPE = 14;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PRIMITIVE_DATA_TYPE__TYPE = DATA_TYPE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Primitive Data Type</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PRIMITIVE_DATA_TYPE_FEATURE_COUNT = DATA_TYPE_FEATURE_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.repository.impl.CollectionDataTypeImpl <em>Collection Data Type</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.pcm.repository.impl.CollectionDataTypeImpl
+	 * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getCollectionDataType()
+	 * @generated
+	 */
+	int COLLECTION_DATA_TYPE = 15;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLLECTION_DATA_TYPE__ID = EntityPackage.ENTITY__ID;
+
+	/**
+	 * The feature id for the '<em><b>Entity Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLLECTION_DATA_TYPE__ENTITY_NAME = EntityPackage.ENTITY__ENTITY_NAME;
+
+	/**
+	 * The feature id for the '<em><b>Inner Type Collection Data Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLLECTION_DATA_TYPE__INNER_TYPE_COLLECTION_DATA_TYPE = EntityPackage.ENTITY_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Collection Data Type</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COLLECTION_DATA_TYPE_FEATURE_COUNT = EntityPackage.ENTITY_FEATURE_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.repository.impl.CompositeDataTypeImpl <em>Composite Data Type</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.pcm.repository.impl.CompositeDataTypeImpl
+	 * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getCompositeDataType()
+	 * @generated
+	 */
+	int COMPOSITE_DATA_TYPE = 16;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPOSITE_DATA_TYPE__ID = EntityPackage.ENTITY__ID;
+
+	/**
+	 * The feature id for the '<em><b>Entity Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPOSITE_DATA_TYPE__ENTITY_NAME = EntityPackage.ENTITY__ENTITY_NAME;
+
+	/**
+	 * The feature id for the '<em><b>Parent Type Composite Data Type</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPOSITE_DATA_TYPE__PARENT_TYPE_COMPOSITE_DATA_TYPE = EntityPackage.ENTITY_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Inner Declaration Composite Data Type</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPOSITE_DATA_TYPE__INNER_DECLARATION_COMPOSITE_DATA_TYPE = EntityPackage.ENTITY_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Composite Data Type</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPOSITE_DATA_TYPE_FEATURE_COUNT = EntityPackage.ENTITY_FEATURE_COUNT + 2;
+
+	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.repository.impl.InnerDeclarationImpl <em>Inner Declaration</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.pcm.repository.impl.InnerDeclarationImpl
+	 * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getInnerDeclaration()
+	 * @generated
+	 */
+	int INNER_DECLARATION = 17;
+
+	/**
+	 * The feature id for the '<em><b>Entity Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INNER_DECLARATION__ENTITY_NAME = EntityPackage.NAMED_ELEMENT__ENTITY_NAME;
+
+	/**
+	 * The feature id for the '<em><b>Datatype Inner Declaration</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INNER_DECLARATION__DATATYPE_INNER_DECLARATION = EntityPackage.NAMED_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Inner Declaration</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INNER_DECLARATION_FEATURE_COUNT = EntityPackage.NAMED_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -949,7 +1106,18 @@ public interface RepositoryPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getParameterModifier()
 	 * @generated
 	 */
-	int PARAMETER_MODIFIER = 15;
+	int PARAMETER_MODIFIER = 19;
+
+
+	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.repository.PrimitiveTypeEnum <em>Primitive Type Enum</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.pcm.repository.PrimitiveTypeEnum
+	 * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getPrimitiveTypeEnum()
+	 * @generated
+	 */
+	int PRIMITIVE_TYPE_ENUM = 20;
 
 
 	/**
@@ -985,10 +1153,10 @@ public interface RepositoryPackage extends EPackage {
 	EReference getSignature_Parameters__Signature();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link de.uka.ipd.sdq.pcm.repository.Signature#getReturntype__Signature <em>Returntype Signature</em>}'.
+	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.pcm.repository.Signature#getReturntype__Signature <em>Returntype Signature</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Returntype Signature</em>'.
+	 * @return the meta object for the reference '<em>Returntype Signature</em>'.
 	 * @see de.uka.ipd.sdq.pcm.repository.Signature#getReturntype__Signature()
 	 * @see #getSignature()
 	 * @generated
@@ -1017,10 +1185,10 @@ public interface RepositoryPackage extends EPackage {
 	EClass getParameter();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link de.uka.ipd.sdq.pcm.repository.Parameter#getDatatype__Parameter <em>Datatype Parameter</em>}'.
+	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.pcm.repository.Parameter#getDatatype__Parameter <em>Datatype Parameter</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Datatype Parameter</em>'.
+	 * @return the meta object for the reference '<em>Datatype Parameter</em>'.
 	 * @see de.uka.ipd.sdq.pcm.repository.Parameter#getDatatype__Parameter()
 	 * @see #getParameter()
 	 * @generated
@@ -1058,28 +1226,6 @@ public interface RepositoryPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getDataType();
-
-	/**
-	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.pcm.repository.DataType#getParentDataType__DataType <em>Parent Data Type Data Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Parent Data Type Data Type</em>'.
-	 * @see de.uka.ipd.sdq.pcm.repository.DataType#getParentDataType__DataType()
-	 * @see #getDataType()
-	 * @generated
-	 */
-	EReference getDataType_ParentDataType__DataType();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.pcm.repository.DataType#getType <em>Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Type</em>'.
-	 * @see de.uka.ipd.sdq.pcm.repository.DataType#getType()
-	 * @see #getDataType()
-	 * @generated
-	 */
-	EAttribute getDataType_Type();
 
 	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.repository.ExceptionType <em>Exception Type</em>}'.
@@ -1166,15 +1312,15 @@ public interface RepositoryPackage extends EPackage {
 	EReference getInterface_ParentInterface__Interface();
 
 	/**
-	 * Returns the meta object for the reference list '{@link de.uka.ipd.sdq.pcm.repository.Interface#getAnchestorInterfaces <em>Anchestor Interfaces</em>}'.
+	 * Returns the meta object for the reference list '{@link de.uka.ipd.sdq.pcm.repository.Interface#getAnchestorInterfaces_Interface <em>Anchestor Interfaces Interface</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Anchestor Interfaces</em>'.
-	 * @see de.uka.ipd.sdq.pcm.repository.Interface#getAnchestorInterfaces()
+	 * @return the meta object for the reference list '<em>Anchestor Interfaces Interface</em>'.
+	 * @see de.uka.ipd.sdq.pcm.repository.Interface#getAnchestorInterfaces_Interface()
 	 * @see #getInterface()
 	 * @generated
 	 */
-	EReference getInterface_AnchestorInterfaces();
+	EReference getInterface_AnchestorInterfaces_Interface();
 
 	/**
 	 * Returns the meta object for the containment reference list '{@link de.uka.ipd.sdq.pcm.repository.Interface#getProtocols__Interface <em>Protocols Interface</em>}'.
@@ -1251,6 +1397,17 @@ public interface RepositoryPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getRepository_Interfaces__Repository();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link de.uka.ipd.sdq.pcm.repository.Repository#getDatatypes_Repository <em>Datatypes Repository</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Datatypes Repository</em>'.
+	 * @see de.uka.ipd.sdq.pcm.repository.Repository#getDatatypes_Repository()
+	 * @see #getRepository()
+	 * @generated
+	 */
+	EReference getRepository_Datatypes_Repository();
 
 	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.repository.ProvidesComponentType <em>Provides Component Type</em>}'.
@@ -1379,6 +1536,101 @@ public interface RepositoryPackage extends EPackage {
 	EReference getBasicComponent_ServiceEffectSpecifications__BasicComponent();
 
 	/**
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.repository.PrimitiveDataType <em>Primitive Data Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Primitive Data Type</em>'.
+	 * @see de.uka.ipd.sdq.pcm.repository.PrimitiveDataType
+	 * @generated
+	 */
+	EClass getPrimitiveDataType();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.pcm.repository.PrimitiveDataType#getType <em>Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Type</em>'.
+	 * @see de.uka.ipd.sdq.pcm.repository.PrimitiveDataType#getType()
+	 * @see #getPrimitiveDataType()
+	 * @generated
+	 */
+	EAttribute getPrimitiveDataType_Type();
+
+	/**
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.repository.CollectionDataType <em>Collection Data Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Collection Data Type</em>'.
+	 * @see de.uka.ipd.sdq.pcm.repository.CollectionDataType
+	 * @generated
+	 */
+	EClass getCollectionDataType();
+
+	/**
+	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.pcm.repository.CollectionDataType#getInnerType_CollectionDataType <em>Inner Type Collection Data Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Inner Type Collection Data Type</em>'.
+	 * @see de.uka.ipd.sdq.pcm.repository.CollectionDataType#getInnerType_CollectionDataType()
+	 * @see #getCollectionDataType()
+	 * @generated
+	 */
+	EReference getCollectionDataType_InnerType_CollectionDataType();
+
+	/**
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.repository.CompositeDataType <em>Composite Data Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Composite Data Type</em>'.
+	 * @see de.uka.ipd.sdq.pcm.repository.CompositeDataType
+	 * @generated
+	 */
+	EClass getCompositeDataType();
+
+	/**
+	 * Returns the meta object for the reference list '{@link de.uka.ipd.sdq.pcm.repository.CompositeDataType#getParentType_CompositeDataType <em>Parent Type Composite Data Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Parent Type Composite Data Type</em>'.
+	 * @see de.uka.ipd.sdq.pcm.repository.CompositeDataType#getParentType_CompositeDataType()
+	 * @see #getCompositeDataType()
+	 * @generated
+	 */
+	EReference getCompositeDataType_ParentType_CompositeDataType();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link de.uka.ipd.sdq.pcm.repository.CompositeDataType#getInnerDeclaration_CompositeDataType <em>Inner Declaration Composite Data Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Inner Declaration Composite Data Type</em>'.
+	 * @see de.uka.ipd.sdq.pcm.repository.CompositeDataType#getInnerDeclaration_CompositeDataType()
+	 * @see #getCompositeDataType()
+	 * @generated
+	 */
+	EReference getCompositeDataType_InnerDeclaration_CompositeDataType();
+
+	/**
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.repository.InnerDeclaration <em>Inner Declaration</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Inner Declaration</em>'.
+	 * @see de.uka.ipd.sdq.pcm.repository.InnerDeclaration
+	 * @generated
+	 */
+	EClass getInnerDeclaration();
+
+	/**
+	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.pcm.repository.InnerDeclaration#getDatatype_InnerDeclaration <em>Datatype Inner Declaration</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Datatype Inner Declaration</em>'.
+	 * @see de.uka.ipd.sdq.pcm.repository.InnerDeclaration#getDatatype_InnerDeclaration()
+	 * @see #getInnerDeclaration()
+	 * @generated
+	 */
+	EReference getInnerDeclaration_Datatype_InnerDeclaration();
+
+	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.repository.DelegationConnector <em>Delegation Connector</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1397,6 +1649,16 @@ public interface RepositoryPackage extends EPackage {
 	 * @generated
 	 */
 	EEnum getParameterModifier();
+
+	/**
+	 * Returns the meta object for enum '{@link de.uka.ipd.sdq.pcm.repository.PrimitiveTypeEnum <em>Primitive Type Enum</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Primitive Type Enum</em>'.
+	 * @see de.uka.ipd.sdq.pcm.repository.PrimitiveTypeEnum
+	 * @generated
+	 */
+	EEnum getPrimitiveTypeEnum();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -1447,7 +1709,7 @@ public interface RepositoryPackage extends EPackage {
 		EReference SIGNATURE__PARAMETERS_SIGNATURE = eINSTANCE.getSignature_Parameters__Signature();
 
 		/**
-		 * The meta object literal for the '<em><b>Returntype Signature</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Returntype Signature</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -1473,7 +1735,7 @@ public interface RepositoryPackage extends EPackage {
 		EClass PARAMETER = eINSTANCE.getParameter();
 
 		/**
-		 * The meta object literal for the '<em><b>Datatype Parameter</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Datatype Parameter</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -1505,22 +1767,6 @@ public interface RepositoryPackage extends EPackage {
 		 * @generated
 		 */
 		EClass DATA_TYPE = eINSTANCE.getDataType();
-
-		/**
-		 * The meta object literal for the '<em><b>Parent Data Type Data Type</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference DATA_TYPE__PARENT_DATA_TYPE_DATA_TYPE = eINSTANCE.getDataType_ParentDataType__DataType();
-
-		/**
-		 * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute DATA_TYPE__TYPE = eINSTANCE.getDataType_Type();
 
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.repository.impl.ExceptionTypeImpl <em>Exception Type</em>}' class.
@@ -1595,12 +1841,12 @@ public interface RepositoryPackage extends EPackage {
 		EReference INTERFACE__PARENT_INTERFACE_INTERFACE = eINSTANCE.getInterface_ParentInterface__Interface();
 
 		/**
-		 * The meta object literal for the '<em><b>Anchestor Interfaces</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Anchestor Interfaces Interface</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference INTERFACE__ANCHESTOR_INTERFACES = eINSTANCE.getInterface_AnchestorInterfaces();
+		EReference INTERFACE__ANCHESTOR_INTERFACES_INTERFACE = eINSTANCE.getInterface_AnchestorInterfaces_Interface();
 
 		/**
 		 * The meta object literal for the '<em><b>Protocols Interface</b></em>' containment reference list feature.
@@ -1659,6 +1905,14 @@ public interface RepositoryPackage extends EPackage {
 		 * @generated
 		 */
 		EReference REPOSITORY__INTERFACES_REPOSITORY = eINSTANCE.getRepository_Interfaces__Repository();
+
+		/**
+		 * The meta object literal for the '<em><b>Datatypes Repository</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference REPOSITORY__DATATYPES_REPOSITORY = eINSTANCE.getRepository_Datatypes_Repository();
 
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.repository.impl.ProvidesComponentTypeImpl <em>Provides Component Type</em>}' class.
@@ -1769,6 +2023,86 @@ public interface RepositoryPackage extends EPackage {
 		EReference BASIC_COMPONENT__SERVICE_EFFECT_SPECIFICATIONS_BASIC_COMPONENT = eINSTANCE.getBasicComponent_ServiceEffectSpecifications__BasicComponent();
 
 		/**
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.repository.impl.PrimitiveDataTypeImpl <em>Primitive Data Type</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.uka.ipd.sdq.pcm.repository.impl.PrimitiveDataTypeImpl
+		 * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getPrimitiveDataType()
+		 * @generated
+		 */
+		EClass PRIMITIVE_DATA_TYPE = eINSTANCE.getPrimitiveDataType();
+
+		/**
+		 * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PRIMITIVE_DATA_TYPE__TYPE = eINSTANCE.getPrimitiveDataType_Type();
+
+		/**
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.repository.impl.CollectionDataTypeImpl <em>Collection Data Type</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.uka.ipd.sdq.pcm.repository.impl.CollectionDataTypeImpl
+		 * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getCollectionDataType()
+		 * @generated
+		 */
+		EClass COLLECTION_DATA_TYPE = eINSTANCE.getCollectionDataType();
+
+		/**
+		 * The meta object literal for the '<em><b>Inner Type Collection Data Type</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference COLLECTION_DATA_TYPE__INNER_TYPE_COLLECTION_DATA_TYPE = eINSTANCE.getCollectionDataType_InnerType_CollectionDataType();
+
+		/**
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.repository.impl.CompositeDataTypeImpl <em>Composite Data Type</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.uka.ipd.sdq.pcm.repository.impl.CompositeDataTypeImpl
+		 * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getCompositeDataType()
+		 * @generated
+		 */
+		EClass COMPOSITE_DATA_TYPE = eINSTANCE.getCompositeDataType();
+
+		/**
+		 * The meta object literal for the '<em><b>Parent Type Composite Data Type</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference COMPOSITE_DATA_TYPE__PARENT_TYPE_COMPOSITE_DATA_TYPE = eINSTANCE.getCompositeDataType_ParentType_CompositeDataType();
+
+		/**
+		 * The meta object literal for the '<em><b>Inner Declaration Composite Data Type</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference COMPOSITE_DATA_TYPE__INNER_DECLARATION_COMPOSITE_DATA_TYPE = eINSTANCE.getCompositeDataType_InnerDeclaration_CompositeDataType();
+
+		/**
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.repository.impl.InnerDeclarationImpl <em>Inner Declaration</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.uka.ipd.sdq.pcm.repository.impl.InnerDeclarationImpl
+		 * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getInnerDeclaration()
+		 * @generated
+		 */
+		EClass INNER_DECLARATION = eINSTANCE.getInnerDeclaration();
+
+		/**
+		 * The meta object literal for the '<em><b>Datatype Inner Declaration</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference INNER_DECLARATION__DATATYPE_INNER_DECLARATION = eINSTANCE.getInnerDeclaration_Datatype_InnerDeclaration();
+
+		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.repository.impl.DelegationConnectorImpl <em>Delegation Connector</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1787,6 +2121,16 @@ public interface RepositoryPackage extends EPackage {
 		 * @generated
 		 */
 		EEnum PARAMETER_MODIFIER = eINSTANCE.getParameterModifier();
+
+		/**
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.repository.PrimitiveTypeEnum <em>Primitive Type Enum</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.uka.ipd.sdq.pcm.repository.PrimitiveTypeEnum
+		 * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getPrimitiveTypeEnum()
+		 * @generated
+		 */
+		EEnum PRIMITIVE_TYPE_ENUM = eINSTANCE.getPrimitiveTypeEnum();
 
 	}
 

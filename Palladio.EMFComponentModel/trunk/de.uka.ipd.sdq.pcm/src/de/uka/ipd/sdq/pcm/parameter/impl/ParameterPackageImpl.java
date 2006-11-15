@@ -32,11 +32,14 @@ import de.uka.ipd.sdq.pcm.parameter.CollectionParameterCharacterisation;
 import de.uka.ipd.sdq.pcm.parameter.CollectionParameterCharacterisationType;
 import de.uka.ipd.sdq.pcm.parameter.CollectionParameterUsage;
 import de.uka.ipd.sdq.pcm.parameter.CompositeParameterUsage;
+import de.uka.ipd.sdq.pcm.parameter.ParameterCharacterisation;
+import de.uka.ipd.sdq.pcm.parameter.ParameterCharacterisationType;
 import de.uka.ipd.sdq.pcm.parameter.ParameterFactory;
 import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
 import de.uka.ipd.sdq.pcm.parameter.ParameterUsage;
-import de.uka.ipd.sdq.pcm.parameter.PrimitiveParameterCharacterisation;
-import de.uka.ipd.sdq.pcm.parameter.PrimitiveParameterCharacterisationType;
+import de.uka.ipd.sdq.pcm.parameter.PrimitiveParameterUsage;
+
+import de.uka.ipd.sdq.pcm.parameter.util.ParameterValidator;
 
 import de.uka.ipd.sdq.pcm.protocol.ProtocolPackage;
 
@@ -75,8 +78,11 @@ import de.uka.ipd.sdq.probfunction.ProbfunctionPackage;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
+import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
+
+import org.eclipse.emf.ecore.EValidator;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
@@ -99,7 +105,7 @@ public class ParameterPackageImpl extends EPackageImpl implements ParameterPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass primitiveParameterCharacterisationEClass = null;
+	private EClass parameterCharacterisationEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -107,6 +113,13 @@ public class ParameterPackageImpl extends EPackageImpl implements ParameterPacka
 	 * @generated
 	 */
 	private EClass parameterUsageEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum parameterCharacterisationTypeEEnum = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -134,14 +147,14 @@ public class ParameterPackageImpl extends EPackageImpl implements ParameterPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EEnum collectionParameterCharacterisationTypeEEnum = null;
+	private EClass primitiveParameterUsageEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EEnum primitiveParameterCharacterisationTypeEEnum = null;
+	private EEnum collectionParameterCharacterisationTypeEEnum = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -214,9 +227,9 @@ public class ParameterPackageImpl extends EPackageImpl implements ParameterPacka
 		ResourcetypePackageImpl theResourcetypePackage = (ResourcetypePackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ResourcetypePackage.eNS_URI) instanceof ResourcetypePackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ResourcetypePackage.eNS_URI) : ResourcetypePackage.eINSTANCE);
 		AllocationPackageImpl theAllocationPackage = (AllocationPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(AllocationPackage.eNS_URI) instanceof AllocationPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(AllocationPackage.eNS_URI) : AllocationPackage.eINSTANCE);
 		ResourceenvironmentPackageImpl theResourceenvironmentPackage = (ResourceenvironmentPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ResourceenvironmentPackage.eNS_URI) instanceof ResourceenvironmentPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ResourceenvironmentPackage.eNS_URI) : ResourceenvironmentPackage.eINSTANCE);
-		UsagemodelPackageImpl theUsagemodelPackage = (UsagemodelPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(UsagemodelPackage.eNS_URI) instanceof UsagemodelPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(UsagemodelPackage.eNS_URI) : UsagemodelPackage.eINSTANCE);
 		SystemPackageImpl theSystemPackage = (SystemPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(SystemPackage.eNS_URI) instanceof SystemPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(SystemPackage.eNS_URI) : SystemPackage.eINSTANCE);
 		QosannotationsPackageImpl theQosannotationsPackage = (QosannotationsPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(QosannotationsPackage.eNS_URI) instanceof QosannotationsPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(QosannotationsPackage.eNS_URI) : QosannotationsPackage.eINSTANCE);
+		UsagemodelPackageImpl theUsagemodelPackage = (UsagemodelPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(UsagemodelPackage.eNS_URI) instanceof UsagemodelPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(UsagemodelPackage.eNS_URI) : UsagemodelPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theParameterPackage.createPackageContents();
@@ -230,9 +243,9 @@ public class ParameterPackageImpl extends EPackageImpl implements ParameterPacka
 		theResourcetypePackage.createPackageContents();
 		theAllocationPackage.createPackageContents();
 		theResourceenvironmentPackage.createPackageContents();
-		theUsagemodelPackage.createPackageContents();
 		theSystemPackage.createPackageContents();
 		theQosannotationsPackage.createPackageContents();
+		theUsagemodelPackage.createPackageContents();
 
 		// Initialize created meta-data
 		theParameterPackage.initializePackageContents();
@@ -246,9 +259,18 @@ public class ParameterPackageImpl extends EPackageImpl implements ParameterPacka
 		theResourcetypePackage.initializePackageContents();
 		theAllocationPackage.initializePackageContents();
 		theResourceenvironmentPackage.initializePackageContents();
-		theUsagemodelPackage.initializePackageContents();
 		theSystemPackage.initializePackageContents();
 		theQosannotationsPackage.initializePackageContents();
+		theUsagemodelPackage.initializePackageContents();
+
+		// Register package validator
+		EValidator.Registry.INSTANCE.put
+			(theParameterPackage, 
+			 new EValidator.Descriptor() {
+				 public EValidator getEValidator() {
+					 return ParameterValidator.INSTANCE;
+				 }
+			 });
 
 		// Mark meta-data to indicate it can't be changed
 		theParameterPackage.freeze();
@@ -261,8 +283,8 @@ public class ParameterPackageImpl extends EPackageImpl implements ParameterPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getPrimitiveParameterCharacterisation() {
-		return primitiveParameterCharacterisationEClass;
+	public EClass getParameterCharacterisation() {
+		return parameterCharacterisationEClass;
 	}
 
 	/**
@@ -270,8 +292,8 @@ public class ParameterPackageImpl extends EPackageImpl implements ParameterPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getPrimitiveParameterCharacterisation_Type() {
-		return (EAttribute)primitiveParameterCharacterisationEClass.getEStructuralFeatures().get(0);
+	public EAttribute getParameterCharacterisation_Type() {
+		return (EAttribute)parameterCharacterisationEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -299,6 +321,15 @@ public class ParameterPackageImpl extends EPackageImpl implements ParameterPacka
 	 */
 	public EReference getParameterUsage_ParameterCharacterisation_ParameterUsage() {
 		return (EReference)parameterUsageEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getParameterCharacterisationType() {
+		return parameterCharacterisationTypeEEnum;
 	}
 
 	/**
@@ -369,8 +400,8 @@ public class ParameterPackageImpl extends EPackageImpl implements ParameterPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EEnum getCollectionParameterCharacterisationType() {
-		return collectionParameterCharacterisationTypeEEnum;
+	public EClass getPrimitiveParameterUsage() {
+		return primitiveParameterUsageEClass;
 	}
 
 	/**
@@ -378,8 +409,8 @@ public class ParameterPackageImpl extends EPackageImpl implements ParameterPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EEnum getPrimitiveParameterCharacterisationType() {
-		return primitiveParameterCharacterisationTypeEEnum;
+	public EEnum getCollectionParameterCharacterisationType() {
+		return collectionParameterCharacterisationTypeEEnum;
 	}
 
 	/**
@@ -410,12 +441,8 @@ public class ParameterPackageImpl extends EPackageImpl implements ParameterPacka
 		isCreated = true;
 
 		// Create classes and their features
-		primitiveParameterCharacterisationEClass = createEClass(PRIMITIVE_PARAMETER_CHARACTERISATION);
-		createEAttribute(primitiveParameterCharacterisationEClass, PRIMITIVE_PARAMETER_CHARACTERISATION__TYPE);
-
-		parameterUsageEClass = createEClass(PARAMETER_USAGE);
-		createEReference(parameterUsageEClass, PARAMETER_USAGE__PARAMETER_PARAMETER_USAGE);
-		createEReference(parameterUsageEClass, PARAMETER_USAGE__PARAMETER_CHARACTERISATION_PARAMETER_USAGE);
+		parameterCharacterisationEClass = createEClass(PARAMETER_CHARACTERISATION);
+		createEAttribute(parameterCharacterisationEClass, PARAMETER_CHARACTERISATION__TYPE);
 
 		compositeParameterUsageEClass = createEClass(COMPOSITE_PARAMETER_USAGE);
 		createEReference(compositeParameterUsageEClass, COMPOSITE_PARAMETER_USAGE__INNER_PARAMETERS_PARAMETER_USAGE);
@@ -427,9 +454,15 @@ public class ParameterPackageImpl extends EPackageImpl implements ParameterPacka
 		collectionParameterCharacterisationEClass = createEClass(COLLECTION_PARAMETER_CHARACTERISATION);
 		createEAttribute(collectionParameterCharacterisationEClass, COLLECTION_PARAMETER_CHARACTERISATION__TYPE);
 
+		primitiveParameterUsageEClass = createEClass(PRIMITIVE_PARAMETER_USAGE);
+
+		parameterUsageEClass = createEClass(PARAMETER_USAGE);
+		createEReference(parameterUsageEClass, PARAMETER_USAGE__PARAMETER_PARAMETER_USAGE);
+		createEReference(parameterUsageEClass, PARAMETER_USAGE__PARAMETER_CHARACTERISATION_PARAMETER_USAGE);
+
 		// Create enums
+		parameterCharacterisationTypeEEnum = createEEnum(PARAMETER_CHARACTERISATION_TYPE);
 		collectionParameterCharacterisationTypeEEnum = createEEnum(COLLECTION_PARAMETER_CHARACTERISATION_TYPE);
-		primitiveParameterCharacterisationTypeEEnum = createEEnum(PRIMITIVE_PARAMETER_CHARACTERISATION_TYPE);
 	}
 
 	/**
@@ -460,18 +493,15 @@ public class ParameterPackageImpl extends EPackageImpl implements ParameterPacka
 		RepositoryPackage theRepositoryPackage = (RepositoryPackage)EPackage.Registry.INSTANCE.getEPackage(RepositoryPackage.eNS_URI);
 
 		// Add supertypes to classes
-		primitiveParameterCharacterisationEClass.getESuperTypes().add(theStochasticsPackage.getRandomVariable());
+		parameterCharacterisationEClass.getESuperTypes().add(theStochasticsPackage.getRandomVariable());
 		compositeParameterUsageEClass.getESuperTypes().add(this.getParameterUsage());
 		collectionParameterUsageEClass.getESuperTypes().add(this.getParameterUsage());
 		collectionParameterCharacterisationEClass.getESuperTypes().add(theStochasticsPackage.getRandomVariable());
+		primitiveParameterUsageEClass.getESuperTypes().add(this.getParameterUsage());
 
 		// Initialize classes and features; add operations and parameters
-		initEClass(primitiveParameterCharacterisationEClass, PrimitiveParameterCharacterisation.class, "PrimitiveParameterCharacterisation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getPrimitiveParameterCharacterisation_Type(), this.getPrimitiveParameterCharacterisationType(), "type", null, 1, 1, PrimitiveParameterCharacterisation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-
-		initEClass(parameterUsageEClass, ParameterUsage.class, "ParameterUsage", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getParameterUsage_Parameter_ParameterUsage(), theRepositoryPackage.getParameter(), null, "parameter_ParameterUsage", null, 1, 1, ParameterUsage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getParameterUsage_ParameterCharacterisation_ParameterUsage(), this.getPrimitiveParameterCharacterisation(), null, "parameterCharacterisation_ParameterUsage", null, 0, -1, ParameterUsage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEClass(parameterCharacterisationEClass, ParameterCharacterisation.class, "ParameterCharacterisation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getParameterCharacterisation_Type(), this.getParameterCharacterisationType(), "type", null, 1, 1, ParameterCharacterisation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(compositeParameterUsageEClass, CompositeParameterUsage.class, "CompositeParameterUsage", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getCompositeParameterUsage_InnerParameters_ParameterUsage(), this.getParameterUsage(), null, "innerParameters_ParameterUsage", null, 0, -1, CompositeParameterUsage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
@@ -480,18 +510,28 @@ public class ParameterPackageImpl extends EPackageImpl implements ParameterPacka
 		initEReference(getCollectionParameterUsage_InnerElement_ParameterUsage(), this.getParameterUsage(), null, "innerElement_ParameterUsage", null, 1, 1, CollectionParameterUsage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getCollectionParameterUsage_ParameterCharacterisation_CollectionParameterUsage(), this.getCollectionParameterCharacterisation(), null, "parameterCharacterisation_CollectionParameterUsage", null, 0, -1, CollectionParameterUsage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
+		EOperation op = addEOperation(collectionParameterUsageEClass, ecorePackage.getEBoolean(), "CollectionParameterUsagehastolinkaCollectionDataType", 0, 1);
+		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1);
+		addEParameter(op, ecorePackage.getEMap(), "context", 0, 1);
+
 		initEClass(collectionParameterCharacterisationEClass, CollectionParameterCharacterisation.class, "CollectionParameterCharacterisation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getCollectionParameterCharacterisation_Type(), this.getCollectionParameterCharacterisationType(), "type", null, 1, 1, CollectionParameterCharacterisation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
+		initEClass(primitiveParameterUsageEClass, PrimitiveParameterUsage.class, "PrimitiveParameterUsage", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(parameterUsageEClass, ParameterUsage.class, "ParameterUsage", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getParameterUsage_Parameter_ParameterUsage(), theRepositoryPackage.getParameter(), null, "parameter_ParameterUsage", null, 1, 1, ParameterUsage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getParameterUsage_ParameterCharacterisation_ParameterUsage(), this.getParameterCharacterisation(), null, "parameterCharacterisation_ParameterUsage", null, 0, -1, ParameterUsage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
 		// Initialize enums and add enum literals
+		initEEnum(parameterCharacterisationTypeEEnum, ParameterCharacterisationType.class, "ParameterCharacterisationType");
+		addEEnumLiteral(parameterCharacterisationTypeEEnum, ParameterCharacterisationType.VALUE_LITERAL);
+		addEEnumLiteral(parameterCharacterisationTypeEEnum, ParameterCharacterisationType.BYTESIZE_LITERAL);
+		addEEnumLiteral(parameterCharacterisationTypeEEnum, ParameterCharacterisationType.DATATYPE_LITERAL);
+
 		initEEnum(collectionParameterCharacterisationTypeEEnum, CollectionParameterCharacterisationType.class, "CollectionParameterCharacterisationType");
 		addEEnumLiteral(collectionParameterCharacterisationTypeEEnum, CollectionParameterCharacterisationType.NUMBER_OF_ELEMENTS_LITERAL);
 		addEEnumLiteral(collectionParameterCharacterisationTypeEEnum, CollectionParameterCharacterisationType.STRUCTURE_LITERAL);
-
-		initEEnum(primitiveParameterCharacterisationTypeEEnum, PrimitiveParameterCharacterisationType.class, "PrimitiveParameterCharacterisationType");
-		addEEnumLiteral(primitiveParameterCharacterisationTypeEEnum, PrimitiveParameterCharacterisationType.VALUE_LITERAL);
-		addEEnumLiteral(primitiveParameterCharacterisationTypeEEnum, PrimitiveParameterCharacterisationType.BYTESIZE_LITERAL);
-		addEEnumLiteral(primitiveParameterCharacterisationTypeEEnum, PrimitiveParameterCharacterisationType.DATATYPE_LITERAL);
 
 		// Create resource
 		createResource(eNS_URI);

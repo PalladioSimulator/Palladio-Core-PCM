@@ -52,7 +52,7 @@ import org.eclipse.emf.ocl.query.QueryFactory;
  *
  * @generated
  */
-public class ImplementationComponentTypeImpl extends CompleteComponentTypeImpl implements ImplementationComponentType {
+public abstract class ImplementationComponentTypeImpl extends CompleteComponentTypeImpl implements ImplementationComponentType {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -132,7 +132,7 @@ public class ImplementationComponentTypeImpl extends CompleteComponentTypeImpl i
 			Environment env = ExpressionsUtil.createClassifierContext(eClass());
 			
 			
-			String body = "       let parentInterfaces : Bag(Interface) =   self.parentCompleteComponentTypes->iterate(pt : CompleteComponentType; acc1 : Bag(Interface) = Bag{} |    acc1->union(pt.requiredRoles->iterate(r : RequiredRole; acc2 : Bag(Interface) = Bag{} |     acc2->union(r.requiredInterface.parentInterface->asBag())    ))   ) in  let anchestorInterfaces : Bag(Interface) =   self.parentCompleteComponentTypes->iterate(pt : CompleteComponentType; acc3 : Bag(Interface) = Bag{} |    acc3->union(pt.requiredRoles->iterate(r : RequiredRole; acc4 : Bag(Interface) = Bag{} |     acc4->union(r.requiredInterface.parentInterface->asBag())    ))   )->union(    self.parentCompleteComponentTypes->iterate(pt : CompleteComponentType; acc5 : Bag(Interface) = Bag{} |     acc5->union(pt.requiredRoles->iterate(r : RequiredRole; acc6 : Bag(Interface) = Bag{} |      acc6->union(r.requiredInterface.parentInterface.anchestorInterfaces)     ))    )   ) in   anchestorInterfaces.identifier.id->includesAll(   self.requiredRoles->iterate(p : RequiredRole; acc7 : Bag(String) = Bag{} |    acc7->union(p.requiredInterface.identifier.id->asBag())   )   ) ";
+			String body = "                               true ";
 			
 			try {
 				RequiredInterfacesHaveToConformToCompleteTypeInvOCL = ExpressionsUtil.createInvariant(env, body, true);
@@ -172,7 +172,7 @@ public class ImplementationComponentTypeImpl extends CompleteComponentTypeImpl i
 			Environment env = ExpressionsUtil.createClassifierContext(eClass());
 			
 			
-			String body = "        let parentInterfaces : Bag(Interface) =   self.providedRoles->iterate(r : ProvidedRole; acc2 : Bag(Interface) = Bag{} |    acc2->union(r.providedInterface.parentInterface->asBag())   ) in  let anchestorInterfaces : Bag(Interface) =   self.providedRoles->iterate(r : ProvidedRole; acc4 : Bag(Interface) = Bag{} |    acc4->union(r.providedInterface.parentInterface->asBag())   )->union(    self.providedRoles->iterate(r : ProvidedRole; acc6 : Bag(Interface) = Bag{} |     acc6->union(r.providedInterface.parentInterface.anchestorInterfaces)    )   ) in     anchestorInterfaces.identifier.id->includesAll(    self.parentProvidesComponentTypes->iterate(pt : ProvidesComponentType; acc1 : Bag(String) = Bag{} |     pt.providedRoles->iterate(r : ProvidedRole; acc2 : Bag(String) = Bag{} |      acc2->union(r.providedInterface.identifier.id->asBag())     )    )   ) ";
+			String body = "                             true ";
 			
 			try {
 				providedInterfacesHaveToConformToCompleteTypeInvOCL = ExpressionsUtil.createInvariant(env, body, true);

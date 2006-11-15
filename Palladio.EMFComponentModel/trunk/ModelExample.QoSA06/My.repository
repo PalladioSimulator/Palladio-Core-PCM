@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <pcm.repository:Repository xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pcm.repository="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/1.0" xmlns:pcm.seff="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0">
   <components__Repository xsi:type="pcm.repository:BasicComponent" id="AudioStore" entityName="AudioStore">
-    <providedRoles__ProvidesComponentType id="ProvRole_AudioStore_IAudioStore" entityName="ProvRole_AudioStore_IAudioStore" providedInterface__ProvidedRole="IAudioStore"/>
     <requiredRoles_ProvidesComponentType id="ReqRole_AudioStore_IUsermanagement" entityName="ReqRole_AudioStore_IUsermanagement" requiredInterface__RequiredRole="IUsermanagement"/>
     <requiredRoles_ProvidesComponentType id="ReqRole_AudioStore_IAudioDB" entityName="ReqRole_AudioStore_IAudioDB" requiredInterface__RequiredRole="IAudioDB"/>
     <serviceEffectSpecifications__BasicComponent xsi:type="pcm.seff:ResourceDemandingSEFF" describedService__SEFF="//@interfaces__Repository.0/@signatures__Interface.0">
@@ -16,11 +15,10 @@
     <serviceEffectSpecifications__BasicComponent xsi:type="pcm.seff:ResourceDemandingSEFF" describedService__SEFF="//@interfaces__Repository.0/@signatures__Interface.1">
       <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_DvugUflcEdqPpqU6JH4Cog" successor_AbstractAction="_Ff7SpvlcEdqPpqU6JH4Cog"/>
       <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_E3jEAPlcEdqPpqU6JH4Cog" predecessor_AbstractAction="_Ff7SpvlcEdqPpqU6JH4Cog"/>
-      <steps_Behaviour xsi:type="pcm.seff:ExternalCallAction" id="_Ff7SpvlcEdqPpqU6JH4Cog" predecessor_AbstractAction="_DvugUflcEdqPpqU6JH4Cog" successor_AbstractAction="_E3jEAPlcEdqPpqU6JH4Cog" calledService_ExternalService="//@interfaces__Repository.2/@signatures__Interface.2"/>
+      <steps_Behaviour xsi:type="pcm.seff:ExternalCallAction" id="_Ff7SpvlcEdqPpqU6JH4Cog" entityName="f" predecessor_AbstractAction="_DvugUflcEdqPpqU6JH4Cog" successor_AbstractAction="_E3jEAPlcEdqPpqU6JH4Cog" calledService_ExternalService="//@interfaces__Repository.2/@signatures__Interface.2"/>
     </serviceEffectSpecifications__BasicComponent>
   </components__Repository>
   <components__Repository xsi:type="pcm.repository:BasicComponent" id="EncodingAdapter" entityName="EncodingAdapter">
-    <providedRoles__ProvidesComponentType id="Prov_EncodingAdapter_IAudioDB" entityName="Prov_EncodingAdapter_IAudioDB" providedInterface__ProvidedRole="IAudioDB"/>
     <requiredRoles_ProvidesComponentType id="Req_EncodingAdapter_IAudioDB" entityName="Req_EncodingAdapter_IAudioDB" requiredInterface__RequiredRole="IAudioDB"/>
     <requiredRoles_ProvidesComponentType id="Req_EncodingAdapter_IEncoder" entityName="Req_EncodingAdapter_IEncoder" requiredInterface__RequiredRole="IEncoder"/>
     <serviceEffectSpecifications__BasicComponent xsi:type="pcm.seff:ResourceDemandingSEFF" describedService__SEFF="//@interfaces__Repository.2/@signatures__Interface.0">
@@ -42,24 +40,30 @@
     </serviceEffectSpecifications__BasicComponent>
   </components__Repository>
   <components__Repository xsi:type="pcm.repository:BasicComponent" id="OggEncoder" entityName="OggEncoder">
-    <providedRoles__ProvidesComponentType id="Prov_OggEncoder_IEncoder" entityName="Prov_OggEncoder_IEncoder" providedInterface__ProvidedRole="IEncoder"/>
     <serviceEffectSpecifications__BasicComponent xsi:type="pcm.seff:ResourceDemandingSEFF" describedService__SEFF="//@interfaces__Repository.3/@signatures__Interface.0">
       <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_D9jkofGTEdqJcvwivguuBw" successor_AbstractAction="WriteFileToDisk"/>
       <steps_Behaviour xsi:type="pcm.seff:InternalAction" id="WriteFileToDisk" entityName="WriteFileToDisk" predecessor_AbstractAction="_D9jkofGTEdqJcvwivguuBw" successor_AbstractAction="_D9jko_GTEdqJcvwivguuBw"/>
       <steps_Behaviour xsi:type="pcm.seff:InternalAction" id="_D9jko_GTEdqJcvwivguuBw" entityName="ExecuteEncoder" predecessor_AbstractAction="WriteFileToDisk" successor_AbstractAction="_D9jkpPGTEdqJcvwivguuBw" resourceDemand_Action="//@components__Repository.2/@serviceEffectSpecifications__BasicComponent.0/@parametricResourceDemands_Behaviour.0"/>
       <steps_Behaviour xsi:type="pcm.seff:InternalAction" id="_D9jkpPGTEdqJcvwivguuBw" entityName="ReadEncodedFileFromDisk" predecessor_AbstractAction="_D9jko_GTEdqJcvwivguuBw" successor_AbstractAction="_D9jkpfGTEdqJcvwivguuBw"/>
       <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_D9jkpfGTEdqJcvwivguuBw" predecessor_AbstractAction="_D9jkpPGTEdqJcvwivguuBw"/>
+      <steps_Behaviour xsi:type="pcm.seff:InternalAction" id="_jdb8AG_8EduokNxqaSs9iQ" entityName="doSth"/>
+      <steps_Behaviour xsi:type="pcm.seff:LoopAction" id="_k3ll0G_8EduokNxqaSs9iQ" entityName="aLoop">
+        <bodyBehaviour_Loop>
+          <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_ox7UcG_8EduokNxqaSs9iQ" successor_AbstractAction="_pdmHoG_8EduokNxqaSs9iQ"/>
+          <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_pGMUQG_8EduokNxqaSs9iQ" predecessor_AbstractAction="_pdmHoG_8EduokNxqaSs9iQ"/>
+          <steps_Behaviour xsi:type="pcm.seff:InternalAction" id="_pdmHoG_8EduokNxqaSs9iQ" predecessor_AbstractAction="_ox7UcG_8EduokNxqaSs9iQ" successor_AbstractAction="_pGMUQG_8EduokNxqaSs9iQ"/>
+        </bodyBehaviour_Loop>
+      </steps_Behaviour>
       <parametricResourceDemands_Behaviour specification="= file.BYTESIZE / 500000" demand="=prim_param&lt;file;BYTESIZE> / 500000" unit="instr" action_ParametricResourceDemand="_D9jko_GTEdqJcvwivguuBw">
         <requiredResource_ParametricResourceDemand href="My.resourcetype#cpu"/>
       </parametricResourceDemands_Behaviour>
     </serviceEffectSpecifications__BasicComponent>
   </components__Repository>
   <components__Repository xsi:type="pcm.repository:BasicComponent" id="WebUI" entityName="WebUI">
-    <providedRoles__ProvidesComponentType id="Prov_WebGUI_IHTTP" entityName="Prov_WebGUI_IHTTP" providedInterface__ProvidedRole="IHTTP"/>
     <requiredRoles_ProvidesComponentType id="Req_WebGUI_AudioStore" entityName="Req_WebGUI_AudioStore" requiredInterface__RequiredRole="IAudioStore"/>
     <requiredRoles_ProvidesComponentType id="_QEyJMF99Eduxjck_DiMhVg" requiredInterface__RequiredRole="IAudioDB"/>
     <serviceEffectSpecifications__BasicComponent xsi:type="pcm.seff:ResourceDemandingSEFF" describedService__SEFF="//@interfaces__Repository.8/@signatures__Interface.0">
-      <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_D9tVkPGTEdqJcvwivguuBw" successor_AbstractAction="_D9tVkvGTEdqJcvwivguuBw"/>
+      <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_D9tVkPGTEdqJcvwivguuBw" entityName="d" successor_AbstractAction="_D9tVkvGTEdqJcvwivguuBw"/>
       <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_D9tVkfGTEdqJcvwivguuBw" predecessor_AbstractAction="_D9tVlvGTEdqJcvwivguuBw"/>
       <steps_Behaviour xsi:type="pcm.seff:LoopAction" id="_D9tVkvGTEdqJcvwivguuBw" entityName="StoreFiles" predecessor_AbstractAction="_D9tVkPGTEdqJcvwivguuBw" successor_AbstractAction="_D9tVlvGTEdqJcvwivguuBw" iterations="=coll_param&lt;files;NUMBER_OF_ELEMENTS>">
         <bodyBehaviour_Loop>
@@ -73,6 +77,7 @@
       <steps_Behaviour xsi:type="pcm.seff:ExternalCallAction" id="_D9tVlvGTEdqJcvwivguuBw" entityName="IAudioStore.FinalizeUpload" predecessor_AbstractAction="_D9tVkvGTEdqJcvwivguuBw" successor_AbstractAction="_D9tVkfGTEdqJcvwivguuBw" calledService_ExternalService="//@interfaces__Repository.0/@signatures__Interface.1"/>
     </serviceEffectSpecifications__BasicComponent>
   </components__Repository>
+  <components__Repository xsi:type="pcm.repository:BasicComponent" id="_VIivgW_7EduokNxqaSs9iQ" entityName="Neue Komponente"/>
   <interfaces__Repository id="IAudioStore" entityName="IAudioStore">
     <signatures__Interface serviceName="HandleUpload">
       <parameters__Signature parameterName="file"/>
@@ -80,7 +85,7 @@
     <signatures__Interface serviceName="FinalizeUpload"/>
   </interfaces__Repository>
   <interfaces__Repository id="IUsermanagement" entityName="IUsermanagement"/>
-  <interfaces__Repository id="IAudioDB" entityName="IAudioDB">
+  <interfaces__Repository id="IAudioDB" entityName="IAudioDBdd">
     <signatures__Interface serviceName="InsertAudioFile"/>
     <signatures__Interface serviceName="InsertAudioFileInfo"/>
     <signatures__Interface serviceName="FinalizeUpload"/>

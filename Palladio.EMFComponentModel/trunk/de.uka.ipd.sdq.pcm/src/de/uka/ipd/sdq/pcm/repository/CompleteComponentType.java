@@ -68,9 +68,9 @@ public interface CompleteComponentType extends ProvidesComponentType {
 	 * )
 	 * implies
 	 * (
-	 *  self.providedRoles->size() >= 1
+	 *  self.providedRoles_InterfaceProvidingEntity->size() >= 1
 	 *  or
-	 *  self.requiredRoles->size() >= 1
+	 *  self.requiredRoles_InterfaceRequiringEntity->size() >= 1
 	 * )
 	 * <!-- end-model-doc -->
 	 * @model
@@ -90,26 +90,27 @@ public interface CompleteComponentType extends ProvidesComponentType {
 	 * --
 	 * -- Recursive Query for parent Interface IDs
 	 * -- see "lpar2005.pdf" (Second-order principles in specification languages for Object-Oriented Programs; Beckert, Tretelman) pp. 11 #
-	 * let parentInterfaces : Bag(Interface) =
-	 *  self.providedRoles->iterate(r : ProvidedRole; acc2 : Bag(Interface) = Bag{} |
-	 *   acc2->union(r.providedInterface.parentInterface->asBag()) -- asBag required to allow Set operations #
-	 *  ) in
-	 * let anchestorInterfaces : Bag(Interface) =
-	 *  self.providedRoles->iterate(r : ProvidedRole; acc4 : Bag(Interface) = Bag{} |
-	 *   acc4->union(r.providedInterface.parentInterface->asBag()) -- asBag required to allow Set operations #
-	 *  )->union( -- union with anchestors found in former recursion #
-	 *   self.providedRoles->iterate(r : ProvidedRole; acc6 : Bag(Interface) = Bag{} |
-	 *    acc6->union(r.providedInterface.parentInterface.anchestorInterfaces) --already Set/Bag
-	 *   )
-	 *  ) in
-	 *  -- Directly provided anchestorInterfaces need to be a superset of provided interfaces of Supertype #
-	 *  anchestorInterfaces.identifier.id->includesAll(
-	 *   self.parentProvidesComponentTypes->iterate(pt : ProvidesComponentType; acc1 : Bag(String) = Bag{} |
-	 *    pt.providedRoles->iterate(r : ProvidedRole; acc2 : Bag(String) = Bag{} |
-	 *     acc2->union(r.providedInterface.identifier.id->asBag()) -- asBag required to allow Set operations #
-	 *    )
-	 *   )
-	 *  )
+	 * --let parentInterfaces : Bag(Interface) =
+	 * -- self.providedRoles->iterate(r : ProvidedRole; acc2 : Bag(Interface) = Bag{} |
+	 * --  acc2->union(r.providedInterface.parentInterface->asBag()) -- asBag required to allow Set operations #
+	 * -- ) in
+	 * --let anchestorInterfaces : Bag(Interface) =
+	 * -- self.providedRoles->iterate(r : ProvidedRole; acc4 : Bag(Interface) = Bag{} |
+	 * --  acc4->union(r.providedInterface.parentInterface->asBag()) -- asBag required to allow Set operations #
+	 * -- )->union( -- union with anchestors found in former recursion #
+	 * --  self.providedRoles->iterate(r : ProvidedRole; acc6 : Bag(Interface) = Bag{} |
+	 * --   acc6->union(r.providedInterface.parentInterface.anchestorInterfaces) --already Set/Bag
+	 * --  )
+	 * -- ) in
+	 * -- -- Directly provided anchestorInterfaces need to be a superset of provided interfaces of Supertype #
+	 * -- anchestorInterfaces.identifier.id->includesAll(
+	 * --  self.parentProvidesComponentTypes->iterate(pt : ProvidesComponentType; acc1 : Bag(String) = Bag{} |
+	 * --   pt.providedRoles->iterate(r : ProvidedRole; acc2 : Bag(String) = Bag{} |
+	 * --    acc2->union(r.providedInterface.identifier.id->asBag()) -- asBag required to allow Set operations #
+	 * --   )
+	 * --  )
+	 * -- )
+	 * true
 	 * <!-- end-model-doc -->
 	 * @model
 	 * @generated

@@ -8,6 +8,7 @@
 package de.uka.ipd.sdq.pcm.core.composition.impl;
 
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
+import de.uka.ipd.sdq.pcm.core.composition.ComposedStructure;
 import de.uka.ipd.sdq.pcm.core.composition.CompositionPackage;
 import de.uka.ipd.sdq.pcm.core.composition.RequiredDelegationConnector;
 
@@ -21,6 +22,8 @@ import java.util.Map;
 
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.notify.NotificationChain;
+
 import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
@@ -33,6 +36,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
 import org.eclipse.emf.ecore.util.EObjectValidator;
+
+import org.eclipse.emf.ecore.util.EcoreUtil;
 
 import org.eclipse.emf.ocl.expressions.OCLExpression;
 
@@ -55,6 +60,7 @@ import org.eclipse.emf.ocl.query.QueryFactory;
  *   <li>{@link de.uka.ipd.sdq.pcm.core.composition.impl.RequiredDelegationConnectorImpl#getInnerRequiredRole_RequiredDelegationConnector <em>Inner Required Role Required Delegation Connector</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.core.composition.impl.RequiredDelegationConnectorImpl#getOuterRequiredRole_RequiredDelegationConnector <em>Outer Required Role Required Delegation Connector</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.core.composition.impl.RequiredDelegationConnectorImpl#getChildComponentContext_RequiredDelegationConnector <em>Child Component Context Required Delegation Connector</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.core.composition.impl.RequiredDelegationConnectorImpl#getParentStructure_RequiredDelegationConnector <em>Parent Structure Required Delegation Connector</em>}</li>
  * </ul>
  * </p>
  *
@@ -99,15 +105,6 @@ public class RequiredDelegationConnectorImpl extends DelegationConnectorImpl imp
 	protected AssemblyContext childComponentContext_RequiredDelegationConnector = null;
 
 
-	/**
-	 * The parsed OCL expression for the definition of the '{@link #innerAndOuterRoleNeedToHaveDifferentContextIDs <em>Inner And Outer Role Need To Have Different Context IDs</em>}' invariant constraint.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #innerAndOuterRoleNeedToHaveDifferentContextIDs
-	 * @generated
-	 */
-	private static OCLExpression innerAndOuterRoleNeedToHaveDifferentContextIDsInvOCL;
-	
 	/**
 	 * The parsed OCL expression for the definition of the '{@link #InnerContainingComponentEqualOuterRequiringComponent <em>Inner Containing Component Equal Outer Requiring Component</em>}' invariant constraint.
 	 * <!-- begin-user-doc -->
@@ -251,44 +248,45 @@ public class RequiredDelegationConnectorImpl extends DelegationConnectorImpl imp
 			eNotify(new ENotificationImpl(this, Notification.SET, CompositionPackage.REQUIRED_DELEGATION_CONNECTOR__CHILD_COMPONENT_CONTEXT_REQUIRED_DELEGATION_CONNECTOR, oldChildComponentContext_RequiredDelegationConnector, childComponentContext_RequiredDelegationConnector));
 	}
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ComposedStructure getParentStructure_RequiredDelegationConnector() {
+		if (eContainerFeatureID != CompositionPackage.REQUIRED_DELEGATION_CONNECTOR__PARENT_STRUCTURE_REQUIRED_DELEGATION_CONNECTOR) return null;
+		return (ComposedStructure)eContainer();
+	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean innerAndOuterRoleNeedToHaveDifferentContextIDs(DiagnosticChain diagnostics, Map context) {
-		if (innerAndOuterRoleNeedToHaveDifferentContextIDsInvOCL == null) {
-			Environment env = ExpressionsUtil.createClassifierContext(eClass());
-			
-			
-			String body = "self->forAll(p1, p2 |  p1.innerRequiringRole.parentContext.identifier.id <> p2.outerRequiringRole.parentContext.identifier.id) ";
-			
-			try {
-				innerAndOuterRoleNeedToHaveDifferentContextIDsInvOCL = ExpressionsUtil.createInvariant(env, body, true);
-			} catch (ParserException e) {
-				throw new UnsupportedOperationException(e.getLocalizedMessage());
-			}
+	public NotificationChain basicSetParentStructure_RequiredDelegationConnector(ComposedStructure newParentStructure_RequiredDelegationConnector, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject)newParentStructure_RequiredDelegationConnector, CompositionPackage.REQUIRED_DELEGATION_CONNECTOR__PARENT_STRUCTURE_REQUIRED_DELEGATION_CONNECTOR, msgs);
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setParentStructure_RequiredDelegationConnector(ComposedStructure newParentStructure_RequiredDelegationConnector) {
+		if (newParentStructure_RequiredDelegationConnector != eInternalContainer() || (eContainerFeatureID != CompositionPackage.REQUIRED_DELEGATION_CONNECTOR__PARENT_STRUCTURE_REQUIRED_DELEGATION_CONNECTOR && newParentStructure_RequiredDelegationConnector != null)) {
+			if (EcoreUtil.isAncestor(this, newParentStructure_RequiredDelegationConnector))
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+			NotificationChain msgs = null;
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
+			if (newParentStructure_RequiredDelegationConnector != null)
+				msgs = ((InternalEObject)newParentStructure_RequiredDelegationConnector).eInverseAdd(this, CompositionPackage.COMPOSED_STRUCTURE__REQUIRED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE, ComposedStructure.class, msgs);
+			msgs = basicSetParentStructure_RequiredDelegationConnector(newParentStructure_RequiredDelegationConnector, msgs);
+			if (msgs != null) msgs.dispatch();
 		}
-		
-		Query query = QueryFactory.eINSTANCE.createQuery(innerAndOuterRoleNeedToHaveDifferentContextIDsInvOCL);
-		EvalEnvironment evalEnv = new EvalEnvironment();
-		query.setEvaluationEnvironment(evalEnv);
-		
-		if (!query.check(this)) {
-			if (diagnostics != null) {
-				diagnostics.add
-					(new BasicDiagnostic
-						(Diagnostic.ERROR,
-						 CompositionValidator.DIAGNOSTIC_SOURCE,
-						 CompositionValidator.REQUIRED_DELEGATION_CONNECTOR__INNER_AND_OUTER_ROLE_NEED_TO_HAVE_DIFFERENT_CONTEXT_IDS,
-						 EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "innerAndOuterRoleNeedToHaveDifferentContextIDs", EObjectValidator.getObjectLabel(this, context) }),
-						 new Object [] { this }));
-			}
-			return false;
-		}
-		return true;
-		
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CompositionPackage.REQUIRED_DELEGATION_CONNECTOR__PARENT_STRUCTURE_REQUIRED_DELEGATION_CONNECTOR, newParentStructure_RequiredDelegationConnector, newParentStructure_RequiredDelegationConnector));
 	}
 
 
@@ -302,7 +300,7 @@ public class RequiredDelegationConnectorImpl extends DelegationConnectorImpl imp
 			Environment env = ExpressionsUtil.createClassifierContext(eClass());
 			
 			
-			String body = "self.parentCompositeComponent.identifier.id  =  self.outerRequiringRole.encapsulatedRole.requiringComponent.identifier.id    and    self.parentCompositeComponent.identifier.id  =  self.innerRequiringRole.encapsulatedRole.requiringComponent.identifier.id ";
+			String body = "self.parentStructure_RequiredDelegationConnector = self.childComponentContext_RequiredDelegationConnector ";
 			
 			try {
 				InnerContainingComponentEqualOuterRequiringComponentInvOCL = ExpressionsUtil.createInvariant(env, body, true);
@@ -336,6 +334,47 @@ public class RequiredDelegationConnectorImpl extends DelegationConnectorImpl imp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case CompositionPackage.REQUIRED_DELEGATION_CONNECTOR__PARENT_STRUCTURE_REQUIRED_DELEGATION_CONNECTOR:
+				if (eInternalContainer() != null)
+					msgs = eBasicRemoveFromContainer(msgs);
+				return basicSetParentStructure_RequiredDelegationConnector((ComposedStructure)otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case CompositionPackage.REQUIRED_DELEGATION_CONNECTOR__PARENT_STRUCTURE_REQUIRED_DELEGATION_CONNECTOR:
+				return basicSetParentStructure_RequiredDelegationConnector(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
+		switch (eContainerFeatureID) {
+			case CompositionPackage.REQUIRED_DELEGATION_CONNECTOR__PARENT_STRUCTURE_REQUIRED_DELEGATION_CONNECTOR:
+				return eInternalContainer().eInverseRemove(this, CompositionPackage.COMPOSED_STRUCTURE__REQUIRED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE, ComposedStructure.class, msgs);
+		}
+		return super.eBasicRemoveFromContainerFeature(msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case CompositionPackage.REQUIRED_DELEGATION_CONNECTOR__INNER_REQUIRED_ROLE_REQUIRED_DELEGATION_CONNECTOR:
@@ -347,6 +386,8 @@ public class RequiredDelegationConnectorImpl extends DelegationConnectorImpl imp
 			case CompositionPackage.REQUIRED_DELEGATION_CONNECTOR__CHILD_COMPONENT_CONTEXT_REQUIRED_DELEGATION_CONNECTOR:
 				if (resolve) return getChildComponentContext_RequiredDelegationConnector();
 				return basicGetChildComponentContext_RequiredDelegationConnector();
+			case CompositionPackage.REQUIRED_DELEGATION_CONNECTOR__PARENT_STRUCTURE_REQUIRED_DELEGATION_CONNECTOR:
+				return getParentStructure_RequiredDelegationConnector();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -366,6 +407,9 @@ public class RequiredDelegationConnectorImpl extends DelegationConnectorImpl imp
 				return;
 			case CompositionPackage.REQUIRED_DELEGATION_CONNECTOR__CHILD_COMPONENT_CONTEXT_REQUIRED_DELEGATION_CONNECTOR:
 				setChildComponentContext_RequiredDelegationConnector((AssemblyContext)newValue);
+				return;
+			case CompositionPackage.REQUIRED_DELEGATION_CONNECTOR__PARENT_STRUCTURE_REQUIRED_DELEGATION_CONNECTOR:
+				setParentStructure_RequiredDelegationConnector((ComposedStructure)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -387,6 +431,9 @@ public class RequiredDelegationConnectorImpl extends DelegationConnectorImpl imp
 			case CompositionPackage.REQUIRED_DELEGATION_CONNECTOR__CHILD_COMPONENT_CONTEXT_REQUIRED_DELEGATION_CONNECTOR:
 				setChildComponentContext_RequiredDelegationConnector((AssemblyContext)null);
 				return;
+			case CompositionPackage.REQUIRED_DELEGATION_CONNECTOR__PARENT_STRUCTURE_REQUIRED_DELEGATION_CONNECTOR:
+				setParentStructure_RequiredDelegationConnector((ComposedStructure)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -404,6 +451,8 @@ public class RequiredDelegationConnectorImpl extends DelegationConnectorImpl imp
 				return outerRequiredRole_RequiredDelegationConnector != null;
 			case CompositionPackage.REQUIRED_DELEGATION_CONNECTOR__CHILD_COMPONENT_CONTEXT_REQUIRED_DELEGATION_CONNECTOR:
 				return childComponentContext_RequiredDelegationConnector != null;
+			case CompositionPackage.REQUIRED_DELEGATION_CONNECTOR__PARENT_STRUCTURE_REQUIRED_DELEGATION_CONNECTOR:
+				return getParentStructure_RequiredDelegationConnector() != null;
 		}
 		return super.eIsSet(featureID);
 	}

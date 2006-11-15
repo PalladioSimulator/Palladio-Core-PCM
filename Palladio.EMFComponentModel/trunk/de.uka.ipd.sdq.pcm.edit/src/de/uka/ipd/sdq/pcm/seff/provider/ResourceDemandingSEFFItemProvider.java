@@ -10,6 +10,7 @@ package de.uka.ipd.sdq.pcm.seff.provider;
 import de.uka.ipd.sdq.pcm.core.stochastics.provider.PcmEditPlugin;
 
 import de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF;
+import de.uka.ipd.sdq.pcm.seff.SeffFactory;
 import de.uka.ipd.sdq.pcm.seff.SeffPackage;
 
 import java.util.Collection;
@@ -36,7 +37,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * @generated
  */
 public class ResourceDemandingSEFFItemProvider
-	extends ResourceDemandingBehaviourItemProvider
+	extends ServiceEffectSpecificationItemProvider
 	implements	
 		IEditingDomainItemProvider,	
 		IStructuredItemContentProvider,	
@@ -70,54 +71,24 @@ public class ResourceDemandingSEFFItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addSeffTypeIDPropertyDescriptor(object);
-			addDescribedService__SEFFPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Seff Type ID feature.
+	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
+	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
+	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addSeffTypeIDPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_ServiceEffectSpecification_seffTypeID_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ServiceEffectSpecification_seffTypeID_feature", "_UI_ServiceEffectSpecification_type"),
-				 SeffPackage.Literals.SERVICE_EFFECT_SPECIFICATION__SEFF_TYPE_ID,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Described Service SEFF feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addDescribedService__SEFFPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_ServiceEffectSpecification_describedService__SEFF_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ServiceEffectSpecification_describedService__SEFF_feature", "_UI_ServiceEffectSpecification_type"),
-				 SeffPackage.Literals.SERVICE_EFFECT_SPECIFICATION__DESCRIBED_SERVICE_SEFF,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
+	public Collection getChildrenFeatures(Object object) {
+		if (childrenFeatures == null) {
+			super.getChildrenFeatures(object);
+			childrenFeatures.add(SeffPackage.Literals.RESOURCE_DEMANDING_BEHAVIOUR__STEPS_BEHAVIOUR);
+		}
+		return childrenFeatures;
 	}
 
 	/**
@@ -154,8 +125,8 @@ public class ResourceDemandingSEFFItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(ResourceDemandingSEFF.class)) {
-			case SeffPackage.RESOURCE_DEMANDING_SEFF__SEFF_TYPE_ID:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+			case SeffPackage.RESOURCE_DEMANDING_SEFF__STEPS_BEHAVIOUR:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
 		super.notifyChanged(notification);
@@ -170,6 +141,56 @@ public class ResourceDemandingSEFFItemProvider
 	 */
 	protected void collectNewChildDescriptors(Collection newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+
+		newChildDescriptors.add
+			(createChildParameter
+				(SeffPackage.Literals.RESOURCE_DEMANDING_BEHAVIOUR__STEPS_BEHAVIOUR,
+				 SeffFactory.eINSTANCE.createStopAction()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(SeffPackage.Literals.RESOURCE_DEMANDING_BEHAVIOUR__STEPS_BEHAVIOUR,
+				 SeffFactory.eINSTANCE.createStartAction()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(SeffPackage.Literals.RESOURCE_DEMANDING_BEHAVIOUR__STEPS_BEHAVIOUR,
+				 SeffFactory.eINSTANCE.createReleaseAction()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(SeffPackage.Literals.RESOURCE_DEMANDING_BEHAVIOUR__STEPS_BEHAVIOUR,
+				 SeffFactory.eINSTANCE.createLoopAction()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(SeffPackage.Literals.RESOURCE_DEMANDING_BEHAVIOUR__STEPS_BEHAVIOUR,
+				 SeffFactory.eINSTANCE.createInternalAction()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(SeffPackage.Literals.RESOURCE_DEMANDING_BEHAVIOUR__STEPS_BEHAVIOUR,
+				 SeffFactory.eINSTANCE.createForkAction()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(SeffPackage.Literals.RESOURCE_DEMANDING_BEHAVIOUR__STEPS_BEHAVIOUR,
+				 SeffFactory.eINSTANCE.createExternalCallAction()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(SeffPackage.Literals.RESOURCE_DEMANDING_BEHAVIOUR__STEPS_BEHAVIOUR,
+				 SeffFactory.eINSTANCE.createBranchAction()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(SeffPackage.Literals.RESOURCE_DEMANDING_BEHAVIOUR__STEPS_BEHAVIOUR,
+				 SeffFactory.eINSTANCE.createAquireAction()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(SeffPackage.Literals.RESOURCE_DEMANDING_BEHAVIOUR__STEPS_BEHAVIOUR,
+				 SeffFactory.eINSTANCE.createCollectionIteratorAction()));
 	}
 
 	/**

@@ -25,7 +25,7 @@ import org.eclipse.emf.common.util.EList;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link de.uka.ipd.sdq.pcm.system.System#getAllocation_System <em>Allocation System</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.system.System#getQosAnnotations_System <em>Qos Annotations System</em>}</li>
  * </ul>
  * </p>
  *
@@ -42,29 +42,19 @@ public interface System extends ComposedStructure, Entity, InterfaceProvidingReq
 	String copyright = "(c) by SDQ, IPD, U Karlsruhe (TH), 2006";
 
 	/**
-	 * Returns the value of the '<em><b>Allocation System</b></em>' reference.
+	 * Returns the value of the '<em><b>Qos Annotations System</b></em>' containment reference list.
+	 * The list contents are of type {@link de.uka.ipd.sdq.pcm.qosannotations.QoSAnnotations}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Allocation System</em>' reference isn't clear,
+	 * If the meaning of the '<em>Qos Annotations System</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Allocation System</em>' reference.
-	 * @see #setAllocation_System(Allocation)
-	 * @see de.uka.ipd.sdq.pcm.system.SystemPackage#getSystem_Allocation_System()
-	 * @model required="true" ordered="false"
+	 * @return the value of the '<em>Qos Annotations System</em>' containment reference list.
+	 * @see de.uka.ipd.sdq.pcm.system.SystemPackage#getSystem_QosAnnotations_System()
+	 * @model type="de.uka.ipd.sdq.pcm.qosannotations.QoSAnnotations" containment="true" ordered="false"
 	 * @generated
 	 */
-	Allocation getAllocation_System();
-
-	/**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.system.System#getAllocation_System <em>Allocation System</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Allocation System</em>' reference.
-	 * @see #getAllocation_System()
-	 * @generated
-	 */
-	void setAllocation_System(Allocation value);
+	EList getQosAnnotations_System();
 
 } // System

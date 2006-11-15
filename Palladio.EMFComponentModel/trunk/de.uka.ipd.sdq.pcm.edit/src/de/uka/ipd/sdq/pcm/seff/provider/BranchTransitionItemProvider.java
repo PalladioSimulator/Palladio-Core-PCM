@@ -186,12 +186,12 @@ public class BranchTransitionItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(SeffPackage.Literals.BRANCH_TRANSITION__BRANCH_BEHAVIOUR_BRANCH_TRANSITION,
-				 SeffFactory.eINSTANCE.createResourceDemandingBehaviour()));
+				 SeffFactory.eINSTANCE.createResourceDemandingSEFF()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(SeffPackage.Literals.BRANCH_TRANSITION__BRANCH_BEHAVIOUR_BRANCH_TRANSITION,
-				 SeffFactory.eINSTANCE.createResourceDemandingSEFF()));
+				 SeffFactory.eINSTANCE.createResourceDemandingBehaviour()));
 
 		newChildDescriptors.add
 			(createChildParameter

@@ -7,6 +7,7 @@
  */
 package de.uka.ipd.sdq.pcm.repository.impl;
 
+import de.uka.ipd.sdq.pcm.repository.DataType;
 import de.uka.ipd.sdq.pcm.repository.Interface;
 import de.uka.ipd.sdq.pcm.repository.ProvidesComponentType;
 import de.uka.ipd.sdq.pcm.repository.Repository;
@@ -59,6 +60,7 @@ import org.eclipse.emf.ocl.query.QueryFactory;
  *   <li>{@link de.uka.ipd.sdq.pcm.repository.impl.RepositoryImpl#getRepositoryName <em>Repository Name</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.repository.impl.RepositoryImpl#getComponents__Repository <em>Components Repository</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.repository.impl.RepositoryImpl#getInterfaces__Repository <em>Interfaces Repository</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.repository.impl.RepositoryImpl#getDatatypes_Repository <em>Datatypes Repository</em>}</li>
  * </ul>
  * </p>
  *
@@ -135,50 +137,16 @@ public class RepositoryImpl extends EObjectImpl implements Repository {
 
 
 	/**
-	 * The parsed OCL expression for the definition of the '{@link #GrantFirstClassEntityTypeCompositeComponent <em>Grant First Class Entity Type Composite Component</em>}' invariant constraint.
+	 * The cached value of the '{@link #getDatatypes_Repository() <em>Datatypes Repository</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #GrantFirstClassEntityTypeCompositeComponent
+	 * @see #getDatatypes_Repository()
 	 * @generated
+	 * @ordered
 	 */
-	private static OCLExpression GrantFirstClassEntityTypeCompositeComponentInvOCL;
-	
-	/**
-	 * The parsed OCL expression for the definition of the '{@link #GrantFirstClassEntityTypeProvidesComponentType <em>Grant First Class Entity Type Provides Component Type</em>}' invariant constraint.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #GrantFirstClassEntityTypeProvidesComponentType
-	 * @generated
-	 */
-	private static OCLExpression GrantFirstClassEntityTypeProvidesComponentTypeInvOCL;
-	
-	/**
-	 * The parsed OCL expression for the definition of the '{@link #GrantFirstClassEntityTypeCompleteComponentType <em>Grant First Class Entity Type Complete Component Type</em>}' invariant constraint.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #GrantFirstClassEntityTypeCompleteComponentType
-	 * @generated
-	 */
-	private static OCLExpression GrantFirstClassEntityTypeCompleteComponentTypeInvOCL;
-	
-	/**
-	 * The parsed OCL expression for the definition of the '{@link #GrantFirstClassEntityTypeImplementationComponentType <em>Grant First Class Entity Type Implementation Component Type</em>}' invariant constraint.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #GrantFirstClassEntityTypeImplementationComponentType
-	 * @generated
-	 */
-	private static OCLExpression GrantFirstClassEntityTypeImplementationComponentTypeInvOCL;
-	
-	/**
-	 * The parsed OCL expression for the definition of the '{@link #GrantFirstClassEntityTypeBasicComponent <em>Grant First Class Entity Type Basic Component</em>}' invariant constraint.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #GrantFirstClassEntityTypeBasicComponent
-	 * @generated
-	 */
-	private static OCLExpression GrantFirstClassEntityTypeBasicComponentInvOCL;
-	
+	protected EList datatypes_Repository = null;
+
+
 	private static final String OCL_ANNOTATION_SOURCE = "http://www.eclipse.org/emf/2002/GenModel";
 	
 	/**
@@ -265,204 +233,16 @@ public class RepositoryImpl extends EObjectImpl implements Repository {
 		return interfaces__Repository;
 	}
 
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean GrantFirstClassEntityTypeCompositeComponent(DiagnosticChain diagnostics, Map context) {
-		if (GrantFirstClassEntityTypeCompositeComponentInvOCL == null) {
-			Environment env = ExpressionsUtil.createClassifierContext(eClass());
-			
-			
-			String body = "self.compositeComponents->forAll(e : CompositeComponent |   e.oclIsTypeOf(CompositeComponent)  ) ";
-			
-			try {
-				GrantFirstClassEntityTypeCompositeComponentInvOCL = ExpressionsUtil.createInvariant(env, body, true);
-			} catch (ParserException e) {
-				throw new UnsupportedOperationException(e.getLocalizedMessage());
-			}
+	public EList getDatatypes_Repository() {
+		if (datatypes_Repository == null) {
+			datatypes_Repository = new EObjectContainmentEList(DataType.class, this, RepositoryPackage.REPOSITORY__DATATYPES_REPOSITORY);
 		}
-		
-		Query query = QueryFactory.eINSTANCE.createQuery(GrantFirstClassEntityTypeCompositeComponentInvOCL);
-		EvalEnvironment evalEnv = new EvalEnvironment();
-		query.setEvaluationEnvironment(evalEnv);
-		
-		if (!query.check(this)) {
-			if (diagnostics != null) {
-				diagnostics.add
-					(new BasicDiagnostic
-						(Diagnostic.ERROR,
-						 RepositoryValidator.DIAGNOSTIC_SOURCE,
-						 RepositoryValidator.REPOSITORY__GRANT_FIRST_CLASS_ENTITY_TYPE_COMPOSITE_COMPONENT,
-						 EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "GrantFirstClassEntityTypeCompositeComponent", EObjectValidator.getObjectLabel(this, context) }),
-						 new Object [] { this }));
-			}
-			return false;
-		}
-		return true;
-		
-	}
-
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean GrantFirstClassEntityTypeProvidesComponentType(DiagnosticChain diagnostics, Map context) {
-		if (GrantFirstClassEntityTypeProvidesComponentTypeInvOCL == null) {
-			Environment env = ExpressionsUtil.createClassifierContext(eClass());
-			
-			
-			String body = "self.providesComponentTypes->forAll(e : ProvidesComponentType |   e.oclIsTypeOf(ProvidesComponentType)  ) ";
-			
-			try {
-				GrantFirstClassEntityTypeProvidesComponentTypeInvOCL = ExpressionsUtil.createInvariant(env, body, true);
-			} catch (ParserException e) {
-				throw new UnsupportedOperationException(e.getLocalizedMessage());
-			}
-		}
-		
-		Query query = QueryFactory.eINSTANCE.createQuery(GrantFirstClassEntityTypeProvidesComponentTypeInvOCL);
-		EvalEnvironment evalEnv = new EvalEnvironment();
-		query.setEvaluationEnvironment(evalEnv);
-		
-		if (!query.check(this)) {
-			if (diagnostics != null) {
-				diagnostics.add
-					(new BasicDiagnostic
-						(Diagnostic.ERROR,
-						 RepositoryValidator.DIAGNOSTIC_SOURCE,
-						 RepositoryValidator.REPOSITORY__GRANT_FIRST_CLASS_ENTITY_TYPE_PROVIDES_COMPONENT_TYPE,
-						 EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "GrantFirstClassEntityTypeProvidesComponentType", EObjectValidator.getObjectLabel(this, context) }),
-						 new Object [] { this }));
-			}
-			return false;
-		}
-		return true;
-		
-	}
-
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean GrantFirstClassEntityTypeCompleteComponentType(DiagnosticChain diagnostics, Map context) {
-		if (GrantFirstClassEntityTypeCompleteComponentTypeInvOCL == null) {
-			Environment env = ExpressionsUtil.createClassifierContext(eClass());
-			
-			
-			String body = "self.completeComponentTypes->forAll(e : CompleteComponentType |   e.oclIsTypeOf(CompleteComponentType)  ) ";
-			
-			try {
-				GrantFirstClassEntityTypeCompleteComponentTypeInvOCL = ExpressionsUtil.createInvariant(env, body, true);
-			} catch (ParserException e) {
-				throw new UnsupportedOperationException(e.getLocalizedMessage());
-			}
-		}
-		
-		Query query = QueryFactory.eINSTANCE.createQuery(GrantFirstClassEntityTypeCompleteComponentTypeInvOCL);
-		EvalEnvironment evalEnv = new EvalEnvironment();
-		query.setEvaluationEnvironment(evalEnv);
-		
-		if (!query.check(this)) {
-			if (diagnostics != null) {
-				diagnostics.add
-					(new BasicDiagnostic
-						(Diagnostic.ERROR,
-						 RepositoryValidator.DIAGNOSTIC_SOURCE,
-						 RepositoryValidator.REPOSITORY__GRANT_FIRST_CLASS_ENTITY_TYPE_COMPLETE_COMPONENT_TYPE,
-						 EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "GrantFirstClassEntityTypeCompleteComponentType", EObjectValidator.getObjectLabel(this, context) }),
-						 new Object [] { this }));
-			}
-			return false;
-		}
-		return true;
-		
-	}
-
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean GrantFirstClassEntityTypeImplementationComponentType(DiagnosticChain diagnostics, Map context) {
-		if (GrantFirstClassEntityTypeImplementationComponentTypeInvOCL == null) {
-			Environment env = ExpressionsUtil.createClassifierContext(eClass());
-			
-			
-			String body = "self.implementationComponentTypes->forAll(e : ImplementationComponentType |   e.oclIsTypeOf(ImplementationComponentType)  ) ";
-			
-			try {
-				GrantFirstClassEntityTypeImplementationComponentTypeInvOCL = ExpressionsUtil.createInvariant(env, body, true);
-			} catch (ParserException e) {
-				throw new UnsupportedOperationException(e.getLocalizedMessage());
-			}
-		}
-		
-		Query query = QueryFactory.eINSTANCE.createQuery(GrantFirstClassEntityTypeImplementationComponentTypeInvOCL);
-		EvalEnvironment evalEnv = new EvalEnvironment();
-		query.setEvaluationEnvironment(evalEnv);
-		
-		if (!query.check(this)) {
-			if (diagnostics != null) {
-				diagnostics.add
-					(new BasicDiagnostic
-						(Diagnostic.ERROR,
-						 RepositoryValidator.DIAGNOSTIC_SOURCE,
-						 RepositoryValidator.REPOSITORY__GRANT_FIRST_CLASS_ENTITY_TYPE_IMPLEMENTATION_COMPONENT_TYPE,
-						 EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "GrantFirstClassEntityTypeImplementationComponentType", EObjectValidator.getObjectLabel(this, context) }),
-						 new Object [] { this }));
-			}
-			return false;
-		}
-		return true;
-		
-	}
-
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean GrantFirstClassEntityTypeBasicComponent(DiagnosticChain diagnostics, Map context) {
-		if (GrantFirstClassEntityTypeBasicComponentInvOCL == null) {
-			Environment env = ExpressionsUtil.createClassifierContext(eClass());
-			
-			
-			String body = "self.basicComponents->forAll(e : BasicComponent |   e.oclIsTypeOf(BasicComponent)  ) ";
-			
-			try {
-				GrantFirstClassEntityTypeBasicComponentInvOCL = ExpressionsUtil.createInvariant(env, body, true);
-			} catch (ParserException e) {
-				throw new UnsupportedOperationException(e.getLocalizedMessage());
-			}
-		}
-		
-		Query query = QueryFactory.eINSTANCE.createQuery(GrantFirstClassEntityTypeBasicComponentInvOCL);
-		EvalEnvironment evalEnv = new EvalEnvironment();
-		query.setEvaluationEnvironment(evalEnv);
-		
-		if (!query.check(this)) {
-			if (diagnostics != null) {
-				diagnostics.add
-					(new BasicDiagnostic
-						(Diagnostic.ERROR,
-						 RepositoryValidator.DIAGNOSTIC_SOURCE,
-						 RepositoryValidator.REPOSITORY__GRANT_FIRST_CLASS_ENTITY_TYPE_BASIC_COMPONENT,
-						 EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "GrantFirstClassEntityTypeBasicComponent", EObjectValidator.getObjectLabel(this, context) }),
-						 new Object [] { this }));
-			}
-			return false;
-		}
-		return true;
-		
+		return datatypes_Repository;
 	}
 
 	/**
@@ -476,6 +256,8 @@ public class RepositoryImpl extends EObjectImpl implements Repository {
 				return ((InternalEList)getComponents__Repository()).basicRemove(otherEnd, msgs);
 			case RepositoryPackage.REPOSITORY__INTERFACES_REPOSITORY:
 				return ((InternalEList)getInterfaces__Repository()).basicRemove(otherEnd, msgs);
+			case RepositoryPackage.REPOSITORY__DATATYPES_REPOSITORY:
+				return ((InternalEList)getDatatypes_Repository()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -495,6 +277,8 @@ public class RepositoryImpl extends EObjectImpl implements Repository {
 				return getComponents__Repository();
 			case RepositoryPackage.REPOSITORY__INTERFACES_REPOSITORY:
 				return getInterfaces__Repository();
+			case RepositoryPackage.REPOSITORY__DATATYPES_REPOSITORY:
+				return getDatatypes_Repository();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -520,6 +304,10 @@ public class RepositoryImpl extends EObjectImpl implements Repository {
 				getInterfaces__Repository().clear();
 				getInterfaces__Repository().addAll((Collection)newValue);
 				return;
+			case RepositoryPackage.REPOSITORY__DATATYPES_REPOSITORY:
+				getDatatypes_Repository().clear();
+				getDatatypes_Repository().addAll((Collection)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -543,6 +331,9 @@ public class RepositoryImpl extends EObjectImpl implements Repository {
 			case RepositoryPackage.REPOSITORY__INTERFACES_REPOSITORY:
 				getInterfaces__Repository().clear();
 				return;
+			case RepositoryPackage.REPOSITORY__DATATYPES_REPOSITORY:
+				getDatatypes_Repository().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -562,6 +353,8 @@ public class RepositoryImpl extends EObjectImpl implements Repository {
 				return components__Repository != null && !components__Repository.isEmpty();
 			case RepositoryPackage.REPOSITORY__INTERFACES_REPOSITORY:
 				return interfaces__Repository != null && !interfaces__Repository.isEmpty();
+			case RepositoryPackage.REPOSITORY__DATATYPES_REPOSITORY:
+				return datatypes_Repository != null && !datatypes_Repository.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

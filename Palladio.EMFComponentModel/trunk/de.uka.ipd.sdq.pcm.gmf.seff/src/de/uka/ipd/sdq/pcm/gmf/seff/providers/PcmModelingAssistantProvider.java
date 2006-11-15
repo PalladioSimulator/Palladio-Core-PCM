@@ -26,11 +26,8 @@ import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.BranchActionBranchTransitionCompartment2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.BranchActionBranchTransitionCompartmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.BranchTransitionBehaviourCompartmentEditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ExternalCallAction2EditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ExternalCallActionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopActionBehaviourCompartment2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopActionBehaviourCompartmentEditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ParametricResourceDemandEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviourBranchCompartmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviourLoopCompartmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingSEFFEditPart;
@@ -101,9 +98,6 @@ public class PcmModelingAssistantProvider extends ModelingAssistantProvider {
 			types.add(PcmElementTypes.LoopAction_1004);
 			types.add(PcmElementTypes.BranchAction_1005);
 			types.add(PcmElementTypes.InternalAction_1006);
-			types.add(PcmElementTypes.PrimitiveParametricParameterUsage_1007);
-			types.add(PcmElementTypes.CollectionParametricParameterUsage_1008);
-			types.add(PcmElementTypes.ParametricResourceDemand_1009);
 			return types;
 		}
 		return Collections.EMPTY_LIST;
@@ -113,20 +107,6 @@ public class PcmModelingAssistantProvider extends ModelingAssistantProvider {
 	 * @generated
 	 */
 	public List getRelTypesOnSource(IAdaptable source) {
-		IGraphicalEditPart sourceEditPart = (IGraphicalEditPart) source
-				.getAdapter(IGraphicalEditPart.class);
-		if (sourceEditPart instanceof ExternalCallActionEditPart) {
-			List types = new ArrayList();
-			types
-					.add(PcmElementTypes.ExternalCallActionParametricParameterUsage_ParametricParameterUsage_3002);
-			return types;
-		}
-		if (sourceEditPart instanceof ExternalCallAction2EditPart) {
-			List types = new ArrayList();
-			types
-					.add(PcmElementTypes.ExternalCallActionParametricParameterUsage_ParametricParameterUsage_3002);
-			return types;
-		}
 		return Collections.EMPTY_LIST;
 	}
 
@@ -134,14 +114,6 @@ public class PcmModelingAssistantProvider extends ModelingAssistantProvider {
 	 * @generated
 	 */
 	public List getRelTypesOnTarget(IAdaptable target) {
-		IGraphicalEditPart targetEditPart = (IGraphicalEditPart) target
-				.getAdapter(IGraphicalEditPart.class);
-		if (targetEditPart instanceof ParametricResourceDemandEditPart) {
-			List types = new ArrayList();
-			types
-					.add(PcmElementTypes.AbstractResourceDemandingActionResourceDemand_Action_3003);
-			return types;
-		}
 		return Collections.EMPTY_LIST;
 	}
 
@@ -150,18 +122,6 @@ public class PcmModelingAssistantProvider extends ModelingAssistantProvider {
 	 */
 	public List getRelTypesOnSourceAndTarget(IAdaptable source,
 			IAdaptable target) {
-		IGraphicalEditPart sourceEditPart = (IGraphicalEditPart) source
-				.getAdapter(IGraphicalEditPart.class);
-		IGraphicalEditPart targetEditPart = (IGraphicalEditPart) target
-				.getAdapter(IGraphicalEditPart.class);
-		if (sourceEditPart instanceof ExternalCallActionEditPart) {
-			List types = new ArrayList();
-			return types;
-		}
-		if (sourceEditPart instanceof ExternalCallAction2EditPart) {
-			List types = new ArrayList();
-			return types;
-		}
 		return Collections.EMPTY_LIST;
 	}
 
@@ -170,12 +130,6 @@ public class PcmModelingAssistantProvider extends ModelingAssistantProvider {
 	 */
 	public List getTypesForSource(IAdaptable target,
 			IElementType relationshipType) {
-		IGraphicalEditPart targetEditPart = (IGraphicalEditPart) target
-				.getAdapter(IGraphicalEditPart.class);
-		if (targetEditPart instanceof ParametricResourceDemandEditPart) {
-			List types = new ArrayList();
-			return types;
-		}
 		return Collections.EMPTY_LIST;
 	}
 
@@ -184,16 +138,6 @@ public class PcmModelingAssistantProvider extends ModelingAssistantProvider {
 	 */
 	public List getTypesForTarget(IAdaptable source,
 			IElementType relationshipType) {
-		IGraphicalEditPart sourceEditPart = (IGraphicalEditPart) source
-				.getAdapter(IGraphicalEditPart.class);
-		if (sourceEditPart instanceof ExternalCallActionEditPart) {
-			List types = new ArrayList();
-			return types;
-		}
-		if (sourceEditPart instanceof ExternalCallAction2EditPart) {
-			List types = new ArrayList();
-			return types;
-		}
 		return Collections.EMPTY_LIST;
 	}
 

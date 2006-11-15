@@ -18,7 +18,7 @@ package de.uka.ipd.sdq.pcm.seff;
  * @model
  * @generated
  */
-public interface ResourceDemandingSEFF extends ResourceDemandingBehaviour, ServiceEffectSpecification {
+public interface ResourceDemandingSEFF extends ServiceEffectSpecification, ResourceDemandingBehaviour {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

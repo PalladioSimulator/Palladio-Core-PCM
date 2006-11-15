@@ -40,7 +40,7 @@ public interface ProvidesComponentType extends Entity, InterfaceProvidingRequiri
 	 * <!-- begin-model-doc -->
 	 * self.oclIsTypeOf(ProvidesComponentType)
 	 * implies
-	 * self.providedRoles->size() >= 1
+	 * self.providedRoles_InterfaceProvidingEntity->size() >= 1
 	 * <!-- end-model-doc -->
 	 * @model
 	 * @generated

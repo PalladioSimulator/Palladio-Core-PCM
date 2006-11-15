@@ -83,47 +83,25 @@ public class ParameterItemProviderAdapterFactory extends ParameterAdapterFactory
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.parameter.PrimitiveParameterCharacterisation} instances.
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.parameter.ParameterCharacterisation} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected PrimitiveParameterCharacterisationItemProvider primitiveParameterCharacterisationItemProvider;
+	protected ParameterCharacterisationItemProvider parameterCharacterisationItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.parameter.PrimitiveParameterCharacterisation}.
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.parameter.ParameterCharacterisation}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Adapter createPrimitiveParameterCharacterisationAdapter() {
-		if (primitiveParameterCharacterisationItemProvider == null) {
-			primitiveParameterCharacterisationItemProvider = new PrimitiveParameterCharacterisationItemProvider(this);
+	public Adapter createParameterCharacterisationAdapter() {
+		if (parameterCharacterisationItemProvider == null) {
+			parameterCharacterisationItemProvider = new ParameterCharacterisationItemProvider(this);
 		}
 
-		return primitiveParameterCharacterisationItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.parameter.ParameterUsage} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ParameterUsageItemProvider parameterUsageItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.parameter.ParameterUsage}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Adapter createParameterUsageAdapter() {
-		if (parameterUsageItemProvider == null) {
-			parameterUsageItemProvider = new ParameterUsageItemProvider(this);
-		}
-
-		return parameterUsageItemProvider;
+		return parameterCharacterisationItemProvider;
 	}
 
 	/**
@@ -190,6 +168,28 @@ public class ParameterItemProviderAdapterFactory extends ParameterAdapterFactory
 		}
 
 		return collectionParameterCharacterisationItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.parameter.PrimitiveParameterUsage} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected PrimitiveParameterUsageItemProvider primitiveParameterUsageItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.parameter.PrimitiveParameterUsage}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Adapter createPrimitiveParameterUsageAdapter() {
+		if (primitiveParameterUsageItemProvider == null) {
+			primitiveParameterUsageItemProvider = new PrimitiveParameterUsageItemProvider(this);
+		}
+
+		return primitiveParameterUsageItemProvider;
 	}
 
 	/**
@@ -288,11 +288,11 @@ public class ParameterItemProviderAdapterFactory extends ParameterAdapterFactory
 	 * @generated
 	 */
 	public void dispose() {
-		if (primitiveParameterCharacterisationItemProvider != null) primitiveParameterCharacterisationItemProvider.dispose();
-		if (parameterUsageItemProvider != null) parameterUsageItemProvider.dispose();
+		if (parameterCharacterisationItemProvider != null) parameterCharacterisationItemProvider.dispose();
 		if (compositeParameterUsageItemProvider != null) compositeParameterUsageItemProvider.dispose();
 		if (collectionParameterUsageItemProvider != null) collectionParameterUsageItemProvider.dispose();
 		if (collectionParameterCharacterisationItemProvider != null) collectionParameterCharacterisationItemProvider.dispose();
+		if (primitiveParameterUsageItemProvider != null) primitiveParameterUsageItemProvider.dispose();
 	}
 
 }

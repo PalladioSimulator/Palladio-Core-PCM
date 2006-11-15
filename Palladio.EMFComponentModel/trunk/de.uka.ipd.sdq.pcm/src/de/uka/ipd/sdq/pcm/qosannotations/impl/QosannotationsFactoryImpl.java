@@ -66,7 +66,10 @@ public class QosannotationsFactoryImpl extends EFactoryImpl implements Qosannota
 	 */
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case QosannotationsPackage.SPECIFIED_TIME_CONSUMPTION: return createSpecifiedTimeConsumption();
+			case QosannotationsPackage.SPECIFIED_FAILURE_PROBABILITY: return createSpecifiedFailureProbability();
+			case QosannotationsPackage.SYSTEM_SPECIFIED_EXECUTION_TIME: return createSystemSpecifiedExecutionTime();
+			case QosannotationsPackage.COMPONENT_SPECIFIED_EXECUTION_TIME: return createComponentSpecifiedExecutionTime();
+			case QosannotationsPackage.QO_SANNOTATIONS: return createQoSAnnotations();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -77,9 +80,39 @@ public class QosannotationsFactoryImpl extends EFactoryImpl implements Qosannota
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SpecifiedTimeConsumption createSpecifiedTimeConsumption() {
-		SpecifiedTimeConsumptionImpl specifiedTimeConsumption = new SpecifiedTimeConsumptionImpl();
-		return specifiedTimeConsumption;
+	public SpecifiedFailureProbability createSpecifiedFailureProbability() {
+		SpecifiedFailureProbabilityImpl specifiedFailureProbability = new SpecifiedFailureProbabilityImpl();
+		return specifiedFailureProbability;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SystemSpecifiedExecutionTime createSystemSpecifiedExecutionTime() {
+		SystemSpecifiedExecutionTimeImpl systemSpecifiedExecutionTime = new SystemSpecifiedExecutionTimeImpl();
+		return systemSpecifiedExecutionTime;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ComponentSpecifiedExecutionTime createComponentSpecifiedExecutionTime() {
+		ComponentSpecifiedExecutionTimeImpl componentSpecifiedExecutionTime = new ComponentSpecifiedExecutionTimeImpl();
+		return componentSpecifiedExecutionTime;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public QoSAnnotations createQoSAnnotations() {
+		QoSAnnotationsImpl qoSAnnotations = new QoSAnnotationsImpl();
+		return qoSAnnotations;
 	}
 
 	/**

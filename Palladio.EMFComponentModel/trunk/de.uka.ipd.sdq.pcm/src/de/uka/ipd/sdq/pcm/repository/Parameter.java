@@ -36,26 +36,26 @@ public interface Parameter extends EObject {
 	String copyright = "(c) by SDQ, IPD, U Karlsruhe (TH), 2006";
 
 	/**
-	 * Returns the value of the '<em><b>Datatype Parameter</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Datatype Parameter</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Datatype Parameter</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Datatype Parameter</em>' containment reference.
+	 * @return the value of the '<em>Datatype Parameter</em>' reference.
 	 * @see #setDatatype__Parameter(DataType)
 	 * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getParameter_Datatype__Parameter()
-	 * @model containment="true" required="true" ordered="false"
+	 * @model required="true" ordered="false"
 	 * @generated
 	 */
 	DataType getDatatype__Parameter();
 
 	/**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.repository.Parameter#getDatatype__Parameter <em>Datatype Parameter</em>}' containment reference.
+	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.repository.Parameter#getDatatype__Parameter <em>Datatype Parameter</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Datatype Parameter</em>' containment reference.
+	 * @param value the new value of the '<em>Datatype Parameter</em>' reference.
 	 * @see #getDatatype__Parameter()
 	 * @generated
 	 */

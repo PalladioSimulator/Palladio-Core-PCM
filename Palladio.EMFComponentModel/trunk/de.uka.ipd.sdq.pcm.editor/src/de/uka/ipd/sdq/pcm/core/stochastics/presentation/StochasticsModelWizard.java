@@ -72,6 +72,13 @@ import de.uka.ipd.sdq.pcm.core.stochastics.provider.PcmEditPlugin;
  */
 public class StochasticsModelWizard extends Wizard implements INewWizard {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "(c) by SDQ, IPD, U Karlsruhe (TH), 2006";
+
+	/**
 	 * This caches an instance of the model package.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

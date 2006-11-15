@@ -12,17 +12,20 @@
   <childComponentContexts_ComposedStructure id="AssCtx_OggEncoder">
     <encapsulatedComponent_ChildComponentContext href="My.repository#OggEncoder"/>
   </childComponentContexts_ComposedStructure>
+  <childComponentContexts_ComposedStructure id="_l66tkG6oEduyqJn3RkXokg">
+    <encapsulatedComponent_ChildComponentContext href="My.repository#EncodingAdapter"/>
+  </childComponentContexts_ComposedStructure>
   <compositeAssemblyConnectors_ComposedStructure id="WebUI-AudioStore" requiringChildComponentContext_CompositeAssemblyConnector="AssCtx_WebUI" providingChildComponentContext_CompositeAssemblyConnector="AssCtx_AudioStore">
     <providedRole_CompositeAssemblyConnector href="My.repository#ProvRole_AudioStore_IAudioStore"/>
     <requiredRole_CompositeAssemblyConnector href="My.repository#Req_WebGUI_AudioStore"/>
   </compositeAssemblyConnectors_ComposedStructure>
-  <compositeAssemblyConnectors_ComposedStructure id="AudioStore-Adapter" requiringChildComponentContext_CompositeAssemblyConnector="AssCtx_AudioStore" providingChildComponentContext_CompositeAssemblyConnector="AssCtx_EncodingAdapter">
-    <providedRole_CompositeAssemblyConnector href="My.repository#Prov_EncodingAdapter_IAudioDB"/>
-    <requiredRole_CompositeAssemblyConnector href="My.repository#ReqRole_AudioStore_IAudioDB"/>
-  </compositeAssemblyConnectors_ComposedStructure>
   <compositeAssemblyConnectors_ComposedStructure id="Adapter-Encoder" requiringChildComponentContext_CompositeAssemblyConnector="AssCtx_EncodingAdapter" providingChildComponentContext_CompositeAssemblyConnector="AssCtx_OggEncoder">
     <providedRole_CompositeAssemblyConnector href="My.repository#Prov_OggEncoder_IEncoder"/>
     <requiredRole_CompositeAssemblyConnector href="My.repository#Req_EncodingAdapter_IEncoder"/>
+  </compositeAssemblyConnectors_ComposedStructure>
+  <compositeAssemblyConnectors_ComposedStructure id="_kNvBYG5YEduYVMZkPKJLLQ" requiringChildComponentContext_CompositeAssemblyConnector="AssCtx_AudioStore" providingChildComponentContext_CompositeAssemblyConnector="AssCtx_EncodingAdapter">
+    <providedRole_CompositeAssemblyConnector href="My.repository#Prov_EncodingAdapter_IAudioDB"/>
+    <requiredRole_CompositeAssemblyConnector href="My.repository#ReqRole_AudioStore_IAudioDB"/>
   </compositeAssemblyConnectors_ComposedStructure>
   <providedDelegationConnectors_ComposedStructure id="System_IHTTP_WebUI_IHTTP" outerProvidedRole_ProvidedDelegationConnector="Prov_System_IHTTP" childComponentContext_ProvidedDelegationConnector="AssCtx_WebUI">
     <innerProvidedRole_ProvidedDelegationConnector href="My.repository#Prov_WebGUI_IHTTP"/>
@@ -33,8 +36,14 @@
   <systemProvidedRole_System id="Prov_System_IHTTP">
     <providedInterface__ProvidedRole href="My.repository#IHTTP"/>
   </systemProvidedRole_System>
+  <systemProvidedRole_System id="_DTmnMG6bEduAIZCGSh3qCQ">
+    <providedInterface__ProvidedRole href="My.repository#IEncoder"/>
+  </systemProvidedRole_System>
   <allocation_System href="My.allocation#_zy8_8GdLEdug3uVRVKtR_w"/>
   <systemRequiredRole_System id="Req_System_DB">
     <requiredInterface__RequiredRole href="My.repository#IAudioDB"/>
+  </systemRequiredRole_System>
+  <systemRequiredRole_System id="_B6DaUG6bEduAIZCGSh3qCQ">
+    <requiredInterface__RequiredRole href="My.repository#IUsermanagement"/>
   </systemRequiredRole_System>
 </pcm.system:System>

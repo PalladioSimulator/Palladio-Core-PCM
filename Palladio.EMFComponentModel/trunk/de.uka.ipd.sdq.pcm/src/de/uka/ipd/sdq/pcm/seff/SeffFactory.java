@@ -87,15 +87,6 @@ public interface SeffFactory extends EFactory {
 	ReleaseAction createReleaseAction();
 
 	/**
-	 * Returns a new object of class '<em>Primitive Parametric Parameter Usage</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Primitive Parametric Parameter Usage</em>'.
-	 * @generated
-	 */
-	PrimitiveParametricParameterUsage createPrimitiveParametricParameterUsage();
-
-	/**
 	 * Returns a new object of class '<em>Loop Action</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -139,15 +130,6 @@ public interface SeffFactory extends EFactory {
 	 * @generated
 	 */
 	ExternalCallAction createExternalCallAction();
-
-	/**
-	 * Returns a new object of class '<em>Collection Parametric Parameter Usage</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Collection Parametric Parameter Usage</em>'.
-	 * @generated
-	 */
-	CollectionParametricParameterUsage createCollectionParametricParameterUsage();
 
 	/**
 	 * Returns a new object of class '<em>Branch Transition</em>'.

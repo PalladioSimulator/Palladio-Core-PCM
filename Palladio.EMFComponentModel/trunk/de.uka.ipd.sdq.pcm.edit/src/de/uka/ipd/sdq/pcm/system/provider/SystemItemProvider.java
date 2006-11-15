@@ -15,6 +15,8 @@ import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
 
 import de.uka.ipd.sdq.pcm.core.stochastics.provider.PcmEditPlugin;
 
+import de.uka.ipd.sdq.pcm.qosannotations.QosannotationsFactory;
+
 import de.uka.ipd.sdq.pcm.repository.RepositoryFactory;
 
 import de.uka.ipd.sdq.pcm.system.SystemPackage;
@@ -81,7 +83,6 @@ public class SystemItemProvider
 
 			addIdPropertyDescriptor(object);
 			addEntityNamePropertyDescriptor(object);
-			addAllocation_SystemPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -131,28 +132,6 @@ public class SystemItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Allocation System feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addAllocation_SystemPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_System_allocation_System_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_System_allocation_System_feature", "_UI_System_type"),
-				 SystemPackage.Literals.SYSTEM__ALLOCATION_SYSTEM,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -165,6 +144,7 @@ public class SystemItemProvider
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(EntityPackage.Literals.INTERFACE_PROVIDING_ENTITY__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY);
 			childrenFeatures.add(EntityPackage.Literals.INTERFACE_REQUIRING_ENTITY__REQUIRED_ROLES_INTERFACE_REQUIRING_ENTITY);
+			childrenFeatures.add(SystemPackage.Literals.SYSTEM__QOS_ANNOTATIONS_SYSTEM);
 		}
 		return childrenFeatures;
 	}
@@ -221,6 +201,7 @@ public class SystemItemProvider
 				return;
 			case SystemPackage.SYSTEM__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY:
 			case SystemPackage.SYSTEM__REQUIRED_ROLES_INTERFACE_REQUIRING_ENTITY:
+			case SystemPackage.SYSTEM__QOS_ANNOTATIONS_SYSTEM:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -246,6 +227,11 @@ public class SystemItemProvider
 			(createChildParameter
 				(EntityPackage.Literals.INTERFACE_REQUIRING_ENTITY__REQUIRED_ROLES_INTERFACE_REQUIRING_ENTITY,
 				 RepositoryFactory.eINSTANCE.createRequiredRole()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(SystemPackage.Literals.SYSTEM__QOS_ANNOTATIONS_SYSTEM,
+				 QosannotationsFactory.eINSTANCE.createQoSAnnotations()));
 	}
 
 	/**

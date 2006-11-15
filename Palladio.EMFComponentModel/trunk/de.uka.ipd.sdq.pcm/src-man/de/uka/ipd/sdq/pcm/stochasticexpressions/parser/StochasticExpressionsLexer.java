@@ -161,6 +161,10 @@ tryAgain:
 						mENUM_DEF(true);
 						theRetToken=_returnToken;
 					}
+					else if ((LA(1)=='D') && (LA(2)=='o')) {
+						mREAL_PDF(true);
+						theRetToken=_returnToken;
+					}
 					else if ((LA(1)=='<') && (LA(2)=='>')) {
 						mNOTEQUAL(true);
 						theRetToken=_returnToken;
@@ -354,7 +358,7 @@ tryAgain:
 		_ttype = INT_DEF;
 		int _saveIndex;
 		
-		match("IntRandomVar");
+		match("IntPMF");
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -367,7 +371,7 @@ tryAgain:
 		_ttype = REAL_DEF;
 		int _saveIndex;
 		
-		match("RealRandomVar");
+		match("RealPMF");
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -380,7 +384,20 @@ tryAgain:
 		_ttype = ENUM_DEF;
 		int _saveIndex;
 		
-		match("EnumRandomVar");
+		match("EnumPMF");
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
+		}
+		_returnToken = _token;
+	}
+	
+	public final void mREAL_PDF(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
+		int _ttype; Token _token=null; int _begin=text.length();
+		_ttype = REAL_PDF;
+		int _saveIndex;
+		
+		match("DoublePDF");
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -433,34 +450,34 @@ tryAgain:
 		int _saveIndex;
 		
 		{
-		int _cnt46=0;
-		_loop46:
+		int _cnt421=0;
+		_loop421:
 		do {
 			if (((LA(1) >= '0' && LA(1) <= '9'))) {
 				mDIGIT(false);
 			}
 			else {
-				if ( _cnt46>=1 ) { break _loop46; } else {throw new NoViableAltForCharException((char)LA(1), getFilename(), getLine(), getColumn());}
+				if ( _cnt421>=1 ) { break _loop421; } else {throw new NoViableAltForCharException((char)LA(1), getFilename(), getLine(), getColumn());}
 			}
 			
-			_cnt46++;
+			_cnt421++;
 		} while (true);
 		}
 		{
 		if ((LA(1)=='.')) {
 			match('.');
 			{
-			int _cnt49=0;
-			_loop49:
+			int _cnt424=0;
+			_loop424:
 			do {
 				if (((LA(1) >= '0' && LA(1) <= '9'))) {
 					mDIGIT(false);
 				}
 				else {
-					if ( _cnt49>=1 ) { break _loop49; } else {throw new NoViableAltForCharException((char)LA(1), getFilename(), getLine(), getColumn());}
+					if ( _cnt424>=1 ) { break _loop424; } else {throw new NoViableAltForCharException((char)LA(1), getFilename(), getLine(), getColumn());}
 				}
 				
-				_cnt49++;
+				_cnt424++;
 			} while (true);
 			}
 		}
@@ -587,8 +604,8 @@ tryAgain:
 		
 		match("\"");
 		{
-		int _cnt58=0;
-		_loop58:
+		int _cnt433=0;
+		_loop433:
 		do {
 			switch ( LA(1)) {
 			case 'A':  case 'B':  case 'C':  case 'D':
@@ -615,10 +632,10 @@ tryAgain:
 			}
 			default:
 			{
-				if ( _cnt58>=1 ) { break _loop58; } else {throw new NoViableAltForCharException((char)LA(1), getFilename(), getLine(), getColumn());}
+				if ( _cnt433>=1 ) { break _loop433; } else {throw new NoViableAltForCharException((char)LA(1), getFilename(), getLine(), getColumn());}
 			}
 			}
-			_cnt58++;
+			_cnt433++;
 		} while (true);
 		}
 		match("\"");
@@ -648,8 +665,8 @@ tryAgain:
 		int _saveIndex;
 		
 		{
-		int _cnt62=0;
-		_loop62:
+		int _cnt437=0;
+		_loop437:
 		do {
 			switch ( LA(1)) {
 			case 'A':  case 'B':  case 'C':  case 'D':
@@ -676,20 +693,20 @@ tryAgain:
 			}
 			default:
 			{
-				if ( _cnt62>=1 ) { break _loop62; } else {throw new NoViableAltForCharException((char)LA(1), getFilename(), getLine(), getColumn());}
+				if ( _cnt437>=1 ) { break _loop437; } else {throw new NoViableAltForCharException((char)LA(1), getFilename(), getLine(), getColumn());}
 			}
 			}
-			_cnt62++;
+			_cnt437++;
 		} while (true);
 		}
 		{
-		_loop66:
+		_loop441:
 		do {
 			if ((LA(1)=='.')) {
 				match('.');
 				{
-				int _cnt65=0;
-				_loop65:
+				int _cnt440=0;
+				_loop440:
 				do {
 					switch ( LA(1)) {
 					case 'A':  case 'B':  case 'C':  case 'D':
@@ -716,15 +733,15 @@ tryAgain:
 					}
 					default:
 					{
-						if ( _cnt65>=1 ) { break _loop65; } else {throw new NoViableAltForCharException((char)LA(1), getFilename(), getLine(), getColumn());}
+						if ( _cnt440>=1 ) { break _loop440; } else {throw new NoViableAltForCharException((char)LA(1), getFilename(), getLine(), getColumn());}
 					}
 					}
-					_cnt65++;
+					_cnt440++;
 				} while (true);
 				}
 			}
 			else {
-				break _loop66;
+				break _loop441;
 			}
 			
 		} while (true);

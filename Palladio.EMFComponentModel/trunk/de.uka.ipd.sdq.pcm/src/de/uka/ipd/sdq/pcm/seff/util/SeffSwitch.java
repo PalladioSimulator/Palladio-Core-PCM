@@ -153,21 +153,14 @@ public class SeffSwitch {
 			case SeffPackage.RESOURCE_DEMANDING_SEFF: {
 				ResourceDemandingSEFF resourceDemandingSEFF = (ResourceDemandingSEFF)theEObject;
 				Object result = caseResourceDemandingSEFF(resourceDemandingSEFF);
-				if (result == null) result = caseResourceDemandingBehaviour(resourceDemandingSEFF);
 				if (result == null) result = caseServiceEffectSpecification(resourceDemandingSEFF);
+				if (result == null) result = caseResourceDemandingBehaviour(resourceDemandingSEFF);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case SeffPackage.RESOURCE_DEMANDING_BEHAVIOUR: {
 				ResourceDemandingBehaviour resourceDemandingBehaviour = (ResourceDemandingBehaviour)theEObject;
 				Object result = caseResourceDemandingBehaviour(resourceDemandingBehaviour);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case SeffPackage.PARAMETRIC_PARAMETER_USAGE: {
-				ParametricParameterUsage parametricParameterUsage = (ParametricParameterUsage)theEObject;
-				Object result = caseParametricParameterUsage(parametricParameterUsage);
-				if (result == null) result = caseRandomVariable(parametricParameterUsage);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -179,14 +172,6 @@ public class SeffSwitch {
 				if (result == null) result = caseEntity(releaseAction);
 				if (result == null) result = caseIdentifier(releaseAction);
 				if (result == null) result = caseNamedElement(releaseAction);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case SeffPackage.PRIMITIVE_PARAMETRIC_PARAMETER_USAGE: {
-				PrimitiveParametricParameterUsage primitiveParametricParameterUsage = (PrimitiveParametricParameterUsage)theEObject;
-				Object result = casePrimitiveParametricParameterUsage(primitiveParametricParameterUsage);
-				if (result == null) result = caseParametricParameterUsage(primitiveParametricParameterUsage);
-				if (result == null) result = caseRandomVariable(primitiveParametricParameterUsage);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -237,14 +222,6 @@ public class SeffSwitch {
 				if (result == null) result = caseEntity(externalCallAction);
 				if (result == null) result = caseIdentifier(externalCallAction);
 				if (result == null) result = caseNamedElement(externalCallAction);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case SeffPackage.COLLECTION_PARAMETRIC_PARAMETER_USAGE: {
-				CollectionParametricParameterUsage collectionParametricParameterUsage = (CollectionParametricParameterUsage)theEObject;
-				Object result = caseCollectionParametricParameterUsage(collectionParametricParameterUsage);
-				if (result == null) result = caseParametricParameterUsage(collectionParametricParameterUsage);
-				if (result == null) result = caseRandomVariable(collectionParametricParameterUsage);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -411,21 +388,6 @@ public class SeffSwitch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Parametric Parameter Usage</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Parametric Parameter Usage</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public Object caseParametricParameterUsage(ParametricParameterUsage object) {
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpretting the object as an instance of '<em>Release Action</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -437,21 +399,6 @@ public class SeffSwitch {
 	 * @generated
 	 */
 	public Object caseReleaseAction(ReleaseAction object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Primitive Parametric Parameter Usage</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Primitive Parametric Parameter Usage</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public Object casePrimitiveParametricParameterUsage(PrimitiveParametricParameterUsage object) {
 		return null;
 	}
 
@@ -527,21 +474,6 @@ public class SeffSwitch {
 	 * @generated
 	 */
 	public Object caseExternalCallAction(ExternalCallAction object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Collection Parametric Parameter Usage</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Collection Parametric Parameter Usage</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public Object caseCollectionParametricParameterUsage(CollectionParametricParameterUsage object) {
 		return null;
 	}
 

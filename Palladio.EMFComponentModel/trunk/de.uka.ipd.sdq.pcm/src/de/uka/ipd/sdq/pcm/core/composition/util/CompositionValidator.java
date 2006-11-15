@@ -52,28 +52,12 @@ public class CompositionValidator extends EObjectValidator {
 	public static final String DIAGNOSTIC_SOURCE = "de.uka.ipd.sdq.pcm.core.composition";
 
 	/**
-	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Inner And Outer Role Need To Have Different Context IDs' of 'Provided Delegation Connector'.
+	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Provided Delegation Connectorandtheconnected Componentmustbepartofthesamecompositestructure' of 'Provided Delegation Connector'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final int PROVIDED_DELEGATION_CONNECTOR__INNER_AND_OUTER_ROLE_NEED_TO_HAVE_DIFFERENT_CONTEXT_IDS = 1;
-
-	/**
-	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Inner Containing Component Equal Outer Providing Component' of 'Provided Delegation Connector'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static final int PROVIDED_DELEGATION_CONNECTOR__INNER_CONTAINING_COMPONENT_EQUAL_OUTER_PROVIDING_COMPONENT = 2;
-
-	/**
-	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Inner And Outer Role Need To Have Different Context IDs' of 'Required Delegation Connector'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static final int REQUIRED_DELEGATION_CONNECTOR__INNER_AND_OUTER_ROLE_NEED_TO_HAVE_DIFFERENT_CONTEXT_IDS = 3;
+	public static final int PROVIDED_DELEGATION_CONNECTOR__PROVIDED_DELEGATION_CONNECTORANDTHECONNECTED_COMPONENTMUSTBEPARTOFTHESAMECOMPOSITESTRUCTURE = 1;
 
 	/**
 	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Inner Containing Component Equal Outer Requiring Component' of 'Required Delegation Connector'.
@@ -81,7 +65,7 @@ public class CompositionValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final int REQUIRED_DELEGATION_CONNECTOR__INNER_CONTAINING_COMPONENT_EQUAL_OUTER_REQUIRING_COMPONENT = 4;
+	public static final int REQUIRED_DELEGATION_CONNECTOR__INNER_CONTAINING_COMPONENT_EQUAL_OUTER_REQUIRING_COMPONENT = 2;
 
 	/**
 	 * A constant with a fixed name that can be used as the base value for additional hand written constants.
@@ -89,7 +73,7 @@ public class CompositionValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private static final int GENERATED_DIAGNOSTIC_CODE_COUNT = 4;
+	private static final int GENERATED_DIAGNOSTIC_CODE_COUNT = 2;
 
 	/**
 	 * A constant with a fixed name that can be used as the base value for additional hand written constants in a derived class.
@@ -162,29 +146,18 @@ public class CompositionValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(providedDelegationConnector, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryProxyResolves(providedDelegationConnector, diagnostics, context);
 		if (result || diagnostics != null) result &= identifierValidator.validateIdentifier_idHasToBeUnique(providedDelegationConnector, diagnostics, context);
-		if (result || diagnostics != null) result &= validateProvidedDelegationConnector_innerAndOuterRoleNeedToHaveDifferentContextIDs(providedDelegationConnector, diagnostics, context);
-		if (result || diagnostics != null) result &= validateProvidedDelegationConnector_InnerContainingComponentEqualOuterProvidingComponent(providedDelegationConnector, diagnostics, context);
+		if (result || diagnostics != null) result &= validateProvidedDelegationConnector_ProvidedDelegationConnectorandtheconnectedComponentmustbepartofthesamecompositestructure(providedDelegationConnector, diagnostics, context);
 		return result;
 	}
 
 	/**
-	 * Validates the innerAndOuterRoleNeedToHaveDifferentContextIDs constraint of '<em>Provided Delegation Connector</em>'.
+	 * Validates the ProvidedDelegationConnectorandtheconnectedComponentmustbepartofthesamecompositestructure constraint of '<em>Provided Delegation Connector</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateProvidedDelegationConnector_innerAndOuterRoleNeedToHaveDifferentContextIDs(ProvidedDelegationConnector providedDelegationConnector, DiagnosticChain diagnostics, Map context) {
-		return providedDelegationConnector.innerAndOuterRoleNeedToHaveDifferentContextIDs(diagnostics, context);
-	}
-
-	/**
-	 * Validates the InnerContainingComponentEqualOuterProvidingComponent constraint of '<em>Provided Delegation Connector</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateProvidedDelegationConnector_InnerContainingComponentEqualOuterProvidingComponent(ProvidedDelegationConnector providedDelegationConnector, DiagnosticChain diagnostics, Map context) {
-		return providedDelegationConnector.InnerContainingComponentEqualOuterProvidingComponent(diagnostics, context);
+	public boolean validateProvidedDelegationConnector_ProvidedDelegationConnectorandtheconnectedComponentmustbepartofthesamecompositestructure(ProvidedDelegationConnector providedDelegationConnector, DiagnosticChain diagnostics, Map context) {
+		return providedDelegationConnector.ProvidedDelegationConnectorandtheconnectedComponentmustbepartofthesamecompositestructure(diagnostics, context);
 	}
 
 	/**
@@ -235,19 +208,8 @@ public class CompositionValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(requiredDelegationConnector, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryProxyResolves(requiredDelegationConnector, diagnostics, context);
 		if (result || diagnostics != null) result &= identifierValidator.validateIdentifier_idHasToBeUnique(requiredDelegationConnector, diagnostics, context);
-		if (result || diagnostics != null) result &= validateRequiredDelegationConnector_innerAndOuterRoleNeedToHaveDifferentContextIDs(requiredDelegationConnector, diagnostics, context);
 		if (result || diagnostics != null) result &= validateRequiredDelegationConnector_InnerContainingComponentEqualOuterRequiringComponent(requiredDelegationConnector, diagnostics, context);
 		return result;
-	}
-
-	/**
-	 * Validates the innerAndOuterRoleNeedToHaveDifferentContextIDs constraint of '<em>Required Delegation Connector</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateRequiredDelegationConnector_innerAndOuterRoleNeedToHaveDifferentContextIDs(RequiredDelegationConnector requiredDelegationConnector, DiagnosticChain diagnostics, Map context) {
-		return requiredDelegationConnector.innerAndOuterRoleNeedToHaveDifferentContextIDs(diagnostics, context);
 	}
 
 	/**

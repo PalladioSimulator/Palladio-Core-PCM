@@ -120,7 +120,18 @@ definition returns [ProbabilityFunctionLiteral pfl]
 				( {Sample ssample=null;} 
 				ssample = stringsample
 			   	{((ProbabilityMassFunction)probFunction).getSamples().add(ssample);})+ 
-			SQUARE_PAREN_R;
+			SQUARE_PAREN_R
+			|
+			REAL_PDF
+				{probFunction = ProbfunctionFactory.eINSTANCE.createBoxedPDF();
+				   pfl.setFunction_ProbabilityFunctionLiteral(probFunction);}
+			SQUARE_PAREN_L 
+				( {ContinuousSample pdf_sample=null;}
+				  pdf_sample = real_pdf_sample
+				  {((BoxedPDF)probFunction).getSamples().add(pdf_sample);})+ 
+	 		SQUARE_PAREN_R 
+;	 		
+			
 
 numeric_int_sample returns [Sample s]
 	{s = null;} : 
@@ -142,6 +153,17 @@ numeric_real_sample returns [Sample s]
 			SEMI 
 			n2:NUMBER 
 			{s.setValue(Double.parseDouble(n2.getText()));} 
+			RPAREN;
+			
+real_pdf_sample returns [ContinuousSample s]
+	{s = null;} : 
+		LPAREN
+			{s = ProbfunctionFactory.eINSTANCE.createContinuousSample();} 
+			n:NUMBER
+			{s.setValue(Double.parseDouble(n.getText()));} 
+			SEMI 
+			n2:NUMBER 
+			{s.setProbability(Double.parseDouble(n2.getText()));} 
 			RPAREN;
 			
 stringsample returns [Sample s] 
@@ -171,9 +193,10 @@ LPAREN: '(' ;
 RPAREN: ')' ;
 SEMI  : ';' ;
 EQUAL : '=' ;
-INT_DEF : "IntRandomVar" ;
-REAL_DEF: "RealRandomVar" ;
-ENUM_DEF: "EnumRandomVar" ;
+INT_DEF : "IntPMF" ;
+REAL_DEF: "RealPMF" ;
+ENUM_DEF: "EnumPMF" ;
+REAL_PDF: "DoublePDF" ;
 SQUARE_PAREN_L : '[' ;
 SQUARE_PAREN_R : ']' ;
 protected DIGIT : '0'..'9' ;

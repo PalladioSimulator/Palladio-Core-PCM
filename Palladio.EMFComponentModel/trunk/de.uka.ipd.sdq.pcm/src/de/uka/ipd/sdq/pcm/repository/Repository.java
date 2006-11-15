@@ -26,6 +26,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link de.uka.ipd.sdq.pcm.repository.Repository#getRepositoryName <em>Repository Name</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.repository.Repository#getComponents__Repository <em>Components Repository</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.repository.Repository#getInterfaces__Repository <em>Interfaces Repository</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.repository.Repository#getDatatypes_Repository <em>Datatypes Repository</em>}</li>
  * </ul>
  * </p>
  *
@@ -126,74 +127,20 @@ public interface Repository extends EObject {
 	 */
 	EList getInterfaces__Repository();
 
-
 	/**
+	 * Returns the value of the '<em><b>Datatypes Repository</b></em>' containment reference list.
+	 * The list contents are of type {@link de.uka.ipd.sdq.pcm.repository.DataType}.
 	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Datatypes Repository</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
 	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * self.compositeComponents->forAll(e : CompositeComponent |
-	 *  e.oclIsTypeOf(CompositeComponent)
-	 * )
-	 * <!-- end-model-doc -->
-	 * @model
+	 * @return the value of the '<em>Datatypes Repository</em>' containment reference list.
+	 * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getRepository_Datatypes_Repository()
+	 * @model type="de.uka.ipd.sdq.pcm.repository.DataType" containment="true" ordered="false"
 	 * @generated
 	 */
-	boolean GrantFirstClassEntityTypeCompositeComponent(DiagnosticChain diagnostics, Map context);
-
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * self.providesComponentTypes->forAll(e : ProvidesComponentType |
-	 *  e.oclIsTypeOf(ProvidesComponentType)
-	 * )
-	 * <!-- end-model-doc -->
-	 * @model
-	 * @generated
-	 */
-	boolean GrantFirstClassEntityTypeProvidesComponentType(DiagnosticChain diagnostics, Map context);
-
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * self.completeComponentTypes->forAll(e : CompleteComponentType |
-	 *  e.oclIsTypeOf(CompleteComponentType)
-	 * )
-	 * <!-- end-model-doc -->
-	 * @model
-	 * @generated
-	 */
-	boolean GrantFirstClassEntityTypeCompleteComponentType(DiagnosticChain diagnostics, Map context);
-
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * self.implementationComponentTypes->forAll(e : ImplementationComponentType |
-	 *  e.oclIsTypeOf(ImplementationComponentType)
-	 * )
-	 * <!-- end-model-doc -->
-	 * @model
-	 * @generated
-	 */
-	boolean GrantFirstClassEntityTypeImplementationComponentType(DiagnosticChain diagnostics, Map context);
-
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * self.basicComponents->forAll(e : BasicComponent |
-	 *  e.oclIsTypeOf(BasicComponent)
-	 * )
-	 * <!-- end-model-doc -->
-	 * @model
-	 * @generated
-	 */
-	boolean GrantFirstClassEntityTypeBasicComponent(DiagnosticChain diagnostics, Map context);
+	EList getDatatypes_Repository();
 
 } // Repository

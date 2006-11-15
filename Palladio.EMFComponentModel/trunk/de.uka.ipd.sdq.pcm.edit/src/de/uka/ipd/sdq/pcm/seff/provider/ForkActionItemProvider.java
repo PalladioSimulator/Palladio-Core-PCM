@@ -143,12 +143,12 @@ public class ForkActionItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(SeffPackage.Literals.FORK_ACTION__FORKED_BEHAVIOURS_FORK,
-				 SeffFactory.eINSTANCE.createResourceDemandingBehaviour()));
+				 SeffFactory.eINSTANCE.createResourceDemandingSEFF()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(SeffPackage.Literals.FORK_ACTION__FORKED_BEHAVIOURS_FORK,
-				 SeffFactory.eINSTANCE.createResourceDemandingSEFF()));
+				 SeffFactory.eINSTANCE.createResourceDemandingBehaviour()));
 	}
 
 	/**

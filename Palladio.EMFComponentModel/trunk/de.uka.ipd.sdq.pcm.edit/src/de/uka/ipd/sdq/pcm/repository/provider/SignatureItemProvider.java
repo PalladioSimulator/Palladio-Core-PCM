@@ -75,6 +75,7 @@ public class SignatureItemProvider
 			super.getPropertyDescriptors(object);
 
 			addServiceNamePropertyDescriptor(object);
+			addReturntype__SignaturePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -102,6 +103,28 @@ public class SignatureItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Returntype Signature feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addReturntype__SignaturePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Signature_returntype__Signature_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Signature_returntype__Signature_feature", "_UI_Signature_type"),
+				 RepositoryPackage.Literals.SIGNATURE__RETURNTYPE_SIGNATURE,
+				 true,
+				 false,
+				 false,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -113,7 +136,6 @@ public class SignatureItemProvider
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(RepositoryPackage.Literals.SIGNATURE__PARAMETERS_SIGNATURE);
-			childrenFeatures.add(RepositoryPackage.Literals.SIGNATURE__RETURNTYPE_SIGNATURE);
 			childrenFeatures.add(RepositoryPackage.Literals.SIGNATURE__EXCEPTIONS_SIGNATURE);
 		}
 		return childrenFeatures;
@@ -169,7 +191,6 @@ public class SignatureItemProvider
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case RepositoryPackage.SIGNATURE__PARAMETERS_SIGNATURE:
-			case RepositoryPackage.SIGNATURE__RETURNTYPE_SIGNATURE:
 			case RepositoryPackage.SIGNATURE__EXCEPTIONS_SIGNATURE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
@@ -191,11 +212,6 @@ public class SignatureItemProvider
 			(createChildParameter
 				(RepositoryPackage.Literals.SIGNATURE__PARAMETERS_SIGNATURE,
 				 RepositoryFactory.eINSTANCE.createParameter()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(RepositoryPackage.Literals.SIGNATURE__RETURNTYPE_SIGNATURE,
-				 RepositoryFactory.eINSTANCE.createDataType()));
 
 		newChildDescriptors.add
 			(createChildParameter

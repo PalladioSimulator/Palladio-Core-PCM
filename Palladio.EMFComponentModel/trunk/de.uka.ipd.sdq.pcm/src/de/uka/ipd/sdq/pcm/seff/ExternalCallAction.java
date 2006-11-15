@@ -20,7 +20,7 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * <ul>
  *   <li>{@link de.uka.ipd.sdq.pcm.seff.ExternalCallAction#getCalledService_ExternalService <em>Called Service External Service</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.seff.ExternalCallAction#getParametricParameterUsage_ParametricParameterUsage <em>Parametric Parameter Usage Parametric Parameter Usage</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.seff.ExternalCallAction#getParameterUsage_ExternalCallAction <em>Parameter Usage External Call Action</em>}</li>
  * </ul>
  * </p>
  *
@@ -63,19 +63,19 @@ public interface ExternalCallAction extends AbstractAction {
 	void setCalledService_ExternalService(Signature value);
 
 	/**
-	 * Returns the value of the '<em><b>Parametric Parameter Usage Parametric Parameter Usage</b></em>' reference list.
-	 * The list contents are of type {@link de.uka.ipd.sdq.pcm.seff.ParametricParameterUsage}.
+	 * Returns the value of the '<em><b>Parameter Usage External Call Action</b></em>' containment reference list.
+	 * The list contents are of type {@link de.uka.ipd.sdq.pcm.parameter.ParameterUsage}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Parametric Parameter Usage Parametric Parameter Usage</em>' reference list isn't clear,
+	 * If the meaning of the '<em>Parameter Usage External Call Action</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Parametric Parameter Usage Parametric Parameter Usage</em>' reference list.
-	 * @see de.uka.ipd.sdq.pcm.seff.SeffPackage#getExternalCallAction_ParametricParameterUsage_ParametricParameterUsage()
-	 * @model type="de.uka.ipd.sdq.pcm.seff.ParametricParameterUsage" ordered="false"
+	 * @return the value of the '<em>Parameter Usage External Call Action</em>' containment reference list.
+	 * @see de.uka.ipd.sdq.pcm.seff.SeffPackage#getExternalCallAction_ParameterUsage_ExternalCallAction()
+	 * @model type="de.uka.ipd.sdq.pcm.parameter.ParameterUsage" containment="true" ordered="false"
 	 * @generated
 	 */
-	EList getParametricParameterUsage_ParametricParameterUsage();
+	EList getParameterUsage_ExternalCallAction();
 
 } // ExternalCallAction

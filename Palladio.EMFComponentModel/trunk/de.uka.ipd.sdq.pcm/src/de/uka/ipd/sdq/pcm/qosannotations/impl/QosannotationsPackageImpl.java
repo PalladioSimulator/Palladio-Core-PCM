@@ -36,8 +36,14 @@ import de.uka.ipd.sdq.pcm.protocol.ProtocolPackage;
 
 import de.uka.ipd.sdq.pcm.protocol.impl.ProtocolPackageImpl;
 
+import de.uka.ipd.sdq.pcm.qosannotations.ComponentSpecifiedExecutionTime;
+import de.uka.ipd.sdq.pcm.qosannotations.QoSAnnotations;
 import de.uka.ipd.sdq.pcm.qosannotations.QosannotationsFactory;
 import de.uka.ipd.sdq.pcm.qosannotations.QosannotationsPackage;
+import de.uka.ipd.sdq.pcm.qosannotations.SpecifiedExecutionTime;
+import de.uka.ipd.sdq.pcm.qosannotations.SpecifiedFailureProbability;
+import de.uka.ipd.sdq.pcm.qosannotations.SystemSpecifiedExecutionTime;
+
 import de.uka.ipd.sdq.pcm.qosannotations.SpecifiedTimeConsumption;
 
 import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
@@ -91,7 +97,35 @@ public class QosannotationsPackageImpl extends EPackageImpl implements Qosannota
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass specifiedTimeConsumptionEClass = null;
+	private EClass specifiedExecutionTimeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass specifiedFailureProbabilityEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass systemSpecifiedExecutionTimeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass componentSpecifiedExecutionTimeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass qoSAnnotationsEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -165,8 +199,8 @@ public class QosannotationsPackageImpl extends EPackageImpl implements Qosannota
 		ParameterPackageImpl theParameterPackage = (ParameterPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ParameterPackage.eNS_URI) instanceof ParameterPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ParameterPackage.eNS_URI) : ParameterPackage.eINSTANCE);
 		AllocationPackageImpl theAllocationPackage = (AllocationPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(AllocationPackage.eNS_URI) instanceof AllocationPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(AllocationPackage.eNS_URI) : AllocationPackage.eINSTANCE);
 		ResourceenvironmentPackageImpl theResourceenvironmentPackage = (ResourceenvironmentPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ResourceenvironmentPackage.eNS_URI) instanceof ResourceenvironmentPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ResourceenvironmentPackage.eNS_URI) : ResourceenvironmentPackage.eINSTANCE);
-		UsagemodelPackageImpl theUsagemodelPackage = (UsagemodelPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(UsagemodelPackage.eNS_URI) instanceof UsagemodelPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(UsagemodelPackage.eNS_URI) : UsagemodelPackage.eINSTANCE);
 		SystemPackageImpl theSystemPackage = (SystemPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(SystemPackage.eNS_URI) instanceof SystemPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(SystemPackage.eNS_URI) : SystemPackage.eINSTANCE);
+		UsagemodelPackageImpl theUsagemodelPackage = (UsagemodelPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(UsagemodelPackage.eNS_URI) instanceof UsagemodelPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(UsagemodelPackage.eNS_URI) : UsagemodelPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theQosannotationsPackage.createPackageContents();
@@ -181,8 +215,8 @@ public class QosannotationsPackageImpl extends EPackageImpl implements Qosannota
 		theParameterPackage.createPackageContents();
 		theAllocationPackage.createPackageContents();
 		theResourceenvironmentPackage.createPackageContents();
-		theUsagemodelPackage.createPackageContents();
 		theSystemPackage.createPackageContents();
+		theUsagemodelPackage.createPackageContents();
 
 		// Initialize created meta-data
 		theQosannotationsPackage.initializePackageContents();
@@ -197,8 +231,8 @@ public class QosannotationsPackageImpl extends EPackageImpl implements Qosannota
 		theParameterPackage.initializePackageContents();
 		theAllocationPackage.initializePackageContents();
 		theResourceenvironmentPackage.initializePackageContents();
-		theUsagemodelPackage.initializePackageContents();
 		theSystemPackage.initializePackageContents();
+		theUsagemodelPackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		theQosannotationsPackage.freeze();
@@ -211,8 +245,8 @@ public class QosannotationsPackageImpl extends EPackageImpl implements Qosannota
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getSpecifiedTimeConsumption() {
-		return specifiedTimeConsumptionEClass;
+	public EClass getSpecifiedExecutionTime() {
+		return specifiedExecutionTimeEClass;
 	}
 
 	/**
@@ -220,8 +254,71 @@ public class QosannotationsPackageImpl extends EPackageImpl implements Qosannota
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getSpecifiedTimeConsumption_Signature_SpecifiedTimeConsumption() {
-		return (EReference)specifiedTimeConsumptionEClass.getEStructuralFeatures().get(0);
+	public EReference getSpecifiedExecutionTime_Signature_SpecifiedTimeConsumption() {
+		return (EReference)specifiedExecutionTimeEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSpecifiedExecutionTime_Role_SpecifiedExecutionTime() {
+		return (EReference)specifiedExecutionTimeEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getSpecifiedFailureProbability() {
+		return specifiedFailureProbabilityEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getSystemSpecifiedExecutionTime() {
+		return systemSpecifiedExecutionTimeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getComponentSpecifiedExecutionTime() {
+		return componentSpecifiedExecutionTimeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getComponentSpecifiedExecutionTime_AssemblyContext_ComponentSpecifiedExecutionTime() {
+		return (EReference)componentSpecifiedExecutionTimeEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getQoSAnnotations() {
+		return qoSAnnotationsEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getQoSAnnotations_SpecifiedExecutionTimes_QoSAnnotations() {
+		return (EReference)qoSAnnotationsEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -252,8 +349,19 @@ public class QosannotationsPackageImpl extends EPackageImpl implements Qosannota
 		isCreated = true;
 
 		// Create classes and their features
-		specifiedTimeConsumptionEClass = createEClass(SPECIFIED_TIME_CONSUMPTION);
-		createEReference(specifiedTimeConsumptionEClass, SPECIFIED_TIME_CONSUMPTION__SIGNATURE_SPECIFIED_TIME_CONSUMPTION);
+		specifiedExecutionTimeEClass = createEClass(SPECIFIED_EXECUTION_TIME);
+		createEReference(specifiedExecutionTimeEClass, SPECIFIED_EXECUTION_TIME__SIGNATURE_SPECIFIED_TIME_CONSUMPTION);
+		createEReference(specifiedExecutionTimeEClass, SPECIFIED_EXECUTION_TIME__ROLE_SPECIFIED_EXECUTION_TIME);
+
+		specifiedFailureProbabilityEClass = createEClass(SPECIFIED_FAILURE_PROBABILITY);
+
+		systemSpecifiedExecutionTimeEClass = createEClass(SYSTEM_SPECIFIED_EXECUTION_TIME);
+
+		componentSpecifiedExecutionTimeEClass = createEClass(COMPONENT_SPECIFIED_EXECUTION_TIME);
+		createEReference(componentSpecifiedExecutionTimeEClass, COMPONENT_SPECIFIED_EXECUTION_TIME__ASSEMBLY_CONTEXT_COMPONENT_SPECIFIED_EXECUTION_TIME);
+
+		qoSAnnotationsEClass = createEClass(QO_SANNOTATIONS);
+		createEReference(qoSAnnotationsEClass, QO_SANNOTATIONS__SPECIFIED_EXECUTION_TIMES_QO_SANNOTATIONS);
 	}
 
 	/**
@@ -282,13 +390,29 @@ public class QosannotationsPackageImpl extends EPackageImpl implements Qosannota
 		// Obtain other dependent packages
 		StochasticsPackage theStochasticsPackage = (StochasticsPackage)EPackage.Registry.INSTANCE.getEPackage(StochasticsPackage.eNS_URI);
 		RepositoryPackage theRepositoryPackage = (RepositoryPackage)EPackage.Registry.INSTANCE.getEPackage(RepositoryPackage.eNS_URI);
+		CompositionPackage theCompositionPackage = (CompositionPackage)EPackage.Registry.INSTANCE.getEPackage(CompositionPackage.eNS_URI);
+		EntityPackage theEntityPackage = (EntityPackage)EPackage.Registry.INSTANCE.getEPackage(EntityPackage.eNS_URI);
 
 		// Add supertypes to classes
-		specifiedTimeConsumptionEClass.getESuperTypes().add(theStochasticsPackage.getRandomVariable());
+		specifiedExecutionTimeEClass.getESuperTypes().add(theStochasticsPackage.getRandomVariable());
+		systemSpecifiedExecutionTimeEClass.getESuperTypes().add(this.getSpecifiedExecutionTime());
+		componentSpecifiedExecutionTimeEClass.getESuperTypes().add(this.getSpecifiedExecutionTime());
+		qoSAnnotationsEClass.getESuperTypes().add(theEntityPackage.getEntity());
 
 		// Initialize classes and features; add operations and parameters
-		initEClass(specifiedTimeConsumptionEClass, SpecifiedTimeConsumption.class, "SpecifiedTimeConsumption", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getSpecifiedTimeConsumption_Signature_SpecifiedTimeConsumption(), theRepositoryPackage.getSignature(), null, "signature_SpecifiedTimeConsumption", null, 1, 1, SpecifiedTimeConsumption.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEClass(specifiedExecutionTimeEClass, SpecifiedExecutionTime.class, "SpecifiedExecutionTime", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getSpecifiedExecutionTime_Signature_SpecifiedTimeConsumption(), theRepositoryPackage.getSignature(), null, "signature_SpecifiedTimeConsumption", null, 1, 1, SpecifiedExecutionTime.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getSpecifiedExecutionTime_Role_SpecifiedExecutionTime(), theRepositoryPackage.getRole(), null, "role_SpecifiedExecutionTime", null, 1, 1, SpecifiedExecutionTime.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+		initEClass(specifiedFailureProbabilityEClass, SpecifiedFailureProbability.class, "SpecifiedFailureProbability", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(systemSpecifiedExecutionTimeEClass, SystemSpecifiedExecutionTime.class, "SystemSpecifiedExecutionTime", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(componentSpecifiedExecutionTimeEClass, ComponentSpecifiedExecutionTime.class, "ComponentSpecifiedExecutionTime", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getComponentSpecifiedExecutionTime_AssemblyContext_ComponentSpecifiedExecutionTime(), theCompositionPackage.getAssemblyContext(), null, "assemblyContext_ComponentSpecifiedExecutionTime", null, 1, 1, ComponentSpecifiedExecutionTime.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+		initEClass(qoSAnnotationsEClass, QoSAnnotations.class, "QoSAnnotations", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getQoSAnnotations_SpecifiedExecutionTimes_QoSAnnotations(), this.getSpecifiedExecutionTime(), null, "specifiedExecutionTimes_QoSAnnotations", null, 0, -1, QoSAnnotations.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

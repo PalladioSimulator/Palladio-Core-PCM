@@ -71,34 +71,11 @@ public class ParametricResourceDemandItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addDemandPropertyDescriptor(object);
 			addUnitPropertyDescriptor(object);
 			addRequiredResource_ParametricResourceDemandPropertyDescriptor(object);
 			addAction_ParametricResourceDemandPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Demand feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addDemandPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_ParametricResourceDemand_demand_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ParametricResourceDemand_demand_feature", "_UI_ParametricResourceDemand_type"),
-				 SeffPackage.Literals.PARAMETRIC_RESOURCE_DEMAND__DEMAND,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
 	}
 
 	/**
@@ -201,7 +178,6 @@ public class ParametricResourceDemandItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(ParametricResourceDemand.class)) {
-			case SeffPackage.PARAMETRIC_RESOURCE_DEMAND__DEMAND:
 			case SeffPackage.PARAMETRIC_RESOURCE_DEMAND__UNIT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;

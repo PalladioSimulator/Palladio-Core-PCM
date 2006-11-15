@@ -20,6 +20,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -45,7 +46,7 @@ public abstract class AbstractResourceDemandingActionImpl extends AbstractAction
 	public static final String copyright = "(c) by SDQ, IPD, U Karlsruhe (TH), 2006";
 
 	/**
-	 * The cached value of the '{@link #getResourceDemand_Action() <em>Resource Demand Action</em>}' reference list.
+	 * The cached value of the '{@link #getResourceDemand_Action() <em>Resource Demand Action</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getResourceDemand_Action()
@@ -80,7 +81,7 @@ public abstract class AbstractResourceDemandingActionImpl extends AbstractAction
 	 */
 	public EList getResourceDemand_Action() {
 		if (resourceDemand_Action == null) {
-			resourceDemand_Action = new EObjectWithInverseResolvingEList(ParametricResourceDemand.class, this, SeffPackage.ABSTRACT_RESOURCE_DEMANDING_ACTION__RESOURCE_DEMAND_ACTION, SeffPackage.PARAMETRIC_RESOURCE_DEMAND__ACTION_PARAMETRIC_RESOURCE_DEMAND);
+			resourceDemand_Action = new EObjectContainmentWithInverseEList(ParametricResourceDemand.class, this, SeffPackage.ABSTRACT_RESOURCE_DEMANDING_ACTION__RESOURCE_DEMAND_ACTION, SeffPackage.PARAMETRIC_RESOURCE_DEMAND__ACTION_PARAMETRIC_RESOURCE_DEMAND);
 		}
 		return resourceDemand_Action;
 	}

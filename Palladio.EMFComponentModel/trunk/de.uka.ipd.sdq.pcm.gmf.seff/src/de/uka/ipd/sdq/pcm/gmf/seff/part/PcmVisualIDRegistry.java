@@ -10,11 +10,8 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.BranchActionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.BranchActionEntityName2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.BranchActionEntityNameEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.BranchTransitionBehaviourCompartmentEditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.BranchTransitionBranchConditionEditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.BranchTransitionBranchProbabilityEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.BranchTransitionEditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.CollectionParametricParameterUsageEditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.CollectionParametricParameterUsageSpecificationEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.BranchTransitionProbabilityDiagramLabelEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ExternalCallAction2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ExternalCallActionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ExternalCallActionEntityName2EditPart;
@@ -29,12 +26,8 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopActionBehaviourCompartmentEdit
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopActionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopActionEntityName2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopActionEntityNameEditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopActionIterations2EditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopActionIterationsEditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ParametricResourceDemandDemandEditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ParametricResourceDemandEditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.PrimitiveParametricParameterUsageEditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.PrimitiveParametricParameterUsageSpecificationEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopIterationsLabel2EditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopIterationsLabelEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviour2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviourBranchCompartmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviourEditPart;
@@ -47,12 +40,10 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.StopActionEditPart;
 
 import de.uka.ipd.sdq.pcm.seff.BranchAction;
 import de.uka.ipd.sdq.pcm.seff.BranchTransition;
-import de.uka.ipd.sdq.pcm.seff.CollectionParametricParameterUsage;
 import de.uka.ipd.sdq.pcm.seff.ExternalCallAction;
 import de.uka.ipd.sdq.pcm.seff.InternalAction;
 import de.uka.ipd.sdq.pcm.seff.LoopAction;
 import de.uka.ipd.sdq.pcm.seff.ParametricResourceDemand;
-import de.uka.ipd.sdq.pcm.seff.PrimitiveParametricParameterUsage;
 import de.uka.ipd.sdq.pcm.seff.ResourceDemandingBehaviour;
 import de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF;
 import de.uka.ipd.sdq.pcm.seff.SeffPackage;
@@ -212,8 +203,8 @@ public class PcmVisualIDRegistry {
 			if (LoopActionEntityName2EditPart.VISUAL_ID == nodeVisualID) {
 				return LoopActionEntityName2EditPart.VISUAL_ID;
 			}
-			if (LoopActionIterations2EditPart.VISUAL_ID == nodeVisualID) {
-				return LoopActionIterations2EditPart.VISUAL_ID;
+			if (LoopIterationsLabel2EditPart.VISUAL_ID == nodeVisualID) {
+				return LoopIterationsLabel2EditPart.VISUAL_ID;
 			}
 			if (LoopActionBehaviourCompartmentEditPart.VISUAL_ID == nodeVisualID) {
 				return LoopActionBehaviourCompartmentEditPart.VISUAL_ID;
@@ -235,24 +226,6 @@ public class PcmVisualIDRegistry {
 			}
 			return getUnrecognizedInternalAction_1006ChildNodeID(domainElement,
 					semanticHint);
-		case PrimitiveParametricParameterUsageEditPart.VISUAL_ID:
-			if (PrimitiveParametricParameterUsageSpecificationEditPart.VISUAL_ID == nodeVisualID) {
-				return PrimitiveParametricParameterUsageSpecificationEditPart.VISUAL_ID;
-			}
-			return getUnrecognizedPrimitiveParametricParameterUsage_1007ChildNodeID(
-					domainElement, semanticHint);
-		case CollectionParametricParameterUsageEditPart.VISUAL_ID:
-			if (CollectionParametricParameterUsageSpecificationEditPart.VISUAL_ID == nodeVisualID) {
-				return CollectionParametricParameterUsageSpecificationEditPart.VISUAL_ID;
-			}
-			return getUnrecognizedCollectionParametricParameterUsage_1008ChildNodeID(
-					domainElement, semanticHint);
-		case ParametricResourceDemandEditPart.VISUAL_ID:
-			if (ParametricResourceDemandDemandEditPart.VISUAL_ID == nodeVisualID) {
-				return ParametricResourceDemandDemandEditPart.VISUAL_ID;
-			}
-			return getUnrecognizedParametricResourceDemand_1009ChildNodeID(
-					domainElement, semanticHint);
 		case ResourceDemandingBehaviourEditPart.VISUAL_ID:
 			if (ResourceDemandingBehaviourLoopCompartmentEditPart.VISUAL_ID == nodeVisualID) {
 				return ResourceDemandingBehaviourLoopCompartmentEditPart.VISUAL_ID;
@@ -269,8 +242,8 @@ public class PcmVisualIDRegistry {
 			if (LoopActionEntityNameEditPart.VISUAL_ID == nodeVisualID) {
 				return LoopActionEntityNameEditPart.VISUAL_ID;
 			}
-			if (LoopActionIterationsEditPart.VISUAL_ID == nodeVisualID) {
-				return LoopActionIterationsEditPart.VISUAL_ID;
+			if (LoopIterationsLabelEditPart.VISUAL_ID == nodeVisualID) {
+				return LoopIterationsLabelEditPart.VISUAL_ID;
 			}
 			if (LoopActionBehaviourCompartment2EditPart.VISUAL_ID == nodeVisualID) {
 				return LoopActionBehaviourCompartment2EditPart.VISUAL_ID;
@@ -293,8 +266,8 @@ public class PcmVisualIDRegistry {
 			return getUnrecognizedBranchAction_2006ChildNodeID(domainElement,
 					semanticHint);
 		case BranchTransitionEditPart.VISUAL_ID:
-			if (BranchTransitionBranchConditionEditPart.VISUAL_ID == nodeVisualID) {
-				return BranchTransitionBranchConditionEditPart.VISUAL_ID;
+			if (BranchTransitionProbabilityDiagramLabelEditPart.VISUAL_ID == nodeVisualID) {
+				return BranchTransitionProbabilityDiagramLabelEditPart.VISUAL_ID;
 			}
 			if (BranchTransitionBehaviourCompartmentEditPart.VISUAL_ID == nodeVisualID) {
 				return BranchTransitionBehaviourCompartmentEditPart.VISUAL_ID;
@@ -473,26 +446,6 @@ public class PcmVisualIDRegistry {
 					&& (domainElement == null || isNodeInternalAction_1006((InternalAction) domainElement))) {
 				return InternalAction2EditPart.VISUAL_ID;
 			}
-			if ((semanticHint == null || PrimitiveParametricParameterUsageEditPart.VISUAL_ID == nodeVisualID)
-					&& SeffPackage.eINSTANCE
-							.getPrimitiveParametricParameterUsage()
-							.isSuperTypeOf(domainElementMetaclass)
-					&& (domainElement == null || isNodePrimitiveParametricParameterUsage_1007((PrimitiveParametricParameterUsage) domainElement))) {
-				return PrimitiveParametricParameterUsageEditPart.VISUAL_ID;
-			}
-			if ((semanticHint == null || CollectionParametricParameterUsageEditPart.VISUAL_ID == nodeVisualID)
-					&& SeffPackage.eINSTANCE
-							.getCollectionParametricParameterUsage()
-							.isSuperTypeOf(domainElementMetaclass)
-					&& (domainElement == null || isNodeCollectionParametricParameterUsage_1008((CollectionParametricParameterUsage) domainElement))) {
-				return CollectionParametricParameterUsageEditPart.VISUAL_ID;
-			}
-			if ((semanticHint == null || ParametricResourceDemandEditPart.VISUAL_ID == nodeVisualID)
-					&& SeffPackage.eINSTANCE.getParametricResourceDemand()
-							.isSuperTypeOf(domainElementMetaclass)
-					&& (domainElement == null || isNodeParametricResourceDemand_1009((ParametricResourceDemand) domainElement))) {
-				return ParametricResourceDemandEditPart.VISUAL_ID;
-			}
 			return getUnrecognizedResourceDemandingSEFF_79ChildNodeID(
 					domainElement, semanticHint);
 		}
@@ -599,39 +552,6 @@ public class PcmVisualIDRegistry {
 	 * @generated
 	 */
 	private static boolean isNodeInternalAction_1006(InternalAction element) {
-		return true;
-	}
-
-	/**
-	 * User can change implementation of this method to check some additional 
-	 * conditions here.
-	 *
-	 * @generated
-	 */
-	private static boolean isNodePrimitiveParametricParameterUsage_1007(
-			PrimitiveParametricParameterUsage element) {
-		return true;
-	}
-
-	/**
-	 * User can change implementation of this method to check some additional 
-	 * conditions here.
-	 *
-	 * @generated
-	 */
-	private static boolean isNodeCollectionParametricParameterUsage_1008(
-			CollectionParametricParameterUsage element) {
-		return true;
-	}
-
-	/**
-	 * User can change implementation of this method to check some additional 
-	 * conditions here.
-	 *
-	 * @generated
-	 */
-	private static boolean isNodeParametricResourceDemand_1009(
-			ParametricResourceDemand element) {
 		return true;
 	}
 
@@ -790,39 +710,6 @@ public class PcmVisualIDRegistry {
 	 * @generated
 	 */
 	private static int getUnrecognizedInternalAction_1006ChildNodeID(
-			EObject domainElement, String semanticHint) {
-		return -1;
-	}
-
-	/**
-	 * User can change implementation of this method to handle some specific
-	 * situations not covered by default logic.
-	 *
-	 * @generated
-	 */
-	private static int getUnrecognizedPrimitiveParametricParameterUsage_1007ChildNodeID(
-			EObject domainElement, String semanticHint) {
-		return -1;
-	}
-
-	/**
-	 * User can change implementation of this method to handle some specific
-	 * situations not covered by default logic.
-	 *
-	 * @generated
-	 */
-	private static int getUnrecognizedCollectionParametricParameterUsage_1008ChildNodeID(
-			EObject domainElement, String semanticHint) {
-		return -1;
-	}
-
-	/**
-	 * User can change implementation of this method to handle some specific
-	 * situations not covered by default logic.
-	 *
-	 * @generated
-	 */
-	private static int getUnrecognizedParametricResourceDemand_1009ChildNodeID(
 			EObject domainElement, String semanticHint) {
 		return -1;
 	}

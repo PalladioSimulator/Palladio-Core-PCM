@@ -75,7 +75,7 @@ public class InterfaceItemProvider
 			super.getPropertyDescriptors(object);
 
 			addParentInterface__InterfacePropertyDescriptor(object);
-			addAnchestorInterfacesPropertyDescriptor(object);
+			addAnchestorInterfaces_InterfacePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -103,19 +103,19 @@ public class InterfaceItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Anchestor Interfaces feature.
+	 * This adds a property descriptor for the Anchestor Interfaces Interface feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addAnchestorInterfacesPropertyDescriptor(Object object) {
+	protected void addAnchestorInterfaces_InterfacePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Interface_anchestorInterfaces_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Interface_anchestorInterfaces_feature", "_UI_Interface_type"),
-				 RepositoryPackage.Literals.INTERFACE__ANCHESTOR_INTERFACES,
+				 getString("_UI_Interface_anchestorInterfaces_Interface_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Interface_anchestorInterfaces_Interface_feature", "_UI_Interface_type"),
+				 RepositoryPackage.Literals.INTERFACE__ANCHESTOR_INTERFACES_INTERFACE,
 				 true,
 				 false,
 				 true,

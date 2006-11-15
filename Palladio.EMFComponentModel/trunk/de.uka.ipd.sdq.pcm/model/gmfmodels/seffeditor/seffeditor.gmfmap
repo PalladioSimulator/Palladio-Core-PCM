@@ -47,7 +47,7 @@
         <diagramLabel
             href="seffeditor.gmfgraph#ComponentExternalCallNameLabel"/>
         <features
-            href="../../pcm.ecore#//core/entity/Entity/entityName"/>
+            href="../../pcm.ecore#//core/entity/NamedElement/entityName"/>
       </labelMappings>
       <tool
           xsi:type="gmftool:CreationTool"
@@ -69,13 +69,11 @@
         <diagramLabel
             href="seffeditor.gmfgraph#LoopNameLabel"/>
         <features
-            href="../../pcm.ecore#//core/entity/Entity/entityName"/>
+            href="../../pcm.ecore#//core/entity/NamedElement/entityName"/>
       </labelMappings>
       <labelMappings>
         <diagramLabel
             href="seffeditor.gmfgraph#LoopIterationsLabel"/>
-        <features
-            href="../../pcm.ecore#//seff/LoopAction/iterations"/>
       </labelMappings>
       <tool
           xsi:type="gmftool:CreationTool"
@@ -145,7 +143,7 @@
                 href="../../pcm.ecore#//seff/ResourceDemandingBehaviour/steps_Behaviour"/>
           </children>
           <compartments
-              children="//@nodes.3/@ownedChild/@children.0/@ownedChild/@children.1 //@nodes.3/@ownedChild/@children.0/@ownedChild/@children.2 //@nodes.3/@ownedChild/@children.0/@ownedChild/@children.0 //@nodes.3/@ownedChild/@children.0/@ownedChild/@children.3 //@nodes.3/@ownedChild/@children.0/@ownedChild/@children.4 //@nodes.3/@ownedChild/@children.0/@ownedChild/@children.5">
+              children="//@nodes.3/@ownedChild/@children.0/@ownedChild/@children.0 //@nodes.3/@ownedChild/@children.0/@ownedChild/@children.1 //@nodes.3/@ownedChild/@children.0/@ownedChild/@children.2 //@nodes.3/@ownedChild/@children.0/@ownedChild/@children.3 //@nodes.3/@ownedChild/@children.0/@ownedChild/@children.4 //@nodes.3/@ownedChild/@children.0/@ownedChild/@children.5">
             <compartment
                 href="seffeditor.gmfgraph#LoopCompartment"/>
           </compartments>
@@ -170,7 +168,7 @@
         <diagramLabel
             href="seffeditor.gmfgraph#BranchNameLabel"/>
         <features
-            href="../../pcm.ecore#//core/entity/Entity/entityName"/>
+            href="../../pcm.ecore#//core/entity/NamedElement/entityName"/>
       </labelMappings>
       <tool
           xsi:type="gmftool:CreationTool"
@@ -189,8 +187,6 @@
           <labelMappings>
             <diagramLabel
                 href="seffeditor.gmfgraph#BranchTransitionProbabilityDiagramLabel"/>
-            <features
-                href="../../pcm.ecore#//seff/BranchTransition/branchCondition"/>
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
@@ -292,76 +288,13 @@
         <diagramLabel
             href="seffeditor.gmfgraph#InternalActionNameLabel"/>
         <features
-            href="../../pcm.ecore#//core/entity/Entity/entityName"/>
+            href="../../pcm.ecore#//core/entity/NamedElement/entityName"/>
       </labelMappings>
       <tool
           xsi:type="gmftool:CreationTool"
           href="seffeditor.gmftool#//@palette/@tools.0/@tools.3"/>
       <diagramNode
           href="seffeditor.gmfgraph#InternalActionNode"/>
-    </ownedChild>
-  </nodes>
-  <nodes>
-    <containmentFeature
-        href="../../pcm.ecore#//seff/ResourceDemandingBehaviour/parametricParameterUsage_Behaviour"/>
-    <childrenFeature
-        href="../../pcm.ecore#//seff/ResourceDemandingBehaviour/parametricParameterUsage_Behaviour"/>
-    <ownedChild>
-      <domainMetaElement
-          href="../../pcm.ecore#//seff/PrimitiveParametricParameterUsage"/>
-      <labelMappings>
-        <diagramLabel
-            href="seffeditor.gmfgraph#ParametricParameterUsageSpecificationDiagramLabel"/>
-        <features
-            href="../../pcm.ecore#//core/stochastics/RandomVariable/specification"/>
-      </labelMappings>
-      <tool
-          xsi:type="gmftool:CreationTool"
-          href="seffeditor.gmftool#//@palette/@tools.2/@tools.1"/>
-      <diagramNode
-          href="seffeditor.gmfgraph#ParametricParameterUsageNode"/>
-    </ownedChild>
-  </nodes>
-  <nodes>
-    <containmentFeature
-        href="../../pcm.ecore#//seff/ResourceDemandingBehaviour/parametricParameterUsage_Behaviour"/>
-    <childrenFeature
-        href="../../pcm.ecore#//seff/ResourceDemandingBehaviour/parametricParameterUsage_Behaviour"/>
-    <ownedChild>
-      <domainMetaElement
-          href="../../pcm.ecore#//seff/CollectionParametricParameterUsage"/>
-      <labelMappings>
-        <diagramLabel
-            href="seffeditor.gmfgraph#ParametricParameterUsageSpecificationDiagramLabel"/>
-        <features
-            href="../../pcm.ecore#//core/stochastics/RandomVariable/specification"/>
-      </labelMappings>
-      <tool
-          xsi:type="gmftool:CreationTool"
-          href="seffeditor.gmftool#//@palette/@tools.2/@tools.2"/>
-      <diagramNode
-          href="seffeditor.gmfgraph#ParametricParameterUsageNode"/>
-    </ownedChild>
-  </nodes>
-  <nodes>
-    <containmentFeature
-        href="../../pcm.ecore#//seff/ResourceDemandingBehaviour/parametricResourceDemands_Behaviour"/>
-    <childrenFeature
-        href="../../pcm.ecore#//seff/ResourceDemandingBehaviour/parametricResourceDemands_Behaviour"/>
-    <ownedChild>
-      <domainMetaElement
-          href="../../pcm.ecore#//seff/ParametricResourceDemand"/>
-      <labelMappings>
-        <diagramLabel
-            href="seffeditor.gmfgraph#ParametricResourceDemandDemandLabel"/>
-        <features
-            href="../../pcm.ecore#//seff/ParametricResourceDemand/demand"/>
-      </labelMappings>
-      <tool
-          xsi:type="gmftool:CreationTool"
-          href="seffeditor.gmftool#//@palette/@tools.2/@tools.0"/>
-      <diagramNode
-          href="seffeditor.gmfgraph#ParametricResourceDemandNode"/>
     </ownedChild>
   </nodes>
   <links>
@@ -373,26 +306,6 @@
     <linkMetaFeature
         xsi:type="ecore:EReference"
         href="../../pcm.ecore#//seff/AbstractAction/successor_AbstractAction"/>
-  </links>
-  <links>
-    <tool
-        xsi:type="gmftool:CreationTool"
-        href="seffeditor.gmftool#//@palette/@tools.1/@tools.2"/>
-    <diagramLink
-        href="seffeditor.gmfgraph#CallParameterUsage_ActionLink"/>
-    <linkMetaFeature
-        xsi:type="ecore:EReference"
-        href="../../pcm.ecore#//seff/ExternalCallAction/parametricParameterUsage_ParametricParameterUsage"/>
-  </links>
-  <links>
-    <tool
-        xsi:type="gmftool:CreationTool"
-        href="seffeditor.gmftool#//@palette/@tools.1/@tools.1"/>
-    <diagramLink
-        href="seffeditor.gmfgraph#ActionResourceDemand_ActionLink"/>
-    <linkMetaFeature
-        xsi:type="ecore:EReference"
-        href="../../pcm.ecore#//seff/AbstractResourceDemandingAction/resourceDemand_Action"/>
   </links>
   <diagram>
     <diagramCanvas

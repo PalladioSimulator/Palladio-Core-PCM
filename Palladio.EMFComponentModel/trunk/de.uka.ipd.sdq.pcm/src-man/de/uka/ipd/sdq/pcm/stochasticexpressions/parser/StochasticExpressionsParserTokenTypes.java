@@ -26,15 +26,16 @@ public interface StochasticExpressionsParserTokenTypes {
 	int SQUARE_PAREN_R = 20;
 	int REAL_DEF = 21;
 	int ENUM_DEF = 22;
-	int LPAREN = 23;
-	int SEMI = 24;
-	int RPAREN = 25;
-	int STRING_LITERAL = 26;
-	int INNER = 27;
-	int DIGIT = 28;
-	int ALPHA = 29;
-	int MEAN = 30;
-	int PROB = 31;
-	int FUNCTION_DEF = 32;
-	int WS = 33;
+	int REAL_PDF = 23;
+	int LPAREN = 24;
+	int SEMI = 25;
+	int RPAREN = 26;
+	int STRING_LITERAL = 27;
+	int INNER = 28;
+	int DIGIT = 29;
+	int ALPHA = 30;
+	int MEAN = 31;
+	int PROB = 32;
+	int FUNCTION_DEF = 33;
+	int WS = 34;
 }

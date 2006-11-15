@@ -56,6 +56,7 @@ import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.domain.IEditingDomainProvider;
 import org.eclipse.emf.edit.provider.AdapterFactoryItemDelegator;
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
@@ -131,6 +132,7 @@ import org.eclipse.ui.views.properties.IPropertySource;
 import org.eclipse.ui.views.properties.PropertySheet;
 import org.eclipse.ui.views.properties.PropertySheetPage;
 
+import de.uka.ipd.sdq.dialogs.selection.StoachasticExpressionEditDialog;
 import de.uka.ipd.sdq.identifier.provider.IdentifierItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.allocation.provider.AllocationItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.core.composition.provider.CompositionItemProviderAdapterFactory;
@@ -142,6 +144,8 @@ import de.uka.ipd.sdq.pcm.core.stochastics.presentation.PcmEditorPlugin;
 import de.uka.ipd.sdq.pcm.core.stochastics.provider.StochasticsItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.parameter.provider.ParameterItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.protocol.provider.ProtocolItemProviderAdapterFactory;
+import de.uka.ipd.sdq.pcm.qosannotations.provider.QosannotationsItemProviderAdapterFactory;
+
 import de.uka.ipd.sdq.pcm.repository.provider.RepositoryItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.resourceenvironment.provider.ResourceenvironmentItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.resourcetype.provider.ResourcetypeItemProviderAdapterFactory;
@@ -149,6 +153,7 @@ import de.uka.ipd.sdq.pcm.seff.provider.SeffItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.stochasticexpressions.StoExPrettyPrintVisitor;
 import de.uka.ipd.sdq.pcm.system.provider.SystemItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.usagemodel.provider.UsagemodelItemProviderAdapterFactory;
+import de.uka.ipd.sdq.pcmbench.ui.provider.PalladioItemProviderAdapterFactory;
 import de.uka.ipd.sdq.probfunction.provider.ProbfunctionItemProviderAdapterFactory;
 
 
@@ -162,6 +167,13 @@ public class RepositoryEditor
 	extends MultiPageEditorPart
 	implements IEditingDomainProvider, ISelectionProvider, IMenuListener, IViewerProvider, IGotoMarker {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "(c) by SDQ, IPD, U Karlsruhe (TH), 2006";
+
+	/**
 	 * This keeps track of the editing domain that is used to track all changes to the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -173,9 +185,9 @@ public class RepositoryEditor
 	 * This is the one adapter factory used for providing views of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
-	protected ComposedAdapterFactory adapterFactory;
+	protected AdapterFactory adapterFactory;
 
 	/**
 	 * This is the content outline page.
@@ -657,7 +669,7 @@ public class RepositoryEditor
 	 * This creates a model editor.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public RepositoryEditor() {
 		super();
@@ -677,13 +689,25 @@ public class RepositoryEditor
 		factories.add(new ParameterItemProviderAdapterFactory());
 		factories.add(new AllocationItemProviderAdapterFactory());
 		factories.add(new ResourceenvironmentItemProviderAdapterFactory());
-		factories.add(new UsagemodelItemProviderAdapterFactory());
 		factories.add(new SystemItemProviderAdapterFactory());
+		factories.add(new QosannotationsItemProviderAdapterFactory());
+		factories.add(new UsagemodelItemProviderAdapterFactory());
 		factories.add(new IdentifierItemProviderAdapterFactory());
 		factories.add(new ProbfunctionItemProviderAdapterFactory());
 		factories.add(new ReflectiveItemProviderAdapterFactory());
 
-		adapterFactory = new ComposedAdapterFactory(factories);
+		adapterFactory = new PalladioItemProviderAdapterFactory(new ComposedAdapterFactory(factories){
+
+			/* (non-Javadoc)
+			 * @see org.eclipse.emf.edit.provider.ComposedAdapterFactory#getRootAdapterFactory()
+			 */
+			@Override
+			public ComposeableAdapterFactory getRootAdapterFactory() {
+				return (ComposeableAdapterFactory)adapterFactory;
+			}
+			
+		});
+		//adapterFactory = new ComposedAdapterFactory(factories);
 
 		// Create the command stack that will notify this editor as commands are executed.
 		//
@@ -1756,7 +1780,7 @@ public class RepositoryEditor
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public void dispose() {
 		updateProblemIndication = false;
@@ -1765,7 +1789,7 @@ public class RepositoryEditor
 
 		getSite().getPage().removePartListener(partListener);
 
-		adapterFactory.dispose();
+		((PalladioItemProviderAdapterFactory)adapterFactory).dispose();
 
 		if (getActionBarContributor().getActiveEditor() == this) {
 			getActionBarContributor().setActiveEditor(null);

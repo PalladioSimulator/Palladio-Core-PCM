@@ -45,7 +45,7 @@ public class ParameterImpl extends EObjectImpl implements Parameter {
 	public static final String copyright = "(c) by SDQ, IPD, U Karlsruhe (TH), 2006";
 
 	/**
-	 * The cached value of the '{@link #getDatatype__Parameter() <em>Datatype Parameter</em>}' containment reference.
+	 * The cached value of the '{@link #getDatatype__Parameter() <em>Datatype Parameter</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getDatatype__Parameter()
@@ -120,6 +120,14 @@ public class ParameterImpl extends EObjectImpl implements Parameter {
 	 * @generated
 	 */
 	public DataType getDatatype__Parameter() {
+		if (datatype__Parameter != null && datatype__Parameter.eIsProxy()) {
+			InternalEObject oldDatatype__Parameter = (InternalEObject)datatype__Parameter;
+			datatype__Parameter = (DataType)eResolveProxy(oldDatatype__Parameter);
+			if (datatype__Parameter != oldDatatype__Parameter) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, RepositoryPackage.PARAMETER__DATATYPE_PARAMETER, oldDatatype__Parameter, datatype__Parameter));
+			}
+		}
 		return datatype__Parameter;
 	}
 
@@ -128,14 +136,8 @@ public class ParameterImpl extends EObjectImpl implements Parameter {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetDatatype__Parameter(DataType newDatatype__Parameter, NotificationChain msgs) {
-		DataType oldDatatype__Parameter = datatype__Parameter;
-		datatype__Parameter = newDatatype__Parameter;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, RepositoryPackage.PARAMETER__DATATYPE_PARAMETER, oldDatatype__Parameter, newDatatype__Parameter);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
+	public DataType basicGetDatatype__Parameter() {
+		return datatype__Parameter;
 	}
 
 	/**
@@ -144,17 +146,10 @@ public class ParameterImpl extends EObjectImpl implements Parameter {
 	 * @generated
 	 */
 	public void setDatatype__Parameter(DataType newDatatype__Parameter) {
-		if (newDatatype__Parameter != datatype__Parameter) {
-			NotificationChain msgs = null;
-			if (datatype__Parameter != null)
-				msgs = ((InternalEObject)datatype__Parameter).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - RepositoryPackage.PARAMETER__DATATYPE_PARAMETER, null, msgs);
-			if (newDatatype__Parameter != null)
-				msgs = ((InternalEObject)newDatatype__Parameter).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - RepositoryPackage.PARAMETER__DATATYPE_PARAMETER, null, msgs);
-			msgs = basicSetDatatype__Parameter(newDatatype__Parameter, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, RepositoryPackage.PARAMETER__DATATYPE_PARAMETER, newDatatype__Parameter, newDatatype__Parameter));
+		DataType oldDatatype__Parameter = datatype__Parameter;
+		datatype__Parameter = newDatatype__Parameter;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, RepositoryPackage.PARAMETER__DATATYPE_PARAMETER, oldDatatype__Parameter, datatype__Parameter));
 	}
 
 	/**
@@ -204,23 +199,11 @@ public class ParameterImpl extends EObjectImpl implements Parameter {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case RepositoryPackage.PARAMETER__DATATYPE_PARAMETER:
-				return basicSetDatatype__Parameter(null, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case RepositoryPackage.PARAMETER__DATATYPE_PARAMETER:
-				return getDatatype__Parameter();
+				if (resolve) return getDatatype__Parameter();
+				return basicGetDatatype__Parameter();
 			case RepositoryPackage.PARAMETER__PARAMETER_NAME:
 				return getParameterName();
 			case RepositoryPackage.PARAMETER__MODIFIER_PARAMETER:

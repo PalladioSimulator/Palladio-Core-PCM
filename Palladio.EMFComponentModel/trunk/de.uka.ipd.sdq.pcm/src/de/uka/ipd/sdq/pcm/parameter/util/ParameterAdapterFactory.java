@@ -79,11 +79,8 @@ public class ParameterAdapterFactory extends AdapterFactoryImpl {
 	 */
 	protected ParameterSwitch modelSwitch =
 		new ParameterSwitch() {
-			public Object casePrimitiveParameterCharacterisation(PrimitiveParameterCharacterisation object) {
-				return createPrimitiveParameterCharacterisationAdapter();
-			}
-			public Object caseParameterUsage(ParameterUsage object) {
-				return createParameterUsageAdapter();
+			public Object caseParameterCharacterisation(ParameterCharacterisation object) {
+				return createParameterCharacterisationAdapter();
 			}
 			public Object caseCompositeParameterUsage(CompositeParameterUsage object) {
 				return createCompositeParameterUsageAdapter();
@@ -93,6 +90,12 @@ public class ParameterAdapterFactory extends AdapterFactoryImpl {
 			}
 			public Object caseCollectionParameterCharacterisation(CollectionParameterCharacterisation object) {
 				return createCollectionParameterCharacterisationAdapter();
+			}
+			public Object casePrimitiveParameterUsage(PrimitiveParameterUsage object) {
+				return createPrimitiveParameterUsageAdapter();
+			}
+			public Object caseParameterUsage(ParameterUsage object) {
+				return createParameterUsageAdapter();
 			}
 			public Object caseRandomVariable(RandomVariable object) {
 				return createRandomVariableAdapter();
@@ -116,16 +119,16 @@ public class ParameterAdapterFactory extends AdapterFactoryImpl {
 
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.parameter.PrimitiveParameterCharacterisation <em>Primitive Parameter Characterisation</em>}'.
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.parameter.ParameterCharacterisation <em>Characterisation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.pcm.parameter.PrimitiveParameterCharacterisation
+	 * @see de.uka.ipd.sdq.pcm.parameter.ParameterCharacterisation
 	 * @generated
 	 */
-	public Adapter createPrimitiveParameterCharacterisationAdapter() {
+	public Adapter createParameterCharacterisationAdapter() {
 		return null;
 	}
 
@@ -182,6 +185,20 @@ public class ParameterAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createCollectionParameterCharacterisationAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.parameter.PrimitiveParameterUsage <em>Primitive Parameter Usage</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.pcm.parameter.PrimitiveParameterUsage
+	 * @generated
+	 */
+	public Adapter createPrimitiveParameterUsageAdapter() {
 		return null;
 	}
 

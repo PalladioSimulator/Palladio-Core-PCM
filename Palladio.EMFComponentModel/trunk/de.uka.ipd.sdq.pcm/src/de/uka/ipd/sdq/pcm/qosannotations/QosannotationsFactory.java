@@ -33,13 +33,40 @@ public interface QosannotationsFactory extends EFactory {
 	QosannotationsFactory eINSTANCE = de.uka.ipd.sdq.pcm.qosannotations.impl.QosannotationsFactoryImpl.init();
 
 	/**
-	 * Returns a new object of class '<em>Specified Time Consumption</em>'.
+	 * Returns a new object of class '<em>Specified Failure Probability</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Specified Time Consumption</em>'.
+	 * @return a new object of class '<em>Specified Failure Probability</em>'.
 	 * @generated
 	 */
-	SpecifiedTimeConsumption createSpecifiedTimeConsumption();
+	SpecifiedFailureProbability createSpecifiedFailureProbability();
+
+	/**
+	 * Returns a new object of class '<em>System Specified Execution Time</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>System Specified Execution Time</em>'.
+	 * @generated
+	 */
+	SystemSpecifiedExecutionTime createSystemSpecifiedExecutionTime();
+
+	/**
+	 * Returns a new object of class '<em>Component Specified Execution Time</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Component Specified Execution Time</em>'.
+	 * @generated
+	 */
+	ComponentSpecifiedExecutionTime createComponentSpecifiedExecutionTime();
+
+	/**
+	 * Returns a new object of class '<em>Qo SAnnotations</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Qo SAnnotations</em>'.
+	 * @generated
+	 */
+	QoSAnnotations createQoSAnnotations();
 
 	/**
 	 * Returns the package supported by this factory.

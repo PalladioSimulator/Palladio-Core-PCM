@@ -7,15 +7,17 @@
  */
 package de.uka.ipd.sdq.pcm.seff.impl;
 
+import de.uka.ipd.sdq.pcm.parameter.ParameterUsage;
+
 import de.uka.ipd.sdq.pcm.repository.Signature;
 
 import de.uka.ipd.sdq.pcm.seff.ExternalCallAction;
-import de.uka.ipd.sdq.pcm.seff.ParametricParameterUsage;
 import de.uka.ipd.sdq.pcm.seff.SeffPackage;
 
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
 
@@ -24,7 +26,8 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -34,7 +37,7 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  * The following features are implemented:
  * <ul>
  *   <li>{@link de.uka.ipd.sdq.pcm.seff.impl.ExternalCallActionImpl#getCalledService_ExternalService <em>Called Service External Service</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.seff.impl.ExternalCallActionImpl#getParametricParameterUsage_ParametricParameterUsage <em>Parametric Parameter Usage Parametric Parameter Usage</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.seff.impl.ExternalCallActionImpl#getParameterUsage_ExternalCallAction <em>Parameter Usage External Call Action</em>}</li>
  * </ul>
  * </p>
  *
@@ -59,14 +62,14 @@ public class ExternalCallActionImpl extends AbstractActionImpl implements Extern
 	protected Signature calledService_ExternalService = null;
 
 	/**
-	 * The cached value of the '{@link #getParametricParameterUsage_ParametricParameterUsage() <em>Parametric Parameter Usage Parametric Parameter Usage</em>}' reference list.
+	 * The cached value of the '{@link #getParameterUsage_ExternalCallAction() <em>Parameter Usage External Call Action</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getParametricParameterUsage_ParametricParameterUsage()
+	 * @see #getParameterUsage_ExternalCallAction()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList parametricParameterUsage_ParametricParameterUsage = null;
+	protected EList parameterUsage_ExternalCallAction = null;
 
 
 	/**
@@ -130,11 +133,24 @@ public class ExternalCallActionImpl extends AbstractActionImpl implements Extern
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList getParametricParameterUsage_ParametricParameterUsage() {
-		if (parametricParameterUsage_ParametricParameterUsage == null) {
-			parametricParameterUsage_ParametricParameterUsage = new EObjectResolvingEList(ParametricParameterUsage.class, this, SeffPackage.EXTERNAL_CALL_ACTION__PARAMETRIC_PARAMETER_USAGE_PARAMETRIC_PARAMETER_USAGE);
+	public EList getParameterUsage_ExternalCallAction() {
+		if (parameterUsage_ExternalCallAction == null) {
+			parameterUsage_ExternalCallAction = new EObjectContainmentEList(ParameterUsage.class, this, SeffPackage.EXTERNAL_CALL_ACTION__PARAMETER_USAGE_EXTERNAL_CALL_ACTION);
 		}
-		return parametricParameterUsage_ParametricParameterUsage;
+		return parameterUsage_ExternalCallAction;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case SeffPackage.EXTERNAL_CALL_ACTION__PARAMETER_USAGE_EXTERNAL_CALL_ACTION:
+				return ((InternalEList)getParameterUsage_ExternalCallAction()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -147,8 +163,8 @@ public class ExternalCallActionImpl extends AbstractActionImpl implements Extern
 			case SeffPackage.EXTERNAL_CALL_ACTION__CALLED_SERVICE_EXTERNAL_SERVICE:
 				if (resolve) return getCalledService_ExternalService();
 				return basicGetCalledService_ExternalService();
-			case SeffPackage.EXTERNAL_CALL_ACTION__PARAMETRIC_PARAMETER_USAGE_PARAMETRIC_PARAMETER_USAGE:
-				return getParametricParameterUsage_ParametricParameterUsage();
+			case SeffPackage.EXTERNAL_CALL_ACTION__PARAMETER_USAGE_EXTERNAL_CALL_ACTION:
+				return getParameterUsage_ExternalCallAction();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -163,9 +179,9 @@ public class ExternalCallActionImpl extends AbstractActionImpl implements Extern
 			case SeffPackage.EXTERNAL_CALL_ACTION__CALLED_SERVICE_EXTERNAL_SERVICE:
 				setCalledService_ExternalService((Signature)newValue);
 				return;
-			case SeffPackage.EXTERNAL_CALL_ACTION__PARAMETRIC_PARAMETER_USAGE_PARAMETRIC_PARAMETER_USAGE:
-				getParametricParameterUsage_ParametricParameterUsage().clear();
-				getParametricParameterUsage_ParametricParameterUsage().addAll((Collection)newValue);
+			case SeffPackage.EXTERNAL_CALL_ACTION__PARAMETER_USAGE_EXTERNAL_CALL_ACTION:
+				getParameterUsage_ExternalCallAction().clear();
+				getParameterUsage_ExternalCallAction().addAll((Collection)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -181,8 +197,8 @@ public class ExternalCallActionImpl extends AbstractActionImpl implements Extern
 			case SeffPackage.EXTERNAL_CALL_ACTION__CALLED_SERVICE_EXTERNAL_SERVICE:
 				setCalledService_ExternalService((Signature)null);
 				return;
-			case SeffPackage.EXTERNAL_CALL_ACTION__PARAMETRIC_PARAMETER_USAGE_PARAMETRIC_PARAMETER_USAGE:
-				getParametricParameterUsage_ParametricParameterUsage().clear();
+			case SeffPackage.EXTERNAL_CALL_ACTION__PARAMETER_USAGE_EXTERNAL_CALL_ACTION:
+				getParameterUsage_ExternalCallAction().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -197,8 +213,8 @@ public class ExternalCallActionImpl extends AbstractActionImpl implements Extern
 		switch (featureID) {
 			case SeffPackage.EXTERNAL_CALL_ACTION__CALLED_SERVICE_EXTERNAL_SERVICE:
 				return calledService_ExternalService != null;
-			case SeffPackage.EXTERNAL_CALL_ACTION__PARAMETRIC_PARAMETER_USAGE_PARAMETRIC_PARAMETER_USAGE:
-				return parametricParameterUsage_ParametricParameterUsage != null && !parametricParameterUsage_ParametricParameterUsage.isEmpty();
+			case SeffPackage.EXTERNAL_CALL_ACTION__PARAMETER_USAGE_EXTERNAL_CALL_ACTION:
+				return parameterUsage_ExternalCallAction != null && !parameterUsage_ExternalCallAction.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

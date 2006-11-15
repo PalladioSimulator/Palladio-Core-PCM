@@ -76,52 +76,12 @@ public class RepositoryValidator extends EObjectValidator {
 	public static final int INTERFACE__SIGNATURES_HAVE_TO_BE_UNIQUE_FOR_AN_INTERFACE = 3;
 
 	/**
-	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Grant First Class Entity Type Composite Component' of 'Repository'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static final int REPOSITORY__GRANT_FIRST_CLASS_ENTITY_TYPE_COMPOSITE_COMPONENT = 4;
-
-	/**
-	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Grant First Class Entity Type Provides Component Type' of 'Repository'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static final int REPOSITORY__GRANT_FIRST_CLASS_ENTITY_TYPE_PROVIDES_COMPONENT_TYPE = 5;
-
-	/**
-	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Grant First Class Entity Type Complete Component Type' of 'Repository'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static final int REPOSITORY__GRANT_FIRST_CLASS_ENTITY_TYPE_COMPLETE_COMPONENT_TYPE = 6;
-
-	/**
-	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Grant First Class Entity Type Implementation Component Type' of 'Repository'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static final int REPOSITORY__GRANT_FIRST_CLASS_ENTITY_TYPE_IMPLEMENTATION_COMPONENT_TYPE = 7;
-
-	/**
-	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Grant First Class Entity Type Basic Component' of 'Repository'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static final int REPOSITORY__GRANT_FIRST_CLASS_ENTITY_TYPE_BASIC_COMPONENT = 8;
-
-	/**
 	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'At Least One Interface Has To Be Provided By AUsefull Provides Component Type' of 'Provides Component Type'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final int PROVIDES_COMPONENT_TYPE__AT_LEAST_ONE_INTERFACE_HAS_TO_BE_PROVIDED_BY_AUSEFULL_PROVIDES_COMPONENT_TYPE = 9;
+	public static final int PROVIDES_COMPONENT_TYPE__AT_LEAST_ONE_INTERFACE_HAS_TO_BE_PROVIDED_BY_AUSEFULL_PROVIDES_COMPONENT_TYPE = 4;
 
 	/**
 	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Required Interfaces Have To Conform To Complete Type' of 'Implementation Component Type'.
@@ -129,7 +89,7 @@ public class RepositoryValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final int IMPLEMENTATION_COMPONENT_TYPE__REQUIRED_INTERFACES_HAVE_TO_CONFORM_TO_COMPLETE_TYPE = 10;
+	public static final int IMPLEMENTATION_COMPONENT_TYPE__REQUIRED_INTERFACES_HAVE_TO_CONFORM_TO_COMPLETE_TYPE = 5;
 
 	/**
 	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Provided Interfaces Have To Conform To Complete Type' of 'Implementation Component Type'.
@@ -137,7 +97,7 @@ public class RepositoryValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final int IMPLEMENTATION_COMPONENT_TYPE__PROVIDED_INTERFACES_HAVE_TO_CONFORM_TO_COMPLETE_TYPE = 11;
+	public static final int IMPLEMENTATION_COMPONENT_TYPE__PROVIDED_INTERFACES_HAVE_TO_CONFORM_TO_COMPLETE_TYPE = 6;
 
 	/**
 	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'At Least One Interface Has To Be Provided Or Required By AUsefull Complete Component Type' of 'Complete Component Type'.
@@ -145,7 +105,7 @@ public class RepositoryValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final int COMPLETE_COMPONENT_TYPE__AT_LEAST_ONE_INTERFACE_HAS_TO_BE_PROVIDED_OR_REQUIRED_BY_AUSEFULL_COMPLETE_COMPONENT_TYPE = 12;
+	public static final int COMPLETE_COMPONENT_TYPE__AT_LEAST_ONE_INTERFACE_HAS_TO_BE_PROVIDED_OR_REQUIRED_BY_AUSEFULL_COMPLETE_COMPONENT_TYPE = 7;
 
 	/**
 	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Provided Interfaces Have To Conform To Provided Type2' of 'Complete Component Type'.
@@ -153,7 +113,7 @@ public class RepositoryValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final int COMPLETE_COMPONENT_TYPE__PROVIDED_INTERFACES_HAVE_TO_CONFORM_TO_PROVIDED_TYPE2 = 13;
+	public static final int COMPLETE_COMPONENT_TYPE__PROVIDED_INTERFACES_HAVE_TO_CONFORM_TO_PROVIDED_TYPE2 = 8;
 
 	/**
 	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Provide Same Interfaces' of 'Composite Component'.
@@ -161,7 +121,7 @@ public class RepositoryValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final int COMPOSITE_COMPONENT__PROVIDE_SAME_INTERFACES = 14;
+	public static final int COMPOSITE_COMPONENT__PROVIDE_SAME_INTERFACES = 9;
 
 	/**
 	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Require Same Interfaces' of 'Composite Component'.
@@ -169,7 +129,7 @@ public class RepositoryValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final int COMPOSITE_COMPONENT__REQUIRE_SAME_INTERFACES = 15;
+	public static final int COMPOSITE_COMPONENT__REQUIRE_SAME_INTERFACES = 10;
 
 	/**
 	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'No Seff Type Used Twice' of 'Basic Component'.
@@ -177,7 +137,7 @@ public class RepositoryValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final int BASIC_COMPONENT__NO_SEFF_TYPE_USED_TWICE = 16;
+	public static final int BASIC_COMPONENT__NO_SEFF_TYPE_USED_TWICE = 11;
 
 	/**
 	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Provide Same Interfaces' of 'Basic Component'.
@@ -185,15 +145,15 @@ public class RepositoryValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final int BASIC_COMPONENT__PROVIDE_SAME_INTERFACES = 17;
+	public static final int BASIC_COMPONENT__PROVIDE_SAME_INTERFACES = 12;
 
 	/**
-	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Require Same Interfaces' of 'Basic Component'.
+	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Require Same Interfacesas Implementation Type' of 'Basic Component'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final int BASIC_COMPONENT__REQUIRE_SAME_INTERFACES = 18;
+	public static final int BASIC_COMPONENT__REQUIRE_SAME_INTERFACESAS_IMPLEMENTATION_TYPE = 13;
 
 	/**
 	 * A constant with a fixed name that can be used as the base value for additional hand written constants.
@@ -201,7 +161,7 @@ public class RepositoryValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private static final int GENERATED_DIAGNOSTIC_CODE_COUNT = 18;
+	private static final int GENERATED_DIAGNOSTIC_CODE_COUNT = 13;
 
 	/**
 	 * A constant with a fixed name that can be used as the base value for additional hand written constants in a derived class.
@@ -276,10 +236,20 @@ public class RepositoryValidator extends EObjectValidator {
 				return validateCompositeComponent((CompositeComponent)value, diagnostics, context);
 			case RepositoryPackage.BASIC_COMPONENT:
 				return validateBasicComponent((BasicComponent)value, diagnostics, context);
+			case RepositoryPackage.PRIMITIVE_DATA_TYPE:
+				return validatePrimitiveDataType((PrimitiveDataType)value, diagnostics, context);
+			case RepositoryPackage.COLLECTION_DATA_TYPE:
+				return validateCollectionDataType((CollectionDataType)value, diagnostics, context);
+			case RepositoryPackage.COMPOSITE_DATA_TYPE:
+				return validateCompositeDataType((CompositeDataType)value, diagnostics, context);
+			case RepositoryPackage.INNER_DECLARATION:
+				return validateInnerDeclaration((InnerDeclaration)value, diagnostics, context);
 			case RepositoryPackage.PROVIDED_ROLE:
 				return validateProvidedRole((ProvidedRole)value, diagnostics, context);
 			case RepositoryPackage.PARAMETER_MODIFIER:
 				return validateParameterModifier((ParameterModifier)value, diagnostics, context);
+			case RepositoryPackage.PRIMITIVE_TYPE_ENUM:
+				return validatePrimitiveTypeEnum((PrimitiveTypeEnum)value, diagnostics, context);
 			default: 
 				return true;
 		}
@@ -406,66 +376,7 @@ public class RepositoryValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateRepository(Repository repository, DiagnosticChain diagnostics, Map context) {
-		boolean result = validate_EveryMultiplicityConforms(repository, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(repository, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(repository, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryProxyResolves(repository, diagnostics, context);
-		if (result || diagnostics != null) result &= validateRepository_GrantFirstClassEntityTypeCompositeComponent(repository, diagnostics, context);
-		if (result || diagnostics != null) result &= validateRepository_GrantFirstClassEntityTypeProvidesComponentType(repository, diagnostics, context);
-		if (result || diagnostics != null) result &= validateRepository_GrantFirstClassEntityTypeCompleteComponentType(repository, diagnostics, context);
-		if (result || diagnostics != null) result &= validateRepository_GrantFirstClassEntityTypeImplementationComponentType(repository, diagnostics, context);
-		if (result || diagnostics != null) result &= validateRepository_GrantFirstClassEntityTypeBasicComponent(repository, diagnostics, context);
-		return result;
-	}
-
-	/**
-	 * Validates the GrantFirstClassEntityTypeCompositeComponent constraint of '<em>Repository</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateRepository_GrantFirstClassEntityTypeCompositeComponent(Repository repository, DiagnosticChain diagnostics, Map context) {
-		return repository.GrantFirstClassEntityTypeCompositeComponent(diagnostics, context);
-	}
-
-	/**
-	 * Validates the GrantFirstClassEntityTypeProvidesComponentType constraint of '<em>Repository</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateRepository_GrantFirstClassEntityTypeProvidesComponentType(Repository repository, DiagnosticChain diagnostics, Map context) {
-		return repository.GrantFirstClassEntityTypeProvidesComponentType(diagnostics, context);
-	}
-
-	/**
-	 * Validates the GrantFirstClassEntityTypeCompleteComponentType constraint of '<em>Repository</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateRepository_GrantFirstClassEntityTypeCompleteComponentType(Repository repository, DiagnosticChain diagnostics, Map context) {
-		return repository.GrantFirstClassEntityTypeCompleteComponentType(diagnostics, context);
-	}
-
-	/**
-	 * Validates the GrantFirstClassEntityTypeImplementationComponentType constraint of '<em>Repository</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateRepository_GrantFirstClassEntityTypeImplementationComponentType(Repository repository, DiagnosticChain diagnostics, Map context) {
-		return repository.GrantFirstClassEntityTypeImplementationComponentType(diagnostics, context);
-	}
-
-	/**
-	 * Validates the GrantFirstClassEntityTypeBasicComponent constraint of '<em>Repository</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateRepository_GrantFirstClassEntityTypeBasicComponent(Repository repository, DiagnosticChain diagnostics, Map context) {
-		return repository.GrantFirstClassEntityTypeBasicComponent(diagnostics, context);
+		return validate_EveryDefaultConstraint(repository, diagnostics, context);
 	}
 
 	/**
@@ -642,7 +553,7 @@ public class RepositoryValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validateImplementationComponentType_providedInterfacesHaveToConformToCompleteType(basicComponent, diagnostics, context);
 		if (result || diagnostics != null) result &= validateBasicComponent_noSeffTypeUsedTwice(basicComponent, diagnostics, context);
 		if (result || diagnostics != null) result &= validateBasicComponent_ProvideSameInterfaces(basicComponent, diagnostics, context);
-		if (result || diagnostics != null) result &= validateBasicComponent_RequireSameInterfaces(basicComponent, diagnostics, context);
+		if (result || diagnostics != null) result &= validateBasicComponent_RequireSameInterfacesasImplementationType(basicComponent, diagnostics, context);
 		return result;
 	}
 
@@ -667,13 +578,59 @@ public class RepositoryValidator extends EObjectValidator {
 	}
 
 	/**
-	 * Validates the RequireSameInterfaces constraint of '<em>Basic Component</em>'.
+	 * Validates the RequireSameInterfacesasImplementationType constraint of '<em>Basic Component</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateBasicComponent_RequireSameInterfaces(BasicComponent basicComponent, DiagnosticChain diagnostics, Map context) {
-		return basicComponent.RequireSameInterfaces(diagnostics, context);
+	public boolean validateBasicComponent_RequireSameInterfacesasImplementationType(BasicComponent basicComponent, DiagnosticChain diagnostics, Map context) {
+		return basicComponent.RequireSameInterfacesasImplementationType(diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validatePrimitiveDataType(PrimitiveDataType primitiveDataType, DiagnosticChain diagnostics, Map context) {
+		return validate_EveryDefaultConstraint(primitiveDataType, diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateCollectionDataType(CollectionDataType collectionDataType, DiagnosticChain diagnostics, Map context) {
+		boolean result = validate_EveryMultiplicityConforms(collectionDataType, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(collectionDataType, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(collectionDataType, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(collectionDataType, diagnostics, context);
+		if (result || diagnostics != null) result &= identifierValidator.validateIdentifier_idHasToBeUnique(collectionDataType, diagnostics, context);
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateCompositeDataType(CompositeDataType compositeDataType, DiagnosticChain diagnostics, Map context) {
+		boolean result = validate_EveryMultiplicityConforms(compositeDataType, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(compositeDataType, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(compositeDataType, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(compositeDataType, diagnostics, context);
+		if (result || diagnostics != null) result &= identifierValidator.validateIdentifier_idHasToBeUnique(compositeDataType, diagnostics, context);
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateInnerDeclaration(InnerDeclaration innerDeclaration, DiagnosticChain diagnostics, Map context) {
+		return validate_EveryDefaultConstraint(innerDeclaration, diagnostics, context);
 	}
 
 	/**
@@ -696,6 +653,15 @@ public class RepositoryValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateParameterModifier(ParameterModifier parameterModifier, DiagnosticChain diagnostics, Map context) {
+		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validatePrimitiveTypeEnum(PrimitiveTypeEnum primitiveTypeEnum, DiagnosticChain diagnostics, Map context) {
 		return true;
 	}
 

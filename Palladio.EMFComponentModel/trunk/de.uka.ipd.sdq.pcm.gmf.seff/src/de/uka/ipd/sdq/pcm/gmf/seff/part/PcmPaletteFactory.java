@@ -244,12 +244,9 @@ public class PcmPaletteFactory {
 
 		largeImage = smallImage;
 
-		final List relationshipTypes = new ArrayList();
-		relationshipTypes
-				.add(PcmElementTypes.AbstractResourceDemandingActionResourceDemand_Action_3003);
-		ToolEntry result = new LinkToolEntry("Resource Demand",
-				"Create new Resource Demand", smallImage, largeImage,
-				relationshipTypes);
+		ToolEntry result = new ToolEntry("Resource Demand",
+				"Create new Resource Demand", smallImage, largeImage) {
+		};
 
 		return result;
 	}
@@ -261,17 +258,13 @@ public class PcmPaletteFactory {
 		ImageDescriptor smallImage;
 		ImageDescriptor largeImage;
 
-		smallImage = PcmElementTypes
-				.getImageDescriptor(PcmElementTypes.ExternalCallActionParametricParameterUsage_ParametricParameterUsage_3002);
+		smallImage = null;
 
 		largeImage = smallImage;
 
-		final List relationshipTypes = new ArrayList();
-		relationshipTypes
-				.add(PcmElementTypes.ExternalCallActionParametricParameterUsage_ParametricParameterUsage_3002);
-		ToolEntry result = new LinkToolEntry("ParametricParameterUsage",
-				"Link a Parametric Parameter Usage", smallImage, largeImage,
-				relationshipTypes);
+		ToolEntry result = new ToolEntry("ParametricParameterUsage",
+				"Link a Parametric Parameter Usage", smallImage, largeImage) {
+		};
 
 		return result;
 	}
@@ -283,16 +276,13 @@ public class PcmPaletteFactory {
 		ImageDescriptor smallImage;
 		ImageDescriptor largeImage;
 
-		smallImage = PcmElementTypes
-				.getImageDescriptor(PcmElementTypes.ParametricResourceDemand_1009);
+		smallImage = null;
 
 		largeImage = smallImage;
 
-		final List elementTypes = new ArrayList();
-		elementTypes.add(PcmElementTypes.ParametricResourceDemand_1009);
-		ToolEntry result = new NodeToolEntry("ParametricResourceDemand",
-				"Create new ParametricResourceDemand", smallImage, largeImage,
-				elementTypes);
+		ToolEntry result = new ToolEntry("ParametricResourceDemand",
+				"Create new ParametricResourceDemand", smallImage, largeImage) {
+		};
 
 		return result;
 	}
@@ -304,18 +294,14 @@ public class PcmPaletteFactory {
 		ImageDescriptor smallImage;
 		ImageDescriptor largeImage;
 
-		smallImage = PcmElementTypes
-				.getImageDescriptor(PcmElementTypes.PrimitiveParametricParameterUsage_1007);
+		smallImage = null;
 
 		largeImage = smallImage;
 
-		final List elementTypes = new ArrayList();
-		elementTypes
-				.add(PcmElementTypes.PrimitiveParametricParameterUsage_1007);
-		ToolEntry result = new NodeToolEntry(
-				"PrimitiveParametricParameterUsage",
+		ToolEntry result = new ToolEntry("PrimitiveParametricParameterUsage",
 				"Create new PrimitiveParametricParameterUsage", smallImage,
-				largeImage, elementTypes);
+				largeImage) {
+		};
 
 		return result;
 	}
@@ -327,18 +313,14 @@ public class PcmPaletteFactory {
 		ImageDescriptor smallImage;
 		ImageDescriptor largeImage;
 
-		smallImage = PcmElementTypes
-				.getImageDescriptor(PcmElementTypes.CollectionParametricParameterUsage_1008);
+		smallImage = null;
 
 		largeImage = smallImage;
 
-		final List elementTypes = new ArrayList();
-		elementTypes
-				.add(PcmElementTypes.CollectionParametricParameterUsage_1008);
-		ToolEntry result = new NodeToolEntry(
-				"CollectionParametricParameterUsage",
+		ToolEntry result = new ToolEntry("CollectionParametricParameterUsage",
 				"Create new CollectionParametricParameterUsage", smallImage,
-				largeImage, elementTypes);
+				largeImage) {
+		};
 
 		return result;
 	}

@@ -140,17 +140,17 @@ public class CompositeParameterUsageItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(ParameterPackage.Literals.COMPOSITE_PARAMETER_USAGE__INNER_PARAMETERS_PARAMETER_USAGE,
-				 ParameterFactory.eINSTANCE.createParameterUsage()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ParameterPackage.Literals.COMPOSITE_PARAMETER_USAGE__INNER_PARAMETERS_PARAMETER_USAGE,
 				 ParameterFactory.eINSTANCE.createCompositeParameterUsage()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(ParameterPackage.Literals.COMPOSITE_PARAMETER_USAGE__INNER_PARAMETERS_PARAMETER_USAGE,
 				 ParameterFactory.eINSTANCE.createCollectionParameterUsage()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ParameterPackage.Literals.COMPOSITE_PARAMETER_USAGE__INNER_PARAMETERS_PARAMETER_USAGE,
+				 ParameterFactory.eINSTANCE.createPrimitiveParameterUsage()));
 	}
 
 	/**

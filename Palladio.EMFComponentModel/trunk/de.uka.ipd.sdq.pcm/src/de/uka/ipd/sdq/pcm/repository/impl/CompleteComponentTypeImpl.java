@@ -132,7 +132,7 @@ public class CompleteComponentTypeImpl extends ProvidesComponentTypeImpl impleme
 			Environment env = ExpressionsUtil.createClassifierContext(eClass());
 			
 			
-			String body = "(   self.oclIsTypeOf(CompleteComponentType)   or   self.oclIsTypeOf(ImplementationComponentType)   or   self.oclIsTypeOf(CompositeComponent)   or   self.oclIsTypeOf(BasicComponent)  )  implies  (   self.providedRoles->size() >= 1   or   self.requiredRoles->size() >= 1  ) ";
+			String body = "(   self.oclIsTypeOf(CompleteComponentType)   or   self.oclIsTypeOf(ImplementationComponentType)   or   self.oclIsTypeOf(CompositeComponent)   or   self.oclIsTypeOf(BasicComponent)  )  implies  (   self.providedRoles_InterfaceProvidingEntity->size() >= 1   or   self.requiredRoles_InterfaceRequiringEntity->size() >= 1  ) ";
 			
 			try {
 				AtLeastOneInterfaceHasToBeProvidedOrRequiredByAUsefullCompleteComponentTypeInvOCL = ExpressionsUtil.createInvariant(env, body, true);
@@ -172,7 +172,7 @@ public class CompleteComponentTypeImpl extends ProvidesComponentTypeImpl impleme
 			Environment env = ExpressionsUtil.createClassifierContext(eClass());
 			
 			
-			String body = "       let parentInterfaces : Bag(Interface) =   self.providedRoles->iterate(r : ProvidedRole; acc2 : Bag(Interface) = Bag{} |    acc2->union(r.providedInterface.parentInterface->asBag())   ) in  let anchestorInterfaces : Bag(Interface) =   self.providedRoles->iterate(r : ProvidedRole; acc4 : Bag(Interface) = Bag{} |    acc4->union(r.providedInterface.parentInterface->asBag())   )->union(    self.providedRoles->iterate(r : ProvidedRole; acc6 : Bag(Interface) = Bag{} |     acc6->union(r.providedInterface.parentInterface.anchestorInterfaces)    )   ) in     anchestorInterfaces.identifier.id->includesAll(    self.parentProvidesComponentTypes->iterate(pt : ProvidesComponentType; acc1 : Bag(String) = Bag{} |     pt.providedRoles->iterate(r : ProvidedRole; acc2 : Bag(String) = Bag{} |      acc2->union(r.providedInterface.identifier.id->asBag())     )    )   ) ";
+			String body = "                           true ";
 			
 			try {
 				providedInterfacesHaveToConformToProvidedType2InvOCL = ExpressionsUtil.createInvariant(env, body, true);

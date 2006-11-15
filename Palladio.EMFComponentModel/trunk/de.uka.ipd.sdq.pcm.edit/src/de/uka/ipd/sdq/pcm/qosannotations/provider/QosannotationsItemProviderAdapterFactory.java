@@ -83,25 +83,91 @@ public class QosannotationsItemProviderAdapterFactory extends QosannotationsAdap
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.qosannotations.SpecifiedTimeConsumption} instances.
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.qosannotations.SpecifiedFailureProbability} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected SpecifiedTimeConsumptionItemProvider specifiedTimeConsumptionItemProvider;
+	protected SpecifiedFailureProbabilityItemProvider specifiedFailureProbabilityItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.qosannotations.SpecifiedTimeConsumption}.
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.qosannotations.SpecifiedFailureProbability}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Adapter createSpecifiedTimeConsumptionAdapter() {
-		if (specifiedTimeConsumptionItemProvider == null) {
-			specifiedTimeConsumptionItemProvider = new SpecifiedTimeConsumptionItemProvider(this);
+	public Adapter createSpecifiedFailureProbabilityAdapter() {
+		if (specifiedFailureProbabilityItemProvider == null) {
+			specifiedFailureProbabilityItemProvider = new SpecifiedFailureProbabilityItemProvider(this);
 		}
 
-		return specifiedTimeConsumptionItemProvider;
+		return specifiedFailureProbabilityItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.qosannotations.SystemSpecifiedExecutionTime} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected SystemSpecifiedExecutionTimeItemProvider systemSpecifiedExecutionTimeItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.qosannotations.SystemSpecifiedExecutionTime}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Adapter createSystemSpecifiedExecutionTimeAdapter() {
+		if (systemSpecifiedExecutionTimeItemProvider == null) {
+			systemSpecifiedExecutionTimeItemProvider = new SystemSpecifiedExecutionTimeItemProvider(this);
+		}
+
+		return systemSpecifiedExecutionTimeItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.qosannotations.ComponentSpecifiedExecutionTime} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ComponentSpecifiedExecutionTimeItemProvider componentSpecifiedExecutionTimeItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.qosannotations.ComponentSpecifiedExecutionTime}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Adapter createComponentSpecifiedExecutionTimeAdapter() {
+		if (componentSpecifiedExecutionTimeItemProvider == null) {
+			componentSpecifiedExecutionTimeItemProvider = new ComponentSpecifiedExecutionTimeItemProvider(this);
+		}
+
+		return componentSpecifiedExecutionTimeItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.qosannotations.QoSAnnotations} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected QoSAnnotationsItemProvider qoSAnnotationsItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.qosannotations.QoSAnnotations}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Adapter createQoSAnnotationsAdapter() {
+		if (qoSAnnotationsItemProvider == null) {
+			qoSAnnotationsItemProvider = new QoSAnnotationsItemProvider(this);
+		}
+
+		return qoSAnnotationsItemProvider;
 	}
 
 	/**
@@ -200,7 +266,10 @@ public class QosannotationsItemProviderAdapterFactory extends QosannotationsAdap
 	 * @generated
 	 */
 	public void dispose() {
-		if (specifiedTimeConsumptionItemProvider != null) specifiedTimeConsumptionItemProvider.dispose();
+		if (specifiedFailureProbabilityItemProvider != null) specifiedFailureProbabilityItemProvider.dispose();
+		if (systemSpecifiedExecutionTimeItemProvider != null) systemSpecifiedExecutionTimeItemProvider.dispose();
+		if (componentSpecifiedExecutionTimeItemProvider != null) componentSpecifiedExecutionTimeItemProvider.dispose();
+		if (qoSAnnotationsItemProvider != null) qoSAnnotationsItemProvider.dispose();
 	}
 
 }

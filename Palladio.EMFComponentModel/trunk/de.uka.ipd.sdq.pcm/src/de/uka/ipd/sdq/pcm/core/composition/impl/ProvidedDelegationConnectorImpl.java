@@ -8,6 +8,7 @@
 package de.uka.ipd.sdq.pcm.core.composition.impl;
 
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
+import de.uka.ipd.sdq.pcm.core.composition.ComposedStructure;
 import de.uka.ipd.sdq.pcm.core.composition.CompositionPackage;
 import de.uka.ipd.sdq.pcm.core.composition.ProvidedDelegationConnector;
 
@@ -21,6 +22,8 @@ import java.util.Map;
 
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.notify.NotificationChain;
+
 import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
@@ -33,6 +36,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
 import org.eclipse.emf.ecore.util.EObjectValidator;
+
+import org.eclipse.emf.ecore.util.EcoreUtil;
 
 import org.eclipse.emf.ocl.expressions.OCLExpression;
 
@@ -55,6 +60,7 @@ import org.eclipse.emf.ocl.query.QueryFactory;
  *   <li>{@link de.uka.ipd.sdq.pcm.core.composition.impl.ProvidedDelegationConnectorImpl#getInnerProvidedRole_ProvidedDelegationConnector <em>Inner Provided Role Provided Delegation Connector</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.core.composition.impl.ProvidedDelegationConnectorImpl#getOuterProvidedRole_ProvidedDelegationConnector <em>Outer Provided Role Provided Delegation Connector</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.core.composition.impl.ProvidedDelegationConnectorImpl#getChildComponentContext_ProvidedDelegationConnector <em>Child Component Context Provided Delegation Connector</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.core.composition.impl.ProvidedDelegationConnectorImpl#getParentStructure_ProvidedDelegationConnector <em>Parent Structure Provided Delegation Connector</em>}</li>
  * </ul>
  * </p>
  *
@@ -100,22 +106,13 @@ public class ProvidedDelegationConnectorImpl extends DelegationConnectorImpl imp
 
 
 	/**
-	 * The parsed OCL expression for the definition of the '{@link #innerAndOuterRoleNeedToHaveDifferentContextIDs <em>Inner And Outer Role Need To Have Different Context IDs</em>}' invariant constraint.
+	 * The parsed OCL expression for the definition of the '{@link #ProvidedDelegationConnectorandtheconnectedComponentmustbepartofthesamecompositestructure <em>Provided Delegation Connectorandtheconnected Componentmustbepartofthesamecompositestructure</em>}' invariant constraint.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #innerAndOuterRoleNeedToHaveDifferentContextIDs
+	 * @see #ProvidedDelegationConnectorandtheconnectedComponentmustbepartofthesamecompositestructure
 	 * @generated
 	 */
-	private static OCLExpression innerAndOuterRoleNeedToHaveDifferentContextIDsInvOCL;
-	
-	/**
-	 * The parsed OCL expression for the definition of the '{@link #InnerContainingComponentEqualOuterProvidingComponent <em>Inner Containing Component Equal Outer Providing Component</em>}' invariant constraint.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #InnerContainingComponentEqualOuterProvidingComponent
-	 * @generated
-	 */
-	private static OCLExpression InnerContainingComponentEqualOuterProvidingComponentInvOCL;
+	private static OCLExpression ProvidedDelegationConnectorandtheconnectedComponentmustbepartofthesamecompositestructureInvOCL;
 	
 	private static final String OCL_ANNOTATION_SOURCE = "http://www.eclipse.org/emf/2002/GenModel";
 	
@@ -251,44 +248,45 @@ public class ProvidedDelegationConnectorImpl extends DelegationConnectorImpl imp
 			eNotify(new ENotificationImpl(this, Notification.SET, CompositionPackage.PROVIDED_DELEGATION_CONNECTOR__CHILD_COMPONENT_CONTEXT_PROVIDED_DELEGATION_CONNECTOR, oldChildComponentContext_ProvidedDelegationConnector, childComponentContext_ProvidedDelegationConnector));
 	}
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ComposedStructure getParentStructure_ProvidedDelegationConnector() {
+		if (eContainerFeatureID != CompositionPackage.PROVIDED_DELEGATION_CONNECTOR__PARENT_STRUCTURE_PROVIDED_DELEGATION_CONNECTOR) return null;
+		return (ComposedStructure)eContainer();
+	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean innerAndOuterRoleNeedToHaveDifferentContextIDs(DiagnosticChain diagnostics, Map context) {
-		if (innerAndOuterRoleNeedToHaveDifferentContextIDsInvOCL == null) {
-			Environment env = ExpressionsUtil.createClassifierContext(eClass());
-			
-			
-			String body = "self->forAll(p1, p2 |  p1.innerProvidingRole.parentContext.identifier.id <> p2.outerProvidingRole.parentContext.identifier.id) ";
-			
-			try {
-				innerAndOuterRoleNeedToHaveDifferentContextIDsInvOCL = ExpressionsUtil.createInvariant(env, body, true);
-			} catch (ParserException e) {
-				throw new UnsupportedOperationException(e.getLocalizedMessage());
-			}
+	public NotificationChain basicSetParentStructure_ProvidedDelegationConnector(ComposedStructure newParentStructure_ProvidedDelegationConnector, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject)newParentStructure_ProvidedDelegationConnector, CompositionPackage.PROVIDED_DELEGATION_CONNECTOR__PARENT_STRUCTURE_PROVIDED_DELEGATION_CONNECTOR, msgs);
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setParentStructure_ProvidedDelegationConnector(ComposedStructure newParentStructure_ProvidedDelegationConnector) {
+		if (newParentStructure_ProvidedDelegationConnector != eInternalContainer() || (eContainerFeatureID != CompositionPackage.PROVIDED_DELEGATION_CONNECTOR__PARENT_STRUCTURE_PROVIDED_DELEGATION_CONNECTOR && newParentStructure_ProvidedDelegationConnector != null)) {
+			if (EcoreUtil.isAncestor(this, newParentStructure_ProvidedDelegationConnector))
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+			NotificationChain msgs = null;
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
+			if (newParentStructure_ProvidedDelegationConnector != null)
+				msgs = ((InternalEObject)newParentStructure_ProvidedDelegationConnector).eInverseAdd(this, CompositionPackage.COMPOSED_STRUCTURE__PROVIDED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE, ComposedStructure.class, msgs);
+			msgs = basicSetParentStructure_ProvidedDelegationConnector(newParentStructure_ProvidedDelegationConnector, msgs);
+			if (msgs != null) msgs.dispatch();
 		}
-		
-		Query query = QueryFactory.eINSTANCE.createQuery(innerAndOuterRoleNeedToHaveDifferentContextIDsInvOCL);
-		EvalEnvironment evalEnv = new EvalEnvironment();
-		query.setEvaluationEnvironment(evalEnv);
-		
-		if (!query.check(this)) {
-			if (diagnostics != null) {
-				diagnostics.add
-					(new BasicDiagnostic
-						(Diagnostic.ERROR,
-						 CompositionValidator.DIAGNOSTIC_SOURCE,
-						 CompositionValidator.PROVIDED_DELEGATION_CONNECTOR__INNER_AND_OUTER_ROLE_NEED_TO_HAVE_DIFFERENT_CONTEXT_IDS,
-						 EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "innerAndOuterRoleNeedToHaveDifferentContextIDs", EObjectValidator.getObjectLabel(this, context) }),
-						 new Object [] { this }));
-			}
-			return false;
-		}
-		return true;
-		
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CompositionPackage.PROVIDED_DELEGATION_CONNECTOR__PARENT_STRUCTURE_PROVIDED_DELEGATION_CONNECTOR, newParentStructure_ProvidedDelegationConnector, newParentStructure_ProvidedDelegationConnector));
 	}
 
 
@@ -297,21 +295,21 @@ public class ProvidedDelegationConnectorImpl extends DelegationConnectorImpl imp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean InnerContainingComponentEqualOuterProvidingComponent(DiagnosticChain diagnostics, Map context) {
-		if (InnerContainingComponentEqualOuterProvidingComponentInvOCL == null) {
+	public boolean ProvidedDelegationConnectorandtheconnectedComponentmustbepartofthesamecompositestructure(DiagnosticChain diagnostics, Map context) {
+		if (ProvidedDelegationConnectorandtheconnectedComponentmustbepartofthesamecompositestructureInvOCL == null) {
 			Environment env = ExpressionsUtil.createClassifierContext(eClass());
 			
 			
-			String body = "self.parentCompositeComponent.identifier.id  =  self.outerProvidingRole.encapsulatedRole.providingComponent.identifier.id    and    self.parentCompositeComponent.identifier.id  =  self.innerProvidingRole.encapsulatedRole.providingComponent.identifier.id ";
+			String body = "self.parentStructure_ProvidedDelegationConnector = self.childComponentContext_ProvidedDelegationConnector ";
 			
 			try {
-				InnerContainingComponentEqualOuterProvidingComponentInvOCL = ExpressionsUtil.createInvariant(env, body, true);
+				ProvidedDelegationConnectorandtheconnectedComponentmustbepartofthesamecompositestructureInvOCL = ExpressionsUtil.createInvariant(env, body, true);
 			} catch (ParserException e) {
 				throw new UnsupportedOperationException(e.getLocalizedMessage());
 			}
 		}
 		
-		Query query = QueryFactory.eINSTANCE.createQuery(InnerContainingComponentEqualOuterProvidingComponentInvOCL);
+		Query query = QueryFactory.eINSTANCE.createQuery(ProvidedDelegationConnectorandtheconnectedComponentmustbepartofthesamecompositestructureInvOCL);
 		EvalEnvironment evalEnv = new EvalEnvironment();
 		query.setEvaluationEnvironment(evalEnv);
 		
@@ -321,14 +319,55 @@ public class ProvidedDelegationConnectorImpl extends DelegationConnectorImpl imp
 					(new BasicDiagnostic
 						(Diagnostic.ERROR,
 						 CompositionValidator.DIAGNOSTIC_SOURCE,
-						 CompositionValidator.PROVIDED_DELEGATION_CONNECTOR__INNER_CONTAINING_COMPONENT_EQUAL_OUTER_PROVIDING_COMPONENT,
-						 EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "InnerContainingComponentEqualOuterProvidingComponent", EObjectValidator.getObjectLabel(this, context) }),
+						 CompositionValidator.PROVIDED_DELEGATION_CONNECTOR__PROVIDED_DELEGATION_CONNECTORANDTHECONNECTED_COMPONENTMUSTBEPARTOFTHESAMECOMPOSITESTRUCTURE,
+						 EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "ProvidedDelegationConnectorandtheconnectedComponentmustbepartofthesamecompositestructure", EObjectValidator.getObjectLabel(this, context) }),
 						 new Object [] { this }));
 			}
 			return false;
 		}
 		return true;
 		
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case CompositionPackage.PROVIDED_DELEGATION_CONNECTOR__PARENT_STRUCTURE_PROVIDED_DELEGATION_CONNECTOR:
+				if (eInternalContainer() != null)
+					msgs = eBasicRemoveFromContainer(msgs);
+				return basicSetParentStructure_ProvidedDelegationConnector((ComposedStructure)otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case CompositionPackage.PROVIDED_DELEGATION_CONNECTOR__PARENT_STRUCTURE_PROVIDED_DELEGATION_CONNECTOR:
+				return basicSetParentStructure_ProvidedDelegationConnector(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
+		switch (eContainerFeatureID) {
+			case CompositionPackage.PROVIDED_DELEGATION_CONNECTOR__PARENT_STRUCTURE_PROVIDED_DELEGATION_CONNECTOR:
+				return eInternalContainer().eInverseRemove(this, CompositionPackage.COMPOSED_STRUCTURE__PROVIDED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE, ComposedStructure.class, msgs);
+		}
+		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
 
 	/**
@@ -347,6 +386,8 @@ public class ProvidedDelegationConnectorImpl extends DelegationConnectorImpl imp
 			case CompositionPackage.PROVIDED_DELEGATION_CONNECTOR__CHILD_COMPONENT_CONTEXT_PROVIDED_DELEGATION_CONNECTOR:
 				if (resolve) return getChildComponentContext_ProvidedDelegationConnector();
 				return basicGetChildComponentContext_ProvidedDelegationConnector();
+			case CompositionPackage.PROVIDED_DELEGATION_CONNECTOR__PARENT_STRUCTURE_PROVIDED_DELEGATION_CONNECTOR:
+				return getParentStructure_ProvidedDelegationConnector();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -366,6 +407,9 @@ public class ProvidedDelegationConnectorImpl extends DelegationConnectorImpl imp
 				return;
 			case CompositionPackage.PROVIDED_DELEGATION_CONNECTOR__CHILD_COMPONENT_CONTEXT_PROVIDED_DELEGATION_CONNECTOR:
 				setChildComponentContext_ProvidedDelegationConnector((AssemblyContext)newValue);
+				return;
+			case CompositionPackage.PROVIDED_DELEGATION_CONNECTOR__PARENT_STRUCTURE_PROVIDED_DELEGATION_CONNECTOR:
+				setParentStructure_ProvidedDelegationConnector((ComposedStructure)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -387,6 +431,9 @@ public class ProvidedDelegationConnectorImpl extends DelegationConnectorImpl imp
 			case CompositionPackage.PROVIDED_DELEGATION_CONNECTOR__CHILD_COMPONENT_CONTEXT_PROVIDED_DELEGATION_CONNECTOR:
 				setChildComponentContext_ProvidedDelegationConnector((AssemblyContext)null);
 				return;
+			case CompositionPackage.PROVIDED_DELEGATION_CONNECTOR__PARENT_STRUCTURE_PROVIDED_DELEGATION_CONNECTOR:
+				setParentStructure_ProvidedDelegationConnector((ComposedStructure)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -404,6 +451,8 @@ public class ProvidedDelegationConnectorImpl extends DelegationConnectorImpl imp
 				return outerProvidedRole_ProvidedDelegationConnector != null;
 			case CompositionPackage.PROVIDED_DELEGATION_CONNECTOR__CHILD_COMPONENT_CONTEXT_PROVIDED_DELEGATION_CONNECTOR:
 				return childComponentContext_ProvidedDelegationConnector != null;
+			case CompositionPackage.PROVIDED_DELEGATION_CONNECTOR__PARENT_STRUCTURE_PROVIDED_DELEGATION_CONNECTOR:
+				return getParentStructure_ProvidedDelegationConnector() != null;
 		}
 		return super.eIsSet(featureID);
 	}

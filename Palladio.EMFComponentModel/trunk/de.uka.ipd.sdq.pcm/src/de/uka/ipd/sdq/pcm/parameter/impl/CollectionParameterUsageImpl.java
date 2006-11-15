@@ -12,11 +12,18 @@ import de.uka.ipd.sdq.pcm.parameter.CollectionParameterUsage;
 import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
 import de.uka.ipd.sdq.pcm.parameter.ParameterUsage;
 
+import de.uka.ipd.sdq.pcm.parameter.util.ParameterValidator;
+
 import java.util.Collection;
+
+import java.util.Map;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
+import org.eclipse.emf.common.util.BasicDiagnostic;
+import org.eclipse.emf.common.util.Diagnostic;
+import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
@@ -24,8 +31,22 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.eclipse.emf.ecore.plugin.EcorePlugin;
+
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.eclipse.emf.ecore.util.InternalEList;
+
+import org.eclipse.emf.ocl.expressions.OCLExpression;
+
+import org.eclipse.emf.ocl.expressions.util.EvalEnvironment;
+import org.eclipse.emf.ocl.expressions.util.ExpressionsUtil;
+
+import org.eclipse.emf.ocl.parser.Environment;
+import org.eclipse.emf.ocl.parser.ParserException;
+
+import org.eclipse.emf.ocl.query.Query;
+import org.eclipse.emf.ocl.query.QueryFactory;
 
 /**
  * <!-- begin-user-doc -->
@@ -70,6 +91,17 @@ public class CollectionParameterUsageImpl extends ParameterUsageImpl implements 
 	protected EList parameterCharacterisation_CollectionParameterUsage = null;
 
 
+	/**
+	 * The parsed OCL expression for the definition of the '{@link #CollectionParameterUsagehastolinkaCollectionDataType <em>Collection Parameter Usagehastolinka Collection Data Type</em>}' invariant constraint.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #CollectionParameterUsagehastolinkaCollectionDataType
+	 * @generated
+	 */
+	private static OCLExpression CollectionParameterUsagehastolinkaCollectionDataTypeInvOCL;
+	
+	private static final String OCL_ANNOTATION_SOURCE = "http://www.eclipse.org/emf/2002/GenModel";
+	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -141,6 +173,46 @@ public class CollectionParameterUsageImpl extends ParameterUsageImpl implements 
 			parameterCharacterisation_CollectionParameterUsage = new EObjectContainmentEList(CollectionParameterCharacterisation.class, this, ParameterPackage.COLLECTION_PARAMETER_USAGE__PARAMETER_CHARACTERISATION_COLLECTION_PARAMETER_USAGE);
 		}
 		return parameterCharacterisation_CollectionParameterUsage;
+	}
+
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean CollectionParameterUsagehastolinkaCollectionDataType(DiagnosticChain diagnostics, Map context) {
+		if (CollectionParameterUsagehastolinkaCollectionDataTypeInvOCL == null) {
+			Environment env = ExpressionsUtil.createClassifierContext(eClass());
+			
+			
+			String body = "self.parameter_ParameterUsage.datatype__Parameter.oclIsTypeOf(pcm::repository::CollectionDataType) ";
+			
+			try {
+				CollectionParameterUsagehastolinkaCollectionDataTypeInvOCL = ExpressionsUtil.createInvariant(env, body, true);
+			} catch (ParserException e) {
+				throw new UnsupportedOperationException(e.getLocalizedMessage());
+			}
+		}
+		
+		Query query = QueryFactory.eINSTANCE.createQuery(CollectionParameterUsagehastolinkaCollectionDataTypeInvOCL);
+		EvalEnvironment evalEnv = new EvalEnvironment();
+		query.setEvaluationEnvironment(evalEnv);
+		
+		if (!query.check(this)) {
+			if (diagnostics != null) {
+				diagnostics.add
+					(new BasicDiagnostic
+						(Diagnostic.ERROR,
+						 ParameterValidator.DIAGNOSTIC_SOURCE,
+						 ParameterValidator.COLLECTION_PARAMETER_USAGE__COLLECTION_PARAMETER_USAGEHASTOLINKA_COLLECTION_DATA_TYPE,
+						 EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "CollectionParameterUsagehastolinkaCollectionDataType", EObjectValidator.getObjectLabel(this, context) }),
+						 new Object [] { this }));
+			}
+			return false;
+		}
+		return true;
+		
 	}
 
 	/**

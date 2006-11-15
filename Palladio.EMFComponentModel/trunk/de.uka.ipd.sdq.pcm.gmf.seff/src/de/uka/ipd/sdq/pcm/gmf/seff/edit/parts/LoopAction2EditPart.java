@@ -125,8 +125,8 @@ public class LoopAction2EditPart extends ShapeNodeEditPart {
 					.setLabel(getPrimaryShape().getFigureLoopNameLabelFigure());
 			return true;
 		}
-		if (childEditPart instanceof LoopActionIterationsEditPart) {
-			((LoopActionIterationsEditPart) childEditPart)
+		if (childEditPart instanceof LoopIterationsLabelEditPart) {
+			((LoopIterationsLabelEditPart) childEditPart)
 					.setLabel(getPrimaryShape()
 							.getFigureLoopIterationsLabelFigure());
 			return true;

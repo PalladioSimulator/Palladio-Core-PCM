@@ -84,26 +84,26 @@ public interface Signature extends EObject {
 	EList getParameters__Signature();
 
 	/**
-	 * Returns the value of the '<em><b>Returntype Signature</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Returntype Signature</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Returntype Signature</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Returntype Signature</em>' containment reference.
+	 * @return the value of the '<em>Returntype Signature</em>' reference.
 	 * @see #setReturntype__Signature(DataType)
 	 * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getSignature_Returntype__Signature()
-	 * @model containment="true" required="true" ordered="false"
+	 * @model ordered="false"
 	 * @generated
 	 */
 	DataType getReturntype__Signature();
 
 	/**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.repository.Signature#getReturntype__Signature <em>Returntype Signature</em>}' containment reference.
+	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.repository.Signature#getReturntype__Signature <em>Returntype Signature</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Returntype Signature</em>' containment reference.
+	 * @param value the new value of the '<em>Returntype Signature</em>' reference.
 	 * @see #getReturntype__Signature()
 	 * @generated
 	 */

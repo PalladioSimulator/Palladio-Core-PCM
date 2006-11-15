@@ -26,6 +26,7 @@ import de.uka.ipd.sdq.pcm.repository.RequiredRole;
  *   <li>{@link de.uka.ipd.sdq.pcm.core.composition.AssemblyConnector#getProvidingChildComponentContext_CompositeAssemblyConnector <em>Providing Child Component Context Composite Assembly Connector</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.core.composition.AssemblyConnector#getProvidedRole_CompositeAssemblyConnector <em>Provided Role Composite Assembly Connector</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.core.composition.AssemblyConnector#getRequiredRole_CompositeAssemblyConnector <em>Required Role Composite Assembly Connector</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.core.composition.AssemblyConnector#getParentStructure_AssemblyConnector <em>Parent Structure Assembly Connector</em>}</li>
  * </ul>
  * </p>
  *
@@ -144,5 +145,33 @@ public interface AssemblyConnector extends Connector, Entity {
 	 * @generated
 	 */
 	void setRequiredRole_CompositeAssemblyConnector(RequiredRole value);
+
+	/**
+	 * Returns the value of the '<em><b>Parent Structure Assembly Connector</b></em>' container reference.
+	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.core.composition.ComposedStructure#getCompositeAssemblyConnectors_ComposedStructure <em>Composite Assembly Connectors Composed Structure</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Parent Structure Assembly Connector</em>' container reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Parent Structure Assembly Connector</em>' container reference.
+	 * @see #setParentStructure_AssemblyConnector(ComposedStructure)
+	 * @see de.uka.ipd.sdq.pcm.core.composition.CompositionPackage#getAssemblyConnector_ParentStructure_AssemblyConnector()
+	 * @see de.uka.ipd.sdq.pcm.core.composition.ComposedStructure#getCompositeAssemblyConnectors_ComposedStructure
+	 * @model opposite="compositeAssemblyConnectors_ComposedStructure" required="true" ordered="false"
+	 * @generated
+	 */
+	ComposedStructure getParentStructure_AssemblyConnector();
+
+	/**
+	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.core.composition.AssemblyConnector#getParentStructure_AssemblyConnector <em>Parent Structure Assembly Connector</em>}' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Parent Structure Assembly Connector</em>' container reference.
+	 * @see #getParentStructure_AssemblyConnector()
+	 * @generated
+	 */
+	void setParentStructure_AssemblyConnector(ComposedStructure value);
 
 } // AssemblyConnector

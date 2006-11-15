@@ -8,5 +8,7 @@ Bundle-Localization: plugin
 Require-Bundle: org.eclipse.ui,
  org.eclipse.emf,
  org.eclipse.emf.edit,
- org.eclipse.emf.edit.ui
+ org.eclipse.emf.edit.ui,
+ de.uka.ipd.sdq.pcm,
+ org.antlr
 Export-Package: de.uka.ipd.sdq.dialogs.selection

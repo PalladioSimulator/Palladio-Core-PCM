@@ -54,11 +54,6 @@ public class StartAction2ItemSemanticEditPolicy extends
 			return req.getTarget() == null ? getCreateStartOutgoingAbstractAction_Successor_AbstractAction3001Command(req)
 					: getCreateCompleteIncomingAbstractAction_Successor_AbstractAction3001Command(req);
 		}
-		if (PcmElementTypes.AbstractResourceDemandingActionResourceDemand_Action_3003 == req
-				.getElementType()) {
-			return req.getTarget() == null ? getCreateStartOutgoingAbstractResourceDemandingAction_ResourceDemand_Action3003Command(req)
-					: null;
-		}
 		return super.getCreateRelationshipCommand(req);
 	}
 
@@ -93,15 +88,5 @@ public class StartAction2ItemSemanticEditPolicy extends
 						.getAbstractAction_Successor_AbstractAction(), req
 						.getTarget());
 		return getMSLWrapper(new SetValueCommand(setReq));
-	}
-
-	/**
-	 * @generated
-	 */
-	protected Command getCreateStartOutgoingAbstractResourceDemandingAction_ResourceDemand_Action3003Command(
-			CreateRelationshipRequest req) {
-
-		return new Command() {
-		};
 	}
 }

@@ -36,6 +36,7 @@ import de.uka.ipd.sdq.pcm.repository.Repository;
 import de.uka.ipd.sdq.pcm.repository.RequiredRole;
 import de.uka.ipd.sdq.pcm.repository.provider.RepositoryItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.system.SystemPackage;
+import de.uka.ipd.sdq.pcmbench.ui.provider.PalladioItemProviderAdapterFactory;
 
 /**
  * @generated
@@ -145,7 +146,7 @@ public class SystemNodeItemSemanticEditPolicy extends
 			filterList.add(Repository.class);
 			filterList.add(Interface.class);
 			SelectEObjectDialog dialog = new SelectEObjectDialog(v.getRoot()
-					.getViewer().getControl().getShell(), adapterFactory,
+					.getViewer().getControl().getShell(), new PalladioItemProviderAdapterFactory(adapterFactory),
 					filterList, v.getEditingDomain().getResourceSet());
 			dialog.open();
 			if (dialog.getResult() == null)
@@ -230,7 +231,7 @@ public class SystemNodeItemSemanticEditPolicy extends
 			filterList.add(Repository.class);
 			filterList.add(Interface.class);
 			SelectEObjectDialog dialog = new SelectEObjectDialog(v.getRoot()
-					.getViewer().getControl().getShell(), adapterFactory,
+					.getViewer().getControl().getShell(), new PalladioItemProviderAdapterFactory(adapterFactory),
 					filterList, v.getEditingDomain().getResourceSet());
 			dialog.open();
 			if (dialog.getResult() == null)

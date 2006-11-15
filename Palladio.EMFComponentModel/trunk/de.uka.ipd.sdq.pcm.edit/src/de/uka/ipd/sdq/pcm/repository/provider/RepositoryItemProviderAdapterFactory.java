@@ -127,28 +127,6 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.repository.DataType} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected DataTypeItemProvider dataTypeItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.repository.DataType}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Adapter createDataTypeAdapter() {
-		if (dataTypeItemProvider == null) {
-			dataTypeItemProvider = new DataTypeItemProvider(this);
-		}
-
-		return dataTypeItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.repository.ExceptionType} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -259,50 +237,6 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.repository.ProvidedRole} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ProvidedRoleItemProvider providedRoleItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.repository.ProvidedRole}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Adapter createProvidedRoleAdapter() {
-		if (providedRoleItemProvider == null) {
-			providedRoleItemProvider = new ProvidedRoleItemProvider(this);
-		}
-
-		return providedRoleItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.repository.ImplementationComponentType} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ImplementationComponentTypeItemProvider implementationComponentTypeItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.repository.ImplementationComponentType}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Adapter createImplementationComponentTypeAdapter() {
-		if (implementationComponentTypeItemProvider == null) {
-			implementationComponentTypeItemProvider = new ImplementationComponentTypeItemProvider(this);
-		}
-
-		return implementationComponentTypeItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.repository.CompleteComponentType} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -366,6 +300,116 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
 		}
 
 		return basicComponentItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.repository.PrimitiveDataType} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected PrimitiveDataTypeItemProvider primitiveDataTypeItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.repository.PrimitiveDataType}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Adapter createPrimitiveDataTypeAdapter() {
+		if (primitiveDataTypeItemProvider == null) {
+			primitiveDataTypeItemProvider = new PrimitiveDataTypeItemProvider(this);
+		}
+
+		return primitiveDataTypeItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.repository.CollectionDataType} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected CollectionDataTypeItemProvider collectionDataTypeItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.repository.CollectionDataType}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Adapter createCollectionDataTypeAdapter() {
+		if (collectionDataTypeItemProvider == null) {
+			collectionDataTypeItemProvider = new CollectionDataTypeItemProvider(this);
+		}
+
+		return collectionDataTypeItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.repository.CompositeDataType} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected CompositeDataTypeItemProvider compositeDataTypeItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.repository.CompositeDataType}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Adapter createCompositeDataTypeAdapter() {
+		if (compositeDataTypeItemProvider == null) {
+			compositeDataTypeItemProvider = new CompositeDataTypeItemProvider(this);
+		}
+
+		return compositeDataTypeItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.repository.InnerDeclaration} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected InnerDeclarationItemProvider innerDeclarationItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.repository.InnerDeclaration}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Adapter createInnerDeclarationAdapter() {
+		if (innerDeclarationItemProvider == null) {
+			innerDeclarationItemProvider = new InnerDeclarationItemProvider(this);
+		}
+
+		return innerDeclarationItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.repository.ProvidedRole} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ProvidedRoleItemProvider providedRoleItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.repository.ProvidedRole}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Adapter createProvidedRoleAdapter() {
+		if (providedRoleItemProvider == null) {
+			providedRoleItemProvider = new ProvidedRoleItemProvider(this);
+		}
+
+		return providedRoleItemProvider;
 	}
 
 	/**
@@ -466,16 +510,18 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
 	public void dispose() {
 		if (signatureItemProvider != null) signatureItemProvider.dispose();
 		if (parameterItemProvider != null) parameterItemProvider.dispose();
-		if (dataTypeItemProvider != null) dataTypeItemProvider.dispose();
 		if (exceptionTypeItemProvider != null) exceptionTypeItemProvider.dispose();
 		if (requiredRoleItemProvider != null) requiredRoleItemProvider.dispose();
 		if (interfaceItemProvider != null) interfaceItemProvider.dispose();
 		if (repositoryItemProvider != null) repositoryItemProvider.dispose();
 		if (providesComponentTypeItemProvider != null) providesComponentTypeItemProvider.dispose();
-		if (implementationComponentTypeItemProvider != null) implementationComponentTypeItemProvider.dispose();
 		if (completeComponentTypeItemProvider != null) completeComponentTypeItemProvider.dispose();
 		if (compositeComponentItemProvider != null) compositeComponentItemProvider.dispose();
 		if (basicComponentItemProvider != null) basicComponentItemProvider.dispose();
+		if (primitiveDataTypeItemProvider != null) primitiveDataTypeItemProvider.dispose();
+		if (collectionDataTypeItemProvider != null) collectionDataTypeItemProvider.dispose();
+		if (compositeDataTypeItemProvider != null) compositeDataTypeItemProvider.dispose();
+		if (innerDeclarationItemProvider != null) innerDeclarationItemProvider.dispose();
 		if (providedRoleItemProvider != null) providedRoleItemProvider.dispose();
 	}
 

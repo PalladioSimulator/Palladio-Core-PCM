@@ -33,22 +33,13 @@ public interface ParameterFactory extends EFactory {
 	ParameterFactory eINSTANCE = de.uka.ipd.sdq.pcm.parameter.impl.ParameterFactoryImpl.init();
 
 	/**
-	 * Returns a new object of class '<em>Primitive Parameter Characterisation</em>'.
+	 * Returns a new object of class '<em>Characterisation</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Primitive Parameter Characterisation</em>'.
+	 * @return a new object of class '<em>Characterisation</em>'.
 	 * @generated
 	 */
-	PrimitiveParameterCharacterisation createPrimitiveParameterCharacterisation();
-
-	/**
-	 * Returns a new object of class '<em>Usage</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Usage</em>'.
-	 * @generated
-	 */
-	ParameterUsage createParameterUsage();
+	ParameterCharacterisation createParameterCharacterisation();
 
 	/**
 	 * Returns a new object of class '<em>Composite Parameter Usage</em>'.
@@ -76,6 +67,15 @@ public interface ParameterFactory extends EFactory {
 	 * @generated
 	 */
 	CollectionParameterCharacterisation createCollectionParameterCharacterisation();
+
+	/**
+	 * Returns a new object of class '<em>Primitive Parameter Usage</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Primitive Parameter Usage</em>'.
+	 * @generated
+	 */
+	PrimitiveParameterUsage createPrimitiveParameterUsage();
 
 	/**
 	 * Returns the package supported by this factory.

@@ -161,12 +161,12 @@ public class LoopActionItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(SeffPackage.Literals.LOOP_ACTION__BODY_BEHAVIOUR_LOOP,
-				 SeffFactory.eINSTANCE.createResourceDemandingBehaviour()));
+				 SeffFactory.eINSTANCE.createResourceDemandingSEFF()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(SeffPackage.Literals.LOOP_ACTION__BODY_BEHAVIOUR_LOOP,
-				 SeffFactory.eINSTANCE.createResourceDemandingSEFF()));
+				 SeffFactory.eINSTANCE.createResourceDemandingBehaviour()));
 
 		newChildDescriptors.add
 			(createChildParameter

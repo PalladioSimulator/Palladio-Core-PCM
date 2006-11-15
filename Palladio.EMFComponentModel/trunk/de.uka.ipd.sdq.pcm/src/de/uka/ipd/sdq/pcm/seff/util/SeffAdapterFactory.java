@@ -106,14 +106,8 @@ public class SeffAdapterFactory extends AdapterFactoryImpl {
 			public Object caseResourceDemandingBehaviour(ResourceDemandingBehaviour object) {
 				return createResourceDemandingBehaviourAdapter();
 			}
-			public Object caseParametricParameterUsage(ParametricParameterUsage object) {
-				return createParametricParameterUsageAdapter();
-			}
 			public Object caseReleaseAction(ReleaseAction object) {
 				return createReleaseActionAdapter();
-			}
-			public Object casePrimitiveParametricParameterUsage(PrimitiveParametricParameterUsage object) {
-				return createPrimitiveParametricParameterUsageAdapter();
 			}
 			public Object caseLoopAction(LoopAction object) {
 				return createLoopActionAdapter();
@@ -129,9 +123,6 @@ public class SeffAdapterFactory extends AdapterFactoryImpl {
 			}
 			public Object caseExternalCallAction(ExternalCallAction object) {
 				return createExternalCallActionAdapter();
-			}
-			public Object caseCollectionParametricParameterUsage(CollectionParametricParameterUsage object) {
-				return createCollectionParametricParameterUsageAdapter();
 			}
 			public Object caseBranchTransition(BranchTransition object) {
 				return createBranchTransitionAdapter();
@@ -280,20 +271,6 @@ public class SeffAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.seff.ParametricParameterUsage <em>Parametric Parameter Usage</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.pcm.seff.ParametricParameterUsage
-	 * @generated
-	 */
-	public Adapter createParametricParameterUsageAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.seff.ReleaseAction <em>Release Action</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -304,20 +281,6 @@ public class SeffAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createReleaseActionAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.seff.PrimitiveParametricParameterUsage <em>Primitive Parametric Parameter Usage</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.pcm.seff.PrimitiveParametricParameterUsage
-	 * @generated
-	 */
-	public Adapter createPrimitiveParametricParameterUsageAdapter() {
 		return null;
 	}
 
@@ -388,20 +351,6 @@ public class SeffAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createExternalCallActionAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.seff.CollectionParametricParameterUsage <em>Collection Parametric Parameter Usage</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.pcm.seff.CollectionParametricParameterUsage
-	 * @generated
-	 */
-	public Adapter createCollectionParametricParameterUsageAdapter() {
 		return null;
 	}
 

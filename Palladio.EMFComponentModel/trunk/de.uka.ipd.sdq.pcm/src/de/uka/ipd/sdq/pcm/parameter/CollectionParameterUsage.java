@@ -7,6 +7,9 @@
  */
 package de.uka.ipd.sdq.pcm.parameter;
 
+import java.util.Map;
+
+import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
 
 /**
@@ -75,5 +78,17 @@ public interface CollectionParameterUsage extends ParameterUsage {
 	 * @generated
 	 */
 	EList getParameterCharacterisation_CollectionParameterUsage();
+
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * self.parameter_ParameterUsage.datatype__Parameter.oclIsTypeOf(pcm::repository::CollectionDataType)
+	 * <!-- end-model-doc -->
+	 * @model
+	 * @generated
+	 */
+	boolean CollectionParameterUsagehastolinkaCollectionDataType(DiagnosticChain diagnostics, Map context);
 
 } // CollectionParameterUsage

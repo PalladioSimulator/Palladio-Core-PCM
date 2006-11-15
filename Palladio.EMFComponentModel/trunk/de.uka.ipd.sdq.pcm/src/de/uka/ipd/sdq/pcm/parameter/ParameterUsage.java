@@ -27,7 +27,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  *
  * @see de.uka.ipd.sdq.pcm.parameter.ParameterPackage#getParameterUsage()
- * @model
+ * @model abstract="true"
  * @generated
  */
 public interface ParameterUsage extends EObject {
@@ -66,7 +66,7 @@ public interface ParameterUsage extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Parameter Characterisation Parameter Usage</b></em>' containment reference list.
-	 * The list contents are of type {@link de.uka.ipd.sdq.pcm.parameter.PrimitiveParameterCharacterisation}.
+	 * The list contents are of type {@link de.uka.ipd.sdq.pcm.parameter.ParameterCharacterisation}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Parameter Characterisation Parameter Usage</em>' containment reference list isn't clear,
@@ -75,7 +75,7 @@ public interface ParameterUsage extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Parameter Characterisation Parameter Usage</em>' containment reference list.
 	 * @see de.uka.ipd.sdq.pcm.parameter.ParameterPackage#getParameterUsage_ParameterCharacterisation_ParameterUsage()
-	 * @model type="de.uka.ipd.sdq.pcm.parameter.PrimitiveParameterCharacterisation" containment="true" ordered="false"
+	 * @model type="de.uka.ipd.sdq.pcm.parameter.ParameterCharacterisation" containment="true" ordered="false"
 	 * @generated
 	 */
 	EList getParameterCharacterisation_ParameterUsage();

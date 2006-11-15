@@ -54,11 +54,6 @@ public class ExternalCallAction2ItemSemanticEditPolicy extends
 			return req.getTarget() == null ? getCreateStartOutgoingAbstractAction_Successor_AbstractAction3001Command(req)
 					: getCreateCompleteIncomingAbstractAction_Successor_AbstractAction3001Command(req);
 		}
-		if (PcmElementTypes.ExternalCallActionParametricParameterUsage_ParametricParameterUsage_3002 == req
-				.getElementType()) {
-			return req.getTarget() == null ? getCreateStartOutgoingExternalCallAction_ParametricParameterUsage_ParametricParameterUsage3002Command(req)
-					: null;
-		}
 		return super.getCreateRelationshipCommand(req);
 	}
 
@@ -93,15 +88,5 @@ public class ExternalCallAction2ItemSemanticEditPolicy extends
 						.getAbstractAction_Successor_AbstractAction(), req
 						.getTarget());
 		return getMSLWrapper(new SetValueCommand(setReq));
-	}
-
-	/**
-	 * @generated
-	 */
-	protected Command getCreateStartOutgoingExternalCallAction_ParametricParameterUsage_ParametricParameterUsage3002Command(
-			CreateRelationshipRequest req) {
-
-		return new Command() {
-		};
 	}
 }

@@ -20,9 +20,9 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * <ul>
  *   <li>{@link de.uka.ipd.sdq.pcm.core.composition.ComposedStructure#getChildComponentContexts_ComposedStructure <em>Child Component Contexts Composed Structure</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.core.composition.ComposedStructure#getCompositeAssemblyConnectors_ComposedStructure <em>Composite Assembly Connectors Composed Structure</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.core.composition.ComposedStructure#getProvidedDelegationConnectors_ComposedStructure <em>Provided Delegation Connectors Composed Structure</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.core.composition.ComposedStructure#getRequiredDelegationConnectors_ComposedStructure <em>Required Delegation Connectors Composed Structure</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.core.composition.ComposedStructure#getCompositeAssemblyConnectors_ComposedStructure <em>Composite Assembly Connectors Composed Structure</em>}</li>
  * </ul>
  * </p>
  *
@@ -41,6 +41,7 @@ public interface ComposedStructure extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Child Component Contexts Composed Structure</b></em>' containment reference list.
 	 * The list contents are of type {@link de.uka.ipd.sdq.pcm.core.composition.AssemblyContext}.
+	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.core.composition.AssemblyContext#getParentStructure_AssemblyContext <em>Parent Structure Assembly Context</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Child Component Contexts Composed Structure</em>' containment reference list isn't clear,
@@ -49,7 +50,8 @@ public interface ComposedStructure extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Child Component Contexts Composed Structure</em>' containment reference list.
 	 * @see de.uka.ipd.sdq.pcm.core.composition.CompositionPackage#getComposedStructure_ChildComponentContexts_ComposedStructure()
-	 * @model type="de.uka.ipd.sdq.pcm.core.composition.AssemblyContext" containment="true" ordered="false"
+	 * @see de.uka.ipd.sdq.pcm.core.composition.AssemblyContext#getParentStructure_AssemblyContext
+	 * @model type="de.uka.ipd.sdq.pcm.core.composition.AssemblyContext" opposite="parentStructure_AssemblyContext" containment="true" ordered="false"
 	 * @generated
 	 */
 	EList getChildComponentContexts_ComposedStructure();
@@ -57,6 +59,7 @@ public interface ComposedStructure extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Composite Assembly Connectors Composed Structure</b></em>' containment reference list.
 	 * The list contents are of type {@link de.uka.ipd.sdq.pcm.core.composition.AssemblyConnector}.
+	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.core.composition.AssemblyConnector#getParentStructure_AssemblyConnector <em>Parent Structure Assembly Connector</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Composite Assembly Connectors Composed Structure</em>' containment reference list isn't clear,
@@ -65,7 +68,8 @@ public interface ComposedStructure extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Composite Assembly Connectors Composed Structure</em>' containment reference list.
 	 * @see de.uka.ipd.sdq.pcm.core.composition.CompositionPackage#getComposedStructure_CompositeAssemblyConnectors_ComposedStructure()
-	 * @model type="de.uka.ipd.sdq.pcm.core.composition.AssemblyConnector" containment="true" ordered="false"
+	 * @see de.uka.ipd.sdq.pcm.core.composition.AssemblyConnector#getParentStructure_AssemblyConnector
+	 * @model type="de.uka.ipd.sdq.pcm.core.composition.AssemblyConnector" opposite="parentStructure_AssemblyConnector" containment="true" ordered="false"
 	 * @generated
 	 */
 	EList getCompositeAssemblyConnectors_ComposedStructure();
@@ -73,6 +77,7 @@ public interface ComposedStructure extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Provided Delegation Connectors Composed Structure</b></em>' containment reference list.
 	 * The list contents are of type {@link de.uka.ipd.sdq.pcm.core.composition.ProvidedDelegationConnector}.
+	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.core.composition.ProvidedDelegationConnector#getParentStructure_ProvidedDelegationConnector <em>Parent Structure Provided Delegation Connector</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Provided Delegation Connectors Composed Structure</em>' containment reference list isn't clear,
@@ -81,7 +86,8 @@ public interface ComposedStructure extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Provided Delegation Connectors Composed Structure</em>' containment reference list.
 	 * @see de.uka.ipd.sdq.pcm.core.composition.CompositionPackage#getComposedStructure_ProvidedDelegationConnectors_ComposedStructure()
-	 * @model type="de.uka.ipd.sdq.pcm.core.composition.ProvidedDelegationConnector" containment="true" ordered="false"
+	 * @see de.uka.ipd.sdq.pcm.core.composition.ProvidedDelegationConnector#getParentStructure_ProvidedDelegationConnector
+	 * @model type="de.uka.ipd.sdq.pcm.core.composition.ProvidedDelegationConnector" opposite="parentStructure_ProvidedDelegationConnector" containment="true" ordered="false"
 	 * @generated
 	 */
 	EList getProvidedDelegationConnectors_ComposedStructure();
@@ -89,6 +95,7 @@ public interface ComposedStructure extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Required Delegation Connectors Composed Structure</b></em>' containment reference list.
 	 * The list contents are of type {@link de.uka.ipd.sdq.pcm.core.composition.RequiredDelegationConnector}.
+	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.core.composition.RequiredDelegationConnector#getParentStructure_RequiredDelegationConnector <em>Parent Structure Required Delegation Connector</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Required Delegation Connectors Composed Structure</em>' containment reference list isn't clear,
@@ -97,7 +104,8 @@ public interface ComposedStructure extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Required Delegation Connectors Composed Structure</em>' containment reference list.
 	 * @see de.uka.ipd.sdq.pcm.core.composition.CompositionPackage#getComposedStructure_RequiredDelegationConnectors_ComposedStructure()
-	 * @model type="de.uka.ipd.sdq.pcm.core.composition.RequiredDelegationConnector" containment="true" ordered="false"
+	 * @see de.uka.ipd.sdq.pcm.core.composition.RequiredDelegationConnector#getParentStructure_RequiredDelegationConnector
+	 * @model type="de.uka.ipd.sdq.pcm.core.composition.RequiredDelegationConnector" opposite="parentStructure_RequiredDelegationConnector" containment="true" ordered="false"
 	 * @generated
 	 */
 	EList getRequiredDelegationConnectors_ComposedStructure();

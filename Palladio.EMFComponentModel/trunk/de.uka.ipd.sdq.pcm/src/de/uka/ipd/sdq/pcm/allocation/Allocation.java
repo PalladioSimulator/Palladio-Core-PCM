@@ -23,6 +23,7 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link de.uka.ipd.sdq.pcm.allocation.Allocation#getAllocationContexts_Allocation <em>Allocation Contexts Allocation</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.allocation.Allocation#getTargetResourceEnvironment_Allocation <em>Target Resource Environment Allocation</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.allocation.Allocation#getSystem_Allocation <em>System Allocation</em>}</li>
  * </ul>
  * </p>
  *
@@ -79,5 +80,31 @@ public interface Allocation extends Entity {
 	 * @generated
 	 */
 	void setTargetResourceEnvironment_Allocation(ResourceEnvironment value);
+
+	/**
+	 * Returns the value of the '<em><b>System Allocation</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>System Allocation</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>System Allocation</em>' reference.
+	 * @see #setSystem_Allocation(de.uka.ipd.sdq.pcm.system.System)
+	 * @see de.uka.ipd.sdq.pcm.allocation.AllocationPackage#getAllocation_System_Allocation()
+	 * @model required="true" ordered="false"
+	 * @generated
+	 */
+	de.uka.ipd.sdq.pcm.system.System getSystem_Allocation();
+
+	/**
+	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.allocation.Allocation#getSystem_Allocation <em>System Allocation</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>System Allocation</em>' reference.
+	 * @see #getSystem_Allocation()
+	 * @generated
+	 */
+	void setSystem_Allocation(de.uka.ipd.sdq.pcm.system.System value);
 
 } // Allocation

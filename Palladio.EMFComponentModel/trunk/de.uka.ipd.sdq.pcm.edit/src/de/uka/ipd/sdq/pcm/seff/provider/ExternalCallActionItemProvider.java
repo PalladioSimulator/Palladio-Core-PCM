@@ -9,6 +9,8 @@ package de.uka.ipd.sdq.pcm.seff.provider;
 
 import de.uka.ipd.sdq.pcm.core.stochastics.provider.PcmEditPlugin;
 
+import de.uka.ipd.sdq.pcm.parameter.ParameterFactory;
+
 import de.uka.ipd.sdq.pcm.seff.ExternalCallAction;
 import de.uka.ipd.sdq.pcm.seff.SeffPackage;
 
@@ -26,6 +28,8 @@ import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+
+import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
  * This is the item provider adapter for a {@link de.uka.ipd.sdq.pcm.seff.ExternalCallAction} object.
@@ -69,7 +73,6 @@ public class ExternalCallActionItemProvider
 			super.getPropertyDescriptors(object);
 
 			addCalledService_ExternalServicePropertyDescriptor(object);
-			addParametricParameterUsage_ParametricParameterUsagePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -97,25 +100,19 @@ public class ExternalCallActionItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Parametric Parameter Usage Parametric Parameter Usage feature.
+	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
+	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
+	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addParametricParameterUsage_ParametricParameterUsagePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_ExternalCallAction_parametricParameterUsage_ParametricParameterUsage_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ExternalCallAction_parametricParameterUsage_ParametricParameterUsage_feature", "_UI_ExternalCallAction_type"),
-				 SeffPackage.Literals.EXTERNAL_CALL_ACTION__PARAMETRIC_PARAMETER_USAGE_PARAMETRIC_PARAMETER_USAGE,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
+	public Collection getChildrenFeatures(Object object) {
+		if (childrenFeatures == null) {
+			super.getChildrenFeatures(object);
+			childrenFeatures.add(SeffPackage.Literals.EXTERNAL_CALL_ACTION__PARAMETER_USAGE_EXTERNAL_CALL_ACTION);
+		}
+		return childrenFeatures;
 	}
 
 	/**
@@ -150,6 +147,12 @@ public class ExternalCallActionItemProvider
 	 */
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
+
+		switch (notification.getFeatureID(ExternalCallAction.class)) {
+			case SeffPackage.EXTERNAL_CALL_ACTION__PARAMETER_USAGE_EXTERNAL_CALL_ACTION:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+				return;
+		}
 		super.notifyChanged(notification);
 	}
 
@@ -162,6 +165,21 @@ public class ExternalCallActionItemProvider
 	 */
 	protected void collectNewChildDescriptors(Collection newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+
+		newChildDescriptors.add
+			(createChildParameter
+				(SeffPackage.Literals.EXTERNAL_CALL_ACTION__PARAMETER_USAGE_EXTERNAL_CALL_ACTION,
+				 ParameterFactory.eINSTANCE.createCompositeParameterUsage()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(SeffPackage.Literals.EXTERNAL_CALL_ACTION__PARAMETER_USAGE_EXTERNAL_CALL_ACTION,
+				 ParameterFactory.eINSTANCE.createCollectionParameterUsage()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(SeffPackage.Literals.EXTERNAL_CALL_ACTION__PARAMETER_USAGE_EXTERNAL_CALL_ACTION,
+				 ParameterFactory.eINSTANCE.createPrimitiveParameterUsage()));
 	}
 
 	/**

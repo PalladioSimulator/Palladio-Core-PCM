@@ -39,6 +39,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link de.uka.ipd.sdq.pcm.allocation.impl.AllocationImpl#getAllocationContexts_Allocation <em>Allocation Contexts Allocation</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.allocation.impl.AllocationImpl#getTargetResourceEnvironment_Allocation <em>Target Resource Environment Allocation</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.allocation.impl.AllocationImpl#getSystem_Allocation <em>System Allocation</em>}</li>
  * </ul>
  * </p>
  *
@@ -71,6 +72,17 @@ public class AllocationImpl extends EntityImpl implements Allocation {
 	 * @ordered
 	 */
 	protected ResourceEnvironment targetResourceEnvironment_Allocation = null;
+
+
+	/**
+	 * The cached value of the '{@link #getSystem_Allocation() <em>System Allocation</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSystem_Allocation()
+	 * @generated
+	 * @ordered
+	 */
+	protected de.uka.ipd.sdq.pcm.system.System system_Allocation = null;
 
 
 	/**
@@ -146,6 +158,44 @@ public class AllocationImpl extends EntityImpl implements Allocation {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public de.uka.ipd.sdq.pcm.system.System getSystem_Allocation() {
+		if (system_Allocation != null && system_Allocation.eIsProxy()) {
+			InternalEObject oldSystem_Allocation = (InternalEObject)system_Allocation;
+			system_Allocation = (de.uka.ipd.sdq.pcm.system.System)eResolveProxy(oldSystem_Allocation);
+			if (system_Allocation != oldSystem_Allocation) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, AllocationPackage.ALLOCATION__SYSTEM_ALLOCATION, oldSystem_Allocation, system_Allocation));
+			}
+		}
+		return system_Allocation;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public de.uka.ipd.sdq.pcm.system.System basicGetSystem_Allocation() {
+		return system_Allocation;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSystem_Allocation(de.uka.ipd.sdq.pcm.system.System newSystem_Allocation) {
+		de.uka.ipd.sdq.pcm.system.System oldSystem_Allocation = system_Allocation;
+		system_Allocation = newSystem_Allocation;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, AllocationPackage.ALLOCATION__SYSTEM_ALLOCATION, oldSystem_Allocation, system_Allocation));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case AllocationPackage.ALLOCATION__ALLOCATION_CONTEXTS_ALLOCATION:
@@ -166,6 +216,9 @@ public class AllocationImpl extends EntityImpl implements Allocation {
 			case AllocationPackage.ALLOCATION__TARGET_RESOURCE_ENVIRONMENT_ALLOCATION:
 				if (resolve) return getTargetResourceEnvironment_Allocation();
 				return basicGetTargetResourceEnvironment_Allocation();
+			case AllocationPackage.ALLOCATION__SYSTEM_ALLOCATION:
+				if (resolve) return getSystem_Allocation();
+				return basicGetSystem_Allocation();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -184,6 +237,9 @@ public class AllocationImpl extends EntityImpl implements Allocation {
 			case AllocationPackage.ALLOCATION__TARGET_RESOURCE_ENVIRONMENT_ALLOCATION:
 				setTargetResourceEnvironment_Allocation((ResourceEnvironment)newValue);
 				return;
+			case AllocationPackage.ALLOCATION__SYSTEM_ALLOCATION:
+				setSystem_Allocation((de.uka.ipd.sdq.pcm.system.System)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -201,6 +257,9 @@ public class AllocationImpl extends EntityImpl implements Allocation {
 			case AllocationPackage.ALLOCATION__TARGET_RESOURCE_ENVIRONMENT_ALLOCATION:
 				setTargetResourceEnvironment_Allocation((ResourceEnvironment)null);
 				return;
+			case AllocationPackage.ALLOCATION__SYSTEM_ALLOCATION:
+				setSystem_Allocation((de.uka.ipd.sdq.pcm.system.System)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -216,6 +275,8 @@ public class AllocationImpl extends EntityImpl implements Allocation {
 				return allocationContexts_Allocation != null && !allocationContexts_Allocation.isEmpty();
 			case AllocationPackage.ALLOCATION__TARGET_RESOURCE_ENVIRONMENT_ALLOCATION:
 				return targetResourceEnvironment_Allocation != null;
+			case AllocationPackage.ALLOCATION__SYSTEM_ALLOCATION:
+				return system_Allocation != null;
 		}
 		return super.eIsSet(featureID);
 	}

@@ -67,11 +67,11 @@ public class ParameterFactoryImpl extends EFactoryImpl implements ParameterFacto
 	 */
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case ParameterPackage.PRIMITIVE_PARAMETER_CHARACTERISATION: return createPrimitiveParameterCharacterisation();
-			case ParameterPackage.PARAMETER_USAGE: return createParameterUsage();
+			case ParameterPackage.PARAMETER_CHARACTERISATION: return createParameterCharacterisation();
 			case ParameterPackage.COMPOSITE_PARAMETER_USAGE: return createCompositeParameterUsage();
 			case ParameterPackage.COLLECTION_PARAMETER_USAGE: return createCollectionParameterUsage();
 			case ParameterPackage.COLLECTION_PARAMETER_CHARACTERISATION: return createCollectionParameterCharacterisation();
+			case ParameterPackage.PRIMITIVE_PARAMETER_USAGE: return createPrimitiveParameterUsage();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -84,10 +84,10 @@ public class ParameterFactoryImpl extends EFactoryImpl implements ParameterFacto
 	 */
 	public Object createFromString(EDataType eDataType, String initialValue) {
 		switch (eDataType.getClassifierID()) {
+			case ParameterPackage.PARAMETER_CHARACTERISATION_TYPE:
+				return createParameterCharacterisationTypeFromString(eDataType, initialValue);
 			case ParameterPackage.COLLECTION_PARAMETER_CHARACTERISATION_TYPE:
 				return createCollectionParameterCharacterisationTypeFromString(eDataType, initialValue);
-			case ParameterPackage.PRIMITIVE_PARAMETER_CHARACTERISATION_TYPE:
-				return createPrimitiveParameterCharacterisationTypeFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -100,10 +100,10 @@ public class ParameterFactoryImpl extends EFactoryImpl implements ParameterFacto
 	 */
 	public String convertToString(EDataType eDataType, Object instanceValue) {
 		switch (eDataType.getClassifierID()) {
+			case ParameterPackage.PARAMETER_CHARACTERISATION_TYPE:
+				return convertParameterCharacterisationTypeToString(eDataType, instanceValue);
 			case ParameterPackage.COLLECTION_PARAMETER_CHARACTERISATION_TYPE:
 				return convertCollectionParameterCharacterisationTypeToString(eDataType, instanceValue);
-			case ParameterPackage.PRIMITIVE_PARAMETER_CHARACTERISATION_TYPE:
-				return convertPrimitiveParameterCharacterisationTypeToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -114,19 +114,9 @@ public class ParameterFactoryImpl extends EFactoryImpl implements ParameterFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public PrimitiveParameterCharacterisation createPrimitiveParameterCharacterisation() {
-		PrimitiveParameterCharacterisationImpl primitiveParameterCharacterisation = new PrimitiveParameterCharacterisationImpl();
-		return primitiveParameterCharacterisation;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ParameterUsage createParameterUsage() {
-		ParameterUsageImpl parameterUsage = new ParameterUsageImpl();
-		return parameterUsage;
+	public ParameterCharacterisation createParameterCharacterisation() {
+		ParameterCharacterisationImpl parameterCharacterisation = new ParameterCharacterisationImpl();
+		return parameterCharacterisation;
 	}
 
 	/**
@@ -164,6 +154,36 @@ public class ParameterFactoryImpl extends EFactoryImpl implements ParameterFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public PrimitiveParameterUsage createPrimitiveParameterUsage() {
+		PrimitiveParameterUsageImpl primitiveParameterUsage = new PrimitiveParameterUsageImpl();
+		return primitiveParameterUsage;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ParameterCharacterisationType createParameterCharacterisationTypeFromString(EDataType eDataType, String initialValue) {
+		ParameterCharacterisationType result = ParameterCharacterisationType.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertParameterCharacterisationTypeToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public CollectionParameterCharacterisationType createCollectionParameterCharacterisationTypeFromString(EDataType eDataType, String initialValue) {
 		CollectionParameterCharacterisationType result = CollectionParameterCharacterisationType.get(initialValue);
 		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
@@ -176,26 +196,6 @@ public class ParameterFactoryImpl extends EFactoryImpl implements ParameterFacto
 	 * @generated
 	 */
 	public String convertCollectionParameterCharacterisationTypeToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public PrimitiveParameterCharacterisationType createPrimitiveParameterCharacterisationTypeFromString(EDataType eDataType, String initialValue) {
-		PrimitiveParameterCharacterisationType result = PrimitiveParameterCharacterisationType.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertPrimitiveParameterCharacterisationTypeToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

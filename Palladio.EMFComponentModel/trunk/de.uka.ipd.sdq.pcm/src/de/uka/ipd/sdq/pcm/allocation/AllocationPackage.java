@@ -169,13 +169,22 @@ public interface AllocationPackage extends EPackage {
 	int ALLOCATION__TARGET_RESOURCE_ENVIRONMENT_ALLOCATION = EntityPackage.ENTITY_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>System Allocation</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ALLOCATION__SYSTEM_ALLOCATION = EntityPackage.ENTITY_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Allocation</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ALLOCATION_FEATURE_COUNT = EntityPackage.ENTITY_FEATURE_COUNT + 2;
+	int ALLOCATION_FEATURE_COUNT = EntityPackage.ENTITY_FEATURE_COUNT + 3;
 
 
 	/**
@@ -241,6 +250,17 @@ public interface AllocationPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getAllocation_TargetResourceEnvironment_Allocation();
+
+	/**
+	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.pcm.allocation.Allocation#getSystem_Allocation <em>System Allocation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>System Allocation</em>'.
+	 * @see de.uka.ipd.sdq.pcm.allocation.Allocation#getSystem_Allocation()
+	 * @see #getAllocation()
+	 * @generated
+	 */
+	EReference getAllocation_System_Allocation();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -315,6 +335,14 @@ public interface AllocationPackage extends EPackage {
 		 * @generated
 		 */
 		EReference ALLOCATION__TARGET_RESOURCE_ENVIRONMENT_ALLOCATION = eINSTANCE.getAllocation_TargetResourceEnvironment_Allocation();
+
+		/**
+		 * The meta object literal for the '<em><b>System Allocation</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ALLOCATION__SYSTEM_ALLOCATION = eINSTANCE.getAllocation_System_Allocation();
 
 	}
 

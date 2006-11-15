@@ -69,16 +69,18 @@ public class RepositoryFactoryImpl extends EFactoryImpl implements RepositoryFac
 		switch (eClass.getClassifierID()) {
 			case RepositoryPackage.SIGNATURE: return createSignature();
 			case RepositoryPackage.PARAMETER: return createParameter();
-			case RepositoryPackage.DATA_TYPE: return createDataType();
 			case RepositoryPackage.EXCEPTION_TYPE: return createExceptionType();
 			case RepositoryPackage.REQUIRED_ROLE: return createRequiredRole();
 			case RepositoryPackage.INTERFACE: return createInterface();
 			case RepositoryPackage.REPOSITORY: return createRepository();
 			case RepositoryPackage.PROVIDES_COMPONENT_TYPE: return createProvidesComponentType();
-			case RepositoryPackage.IMPLEMENTATION_COMPONENT_TYPE: return createImplementationComponentType();
 			case RepositoryPackage.COMPLETE_COMPONENT_TYPE: return createCompleteComponentType();
 			case RepositoryPackage.COMPOSITE_COMPONENT: return createCompositeComponent();
 			case RepositoryPackage.BASIC_COMPONENT: return createBasicComponent();
+			case RepositoryPackage.PRIMITIVE_DATA_TYPE: return createPrimitiveDataType();
+			case RepositoryPackage.COLLECTION_DATA_TYPE: return createCollectionDataType();
+			case RepositoryPackage.COMPOSITE_DATA_TYPE: return createCompositeDataType();
+			case RepositoryPackage.INNER_DECLARATION: return createInnerDeclaration();
 			case RepositoryPackage.PROVIDED_ROLE: return createProvidedRole();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
@@ -94,6 +96,8 @@ public class RepositoryFactoryImpl extends EFactoryImpl implements RepositoryFac
 		switch (eDataType.getClassifierID()) {
 			case RepositoryPackage.PARAMETER_MODIFIER:
 				return createParameterModifierFromString(eDataType, initialValue);
+			case RepositoryPackage.PRIMITIVE_TYPE_ENUM:
+				return createPrimitiveTypeEnumFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -108,6 +112,8 @@ public class RepositoryFactoryImpl extends EFactoryImpl implements RepositoryFac
 		switch (eDataType.getClassifierID()) {
 			case RepositoryPackage.PARAMETER_MODIFIER:
 				return convertParameterModifierToString(eDataType, instanceValue);
+			case RepositoryPackage.PRIMITIVE_TYPE_ENUM:
+				return convertPrimitiveTypeEnumToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -131,16 +137,6 @@ public class RepositoryFactoryImpl extends EFactoryImpl implements RepositoryFac
 	public Parameter createParameter() {
 		ParameterImpl parameter = new ParameterImpl();
 		return parameter;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public DataType createDataType() {
-		DataTypeImpl dataType = new DataTypeImpl();
-		return dataType;
 	}
 
 	/**
@@ -208,16 +204,6 @@ public class RepositoryFactoryImpl extends EFactoryImpl implements RepositoryFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ImplementationComponentType createImplementationComponentType() {
-		ImplementationComponentTypeImpl implementationComponentType = new ImplementationComponentTypeImpl();
-		return implementationComponentType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public CompleteComponentType createCompleteComponentType() {
 		CompleteComponentTypeImpl completeComponentType = new CompleteComponentTypeImpl();
 		return completeComponentType;
@@ -248,6 +234,46 @@ public class RepositoryFactoryImpl extends EFactoryImpl implements RepositoryFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public PrimitiveDataType createPrimitiveDataType() {
+		PrimitiveDataTypeImpl primitiveDataType = new PrimitiveDataTypeImpl();
+		return primitiveDataType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CollectionDataType createCollectionDataType() {
+		CollectionDataTypeImpl collectionDataType = new CollectionDataTypeImpl();
+		return collectionDataType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CompositeDataType createCompositeDataType() {
+		CompositeDataTypeImpl compositeDataType = new CompositeDataTypeImpl();
+		return compositeDataType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public InnerDeclaration createInnerDeclaration() {
+		InnerDeclarationImpl innerDeclaration = new InnerDeclarationImpl();
+		return innerDeclaration;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public ParameterModifier createParameterModifierFromString(EDataType eDataType, String initialValue) {
 		ParameterModifier result = ParameterModifier.get(initialValue);
 		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
@@ -260,6 +286,26 @@ public class RepositoryFactoryImpl extends EFactoryImpl implements RepositoryFac
 	 * @generated
 	 */
 	public String convertParameterModifierToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public PrimitiveTypeEnum createPrimitiveTypeEnumFromString(EDataType eDataType, String initialValue) {
+		PrimitiveTypeEnum result = PrimitiveTypeEnum.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertPrimitiveTypeEnumToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

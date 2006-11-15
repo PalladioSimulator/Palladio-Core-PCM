@@ -56,7 +56,7 @@ import org.eclipse.emf.ocl.query.QueryFactory;
  * The following features are implemented:
  * <ul>
  *   <li>{@link de.uka.ipd.sdq.pcm.repository.impl.InterfaceImpl#getParentInterface__Interface <em>Parent Interface Interface</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.repository.impl.InterfaceImpl#getAnchestorInterfaces <em>Anchestor Interfaces</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.repository.impl.InterfaceImpl#getAnchestorInterfaces_Interface <em>Anchestor Interfaces Interface</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.repository.impl.InterfaceImpl#getProtocols__Interface <em>Protocols Interface</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.repository.impl.InterfaceImpl#getSignatures__Interface <em>Signatures Interface</em>}</li>
  * </ul>
@@ -83,14 +83,14 @@ public class InterfaceImpl extends EntityImpl implements Interface {
 	protected EList parentInterface__Interface = null;
 
 	/**
-	 * The cached value of the '{@link #getAnchestorInterfaces() <em>Anchestor Interfaces</em>}' reference list.
+	 * The cached value of the '{@link #getAnchestorInterfaces_Interface() <em>Anchestor Interfaces Interface</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getAnchestorInterfaces()
+	 * @see #getAnchestorInterfaces_Interface()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList anchestorInterfaces = null;
+	protected EList anchestorInterfaces_Interface = null;
 
 	/**
 	 * The cached value of the '{@link #getProtocols__Interface() <em>Protocols Interface</em>}' containment reference list.
@@ -168,11 +168,11 @@ public class InterfaceImpl extends EntityImpl implements Interface {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList getAnchestorInterfaces() {
-		if (anchestorInterfaces == null) {
-			anchestorInterfaces = new EObjectResolvingEList(Interface.class, this, RepositoryPackage.INTERFACE__ANCHESTOR_INTERFACES);
+	public EList getAnchestorInterfaces_Interface() {
+		if (anchestorInterfaces_Interface == null) {
+			anchestorInterfaces_Interface = new EObjectResolvingEList(Interface.class, this, RepositoryPackage.INTERFACE__ANCHESTOR_INTERFACES_INTERFACE);
 		}
-		return anchestorInterfaces;
+		return anchestorInterfaces_Interface;
 	}
 
 	/**
@@ -210,7 +210,7 @@ public class InterfaceImpl extends EntityImpl implements Interface {
 			Environment env = ExpressionsUtil.createClassifierContext(eClass());
 			
 			
-			String body = "self.protocols->forAll(p1, p2 |  p1.protocolTypeID <> p2.protocolTypeID)  ";
+			String body = "self.protocols__Interface->forAll(p1, p2 |  p1.protocolTypeID <> p2.protocolTypeID)  ";
 			
 			try {
 				noProtocolTypeIDUsedTwiceInvOCL = ExpressionsUtil.createInvariant(env, body, true);
@@ -250,7 +250,7 @@ public class InterfaceImpl extends EntityImpl implements Interface {
 			Environment env = ExpressionsUtil.createClassifierContext(eClass());
 			
 			
-			String body = "  let sigs : Bag(       Tuple(returnType : DataType, serviceName : String, parameters : Sequence(DataType) )   ) =   self.signatures->collect(sig : Signature |   Tuple{    returnType : DataType = sig.returntype,    serviceName : String = sig.serviceName,    parameters : Sequence(DataType) = sig.parameters.datatype   }  )  in  sigs->isUnique(sigs) ";
+			String body = "  let sigs : Bag(       Tuple(returnType : DataType, serviceName : String, parameters : Sequence(DataType) )   ) =   self.signatures__Interface->collect(sig : Signature |   Tuple{    returnType : DataType = sig.returntype__Signature,    serviceName : String = sig.serviceName,    parameters : Sequence(DataType) = sig.parameters__Signature.datatype__Parameter   }  )  in  sigs->isUnique(sigs) ";
 			
 			try {
 				SignaturesHaveToBeUniqueForAnInterfaceInvOCL = ExpressionsUtil.createInvariant(env, body, true);
@@ -303,8 +303,8 @@ public class InterfaceImpl extends EntityImpl implements Interface {
 		switch (featureID) {
 			case RepositoryPackage.INTERFACE__PARENT_INTERFACE_INTERFACE:
 				return getParentInterface__Interface();
-			case RepositoryPackage.INTERFACE__ANCHESTOR_INTERFACES:
-				return getAnchestorInterfaces();
+			case RepositoryPackage.INTERFACE__ANCHESTOR_INTERFACES_INTERFACE:
+				return getAnchestorInterfaces_Interface();
 			case RepositoryPackage.INTERFACE__PROTOCOLS_INTERFACE:
 				return getProtocols__Interface();
 			case RepositoryPackage.INTERFACE__SIGNATURES_INTERFACE:
@@ -324,9 +324,9 @@ public class InterfaceImpl extends EntityImpl implements Interface {
 				getParentInterface__Interface().clear();
 				getParentInterface__Interface().addAll((Collection)newValue);
 				return;
-			case RepositoryPackage.INTERFACE__ANCHESTOR_INTERFACES:
-				getAnchestorInterfaces().clear();
-				getAnchestorInterfaces().addAll((Collection)newValue);
+			case RepositoryPackage.INTERFACE__ANCHESTOR_INTERFACES_INTERFACE:
+				getAnchestorInterfaces_Interface().clear();
+				getAnchestorInterfaces_Interface().addAll((Collection)newValue);
 				return;
 			case RepositoryPackage.INTERFACE__PROTOCOLS_INTERFACE:
 				getProtocols__Interface().clear();
@@ -350,8 +350,8 @@ public class InterfaceImpl extends EntityImpl implements Interface {
 			case RepositoryPackage.INTERFACE__PARENT_INTERFACE_INTERFACE:
 				getParentInterface__Interface().clear();
 				return;
-			case RepositoryPackage.INTERFACE__ANCHESTOR_INTERFACES:
-				getAnchestorInterfaces().clear();
+			case RepositoryPackage.INTERFACE__ANCHESTOR_INTERFACES_INTERFACE:
+				getAnchestorInterfaces_Interface().clear();
 				return;
 			case RepositoryPackage.INTERFACE__PROTOCOLS_INTERFACE:
 				getProtocols__Interface().clear();
@@ -372,8 +372,8 @@ public class InterfaceImpl extends EntityImpl implements Interface {
 		switch (featureID) {
 			case RepositoryPackage.INTERFACE__PARENT_INTERFACE_INTERFACE:
 				return parentInterface__Interface != null && !parentInterface__Interface.isEmpty();
-			case RepositoryPackage.INTERFACE__ANCHESTOR_INTERFACES:
-				return anchestorInterfaces != null && !anchestorInterfaces.isEmpty();
+			case RepositoryPackage.INTERFACE__ANCHESTOR_INTERFACES_INTERFACE:
+				return anchestorInterfaces_Interface != null && !anchestorInterfaces_Interface.isEmpty();
 			case RepositoryPackage.INTERFACE__PROTOCOLS_INTERFACE:
 				return protocols__Interface != null && !protocols__Interface.isEmpty();
 			case RepositoryPackage.INTERFACE__SIGNATURES_INTERFACE:

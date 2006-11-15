@@ -25,6 +25,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -36,9 +37,9 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * <ul>
  *   <li>{@link de.uka.ipd.sdq.pcm.core.composition.impl.ComposedStructureImpl#getChildComponentContexts_ComposedStructure <em>Child Component Contexts Composed Structure</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.core.composition.impl.ComposedStructureImpl#getCompositeAssemblyConnectors_ComposedStructure <em>Composite Assembly Connectors Composed Structure</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.core.composition.impl.ComposedStructureImpl#getProvidedDelegationConnectors_ComposedStructure <em>Provided Delegation Connectors Composed Structure</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.core.composition.impl.ComposedStructureImpl#getRequiredDelegationConnectors_ComposedStructure <em>Required Delegation Connectors Composed Structure</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.core.composition.impl.ComposedStructureImpl#getCompositeAssemblyConnectors_ComposedStructure <em>Composite Assembly Connectors Composed Structure</em>}</li>
  * </ul>
  * </p>
  *
@@ -63,16 +64,6 @@ public abstract class ComposedStructureImpl extends EObjectImpl implements Compo
 	protected EList childComponentContexts_ComposedStructure = null;
 
 	/**
-	 * The cached value of the '{@link #getCompositeAssemblyConnectors_ComposedStructure() <em>Composite Assembly Connectors Composed Structure</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getCompositeAssemblyConnectors_ComposedStructure()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList compositeAssemblyConnectors_ComposedStructure = null;
-
-	/**
 	 * The cached value of the '{@link #getProvidedDelegationConnectors_ComposedStructure() <em>Provided Delegation Connectors Composed Structure</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -92,6 +83,16 @@ public abstract class ComposedStructureImpl extends EObjectImpl implements Compo
 	 */
 	protected EList requiredDelegationConnectors_ComposedStructure = null;
 
+
+	/**
+	 * The cached value of the '{@link #getCompositeAssemblyConnectors_ComposedStructure() <em>Composite Assembly Connectors Composed Structure</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCompositeAssemblyConnectors_ComposedStructure()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList compositeAssemblyConnectors_ComposedStructure = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -118,7 +119,7 @@ public abstract class ComposedStructureImpl extends EObjectImpl implements Compo
 	 */
 	public EList getChildComponentContexts_ComposedStructure() {
 		if (childComponentContexts_ComposedStructure == null) {
-			childComponentContexts_ComposedStructure = new EObjectContainmentEList(AssemblyContext.class, this, CompositionPackage.COMPOSED_STRUCTURE__CHILD_COMPONENT_CONTEXTS_COMPOSED_STRUCTURE);
+			childComponentContexts_ComposedStructure = new EObjectContainmentWithInverseEList(AssemblyContext.class, this, CompositionPackage.COMPOSED_STRUCTURE__CHILD_COMPONENT_CONTEXTS_COMPOSED_STRUCTURE, CompositionPackage.ASSEMBLY_CONTEXT__PARENT_STRUCTURE_ASSEMBLY_CONTEXT);
 		}
 		return childComponentContexts_ComposedStructure;
 	}
@@ -130,7 +131,7 @@ public abstract class ComposedStructureImpl extends EObjectImpl implements Compo
 	 */
 	public EList getCompositeAssemblyConnectors_ComposedStructure() {
 		if (compositeAssemblyConnectors_ComposedStructure == null) {
-			compositeAssemblyConnectors_ComposedStructure = new EObjectContainmentEList(AssemblyConnector.class, this, CompositionPackage.COMPOSED_STRUCTURE__COMPOSITE_ASSEMBLY_CONNECTORS_COMPOSED_STRUCTURE);
+			compositeAssemblyConnectors_ComposedStructure = new EObjectContainmentWithInverseEList(AssemblyConnector.class, this, CompositionPackage.COMPOSED_STRUCTURE__COMPOSITE_ASSEMBLY_CONNECTORS_COMPOSED_STRUCTURE, CompositionPackage.ASSEMBLY_CONNECTOR__PARENT_STRUCTURE_ASSEMBLY_CONNECTOR);
 		}
 		return compositeAssemblyConnectors_ComposedStructure;
 	}
@@ -140,9 +141,28 @@ public abstract class ComposedStructureImpl extends EObjectImpl implements Compo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case CompositionPackage.COMPOSED_STRUCTURE__CHILD_COMPONENT_CONTEXTS_COMPOSED_STRUCTURE:
+				return ((InternalEList)getChildComponentContexts_ComposedStructure()).basicAdd(otherEnd, msgs);
+			case CompositionPackage.COMPOSED_STRUCTURE__PROVIDED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE:
+				return ((InternalEList)getProvidedDelegationConnectors_ComposedStructure()).basicAdd(otherEnd, msgs);
+			case CompositionPackage.COMPOSED_STRUCTURE__REQUIRED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE:
+				return ((InternalEList)getRequiredDelegationConnectors_ComposedStructure()).basicAdd(otherEnd, msgs);
+			case CompositionPackage.COMPOSED_STRUCTURE__COMPOSITE_ASSEMBLY_CONNECTORS_COMPOSED_STRUCTURE:
+				return ((InternalEList)getCompositeAssemblyConnectors_ComposedStructure()).basicAdd(otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EList getProvidedDelegationConnectors_ComposedStructure() {
 		if (providedDelegationConnectors_ComposedStructure == null) {
-			providedDelegationConnectors_ComposedStructure = new EObjectContainmentEList(ProvidedDelegationConnector.class, this, CompositionPackage.COMPOSED_STRUCTURE__PROVIDED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE);
+			providedDelegationConnectors_ComposedStructure = new EObjectContainmentWithInverseEList(ProvidedDelegationConnector.class, this, CompositionPackage.COMPOSED_STRUCTURE__PROVIDED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE, CompositionPackage.PROVIDED_DELEGATION_CONNECTOR__PARENT_STRUCTURE_PROVIDED_DELEGATION_CONNECTOR);
 		}
 		return providedDelegationConnectors_ComposedStructure;
 	}
@@ -154,7 +174,7 @@ public abstract class ComposedStructureImpl extends EObjectImpl implements Compo
 	 */
 	public EList getRequiredDelegationConnectors_ComposedStructure() {
 		if (requiredDelegationConnectors_ComposedStructure == null) {
-			requiredDelegationConnectors_ComposedStructure = new EObjectContainmentEList(RequiredDelegationConnector.class, this, CompositionPackage.COMPOSED_STRUCTURE__REQUIRED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE);
+			requiredDelegationConnectors_ComposedStructure = new EObjectContainmentWithInverseEList(RequiredDelegationConnector.class, this, CompositionPackage.COMPOSED_STRUCTURE__REQUIRED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE, CompositionPackage.REQUIRED_DELEGATION_CONNECTOR__PARENT_STRUCTURE_REQUIRED_DELEGATION_CONNECTOR);
 		}
 		return requiredDelegationConnectors_ComposedStructure;
 	}
@@ -168,12 +188,12 @@ public abstract class ComposedStructureImpl extends EObjectImpl implements Compo
 		switch (featureID) {
 			case CompositionPackage.COMPOSED_STRUCTURE__CHILD_COMPONENT_CONTEXTS_COMPOSED_STRUCTURE:
 				return ((InternalEList)getChildComponentContexts_ComposedStructure()).basicRemove(otherEnd, msgs);
-			case CompositionPackage.COMPOSED_STRUCTURE__COMPOSITE_ASSEMBLY_CONNECTORS_COMPOSED_STRUCTURE:
-				return ((InternalEList)getCompositeAssemblyConnectors_ComposedStructure()).basicRemove(otherEnd, msgs);
 			case CompositionPackage.COMPOSED_STRUCTURE__PROVIDED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE:
 				return ((InternalEList)getProvidedDelegationConnectors_ComposedStructure()).basicRemove(otherEnd, msgs);
 			case CompositionPackage.COMPOSED_STRUCTURE__REQUIRED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE:
 				return ((InternalEList)getRequiredDelegationConnectors_ComposedStructure()).basicRemove(otherEnd, msgs);
+			case CompositionPackage.COMPOSED_STRUCTURE__COMPOSITE_ASSEMBLY_CONNECTORS_COMPOSED_STRUCTURE:
+				return ((InternalEList)getCompositeAssemblyConnectors_ComposedStructure()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -187,12 +207,12 @@ public abstract class ComposedStructureImpl extends EObjectImpl implements Compo
 		switch (featureID) {
 			case CompositionPackage.COMPOSED_STRUCTURE__CHILD_COMPONENT_CONTEXTS_COMPOSED_STRUCTURE:
 				return getChildComponentContexts_ComposedStructure();
-			case CompositionPackage.COMPOSED_STRUCTURE__COMPOSITE_ASSEMBLY_CONNECTORS_COMPOSED_STRUCTURE:
-				return getCompositeAssemblyConnectors_ComposedStructure();
 			case CompositionPackage.COMPOSED_STRUCTURE__PROVIDED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE:
 				return getProvidedDelegationConnectors_ComposedStructure();
 			case CompositionPackage.COMPOSED_STRUCTURE__REQUIRED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE:
 				return getRequiredDelegationConnectors_ComposedStructure();
+			case CompositionPackage.COMPOSED_STRUCTURE__COMPOSITE_ASSEMBLY_CONNECTORS_COMPOSED_STRUCTURE:
+				return getCompositeAssemblyConnectors_ComposedStructure();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -208,10 +228,6 @@ public abstract class ComposedStructureImpl extends EObjectImpl implements Compo
 				getChildComponentContexts_ComposedStructure().clear();
 				getChildComponentContexts_ComposedStructure().addAll((Collection)newValue);
 				return;
-			case CompositionPackage.COMPOSED_STRUCTURE__COMPOSITE_ASSEMBLY_CONNECTORS_COMPOSED_STRUCTURE:
-				getCompositeAssemblyConnectors_ComposedStructure().clear();
-				getCompositeAssemblyConnectors_ComposedStructure().addAll((Collection)newValue);
-				return;
 			case CompositionPackage.COMPOSED_STRUCTURE__PROVIDED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE:
 				getProvidedDelegationConnectors_ComposedStructure().clear();
 				getProvidedDelegationConnectors_ComposedStructure().addAll((Collection)newValue);
@@ -219,6 +235,10 @@ public abstract class ComposedStructureImpl extends EObjectImpl implements Compo
 			case CompositionPackage.COMPOSED_STRUCTURE__REQUIRED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE:
 				getRequiredDelegationConnectors_ComposedStructure().clear();
 				getRequiredDelegationConnectors_ComposedStructure().addAll((Collection)newValue);
+				return;
+			case CompositionPackage.COMPOSED_STRUCTURE__COMPOSITE_ASSEMBLY_CONNECTORS_COMPOSED_STRUCTURE:
+				getCompositeAssemblyConnectors_ComposedStructure().clear();
+				getCompositeAssemblyConnectors_ComposedStructure().addAll((Collection)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -234,14 +254,14 @@ public abstract class ComposedStructureImpl extends EObjectImpl implements Compo
 			case CompositionPackage.COMPOSED_STRUCTURE__CHILD_COMPONENT_CONTEXTS_COMPOSED_STRUCTURE:
 				getChildComponentContexts_ComposedStructure().clear();
 				return;
-			case CompositionPackage.COMPOSED_STRUCTURE__COMPOSITE_ASSEMBLY_CONNECTORS_COMPOSED_STRUCTURE:
-				getCompositeAssemblyConnectors_ComposedStructure().clear();
-				return;
 			case CompositionPackage.COMPOSED_STRUCTURE__PROVIDED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE:
 				getProvidedDelegationConnectors_ComposedStructure().clear();
 				return;
 			case CompositionPackage.COMPOSED_STRUCTURE__REQUIRED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE:
 				getRequiredDelegationConnectors_ComposedStructure().clear();
+				return;
+			case CompositionPackage.COMPOSED_STRUCTURE__COMPOSITE_ASSEMBLY_CONNECTORS_COMPOSED_STRUCTURE:
+				getCompositeAssemblyConnectors_ComposedStructure().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -256,12 +276,12 @@ public abstract class ComposedStructureImpl extends EObjectImpl implements Compo
 		switch (featureID) {
 			case CompositionPackage.COMPOSED_STRUCTURE__CHILD_COMPONENT_CONTEXTS_COMPOSED_STRUCTURE:
 				return childComponentContexts_ComposedStructure != null && !childComponentContexts_ComposedStructure.isEmpty();
-			case CompositionPackage.COMPOSED_STRUCTURE__COMPOSITE_ASSEMBLY_CONNECTORS_COMPOSED_STRUCTURE:
-				return compositeAssemblyConnectors_ComposedStructure != null && !compositeAssemblyConnectors_ComposedStructure.isEmpty();
 			case CompositionPackage.COMPOSED_STRUCTURE__PROVIDED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE:
 				return providedDelegationConnectors_ComposedStructure != null && !providedDelegationConnectors_ComposedStructure.isEmpty();
 			case CompositionPackage.COMPOSED_STRUCTURE__REQUIRED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE:
 				return requiredDelegationConnectors_ComposedStructure != null && !requiredDelegationConnectors_ComposedStructure.isEmpty();
+			case CompositionPackage.COMPOSED_STRUCTURE__COMPOSITE_ASSEMBLY_CONNECTORS_COMPOSED_STRUCTURE:
+				return compositeAssemblyConnectors_ComposedStructure != null && !compositeAssemblyConnectors_ComposedStructure.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

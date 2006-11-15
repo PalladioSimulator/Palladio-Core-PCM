@@ -110,13 +110,13 @@ public class BasicComponentImpl extends ImplementationComponentTypeImpl implemen
 	private static OCLExpression ProvideSameInterfacesInvOCL;
 	
 	/**
-	 * The parsed OCL expression for the definition of the '{@link #RequireSameInterfaces <em>Require Same Interfaces</em>}' invariant constraint.
+	 * The parsed OCL expression for the definition of the '{@link #RequireSameInterfacesasImplementationType <em>Require Same Interfacesas Implementation Type</em>}' invariant constraint.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #RequireSameInterfaces
+	 * @see #RequireSameInterfacesasImplementationType
 	 * @generated
 	 */
-	private static OCLExpression RequireSameInterfacesInvOCL;
+	private static OCLExpression RequireSameInterfacesasImplementationTypeInvOCL;
 	
 	private static final String OCL_ANNOTATION_SOURCE = "http://www.eclipse.org/emf/2002/GenModel";
 	
@@ -199,7 +199,7 @@ public class BasicComponentImpl extends ImplementationComponentTypeImpl implemen
 			Environment env = ExpressionsUtil.createClassifierContext(eClass());
 			
 			
-			String body = "self.serviceEffectSpecifications->forAll(p1, p2 |  p1.seffTypeID <> p2.seffTypeID) ";
+			String body = "self.serviceEffectSpecifications__BasicComponent->forAll(p1, p2 |  p1.seffTypeID <> p2.seffTypeID) ";
 			
 			try {
 				noSeffTypeUsedTwiceInvOCL = ExpressionsUtil.createInvariant(env, body, true);
@@ -239,7 +239,7 @@ public class BasicComponentImpl extends ImplementationComponentTypeImpl implemen
 			Environment env = ExpressionsUtil.createClassifierContext(eClass());
 			
 			
-			String body = " self.providedRoles->iterate(pr : ProvidedRole; acc1 : Bag(String) = Bag{} |   acc1->union(pr.providedInterface.identifier.id->asBag())  )  =  if      self.implementationComponentType->notEmpty()  then   self.implementationComponentType.providedRoles->iterate(pr : ProvidedRole; acc2 : Bag(String) = Bag{} |    acc2->union(pr.providedInterface.identifier.id->asBag())   )  else   Bag{}  endif ";
+			String body = " self.providedRoles_InterfaceProvidingEntity->iterate(pr : ProvidedRole; acc1 : Bag(String) = Bag{} |   acc1->union(pr.providedInterface__ProvidedRole.id->asBag())  )  =  if      self.implementationComponentType->notEmpty()  then   self.implementationComponentType.providedRoles_InterfaceProvidingEntity->iterate(pr : ProvidedRole; acc2 : Bag(String) = Bag{} |    acc2->union(pr.providedInterface__ProvidedRole.id->asBag())   )  else   Bag{}  endif ";
 			
 			try {
 				ProvideSameInterfacesInvOCL = ExpressionsUtil.createInvariant(env, body, true);
@@ -274,21 +274,21 @@ public class BasicComponentImpl extends ImplementationComponentTypeImpl implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean RequireSameInterfaces(DiagnosticChain diagnostics, Map context) {
-		if (RequireSameInterfacesInvOCL == null) {
+	public boolean RequireSameInterfacesasImplementationType(DiagnosticChain diagnostics, Map context) {
+		if (RequireSameInterfacesasImplementationTypeInvOCL == null) {
 			Environment env = ExpressionsUtil.createClassifierContext(eClass());
 			
 			
-			String body = " self.requiredRoles->iterate(pr : RequiredRole; acc1 : Bag(String) = Bag{} |   acc1->union(pr.requiredInterface.identifier.id->asBag())  )  =  if      self.implementationComponentType->notEmpty()  then   self.implementationComponentType.requiredRoles->iterate(pr : RequiredRole; acc2 : Bag(String) = Bag{} |    acc2->union(pr.requiredInterface.identifier.id->asBag())   )  else   Bag{}  endif ";
+			String body = " self.requiredRoles_InterfaceRequiringEntity->iterate(pr : RequiredRole; acc1 : Bag(String) = Bag{} |   acc1->union(pr.requiredInterface__RequiredRole.id->asBag())  )  =  if      self.implementationComponentType->notEmpty()  then   self.implementationComponentType.requiredRoles_InterfaceRequiringEntity->iterate(pr : RequiredRole; acc2 : Bag(String) = Bag{} |    acc2->union(pr.requiredInterface__RequiredRole.id->asBag())   )  else   Bag{}  endif ";
 			
 			try {
-				RequireSameInterfacesInvOCL = ExpressionsUtil.createInvariant(env, body, true);
+				RequireSameInterfacesasImplementationTypeInvOCL = ExpressionsUtil.createInvariant(env, body, true);
 			} catch (ParserException e) {
 				throw new UnsupportedOperationException(e.getLocalizedMessage());
 			}
 		}
 		
-		Query query = QueryFactory.eINSTANCE.createQuery(RequireSameInterfacesInvOCL);
+		Query query = QueryFactory.eINSTANCE.createQuery(RequireSameInterfacesasImplementationTypeInvOCL);
 		EvalEnvironment evalEnv = new EvalEnvironment();
 		query.setEvaluationEnvironment(evalEnv);
 		
@@ -298,8 +298,8 @@ public class BasicComponentImpl extends ImplementationComponentTypeImpl implemen
 					(new BasicDiagnostic
 						(Diagnostic.ERROR,
 						 RepositoryValidator.DIAGNOSTIC_SOURCE,
-						 RepositoryValidator.BASIC_COMPONENT__REQUIRE_SAME_INTERFACES,
-						 EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "RequireSameInterfaces", EObjectValidator.getObjectLabel(this, context) }),
+						 RepositoryValidator.BASIC_COMPONENT__REQUIRE_SAME_INTERFACESAS_IMPLEMENTATION_TYPE,
+						 EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "RequireSameInterfacesasImplementationType", EObjectValidator.getObjectLabel(this, context) }),
 						 new Object [] { this }));
 			}
 			return false;

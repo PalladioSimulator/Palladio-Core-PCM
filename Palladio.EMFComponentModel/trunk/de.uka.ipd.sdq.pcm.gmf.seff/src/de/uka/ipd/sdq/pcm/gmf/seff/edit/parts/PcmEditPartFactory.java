@@ -49,8 +49,8 @@ public class PcmEditPartFactory implements EditPartFactory {
 				return new LoopActionEditPart(view);
 			case LoopActionEntityName2EditPart.VISUAL_ID:
 				return new LoopActionEntityName2EditPart(view);
-			case LoopActionIterations2EditPart.VISUAL_ID:
-				return new LoopActionIterations2EditPart(view);
+			case LoopIterationsLabel2EditPart.VISUAL_ID:
+				return new LoopIterationsLabel2EditPart(view);
 			case BranchAction2EditPart.VISUAL_ID:
 				return new BranchAction2EditPart(view);
 			case BranchActionEntityName2EditPart.VISUAL_ID:
@@ -59,20 +59,6 @@ public class PcmEditPartFactory implements EditPartFactory {
 				return new InternalAction2EditPart(view);
 			case InternalActionEntityName2EditPart.VISUAL_ID:
 				return new InternalActionEntityName2EditPart(view);
-			case PrimitiveParametricParameterUsageEditPart.VISUAL_ID:
-				return new PrimitiveParametricParameterUsageEditPart(view);
-			case PrimitiveParametricParameterUsageSpecificationEditPart.VISUAL_ID:
-				return new PrimitiveParametricParameterUsageSpecificationEditPart(
-						view);
-			case CollectionParametricParameterUsageEditPart.VISUAL_ID:
-				return new CollectionParametricParameterUsageEditPart(view);
-			case CollectionParametricParameterUsageSpecificationEditPart.VISUAL_ID:
-				return new CollectionParametricParameterUsageSpecificationEditPart(
-						view);
-			case ParametricResourceDemandEditPart.VISUAL_ID:
-				return new ParametricResourceDemandEditPart(view);
-			case ParametricResourceDemandDemandEditPart.VISUAL_ID:
-				return new ParametricResourceDemandDemandEditPart(view);
 			case ResourceDemandingBehaviourEditPart.VISUAL_ID:
 				return new ResourceDemandingBehaviourEditPart(view);
 			case StartAction2EditPart.VISUAL_ID:
@@ -83,8 +69,8 @@ public class PcmEditPartFactory implements EditPartFactory {
 				return new LoopAction2EditPart(view);
 			case LoopActionEntityNameEditPart.VISUAL_ID:
 				return new LoopActionEntityNameEditPart(view);
-			case LoopActionIterationsEditPart.VISUAL_ID:
-				return new LoopActionIterationsEditPart(view);
+			case LoopIterationsLabelEditPart.VISUAL_ID:
+				return new LoopIterationsLabelEditPart(view);
 			case InternalActionEditPart.VISUAL_ID:
 				return new InternalActionEditPart(view);
 			case InternalActionEntityNameEditPart.VISUAL_ID:
@@ -95,8 +81,8 @@ public class PcmEditPartFactory implements EditPartFactory {
 				return new BranchActionEntityNameEditPart(view);
 			case BranchTransitionEditPart.VISUAL_ID:
 				return new BranchTransitionEditPart(view);
-			case BranchTransitionBranchConditionEditPart.VISUAL_ID:
-				return new BranchTransitionBranchConditionEditPart(view);
+			case BranchTransitionProbabilityDiagramLabelEditPart.VISUAL_ID:
+				return new BranchTransitionProbabilityDiagramLabelEditPart(view);
 			case ResourceDemandingBehaviour2EditPart.VISUAL_ID:
 				return new ResourceDemandingBehaviour2EditPart(view);
 			case ExternalCallAction2EditPart.VISUAL_ID:
@@ -124,12 +110,6 @@ public class PcmEditPartFactory implements EditPartFactory {
 				return new ResourceDemandingSEFFEditPart(view);
 			case AbstractActionSuccessor_AbstractActionEditPart.VISUAL_ID:
 				return new AbstractActionSuccessor_AbstractActionEditPart(view);
-			case ExternalCallActionParametricParameterUsage_ParametricParameterUsageEditPart.VISUAL_ID:
-				return new ExternalCallActionParametricParameterUsage_ParametricParameterUsageEditPart(
-						view);
-			case AbstractResourceDemandingActionResourceDemand_ActionEditPart.VISUAL_ID:
-				return new AbstractResourceDemandingActionResourceDemand_ActionEditPart(
-						view);
 			}
 		}
 		return createUnrecognizedEditPart(context, model);

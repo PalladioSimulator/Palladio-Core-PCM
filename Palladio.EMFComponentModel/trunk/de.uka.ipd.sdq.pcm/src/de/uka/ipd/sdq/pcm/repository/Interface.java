@@ -23,7 +23,7 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * <ul>
  *   <li>{@link de.uka.ipd.sdq.pcm.repository.Interface#getParentInterface__Interface <em>Parent Interface Interface</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.repository.Interface#getAnchestorInterfaces <em>Anchestor Interfaces</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.repository.Interface#getAnchestorInterfaces_Interface <em>Anchestor Interfaces Interface</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.repository.Interface#getProtocols__Interface <em>Protocols Interface</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.repository.Interface#getSignatures__Interface <em>Signatures Interface</em>}</li>
  * </ul>
@@ -58,20 +58,20 @@ public interface Interface extends Entity {
 	EList getParentInterface__Interface();
 
 	/**
-	 * Returns the value of the '<em><b>Anchestor Interfaces</b></em>' reference list.
+	 * Returns the value of the '<em><b>Anchestor Interfaces Interface</b></em>' reference list.
 	 * The list contents are of type {@link de.uka.ipd.sdq.pcm.repository.Interface}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Anchestor Interfaces</em>' reference list isn't clear,
+	 * If the meaning of the '<em>Anchestor Interfaces Interface</em>' reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Anchestor Interfaces</em>' reference list.
-	 * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getInterface_AnchestorInterfaces()
+	 * @return the value of the '<em>Anchestor Interfaces Interface</em>' reference list.
+	 * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getInterface_AnchestorInterfaces_Interface()
 	 * @model type="de.uka.ipd.sdq.pcm.repository.Interface" ordered="false"
 	 * @generated
 	 */
-	EList getAnchestorInterfaces();
+	EList getAnchestorInterfaces_Interface();
 
 	/**
 	 * Returns the value of the '<em><b>Protocols Interface</b></em>' containment reference list.
@@ -110,7 +110,7 @@ public interface Interface extends Entity {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * self.protocols->forAll(p1, p2 |
+	 * self.protocols__Interface->forAll(p1, p2 |
 	 * p1.protocolTypeID <> p2.protocolTypeID)
 	 * 
 	 * <!-- end-model-doc -->
@@ -131,11 +131,11 @@ public interface Interface extends Entity {
 	 *  -- exceptions have not to be considered #
 	 *  Tuple(returnType : DataType, serviceName : String, parameters : Sequence(DataType) ) 
 	 * ) = 
-	 * self.signatures->collect(sig : Signature |
+	 * self.signatures__Interface->collect(sig : Signature |
 	 *  Tuple{
-	 *   returnType : DataType = sig.returntype,
+	 *   returnType : DataType = sig.returntype__Signature,
 	 *   serviceName : String = sig.serviceName,
-	 *   parameters : Sequence(DataType) = sig.parameters.datatype
+	 *   parameters : Sequence(DataType) = sig.parameters__Signature.datatype__Parameter
 	 *  }
 	 * )
 	 * in

@@ -8,7 +8,6 @@
 package de.uka.ipd.sdq.pcm.seff.impl;
 
 import de.uka.ipd.sdq.pcm.seff.AbstractAction;
-import de.uka.ipd.sdq.pcm.seff.ParametricParameterUsage;
 import de.uka.ipd.sdq.pcm.seff.ParametricResourceDemand;
 import de.uka.ipd.sdq.pcm.seff.ResourceDemandingBehaviour;
 import de.uka.ipd.sdq.pcm.seff.SeffPackage;
@@ -35,8 +34,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * <ul>
  *   <li>{@link de.uka.ipd.sdq.pcm.seff.impl.ResourceDemandingBehaviourImpl#getSteps_Behaviour <em>Steps Behaviour</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.seff.impl.ResourceDemandingBehaviourImpl#getParametricResourceDemands_Behaviour <em>Parametric Resource Demands Behaviour</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.seff.impl.ResourceDemandingBehaviourImpl#getParametricParameterUsage_Behaviour <em>Parametric Parameter Usage Behaviour</em>}</li>
  * </ul>
  * </p>
  *
@@ -59,27 +56,6 @@ public class ResourceDemandingBehaviourImpl extends EObjectImpl implements Resou
 	 * @ordered
 	 */
 	protected EList steps_Behaviour = null;
-
-	/**
-	 * The cached value of the '{@link #getParametricResourceDemands_Behaviour() <em>Parametric Resource Demands Behaviour</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getParametricResourceDemands_Behaviour()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList parametricResourceDemands_Behaviour = null;
-
-	/**
-	 * The cached value of the '{@link #getParametricParameterUsage_Behaviour() <em>Parametric Parameter Usage Behaviour</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getParametricParameterUsage_Behaviour()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList parametricParameterUsage_Behaviour = null;
-
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -116,38 +92,10 @@ public class ResourceDemandingBehaviourImpl extends EObjectImpl implements Resou
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList getParametricResourceDemands_Behaviour() {
-		if (parametricResourceDemands_Behaviour == null) {
-			parametricResourceDemands_Behaviour = new EObjectContainmentEList(ParametricResourceDemand.class, this, SeffPackage.RESOURCE_DEMANDING_BEHAVIOUR__PARAMETRIC_RESOURCE_DEMANDS_BEHAVIOUR);
-		}
-		return parametricResourceDemands_Behaviour;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList getParametricParameterUsage_Behaviour() {
-		if (parametricParameterUsage_Behaviour == null) {
-			parametricParameterUsage_Behaviour = new EObjectContainmentEList(ParametricParameterUsage.class, this, SeffPackage.RESOURCE_DEMANDING_BEHAVIOUR__PARAMETRIC_PARAMETER_USAGE_BEHAVIOUR);
-		}
-		return parametricParameterUsage_Behaviour;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case SeffPackage.RESOURCE_DEMANDING_BEHAVIOUR__STEPS_BEHAVIOUR:
 				return ((InternalEList)getSteps_Behaviour()).basicRemove(otherEnd, msgs);
-			case SeffPackage.RESOURCE_DEMANDING_BEHAVIOUR__PARAMETRIC_RESOURCE_DEMANDS_BEHAVIOUR:
-				return ((InternalEList)getParametricResourceDemands_Behaviour()).basicRemove(otherEnd, msgs);
-			case SeffPackage.RESOURCE_DEMANDING_BEHAVIOUR__PARAMETRIC_PARAMETER_USAGE_BEHAVIOUR:
-				return ((InternalEList)getParametricParameterUsage_Behaviour()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -161,10 +109,6 @@ public class ResourceDemandingBehaviourImpl extends EObjectImpl implements Resou
 		switch (featureID) {
 			case SeffPackage.RESOURCE_DEMANDING_BEHAVIOUR__STEPS_BEHAVIOUR:
 				return getSteps_Behaviour();
-			case SeffPackage.RESOURCE_DEMANDING_BEHAVIOUR__PARAMETRIC_RESOURCE_DEMANDS_BEHAVIOUR:
-				return getParametricResourceDemands_Behaviour();
-			case SeffPackage.RESOURCE_DEMANDING_BEHAVIOUR__PARAMETRIC_PARAMETER_USAGE_BEHAVIOUR:
-				return getParametricParameterUsage_Behaviour();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -180,14 +124,6 @@ public class ResourceDemandingBehaviourImpl extends EObjectImpl implements Resou
 				getSteps_Behaviour().clear();
 				getSteps_Behaviour().addAll((Collection)newValue);
 				return;
-			case SeffPackage.RESOURCE_DEMANDING_BEHAVIOUR__PARAMETRIC_RESOURCE_DEMANDS_BEHAVIOUR:
-				getParametricResourceDemands_Behaviour().clear();
-				getParametricResourceDemands_Behaviour().addAll((Collection)newValue);
-				return;
-			case SeffPackage.RESOURCE_DEMANDING_BEHAVIOUR__PARAMETRIC_PARAMETER_USAGE_BEHAVIOUR:
-				getParametricParameterUsage_Behaviour().clear();
-				getParametricParameterUsage_Behaviour().addAll((Collection)newValue);
-				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -202,12 +138,6 @@ public class ResourceDemandingBehaviourImpl extends EObjectImpl implements Resou
 			case SeffPackage.RESOURCE_DEMANDING_BEHAVIOUR__STEPS_BEHAVIOUR:
 				getSteps_Behaviour().clear();
 				return;
-			case SeffPackage.RESOURCE_DEMANDING_BEHAVIOUR__PARAMETRIC_RESOURCE_DEMANDS_BEHAVIOUR:
-				getParametricResourceDemands_Behaviour().clear();
-				return;
-			case SeffPackage.RESOURCE_DEMANDING_BEHAVIOUR__PARAMETRIC_PARAMETER_USAGE_BEHAVIOUR:
-				getParametricParameterUsage_Behaviour().clear();
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -221,10 +151,6 @@ public class ResourceDemandingBehaviourImpl extends EObjectImpl implements Resou
 		switch (featureID) {
 			case SeffPackage.RESOURCE_DEMANDING_BEHAVIOUR__STEPS_BEHAVIOUR:
 				return steps_Behaviour != null && !steps_Behaviour.isEmpty();
-			case SeffPackage.RESOURCE_DEMANDING_BEHAVIOUR__PARAMETRIC_RESOURCE_DEMANDS_BEHAVIOUR:
-				return parametricResourceDemands_Behaviour != null && !parametricResourceDemands_Behaviour.isEmpty();
-			case SeffPackage.RESOURCE_DEMANDING_BEHAVIOUR__PARAMETRIC_PARAMETER_USAGE_BEHAVIOUR:
-				return parametricParameterUsage_Behaviour != null && !parametricParameterUsage_Behaviour.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

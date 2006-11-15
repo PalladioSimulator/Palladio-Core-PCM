@@ -7,9 +7,9 @@
  */
 package de.uka.ipd.sdq.pcm.parameter.impl;
 
+import de.uka.ipd.sdq.pcm.parameter.ParameterCharacterisation;
 import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
 import de.uka.ipd.sdq.pcm.parameter.ParameterUsage;
-import de.uka.ipd.sdq.pcm.parameter.PrimitiveParameterCharacterisation;
 
 import de.uka.ipd.sdq.pcm.repository.Parameter;
 
@@ -43,7 +43,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class ParameterUsageImpl extends EObjectImpl implements ParameterUsage {
+public abstract class ParameterUsageImpl extends EObjectImpl implements ParameterUsage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -135,7 +135,7 @@ public class ParameterUsageImpl extends EObjectImpl implements ParameterUsage {
 	 */
 	public EList getParameterCharacterisation_ParameterUsage() {
 		if (parameterCharacterisation_ParameterUsage == null) {
-			parameterCharacterisation_ParameterUsage = new EObjectContainmentEList(PrimitiveParameterCharacterisation.class, this, ParameterPackage.PARAMETER_USAGE__PARAMETER_CHARACTERISATION_PARAMETER_USAGE);
+			parameterCharacterisation_ParameterUsage = new EObjectContainmentEList(ParameterCharacterisation.class, this, ParameterPackage.PARAMETER_USAGE__PARAMETER_CHARACTERISATION_PARAMETER_USAGE);
 		}
 		return parameterCharacterisation_ParameterUsage;
 	}

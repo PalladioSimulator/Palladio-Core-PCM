@@ -12,16 +12,12 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.AbstractResourceDemandingActionRes
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.BranchAction2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.BranchActionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.BranchTransitionEditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.CollectionParametricParameterUsageEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ExternalCallAction2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ExternalCallActionEditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ExternalCallActionParametricParameterUsage_ParametricParameterUsageEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.InternalAction2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.InternalActionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopAction2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopActionEditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ParametricResourceDemandEditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.PrimitiveParametricParameterUsageEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviour2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviourEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingSEFFEditPart;
@@ -36,7 +32,6 @@ import de.uka.ipd.sdq.pcm.gmf.seff.providers.PcmElementTypes;
 
 import de.uka.ipd.sdq.pcm.seff.AbstractAction;
 import de.uka.ipd.sdq.pcm.seff.AbstractResourceDemandingAction;
-import de.uka.ipd.sdq.pcm.seff.ExternalCallAction;
 import de.uka.ipd.sdq.pcm.seff.ResourceDemandingBehaviour;
 import de.uka.ipd.sdq.pcm.seff.SeffPackage;
 
@@ -58,8 +53,6 @@ import org.eclipse.gmf.runtime.diagram.core.util.ViewUtil;
 
 import org.eclipse.gmf.runtime.diagram.ui.commands.DeferredLayoutCommand;
 import org.eclipse.gmf.runtime.diagram.ui.commands.ICommandProxy;
-
-import org.eclipse.gmf.runtime.diagram.ui.commands.SetViewMutabilityCommand;
 
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 
@@ -120,33 +113,6 @@ public class ResourceDemandingSEFFCanonicalEditPolicy extends
 				result.add(nextValue);
 				break;
 			}
-			}
-		}
-		for (Iterator values = ((ResourceDemandingBehaviour) modelObject)
-				.getParametricParameterUsage_Behaviour().iterator(); values
-				.hasNext();) {
-			nextValue = (EObject) values.next();
-			nodeVID = PcmVisualIDRegistry
-					.getNodeVisualID(viewObject, nextValue);
-			switch (nodeVID) {
-			case PrimitiveParametricParameterUsageEditPart.VISUAL_ID: {
-				result.add(nextValue);
-				break;
-			}
-			case CollectionParametricParameterUsageEditPart.VISUAL_ID: {
-				result.add(nextValue);
-				break;
-			}
-			}
-		}
-		for (Iterator values = ((ResourceDemandingBehaviour) modelObject)
-				.getParametricResourceDemands_Behaviour().iterator(); values
-				.hasNext();) {
-			nextValue = (EObject) values.next();
-			nodeVID = PcmVisualIDRegistry
-					.getNodeVisualID(viewObject, nextValue);
-			if (ParametricResourceDemandEditPart.VISUAL_ID == nodeVID) {
-				result.add(nextValue);
 			}
 		}
 		return result;
@@ -281,9 +247,6 @@ public class ResourceDemandingSEFFCanonicalEditPolicy extends
 		case LoopActionEditPart.VISUAL_ID:
 		case BranchAction2EditPart.VISUAL_ID:
 		case InternalAction2EditPart.VISUAL_ID:
-		case PrimitiveParametricParameterUsageEditPart.VISUAL_ID:
-		case CollectionParametricParameterUsageEditPart.VISUAL_ID:
-		case ParametricResourceDemandEditPart.VISUAL_ID:
 		case ResourceDemandingBehaviourEditPart.VISUAL_ID:
 		case StartAction2EditPart.VISUAL_ID:
 		case StopAction2EditPart.VISUAL_ID:
@@ -394,36 +357,6 @@ public class ResourceDemandingSEFFCanonicalEditPolicy extends
 							PcmElementTypes.AbstractActionSuccessor_AbstractAction_3001,
 							AbstractActionSuccessor_AbstractActionEditPart.VISUAL_ID));
 
-		}
-		if (SeffPackage.eINSTANCE.getExternalCallAction().isSuperTypeOf(
-				containerMetaclass)) {
-			for (Iterator destinations = ((ExternalCallAction) container)
-					.getParametricParameterUsage_ParametricParameterUsage()
-					.iterator(); destinations.hasNext();) {
-				EObject nextDestination = (EObject) destinations.next();
-				myLinkDescriptors
-						.add(new LinkDescriptor(
-								container,
-								nextDestination,
-								PcmElementTypes.ExternalCallActionParametricParameterUsage_ParametricParameterUsage_3002,
-								ExternalCallActionParametricParameterUsage_ParametricParameterUsageEditPart.VISUAL_ID));
-
-			}
-		}
-		if (SeffPackage.eINSTANCE.getAbstractResourceDemandingAction()
-				.isSuperTypeOf(containerMetaclass)) {
-			for (Iterator destinations = ((AbstractResourceDemandingAction) container)
-					.getResourceDemand_Action().iterator(); destinations
-					.hasNext();) {
-				EObject nextDestination = (EObject) destinations.next();
-				myLinkDescriptors
-						.add(new LinkDescriptor(
-								container,
-								nextDestination,
-								PcmElementTypes.AbstractResourceDemandingActionResourceDemand_Action_3003,
-								AbstractResourceDemandingActionResourceDemand_ActionEditPart.VISUAL_ID));
-
-			}
 		}
 	}
 

@@ -105,7 +105,7 @@ public class SignatureImpl extends EObjectImpl implements Signature {
 	protected EList parameters__Signature = null;
 
 	/**
-	 * The cached value of the '{@link #getReturntype__Signature() <em>Returntype Signature</em>}' containment reference.
+	 * The cached value of the '{@link #getReturntype__Signature() <em>Returntype Signature</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getReturntype__Signature()
@@ -193,6 +193,14 @@ public class SignatureImpl extends EObjectImpl implements Signature {
 	 * @generated
 	 */
 	public DataType getReturntype__Signature() {
+		if (returntype__Signature != null && returntype__Signature.eIsProxy()) {
+			InternalEObject oldReturntype__Signature = (InternalEObject)returntype__Signature;
+			returntype__Signature = (DataType)eResolveProxy(oldReturntype__Signature);
+			if (returntype__Signature != oldReturntype__Signature) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, RepositoryPackage.SIGNATURE__RETURNTYPE_SIGNATURE, oldReturntype__Signature, returntype__Signature));
+			}
+		}
 		return returntype__Signature;
 	}
 
@@ -201,14 +209,8 @@ public class SignatureImpl extends EObjectImpl implements Signature {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetReturntype__Signature(DataType newReturntype__Signature, NotificationChain msgs) {
-		DataType oldReturntype__Signature = returntype__Signature;
-		returntype__Signature = newReturntype__Signature;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, RepositoryPackage.SIGNATURE__RETURNTYPE_SIGNATURE, oldReturntype__Signature, newReturntype__Signature);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
+	public DataType basicGetReturntype__Signature() {
+		return returntype__Signature;
 	}
 
 	/**
@@ -217,17 +219,10 @@ public class SignatureImpl extends EObjectImpl implements Signature {
 	 * @generated
 	 */
 	public void setReturntype__Signature(DataType newReturntype__Signature) {
-		if (newReturntype__Signature != returntype__Signature) {
-			NotificationChain msgs = null;
-			if (returntype__Signature != null)
-				msgs = ((InternalEObject)returntype__Signature).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - RepositoryPackage.SIGNATURE__RETURNTYPE_SIGNATURE, null, msgs);
-			if (newReturntype__Signature != null)
-				msgs = ((InternalEObject)newReturntype__Signature).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - RepositoryPackage.SIGNATURE__RETURNTYPE_SIGNATURE, null, msgs);
-			msgs = basicSetReturntype__Signature(newReturntype__Signature, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, RepositoryPackage.SIGNATURE__RETURNTYPE_SIGNATURE, newReturntype__Signature, newReturntype__Signature));
+		DataType oldReturntype__Signature = returntype__Signature;
+		returntype__Signature = newReturntype__Signature;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, RepositoryPackage.SIGNATURE__RETURNTYPE_SIGNATURE, oldReturntype__Signature, returntype__Signature));
 	}
 
 	/**
@@ -291,8 +286,6 @@ public class SignatureImpl extends EObjectImpl implements Signature {
 		switch (featureID) {
 			case RepositoryPackage.SIGNATURE__PARAMETERS_SIGNATURE:
 				return ((InternalEList)getParameters__Signature()).basicRemove(otherEnd, msgs);
-			case RepositoryPackage.SIGNATURE__RETURNTYPE_SIGNATURE:
-				return basicSetReturntype__Signature(null, msgs);
 			case RepositoryPackage.SIGNATURE__EXCEPTIONS_SIGNATURE:
 				return ((InternalEList)getExceptions__Signature()).basicRemove(otherEnd, msgs);
 		}
@@ -311,7 +304,8 @@ public class SignatureImpl extends EObjectImpl implements Signature {
 			case RepositoryPackage.SIGNATURE__PARAMETERS_SIGNATURE:
 				return getParameters__Signature();
 			case RepositoryPackage.SIGNATURE__RETURNTYPE_SIGNATURE:
-				return getReturntype__Signature();
+				if (resolve) return getReturntype__Signature();
+				return basicGetReturntype__Signature();
 			case RepositoryPackage.SIGNATURE__EXCEPTIONS_SIGNATURE:
 				return getExceptions__Signature();
 		}

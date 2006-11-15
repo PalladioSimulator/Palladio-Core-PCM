@@ -159,7 +159,7 @@ public class ProvidesComponentTypeImpl extends EntityImpl implements ProvidesCom
 			Environment env = ExpressionsUtil.createClassifierContext(eClass());
 			
 			
-			String body = "self.oclIsTypeOf(ProvidesComponentType)  implies  self.providedRoles->size() >= 1 ";
+			String body = "self.oclIsTypeOf(ProvidesComponentType)  implies  self.providedRoles_InterfaceProvidingEntity->size() >= 1 ";
 			
 			try {
 				AtLeastOneInterfaceHasToBeProvidedByAUsefullProvidesComponentTypeInvOCL = ExpressionsUtil.createInvariant(env, body, true);

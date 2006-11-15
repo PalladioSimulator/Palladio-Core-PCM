@@ -6,6 +6,11 @@
  */
 package de.uka.ipd.sdq.pcm.qosannotations.util;
 
+import de.uka.ipd.sdq.identifier.Identifier;
+
+import de.uka.ipd.sdq.pcm.core.entity.Entity;
+import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
+
 import de.uka.ipd.sdq.pcm.core.stochastics.RandomVariable;
 
 import de.uka.ipd.sdq.pcm.qosannotations.*;
@@ -79,11 +84,32 @@ public class QosannotationsAdapterFactory extends AdapterFactoryImpl {
 	 */
 	protected QosannotationsSwitch modelSwitch =
 		new QosannotationsSwitch() {
-			public Object caseSpecifiedTimeConsumption(SpecifiedTimeConsumption object) {
-				return createSpecifiedTimeConsumptionAdapter();
+			public Object caseSpecifiedExecutionTime(SpecifiedExecutionTime object) {
+				return createSpecifiedExecutionTimeAdapter();
+			}
+			public Object caseSpecifiedFailureProbability(SpecifiedFailureProbability object) {
+				return createSpecifiedFailureProbabilityAdapter();
+			}
+			public Object caseSystemSpecifiedExecutionTime(SystemSpecifiedExecutionTime object) {
+				return createSystemSpecifiedExecutionTimeAdapter();
+			}
+			public Object caseComponentSpecifiedExecutionTime(ComponentSpecifiedExecutionTime object) {
+				return createComponentSpecifiedExecutionTimeAdapter();
+			}
+			public Object caseQoSAnnotations(QoSAnnotations object) {
+				return createQoSAnnotationsAdapter();
 			}
 			public Object caseRandomVariable(RandomVariable object) {
 				return createRandomVariableAdapter();
+			}
+			public Object caseIdentifier(Identifier object) {
+				return createIdentifierAdapter();
+			}
+			public Object caseNamedElement(NamedElement object) {
+				return createNamedElementAdapter();
+			}
+			public Object caseEntity(Entity object) {
+				return createEntityAdapter();
 			}
 			public Object defaultCase(EObject object) {
 				return createEObjectAdapter();
@@ -104,16 +130,72 @@ public class QosannotationsAdapterFactory extends AdapterFactoryImpl {
 
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.qosannotations.SpecifiedTimeConsumption <em>Specified Time Consumption</em>}'.
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.qosannotations.SpecifiedExecutionTime <em>Specified Execution Time</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.pcm.qosannotations.SpecifiedTimeConsumption
+	 * @see de.uka.ipd.sdq.pcm.qosannotations.SpecifiedExecutionTime
 	 * @generated
 	 */
-	public Adapter createSpecifiedTimeConsumptionAdapter() {
+	public Adapter createSpecifiedExecutionTimeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.qosannotations.SpecifiedFailureProbability <em>Specified Failure Probability</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.pcm.qosannotations.SpecifiedFailureProbability
+	 * @generated
+	 */
+	public Adapter createSpecifiedFailureProbabilityAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.qosannotations.SystemSpecifiedExecutionTime <em>System Specified Execution Time</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.pcm.qosannotations.SystemSpecifiedExecutionTime
+	 * @generated
+	 */
+	public Adapter createSystemSpecifiedExecutionTimeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.qosannotations.ComponentSpecifiedExecutionTime <em>Component Specified Execution Time</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.pcm.qosannotations.ComponentSpecifiedExecutionTime
+	 * @generated
+	 */
+	public Adapter createComponentSpecifiedExecutionTimeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.qosannotations.QoSAnnotations <em>Qo SAnnotations</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.pcm.qosannotations.QoSAnnotations
+	 * @generated
+	 */
+	public Adapter createQoSAnnotationsAdapter() {
 		return null;
 	}
 
@@ -128,6 +210,48 @@ public class QosannotationsAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createRandomVariableAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.identifier.Identifier <em>Identifier</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.identifier.Identifier
+	 * @generated
+	 */
+	public Adapter createIdentifierAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.core.entity.NamedElement <em>Named Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.pcm.core.entity.NamedElement
+	 * @generated
+	 */
+	public Adapter createNamedElementAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.core.entity.Entity <em>Entity</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.pcm.core.entity.Entity
+	 * @generated
+	 */
+	public Adapter createEntityAdapter() {
 		return null;
 	}
 

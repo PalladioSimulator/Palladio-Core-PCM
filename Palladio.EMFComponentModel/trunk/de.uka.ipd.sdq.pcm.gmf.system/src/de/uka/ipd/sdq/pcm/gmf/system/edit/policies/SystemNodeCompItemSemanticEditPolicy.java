@@ -26,6 +26,7 @@ import de.uka.ipd.sdq.pcm.repository.ProvidesComponentType;
 import de.uka.ipd.sdq.pcm.repository.Repository;
 import de.uka.ipd.sdq.pcm.repository.provider.RepositoryItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.system.SystemPackage;
+import de.uka.ipd.sdq.pcmbench.ui.provider.PalladioItemProviderAdapterFactory;
 
 
 public class SystemNodeCompItemSemanticEditPolicy extends PcmBaseItemSemanticEditPolicy {
@@ -115,7 +116,7 @@ public class SystemNodeCompItemSemanticEditPolicy extends PcmBaseItemSemanticEdi
 			filterList.add(Repository.class);
 			filterList.add(ProvidesComponentType.class);
 			SelectEObjectDialog dialog = new SelectEObjectDialog(v.getRoot()
-					.getViewer().getControl().getShell(), adapterFactory,
+					.getViewer().getControl().getShell(), new PalladioItemProviderAdapterFactory(adapterFactory),
 					filterList, v.getEditingDomain().getResourceSet());
 			dialog.open();
 			if (dialog.getResult() == null)

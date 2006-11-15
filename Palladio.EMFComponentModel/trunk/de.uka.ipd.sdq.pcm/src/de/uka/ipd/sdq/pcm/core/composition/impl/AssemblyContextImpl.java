@@ -8,6 +8,7 @@
 package de.uka.ipd.sdq.pcm.core.composition.impl;
 
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
+import de.uka.ipd.sdq.pcm.core.composition.ComposedStructure;
 import de.uka.ipd.sdq.pcm.core.composition.CompositionPackage;
 
 import de.uka.ipd.sdq.pcm.core.entity.impl.EntityImpl;
@@ -16,10 +17,14 @@ import de.uka.ipd.sdq.pcm.repository.ProvidesComponentType;
 
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.notify.NotificationChain;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
+import org.eclipse.emf.ecore.util.EcoreUtil;
 
 /**
  * <!-- begin-user-doc -->
@@ -29,6 +34,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * <ul>
  *   <li>{@link de.uka.ipd.sdq.pcm.core.composition.impl.AssemblyContextImpl#getEncapsulatedComponent_ChildComponentContext <em>Encapsulated Component Child Component Context</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.core.composition.impl.AssemblyContextImpl#getParentStructure_AssemblyContext <em>Parent Structure Assembly Context</em>}</li>
  * </ul>
  * </p>
  *
@@ -114,11 +120,95 @@ public class AssemblyContextImpl extends EntityImpl implements AssemblyContext {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public ComposedStructure getParentStructure_AssemblyContext() {
+		if (eContainerFeatureID != CompositionPackage.ASSEMBLY_CONTEXT__PARENT_STRUCTURE_ASSEMBLY_CONTEXT) return null;
+		return (ComposedStructure)eContainer();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetParentStructure_AssemblyContext(ComposedStructure newParentStructure_AssemblyContext, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject)newParentStructure_AssemblyContext, CompositionPackage.ASSEMBLY_CONTEXT__PARENT_STRUCTURE_ASSEMBLY_CONTEXT, msgs);
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setParentStructure_AssemblyContext(ComposedStructure newParentStructure_AssemblyContext) {
+		if (newParentStructure_AssemblyContext != eInternalContainer() || (eContainerFeatureID != CompositionPackage.ASSEMBLY_CONTEXT__PARENT_STRUCTURE_ASSEMBLY_CONTEXT && newParentStructure_AssemblyContext != null)) {
+			if (EcoreUtil.isAncestor(this, newParentStructure_AssemblyContext))
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+			NotificationChain msgs = null;
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
+			if (newParentStructure_AssemblyContext != null)
+				msgs = ((InternalEObject)newParentStructure_AssemblyContext).eInverseAdd(this, CompositionPackage.COMPOSED_STRUCTURE__CHILD_COMPONENT_CONTEXTS_COMPOSED_STRUCTURE, ComposedStructure.class, msgs);
+			msgs = basicSetParentStructure_AssemblyContext(newParentStructure_AssemblyContext, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CompositionPackage.ASSEMBLY_CONTEXT__PARENT_STRUCTURE_ASSEMBLY_CONTEXT, newParentStructure_AssemblyContext, newParentStructure_AssemblyContext));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case CompositionPackage.ASSEMBLY_CONTEXT__PARENT_STRUCTURE_ASSEMBLY_CONTEXT:
+				if (eInternalContainer() != null)
+					msgs = eBasicRemoveFromContainer(msgs);
+				return basicSetParentStructure_AssemblyContext((ComposedStructure)otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case CompositionPackage.ASSEMBLY_CONTEXT__PARENT_STRUCTURE_ASSEMBLY_CONTEXT:
+				return basicSetParentStructure_AssemblyContext(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
+		switch (eContainerFeatureID) {
+			case CompositionPackage.ASSEMBLY_CONTEXT__PARENT_STRUCTURE_ASSEMBLY_CONTEXT:
+				return eInternalContainer().eInverseRemove(this, CompositionPackage.COMPOSED_STRUCTURE__CHILD_COMPONENT_CONTEXTS_COMPOSED_STRUCTURE, ComposedStructure.class, msgs);
+		}
+		return super.eBasicRemoveFromContainerFeature(msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case CompositionPackage.ASSEMBLY_CONTEXT__ENCAPSULATED_COMPONENT_CHILD_COMPONENT_CONTEXT:
 				if (resolve) return getEncapsulatedComponent_ChildComponentContext();
 				return basicGetEncapsulatedComponent_ChildComponentContext();
+			case CompositionPackage.ASSEMBLY_CONTEXT__PARENT_STRUCTURE_ASSEMBLY_CONTEXT:
+				return getParentStructure_AssemblyContext();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -132,6 +222,9 @@ public class AssemblyContextImpl extends EntityImpl implements AssemblyContext {
 		switch (featureID) {
 			case CompositionPackage.ASSEMBLY_CONTEXT__ENCAPSULATED_COMPONENT_CHILD_COMPONENT_CONTEXT:
 				setEncapsulatedComponent_ChildComponentContext((ProvidesComponentType)newValue);
+				return;
+			case CompositionPackage.ASSEMBLY_CONTEXT__PARENT_STRUCTURE_ASSEMBLY_CONTEXT:
+				setParentStructure_AssemblyContext((ComposedStructure)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -147,6 +240,9 @@ public class AssemblyContextImpl extends EntityImpl implements AssemblyContext {
 			case CompositionPackage.ASSEMBLY_CONTEXT__ENCAPSULATED_COMPONENT_CHILD_COMPONENT_CONTEXT:
 				setEncapsulatedComponent_ChildComponentContext((ProvidesComponentType)null);
 				return;
+			case CompositionPackage.ASSEMBLY_CONTEXT__PARENT_STRUCTURE_ASSEMBLY_CONTEXT:
+				setParentStructure_AssemblyContext((ComposedStructure)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -160,6 +256,8 @@ public class AssemblyContextImpl extends EntityImpl implements AssemblyContext {
 		switch (featureID) {
 			case CompositionPackage.ASSEMBLY_CONTEXT__ENCAPSULATED_COMPONENT_CHILD_COMPONENT_CONTEXT:
 				return encapsulatedComponent_ChildComponentContext != null;
+			case CompositionPackage.ASSEMBLY_CONTEXT__PARENT_STRUCTURE_ASSEMBLY_CONTEXT:
+				return getParentStructure_AssemblyContext() != null;
 		}
 		return super.eIsSet(featureID);
 	}

@@ -72,10 +72,33 @@ public class ParameterItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addDatatype__ParameterPropertyDescriptor(object);
 			addParameterNamePropertyDescriptor(object);
 			addModifier__ParameterPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Datatype Parameter feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addDatatype__ParameterPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Parameter_datatype__Parameter_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Parameter_datatype__Parameter_feature", "_UI_Parameter_type"),
+				 RepositoryPackage.Literals.PARAMETER__DATATYPE_PARAMETER,
+				 true,
+				 false,
+				 false,
+				 null,
+				 null,
+				 null));
 	}
 
 	/**
@@ -123,22 +146,6 @@ public class ParameterItemProvider
 	}
 
 	/**
-	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
-	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
-	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Collection getChildrenFeatures(Object object) {
-		if (childrenFeatures == null) {
-			super.getChildrenFeatures(object);
-			childrenFeatures.add(RepositoryPackage.Literals.PARAMETER__DATATYPE_PARAMETER);
-		}
-		return childrenFeatures;
-	}
-
-	/**
 	 * This returns Parameter.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -176,9 +183,6 @@ public class ParameterItemProvider
 			case RepositoryPackage.PARAMETER__MODIFIER_PARAMETER:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case RepositoryPackage.PARAMETER__DATATYPE_PARAMETER:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
-				return;
 		}
 		super.notifyChanged(notification);
 	}
@@ -192,11 +196,6 @@ public class ParameterItemProvider
 	 */
 	protected void collectNewChildDescriptors(Collection newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-
-		newChildDescriptors.add
-			(createChildParameter
-				(RepositoryPackage.Literals.PARAMETER__DATATYPE_PARAMETER,
-				 RepositoryFactory.eINSTANCE.createDataType()));
 	}
 
 	/**

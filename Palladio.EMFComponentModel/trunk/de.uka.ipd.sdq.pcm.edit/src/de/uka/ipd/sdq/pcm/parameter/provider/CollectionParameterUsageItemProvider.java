@@ -156,17 +156,17 @@ public class CollectionParameterUsageItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(ParameterPackage.Literals.COLLECTION_PARAMETER_USAGE__INNER_ELEMENT_PARAMETER_USAGE,
-				 ParameterFactory.eINSTANCE.createParameterUsage()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ParameterPackage.Literals.COLLECTION_PARAMETER_USAGE__INNER_ELEMENT_PARAMETER_USAGE,
 				 ParameterFactory.eINSTANCE.createCompositeParameterUsage()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(ParameterPackage.Literals.COLLECTION_PARAMETER_USAGE__INNER_ELEMENT_PARAMETER_USAGE,
 				 ParameterFactory.eINSTANCE.createCollectionParameterUsage()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ParameterPackage.Literals.COLLECTION_PARAMETER_USAGE__INNER_ELEMENT_PARAMETER_USAGE,
+				 ParameterFactory.eINSTANCE.createPrimitiveParameterUsage()));
 
 		newChildDescriptors.add
 			(createChildParameter

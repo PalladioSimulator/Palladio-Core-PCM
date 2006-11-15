@@ -19,7 +19,6 @@ import de.uka.ipd.sdq.pcm.resourcetype.ProcessingResourceType;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link de.uka.ipd.sdq.pcm.seff.ParametricResourceDemand#getDemand <em>Demand</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.seff.ParametricResourceDemand#getUnit <em>Unit</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.seff.ParametricResourceDemand#getRequiredResource_ParametricResourceDemand <em>Required Resource Parametric Resource Demand</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.seff.ParametricResourceDemand#getAction_ParametricResourceDemand <em>Action Parametric Resource Demand</em>}</li>
@@ -37,32 +36,6 @@ public interface ParametricResourceDemand extends RandomVariable {
 	 * @generated
 	 */
 	String copyright = "(c) by SDQ, IPD, U Karlsruhe (TH), 2006";
-
-	/**
-	 * Returns the value of the '<em><b>Demand</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Demand</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Demand</em>' attribute.
-	 * @see #setDemand(String)
-	 * @see de.uka.ipd.sdq.pcm.seff.SeffPackage#getParametricResourceDemand_Demand()
-	 * @model required="true" ordered="false"
-	 * @generated
-	 */
-	String getDemand();
-
-	/**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.seff.ParametricResourceDemand#getDemand <em>Demand</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Demand</em>' attribute.
-	 * @see #getDemand()
-	 * @generated
-	 */
-	void setDemand(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Unit</b></em>' attribute.
@@ -117,7 +90,7 @@ public interface ParametricResourceDemand extends RandomVariable {
 	void setRequiredResource_ParametricResourceDemand(ProcessingResourceType value);
 
 	/**
-	 * Returns the value of the '<em><b>Action Parametric Resource Demand</b></em>' reference.
+	 * Returns the value of the '<em><b>Action Parametric Resource Demand</b></em>' container reference.
 	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.seff.AbstractResourceDemandingAction#getResourceDemand_Action <em>Resource Demand Action</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -125,7 +98,7 @@ public interface ParametricResourceDemand extends RandomVariable {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Action Parametric Resource Demand</em>' reference.
+	 * @return the value of the '<em>Action Parametric Resource Demand</em>' container reference.
 	 * @see #setAction_ParametricResourceDemand(AbstractResourceDemandingAction)
 	 * @see de.uka.ipd.sdq.pcm.seff.SeffPackage#getParametricResourceDemand_Action_ParametricResourceDemand()
 	 * @see de.uka.ipd.sdq.pcm.seff.AbstractResourceDemandingAction#getResourceDemand_Action
@@ -135,10 +108,10 @@ public interface ParametricResourceDemand extends RandomVariable {
 	AbstractResourceDemandingAction getAction_ParametricResourceDemand();
 
 	/**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.seff.ParametricResourceDemand#getAction_ParametricResourceDemand <em>Action Parametric Resource Demand</em>}' reference.
+	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.seff.ParametricResourceDemand#getAction_ParametricResourceDemand <em>Action Parametric Resource Demand</em>}' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Action Parametric Resource Demand</em>' reference.
+	 * @param value the new value of the '<em>Action Parametric Resource Demand</em>' container reference.
 	 * @see #getAction_ParametricResourceDemand()
 	 * @generated
 	 */

@@ -245,6 +245,40 @@ public class RepositorySwitch {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case RepositoryPackage.PRIMITIVE_DATA_TYPE: {
+				PrimitiveDataType primitiveDataType = (PrimitiveDataType)theEObject;
+				Object result = casePrimitiveDataType(primitiveDataType);
+				if (result == null) result = caseDataType(primitiveDataType);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case RepositoryPackage.COLLECTION_DATA_TYPE: {
+				CollectionDataType collectionDataType = (CollectionDataType)theEObject;
+				Object result = caseCollectionDataType(collectionDataType);
+				if (result == null) result = caseEntity(collectionDataType);
+				if (result == null) result = caseDataType(collectionDataType);
+				if (result == null) result = caseIdentifier(collectionDataType);
+				if (result == null) result = caseNamedElement(collectionDataType);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case RepositoryPackage.COMPOSITE_DATA_TYPE: {
+				CompositeDataType compositeDataType = (CompositeDataType)theEObject;
+				Object result = caseCompositeDataType(compositeDataType);
+				if (result == null) result = caseEntity(compositeDataType);
+				if (result == null) result = caseDataType(compositeDataType);
+				if (result == null) result = caseIdentifier(compositeDataType);
+				if (result == null) result = caseNamedElement(compositeDataType);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case RepositoryPackage.INNER_DECLARATION: {
+				InnerDeclaration innerDeclaration = (InnerDeclaration)theEObject;
+				Object result = caseInnerDeclaration(innerDeclaration);
+				if (result == null) result = caseNamedElement(innerDeclaration);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case RepositoryPackage.PROVIDED_ROLE: {
 				ProvidedRole providedRole = (ProvidedRole)theEObject;
 				Object result = caseProvidedRole(providedRole);
@@ -466,6 +500,66 @@ public class RepositorySwitch {
 	 * @generated
 	 */
 	public Object caseBasicComponent(BasicComponent object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpretting the object as an instance of '<em>Primitive Data Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpretting the object as an instance of '<em>Primitive Data Type</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public Object casePrimitiveDataType(PrimitiveDataType object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpretting the object as an instance of '<em>Collection Data Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpretting the object as an instance of '<em>Collection Data Type</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public Object caseCollectionDataType(CollectionDataType object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpretting the object as an instance of '<em>Composite Data Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpretting the object as an instance of '<em>Composite Data Type</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public Object caseCompositeDataType(CompositeDataType object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpretting the object as an instance of '<em>Inner Declaration</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpretting the object as an instance of '<em>Inner Declaration</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public Object caseInnerDeclaration(InnerDeclaration object) {
 		return null;
 	}
 

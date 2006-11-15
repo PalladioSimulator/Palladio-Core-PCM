@@ -165,7 +165,7 @@ public class ParameterUsageItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(ParameterPackage.Literals.PARAMETER_USAGE__PARAMETER_CHARACTERISATION_PARAMETER_USAGE,
-				 ParameterFactory.eINSTANCE.createPrimitiveParameterCharacterisation()));
+				 ParameterFactory.eINSTANCE.createParameterCharacterisation()));
 	}
 
 	/**

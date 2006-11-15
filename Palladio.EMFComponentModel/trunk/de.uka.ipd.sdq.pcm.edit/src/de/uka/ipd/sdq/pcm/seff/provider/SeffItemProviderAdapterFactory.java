@@ -215,28 +215,6 @@ public class SeffItemProviderAdapterFactory extends SeffAdapterFactory implement
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.seff.PrimitiveParametricParameterUsage} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected PrimitiveParametricParameterUsageItemProvider primitiveParametricParameterUsageItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.seff.PrimitiveParametricParameterUsage}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Adapter createPrimitiveParametricParameterUsageAdapter() {
-		if (primitiveParametricParameterUsageItemProvider == null) {
-			primitiveParametricParameterUsageItemProvider = new PrimitiveParametricParameterUsageItemProvider(this);
-		}
-
-		return primitiveParametricParameterUsageItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.seff.LoopAction} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -344,28 +322,6 @@ public class SeffItemProviderAdapterFactory extends SeffAdapterFactory implement
 		}
 
 		return externalCallActionItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.seff.CollectionParametricParameterUsage} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected CollectionParametricParameterUsageItemProvider collectionParametricParameterUsageItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.seff.CollectionParametricParameterUsage}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Adapter createCollectionParametricParameterUsageAdapter() {
-		if (collectionParametricParameterUsageItemProvider == null) {
-			collectionParametricParameterUsageItemProvider = new CollectionParametricParameterUsageItemProvider(this);
-		}
-
-		return collectionParametricParameterUsageItemProvider;
 	}
 
 	/**
@@ -580,13 +536,11 @@ public class SeffItemProviderAdapterFactory extends SeffAdapterFactory implement
 		if (resourceDemandingSEFFItemProvider != null) resourceDemandingSEFFItemProvider.dispose();
 		if (resourceDemandingBehaviourItemProvider != null) resourceDemandingBehaviourItemProvider.dispose();
 		if (releaseActionItemProvider != null) releaseActionItemProvider.dispose();
-		if (primitiveParametricParameterUsageItemProvider != null) primitiveParametricParameterUsageItemProvider.dispose();
 		if (loopActionItemProvider != null) loopActionItemProvider.dispose();
 		if (iterationCountItemProvider != null) iterationCountItemProvider.dispose();
 		if (internalActionItemProvider != null) internalActionItemProvider.dispose();
 		if (forkActionItemProvider != null) forkActionItemProvider.dispose();
 		if (externalCallActionItemProvider != null) externalCallActionItemProvider.dispose();
-		if (collectionParametricParameterUsageItemProvider != null) collectionParametricParameterUsageItemProvider.dispose();
 		if (branchTransitionItemProvider != null) branchTransitionItemProvider.dispose();
 		if (branchConditionItemProvider != null) branchConditionItemProvider.dispose();
 		if (branchActionItemProvider != null) branchActionItemProvider.dispose();

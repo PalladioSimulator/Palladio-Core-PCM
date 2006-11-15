@@ -23,6 +23,8 @@ import de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingRequiringEntity;
 import de.uka.ipd.sdq.pcm.core.entity.InterfaceRequiringEntity;
 import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
 
+import de.uka.ipd.sdq.pcm.qosannotations.QoSAnnotations;
+
 import de.uka.ipd.sdq.pcm.repository.ProvidedRole;
 import de.uka.ipd.sdq.pcm.repository.RequiredRole;
 
@@ -72,7 +74,7 @@ import org.eclipse.emf.ocl.query.QueryFactory;
  *   <li>{@link de.uka.ipd.sdq.pcm.system.impl.SystemImpl#getEntityName <em>Entity Name</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.system.impl.SystemImpl#getProvidedRoles_InterfaceProvidingEntity <em>Provided Roles Interface Providing Entity</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.system.impl.SystemImpl#getRequiredRoles_InterfaceRequiringEntity <em>Required Roles Interface Requiring Entity</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.system.impl.SystemImpl#getAllocation_System <em>Allocation System</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.system.impl.SystemImpl#getQosAnnotations_System <em>Qos Annotations System</em>}</li>
  * </ul>
  * </p>
  *
@@ -147,14 +149,14 @@ public class SystemImpl extends ComposedStructureImpl implements de.uka.ipd.sdq.
 	protected EList requiredRoles_InterfaceRequiringEntity = null;
 
 	/**
-	 * The cached value of the '{@link #getAllocation_System() <em>Allocation System</em>}' reference.
+	 * The cached value of the '{@link #getQosAnnotations_System() <em>Qos Annotations System</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getAllocation_System()
+	 * @see #getQosAnnotations_System()
 	 * @generated
 	 * @ordered
 	 */
-	protected Allocation allocation_System = null;
+	protected EList qosAnnotations_System = null;
 
 
 	/**
@@ -257,37 +259,11 @@ public class SystemImpl extends ComposedStructureImpl implements de.uka.ipd.sdq.
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Allocation getAllocation_System() {
-		if (allocation_System != null && allocation_System.eIsProxy()) {
-			InternalEObject oldAllocation_System = (InternalEObject)allocation_System;
-			allocation_System = (Allocation)eResolveProxy(oldAllocation_System);
-			if (allocation_System != oldAllocation_System) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, SystemPackage.SYSTEM__ALLOCATION_SYSTEM, oldAllocation_System, allocation_System));
-			}
+	public EList getQosAnnotations_System() {
+		if (qosAnnotations_System == null) {
+			qosAnnotations_System = new EObjectContainmentEList(QoSAnnotations.class, this, SystemPackage.SYSTEM__QOS_ANNOTATIONS_SYSTEM);
 		}
-		return allocation_System;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Allocation basicGetAllocation_System() {
-		return allocation_System;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setAllocation_System(Allocation newAllocation_System) {
-		Allocation oldAllocation_System = allocation_System;
-		allocation_System = newAllocation_System;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SystemPackage.SYSTEM__ALLOCATION_SYSTEM, oldAllocation_System, allocation_System));
+		return qosAnnotations_System;
 	}
 
 
@@ -341,6 +317,8 @@ public class SystemImpl extends ComposedStructureImpl implements de.uka.ipd.sdq.
 				return ((InternalEList)getProvidedRoles_InterfaceProvidingEntity()).basicRemove(otherEnd, msgs);
 			case SystemPackage.SYSTEM__REQUIRED_ROLES_INTERFACE_REQUIRING_ENTITY:
 				return ((InternalEList)getRequiredRoles_InterfaceRequiringEntity()).basicRemove(otherEnd, msgs);
+			case SystemPackage.SYSTEM__QOS_ANNOTATIONS_SYSTEM:
+				return ((InternalEList)getQosAnnotations_System()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -360,9 +338,8 @@ public class SystemImpl extends ComposedStructureImpl implements de.uka.ipd.sdq.
 				return getProvidedRoles_InterfaceProvidingEntity();
 			case SystemPackage.SYSTEM__REQUIRED_ROLES_INTERFACE_REQUIRING_ENTITY:
 				return getRequiredRoles_InterfaceRequiringEntity();
-			case SystemPackage.SYSTEM__ALLOCATION_SYSTEM:
-				if (resolve) return getAllocation_System();
-				return basicGetAllocation_System();
+			case SystemPackage.SYSTEM__QOS_ANNOTATIONS_SYSTEM:
+				return getQosAnnotations_System();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -388,8 +365,9 @@ public class SystemImpl extends ComposedStructureImpl implements de.uka.ipd.sdq.
 				getRequiredRoles_InterfaceRequiringEntity().clear();
 				getRequiredRoles_InterfaceRequiringEntity().addAll((Collection)newValue);
 				return;
-			case SystemPackage.SYSTEM__ALLOCATION_SYSTEM:
-				setAllocation_System((Allocation)newValue);
+			case SystemPackage.SYSTEM__QOS_ANNOTATIONS_SYSTEM:
+				getQosAnnotations_System().clear();
+				getQosAnnotations_System().addAll((Collection)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -414,8 +392,8 @@ public class SystemImpl extends ComposedStructureImpl implements de.uka.ipd.sdq.
 			case SystemPackage.SYSTEM__REQUIRED_ROLES_INTERFACE_REQUIRING_ENTITY:
 				getRequiredRoles_InterfaceRequiringEntity().clear();
 				return;
-			case SystemPackage.SYSTEM__ALLOCATION_SYSTEM:
-				setAllocation_System((Allocation)null);
+			case SystemPackage.SYSTEM__QOS_ANNOTATIONS_SYSTEM:
+				getQosAnnotations_System().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -436,8 +414,8 @@ public class SystemImpl extends ComposedStructureImpl implements de.uka.ipd.sdq.
 				return providedRoles_InterfaceProvidingEntity != null && !providedRoles_InterfaceProvidingEntity.isEmpty();
 			case SystemPackage.SYSTEM__REQUIRED_ROLES_INTERFACE_REQUIRING_ENTITY:
 				return requiredRoles_InterfaceRequiringEntity != null && !requiredRoles_InterfaceRequiringEntity.isEmpty();
-			case SystemPackage.SYSTEM__ALLOCATION_SYSTEM:
-				return allocation_System != null;
+			case SystemPackage.SYSTEM__QOS_ANNOTATIONS_SYSTEM:
+				return qosAnnotations_System != null && !qosAnnotations_System.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

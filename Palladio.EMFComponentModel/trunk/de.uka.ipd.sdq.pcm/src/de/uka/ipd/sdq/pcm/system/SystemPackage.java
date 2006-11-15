@@ -91,15 +91,6 @@ public interface SystemPackage extends EPackage {
 	int SYSTEM__CHILD_COMPONENT_CONTEXTS_COMPOSED_STRUCTURE = CompositionPackage.COMPOSED_STRUCTURE__CHILD_COMPONENT_CONTEXTS_COMPOSED_STRUCTURE;
 
 	/**
-	 * The feature id for the '<em><b>Composite Assembly Connectors Composed Structure</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SYSTEM__COMPOSITE_ASSEMBLY_CONNECTORS_COMPOSED_STRUCTURE = CompositionPackage.COMPOSED_STRUCTURE__COMPOSITE_ASSEMBLY_CONNECTORS_COMPOSED_STRUCTURE;
-
-	/**
 	 * The feature id for the '<em><b>Provided Delegation Connectors Composed Structure</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -116,6 +107,15 @@ public interface SystemPackage extends EPackage {
 	 * @ordered
 	 */
 	int SYSTEM__REQUIRED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE = CompositionPackage.COMPOSED_STRUCTURE__REQUIRED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE;
+
+	/**
+	 * The feature id for the '<em><b>Composite Assembly Connectors Composed Structure</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SYSTEM__COMPOSITE_ASSEMBLY_CONNECTORS_COMPOSED_STRUCTURE = CompositionPackage.COMPOSED_STRUCTURE__COMPOSITE_ASSEMBLY_CONNECTORS_COMPOSED_STRUCTURE;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -154,13 +154,13 @@ public interface SystemPackage extends EPackage {
 	int SYSTEM__REQUIRED_ROLES_INTERFACE_REQUIRING_ENTITY = CompositionPackage.COMPOSED_STRUCTURE_FEATURE_COUNT + 3;
 
 	/**
-	 * The feature id for the '<em><b>Allocation System</b></em>' reference.
+	 * The feature id for the '<em><b>Qos Annotations System</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SYSTEM__ALLOCATION_SYSTEM = CompositionPackage.COMPOSED_STRUCTURE_FEATURE_COUNT + 4;
+	int SYSTEM__QOS_ANNOTATIONS_SYSTEM = CompositionPackage.COMPOSED_STRUCTURE_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of structural features of the '<em>System</em>' class.
@@ -182,15 +182,15 @@ public interface SystemPackage extends EPackage {
 	EClass getSystem();
 
 	/**
-	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.pcm.system.System#getAllocation_System <em>Allocation System</em>}'.
+	 * Returns the meta object for the containment reference list '{@link de.uka.ipd.sdq.pcm.system.System#getQosAnnotations_System <em>Qos Annotations System</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Allocation System</em>'.
-	 * @see de.uka.ipd.sdq.pcm.system.System#getAllocation_System()
+	 * @return the meta object for the containment reference list '<em>Qos Annotations System</em>'.
+	 * @see de.uka.ipd.sdq.pcm.system.System#getQosAnnotations_System()
 	 * @see #getSystem()
 	 * @generated
 	 */
-	EReference getSystem_Allocation_System();
+	EReference getSystem_QosAnnotations_System();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -225,13 +225,13 @@ public interface SystemPackage extends EPackage {
 		EClass SYSTEM = eINSTANCE.getSystem();
 
 		/**
-		 * The meta object literal for the '<em><b>Allocation System</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Qos Annotations System</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference SYSTEM__ALLOCATION_SYSTEM = eINSTANCE.getSystem_Allocation_System();
+		EReference SYSTEM__QOS_ANNOTATIONS_SYSTEM = eINSTANCE.getSystem_QosAnnotations_System();
 
-}
+	}
 
 } //SystemPackage

@@ -84,7 +84,7 @@ public interface BasicComponent extends ImplementationComponentType {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * self.serviceEffectSpecifications->forAll(p1, p2 |
+	 * self.serviceEffectSpecifications__BasicComponent->forAll(p1, p2 |
 	 * p1.seffTypeID <> p2.seffTypeID)
 	 * <!-- end-model-doc -->
 	 * @model
@@ -98,16 +98,16 @@ public interface BasicComponent extends ImplementationComponentType {
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * -- BC has to provide the same interfaces like the implementationComponentType (if set) #
-	 * self.providedRoles->iterate(pr : ProvidedRole; acc1 : Bag(String) = Bag{} |
-	 *  acc1->union(pr.providedInterface.identifier.id->asBag())
+	 * self.providedRoles_InterfaceProvidingEntity->iterate(pr : ProvidedRole; acc1 : Bag(String) = Bag{} |
+	 *  acc1->union(pr.providedInterface__ProvidedRole.id->asBag())
 	 * )
 	 * =
 	 * if
 	 *   -- apply constraint only for non-empty ImplementationComponentTypes of a BC #
 	 *  self.implementationComponentType->notEmpty()
 	 * then
-	 *  self.implementationComponentType.providedRoles->iterate(pr : ProvidedRole; acc2 : Bag(String) = Bag{} |
-	 *   acc2->union(pr.providedInterface.identifier.id->asBag())
+	 *  self.implementationComponentType.providedRoles_InterfaceProvidingEntity->iterate(pr : ProvidedRole; acc2 : Bag(String) = Bag{} |
+	 *   acc2->union(pr.providedInterface__ProvidedRole.id->asBag())
 	 *  )
 	 * else
 	 *  Bag{}
@@ -124,16 +124,16 @@ public interface BasicComponent extends ImplementationComponentType {
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * -- BC has to require the same interfaces like the implementationComponentType (if set) #
-	 * self.requiredRoles->iterate(pr : RequiredRole; acc1 : Bag(String) = Bag{} |
-	 *  acc1->union(pr.requiredInterface.identifier.id->asBag())
+	 * self.requiredRoles_InterfaceRequiringEntity->iterate(pr : RequiredRole; acc1 : Bag(String) = Bag{} |
+	 *  acc1->union(pr.requiredInterface__RequiredRole.id->asBag())
 	 * )
 	 * =
 	 * if
 	 *   -- apply constraint only for non-empty ImplementationComponentTypes of a BC #
 	 *  self.implementationComponentType->notEmpty()
 	 * then
-	 *  self.implementationComponentType.requiredRoles->iterate(pr : RequiredRole; acc2 : Bag(String) = Bag{} |
-	 *   acc2->union(pr.requiredInterface.identifier.id->asBag())
+	 *  self.implementationComponentType.requiredRoles_InterfaceRequiringEntity->iterate(pr : RequiredRole; acc2 : Bag(String) = Bag{} |
+	 *   acc2->union(pr.requiredInterface__RequiredRole.id->asBag())
 	 *  )
 	 * else
 	 *  Bag{}
@@ -142,6 +142,6 @@ public interface BasicComponent extends ImplementationComponentType {
 	 * @model
 	 * @generated
 	 */
-	boolean RequireSameInterfaces(DiagnosticChain diagnostics, Map context);
+	boolean RequireSameInterfacesasImplementationType(DiagnosticChain diagnostics, Map context);
 
 } // BasicComponent

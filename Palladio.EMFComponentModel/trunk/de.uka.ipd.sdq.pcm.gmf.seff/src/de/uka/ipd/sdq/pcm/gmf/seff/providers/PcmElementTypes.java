@@ -175,27 +175,9 @@ public class PcmElementTypes {
 					.getBranchAction());
 			elements.put(InternalAction_1006, SeffPackage.eINSTANCE
 					.getInternalAction());
-			elements.put(PrimitiveParametricParameterUsage_1007,
-					SeffPackage.eINSTANCE
-							.getPrimitiveParametricParameterUsage());
-			elements.put(CollectionParametricParameterUsage_1008,
-					SeffPackage.eINSTANCE
-							.getCollectionParametricParameterUsage());
-			elements.put(ParametricResourceDemand_1009, SeffPackage.eINSTANCE
-					.getParametricResourceDemand());
 			elements.put(AbstractActionSuccessor_AbstractAction_3001,
 					SeffPackage.eINSTANCE
 							.getAbstractAction_Successor_AbstractAction());
-			elements
-					.put(
-							ExternalCallActionParametricParameterUsage_ParametricParameterUsage_3002,
-							SeffPackage.eINSTANCE
-									.getExternalCallAction_ParametricParameterUsage_ParametricParameterUsage());
-			elements
-					.put(
-							AbstractResourceDemandingActionResourceDemand_Action_3003,
-							SeffPackage.eINSTANCE
-									.getAbstractResourceDemandingAction_ResourceDemand_Action());
 		}
 		return (ENamedElement) elements.get(type);
 	}
@@ -283,32 +265,7 @@ public class PcmElementTypes {
 	/**
 	 * @generated
 	 */
-	public static final IElementType PrimitiveParametricParameterUsage_1007 = getElementType("de.uka.ipd.sdq.pcm.gmf.seff.PrimitiveParametricParameterUsage_1007"); //$NON-NLS-1$
-
-	/**
-	 * @generated
-	 */
-	public static final IElementType CollectionParametricParameterUsage_1008 = getElementType("de.uka.ipd.sdq.pcm.gmf.seff.CollectionParametricParameterUsage_1008"); //$NON-NLS-1$
-
-	/**
-	 * @generated
-	 */
-	public static final IElementType ParametricResourceDemand_1009 = getElementType("de.uka.ipd.sdq.pcm.gmf.seff.ParametricResourceDemand_1009"); //$NON-NLS-1$
-
-	/**
-	 * @generated
-	 */
 	public static final IElementType AbstractActionSuccessor_AbstractAction_3001 = getElementType("de.uka.ipd.sdq.pcm.gmf.seff.AbstractActionSuccessor_AbstractAction_3001"); //$NON-NLS-1$
-
-	/**
-	 * @generated
-	 */
-	public static final IElementType ExternalCallActionParametricParameterUsage_ParametricParameterUsage_3002 = getElementType("de.uka.ipd.sdq.pcm.gmf.seff.ExternalCallActionParametricParameterUsage_ParametricParameterUsage_3002"); //$NON-NLS-1$
-
-	/**
-	 * @generated
-	 */
-	public static final IElementType AbstractResourceDemandingActionResourceDemand_Action_3003 = getElementType("de.uka.ipd.sdq.pcm.gmf.seff.AbstractResourceDemandingActionResourceDemand_Action_3003"); //$NON-NLS-1$
 
 	/**
 	 * @generated
@@ -344,15 +301,8 @@ public class PcmElementTypes {
 			KNOWN_ELEMENT_TYPES.add(LoopAction_1004);
 			KNOWN_ELEMENT_TYPES.add(BranchAction_1005);
 			KNOWN_ELEMENT_TYPES.add(InternalAction_1006);
-			KNOWN_ELEMENT_TYPES.add(PrimitiveParametricParameterUsage_1007);
-			KNOWN_ELEMENT_TYPES.add(CollectionParametricParameterUsage_1008);
-			KNOWN_ELEMENT_TYPES.add(ParametricResourceDemand_1009);
 			KNOWN_ELEMENT_TYPES
 					.add(AbstractActionSuccessor_AbstractAction_3001);
-			KNOWN_ELEMENT_TYPES
-					.add(ExternalCallActionParametricParameterUsage_ParametricParameterUsage_3002);
-			KNOWN_ELEMENT_TYPES
-					.add(AbstractResourceDemandingActionResourceDemand_Action_3003);
 		}
 		return KNOWN_ELEMENT_TYPES.contains(elementType);
 	}

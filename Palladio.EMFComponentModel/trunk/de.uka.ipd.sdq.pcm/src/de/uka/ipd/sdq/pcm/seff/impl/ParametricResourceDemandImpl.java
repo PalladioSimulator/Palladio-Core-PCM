@@ -23,6 +23,8 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.eclipse.emf.ecore.util.EcoreUtil;
+
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Parametric Resource Demand</b></em>'.
@@ -30,7 +32,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link de.uka.ipd.sdq.pcm.seff.impl.ParametricResourceDemandImpl#getDemand <em>Demand</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.seff.impl.ParametricResourceDemandImpl#getUnit <em>Unit</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.seff.impl.ParametricResourceDemandImpl#getRequiredResource_ParametricResourceDemand <em>Required Resource Parametric Resource Demand</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.seff.impl.ParametricResourceDemandImpl#getAction_ParametricResourceDemand <em>Action Parametric Resource Demand</em>}</li>
@@ -46,26 +47,6 @@ public class ParametricResourceDemandImpl extends RandomVariableImpl implements 
 	 * @generated
 	 */
 	public static final String copyright = "(c) by SDQ, IPD, U Karlsruhe (TH), 2006";
-
-	/**
-	 * The default value of the '{@link #getDemand() <em>Demand</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getDemand()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String DEMAND_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getDemand() <em>Demand</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getDemand()
-	 * @generated
-	 * @ordered
-	 */
-	protected String demand = DEMAND_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getUnit() <em>Unit</em>}' attribute.
@@ -99,17 +80,6 @@ public class ParametricResourceDemandImpl extends RandomVariableImpl implements 
 	protected ProcessingResourceType requiredResource_ParametricResourceDemand = null;
 
 	/**
-	 * The cached value of the '{@link #getAction_ParametricResourceDemand() <em>Action Parametric Resource Demand</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getAction_ParametricResourceDemand()
-	 * @generated
-	 * @ordered
-	 */
-	protected AbstractResourceDemandingAction action_ParametricResourceDemand = null;
-
-
-	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -125,27 +95,6 @@ public class ParametricResourceDemandImpl extends RandomVariableImpl implements 
 	 */
 	protected EClass eStaticClass() {
 		return SeffPackage.Literals.PARAMETRIC_RESOURCE_DEMAND;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String getDemand() {
-		return demand;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setDemand(String newDemand) {
-		String oldDemand = demand;
-		demand = newDemand;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SeffPackage.PARAMETRIC_RESOURCE_DEMAND__DEMAND, oldDemand, demand));
 	}
 
 	/**
@@ -213,24 +162,8 @@ public class ParametricResourceDemandImpl extends RandomVariableImpl implements 
 	 * @generated
 	 */
 	public AbstractResourceDemandingAction getAction_ParametricResourceDemand() {
-		if (action_ParametricResourceDemand != null && action_ParametricResourceDemand.eIsProxy()) {
-			InternalEObject oldAction_ParametricResourceDemand = (InternalEObject)action_ParametricResourceDemand;
-			action_ParametricResourceDemand = (AbstractResourceDemandingAction)eResolveProxy(oldAction_ParametricResourceDemand);
-			if (action_ParametricResourceDemand != oldAction_ParametricResourceDemand) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, SeffPackage.PARAMETRIC_RESOURCE_DEMAND__ACTION_PARAMETRIC_RESOURCE_DEMAND, oldAction_ParametricResourceDemand, action_ParametricResourceDemand));
-			}
-		}
-		return action_ParametricResourceDemand;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public AbstractResourceDemandingAction basicGetAction_ParametricResourceDemand() {
-		return action_ParametricResourceDemand;
+		if (eContainerFeatureID != SeffPackage.PARAMETRIC_RESOURCE_DEMAND__ACTION_PARAMETRIC_RESOURCE_DEMAND) return null;
+		return (AbstractResourceDemandingAction)eContainer();
 	}
 
 	/**
@@ -239,12 +172,7 @@ public class ParametricResourceDemandImpl extends RandomVariableImpl implements 
 	 * @generated
 	 */
 	public NotificationChain basicSetAction_ParametricResourceDemand(AbstractResourceDemandingAction newAction_ParametricResourceDemand, NotificationChain msgs) {
-		AbstractResourceDemandingAction oldAction_ParametricResourceDemand = action_ParametricResourceDemand;
-		action_ParametricResourceDemand = newAction_ParametricResourceDemand;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, SeffPackage.PARAMETRIC_RESOURCE_DEMAND__ACTION_PARAMETRIC_RESOURCE_DEMAND, oldAction_ParametricResourceDemand, newAction_ParametricResourceDemand);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
+		msgs = eBasicSetContainer((InternalEObject)newAction_ParametricResourceDemand, SeffPackage.PARAMETRIC_RESOURCE_DEMAND__ACTION_PARAMETRIC_RESOURCE_DEMAND, msgs);
 		return msgs;
 	}
 
@@ -254,10 +182,12 @@ public class ParametricResourceDemandImpl extends RandomVariableImpl implements 
 	 * @generated
 	 */
 	public void setAction_ParametricResourceDemand(AbstractResourceDemandingAction newAction_ParametricResourceDemand) {
-		if (newAction_ParametricResourceDemand != action_ParametricResourceDemand) {
+		if (newAction_ParametricResourceDemand != eInternalContainer() || (eContainerFeatureID != SeffPackage.PARAMETRIC_RESOURCE_DEMAND__ACTION_PARAMETRIC_RESOURCE_DEMAND && newAction_ParametricResourceDemand != null)) {
+			if (EcoreUtil.isAncestor(this, newAction_ParametricResourceDemand))
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
 			NotificationChain msgs = null;
-			if (action_ParametricResourceDemand != null)
-				msgs = ((InternalEObject)action_ParametricResourceDemand).eInverseRemove(this, SeffPackage.ABSTRACT_RESOURCE_DEMANDING_ACTION__RESOURCE_DEMAND_ACTION, AbstractResourceDemandingAction.class, msgs);
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
 			if (newAction_ParametricResourceDemand != null)
 				msgs = ((InternalEObject)newAction_ParametricResourceDemand).eInverseAdd(this, SeffPackage.ABSTRACT_RESOURCE_DEMANDING_ACTION__RESOURCE_DEMAND_ACTION, AbstractResourceDemandingAction.class, msgs);
 			msgs = basicSetAction_ParametricResourceDemand(newAction_ParametricResourceDemand, msgs);
@@ -275,8 +205,8 @@ public class ParametricResourceDemandImpl extends RandomVariableImpl implements 
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case SeffPackage.PARAMETRIC_RESOURCE_DEMAND__ACTION_PARAMETRIC_RESOURCE_DEMAND:
-				if (action_ParametricResourceDemand != null)
-					msgs = ((InternalEObject)action_ParametricResourceDemand).eInverseRemove(this, SeffPackage.ABSTRACT_RESOURCE_DEMANDING_ACTION__RESOURCE_DEMAND_ACTION, AbstractResourceDemandingAction.class, msgs);
+				if (eInternalContainer() != null)
+					msgs = eBasicRemoveFromContainer(msgs);
 				return basicSetAction_ParametricResourceDemand((AbstractResourceDemandingAction)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
@@ -300,18 +230,28 @@ public class ParametricResourceDemandImpl extends RandomVariableImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
+		switch (eContainerFeatureID) {
+			case SeffPackage.PARAMETRIC_RESOURCE_DEMAND__ACTION_PARAMETRIC_RESOURCE_DEMAND:
+				return eInternalContainer().eInverseRemove(this, SeffPackage.ABSTRACT_RESOURCE_DEMANDING_ACTION__RESOURCE_DEMAND_ACTION, AbstractResourceDemandingAction.class, msgs);
+		}
+		return super.eBasicRemoveFromContainerFeature(msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case SeffPackage.PARAMETRIC_RESOURCE_DEMAND__DEMAND:
-				return getDemand();
 			case SeffPackage.PARAMETRIC_RESOURCE_DEMAND__UNIT:
 				return getUnit();
 			case SeffPackage.PARAMETRIC_RESOURCE_DEMAND__REQUIRED_RESOURCE_PARAMETRIC_RESOURCE_DEMAND:
 				if (resolve) return getRequiredResource_ParametricResourceDemand();
 				return basicGetRequiredResource_ParametricResourceDemand();
 			case SeffPackage.PARAMETRIC_RESOURCE_DEMAND__ACTION_PARAMETRIC_RESOURCE_DEMAND:
-				if (resolve) return getAction_ParametricResourceDemand();
-				return basicGetAction_ParametricResourceDemand();
+				return getAction_ParametricResourceDemand();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -323,9 +263,6 @@ public class ParametricResourceDemandImpl extends RandomVariableImpl implements 
 	 */
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case SeffPackage.PARAMETRIC_RESOURCE_DEMAND__DEMAND:
-				setDemand((String)newValue);
-				return;
 			case SeffPackage.PARAMETRIC_RESOURCE_DEMAND__UNIT:
 				setUnit((String)newValue);
 				return;
@@ -346,9 +283,6 @@ public class ParametricResourceDemandImpl extends RandomVariableImpl implements 
 	 */
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case SeffPackage.PARAMETRIC_RESOURCE_DEMAND__DEMAND:
-				setDemand(DEMAND_EDEFAULT);
-				return;
 			case SeffPackage.PARAMETRIC_RESOURCE_DEMAND__UNIT:
 				setUnit(UNIT_EDEFAULT);
 				return;
@@ -369,14 +303,12 @@ public class ParametricResourceDemandImpl extends RandomVariableImpl implements 
 	 */
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case SeffPackage.PARAMETRIC_RESOURCE_DEMAND__DEMAND:
-				return DEMAND_EDEFAULT == null ? demand != null : !DEMAND_EDEFAULT.equals(demand);
 			case SeffPackage.PARAMETRIC_RESOURCE_DEMAND__UNIT:
 				return UNIT_EDEFAULT == null ? unit != null : !UNIT_EDEFAULT.equals(unit);
 			case SeffPackage.PARAMETRIC_RESOURCE_DEMAND__REQUIRED_RESOURCE_PARAMETRIC_RESOURCE_DEMAND:
 				return requiredResource_ParametricResourceDemand != null;
 			case SeffPackage.PARAMETRIC_RESOURCE_DEMAND__ACTION_PARAMETRIC_RESOURCE_DEMAND:
-				return action_ParametricResourceDemand != null;
+				return getAction_ParametricResourceDemand() != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -390,9 +322,7 @@ public class ParametricResourceDemandImpl extends RandomVariableImpl implements 
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (demand: ");
-		result.append(demand);
-		result.append(", unit: ");
+		result.append(" (unit: ");
 		result.append(unit);
 		result.append(')');
 		return result.toString();

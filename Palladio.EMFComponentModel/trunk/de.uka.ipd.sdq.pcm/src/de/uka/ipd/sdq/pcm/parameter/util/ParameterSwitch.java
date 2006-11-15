@@ -96,16 +96,10 @@ public class ParameterSwitch {
 	 */
 	protected Object doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
-			case ParameterPackage.PRIMITIVE_PARAMETER_CHARACTERISATION: {
-				PrimitiveParameterCharacterisation primitiveParameterCharacterisation = (PrimitiveParameterCharacterisation)theEObject;
-				Object result = casePrimitiveParameterCharacterisation(primitiveParameterCharacterisation);
-				if (result == null) result = caseRandomVariable(primitiveParameterCharacterisation);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case ParameterPackage.PARAMETER_USAGE: {
-				ParameterUsage parameterUsage = (ParameterUsage)theEObject;
-				Object result = caseParameterUsage(parameterUsage);
+			case ParameterPackage.PARAMETER_CHARACTERISATION: {
+				ParameterCharacterisation parameterCharacterisation = (ParameterCharacterisation)theEObject;
+				Object result = caseParameterCharacterisation(parameterCharacterisation);
+				if (result == null) result = caseRandomVariable(parameterCharacterisation);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -130,22 +124,35 @@ public class ParameterSwitch {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case ParameterPackage.PRIMITIVE_PARAMETER_USAGE: {
+				PrimitiveParameterUsage primitiveParameterUsage = (PrimitiveParameterUsage)theEObject;
+				Object result = casePrimitiveParameterUsage(primitiveParameterUsage);
+				if (result == null) result = caseParameterUsage(primitiveParameterUsage);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ParameterPackage.PARAMETER_USAGE: {
+				ParameterUsage parameterUsage = (ParameterUsage)theEObject;
+				Object result = caseParameterUsage(parameterUsage);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Primitive Parameter Characterisation</em>'.
+	 * Returns the result of interpretting the object as an instance of '<em>Characterisation</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Primitive Parameter Characterisation</em>'.
+	 * @return the result of interpretting the object as an instance of '<em>Characterisation</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public Object casePrimitiveParameterCharacterisation(PrimitiveParameterCharacterisation object) {
+	public Object caseParameterCharacterisation(ParameterCharacterisation object) {
 		return null;
 	}
 
@@ -206,6 +213,21 @@ public class ParameterSwitch {
 	 * @generated
 	 */
 	public Object caseCollectionParameterCharacterisation(CollectionParameterCharacterisation object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpretting the object as an instance of '<em>Primitive Parameter Usage</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpretting the object as an instance of '<em>Primitive Parameter Usage</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public Object casePrimitiveParameterUsage(PrimitiveParameterUsage object) {
 		return null;
 	}
 

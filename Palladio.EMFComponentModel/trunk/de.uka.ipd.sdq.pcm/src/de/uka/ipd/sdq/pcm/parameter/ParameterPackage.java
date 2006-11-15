@@ -70,14 +70,14 @@ public interface ParameterPackage extends EPackage {
 	ParameterPackage eINSTANCE = de.uka.ipd.sdq.pcm.parameter.impl.ParameterPackageImpl.init();
 
 	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.parameter.impl.PrimitiveParameterCharacterisationImpl <em>Primitive Parameter Characterisation</em>}' class.
+	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.parameter.impl.ParameterCharacterisationImpl <em>Characterisation</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.pcm.parameter.impl.PrimitiveParameterCharacterisationImpl
-	 * @see de.uka.ipd.sdq.pcm.parameter.impl.ParameterPackageImpl#getPrimitiveParameterCharacterisation()
+	 * @see de.uka.ipd.sdq.pcm.parameter.impl.ParameterCharacterisationImpl
+	 * @see de.uka.ipd.sdq.pcm.parameter.impl.ParameterPackageImpl#getParameterCharacterisation()
 	 * @generated
 	 */
-	int PRIMITIVE_PARAMETER_CHARACTERISATION = 0;
+	int PARAMETER_CHARACTERISATION = 0;
 
 	/**
 	 * The feature id for the '<em><b>Specification</b></em>' attribute.
@@ -86,7 +86,7 @@ public interface ParameterPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PRIMITIVE_PARAMETER_CHARACTERISATION__SPECIFICATION = StochasticsPackage.RANDOM_VARIABLE__SPECIFICATION;
+	int PARAMETER_CHARACTERISATION__SPECIFICATION = StochasticsPackage.RANDOM_VARIABLE__SPECIFICATION;
 
 	/**
 	 * The feature id for the '<em><b>Specification Random Variable</b></em>' reference.
@@ -95,7 +95,7 @@ public interface ParameterPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PRIMITIVE_PARAMETER_CHARACTERISATION__SPECIFICATION_RANDOM_VARIABLE = StochasticsPackage.RANDOM_VARIABLE__SPECIFICATION_RANDOM_VARIABLE;
+	int PARAMETER_CHARACTERISATION__SPECIFICATION_RANDOM_VARIABLE = StochasticsPackage.RANDOM_VARIABLE__SPECIFICATION_RANDOM_VARIABLE;
 
 	/**
 	 * The feature id for the '<em><b>Type</b></em>' attribute.
@@ -104,16 +104,16 @@ public interface ParameterPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PRIMITIVE_PARAMETER_CHARACTERISATION__TYPE = StochasticsPackage.RANDOM_VARIABLE_FEATURE_COUNT + 0;
+	int PARAMETER_CHARACTERISATION__TYPE = StochasticsPackage.RANDOM_VARIABLE_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of structural features of the '<em>Primitive Parameter Characterisation</em>' class.
+	 * The number of structural features of the '<em>Characterisation</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PRIMITIVE_PARAMETER_CHARACTERISATION_FEATURE_COUNT = StochasticsPackage.RANDOM_VARIABLE_FEATURE_COUNT + 1;
+	int PARAMETER_CHARACTERISATION_FEATURE_COUNT = StochasticsPackage.RANDOM_VARIABLE_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.parameter.impl.ParameterUsageImpl <em>Usage</em>}' class.
@@ -123,7 +123,7 @@ public interface ParameterPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.parameter.impl.ParameterPackageImpl#getParameterUsage()
 	 * @generated
 	 */
-	int PARAMETER_USAGE = 1;
+	int PARAMETER_USAGE = 5;
 
 	/**
 	 * The feature id for the '<em><b>Parameter Parameter Usage</b></em>' reference.
@@ -160,7 +160,7 @@ public interface ParameterPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.parameter.impl.ParameterPackageImpl#getCompositeParameterUsage()
 	 * @generated
 	 */
-	int COMPOSITE_PARAMETER_USAGE = 2;
+	int COMPOSITE_PARAMETER_USAGE = 1;
 
 	/**
 	 * The feature id for the '<em><b>Parameter Parameter Usage</b></em>' reference.
@@ -206,7 +206,7 @@ public interface ParameterPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.parameter.impl.ParameterPackageImpl#getCollectionParameterUsage()
 	 * @generated
 	 */
-	int COLLECTION_PARAMETER_USAGE = 3;
+	int COLLECTION_PARAMETER_USAGE = 2;
 
 	/**
 	 * The feature id for the '<em><b>Parameter Parameter Usage</b></em>' reference.
@@ -261,7 +261,7 @@ public interface ParameterPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.parameter.impl.ParameterPackageImpl#getCollectionParameterCharacterisation()
 	 * @generated
 	 */
-	int COLLECTION_PARAMETER_CHARACTERISATION = 4;
+	int COLLECTION_PARAMETER_CHARACTERISATION = 3;
 
 	/**
 	 * The feature id for the '<em><b>Specification</b></em>' attribute.
@@ -300,6 +300,53 @@ public interface ParameterPackage extends EPackage {
 	int COLLECTION_PARAMETER_CHARACTERISATION_FEATURE_COUNT = StochasticsPackage.RANDOM_VARIABLE_FEATURE_COUNT + 1;
 
 	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.parameter.impl.PrimitiveParameterUsageImpl <em>Primitive Parameter Usage</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.pcm.parameter.impl.PrimitiveParameterUsageImpl
+	 * @see de.uka.ipd.sdq.pcm.parameter.impl.ParameterPackageImpl#getPrimitiveParameterUsage()
+	 * @generated
+	 */
+	int PRIMITIVE_PARAMETER_USAGE = 4;
+
+	/**
+	 * The feature id for the '<em><b>Parameter Parameter Usage</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PRIMITIVE_PARAMETER_USAGE__PARAMETER_PARAMETER_USAGE = PARAMETER_USAGE__PARAMETER_PARAMETER_USAGE;
+
+	/**
+	 * The feature id for the '<em><b>Parameter Characterisation Parameter Usage</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PRIMITIVE_PARAMETER_USAGE__PARAMETER_CHARACTERISATION_PARAMETER_USAGE = PARAMETER_USAGE__PARAMETER_CHARACTERISATION_PARAMETER_USAGE;
+
+	/**
+	 * The number of structural features of the '<em>Primitive Parameter Usage</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PRIMITIVE_PARAMETER_USAGE_FEATURE_COUNT = PARAMETER_USAGE_FEATURE_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.parameter.ParameterCharacterisationType <em>Characterisation Type</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.pcm.parameter.ParameterCharacterisationType
+	 * @see de.uka.ipd.sdq.pcm.parameter.impl.ParameterPackageImpl#getParameterCharacterisationType()
+	 * @generated
+	 */
+	int PARAMETER_CHARACTERISATION_TYPE = 6;
+
+	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.parameter.CollectionParameterCharacterisationType <em>Collection Parameter Characterisation Type</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -307,39 +354,28 @@ public interface ParameterPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.parameter.impl.ParameterPackageImpl#getCollectionParameterCharacterisationType()
 	 * @generated
 	 */
-	int COLLECTION_PARAMETER_CHARACTERISATION_TYPE = 5;
+	int COLLECTION_PARAMETER_CHARACTERISATION_TYPE = 7;
 
 	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.parameter.PrimitiveParameterCharacterisationType <em>Primitive Parameter Characterisation Type</em>}' enum.
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.parameter.ParameterCharacterisation <em>Characterisation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.pcm.parameter.PrimitiveParameterCharacterisationType
-	 * @see de.uka.ipd.sdq.pcm.parameter.impl.ParameterPackageImpl#getPrimitiveParameterCharacterisationType()
+	 * @return the meta object for class '<em>Characterisation</em>'.
+	 * @see de.uka.ipd.sdq.pcm.parameter.ParameterCharacterisation
 	 * @generated
 	 */
-	int PRIMITIVE_PARAMETER_CHARACTERISATION_TYPE = 6;
-
-
-	/**
-	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.parameter.PrimitiveParameterCharacterisation <em>Primitive Parameter Characterisation</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Primitive Parameter Characterisation</em>'.
-	 * @see de.uka.ipd.sdq.pcm.parameter.PrimitiveParameterCharacterisation
-	 * @generated
-	 */
-	EClass getPrimitiveParameterCharacterisation();
+	EClass getParameterCharacterisation();
 
 	/**
-	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.pcm.parameter.PrimitiveParameterCharacterisation#getType <em>Type</em>}'.
+	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.pcm.parameter.ParameterCharacterisation#getType <em>Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Type</em>'.
-	 * @see de.uka.ipd.sdq.pcm.parameter.PrimitiveParameterCharacterisation#getType()
-	 * @see #getPrimitiveParameterCharacterisation()
+	 * @see de.uka.ipd.sdq.pcm.parameter.ParameterCharacterisation#getType()
+	 * @see #getParameterCharacterisation()
 	 * @generated
 	 */
-	EAttribute getPrimitiveParameterCharacterisation_Type();
+	EAttribute getParameterCharacterisation_Type();
 
 	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.parameter.ParameterUsage <em>Usage</em>}'.
@@ -372,6 +408,16 @@ public interface ParameterPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getParameterUsage_ParameterCharacterisation_ParameterUsage();
+
+	/**
+	 * Returns the meta object for enum '{@link de.uka.ipd.sdq.pcm.parameter.ParameterCharacterisationType <em>Characterisation Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Characterisation Type</em>'.
+	 * @see de.uka.ipd.sdq.pcm.parameter.ParameterCharacterisationType
+	 * @generated
+	 */
+	EEnum getParameterCharacterisationType();
 
 	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.parameter.CompositeParameterUsage <em>Composite Parameter Usage</em>}'.
@@ -448,6 +494,16 @@ public interface ParameterPackage extends EPackage {
 	EAttribute getCollectionParameterCharacterisation_Type();
 
 	/**
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.parameter.PrimitiveParameterUsage <em>Primitive Parameter Usage</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Primitive Parameter Usage</em>'.
+	 * @see de.uka.ipd.sdq.pcm.parameter.PrimitiveParameterUsage
+	 * @generated
+	 */
+	EClass getPrimitiveParameterUsage();
+
+	/**
 	 * Returns the meta object for enum '{@link de.uka.ipd.sdq.pcm.parameter.CollectionParameterCharacterisationType <em>Collection Parameter Characterisation Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -456,16 +512,6 @@ public interface ParameterPackage extends EPackage {
 	 * @generated
 	 */
 	EEnum getCollectionParameterCharacterisationType();
-
-	/**
-	 * Returns the meta object for enum '{@link de.uka.ipd.sdq.pcm.parameter.PrimitiveParameterCharacterisationType <em>Primitive Parameter Characterisation Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for enum '<em>Primitive Parameter Characterisation Type</em>'.
-	 * @see de.uka.ipd.sdq.pcm.parameter.PrimitiveParameterCharacterisationType
-	 * @generated
-	 */
-	EEnum getPrimitiveParameterCharacterisationType();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -490,14 +536,14 @@ public interface ParameterPackage extends EPackage {
 	 */
 	interface Literals  {
 		/**
-		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.parameter.impl.PrimitiveParameterCharacterisationImpl <em>Primitive Parameter Characterisation</em>}' class.
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.parameter.impl.ParameterCharacterisationImpl <em>Characterisation</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see de.uka.ipd.sdq.pcm.parameter.impl.PrimitiveParameterCharacterisationImpl
-		 * @see de.uka.ipd.sdq.pcm.parameter.impl.ParameterPackageImpl#getPrimitiveParameterCharacterisation()
+		 * @see de.uka.ipd.sdq.pcm.parameter.impl.ParameterCharacterisationImpl
+		 * @see de.uka.ipd.sdq.pcm.parameter.impl.ParameterPackageImpl#getParameterCharacterisation()
 		 * @generated
 		 */
-		EClass PRIMITIVE_PARAMETER_CHARACTERISATION = eINSTANCE.getPrimitiveParameterCharacterisation();
+		EClass PARAMETER_CHARACTERISATION = eINSTANCE.getParameterCharacterisation();
 
 		/**
 		 * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
@@ -505,7 +551,7 @@ public interface ParameterPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute PRIMITIVE_PARAMETER_CHARACTERISATION__TYPE = eINSTANCE.getPrimitiveParameterCharacterisation_Type();
+		EAttribute PARAMETER_CHARACTERISATION__TYPE = eINSTANCE.getParameterCharacterisation_Type();
 
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.parameter.impl.ParameterUsageImpl <em>Usage</em>}' class.
@@ -532,6 +578,16 @@ public interface ParameterPackage extends EPackage {
 		 * @generated
 		 */
 		EReference PARAMETER_USAGE__PARAMETER_CHARACTERISATION_PARAMETER_USAGE = eINSTANCE.getParameterUsage_ParameterCharacterisation_ParameterUsage();
+
+		/**
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.parameter.ParameterCharacterisationType <em>Characterisation Type</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.uka.ipd.sdq.pcm.parameter.ParameterCharacterisationType
+		 * @see de.uka.ipd.sdq.pcm.parameter.impl.ParameterPackageImpl#getParameterCharacterisationType()
+		 * @generated
+		 */
+		EEnum PARAMETER_CHARACTERISATION_TYPE = eINSTANCE.getParameterCharacterisationType();
 
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.parameter.impl.CompositeParameterUsageImpl <em>Composite Parameter Usage</em>}' class.
@@ -596,6 +652,16 @@ public interface ParameterPackage extends EPackage {
 		EAttribute COLLECTION_PARAMETER_CHARACTERISATION__TYPE = eINSTANCE.getCollectionParameterCharacterisation_Type();
 
 		/**
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.parameter.impl.PrimitiveParameterUsageImpl <em>Primitive Parameter Usage</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.uka.ipd.sdq.pcm.parameter.impl.PrimitiveParameterUsageImpl
+		 * @see de.uka.ipd.sdq.pcm.parameter.impl.ParameterPackageImpl#getPrimitiveParameterUsage()
+		 * @generated
+		 */
+		EClass PRIMITIVE_PARAMETER_USAGE = eINSTANCE.getPrimitiveParameterUsage();
+
+		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.parameter.CollectionParameterCharacterisationType <em>Collection Parameter Characterisation Type</em>}' enum.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -605,16 +671,6 @@ public interface ParameterPackage extends EPackage {
 		 */
 		EEnum COLLECTION_PARAMETER_CHARACTERISATION_TYPE = eINSTANCE.getCollectionParameterCharacterisationType();
 
-		/**
-		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.parameter.PrimitiveParameterCharacterisationType <em>Primitive Parameter Characterisation Type</em>}' enum.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see de.uka.ipd.sdq.pcm.parameter.PrimitiveParameterCharacterisationType
-		 * @see de.uka.ipd.sdq.pcm.parameter.impl.ParameterPackageImpl#getPrimitiveParameterCharacterisationType()
-		 * @generated
-		 */
-		EEnum PRIMITIVE_PARAMETER_CHARACTERISATION_TYPE = eINSTANCE.getPrimitiveParameterCharacterisationType();
-
-	}
+}
 
 } //ParameterPackage

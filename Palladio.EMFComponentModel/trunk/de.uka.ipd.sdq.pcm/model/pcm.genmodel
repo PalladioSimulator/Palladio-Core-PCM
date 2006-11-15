@@ -3,8 +3,8 @@
     xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
     xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" copyrightText="(c) by SDQ, IPD, U Karlsruhe (TH), 2006"
     modelDirectory="/de.uka.ipd.sdq.pcm/src" modelPluginID="de.uka.ipd.sdq.pcm" templateDirectory="/de.uka.ipd.sdq.pcm/templates"
-    dynamicTemplates="true" modelName="Pcm" importerID="org.eclipse.uml2.uml.ecore.importer"
-    usedGenPackages="../../../plugin/de.uka.ipd.sdq.identifier/model/identifier.genmodel#//identifier ../../../plugin/de.uka.ipd.sdq.probfunction/model/ProbabilityFunction.genmodel#//probfunction">
+    dynamicTemplates="true" modelName="Pcm" featureMapWrapperInternalInterface=""
+    importerID="org.eclipse.uml2.uml.ecore.importer" usedGenPackages="../../../plugin/de.uka.ipd.sdq.identifier/model/identifier.genmodel#//identifier ../../../plugin/de.uka.ipd.sdq.probfunction/model/ProbabilityFunction.genmodel#//probfunction">
   <genAnnotations source="http://www.eclipse.org/emf/2002/GenModel/importer/org.eclipse.uml2.uml.ecore.importer">
     <details key="DUPLICATE_FEATURES" value="DISCARD"/>
     <details key="DUPLICATE_FEATURE_INHERITANCE" value="DISCARD"/>
@@ -113,18 +113,16 @@
               ecoreFeature="ecore:EReference pcm.ecore#//core/composition/ProvidedDelegationConnector/outerProvidedRole_ProvidedDelegationConnector"/>
           <genFeatures notify="false" createChild="false" propertySortChoices="true"
               ecoreFeature="ecore:EReference pcm.ecore#//core/composition/ProvidedDelegationConnector/childComponentContext_ProvidedDelegationConnector"/>
-          <genOperations ecoreOperation="pcm.ecore#//core/composition/ProvidedDelegationConnector/innerAndOuterRoleNeedToHaveDifferentContextIDs">
-            <genParameters ecoreParameter="pcm.ecore#//core/composition/ProvidedDelegationConnector/innerAndOuterRoleNeedToHaveDifferentContextIDs/diagnostics"/>
-            <genParameters ecoreParameter="pcm.ecore#//core/composition/ProvidedDelegationConnector/innerAndOuterRoleNeedToHaveDifferentContextIDs/context"/>
-          </genOperations>
-          <genOperations ecoreOperation="pcm.ecore#//core/composition/ProvidedDelegationConnector/InnerContainingComponentEqualOuterProvidingComponent">
-            <genParameters ecoreParameter="pcm.ecore#//core/composition/ProvidedDelegationConnector/InnerContainingComponentEqualOuterProvidingComponent/diagnostics"/>
-            <genParameters ecoreParameter="pcm.ecore#//core/composition/ProvidedDelegationConnector/InnerContainingComponentEqualOuterProvidingComponent/context"/>
+          <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference pcm.ecore#//core/composition/ProvidedDelegationConnector/parentStructure_ProvidedDelegationConnector"/>
+          <genOperations ecoreOperation="pcm.ecore#//core/composition/ProvidedDelegationConnector/ProvidedDelegationConnectorandtheconnectedComponentmustbepartofthesamecompositestructure">
+            <genParameters ecoreParameter="pcm.ecore#//core/composition/ProvidedDelegationConnector/ProvidedDelegationConnectorandtheconnectedComponentmustbepartofthesamecompositestructure/diagnostics"/>
+            <genParameters ecoreParameter="pcm.ecore#//core/composition/ProvidedDelegationConnector/ProvidedDelegationConnectorandtheconnectedComponentmustbepartofthesamecompositestructure/context"/>
           </genOperations>
         </genClasses>
         <genClasses ecoreClass="pcm.ecore#//core/composition/AssemblyContext">
           <genFeatures notify="false" createChild="false" propertySortChoices="true"
               ecoreFeature="ecore:EReference pcm.ecore#//core/composition/AssemblyContext/encapsulatedComponent_ChildComponentContext"/>
+          <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference pcm.ecore#//core/composition/AssemblyContext/parentStructure_AssemblyContext"/>
         </genClasses>
         <genClasses ecoreClass="pcm.ecore#//core/composition/RequiredDelegationConnector">
           <genFeatures notify="false" createChild="false" propertySortChoices="true"
@@ -133,10 +131,7 @@
               ecoreFeature="ecore:EReference pcm.ecore#//core/composition/RequiredDelegationConnector/outerRequiredRole_RequiredDelegationConnector"/>
           <genFeatures notify="false" createChild="false" propertySortChoices="true"
               ecoreFeature="ecore:EReference pcm.ecore#//core/composition/RequiredDelegationConnector/childComponentContext_RequiredDelegationConnector"/>
-          <genOperations ecoreOperation="pcm.ecore#//core/composition/RequiredDelegationConnector/innerAndOuterRoleNeedToHaveDifferentContextIDs">
-            <genParameters ecoreParameter="pcm.ecore#//core/composition/RequiredDelegationConnector/innerAndOuterRoleNeedToHaveDifferentContextIDs/diagnostics"/>
-            <genParameters ecoreParameter="pcm.ecore#//core/composition/RequiredDelegationConnector/innerAndOuterRoleNeedToHaveDifferentContextIDs/context"/>
-          </genOperations>
+          <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference pcm.ecore#//core/composition/RequiredDelegationConnector/parentStructure_RequiredDelegationConnector"/>
           <genOperations ecoreOperation="pcm.ecore#//core/composition/RequiredDelegationConnector/InnerContainingComponentEqualOuterRequiringComponent">
             <genParameters ecoreParameter="pcm.ecore#//core/composition/RequiredDelegationConnector/InnerContainingComponentEqualOuterRequiringComponent/diagnostics"/>
             <genParameters ecoreParameter="pcm.ecore#//core/composition/RequiredDelegationConnector/InnerContainingComponentEqualOuterRequiringComponent/context"/>
@@ -151,12 +146,13 @@
               ecoreFeature="ecore:EReference pcm.ecore#//core/composition/AssemblyConnector/providedRole_CompositeAssemblyConnector"/>
           <genFeatures notify="false" createChild="false" propertySortChoices="true"
               ecoreFeature="ecore:EReference pcm.ecore#//core/composition/AssemblyConnector/requiredRole_CompositeAssemblyConnector"/>
+          <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference pcm.ecore#//core/composition/AssemblyConnector/parentStructure_AssemblyConnector"/>
         </genClasses>
         <genClasses image="false" ecoreClass="pcm.ecore#//core/composition/ComposedStructure">
           <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//core/composition/ComposedStructure/childComponentContexts_ComposedStructure"/>
-          <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//core/composition/ComposedStructure/compositeAssemblyConnectors_ComposedStructure"/>
           <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//core/composition/ComposedStructure/providedDelegationConnectors_ComposedStructure"/>
           <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//core/composition/ComposedStructure/requiredDelegationConnectors_ComposedStructure"/>
+          <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//core/composition/ComposedStructure/compositeAssemblyConnectors_ComposedStructure"/>
         </genClasses>
       </nestedGenPackages>
     </nestedGenPackages>
@@ -168,10 +164,18 @@
         <genEnumLiterals ecoreEnumLiteral="pcm.ecore#//repository/ParameterModifier/out"/>
         <genEnumLiterals ecoreEnumLiteral="pcm.ecore#//repository/ParameterModifier/inout"/>
       </genEnums>
+      <genEnums ecoreEnum="pcm.ecore#//repository/PrimitiveTypeEnum">
+        <genEnumLiterals ecoreEnumLiteral="pcm.ecore#//repository/PrimitiveTypeEnum/INT"/>
+        <genEnumLiterals ecoreEnumLiteral="pcm.ecore#//repository/PrimitiveTypeEnum/STRING"/>
+        <genEnumLiterals ecoreEnumLiteral="pcm.ecore#//repository/PrimitiveTypeEnum/BOOL"/>
+        <genEnumLiterals ecoreEnumLiteral="pcm.ecore#//repository/PrimitiveTypeEnum/DOUBLE"/>
+        <genEnumLiterals ecoreEnumLiteral="pcm.ecore#//repository/PrimitiveTypeEnum/CHAR"/>
+        <genEnumLiterals ecoreEnumLiteral="pcm.ecore#//repository/PrimitiveTypeEnum/BYTE"/>
+      </genEnums>
       <genClasses ecoreClass="pcm.ecore#//repository/Signature">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pcm.ecore#//repository/Signature/serviceName"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//repository/Signature/parameters__Signature"/>
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//repository/Signature/returntype__Signature"/>
+        <genFeatures notify="false" createChild="false" ecoreFeature="ecore:EReference pcm.ecore#//repository/Signature/returntype__Signature"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//repository/Signature/exceptions__Signature"/>
         <genOperations ecoreOperation="pcm.ecore#//repository/Signature/ParameterNamesHaveToBeUniqueForASignature">
           <genParameters ecoreParameter="pcm.ecore#//repository/Signature/ParameterNamesHaveToBeUniqueForASignature/diagnostics"/>
@@ -179,15 +183,11 @@
         </genOperations>
       </genClasses>
       <genClasses ecoreClass="pcm.ecore#//repository/Parameter">
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//repository/Parameter/datatype__Parameter"/>
+        <genFeatures notify="false" createChild="false" ecoreFeature="ecore:EReference pcm.ecore#//repository/Parameter/datatype__Parameter"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pcm.ecore#//repository/Parameter/parameterName"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pcm.ecore#//repository/Parameter/modifier__Parameter"/>
       </genClasses>
-      <genClasses ecoreClass="pcm.ecore#//repository/DataType">
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference pcm.ecore#//repository/DataType/parentDataType__DataType"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pcm.ecore#//repository/DataType/type"/>
-      </genClasses>
+      <genClasses ecoreClass="pcm.ecore#//repository/DataType"/>
       <genClasses ecoreClass="pcm.ecore#//repository/ExceptionType">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pcm.ecore#//repository/ExceptionType/exceptionName"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pcm.ecore#//repository/ExceptionType/exceptionMessage"/>
@@ -201,7 +201,7 @@
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference pcm.ecore#//repository/Interface/parentInterface__Interface"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference pcm.ecore#//repository/Interface/anchestorInterfaces"/>
+            ecoreFeature="ecore:EReference pcm.ecore#//repository/Interface/anchestorInterfaces_Interface"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//repository/Interface/protocols__Interface"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//repository/Interface/signatures__Interface"/>
         <genOperations ecoreOperation="pcm.ecore#//repository/Interface/noProtocolTypeIDUsedTwice">
@@ -218,26 +218,7 @@
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pcm.ecore#//repository/Repository/repositoryName"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//repository/Repository/components__Repository"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//repository/Repository/interfaces__Repository"/>
-        <genOperations ecoreOperation="pcm.ecore#//repository/Repository/GrantFirstClassEntityTypeCompositeComponent">
-          <genParameters ecoreParameter="pcm.ecore#//repository/Repository/GrantFirstClassEntityTypeCompositeComponent/diagnostics"/>
-          <genParameters ecoreParameter="pcm.ecore#//repository/Repository/GrantFirstClassEntityTypeCompositeComponent/context"/>
-        </genOperations>
-        <genOperations ecoreOperation="pcm.ecore#//repository/Repository/GrantFirstClassEntityTypeProvidesComponentType">
-          <genParameters ecoreParameter="pcm.ecore#//repository/Repository/GrantFirstClassEntityTypeProvidesComponentType/diagnostics"/>
-          <genParameters ecoreParameter="pcm.ecore#//repository/Repository/GrantFirstClassEntityTypeProvidesComponentType/context"/>
-        </genOperations>
-        <genOperations ecoreOperation="pcm.ecore#//repository/Repository/GrantFirstClassEntityTypeCompleteComponentType">
-          <genParameters ecoreParameter="pcm.ecore#//repository/Repository/GrantFirstClassEntityTypeCompleteComponentType/diagnostics"/>
-          <genParameters ecoreParameter="pcm.ecore#//repository/Repository/GrantFirstClassEntityTypeCompleteComponentType/context"/>
-        </genOperations>
-        <genOperations ecoreOperation="pcm.ecore#//repository/Repository/GrantFirstClassEntityTypeImplementationComponentType">
-          <genParameters ecoreParameter="pcm.ecore#//repository/Repository/GrantFirstClassEntityTypeImplementationComponentType/diagnostics"/>
-          <genParameters ecoreParameter="pcm.ecore#//repository/Repository/GrantFirstClassEntityTypeImplementationComponentType/context"/>
-        </genOperations>
-        <genOperations ecoreOperation="pcm.ecore#//repository/Repository/GrantFirstClassEntityTypeBasicComponent">
-          <genParameters ecoreParameter="pcm.ecore#//repository/Repository/GrantFirstClassEntityTypeBasicComponent/diagnostics"/>
-          <genParameters ecoreParameter="pcm.ecore#//repository/Repository/GrantFirstClassEntityTypeBasicComponent/context"/>
-        </genOperations>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//repository/Repository/datatypes_Repository"/>
       </genClasses>
       <genClasses ecoreClass="pcm.ecore#//repository/ProvidesComponentType">
         <genOperations ecoreOperation="pcm.ecore#//repository/ProvidesComponentType/AtLeastOneInterfaceHasToBeProvidedByAUsefullProvidesComponentType">
@@ -294,10 +275,24 @@
           <genParameters ecoreParameter="pcm.ecore#//repository/BasicComponent/ProvideSameInterfaces/diagnostics"/>
           <genParameters ecoreParameter="pcm.ecore#//repository/BasicComponent/ProvideSameInterfaces/context"/>
         </genOperations>
-        <genOperations ecoreOperation="pcm.ecore#//repository/BasicComponent/RequireSameInterfaces">
-          <genParameters ecoreParameter="pcm.ecore#//repository/BasicComponent/RequireSameInterfaces/diagnostics"/>
-          <genParameters ecoreParameter="pcm.ecore#//repository/BasicComponent/RequireSameInterfaces/context"/>
+        <genOperations ecoreOperation="pcm.ecore#//repository/BasicComponent/RequireSameInterfacesasImplementationType">
+          <genParameters ecoreParameter="pcm.ecore#//repository/BasicComponent/RequireSameInterfacesasImplementationType/diagnostics"/>
+          <genParameters ecoreParameter="pcm.ecore#//repository/BasicComponent/RequireSameInterfacesasImplementationType/context"/>
         </genOperations>
+      </genClasses>
+      <genClasses ecoreClass="pcm.ecore#//repository/PrimitiveDataType">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pcm.ecore#//repository/PrimitiveDataType/type"/>
+      </genClasses>
+      <genClasses ecoreClass="pcm.ecore#//repository/CollectionDataType">
+        <genFeatures notify="false" createChild="false" ecoreFeature="ecore:EReference pcm.ecore#//repository/CollectionDataType/innerType_CollectionDataType"/>
+      </genClasses>
+      <genClasses ecoreClass="pcm.ecore#//repository/CompositeDataType">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference pcm.ecore#//repository/CompositeDataType/parentType_CompositeDataType"/>
+        <genFeatures notify="false" createChild="false" ecoreFeature="ecore:EReference pcm.ecore#//repository/CompositeDataType/innerDeclaration_CompositeDataType"/>
+      </genClasses>
+      <genClasses ecoreClass="pcm.ecore#//repository/InnerDeclaration">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//repository/InnerDeclaration/datatype_InnerDeclaration"/>
       </genClasses>
       <genClasses ecoreClass="pcm.ecore#//repository/ProvidedRole">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
@@ -318,7 +313,7 @@
         ecorePackage="pcm.ecore#//seff">
       <genClasses ecoreClass="pcm.ecore#//seff/StopAction"/>
       <genClasses image="false" ecoreClass="pcm.ecore#//seff/AbstractResourceDemandingAction">
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+        <genFeatures property="None" children="true" createChild="true" propertySortChoices="true"
             ecoreFeature="ecore:EReference pcm.ecore#//seff/AbstractResourceDemandingAction/resourceDemand_Action"/>
       </genClasses>
       <genClasses image="false" ecoreClass="pcm.ecore#//seff/AbstractAction">
@@ -328,7 +323,6 @@
             ecoreFeature="ecore:EReference pcm.ecore#//seff/AbstractAction/successor_AbstractAction"/>
       </genClasses>
       <genClasses ecoreClass="pcm.ecore#//seff/ParametricResourceDemand">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pcm.ecore#//seff/ParametricResourceDemand/demand"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pcm.ecore#//seff/ParametricResourceDemand/unit"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference pcm.ecore#//seff/ParametricResourceDemand/requiredResource_ParametricResourceDemand"/>
@@ -339,19 +333,10 @@
       <genClasses ecoreClass="pcm.ecore#//seff/ResourceDemandingSEFF"/>
       <genClasses ecoreClass="pcm.ecore#//seff/ResourceDemandingBehaviour">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//seff/ResourceDemandingBehaviour/steps_Behaviour"/>
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//seff/ResourceDemandingBehaviour/parametricResourceDemands_Behaviour"/>
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//seff/ResourceDemandingBehaviour/parametricParameterUsage_Behaviour"/>
-      </genClasses>
-      <genClasses image="false" ecoreClass="pcm.ecore#//seff/ParametricParameterUsage">
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference pcm.ecore#//seff/ParametricParameterUsage/characterisedParameter_ParametricParameterUsage"/>
       </genClasses>
       <genClasses ecoreClass="pcm.ecore#//seff/ReleaseAction">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference pcm.ecore#//seff/ReleaseAction/resourceType_Release"/>
-      </genClasses>
-      <genClasses ecoreClass="pcm.ecore#//seff/PrimitiveParametricParameterUsage">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pcm.ecore#//seff/PrimitiveParametricParameterUsage/type"/>
       </genClasses>
       <genClasses ecoreClass="pcm.ecore#//seff/LoopAction">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//seff/LoopAction/bodyBehaviour_Loop"/>
@@ -367,11 +352,7 @@
       <genClasses ecoreClass="pcm.ecore#//seff/ExternalCallAction">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference pcm.ecore#//seff/ExternalCallAction/calledService_ExternalService"/>
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference pcm.ecore#//seff/ExternalCallAction/parametricParameterUsage_ParametricParameterUsage"/>
-      </genClasses>
-      <genClasses ecoreClass="pcm.ecore#//seff/CollectionParametricParameterUsage">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pcm.ecore#//seff/CollectionParametricParameterUsage/type"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//seff/ExternalCallAction/parameterUsage_ExternalCallAction"/>
       </genClasses>
       <genClasses ecoreClass="pcm.ecore#//seff/BranchTransition">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//seff/BranchTransition/branchBehaviour_BranchTransition"/>
@@ -408,22 +389,17 @@
     </nestedGenPackages>
     <nestedGenPackages prefix="Parameter" basePackage="de.uka.ipd.sdq.pcm" disposableProviderFactory="true"
         ecorePackage="pcm.ecore#//parameter">
+      <genEnums ecoreEnum="pcm.ecore#//parameter/ParameterCharacterisationType">
+        <genEnumLiterals ecoreEnumLiteral="pcm.ecore#//parameter/ParameterCharacterisationType/VALUE"/>
+        <genEnumLiterals ecoreEnumLiteral="pcm.ecore#//parameter/ParameterCharacterisationType/BYTESIZE"/>
+        <genEnumLiterals ecoreEnumLiteral="pcm.ecore#//parameter/ParameterCharacterisationType/DATATYPE"/>
+      </genEnums>
       <genEnums ecoreEnum="pcm.ecore#//parameter/CollectionParameterCharacterisationType">
         <genEnumLiterals ecoreEnumLiteral="pcm.ecore#//parameter/CollectionParameterCharacterisationType/NUMBER_OF_ELEMENTS"/>
         <genEnumLiterals ecoreEnumLiteral="pcm.ecore#//parameter/CollectionParameterCharacterisationType/STRUCTURE"/>
       </genEnums>
-      <genEnums ecoreEnum="pcm.ecore#//parameter/PrimitiveParameterCharacterisationType">
-        <genEnumLiterals ecoreEnumLiteral="pcm.ecore#//parameter/PrimitiveParameterCharacterisationType/VALUE"/>
-        <genEnumLiterals ecoreEnumLiteral="pcm.ecore#//parameter/PrimitiveParameterCharacterisationType/BYTESIZE"/>
-        <genEnumLiterals ecoreEnumLiteral="pcm.ecore#//parameter/PrimitiveParameterCharacterisationType/DATATYPE"/>
-      </genEnums>
-      <genClasses ecoreClass="pcm.ecore#//parameter/PrimitiveParameterCharacterisation">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pcm.ecore#//parameter/PrimitiveParameterCharacterisation/type"/>
-      </genClasses>
-      <genClasses ecoreClass="pcm.ecore#//parameter/ParameterUsage">
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference pcm.ecore#//parameter/ParameterUsage/parameter_ParameterUsage"/>
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//parameter/ParameterUsage/parameterCharacterisation_ParameterUsage"/>
+      <genClasses ecoreClass="pcm.ecore#//parameter/ParameterCharacterisation">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pcm.ecore#//parameter/ParameterCharacterisation/type"/>
       </genClasses>
       <genClasses ecoreClass="pcm.ecore#//parameter/CompositeParameterUsage">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//parameter/CompositeParameterUsage/innerParameters_ParameterUsage"/>
@@ -431,9 +407,19 @@
       <genClasses ecoreClass="pcm.ecore#//parameter/CollectionParameterUsage">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//parameter/CollectionParameterUsage/innerElement_ParameterUsage"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//parameter/CollectionParameterUsage/parameterCharacterisation_CollectionParameterUsage"/>
+        <genOperations ecoreOperation="pcm.ecore#//parameter/CollectionParameterUsage/CollectionParameterUsagehastolinkaCollectionDataType">
+          <genParameters ecoreParameter="pcm.ecore#//parameter/CollectionParameterUsage/CollectionParameterUsagehastolinkaCollectionDataType/diagnostics"/>
+          <genParameters ecoreParameter="pcm.ecore#//parameter/CollectionParameterUsage/CollectionParameterUsagehastolinkaCollectionDataType/context"/>
+        </genOperations>
       </genClasses>
       <genClasses ecoreClass="pcm.ecore#//parameter/CollectionParameterCharacterisation">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pcm.ecore#//parameter/CollectionParameterCharacterisation/type"/>
+      </genClasses>
+      <genClasses ecoreClass="pcm.ecore#//parameter/PrimitiveParameterUsage"/>
+      <genClasses ecoreClass="pcm.ecore#//parameter/ParameterUsage">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference pcm.ecore#//parameter/ParameterUsage/parameter_ParameterUsage"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//parameter/ParameterUsage/parameterCharacterisation_ParameterUsage"/>
       </genClasses>
     </nestedGenPackages>
     <nestedGenPackages prefix="Allocation" basePackage="de.uka.ipd.sdq.pcm" disposableProviderFactory="true"
@@ -448,6 +434,8 @@
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//allocation/Allocation/allocationContexts_Allocation"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference pcm.ecore#//allocation/Allocation/targetResourceEnvironment_Allocation"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference pcm.ecore#//allocation/Allocation/system_Allocation"/>
       </genClasses>
     </nestedGenPackages>
     <nestedGenPackages prefix="Resourceenvironment" basePackage="de.uka.ipd.sdq.pcm"
@@ -483,6 +471,30 @@
       <genClasses ecoreClass="pcm.ecore#//resourceenvironment/ResourceContainer">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//resourceenvironment/ResourceContainer/activeResourceSpecifications_ResourceContainer"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//resourceenvironment/ResourceContainer/passiveResourceSpecifications_ResourceContainer"/>
+      </genClasses>
+    </nestedGenPackages>
+    <nestedGenPackages prefix="System" basePackage="de.uka.ipd.sdq.pcm" disposableProviderFactory="true"
+        ecorePackage="pcm.ecore#//system">
+      <genClasses ecoreClass="pcm.ecore#//system/System">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//system/System/qosAnnotations_System"/>
+      </genClasses>
+    </nestedGenPackages>
+    <nestedGenPackages prefix="Qosannotations" basePackage="de.uka.ipd.sdq.pcm" disposableProviderFactory="true"
+        ecorePackage="pcm.ecore#//qosannotations">
+      <genClasses image="false" ecoreClass="pcm.ecore#//qosannotations/SpecifiedExecutionTime">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference pcm.ecore#//qosannotations/SpecifiedExecutionTime/signature_SpecifiedTimeConsumption"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference pcm.ecore#//qosannotations/SpecifiedExecutionTime/role_SpecifiedExecutionTime"/>
+      </genClasses>
+      <genClasses ecoreClass="pcm.ecore#//qosannotations/SpecifiedFailureProbability"/>
+      <genClasses ecoreClass="pcm.ecore#//qosannotations/SystemSpecifiedExecutionTime"/>
+      <genClasses ecoreClass="pcm.ecore#//qosannotations/ComponentSpecifiedExecutionTime">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference pcm.ecore#//qosannotations/ComponentSpecifiedExecutionTime/assemblyContext_ComponentSpecifiedExecutionTime"/>
+      </genClasses>
+      <genClasses ecoreClass="pcm.ecore#//qosannotations/QoSAnnotations">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//qosannotations/QoSAnnotations/specifiedExecutionTimes_QoSAnnotations"/>
       </genClasses>
     </nestedGenPackages>
     <nestedGenPackages prefix="Usagemodel" basePackage="de.uka.ipd.sdq.pcm" disposableProviderFactory="true"
@@ -529,19 +541,6 @@
       <genClasses ecoreClass="pcm.ecore#//usagemodel/BranchTransition">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pcm.ecore#//usagemodel/BranchTransition/branchProbability"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//usagemodel/BranchTransition/branchedBehaviour_BranchTransition"/>
-      </genClasses>
-    </nestedGenPackages>
-    <nestedGenPackages prefix="System" basePackage="de.uka.ipd.sdq.pcm" disposableProviderFactory="true"
-        ecorePackage="pcm.ecore#//system">
-      <genClasses ecoreClass="pcm.ecore#//system/System">
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference pcm.ecore#//system/System/allocation_System"/>
-      </genClasses>
-    </nestedGenPackages>
-    <nestedGenPackages prefix="Qosannotations" disposableProviderFactory="true" ecorePackage="pcm.ecore#//qosannotations">
-      <genClasses ecoreClass="pcm.ecore#//qosannotations/SpecifiedTimeConsumption">
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference pcm.ecore#//qosannotations/SpecifiedTimeConsumption/signature_SpecifiedTimeConsumption"/>
       </genClasses>
     </nestedGenPackages>
   </genPackages>

@@ -4,6 +4,7 @@ import java.util.Iterator;
 import java.util.List;
 
 import de.uka.ipd.sdq.probfunction.BoxedPDF;
+import de.uka.ipd.sdq.probfunction.ContinuousSample;
 import de.uka.ipd.sdq.probfunction.ProbabilityMassFunction;
 import de.uka.ipd.sdq.probfunction.Sample;
 import de.uka.ipd.sdq.probfunction.util.ProbfunctionSwitch;
@@ -15,8 +16,12 @@ public class ProbFunctionPrettyPrint extends ProbfunctionSwitch {
 	 */
 	@Override
 	public Object caseBoxedPDF(BoxedPDF object) {
-		// TODO Auto-generated method stub
-		return super.caseBoxedPDF(object);
+		String sampleString = "";
+		for (ContinuousSample s : (List<ContinuousSample>)object.getSamples())
+	    {
+	    	sampleString += " ("+s.getValue()+"; "+s.getProbability()+")";
+	    }
+		return "DoublePDF[" + sampleString + " ]";
 	}
 
 	/* (non-Javadoc)

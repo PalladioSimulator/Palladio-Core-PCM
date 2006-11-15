@@ -51,15 +51,6 @@ public interface RepositoryFactory extends EFactory {
 	Parameter createParameter();
 
 	/**
-	 * Returns a new object of class '<em>Data Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Data Type</em>'.
-	 * @generated
-	 */
-	DataType createDataType();
-
-	/**
 	 * Returns a new object of class '<em>Exception Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -114,15 +105,6 @@ public interface RepositoryFactory extends EFactory {
 	ProvidedRole createProvidedRole();
 
 	/**
-	 * Returns a new object of class '<em>Implementation Component Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Implementation Component Type</em>'.
-	 * @generated
-	 */
-	ImplementationComponentType createImplementationComponentType();
-
-	/**
 	 * Returns a new object of class '<em>Complete Component Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -148,6 +130,42 @@ public interface RepositoryFactory extends EFactory {
 	 * @generated
 	 */
 	BasicComponent createBasicComponent();
+
+	/**
+	 * Returns a new object of class '<em>Primitive Data Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Primitive Data Type</em>'.
+	 * @generated
+	 */
+	PrimitiveDataType createPrimitiveDataType();
+
+	/**
+	 * Returns a new object of class '<em>Collection Data Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Collection Data Type</em>'.
+	 * @generated
+	 */
+	CollectionDataType createCollectionDataType();
+
+	/**
+	 * Returns a new object of class '<em>Composite Data Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Composite Data Type</em>'.
+	 * @generated
+	 */
+	CompositeDataType createCompositeDataType();
+
+	/**
+	 * Returns a new object of class '<em>Inner Declaration</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Inner Declaration</em>'.
+	 * @generated
+	 */
+	InnerDeclaration createInnerDeclaration();
 
 	/**
 	 * Returns the package supported by this factory.

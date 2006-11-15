@@ -72,13 +72,11 @@ public class SeffFactoryImpl extends EFactoryImpl implements SeffFactory {
 			case SeffPackage.RESOURCE_DEMANDING_SEFF: return createResourceDemandingSEFF();
 			case SeffPackage.RESOURCE_DEMANDING_BEHAVIOUR: return createResourceDemandingBehaviour();
 			case SeffPackage.RELEASE_ACTION: return createReleaseAction();
-			case SeffPackage.PRIMITIVE_PARAMETRIC_PARAMETER_USAGE: return createPrimitiveParametricParameterUsage();
 			case SeffPackage.LOOP_ACTION: return createLoopAction();
 			case SeffPackage.ITERATION_COUNT: return createIterationCount();
 			case SeffPackage.INTERNAL_ACTION: return createInternalAction();
 			case SeffPackage.FORK_ACTION: return createForkAction();
 			case SeffPackage.EXTERNAL_CALL_ACTION: return createExternalCallAction();
-			case SeffPackage.COLLECTION_PARAMETRIC_PARAMETER_USAGE: return createCollectionParametricParameterUsage();
 			case SeffPackage.BRANCH_TRANSITION: return createBranchTransition();
 			case SeffPackage.BRANCH_CONDITION: return createBranchCondition();
 			case SeffPackage.BRANCH_ACTION: return createBranchAction();
@@ -154,16 +152,6 @@ public class SeffFactoryImpl extends EFactoryImpl implements SeffFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public PrimitiveParametricParameterUsage createPrimitiveParametricParameterUsage() {
-		PrimitiveParametricParameterUsageImpl primitiveParametricParameterUsage = new PrimitiveParametricParameterUsageImpl();
-		return primitiveParametricParameterUsage;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public LoopAction createLoopAction() {
 		LoopActionImpl loopAction = new LoopActionImpl();
 		return loopAction;
@@ -207,16 +195,6 @@ public class SeffFactoryImpl extends EFactoryImpl implements SeffFactory {
 	public ExternalCallAction createExternalCallAction() {
 		ExternalCallActionImpl externalCallAction = new ExternalCallActionImpl();
 		return externalCallAction;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public CollectionParametricParameterUsage createCollectionParametricParameterUsage() {
-		CollectionParametricParameterUsageImpl collectionParametricParameterUsage = new CollectionParametricParameterUsageImpl();
-		return collectionParametricParameterUsage;
 	}
 
 	/**

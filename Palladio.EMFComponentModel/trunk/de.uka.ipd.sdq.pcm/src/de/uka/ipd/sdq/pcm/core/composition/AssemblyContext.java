@@ -20,6 +20,7 @@ import de.uka.ipd.sdq.pcm.repository.ProvidesComponentType;
  * The following features are supported:
  * <ul>
  *   <li>{@link de.uka.ipd.sdq.pcm.core.composition.AssemblyContext#getEncapsulatedComponent_ChildComponentContext <em>Encapsulated Component Child Component Context</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.core.composition.AssemblyContext#getParentStructure_AssemblyContext <em>Parent Structure Assembly Context</em>}</li>
  * </ul>
  * </p>
  *
@@ -60,5 +61,33 @@ public interface AssemblyContext extends Entity {
 	 * @generated
 	 */
 	void setEncapsulatedComponent_ChildComponentContext(ProvidesComponentType value);
+
+	/**
+	 * Returns the value of the '<em><b>Parent Structure Assembly Context</b></em>' container reference.
+	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.core.composition.ComposedStructure#getChildComponentContexts_ComposedStructure <em>Child Component Contexts Composed Structure</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Parent Structure Assembly Context</em>' container reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Parent Structure Assembly Context</em>' container reference.
+	 * @see #setParentStructure_AssemblyContext(ComposedStructure)
+	 * @see de.uka.ipd.sdq.pcm.core.composition.CompositionPackage#getAssemblyContext_ParentStructure_AssemblyContext()
+	 * @see de.uka.ipd.sdq.pcm.core.composition.ComposedStructure#getChildComponentContexts_ComposedStructure
+	 * @model opposite="childComponentContexts_ComposedStructure" required="true" ordered="false"
+	 * @generated
+	 */
+	ComposedStructure getParentStructure_AssemblyContext();
+
+	/**
+	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.core.composition.AssemblyContext#getParentStructure_AssemblyContext <em>Parent Structure Assembly Context</em>}' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Parent Structure Assembly Context</em>' container reference.
+	 * @see #getParentStructure_AssemblyContext()
+	 * @generated
+	 */
+	void setParentStructure_AssemblyContext(ComposedStructure value);
 
 } // AssemblyContext

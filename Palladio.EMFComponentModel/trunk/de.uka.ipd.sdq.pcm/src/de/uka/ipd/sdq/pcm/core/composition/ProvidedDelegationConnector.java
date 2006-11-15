@@ -25,6 +25,7 @@ import org.eclipse.emf.common.util.DiagnosticChain;
  *   <li>{@link de.uka.ipd.sdq.pcm.core.composition.ProvidedDelegationConnector#getInnerProvidedRole_ProvidedDelegationConnector <em>Inner Provided Role Provided Delegation Connector</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.core.composition.ProvidedDelegationConnector#getOuterProvidedRole_ProvidedDelegationConnector <em>Outer Provided Role Provided Delegation Connector</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.core.composition.ProvidedDelegationConnector#getChildComponentContext_ProvidedDelegationConnector <em>Child Component Context Provided Delegation Connector</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.core.composition.ProvidedDelegationConnector#getParentStructure_ProvidedDelegationConnector <em>Parent Structure Provided Delegation Connector</em>}</li>
  * </ul>
  * </p>
  *
@@ -118,37 +119,44 @@ public interface ProvidedDelegationConnector extends DelegationConnector {
 	 */
 	void setChildComponentContext_ProvidedDelegationConnector(AssemblyContext value);
 
+	/**
+	 * Returns the value of the '<em><b>Parent Structure Provided Delegation Connector</b></em>' container reference.
+	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.core.composition.ComposedStructure#getProvidedDelegationConnectors_ComposedStructure <em>Provided Delegation Connectors Composed Structure</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Parent Structure Provided Delegation Connector</em>' container reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Parent Structure Provided Delegation Connector</em>' container reference.
+	 * @see #setParentStructure_ProvidedDelegationConnector(ComposedStructure)
+	 * @see de.uka.ipd.sdq.pcm.core.composition.CompositionPackage#getProvidedDelegationConnector_ParentStructure_ProvidedDelegationConnector()
+	 * @see de.uka.ipd.sdq.pcm.core.composition.ComposedStructure#getProvidedDelegationConnectors_ComposedStructure
+	 * @model opposite="providedDelegationConnectors_ComposedStructure" required="true" ordered="false"
+	 * @generated
+	 */
+	ComposedStructure getParentStructure_ProvidedDelegationConnector();
+
+	/**
+	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.core.composition.ProvidedDelegationConnector#getParentStructure_ProvidedDelegationConnector <em>Parent Structure Provided Delegation Connector</em>}' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Parent Structure Provided Delegation Connector</em>' container reference.
+	 * @see #getParentStructure_ProvidedDelegationConnector()
+	 * @generated
+	 */
+	void setParentStructure_ProvidedDelegationConnector(ComposedStructure value);
+
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * self->forAll(p1, p2 |
-	 * p1.innerProvidingRole.parentContext.identifier.id <> p2.outerProvidingRole.parentContext.identifier.id)
+	 * self.parentStructure_ProvidedDelegationConnector = self.childComponentContext_ProvidedDelegationConnector
 	 * <!-- end-model-doc -->
 	 * @model
 	 * @generated
 	 */
-	boolean innerAndOuterRoleNeedToHaveDifferentContextIDs(DiagnosticChain diagnostics, Map context);
-
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * self.parentCompositeComponent.identifier.id
-	 * =
-	 * self.outerProvidingRole.encapsulatedRole.providingComponent.identifier.id
-	 * 
-	 * and
-	 * 
-	 * self.parentCompositeComponent.identifier.id
-	 * =
-	 * self.innerProvidingRole.encapsulatedRole.providingComponent.identifier.id
-	 * <!-- end-model-doc -->
-	 * @model
-	 * @generated
-	 */
-	boolean InnerContainingComponentEqualOuterProvidingComponent(DiagnosticChain diagnostics, Map context);
+	boolean ProvidedDelegationConnectorandtheconnectedComponentmustbepartofthesamecompositestructure(DiagnosticChain diagnostics, Map context);
 
 } // ProvidedDelegationConnector

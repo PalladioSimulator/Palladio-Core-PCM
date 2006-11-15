@@ -9,6 +9,7 @@ package de.uka.ipd.sdq.pcm.core.composition.impl;
 
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyConnector;
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
+import de.uka.ipd.sdq.pcm.core.composition.ComposedStructure;
 import de.uka.ipd.sdq.pcm.core.composition.CompositionPackage;
 
 import de.uka.ipd.sdq.pcm.core.connectors.impl.ConnectorImpl;
@@ -18,10 +19,14 @@ import de.uka.ipd.sdq.pcm.repository.RequiredRole;
 
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.notify.NotificationChain;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
+import org.eclipse.emf.ecore.util.EcoreUtil;
 
 /**
  * <!-- begin-user-doc -->
@@ -34,6 +39,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *   <li>{@link de.uka.ipd.sdq.pcm.core.composition.impl.AssemblyConnectorImpl#getProvidingChildComponentContext_CompositeAssemblyConnector <em>Providing Child Component Context Composite Assembly Connector</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.core.composition.impl.AssemblyConnectorImpl#getProvidedRole_CompositeAssemblyConnector <em>Provided Role Composite Assembly Connector</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.core.composition.impl.AssemblyConnectorImpl#getRequiredRole_CompositeAssemblyConnector <em>Required Role Composite Assembly Connector</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.core.composition.impl.AssemblyConnectorImpl#getParentStructure_AssemblyConnector <em>Parent Structure Assembly Connector</em>}</li>
  * </ul>
  * </p>
  *
@@ -263,6 +269,88 @@ public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConn
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public ComposedStructure getParentStructure_AssemblyConnector() {
+		if (eContainerFeatureID != CompositionPackage.ASSEMBLY_CONNECTOR__PARENT_STRUCTURE_ASSEMBLY_CONNECTOR) return null;
+		return (ComposedStructure)eContainer();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetParentStructure_AssemblyConnector(ComposedStructure newParentStructure_AssemblyConnector, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject)newParentStructure_AssemblyConnector, CompositionPackage.ASSEMBLY_CONNECTOR__PARENT_STRUCTURE_ASSEMBLY_CONNECTOR, msgs);
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setParentStructure_AssemblyConnector(ComposedStructure newParentStructure_AssemblyConnector) {
+		if (newParentStructure_AssemblyConnector != eInternalContainer() || (eContainerFeatureID != CompositionPackage.ASSEMBLY_CONNECTOR__PARENT_STRUCTURE_ASSEMBLY_CONNECTOR && newParentStructure_AssemblyConnector != null)) {
+			if (EcoreUtil.isAncestor(this, newParentStructure_AssemblyConnector))
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+			NotificationChain msgs = null;
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
+			if (newParentStructure_AssemblyConnector != null)
+				msgs = ((InternalEObject)newParentStructure_AssemblyConnector).eInverseAdd(this, CompositionPackage.COMPOSED_STRUCTURE__COMPOSITE_ASSEMBLY_CONNECTORS_COMPOSED_STRUCTURE, ComposedStructure.class, msgs);
+			msgs = basicSetParentStructure_AssemblyConnector(newParentStructure_AssemblyConnector, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CompositionPackage.ASSEMBLY_CONNECTOR__PARENT_STRUCTURE_ASSEMBLY_CONNECTOR, newParentStructure_AssemblyConnector, newParentStructure_AssemblyConnector));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case CompositionPackage.ASSEMBLY_CONNECTOR__PARENT_STRUCTURE_ASSEMBLY_CONNECTOR:
+				if (eInternalContainer() != null)
+					msgs = eBasicRemoveFromContainer(msgs);
+				return basicSetParentStructure_AssemblyConnector((ComposedStructure)otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case CompositionPackage.ASSEMBLY_CONNECTOR__PARENT_STRUCTURE_ASSEMBLY_CONNECTOR:
+				return basicSetParentStructure_AssemblyConnector(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
+		switch (eContainerFeatureID) {
+			case CompositionPackage.ASSEMBLY_CONNECTOR__PARENT_STRUCTURE_ASSEMBLY_CONNECTOR:
+				return eInternalContainer().eInverseRemove(this, CompositionPackage.COMPOSED_STRUCTURE__COMPOSITE_ASSEMBLY_CONNECTORS_COMPOSED_STRUCTURE, ComposedStructure.class, msgs);
+		}
+		return super.eBasicRemoveFromContainerFeature(msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case CompositionPackage.ASSEMBLY_CONNECTOR__REQUIRING_CHILD_COMPONENT_CONTEXT_COMPOSITE_ASSEMBLY_CONNECTOR:
@@ -277,6 +365,8 @@ public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConn
 			case CompositionPackage.ASSEMBLY_CONNECTOR__REQUIRED_ROLE_COMPOSITE_ASSEMBLY_CONNECTOR:
 				if (resolve) return getRequiredRole_CompositeAssemblyConnector();
 				return basicGetRequiredRole_CompositeAssemblyConnector();
+			case CompositionPackage.ASSEMBLY_CONNECTOR__PARENT_STRUCTURE_ASSEMBLY_CONNECTOR:
+				return getParentStructure_AssemblyConnector();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -299,6 +389,9 @@ public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConn
 				return;
 			case CompositionPackage.ASSEMBLY_CONNECTOR__REQUIRED_ROLE_COMPOSITE_ASSEMBLY_CONNECTOR:
 				setRequiredRole_CompositeAssemblyConnector((RequiredRole)newValue);
+				return;
+			case CompositionPackage.ASSEMBLY_CONNECTOR__PARENT_STRUCTURE_ASSEMBLY_CONNECTOR:
+				setParentStructure_AssemblyConnector((ComposedStructure)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -323,6 +416,9 @@ public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConn
 			case CompositionPackage.ASSEMBLY_CONNECTOR__REQUIRED_ROLE_COMPOSITE_ASSEMBLY_CONNECTOR:
 				setRequiredRole_CompositeAssemblyConnector((RequiredRole)null);
 				return;
+			case CompositionPackage.ASSEMBLY_CONNECTOR__PARENT_STRUCTURE_ASSEMBLY_CONNECTOR:
+				setParentStructure_AssemblyConnector((ComposedStructure)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -342,6 +438,8 @@ public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConn
 				return providedRole_CompositeAssemblyConnector != null;
 			case CompositionPackage.ASSEMBLY_CONNECTOR__REQUIRED_ROLE_COMPOSITE_ASSEMBLY_CONNECTOR:
 				return requiredRole_CompositeAssemblyConnector != null;
+			case CompositionPackage.ASSEMBLY_CONNECTOR__PARENT_STRUCTURE_ASSEMBLY_CONNECTOR:
+				return getParentStructure_AssemblyConnector() != null;
 		}
 		return super.eIsSet(featureID);
 	}
