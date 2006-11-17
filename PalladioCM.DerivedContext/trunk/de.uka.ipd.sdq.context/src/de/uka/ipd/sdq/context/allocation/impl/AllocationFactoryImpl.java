@@ -68,7 +68,6 @@ public class AllocationFactoryImpl extends EFactoryImpl implements AllocationFac
 		switch (eClass.getClassifierID()) {
 			case AllocationPackage.ACTUAL_ALLOCATION_CONTEXT: return createActualAllocationContext();
 			case AllocationPackage.ACTUAL_RESOURCE_DEMAND: return createActualResourceDemand();
-			case AllocationPackage.ACTUAL_ALLOCATION: return createActualAllocation();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -92,16 +91,6 @@ public class AllocationFactoryImpl extends EFactoryImpl implements AllocationFac
 	public ActualResourceDemand createActualResourceDemand() {
 		ActualResourceDemandImpl actualResourceDemand = new ActualResourceDemandImpl();
 		return actualResourceDemand;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ActualAllocation createActualAllocation() {
-		ActualAllocationImpl actualAllocation = new ActualAllocationImpl();
-		return actualAllocation;
 	}
 
 	/**

@@ -26,10 +26,6 @@
           ordered="false" lowerBound="1" eType="ecore:EClass ../../../plugin/de.uka.ipd.sdq.pcm/model/pcm.ecore#//core/stochastics/RandomVariable"
           containment="true"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Usage">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="usageContext_Usage" ordered="false"
-          upperBound="-1" eType="#//usage/UsageContext" containment="true"/>
-    </eClassifiers>
   </eSubpackages>
   <eSubpackages name="allocation" nsURI="http://sdq.ipd.uka.de/Context/Allocation/1.0"
       nsPrefix="context.allocation">
@@ -45,11 +41,6 @@
           ordered="false" lowerBound="1" eType="ecore:EClass ../../../plugin/de.uka.ipd.sdq.pcm/model/pcm.ecore#//seff/ParametricResourceDemand"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="randomVariable_ActualResourceDemand"
           ordered="false" lowerBound="1" eType="ecore:EClass ../../../plugin/de.uka.ipd.sdq.pcm/model/pcm.ecore#//core/stochastics/RandomVariable"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="ActualAllocation">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="actualAllocationContext_ActualAllocation"
-          ordered="false" upperBound="-1" eType="#//allocation/ActualAllocationContext"
-          containment="true"/>
     </eClassifiers>
   </eSubpackages>
 </ecore:EPackage>

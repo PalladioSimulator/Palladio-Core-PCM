@@ -6,7 +6,6 @@
  */
 package de.uka.ipd.sdq.context.allocation.impl;
 
-import de.uka.ipd.sdq.context.allocation.ActualAllocation;
 import de.uka.ipd.sdq.context.allocation.ActualAllocationContext;
 import de.uka.ipd.sdq.context.allocation.ActualResourceDemand;
 import de.uka.ipd.sdq.context.allocation.AllocationFactory;
@@ -29,6 +28,8 @@ import de.uka.ipd.sdq.pcm.core.stochastics.StochasticsPackage;
 import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
 
 import de.uka.ipd.sdq.pcm.protocol.ProtocolPackage;
+
+import de.uka.ipd.sdq.pcm.qosannotations.QosannotationsPackage;
 
 import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
 
@@ -77,13 +78,6 @@ public class AllocationPackageImpl extends EPackageImpl implements AllocationPac
 	 * @generated
 	 */
 	private EClass actualResourceDemandEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass actualAllocationEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -154,8 +148,9 @@ public class AllocationPackageImpl extends EPackageImpl implements AllocationPac
 		ParameterPackage.eINSTANCE.eClass();
 		de.uka.ipd.sdq.pcm.allocation.AllocationPackage.eINSTANCE.eClass();
 		ResourceenvironmentPackage.eINSTANCE.eClass();
-		UsagemodelPackage.eINSTANCE.eClass();
 		SystemPackage.eINSTANCE.eClass();
+		QosannotationsPackage.eINSTANCE.eClass();
+		UsagemodelPackage.eINSTANCE.eClass();
 		ProbfunctionPackage.eINSTANCE.eClass();
 
 		// Obtain or create and register interdependencies
@@ -234,24 +229,6 @@ public class AllocationPackageImpl extends EPackageImpl implements AllocationPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getActualAllocation() {
-		return actualAllocationEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getActualAllocation_ActualAllocationContext_ActualAllocation() {
-		return (EReference)actualAllocationEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public AllocationFactory getAllocationFactory() {
 		return (AllocationFactory)getEFactoryInstance();
 	}
@@ -282,9 +259,6 @@ public class AllocationPackageImpl extends EPackageImpl implements AllocationPac
 		actualResourceDemandEClass = createEClass(ACTUAL_RESOURCE_DEMAND);
 		createEReference(actualResourceDemandEClass, ACTUAL_RESOURCE_DEMAND__PARAMETRIC_RESOURCE_DEMAND_ACTUAL_RESOURCE_DEMAND);
 		createEReference(actualResourceDemandEClass, ACTUAL_RESOURCE_DEMAND__RANDOM_VARIABLE_ACTUAL_RESOURCE_DEMAND);
-
-		actualAllocationEClass = createEClass(ACTUAL_ALLOCATION);
-		createEReference(actualAllocationEClass, ACTUAL_ALLOCATION__ACTUAL_ALLOCATION_CONTEXT_ACTUAL_ALLOCATION);
 	}
 
 	/**
@@ -325,9 +299,6 @@ public class AllocationPackageImpl extends EPackageImpl implements AllocationPac
 		initEClass(actualResourceDemandEClass, ActualResourceDemand.class, "ActualResourceDemand", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getActualResourceDemand_ParametricResourceDemand_ActualResourceDemand(), theSeffPackage.getParametricResourceDemand(), null, "parametricResourceDemand_ActualResourceDemand", null, 1, 1, ActualResourceDemand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getActualResourceDemand_RandomVariable_ActualResourceDemand(), theStochasticsPackage.getRandomVariable(), null, "randomVariable_ActualResourceDemand", null, 1, 1, ActualResourceDemand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-
-		initEClass(actualAllocationEClass, ActualAllocation.class, "ActualAllocation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getActualAllocation_ActualAllocationContext_ActualAllocation(), this.getActualAllocationContext(), null, "actualAllocationContext_ActualAllocation", null, 0, -1, ActualAllocation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

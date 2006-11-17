@@ -60,15 +60,6 @@ public interface UsageFactory extends EFactory {
 	LoopIteration createLoopIteration();
 
 	/**
-	 * Returns a new object of class '<em>Usage</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Usage</em>'.
-	 * @generated
-	 */
-	Usage createUsage();
-
-	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

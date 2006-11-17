@@ -149,28 +149,6 @@ public class UsageItemProviderAdapterFactory extends UsageAdapterFactory impleme
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.context.usage.Usage} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected UsageItemProvider usageItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link de.uka.ipd.sdq.context.usage.Usage}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Adapter createUsageAdapter() {
-		if (usageItemProvider == null) {
-			usageItemProvider = new UsageItemProvider(this);
-		}
-
-		return usageItemProvider;
-	}
-
-	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -269,7 +247,6 @@ public class UsageItemProviderAdapterFactory extends UsageAdapterFactory impleme
 		if (usageContextItemProvider != null) usageContextItemProvider.dispose();
 		if (branchProbabilityItemProvider != null) branchProbabilityItemProvider.dispose();
 		if (loopIterationItemProvider != null) loopIterationItemProvider.dispose();
-		if (usageItemProvider != null) usageItemProvider.dispose();
 	}
 
 }

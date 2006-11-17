@@ -141,35 +141,6 @@ public interface AllocationPackage extends EPackage {
 
 
 	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.context.allocation.impl.ActualAllocationImpl <em>Actual Allocation</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.context.allocation.impl.ActualAllocationImpl
-	 * @see de.uka.ipd.sdq.context.allocation.impl.AllocationPackageImpl#getActualAllocation()
-	 * @generated
-	 */
-	int ACTUAL_ALLOCATION = 2;
-
-	/**
-	 * The feature id for the '<em><b>Actual Allocation Context Actual Allocation</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTUAL_ALLOCATION__ACTUAL_ALLOCATION_CONTEXT_ACTUAL_ALLOCATION = 0;
-
-	/**
-	 * The number of structural features of the '<em>Actual Allocation</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTUAL_ALLOCATION_FEATURE_COUNT = 1;
-
-
-	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.context.allocation.ActualAllocationContext <em>Actual Allocation Context</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -234,27 +205,6 @@ public interface AllocationPackage extends EPackage {
 	EReference getActualResourceDemand_RandomVariable_ActualResourceDemand();
 
 	/**
-	 * Returns the meta object for class '{@link de.uka.ipd.sdq.context.allocation.ActualAllocation <em>Actual Allocation</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Actual Allocation</em>'.
-	 * @see de.uka.ipd.sdq.context.allocation.ActualAllocation
-	 * @generated
-	 */
-	EClass getActualAllocation();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link de.uka.ipd.sdq.context.allocation.ActualAllocation#getActualAllocationContext_ActualAllocation <em>Actual Allocation Context Actual Allocation</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Actual Allocation Context Actual Allocation</em>'.
-	 * @see de.uka.ipd.sdq.context.allocation.ActualAllocation#getActualAllocationContext_ActualAllocation()
-	 * @see #getActualAllocation()
-	 * @generated
-	 */
-	EReference getActualAllocation_ActualAllocationContext_ActualAllocation();
-
-	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -275,7 +225,7 @@ public interface AllocationPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	interface Literals  {
+	interface Literals {
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.context.allocation.impl.ActualAllocationContextImpl <em>Actual Allocation Context</em>}' class.
 		 * <!-- begin-user-doc -->
@@ -327,24 +277,6 @@ public interface AllocationPackage extends EPackage {
 		 * @generated
 		 */
 		EReference ACTUAL_RESOURCE_DEMAND__RANDOM_VARIABLE_ACTUAL_RESOURCE_DEMAND = eINSTANCE.getActualResourceDemand_RandomVariable_ActualResourceDemand();
-
-		/**
-		 * The meta object literal for the '{@link de.uka.ipd.sdq.context.allocation.impl.ActualAllocationImpl <em>Actual Allocation</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see de.uka.ipd.sdq.context.allocation.impl.ActualAllocationImpl
-		 * @see de.uka.ipd.sdq.context.allocation.impl.AllocationPackageImpl#getActualAllocation()
-		 * @generated
-		 */
-		EClass ACTUAL_ALLOCATION = eINSTANCE.getActualAllocation();
-
-		/**
-		 * The meta object literal for the '<em><b>Actual Allocation Context Actual Allocation</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference ACTUAL_ALLOCATION__ACTUAL_ALLOCATION_CONTEXT_ACTUAL_ALLOCATION = eINSTANCE.getActualAllocation_ActualAllocationContext_ActualAllocation();
 
 	}
 

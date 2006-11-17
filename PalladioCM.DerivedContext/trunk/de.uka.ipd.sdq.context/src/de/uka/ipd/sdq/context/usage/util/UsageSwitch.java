@@ -112,12 +112,6 @@ public class UsageSwitch {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case UsagePackage.USAGE: {
-				Usage usage = (Usage)theEObject;
-				Object result = caseUsage(usage);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -164,21 +158,6 @@ public class UsageSwitch {
 	 * @generated
 	 */
 	public Object caseLoopIteration(LoopIteration object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Usage</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Usage</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public Object caseUsage(Usage object) {
 		return null;
 	}
 

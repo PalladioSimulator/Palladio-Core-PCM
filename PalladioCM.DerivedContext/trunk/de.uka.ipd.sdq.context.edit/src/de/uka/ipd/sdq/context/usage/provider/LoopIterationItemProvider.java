@@ -14,9 +14,11 @@ import de.uka.ipd.sdq.pcm.core.stochastics.StochasticsFactory;
 
 import de.uka.ipd.sdq.pcm.parameter.ParameterFactory;
 
+import de.uka.ipd.sdq.pcm.qosannotations.QosannotationsFactory;
+
 import de.uka.ipd.sdq.pcm.seff.SeffFactory;
 
-import de.uka.ipd.sdq.pcm.system.SystemFactory;
+import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelFactory;
 
 import java.util.Collection;
 import java.util.List;
@@ -180,22 +182,17 @@ public class LoopIterationItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(UsagePackage.Literals.LOOP_ITERATION__ITERATIONS_LOOP_ITERATION,
-				 SeffFactory.eINSTANCE.createPrimitiveParametricParameterUsage()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(UsagePackage.Literals.LOOP_ITERATION__ITERATIONS_LOOP_ITERATION,
 				 SeffFactory.eINSTANCE.createIterationCount()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(UsagePackage.Literals.LOOP_ITERATION__ITERATIONS_LOOP_ITERATION,
-				 SeffFactory.eINSTANCE.createCollectionParametricParameterUsage()));
+				 SeffFactory.eINSTANCE.createBranchCondition()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(UsagePackage.Literals.LOOP_ITERATION__ITERATIONS_LOOP_ITERATION,
-				 ParameterFactory.eINSTANCE.createPrimitiveParameterCharacterisation()));
+				 ParameterFactory.eINSTANCE.createParameterCharacterisation()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -205,7 +202,17 @@ public class LoopIterationItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(UsagePackage.Literals.LOOP_ITERATION__ITERATIONS_LOOP_ITERATION,
-				 SystemFactory.eINSTANCE.createSpecifiedTimeConsumption()));
+				 QosannotationsFactory.eINSTANCE.createSystemSpecifiedExecutionTime()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(UsagePackage.Literals.LOOP_ITERATION__ITERATIONS_LOOP_ITERATION,
+				 QosannotationsFactory.eINSTANCE.createComponentSpecifiedExecutionTime()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(UsagePackage.Literals.LOOP_ITERATION__ITERATIONS_LOOP_ITERATION,
+				 UsagemodelFactory.eINSTANCE.createLoopIterations()));
 	}
 
 	/**

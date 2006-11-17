@@ -127,28 +127,6 @@ public class AllocationItemProviderAdapterFactory extends AllocationAdapterFacto
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.context.allocation.ActualAllocation} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ActualAllocationItemProvider actualAllocationItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link de.uka.ipd.sdq.context.allocation.ActualAllocation}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Adapter createActualAllocationAdapter() {
-		if (actualAllocationItemProvider == null) {
-			actualAllocationItemProvider = new ActualAllocationItemProvider(this);
-		}
-
-		return actualAllocationItemProvider;
-	}
-
-	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -246,7 +224,6 @@ public class AllocationItemProviderAdapterFactory extends AllocationAdapterFacto
 	public void dispose() {
 		if (actualAllocationContextItemProvider != null) actualAllocationContextItemProvider.dispose();
 		if (actualResourceDemandItemProvider != null) actualResourceDemandItemProvider.dispose();
-		if (actualAllocationItemProvider != null) actualAllocationItemProvider.dispose();
 	}
 
 }

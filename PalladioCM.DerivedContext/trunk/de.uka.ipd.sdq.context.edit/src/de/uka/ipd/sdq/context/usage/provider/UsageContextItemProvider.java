@@ -169,17 +169,17 @@ public class UsageContextItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(UsagePackage.Literals.USAGE_CONTEXT__ACTUAL_PARAMETER_USAGE_USAGE_CONTEXT,
-				 ParameterFactory.eINSTANCE.createParameterUsage()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(UsagePackage.Literals.USAGE_CONTEXT__ACTUAL_PARAMETER_USAGE_USAGE_CONTEXT,
 				 ParameterFactory.eINSTANCE.createCompositeParameterUsage()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(UsagePackage.Literals.USAGE_CONTEXT__ACTUAL_PARAMETER_USAGE_USAGE_CONTEXT,
 				 ParameterFactory.eINSTANCE.createCollectionParameterUsage()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(UsagePackage.Literals.USAGE_CONTEXT__ACTUAL_PARAMETER_USAGE_USAGE_CONTEXT,
+				 ParameterFactory.eINSTANCE.createPrimitiveParameterUsage()));
 	}
 
 	/**

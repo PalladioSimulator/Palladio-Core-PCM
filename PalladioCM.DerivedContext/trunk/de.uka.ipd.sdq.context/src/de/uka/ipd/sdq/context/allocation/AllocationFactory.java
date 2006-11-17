@@ -51,15 +51,6 @@ public interface AllocationFactory extends EFactory {
 	ActualResourceDemand createActualResourceDemand();
 
 	/**
-	 * Returns a new object of class '<em>Actual Allocation</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Actual Allocation</em>'.
-	 * @generated
-	 */
-	ActualAllocation createActualAllocation();
-
-	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
