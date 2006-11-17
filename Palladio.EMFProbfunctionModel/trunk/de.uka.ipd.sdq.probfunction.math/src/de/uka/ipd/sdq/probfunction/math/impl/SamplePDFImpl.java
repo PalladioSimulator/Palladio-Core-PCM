@@ -9,7 +9,6 @@ import java.util.Iterator;
 import java.util.List;
 
 import de.uka.ipd.sdq.probfunction.math.IProbabilityDensityFunction;
-import de.uka.ipd.sdq.probfunction.math.IProbabilityFunction;
 import de.uka.ipd.sdq.probfunction.math.IRandomGenerator;
 import de.uka.ipd.sdq.probfunction.math.ISamplePDF;
 import de.uka.ipd.sdq.probfunction.math.IUnit;
@@ -294,6 +293,9 @@ public class SamplePDFImpl extends ProbabilityDensityFunctionImpl
 
 	private List<Double> getValuesForDistance(double newDistance)
 			throws NegativeDistanceException, FunctionNotInTimeDomainException {
+		// same distance
+		if (MathTools.equalsDouble(distance, newDistance))
+			return getValuesAsDouble();
 
 		// check preconditions
 		if ((distance < 0) || (newDistance < 0))
@@ -536,7 +538,7 @@ public class SamplePDFImpl extends ProbabilityDensityFunctionImpl
 		return true;
 	}
 
-	public IProbabilityFunction getCumulativeFunction() {
+	public IProbabilityDensityFunction getCumulativeFunction() {
 		List<Double> newProb = MathTools
 				.computeIntervalsOfProb(getValuesAsDouble());
 		List<Complex> newValues = new ArrayList<Complex>();
