@@ -5,12 +5,8 @@ package de.uka.ipd.sdq.pcm.gmf.system.edit.parts;
 
 import java.util.Iterator;
 
-import org.eclipse.draw2d.Ellipse;
 import org.eclipse.draw2d.Figure;
 import org.eclipse.draw2d.IFigure;
-import org.eclipse.draw2d.StackLayout;
-import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.ecore.util.EContentAdapter;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
 import org.eclipse.gef.GraphicalEditPart;
@@ -20,24 +16,14 @@ import org.eclipse.gef.editparts.LayerManager;
 import org.eclipse.gef.editpolicies.LayoutEditPolicy;
 import org.eclipse.gef.editpolicies.NonResizableEditPolicy;
 import org.eclipse.gef.requests.CreateRequest;
-import org.eclipse.gmf.runtime.diagram.ui.editparts.AbstractBorderItemEditPart;
-import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
-import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
-import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
-import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
-import org.eclipse.gmf.runtime.notation.Bounds;
-import org.eclipse.gmf.runtime.notation.Node;
-import org.eclipse.gmf.runtime.notation.NotationPackage;
 import org.eclipse.gmf.runtime.notation.View;
 
 import de.uka.ipd.sdq.pcm.gmf.system.AbstractRotatingBorderItemEditPart;
 import de.uka.ipd.sdq.pcm.gmf.system.ArcFigure;
 import de.uka.ipd.sdq.pcm.gmf.system.BallOrSocketFigure;
-import de.uka.ipd.sdq.pcm.gmf.system.RotatingBorderItemSelectionEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.system.edit.policies.PcmExtNodeLabelHostLayoutEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.system.edit.policies.SystemRequiredRoleCanonicalEditPolicy;
-import de.uka.ipd.sdq.pcm.gmf.system.edit.policies.SystemRequiredRoleGraphicalNodeEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.system.edit.policies.SystemRequiredRoleItemSemanticEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.system.part.PcmVisualIDRegistry;
 

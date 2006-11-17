@@ -7,10 +7,10 @@
  */
 package de.uka.ipd.sdq.pcm.resourcetype.impl;
 
+import org.eclipse.emf.ecore.EClass;
+
 import de.uka.ipd.sdq.pcm.resourcetype.PassiveResourceType;
 import de.uka.ipd.sdq.pcm.resourcetype.ResourcetypePackage;
-
-import org.eclipse.emf.ecore.EClass;
 
 /**
  * <!-- begin-user-doc -->

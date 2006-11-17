@@ -3,14 +3,35 @@
  */
 package de.uka.ipd.sdq.pcm.gmf.repository.edit.policies;
 
-import java.util.List;
 import java.util.Collection;
-import org.eclipse.gmf.runtime.notation.Edge;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+
+import org.eclipse.core.runtime.IAdaptable;
+import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.gef.EditPart;
+import org.eclipse.gef.commands.Command;
+import org.eclipse.gmf.runtime.diagram.core.util.ViewUtil;
+import org.eclipse.gmf.runtime.diagram.ui.commands.DeferredLayoutCommand;
+import org.eclipse.gmf.runtime.diagram.ui.commands.ICommandProxy;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
+import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CanonicalConnectionEditPolicy;
+import org.eclipse.gmf.runtime.diagram.ui.requests.CreateConnectionViewRequest;
+import org.eclipse.gmf.runtime.diagram.ui.requests.RequestConstants;
+import org.eclipse.gmf.runtime.emf.core.util.EObjectAdapter;
+import org.eclipse.gmf.runtime.emf.type.core.IElementType;
+import org.eclipse.gmf.runtime.notation.Diagram;
+import org.eclipse.gmf.runtime.notation.Edge;
+import org.eclipse.gmf.runtime.notation.View;
+
 import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
 import de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingEntity;
 import de.uka.ipd.sdq.pcm.core.entity.InterfaceRequiringEntity;
-
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.BasicComponentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.CompleteComponentTypeEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.CompositeComponentEditPart;
@@ -21,45 +42,10 @@ import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.RepositoryEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.RequiredRoleEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.ResourceDemandingSEFFEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.SignatureEditPart;
-
 import de.uka.ipd.sdq.pcm.gmf.repository.part.PcmVisualIDRegistry;
-
 import de.uka.ipd.sdq.pcm.repository.ProvidedRole;
 import de.uka.ipd.sdq.pcm.repository.Repository;
 import de.uka.ipd.sdq.pcm.repository.RequiredRole;
-
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.Map;
-
-import org.eclipse.core.runtime.IAdaptable;
-
-import org.eclipse.emf.ecore.EClass;
-
-import org.eclipse.gef.EditPart;
-
-import org.eclipse.gef.commands.Command;
-
-import org.eclipse.gmf.runtime.diagram.core.util.ViewUtil;
-
-import org.eclipse.gmf.runtime.diagram.ui.commands.DeferredLayoutCommand;
-import org.eclipse.gmf.runtime.diagram.ui.commands.ICommandProxy;
-
-import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
-
-import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CanonicalConnectionEditPolicy;
-
-import org.eclipse.gmf.runtime.diagram.ui.requests.CreateConnectionViewRequest;
-import org.eclipse.gmf.runtime.diagram.ui.requests.RequestConstants;
-
-import org.eclipse.gmf.runtime.emf.core.util.EObjectAdapter;
-
-import org.eclipse.gmf.runtime.emf.type.core.IElementType;
-
-import org.eclipse.gmf.runtime.notation.Diagram;
-import org.eclipse.gmf.runtime.notation.View;
 
 /**
  * @generated

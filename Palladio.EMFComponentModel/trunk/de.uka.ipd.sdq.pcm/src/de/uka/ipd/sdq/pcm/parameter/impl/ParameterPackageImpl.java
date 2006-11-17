@@ -6,28 +6,26 @@
  */
 package de.uka.ipd.sdq.pcm.parameter.impl;
 
+import org.eclipse.emf.ecore.EAttribute;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
+import org.eclipse.emf.ecore.EOperation;
+import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.EReference;
+import org.eclipse.emf.ecore.EValidator;
+import org.eclipse.emf.ecore.impl.EPackageImpl;
+
 import de.uka.ipd.sdq.identifier.IdentifierPackage;
-
 import de.uka.ipd.sdq.pcm.allocation.AllocationPackage;
-
 import de.uka.ipd.sdq.pcm.allocation.impl.AllocationPackageImpl;
-
 import de.uka.ipd.sdq.pcm.core.composition.CompositionPackage;
-
 import de.uka.ipd.sdq.pcm.core.composition.impl.CompositionPackageImpl;
-
 import de.uka.ipd.sdq.pcm.core.connectors.ConnectorsPackage;
-
 import de.uka.ipd.sdq.pcm.core.connectors.impl.ConnectorsPackageImpl;
-
 import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
-
 import de.uka.ipd.sdq.pcm.core.entity.impl.EntityPackageImpl;
-
 import de.uka.ipd.sdq.pcm.core.stochastics.StochasticsPackage;
-
 import de.uka.ipd.sdq.pcm.core.stochastics.impl.StochasticsPackageImpl;
-
 import de.uka.ipd.sdq.pcm.parameter.CollectionParameterCharacterisation;
 import de.uka.ipd.sdq.pcm.parameter.CollectionParameterCharacterisationType;
 import de.uka.ipd.sdq.pcm.parameter.CollectionParameterUsage;
@@ -38,53 +36,24 @@ import de.uka.ipd.sdq.pcm.parameter.ParameterFactory;
 import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
 import de.uka.ipd.sdq.pcm.parameter.ParameterUsage;
 import de.uka.ipd.sdq.pcm.parameter.PrimitiveParameterUsage;
-
 import de.uka.ipd.sdq.pcm.parameter.util.ParameterValidator;
-
 import de.uka.ipd.sdq.pcm.protocol.ProtocolPackage;
-
 import de.uka.ipd.sdq.pcm.protocol.impl.ProtocolPackageImpl;
-
 import de.uka.ipd.sdq.pcm.qosannotations.QosannotationsPackage;
-
 import de.uka.ipd.sdq.pcm.qosannotations.impl.QosannotationsPackageImpl;
-
 import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
-
 import de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl;
-
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage;
-
 import de.uka.ipd.sdq.pcm.resourceenvironment.impl.ResourceenvironmentPackageImpl;
-
 import de.uka.ipd.sdq.pcm.resourcetype.ResourcetypePackage;
-
 import de.uka.ipd.sdq.pcm.resourcetype.impl.ResourcetypePackageImpl;
-
 import de.uka.ipd.sdq.pcm.seff.SeffPackage;
-
 import de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl;
-
 import de.uka.ipd.sdq.pcm.system.SystemPackage;
-
 import de.uka.ipd.sdq.pcm.system.impl.SystemPackageImpl;
-
 import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
-
 import de.uka.ipd.sdq.pcm.usagemodel.impl.UsagemodelPackageImpl;
-
 import de.uka.ipd.sdq.probfunction.ProbfunctionPackage;
-
-import org.eclipse.emf.ecore.EAttribute;
-import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EEnum;
-import org.eclipse.emf.ecore.EOperation;
-import org.eclipse.emf.ecore.EPackage;
-import org.eclipse.emf.ecore.EReference;
-
-import org.eclipse.emf.ecore.EValidator;
-
-import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 /**
  * <!-- begin-user-doc -->

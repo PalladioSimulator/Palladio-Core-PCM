@@ -4,6 +4,7 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:gmfgen="http://www.eclipse.org/gmf/2005/GenModel" packageNamePrefix="de.uka.ipd.sdq.pcm.gmf.seff"
     diagramFileExtension="seff_diagram"
+    domainFileExtension="repository"
     templateDirectory=""
     copyrightText="Copyright 2006 SDQ Research Group, University of Karlsruhe (TH)">
   <diagram

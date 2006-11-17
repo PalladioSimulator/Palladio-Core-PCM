@@ -20,7 +20,6 @@ import org.eclipse.swt.graphics.Image;
 
 import de.uka.ipd.sdq.pcm.core.composition.CompositionPackage;
 import de.uka.ipd.sdq.pcm.gmf.system.part.SystemDiagramEditorPlugin;
-import de.uka.ipd.sdq.pcm.repository.Repository;
 import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
 import de.uka.ipd.sdq.pcm.system.SystemPackage;
 

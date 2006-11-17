@@ -3,19 +3,17 @@
  */
 package de.uka.ipd.sdq.pcm.gmf.repository.edit.policies;
 
-import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CanonicalEditPolicy;
-import org.eclipse.gmf.runtime.notation.View;
-import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.ResourceDemandingSEFFEditPart;
-
-import de.uka.ipd.sdq.pcm.gmf.repository.part.PcmVisualIDRegistry;
-
-import de.uka.ipd.sdq.pcm.repository.BasicComponent;
-
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CanonicalEditPolicy;
+import org.eclipse.gmf.runtime.notation.View;
+
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.ResourceDemandingSEFFEditPart;
+import de.uka.ipd.sdq.pcm.gmf.repository.part.PcmVisualIDRegistry;
+import de.uka.ipd.sdq.pcm.repository.BasicComponent;
 
 /**
  * @generated

@@ -6,27 +6,41 @@
  */
 package de.uka.ipd.sdq.pcm.repository.util;
 
+import org.eclipse.emf.common.notify.Adapter;
+import org.eclipse.emf.common.notify.Notifier;
+import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
+import org.eclipse.emf.ecore.EObject;
+
 import de.uka.ipd.sdq.identifier.Identifier;
-
 import de.uka.ipd.sdq.pcm.core.composition.ComposedStructure;
-
 import de.uka.ipd.sdq.pcm.core.connectors.Connector;
-
 import de.uka.ipd.sdq.pcm.core.entity.Entity;
-
 import de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingEntity;
 import de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingRequiringEntity;
 import de.uka.ipd.sdq.pcm.core.entity.InterfaceRequiringEntity;
 import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
-
 import de.uka.ipd.sdq.pcm.repository.*;
 
-import org.eclipse.emf.common.notify.Adapter;
-import org.eclipse.emf.common.notify.Notifier;
-
-import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
-
-import org.eclipse.emf.ecore.EObject;
+import de.uka.ipd.sdq.pcm.repository.BasicComponent;
+import de.uka.ipd.sdq.pcm.repository.CollectionDataType;
+import de.uka.ipd.sdq.pcm.repository.CompleteComponentType;
+import de.uka.ipd.sdq.pcm.repository.CompositeComponent;
+import de.uka.ipd.sdq.pcm.repository.CompositeDataType;
+import de.uka.ipd.sdq.pcm.repository.DataType;
+import de.uka.ipd.sdq.pcm.repository.DelegationConnector;
+import de.uka.ipd.sdq.pcm.repository.ExceptionType;
+import de.uka.ipd.sdq.pcm.repository.ImplementationComponentType;
+import de.uka.ipd.sdq.pcm.repository.InnerDeclaration;
+import de.uka.ipd.sdq.pcm.repository.Interface;
+import de.uka.ipd.sdq.pcm.repository.Parameter;
+import de.uka.ipd.sdq.pcm.repository.PrimitiveDataType;
+import de.uka.ipd.sdq.pcm.repository.ProvidedRole;
+import de.uka.ipd.sdq.pcm.repository.ProvidesComponentType;
+import de.uka.ipd.sdq.pcm.repository.Repository;
+import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
+import de.uka.ipd.sdq.pcm.repository.RequiredRole;
+import de.uka.ipd.sdq.pcm.repository.Role;
+import de.uka.ipd.sdq.pcm.repository.Signature;
 
 /**
  * <!-- begin-user-doc -->

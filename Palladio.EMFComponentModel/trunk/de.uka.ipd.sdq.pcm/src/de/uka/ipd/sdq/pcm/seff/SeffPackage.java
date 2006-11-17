@@ -6,14 +6,13 @@
  */
 package de.uka.ipd.sdq.pcm.seff;
 
-import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
-
-import de.uka.ipd.sdq.pcm.core.stochastics.StochasticsPackage;
-
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
+
+import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
+import de.uka.ipd.sdq.pcm.core.stochastics.StochasticsPackage;
 
 /**
  * <!-- begin-user-doc -->

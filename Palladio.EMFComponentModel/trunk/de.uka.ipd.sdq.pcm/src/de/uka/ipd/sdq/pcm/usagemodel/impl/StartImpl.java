@@ -7,10 +7,10 @@
  */
 package de.uka.ipd.sdq.pcm.usagemodel.impl;
 
+import org.eclipse.emf.ecore.EClass;
+
 import de.uka.ipd.sdq.pcm.usagemodel.Start;
 import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
-
-import org.eclipse.emf.ecore.EClass;
 
 /**
  * <!-- begin-user-doc -->

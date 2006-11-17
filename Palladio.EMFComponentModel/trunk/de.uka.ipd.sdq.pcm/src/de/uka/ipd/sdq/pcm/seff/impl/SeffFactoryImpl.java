@@ -11,10 +11,27 @@ import de.uka.ipd.sdq.pcm.seff.*;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
-
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
+
+import de.uka.ipd.sdq.pcm.seff.AquireAction;
+import de.uka.ipd.sdq.pcm.seff.BranchAction;
+import de.uka.ipd.sdq.pcm.seff.BranchCondition;
+import de.uka.ipd.sdq.pcm.seff.BranchTransition;
+import de.uka.ipd.sdq.pcm.seff.CollectionIteratorAction;
+import de.uka.ipd.sdq.pcm.seff.ExternalCallAction;
+import de.uka.ipd.sdq.pcm.seff.ForkAction;
+import de.uka.ipd.sdq.pcm.seff.InternalAction;
+import de.uka.ipd.sdq.pcm.seff.IterationCount;
+import de.uka.ipd.sdq.pcm.seff.LoopAction;
+import de.uka.ipd.sdq.pcm.seff.ParametricResourceDemand;
+import de.uka.ipd.sdq.pcm.seff.ReleaseAction;
+import de.uka.ipd.sdq.pcm.seff.ResourceDemandingBehaviour;
+import de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF;
+import de.uka.ipd.sdq.pcm.seff.SeffFactory;
+import de.uka.ipd.sdq.pcm.seff.SeffPackage;
+import de.uka.ipd.sdq.pcm.seff.StartAction;
+import de.uka.ipd.sdq.pcm.seff.StopAction;
 
 /**
  * <!-- begin-user-doc -->

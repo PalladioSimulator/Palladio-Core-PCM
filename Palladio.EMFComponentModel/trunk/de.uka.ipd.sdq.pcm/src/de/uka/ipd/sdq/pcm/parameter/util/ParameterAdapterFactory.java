@@ -6,16 +6,21 @@
  */
 package de.uka.ipd.sdq.pcm.parameter.util;
 
-import de.uka.ipd.sdq.pcm.core.stochastics.RandomVariable;
-
-import de.uka.ipd.sdq.pcm.parameter.*;
-
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
-
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
-
 import org.eclipse.emf.ecore.EObject;
+
+import de.uka.ipd.sdq.pcm.core.stochastics.RandomVariable;
+import de.uka.ipd.sdq.pcm.parameter.*;
+
+import de.uka.ipd.sdq.pcm.parameter.CollectionParameterCharacterisation;
+import de.uka.ipd.sdq.pcm.parameter.CollectionParameterUsage;
+import de.uka.ipd.sdq.pcm.parameter.CompositeParameterUsage;
+import de.uka.ipd.sdq.pcm.parameter.ParameterCharacterisation;
+import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
+import de.uka.ipd.sdq.pcm.parameter.ParameterUsage;
+import de.uka.ipd.sdq.pcm.parameter.PrimitiveParameterUsage;
 
 /**
  * <!-- begin-user-doc -->

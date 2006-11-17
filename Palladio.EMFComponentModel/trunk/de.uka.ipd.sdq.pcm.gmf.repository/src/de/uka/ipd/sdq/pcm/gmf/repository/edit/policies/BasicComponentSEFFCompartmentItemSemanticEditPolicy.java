@@ -3,20 +3,15 @@
  */
 package de.uka.ipd.sdq.pcm.gmf.repository.edit.policies;
 
-import de.uka.ipd.sdq.pcm.gmf.repository.providers.PcmElementTypes;
-
-import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
-
 import org.eclipse.gef.commands.Command;
-
 import org.eclipse.gmf.runtime.emf.type.core.commands.CreateElementCommand;
-
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
-
 import org.eclipse.gmf.runtime.notation.View;
+
+import de.uka.ipd.sdq.pcm.gmf.repository.providers.PcmElementTypes;
+import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
 
 /**
  * @generated

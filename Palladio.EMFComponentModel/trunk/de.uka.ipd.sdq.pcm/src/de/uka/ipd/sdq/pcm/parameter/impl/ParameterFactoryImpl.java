@@ -12,10 +12,18 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
-
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
+
+import de.uka.ipd.sdq.pcm.parameter.CollectionParameterCharacterisation;
+import de.uka.ipd.sdq.pcm.parameter.CollectionParameterCharacterisationType;
+import de.uka.ipd.sdq.pcm.parameter.CollectionParameterUsage;
+import de.uka.ipd.sdq.pcm.parameter.CompositeParameterUsage;
+import de.uka.ipd.sdq.pcm.parameter.ParameterCharacterisation;
+import de.uka.ipd.sdq.pcm.parameter.ParameterCharacterisationType;
+import de.uka.ipd.sdq.pcm.parameter.ParameterFactory;
+import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
+import de.uka.ipd.sdq.pcm.parameter.PrimitiveParameterUsage;
 
 /**
  * <!-- begin-user-doc -->

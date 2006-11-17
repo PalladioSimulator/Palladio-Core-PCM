@@ -12,10 +12,23 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
-
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
+
+import de.uka.ipd.sdq.pcm.core.stochastics.CompareExpression;
+import de.uka.ipd.sdq.pcm.core.stochastics.CompareOperations;
+import de.uka.ipd.sdq.pcm.core.stochastics.DoubleLiteral;
+import de.uka.ipd.sdq.pcm.core.stochastics.IntLiteral;
+import de.uka.ipd.sdq.pcm.core.stochastics.Parantesis;
+import de.uka.ipd.sdq.pcm.core.stochastics.ProbabilityFunctionLiteral;
+import de.uka.ipd.sdq.pcm.core.stochastics.ProductExpression;
+import de.uka.ipd.sdq.pcm.core.stochastics.ProductOperations;
+import de.uka.ipd.sdq.pcm.core.stochastics.RandomVariable;
+import de.uka.ipd.sdq.pcm.core.stochastics.StochasticsFactory;
+import de.uka.ipd.sdq.pcm.core.stochastics.StochasticsPackage;
+import de.uka.ipd.sdq.pcm.core.stochastics.TermExpression;
+import de.uka.ipd.sdq.pcm.core.stochastics.TermOperations;
+import de.uka.ipd.sdq.pcm.core.stochastics.Variable;
 
 /**
  * <!-- begin-user-doc -->

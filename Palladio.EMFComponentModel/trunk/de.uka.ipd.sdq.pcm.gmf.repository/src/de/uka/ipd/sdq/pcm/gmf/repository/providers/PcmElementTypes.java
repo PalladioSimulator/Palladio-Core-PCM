@@ -7,6 +7,7 @@ import java.util.HashSet;
 import java.util.IdentityHashMap;
 import java.util.Map;
 import java.util.Set;
+
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.ENamedElement;
@@ -16,10 +17,9 @@ import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.resource.ImageRegistry;
 import org.eclipse.swt.graphics.Image;
+
 import de.uka.ipd.sdq.pcm.gmf.repository.part.RepositoryDiagramEditorPlugin;
-
 import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
-
 import de.uka.ipd.sdq.pcm.seff.SeffPackage;
 
 /**

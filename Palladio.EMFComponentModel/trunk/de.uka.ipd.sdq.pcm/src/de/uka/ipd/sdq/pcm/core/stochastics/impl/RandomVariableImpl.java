@@ -9,20 +9,18 @@ package de.uka.ipd.sdq.pcm.core.stochastics.impl;
 
 import java.io.StringBufferInputStream;
 
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.InternalEObject;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.EObjectImpl;
+
 import de.uka.ipd.sdq.pcm.core.stochastics.Expression;
 import de.uka.ipd.sdq.pcm.core.stochastics.RandomVariable;
 import de.uka.ipd.sdq.pcm.core.stochastics.StochasticsPackage;
 import de.uka.ipd.sdq.pcm.stochasticexpressions.parser.StochasticExpressionsLexer;
 import de.uka.ipd.sdq.pcm.stochasticexpressions.parser.StochasticExpressionsParser;
-
-import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
-
-import org.eclipse.emf.ecore.InternalEObject;
-
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.EObjectImpl;
 
 /**
  * <!-- begin-user-doc -->

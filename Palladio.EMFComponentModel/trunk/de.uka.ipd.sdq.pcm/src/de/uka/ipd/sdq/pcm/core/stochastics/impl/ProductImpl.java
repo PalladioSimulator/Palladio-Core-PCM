@@ -7,10 +7,10 @@
  */
 package de.uka.ipd.sdq.pcm.core.stochastics.impl;
 
+import org.eclipse.emf.ecore.EClass;
+
 import de.uka.ipd.sdq.pcm.core.stochastics.Product;
 import de.uka.ipd.sdq.pcm.core.stochastics.StochasticsPackage;
-
-import org.eclipse.emf.ecore.EClass;
 
 /**
  * <!-- begin-user-doc -->

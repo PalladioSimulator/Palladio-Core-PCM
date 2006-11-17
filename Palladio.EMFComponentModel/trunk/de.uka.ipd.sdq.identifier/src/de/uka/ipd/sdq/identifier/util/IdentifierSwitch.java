@@ -6,12 +6,13 @@
  */
 package de.uka.ipd.sdq.identifier.util;
 
-import de.uka.ipd.sdq.identifier.*;
-
 import java.util.List;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
+
+import de.uka.ipd.sdq.identifier.Identifier;
+import de.uka.ipd.sdq.identifier.IdentifierPackage;
 
 /**
  * <!-- begin-user-doc -->

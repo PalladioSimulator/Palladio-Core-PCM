@@ -6,15 +6,14 @@
  */
 package de.uka.ipd.sdq.identifier.util;
 
-import de.uka.ipd.sdq.identifier.*;
-
 import java.util.Map;
 
 import org.eclipse.emf.common.util.DiagnosticChain;
-
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.util.EObjectValidator;
+
+import de.uka.ipd.sdq.identifier.Identifier;
+import de.uka.ipd.sdq.identifier.IdentifierPackage;
 
 /**
  * <!-- begin-user-doc -->

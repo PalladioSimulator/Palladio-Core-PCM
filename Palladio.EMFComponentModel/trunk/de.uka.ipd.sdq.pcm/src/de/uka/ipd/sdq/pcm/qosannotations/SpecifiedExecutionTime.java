@@ -8,7 +8,6 @@
 package de.uka.ipd.sdq.pcm.qosannotations;
 
 import de.uka.ipd.sdq.pcm.core.stochastics.RandomVariable;
-
 import de.uka.ipd.sdq.pcm.repository.Role;
 import de.uka.ipd.sdq.pcm.repository.Signature;
 

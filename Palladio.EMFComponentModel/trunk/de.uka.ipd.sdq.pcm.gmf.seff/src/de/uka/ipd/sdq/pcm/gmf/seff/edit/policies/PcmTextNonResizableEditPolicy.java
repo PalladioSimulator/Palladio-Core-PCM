@@ -5,6 +5,7 @@ package de.uka.ipd.sdq.pcm.gmf.seff.edit.policies;
 
 import java.util.Collections;
 import java.util.List;
+
 import org.eclipse.draw2d.ColorConstants;
 import org.eclipse.draw2d.Figure;
 import org.eclipse.draw2d.Graphics;

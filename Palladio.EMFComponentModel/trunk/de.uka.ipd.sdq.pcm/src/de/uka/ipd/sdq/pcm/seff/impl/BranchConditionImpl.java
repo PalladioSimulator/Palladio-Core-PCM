@@ -7,12 +7,11 @@
  */
 package de.uka.ipd.sdq.pcm.seff.impl;
 
-import de.uka.ipd.sdq.pcm.core.stochastics.impl.RandomVariableImpl;
+import org.eclipse.emf.ecore.EClass;
 
+import de.uka.ipd.sdq.pcm.core.stochastics.impl.RandomVariableImpl;
 import de.uka.ipd.sdq.pcm.seff.BranchCondition;
 import de.uka.ipd.sdq.pcm.seff.SeffPackage;
-
-import org.eclipse.emf.ecore.EClass;
 
 /**
  * <!-- begin-user-doc -->

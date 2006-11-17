@@ -3,20 +3,19 @@
  */
 package de.uka.ipd.sdq.pcm.gmf.repository.part;
 
+import java.util.ArrayList;
 import java.util.List;
+
 import org.eclipse.gef.Tool;
 import org.eclipse.gef.palette.PaletteContainer;
+import org.eclipse.gef.palette.PaletteGroup;
 import org.eclipse.gef.palette.PaletteRoot;
 import org.eclipse.gef.palette.ToolEntry;
-import org.eclipse.jface.resource.ImageDescriptor;
-import de.uka.ipd.sdq.pcm.gmf.repository.providers.PcmElementTypes;
-
-import java.util.ArrayList;
-
-import org.eclipse.gef.palette.PaletteGroup;
-
 import org.eclipse.gmf.runtime.diagram.ui.tools.UnspecifiedTypeConnectionTool;
 import org.eclipse.gmf.runtime.diagram.ui.tools.UnspecifiedTypeCreationTool;
+import org.eclipse.jface.resource.ImageDescriptor;
+
+import de.uka.ipd.sdq.pcm.gmf.repository.providers.PcmElementTypes;
 
 /**
  * @generated

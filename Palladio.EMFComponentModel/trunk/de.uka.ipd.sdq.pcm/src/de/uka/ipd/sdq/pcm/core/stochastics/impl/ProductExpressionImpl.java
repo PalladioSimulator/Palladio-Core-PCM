@@ -7,19 +7,17 @@
  */
 package de.uka.ipd.sdq.pcm.core.stochastics.impl;
 
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
 import de.uka.ipd.sdq.pcm.core.stochastics.Power;
 import de.uka.ipd.sdq.pcm.core.stochastics.Product;
 import de.uka.ipd.sdq.pcm.core.stochastics.ProductExpression;
 import de.uka.ipd.sdq.pcm.core.stochastics.ProductOperations;
 import de.uka.ipd.sdq.pcm.core.stochastics.StochasticsPackage;
-
-import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
-
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
  * <!-- begin-user-doc -->

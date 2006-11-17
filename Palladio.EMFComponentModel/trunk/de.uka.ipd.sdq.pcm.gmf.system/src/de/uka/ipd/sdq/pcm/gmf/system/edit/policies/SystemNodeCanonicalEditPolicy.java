@@ -15,10 +15,7 @@ import org.eclipse.gmf.runtime.diagram.ui.requests.CreateViewRequest.ViewDescrip
 import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
 
-import de.uka.ipd.sdq.pcm.core.composition.ComposedStructure;
-import de.uka.ipd.sdq.pcm.gmf.system.edit.parts.AssemblyContextEditPart;
 import de.uka.ipd.sdq.pcm.gmf.system.part.PcmVisualIDRegistry;
-import de.uka.ipd.sdq.pcm.gmf.system.providers.PcmElementTypes;
 import de.uka.ipd.sdq.pcm.repository.RequiredRole;
 
 /**

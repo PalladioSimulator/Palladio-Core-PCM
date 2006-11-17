@@ -3,45 +3,35 @@
  */
 package de.uka.ipd.sdq.pcm.gmf.seff.edit.parts;
 
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.ExternalCallAction2CanonicalEditPolicy;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.ExternalCallAction2GraphicalNodeEditPolicy;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.ExternalCallAction2ItemSemanticEditPolicy;
-
-import de.uka.ipd.sdq.pcm.gmf.seff.part.PcmVisualIDRegistry;
-
 import de.uka.ipd.sdq.pcm.gmf.seff.providers.PcmElementTypes;
 
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.StackLayout;
-
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
 import org.eclipse.gef.Request;
-
 import org.eclipse.gef.commands.Command;
-
 import org.eclipse.gef.editpolicies.LayoutEditPolicy;
 import org.eclipse.gef.editpolicies.NonResizableEditPolicy;
-
 import org.eclipse.gef.requests.CreateRequest;
-
 import org.eclipse.gmf.runtime.diagram.core.edithelpers.CreateElementRequestAdapter;
 
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
-
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CreationEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
-
 import org.eclipse.gmf.runtime.diagram.ui.requests.CreateViewAndElementRequest;
 
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
-
 import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
-
 import org.eclipse.gmf.runtime.notation.View;
+
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.ExternalCallAction2CanonicalEditPolicy;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.ExternalCallAction2GraphicalNodeEditPolicy;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.ExternalCallAction2ItemSemanticEditPolicy;
+import de.uka.ipd.sdq.pcm.gmf.seff.part.PcmVisualIDRegistry;
 
 /**
  * @generated

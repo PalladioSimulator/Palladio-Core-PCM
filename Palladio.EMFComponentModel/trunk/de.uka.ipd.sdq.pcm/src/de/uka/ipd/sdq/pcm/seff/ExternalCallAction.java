@@ -7,9 +7,9 @@
  */
 package de.uka.ipd.sdq.pcm.seff;
 
-import de.uka.ipd.sdq.pcm.repository.Signature;
-
 import org.eclipse.emf.common.util.EList;
+
+import de.uka.ipd.sdq.pcm.repository.Signature;
 
 /**
  * <!-- begin-user-doc -->

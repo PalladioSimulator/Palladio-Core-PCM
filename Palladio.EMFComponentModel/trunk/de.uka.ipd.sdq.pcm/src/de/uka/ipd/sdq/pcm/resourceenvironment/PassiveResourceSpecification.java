@@ -7,9 +7,9 @@
  */
 package de.uka.ipd.sdq.pcm.resourceenvironment;
 
-import de.uka.ipd.sdq.pcm.resourcetype.PassiveResourceType;
-
 import org.eclipse.emf.ecore.EObject;
+
+import de.uka.ipd.sdq.pcm.resourcetype.PassiveResourceType;
 
 /**
  * <!-- begin-user-doc -->

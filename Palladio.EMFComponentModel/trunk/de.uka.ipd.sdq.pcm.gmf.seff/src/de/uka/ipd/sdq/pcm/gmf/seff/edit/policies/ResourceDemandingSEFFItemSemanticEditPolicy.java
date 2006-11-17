@@ -3,23 +3,19 @@
  */
 package de.uka.ipd.sdq.pcm.gmf.seff.edit.policies;
 
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.gef.commands.Command;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.emf.commands.core.commands.DuplicateEObjectsCommand;
-import org.eclipse.gmf.runtime.emf.type.core.requests.DuplicateElementsRequest;
-import de.uka.ipd.sdq.pcm.gmf.seff.providers.PcmElementTypes;
-
-import de.uka.ipd.sdq.pcm.seff.SeffPackage;
-
-import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
-
 import org.eclipse.gmf.runtime.emf.type.core.commands.CreateElementCommand;
-
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
-
+import org.eclipse.gmf.runtime.emf.type.core.requests.DuplicateElementsRequest;
 import org.eclipse.gmf.runtime.notation.View;
+
+import de.uka.ipd.sdq.pcm.gmf.seff.providers.PcmElementTypes;
+import de.uka.ipd.sdq.pcm.seff.SeffPackage;
 
 /**
  * @generated

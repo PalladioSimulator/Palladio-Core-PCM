@@ -6,14 +6,20 @@
  */
 package de.uka.ipd.sdq.pcm.core.entity.util;
 
-import de.uka.ipd.sdq.identifier.Identifier;
-
-import de.uka.ipd.sdq.pcm.core.entity.*;
-
 import java.util.List;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
+
+import de.uka.ipd.sdq.identifier.Identifier;
+import de.uka.ipd.sdq.pcm.core.entity.*;
+
+import de.uka.ipd.sdq.pcm.core.entity.Entity;
+import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
+import de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingEntity;
+import de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingRequiringEntity;
+import de.uka.ipd.sdq.pcm.core.entity.InterfaceRequiringEntity;
+import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
 
 /**
  * <!-- begin-user-doc -->

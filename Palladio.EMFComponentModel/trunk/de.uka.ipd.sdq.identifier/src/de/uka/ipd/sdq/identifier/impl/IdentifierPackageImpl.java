@@ -6,19 +6,17 @@
  */
 package de.uka.ipd.sdq.identifier.impl;
 
-import de.uka.ipd.sdq.identifier.Identifier;
-import de.uka.ipd.sdq.identifier.IdentifierFactory;
-import de.uka.ipd.sdq.identifier.IdentifierPackage;
-
-import de.uka.ipd.sdq.identifier.util.IdentifierValidator;
-
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EValidator;
-
 import org.eclipse.emf.ecore.impl.EPackageImpl;
+
+import de.uka.ipd.sdq.identifier.Identifier;
+import de.uka.ipd.sdq.identifier.IdentifierFactory;
+import de.uka.ipd.sdq.identifier.IdentifierPackage;
+import de.uka.ipd.sdq.identifier.util.IdentifierValidator;
 
 /**
  * <!-- begin-user-doc -->

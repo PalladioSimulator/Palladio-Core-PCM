@@ -7,18 +7,16 @@
  */
 package de.uka.ipd.sdq.pcm.core.stochastics.impl;
 
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
 import de.uka.ipd.sdq.pcm.core.stochastics.CompareExpression;
 import de.uka.ipd.sdq.pcm.core.stochastics.CompareOperations;
 import de.uka.ipd.sdq.pcm.core.stochastics.StochasticsPackage;
 import de.uka.ipd.sdq.pcm.core.stochastics.Term;
-
-import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
-
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
  * <!-- begin-user-doc -->

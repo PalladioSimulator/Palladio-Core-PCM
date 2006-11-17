@@ -20,7 +20,6 @@ import de.uka.ipd.sdq.dialogs.selection.SelectEObjectDialog;
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
 import de.uka.ipd.sdq.pcm.core.composition.CompositionPackage;
 import de.uka.ipd.sdq.pcm.gmf.system.edit.parts.SystemNodeCompEditPart;
-import de.uka.ipd.sdq.pcm.gmf.system.edit.parts.SystemNodeEditPart;
 import de.uka.ipd.sdq.pcm.gmf.system.providers.PcmElementTypes;
 import de.uka.ipd.sdq.pcm.repository.ProvidesComponentType;
 import de.uka.ipd.sdq.pcm.repository.Repository;

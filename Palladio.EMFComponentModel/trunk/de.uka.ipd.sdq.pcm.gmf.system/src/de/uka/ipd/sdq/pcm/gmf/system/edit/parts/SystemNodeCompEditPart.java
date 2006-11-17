@@ -1,28 +1,14 @@
 package de.uka.ipd.sdq.pcm.gmf.system.edit.parts;
 
-import java.util.List;
-
-import org.eclipse.gef.editparts.AbstractGraphicalEditPart;
-import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
-import org.eclipse.gmf.runtime.notation.View;
-
-import org.eclipse.draw2d.FreeformLayout;
 import org.eclipse.draw2d.IFigure;
-import org.eclipse.draw2d.LayoutListener;
-
-import org.eclipse.gmf.runtime.diagram.ui.editparts.IBorderItemEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeCompartmentEditPart;
-import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
-
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CreationEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.DragDropEditPolicy;
-
-import org.eclipse.gmf.runtime.diagram.ui.figures.BorderedNodeFigure;
+import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.diagram.ui.figures.ResizableCompartmentFigure;
-
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
+import org.eclipse.gmf.runtime.notation.View;
 
-import de.uka.ipd.sdq.pcm.gmf.system.LabelUpdatingAbstractBorderedShapeEditPart;
 import de.uka.ipd.sdq.pcm.gmf.system.edit.policies.SystemNodeCompCanonicalEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.system.edit.policies.SystemNodeCompItemSemanticEditPolicy;
 

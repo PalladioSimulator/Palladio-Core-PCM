@@ -3,20 +3,19 @@
  */
 package de.uka.ipd.sdq.pcm.gmf.repository.part;
 
+import org.eclipse.core.resources.IFile;
 import org.eclipse.draw2d.DelegatingLayout;
 import org.eclipse.draw2d.FreeformLayer;
 import org.eclipse.draw2d.LayeredPane;
+import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.gef.LayerConstants;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.DiagramRootEditPart;
+import org.eclipse.gmf.runtime.diagram.ui.resources.editor.ide.document.StorageDiagramDocumentProvider;
 import org.eclipse.gmf.runtime.diagram.ui.resources.editor.ide.editor.FileDiagramEditor;
 import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.ide.IGotoMarker;
-import org.eclipse.emf.transaction.TransactionalEditingDomain;
+
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.PcmEditPartFactory;
-
-import org.eclipse.core.resources.IFile;
-
-import org.eclipse.gmf.runtime.diagram.ui.resources.editor.ide.document.StorageDiagramDocumentProvider;
 
 /**
  * @generated

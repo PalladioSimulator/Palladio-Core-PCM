@@ -7,21 +7,18 @@
  */
 package de.uka.ipd.sdq.pcm.parameter.impl;
 
-import de.uka.ipd.sdq.pcm.parameter.CompositeParameterUsage;
-import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
-import de.uka.ipd.sdq.pcm.parameter.ParameterUsage;
-
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+
+import de.uka.ipd.sdq.pcm.parameter.CompositeParameterUsage;
+import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
+import de.uka.ipd.sdq.pcm.parameter.ParameterUsage;
 
 /**
  * <!-- begin-user-doc -->

@@ -6,20 +6,23 @@
  */
 package de.uka.ipd.sdq.pcm.resourceenvironment.util;
 
-import de.uka.ipd.sdq.identifier.Identifier;
-
-import de.uka.ipd.sdq.pcm.core.entity.Entity;
-
-import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
-
-import de.uka.ipd.sdq.pcm.resourceenvironment.*;
-
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
-
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
-
 import org.eclipse.emf.ecore.EObject;
+
+import de.uka.ipd.sdq.identifier.Identifier;
+import de.uka.ipd.sdq.pcm.core.entity.Entity;
+import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
+import de.uka.ipd.sdq.pcm.resourceenvironment.*;
+
+import de.uka.ipd.sdq.pcm.resourceenvironment.CommunicationLinkResourceSpecification;
+import de.uka.ipd.sdq.pcm.resourceenvironment.LinkingResource;
+import de.uka.ipd.sdq.pcm.resourceenvironment.PassiveResourceSpecification;
+import de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification;
+import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer;
+import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceEnvironment;
+import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage;
 
 /**
  * <!-- begin-user-doc -->

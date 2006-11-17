@@ -4,17 +4,13 @@
 package de.uka.ipd.sdq.pcm.gmf.system;
 
 import java.util.ArrayList;
-import java.util.Observer;
 
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.PositionConstants;
 import org.eclipse.draw2d.geometry.Dimension;
-import org.eclipse.draw2d.geometry.Point;
 import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.gmf.runtime.diagram.ui.figures.BorderItemLocator;
 import org.eclipse.swt.widgets.Listener;
-
-import com.sun.org.apache.bcel.internal.generic.GETSTATIC;
 
 /**
  * @author Snowball

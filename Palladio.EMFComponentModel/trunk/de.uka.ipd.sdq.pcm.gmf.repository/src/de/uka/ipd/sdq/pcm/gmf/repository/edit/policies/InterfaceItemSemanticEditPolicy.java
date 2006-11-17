@@ -3,28 +3,24 @@
  */
 package de.uka.ipd.sdq.pcm.gmf.repository.edit.policies;
 
+import org.eclipse.emf.ecore.EAnnotation;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.gef.commands.Command;
+import org.eclipse.gef.commands.UnexecutableCommand;
+import org.eclipse.gmf.runtime.emf.type.core.commands.CreateRelationshipCommand;
 import org.eclipse.gmf.runtime.emf.type.core.commands.DestroyElementCommand;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateRelationshipRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.DestroyElementRequest;
-import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.EAnnotation;
 import org.eclipse.gmf.runtime.notation.View;
+
 import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
 import de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingEntity;
 import de.uka.ipd.sdq.pcm.core.entity.InterfaceRequiringEntity;
-
 import de.uka.ipd.sdq.pcm.gmf.repository.providers.PcmElementTypes;
-
 import de.uka.ipd.sdq.pcm.repository.Interface;
 import de.uka.ipd.sdq.pcm.repository.ProvidedRole;
 import de.uka.ipd.sdq.pcm.repository.RequiredRole;
-
-import org.eclipse.emf.ecore.EClass;
-
-import org.eclipse.gef.commands.UnexecutableCommand;
-
-import org.eclipse.gmf.runtime.emf.type.core.commands.CreateRelationshipCommand;
 
 /**
  * @generated

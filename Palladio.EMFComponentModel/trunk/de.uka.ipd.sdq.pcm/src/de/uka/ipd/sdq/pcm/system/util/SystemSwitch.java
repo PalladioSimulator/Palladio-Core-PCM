@@ -6,29 +6,19 @@
  */
 package de.uka.ipd.sdq.pcm.system.util;
 
-import de.uka.ipd.sdq.identifier.Identifier;
-
-import de.uka.ipd.sdq.pcm.core.composition.ComposedStructure;
-
-import de.uka.ipd.sdq.pcm.core.entity.Entity;
-
-import de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingEntity;
-import de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingRequiringEntity;
-import de.uka.ipd.sdq.pcm.core.entity.InterfaceRequiringEntity;
-import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
-
-import de.uka.ipd.sdq.pcm.core.stochastics.RandomVariable;
-
-import de.uka.ipd.sdq.pcm.repository.ProvidedRole;
-import de.uka.ipd.sdq.pcm.repository.RequiredRole;
-import de.uka.ipd.sdq.pcm.repository.Role;
-
-import de.uka.ipd.sdq.pcm.system.SystemPackage;
-
 import java.util.List;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
+
+import de.uka.ipd.sdq.identifier.Identifier;
+import de.uka.ipd.sdq.pcm.core.composition.ComposedStructure;
+import de.uka.ipd.sdq.pcm.core.entity.Entity;
+import de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingEntity;
+import de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingRequiringEntity;
+import de.uka.ipd.sdq.pcm.core.entity.InterfaceRequiringEntity;
+import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
+import de.uka.ipd.sdq.pcm.system.SystemPackage;
 
 /**
  * <!-- begin-user-doc -->

@@ -53,7 +53,7 @@ Copyright 2006 SDQ Research Group, University of Karlsruhe (TH)
    <extension point="org.eclipse.ui.popupMenus">
       <objectContribution
             id="de.uka.ipd.sdq.pcm.gmf.seff.ui.objectContribution.IFile1"
-            nameFilter="*.pcm"
+            nameFilter="*.repository"
             objectClass="org.eclipse.core.resources.IFile">
          <action
                label="Initialize seff_diagram diagram file"

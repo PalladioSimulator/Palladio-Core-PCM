@@ -7,11 +7,10 @@
  */
 package de.uka.ipd.sdq.pcm.parameter;
 
-import de.uka.ipd.sdq.pcm.repository.Parameter;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EObject;
+
+import de.uka.ipd.sdq.pcm.repository.Parameter;
 
 /**
  * <!-- begin-user-doc -->

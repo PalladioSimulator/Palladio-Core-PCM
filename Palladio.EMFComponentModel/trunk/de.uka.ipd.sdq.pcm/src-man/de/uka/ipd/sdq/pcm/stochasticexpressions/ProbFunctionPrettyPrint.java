@@ -1,6 +1,5 @@
 package de.uka.ipd.sdq.pcm.stochasticexpressions;
 
-import java.util.Iterator;
 import java.util.List;
 
 import de.uka.ipd.sdq.probfunction.BoxedPDF;

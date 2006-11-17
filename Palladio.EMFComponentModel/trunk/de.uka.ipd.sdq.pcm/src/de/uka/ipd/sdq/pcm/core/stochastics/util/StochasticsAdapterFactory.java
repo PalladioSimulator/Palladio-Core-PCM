@@ -10,10 +10,26 @@ import de.uka.ipd.sdq.pcm.core.stochastics.*;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
-
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
-
 import org.eclipse.emf.ecore.EObject;
+
+import de.uka.ipd.sdq.pcm.core.stochastics.Atom;
+import de.uka.ipd.sdq.pcm.core.stochastics.CompareExpression;
+import de.uka.ipd.sdq.pcm.core.stochastics.Comparison;
+import de.uka.ipd.sdq.pcm.core.stochastics.DoubleLiteral;
+import de.uka.ipd.sdq.pcm.core.stochastics.Expression;
+import de.uka.ipd.sdq.pcm.core.stochastics.IntLiteral;
+import de.uka.ipd.sdq.pcm.core.stochastics.NumericLiteral;
+import de.uka.ipd.sdq.pcm.core.stochastics.Parantesis;
+import de.uka.ipd.sdq.pcm.core.stochastics.Power;
+import de.uka.ipd.sdq.pcm.core.stochastics.ProbabilityFunctionLiteral;
+import de.uka.ipd.sdq.pcm.core.stochastics.Product;
+import de.uka.ipd.sdq.pcm.core.stochastics.ProductExpression;
+import de.uka.ipd.sdq.pcm.core.stochastics.RandomVariable;
+import de.uka.ipd.sdq.pcm.core.stochastics.StochasticsPackage;
+import de.uka.ipd.sdq.pcm.core.stochastics.Term;
+import de.uka.ipd.sdq.pcm.core.stochastics.TermExpression;
+import de.uka.ipd.sdq.pcm.core.stochastics.Variable;
 
 /**
  * <!-- begin-user-doc -->

@@ -6,17 +6,21 @@
  */
 package de.uka.ipd.sdq.pcm.core.composition.util;
 
-import de.uka.ipd.sdq.identifier.util.IdentifierValidator;
-
-import de.uka.ipd.sdq.pcm.core.composition.*;
-
 import java.util.Map;
 
 import org.eclipse.emf.common.util.DiagnosticChain;
-
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.util.EObjectValidator;
+
+import de.uka.ipd.sdq.identifier.util.IdentifierValidator;
+import de.uka.ipd.sdq.pcm.core.composition.*;
+
+import de.uka.ipd.sdq.pcm.core.composition.AssemblyConnector;
+import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
+import de.uka.ipd.sdq.pcm.core.composition.ComposedStructure;
+import de.uka.ipd.sdq.pcm.core.composition.CompositionPackage;
+import de.uka.ipd.sdq.pcm.core.composition.ProvidedDelegationConnector;
+import de.uka.ipd.sdq.pcm.core.composition.RequiredDelegationConnector;
 
 /**
  * <!-- begin-user-doc -->

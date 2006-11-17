@@ -3,10 +3,11 @@
  */
 package de.uka.ipd.sdq.pcm.gmf.repository.edit.policies;
 
-import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CanonicalEditPolicy;
-import org.eclipse.gmf.runtime.notation.View;
 import java.util.LinkedList;
 import java.util.List;
+
+import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CanonicalEditPolicy;
+import org.eclipse.gmf.runtime.notation.View;
 
 /**
  * @generated

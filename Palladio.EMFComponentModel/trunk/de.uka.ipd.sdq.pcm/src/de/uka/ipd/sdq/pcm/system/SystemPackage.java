@@ -6,15 +6,11 @@
  */
 package de.uka.ipd.sdq.pcm.system;
 
-import de.uka.ipd.sdq.pcm.core.composition.CompositionPackage;
-
-import de.uka.ipd.sdq.pcm.core.stochastics.StochasticsPackage;
-
-import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
+
+import de.uka.ipd.sdq.pcm.core.composition.CompositionPackage;
 
 /**
  * <!-- begin-user-doc -->

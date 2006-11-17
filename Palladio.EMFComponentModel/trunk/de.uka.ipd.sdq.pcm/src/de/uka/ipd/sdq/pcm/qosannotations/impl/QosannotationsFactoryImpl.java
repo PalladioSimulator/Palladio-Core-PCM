@@ -11,10 +11,15 @@ import de.uka.ipd.sdq.pcm.qosannotations.*;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
-
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
+
+import de.uka.ipd.sdq.pcm.qosannotations.ComponentSpecifiedExecutionTime;
+import de.uka.ipd.sdq.pcm.qosannotations.QoSAnnotations;
+import de.uka.ipd.sdq.pcm.qosannotations.QosannotationsFactory;
+import de.uka.ipd.sdq.pcm.qosannotations.QosannotationsPackage;
+import de.uka.ipd.sdq.pcm.qosannotations.SpecifiedFailureProbability;
+import de.uka.ipd.sdq.pcm.qosannotations.SystemSpecifiedExecutionTime;
 
 /**
  * <!-- begin-user-doc -->
