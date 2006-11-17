@@ -1,3 +1,4 @@
+
 package de.uka.ipd.sdq.probfunction.math.visualization;
 
 import java.awt.BorderLayout;
@@ -42,13 +43,13 @@ import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
 
 import de.uka.ipd.sdq.probfunction.math.IBoxedPDF;
-import de.uka.ipd.sdq.probfunction.math.IContinuousSample;
 import de.uka.ipd.sdq.probfunction.math.IProbabilityFunction;
 import de.uka.ipd.sdq.probfunction.math.IProbabilityFunctionFactory;
 import de.uka.ipd.sdq.probfunction.math.IProbabilityMassFunction;
-import de.uka.ipd.sdq.probfunction.math.ISample;
 import de.uka.ipd.sdq.probfunction.math.ISamplePDF;
-import de.uka.ipd.sdq.probfunction.math.exception.DoubleSampleException;
+import de.uka.ipd.sdq.probfunction.math.exception.DifferentDomainsException;
+import de.uka.ipd.sdq.probfunction.math.exception.UnknownPDFTypeException;
+import de.uka.ipd.sdq.probfunction.math.exception.UnorderedDomainException;
 
 /**
  * @author Ihssane
@@ -56,21 +57,31 @@ import de.uka.ipd.sdq.probfunction.math.exception.DoubleSampleException;
  */
 public class Visualization {
 
-	public static final int SWING_APPL = 0;
-	public static final int SWT_APPL = 1;
-	public static final int BARCHART = 0;
-	public static final int LINECHART = 1;
+	public static final int UNDEFINED = -1;
+
+	public enum ChartType {
+		BARCHART, LINECHART
+	};
+	public enum AppType {
+		SWING, SWT
+	};
+
 	private static final String EMPTY_TITLE = "";
 	private static final ColorDefinition DEFAULt_BACKGROUND = ColorDefinitionImpl
 			.WHITE();
+	private IProbabilityFunctionFactory dfFactory = IProbabilityFunctionFactory.eINSTANCE;
 
 	private IDeviceRenderer idr = null;
 	private Chart cm = null;
-	private int startAs = SWING_APPL;
-	private int chartTyp = BARCHART;
-	private int domainLength = 0;
-	private List<Object> values;
-	private List<Double> probabilities;
+	private AppType startAs = AppType.SWING;
+	private ChartType chartTyp = ChartType.BARCHART;
+	private List<FunctionWrapper> wrappers;
+	private int pmfCounter = 0;
+	private int pdfCounter = 0;
+	private double maxValue = UNDEFINED;
+	private double minValue = UNDEFINED;
+	private int maxLength = Integer.MIN_VALUE;
+	// private double distance;
 
 	private String frameTilte = EMPTY_TITLE;
 	private String chartTitle = EMPTY_TITLE;
@@ -83,46 +94,45 @@ public class Visualization {
 
 	public Visualization() {
 		System.setProperty("STANDALONE", "true");
-
+		wrappers = new ArrayList<FunctionWrapper>();
 	}
 
 	public static void main(String[] ihs) {
 		Visualization scv = new Visualization();
 		IProbabilityFunctionFactory pfFactory = IProbabilityFunctionFactory.eINSTANCE;
 
-		List<IContinuousSample> samples = new ArrayList<IContinuousSample>();
-		Collections.addAll(samples, pfFactory.createContinuousSample(0.9, 0.2),
-				pfFactory.createContinuousSample(1.5, 0.4), pfFactory
-						.createContinuousSample(1.8, 0.2), pfFactory
-						.createContinuousSample(2.4, 0.1), pfFactory
-						.createContinuousSample(0.7, 0.1));
-		IBoxedPDF boxed = null;
+		List<Double> samples = new ArrayList<Double>();
+		List<Double> samples2 = new ArrayList<Double>();
+		Collections.addAll(samples, 0.2, 0.1, 0.3, 0.4);
+		Collections.addAll(samples2, 0.1, 0.4, 0.2, 0.3, 0.5, 0.6);
+		ISamplePDF s = null;
+		s = pfFactory.createSamplePDFFromDouble(0.1, samples, null);
+
+		scv.startAs(AppType.SWT);
+		scv.setChartTyp(ChartType.LINECHART);
+
 		try {
-			boxed = pfFactory.createBoxedPDF(samples, null);
-		} catch (DoubleSampleException e) {
+			scv.addProbabilityFunction(s);
+			scv.addProbabilityFunction(pfFactory.createSamplePDFFromDouble(0.1,
+					samples2, null));
+
+		} catch (UnorderedDomainException e) {
+			e.printStackTrace();
+		} catch (UnknownPDFTypeException e) {
+			e.printStackTrace();
+		} catch (DifferentDomainsException e) {
 			e.printStackTrace();
 		}
-
-		scv.startAs(Visualization.SWT_APPL);
-		scv.setChartTyp(Visualization.BARCHART);
-		// scv.setDomainLength(5);
-		scv.addBoxedPDF(boxed);
-		scv.exportChartToPNG("chart.png");
+		scv.setMaxValue(0.4);
+		scv.setMinValue(0.1);
+//		 scv.exportChartToPNG("chart.png");
 		scv.visualize();
 
 	}
 
-	private void createChart() {
-		if (values == null || probabilities == null) {
-			System.err.println("no data to visualize !");
-			return;
-		}
-		createChart(values, probabilities);
-	}
-	
 	public void visualize() {
 		createChart();
-		if (startAs == SWT_APPL)
+		if (startAs == AppType.SWT)
 			renderOnSwt();
 		else
 			renderOnSwing();
@@ -181,132 +191,102 @@ public class Visualization {
 		jf.setVisible(true);
 	}
 
-	public void addProbabilityFunction(IProbabilityFunction pf) {
+	public void addProbabilityFunction(IProbabilityFunction pf)
+			throws UnorderedDomainException, UnknownPDFTypeException,
+			DifferentDomainsException {
+		FunctionWrapper wrapper = new FunctionWrapper();
 		if (pf instanceof IProbabilityMassFunction) {
 			IProbabilityMassFunction pmf = (IProbabilityMassFunction) pf;
-			addPMF(pmf);
+			if (!checkNewPMF(pmf))
+				throw new DifferentDomainsException();
+			wrapper.addPMF(pmf);
+			pmfCounter++;
 		} else if (pf instanceof IBoxedPDF) {
 			IBoxedPDF boxedPDF = (IBoxedPDF) pf;
-			addBoxedPDF(boxedPDF);
+			addProbabilityFunction(dfFactory.transformToSamplePDF(boxedPDF));
+			return;
 		}
 		if (pf instanceof ISamplePDF) {
 			ISamplePDF samplePDF = (ISamplePDF) pf;
-			addSamplePDF(samplePDF);
+			if (!checkNewSamplePDF(samplePDF))
+				throw new DifferentDomainsException();
+			wrapper.addSamplePDF(samplePDF);
+			maxLength = Math.max(maxLength, samplePDF.getValues().size());
+			pdfCounter++;
 		}
+		wrappers.add(wrapper);
 	}
 
-	/**
-	 * @param pmf
-	 */
-	private void addPMF(IProbabilityMassFunction pmf) {
-		List<Object> values = new ArrayList<Object>();
-		List<Double> probs = new ArrayList<Double>();
-		for (ISample s : pmf.getSamples()) {
-			values.add(s.getValue());
-			probs.add(s.getProbability());
+	private boolean checkNewPMF(IProbabilityMassFunction pmf) {
+		if (pdfCounter > 0)
+			return false;
+
+		if (!pmf.haveSameDomain((IProbabilityMassFunction) wrappers.get(0)
+				.getOriginal()))
+			return false;
+		if (!pmf.hasOrderedDomain())
+			return false;
+		
+		return true;
+	}
+
+	private boolean checkNewSamplePDF(ISamplePDF samplePDF) {
+		if (pmfCounter > 0)
+			return false;
+		return true;
+	}
+
+	@SuppressWarnings({"unchecked", "deprecation"})
+	private void createChart() {
+
+		if (wrappers.size() == 0) {
+			System.err.println("no data to visualize !");
+			return;
 		}
-		this.values = values;
-		this.probabilities = probs;
-	}
 
-	/**
-	 * @param spdf
-	 */
-	private void addSamplePDF(ISamplePDF spdf) {
-		List<Object> values = new ArrayList<Object>();
-		for (int i = 1; i <= spdf.getValues().size(); i++)
-			values.add(new Double(i));
-		this.values = values;
-		this.probabilities = spdf.getValuesAsDouble();
-	}
-
-	/**
-	 * @param bpdf
-	 */
-	private void addBoxedPDF(IBoxedPDF bpdf) {
-		List<Object> values = new ArrayList<Object>();
-		List<Double> probs = new ArrayList<Double>();
-		for (IContinuousSample s : bpdf.getSamples()) {
-			values.add(s.getValue());
-			probs.add(s.getProbability());
+		for (FunctionWrapper w : wrappers) {
+			w.setMax(maxValue);
+			w.setMin(minValue);
+			w.setValuesSize(maxLength);
 		}
-		this.values = values;
-		this.probabilities = probs;
-	}
 
-	@SuppressWarnings("unchecked")
-	private void createChart(List<Object> values, List<Double> prob) {
-
-		// BAR CHARTS ARE BASED ON CHARTS THAT CONTAIN AXES
-		ChartWithAxes cwaBar = ChartWithAxesImpl.create();
-		cwaBar.getBlock().setBackground(backgroung);
-		cwaBar.getBlock().getOutline().setVisible(true);
-		cwaBar.setDimension(ChartDimension.TWO_DIMENSIONAL_LITERAL);
+		ChartWithAxes cwa = ChartWithAxesImpl.create();
+		cwa.getBlock().setBackground(backgroung);
+		cwa.getBlock().getOutline().setVisible(true);
+		cwa.setDimension(ChartDimension.TWO_DIMENSIONAL_LITERAL);
 
 		// CUSTOMIZE THE PLOT
-		Plot p = cwaBar.getPlot();
+		Plot p = cwa.getPlot();
 		p.getClientArea().setBackground(
 				ColorDefinitionImpl.create(255, 255, 225));
 		p.getOutline().setVisible(true);
-		cwaBar.getTitle().getLabel().getCaption().setValue(chartTitle);
-		cwaBar.getTitle().setVisible(isChartTilteVisible);
+		cwa.getTitle().getLabel().getCaption().setValue(chartTitle);
+		cwa.getTitle().setVisible(isChartTilteVisible);
 
 		// CUSTOMIZE THE LEGEND
-		cwaBar.getLegend().setVisible(false);
-		// Legend lg = cwaBar.getLegend();
-		// lg.getText().getFont().setSize(16);
-		// lg.getInsets().set(10, 5, 0, 0);
-		// lg.setAnchor(Anchor.NORTH_LITERAL);
+		cwa.getLegend().setVisible(false);
 
 		// CUSTOMIZE THE X-AXIS
-		Axis xAxisPrimary = cwaBar.getPrimaryBaseAxes()[0];
-		// xAxisPrimary.setType(AxisType.TEXT_LITERAL);
-		// xAxisPrimary.getMajorGrid().setTickStyle(TickStyle.BELOW_LITERAL);
-		// xAxisPrimary.getOrigin().setType(IntersectionType.VALUE_LITERAL);
+		Axis xAxisPrimary = cwa.getPrimaryBaseAxes()[0];
 		xAxisPrimary.getTitle().getCaption().setValue(xAxisTitle);
 		xAxisPrimary.getTitle().setVisible(isXAxisTitleVisible);
 
 		// CUSTOMIZE THE Y-AXIS
-		Axis yAxisPrimary = cwaBar.getPrimaryOrthogonalAxis(xAxisPrimary);
-		// yAxisPrimary.getMajorGrid().setTickStyle(TickStyle.LEFT_LITERAL);
-		// yAxisPrimary.getMajorGrid().setTickCount(2);
-		// yAxisPrimary.getMajorGrid().setTickSize(10);
-		// yAxisPrimary.setType(AxisType.LINEAR_LITERAL);
-		// yAxisPrimary.getLabel().getCaption().getFont().setRotation(90);
+		Axis yAxisPrimary = cwa.getPrimaryOrthogonalAxis(xAxisPrimary);
+//		yAxisPrimary.getMajorGrid().setTickSize(0.1);
+//		yAxisPrimary.setFormatSpecifier(new FormatSpecifierImpl().)
 		yAxisPrimary.getTitle().getCaption().setValue(yAxisTitle);
 		yAxisPrimary.getTitle().setVisible(isYAxisTitleVisible);
 
-		if (domainLength > 0 && domainLength <= values.size()) {
-			values = values.subList(0, domainLength);
-			prob = prob.subList(0, domainLength);
-		}
 		// INITIALIZE A COLLECTION WITH THE X-SERIES DATA
-		TextDataSet categoryValues = TextDataSetImpl.create(values);
-
-		// INITIALIZE A COLLECTION WITH THE Y-SERIES DATA
-		NumberDataSet orthoValues1 = NumberDataSetImpl.create(prob);
+		TextDataSet categoryValues = TextDataSetImpl.create(wrappers.get(0)
+				.getValues());
 
 		// CREATE THE CATEGORY BASE SERIES
 
 		Series seCategory = SeriesImpl.create();
 		seCategory.setDataSet(categoryValues);
-
-		// CREATE THE VALUE ORTHOGONAL SERIES
-		Series series = null;
-		if (chartTyp == LINECHART) {
-			series = (LineSeries) LineSeriesImpl.create();
-			cwaBar.setDimension(ChartDimension.TWO_DIMENSIONAL_LITERAL);
-		} else {
-			series = (BarSeries) BarSeriesImpl.create();
-			cwaBar
-					.setDimension(ChartDimension.TWO_DIMENSIONAL_WITH_DEPTH_LITERAL);
-		}
-
-		// CREATE THE VALUE ORTHOGONAL SERIES
-		series.setSeriesIdentifier("My Bar Series");
-		series.setDataSet(orthoValues1);
-		series.getLabel().setVisible(true);
-		// series.setLabelPosition(Position.INSIDE_LITERAL);
+		// INITIALIZE A COLLECTION WITH THE Y-SERIES DATA
 
 		// WRAP THE BASE SERIES IN THE X-AXIS SERIES DEFINITION
 
@@ -315,23 +295,43 @@ public class Visualization {
 		xAxisPrimary.getSeriesDefinitions().add(sdX);
 		sdX.getSeries().add(seCategory);
 
-		// WRAP THE ORTHOGONAL SERIES IN THE X-AXIS SERIES DEFINITION
+		NumberDataSet orthoValues1 = null;
+		Series series = null;
+		for (FunctionWrapper wrapper : wrappers) {
+			orthoValues1 = NumberDataSetImpl.create(wrapper.getProbabilities());
+			// CREATE THE VALUE ORTHOGONAL SERIES
+			if (chartTyp == ChartType.LINECHART) {
+				series = (LineSeries) LineSeriesImpl.create();
+				cwa.setDimension(ChartDimension.TWO_DIMENSIONAL_LITERAL);
+				((LineSeries) series).setConnectMissingValue(true);
+				((LineSeries) series).getMarker().setVisible(false);
+				
+			} else {
+				series = (BarSeries) BarSeriesImpl.create();
+				cwa
+						.setDimension(ChartDimension.TWO_DIMENSIONAL_WITH_DEPTH_LITERAL);
+			}
+			// CREATE THE VALUE ORTHOGONAL SERIES
+			series.setSeriesIdentifier("My Bar Series");
+			series.setDataSet(orthoValues1);
+			series.getLabel().setVisible(false);
 
-		SeriesDefinition sdY = SeriesDefinitionImpl.create();
-		sdY.getSeriesPalette().update(1); // SET THE COLOR IN THE PALETTE
-		yAxisPrimary.getSeriesDefinitions().add(sdY);
-		sdY.getSeries().add(series);
+			// WRAP THE ORTHOGONAL SERIES IN THE X-AXIS SERIES DEFINITION
 
-		cm = cwaBar;
+			SeriesDefinition sdY = SeriesDefinitionImpl.create();
+			sdY.getSeriesPalette().update(1); // SET THE COLOR IN THE PALETTE
+			yAxisPrimary.getSeriesDefinitions().add(sdY);
+			sdY.getSeries().add(series);
+		}
+		cm = cwa;
 	}
-
 	public void exportChartToPNG(String fileName) {
-		if (values == null || probabilities == null) {
+		if (wrappers.size() == 0) {
 			System.err.println("no data to visualize !");
 			return;
 		}
-		createChart(values, probabilities);
-		
+		createChart();
+
 		PNGExporter pngr = new PNGExporter(cm);
 		pngr.exportChartToPNGImage(fileName);
 	}
@@ -339,7 +339,7 @@ public class Visualization {
 	/**
 	 * 
 	 */
-	public void startAs(int app) {
+	public void startAs(AppType app) {
 		this.startAs = app;
 	}
 
@@ -466,7 +466,7 @@ public class Visualization {
 	/**
 	 * @return the chartTyp
 	 */
-	public int getChartTyp() {
+	public ChartType getChartTyp() {
 		return chartTyp;
 	}
 
@@ -474,20 +474,24 @@ public class Visualization {
 	 * @param chartTyp
 	 *            the chartTyp to set
 	 */
-	public void setChartTyp(int chartTyp) {
-		if (chartTyp != BARCHART && chartTyp != LINECHART) {
-			System.err.println("Illegal chart typ: " + chartTyp);
-			return;
-		}
+	public void setChartTyp(ChartType chartTyp) {
 		this.chartTyp = chartTyp;
 	}
 
 	/**
-	 * @param domainLength
-	 *            the domainLength to set
+	 * @param maxValue
+	 *            the maxValue to set
 	 */
-	public void setDomainLength(int domainLength) {
-		this.domainLength = domainLength;
+	public void setMaxValue(double maxValue) {
+		this.maxValue = maxValue;
+	}
+
+	/**
+	 * @param minValue
+	 *            the minValue to set
+	 */
+	public void setMinValue(double minValue) {
+		this.minValue = minValue;
 	}
 
 }
