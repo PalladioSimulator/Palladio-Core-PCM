@@ -8,10 +8,14 @@ import java.io.StringBufferInputStream;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.jface.dialogs.Dialog;
 import org.eclipse.jface.dialogs.MessageDialog;
+import org.eclipse.jface.text.Document;
+import org.eclipse.jface.text.source.SourceViewer;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.GridData;
+import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
+import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
 
@@ -29,7 +33,8 @@ import de.uka.ipd.sdq.pcm.stochasticexpressions.parser.StochasticExpressionsPars
 public class StoachasticExpressionEditDialog extends Dialog {
 
 	private Expression result;
-	private Text editText;
+	//private Text editText;
+	private SourceViewer textViewer;
 	private String newText = "= ";
 
 	/**
@@ -57,8 +62,9 @@ public class StoachasticExpressionEditDialog extends Dialog {
 		EObject value = null;
 		
 		try {
+			String text = this.textViewer.getDocument().get();
 			StochasticExpressionsLexer lexer = new StochasticExpressionsLexer(
-					new StringBufferInputStream(editText.getText()));
+					new StringBufferInputStream(text));
 			StochasticExpressionsParser parser = new StochasticExpressionsParser(lexer);
 			value = parser.expression();
 		} catch (RecognitionException e) {
@@ -80,13 +86,20 @@ public class StoachasticExpressionEditDialog extends Dialog {
 
 	@Override
 	protected Control createDialogArea(Composite parent) {
-		editText = new Text((Composite) parent,SWT.MULTI);
+
+		final Group editStochasticExpressionGroup = new Group(parent, SWT.NONE);
+		editStochasticExpressionGroup.setText("Edit stochastic expression");
+		editStochasticExpressionGroup.setLayout(new GridLayout());
+		//editText = new Text((Composite) parent,SWT.MULTI);
+		textViewer = new SourceViewer(editStochasticExpressionGroup,null, SWT.V_SCROLL | SWT.MULTI | SWT.BORDER | SWT.WRAP);
 		GridData layoutData = new GridData(GridData.FILL_BOTH|GridData.GRAB_HORIZONTAL|GridData.GRAB_VERTICAL);
 		layoutData.heightHint = 300;
 		layoutData.widthHint = 450;
-		editText.setLayoutData(layoutData);
-		editText.setText(newText);
-		return editText;
+		textViewer.getControl().setLayoutData(layoutData);
+		//editText.setText(newText);
+		textViewer.setDocument(new Document(newText));
+		textViewer.configure(new StoExSourceViewerConfiguration());
+		return textViewer.getControl();
 	}
 	
 	public Expression getResult()
