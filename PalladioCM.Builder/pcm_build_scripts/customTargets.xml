@@ -85,6 +85,9 @@
 		<exec executable="svn.exe">
 		  <arg line="co svn://i43pc13.ipd.uka.de/code/PalladioCM.DerivedContext/trunk ${rootSourceFolder}/Context --username ${svnUserName}"/>
 		</exec>
+		<exec executable="svn.exe">
+		  <arg line="co svn://i43pc13.ipd.uka.de/code/PalladioCM.PCMBench/trunk ${rootSourceFolder}/PCMBench --username ${svnUserName}"/>
+		</exec>
 	</target>
 
 	<!-- ===================================================================== -->
