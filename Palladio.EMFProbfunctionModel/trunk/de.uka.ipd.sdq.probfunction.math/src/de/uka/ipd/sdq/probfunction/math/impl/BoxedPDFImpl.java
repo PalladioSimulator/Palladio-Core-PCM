@@ -13,7 +13,6 @@ import java.util.List;
 import de.uka.ipd.sdq.probfunction.math.IBoxedPDF;
 import de.uka.ipd.sdq.probfunction.math.IContinuousSample;
 import de.uka.ipd.sdq.probfunction.math.IProbabilityDensityFunction;
-import de.uka.ipd.sdq.probfunction.math.IProbabilityFunction;
 import de.uka.ipd.sdq.probfunction.math.IRandomGenerator;
 import de.uka.ipd.sdq.probfunction.math.ISamplePDF;
 import de.uka.ipd.sdq.probfunction.math.IUnit;
@@ -227,7 +226,7 @@ public class BoxedPDFImpl extends ProbabilityDensityFunctionImpl
 		return result;
 	}
 
-	public IProbabilityFunction getCumulativeFunction() {
+	public IProbabilityDensityFunction getCumulativeFunction() {
 		List<Double> newProb = MathTools
 				.computeIntervalsOfProb(getProbabilities());
 		List<IContinuousSample> newSamples = new ArrayList<IContinuousSample>();
