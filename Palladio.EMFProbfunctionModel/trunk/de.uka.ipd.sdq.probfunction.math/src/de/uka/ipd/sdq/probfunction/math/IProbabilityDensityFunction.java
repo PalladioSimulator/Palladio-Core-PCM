@@ -162,5 +162,12 @@ public interface IProbabilityDensityFunction extends IProbabilityFunction {
 	 */
 	IProbabilityDensityFunction getInverseFourierTransform()
 			throws FunctionNotInFrequencyDomainException;
-
+	
+	/**
+	 * returns the cumulative probability function associated with this
+	 * probability function.
+	 * 
+	 * @return the computed cumulative probability function.
+	 */
+	IProbabilityDensityFunction getCumulativeFunction();
 }

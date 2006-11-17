@@ -106,12 +106,5 @@ public interface IProbabilityFunction {
 	 * @return True, if all constraints are fulfilled
 	 */
 	boolean checkConstrains();
-	
-	/**
-     * returns the cumulative probability function associated with this 
-	 * probability function.
-	 * 
-	 * @return the computed cumulative probability function.
-	 */
-	IProbabilityFunction getCumulativeFunction();
+
 }

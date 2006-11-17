@@ -198,4 +198,18 @@ public interface IProbabilityMassFunction extends IProbabilityFunction {
 	 */
 	void setSamples(List<ISample> samples);
 
+	/**
+	 * @param pmf
+	 * @return
+	 */
+	boolean haveSameDomain(IProbabilityMassFunction pmf);
+
+	/**
+	 * returns the cumulative probability function associated with this
+	 * probability function.
+	 * 
+	 * @return the computed cumulative probability function.
+	 */
+	IProbabilityMassFunction getCumulativeFunction();
+
 }
