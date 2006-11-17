@@ -342,7 +342,7 @@ public class LoopIterationsLabelEditPart extends CompartmentEditPart implements
 
 				public Object getAdapter(Class adapter) {
 					if (IElementType.class.equals(adapter)) {
-						return PcmElementTypes.LoopAction_2004;
+						return PcmElementTypes.LoopAction_2005;
 					}
 					return super.getAdapter(adapter);
 				}

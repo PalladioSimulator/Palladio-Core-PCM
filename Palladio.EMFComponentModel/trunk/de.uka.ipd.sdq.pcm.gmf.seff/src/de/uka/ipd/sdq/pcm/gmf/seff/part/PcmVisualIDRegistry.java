@@ -16,10 +16,14 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ExternalCallAction2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ExternalCallActionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ExternalCallActionEntityName2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ExternalCallActionEntityNameEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ExternalCallActionParameterUsage2EditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ExternalCallActionParameterUsageEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.InternalAction2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.InternalActionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.InternalActionEntityName2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.InternalActionEntityNameEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.InternalActionResourceDemandResourceDemandingActionCompartment2EditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.InternalActionResourceDemandResourceDemandingActionCompartmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopAction2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopActionBehaviourCompartment2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopActionBehaviourCompartmentEditPart;
@@ -28,6 +32,8 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopActionEntityName2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopActionEntityNameEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopIterationsLabel2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopIterationsLabelEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ParametricResourceDemandEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.PrimitiveParameterUsageEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviour2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviourBranchCompartmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviourEditPart;
@@ -37,6 +43,9 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.StartAction2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.StartActionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.StopAction2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.StopActionEditPart;
+
+import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
+import de.uka.ipd.sdq.pcm.parameter.PrimitiveParameterUsage;
 
 import de.uka.ipd.sdq.pcm.seff.BranchAction;
 import de.uka.ipd.sdq.pcm.seff.BranchTransition;
@@ -197,6 +206,9 @@ public class PcmVisualIDRegistry {
 			if (ExternalCallActionEntityNameEditPart.VISUAL_ID == nodeVisualID) {
 				return ExternalCallActionEntityNameEditPart.VISUAL_ID;
 			}
+			if (ExternalCallActionParameterUsageEditPart.VISUAL_ID == nodeVisualID) {
+				return ExternalCallActionParameterUsageEditPart.VISUAL_ID;
+			}
 			return getUnrecognizedExternalCallAction_1003ChildNodeID(
 					domainElement, semanticHint);
 		case LoopActionEditPart.VISUAL_ID:
@@ -224,19 +236,25 @@ public class PcmVisualIDRegistry {
 			if (InternalActionEntityName2EditPart.VISUAL_ID == nodeVisualID) {
 				return InternalActionEntityName2EditPart.VISUAL_ID;
 			}
+			if (InternalActionResourceDemandResourceDemandingActionCompartment2EditPart.VISUAL_ID == nodeVisualID) {
+				return InternalActionResourceDemandResourceDemandingActionCompartment2EditPart.VISUAL_ID;
+			}
 			return getUnrecognizedInternalAction_1006ChildNodeID(domainElement,
 					semanticHint);
+		case PrimitiveParameterUsageEditPart.VISUAL_ID:
+			return getUnrecognizedPrimitiveParameterUsage_2001ChildNodeID(
+					domainElement, semanticHint);
 		case ResourceDemandingBehaviourEditPart.VISUAL_ID:
 			if (ResourceDemandingBehaviourLoopCompartmentEditPart.VISUAL_ID == nodeVisualID) {
 				return ResourceDemandingBehaviourLoopCompartmentEditPart.VISUAL_ID;
 			}
-			return getUnrecognizedResourceDemandingBehaviour_2001ChildNodeID(
+			return getUnrecognizedResourceDemandingBehaviour_2002ChildNodeID(
 					domainElement, semanticHint);
 		case StartAction2EditPart.VISUAL_ID:
-			return getUnrecognizedStartAction_2002ChildNodeID(domainElement,
+			return getUnrecognizedStartAction_2003ChildNodeID(domainElement,
 					semanticHint);
 		case StopAction2EditPart.VISUAL_ID:
-			return getUnrecognizedStopAction_2003ChildNodeID(domainElement,
+			return getUnrecognizedStopAction_2004ChildNodeID(domainElement,
 					semanticHint);
 		case LoopAction2EditPart.VISUAL_ID:
 			if (LoopActionEntityNameEditPart.VISUAL_ID == nodeVisualID) {
@@ -248,14 +266,20 @@ public class PcmVisualIDRegistry {
 			if (LoopActionBehaviourCompartment2EditPart.VISUAL_ID == nodeVisualID) {
 				return LoopActionBehaviourCompartment2EditPart.VISUAL_ID;
 			}
-			return getUnrecognizedLoopAction_2004ChildNodeID(domainElement,
+			return getUnrecognizedLoopAction_2005ChildNodeID(domainElement,
 					semanticHint);
 		case InternalActionEditPart.VISUAL_ID:
 			if (InternalActionEntityNameEditPart.VISUAL_ID == nodeVisualID) {
 				return InternalActionEntityNameEditPart.VISUAL_ID;
 			}
-			return getUnrecognizedInternalAction_2005ChildNodeID(domainElement,
+			if (InternalActionResourceDemandResourceDemandingActionCompartmentEditPart.VISUAL_ID == nodeVisualID) {
+				return InternalActionResourceDemandResourceDemandingActionCompartmentEditPart.VISUAL_ID;
+			}
+			return getUnrecognizedInternalAction_2006ChildNodeID(domainElement,
 					semanticHint);
+		case ParametricResourceDemandEditPart.VISUAL_ID:
+			return getUnrecognizedParametricResourceDemand_2007ChildNodeID(
+					domainElement, semanticHint);
 		case BranchActionEditPart.VISUAL_ID:
 			if (BranchActionEntityNameEditPart.VISUAL_ID == nodeVisualID) {
 				return BranchActionEntityNameEditPart.VISUAL_ID;
@@ -263,7 +287,7 @@ public class PcmVisualIDRegistry {
 			if (BranchActionBranchTransitionCompartmentEditPart.VISUAL_ID == nodeVisualID) {
 				return BranchActionBranchTransitionCompartmentEditPart.VISUAL_ID;
 			}
-			return getUnrecognizedBranchAction_2006ChildNodeID(domainElement,
+			return getUnrecognizedBranchAction_2008ChildNodeID(domainElement,
 					semanticHint);
 		case BranchTransitionEditPart.VISUAL_ID:
 			if (BranchTransitionProbabilityDiagramLabelEditPart.VISUAL_ID == nodeVisualID) {
@@ -272,142 +296,181 @@ public class PcmVisualIDRegistry {
 			if (BranchTransitionBehaviourCompartmentEditPart.VISUAL_ID == nodeVisualID) {
 				return BranchTransitionBehaviourCompartmentEditPart.VISUAL_ID;
 			}
-			return getUnrecognizedBranchTransition_2007ChildNodeID(
+			return getUnrecognizedBranchTransition_2009ChildNodeID(
 					domainElement, semanticHint);
 		case ResourceDemandingBehaviour2EditPart.VISUAL_ID:
 			if (ResourceDemandingBehaviourBranchCompartmentEditPart.VISUAL_ID == nodeVisualID) {
 				return ResourceDemandingBehaviourBranchCompartmentEditPart.VISUAL_ID;
 			}
-			return getUnrecognizedResourceDemandingBehaviour_2008ChildNodeID(
+			return getUnrecognizedResourceDemandingBehaviour_2010ChildNodeID(
 					domainElement, semanticHint);
 		case ExternalCallAction2EditPart.VISUAL_ID:
 			if (ExternalCallActionEntityName2EditPart.VISUAL_ID == nodeVisualID) {
 				return ExternalCallActionEntityName2EditPart.VISUAL_ID;
 			}
-			return getUnrecognizedExternalCallAction_2009ChildNodeID(
+			if (ExternalCallActionParameterUsage2EditPart.VISUAL_ID == nodeVisualID) {
+				return ExternalCallActionParameterUsage2EditPart.VISUAL_ID;
+			}
+			return getUnrecognizedExternalCallAction_2011ChildNodeID(
+					domainElement, semanticHint);
+		case ExternalCallActionParameterUsageEditPart.VISUAL_ID:
+			if ((semanticHint == null || PrimitiveParameterUsageEditPart.VISUAL_ID == nodeVisualID)
+					&& ParameterPackage.eINSTANCE.getPrimitiveParameterUsage()
+							.isSuperTypeOf(domainElementMetaclass)
+					&& (domainElement == null || isNodePrimitiveParameterUsage_2001((PrimitiveParameterUsage) domainElement))) {
+				return PrimitiveParameterUsageEditPart.VISUAL_ID;
+			}
+			return getUnrecognizedExternalCallActionParameterUsage_5001ChildNodeID(
 					domainElement, semanticHint);
 		case LoopActionBehaviourCompartmentEditPart.VISUAL_ID:
 			if ((semanticHint == null || ResourceDemandingBehaviourEditPart.VISUAL_ID == nodeVisualID)
 					&& SeffPackage.eINSTANCE.getResourceDemandingBehaviour()
 							.isSuperTypeOf(domainElementMetaclass)
-					&& (domainElement == null || isNodeResourceDemandingBehaviour_2001((ResourceDemandingBehaviour) domainElement))) {
+					&& (domainElement == null || isNodeResourceDemandingBehaviour_2002((ResourceDemandingBehaviour) domainElement))) {
 				return ResourceDemandingBehaviourEditPart.VISUAL_ID;
 			}
-			return getUnrecognizedLoopActionBehaviourCompartment_5001ChildNodeID(
+			return getUnrecognizedLoopActionBehaviourCompartment_5002ChildNodeID(
 					domainElement, semanticHint);
 		case ResourceDemandingBehaviourLoopCompartmentEditPart.VISUAL_ID:
 			if ((semanticHint == null || StartAction2EditPart.VISUAL_ID == nodeVisualID)
 					&& SeffPackage.eINSTANCE.getStartAction().isSuperTypeOf(
 							domainElementMetaclass)
-					&& (domainElement == null || isNodeStartAction_2002((StartAction) domainElement))) {
+					&& (domainElement == null || isNodeStartAction_2003((StartAction) domainElement))) {
 				return StartAction2EditPart.VISUAL_ID;
 			}
 			if ((semanticHint == null || StopAction2EditPart.VISUAL_ID == nodeVisualID)
 					&& SeffPackage.eINSTANCE.getStopAction().isSuperTypeOf(
 							domainElementMetaclass)
-					&& (domainElement == null || isNodeStopAction_2003((StopAction) domainElement))) {
+					&& (domainElement == null || isNodeStopAction_2004((StopAction) domainElement))) {
 				return StopAction2EditPart.VISUAL_ID;
 			}
 			if ((semanticHint == null || LoopAction2EditPart.VISUAL_ID == nodeVisualID)
 					&& SeffPackage.eINSTANCE.getLoopAction().isSuperTypeOf(
 							domainElementMetaclass)
-					&& (domainElement == null || isNodeLoopAction_2004((LoopAction) domainElement))) {
+					&& (domainElement == null || isNodeLoopAction_2005((LoopAction) domainElement))) {
 				return LoopAction2EditPart.VISUAL_ID;
 			}
 			if ((semanticHint == null || InternalActionEditPart.VISUAL_ID == nodeVisualID)
 					&& SeffPackage.eINSTANCE.getInternalAction().isSuperTypeOf(
 							domainElementMetaclass)
-					&& (domainElement == null || isNodeInternalAction_2005((InternalAction) domainElement))) {
+					&& (domainElement == null || isNodeInternalAction_2006((InternalAction) domainElement))) {
 				return InternalActionEditPart.VISUAL_ID;
 			}
 			if ((semanticHint == null || BranchActionEditPart.VISUAL_ID == nodeVisualID)
 					&& SeffPackage.eINSTANCE.getBranchAction().isSuperTypeOf(
 							domainElementMetaclass)
-					&& (domainElement == null || isNodeBranchAction_2006((BranchAction) domainElement))) {
+					&& (domainElement == null || isNodeBranchAction_2008((BranchAction) domainElement))) {
 				return BranchActionEditPart.VISUAL_ID;
 			}
 			if ((semanticHint == null || ExternalCallAction2EditPart.VISUAL_ID == nodeVisualID)
 					&& SeffPackage.eINSTANCE.getExternalCallAction()
 							.isSuperTypeOf(domainElementMetaclass)
-					&& (domainElement == null || isNodeExternalCallAction_2009((ExternalCallAction) domainElement))) {
+					&& (domainElement == null || isNodeExternalCallAction_2011((ExternalCallAction) domainElement))) {
 				return ExternalCallAction2EditPart.VISUAL_ID;
 			}
-			return getUnrecognizedResourceDemandingBehaviourLoopCompartment_5002ChildNodeID(
+			return getUnrecognizedResourceDemandingBehaviourLoopCompartment_5003ChildNodeID(
 					domainElement, semanticHint);
 		case LoopActionBehaviourCompartment2EditPart.VISUAL_ID:
 			if ((semanticHint == null || ResourceDemandingBehaviourEditPart.VISUAL_ID == nodeVisualID)
 					&& SeffPackage.eINSTANCE.getResourceDemandingBehaviour()
 							.isSuperTypeOf(domainElementMetaclass)
-					&& (domainElement == null || isNodeResourceDemandingBehaviour_2001((ResourceDemandingBehaviour) domainElement))) {
+					&& (domainElement == null || isNodeResourceDemandingBehaviour_2002((ResourceDemandingBehaviour) domainElement))) {
 				return ResourceDemandingBehaviourEditPart.VISUAL_ID;
 			}
-			return getUnrecognizedLoopActionBehaviourCompartment_5003ChildNodeID(
+			return getUnrecognizedLoopActionBehaviourCompartment_5004ChildNodeID(
+					domainElement, semanticHint);
+		case InternalActionResourceDemandResourceDemandingActionCompartmentEditPart.VISUAL_ID:
+			if ((semanticHint == null || ParametricResourceDemandEditPart.VISUAL_ID == nodeVisualID)
+					&& SeffPackage.eINSTANCE.getParametricResourceDemand()
+							.isSuperTypeOf(domainElementMetaclass)
+					&& (domainElement == null || isNodeParametricResourceDemand_2007((ParametricResourceDemand) domainElement))) {
+				return ParametricResourceDemandEditPart.VISUAL_ID;
+			}
+			return getUnrecognizedInternalActionResourceDemandResourceDemandingActionCompartment_5005ChildNodeID(
 					domainElement, semanticHint);
 		case BranchActionBranchTransitionCompartmentEditPart.VISUAL_ID:
 			if ((semanticHint == null || BranchTransitionEditPart.VISUAL_ID == nodeVisualID)
 					&& SeffPackage.eINSTANCE.getBranchTransition()
 							.isSuperTypeOf(domainElementMetaclass)
-					&& (domainElement == null || isNodeBranchTransition_2007((BranchTransition) domainElement))) {
+					&& (domainElement == null || isNodeBranchTransition_2009((BranchTransition) domainElement))) {
 				return BranchTransitionEditPart.VISUAL_ID;
 			}
-			return getUnrecognizedBranchActionBranchTransitionCompartment_5004ChildNodeID(
+			return getUnrecognizedBranchActionBranchTransitionCompartment_5006ChildNodeID(
 					domainElement, semanticHint);
 		case BranchTransitionBehaviourCompartmentEditPart.VISUAL_ID:
 			if ((semanticHint == null || ResourceDemandingBehaviour2EditPart.VISUAL_ID == nodeVisualID)
 					&& SeffPackage.eINSTANCE.getResourceDemandingBehaviour()
 							.isSuperTypeOf(domainElementMetaclass)
-					&& (domainElement == null || isNodeResourceDemandingBehaviour_2008((ResourceDemandingBehaviour) domainElement))) {
+					&& (domainElement == null || isNodeResourceDemandingBehaviour_2010((ResourceDemandingBehaviour) domainElement))) {
 				return ResourceDemandingBehaviour2EditPart.VISUAL_ID;
 			}
-			return getUnrecognizedBranchTransitionBehaviourCompartment_5005ChildNodeID(
+			return getUnrecognizedBranchTransitionBehaviourCompartment_5007ChildNodeID(
 					domainElement, semanticHint);
 		case ResourceDemandingBehaviourBranchCompartmentEditPart.VISUAL_ID:
 			if ((semanticHint == null || StartAction2EditPart.VISUAL_ID == nodeVisualID)
 					&& SeffPackage.eINSTANCE.getStartAction().isSuperTypeOf(
 							domainElementMetaclass)
-					&& (domainElement == null || isNodeStartAction_2002((StartAction) domainElement))) {
+					&& (domainElement == null || isNodeStartAction_2003((StartAction) domainElement))) {
 				return StartAction2EditPart.VISUAL_ID;
 			}
 			if ((semanticHint == null || StopAction2EditPart.VISUAL_ID == nodeVisualID)
 					&& SeffPackage.eINSTANCE.getStopAction().isSuperTypeOf(
 							domainElementMetaclass)
-					&& (domainElement == null || isNodeStopAction_2003((StopAction) domainElement))) {
+					&& (domainElement == null || isNodeStopAction_2004((StopAction) domainElement))) {
 				return StopAction2EditPart.VISUAL_ID;
 			}
 			if ((semanticHint == null || LoopAction2EditPart.VISUAL_ID == nodeVisualID)
 					&& SeffPackage.eINSTANCE.getLoopAction().isSuperTypeOf(
 							domainElementMetaclass)
-					&& (domainElement == null || isNodeLoopAction_2004((LoopAction) domainElement))) {
+					&& (domainElement == null || isNodeLoopAction_2005((LoopAction) domainElement))) {
 				return LoopAction2EditPart.VISUAL_ID;
 			}
 			if ((semanticHint == null || InternalActionEditPart.VISUAL_ID == nodeVisualID)
 					&& SeffPackage.eINSTANCE.getInternalAction().isSuperTypeOf(
 							domainElementMetaclass)
-					&& (domainElement == null || isNodeInternalAction_2005((InternalAction) domainElement))) {
+					&& (domainElement == null || isNodeInternalAction_2006((InternalAction) domainElement))) {
 				return InternalActionEditPart.VISUAL_ID;
 			}
 			if ((semanticHint == null || BranchActionEditPart.VISUAL_ID == nodeVisualID)
 					&& SeffPackage.eINSTANCE.getBranchAction().isSuperTypeOf(
 							domainElementMetaclass)
-					&& (domainElement == null || isNodeBranchAction_2006((BranchAction) domainElement))) {
+					&& (domainElement == null || isNodeBranchAction_2008((BranchAction) domainElement))) {
 				return BranchActionEditPart.VISUAL_ID;
 			}
 			if ((semanticHint == null || ExternalCallAction2EditPart.VISUAL_ID == nodeVisualID)
 					&& SeffPackage.eINSTANCE.getExternalCallAction()
 							.isSuperTypeOf(domainElementMetaclass)
-					&& (domainElement == null || isNodeExternalCallAction_2009((ExternalCallAction) domainElement))) {
+					&& (domainElement == null || isNodeExternalCallAction_2011((ExternalCallAction) domainElement))) {
 				return ExternalCallAction2EditPart.VISUAL_ID;
 			}
-			return getUnrecognizedResourceDemandingBehaviourBranchCompartment_5006ChildNodeID(
+			return getUnrecognizedResourceDemandingBehaviourBranchCompartment_5008ChildNodeID(
+					domainElement, semanticHint);
+		case ExternalCallActionParameterUsage2EditPart.VISUAL_ID:
+			if ((semanticHint == null || PrimitiveParameterUsageEditPart.VISUAL_ID == nodeVisualID)
+					&& ParameterPackage.eINSTANCE.getPrimitiveParameterUsage()
+							.isSuperTypeOf(domainElementMetaclass)
+					&& (domainElement == null || isNodePrimitiveParameterUsage_2001((PrimitiveParameterUsage) domainElement))) {
+				return PrimitiveParameterUsageEditPart.VISUAL_ID;
+			}
+			return getUnrecognizedExternalCallActionParameterUsage_5009ChildNodeID(
 					domainElement, semanticHint);
 		case BranchActionBranchTransitionCompartment2EditPart.VISUAL_ID:
 			if ((semanticHint == null || BranchTransitionEditPart.VISUAL_ID == nodeVisualID)
 					&& SeffPackage.eINSTANCE.getBranchTransition()
 							.isSuperTypeOf(domainElementMetaclass)
-					&& (domainElement == null || isNodeBranchTransition_2007((BranchTransition) domainElement))) {
+					&& (domainElement == null || isNodeBranchTransition_2009((BranchTransition) domainElement))) {
 				return BranchTransitionEditPart.VISUAL_ID;
 			}
-			return getUnrecognizedBranchActionBranchTransitionCompartment_5007ChildNodeID(
+			return getUnrecognizedBranchActionBranchTransitionCompartment_5010ChildNodeID(
+					domainElement, semanticHint);
+		case InternalActionResourceDemandResourceDemandingActionCompartment2EditPart.VISUAL_ID:
+			if ((semanticHint == null || ParametricResourceDemandEditPart.VISUAL_ID == nodeVisualID)
+					&& SeffPackage.eINSTANCE.getParametricResourceDemand()
+							.isSuperTypeOf(domainElementMetaclass)
+					&& (domainElement == null || isNodeParametricResourceDemand_2007((ParametricResourceDemand) domainElement))) {
+				return ParametricResourceDemandEditPart.VISUAL_ID;
+			}
+			return getUnrecognizedInternalActionResourceDemandResourceDemandingActionCompartment_5011ChildNodeID(
 					domainElement, semanticHint);
 		case ResourceDemandingSEFFEditPart.VISUAL_ID:
 			if ((semanticHint == null || StartActionEditPart.VISUAL_ID == nodeVisualID)
@@ -561,7 +624,18 @@ public class PcmVisualIDRegistry {
 	 *
 	 * @generated
 	 */
-	private static boolean isNodeResourceDemandingBehaviour_2001(
+	private static boolean isNodePrimitiveParameterUsage_2001(
+			PrimitiveParameterUsage element) {
+		return true;
+	}
+
+	/**
+	 * User can change implementation of this method to check some additional 
+	 * conditions here.
+	 *
+	 * @generated
+	 */
+	private static boolean isNodeResourceDemandingBehaviour_2002(
 			ResourceDemandingBehaviour element) {
 		return true;
 	}
@@ -572,7 +646,7 @@ public class PcmVisualIDRegistry {
 	 *
 	 * @generated
 	 */
-	private static boolean isNodeStartAction_2002(StartAction element) {
+	private static boolean isNodeStartAction_2003(StartAction element) {
 		return true;
 	}
 
@@ -582,7 +656,7 @@ public class PcmVisualIDRegistry {
 	 *
 	 * @generated
 	 */
-	private static boolean isNodeStopAction_2003(StopAction element) {
+	private static boolean isNodeStopAction_2004(StopAction element) {
 		return true;
 	}
 
@@ -592,7 +666,7 @@ public class PcmVisualIDRegistry {
 	 *
 	 * @generated
 	 */
-	private static boolean isNodeLoopAction_2004(LoopAction element) {
+	private static boolean isNodeLoopAction_2005(LoopAction element) {
 		return true;
 	}
 
@@ -602,7 +676,7 @@ public class PcmVisualIDRegistry {
 	 *
 	 * @generated
 	 */
-	private static boolean isNodeInternalAction_2005(InternalAction element) {
+	private static boolean isNodeInternalAction_2006(InternalAction element) {
 		return true;
 	}
 
@@ -612,7 +686,8 @@ public class PcmVisualIDRegistry {
 	 *
 	 * @generated
 	 */
-	private static boolean isNodeBranchAction_2006(BranchAction element) {
+	private static boolean isNodeParametricResourceDemand_2007(
+			ParametricResourceDemand element) {
 		return true;
 	}
 
@@ -622,7 +697,7 @@ public class PcmVisualIDRegistry {
 	 *
 	 * @generated
 	 */
-	private static boolean isNodeBranchTransition_2007(BranchTransition element) {
+	private static boolean isNodeBranchAction_2008(BranchAction element) {
 		return true;
 	}
 
@@ -632,7 +707,17 @@ public class PcmVisualIDRegistry {
 	 *
 	 * @generated
 	 */
-	private static boolean isNodeResourceDemandingBehaviour_2008(
+	private static boolean isNodeBranchTransition_2009(BranchTransition element) {
+		return true;
+	}
+
+	/**
+	 * User can change implementation of this method to check some additional 
+	 * conditions here.
+	 *
+	 * @generated
+	 */
+	private static boolean isNodeResourceDemandingBehaviour_2010(
 			ResourceDemandingBehaviour element) {
 		return true;
 	}
@@ -643,7 +728,7 @@ public class PcmVisualIDRegistry {
 	 *
 	 * @generated
 	 */
-	private static boolean isNodeExternalCallAction_2009(
+	private static boolean isNodeExternalCallAction_2011(
 			ExternalCallAction element) {
 		return true;
 	}
@@ -720,7 +805,7 @@ public class PcmVisualIDRegistry {
 	 *
 	 * @generated
 	 */
-	private static int getUnrecognizedResourceDemandingBehaviour_2001ChildNodeID(
+	private static int getUnrecognizedPrimitiveParameterUsage_2001ChildNodeID(
 			EObject domainElement, String semanticHint) {
 		return -1;
 	}
@@ -731,7 +816,7 @@ public class PcmVisualIDRegistry {
 	 *
 	 * @generated
 	 */
-	private static int getUnrecognizedStartAction_2002ChildNodeID(
+	private static int getUnrecognizedResourceDemandingBehaviour_2002ChildNodeID(
 			EObject domainElement, String semanticHint) {
 		return -1;
 	}
@@ -742,7 +827,7 @@ public class PcmVisualIDRegistry {
 	 *
 	 * @generated
 	 */
-	private static int getUnrecognizedStopAction_2003ChildNodeID(
+	private static int getUnrecognizedStartAction_2003ChildNodeID(
 			EObject domainElement, String semanticHint) {
 		return -1;
 	}
@@ -753,7 +838,7 @@ public class PcmVisualIDRegistry {
 	 *
 	 * @generated
 	 */
-	private static int getUnrecognizedLoopAction_2004ChildNodeID(
+	private static int getUnrecognizedStopAction_2004ChildNodeID(
 			EObject domainElement, String semanticHint) {
 		return -1;
 	}
@@ -764,7 +849,7 @@ public class PcmVisualIDRegistry {
 	 *
 	 * @generated
 	 */
-	private static int getUnrecognizedInternalAction_2005ChildNodeID(
+	private static int getUnrecognizedLoopAction_2005ChildNodeID(
 			EObject domainElement, String semanticHint) {
 		return -1;
 	}
@@ -775,7 +860,7 @@ public class PcmVisualIDRegistry {
 	 *
 	 * @generated
 	 */
-	private static int getUnrecognizedBranchAction_2006ChildNodeID(
+	private static int getUnrecognizedInternalAction_2006ChildNodeID(
 			EObject domainElement, String semanticHint) {
 		return -1;
 	}
@@ -786,7 +871,7 @@ public class PcmVisualIDRegistry {
 	 *
 	 * @generated
 	 */
-	private static int getUnrecognizedBranchTransition_2007ChildNodeID(
+	private static int getUnrecognizedParametricResourceDemand_2007ChildNodeID(
 			EObject domainElement, String semanticHint) {
 		return -1;
 	}
@@ -797,7 +882,7 @@ public class PcmVisualIDRegistry {
 	 *
 	 * @generated
 	 */
-	private static int getUnrecognizedResourceDemandingBehaviour_2008ChildNodeID(
+	private static int getUnrecognizedBranchAction_2008ChildNodeID(
 			EObject domainElement, String semanticHint) {
 		return -1;
 	}
@@ -808,7 +893,7 @@ public class PcmVisualIDRegistry {
 	 *
 	 * @generated
 	 */
-	private static int getUnrecognizedExternalCallAction_2009ChildNodeID(
+	private static int getUnrecognizedBranchTransition_2009ChildNodeID(
 			EObject domainElement, String semanticHint) {
 		return -1;
 	}
@@ -819,7 +904,7 @@ public class PcmVisualIDRegistry {
 	 *
 	 * @generated
 	 */
-	private static int getUnrecognizedLoopActionBehaviourCompartment_5001ChildNodeID(
+	private static int getUnrecognizedResourceDemandingBehaviour_2010ChildNodeID(
 			EObject domainElement, String semanticHint) {
 		return -1;
 	}
@@ -830,7 +915,7 @@ public class PcmVisualIDRegistry {
 	 *
 	 * @generated
 	 */
-	private static int getUnrecognizedResourceDemandingBehaviourLoopCompartment_5002ChildNodeID(
+	private static int getUnrecognizedExternalCallAction_2011ChildNodeID(
 			EObject domainElement, String semanticHint) {
 		return -1;
 	}
@@ -841,7 +926,7 @@ public class PcmVisualIDRegistry {
 	 *
 	 * @generated
 	 */
-	private static int getUnrecognizedLoopActionBehaviourCompartment_5003ChildNodeID(
+	private static int getUnrecognizedExternalCallActionParameterUsage_5001ChildNodeID(
 			EObject domainElement, String semanticHint) {
 		return -1;
 	}
@@ -852,7 +937,7 @@ public class PcmVisualIDRegistry {
 	 *
 	 * @generated
 	 */
-	private static int getUnrecognizedBranchActionBranchTransitionCompartment_5004ChildNodeID(
+	private static int getUnrecognizedLoopActionBehaviourCompartment_5002ChildNodeID(
 			EObject domainElement, String semanticHint) {
 		return -1;
 	}
@@ -863,7 +948,7 @@ public class PcmVisualIDRegistry {
 	 *
 	 * @generated
 	 */
-	private static int getUnrecognizedBranchTransitionBehaviourCompartment_5005ChildNodeID(
+	private static int getUnrecognizedResourceDemandingBehaviourLoopCompartment_5003ChildNodeID(
 			EObject domainElement, String semanticHint) {
 		return -1;
 	}
@@ -874,7 +959,7 @@ public class PcmVisualIDRegistry {
 	 *
 	 * @generated
 	 */
-	private static int getUnrecognizedResourceDemandingBehaviourBranchCompartment_5006ChildNodeID(
+	private static int getUnrecognizedLoopActionBehaviourCompartment_5004ChildNodeID(
 			EObject domainElement, String semanticHint) {
 		return -1;
 	}
@@ -885,7 +970,73 @@ public class PcmVisualIDRegistry {
 	 *
 	 * @generated
 	 */
-	private static int getUnrecognizedBranchActionBranchTransitionCompartment_5007ChildNodeID(
+	private static int getUnrecognizedInternalActionResourceDemandResourceDemandingActionCompartment_5005ChildNodeID(
+			EObject domainElement, String semanticHint) {
+		return -1;
+	}
+
+	/**
+	 * User can change implementation of this method to handle some specific
+	 * situations not covered by default logic.
+	 *
+	 * @generated
+	 */
+	private static int getUnrecognizedBranchActionBranchTransitionCompartment_5006ChildNodeID(
+			EObject domainElement, String semanticHint) {
+		return -1;
+	}
+
+	/**
+	 * User can change implementation of this method to handle some specific
+	 * situations not covered by default logic.
+	 *
+	 * @generated
+	 */
+	private static int getUnrecognizedBranchTransitionBehaviourCompartment_5007ChildNodeID(
+			EObject domainElement, String semanticHint) {
+		return -1;
+	}
+
+	/**
+	 * User can change implementation of this method to handle some specific
+	 * situations not covered by default logic.
+	 *
+	 * @generated
+	 */
+	private static int getUnrecognizedResourceDemandingBehaviourBranchCompartment_5008ChildNodeID(
+			EObject domainElement, String semanticHint) {
+		return -1;
+	}
+
+	/**
+	 * User can change implementation of this method to handle some specific
+	 * situations not covered by default logic.
+	 *
+	 * @generated
+	 */
+	private static int getUnrecognizedExternalCallActionParameterUsage_5009ChildNodeID(
+			EObject domainElement, String semanticHint) {
+		return -1;
+	}
+
+	/**
+	 * User can change implementation of this method to handle some specific
+	 * situations not covered by default logic.
+	 *
+	 * @generated
+	 */
+	private static int getUnrecognizedBranchActionBranchTransitionCompartment_5010ChildNodeID(
+			EObject domainElement, String semanticHint) {
+		return -1;
+	}
+
+	/**
+	 * User can change implementation of this method to handle some specific
+	 * situations not covered by default logic.
+	 *
+	 * @generated
+	 */
+	private static int getUnrecognizedInternalActionResourceDemandResourceDemandingActionCompartment_5011ChildNodeID(
 			EObject domainElement, String semanticHint) {
 		return -1;
 	}

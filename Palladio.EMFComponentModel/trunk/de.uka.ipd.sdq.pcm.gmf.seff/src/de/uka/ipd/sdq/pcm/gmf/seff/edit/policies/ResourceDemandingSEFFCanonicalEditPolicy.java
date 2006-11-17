@@ -8,7 +8,6 @@ import java.util.Collection;
 import org.eclipse.gmf.runtime.notation.Edge;
 import org.eclipse.emf.ecore.EObject;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.AbstractActionSuccessor_AbstractActionEditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.AbstractResourceDemandingActionResourceDemand_ActionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.BranchAction2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.BranchActionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.BranchTransitionEditPart;
@@ -18,6 +17,8 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.InternalAction2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.InternalActionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopAction2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopActionEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ParametricResourceDemandEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.PrimitiveParameterUsageEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviour2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviourEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingSEFFEditPart;
@@ -31,7 +32,6 @@ import de.uka.ipd.sdq.pcm.gmf.seff.part.PcmVisualIDRegistry;
 import de.uka.ipd.sdq.pcm.gmf.seff.providers.PcmElementTypes;
 
 import de.uka.ipd.sdq.pcm.seff.AbstractAction;
-import de.uka.ipd.sdq.pcm.seff.AbstractResourceDemandingAction;
 import de.uka.ipd.sdq.pcm.seff.ResourceDemandingBehaviour;
 import de.uka.ipd.sdq.pcm.seff.SeffPackage;
 
@@ -247,11 +247,13 @@ public class ResourceDemandingSEFFCanonicalEditPolicy extends
 		case LoopActionEditPart.VISUAL_ID:
 		case BranchAction2EditPart.VISUAL_ID:
 		case InternalAction2EditPart.VISUAL_ID:
+		case PrimitiveParameterUsageEditPart.VISUAL_ID:
 		case ResourceDemandingBehaviourEditPart.VISUAL_ID:
 		case StartAction2EditPart.VISUAL_ID:
 		case StopAction2EditPart.VISUAL_ID:
 		case LoopAction2EditPart.VISUAL_ID:
 		case InternalActionEditPart.VISUAL_ID:
+		case ParametricResourceDemandEditPart.VISUAL_ID:
 		case BranchActionEditPart.VISUAL_ID:
 		case BranchTransitionEditPart.VISUAL_ID:
 		case ResourceDemandingBehaviour2EditPart.VISUAL_ID:

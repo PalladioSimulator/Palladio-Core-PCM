@@ -53,7 +53,7 @@ Copyright 2006 SDQ Research Group, University of Karlsruhe (TH)
    <extension point="org.eclipse.ui.popupMenus">
       <objectContribution
             id="de.uka.ipd.sdq.pcm.gmf.seff.ui.objectContribution.IFile1"
-            nameFilter="*.repository"
+            nameFilter="*.pcm"
             objectClass="org.eclipse.core.resources.IFile">
          <action
                label="Initialize seff_diagram diagram file"
@@ -91,6 +91,10 @@ Copyright 2006 SDQ Research Group, University of Karlsruhe (TH)
             checkPluginLoaded="false">
          <Priority name="Low"/>
          <popupContribution class="org.eclipse.gmf.runtime.diagram.ui.providers.DiagramContextMenuProvider">
+            <popupStructuredContributionCriteria objectClass="de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.PrimitiveParameterUsageEditPart"/>
+            <popupPredefinedItem id="deleteFromDiagramAction" remove="true"/>
+         </popupContribution>
+         <popupContribution class="org.eclipse.gmf.runtime.diagram.ui.providers.DiagramContextMenuProvider">
             <popupStructuredContributionCriteria objectClass="de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviourEditPart"/>
             <popupPredefinedItem id="deleteFromDiagramAction" remove="true"/>
          </popupContribution>
@@ -120,6 +124,10 @@ Copyright 2006 SDQ Research Group, University of Karlsruhe (TH)
          </popupContribution>
          <popupContribution class="org.eclipse.gmf.runtime.diagram.ui.providers.DiagramContextMenuProvider">
             <popupStructuredContributionCriteria objectClass="de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.InternalActionEntityNameEditPart"/>
+            <popupPredefinedItem id="deleteFromDiagramAction" remove="true"/>
+         </popupContribution>
+         <popupContribution class="org.eclipse.gmf.runtime.diagram.ui.providers.DiagramContextMenuProvider">
+            <popupStructuredContributionCriteria objectClass="de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ParametricResourceDemandEditPart"/>
             <popupPredefinedItem id="deleteFromDiagramAction" remove="true"/>
          </popupContribution>
          <popupContribution class="org.eclipse.gmf.runtime.diagram.ui.providers.DiagramContextMenuProvider">
@@ -310,102 +318,124 @@ Copyright 2006 SDQ Research Group, University of Karlsruhe (TH)
          </metamodelType>
       </metamodel>
 
-      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0">
+      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Parameter/1.0">
          <metamodelType
-               id="de.uka.ipd.sdq.pcm.gmf.seff.ResourceDemandingBehaviour_2001"
-               name="ResourceDemandingBehaviour"
+               id="de.uka.ipd.sdq.pcm.gmf.seff.PrimitiveParameterUsage_2001"
+               name="ParametricParameterUsage"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
-               eclass="ResourceDemandingBehaviour"
-               edithelper="de.uka.ipd.sdq.pcm.gmf.seff.edit.helpers.ResourceDemandingBehaviourEditHelper">
+               eclass="PrimitiveParameterUsage"
+               edithelper="de.uka.ipd.sdq.pcm.gmf.seff.edit.helpers.PrimitiveParameterUsageEditHelper">
             <param name="semanticHint" value="2001"/>
          </metamodelType>
       </metamodel>
 
       <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0">
-         <specializationType
-               id="de.uka.ipd.sdq.pcm.gmf.seff.StartAction_2002"
-               name="StartAction"
+         <metamodelType
+               id="de.uka.ipd.sdq.pcm.gmf.seff.ResourceDemandingBehaviour_2002"
+               name="ResourceDemandingBehaviour"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
-               edithelperadvice="de.uka.ipd.sdq.pcm.gmf.seff.edit.helpers.StartActionEditHelperAdvice">
-            <specializes id="de.uka.ipd.sdq.pcm.gmf.seff.StartAction_1001"/>
+               eclass="ResourceDemandingBehaviour"
+               edithelper="de.uka.ipd.sdq.pcm.gmf.seff.edit.helpers.ResourceDemandingBehaviourEditHelper">
             <param name="semanticHint" value="2002"/>
-         </specializationType>
+         </metamodelType>
       </metamodel>
 
       <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0">
          <specializationType
-               id="de.uka.ipd.sdq.pcm.gmf.seff.StopAction_2003"
-               name="StopAction"
+               id="de.uka.ipd.sdq.pcm.gmf.seff.StartAction_2003"
+               name="StartAction"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
-               edithelperadvice="de.uka.ipd.sdq.pcm.gmf.seff.edit.helpers.StopActionEditHelperAdvice">
-            <specializes id="de.uka.ipd.sdq.pcm.gmf.seff.StopAction_1002"/>
+               edithelperadvice="de.uka.ipd.sdq.pcm.gmf.seff.edit.helpers.StartActionEditHelperAdvice">
+            <specializes id="de.uka.ipd.sdq.pcm.gmf.seff.StartAction_1001"/>
             <param name="semanticHint" value="2003"/>
          </specializationType>
       </metamodel>
 
       <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0">
          <specializationType
-               id="de.uka.ipd.sdq.pcm.gmf.seff.LoopAction_2004"
-               name="LoopAction"
+               id="de.uka.ipd.sdq.pcm.gmf.seff.StopAction_2004"
+               name="StopAction"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
-               edithelperadvice="de.uka.ipd.sdq.pcm.gmf.seff.edit.helpers.LoopActionEditHelperAdvice">
-            <specializes id="de.uka.ipd.sdq.pcm.gmf.seff.LoopAction_1004"/>
+               edithelperadvice="de.uka.ipd.sdq.pcm.gmf.seff.edit.helpers.StopActionEditHelperAdvice">
+            <specializes id="de.uka.ipd.sdq.pcm.gmf.seff.StopAction_1002"/>
             <param name="semanticHint" value="2004"/>
          </specializationType>
       </metamodel>
 
       <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0">
-         <metamodelType
-               id="de.uka.ipd.sdq.pcm.gmf.seff.InternalAction_2005"
-               name="InternalAction"
+         <specializationType
+               id="de.uka.ipd.sdq.pcm.gmf.seff.LoopAction_2005"
+               name="LoopAction"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
-               eclass="InternalAction"
-               edithelper="de.uka.ipd.sdq.pcm.gmf.seff.edit.helpers.InternalActionEditHelper">
+               edithelperadvice="de.uka.ipd.sdq.pcm.gmf.seff.edit.helpers.LoopActionEditHelperAdvice">
+            <specializes id="de.uka.ipd.sdq.pcm.gmf.seff.LoopAction_1004"/>
             <param name="semanticHint" value="2005"/>
-         </metamodelType>
+         </specializationType>
       </metamodel>
 
       <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0">
          <metamodelType
-               id="de.uka.ipd.sdq.pcm.gmf.seff.BranchAction_2006"
-               name="BranchAction"
+               id="de.uka.ipd.sdq.pcm.gmf.seff.InternalAction_2006"
+               name="InternalAction"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
-               eclass="BranchAction"
-               edithelper="de.uka.ipd.sdq.pcm.gmf.seff.edit.helpers.BranchActionEditHelper">
+               eclass="InternalAction"
+               edithelper="de.uka.ipd.sdq.pcm.gmf.seff.edit.helpers.InternalActionEditHelper">
             <param name="semanticHint" value="2006"/>
          </metamodelType>
       </metamodel>
 
       <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0">
          <metamodelType
-               id="de.uka.ipd.sdq.pcm.gmf.seff.BranchTransition_2007"
-               name="BranchTransition"
+               id="de.uka.ipd.sdq.pcm.gmf.seff.ParametricResourceDemand_2007"
+               name="Resource Demand"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
-               eclass="BranchTransition"
-               edithelper="de.uka.ipd.sdq.pcm.gmf.seff.edit.helpers.BranchTransitionEditHelper">
+               eclass="ParametricResourceDemand"
+               edithelper="de.uka.ipd.sdq.pcm.gmf.seff.edit.helpers.ParametricResourceDemandEditHelper">
             <param name="semanticHint" value="2007"/>
          </metamodelType>
       </metamodel>
 
       <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0">
+         <metamodelType
+               id="de.uka.ipd.sdq.pcm.gmf.seff.BranchAction_2008"
+               name="BranchAction"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="BranchAction"
+               edithelper="de.uka.ipd.sdq.pcm.gmf.seff.edit.helpers.BranchActionEditHelper">
+            <param name="semanticHint" value="2008"/>
+         </metamodelType>
+      </metamodel>
+
+      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0">
+         <metamodelType
+               id="de.uka.ipd.sdq.pcm.gmf.seff.BranchTransition_2009"
+               name="BranchTransition"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="BranchTransition"
+               edithelper="de.uka.ipd.sdq.pcm.gmf.seff.edit.helpers.BranchTransitionEditHelper">
+            <param name="semanticHint" value="2009"/>
+         </metamodelType>
+      </metamodel>
+
+      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0">
          <specializationType
-               id="de.uka.ipd.sdq.pcm.gmf.seff.ResourceDemandingBehaviour_2008"
+               id="de.uka.ipd.sdq.pcm.gmf.seff.ResourceDemandingBehaviour_2010"
                name="ResourceDemandingBehaviour"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
                edithelperadvice="de.uka.ipd.sdq.pcm.gmf.seff.edit.helpers.ResourceDemandingBehaviourEditHelperAdvice">
-            <specializes id="de.uka.ipd.sdq.pcm.gmf.seff.ResourceDemandingBehaviour_2001"/>
-            <param name="semanticHint" value="2008"/>
+            <specializes id="de.uka.ipd.sdq.pcm.gmf.seff.ResourceDemandingBehaviour_2002"/>
+            <param name="semanticHint" value="2010"/>
          </specializationType>
       </metamodel>
 
       <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0">
          <specializationType
-               id="de.uka.ipd.sdq.pcm.gmf.seff.ExternalCallAction_2009"
+               id="de.uka.ipd.sdq.pcm.gmf.seff.ExternalCallAction_2011"
                name="ExternalCallAction"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
                edithelperadvice="de.uka.ipd.sdq.pcm.gmf.seff.edit.helpers.ExternalCallActionEditHelperAdvice">
             <specializes id="de.uka.ipd.sdq.pcm.gmf.seff.ExternalCallAction_1003"/>
-            <param name="semanticHint" value="2009"/>
+            <param name="semanticHint" value="2011"/>
          </specializationType>
       </metamodel>
 
@@ -459,7 +489,7 @@ Copyright 2006 SDQ Research Group, University of Karlsruhe (TH)
                name="BranchAction"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
                edithelperadvice="de.uka.ipd.sdq.pcm.gmf.seff.edit.helpers.BranchActionEditHelperAdvice">
-            <specializes id="de.uka.ipd.sdq.pcm.gmf.seff.BranchAction_2006"/>
+            <specializes id="de.uka.ipd.sdq.pcm.gmf.seff.BranchAction_2008"/>
             <param name="semanticHint" value="1005"/>
          </specializationType>
       </metamodel>
@@ -470,7 +500,7 @@ Copyright 2006 SDQ Research Group, University of Karlsruhe (TH)
                name="InternalAction"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
                edithelperadvice="de.uka.ipd.sdq.pcm.gmf.seff.edit.helpers.InternalActionEditHelperAdvice">
-            <specializes id="de.uka.ipd.sdq.pcm.gmf.seff.InternalAction_2005"/>
+            <specializes id="de.uka.ipd.sdq.pcm.gmf.seff.InternalAction_2006"/>
             <param name="semanticHint" value="1006"/>
          </specializationType>
       </metamodel>
@@ -497,15 +527,17 @@ Copyright 2006 SDQ Research Group, University of Karlsruhe (TH)
       </clientContext> 
       <binding context="PcmClientContext">
          <elementType ref="de.uka.ipd.sdq.pcm.gmf.seff.ResourceDemandingSEFF_79"/>
-         <elementType ref="de.uka.ipd.sdq.pcm.gmf.seff.ResourceDemandingBehaviour_2001"/>
-         <elementType ref="de.uka.ipd.sdq.pcm.gmf.seff.StartAction_2002"/>
-         <elementType ref="de.uka.ipd.sdq.pcm.gmf.seff.StopAction_2003"/>
-         <elementType ref="de.uka.ipd.sdq.pcm.gmf.seff.LoopAction_2004"/>
-         <elementType ref="de.uka.ipd.sdq.pcm.gmf.seff.InternalAction_2005"/>
-         <elementType ref="de.uka.ipd.sdq.pcm.gmf.seff.BranchAction_2006"/>
-         <elementType ref="de.uka.ipd.sdq.pcm.gmf.seff.BranchTransition_2007"/>
-         <elementType ref="de.uka.ipd.sdq.pcm.gmf.seff.ResourceDemandingBehaviour_2008"/>
-         <elementType ref="de.uka.ipd.sdq.pcm.gmf.seff.ExternalCallAction_2009"/>
+         <elementType ref="de.uka.ipd.sdq.pcm.gmf.seff.PrimitiveParameterUsage_2001"/>
+         <elementType ref="de.uka.ipd.sdq.pcm.gmf.seff.ResourceDemandingBehaviour_2002"/>
+         <elementType ref="de.uka.ipd.sdq.pcm.gmf.seff.StartAction_2003"/>
+         <elementType ref="de.uka.ipd.sdq.pcm.gmf.seff.StopAction_2004"/>
+         <elementType ref="de.uka.ipd.sdq.pcm.gmf.seff.LoopAction_2005"/>
+         <elementType ref="de.uka.ipd.sdq.pcm.gmf.seff.InternalAction_2006"/>
+         <elementType ref="de.uka.ipd.sdq.pcm.gmf.seff.ParametricResourceDemand_2007"/>
+         <elementType ref="de.uka.ipd.sdq.pcm.gmf.seff.BranchAction_2008"/>
+         <elementType ref="de.uka.ipd.sdq.pcm.gmf.seff.BranchTransition_2009"/>
+         <elementType ref="de.uka.ipd.sdq.pcm.gmf.seff.ResourceDemandingBehaviour_2010"/>
+         <elementType ref="de.uka.ipd.sdq.pcm.gmf.seff.ExternalCallAction_2011"/>
          <elementType ref="de.uka.ipd.sdq.pcm.gmf.seff.StartAction_1001"/>
          <elementType ref="de.uka.ipd.sdq.pcm.gmf.seff.StopAction_1002"/>
          <elementType ref="de.uka.ipd.sdq.pcm.gmf.seff.ExternalCallAction_1003"/>

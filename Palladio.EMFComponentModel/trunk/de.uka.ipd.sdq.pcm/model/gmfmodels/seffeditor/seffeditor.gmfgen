@@ -4,7 +4,6 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:gmfgen="http://www.eclipse.org/gmf/2005/GenModel" packageNamePrefix="de.uka.ipd.sdq.pcm.gmf.seff"
     diagramFileExtension="seff_diagram"
-    domainFileExtension="repository"
     templateDirectory=""
     copyrightText="Copyright 2006 SDQ Research Group, University of Karlsruhe (TH)">
   <diagram
@@ -25,14 +24,45 @@
     <domainDiagramElement
         href="../../pcm.genmodel#//pcm/seff/ResourceDemandingSEFF"/>
     <childNodes
+        xsi:type="gmfgen:GenChildLabelNode"
         visualID="2001"
+        editPartClassName="PrimitiveParameterUsageEditPart"
+        itemSemanticEditPolicyClassName="PrimitiveParameterUsageItemSemanticEditPolicy"
+        notationViewFactoryClassName="PrimitiveParameterUsageViewFactory"
+        canonicalEditPolicyClassName="PrimitiveParameterUsageCanonicalEditPolicy"
+        graphicalNodeEditPolicyClassName="PrimitiveParameterUsageGraphicalNodeEditPolicy"
+        containers="//@diagram/@compartments.0 //@diagram/@compartments.8"
+        labelElementIcon="true">
+      <diagramRunTimeClass
+          href="../../../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+      <elementType
+          xsi:type="gmfgen:MetamodelType"
+          editHelperClassName="PrimitiveParameterUsageEditHelper"/>
+      <viewmap
+          xsi:type="gmfgen:InnerClassViewmap"
+          className="ParametricResourceDemandDemandFigure"
+          classBody="&#xD;&#xA;&#xD;&#xA;/**&#xD;&#xA; * @generated&#xD;&#xA; */&#xD;&#xA;public class ParametricResourceDemandDemandFigure extends org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel {&#xD;&#xA;&#xD;&#xA;&#x9;/**&#xD;&#xA;&#x9; * @generated&#xD;&#xA;&#x9; */&#xD;&#xA;&#x9;public ParametricResourceDemandDemandFigure() {&#x9;&#xD;&#xA;&#x9;&#x9;&#xD;&#xA;&#xD;&#xA;&#x9;&#x9;this.setText(&quot;&lt;...>&quot;);&#xD;&#xA;&#x9;&#x9;createContents();&#xD;&#xA;&#x9;}&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#x9;/**&#xD;&#xA;&#x9; * @generated&#xD;&#xA;&#x9; */&#xD;&#xA;&#x9;private void createContents(){&#xD;&#xA;&#x9;}&#xD;&#xA;&#x9;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#x9;/**&#xD;&#xA;&#x9; * @generated&#xD;&#xA;&#x9; */&#xD;&#xA;&#x9;private boolean myUseLocalCoordinates = false;&#xD;&#xA;&#xD;&#xA;&#x9;/**&#xD;&#xA;&#x9; * @generated&#xD;&#xA;&#x9; */&#xD;&#xA;&#x9;protected boolean useLocalCoordinates() {&#xD;&#xA;&#x9;&#x9;return myUseLocalCoordinates;&#xD;&#xA;&#x9;}&#xD;&#xA;&#xD;&#xA;&#x9;/**&#xD;&#xA;&#x9; * @generated&#xD;&#xA;&#x9; */&#xD;&#xA;&#x9;protected void setUseLocalCoordinates(boolean useLocalCoordinates) {&#xD;&#xA;&#x9;&#x9;myUseLocalCoordinates = useLocalCoordinates;&#xD;&#xA;&#x9;}&#xD;&#xA;&#x9;&#xD;&#xA;&#xD;&#xA;}&#xD;&#xA;&#x9;&#xD;&#xA;">
+        <requiredPluginIDs>org.eclipse.draw2d</requiredPluginIDs>
+        <requiredPluginIDs>org.eclipse.gmf.runtime.draw2d.ui</requiredPluginIDs>
+      </viewmap>
+      <modelFacet>
+        <metaClass
+            href="../../pcm.genmodel#//pcm/parameter/PrimitiveParameterUsage"/>
+        <containmentMetaFeature
+            href="../../pcm.genmodel#//pcm/seff/ExternalCallAction/parameterUsage_ExternalCallAction"/>
+        <childMetaFeature
+            href="../../pcm.genmodel#//pcm/seff/ExternalCallAction/parameterUsage_ExternalCallAction"/>
+      </modelFacet>
+    </childNodes>
+    <childNodes
+        visualID="2002"
         editPartClassName="ResourceDemandingBehaviourEditPart"
         itemSemanticEditPolicyClassName="ResourceDemandingBehaviourItemSemanticEditPolicy"
         notationViewFactoryClassName="ResourceDemandingBehaviourViewFactory"
         canonicalEditPolicyClassName="ResourceDemandingBehaviourCanonicalEditPolicy"
-        compartments="//@diagram/@compartments.1"
+        compartments="//@diagram/@compartments.2"
         graphicalNodeEditPolicyClassName="ResourceDemandingBehaviourGraphicalNodeEditPolicy"
-        containers="//@diagram/@compartments.2 //@diagram/@compartments.0">
+        containers="//@diagram/@compartments.3 //@diagram/@compartments.1">
       <diagramRunTimeClass
           href="../../../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
@@ -55,13 +85,13 @@
       </modelFacet>
     </childNodes>
     <childNodes
-        visualID="2002"
+        visualID="2003"
         editPartClassName="StartAction2EditPart"
         itemSemanticEditPolicyClassName="StartAction2ItemSemanticEditPolicy"
         notationViewFactoryClassName="StartAction2ViewFactory"
         canonicalEditPolicyClassName="StartAction2CanonicalEditPolicy"
         graphicalNodeEditPolicyClassName="StartAction2GraphicalNodeEditPolicy"
-        containers="//@diagram/@compartments.1 //@diagram/@compartments.5">
+        containers="//@diagram/@compartments.2 //@diagram/@compartments.7">
       <diagramRunTimeClass
           href="../../../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
@@ -90,13 +120,13 @@
       </modelFacet>
     </childNodes>
     <childNodes
-        visualID="2003"
+        visualID="2004"
         editPartClassName="StopAction2EditPart"
         itemSemanticEditPolicyClassName="StopAction2ItemSemanticEditPolicy"
         notationViewFactoryClassName="StopAction2ViewFactory"
         canonicalEditPolicyClassName="StopAction2CanonicalEditPolicy"
         graphicalNodeEditPolicyClassName="StopAction2GraphicalNodeEditPolicy"
-        containers="//@diagram/@compartments.1 //@diagram/@compartments.5">
+        containers="//@diagram/@compartments.2 //@diagram/@compartments.7">
       <diagramRunTimeClass
           href="../../../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
@@ -122,14 +152,14 @@
       </modelFacet>
     </childNodes>
     <childNodes
-        visualID="2004"
+        visualID="2005"
         editPartClassName="LoopAction2EditPart"
         itemSemanticEditPolicyClassName="LoopAction2ItemSemanticEditPolicy"
         notationViewFactoryClassName="LoopAction2ViewFactory"
         canonicalEditPolicyClassName="LoopAction2CanonicalEditPolicy"
-        compartments="//@diagram/@compartments.2"
+        compartments="//@diagram/@compartments.3"
         graphicalNodeEditPolicyClassName="LoopAction2GraphicalNodeEditPolicy"
-        containers="//@diagram/@compartments.1 //@diagram/@compartments.5">
+        containers="//@diagram/@compartments.2 //@diagram/@compartments.7">
       <diagramRunTimeClass
           href="../../../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
@@ -185,13 +215,14 @@
       </labels>
     </childNodes>
     <childNodes
-        visualID="2005"
+        visualID="2006"
         editPartClassName="InternalActionEditPart"
         itemSemanticEditPolicyClassName="InternalActionItemSemanticEditPolicy"
         notationViewFactoryClassName="InternalActionViewFactory"
         canonicalEditPolicyClassName="InternalActionCanonicalEditPolicy"
+        compartments="//@diagram/@compartments.4"
         graphicalNodeEditPolicyClassName="InternalActionGraphicalNodeEditPolicy"
-        containers="//@diagram/@compartments.1 //@diagram/@compartments.5">
+        containers="//@diagram/@compartments.2 //@diagram/@compartments.7">
       <diagramRunTimeClass
           href="../../../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
@@ -232,14 +263,54 @@
       </labels>
     </childNodes>
     <childNodes
-        visualID="2006"
+        xsi:type="gmfgen:GenChildLabelNode"
+        visualID="2007"
+        editPartClassName="ParametricResourceDemandEditPart"
+        itemSemanticEditPolicyClassName="ParametricResourceDemandItemSemanticEditPolicy"
+        notationViewFactoryClassName="ParametricResourceDemandViewFactory"
+        canonicalEditPolicyClassName="ParametricResourceDemandCanonicalEditPolicy"
+        graphicalNodeEditPolicyClassName="ParametricResourceDemandGraphicalNodeEditPolicy"
+        containers="//@diagram/@compartments.4 //@diagram/@compartments.10"
+        labelElementIcon="true">
+      <diagramRunTimeClass
+          href="../../../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+      <elementType
+          xsi:type="gmfgen:MetamodelType"
+          editHelperClassName="ParametricResourceDemandEditHelper"/>
+      <viewmap
+          xsi:type="gmfgen:InnerClassViewmap"
+          className="ParametricResourceDemandDemandFigure"
+          classBody="&#xD;&#xA;&#xD;&#xA;/**&#xD;&#xA; * @generated&#xD;&#xA; */&#xD;&#xA;public class ParametricResourceDemandDemandFigure extends org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel {&#xD;&#xA;&#xD;&#xA;&#x9;/**&#xD;&#xA;&#x9; * @generated&#xD;&#xA;&#x9; */&#xD;&#xA;&#x9;public ParametricResourceDemandDemandFigure() {&#x9;&#xD;&#xA;&#x9;&#x9;&#xD;&#xA;&#xD;&#xA;&#x9;&#x9;this.setText(&quot;&lt;...>&quot;);&#xD;&#xA;&#x9;&#x9;createContents();&#xD;&#xA;&#x9;}&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#x9;/**&#xD;&#xA;&#x9; * @generated&#xD;&#xA;&#x9; */&#xD;&#xA;&#x9;private void createContents(){&#xD;&#xA;&#x9;}&#xD;&#xA;&#x9;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#x9;/**&#xD;&#xA;&#x9; * @generated&#xD;&#xA;&#x9; */&#xD;&#xA;&#x9;private boolean myUseLocalCoordinates = false;&#xD;&#xA;&#xD;&#xA;&#x9;/**&#xD;&#xA;&#x9; * @generated&#xD;&#xA;&#x9; */&#xD;&#xA;&#x9;protected boolean useLocalCoordinates() {&#xD;&#xA;&#x9;&#x9;return myUseLocalCoordinates;&#xD;&#xA;&#x9;}&#xD;&#xA;&#xD;&#xA;&#x9;/**&#xD;&#xA;&#x9; * @generated&#xD;&#xA;&#x9; */&#xD;&#xA;&#x9;protected void setUseLocalCoordinates(boolean useLocalCoordinates) {&#xD;&#xA;&#x9;&#x9;myUseLocalCoordinates = useLocalCoordinates;&#xD;&#xA;&#x9;}&#xD;&#xA;&#x9;&#xD;&#xA;&#xD;&#xA;}&#xD;&#xA;&#x9;&#xD;&#xA;">
+        <requiredPluginIDs>org.eclipse.draw2d</requiredPluginIDs>
+        <requiredPluginIDs>org.eclipse.gmf.runtime.draw2d.ui</requiredPluginIDs>
+      </viewmap>
+      <modelFacet>
+        <metaClass
+            href="../../pcm.genmodel#//pcm/seff/ParametricResourceDemand"/>
+        <containmentMetaFeature
+            href="../../pcm.genmodel#//pcm/seff/AbstractResourceDemandingAction/resourceDemand_Action"/>
+        <childMetaFeature
+            href="../../pcm.genmodel#//pcm/seff/AbstractResourceDemandingAction/resourceDemand_Action"/>
+      </modelFacet>
+      <labelModelFacet
+          xsi:type="gmfgen:CompositeFeatureLabelModelFacet"
+          viewPattern="{0} {1}"
+          editPattern="{0}">
+        <metaFeatures
+            href="../../pcm.genmodel#//pcm/core/stochastics/RandomVariable/specification"/>
+        <metaFeatures
+            href="../../pcm.genmodel#//pcm/seff/ParametricResourceDemand/unit"/>
+      </labelModelFacet>
+    </childNodes>
+    <childNodes
+        visualID="2008"
         editPartClassName="BranchActionEditPart"
         itemSemanticEditPolicyClassName="BranchActionItemSemanticEditPolicy"
         notationViewFactoryClassName="BranchActionViewFactory"
         canonicalEditPolicyClassName="BranchActionCanonicalEditPolicy"
-        compartments="//@diagram/@compartments.3"
+        compartments="//@diagram/@compartments.5"
         graphicalNodeEditPolicyClassName="BranchActionGraphicalNodeEditPolicy"
-        containers="//@diagram/@compartments.5 //@diagram/@compartments.1">
+        containers="//@diagram/@compartments.7 //@diagram/@compartments.2">
       <diagramRunTimeClass
           href="../../../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
@@ -280,14 +351,14 @@
       </labels>
     </childNodes>
     <childNodes
-        visualID="2007"
+        visualID="2009"
         editPartClassName="BranchTransitionEditPart"
         itemSemanticEditPolicyClassName="BranchTransitionItemSemanticEditPolicy"
         notationViewFactoryClassName="BranchTransitionViewFactory"
         canonicalEditPolicyClassName="BranchTransitionCanonicalEditPolicy"
-        compartments="//@diagram/@compartments.4"
+        compartments="//@diagram/@compartments.6"
         graphicalNodeEditPolicyClassName="BranchTransitionGraphicalNodeEditPolicy"
-        containers="//@diagram/@compartments.3 //@diagram/@compartments.6">
+        containers="//@diagram/@compartments.5 //@diagram/@compartments.9">
       <diagramRunTimeClass
           href="../../../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
@@ -323,19 +394,19 @@
       </labels>
     </childNodes>
     <childNodes
-        visualID="2008"
+        visualID="2010"
         editPartClassName="ResourceDemandingBehaviour2EditPart"
         itemSemanticEditPolicyClassName="ResourceDemandingBehaviour2ItemSemanticEditPolicy"
         notationViewFactoryClassName="ResourceDemandingBehaviour2ViewFactory"
         canonicalEditPolicyClassName="ResourceDemandingBehaviour2CanonicalEditPolicy"
-        compartments="//@diagram/@compartments.5"
+        compartments="//@diagram/@compartments.7"
         graphicalNodeEditPolicyClassName="ResourceDemandingBehaviour2GraphicalNodeEditPolicy"
-        containers="//@diagram/@compartments.4">
+        containers="//@diagram/@compartments.6">
       <diagramRunTimeClass
           href="../../../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
           xsi:type="gmfgen:SpecializationType"
-          metamodelType="//@diagram/@childNodes.0/@elementType"
+          metamodelType="//@diagram/@childNodes.1/@elementType"
           editHelperAdviceClassName="ResourceDemandingBehaviourEditHelperAdvice"/>
       <viewmap
           xsi:type="gmfgen:InnerClassViewmap"
@@ -354,13 +425,14 @@
       </modelFacet>
     </childNodes>
     <childNodes
-        visualID="2009"
+        visualID="2011"
         editPartClassName="ExternalCallAction2EditPart"
         itemSemanticEditPolicyClassName="ExternalCallAction2ItemSemanticEditPolicy"
         notationViewFactoryClassName="ExternalCallAction2ViewFactory"
         canonicalEditPolicyClassName="ExternalCallAction2CanonicalEditPolicy"
+        compartments="//@diagram/@compartments.8"
         graphicalNodeEditPolicyClassName="ExternalCallAction2GraphicalNodeEditPolicy"
-        containers="//@diagram/@compartments.5 //@diagram/@compartments.1">
+        containers="//@diagram/@compartments.7 //@diagram/@compartments.2">
       <diagramRunTimeClass
           href="../../../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
@@ -470,6 +542,7 @@
         itemSemanticEditPolicyClassName="ExternalCallActionItemSemanticEditPolicy"
         notationViewFactoryClassName="ExternalCallActionViewFactory"
         canonicalEditPolicyClassName="ExternalCallActionCanonicalEditPolicy"
+        compartments="//@diagram/@compartments.0"
         graphicalNodeEditPolicyClassName="ExternalCallActionGraphicalNodeEditPolicy">
       <diagramRunTimeClass
           href="../../../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
@@ -516,7 +589,7 @@
         itemSemanticEditPolicyClassName="LoopActionItemSemanticEditPolicy"
         notationViewFactoryClassName="LoopActionViewFactory"
         canonicalEditPolicyClassName="LoopActionCanonicalEditPolicy"
-        compartments="//@diagram/@compartments.0"
+        compartments="//@diagram/@compartments.1"
         graphicalNodeEditPolicyClassName="LoopActionGraphicalNodeEditPolicy">
       <diagramRunTimeClass
           href="../../../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
@@ -577,13 +650,13 @@
         itemSemanticEditPolicyClassName="BranchAction2ItemSemanticEditPolicy"
         notationViewFactoryClassName="BranchAction2ViewFactory"
         canonicalEditPolicyClassName="BranchAction2CanonicalEditPolicy"
-        compartments="//@diagram/@compartments.6"
+        compartments="//@diagram/@compartments.9"
         graphicalNodeEditPolicyClassName="BranchAction2GraphicalNodeEditPolicy">
       <diagramRunTimeClass
           href="../../../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
           xsi:type="gmfgen:SpecializationType"
-          metamodelType="//@diagram/@childNodes.5/@elementType"
+          metamodelType="//@diagram/@childNodes.7/@elementType"
           editHelperAdviceClassName="BranchActionEditHelperAdvice"/>
       <viewmap
           xsi:type="gmfgen:InnerClassViewmap"
@@ -625,12 +698,13 @@
         itemSemanticEditPolicyClassName="InternalAction2ItemSemanticEditPolicy"
         notationViewFactoryClassName="InternalAction2ViewFactory"
         canonicalEditPolicyClassName="InternalAction2CanonicalEditPolicy"
+        compartments="//@diagram/@compartments.10"
         graphicalNodeEditPolicyClassName="InternalAction2GraphicalNodeEditPolicy">
       <diagramRunTimeClass
           href="../../../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
           xsi:type="gmfgen:SpecializationType"
-          metamodelType="//@diagram/@childNodes.4/@elementType"
+          metamodelType="//@diagram/@childNodes.5/@elementType"
           editHelperAdviceClassName="InternalActionEditHelperAdvice"/>
       <viewmap
           xsi:type="gmfgen:InnerClassViewmap"
@@ -691,10 +765,29 @@
     </links>
     <compartments
         visualID="5001"
+        editPartClassName="ExternalCallActionParameterUsageEditPart"
+        itemSemanticEditPolicyClassName="ExternalCallActionParameterUsageItemSemanticEditPolicy"
+        notationViewFactoryClassName="ExternalCallActionParameterUsageViewFactory"
+        childNodes="//@diagram/@childNodes.0"
+        canonicalEditPolicyClassName="ExternalCallActionParameterUsageCanonicalEditPolicy"
+        title="ParameterUsage"
+        node="//@diagram/@topLevelNodes.2">
+      <diagramRunTimeClass
+          href="../../../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+      <viewmap
+          xsi:type="gmfgen:InnerClassViewmap"
+          className="ExternalCallActionFigure"
+          classBody="&#xD;&#xA;&#xD;&#xA;/**&#xD;&#xA; * @generated&#xD;&#xA; */&#xD;&#xA;public class ExternalCallActionFigure extends org.eclipse.draw2d.RoundedRectangle {&#xD;&#xA;&#xD;&#xA;&#x9;/**&#xD;&#xA;&#x9; * @generated&#xD;&#xA;&#x9; */&#xD;&#xA;&#x9;public ExternalCallActionFigure() {&#x9;&#xD;&#xA;&#x9;&#x9;&#xD;&#xA;&#xD;&#xA;&#x9;&#x9;&#xD;&#xA;this.setCornerDimensions(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(8), getMapMode().DPtoLP(8)));&#xD;&#xA;&#xD;&#xA;&#x9;&#x9;createContents();&#xD;&#xA;&#x9;}&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#x9;/**&#xD;&#xA;&#x9; * @generated&#xD;&#xA;&#x9; */&#xD;&#xA;&#x9;private void createContents(){&#xD;&#xA;&#x9;&#x9;org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel fig_0 = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel();&#xD;&#xA;fig_0.setText(&quot;&lt;&lt;component_external>>&quot;);&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#x9;&#x9;setFigureStereotypeLabel(fig_0);&#xD;&#xA;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;Object layData0 = null;&#xD;&#xA;&#xD;&#xA;&#x9;&#x9;this.add(fig_0, layData0);&#xD;&#xA;&#x9;&#x9;org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel fig_1 = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel();&#xD;&#xA;fig_1.setText(&quot;myCall&quot;);&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#x9;&#x9;setFigureComponentExternalCallName(fig_1);&#xD;&#xA;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;Object layData1 = null;&#xD;&#xA;&#xD;&#xA;&#x9;&#x9;this.add(fig_1, layData1);&#xD;&#xA;&#x9;}&#xD;&#xA;&#x9;&#xD;&#xA;&#x9;&#x9;&#xD;&#xA;&#x9;/**&#xD;&#xA;&#x9; * @generated&#xD;&#xA;&#x9; */&#xD;&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel fStereotypeLabel; &#xD;&#xA;&#xD;&#xA;&#x9;/**&#xD;&#xA;&#x9; * @generated&#xD;&#xA;&#x9; */&#xD;&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel getFigureStereotypeLabel() {&#xD;&#xA;&#x9;&#x9;return fStereotypeLabel;&#xD;&#xA;&#x9;}&#xD;&#xA;&#x9;&#xD;&#xA;&#x9;/**&#xD;&#xA;&#x9; * @generated&#xD;&#xA;&#x9; */&#xD;&#xA;&#x9;private void setFigureStereotypeLabel(org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel fig){&#xD;&#xA;&#x9;&#x9;fStereotypeLabel = fig;&#xD;&#xA;&#x9;}&#xD;&#xA;&#xD;&#xA;&#x9;&#x9;&#xD;&#xA;&#x9;/**&#xD;&#xA;&#x9; * @generated&#xD;&#xA;&#x9; */&#xD;&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel fComponentExternalCallName; &#xD;&#xA;&#xD;&#xA;&#x9;/**&#xD;&#xA;&#x9; * @generated&#xD;&#xA;&#x9; */&#xD;&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel getFigureComponentExternalCallName() {&#xD;&#xA;&#x9;&#x9;return fComponentExternalCallName;&#xD;&#xA;&#x9;}&#xD;&#xA;&#x9;&#xD;&#xA;&#x9;/**&#xD;&#xA;&#x9; * @generated&#xD;&#xA;&#x9; */&#xD;&#xA;&#x9;private void setFigureComponentExternalCallName(org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel fig){&#xD;&#xA;&#x9;&#x9;fComponentExternalCallName = fig;&#xD;&#xA;&#x9;}&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#x9;/**&#xD;&#xA;&#x9; * @generated&#xD;&#xA;&#x9; */&#xD;&#xA;&#x9;private boolean myUseLocalCoordinates = false;&#xD;&#xA;&#xD;&#xA;&#x9;/**&#xD;&#xA;&#x9; * @generated&#xD;&#xA;&#x9; */&#xD;&#xA;&#x9;protected boolean useLocalCoordinates() {&#xD;&#xA;&#x9;&#x9;return myUseLocalCoordinates;&#xD;&#xA;&#x9;}&#xD;&#xA;&#xD;&#xA;&#x9;/**&#xD;&#xA;&#x9; * @generated&#xD;&#xA;&#x9; */&#xD;&#xA;&#x9;protected void setUseLocalCoordinates(boolean useLocalCoordinates) {&#xD;&#xA;&#x9;&#x9;myUseLocalCoordinates = useLocalCoordinates;&#xD;&#xA;&#x9;}&#xD;&#xA;&#x9;&#xD;&#xA;&#xD;&#xA;}&#xD;&#xA;&#x9;&#xD;&#xA;">
+        <requiredPluginIDs>org.eclipse.draw2d</requiredPluginIDs>
+        <requiredPluginIDs>org.eclipse.gmf.runtime.draw2d.ui</requiredPluginIDs>
+      </viewmap>
+    </compartments>
+    <compartments
+        visualID="5002"
         editPartClassName="LoopActionBehaviourCompartmentEditPart"
         itemSemanticEditPolicyClassName="LoopActionBehaviourCompartmentItemSemanticEditPolicy"
         notationViewFactoryClassName="LoopActionBehaviourCompartmentViewFactory"
-        childNodes="//@diagram/@childNodes.0"
+        childNodes="//@diagram/@childNodes.1"
         canonicalEditPolicyClassName="LoopActionBehaviourCompartmentCanonicalEditPolicy"
         title="BehaviourCompartment"
         canCollapse="false"
@@ -712,16 +805,16 @@
       </viewmap>
     </compartments>
     <compartments
-        visualID="5002"
+        visualID="5003"
         editPartClassName="ResourceDemandingBehaviourLoopCompartmentEditPart"
         itemSemanticEditPolicyClassName="ResourceDemandingBehaviourLoopCompartmentItemSemanticEditPolicy"
         notationViewFactoryClassName="ResourceDemandingBehaviourLoopCompartmentViewFactory"
-        childNodes="//@diagram/@childNodes.1 //@diagram/@childNodes.2 //@diagram/@childNodes.3 //@diagram/@childNodes.4 //@diagram/@childNodes.5 //@diagram/@childNodes.8"
+        childNodes="//@diagram/@childNodes.2 //@diagram/@childNodes.3 //@diagram/@childNodes.4 //@diagram/@childNodes.5 //@diagram/@childNodes.7 //@diagram/@childNodes.10"
         canonicalEditPolicyClassName="ResourceDemandingBehaviourLoopCompartmentCanonicalEditPolicy"
         title="LoopCompartment"
         canCollapse="false"
         needsTitle="false"
-        node="//@diagram/@childNodes.0"
+        node="//@diagram/@childNodes.1"
         listLayout="false">
       <diagramRunTimeClass
           href="../../../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
@@ -734,16 +827,16 @@
       </viewmap>
     </compartments>
     <compartments
-        visualID="5003"
+        visualID="5004"
         editPartClassName="LoopActionBehaviourCompartment2EditPart"
         itemSemanticEditPolicyClassName="LoopActionBehaviourCompartment2ItemSemanticEditPolicy"
         notationViewFactoryClassName="LoopActionBehaviourCompartment2ViewFactory"
-        childNodes="//@diagram/@childNodes.0"
+        childNodes="//@diagram/@childNodes.1"
         canonicalEditPolicyClassName="LoopActionBehaviourCompartment2CanonicalEditPolicy"
         title="BehaviourCompartment"
         canCollapse="false"
         needsTitle="false"
-        node="//@diagram/@childNodes.3"
+        node="//@diagram/@childNodes.4"
         listLayout="false">
       <diagramRunTimeClass
           href="../../../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
@@ -756,16 +849,37 @@
       </viewmap>
     </compartments>
     <compartments
-        visualID="5004"
+        visualID="5005"
+        editPartClassName="InternalActionResourceDemandResourceDemandingActionCompartmentEditPart"
+        itemSemanticEditPolicyClassName="InternalActionResourceDemandResourceDemandingActionCompartmentItemSemanticEditPolicy"
+        notationViewFactoryClassName="InternalActionResourceDemandResourceDemandingActionCompartmentViewFactory"
+        childNodes="//@diagram/@childNodes.6"
+        canonicalEditPolicyClassName="InternalActionResourceDemandResourceDemandingActionCompartmentCanonicalEditPolicy"
+        title="ResourceDemandResourceDemandingActionCompartment"
+        canCollapse="false"
+        needsTitle="false"
+        node="//@diagram/@childNodes.5">
+      <diagramRunTimeClass
+          href="../../../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+      <viewmap
+          xsi:type="gmfgen:InnerClassViewmap"
+          className="InternalActionFigure"
+          classBody="&#xD;&#xA;&#xD;&#xA;/**&#xD;&#xA; * @generated&#xD;&#xA; */&#xD;&#xA;public class InternalActionFigure extends org.eclipse.draw2d.RoundedRectangle {&#xD;&#xA;&#xD;&#xA;&#x9;/**&#xD;&#xA;&#x9; * @generated&#xD;&#xA;&#x9; */&#xD;&#xA;&#x9;public InternalActionFigure() {&#x9;&#xD;&#xA;&#x9;&#x9;&#xD;&#xA;&#xD;&#xA;&#x9;&#x9;&#xD;&#xA;this.setCornerDimensions(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(8), getMapMode().DPtoLP(8)));&#xD;&#xA;&#xD;&#xA;&#x9;&#x9;createContents();&#xD;&#xA;&#x9;}&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#x9;/**&#xD;&#xA;&#x9; * @generated&#xD;&#xA;&#x9; */&#xD;&#xA;&#x9;private void createContents(){&#xD;&#xA;&#x9;&#x9;org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel fig_0 = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel();&#xD;&#xA;fig_0.setText(&quot;&lt;myName>&quot;);&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#x9;&#x9;setFigureInternalActionFigureNameLabel(fig_0);&#xD;&#xA;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;Object layData0 = null;&#xD;&#xA;&#xD;&#xA;&#x9;&#x9;this.add(fig_0, layData0);&#xD;&#xA;&#x9;}&#xD;&#xA;&#x9;&#xD;&#xA;&#x9;&#x9;&#xD;&#xA;&#x9;/**&#xD;&#xA;&#x9; * @generated&#xD;&#xA;&#x9; */&#xD;&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel fInternalActionFigureNameLabel; &#xD;&#xA;&#xD;&#xA;&#x9;/**&#xD;&#xA;&#x9; * @generated&#xD;&#xA;&#x9; */&#xD;&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel getFigureInternalActionFigureNameLabel() {&#xD;&#xA;&#x9;&#x9;return fInternalActionFigureNameLabel;&#xD;&#xA;&#x9;}&#xD;&#xA;&#x9;&#xD;&#xA;&#x9;/**&#xD;&#xA;&#x9; * @generated&#xD;&#xA;&#x9; */&#xD;&#xA;&#x9;private void setFigureInternalActionFigureNameLabel(org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel fig){&#xD;&#xA;&#x9;&#x9;fInternalActionFigureNameLabel = fig;&#xD;&#xA;&#x9;}&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#x9;/**&#xD;&#xA;&#x9; * @generated&#xD;&#xA;&#x9; */&#xD;&#xA;&#x9;private boolean myUseLocalCoordinates = false;&#xD;&#xA;&#xD;&#xA;&#x9;/**&#xD;&#xA;&#x9; * @generated&#xD;&#xA;&#x9; */&#xD;&#xA;&#x9;protected boolean useLocalCoordinates() {&#xD;&#xA;&#x9;&#x9;return myUseLocalCoordinates;&#xD;&#xA;&#x9;}&#xD;&#xA;&#xD;&#xA;&#x9;/**&#xD;&#xA;&#x9; * @generated&#xD;&#xA;&#x9; */&#xD;&#xA;&#x9;protected void setUseLocalCoordinates(boolean useLocalCoordinates) {&#xD;&#xA;&#x9;&#x9;myUseLocalCoordinates = useLocalCoordinates;&#xD;&#xA;&#x9;}&#xD;&#xA;&#x9;&#xD;&#xA;&#xD;&#xA;}&#xD;&#xA;&#x9;&#xD;&#xA;">
+        <requiredPluginIDs>org.eclipse.draw2d</requiredPluginIDs>
+        <requiredPluginIDs>org.eclipse.gmf.runtime.draw2d.ui</requiredPluginIDs>
+      </viewmap>
+    </compartments>
+    <compartments
+        visualID="5006"
         editPartClassName="BranchActionBranchTransitionCompartmentEditPart"
         itemSemanticEditPolicyClassName="BranchActionBranchTransitionCompartmentItemSemanticEditPolicy"
         notationViewFactoryClassName="BranchActionBranchTransitionCompartmentViewFactory"
-        childNodes="//@diagram/@childNodes.6"
+        childNodes="//@diagram/@childNodes.8"
         canonicalEditPolicyClassName="BranchActionBranchTransitionCompartmentCanonicalEditPolicy"
         title="BranchTransitionCompartment"
         canCollapse="false"
         needsTitle="false"
-        node="//@diagram/@childNodes.5"
+        node="//@diagram/@childNodes.7"
         listLayout="false">
       <diagramRunTimeClass
           href="../../../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
@@ -778,16 +892,16 @@
       </viewmap>
     </compartments>
     <compartments
-        visualID="5005"
+        visualID="5007"
         editPartClassName="BranchTransitionBehaviourCompartmentEditPart"
         itemSemanticEditPolicyClassName="BranchTransitionBehaviourCompartmentItemSemanticEditPolicy"
         notationViewFactoryClassName="BranchTransitionBehaviourCompartmentViewFactory"
-        childNodes="//@diagram/@childNodes.7"
+        childNodes="//@diagram/@childNodes.9"
         canonicalEditPolicyClassName="BranchTransitionBehaviourCompartmentCanonicalEditPolicy"
         title="BehaviourCompartment"
         canCollapse="false"
         needsTitle="false"
-        node="//@diagram/@childNodes.6"
+        node="//@diagram/@childNodes.8"
         listLayout="false">
       <diagramRunTimeClass
           href="../../../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
@@ -800,16 +914,16 @@
       </viewmap>
     </compartments>
     <compartments
-        visualID="5006"
+        visualID="5008"
         editPartClassName="ResourceDemandingBehaviourBranchCompartmentEditPart"
         itemSemanticEditPolicyClassName="ResourceDemandingBehaviourBranchCompartmentItemSemanticEditPolicy"
         notationViewFactoryClassName="ResourceDemandingBehaviourBranchCompartmentViewFactory"
-        childNodes="//@diagram/@childNodes.1 //@diagram/@childNodes.2 //@diagram/@childNodes.3 //@diagram/@childNodes.4 //@diagram/@childNodes.5 //@diagram/@childNodes.8"
+        childNodes="//@diagram/@childNodes.2 //@diagram/@childNodes.3 //@diagram/@childNodes.4 //@diagram/@childNodes.5 //@diagram/@childNodes.7 //@diagram/@childNodes.10"
         canonicalEditPolicyClassName="ResourceDemandingBehaviourBranchCompartmentCanonicalEditPolicy"
         title="BranchCompartment"
         canCollapse="false"
         needsTitle="false"
-        node="//@diagram/@childNodes.7"
+        node="//@diagram/@childNodes.9"
         listLayout="false">
       <diagramRunTimeClass
           href="../../../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
@@ -822,11 +936,30 @@
       </viewmap>
     </compartments>
     <compartments
-        visualID="5007"
+        visualID="5009"
+        editPartClassName="ExternalCallActionParameterUsage2EditPart"
+        itemSemanticEditPolicyClassName="ExternalCallActionParameterUsage2ItemSemanticEditPolicy"
+        notationViewFactoryClassName="ExternalCallActionParameterUsage2ViewFactory"
+        childNodes="//@diagram/@childNodes.0"
+        canonicalEditPolicyClassName="ExternalCallActionParameterUsage2CanonicalEditPolicy"
+        title="ParameterUsage"
+        node="//@diagram/@childNodes.10">
+      <diagramRunTimeClass
+          href="../../../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+      <viewmap
+          xsi:type="gmfgen:InnerClassViewmap"
+          className="ExternalCallActionFigure"
+          classBody="&#xD;&#xA;&#xD;&#xA;/**&#xD;&#xA; * @generated&#xD;&#xA; */&#xD;&#xA;public class ExternalCallActionFigure extends org.eclipse.draw2d.RoundedRectangle {&#xD;&#xA;&#xD;&#xA;&#x9;/**&#xD;&#xA;&#x9; * @generated&#xD;&#xA;&#x9; */&#xD;&#xA;&#x9;public ExternalCallActionFigure() {&#x9;&#xD;&#xA;&#x9;&#x9;&#xD;&#xA;&#xD;&#xA;&#x9;&#x9;&#xD;&#xA;this.setCornerDimensions(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(8), getMapMode().DPtoLP(8)));&#xD;&#xA;&#xD;&#xA;&#x9;&#x9;createContents();&#xD;&#xA;&#x9;}&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#x9;/**&#xD;&#xA;&#x9; * @generated&#xD;&#xA;&#x9; */&#xD;&#xA;&#x9;private void createContents(){&#xD;&#xA;&#x9;&#x9;org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel fig_0 = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel();&#xD;&#xA;fig_0.setText(&quot;&lt;&lt;component_external>>&quot;);&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#x9;&#x9;setFigureStereotypeLabel(fig_0);&#xD;&#xA;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;Object layData0 = null;&#xD;&#xA;&#xD;&#xA;&#x9;&#x9;this.add(fig_0, layData0);&#xD;&#xA;&#x9;&#x9;org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel fig_1 = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel();&#xD;&#xA;fig_1.setText(&quot;myCall&quot;);&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#x9;&#x9;setFigureComponentExternalCallName(fig_1);&#xD;&#xA;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;Object layData1 = null;&#xD;&#xA;&#xD;&#xA;&#x9;&#x9;this.add(fig_1, layData1);&#xD;&#xA;&#x9;}&#xD;&#xA;&#x9;&#xD;&#xA;&#x9;&#x9;&#xD;&#xA;&#x9;/**&#xD;&#xA;&#x9; * @generated&#xD;&#xA;&#x9; */&#xD;&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel fStereotypeLabel; &#xD;&#xA;&#xD;&#xA;&#x9;/**&#xD;&#xA;&#x9; * @generated&#xD;&#xA;&#x9; */&#xD;&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel getFigureStereotypeLabel() {&#xD;&#xA;&#x9;&#x9;return fStereotypeLabel;&#xD;&#xA;&#x9;}&#xD;&#xA;&#x9;&#xD;&#xA;&#x9;/**&#xD;&#xA;&#x9; * @generated&#xD;&#xA;&#x9; */&#xD;&#xA;&#x9;private void setFigureStereotypeLabel(org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel fig){&#xD;&#xA;&#x9;&#x9;fStereotypeLabel = fig;&#xD;&#xA;&#x9;}&#xD;&#xA;&#xD;&#xA;&#x9;&#x9;&#xD;&#xA;&#x9;/**&#xD;&#xA;&#x9; * @generated&#xD;&#xA;&#x9; */&#xD;&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel fComponentExternalCallName; &#xD;&#xA;&#xD;&#xA;&#x9;/**&#xD;&#xA;&#x9; * @generated&#xD;&#xA;&#x9; */&#xD;&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel getFigureComponentExternalCallName() {&#xD;&#xA;&#x9;&#x9;return fComponentExternalCallName;&#xD;&#xA;&#x9;}&#xD;&#xA;&#x9;&#xD;&#xA;&#x9;/**&#xD;&#xA;&#x9; * @generated&#xD;&#xA;&#x9; */&#xD;&#xA;&#x9;private void setFigureComponentExternalCallName(org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel fig){&#xD;&#xA;&#x9;&#x9;fComponentExternalCallName = fig;&#xD;&#xA;&#x9;}&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#x9;/**&#xD;&#xA;&#x9; * @generated&#xD;&#xA;&#x9; */&#xD;&#xA;&#x9;private boolean myUseLocalCoordinates = false;&#xD;&#xA;&#xD;&#xA;&#x9;/**&#xD;&#xA;&#x9; * @generated&#xD;&#xA;&#x9; */&#xD;&#xA;&#x9;protected boolean useLocalCoordinates() {&#xD;&#xA;&#x9;&#x9;return myUseLocalCoordinates;&#xD;&#xA;&#x9;}&#xD;&#xA;&#xD;&#xA;&#x9;/**&#xD;&#xA;&#x9; * @generated&#xD;&#xA;&#x9; */&#xD;&#xA;&#x9;protected void setUseLocalCoordinates(boolean useLocalCoordinates) {&#xD;&#xA;&#x9;&#x9;myUseLocalCoordinates = useLocalCoordinates;&#xD;&#xA;&#x9;}&#xD;&#xA;&#x9;&#xD;&#xA;&#xD;&#xA;}&#xD;&#xA;&#x9;&#xD;&#xA;">
+        <requiredPluginIDs>org.eclipse.draw2d</requiredPluginIDs>
+        <requiredPluginIDs>org.eclipse.gmf.runtime.draw2d.ui</requiredPluginIDs>
+      </viewmap>
+    </compartments>
+    <compartments
+        visualID="5010"
         editPartClassName="BranchActionBranchTransitionCompartment2EditPart"
         itemSemanticEditPolicyClassName="BranchActionBranchTransitionCompartment2ItemSemanticEditPolicy"
         notationViewFactoryClassName="BranchActionBranchTransitionCompartment2ViewFactory"
-        childNodes="//@diagram/@childNodes.6"
+        childNodes="//@diagram/@childNodes.8"
         canonicalEditPolicyClassName="BranchActionBranchTransitionCompartment2CanonicalEditPolicy"
         title="BranchTransitionCompartment"
         canCollapse="false"
@@ -843,6 +976,25 @@
         <requiredPluginIDs>org.eclipse.gmf.runtime.draw2d.ui</requiredPluginIDs>
       </viewmap>
     </compartments>
+    <compartments
+        visualID="5011"
+        editPartClassName="InternalActionResourceDemandResourceDemandingActionCompartment2EditPart"
+        itemSemanticEditPolicyClassName="InternalActionResourceDemandResourceDemandingActionCompartment2ItemSemanticEditPolicy"
+        notationViewFactoryClassName="InternalActionResourceDemandResourceDemandingActionCompartment2ViewFactory"
+        childNodes="//@diagram/@childNodes.6"
+        canonicalEditPolicyClassName="InternalActionResourceDemandResourceDemandingActionCompartment2CanonicalEditPolicy"
+        title="ResourceDemandResourceDemandingActionCompartment"
+        node="//@diagram/@topLevelNodes.5">
+      <diagramRunTimeClass
+          href="../../../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+      <viewmap
+          xsi:type="gmfgen:InnerClassViewmap"
+          className="InternalActionFigure"
+          classBody="&#xD;&#xA;&#xD;&#xA;/**&#xD;&#xA; * @generated&#xD;&#xA; */&#xD;&#xA;public class InternalActionFigure extends org.eclipse.draw2d.RoundedRectangle {&#xD;&#xA;&#xD;&#xA;&#x9;/**&#xD;&#xA;&#x9; * @generated&#xD;&#xA;&#x9; */&#xD;&#xA;&#x9;public InternalActionFigure() {&#x9;&#xD;&#xA;&#x9;&#x9;&#xD;&#xA;&#xD;&#xA;&#x9;&#x9;&#xD;&#xA;this.setCornerDimensions(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(8), getMapMode().DPtoLP(8)));&#xD;&#xA;&#xD;&#xA;&#x9;&#x9;createContents();&#xD;&#xA;&#x9;}&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#x9;/**&#xD;&#xA;&#x9; * @generated&#xD;&#xA;&#x9; */&#xD;&#xA;&#x9;private void createContents(){&#xD;&#xA;&#x9;&#x9;org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel fig_0 = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel();&#xD;&#xA;fig_0.setText(&quot;&lt;myName>&quot;);&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#x9;&#x9;setFigureInternalActionFigureNameLabel(fig_0);&#xD;&#xA;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;Object layData0 = null;&#xD;&#xA;&#xD;&#xA;&#x9;&#x9;this.add(fig_0, layData0);&#xD;&#xA;&#x9;}&#xD;&#xA;&#x9;&#xD;&#xA;&#x9;&#x9;&#xD;&#xA;&#x9;/**&#xD;&#xA;&#x9; * @generated&#xD;&#xA;&#x9; */&#xD;&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel fInternalActionFigureNameLabel; &#xD;&#xA;&#xD;&#xA;&#x9;/**&#xD;&#xA;&#x9; * @generated&#xD;&#xA;&#x9; */&#xD;&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel getFigureInternalActionFigureNameLabel() {&#xD;&#xA;&#x9;&#x9;return fInternalActionFigureNameLabel;&#xD;&#xA;&#x9;}&#xD;&#xA;&#x9;&#xD;&#xA;&#x9;/**&#xD;&#xA;&#x9; * @generated&#xD;&#xA;&#x9; */&#xD;&#xA;&#x9;private void setFigureInternalActionFigureNameLabel(org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel fig){&#xD;&#xA;&#x9;&#x9;fInternalActionFigureNameLabel = fig;&#xD;&#xA;&#x9;}&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#x9;/**&#xD;&#xA;&#x9; * @generated&#xD;&#xA;&#x9; */&#xD;&#xA;&#x9;private boolean myUseLocalCoordinates = false;&#xD;&#xA;&#xD;&#xA;&#x9;/**&#xD;&#xA;&#x9; * @generated&#xD;&#xA;&#x9; */&#xD;&#xA;&#x9;protected boolean useLocalCoordinates() {&#xD;&#xA;&#x9;&#x9;return myUseLocalCoordinates;&#xD;&#xA;&#x9;}&#xD;&#xA;&#xD;&#xA;&#x9;/**&#xD;&#xA;&#x9; * @generated&#xD;&#xA;&#x9; */&#xD;&#xA;&#x9;protected void setUseLocalCoordinates(boolean useLocalCoordinates) {&#xD;&#xA;&#x9;&#x9;myUseLocalCoordinates = useLocalCoordinates;&#xD;&#xA;&#x9;}&#xD;&#xA;&#x9;&#xD;&#xA;&#xD;&#xA;}&#xD;&#xA;&#x9;&#xD;&#xA;">
+        <requiredPluginIDs>org.eclipse.draw2d</requiredPluginIDs>
+        <requiredPluginIDs>org.eclipse.gmf.runtime.draw2d.ui</requiredPluginIDs>
+      </viewmap>
+    </compartments>
     <palette>
       <groups
           title="Actions"
@@ -852,32 +1004,32 @@
             xsi:type="gmfgen:ToolEntry"
             title="StopAction"
             description="Create new StopAction"
-            genNodes="//@diagram/@topLevelNodes.1 //@diagram/@childNodes.2"/>
+            genNodes="//@diagram/@topLevelNodes.1 //@diagram/@childNodes.3"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="StartAction"
             description="Create new StartAction"
-            genNodes="//@diagram/@topLevelNodes.0 //@diagram/@childNodes.1"/>
+            genNodes="//@diagram/@topLevelNodes.0 //@diagram/@childNodes.2"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="LoopAction"
             description="Create new LoopAction"
-            genNodes="//@diagram/@topLevelNodes.3 //@diagram/@childNodes.3"/>
+            genNodes="//@diagram/@topLevelNodes.3 //@diagram/@childNodes.4"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="InternalAction"
             description="Create new InternalAction"
-            genNodes="//@diagram/@childNodes.4 //@diagram/@topLevelNodes.5"/>
+            genNodes="//@diagram/@childNodes.5 //@diagram/@topLevelNodes.5"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="ExternalCallAction"
             description="Create new ExternalCallAction"
-            genNodes="//@diagram/@topLevelNodes.2 //@diagram/@childNodes.8"/>
+            genNodes="//@diagram/@topLevelNodes.2 //@diagram/@childNodes.10"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="BranchAction"
             description="Create new BranchAction"
-            genNodes="//@diagram/@childNodes.5 //@diagram/@topLevelNodes.4"/>
+            genNodes="//@diagram/@childNodes.7 //@diagram/@topLevelNodes.4"/>
       </groups>
       <groups
           title="Links"
@@ -892,11 +1044,13 @@
             xsi:type="gmfgen:ToolEntry"
             title="Resource Demand"
             description="Create new Resource Demand"
-            smallIconPath="/de.uka.ipd.sdq.pcm.edit/icons/full/ctool16/ParametricRessourceDemand.gif"/>
+            smallIconPath="/de.uka.ipd.sdq.pcm.edit/icons/full/ctool16/ParametricRessourceDemand.gif"
+            genNodes="//@diagram/@childNodes.6"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="ParametricParameterUsage"
-            description="Link a Parametric Parameter Usage"/>
+            description="Link a Parametric Parameter Usage"
+            genNodes="//@diagram/@childNodes.0"/>
       </groups>
       <groups
           title="Annotations"
@@ -921,12 +1075,12 @@
             xsi:type="gmfgen:ToolEntry"
             title="ResourceDemandingBehaviour"
             description="Create new ResourceDemandingBehaviour"
-            genNodes="//@diagram/@childNodes.0 //@diagram/@childNodes.7"/>
+            genNodes="//@diagram/@childNodes.1 //@diagram/@childNodes.9"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="BranchTransition"
             description="Create new BranchTransition"
-            genNodes="//@diagram/@childNodes.6"/>
+            genNodes="//@diagram/@childNodes.8"/>
       </groups>
     </palette>
   </diagram>

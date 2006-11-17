@@ -102,7 +102,7 @@ public class PcmDiagramEditorUtil extends IDEEditorUtil {
 		affectedFiles.add(diagramFile);
 
 		IPath modelFileRelativePath = diagramFile.getFullPath()
-				.removeFileExtension().addFileExtension("repository"); //$NON-NLS-1$
+				.removeFileExtension().addFileExtension("pcm"); //$NON-NLS-1$
 		IFile modelFile = diagramFile.getParent().getFile(
 				new Path(modelFileRelativePath.lastSegment()));
 		final Resource modelResource = resourceSet.createResource(URI

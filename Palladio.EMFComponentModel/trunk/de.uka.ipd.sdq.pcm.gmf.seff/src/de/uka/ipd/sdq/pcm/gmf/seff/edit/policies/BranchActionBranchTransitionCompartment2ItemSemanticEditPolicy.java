@@ -28,12 +28,12 @@ public class BranchActionBranchTransitionCompartment2ItemSemanticEditPolicy
 	 * @generated
 	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
-		if (PcmElementTypes.BranchTransition_2007 == req.getElementType()) {
+		if (PcmElementTypes.BranchTransition_2009 == req.getElementType()) {
 			if (req.getContainmentFeature() == null) {
 				req.setContainmentFeature(SeffPackage.eINSTANCE
 						.getBranchAction_Branches_Branch());
 			}
-			return getMSLWrapper(new CreateBranchTransition_2007Command(req));
+			return getMSLWrapper(new CreateBranchTransition_2009Command(req));
 		}
 		return super.getCreateCommand(req);
 	}
@@ -41,13 +41,13 @@ public class BranchActionBranchTransitionCompartment2ItemSemanticEditPolicy
 	/**
 	 * @generated
 	 */
-	private static class CreateBranchTransition_2007Command extends
+	private static class CreateBranchTransition_2009Command extends
 			CreateElementCommand {
 
 		/**
 		 * @generated
 		 */
-		public CreateBranchTransition_2007Command(CreateElementRequest req) {
+		public CreateBranchTransition_2009Command(CreateElementRequest req) {
 			super(req);
 		}
 

@@ -342,7 +342,7 @@ public class ExternalCallActionEntityName2EditPart extends CompartmentEditPart
 
 				public Object getAdapter(Class adapter) {
 					if (IElementType.class.equals(adapter)) {
-						return PcmElementTypes.ExternalCallAction_2009;
+						return PcmElementTypes.ExternalCallAction_2011;
 					}
 					return super.getAdapter(adapter);
 				}

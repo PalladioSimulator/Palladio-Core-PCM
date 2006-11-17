@@ -12,6 +12,8 @@ import org.eclipse.gmf.runtime.common.ui.services.parser.IParserProvider;
 import org.eclipse.gmf.runtime.notation.View;
 import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
 
+import de.uka.ipd.sdq.pcm.core.stochastics.StochasticsPackage;
+
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.BranchActionEntityName2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.BranchActionEntityNameEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ExternalCallActionEntityName2EditPart;
@@ -20,10 +22,14 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.InternalActionEntityName2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.InternalActionEntityNameEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopActionEntityName2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopActionEntityNameEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ParametricResourceDemandEditPart;
 
 import de.uka.ipd.sdq.pcm.gmf.seff.part.PcmVisualIDRegistry;
 
 import de.uka.ipd.sdq.pcm.seff.SeffPackage;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @generated
@@ -78,6 +84,37 @@ public class PcmParserProvider extends AbstractProvider implements
 		PcmStructuralFeatureParser parser = new PcmStructuralFeatureParser(
 				EntityPackage.eINSTANCE.getNamedElement()
 						.getEStructuralFeature("entityName")); //$NON-NLS-1$
+		return parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser parametricResourceDemandParametricResourceDemand_2007Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getParametricResourceDemandParametricResourceDemand_2007Parser() {
+		if (parametricResourceDemandParametricResourceDemand_2007Parser == null) {
+			parametricResourceDemandParametricResourceDemand_2007Parser = createParametricResourceDemandParametricResourceDemand_2007Parser();
+		}
+		return parametricResourceDemandParametricResourceDemand_2007Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	protected IParser createParametricResourceDemandParametricResourceDemand_2007Parser() {
+		List features = new ArrayList(2);
+		features.add(StochasticsPackage.eINSTANCE.getRandomVariable()
+				.getEStructuralFeature("specification")); //$NON-NLS-1$
+		features.add(SeffPackage.eINSTANCE.getParametricResourceDemand()
+				.getEStructuralFeature("unit")); //$NON-NLS-1$
+		PcmStructuralFeaturesParser parser = new PcmStructuralFeaturesParser(
+				features);
+		parser.setViewPattern("{0} {1}");
+		parser.setEditPattern("{0}");
 		return parser;
 	}
 
@@ -240,6 +277,8 @@ public class PcmParserProvider extends AbstractProvider implements
 			return getLoopActionLoopActionEntityName_4002Parser();
 		case InternalActionEntityNameEditPart.VISUAL_ID:
 			return getInternalActionInternalActionEntityName_4004Parser();
+		case ParametricResourceDemandEditPart.VISUAL_ID:
+			return getParametricResourceDemandParametricResourceDemand_2007Parser();
 		case BranchActionEntityNameEditPart.VISUAL_ID:
 			return getBranchActionBranchActionEntityName_4007Parser();
 		case ExternalCallActionEntityName2EditPart.VISUAL_ID:

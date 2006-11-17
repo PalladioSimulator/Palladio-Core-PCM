@@ -342,7 +342,7 @@ public class InternalActionEntityNameEditPart extends CompartmentEditPart
 
 				public Object getAdapter(Class adapter) {
 					if (IElementType.class.equals(adapter)) {
-						return PcmElementTypes.InternalAction_2005;
+						return PcmElementTypes.InternalAction_2006;
 					}
 					return super.getAdapter(adapter);
 				}

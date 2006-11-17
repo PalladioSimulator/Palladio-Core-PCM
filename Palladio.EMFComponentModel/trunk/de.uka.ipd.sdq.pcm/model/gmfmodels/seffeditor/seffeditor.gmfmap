@@ -54,6 +54,31 @@
           href="seffeditor.gmftool#//@palette/@tools.0/@tools.4"/>
       <diagramNode
           href="seffeditor.gmfgraph#ExternalCallActionNode"/>
+      <children
+          compartment="//@nodes.2/@ownedChild/@compartments.0">
+        <containmentFeature
+            href="../../pcm.ecore#//seff/ExternalCallAction/parameterUsage_ExternalCallAction"/>
+        <childrenFeature
+            href="../../pcm.ecore#//seff/ExternalCallAction/parameterUsage_ExternalCallAction"/>
+        <ownedChild>
+          <domainMetaElement
+              href="../../pcm.ecore#//parameter/PrimitiveParameterUsage"/>
+          <labelMappings>
+            <diagramLabel
+                href="seffeditor.gmfgraph#ParametricResourceDemandDemandLabel"/>
+          </labelMappings>
+          <tool
+              xsi:type="gmftool:CreationTool"
+              href="seffeditor.gmftool#//@palette/@tools.1/@tools.2"/>
+          <diagramNode
+              href="seffeditor.gmfgraph#ParametricResourceDemandDemandLabel"/>
+        </ownedChild>
+      </children>
+      <compartments
+          children="//@nodes.2/@ownedChild/@children.0">
+        <compartment
+            href="seffeditor.gmfgraph#ParameterUsage"/>
+      </compartments>
     </ownedChild>
   </nodes>
   <nodes>
@@ -295,6 +320,37 @@
           href="seffeditor.gmftool#//@palette/@tools.0/@tools.3"/>
       <diagramNode
           href="seffeditor.gmfgraph#InternalActionNode"/>
+      <children
+          compartment="//@nodes.5/@ownedChild/@compartments.0">
+        <containmentFeature
+            href="../../pcm.ecore#//seff/AbstractResourceDemandingAction/resourceDemand_Action"/>
+        <childrenFeature
+            href="../../pcm.ecore#//seff/AbstractResourceDemandingAction/resourceDemand_Action"/>
+        <ownedChild>
+          <domainMetaElement
+              href="../../pcm.ecore#//seff/ParametricResourceDemand"/>
+          <labelMappings
+              viewPattern="{0} {1}"
+              editPattern="{0}">
+            <diagramLabel
+                href="seffeditor.gmfgraph#ParametricResourceDemandDemandLabel"/>
+            <features
+                href="../../pcm.ecore#//core/stochastics/RandomVariable/specification"/>
+            <features
+                href="../../pcm.ecore#//seff/ParametricResourceDemand/unit"/>
+          </labelMappings>
+          <tool
+              xsi:type="gmftool:CreationTool"
+              href="seffeditor.gmftool#//@palette/@tools.1/@tools.1"/>
+          <diagramNode
+              href="seffeditor.gmfgraph#ParametricResourceDemandDemandLabel"/>
+        </ownedChild>
+      </children>
+      <compartments
+          children="//@nodes.5/@ownedChild/@children.0">
+        <compartment
+            href="seffeditor.gmfgraph#ResourceDemandResourceDemandingActionCompartment"/>
+      </compartments>
     </ownedChild>
   </nodes>
   <links>

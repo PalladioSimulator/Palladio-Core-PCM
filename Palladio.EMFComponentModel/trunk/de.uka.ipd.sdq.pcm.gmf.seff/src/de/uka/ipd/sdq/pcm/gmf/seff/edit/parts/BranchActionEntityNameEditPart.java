@@ -342,7 +342,7 @@ public class BranchActionEntityNameEditPart extends CompartmentEditPart
 
 				public Object getAdapter(Class adapter) {
 					if (IElementType.class.equals(adapter)) {
-						return PcmElementTypes.BranchAction_2006;
+						return PcmElementTypes.BranchAction_2008;
 					}
 					return super.getAdapter(adapter);
 				}

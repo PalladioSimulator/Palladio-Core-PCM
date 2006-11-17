@@ -9,6 +9,8 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.ExternalCallAction2ItemSemantic
 
 import de.uka.ipd.sdq.pcm.gmf.seff.part.PcmVisualIDRegistry;
 
+import de.uka.ipd.sdq.pcm.gmf.seff.providers.PcmElementTypes;
+
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.StackLayout;
 
@@ -23,11 +25,18 @@ import org.eclipse.gef.editpolicies.NonResizableEditPolicy;
 
 import org.eclipse.gef.requests.CreateRequest;
 
+import org.eclipse.gmf.runtime.diagram.core.edithelpers.CreateElementRequestAdapter;
+
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
 
+import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CreationEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 
+import org.eclipse.gmf.runtime.diagram.ui.requests.CreateViewAndElementRequest;
+
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
+
+import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
@@ -42,7 +51,7 @@ public class ExternalCallAction2EditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 2009;
+	public static final int VISUAL_ID = 2011;
 
 	/**
 	 * @generated
@@ -65,6 +74,30 @@ public class ExternalCallAction2EditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected void createDefaultEditPolicies() {
+		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
+				new CreationEditPolicy() {
+
+					public Command getCommand(Request request) {
+						if (understandsRequest(request)) {
+							if (request instanceof CreateViewAndElementRequest) {
+								CreateElementRequestAdapter adapter = ((CreateViewAndElementRequest) request)
+										.getViewAndElementDescriptor()
+										.getCreateElementRequestAdapter();
+								IElementType type = (IElementType) adapter
+										.getAdapter(IElementType.class);
+								if (type == PcmElementTypes.PrimitiveParameterUsage_2001) {
+									EditPart compartmentEditPart = getChildBySemanticHint(PcmVisualIDRegistry
+											.getType(ExternalCallActionParameterUsage2EditPart.VISUAL_ID));
+									return compartmentEditPart == null ? null
+											: compartmentEditPart
+													.getCommand(request);
+								}
+							}
+							return super.getCommand(request);
+						}
+						return null;
+					}
+				});
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
 				new ExternalCallAction2ItemSemanticEditPolicy());

@@ -28,47 +28,47 @@ public class ResourceDemandingBehaviourLoopCompartmentItemSemanticEditPolicy
 	 * @generated
 	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
-		if (PcmElementTypes.StartAction_2002 == req.getElementType()) {
+		if (PcmElementTypes.StartAction_2003 == req.getElementType()) {
 			if (req.getContainmentFeature() == null) {
 				req.setContainmentFeature(SeffPackage.eINSTANCE
 						.getResourceDemandingBehaviour_Steps_Behaviour());
 			}
-			return getMSLWrapper(new CreateStartAction_2002Command(req));
+			return getMSLWrapper(new CreateStartAction_2003Command(req));
 		}
-		if (PcmElementTypes.StopAction_2003 == req.getElementType()) {
+		if (PcmElementTypes.StopAction_2004 == req.getElementType()) {
 			if (req.getContainmentFeature() == null) {
 				req.setContainmentFeature(SeffPackage.eINSTANCE
 						.getResourceDemandingBehaviour_Steps_Behaviour());
 			}
-			return getMSLWrapper(new CreateStopAction_2003Command(req));
+			return getMSLWrapper(new CreateStopAction_2004Command(req));
 		}
-		if (PcmElementTypes.LoopAction_2004 == req.getElementType()) {
+		if (PcmElementTypes.LoopAction_2005 == req.getElementType()) {
 			if (req.getContainmentFeature() == null) {
 				req.setContainmentFeature(SeffPackage.eINSTANCE
 						.getResourceDemandingBehaviour_Steps_Behaviour());
 			}
-			return getMSLWrapper(new CreateLoopAction_2004Command(req));
+			return getMSLWrapper(new CreateLoopAction_2005Command(req));
 		}
-		if (PcmElementTypes.InternalAction_2005 == req.getElementType()) {
+		if (PcmElementTypes.InternalAction_2006 == req.getElementType()) {
 			if (req.getContainmentFeature() == null) {
 				req.setContainmentFeature(SeffPackage.eINSTANCE
 						.getResourceDemandingBehaviour_Steps_Behaviour());
 			}
-			return getMSLWrapper(new CreateInternalAction_2005Command(req));
+			return getMSLWrapper(new CreateInternalAction_2006Command(req));
 		}
-		if (PcmElementTypes.BranchAction_2006 == req.getElementType()) {
+		if (PcmElementTypes.BranchAction_2008 == req.getElementType()) {
 			if (req.getContainmentFeature() == null) {
 				req.setContainmentFeature(SeffPackage.eINSTANCE
 						.getResourceDemandingBehaviour_Steps_Behaviour());
 			}
-			return getMSLWrapper(new CreateBranchAction_2006Command(req));
+			return getMSLWrapper(new CreateBranchAction_2008Command(req));
 		}
-		if (PcmElementTypes.ExternalCallAction_2009 == req.getElementType()) {
+		if (PcmElementTypes.ExternalCallAction_2011 == req.getElementType()) {
 			if (req.getContainmentFeature() == null) {
 				req.setContainmentFeature(SeffPackage.eINSTANCE
 						.getResourceDemandingBehaviour_Steps_Behaviour());
 			}
-			return getMSLWrapper(new CreateExternalCallAction_2009Command(req));
+			return getMSLWrapper(new CreateExternalCallAction_2011Command(req));
 		}
 		return super.getCreateCommand(req);
 	}
@@ -76,13 +76,13 @@ public class ResourceDemandingBehaviourLoopCompartmentItemSemanticEditPolicy
 	/**
 	 * @generated
 	 */
-	private static class CreateStartAction_2002Command extends
+	private static class CreateStartAction_2003Command extends
 			CreateElementCommand {
 
 		/**
 		 * @generated
 		 */
-		public CreateStartAction_2002Command(CreateElementRequest req) {
+		public CreateStartAction_2003Command(CreateElementRequest req) {
 			super(req);
 		}
 
@@ -109,13 +109,13 @@ public class ResourceDemandingBehaviourLoopCompartmentItemSemanticEditPolicy
 	/**
 	 * @generated
 	 */
-	private static class CreateStopAction_2003Command extends
+	private static class CreateStopAction_2004Command extends
 			CreateElementCommand {
 
 		/**
 		 * @generated
 		 */
-		public CreateStopAction_2003Command(CreateElementRequest req) {
+		public CreateStopAction_2004Command(CreateElementRequest req) {
 			super(req);
 		}
 
@@ -142,13 +142,13 @@ public class ResourceDemandingBehaviourLoopCompartmentItemSemanticEditPolicy
 	/**
 	 * @generated
 	 */
-	private static class CreateLoopAction_2004Command extends
+	private static class CreateLoopAction_2005Command extends
 			CreateElementCommand {
 
 		/**
 		 * @generated
 		 */
-		public CreateLoopAction_2004Command(CreateElementRequest req) {
+		public CreateLoopAction_2005Command(CreateElementRequest req) {
 			super(req);
 		}
 
@@ -175,13 +175,13 @@ public class ResourceDemandingBehaviourLoopCompartmentItemSemanticEditPolicy
 	/**
 	 * @generated
 	 */
-	private static class CreateInternalAction_2005Command extends
+	private static class CreateInternalAction_2006Command extends
 			CreateElementCommand {
 
 		/**
 		 * @generated
 		 */
-		public CreateInternalAction_2005Command(CreateElementRequest req) {
+		public CreateInternalAction_2006Command(CreateElementRequest req) {
 			super(req);
 		}
 
@@ -208,13 +208,13 @@ public class ResourceDemandingBehaviourLoopCompartmentItemSemanticEditPolicy
 	/**
 	 * @generated
 	 */
-	private static class CreateBranchAction_2006Command extends
+	private static class CreateBranchAction_2008Command extends
 			CreateElementCommand {
 
 		/**
 		 * @generated
 		 */
-		public CreateBranchAction_2006Command(CreateElementRequest req) {
+		public CreateBranchAction_2008Command(CreateElementRequest req) {
 			super(req);
 		}
 
@@ -241,13 +241,13 @@ public class ResourceDemandingBehaviourLoopCompartmentItemSemanticEditPolicy
 	/**
 	 * @generated
 	 */
-	private static class CreateExternalCallAction_2009Command extends
+	private static class CreateExternalCallAction_2011Command extends
 			CreateElementCommand {
 
 		/**
 		 * @generated
 		 */
-		public CreateExternalCallAction_2009Command(CreateElementRequest req) {
+		public CreateExternalCallAction_2011Command(CreateElementRequest req) {
 			super(req);
 		}
 

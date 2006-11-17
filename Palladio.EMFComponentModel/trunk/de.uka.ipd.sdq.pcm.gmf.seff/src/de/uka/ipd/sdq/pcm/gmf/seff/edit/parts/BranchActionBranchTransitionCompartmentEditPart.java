@@ -28,7 +28,7 @@ public class BranchActionBranchTransitionCompartmentEditPart extends
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 5004;
+	public static final int VISUAL_ID = 5006;
 
 	/**
 	 * @generated

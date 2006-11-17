@@ -29,7 +29,7 @@ public class LoopActionBehaviourCompartment2ItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
-		if (PcmElementTypes.ResourceDemandingBehaviour_2001 == req
+		if (PcmElementTypes.ResourceDemandingBehaviour_2002 == req
 				.getElementType()) {
 			LoopAction container = (LoopAction) (req.getContainer() instanceof View ? ((View) req
 					.getContainer()).getElement()
@@ -41,7 +41,7 @@ public class LoopActionBehaviourCompartment2ItemSemanticEditPolicy extends
 				req.setContainmentFeature(SeffPackage.eINSTANCE
 						.getLoopAction_BodyBehaviour_Loop());
 			}
-			return getMSLWrapper(new CreateResourceDemandingBehaviour_2001Command(
+			return getMSLWrapper(new CreateResourceDemandingBehaviour_2002Command(
 					req));
 		}
 		return super.getCreateCommand(req);
@@ -50,13 +50,13 @@ public class LoopActionBehaviourCompartment2ItemSemanticEditPolicy extends
 	/**
 	 * @generated
 	 */
-	private static class CreateResourceDemandingBehaviour_2001Command extends
+	private static class CreateResourceDemandingBehaviour_2002Command extends
 			CreateElementCommand {
 
 		/**
 		 * @generated
 		 */
-		public CreateResourceDemandingBehaviour_2001Command(
+		public CreateResourceDemandingBehaviour_2002Command(
 				CreateElementRequest req) {
 			super(req);
 		}

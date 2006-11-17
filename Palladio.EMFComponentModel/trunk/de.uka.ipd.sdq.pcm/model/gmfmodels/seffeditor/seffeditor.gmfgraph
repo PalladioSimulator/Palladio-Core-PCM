@@ -9,10 +9,6 @@
         xsi:type="gmfgraph:Rectangle"
         referencingElements="ParametricParameterUsageNode"
         name="ParametricParameterUsageFigure">
-      <children
-          xsi:type="gmfgraph:Label"
-          referencingElements="ParametricParameterUsageSpecificationDiagramLabel"
-          name="ParametricParameterUsageSpecificationLabel"/>
       <backgroundColor
           xsi:type="gmfgraph:ConstantColor"
           value="cyan"/>
@@ -108,7 +104,7 @@
     </figures>
     <figures
         xsi:type="gmfgraph:RoundedRectangle"
-        referencingElements="InternalActionNode"
+        referencingElements="InternalActionNode ResourceDemandResourceDemandingActionCompartment"
         name="InternalActionFigure">
       <children
           xsi:type="gmfgraph:Label"
@@ -130,7 +126,7 @@
     </figures>
     <figures
         xsi:type="gmfgraph:RoundedRectangle"
-        referencingElements="ExternalCallActionNode"
+        referencingElements="ExternalCallActionNode ParameterUsage"
         name="ExternalCallActionFigure">
       <children
           xsi:type="gmfgraph:Label"
@@ -192,6 +188,11 @@
           name="BranchTransitionProbabilityLabel"
           text="0.0"/>
     </figures>
+    <figures
+        xsi:type="gmfgraph:Label"
+        referencingElements="ParametricParameterUsageSpecificationDiagramLabel"
+        name="ParametricParameterUsageSpecificationLabel"
+        text="&lt;PU>"/>
   </figures>
   <nodes
       name="ParametricParameterUsageNode"
@@ -259,6 +260,16 @@
   <compartments
       name="BranchTransitionCompartment"
       figure="BranchTransitionFigure"/>
+  <compartments
+      name="ResourceDemandResourceDemandingActionCompartment"
+      figure="InternalActionFigure"
+      collapsible="true"
+      needsTitle="true"/>
+  <compartments
+      name="ParameterUsage"
+      figure="ExternalCallActionFigure"
+      collapsible="true"
+      needsTitle="true"/>
   <labels
       name="EntityEntityNameLabel"/>
   <labels

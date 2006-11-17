@@ -342,7 +342,7 @@ public class BranchTransitionProbabilityDiagramLabelEditPart extends
 
 				public Object getAdapter(Class adapter) {
 					if (IElementType.class.equals(adapter)) {
-						return PcmElementTypes.BranchTransition_2007;
+						return PcmElementTypes.BranchTransition_2009;
 					}
 					return super.getAdapter(adapter);
 				}
