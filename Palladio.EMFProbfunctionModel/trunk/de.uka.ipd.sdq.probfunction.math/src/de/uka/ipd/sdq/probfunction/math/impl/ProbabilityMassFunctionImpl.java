@@ -8,7 +8,6 @@ import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 
-import de.uka.ipd.sdq.probfunction.math.IProbabilityFunction;
 import de.uka.ipd.sdq.probfunction.math.IProbabilityMassFunction;
 import de.uka.ipd.sdq.probfunction.math.IRandomGenerator;
 import de.uka.ipd.sdq.probfunction.math.ISample;
@@ -88,7 +87,7 @@ public class ProbabilityMassFunctionImpl extends ProbabilityFunctionImpl
 
 	public IProbabilityMassFunction add(IProbabilityMassFunction pmf)
 			throws DifferentDomainsException {
-		if (!haveSameDomain(this.samples, pmf.getSamples()))
+		if (!this.haveSameDomain(pmf))
 			throw new DifferentDomainsException();
 
 		return performOperation(Operation.ADD, this, pmf);
@@ -96,7 +95,7 @@ public class ProbabilityMassFunctionImpl extends ProbabilityFunctionImpl
 
 	public IProbabilityMassFunction mult(IProbabilityMassFunction pmf)
 			throws DifferentDomainsException {
-		if (!haveSameDomain(this.samples, pmf.getSamples()))
+		if (!this.haveSameDomain(pmf))
 			throw new DifferentDomainsException();
 
 		return performOperation(Operation.MULT, this, pmf);
@@ -116,7 +115,7 @@ public class ProbabilityMassFunctionImpl extends ProbabilityFunctionImpl
 
 	public IProbabilityMassFunction div(IProbabilityMassFunction pmf)
 			throws DifferentDomainsException {
-		if (!haveSameDomain(this.samples, pmf.getSamples()))
+		if (!this.haveSameDomain(pmf))
 			throw new DifferentDomainsException();
 
 		return performOperation(Operation.DIV, this, pmf);
@@ -124,14 +123,17 @@ public class ProbabilityMassFunctionImpl extends ProbabilityFunctionImpl
 
 	public IProbabilityMassFunction sub(IProbabilityMassFunction pmf)
 			throws DifferentDomainsException {
-		if (!haveSameDomain(this.samples, pmf.getSamples()))
+		if (!this.haveSameDomain(pmf))
 			throw new DifferentDomainsException();
 
 		return performOperation(Operation.SUB, this, pmf);
 	}
 
 	@SuppressWarnings("unchecked")
-	private boolean haveSameDomain(List<ISample> values1, List<ISample> values2) {
+	public boolean haveSameDomain(IProbabilityMassFunction pmf) {
+		List<ISample> values1 = this.samples;
+		List<ISample> values2 = pmf.getSamples();
+
 		if (values1.size() != values2.size())
 			return false;
 		if (values1.size() == 0 && values2.size() == 0)
@@ -139,11 +141,6 @@ public class ProbabilityMassFunctionImpl extends ProbabilityFunctionImpl
 		if (!(values1.get(0).getValue().getClass().isInstance(values2.get(0)
 				.getValue())))
 			return false;
-		if (!(values1.get(0).getValue() instanceof Comparable))
-			return false;
-
-		Collections.sort(values1, MathTools.getSampleComparator());
-		Collections.sort(values2, MathTools.getSampleComparator());
 
 		boolean result = true;
 		Iterator<ISample> iterator = values2.iterator();
@@ -178,8 +175,8 @@ public class ProbabilityMassFunctionImpl extends ProbabilityFunctionImpl
 	 * @throws ProbabilitySumNotOneException
 	 */
 	public void setSamples(List<ISample> samples) {
-//		if (!MathTools.equalsDouble(MathTools.sumOfSamples(samples), 1.0))
-//			throw new ProbabilitySumNotOneException();
+		// if (!MathTools.equalsDouble(MathTools.sumOfSamples(samples), 1.0))
+		// throw new ProbabilitySumNotOneException();
 		if (samples.size() > 1
 				&& samples.get(0).getValue() instanceof Comparable)
 			Collections.sort(samples, MathTools.getSampleComparator());
@@ -300,7 +297,7 @@ public class ProbabilityMassFunctionImpl extends ProbabilityFunctionImpl
 		return true;
 	}
 
-	public IProbabilityFunction getCumulativeFunction() {
+	public IProbabilityMassFunction getCumulativeFunction() {
 		List<Double> newProb = MathTools
 				.computeIntervalsOfProb(getProbabilities());
 		List<ISample> newSamples = new ArrayList<ISample>();
