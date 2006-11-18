@@ -1210,33 +1210,33 @@
         </children>
         <children xmi:id="_TfsjEGA8EduNdL5F2QdDng" sourceEdges="_Tf9o0GA8EduNdL5F2QdDng" targetEdges="_Tf5-cGA8EduNdL5F2QdDng">
           <children xmi:id="_TfsjE2A8EduNdL5F2QdDng" type="ImageCompartment">
-            <element xmi:type="uml:Class" href="ResourceModel.emx#_m0lnMFnFEdu77MWpSZSJdA?ResourceModel/ResourceDemand"/>
+            <element xmi:type="uml:Class" href="ResourceModel.emx#_m0lnMFnFEdu77MWpSZSJdA?ResourceModel/ResourceUsage"/>
             <layoutConstraint xmi:type="notation:Size" xmi:id="_TfsjFGA8EduNdL5F2QdDng" width="1320" height="1320"/>
           </children>
           <children xmi:id="_TfsjFWA8EduNdL5F2QdDng" type="Stereotype">
-            <element xmi:type="uml:Class" href="ResourceModel.emx#_m0lnMFnFEdu77MWpSZSJdA?ResourceModel/ResourceDemand"/>
+            <element xmi:type="uml:Class" href="ResourceModel.emx#_m0lnMFnFEdu77MWpSZSJdA?ResourceModel/ResourceUsage"/>
           </children>
           <children xmi:id="_TftKIGA8EduNdL5F2QdDng" type="Name">
-            <element xmi:type="uml:Class" href="ResourceModel.emx#_m0lnMFnFEdu77MWpSZSJdA?ResourceModel/ResourceDemand"/>
+            <element xmi:type="uml:Class" href="ResourceModel.emx#_m0lnMFnFEdu77MWpSZSJdA?ResourceModel/ResourceUsage"/>
           </children>
           <children xmi:id="_TftKIWA8EduNdL5F2QdDng" type="AttributeCompartment">
             <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_TftKImA8EduNdL5F2QdDng"/>
-            <element xmi:type="uml:Class" href="ResourceModel.emx#_m0lnMFnFEdu77MWpSZSJdA?ResourceModel/ResourceDemand"/>
+            <element xmi:type="uml:Class" href="ResourceModel.emx#_m0lnMFnFEdu77MWpSZSJdA?ResourceModel/ResourceUsage"/>
           </children>
           <children xmi:id="_TftKI2A8EduNdL5F2QdDng" type="OperationCompartment">
             <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_TftKJGA8EduNdL5F2QdDng"/>
-            <element xmi:type="uml:Class" href="ResourceModel.emx#_m0lnMFnFEdu77MWpSZSJdA?ResourceModel/ResourceDemand"/>
+            <element xmi:type="uml:Class" href="ResourceModel.emx#_m0lnMFnFEdu77MWpSZSJdA?ResourceModel/ResourceUsage"/>
           </children>
           <children xmi:id="_TftKJWA8EduNdL5F2QdDng" visible="false" type="SignalCompartment">
             <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_TftKJmA8EduNdL5F2QdDng"/>
-            <element xmi:type="uml:Class" href="ResourceModel.emx#_m0lnMFnFEdu77MWpSZSJdA?ResourceModel/ResourceDemand"/>
+            <element xmi:type="uml:Class" href="ResourceModel.emx#_m0lnMFnFEdu77MWpSZSJdA?ResourceModel/ResourceUsage"/>
           </children>
           <children xmi:id="_TftxMGA8EduNdL5F2QdDng" visible="false" type="StructureCompartment">
             <styles xmi:type="umlnotation:UMLShapeCompartmentStyle" xmi:id="_TftxMWA8EduNdL5F2QdDng"/>
-            <element xmi:type="uml:Class" href="ResourceModel.emx#_m0lnMFnFEdu77MWpSZSJdA?ResourceModel/ResourceDemand"/>
+            <element xmi:type="uml:Class" href="ResourceModel.emx#_m0lnMFnFEdu77MWpSZSJdA?ResourceModel/ResourceUsage"/>
           </children>
           <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_TfsjEWA8EduNdL5F2QdDng" fontName="Sans" showStereotype="Label"/>
-          <element xmi:type="uml:Class" href="ResourceModel.emx#_m0lnMFnFEdu77MWpSZSJdA?ResourceModel/ResourceDemand"/>
+          <element xmi:type="uml:Class" href="ResourceModel.emx#_m0lnMFnFEdu77MWpSZSJdA?ResourceModel/ResourceUsage"/>
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_TfsjEmA8EduNdL5F2QdDng" x="28923" y="24258"/>
         </children>
         <styles xmi:type="umlnotation:UMLDiagramStyle" xmi:id="_HJ78sTKcEdu66s0M-yWALA"/>
@@ -1746,16 +1746,16 @@
           </children>
           <children xmi:id="_Tf-P5mA8EduNdL5F2QdDng" type="FromMultiplicityLabel">
             <children xmi:id="_Tf-P6GA8EduNdL5F2QdDng" type="FromMultiplicity">
-              <element xmi:type="uml:Property" href="ResourceModel.emx#_RKkk8F2uEduUYolzmZz2EQ?ResourceModel/ResourceDemand/pdf"/>
+              <element xmi:type="uml:Property" href="ResourceModel.emx#_RKkk8F2uEduUYolzmZz2EQ?ResourceModel/ResourceUsage/usageTime"/>
             </children>
-            <element xmi:type="uml:Property" href="ResourceModel.emx#_RKkk8F2uEduUYolzmZz2EQ?ResourceModel/ResourceDemand/pdf"/>
+            <element xmi:type="uml:Property" href="ResourceModel.emx#_RKkk8F2uEduUYolzmZz2EQ?ResourceModel/ResourceUsage/usageTime"/>
             <layoutConstraint xmi:type="notation:Location" xmi:id="_Tf-P52A8EduNdL5F2QdDng" y="389"/>
           </children>
           <children xmi:id="_Tf-P6WA8EduNdL5F2QdDng" type="FromRoleLabel">
             <children xmi:id="_Tf-P62A8EduNdL5F2QdDng" type="FromRole">
-              <element xmi:type="uml:Property" href="ResourceModel.emx#_RKkk8F2uEduUYolzmZz2EQ?ResourceModel/ResourceDemand/pdf"/>
+              <element xmi:type="uml:Property" href="ResourceModel.emx#_RKkk8F2uEduUYolzmZz2EQ?ResourceModel/ResourceUsage/usageTime"/>
             </children>
-            <element xmi:type="uml:Property" href="ResourceModel.emx#_RKkk8F2uEduUYolzmZz2EQ?ResourceModel/ResourceDemand/pdf"/>
+            <element xmi:type="uml:Property" href="ResourceModel.emx#_RKkk8F2uEduUYolzmZz2EQ?ResourceModel/ResourceUsage/usageTime"/>
             <layoutConstraint xmi:type="notation:Location" xmi:id="_Tf-P6mA8EduNdL5F2QdDng" y="-389"/>
           </children>
           <children xmi:id="_Tf-28GA8EduNdL5F2QdDng" type="ToQualifierLabel">
@@ -1769,9 +1769,9 @@
           <children xmi:id="_Tf-29GA8EduNdL5F2QdDng" type="FromQualifierLabel">
             <children xmi:id="_Tf-29mA8EduNdL5F2QdDng" type="QualifierCompartment">
               <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_Tf-292A8EduNdL5F2QdDng"/>
-              <element xmi:type="uml:Property" href="ResourceModel.emx#_RKkk8F2uEduUYolzmZz2EQ?ResourceModel/ResourceDemand/pdf"/>
+              <element xmi:type="uml:Property" href="ResourceModel.emx#_RKkk8F2uEduUYolzmZz2EQ?ResourceModel/ResourceUsage/usageTime"/>
             </children>
-            <element xmi:type="uml:Property" href="ResourceModel.emx#_RKkk8F2uEduUYolzmZz2EQ?ResourceModel/ResourceDemand/pdf"/>
+            <element xmi:type="uml:Property" href="ResourceModel.emx#_RKkk8F2uEduUYolzmZz2EQ?ResourceModel/ResourceUsage/usageTime"/>
             <layoutConstraint xmi:type="notation:Location" xmi:id="_Tf-29WA8EduNdL5F2QdDng" y="-181"/>
           </children>
           <children xmi:id="_Tf-2-GA8EduNdL5F2QdDng" type="ToRoleLabel">
@@ -1787,9 +1787,9 @@
             <eAnnotations xmi:id="_Tf_eAmA8EduNdL5F2QdDng" source="FromConstraintLabel"/>
             <children xmi:id="_Tf_eA2A8EduNdL5F2QdDng" visible="false" type="FromConstraintCompartment">
               <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_Tf_eBGA8EduNdL5F2QdDng"/>
-              <element xmi:type="uml:Property" href="ResourceModel.emx#_RKkk8F2uEduUYolzmZz2EQ?ResourceModel/ResourceDemand/pdf"/>
+              <element xmi:type="uml:Property" href="ResourceModel.emx#_RKkk8F2uEduUYolzmZz2EQ?ResourceModel/ResourceUsage/usageTime"/>
             </children>
-            <element xmi:type="uml:Property" href="ResourceModel.emx#_RKkk8F2uEduUYolzmZz2EQ?ResourceModel/ResourceDemand/pdf"/>
+            <element xmi:type="uml:Property" href="ResourceModel.emx#_RKkk8F2uEduUYolzmZz2EQ?ResourceModel/ResourceUsage/usageTime"/>
             <layoutConstraint xmi:type="notation:Location" xmi:id="_Tf_eAWA8EduNdL5F2QdDng" y="1037"/>
           </children>
           <styles xmi:type="umlnotation:UMLConnectorStyle" xmi:id="_Tf9o0WA8EduNdL5F2QdDng" fontName="Sans" showStereotype="Text"/>
@@ -1814,7 +1814,7 @@
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_6NmwjTKYEdu66s0M-yWALA"/>
       </ownedAttribute>
       <ownedAttribute xmi:id="_RvczoV2uEduUYolzmZz2EQ" name="demand" association="_RvczoF2uEduUYolzmZz2EQ" aggregation="composite">
-        <type xmi:type="uml:Class" href="ResourceModel.emx#_m0lnMFnFEdu77MWpSZSJdA?ResourceModel/ResourceDemand"/>
+        <type xmi:type="uml:Class" href="ResourceModel.emx#_m0lnMFnFEdu77MWpSZSJdA?ResourceModel/ResourceUsage"/>
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_RvczpF2uEduUYolzmZz2EQ" value="-1"/>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Rvczo12uEduUYolzmZz2EQ"/>
       </ownedAttribute>
@@ -1832,9 +1832,7 @@
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_6Nmw1TKYEdu66s0M-yWALA" value="1"/>
       </ownedAttribute>
     </ownedMember>
-    <ownedMember xmi:type="uml:Class" xmi:id="_6NmwgjKYEdu66s0M-yWALA" name="Expression" isAbstract="true">
-      <generalization xmi:id="_qvaWQGgkEdu3EZWMCMZ-UA" general="_mAX0QGgkEdu3EZWMCMZ-UA"/>
-    </ownedMember>
+    <ownedMember xmi:type="uml:Class" xmi:id="_6NmwgjKYEdu66s0M-yWALA" name="Expression" isAbstract="true"/>
     <ownedMember xmi:type="uml:Class" xmi:id="_6Nmw3jKYEdu66s0M-yWALA" name="Parallel">
       <generalization xmi:id="_6Nmw3zKYEdu66s0M-yWALA" general="_6NmwmjKYEdu66s0M-yWALA"/>
       <ownedAttribute xmi:id="_6Nmw4DKYEdu66s0M-yWALA" name="leftTask" type="_6NmwgjKYEdu66s0M-yWALA" isOrdered="true" association="_6Nmw5DKYEdu66s0M-yWALA" aggregation="composite">
@@ -1902,9 +1900,6 @@
     </ownedMember>
     <ownedMember xmi:type="uml:Association" xmi:id="_RvczoF2uEduUYolzmZz2EQ" memberEnd="_RvczoV2uEduUYolzmZz2EQ _Rvczol2uEduUYolzmZz2EQ">
       <ownedEnd xmi:id="_Rvczol2uEduUYolzmZz2EQ" visibility="private" type="_6NmwiDKYEdu66s0M-yWALA" association="_RvczoF2uEduUYolzmZz2EQ"/>
-    </ownedMember>
-    <ownedMember xmi:type="uml:Class" xmi:id="_mAX0QGgkEdu3EZWMCMZ-UA" name="MeasurableExpression">
-      <generalization xmi:id="_ni5W8GgkEdu3EZWMCMZ-UA" general="_6NmwgjKYEdu66s0M-yWALA"/>
     </ownedMember>
   </ownedMember>
   <ownedMember xmi:type="uml:Package" xmi:id="_tOi3kFYPEduVzvtHWuORYA" name="environment">
@@ -2017,33 +2012,33 @@
         </children>
         <children xmi:id="_2E3UYF3YEdu8Ie7Z_VNdOg" sourceEdges="_6TfQ8F3YEdu8Ie7Z_VNdOg" targetEdges="_2FOgwF3YEdu8Ie7Z_VNdOg _cYmR0HSSEdu9OJpDmFkYpg _oSB98HSSEdu9OJpDmFkYpg">
           <children xmi:id="_2E3UY13YEdu8Ie7Z_VNdOg" type="ImageCompartment">
-            <element xmi:type="uml:Class" href="ResourceModel.emx#_m0lnMFnFEdu77MWpSZSJdA?ResourceModel/ResourceDemand"/>
+            <element xmi:type="uml:Class" href="ResourceModel.emx#_m0lnMFnFEdu77MWpSZSJdA?ResourceModel/ResourceUsage"/>
             <layoutConstraint xmi:type="notation:Size" xmi:id="_2E3UZF3YEdu8Ie7Z_VNdOg" width="1320" height="1320"/>
           </children>
           <children xmi:id="_2E37cF3YEdu8Ie7Z_VNdOg" type="Stereotype">
-            <element xmi:type="uml:Class" href="ResourceModel.emx#_m0lnMFnFEdu77MWpSZSJdA?ResourceModel/ResourceDemand"/>
+            <element xmi:type="uml:Class" href="ResourceModel.emx#_m0lnMFnFEdu77MWpSZSJdA?ResourceModel/ResourceUsage"/>
           </children>
           <children xmi:id="_2E37cV3YEdu8Ie7Z_VNdOg" type="Name">
-            <element xmi:type="uml:Class" href="ResourceModel.emx#_m0lnMFnFEdu77MWpSZSJdA?ResourceModel/ResourceDemand"/>
+            <element xmi:type="uml:Class" href="ResourceModel.emx#_m0lnMFnFEdu77MWpSZSJdA?ResourceModel/ResourceUsage"/>
           </children>
           <children xmi:id="_2E5JkF3YEdu8Ie7Z_VNdOg" type="AttributeCompartment">
             <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_2E5JkV3YEdu8Ie7Z_VNdOg"/>
-            <element xmi:type="uml:Class" href="ResourceModel.emx#_m0lnMFnFEdu77MWpSZSJdA?ResourceModel/ResourceDemand"/>
+            <element xmi:type="uml:Class" href="ResourceModel.emx#_m0lnMFnFEdu77MWpSZSJdA?ResourceModel/ResourceUsage"/>
           </children>
           <children xmi:id="_2E5Jkl3YEdu8Ie7Z_VNdOg" type="OperationCompartment">
             <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_2E5Jk13YEdu8Ie7Z_VNdOg"/>
-            <element xmi:type="uml:Class" href="ResourceModel.emx#_m0lnMFnFEdu77MWpSZSJdA?ResourceModel/ResourceDemand"/>
+            <element xmi:type="uml:Class" href="ResourceModel.emx#_m0lnMFnFEdu77MWpSZSJdA?ResourceModel/ResourceUsage"/>
           </children>
           <children xmi:id="_2E5JlF3YEdu8Ie7Z_VNdOg" visible="false" type="SignalCompartment">
             <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_2E5JlV3YEdu8Ie7Z_VNdOg"/>
-            <element xmi:type="uml:Class" href="ResourceModel.emx#_m0lnMFnFEdu77MWpSZSJdA?ResourceModel/ResourceDemand"/>
+            <element xmi:type="uml:Class" href="ResourceModel.emx#_m0lnMFnFEdu77MWpSZSJdA?ResourceModel/ResourceUsage"/>
           </children>
           <children xmi:id="_2E5Jll3YEdu8Ie7Z_VNdOg" visible="false" type="StructureCompartment">
             <styles xmi:type="umlnotation:UMLShapeCompartmentStyle" xmi:id="_2E5Jl13YEdu8Ie7Z_VNdOg"/>
-            <element xmi:type="uml:Class" href="ResourceModel.emx#_m0lnMFnFEdu77MWpSZSJdA?ResourceModel/ResourceDemand"/>
+            <element xmi:type="uml:Class" href="ResourceModel.emx#_m0lnMFnFEdu77MWpSZSJdA?ResourceModel/ResourceUsage"/>
           </children>
           <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_2E3UYV3YEdu8Ie7Z_VNdOg" fontName="Sans" showStereotype="Label"/>
-          <element xmi:type="uml:Class" href="ResourceModel.emx#_m0lnMFnFEdu77MWpSZSJdA?ResourceModel/ResourceDemand"/>
+          <element xmi:type="uml:Class" href="ResourceModel.emx#_m0lnMFnFEdu77MWpSZSJdA?ResourceModel/ResourceUsage"/>
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_2E3UYl3YEdu8Ie7Z_VNdOg" x="3619" y="12173"/>
         </children>
         <children xmi:id="_6TUR0F3YEdu8Ie7Z_VNdOg" targetEdges="_6TfQ8F3YEdu8Ie7Z_VNdOg">
@@ -2172,33 +2167,33 @@
         </children>
         <children xmi:id="_aeG7EHSSEdu9OJpDmFkYpg" sourceEdges="_cYmR0HSSEdu9OJpDmFkYpg _g2xKkF97EduVfpyYDuEIVg">
           <children xmi:id="_aeG7E3SSEdu9OJpDmFkYpg" type="ImageCompartment">
-            <element xmi:type="uml:Class" href="ResourceModel.emx#_aeCpoHSSEdu9OJpDmFkYpg?ResourceModel/ProcessingResourceDemand"/>
+            <element xmi:type="uml:Class" href="ResourceModel.emx#_aeCpoHSSEdu9OJpDmFkYpg?ResourceModel/ProcessingResourceUsage"/>
             <layoutConstraint xmi:type="notation:Size" xmi:id="_aeG7FHSSEdu9OJpDmFkYpg" width="1320" height="1320"/>
           </children>
           <children xmi:id="_aeG7FXSSEdu9OJpDmFkYpg" type="Stereotype">
-            <element xmi:type="uml:Class" href="ResourceModel.emx#_aeCpoHSSEdu9OJpDmFkYpg?ResourceModel/ProcessingResourceDemand"/>
+            <element xmi:type="uml:Class" href="ResourceModel.emx#_aeCpoHSSEdu9OJpDmFkYpg?ResourceModel/ProcessingResourceUsage"/>
           </children>
           <children xmi:id="_aeG7FnSSEdu9OJpDmFkYpg" type="Name">
-            <element xmi:type="uml:Class" href="ResourceModel.emx#_aeCpoHSSEdu9OJpDmFkYpg?ResourceModel/ProcessingResourceDemand"/>
+            <element xmi:type="uml:Class" href="ResourceModel.emx#_aeCpoHSSEdu9OJpDmFkYpg?ResourceModel/ProcessingResourceUsage"/>
           </children>
           <children xmi:id="_aeG7F3SSEdu9OJpDmFkYpg" type="AttributeCompartment">
             <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_aeG7GHSSEdu9OJpDmFkYpg"/>
-            <element xmi:type="uml:Class" href="ResourceModel.emx#_aeCpoHSSEdu9OJpDmFkYpg?ResourceModel/ProcessingResourceDemand"/>
+            <element xmi:type="uml:Class" href="ResourceModel.emx#_aeCpoHSSEdu9OJpDmFkYpg?ResourceModel/ProcessingResourceUsage"/>
           </children>
           <children xmi:id="_aeG7GXSSEdu9OJpDmFkYpg" type="OperationCompartment">
             <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_aeG7GnSSEdu9OJpDmFkYpg"/>
-            <element xmi:type="uml:Class" href="ResourceModel.emx#_aeCpoHSSEdu9OJpDmFkYpg?ResourceModel/ProcessingResourceDemand"/>
+            <element xmi:type="uml:Class" href="ResourceModel.emx#_aeCpoHSSEdu9OJpDmFkYpg?ResourceModel/ProcessingResourceUsage"/>
           </children>
           <children xmi:id="_aeHiIHSSEdu9OJpDmFkYpg" visible="false" type="SignalCompartment">
             <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_aeHiIXSSEdu9OJpDmFkYpg"/>
-            <element xmi:type="uml:Class" href="ResourceModel.emx#_aeCpoHSSEdu9OJpDmFkYpg?ResourceModel/ProcessingResourceDemand"/>
+            <element xmi:type="uml:Class" href="ResourceModel.emx#_aeCpoHSSEdu9OJpDmFkYpg?ResourceModel/ProcessingResourceUsage"/>
           </children>
           <children xmi:id="_aeHiInSSEdu9OJpDmFkYpg" visible="false" type="StructureCompartment">
             <styles xmi:type="umlnotation:UMLShapeCompartmentStyle" xmi:id="_aeHiI3SSEdu9OJpDmFkYpg"/>
-            <element xmi:type="uml:Class" href="ResourceModel.emx#_aeCpoHSSEdu9OJpDmFkYpg?ResourceModel/ProcessingResourceDemand"/>
+            <element xmi:type="uml:Class" href="ResourceModel.emx#_aeCpoHSSEdu9OJpDmFkYpg?ResourceModel/ProcessingResourceUsage"/>
           </children>
           <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_aeG7EXSSEdu9OJpDmFkYpg" fontName="Sans" showStereotype="Label"/>
-          <element xmi:type="uml:Class" href="ResourceModel.emx#_aeCpoHSSEdu9OJpDmFkYpg?ResourceModel/ProcessingResourceDemand"/>
+          <element xmi:type="uml:Class" href="ResourceModel.emx#_aeCpoHSSEdu9OJpDmFkYpg?ResourceModel/ProcessingResourceUsage"/>
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_aeG7EnSSEdu9OJpDmFkYpg" x="-1645" y="14805"/>
         </children>
         <children xmi:id="_g0enQHSSEdu9OJpDmFkYpg" sourceEdges="_i3gO8HSSEdu9OJpDmFkYpg _oSB98HSSEdu9OJpDmFkYpg">
@@ -2421,16 +2416,16 @@
           </children>
           <children xmi:id="_6TgfE13YEdu8Ie7Z_VNdOg" type="FromMultiplicityLabel">
             <children xmi:id="_6TgfFV3YEdu8Ie7Z_VNdOg" type="FromMultiplicity">
-              <element xmi:type="uml:Property" href="ResourceModel.emx#_RKkk8F2uEduUYolzmZz2EQ?ResourceModel/ResourceDemand/pdf"/>
+              <element xmi:type="uml:Property" href="ResourceModel.emx#_RKkk8F2uEduUYolzmZz2EQ?ResourceModel/ResourceUsage/usageTime"/>
             </children>
-            <element xmi:type="uml:Property" href="ResourceModel.emx#_RKkk8F2uEduUYolzmZz2EQ?ResourceModel/ResourceDemand/pdf"/>
+            <element xmi:type="uml:Property" href="ResourceModel.emx#_RKkk8F2uEduUYolzmZz2EQ?ResourceModel/ResourceUsage/usageTime"/>
             <layoutConstraint xmi:type="notation:Location" xmi:id="_6TgfFF3YEdu8Ie7Z_VNdOg" y="448"/>
           </children>
           <children xmi:id="_6TgfFl3YEdu8Ie7Z_VNdOg" type="FromRoleLabel">
             <children xmi:id="_6TgfGF3YEdu8Ie7Z_VNdOg" type="FromRole">
-              <element xmi:type="uml:Property" href="ResourceModel.emx#_RKkk8F2uEduUYolzmZz2EQ?ResourceModel/ResourceDemand/pdf"/>
+              <element xmi:type="uml:Property" href="ResourceModel.emx#_RKkk8F2uEduUYolzmZz2EQ?ResourceModel/ResourceUsage/usageTime"/>
             </children>
-            <element xmi:type="uml:Property" href="ResourceModel.emx#_RKkk8F2uEduUYolzmZz2EQ?ResourceModel/ResourceDemand/pdf"/>
+            <element xmi:type="uml:Property" href="ResourceModel.emx#_RKkk8F2uEduUYolzmZz2EQ?ResourceModel/ResourceUsage/usageTime"/>
             <layoutConstraint xmi:type="notation:Location" xmi:id="_6TgfF13YEdu8Ie7Z_VNdOg" y="-448"/>
           </children>
           <children xmi:id="_6ThGIF3YEdu8Ie7Z_VNdOg" type="ToQualifierLabel">
@@ -2444,9 +2439,9 @@
           <children xmi:id="_6ThGJF3YEdu8Ie7Z_VNdOg" type="FromQualifierLabel">
             <children xmi:id="_6ThGJl3YEdu8Ie7Z_VNdOg" type="QualifierCompartment">
               <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_6ThGJ13YEdu8Ie7Z_VNdOg"/>
-              <element xmi:type="uml:Property" href="ResourceModel.emx#_RKkk8F2uEduUYolzmZz2EQ?ResourceModel/ResourceDemand/pdf"/>
+              <element xmi:type="uml:Property" href="ResourceModel.emx#_RKkk8F2uEduUYolzmZz2EQ?ResourceModel/ResourceUsage/usageTime"/>
             </children>
-            <element xmi:type="uml:Property" href="ResourceModel.emx#_RKkk8F2uEduUYolzmZz2EQ?ResourceModel/ResourceDemand/pdf"/>
+            <element xmi:type="uml:Property" href="ResourceModel.emx#_RKkk8F2uEduUYolzmZz2EQ?ResourceModel/ResourceUsage/usageTime"/>
             <layoutConstraint xmi:type="notation:Location" xmi:id="_6ThGJV3YEdu8Ie7Z_VNdOg" y="-209"/>
           </children>
           <children xmi:id="_6ThGKF3YEdu8Ie7Z_VNdOg" type="ToRoleLabel">
@@ -2462,9 +2457,9 @@
             <eAnnotations xmi:id="_6ThtNV3YEdu8Ie7Z_VNdOg" source="FromConstraintLabel"/>
             <children xmi:id="_6ThtNl3YEdu8Ie7Z_VNdOg" visible="false" type="FromConstraintCompartment">
               <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_6ThtN13YEdu8Ie7Z_VNdOg"/>
-              <element xmi:type="uml:Property" href="ResourceModel.emx#_RKkk8F2uEduUYolzmZz2EQ?ResourceModel/ResourceDemand/pdf"/>
+              <element xmi:type="uml:Property" href="ResourceModel.emx#_RKkk8F2uEduUYolzmZz2EQ?ResourceModel/ResourceUsage/usageTime"/>
             </children>
-            <element xmi:type="uml:Property" href="ResourceModel.emx#_RKkk8F2uEduUYolzmZz2EQ?ResourceModel/ResourceDemand/pdf"/>
+            <element xmi:type="uml:Property" href="ResourceModel.emx#_RKkk8F2uEduUYolzmZz2EQ?ResourceModel/ResourceUsage/usageTime"/>
             <layoutConstraint xmi:type="notation:Location" xmi:id="_6ThtNF3YEdu8Ie7Z_VNdOg" y="1195"/>
           </children>
           <styles xmi:type="umlnotation:UMLConnectorStyle" xmi:id="_6TfQ8V3YEdu8Ie7Z_VNdOg" fontName="Sans" showStereotype="Text"/>
@@ -2474,93 +2469,93 @@
         <edges xmi:id="_g2xKkF97EduVfpyYDuEIVg" source="_aeG7EHSSEdu9OJpDmFkYpg" target="_wFL_8HSMEdu9OJpDmFkYpg">
           <children xmi:id="_g2xKk197EduVfpyYDuEIVg" type="NameLabel">
             <children xmi:id="_g2yYsF97EduVfpyYDuEIVg" type="Stereotype">
-              <element xmi:type="uml:Association" href="ResourceModel.emx#_g2fdwF97EduVfpyYDuEIVg?ResourceModel/%3CAssociation%3E"/>
+              <element xmi:type="uml:Association" href="ResourceModel.emx#_g2fdwF97EduVfpyYDuEIVg?ResourceModel/on"/>
             </children>
             <children xmi:id="_g2yYsV97EduVfpyYDuEIVg" type="Name">
-              <element xmi:type="uml:Association" href="ResourceModel.emx#_g2fdwF97EduVfpyYDuEIVg?ResourceModel/%3CAssociation%3E"/>
+              <element xmi:type="uml:Association" href="ResourceModel.emx#_g2fdwF97EduVfpyYDuEIVg?ResourceModel/on"/>
             </children>
-            <element xmi:type="uml:Association" href="ResourceModel.emx#_g2fdwF97EduVfpyYDuEIVg?ResourceModel/%3CAssociation%3E"/>
+            <element xmi:type="uml:Association" href="ResourceModel.emx#_g2fdwF97EduVfpyYDuEIVg?ResourceModel/on"/>
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="_g2xKlF97EduVfpyYDuEIVg" y="-181"/>
           </children>
           <children xmi:id="_g2yYsl97EduVfpyYDuEIVg" type="ToMultiplicityLabel">
             <children xmi:id="_g2yYtF97EduVfpyYDuEIVg" type="ToMultiplicity">
-              <element xmi:type="uml:Property" href="ResourceModel.emx#_g2fdwl97EduVfpyYDuEIVg?ResourceModel/%3CAssociation%3E/%3CProperty%3E"/>
+              <element xmi:type="uml:Property" href="ResourceModel.emx#_g2fdwl97EduVfpyYDuEIVg?ResourceModel/on/%3CProperty%3E"/>
             </children>
-            <element xmi:type="uml:Property" href="ResourceModel.emx#_g2fdwl97EduVfpyYDuEIVg?ResourceModel/%3CAssociation%3E/%3CProperty%3E"/>
+            <element xmi:type="uml:Property" href="ResourceModel.emx#_g2fdwl97EduVfpyYDuEIVg?ResourceModel/on/%3CProperty%3E"/>
             <layoutConstraint xmi:type="notation:Location" xmi:id="_g2yYs197EduVfpyYDuEIVg" y="389"/>
           </children>
           <children xmi:id="_g2y_wF97EduVfpyYDuEIVg" type="ToRoleLabel">
             <children xmi:id="_g2y_wl97EduVfpyYDuEIVg" type="ToRole">
-              <element xmi:type="uml:Property" href="ResourceModel.emx#_g2fdwl97EduVfpyYDuEIVg?ResourceModel/%3CAssociation%3E/%3CProperty%3E"/>
+              <element xmi:type="uml:Property" href="ResourceModel.emx#_g2fdwl97EduVfpyYDuEIVg?ResourceModel/on/%3CProperty%3E"/>
             </children>
-            <element xmi:type="uml:Property" href="ResourceModel.emx#_g2fdwl97EduVfpyYDuEIVg?ResourceModel/%3CAssociation%3E/%3CProperty%3E"/>
+            <element xmi:type="uml:Property" href="ResourceModel.emx#_g2fdwl97EduVfpyYDuEIVg?ResourceModel/on/%3CProperty%3E"/>
             <layoutConstraint xmi:type="notation:Location" xmi:id="_g2y_wV97EduVfpyYDuEIVg" y="-389"/>
           </children>
           <children xmi:id="_g2y_w197EduVfpyYDuEIVg" type="FromMultiplicityLabel">
             <children xmi:id="_g2y_xV97EduVfpyYDuEIVg" type="FromMultiplicity">
-              <element xmi:type="uml:Property" href="ResourceModel.emx#_g2fdwV97EduVfpyYDuEIVg?ResourceModel/ProcessingResourceDemand/processingResource"/>
+              <element xmi:type="uml:Property" href="ResourceModel.emx#_g2fdwV97EduVfpyYDuEIVg?ResourceModel/ProcessingResourceUsage/processingResource"/>
             </children>
-            <element xmi:type="uml:Property" href="ResourceModel.emx#_g2fdwV97EduVfpyYDuEIVg?ResourceModel/ProcessingResourceDemand/processingResource"/>
+            <element xmi:type="uml:Property" href="ResourceModel.emx#_g2fdwV97EduVfpyYDuEIVg?ResourceModel/ProcessingResourceUsage/processingResource"/>
             <layoutConstraint xmi:type="notation:Location" xmi:id="_g2y_xF97EduVfpyYDuEIVg" y="389"/>
           </children>
           <children xmi:id="_g2y_xl97EduVfpyYDuEIVg" type="FromRoleLabel">
             <children xmi:id="_g2y_yF97EduVfpyYDuEIVg" type="FromRole">
-              <element xmi:type="uml:Property" href="ResourceModel.emx#_g2fdwV97EduVfpyYDuEIVg?ResourceModel/ProcessingResourceDemand/processingResource"/>
+              <element xmi:type="uml:Property" href="ResourceModel.emx#_g2fdwV97EduVfpyYDuEIVg?ResourceModel/ProcessingResourceUsage/processingResource"/>
             </children>
-            <element xmi:type="uml:Property" href="ResourceModel.emx#_g2fdwV97EduVfpyYDuEIVg?ResourceModel/ProcessingResourceDemand/processingResource"/>
+            <element xmi:type="uml:Property" href="ResourceModel.emx#_g2fdwV97EduVfpyYDuEIVg?ResourceModel/ProcessingResourceUsage/processingResource"/>
             <layoutConstraint xmi:type="notation:Location" xmi:id="_g2y_x197EduVfpyYDuEIVg" x="-195" y="-1928"/>
           </children>
           <children xmi:id="_g2y_yV97EduVfpyYDuEIVg" type="ToQualifierLabel">
             <children xmi:id="_g2zm0F97EduVfpyYDuEIVg" type="QualifierCompartment">
               <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_g2zm0V97EduVfpyYDuEIVg"/>
-              <element xmi:type="uml:Property" href="ResourceModel.emx#_g2fdwl97EduVfpyYDuEIVg?ResourceModel/%3CAssociation%3E/%3CProperty%3E"/>
+              <element xmi:type="uml:Property" href="ResourceModel.emx#_g2fdwl97EduVfpyYDuEIVg?ResourceModel/on/%3CProperty%3E"/>
             </children>
-            <element xmi:type="uml:Property" href="ResourceModel.emx#_g2fdwl97EduVfpyYDuEIVg?ResourceModel/%3CAssociation%3E/%3CProperty%3E"/>
+            <element xmi:type="uml:Property" href="ResourceModel.emx#_g2fdwl97EduVfpyYDuEIVg?ResourceModel/on/%3CProperty%3E"/>
             <layoutConstraint xmi:type="notation:Location" xmi:id="_g2y_yl97EduVfpyYDuEIVg" y="-181"/>
           </children>
           <children xmi:id="_g2zm0l97EduVfpyYDuEIVg" type="FromQualifierLabel">
             <children xmi:id="_g2zm1F97EduVfpyYDuEIVg" type="QualifierCompartment">
               <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_g2zm1V97EduVfpyYDuEIVg"/>
-              <element xmi:type="uml:Property" href="ResourceModel.emx#_g2fdwV97EduVfpyYDuEIVg?ResourceModel/ProcessingResourceDemand/processingResource"/>
+              <element xmi:type="uml:Property" href="ResourceModel.emx#_g2fdwV97EduVfpyYDuEIVg?ResourceModel/ProcessingResourceUsage/processingResource"/>
             </children>
-            <element xmi:type="uml:Property" href="ResourceModel.emx#_g2fdwV97EduVfpyYDuEIVg?ResourceModel/ProcessingResourceDemand/processingResource"/>
+            <element xmi:type="uml:Property" href="ResourceModel.emx#_g2fdwV97EduVfpyYDuEIVg?ResourceModel/ProcessingResourceUsage/processingResource"/>
             <layoutConstraint xmi:type="notation:Location" xmi:id="_g2zm0197EduVfpyYDuEIVg" y="-181"/>
           </children>
           <children xmi:id="_g2zm1l97EduVfpyYDuEIVg" type="ToRoleLabel">
             <eAnnotations xmi:id="_g2zm2F97EduVfpyYDuEIVg" source="ToConstraintLabel"/>
             <children xmi:id="_g20N4F97EduVfpyYDuEIVg" visible="false" type="ToConstraintCompartment">
               <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_g20N4V97EduVfpyYDuEIVg"/>
-              <element xmi:type="uml:Property" href="ResourceModel.emx#_g2fdwl97EduVfpyYDuEIVg?ResourceModel/%3CAssociation%3E/%3CProperty%3E"/>
+              <element xmi:type="uml:Property" href="ResourceModel.emx#_g2fdwl97EduVfpyYDuEIVg?ResourceModel/on/%3CProperty%3E"/>
             </children>
-            <element xmi:type="uml:Property" href="ResourceModel.emx#_g2fdwl97EduVfpyYDuEIVg?ResourceModel/%3CAssociation%3E/%3CProperty%3E"/>
+            <element xmi:type="uml:Property" href="ResourceModel.emx#_g2fdwl97EduVfpyYDuEIVg?ResourceModel/on/%3CProperty%3E"/>
             <layoutConstraint xmi:type="notation:Location" xmi:id="_g2zm1197EduVfpyYDuEIVg" y="1037"/>
           </children>
           <children xmi:id="_g20N4l97EduVfpyYDuEIVg" type="FromRoleLabel">
             <eAnnotations xmi:id="_g20N5F97EduVfpyYDuEIVg" source="FromConstraintLabel"/>
             <children xmi:id="_g20N5V97EduVfpyYDuEIVg" visible="false" type="FromConstraintCompartment">
               <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_g20N5l97EduVfpyYDuEIVg"/>
-              <element xmi:type="uml:Property" href="ResourceModel.emx#_g2fdwV97EduVfpyYDuEIVg?ResourceModel/ProcessingResourceDemand/processingResource"/>
+              <element xmi:type="uml:Property" href="ResourceModel.emx#_g2fdwV97EduVfpyYDuEIVg?ResourceModel/ProcessingResourceUsage/processingResource"/>
             </children>
-            <element xmi:type="uml:Property" href="ResourceModel.emx#_g2fdwV97EduVfpyYDuEIVg?ResourceModel/ProcessingResourceDemand/processingResource"/>
+            <element xmi:type="uml:Property" href="ResourceModel.emx#_g2fdwV97EduVfpyYDuEIVg?ResourceModel/ProcessingResourceUsage/processingResource"/>
             <layoutConstraint xmi:type="notation:Location" xmi:id="_g20N4197EduVfpyYDuEIVg" y="1037"/>
           </children>
           <styles xmi:type="umlnotation:UMLConnectorStyle" xmi:id="_g2xKkV97EduVfpyYDuEIVg" fontName="Sans" showStereotype="Text"/>
-          <element xmi:type="uml:Association" href="ResourceModel.emx#_g2fdwF97EduVfpyYDuEIVg?ResourceModel/%3CAssociation%3E"/>
+          <element xmi:type="uml:Association" href="ResourceModel.emx#_g2fdwF97EduVfpyYDuEIVg?ResourceModel/on"/>
           <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_g2xKkl97EduVfpyYDuEIVg" points="[418, 687, -3706, -5558]$[3646, 5558, -478, -687]"/>
         </edges>
         <edges xmi:id="_cYmR0HSSEdu9OJpDmFkYpg" source="_aeG7EHSSEdu9OJpDmFkYpg" target="_2E3UYF3YEdu8Ie7Z_VNdOg">
           <children xmi:id="_cYm44HSSEdu9OJpDmFkYpg" type="NameLabel">
             <children xmi:id="_cYm44nSSEdu9OJpDmFkYpg" type="Stereotype">
-              <element xmi:type="uml:Generalization" href="ResourceModel.emx#_cYkcoHSSEdu9OJpDmFkYpg?ResourceModel/ProcessingResourceDemand/%3CGeneralization%3E"/>
+              <element xmi:type="uml:Generalization" href="ResourceModel.emx#_cYkcoHSSEdu9OJpDmFkYpg?ResourceModel/ProcessingResourceUsage/%3CGeneralization%3E"/>
             </children>
             <children xmi:id="_cYm443SSEdu9OJpDmFkYpg" type="Name">
-              <element xmi:type="uml:Generalization" href="ResourceModel.emx#_cYkcoHSSEdu9OJpDmFkYpg?ResourceModel/ProcessingResourceDemand/%3CGeneralization%3E"/>
+              <element xmi:type="uml:Generalization" href="ResourceModel.emx#_cYkcoHSSEdu9OJpDmFkYpg?ResourceModel/ProcessingResourceUsage/%3CGeneralization%3E"/>
             </children>
-            <element xmi:type="uml:Generalization" href="ResourceModel.emx#_cYkcoHSSEdu9OJpDmFkYpg?ResourceModel/ProcessingResourceDemand/%3CGeneralization%3E"/>
+            <element xmi:type="uml:Generalization" href="ResourceModel.emx#_cYkcoHSSEdu9OJpDmFkYpg?ResourceModel/ProcessingResourceUsage/%3CGeneralization%3E"/>
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="_cYm44XSSEdu9OJpDmFkYpg" y="-209"/>
           </children>
           <styles xmi:type="umlnotation:UMLConnectorStyle" xmi:id="_cYmR0XSSEdu9OJpDmFkYpg" fontName="Sans" showStereotype="Text"/>
-          <element xmi:type="uml:Generalization" href="ResourceModel.emx#_cYkcoHSSEdu9OJpDmFkYpg?ResourceModel/ProcessingResourceDemand/%3CGeneralization%3E"/>
+          <element xmi:type="uml:Generalization" href="ResourceModel.emx#_cYkcoHSSEdu9OJpDmFkYpg?ResourceModel/ProcessingResourceUsage/%3CGeneralization%3E"/>
           <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_cYmR0nSSEdu9OJpDmFkYpg" points="[32, -23, -118, 65]$[88, -81, -62, 7]"/>
         </edges>
         <edges xmi:id="_i3gO8HSSEdu9OJpDmFkYpg" source="_g0enQHSSEdu9OJpDmFkYpg" target="_6yWT8HSREdu9OJpDmFkYpg">
