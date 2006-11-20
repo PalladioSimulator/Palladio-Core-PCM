@@ -39,15 +39,17 @@ public class ProbFunctionPrettyPrint extends ProbfunctionSwitch {
 		String leftSeparator = "; ";
 		String rightSeparator = ")";
 		
+		pmfType += "(unit=\""+object.getUnit().getUnitName() + "\"";
+
 		if ( sample.getValue() instanceof String) {
 			leftSeparator = "; \"";
 			rightSeparator = "\")";
-			pmfType += "(unit=\""+object.getUnit().getUnitName() + "\"";
 			if (object.isOrderedDomain()){
 				pmfType += "; ordered";
 			}
-			pmfType += ")";
 		}
+		
+		pmfType += ")";
 		
 		for (Sample s : (List<Sample>) object.getSamples()) {
 			sampleString += " (" + s.getProbability() + leftSeparator
