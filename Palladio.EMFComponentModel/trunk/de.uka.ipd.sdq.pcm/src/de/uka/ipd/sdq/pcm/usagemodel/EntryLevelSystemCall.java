@@ -7,6 +7,8 @@
  */
 package de.uka.ipd.sdq.pcm.usagemodel;
 
+import de.uka.ipd.sdq.pcm.repository.ProvidedRole;
+
 import org.eclipse.emf.common.util.EList;
 
 import de.uka.ipd.sdq.pcm.repository.Signature;
@@ -20,7 +22,7 @@ import de.uka.ipd.sdq.pcm.repository.Signature;
  * The following features are supported:
  * <ul>
  *   <li>{@link de.uka.ipd.sdq.pcm.usagemodel.EntryLevelSystemCall#getActualParameterUsage_EntryLevelSystemCall <em>Actual Parameter Usage Entry Level System Call</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.usagemodel.EntryLevelSystemCall#getSignature_EntryLevelSystemCall <em>Signature Entry Level System Call</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.usagemodel.EntryLevelSystemCall#getProvidedRole_EntryLevelSystemCall <em>Provided Role Entry Level System Call</em>}</li>
  * </ul>
  * </p>
  *
@@ -53,29 +55,29 @@ public interface EntryLevelSystemCall extends AbstractUserAction {
 	EList getActualParameterUsage_EntryLevelSystemCall();
 
 	/**
-	 * Returns the value of the '<em><b>Signature Entry Level System Call</b></em>' reference.
+	 * Returns the value of the '<em><b>Provided Role Entry Level System Call</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Signature Entry Level System Call</em>' reference isn't clear,
+	 * If the meaning of the '<em>Provided Role Entry Level System Call</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Signature Entry Level System Call</em>' reference.
-	 * @see #setSignature_EntryLevelSystemCall(Signature)
-	 * @see de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage#getEntryLevelSystemCall_Signature_EntryLevelSystemCall()
+	 * @return the value of the '<em>Provided Role Entry Level System Call</em>' reference.
+	 * @see #setProvidedRole_EntryLevelSystemCall(ProvidedRole)
+	 * @see de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage#getEntryLevelSystemCall_ProvidedRole_EntryLevelSystemCall()
 	 * @model required="true" ordered="false"
 	 * @generated
 	 */
-	Signature getSignature_EntryLevelSystemCall();
+	ProvidedRole getProvidedRole_EntryLevelSystemCall();
 
 	/**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.usagemodel.EntryLevelSystemCall#getSignature_EntryLevelSystemCall <em>Signature Entry Level System Call</em>}' reference.
+	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.usagemodel.EntryLevelSystemCall#getProvidedRole_EntryLevelSystemCall <em>Provided Role Entry Level System Call</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Signature Entry Level System Call</em>' reference.
-	 * @see #getSignature_EntryLevelSystemCall()
+	 * @param value the new value of the '<em>Provided Role Entry Level System Call</em>' reference.
+	 * @see #getProvidedRole_EntryLevelSystemCall()
 	 * @generated
 	 */
-	void setSignature_EntryLevelSystemCall(Signature value);
+	void setProvidedRole_EntryLevelSystemCall(ProvidedRole value);
 
 } // EntryLevelSystemCall

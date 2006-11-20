@@ -67,25 +67,25 @@ public class EntryLevelSystemCallItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addSignature_EntryLevelSystemCallPropertyDescriptor(object);
+			addProvidedRole_EntryLevelSystemCallPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Signature Entry Level System Call feature.
+	 * This adds a property descriptor for the Provided Role Entry Level System Call feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addSignature_EntryLevelSystemCallPropertyDescriptor(Object object) {
+	protected void addProvidedRole_EntryLevelSystemCallPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_EntryLevelSystemCall_signature_EntryLevelSystemCall_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_EntryLevelSystemCall_signature_EntryLevelSystemCall_feature", "_UI_EntryLevelSystemCall_type"),
-				 UsagemodelPackage.Literals.ENTRY_LEVEL_SYSTEM_CALL__SIGNATURE_ENTRY_LEVEL_SYSTEM_CALL,
+				 getString("_UI_EntryLevelSystemCall_providedRole_EntryLevelSystemCall_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_EntryLevelSystemCall_providedRole_EntryLevelSystemCall_feature", "_UI_EntryLevelSystemCall_type"),
+				 UsagemodelPackage.Literals.ENTRY_LEVEL_SYSTEM_CALL__PROVIDED_ROLE_ENTRY_LEVEL_SYSTEM_CALL,
 				 true,
 				 false,
 				 true,

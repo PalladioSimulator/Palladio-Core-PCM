@@ -19,7 +19,7 @@
     <details key="UNION_PROPERTIES" value="REPORT"/>
     <details key="DUPLICATE_OPERATION_INHERITANCE" value="DISCARD"/>
   </genAnnotations>
-  <foreignModel>file:/C:/coding/svn/rsa_exports/pcm.uml2</foreignModel>
+  <foreignModel>file:/D:/Diss/Work/RSA-Export/pcm.uml2</foreignModel>
   <modelPluginVariables>EMFT_OCL=org.eclipse.emf.ocl</modelPluginVariables>
   <genPackages prefix="Pcm" basePackage="de.uka.ipd.sdq" disposableProviderFactory="true"
       ecorePackage="pcm.ecore#/">
@@ -529,7 +529,7 @@
       <genClasses ecoreClass="pcm.ecore#//usagemodel/EntryLevelSystemCall">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//usagemodel/EntryLevelSystemCall/actualParameterUsage_EntryLevelSystemCall"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference pcm.ecore#//usagemodel/EntryLevelSystemCall/signature_EntryLevelSystemCall"/>
+            ecoreFeature="ecore:EReference pcm.ecore#//usagemodel/EntryLevelSystemCall/providedRole_EntryLevelSystemCall"/>
       </genClasses>
       <genClasses ecoreClass="pcm.ecore#//usagemodel/ClosedWorkload">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pcm.ecore#//usagemodel/ClosedWorkload/population"/>
