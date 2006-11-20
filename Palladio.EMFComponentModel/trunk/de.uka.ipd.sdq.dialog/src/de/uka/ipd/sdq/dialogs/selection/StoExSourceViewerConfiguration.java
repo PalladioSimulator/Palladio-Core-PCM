@@ -5,6 +5,8 @@ package de.uka.ipd.sdq.dialogs.selection;
 
 import org.eclipse.jface.text.IDocument;
 import org.eclipse.jface.text.TextAttribute;
+import org.eclipse.jface.text.formatter.ContentFormatter;
+import org.eclipse.jface.text.formatter.IContentFormatter;
 import org.eclipse.jface.text.presentation.IPresentationReconciler;
 import org.eclipse.jface.text.presentation.PresentationReconciler;
 import org.eclipse.jface.text.rules.DefaultDamagerRepairer;
@@ -47,6 +49,8 @@ public class StoExSourceViewerConfiguration extends SourceViewerConfiguration {
 
 		return reconciler;
 	}
+
+	
 
 	private ITokenScanner getKeywordScanner()
 	{

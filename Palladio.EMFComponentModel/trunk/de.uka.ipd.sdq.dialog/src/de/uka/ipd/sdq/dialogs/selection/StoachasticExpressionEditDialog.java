@@ -11,12 +11,14 @@ import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.text.Document;
 import org.eclipse.jface.text.source.SourceViewer;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.custom.StyledText;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Shell;
+import com.swtdesigner.SWTResourceManager;
 
 import antlr.RecognitionException;
 import antlr.TokenStreamException;
@@ -91,18 +93,24 @@ public class StoachasticExpressionEditDialog extends Dialog {
 		editStochasticExpressionGroup.setLayout(new GridLayout());
 		//editText = new Text((Composite) parent,SWT.MULTI);
 		textViewer = new SourceViewer(editStochasticExpressionGroup,null, SWT.V_SCROLL | SWT.MULTI | SWT.BORDER | SWT.WRAP);
+		final StyledText styledText = textViewer.getTextWidget();
+		styledText.setFont(SWTResourceManager.getFont("Courier New", 12, SWT.NONE));
+		textViewer.configure(new StoExSourceViewerConfiguration());
 		GridData layoutData = new GridData(GridData.FILL_BOTH|GridData.GRAB_HORIZONTAL|GridData.GRAB_VERTICAL);
 		layoutData.heightHint = 300;
 		layoutData.widthHint = 450;
 		textViewer.getControl().setLayoutData(layoutData);
 		//editText.setText(newText);
 		textViewer.setDocument(new Document(newText));
-		textViewer.configure(new StoExSourceViewerConfiguration());
 		return textViewer.getControl();
 	}
 	
 	public Expression getResult()
 	{
 		return result;
+	}
+	protected void configureShell(Shell newShell) {
+		super.configureShell(newShell);
+		newShell.setText("Edit stochastic expression");
 	}
 }
