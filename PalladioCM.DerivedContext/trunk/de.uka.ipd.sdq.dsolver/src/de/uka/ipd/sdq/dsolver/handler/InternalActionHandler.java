@@ -12,6 +12,7 @@ import org.eclipse.emf.ecore.EObject;
 import de.uka.ipd.sdq.context.allocation.ActualResourceDemand;
 import de.uka.ipd.sdq.context.allocation.AllocationFactory;
 import de.uka.ipd.sdq.dsolver.Context;
+import de.uka.ipd.sdq.pcm.allocation.Allocation;
 import de.uka.ipd.sdq.pcm.allocation.AllocationContext;
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
 import de.uka.ipd.sdq.pcm.core.stochastics.Expression;
@@ -100,12 +101,13 @@ public class InternalActionHandler extends AbstractHandler{
 	 */
 	private AllocationContext findAllocationContext(
 			AssemblyContext derivedAssemblyContext) {
-		Iterator allocationContexts = myContext.getSystem()
-				.getAllocation_System().getAllocationContexts_Allocation().iterator();
+		Allocation alloc = myContext.getAllocation();
+		Iterator allocationContexts = alloc.getAllocationContexts_Allocation().iterator();
+		
 		while (allocationContexts.hasNext()) {
 			AllocationContext context = (AllocationContext) allocationContexts
 					.next();
-			if (context.getAssemblyContext_AllocationContext() == derivedAssemblyContext)
+			if (context.getAssemblyContext_AllocationContext().getId().equals(derivedAssemblyContext.getId()))
 				return context;
 		}
 		return null;

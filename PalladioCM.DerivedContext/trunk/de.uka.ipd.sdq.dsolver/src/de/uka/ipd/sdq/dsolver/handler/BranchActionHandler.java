@@ -18,6 +18,7 @@ import de.uka.ipd.sdq.dsolver.Context;
 import de.uka.ipd.sdq.dsolver.visitors.ExpressionSolveVisitor;
 import de.uka.ipd.sdq.dsolver.visitors.SeffVisitor;
 import de.uka.ipd.sdq.pcm.core.stochastics.CompareExpression;
+import de.uka.ipd.sdq.pcm.core.stochastics.Expression;
 import de.uka.ipd.sdq.pcm.seff.BranchAction;
 import de.uka.ipd.sdq.pcm.seff.BranchTransition;
 import de.uka.ipd.sdq.pcm.seff.ResourceDemandingBehaviour;
@@ -73,14 +74,18 @@ public class BranchActionHandler extends AbstractHandler {
 		for (Iterator i = btList.iterator(); i.hasNext();) {
 			BranchTransition bt = (BranchTransition) i.next();
 
-			String branchCondition = bt.getBranchCondition();
-			// TODO: store scope of branch conditions
-			myContext.getCurrentEvaluatedBranchConditions()
-					.add(branchCondition);
-
-			CompareExpression compExpr = parseBranchCondition(branchCondition);
+//			String branchCondition = bt.getBranchCondition();
+//			bt.getBranchCondition_BranchTransition().g
+//			// TODO: store scope of branch conditions
+//			myContext.getCurrentEvaluatedBranchConditions()
+//					.add(branchCondition);
+//
+//			CompareExpression compExpr = parseBranchCondition(branchCondition);
+//			
+			
+			Expression compExpr = bt.getBranchCondition_BranchTransition().getSpecification_RandomVariable();
 			ExpressionSolveVisitor branchConditionVisitor = new ExpressionSolveVisitor(
-					compExpr);
+					compExpr,myContext);
 			Double solvedBranchProb = (Double) branchConditionVisitor
 					.doSwitch(compExpr);
 logger.debug("SolvedBranchProb:"+solvedBranchProb);

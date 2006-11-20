@@ -1,6 +1,7 @@
 package de.uka.ipd.sdq.dsolver.visitors;
 
 import org.apache.log4j.Logger;
+import org.eclipse.emf.common.util.ECollections;
 import org.eclipse.emf.common.util.EList;
 
 import de.uka.ipd.sdq.context.allocation.ActualAllocation;
@@ -13,14 +14,21 @@ import de.uka.ipd.sdq.dsolver.Context;
 import de.uka.ipd.sdq.dsolver.PCMInstance;
 import de.uka.ipd.sdq.dsolver.helper.EMFHelper;
 import de.uka.ipd.sdq.pcm.core.composition.ProvidedDelegationConnector;
+import de.uka.ipd.sdq.pcm.core.stochastics.Expression;
+import de.uka.ipd.sdq.pcm.parameter.CollectionParameterCharacterisation;
+import de.uka.ipd.sdq.pcm.parameter.CollectionParameterUsage;
+import de.uka.ipd.sdq.pcm.parameter.ParameterCharacterisation;
+import de.uka.ipd.sdq.pcm.parameter.ParameterUsage;
 import de.uka.ipd.sdq.pcm.repository.BasicComponent;
+import de.uka.ipd.sdq.pcm.repository.Interface;
+import de.uka.ipd.sdq.pcm.repository.ProvidedRole;
 import de.uka.ipd.sdq.pcm.repository.ProvidesComponentType;
 import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
 import de.uka.ipd.sdq.pcm.repository.Signature;
 import de.uka.ipd.sdq.pcm.seff.ResourceDemandingBehaviour;
 import de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF;
 import de.uka.ipd.sdq.pcm.seff.ServiceEffectSpecification;
-import de.uka.ipd.sdq.pcm.system.SystemProvidedRole;
+import de.uka.ipd.sdq.pcm.stochasticexpressions.StoExPrettyPrintVisitor;
 import de.uka.ipd.sdq.pcm.usagemodel.AbstractUserAction;
 import de.uka.ipd.sdq.pcm.usagemodel.EntryLevelSystemCall;
 import de.uka.ipd.sdq.pcm.usagemodel.ScenarioBehaviour;
@@ -93,23 +101,22 @@ public class UsageModelVisitor extends UsagemodelSwitch {
 	public Object caseEntryLevelSystemCall(EntryLevelSystemCall call) {
 
 		logger.debug("VisitEntryLevelSystemCall");
-		Signature method = call.getSignature_EntryLevelSystemCall();
-		SystemProvidedRole role = call
-				.getSystemProvidedRole_EntryLevelSystemCall();
+		Signature signature = call.getSignature_EntryLevelSystemCall();
+		ProvidedRole role = call.getProvidedRole_EntryLevelSystemCall();
 
 		logger.debug("Called System Method "
 				+ role.getProvidedInterface__ProvidedRole().getEntityName() + "/"
-				+ method.getServiceName());
+				+ signature.getServiceName());
 
 		ProvidedDelegationConnector delegationConnector = getDelegationConnector(role);
-
+	
 		ProvidesComponentType offeringComponent = delegationConnector
 				.getChildComponentContext_ProvidedDelegationConnector()
 				.getEncapsulatedComponent_ChildComponentContext();
 
 		if (offeringComponent.eClass() == RepositoryPackage.eINSTANCE
 				.getBasicComponent()) {
-			handleBasicComponent(call, method, delegationConnector,
+			handleBasicComponent(call, signature, delegationConnector,
 					offeringComponent);
 		} else {
 			// handleCompositeComponent(call, method, delegationConnector,
@@ -138,7 +145,7 @@ public class UsageModelVisitor extends UsagemodelSwitch {
 	 * @return
 	 */
 	private ProvidedDelegationConnector getDelegationConnector(
-			SystemProvidedRole role) {
+			ProvidedRole role) {
 		ProvidedDelegationConnector delegationConnector = 
 			(ProvidedDelegationConnector) EMFHelper
 				.executeOCLQuery(
@@ -203,11 +210,41 @@ public class UsageModelVisitor extends UsagemodelSwitch {
 		Context callContext = new Context();
 
 		callContext.setSystem(pcmInstance.getSystem());
+		callContext.setAllocation(pcmInstance.getAllocation());
 		callContext.setDerivedAssemblyContext(delegationConnector
 				.getChildComponentContext_ProvidedDelegationConnector());
 
+		
 		UsageContext uc = usageFactory.createUsageContext();
 		EList parList = call.getActualParameterUsage_EntryLevelSystemCall();
+		
+		// hmm... while copying parList, some of the inner elements were
+		// not initialized. Added the following for-loop to ensure this.
+		// Probably because of EMF's lazy loading? Any nice solution possible?
+		for (Object o : parList){
+			ParameterUsage pu = (ParameterUsage)o;
+//			EList parChar = pu.getParameterCharacterisation_ParameterUsage();
+//			for (Object p : parChar){
+//				ParameterCharacterisation pc = (ParameterCharacterisation) p;
+//				Expression expr = pc.getSpecification_RandomVariable();
+//				StoExPrettyPrintVisitor printer = new StoExPrettyPrintVisitor();
+//				String exprStr = (String)printer.doSwitch(expr);
+//				pc.setSpecification(exprStr);
+//			}
+			pu.getParameter_ParameterUsage().getParameterName();
+		}
+		for (Object o : parList){
+			if (o instanceof CollectionParameterUsage){
+				CollectionParameterUsage cpu = (CollectionParameterUsage)o;
+				EList cpuList = cpu.getParameterCharacterisation_CollectionParameterUsage();
+				for (Object p : cpuList){
+					CollectionParameterCharacterisation cpc  = (CollectionParameterCharacterisation)p;
+					cpc.getSpecification();
+				}
+			}
+		}
+			
+		
 		uc.getActualParameterUsage_UsageContext().addAll(parList);
 		callContext.setUsageContext(uc);
 

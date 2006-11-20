@@ -2,6 +2,7 @@ package de.uka.ipd.sdq.dsolver.visitors;
 
 import org.apache.log4j.Logger;
 
+import de.uka.ipd.sdq.dsolver.Context;
 import de.uka.ipd.sdq.dsolver.operations.AddOperation;
 import de.uka.ipd.sdq.dsolver.operations.DivOperation;
 import de.uka.ipd.sdq.dsolver.operations.EqualsOperation;
@@ -23,6 +24,7 @@ import de.uka.ipd.sdq.pcm.core.stochastics.ProbabilityFunctionLiteral;
 import de.uka.ipd.sdq.pcm.core.stochastics.ProductExpression;
 import de.uka.ipd.sdq.pcm.core.stochastics.StochasticsFactory;
 import de.uka.ipd.sdq.pcm.core.stochastics.TermExpression;
+import de.uka.ipd.sdq.pcm.core.stochastics.Variable;
 import de.uka.ipd.sdq.pcm.core.stochastics.util.StochasticsSwitch;
 import de.uka.ipd.sdq.probfunction.ProbabilityMassFunction;
 import de.uka.ipd.sdq.probfunction.ProbfunctionFactory;
@@ -45,8 +47,8 @@ public class ExpressionSolveVisitor extends StochasticsSwitch {
 
 	private StochasticsFactory stocFactory = StochasticsFactory.eINSTANCE;
 
-	public ExpressionSolveVisitor(Expression expr) {
-		typeVisitor = new ExpressionInferTypeVisitor();
+	public ExpressionSolveVisitor(Expression expr, Context context) {
+		typeVisitor = new ExpressionInferTypeVisitor(context);
 		try {
 			typeVisitor.doSwitch(expr);
 		} catch (Exception e) {
@@ -116,6 +118,10 @@ public class ExpressionSolveVisitor extends StochasticsSwitch {
 		return handleComputation(exprType, left, right, op);
 	}
 
+	public Object caseVariable(Variable var){
+		return typeVisitor.getParameterAnnotation(var);
+	}
+	
 	public Object caseIntLiteral(IntLiteral il) {
 		return il;
 	}

@@ -24,10 +24,9 @@ import de.uka.ipd.sdq.pcm.core.stochastics.RandomVariable;
 import de.uka.ipd.sdq.pcm.core.stochastics.StochasticsFactory;
 import de.uka.ipd.sdq.pcm.seff.LoopAction;
 import de.uka.ipd.sdq.pcm.seff.ResourceDemandingBehaviour;
-import de.uka.ipd.sdq.pcm.stochasticexpressions.ProbFunctionPrettyPrint;
+import de.uka.ipd.sdq.pcm.stochasticexpressions.StoExPrettyPrintVisitor;
 import de.uka.ipd.sdq.pcm.stochasticexpressions.parser.StochasticExpressionsLexer;
 import de.uka.ipd.sdq.pcm.stochasticexpressions.parser.StochasticExpressionsParser;
-import de.uka.ipd.sdq.probfunction.ProbabilityFunction;
 import de.uka.ipd.sdq.probfunction.ProbabilityMassFunction;
 import de.uka.ipd.sdq.probfunction.Sample;
 
@@ -119,17 +118,16 @@ public class LoopActionHandler extends AbstractHandler {
 	 * @param solvedIterationCountExpr
 	 */
 	private void storeToUsageContext(LoopAction loop, Expression solvedIterationCountExpr) {
+		StoExPrettyPrintVisitor printer = new StoExPrettyPrintVisitor();		
+		String loopSpecification = "= "+(String) printer.doSwitch(solvedIterationCountExpr);
+		
 		RandomVariable rv = stochasticsFactory.createRandomVariable();
-		ProbFunctionPrettyPrint printer = new ProbFunctionPrettyPrint();
-		ProbabilityFunctionLiteral solvedLiteral = (ProbabilityFunctionLiteral) solvedIterationCountExpr;
-		ProbabilityFunction solvedFunction = solvedLiteral
-				.getFunction_ProbabilityFunctionLiteral();
-		String loopSpecification = (String) printer.doSwitch(solvedFunction);
 		rv.setSpecification(loopSpecification);
 		
 		LoopIteration loopIteration = usageFactory.createLoopIteration();
 		loopIteration.setLoopaction_LoopIteration(loop);
 		loopIteration.setIterations_LoopIteration(rv);
+		
 		myContext.getUsageContext().getLoopiterations_UsageContext().add(loopIteration);
 	}
 
@@ -141,7 +139,7 @@ public class LoopActionHandler extends AbstractHandler {
 		Expression loopCountExpr = loop.getIterations_LoopAction()
 				.getSpecification_RandomVariable();
 		ExpressionSolveVisitor loopCountVisitor = new ExpressionSolveVisitor(
-				loopCountExpr);
+				loopCountExpr,myContext);
 		Expression solvedLoopCountExpr = (Expression) loopCountVisitor
 				.doSwitch(loopCountExpr);
 		return solvedLoopCountExpr;

@@ -4,11 +4,13 @@ import java.util.ArrayList;
 
 import de.uka.ipd.sdq.context.allocation.ActualAllocationContext;
 import de.uka.ipd.sdq.context.usage.UsageContext;
+import de.uka.ipd.sdq.pcm.allocation.Allocation;
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
 
 public class Context {
 	private de.uka.ipd.sdq.pcm.system.System mySystem;
 	private AssemblyContext myAssemblyContext;
+	private Allocation myAllocation;
 	
 	private UsageContext usageContext;
 	private ActualAllocationContext actualAllocationContext;
@@ -70,6 +72,14 @@ public class Context {
 	}
 	public void setCurrentLoopIterationNumber(ArrayList currentLoopIterationNumber) {
 		this.currentLoopIterationNumber = currentLoopIterationNumber;
+	}
+
+	public Allocation getAllocation() {
+		return myAllocation;
+	}
+
+	public void setAllocation(Allocation myAllocation) {
+		this.myAllocation = myAllocation;
 	}
 	
 }

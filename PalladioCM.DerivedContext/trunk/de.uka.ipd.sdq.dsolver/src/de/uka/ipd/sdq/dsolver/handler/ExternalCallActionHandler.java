@@ -13,24 +13,27 @@ import de.uka.ipd.sdq.context.usage.UsageFactory;
 import de.uka.ipd.sdq.dsolver.Context;
 import de.uka.ipd.sdq.dsolver.PCMInstance;
 import de.uka.ipd.sdq.dsolver.helper.EMFHelper;
+import de.uka.ipd.sdq.dsolver.visitors.ExpressionSolveVisitor;
 import de.uka.ipd.sdq.dsolver.visitors.SeffVisitor;
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyConnector;
+import de.uka.ipd.sdq.pcm.core.stochastics.Expression;
 import de.uka.ipd.sdq.pcm.parameter.CollectionParameterCharacterisation;
 import de.uka.ipd.sdq.pcm.parameter.CollectionParameterUsage;
+import de.uka.ipd.sdq.pcm.parameter.CompositeParameterUsage;
+import de.uka.ipd.sdq.pcm.parameter.ParameterCharacterisation;
 import de.uka.ipd.sdq.pcm.parameter.ParameterFactory;
 import de.uka.ipd.sdq.pcm.parameter.ParameterUsage;
-import de.uka.ipd.sdq.pcm.parameter.PrimitiveParameterCharacterisation;
+import de.uka.ipd.sdq.pcm.parameter.PrimitiveParameterUsage;
 import de.uka.ipd.sdq.pcm.repository.BasicComponent;
 import de.uka.ipd.sdq.pcm.repository.Interface;
 import de.uka.ipd.sdq.pcm.repository.Parameter;
 import de.uka.ipd.sdq.pcm.repository.Signature;
-import de.uka.ipd.sdq.pcm.seff.CollectionParametricParameterUsage;
 import de.uka.ipd.sdq.pcm.seff.ExternalCallAction;
-import de.uka.ipd.sdq.pcm.seff.ParametricParameterUsage;
-import de.uka.ipd.sdq.pcm.seff.PrimitiveParametricParameterUsage;
 import de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF;
 import de.uka.ipd.sdq.pcm.seff.ServiceEffectSpecification;
 import de.uka.ipd.sdq.pcm.seff.util.SeffSwitch;
+import de.uka.ipd.sdq.pcm.stochasticexpressions.ProbFunctionPrettyPrint;
+import de.uka.ipd.sdq.pcm.stochasticexpressions.StoExPrettyPrintVisitor;
 
 public class ExternalCallActionHandler extends AbstractHandler{
 	
@@ -75,7 +78,7 @@ public class ExternalCallActionHandler extends AbstractHandler{
 				.eContainer();
 		
 		EList parametricParameterUsages = 
-			call.getParametricParameterUsage_ParametricParameterUsage();
+			call.getParameterUsage_ExternalCallAction();
 			
 		AssemblyConnector foundAssemblyConnector = 
 			findAssemblyConnector(requiredInterface);
@@ -149,6 +152,7 @@ public class ExternalCallActionHandler extends AbstractHandler{
 		Context callContext = new Context();
 
 		callContext.setSystem(myContext.getSystem());
+		callContext.setAllocation(myContext.getAllocation());
 		callContext
 				.setDerivedAssemblyContext(foundAssemblyConnector
 						.getProvidingChildComponentContext_CompositeAssemblyConnector());
@@ -184,15 +188,18 @@ public class ExternalCallActionHandler extends AbstractHandler{
 		while (iter.hasNext()){
 			Object ppu = iter.next();
 			
-			if (ppu instanceof PrimitiveParametricParameterUsage){
-				createPrimitiveParameterUsage(uc, ppu);
+			
+			if (ppu instanceof PrimitiveParameterUsage){
+				ParameterUsage actUsage = createPrimitiveParameterUsage(uc, (ParameterUsage)ppu);
+				uc.getActualParameterUsage_UsageContext().add(actUsage);
 				
-			} else if (ppu instanceof CollectionParametricParameterUsage){
-				createCollectionParameterUsage(uc, ppu);
+			} else if (ppu instanceof CollectionParameterUsage){
+				CollectionParameterUsage actUsage = createCollectionParameterUsage(uc, (CollectionParameterUsage)ppu);
+				uc.getActualParameterUsage_UsageContext().add(actUsage);
 				
-			} /*else if (ppu instanceof CompositeParametricParameterUsage){
-				// not implemented yet
-			}*/
+			} else if (ppu instanceof CompositeParameterUsage){
+				// TODO: not implemented yet
+			}
 		}
 	}
 
@@ -200,44 +207,78 @@ public class ExternalCallActionHandler extends AbstractHandler{
 	 * @param uc
 	 * @param ppu
 	 */
-	private void createPrimitiveParameterUsage(UsageContext uc, Object ppu) {
-		ParameterUsage actPrimUsage = parameterFactory.createParameterUsage();
-		PrimitiveParametricParameterUsage pppu = (PrimitiveParametricParameterUsage)ppu;
-		
-		ParametricParameterUsage ppu2 = (ParametricParameterUsage)ppu;
-		Parameter param = ppu2.getCharacterisedParameter_ParametricParameterUsage();
+	private ParameterUsage createPrimitiveParameterUsage(UsageContext uc,
+			ParameterUsage pu) {
+		ParameterUsage actPrimUsage = parameterFactory
+				.createPrimitiveParameterUsage();
+
+		Parameter param = pu.getParameter_ParameterUsage();
 		actPrimUsage.setParameter_ParameterUsage(param);
 
-		PrimitiveParameterCharacterisation ppc = 
-			parameterFactory.createPrimitiveParameterCharacterisation();
-		ppc.setType(pppu.getType());
-		ppc.setSpecification("foo"); // TODO: solve dependencies
-		actPrimUsage.getParameterCharacterisation_ParameterUsage().add(ppc);
+		EList parChar = pu.getParameterCharacterisation_ParameterUsage();
+		Iterator iter = parChar.iterator();
+		while (iter.hasNext()) { //iterate over value, type, bytesize
+			ParameterCharacterisation pc = (ParameterCharacterisation) iter
+					.next();
+			Expression pcExpr = pc.getSpecification_RandomVariable();
+			
+			// solve dependencies to other parameters
+			ExpressionSolveVisitor pcExprVisitor = new ExpressionSolveVisitor(
+					pcExpr, myContext);
+			Expression solvedExpr = (Expression) pcExprVisitor.doSwitch(pcExpr);
+
+			ParameterCharacterisation solvedPc = parameterFactory
+					.createParameterCharacterisation();
+			solvedPc.setType(pc.getType());
+			StoExPrettyPrintVisitor printer = new StoExPrettyPrintVisitor();
+			String solvedChar = "= "+(String) printer.doSwitch(solvedExpr);
+			solvedPc.setSpecification(solvedChar);
+
+			actPrimUsage.getParameterCharacterisation_ParameterUsage().add(
+					solvedPc);
+			
+		}
+		return actPrimUsage;
 		
-		uc.getActualParameterUsage_UsageContext().add(actPrimUsage);
 	}
 	
 	/**
 	 * @param uc
 	 * @param ppu
 	 */
-	private void createCollectionParameterUsage(UsageContext uc, Object ppu) {
+	private CollectionParameterUsage createCollectionParameterUsage(UsageContext uc, CollectionParameterUsage pu) {
 		CollectionParameterUsage actCollUsage = parameterFactory.createCollectionParameterUsage();
-		CollectionParametricParameterUsage cppu = (CollectionParametricParameterUsage) ppu;
 		
-		ParametricParameterUsage ppu2 = (ParametricParameterUsage)ppu;
-		Parameter param = ppu2.getCharacterisedParameter_ParametricParameterUsage();
+		Parameter param = pu.getParameter_ParameterUsage();
 		actCollUsage.setParameter_ParameterUsage(param);
 		
-		CollectionParameterCharacterisation cpc = 
-			parameterFactory.createCollectionParameterCharacterisation();
-		cpc.setType(cppu.getType());
-		cpc.setSpecification("bar"); //TODO: solve dependencies
-		actCollUsage.getParameterCharacterisation_ParameterUsage().add(cpc);
+		EList collParChar = pu.getParameterCharacterisation_CollectionParameterUsage();
+		Iterator iter = collParChar.iterator();
+		while (iter.hasNext()){
+			CollectionParameterCharacterisation cpc = (CollectionParameterCharacterisation)iter.next();
+			Expression pcExpr = cpc.getSpecification_RandomVariable();
+			
+			ExpressionSolveVisitor pcExprVisitor = new ExpressionSolveVisitor(pcExpr, myContext);
+			Expression solvedExpr = (Expression) pcExprVisitor.doSwitch(pcExpr);
+			
+			CollectionParameterCharacterisation solvedPc = parameterFactory.createCollectionParameterCharacterisation();
+			solvedPc.setType(cpc.getType());
+			
+			StoExPrettyPrintVisitor printer = new StoExPrettyPrintVisitor();
+			String solvedChar = "= "+(String) printer.doSwitch(solvedExpr);
+			solvedPc.setSpecification(solvedChar);
+
+			actCollUsage.getParameterCharacterisation_CollectionParameterUsage().add(
+					solvedPc);
 		
-		//TODO: handle inner parameters
+		}
 		
-		uc.getActualParameterUsage_UsageContext().add(actCollUsage);
+		ParameterUsage innerUsage = pu.getInnerElement_ParameterUsage();
+		if (innerUsage != null){
+			ParameterUsage solvedInnerUsage = createPrimitiveParameterUsage(uc, innerUsage);
+			actCollUsage.setInnerElement_ParameterUsage(solvedInnerUsage);
+		}
+		return actCollUsage;
 	}
 
 	/**
@@ -248,9 +289,9 @@ public class ExternalCallActionHandler extends AbstractHandler{
 	private ResourceDemandingSEFF getTargetBehaviourFromAssemblyConnector(
 			AssemblyConnector connector, Signature targetMethod) {
 		BasicComponent targetBasicComponent = (BasicComponent) connector
-				.getProvidedRole_CompositeAssemblyConnector()
-				.getProvidingComponent__ProvidedRole();
-	
+				.getProvidingChildComponentContext_CompositeAssemblyConnector()
+				.getEncapsulatedComponent_ChildComponentContext();
+			
 		// TODO: Über Interfaces suchen...
 		ServiceEffectSpecification seff = (ServiceEffectSpecification) EMFHelper
 				.executeOCLQuery(
