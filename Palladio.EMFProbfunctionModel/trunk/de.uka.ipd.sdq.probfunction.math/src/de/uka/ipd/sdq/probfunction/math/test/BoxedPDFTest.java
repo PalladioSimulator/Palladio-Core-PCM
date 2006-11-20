@@ -96,16 +96,18 @@ public class BoxedPDFTest {
 
 	}
 
-//	@Test
-//	public void mult() throws FunctionsInDifferenDomainsException,
-//			UnknownPDFTypeException, IncompatibleUnitsException,
-//			DoubleSampleException {
-//		IProbabilityDensityFunction prod = df1.mult(df1);
-//		IBoxedPDF expected = createBoxedPDF(new Double[]{3.0, 0.01, 2.1, 0.04,
-//				4.3, 0.16, 1.5, 0.09});
-//		ISamplePDF sExpexted = dfFactory.transformToSamplePDF(expected);
-//		Assert.assertEquals(sExpexted, (ISamplePDF) prod);
-//	}
+	@Test
+	public void mult() throws FunctionsInDifferenDomainsException,
+			UnknownPDFTypeException, IncompatibleUnitsException,
+			DoubleSampleException {
+		IProbabilityDensityFunction prod = df1.mult(df1);
+		IBoxedPDF expected = createBoxedPDF(new Double[]{3.0, 0.01, 2.1, 0.04,
+				4.3, 0.16, 1.5, 0.09});
+		ISamplePDF sExpexted = dfFactory.transformToSamplePDF(expected);
+		System.out.println(sExpexted);
+		System.out.println(prod);
+		Assert.assertEquals(sExpexted, (ISamplePDF) prod);
+	}
 	
 	@Test
 	public void percentile() throws IndexOutOfBoundsException,
