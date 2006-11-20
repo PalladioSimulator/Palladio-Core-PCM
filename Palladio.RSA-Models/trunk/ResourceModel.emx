@@ -85,7 +85,7 @@
           <styles xmi:type="umlnotation:UMLShapeCompartmentStyle" xmi:id="_8nfik3SPEdu9OJpDmFkYpg"/>
         </children>
         <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_8neUcXSPEdu9OJpDmFkYpg" fontName="Sans" showStereotype="Label"/>
-        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_8neUcnSPEdu9OJpDmFkYpg" x="19411" y="9212"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_8neUcnSPEdu9OJpDmFkYpg" x="19411" y="6909"/>
       </children>
       <children xmi:id="_qqhxQHSQEdu9OJpDmFkYpg" sourceEdges="_vsyxQHSQEdu9OJpDmFkYpg" targetEdges="_j30rMHSMEdu9OJpDmFkYpg _jbG6AHSMEdu9OJpDmFkYpg" element="_qqc4wHSQEdu9OJpDmFkYpg">
         <children xmi:id="_qqiYUHSQEdu9OJpDmFkYpg" type="ImageCompartment" element="_qqc4wHSQEdu9OJpDmFkYpg">
@@ -200,7 +200,7 @@
         </children>
         <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_ZWc6AXSTEdud0bILazudNA" fontName="Sans" showStereotype="Label"/>
         <element xmi:type="uml:Class" href="ProbabilityFunction.emx#_zWMAx1YOEduVzvtHWuORYA?probfunction/ProbabilityDensityFunction"/>
-        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ZWc6AnSTEdud0bILazudNA" x="21714" y="18424"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ZWc6AnSTEdud0bILazudNA" x="22372" y="18424"/>
       </children>
       <styles xmi:type="umlnotation:UMLDiagramStyle" xmi:id="_Sb3xsXSMEdu9OJpDmFkYpg"/>
       <edges xmi:id="_jbG6AHSMEdu9OJpDmFkYpg" element="_jbCBgHSMEdu9OJpDmFkYpg" source="_hFUHUHSMEdu9OJpDmFkYpg" target="_qqhxQHSQEdu9OJpDmFkYpg">
@@ -228,7 +228,7 @@
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="__fV5dHSPEdu9OJpDmFkYpg" y="-209"/>
         </children>
         <styles xmi:type="umlnotation:UMLConnectorStyle" xmi:id="__fV5cXSPEdu9OJpDmFkYpg" fontName="Sans" showStereotype="Text"/>
-        <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="__fV5cnSPEdu9OJpDmFkYpg" points="[-30, -688, 13567, 6155]$[-30, -6873, 13567, -30]$[-12013, -6873, 1584, -30]"/>
+        <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="__fV5cnSPEdu9OJpDmFkYpg" points="[-30, -688, 13567, 3854]$[-30, -4572, 13567, -30]$[-12013, -4572, 1584, -30]"/>
       </edges>
       <edges xmi:id="_vsyxQHSQEdu9OJpDmFkYpg" element="_vsw8EHSQEdu9OJpDmFkYpg" source="_qqhxQHSQEdu9OJpDmFkYpg" target="_W7glwHSMEdu9OJpDmFkYpg">
         <children xmi:id="_vszYUHSQEdu9OJpDmFkYpg" type="NameLabel" element="_vsw8EHSQEdu9OJpDmFkYpg">
@@ -379,7 +379,7 @@
         </children>
         <children xmi:id="_ZWnSEHSTEdud0bILazudNA" type="FromRoleLabel" element="_RKkk8F2uEduUYolzmZz2EQ">
           <children xmi:id="_ZWnSEnSTEdud0bILazudNA" type="FromRole" element="_RKkk8F2uEduUYolzmZz2EQ"/>
-          <layoutConstraint xmi:type="notation:Location" xmi:id="_ZWnSEXSTEdud0bILazudNA" y="-448"/>
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_ZWnSEXSTEdud0bILazudNA" x="-340" y="-1119"/>
         </children>
         <children xmi:id="_ZWnSE3STEdud0bILazudNA" type="ToQualifierLabel" element="_RKkk8V2uEduUYolzmZz2EQ">
           <children xmi:id="_ZWnSFXSTEdud0bILazudNA" type="QualifierCompartment" element="_RKkk8V2uEduUYolzmZz2EQ">
@@ -465,7 +465,7 @@
       <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_g2gE0F97EduVfpyYDuEIVg" value="1"/>
     </ownedAttribute>
   </ownedMember>
-  <ownedMember xmi:type="uml:Class" xmi:id="_g0bj8HSSEdu9OJpDmFkYpg" name="DelayResourceDemand">
+  <ownedMember xmi:type="uml:Class" xmi:id="_g0bj8HSSEdu9OJpDmFkYpg" name="DelayResourceUsage">
     <generalization xmi:id="_oSAIwHSSEdu9OJpDmFkYpg" general="_m0lnMFnFEdu77MWpSZSJdA"/>
     <ownedAttribute xmi:id="_i3RlcHSSEdu9OJpDmFkYpg" name="delayResource" type="_8nY04HSPEdu9OJpDmFkYpg" association="_i3Q-YHSSEdu9OJpDmFkYpg">
       <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_i3SMgHSSEdu9OJpDmFkYpg" value="1"/>
