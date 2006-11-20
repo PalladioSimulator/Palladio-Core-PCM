@@ -97,6 +97,11 @@ definition returns [ProbabilityFunctionLiteral pfl]
 			INT_DEF
 				{probFunction = ProbfunctionFactory.eINSTANCE.createProbabilityMassFunction();
 				   pfl.setFunction_ProbabilityFunctionLiteral(probFunction);}
+			LPAREN
+			  ({Unit uunit = null;}
+			  uunit = unit 
+			  {probFunction.setUnit(uunit);})
+			RPAREN
 			SQUARE_PAREN_L 
 				( {Sample isample=null;}
 				  isample = numeric_int_sample
@@ -106,6 +111,11 @@ definition returns [ProbabilityFunctionLiteral pfl]
 		 	REAL_DEF 
 				{probFunction = ProbfunctionFactory.eINSTANCE.createProbabilityMassFunction();
 				   pfl.setFunction_ProbabilityFunctionLiteral(probFunction);}
+			LPAREN
+			  ({Unit uunit = null;}
+			  uunit = unit 
+			  {probFunction.setUnit(uunit);})
+			RPAREN
 		 	SQUARE_PAREN_L 
 				( {Sample rsample=null;} 
 				rsample = numeric_real_sample
@@ -115,7 +125,18 @@ definition returns [ProbabilityFunctionLiteral pfl]
 		// Enum PMF
 			ENUM_DEF 
 				{probFunction = ProbfunctionFactory.eINSTANCE.createProbabilityMassFunction();
-				   pfl.setFunction_ProbabilityFunctionLiteral(probFunction);}
+				   pfl.setFunction_ProbabilityFunctionLiteral(probFunction);
+				   ((ProbabilityMassFunction)probFunction).setOrderedDomain(false);
+				   }
+			LPAREN
+			  ({Unit uunit = null;}
+			  uunit = unit 
+			  {probFunction.setUnit(uunit);})
+			  (SEMI
+			  ORDERED_DEF
+			  {((ProbabilityMassFunction)probFunction).setOrderedDomain(true);}
+			  )?
+			RPAREN
 			SQUARE_PAREN_L 
 				( {Sample ssample=null;} 
 				ssample = stringsample
@@ -125,6 +146,11 @@ definition returns [ProbabilityFunctionLiteral pfl]
 			REAL_PDF
 				{probFunction = ProbfunctionFactory.eINSTANCE.createBoxedPDF();
 				   pfl.setFunction_ProbabilityFunctionLiteral(probFunction);}
+			LPAREN
+			  ({Unit uunit = null;}
+			  uunit = unit 
+			  {probFunction.setUnit(uunit);})
+			RPAREN
 			SQUARE_PAREN_L 
 				( {ContinuousSample pdf_sample=null;}
 				  pdf_sample = real_pdf_sample
@@ -132,6 +158,14 @@ definition returns [ProbabilityFunctionLiteral pfl]
 	 		SQUARE_PAREN_R 
 ;	 		
 			
+
+unit returns [Unit u]
+	{u = null;}:
+		UNIT_DEF
+			{ u = ProbfunctionFactory.eINSTANCE.createUnit(); }
+			EQUAL
+			str:STRING_LITERAL 
+			{u.setUnitName(str.getText().replace("\"",""));} ;
 
 numeric_int_sample returns [Sample s]
 	{s = null;} : 
@@ -199,6 +233,8 @@ ENUM_DEF: "EnumPMF" ;
 REAL_PDF: "DoublePDF" ;
 SQUARE_PAREN_L : '[' ;
 SQUARE_PAREN_R : ']' ;
+UNIT_DEF : "unit" ;
+ORDERED_DEF : "ordered" ;
 protected DIGIT : '0'..'9' ;
 NUMBER : (DIGIT)+ ('.' (DIGIT)+)?;
 protected ALPHA : 'a'..'z' | 'A'..'Z' ;

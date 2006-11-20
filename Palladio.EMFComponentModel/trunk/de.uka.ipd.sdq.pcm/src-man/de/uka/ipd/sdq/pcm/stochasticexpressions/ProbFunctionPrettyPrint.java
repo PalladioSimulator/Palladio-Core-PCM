@@ -10,30 +10,49 @@ import de.uka.ipd.sdq.probfunction.util.ProbfunctionSwitch;
 
 public class ProbFunctionPrettyPrint extends ProbfunctionSwitch {
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see de.uka.ipd.sdq.probfunction.util.ProbfunctionSwitch#caseBoxedPDF(de.uka.ipd.sdq.probfunction.BoxedPDF)
 	 */
 	@Override
 	public Object caseBoxedPDF(BoxedPDF object) {
 		String sampleString = "";
-		for (ContinuousSample s : (List<ContinuousSample>)object.getSamples())
-	    {
-	    	sampleString += " ("+s.getValue()+"; "+s.getProbability()+")";
-	    }
+		for (ContinuousSample s : (List<ContinuousSample>) object.getSamples()) {
+			sampleString += " (" + s.getValue() + "; " + s.getProbability()
+					+ ")";
+		}
 		return "DoublePDF[" + sampleString + " ]";
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see de.uka.ipd.sdq.probfunction.util.ProbfunctionSwitch#caseProbabilityMassFunction(de.uka.ipd.sdq.probfunction.ProbabilityMassFunction)
 	 */
 	@Override
 	public Object caseProbabilityMassFunction(ProbabilityMassFunction object) {
-		String pmfType = detectType((Sample)object.getSamples().get(0));
+		Sample sample = (Sample)object.getSamples().get(0);
+		
+		String pmfType = detectType(sample);
 		String sampleString = "";
-		for (Sample s : (List<Sample>)object.getSamples())
-	    {
-	    	sampleString += " ("+s.getProbability()+"; "+s.getValue()+")";
-	    }
+		String leftSeparator = "; ";
+		String rightSeparator = ")";
+		
+		if ( sample.getValue() instanceof String) {
+			leftSeparator = "; \"";
+			rightSeparator = "\")";
+			pmfType += "(unit=\""+object.getUnit().getUnitName() + "\"";
+			if (object.isOrderedDomain()){
+				pmfType += "; ordered";
+			}
+			pmfType += ")";
+		}
+		
+		for (Sample s : (List<Sample>) object.getSamples()) {
+			sampleString += " (" + s.getProbability() + leftSeparator
+					+ s.getValue() + rightSeparator;
+		}
 		return pmfType + "[" + sampleString + " ]";
 	}
 
