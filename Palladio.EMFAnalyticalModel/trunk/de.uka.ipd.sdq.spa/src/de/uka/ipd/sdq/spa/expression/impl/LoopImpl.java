@@ -70,6 +70,12 @@ public class LoopImpl extends OperationImpl implements Loop {
 	 * @ordered
 	 */
 	protected String iterationsString = ITERATIONS_STRING_EDEFAULT;
+	
+	
+	/**
+	 * @generated NOT
+	 */
+	protected ProbabilityMassFunction iterationsPMF;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -138,14 +144,14 @@ public class LoopImpl extends OperationImpl implements Loop {
 	 * @generated NOT
 	 */
 	public ProbabilityMassFunction getIterationsPMF() {
-		// TODO: implement this method to return the 'Iterations PMF' containment reference
-		// Ensure that you remove @generated or mark it @generated NOT
-		
 		try {
-			StochasticExpressionsLexer lexer = new StochasticExpressionsLexer(new StringBufferInputStream("=" + this.getIterationsString()));
-			StochasticExpressionsParser parser = new StochasticExpressionsParser(lexer);
-			ProbabilityFunctionLiteral value = (ProbabilityFunctionLiteral) parser.expression();
-			return (ProbabilityMassFunction) value.getFunction_ProbabilityFunctionLiteral();
+			if (iterationsPMF == null) {
+				StochasticExpressionsLexer lexer = new StochasticExpressionsLexer(new StringBufferInputStream("=" + this.getIterationsString()));
+				StochasticExpressionsParser parser = new StochasticExpressionsParser(lexer);
+				ProbabilityFunctionLiteral value = (ProbabilityFunctionLiteral) parser.expression();
+				iterationsPMF = (ProbabilityMassFunction) value.getFunction_ProbabilityFunctionLiteral();
+			}
+			return iterationsPMF;
 			
 		} catch (Exception e) {
 			return null;
@@ -158,14 +164,6 @@ public class LoopImpl extends OperationImpl implements Loop {
 	 * @generated NOT
 	 */
 	public NotificationChain basicSetIterationsPMF(ProbabilityMassFunction newIterationsPMF, NotificationChain msgs) {
-		// TODO: implement this method to set the contained 'Iterations PMF' containment reference
-		// -> this method is automatically invoked to keep the containment relationship in synch
-		// -> do not modify other features
-		// -> return msgs, after adding any generated Notification to it (if it is null, a NotificationChain object must be created first)
-		// Ensure that you remove @generated or mark it @generated NOT
-		
-		System.out.println("Notified");
-		
 		return msgs;
 		
 	}
@@ -178,6 +176,7 @@ public class LoopImpl extends OperationImpl implements Loop {
 	public void setIterationsPMF(ProbabilityMassFunction newIterationsPMF) {
 		ProbFunctionPrettyPrint pp = new ProbFunctionPrettyPrint();
 		this.setIterationsString( (String) pp.doSwitch(newIterationsPMF));
+		iterationsPMF = newIterationsPMF;
 	}
 
 	/**
@@ -192,9 +191,10 @@ public class LoopImpl extends OperationImpl implements Loop {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public void setIterationsString(String newIterationsString) {
+		iterationsPMF = null; // invalidate PMF
 		String oldIterationsString = iterationsString;
 		iterationsString = newIterationsString;
 		if (eNotificationRequired())
