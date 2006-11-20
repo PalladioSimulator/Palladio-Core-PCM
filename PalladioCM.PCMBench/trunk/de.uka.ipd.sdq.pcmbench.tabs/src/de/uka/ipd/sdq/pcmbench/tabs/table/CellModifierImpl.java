@@ -1,11 +1,9 @@
-/**
- * 
- */
 package de.uka.ipd.sdq.pcmbench.tabs.table;
 
 import java.util.Iterator;
 import java.util.List;
 
+import org.eclipse.core.runtime.Assert;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.transaction.RecordingCommand;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
@@ -19,9 +17,7 @@ import de.uka.ipd.sdq.pcm.repository.Signature;
 /**
  * @author roman
  * 
- * This class implements an ICellModifier
- * An ICellModifier is called when the user modifes a cell in the 
- * tableViewer
+ * This class implements an ICellModifier. An ICellModifier is called when the user modifes a cell in the tableViewer
  */
 
 public class CellModifierImpl implements ICellModifier {
@@ -29,23 +25,23 @@ public class CellModifierImpl implements ICellModifier {
 	private List columnNames; 	
 	private Signature signature;
 	
-	public static final String EDITING_DOMAIN_ID = "de.uka.ipd.sdq.PCMBench.editingDomain";
-
 	/**
 	 * The transactional editing domain which is used to get the commands and alter the model 
 	 */
 	final protected TransactionalEditingDomain editingDomain = TransactionalEditingDomain.Registry.INSTANCE
-					.getEditingDomain(EDITING_DOMAIN_ID);
+					.getEditingDomain(TabResources.EDITING_DOMAIN_ID);
 	
 	
 	/**
 	 * @param columnNames
 	 */
 	public CellModifierImpl(List columnNames) {
-		super();
 		this.columnNames = columnNames;
 	}
-
+	
+	/* (non-Javadoc)
+	 * @see org.eclipse.jface.viewers.ICellModifier#canModify(Object element, String property)
+	 */
 	public boolean canModify(Object element, String property) {
 		return true;
 	}
@@ -83,29 +79,28 @@ public class CellModifierImpl implements ICellModifier {
 
 		// Find the index of the column 
 		int columnIndex	= columnNames.indexOf(property);
-			
+		
+		Assert.isNotNull(element);
 		TableItem item = (TableItem) element;
-		
 		signature = (Signature) item.getData();
-		
-		String valueString;
 	
 		switch (columnIndex) {
 			case OperationsTabViewer.ICON_COLUMN_INDEX : // COMPLETED_COLUMN 
 				break;
-			case OperationsTabViewer.PARAMETER_COLUMN_INDEX : // OWNEDPARAMETER_COLUMN 
-				break;
 			case OperationsTabViewer.RETURNTYPE_COLUMN_INDEX : // RETURNTYPE_COLUMN 
 				break;
 			case OperationsTabViewer.SIGNATURENAME_COLUMN_INDEX : // SERVICENAME_COLUMN
-				valueString = ((String) value).trim();
+				String valueString = ((String) value).trim();
 				textChanged(valueString);
+				break;
+			case OperationsTabViewer.PARAMETER_COLUMN_INDEX : // OWNEDPARAMETER_COLUMN 
 				break;
 			case OperationsTabViewer.EXCEPTIONS_COLUMN_INDEX : // EXEPTIONTYPE_COLUM 
 				break;
 			default :
 		}
 	}
+	
 	
 	private void textChanged(String valueString) {
 		final String value = valueString;
@@ -115,7 +110,6 @@ public class CellModifierImpl implements ICellModifier {
 			protected void doExecute() {
 				signature.setServiceName(value);
 			}
-			
 		};
 		
 		if (!value.equals(signature.getServiceName())){
@@ -139,7 +133,7 @@ public class CellModifierImpl implements ICellModifier {
 			} else result += "void";
 		}
 		if(!result.equals("") && !result.equals("void")){
-			result = result.substring(0, result.length()-3);
+			result = result.substring(0, result.length()-2);
 		}
 		return result;
 	}

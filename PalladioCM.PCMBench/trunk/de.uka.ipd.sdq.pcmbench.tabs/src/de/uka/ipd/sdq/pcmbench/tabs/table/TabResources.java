@@ -16,8 +16,10 @@ public class TabResources {
 	public static String PLUGIN_ID = PCMBenchTabsActivator.PLUGIN_ID;
 
 	//	 Names of images used to represent actions in ToolBar
-	public static final String ADD 	= "add";
-	public static final String DELETE  = "delete";
+	public static final String ADD_SIGN 	= "add_sign";
+	public static final String DELETE_SIGN  = "delete_sign";
+	public static final String ADD_PARAM 	= "add_param";
+	public static final String DELETE_PARAM = "delete_param";
 	
 	// For the toolbar images
 	public static ImageRegistry imageRegistry = new ImageRegistry();
@@ -30,12 +32,20 @@ public class TabResources {
 	static {
 		String iconPath = "icons/";
 		
-		imageRegistry.put(ADD,
-				 getImageDescriptor(iconPath + ADD + ".gif")
+		imageRegistry.put(ADD_SIGN,
+				 getImageDescriptor(iconPath + ADD_SIGN + ".gif")
 		);
 		
-		imageRegistry.put(DELETE,
-				 getImageDescriptor(iconPath + DELETE + ".gif")
+		imageRegistry.put(DELETE_SIGN,
+				 getImageDescriptor(iconPath + DELETE_SIGN + ".gif")
+				);
+		
+		imageRegistry.put(ADD_PARAM,
+				 getImageDescriptor(iconPath + ADD_PARAM + ".gif")
+		);
+		
+		imageRegistry.put(DELETE_PARAM,
+				 getImageDescriptor(iconPath + DELETE_PARAM + ".gif")
 				);
 	}
 	

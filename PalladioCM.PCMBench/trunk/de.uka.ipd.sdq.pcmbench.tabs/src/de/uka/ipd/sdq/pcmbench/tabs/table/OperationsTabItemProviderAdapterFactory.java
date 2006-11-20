@@ -7,7 +7,8 @@ import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemProviderDecorator;
 import org.eclipse.emf.edit.provider.ITableItemLabelProvider;
 
-public class OperationsTabItemProviderAdapterFactory extends DecoratorAdapterFactory {
+public class OperationsTabItemProviderAdapterFactory extends
+		DecoratorAdapterFactory {
 
 	public OperationsTabItemProviderAdapterFactory(AdapterFactory adapterFactory) {
 		super(adapterFactory);
@@ -17,13 +18,14 @@ public class OperationsTabItemProviderAdapterFactory extends DecoratorAdapterFac
 	protected IItemProviderDecorator createItemProviderDecorator(Object target,
 			Object type) {
 		IItemProviderDecorator decorator = new OperationsTabItemProvider(this);
-		if (type == ITableItemLabelProvider.class)
-		{
-			decorator.setDecoratedItemProvider((IChangeNotifier)decoratedAdapterFactory.adapt(target, IItemLabelProvider.class));
-		}
-		else
-		{
-			decorator.setDecoratedItemProvider((IChangeNotifier)decoratedAdapterFactory.adapt(target, type));
+		if (type == ITableItemLabelProvider.class) {
+			decorator
+					.setDecoratedItemProvider((IChangeNotifier) decoratedAdapterFactory
+							.adapt(target, IItemLabelProvider.class));
+		} else {
+			decorator
+					.setDecoratedItemProvider((IChangeNotifier) decoratedAdapterFactory
+							.adapt(target, type));
 		}
 		return decorator;
 	}

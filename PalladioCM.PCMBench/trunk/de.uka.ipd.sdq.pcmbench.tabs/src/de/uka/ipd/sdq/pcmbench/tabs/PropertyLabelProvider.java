@@ -101,8 +101,7 @@ implements
 	}
 
 	public void dispose() {
-		// TODO Auto-generated method stub
-
+		labelProvider.dispose();
 	}
 
 	/* (non-Javadoc)
@@ -110,7 +109,6 @@ implements
 	 */
 	@Override
 	public void addListener(ILabelProviderListener listener) {
-		// TODO Auto-generated method stub
 		super.addListener(listener);
 		labelProvider.addListener(listener);
 	}
@@ -120,7 +118,6 @@ implements
 	 */
 	@Override
 	public void removeListener(ILabelProviderListener listener) {
-		// TODO Auto-generated method stub
 		labelProvider.removeListener(listener);
 		super.removeListener(listener);
 	}

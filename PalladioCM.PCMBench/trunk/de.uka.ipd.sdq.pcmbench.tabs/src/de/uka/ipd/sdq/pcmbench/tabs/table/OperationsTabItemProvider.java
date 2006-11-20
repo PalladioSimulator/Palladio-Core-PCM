@@ -10,6 +10,7 @@ import org.eclipse.emf.edit.provider.ITableItemLabelProvider;
 import org.eclipse.emf.edit.provider.ItemProviderDecorator;
 
 import de.uka.ipd.sdq.pcm.repository.DataType;
+import de.uka.ipd.sdq.pcm.repository.ExceptionType;
 import de.uka.ipd.sdq.pcm.repository.Parameter;
 import de.uka.ipd.sdq.pcm.repository.Signature;
 
@@ -57,17 +58,17 @@ implements ITableItemLabelProvider, IItemLabelProvider {
 		switch (columnIndex) {
 			case OperationsTabViewer.ICON_COLUMN_INDEX:
 				break;
-			case OperationsTabViewer.PARAMETER_COLUMN_INDEX :
-				result = setParametersToString(signature.getParameters__Signature());
-				break;
 			case OperationsTabViewer.RETURNTYPE_COLUMN_INDEX :
 				result = dataTypeFormater(signature.getReturntype__Signature());
 				break;
 			case OperationsTabViewer.SIGNATURENAME_COLUMN_INDEX :
 				result = signature.getServiceName();
 				break;
+			case OperationsTabViewer.PARAMETER_COLUMN_INDEX :
+				result = setParametersToString(signature.getParameters__Signature());
+				break;
 			case OperationsTabViewer.EXCEPTIONS_COLUMN_INDEX :
-				result = setParametersToString(signature.getExceptions__Signature());
+				result = setExceptionsToString(signature.getExceptions__Signature());
 				break;
 			default :
 				break; 	
@@ -81,7 +82,7 @@ implements ITableItemLabelProvider, IItemLabelProvider {
 		Parameter parameter;
 		
 		for(Iterator<Parameter> it = parameters.iterator(); it.hasNext(); ){
-			parameter = it.next();
+			parameter =  it.next();
 			result += dataTypeFormater(parameter.getDatatype__Parameter())
 								+ " " + parameter.getParameterName() + ", ";
 		}
@@ -91,15 +92,26 @@ implements ITableItemLabelProvider, IItemLabelProvider {
 		return result;
 	}
 	
-	private String dataTypeFormater(DataType d)
-	{
-		if (d == null)
-			return "void";
-		return nullSafeFormater(d.getType(), "void");
+	private String setExceptionsToString(EList exceptions){
+		
+		String result = "";
+		ExceptionType exceptionType;
+		
+		for(Iterator<ExceptionType> it = exceptions.iterator(); it.hasNext(); ){
+			exceptionType =  it.next();
+			result += exceptionType.getExceptionName() + ", "; 
+		}
+		if(!result.equals("")){
+			result = result.substring(0, result.length()-2);
+		}
+		return result;
+		
 	}
 	
-	private String nullSafeFormater(String s, String alternativeText)
+	private String dataTypeFormater(DataType dataType)
 	{
-		return s == null ? s : alternativeText;
+		if (dataType == null || dataType.getType() == null)
+			return "void";
+		else return dataType.getType();
 	}
 }

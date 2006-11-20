@@ -67,4 +67,11 @@ public class DeleteActionListener extends SelectionAdapter {
 	public void setSelectedSignature(Signature selectedSignature) {
 		this.selectedSignature = selectedSignature;
 	}
+
+	/**
+	 * @return the selectedInterface
+	 */
+	public Interface getSelectedInterface() {
+		return selectedInterface;
+	}
 }

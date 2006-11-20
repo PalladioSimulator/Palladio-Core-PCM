@@ -80,13 +80,14 @@ extends AbstractPropertySection {
 		tableViewer.setInput(input);
 		
 		/* (non-Javadoc)
-		 * set the current selection interface in the AddActionListener
+		 * set the current selection interface in the AddActionListener, DeleteActionListener
 		 * @See de.uka.ipd.sdq.pcmbench.tabs.table.AddActionListener#setSelectedInterface(Interace)
 		 */
-		Assert.isNotNull(AddActionListener.getSingelton() != null);
+		Assert.isNotNull(AddActionListener.getSingelton());
 		(AddActionListener.getSingelton()).setSelectedInterface((Interface) input);
-		Assert.isNotNull(DeleteActionListener.getSingelton() != null);
+		Assert.isNotNull(DeleteActionListener.getSingelton());
 		(DeleteActionListener.getSingelton()).setSelectedInterface((Interface) input);
+		
 	}
 
 	/**
