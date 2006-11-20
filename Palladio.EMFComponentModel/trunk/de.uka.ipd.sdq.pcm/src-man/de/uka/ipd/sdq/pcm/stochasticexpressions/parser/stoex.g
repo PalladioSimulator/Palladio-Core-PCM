@@ -194,7 +194,7 @@ RPAREN: ')' ;
 SEMI  : ';' ;
 EQUAL : '=' ;
 INT_DEF : "IntPMF" ;
-REAL_DEF: "RealPMF" ;
+REAL_DEF: "DoublePMF" ;
 ENUM_DEF: "EnumPMF" ;
 REAL_PDF: "DoublePDF" ;
 SQUARE_PAREN_L : '[' ;

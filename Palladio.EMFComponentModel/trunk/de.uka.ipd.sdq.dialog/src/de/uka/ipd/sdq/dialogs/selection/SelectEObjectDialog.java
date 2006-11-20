@@ -1,5 +1,6 @@
 package de.uka.ipd.sdq.dialogs.selection;
 
+import java.util.ArrayList;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
@@ -35,9 +36,10 @@ public class SelectEObjectDialog extends Dialog {
 	private Collection filterList;
 	private Object input;
 	private TreeViewer listViewer;
-	private AdapterFactory adapterFactory;
+	protected AdapterFactory adapterFactory;
 	private EObject selection = null;
 	private Label label;
+	private Collection childReferences = new ArrayList();
 
 	/**
 	 * Create the dialog
@@ -51,12 +53,24 @@ public class SelectEObjectDialog extends Dialog {
 	}
 
 	/**
+	 * Create the dialog
+	 * @param parent
+	 */
+	public SelectEObjectDialog(Shell parent, AdapterFactory adapterFactory, Collection filterList, Collection additionalChildReferences, Object input) {
+		super(parent, SWT.NONE);
+		this.filterList = filterList;
+		this.input = input;
+		this.adapterFactory = adapterFactory;
+		this.childReferences = additionalChildReferences;
+	}
+	
+	/**
 	 * Open the dialog
 	 * @return the result
 	 */
 	public Object open() {
 		createContents();
-		listViewer.setContentProvider(new AdapterFactoryContentProvider(new FilteredItemsAdapterFactory(adapterFactory, filterList)));
+		listViewer.setContentProvider(new AdapterFactoryContentProvider(new FilteredItemsAdapterFactory(adapterFactory, filterList, childReferences)));
 		listViewer.setLabelProvider(new AdapterFactoryLabelProvider(adapterFactory));
 		listViewer.setInput(input);
 		listViewer.expandAll();

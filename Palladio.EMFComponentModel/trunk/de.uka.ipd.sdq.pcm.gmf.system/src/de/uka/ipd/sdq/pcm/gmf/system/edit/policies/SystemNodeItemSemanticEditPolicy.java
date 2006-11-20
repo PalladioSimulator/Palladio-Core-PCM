@@ -23,6 +23,7 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.CreateRelationshipRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.DestroyElementRequest;
 import org.eclipse.gmf.runtime.notation.View;
 
+import de.uka.ipd.sdq.dialogs.selection.PalladioSelectEObjectDialog;
 import de.uka.ipd.sdq.dialogs.selection.SelectEObjectDialog;
 import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
 import de.uka.ipd.sdq.pcm.gmf.system.edit.parts.SystemNodeEditPart;
@@ -42,15 +43,6 @@ public class SystemNodeItemSemanticEditPolicy extends
 		PcmBaseItemSemanticEditPolicy {
 
 	protected Command getCreateCommand(CreateElementRequest req) {
-//		if (PcmElementTypes.AssemblyContext_1001 == req.getElementType()) {
-//			if (req.getContainmentFeature() == null) {
-//				req
-//						.setContainmentFeature(CompositionPackage.eINSTANCE
-//								.getComposedStructure_ChildComponentContexts_ComposedStructure());
-//			}
-//			return getMSLWrapper(new CreateAssemblyContext_1001Command(req,
-//					(SystemNodeEditPart) getHost()));
-//		}
 		if (PcmElementTypes.SystemProvidedRole_1004 == req.getElementType()) {
 			if (req.getContainmentFeature() == null) {
 				req.setContainmentFeature(EntityPackage.eINSTANCE.
@@ -132,18 +124,11 @@ public class SystemNodeItemSemanticEditPolicy extends
 		@Override
 		protected CommandResult doExecuteWithResult(IProgressMonitor monitor,
 				IAdaptable info) throws ExecutionException {
-			ComposedAdapterFactory adapterFactory = new ComposedAdapterFactory();
-			adapterFactory
-					.addAdapterFactory(new ResourceItemProviderAdapterFactory());
-			adapterFactory
-					.addAdapterFactory(new RepositoryItemProviderAdapterFactory());
-			adapterFactory
-					.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
 			ArrayList filterList = new ArrayList();
 			filterList.add(Repository.class);
 			filterList.add(Interface.class);
-			SelectEObjectDialog dialog = new SelectEObjectDialog(v.getRoot()
-					.getViewer().getControl().getShell(), new PalladioItemProviderAdapterFactory(adapterFactory),
+			PalladioSelectEObjectDialog dialog = new PalladioSelectEObjectDialog(v.getRoot()
+					.getViewer().getControl().getShell(),
 					filterList, v.getEditingDomain().getResourceSet());
 			dialog.open();
 			if (dialog.getResult() == null)

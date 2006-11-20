@@ -54,6 +54,8 @@ import org.eclipse.swt.graphics.Image;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.PcmTextSelectionEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.seff.part.PcmDiagramEditorPlugin;
 import de.uka.ipd.sdq.pcm.gmf.seff.providers.PcmElementTypes;
+import de.uka.ipd.sdq.pcm.seff.IterationCount;
+import de.uka.ipd.sdq.pcm.seff.LoopAction;
 
 /**
  * @generated
@@ -190,11 +192,13 @@ public class LoopIterationsLabelEditPart extends CompartmentEditPart implements
 	}
 
 	/**
-	 * @generated
+	 * @generated NOT
 	 */
 	protected EObject getParserElement() {
 		EObject element = resolveSemanticElement();
-		return element != null ? element : (View) getModel();
+		LoopAction action = (LoopAction) (element != null ? element : (View) getModel());
+		IterationCount ic = action.getIterations_LoopAction();
+		return ic;
 	}
 
 	/**

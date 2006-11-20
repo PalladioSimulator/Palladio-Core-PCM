@@ -39,11 +39,11 @@ public class ProbFunctionPrettyPrint extends ProbfunctionSwitch {
 
 	private String detectType(Sample object) {
 		if (object.getValue() instanceof Integer)
-			return "IntRandomVar";
+			return "IntPMF";
 		if (object.getValue() instanceof Double)
-			return "RealRandomVar";
+			return "DoublePMF";
 		if (object.getValue() instanceof String)
-			return "EnumRandomVar";
+			return "EnumPMF";
 		throw new UnsupportedOperationException("Unknown PMF found!");
 	}
 

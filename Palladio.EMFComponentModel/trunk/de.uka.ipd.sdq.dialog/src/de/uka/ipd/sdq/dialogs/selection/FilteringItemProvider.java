@@ -9,6 +9,8 @@ import java.util.Iterator;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
@@ -21,13 +23,16 @@ import org.eclipse.emf.edit.provider.ItemProviderDecorator;
 public class FilteringItemProvider extends ItemProviderDecorator implements ITreeItemContentProvider {
 
 	private Collection filterList;
+	private Collection<EReference> additionalChildReferences;
 
 	/**
 	 * @param adapterFactory
+	 * @param additionalChildReferences 
 	 */
-	public FilteringItemProvider(AdapterFactory adapterFactory, Collection filterList) {
+	public FilteringItemProvider(AdapterFactory adapterFactory, Collection filterList, Collection<EReference> additionalChildReferences) {
 		super(adapterFactory);
 		this.filterList = filterList;
+		this.additionalChildReferences = additionalChildReferences;
 	}
 
 	/* (non-Javadoc)
@@ -49,6 +54,16 @@ public class FilteringItemProvider extends ItemProviderDecorator implements ITre
 		else
 		{
 			unfilteredResult = ((ITreeItemContentProvider) getDecoratedItemProvider()).getChildren(object);
+		}
+		for (EReference additionalReference : additionalChildReferences)
+		{
+			if (additionalReference.getContainerClass().isInstance(object)) {
+				Object result = ((EObject)object).eGet(additionalReference);
+				if (result instanceof Collection)
+					unfilteredResult.addAll((Collection)result);
+				else
+					unfilteredResult.add(result);
+			}
 		}
 		ArrayList filteredResult = new ArrayList();
 		for (Iterator i = unfilteredResult.iterator(); i.hasNext(); ) {

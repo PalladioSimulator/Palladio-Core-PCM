@@ -11,5 +11,7 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.emf.edit.ui,
  de.uka.ipd.sdq.pcm,
  org.antlr,
- org.eclipse.jface.text
+ org.eclipse.jface.text,
+ de.uka.ipd.sdq.pcm.edit,
+ de.uka.ipd.sdq.pcmbench.ui
 Export-Package: de.uka.ipd.sdq.dialogs.selection

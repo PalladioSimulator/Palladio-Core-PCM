@@ -22,6 +22,7 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.InternalActionEntityName2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.InternalActionEntityNameEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopActionEntityName2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopActionEntityNameEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopIterationsLabelEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ParametricResourceDemandEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.part.PcmVisualIDRegistry;
 
@@ -58,6 +59,37 @@ public class PcmParserProvider extends AbstractProvider implements
 		PcmStructuralFeatureParser parser = new PcmStructuralFeatureParser(
 				EntityPackage.eINSTANCE.getNamedElement()
 						.getEStructuralFeature("entityName")); //$NON-NLS-1$
+		return parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser loopActionIterations_4003Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getLoopActionIterations_4003Parser() {
+		if (loopActionIterations_4003Parser == null) {
+			loopActionIterations_4003Parser = createLoopActionIterations_4003Parser();
+		}
+		return loopActionLoopActionEntityName_4002Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	protected IParser createLoopActionIterations_4003Parser() {
+		List features = new ArrayList(2);
+		features.add(StochasticsPackage.eINSTANCE.getRandomVariable()
+				.getEStructuralFeature("specification")); //$NON-NLS-1$
+		features.add(SeffPackage.eINSTANCE.getParametricResourceDemand()
+				.getEStructuralFeature("unit")); //$NON-NLS-1$
+		PcmStructuralFeaturesParser parser = new PcmStructuralFeaturesParser(
+				features);
+		parser.setViewPattern("{0} {1}");
+		parser.setEditPattern("{0}");
 		return parser;
 	}
 
@@ -268,12 +300,14 @@ public class PcmParserProvider extends AbstractProvider implements
 	}
 
 	/**
-	 * @generated
+	 * @generated NOT
 	 */
 	protected IParser getParser(int visualID) {
 		switch (visualID) {
 		case LoopActionEntityNameEditPart.VISUAL_ID:
 			return getLoopActionLoopActionEntityName_4002Parser();
+		case LoopIterationsLabelEditPart.VISUAL_ID:
+			return getLoopActionIterations_4003Parser();
 		case InternalActionEntityNameEditPart.VISUAL_ID:
 			return getInternalActionInternalActionEntityName_4004Parser();
 		case ParametricResourceDemandEditPart.VISUAL_ID:
