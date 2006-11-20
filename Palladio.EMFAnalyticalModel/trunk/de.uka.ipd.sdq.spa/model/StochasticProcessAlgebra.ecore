@@ -53,8 +53,9 @@
     <eClassifiers xsi:type="ecore:EClass" name="Loop" eSuperTypes="#//expression/Operation">
       <eStructuralFeatures xsi:type="ecore:EReference" name="regExp" lowerBound="1"
           eType="#//expression/Expression" containment="true"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="iterationsPMF" eType="ecore:EClass ../../../plugin/de.uka.ipd.sdq.probfunction/model/ProbabilityFunction.ecore#//ProbabilityMassFunction"
-          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="iterationsPMF" unique="false"
+          eType="ecore:EClass ../../../plugin/de.uka.ipd.sdq.probfunction/model/ProbabilityFunction.ecore#//ProbabilityMassFunction"
+          volatile="true" transient="true" defaultValueLiteral="" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="iterationsString" unique="false"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
           defaultValueLiteral=""/>

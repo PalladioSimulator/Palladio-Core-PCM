@@ -6,19 +6,24 @@
  */
 package de.uka.ipd.sdq.spa.expression.impl;
 
-import de.uka.ipd.sdq.probfunction.ProbabilityMassFunction;
+import java.io.StringBufferInputStream;
 
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
+import de.uka.ipd.sdq.pcm.core.stochastics.ProbabilityFunctionLiteral;
+import de.uka.ipd.sdq.pcm.stochasticexpressions.ProbFunctionPrettyPrint;
+import de.uka.ipd.sdq.pcm.stochasticexpressions.parser.StochasticExpressionsLexer;
+import de.uka.ipd.sdq.pcm.stochasticexpressions.parser.StochasticExpressionsParser;
+import de.uka.ipd.sdq.probfunction.ProbabilityMassFunction;
 import de.uka.ipd.sdq.spa.expression.Expression;
 import de.uka.ipd.sdq.spa.expression.ExpressionPackage;
 import de.uka.ipd.sdq.spa.expression.Loop;
 
-import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
 
-import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
-
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -45,16 +50,6 @@ public class LoopImpl extends OperationImpl implements Loop {
 	 * @ordered
 	 */
 	protected Expression regExp = null;
-
-	/**
-	 * The cached value of the '{@link #getIterationsPMF() <em>Iterations PMF</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getIterationsPMF()
-	 * @generated
-	 * @ordered
-	 */
-	protected ProbabilityMassFunction iterationsPMF = null;
 
 	/**
 	 * The default value of the '{@link #getIterationsString() <em>Iterations String</em>}' attribute.
@@ -140,44 +135,49 @@ public class LoopImpl extends OperationImpl implements Loop {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public ProbabilityMassFunction getIterationsPMF() {
-		return iterationsPMF;
+		// TODO: implement this method to return the 'Iterations PMF' containment reference
+		// Ensure that you remove @generated or mark it @generated NOT
+		
+		try {
+			StochasticExpressionsLexer lexer = new StochasticExpressionsLexer(new StringBufferInputStream("=" + this.getIterationsString()));
+			StochasticExpressionsParser parser = new StochasticExpressionsParser(lexer);
+			ProbabilityFunctionLiteral value = (ProbabilityFunctionLiteral) parser.expression();
+			return (ProbabilityMassFunction) value.getFunction_ProbabilityFunctionLiteral();
+			
+		} catch (Exception e) {
+			return null;
+		}
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public NotificationChain basicSetIterationsPMF(ProbabilityMassFunction newIterationsPMF, NotificationChain msgs) {
-		ProbabilityMassFunction oldIterationsPMF = iterationsPMF;
-		iterationsPMF = newIterationsPMF;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ExpressionPackage.LOOP__ITERATIONS_PMF, oldIterationsPMF, newIterationsPMF);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
+		// TODO: implement this method to set the contained 'Iterations PMF' containment reference
+		// -> this method is automatically invoked to keep the containment relationship in synch
+		// -> do not modify other features
+		// -> return msgs, after adding any generated Notification to it (if it is null, a NotificationChain object must be created first)
+		// Ensure that you remove @generated or mark it @generated NOT
+		
+		System.out.println("Notified");
+		
 		return msgs;
+		
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public void setIterationsPMF(ProbabilityMassFunction newIterationsPMF) {
-		if (newIterationsPMF != iterationsPMF) {
-			NotificationChain msgs = null;
-			if (iterationsPMF != null)
-				msgs = ((InternalEObject)iterationsPMF).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ExpressionPackage.LOOP__ITERATIONS_PMF, null, msgs);
-			if (newIterationsPMF != null)
-				msgs = ((InternalEObject)newIterationsPMF).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ExpressionPackage.LOOP__ITERATIONS_PMF, null, msgs);
-			msgs = basicSetIterationsPMF(newIterationsPMF, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ExpressionPackage.LOOP__ITERATIONS_PMF, newIterationsPMF, newIterationsPMF));
+		ProbFunctionPrettyPrint pp = new ProbFunctionPrettyPrint();
+		this.setIterationsString( (String) pp.doSwitch(newIterationsPMF));
 	}
 
 	/**
@@ -283,7 +283,7 @@ public class LoopImpl extends OperationImpl implements Loop {
 			case ExpressionPackage.LOOP__REG_EXP:
 				return regExp != null;
 			case ExpressionPackage.LOOP__ITERATIONS_PMF:
-				return iterationsPMF != null;
+				return getIterationsPMF() != null;
 			case ExpressionPackage.LOOP__ITERATIONS_STRING:
 				return ITERATIONS_STRING_EDEFAULT == null ? iterationsString != null : !ITERATIONS_STRING_EDEFAULT.equals(iterationsString);
 		}

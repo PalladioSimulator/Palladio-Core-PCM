@@ -55,6 +55,7 @@ public interface Loop extends Operation {
 
 	/**
 	 * Returns the value of the '<em><b>Iterations PMF</b></em>' containment reference.
+	 * The default value is <code>""</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Iterations PMF</em>' containment reference isn't clear,
@@ -64,7 +65,7 @@ public interface Loop extends Operation {
 	 * @return the value of the '<em>Iterations PMF</em>' containment reference.
 	 * @see #setIterationsPMF(ProbabilityMassFunction)
 	 * @see de.uka.ipd.sdq.spa.expression.ExpressionPackage#getLoop_IterationsPMF()
-	 * @model containment="true"
+	 * @model containment="true" transient="true" volatile="true"
 	 * @generated
 	 */
 	ProbabilityMassFunction getIterationsPMF();
