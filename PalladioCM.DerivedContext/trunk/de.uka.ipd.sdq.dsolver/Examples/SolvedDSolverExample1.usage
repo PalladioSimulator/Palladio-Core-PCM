@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="ASCII"?>
-<context.usage:Usage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:context.usage="http://sdq.ipd.uka.de/Context/Usage/1.0">
+<context.usage:Usage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context.usage="http://sdq.ipd.uka.de/Context/Usage/1.0" xmlns:pcm.parameter="http://sdq.ipd.uka.de/PalladioComponentModel/Parameter/1.0">
   <usageContext_Usage>
     <loopiterations_UsageContext>
       <loopaction_LoopIteration href="DSolverExample1.repository#_CRToczQeEduaPaOP6VcQiw"/>
-      <iterations_LoopIteration specification="IntRandomVar[ (0.12; 8) (0.42; 9) ]"/>
+      <iterations_LoopIteration specification="= 25"/>
     </loopiterations_UsageContext>
+    <actualParameterUsage_UsageContext xsi:type="pcm.parameter:CollectionParameterUsage">
+      <parameter_ParameterUsage href="DSolverExample1.repository#//@interfaces__Repository.1/@signatures__Interface.0/@parameters__Signature.0"/>
+      <parameterCharacterisation_CollectionParameterUsage specification="= 50"/>
+    </actualParameterUsage_UsageContext>
   </usageContext_Usage>
   <usageContext_Usage>
     <branchprobabilities_UsageContext probability="1.0">
@@ -16,9 +20,9 @@
     <branchprobabilities_UsageContext probability="1.0">
       <branchtransition_BranchProbability href="DSolverExample1.repository#//@components__Repository.0/@serviceEffectSpecifications__BasicComponent.0/@steps_Behaviour.2/@branches_Branch.2"/>
     </branchprobabilities_UsageContext>
-    <actualParameterUsage_UsageContext>
+    <actualParameterUsage_UsageContext xsi:type="pcm.parameter:PrimitiveParameterUsage">
       <parameter_ParameterUsage href="DSolverExample1.repository#//@interfaces__Repository.0/@signatures__Interface.0/@parameters__Signature.0"/>
-      <parameterCharacterisation_ParameterUsage specification="= IntRandomVar[ (0.4; 1) (0.6; 10) ]"/>
+      <parameterCharacterisation_ParameterUsage specification="= 10"/>
     </actualParameterUsage_UsageContext>
   </usageContext_Usage>
 </context.usage:Usage>

@@ -1,17 +1,89 @@
 <?xml version="1.0" encoding="ASCII"?>
 <context.allocation:ActualAllocation xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:context.allocation="http://sdq.ipd.uka.de/Context/Allocation/1.0">
   <actualAllocationContext_ActualAllocation>
+    <actualResourceDemands_ActualAllocationContext randomVariable_ActualResourceDemand="/">
+      <parametricResourceDemand_ActualResourceDemand href="DSolverExample1.repository#//@components__Repository.1/@serviceEffectSpecifications__BasicComponent.0/@steps_Behaviour.1/@bodyBehaviour_Loop/@steps_Behaviour.1/@resourceDemand_Action.0"/>
+    </actualResourceDemands_ActualAllocationContext>
+    <actualResourceDemands_ActualAllocationContext randomVariable_ActualResourceDemand="/">
+      <parametricResourceDemand_ActualResourceDemand href="DSolverExample1.repository#//@components__Repository.1/@serviceEffectSpecifications__BasicComponent.0/@steps_Behaviour.1/@bodyBehaviour_Loop/@steps_Behaviour.1/@resourceDemand_Action.0"/>
+    </actualResourceDemands_ActualAllocationContext>
+    <actualResourceDemands_ActualAllocationContext randomVariable_ActualResourceDemand="/">
+      <parametricResourceDemand_ActualResourceDemand href="DSolverExample1.repository#//@components__Repository.1/@serviceEffectSpecifications__BasicComponent.0/@steps_Behaviour.1/@bodyBehaviour_Loop/@steps_Behaviour.1/@resourceDemand_Action.0"/>
+    </actualResourceDemands_ActualAllocationContext>
+    <actualResourceDemands_ActualAllocationContext randomVariable_ActualResourceDemand="/">
+      <parametricResourceDemand_ActualResourceDemand href="DSolverExample1.repository#//@components__Repository.1/@serviceEffectSpecifications__BasicComponent.0/@steps_Behaviour.1/@bodyBehaviour_Loop/@steps_Behaviour.1/@resourceDemand_Action.0"/>
+    </actualResourceDemands_ActualAllocationContext>
+    <actualResourceDemands_ActualAllocationContext randomVariable_ActualResourceDemand="/">
+      <parametricResourceDemand_ActualResourceDemand href="DSolverExample1.repository#//@components__Repository.1/@serviceEffectSpecifications__BasicComponent.0/@steps_Behaviour.1/@bodyBehaviour_Loop/@steps_Behaviour.1/@resourceDemand_Action.0"/>
+    </actualResourceDemands_ActualAllocationContext>
+    <actualResourceDemands_ActualAllocationContext randomVariable_ActualResourceDemand="/">
+      <parametricResourceDemand_ActualResourceDemand href="DSolverExample1.repository#//@components__Repository.1/@serviceEffectSpecifications__BasicComponent.0/@steps_Behaviour.1/@bodyBehaviour_Loop/@steps_Behaviour.1/@resourceDemand_Action.0"/>
+    </actualResourceDemands_ActualAllocationContext>
+    <actualResourceDemands_ActualAllocationContext randomVariable_ActualResourceDemand="/">
+      <parametricResourceDemand_ActualResourceDemand href="DSolverExample1.repository#//@components__Repository.1/@serviceEffectSpecifications__BasicComponent.0/@steps_Behaviour.1/@bodyBehaviour_Loop/@steps_Behaviour.1/@resourceDemand_Action.0"/>
+    </actualResourceDemands_ActualAllocationContext>
+    <actualResourceDemands_ActualAllocationContext randomVariable_ActualResourceDemand="/">
+      <parametricResourceDemand_ActualResourceDemand href="DSolverExample1.repository#//@components__Repository.1/@serviceEffectSpecifications__BasicComponent.0/@steps_Behaviour.1/@bodyBehaviour_Loop/@steps_Behaviour.1/@resourceDemand_Action.0"/>
+    </actualResourceDemands_ActualAllocationContext>
+    <actualResourceDemands_ActualAllocationContext randomVariable_ActualResourceDemand="/">
+      <parametricResourceDemand_ActualResourceDemand href="DSolverExample1.repository#//@components__Repository.1/@serviceEffectSpecifications__BasicComponent.0/@steps_Behaviour.1/@bodyBehaviour_Loop/@steps_Behaviour.1/@resourceDemand_Action.0"/>
+    </actualResourceDemands_ActualAllocationContext>
+    <actualResourceDemands_ActualAllocationContext randomVariable_ActualResourceDemand="/">
+      <parametricResourceDemand_ActualResourceDemand href="DSolverExample1.repository#//@components__Repository.1/@serviceEffectSpecifications__BasicComponent.0/@steps_Behaviour.1/@bodyBehaviour_Loop/@steps_Behaviour.1/@resourceDemand_Action.0"/>
+    </actualResourceDemands_ActualAllocationContext>
+    <actualResourceDemands_ActualAllocationContext randomVariable_ActualResourceDemand="/">
+      <parametricResourceDemand_ActualResourceDemand href="DSolverExample1.repository#//@components__Repository.1/@serviceEffectSpecifications__BasicComponent.0/@steps_Behaviour.1/@bodyBehaviour_Loop/@steps_Behaviour.1/@resourceDemand_Action.0"/>
+    </actualResourceDemands_ActualAllocationContext>
+    <actualResourceDemands_ActualAllocationContext randomVariable_ActualResourceDemand="/">
+      <parametricResourceDemand_ActualResourceDemand href="DSolverExample1.repository#//@components__Repository.1/@serviceEffectSpecifications__BasicComponent.0/@steps_Behaviour.1/@bodyBehaviour_Loop/@steps_Behaviour.1/@resourceDemand_Action.0"/>
+    </actualResourceDemands_ActualAllocationContext>
+    <actualResourceDemands_ActualAllocationContext randomVariable_ActualResourceDemand="/">
+      <parametricResourceDemand_ActualResourceDemand href="DSolverExample1.repository#//@components__Repository.1/@serviceEffectSpecifications__BasicComponent.0/@steps_Behaviour.1/@bodyBehaviour_Loop/@steps_Behaviour.1/@resourceDemand_Action.0"/>
+    </actualResourceDemands_ActualAllocationContext>
+    <actualResourceDemands_ActualAllocationContext randomVariable_ActualResourceDemand="/">
+      <parametricResourceDemand_ActualResourceDemand href="DSolverExample1.repository#//@components__Repository.1/@serviceEffectSpecifications__BasicComponent.0/@steps_Behaviour.1/@bodyBehaviour_Loop/@steps_Behaviour.1/@resourceDemand_Action.0"/>
+    </actualResourceDemands_ActualAllocationContext>
+    <actualResourceDemands_ActualAllocationContext randomVariable_ActualResourceDemand="/">
+      <parametricResourceDemand_ActualResourceDemand href="DSolverExample1.repository#//@components__Repository.1/@serviceEffectSpecifications__BasicComponent.0/@steps_Behaviour.1/@bodyBehaviour_Loop/@steps_Behaviour.1/@resourceDemand_Action.0"/>
+    </actualResourceDemands_ActualAllocationContext>
+    <actualResourceDemands_ActualAllocationContext randomVariable_ActualResourceDemand="/">
+      <parametricResourceDemand_ActualResourceDemand href="DSolverExample1.repository#//@components__Repository.1/@serviceEffectSpecifications__BasicComponent.0/@steps_Behaviour.1/@bodyBehaviour_Loop/@steps_Behaviour.1/@resourceDemand_Action.0"/>
+    </actualResourceDemands_ActualAllocationContext>
+    <actualResourceDemands_ActualAllocationContext randomVariable_ActualResourceDemand="/">
+      <parametricResourceDemand_ActualResourceDemand href="DSolverExample1.repository#//@components__Repository.1/@serviceEffectSpecifications__BasicComponent.0/@steps_Behaviour.1/@bodyBehaviour_Loop/@steps_Behaviour.1/@resourceDemand_Action.0"/>
+    </actualResourceDemands_ActualAllocationContext>
+    <actualResourceDemands_ActualAllocationContext randomVariable_ActualResourceDemand="/">
+      <parametricResourceDemand_ActualResourceDemand href="DSolverExample1.repository#//@components__Repository.1/@serviceEffectSpecifications__BasicComponent.0/@steps_Behaviour.1/@bodyBehaviour_Loop/@steps_Behaviour.1/@resourceDemand_Action.0"/>
+    </actualResourceDemands_ActualAllocationContext>
+    <actualResourceDemands_ActualAllocationContext randomVariable_ActualResourceDemand="/">
+      <parametricResourceDemand_ActualResourceDemand href="DSolverExample1.repository#//@components__Repository.1/@serviceEffectSpecifications__BasicComponent.0/@steps_Behaviour.1/@bodyBehaviour_Loop/@steps_Behaviour.1/@resourceDemand_Action.0"/>
+    </actualResourceDemands_ActualAllocationContext>
+    <actualResourceDemands_ActualAllocationContext randomVariable_ActualResourceDemand="/">
+      <parametricResourceDemand_ActualResourceDemand href="DSolverExample1.repository#//@components__Repository.1/@serviceEffectSpecifications__BasicComponent.0/@steps_Behaviour.1/@bodyBehaviour_Loop/@steps_Behaviour.1/@resourceDemand_Action.0"/>
+    </actualResourceDemands_ActualAllocationContext>
+    <actualResourceDemands_ActualAllocationContext randomVariable_ActualResourceDemand="/">
+      <parametricResourceDemand_ActualResourceDemand href="DSolverExample1.repository#//@components__Repository.1/@serviceEffectSpecifications__BasicComponent.0/@steps_Behaviour.1/@bodyBehaviour_Loop/@steps_Behaviour.1/@resourceDemand_Action.0"/>
+    </actualResourceDemands_ActualAllocationContext>
+    <actualResourceDemands_ActualAllocationContext randomVariable_ActualResourceDemand="/">
+      <parametricResourceDemand_ActualResourceDemand href="DSolverExample1.repository#//@components__Repository.1/@serviceEffectSpecifications__BasicComponent.0/@steps_Behaviour.1/@bodyBehaviour_Loop/@steps_Behaviour.1/@resourceDemand_Action.0"/>
+    </actualResourceDemands_ActualAllocationContext>
+    <actualResourceDemands_ActualAllocationContext randomVariable_ActualResourceDemand="/">
+      <parametricResourceDemand_ActualResourceDemand href="DSolverExample1.repository#//@components__Repository.1/@serviceEffectSpecifications__BasicComponent.0/@steps_Behaviour.1/@bodyBehaviour_Loop/@steps_Behaviour.1/@resourceDemand_Action.0"/>
+    </actualResourceDemands_ActualAllocationContext>
+    <actualResourceDemands_ActualAllocationContext randomVariable_ActualResourceDemand="/">
+      <parametricResourceDemand_ActualResourceDemand href="DSolverExample1.repository#//@components__Repository.1/@serviceEffectSpecifications__BasicComponent.0/@steps_Behaviour.1/@bodyBehaviour_Loop/@steps_Behaviour.1/@resourceDemand_Action.0"/>
+    </actualResourceDemands_ActualAllocationContext>
+    <actualResourceDemands_ActualAllocationContext randomVariable_ActualResourceDemand="/">
+      <parametricResourceDemand_ActualResourceDemand href="DSolverExample1.repository#//@components__Repository.1/@serviceEffectSpecifications__BasicComponent.0/@steps_Behaviour.1/@bodyBehaviour_Loop/@steps_Behaviour.1/@resourceDemand_Action.0"/>
+    </actualResourceDemands_ActualAllocationContext>
     <usageContext_ActualAllocationContext href="SolvedDSolverExample1.usage#//@usageContext_Usage.0"/>
   </actualAllocationContext_ActualAllocation>
   <actualAllocationContext_ActualAllocation>
     <actualResourceDemands_ActualAllocationContext randomVariable_ActualResourceDemand="/">
-      <parametricResourceDemand_ActualResourceDemand href="DSolverExample1.repository#//@components__Repository.0/@serviceEffectSpecifications__BasicComponent.0/@parametricResourceDemands_Behaviour.0"/>
+      <parametricResourceDemand_ActualResourceDemand href="DSolverExample1.repository#//@components__Repository.0/@serviceEffectSpecifications__BasicComponent.0/@steps_Behaviour.2/@branches_Branch.1/@branchBehaviour_BranchTransition/@steps_Behaviour.1/@resourceDemand_Action.0"/>
     </actualResourceDemands_ActualAllocationContext>
     <actualResourceDemands_ActualAllocationContext randomVariable_ActualResourceDemand="/">
-      <parametricResourceDemand_ActualResourceDemand href="DSolverExample1.repository#//@components__Repository.0/@serviceEffectSpecifications__BasicComponent.0/@parametricResourceDemands_Behaviour.1"/>
-    </actualResourceDemands_ActualAllocationContext>
-    <actualResourceDemands_ActualAllocationContext randomVariable_ActualResourceDemand="/">
-      <parametricResourceDemand_ActualResourceDemand href="DSolverExample1.repository#//@components__Repository.0/@serviceEffectSpecifications__BasicComponent.0/@parametricResourceDemands_Behaviour.2"/>
+      <parametricResourceDemand_ActualResourceDemand href="DSolverExample1.repository#//@components__Repository.0/@serviceEffectSpecifications__BasicComponent.0/@steps_Behaviour.2/@branches_Branch.2/@branchBehaviour_BranchTransition/@steps_Behaviour.1/@resourceDemand_Action.0"/>
     </actualResourceDemands_ActualAllocationContext>
     <usageContext_ActualAllocationContext href="SolvedDSolverExample1.usage#//@usageContext_Usage.1"/>
   </actualAllocationContext_ActualAllocation>
