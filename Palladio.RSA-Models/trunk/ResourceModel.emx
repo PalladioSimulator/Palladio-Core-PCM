@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--xtools2_universal_type_manager-->
-<uml:Model xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:notation="http://www.ibm.com/xtools/1.5.0/Notation" xmlns:uml="http://www.eclipse.org/uml2/1.0.0/UML" xmlns:umlnotation="http://www.ibm.com/xtools/1.5.0/Umlnotation" xmi:id="_Pw6nUHSMEdu9OJpDmFkYpg" name="ResourceModel" appliedProfile="_Pw6nVHSMEdu9OJpDmFkYpg _Pw6nV3SMEdu9OJpDmFkYpg _Pw6nWnSMEdu9OJpDmFkYpg _Pw6nXXSMEdu9OJpDmFkYpg _Pw6nYHSMEdu9OJpDmFkYpg">
+<uml:Model xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Ecore_0="http:///Ecore_0.profile.uml2" xmlns:notation="http://www.ibm.com/xtools/1.5.0/Notation" xmlns:uml="http://www.eclipse.org/uml2/1.0.0/UML" xmlns:umlnotation="http://www.ibm.com/xtools/1.5.0/Umlnotation" xsi:schemaLocation="http:///Ecore_0.profile.uml2 pathmap://UML2_PROFILES/Ecore.profile.uml2#_v9VUsK87Edi5QpYeY_yIpg" xmi:id="_Pw6nUHSMEdu9OJpDmFkYpg" name="ResourceModel" appliedProfile="_Pw6nVHSMEdu9OJpDmFkYpg _Pw6nV3SMEdu9OJpDmFkYpg _Pw6nWnSMEdu9OJpDmFkYpg _Pw6nXXSMEdu9OJpDmFkYpg _Pw6nYHSMEdu9OJpDmFkYpg _KIr98HiGEduoT5yJqz3SPg">
   <eAnnotations xmi:id="_Pw6nUXSMEdu9OJpDmFkYpg" source="uml2.diagrams">
     <contents xmi:type="notation:Diagram" xmi:id="_Sb3xsHSMEdu9OJpDmFkYpg" type="Class" element="_Pw6nUHSMEdu9OJpDmFkYpg" name="ResourceModel">
       <children xmi:id="_W7glwHSMEdu9OJpDmFkYpg" targetEdges="__fV5cHSPEdu9OJpDmFkYpg _vsyxQHSQEdu9OJpDmFkYpg" element="_W7afIHSMEdu9OJpDmFkYpg">
@@ -259,7 +259,7 @@
         </children>
         <children xmi:id="_JIxKc3STEdud0bILazudNA" type="FromRoleLabel" element="_i3RlcHSSEdu9OJpDmFkYpg">
           <children xmi:id="_JIxKdXSTEdud0bILazudNA" type="FromRole" element="_i3RlcHSSEdu9OJpDmFkYpg"/>
-          <layoutConstraint xmi:type="notation:Location" xmi:id="_JIxKdHSTEdud0bILazudNA" y="-448"/>
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_JIxKdHSTEdud0bILazudNA" x="-2309" y="1475"/>
         </children>
         <children xmi:id="_JIxKdnSTEdud0bILazudNA" type="ToQualifierLabel" element="_i3RlcXSSEdu9OJpDmFkYpg">
           <children xmi:id="_JIxKeHSTEdud0bILazudNA" type="QualifierCompartment" element="_i3RlcXSSEdu9OJpDmFkYpg">
@@ -310,7 +310,7 @@
         </children>
         <children xmi:id="_KqRZdnSTEdud0bILazudNA" type="FromRoleLabel" element="_g2fdwV97EduVfpyYDuEIVg">
           <children xmi:id="_KqRZeHSTEdud0bILazudNA" type="FromRole" element="_g2fdwV97EduVfpyYDuEIVg"/>
-          <layoutConstraint xmi:type="notation:Location" xmi:id="_KqRZd3STEdud0bILazudNA" y="-448"/>
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_KqRZd3STEdud0bILazudNA" x="-1356" y="2135"/>
         </children>
         <children xmi:id="_KqRZeXSTEdud0bILazudNA" type="ToQualifierLabel" element="_g2fdwl97EduVfpyYDuEIVg">
           <children xmi:id="_KqSAgHSTEdud0bILazudNA" type="QualifierCompartment" element="_g2fdwl97EduVfpyYDuEIVg">
@@ -365,7 +365,7 @@
           <children xmi:id="_ZWmD8XSTEdud0bILazudNA" type="Name" element="_RKj94F2uEduUYolzmZz2EQ"/>
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ZWlc5HSTEdud0bILazudNA" y="-209"/>
         </children>
-        <children xmi:id="_ZWmrAHSTEdud0bILazudNA" type="ToMultiplicityLabel" element="_RKkk8V2uEduUYolzmZz2EQ">
+        <children xmi:id="_ZWmrAHSTEdud0bILazudNA" visible="false" type="ToMultiplicityLabel" element="_RKkk8V2uEduUYolzmZz2EQ">
           <children xmi:id="_ZWmrAnSTEdud0bILazudNA" type="ToMultiplicity" element="_RKkk8V2uEduUYolzmZz2EQ"/>
           <layoutConstraint xmi:type="notation:Location" xmi:id="_ZWmrAXSTEdud0bILazudNA" y="448"/>
         </children>
@@ -379,7 +379,7 @@
         </children>
         <children xmi:id="_ZWnSEHSTEdud0bILazudNA" type="FromRoleLabel" element="_RKkk8F2uEduUYolzmZz2EQ">
           <children xmi:id="_ZWnSEnSTEdud0bILazudNA" type="FromRole" element="_RKkk8F2uEduUYolzmZz2EQ"/>
-          <layoutConstraint xmi:type="notation:Location" xmi:id="_ZWnSEXSTEdud0bILazudNA" x="-340" y="-1119"/>
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_ZWnSEXSTEdud0bILazudNA" x="-1638" y="-673"/>
         </children>
         <children xmi:id="_ZWnSE3STEdud0bILazudNA" type="ToQualifierLabel" element="_RKkk8V2uEduUYolzmZz2EQ">
           <children xmi:id="_ZWnSFXSTEdud0bILazudNA" type="QualifierCompartment" element="_RKkk8V2uEduUYolzmZz2EQ">
@@ -413,6 +413,9 @@
     </contents>
   </eAnnotations>
   <eAnnotations xmi:id="_cWiEAHSMEdu9OJpDmFkYpg" source="http://www.eclipse.org/emf/2002/Ecore"/>
+  <eAnnotations xmi:id="_MpEQAHiGEduoT5yJqz3SPg" source="appliedStereotypes">
+    <contents xmi:type="Ecore_0:Ecore__EPackage" xmi:id="_MpEQAXiGEduoT5yJqz3SPg" nsPrefix="resourcemodel" nsURI="http://sdq.ipd.uka.de/ResourceModel/1.0" basePackage="de.uka.ipd.sdq.spa"/>
+  </eAnnotations>
   <packageImport xmi:type="uml:ProfileApplication" xmi:id="_Pw6nVHSMEdu9OJpDmFkYpg">
     <eAnnotations xmi:id="_Pw6nVXSMEdu9OJpDmFkYpg" source="attributes">
       <details xmi:id="_Pw6nVnSMEdu9OJpDmFkYpg" key="version" value="0"/>
@@ -450,6 +453,13 @@
   </packageImport>
   <packageImport xmi:id="_Pw6nY3SMEdu9OJpDmFkYpg">
     <importedPackage xmi:type="uml:Model" href="pathmap://UML2_LIBRARIES/UML2PrimitiveTypes.library.uml2#_EfRZoK86EdieaYgxtVWN8Q"/>
+  </packageImport>
+  <packageImport xmi:type="uml:ProfileApplication" xmi:id="_KIr98HiGEduoT5yJqz3SPg">
+    <eAnnotations xmi:id="_KIr98XiGEduoT5yJqz3SPg" source="attributes">
+      <details xmi:id="_KIr98niGEduoT5yJqz3SPg" key="version" value="0"/>
+    </eAnnotations>
+    <importedPackage xmi:type="uml:Profile" href="pathmap://UML2_PROFILES/Ecore.profile.uml2#_siPt4K87Edi5QpYeY_yIpg"/>
+    <importedProfile href="pathmap://UML2_PROFILES/Ecore.profile.uml2#_siPt4K87Edi5QpYeY_yIpg"/>
   </packageImport>
   <ownedMember xmi:type="uml:Class" xmi:id="_m0lnMFnFEdu77MWpSZSJdA" name="ResourceUsage" isAbstract="true">
     <ownedAttribute xmi:id="_RKkk8F2uEduUYolzmZz2EQ" name="usageTime" association="_RKj94F2uEduUYolzmZz2EQ" aggregation="composite">
