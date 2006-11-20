@@ -34,6 +34,7 @@ import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
  * <ul>
  *   <li>{@link de.uka.ipd.sdq.pcm.usagemodel.impl.EntryLevelSystemCallImpl#getActualParameterUsage_EntryLevelSystemCall <em>Actual Parameter Usage Entry Level System Call</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.usagemodel.impl.EntryLevelSystemCallImpl#getProvidedRole_EntryLevelSystemCall <em>Provided Role Entry Level System Call</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.usagemodel.impl.EntryLevelSystemCallImpl#getSignature_EntryLevelSystemCall <em>Signature Entry Level System Call</em>}</li>
  * </ul>
  * </p>
  *
@@ -66,6 +67,17 @@ public class EntryLevelSystemCallImpl extends AbstractUserActionImpl implements 
 	 * @ordered
 	 */
 	protected ProvidedRole providedRole_EntryLevelSystemCall = null;
+
+
+	/**
+	 * The cached value of the '{@link #getSignature_EntryLevelSystemCall() <em>Signature Entry Level System Call</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSignature_EntryLevelSystemCall()
+	 * @generated
+	 * @ordered
+	 */
+	protected Signature signature_EntryLevelSystemCall = null;
 
 
 	/**
@@ -141,6 +153,44 @@ public class EntryLevelSystemCallImpl extends AbstractUserActionImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Signature getSignature_EntryLevelSystemCall() {
+		if (signature_EntryLevelSystemCall != null && signature_EntryLevelSystemCall.eIsProxy()) {
+			InternalEObject oldSignature_EntryLevelSystemCall = (InternalEObject)signature_EntryLevelSystemCall;
+			signature_EntryLevelSystemCall = (Signature)eResolveProxy(oldSignature_EntryLevelSystemCall);
+			if (signature_EntryLevelSystemCall != oldSignature_EntryLevelSystemCall) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, UsagemodelPackage.ENTRY_LEVEL_SYSTEM_CALL__SIGNATURE_ENTRY_LEVEL_SYSTEM_CALL, oldSignature_EntryLevelSystemCall, signature_EntryLevelSystemCall));
+			}
+		}
+		return signature_EntryLevelSystemCall;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Signature basicGetSignature_EntryLevelSystemCall() {
+		return signature_EntryLevelSystemCall;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSignature_EntryLevelSystemCall(Signature newSignature_EntryLevelSystemCall) {
+		Signature oldSignature_EntryLevelSystemCall = signature_EntryLevelSystemCall;
+		signature_EntryLevelSystemCall = newSignature_EntryLevelSystemCall;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, UsagemodelPackage.ENTRY_LEVEL_SYSTEM_CALL__SIGNATURE_ENTRY_LEVEL_SYSTEM_CALL, oldSignature_EntryLevelSystemCall, signature_EntryLevelSystemCall));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case UsagemodelPackage.ENTRY_LEVEL_SYSTEM_CALL__ACTUAL_PARAMETER_USAGE_ENTRY_LEVEL_SYSTEM_CALL:
@@ -161,6 +211,9 @@ public class EntryLevelSystemCallImpl extends AbstractUserActionImpl implements 
 			case UsagemodelPackage.ENTRY_LEVEL_SYSTEM_CALL__PROVIDED_ROLE_ENTRY_LEVEL_SYSTEM_CALL:
 				if (resolve) return getProvidedRole_EntryLevelSystemCall();
 				return basicGetProvidedRole_EntryLevelSystemCall();
+			case UsagemodelPackage.ENTRY_LEVEL_SYSTEM_CALL__SIGNATURE_ENTRY_LEVEL_SYSTEM_CALL:
+				if (resolve) return getSignature_EntryLevelSystemCall();
+				return basicGetSignature_EntryLevelSystemCall();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -179,6 +232,9 @@ public class EntryLevelSystemCallImpl extends AbstractUserActionImpl implements 
 			case UsagemodelPackage.ENTRY_LEVEL_SYSTEM_CALL__PROVIDED_ROLE_ENTRY_LEVEL_SYSTEM_CALL:
 				setProvidedRole_EntryLevelSystemCall((ProvidedRole)newValue);
 				return;
+			case UsagemodelPackage.ENTRY_LEVEL_SYSTEM_CALL__SIGNATURE_ENTRY_LEVEL_SYSTEM_CALL:
+				setSignature_EntryLevelSystemCall((Signature)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -196,6 +252,9 @@ public class EntryLevelSystemCallImpl extends AbstractUserActionImpl implements 
 			case UsagemodelPackage.ENTRY_LEVEL_SYSTEM_CALL__PROVIDED_ROLE_ENTRY_LEVEL_SYSTEM_CALL:
 				setProvidedRole_EntryLevelSystemCall((ProvidedRole)null);
 				return;
+			case UsagemodelPackage.ENTRY_LEVEL_SYSTEM_CALL__SIGNATURE_ENTRY_LEVEL_SYSTEM_CALL:
+				setSignature_EntryLevelSystemCall((Signature)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -211,6 +270,8 @@ public class EntryLevelSystemCallImpl extends AbstractUserActionImpl implements 
 				return actualParameterUsage_EntryLevelSystemCall != null && !actualParameterUsage_EntryLevelSystemCall.isEmpty();
 			case UsagemodelPackage.ENTRY_LEVEL_SYSTEM_CALL__PROVIDED_ROLE_ENTRY_LEVEL_SYSTEM_CALL:
 				return providedRole_EntryLevelSystemCall != null;
+			case UsagemodelPackage.ENTRY_LEVEL_SYSTEM_CALL__SIGNATURE_ENTRY_LEVEL_SYSTEM_CALL:
+				return signature_EntryLevelSystemCall != null;
 		}
 		return super.eIsSet(featureID);
 	}

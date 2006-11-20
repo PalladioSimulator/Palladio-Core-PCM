@@ -485,6 +485,15 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getEntryLevelSystemCall_Signature_EntryLevelSystemCall() {
+		return (EReference)entryLevelSystemCallEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getClosedWorkload() {
 		return closedWorkloadEClass;
 	}
@@ -612,6 +621,7 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
 		entryLevelSystemCallEClass = createEClass(ENTRY_LEVEL_SYSTEM_CALL);
 		createEReference(entryLevelSystemCallEClass, ENTRY_LEVEL_SYSTEM_CALL__ACTUAL_PARAMETER_USAGE_ENTRY_LEVEL_SYSTEM_CALL);
 		createEReference(entryLevelSystemCallEClass, ENTRY_LEVEL_SYSTEM_CALL__PROVIDED_ROLE_ENTRY_LEVEL_SYSTEM_CALL);
+		createEReference(entryLevelSystemCallEClass, ENTRY_LEVEL_SYSTEM_CALL__SIGNATURE_ENTRY_LEVEL_SYSTEM_CALL);
 
 		closedWorkloadEClass = createEClass(CLOSED_WORKLOAD);
 		createEAttribute(closedWorkloadEClass, CLOSED_WORKLOAD__POPULATION);
@@ -698,6 +708,7 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
 		initEClass(entryLevelSystemCallEClass, EntryLevelSystemCall.class, "EntryLevelSystemCall", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getEntryLevelSystemCall_ActualParameterUsage_EntryLevelSystemCall(), theParameterPackage.getParameterUsage(), null, "actualParameterUsage_EntryLevelSystemCall", null, 0, -1, EntryLevelSystemCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getEntryLevelSystemCall_ProvidedRole_EntryLevelSystemCall(), theRepositoryPackage.getProvidedRole(), null, "providedRole_EntryLevelSystemCall", null, 1, 1, EntryLevelSystemCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getEntryLevelSystemCall_Signature_EntryLevelSystemCall(), theRepositoryPackage.getSignature(), null, "signature_EntryLevelSystemCall", null, 1, 1, EntryLevelSystemCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(closedWorkloadEClass, ClosedWorkload.class, "ClosedWorkload", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getClosedWorkload_Population(), ecorePackage.getEInt(), "population", null, 1, 1, ClosedWorkload.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);

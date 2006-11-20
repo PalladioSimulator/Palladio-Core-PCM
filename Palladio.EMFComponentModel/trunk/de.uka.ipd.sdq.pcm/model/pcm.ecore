@@ -703,6 +703,8 @@
           ordered="false" upperBound="-1" eType="#//parameter/ParameterUsage" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="providedRole_EntryLevelSystemCall"
           ordered="false" lowerBound="1" eType="#//repository/ProvidedRole"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="signature_EntryLevelSystemCall"
+          ordered="false" lowerBound="1" eType="#//repository/Signature"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ClosedWorkload" eSuperTypes="#//usagemodel/Workload">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="population" ordered="false"
