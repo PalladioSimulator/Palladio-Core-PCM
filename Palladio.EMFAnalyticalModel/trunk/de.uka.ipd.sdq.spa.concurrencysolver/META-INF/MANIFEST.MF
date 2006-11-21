@@ -8,6 +8,13 @@ Bundle-Localization: plugin
 Require-Bundle: de.uka.ipd.sdq.probfunction.math,
  de.uka.ipd.sdq.probfunction,
  de.uka.ipd.sdq.spa,
- de.uka.ipd.sdq.spa.basicsolver
+ de.uka.ipd.sdq.spa.basicsolver,
+ de.uka.ipd.sdq.qnm,
+ org.eclipse.emf.ocl,
+ org.eclipse.emf.query,
+ org.eclipse.emf.query.ocl,
+ de.uka.ipd.spq.spa.resourcemodel
 Eclipse-LazyStart: true
 Export-Package: de.uka.ipd.sdq.spa.concurrencysolver
+Bundle-ClassPath: lib/lpgjavaruntime.jar,
+ .
