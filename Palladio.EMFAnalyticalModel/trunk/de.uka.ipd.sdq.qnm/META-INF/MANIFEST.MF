@@ -1,0 +1,19 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %pluginName
+Bundle-SymbolicName: de.uka.ipd.sdq.qnm; singleton:=true
+Bundle-Version: 1.0.0
+Bundle-ClassPath: .
+Bundle-Vendor: %providerName
+Bundle-Localization: plugin
+Export-Package: de.uka.ipd.sdq.qnm,
+ de.uka.ipd.sdq.qnm.impl,
+ de.uka.ipd.sdq.qnm.qnResult,
+ de.uka.ipd.sdq.qnm.qnResult.impl,
+ de.uka.ipd.sdq.qnm.qnResult.util,
+ de.uka.ipd.sdq.qnm.util
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.emf.ecore;visibility:=reexport,
+ org.eclipse.emf.ecore.xmi;visibility:=reexport,
+ de.uka.ipd.sdq.probfunction.math
+Eclipse-LazyStart: true

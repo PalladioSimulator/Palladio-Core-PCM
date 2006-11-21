@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ <copyright>
+ </copyright>
+
+ $Id$
+-->
+
+<plugin>
+
+  <extension point="org.eclipse.emf.ecore.generated_package">
+    <package 
+       uri = "http://sdq.ipd.uka.de/QueueingNetworkModel/1.0" 
+       class = "de.uka.ipd.sdq.qnm.QnmPackage"
+       genModel = "model/QueueingNetworkModel.genmodel" /> 
+  </extension>
+
+  <extension point="org.eclipse.emf.ecore.extension_parser">
+    <parser 
+       type="qnm" 
+       class="de.uka.ipd.sdq.qnm.util.QnmResourceFactoryImpl" />
+  </extension>
+
+  <extension point="org.eclipse.emf.ecore.generated_package">
+    <package 
+       uri = "http://sdq.ipd.uka.de/QueueingNetworkModel/QNResult/1.0" 
+       class = "de.uka.ipd.sdq.qnm.qnResult.QNResultPackage"
+       genModel = "model/QueueingNetworkModel.genmodel" /> 
+  </extension>
+
+</plugin>
+
