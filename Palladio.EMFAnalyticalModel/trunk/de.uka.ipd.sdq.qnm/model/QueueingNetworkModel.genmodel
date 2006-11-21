@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/de.uka.ipd.sdq.qnm/src"
+    modelPluginID="de.uka.ipd.sdq.qnm" modelName="QueueingNetworkModel" importerID="org.eclipse.emf.importer.ecore"
+    usedGenPackages="../../../plugin/de.uka.ipd.sdq.probfunction/model/ProbabilityFunction.genmodel#//probfunction ../../de.uka.ipd.spq.spa.resourcemodel/model/ResourceModel.genmodel#//resourcemodel">
+  <foreignModel>QueueingNetworkModel.ecore</foreignModel>
+  <genPackages prefix="Qnm" basePackage="de.uka.ipd.sdq" disposableProviderFactory="true"
+      ecorePackage="QueueingNetworkModel.ecore#/">
+    <genClasses ecoreClass="QueueingNetworkModel.ecore#//QNModel">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference QueueingNetworkModel.ecore#//QNModel/tasks"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference QueueingNetworkModel.ecore#//QNModel/resources"/>
+    </genClasses>
+    <genClasses ecoreClass="QueueingNetworkModel.ecore#//Task">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute QueueingNetworkModel.ecore#//Task/numReplicas"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute QueueingNetworkModel.ecore#//Task/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference QueueingNetworkModel.ecore#//Task/resourceUsage"/>
+      <genOperations ecoreOperation="QueueingNetworkModel.ecore#//Task/getAllDemands"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="QueueingNetworkModel.ecore#//CompositeResourceUsage">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference QueueingNetworkModel.ecore#//CompositeResourceUsage/passiveResource"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference QueueingNetworkModel.ecore#//CompositeResourceUsage/resourceUsages"/>
+    </genClasses>
+    <genClasses ecoreClass="QueueingNetworkModel.ecore#//SequentialResourceUsage"/>
+    <genClasses ecoreClass="QueueingNetworkModel.ecore#//AlternativeResourceUsage"/>
+    <genClasses ecoreClass="QueueingNetworkModel.ecore#//IterativeResourceUsage"/>
+    <genClasses ecoreClass="QueueingNetworkModel.ecore#//ParallelResourceUsage"/>
+  </genPackages>
+</genmodel:GenModel>

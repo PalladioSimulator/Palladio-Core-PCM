@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="qnm"
+    nsURI="http://sdq.ipd.uka.de/QueueingNetworkModel/1.0" nsPrefix="qnm">
+  <eClassifiers xsi:type="ecore:EClass" name="QNModel">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="tasks" unique="false" upperBound="-1"
+        eType="#//Task" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="resources" upperBound="-1"
+        eType="ecore:EClass ../../de.uka.ipd.spq.spa.resourcemodel/model/ResourceModel.ecore#//Resource"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Task">
+    <eOperations name="getAllDemands" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EEList"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="numReplicas" unique="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral=""/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="resourceUsage" lowerBound="1"
+        eType="ecore:EClass ../../de.uka.ipd.spq.spa.resourcemodel/model/ResourceModel.ecore#//AbstractResourceUsage"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CompositeResourceUsage" abstract="true"
+      eSuperTypes="../../de.uka.ipd.spq.spa.resourcemodel/model/ResourceModel.ecore#//AbstractResourceUsage">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="passiveResource" lowerBound="1"
+        eType="ecore:EClass ../../de.uka.ipd.spq.spa.resourcemodel/model/ResourceModel.ecore#//PassiveResource"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="resourceUsages" upperBound="-1"
+        eType="ecore:EClass ../../de.uka.ipd.spq.spa.resourcemodel/model/ResourceModel.ecore#//AbstractResourceUsage"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SequentialResourceUsage" eSuperTypes="#//CompositeResourceUsage"/>
+  <eClassifiers xsi:type="ecore:EClass" name="AlternativeResourceUsage" eSuperTypes="#//CompositeResourceUsage"/>
+  <eClassifiers xsi:type="ecore:EClass" name="IterativeResourceUsage" eSuperTypes="#//CompositeResourceUsage"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ParallelResourceUsage" eSuperTypes="#//CompositeResourceUsage"/>
+</ecore:EPackage>
