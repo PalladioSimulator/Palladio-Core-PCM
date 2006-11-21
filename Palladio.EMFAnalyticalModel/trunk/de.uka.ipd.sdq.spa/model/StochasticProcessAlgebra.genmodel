@@ -22,7 +22,7 @@
       <genClasses image="false" ecoreClass="StochasticProcessAlgebra.ecore#//expression/Expression"/>
       <genClasses ecoreClass="StochasticProcessAlgebra.ecore#//expression/Symbol">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute StochasticProcessAlgebra.ecore#//expression/Symbol/name"/>
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference StochasticProcessAlgebra.ecore#//expression/Symbol/demand"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference StochasticProcessAlgebra.ecore#//expression/Symbol/resourceUsages"/>
       </genClasses>
       <genClasses ecoreClass="StochasticProcessAlgebra.ecore#//expression/Sequence">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference StochasticProcessAlgebra.ecore#//expression/Sequence/leftRegExp"/>
