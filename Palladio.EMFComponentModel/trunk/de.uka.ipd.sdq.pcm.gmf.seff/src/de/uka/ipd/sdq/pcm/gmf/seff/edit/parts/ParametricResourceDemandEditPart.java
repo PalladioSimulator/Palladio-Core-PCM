@@ -14,6 +14,9 @@ import org.eclipse.gmf.runtime.diagram.ui.editpolicies.LabelDirectEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.ListItemComponentEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.tools.DragEditPartsTrackerEx;
 import org.eclipse.gmf.runtime.notation.View;
+
+import de.uka.ipd.sdq.pcm.core.stochastics.RandomVariable;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.OpenStoExEditorEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.ParametricResourceDemandItemSemanticEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.PcmTextNonResizableEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.PcmTextSelectionEditPolicy;
@@ -132,7 +135,7 @@ public class ParametricResourceDemandEditPart extends CompartmentEditPart
 	}
 
 	/**
-	 * @generated
+	 * @generated NOT
 	 */
 	protected void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
@@ -142,6 +145,8 @@ public class ParametricResourceDemandEditPart extends CompartmentEditPart
 				new PcmTextNonResizableEditPolicy());
 		installEditPolicy(EditPolicy.COMPONENT_ROLE,
 				new ListItemComponentEditPolicy());
+		installEditPolicy(EditPolicyRoles.OPEN_ROLE,
+				new OpenStoExEditorEditPolicy((RandomVariable)(((View)getModel()).getElement())));
 		installEditPolicy(EditPolicy.DIRECT_EDIT_ROLE,
 				new LabelDirectEditPolicy());
 	}

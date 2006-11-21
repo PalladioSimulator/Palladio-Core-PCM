@@ -30,7 +30,9 @@ import org.eclipse.gmf.runtime.common.ui.services.parser.ParserService;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.CompartmentEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ITextAwareEditPart;
+import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.LabelDirectEditPolicy;
+import org.eclipse.gmf.runtime.diagram.ui.editpolicies.OpenEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.l10n.DiagramColorRegistry;
 import org.eclipse.gmf.runtime.diagram.ui.requests.RequestConstants;
 import org.eclipse.gmf.runtime.diagram.ui.tools.TextDirectEditManager;
@@ -51,6 +53,9 @@ import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.FontData;
 import org.eclipse.swt.graphics.Image;
 
+import de.uka.ipd.sdq.dialogs.selection.StoachasticExpressionEditDialog;
+import de.uka.ipd.sdq.pcm.core.stochastics.RandomVariable;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.OpenStoExEditorEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.PcmTextSelectionEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.seff.part.PcmDiagramEditorPlugin;
 import de.uka.ipd.sdq.pcm.gmf.seff.providers.PcmElementTypes;
@@ -96,10 +101,12 @@ public class LoopIterationsLabelEditPart extends CompartmentEditPart implements
 	}
 
 	/**
-	 * @generated
+	 * @generated NOT
 	 */
 	protected void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
+		installEditPolicy(EditPolicyRoles.OPEN_ROLE,
+				new OpenStoExEditorEditPolicy((RandomVariable)getParserElement()));
 		installEditPolicy(EditPolicy.DIRECT_EDIT_ROLE,
 				new LabelDirectEditPolicy());
 		installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE,

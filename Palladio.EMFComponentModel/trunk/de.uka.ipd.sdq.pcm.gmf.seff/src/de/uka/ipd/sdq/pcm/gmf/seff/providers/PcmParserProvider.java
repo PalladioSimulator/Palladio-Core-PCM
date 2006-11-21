@@ -22,6 +22,7 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.InternalActionEntityName2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.InternalActionEntityNameEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopActionEntityName2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopActionEntityNameEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopIterationsLabel2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopIterationsLabelEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ParametricResourceDemandEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.part.PcmVisualIDRegistry;
@@ -62,34 +63,27 @@ public class PcmParserProvider extends AbstractProvider implements
 		return parser;
 	}
 
-	/**
-	 * @generated
-	 */
 	private IParser loopActionIterations_4003Parser;
 
-	/**
-	 * @generated
-	 */
 	private IParser getLoopActionIterations_4003Parser() {
 		if (loopActionIterations_4003Parser == null) {
 			loopActionIterations_4003Parser = createLoopActionIterations_4003Parser();
 		}
-		return loopActionLoopActionEntityName_4002Parser;
+		return loopActionIterations_4003Parser;
 	}
 
-	/**
-	 * @generated
-	 */
+	private IParser loopActionIterations_4009Parser;
+
+	private IParser getLoopActionIterations_4009Parser() {
+		if (loopActionIterations_4009Parser == null) {
+			loopActionIterations_4009Parser = createLoopActionIterations_4003Parser();
+		}
+		return loopActionIterations_4009Parser;
+	}
+
 	protected IParser createLoopActionIterations_4003Parser() {
-		List features = new ArrayList(2);
-		features.add(StochasticsPackage.eINSTANCE.getRandomVariable()
-				.getEStructuralFeature("specification")); //$NON-NLS-1$
-		features.add(SeffPackage.eINSTANCE.getParametricResourceDemand()
-				.getEStructuralFeature("unit")); //$NON-NLS-1$
-		PcmStructuralFeaturesParser parser = new PcmStructuralFeaturesParser(
-				features);
-		parser.setViewPattern("{0} {1}");
-		parser.setEditPattern("{0}");
+		PcmStructuralFeatureParser parser = new PcmStructuralFeatureParser(
+				StochasticsPackage.eINSTANCE.getRandomVariable_Specification()); //$NON-NLS-1$
 		return parser;
 	}
 
@@ -308,6 +302,8 @@ public class PcmParserProvider extends AbstractProvider implements
 			return getLoopActionLoopActionEntityName_4002Parser();
 		case LoopIterationsLabelEditPart.VISUAL_ID:
 			return getLoopActionIterations_4003Parser();
+		case LoopIterationsLabel2EditPart.VISUAL_ID:
+			return getLoopActionIterations_4009Parser();
 		case InternalActionEntityNameEditPart.VISUAL_ID:
 			return getInternalActionInternalActionEntityName_4004Parser();
 		case ParametricResourceDemandEditPart.VISUAL_ID:

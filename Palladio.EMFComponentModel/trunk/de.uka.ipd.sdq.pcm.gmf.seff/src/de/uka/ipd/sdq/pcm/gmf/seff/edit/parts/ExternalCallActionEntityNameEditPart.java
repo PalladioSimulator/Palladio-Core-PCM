@@ -54,6 +54,7 @@ import org.eclipse.swt.graphics.Image;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.PcmTextSelectionEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.seff.part.PcmDiagramEditorPlugin;
 import de.uka.ipd.sdq.pcm.gmf.seff.providers.PcmElementTypes;
+import de.uka.ipd.sdq.pcm.seff.ExternalCallAction;
 
 /**
  * @generated
@@ -210,15 +211,17 @@ public class ExternalCallActionEntityNameEditPart extends CompartmentEditPart
 	}
 
 	/**
-	 * @generated
+	 * @generated NOT
 	 */
 	protected String getLabelText() {
 		String text = null;
-		if (getParser() != null) {
-			text = getParser().getPrintString(
-					new EObjectAdapter(getParserElement()),
-					getParserOptions().intValue());
-		}
+//		if (getParser() != null) {
+//			text = getParser().getPrintString(
+//					new EObjectAdapter(getParserElement()),
+//					getParserOptions().intValue());
+//		}
+		ExternalCallAction action = (ExternalCallAction)resolveSemanticElement();
+		text = action.getCalledService_ExternalService().getServiceName();
 		if (text == null || text.length() == 0) {
 			text = defaultText;
 		}
@@ -249,10 +252,10 @@ public class ExternalCallActionEntityNameEditPart extends CompartmentEditPart
 	}
 
 	/**
-	 * @generated
+	 * @generated NOT
 	 */
 	protected boolean isEditable() {
-		return getEditText() != null;
+		return false;
 	}
 
 	/**

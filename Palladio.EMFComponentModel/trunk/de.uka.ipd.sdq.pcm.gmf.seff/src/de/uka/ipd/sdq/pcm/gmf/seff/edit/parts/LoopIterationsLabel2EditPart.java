@@ -30,6 +30,8 @@ import org.eclipse.gmf.runtime.common.ui.services.parser.ParserService;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.CompartmentEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ITextAwareEditPart;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.TextCompartmentEditPart;
+import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.LabelDirectEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.l10n.DiagramColorRegistry;
 import org.eclipse.gmf.runtime.diagram.ui.requests.RequestConstants;
@@ -51,9 +53,13 @@ import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.FontData;
 import org.eclipse.swt.graphics.Image;
 
+import de.uka.ipd.sdq.pcm.core.stochastics.RandomVariable;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.OpenStoExEditorEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.PcmTextSelectionEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.seff.part.PcmDiagramEditorPlugin;
 import de.uka.ipd.sdq.pcm.gmf.seff.providers.PcmElementTypes;
+import de.uka.ipd.sdq.pcm.seff.IterationCount;
+import de.uka.ipd.sdq.pcm.seff.LoopAction;
 
 /**
  * @generated
@@ -94,10 +100,12 @@ public class LoopIterationsLabel2EditPart extends CompartmentEditPart implements
 	}
 
 	/**
-	 * @generated
+	 * @generated NOT
 	 */
 	protected void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
+		installEditPolicy(EditPolicyRoles.OPEN_ROLE,
+				new OpenStoExEditorEditPolicy((RandomVariable)getParserElement()));
 		installEditPolicy(EditPolicy.DIRECT_EDIT_ROLE,
 				new LabelDirectEditPolicy());
 		installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE,
@@ -190,11 +198,13 @@ public class LoopIterationsLabel2EditPart extends CompartmentEditPart implements
 	}
 
 	/**
-	 * @generated
+	 * @generated NOT
 	 */
 	protected EObject getParserElement() {
 		EObject element = resolveSemanticElement();
-		return element != null ? element : (View) getModel();
+		LoopAction action = (LoopAction) (element != null ? element : (View) getModel());
+		IterationCount ic = action.getIterations_LoopAction();
+		return ic;
 	}
 
 	/**
@@ -249,10 +259,10 @@ public class LoopIterationsLabel2EditPart extends CompartmentEditPart implements
 	}
 
 	/**
-	 * @generated
+	 * @generated NOT
 	 */
 	protected boolean isEditable() {
-		return getEditText() != null;
+		return false;
 	}
 
 	/**
