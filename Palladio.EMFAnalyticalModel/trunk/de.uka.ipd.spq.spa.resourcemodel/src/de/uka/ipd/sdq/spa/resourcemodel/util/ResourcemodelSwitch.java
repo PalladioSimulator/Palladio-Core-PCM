@@ -23,17 +23,17 @@ import org.eclipse.emf.ecore.EObject;
  * until a non-null result is returned,
  * which is the result of the switch.
  * <!-- end-user-doc -->
- * @see de.uka.ipd.sdq.spa.resourcemodel.ResourceModelPackage
+ * @see de.uka.ipd.sdq.spa.resourcemodel.ResourcemodelPackage
  * @generated
  */
-public class ResourceModelSwitch {
+public class ResourcemodelSwitch {
 	/**
 	 * The cached model package
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected static ResourceModelPackage modelPackage;
+	protected static ResourcemodelPackage modelPackage;
 
 	/**
 	 * Creates an instance of the switch.
@@ -41,9 +41,9 @@ public class ResourceModelSwitch {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ResourceModelSwitch() {
+	public ResourcemodelSwitch() {
 		if (modelPackage == null) {
-			modelPackage = ResourceModelPackage.eINSTANCE;
+			modelPackage = ResourcemodelPackage.eINSTANCE;
 		}
 	}
 
@@ -87,33 +87,33 @@ public class ResourceModelSwitch {
 	 */
 	protected Object doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
-			case ResourceModelPackage.RESOURCE_USAGE: {
+			case ResourcemodelPackage.RESOURCE_USAGE: {
 				ResourceUsage resourceUsage = (ResourceUsage)theEObject;
 				Object result = caseResourceUsage(resourceUsage);
 				if (result == null) result = caseAbstractResourceUsage(resourceUsage);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case ResourceModelPackage.ABSTRACT_RESOURCE_USAGE: {
+			case ResourcemodelPackage.ABSTRACT_RESOURCE_USAGE: {
 				AbstractResourceUsage abstractResourceUsage = (AbstractResourceUsage)theEObject;
 				Object result = caseAbstractResourceUsage(abstractResourceUsage);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case ResourceModelPackage.ACTIVE_RESOURCE: {
+			case ResourcemodelPackage.ACTIVE_RESOURCE: {
 				ActiveResource activeResource = (ActiveResource)theEObject;
 				Object result = caseActiveResource(activeResource);
 				if (result == null) result = caseResource(activeResource);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case ResourceModelPackage.RESOURCE: {
+			case ResourcemodelPackage.RESOURCE: {
 				Resource resource = (Resource)theEObject;
 				Object result = caseResource(resource);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case ResourceModelPackage.PASSIVE_RESOURCE: {
+			case ResourcemodelPackage.PASSIVE_RESOURCE: {
 				PassiveResource passiveResource = (PassiveResource)theEObject;
 				Object result = casePassiveResource(passiveResource);
 				if (result == null) result = caseContentionResource(passiveResource);
@@ -121,14 +121,14 @@ public class ResourceModelSwitch {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case ResourceModelPackage.CONTENTION_RESOURCE: {
+			case ResourcemodelPackage.CONTENTION_RESOURCE: {
 				ContentionResource contentionResource = (ContentionResource)theEObject;
 				Object result = caseContentionResource(contentionResource);
 				if (result == null) result = caseResource(contentionResource);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case ResourceModelPackage.PROCESSING_RESOURCE: {
+			case ResourcemodelPackage.PROCESSING_RESOURCE: {
 				ProcessingResource processingResource = (ProcessingResource)theEObject;
 				Object result = caseProcessingResource(processingResource);
 				if (result == null) result = caseContentionResource(processingResource);
@@ -137,7 +137,7 @@ public class ResourceModelSwitch {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case ResourceModelPackage.DELAY_RESOURCE: {
+			case ResourcemodelPackage.DELAY_RESOURCE: {
 				DelayResource delayResource = (DelayResource)theEObject;
 				Object result = caseDelayResource(delayResource);
 				if (result == null) result = caseActiveResource(delayResource);
@@ -284,4 +284,4 @@ public class ResourceModelSwitch {
 		return null;
 	}
 
-} //ResourceModelSwitch
+} //ResourcemodelSwitch

@@ -7,6 +7,8 @@
 package de.uka.ipd.sdq.spa.resourcemodel.impl;
 
 import de.uka.ipd.sdq.spa.resourcemodel.Resource;
+import de.uka.ipd.sdq.spa.resourcemodel.ResourcemodelPackage;
+
 import de.uka.ipd.sdq.spa.resourcemodel.ResourceModelPackage;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -65,7 +67,7 @@ public abstract class ResourceImpl extends EObjectImpl implements Resource {
 	 * @generated
 	 */
 	protected EClass eStaticClass() {
-		return ResourceModelPackage.Literals.RESOURCE;
+		return ResourcemodelPackage.Literals.RESOURCE;
 	}
 
 	/**
@@ -86,7 +88,7 @@ public abstract class ResourceImpl extends EObjectImpl implements Resource {
 		String oldName = name;
 		name = newName;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ResourceModelPackage.RESOURCE__NAME, oldName, name));
+			eNotify(new ENotificationImpl(this, Notification.SET, ResourcemodelPackage.RESOURCE__NAME, oldName, name));
 	}
 
 	/**
@@ -96,7 +98,7 @@ public abstract class ResourceImpl extends EObjectImpl implements Resource {
 	 */
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ResourceModelPackage.RESOURCE__NAME:
+			case ResourcemodelPackage.RESOURCE__NAME:
 				return getName();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -109,7 +111,7 @@ public abstract class ResourceImpl extends EObjectImpl implements Resource {
 	 */
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ResourceModelPackage.RESOURCE__NAME:
+			case ResourcemodelPackage.RESOURCE__NAME:
 				setName((String)newValue);
 				return;
 		}
@@ -123,7 +125,7 @@ public abstract class ResourceImpl extends EObjectImpl implements Resource {
 	 */
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ResourceModelPackage.RESOURCE__NAME:
+			case ResourcemodelPackage.RESOURCE__NAME:
 				setName(NAME_EDEFAULT);
 				return;
 		}
@@ -137,7 +139,7 @@ public abstract class ResourceImpl extends EObjectImpl implements Resource {
 	 */
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ResourceModelPackage.RESOURCE__NAME:
+			case ResourcemodelPackage.RESOURCE__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 		}
 		return super.eIsSet(featureID);

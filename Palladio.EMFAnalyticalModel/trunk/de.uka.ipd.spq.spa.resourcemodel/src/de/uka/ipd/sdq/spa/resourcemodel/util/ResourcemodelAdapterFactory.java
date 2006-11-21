@@ -20,17 +20,17 @@ import org.eclipse.emf.ecore.EObject;
  * The <b>Adapter Factory</b> for the model.
  * It provides an adapter <code>createXXX</code> method for each class of the model.
  * <!-- end-user-doc -->
- * @see de.uka.ipd.sdq.spa.resourcemodel.ResourceModelPackage
+ * @see de.uka.ipd.sdq.spa.resourcemodel.ResourcemodelPackage
  * @generated
  */
-public class ResourceModelAdapterFactory extends AdapterFactoryImpl {
+public class ResourcemodelAdapterFactory extends AdapterFactoryImpl {
 	/**
 	 * The cached model package.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected static ResourceModelPackage modelPackage;
+	protected static ResourcemodelPackage modelPackage;
 
 	/**
 	 * Creates an instance of the adapter factory.
@@ -38,9 +38,9 @@ public class ResourceModelAdapterFactory extends AdapterFactoryImpl {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ResourceModelAdapterFactory() {
+	public ResourcemodelAdapterFactory() {
 		if (modelPackage == null) {
-			modelPackage = ResourceModelPackage.eINSTANCE;
+			modelPackage = ResourcemodelPackage.eINSTANCE;
 		}
 	}
 
@@ -68,8 +68,8 @@ public class ResourceModelAdapterFactory extends AdapterFactoryImpl {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ResourceModelSwitch modelSwitch =
-		new ResourceModelSwitch() {
+	protected ResourcemodelSwitch modelSwitch =
+		new ResourcemodelSwitch() {
 			public Object caseResourceUsage(ResourceUsage object) {
 				return createResourceUsageAdapter();
 			}
@@ -236,4 +236,4 @@ public class ResourceModelAdapterFactory extends AdapterFactoryImpl {
 		return null;
 	}
 
-} //ResourceModelAdapterFactory
+} //ResourcemodelAdapterFactory

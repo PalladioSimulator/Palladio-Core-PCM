@@ -6,29 +6,31 @@
  */
 package de.uka.ipd.sdq.spa.resourcemodel.impl;
 
-import de.uka.ipd.sdq.spa.resourcemodel.DelayResource;
+import de.uka.ipd.sdq.spa.resourcemodel.AbstractResourceUsage;
 import de.uka.ipd.sdq.spa.resourcemodel.ResourcemodelPackage;
 
 import de.uka.ipd.sdq.spa.resourcemodel.ResourceModelPackage;
 
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.impl.EObjectImpl;
+
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Delay Resource</b></em>'.
+ * An implementation of the model object '<em><b>Abstract Resource Usage</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * </p>
  *
  * @generated
  */
-public class DelayResourceImpl extends ActiveResourceImpl implements DelayResource {
+public abstract class AbstractResourceUsageImpl extends EObjectImpl implements AbstractResourceUsage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected DelayResourceImpl() {
+	protected AbstractResourceUsageImpl() {
 		super();
 	}
 
@@ -38,7 +40,7 @@ public class DelayResourceImpl extends ActiveResourceImpl implements DelayResour
 	 * @generated
 	 */
 	protected EClass eStaticClass() {
-		return ResourcemodelPackage.Literals.DELAY_RESOURCE;
+		return ResourcemodelPackage.Literals.ABSTRACT_RESOURCE_USAGE;
 	}
 
-} //DelayResourceImpl
+} //AbstractResourceUsageImpl

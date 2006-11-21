@@ -22,11 +22,11 @@ import org.eclipse.emf.ecore.EReference;
  *   <li>and each data type</li>
  * </ul>
  * <!-- end-user-doc -->
- * @see de.uka.ipd.sdq.spa.resourcemodel.ResourceModelFactory
+ * @see de.uka.ipd.sdq.spa.resourcemodel.ResourcemodelFactory
  * @model kind="package"
  * @generated
  */
-public interface ResourceModelPackage extends EPackage {
+public interface ResourcemodelPackage extends EPackage {
 	/**
 	 * The package name.
 	 * <!-- begin-user-doc -->
@@ -57,14 +57,14 @@ public interface ResourceModelPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	ResourceModelPackage eINSTANCE = de.uka.ipd.sdq.spa.resourcemodel.impl.ResourceModelPackageImpl.init();
+	ResourcemodelPackage eINSTANCE = de.uka.ipd.sdq.spa.resourcemodel.impl.ResourcemodelPackageImpl.init();
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.spa.resourcemodel.impl.AbstractResourceUsageImpl <em>Abstract Resource Usage</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see de.uka.ipd.sdq.spa.resourcemodel.impl.AbstractResourceUsageImpl
-	 * @see de.uka.ipd.sdq.spa.resourcemodel.impl.ResourceModelPackageImpl#getAbstractResourceUsage()
+	 * @see de.uka.ipd.sdq.spa.resourcemodel.impl.ResourcemodelPackageImpl#getAbstractResourceUsage()
 	 * @generated
 	 */
 	int ABSTRACT_RESOURCE_USAGE = 1;
@@ -83,7 +83,7 @@ public interface ResourceModelPackage extends EPackage {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see de.uka.ipd.sdq.spa.resourcemodel.impl.ResourceUsageImpl
-	 * @see de.uka.ipd.sdq.spa.resourcemodel.impl.ResourceModelPackageImpl#getResourceUsage()
+	 * @see de.uka.ipd.sdq.spa.resourcemodel.impl.ResourcemodelPackageImpl#getResourceUsage()
 	 * @generated
 	 */
 	int RESOURCE_USAGE = 0;
@@ -116,21 +116,11 @@ public interface ResourceModelPackage extends EPackage {
 	int RESOURCE_USAGE_FEATURE_COUNT = ABSTRACT_RESOURCE_USAGE_FEATURE_COUNT + 2;
 
 	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.spa.resourcemodel.impl.ActiveResourceImpl <em>Active Resource</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.spa.resourcemodel.impl.ActiveResourceImpl
-	 * @see de.uka.ipd.sdq.spa.resourcemodel.impl.ResourceModelPackageImpl#getActiveResource()
-	 * @generated
-	 */
-	int ACTIVE_RESOURCE = 2;
-
-	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.spa.resourcemodel.impl.ResourceImpl <em>Resource</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see de.uka.ipd.sdq.spa.resourcemodel.impl.ResourceImpl
-	 * @see de.uka.ipd.sdq.spa.resourcemodel.impl.ResourceModelPackageImpl#getResource()
+	 * @see de.uka.ipd.sdq.spa.resourcemodel.impl.ResourcemodelPackageImpl#getResource()
 	 * @generated
 	 */
 	int RESOURCE = 3;
@@ -152,6 +142,16 @@ public interface ResourceModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int RESOURCE_FEATURE_COUNT = 1;
+
+	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.spa.resourcemodel.impl.ActiveResourceImpl <em>Active Resource</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.spa.resourcemodel.impl.ActiveResourceImpl
+	 * @see de.uka.ipd.sdq.spa.resourcemodel.impl.ResourcemodelPackageImpl#getActiveResource()
+	 * @generated
+	 */
+	int ACTIVE_RESOURCE = 2;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -176,7 +176,7 @@ public interface ResourceModelPackage extends EPackage {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see de.uka.ipd.sdq.spa.resourcemodel.impl.ContentionResourceImpl
-	 * @see de.uka.ipd.sdq.spa.resourcemodel.impl.ResourceModelPackageImpl#getContentionResource()
+	 * @see de.uka.ipd.sdq.spa.resourcemodel.impl.ResourcemodelPackageImpl#getContentionResource()
 	 * @generated
 	 */
 	int CONTENTION_RESOURCE = 5;
@@ -213,7 +213,7 @@ public interface ResourceModelPackage extends EPackage {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see de.uka.ipd.sdq.spa.resourcemodel.impl.PassiveResourceImpl
-	 * @see de.uka.ipd.sdq.spa.resourcemodel.impl.ResourceModelPackageImpl#getPassiveResource()
+	 * @see de.uka.ipd.sdq.spa.resourcemodel.impl.ResourcemodelPackageImpl#getPassiveResource()
 	 * @generated
 	 */
 	int PASSIVE_RESOURCE = 4;
@@ -250,7 +250,7 @@ public interface ResourceModelPackage extends EPackage {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see de.uka.ipd.sdq.spa.resourcemodel.impl.ProcessingResourceImpl
-	 * @see de.uka.ipd.sdq.spa.resourcemodel.impl.ResourceModelPackageImpl#getProcessingResource()
+	 * @see de.uka.ipd.sdq.spa.resourcemodel.impl.ResourcemodelPackageImpl#getProcessingResource()
 	 * @generated
 	 */
 	int PROCESSING_RESOURCE = 6;
@@ -287,7 +287,7 @@ public interface ResourceModelPackage extends EPackage {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see de.uka.ipd.sdq.spa.resourcemodel.impl.DelayResourceImpl
-	 * @see de.uka.ipd.sdq.spa.resourcemodel.impl.ResourceModelPackageImpl#getDelayResource()
+	 * @see de.uka.ipd.sdq.spa.resourcemodel.impl.ResourcemodelPackageImpl#getDelayResource()
 	 * @generated
 	 */
 	int DELAY_RESOURCE = 7;
@@ -442,7 +442,7 @@ public interface ResourceModelPackage extends EPackage {
 	 * @return the factory that creates the instances of the model.
 	 * @generated
 	 */
-	ResourceModelFactory getResourceModelFactory();
+	ResourcemodelFactory getResourcemodelFactory();
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -456,13 +456,13 @@ public interface ResourceModelPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	interface Literals  {
+	interface Literals {
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.spa.resourcemodel.impl.ResourceUsageImpl <em>Resource Usage</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @see de.uka.ipd.sdq.spa.resourcemodel.impl.ResourceUsageImpl
-		 * @see de.uka.ipd.sdq.spa.resourcemodel.impl.ResourceModelPackageImpl#getResourceUsage()
+		 * @see de.uka.ipd.sdq.spa.resourcemodel.impl.ResourcemodelPackageImpl#getResourceUsage()
 		 * @generated
 		 */
 		EClass RESOURCE_USAGE = eINSTANCE.getResourceUsage();
@@ -488,7 +488,7 @@ public interface ResourceModelPackage extends EPackage {
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @see de.uka.ipd.sdq.spa.resourcemodel.impl.AbstractResourceUsageImpl
-		 * @see de.uka.ipd.sdq.spa.resourcemodel.impl.ResourceModelPackageImpl#getAbstractResourceUsage()
+		 * @see de.uka.ipd.sdq.spa.resourcemodel.impl.ResourcemodelPackageImpl#getAbstractResourceUsage()
 		 * @generated
 		 */
 		EClass ABSTRACT_RESOURCE_USAGE = eINSTANCE.getAbstractResourceUsage();
@@ -498,7 +498,7 @@ public interface ResourceModelPackage extends EPackage {
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @see de.uka.ipd.sdq.spa.resourcemodel.impl.ActiveResourceImpl
-		 * @see de.uka.ipd.sdq.spa.resourcemodel.impl.ResourceModelPackageImpl#getActiveResource()
+		 * @see de.uka.ipd.sdq.spa.resourcemodel.impl.ResourcemodelPackageImpl#getActiveResource()
 		 * @generated
 		 */
 		EClass ACTIVE_RESOURCE = eINSTANCE.getActiveResource();
@@ -508,7 +508,7 @@ public interface ResourceModelPackage extends EPackage {
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @see de.uka.ipd.sdq.spa.resourcemodel.impl.ResourceImpl
-		 * @see de.uka.ipd.sdq.spa.resourcemodel.impl.ResourceModelPackageImpl#getResource()
+		 * @see de.uka.ipd.sdq.spa.resourcemodel.impl.ResourcemodelPackageImpl#getResource()
 		 * @generated
 		 */
 		EClass RESOURCE = eINSTANCE.getResource();
@@ -526,7 +526,7 @@ public interface ResourceModelPackage extends EPackage {
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @see de.uka.ipd.sdq.spa.resourcemodel.impl.PassiveResourceImpl
-		 * @see de.uka.ipd.sdq.spa.resourcemodel.impl.ResourceModelPackageImpl#getPassiveResource()
+		 * @see de.uka.ipd.sdq.spa.resourcemodel.impl.ResourcemodelPackageImpl#getPassiveResource()
 		 * @generated
 		 */
 		EClass PASSIVE_RESOURCE = eINSTANCE.getPassiveResource();
@@ -536,7 +536,7 @@ public interface ResourceModelPackage extends EPackage {
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @see de.uka.ipd.sdq.spa.resourcemodel.impl.ContentionResourceImpl
-		 * @see de.uka.ipd.sdq.spa.resourcemodel.impl.ResourceModelPackageImpl#getContentionResource()
+		 * @see de.uka.ipd.sdq.spa.resourcemodel.impl.ResourcemodelPackageImpl#getContentionResource()
 		 * @generated
 		 */
 		EClass CONTENTION_RESOURCE = eINSTANCE.getContentionResource();
@@ -554,7 +554,7 @@ public interface ResourceModelPackage extends EPackage {
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @see de.uka.ipd.sdq.spa.resourcemodel.impl.ProcessingResourceImpl
-		 * @see de.uka.ipd.sdq.spa.resourcemodel.impl.ResourceModelPackageImpl#getProcessingResource()
+		 * @see de.uka.ipd.sdq.spa.resourcemodel.impl.ResourcemodelPackageImpl#getProcessingResource()
 		 * @generated
 		 */
 		EClass PROCESSING_RESOURCE = eINSTANCE.getProcessingResource();
@@ -564,11 +564,11 @@ public interface ResourceModelPackage extends EPackage {
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @see de.uka.ipd.sdq.spa.resourcemodel.impl.DelayResourceImpl
-		 * @see de.uka.ipd.sdq.spa.resourcemodel.impl.ResourceModelPackageImpl#getDelayResource()
+		 * @see de.uka.ipd.sdq.spa.resourcemodel.impl.ResourcemodelPackageImpl#getDelayResource()
 		 * @generated
 		 */
 		EClass DELAY_RESOURCE = eINSTANCE.getDelayResource();
 
 	}
 
-} //ResourceModelPackage
+} //ResourcemodelPackage

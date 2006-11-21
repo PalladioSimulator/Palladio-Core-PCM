@@ -15,9 +15,9 @@ import de.uka.ipd.sdq.spa.resourcemodel.DelayResource;
 import de.uka.ipd.sdq.spa.resourcemodel.PassiveResource;
 import de.uka.ipd.sdq.spa.resourcemodel.ProcessingResource;
 import de.uka.ipd.sdq.spa.resourcemodel.Resource;
-import de.uka.ipd.sdq.spa.resourcemodel.ResourceModelFactory;
-import de.uka.ipd.sdq.spa.resourcemodel.ResourceModelPackage;
 import de.uka.ipd.sdq.spa.resourcemodel.ResourceUsage;
+import de.uka.ipd.sdq.spa.resourcemodel.ResourcemodelFactory;
+import de.uka.ipd.sdq.spa.resourcemodel.ResourcemodelPackage;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
@@ -32,7 +32,7 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ResourceModelPackageImpl extends EPackageImpl implements ResourceModelPackage {
+public class ResourcemodelPackageImpl extends EPackageImpl implements ResourcemodelPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -100,12 +100,12 @@ public class ResourceModelPackageImpl extends EPackageImpl implements ResourceMo
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see org.eclipse.emf.ecore.EPackage.Registry
-	 * @see de.uka.ipd.sdq.spa.resourcemodel.ResourceModelPackage#eNS_URI
+	 * @see de.uka.ipd.sdq.spa.resourcemodel.ResourcemodelPackage#eNS_URI
 	 * @see #init()
 	 * @generated
 	 */
-	private ResourceModelPackageImpl() {
-		super(eNS_URI, ResourceModelFactory.eINSTANCE);
+	private ResourcemodelPackageImpl() {
+		super(eNS_URI, ResourcemodelFactory.eINSTANCE);
 	}
 
 	/**
@@ -137,11 +137,11 @@ public class ResourceModelPackageImpl extends EPackageImpl implements ResourceMo
 	 * @see #initializePackageContents()
 	 * @generated
 	 */
-	public static ResourceModelPackage init() {
-		if (isInited) return (ResourceModelPackage)EPackage.Registry.INSTANCE.getEPackage(ResourceModelPackage.eNS_URI);
+	public static ResourcemodelPackage init() {
+		if (isInited) return (ResourcemodelPackage)EPackage.Registry.INSTANCE.getEPackage(ResourcemodelPackage.eNS_URI);
 
 		// Obtain or create and register package
-		ResourceModelPackageImpl theResourceModelPackage = (ResourceModelPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(eNS_URI) instanceof ResourceModelPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(eNS_URI) : new ResourceModelPackageImpl());
+		ResourcemodelPackageImpl theResourcemodelPackage = (ResourcemodelPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(eNS_URI) instanceof ResourcemodelPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(eNS_URI) : new ResourcemodelPackageImpl());
 
 		isInited = true;
 
@@ -149,15 +149,15 @@ public class ResourceModelPackageImpl extends EPackageImpl implements ResourceMo
 		ProbfunctionPackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects
-		theResourceModelPackage.createPackageContents();
+		theResourcemodelPackage.createPackageContents();
 
 		// Initialize created meta-data
-		theResourceModelPackage.initializePackageContents();
+		theResourcemodelPackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
-		theResourceModelPackage.freeze();
+		theResourcemodelPackage.freeze();
 
-		return theResourceModelPackage;
+		return theResourcemodelPackage;
 	}
 
 	/**
@@ -273,8 +273,8 @@ public class ResourceModelPackageImpl extends EPackageImpl implements ResourceMo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ResourceModelFactory getResourceModelFactory() {
-		return (ResourceModelFactory)getEFactoryInstance();
+	public ResourcemodelFactory getResourcemodelFactory() {
+		return (ResourcemodelFactory)getEFactoryInstance();
 	}
 
 	/**
@@ -377,4 +377,4 @@ public class ResourceModelPackageImpl extends EPackageImpl implements ResourceMo
 		createResource(eNS_URI);
 	}
 
-} //ResourceModelPackageImpl
+} //ResourcemodelPackageImpl

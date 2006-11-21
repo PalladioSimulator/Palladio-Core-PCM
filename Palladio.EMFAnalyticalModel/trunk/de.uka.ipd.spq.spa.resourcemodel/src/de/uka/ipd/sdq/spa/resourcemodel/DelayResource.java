@@ -13,9 +13,9 @@ package de.uka.ipd.sdq.spa.resourcemodel;
  * <!-- end-user-doc -->
  *
  *
- * @see de.uka.ipd.sdq.spa.resourcemodel.ResourceModelPackage#getDelayResource()
+ * @see de.uka.ipd.sdq.spa.resourcemodel.ResourcemodelPackage#getDelayResource()
  * @model
  * @generated
  */
-public interface DelayResource extends Resource, ActiveResource {
+public interface DelayResource extends ActiveResource {
 } // DelayResource

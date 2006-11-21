@@ -14,9 +14,9 @@ import org.eclipse.emf.ecore.EObject;
  * <!-- end-user-doc -->
  *
  *
- * @see de.uka.ipd.sdq.spa.resourcemodel.ResourceModelPackage#getActiveResource()
+ * @see de.uka.ipd.sdq.spa.resourcemodel.ResourcemodelPackage#getActiveResource()
  * @model abstract="true"
  * @generated
  */
-public interface ActiveResource extends EObject {
+public interface ActiveResource extends Resource {
 } // ActiveResource

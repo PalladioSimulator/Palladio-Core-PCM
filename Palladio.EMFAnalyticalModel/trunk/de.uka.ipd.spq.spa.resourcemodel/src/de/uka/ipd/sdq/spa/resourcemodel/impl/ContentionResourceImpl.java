@@ -7,6 +7,8 @@
 package de.uka.ipd.sdq.spa.resourcemodel.impl;
 
 import de.uka.ipd.sdq.spa.resourcemodel.ContentionResource;
+import de.uka.ipd.sdq.spa.resourcemodel.ResourcemodelPackage;
+
 import de.uka.ipd.sdq.spa.resourcemodel.ResourceModelPackage;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -64,7 +66,7 @@ public abstract class ContentionResourceImpl extends ResourceImpl implements Con
 	 * @generated
 	 */
 	protected EClass eStaticClass() {
-		return ResourceModelPackage.Literals.CONTENTION_RESOURCE;
+		return ResourcemodelPackage.Literals.CONTENTION_RESOURCE;
 	}
 
 	/**
@@ -85,7 +87,7 @@ public abstract class ContentionResourceImpl extends ResourceImpl implements Con
 		int oldNumReplicas = numReplicas;
 		numReplicas = newNumReplicas;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ResourceModelPackage.CONTENTION_RESOURCE__NUM_REPLICAS, oldNumReplicas, numReplicas));
+			eNotify(new ENotificationImpl(this, Notification.SET, ResourcemodelPackage.CONTENTION_RESOURCE__NUM_REPLICAS, oldNumReplicas, numReplicas));
 	}
 
 	/**
@@ -95,7 +97,7 @@ public abstract class ContentionResourceImpl extends ResourceImpl implements Con
 	 */
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ResourceModelPackage.CONTENTION_RESOURCE__NUM_REPLICAS:
+			case ResourcemodelPackage.CONTENTION_RESOURCE__NUM_REPLICAS:
 				return new Integer(getNumReplicas());
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -108,7 +110,7 @@ public abstract class ContentionResourceImpl extends ResourceImpl implements Con
 	 */
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ResourceModelPackage.CONTENTION_RESOURCE__NUM_REPLICAS:
+			case ResourcemodelPackage.CONTENTION_RESOURCE__NUM_REPLICAS:
 				setNumReplicas(((Integer)newValue).intValue());
 				return;
 		}
@@ -122,7 +124,7 @@ public abstract class ContentionResourceImpl extends ResourceImpl implements Con
 	 */
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ResourceModelPackage.CONTENTION_RESOURCE__NUM_REPLICAS:
+			case ResourcemodelPackage.CONTENTION_RESOURCE__NUM_REPLICAS:
 				setNumReplicas(NUM_REPLICAS_EDEFAULT);
 				return;
 		}
@@ -136,7 +138,7 @@ public abstract class ContentionResourceImpl extends ResourceImpl implements Con
 	 */
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ResourceModelPackage.CONTENTION_RESOURCE__NUM_REPLICAS:
+			case ResourcemodelPackage.CONTENTION_RESOURCE__NUM_REPLICAS:
 				return numReplicas != NUM_REPLICAS_EDEFAULT;
 		}
 		return super.eIsSet(featureID);

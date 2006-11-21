@@ -5,12 +5,13 @@
     modelPluginID="de.uka.ipd.spq.spa.resourcemodel" modelName="ResourceModel" importerID="org.eclipse.emf.importer.ecore"
     usedGenPackages="../../../plugin/de.uka.ipd.sdq.probfunction/model/ProbabilityFunction.genmodel#//probfunction">
   <foreignModel>ResourceModel.ecore</foreignModel>
-  <genPackages prefix="ResourceModel" basePackage="de.uka.ipd.sdq.spa" disposableProviderFactory="true"
+  <genPackages prefix="Resourcemodel" basePackage="de.uka.ipd.sdq.spa" disposableProviderFactory="true"
       ecorePackage="ResourceModel.ecore#/">
-    <genClasses image="false" ecoreClass="ResourceModel.ecore#//ResourceUsage">
+    <genClasses ecoreClass="ResourceModel.ecore#//ResourceUsage">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ResourceModel.ecore#//ResourceUsage/usageTime"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ResourceModel.ecore#//ResourceUsage/resource"/>
     </genClasses>
+    <genClasses image="false" ecoreClass="ResourceModel.ecore#//AbstractResourceUsage"/>
     <genClasses image="false" ecoreClass="ResourceModel.ecore#//ActiveResource"/>
     <genClasses image="false" ecoreClass="ResourceModel.ecore#//Resource">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ResourceModel.ecore#//Resource/name"/>

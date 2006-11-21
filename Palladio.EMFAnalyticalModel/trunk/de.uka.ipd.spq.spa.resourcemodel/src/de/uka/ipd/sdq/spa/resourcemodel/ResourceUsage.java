@@ -23,11 +23,11 @@ import org.eclipse.emf.ecore.EObject;
  * </ul>
  * </p>
  *
- * @see de.uka.ipd.sdq.spa.resourcemodel.ResourceModelPackage#getResourceUsage()
+ * @see de.uka.ipd.sdq.spa.resourcemodel.ResourcemodelPackage#getResourceUsage()
  * @model
  * @generated
  */
-public interface ResourceUsage extends EObject {
+public interface ResourceUsage extends AbstractResourceUsage {
 	/**
 	 * Returns the value of the '<em><b>Usage Time</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
@@ -38,7 +38,7 @@ public interface ResourceUsage extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Usage Time</em>' containment reference.
 	 * @see #setUsageTime(ProbabilityDensityFunction)
-	 * @see de.uka.ipd.sdq.spa.resourcemodel.ResourceModelPackage#getResourceUsage_UsageTime()
+	 * @see de.uka.ipd.sdq.spa.resourcemodel.ResourcemodelPackage#getResourceUsage_UsageTime()
 	 * @model containment="true"
 	 * @generated
 	 */
@@ -64,7 +64,7 @@ public interface ResourceUsage extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Resource</em>' reference.
 	 * @see #setResource(ActiveResource)
-	 * @see de.uka.ipd.sdq.spa.resourcemodel.ResourceModelPackage#getResourceUsage_Resource()
+	 * @see de.uka.ipd.sdq.spa.resourcemodel.ResourcemodelPackage#getResourceUsage_Resource()
 	 * @model required="true"
 	 * @generated
 	 */
