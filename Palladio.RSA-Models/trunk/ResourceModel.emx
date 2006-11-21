@@ -515,5 +515,4 @@
   <ownedMember xmi:type="uml:Association" xmi:id="_RKj94F2uEduUYolzmZz2EQ" memberEnd="_RKkk8F2uEduUYolzmZz2EQ _RKkk8V2uEduUYolzmZz2EQ">
     <ownedEnd xmi:id="_RKkk8V2uEduUYolzmZz2EQ" visibility="private" type="_m0lnMFnFEdu77MWpSZSJdA" association="_RKj94F2uEduUYolzmZz2EQ"/>
   </ownedMember>
-  <ownedMember xmi:type="uml:Class" xmi:id="_FrRd8HSVEdud0bILazudNA" name="sfdaf"/>
 </uml:Model>

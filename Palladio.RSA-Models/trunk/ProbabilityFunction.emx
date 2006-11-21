@@ -441,6 +441,9 @@
       <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_zWMAvlYOEduVzvtHWuORYA" value="-1"/>
       <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_zWMAv1YOEduVzvtHWuORYA"/>
     </ownedAttribute>
+    <ownedAttribute xmi:id="_wuiTcHi0Edufi6wBlStbbA" name="orderedDomain">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML2_LIBRARIES/EcorePrimitiveTypes.library.uml2#_OQomAq86EdieaYgxtVWN8Q"/>
+    </ownedAttribute>
   </ownedMember>
   <ownedMember xmi:type="uml:Class" xmi:id="_zWMAwlYOEduVzvtHWuORYA" name="Sample">
     <ownedAttribute xmi:id="_zWMAw1YOEduVzvtHWuORYA" name="value">
