@@ -18,7 +18,7 @@
     <details key="UNION_PROPERTIES" value="REPORT"/>
     <details key="DUPLICATE_OPERATION_INHERITANCE" value="DISCARD"/>
   </genAnnotations>
-  <foreignModel>file:/C:/coding/svn/rsa_exports/context.uml2</foreignModel>
+  <foreignModel>file:/D:/Diss/Work/RSA-Export/context.uml2</foreignModel>
   <genPackages prefix="Context" basePackage="de.uka.ipd.sdq" disposableProviderFactory="true"
       ecorePackage="context.ecore#/">
     <nestedGenPackages prefix="Usage" basePackage="de.uka.ipd.sdq.context" disposableProviderFactory="true"
@@ -38,6 +38,9 @@
             ecoreFeature="ecore:EReference context.ecore#//usage/LoopIteration/loopaction_LoopIteration"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference context.ecore#//usage/LoopIteration/iterations_LoopIteration"/>
       </genClasses>
+      <genClasses ecoreClass="context.ecore#//usage/Usage">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference context.ecore#//usage/Usage/usageContexts_Usage"/>
+      </genClasses>
     </nestedGenPackages>
     <nestedGenPackages prefix="Allocation" basePackage="de.uka.ipd.sdq.context" disposableProviderFactory="true"
         ecorePackage="context.ecore#//allocation">
@@ -51,6 +54,9 @@
             ecoreFeature="ecore:EReference context.ecore#//allocation/ActualResourceDemand/parametricResourceDemand_ActualResourceDemand"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference context.ecore#//allocation/ActualResourceDemand/randomVariable_ActualResourceDemand"/>
+      </genClasses>
+      <genClasses ecoreClass="context.ecore#//allocation/ActualAllocation">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference context.ecore#//allocation/ActualAllocation/actualAllocationContexts_ActualAllocation"/>
       </genClasses>
     </nestedGenPackages>
   </genPackages>

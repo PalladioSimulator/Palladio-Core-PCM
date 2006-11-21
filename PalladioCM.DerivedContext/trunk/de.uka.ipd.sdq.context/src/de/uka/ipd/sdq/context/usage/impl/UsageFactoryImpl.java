@@ -69,6 +69,7 @@ public class UsageFactoryImpl extends EFactoryImpl implements UsageFactory {
 			case UsagePackage.USAGE_CONTEXT: return createUsageContext();
 			case UsagePackage.BRANCH_PROBABILITY: return createBranchProbability();
 			case UsagePackage.LOOP_ITERATION: return createLoopIteration();
+			case UsagePackage.USAGE: return createUsage();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -102,6 +103,16 @@ public class UsageFactoryImpl extends EFactoryImpl implements UsageFactory {
 	public LoopIteration createLoopIteration() {
 		LoopIterationImpl loopIteration = new LoopIterationImpl();
 		return loopIteration;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Usage createUsage() {
+		UsageImpl usage = new UsageImpl();
+		return usage;
 	}
 
 	/**

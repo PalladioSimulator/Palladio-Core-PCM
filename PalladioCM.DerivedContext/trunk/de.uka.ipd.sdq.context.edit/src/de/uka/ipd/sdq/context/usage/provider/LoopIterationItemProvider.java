@@ -192,12 +192,7 @@ public class LoopIterationItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(UsagePackage.Literals.LOOP_ITERATION__ITERATIONS_LOOP_ITERATION,
-				 ParameterFactory.eINSTANCE.createParameterCharacterisation()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(UsagePackage.Literals.LOOP_ITERATION__ITERATIONS_LOOP_ITERATION,
-				 ParameterFactory.eINSTANCE.createCollectionParameterCharacterisation()));
+				 ParameterFactory.eINSTANCE.createVariableCharacterisation()));
 
 		newChildDescriptors.add
 			(createChildParameter

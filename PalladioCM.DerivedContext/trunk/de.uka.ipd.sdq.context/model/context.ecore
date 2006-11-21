@@ -10,8 +10,7 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="loopiterations_UsageContext"
           ordered="false" upperBound="-1" eType="#//usage/LoopIteration" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="actualParameterUsage_UsageContext"
-          ordered="false" upperBound="-1" eType="ecore:EClass ../../../plugin/de.uka.ipd.sdq.pcm/model/pcm.ecore#//parameter/ParameterUsage"
-          containment="true"/>
+          ordered="false" upperBound="-1" eType="ecore:EClass ../../../plugin/de.uka.ipd.sdq.pcm/model/pcm.ecore#//parameter/VariableUsage"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="BranchProbability">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="probability" ordered="false"
@@ -25,6 +24,10 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="iterations_LoopIteration"
           ordered="false" lowerBound="1" eType="ecore:EClass ../../../plugin/de.uka.ipd.sdq.pcm/model/pcm.ecore#//core/stochastics/RandomVariable"
           containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Usage">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="usageContexts_Usage"
+          ordered="false" upperBound="-1" eType="#//usage/UsageContext" containment="true"/>
     </eClassifiers>
   </eSubpackages>
   <eSubpackages name="allocation" nsURI="http://sdq.ipd.uka.de/Context/Allocation/1.0"
@@ -41,6 +44,11 @@
           ordered="false" lowerBound="1" eType="ecore:EClass ../../../plugin/de.uka.ipd.sdq.pcm/model/pcm.ecore#//seff/ParametricResourceDemand"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="randomVariable_ActualResourceDemand"
           ordered="false" lowerBound="1" eType="ecore:EClass ../../../plugin/de.uka.ipd.sdq.pcm/model/pcm.ecore#//core/stochastics/RandomVariable"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ActualAllocation">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="actualAllocationContexts_ActualAllocation"
+          ordered="false" upperBound="-1" eType="#//allocation/ActualAllocationContext"
+          containment="true"/>
     </eClassifiers>
   </eSubpackages>
 </ecore:EPackage>

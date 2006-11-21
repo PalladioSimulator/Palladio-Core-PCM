@@ -7,7 +7,7 @@
 package de.uka.ipd.sdq.context.usage.provider;
 
 
-import de.uka.ipd.sdq.context.usage.UsageContext;
+import de.uka.ipd.sdq.context.usage.Usage;
 import de.uka.ipd.sdq.context.usage.UsageFactory;
 import de.uka.ipd.sdq.context.usage.UsagePackage;
 
@@ -19,8 +19,6 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
 
-import org.eclipse.emf.ecore.EStructuralFeature;
-
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
@@ -30,12 +28,12 @@ import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link de.uka.ipd.sdq.context.usage.UsageContext} object.
+ * This is the item provider adapter for a {@link de.uka.ipd.sdq.context.usage.Usage} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class UsageContextItemProvider
+public class UsageItemProvider
 	extends ItemProviderAdapter
 	implements	
 		IEditingDomainItemProvider,	
@@ -56,7 +54,7 @@ public class UsageContextItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public UsageContextItemProvider(AdapterFactory adapterFactory) {
+	public UsageItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -85,33 +83,19 @@ public class UsageContextItemProvider
 	public Collection getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(UsagePackage.Literals.USAGE_CONTEXT__BRANCHPROBABILITIES_USAGE_CONTEXT);
-			childrenFeatures.add(UsagePackage.Literals.USAGE_CONTEXT__LOOPITERATIONS_USAGE_CONTEXT);
-			childrenFeatures.add(UsagePackage.Literals.USAGE_CONTEXT__ACTUAL_PARAMETER_USAGE_USAGE_CONTEXT);
+			childrenFeatures.add(UsagePackage.Literals.USAGE__USAGE_CONTEXTS_USAGE);
 		}
 		return childrenFeatures;
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected EStructuralFeature getChildFeature(Object object, Object child) {
-		// Check the type of the specified child object and return the proper feature to use for
-		// adding (see {@link AddCommand}) it as a child.
-
-		return super.getChildFeature(object, child);
-	}
-
-	/**
-	 * This returns UsageContext.gif.
+	 * This returns Usage.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/UsageContext"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/Usage"));
 	}
 
 	/**
@@ -121,7 +105,7 @@ public class UsageContextItemProvider
 	 * @generated
 	 */
 	public String getText(Object object) {
-		return getString("_UI_UsageContext_type");
+		return getString("_UI_Usage_type");
 	}
 
 	/**
@@ -134,10 +118,8 @@ public class UsageContextItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(UsageContext.class)) {
-			case UsagePackage.USAGE_CONTEXT__BRANCHPROBABILITIES_USAGE_CONTEXT:
-			case UsagePackage.USAGE_CONTEXT__LOOPITERATIONS_USAGE_CONTEXT:
-			case UsagePackage.USAGE_CONTEXT__ACTUAL_PARAMETER_USAGE_USAGE_CONTEXT:
+		switch (notification.getFeatureID(Usage.class)) {
+			case UsagePackage.USAGE__USAGE_CONTEXTS_USAGE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -156,13 +138,8 @@ public class UsageContextItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(UsagePackage.Literals.USAGE_CONTEXT__BRANCHPROBABILITIES_USAGE_CONTEXT,
-				 UsageFactory.eINSTANCE.createBranchProbability()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(UsagePackage.Literals.USAGE_CONTEXT__LOOPITERATIONS_USAGE_CONTEXT,
-				 UsageFactory.eINSTANCE.createLoopIteration()));
+				(UsagePackage.Literals.USAGE__USAGE_CONTEXTS_USAGE,
+				 UsageFactory.eINSTANCE.createUsageContext()));
 	}
 
 	/**
