@@ -215,7 +215,7 @@ parameter_id : STRING_LITERAL | INNER^ LESS! STRING_LITERAL GREATER!;
  
 {@SuppressWarnings({"unused"})}
 class StochasticExpressionsLexer extends Lexer;
-options { k = 2; }
+options { k = 9; }
 
 PLUS  : '+' ;
 MINUS : '-' ;

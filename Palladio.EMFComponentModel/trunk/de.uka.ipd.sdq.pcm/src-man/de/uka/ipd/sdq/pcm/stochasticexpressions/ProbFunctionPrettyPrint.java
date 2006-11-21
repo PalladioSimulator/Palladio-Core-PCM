@@ -22,7 +22,7 @@ public class ProbFunctionPrettyPrint extends ProbfunctionSwitch {
 			sampleString += " (" + s.getValue() + "; " + s.getProbability()
 					+ ")";
 		}
-		return "DoublePDF[" + sampleString + " ]";
+		return "DoublePDF"+ "(unit=\""+object.getUnit().getUnitName() + "\")[" + sampleString + " ]";
 	}
 
 	/*

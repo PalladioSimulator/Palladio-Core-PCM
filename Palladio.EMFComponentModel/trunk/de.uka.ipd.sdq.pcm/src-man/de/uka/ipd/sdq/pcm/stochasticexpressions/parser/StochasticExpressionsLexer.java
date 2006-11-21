@@ -149,28 +149,36 @@ tryAgain:
 					break;
 				}
 				default:
-					if ((LA(1)=='I') && (LA(2)=='n')) {
-						mINT_DEF(true);
-						theRetToken=_returnToken;
-					}
-					else if ((LA(1)=='D') && (LA(2)=='o')) {
+					if ((LA(1)=='D') && (LA(2)=='o') && (LA(3)=='u') && (LA(4)=='b') && (LA(5)=='l') && (LA(6)=='e') && (LA(7)=='P') && (LA(8)=='M') && (LA(9)=='F')) {
 						mREAL_DEF(true);
 						theRetToken=_returnToken;
 					}
-					else if ((LA(1)=='E') && (LA(2)=='n')) {
-						mENUM_DEF(true);
-						theRetToken=_returnToken;
-					}
-					else if ((LA(1)=='D') && (LA(2)=='o')) {
+					else if ((LA(1)=='D') && (LA(2)=='o') && (LA(3)=='u') && (LA(4)=='b') && (LA(5)=='l') && (LA(6)=='e') && (LA(7)=='P') && (LA(8)=='D') && (LA(9)=='F')) {
 						mREAL_PDF(true);
 						theRetToken=_returnToken;
 					}
-					else if ((LA(1)=='u') && (LA(2)=='n')) {
+					else if ((LA(1)=='E') && (LA(2)=='n') && (LA(3)=='u') && (LA(4)=='m') && (LA(5)=='P') && (LA(6)=='M') && (LA(7)=='F') && (true) && (true)) {
+						mENUM_DEF(true);
+						theRetToken=_returnToken;
+					}
+					else if ((LA(1)=='o') && (LA(2)=='r') && (LA(3)=='d') && (LA(4)=='e') && (LA(5)=='r') && (LA(6)=='e') && (LA(7)=='d') && (true) && (true)) {
+						mORDERED_DEF(true);
+						theRetToken=_returnToken;
+					}
+					else if ((LA(1)=='I') && (LA(2)=='n') && (LA(3)=='t') && (LA(4)=='P') && (LA(5)=='M') && (LA(6)=='F') && (true) && (true) && (true)) {
+						mINT_DEF(true);
+						theRetToken=_returnToken;
+					}
+					else if ((LA(1)=='i') && (LA(2)=='n') && (LA(3)=='n') && (LA(4)=='e') && (LA(5)=='r') && (true) && (true) && (true) && (true)) {
+						mINNER(true);
+						theRetToken=_returnToken;
+					}
+					else if ((LA(1)=='u') && (LA(2)=='n') && (LA(3)=='i') && (LA(4)=='t') && (true) && (true) && (true) && (true) && (true)) {
 						mUNIT_DEF(true);
 						theRetToken=_returnToken;
 					}
-					else if ((LA(1)=='o') && (LA(2)=='r')) {
-						mORDERED_DEF(true);
+					else if ((LA(1)=='m'||LA(1)=='p') && (LA(2)=='e'||LA(2)=='r') && (LA(3)=='a'||LA(3)=='o') && (LA(4)=='b'||LA(4)=='n') && (true) && (true) && (true) && (true) && (true)) {
+						mFUNCTION_DEF(true);
 						theRetToken=_returnToken;
 					}
 					else if ((LA(1)=='<') && (LA(2)=='>')) {
@@ -185,14 +193,6 @@ tryAgain:
 						mLESSEQUAL(true);
 						theRetToken=_returnToken;
 					}
-					else if ((LA(1)=='i') && (LA(2)=='n')) {
-						mINNER(true);
-						theRetToken=_returnToken;
-					}
-					else if ((LA(1)=='m'||LA(1)=='p') && (LA(2)=='e'||LA(2)=='r')) {
-						mFUNCTION_DEF(true);
-						theRetToken=_returnToken;
-					}
 					else if ((LA(1)=='>') && (true)) {
 						mGREATER(true);
 						theRetToken=_returnToken;
@@ -201,7 +201,7 @@ tryAgain:
 						mLESS(true);
 						theRetToken=_returnToken;
 					}
-					else if ((_tokenSet_0.member(LA(1))) && (true)) {
+					else if ((_tokenSet_0.member(LA(1))) && (true) && (true) && (true) && (true) && (true) && (true) && (true) && (true)) {
 						mID(true);
 						theRetToken=_returnToken;
 					}
@@ -484,34 +484,34 @@ tryAgain:
 		int _saveIndex;
 		
 		{
-		int _cnt58=0;
-		_loop58:
+		int _cnt310=0;
+		_loop310:
 		do {
 			if (((LA(1) >= '0' && LA(1) <= '9'))) {
 				mDIGIT(false);
 			}
 			else {
-				if ( _cnt58>=1 ) { break _loop58; } else {throw new NoViableAltForCharException((char)LA(1), getFilename(), getLine(), getColumn());}
+				if ( _cnt310>=1 ) { break _loop310; } else {throw new NoViableAltForCharException((char)LA(1), getFilename(), getLine(), getColumn());}
 			}
 			
-			_cnt58++;
+			_cnt310++;
 		} while (true);
 		}
 		{
 		if ((LA(1)=='.')) {
 			match('.');
 			{
-			int _cnt61=0;
-			_loop61:
+			int _cnt313=0;
+			_loop313:
 			do {
 				if (((LA(1) >= '0' && LA(1) <= '9'))) {
 					mDIGIT(false);
 				}
 				else {
-					if ( _cnt61>=1 ) { break _loop61; } else {throw new NoViableAltForCharException((char)LA(1), getFilename(), getLine(), getColumn());}
+					if ( _cnt313>=1 ) { break _loop313; } else {throw new NoViableAltForCharException((char)LA(1), getFilename(), getLine(), getColumn());}
 				}
 				
-				_cnt61++;
+				_cnt313++;
 			} while (true);
 			}
 		}
@@ -638,8 +638,8 @@ tryAgain:
 		
 		match("\"");
 		{
-		int _cnt70=0;
-		_loop70:
+		int _cnt322=0;
+		_loop322:
 		do {
 			switch ( LA(1)) {
 			case 'A':  case 'B':  case 'C':  case 'D':
@@ -666,10 +666,10 @@ tryAgain:
 			}
 			default:
 			{
-				if ( _cnt70>=1 ) { break _loop70; } else {throw new NoViableAltForCharException((char)LA(1), getFilename(), getLine(), getColumn());}
+				if ( _cnt322>=1 ) { break _loop322; } else {throw new NoViableAltForCharException((char)LA(1), getFilename(), getLine(), getColumn());}
 			}
 			}
-			_cnt70++;
+			_cnt322++;
 		} while (true);
 		}
 		match("\"");
@@ -699,8 +699,8 @@ tryAgain:
 		int _saveIndex;
 		
 		{
-		int _cnt74=0;
-		_loop74:
+		int _cnt326=0;
+		_loop326:
 		do {
 			switch ( LA(1)) {
 			case 'A':  case 'B':  case 'C':  case 'D':
@@ -727,20 +727,20 @@ tryAgain:
 			}
 			default:
 			{
-				if ( _cnt74>=1 ) { break _loop74; } else {throw new NoViableAltForCharException((char)LA(1), getFilename(), getLine(), getColumn());}
+				if ( _cnt326>=1 ) { break _loop326; } else {throw new NoViableAltForCharException((char)LA(1), getFilename(), getLine(), getColumn());}
 			}
 			}
-			_cnt74++;
+			_cnt326++;
 		} while (true);
 		}
 		{
-		_loop78:
+		_loop330:
 		do {
 			if ((LA(1)=='.')) {
 				match('.');
 				{
-				int _cnt77=0;
-				_loop77:
+				int _cnt329=0;
+				_loop329:
 				do {
 					switch ( LA(1)) {
 					case 'A':  case 'B':  case 'C':  case 'D':
@@ -767,15 +767,15 @@ tryAgain:
 					}
 					default:
 					{
-						if ( _cnt77>=1 ) { break _loop77; } else {throw new NoViableAltForCharException((char)LA(1), getFilename(), getLine(), getColumn());}
+						if ( _cnt329>=1 ) { break _loop329; } else {throw new NoViableAltForCharException((char)LA(1), getFilename(), getLine(), getColumn());}
 					}
 					}
-					_cnt77++;
+					_cnt329++;
 				} while (true);
 				}
 			}
 			else {
-				break _loop78;
+				break _loop330;
 			}
 			
 		} while (true);
