@@ -11,21 +11,21 @@ import de.uka.ipd.sdq.pcm.core.stochastics.RandomVariable;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Characterisation</b></em>'.
+ * A representation of the model object '<em><b>Variable Characterisation</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link de.uka.ipd.sdq.pcm.parameter.ParameterCharacterisation#getType <em>Type</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.parameter.VariableCharacterisation#getType <em>Type</em>}</li>
  * </ul>
  * </p>
  *
- * @see de.uka.ipd.sdq.pcm.parameter.ParameterPackage#getParameterCharacterisation()
+ * @see de.uka.ipd.sdq.pcm.parameter.ParameterPackage#getVariableCharacterisation()
  * @model
  * @generated
  */
-public interface ParameterCharacterisation extends RandomVariable {
+public interface VariableCharacterisation extends RandomVariable {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -35,7 +35,7 @@ public interface ParameterCharacterisation extends RandomVariable {
 
 	/**
 	 * Returns the value of the '<em><b>Type</b></em>' attribute.
-	 * The literals are from the enumeration {@link de.uka.ipd.sdq.pcm.parameter.ParameterCharacterisationType}.
+	 * The literals are from the enumeration {@link de.uka.ipd.sdq.pcm.parameter.VariableCharacterisationType}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Type</em>' attribute isn't clear,
@@ -43,23 +43,23 @@ public interface ParameterCharacterisation extends RandomVariable {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Type</em>' attribute.
-	 * @see de.uka.ipd.sdq.pcm.parameter.ParameterCharacterisationType
-	 * @see #setType(ParameterCharacterisationType)
-	 * @see de.uka.ipd.sdq.pcm.parameter.ParameterPackage#getParameterCharacterisation_Type()
+	 * @see de.uka.ipd.sdq.pcm.parameter.VariableCharacterisationType
+	 * @see #setType(VariableCharacterisationType)
+	 * @see de.uka.ipd.sdq.pcm.parameter.ParameterPackage#getVariableCharacterisation_Type()
 	 * @model required="true" ordered="false"
 	 * @generated
 	 */
-	ParameterCharacterisationType getType();
+	VariableCharacterisationType getType();
 
 	/**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.parameter.ParameterCharacterisation#getType <em>Type</em>}' attribute.
+	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.parameter.VariableCharacterisation#getType <em>Type</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Type</em>' attribute.
-	 * @see de.uka.ipd.sdq.pcm.parameter.ParameterCharacterisationType
+	 * @see de.uka.ipd.sdq.pcm.parameter.VariableCharacterisationType
 	 * @see #getType()
 	 * @generated
 	 */
-	void setType(ParameterCharacterisationType value);
+	void setType(VariableCharacterisationType value);
 
-} // ParameterCharacterisation
+} // VariableCharacterisation

@@ -64,7 +64,7 @@ public interface ExternalCallAction extends AbstractAction {
 
 	/**
 	 * Returns the value of the '<em><b>Parameter Usage External Call Action</b></em>' containment reference list.
-	 * The list contents are of type {@link de.uka.ipd.sdq.pcm.parameter.ParameterUsage}.
+	 * The list contents are of type {@link de.uka.ipd.sdq.pcm.parameter.VariableUsage}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Parameter Usage External Call Action</em>' containment reference list isn't clear,
@@ -73,7 +73,7 @@ public interface ExternalCallAction extends AbstractAction {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Parameter Usage External Call Action</em>' containment reference list.
 	 * @see de.uka.ipd.sdq.pcm.seff.SeffPackage#getExternalCallAction_ParameterUsage_ExternalCallAction()
-	 * @model type="de.uka.ipd.sdq.pcm.parameter.ParameterUsage" containment="true" ordered="false"
+	 * @model type="de.uka.ipd.sdq.pcm.parameter.VariableUsage" containment="true" ordered="false"
 	 * @generated
 	 */
 	EList getParameterUsage_ExternalCallAction();

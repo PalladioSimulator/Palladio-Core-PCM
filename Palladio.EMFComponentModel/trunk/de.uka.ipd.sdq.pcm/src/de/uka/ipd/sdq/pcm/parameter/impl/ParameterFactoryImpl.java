@@ -12,18 +12,10 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-import org.eclipse.emf.ecore.impl.EFactoryImpl;
-import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
-import de.uka.ipd.sdq.pcm.parameter.CollectionParameterCharacterisation;
-import de.uka.ipd.sdq.pcm.parameter.CollectionParameterCharacterisationType;
-import de.uka.ipd.sdq.pcm.parameter.CollectionParameterUsage;
-import de.uka.ipd.sdq.pcm.parameter.CompositeParameterUsage;
-import de.uka.ipd.sdq.pcm.parameter.ParameterCharacterisation;
-import de.uka.ipd.sdq.pcm.parameter.ParameterCharacterisationType;
-import de.uka.ipd.sdq.pcm.parameter.ParameterFactory;
-import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
-import de.uka.ipd.sdq.pcm.parameter.PrimitiveParameterUsage;
+import org.eclipse.emf.ecore.impl.EFactoryImpl;
+
+import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
 /**
  * <!-- begin-user-doc -->
@@ -75,11 +67,9 @@ public class ParameterFactoryImpl extends EFactoryImpl implements ParameterFacto
 	 */
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case ParameterPackage.PARAMETER_CHARACTERISATION: return createParameterCharacterisation();
-			case ParameterPackage.COMPOSITE_PARAMETER_USAGE: return createCompositeParameterUsage();
-			case ParameterPackage.COLLECTION_PARAMETER_USAGE: return createCollectionParameterUsage();
-			case ParameterPackage.COLLECTION_PARAMETER_CHARACTERISATION: return createCollectionParameterCharacterisation();
-			case ParameterPackage.PRIMITIVE_PARAMETER_USAGE: return createPrimitiveParameterUsage();
+			case ParameterPackage.VARIABLE_CHARACTERISATION: return createVariableCharacterisation();
+			case ParameterPackage.NAMESPACE_REFERENCE: return createNamespaceReference();
+			case ParameterPackage.VARIABLE_REFERENCE: return createVariableReference();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -92,10 +82,8 @@ public class ParameterFactoryImpl extends EFactoryImpl implements ParameterFacto
 	 */
 	public Object createFromString(EDataType eDataType, String initialValue) {
 		switch (eDataType.getClassifierID()) {
-			case ParameterPackage.PARAMETER_CHARACTERISATION_TYPE:
-				return createParameterCharacterisationTypeFromString(eDataType, initialValue);
-			case ParameterPackage.COLLECTION_PARAMETER_CHARACTERISATION_TYPE:
-				return createCollectionParameterCharacterisationTypeFromString(eDataType, initialValue);
+			case ParameterPackage.VARIABLE_CHARACTERISATION_TYPE:
+				return createVariableCharacterisationTypeFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -108,10 +96,8 @@ public class ParameterFactoryImpl extends EFactoryImpl implements ParameterFacto
 	 */
 	public String convertToString(EDataType eDataType, Object instanceValue) {
 		switch (eDataType.getClassifierID()) {
-			case ParameterPackage.PARAMETER_CHARACTERISATION_TYPE:
-				return convertParameterCharacterisationTypeToString(eDataType, instanceValue);
-			case ParameterPackage.COLLECTION_PARAMETER_CHARACTERISATION_TYPE:
-				return convertCollectionParameterCharacterisationTypeToString(eDataType, instanceValue);
+			case ParameterPackage.VARIABLE_CHARACTERISATION_TYPE:
+				return convertVariableCharacterisationTypeToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -122,9 +108,9 @@ public class ParameterFactoryImpl extends EFactoryImpl implements ParameterFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ParameterCharacterisation createParameterCharacterisation() {
-		ParameterCharacterisationImpl parameterCharacterisation = new ParameterCharacterisationImpl();
-		return parameterCharacterisation;
+	public VariableCharacterisation createVariableCharacterisation() {
+		VariableCharacterisationImpl variableCharacterisation = new VariableCharacterisationImpl();
+		return variableCharacterisation;
 	}
 
 	/**
@@ -132,9 +118,9 @@ public class ParameterFactoryImpl extends EFactoryImpl implements ParameterFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CompositeParameterUsage createCompositeParameterUsage() {
-		CompositeParameterUsageImpl compositeParameterUsage = new CompositeParameterUsageImpl();
-		return compositeParameterUsage;
+	public NamespaceReference createNamespaceReference() {
+		NamespaceReferenceImpl namespaceReference = new NamespaceReferenceImpl();
+		return namespaceReference;
 	}
 
 	/**
@@ -142,9 +128,9 @@ public class ParameterFactoryImpl extends EFactoryImpl implements ParameterFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CollectionParameterUsage createCollectionParameterUsage() {
-		CollectionParameterUsageImpl collectionParameterUsage = new CollectionParameterUsageImpl();
-		return collectionParameterUsage;
+	public VariableReference createVariableReference() {
+		VariableReferenceImpl variableReference = new VariableReferenceImpl();
+		return variableReference;
 	}
 
 	/**
@@ -152,28 +138,8 @@ public class ParameterFactoryImpl extends EFactoryImpl implements ParameterFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CollectionParameterCharacterisation createCollectionParameterCharacterisation() {
-		CollectionParameterCharacterisationImpl collectionParameterCharacterisation = new CollectionParameterCharacterisationImpl();
-		return collectionParameterCharacterisation;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public PrimitiveParameterUsage createPrimitiveParameterUsage() {
-		PrimitiveParameterUsageImpl primitiveParameterUsage = new PrimitiveParameterUsageImpl();
-		return primitiveParameterUsage;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ParameterCharacterisationType createParameterCharacterisationTypeFromString(EDataType eDataType, String initialValue) {
-		ParameterCharacterisationType result = ParameterCharacterisationType.get(initialValue);
+	public VariableCharacterisationType createVariableCharacterisationTypeFromString(EDataType eDataType, String initialValue) {
+		VariableCharacterisationType result = VariableCharacterisationType.get(initialValue);
 		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
 		return result;
 	}
@@ -183,27 +149,7 @@ public class ParameterFactoryImpl extends EFactoryImpl implements ParameterFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String convertParameterCharacterisationTypeToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public CollectionParameterCharacterisationType createCollectionParameterCharacterisationTypeFromString(EDataType eDataType, String initialValue) {
-		CollectionParameterCharacterisationType result = CollectionParameterCharacterisationType.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertCollectionParameterCharacterisationTypeToString(EDataType eDataType, Object instanceValue) {
+	public String convertVariableCharacterisationTypeToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

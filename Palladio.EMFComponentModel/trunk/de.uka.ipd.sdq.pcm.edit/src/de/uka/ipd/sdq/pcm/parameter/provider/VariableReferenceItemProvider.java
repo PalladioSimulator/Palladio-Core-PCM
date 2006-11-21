@@ -7,34 +7,32 @@
 package de.uka.ipd.sdq.pcm.parameter.provider;
 
 
+import de.uka.ipd.sdq.pcm.core.stochastics.provider.PcmEditPlugin;
+
+import de.uka.ipd.sdq.pcm.parameter.VariableReference;
+
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.common.util.ResourceLocator;
-import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
+
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ViewerNotification;
-
-import de.uka.ipd.sdq.pcm.core.stochastics.provider.PcmEditPlugin;
-import de.uka.ipd.sdq.pcm.core.stochastics.provider.RandomVariableItemProvider;
-import de.uka.ipd.sdq.pcm.parameter.ParameterCharacterisation;
-import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
 
 /**
- * This is the item provider adapter for a {@link de.uka.ipd.sdq.pcm.parameter.ParameterCharacterisation} object.
+ * This is the item provider adapter for a {@link de.uka.ipd.sdq.pcm.parameter.VariableReference} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class ParameterCharacterisationItemProvider
-	extends RandomVariableItemProvider
+public class VariableReferenceItemProvider
+	extends AbstractNamedReferenceItemProvider
 	implements	
 		IEditingDomainItemProvider,	
 		IStructuredItemContentProvider,	
@@ -54,7 +52,7 @@ public class ParameterCharacterisationItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ParameterCharacterisationItemProvider(AdapterFactory adapterFactory) {
+	public VariableReferenceItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -68,41 +66,18 @@ public class ParameterCharacterisationItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addTypePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Type feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addTypePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_ParameterCharacterisation_type_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ParameterCharacterisation_type_feature", "_UI_ParameterCharacterisation_type"),
-				 ParameterPackage.Literals.PARAMETER_CHARACTERISATION__TYPE,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This returns ParameterCharacterisation.gif.
+	 * This returns VariableReference.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/ParameterCharacterisation"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/VariableReference"));
 	}
 
 	/**
@@ -112,10 +87,10 @@ public class ParameterCharacterisationItemProvider
 	 * @generated
 	 */
 	public String getText(Object object) {
-		String label = ((ParameterCharacterisation)object).getSpecification();
+		String label = ((VariableReference)object).getReferenceName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_ParameterCharacterisation_type") :
-			getString("_UI_ParameterCharacterisation_type") + " " + label;
+			getString("_UI_VariableReference_type") :
+			getString("_UI_VariableReference_type") + " " + label;
 	}
 
 	/**
@@ -127,12 +102,6 @@ public class ParameterCharacterisationItemProvider
 	 */
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
-
-		switch (notification.getFeatureID(ParameterCharacterisation.class)) {
-			case ParameterPackage.PARAMETER_CHARACTERISATION__TYPE:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
-		}
 		super.notifyChanged(notification);
 	}
 

@@ -33,49 +33,31 @@ public interface ParameterFactory extends EFactory {
 	ParameterFactory eINSTANCE = de.uka.ipd.sdq.pcm.parameter.impl.ParameterFactoryImpl.init();
 
 	/**
-	 * Returns a new object of class '<em>Characterisation</em>'.
+	 * Returns a new object of class '<em>Variable Characterisation</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Characterisation</em>'.
+	 * @return a new object of class '<em>Variable Characterisation</em>'.
 	 * @generated
 	 */
-	ParameterCharacterisation createParameterCharacterisation();
+	VariableCharacterisation createVariableCharacterisation();
 
 	/**
-	 * Returns a new object of class '<em>Composite Parameter Usage</em>'.
+	 * Returns a new object of class '<em>Namespace Reference</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Composite Parameter Usage</em>'.
+	 * @return a new object of class '<em>Namespace Reference</em>'.
 	 * @generated
 	 */
-	CompositeParameterUsage createCompositeParameterUsage();
+	NamespaceReference createNamespaceReference();
 
 	/**
-	 * Returns a new object of class '<em>Collection Parameter Usage</em>'.
+	 * Returns a new object of class '<em>Variable Reference</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Collection Parameter Usage</em>'.
+	 * @return a new object of class '<em>Variable Reference</em>'.
 	 * @generated
 	 */
-	CollectionParameterUsage createCollectionParameterUsage();
-
-	/**
-	 * Returns a new object of class '<em>Collection Parameter Characterisation</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Collection Parameter Characterisation</em>'.
-	 * @generated
-	 */
-	CollectionParameterCharacterisation createCollectionParameterCharacterisation();
-
-	/**
-	 * Returns a new object of class '<em>Primitive Parameter Usage</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Primitive Parameter Usage</em>'.
-	 * @generated
-	 */
-	PrimitiveParameterUsage createPrimitiveParameterUsage();
+	VariableReference createVariableReference();
 
 	/**
 	 * Returns the package supported by this factory.

@@ -7,29 +7,32 @@
  */
 package de.uka.ipd.sdq.pcm.parameter.impl;
 
-import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
 import de.uka.ipd.sdq.pcm.core.stochastics.impl.RandomVariableImpl;
-import de.uka.ipd.sdq.pcm.parameter.CollectionParameterCharacterisation;
-import de.uka.ipd.sdq.pcm.parameter.CollectionParameterCharacterisationType;
+
 import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
+import de.uka.ipd.sdq.pcm.parameter.VariableCharacterisation;
+import de.uka.ipd.sdq.pcm.parameter.VariableCharacterisationType;
+
+import org.eclipse.emf.common.notify.Notification;
+
+import org.eclipse.emf.ecore.EClass;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Collection Parameter Characterisation</b></em>'.
+ * An implementation of the model object '<em><b>Variable Characterisation</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link de.uka.ipd.sdq.pcm.parameter.impl.CollectionParameterCharacterisationImpl#getType <em>Type</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.parameter.impl.VariableCharacterisationImpl#getType <em>Type</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class CollectionParameterCharacterisationImpl extends RandomVariableImpl implements CollectionParameterCharacterisation {
+public class VariableCharacterisationImpl extends RandomVariableImpl implements VariableCharacterisation {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -45,8 +48,7 @@ public class CollectionParameterCharacterisationImpl extends RandomVariableImpl 
 	 * @generated
 	 * @ordered
 	 */
-	protected static final CollectionParameterCharacterisationType TYPE_EDEFAULT = CollectionParameterCharacterisationType.NUMBER_OF_ELEMENTS_LITERAL;
-
+	protected static final VariableCharacterisationType TYPE_EDEFAULT = VariableCharacterisationType.STRUCTURE_LITERAL;
 
 	/**
 	 * The cached value of the '{@link #getType() <em>Type</em>}' attribute.
@@ -56,7 +58,7 @@ public class CollectionParameterCharacterisationImpl extends RandomVariableImpl 
 	 * @generated
 	 * @ordered
 	 */
-	protected CollectionParameterCharacterisationType type = TYPE_EDEFAULT;
+	protected VariableCharacterisationType type = TYPE_EDEFAULT;
 
 
 	/**
@@ -64,7 +66,7 @@ public class CollectionParameterCharacterisationImpl extends RandomVariableImpl 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected CollectionParameterCharacterisationImpl() {
+	protected VariableCharacterisationImpl() {
 		super();
 	}
 
@@ -74,7 +76,7 @@ public class CollectionParameterCharacterisationImpl extends RandomVariableImpl 
 	 * @generated
 	 */
 	protected EClass eStaticClass() {
-		return ParameterPackage.Literals.COLLECTION_PARAMETER_CHARACTERISATION;
+		return ParameterPackage.Literals.VARIABLE_CHARACTERISATION;
 	}
 
 	/**
@@ -82,7 +84,7 @@ public class CollectionParameterCharacterisationImpl extends RandomVariableImpl 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CollectionParameterCharacterisationType getType() {
+	public VariableCharacterisationType getType() {
 		return type;
 	}
 
@@ -91,11 +93,11 @@ public class CollectionParameterCharacterisationImpl extends RandomVariableImpl 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setType(CollectionParameterCharacterisationType newType) {
-		CollectionParameterCharacterisationType oldType = type;
+	public void setType(VariableCharacterisationType newType) {
+		VariableCharacterisationType oldType = type;
 		type = newType == null ? TYPE_EDEFAULT : newType;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ParameterPackage.COLLECTION_PARAMETER_CHARACTERISATION__TYPE, oldType, type));
+			eNotify(new ENotificationImpl(this, Notification.SET, ParameterPackage.VARIABLE_CHARACTERISATION__TYPE, oldType, type));
 	}
 
 	/**
@@ -105,7 +107,7 @@ public class CollectionParameterCharacterisationImpl extends RandomVariableImpl 
 	 */
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ParameterPackage.COLLECTION_PARAMETER_CHARACTERISATION__TYPE:
+			case ParameterPackage.VARIABLE_CHARACTERISATION__TYPE:
 				return getType();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -118,8 +120,8 @@ public class CollectionParameterCharacterisationImpl extends RandomVariableImpl 
 	 */
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ParameterPackage.COLLECTION_PARAMETER_CHARACTERISATION__TYPE:
-				setType((CollectionParameterCharacterisationType)newValue);
+			case ParameterPackage.VARIABLE_CHARACTERISATION__TYPE:
+				setType((VariableCharacterisationType)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -132,7 +134,7 @@ public class CollectionParameterCharacterisationImpl extends RandomVariableImpl 
 	 */
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ParameterPackage.COLLECTION_PARAMETER_CHARACTERISATION__TYPE:
+			case ParameterPackage.VARIABLE_CHARACTERISATION__TYPE:
 				setType(TYPE_EDEFAULT);
 				return;
 		}
@@ -146,7 +148,7 @@ public class CollectionParameterCharacterisationImpl extends RandomVariableImpl 
 	 */
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ParameterPackage.COLLECTION_PARAMETER_CHARACTERISATION__TYPE:
+			case ParameterPackage.VARIABLE_CHARACTERISATION__TYPE:
 				return type != TYPE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
@@ -167,4 +169,4 @@ public class CollectionParameterCharacterisationImpl extends RandomVariableImpl 
 		return result.toString();
 	}
 
-} //CollectionParameterCharacterisationImpl
+} //VariableCharacterisationImpl

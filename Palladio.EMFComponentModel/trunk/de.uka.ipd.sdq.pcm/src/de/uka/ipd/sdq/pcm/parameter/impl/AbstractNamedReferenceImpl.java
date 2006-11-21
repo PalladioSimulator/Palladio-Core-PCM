@@ -7,29 +7,30 @@
  */
 package de.uka.ipd.sdq.pcm.parameter.impl;
 
-import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
-import de.uka.ipd.sdq.pcm.core.stochastics.impl.RandomVariableImpl;
-import de.uka.ipd.sdq.pcm.parameter.ParameterCharacterisation;
-import de.uka.ipd.sdq.pcm.parameter.ParameterCharacterisationType;
+import de.uka.ipd.sdq.pcm.parameter.AbstractNamedReference;
 import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
+
+import org.eclipse.emf.common.notify.Notification;
+
+import org.eclipse.emf.ecore.EClass;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.EObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Characterisation</b></em>'.
+ * An implementation of the model object '<em><b>Abstract Named Reference</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link de.uka.ipd.sdq.pcm.parameter.impl.ParameterCharacterisationImpl#getType <em>Type</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.parameter.impl.AbstractNamedReferenceImpl#getReferenceName <em>Reference Name</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class ParameterCharacterisationImpl extends RandomVariableImpl implements ParameterCharacterisation {
+public abstract class AbstractNamedReferenceImpl extends EObjectImpl implements AbstractNamedReference {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -38,24 +39,24 @@ public class ParameterCharacterisationImpl extends RandomVariableImpl implements
 	public static final String copyright = "(c) by SDQ, IPD, U Karlsruhe (TH), 2006";
 
 	/**
-	 * The default value of the '{@link #getType() <em>Type</em>}' attribute.
+	 * The default value of the '{@link #getReferenceName() <em>Reference Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getType()
+	 * @see #getReferenceName()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final ParameterCharacterisationType TYPE_EDEFAULT = ParameterCharacterisationType.VALUE_LITERAL;
+	protected static final String REFERENCE_NAME_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getType() <em>Type</em>}' attribute.
+	 * The cached value of the '{@link #getReferenceName() <em>Reference Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getType()
+	 * @see #getReferenceName()
 	 * @generated
 	 * @ordered
 	 */
-	protected ParameterCharacterisationType type = TYPE_EDEFAULT;
+	protected String referenceName = REFERENCE_NAME_EDEFAULT;
 
 
 	/**
@@ -63,7 +64,7 @@ public class ParameterCharacterisationImpl extends RandomVariableImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ParameterCharacterisationImpl() {
+	protected AbstractNamedReferenceImpl() {
 		super();
 	}
 
@@ -73,7 +74,7 @@ public class ParameterCharacterisationImpl extends RandomVariableImpl implements
 	 * @generated
 	 */
 	protected EClass eStaticClass() {
-		return ParameterPackage.Literals.PARAMETER_CHARACTERISATION;
+		return ParameterPackage.Literals.ABSTRACT_NAMED_REFERENCE;
 	}
 
 	/**
@@ -81,8 +82,8 @@ public class ParameterCharacterisationImpl extends RandomVariableImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ParameterCharacterisationType getType() {
-		return type;
+	public String getReferenceName() {
+		return referenceName;
 	}
 
 	/**
@@ -90,11 +91,11 @@ public class ParameterCharacterisationImpl extends RandomVariableImpl implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setType(ParameterCharacterisationType newType) {
-		ParameterCharacterisationType oldType = type;
-		type = newType == null ? TYPE_EDEFAULT : newType;
+	public void setReferenceName(String newReferenceName) {
+		String oldReferenceName = referenceName;
+		referenceName = newReferenceName;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ParameterPackage.PARAMETER_CHARACTERISATION__TYPE, oldType, type));
+			eNotify(new ENotificationImpl(this, Notification.SET, ParameterPackage.ABSTRACT_NAMED_REFERENCE__REFERENCE_NAME, oldReferenceName, referenceName));
 	}
 
 	/**
@@ -104,8 +105,8 @@ public class ParameterCharacterisationImpl extends RandomVariableImpl implements
 	 */
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ParameterPackage.PARAMETER_CHARACTERISATION__TYPE:
-				return getType();
+			case ParameterPackage.ABSTRACT_NAMED_REFERENCE__REFERENCE_NAME:
+				return getReferenceName();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -117,8 +118,8 @@ public class ParameterCharacterisationImpl extends RandomVariableImpl implements
 	 */
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ParameterPackage.PARAMETER_CHARACTERISATION__TYPE:
-				setType((ParameterCharacterisationType)newValue);
+			case ParameterPackage.ABSTRACT_NAMED_REFERENCE__REFERENCE_NAME:
+				setReferenceName((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -131,8 +132,8 @@ public class ParameterCharacterisationImpl extends RandomVariableImpl implements
 	 */
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ParameterPackage.PARAMETER_CHARACTERISATION__TYPE:
-				setType(TYPE_EDEFAULT);
+			case ParameterPackage.ABSTRACT_NAMED_REFERENCE__REFERENCE_NAME:
+				setReferenceName(REFERENCE_NAME_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -145,8 +146,8 @@ public class ParameterCharacterisationImpl extends RandomVariableImpl implements
 	 */
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ParameterPackage.PARAMETER_CHARACTERISATION__TYPE:
-				return type != TYPE_EDEFAULT;
+			case ParameterPackage.ABSTRACT_NAMED_REFERENCE__REFERENCE_NAME:
+				return REFERENCE_NAME_EDEFAULT == null ? referenceName != null : !REFERENCE_NAME_EDEFAULT.equals(referenceName);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -160,10 +161,10 @@ public class ParameterCharacterisationImpl extends RandomVariableImpl implements
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (type: ");
-		result.append(type);
+		result.append(" (referenceName: ");
+		result.append(referenceName);
 		result.append(')');
 		return result.toString();
 	}
 
-} //ParameterCharacterisationImpl
+} //AbstractNamedReferenceImpl

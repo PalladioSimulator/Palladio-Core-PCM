@@ -6,13 +6,13 @@
  */
 package de.uka.ipd.sdq.pcm.parameter;
 
+import de.uka.ipd.sdq.pcm.core.stochastics.StochasticsPackage;
+
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
-
-import de.uka.ipd.sdq.pcm.core.stochastics.StochasticsPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -70,14 +70,14 @@ public interface ParameterPackage extends EPackage {
 	ParameterPackage eINSTANCE = de.uka.ipd.sdq.pcm.parameter.impl.ParameterPackageImpl.init();
 
 	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.parameter.impl.ParameterCharacterisationImpl <em>Characterisation</em>}' class.
+	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.parameter.impl.VariableCharacterisationImpl <em>Variable Characterisation</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.pcm.parameter.impl.ParameterCharacterisationImpl
-	 * @see de.uka.ipd.sdq.pcm.parameter.impl.ParameterPackageImpl#getParameterCharacterisation()
+	 * @see de.uka.ipd.sdq.pcm.parameter.impl.VariableCharacterisationImpl
+	 * @see de.uka.ipd.sdq.pcm.parameter.impl.ParameterPackageImpl#getVariableCharacterisation()
 	 * @generated
 	 */
-	int PARAMETER_CHARACTERISATION = 0;
+	int VARIABLE_CHARACTERISATION = 0;
 
 	/**
 	 * The feature id for the '<em><b>Specification</b></em>' attribute.
@@ -86,7 +86,7 @@ public interface ParameterPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_CHARACTERISATION__SPECIFICATION = StochasticsPackage.RANDOM_VARIABLE__SPECIFICATION;
+	int VARIABLE_CHARACTERISATION__SPECIFICATION = StochasticsPackage.RANDOM_VARIABLE__SPECIFICATION;
 
 	/**
 	 * The feature id for the '<em><b>Specification Random Variable</b></em>' reference.
@@ -95,7 +95,7 @@ public interface ParameterPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_CHARACTERISATION__SPECIFICATION_RANDOM_VARIABLE = StochasticsPackage.RANDOM_VARIABLE__SPECIFICATION_RANDOM_VARIABLE;
+	int VARIABLE_CHARACTERISATION__SPECIFICATION_RANDOM_VARIABLE = StochasticsPackage.RANDOM_VARIABLE__SPECIFICATION_RANDOM_VARIABLE;
 
 	/**
 	 * The feature id for the '<em><b>Type</b></em>' attribute.
@@ -104,414 +104,272 @@ public interface ParameterPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_CHARACTERISATION__TYPE = StochasticsPackage.RANDOM_VARIABLE_FEATURE_COUNT + 0;
+	int VARIABLE_CHARACTERISATION__TYPE = StochasticsPackage.RANDOM_VARIABLE_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of structural features of the '<em>Characterisation</em>' class.
+	 * The number of structural features of the '<em>Variable Characterisation</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_CHARACTERISATION_FEATURE_COUNT = StochasticsPackage.RANDOM_VARIABLE_FEATURE_COUNT + 1;
+	int VARIABLE_CHARACTERISATION_FEATURE_COUNT = StochasticsPackage.RANDOM_VARIABLE_FEATURE_COUNT + 1;
 
 	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.parameter.impl.ParameterUsageImpl <em>Usage</em>}' class.
+	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.parameter.impl.AbstractNamedReferenceImpl <em>Abstract Named Reference</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.pcm.parameter.impl.ParameterUsageImpl
-	 * @see de.uka.ipd.sdq.pcm.parameter.impl.ParameterPackageImpl#getParameterUsage()
+	 * @see de.uka.ipd.sdq.pcm.parameter.impl.AbstractNamedReferenceImpl
+	 * @see de.uka.ipd.sdq.pcm.parameter.impl.ParameterPackageImpl#getAbstractNamedReference()
 	 * @generated
 	 */
-	int PARAMETER_USAGE = 5;
+	int ABSTRACT_NAMED_REFERENCE = 1;
 
 	/**
-	 * The feature id for the '<em><b>Parameter Parameter Usage</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PARAMETER_USAGE__PARAMETER_PARAMETER_USAGE = 0;
-
-	/**
-	 * The feature id for the '<em><b>Parameter Characterisation Parameter Usage</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Reference Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_USAGE__PARAMETER_CHARACTERISATION_PARAMETER_USAGE = 1;
+	int ABSTRACT_NAMED_REFERENCE__REFERENCE_NAME = 0;
 
 	/**
-	 * The number of structural features of the '<em>Usage</em>' class.
+	 * The number of structural features of the '<em>Abstract Named Reference</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_USAGE_FEATURE_COUNT = 2;
+	int ABSTRACT_NAMED_REFERENCE_FEATURE_COUNT = 1;
 
 	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.parameter.impl.CompositeParameterUsageImpl <em>Composite Parameter Usage</em>}' class.
+	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.parameter.impl.NamespaceReferenceImpl <em>Namespace Reference</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.pcm.parameter.impl.CompositeParameterUsageImpl
-	 * @see de.uka.ipd.sdq.pcm.parameter.impl.ParameterPackageImpl#getCompositeParameterUsage()
+	 * @see de.uka.ipd.sdq.pcm.parameter.impl.NamespaceReferenceImpl
+	 * @see de.uka.ipd.sdq.pcm.parameter.impl.ParameterPackageImpl#getNamespaceReference()
 	 * @generated
 	 */
-	int COMPOSITE_PARAMETER_USAGE = 1;
+	int NAMESPACE_REFERENCE = 2;
 
 	/**
-	 * The feature id for the '<em><b>Parameter Parameter Usage</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPOSITE_PARAMETER_USAGE__PARAMETER_PARAMETER_USAGE = PARAMETER_USAGE__PARAMETER_PARAMETER_USAGE;
-
-	/**
-	 * The feature id for the '<em><b>Parameter Characterisation Parameter Usage</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Reference Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPOSITE_PARAMETER_USAGE__PARAMETER_CHARACTERISATION_PARAMETER_USAGE = PARAMETER_USAGE__PARAMETER_CHARACTERISATION_PARAMETER_USAGE;
+	int NAMESPACE_REFERENCE__REFERENCE_NAME = ABSTRACT_NAMED_REFERENCE__REFERENCE_NAME;
 
 	/**
-	 * The feature id for the '<em><b>Inner Parameters Parameter Usage</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Inner Reference Namespace Reference</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPOSITE_PARAMETER_USAGE__INNER_PARAMETERS_PARAMETER_USAGE = PARAMETER_USAGE_FEATURE_COUNT + 0;
+	int NAMESPACE_REFERENCE__INNER_REFERENCE_NAMESPACE_REFERENCE = ABSTRACT_NAMED_REFERENCE_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of structural features of the '<em>Composite Parameter Usage</em>' class.
+	 * The number of structural features of the '<em>Namespace Reference</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPOSITE_PARAMETER_USAGE_FEATURE_COUNT = PARAMETER_USAGE_FEATURE_COUNT + 1;
+	int NAMESPACE_REFERENCE_FEATURE_COUNT = ABSTRACT_NAMED_REFERENCE_FEATURE_COUNT + 1;
 
 	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.parameter.impl.CollectionParameterUsageImpl <em>Collection Parameter Usage</em>}' class.
+	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.parameter.impl.VariableReferenceImpl <em>Variable Reference</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.pcm.parameter.impl.CollectionParameterUsageImpl
-	 * @see de.uka.ipd.sdq.pcm.parameter.impl.ParameterPackageImpl#getCollectionParameterUsage()
+	 * @see de.uka.ipd.sdq.pcm.parameter.impl.VariableReferenceImpl
+	 * @see de.uka.ipd.sdq.pcm.parameter.impl.ParameterPackageImpl#getVariableReference()
 	 * @generated
 	 */
-	int COLLECTION_PARAMETER_USAGE = 2;
+	int VARIABLE_REFERENCE = 3;
 
 	/**
-	 * The feature id for the '<em><b>Parameter Parameter Usage</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COLLECTION_PARAMETER_USAGE__PARAMETER_PARAMETER_USAGE = PARAMETER_USAGE__PARAMETER_PARAMETER_USAGE;
-
-	/**
-	 * The feature id for the '<em><b>Parameter Characterisation Parameter Usage</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Reference Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COLLECTION_PARAMETER_USAGE__PARAMETER_CHARACTERISATION_PARAMETER_USAGE = PARAMETER_USAGE__PARAMETER_CHARACTERISATION_PARAMETER_USAGE;
+	int VARIABLE_REFERENCE__REFERENCE_NAME = ABSTRACT_NAMED_REFERENCE__REFERENCE_NAME;
 
 	/**
-	 * The feature id for the '<em><b>Inner Element Parameter Usage</b></em>' containment reference.
+	 * The number of structural features of the '<em>Variable Reference</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COLLECTION_PARAMETER_USAGE__INNER_ELEMENT_PARAMETER_USAGE = PARAMETER_USAGE_FEATURE_COUNT + 0;
+	int VARIABLE_REFERENCE_FEATURE_COUNT = ABSTRACT_NAMED_REFERENCE_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Parameter Characterisation Collection Parameter Usage</b></em>' containment reference list.
+	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.parameter.impl.VariableUsageImpl <em>Variable Usage</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.pcm.parameter.impl.VariableUsageImpl
+	 * @see de.uka.ipd.sdq.pcm.parameter.impl.ParameterPackageImpl#getVariableUsage()
+	 * @generated
+	 */
+	int VARIABLE_USAGE = 4;
+
+	/**
+	 * The feature id for the '<em><b>Variable Characterisation Variable Usage</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COLLECTION_PARAMETER_USAGE__PARAMETER_CHARACTERISATION_COLLECTION_PARAMETER_USAGE = PARAMETER_USAGE_FEATURE_COUNT + 1;
+	int VARIABLE_USAGE__VARIABLE_CHARACTERISATION_VARIABLE_USAGE = 0;
 
 	/**
-	 * The number of structural features of the '<em>Collection Parameter Usage</em>' class.
+	 * The feature id for the '<em><b>Named Reference Variable Usage</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COLLECTION_PARAMETER_USAGE_FEATURE_COUNT = PARAMETER_USAGE_FEATURE_COUNT + 2;
+	int VARIABLE_USAGE__NAMED_REFERENCE_VARIABLE_USAGE = 1;
 
 	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.parameter.impl.CollectionParameterCharacterisationImpl <em>Collection Parameter Characterisation</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.pcm.parameter.impl.CollectionParameterCharacterisationImpl
-	 * @see de.uka.ipd.sdq.pcm.parameter.impl.ParameterPackageImpl#getCollectionParameterCharacterisation()
-	 * @generated
-	 */
-	int COLLECTION_PARAMETER_CHARACTERISATION = 3;
-
-	/**
-	 * The feature id for the '<em><b>Specification</b></em>' attribute.
+	 * The number of structural features of the '<em>Variable Usage</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COLLECTION_PARAMETER_CHARACTERISATION__SPECIFICATION = StochasticsPackage.RANDOM_VARIABLE__SPECIFICATION;
+	int VARIABLE_USAGE_FEATURE_COUNT = 2;
 
 	/**
-	 * The feature id for the '<em><b>Specification Random Variable</b></em>' reference.
+	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.parameter.VariableCharacterisationType <em>Variable Characterisation Type</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.pcm.parameter.VariableCharacterisationType
+	 * @see de.uka.ipd.sdq.pcm.parameter.impl.ParameterPackageImpl#getVariableCharacterisationType()
 	 * @generated
-	 * @ordered
 	 */
-	int COLLECTION_PARAMETER_CHARACTERISATION__SPECIFICATION_RANDOM_VARIABLE = StochasticsPackage.RANDOM_VARIABLE__SPECIFICATION_RANDOM_VARIABLE;
+	int VARIABLE_CHARACTERISATION_TYPE = 5;
+
 
 	/**
-	 * The feature id for the '<em><b>Type</b></em>' attribute.
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.parameter.VariableCharacterisation <em>Variable Characterisation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COLLECTION_PARAMETER_CHARACTERISATION__TYPE = StochasticsPackage.RANDOM_VARIABLE_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>Collection Parameter Characterisation</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COLLECTION_PARAMETER_CHARACTERISATION_FEATURE_COUNT = StochasticsPackage.RANDOM_VARIABLE_FEATURE_COUNT + 1;
-
-	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.parameter.impl.PrimitiveParameterUsageImpl <em>Primitive Parameter Usage</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.pcm.parameter.impl.PrimitiveParameterUsageImpl
-	 * @see de.uka.ipd.sdq.pcm.parameter.impl.ParameterPackageImpl#getPrimitiveParameterUsage()
+	 * @return the meta object for class '<em>Variable Characterisation</em>'.
+	 * @see de.uka.ipd.sdq.pcm.parameter.VariableCharacterisation
 	 * @generated
 	 */
-	int PRIMITIVE_PARAMETER_USAGE = 4;
+	EClass getVariableCharacterisation();
 
 	/**
-	 * The feature id for the '<em><b>Parameter Parameter Usage</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PRIMITIVE_PARAMETER_USAGE__PARAMETER_PARAMETER_USAGE = PARAMETER_USAGE__PARAMETER_PARAMETER_USAGE;
-
-	/**
-	 * The feature id for the '<em><b>Parameter Characterisation Parameter Usage</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PRIMITIVE_PARAMETER_USAGE__PARAMETER_CHARACTERISATION_PARAMETER_USAGE = PARAMETER_USAGE__PARAMETER_CHARACTERISATION_PARAMETER_USAGE;
-
-	/**
-	 * The number of structural features of the '<em>Primitive Parameter Usage</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PRIMITIVE_PARAMETER_USAGE_FEATURE_COUNT = PARAMETER_USAGE_FEATURE_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.parameter.ParameterCharacterisationType <em>Characterisation Type</em>}' enum.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.pcm.parameter.ParameterCharacterisationType
-	 * @see de.uka.ipd.sdq.pcm.parameter.impl.ParameterPackageImpl#getParameterCharacterisationType()
-	 * @generated
-	 */
-	int PARAMETER_CHARACTERISATION_TYPE = 6;
-
-	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.parameter.CollectionParameterCharacterisationType <em>Collection Parameter Characterisation Type</em>}' enum.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.pcm.parameter.CollectionParameterCharacterisationType
-	 * @see de.uka.ipd.sdq.pcm.parameter.impl.ParameterPackageImpl#getCollectionParameterCharacterisationType()
-	 * @generated
-	 */
-	int COLLECTION_PARAMETER_CHARACTERISATION_TYPE = 7;
-
-	/**
-	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.parameter.ParameterCharacterisation <em>Characterisation</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Characterisation</em>'.
-	 * @see de.uka.ipd.sdq.pcm.parameter.ParameterCharacterisation
-	 * @generated
-	 */
-	EClass getParameterCharacterisation();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.pcm.parameter.ParameterCharacterisation#getType <em>Type</em>}'.
+	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.pcm.parameter.VariableCharacterisation#getType <em>Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Type</em>'.
-	 * @see de.uka.ipd.sdq.pcm.parameter.ParameterCharacterisation#getType()
-	 * @see #getParameterCharacterisation()
+	 * @see de.uka.ipd.sdq.pcm.parameter.VariableCharacterisation#getType()
+	 * @see #getVariableCharacterisation()
 	 * @generated
 	 */
-	EAttribute getParameterCharacterisation_Type();
+	EAttribute getVariableCharacterisation_Type();
 
 	/**
-	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.parameter.ParameterUsage <em>Usage</em>}'.
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.parameter.AbstractNamedReference <em>Abstract Named Reference</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Usage</em>'.
-	 * @see de.uka.ipd.sdq.pcm.parameter.ParameterUsage
+	 * @return the meta object for class '<em>Abstract Named Reference</em>'.
+	 * @see de.uka.ipd.sdq.pcm.parameter.AbstractNamedReference
 	 * @generated
 	 */
-	EClass getParameterUsage();
+	EClass getAbstractNamedReference();
 
 	/**
-	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.pcm.parameter.ParameterUsage#getParameter_ParameterUsage <em>Parameter Parameter Usage</em>}'.
+	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.pcm.parameter.AbstractNamedReference#getReferenceName <em>Reference Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Parameter Parameter Usage</em>'.
-	 * @see de.uka.ipd.sdq.pcm.parameter.ParameterUsage#getParameter_ParameterUsage()
-	 * @see #getParameterUsage()
+	 * @return the meta object for the attribute '<em>Reference Name</em>'.
+	 * @see de.uka.ipd.sdq.pcm.parameter.AbstractNamedReference#getReferenceName()
+	 * @see #getAbstractNamedReference()
 	 * @generated
 	 */
-	EReference getParameterUsage_Parameter_ParameterUsage();
+	EAttribute getAbstractNamedReference_ReferenceName();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link de.uka.ipd.sdq.pcm.parameter.ParameterUsage#getParameterCharacterisation_ParameterUsage <em>Parameter Characterisation Parameter Usage</em>}'.
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.parameter.NamespaceReference <em>Namespace Reference</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Parameter Characterisation Parameter Usage</em>'.
-	 * @see de.uka.ipd.sdq.pcm.parameter.ParameterUsage#getParameterCharacterisation_ParameterUsage()
-	 * @see #getParameterUsage()
+	 * @return the meta object for class '<em>Namespace Reference</em>'.
+	 * @see de.uka.ipd.sdq.pcm.parameter.NamespaceReference
 	 * @generated
 	 */
-	EReference getParameterUsage_ParameterCharacterisation_ParameterUsage();
+	EClass getNamespaceReference();
 
 	/**
-	 * Returns the meta object for enum '{@link de.uka.ipd.sdq.pcm.parameter.ParameterCharacterisationType <em>Characterisation Type</em>}'.
+	 * Returns the meta object for the containment reference '{@link de.uka.ipd.sdq.pcm.parameter.NamespaceReference#getInnerReference_NamespaceReference <em>Inner Reference Namespace Reference</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for enum '<em>Characterisation Type</em>'.
-	 * @see de.uka.ipd.sdq.pcm.parameter.ParameterCharacterisationType
+	 * @return the meta object for the containment reference '<em>Inner Reference Namespace Reference</em>'.
+	 * @see de.uka.ipd.sdq.pcm.parameter.NamespaceReference#getInnerReference_NamespaceReference()
+	 * @see #getNamespaceReference()
 	 * @generated
 	 */
-	EEnum getParameterCharacterisationType();
+	EReference getNamespaceReference_InnerReference_NamespaceReference();
 
 	/**
-	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.parameter.CompositeParameterUsage <em>Composite Parameter Usage</em>}'.
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.parameter.VariableReference <em>Variable Reference</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Composite Parameter Usage</em>'.
-	 * @see de.uka.ipd.sdq.pcm.parameter.CompositeParameterUsage
+	 * @return the meta object for class '<em>Variable Reference</em>'.
+	 * @see de.uka.ipd.sdq.pcm.parameter.VariableReference
 	 * @generated
 	 */
-	EClass getCompositeParameterUsage();
+	EClass getVariableReference();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link de.uka.ipd.sdq.pcm.parameter.CompositeParameterUsage#getInnerParameters_ParameterUsage <em>Inner Parameters Parameter Usage</em>}'.
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.parameter.VariableUsage <em>Variable Usage</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Inner Parameters Parameter Usage</em>'.
-	 * @see de.uka.ipd.sdq.pcm.parameter.CompositeParameterUsage#getInnerParameters_ParameterUsage()
-	 * @see #getCompositeParameterUsage()
+	 * @return the meta object for class '<em>Variable Usage</em>'.
+	 * @see de.uka.ipd.sdq.pcm.parameter.VariableUsage
 	 * @generated
 	 */
-	EReference getCompositeParameterUsage_InnerParameters_ParameterUsage();
+	EClass getVariableUsage();
 
 	/**
-	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.parameter.CollectionParameterUsage <em>Collection Parameter Usage</em>}'.
+	 * Returns the meta object for the containment reference list '{@link de.uka.ipd.sdq.pcm.parameter.VariableUsage#getVariableCharacterisation_VariableUsage <em>Variable Characterisation Variable Usage</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Collection Parameter Usage</em>'.
-	 * @see de.uka.ipd.sdq.pcm.parameter.CollectionParameterUsage
+	 * @return the meta object for the containment reference list '<em>Variable Characterisation Variable Usage</em>'.
+	 * @see de.uka.ipd.sdq.pcm.parameter.VariableUsage#getVariableCharacterisation_VariableUsage()
+	 * @see #getVariableUsage()
 	 * @generated
 	 */
-	EClass getCollectionParameterUsage();
+	EReference getVariableUsage_VariableCharacterisation_VariableUsage();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link de.uka.ipd.sdq.pcm.parameter.CollectionParameterUsage#getInnerElement_ParameterUsage <em>Inner Element Parameter Usage</em>}'.
+	 * Returns the meta object for the containment reference '{@link de.uka.ipd.sdq.pcm.parameter.VariableUsage#getNamedReference_VariableUsage <em>Named Reference Variable Usage</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Inner Element Parameter Usage</em>'.
-	 * @see de.uka.ipd.sdq.pcm.parameter.CollectionParameterUsage#getInnerElement_ParameterUsage()
-	 * @see #getCollectionParameterUsage()
+	 * @return the meta object for the containment reference '<em>Named Reference Variable Usage</em>'.
+	 * @see de.uka.ipd.sdq.pcm.parameter.VariableUsage#getNamedReference_VariableUsage()
+	 * @see #getVariableUsage()
 	 * @generated
 	 */
-	EReference getCollectionParameterUsage_InnerElement_ParameterUsage();
+	EReference getVariableUsage_NamedReference_VariableUsage();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link de.uka.ipd.sdq.pcm.parameter.CollectionParameterUsage#getParameterCharacterisation_CollectionParameterUsage <em>Parameter Characterisation Collection Parameter Usage</em>}'.
+	 * Returns the meta object for enum '{@link de.uka.ipd.sdq.pcm.parameter.VariableCharacterisationType <em>Variable Characterisation Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Parameter Characterisation Collection Parameter Usage</em>'.
-	 * @see de.uka.ipd.sdq.pcm.parameter.CollectionParameterUsage#getParameterCharacterisation_CollectionParameterUsage()
-	 * @see #getCollectionParameterUsage()
+	 * @return the meta object for enum '<em>Variable Characterisation Type</em>'.
+	 * @see de.uka.ipd.sdq.pcm.parameter.VariableCharacterisationType
 	 * @generated
 	 */
-	EReference getCollectionParameterUsage_ParameterCharacterisation_CollectionParameterUsage();
-
-	/**
-	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.parameter.CollectionParameterCharacterisation <em>Collection Parameter Characterisation</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Collection Parameter Characterisation</em>'.
-	 * @see de.uka.ipd.sdq.pcm.parameter.CollectionParameterCharacterisation
-	 * @generated
-	 */
-	EClass getCollectionParameterCharacterisation();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.pcm.parameter.CollectionParameterCharacterisation#getType <em>Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Type</em>'.
-	 * @see de.uka.ipd.sdq.pcm.parameter.CollectionParameterCharacterisation#getType()
-	 * @see #getCollectionParameterCharacterisation()
-	 * @generated
-	 */
-	EAttribute getCollectionParameterCharacterisation_Type();
-
-	/**
-	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.parameter.PrimitiveParameterUsage <em>Primitive Parameter Usage</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Primitive Parameter Usage</em>'.
-	 * @see de.uka.ipd.sdq.pcm.parameter.PrimitiveParameterUsage
-	 * @generated
-	 */
-	EClass getPrimitiveParameterUsage();
-
-	/**
-	 * Returns the meta object for enum '{@link de.uka.ipd.sdq.pcm.parameter.CollectionParameterCharacterisationType <em>Collection Parameter Characterisation Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for enum '<em>Collection Parameter Characterisation Type</em>'.
-	 * @see de.uka.ipd.sdq.pcm.parameter.CollectionParameterCharacterisationType
-	 * @generated
-	 */
-	EEnum getCollectionParameterCharacterisationType();
+	EEnum getVariableCharacterisationType();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -534,16 +392,16 @@ public interface ParameterPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	interface Literals  {
+	interface Literals {
 		/**
-		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.parameter.impl.ParameterCharacterisationImpl <em>Characterisation</em>}' class.
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.parameter.impl.VariableCharacterisationImpl <em>Variable Characterisation</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see de.uka.ipd.sdq.pcm.parameter.impl.ParameterCharacterisationImpl
-		 * @see de.uka.ipd.sdq.pcm.parameter.impl.ParameterPackageImpl#getParameterCharacterisation()
+		 * @see de.uka.ipd.sdq.pcm.parameter.impl.VariableCharacterisationImpl
+		 * @see de.uka.ipd.sdq.pcm.parameter.impl.ParameterPackageImpl#getVariableCharacterisation()
 		 * @generated
 		 */
-		EClass PARAMETER_CHARACTERISATION = eINSTANCE.getParameterCharacterisation();
+		EClass VARIABLE_CHARACTERISATION = eINSTANCE.getVariableCharacterisation();
 
 		/**
 		 * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
@@ -551,126 +409,90 @@ public interface ParameterPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute PARAMETER_CHARACTERISATION__TYPE = eINSTANCE.getParameterCharacterisation_Type();
+		EAttribute VARIABLE_CHARACTERISATION__TYPE = eINSTANCE.getVariableCharacterisation_Type();
 
 		/**
-		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.parameter.impl.ParameterUsageImpl <em>Usage</em>}' class.
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.parameter.impl.AbstractNamedReferenceImpl <em>Abstract Named Reference</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see de.uka.ipd.sdq.pcm.parameter.impl.ParameterUsageImpl
-		 * @see de.uka.ipd.sdq.pcm.parameter.impl.ParameterPackageImpl#getParameterUsage()
+		 * @see de.uka.ipd.sdq.pcm.parameter.impl.AbstractNamedReferenceImpl
+		 * @see de.uka.ipd.sdq.pcm.parameter.impl.ParameterPackageImpl#getAbstractNamedReference()
 		 * @generated
 		 */
-		EClass PARAMETER_USAGE = eINSTANCE.getParameterUsage();
+		EClass ABSTRACT_NAMED_REFERENCE = eINSTANCE.getAbstractNamedReference();
 
 		/**
-		 * The meta object literal for the '<em><b>Parameter Parameter Usage</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference PARAMETER_USAGE__PARAMETER_PARAMETER_USAGE = eINSTANCE.getParameterUsage_Parameter_ParameterUsage();
-
-		/**
-		 * The meta object literal for the '<em><b>Parameter Characterisation Parameter Usage</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Reference Name</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference PARAMETER_USAGE__PARAMETER_CHARACTERISATION_PARAMETER_USAGE = eINSTANCE.getParameterUsage_ParameterCharacterisation_ParameterUsage();
+		EAttribute ABSTRACT_NAMED_REFERENCE__REFERENCE_NAME = eINSTANCE.getAbstractNamedReference_ReferenceName();
 
 		/**
-		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.parameter.ParameterCharacterisationType <em>Characterisation Type</em>}' enum.
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.parameter.impl.NamespaceReferenceImpl <em>Namespace Reference</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see de.uka.ipd.sdq.pcm.parameter.ParameterCharacterisationType
-		 * @see de.uka.ipd.sdq.pcm.parameter.impl.ParameterPackageImpl#getParameterCharacterisationType()
+		 * @see de.uka.ipd.sdq.pcm.parameter.impl.NamespaceReferenceImpl
+		 * @see de.uka.ipd.sdq.pcm.parameter.impl.ParameterPackageImpl#getNamespaceReference()
 		 * @generated
 		 */
-		EEnum PARAMETER_CHARACTERISATION_TYPE = eINSTANCE.getParameterCharacterisationType();
+		EClass NAMESPACE_REFERENCE = eINSTANCE.getNamespaceReference();
 
 		/**
-		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.parameter.impl.CompositeParameterUsageImpl <em>Composite Parameter Usage</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see de.uka.ipd.sdq.pcm.parameter.impl.CompositeParameterUsageImpl
-		 * @see de.uka.ipd.sdq.pcm.parameter.impl.ParameterPackageImpl#getCompositeParameterUsage()
-		 * @generated
-		 */
-		EClass COMPOSITE_PARAMETER_USAGE = eINSTANCE.getCompositeParameterUsage();
-
-		/**
-		 * The meta object literal for the '<em><b>Inner Parameters Parameter Usage</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Inner Reference Namespace Reference</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference COMPOSITE_PARAMETER_USAGE__INNER_PARAMETERS_PARAMETER_USAGE = eINSTANCE.getCompositeParameterUsage_InnerParameters_ParameterUsage();
+		EReference NAMESPACE_REFERENCE__INNER_REFERENCE_NAMESPACE_REFERENCE = eINSTANCE.getNamespaceReference_InnerReference_NamespaceReference();
 
 		/**
-		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.parameter.impl.CollectionParameterUsageImpl <em>Collection Parameter Usage</em>}' class.
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.parameter.impl.VariableReferenceImpl <em>Variable Reference</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see de.uka.ipd.sdq.pcm.parameter.impl.CollectionParameterUsageImpl
-		 * @see de.uka.ipd.sdq.pcm.parameter.impl.ParameterPackageImpl#getCollectionParameterUsage()
+		 * @see de.uka.ipd.sdq.pcm.parameter.impl.VariableReferenceImpl
+		 * @see de.uka.ipd.sdq.pcm.parameter.impl.ParameterPackageImpl#getVariableReference()
 		 * @generated
 		 */
-		EClass COLLECTION_PARAMETER_USAGE = eINSTANCE.getCollectionParameterUsage();
+		EClass VARIABLE_REFERENCE = eINSTANCE.getVariableReference();
 
 		/**
-		 * The meta object literal for the '<em><b>Inner Element Parameter Usage</b></em>' containment reference feature.
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.parameter.impl.VariableUsageImpl <em>Variable Usage</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
+		 * @see de.uka.ipd.sdq.pcm.parameter.impl.VariableUsageImpl
+		 * @see de.uka.ipd.sdq.pcm.parameter.impl.ParameterPackageImpl#getVariableUsage()
 		 * @generated
 		 */
-		EReference COLLECTION_PARAMETER_USAGE__INNER_ELEMENT_PARAMETER_USAGE = eINSTANCE.getCollectionParameterUsage_InnerElement_ParameterUsage();
+		EClass VARIABLE_USAGE = eINSTANCE.getVariableUsage();
 
 		/**
-		 * The meta object literal for the '<em><b>Parameter Characterisation Collection Parameter Usage</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference COLLECTION_PARAMETER_USAGE__PARAMETER_CHARACTERISATION_COLLECTION_PARAMETER_USAGE = eINSTANCE.getCollectionParameterUsage_ParameterCharacterisation_CollectionParameterUsage();
-
-		/**
-		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.parameter.impl.CollectionParameterCharacterisationImpl <em>Collection Parameter Characterisation</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see de.uka.ipd.sdq.pcm.parameter.impl.CollectionParameterCharacterisationImpl
-		 * @see de.uka.ipd.sdq.pcm.parameter.impl.ParameterPackageImpl#getCollectionParameterCharacterisation()
-		 * @generated
-		 */
-		EClass COLLECTION_PARAMETER_CHARACTERISATION = eINSTANCE.getCollectionParameterCharacterisation();
-
-		/**
-		 * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Variable Characterisation Variable Usage</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute COLLECTION_PARAMETER_CHARACTERISATION__TYPE = eINSTANCE.getCollectionParameterCharacterisation_Type();
+		EReference VARIABLE_USAGE__VARIABLE_CHARACTERISATION_VARIABLE_USAGE = eINSTANCE.getVariableUsage_VariableCharacterisation_VariableUsage();
 
 		/**
-		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.parameter.impl.PrimitiveParameterUsageImpl <em>Primitive Parameter Usage</em>}' class.
+		 * The meta object literal for the '<em><b>Named Reference Variable Usage</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see de.uka.ipd.sdq.pcm.parameter.impl.PrimitiveParameterUsageImpl
-		 * @see de.uka.ipd.sdq.pcm.parameter.impl.ParameterPackageImpl#getPrimitiveParameterUsage()
 		 * @generated
 		 */
-		EClass PRIMITIVE_PARAMETER_USAGE = eINSTANCE.getPrimitiveParameterUsage();
+		EReference VARIABLE_USAGE__NAMED_REFERENCE_VARIABLE_USAGE = eINSTANCE.getVariableUsage_NamedReference_VariableUsage();
 
 		/**
-		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.parameter.CollectionParameterCharacterisationType <em>Collection Parameter Characterisation Type</em>}' enum.
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.parameter.VariableCharacterisationType <em>Variable Characterisation Type</em>}' enum.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see de.uka.ipd.sdq.pcm.parameter.CollectionParameterCharacterisationType
-		 * @see de.uka.ipd.sdq.pcm.parameter.impl.ParameterPackageImpl#getCollectionParameterCharacterisationType()
+		 * @see de.uka.ipd.sdq.pcm.parameter.VariableCharacterisationType
+		 * @see de.uka.ipd.sdq.pcm.parameter.impl.ParameterPackageImpl#getVariableCharacterisationType()
 		 * @generated
 		 */
-		EEnum COLLECTION_PARAMETER_CHARACTERISATION_TYPE = eINSTANCE.getCollectionParameterCharacterisationType();
+		EEnum VARIABLE_CHARACTERISATION_TYPE = eINSTANCE.getVariableCharacterisationType();
 
-}
+	}
 
 } //ParameterPackage

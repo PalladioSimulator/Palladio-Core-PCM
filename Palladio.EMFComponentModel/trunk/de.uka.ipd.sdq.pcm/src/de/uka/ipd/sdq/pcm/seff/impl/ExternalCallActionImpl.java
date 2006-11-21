@@ -7,6 +7,8 @@
  */
 package de.uka.ipd.sdq.pcm.seff.impl;
 
+import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
+
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -18,7 +20,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import de.uka.ipd.sdq.pcm.parameter.ParameterUsage;
 import de.uka.ipd.sdq.pcm.repository.Signature;
 import de.uka.ipd.sdq.pcm.seff.ExternalCallAction;
 import de.uka.ipd.sdq.pcm.seff.SeffPackage;
@@ -129,7 +130,7 @@ public class ExternalCallActionImpl extends AbstractActionImpl implements Extern
 	 */
 	public EList getParameterUsage_ExternalCallAction() {
 		if (parameterUsage_ExternalCallAction == null) {
-			parameterUsage_ExternalCallAction = new EObjectContainmentEList(ParameterUsage.class, this, SeffPackage.EXTERNAL_CALL_ACTION__PARAMETER_USAGE_EXTERNAL_CALL_ACTION);
+			parameterUsage_ExternalCallAction = new EObjectContainmentEList(VariableUsage.class, this, SeffPackage.EXTERNAL_CALL_ACTION__PARAMETER_USAGE_EXTERNAL_CALL_ACTION);
 		}
 		return parameterUsage_ExternalCallAction;
 	}

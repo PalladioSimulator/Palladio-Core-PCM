@@ -7,21 +7,21 @@
  */
 package de.uka.ipd.sdq.pcm.parameter.impl;
 
-import org.eclipse.emf.ecore.EClass;
-
 import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
-import de.uka.ipd.sdq.pcm.parameter.PrimitiveParameterUsage;
+import de.uka.ipd.sdq.pcm.parameter.VariableReference;
+
+import org.eclipse.emf.ecore.EClass;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Primitive Parameter Usage</b></em>'.
+ * An implementation of the model object '<em><b>Variable Reference</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * </p>
  *
  * @generated
  */
-public class PrimitiveParameterUsageImpl extends ParameterUsageImpl implements PrimitiveParameterUsage {
+public class VariableReferenceImpl extends AbstractNamedReferenceImpl implements VariableReference {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -35,7 +35,7 @@ public class PrimitiveParameterUsageImpl extends ParameterUsageImpl implements P
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected PrimitiveParameterUsageImpl() {
+	protected VariableReferenceImpl() {
 		super();
 	}
 
@@ -45,7 +45,7 @@ public class PrimitiveParameterUsageImpl extends ParameterUsageImpl implements P
 	 * @generated
 	 */
 	protected EClass eStaticClass() {
-		return ParameterPackage.Literals.PRIMITIVE_PARAMETER_USAGE;
+		return ParameterPackage.Literals.VARIABLE_REFERENCE;
 	}
 
-} //PrimitiveParameterUsageImpl
+} //VariableReferenceImpl

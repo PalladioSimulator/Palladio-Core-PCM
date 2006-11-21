@@ -6,21 +6,16 @@
  */
 package de.uka.ipd.sdq.pcm.parameter.util;
 
-import org.eclipse.emf.common.notify.Adapter;
-import org.eclipse.emf.common.notify.Notifier;
-import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
-import org.eclipse.emf.ecore.EObject;
-
 import de.uka.ipd.sdq.pcm.core.stochastics.RandomVariable;
+
 import de.uka.ipd.sdq.pcm.parameter.*;
 
-import de.uka.ipd.sdq.pcm.parameter.CollectionParameterCharacterisation;
-import de.uka.ipd.sdq.pcm.parameter.CollectionParameterUsage;
-import de.uka.ipd.sdq.pcm.parameter.CompositeParameterUsage;
-import de.uka.ipd.sdq.pcm.parameter.ParameterCharacterisation;
-import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
-import de.uka.ipd.sdq.pcm.parameter.ParameterUsage;
-import de.uka.ipd.sdq.pcm.parameter.PrimitiveParameterUsage;
+import org.eclipse.emf.common.notify.Adapter;
+import org.eclipse.emf.common.notify.Notifier;
+
+import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
+
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -84,23 +79,20 @@ public class ParameterAdapterFactory extends AdapterFactoryImpl {
 	 */
 	protected ParameterSwitch modelSwitch =
 		new ParameterSwitch() {
-			public Object caseParameterCharacterisation(ParameterCharacterisation object) {
-				return createParameterCharacterisationAdapter();
+			public Object caseVariableCharacterisation(VariableCharacterisation object) {
+				return createVariableCharacterisationAdapter();
 			}
-			public Object caseCompositeParameterUsage(CompositeParameterUsage object) {
-				return createCompositeParameterUsageAdapter();
+			public Object caseAbstractNamedReference(AbstractNamedReference object) {
+				return createAbstractNamedReferenceAdapter();
 			}
-			public Object caseCollectionParameterUsage(CollectionParameterUsage object) {
-				return createCollectionParameterUsageAdapter();
+			public Object caseNamespaceReference(NamespaceReference object) {
+				return createNamespaceReferenceAdapter();
 			}
-			public Object caseCollectionParameterCharacterisation(CollectionParameterCharacterisation object) {
-				return createCollectionParameterCharacterisationAdapter();
+			public Object caseVariableReference(VariableReference object) {
+				return createVariableReferenceAdapter();
 			}
-			public Object casePrimitiveParameterUsage(PrimitiveParameterUsage object) {
-				return createPrimitiveParameterUsageAdapter();
-			}
-			public Object caseParameterUsage(ParameterUsage object) {
-				return createParameterUsageAdapter();
+			public Object caseVariableUsage(VariableUsage object) {
+				return createVariableUsageAdapter();
 			}
 			public Object caseRandomVariable(RandomVariable object) {
 				return createRandomVariableAdapter();
@@ -124,86 +116,72 @@ public class ParameterAdapterFactory extends AdapterFactoryImpl {
 
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.parameter.ParameterCharacterisation <em>Characterisation</em>}'.
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.parameter.VariableCharacterisation <em>Variable Characterisation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.pcm.parameter.ParameterCharacterisation
+	 * @see de.uka.ipd.sdq.pcm.parameter.VariableCharacterisation
 	 * @generated
 	 */
-	public Adapter createParameterCharacterisationAdapter() {
+	public Adapter createVariableCharacterisationAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.parameter.ParameterUsage <em>Usage</em>}'.
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.parameter.AbstractNamedReference <em>Abstract Named Reference</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.pcm.parameter.ParameterUsage
+	 * @see de.uka.ipd.sdq.pcm.parameter.AbstractNamedReference
 	 * @generated
 	 */
-	public Adapter createParameterUsageAdapter() {
+	public Adapter createAbstractNamedReferenceAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.parameter.CompositeParameterUsage <em>Composite Parameter Usage</em>}'.
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.parameter.NamespaceReference <em>Namespace Reference</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.pcm.parameter.CompositeParameterUsage
+	 * @see de.uka.ipd.sdq.pcm.parameter.NamespaceReference
 	 * @generated
 	 */
-	public Adapter createCompositeParameterUsageAdapter() {
+	public Adapter createNamespaceReferenceAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.parameter.CollectionParameterUsage <em>Collection Parameter Usage</em>}'.
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.parameter.VariableReference <em>Variable Reference</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.pcm.parameter.CollectionParameterUsage
+	 * @see de.uka.ipd.sdq.pcm.parameter.VariableReference
 	 * @generated
 	 */
-	public Adapter createCollectionParameterUsageAdapter() {
+	public Adapter createVariableReferenceAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.parameter.CollectionParameterCharacterisation <em>Collection Parameter Characterisation</em>}'.
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.parameter.VariableUsage <em>Variable Usage</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.pcm.parameter.CollectionParameterCharacterisation
+	 * @see de.uka.ipd.sdq.pcm.parameter.VariableUsage
 	 * @generated
 	 */
-	public Adapter createCollectionParameterCharacterisationAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.parameter.PrimitiveParameterUsage <em>Primitive Parameter Usage</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.pcm.parameter.PrimitiveParameterUsage
-	 * @generated
-	 */
-	public Adapter createPrimitiveParameterUsageAdapter() {
+	public Adapter createVariableUsageAdapter() {
 		return null;
 	}
 

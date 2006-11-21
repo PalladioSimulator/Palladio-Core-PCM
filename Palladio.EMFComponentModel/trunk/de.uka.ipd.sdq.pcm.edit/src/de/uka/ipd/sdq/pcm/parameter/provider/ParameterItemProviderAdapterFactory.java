@@ -82,113 +82,69 @@ public class ParameterItemProviderAdapterFactory extends ParameterAdapterFactory
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.parameter.ParameterCharacterisation} instances.
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.parameter.VariableCharacterisation} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ParameterCharacterisationItemProvider parameterCharacterisationItemProvider;
+	protected VariableCharacterisationItemProvider variableCharacterisationItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.parameter.ParameterCharacterisation}.
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.parameter.VariableCharacterisation}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Adapter createParameterCharacterisationAdapter() {
-		if (parameterCharacterisationItemProvider == null) {
-			parameterCharacterisationItemProvider = new ParameterCharacterisationItemProvider(this);
+	public Adapter createVariableCharacterisationAdapter() {
+		if (variableCharacterisationItemProvider == null) {
+			variableCharacterisationItemProvider = new VariableCharacterisationItemProvider(this);
 		}
 
-		return parameterCharacterisationItemProvider;
+		return variableCharacterisationItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.parameter.CompositeParameterUsage} instances.
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.parameter.NamespaceReference} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected CompositeParameterUsageItemProvider compositeParameterUsageItemProvider;
+	protected NamespaceReferenceItemProvider namespaceReferenceItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.parameter.CompositeParameterUsage}.
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.parameter.NamespaceReference}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Adapter createCompositeParameterUsageAdapter() {
-		if (compositeParameterUsageItemProvider == null) {
-			compositeParameterUsageItemProvider = new CompositeParameterUsageItemProvider(this);
+	public Adapter createNamespaceReferenceAdapter() {
+		if (namespaceReferenceItemProvider == null) {
+			namespaceReferenceItemProvider = new NamespaceReferenceItemProvider(this);
 		}
 
-		return compositeParameterUsageItemProvider;
+		return namespaceReferenceItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.parameter.CollectionParameterUsage} instances.
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.parameter.VariableReference} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected CollectionParameterUsageItemProvider collectionParameterUsageItemProvider;
+	protected VariableReferenceItemProvider variableReferenceItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.parameter.CollectionParameterUsage}.
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.parameter.VariableReference}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Adapter createCollectionParameterUsageAdapter() {
-		if (collectionParameterUsageItemProvider == null) {
-			collectionParameterUsageItemProvider = new CollectionParameterUsageItemProvider(this);
+	public Adapter createVariableReferenceAdapter() {
+		if (variableReferenceItemProvider == null) {
+			variableReferenceItemProvider = new VariableReferenceItemProvider(this);
 		}
 
-		return collectionParameterUsageItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.parameter.CollectionParameterCharacterisation} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected CollectionParameterCharacterisationItemProvider collectionParameterCharacterisationItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.parameter.CollectionParameterCharacterisation}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Adapter createCollectionParameterCharacterisationAdapter() {
-		if (collectionParameterCharacterisationItemProvider == null) {
-			collectionParameterCharacterisationItemProvider = new CollectionParameterCharacterisationItemProvider(this);
-		}
-
-		return collectionParameterCharacterisationItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.parameter.PrimitiveParameterUsage} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected PrimitiveParameterUsageItemProvider primitiveParameterUsageItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.parameter.PrimitiveParameterUsage}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Adapter createPrimitiveParameterUsageAdapter() {
-		if (primitiveParameterUsageItemProvider == null) {
-			primitiveParameterUsageItemProvider = new PrimitiveParameterUsageItemProvider(this);
-		}
-
-		return primitiveParameterUsageItemProvider;
+		return variableReferenceItemProvider;
 	}
 
 	/**
@@ -287,11 +243,9 @@ public class ParameterItemProviderAdapterFactory extends ParameterAdapterFactory
 	 * @generated
 	 */
 	public void dispose() {
-		if (parameterCharacterisationItemProvider != null) parameterCharacterisationItemProvider.dispose();
-		if (compositeParameterUsageItemProvider != null) compositeParameterUsageItemProvider.dispose();
-		if (collectionParameterUsageItemProvider != null) collectionParameterUsageItemProvider.dispose();
-		if (collectionParameterCharacterisationItemProvider != null) collectionParameterCharacterisationItemProvider.dispose();
-		if (primitiveParameterUsageItemProvider != null) primitiveParameterUsageItemProvider.dispose();
+		if (variableCharacterisationItemProvider != null) variableCharacterisationItemProvider.dispose();
+		if (namespaceReferenceItemProvider != null) namespaceReferenceItemProvider.dispose();
+		if (variableReferenceItemProvider != null) variableReferenceItemProvider.dispose();
 	}
 
 }

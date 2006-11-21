@@ -7,6 +7,8 @@
  */
 package de.uka.ipd.sdq.pcm.usagemodel.impl;
 
+import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
+
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -18,7 +20,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import de.uka.ipd.sdq.pcm.parameter.ParameterUsage;
 import de.uka.ipd.sdq.pcm.repository.ProvidedRole;
 
 import de.uka.ipd.sdq.pcm.repository.Signature;
@@ -105,7 +106,7 @@ public class EntryLevelSystemCallImpl extends AbstractUserActionImpl implements 
 	 */
 	public EList getActualParameterUsage_EntryLevelSystemCall() {
 		if (actualParameterUsage_EntryLevelSystemCall == null) {
-			actualParameterUsage_EntryLevelSystemCall = new EObjectContainmentEList(ParameterUsage.class, this, UsagemodelPackage.ENTRY_LEVEL_SYSTEM_CALL__ACTUAL_PARAMETER_USAGE_ENTRY_LEVEL_SYSTEM_CALL);
+			actualParameterUsage_EntryLevelSystemCall = new EObjectContainmentEList(VariableUsage.class, this, UsagemodelPackage.ENTRY_LEVEL_SYSTEM_CALL__ACTUAL_PARAMETER_USAGE_ENTRY_LEVEL_SYSTEM_CALL);
 		}
 		return actualParameterUsage_EntryLevelSystemCall;
 	}

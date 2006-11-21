@@ -7,34 +7,35 @@
 package de.uka.ipd.sdq.pcm.parameter.provider;
 
 
+import de.uka.ipd.sdq.pcm.core.stochastics.provider.PcmEditPlugin;
+
+import de.uka.ipd.sdq.pcm.parameter.NamespaceReference;
+import de.uka.ipd.sdq.pcm.parameter.ParameterFactory;
+import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
+
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.common.util.ResourceLocator;
-import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
+
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
-import de.uka.ipd.sdq.pcm.core.stochastics.provider.PcmEditPlugin;
-import de.uka.ipd.sdq.pcm.core.stochastics.provider.RandomVariableItemProvider;
-import de.uka.ipd.sdq.pcm.parameter.CollectionParameterCharacterisation;
-import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
-
 /**
- * This is the item provider adapter for a {@link de.uka.ipd.sdq.pcm.parameter.CollectionParameterCharacterisation} object.
+ * This is the item provider adapter for a {@link de.uka.ipd.sdq.pcm.parameter.NamespaceReference} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class CollectionParameterCharacterisationItemProvider
-	extends RandomVariableItemProvider
+public class NamespaceReferenceItemProvider
+	extends AbstractNamedReferenceItemProvider
 	implements	
 		IEditingDomainItemProvider,	
 		IStructuredItemContentProvider,	
@@ -54,7 +55,7 @@ public class CollectionParameterCharacterisationItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CollectionParameterCharacterisationItemProvider(AdapterFactory adapterFactory) {
+	public NamespaceReferenceItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -68,41 +69,34 @@ public class CollectionParameterCharacterisationItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addTypePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Type feature.
+	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
+	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
+	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addTypePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_CollectionParameterCharacterisation_type_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_CollectionParameterCharacterisation_type_feature", "_UI_CollectionParameterCharacterisation_type"),
-				 ParameterPackage.Literals.COLLECTION_PARAMETER_CHARACTERISATION__TYPE,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
+	public Collection getChildrenFeatures(Object object) {
+		if (childrenFeatures == null) {
+			super.getChildrenFeatures(object);
+			childrenFeatures.add(ParameterPackage.Literals.NAMESPACE_REFERENCE__INNER_REFERENCE_NAMESPACE_REFERENCE);
+		}
+		return childrenFeatures;
 	}
 
 	/**
-	 * This returns CollectionParameterCharacterisation.gif.
+	 * This returns NamespaceReference.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/CollectionParameterCharacterisation"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/NamespaceReference"));
 	}
 
 	/**
@@ -112,10 +106,10 @@ public class CollectionParameterCharacterisationItemProvider
 	 * @generated
 	 */
 	public String getText(Object object) {
-		String label = ((CollectionParameterCharacterisation)object).getSpecification();
+		String label = ((NamespaceReference)object).getReferenceName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_CollectionParameterCharacterisation_type") :
-			getString("_UI_CollectionParameterCharacterisation_type") + " " + label;
+			getString("_UI_NamespaceReference_type") :
+			getString("_UI_NamespaceReference_type") + " " + label;
 	}
 
 	/**
@@ -128,9 +122,9 @@ public class CollectionParameterCharacterisationItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(CollectionParameterCharacterisation.class)) {
-			case ParameterPackage.COLLECTION_PARAMETER_CHARACTERISATION__TYPE:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+		switch (notification.getFeatureID(NamespaceReference.class)) {
+			case ParameterPackage.NAMESPACE_REFERENCE__INNER_REFERENCE_NAMESPACE_REFERENCE:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
 		super.notifyChanged(notification);
@@ -145,6 +139,16 @@ public class CollectionParameterCharacterisationItemProvider
 	 */
 	protected void collectNewChildDescriptors(Collection newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ParameterPackage.Literals.NAMESPACE_REFERENCE__INNER_REFERENCE_NAMESPACE_REFERENCE,
+				 ParameterFactory.eINSTANCE.createNamespaceReference()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ParameterPackage.Literals.NAMESPACE_REFERENCE__INNER_REFERENCE_NAMESPACE_REFERENCE,
+				 ParameterFactory.eINSTANCE.createVariableReference()));
 	}
 
 	/**

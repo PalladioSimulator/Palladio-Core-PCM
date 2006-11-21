@@ -7,34 +7,37 @@
 package de.uka.ipd.sdq.pcm.parameter.provider;
 
 
+import de.uka.ipd.sdq.pcm.core.stochastics.provider.PcmEditPlugin;
+import de.uka.ipd.sdq.pcm.core.stochastics.provider.RandomVariableItemProvider;
+
+import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
+import de.uka.ipd.sdq.pcm.parameter.VariableCharacterisation;
+
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.common.util.ResourceLocator;
+
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-import org.eclipse.emf.edit.provider.ItemProviderAdapter;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
-import de.uka.ipd.sdq.pcm.core.stochastics.provider.PcmEditPlugin;
-import de.uka.ipd.sdq.pcm.parameter.ParameterFactory;
-import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
-import de.uka.ipd.sdq.pcm.parameter.ParameterUsage;
-
 /**
- * This is the item provider adapter for a {@link de.uka.ipd.sdq.pcm.parameter.ParameterUsage} object.
+ * This is the item provider adapter for a {@link de.uka.ipd.sdq.pcm.parameter.VariableCharacterisation} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class ParameterUsageItemProvider
-	extends ItemProviderAdapter
+public class VariableCharacterisationItemProvider
+	extends RandomVariableItemProvider
 	implements	
 		IEditingDomainItemProvider,	
 		IStructuredItemContentProvider,	
@@ -54,7 +57,7 @@ public class ParameterUsageItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ParameterUsageItemProvider(AdapterFactory adapterFactory) {
+	public VariableCharacterisationItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -68,57 +71,41 @@ public class ParameterUsageItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addParameter_ParameterUsagePropertyDescriptor(object);
+			addTypePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Parameter Parameter Usage feature.
+	 * This adds a property descriptor for the Type feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addParameter_ParameterUsagePropertyDescriptor(Object object) {
+	protected void addTypePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ParameterUsage_parameter_ParameterUsage_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ParameterUsage_parameter_ParameterUsage_feature", "_UI_ParameterUsage_type"),
-				 ParameterPackage.Literals.PARAMETER_USAGE__PARAMETER_PARAMETER_USAGE,
+				 getString("_UI_VariableCharacterisation_type_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_VariableCharacterisation_type_feature", "_UI_VariableCharacterisation_type"),
+				 ParameterPackage.Literals.VARIABLE_CHARACTERISATION__TYPE,
 				 true,
 				 false,
-				 true,
-				 null,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
 	}
 
 	/**
-	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
-	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
-	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Collection getChildrenFeatures(Object object) {
-		if (childrenFeatures == null) {
-			super.getChildrenFeatures(object);
-			childrenFeatures.add(ParameterPackage.Literals.PARAMETER_USAGE__PARAMETER_CHARACTERISATION_PARAMETER_USAGE);
-		}
-		return childrenFeatures;
-	}
-
-	/**
-	 * This returns ParameterUsage.gif.
+	 * This returns VariableCharacterisation.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/ParameterUsage"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/VariableCharacterisation"));
 	}
 
 	/**
@@ -128,7 +115,10 @@ public class ParameterUsageItemProvider
 	 * @generated
 	 */
 	public String getText(Object object) {
-		return getString("_UI_ParameterUsage_type");
+		String label = ((VariableCharacterisation)object).getSpecification();
+		return label == null || label.length() == 0 ?
+			getString("_UI_VariableCharacterisation_type") :
+			getString("_UI_VariableCharacterisation_type") + " " + label;
 	}
 
 	/**
@@ -141,9 +131,9 @@ public class ParameterUsageItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(ParameterUsage.class)) {
-			case ParameterPackage.PARAMETER_USAGE__PARAMETER_CHARACTERISATION_PARAMETER_USAGE:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+		switch (notification.getFeatureID(VariableCharacterisation.class)) {
+			case ParameterPackage.VARIABLE_CHARACTERISATION__TYPE:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}
 		super.notifyChanged(notification);
@@ -158,11 +148,6 @@ public class ParameterUsageItemProvider
 	 */
 	protected void collectNewChildDescriptors(Collection newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ParameterPackage.Literals.PARAMETER_USAGE__PARAMETER_CHARACTERISATION_PARAMETER_USAGE,
-				 ParameterFactory.eINSTANCE.createParameterCharacterisation()));
 	}
 
 	/**

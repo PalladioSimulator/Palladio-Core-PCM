@@ -160,21 +160,6 @@ public class ExternalCallActionItemProvider
 	 */
 	protected void collectNewChildDescriptors(Collection newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-
-		newChildDescriptors.add
-			(createChildParameter
-				(SeffPackage.Literals.EXTERNAL_CALL_ACTION__PARAMETER_USAGE_EXTERNAL_CALL_ACTION,
-				 ParameterFactory.eINSTANCE.createCompositeParameterUsage()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(SeffPackage.Literals.EXTERNAL_CALL_ACTION__PARAMETER_USAGE_EXTERNAL_CALL_ACTION,
-				 ParameterFactory.eINSTANCE.createCollectionParameterUsage()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(SeffPackage.Literals.EXTERNAL_CALL_ACTION__PARAMETER_USAGE_EXTERNAL_CALL_ACTION,
-				 ParameterFactory.eINSTANCE.createPrimitiveParameterUsage()));
 	}
 
 	/**

@@ -7,28 +7,37 @@
 package de.uka.ipd.sdq.pcm.parameter.provider;
 
 
+import de.uka.ipd.sdq.pcm.core.stochastics.provider.PcmEditPlugin;
+
+import de.uka.ipd.sdq.pcm.parameter.AbstractNamedReference;
+import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
+
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.common.util.ResourceLocator;
+
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-
-import de.uka.ipd.sdq.pcm.core.stochastics.provider.PcmEditPlugin;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ItemProviderAdapter;
+import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link de.uka.ipd.sdq.pcm.parameter.PrimitiveParameterUsage} object.
+ * This is the item provider adapter for a {@link de.uka.ipd.sdq.pcm.parameter.AbstractNamedReference} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class PrimitiveParameterUsageItemProvider
-	extends ParameterUsageItemProvider
+public class AbstractNamedReferenceItemProvider
+	extends ItemProviderAdapter
 	implements	
 		IEditingDomainItemProvider,	
 		IStructuredItemContentProvider,	
@@ -48,7 +57,7 @@ public class PrimitiveParameterUsageItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public PrimitiveParameterUsageItemProvider(AdapterFactory adapterFactory) {
+	public AbstractNamedReferenceItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -62,18 +71,31 @@ public class PrimitiveParameterUsageItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addReferenceNamePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This returns PrimitiveParameterUsage.gif.
+	 * This adds a property descriptor for the Reference Name feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/PrimitiveParameterUsage"));
+	protected void addReferenceNamePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_AbstractNamedReference_referenceName_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_AbstractNamedReference_referenceName_feature", "_UI_AbstractNamedReference_type"),
+				 ParameterPackage.Literals.ABSTRACT_NAMED_REFERENCE__REFERENCE_NAME,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -83,7 +105,10 @@ public class PrimitiveParameterUsageItemProvider
 	 * @generated
 	 */
 	public String getText(Object object) {
-		return getString("_UI_PrimitiveParameterUsage_type");
+		String label = ((AbstractNamedReference)object).getReferenceName();
+		return label == null || label.length() == 0 ?
+			getString("_UI_AbstractNamedReference_type") :
+			getString("_UI_AbstractNamedReference_type") + " " + label;
 	}
 
 	/**
@@ -95,6 +120,12 @@ public class PrimitiveParameterUsageItemProvider
 	 */
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
+
+		switch (notification.getFeatureID(AbstractNamedReference.class)) {
+			case ParameterPackage.ABSTRACT_NAMED_REFERENCE__REFERENCE_NAME:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+		}
 		super.notifyChanged(notification);
 	}
 

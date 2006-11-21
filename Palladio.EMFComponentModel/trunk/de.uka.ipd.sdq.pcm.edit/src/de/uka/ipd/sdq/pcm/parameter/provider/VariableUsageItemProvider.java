@@ -7,32 +7,38 @@
 package de.uka.ipd.sdq.pcm.parameter.provider;
 
 
+import de.uka.ipd.sdq.pcm.core.stochastics.provider.PcmEditPlugin;
+
+import de.uka.ipd.sdq.pcm.parameter.ParameterFactory;
+import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
+import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
+
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.common.util.ResourceLocator;
+
+import org.eclipse.emf.ecore.EStructuralFeature;
+
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
-import de.uka.ipd.sdq.pcm.core.stochastics.provider.PcmEditPlugin;
-import de.uka.ipd.sdq.pcm.parameter.CompositeParameterUsage;
-import de.uka.ipd.sdq.pcm.parameter.ParameterFactory;
-import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
-
 /**
- * This is the item provider adapter for a {@link de.uka.ipd.sdq.pcm.parameter.CompositeParameterUsage} object.
+ * This is the item provider adapter for a {@link de.uka.ipd.sdq.pcm.parameter.VariableUsage} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class CompositeParameterUsageItemProvider
-	extends ParameterUsageItemProvider
+public class VariableUsageItemProvider
+	extends ItemProviderAdapter
 	implements	
 		IEditingDomainItemProvider,	
 		IStructuredItemContentProvider,	
@@ -52,7 +58,7 @@ public class CompositeParameterUsageItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CompositeParameterUsageItemProvider(AdapterFactory adapterFactory) {
+	public VariableUsageItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -81,19 +87,22 @@ public class CompositeParameterUsageItemProvider
 	public Collection getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(ParameterPackage.Literals.COMPOSITE_PARAMETER_USAGE__INNER_PARAMETERS_PARAMETER_USAGE);
+			childrenFeatures.add(ParameterPackage.Literals.VARIABLE_USAGE__VARIABLE_CHARACTERISATION_VARIABLE_USAGE);
+			childrenFeatures.add(ParameterPackage.Literals.VARIABLE_USAGE__NAMED_REFERENCE_VARIABLE_USAGE);
 		}
 		return childrenFeatures;
 	}
 
 	/**
-	 * This returns CompositeParameterUsage.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/CompositeParameterUsage"));
+	protected EStructuralFeature getChildFeature(Object object, Object child) {
+		// Check the type of the specified child object and return the proper feature to use for
+		// adding (see {@link AddCommand}) it as a child.
+
+		return super.getChildFeature(object, child);
 	}
 
 	/**
@@ -103,7 +112,7 @@ public class CompositeParameterUsageItemProvider
 	 * @generated
 	 */
 	public String getText(Object object) {
-		return getString("_UI_CompositeParameterUsage_type");
+		return getString("_UI_VariableUsage_type");
 	}
 
 	/**
@@ -116,8 +125,9 @@ public class CompositeParameterUsageItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(CompositeParameterUsage.class)) {
-			case ParameterPackage.COMPOSITE_PARAMETER_USAGE__INNER_PARAMETERS_PARAMETER_USAGE:
+		switch (notification.getFeatureID(VariableUsage.class)) {
+			case ParameterPackage.VARIABLE_USAGE__VARIABLE_CHARACTERISATION_VARIABLE_USAGE:
+			case ParameterPackage.VARIABLE_USAGE__NAMED_REFERENCE_VARIABLE_USAGE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -136,18 +146,18 @@ public class CompositeParameterUsageItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(ParameterPackage.Literals.COMPOSITE_PARAMETER_USAGE__INNER_PARAMETERS_PARAMETER_USAGE,
-				 ParameterFactory.eINSTANCE.createCompositeParameterUsage()));
+				(ParameterPackage.Literals.VARIABLE_USAGE__VARIABLE_CHARACTERISATION_VARIABLE_USAGE,
+				 ParameterFactory.eINSTANCE.createVariableCharacterisation()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(ParameterPackage.Literals.COMPOSITE_PARAMETER_USAGE__INNER_PARAMETERS_PARAMETER_USAGE,
-				 ParameterFactory.eINSTANCE.createCollectionParameterUsage()));
+				(ParameterPackage.Literals.VARIABLE_USAGE__NAMED_REFERENCE_VARIABLE_USAGE,
+				 ParameterFactory.eINSTANCE.createNamespaceReference()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(ParameterPackage.Literals.COMPOSITE_PARAMETER_USAGE__INNER_PARAMETERS_PARAMETER_USAGE,
-				 ParameterFactory.eINSTANCE.createPrimitiveParameterUsage()));
+				(ParameterPackage.Literals.VARIABLE_USAGE__NAMED_REFERENCE_VARIABLE_USAGE,
+				 ParameterFactory.eINSTANCE.createVariableReference()));
 	}
 
 	/**
