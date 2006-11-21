@@ -10,6 +10,7 @@ feature@de.uka.ipd.sdq.pcm.diagram.feature=COPY,C:/Temp/testpcm,build/src/svn_ch
 plugin@de.uka.ipd.sdq.pcm.gmf.seff=COPY,C:/Temp/testpcm,build/src/svn_checkout/PCM/de.uka.ipd.sdq.pcm.gmf.seff
 plugin@de.uka.ipd.sdq.pcm.gmf.repository=COPY,C:/Temp/testpcm,build/src/svn_checkout/PCM/de.uka.ipd.sdq.pcm.gmf.repository
 plugin@de.uka.ipd.sdq.pcm.gmf.system=COPY,C:/Temp/testpcm,build/src/svn_checkout/PCM/de.uka.ipd.sdq.pcm.gmf.system
+plugin@de.uka.ipd.sdq.pcm.gmf.allocation=COPY,C:/Temp/testpcm,build/src/svn_checkout/PCM/de.uka.ipd.sdq.pcm.gmf.allocation
 feature@de.uka.ipd.sdq.probfunction.feature=COPY,C:/Temp/testpcm,build/src/svn_checkout/ProbFunction/de.uka.ipd.sdq.probfunction.feature
 plugin@de.uka.ipd.sdq.probfunction=COPY,C:/Temp/testpcm,build/src/svn_checkout/ProbFunction/de.uka.ipd.sdq.probfunction
 plugin@de.uka.ipd.sdq.probfunction.edit=COPY,C:/Temp/testpcm,build/src/svn_checkout/ProbFunction/de.uka.ipd.sdq.probfunction.edit
