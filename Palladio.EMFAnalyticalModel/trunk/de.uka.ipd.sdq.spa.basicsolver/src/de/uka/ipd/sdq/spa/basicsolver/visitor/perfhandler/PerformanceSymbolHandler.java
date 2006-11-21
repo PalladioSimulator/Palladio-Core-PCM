@@ -8,8 +8,8 @@ import de.uka.ipd.sdq.probfunction.math.ISamplePDF;
 import de.uka.ipd.sdq.probfunction.math.exception.ProbabilityFunctionException;
 import de.uka.ipd.sdq.spa.basicsolver.visitor.SymbolHandler;
 import de.uka.ipd.sdq.spa.expression.Expression;
-import de.uka.ipd.sdq.spa.expression.ResourceDemand;
 import de.uka.ipd.sdq.spa.expression.Symbol;
+import de.uka.ipd.sdq.spa.resourcemodel.ResourceUsage;
 
 /**
  * @author Ihssane
@@ -37,8 +37,8 @@ public class PerformanceSymbolHandler implements SymbolHandler {
 	public void handle(Symbol symbol) {
 
 		try {
-			ResourceDemand demand = (ResourceDemand) symbol.getDemand().get(0);
-			IProbabilityDensityFunction pdf = pfFactory.transformToPDF(demand.getPdf());
+			ResourceUsage resourceUsage = (ResourceUsage) symbol.getResourceUsages().get(0);
+			IProbabilityDensityFunction pdf = pfFactory.transformToPDF(resourceUsage.getUsageTime());
 			ISamplePDF spdf = pfFactory.transformToSamplePDF(pdf);
 			spdf.expand(domainSize);
 			IProbabilityDensityFunction fftPDF = spdf.getFourierTransform();

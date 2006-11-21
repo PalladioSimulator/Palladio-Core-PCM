@@ -14,12 +14,11 @@ import de.uka.ipd.sdq.probfunction.math.ISamplePDF;
 import de.uka.ipd.sdq.probfunction.math.IUnit;
 import de.uka.ipd.sdq.probfunction.math.exception.FunctionNotInTimeDomainException;
 import de.uka.ipd.sdq.probfunction.math.exception.FunctionsInDifferenDomainsException;
-import de.uka.ipd.sdq.probfunction.math.exception.IncompatibleUnitsException;
 import de.uka.ipd.sdq.probfunction.math.exception.ProbabilityFunctionException;
 import de.uka.ipd.sdq.probfunction.math.exception.UnknownPDFTypeException;
 import de.uka.ipd.sdq.spa.basicsolver.visitor.LoopHandler;
-import de.uka.ipd.sdq.spa.expression.Loop;
 import de.uka.ipd.sdq.spa.expression.Expression;
+import de.uka.ipd.sdq.spa.expression.Loop;
 
 /**
  * @author Ihssane
@@ -50,7 +49,7 @@ public class PerformanceLoopHandler implements LoopHandler {
 			
 			ISamplePDF innerPDF = pfFactory.transformToSamplePDF(pdfTable
 					.get(loop.getRegExp()));
-			IProbabilityMassFunction iterations = pfFactory.transformToPMF(loop.getIterations());
+			IProbabilityMassFunction iterations = pfFactory.transformToPMF(loop.getIterationsPMF());
 			ISamplePDF result = solveIterative(iterations, innerPDF);
 			pdfTable.put(loop, result);
 			
