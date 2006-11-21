@@ -2450,6 +2450,9 @@
       <generalization xmi:id="_6NmwljKYEdu66s0M-yWALA" general="_6NmwmjKYEdu66s0M-yWALA"/>
       <ownedAttribute xmi:id="_6NmwlzKYEdu66s0M-yWALA" name="regExp" type="_6NmwgjKYEdu66s0M-yWALA" isOrdered="true" association="_6NmwnDKYEdu66s0M-yWALA" aggregation="composite"/>
       <ownedAttribute xmi:id="_2NtD8F2vEduUYolzmZz2EQ" name="iterationsPMF" association="_2Nsc4F2vEduUYolzmZz2EQ" aggregation="composite">
+        <eAnnotations xmi:id="_fcZ9sHlLEdug84C8dPzjaQ" source="appliedStereotypes">
+          <contents xmi:type="Ecore_0:Ecore__EReference" xmi:id="_fcZ9sXlLEdug84C8dPzjaQ" isTransient="true" isVolatile="true"/>
+        </eAnnotations>
         <type xmi:type="uml:Class" href="ProbabilityFunction.emx#_zWMAuVYOEduVzvtHWuORYA?probfunction/ProbabilityMassFunction"/>
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_2NtD812vEduUYolzmZz2EQ" value="1"/>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_2NtD8l2vEduUYolzmZz2EQ"/>
