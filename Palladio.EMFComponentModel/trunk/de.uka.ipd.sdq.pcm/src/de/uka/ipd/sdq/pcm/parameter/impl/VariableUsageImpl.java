@@ -42,7 +42,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public abstract class VariableUsageImpl extends EObjectImpl implements VariableUsage {
+public class VariableUsageImpl extends EObjectImpl implements VariableUsage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -25,7 +25,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  *
  * @see de.uka.ipd.sdq.pcm.parameter.ParameterPackage#getVariableUsage()
- * @model abstract="true"
+ * @model
  * @generated
  */
 public interface VariableUsage extends EObject {

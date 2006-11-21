@@ -541,7 +541,7 @@
           containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="VariableReference" eSuperTypes="#//parameter/AbstractNamedReference"/>
-    <eClassifiers xsi:type="ecore:EClass" name="VariableUsage" abstract="true">
+    <eClassifiers xsi:type="ecore:EClass" name="VariableUsage">
       <eStructuralFeatures xsi:type="ecore:EReference" name="variableCharacterisation_VariableUsage"
           ordered="false" upperBound="-1" eType="#//parameter/VariableCharacterisation"
           containment="true"/>

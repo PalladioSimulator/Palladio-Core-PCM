@@ -484,34 +484,34 @@ tryAgain:
 		int _saveIndex;
 		
 		{
-		int _cnt58=0;
-		_loop58:
+		int _cnt123=0;
+		_loop123:
 		do {
 			if (((LA(1) >= '0' && LA(1) <= '9'))) {
 				mDIGIT(false);
 			}
 			else {
-				if ( _cnt58>=1 ) { break _loop58; } else {throw new NoViableAltForCharException((char)LA(1), getFilename(), getLine(), getColumn());}
+				if ( _cnt123>=1 ) { break _loop123; } else {throw new NoViableAltForCharException((char)LA(1), getFilename(), getLine(), getColumn());}
 			}
 			
-			_cnt58++;
+			_cnt123++;
 		} while (true);
 		}
 		{
 		if ((LA(1)=='.')) {
 			match('.');
 			{
-			int _cnt61=0;
-			_loop61:
+			int _cnt126=0;
+			_loop126:
 			do {
 				if (((LA(1) >= '0' && LA(1) <= '9'))) {
 					mDIGIT(false);
 				}
 				else {
-					if ( _cnt61>=1 ) { break _loop61; } else {throw new NoViableAltForCharException((char)LA(1), getFilename(), getLine(), getColumn());}
+					if ( _cnt126>=1 ) { break _loop126; } else {throw new NoViableAltForCharException((char)LA(1), getFilename(), getLine(), getColumn());}
 				}
 				
-				_cnt61++;
+				_cnt126++;
 			} while (true);
 			}
 		}
@@ -638,8 +638,8 @@ tryAgain:
 		
 		match("\"");
 		{
-		int _cnt70=0;
-		_loop70:
+		int _cnt135=0;
+		_loop135:
 		do {
 			switch ( LA(1)) {
 			case 'A':  case 'B':  case 'C':  case 'D':
@@ -666,10 +666,10 @@ tryAgain:
 			}
 			default:
 			{
-				if ( _cnt70>=1 ) { break _loop70; } else {throw new NoViableAltForCharException((char)LA(1), getFilename(), getLine(), getColumn());}
+				if ( _cnt135>=1 ) { break _loop135; } else {throw new NoViableAltForCharException((char)LA(1), getFilename(), getLine(), getColumn());}
 			}
 			}
-			_cnt70++;
+			_cnt135++;
 		} while (true);
 		}
 		match("\"");
@@ -699,8 +699,8 @@ tryAgain:
 		int _saveIndex;
 		
 		{
-		int _cnt74=0;
-		_loop74:
+		int _cnt139=0;
+		_loop139:
 		do {
 			switch ( LA(1)) {
 			case 'A':  case 'B':  case 'C':  case 'D':
@@ -727,20 +727,20 @@ tryAgain:
 			}
 			default:
 			{
-				if ( _cnt74>=1 ) { break _loop74; } else {throw new NoViableAltForCharException((char)LA(1), getFilename(), getLine(), getColumn());}
+				if ( _cnt139>=1 ) { break _loop139; } else {throw new NoViableAltForCharException((char)LA(1), getFilename(), getLine(), getColumn());}
 			}
 			}
-			_cnt74++;
+			_cnt139++;
 		} while (true);
 		}
 		{
-		_loop78:
+		_loop143:
 		do {
 			if ((LA(1)=='.')) {
 				match('.');
 				{
-				int _cnt77=0;
-				_loop77:
+				int _cnt142=0;
+				_loop142:
 				do {
 					switch ( LA(1)) {
 					case 'A':  case 'B':  case 'C':  case 'D':
@@ -767,15 +767,15 @@ tryAgain:
 					}
 					default:
 					{
-						if ( _cnt77>=1 ) { break _loop77; } else {throw new NoViableAltForCharException((char)LA(1), getFilename(), getLine(), getColumn());}
+						if ( _cnt142>=1 ) { break _loop142; } else {throw new NoViableAltForCharException((char)LA(1), getFilename(), getLine(), getColumn());}
 					}
 					}
-					_cnt77++;
+					_cnt142++;
 				} while (true);
 				}
 			}
 			else {
-				break _loop78;
+				break _loop143;
 			}
 			
 		} while (true);

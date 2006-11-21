@@ -60,6 +60,15 @@ public interface ParameterFactory extends EFactory {
 	VariableReference createVariableReference();
 
 	/**
+	 * Returns a new object of class '<em>Variable Usage</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Variable Usage</em>'.
+	 * @generated
+	 */
+	VariableUsage createVariableUsage();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

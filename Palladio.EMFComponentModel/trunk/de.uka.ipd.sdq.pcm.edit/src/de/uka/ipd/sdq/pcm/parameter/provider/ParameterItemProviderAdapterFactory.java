@@ -148,6 +148,28 @@ public class ParameterItemProviderAdapterFactory extends ParameterAdapterFactory
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.parameter.VariableUsage} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected VariableUsageItemProvider variableUsageItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.parameter.VariableUsage}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Adapter createVariableUsageAdapter() {
+		if (variableUsageItemProvider == null) {
+			variableUsageItemProvider = new VariableUsageItemProvider(this);
+		}
+
+		return variableUsageItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -246,6 +268,7 @@ public class ParameterItemProviderAdapterFactory extends ParameterAdapterFactory
 		if (variableCharacterisationItemProvider != null) variableCharacterisationItemProvider.dispose();
 		if (namespaceReferenceItemProvider != null) namespaceReferenceItemProvider.dispose();
 		if (variableReferenceItemProvider != null) variableReferenceItemProvider.dispose();
+		if (variableUsageItemProvider != null) variableUsageItemProvider.dispose();
 	}
 
 }
