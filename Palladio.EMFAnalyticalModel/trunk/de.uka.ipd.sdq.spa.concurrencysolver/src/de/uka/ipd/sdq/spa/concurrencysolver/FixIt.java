@@ -10,18 +10,17 @@ import de.uka.ipd.sdq.probfunction.math.exception.FunctionNotInTimeDomainExcepti
 import de.uka.ipd.sdq.probfunction.math.exception.ProbabilityFunctionException;
 import de.uka.ipd.sdq.probfunction.math.util.MathTools;
 import de.uka.ipd.sdq.probfunction.math.visualization.Visualization;
+import de.uka.ipd.sdq.spa.ProcessBehaviour;
 import de.uka.ipd.sdq.spa.SPAModel;
-import de.uka.ipd.sdq.spa.basicsolver.util.EMFTools;
 import de.uka.ipd.sdq.spa.concurrencysolver.exceptions.ConcurrencySolverException;
 import de.uka.ipd.sdq.spa.concurrencysolver.simplify.ServiceCentre;
 import de.uka.ipd.sdq.spa.concurrencysolver.simplify.ServiceCentreQueue;
-import de.uka.ipd.sdq.spa.concurrencysolver.simplify.ServiceTimeVisitor;
 import de.uka.ipd.sdq.spa.concurrencysolver.simplify.SimplificationVisitor;
-import de.uka.ipd.sdq.spa.environment.PassiveResource;
-import de.uka.ipd.sdq.spa.environment.ProcessBehaviour;
 import de.uka.ipd.sdq.spa.expression.Acquire;
 import de.uka.ipd.sdq.spa.expression.Expression;
 import de.uka.ipd.sdq.spa.expression.Release;
+import de.uka.ipd.sdq.spa.resourcemodel.PassiveResource;
+import de.uka.ipd.sdq.spa.util.EMFTools;
 
 public class FixIt {
 

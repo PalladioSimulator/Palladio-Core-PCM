@@ -1,58 +1,52 @@
-package de.uka.ipd.sdq.spa.concurrencysolver.simplify;
-
-import java.util.ArrayList;
-import java.util.List;
-
-import de.uka.ipd.sdq.probfunction.math.IProbabilityDensityFunction;
-import de.uka.ipd.sdq.spa.basicsolver.visitor.PerformanceVisitor;
-import de.uka.ipd.sdq.spa.basicsolver.visitor.perfhandler.PerformanceHandlerFactory;
-import de.uka.ipd.sdq.spa.environment.EnvironmentFactory;
-import de.uka.ipd.sdq.spa.environment.PassiveResource;
-import de.uka.ipd.sdq.spa.expression.Acquire;
-import de.uka.ipd.sdq.spa.expression.Expression;
-import de.uka.ipd.sdq.spa.expression.Release;
-import de.uka.ipd.sdq.spa.expression.util.ExpressionSwitch;
-
-public class ServiceTimeVisitor {
-	
-	IProbabilityDensityFunction time = null;
-	String name = null;
-	PassiveResource resource = null;
-	PassiveResource thinkResource = EnvironmentFactory.eINSTANCE.createPassiveResource();
-	List<ServiceCentre> times = new ArrayList<ServiceCentre>();
-	int domainSize;
-	
-
-	ExpressionSwitch eSwitch = new ExpressionSwitch() {
-		
-		@Override
-		public Object caseAcquire(Acquire object) {
-			resource = object.getResource();
-			return resource;
-		}
-
-		@Override
-		public Object caseExpression(Expression object) {
-			PerformanceVisitor pv = new PerformanceVisitor(new PerformanceHandlerFactory(domainSize));
-			time = pv.getResponseTime(object);
-			
-			PrintVisitor prv = new PrintVisitor();
-			if (resource != null){
-				name = resource.getName() + "(" + prv.visit(object) + ")";				
-			} else {
-				name = prv.visit(object);
-			}
-			return time;
-		}
-
-		@Override
-		public Object caseRelease(Release object) {
-
-			ServiceCentre stime = new ServiceCentre(resource,time,name);
-			times.add(stime);
-			return stime;
-		}
-
+//package de.uka.ipd.sdq.spa.concurrencysolver.simplify;
+//
+//import java.util.List;
+//import java.util.Stack;
+//
+//import de.uka.ipd.sdq.probfunction.math.IProbabilityDensityFunction;
+//import de.uka.ipd.sdq.spa.basicsolver.visitor.PerformanceVisitor;
+//import de.uka.ipd.sdq.spa.basicsolver.visitor.perfhandler.PerformanceHandlerFactory;
+//import de.uka.ipd.sdq.spa.environment.PassiveResource;
+//import de.uka.ipd.sdq.spa.environment.Resource;
+//import de.uka.ipd.sdq.spa.expression.Acquire;
+//import de.uka.ipd.sdq.spa.expression.Expression;
+//import de.uka.ipd.sdq.spa.expression.Release;
+//import de.uka.ipd.sdq.spa.expression.util.ExpressionSwitch;
+//
+//public class ServiceTimeVisitor {
+//	
+//	int domainSize;
+//	Stack<PassiveResource> resourceStack;
+//	
+//	ExpressionSwitch eSwitch = new ExpressionSwitch() {
+//		
+//		@Override
+//		public Object caseAcquire(Acquire object) {
+//			resourceStack.push(object.getResource());
+//			return object;
+//		}
+//
+//		@Override
+//		public Object caseExpression(Expression object) {
+//			PerformanceVisitor pv = new PerformanceVisitor(new PerformanceHandlerFactory(domainSize));
+//			IProbabilityDensityFunction time = pv.getResponseTime(object);
+//			
+//			PrintVisitor prv = new PrintVisitor();
+//			String name = prv.visit(object);
+//			
+//			ResourceVisitor rv = new ResourceVisitor();
+//			List<Resource> resourceList = rv.getUsedResources(object);
+//			
+//		}
+//
+//		@Override
+//		public Object caseRelease(Release object) {
+//
+//			ServiceCentre stime = new ServiceCentre(resource,time,name);
+//			times.add(stime);
+//			return stime;
+//		}
+//
 //		@Override
 //		public Object caseSleep(Sleep object) {
 //			
@@ -68,23 +62,23 @@ public class ServiceTimeVisitor {
 //			}
 //			return sTime;
 //		}
-	};
-	
-
-	public ServiceTimeVisitor(int domainSize) {
-		super();
-		this.domainSize = domainSize;
-		thinkResource.setName("Brain");
-		thinkResource.setNumReplicas(-1); // infinite
-	}
-
-	public List<ServiceCentre> visit(List<Expression> expressionList) {
-		for (Expression expression : expressionList) {
-			eSwitch.doSwitch(expression);
-		}
-		return times;
-	}
-
-	
-
-}
+//	};
+//	
+//
+//	public ServiceTimeVisitor(int domainSize) {
+//		super();
+//		this.domainSize = domainSize;
+//		thinkResource.setName("Brain");
+//		thinkResource.setNumReplicas(-1); // infinite
+//	}
+//
+//	public List<ServiceCentre> visit(List<Expression> expressionList) {
+//		for (Expression expression : expressionList) {
+//			eSwitch.doSwitch(expression);
+//		}
+//		return times;
+//	}
+//
+//	
+//
+//}

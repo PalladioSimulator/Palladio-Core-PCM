@@ -16,7 +16,7 @@ import de.uka.ipd.sdq.spa.expression.util.ExpressionSwitch;
 import de.uka.ipd.sdq.spa.resourcemodel.ActiveResource;
 import de.uka.ipd.sdq.spa.resourcemodel.ResourceUsage;
 
-public class SimplificationVisitor {
+public class ExpressionSlicer {
 
 	List<Expression> expressionList;
 
@@ -80,22 +80,22 @@ public class SimplificationVisitor {
 
 	};
 
-	public SimplificationVisitor() {
+	public ExpressionSlicer() {
 		super();
 		this.currentExpression = null;
 		this.expressionList = new ArrayList<Expression>();
 	}
 
 	protected boolean sameResource(Symbol symbol) {
-		//TODO kommt mehrfach vor!! vergleich aller Resourcen!
-		ResourceUsage resourceUsage = (ResourceUsage) symbol.getResourceUsages().get(0);
+		// TODO check for all resources
+		ResourceUsage demand = (ResourceUsage) symbol.getResourceUsages().get(0);
 		boolean result = true;;
 		if (currentResource != null) {
-			if (!resourceUsage.getResource().equals(currentResource)){
+			if (!demand.getResource().equals(currentResource)){
 				result = false;
 			}
 		} else {
-			currentResource = resourceUsage.getResource();
+			currentResource = demand.getResource();
 		}
 		return result;
 	}
@@ -123,7 +123,8 @@ public class SimplificationVisitor {
 		}
 	}
 
-	public List<Expression> getResultList() {
+	public List<Expression> slice(Expression expression) {
+		visit(expression);
 		return expressionList;
 	}
 
