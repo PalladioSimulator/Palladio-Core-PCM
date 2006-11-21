@@ -1,10 +1,10 @@
-
 package de.uka.ipd.sdq.probfunction.math.visualization;
 
 import java.awt.BorderLayout;
 import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -16,7 +16,7 @@ import org.eclipse.birt.chart.exception.ChartException;
 import org.eclipse.birt.chart.internal.log.DefaultLoggerImpl;
 import org.eclipse.birt.chart.model.Chart;
 import org.eclipse.birt.chart.model.ChartWithAxes;
-import org.eclipse.birt.chart.model.attribute.ChartDimension;
+import org.eclipse.birt.chart.model.ModelPackage;
 import org.eclipse.birt.chart.model.attribute.ColorDefinition;
 import org.eclipse.birt.chart.model.attribute.impl.ColorDefinitionImpl;
 import org.eclipse.birt.chart.model.component.Axis;
@@ -26,15 +26,16 @@ import org.eclipse.birt.chart.model.data.NumberDataSet;
 import org.eclipse.birt.chart.model.data.SeriesDefinition;
 import org.eclipse.birt.chart.model.data.TextDataSet;
 import org.eclipse.birt.chart.model.data.impl.NumberDataSetImpl;
-import org.eclipse.birt.chart.model.data.impl.SeriesDefinitionImpl;
 import org.eclipse.birt.chart.model.data.impl.TextDataSetImpl;
 import org.eclipse.birt.chart.model.impl.ChartWithAxesImpl;
-import org.eclipse.birt.chart.model.layout.Plot;
-import org.eclipse.birt.chart.model.type.BarSeries;
-import org.eclipse.birt.chart.model.type.LineSeries;
-import org.eclipse.birt.chart.model.type.impl.BarSeriesImpl;
-import org.eclipse.birt.chart.model.type.impl.LineSeriesImpl;
 import org.eclipse.birt.chart.util.PluginSettings;
+import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
+import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
@@ -48,8 +49,11 @@ import de.uka.ipd.sdq.probfunction.math.IProbabilityFunctionFactory;
 import de.uka.ipd.sdq.probfunction.math.IProbabilityMassFunction;
 import de.uka.ipd.sdq.probfunction.math.ISamplePDF;
 import de.uka.ipd.sdq.probfunction.math.exception.DifferentDomainsException;
+import de.uka.ipd.sdq.probfunction.math.exception.FunctionNotInTimeDomainException;
+import de.uka.ipd.sdq.probfunction.math.exception.NegativeDistanceException;
 import de.uka.ipd.sdq.probfunction.math.exception.UnknownPDFTypeException;
 import de.uka.ipd.sdq.probfunction.math.exception.UnorderedDomainException;
+import de.uka.ipd.sdq.probfunction.math.impl.SamplePDFImpl;
 
 /**
  * @author Ihssane
@@ -58,6 +62,7 @@ import de.uka.ipd.sdq.probfunction.math.exception.UnorderedDomainException;
 public class Visualization {
 
 	public static final int UNDEFINED = -1;
+	public static final double DEFAULT_DISTANCE = 0.1;
 
 	public enum ChartType {
 		BARCHART, LINECHART
@@ -81,7 +86,7 @@ public class Visualization {
 	private double maxValue = UNDEFINED;
 	private double minValue = UNDEFINED;
 	private int maxLength = Integer.MIN_VALUE;
-	// private double distance;
+	private double distance = DEFAULT_DISTANCE;
 
 	private String frameTilte = EMPTY_TITLE;
 	private String chartTitle = EMPTY_TITLE;
@@ -106,15 +111,15 @@ public class Visualization {
 		Collections.addAll(samples, 0.2, 0.1, 0.3, 0.4);
 		Collections.addAll(samples2, 0.1, 0.4, 0.2, 0.3, 0.5, 0.6);
 		ISamplePDF s = null;
-		s = pfFactory.createSamplePDFFromDouble(0.1, samples, null);
+		s = pfFactory.createSamplePDFFromDouble(0.2, samples, null);
 
 		scv.startAs(AppType.SWT);
 		scv.setChartTyp(ChartType.LINECHART);
 
 		try {
 			scv.addProbabilityFunction(s);
-			scv.addProbabilityFunction(pfFactory.createSamplePDFFromDouble(0.1,
-					samples2, null));
+			 scv.addProbabilityFunction(pfFactory.createSamplePDFFromDouble(0.1,
+			 samples2, null));
 
 		} catch (UnorderedDomainException e) {
 			e.printStackTrace();
@@ -123,9 +128,10 @@ public class Visualization {
 		} catch (DifferentDomainsException e) {
 			e.printStackTrace();
 		}
-		scv.setMaxValue(0.4);
-		scv.setMinValue(0.1);
-//		 scv.exportChartToPNG("chart.png");
+		// scv.setMaxValue(0.4);
+		// scv.setMinValue(0.1);
+
+		// scv.exportChartToPNG("chart.png");
 		scv.visualize();
 
 	}
@@ -207,7 +213,14 @@ public class Visualization {
 			return;
 		}
 		if (pf instanceof ISamplePDF) {
-			ISamplePDF samplePDF = (ISamplePDF) pf;
+			ISamplePDF samplePDF = null;
+			try {
+				samplePDF = ((SamplePDFImpl) pf).getFunctionWithNewDistance(distance);
+			} catch (NegativeDistanceException e) {
+				e.printStackTrace();
+			} catch (FunctionNotInTimeDomainException e) {
+				e.printStackTrace();
+			}
 			if (!checkNewSamplePDF(samplePDF))
 				throw new DifferentDomainsException();
 			wrapper.addSamplePDF(samplePDF);
@@ -226,7 +239,7 @@ public class Visualization {
 			return false;
 		if (!pmf.hasOrderedDomain())
 			return false;
-		
+
 		return true;
 	}
 
@@ -234,6 +247,37 @@ public class Visualization {
 		if (pmfCounter > 0)
 			return false;
 		return true;
+	}
+
+	@SuppressWarnings("unchecked")
+	public static EObject loadFromXMI(String fileName) {
+		// Create a resource set to hold the resources.
+		ResourceSet resourceSet = new ResourceSetImpl();
+
+		// Register the appropriate resource factory to handle all file
+		// extentions.
+		resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap()
+				.put(Resource.Factory.Registry.DEFAULT_EXTENSION,
+						new XMIResourceFactoryImpl());
+
+		// Register the package to ensure it is available during loading.
+		resourceSet.getPackageRegistry().put(ModelPackage.eNS_URI,
+				ModelPackage.eINSTANCE);
+
+		// Construct the URI for the instance file.
+		// The argument is treated as a file path only if it denotes an existing
+		// file. Otherwise, it's directly treated as a URL.
+		File file = new File(fileName);
+		URI uri = file.isFile()
+				? URI.createFileURI(file.getAbsolutePath())
+				: URI.createURI(fileName);
+
+		// Demand load resource for this file.
+		Resource resource = resourceSet.getResource(uri, true);
+		System.out.println("Loaded " + uri);
+
+		EObject eObject = (EObject) resource.getContents().iterator().next();
+		return EcoreUtil.getRootContainer(eObject);
 	}
 
 	@SuppressWarnings({"unchecked", "deprecation"})
@@ -250,33 +294,15 @@ public class Visualization {
 			w.setValuesSize(maxLength);
 		}
 
-		ChartWithAxes cwa = ChartWithAxesImpl.create();
-		cwa.getBlock().setBackground(backgroung);
-		cwa.getBlock().getOutline().setVisible(true);
-		cwa.setDimension(ChartDimension.TWO_DIMENSIONAL_LITERAL);
-
-		// CUSTOMIZE THE PLOT
-		Plot p = cwa.getPlot();
-		p.getClientArea().setBackground(
-				ColorDefinitionImpl.create(255, 255, 225));
-		p.getOutline().setVisible(true);
-		cwa.getTitle().getLabel().getCaption().setValue(chartTitle);
-		cwa.getTitle().setVisible(isChartTilteVisible);
-
-		// CUSTOMIZE THE LEGEND
-		cwa.getLegend().setVisible(false);
-
+		EObject o = loadFromXMI("test2.xml");
+//		ChartWithAxes cwa = ChartWithAxesImpl.create();
+		ChartWithAxes cwa1 = (ChartWithAxesImpl) o;
+		
 		// CUSTOMIZE THE X-AXIS
-		Axis xAxisPrimary = cwa.getPrimaryBaseAxes()[0];
-		xAxisPrimary.getTitle().getCaption().setValue(xAxisTitle);
-		xAxisPrimary.getTitle().setVisible(isXAxisTitleVisible);
+		Axis xAxisPrimary = cwa1.getPrimaryBaseAxes()[0];
 
 		// CUSTOMIZE THE Y-AXIS
-		Axis yAxisPrimary = cwa.getPrimaryOrthogonalAxis(xAxisPrimary);
-//		yAxisPrimary.getMajorGrid().setTickSize(0.1);
-//		yAxisPrimary.setFormatSpecifier(new FormatSpecifierImpl().)
-		yAxisPrimary.getTitle().getCaption().setValue(yAxisTitle);
-		yAxisPrimary.getTitle().setVisible(isYAxisTitleVisible);
+		Axis yAxisPrimary = cwa1.getPrimaryOrthogonalAxis(xAxisPrimary);
 
 		// INITIALIZE A COLLECTION WITH THE X-SERIES DATA
 		TextDataSet categoryValues = TextDataSetImpl.create(wrappers.get(0)
@@ -289,41 +315,20 @@ public class Visualization {
 		// INITIALIZE A COLLECTION WITH THE Y-SERIES DATA
 
 		// WRAP THE BASE SERIES IN THE X-AXIS SERIES DEFINITION
-
-		SeriesDefinition sdX = SeriesDefinitionImpl.create();
-		sdX.getSeriesPalette().update(0); // SET THE COLORS IN THE PALETTE
-		xAxisPrimary.getSeriesDefinitions().add(sdX);
-		sdX.getSeries().add(seCategory);
-
+		Series seriesX = (Series)(
+				((SeriesDefinition) xAxisPrimary
+						.getSeriesDefinitions().get(0)).getSeries().get(0));
+		seriesX.setDataSet(categoryValues);
+		//
 		NumberDataSet orthoValues1 = null;
-		Series series = null;
+		Series series = (Series)(
+		((SeriesDefinition) yAxisPrimary
+				.getSeriesDefinitions().get(0)).getSeries().get(0));
 		for (FunctionWrapper wrapper : wrappers) {
 			orthoValues1 = NumberDataSetImpl.create(wrapper.getProbabilities());
-			// CREATE THE VALUE ORTHOGONAL SERIES
-			if (chartTyp == ChartType.LINECHART) {
-				series = (LineSeries) LineSeriesImpl.create();
-				cwa.setDimension(ChartDimension.TWO_DIMENSIONAL_LITERAL);
-				((LineSeries) series).setConnectMissingValue(true);
-				((LineSeries) series).getMarker().setVisible(false);
-				
-			} else {
-				series = (BarSeries) BarSeriesImpl.create();
-				cwa
-						.setDimension(ChartDimension.TWO_DIMENSIONAL_WITH_DEPTH_LITERAL);
-			}
-			// CREATE THE VALUE ORTHOGONAL SERIES
-			series.setSeriesIdentifier("My Bar Series");
 			series.setDataSet(orthoValues1);
-			series.getLabel().setVisible(false);
-
-			// WRAP THE ORTHOGONAL SERIES IN THE X-AXIS SERIES DEFINITION
-
-			SeriesDefinition sdY = SeriesDefinitionImpl.create();
-			sdY.getSeriesPalette().update(1); // SET THE COLOR IN THE PALETTE
-			yAxisPrimary.getSeriesDefinitions().add(sdY);
-			sdY.getSeries().add(series);
 		}
-		cm = cwa;
+		cm = cwa1;
 	}
 	public void exportChartToPNG(String fileName) {
 		if (wrappers.size() == 0) {
