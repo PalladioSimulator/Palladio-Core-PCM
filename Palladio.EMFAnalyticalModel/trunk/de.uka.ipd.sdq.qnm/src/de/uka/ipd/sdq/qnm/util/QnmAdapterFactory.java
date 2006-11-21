@@ -73,13 +73,13 @@ public class QnmAdapterFactory extends AdapterFactoryImpl {
 			public Object caseQNModel(QNModel object) {
 				return createQNModelAdapter();
 			}
-			public Object caseCustomer(Customer object) {
+			public Object caseCustomer(Task object) {
 				return createCustomerAdapter();
 			}
-			public Object caseDemand(Demand object) {
+			public Object caseDemand(ResourceUsage object) {
 				return createDemandAdapter();
 			}
-			public Object caseServer(Server object) {
+			public Object caseServer(Resource object) {
 				return createServerAdapter();
 			}
 			public Object caseDeviceServer(DeviceServer object) {
@@ -88,7 +88,7 @@ public class QnmAdapterFactory extends AdapterFactoryImpl {
 			public Object caseLogicalServer(LogicalServer object) {
 				return createLogicalServerAdapter();
 			}
-			public Object caseLogicalDemand(LogicalDemand object) {
+			public Object caseLogicalDemand(CompositeResourceUsage object) {
 				return createLogicalDemandAdapter();
 			}
 			public Object caseDeviceDemand(DeviceDemand object) {
@@ -139,13 +139,13 @@ public class QnmAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.qnm.Customer <em>Customer</em>}'.
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.qnm.Task <em>Customer</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.qnm.Customer
+	 * @see de.uka.ipd.sdq.qnm.Task
 	 * @generated
 	 */
 	public Adapter createCustomerAdapter() {
@@ -153,13 +153,13 @@ public class QnmAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.qnm.Demand <em>Demand</em>}'.
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.qnm.ResourceUsage <em>Demand</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.qnm.Demand
+	 * @see de.uka.ipd.sdq.qnm.ResourceUsage
 	 * @generated
 	 */
 	public Adapter createDemandAdapter() {
@@ -167,13 +167,13 @@ public class QnmAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.qnm.Server <em>Server</em>}'.
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.qnm.Resource <em>Server</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.qnm.Server
+	 * @see de.uka.ipd.sdq.qnm.Resource
 	 * @generated
 	 */
 	public Adapter createServerAdapter() {
@@ -209,13 +209,13 @@ public class QnmAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.qnm.LogicalDemand <em>Logical Demand</em>}'.
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.qnm.CompositeResourceUsage <em>Logical Demand</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.qnm.LogicalDemand
+	 * @see de.uka.ipd.sdq.qnm.CompositeResourceUsage
 	 * @generated
 	 */
 	public Adapter createLogicalDemandAdapter() {

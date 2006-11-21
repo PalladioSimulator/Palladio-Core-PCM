@@ -8,7 +8,7 @@ package de.uka.ipd.sdq.qnm.qnResult;
 
 import de.uka.ipd.sdq.probfunction.math.ManagedPDF;
 
-import de.uka.ipd.sdq.qnm.Demand;
+import de.uka.ipd.sdq.qnm.ResourceUsage;
 
 import org.eclipse.emf.common.util.EList;
 
@@ -87,12 +87,12 @@ public interface DemandResult extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Demand</em>' reference.
-	 * @see #setDemand(Demand)
+	 * @see #setDemand(ResourceUsage)
 	 * @see de.uka.ipd.sdq.qnm.qnResult.QNResultPackage#getDemandResult_Demand()
 	 * @model required="true"
 	 * @generated
 	 */
-	Demand getDemand();
+	ResourceUsage getDemand();
 
 	/**
 	 * Sets the value of the '{@link de.uka.ipd.sdq.qnm.qnResult.DemandResult#getDemand <em>Demand</em>}' reference.
@@ -102,7 +102,7 @@ public interface DemandResult extends EObject {
 	 * @see #getDemand()
 	 * @generated
 	 */
-	void setDemand(Demand value);
+	void setDemand(ResourceUsage value);
 
 	/**
 	 * Returns the value of the '<em><b>Service Time</b></em>' attribute.

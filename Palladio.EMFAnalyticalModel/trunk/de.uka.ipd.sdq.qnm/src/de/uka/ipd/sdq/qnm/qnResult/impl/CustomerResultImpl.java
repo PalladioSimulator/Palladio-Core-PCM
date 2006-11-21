@@ -6,8 +6,8 @@
  */
 package de.uka.ipd.sdq.qnm.qnResult.impl;
 
-import de.uka.ipd.sdq.qnm.Customer;
-import de.uka.ipd.sdq.qnm.Server;
+import de.uka.ipd.sdq.qnm.Task;
+import de.uka.ipd.sdq.qnm.Resource;
 
 import de.uka.ipd.sdq.qnm.qnResult.CustomerResult;
 import de.uka.ipd.sdq.qnm.qnResult.CustomerServerUsage;
@@ -52,7 +52,7 @@ public class CustomerResultImpl extends EObjectImpl implements CustomerResult {
 	 * @generated
 	 * @ordered
 	 */
-	protected Customer customer = null;
+	protected Task customer = null;
 
 	/**
 	 * The cached value of the '{@link #getServerUsage() <em>Server Usage</em>}' reference list.
@@ -87,10 +87,10 @@ public class CustomerResultImpl extends EObjectImpl implements CustomerResult {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Customer getCustomer() {
+	public Task getCustomer() {
 		if (customer != null && customer.eIsProxy()) {
 			InternalEObject oldCustomer = (InternalEObject)customer;
-			customer = (Customer)eResolveProxy(oldCustomer);
+			customer = (Task)eResolveProxy(oldCustomer);
 			if (customer != oldCustomer) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, QNResultPackage.CUSTOMER_RESULT__CUSTOMER, oldCustomer, customer));
@@ -104,7 +104,7 @@ public class CustomerResultImpl extends EObjectImpl implements CustomerResult {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Customer basicGetCustomer() {
+	public Task basicGetCustomer() {
 		return customer;
 	}
 
@@ -113,8 +113,8 @@ public class CustomerResultImpl extends EObjectImpl implements CustomerResult {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setCustomer(Customer newCustomer) {
-		Customer oldCustomer = customer;
+	public void setCustomer(Task newCustomer) {
+		Task oldCustomer = customer;
 		customer = newCustomer;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, QNResultPackage.CUSTOMER_RESULT__CUSTOMER, oldCustomer, customer));
@@ -137,7 +137,7 @@ public class CustomerResultImpl extends EObjectImpl implements CustomerResult {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CustomerServerUsage getServerUsage(Server server) {
+	public CustomerServerUsage getServerUsage(Resource resource) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -193,7 +193,7 @@ public class CustomerResultImpl extends EObjectImpl implements CustomerResult {
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case QNResultPackage.CUSTOMER_RESULT__CUSTOMER:
-				setCustomer((Customer)newValue);
+				setCustomer((Task)newValue);
 				return;
 			case QNResultPackage.CUSTOMER_RESULT__SERVER_USAGE:
 				getServerUsage().clear();
@@ -211,7 +211,7 @@ public class CustomerResultImpl extends EObjectImpl implements CustomerResult {
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case QNResultPackage.CUSTOMER_RESULT__CUSTOMER:
-				setCustomer((Customer)null);
+				setCustomer((Task)null);
 				return;
 			case QNResultPackage.CUSTOMER_RESULT__SERVER_USAGE:
 				getServerUsage().clear();

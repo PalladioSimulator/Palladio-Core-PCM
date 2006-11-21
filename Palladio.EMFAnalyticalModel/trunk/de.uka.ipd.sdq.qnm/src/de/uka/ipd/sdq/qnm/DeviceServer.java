@@ -17,5 +17,5 @@ package de.uka.ipd.sdq.qnm;
  * @model
  * @generated
  */
-public interface DeviceServer extends Server {
+public interface DeviceServer extends Resource {
 } // DeviceServer

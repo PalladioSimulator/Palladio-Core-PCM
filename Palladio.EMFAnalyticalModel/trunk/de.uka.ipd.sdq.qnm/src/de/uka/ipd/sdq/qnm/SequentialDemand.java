@@ -17,5 +17,5 @@ package de.uka.ipd.sdq.qnm;
  * @model
  * @generated
  */
-public interface SequentialDemand extends LogicalDemand {
+public interface SequentialDemand extends CompositeResourceUsage {
 } // SequentialDemand

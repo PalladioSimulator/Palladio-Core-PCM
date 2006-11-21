@@ -7,7 +7,7 @@
 package de.uka.ipd.sdq.qnm.impl;
 
 import de.uka.ipd.sdq.qnm.QnmPackage;
-import de.uka.ipd.sdq.qnm.Server;
+import de.uka.ipd.sdq.qnm.Resource;
 
 import org.eclipse.emf.common.notify.Notification;
 
@@ -30,7 +30,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  *
  * @generated
  */
-public abstract class ServerImpl extends EObjectImpl implements Server {
+public abstract class ServerImpl extends EObjectImpl implements Resource {
 	/**
 	 * The default value of the '{@link #getNumber() <em>Number</em>}' attribute.
 	 * <!-- begin-user-doc -->

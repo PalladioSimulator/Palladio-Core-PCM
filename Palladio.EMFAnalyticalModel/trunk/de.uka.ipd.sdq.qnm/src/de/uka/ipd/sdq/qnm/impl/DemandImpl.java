@@ -6,7 +6,7 @@
  */
 package de.uka.ipd.sdq.qnm.impl;
 
-import de.uka.ipd.sdq.qnm.Demand;
+import de.uka.ipd.sdq.qnm.ResourceUsage;
 import de.uka.ipd.sdq.qnm.QnmPackage;
 
 import org.eclipse.emf.common.util.EList;
@@ -24,7 +24,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  *
  * @generated
  */
-public abstract class DemandImpl extends EObjectImpl implements Demand {
+public abstract class DemandImpl extends EObjectImpl implements ResourceUsage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

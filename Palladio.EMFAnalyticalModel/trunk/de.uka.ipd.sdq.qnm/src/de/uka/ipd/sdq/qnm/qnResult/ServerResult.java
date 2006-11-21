@@ -6,8 +6,8 @@
  */
 package de.uka.ipd.sdq.qnm.qnResult;
 
-import de.uka.ipd.sdq.qnm.Customer;
-import de.uka.ipd.sdq.qnm.Server;
+import de.uka.ipd.sdq.qnm.Task;
+import de.uka.ipd.sdq.qnm.Resource;
 
 import org.eclipse.emf.common.util.EList;
 
@@ -59,12 +59,12 @@ public interface ServerResult extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Server</em>' reference.
-	 * @see #setServer(Server)
+	 * @see #setServer(Resource)
 	 * @see de.uka.ipd.sdq.qnm.qnResult.QNResultPackage#getServerResult_Server()
 	 * @model required="true"
 	 * @generated
 	 */
-	Server getServer();
+	Resource getServer();
 
 	/**
 	 * Sets the value of the '{@link de.uka.ipd.sdq.qnm.qnResult.ServerResult#getServer <em>Server</em>}' reference.
@@ -74,7 +74,7 @@ public interface ServerResult extends EObject {
 	 * @see #getServer()
 	 * @generated
 	 */
-	void setServer(Server value);
+	void setServer(Resource value);
 
 	/**
 	 * Returns the value of the '<em><b>Usage Demands</b></em>' reference list.
@@ -100,6 +100,6 @@ public interface ServerResult extends EObject {
 	 * @model
 	 * @generated
 	 */
-	CustomerServerUsage getUsageByCustomer(Customer customer);
+	CustomerServerUsage getUsageByCustomer(Task customer);
 
 } // ServerResult

@@ -17,5 +17,5 @@ package de.uka.ipd.sdq.qnm;
  * @model
  * @generated
  */
-public interface LogicalServer extends Server {
+public interface LogicalServer extends Resource {
 } // LogicalServer

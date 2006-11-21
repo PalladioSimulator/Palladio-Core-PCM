@@ -94,20 +94,20 @@ public class QnmSwitch {
 				return result;
 			}
 			case QnmPackage.CUSTOMER: {
-				Customer customer = (Customer)theEObject;
+				Task customer = (Task)theEObject;
 				Object result = caseCustomer(customer);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case QnmPackage.DEMAND: {
-				Demand demand = (Demand)theEObject;
-				Object result = caseDemand(demand);
+				ResourceUsage resourceUsage = (ResourceUsage)theEObject;
+				Object result = caseDemand(resourceUsage);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case QnmPackage.SERVER: {
-				Server server = (Server)theEObject;
-				Object result = caseServer(server);
+				Resource resource = (Resource)theEObject;
+				Object result = caseServer(resource);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -126,7 +126,7 @@ public class QnmSwitch {
 				return result;
 			}
 			case QnmPackage.LOGICAL_DEMAND: {
-				LogicalDemand logicalDemand = (LogicalDemand)theEObject;
+				CompositeResourceUsage logicalDemand = (CompositeResourceUsage)theEObject;
 				Object result = caseLogicalDemand(logicalDemand);
 				if (result == null) result = caseDemand(logicalDemand);
 				if (result == null) result = defaultCase(theEObject);
@@ -201,7 +201,7 @@ public class QnmSwitch {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public Object caseCustomer(Customer object) {
+	public Object caseCustomer(Task object) {
 		return null;
 	}
 
@@ -216,7 +216,7 @@ public class QnmSwitch {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public Object caseDemand(Demand object) {
+	public Object caseDemand(ResourceUsage object) {
 		return null;
 	}
 
@@ -231,7 +231,7 @@ public class QnmSwitch {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public Object caseServer(Server object) {
+	public Object caseServer(Resource object) {
 		return null;
 	}
 
@@ -276,7 +276,7 @@ public class QnmSwitch {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public Object caseLogicalDemand(LogicalDemand object) {
+	public Object caseLogicalDemand(CompositeResourceUsage object) {
 		return null;
 	}
 

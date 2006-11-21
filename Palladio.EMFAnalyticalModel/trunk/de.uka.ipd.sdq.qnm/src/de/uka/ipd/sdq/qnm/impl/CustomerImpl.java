@@ -6,8 +6,8 @@
  */
 package de.uka.ipd.sdq.qnm.impl;
 
-import de.uka.ipd.sdq.qnm.Customer;
-import de.uka.ipd.sdq.qnm.Demand;
+import de.uka.ipd.sdq.qnm.Task;
+import de.uka.ipd.sdq.qnm.ResourceUsage;
 import de.uka.ipd.sdq.qnm.QnmPackage;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -36,7 +36,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  *
  * @generated
  */
-public class CustomerImpl extends EObjectImpl implements Customer {
+public class CustomerImpl extends EObjectImpl implements Task {
 	/**
 	 * The default value of the '{@link #getNumber() <em>Number</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -65,7 +65,7 @@ public class CustomerImpl extends EObjectImpl implements Customer {
 	 * @generated
 	 * @ordered
 	 */
-	protected Demand demand = null;
+	protected ResourceUsage resourceUsage = null;
 
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -131,8 +131,8 @@ public class CustomerImpl extends EObjectImpl implements Customer {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Demand getDemand() {
-		return demand;
+	public ResourceUsage getDemand() {
+		return resourceUsage;
 	}
 
 	/**
@@ -140,9 +140,9 @@ public class CustomerImpl extends EObjectImpl implements Customer {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetDemand(Demand newDemand, NotificationChain msgs) {
-		Demand oldDemand = demand;
-		demand = newDemand;
+	public NotificationChain basicSetDemand(ResourceUsage newDemand, NotificationChain msgs) {
+		ResourceUsage oldDemand = resourceUsage;
+		resourceUsage = newDemand;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, QnmPackage.CUSTOMER__DEMAND, oldDemand, newDemand);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
@@ -155,11 +155,11 @@ public class CustomerImpl extends EObjectImpl implements Customer {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setDemand(Demand newDemand) {
-		if (newDemand != demand) {
+	public void setDemand(ResourceUsage newDemand) {
+		if (newDemand != resourceUsage) {
 			NotificationChain msgs = null;
-			if (demand != null)
-				msgs = ((InternalEObject)demand).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - QnmPackage.CUSTOMER__DEMAND, null, msgs);
+			if (resourceUsage != null)
+				msgs = ((InternalEObject)resourceUsage).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - QnmPackage.CUSTOMER__DEMAND, null, msgs);
 			if (newDemand != null)
 				msgs = ((InternalEObject)newDemand).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - QnmPackage.CUSTOMER__DEMAND, null, msgs);
 			msgs = basicSetDemand(newDemand, msgs);
@@ -242,7 +242,7 @@ public class CustomerImpl extends EObjectImpl implements Customer {
 				setNumber(((Integer)newValue).intValue());
 				return;
 			case QnmPackage.CUSTOMER__DEMAND:
-				setDemand((Demand)newValue);
+				setDemand((ResourceUsage)newValue);
 				return;
 			case QnmPackage.CUSTOMER__NAME:
 				setName((String)newValue);
@@ -262,7 +262,7 @@ public class CustomerImpl extends EObjectImpl implements Customer {
 				setNumber(NUMBER_EDEFAULT);
 				return;
 			case QnmPackage.CUSTOMER__DEMAND:
-				setDemand((Demand)null);
+				setDemand((ResourceUsage)null);
 				return;
 			case QnmPackage.CUSTOMER__NAME:
 				setName(NAME_EDEFAULT);
@@ -281,7 +281,7 @@ public class CustomerImpl extends EObjectImpl implements Customer {
 			case QnmPackage.CUSTOMER__NUMBER:
 				return number != NUMBER_EDEFAULT;
 			case QnmPackage.CUSTOMER__DEMAND:
-				return demand != null;
+				return resourceUsage != null;
 			case QnmPackage.CUSTOMER__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 		}

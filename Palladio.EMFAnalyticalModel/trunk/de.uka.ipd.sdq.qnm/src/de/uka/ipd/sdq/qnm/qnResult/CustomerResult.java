@@ -6,8 +6,8 @@
  */
 package de.uka.ipd.sdq.qnm.qnResult;
 
-import de.uka.ipd.sdq.qnm.Customer;
-import de.uka.ipd.sdq.qnm.Server;
+import de.uka.ipd.sdq.qnm.Task;
+import de.uka.ipd.sdq.qnm.Resource;
 
 import org.eclipse.emf.common.util.EList;
 
@@ -40,12 +40,12 @@ public interface CustomerResult extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Customer</em>' reference.
-	 * @see #setCustomer(Customer)
+	 * @see #setCustomer(Task)
 	 * @see de.uka.ipd.sdq.qnm.qnResult.QNResultPackage#getCustomerResult_Customer()
 	 * @model required="true"
 	 * @generated
 	 */
-	Customer getCustomer();
+	Task getCustomer();
 
 	/**
 	 * Sets the value of the '{@link de.uka.ipd.sdq.qnm.qnResult.CustomerResult#getCustomer <em>Customer</em>}' reference.
@@ -55,7 +55,7 @@ public interface CustomerResult extends EObject {
 	 * @see #getCustomer()
 	 * @generated
 	 */
-	void setCustomer(Customer value);
+	void setCustomer(Task value);
 
 	/**
 	 * Returns the value of the '<em><b>Server Usage</b></em>' reference list.
@@ -81,6 +81,6 @@ public interface CustomerResult extends EObject {
 	 * @model
 	 * @generated
 	 */
-	CustomerServerUsage getServerUsage(Server server);
+	CustomerServerUsage getServerUsage(Resource resource);
 
 } // CustomerResult

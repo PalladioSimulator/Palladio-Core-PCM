@@ -6,11 +6,11 @@
  */
 package de.uka.ipd.sdq.qnm.qnResult;
 
-import de.uka.ipd.sdq.qnm.Customer;
-import de.uka.ipd.sdq.qnm.Demand;
+import de.uka.ipd.sdq.qnm.Task;
+import de.uka.ipd.sdq.qnm.ResourceUsage;
 import de.uka.ipd.sdq.qnm.QNModel;
 
-import de.uka.ipd.sdq.qnm.Server;
+import de.uka.ipd.sdq.qnm.Resource;
 
 import org.eclipse.emf.common.util.EList;
 
@@ -150,7 +150,7 @@ public interface QNResultModel extends EObject {
 	 * @model
 	 * @generated
 	 */
-	ServerResult getResultForServer(Server server);
+	ServerResult getResultForServer(Resource resource);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -158,7 +158,7 @@ public interface QNResultModel extends EObject {
 	 * @model
 	 * @generated
 	 */
-	CustomerResult getResultForCustomer(Customer customer);
+	CustomerResult getResultForCustomer(Task customer);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -166,6 +166,6 @@ public interface QNResultModel extends EObject {
 	 * @model
 	 * @generated
 	 */
-	DemandResult getResultForDemand(Demand demand);
+	DemandResult getResultForDemand(ResourceUsage resourceUsage);
 
 } // QNResultModel

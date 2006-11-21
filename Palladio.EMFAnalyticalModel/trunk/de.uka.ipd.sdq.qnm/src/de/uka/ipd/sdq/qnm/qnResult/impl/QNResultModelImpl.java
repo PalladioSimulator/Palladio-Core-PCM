@@ -6,11 +6,11 @@
  */
 package de.uka.ipd.sdq.qnm.qnResult.impl;
 
-import de.uka.ipd.sdq.qnm.Customer;
-import de.uka.ipd.sdq.qnm.Demand;
+import de.uka.ipd.sdq.qnm.Task;
+import de.uka.ipd.sdq.qnm.ResourceUsage;
 import de.uka.ipd.sdq.qnm.QNModel;
 
-import de.uka.ipd.sdq.qnm.Server;
+import de.uka.ipd.sdq.qnm.Resource;
 
 import de.uka.ipd.sdq.qnm.qnResult.CustomerResult;
 import de.uka.ipd.sdq.qnm.qnResult.CustomerServerUsage;
@@ -236,7 +236,7 @@ public class QNResultModelImpl extends EObjectImpl implements QNResultModel {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ServerResult getResultForServer(Server server) {
+	public ServerResult getResultForServer(Resource resource) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -247,7 +247,7 @@ public class QNResultModelImpl extends EObjectImpl implements QNResultModel {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CustomerResult getResultForCustomer(Customer customer) {
+	public CustomerResult getResultForCustomer(Task customer) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -258,7 +258,7 @@ public class QNResultModelImpl extends EObjectImpl implements QNResultModel {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public DemandResult getResultForDemand(Demand demand) {
+	public DemandResult getResultForDemand(ResourceUsage resourceUsage) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();

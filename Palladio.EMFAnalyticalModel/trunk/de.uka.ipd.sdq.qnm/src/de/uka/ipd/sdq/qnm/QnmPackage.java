@@ -569,85 +569,85 @@ public interface QnmPackage extends EPackage {
 	EAttribute getQNModel_INFINITE();
 
 	/**
-	 * Returns the meta object for class '{@link de.uka.ipd.sdq.qnm.Customer <em>Customer</em>}'.
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.qnm.Task <em>Customer</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for class '<em>Customer</em>'.
-	 * @see de.uka.ipd.sdq.qnm.Customer
+	 * @see de.uka.ipd.sdq.qnm.Task
 	 * @generated
 	 */
 	EClass getCustomer();
 
 	/**
-	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.qnm.Customer#getNumber <em>Number</em>}'.
+	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.qnm.Task#getNumber <em>Number</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Number</em>'.
-	 * @see de.uka.ipd.sdq.qnm.Customer#getNumber()
+	 * @see de.uka.ipd.sdq.qnm.Task#getNumber()
 	 * @see #getCustomer()
 	 * @generated
 	 */
 	EAttribute getCustomer_Number();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link de.uka.ipd.sdq.qnm.Customer#getDemand <em>Demand</em>}'.
+	 * Returns the meta object for the containment reference '{@link de.uka.ipd.sdq.qnm.Task#getDemand <em>Demand</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference '<em>Demand</em>'.
-	 * @see de.uka.ipd.sdq.qnm.Customer#getDemand()
+	 * @see de.uka.ipd.sdq.qnm.Task#getDemand()
 	 * @see #getCustomer()
 	 * @generated
 	 */
 	EReference getCustomer_Demand();
 
 	/**
-	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.qnm.Customer#getName <em>Name</em>}'.
+	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.qnm.Task#getName <em>Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see de.uka.ipd.sdq.qnm.Customer#getName()
+	 * @see de.uka.ipd.sdq.qnm.Task#getName()
 	 * @see #getCustomer()
 	 * @generated
 	 */
 	EAttribute getCustomer_Name();
 
 	/**
-	 * Returns the meta object for class '{@link de.uka.ipd.sdq.qnm.Demand <em>Demand</em>}'.
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.qnm.ResourceUsage <em>Demand</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for class '<em>Demand</em>'.
-	 * @see de.uka.ipd.sdq.qnm.Demand
+	 * @see de.uka.ipd.sdq.qnm.ResourceUsage
 	 * @generated
 	 */
 	EClass getDemand();
 
 	/**
-	 * Returns the meta object for class '{@link de.uka.ipd.sdq.qnm.Server <em>Server</em>}'.
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.qnm.Resource <em>Server</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for class '<em>Server</em>'.
-	 * @see de.uka.ipd.sdq.qnm.Server
+	 * @see de.uka.ipd.sdq.qnm.Resource
 	 * @generated
 	 */
 	EClass getServer();
 
 	/**
-	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.qnm.Server#getNumber <em>Number</em>}'.
+	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.qnm.Resource#getNumber <em>Number</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Number</em>'.
-	 * @see de.uka.ipd.sdq.qnm.Server#getNumber()
+	 * @see de.uka.ipd.sdq.qnm.Resource#getNumber()
 	 * @see #getServer()
 	 * @generated
 	 */
 	EAttribute getServer_Number();
 
 	/**
-	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.qnm.Server#getName <em>Name</em>}'.
+	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.qnm.Resource#getName <em>Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see de.uka.ipd.sdq.qnm.Server#getName()
+	 * @see de.uka.ipd.sdq.qnm.Resource#getName()
 	 * @see #getServer()
 	 * @generated
 	 */
@@ -674,32 +674,32 @@ public interface QnmPackage extends EPackage {
 	EClass getLogicalServer();
 
 	/**
-	 * Returns the meta object for class '{@link de.uka.ipd.sdq.qnm.LogicalDemand <em>Logical Demand</em>}'.
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.qnm.CompositeResourceUsage <em>Logical Demand</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for class '<em>Logical Demand</em>'.
-	 * @see de.uka.ipd.sdq.qnm.LogicalDemand
+	 * @see de.uka.ipd.sdq.qnm.CompositeResourceUsage
 	 * @generated
 	 */
 	EClass getLogicalDemand();
 
 	/**
-	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.qnm.LogicalDemand#getLogicalserver <em>Logicalserver</em>}'.
+	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.qnm.CompositeResourceUsage#getLogicalserver <em>Logicalserver</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the reference '<em>Logicalserver</em>'.
-	 * @see de.uka.ipd.sdq.qnm.LogicalDemand#getLogicalserver()
+	 * @see de.uka.ipd.sdq.qnm.CompositeResourceUsage#getLogicalserver()
 	 * @see #getLogicalDemand()
 	 * @generated
 	 */
 	EReference getLogicalDemand_Logicalserver();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link de.uka.ipd.sdq.qnm.LogicalDemand#getDemands <em>Demands</em>}'.
+	 * Returns the meta object for the containment reference list '{@link de.uka.ipd.sdq.qnm.CompositeResourceUsage#getDemands <em>Demands</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference list '<em>Demands</em>'.
-	 * @see de.uka.ipd.sdq.qnm.LogicalDemand#getDemands()
+	 * @see de.uka.ipd.sdq.qnm.CompositeResourceUsage#getDemands()
 	 * @see #getLogicalDemand()
 	 * @generated
 	 */

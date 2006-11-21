@@ -8,7 +8,7 @@ package de.uka.ipd.sdq.qnm.qnResult.impl;
 
 import de.uka.ipd.sdq.probfunction.math.ManagedPDF;
 
-import de.uka.ipd.sdq.qnm.Demand;
+import de.uka.ipd.sdq.qnm.ResourceUsage;
 
 import de.uka.ipd.sdq.qnm.qnResult.DemandResult;
 import de.uka.ipd.sdq.qnm.qnResult.DemandServerUsage;
@@ -85,7 +85,7 @@ public class DemandResultImpl extends EObjectImpl implements DemandResult {
 	 * @generated
 	 * @ordered
 	 */
-	protected Demand demand = null;
+	protected ResourceUsage resourceUsage = null;
 
 	/**
 	 * The default value of the '{@link #getServiceTime() <em>Service Time</em>}' attribute.
@@ -163,16 +163,16 @@ public class DemandResultImpl extends EObjectImpl implements DemandResult {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Demand getDemand() {
-		if (demand != null && demand.eIsProxy()) {
-			InternalEObject oldDemand = (InternalEObject)demand;
-			demand = (Demand)eResolveProxy(oldDemand);
-			if (demand != oldDemand) {
+	public ResourceUsage getDemand() {
+		if (resourceUsage != null && resourceUsage.eIsProxy()) {
+			InternalEObject oldDemand = (InternalEObject)resourceUsage;
+			resourceUsage = (ResourceUsage)eResolveProxy(oldDemand);
+			if (resourceUsage != oldDemand) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, QNResultPackage.DEMAND_RESULT__DEMAND, oldDemand, demand));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, QNResultPackage.DEMAND_RESULT__DEMAND, oldDemand, resourceUsage));
 			}
 		}
-		return demand;
+		return resourceUsage;
 	}
 
 	/**
@@ -180,8 +180,8 @@ public class DemandResultImpl extends EObjectImpl implements DemandResult {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Demand basicGetDemand() {
-		return demand;
+	public ResourceUsage basicGetDemand() {
+		return resourceUsage;
 	}
 
 	/**
@@ -189,11 +189,11 @@ public class DemandResultImpl extends EObjectImpl implements DemandResult {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setDemand(Demand newDemand) {
-		Demand oldDemand = demand;
-		demand = newDemand;
+	public void setDemand(ResourceUsage newDemand) {
+		ResourceUsage oldDemand = resourceUsage;
+		resourceUsage = newDemand;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, QNResultPackage.DEMAND_RESULT__DEMAND, oldDemand, demand));
+			eNotify(new ENotificationImpl(this, Notification.SET, QNResultPackage.DEMAND_RESULT__DEMAND, oldDemand, resourceUsage));
 	}
 
 	/**
@@ -278,7 +278,7 @@ public class DemandResultImpl extends EObjectImpl implements DemandResult {
 				getServerUsages().addAll((Collection)newValue);
 				return;
 			case QNResultPackage.DEMAND_RESULT__DEMAND:
-				setDemand((Demand)newValue);
+				setDemand((ResourceUsage)newValue);
 				return;
 			case QNResultPackage.DEMAND_RESULT__SERVICE_TIME:
 				setServiceTime((ManagedPDF)newValue);
@@ -301,7 +301,7 @@ public class DemandResultImpl extends EObjectImpl implements DemandResult {
 				getServerUsages().clear();
 				return;
 			case QNResultPackage.DEMAND_RESULT__DEMAND:
-				setDemand((Demand)null);
+				setDemand((ResourceUsage)null);
 				return;
 			case QNResultPackage.DEMAND_RESULT__SERVICE_TIME:
 				setServiceTime(SERVICE_TIME_EDEFAULT);
@@ -322,7 +322,7 @@ public class DemandResultImpl extends EObjectImpl implements DemandResult {
 			case QNResultPackage.DEMAND_RESULT__SERVER_USAGES:
 				return serverUsages != null && !serverUsages.isEmpty();
 			case QNResultPackage.DEMAND_RESULT__DEMAND:
-				return demand != null;
+				return resourceUsage != null;
 			case QNResultPackage.DEMAND_RESULT__SERVICE_TIME:
 				return SERVICE_TIME_EDEFAULT == null ? serviceTime != null : !SERVICE_TIME_EDEFAULT.equals(serviceTime);
 		}

@@ -31,7 +31,7 @@ import org.eclipse.emf.ecore.EObject;
 public interface QNModel extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Customers</b></em>' containment reference list.
-	 * The list contents are of type {@link de.uka.ipd.sdq.qnm.Customer}.
+	 * The list contents are of type {@link de.uka.ipd.sdq.qnm.Task}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Customers</em>' containment reference list isn't clear,
@@ -47,7 +47,7 @@ public interface QNModel extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Servers</b></em>' containment reference list.
-	 * The list contents are of type {@link de.uka.ipd.sdq.qnm.Server}.
+	 * The list contents are of type {@link de.uka.ipd.sdq.qnm.Resource}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Servers</em>' containment reference list isn't clear,

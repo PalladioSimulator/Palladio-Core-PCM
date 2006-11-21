@@ -17,5 +17,5 @@ package de.uka.ipd.sdq.qnm;
  * @model
  * @generated
  */
-public interface ParallelDemand extends LogicalDemand {
+public interface ParallelDemand extends CompositeResourceUsage {
 } // ParallelDemand

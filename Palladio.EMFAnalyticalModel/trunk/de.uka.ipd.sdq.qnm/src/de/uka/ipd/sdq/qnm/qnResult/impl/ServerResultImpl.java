@@ -6,8 +6,8 @@
  */
 package de.uka.ipd.sdq.qnm.qnResult.impl;
 
-import de.uka.ipd.sdq.qnm.Customer;
-import de.uka.ipd.sdq.qnm.Server;
+import de.uka.ipd.sdq.qnm.Task;
+import de.uka.ipd.sdq.qnm.Resource;
 
 import de.uka.ipd.sdq.qnm.qnResult.CustomerServerUsage;
 import de.uka.ipd.sdq.qnm.qnResult.DemandServerUsage;
@@ -64,7 +64,7 @@ public class ServerResultImpl extends EObjectImpl implements ServerResult {
 	 * @generated
 	 * @ordered
 	 */
-	protected Server server = null;
+	protected Resource resource = null;
 
 	/**
 	 * The cached value of the '{@link #getUsageDemands() <em>Usage Demands</em>}' reference list.
@@ -111,16 +111,16 @@ public class ServerResultImpl extends EObjectImpl implements ServerResult {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Server getServer() {
-		if (server != null && server.eIsProxy()) {
-			InternalEObject oldServer = (InternalEObject)server;
-			server = (Server)eResolveProxy(oldServer);
-			if (server != oldServer) {
+	public Resource getServer() {
+		if (resource != null && resource.eIsProxy()) {
+			InternalEObject oldServer = (InternalEObject)resource;
+			resource = (Resource)eResolveProxy(oldServer);
+			if (resource != oldServer) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, QNResultPackage.SERVER_RESULT__SERVER, oldServer, server));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, QNResultPackage.SERVER_RESULT__SERVER, oldServer, resource));
 			}
 		}
-		return server;
+		return resource;
 	}
 
 	/**
@@ -128,8 +128,8 @@ public class ServerResultImpl extends EObjectImpl implements ServerResult {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Server basicGetServer() {
-		return server;
+	public Resource basicGetServer() {
+		return resource;
 	}
 
 	/**
@@ -137,11 +137,11 @@ public class ServerResultImpl extends EObjectImpl implements ServerResult {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setServer(Server newServer) {
-		Server oldServer = server;
-		server = newServer;
+	public void setServer(Resource newServer) {
+		Resource oldServer = resource;
+		resource = newServer;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, QNResultPackage.SERVER_RESULT__SERVER, oldServer, server));
+			eNotify(new ENotificationImpl(this, Notification.SET, QNResultPackage.SERVER_RESULT__SERVER, oldServer, resource));
 	}
 
 	/**
@@ -161,7 +161,7 @@ public class ServerResultImpl extends EObjectImpl implements ServerResult {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CustomerServerUsage getUsageByCustomer(Customer customer) {
+	public CustomerServerUsage getUsageByCustomer(Task customer) {
 		// TODO: implement this method
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -227,7 +227,7 @@ public class ServerResultImpl extends EObjectImpl implements ServerResult {
 				getUsingCustomers().addAll((Collection)newValue);
 				return;
 			case QNResultPackage.SERVER_RESULT__SERVER:
-				setServer((Server)newValue);
+				setServer((Resource)newValue);
 				return;
 			case QNResultPackage.SERVER_RESULT__USAGE_DEMANDS:
 				getUsageDemands().clear();
@@ -248,7 +248,7 @@ public class ServerResultImpl extends EObjectImpl implements ServerResult {
 				getUsingCustomers().clear();
 				return;
 			case QNResultPackage.SERVER_RESULT__SERVER:
-				setServer((Server)null);
+				setServer((Resource)null);
 				return;
 			case QNResultPackage.SERVER_RESULT__USAGE_DEMANDS:
 				getUsageDemands().clear();
@@ -267,7 +267,7 @@ public class ServerResultImpl extends EObjectImpl implements ServerResult {
 			case QNResultPackage.SERVER_RESULT__USING_CUSTOMERS:
 				return usingCustomers != null && !usingCustomers.isEmpty();
 			case QNResultPackage.SERVER_RESULT__SERVER:
-				return server != null;
+				return resource != null;
 			case QNResultPackage.SERVER_RESULT__USAGE_DEMANDS:
 				return usageDemands != null && !usageDemands.isEmpty();
 		}

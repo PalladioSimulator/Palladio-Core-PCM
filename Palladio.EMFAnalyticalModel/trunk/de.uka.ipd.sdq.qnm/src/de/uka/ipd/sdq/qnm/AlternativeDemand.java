@@ -17,5 +17,5 @@ package de.uka.ipd.sdq.qnm;
  * @model
  * @generated
  */
-public interface AlternativeDemand extends LogicalDemand {
+public interface AlternativeDemand extends CompositeResourceUsage {
 } // AlternativeDemand

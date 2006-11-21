@@ -6,10 +6,10 @@
  */
 package de.uka.ipd.sdq.qnm.impl;
 
-import de.uka.ipd.sdq.qnm.Customer;
+import de.uka.ipd.sdq.qnm.Task;
 import de.uka.ipd.sdq.qnm.QNModel;
 import de.uka.ipd.sdq.qnm.QnmPackage;
-import de.uka.ipd.sdq.qnm.Server;
+import de.uka.ipd.sdq.qnm.Resource;
 
 import java.util.Collection;
 
@@ -106,7 +106,7 @@ public class QNModelImpl extends EObjectImpl implements QNModel {
 	 */
 	public EList getCustomers() {
 		if (customers == null) {
-			customers = new EObjectContainmentEList(Customer.class, this, QnmPackage.QN_MODEL__CUSTOMERS);
+			customers = new EObjectContainmentEList(Task.class, this, QnmPackage.QN_MODEL__CUSTOMERS);
 		}
 		return customers;
 	}
@@ -118,7 +118,7 @@ public class QNModelImpl extends EObjectImpl implements QNModel {
 	 */
 	public EList getServers() {
 		if (servers == null) {
-			servers = new EObjectContainmentEList(Server.class, this, QnmPackage.QN_MODEL__SERVERS);
+			servers = new EObjectContainmentEList(Resource.class, this, QnmPackage.QN_MODEL__SERVERS);
 		}
 		return servers;
 	}

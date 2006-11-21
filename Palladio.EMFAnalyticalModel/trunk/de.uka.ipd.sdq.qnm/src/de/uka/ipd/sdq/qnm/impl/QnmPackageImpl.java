@@ -11,19 +11,19 @@ import de.uka.ipd.sdq.probfunction.math.ManagedPDF;
 import de.uka.ipd.sdq.probfunction.math.ManagedPMF;
 
 import de.uka.ipd.sdq.qnm.AlternativeDemand;
-import de.uka.ipd.sdq.qnm.Customer;
-import de.uka.ipd.sdq.qnm.Demand;
+import de.uka.ipd.sdq.qnm.Task;
+import de.uka.ipd.sdq.qnm.ResourceUsage;
 import de.uka.ipd.sdq.qnm.DeviceDemand;
 import de.uka.ipd.sdq.qnm.DeviceServer;
 import de.uka.ipd.sdq.qnm.IterativeDemand;
-import de.uka.ipd.sdq.qnm.LogicalDemand;
+import de.uka.ipd.sdq.qnm.CompositeResourceUsage;
 import de.uka.ipd.sdq.qnm.LogicalServer;
 import de.uka.ipd.sdq.qnm.ParallelDemand;
 import de.uka.ipd.sdq.qnm.QNModel;
 import de.uka.ipd.sdq.qnm.QnmFactory;
 import de.uka.ipd.sdq.qnm.QnmPackage;
 import de.uka.ipd.sdq.qnm.SequentialDemand;
-import de.uka.ipd.sdq.qnm.Server;
+import de.uka.ipd.sdq.qnm.Resource;
 
 import de.uka.ipd.sdq.qnm.qnResult.QNResultPackage;
 
@@ -563,28 +563,28 @@ public class QnmPackageImpl extends EPackageImpl implements QnmPackage {
 		initEReference(getQNModel_Servers(), this.getServer(), null, "servers", null, 0, -1, QNModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getQNModel_INFINITE(), ecorePackage.getEInt(), "INFINITE", "-1", 1, 1, QNModel.class, !IS_TRANSIENT, !IS_VOLATILE, !IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(customerEClass, Customer.class, "Customer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getCustomer_Number(), ecorePackage.getEInt(), "number", null, 1, 1, Customer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getCustomer_Demand(), this.getDemand(), null, "demand", null, 1, 1, Customer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getCustomer_Name(), ecorePackage.getEString(), "name", "", 1, 1, Customer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(customerEClass, Task.class, "Customer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getCustomer_Number(), ecorePackage.getEInt(), "number", null, 1, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCustomer_Demand(), this.getDemand(), null, "demand", null, 1, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCustomer_Name(), ecorePackage.getEString(), "name", "", 1, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		addEOperation(customerEClass, ecorePackage.getEEList(), "getAllDemands", 0, 1);
 
-		initEClass(demandEClass, Demand.class, "Demand", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(demandEClass, ResourceUsage.class, "Demand", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		addEOperation(demandEClass, ecorePackage.getEEList(), "getUsedResources", 0, 1);
 
-		initEClass(serverEClass, Server.class, "Server", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getServer_Number(), ecorePackage.getEInt(), "number", null, 1, 1, Server.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getServer_Name(), ecorePackage.getEString(), "name", "", 1, 1, Server.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(serverEClass, Resource.class, "Server", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getServer_Number(), ecorePackage.getEInt(), "number", null, 1, 1, Resource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getServer_Name(), ecorePackage.getEString(), "name", "", 1, 1, Resource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(deviceServerEClass, DeviceServer.class, "DeviceServer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(logicalServerEClass, LogicalServer.class, "LogicalServer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(logicalDemandEClass, LogicalDemand.class, "LogicalDemand", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getLogicalDemand_Logicalserver(), this.getLogicalServer(), null, "logicalserver", null, 1, 1, LogicalDemand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getLogicalDemand_Demands(), this.getDemand(), null, "demands", null, 0, -1, LogicalDemand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(logicalDemandEClass, CompositeResourceUsage.class, "LogicalDemand", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getLogicalDemand_Logicalserver(), this.getLogicalServer(), null, "logicalserver", null, 1, 1, CompositeResourceUsage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getLogicalDemand_Demands(), this.getDemand(), null, "demands", null, 0, -1, CompositeResourceUsage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(deviceDemandEClass, DeviceDemand.class, "DeviceDemand", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getDeviceDemand_DeviceServer(), this.getDeviceServer(), null, "deviceServer", null, 1, 1, DeviceDemand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

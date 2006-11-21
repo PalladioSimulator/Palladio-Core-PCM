@@ -125,7 +125,7 @@ public class QnmFactoryImpl extends EFactoryImpl implements QnmFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Customer createCustomer() {
+	public Task createCustomer() {
 		CustomerImpl customer = new CustomerImpl();
 		return customer;
 	}

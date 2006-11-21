@@ -6,8 +6,8 @@
  */
 package de.uka.ipd.sdq.qnm.impl;
 
-import de.uka.ipd.sdq.qnm.Demand;
-import de.uka.ipd.sdq.qnm.LogicalDemand;
+import de.uka.ipd.sdq.qnm.ResourceUsage;
+import de.uka.ipd.sdq.qnm.CompositeResourceUsage;
 import de.uka.ipd.sdq.qnm.LogicalServer;
 import de.uka.ipd.sdq.qnm.QnmPackage;
 
@@ -40,7 +40,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public abstract class LogicalDemandImpl extends DemandImpl implements LogicalDemand {
+public abstract class LogicalDemandImpl extends DemandImpl implements CompositeResourceUsage {
 	/**
 	 * The cached value of the '{@link #getLogicalserver() <em>Logicalserver</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -124,7 +124,7 @@ public abstract class LogicalDemandImpl extends DemandImpl implements LogicalDem
 	 */
 	public EList getDemands() {
 		if (demands == null) {
-			demands = new EObjectContainmentEList(Demand.class, this, QnmPackage.LOGICAL_DEMAND__DEMANDS);
+			demands = new EObjectContainmentEList(ResourceUsage.class, this, QnmPackage.LOGICAL_DEMAND__DEMANDS);
 		}
 		return demands;
 	}

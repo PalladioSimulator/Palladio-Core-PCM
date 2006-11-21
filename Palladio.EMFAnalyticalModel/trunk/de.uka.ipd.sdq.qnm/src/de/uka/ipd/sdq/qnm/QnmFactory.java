@@ -41,7 +41,7 @@ public interface QnmFactory extends EFactory {
 	 * @return a new object of class '<em>Customer</em>'.
 	 * @generated
 	 */
-	Customer createCustomer();
+	Task createCustomer();
 
 	/**
 	 * Returns a new object of class '<em>Device Server</em>'.

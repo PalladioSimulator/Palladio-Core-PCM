@@ -25,7 +25,7 @@ import de.uka.ipd.sdq.probfunction.math.ManagedPDF;
  * @model
  * @generated
  */
-public interface DeviceDemand extends Demand {
+public interface DeviceDemand extends ResourceUsage {
 	/**
 	 * Returns the value of the '<em><b>Device Server</b></em>' reference.
 	 * <!-- begin-user-doc -->
