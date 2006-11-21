@@ -40,7 +40,6 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopActionEntityNameEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopIterationsLabel2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopIterationsLabelEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ParametricResourceDemandEditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.PrimitiveParameterUsageEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviour2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviourBranchCompartmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviourEditPart;
@@ -50,8 +49,10 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.StartAction2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.StartActionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.StopAction2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.StopActionEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableUsageEditPart;
+
 import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
-import de.uka.ipd.sdq.pcm.parameter.PrimitiveParameterUsage;
+import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
 
 import de.uka.ipd.sdq.pcm.seff.BranchAction;
 import de.uka.ipd.sdq.pcm.seff.BranchTransition;
@@ -238,9 +239,9 @@ public class PcmVisualIDRegistry {
 			}
 			return getUnrecognizedInternalAction_1006ChildNodeID(domainElement,
 					semanticHint);
-		case PrimitiveParameterUsageEditPart.VISUAL_ID:
-			return getUnrecognizedPrimitiveParameterUsage_2001ChildNodeID(
-					domainElement, semanticHint);
+		case VariableUsageEditPart.VISUAL_ID:
+			return getUnrecognizedVariableUsage_2001ChildNodeID(domainElement,
+					semanticHint);
 		case ResourceDemandingBehaviourEditPart.VISUAL_ID:
 			if (ResourceDemandingBehaviourLoopCompartmentEditPart.VISUAL_ID == nodeVisualID) {
 				return ResourceDemandingBehaviourLoopCompartmentEditPart.VISUAL_ID;
@@ -311,11 +312,11 @@ public class PcmVisualIDRegistry {
 			return getUnrecognizedExternalCallAction_2011ChildNodeID(
 					domainElement, semanticHint);
 		case ExternalCallActionParameterUsageEditPart.VISUAL_ID:
-			if ((semanticHint == null || PrimitiveParameterUsageEditPart.VISUAL_ID == nodeVisualID)
-					&& ParameterPackage.eINSTANCE.getPrimitiveParameterUsage()
+			if ((semanticHint == null || VariableUsageEditPart.VISUAL_ID == nodeVisualID)
+					&& ParameterPackage.eINSTANCE.getVariableUsage()
 							.isSuperTypeOf(domainElementMetaclass)
-					&& (domainElement == null || isNodePrimitiveParameterUsage_2001((PrimitiveParameterUsage) domainElement))) {
-				return PrimitiveParameterUsageEditPart.VISUAL_ID;
+					&& (domainElement == null || isNodeVariableUsage_2001((VariableUsage) domainElement))) {
+				return VariableUsageEditPart.VISUAL_ID;
 			}
 			return getUnrecognizedExternalCallActionParameterUsage_5001ChildNodeID(
 					domainElement, semanticHint);
@@ -443,11 +444,11 @@ public class PcmVisualIDRegistry {
 			return getUnrecognizedResourceDemandingBehaviourBranchCompartment_5008ChildNodeID(
 					domainElement, semanticHint);
 		case ExternalCallActionParameterUsage2EditPart.VISUAL_ID:
-			if ((semanticHint == null || PrimitiveParameterUsageEditPart.VISUAL_ID == nodeVisualID)
-					&& ParameterPackage.eINSTANCE.getPrimitiveParameterUsage()
+			if ((semanticHint == null || VariableUsageEditPart.VISUAL_ID == nodeVisualID)
+					&& ParameterPackage.eINSTANCE.getVariableUsage()
 							.isSuperTypeOf(domainElementMetaclass)
-					&& (domainElement == null || isNodePrimitiveParameterUsage_2001((PrimitiveParameterUsage) domainElement))) {
-				return PrimitiveParameterUsageEditPart.VISUAL_ID;
+					&& (domainElement == null || isNodeVariableUsage_2001((VariableUsage) domainElement))) {
+				return VariableUsageEditPart.VISUAL_ID;
 			}
 			return getUnrecognizedExternalCallActionParameterUsage_5009ChildNodeID(
 					domainElement, semanticHint);
@@ -621,8 +622,7 @@ public class PcmVisualIDRegistry {
 	 *
 	 * @generated
 	 */
-	private static boolean isNodePrimitiveParameterUsage_2001(
-			PrimitiveParameterUsage element) {
+	private static boolean isNodeVariableUsage_2001(VariableUsage element) {
 		return true;
 	}
 
@@ -802,7 +802,7 @@ public class PcmVisualIDRegistry {
 	 *
 	 * @generated
 	 */
-	private static int getUnrecognizedPrimitiveParameterUsage_2001ChildNodeID(
+	private static int getUnrecognizedVariableUsage_2001ChildNodeID(
 			EObject domainElement, String semanticHint) {
 		return -1;
 	}

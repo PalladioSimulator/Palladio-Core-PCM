@@ -60,8 +60,8 @@ public class PcmEditPartFactory implements EditPartFactory {
 				return new InternalAction2EditPart(view);
 			case InternalActionEntityName2EditPart.VISUAL_ID:
 				return new InternalActionEntityName2EditPart(view);
-			case PrimitiveParameterUsageEditPart.VISUAL_ID:
-				return new PrimitiveParameterUsageEditPart(view);
+			case VariableUsageEditPart.VISUAL_ID:
+				return new VariableUsageEditPart(view);
 			case ResourceDemandingBehaviourEditPart.VISUAL_ID:
 				return new ResourceDemandingBehaviourEditPart(view);
 			case StartAction2EditPart.VISUAL_ID:

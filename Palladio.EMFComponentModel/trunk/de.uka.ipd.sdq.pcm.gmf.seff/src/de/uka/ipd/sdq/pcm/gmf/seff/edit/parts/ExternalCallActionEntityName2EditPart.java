@@ -215,12 +215,12 @@ public class ExternalCallActionEntityName2EditPart extends CompartmentEditPart
 	 */
 	protected String getLabelText() {
 		String text = null;
-//		if (getParser() != null) {
-//			text = getParser().getPrintString(
-//					new EObjectAdapter(getParserElement()),
-//					getParserOptions().intValue());
-//		}
-		ExternalCallAction action = (ExternalCallAction)resolveSemanticElement();
+		//		if (getParser() != null) {
+		//			text = getParser().getPrintString(
+		//					new EObjectAdapter(getParserElement()),
+		//					getParserOptions().intValue());
+		//		}
+		ExternalCallAction action = (ExternalCallAction) resolveSemanticElement();
 		text = action.getCalledService_ExternalService().getServiceName();
 		if (text == null || text.length() == 0) {
 			text = defaultText;

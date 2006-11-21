@@ -27,18 +27,18 @@
     <childNodes
         xsi:type="gmfgen:GenChildLabelNode"
         visualID="2001"
-        editPartClassName="PrimitiveParameterUsageEditPart"
-        itemSemanticEditPolicyClassName="PrimitiveParameterUsageItemSemanticEditPolicy"
-        notationViewFactoryClassName="PrimitiveParameterUsageViewFactory"
-        canonicalEditPolicyClassName="PrimitiveParameterUsageCanonicalEditPolicy"
-        graphicalNodeEditPolicyClassName="PrimitiveParameterUsageGraphicalNodeEditPolicy"
+        editPartClassName="VariableUsageEditPart"
+        itemSemanticEditPolicyClassName="VariableUsageItemSemanticEditPolicy"
+        notationViewFactoryClassName="VariableUsageViewFactory"
+        canonicalEditPolicyClassName="VariableUsageCanonicalEditPolicy"
+        graphicalNodeEditPolicyClassName="VariableUsageGraphicalNodeEditPolicy"
         containers="//@diagram/@compartments.0 //@diagram/@compartments.8"
         labelElementIcon="true">
       <diagramRunTimeClass
           href="../../../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
           xsi:type="gmfgen:MetamodelType"
-          editHelperClassName="PrimitiveParameterUsageEditHelper"/>
+          editHelperClassName="VariableUsageEditHelper"/>
       <viewmap
           xsi:type="gmfgen:InnerClassViewmap"
           className="ParametricResourceDemandDemandFigure"
@@ -48,7 +48,7 @@
       </viewmap>
       <modelFacet>
         <metaClass
-            href="../../pcm.genmodel#//pcm/parameter/PrimitiveParameterUsage"/>
+            href="../../pcm.genmodel#//pcm/parameter/VariableUsage"/>
         <containmentMetaFeature
             href="../../pcm.genmodel#//pcm/seff/ExternalCallAction/parameterUsage_ExternalCallAction"/>
         <childMetaFeature
@@ -857,8 +857,6 @@
         childNodes="//@diagram/@childNodes.6"
         canonicalEditPolicyClassName="InternalActionResourceDemandResourceDemandingActionCompartmentCanonicalEditPolicy"
         title="ResourceDemandResourceDemandingActionCompartment"
-        canCollapse="false"
-        needsTitle="false"
         node="//@diagram/@childNodes.5">
       <diagramRunTimeClass
           href="../../../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
@@ -985,6 +983,8 @@
         childNodes="//@diagram/@childNodes.6"
         canonicalEditPolicyClassName="InternalActionResourceDemandResourceDemandingActionCompartment2CanonicalEditPolicy"
         title="ResourceDemandResourceDemandingActionCompartment"
+        canCollapse="false"
+        needsTitle="false"
         node="//@diagram/@topLevelNodes.5">
       <diagramRunTimeClass
           href="../../../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>

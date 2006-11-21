@@ -51,7 +51,7 @@ public class PcmModelingAssistantProvider extends ModelingAssistantProvider {
 				.getAdapter(IGraphicalEditPart.class);
 		if (editPart instanceof ExternalCallActionEditPart) {
 			List types = new ArrayList();
-			types.add(PcmElementTypes.PrimitiveParameterUsage_2001);
+			types.add(PcmElementTypes.VariableUsage_2001);
 			return types;
 		}
 		if (editPart instanceof InternalAction2EditPart) {
@@ -66,7 +66,7 @@ public class PcmModelingAssistantProvider extends ModelingAssistantProvider {
 		}
 		if (editPart instanceof ExternalCallAction2EditPart) {
 			List types = new ArrayList();
-			types.add(PcmElementTypes.PrimitiveParameterUsage_2001);
+			types.add(PcmElementTypes.VariableUsage_2001);
 			return types;
 		}
 		if (editPart instanceof LoopActionBehaviourCompartmentEditPart) {

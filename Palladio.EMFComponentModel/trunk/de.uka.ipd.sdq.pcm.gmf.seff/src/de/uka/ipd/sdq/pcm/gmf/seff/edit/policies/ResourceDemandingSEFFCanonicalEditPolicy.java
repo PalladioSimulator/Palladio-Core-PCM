@@ -40,7 +40,6 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.InternalActionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopAction2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopActionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ParametricResourceDemandEditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.PrimitiveParameterUsageEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviour2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviourEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingSEFFEditPart;
@@ -48,6 +47,8 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.StartAction2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.StartActionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.StopAction2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.StopActionEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableUsageEditPart;
+
 import de.uka.ipd.sdq.pcm.gmf.seff.part.PcmVisualIDRegistry;
 import de.uka.ipd.sdq.pcm.gmf.seff.providers.PcmElementTypes;
 import de.uka.ipd.sdq.pcm.seff.AbstractAction;
@@ -233,7 +234,7 @@ public class ResourceDemandingSEFFCanonicalEditPolicy extends
 		case LoopActionEditPart.VISUAL_ID:
 		case BranchAction2EditPart.VISUAL_ID:
 		case InternalAction2EditPart.VISUAL_ID:
-		case PrimitiveParameterUsageEditPart.VISUAL_ID:
+		case VariableUsageEditPart.VISUAL_ID:
 		case ResourceDemandingBehaviourEditPart.VISUAL_ID:
 		case StartAction2EditPart.VISUAL_ID:
 		case StopAction2EditPart.VISUAL_ID:

@@ -28,15 +28,13 @@ public class ExternalCallActionParameterUsageItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
-		if (PcmElementTypes.PrimitiveParameterUsage_2001 == req
-				.getElementType()) {
+		if (PcmElementTypes.VariableUsage_2001 == req.getElementType()) {
 			if (req.getContainmentFeature() == null) {
 				req
 						.setContainmentFeature(SeffPackage.eINSTANCE
 								.getExternalCallAction_ParameterUsage_ExternalCallAction());
 			}
-			return getMSLWrapper(new CreatePrimitiveParameterUsage_2001Command(
-					req));
+			return getMSLWrapper(new CreateVariableUsage_2001Command(req));
 		}
 		return super.getCreateCommand(req);
 	}
@@ -44,14 +42,13 @@ public class ExternalCallActionParameterUsageItemSemanticEditPolicy extends
 	/**
 	 * @generated
 	 */
-	private static class CreatePrimitiveParameterUsage_2001Command extends
+	private static class CreateVariableUsage_2001Command extends
 			CreateElementCommand {
 
 		/**
 		 * @generated
 		 */
-		public CreatePrimitiveParameterUsage_2001Command(
-				CreateElementRequest req) {
+		public CreateVariableUsage_2001Command(CreateElementRequest req) {
 			super(req);
 		}
 

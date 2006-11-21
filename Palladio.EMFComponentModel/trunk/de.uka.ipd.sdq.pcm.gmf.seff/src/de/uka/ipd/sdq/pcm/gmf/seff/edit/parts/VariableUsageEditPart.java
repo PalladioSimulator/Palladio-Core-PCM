@@ -16,7 +16,7 @@ import org.eclipse.gmf.runtime.diagram.ui.tools.DragEditPartsTrackerEx;
 import org.eclipse.gmf.runtime.notation.View;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.PcmTextNonResizableEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.PcmTextSelectionEditPolicy;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.PrimitiveParameterUsageItemSemanticEditPolicy;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.VariableUsageItemSemanticEditPolicy;
 
 import de.uka.ipd.sdq.pcm.gmf.seff.part.PcmDiagramEditorPlugin;
 
@@ -85,8 +85,8 @@ import org.eclipse.swt.graphics.Image;
 /**
  * @generated
  */
-public class PrimitiveParameterUsageEditPart extends CompartmentEditPart
-		implements ITextAwareEditPart {
+public class VariableUsageEditPart extends CompartmentEditPart implements
+		ITextAwareEditPart {
 
 	/**
 	 * @generated
@@ -116,7 +116,7 @@ public class PrimitiveParameterUsageEditPart extends CompartmentEditPart
 	/**
 	 * @generated
 	 */
-	public PrimitiveParameterUsageEditPart(View view) {
+	public VariableUsageEditPart(View view) {
 		super(view);
 	}
 
@@ -137,7 +137,7 @@ public class PrimitiveParameterUsageEditPart extends CompartmentEditPart
 	protected void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
-				new PrimitiveParameterUsageItemSemanticEditPolicy());
+				new VariableUsageItemSemanticEditPolicy());
 		installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE,
 				new PcmTextNonResizableEditPolicy());
 		installEditPolicy(EditPolicy.COMPONENT_ROLE,
@@ -343,7 +343,7 @@ public class PrimitiveParameterUsageEditPart extends CompartmentEditPart
 
 				public Object getAdapter(Class adapter) {
 					if (IElementType.class.equals(adapter)) {
-						return PcmElementTypes.PrimitiveParameterUsage_2001;
+						return PcmElementTypes.VariableUsage_2001;
 					}
 					return super.getAdapter(adapter);
 				}

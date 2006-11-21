@@ -96,27 +96,28 @@ public class InternalActionResourceDemandResourceDemandingActionCompartment2Item
 		protected EObject doDefaultElementCreation() {
 			EObject result = super.doDefaultElementCreation();
 			((ParametricResourceDemand) result)
-			.setRequiredResource_ParametricResourceDemand(resourceType);
-			((ParametricResourceDemand) result)
-			.setSpecification("=0");
+					.setRequiredResource_ParametricResourceDemand(resourceType);
+			((ParametricResourceDemand) result).setSpecification("=0");
 			return result;
 		}
-		
+
 		/* (non-Javadoc)
 		 * @see org.eclipse.gmf.runtime.emf.type.core.commands.CreateElementCommand#doExecuteWithResult(org.eclipse.core.runtime.IProgressMonitor, org.eclipse.core.runtime.IAdaptable)
 		 */
 		@Override
 		protected CommandResult doExecuteWithResult(IProgressMonitor monitor,
 				IAdaptable info) throws ExecutionException {
-			Shell shell = InternalActionResourceDemandResourceDemandingActionCompartment2ItemSemanticEditPolicy.this.getHost().getRoot().getViewer().getControl().getShell();
+			Shell shell = InternalActionResourceDemandResourceDemandingActionCompartment2ItemSemanticEditPolicy.this
+					.getHost().getRoot().getViewer().getControl().getShell();
 
 			ArrayList filterList = new ArrayList();
 			filterList.add(ProcessingResourceType.class);
 			filterList.add(ResourceRepository.class);
 			PalladioSelectEObjectDialog dialog = new PalladioSelectEObjectDialog(
 					shell,
-					filterList, 
-					((GraphicalEditPart)InternalActionResourceDemandResourceDemandingActionCompartment2ItemSemanticEditPolicy.this.getHost()).getEditingDomain().getResourceSet());
+					filterList,
+					((GraphicalEditPart) InternalActionResourceDemandResourceDemandingActionCompartment2ItemSemanticEditPolicy.this
+							.getHost()).getEditingDomain().getResourceSet());
 			dialog.open();
 			if (dialog.getResult() == null)
 				return CommandResult.newCancelledCommandResult();

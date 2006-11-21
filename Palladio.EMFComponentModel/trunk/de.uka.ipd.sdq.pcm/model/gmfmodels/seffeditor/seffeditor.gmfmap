@@ -62,7 +62,7 @@
             href="../../pcm.ecore#//seff/ExternalCallAction/parameterUsage_ExternalCallAction"/>
         <ownedChild>
           <domainMetaElement
-              href="../../pcm.ecore#//parameter/PrimitiveParameterUsage"/>
+              href="../../pcm.ecore#//parameter/VariableUsage"/>
           <labelMappings>
             <diagramLabel
                 href="seffeditor.gmfgraph#ParametricResourceDemandDemandLabel"/>

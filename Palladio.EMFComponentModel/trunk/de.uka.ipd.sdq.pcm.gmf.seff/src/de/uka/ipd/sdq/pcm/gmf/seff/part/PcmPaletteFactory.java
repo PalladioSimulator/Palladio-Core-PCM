@@ -260,12 +260,12 @@ public class PcmPaletteFactory {
 		ImageDescriptor largeImage;
 
 		smallImage = PcmElementTypes
-				.getImageDescriptor(PcmElementTypes.PrimitiveParameterUsage_2001);
+				.getImageDescriptor(PcmElementTypes.VariableUsage_2001);
 
 		largeImage = smallImage;
 
 		final List elementTypes = new ArrayList();
-		elementTypes.add(PcmElementTypes.PrimitiveParameterUsage_2001);
+		elementTypes.add(PcmElementTypes.VariableUsage_2001);
 		ToolEntry result = new NodeToolEntry("ParametricParameterUsage",
 				"Link a Parametric Parameter Usage", smallImage, largeImage,
 				elementTypes);

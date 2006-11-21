@@ -146,7 +146,8 @@ public class ParametricResourceDemandEditPart extends CompartmentEditPart
 		installEditPolicy(EditPolicy.COMPONENT_ROLE,
 				new ListItemComponentEditPolicy());
 		installEditPolicy(EditPolicyRoles.OPEN_ROLE,
-				new OpenStoExEditorEditPolicy((RandomVariable)(((View)getModel()).getElement())));
+				new OpenStoExEditorEditPolicy(
+						(RandomVariable) (((View) getModel()).getElement())));
 		installEditPolicy(EditPolicy.DIRECT_EDIT_ROLE,
 				new LabelDirectEditPolicy());
 	}

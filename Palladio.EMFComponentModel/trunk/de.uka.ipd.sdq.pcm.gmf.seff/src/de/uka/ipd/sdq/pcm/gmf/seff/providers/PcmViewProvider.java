@@ -40,7 +40,6 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopActionEntityNameEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopIterationsLabel2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopIterationsLabelEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ParametricResourceDemandEditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.PrimitiveParameterUsageEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviour2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviourBranchCompartmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviourEditPart;
@@ -50,6 +49,8 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.StartAction2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.StartActionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.StopAction2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.StopActionEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableUsageEditPart;
+
 import de.uka.ipd.sdq.pcm.gmf.seff.part.PcmVisualIDRegistry;
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.AbstractActionSuccessor_AbstractActionViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.BranchAction2ViewFactory;
@@ -82,7 +83,6 @@ import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.LoopActionViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.LoopIterationsLabel2ViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.LoopIterationsLabelViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.ParametricResourceDemandViewFactory;
-import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.PrimitiveParameterUsageViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.ResourceDemandingBehaviour2ViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.ResourceDemandingBehaviourBranchCompartmentViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.ResourceDemandingBehaviourLoopCompartmentViewFactory;
@@ -92,6 +92,8 @@ import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.StartAction2ViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.StartActionViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.StopAction2ViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.StopActionViewFactory;
+
+import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.VariableUsageViewFactory;
 
 /**
  * @generated
@@ -151,8 +153,8 @@ public class PcmViewProvider extends AbstractViewProvider {
 			return InternalAction2ViewFactory.class;
 		case InternalActionEntityName2EditPart.VISUAL_ID:
 			return InternalActionEntityName2ViewFactory.class;
-		case PrimitiveParameterUsageEditPart.VISUAL_ID:
-			return PrimitiveParameterUsageViewFactory.class;
+		case VariableUsageEditPart.VISUAL_ID:
+			return VariableUsageViewFactory.class;
 		case ResourceDemandingBehaviourEditPart.VISUAL_ID:
 			return ResourceDemandingBehaviourViewFactory.class;
 		case StartAction2EditPart.VISUAL_ID:

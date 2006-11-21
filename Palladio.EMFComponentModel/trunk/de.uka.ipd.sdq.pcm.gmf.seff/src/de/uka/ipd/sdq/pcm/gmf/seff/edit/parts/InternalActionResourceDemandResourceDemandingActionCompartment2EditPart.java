@@ -8,6 +8,8 @@ import org.eclipse.gmf.runtime.notation.View;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.InternalActionResourceDemandResourceDemandingActionCompartment2CanonicalEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.InternalActionResourceDemandResourceDemandingActionCompartment2ItemSemanticEditPolicy;
 
+import org.eclipse.draw2d.IFigure;
+
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.gef.EditPolicy;
@@ -16,6 +18,8 @@ import org.eclipse.gmf.runtime.diagram.ui.editparts.ListCompartmentEditPart;
 
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CreationEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.DragDropEditPolicy;
+import org.eclipse.gmf.runtime.diagram.ui.figures.ResizableCompartmentFigure;
+
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.ResizableCompartmentEditPolicy;
 
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
@@ -56,10 +60,18 @@ public class InternalActionResourceDemandResourceDemandingActionCompartment2Edit
 	/**
 	 * @generated
 	 */
+	public IFigure createFigure() {
+		ResizableCompartmentFigure result = (ResizableCompartmentFigure) super
+				.createFigure();
+		result.setTitleVisibility(false);
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
 	protected void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
-		installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE,
-				new ResizableCompartmentEditPolicy());
 		installEditPolicy(
 				EditPolicyRoles.SEMANTIC_ROLE,
 				new InternalActionResourceDemandResourceDemandingActionCompartment2ItemSemanticEditPolicy());

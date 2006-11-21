@@ -106,7 +106,8 @@ public class LoopIterationsLabelEditPart extends CompartmentEditPart implements
 	protected void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicyRoles.OPEN_ROLE,
-				new OpenStoExEditorEditPolicy((RandomVariable)getParserElement()));
+				new OpenStoExEditorEditPolicy(
+						(RandomVariable) getParserElement()));
 		installEditPolicy(EditPolicy.DIRECT_EDIT_ROLE,
 				new LabelDirectEditPolicy());
 		installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE,
@@ -203,7 +204,8 @@ public class LoopIterationsLabelEditPart extends CompartmentEditPart implements
 	 */
 	protected EObject getParserElement() {
 		EObject element = resolveSemanticElement();
-		LoopAction action = (LoopAction) (element != null ? element : (View) getModel());
+		LoopAction action = (LoopAction) (element != null ? element
+				: (View) getModel());
 		IterationCount ic = action.getIterations_LoopAction();
 		return ic;
 	}

@@ -5,7 +5,7 @@ package de.uka.ipd.sdq.pcm.gmf.seff.edit.policies;
 
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CanonicalEditPolicy;
 import org.eclipse.gmf.runtime.notation.View;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.PrimitiveParameterUsageEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableUsageEditPart;
 
 import de.uka.ipd.sdq.pcm.gmf.seff.part.PcmVisualIDRegistry;
 
@@ -38,7 +38,7 @@ public class ExternalCallActionParameterUsageCanonicalEditPolicy extends
 			nextValue = (EObject) values.next();
 			nodeVID = PcmVisualIDRegistry
 					.getNodeVisualID(viewObject, nextValue);
-			if (PrimitiveParameterUsageEditPart.VISUAL_ID == nodeVID) {
+			if (VariableUsageEditPart.VISUAL_ID == nodeVID) {
 				result.add(nextValue);
 			}
 		}

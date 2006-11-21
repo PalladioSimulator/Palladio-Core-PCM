@@ -22,8 +22,7 @@ import org.eclipse.gmf.runtime.notation.View;
 /**
  * @generated
  */
-public class PrimitiveParameterUsageViewFactory extends
-		AbstractLabelViewFactory {
+public class VariableUsageViewFactory extends AbstractLabelViewFactory {
 
 	/**
 	 * @generated 
@@ -41,7 +40,7 @@ public class PrimitiveParameterUsageViewFactory extends
 			boolean persisted) {
 		if (semanticHint == null) {
 			semanticHint = PcmVisualIDRegistry
-					.getType(de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.PrimitiveParameterUsageEditPart.VISUAL_ID);
+					.getType(de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableUsageEditPart.VISUAL_ID);
 			view.setType(semanticHint);
 		}
 		super.decorateView(containerView, view, semanticAdapter, semanticHint,

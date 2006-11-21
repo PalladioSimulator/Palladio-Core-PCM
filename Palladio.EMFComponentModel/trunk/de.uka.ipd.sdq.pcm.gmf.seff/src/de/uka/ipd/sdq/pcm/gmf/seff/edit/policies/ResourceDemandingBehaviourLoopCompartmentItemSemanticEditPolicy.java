@@ -183,7 +183,7 @@ public class ResourceDemandingBehaviourLoopCompartmentItemSemanticEditPolicy
 			}
 			return container;
 		}
-		
+
 		/* (non-Javadoc)
 		 * @see org.eclipse.gmf.runtime.emf.type.core.commands.CreateElementCommand#doDefaultElementCreation()
 		 */
@@ -191,7 +191,8 @@ public class ResourceDemandingBehaviourLoopCompartmentItemSemanticEditPolicy
 		protected EObject doDefaultElementCreation() {
 			EObject result = super.doDefaultElementCreation();
 			((LoopAction) result)
-					.setIterations_LoopAction(SeffFactory.eINSTANCE.createIterationCount());
+					.setIterations_LoopAction(SeffFactory.eINSTANCE
+							.createIterationCount());
 			return result;
 		}
 	}
@@ -306,26 +307,29 @@ public class ResourceDemandingBehaviourLoopCompartmentItemSemanticEditPolicy
 					.setCalledService_ExternalService(signature);
 			return result;
 		}
-		
+
 		/* (non-Javadoc)
 		 * @see org.eclipse.gmf.runtime.emf.type.core.commands.CreateElementCommand#doExecuteWithResult(org.eclipse.core.runtime.IProgressMonitor, org.eclipse.core.runtime.IAdaptable)
 		 */
 		@Override
 		protected CommandResult doExecuteWithResult(IProgressMonitor monitor,
 				IAdaptable info) throws ExecutionException {
-			Shell shell = ResourceDemandingBehaviourLoopCompartmentItemSemanticEditPolicy.this.getHost().getRoot().getViewer().getControl().getShell();
+			Shell shell = ResourceDemandingBehaviourLoopCompartmentItemSemanticEditPolicy.this
+					.getHost().getRoot().getViewer().getControl().getShell();
 
 			ArrayList filterList = new ArrayList();
 			filterList.add(RequiredRole.class);
 			filterList.add(Interface.class);
 			filterList.add(Signature.class);
 			ArrayList additionalReferences = new ArrayList();
-			additionalReferences.add(RepositoryPackage.eINSTANCE.getRequiredRole_RequiredInterface__RequiredRole());
+			additionalReferences.add(RepositoryPackage.eINSTANCE
+					.getRequiredRole_RequiredInterface__RequiredRole());
 			PalladioSelectEObjectDialog dialog = new PalladioSelectEObjectDialog(
 					shell,
-					filterList, 
+					filterList,
 					additionalReferences,
-					findBasicComponentModel((GraphicalEditPart)ResourceDemandingBehaviourLoopCompartmentItemSemanticEditPolicy.this.getHost()));
+					findBasicComponentModel((GraphicalEditPart) ResourceDemandingBehaviourLoopCompartmentItemSemanticEditPolicy.this
+							.getHost()));
 			dialog.open();
 			if (dialog.getResult() == null)
 				return CommandResult.newCancelledCommandResult();
@@ -334,20 +338,17 @@ public class ResourceDemandingBehaviourLoopCompartmentItemSemanticEditPolicy
 			this.signature = (Signature) dialog.getResult();
 			return super.doExecuteWithResult(monitor, info);
 		}
-		
-		private BasicComponent findBasicComponentModel(GraphicalEditPart part)
-		{
+
+		private BasicComponent findBasicComponentModel(GraphicalEditPart part) {
 			EObject model = null;
-			do
-			{
-				model = ((View)part.getModel()).getElement();
+			do {
+				model = ((View) part.getModel()).getElement();
 				if (part.getParent() instanceof GraphicalEditPart)
-					part = (GraphicalEditPart)part.getParent();
-			}
-			while (!(model instanceof ResourceDemandingSEFF));
-			return (BasicComponent)model.eContainer();
+					part = (GraphicalEditPart) part.getParent();
+			} while (!(model instanceof ResourceDemandingSEFF));
+			return (BasicComponent) model.eContainer();
 		}
-		
+
 	}
 
 }

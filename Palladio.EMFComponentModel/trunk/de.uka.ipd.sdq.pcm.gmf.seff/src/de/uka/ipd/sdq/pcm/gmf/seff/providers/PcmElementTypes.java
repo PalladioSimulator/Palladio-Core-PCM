@@ -148,8 +148,8 @@ public class PcmElementTypes {
 			elements = new IdentityHashMap();
 			elements.put(ResourceDemandingSEFF_79, SeffPackage.eINSTANCE
 					.getResourceDemandingSEFF());
-			elements.put(PrimitiveParameterUsage_2001,
-					ParameterPackage.eINSTANCE.getPrimitiveParameterUsage());
+			elements.put(VariableUsage_2001, ParameterPackage.eINSTANCE
+					.getVariableUsage());
 			elements.put(ResourceDemandingBehaviour_2002, SeffPackage.eINSTANCE
 					.getResourceDemandingBehaviour());
 			elements.put(StartAction_2003, SeffPackage.eINSTANCE
@@ -197,7 +197,7 @@ public class PcmElementTypes {
 	/**
 	 * @generated
 	 */
-	public static final IElementType PrimitiveParameterUsage_2001 = getElementType("de.uka.ipd.sdq.pcm.gmf.seff.PrimitiveParameterUsage_2001"); //$NON-NLS-1$
+	public static final IElementType VariableUsage_2001 = getElementType("de.uka.ipd.sdq.pcm.gmf.seff.VariableUsage_2001"); //$NON-NLS-1$
 
 	/**
 	 * @generated
@@ -303,7 +303,7 @@ public class PcmElementTypes {
 		if (KNOWN_ELEMENT_TYPES == null) {
 			KNOWN_ELEMENT_TYPES = new HashSet();
 			KNOWN_ELEMENT_TYPES.add(ResourceDemandingSEFF_79);
-			KNOWN_ELEMENT_TYPES.add(PrimitiveParameterUsage_2001);
+			KNOWN_ELEMENT_TYPES.add(VariableUsage_2001);
 			KNOWN_ELEMENT_TYPES.add(ResourceDemandingBehaviour_2002);
 			KNOWN_ELEMENT_TYPES.add(StartAction_2003);
 			KNOWN_ELEMENT_TYPES.add(StopAction_2004);

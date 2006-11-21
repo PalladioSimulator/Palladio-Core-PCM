@@ -91,7 +91,7 @@ Copyright 2006 SDQ Research Group, University of Karlsruhe (TH)
             checkPluginLoaded="false">
          <Priority name="Low"/>
          <popupContribution class="org.eclipse.gmf.runtime.diagram.ui.providers.DiagramContextMenuProvider">
-            <popupStructuredContributionCriteria objectClass="de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.PrimitiveParameterUsageEditPart"/>
+            <popupStructuredContributionCriteria objectClass="de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableUsageEditPart"/>
             <popupPredefinedItem id="deleteFromDiagramAction" remove="true"/>
          </popupContribution>
          <popupContribution class="org.eclipse.gmf.runtime.diagram.ui.providers.DiagramContextMenuProvider">
@@ -320,11 +320,11 @@ Copyright 2006 SDQ Research Group, University of Karlsruhe (TH)
 
       <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Parameter/1.0">
          <metamodelType
-               id="de.uka.ipd.sdq.pcm.gmf.seff.PrimitiveParameterUsage_2001"
+               id="de.uka.ipd.sdq.pcm.gmf.seff.VariableUsage_2001"
                name="ParametricParameterUsage"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
-               eclass="PrimitiveParameterUsage"
-               edithelper="de.uka.ipd.sdq.pcm.gmf.seff.edit.helpers.PrimitiveParameterUsageEditHelper">
+               eclass="VariableUsage"
+               edithelper="de.uka.ipd.sdq.pcm.gmf.seff.edit.helpers.VariableUsageEditHelper">
             <param name="semanticHint" value="2001"/>
          </metamodelType>
       </metamodel>
@@ -527,7 +527,7 @@ Copyright 2006 SDQ Research Group, University of Karlsruhe (TH)
       </clientContext> 
       <binding context="PcmClientContext">
          <elementType ref="de.uka.ipd.sdq.pcm.gmf.seff.ResourceDemandingSEFF_79"/>
-         <elementType ref="de.uka.ipd.sdq.pcm.gmf.seff.PrimitiveParameterUsage_2001"/>
+         <elementType ref="de.uka.ipd.sdq.pcm.gmf.seff.VariableUsage_2001"/>
          <elementType ref="de.uka.ipd.sdq.pcm.gmf.seff.ResourceDemandingBehaviour_2002"/>
          <elementType ref="de.uka.ipd.sdq.pcm.gmf.seff.StartAction_2003"/>
          <elementType ref="de.uka.ipd.sdq.pcm.gmf.seff.StopAction_2004"/>

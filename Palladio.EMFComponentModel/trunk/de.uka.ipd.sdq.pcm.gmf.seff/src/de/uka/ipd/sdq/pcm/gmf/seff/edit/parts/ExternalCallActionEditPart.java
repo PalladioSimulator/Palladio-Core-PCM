@@ -75,7 +75,7 @@ public class ExternalCallActionEditPart extends ShapeNodeEditPart {
 										.getCreateElementRequestAdapter();
 								IElementType type = (IElementType) adapter
 										.getAdapter(IElementType.class);
-								if (type == PcmElementTypes.PrimitiveParameterUsage_2001) {
+								if (type == PcmElementTypes.VariableUsage_2001) {
 									EditPart compartmentEditPart = getChildBySemanticHint(PcmVisualIDRegistry
 											.getType(ExternalCallActionParameterUsageEditPart.VISUAL_ID));
 									return compartmentEditPart == null ? null
