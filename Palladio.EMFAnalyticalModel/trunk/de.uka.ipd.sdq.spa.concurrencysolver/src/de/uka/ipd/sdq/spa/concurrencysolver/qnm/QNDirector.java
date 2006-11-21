@@ -1,0 +1,134 @@
+package de.uka.ipd.sdq.spa.concurrencysolver.qnm;
+
+import java.util.Hashtable;
+import java.util.List;
+
+import org.eclipse.emf.ecore.EObject;
+
+import de.uka.ipd.sdq.probfunction.math.ManagedPDF;
+import de.uka.ipd.sdq.spa.ProcessBehaviour;
+import de.uka.ipd.sdq.spa.SPAModel;
+import de.uka.ipd.sdq.spa.basicsolver.PerformanceSolver;
+import de.uka.ipd.sdq.spa.concurrencysolver.qnm.builder.ResourceDemandBuilder;
+import de.uka.ipd.sdq.spa.concurrencysolver.qnm.builder.ResourceModelBuilder;
+import de.uka.ipd.sdq.spa.concurrencysolver.qnm.builder.exceptions.ResourceModelBuilderException;
+import de.uka.ipd.sdq.spa.concurrencysolver.qnm.builder.exceptions.UnknownCustomerException;
+import de.uka.ipd.sdq.spa.concurrencysolver.simplify.ExpressionSlicer;
+import de.uka.ipd.sdq.spa.expression.Acquire;
+import de.uka.ipd.sdq.spa.expression.Expression;
+import de.uka.ipd.sdq.spa.expression.Release;
+import de.uka.ipd.sdq.spa.expression.util.ExpressionSwitch;
+import de.uka.ipd.sdq.spa.resourcemodel.PassiveResource;
+import de.uka.ipd.sdq.spa.resourcemodel.ProcessingResource;
+import de.uka.ipd.sdq.spa.resourcemodel.util.ResourceModelSwitch;
+
+public class QNDirector {
+	
+	private int numSamplingPoints;
+	
+
+	public QNDirector(int numSamplingPoints) {
+		super();
+		this.numSamplingPoints = numSamplingPoints;
+	}
+
+	public void buildFrom(SPAModel spaModel, ResourceModelBuilder builder){
+		
+		try {
+			BuildEnvironmentSwitch envSwitch = new BuildEnvironmentSwitch(builder);
+			for (Object object : spaModel.getResources()) {
+				envSwitch.doSwitch((EObject) object);
+			}
+			
+			for (Object object : spaModel.getProcesses()){
+				ProcessBehaviour customer = (ProcessBehaviour) object;
+				builder.addCustomer(
+						customer.getName(), 
+						customer.getNumReplicas());
+				
+				ResourceDemandBuilder rdBuilder = builder.addResourceDemand(customer.getName());
+				ExpressionSlicer slicer = new ExpressionSlicer();
+				List<Expression> expressionList = slicer.slice(customer.getBehaviour());
+				BuildExpressionSwitch exprSwitch = new BuildExpressionSwitch(rdBuilder);
+				for (Expression expression : expressionList) {
+					exprSwitch.doSwitch(expression);
+				}
+			}
+		} catch (UnknownCustomerException e) {
+			e.printStackTrace();
+			System.exit(1); // should never happen
+		}
+	}
+	
+	private class BuildEnvironmentSwitch extends ResourceModelSwitch {
+
+		private ResourceModelBuilder builder;
+		
+		public BuildEnvironmentSwitch(ResourceModelBuilder builder) {
+			this.builder = builder;
+		}
+
+		@Override
+		public Object casePassiveResource(PassiveResource passiveResource) {
+			builder.addLogicalResource(
+					passiveResource.getName(), 
+					passiveResource.getNumReplicas());
+			return passiveResource;
+		}
+
+		@Override
+		public Object caseProcessingResource(ProcessingResource processingResource) {
+			builder.addDeviceResource(
+					processingResource.getName(), 
+					processingResource.getNumReplicas());
+			return processingResource;
+		}
+	}
+
+	private class BuildExpressionSwitch extends ExpressionSwitch {
+		private ResourceDemandBuilder currentBuilder;
+		private PerformanceSolver perfSolver;
+		
+		
+		
+		public BuildExpressionSwitch(ResourceDemandBuilder builder) {
+			this.currentBuilder = builder;
+			this.perfSolver = new PerformanceSolver(numSamplingPoints);
+		}
+
+		@Override
+		public Object caseAcquire(Acquire acquire) {
+			try {
+				currentBuilder = currentBuilder.addLogicalDemand(acquire.getResource().getName());
+			} catch (ResourceModelBuilderException e) {
+				e.printStackTrace();
+				System.exit(1);
+			}
+			return acquire;
+		}
+
+		@Override
+		public Object caseExpression(Expression expression) {
+			try {
+				Hashtable<ProcessingResource, ManagedPDF> timeTable = perfSolver.getDemandTimes(expression);
+				for (ProcessingResource resource : timeTable.keySet()) {
+					currentBuilder.addDeviceDemand(
+							resource.getName(), 
+							timeTable.get(resource));
+				}
+			} catch (ResourceModelBuilderException e) {
+				e.printStackTrace();
+				System.exit(1);
+			}
+			return expression;
+		}
+
+		@Override
+		public Object caseRelease(Release release) {
+			currentBuilder = currentBuilder.getParentBuilder();
+			return release;
+		}		
+	};
+	
+
+}
