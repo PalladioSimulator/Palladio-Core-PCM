@@ -247,7 +247,7 @@ public class ResultModelPackageImpl extends EPackageImpl implements ResultModelP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getTaskResourceUsage_TaskResult() {
+	public EReference getTaskResourceUsage_Task() {
 		return (EReference)taskResourceUsageEClass.getEStructuralFeatures().get(5);
 	}
 
@@ -256,7 +256,7 @@ public class ResultModelPackageImpl extends EPackageImpl implements ResultModelP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getTaskResourceUsage_ResourceResult() {
+	public EReference getTaskResourceUsage_Resource() {
 		return (EReference)taskResourceUsageEClass.getEStructuralFeatures().get(6);
 	}
 
@@ -301,7 +301,7 @@ public class ResultModelPackageImpl extends EPackageImpl implements ResultModelP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getResourceUsageTime_ServiceTimeBreakDown() {
+	public EReference getResourceUsageTime_ServiceTimeBreakDowns() {
 		return (EReference)resourceUsageTimeEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -398,14 +398,14 @@ public class ResultModelPackageImpl extends EPackageImpl implements ResultModelP
 		createEAttribute(taskResourceUsageEClass, TASK_RESOURCE_USAGE__TASK_SERVICE_TIME);
 		createEAttribute(taskResourceUsageEClass, TASK_RESOURCE_USAGE__WAITING_TIME_ONE_LESS);
 		createEAttribute(taskResourceUsageEClass, TASK_RESOURCE_USAGE__WAITING_TIME);
-		createEReference(taskResourceUsageEClass, TASK_RESOURCE_USAGE__TASK_RESULT);
-		createEReference(taskResourceUsageEClass, TASK_RESOURCE_USAGE__RESOURCE_RESULT);
+		createEReference(taskResourceUsageEClass, TASK_RESOURCE_USAGE__TASK);
+		createEReference(taskResourceUsageEClass, TASK_RESOURCE_USAGE__RESOURCE);
 
 		resourceUsageTimeEClass = createEClass(RESOURCE_USAGE_TIME);
 		createEReference(resourceUsageTimeEClass, RESOURCE_USAGE_TIME__RESOURCE_USAGE);
 		createEAttribute(resourceUsageTimeEClass, RESOURCE_USAGE_TIME__SERVICE_TIME);
 		createEAttribute(resourceUsageTimeEClass, RESOURCE_USAGE_TIME__RESPONSE_TIME);
-		createEReference(resourceUsageTimeEClass, RESOURCE_USAGE_TIME__SERVICE_TIME_BREAK_DOWN);
+		createEReference(resourceUsageTimeEClass, RESOURCE_USAGE_TIME__SERVICE_TIME_BREAK_DOWNS);
 
 		serviceTimeBreakDownEClass = createEClass(SERVICE_TIME_BREAK_DOWN);
 		createEAttribute(serviceTimeBreakDownEClass, SERVICE_TIME_BREAK_DOWN__USAGE_PROBABILITY);
@@ -458,14 +458,14 @@ public class ResultModelPackageImpl extends EPackageImpl implements ResultModelP
 		initEAttribute(getTaskResourceUsage_TaskServiceTime(), this.getManagedPDF(), "taskServiceTime", null, 1, 1, TaskResourceUsage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTaskResourceUsage_WaitingTimeOneLess(), this.getManagedPDF(), "waitingTimeOneLess", null, 1, 1, TaskResourceUsage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTaskResourceUsage_WaitingTime(), this.getManagedPDF(), "waitingTime", null, 1, 1, TaskResourceUsage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getTaskResourceUsage_TaskResult(), theQnmPackage.getTask(), null, "taskResult", null, 1, 1, TaskResourceUsage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getTaskResourceUsage_ResourceResult(), theResourceModelPackage.getResource(), null, "resourceResult", null, 1, 1, TaskResourceUsage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTaskResourceUsage_Task(), theQnmPackage.getTask(), null, "task", null, 1, 1, TaskResourceUsage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTaskResourceUsage_Resource(), theResourceModelPackage.getResource(), null, "resource", null, 1, 1, TaskResourceUsage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(resourceUsageTimeEClass, ResourceUsageTime.class, "ResourceUsageTime", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getResourceUsageTime_ResourceUsage(), theResourceModelPackage.getAbstractResourceUsage(), null, "resourceUsage", null, 1, 1, ResourceUsageTime.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getResourceUsageTime_ServiceTime(), this.getManagedPDF(), "serviceTime", null, 1, 1, ResourceUsageTime.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getResourceUsageTime_ResponseTime(), this.getManagedPDF(), "responseTime", null, 1, 1, ResourceUsageTime.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getResourceUsageTime_ServiceTimeBreakDown(), this.getServiceTimeBreakDown(), null, "serviceTimeBreakDown", null, 0, -1, ResourceUsageTime.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getResourceUsageTime_ServiceTimeBreakDowns(), this.getServiceTimeBreakDown(), null, "serviceTimeBreakDowns", null, 0, -1, ResourceUsageTime.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(serviceTimeBreakDownEClass, ServiceTimeBreakDown.class, "ServiceTimeBreakDown", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getServiceTimeBreakDown_UsageProbability(), ecorePackage.getEDouble(), "usageProbability", "0", 1, 1, ServiceTimeBreakDown.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

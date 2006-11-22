@@ -22,9 +22,8 @@
         eType="#//ManagedPDF"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="waitingTime" lowerBound="1"
         eType="#//ManagedPDF"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="taskResult" lowerBound="1"
-        eType="ecore:EClass ../../de.uka.ipd.sdq.qnm/model/QueueingNetworkModel.ecore#//Task"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="resourceResult" lowerBound="1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="task" lowerBound="1" eType="ecore:EClass ../../de.uka.ipd.sdq.qnm/model/QueueingNetworkModel.ecore#//Task"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="resource" lowerBound="1"
         eType="ecore:EClass ../../de.uka.ipd.spq.spa.resourcemodel/model/ResourceModel.ecore#//Resource"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EDataType" name="ManagedPMF" instanceClassName="de.uka.ipd.sdq.probfunction.math.ManagedPMF">
@@ -44,8 +43,8 @@
         eType="#//ManagedPDF"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="responseTime" lowerBound="1"
         eType="#//ManagedPDF"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="serviceTimeBreakDown" upperBound="-1"
-        eType="#//ServiceTimeBreakDown" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="serviceTimeBreakDowns"
+        upperBound="-1" eType="#//ServiceTimeBreakDown" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ServiceTimeBreakDown">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="usageProbability" lowerBound="1"

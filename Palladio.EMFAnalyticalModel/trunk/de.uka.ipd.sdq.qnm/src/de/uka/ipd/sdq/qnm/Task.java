@@ -6,11 +6,11 @@
  */
 package de.uka.ipd.sdq.qnm;
 
+import org.eclipse.emf.ecore.EObject;
+
 import de.uka.ipd.sdq.spa.resourcemodel.AbstractResourceUsage;
 
 import org.eclipse.emf.common.util.EList;
-
-import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -109,13 +109,5 @@ public interface Task extends EObject {
 	 * @generated
 	 */
 	void setResourceUsage(AbstractResourceUsage value);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model kind="operation" many="false"
-	 * @generated
-	 */
-	EList getAllDemands();
 
 } // Task

@@ -15,7 +15,6 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute QueueingNetworkModel.ecore#//Task/numReplicas"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute QueueingNetworkModel.ecore#//Task/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference QueueingNetworkModel.ecore#//Task/resourceUsage"/>
-      <genOperations ecoreOperation="QueueingNetworkModel.ecore#//Task/getAllDemands"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

@@ -174,7 +174,7 @@ public class ResultModelFactoryImpl extends EFactoryImpl implements ResultModelF
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public String convertManagedPDFToString(EDataType eDataType, Object instanceValue) {
 		return super.convertToString(eDataType, instanceValue);

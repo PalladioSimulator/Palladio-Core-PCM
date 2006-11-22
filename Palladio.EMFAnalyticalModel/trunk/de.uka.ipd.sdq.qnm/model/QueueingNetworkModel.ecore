@@ -11,7 +11,6 @@
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Task">
-    <eOperations name="getAllDemands" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EEList"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="numReplicas" unique="false"
         lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"

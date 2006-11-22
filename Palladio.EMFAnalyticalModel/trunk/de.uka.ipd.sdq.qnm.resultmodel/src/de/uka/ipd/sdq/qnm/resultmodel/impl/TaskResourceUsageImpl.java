@@ -36,8 +36,8 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  *   <li>{@link de.uka.ipd.sdq.qnm.resultmodel.impl.TaskResourceUsageImpl#getTaskServiceTime <em>Task Service Time</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.qnm.resultmodel.impl.TaskResourceUsageImpl#getWaitingTimeOneLess <em>Waiting Time One Less</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.qnm.resultmodel.impl.TaskResourceUsageImpl#getWaitingTime <em>Waiting Time</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.qnm.resultmodel.impl.TaskResourceUsageImpl#getTaskResult <em>Task Result</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.qnm.resultmodel.impl.TaskResourceUsageImpl#getResourceResult <em>Resource Result</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.qnm.resultmodel.impl.TaskResourceUsageImpl#getTask <em>Task</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.qnm.resultmodel.impl.TaskResourceUsageImpl#getResource <em>Resource</em>}</li>
  * </ul>
  * </p>
  *
@@ -145,24 +145,24 @@ public class TaskResourceUsageImpl extends EObjectImpl implements TaskResourceUs
 	protected ManagedPDF waitingTime = WAITING_TIME_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getTaskResult() <em>Task Result</em>}' reference.
+	 * The cached value of the '{@link #getTask() <em>Task</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getTaskResult()
+	 * @see #getTask()
 	 * @generated
 	 * @ordered
 	 */
-	protected Task taskResult = null;
+	protected Task task = null;
 
 	/**
-	 * The cached value of the '{@link #getResourceResult() <em>Resource Result</em>}' reference.
+	 * The cached value of the '{@link #getResource() <em>Resource</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getResourceResult()
+	 * @see #getResource()
 	 * @generated
 	 * @ordered
 	 */
-	protected Resource resourceResult = null;
+	protected Resource resource = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -292,16 +292,16 @@ public class TaskResourceUsageImpl extends EObjectImpl implements TaskResourceUs
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Task getTaskResult() {
-		if (taskResult != null && taskResult.eIsProxy()) {
-			InternalEObject oldTaskResult = (InternalEObject)taskResult;
-			taskResult = (Task)eResolveProxy(oldTaskResult);
-			if (taskResult != oldTaskResult) {
+	public Task getTask() {
+		if (task != null && task.eIsProxy()) {
+			InternalEObject oldTask = (InternalEObject)task;
+			task = (Task)eResolveProxy(oldTask);
+			if (task != oldTask) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ResultModelPackage.TASK_RESOURCE_USAGE__TASK_RESULT, oldTaskResult, taskResult));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ResultModelPackage.TASK_RESOURCE_USAGE__TASK, oldTask, task));
 			}
 		}
-		return taskResult;
+		return task;
 	}
 
 	/**
@@ -309,8 +309,8 @@ public class TaskResourceUsageImpl extends EObjectImpl implements TaskResourceUs
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Task basicGetTaskResult() {
-		return taskResult;
+	public Task basicGetTask() {
+		return task;
 	}
 
 	/**
@@ -318,11 +318,11 @@ public class TaskResourceUsageImpl extends EObjectImpl implements TaskResourceUs
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setTaskResult(Task newTaskResult) {
-		Task oldTaskResult = taskResult;
-		taskResult = newTaskResult;
+	public void setTask(Task newTask) {
+		Task oldTask = task;
+		task = newTask;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ResultModelPackage.TASK_RESOURCE_USAGE__TASK_RESULT, oldTaskResult, taskResult));
+			eNotify(new ENotificationImpl(this, Notification.SET, ResultModelPackage.TASK_RESOURCE_USAGE__TASK, oldTask, task));
 	}
 
 	/**
@@ -330,16 +330,16 @@ public class TaskResourceUsageImpl extends EObjectImpl implements TaskResourceUs
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Resource getResourceResult() {
-		if (resourceResult != null && resourceResult.eIsProxy()) {
-			InternalEObject oldResourceResult = (InternalEObject)resourceResult;
-			resourceResult = (Resource)eResolveProxy(oldResourceResult);
-			if (resourceResult != oldResourceResult) {
+	public Resource getResource() {
+		if (resource != null && resource.eIsProxy()) {
+			InternalEObject oldResource = (InternalEObject)resource;
+			resource = (Resource)eResolveProxy(oldResource);
+			if (resource != oldResource) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ResultModelPackage.TASK_RESOURCE_USAGE__RESOURCE_RESULT, oldResourceResult, resourceResult));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ResultModelPackage.TASK_RESOURCE_USAGE__RESOURCE, oldResource, resource));
 			}
 		}
-		return resourceResult;
+		return resource;
 	}
 
 	/**
@@ -347,8 +347,8 @@ public class TaskResourceUsageImpl extends EObjectImpl implements TaskResourceUs
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Resource basicGetResourceResult() {
-		return resourceResult;
+	public Resource basicGetResource() {
+		return resource;
 	}
 
 	/**
@@ -356,11 +356,11 @@ public class TaskResourceUsageImpl extends EObjectImpl implements TaskResourceUs
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setResourceResult(Resource newResourceResult) {
-		Resource oldResourceResult = resourceResult;
-		resourceResult = newResourceResult;
+	public void setResource(Resource newResource) {
+		Resource oldResource = resource;
+		resource = newResource;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ResultModelPackage.TASK_RESOURCE_USAGE__RESOURCE_RESULT, oldResourceResult, resourceResult));
+			eNotify(new ENotificationImpl(this, Notification.SET, ResultModelPackage.TASK_RESOURCE_USAGE__RESOURCE, oldResource, resource));
 	}
 
 	/**
@@ -380,12 +380,12 @@ public class TaskResourceUsageImpl extends EObjectImpl implements TaskResourceUs
 				return getWaitingTimeOneLess();
 			case ResultModelPackage.TASK_RESOURCE_USAGE__WAITING_TIME:
 				return getWaitingTime();
-			case ResultModelPackage.TASK_RESOURCE_USAGE__TASK_RESULT:
-				if (resolve) return getTaskResult();
-				return basicGetTaskResult();
-			case ResultModelPackage.TASK_RESOURCE_USAGE__RESOURCE_RESULT:
-				if (resolve) return getResourceResult();
-				return basicGetResourceResult();
+			case ResultModelPackage.TASK_RESOURCE_USAGE__TASK:
+				if (resolve) return getTask();
+				return basicGetTask();
+			case ResultModelPackage.TASK_RESOURCE_USAGE__RESOURCE:
+				if (resolve) return getResource();
+				return basicGetResource();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -412,11 +412,11 @@ public class TaskResourceUsageImpl extends EObjectImpl implements TaskResourceUs
 			case ResultModelPackage.TASK_RESOURCE_USAGE__WAITING_TIME:
 				setWaitingTime((ManagedPDF)newValue);
 				return;
-			case ResultModelPackage.TASK_RESOURCE_USAGE__TASK_RESULT:
-				setTaskResult((Task)newValue);
+			case ResultModelPackage.TASK_RESOURCE_USAGE__TASK:
+				setTask((Task)newValue);
 				return;
-			case ResultModelPackage.TASK_RESOURCE_USAGE__RESOURCE_RESULT:
-				setResourceResult((Resource)newValue);
+			case ResultModelPackage.TASK_RESOURCE_USAGE__RESOURCE:
+				setResource((Resource)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -444,11 +444,11 @@ public class TaskResourceUsageImpl extends EObjectImpl implements TaskResourceUs
 			case ResultModelPackage.TASK_RESOURCE_USAGE__WAITING_TIME:
 				setWaitingTime(WAITING_TIME_EDEFAULT);
 				return;
-			case ResultModelPackage.TASK_RESOURCE_USAGE__TASK_RESULT:
-				setTaskResult((Task)null);
+			case ResultModelPackage.TASK_RESOURCE_USAGE__TASK:
+				setTask((Task)null);
 				return;
-			case ResultModelPackage.TASK_RESOURCE_USAGE__RESOURCE_RESULT:
-				setResourceResult((Resource)null);
+			case ResultModelPackage.TASK_RESOURCE_USAGE__RESOURCE:
+				setResource((Resource)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -471,10 +471,10 @@ public class TaskResourceUsageImpl extends EObjectImpl implements TaskResourceUs
 				return WAITING_TIME_ONE_LESS_EDEFAULT == null ? waitingTimeOneLess != null : !WAITING_TIME_ONE_LESS_EDEFAULT.equals(waitingTimeOneLess);
 			case ResultModelPackage.TASK_RESOURCE_USAGE__WAITING_TIME:
 				return WAITING_TIME_EDEFAULT == null ? waitingTime != null : !WAITING_TIME_EDEFAULT.equals(waitingTime);
-			case ResultModelPackage.TASK_RESOURCE_USAGE__TASK_RESULT:
-				return taskResult != null;
-			case ResultModelPackage.TASK_RESOURCE_USAGE__RESOURCE_RESULT:
-				return resourceResult != null;
+			case ResultModelPackage.TASK_RESOURCE_USAGE__TASK:
+				return task != null;
+			case ResultModelPackage.TASK_RESOURCE_USAGE__RESOURCE:
+				return resource != null;
 		}
 		return super.eIsSet(featureID);
 	}

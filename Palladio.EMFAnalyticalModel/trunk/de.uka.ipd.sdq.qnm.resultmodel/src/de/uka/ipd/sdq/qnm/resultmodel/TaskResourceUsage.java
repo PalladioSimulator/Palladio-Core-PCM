@@ -28,8 +28,8 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link de.uka.ipd.sdq.qnm.resultmodel.TaskResourceUsage#getTaskServiceTime <em>Task Service Time</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.qnm.resultmodel.TaskResourceUsage#getWaitingTimeOneLess <em>Waiting Time One Less</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.qnm.resultmodel.TaskResourceUsage#getWaitingTime <em>Waiting Time</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.qnm.resultmodel.TaskResourceUsage#getTaskResult <em>Task Result</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.qnm.resultmodel.TaskResourceUsage#getResourceResult <em>Resource Result</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.qnm.resultmodel.TaskResourceUsage#getTask <em>Task</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.qnm.resultmodel.TaskResourceUsage#getResource <em>Resource</em>}</li>
  * </ul>
  * </p>
  *
@@ -169,55 +169,55 @@ public interface TaskResourceUsage extends EObject {
 	void setWaitingTime(ManagedPDF value);
 
 	/**
-	 * Returns the value of the '<em><b>Task Result</b></em>' reference.
+	 * Returns the value of the '<em><b>Task</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Task Result</em>' reference isn't clear,
+	 * If the meaning of the '<em>Task</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Task Result</em>' reference.
-	 * @see #setTaskResult(Task)
-	 * @see de.uka.ipd.sdq.qnm.resultmodel.ResultModelPackage#getTaskResourceUsage_TaskResult()
+	 * @return the value of the '<em>Task</em>' reference.
+	 * @see #setTask(Task)
+	 * @see de.uka.ipd.sdq.qnm.resultmodel.ResultModelPackage#getTaskResourceUsage_Task()
 	 * @model required="true"
 	 * @generated
 	 */
-	Task getTaskResult();
+	Task getTask();
 
 	/**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.qnm.resultmodel.TaskResourceUsage#getTaskResult <em>Task Result</em>}' reference.
+	 * Sets the value of the '{@link de.uka.ipd.sdq.qnm.resultmodel.TaskResourceUsage#getTask <em>Task</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Task Result</em>' reference.
-	 * @see #getTaskResult()
+	 * @param value the new value of the '<em>Task</em>' reference.
+	 * @see #getTask()
 	 * @generated
 	 */
-	void setTaskResult(Task value);
+	void setTask(Task value);
 
 	/**
-	 * Returns the value of the '<em><b>Resource Result</b></em>' reference.
+	 * Returns the value of the '<em><b>Resource</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Resource Result</em>' reference isn't clear,
+	 * If the meaning of the '<em>Resource</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Resource Result</em>' reference.
-	 * @see #setResourceResult(Resource)
-	 * @see de.uka.ipd.sdq.qnm.resultmodel.ResultModelPackage#getTaskResourceUsage_ResourceResult()
+	 * @return the value of the '<em>Resource</em>' reference.
+	 * @see #setResource(Resource)
+	 * @see de.uka.ipd.sdq.qnm.resultmodel.ResultModelPackage#getTaskResourceUsage_Resource()
 	 * @model required="true"
 	 * @generated
 	 */
-	Resource getResourceResult();
+	Resource getResource();
 
 	/**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.qnm.resultmodel.TaskResourceUsage#getResourceResult <em>Resource Result</em>}' reference.
+	 * Sets the value of the '{@link de.uka.ipd.sdq.qnm.resultmodel.TaskResourceUsage#getResource <em>Resource</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Resource Result</em>' reference.
-	 * @see #getResourceResult()
+	 * @param value the new value of the '<em>Resource</em>' reference.
+	 * @see #getResource()
 	 * @generated
 	 */
-	void setResourceResult(Resource value);
+	void setResource(Resource value);
 
 } // TaskResourceUsage

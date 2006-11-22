@@ -25,7 +25,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link de.uka.ipd.sdq.qnm.resultmodel.ResourceUsageTime#getResourceUsage <em>Resource Usage</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.qnm.resultmodel.ResourceUsageTime#getServiceTime <em>Service Time</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.qnm.resultmodel.ResourceUsageTime#getResponseTime <em>Response Time</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.qnm.resultmodel.ResourceUsageTime#getServiceTimeBreakDown <em>Service Time Break Down</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.qnm.resultmodel.ResourceUsageTime#getServiceTimeBreakDowns <em>Service Time Break Downs</em>}</li>
  * </ul>
  * </p>
  *
@@ -113,19 +113,19 @@ public interface ResourceUsageTime extends EObject {
 	void setResponseTime(ManagedPDF value);
 
 	/**
-	 * Returns the value of the '<em><b>Service Time Break Down</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Service Time Break Downs</b></em>' containment reference list.
 	 * The list contents are of type {@link de.uka.ipd.sdq.qnm.resultmodel.ServiceTimeBreakDown}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Service Time Break Down</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>Service Time Break Downs</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Service Time Break Down</em>' containment reference list.
-	 * @see de.uka.ipd.sdq.qnm.resultmodel.ResultModelPackage#getResourceUsageTime_ServiceTimeBreakDown()
+	 * @return the value of the '<em>Service Time Break Downs</em>' containment reference list.
+	 * @see de.uka.ipd.sdq.qnm.resultmodel.ResultModelPackage#getResourceUsageTime_ServiceTimeBreakDowns()
 	 * @model type="de.uka.ipd.sdq.qnm.resultmodel.ServiceTimeBreakDown" containment="true"
 	 * @generated
 	 */
-	EList getServiceTimeBreakDown();
+	EList getServiceTimeBreakDowns();
 
 } // ResourceUsageTime

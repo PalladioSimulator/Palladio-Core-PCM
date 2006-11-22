@@ -162,22 +162,22 @@ public interface ResultModelPackage extends EPackage {
 	int TASK_RESOURCE_USAGE__WAITING_TIME = 4;
 
 	/**
-	 * The feature id for the '<em><b>Task Result</b></em>' reference.
+	 * The feature id for the '<em><b>Task</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TASK_RESOURCE_USAGE__TASK_RESULT = 5;
+	int TASK_RESOURCE_USAGE__TASK = 5;
 
 	/**
-	 * The feature id for the '<em><b>Resource Result</b></em>' reference.
+	 * The feature id for the '<em><b>Resource</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TASK_RESOURCE_USAGE__RESOURCE_RESULT = 6;
+	int TASK_RESOURCE_USAGE__RESOURCE = 6;
 
 	/**
 	 * The number of structural features of the '<em>Task Resource Usage</em>' class.
@@ -226,13 +226,13 @@ public interface ResultModelPackage extends EPackage {
 	int RESOURCE_USAGE_TIME__RESPONSE_TIME = 2;
 
 	/**
-	 * The feature id for the '<em><b>Service Time Break Down</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Service Time Break Downs</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RESOURCE_USAGE_TIME__SERVICE_TIME_BREAK_DOWN = 3;
+	int RESOURCE_USAGE_TIME__SERVICE_TIME_BREAK_DOWNS = 3;
 
 	/**
 	 * The number of structural features of the '<em>Resource Usage Time</em>' class.
@@ -419,26 +419,26 @@ public interface ResultModelPackage extends EPackage {
 	EAttribute getTaskResourceUsage_WaitingTime();
 
 	/**
-	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.qnm.resultmodel.TaskResourceUsage#getTaskResult <em>Task Result</em>}'.
+	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.qnm.resultmodel.TaskResourceUsage#getTask <em>Task</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Task Result</em>'.
-	 * @see de.uka.ipd.sdq.qnm.resultmodel.TaskResourceUsage#getTaskResult()
+	 * @return the meta object for the reference '<em>Task</em>'.
+	 * @see de.uka.ipd.sdq.qnm.resultmodel.TaskResourceUsage#getTask()
 	 * @see #getTaskResourceUsage()
 	 * @generated
 	 */
-	EReference getTaskResourceUsage_TaskResult();
+	EReference getTaskResourceUsage_Task();
 
 	/**
-	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.qnm.resultmodel.TaskResourceUsage#getResourceResult <em>Resource Result</em>}'.
+	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.qnm.resultmodel.TaskResourceUsage#getResource <em>Resource</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Resource Result</em>'.
-	 * @see de.uka.ipd.sdq.qnm.resultmodel.TaskResourceUsage#getResourceResult()
+	 * @return the meta object for the reference '<em>Resource</em>'.
+	 * @see de.uka.ipd.sdq.qnm.resultmodel.TaskResourceUsage#getResource()
 	 * @see #getTaskResourceUsage()
 	 * @generated
 	 */
-	EReference getTaskResourceUsage_ResourceResult();
+	EReference getTaskResourceUsage_Resource();
 
 	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.qnm.resultmodel.ResourceUsageTime <em>Resource Usage Time</em>}'.
@@ -484,15 +484,15 @@ public interface ResultModelPackage extends EPackage {
 	EAttribute getResourceUsageTime_ResponseTime();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link de.uka.ipd.sdq.qnm.resultmodel.ResourceUsageTime#getServiceTimeBreakDown <em>Service Time Break Down</em>}'.
+	 * Returns the meta object for the containment reference list '{@link de.uka.ipd.sdq.qnm.resultmodel.ResourceUsageTime#getServiceTimeBreakDowns <em>Service Time Break Downs</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Service Time Break Down</em>'.
-	 * @see de.uka.ipd.sdq.qnm.resultmodel.ResourceUsageTime#getServiceTimeBreakDown()
+	 * @return the meta object for the containment reference list '<em>Service Time Break Downs</em>'.
+	 * @see de.uka.ipd.sdq.qnm.resultmodel.ResourceUsageTime#getServiceTimeBreakDowns()
 	 * @see #getResourceUsageTime()
 	 * @generated
 	 */
-	EReference getResourceUsageTime_ServiceTimeBreakDown();
+	EReference getResourceUsageTime_ServiceTimeBreakDowns();
 
 	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.qnm.resultmodel.ServiceTimeBreakDown <em>Service Time Break Down</em>}'.
@@ -582,7 +582,7 @@ public interface ResultModelPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	interface Literals {
+	interface Literals  {
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.qnm.resultmodel.impl.QNMResultModelImpl <em>QNM Result Model</em>}' class.
 		 * <!-- begin-user-doc -->
@@ -668,20 +668,20 @@ public interface ResultModelPackage extends EPackage {
 		EAttribute TASK_RESOURCE_USAGE__WAITING_TIME = eINSTANCE.getTaskResourceUsage_WaitingTime();
 
 		/**
-		 * The meta object literal for the '<em><b>Task Result</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Task</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference TASK_RESOURCE_USAGE__TASK_RESULT = eINSTANCE.getTaskResourceUsage_TaskResult();
+		EReference TASK_RESOURCE_USAGE__TASK = eINSTANCE.getTaskResourceUsage_Task();
 
 		/**
-		 * The meta object literal for the '<em><b>Resource Result</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Resource</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference TASK_RESOURCE_USAGE__RESOURCE_RESULT = eINSTANCE.getTaskResourceUsage_ResourceResult();
+		EReference TASK_RESOURCE_USAGE__RESOURCE = eINSTANCE.getTaskResourceUsage_Resource();
 
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.qnm.resultmodel.impl.ResourceUsageTimeImpl <em>Resource Usage Time</em>}' class.
@@ -718,12 +718,12 @@ public interface ResultModelPackage extends EPackage {
 		EAttribute RESOURCE_USAGE_TIME__RESPONSE_TIME = eINSTANCE.getResourceUsageTime_ResponseTime();
 
 		/**
-		 * The meta object literal for the '<em><b>Service Time Break Down</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Service Time Break Downs</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference RESOURCE_USAGE_TIME__SERVICE_TIME_BREAK_DOWN = eINSTANCE.getResourceUsageTime_ServiceTimeBreakDown();
+		EReference RESOURCE_USAGE_TIME__SERVICE_TIME_BREAK_DOWNS = eINSTANCE.getResourceUsageTime_ServiceTimeBreakDowns();
 
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.qnm.resultmodel.impl.ServiceTimeBreakDownImpl <em>Service Time Break Down</em>}' class.

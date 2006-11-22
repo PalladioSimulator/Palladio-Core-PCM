@@ -20,14 +20,14 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute QNMResultModel.ecore#//TaskResourceUsage/taskServiceTime"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute QNMResultModel.ecore#//TaskResourceUsage/waitingTimeOneLess"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute QNMResultModel.ecore#//TaskResourceUsage/waitingTime"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference QNMResultModel.ecore#//TaskResourceUsage/taskResult"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference QNMResultModel.ecore#//TaskResourceUsage/resourceResult"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference QNMResultModel.ecore#//TaskResourceUsage/task"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference QNMResultModel.ecore#//TaskResourceUsage/resource"/>
     </genClasses>
     <genClasses ecoreClass="QNMResultModel.ecore#//ResourceUsageTime">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference QNMResultModel.ecore#//ResourceUsageTime/resourceUsage"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute QNMResultModel.ecore#//ResourceUsageTime/serviceTime"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute QNMResultModel.ecore#//ResourceUsageTime/responseTime"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference QNMResultModel.ecore#//ResourceUsageTime/serviceTimeBreakDown"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference QNMResultModel.ecore#//ResourceUsageTime/serviceTimeBreakDowns"/>
     </genClasses>
     <genClasses ecoreClass="QNMResultModel.ecore#//ServiceTimeBreakDown">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute QNMResultModel.ecore#//ServiceTimeBreakDown/usageProbability"/>

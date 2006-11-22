@@ -40,7 +40,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link de.uka.ipd.sdq.qnm.resultmodel.impl.ResourceUsageTimeImpl#getResourceUsage <em>Resource Usage</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.qnm.resultmodel.impl.ResourceUsageTimeImpl#getServiceTime <em>Service Time</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.qnm.resultmodel.impl.ResourceUsageTimeImpl#getResponseTime <em>Response Time</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.qnm.resultmodel.impl.ResourceUsageTimeImpl#getServiceTimeBreakDown <em>Service Time Break Down</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.qnm.resultmodel.impl.ResourceUsageTimeImpl#getServiceTimeBreakDowns <em>Service Time Break Downs</em>}</li>
  * </ul>
  * </p>
  *
@@ -98,14 +98,14 @@ public class ResourceUsageTimeImpl extends EObjectImpl implements ResourceUsageT
 	protected ManagedPDF responseTime = RESPONSE_TIME_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getServiceTimeBreakDown() <em>Service Time Break Down</em>}' containment reference list.
+	 * The cached value of the '{@link #getServiceTimeBreakDowns() <em>Service Time Break Downs</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getServiceTimeBreakDown()
+	 * @see #getServiceTimeBreakDowns()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList serviceTimeBreakDown = null;
+	protected EList serviceTimeBreakDowns = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -210,11 +210,11 @@ public class ResourceUsageTimeImpl extends EObjectImpl implements ResourceUsageT
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList getServiceTimeBreakDown() {
-		if (serviceTimeBreakDown == null) {
-			serviceTimeBreakDown = new EObjectContainmentEList(ServiceTimeBreakDown.class, this, ResultModelPackage.RESOURCE_USAGE_TIME__SERVICE_TIME_BREAK_DOWN);
+	public EList getServiceTimeBreakDowns() {
+		if (serviceTimeBreakDowns == null) {
+			serviceTimeBreakDowns = new EObjectContainmentEList(ServiceTimeBreakDown.class, this, ResultModelPackage.RESOURCE_USAGE_TIME__SERVICE_TIME_BREAK_DOWNS);
 		}
-		return serviceTimeBreakDown;
+		return serviceTimeBreakDowns;
 	}
 
 	/**
@@ -224,8 +224,8 @@ public class ResourceUsageTimeImpl extends EObjectImpl implements ResourceUsageT
 	 */
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case ResultModelPackage.RESOURCE_USAGE_TIME__SERVICE_TIME_BREAK_DOWN:
-				return ((InternalEList)getServiceTimeBreakDown()).basicRemove(otherEnd, msgs);
+			case ResultModelPackage.RESOURCE_USAGE_TIME__SERVICE_TIME_BREAK_DOWNS:
+				return ((InternalEList)getServiceTimeBreakDowns()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -244,8 +244,8 @@ public class ResourceUsageTimeImpl extends EObjectImpl implements ResourceUsageT
 				return getServiceTime();
 			case ResultModelPackage.RESOURCE_USAGE_TIME__RESPONSE_TIME:
 				return getResponseTime();
-			case ResultModelPackage.RESOURCE_USAGE_TIME__SERVICE_TIME_BREAK_DOWN:
-				return getServiceTimeBreakDown();
+			case ResultModelPackage.RESOURCE_USAGE_TIME__SERVICE_TIME_BREAK_DOWNS:
+				return getServiceTimeBreakDowns();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -266,9 +266,9 @@ public class ResourceUsageTimeImpl extends EObjectImpl implements ResourceUsageT
 			case ResultModelPackage.RESOURCE_USAGE_TIME__RESPONSE_TIME:
 				setResponseTime((ManagedPDF)newValue);
 				return;
-			case ResultModelPackage.RESOURCE_USAGE_TIME__SERVICE_TIME_BREAK_DOWN:
-				getServiceTimeBreakDown().clear();
-				getServiceTimeBreakDown().addAll((Collection)newValue);
+			case ResultModelPackage.RESOURCE_USAGE_TIME__SERVICE_TIME_BREAK_DOWNS:
+				getServiceTimeBreakDowns().clear();
+				getServiceTimeBreakDowns().addAll((Collection)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -290,8 +290,8 @@ public class ResourceUsageTimeImpl extends EObjectImpl implements ResourceUsageT
 			case ResultModelPackage.RESOURCE_USAGE_TIME__RESPONSE_TIME:
 				setResponseTime(RESPONSE_TIME_EDEFAULT);
 				return;
-			case ResultModelPackage.RESOURCE_USAGE_TIME__SERVICE_TIME_BREAK_DOWN:
-				getServiceTimeBreakDown().clear();
+			case ResultModelPackage.RESOURCE_USAGE_TIME__SERVICE_TIME_BREAK_DOWNS:
+				getServiceTimeBreakDowns().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -310,8 +310,8 @@ public class ResourceUsageTimeImpl extends EObjectImpl implements ResourceUsageT
 				return SERVICE_TIME_EDEFAULT == null ? serviceTime != null : !SERVICE_TIME_EDEFAULT.equals(serviceTime);
 			case ResultModelPackage.RESOURCE_USAGE_TIME__RESPONSE_TIME:
 				return RESPONSE_TIME_EDEFAULT == null ? responseTime != null : !RESPONSE_TIME_EDEFAULT.equals(responseTime);
-			case ResultModelPackage.RESOURCE_USAGE_TIME__SERVICE_TIME_BREAK_DOWN:
-				return serviceTimeBreakDown != null && !serviceTimeBreakDown.isEmpty();
+			case ResultModelPackage.RESOURCE_USAGE_TIME__SERVICE_TIME_BREAK_DOWNS:
+				return serviceTimeBreakDowns != null && !serviceTimeBreakDowns.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
