@@ -93,8 +93,8 @@ public class ResourceUsageAnalyser {
 		return resultList;
 	}
 	
-	private List<ActiveResource> getResources(EList demandList){
-		List<ActiveResource> resultList = new ArrayList<ActiveResource>();
+	private List<Resource> getResources(EList demandList){
+		List<Resource> resultList = new ArrayList<Resource>();
 		for (Iterator iter = demandList.iterator(); iter.hasNext();) {
 			ResourceUsage demand = (ResourceUsage) iter.next();
 			if (!resultList.contains(demand.getResource())){

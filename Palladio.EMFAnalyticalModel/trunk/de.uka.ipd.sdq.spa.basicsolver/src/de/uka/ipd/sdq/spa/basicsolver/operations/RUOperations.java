@@ -27,22 +27,19 @@ public class RUOperations {
 		return new ManagedPDF(resultPDF);
 	}
 
-	public ManagedPDF computeAlternative(BinaryOperation op,
-			ManagedPDF leftRU, double leftProbability,
+	public ManagedPDF computeAlternative(ManagedPDF leftRU, double leftProbability,
 			ManagedPDF rightRU, double rightProbability)
 			throws ProbabilityFunctionException {
 		return performOperation(BinaryOperation.ALTERNATIVE, leftRU,
 				leftProbability, rightRU, rightProbability);
 	}
 
-	public ManagedPDF computeSequence(BinaryOperation op,
-			ManagedPDF leftRU, ManagedPDF rightRU)
+	public ManagedPDF computeSequence(ManagedPDF leftRU, ManagedPDF rightRU)
 			throws ProbabilityFunctionException {
 		return performOperation(BinaryOperation.SEQUENCE, leftRU, 0, rightRU, 0);
 	}
 
-	public ManagedPDF computeParallel(BinaryOperation op,
-			ManagedPDF leftRU, ManagedPDF rightRU)
+	public ManagedPDF computeParallel(ManagedPDF leftRU, ManagedPDF rightRU)
 			throws ProbabilityFunctionException {
 		return performOperation(BinaryOperation.PARALLEL, leftRU, 0, rightRU, 0);
 	}

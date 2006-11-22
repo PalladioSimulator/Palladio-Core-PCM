@@ -10,6 +10,7 @@ import de.uka.ipd.sdq.spa.concurrencysolver.qnm.builder.ResourceUsageBuilder;
 import de.uka.ipd.sdq.spa.concurrencysolver.qnm.builder.exceptions.UnknownResourceException;
 import de.uka.ipd.sdq.spa.concurrencysolver.qnm.builder.exceptions.UnknownTaskException;
 import de.uka.ipd.sdq.spa.resourcemodel.CompositeResourceUsage;
+import de.uka.ipd.sdq.spa.resourcemodel.DelayResource;
 import de.uka.ipd.sdq.spa.resourcemodel.PassiveResource;
 import de.uka.ipd.sdq.spa.resourcemodel.ProcessingResource;
 import de.uka.ipd.sdq.spa.resourcemodel.Resource;
@@ -72,6 +73,13 @@ public class ResourceModelBuilderImpl implements ResourceModelBuilder {
 		qnModel.getResources().add(processingResource);
 	}
 
+	public void addDelayResource(String name) {
+		DelayResource delayResource = rmFactory.createDelayResource();
+		delayResource.setName(name);
+		resourceHash.put(name, delayResource);
+		qnModel.getResources().add(delayResource);
+	}
+	
 	public void addPassivResource(String name, int numReplicas) {
 		PassiveResource passiveResource = rmFactory.createPassiveResource();
 		passiveResource.setName(name);
@@ -83,7 +91,7 @@ public class ResourceModelBuilderImpl implements ResourceModelBuilder {
 	public ResourceUsageBuilder addSequentialResourceUsage(String taskName) throws UnknownTaskException {
 			try {
 				CompositeResourceUsage resourceUsage = rmFactory.createSequentialResourceUsage(); 
-				resourceUsage.setPassiveResource((PassiveResource) getResource(ROOT));
+				resourceUsage.setResource(getResource(ROOT));
 				getTask(taskName).setResourceUsage(resourceUsage);
 				return new ResourceUsageBuilderImpl(this, resourceUsage, null);
 			} catch (UnknownResourceException e) {

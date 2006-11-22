@@ -18,6 +18,8 @@ import de.uka.ipd.sdq.spa.expression.Acquire;
 import de.uka.ipd.sdq.spa.expression.Expression;
 import de.uka.ipd.sdq.spa.expression.Release;
 import de.uka.ipd.sdq.spa.expression.util.ExpressionSwitch;
+import de.uka.ipd.sdq.spa.resourcemodel.ActiveResource;
+import de.uka.ipd.sdq.spa.resourcemodel.DelayResource;
 import de.uka.ipd.sdq.spa.resourcemodel.PassiveResource;
 import de.uka.ipd.sdq.spa.resourcemodel.ProcessingResource;
 import de.uka.ipd.sdq.spa.resourcemodel.util.ResourceModelSwitch;
@@ -83,6 +85,12 @@ public class QNDirector {
 					processingResource.getNumReplicas());
 			return processingResource;
 		}
+		
+		@Override
+		public Object caseDelayResource(DelayResource delayResource) {
+			builder.addDelayResource(delayResource.getName());
+			return delayResource;
+		}
 	}
 
 	private class BuildExpressionSwitch extends ExpressionSwitch {
@@ -110,8 +118,8 @@ public class QNDirector {
 		@Override
 		public Object caseExpression(Expression expression) {
 			try {
-				Hashtable<ProcessingResource, ManagedPDF> timeTable = perfSolver.getDemandTimes(expression);
-				for (ProcessingResource resource : timeTable.keySet()) {
+				Hashtable<ActiveResource, ManagedPDF> timeTable = perfSolver.getDemandTimes(expression);
+				for (ActiveResource resource : timeTable.keySet()) {
 					currentBuilder.addResourceUsage(
 							resource.getName(), 
 							timeTable.get(resource));

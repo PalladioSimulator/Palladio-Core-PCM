@@ -1,15 +1,18 @@
 package de.uka.ipd.sdq.spa.concurrencysolver.qnm.helper;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 
-import org.eclipse.emf.common.util.BasicEList;
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ocl.query.Query;
+import org.eclipse.emf.ocl.query.QueryFactory;
 
 import de.uka.ipd.sdq.qnm.Task;
+import de.uka.ipd.sdq.qnm.resultmodel.QNMResultModel;
+import de.uka.ipd.sdq.qnm.resultmodel.ResourceUsageTime;
+import de.uka.ipd.sdq.qnm.resultmodel.ResultModelPackage;
+import de.uka.ipd.sdq.qnm.resultmodel.TaskResourceUsage;
 import de.uka.ipd.sdq.spa.resourcemodel.AbstractResourceUsage;
 import de.uka.ipd.sdq.spa.resourcemodel.CompositeResourceUsage;
 import de.uka.ipd.sdq.spa.resourcemodel.Resource;
@@ -18,8 +21,32 @@ import de.uka.ipd.sdq.spa.resourcemodel.SequentialResourceUsage;
 import de.uka.ipd.sdq.spa.resourcemodel.util.ResourceModelSwitch;
 
 public class QNHelper {
+
+	QNMResultModel resultModel;
+
+	public QNHelper(QNMResultModel resultModel) {
+		super();
+		this.resultModel = resultModel;
+	}
 	
-	public static List<Resource> getUsedResources(AbstractResourceUsage resourceUsage){
+	public TaskResourceUsage getTaskResourceUsage(Task task, Resource resource) {
+		Query q = QueryFactory.eINSTANCE.createQuery("taskResourceUsages.resource.name = '" + resource.getName() + "' and taskResourceUsages.task.name = '"+ task.getName() + "'", ResultModelPackage.eINSTANCE.getTaskResourceUsage());
+		List result = (List) q.select(resultModel.getTaskResourceUsages());
+		return (TaskResourceUsage) result.get(0);
+	}
+	
+	public ResourceUsageTime getUsageTime(AbstractResourceUsage abstractResourceUsage){
+		
+		for (Object usageTimeObj  : resultModel.getResourceUsageTimes()) {
+			ResourceUsageTime usageTime = (ResourceUsageTime) usageTimeObj;
+			if( usageTime.getResourceUsage().equals(abstractResourceUsage) )
+				return usageTime;
+		}
+		
+		return null;
+	}
+	
+	public List<Resource> getUsedResources(AbstractResourceUsage resourceUsage){
 		
 		ResourceModelSwitch rmSwitch = new ResourceModelSwitch() {
 			@Override
@@ -32,7 +59,7 @@ public class QNHelper {
 			@Override
 			public Object caseSequentialResourceUsage(SequentialResourceUsage seqResourceUsage) {
 				List<Resource> list = new ArrayList<Resource>();				
-				list.add( seqResourceUsage.getPassiveResource() );
+				list.add( seqResourceUsage.getResource() );
 				for (Iterator iter = seqResourceUsage.getResourceUsages().iterator(); iter.hasNext();) {
 					ResourceUsage resourceUsage = (ResourceUsage) iter.next();
 					disjointUnion(list, (List<Resource>) this.doSwitch(resourceUsage));
@@ -45,7 +72,7 @@ public class QNHelper {
 	}
 	
 	
-	public static List<AbstractResourceUsage> getAllResourceUsages(Task task){
+	public List<AbstractResourceUsage> getAllResourceUsages(Task task){
 		@SuppressWarnings("unchecked")
 		ResourceModelSwitch resourceUsageCollector = new ResourceModelSwitch(){
 			
@@ -70,7 +97,7 @@ public class QNHelper {
 		return (List<AbstractResourceUsage>) resourceUsageCollector.doSwitch(task.getResourceUsage());
 	}
 	
-	protected static void disjointUnion(List<Resource> addList, List<Resource> inList) {
+	protected void disjointUnion(List<Resource> addList, List<Resource> inList) {
 		for (Resource resource : inList) {
 			if (!addList.contains(resource)){
 				addList.add(resource);
@@ -78,4 +105,30 @@ public class QNHelper {
 		}
 	}	
 
+	public List<Task> getUsingTasks(Resource resource) {
+		List<Task> resultList = new ArrayList<Task>();
+		for (Iterator iter = this.resultModel.getQnmodel().getTasks().iterator(); iter.hasNext();) {
+			Task task = (Task) iter.next();
+			if (getUsedResources(task.getResourceUsage()).contains(resource)){
+				resultList.add(task);
+			}
+		}
+		return resultList;
+	}
+
+	public List<AbstractResourceUsage> getUsagesOf(Task task, Resource resource) {
+		List<AbstractResourceUsage> resultList = new ArrayList<AbstractResourceUsage>();
+		List<AbstractResourceUsage> allList = getAllResourceUsages(task);
+		for (AbstractResourceUsage usage : allList) {
+			if (usage.getResource().equals(resource)){
+				resultList.add(usage);
+			}
+		}
+		return resultList;
+	}
+	
+	
+	
+	
 }
+

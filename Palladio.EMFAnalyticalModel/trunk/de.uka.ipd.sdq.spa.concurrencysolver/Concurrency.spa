@@ -1,90 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<spa:SPAModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:probfunction="http://sdq.ipd.uka.de/ProbFunction/1.0" xmlns:spa="http://sdq.ipd.uka.de/StochasticProcessAlgebra/1.0" xmlns:spa.environment="http://sdq.ipd.uka.de/Analytical/Resources/1.0" xmlns:spa.expression="http://sdq.ipd.uka.de/Analytical/Expression/1.0">
-  <processes numReplicas="3">
+<spa:SPAModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:probfunction="http://sdq.ipd.uka.de/ProbFunction/1.0" xmlns:resourcemodel="http://sdq.ipd.uka.de/ResourceModel/1.0" xmlns:spa="http://sdq.ipd.uka.de/StochasticProcessAlgebra/1.0" xmlns:spa.expression="http://sdq.ipd.uka.de/Analytical/Expression/1.0">
+  <processes numReplicas="2" name="ActiveProcess">
     <behaviour xsi:type="spa.expression:Sequence">
       <leftRegExp xsi:type="spa.expression:Symbol" name="Think">
-        <demand resource="//@resources.3">
-          <pdf xsi:type="probfunction:SamplePDF" distance="1.0">
+        <resourceUsages resource="//@resources.1">
+          <usageTime xsi:type="probfunction:SamplePDF" distance="1.0">
             <unit unitName="ms"/>
             <values>0.0</values>
             <values>0.0</values>
             <values>0.0</values>
+            <values>1.0</values>
+          </usageTime>
+        </resourceUsages>
+      </leftRegExp>
+      <rightRegExp xsi:type="spa.expression:Symbol" name="Compute">
+        <resourceUsages resource="//@resources.0">
+          <usageTime xsi:type="probfunction:SamplePDF" distance="1.0">
+            <unit unitName="ms"/>
             <values>0.0</values>
             <values>0.0</values>
             <values>1.0</values>
-          </pdf>
-        </demand>
-      </leftRegExp>
-      <rightRegExp xsi:type="spa.expression:Sequence">
-        <leftRegExp xsi:type="spa.expression:Sequence">
-          <leftRegExp xsi:type="spa.expression:Sequence">
-            <leftRegExp xsi:type="spa.expression:Sequence">
-              <leftRegExp xsi:type="spa.expression:Sequence">
-                <leftRegExp xsi:type="spa.expression:Sequence">
-                  <leftRegExp xsi:type="spa.expression:Acquire" resource="//@resources.2"/>
-                  <rightRegExp xsi:type="spa.expression:Symbol" name="D">
-                    <demand resource="//@resources.0">
-                      <pdf xsi:type="probfunction:SamplePDF" distance="1.0">
-                        <unit unitName="ms"/>
-                        <values>0.0</values>
-                        <values>0.0</values>
-                        <values>0.0</values>
-                        <values>1.0</values>
-                      </pdf>
-                    </demand>
-                  </rightRegExp>
-                </leftRegExp>
-                <rightRegExp xsi:type="spa.expression:Release" resource="//@resources.2"/>
-              </leftRegExp>
-              <rightRegExp xsi:type="spa.expression:Acquire" resource="//@resources.1"/>
-            </leftRegExp>
-            <rightRegExp xsi:type="spa.expression:Symbol" name="A">
-              <demand resource="//@resources.0">
-                <pdf xsi:type="probfunction:SamplePDF" distance="1.0">
-                  <unit unitName="ms"/>
-                  <values>0.0</values>
-                  <values>0.0</values>
-                  <values>1.0</values>
-                </pdf>
-              </demand>
-            </rightRegExp>
-          </leftRegExp>
-          <rightRegExp xsi:type="spa.expression:Alternative">
-            <leftOption probability="0.7">
-              <regexp xsi:type="spa.expression:Symbol" name="B">
-                <demand resource="//@resources.0">
-                  <pdf xsi:type="probfunction:SamplePDF" distance="1.0">
-                    <unit unitName="ms"/>
-                    <values>0.0</values>
-                    <values>1.0</values>
-                  </pdf>
-                </demand>
-              </regexp>
-            </leftOption>
-            <rightOption probability="0.3">
-              <regexp xsi:type="spa.expression:Symbol" name="C">
-                <demand resource="//@resources.0">
-                  <pdf xsi:type="probfunction:SamplePDF" distance="1.0">
-                    <unit unitName="ms"/>
-                    <values>0.0</values>
-                    <values>0.0</values>
-                    <values>0.0</values>
-                    <values>0.0</values>
-                    <values>0.0</values>
-                    <values>0.0</values>
-                    <values>1.0</values>
-                  </pdf>
-                </demand>
-              </regexp>
-            </rightOption>
-          </rightRegExp>
-        </leftRegExp>
-        <rightRegExp xsi:type="spa.expression:Release" resource="//@resources.1"/>
+          </usageTime>
+        </resourceUsages>
       </rightRegExp>
     </behaviour>
   </processes>
-  <resources xsi:type="spa.environment:ProcessingResource" numReplicas="1" name="CPU"/>
-  <resources xsi:type="spa.environment:PassiveResource" numReplicas="2" name="Semaphore"/>
-  <resources xsi:type="spa.environment:PassiveResource" numReplicas="1" name="Mutex"/>
-  <resources xsi:type="spa.environment:ProcessingResource" numReplicas="-1" name="Brain"/>
+  <resources xsi:type="resourcemodel:ProcessingResource" name="CPU" numReplicas="1"/>
+  <resources xsi:type="resourcemodel:DelayResource" name="Brain"/>
+  <resources xsi:type="resourcemodel:PassiveResource" name="System" numReplicas="1000"/>
 </spa:SPAModel>

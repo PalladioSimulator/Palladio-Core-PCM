@@ -17,7 +17,6 @@ import de.uka.ipd.sdq.spa.resourcemodel.ActiveResource;
 import de.uka.ipd.sdq.spa.resourcemodel.ProcessingResource;
 import de.uka.ipd.sdq.spa.resourcemodel.ResourceUsage;
 
-
 public class RUTableOperations {
 
 	private RUOperations ruOps;
@@ -37,15 +36,15 @@ public class RUTableOperations {
 		ruOps = new RUOperations(numSamplingPoints);
 	}
 
-	public Hashtable<ProcessingResource, ManagedPDF> computeIteration(
-			Hashtable<ProcessingResource, ManagedPDF> innerRUs,
+	public Hashtable<ActiveResource, ManagedPDF> computeIteration(
+			Hashtable<ActiveResource, ManagedPDF> innerRUs,
 			IProbabilityMassFunction iterations) {
-		Hashtable<ProcessingResource, ManagedPDF> resultTable = new Hashtable<ProcessingResource, ManagedPDF>();
+		Hashtable<ActiveResource, ManagedPDF> resultTable = new Hashtable<ActiveResource, ManagedPDF>();
 
 		try {
-			for (ProcessingResource resource : innerRUs.keySet()) {
-				ManagedPDF ru = ruOps.computeIteration(innerRUs
-						.get(resource), iterations);
+			for (ActiveResource resource : innerRUs.keySet()) {
+				ManagedPDF ru = ruOps.computeIteration(innerRUs.get(resource),
+						iterations);
 				resultTable.put(resource, ru);
 			}
 		} catch (ProbabilityFunctionException e) {
@@ -65,8 +64,8 @@ public class RUTableOperations {
 		try {
 			for (ResourceUsage resourceUsage : resourceUsageList) {
 				ActiveResource resource = resourceUsage.getResource();
-				ISamplePDF pdf = pfFactory
-						.transformToSamplePDF(resourceUsage.getUsageTime());
+				ISamplePDF pdf = pfFactory.transformToSamplePDF(resourceUsage
+						.getUsageTime());
 				pdf.expand(this.ruOps.getNumSamplingPoints());
 				ManagedPDF managedPDF = new ManagedPDF(pdf);
 				resultTable.put(resource, managedPDF);
@@ -79,45 +78,43 @@ public class RUTableOperations {
 		return resultTable;
 	}
 
-	public Hashtable<ProcessingResource, ManagedPDF> computeAlternative(
-			Hashtable<ProcessingResource, ManagedPDF> leftRUs,
-			double leftProb,
-			Hashtable<ProcessingResource, ManagedPDF> rightRUs,
-			double rightProb) {
+	public Hashtable<ActiveResource, ManagedPDF> computeAlternative(
+			Hashtable<ActiveResource, ManagedPDF> leftRUs, double leftProb,
+			Hashtable<ActiveResource, ManagedPDF> rightRUs, double rightProb) {
 
 		return performOperation(BinaryOperation.ALTERNATIVE, leftRUs, leftProb,
 				rightRUs, rightProb);
 	}
 
-	public Hashtable<ProcessingResource, ManagedPDF> computeParallel(
-			Hashtable<ProcessingResource, ManagedPDF> leftRUs,
-			Hashtable<ProcessingResource, ManagedPDF> rightRUs) {
+	public Hashtable<ActiveResource, ManagedPDF> computeParallel(
+			Hashtable<ActiveResource, ManagedPDF> leftRUs,
+			Hashtable<ActiveResource, ManagedPDF> rightRUs) {
 
 		return performOperation(BinaryOperation.PARALLEL, leftRUs, 0, rightRUs,
 				0);
 	}
 
-	public Hashtable<ProcessingResource, ManagedPDF> computeSequence(
-			Hashtable<ProcessingResource, ManagedPDF> leftRUs,
-			Hashtable<ProcessingResource, ManagedPDF> rightRUs) {
+	public Hashtable<ActiveResource, ManagedPDF> computeSequence(
+			Hashtable<ActiveResource, ManagedPDF> leftRUs,
+			Hashtable<ActiveResource, ManagedPDF> rightRUs) {
 
 		return performOperation(BinaryOperation.SEQUENCE, leftRUs, 0, rightRUs,
 				0);
 	}
 
-	private Hashtable<ProcessingResource, ManagedPDF> performOperation(
+	private Hashtable<ActiveResource, ManagedPDF> performOperation(
 			BinaryOperation op,
-			Hashtable<ProcessingResource, ManagedPDF> leftRUs,
+			Hashtable<ActiveResource, ManagedPDF> leftRUs,
 			double leftProbability,
-			Hashtable<ProcessingResource, ManagedPDF> rightRUs,
+			Hashtable<ActiveResource, ManagedPDF> rightRUs,
 			double rightProbability) {
 
-		Hashtable<ProcessingResource, ManagedPDF> resultTable = new Hashtable<ProcessingResource, ManagedPDF>();
+		Hashtable<ActiveResource, ManagedPDF> resultTable = new Hashtable<ActiveResource, ManagedPDF>();
 
 		try {
-			List<ProcessingResource> keyList = getDisjointUnion(leftRUs
+			List<ActiveResource> keyList = getDisjointUnion(leftRUs
 					.keySet(), rightRUs.keySet());
-			for (ProcessingResource resource : keyList) {
+			for (ActiveResource resource : keyList) {
 				ManagedPDF leftRU = leftRUs.get(resource);
 				ManagedPDF rightRU = rightRUs.get(resource);
 				ManagedPDF resultRU = performOperation(op, leftRU,
@@ -131,35 +128,38 @@ public class RUTableOperations {
 		return resultTable;
 	}
 
-	private ManagedPDF performOperation(BinaryOperation op,
-			ManagedPDF leftRU, double leftProbability,
-			ManagedPDF rightRU, double rightProbability) throws ProbabilityFunctionException, BothNullExpeception {
+	private ManagedPDF performOperation(BinaryOperation op, ManagedPDF leftRU,
+			double leftProbability, ManagedPDF rightRU, double rightProbability)
+			throws ProbabilityFunctionException, BothNullExpeception {
 		leftRU = ensureNotNull(leftRU, rightRU);
 		rightRU = ensureNotNull(rightRU, leftRU);
 		return ruOps.performOperation(op, leftRU, leftProbability, rightRU,
 				rightProbability);
 	}
 
-	private ManagedPDF ensureNotNull(ManagedPDF rightRU, ManagedPDF leftRU) throws BothNullExpeception {
+	private ManagedPDF ensureNotNull(ManagedPDF rightRU, ManagedPDF leftRU)
+			throws BothNullExpeception {
 		if (rightRU == null) {
-			if (leftRU == null){
+			if (leftRU == null) {
 				throw new BothNullExpeception();
 			} else {
 				int numSamplingPoints = ruOps.getNumSamplingPoints();
-				double distance = ((ISamplePDF) leftRU.getPdfFrequencyDomain()).getDistance();
+				double distance = ((ISamplePDF) leftRU.getPdfFrequencyDomain())
+						.getDistance();
 				IUnit unit = leftRU.getPdfFrequencyDomain().getUnit();
-				IProbabilityDensityFunction pdf = pfFactory.createDiracImpulse(numSamplingPoints, distance, unit);
+				IProbabilityDensityFunction pdf = pfFactory.createDiracImpulse(
+						numSamplingPoints, distance, unit);
 				rightRU = new ManagedPDF(pdf);
 			}
 		}
 		return rightRU;
 	}
 
-	private List<ProcessingResource> getDisjointUnion(
-			Set<ProcessingResource> setOne, Set<ProcessingResource> setTwo) {
-		List<ProcessingResource> resultList = new ArrayList<ProcessingResource>(
+	private List<ActiveResource> getDisjointUnion(
+			Set<ActiveResource> setOne, Set<ActiveResource> name) {
+		List<ActiveResource> resultList = new ArrayList<ActiveResource>(
 				setOne);
-		for (ProcessingResource resource : setTwo) {
+		for (ActiveResource resource : name) {
 			if (!resultList.contains(resource)) {
 				resultList.add(resource);
 			}

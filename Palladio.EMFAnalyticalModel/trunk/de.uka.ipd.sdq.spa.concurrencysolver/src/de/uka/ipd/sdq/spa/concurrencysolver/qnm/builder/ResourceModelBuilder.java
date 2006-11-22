@@ -16,5 +16,7 @@ public interface ResourceModelBuilder {
 	 void addPassivResource(String name, int number);
 
 	 ResourceUsageBuilder addSequentialResourceUsage(String customerName) throws UnknownTaskException;
+
+	void addDelayResource(String name);
 }
 

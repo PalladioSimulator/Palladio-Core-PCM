@@ -59,7 +59,7 @@ public class ResourceUsageBuilderImpl implements ResourceUsageBuilder {
 		if (resource instanceof PassiveResource) {
 			PassiveResource passiveResource = (PassiveResource) resource;
 			CompositeResourceUsage sequentialResourceUsage = rmFactory.createSequentialResourceUsage();
-			sequentialResourceUsage.setPassiveResource(passiveResource);
+			sequentialResourceUsage.setResource(passiveResource);
 			compositeResourceUsage.getResourceUsages().add(sequentialResourceUsage);
 			return new ResourceUsageBuilderImpl(qnBuilder, sequentialResourceUsage, this);
 		} else {
