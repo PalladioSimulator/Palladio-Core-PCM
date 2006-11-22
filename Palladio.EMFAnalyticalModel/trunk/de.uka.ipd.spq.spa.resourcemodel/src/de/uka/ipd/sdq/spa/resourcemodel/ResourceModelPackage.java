@@ -71,8 +71,6 @@ public interface ResourceModelPackage extends EPackage {
 
 	/**
 	 * The number of structural features of the '<em>Abstract Resource Usage</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
