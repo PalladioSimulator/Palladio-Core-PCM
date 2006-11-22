@@ -6,12 +6,12 @@
  */
 package de.uka.ipd.sdq.qnm;
 
-import de.uka.ipd.sdq.spa.resourcemodel.ResourcemodelPackage;
-
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
+
+import de.uka.ipd.sdq.spa.resourcemodel.ResourceModelPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -161,7 +161,7 @@ public interface QnmPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPOSITE_RESOURCE_USAGE__PASSIVE_RESOURCE = ResourcemodelPackage.ABSTRACT_RESOURCE_USAGE_FEATURE_COUNT + 0;
+	int COMPOSITE_RESOURCE_USAGE__PASSIVE_RESOURCE = ResourceModelPackage.ABSTRACT_RESOURCE_USAGE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Resource Usages</b></em>' containment reference list.
@@ -170,7 +170,7 @@ public interface QnmPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPOSITE_RESOURCE_USAGE__RESOURCE_USAGES = ResourcemodelPackage.ABSTRACT_RESOURCE_USAGE_FEATURE_COUNT + 1;
+	int COMPOSITE_RESOURCE_USAGE__RESOURCE_USAGES = ResourceModelPackage.ABSTRACT_RESOURCE_USAGE_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Composite Resource Usage</em>' class.
@@ -179,7 +179,7 @@ public interface QnmPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPOSITE_RESOURCE_USAGE_FEATURE_COUNT = ResourcemodelPackage.ABSTRACT_RESOURCE_USAGE_FEATURE_COUNT + 2;
+	int COMPOSITE_RESOURCE_USAGE_FEATURE_COUNT = ResourceModelPackage.ABSTRACT_RESOURCE_USAGE_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.qnm.impl.SequentialResourceUsageImpl <em>Sequential Resource Usage</em>}' class.
@@ -498,7 +498,7 @@ public interface QnmPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	interface Literals {
+	interface Literals  {
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.qnm.impl.QNModelImpl <em>QN Model</em>}' class.
 		 * <!-- begin-user-doc -->

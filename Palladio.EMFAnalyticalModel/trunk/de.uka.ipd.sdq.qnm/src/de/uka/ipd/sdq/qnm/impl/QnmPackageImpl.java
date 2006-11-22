@@ -6,8 +6,13 @@
  */
 package de.uka.ipd.sdq.qnm.impl;
 
-import de.uka.ipd.sdq.probfunction.ProbfunctionPackage;
+import org.eclipse.emf.ecore.EAttribute;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.EReference;
+import org.eclipse.emf.ecore.impl.EPackageImpl;
 
+import de.uka.ipd.sdq.probfunction.ProbfunctionPackage;
 import de.uka.ipd.sdq.qnm.AlternativeResourceUsage;
 import de.uka.ipd.sdq.qnm.CompositeResourceUsage;
 import de.uka.ipd.sdq.qnm.IterativeResourceUsage;
@@ -17,15 +22,7 @@ import de.uka.ipd.sdq.qnm.QnmFactory;
 import de.uka.ipd.sdq.qnm.QnmPackage;
 import de.uka.ipd.sdq.qnm.SequentialResourceUsage;
 import de.uka.ipd.sdq.qnm.Task;
-
-import de.uka.ipd.sdq.spa.resourcemodel.ResourcemodelPackage;
-
-import org.eclipse.emf.ecore.EAttribute;
-import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EPackage;
-import org.eclipse.emf.ecore.EReference;
-
-import org.eclipse.emf.ecore.impl.EPackageImpl;
+import de.uka.ipd.sdq.spa.resourcemodel.ResourceModelPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -141,7 +138,7 @@ public class QnmPackageImpl extends EPackageImpl implements QnmPackage {
 
 		// Initialize simple dependencies
 		ProbfunctionPackage.eINSTANCE.eClass();
-		ResourcemodelPackage.eINSTANCE.eClass();
+		ResourceModelPackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects
 		theQnmPackage.createPackageContents();
@@ -355,10 +352,10 @@ public class QnmPackageImpl extends EPackageImpl implements QnmPackage {
 		setNsURI(eNS_URI);
 
 		// Obtain other dependent packages
-		ResourcemodelPackage theResourcemodelPackage = (ResourcemodelPackage)EPackage.Registry.INSTANCE.getEPackage(ResourcemodelPackage.eNS_URI);
+		ResourceModelPackage theResourceModelPackage = (ResourceModelPackage)EPackage.Registry.INSTANCE.getEPackage(ResourceModelPackage.eNS_URI);
 
 		// Add supertypes to classes
-		compositeResourceUsageEClass.getESuperTypes().add(theResourcemodelPackage.getAbstractResourceUsage());
+		compositeResourceUsageEClass.getESuperTypes().add(theResourceModelPackage.getAbstractResourceUsage());
 		sequentialResourceUsageEClass.getESuperTypes().add(this.getCompositeResourceUsage());
 		alternativeResourceUsageEClass.getESuperTypes().add(this.getCompositeResourceUsage());
 		iterativeResourceUsageEClass.getESuperTypes().add(this.getCompositeResourceUsage());
@@ -367,18 +364,18 @@ public class QnmPackageImpl extends EPackageImpl implements QnmPackage {
 		// Initialize classes and features; add operations and parameters
 		initEClass(qnModelEClass, QNModel.class, "QNModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getQNModel_Tasks(), this.getTask(), null, "tasks", null, 0, -1, QNModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getQNModel_Resources(), theResourcemodelPackage.getResource(), null, "resources", null, 0, -1, QNModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getQNModel_Resources(), theResourceModelPackage.getResource(), null, "resources", null, 0, -1, QNModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(taskEClass, Task.class, "Task", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTask_NumReplicas(), ecorePackage.getEInt(), "numReplicas", null, 1, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getTask_Name(), ecorePackage.getEString(), "name", "", 1, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getTask_ResourceUsage(), theResourcemodelPackage.getAbstractResourceUsage(), null, "resourceUsage", null, 1, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTask_ResourceUsage(), theResourceModelPackage.getAbstractResourceUsage(), null, "resourceUsage", null, 1, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		addEOperation(taskEClass, ecorePackage.getEEList(), "getAllDemands", 0, 1);
 
 		initEClass(compositeResourceUsageEClass, CompositeResourceUsage.class, "CompositeResourceUsage", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getCompositeResourceUsage_PassiveResource(), theResourcemodelPackage.getPassiveResource(), null, "passiveResource", null, 1, 1, CompositeResourceUsage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getCompositeResourceUsage_ResourceUsages(), theResourcemodelPackage.getAbstractResourceUsage(), null, "resourceUsages", null, 0, -1, CompositeResourceUsage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCompositeResourceUsage_PassiveResource(), theResourceModelPackage.getPassiveResource(), null, "passiveResource", null, 1, 1, CompositeResourceUsage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCompositeResourceUsage_ResourceUsages(), theResourceModelPackage.getAbstractResourceUsage(), null, "resourceUsages", null, 0, -1, CompositeResourceUsage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(sequentialResourceUsageEClass, SequentialResourceUsage.class, "SequentialResourceUsage", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
