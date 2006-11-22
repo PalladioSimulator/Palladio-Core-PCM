@@ -841,7 +841,7 @@
           <children xmi:id="_Dun5IXl5Edug84C8dPzjaQ" type="Name" element="_DuadwHl5Edug84C8dPzjaQ"/>
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_DunSFHl5Edug84C8dPzjaQ" y="-209"/>
         </children>
-        <children xmi:id="_DuogMHl5Edug84C8dPzjaQ" type="ToMultiplicityLabel" element="_DubE0Xl5Edug84C8dPzjaQ">
+        <children xmi:id="_DuogMHl5Edug84C8dPzjaQ" visible="false" type="ToMultiplicityLabel" element="_DubE0Xl5Edug84C8dPzjaQ">
           <children xmi:id="_DuogMnl5Edug84C8dPzjaQ" type="ToMultiplicity" element="_DubE0Xl5Edug84C8dPzjaQ"/>
           <layoutConstraint xmi:type="notation:Location" xmi:id="_DuogMXl5Edug84C8dPzjaQ" y="448"/>
         </children>
@@ -855,7 +855,7 @@
         </children>
         <children xmi:id="_DuogOXl5Edug84C8dPzjaQ" type="FromRoleLabel" element="_DubE0Hl5Edug84C8dPzjaQ">
           <children xmi:id="_DuogO3l5Edug84C8dPzjaQ" type="FromRole" element="_DubE0Hl5Edug84C8dPzjaQ"/>
-          <layoutConstraint xmi:type="notation:Location" xmi:id="_DuogOnl5Edug84C8dPzjaQ" x="-893" y="-466"/>
+          <layoutConstraint xmi:type="notation:Location" xmi:id="_DuogOnl5Edug84C8dPzjaQ" x="-1308" y="-466"/>
         </children>
         <children xmi:id="_DuogPHl5Edug84C8dPzjaQ" type="ToQualifierLabel" element="_DubE0Xl5Edug84C8dPzjaQ">
           <children xmi:id="_DuogPnl5Edug84C8dPzjaQ" type="QualifierCompartment" element="_DubE0Xl5Edug84C8dPzjaQ">
@@ -1027,10 +1027,10 @@
     <ownedAttribute xmi:id="_JFC2IHl3Edug84C8dPzjaQ" name="taskServiceTime" type="_K0iIsHl1Edug84C8dPzjaQ"/>
     <ownedAttribute xmi:id="_DzyX4Hl3Edug84C8dPzjaQ" name="waitingTimeOneLess" type="_K0iIsHl1Edug84C8dPzjaQ"/>
     <ownedAttribute xmi:id="_8-IusHl2Edug84C8dPzjaQ" name="waitingTime" type="_K0iIsHl1Edug84C8dPzjaQ"/>
-    <ownedAttribute xmi:id="_sibKMHl2Edug84C8dPzjaQ" name="taskResult" association="_siajIHl2Edug84C8dPzjaQ">
+    <ownedAttribute xmi:id="_sibKMHl2Edug84C8dPzjaQ" name="task" association="_siajIHl2Edug84C8dPzjaQ">
       <type xmi:type="uml:Class" href="QueueingNetworkModel.emx#_keGrIGUBEdu4X4vt0cLMrQ?qnm/Task"/>
     </ownedAttribute>
-    <ownedAttribute xmi:id="_t69qcHl2Edug84C8dPzjaQ" name="resourceResult" association="_t69DYHl2Edug84C8dPzjaQ">
+    <ownedAttribute xmi:id="_t69qcHl2Edug84C8dPzjaQ" name="resource" association="_t69DYHl2Edug84C8dPzjaQ">
       <type xmi:type="uml:Class" href="ResourceModel.emx#_W7afIHSMEdu9OJpDmFkYpg?resourcemodel/Resource"/>
     </ownedAttribute>
   </ownedMember>
@@ -1051,7 +1051,7 @@
     </ownedAttribute>
     <ownedAttribute xmi:id="_yeVdEHl4Edug84C8dPzjaQ" name="serviceTime" type="_K0iIsHl1Edug84C8dPzjaQ"/>
     <ownedAttribute xmi:id="_2VwakHl4Edug84C8dPzjaQ" name="responseTime" type="_K0iIsHl1Edug84C8dPzjaQ"/>
-    <ownedAttribute xmi:id="_DubE0Hl5Edug84C8dPzjaQ" name="serviceTimeBreakDown" type="_8tDT0Hl4Edug84C8dPzjaQ" association="_DuadwHl5Edug84C8dPzjaQ" aggregation="composite">
+    <ownedAttribute xmi:id="_DubE0Hl5Edug84C8dPzjaQ" name="serviceTimeBreakDowns" type="_8tDT0Hl4Edug84C8dPzjaQ" association="_DuadwHl5Edug84C8dPzjaQ" aggregation="composite">
       <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_DubE03l5Edug84C8dPzjaQ" value="-1"/>
       <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_DubE0nl5Edug84C8dPzjaQ"/>
     </ownedAttribute>

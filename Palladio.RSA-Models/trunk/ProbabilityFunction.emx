@@ -414,17 +414,17 @@
   </packageImport>
   <ownedMember xmi:type="uml:Class" xmi:id="_zWMAz1YOEduVzvtHWuORYA" name="BoxedPDF">
     <generalization xmi:id="_zWMnwFYOEduVzvtHWuORYA" general="_zWMAx1YOEduVzvtHWuORYA"/>
-    <ownedAttribute xmi:id="_zWMnwVYOEduVzvtHWuORYA" name="samples" type="_zWMnxlYOEduVzvtHWuORYA" isOrdered="true" association="_zWMnxFYOEduVzvtHWuORYA" aggregation="composite">
+    <ownedAttribute xmi:id="_zWMnwVYOEduVzvtHWuORYA" name="samples" type="_zWMnxlYOEduVzvtHWuORYA" association="_zWMnxFYOEduVzvtHWuORYA" aggregation="composite">
       <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_zWMnwlYOEduVzvtHWuORYA" value="-1"/>
       <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_zWMnw1YOEduVzvtHWuORYA"/>
     </ownedAttribute>
   </ownedMember>
   <ownedMember xmi:type="uml:Class" xmi:id="_zWMnxlYOEduVzvtHWuORYA" name="ContinuousSample">
-    <ownedAttribute xmi:id="_zWMnx1YOEduVzvtHWuORYA" name="value">
+    <ownedAttribute xmi:id="_zWMnx1YOEduVzvtHWuORYA" name="value" isUnique="false">
       <type xmi:type="uml:PrimitiveType" href="pathmap://UML2_LIBRARIES/EcorePrimitiveTypes.library.uml2#_OQ654K86EdieaYgxtVWN8Q"/>
       <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_zWMnyFYOEduVzvtHWuORYA"/>
     </ownedAttribute>
-    <ownedAttribute xmi:id="_zWMnyVYOEduVzvtHWuORYA" name="probability">
+    <ownedAttribute xmi:id="_zWMnyVYOEduVzvtHWuORYA" name="probability" isUnique="false">
       <type xmi:type="uml:PrimitiveType" href="pathmap://UML2_LIBRARIES/EcorePrimitiveTypes.library.uml2#_OQ654K86EdieaYgxtVWN8Q"/>
       <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_zWMnylYOEduVzvtHWuORYA"/>
     </ownedAttribute>
@@ -437,7 +437,7 @@
   </ownedMember>
   <ownedMember xmi:type="uml:Class" xmi:id="_zWMAuVYOEduVzvtHWuORYA" name="ProbabilityMassFunction">
     <generalization xmi:id="_zWMAulYOEduVzvtHWuORYA" general="_zWMAslYOEduVzvtHWuORYA"/>
-    <ownedAttribute xmi:id="_zWMAvVYOEduVzvtHWuORYA" name="samples" type="_zWMAwlYOEduVzvtHWuORYA" isOrdered="true" association="_zWMAwFYOEduVzvtHWuORYA" aggregation="composite">
+    <ownedAttribute xmi:id="_zWMAvVYOEduVzvtHWuORYA" name="samples" type="_zWMAwlYOEduVzvtHWuORYA" isOrdered="true" isUnique="false" association="_zWMAwFYOEduVzvtHWuORYA" aggregation="composite">
       <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_zWMAvlYOEduVzvtHWuORYA" value="-1"/>
       <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_zWMAv1YOEduVzvtHWuORYA"/>
     </ownedAttribute>
@@ -446,29 +446,29 @@
     </ownedAttribute>
   </ownedMember>
   <ownedMember xmi:type="uml:Class" xmi:id="_zWMAwlYOEduVzvtHWuORYA" name="Sample">
-    <ownedAttribute xmi:id="_zWMAw1YOEduVzvtHWuORYA" name="value">
+    <ownedAttribute xmi:id="_zWMAw1YOEduVzvtHWuORYA" name="value" isUnique="false">
       <type xmi:type="uml:PrimitiveType" href="pathmap://UML2_LIBRARIES/EcorePrimitiveTypes.library.uml2#_ORHHIq86EdieaYgxtVWN8Q"/>
       <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_zWMAxFYOEduVzvtHWuORYA"/>
     </ownedAttribute>
-    <ownedAttribute xmi:id="_zWMAxVYOEduVzvtHWuORYA" name="probability">
+    <ownedAttribute xmi:id="_zWMAxVYOEduVzvtHWuORYA" name="probability" isUnique="false">
       <type xmi:type="uml:PrimitiveType" href="pathmap://UML2_LIBRARIES/EcorePrimitiveTypes.library.uml2#_OQ654K86EdieaYgxtVWN8Q"/>
       <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_zWMAxlYOEduVzvtHWuORYA"/>
     </ownedAttribute>
   </ownedMember>
   <ownedMember xmi:type="uml:Class" xmi:id="_zWMAyVYOEduVzvtHWuORYA" name="SamplePDF">
     <generalization xmi:id="_zWMAylYOEduVzvtHWuORYA" general="_zWMAx1YOEduVzvtHWuORYA"/>
-    <ownedAttribute xmi:id="_zWMAy1YOEduVzvtHWuORYA" name="distance">
+    <ownedAttribute xmi:id="_zWMAy1YOEduVzvtHWuORYA" name="distance" isUnique="false">
       <type xmi:type="uml:PrimitiveType" href="pathmap://UML2_LIBRARIES/EcorePrimitiveTypes.library.uml2#_OQ654K86EdieaYgxtVWN8Q"/>
       <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_zWMAzFYOEduVzvtHWuORYA"/>
     </ownedAttribute>
-    <ownedAttribute xmi:id="_zWMAzVYOEduVzvtHWuORYA" name="values">
+    <ownedAttribute xmi:id="_zWMAzVYOEduVzvtHWuORYA" name="values" isUnique="false">
       <type xmi:type="uml:PrimitiveType" href="pathmap://UML2_LIBRARIES/EcorePrimitiveTypes.library.uml2#_OQ654K86EdieaYgxtVWN8Q"/>
       <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="__J0gMF34EdugyLjy7sG7VA" value="-1"/>
       <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_zWMAzlYOEduVzvtHWuORYA"/>
     </ownedAttribute>
   </ownedMember>
   <ownedMember xmi:type="uml:Class" xmi:id="_zWMAtlYOEduVzvtHWuORYA" name="Unit">
-    <ownedAttribute xmi:id="_zWMAt1YOEduVzvtHWuORYA" name="unitName">
+    <ownedAttribute xmi:id="_zWMAt1YOEduVzvtHWuORYA" name="unitName" isUnique="false">
       <type xmi:type="uml:PrimitiveType" href="pathmap://UML2_LIBRARIES/EcorePrimitiveTypes.library.uml2#_ORTUYa86EdieaYgxtVWN8Q"/>
       <upperValue xmi:type="uml:OpaqueExpression" xmi:id="_9xNrgFk3EduherSeZ1RIyw"/>
       <lowerValue xmi:type="uml:OpaqueExpression" xmi:id="_9xNEcFk3EduherSeZ1RIyw" body="0"/>
