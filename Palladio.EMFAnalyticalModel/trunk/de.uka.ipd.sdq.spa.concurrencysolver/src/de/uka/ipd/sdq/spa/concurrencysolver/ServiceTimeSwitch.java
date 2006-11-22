@@ -6,31 +6,32 @@ import java.util.List;
 
 import de.uka.ipd.sdq.probfunction.math.IProbabilityFunctionFactory;
 import de.uka.ipd.sdq.probfunction.math.ManagedPDF;
-import de.uka.ipd.sdq.qnm.Demand;
-import de.uka.ipd.sdq.qnm.DeviceDemand;
-import de.uka.ipd.sdq.qnm.SequentialDemand;
 import de.uka.ipd.sdq.qnm.util.QnmSwitch;
+import de.uka.ipd.sdq.spa.resourcemodel.ResourceUsage;
+import de.uka.ipd.sdq.spa.resourcemodel.SequentialResourceUsage;
+import de.uka.ipd.sdq.spa.resourcemodel.util.ResourceModelSwitch;
 
-public class ServiceTimeSwitch extends QnmSwitch {
+public class ServiceTimeSwitch extends ResourceModelSwitch {
 	private static IProbabilityFunctionFactory pfFactory = IProbabilityFunctionFactory.eINSTANCE;
 	
 	
 	@Override
-	public Object caseDeviceDemand(DeviceDemand object) {
-		return object.getServiceTime();
+	public Object caseResourceUsage(ResourceUsage object) {
+		return new ManagedPDF(object.getUsageTime());
 	}
 	
+	
 	@Override
-	public Object caseSequentialDemand(SequentialDemand object) {
+	public Object caseSequentialResourceUsage(SequentialResourceUsage object) {
 		ResponseTimeSwitch rtSwitch = new ResponseTimeSwitch();
 		List<ManagedPDF> pdfList = new ArrayList<ManagedPDF>();
 		
-		for (Iterator iter = object.getDemands().iterator(); iter.hasNext();) {
-			Demand d = (Demand) iter.next();
+		for (Iterator iter = object.getResourceUsages().iterator(); iter.hasNext();) {
+			ResourceUsage d = (ResourceUsage) iter.next();
 			ManagedPDF responsePDF = (ManagedPDF) rtSwitch.doSwitch(d);
 		}
-		
 		return QNSolver.sum(pdfList);
 	}
+	
 	
 }

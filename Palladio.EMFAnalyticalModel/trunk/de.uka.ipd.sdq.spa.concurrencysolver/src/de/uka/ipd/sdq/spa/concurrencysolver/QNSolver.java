@@ -1,12 +1,7 @@
 package de.uka.ipd.sdq.spa.concurrencysolver;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
-
-import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.ocl.query.Query;
-import org.eclipse.emf.ocl.query.QueryFactory;
 
 import de.uka.ipd.sdq.probfunction.math.IProbabilityDensityFunction;
 import de.uka.ipd.sdq.probfunction.math.IProbabilityFunctionFactory;
@@ -15,36 +10,28 @@ import de.uka.ipd.sdq.probfunction.math.ISample;
 import de.uka.ipd.sdq.probfunction.math.IUnit;
 import de.uka.ipd.sdq.probfunction.math.ManagedPDF;
 import de.uka.ipd.sdq.probfunction.math.ManagedPMF;
-import de.uka.ipd.sdq.probfunction.math.exception.FunctionNotInTimeDomainException;
-import de.uka.ipd.sdq.probfunction.math.exception.FunctionsInDifferenDomainsException;
-import de.uka.ipd.sdq.probfunction.math.exception.IncompatibleUnitsException;
 import de.uka.ipd.sdq.probfunction.math.exception.ProbabilityFunctionException;
-import de.uka.ipd.sdq.probfunction.math.exception.UnknownPDFTypeException;
-import de.uka.ipd.sdq.qnm.Customer;
-import de.uka.ipd.sdq.qnm.Demand;
-import de.uka.ipd.sdq.qnm.DeviceDemand;
 import de.uka.ipd.sdq.qnm.QNModel;
-import de.uka.ipd.sdq.qnm.SequentialDemand;
-import de.uka.ipd.sdq.qnm.Server;
-import de.uka.ipd.sdq.qnm.qnResult.CustomerResult;
-import de.uka.ipd.sdq.qnm.qnResult.CustomerServerUsage;
-import de.uka.ipd.sdq.qnm.qnResult.DemandResult;
-import de.uka.ipd.sdq.qnm.qnResult.DemandServerUsage;
-import de.uka.ipd.sdq.qnm.qnResult.QNResultFactory;
-import de.uka.ipd.sdq.qnm.qnResult.QNResultModel;
-import de.uka.ipd.sdq.qnm.qnResult.ServerResult;
-import de.uka.ipd.sdq.qnm.qnResult.util.QNResultSwitch;
-import de.uka.ipd.sdq.qnm.util.QnmSwitch;
+import de.uka.ipd.sdq.qnm.Task;
+import de.uka.ipd.sdq.qnm.resultmodel.QNMResultModel;
+import de.uka.ipd.sdq.qnm.resultmodel.ResourceResult;
+import de.uka.ipd.sdq.qnm.resultmodel.ResourceUsageTime;
+import de.uka.ipd.sdq.qnm.resultmodel.ResultModelFactory;
+import de.uka.ipd.sdq.qnm.resultmodel.TaskResourceUsage;
+import de.uka.ipd.sdq.qnm.resultmodel.TaskResult;
 import de.uka.ipd.sdq.spa.SPAModel;
 import de.uka.ipd.sdq.spa.concurrencysolver.qnm.QNDirector;
-import de.uka.ipd.sdq.spa.concurrencysolver.qnm.builder.qnm.QNBuilder;
-import de.uka.ipd.sdq.spa.concurrencysolver.qnm.solver.SolvQnResultFactory;
+import de.uka.ipd.sdq.spa.concurrencysolver.qnm.builder.qnm.ResourceModelBuilderImpl;
+import de.uka.ipd.sdq.spa.concurrencysolver.qnm.helper.QNHelper;
+import de.uka.ipd.sdq.spa.concurrencysolver.qnm.helper.QNResultModelHelper;
+import de.uka.ipd.sdq.spa.resourcemodel.Resource;
+import de.uka.ipd.sdq.spa.resourcemodel.ResourceUsage;
 import de.uka.ipd.sdq.spa.util.EMFTools;
 
 @SuppressWarnings("unchecked")
 public class QNSolver {
 	
-	private static QNResultFactory resultFactory = new SolvQnResultFactory();
+	private static ResultModelFactory resultFactory = ResultModelFactory.eINSTANCE;
 	private static IProbabilityFunctionFactory pfFactory = IProbabilityFunctionFactory.eINSTANCE;
 	
 	private static int numSamplingPoints = 256;
@@ -59,7 +46,7 @@ public class QNSolver {
 	 */
 	public static void main(String[] args) {
 		QNModel qnModel = getQNModel("Concurrency.spa");
-		QNResultModel qnResult = initialize(qnModel);
+		QNMResultModel qnResult = initialize(qnModel);
 		
 		solve(qnResult);
 		System.out.println("done.");
@@ -67,77 +54,64 @@ public class QNSolver {
 	
 	
 
-	private static QNResultModel initialize(QNModel qnModel) {
-		QNResultModel resultModel = resultFactory.createQNResultModel();
+	private static QNMResultModel initialize(QNModel qnModel) {
+		QNMResultModel resultModel = resultFactory.createQNMResultModel();
 		
-		// add all customers and servers to the result model
-		for (Object objC : qnModel.getCustomers()) {
-			Customer c = (Customer) objC;
-			CustomerResult cr = resultFactory.createCustomerResult();
-			cr.setCustomer(c);
-			resultModel.getCustomerResults().add(cr);
-		}
+		// add TaskResourceUsages
+		for (Object objCR : qnModel.getTasks()) {
+			Task cr = (Task) objCR;
 			
-		for (Object objS : qnModel.getServers()){
-			Server s = (Server) objS;
-			ServerResult sr = resultFactory.createServerResult();
-			sr.setServer(s);
-			resultModel.getServerResults().add(sr);
-		}
-		
-		// add CustomerServerUsages
-		for (Object objCR : resultModel.getCustomerResults()) {
-			CustomerResult cr = (CustomerResult) objCR;
-			
-			for (Object objSR : resultModel.getServerResults()) {
-				ServerResult sr = (ServerResult) objSR;
+			for (Object objSR : qnModel.getResources()) {
+				Resource sr = (Resource) objSR;
 				
-				CustomerServerUsage usage = resultFactory.createCustomerServerUsage();
-				usage.setCustomerResult(cr);
-				usage.setServerResult(sr);
-				usage.setCausedWaitingTime(getZeroWaitingTime());
-				usage.setCausedWaitingTimeOneLess(getZeroWaitingTime());
+				TaskResourceUsage usage = resultFactory.createTaskResourceUsage();
+				usage.setTaskResult(cr);
+				usage.setResourceResult(sr);
+				usage.setWaitingTime(getZeroWaitingTime());
+				usage.setWaitingTimeOneLess(getZeroWaitingTime());
 				usage.setQueueLength(getZeroQueueLength());
 				usage.setQueueLengthOneLess(getZeroQueueLength());
-				usage.setCustomerServiceTime(getZeroWaitingTime());
+				usage.setTaskServiceTime(getZeroWaitingTime());
 				
-				resultModel.getCustomerServerUsage().add(usage);
+				resultModel.getTaskResourceUsages().add(usage);
 				
 			}
 		}
 		
 		
-		// add DemandResults
-		for (Object objCR : resultModel.getCustomerResults()) {
-			CustomerResult cr = (CustomerResult) objCR;
-			for (Object dObj : cr.getCustomer().getAllDemands()) {
-				Demand d = (Demand) dObj;
-				DemandResult dr = resultFactory.createDemandResult();
-				dr.setDemand(d);
-				if (d instanceof DeviceDemand) {
-					DeviceDemand dd = (DeviceDemand) d;
-					dr.setResponseTime(dd.getServiceTime());
-					dr.setServiceTime(dd.getServiceTime());
+		// add ResourceUsageTimes
+		for (Object objCR : qnModel.getTasks()) {
+			Task cr = (Task) objCR;
+			for (Object dObj : cr.getAllDemands()) {
+				ResourceUsage d = (ResourceUsage) dObj;
+				ResourceUsageTime dr = resultFactory.createResourceUsageTime();
+				dr.setResourceUsage(d);
+				if (d instanceof ResourceUsage) {
+					ResourceUsage dd = (ResourceUsage) d;
+					dr.setResponseTime(new ManagedPDF(dd.getUsageTime()));
+					dr.setServiceTime(new ManagedPDF(dd.getUsageTime()));
 				} else {
 					dr.setResponseTime(getZeroWaitingTime());
 					dr.setServiceTime(getZeroWaitingTime());
 				}
-				resultModel.getDemandResults().add(dr);
+				resultModel.getResourceUsageTimes().add(dr);
 			}
 		}
 		
-		// add DemandServerUsages
-		for (Object objDR : resultModel.getDemandResults()){
-			DemandResult dr = (DemandResult) objDR;
-			for (Object objS: dr.getDemand().getUsedResources()){
-				Server s = (Server)objS;
-				ServerResult sr = resultModel.getResultForServer(s);
-				DemandServerUsage dsu = resultFactory.createDemandServerUsage();
-				dsu.setDemand(dr);
-				dsu.setServer(sr);
+		QNResultModelHelper qnHelper = new QNResultModelHelper(resultModel);
+		
+		// add DemandResourceUsages
+		// TODO check this...
+		for (Object objDR : resultModel.getResourceUsageTimes()){
+			ResourceUsageTime dr = (ResourceUsageTime) objDR;
+			for (Resource s: QNHelper.getUsedResources( dr.getResourceUsage())){
+				ResourceResult sr = qnHelper.getResultForResource(s);
+				ResourceUsageTime dsu = resultFactory.createResourceUsageTime();
+				dsu.setResourceUsage(dr);
+				dsu.setResource(sr);
 				dsu.setMeanUsageTime(0);
 				dsu.setUsageProbability(0);
-				resultModel.getDemandServerUsages().add(dsu);
+				resultModel.getDemandResourceUsages().add(dsu);
 			}
 		}
 		
@@ -146,7 +120,7 @@ public class QNSolver {
 
 	
 	
-	private static void solve(QNResultModel qnModel) {
+	private static void solve(QNMResultModel qnModel) {
 		
 		do{
 			computeResponseTimes(qnModel);
@@ -160,53 +134,52 @@ public class QNSolver {
 
 
 
-	private static boolean fixPointReached(QNResultModel qnModel) {
+	private static boolean fixPointReached(QNMResultModel qnModel) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
 
 
-	private static void computeWaitingTimes(QNResultModel qnModel) {
+	private static void computeWaitingTimes(QNMResultModel qnModel) {
 		// TODO Auto-generated method stub
 		
 	}
 
 
 
-	private static void computeQueueLengths(QNResultModel qnModel) {
+	private static void computeQueueLengths(QNMResultModel qnModel) {
 		// TODO Auto-generated method stub
 		
 	}
 
 
 
-	private static void computeUsageProbabilities(QNResultModel qnModel) {
+	private static void computeUsageProbabilities(QNMResultModel qnModel) {
 		// TODO Auto-generated method stub
 		
 	}
 
 
 
-	private static void computeUsageTimes(QNResultModel qnModel) {
+	private static void computeUsageTimes(QNMResultModel qnModel) {
 		// TODO Auto-generated method stub
 		
 	}
 
 
 
-	private static void computeAverageServiceTimes(QNResultModel qnModel) {
+	private static void computeAverageServiceTimes(QNMResultModel qnModel) {
 		// TODO Auto-generated method stub
 		
 	}
 
 
 
-	private static void computeResponseTimes(QNResultModel qnModel) {
+	private static void computeResponseTimes(QNMResultModel qnModel) {
 		
-		for (Object objCR : qnModel.getCustomerResults()) {
-			CustomerResult cr = (CustomerResult) objCR;
-			ResponseTimeSwitch rtSwitch
+		for (Object objCR : qnModel.getQnmodel().getTasks()) {
+			Task cr = (Task) objCR;
 		}
 		
 	}
@@ -242,7 +215,7 @@ public class QNSolver {
 
 	public static QNModel getQNModel(String fileName){
 		SPAModel spaModel = (SPAModel) EMFTools.loadFromXMI(fileName);
-		QNBuilder qnBuilder = new QNBuilder();
+		ResourceModelBuilderImpl qnBuilder = new ResourceModelBuilderImpl();
 		QNDirector qnDirector = new QNDirector(NUM_SAMPLING_POINTS); 
 		qnDirector.buildFrom(spaModel, qnBuilder);
 		return qnBuilder.getQNModel();

@@ -7,19 +7,27 @@
   <foreignModel>ResourceModel.ecore</foreignModel>
   <genPackages prefix="ResourceModel" basePackage="de.uka.ipd.sdq.spa" disposableProviderFactory="true"
       ecorePackage="ResourceModel.ecore#/">
-    <genClasses ecoreClass="ResourceModel.ecore#//ResourceUsage">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ResourceModel.ecore#//ResourceUsage/usageTime"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ResourceModel.ecore#//ResourceUsage/resource"/>
+    <genClasses ecoreClass="ResourceModel.ecore#//SequentialResourceUsage"/>
+    <genClasses image="false" ecoreClass="ResourceModel.ecore#//CompositeResourceUsage">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ResourceModel.ecore#//CompositeResourceUsage/passiveResource"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ResourceModel.ecore#//CompositeResourceUsage/resourceUsages"/>
     </genClasses>
     <genClasses image="false" ecoreClass="ResourceModel.ecore#//AbstractResourceUsage"/>
-    <genClasses image="false" ecoreClass="ResourceModel.ecore#//ActiveResource"/>
-    <genClasses image="false" ecoreClass="ResourceModel.ecore#//Resource">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ResourceModel.ecore#//Resource/name"/>
-    </genClasses>
     <genClasses ecoreClass="ResourceModel.ecore#//PassiveResource"/>
     <genClasses image="false" ecoreClass="ResourceModel.ecore#//ContentionResource">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ResourceModel.ecore#//ContentionResource/numReplicas"/>
     </genClasses>
+    <genClasses image="false" ecoreClass="ResourceModel.ecore#//Resource">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ResourceModel.ecore#//Resource/name"/>
+    </genClasses>
+    <genClasses ecoreClass="ResourceModel.ecore#//ParallelResourceUsage"/>
+    <genClasses ecoreClass="ResourceModel.ecore#//IterativeResourceUsage"/>
+    <genClasses ecoreClass="ResourceModel.ecore#//AlternativeResourceUsage"/>
+    <genClasses ecoreClass="ResourceModel.ecore#//ResourceUsage">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ResourceModel.ecore#//ResourceUsage/usageTime"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ResourceModel.ecore#//ResourceUsage/resource"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="ResourceModel.ecore#//ActiveResource"/>
     <genClasses ecoreClass="ResourceModel.ecore#//ProcessingResource"/>
     <genClasses ecoreClass="ResourceModel.ecore#//DelayResource"/>
   </genPackages>

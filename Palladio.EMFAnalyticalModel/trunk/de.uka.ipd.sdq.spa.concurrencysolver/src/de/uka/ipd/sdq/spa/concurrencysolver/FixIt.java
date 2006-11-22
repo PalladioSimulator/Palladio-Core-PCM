@@ -134,8 +134,9 @@ public class FixIt {
 
 	private static List<ServiceCentre> getServiceTimes(
 			List<Expression> expressionList, int domainSize) {
-		ServiceTimeVisitor sv = new ServiceTimeVisitor(domainSize);
-		return sv.visit(expressionList);
+//		ServiceTimeVisitor sv = new ServiceTimeVisitor(domainSize);
+//		return sv.visit(expressionList);
+		return null;
 	}
 
 	/**

@@ -9,10 +9,10 @@ import de.uka.ipd.sdq.probfunction.math.ManagedPDF;
 import de.uka.ipd.sdq.spa.ProcessBehaviour;
 import de.uka.ipd.sdq.spa.SPAModel;
 import de.uka.ipd.sdq.spa.basicsolver.PerformanceSolver;
-import de.uka.ipd.sdq.spa.concurrencysolver.qnm.builder.ResourceDemandBuilder;
+import de.uka.ipd.sdq.spa.concurrencysolver.qnm.builder.ResourceUsageBuilder;
 import de.uka.ipd.sdq.spa.concurrencysolver.qnm.builder.ResourceModelBuilder;
 import de.uka.ipd.sdq.spa.concurrencysolver.qnm.builder.exceptions.ResourceModelBuilderException;
-import de.uka.ipd.sdq.spa.concurrencysolver.qnm.builder.exceptions.UnknownCustomerException;
+import de.uka.ipd.sdq.spa.concurrencysolver.qnm.builder.exceptions.UnknownTaskException;
 import de.uka.ipd.sdq.spa.concurrencysolver.simplify.ExpressionSlicer;
 import de.uka.ipd.sdq.spa.expression.Acquire;
 import de.uka.ipd.sdq.spa.expression.Expression;
@@ -42,11 +42,11 @@ public class QNDirector {
 			
 			for (Object object : spaModel.getProcesses()){
 				ProcessBehaviour customer = (ProcessBehaviour) object;
-				builder.addCustomer(
+				builder.addTask(
 						customer.getName(), 
 						customer.getNumReplicas());
 				
-				ResourceDemandBuilder rdBuilder = builder.addResourceDemand(customer.getName());
+				ResourceUsageBuilder rdBuilder = builder.addSequentialResourceUsage(customer.getName());
 				ExpressionSlicer slicer = new ExpressionSlicer();
 				List<Expression> expressionList = slicer.slice(customer.getBehaviour());
 				BuildExpressionSwitch exprSwitch = new BuildExpressionSwitch(rdBuilder);
@@ -54,7 +54,7 @@ public class QNDirector {
 					exprSwitch.doSwitch(expression);
 				}
 			}
-		} catch (UnknownCustomerException e) {
+		} catch (UnknownTaskException e) {
 			e.printStackTrace();
 			System.exit(1); // should never happen
 		}
@@ -70,7 +70,7 @@ public class QNDirector {
 
 		@Override
 		public Object casePassiveResource(PassiveResource passiveResource) {
-			builder.addLogicalResource(
+			builder.addPassivResource(
 					passiveResource.getName(), 
 					passiveResource.getNumReplicas());
 			return passiveResource;
@@ -78,7 +78,7 @@ public class QNDirector {
 
 		@Override
 		public Object caseProcessingResource(ProcessingResource processingResource) {
-			builder.addDeviceResource(
+			builder.addProcessingResource(
 					processingResource.getName(), 
 					processingResource.getNumReplicas());
 			return processingResource;
@@ -86,12 +86,12 @@ public class QNDirector {
 	}
 
 	private class BuildExpressionSwitch extends ExpressionSwitch {
-		private ResourceDemandBuilder currentBuilder;
+		private ResourceUsageBuilder currentBuilder;
 		private PerformanceSolver perfSolver;
 		
 		
 		
-		public BuildExpressionSwitch(ResourceDemandBuilder builder) {
+		public BuildExpressionSwitch(ResourceUsageBuilder builder) {
 			this.currentBuilder = builder;
 			this.perfSolver = new PerformanceSolver(numSamplingPoints);
 		}
@@ -99,7 +99,7 @@ public class QNDirector {
 		@Override
 		public Object caseAcquire(Acquire acquire) {
 			try {
-				currentBuilder = currentBuilder.addLogicalDemand(acquire.getResource().getName());
+				currentBuilder = currentBuilder.addSequentialResourceUsage(acquire.getResource().getName());
 			} catch (ResourceModelBuilderException e) {
 				e.printStackTrace();
 				System.exit(1);
@@ -112,7 +112,7 @@ public class QNDirector {
 			try {
 				Hashtable<ProcessingResource, ManagedPDF> timeTable = perfSolver.getDemandTimes(expression);
 				for (ProcessingResource resource : timeTable.keySet()) {
-					currentBuilder.addDeviceDemand(
+					currentBuilder.addResourceUsage(
 							resource.getName(), 
 							timeTable.get(resource));
 				}

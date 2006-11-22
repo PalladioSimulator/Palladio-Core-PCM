@@ -20,16 +20,4 @@
         eType="ecore:EClass ../../de.uka.ipd.spq.spa.resourcemodel/model/ResourceModel.ecore#//AbstractResourceUsage"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="CompositeResourceUsage" abstract="true"
-      eSuperTypes="../../de.uka.ipd.spq.spa.resourcemodel/model/ResourceModel.ecore#//AbstractResourceUsage">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="passiveResource" lowerBound="1"
-        eType="ecore:EClass ../../de.uka.ipd.spq.spa.resourcemodel/model/ResourceModel.ecore#//PassiveResource"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="resourceUsages" upperBound="-1"
-        eType="ecore:EClass ../../de.uka.ipd.spq.spa.resourcemodel/model/ResourceModel.ecore#//AbstractResourceUsage"
-        containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SequentialResourceUsage" eSuperTypes="#//CompositeResourceUsage"/>
-  <eClassifiers xsi:type="ecore:EClass" name="AlternativeResourceUsage" eSuperTypes="#//CompositeResourceUsage"/>
-  <eClassifiers xsi:type="ecore:EClass" name="IterativeResourceUsage" eSuperTypes="#//CompositeResourceUsage"/>
-  <eClassifiers xsi:type="ecore:EClass" name="ParallelResourceUsage" eSuperTypes="#//CompositeResourceUsage"/>
 </ecore:EPackage>

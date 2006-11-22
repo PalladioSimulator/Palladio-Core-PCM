@@ -17,13 +17,5 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference QueueingNetworkModel.ecore#//Task/resourceUsage"/>
       <genOperations ecoreOperation="QueueingNetworkModel.ecore#//Task/getAllDemands"/>
     </genClasses>
-    <genClasses image="false" ecoreClass="QueueingNetworkModel.ecore#//CompositeResourceUsage">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference QueueingNetworkModel.ecore#//CompositeResourceUsage/passiveResource"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference QueueingNetworkModel.ecore#//CompositeResourceUsage/resourceUsages"/>
-    </genClasses>
-    <genClasses ecoreClass="QueueingNetworkModel.ecore#//SequentialResourceUsage"/>
-    <genClasses ecoreClass="QueueingNetworkModel.ecore#//AlternativeResourceUsage"/>
-    <genClasses ecoreClass="QueueingNetworkModel.ecore#//IterativeResourceUsage"/>
-    <genClasses ecoreClass="QueueingNetworkModel.ecore#//ParallelResourceUsage"/>
   </genPackages>
 </genmodel:GenModel>

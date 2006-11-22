@@ -5,8 +5,8 @@ import java.util.Hashtable;
 import java.util.List;
 
 import de.uka.ipd.sdq.probfunction.math.IProbabilityDensityFunction;
-import de.uka.ipd.sdq.probfunction.math.impl.ProbabilityFunctionFactoryImpl;
-
+import de.uka.ipd.sdq.probfunction.math.IProbabilityFunctionFactory;
+import de.uka.ipd.sdq.probfunction.math.IUnit;
 import flanagan.complex.Complex;
 
 
@@ -53,8 +53,10 @@ public class Monitoring {
 			}
 			pointList.add(point);
 		}
+		
+		IUnit unit = IProbabilityFunctionFactory.eINSTANCE.createUnit("ms");
 
-		return ProbabilityFunctionFactoryImpl.createSamplePDFComplex(distance, pointList);
+		return IProbabilityFunctionFactory.eINSTANCE.createSamplePDFFromComplex(distance, pointList,false,unit);
 	}
 
 }

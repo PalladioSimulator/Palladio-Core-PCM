@@ -1,20 +1,20 @@
 package de.uka.ipd.sdq.spa.concurrencysolver.qnm.builder;
 
-import de.uka.ipd.sdq.spa.concurrencysolver.qnm.builder.exceptions.UnknownCustomerException;
+import de.uka.ipd.sdq.spa.concurrencysolver.qnm.builder.exceptions.UnknownTaskException;
 
 
 public interface ResourceModelBuilder {
 	
-	 boolean hasServer(String serverName);
+	 boolean hasResource(String serverName);
 	
-	 boolean hasCustomer(String customerName);
+	 boolean hasTask(String customerName);
 	
-	 void addCustomer(String name, int number);
+	 void addTask(String name, int number);
 
-	 void addDeviceResource(String name, int number);
+	 void addProcessingResource(String name, int number);
 
-	 void addLogicalResource(String name, int number);
+	 void addPassivResource(String name, int number);
 
-	 ResourceDemandBuilder addResourceDemand(String customerName) throws UnknownCustomerException;
+	 ResourceUsageBuilder addSequentialResourceUsage(String customerName) throws UnknownTaskException;
 }
 

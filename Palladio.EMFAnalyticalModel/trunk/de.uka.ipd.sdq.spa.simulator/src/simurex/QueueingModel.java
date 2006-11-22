@@ -1,13 +1,8 @@
 package simurex;
 
-import de.uka.ipd.sdq.model.analysis.resource.Semaphore;
-import de.uka.ipd.sdq.model.analysis.system.Behaviour;
-import de.uka.ipd.sdq.model.analysis.system.SystemModel;
 import de.uka.ipd.sdq.probfunction.math.ISamplePDF;
-import de.uka.ipd.sdq.probfunction.math.impl.ProbabilityDensityFunctionImpl;
-import de.uka.ipd.sdq.probfunction.math.visualization.Visualization;
-import de.uka.ipd.sdq.spa.concurrencysolver.FixIt;
-import de.uka.ipd.sdq.util.EMFTools;
+import de.uka.ipd.sdq.spa.SPAModel;
+import de.uka.ipd.sdq.spa.util.EMFTools;
 import desmoj.core.dist.RealDistEmpirical;
 import desmoj.core.simulator.Experiment;
 import desmoj.core.simulator.Model;
@@ -83,7 +78,7 @@ public class QueueingModel extends Model {
 	@Override
 	public void init() {
 
-		SystemModel model = (SystemModel) EMFTools.loadFromXMI("Simple.model");
+		SPAModel model = (SPAModel) EMFTools.loadFromXMI("Simple.model");
 
 //		Behaviour customer = (Behaviour) model.getProcesses().get(0);
 //		Semaphore queue = (Semaphore) model.getResources().get(0);
@@ -103,7 +98,7 @@ public class QueueingModel extends Model {
 
 		double freq = 0;
 		double pos = pdf.getDistance() / 2;
-		for (Complex point : pdf.getValuesAsDouble()) {
+		for (Complex point : pdf.getValues()) {
 			if (point.getReal() > EPSILON) {
 				if (freq == 0) {
 					double zeroPos = Math.max(pos - pdf.getDistance(), 0);

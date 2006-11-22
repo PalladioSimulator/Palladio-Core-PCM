@@ -4,31 +4,12 @@
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="resultmodel"
     nsURI="http://sdq.ipd.uka.de/QueueingNetworkModel/ResultModel/1.0" nsPrefix="resultmodel">
   <eClassifiers xsi:type="ecore:EClass" name="QNMResultModel">
-    <eOperations name="getTimeForResourceUsage" eType="#//ResourceUsageTime">
-      <eParameters name="resourceUsage" eType="ecore:EClass ../../de.uka.ipd.spq.spa.resourcemodel/model/ResourceModel.ecore#//AbstractResourceUsage"/>
-    </eOperations>
-    <eOperations name="getResultForTask" eType="#//TaskResult">
-      <eParameters name="task" eType="ecore:EClass ../../de.uka.ipd.sdq.qnm/model/QueueingNetworkModel.ecore#//Task"/>
-    </eOperations>
-    <eOperations name="getResultForResource" eType="#//ResourceResult">
-      <eParameters name="OwnedParameter1" eType="ecore:EClass ../../de.uka.ipd.spq.spa.resourcemodel/model/ResourceModel.ecore#//Resource"/>
-    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="qnmodel" lowerBound="1"
         eType="ecore:EClass ../../de.uka.ipd.sdq.qnm/model/QueueingNetworkModel.ecore#//QNModel"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="resourceResults" upperBound="-1"
-        eType="#//ResourceResult" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="taskResults" upperBound="-1"
-        eType="#//TaskResult" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="taskresourceusages" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="taskResourceUsages" upperBound="-1"
         eType="#//TaskResourceUsage" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="resourceUsageTimes" upperBound="-1"
         eType="#//ResourceUsageTime" containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ResourceResult">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="resource" lowerBound="1"
-        eType="ecore:EClass ../../de.uka.ipd.spq.spa.resourcemodel/model/ResourceModel.ecore#//Resource"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="taskresourceusages" upperBound="-1"
-        eType="#//TaskResourceUsage" eOpposite="#//TaskResourceUsage/resourceResult"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TaskResourceUsage">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="queueLengthOneLess" lowerBound="1"
@@ -41,10 +22,10 @@
         eType="#//ManagedPDF"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="waitingTime" lowerBound="1"
         eType="#//ManagedPDF"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="taskresult" lowerBound="1"
-        eType="#//TaskResult" eOpposite="#//TaskResult/taskresourceusages"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="taskResult" lowerBound="1"
+        eType="ecore:EClass ../../de.uka.ipd.sdq.qnm/model/QueueingNetworkModel.ecore#//Task"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="resourceResult" lowerBound="1"
-        eType="#//ResourceResult" eOpposite="#//ResourceResult/taskresourceusages"/>
+        eType="ecore:EClass ../../de.uka.ipd.spq.spa.resourcemodel/model/ResourceModel.ecore#//Resource"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EDataType" name="ManagedPMF" instanceClassName="de.uka.ipd.sdq.probfunction.math.ManagedPMF">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
@@ -55,11 +36,6 @@
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
       <details key="name" value="ManagedPDF"/>
     </eAnnotations>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="TaskResult">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="task" lowerBound="1" eType="ecore:EClass ../../de.uka.ipd.sdq.qnm/model/QueueingNetworkModel.ecore#//Task"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="taskresourceusages" upperBound="-1"
-        eType="#//TaskResourceUsage" eOpposite="#//TaskResourceUsage/taskresult"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ResourceUsageTime">
     <eStructuralFeatures xsi:type="ecore:EReference" name="resourceUsage" lowerBound="1"
