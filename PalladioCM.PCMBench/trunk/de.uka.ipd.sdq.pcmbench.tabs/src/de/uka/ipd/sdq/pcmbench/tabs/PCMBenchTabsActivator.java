@@ -16,4 +16,14 @@ public class PCMBenchTabsActivator extends AbstractUIPlugin {
 	public void start(BundleContext context) throws Exception {
 		super.start(context);
 	}
+	
+	private static PCMBenchTabsActivator plugin;
+
+    public PCMBenchTabsActivator() {
+       plugin = this;
+    }
+
+    public static PCMBenchTabsActivator getDefault() {
+       return plugin;
+    }
 }
