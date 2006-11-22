@@ -7,8 +7,6 @@
 package de.uka.ipd.sdq.spa.resourcemodel.impl;
 
 import de.uka.ipd.sdq.spa.resourcemodel.AbstractResourceUsage;
-import de.uka.ipd.sdq.spa.resourcemodel.ResourcemodelPackage;
-
 import de.uka.ipd.sdq.spa.resourcemodel.ResourceModelPackage;
 
 import org.eclipse.emf.ecore.EClass;
@@ -40,7 +38,7 @@ public abstract class AbstractResourceUsageImpl extends EObjectImpl implements A
 	 * @generated
 	 */
 	protected EClass eStaticClass() {
-		return ResourcemodelPackage.Literals.ABSTRACT_RESOURCE_USAGE;
+		return ResourceModelPackage.Literals.ABSTRACT_RESOURCE_USAGE;
 	}
 
 } //AbstractResourceUsageImpl

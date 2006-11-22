@@ -20,7 +20,7 @@ import org.eclipse.emf.ecore.EObject;
  * </ul>
  * </p>
  *
- * @see de.uka.ipd.sdq.spa.resourcemodel.ResourcemodelPackage#getResource()
+ * @see de.uka.ipd.sdq.spa.resourcemodel.ResourceModelPackage#getResource()
  * @model abstract="true"
  * @generated
  */
@@ -36,7 +36,7 @@ public interface Resource extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
-	 * @see de.uka.ipd.sdq.spa.resourcemodel.ResourcemodelPackage#getResource_Name()
+	 * @see de.uka.ipd.sdq.spa.resourcemodel.ResourceModelPackage#getResource_Name()
 	 * @model default="" required="true"
 	 * @generated
 	 */

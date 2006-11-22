@@ -19,7 +19,7 @@ package de.uka.ipd.sdq.spa.resourcemodel;
  * </ul>
  * </p>
  *
- * @see de.uka.ipd.sdq.spa.resourcemodel.ResourcemodelPackage#getContentionResource()
+ * @see de.uka.ipd.sdq.spa.resourcemodel.ResourceModelPackage#getContentionResource()
  * @model abstract="true"
  * @generated
  */
@@ -34,7 +34,7 @@ public interface ContentionResource extends Resource {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Num Replicas</em>' attribute.
 	 * @see #setNumReplicas(int)
-	 * @see de.uka.ipd.sdq.spa.resourcemodel.ResourcemodelPackage#getContentionResource_NumReplicas()
+	 * @see de.uka.ipd.sdq.spa.resourcemodel.ResourceModelPackage#getContentionResource_NumReplicas()
 	 * @model required="true"
 	 * @generated
 	 */

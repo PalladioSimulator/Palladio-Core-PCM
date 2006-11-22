@@ -13,7 +13,7 @@ package de.uka.ipd.sdq.spa.resourcemodel;
  * <!-- end-user-doc -->
  *
  *
- * @see de.uka.ipd.sdq.spa.resourcemodel.ResourcemodelPackage#getDelayResource()
+ * @see de.uka.ipd.sdq.spa.resourcemodel.ResourceModelPackage#getDelayResource()
  * @model
  * @generated
  */

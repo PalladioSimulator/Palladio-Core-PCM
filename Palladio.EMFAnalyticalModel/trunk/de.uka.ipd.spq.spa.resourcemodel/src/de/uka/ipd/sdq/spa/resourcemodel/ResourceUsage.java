@@ -8,8 +8,6 @@ package de.uka.ipd.sdq.spa.resourcemodel;
 
 import de.uka.ipd.sdq.probfunction.ProbabilityDensityFunction;
 
-import org.eclipse.emf.ecore.EObject;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Resource Usage</b></em>'.
@@ -23,7 +21,7 @@ import org.eclipse.emf.ecore.EObject;
  * </ul>
  * </p>
  *
- * @see de.uka.ipd.sdq.spa.resourcemodel.ResourcemodelPackage#getResourceUsage()
+ * @see de.uka.ipd.sdq.spa.resourcemodel.ResourceModelPackage#getResourceUsage()
  * @model
  * @generated
  */
@@ -38,7 +36,7 @@ public interface ResourceUsage extends AbstractResourceUsage {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Usage Time</em>' containment reference.
 	 * @see #setUsageTime(ProbabilityDensityFunction)
-	 * @see de.uka.ipd.sdq.spa.resourcemodel.ResourcemodelPackage#getResourceUsage_UsageTime()
+	 * @see de.uka.ipd.sdq.spa.resourcemodel.ResourceModelPackage#getResourceUsage_UsageTime()
 	 * @model containment="true"
 	 * @generated
 	 */
@@ -64,7 +62,7 @@ public interface ResourceUsage extends AbstractResourceUsage {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Resource</em>' reference.
 	 * @see #setResource(ActiveResource)
-	 * @see de.uka.ipd.sdq.spa.resourcemodel.ResourcemodelPackage#getResourceUsage_Resource()
+	 * @see de.uka.ipd.sdq.spa.resourcemodel.ResourceModelPackage#getResourceUsage_Resource()
 	 * @model required="true"
 	 * @generated
 	 */

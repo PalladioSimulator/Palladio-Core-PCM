@@ -14,7 +14,7 @@ import org.eclipse.emf.ecore.EObject;
  * <!-- end-user-doc -->
  *
  *
- * @see de.uka.ipd.sdq.spa.resourcemodel.ResourcemodelPackage#getAbstractResourceUsage()
+ * @see de.uka.ipd.sdq.spa.resourcemodel.ResourceModelPackage#getAbstractResourceUsage()
  * @model abstract="true"
  * @generated
  */

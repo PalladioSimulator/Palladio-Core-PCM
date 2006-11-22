@@ -7,13 +7,9 @@
 package de.uka.ipd.sdq.spa.resourcemodel.impl;
 
 import de.uka.ipd.sdq.spa.resourcemodel.ActiveResource;
-import de.uka.ipd.sdq.spa.resourcemodel.ResourcemodelPackage;
-
 import de.uka.ipd.sdq.spa.resourcemodel.ResourceModelPackage;
 
 import org.eclipse.emf.ecore.EClass;
-
-import org.eclipse.emf.ecore.impl.EObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -40,7 +36,7 @@ public abstract class ActiveResourceImpl extends ResourceImpl implements ActiveR
 	 * @generated
 	 */
 	protected EClass eStaticClass() {
-		return ResourcemodelPackage.Literals.ACTIVE_RESOURCE;
+		return ResourceModelPackage.Literals.ACTIVE_RESOURCE;
 	}
 
 } //ActiveResourceImpl

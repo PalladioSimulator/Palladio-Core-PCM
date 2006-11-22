@@ -12,8 +12,6 @@ import de.uka.ipd.sdq.spa.resourcemodel.ActiveResource;
 import de.uka.ipd.sdq.spa.resourcemodel.ResourceModelPackage;
 import de.uka.ipd.sdq.spa.resourcemodel.ResourceUsage;
 
-import de.uka.ipd.sdq.spa.resourcemodel.ResourcemodelPackage;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -21,7 +19,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.EObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -73,7 +70,7 @@ public class ResourceUsageImpl extends AbstractResourceUsageImpl implements Reso
 	 * @generated
 	 */
 	protected EClass eStaticClass() {
-		return ResourcemodelPackage.Literals.RESOURCE_USAGE;
+		return ResourceModelPackage.Literals.RESOURCE_USAGE;
 	}
 
 	/**
@@ -94,7 +91,7 @@ public class ResourceUsageImpl extends AbstractResourceUsageImpl implements Reso
 		ProbabilityDensityFunction oldUsageTime = usageTime;
 		usageTime = newUsageTime;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ResourcemodelPackage.RESOURCE_USAGE__USAGE_TIME, oldUsageTime, newUsageTime);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ResourceModelPackage.RESOURCE_USAGE__USAGE_TIME, oldUsageTime, newUsageTime);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -109,14 +106,14 @@ public class ResourceUsageImpl extends AbstractResourceUsageImpl implements Reso
 		if (newUsageTime != usageTime) {
 			NotificationChain msgs = null;
 			if (usageTime != null)
-				msgs = ((InternalEObject)usageTime).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ResourcemodelPackage.RESOURCE_USAGE__USAGE_TIME, null, msgs);
+				msgs = ((InternalEObject)usageTime).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ResourceModelPackage.RESOURCE_USAGE__USAGE_TIME, null, msgs);
 			if (newUsageTime != null)
-				msgs = ((InternalEObject)newUsageTime).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ResourcemodelPackage.RESOURCE_USAGE__USAGE_TIME, null, msgs);
+				msgs = ((InternalEObject)newUsageTime).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ResourceModelPackage.RESOURCE_USAGE__USAGE_TIME, null, msgs);
 			msgs = basicSetUsageTime(newUsageTime, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ResourcemodelPackage.RESOURCE_USAGE__USAGE_TIME, newUsageTime, newUsageTime));
+			eNotify(new ENotificationImpl(this, Notification.SET, ResourceModelPackage.RESOURCE_USAGE__USAGE_TIME, newUsageTime, newUsageTime));
 	}
 
 	/**
@@ -130,7 +127,7 @@ public class ResourceUsageImpl extends AbstractResourceUsageImpl implements Reso
 			resource = (ActiveResource)eResolveProxy(oldResource);
 			if (resource != oldResource) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ResourcemodelPackage.RESOURCE_USAGE__RESOURCE, oldResource, resource));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ResourceModelPackage.RESOURCE_USAGE__RESOURCE, oldResource, resource));
 			}
 		}
 		return resource;
@@ -154,7 +151,7 @@ public class ResourceUsageImpl extends AbstractResourceUsageImpl implements Reso
 		ActiveResource oldResource = resource;
 		resource = newResource;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ResourcemodelPackage.RESOURCE_USAGE__RESOURCE, oldResource, resource));
+			eNotify(new ENotificationImpl(this, Notification.SET, ResourceModelPackage.RESOURCE_USAGE__RESOURCE, oldResource, resource));
 	}
 
 	/**
@@ -164,7 +161,7 @@ public class ResourceUsageImpl extends AbstractResourceUsageImpl implements Reso
 	 */
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case ResourcemodelPackage.RESOURCE_USAGE__USAGE_TIME:
+			case ResourceModelPackage.RESOURCE_USAGE__USAGE_TIME:
 				return basicSetUsageTime(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -177,9 +174,9 @@ public class ResourceUsageImpl extends AbstractResourceUsageImpl implements Reso
 	 */
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ResourcemodelPackage.RESOURCE_USAGE__USAGE_TIME:
+			case ResourceModelPackage.RESOURCE_USAGE__USAGE_TIME:
 				return getUsageTime();
-			case ResourcemodelPackage.RESOURCE_USAGE__RESOURCE:
+			case ResourceModelPackage.RESOURCE_USAGE__RESOURCE:
 				if (resolve) return getResource();
 				return basicGetResource();
 		}
@@ -193,10 +190,10 @@ public class ResourceUsageImpl extends AbstractResourceUsageImpl implements Reso
 	 */
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ResourcemodelPackage.RESOURCE_USAGE__USAGE_TIME:
+			case ResourceModelPackage.RESOURCE_USAGE__USAGE_TIME:
 				setUsageTime((ProbabilityDensityFunction)newValue);
 				return;
-			case ResourcemodelPackage.RESOURCE_USAGE__RESOURCE:
+			case ResourceModelPackage.RESOURCE_USAGE__RESOURCE:
 				setResource((ActiveResource)newValue);
 				return;
 		}
@@ -210,10 +207,10 @@ public class ResourceUsageImpl extends AbstractResourceUsageImpl implements Reso
 	 */
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ResourcemodelPackage.RESOURCE_USAGE__USAGE_TIME:
+			case ResourceModelPackage.RESOURCE_USAGE__USAGE_TIME:
 				setUsageTime((ProbabilityDensityFunction)null);
 				return;
-			case ResourcemodelPackage.RESOURCE_USAGE__RESOURCE:
+			case ResourceModelPackage.RESOURCE_USAGE__RESOURCE:
 				setResource((ActiveResource)null);
 				return;
 		}
@@ -227,9 +224,9 @@ public class ResourceUsageImpl extends AbstractResourceUsageImpl implements Reso
 	 */
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ResourcemodelPackage.RESOURCE_USAGE__USAGE_TIME:
+			case ResourceModelPackage.RESOURCE_USAGE__USAGE_TIME:
 				return usageTime != null;
-			case ResourcemodelPackage.RESOURCE_USAGE__RESOURCE:
+			case ResourceModelPackage.RESOURCE_USAGE__RESOURCE:
 				return resource != null;
 		}
 		return super.eIsSet(featureID);

@@ -7,8 +7,6 @@
 package de.uka.ipd.sdq.spa.resourcemodel.impl;
 
 import de.uka.ipd.sdq.spa.resourcemodel.DelayResource;
-import de.uka.ipd.sdq.spa.resourcemodel.ResourcemodelPackage;
-
 import de.uka.ipd.sdq.spa.resourcemodel.ResourceModelPackage;
 
 import org.eclipse.emf.ecore.EClass;
@@ -38,7 +36,7 @@ public class DelayResourceImpl extends ActiveResourceImpl implements DelayResour
 	 * @generated
 	 */
 	protected EClass eStaticClass() {
-		return ResourcemodelPackage.Literals.DELAY_RESOURCE;
+		return ResourceModelPackage.Literals.DELAY_RESOURCE;
 	}
 
 } //DelayResourceImpl

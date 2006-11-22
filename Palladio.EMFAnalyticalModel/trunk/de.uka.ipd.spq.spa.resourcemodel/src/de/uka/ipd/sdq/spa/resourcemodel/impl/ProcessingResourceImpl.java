@@ -7,8 +7,6 @@
 package de.uka.ipd.sdq.spa.resourcemodel.impl;
 
 import de.uka.ipd.sdq.spa.resourcemodel.ProcessingResource;
-import de.uka.ipd.sdq.spa.resourcemodel.ResourcemodelPackage;
-
 import de.uka.ipd.sdq.spa.resourcemodel.ResourceModelPackage;
 
 import org.eclipse.emf.ecore.EClass;
@@ -38,7 +36,7 @@ public class ProcessingResourceImpl extends ContentionResourceImpl implements Pr
 	 * @generated
 	 */
 	protected EClass eStaticClass() {
-		return ResourcemodelPackage.Literals.PROCESSING_RESOURCE;
+		return ResourceModelPackage.Literals.PROCESSING_RESOURCE;
 	}
 
 } //ProcessingResourceImpl

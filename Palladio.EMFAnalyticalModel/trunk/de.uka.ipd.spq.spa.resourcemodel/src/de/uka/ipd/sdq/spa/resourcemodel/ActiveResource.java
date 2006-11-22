@@ -6,7 +6,6 @@
  */
 package de.uka.ipd.sdq.spa.resourcemodel;
 
-import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -14,7 +13,7 @@ import org.eclipse.emf.ecore.EObject;
  * <!-- end-user-doc -->
  *
  *
- * @see de.uka.ipd.sdq.spa.resourcemodel.ResourcemodelPackage#getActiveResource()
+ * @see de.uka.ipd.sdq.spa.resourcemodel.ResourceModelPackage#getActiveResource()
  * @model abstract="true"
  * @generated
  */
