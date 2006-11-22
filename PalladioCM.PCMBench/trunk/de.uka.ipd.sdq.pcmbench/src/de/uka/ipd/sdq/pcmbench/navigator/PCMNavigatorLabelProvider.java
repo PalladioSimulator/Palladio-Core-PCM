@@ -76,8 +76,7 @@ public class PCMNavigatorLabelProvider implements ILabelProvider {
 	}
 
 	public void dispose() {
-		// TODO Auto-generated method stub
-
+		labelContentProvider.dispose();
 	}
 
 	public boolean isLabelProperty(Object element, String property) {
