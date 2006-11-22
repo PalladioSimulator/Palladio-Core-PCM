@@ -110,8 +110,10 @@ implements ITableItemLabelProvider, IItemLabelProvider {
 	
 	private String dataTypeFormater(DataType dataType)
 	{
-		if (dataType == null || dataType.getType() == null)
-			return "void";
-		else return dataType.getType();
+//		if (dataType == null || dataType.getType() == null)
+//			return "void";
+//		else return dataType.getType();
+		// TODO: Fix me
+		return "";
 	}
 }

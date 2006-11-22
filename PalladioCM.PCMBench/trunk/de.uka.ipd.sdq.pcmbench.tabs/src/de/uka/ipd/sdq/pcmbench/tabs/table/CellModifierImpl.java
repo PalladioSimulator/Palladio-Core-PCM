@@ -59,7 +59,8 @@ public class CellModifierImpl implements ICellModifier {
 					break;
 				case OperationsTabViewer.RETURNTYPE_COLUMN_INDEX :
 					if(signature.getReturntype__Signature() != null){
-						result = signature.getReturntype__Signature().getType(); 
+						//TODO: Change to print visitor
+						result = signature.getReturntype__Signature().toString(); 
 					} else result = "void";
 					break;
 				case OperationsTabViewer.SIGNATURENAME_COLUMN_INDEX :
@@ -127,7 +128,8 @@ public class CellModifierImpl implements ICellModifier {
 		for(Iterator<Parameter> it = parameters.iterator(); it.hasNext(); ){
 			parameter = it.next();
 			if(parameter.getDatatype__Parameter() != null){
-				result += parameter.getDatatype__Parameter().getType()
+				//TODO: Change to print visitor
+				result += parameter.getDatatype__Parameter().toString()
 				+ " " + parameter.getParameterName() + ", ";
 				
 			} else result += "void";

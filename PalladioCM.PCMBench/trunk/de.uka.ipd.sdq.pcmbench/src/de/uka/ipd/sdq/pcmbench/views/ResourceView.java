@@ -41,6 +41,7 @@ import de.uka.ipd.sdq.pcmbench.actions.OpenRepositoryAction;
 import de.uka.ipd.sdq.pcmbench.ui.provider.categoryaware.CategoryAwareItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcmbench.ui.provider.categoryaware.CategoryDescriptor;
 import de.uka.ipd.sdq.pcmbench.ui.provider.categoryaware.ICategoryDescriptions;
+import de.uka.ipd.sdq.pcmbench.ui.provider.categoryaware.PalladioCategoryDescriptions;
 
 public class ResourceView 
 extends ViewPart {
@@ -122,40 +123,7 @@ extends ViewPart {
 				| SWT.V_SCROLL | SWT.H_SCROLL);
 		getSite().setSelectionProvider(treeViewer);
 		
-		AdapterFactory decoratorFactory = new CategoryAwareItemProviderAdapterFactory(adapterFactory, new ICategoryDescriptions(){
-
-			public Collection<CategoryDescriptor> getCategoriesForObject(EObject object) {
-				if (object instanceof Repository)
-				{
-					ArrayList<CategoryDescriptor> result = new ArrayList<CategoryDescriptor>();
-					result.add(new CategoryDescriptor(Repository.class, Interface.class, 
-							RepositoryPackage.eINSTANCE.getRepository_Interfaces__Repository(), "Interfaces" ));
-					result.add(new CategoryDescriptor(Repository.class, ProvidesComponentType.class, 
-							RepositoryPackage.eINSTANCE.getRepository_Components__Repository(), "Components" ));
-					return Collections.unmodifiableCollection(result);
-				}
-				if (object instanceof ProvidesComponentType)
-				{
-					ArrayList<CategoryDescriptor> result = new ArrayList<CategoryDescriptor>();
-					result.add(new CategoryDescriptor(ProvidesComponentType.class, ProvidedRole.class, 
-							RepositoryPackage.eINSTANCE.getProvidesComponentType_ProvidedRoles__ProvidesComponentType(), "Provided Roles" ));
-					result.add(new CategoryDescriptor(ProvidesComponentType.class, RequiredRole.class, 
-							RepositoryPackage.eINSTANCE.getProvidesComponentType_RequiredRoles_ProvidesComponentType(), "Required Roles" ));
-					if (object instanceof BasicComponent)
-					{
-						result.add(new CategoryDescriptor(BasicComponent.class, ServiceEffectSpecification.class, 
-								RepositoryPackage.eINSTANCE.getBasicComponent_ServiceEffectSpecifications__BasicComponent(), "Service Effect Specifications" ));
-					}
-					return Collections.unmodifiableCollection(result);
-				}
-				return Collections.EMPTY_LIST;
-			}
-
-			public boolean hasCategoriesForObject(EObject object) {
-				return getCategoriesForObject(object).size() > 0;
-			}
-			
-		});
+		AdapterFactory decoratorFactory = new CategoryAwareItemProviderAdapterFactory(adapterFactory, new PalladioCategoryDescriptions());
 		
 		treeViewer.setLabelProvider(new AdapterFactoryLabelProvider(
 				decoratorFactory));

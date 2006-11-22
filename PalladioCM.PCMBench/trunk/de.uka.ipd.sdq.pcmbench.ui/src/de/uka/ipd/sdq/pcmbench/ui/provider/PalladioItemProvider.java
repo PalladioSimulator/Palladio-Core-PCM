@@ -3,8 +3,6 @@
  */
 package de.uka.ipd.sdq.pcmbench.ui.provider;
 
-import java.util.List;
-
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
@@ -13,9 +11,6 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemProviderDecorator;
-import org.eclipse.jface.viewers.ILabelProvider;
-import org.eclipse.jface.viewers.ILabelProviderListener;
-import org.eclipse.jface.viewers.IStructuredContentProvider;
 
 import de.uka.ipd.sdq.identifier.Identifier;
 import de.uka.ipd.sdq.pcm.core.entity.Entity;
@@ -50,7 +45,10 @@ public class PalladioItemProvider extends ItemProviderDecorator implements
 		if (object instanceof Entity) {
 			result = ((Entity)object).getEntityName();
 		} else {
-			result = super.getText(object); 
+			if (object instanceof EObject && new RepositoryPrinter().doSwitch((EObject)object)!=null)
+				result = (String) new RepositoryPrinter().doSwitch((EObject)object);
+			else
+				result = super.getText(object); 
 		}
 		if (object instanceof EObject)
 		{

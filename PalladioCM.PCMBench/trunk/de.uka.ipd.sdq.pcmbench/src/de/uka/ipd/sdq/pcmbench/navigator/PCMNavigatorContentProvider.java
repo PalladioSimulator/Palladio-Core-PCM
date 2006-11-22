@@ -6,13 +6,11 @@ package de.uka.ipd.sdq.pcmbench.navigator;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.Hashtable;
 import java.util.Iterator;
 import java.util.List;
 
-import org.eclipse.core.internal.resources.Workspace;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
@@ -36,28 +34,15 @@ import org.eclipse.jface.viewers.ITreeContentProvider;
 import org.eclipse.jface.viewers.StructuredViewer;
 import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.ui.Saveable;
-import org.eclipse.ui.internal.DefaultSaveable;
 import org.eclipse.ui.navigator.SaveablesProvider;
 
-import de.uka.ipd.sdq.pcm.core.composition.AssemblyConnector;
-import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
-import de.uka.ipd.sdq.pcm.core.composition.CompositionPackage;
-import de.uka.ipd.sdq.pcm.repository.BasicComponent;
-import de.uka.ipd.sdq.pcm.repository.CompositeComponent;
-import de.uka.ipd.sdq.pcm.repository.Interface;
-import de.uka.ipd.sdq.pcm.repository.ProvidedRole;
-import de.uka.ipd.sdq.pcm.repository.ProvidesComponentType;
-import de.uka.ipd.sdq.pcm.repository.Repository;
 import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
-import de.uka.ipd.sdq.pcm.repository.RequiredRole;
 import de.uka.ipd.sdq.pcm.repository.provider.RepositoryItemProviderAdapterFactory;
-import de.uka.ipd.sdq.pcm.seff.ServiceEffectSpecification;
 import de.uka.ipd.sdq.pcm.seff.provider.SeffItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcmbench.EditingDomainFactory;
 import de.uka.ipd.sdq.pcmbench.ui.provider.categoryaware.CategoryAwareItemProviderAdapterFactory;
-import de.uka.ipd.sdq.pcmbench.ui.provider.categoryaware.CategoryDescriptor;
 import de.uka.ipd.sdq.pcmbench.ui.provider.categoryaware.GenericCategoryItemProvider;
-import de.uka.ipd.sdq.pcmbench.ui.provider.categoryaware.ICategoryDescriptions;
+import de.uka.ipd.sdq.pcmbench.ui.provider.categoryaware.PalladioCategoryDescriptions;
 
 
 class MySaveable extends Saveable
@@ -272,47 +257,7 @@ public class PCMNavigatorContentProvider implements ITreeContentProvider, IAdapt
 		adapterFactory
 				.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
 		
-		AdapterFactory decoratorFactory = new CategoryAwareItemProviderAdapterFactory(adapterFactory, new ICategoryDescriptions(){
-
-			public Collection<CategoryDescriptor> getCategoriesForObject(EObject object) {
-				if (object instanceof Repository)
-				{
-					ArrayList<CategoryDescriptor> result = new ArrayList<CategoryDescriptor>();
-					result.add(new CategoryDescriptor(Repository.class, Interface.class, 
-							RepositoryPackage.eINSTANCE.getRepository_Interfaces__Repository(), "Interfaces" ));
-					result.add(new CategoryDescriptor(Repository.class, ProvidesComponentType.class, 
-							RepositoryPackage.eINSTANCE.getRepository_Components__Repository(), "Components" ));
-					return Collections.unmodifiableCollection(result);
-				}
-				if (object instanceof ProvidesComponentType)
-				{
-					ArrayList<CategoryDescriptor> result = new ArrayList<CategoryDescriptor>();
-					result.add(new CategoryDescriptor(ProvidesComponentType.class, ProvidedRole.class, 
-							RepositoryPackage.eINSTANCE.getProvidesComponentType_ProvidedRoles__ProvidesComponentType(), "Provided Roles" ));
-					result.add(new CategoryDescriptor(ProvidesComponentType.class, RequiredRole.class, 
-							RepositoryPackage.eINSTANCE.getProvidesComponentType_RequiredRoles_ProvidesComponentType(), "Required Roles" ));
-					if (object instanceof BasicComponent)
-					{
-						result.add(new CategoryDescriptor(BasicComponent.class, ServiceEffectSpecification.class, 
-								RepositoryPackage.eINSTANCE.getBasicComponent_ServiceEffectSpecifications__BasicComponent(), "Service Effect Specifications" ));
-					}
-					if (object instanceof CompositeComponent)
-					{
-						result.add(new CategoryDescriptor(CompositeComponent.class, AssemblyContext.class, 
-								CompositionPackage.eINSTANCE.getAssemblyContext_EncapsulatedComponent_ChildComponentContext(), "Child Component Contexts" ));
-						result.add(new CategoryDescriptor(CompositeComponent.class, AssemblyConnector.class, 
-								CompositionPackage.eINSTANCE.getComposedStructure_CompositeAssemblyConnectors_ComposedStructure(), "Assembly Connectors" ));
-					}
-					return Collections.unmodifiableCollection(result);
-				}
-				return Collections.EMPTY_LIST;
-			}
-
-			public boolean hasCategoriesForObject(EObject object) {
-				return getCategoriesForObject(object).size() > 0;
-			}
-			
-		});
+		AdapterFactory decoratorFactory = new CategoryAwareItemProviderAdapterFactory(adapterFactory, new PalladioCategoryDescriptions());
 		
 		contentProvider = new AdapterFactoryContentProvider(decoratorFactory);
 	}

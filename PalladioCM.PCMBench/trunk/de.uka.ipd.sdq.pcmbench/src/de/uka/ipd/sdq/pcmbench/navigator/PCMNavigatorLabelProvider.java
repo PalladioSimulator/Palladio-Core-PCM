@@ -31,6 +31,7 @@ import de.uka.ipd.sdq.pcmbench.ui.provider.categoryaware.CategoryAwareItemProvid
 import de.uka.ipd.sdq.pcmbench.ui.provider.categoryaware.CategoryDescriptor;
 import de.uka.ipd.sdq.pcmbench.ui.provider.categoryaware.GenericCategoryItemProvider;
 import de.uka.ipd.sdq.pcmbench.ui.provider.categoryaware.ICategoryDescriptions;
+import de.uka.ipd.sdq.pcmbench.ui.provider.categoryaware.PalladioCategoryDescriptions;
 
 public class PCMNavigatorLabelProvider implements ILabelProvider {
 
@@ -49,40 +50,7 @@ public class PCMNavigatorLabelProvider implements ILabelProvider {
 				.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
 		
 		AdapterFactory palladioFactory = new PalladioItemProviderAdapterFactory(adapterFactory);
-		AdapterFactory decoratorFactory = new CategoryAwareItemProviderAdapterFactory(palladioFactory, new ICategoryDescriptions(){
-
-			public Collection<CategoryDescriptor> getCategoriesForObject(EObject object) {
-				if (object instanceof Repository)
-				{
-					ArrayList<CategoryDescriptor> result = new ArrayList<CategoryDescriptor>();
-					result.add(new CategoryDescriptor(Repository.class, Interface.class, 
-							RepositoryPackage.eINSTANCE.getRepository_Interfaces__Repository(), "Interfaces" ));
-					result.add(new CategoryDescriptor(Repository.class, ProvidesComponentType.class, 
-							RepositoryPackage.eINSTANCE.getRepository_Components__Repository(), "Components" ));
-					return Collections.unmodifiableCollection(result);
-				}
-				if (object instanceof ProvidesComponentType)
-				{
-					ArrayList<CategoryDescriptor> result = new ArrayList<CategoryDescriptor>();
-					result.add(new CategoryDescriptor(ProvidesComponentType.class, ProvidedRole.class, 
-							RepositoryPackage.eINSTANCE.getProvidesComponentType_ProvidedRoles__ProvidesComponentType(), "Provided Roles" ));
-					result.add(new CategoryDescriptor(ProvidesComponentType.class, RequiredRole.class, 
-							RepositoryPackage.eINSTANCE.getProvidesComponentType_RequiredRoles_ProvidesComponentType(), "Required Roles" ));
-					if (object instanceof BasicComponent)
-					{
-						result.add(new CategoryDescriptor(BasicComponent.class, ServiceEffectSpecification.class, 
-								RepositoryPackage.eINSTANCE.getBasicComponent_ServiceEffectSpecifications__BasicComponent(), "Service Effect Specifications" ));
-					}
-					return Collections.unmodifiableCollection(result);
-				}
-				return Collections.EMPTY_LIST;
-			}
-
-			public boolean hasCategoriesForObject(EObject object) {
-				return getCategoriesForObject(object).size() > 0;
-			}
-			
-		});
+		AdapterFactory decoratorFactory = new CategoryAwareItemProviderAdapterFactory(palladioFactory, new PalladioCategoryDescriptions());
 		
 		labelContentProvider = new AdapterFactoryLabelProvider(decoratorFactory);
 	}
