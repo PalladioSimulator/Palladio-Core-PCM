@@ -5,7 +5,7 @@
     modelPluginID="de.uka.ipd.sdq.qnm.resultmodel" modelName="QNMResultModel" importerID="org.eclipse.emf.importer.ecore"
     usedGenPackages="../../../plugin/de.uka.ipd.sdq.probfunction/model/ProbabilityFunction.genmodel#//probfunction ../../de.uka.ipd.sdq.qnm/model/QueueingNetworkModel.genmodel#//qnm ../../de.uka.ipd.spq.spa.resourcemodel/model/ResourceModel.genmodel#//resourcemodel">
   <foreignModel>QNMResultModel.ecore</foreignModel>
-  <genPackages prefix="Resultmodel" basePackage="de.uka.ipd.sdq.qnm" disposableProviderFactory="true"
+  <genPackages prefix="ResultModel" basePackage="de.uka.ipd.sdq.qnm" disposableProviderFactory="true"
       ecorePackage="QNMResultModel.ecore#/">
     <genDataTypes ecoreDataType="QNMResultModel.ecore#//ManagedPMF"/>
     <genDataTypes ecoreDataType="QNMResultModel.ecore#//ManagedPDF"/>
