@@ -232,7 +232,7 @@ public class ProbabilityFunctionFactoryImpl
 	}
 
 	public IBoxedPDF transformToBoxedPDF(IProbabilityDensityFunction pdf)
-			throws UnknownPDFTypeException, ProbabilitySumNotOneException,
+			throws UnknownPDFTypeException, 
 			DoubleSampleException {
 		IBoxedPDF resultPDF;
 		if (pdf instanceof IBoxedPDF) {
@@ -247,7 +247,7 @@ public class ProbabilityFunctionFactoryImpl
 
 	@SuppressWarnings("unchecked")
 	public BoxedPDF transformToModelBoxedPDF(IProbabilityDensityFunction pdf)
-			throws UnknownPDFTypeException, ProbabilitySumNotOneException,
+			throws UnknownPDFTypeException, 
 			DoubleSampleException {
 		IBoxedPDF boxedPDF = transformToBoxedPDF(pdf);
 
@@ -261,7 +261,7 @@ public class ProbabilityFunctionFactoryImpl
 
 	public ProbabilityDensityFunction transformToModelPDF(
 			IProbabilityDensityFunction pdf) throws UnknownPDFTypeException,
-			ProbabilitySumNotOneException, DoubleSampleException {
+			DoubleSampleException {
 		ProbabilityDensityFunction ePDF;
 
 		if (pdf instanceof ISamplePDF) {
@@ -295,7 +295,7 @@ public class ProbabilityFunctionFactoryImpl
 		EList list = ePDF.getValues();
 
 		for (Complex d : samplePDF.getValues())
-			list.add(d);
+			list.add(d.getReal());
 		return ePDF;
 	}
 
@@ -389,7 +389,7 @@ public class ProbabilityFunctionFactoryImpl
 	}
 
 	private IBoxedPDF transformSampledToBoxedPDF(ISamplePDF spdf)
-			throws ProbabilitySumNotOneException, DoubleSampleException {
+			throws DoubleSampleException {
 		List<Double> values = spdf.getValuesAsDouble();
 		List<IContinuousSample> samples = new ArrayList<IContinuousSample>();
 

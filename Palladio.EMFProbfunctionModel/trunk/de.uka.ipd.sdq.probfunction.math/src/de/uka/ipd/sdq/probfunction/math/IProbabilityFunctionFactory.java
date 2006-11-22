@@ -420,6 +420,6 @@ public interface IProbabilityFunctionFactory {
 	 */
 	ProbabilityDensityFunction transformToModelPDF(
 			IProbabilityDensityFunction pdf) throws UnknownPDFTypeException,
-			ProbabilitySumNotOneException, DoubleSampleException;
+			DoubleSampleException;
 
 }

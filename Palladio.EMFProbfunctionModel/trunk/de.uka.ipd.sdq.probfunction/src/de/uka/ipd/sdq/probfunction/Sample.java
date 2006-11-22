@@ -37,7 +37,7 @@ public interface Sample extends EObject {
 	 * @return the value of the '<em>Value</em>' attribute.
 	 * @see #setValue(Object)
 	 * @see de.uka.ipd.sdq.probfunction.ProbfunctionPackage#getSample_Value()
-	 * @model
+	 * @model unique="false"
 	 * @generated
 	 */
 	Object getValue();
@@ -63,7 +63,7 @@ public interface Sample extends EObject {
 	 * @return the value of the '<em>Probability</em>' attribute.
 	 * @see #setProbability(double)
 	 * @see de.uka.ipd.sdq.probfunction.ProbfunctionPackage#getSample_Probability()
-	 * @model
+	 * @model unique="false"
 	 * @generated
 	 */
 	double getProbability();

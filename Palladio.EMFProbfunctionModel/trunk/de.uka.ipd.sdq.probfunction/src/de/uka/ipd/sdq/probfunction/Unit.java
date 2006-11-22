@@ -37,7 +37,7 @@ public interface Unit extends EObject {
 	 * @return the value of the '<em>Unit Name</em>' attribute.
 	 * @see #setUnitName(String)
 	 * @see de.uka.ipd.sdq.probfunction.ProbfunctionPackage#getUnit_UnitName()
-	 * @model default="" required="true"
+	 * @model default="" unique="false" required="true"
 	 * @generated
 	 */
 	String getUnitName();
