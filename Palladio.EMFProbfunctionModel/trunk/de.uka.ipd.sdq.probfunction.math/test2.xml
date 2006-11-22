@@ -147,7 +147,7 @@
         </color>
         <visible>false</visible>
       </outline>
-      <visible>false</visible>
+      <visible>true</visible>
       <clientArea>
         <outline>
           <style>Solid</style>
@@ -449,7 +449,7 @@
           <markers>
             <type>Box</type>
             <size>4</size>
-            <visible>false</visible>
+            <visible>true</visible>
           </markers>
           <lineAttributes>
             <style>Solid</style>

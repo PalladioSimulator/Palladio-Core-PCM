@@ -9,7 +9,7 @@
     <genClasses ecoreClass="ProbabilityFunction.ecore#//BoxedPDF">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ProbabilityFunction.ecore#//BoxedPDF/samples"/>
     </genClasses>
-    <genClasses ecoreClass="ProbabilityFunction.ecore#//ProbabilityDensityFunction"/>
+    <genClasses image="false" ecoreClass="ProbabilityFunction.ecore#//ProbabilityDensityFunction"/>
     <genClasses image="false" ecoreClass="ProbabilityFunction.ecore#//ProbabilityFunction">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ProbabilityFunction.ecore#//ProbabilityFunction/unit"/>
     </genClasses>

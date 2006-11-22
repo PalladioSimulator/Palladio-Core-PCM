@@ -114,7 +114,7 @@ public class SamplePDFImpl extends ProbabilityDensityFunctionImpl implements Sam
 	 */
 	public EList getValues() {
 		if (values == null) {
-			values = new EDataTypeEList(Double.class, this, ProbfunctionPackage.SAMPLE_PDF__VALUES);
+			values = new EDataTypeUniqueEList(Double.class, this, ProbfunctionPackage.SAMPLE_PDF__VALUES);
 		}
 		return values;
 	}

@@ -33,5 +33,6 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.birt.chart.runtime,
  org.eclipse.birt.chart.ui,
  org.eclipse.birt.chart.ui.extension,
- org.junit4
+ org.junit4,
+ org.eclipse.emf.ecore.xmi
 Eclipse-LazyStart: true

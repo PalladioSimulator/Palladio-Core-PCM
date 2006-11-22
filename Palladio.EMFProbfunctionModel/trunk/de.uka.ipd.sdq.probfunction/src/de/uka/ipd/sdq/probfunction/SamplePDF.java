@@ -37,7 +37,7 @@ public interface SamplePDF extends ProbabilityDensityFunction {
 	 * @return the value of the '<em>Distance</em>' attribute.
 	 * @see #setDistance(double)
 	 * @see de.uka.ipd.sdq.probfunction.ProbfunctionPackage#getSamplePDF_Distance()
-	 * @model unique="false" required="true"
+	 * @model
 	 * @generated
 	 */
 	double getDistance();
@@ -63,7 +63,7 @@ public interface SamplePDF extends ProbabilityDensityFunction {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Values</em>' attribute list.
 	 * @see de.uka.ipd.sdq.probfunction.ProbfunctionPackage#getSamplePDF_Values()
-	 * @model type="double" unique="false"
+	 * @model type="double"
 	 * @generated
 	 */
 	EList getValues();
