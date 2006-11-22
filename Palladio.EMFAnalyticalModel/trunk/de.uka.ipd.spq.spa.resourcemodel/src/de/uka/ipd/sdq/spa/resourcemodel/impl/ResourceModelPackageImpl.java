@@ -223,17 +223,8 @@ public class ResourceModelPackageImpl extends EPackageImpl implements ResourceMo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getCompositeResourceUsage_PassiveResource() {
-		return (EReference)compositeResourceUsageEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EReference getCompositeResourceUsage_ResourceUsages() {
-		return (EReference)compositeResourceUsageEClass.getEStructuralFeatures().get(1);
+		return (EReference)compositeResourceUsageEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -243,6 +234,15 @@ public class ResourceModelPackageImpl extends EPackageImpl implements ResourceMo
 	 */
 	public EClass getAbstractResourceUsage() {
 		return abstractResourceUsageEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getAbstractResourceUsage_Resource() {
+		return (EReference)abstractResourceUsageEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -340,15 +340,6 @@ public class ResourceModelPackageImpl extends EPackageImpl implements ResourceMo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getResourceUsage_Resource() {
-		return (EReference)resourceUsageEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getActiveResource() {
 		return activeResourceEClass;
 	}
@@ -402,15 +393,10 @@ public class ResourceModelPackageImpl extends EPackageImpl implements ResourceMo
 		sequentialResourceUsageEClass = createEClass(SEQUENTIAL_RESOURCE_USAGE);
 
 		compositeResourceUsageEClass = createEClass(COMPOSITE_RESOURCE_USAGE);
-		createEReference(compositeResourceUsageEClass, COMPOSITE_RESOURCE_USAGE__PASSIVE_RESOURCE);
 		createEReference(compositeResourceUsageEClass, COMPOSITE_RESOURCE_USAGE__RESOURCE_USAGES);
 
 		abstractResourceUsageEClass = createEClass(ABSTRACT_RESOURCE_USAGE);
-
-		passiveResourceEClass = createEClass(PASSIVE_RESOURCE);
-
-		contentionResourceEClass = createEClass(CONTENTION_RESOURCE);
-		createEAttribute(contentionResourceEClass, CONTENTION_RESOURCE__NUM_REPLICAS);
+		createEReference(abstractResourceUsageEClass, ABSTRACT_RESOURCE_USAGE__RESOURCE);
 
 		resourceEClass = createEClass(RESOURCE);
 		createEAttribute(resourceEClass, RESOURCE__NAME);
@@ -423,11 +409,15 @@ public class ResourceModelPackageImpl extends EPackageImpl implements ResourceMo
 
 		resourceUsageEClass = createEClass(RESOURCE_USAGE);
 		createEReference(resourceUsageEClass, RESOURCE_USAGE__USAGE_TIME);
-		createEReference(resourceUsageEClass, RESOURCE_USAGE__RESOURCE);
 
-		activeResourceEClass = createEClass(ACTIVE_RESOURCE);
+		passiveResourceEClass = createEClass(PASSIVE_RESOURCE);
+
+		contentionResourceEClass = createEClass(CONTENTION_RESOURCE);
+		createEAttribute(contentionResourceEClass, CONTENTION_RESOURCE__NUM_REPLICAS);
 
 		processingResourceEClass = createEClass(PROCESSING_RESOURCE);
+
+		activeResourceEClass = createEClass(ACTIVE_RESOURCE);
 
 		delayResourceEClass = createEClass(DELAY_RESOURCE);
 	}
@@ -461,30 +451,25 @@ public class ResourceModelPackageImpl extends EPackageImpl implements ResourceMo
 		// Add supertypes to classes
 		sequentialResourceUsageEClass.getESuperTypes().add(this.getCompositeResourceUsage());
 		compositeResourceUsageEClass.getESuperTypes().add(this.getAbstractResourceUsage());
-		passiveResourceEClass.getESuperTypes().add(this.getContentionResource());
-		contentionResourceEClass.getESuperTypes().add(this.getResource());
 		parallelResourceUsageEClass.getESuperTypes().add(this.getCompositeResourceUsage());
 		iterativeResourceUsageEClass.getESuperTypes().add(this.getCompositeResourceUsage());
 		alternativeResourceUsageEClass.getESuperTypes().add(this.getCompositeResourceUsage());
 		resourceUsageEClass.getESuperTypes().add(this.getAbstractResourceUsage());
-		activeResourceEClass.getESuperTypes().add(this.getResource());
+		passiveResourceEClass.getESuperTypes().add(this.getContentionResource());
+		contentionResourceEClass.getESuperTypes().add(this.getResource());
 		processingResourceEClass.getESuperTypes().add(this.getContentionResource());
 		processingResourceEClass.getESuperTypes().add(this.getActiveResource());
+		activeResourceEClass.getESuperTypes().add(this.getResource());
 		delayResourceEClass.getESuperTypes().add(this.getActiveResource());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(sequentialResourceUsageEClass, SequentialResourceUsage.class, "SequentialResourceUsage", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(compositeResourceUsageEClass, CompositeResourceUsage.class, "CompositeResourceUsage", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getCompositeResourceUsage_PassiveResource(), this.getPassiveResource(), null, "passiveResource", null, 1, 1, CompositeResourceUsage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getCompositeResourceUsage_ResourceUsages(), this.getAbstractResourceUsage(), null, "resourceUsages", null, 0, -1, CompositeResourceUsage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(abstractResourceUsageEClass, AbstractResourceUsage.class, "AbstractResourceUsage", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(passiveResourceEClass, PassiveResource.class, "PassiveResource", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(contentionResourceEClass, ContentionResource.class, "ContentionResource", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getContentionResource_NumReplicas(), ecorePackage.getEInt(), "numReplicas", null, 1, 1, ContentionResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAbstractResourceUsage_Resource(), this.getResource(), null, "resource", null, 1, 1, AbstractResourceUsage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(resourceEClass, Resource.class, "Resource", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getResource_Name(), ecorePackage.getEString(), "name", "", 1, 1, Resource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -497,11 +482,15 @@ public class ResourceModelPackageImpl extends EPackageImpl implements ResourceMo
 
 		initEClass(resourceUsageEClass, ResourceUsage.class, "ResourceUsage", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getResourceUsage_UsageTime(), theProbfunctionPackage.getProbabilityDensityFunction(), null, "usageTime", null, 0, 1, ResourceUsage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getResourceUsage_Resource(), this.getActiveResource(), null, "resource", null, 1, 1, ResourceUsage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(activeResourceEClass, ActiveResource.class, "ActiveResource", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(passiveResourceEClass, PassiveResource.class, "PassiveResource", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(contentionResourceEClass, ContentionResource.class, "ContentionResource", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getContentionResource_NumReplicas(), ecorePackage.getEInt(), "numReplicas", null, 1, 1, ContentionResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(processingResourceEClass, ProcessingResource.class, "ProcessingResource", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(activeResourceEClass, ActiveResource.class, "ActiveResource", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(delayResourceEClass, DelayResource.class, "DelayResource", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

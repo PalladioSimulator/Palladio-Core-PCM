@@ -79,12 +79,6 @@ public class ResourceModelAdapterFactory extends AdapterFactoryImpl {
 			public Object caseAbstractResourceUsage(AbstractResourceUsage object) {
 				return createAbstractResourceUsageAdapter();
 			}
-			public Object casePassiveResource(PassiveResource object) {
-				return createPassiveResourceAdapter();
-			}
-			public Object caseContentionResource(ContentionResource object) {
-				return createContentionResourceAdapter();
-			}
 			public Object caseResource(Resource object) {
 				return createResourceAdapter();
 			}
@@ -100,11 +94,17 @@ public class ResourceModelAdapterFactory extends AdapterFactoryImpl {
 			public Object caseResourceUsage(ResourceUsage object) {
 				return createResourceUsageAdapter();
 			}
-			public Object caseActiveResource(ActiveResource object) {
-				return createActiveResourceAdapter();
+			public Object casePassiveResource(PassiveResource object) {
+				return createPassiveResourceAdapter();
+			}
+			public Object caseContentionResource(ContentionResource object) {
+				return createContentionResourceAdapter();
 			}
 			public Object caseProcessingResource(ProcessingResource object) {
 				return createProcessingResourceAdapter();
+			}
+			public Object caseActiveResource(ActiveResource object) {
+				return createActiveResourceAdapter();
 			}
 			public Object caseDelayResource(DelayResource object) {
 				return createDelayResourceAdapter();

@@ -9,13 +9,10 @@
       ecorePackage="ResourceModel.ecore#/">
     <genClasses ecoreClass="ResourceModel.ecore#//SequentialResourceUsage"/>
     <genClasses image="false" ecoreClass="ResourceModel.ecore#//CompositeResourceUsage">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ResourceModel.ecore#//CompositeResourceUsage/passiveResource"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ResourceModel.ecore#//CompositeResourceUsage/resourceUsages"/>
     </genClasses>
-    <genClasses image="false" ecoreClass="ResourceModel.ecore#//AbstractResourceUsage"/>
-    <genClasses ecoreClass="ResourceModel.ecore#//PassiveResource"/>
-    <genClasses image="false" ecoreClass="ResourceModel.ecore#//ContentionResource">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ResourceModel.ecore#//ContentionResource/numReplicas"/>
+    <genClasses image="false" ecoreClass="ResourceModel.ecore#//AbstractResourceUsage">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ResourceModel.ecore#//AbstractResourceUsage/resource"/>
     </genClasses>
     <genClasses image="false" ecoreClass="ResourceModel.ecore#//Resource">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ResourceModel.ecore#//Resource/name"/>
@@ -25,10 +22,13 @@
     <genClasses ecoreClass="ResourceModel.ecore#//AlternativeResourceUsage"/>
     <genClasses ecoreClass="ResourceModel.ecore#//ResourceUsage">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ResourceModel.ecore#//ResourceUsage/usageTime"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ResourceModel.ecore#//ResourceUsage/resource"/>
     </genClasses>
-    <genClasses image="false" ecoreClass="ResourceModel.ecore#//ActiveResource"/>
+    <genClasses ecoreClass="ResourceModel.ecore#//PassiveResource"/>
+    <genClasses image="false" ecoreClass="ResourceModel.ecore#//ContentionResource">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ResourceModel.ecore#//ContentionResource/numReplicas"/>
+    </genClasses>
     <genClasses ecoreClass="ResourceModel.ecore#//ProcessingResource"/>
+    <genClasses image="false" ecoreClass="ResourceModel.ecore#//ActiveResource"/>
     <genClasses ecoreClass="ResourceModel.ecore#//DelayResource"/>
   </genPackages>
 </genmodel:GenModel>

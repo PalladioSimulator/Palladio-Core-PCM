@@ -28,7 +28,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * <ul>
  *   <li>{@link de.uka.ipd.sdq.spa.resourcemodel.impl.ResourceUsageImpl#getUsageTime <em>Usage Time</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.spa.resourcemodel.impl.ResourceUsageImpl#getResource <em>Resource</em>}</li>
  * </ul>
  * </p>
  *
@@ -44,16 +43,6 @@ public class ResourceUsageImpl extends AbstractResourceUsageImpl implements Reso
 	 * @ordered
 	 */
 	protected ProbabilityDensityFunction usageTime = null;
-
-	/**
-	 * The cached value of the '{@link #getResource() <em>Resource</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getResource()
-	 * @generated
-	 * @ordered
-	 */
-	protected ActiveResource resource = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -121,44 +110,6 @@ public class ResourceUsageImpl extends AbstractResourceUsageImpl implements Reso
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ActiveResource getResource() {
-		if (resource != null && resource.eIsProxy()) {
-			InternalEObject oldResource = (InternalEObject)resource;
-			resource = (ActiveResource)eResolveProxy(oldResource);
-			if (resource != oldResource) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ResourceModelPackage.RESOURCE_USAGE__RESOURCE, oldResource, resource));
-			}
-		}
-		return resource;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ActiveResource basicGetResource() {
-		return resource;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setResource(ActiveResource newResource) {
-		ActiveResource oldResource = resource;
-		resource = newResource;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ResourceModelPackage.RESOURCE_USAGE__RESOURCE, oldResource, resource));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case ResourceModelPackage.RESOURCE_USAGE__USAGE_TIME:
@@ -176,9 +127,6 @@ public class ResourceUsageImpl extends AbstractResourceUsageImpl implements Reso
 		switch (featureID) {
 			case ResourceModelPackage.RESOURCE_USAGE__USAGE_TIME:
 				return getUsageTime();
-			case ResourceModelPackage.RESOURCE_USAGE__RESOURCE:
-				if (resolve) return getResource();
-				return basicGetResource();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -192,9 +140,6 @@ public class ResourceUsageImpl extends AbstractResourceUsageImpl implements Reso
 		switch (featureID) {
 			case ResourceModelPackage.RESOURCE_USAGE__USAGE_TIME:
 				setUsageTime((ProbabilityDensityFunction)newValue);
-				return;
-			case ResourceModelPackage.RESOURCE_USAGE__RESOURCE:
-				setResource((ActiveResource)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -210,9 +155,6 @@ public class ResourceUsageImpl extends AbstractResourceUsageImpl implements Reso
 			case ResourceModelPackage.RESOURCE_USAGE__USAGE_TIME:
 				setUsageTime((ProbabilityDensityFunction)null);
 				return;
-			case ResourceModelPackage.RESOURCE_USAGE__RESOURCE:
-				setResource((ActiveResource)null);
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -226,8 +168,6 @@ public class ResourceUsageImpl extends AbstractResourceUsageImpl implements Reso
 		switch (featureID) {
 			case ResourceModelPackage.RESOURCE_USAGE__USAGE_TIME:
 				return usageTime != null;
-			case ResourceModelPackage.RESOURCE_USAGE__RESOURCE:
-				return resource != null;
 		}
 		return super.eIsSet(featureID);
 	}

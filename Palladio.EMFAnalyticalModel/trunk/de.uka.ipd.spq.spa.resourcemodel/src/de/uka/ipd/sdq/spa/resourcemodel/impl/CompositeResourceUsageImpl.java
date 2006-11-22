@@ -33,7 +33,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link de.uka.ipd.sdq.spa.resourcemodel.impl.CompositeResourceUsageImpl#getPassiveResource <em>Passive Resource</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.spa.resourcemodel.impl.CompositeResourceUsageImpl#getResourceUsages <em>Resource Usages</em>}</li>
  * </ul>
  * </p>
@@ -41,16 +40,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * @generated
  */
 public abstract class CompositeResourceUsageImpl extends AbstractResourceUsageImpl implements CompositeResourceUsage {
-	/**
-	 * The cached value of the '{@link #getPassiveResource() <em>Passive Resource</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getPassiveResource()
-	 * @generated
-	 * @ordered
-	 */
-	protected PassiveResource passiveResource = null;
-
 	/**
 	 * The cached value of the '{@link #getResourceUsages() <em>Resource Usages</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -77,44 +66,6 @@ public abstract class CompositeResourceUsageImpl extends AbstractResourceUsageIm
 	 */
 	protected EClass eStaticClass() {
 		return ResourceModelPackage.Literals.COMPOSITE_RESOURCE_USAGE;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public PassiveResource getPassiveResource() {
-		if (passiveResource != null && passiveResource.eIsProxy()) {
-			InternalEObject oldPassiveResource = (InternalEObject)passiveResource;
-			passiveResource = (PassiveResource)eResolveProxy(oldPassiveResource);
-			if (passiveResource != oldPassiveResource) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ResourceModelPackage.COMPOSITE_RESOURCE_USAGE__PASSIVE_RESOURCE, oldPassiveResource, passiveResource));
-			}
-		}
-		return passiveResource;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public PassiveResource basicGetPassiveResource() {
-		return passiveResource;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setPassiveResource(PassiveResource newPassiveResource) {
-		PassiveResource oldPassiveResource = passiveResource;
-		passiveResource = newPassiveResource;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ResourceModelPackage.COMPOSITE_RESOURCE_USAGE__PASSIVE_RESOURCE, oldPassiveResource, passiveResource));
 	}
 
 	/**
@@ -149,9 +100,6 @@ public abstract class CompositeResourceUsageImpl extends AbstractResourceUsageIm
 	 */
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ResourceModelPackage.COMPOSITE_RESOURCE_USAGE__PASSIVE_RESOURCE:
-				if (resolve) return getPassiveResource();
-				return basicGetPassiveResource();
 			case ResourceModelPackage.COMPOSITE_RESOURCE_USAGE__RESOURCE_USAGES:
 				return getResourceUsages();
 		}
@@ -165,9 +113,6 @@ public abstract class CompositeResourceUsageImpl extends AbstractResourceUsageIm
 	 */
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ResourceModelPackage.COMPOSITE_RESOURCE_USAGE__PASSIVE_RESOURCE:
-				setPassiveResource((PassiveResource)newValue);
-				return;
 			case ResourceModelPackage.COMPOSITE_RESOURCE_USAGE__RESOURCE_USAGES:
 				getResourceUsages().clear();
 				getResourceUsages().addAll((Collection)newValue);
@@ -183,9 +128,6 @@ public abstract class CompositeResourceUsageImpl extends AbstractResourceUsageIm
 	 */
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ResourceModelPackage.COMPOSITE_RESOURCE_USAGE__PASSIVE_RESOURCE:
-				setPassiveResource((PassiveResource)null);
-				return;
 			case ResourceModelPackage.COMPOSITE_RESOURCE_USAGE__RESOURCE_USAGES:
 				getResourceUsages().clear();
 				return;
@@ -200,8 +142,6 @@ public abstract class CompositeResourceUsageImpl extends AbstractResourceUsageIm
 	 */
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ResourceModelPackage.COMPOSITE_RESOURCE_USAGE__PASSIVE_RESOURCE:
-				return passiveResource != null;
 			case ResourceModelPackage.COMPOSITE_RESOURCE_USAGE__RESOURCE_USAGES:
 				return resourceUsages != null && !resourceUsages.isEmpty();
 		}

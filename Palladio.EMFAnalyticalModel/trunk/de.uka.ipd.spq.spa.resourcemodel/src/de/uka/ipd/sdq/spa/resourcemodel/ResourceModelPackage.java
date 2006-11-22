@@ -70,13 +70,22 @@ public interface ResourceModelPackage extends EPackage {
 	int ABSTRACT_RESOURCE_USAGE = 2;
 
 	/**
+	 * The feature id for the '<em><b>Resource</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_RESOURCE_USAGE__RESOURCE = 0;
+
+	/**
 	 * The number of structural features of the '<em>Abstract Resource Usage</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ABSTRACT_RESOURCE_USAGE_FEATURE_COUNT = 0;
+	int ABSTRACT_RESOURCE_USAGE_FEATURE_COUNT = 1;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.spa.resourcemodel.impl.CompositeResourceUsageImpl <em>Composite Resource Usage</em>}' class.
@@ -89,13 +98,13 @@ public interface ResourceModelPackage extends EPackage {
 	int COMPOSITE_RESOURCE_USAGE = 1;
 
 	/**
-	 * The feature id for the '<em><b>Passive Resource</b></em>' reference.
+	 * The feature id for the '<em><b>Resource</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPOSITE_RESOURCE_USAGE__PASSIVE_RESOURCE = ABSTRACT_RESOURCE_USAGE_FEATURE_COUNT + 0;
+	int COMPOSITE_RESOURCE_USAGE__RESOURCE = ABSTRACT_RESOURCE_USAGE__RESOURCE;
 
 	/**
 	 * The feature id for the '<em><b>Resource Usages</b></em>' containment reference list.
@@ -104,7 +113,7 @@ public interface ResourceModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPOSITE_RESOURCE_USAGE__RESOURCE_USAGES = ABSTRACT_RESOURCE_USAGE_FEATURE_COUNT + 1;
+	int COMPOSITE_RESOURCE_USAGE__RESOURCE_USAGES = ABSTRACT_RESOURCE_USAGE_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Composite Resource Usage</em>' class.
@@ -113,7 +122,7 @@ public interface ResourceModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPOSITE_RESOURCE_USAGE_FEATURE_COUNT = ABSTRACT_RESOURCE_USAGE_FEATURE_COUNT + 2;
+	int COMPOSITE_RESOURCE_USAGE_FEATURE_COUNT = ABSTRACT_RESOURCE_USAGE_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.spa.resourcemodel.impl.SequentialResourceUsageImpl <em>Sequential Resource Usage</em>}' class.
@@ -126,13 +135,13 @@ public interface ResourceModelPackage extends EPackage {
 	int SEQUENTIAL_RESOURCE_USAGE = 0;
 
 	/**
-	 * The feature id for the '<em><b>Passive Resource</b></em>' reference.
+	 * The feature id for the '<em><b>Resource</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SEQUENTIAL_RESOURCE_USAGE__PASSIVE_RESOURCE = COMPOSITE_RESOURCE_USAGE__PASSIVE_RESOURCE;
+	int SEQUENTIAL_RESOURCE_USAGE__RESOURCE = COMPOSITE_RESOURCE_USAGE__RESOURCE;
 
 	/**
 	 * The feature id for the '<em><b>Resource Usages</b></em>' containment reference list.
@@ -160,7 +169,7 @@ public interface ResourceModelPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.spa.resourcemodel.impl.ResourceModelPackageImpl#getResource()
 	 * @generated
 	 */
-	int RESOURCE = 5;
+	int RESOURCE = 3;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -188,7 +197,165 @@ public interface ResourceModelPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.spa.resourcemodel.impl.ResourceModelPackageImpl#getContentionResource()
 	 * @generated
 	 */
-	int CONTENTION_RESOURCE = 4;
+	int CONTENTION_RESOURCE = 9;
+
+	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.spa.resourcemodel.impl.PassiveResourceImpl <em>Passive Resource</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.spa.resourcemodel.impl.PassiveResourceImpl
+	 * @see de.uka.ipd.sdq.spa.resourcemodel.impl.ResourceModelPackageImpl#getPassiveResource()
+	 * @generated
+	 */
+	int PASSIVE_RESOURCE = 8;
+
+	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.spa.resourcemodel.impl.ParallelResourceUsageImpl <em>Parallel Resource Usage</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.spa.resourcemodel.impl.ParallelResourceUsageImpl
+	 * @see de.uka.ipd.sdq.spa.resourcemodel.impl.ResourceModelPackageImpl#getParallelResourceUsage()
+	 * @generated
+	 */
+	int PARALLEL_RESOURCE_USAGE = 4;
+
+	/**
+	 * The feature id for the '<em><b>Resource</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARALLEL_RESOURCE_USAGE__RESOURCE = COMPOSITE_RESOURCE_USAGE__RESOURCE;
+
+	/**
+	 * The feature id for the '<em><b>Resource Usages</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARALLEL_RESOURCE_USAGE__RESOURCE_USAGES = COMPOSITE_RESOURCE_USAGE__RESOURCE_USAGES;
+
+	/**
+	 * The number of structural features of the '<em>Parallel Resource Usage</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARALLEL_RESOURCE_USAGE_FEATURE_COUNT = COMPOSITE_RESOURCE_USAGE_FEATURE_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.spa.resourcemodel.impl.IterativeResourceUsageImpl <em>Iterative Resource Usage</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.spa.resourcemodel.impl.IterativeResourceUsageImpl
+	 * @see de.uka.ipd.sdq.spa.resourcemodel.impl.ResourceModelPackageImpl#getIterativeResourceUsage()
+	 * @generated
+	 */
+	int ITERATIVE_RESOURCE_USAGE = 5;
+
+	/**
+	 * The feature id for the '<em><b>Resource</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ITERATIVE_RESOURCE_USAGE__RESOURCE = COMPOSITE_RESOURCE_USAGE__RESOURCE;
+
+	/**
+	 * The feature id for the '<em><b>Resource Usages</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ITERATIVE_RESOURCE_USAGE__RESOURCE_USAGES = COMPOSITE_RESOURCE_USAGE__RESOURCE_USAGES;
+
+	/**
+	 * The number of structural features of the '<em>Iterative Resource Usage</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ITERATIVE_RESOURCE_USAGE_FEATURE_COUNT = COMPOSITE_RESOURCE_USAGE_FEATURE_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.spa.resourcemodel.impl.AlternativeResourceUsageImpl <em>Alternative Resource Usage</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.spa.resourcemodel.impl.AlternativeResourceUsageImpl
+	 * @see de.uka.ipd.sdq.spa.resourcemodel.impl.ResourceModelPackageImpl#getAlternativeResourceUsage()
+	 * @generated
+	 */
+	int ALTERNATIVE_RESOURCE_USAGE = 6;
+
+	/**
+	 * The feature id for the '<em><b>Resource</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ALTERNATIVE_RESOURCE_USAGE__RESOURCE = COMPOSITE_RESOURCE_USAGE__RESOURCE;
+
+	/**
+	 * The feature id for the '<em><b>Resource Usages</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ALTERNATIVE_RESOURCE_USAGE__RESOURCE_USAGES = COMPOSITE_RESOURCE_USAGE__RESOURCE_USAGES;
+
+	/**
+	 * The number of structural features of the '<em>Alternative Resource Usage</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ALTERNATIVE_RESOURCE_USAGE_FEATURE_COUNT = COMPOSITE_RESOURCE_USAGE_FEATURE_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.spa.resourcemodel.impl.ResourceUsageImpl <em>Resource Usage</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.spa.resourcemodel.impl.ResourceUsageImpl
+	 * @see de.uka.ipd.sdq.spa.resourcemodel.impl.ResourceModelPackageImpl#getResourceUsage()
+	 * @generated
+	 */
+	int RESOURCE_USAGE = 7;
+
+	/**
+	 * The feature id for the '<em><b>Resource</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_USAGE__RESOURCE = ABSTRACT_RESOURCE_USAGE__RESOURCE;
+
+	/**
+	 * The feature id for the '<em><b>Usage Time</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_USAGE__USAGE_TIME = ABSTRACT_RESOURCE_USAGE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Resource Usage</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_USAGE_FEATURE_COUNT = ABSTRACT_RESOURCE_USAGE_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -218,16 +385,6 @@ public interface ResourceModelPackage extends EPackage {
 	int CONTENTION_RESOURCE_FEATURE_COUNT = RESOURCE_FEATURE_COUNT + 1;
 
 	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.spa.resourcemodel.impl.PassiveResourceImpl <em>Passive Resource</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.spa.resourcemodel.impl.PassiveResourceImpl
-	 * @see de.uka.ipd.sdq.spa.resourcemodel.impl.ResourceModelPackageImpl#getPassiveResource()
-	 * @generated
-	 */
-	int PASSIVE_RESOURCE = 3;
-
-	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -255,154 +412,6 @@ public interface ResourceModelPackage extends EPackage {
 	int PASSIVE_RESOURCE_FEATURE_COUNT = CONTENTION_RESOURCE_FEATURE_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.spa.resourcemodel.impl.ParallelResourceUsageImpl <em>Parallel Resource Usage</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.spa.resourcemodel.impl.ParallelResourceUsageImpl
-	 * @see de.uka.ipd.sdq.spa.resourcemodel.impl.ResourceModelPackageImpl#getParallelResourceUsage()
-	 * @generated
-	 */
-	int PARALLEL_RESOURCE_USAGE = 6;
-
-	/**
-	 * The feature id for the '<em><b>Passive Resource</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PARALLEL_RESOURCE_USAGE__PASSIVE_RESOURCE = COMPOSITE_RESOURCE_USAGE__PASSIVE_RESOURCE;
-
-	/**
-	 * The feature id for the '<em><b>Resource Usages</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PARALLEL_RESOURCE_USAGE__RESOURCE_USAGES = COMPOSITE_RESOURCE_USAGE__RESOURCE_USAGES;
-
-	/**
-	 * The number of structural features of the '<em>Parallel Resource Usage</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PARALLEL_RESOURCE_USAGE_FEATURE_COUNT = COMPOSITE_RESOURCE_USAGE_FEATURE_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.spa.resourcemodel.impl.IterativeResourceUsageImpl <em>Iterative Resource Usage</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.spa.resourcemodel.impl.IterativeResourceUsageImpl
-	 * @see de.uka.ipd.sdq.spa.resourcemodel.impl.ResourceModelPackageImpl#getIterativeResourceUsage()
-	 * @generated
-	 */
-	int ITERATIVE_RESOURCE_USAGE = 7;
-
-	/**
-	 * The feature id for the '<em><b>Passive Resource</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ITERATIVE_RESOURCE_USAGE__PASSIVE_RESOURCE = COMPOSITE_RESOURCE_USAGE__PASSIVE_RESOURCE;
-
-	/**
-	 * The feature id for the '<em><b>Resource Usages</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ITERATIVE_RESOURCE_USAGE__RESOURCE_USAGES = COMPOSITE_RESOURCE_USAGE__RESOURCE_USAGES;
-
-	/**
-	 * The number of structural features of the '<em>Iterative Resource Usage</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ITERATIVE_RESOURCE_USAGE_FEATURE_COUNT = COMPOSITE_RESOURCE_USAGE_FEATURE_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.spa.resourcemodel.impl.AlternativeResourceUsageImpl <em>Alternative Resource Usage</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.spa.resourcemodel.impl.AlternativeResourceUsageImpl
-	 * @see de.uka.ipd.sdq.spa.resourcemodel.impl.ResourceModelPackageImpl#getAlternativeResourceUsage()
-	 * @generated
-	 */
-	int ALTERNATIVE_RESOURCE_USAGE = 8;
-
-	/**
-	 * The feature id for the '<em><b>Passive Resource</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ALTERNATIVE_RESOURCE_USAGE__PASSIVE_RESOURCE = COMPOSITE_RESOURCE_USAGE__PASSIVE_RESOURCE;
-
-	/**
-	 * The feature id for the '<em><b>Resource Usages</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ALTERNATIVE_RESOURCE_USAGE__RESOURCE_USAGES = COMPOSITE_RESOURCE_USAGE__RESOURCE_USAGES;
-
-	/**
-	 * The number of structural features of the '<em>Alternative Resource Usage</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ALTERNATIVE_RESOURCE_USAGE_FEATURE_COUNT = COMPOSITE_RESOURCE_USAGE_FEATURE_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.spa.resourcemodel.impl.ResourceUsageImpl <em>Resource Usage</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.spa.resourcemodel.impl.ResourceUsageImpl
-	 * @see de.uka.ipd.sdq.spa.resourcemodel.impl.ResourceModelPackageImpl#getResourceUsage()
-	 * @generated
-	 */
-	int RESOURCE_USAGE = 9;
-
-	/**
-	 * The feature id for the '<em><b>Usage Time</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RESOURCE_USAGE__USAGE_TIME = ABSTRACT_RESOURCE_USAGE_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Resource</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RESOURCE_USAGE__RESOURCE = ABSTRACT_RESOURCE_USAGE_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of structural features of the '<em>Resource Usage</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RESOURCE_USAGE_FEATURE_COUNT = ABSTRACT_RESOURCE_USAGE_FEATURE_COUNT + 2;
-
-	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.spa.resourcemodel.impl.ActiveResourceImpl <em>Active Resource</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -410,25 +419,7 @@ public interface ResourceModelPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.spa.resourcemodel.impl.ResourceModelPackageImpl#getActiveResource()
 	 * @generated
 	 */
-	int ACTIVE_RESOURCE = 10;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTIVE_RESOURCE__NAME = RESOURCE__NAME;
-
-	/**
-	 * The number of structural features of the '<em>Active Resource</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTIVE_RESOURCE_FEATURE_COUNT = RESOURCE_FEATURE_COUNT + 0;
+	int ACTIVE_RESOURCE = 11;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.spa.resourcemodel.impl.ProcessingResourceImpl <em>Processing Resource</em>}' class.
@@ -438,7 +429,7 @@ public interface ResourceModelPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.spa.resourcemodel.impl.ResourceModelPackageImpl#getProcessingResource()
 	 * @generated
 	 */
-	int PROCESSING_RESOURCE = 11;
+	int PROCESSING_RESOURCE = 10;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -466,6 +457,24 @@ public interface ResourceModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROCESSING_RESOURCE_FEATURE_COUNT = CONTENTION_RESOURCE_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTIVE_RESOURCE__NAME = RESOURCE__NAME;
+
+	/**
+	 * The number of structural features of the '<em>Active Resource</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTIVE_RESOURCE_FEATURE_COUNT = RESOURCE_FEATURE_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.spa.resourcemodel.impl.DelayResourceImpl <em>Delay Resource</em>}' class.
@@ -517,17 +526,6 @@ public interface ResourceModelPackage extends EPackage {
 	EClass getCompositeResourceUsage();
 
 	/**
-	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.spa.resourcemodel.CompositeResourceUsage#getPassiveResource <em>Passive Resource</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Passive Resource</em>'.
-	 * @see de.uka.ipd.sdq.spa.resourcemodel.CompositeResourceUsage#getPassiveResource()
-	 * @see #getCompositeResourceUsage()
-	 * @generated
-	 */
-	EReference getCompositeResourceUsage_PassiveResource();
-
-	/**
 	 * Returns the meta object for the containment reference list '{@link de.uka.ipd.sdq.spa.resourcemodel.CompositeResourceUsage#getResourceUsages <em>Resource Usages</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -547,6 +545,17 @@ public interface ResourceModelPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getAbstractResourceUsage();
+
+	/**
+	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.spa.resourcemodel.AbstractResourceUsage#getResource <em>Resource</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Resource</em>'.
+	 * @see de.uka.ipd.sdq.spa.resourcemodel.AbstractResourceUsage#getResource()
+	 * @see #getAbstractResourceUsage()
+	 * @generated
+	 */
+	EReference getAbstractResourceUsage_Resource();
 
 	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.spa.resourcemodel.PassiveResource <em>Passive Resource</em>}'.
@@ -652,17 +661,6 @@ public interface ResourceModelPackage extends EPackage {
 	EReference getResourceUsage_UsageTime();
 
 	/**
-	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.spa.resourcemodel.ResourceUsage#getResource <em>Resource</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Resource</em>'.
-	 * @see de.uka.ipd.sdq.spa.resourcemodel.ResourceUsage#getResource()
-	 * @see #getResourceUsage()
-	 * @generated
-	 */
-	EReference getResourceUsage_Resource();
-
-	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.spa.resourcemodel.ActiveResource <em>Active Resource</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -713,7 +711,7 @@ public interface ResourceModelPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	interface Literals {
+	interface Literals  {
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.spa.resourcemodel.impl.SequentialResourceUsageImpl <em>Sequential Resource Usage</em>}' class.
 		 * <!-- begin-user-doc -->
@@ -735,14 +733,6 @@ public interface ResourceModelPackage extends EPackage {
 		EClass COMPOSITE_RESOURCE_USAGE = eINSTANCE.getCompositeResourceUsage();
 
 		/**
-		 * The meta object literal for the '<em><b>Passive Resource</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference COMPOSITE_RESOURCE_USAGE__PASSIVE_RESOURCE = eINSTANCE.getCompositeResourceUsage_PassiveResource();
-
-		/**
 		 * The meta object literal for the '<em><b>Resource Usages</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -759,6 +749,14 @@ public interface ResourceModelPackage extends EPackage {
 		 * @generated
 		 */
 		EClass ABSTRACT_RESOURCE_USAGE = eINSTANCE.getAbstractResourceUsage();
+
+		/**
+		 * The meta object literal for the '<em><b>Resource</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ABSTRACT_RESOURCE_USAGE__RESOURCE = eINSTANCE.getAbstractResourceUsage_Resource();
 
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.spa.resourcemodel.impl.PassiveResourceImpl <em>Passive Resource</em>}' class.
@@ -853,14 +851,6 @@ public interface ResourceModelPackage extends EPackage {
 		 * @generated
 		 */
 		EReference RESOURCE_USAGE__USAGE_TIME = eINSTANCE.getResourceUsage_UsageTime();
-
-		/**
-		 * The meta object literal for the '<em><b>Resource</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference RESOURCE_USAGE__RESOURCE = eINSTANCE.getResourceUsage_Resource();
 
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.spa.resourcemodel.impl.ActiveResourceImpl <em>Active Resource</em>}' class.

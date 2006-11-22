@@ -60,11 +60,11 @@ public class ResourceModelFactoryImpl extends EFactoryImpl implements ResourceMo
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
 			case ResourceModelPackage.SEQUENTIAL_RESOURCE_USAGE: return createSequentialResourceUsage();
-			case ResourceModelPackage.PASSIVE_RESOURCE: return createPassiveResource();
 			case ResourceModelPackage.PARALLEL_RESOURCE_USAGE: return createParallelResourceUsage();
 			case ResourceModelPackage.ITERATIVE_RESOURCE_USAGE: return createIterativeResourceUsage();
 			case ResourceModelPackage.ALTERNATIVE_RESOURCE_USAGE: return createAlternativeResourceUsage();
 			case ResourceModelPackage.RESOURCE_USAGE: return createResourceUsage();
+			case ResourceModelPackage.PASSIVE_RESOURCE: return createPassiveResource();
 			case ResourceModelPackage.PROCESSING_RESOURCE: return createProcessingResource();
 			case ResourceModelPackage.DELAY_RESOURCE: return createDelayResource();
 			default:

@@ -108,21 +108,6 @@ public class ResourceModelSwitch {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case ResourceModelPackage.PASSIVE_RESOURCE: {
-				PassiveResource passiveResource = (PassiveResource)theEObject;
-				Object result = casePassiveResource(passiveResource);
-				if (result == null) result = caseContentionResource(passiveResource);
-				if (result == null) result = caseResource(passiveResource);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case ResourceModelPackage.CONTENTION_RESOURCE: {
-				ContentionResource contentionResource = (ContentionResource)theEObject;
-				Object result = caseContentionResource(contentionResource);
-				if (result == null) result = caseResource(contentionResource);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case ResourceModelPackage.RESOURCE: {
 				Resource resource = (Resource)theEObject;
 				Object result = caseResource(resource);
@@ -160,10 +145,18 @@ public class ResourceModelSwitch {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case ResourceModelPackage.ACTIVE_RESOURCE: {
-				ActiveResource activeResource = (ActiveResource)theEObject;
-				Object result = caseActiveResource(activeResource);
-				if (result == null) result = caseResource(activeResource);
+			case ResourceModelPackage.PASSIVE_RESOURCE: {
+				PassiveResource passiveResource = (PassiveResource)theEObject;
+				Object result = casePassiveResource(passiveResource);
+				if (result == null) result = caseContentionResource(passiveResource);
+				if (result == null) result = caseResource(passiveResource);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ResourceModelPackage.CONTENTION_RESOURCE: {
+				ContentionResource contentionResource = (ContentionResource)theEObject;
+				Object result = caseContentionResource(contentionResource);
+				if (result == null) result = caseResource(contentionResource);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -173,6 +166,13 @@ public class ResourceModelSwitch {
 				if (result == null) result = caseContentionResource(processingResource);
 				if (result == null) result = caseActiveResource(processingResource);
 				if (result == null) result = caseResource(processingResource);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ResourceModelPackage.ACTIVE_RESOURCE: {
+				ActiveResource activeResource = (ActiveResource)theEObject;
+				Object result = caseActiveResource(activeResource);
+				if (result == null) result = caseResource(activeResource);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
