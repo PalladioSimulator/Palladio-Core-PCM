@@ -14,6 +14,7 @@ import de.uka.ipd.sdq.pcm.core.stochastics.TermExpression;
 import de.uka.ipd.sdq.pcm.core.stochastics.TermOperations;
 import de.uka.ipd.sdq.pcm.core.stochastics.Variable;
 import de.uka.ipd.sdq.pcm.core.stochastics.util.StochasticsSwitch;
+import de.uka.ipd.sdq.pcm.parameter.VariableCharacterisationType;
 
 public class StoExPrettyPrintVisitor
 extends StochasticsSwitch
@@ -123,9 +124,11 @@ extends StochasticsSwitch
 	 */
 	@Override
 	public Object caseVariable(Variable object) {
-		return object.getId();
+		String result = (String)new ParameterPrettyPrint().doSwitch(object.getId_Variable());
+		result += "." + object.getCharacterisationType().getLiteral();
+		return result;
 	}
-	
+
 	public String prettyPrint(EObject theObject)
 	{
 		return (String)doSwitch(theObject);

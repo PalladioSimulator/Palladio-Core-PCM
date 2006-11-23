@@ -17,7 +17,7 @@ import org.eclipse.gmf.runtime.diagram.ui.editpolicies.OpenEditPolicy;
 import org.eclipse.gmf.runtime.emf.type.core.commands.SetValueCommand;
 import org.eclipse.gmf.runtime.emf.type.core.requests.SetRequest;
 
-import de.uka.ipd.sdq.dialogs.selection.StoachasticExpressionEditDialog;
+import de.uka.ipd.sdq.dialogs.selection.StochasticExpressionEditDialog;
 import de.uka.ipd.sdq.pcm.core.stochastics.RandomVariable;
 import de.uka.ipd.sdq.pcm.core.stochastics.StochasticsPackage;
 import de.uka.ipd.sdq.pcm.stochasticexpressions.StoExPrettyPrintVisitor;
@@ -42,7 +42,7 @@ public class OpenStoExEditorEditPolicy extends OpenEditPolicy {
 	 */
 	@Override
 	protected Command getOpenCommand(Request request) {
-		StoachasticExpressionEditDialog dialog = new StoachasticExpressionEditDialog(getHost().getRoot().getViewer().getControl().getShell());
+		StochasticExpressionEditDialog dialog = new StochasticExpressionEditDialog(getHost().getRoot().getViewer().getControl().getShell());
 		dialog.setInitialExpression(randVar.getSpecification_RandomVariable());
 		dialog.open();
 		if (dialog.getResult() != null) {

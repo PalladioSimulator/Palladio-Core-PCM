@@ -13,15 +13,15 @@ public class ANTLRTokenWrapper implements IToken {
 
 	private Token token;
 	private boolean isUndefined;
-	private IColorMapper mapper;
+	private ITokenMapper mapper;
 	private boolean isWhitespace;
 
-	public ANTLRTokenWrapper(Token t, IColorMapper mapper)
+	public ANTLRTokenWrapper(Token t, ITokenMapper myMapper)
 	{
 		this.token = t;
 		this.isUndefined = false;
 		this.isWhitespace = false;
-		this.mapper = mapper;
+		this.mapper = myMapper;
 	}
 	
 	public ANTLRTokenWrapper(boolean isUndefined, boolean isWhitespace) {

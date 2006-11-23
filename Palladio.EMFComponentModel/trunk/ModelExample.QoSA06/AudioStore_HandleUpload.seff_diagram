@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.0/notation" xmlns:pcm.seff="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0" xmi:id="_nCJXwHjiEduuSvsux_US9A" type="Pcm" measurementUnit="Pixel">
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.0/notation" xmlns:pcm.parameter="http://sdq.ipd.uka.de/PalladioComponentModel/Parameter/1.0" xmlns:pcm.seff="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0" xmi:id="_nCJXwHjiEduuSvsux_US9A" type="Pcm" measurementUnit="Pixel">
   <children xmi:type="notation:Node" xmi:id="_pdHlYHjiEduuSvsux_US9A" type="1001">
     <styles xmi:type="notation:FontStyle" xmi:id="_pdHlYXjiEduuSvsux_US9A"/>
     <styles xmi:type="notation:DescriptionStyle" xmi:id="_pdHlYnjiEduuSvsux_US9A"/>
@@ -11,6 +11,10 @@
   <children xmi:type="notation:Node" xmi:id="_qkpOIHjiEduuSvsux_US9A" type="1003">
     <children xmi:type="notation:Node" xmi:id="_qkpOJnjiEduuSvsux_US9A" type="4001"/>
     <children xmi:type="notation:Node" xmi:id="_qkyYEHjiEduuSvsux_US9A" type="5001">
+      <children xmi:type="notation:Node" xmi:id="_Q8gFMHslEduIsLeTLMz_aw" type="2001">
+        <element xmi:type="pcm.parameter:VariableUsage" href="Qosa.repository#//@components__Repository.1/@serviceEffectSpecifications__BasicComponent.0/@steps_Behaviour.1/@parameterUsage_ExternalCallAction.0"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_Q8gFMXslEduIsLeTLMz_aw"/>
+      </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_qkyYEXjiEduuSvsux_US9A"/>
       <styles xmi:type="notation:TitleStyle" xmi:id="_qkyYEnjiEduuSvsux_US9A" showTitle="true"/>
       <styles xmi:type="notation:SortingStyle" xmi:id="_qkyYE3jiEduuSvsux_US9A"/>
@@ -21,7 +25,7 @@
     <styles xmi:type="notation:FillStyle" xmi:id="_qkpOI3jiEduuSvsux_US9A"/>
     <styles xmi:type="notation:LineStyle" xmi:id="_qkpOJHjiEduuSvsux_US9A"/>
     <element xmi:type="pcm.seff:ExternalCallAction" href="Qosa.repository#_qkMiMHjiEduuSvsux_US9A"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_qkpOJXjiEduuSvsux_US9A" x="188" y="81"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_qkpOJXjiEduuSvsux_US9A" x="180" y="60"/>
   </children>
   <children xmi:type="notation:Node" xmi:id="_sde_EXjiEduuSvsux_US9A" type="1003">
     <children xmi:type="notation:Node" xmi:id="_sde_F3jiEduuSvsux_US9A" type="4001"/>
@@ -71,7 +75,7 @@
     <styles xmi:type="notation:LineStyle" xmi:id="_G_oBA3jjEduuSvsux_US9A"/>
     <element xsi:nil="true"/>
     <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_G_oBBHjjEduuSvsux_US9A" points="[20, 4, -104, 0]$[96, 4, -28, 0]"/>
-    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_G_xyAHjjEduuSvsux_US9A" id="(0.18666667,0.26785713)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_G_xyAHjjEduuSvsux_US9A" id="(0.0154639175,0.4027778)"/>
   </edges>
   <edges xmi:type="notation:Edge" xmi:id="_HjrwUHjjEduuSvsux_US9A" type="3001" source="_qkpOIHjiEduuSvsux_US9A" target="_sde_EXjiEduuSvsux_US9A">
     <styles xmi:type="notation:RoutingStyle" xmi:id="_HjrwUXjjEduuSvsux_US9A"/>

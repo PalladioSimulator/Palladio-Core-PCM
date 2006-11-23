@@ -1,12 +1,13 @@
-// $ANTLR : "stoex.g" -> "StochasticExpressionsParser.java"$
+// $ANTLR : "expandedvariableusage.g" -> "VariableUsageParser.java"$
   
 	package de.uka.ipd.sdq.pcm.stochasticexpressions.parser;
 	import de.uka.ipd.sdq.pcm.core.stochastics.*;
 	import de.uka.ipd.sdq.probfunction.*;
 	import de.uka.ipd.sdq.pcm.parameter.*;
 	import java.util.ArrayList;
+	import de.uka.ipd.sdq.pcm.stochasticexpressions.StoExPrettyPrintVisitor;
 
-public interface StochasticExpressionsParserTokenTypes {
+public interface VariableUsageParserTokenTypes {
 	int EOF = 1;
 	int NULL_TREE_LOOKAHEAD = 3;
 	int EQUAL = 4;

@@ -53,41 +53,33 @@ import de.uka.ipd.sdq.pcm.stochasticexpressions.parser.StochasticExpressionsPars
  * @author Snowball
  * 
  */
-public class StoachasticExpressionEditDialog extends Dialog {
+public abstract class AbstractGrammerBasedEditDialog extends Dialog {
 
 	public static final String ERROR_TYPE = "ERROR";
-
-	private Expression result;
 
 	// private Text editText;
 	private SourceViewer textViewer;
 
-	private String newText = "= ";
+	protected String newText = null;
 
 	private AnnotationModel fAnnotationModel;
+	
+	private Object result = null;
 
 	/**
 	 * @param parent
 	 */
-	public StoachasticExpressionEditDialog(Shell parent) {
+	public AbstractGrammerBasedEditDialog(Shell parent) {
 		super(parent);
+		newText = getInitialText();
 	}
 
-	/**
-	 * @param parent
-	 * @param style
-	 */
-	public StoachasticExpressionEditDialog(Shell parent, int style) {
-		super(parent);
-	}
-
-	public void setInitialExpression(Expression ex) {
-		newText = "= " + new StoExPrettyPrintVisitor().prettyPrint(ex);
-	}
-
+	protected abstract String getInitialText();
+	
 	@Override
-	protected void okPressed() {
-		super.okPressed();
+	protected void cancelPressed() {
+		super.cancelPressed();
+		result = null;
 	}
 
 	@Override
@@ -96,7 +88,7 @@ public class StoachasticExpressionEditDialog extends Dialog {
 		IAnnotationAccess fAnnotationAccess = new AnnotationMarkerAccess();
 
 		final Group editStochasticExpressionGroup = new Group(parent, SWT.NONE);
-		editStochasticExpressionGroup.setText("Edit stochastic expression");
+		editStochasticExpressionGroup.setText(getTitle());
 		editStochasticExpressionGroup.setLayout(new GridLayout());
 
 		fAnnotationModel = new AnnotationModel();
@@ -125,7 +117,7 @@ public class StoachasticExpressionEditDialog extends Dialog {
 		// this will draw the squigglies under the text
 		textViewer.addPainter(ap);
 
-		textViewer.configure(new StoExSourceViewerConfiguration(fAnnotationModel));
+		textViewer.configure(new AbstractGrammarBasedViewerConfiguration(fAnnotationModel,getLexerClass(),getTokenMapper()));
 		GridData layoutData = new GridData(GridData.FILL_BOTH
 				| GridData.GRAB_HORIZONTAL | GridData.GRAB_VERTICAL);
 		layoutData.heightHint = 300;
@@ -146,17 +138,19 @@ public class StoachasticExpressionEditDialog extends Dialog {
 		return textViewer.getControl();
 	}
 
+	protected abstract ITokenMapper getTokenMapper();
+	protected abstract Class getLexerClass();
+
+	protected abstract String getTitle();
+
 	protected void parseInputAndRefreshAnnotations() {
 		EObject value = null;
 		fAnnotationModel.removeAllAnnotations();
-		StochasticExpressionsLexer lexer = null;
+		CharScanner lexer = null;
 		try {
 			String text = this.textViewer.getDocument().get();
-			lexer = new StochasticExpressionsLexer(
-					new StringReader(text));
-			StochasticExpressionsParser parser = new StochasticExpressionsParser(
-					lexer);
-			value = parser.expression();
+			lexer = getLexer(text);
+			value = parse(lexer);
 		} catch (RecognitionException e) {
 			showInputInvalidInfo(e);
 			return;
@@ -168,9 +162,12 @@ public class StoachasticExpressionEditDialog extends Dialog {
 			return;
 		}
 		this.getButton(IDialogConstants.OK_ID).setEnabled(true);
-		result = (Expression) value;
+		result = value;
 	}
 
+	protected abstract CharScanner getLexer(String text);
+	protected abstract EObject parse(CharScanner lexer) throws RecognitionException,TokenStreamException;
+	
 	private void showInputInvalidInfo(TokenStreamException e,CharScanner scanner) {
 		result = null;
 		fAnnotationModel.addAnnotation(
@@ -208,13 +205,14 @@ public class StoachasticExpressionEditDialog extends Dialog {
 		return new Position(0, textViewer.getDocument().getLength());
 	}
 
-	public Expression getResult() {
+	protected Object getResult()
+	{
 		return result;
 	}
-
+	
 	protected void configureShell(Shell newShell) {
 		super.configureShell(newShell);
-		newShell.setText("Edit stochastic expression");
+		newShell.setText(getTitle());
 	}
 }
 

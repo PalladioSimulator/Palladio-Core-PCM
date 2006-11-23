@@ -67,10 +67,10 @@ public class ParameterFactoryImpl extends EFactoryImpl implements ParameterFacto
 	 */
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
+			case ParameterPackage.VARIABLE_USAGE: return createVariableUsage();
 			case ParameterPackage.VARIABLE_CHARACTERISATION: return createVariableCharacterisation();
 			case ParameterPackage.NAMESPACE_REFERENCE: return createNamespaceReference();
 			case ParameterPackage.VARIABLE_REFERENCE: return createVariableReference();
-			case ParameterPackage.VARIABLE_USAGE: return createVariableUsage();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}

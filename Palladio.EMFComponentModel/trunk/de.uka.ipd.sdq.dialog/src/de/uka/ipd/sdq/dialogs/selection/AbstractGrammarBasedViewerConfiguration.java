@@ -41,15 +41,19 @@ import de.uka.ipd.sdq.pcm.stochasticexpressions.parser.StochasticExpressionsLexe
  * @author Snowball
  * 
  */
-public class StoExSourceViewerConfiguration extends SourceViewerConfiguration {
+public class AbstractGrammarBasedViewerConfiguration extends SourceViewerConfiguration {
 
 	private IAnnotationModel annotationModel;
+	private Class myLexerClass;
+	private ITokenMapper myMapper;
 
 	/**
 	 * 
 	 */
-	public StoExSourceViewerConfiguration(IAnnotationModel annotationModel) {
+	public AbstractGrammarBasedViewerConfiguration(IAnnotationModel annotationModel, Class lexerClass, ITokenMapper myMapper) {
 		this.annotationModel = annotationModel;
+		this.myLexerClass = lexerClass;
+		this.myMapper = myMapper;
 	}
 
 	/*
@@ -75,36 +79,7 @@ public class StoExSourceViewerConfiguration extends SourceViewerConfiguration {
 	}
 
 	private ITokenScanner getKeywordScanner() {
-		// RuleBasedScanner keywordScanner = new RuleBasedScanner();
-		// IRule[] rules = new IRule[1];
-		// rules[0] = createKeywordRule();
-		// keywordScanner.setRules(rules);
-		// return keywordScanner;
-		return new ANTLRTokenScannerAdapter(StochasticExpressionsLexer.class);
-	}
-
-	private IRule createKeywordRule() {
-		IToken keywordToken = new Token(new TextAttribute(new Color(null,
-				new RGB(0, 0, 255)), null, SWT.BOLD));
-		WordRule rule = new WordRule(new IWordDetector() {
-
-			public boolean isWordPart(char c) {
-				c = Character.toLowerCase(c);
-				return (c >= 'a' && c <= 'z');
-			}
-
-			public boolean isWordStart(char c) {
-				c = Character.toLowerCase(c);
-				return (c >= 'a' && c <= 'z');
-			}
-
-		});
-		rule.addWord("DoublePDF", keywordToken);
-		rule.addWord("IntPMF", keywordToken);
-		rule.addWord("DoublePMF", keywordToken);
-		rule.addWord("EnumPMF", keywordToken);
-		rule.addWord("BoolPMF", keywordToken);
-		return rule;
+		return new ANTLRTokenScannerAdapter(myLexerClass,myMapper);
 	}
 
 	public IContentAssistant getContentAssistant(ISourceViewer sourceViewer) {

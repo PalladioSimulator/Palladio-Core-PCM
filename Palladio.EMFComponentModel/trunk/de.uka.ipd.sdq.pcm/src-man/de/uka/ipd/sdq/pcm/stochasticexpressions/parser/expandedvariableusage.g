@@ -4,21 +4,38 @@ header{
 	import de.uka.ipd.sdq.probfunction.*;
 	import de.uka.ipd.sdq.pcm.parameter.*;
 	import java.util.ArrayList;
+	import de.uka.ipd.sdq.pcm.stochasticexpressions.StoExPrettyPrintVisitor;
+}
+{@SuppressWarnings({"unused"})}class VariableUsageParser extends Parser;
+
+options {
+	buildAST=false;
+	defaultErrorHandler=false;
+	k=2;
+	importVocab=StochasticExpressionsParser;
 }
 
-{@SuppressWarnings({"unused"})}
-class StochasticExpressionsParser extends Parser;
-options { buildAST=false; defaultErrorHandler=false; k=2; }
+variable_usage returns [VariableUsage vu]{vu = null; AbstractNamedReference id; Expression ex; VariableCharacterisationType type;}
+:id = scoped_id type = characterisation ex = expression
+		{vu = ParameterFactory.eINSTANCE.createVariableUsage();
+		vu.setNamedReference_VariableUsage(id);
+		VariableCharacterisation vc = ParameterFactory.eINSTANCE.createVariableCharacterisation();
+		vc.setType(type);
+		String result = "= " + new StoExPrettyPrintVisitor().prettyPrint(ex);
+		vc.setSpecification(result);
+		vu.getVariableCharacterisation_VariableUsage().add(vc);
+		}
+;
 
-expression returns [Expression exp] 
-	{exp = null;} : 
-		{Comparison c;} 
+// inherited from grammar StochasticExpressionsParser
+expression returns [Expression exp]{exp = null;}
+:{Comparison c;} 
 			EQUAL c=compareExpr
 		{exp = c;};
 
-compareExpr returns [Comparison comp]
-	{comp = null;} :
-		{Term t1 = null, t2 = null;}
+// inherited from grammar StochasticExpressionsParser
+compareExpr returns [Comparison comp]{comp = null;}
+:{Term t1 = null, t2 = null;}
 			t1 = sumExpr {comp = t1;} (
 				{CompareExpression compExp = StochasticsFactory.eINSTANCE.createCompareExpression();}
 				(GREATER {compExp.setOperation(CompareOperations.GREATER_LITERAL);}|
@@ -30,9 +47,9 @@ compareExpr returns [Comparison comp]
 				 t2 = sumExpr 
 				 	{compExp.setLeft(t1); compExp.setRight(t2); comp=compExp;})? ;
 
-sumExpr returns [Term t]
-	{t = null;} : 
-		{Product p1 = null, p2 = null;}
+// inherited from grammar StochasticExpressionsParser
+sumExpr returns [Term t]{t = null;}
+:{Product p1 = null, p2 = null;}
 		p1 = prodExpr {t = p1;} (
 			{TermExpression termExp = StochasticsFactory.eINSTANCE.createTermExpression();}			
 			(PLUS {termExp.setOperation(TermOperations.ADD_LITERAL);}|
@@ -41,10 +58,10 @@ sumExpr returns [Term t]
 				{termExp.setLeft(t); termExp.setRight(p2); t = termExp;}
 			)* 
 ;
-		
-prodExpr returns [Product p] 
-	{p = null;} : 
-		{Power pw1 = null, pw2 = null;}
+
+// inherited from grammar StochasticExpressionsParser
+prodExpr returns [Product p]{p = null;}
+:{Power pw1 = null, pw2 = null;}
 		pw1 = powExpr {p = pw1;} 
 			(
 			{ProductExpression prodExp = StochasticsFactory.eINSTANCE.createProductExpression();}
@@ -56,14 +73,14 @@ prodExpr returns [Product p]
 			  )*
 ;
 
-powExpr returns [Power pw]  
-	{pw = null;} : 
-		{Atom a1 = null, a2 = null;}
+// inherited from grammar StochasticExpressionsParser
+powExpr returns [Power pw]{pw = null;}
+:{Atom a1 = null, a2 = null;}
 		a1 = atom {pw = a1;} (POW a2 = atom |) ;
 
-atom returns [Atom a]
-	{a = null;} :
-		(
+// inherited from grammar StochasticExpressionsParser
+atom returns [Atom a]{a = null;}
+:(
 		  number:NUMBER 
 			{
 				String value = number.getText();
@@ -92,11 +109,10 @@ atom returns [Atom a]
 	    )
 ;
 
-definition returns [ProbabilityFunctionLiteral pfl] 
-	{pfl = StochasticsFactory.eINSTANCE.createProbabilityFunctionLiteral();
-	 ProbabilityFunction probFunction = null; } : 
-		
-		// Numeric PMF
+// inherited from grammar StochasticExpressionsParser
+definition returns [ProbabilityFunctionLiteral pfl]{pfl = StochasticsFactory.eINSTANCE.createProbabilityFunctionLiteral();
+	 ProbabilityFunction probFunction = null; }
+:// Numeric PMF
 			
 			INT_DEF
 				{probFunction = ProbfunctionFactory.eINSTANCE.createProbabilityMassFunction();
@@ -160,20 +176,19 @@ definition returns [ProbabilityFunctionLiteral pfl]
 				  pdf_sample = real_pdf_sample
 				  {((BoxedPDF)probFunction).getSamples().add(pdf_sample);})+ 
 	 		SQUARE_PAREN_R 
-;	 		
-			
+;
 
-unit returns [Unit u]
-	{u = null;}:
-		UNIT_DEF
+// inherited from grammar StochasticExpressionsParser
+unit returns [Unit u]{u = null;}
+:UNIT_DEF
 			{ u = ProbfunctionFactory.eINSTANCE.createUnit(); }
 			EQUAL
 			str:STRING_LITERAL 
 			{u.setUnitName(str.getText().replace("\"",""));} ;
 
-numeric_int_sample returns [Sample s]
-	{s = null;} : 
-		LPAREN
+// inherited from grammar StochasticExpressionsParser
+numeric_int_sample returns [Sample s]{s = null;}
+:LPAREN
 			{s = ProbfunctionFactory.eINSTANCE.createSample();} 
 			n:NUMBER
 			{s.setProbability(Double.parseDouble(n.getText()));} 
@@ -181,10 +196,10 @@ numeric_int_sample returns [Sample s]
 			n2:NUMBER 
 			{s.setValue(Integer.parseInt(n2.getText()));} 
 			RPAREN;
-		
-numeric_real_sample returns [Sample s]
-	{s = null;} : 
-		LPAREN
+
+// inherited from grammar StochasticExpressionsParser
+numeric_real_sample returns [Sample s]{s = null;}
+:LPAREN
 			{s = ProbfunctionFactory.eINSTANCE.createSample();} 
 			n:NUMBER
 			{s.setProbability(Double.parseDouble(n.getText()));} 
@@ -192,10 +207,10 @@ numeric_real_sample returns [Sample s]
 			n2:NUMBER 
 			{s.setValue(Double.parseDouble(n2.getText()));} 
 			RPAREN;
-			
-real_pdf_sample returns [ContinuousSample s]
-	{s = null;} : 
-		LPAREN
+
+// inherited from grammar StochasticExpressionsParser
+real_pdf_sample returns [ContinuousSample s]{s = null;}
+:LPAREN
 			{s = ProbfunctionFactory.eINSTANCE.createContinuousSample();} 
 			n:NUMBER
 			{s.setValue(Double.parseDouble(n.getText()));} 
@@ -203,10 +218,10 @@ real_pdf_sample returns [ContinuousSample s]
 			n2:NUMBER 
 			{s.setProbability(Double.parseDouble(n2.getText()));} 
 			RPAREN;
-			
-stringsample returns [Sample s] 
-	{s = null;} : 
-		LPAREN
+
+// inherited from grammar StochasticExpressionsParser
+stringsample returns [Sample s]{s = null;}
+:LPAREN
 			{s = ProbfunctionFactory.eINSTANCE.createSample();} 
 		n:NUMBER 
 			{s.setProbability(Double.parseDouble(n.getText()));} 
@@ -215,9 +230,9 @@ stringsample returns [Sample s]
 			{s.setValue(str.getText().replace("\"",""));} 
 		RPAREN;
 
-characterisation returns [VariableCharacterisationType ct]
-{ct = null;} :
-	DOT type : CHARACTERISATIONS
+// inherited from grammar StochasticExpressionsParser
+characterisation returns [VariableCharacterisationType ct]{ct = null;}
+:DOT type : CHARACTERISATIONS
 	{if(type.getText().equals("TYPE"))
 		ct = VariableCharacterisationType.DATATYPE_LITERAL;
 	 else if(type.getText().equals("BYTESIZE"))
@@ -230,11 +245,11 @@ characterisation returns [VariableCharacterisationType ct]
 		ct = VariableCharacterisationType.STRUCTURE_LITERAL;
 	}
 ;
-	
-scoped_id returns [AbstractNamedReference ref]
-{ref = null;
-ArrayList<String> nameParts = new ArrayList<String>();} :
-	id1:ID {nameParts.add(id1.getText());} 
+
+// inherited from grammar StochasticExpressionsParser
+scoped_id returns [AbstractNamedReference ref]{ref = null;
+ArrayList<String> nameParts = new ArrayList<String>();}
+:id1:ID {nameParts.add(id1.getText());} 
 	    (DOT (id2:ID {nameParts.add(id2.getText());} | id3:INNER {nameParts.add("INNER");}) )*
 	{
 	AbstractNamedReference firstNsRef=null;
@@ -259,47 +274,5 @@ ArrayList<String> nameParts = new ArrayList<String>();} :
 			ref = varRef;
 	}
 ;
-	
-{@SuppressWarnings({"unused"})}
-class StochasticExpressionsLexer extends Lexer;
-options { k = 9; }
-
-PLUS  : '+' ;
-MINUS : '-' ;
-MUL   : '*' ;
-DIV   : '/' ;
-MOD   : '%' ;
-POW   : '^' ;
-LPAREN: '(' ;
-RPAREN: ')' ;
-SEMI  : ';' ;
-EQUAL : '=' ;
-INT_DEF : "IntPMF" ;
-REAL_DEF: "DoublePMF" ;
-ENUM_DEF: "EnumPMF" ;
-REAL_PDF: "DoublePDF" ;
-SQUARE_PAREN_L : '[' ;
-SQUARE_PAREN_R : ']' ;
-UNIT_DEF : "unit" ;
-ORDERED_DEF : "ordered" ;
-protected DIGIT : '0'..'9' ;
-NUMBER : (DIGIT)+ ('.' (DIGIT)+)?;
-protected ALPHA : 'a'..'z' | 'A'..'Z' ;
-// PARAM : "prim_param" | "coll_param" ;
-NOTEQUAL : "<>" ;
-GREATER : ">" ;
-LESS : "<" ;
-GREATEREQUAL : ">=" ;
-LESSEQUAL : "<=" ;
-STRING_LITERAL : "\"" (ALPHA|'_')+ "\"" ;
-INNER : "INNER";
-DOT: '.';
-ID: (ALPHA|'_')+;
-CHARACTERISATIONS: "BYTESIZE" | "STRUCTURE" | "NUMBER_OF_ELEMENTS" | "TYPE" | "VALUE";
-
-protected MEAN : "mean" ;
-protected PROB : "prob" ;
-FUNCTION_DEF : MEAN | PROB ;
 
 
-WS    : (' ' | '\t' | '\r' | '\n') {$setType(Token.SKIP);} ;

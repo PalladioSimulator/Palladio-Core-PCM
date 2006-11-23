@@ -96,16 +96,16 @@ public class ParameterSwitch {
 	 */
 	protected Object doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
+			case ParameterPackage.VARIABLE_USAGE: {
+				VariableUsage variableUsage = (VariableUsage)theEObject;
+				Object result = caseVariableUsage(variableUsage);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case ParameterPackage.VARIABLE_CHARACTERISATION: {
 				VariableCharacterisation variableCharacterisation = (VariableCharacterisation)theEObject;
 				Object result = caseVariableCharacterisation(variableCharacterisation);
 				if (result == null) result = caseRandomVariable(variableCharacterisation);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case ParameterPackage.ABSTRACT_NAMED_REFERENCE: {
-				AbstractNamedReference abstractNamedReference = (AbstractNamedReference)theEObject;
-				Object result = caseAbstractNamedReference(abstractNamedReference);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -123,9 +123,9 @@ public class ParameterSwitch {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case ParameterPackage.VARIABLE_USAGE: {
-				VariableUsage variableUsage = (VariableUsage)theEObject;
-				Object result = caseVariableUsage(variableUsage);
+			case ParameterPackage.ABSTRACT_NAMED_REFERENCE: {
+				AbstractNamedReference abstractNamedReference = (AbstractNamedReference)theEObject;
+				Object result = caseAbstractNamedReference(abstractNamedReference);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}

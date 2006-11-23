@@ -7,13 +7,14 @@
       <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_N13bgHigEduukpybJ6mGaw" successor_AbstractAction="_QM0EwHigEduukpybJ6mGaw"/>
       <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_OdNIUHigEduukpybJ6mGaw" predecessor_AbstractAction="_q5848HikEduI2qb8vPxxKg"/>
       <steps_Behaviour xsi:type="pcm.seff:LoopAction" id="_QM0EwHigEduukpybJ6mGaw" predecessor_AbstractAction="_N13bgHigEduukpybJ6mGaw" successor_AbstractAction="_q5848HikEduI2qb8vPxxKg">
-        <resourceDemand_Action unit=""/>
+        <resourceDemand_Action specification="= a.INNER.BYTESIZE" unit=""/>
         <bodyBehaviour_Loop>
           <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_aK4QYHigEduukpybJ6mGaw" predecessor_AbstractAction="_mOvHAHikEduI2qb8vPxxKg"/>
           <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_bMTRIHigEduukpybJ6mGaw" successor_AbstractAction="_mOvHAHikEduI2qb8vPxxKg"/>
           <steps_Behaviour xsi:type="pcm.seff:ExternalCallAction" id="_mOvHAHikEduI2qb8vPxxKg" predecessor_AbstractAction="_bMTRIHigEduukpybJ6mGaw" successor_AbstractAction="_aK4QYHigEduukpybJ6mGaw" calledService_ExternalService="//@interfaces__Repository.1/@signatures__Interface.0">
-            <parameterUsage_ExternalCallAction xsi:type="pcm.parameter:PrimitiveParameterUsage" parameter_ParameterUsage="//@interfaces__Repository.1/@signatures__Interface.0/@parameters__Signature.0">
-              <parameterCharacterisation_ParameterUsage specification="= files.INNER.BYTESIZE" type="BYTESIZE"/>
+            <parameterUsage_ExternalCallAction>
+              <variableCharacterisation_VariableUsage specification="= files.INNER.BYTESIZE" type="BYTESIZE"/>
+              <namedReference_VariableUsage xsi:type="pcm.parameter:VariableReference" referenceName="file"/>
             </parameterUsage_ExternalCallAction>
           </steps_Behaviour>
         </bodyBehaviour_Loop>
@@ -27,7 +28,12 @@
     <requiredRoles_InterfaceRequiringEntity id="_mWYNoHiEEdujPfhn5Gb-iA" requiredInterface__RequiredRole="_kmoHQHiEEdujPfhn5Gb-iA"/>
     <serviceEffectSpecifications__BasicComponent xsi:type="pcm.seff:ResourceDemandingSEFF" describedService__SEFF="//@interfaces__Repository.1/@signatures__Interface.0">
       <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_pchIcHjiEduuSvsux_US9A" successor_AbstractAction="_qkMiMHjiEduuSvsux_US9A"/>
-      <steps_Behaviour xsi:type="pcm.seff:ExternalCallAction" id="_qkMiMHjiEduuSvsux_US9A" predecessor_AbstractAction="_pchIcHjiEduuSvsux_US9A" successor_AbstractAction="_sde_EHjiEduuSvsux_US9A" calledService_ExternalService="//@interfaces__Repository.2/@signatures__Interface.0"/>
+      <steps_Behaviour xsi:type="pcm.seff:ExternalCallAction" id="_qkMiMHjiEduuSvsux_US9A" predecessor_AbstractAction="_pchIcHjiEduuSvsux_US9A" successor_AbstractAction="_sde_EHjiEduuSvsux_US9A" calledService_ExternalService="//@interfaces__Repository.2/@signatures__Interface.0">
+        <parameterUsage_ExternalCallAction>
+          <variableCharacterisation_VariableUsage specification="= file.BYTESIZE" type="BYTESIZE"/>
+          <namedReference_VariableUsage xsi:type="pcm.parameter:VariableReference" referenceName="file"/>
+        </parameterUsage_ExternalCallAction>
+      </steps_Behaviour>
       <steps_Behaviour xsi:type="pcm.seff:ExternalCallAction" id="_sde_EHjiEduuSvsux_US9A" predecessor_AbstractAction="_qkMiMHjiEduuSvsux_US9A" successor_AbstractAction="_FzVNAHjjEduuSvsux_US9A" calledService_ExternalService="//@interfaces__Repository.2/@signatures__Interface.1"/>
       <steps_Behaviour xsi:type="pcm.seff:ExternalCallAction" id="_FzVNAHjjEduuSvsux_US9A" predecessor_AbstractAction="_sde_EHjiEduuSvsux_US9A" successor_AbstractAction="_Ghq5sHjjEduuSvsux_US9A" calledService_ExternalService="//@interfaces__Repository.2/@signatures__Interface.2"/>
       <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_Ghq5sHjjEduuSvsux_US9A" predecessor_AbstractAction="_FzVNAHjjEduuSvsux_US9A"/>
@@ -55,7 +61,12 @@
     <requiredRoles_InterfaceRequiringEntity id="_wE_w8HjlEduuSvsux_US9A" requiredInterface__RequiredRole="_kmoHQHiEEdujPfhn5Gb-iA"/>
     <serviceEffectSpecifications__BasicComponent xsi:type="pcm.seff:ResourceDemandingSEFF" describedService__SEFF="//@interfaces__Repository.2/@signatures__Interface.0">
       <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_m0OwMHjlEduuSvsux_US9A" successor_AbstractAction="_ot0vEHjlEduuSvsux_US9A"/>
-      <steps_Behaviour xsi:type="pcm.seff:ExternalCallAction" id="_ot0vEHjlEduuSvsux_US9A" predecessor_AbstractAction="_m0OwMHjlEduuSvsux_US9A" successor_AbstractAction="_zBy5QHjlEduuSvsux_US9A" calledService_ExternalService="//@interfaces__Repository.3/@signatures__Interface.0"/>
+      <steps_Behaviour xsi:type="pcm.seff:ExternalCallAction" id="_ot0vEHjlEduuSvsux_US9A" predecessor_AbstractAction="_m0OwMHjlEduuSvsux_US9A" successor_AbstractAction="_zBy5QHjlEduuSvsux_US9A" calledService_ExternalService="//@interfaces__Repository.3/@signatures__Interface.0">
+        <parameterUsage_ExternalCallAction>
+          <variableCharacterisation_VariableUsage specification="= file.BYTESIZE" type="BYTESIZE"/>
+          <namedReference_VariableUsage xsi:type="pcm.parameter:VariableReference" referenceName="file"/>
+        </parameterUsage_ExternalCallAction>
+      </steps_Behaviour>
       <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_qifxsHjlEduuSvsux_US9A" predecessor_AbstractAction="_zBy5QHjlEduuSvsux_US9A"/>
       <steps_Behaviour xsi:type="pcm.seff:ExternalCallAction" id="_zBy5QHjlEduuSvsux_US9A" predecessor_AbstractAction="_ot0vEHjlEduuSvsux_US9A" successor_AbstractAction="_qifxsHjlEduuSvsux_US9A" calledService_ExternalService="//@interfaces__Repository.2/@signatures__Interface.0"/>
     </serviceEffectSpecifications__BasicComponent>

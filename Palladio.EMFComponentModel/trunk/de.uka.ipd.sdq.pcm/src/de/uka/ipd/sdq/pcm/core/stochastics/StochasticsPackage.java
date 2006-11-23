@@ -229,13 +229,22 @@ public interface StochasticsPackage extends EPackage {
 	int VARIABLE = 7;
 
 	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * The feature id for the '<em><b>Id Variable</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VARIABLE__ID = ATOM_FEATURE_COUNT + 0;
+	int VARIABLE__ID_VARIABLE = ATOM_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Characterisation Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIABLE__CHARACTERISATION_TYPE = ATOM_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Variable</em>' class.
@@ -244,7 +253,7 @@ public interface StochasticsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VARIABLE_FEATURE_COUNT = ATOM_FEATURE_COUNT + 1;
+	int VARIABLE_FEATURE_COUNT = ATOM_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.core.stochastics.impl.ParantesisImpl <em>Parantesis</em>}' class.
@@ -649,15 +658,26 @@ public interface StochasticsPackage extends EPackage {
 	EClass getVariable();
 
 	/**
-	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.pcm.core.stochastics.Variable#getId <em>Id</em>}'.
+	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.pcm.core.stochastics.Variable#getId_Variable <em>Id Variable</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Id</em>'.
-	 * @see de.uka.ipd.sdq.pcm.core.stochastics.Variable#getId()
+	 * @return the meta object for the reference '<em>Id Variable</em>'.
+	 * @see de.uka.ipd.sdq.pcm.core.stochastics.Variable#getId_Variable()
 	 * @see #getVariable()
 	 * @generated
 	 */
-	EAttribute getVariable_Id();
+	EReference getVariable_Id_Variable();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.pcm.core.stochastics.Variable#getCharacterisationType <em>Characterisation Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Characterisation Type</em>'.
+	 * @see de.uka.ipd.sdq.pcm.core.stochastics.Variable#getCharacterisationType()
+	 * @see #getVariable()
+	 * @generated
+	 */
+	EAttribute getVariable_CharacterisationType();
 
 	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.core.stochastics.Parantesis <em>Parantesis</em>}'.
@@ -1031,12 +1051,20 @@ public interface StochasticsPackage extends EPackage {
 		EClass VARIABLE = eINSTANCE.getVariable();
 
 		/**
-		 * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Id Variable</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute VARIABLE__ID = eINSTANCE.getVariable_Id();
+		EReference VARIABLE__ID_VARIABLE = eINSTANCE.getVariable_Id_Variable();
+
+		/**
+		 * The meta object literal for the '<em><b>Characterisation Type</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute VARIABLE__CHARACTERISATION_TYPE = eINSTANCE.getVariable_CharacterisationType();
 
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.core.stochastics.impl.ParantesisImpl <em>Parantesis</em>}' class.

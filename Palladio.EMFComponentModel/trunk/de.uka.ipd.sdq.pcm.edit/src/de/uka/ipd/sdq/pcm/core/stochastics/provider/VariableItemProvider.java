@@ -25,6 +25,8 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 import de.uka.ipd.sdq.pcm.core.stochastics.StochasticsPackage;
 import de.uka.ipd.sdq.pcm.core.stochastics.Variable;
 
+import de.uka.ipd.sdq.pcm.parameter.VariableCharacterisationType;
+
 /**
  * This is the item provider adapter for a {@link de.uka.ipd.sdq.pcm.core.stochastics.Variable} object.
  * <!-- begin-user-doc -->
@@ -66,25 +68,48 @@ public class VariableItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addIdPropertyDescriptor(object);
+			addId_VariablePropertyDescriptor(object);
+			addCharacterisationTypePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Id feature.
+	 * This adds a property descriptor for the Id Variable feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addIdPropertyDescriptor(Object object) {
+	protected void addId_VariablePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Variable_id_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Variable_id_feature", "_UI_Variable_type"),
-				 StochasticsPackage.Literals.VARIABLE__ID,
+				 getString("_UI_Variable_id_Variable_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Variable_id_Variable_feature", "_UI_Variable_type"),
+				 StochasticsPackage.Literals.VARIABLE__ID_VARIABLE,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Characterisation Type feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addCharacterisationTypePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Variable_characterisationType_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Variable_characterisationType_feature", "_UI_Variable_type"),
+				 StochasticsPackage.Literals.VARIABLE__CHARACTERISATION_TYPE,
 				 true,
 				 false,
 				 false,
@@ -110,7 +135,8 @@ public class VariableItemProvider
 	 * @generated
 	 */
 	public String getText(Object object) {
-		String label = ((Variable)object).getId();
+		VariableCharacterisationType labelValue = ((Variable)object).getCharacterisationType();
+		String label = labelValue == null ? null : labelValue.toString();
 		return label == null || label.length() == 0 ?
 			getString("_UI_Variable_type") :
 			getString("_UI_Variable_type") + " " + label;
@@ -127,7 +153,7 @@ public class VariableItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Variable.class)) {
-			case StochasticsPackage.VARIABLE__ID:
+			case StochasticsPackage.VARIABLE__CHARACTERISATION_TYPE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

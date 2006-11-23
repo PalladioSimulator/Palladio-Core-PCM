@@ -265,10 +265,10 @@ public class ParameterItemProviderAdapterFactory extends ParameterAdapterFactory
 	 * @generated
 	 */
 	public void dispose() {
+		if (variableUsageItemProvider != null) variableUsageItemProvider.dispose();
 		if (variableCharacterisationItemProvider != null) variableCharacterisationItemProvider.dispose();
 		if (namespaceReferenceItemProvider != null) namespaceReferenceItemProvider.dispose();
 		if (variableReferenceItemProvider != null) variableReferenceItemProvider.dispose();
-		if (variableUsageItemProvider != null) variableUsageItemProvider.dispose();
 	}
 
 }

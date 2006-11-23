@@ -14,13 +14,19 @@ import org.eclipse.gmf.runtime.diagram.ui.editpolicies.LabelDirectEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.ListItemComponentEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.tools.DragEditPartsTrackerEx;
 import org.eclipse.gmf.runtime.notation.View;
+
+import de.uka.ipd.sdq.pcm.core.stochastics.RandomVariable;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.OpenStoExEditorEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.PcmTextNonResizableEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.PcmTextSelectionEditPolicy;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.VariableUsageEditorEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.VariableUsageItemSemanticEditPolicy;
 
 import de.uka.ipd.sdq.pcm.gmf.seff.part.PcmDiagramEditorPlugin;
 
 import de.uka.ipd.sdq.pcm.gmf.seff.providers.PcmElementTypes;
+import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
+import de.uka.ipd.sdq.pcm.stochasticexpressions.ParameterPrettyPrint;
 
 import java.util.List;
 
@@ -132,7 +138,7 @@ public class VariableUsageEditPart extends CompartmentEditPart implements
 	}
 
 	/**
-	 * @generated
+	 * @generated NOT
 	 */
 	protected void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
@@ -144,6 +150,9 @@ public class VariableUsageEditPart extends CompartmentEditPart implements
 				new ListItemComponentEditPolicy());
 		installEditPolicy(EditPolicy.DIRECT_EDIT_ROLE,
 				new LabelDirectEditPolicy());
+		installEditPolicy(EditPolicyRoles.OPEN_ROLE,
+				new VariableUsageEditorEditPolicy(
+						(VariableUsage) (((View) getModel()).getElement())));
 	}
 
 	/**
@@ -236,15 +245,17 @@ public class VariableUsageEditPart extends CompartmentEditPart implements
 	}
 
 	/**
-	 * @generated
+	 * @generated NOT
 	 */
 	protected String getLabelText() {
 		String text = null;
-		if (getParser() != null) {
-			text = getParser().getPrintString(
-					new EObjectAdapter(getParserElement()),
-					getParserOptions().intValue());
-		}
+//		if (getParser() != null) {
+//			text = getParser().getPrintString(
+//					new EObjectAdapter(getParserElement()),
+//					getParserOptions().intValue());
+//		}
+		VariableUsage usage = (VariableUsage) resolveSemanticElement();
+		text = (String)new ParameterPrettyPrint().doSwitch(usage);
 		if (text == null || text.length() == 0) {
 			text = defaultText;
 		}
@@ -275,10 +286,10 @@ public class VariableUsageEditPart extends CompartmentEditPart implements
 	}
 
 	/**
-	 * @generated
+	 * @generated NOT
 	 */
 	protected boolean isEditable() {
-		return getEditText() != null;
+		return false;
 	}
 
 	/**

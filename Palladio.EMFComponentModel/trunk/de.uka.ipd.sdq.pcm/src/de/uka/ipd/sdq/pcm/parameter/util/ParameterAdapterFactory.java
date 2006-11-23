@@ -79,11 +79,11 @@ public class ParameterAdapterFactory extends AdapterFactoryImpl {
 	 */
 	protected ParameterSwitch modelSwitch =
 		new ParameterSwitch() {
+			public Object caseVariableUsage(VariableUsage object) {
+				return createVariableUsageAdapter();
+			}
 			public Object caseVariableCharacterisation(VariableCharacterisation object) {
 				return createVariableCharacterisationAdapter();
-			}
-			public Object caseAbstractNamedReference(AbstractNamedReference object) {
-				return createAbstractNamedReferenceAdapter();
 			}
 			public Object caseNamespaceReference(NamespaceReference object) {
 				return createNamespaceReferenceAdapter();
@@ -91,8 +91,8 @@ public class ParameterAdapterFactory extends AdapterFactoryImpl {
 			public Object caseVariableReference(VariableReference object) {
 				return createVariableReferenceAdapter();
 			}
-			public Object caseVariableUsage(VariableUsage object) {
-				return createVariableUsageAdapter();
+			public Object caseAbstractNamedReference(AbstractNamedReference object) {
+				return createAbstractNamedReferenceAdapter();
 			}
 			public Object caseRandomVariable(RandomVariable object) {
 				return createRandomVariableAdapter();

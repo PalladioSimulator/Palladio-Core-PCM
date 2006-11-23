@@ -39,11 +39,14 @@ public class ANTLRTokenScannerAdapter implements ITokenScanner {
 
 	private int baseOffset;
 
+	private ITokenMapper myMapper;
+
 	/**
 	 * 
 	 */
-	public ANTLRTokenScannerAdapter(Class scannerClass) {
+	public ANTLRTokenScannerAdapter(Class scannerClass, ITokenMapper mapper) {
 		this.scannerClass = scannerClass;
+		this.myMapper = mapper;
 	}
 
 	/*
@@ -76,7 +79,7 @@ public class ANTLRTokenScannerAdapter implements ITokenScanner {
 			holdBackToken = null;
 		} else {
 			try {
-				wrapper = new ANTLRTokenWrapper(scanner.nextToken(), new StoExTokenMapper());
+				wrapper = new ANTLRTokenWrapper(scanner.nextToken(), myMapper);
 			} catch (TokenStreamException e) {
 				try {
 					if (ParserHelper.positionToOffset(currentDocument, scanner.getLine(), scanner.getColumn()) + baseOffset <= currentDocument.get().length())

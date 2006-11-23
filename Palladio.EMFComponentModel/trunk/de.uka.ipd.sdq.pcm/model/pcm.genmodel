@@ -19,7 +19,7 @@
     <details key="UNION_PROPERTIES" value="REPORT"/>
     <details key="DUPLICATE_OPERATION_INHERITANCE" value="DISCARD"/>
   </genAnnotations>
-  <foreignModel>file:/D:/Diss/Work/RSA-Export/pcm.uml2</foreignModel>
+  <foreignModel>file:/C:/coding/svn/rsa_exports/pcm.uml2</foreignModel>
   <modelPluginVariables>EMFT_OCL=org.eclipse.emf.ocl</modelPluginVariables>
   <genPackages prefix="Pcm" basePackage="de.uka.ipd.sdq" disposableProviderFactory="true"
       ecorePackage="pcm.ecore#/">
@@ -55,7 +55,9 @@
         <genClasses image="false" ecoreClass="pcm.ecore#//core/stochastics/Power"/>
         <genClasses image="false" ecoreClass="pcm.ecore#//core/stochastics/Atom"/>
         <genClasses ecoreClass="pcm.ecore#//core/stochastics/Variable">
-          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pcm.ecore#//core/stochastics/Variable/id"/>
+          <genFeatures notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference pcm.ecore#//core/stochastics/Variable/id_Variable"/>
+          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pcm.ecore#//core/stochastics/Variable/characterisationType"/>
         </genClasses>
         <genClasses ecoreClass="pcm.ecore#//core/stochastics/Parantesis">
           <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//core/stochastics/Parantesis/innerExpression"/>
@@ -155,6 +157,30 @@
           <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//core/composition/ComposedStructure/compositeAssemblyConnectors_ComposedStructure"/>
         </genClasses>
       </nestedGenPackages>
+    </nestedGenPackages>
+    <nestedGenPackages prefix="Parameter" basePackage="de.uka.ipd.sdq.pcm" disposableProviderFactory="true"
+        ecorePackage="pcm.ecore#//parameter">
+      <genEnums ecoreEnum="pcm.ecore#//parameter/VariableCharacterisationType">
+        <genEnumLiterals ecoreEnumLiteral="pcm.ecore#//parameter/VariableCharacterisationType/STRUCTURE"/>
+        <genEnumLiterals ecoreEnumLiteral="pcm.ecore#//parameter/VariableCharacterisationType/NUMBER_OF_ELEMENTS"/>
+        <genEnumLiterals ecoreEnumLiteral="pcm.ecore#//parameter/VariableCharacterisationType/VALUE"/>
+        <genEnumLiterals ecoreEnumLiteral="pcm.ecore#//parameter/VariableCharacterisationType/BYTESIZE"/>
+        <genEnumLiterals ecoreEnumLiteral="pcm.ecore#//parameter/VariableCharacterisationType/DATATYPE"/>
+      </genEnums>
+      <genClasses ecoreClass="pcm.ecore#//parameter/VariableUsage">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//parameter/VariableUsage/variableCharacterisation_VariableUsage"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//parameter/VariableUsage/namedReference_VariableUsage"/>
+      </genClasses>
+      <genClasses ecoreClass="pcm.ecore#//parameter/VariableCharacterisation">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pcm.ecore#//parameter/VariableCharacterisation/type"/>
+      </genClasses>
+      <genClasses ecoreClass="pcm.ecore#//parameter/NamespaceReference">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//parameter/NamespaceReference/innerReference_NamespaceReference"/>
+      </genClasses>
+      <genClasses ecoreClass="pcm.ecore#//parameter/VariableReference"/>
+      <genClasses image="false" ecoreClass="pcm.ecore#//parameter/AbstractNamedReference">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pcm.ecore#//parameter/AbstractNamedReference/referenceName"/>
+      </genClasses>
     </nestedGenPackages>
     <nestedGenPackages prefix="Repository" basePackage="de.uka.ipd.sdq.pcm" disposableProviderFactory="true"
         ecorePackage="pcm.ecore#//repository">
@@ -387,30 +413,6 @@
       <genClasses ecoreClass="pcm.ecore#//resourcetype/PassiveResourceType"/>
       <genClasses ecoreClass="pcm.ecore#//resourcetype/CommunicationLinkResourceType"/>
       <genClasses ecoreClass="pcm.ecore#//resourcetype/ProcessingResourceType"/>
-    </nestedGenPackages>
-    <nestedGenPackages prefix="Parameter" basePackage="de.uka.ipd.sdq.pcm" disposableProviderFactory="true"
-        ecorePackage="pcm.ecore#//parameter">
-      <genEnums ecoreEnum="pcm.ecore#//parameter/VariableCharacterisationType">
-        <genEnumLiterals ecoreEnumLiteral="pcm.ecore#//parameter/VariableCharacterisationType/STRUCTURE"/>
-        <genEnumLiterals ecoreEnumLiteral="pcm.ecore#//parameter/VariableCharacterisationType/NUMBER_OF_ELEMENTS"/>
-        <genEnumLiterals ecoreEnumLiteral="pcm.ecore#//parameter/VariableCharacterisationType/VALUE"/>
-        <genEnumLiterals ecoreEnumLiteral="pcm.ecore#//parameter/VariableCharacterisationType/BYTESIZE"/>
-        <genEnumLiterals ecoreEnumLiteral="pcm.ecore#//parameter/VariableCharacterisationType/DATATYPE"/>
-      </genEnums>
-      <genClasses ecoreClass="pcm.ecore#//parameter/VariableCharacterisation">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pcm.ecore#//parameter/VariableCharacterisation/type"/>
-      </genClasses>
-      <genClasses image="false" ecoreClass="pcm.ecore#//parameter/AbstractNamedReference">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pcm.ecore#//parameter/AbstractNamedReference/referenceName"/>
-      </genClasses>
-      <genClasses ecoreClass="pcm.ecore#//parameter/NamespaceReference">
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//parameter/NamespaceReference/innerReference_NamespaceReference"/>
-      </genClasses>
-      <genClasses ecoreClass="pcm.ecore#//parameter/VariableReference"/>
-      <genClasses image="false" ecoreClass="pcm.ecore#//parameter/VariableUsage">
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//parameter/VariableUsage/variableCharacterisation_VariableUsage"/>
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//parameter/VariableUsage/namedReference_VariableUsage"/>
-      </genClasses>
     </nestedGenPackages>
     <nestedGenPackages prefix="Allocation" basePackage="de.uka.ipd.sdq.pcm" disposableProviderFactory="true"
         ecorePackage="pcm.ecore#//allocation">

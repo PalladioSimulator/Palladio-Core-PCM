@@ -1,10 +1,11 @@
-// $ANTLR : "stoex.g" -> "StochasticExpressionsParser.java"$
+// $ANTLR : "expandedvariableusage.g" -> "VariableUsageParser.java"$
   
 	package de.uka.ipd.sdq.pcm.stochasticexpressions.parser;
 	import de.uka.ipd.sdq.pcm.core.stochastics.*;
 	import de.uka.ipd.sdq.probfunction.*;
 	import de.uka.ipd.sdq.pcm.parameter.*;
 	import java.util.ArrayList;
+	import de.uka.ipd.sdq.pcm.stochasticexpressions.StoExPrettyPrintVisitor;
 
 import antlr.TokenBuffer;
 import antlr.TokenStreamException;
@@ -20,32 +21,145 @@ import antlr.SemanticException;
 import antlr.ParserSharedInputState;
 import antlr.collections.impl.BitSet;
 @SuppressWarnings({"unused"})
-public class StochasticExpressionsParser extends antlr.LLkParser       implements StochasticExpressionsParserTokenTypes
+public class VariableUsageParser extends antlr.LLkParser       implements VariableUsageParserTokenTypes
  {
 
-protected StochasticExpressionsParser(TokenBuffer tokenBuf, int k) {
+protected VariableUsageParser(TokenBuffer tokenBuf, int k) {
   super(tokenBuf,k);
   tokenNames = _tokenNames;
 }
 
-public StochasticExpressionsParser(TokenBuffer tokenBuf) {
+public VariableUsageParser(TokenBuffer tokenBuf) {
   this(tokenBuf,2);
 }
 
-protected StochasticExpressionsParser(TokenStream lexer, int k) {
+protected VariableUsageParser(TokenStream lexer, int k) {
   super(lexer,k);
   tokenNames = _tokenNames;
 }
 
-public StochasticExpressionsParser(TokenStream lexer) {
+public VariableUsageParser(TokenStream lexer) {
   this(lexer,2);
 }
 
-public StochasticExpressionsParser(ParserSharedInputState state) {
+public VariableUsageParser(ParserSharedInputState state) {
   super(state,2);
   tokenNames = _tokenNames;
 }
 
+	public final VariableUsage  variable_usage() throws RecognitionException, TokenStreamException {
+		VariableUsage vu;
+		
+		vu = null; AbstractNamedReference id; Expression ex; VariableCharacterisationType type;
+		
+		id=scoped_id();
+		type=characterisation();
+		ex=expression();
+		vu = ParameterFactory.eINSTANCE.createVariableUsage();
+				vu.setNamedReference_VariableUsage(id);
+				VariableCharacterisation vc = ParameterFactory.eINSTANCE.createVariableCharacterisation();
+				vc.setType(type);
+				String result = "= " + new StoExPrettyPrintVisitor().prettyPrint(ex);
+				vc.setSpecification(result);
+				vu.getVariableCharacterisation_VariableUsage().add(vc);
+				
+		return vu;
+	}
+	
+	public final AbstractNamedReference  scoped_id() throws RecognitionException, TokenStreamException {
+		AbstractNamedReference ref;
+		
+		Token  id1 = null;
+		Token  id2 = null;
+		Token  id3 = null;
+		ref = null;
+		ArrayList<String> nameParts = new ArrayList<String>();
+		
+		id1 = LT(1);
+		match(ID);
+		nameParts.add(id1.getText());
+		{
+		_loop3400:
+		do {
+			if ((LA(1)==DOT) && (LA(2)==ID||LA(2)==INNER)) {
+				match(DOT);
+				{
+				switch ( LA(1)) {
+				case ID:
+				{
+					id2 = LT(1);
+					match(ID);
+					nameParts.add(id2.getText());
+					break;
+				}
+				case INNER:
+				{
+					id3 = LT(1);
+					match(INNER);
+					nameParts.add("INNER");
+					break;
+				}
+				default:
+				{
+					throw new NoViableAltException(LT(1), getFilename());
+				}
+				}
+				}
+			}
+			else {
+				break _loop3400;
+			}
+			
+		} while (true);
+		}
+		
+			AbstractNamedReference firstNsRef=null;
+			NamespaceReference lastNsRef = null;
+			for (int i=0; i < nameParts.size()-1; i++)
+			{
+				NamespaceReference nsRef = ParameterFactory.eINSTANCE.createNamespaceReference();
+				nsRef.setReferenceName(nameParts.get(i));
+				if (lastNsRef != null)
+					lastNsRef.setInnerReference_NamespaceReference(lastNsRef);
+				if (i == 0)
+				   	firstNsRef = nsRef;
+				lastNsRef = nsRef;
+			}
+			VariableReference varRef = ParameterFactory.eINSTANCE.createVariableReference();
+			varRef.setReferenceName(nameParts.get(nameParts.size()-1));
+				if (lastNsRef != null) {
+					lastNsRef.setInnerReference_NamespaceReference(varRef);
+					ref = firstNsRef;
+				}
+				else
+					ref = varRef;
+			
+		return ref;
+	}
+	
+	public final VariableCharacterisationType  characterisation() throws RecognitionException, TokenStreamException {
+		VariableCharacterisationType ct;
+		
+		Token  type = null;
+		ct = null;
+		
+		match(DOT);
+		type = LT(1);
+		match(CHARACTERISATIONS);
+		if(type.getText().equals("TYPE"))
+				ct = VariableCharacterisationType.DATATYPE_LITERAL;
+			 else if(type.getText().equals("BYTESIZE"))
+				ct = VariableCharacterisationType.BYTESIZE_LITERAL;
+			 else if(type.getText().equals("NUMBER_OF_ELEMENTS"))
+				ct = VariableCharacterisationType.NUMBER_OF_ELEMENTS_LITERAL;
+			 else if(type.getText().equals("VALUE"))
+				ct = VariableCharacterisationType.VALUE_LITERAL;
+			 else if(type.getText().equals("STRUCTURE"))
+				ct = VariableCharacterisationType.STRUCTURE_LITERAL;
+			
+		return ct;
+	}
+	
 	public final Expression  expression() throws RecognitionException, TokenStreamException {
 		Expression exp;
 		
@@ -146,7 +260,7 @@ public StochasticExpressionsParser(ParserSharedInputState state) {
 		p1=prodExpr();
 		t = p1;
 		{
-		_loop3240:
+		_loop3368:
 		do {
 			if ((LA(1)==PLUS||LA(1)==MINUS)) {
 				TermExpression termExp = StochasticsFactory.eINSTANCE.createTermExpression();
@@ -174,7 +288,7 @@ public StochasticExpressionsParser(ParserSharedInputState state) {
 				termExp.setLeft(t); termExp.setRight(p2); t = termExp;
 			}
 			else {
-				break _loop3240;
+				break _loop3368;
 			}
 			
 		} while (true);
@@ -191,7 +305,7 @@ public StochasticExpressionsParser(ParserSharedInputState state) {
 		pw1=powExpr();
 		p = pw1;
 		{
-		_loop3244:
+		_loop3372:
 		do {
 			if (((LA(1) >= MUL && LA(1) <= MOD))) {
 				ProductExpression prodExp = StochasticsFactory.eINSTANCE.createProductExpression();
@@ -225,7 +339,7 @@ public StochasticExpressionsParser(ParserSharedInputState state) {
 				prodExp.setLeft(p); prodExp.setRight(pw2); p = prodExp;
 			}
 			else {
-				break _loop3244;
+				break _loop3372;
 			}
 			
 		} while (true);
@@ -330,100 +444,6 @@ public StochasticExpressionsParser(ParserSharedInputState state) {
 		return a;
 	}
 	
-	public final AbstractNamedReference  scoped_id() throws RecognitionException, TokenStreamException {
-		AbstractNamedReference ref;
-		
-		Token  id1 = null;
-		Token  id2 = null;
-		Token  id3 = null;
-		ref = null;
-		ArrayList<String> nameParts = new ArrayList<String>();
-		
-		id1 = LT(1);
-		match(ID);
-		nameParts.add(id1.getText());
-		{
-		_loop3272:
-		do {
-			if ((LA(1)==DOT) && (LA(2)==ID||LA(2)==INNER)) {
-				match(DOT);
-				{
-				switch ( LA(1)) {
-				case ID:
-				{
-					id2 = LT(1);
-					match(ID);
-					nameParts.add(id2.getText());
-					break;
-				}
-				case INNER:
-				{
-					id3 = LT(1);
-					match(INNER);
-					nameParts.add("INNER");
-					break;
-				}
-				default:
-				{
-					throw new NoViableAltException(LT(1), getFilename());
-				}
-				}
-				}
-			}
-			else {
-				break _loop3272;
-			}
-			
-		} while (true);
-		}
-		
-			AbstractNamedReference firstNsRef=null;
-			NamespaceReference lastNsRef = null;
-			for (int i=0; i < nameParts.size()-1; i++)
-			{
-				NamespaceReference nsRef = ParameterFactory.eINSTANCE.createNamespaceReference();
-				nsRef.setReferenceName(nameParts.get(i));
-				if (lastNsRef != null)
-					lastNsRef.setInnerReference_NamespaceReference(lastNsRef);
-				if (i == 0)
-				   	firstNsRef = nsRef;
-				lastNsRef = nsRef;
-			}
-			VariableReference varRef = ParameterFactory.eINSTANCE.createVariableReference();
-			varRef.setReferenceName(nameParts.get(nameParts.size()-1));
-				if (lastNsRef != null) {
-					lastNsRef.setInnerReference_NamespaceReference(varRef);
-					ref = firstNsRef;
-				}
-				else
-					ref = varRef;
-			
-		return ref;
-	}
-	
-	public final VariableCharacterisationType  characterisation() throws RecognitionException, TokenStreamException {
-		VariableCharacterisationType ct;
-		
-		Token  type = null;
-		ct = null;
-		
-		match(DOT);
-		type = LT(1);
-		match(CHARACTERISATIONS);
-		if(type.getText().equals("TYPE"))
-				ct = VariableCharacterisationType.DATATYPE_LITERAL;
-			 else if(type.getText().equals("BYTESIZE"))
-				ct = VariableCharacterisationType.BYTESIZE_LITERAL;
-			 else if(type.getText().equals("NUMBER_OF_ELEMENTS"))
-				ct = VariableCharacterisationType.NUMBER_OF_ELEMENTS_LITERAL;
-			 else if(type.getText().equals("VALUE"))
-				ct = VariableCharacterisationType.VALUE_LITERAL;
-			 else if(type.getText().equals("STRUCTURE"))
-				ct = VariableCharacterisationType.STRUCTURE_LITERAL;
-			
-		return ct;
-	}
-	
 	public final ProbabilityFunctionLiteral  definition() throws RecognitionException, TokenStreamException {
 		ProbabilityFunctionLiteral pfl;
 		
@@ -445,8 +465,8 @@ public StochasticExpressionsParser(ParserSharedInputState state) {
 			match(RPAREN);
 			match(SQUARE_PAREN_L);
 			{
-			int _cnt3252=0;
-			_loop3252:
+			int _cnt3380=0;
+			_loop3380:
 			do {
 				if ((LA(1)==LPAREN)) {
 					Sample isample=null;
@@ -454,10 +474,10 @@ public StochasticExpressionsParser(ParserSharedInputState state) {
 					((ProbabilityMassFunction)probFunction).getSamples().add(isample);
 				}
 				else {
-					if ( _cnt3252>=1 ) { break _loop3252; } else {throw new NoViableAltException(LT(1), getFilename());}
+					if ( _cnt3380>=1 ) { break _loop3380; } else {throw new NoViableAltException(LT(1), getFilename());}
 				}
 				
-				_cnt3252++;
+				_cnt3380++;
 			} while (true);
 			}
 			match(SQUARE_PAREN_R);
@@ -477,8 +497,8 @@ public StochasticExpressionsParser(ParserSharedInputState state) {
 			match(RPAREN);
 			match(SQUARE_PAREN_L);
 			{
-			int _cnt3255=0;
-			_loop3255:
+			int _cnt3383=0;
+			_loop3383:
 			do {
 				if ((LA(1)==LPAREN)) {
 					Sample rsample=null;
@@ -486,10 +506,10 @@ public StochasticExpressionsParser(ParserSharedInputState state) {
 					((ProbabilityMassFunction)probFunction).getSamples().add(rsample);
 				}
 				else {
-					if ( _cnt3255>=1 ) { break _loop3255; } else {throw new NoViableAltException(LT(1), getFilename());}
+					if ( _cnt3383>=1 ) { break _loop3383; } else {throw new NoViableAltException(LT(1), getFilename());}
 				}
 				
-				_cnt3255++;
+				_cnt3383++;
 			} while (true);
 			}
 			match(SQUARE_PAREN_R);
@@ -530,8 +550,8 @@ public StochasticExpressionsParser(ParserSharedInputState state) {
 			match(RPAREN);
 			match(SQUARE_PAREN_L);
 			{
-			int _cnt3259=0;
-			_loop3259:
+			int _cnt3387=0;
+			_loop3387:
 			do {
 				if ((LA(1)==LPAREN)) {
 					Sample ssample=null;
@@ -539,10 +559,10 @@ public StochasticExpressionsParser(ParserSharedInputState state) {
 					((ProbabilityMassFunction)probFunction).getSamples().add(ssample);
 				}
 				else {
-					if ( _cnt3259>=1 ) { break _loop3259; } else {throw new NoViableAltException(LT(1), getFilename());}
+					if ( _cnt3387>=1 ) { break _loop3387; } else {throw new NoViableAltException(LT(1), getFilename());}
 				}
 				
-				_cnt3259++;
+				_cnt3387++;
 			} while (true);
 			}
 			match(SQUARE_PAREN_R);
@@ -562,8 +582,8 @@ public StochasticExpressionsParser(ParserSharedInputState state) {
 			match(RPAREN);
 			match(SQUARE_PAREN_L);
 			{
-			int _cnt3262=0;
-			_loop3262:
+			int _cnt3390=0;
+			_loop3390:
 			do {
 				if ((LA(1)==LPAREN)) {
 					ContinuousSample pdf_sample=null;
@@ -571,10 +591,10 @@ public StochasticExpressionsParser(ParserSharedInputState state) {
 					((BoxedPDF)probFunction).getSamples().add(pdf_sample);
 				}
 				else {
-					if ( _cnt3262>=1 ) { break _loop3262; } else {throw new NoViableAltException(LT(1), getFilename());}
+					if ( _cnt3390>=1 ) { break _loop3390; } else {throw new NoViableAltException(LT(1), getFilename());}
 				}
 				
-				_cnt3262++;
+				_cnt3390++;
 			} while (true);
 			}
 			match(SQUARE_PAREN_R);

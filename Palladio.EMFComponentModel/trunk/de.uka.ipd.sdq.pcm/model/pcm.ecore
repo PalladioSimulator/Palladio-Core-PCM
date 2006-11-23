@@ -21,8 +21,10 @@
       <eClassifiers xsi:type="ecore:EClass" name="Power" abstract="true" eSuperTypes="#//core/stochastics/Product"/>
       <eClassifiers xsi:type="ecore:EClass" name="Atom" abstract="true" eSuperTypes="#//core/stochastics/Power"/>
       <eClassifiers xsi:type="ecore:EClass" name="Variable" eSuperTypes="#//core/stochastics/Atom">
-        <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" ordered="false"
-            lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="id_Variable" ordered="false"
+            lowerBound="1" eType="#//parameter/AbstractNamedReference"/>
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="characterisationType"
+            ordered="false" lowerBound="1" eType="#//parameter/VariableCharacterisationType"/>
       </eClassifiers>
       <eClassifiers xsi:type="ecore:EClass" name="Parantesis" eSuperTypes="#//core/stochastics/Atom">
         <eStructuralFeatures xsi:type="ecore:EReference" name="innerExpression" ordered="false"
@@ -181,6 +183,38 @@
             containment="true" eOpposite="#//core/composition/AssemblyConnector/parentStructure_AssemblyConnector"/>
       </eClassifiers>
     </eSubpackages>
+  </eSubpackages>
+  <eSubpackages name="parameter" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Parameter/1.0"
+      nsPrefix="pcm.parameter">
+    <eClassifiers xsi:type="ecore:EEnum" name="VariableCharacterisationType">
+      <eLiterals name="STRUCTURE"/>
+      <eLiterals name="NUMBER_OF_ELEMENTS" value="1"/>
+      <eLiterals name="VALUE" value="2"/>
+      <eLiterals name="BYTESIZE" value="3"/>
+      <eLiterals name="DATATYPE" value="4"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="VariableUsage">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="variableCharacterisation_VariableUsage"
+          ordered="false" upperBound="-1" eType="#//parameter/VariableCharacterisation"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="namedReference_VariableUsage"
+          ordered="false" lowerBound="1" eType="#//parameter/AbstractNamedReference"
+          containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="VariableCharacterisation" eSuperTypes="#//core/stochastics/RandomVariable">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" ordered="false"
+          lowerBound="1" eType="#//parameter/VariableCharacterisationType"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="NamespaceReference" eSuperTypes="#//parameter/AbstractNamedReference">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="innerReference_NamespaceReference"
+          ordered="false" lowerBound="1" eType="#//parameter/AbstractNamedReference"
+          containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="VariableReference" eSuperTypes="#//parameter/AbstractNamedReference"/>
+    <eClassifiers xsi:type="ecore:EClass" name="AbstractNamedReference" abstract="true">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="referenceName" ordered="false"
+          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
   </eSubpackages>
   <eSubpackages name="repository" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/1.0"
       nsPrefix="pcm.repository">
@@ -517,38 +551,6 @@
     <eClassifiers xsi:type="ecore:EClass" name="PassiveResourceType" eSuperTypes="#//resourcetype/ResourceType"/>
     <eClassifiers xsi:type="ecore:EClass" name="CommunicationLinkResourceType" eSuperTypes="#//resourcetype/ProcessingResourceType"/>
     <eClassifiers xsi:type="ecore:EClass" name="ProcessingResourceType" eSuperTypes="#//resourcetype/ResourceType"/>
-  </eSubpackages>
-  <eSubpackages name="parameter" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Parameter/1.0"
-      nsPrefix="pcm.parameter">
-    <eClassifiers xsi:type="ecore:EEnum" name="VariableCharacterisationType">
-      <eLiterals name="STRUCTURE"/>
-      <eLiterals name="NUMBER_OF_ELEMENTS" value="1"/>
-      <eLiterals name="VALUE" value="2"/>
-      <eLiterals name="BYTESIZE" value="3"/>
-      <eLiterals name="DATATYPE" value="4"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="VariableCharacterisation" eSuperTypes="#//core/stochastics/RandomVariable">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" ordered="false"
-          lowerBound="1" eType="#//parameter/VariableCharacterisationType"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="AbstractNamedReference" abstract="true">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="referenceName" ordered="false"
-          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="NamespaceReference" eSuperTypes="#//parameter/AbstractNamedReference">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="innerReference_NamespaceReference"
-          ordered="false" lowerBound="1" eType="#//parameter/AbstractNamedReference"
-          containment="true"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="VariableReference" eSuperTypes="#//parameter/AbstractNamedReference"/>
-    <eClassifiers xsi:type="ecore:EClass" name="VariableUsage">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="variableCharacterisation_VariableUsage"
-          ordered="false" upperBound="-1" eType="#//parameter/VariableCharacterisation"
-          containment="true"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="namedReference_VariableUsage"
-          ordered="false" lowerBound="1" eType="#//parameter/AbstractNamedReference"
-          containment="true"/>
-    </eClassifiers>
   </eSubpackages>
   <eSubpackages name="allocation" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Allocation/1.0"
       nsPrefix="pcm.allocation">

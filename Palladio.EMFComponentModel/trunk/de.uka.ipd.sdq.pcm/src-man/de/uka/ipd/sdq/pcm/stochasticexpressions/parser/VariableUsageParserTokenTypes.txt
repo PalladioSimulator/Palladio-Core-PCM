@@ -1,5 +1,5 @@
-// $ANTLR : stoex.g -> StochasticExpressionsParserTokenTypes.txt$
-StochasticExpressionsParser    // output token vocab name
+// $ANTLR : expandedvariableusage.g -> VariableUsageParserTokenTypes.txt$
+VariableUsageParser    // output token vocab name
 EQUAL=4
 GREATER=5
 LESS=6

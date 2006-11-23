@@ -15,7 +15,7 @@ import antlr.Token;
  * @author Steffen Becker
  *
  */
-public class StoExTokenMapper implements IColorMapper {
+public class StoExTokenMapper implements ITokenMapper {
 
 	/**
 	 * 
@@ -43,8 +43,11 @@ public class StoExTokenMapper implements IColorMapper {
 		case StochasticExpressionsParserTokenTypes.NUMBER:
 		case StochasticExpressionsParserTokenTypes.STRING_LITERAL:
 			return new TextAttribute (new Color( null, new RGB(0,0,255) ), null, SWT.BOLD);
+		case StochasticExpressionsParserTokenTypes.CHARACTERISATIONS:
+		case StochasticExpressionsParserTokenTypes.INNER:
+			return new TextAttribute (new Color( null, new RGB(255,0,255) ), null, SWT.ITALIC);
 		case StochasticExpressionsParserTokenTypes.ID:
-			return new TextAttribute (new Color( null, new RGB(255,0,255) ), null, SWT.BOLD);
+			return new TextAttribute (new Color( null, new RGB(255,0,255) ), null, SWT.NONE);
 		default:
 			return null;
 		}

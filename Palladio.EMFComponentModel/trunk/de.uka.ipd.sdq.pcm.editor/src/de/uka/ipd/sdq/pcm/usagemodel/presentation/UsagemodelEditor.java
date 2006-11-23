@@ -131,7 +131,7 @@ import org.eclipse.ui.views.properties.IPropertySource;
 import org.eclipse.ui.views.properties.PropertySheet;
 import org.eclipse.ui.views.properties.PropertySheetPage;
 
-import de.uka.ipd.sdq.dialogs.selection.StoachasticExpressionEditDialog;
+import de.uka.ipd.sdq.dialogs.selection.StochasticExpressionEditDialog;
 import de.uka.ipd.sdq.identifier.provider.IdentifierItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.allocation.provider.AllocationItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.core.composition.provider.CompositionItemProviderAdapterFactory;
@@ -1387,7 +1387,7 @@ public class UsagemodelEditor
 					@Override
 					protected Object openDialogBox(Control cellEditorWindow) {
 						RandomVariable randVar = (RandomVariable) object;
-						StoachasticExpressionEditDialog dialog = new StoachasticExpressionEditDialog(cellEditorWindow.getShell());
+						StochasticExpressionEditDialog dialog = new StochasticExpressionEditDialog(cellEditorWindow.getShell());
 						if (randVar.getSpecification_RandomVariable() != null)
 							dialog.setInitialExpression(randVar.getSpecification_RandomVariable());
 						dialog.open();
