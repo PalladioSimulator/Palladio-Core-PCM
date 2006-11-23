@@ -13,5 +13,8 @@ Require-Bundle: org.eclipse.ui,
  org.antlr,
  org.eclipse.jface.text,
  de.uka.ipd.sdq.pcm.edit,
- de.uka.ipd.sdq.pcmbench.ui
+ de.uka.ipd.sdq.pcmbench.ui,
+ org.eclipse.core.runtime
 Export-Package: de.uka.ipd.sdq.dialogs.selection
+Eclipse-LazyStart: true
+Bundle-Activator: DialogPluginActivator
