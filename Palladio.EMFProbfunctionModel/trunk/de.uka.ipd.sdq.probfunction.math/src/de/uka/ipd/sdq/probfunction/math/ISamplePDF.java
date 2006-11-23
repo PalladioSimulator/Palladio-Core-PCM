@@ -16,7 +16,7 @@ import flanagan.complex.Complex;
  * for a sample to lie in a certain interval. For example, if we have a pdf with
  * a distance of 5 between the sampling points, the probability stored in the
  * first point is for the interval [0, 2.5), the second for the interval [2.5,
- * 5), and so on. The probabilities of the intervals [a, b) are derived from the
+ * 7.5), and so on. The probabilities of the intervals [a, b) are derived from the
  * original pdf by computing difference F(b) - F(a) of its integral, which is
  * the the probability for a sample lying in the interval.
  * 

@@ -53,10 +53,15 @@ public class ProbabilityFunctionFactoryImpl
 			throws ProbabilitySumNotOneException, DoubleSampleException {
 		IUnit unit = transformToUnit(epdf.getUnit());
 		IBoxedPDF bpdf = createBoxedPDF(unit);
+		
 		if (epdf instanceof BoxedPDF) {
-			for (Object s : ((BoxedPDF) epdf).getSamples())
-				bpdf.getSamples().add(
-						transformToContinuousSample((ContinuousSample) s));
+			List<IContinuousSample> sampleList = new ArrayList<IContinuousSample>();
+			for (Object s : ((BoxedPDF) epdf).getSamples()){
+				// HK: fixed creation of BoxedPDF 
+				sampleList.add(transformToContinuousSample((ContinuousSample) s));
+				// bpdf.getSamples().add(transformToContinuousSample((ContinuousSample) s));
+			}
+			bpdf = createBoxedPDF(sampleList, unit);
 		} else if (epdf instanceof SamplePDF) {
 			int i = 1;
 			for (Object v : ((SamplePDF) epdf).getValues()) {
