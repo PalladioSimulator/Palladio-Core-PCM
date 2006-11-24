@@ -257,7 +257,9 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="serviceName" ordered="false"
           lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="parameters__Signature"
-          upperBound="-1" eType="#//repository/Parameter" containment="true"/>
+          upperBound="-1" eType="#//repository/Parameter" containment="true" eOpposite="#//repository/Parameter/signature_Parameter"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="interface_Signature"
+          ordered="false" lowerBound="1" eType="#//repository/Interface" eOpposite="#//repository/Interface/signatures__Interface"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="returntype__Signature"
           ordered="false" eType="#//repository/DataType"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="exceptions__Signature"
@@ -270,6 +272,8 @@
           lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="modifier__Parameter"
           ordered="false" lowerBound="1" eType="#//repository/ParameterModifier"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="signature_Parameter"
+          ordered="false" lowerBound="1" eType="#//repository/Signature" eOpposite="#//repository/Signature/parameters__Signature"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="DataType" abstract="true">
       <eStructuralFeatures xsi:type="ecore:EReference" name="repository_DataType"
@@ -330,7 +334,8 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="protocols__Interface"
           ordered="false" upperBound="-1" eType="#//protocol/Protocol" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="signatures__Interface"
-          ordered="false" upperBound="-1" eType="#//repository/Signature" containment="true"/>
+          ordered="false" upperBound="-1" eType="#//repository/Signature" containment="true"
+          eOpposite="#//repository/Signature/interface_Signature"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="repository_Interface"
           ordered="false" lowerBound="1" eType="#//repository/Repository" eOpposite="#//repository/Repository/interfaces__Repository"/>
     </eClassifiers>

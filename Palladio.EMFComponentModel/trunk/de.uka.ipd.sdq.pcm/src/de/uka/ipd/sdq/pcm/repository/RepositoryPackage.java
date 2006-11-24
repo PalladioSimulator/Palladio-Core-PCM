@@ -101,13 +101,22 @@ public interface RepositoryPackage extends EPackage {
 	int SIGNATURE__PARAMETERS_SIGNATURE = 1;
 
 	/**
+	 * The feature id for the '<em><b>Interface Signature</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SIGNATURE__INTERFACE_SIGNATURE = 2;
+
+	/**
 	 * The feature id for the '<em><b>Returntype Signature</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SIGNATURE__RETURNTYPE_SIGNATURE = 2;
+	int SIGNATURE__RETURNTYPE_SIGNATURE = 3;
 
 	/**
 	 * The feature id for the '<em><b>Exceptions Signature</b></em>' containment reference list.
@@ -116,7 +125,7 @@ public interface RepositoryPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SIGNATURE__EXCEPTIONS_SIGNATURE = 3;
+	int SIGNATURE__EXCEPTIONS_SIGNATURE = 4;
 
 	/**
 	 * The number of structural features of the '<em>Signature</em>' class.
@@ -125,7 +134,7 @@ public interface RepositoryPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SIGNATURE_FEATURE_COUNT = 4;
+	int SIGNATURE_FEATURE_COUNT = 5;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.repository.impl.ParameterImpl <em>Parameter</em>}' class.
@@ -165,13 +174,22 @@ public interface RepositoryPackage extends EPackage {
 	int PARAMETER__MODIFIER_PARAMETER = 2;
 
 	/**
+	 * The feature id for the '<em><b>Signature Parameter</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER__SIGNATURE_PARAMETER = 3;
+
+	/**
 	 * The number of structural features of the '<em>Parameter</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_FEATURE_COUNT = 3;
+	int PARAMETER_FEATURE_COUNT = 4;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.repository.impl.DataTypeImpl <em>Data Type</em>}' class.
@@ -1271,6 +1289,17 @@ public interface RepositoryPackage extends EPackage {
 	EReference getSignature_Parameters__Signature();
 
 	/**
+	 * Returns the meta object for the container reference '{@link de.uka.ipd.sdq.pcm.repository.Signature#getInterface_Signature <em>Interface Signature</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Interface Signature</em>'.
+	 * @see de.uka.ipd.sdq.pcm.repository.Signature#getInterface_Signature()
+	 * @see #getSignature()
+	 * @generated
+	 */
+	EReference getSignature_Interface_Signature();
+
+	/**
 	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.pcm.repository.Signature#getReturntype__Signature <em>Returntype Signature</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1334,6 +1363,17 @@ public interface RepositoryPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getParameter_Modifier__Parameter();
+
+	/**
+	 * Returns the meta object for the container reference '{@link de.uka.ipd.sdq.pcm.repository.Parameter#getSignature_Parameter <em>Signature Parameter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Signature Parameter</em>'.
+	 * @see de.uka.ipd.sdq.pcm.repository.Parameter#getSignature_Parameter()
+	 * @see #getParameter()
+	 * @generated
+	 */
+	EReference getParameter_Signature_Parameter();
 
 	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.repository.DataType <em>Data Type</em>}'.
@@ -1871,6 +1911,14 @@ public interface RepositoryPackage extends EPackage {
 		EReference SIGNATURE__PARAMETERS_SIGNATURE = eINSTANCE.getSignature_Parameters__Signature();
 
 		/**
+		 * The meta object literal for the '<em><b>Interface Signature</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SIGNATURE__INTERFACE_SIGNATURE = eINSTANCE.getSignature_Interface_Signature();
+
+		/**
 		 * The meta object literal for the '<em><b>Returntype Signature</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1919,6 +1967,14 @@ public interface RepositoryPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute PARAMETER__MODIFIER_PARAMETER = eINSTANCE.getParameter_Modifier__Parameter();
+
+		/**
+		 * The meta object literal for the '<em><b>Signature Parameter</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PARAMETER__SIGNATURE_PARAMETER = eINSTANCE.getParameter_Signature_Parameter();
 
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.repository.impl.DataTypeImpl <em>Data Type</em>}' class.

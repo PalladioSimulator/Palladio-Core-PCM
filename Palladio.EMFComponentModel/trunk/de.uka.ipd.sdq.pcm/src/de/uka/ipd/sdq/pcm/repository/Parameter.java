@@ -20,6 +20,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link de.uka.ipd.sdq.pcm.repository.Parameter#getDatatype__Parameter <em>Datatype Parameter</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.repository.Parameter#getParameterName <em>Parameter Name</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.repository.Parameter#getModifier__Parameter <em>Modifier Parameter</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.repository.Parameter#getSignature_Parameter <em>Signature Parameter</em>}</li>
  * </ul>
  * </p>
  *
@@ -115,5 +116,33 @@ public interface Parameter extends EObject {
 	 * @generated
 	 */
 	void setModifier__Parameter(ParameterModifier value);
+
+	/**
+	 * Returns the value of the '<em><b>Signature Parameter</b></em>' container reference.
+	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.repository.Signature#getParameters__Signature <em>Parameters Signature</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Signature Parameter</em>' container reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Signature Parameter</em>' container reference.
+	 * @see #setSignature_Parameter(Signature)
+	 * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getParameter_Signature_Parameter()
+	 * @see de.uka.ipd.sdq.pcm.repository.Signature#getParameters__Signature
+	 * @model opposite="parameters__Signature" required="true" ordered="false"
+	 * @generated
+	 */
+	Signature getSignature_Parameter();
+
+	/**
+	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.repository.Parameter#getSignature_Parameter <em>Signature Parameter</em>}' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Signature Parameter</em>' container reference.
+	 * @see #getSignature_Parameter()
+	 * @generated
+	 */
+	void setSignature_Parameter(Signature value);
 
 } // Parameter

@@ -22,6 +22,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.eclipse.emf.ecore.util.EcoreUtil;
@@ -189,7 +190,7 @@ public class InterfaceImpl extends EntityImpl implements Interface {
 	 */
 	public EList getSignatures__Interface() {
 		if (signatures__Interface == null) {
-			signatures__Interface = new EObjectContainmentEList(Signature.class, this, RepositoryPackage.INTERFACE__SIGNATURES_INTERFACE);
+			signatures__Interface = new EObjectContainmentWithInverseEList(Signature.class, this, RepositoryPackage.INTERFACE__SIGNATURES_INTERFACE, RepositoryPackage.SIGNATURE__INTERFACE_SIGNATURE);
 		}
 		return signatures__Interface;
 	}
@@ -322,6 +323,8 @@ public class InterfaceImpl extends EntityImpl implements Interface {
 	 */
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case RepositoryPackage.INTERFACE__SIGNATURES_INTERFACE:
+				return ((InternalEList)getSignatures__Interface()).basicAdd(otherEnd, msgs);
 			case RepositoryPackage.INTERFACE__REPOSITORY_INTERFACE:
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);

@@ -201,6 +201,7 @@
       <genClasses ecoreClass="pcm.ecore#//repository/Signature">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pcm.ecore#//repository/Signature/serviceName"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//repository/Signature/parameters__Signature"/>
+        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference pcm.ecore#//repository/Signature/interface_Signature"/>
         <genFeatures notify="false" createChild="false" ecoreFeature="ecore:EReference pcm.ecore#//repository/Signature/returntype__Signature"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//repository/Signature/exceptions__Signature"/>
         <genOperations ecoreOperation="pcm.ecore#//repository/Signature/ParameterNamesHaveToBeUniqueForASignature">
@@ -212,6 +213,7 @@
         <genFeatures notify="false" createChild="false" ecoreFeature="ecore:EReference pcm.ecore#//repository/Parameter/datatype__Parameter"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pcm.ecore#//repository/Parameter/parameterName"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pcm.ecore#//repository/Parameter/modifier__Parameter"/>
+        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference pcm.ecore#//repository/Parameter/signature_Parameter"/>
       </genClasses>
       <genClasses ecoreClass="pcm.ecore#//repository/DataType">
         <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference pcm.ecore#//repository/DataType/repository_DataType"/>

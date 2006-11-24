@@ -8,15 +8,21 @@
 package de.uka.ipd.sdq.pcm.repository.impl;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
+import org.eclipse.emf.ecore.util.EcoreUtil;
+
 import de.uka.ipd.sdq.pcm.repository.DataType;
 import de.uka.ipd.sdq.pcm.repository.Parameter;
 import de.uka.ipd.sdq.pcm.repository.ParameterModifier;
 import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
+
+import de.uka.ipd.sdq.pcm.repository.Signature;
 
 /**
  * <!-- begin-user-doc -->
@@ -28,6 +34,7 @@ import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
  *   <li>{@link de.uka.ipd.sdq.pcm.repository.impl.ParameterImpl#getDatatype__Parameter <em>Datatype Parameter</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.repository.impl.ParameterImpl#getParameterName <em>Parameter Name</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.repository.impl.ParameterImpl#getModifier__Parameter <em>Modifier Parameter</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.repository.impl.ParameterImpl#getSignature_Parameter <em>Signature Parameter</em>}</li>
  * </ul>
  * </p>
  *
@@ -196,6 +203,88 @@ public class ParameterImpl extends EObjectImpl implements Parameter {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Signature getSignature_Parameter() {
+		if (eContainerFeatureID != RepositoryPackage.PARAMETER__SIGNATURE_PARAMETER) return null;
+		return (Signature)eContainer();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetSignature_Parameter(Signature newSignature_Parameter, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject)newSignature_Parameter, RepositoryPackage.PARAMETER__SIGNATURE_PARAMETER, msgs);
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSignature_Parameter(Signature newSignature_Parameter) {
+		if (newSignature_Parameter != eInternalContainer() || (eContainerFeatureID != RepositoryPackage.PARAMETER__SIGNATURE_PARAMETER && newSignature_Parameter != null)) {
+			if (EcoreUtil.isAncestor(this, newSignature_Parameter))
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+			NotificationChain msgs = null;
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
+			if (newSignature_Parameter != null)
+				msgs = ((InternalEObject)newSignature_Parameter).eInverseAdd(this, RepositoryPackage.SIGNATURE__PARAMETERS_SIGNATURE, Signature.class, msgs);
+			msgs = basicSetSignature_Parameter(newSignature_Parameter, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, RepositoryPackage.PARAMETER__SIGNATURE_PARAMETER, newSignature_Parameter, newSignature_Parameter));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case RepositoryPackage.PARAMETER__SIGNATURE_PARAMETER:
+				if (eInternalContainer() != null)
+					msgs = eBasicRemoveFromContainer(msgs);
+				return basicSetSignature_Parameter((Signature)otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case RepositoryPackage.PARAMETER__SIGNATURE_PARAMETER:
+				return basicSetSignature_Parameter(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
+		switch (eContainerFeatureID) {
+			case RepositoryPackage.PARAMETER__SIGNATURE_PARAMETER:
+				return eInternalContainer().eInverseRemove(this, RepositoryPackage.SIGNATURE__PARAMETERS_SIGNATURE, Signature.class, msgs);
+		}
+		return super.eBasicRemoveFromContainerFeature(msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case RepositoryPackage.PARAMETER__DATATYPE_PARAMETER:
@@ -205,6 +294,8 @@ public class ParameterImpl extends EObjectImpl implements Parameter {
 				return getParameterName();
 			case RepositoryPackage.PARAMETER__MODIFIER_PARAMETER:
 				return getModifier__Parameter();
+			case RepositoryPackage.PARAMETER__SIGNATURE_PARAMETER:
+				return getSignature_Parameter();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -224,6 +315,9 @@ public class ParameterImpl extends EObjectImpl implements Parameter {
 				return;
 			case RepositoryPackage.PARAMETER__MODIFIER_PARAMETER:
 				setModifier__Parameter((ParameterModifier)newValue);
+				return;
+			case RepositoryPackage.PARAMETER__SIGNATURE_PARAMETER:
+				setSignature_Parameter((Signature)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -245,6 +339,9 @@ public class ParameterImpl extends EObjectImpl implements Parameter {
 			case RepositoryPackage.PARAMETER__MODIFIER_PARAMETER:
 				setModifier__Parameter(MODIFIER_PARAMETER_EDEFAULT);
 				return;
+			case RepositoryPackage.PARAMETER__SIGNATURE_PARAMETER:
+				setSignature_Parameter((Signature)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -262,6 +359,8 @@ public class ParameterImpl extends EObjectImpl implements Parameter {
 				return PARAMETER_NAME_EDEFAULT == null ? parameterName != null : !PARAMETER_NAME_EDEFAULT.equals(parameterName);
 			case RepositoryPackage.PARAMETER__MODIFIER_PARAMETER:
 				return modifier__Parameter != MODIFIER_PARAMETER_EDEFAULT;
+			case RepositoryPackage.PARAMETER__SIGNATURE_PARAMETER:
+				return getSignature_Parameter() != null;
 		}
 		return super.eIsSet(featureID);
 	}

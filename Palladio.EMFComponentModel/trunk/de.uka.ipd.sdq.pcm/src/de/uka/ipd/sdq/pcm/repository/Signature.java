@@ -23,6 +23,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link de.uka.ipd.sdq.pcm.repository.Signature#getServiceName <em>Service Name</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.repository.Signature#getParameters__Signature <em>Parameters Signature</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.repository.Signature#getInterface_Signature <em>Interface Signature</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.repository.Signature#getReturntype__Signature <em>Returntype Signature</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.repository.Signature#getExceptions__Signature <em>Exceptions Signature</em>}</li>
  * </ul>
@@ -69,6 +70,7 @@ public interface Signature extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Parameters Signature</b></em>' containment reference list.
 	 * The list contents are of type {@link de.uka.ipd.sdq.pcm.repository.Parameter}.
+	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.repository.Parameter#getSignature_Parameter <em>Signature Parameter</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Parameters Signature</em>' containment reference list isn't clear,
@@ -77,10 +79,39 @@ public interface Signature extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Parameters Signature</em>' containment reference list.
 	 * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getSignature_Parameters__Signature()
-	 * @model type="de.uka.ipd.sdq.pcm.repository.Parameter" containment="true"
+	 * @see de.uka.ipd.sdq.pcm.repository.Parameter#getSignature_Parameter
+	 * @model type="de.uka.ipd.sdq.pcm.repository.Parameter" opposite="signature_Parameter" containment="true"
 	 * @generated
 	 */
 	EList getParameters__Signature();
+
+	/**
+	 * Returns the value of the '<em><b>Interface Signature</b></em>' container reference.
+	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.repository.Interface#getSignatures__Interface <em>Signatures Interface</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Interface Signature</em>' container reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Interface Signature</em>' container reference.
+	 * @see #setInterface_Signature(Interface)
+	 * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getSignature_Interface_Signature()
+	 * @see de.uka.ipd.sdq.pcm.repository.Interface#getSignatures__Interface
+	 * @model opposite="signatures__Interface" required="true" ordered="false"
+	 * @generated
+	 */
+	Interface getInterface_Signature();
+
+	/**
+	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.repository.Signature#getInterface_Signature <em>Interface Signature</em>}' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Interface Signature</em>' container reference.
+	 * @see #getInterface_Signature()
+	 * @generated
+	 */
+	void setInterface_Signature(Interface value);
 
 	/**
 	 * Returns the value of the '<em><b>Returntype Signature</b></em>' reference.

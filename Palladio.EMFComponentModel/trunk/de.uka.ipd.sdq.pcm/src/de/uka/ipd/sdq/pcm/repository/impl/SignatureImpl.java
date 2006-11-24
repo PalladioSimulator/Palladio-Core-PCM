@@ -22,7 +22,9 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EObjectValidator;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.eclipse.emf.ocl.expressions.OCLExpression;
 import org.eclipse.emf.ocl.expressions.util.EvalEnvironment;
@@ -34,6 +36,7 @@ import org.eclipse.emf.ocl.query.QueryFactory;
 
 import de.uka.ipd.sdq.pcm.repository.DataType;
 import de.uka.ipd.sdq.pcm.repository.ExceptionType;
+import de.uka.ipd.sdq.pcm.repository.Interface;
 import de.uka.ipd.sdq.pcm.repository.Parameter;
 import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
 import de.uka.ipd.sdq.pcm.repository.Signature;
@@ -48,6 +51,7 @@ import de.uka.ipd.sdq.pcm.repository.util.RepositoryValidator;
  * <ul>
  *   <li>{@link de.uka.ipd.sdq.pcm.repository.impl.SignatureImpl#getServiceName <em>Service Name</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.repository.impl.SignatureImpl#getParameters__Signature <em>Parameters Signature</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.repository.impl.SignatureImpl#getInterface_Signature <em>Interface Signature</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.repository.impl.SignatureImpl#getReturntype__Signature <em>Returntype Signature</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.repository.impl.SignatureImpl#getExceptions__Signature <em>Exceptions Signature</em>}</li>
  * </ul>
@@ -172,9 +176,50 @@ public class SignatureImpl extends EObjectImpl implements Signature {
 	 */
 	public EList getParameters__Signature() {
 		if (parameters__Signature == null) {
-			parameters__Signature = new EObjectContainmentEList(Parameter.class, this, RepositoryPackage.SIGNATURE__PARAMETERS_SIGNATURE);
+			parameters__Signature = new EObjectContainmentWithInverseEList(Parameter.class, this, RepositoryPackage.SIGNATURE__PARAMETERS_SIGNATURE, RepositoryPackage.PARAMETER__SIGNATURE_PARAMETER);
 		}
 		return parameters__Signature;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Interface getInterface_Signature() {
+		if (eContainerFeatureID != RepositoryPackage.SIGNATURE__INTERFACE_SIGNATURE) return null;
+		return (Interface)eContainer();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetInterface_Signature(Interface newInterface_Signature, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject)newInterface_Signature, RepositoryPackage.SIGNATURE__INTERFACE_SIGNATURE, msgs);
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setInterface_Signature(Interface newInterface_Signature) {
+		if (newInterface_Signature != eInternalContainer() || (eContainerFeatureID != RepositoryPackage.SIGNATURE__INTERFACE_SIGNATURE && newInterface_Signature != null)) {
+			if (EcoreUtil.isAncestor(this, newInterface_Signature))
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+			NotificationChain msgs = null;
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
+			if (newInterface_Signature != null)
+				msgs = ((InternalEObject)newInterface_Signature).eInverseAdd(this, RepositoryPackage.INTERFACE__SIGNATURES_INTERFACE, Interface.class, msgs);
+			msgs = basicSetInterface_Signature(newInterface_Signature, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, RepositoryPackage.SIGNATURE__INTERFACE_SIGNATURE, newInterface_Signature, newInterface_Signature));
 	}
 
 	/**
@@ -272,14 +317,46 @@ public class SignatureImpl extends EObjectImpl implements Signature {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case RepositoryPackage.SIGNATURE__PARAMETERS_SIGNATURE:
+				return ((InternalEList)getParameters__Signature()).basicAdd(otherEnd, msgs);
+			case RepositoryPackage.SIGNATURE__INTERFACE_SIGNATURE:
+				if (eInternalContainer() != null)
+					msgs = eBasicRemoveFromContainer(msgs);
+				return basicSetInterface_Signature((Interface)otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case RepositoryPackage.SIGNATURE__PARAMETERS_SIGNATURE:
 				return ((InternalEList)getParameters__Signature()).basicRemove(otherEnd, msgs);
+			case RepositoryPackage.SIGNATURE__INTERFACE_SIGNATURE:
+				return basicSetInterface_Signature(null, msgs);
 			case RepositoryPackage.SIGNATURE__EXCEPTIONS_SIGNATURE:
 				return ((InternalEList)getExceptions__Signature()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
+		switch (eContainerFeatureID) {
+			case RepositoryPackage.SIGNATURE__INTERFACE_SIGNATURE:
+				return eInternalContainer().eInverseRemove(this, RepositoryPackage.INTERFACE__SIGNATURES_INTERFACE, Interface.class, msgs);
+		}
+		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
 
 	/**
@@ -293,6 +370,8 @@ public class SignatureImpl extends EObjectImpl implements Signature {
 				return getServiceName();
 			case RepositoryPackage.SIGNATURE__PARAMETERS_SIGNATURE:
 				return getParameters__Signature();
+			case RepositoryPackage.SIGNATURE__INTERFACE_SIGNATURE:
+				return getInterface_Signature();
 			case RepositoryPackage.SIGNATURE__RETURNTYPE_SIGNATURE:
 				if (resolve) return getReturntype__Signature();
 				return basicGetReturntype__Signature();
@@ -315,6 +394,9 @@ public class SignatureImpl extends EObjectImpl implements Signature {
 			case RepositoryPackage.SIGNATURE__PARAMETERS_SIGNATURE:
 				getParameters__Signature().clear();
 				getParameters__Signature().addAll((Collection)newValue);
+				return;
+			case RepositoryPackage.SIGNATURE__INTERFACE_SIGNATURE:
+				setInterface_Signature((Interface)newValue);
 				return;
 			case RepositoryPackage.SIGNATURE__RETURNTYPE_SIGNATURE:
 				setReturntype__Signature((DataType)newValue);
@@ -340,6 +422,9 @@ public class SignatureImpl extends EObjectImpl implements Signature {
 			case RepositoryPackage.SIGNATURE__PARAMETERS_SIGNATURE:
 				getParameters__Signature().clear();
 				return;
+			case RepositoryPackage.SIGNATURE__INTERFACE_SIGNATURE:
+				setInterface_Signature((Interface)null);
+				return;
 			case RepositoryPackage.SIGNATURE__RETURNTYPE_SIGNATURE:
 				setReturntype__Signature((DataType)null);
 				return;
@@ -361,6 +446,8 @@ public class SignatureImpl extends EObjectImpl implements Signature {
 				return SERVICE_NAME_EDEFAULT == null ? serviceName != null : !SERVICE_NAME_EDEFAULT.equals(serviceName);
 			case RepositoryPackage.SIGNATURE__PARAMETERS_SIGNATURE:
 				return parameters__Signature != null && !parameters__Signature.isEmpty();
+			case RepositoryPackage.SIGNATURE__INTERFACE_SIGNATURE:
+				return getInterface_Signature() != null;
 			case RepositoryPackage.SIGNATURE__RETURNTYPE_SIGNATURE:
 				return returntype__Signature != null;
 			case RepositoryPackage.SIGNATURE__EXCEPTIONS_SIGNATURE:

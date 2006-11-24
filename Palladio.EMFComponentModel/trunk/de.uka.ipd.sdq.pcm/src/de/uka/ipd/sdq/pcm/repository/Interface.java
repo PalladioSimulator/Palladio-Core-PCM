@@ -93,6 +93,7 @@ public interface Interface extends Entity {
 	/**
 	 * Returns the value of the '<em><b>Signatures Interface</b></em>' containment reference list.
 	 * The list contents are of type {@link de.uka.ipd.sdq.pcm.repository.Signature}.
+	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.repository.Signature#getInterface_Signature <em>Interface Signature</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Signatures Interface</em>' containment reference list isn't clear,
@@ -101,7 +102,8 @@ public interface Interface extends Entity {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Signatures Interface</em>' containment reference list.
 	 * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getInterface_Signatures__Interface()
-	 * @model type="de.uka.ipd.sdq.pcm.repository.Signature" containment="true" ordered="false"
+	 * @see de.uka.ipd.sdq.pcm.repository.Signature#getInterface_Signature
+	 * @model type="de.uka.ipd.sdq.pcm.repository.Signature" opposite="interface_Signature" containment="true" ordered="false"
 	 * @generated
 	 */
 	EList getSignatures__Interface();
