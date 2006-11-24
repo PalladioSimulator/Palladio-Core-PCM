@@ -71,6 +71,7 @@ public class InterfaceItemProvider
 
 			addParentInterface__InterfacePropertyDescriptor(object);
 			addAnchestorInterfaces_InterfacePropertyDescriptor(object);
+			addRepository_InterfacePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -114,6 +115,28 @@ public class InterfaceItemProvider
 				 true,
 				 false,
 				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Repository Interface feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addRepository_InterfacePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Interface_repository_Interface_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Interface_repository_Interface_feature", "_UI_Interface_type"),
+				 RepositoryPackage.Literals.INTERFACE__REPOSITORY_INTERFACE,
+				 false,
+				 false,
+				 false,
 				 null,
 				 null,
 				 null));

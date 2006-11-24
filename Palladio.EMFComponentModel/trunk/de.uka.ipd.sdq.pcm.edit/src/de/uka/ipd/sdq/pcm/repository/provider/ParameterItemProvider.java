@@ -71,6 +71,7 @@ public class ParameterItemProvider
 			addDatatype__ParameterPropertyDescriptor(object);
 			addParameterNamePropertyDescriptor(object);
 			addModifier__ParameterPropertyDescriptor(object);
+			addSignature_ParameterPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -137,6 +138,28 @@ public class ParameterItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Signature Parameter feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addSignature_ParameterPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Parameter_signature_Parameter_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Parameter_signature_Parameter_feature", "_UI_Parameter_type"),
+				 RepositoryPackage.Literals.PARAMETER__SIGNATURE_PARAMETER,
+				 false,
+				 false,
+				 false,
+				 null,
 				 null,
 				 null));
 	}

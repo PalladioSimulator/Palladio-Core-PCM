@@ -213,10 +213,10 @@
         <genFeatures notify="false" createChild="false" ecoreFeature="ecore:EReference pcm.ecore#//repository/Parameter/datatype__Parameter"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pcm.ecore#//repository/Parameter/parameterName"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pcm.ecore#//repository/Parameter/modifier__Parameter"/>
-        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference pcm.ecore#//repository/Parameter/signature_Parameter"/>
+        <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference pcm.ecore#//repository/Parameter/signature_Parameter"/>
       </genClasses>
       <genClasses ecoreClass="pcm.ecore#//repository/DataType">
-        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference pcm.ecore#//repository/DataType/repository_DataType"/>
+        <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference pcm.ecore#//repository/DataType/repository_DataType"/>
       </genClasses>
       <genClasses ecoreClass="pcm.ecore#//repository/Repository">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pcm.ecore#//repository/Repository/repositoryDescription"/>
@@ -225,7 +225,7 @@
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//repository/Repository/datatypes_Repository"/>
       </genClasses>
       <genClasses ecoreClass="pcm.ecore#//repository/ProvidesComponentType">
-        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference pcm.ecore#//repository/ProvidesComponentType/repository_ProvidesComponentType"/>
+        <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference pcm.ecore#//repository/ProvidesComponentType/repository_ProvidesComponentType"/>
         <genOperations ecoreOperation="pcm.ecore#//repository/ProvidesComponentType/AtLeastOneInterfaceHasToBeProvidedByAUsefullProvidesComponentType">
           <genParameters ecoreParameter="pcm.ecore#//repository/ProvidesComponentType/AtLeastOneInterfaceHasToBeProvidedByAUsefullProvidesComponentType/diagnostics"/>
           <genParameters ecoreParameter="pcm.ecore#//repository/ProvidesComponentType/AtLeastOneInterfaceHasToBeProvidedByAUsefullProvidesComponentType/context"/>
@@ -245,7 +245,7 @@
             ecoreFeature="ecore:EReference pcm.ecore#//repository/Interface/anchestorInterfaces_Interface"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//repository/Interface/protocols__Interface"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//repository/Interface/signatures__Interface"/>
-        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference pcm.ecore#//repository/Interface/repository_Interface"/>
+        <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference pcm.ecore#//repository/Interface/repository_Interface"/>
         <genOperations ecoreOperation="pcm.ecore#//repository/Interface/noProtocolTypeIDUsedTwice">
           <genParameters ecoreParameter="pcm.ecore#//repository/Interface/noProtocolTypeIDUsedTwice/diagnostics"/>
           <genParameters ecoreParameter="pcm.ecore#//repository/Interface/noProtocolTypeIDUsedTwice/context"/>

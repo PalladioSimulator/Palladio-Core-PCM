@@ -69,9 +69,32 @@ public class CompositeDataTypeItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addRepository_DataTypePropertyDescriptor(object);
 			addParentType_CompositeDataTypePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Repository Data Type feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addRepository_DataTypePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_DataType_repository_DataType_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_DataType_repository_DataType_feature", "_UI_DataType_type"),
+				 RepositoryPackage.Literals.DATA_TYPE__REPOSITORY_DATA_TYPE,
+				 false,
+				 false,
+				 false,
+				 null,
+				 null,
+				 null));
 	}
 
 	/**
