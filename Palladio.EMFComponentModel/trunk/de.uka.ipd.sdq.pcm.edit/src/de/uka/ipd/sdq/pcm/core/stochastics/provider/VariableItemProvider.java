@@ -68,32 +68,10 @@ public class VariableItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addId_VariablePropertyDescriptor(object);
 			addCharacterisationTypePropertyDescriptor(object);
+			addId_VariablePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Id Variable feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addId_VariablePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Variable_id_Variable_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Variable_id_Variable_feature", "_UI_Variable_type"),
-				 StochasticsPackage.Literals.VARIABLE__ID_VARIABLE,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
 	}
 
 	/**
@@ -114,6 +92,28 @@ public class VariableItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Id Variable feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addId_VariablePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Variable_id_Variable_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Variable_id_Variable_feature", "_UI_Variable_type"),
+				 StochasticsPackage.Literals.VARIABLE__ID_VARIABLE,
+				 true,
+				 false,
+				 true,
+				 null,
 				 null,
 				 null));
 	}

@@ -7,6 +7,8 @@
  */
 package de.uka.ipd.sdq.pcm.repository;
 
+import de.uka.ipd.sdq.pcm.core.entity.Entity;
+
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
@@ -19,7 +21,6 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * <ul>
  *   <li>{@link de.uka.ipd.sdq.pcm.repository.Repository#getRepositoryDescription <em>Repository Description</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.repository.Repository#getRepositoryName <em>Repository Name</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.repository.Repository#getComponents__Repository <em>Components Repository</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.repository.Repository#getInterfaces__Repository <em>Interfaces Repository</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.repository.Repository#getDatatypes_Repository <em>Datatypes Repository</em>}</li>
@@ -30,7 +31,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface Repository extends EObject {
+public interface Repository extends Entity {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -63,33 +64,6 @@ public interface Repository extends EObject {
 	 * @generated
 	 */
 	void setRepositoryDescription(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Repository Name</b></em>' attribute.
-	 * The default value is <code>"New Component Model"</code>.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Repository Name</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Repository Name</em>' attribute.
-	 * @see #setRepositoryName(String)
-	 * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getRepository_RepositoryName()
-	 * @model default="New Component Model" unique="false" required="true" ordered="false"
-	 * @generated
-	 */
-	String getRepositoryName();
-
-	/**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.repository.Repository#getRepositoryName <em>Repository Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Repository Name</em>' attribute.
-	 * @see #getRepositoryName()
-	 * @generated
-	 */
-	void setRepositoryName(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Components Repository</b></em>' containment reference list.

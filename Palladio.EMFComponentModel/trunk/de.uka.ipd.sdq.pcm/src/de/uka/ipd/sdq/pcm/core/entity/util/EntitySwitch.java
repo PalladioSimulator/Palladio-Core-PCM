@@ -119,6 +119,9 @@ public class EntitySwitch {
 			case EntityPackage.INTERFACE_PROVIDING_ENTITY: {
 				InterfaceProvidingEntity interfaceProvidingEntity = (InterfaceProvidingEntity)theEObject;
 				Object result = caseInterfaceProvidingEntity(interfaceProvidingEntity);
+				if (result == null) result = caseEntity(interfaceProvidingEntity);
+				if (result == null) result = caseIdentifier(interfaceProvidingEntity);
+				if (result == null) result = caseNamedElement(interfaceProvidingEntity);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -127,12 +130,18 @@ public class EntitySwitch {
 				Object result = caseInterfaceProvidingRequiringEntity(interfaceProvidingRequiringEntity);
 				if (result == null) result = caseInterfaceProvidingEntity(interfaceProvidingRequiringEntity);
 				if (result == null) result = caseInterfaceRequiringEntity(interfaceProvidingRequiringEntity);
+				if (result == null) result = caseEntity(interfaceProvidingRequiringEntity);
+				if (result == null) result = caseIdentifier(interfaceProvidingRequiringEntity);
+				if (result == null) result = caseNamedElement(interfaceProvidingRequiringEntity);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case EntityPackage.INTERFACE_REQUIRING_ENTITY: {
 				InterfaceRequiringEntity interfaceRequiringEntity = (InterfaceRequiringEntity)theEObject;
 				Object result = caseInterfaceRequiringEntity(interfaceRequiringEntity);
+				if (result == null) result = caseEntity(interfaceRequiringEntity);
+				if (result == null) result = caseIdentifier(interfaceRequiringEntity);
+				if (result == null) result = caseNamedElement(interfaceRequiringEntity);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}

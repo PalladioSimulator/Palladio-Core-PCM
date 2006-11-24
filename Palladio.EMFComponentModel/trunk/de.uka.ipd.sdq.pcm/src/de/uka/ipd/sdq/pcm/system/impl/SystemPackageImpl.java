@@ -256,8 +256,8 @@ public class SystemPackageImpl extends EPackageImpl implements SystemPackage {
 
 		// Add supertypes to classes
 		systemEClass.getESuperTypes().add(theCompositionPackage.getComposedStructure());
-		systemEClass.getESuperTypes().add(theEntityPackage.getEntity());
 		systemEClass.getESuperTypes().add(theEntityPackage.getInterfaceProvidingRequiringEntity());
+		systemEClass.getESuperTypes().add(theEntityPackage.getEntity());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(systemEClass, de.uka.ipd.sdq.pcm.system.System.class, "System", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

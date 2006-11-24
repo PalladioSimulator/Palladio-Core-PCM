@@ -529,6 +529,7 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
 		requiredDelegationConnectorEClass.getESuperTypes().add(theRepositoryPackage.getDelegationConnector());
 		assemblyConnectorEClass.getESuperTypes().add(theConnectorsPackage.getConnector());
 		assemblyConnectorEClass.getESuperTypes().add(theEntityPackage.getEntity());
+		composedStructureEClass.getESuperTypes().add(theEntityPackage.getEntity());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(providedDelegationConnectorEClass, ProvidedDelegationConnector.class, "ProvidedDelegationConnector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

@@ -24,7 +24,7 @@ import de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingRequiringEntity;
  * @model
  * @generated
  */
-public interface ProvidesComponentType extends Entity, InterfaceProvidingRequiringEntity {
+public interface ProvidesComponentType extends InterfaceProvidingRequiringEntity, Entity {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

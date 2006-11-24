@@ -354,8 +354,10 @@ public class EntityPackageImpl extends EPackageImpl implements EntityPackage {
 		// Add supertypes to classes
 		entityEClass.getESuperTypes().add(theIdentifierPackage.getIdentifier());
 		entityEClass.getESuperTypes().add(this.getNamedElement());
+		interfaceProvidingEntityEClass.getESuperTypes().add(this.getEntity());
 		interfaceProvidingRequiringEntityEClass.getESuperTypes().add(this.getInterfaceProvidingEntity());
 		interfaceProvidingRequiringEntityEClass.getESuperTypes().add(this.getInterfaceRequiringEntity());
+		interfaceRequiringEntityEClass.getESuperTypes().add(this.getEntity());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(entityEClass, Entity.class, "Entity", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

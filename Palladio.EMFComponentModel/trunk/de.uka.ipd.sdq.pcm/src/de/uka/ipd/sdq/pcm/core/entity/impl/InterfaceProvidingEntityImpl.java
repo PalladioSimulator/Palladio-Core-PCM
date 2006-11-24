@@ -34,7 +34,7 @@ import de.uka.ipd.sdq.pcm.repository.ProvidedRole;
  *
  * @generated
  */
-public abstract class InterfaceProvidingEntityImpl extends EObjectImpl implements InterfaceProvidingEntity {
+public abstract class InterfaceProvidingEntityImpl extends EntityImpl implements InterfaceProvidingEntity {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -93,7 +93,10 @@ public class InterfaceProvidingRequiringEntityItemProvider
 	 * @generated
 	 */
 	public String getText(Object object) {
-		return getString("_UI_InterfaceProvidingRequiringEntity_type");
+		String label = ((InterfaceProvidingRequiringEntity)object).getId();
+		return label == null || label.length() == 0 ?
+			getString("_UI_InterfaceProvidingRequiringEntity_type") :
+			getString("_UI_InterfaceProvidingRequiringEntity_type") + " " + label;
 	}
 
 	/**

@@ -7,6 +7,8 @@
  */
 package de.uka.ipd.sdq.pcm.repository.impl;
 
+import de.uka.ipd.sdq.pcm.core.entity.impl.EntityImpl;
+
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -33,7 +35,6 @@ import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
  * The following features are implemented:
  * <ul>
  *   <li>{@link de.uka.ipd.sdq.pcm.repository.impl.RepositoryImpl#getRepositoryDescription <em>Repository Description</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.repository.impl.RepositoryImpl#getRepositoryName <em>Repository Name</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.repository.impl.RepositoryImpl#getComponents__Repository <em>Components Repository</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.repository.impl.RepositoryImpl#getInterfaces__Repository <em>Interfaces Repository</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.repository.impl.RepositoryImpl#getDatatypes_Repository <em>Datatypes Repository</em>}</li>
@@ -42,7 +43,7 @@ import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
  *
  * @generated
  */
-public class RepositoryImpl extends EObjectImpl implements Repository {
+public class RepositoryImpl extends EntityImpl implements Repository {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -69,27 +70,6 @@ public class RepositoryImpl extends EObjectImpl implements Repository {
 	 * @ordered
 	 */
 	protected String repositoryDescription = REPOSITORY_DESCRIPTION_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getRepositoryName() <em>Repository Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRepositoryName()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String REPOSITORY_NAME_EDEFAULT = "New Component Model";
-
-
-	/**
-	 * The cached value of the '{@link #getRepositoryName() <em>Repository Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRepositoryName()
-	 * @generated
-	 * @ordered
-	 */
-	protected String repositoryName = REPOSITORY_NAME_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getComponents__Repository() <em>Components Repository</em>}' containment reference list.
@@ -169,27 +149,6 @@ public class RepositoryImpl extends EObjectImpl implements Repository {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getRepositoryName() {
-		return repositoryName;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setRepositoryName(String newRepositoryName) {
-		String oldRepositoryName = repositoryName;
-		repositoryName = newRepositoryName;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, RepositoryPackage.REPOSITORY__REPOSITORY_NAME, oldRepositoryName, repositoryName));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EList getComponents__Repository() {
 		if (components__Repository == null) {
 			components__Repository = new EObjectContainmentEList(ProvidesComponentType.class, this, RepositoryPackage.REPOSITORY__COMPONENTS_REPOSITORY);
@@ -247,8 +206,6 @@ public class RepositoryImpl extends EObjectImpl implements Repository {
 		switch (featureID) {
 			case RepositoryPackage.REPOSITORY__REPOSITORY_DESCRIPTION:
 				return getRepositoryDescription();
-			case RepositoryPackage.REPOSITORY__REPOSITORY_NAME:
-				return getRepositoryName();
 			case RepositoryPackage.REPOSITORY__COMPONENTS_REPOSITORY:
 				return getComponents__Repository();
 			case RepositoryPackage.REPOSITORY__INTERFACES_REPOSITORY:
@@ -268,9 +225,6 @@ public class RepositoryImpl extends EObjectImpl implements Repository {
 		switch (featureID) {
 			case RepositoryPackage.REPOSITORY__REPOSITORY_DESCRIPTION:
 				setRepositoryDescription((String)newValue);
-				return;
-			case RepositoryPackage.REPOSITORY__REPOSITORY_NAME:
-				setRepositoryName((String)newValue);
 				return;
 			case RepositoryPackage.REPOSITORY__COMPONENTS_REPOSITORY:
 				getComponents__Repository().clear();
@@ -298,9 +252,6 @@ public class RepositoryImpl extends EObjectImpl implements Repository {
 			case RepositoryPackage.REPOSITORY__REPOSITORY_DESCRIPTION:
 				setRepositoryDescription(REPOSITORY_DESCRIPTION_EDEFAULT);
 				return;
-			case RepositoryPackage.REPOSITORY__REPOSITORY_NAME:
-				setRepositoryName(REPOSITORY_NAME_EDEFAULT);
-				return;
 			case RepositoryPackage.REPOSITORY__COMPONENTS_REPOSITORY:
 				getComponents__Repository().clear();
 				return;
@@ -323,8 +274,6 @@ public class RepositoryImpl extends EObjectImpl implements Repository {
 		switch (featureID) {
 			case RepositoryPackage.REPOSITORY__REPOSITORY_DESCRIPTION:
 				return REPOSITORY_DESCRIPTION_EDEFAULT == null ? repositoryDescription != null : !REPOSITORY_DESCRIPTION_EDEFAULT.equals(repositoryDescription);
-			case RepositoryPackage.REPOSITORY__REPOSITORY_NAME:
-				return REPOSITORY_NAME_EDEFAULT == null ? repositoryName != null : !REPOSITORY_NAME_EDEFAULT.equals(repositoryName);
 			case RepositoryPackage.REPOSITORY__COMPONENTS_REPOSITORY:
 				return components__Repository != null && !components__Repository.isEmpty();
 			case RepositoryPackage.REPOSITORY__INTERFACES_REPOSITORY:
@@ -346,8 +295,6 @@ public class RepositoryImpl extends EObjectImpl implements Repository {
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (repositoryDescription: ");
 		result.append(repositoryDescription);
-		result.append(", repositoryName: ");
-		result.append(repositoryName);
 		result.append(')');
 		return result.toString();
 	}

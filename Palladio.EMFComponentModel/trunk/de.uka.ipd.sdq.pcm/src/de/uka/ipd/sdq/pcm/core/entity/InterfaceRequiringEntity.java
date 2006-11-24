@@ -26,7 +26,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model abstract="true"
  * @generated
  */
-public interface InterfaceRequiringEntity extends EObject {
+public interface InterfaceRequiringEntity extends Entity {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

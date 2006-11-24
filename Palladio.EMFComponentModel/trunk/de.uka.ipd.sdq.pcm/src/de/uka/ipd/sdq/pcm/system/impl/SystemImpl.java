@@ -53,8 +53,6 @@ import de.uka.ipd.sdq.pcm.system.SystemPackage;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link de.uka.ipd.sdq.pcm.system.impl.SystemImpl#getId <em>Id</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.system.impl.SystemImpl#getEntityName <em>Entity Name</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.system.impl.SystemImpl#getProvidedRoles_InterfaceProvidingEntity <em>Provided Roles Interface Providing Entity</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.system.impl.SystemImpl#getRequiredRoles_InterfaceRequiringEntity <em>Required Roles Interface Requiring Entity</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.system.impl.SystemImpl#getQosAnnotations_System <em>Qos Annotations System</em>}</li>
@@ -70,46 +68,6 @@ public class SystemImpl extends ComposedStructureImpl implements de.uka.ipd.sdq.
 	 * @generated
 	 */
 	public static final String copyright = "(c) by SDQ, IPD, U Karlsruhe (TH), 2006";
-
-	/**
-	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getId()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String ID_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getId()
-	 * @generated
-	 * @ordered
-	 */
-	protected String id = ID_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getEntityName() <em>Entity Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getEntityName()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String ENTITY_NAME_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getEntityName() <em>Entity Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getEntityName()
-	 * @generated
-	 * @ordered
-	 */
-	protected String entityName = ENTITY_NAME_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getProvidedRoles_InterfaceProvidingEntity() <em>Provided Roles Interface Providing Entity</em>}' containment reference list.
@@ -142,15 +100,6 @@ public class SystemImpl extends ComposedStructureImpl implements de.uka.ipd.sdq.
 	protected EList qosAnnotations_System = null;
 
 
-	/**
-	 * The parsed OCL expression for the definition of the '{@link #idHasToBeUnique <em>Id Has To Be Unique</em>}' invariant constraint.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #idHasToBeUnique
-	 * @generated
-	 */
-	private static OCLExpression idHasToBeUniqueInvOCL;
-	
 	private static final String OCL_ANNOTATION_SOURCE = "http://www.eclipse.org/emf/2002/GenModel";
 	
 	/**
@@ -169,48 +118,6 @@ public class SystemImpl extends ComposedStructureImpl implements de.uka.ipd.sdq.
 	 */
 	protected EClass eStaticClass() {
 		return SystemPackage.Literals.SYSTEM;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String getId() {
-		return id;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setId(String newId) {
-		String oldId = id;
-		id = newId;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SystemPackage.SYSTEM__ID, oldId, id));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String getEntityName() {
-		return entityName;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setEntityName(String newEntityName) {
-		String oldEntityName = entityName;
-		entityName = newEntityName;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SystemPackage.SYSTEM__ENTITY_NAME, oldEntityName, entityName));
 	}
 
 	/**
@@ -249,46 +156,6 @@ public class SystemImpl extends ComposedStructureImpl implements de.uka.ipd.sdq.
 		return qosAnnotations_System;
 	}
 
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean idHasToBeUnique(DiagnosticChain diagnostics, Map context) {
-		if (idHasToBeUniqueInvOCL == null) {
-			Environment env = ExpressionsUtil.createClassifierContext(eClass());
-			
-			
-			String body = "self.allInstances()->isUnique(p | p.id) ";
-			
-			try {
-				idHasToBeUniqueInvOCL = ExpressionsUtil.createInvariant(env, body, true);
-			} catch (ParserException e) {
-				throw new UnsupportedOperationException(e.getLocalizedMessage());
-			}
-		}
-		
-		Query query = QueryFactory.eINSTANCE.createQuery(idHasToBeUniqueInvOCL);
-		EvalEnvironment evalEnv = new EvalEnvironment();
-		query.setEvaluationEnvironment(evalEnv);
-		
-		if (!query.check(this)) {
-			if (diagnostics != null) {
-				diagnostics.add
-					(new BasicDiagnostic
-						(Diagnostic.ERROR,
-						 IdentifierValidator.DIAGNOSTIC_SOURCE,
-						 IdentifierValidator.IDENTIFIER__ID_HAS_TO_BE_UNIQUE,
-						 EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "idHasToBeUnique", EObjectValidator.getObjectLabel(this, context) }),
-						 new Object [] { this }));
-			}
-			return false;
-		}
-		return true;
-		
-	}
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -313,10 +180,6 @@ public class SystemImpl extends ComposedStructureImpl implements de.uka.ipd.sdq.
 	 */
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case SystemPackage.SYSTEM__ID:
-				return getId();
-			case SystemPackage.SYSTEM__ENTITY_NAME:
-				return getEntityName();
 			case SystemPackage.SYSTEM__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY:
 				return getProvidedRoles_InterfaceProvidingEntity();
 			case SystemPackage.SYSTEM__REQUIRED_ROLES_INTERFACE_REQUIRING_ENTITY:
@@ -334,12 +197,6 @@ public class SystemImpl extends ComposedStructureImpl implements de.uka.ipd.sdq.
 	 */
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case SystemPackage.SYSTEM__ID:
-				setId((String)newValue);
-				return;
-			case SystemPackage.SYSTEM__ENTITY_NAME:
-				setEntityName((String)newValue);
-				return;
 			case SystemPackage.SYSTEM__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY:
 				getProvidedRoles_InterfaceProvidingEntity().clear();
 				getProvidedRoles_InterfaceProvidingEntity().addAll((Collection)newValue);
@@ -363,12 +220,6 @@ public class SystemImpl extends ComposedStructureImpl implements de.uka.ipd.sdq.
 	 */
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case SystemPackage.SYSTEM__ID:
-				setId(ID_EDEFAULT);
-				return;
-			case SystemPackage.SYSTEM__ENTITY_NAME:
-				setEntityName(ENTITY_NAME_EDEFAULT);
-				return;
 			case SystemPackage.SYSTEM__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY:
 				getProvidedRoles_InterfaceProvidingEntity().clear();
 				return;
@@ -389,10 +240,6 @@ public class SystemImpl extends ComposedStructureImpl implements de.uka.ipd.sdq.
 	 */
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case SystemPackage.SYSTEM__ID:
-				return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
-			case SystemPackage.SYSTEM__ENTITY_NAME:
-				return ENTITY_NAME_EDEFAULT == null ? entityName != null : !ENTITY_NAME_EDEFAULT.equals(entityName);
 			case SystemPackage.SYSTEM__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY:
 				return providedRoles_InterfaceProvidingEntity != null && !providedRoles_InterfaceProvidingEntity.isEmpty();
 			case SystemPackage.SYSTEM__REQUIRED_ROLES_INTERFACE_REQUIRING_ENTITY:
@@ -409,23 +256,6 @@ public class SystemImpl extends ComposedStructureImpl implements de.uka.ipd.sdq.
 	 * @generated
 	 */
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class baseClass) {
-		if (baseClass == Identifier.class) {
-			switch (derivedFeatureID) {
-				case SystemPackage.SYSTEM__ID: return IdentifierPackage.IDENTIFIER__ID;
-				default: return -1;
-			}
-		}
-		if (baseClass == NamedElement.class) {
-			switch (derivedFeatureID) {
-				case SystemPackage.SYSTEM__ENTITY_NAME: return EntityPackage.NAMED_ELEMENT__ENTITY_NAME;
-				default: return -1;
-			}
-		}
-		if (baseClass == Entity.class) {
-			switch (derivedFeatureID) {
-				default: return -1;
-			}
-		}
 		if (baseClass == InterfaceProvidingEntity.class) {
 			switch (derivedFeatureID) {
 				case SystemPackage.SYSTEM__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY: return EntityPackage.INTERFACE_PROVIDING_ENTITY__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY;
@@ -452,23 +282,6 @@ public class SystemImpl extends ComposedStructureImpl implements de.uka.ipd.sdq.
 	 * @generated
 	 */
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class baseClass) {
-		if (baseClass == Identifier.class) {
-			switch (baseFeatureID) {
-				case IdentifierPackage.IDENTIFIER__ID: return SystemPackage.SYSTEM__ID;
-				default: return -1;
-			}
-		}
-		if (baseClass == NamedElement.class) {
-			switch (baseFeatureID) {
-				case EntityPackage.NAMED_ELEMENT__ENTITY_NAME: return SystemPackage.SYSTEM__ENTITY_NAME;
-				default: return -1;
-			}
-		}
-		if (baseClass == Entity.class) {
-			switch (baseFeatureID) {
-				default: return -1;
-			}
-		}
 		if (baseClass == InterfaceProvidingEntity.class) {
 			switch (baseFeatureID) {
 				case EntityPackage.INTERFACE_PROVIDING_ENTITY__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY: return SystemPackage.SYSTEM__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY;
@@ -487,23 +300,6 @@ public class SystemImpl extends ComposedStructureImpl implements de.uka.ipd.sdq.
 			}
 		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (id: ");
-		result.append(id);
-		result.append(", entityName: ");
-		result.append(entityName);
-		result.append(')');
-		return result.toString();
 	}
 
 } //SystemImpl

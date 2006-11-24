@@ -7,6 +7,8 @@
 package de.uka.ipd.sdq.pcm.repository.provider;
 
 
+import de.uka.ipd.sdq.pcm.core.entity.provider.EntityItemProvider;
+
 import java.util.Collection;
 import java.util.List;
 
@@ -36,7 +38,7 @@ import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
  * @generated
  */
 public class RepositoryItemProvider
-	extends ItemProviderAdapter
+	extends EntityItemProvider
 	implements	
 		IEditingDomainItemProvider,	
 		IStructuredItemContentProvider,	
@@ -71,7 +73,6 @@ public class RepositoryItemProvider
 			super.getPropertyDescriptors(object);
 
 			addRepositoryDescriptionPropertyDescriptor(object);
-			addRepositoryNamePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -90,28 +91,6 @@ public class RepositoryItemProvider
 				 getString("_UI_Repository_repositoryDescription_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Repository_repositoryDescription_feature", "_UI_Repository_type"),
 				 RepositoryPackage.Literals.REPOSITORY__REPOSITORY_DESCRIPTION,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Repository Name feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addRepositoryNamePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Repository_repositoryName_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Repository_repositoryName_feature", "_UI_Repository_type"),
-				 RepositoryPackage.Literals.REPOSITORY__REPOSITORY_NAME,
 				 true,
 				 false,
 				 false,
@@ -167,7 +146,7 @@ public class RepositoryItemProvider
 	 * @generated
 	 */
 	public String getText(Object object) {
-		String label = ((Repository)object).getRepositoryName();
+		String label = ((Repository)object).getId();
 		return label == null || label.length() == 0 ?
 			getString("_UI_Repository_type") :
 			getString("_UI_Repository_type") + " " + label;
@@ -185,7 +164,6 @@ public class RepositoryItemProvider
 
 		switch (notification.getFeatureID(Repository.class)) {
 			case RepositoryPackage.REPOSITORY__REPOSITORY_DESCRIPTION:
-			case RepositoryPackage.REPOSITORY__REPOSITORY_NAME:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case RepositoryPackage.REPOSITORY__COMPONENTS_REPOSITORY:

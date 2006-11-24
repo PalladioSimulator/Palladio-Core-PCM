@@ -25,6 +25,8 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 import de.uka.ipd.sdq.pcm.core.composition.ComposedStructure;
 import de.uka.ipd.sdq.pcm.core.composition.CompositionFactory;
 import de.uka.ipd.sdq.pcm.core.composition.CompositionPackage;
+import de.uka.ipd.sdq.pcm.core.entity.provider.EntityItemProvider;
+
 import de.uka.ipd.sdq.pcm.core.stochastics.provider.PcmEditPlugin;
 
 /**
@@ -34,7 +36,7 @@ import de.uka.ipd.sdq.pcm.core.stochastics.provider.PcmEditPlugin;
  * @generated
  */
 public class ComposedStructureItemProvider
-	extends ItemProviderAdapter
+	extends EntityItemProvider
 	implements	
 		IEditingDomainItemProvider,	
 		IStructuredItemContentProvider,	
@@ -110,7 +112,10 @@ public class ComposedStructureItemProvider
 	 * @generated
 	 */
 	public String getText(Object object) {
-		return getString("_UI_ComposedStructure_type");
+		String label = ((ComposedStructure)object).getId();
+		return label == null || label.length() == 0 ?
+			getString("_UI_ComposedStructure_type") :
+			getString("_UI_ComposedStructure_type") + " " + label;
 	}
 
 	/**

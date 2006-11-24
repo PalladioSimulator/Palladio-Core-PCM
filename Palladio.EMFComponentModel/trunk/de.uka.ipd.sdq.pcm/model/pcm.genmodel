@@ -19,7 +19,7 @@
     <details key="UNION_PROPERTIES" value="REPORT"/>
     <details key="DUPLICATE_OPERATION_INHERITANCE" value="DISCARD"/>
   </genAnnotations>
-  <foreignModel>file:/C:/coding/svn/rsa_exports/pcm.uml2</foreignModel>
+  <foreignModel>file:/C:/coding/code/rsa_exports/pcm.uml2</foreignModel>
   <modelPluginVariables>EMFT_OCL=org.eclipse.emf.ocl</modelPluginVariables>
   <genPackages prefix="Pcm" basePackage="de.uka.ipd.sdq" disposableProviderFactory="true"
       ecorePackage="pcm.ecore#/">
@@ -55,9 +55,9 @@
         <genClasses image="false" ecoreClass="pcm.ecore#//core/stochastics/Power"/>
         <genClasses image="false" ecoreClass="pcm.ecore#//core/stochastics/Atom"/>
         <genClasses ecoreClass="pcm.ecore#//core/stochastics/Variable">
+          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pcm.ecore#//core/stochastics/Variable/characterisationType"/>
           <genFeatures notify="false" createChild="false" propertySortChoices="true"
               ecoreFeature="ecore:EReference pcm.ecore#//core/stochastics/Variable/id_Variable"/>
-          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pcm.ecore#//core/stochastics/Variable/characterisationType"/>
         </genClasses>
         <genClasses ecoreClass="pcm.ecore#//core/stochastics/Parantesis">
           <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//core/stochastics/Parantesis/innerExpression"/>
@@ -174,13 +174,13 @@
       <genClasses ecoreClass="pcm.ecore#//parameter/VariableCharacterisation">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pcm.ecore#//parameter/VariableCharacterisation/type"/>
       </genClasses>
+      <genClasses image="false" ecoreClass="pcm.ecore#//parameter/AbstractNamedReference">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pcm.ecore#//parameter/AbstractNamedReference/referenceName"/>
+      </genClasses>
       <genClasses ecoreClass="pcm.ecore#//parameter/NamespaceReference">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//parameter/NamespaceReference/innerReference_NamespaceReference"/>
       </genClasses>
       <genClasses ecoreClass="pcm.ecore#//parameter/VariableReference"/>
-      <genClasses image="false" ecoreClass="pcm.ecore#//parameter/AbstractNamedReference">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pcm.ecore#//parameter/AbstractNamedReference/referenceName"/>
-      </genClasses>
     </nestedGenPackages>
     <nestedGenPackages prefix="Repository" basePackage="de.uka.ipd.sdq.pcm" disposableProviderFactory="true"
         ecorePackage="pcm.ecore#//repository">
@@ -241,7 +241,6 @@
       </genClasses>
       <genClasses ecoreClass="pcm.ecore#//repository/Repository">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pcm.ecore#//repository/Repository/repositoryDescription"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pcm.ecore#//repository/Repository/repositoryName"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//repository/Repository/components__Repository"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//repository/Repository/interfaces__Repository"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//repository/Repository/datatypes_Repository"/>

@@ -150,6 +150,9 @@ public class CompositionSwitch {
 			case CompositionPackage.COMPOSED_STRUCTURE: {
 				ComposedStructure composedStructure = (ComposedStructure)theEObject;
 				Object result = caseComposedStructure(composedStructure);
+				if (result == null) result = caseEntity(composedStructure);
+				if (result == null) result = caseIdentifier(composedStructure);
+				if (result == null) result = caseNamedElement(composedStructure);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}

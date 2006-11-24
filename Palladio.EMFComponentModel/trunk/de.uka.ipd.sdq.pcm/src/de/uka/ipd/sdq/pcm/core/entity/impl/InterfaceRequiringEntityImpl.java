@@ -34,7 +34,7 @@ import de.uka.ipd.sdq.pcm.repository.RequiredRole;
  *
  * @generated
  */
-public abstract class InterfaceRequiringEntityImpl extends EObjectImpl implements InterfaceRequiringEntity {
+public abstract class InterfaceRequiringEntityImpl extends EntityImpl implements InterfaceRequiringEntity {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

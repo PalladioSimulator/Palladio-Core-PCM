@@ -85,14 +85,14 @@ public class ParameterAdapterFactory extends AdapterFactoryImpl {
 			public Object caseVariableCharacterisation(VariableCharacterisation object) {
 				return createVariableCharacterisationAdapter();
 			}
+			public Object caseAbstractNamedReference(AbstractNamedReference object) {
+				return createAbstractNamedReferenceAdapter();
+			}
 			public Object caseNamespaceReference(NamespaceReference object) {
 				return createNamespaceReferenceAdapter();
 			}
 			public Object caseVariableReference(VariableReference object) {
 				return createVariableReferenceAdapter();
-			}
-			public Object caseAbstractNamedReference(AbstractNamedReference object) {
-				return createAbstractNamedReferenceAdapter();
 			}
 			public Object caseRandomVariable(RandomVariable object) {
 				return createRandomVariableAdapter();

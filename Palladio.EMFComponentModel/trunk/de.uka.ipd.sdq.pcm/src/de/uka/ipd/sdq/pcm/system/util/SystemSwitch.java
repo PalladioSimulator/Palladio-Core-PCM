@@ -105,12 +105,12 @@ public class SystemSwitch {
 				de.uka.ipd.sdq.pcm.system.System system = (de.uka.ipd.sdq.pcm.system.System)theEObject;
 				Object result = caseSystem(system);
 				if (result == null) result = caseComposedStructure(system);
-				if (result == null) result = caseEntity(system);
 				if (result == null) result = caseInterfaceProvidingRequiringEntity(system);
-				if (result == null) result = caseIdentifier(system);
-				if (result == null) result = caseNamedElement(system);
+				if (result == null) result = caseEntity(system);
 				if (result == null) result = caseInterfaceProvidingEntity(system);
 				if (result == null) result = caseInterfaceRequiringEntity(system);
+				if (result == null) result = caseIdentifier(system);
+				if (result == null) result = caseNamedElement(system);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}

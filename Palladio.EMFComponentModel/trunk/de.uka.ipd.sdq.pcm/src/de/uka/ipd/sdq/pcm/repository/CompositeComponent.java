@@ -29,7 +29,7 @@ import de.uka.ipd.sdq.pcm.core.composition.ComposedStructure;
  * @model
  * @generated
  */
-public interface CompositeComponent extends ImplementationComponentType, ComposedStructure {
+public interface CompositeComponent extends ComposedStructure, ImplementationComponentType {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

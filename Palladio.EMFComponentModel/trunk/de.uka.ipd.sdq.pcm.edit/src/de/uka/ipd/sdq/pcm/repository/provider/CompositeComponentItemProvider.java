@@ -7,6 +7,10 @@
 package de.uka.ipd.sdq.pcm.repository.provider;
 
 
+import de.uka.ipd.sdq.pcm.core.composition.provider.ComposedStructureItemProvider;
+
+import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
+
 import java.util.Collection;
 import java.util.List;
 
@@ -26,6 +30,7 @@ import de.uka.ipd.sdq.pcm.core.composition.CompositionFactory;
 import de.uka.ipd.sdq.pcm.core.composition.CompositionPackage;
 import de.uka.ipd.sdq.pcm.core.stochastics.provider.PcmEditPlugin;
 import de.uka.ipd.sdq.pcm.repository.CompositeComponent;
+import de.uka.ipd.sdq.pcm.repository.RepositoryFactory;
 import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
 
 /**
@@ -35,7 +40,7 @@ import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
  * @generated
  */
 public class CompositeComponentItemProvider
-	extends ImplementationComponentTypeItemProvider
+	extends ComposedStructureItemProvider
 	implements	
 		IEditingDomainItemProvider,	
 		IStructuredItemContentProvider,	
@@ -69,9 +74,55 @@ public class CompositeComponentItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addParentProvidesComponentTypesPropertyDescriptor(object);
+			addParentCompleteComponentTypesPropertyDescriptor(object);
 			addImplementationComponentTypePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Parent Provides Component Types feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addParentProvidesComponentTypesPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_CompleteComponentType_parentProvidesComponentTypes_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_CompleteComponentType_parentProvidesComponentTypes_feature", "_UI_CompleteComponentType_type"),
+				 RepositoryPackage.Literals.COMPLETE_COMPONENT_TYPE__PARENT_PROVIDES_COMPONENT_TYPES,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Parent Complete Component Types feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addParentCompleteComponentTypesPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ImplementationComponentType_parentCompleteComponentTypes_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ImplementationComponentType_parentCompleteComponentTypes_feature", "_UI_ImplementationComponentType_type"),
+				 RepositoryPackage.Literals.IMPLEMENTATION_COMPONENT_TYPE__PARENT_COMPLETE_COMPONENT_TYPES,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
 	}
 
 	/**
@@ -107,10 +158,8 @@ public class CompositeComponentItemProvider
 	public Collection getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(CompositionPackage.Literals.COMPOSED_STRUCTURE__CHILD_COMPONENT_CONTEXTS_COMPOSED_STRUCTURE);
-			childrenFeatures.add(CompositionPackage.Literals.COMPOSED_STRUCTURE__PROVIDED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE);
-			childrenFeatures.add(CompositionPackage.Literals.COMPOSED_STRUCTURE__REQUIRED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE);
-			childrenFeatures.add(CompositionPackage.Literals.COMPOSED_STRUCTURE__COMPOSITE_ASSEMBLY_CONNECTORS_COMPOSED_STRUCTURE);
+			childrenFeatures.add(EntityPackage.Literals.INTERFACE_PROVIDING_ENTITY__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY);
+			childrenFeatures.add(EntityPackage.Literals.INTERFACE_REQUIRING_ENTITY__REQUIRED_ROLES_INTERFACE_REQUIRING_ENTITY);
 		}
 		return childrenFeatures;
 	}
@@ -161,10 +210,8 @@ public class CompositeComponentItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(CompositeComponent.class)) {
-			case RepositoryPackage.COMPOSITE_COMPONENT__CHILD_COMPONENT_CONTEXTS_COMPOSED_STRUCTURE:
-			case RepositoryPackage.COMPOSITE_COMPONENT__PROVIDED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE:
-			case RepositoryPackage.COMPOSITE_COMPONENT__REQUIRED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE:
-			case RepositoryPackage.COMPOSITE_COMPONENT__COMPOSITE_ASSEMBLY_CONNECTORS_COMPOSED_STRUCTURE:
+			case RepositoryPackage.COMPOSITE_COMPONENT__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY:
+			case RepositoryPackage.COMPOSITE_COMPONENT__REQUIRED_ROLES_INTERFACE_REQUIRING_ENTITY:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -183,23 +230,13 @@ public class CompositeComponentItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(CompositionPackage.Literals.COMPOSED_STRUCTURE__CHILD_COMPONENT_CONTEXTS_COMPOSED_STRUCTURE,
-				 CompositionFactory.eINSTANCE.createAssemblyContext()));
+				(EntityPackage.Literals.INTERFACE_PROVIDING_ENTITY__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY,
+				 RepositoryFactory.eINSTANCE.createProvidedRole()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(CompositionPackage.Literals.COMPOSED_STRUCTURE__PROVIDED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE,
-				 CompositionFactory.eINSTANCE.createProvidedDelegationConnector()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CompositionPackage.Literals.COMPOSED_STRUCTURE__REQUIRED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE,
-				 CompositionFactory.eINSTANCE.createRequiredDelegationConnector()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(CompositionPackage.Literals.COMPOSED_STRUCTURE__COMPOSITE_ASSEMBLY_CONNECTORS_COMPOSED_STRUCTURE,
-				 CompositionFactory.eINSTANCE.createAssemblyConnector()));
+				(EntityPackage.Literals.INTERFACE_REQUIRING_ENTITY__REQUIRED_ROLES_INTERFACE_REQUIRING_ENTITY,
+				 RepositoryFactory.eINSTANCE.createRequiredRole()));
 	}
 
 	/**

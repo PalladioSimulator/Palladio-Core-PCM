@@ -21,10 +21,10 @@
       <eClassifiers xsi:type="ecore:EClass" name="Power" abstract="true" eSuperTypes="#//core/stochastics/Product"/>
       <eClassifiers xsi:type="ecore:EClass" name="Atom" abstract="true" eSuperTypes="#//core/stochastics/Power"/>
       <eClassifiers xsi:type="ecore:EClass" name="Variable" eSuperTypes="#//core/stochastics/Atom">
-        <eStructuralFeatures xsi:type="ecore:EReference" name="id_Variable" ordered="false"
-            lowerBound="1" eType="#//parameter/AbstractNamedReference"/>
         <eStructuralFeatures xsi:type="ecore:EAttribute" name="characterisationType"
             ordered="false" lowerBound="1" eType="#//parameter/VariableCharacterisationType"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="id_Variable" ordered="false"
+            lowerBound="1" eType="#//parameter/AbstractNamedReference"/>
       </eClassifiers>
       <eClassifiers xsi:type="ecore:EClass" name="Parantesis" eSuperTypes="#//core/stochastics/Atom">
         <eStructuralFeatures xsi:type="ecore:EReference" name="innerExpression" ordered="false"
@@ -94,13 +94,15 @@
         <eStructuralFeatures xsi:type="ecore:EAttribute" name="entityName" ordered="false"
             lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       </eClassifiers>
-      <eClassifiers xsi:type="ecore:EClass" name="InterfaceProvidingEntity" abstract="true">
+      <eClassifiers xsi:type="ecore:EClass" name="InterfaceProvidingEntity" abstract="true"
+          eSuperTypes="#//core/entity/Entity">
         <eStructuralFeatures xsi:type="ecore:EReference" name="providedRoles_InterfaceProvidingEntity"
             ordered="false" upperBound="-1" eType="#//repository/ProvidedRole" containment="true"/>
       </eClassifiers>
       <eClassifiers xsi:type="ecore:EClass" name="InterfaceProvidingRequiringEntity"
           abstract="true" eSuperTypes="#//core/entity/InterfaceProvidingEntity #//core/entity/InterfaceRequiringEntity"/>
-      <eClassifiers xsi:type="ecore:EClass" name="InterfaceRequiringEntity" abstract="true">
+      <eClassifiers xsi:type="ecore:EClass" name="InterfaceRequiringEntity" abstract="true"
+          eSuperTypes="#//core/entity/Entity">
         <eStructuralFeatures xsi:type="ecore:EReference" name="requiredRoles_InterfaceRequiringEntity"
             ordered="false" upperBound="-1" eType="#//repository/RequiredRole" containment="true"/>
       </eClassifiers>
@@ -168,7 +170,8 @@
             ordered="false" lowerBound="1" eType="#//core/composition/ComposedStructure"
             eOpposite="#//core/composition/ComposedStructure/compositeAssemblyConnectors_ComposedStructure"/>
       </eClassifiers>
-      <eClassifiers xsi:type="ecore:EClass" name="ComposedStructure" abstract="true">
+      <eClassifiers xsi:type="ecore:EClass" name="ComposedStructure" abstract="true"
+          eSuperTypes="#//core/entity/Entity">
         <eStructuralFeatures xsi:type="ecore:EReference" name="childComponentContexts_ComposedStructure"
             ordered="false" upperBound="-1" eType="#//core/composition/AssemblyContext"
             containment="true" eOpposite="#//core/composition/AssemblyContext/parentStructure_AssemblyContext"/>
@@ -186,13 +189,6 @@
   </eSubpackages>
   <eSubpackages name="parameter" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Parameter/1.0"
       nsPrefix="pcm.parameter">
-    <eClassifiers xsi:type="ecore:EEnum" name="VariableCharacterisationType">
-      <eLiterals name="STRUCTURE"/>
-      <eLiterals name="NUMBER_OF_ELEMENTS" value="1"/>
-      <eLiterals name="VALUE" value="2"/>
-      <eLiterals name="BYTESIZE" value="3"/>
-      <eLiterals name="DATATYPE" value="4"/>
-    </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="VariableUsage">
       <eStructuralFeatures xsi:type="ecore:EReference" name="variableCharacterisation_VariableUsage"
           ordered="false" upperBound="-1" eType="#//parameter/VariableCharacterisation"
@@ -205,15 +201,22 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" ordered="false"
           lowerBound="1" eType="#//parameter/VariableCharacterisationType"/>
     </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="AbstractNamedReference" abstract="true">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="referenceName" ordered="false"
+          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="NamespaceReference" eSuperTypes="#//parameter/AbstractNamedReference">
       <eStructuralFeatures xsi:type="ecore:EReference" name="innerReference_NamespaceReference"
           ordered="false" lowerBound="1" eType="#//parameter/AbstractNamedReference"
           containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="VariableReference" eSuperTypes="#//parameter/AbstractNamedReference"/>
-    <eClassifiers xsi:type="ecore:EClass" name="AbstractNamedReference" abstract="true">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="referenceName" ordered="false"
-          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eClassifiers xsi:type="ecore:EEnum" name="VariableCharacterisationType">
+      <eLiterals name="STRUCTURE"/>
+      <eLiterals name="NUMBER_OF_ELEMENTS" value="1"/>
+      <eLiterals name="VALUE" value="2"/>
+      <eLiterals name="BYTESIZE" value="3"/>
+      <eLiterals name="DATATYPE" value="4"/>
     </eClassifiers>
   </eSubpackages>
   <eSubpackages name="repository" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/1.0"
@@ -304,12 +307,9 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="signatures__Interface"
           ordered="false" upperBound="-1" eType="#//repository/Signature" containment="true"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Repository">
+    <eClassifiers xsi:type="ecore:EClass" name="Repository" eSuperTypes="#//core/entity/Entity">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="repositoryDescription"
           ordered="false" unique="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="repositoryName" ordered="false"
-          unique="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-          defaultValueLiteral="New Component Model"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="components__Repository"
           ordered="false" upperBound="-1" eType="#//repository/ProvidesComponentType"
           containment="true"/>
@@ -318,7 +318,7 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="datatypes_Repository"
           ordered="false" upperBound="-1" eType="#//repository/DataType" containment="true"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="ProvidesComponentType" eSuperTypes="#//core/entity/Entity #//core/entity/InterfaceProvidingRequiringEntity">
+    <eClassifiers xsi:type="ecore:EClass" name="ProvidesComponentType" eSuperTypes="#//core/entity/InterfaceProvidingRequiringEntity #//core/entity/Entity">
       <eOperations name="AtLeastOneInterfaceHasToBeProvidedByAUsefullProvidesComponentType"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -368,7 +368,7 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="DelegationConnector" abstract="true"
         eSuperTypes="#//core/connectors/Connector"/>
-    <eClassifiers xsi:type="ecore:EClass" name="CompositeComponent" eSuperTypes="#//repository/ImplementationComponentType #//core/composition/ComposedStructure">
+    <eClassifiers xsi:type="ecore:EClass" name="CompositeComponent" eSuperTypes="#//core/composition/ComposedStructure #//repository/ImplementationComponentType">
       <eOperations name="ProvideSameInterfaces" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="-- CC has to provide the same interfaces like the implementationComponentType (if set) (same OCL code like BC)#&#xD;&#xA;self.providedRoles_InterfaceProvidingEntity->iterate(pr : ProvidedRole; acc1 : Bag(String) = Bag{} |&#xD;&#xA; acc1->union(pr.providedInterface__ProvidedRole.id->asBag())&#xD;&#xA;)&#xD;&#xA;=&#xD;&#xA;if&#xD;&#xA;  -- apply constraint only for non-empty ImplementationComponentTypes of a BC #&#xD;&#xA; self.implementationComponentType->notEmpty()&#xD;&#xA;then&#xD;&#xA; self.implementationComponentType.providedRoles_InterfaceProvidingEntity->iterate(pr : ProvidedRole; acc2 : Bag(String) = Bag{} |&#xD;&#xA;  acc2->union(pr.providedInterface__ProvidedRole.id->asBag())&#xD;&#xA; )&#xD;&#xA;else&#xD;&#xA; Bag{}&#xD;&#xA;endif"/>
@@ -621,7 +621,7 @@
   </eSubpackages>
   <eSubpackages name="system" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/System/1.0"
       nsPrefix="pcm.system">
-    <eClassifiers xsi:type="ecore:EClass" name="System" eSuperTypes="#//core/composition/ComposedStructure #//core/entity/Entity #//core/entity/InterfaceProvidingRequiringEntity">
+    <eClassifiers xsi:type="ecore:EClass" name="System" eSuperTypes="#//core/composition/ComposedStructure #//core/entity/InterfaceProvidingRequiringEntity #//core/entity/Entity">
       <eStructuralFeatures xsi:type="ecore:EReference" name="qosAnnotations_System"
           ordered="false" upperBound="-1" eType="#//qosannotations/QoSAnnotations"
           containment="true"/>

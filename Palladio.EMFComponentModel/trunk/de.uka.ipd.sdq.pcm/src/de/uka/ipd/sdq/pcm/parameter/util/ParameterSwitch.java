@@ -109,6 +109,12 @@ public class ParameterSwitch {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case ParameterPackage.ABSTRACT_NAMED_REFERENCE: {
+				AbstractNamedReference abstractNamedReference = (AbstractNamedReference)theEObject;
+				Object result = caseAbstractNamedReference(abstractNamedReference);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case ParameterPackage.NAMESPACE_REFERENCE: {
 				NamespaceReference namespaceReference = (NamespaceReference)theEObject;
 				Object result = caseNamespaceReference(namespaceReference);
@@ -120,12 +126,6 @@ public class ParameterSwitch {
 				VariableReference variableReference = (VariableReference)theEObject;
 				Object result = caseVariableReference(variableReference);
 				if (result == null) result = caseAbstractNamedReference(variableReference);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case ParameterPackage.ABSTRACT_NAMED_REFERENCE: {
-				AbstractNamedReference abstractNamedReference = (AbstractNamedReference)theEObject;
-				Object result = caseAbstractNamedReference(abstractNamedReference);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}

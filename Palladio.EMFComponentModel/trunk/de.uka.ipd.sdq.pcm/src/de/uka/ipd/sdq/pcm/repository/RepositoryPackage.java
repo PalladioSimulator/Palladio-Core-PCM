@@ -6,6 +6,8 @@
  */
 package de.uka.ipd.sdq.pcm.repository;
 
+import de.uka.ipd.sdq.pcm.core.composition.CompositionPackage;
+
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
@@ -394,22 +396,31 @@ public interface RepositoryPackage extends EPackage {
 	int REPOSITORY = 7;
 
 	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REPOSITORY__ID = EntityPackage.ENTITY__ID;
+
+	/**
+	 * The feature id for the '<em><b>Entity Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REPOSITORY__ENTITY_NAME = EntityPackage.ENTITY__ENTITY_NAME;
+
+	/**
 	 * The feature id for the '<em><b>Repository Description</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int REPOSITORY__REPOSITORY_DESCRIPTION = 0;
-
-	/**
-	 * The feature id for the '<em><b>Repository Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int REPOSITORY__REPOSITORY_NAME = 1;
+	int REPOSITORY__REPOSITORY_DESCRIPTION = EntityPackage.ENTITY_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Components Repository</b></em>' containment reference list.
@@ -418,7 +429,7 @@ public interface RepositoryPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int REPOSITORY__COMPONENTS_REPOSITORY = 2;
+	int REPOSITORY__COMPONENTS_REPOSITORY = EntityPackage.ENTITY_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Interfaces Repository</b></em>' containment reference list.
@@ -427,7 +438,7 @@ public interface RepositoryPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int REPOSITORY__INTERFACES_REPOSITORY = 3;
+	int REPOSITORY__INTERFACES_REPOSITORY = EntityPackage.ENTITY_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Datatypes Repository</b></em>' containment reference list.
@@ -436,7 +447,7 @@ public interface RepositoryPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int REPOSITORY__DATATYPES_REPOSITORY = 4;
+	int REPOSITORY__DATATYPES_REPOSITORY = EntityPackage.ENTITY_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>Repository</em>' class.
@@ -445,7 +456,7 @@ public interface RepositoryPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int REPOSITORY_FEATURE_COUNT = 5;
+	int REPOSITORY_FEATURE_COUNT = EntityPackage.ENTITY_FEATURE_COUNT + 4;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.repository.impl.ProvidesComponentTypeImpl <em>Provides Component Type</em>}' class.
@@ -464,7 +475,7 @@ public interface RepositoryPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROVIDES_COMPONENT_TYPE__ID = EntityPackage.ENTITY__ID;
+	int PROVIDES_COMPONENT_TYPE__ID = EntityPackage.INTERFACE_PROVIDING_REQUIRING_ENTITY__ID;
 
 	/**
 	 * The feature id for the '<em><b>Entity Name</b></em>' attribute.
@@ -473,7 +484,7 @@ public interface RepositoryPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROVIDES_COMPONENT_TYPE__ENTITY_NAME = EntityPackage.ENTITY__ENTITY_NAME;
+	int PROVIDES_COMPONENT_TYPE__ENTITY_NAME = EntityPackage.INTERFACE_PROVIDING_REQUIRING_ENTITY__ENTITY_NAME;
 
 	/**
 	 * The feature id for the '<em><b>Provided Roles Interface Providing Entity</b></em>' containment reference list.
@@ -482,7 +493,7 @@ public interface RepositoryPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROVIDES_COMPONENT_TYPE__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY = EntityPackage.ENTITY_FEATURE_COUNT + 0;
+	int PROVIDES_COMPONENT_TYPE__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY = EntityPackage.INTERFACE_PROVIDING_REQUIRING_ENTITY__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY;
 
 	/**
 	 * The feature id for the '<em><b>Required Roles Interface Requiring Entity</b></em>' containment reference list.
@@ -491,7 +502,7 @@ public interface RepositoryPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROVIDES_COMPONENT_TYPE__REQUIRED_ROLES_INTERFACE_REQUIRING_ENTITY = EntityPackage.ENTITY_FEATURE_COUNT + 1;
+	int PROVIDES_COMPONENT_TYPE__REQUIRED_ROLES_INTERFACE_REQUIRING_ENTITY = EntityPackage.INTERFACE_PROVIDING_REQUIRING_ENTITY__REQUIRED_ROLES_INTERFACE_REQUIRING_ENTITY;
 
 	/**
 	 * The number of structural features of the '<em>Provides Component Type</em>' class.
@@ -500,7 +511,7 @@ public interface RepositoryPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROVIDES_COMPONENT_TYPE_FEATURE_COUNT = EntityPackage.ENTITY_FEATURE_COUNT + 2;
+	int PROVIDES_COMPONENT_TYPE_FEATURE_COUNT = EntityPackage.INTERFACE_PROVIDING_REQUIRING_ENTITY_FEATURE_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.repository.impl.ProvidedRoleImpl <em>Provided Role</em>}' class.
@@ -713,7 +724,7 @@ public interface RepositoryPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPOSITE_COMPONENT__ID = IMPLEMENTATION_COMPONENT_TYPE__ID;
+	int COMPOSITE_COMPONENT__ID = CompositionPackage.COMPOSED_STRUCTURE__ID;
 
 	/**
 	 * The feature id for the '<em><b>Entity Name</b></em>' attribute.
@@ -722,43 +733,7 @@ public interface RepositoryPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPOSITE_COMPONENT__ENTITY_NAME = IMPLEMENTATION_COMPONENT_TYPE__ENTITY_NAME;
-
-	/**
-	 * The feature id for the '<em><b>Provided Roles Interface Providing Entity</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPOSITE_COMPONENT__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY = IMPLEMENTATION_COMPONENT_TYPE__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY;
-
-	/**
-	 * The feature id for the '<em><b>Required Roles Interface Requiring Entity</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPOSITE_COMPONENT__REQUIRED_ROLES_INTERFACE_REQUIRING_ENTITY = IMPLEMENTATION_COMPONENT_TYPE__REQUIRED_ROLES_INTERFACE_REQUIRING_ENTITY;
-
-	/**
-	 * The feature id for the '<em><b>Parent Provides Component Types</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPOSITE_COMPONENT__PARENT_PROVIDES_COMPONENT_TYPES = IMPLEMENTATION_COMPONENT_TYPE__PARENT_PROVIDES_COMPONENT_TYPES;
-
-	/**
-	 * The feature id for the '<em><b>Parent Complete Component Types</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPOSITE_COMPONENT__PARENT_COMPLETE_COMPONENT_TYPES = IMPLEMENTATION_COMPONENT_TYPE__PARENT_COMPLETE_COMPONENT_TYPES;
+	int COMPOSITE_COMPONENT__ENTITY_NAME = CompositionPackage.COMPOSED_STRUCTURE__ENTITY_NAME;
 
 	/**
 	 * The feature id for the '<em><b>Child Component Contexts Composed Structure</b></em>' containment reference list.
@@ -767,7 +742,7 @@ public interface RepositoryPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPOSITE_COMPONENT__CHILD_COMPONENT_CONTEXTS_COMPOSED_STRUCTURE = IMPLEMENTATION_COMPONENT_TYPE_FEATURE_COUNT + 0;
+	int COMPOSITE_COMPONENT__CHILD_COMPONENT_CONTEXTS_COMPOSED_STRUCTURE = CompositionPackage.COMPOSED_STRUCTURE__CHILD_COMPONENT_CONTEXTS_COMPOSED_STRUCTURE;
 
 	/**
 	 * The feature id for the '<em><b>Provided Delegation Connectors Composed Structure</b></em>' containment reference list.
@@ -776,7 +751,7 @@ public interface RepositoryPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPOSITE_COMPONENT__PROVIDED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE = IMPLEMENTATION_COMPONENT_TYPE_FEATURE_COUNT + 1;
+	int COMPOSITE_COMPONENT__PROVIDED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE = CompositionPackage.COMPOSED_STRUCTURE__PROVIDED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE;
 
 	/**
 	 * The feature id for the '<em><b>Required Delegation Connectors Composed Structure</b></em>' containment reference list.
@@ -785,7 +760,7 @@ public interface RepositoryPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPOSITE_COMPONENT__REQUIRED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE = IMPLEMENTATION_COMPONENT_TYPE_FEATURE_COUNT + 2;
+	int COMPOSITE_COMPONENT__REQUIRED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE = CompositionPackage.COMPOSED_STRUCTURE__REQUIRED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE;
 
 	/**
 	 * The feature id for the '<em><b>Composite Assembly Connectors Composed Structure</b></em>' containment reference list.
@@ -794,7 +769,43 @@ public interface RepositoryPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPOSITE_COMPONENT__COMPOSITE_ASSEMBLY_CONNECTORS_COMPOSED_STRUCTURE = IMPLEMENTATION_COMPONENT_TYPE_FEATURE_COUNT + 3;
+	int COMPOSITE_COMPONENT__COMPOSITE_ASSEMBLY_CONNECTORS_COMPOSED_STRUCTURE = CompositionPackage.COMPOSED_STRUCTURE__COMPOSITE_ASSEMBLY_CONNECTORS_COMPOSED_STRUCTURE;
+
+	/**
+	 * The feature id for the '<em><b>Provided Roles Interface Providing Entity</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPOSITE_COMPONENT__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY = CompositionPackage.COMPOSED_STRUCTURE_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Required Roles Interface Requiring Entity</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPOSITE_COMPONENT__REQUIRED_ROLES_INTERFACE_REQUIRING_ENTITY = CompositionPackage.COMPOSED_STRUCTURE_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Parent Provides Component Types</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPOSITE_COMPONENT__PARENT_PROVIDES_COMPONENT_TYPES = CompositionPackage.COMPOSED_STRUCTURE_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Parent Complete Component Types</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPOSITE_COMPONENT__PARENT_COMPLETE_COMPONENT_TYPES = CompositionPackage.COMPOSED_STRUCTURE_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Implementation Component Type</b></em>' reference.
@@ -803,7 +814,7 @@ public interface RepositoryPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPOSITE_COMPONENT__IMPLEMENTATION_COMPONENT_TYPE = IMPLEMENTATION_COMPONENT_TYPE_FEATURE_COUNT + 4;
+	int COMPOSITE_COMPONENT__IMPLEMENTATION_COMPONENT_TYPE = CompositionPackage.COMPOSED_STRUCTURE_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of structural features of the '<em>Composite Component</em>' class.
@@ -812,7 +823,7 @@ public interface RepositoryPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPOSITE_COMPONENT_FEATURE_COUNT = IMPLEMENTATION_COMPONENT_TYPE_FEATURE_COUNT + 5;
+	int COMPOSITE_COMPONENT_FEATURE_COUNT = CompositionPackage.COMPOSED_STRUCTURE_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1365,17 +1376,6 @@ public interface RepositoryPackage extends EPackage {
 	EAttribute getRepository_RepositoryDescription();
 
 	/**
-	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.pcm.repository.Repository#getRepositoryName <em>Repository Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Repository Name</em>'.
-	 * @see de.uka.ipd.sdq.pcm.repository.Repository#getRepositoryName()
-	 * @see #getRepository()
-	 * @generated
-	 */
-	EAttribute getRepository_RepositoryName();
-
-	/**
 	 * Returns the meta object for the containment reference list '{@link de.uka.ipd.sdq.pcm.repository.Repository#getComponents__Repository <em>Components Repository</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1880,14 +1880,6 @@ public interface RepositoryPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute REPOSITORY__REPOSITORY_DESCRIPTION = eINSTANCE.getRepository_RepositoryDescription();
-
-		/**
-		 * The meta object literal for the '<em><b>Repository Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute REPOSITORY__REPOSITORY_NAME = eINSTANCE.getRepository_RepositoryName();
 
 		/**
 		 * The meta object literal for the '<em><b>Components Repository</b></em>' containment reference list feature.

@@ -24,6 +24,8 @@ import de.uka.ipd.sdq.pcm.core.composition.CompositionPackage;
 import de.uka.ipd.sdq.pcm.core.composition.ProvidedDelegationConnector;
 import de.uka.ipd.sdq.pcm.core.composition.RequiredDelegationConnector;
 
+import de.uka.ipd.sdq.pcm.core.entity.impl.EntityImpl;
+
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Composed Structure</b></em>'.
@@ -40,7 +42,7 @@ import de.uka.ipd.sdq.pcm.core.composition.RequiredDelegationConnector;
  *
  * @generated
  */
-public abstract class ComposedStructureImpl extends EObjectImpl implements ComposedStructure {
+public abstract class ComposedStructureImpl extends EntityImpl implements ComposedStructure {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

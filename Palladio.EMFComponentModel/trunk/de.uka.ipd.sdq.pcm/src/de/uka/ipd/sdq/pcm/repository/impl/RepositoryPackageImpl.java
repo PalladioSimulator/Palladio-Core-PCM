@@ -563,17 +563,8 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getRepository_RepositoryName() {
-		return (EAttribute)repositoryEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EReference getRepository_Components__Repository() {
-		return (EReference)repositoryEClass.getEStructuralFeatures().get(2);
+		return (EReference)repositoryEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -582,7 +573,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 	 * @generated
 	 */
 	public EReference getRepository_Interfaces__Repository() {
-		return (EReference)repositoryEClass.getEStructuralFeatures().get(3);
+		return (EReference)repositoryEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -591,7 +582,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 	 * @generated
 	 */
 	public EReference getRepository_Datatypes_Repository() {
-		return (EReference)repositoryEClass.getEStructuralFeatures().get(4);
+		return (EReference)repositoryEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -868,7 +859,6 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 
 		repositoryEClass = createEClass(REPOSITORY);
 		createEAttribute(repositoryEClass, REPOSITORY__REPOSITORY_DESCRIPTION);
-		createEAttribute(repositoryEClass, REPOSITORY__REPOSITORY_NAME);
 		createEReference(repositoryEClass, REPOSITORY__COMPONENTS_REPOSITORY);
 		createEReference(repositoryEClass, REPOSITORY__INTERFACES_REPOSITORY);
 		createEReference(repositoryEClass, REPOSITORY__DATATYPES_REPOSITORY);
@@ -945,13 +935,14 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 		roleEClass.getESuperTypes().add(theEntityPackage.getEntity());
 		requiredRoleEClass.getESuperTypes().add(this.getRole());
 		interfaceEClass.getESuperTypes().add(theEntityPackage.getEntity());
-		providesComponentTypeEClass.getESuperTypes().add(theEntityPackage.getEntity());
+		repositoryEClass.getESuperTypes().add(theEntityPackage.getEntity());
 		providesComponentTypeEClass.getESuperTypes().add(theEntityPackage.getInterfaceProvidingRequiringEntity());
+		providesComponentTypeEClass.getESuperTypes().add(theEntityPackage.getEntity());
 		implementationComponentTypeEClass.getESuperTypes().add(this.getCompleteComponentType());
 		completeComponentTypeEClass.getESuperTypes().add(this.getProvidesComponentType());
 		delegationConnectorEClass.getESuperTypes().add(theConnectorsPackage.getConnector());
-		compositeComponentEClass.getESuperTypes().add(this.getImplementationComponentType());
 		compositeComponentEClass.getESuperTypes().add(theCompositionPackage.getComposedStructure());
+		compositeComponentEClass.getESuperTypes().add(this.getImplementationComponentType());
 		basicComponentEClass.getESuperTypes().add(this.getImplementationComponentType());
 		primitiveDataTypeEClass.getESuperTypes().add(this.getDataType());
 		collectionDataTypeEClass.getESuperTypes().add(theEntityPackage.getEntity());
@@ -1004,7 +995,6 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 
 		initEClass(repositoryEClass, Repository.class, "Repository", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getRepository_RepositoryDescription(), ecorePackage.getEString(), "repositoryDescription", null, 1, 1, Repository.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEAttribute(getRepository_RepositoryName(), ecorePackage.getEString(), "repositoryName", "New Component Model", 1, 1, Repository.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getRepository_Components__Repository(), this.getProvidesComponentType(), null, "components__Repository", null, 0, -1, Repository.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getRepository_Interfaces__Repository(), this.getInterface(), null, "interfaces__Repository", null, 0, -1, Repository.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getRepository_Datatypes_Repository(), this.getDataType(), null, "datatypes_Repository", null, 0, -1, Repository.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);

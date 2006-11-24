@@ -418,8 +418,8 @@ public class StochasticsPackageImpl extends EPackageImpl implements StochasticsP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getVariable_Id_Variable() {
-		return (EReference)variableEClass.getEStructuralFeatures().get(0);
+	public EAttribute getVariable_CharacterisationType() {
+		return (EAttribute)variableEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -427,8 +427,8 @@ public class StochasticsPackageImpl extends EPackageImpl implements StochasticsP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getVariable_CharacterisationType() {
-		return (EAttribute)variableEClass.getEStructuralFeatures().get(1);
+	public EReference getVariable_Id_Variable() {
+		return (EReference)variableEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -692,8 +692,8 @@ public class StochasticsPackageImpl extends EPackageImpl implements StochasticsP
 		atomEClass = createEClass(ATOM);
 
 		variableEClass = createEClass(VARIABLE);
-		createEReference(variableEClass, VARIABLE__ID_VARIABLE);
 		createEAttribute(variableEClass, VARIABLE__CHARACTERISATION_TYPE);
+		createEReference(variableEClass, VARIABLE__ID_VARIABLE);
 
 		parantesisEClass = createEClass(PARANTESIS);
 		createEReference(parantesisEClass, PARANTESIS__INNER_EXPRESSION);
@@ -791,8 +791,8 @@ public class StochasticsPackageImpl extends EPackageImpl implements StochasticsP
 		initEClass(atomEClass, Atom.class, "Atom", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(variableEClass, Variable.class, "Variable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getVariable_Id_Variable(), theParameterPackage.getAbstractNamedReference(), null, "id_Variable", null, 1, 1, Variable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getVariable_CharacterisationType(), theParameterPackage.getVariableCharacterisationType(), "characterisationType", null, 1, 1, Variable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getVariable_Id_Variable(), theParameterPackage.getAbstractNamedReference(), null, "id_Variable", null, 1, 1, Variable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(parantesisEClass, Parantesis.class, "Parantesis", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getParantesis_InnerExpression(), this.getExpression(), null, "innerExpression", null, 1, 1, Parantesis.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);

@@ -85,9 +85,6 @@ public class SystemAdapterFactory extends AdapterFactoryImpl {
 			public Object caseSystem(de.uka.ipd.sdq.pcm.system.System object) {
 				return createSystemAdapter();
 			}
-			public Object caseComposedStructure(ComposedStructure object) {
-				return createComposedStructureAdapter();
-			}
 			public Object caseIdentifier(Identifier object) {
 				return createIdentifierAdapter();
 			}
@@ -96,6 +93,9 @@ public class SystemAdapterFactory extends AdapterFactoryImpl {
 			}
 			public Object caseEntity(Entity object) {
 				return createEntityAdapter();
+			}
+			public Object caseComposedStructure(ComposedStructure object) {
+				return createComposedStructureAdapter();
 			}
 			public Object caseInterfaceProvidingEntity(InterfaceProvidingEntity object) {
 				return createInterfaceProvidingEntityAdapter();

@@ -396,7 +396,12 @@ public class RepositoryValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateRepository(Repository repository, DiagnosticChain diagnostics, Map context) {
-		return validate_EveryDefaultConstraint(repository, diagnostics, context);
+		boolean result = validate_EveryMultiplicityConforms(repository, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(repository, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(repository, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(repository, diagnostics, context);
+		if (result || diagnostics != null) result &= identifierValidator.validateIdentifier_idHasToBeUnique(repository, diagnostics, context);
+		return result;
 	}
 
 	/**

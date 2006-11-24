@@ -170,7 +170,12 @@ public class CompositionValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateComposedStructure(ComposedStructure composedStructure, DiagnosticChain diagnostics, Map context) {
-		return validate_EveryDefaultConstraint(composedStructure, diagnostics, context);
+		boolean result = validate_EveryMultiplicityConforms(composedStructure, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(composedStructure, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(composedStructure, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(composedStructure, diagnostics, context);
+		if (result || diagnostics != null) result &= identifierValidator.validateIdentifier_idHasToBeUnique(composedStructure, diagnostics, context);
+		return result;
 	}
 
 	/**

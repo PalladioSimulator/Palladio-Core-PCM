@@ -27,8 +27,8 @@ import de.uka.ipd.sdq.pcm.parameter.VariableCharacterisationType;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link de.uka.ipd.sdq.pcm.core.stochastics.impl.VariableImpl#getId_Variable <em>Id Variable</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.core.stochastics.impl.VariableImpl#getCharacterisationType <em>Characterisation Type</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.core.stochastics.impl.VariableImpl#getId_Variable <em>Id Variable</em>}</li>
  * </ul>
  * </p>
  *
@@ -41,17 +41,6 @@ public class VariableImpl extends AtomImpl implements Variable {
 	 * @generated
 	 */
 	public static final String copyright = "(c) by SDQ, IPD, U Karlsruhe (TH), 2006";
-
-	/**
-	 * The cached value of the '{@link #getId_Variable() <em>Id Variable</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getId_Variable()
-	 * @generated
-	 * @ordered
-	 */
-	protected AbstractNamedReference id_Variable = null;
-
 
 	/**
 	 * The default value of the '{@link #getCharacterisationType() <em>Characterisation Type</em>}' attribute.
@@ -73,6 +62,16 @@ public class VariableImpl extends AtomImpl implements Variable {
 	 */
 	protected VariableCharacterisationType characterisationType = CHARACTERISATION_TYPE_EDEFAULT;
 
+	/**
+	 * The cached value of the '{@link #getId_Variable() <em>Id Variable</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getId_Variable()
+	 * @generated
+	 * @ordered
+	 */
+	protected AbstractNamedReference id_Variable = null;
+
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -90,6 +89,27 @@ public class VariableImpl extends AtomImpl implements Variable {
 	 */
 	protected EClass eStaticClass() {
 		return StochasticsPackage.Literals.VARIABLE;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public VariableCharacterisationType getCharacterisationType() {
+		return characterisationType;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setCharacterisationType(VariableCharacterisationType newCharacterisationType) {
+		VariableCharacterisationType oldCharacterisationType = characterisationType;
+		characterisationType = newCharacterisationType == null ? CHARACTERISATION_TYPE_EDEFAULT : newCharacterisationType;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, StochasticsPackage.VARIABLE__CHARACTERISATION_TYPE, oldCharacterisationType, characterisationType));
 	}
 
 	/**
@@ -135,34 +155,13 @@ public class VariableImpl extends AtomImpl implements Variable {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public VariableCharacterisationType getCharacterisationType() {
-		return characterisationType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setCharacterisationType(VariableCharacterisationType newCharacterisationType) {
-		VariableCharacterisationType oldCharacterisationType = characterisationType;
-		characterisationType = newCharacterisationType == null ? CHARACTERISATION_TYPE_EDEFAULT : newCharacterisationType;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, StochasticsPackage.VARIABLE__CHARACTERISATION_TYPE, oldCharacterisationType, characterisationType));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case StochasticsPackage.VARIABLE__CHARACTERISATION_TYPE:
+				return getCharacterisationType();
 			case StochasticsPackage.VARIABLE__ID_VARIABLE:
 				if (resolve) return getId_Variable();
 				return basicGetId_Variable();
-			case StochasticsPackage.VARIABLE__CHARACTERISATION_TYPE:
-				return getCharacterisationType();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -174,11 +173,11 @@ public class VariableImpl extends AtomImpl implements Variable {
 	 */
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case StochasticsPackage.VARIABLE__ID_VARIABLE:
-				setId_Variable((AbstractNamedReference)newValue);
-				return;
 			case StochasticsPackage.VARIABLE__CHARACTERISATION_TYPE:
 				setCharacterisationType((VariableCharacterisationType)newValue);
+				return;
+			case StochasticsPackage.VARIABLE__ID_VARIABLE:
+				setId_Variable((AbstractNamedReference)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -191,11 +190,11 @@ public class VariableImpl extends AtomImpl implements Variable {
 	 */
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case StochasticsPackage.VARIABLE__ID_VARIABLE:
-				setId_Variable((AbstractNamedReference)null);
-				return;
 			case StochasticsPackage.VARIABLE__CHARACTERISATION_TYPE:
 				setCharacterisationType(CHARACTERISATION_TYPE_EDEFAULT);
+				return;
+			case StochasticsPackage.VARIABLE__ID_VARIABLE:
+				setId_Variable((AbstractNamedReference)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -208,10 +207,10 @@ public class VariableImpl extends AtomImpl implements Variable {
 	 */
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case StochasticsPackage.VARIABLE__ID_VARIABLE:
-				return id_Variable != null;
 			case StochasticsPackage.VARIABLE__CHARACTERISATION_TYPE:
 				return characterisationType != CHARACTERISATION_TYPE_EDEFAULT;
+			case StochasticsPackage.VARIABLE__ID_VARIABLE:
+				return id_Variable != null;
 		}
 		return super.eIsSet(featureID);
 	}

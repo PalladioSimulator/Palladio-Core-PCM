@@ -33,7 +33,7 @@ import de.uka.ipd.sdq.pcm.repository.RepositoryFactory;
  * @generated
  */
 public class InterfaceProvidingEntityItemProvider
-	extends ItemProviderAdapter
+	extends EntityItemProvider
 	implements	
 		IEditingDomainItemProvider,	
 		IStructuredItemContentProvider,	
@@ -94,7 +94,10 @@ public class InterfaceProvidingEntityItemProvider
 	 * @generated
 	 */
 	public String getText(Object object) {
-		return getString("_UI_InterfaceProvidingEntity_type");
+		String label = ((InterfaceProvidingEntity)object).getId();
+		return label == null || label.length() == 0 ?
+			getString("_UI_InterfaceProvidingEntity_type") :
+			getString("_UI_InterfaceProvidingEntity_type") + " " + label;
 	}
 
 	/**

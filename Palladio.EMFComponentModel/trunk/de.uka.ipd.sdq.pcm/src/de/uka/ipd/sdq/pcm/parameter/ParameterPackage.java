@@ -87,7 +87,7 @@ public interface ParameterPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.parameter.impl.ParameterPackageImpl#getAbstractNamedReference()
 	 * @generated
 	 */
-	int ABSTRACT_NAMED_REFERENCE = 4;
+	int ABSTRACT_NAMED_REFERENCE = 2;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.parameter.impl.NamespaceReferenceImpl <em>Namespace Reference</em>}' class.
@@ -97,7 +97,7 @@ public interface ParameterPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.parameter.impl.ParameterPackageImpl#getNamespaceReference()
 	 * @generated
 	 */
-	int NAMESPACE_REFERENCE = 2;
+	int NAMESPACE_REFERENCE = 3;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.parameter.impl.VariableReferenceImpl <em>Variable Reference</em>}' class.
@@ -107,7 +107,7 @@ public interface ParameterPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.parameter.impl.ParameterPackageImpl#getVariableReference()
 	 * @generated
 	 */
-	int VARIABLE_REFERENCE = 3;
+	int VARIABLE_REFERENCE = 4;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.parameter.impl.VariableUsageImpl <em>Variable Usage</em>}' class.
