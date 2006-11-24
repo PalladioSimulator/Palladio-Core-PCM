@@ -1,0 +1,85 @@
+«IMPORT system»
+«IMPORT composition»
+«IMPORT repository»
+«EXTENSION m2t_transforms::pcm»
+«EXTENSION m2t_transforms::java_names»
+
+«DEFINE System FOR System»
+   package «this.implementationPackage()»;
+   
+   «EXPAND m2t_transforms::java_core::ImportsTM FOR this»
+   «EXPAND ClientContextImports FOREACH this.childComponentContexts_ComposedStructure»
+   «EXPAND ProvidedRolesImports FOREACH this.systemProvidedRole_System»
+   public class «this.className()» 
+   extends SimulatedSystem {
+      «EXPAND ChildMemberVars FOREACH this.childComponentContexts_ComposedStructure»
+      «EXPAND SystemPorts FOR this»
+   
+      «EXPAND m2t_transforms::java_core::PortGetter FOREACH this.systemProvidedRole_System»
+      
+      public «this.className()»() {
+         «EXPAND InitCall FOREACH this.childComponentContexts_ComposedStructure»
+      }
+      «EXPAND Init(this) FOREACH this.childComponentContexts_ComposedStructure»
+   }
+«ENDDEFINE»
+
+«DEFINE ClientContextImports FOR AssemblyContext»
+   import «this.encapsulatedComponent_ChildComponentContext.fqn()»;
+   import «this.encapsulatedComponent_ChildComponentContext.fqnContext()»;
+«ENDDEFINE»
+
+«DEFINE ChildMemberVars FOR AssemblyContext»
+   protected 
+      «this.encapsulatedComponent_ChildComponentContext.javaName()» 
+         my«this.javaName()» = new «this.encapsulatedComponent_ChildComponentContext.javaName()»();
+«ENDDEFINE»
+
+«DEFINE InitCall FOR AssemblyContext»
+   init«this.javaName()»();
+«ENDDEFINE»
+
+«DEFINE Init(System s) FOR AssemblyContext»
+   private void init«this.javaName()»() {
+      «this.encapsulatedComponent_ChildComponentContext.contextClassName()» context = new «this.encapsulatedComponent_ChildComponentContext.contextClassName()»(
+         «EXPAND PortQuery(s,this) FOREACH this.encapsulatedComponent_ChildComponentContext.requiredRoles_ProvidesComponentType SEPARATOR ","»
+      );
+      my«this.javaName()».setContext(context);
+   }
+«ENDDEFINE»
+
+«DEFINE PortQuery(System s, AssemblyContext ctx) FOR RequiredRole»
+   «LET getConnector(s,ctx,this) AS connector»
+      «IF connector != null»
+         my«connector.providingChildComponentContext_CompositeAssemblyConnector.javaName()».«connector.providedRole_CompositeAssemblyConnector.portGetter()»()
+      «ELSE»
+         null
+      «ENDIF»
+   «ENDLET»
+«ENDDEFINE»
+
+«DEFINE SystemPorts FOR System»
+   «EXPAND InnerPortClass(this) FOREACH this.systemProvidedRole_System»
+«ENDDEFINE»
+
+«DEFINE InnerPortClass(System s) FOR SystemProvidedRole»
+   protected «this.providedInterface__ProvidedRole.javaName()» «this.portMemberVar()» =
+      new «this.providedInterface__ProvidedRole.javaName()»() {
+      «EXPAND SystemDelegator FOR getSystemProvidedDelegationConnector(s,this)»
+   };
+«ENDDEFINE»
+
+«DEFINE SystemDelegator FOR ProvidedDelegationConnector»
+   «EXPAND SystemDelegator(this.childComponentContext_ProvidedDelegationConnector,this.innerProvidedRole_ProvidedDelegationConnector) FOREACH this.innerProvidedRole_ProvidedDelegationConnector.providedInterface__ProvidedRole.signatures__Interface»
+«ENDDEFINE»
+
+«DEFINE SystemDelegator(AssemblyContext ctx,ProvidedRole p) FOR Signature»
+   public «EXPAND m2t_transforms::java_core::Signature FOR this» {
+      my«ctx.javaName()».«p.portGetter()»().«this.serviceName»(
+         «EXPAND m2t_transforms::java_core::ParameterUsageListTM FOR this»);
+   }   
+«ENDDEFINE»
+
+«DEFINE ProvidedRolesImports FOR SystemProvidedRole»
+   import «this.providedInterface__ProvidedRole.eContainer.basePackageName()+"."+this.providedInterface__ProvidedRole.javaName()»;
+«ENDDEFINE»

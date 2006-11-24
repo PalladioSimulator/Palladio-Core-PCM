@@ -1,0 +1,38 @@
+«IMPORT repository»
+«EXTENSION m2t_transforms::pcm»
+
+«AROUND BasicComponentTM FOR BasicComponent»
+   «EXPAND m2t_transforms::sim::BasicComponent FOR this»
+«ENDAROUND»
+
+«AROUND ParameterListTM FOR Signature»
+	Context ctx
+«ENDAROUND»
+
+«AROUND ParameterUsageListTM FOR Signature»
+   ctx
+«ENDAROUND»
+
+«AROUND ImportsTM FOR Object»
+   import de.uka.ipd.sdq.simucom.Context;
+   import de.uka.ipd.sdq.simucom.SimulatedComponent;   
+   import de.uka.ipd.sdq.simucom.SimulatedSystem;
+«ENDAROUND»
+
+«AROUND Action FOR LoopAction»
+   for (int iterationCount = 0, maxIterationCount = ctx.evaluate("«this.iterations_LoopAction.specification»"); 
+            iterationCount < maxIterationCount; iterationCount++){
+       «EXPAND m2t_transforms::java_core::Actions FOR this.bodyBehaviour_Loop.steps_Behaviour.findStart()»
+   }
+«ENDAROUND»
+
+«AROUND Action FOR ExternalCallAction»
+	«EXPAND m2t_transforms::java_core::ExternalCall FOR this.calledService_ExternalService»
+«ENDAROUND»
+
+«AROUND Action FOR InternalAction»
+	«EXPAND m2t_transforms::resources::ResourceDemands FOR this»
+«ENDAROUND»
+
+
+

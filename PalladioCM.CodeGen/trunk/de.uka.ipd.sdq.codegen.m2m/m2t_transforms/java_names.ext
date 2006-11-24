@@ -1,0 +1,55 @@
+import entity;
+import repository;
+import system;
+
+javaName(Entity e) :
+   e.entityName.replaceAll(" ","_");
+   
+cached portClassName(ProvidedRole r) :
+   r.providedInterface__ProvidedRole.javaName()+"_"+r.eContainer.javaName();
+
+cached contextClassName(CompleteComponentType c) :
+   c.javaName()+"Context";
+   
+portMemberVar(ProvidedRole r) :
+   "port"+r.providedInterface__ProvidedRole.javaName();
+   
+portInterface(ProvidedRole r) :
+   r.providedInterface__ProvidedRole.javaName();   
+
+portComponent(ProvidedRole r) :
+   r.eContainer.javaName();  
+   
+portGetter(ProvidedRole r) :
+   "getPort"+portInterface(r);
+   
+basePackageName(Repository r) :
+   r.repositoryName.replaceAll(" ","_").toLowerCase();
+
+basePackageDirectory(Repository r) :
+   basePackageName(r).replaceAll("\\.","/");
+     
+implementationPackage(ProvidesComponentType c) :
+   c.eContainer.basePackageName()+".impl";
+   
+basePackageName(System s) :
+   s.entityName.replaceAll(" ","_").toLowerCase();
+
+implementationPackage(System s) :
+   s.basePackageName()+".impl";
+
+basePackageDirectory(System s) :
+   basePackageName(s).replaceAll("\\.","/");   
+   
+className(System s) :
+   s.entityName.replaceAll(" ","_").toFirstUpper();
+   
+fqn(ProvidesComponentType c) :
+  c.eContainer.basePackageName()+".impl."+c.javaName();
+
+fqn(System s) :
+  s.basePackageName()+".impl."+s.javaName();
+
+fqnContext(ProvidesComponentType c) :
+  c.eContainer.basePackageName()+".impl.contexts."+c.javaName()+"Context";
+   

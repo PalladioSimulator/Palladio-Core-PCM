@@ -1,0 +1,26 @@
+«IMPORT seff»
+«EXTENSION m2t_transforms::java_names»
+«EXTENSION m2t_transforms::pcm»
+
+«DEFINE Action FOR AbstractAction»
+   // Unknown Action found «this.entityName»
+   «ERROR "Abstract Action Unknown: "+this.metaType.toString()»
+«ENDDEFINE»
+
+«DEFINE Action FOR StartAction»
+«ENDDEFINE»
+
+«DEFINE Action FOR StopAction»
+«ENDDEFINE»
+
+«DEFINE Action FOR LoopAction»
+   «ERROR "LoopAction is a template method and must be overridden"»
+«ENDDEFINE»
+
+«DEFINE Action FOR ExternalCallAction»
+   «ERROR "ExternalCallAction is a template method and must be overridden"»
+«ENDDEFINE»
+
+«DEFINE Action FOR InternalAction»
+   «ERROR "InternalAction is a template method and must be overridden"»
+«ENDDEFINE»

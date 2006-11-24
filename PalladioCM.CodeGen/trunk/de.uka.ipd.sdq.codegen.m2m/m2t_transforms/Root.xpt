@@ -1,0 +1,29 @@
+«IMPORT repository»
+«EXTENSION m2t_transforms::java_names»
+
+«DEFINE Root FOR Repository»
+   «EXPAND InterfaceFile FOREACH this.interfaces__Repository»
+   «EXPAND BasicComponentFile FOREACH this.components__Repository.typeSelect(BasicComponent)»
+«ENDDEFINE»
+
+«DEFINE InterfaceFile FOR Interface»
+   «FILE this.eContainer.basePackageDirectory()+"/"+this.entityName+".java"»
+      package «this.eContainer.basePackageName()»;
+      
+      «EXPAND m2t_transforms::java_core::ImportsTM FOR this»   
+      
+      public interface «this.entityName» {
+	         «EXPAND m2t_transforms::java_core::Signature FOREACH this.signatures__Interface SEPARATOR ";"»;
+      }
+   «ENDFILE»
+«ENDDEFINE»
+
+«DEFINE BasicComponentFile FOR BasicComponent»
+   «FILE this.eContainer.basePackageDirectory()+"/impl/"+this.entityName+".java"»
+      «EXPAND BasicComponentTM FOR this»
+   «ENDFILE»
+«ENDDEFINE»
+
+«DEFINE BasicComponentTM FOR BasicComponent»
+  «ERROR "This is a template method and must be overridden"»
+«ENDDEFINE»  
