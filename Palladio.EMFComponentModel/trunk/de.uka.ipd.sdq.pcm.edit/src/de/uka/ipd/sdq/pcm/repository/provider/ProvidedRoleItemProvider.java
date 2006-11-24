@@ -66,6 +66,7 @@ public class ProvidedRoleItemProvider
 			super.getPropertyDescriptors(object);
 
 			addProvidedInterface__ProvidedRolePropertyDescriptor(object);
+			addProvidingEntity_ProvidedRolePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -84,6 +85,28 @@ public class ProvidedRoleItemProvider
 				 getString("_UI_ProvidedRole_providedInterface__ProvidedRole_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_ProvidedRole_providedInterface__ProvidedRole_feature", "_UI_ProvidedRole_type"),
 				 RepositoryPackage.Literals.PROVIDED_ROLE__PROVIDED_INTERFACE_PROVIDED_ROLE,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Providing Entity Provided Role feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addProvidingEntity_ProvidedRolePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ProvidedRole_providingEntity_ProvidedRole_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ProvidedRole_providingEntity_ProvidedRole_feature", "_UI_ProvidedRole_type"),
+				 RepositoryPackage.Literals.PROVIDED_ROLE__PROVIDING_ENTITY_PROVIDED_ROLE,
 				 true,
 				 false,
 				 true,

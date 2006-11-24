@@ -17,6 +17,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -151,7 +152,7 @@ public class RepositoryImpl extends EntityImpl implements Repository {
 	 */
 	public EList getComponents__Repository() {
 		if (components__Repository == null) {
-			components__Repository = new EObjectContainmentEList(ProvidesComponentType.class, this, RepositoryPackage.REPOSITORY__COMPONENTS_REPOSITORY);
+			components__Repository = new EObjectContainmentWithInverseEList(ProvidesComponentType.class, this, RepositoryPackage.REPOSITORY__COMPONENTS_REPOSITORY, RepositoryPackage.PROVIDES_COMPONENT_TYPE__REPOSITORY_PROVIDES_COMPONENT_TYPE);
 		}
 		return components__Repository;
 	}
@@ -163,7 +164,7 @@ public class RepositoryImpl extends EntityImpl implements Repository {
 	 */
 	public EList getInterfaces__Repository() {
 		if (interfaces__Repository == null) {
-			interfaces__Repository = new EObjectContainmentEList(Interface.class, this, RepositoryPackage.REPOSITORY__INTERFACES_REPOSITORY);
+			interfaces__Repository = new EObjectContainmentWithInverseEList(Interface.class, this, RepositoryPackage.REPOSITORY__INTERFACES_REPOSITORY, RepositoryPackage.INTERFACE__REPOSITORY_INTERFACE);
 		}
 		return interfaces__Repository;
 	}
@@ -175,9 +176,26 @@ public class RepositoryImpl extends EntityImpl implements Repository {
 	 */
 	public EList getDatatypes_Repository() {
 		if (datatypes_Repository == null) {
-			datatypes_Repository = new EObjectContainmentEList(DataType.class, this, RepositoryPackage.REPOSITORY__DATATYPES_REPOSITORY);
+			datatypes_Repository = new EObjectContainmentWithInverseEList(DataType.class, this, RepositoryPackage.REPOSITORY__DATATYPES_REPOSITORY, RepositoryPackage.DATA_TYPE__REPOSITORY_DATA_TYPE);
 		}
 		return datatypes_Repository;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case RepositoryPackage.REPOSITORY__COMPONENTS_REPOSITORY:
+				return ((InternalEList)getComponents__Repository()).basicAdd(otherEnd, msgs);
+			case RepositoryPackage.REPOSITORY__INTERFACES_REPOSITORY:
+				return ((InternalEList)getInterfaces__Repository()).basicAdd(otherEnd, msgs);
+			case RepositoryPackage.REPOSITORY__DATATYPES_REPOSITORY:
+				return ((InternalEList)getDatatypes_Repository()).basicAdd(otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
 
 	/**

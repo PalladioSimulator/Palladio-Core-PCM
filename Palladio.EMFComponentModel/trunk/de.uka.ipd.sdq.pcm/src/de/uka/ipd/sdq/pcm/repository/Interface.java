@@ -26,6 +26,7 @@ import de.uka.ipd.sdq.pcm.core.entity.Entity;
  *   <li>{@link de.uka.ipd.sdq.pcm.repository.Interface#getAnchestorInterfaces_Interface <em>Anchestor Interfaces Interface</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.repository.Interface#getProtocols__Interface <em>Protocols Interface</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.repository.Interface#getSignatures__Interface <em>Signatures Interface</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.repository.Interface#getRepository_Interface <em>Repository Interface</em>}</li>
  * </ul>
  * </p>
  *
@@ -104,6 +105,34 @@ public interface Interface extends Entity {
 	 * @generated
 	 */
 	EList getSignatures__Interface();
+
+	/**
+	 * Returns the value of the '<em><b>Repository Interface</b></em>' container reference.
+	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.repository.Repository#getInterfaces__Repository <em>Interfaces Repository</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Repository Interface</em>' container reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Repository Interface</em>' container reference.
+	 * @see #setRepository_Interface(Repository)
+	 * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getInterface_Repository_Interface()
+	 * @see de.uka.ipd.sdq.pcm.repository.Repository#getInterfaces__Repository
+	 * @model opposite="interfaces__Repository" required="true" ordered="false"
+	 * @generated
+	 */
+	Repository getRepository_Interface();
+
+	/**
+	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.repository.Interface#getRepository_Interface <em>Repository Interface</em>}' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Repository Interface</em>' container reference.
+	 * @see #getRepository_Interface()
+	 * @generated
+	 */
+	void setRepository_Interface(Repository value);
 
 
 	/**

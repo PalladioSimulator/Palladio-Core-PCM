@@ -63,17 +63,17 @@ import de.uka.ipd.sdq.pcm.repository.util.RepositoryValidator;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link de.uka.ipd.sdq.pcm.repository.impl.CompositeComponentImpl#getProvidedRoles_InterfaceProvidingEntity <em>Provided Roles Interface Providing Entity</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.repository.impl.CompositeComponentImpl#getRequiredRoles_InterfaceRequiringEntity <em>Required Roles Interface Requiring Entity</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.repository.impl.CompositeComponentImpl#getParentProvidesComponentTypes <em>Parent Provides Component Types</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.repository.impl.CompositeComponentImpl#getParentCompleteComponentTypes <em>Parent Complete Component Types</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.repository.impl.CompositeComponentImpl#getChildComponentContexts_ComposedStructure <em>Child Component Contexts Composed Structure</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.repository.impl.CompositeComponentImpl#getProvidedDelegationConnectors_ComposedStructure <em>Provided Delegation Connectors Composed Structure</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.repository.impl.CompositeComponentImpl#getRequiredDelegationConnectors_ComposedStructure <em>Required Delegation Connectors Composed Structure</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.repository.impl.CompositeComponentImpl#getCompositeAssemblyConnectors_ComposedStructure <em>Composite Assembly Connectors Composed Structure</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.repository.impl.CompositeComponentImpl#getImplementationComponentType <em>Implementation Component Type</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class CompositeComponentImpl extends ComposedStructureImpl implements CompositeComponent {
+public class CompositeComponentImpl extends ImplementationComponentTypeImpl implements CompositeComponent {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -82,44 +82,44 @@ public class CompositeComponentImpl extends ComposedStructureImpl implements Com
 	public static final String copyright = "(c) by SDQ, IPD, U Karlsruhe (TH), 2006";
 
 	/**
-	 * The cached value of the '{@link #getProvidedRoles_InterfaceProvidingEntity() <em>Provided Roles Interface Providing Entity</em>}' containment reference list.
+	 * The cached value of the '{@link #getChildComponentContexts_ComposedStructure() <em>Child Component Contexts Composed Structure</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getProvidedRoles_InterfaceProvidingEntity()
+	 * @see #getChildComponentContexts_ComposedStructure()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList providedRoles_InterfaceProvidingEntity = null;
+	protected EList childComponentContexts_ComposedStructure = null;
 
 	/**
-	 * The cached value of the '{@link #getRequiredRoles_InterfaceRequiringEntity() <em>Required Roles Interface Requiring Entity</em>}' containment reference list.
+	 * The cached value of the '{@link #getProvidedDelegationConnectors_ComposedStructure() <em>Provided Delegation Connectors Composed Structure</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getRequiredRoles_InterfaceRequiringEntity()
+	 * @see #getProvidedDelegationConnectors_ComposedStructure()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList requiredRoles_InterfaceRequiringEntity = null;
+	protected EList providedDelegationConnectors_ComposedStructure = null;
 
 	/**
-	 * The cached value of the '{@link #getParentProvidesComponentTypes() <em>Parent Provides Component Types</em>}' reference list.
+	 * The cached value of the '{@link #getRequiredDelegationConnectors_ComposedStructure() <em>Required Delegation Connectors Composed Structure</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getParentProvidesComponentTypes()
+	 * @see #getRequiredDelegationConnectors_ComposedStructure()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList parentProvidesComponentTypes = null;
+	protected EList requiredDelegationConnectors_ComposedStructure = null;
 
 	/**
-	 * The cached value of the '{@link #getParentCompleteComponentTypes() <em>Parent Complete Component Types</em>}' reference list.
+	 * The cached value of the '{@link #getCompositeAssemblyConnectors_ComposedStructure() <em>Composite Assembly Connectors Composed Structure</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getParentCompleteComponentTypes()
+	 * @see #getCompositeAssemblyConnectors_ComposedStructure()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList parentCompleteComponentTypes = null;
+	protected EList compositeAssemblyConnectors_ComposedStructure = null;
 
 	/**
 	 * The cached value of the '{@link #getImplementationComponentType() <em>Implementation Component Type</em>}' reference.
@@ -150,51 +150,6 @@ public class CompositeComponentImpl extends ComposedStructureImpl implements Com
 	 */
 	private static OCLExpression RequireSameInterfacesInvOCL;
 	
-	/**
-	 * The parsed OCL expression for the definition of the '{@link #RequiredInterfacesHaveToConformToCompleteType <em>Required Interfaces Have To Conform To Complete Type</em>}' invariant constraint.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #RequiredInterfacesHaveToConformToCompleteType
-	 * @generated
-	 */
-	private static OCLExpression RequiredInterfacesHaveToConformToCompleteTypeInvOCL;
-	
-	/**
-	 * The parsed OCL expression for the definition of the '{@link #providedInterfacesHaveToConformToCompleteType <em>Provided Interfaces Have To Conform To Complete Type</em>}' invariant constraint.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #providedInterfacesHaveToConformToCompleteType
-	 * @generated
-	 */
-	private static OCLExpression providedInterfacesHaveToConformToCompleteTypeInvOCL;
-	
-	/**
-	 * The parsed OCL expression for the definition of the '{@link #AtLeastOneInterfaceHasToBeProvidedOrRequiredByAUsefullCompleteComponentType <em>At Least One Interface Has To Be Provided Or Required By AUsefull Complete Component Type</em>}' invariant constraint.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #AtLeastOneInterfaceHasToBeProvidedOrRequiredByAUsefullCompleteComponentType
-	 * @generated
-	 */
-	private static OCLExpression AtLeastOneInterfaceHasToBeProvidedOrRequiredByAUsefullCompleteComponentTypeInvOCL;
-	
-	/**
-	 * The parsed OCL expression for the definition of the '{@link #providedInterfacesHaveToConformToProvidedType2 <em>Provided Interfaces Have To Conform To Provided Type2</em>}' invariant constraint.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #providedInterfacesHaveToConformToProvidedType2
-	 * @generated
-	 */
-	private static OCLExpression providedInterfacesHaveToConformToProvidedType2InvOCL;
-	
-	/**
-	 * The parsed OCL expression for the definition of the '{@link #AtLeastOneInterfaceHasToBeProvidedByAUsefullProvidesComponentType <em>At Least One Interface Has To Be Provided By AUsefull Provides Component Type</em>}' invariant constraint.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #AtLeastOneInterfaceHasToBeProvidedByAUsefullProvidesComponentType
-	 * @generated
-	 */
-	private static OCLExpression AtLeastOneInterfaceHasToBeProvidedByAUsefullProvidesComponentTypeInvOCL;
-	
 	private static final String OCL_ANNOTATION_SOURCE = "http://www.eclipse.org/emf/2002/GenModel";
 	
 	/**
@@ -220,11 +175,11 @@ public class CompositeComponentImpl extends ComposedStructureImpl implements Com
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList getProvidedRoles_InterfaceProvidingEntity() {
-		if (providedRoles_InterfaceProvidingEntity == null) {
-			providedRoles_InterfaceProvidingEntity = new EObjectContainmentEList(ProvidedRole.class, this, RepositoryPackage.COMPOSITE_COMPONENT__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY);
+	public EList getChildComponentContexts_ComposedStructure() {
+		if (childComponentContexts_ComposedStructure == null) {
+			childComponentContexts_ComposedStructure = new EObjectContainmentWithInverseEList(AssemblyContext.class, this, RepositoryPackage.COMPOSITE_COMPONENT__CHILD_COMPONENT_CONTEXTS_COMPOSED_STRUCTURE, CompositionPackage.ASSEMBLY_CONTEXT__PARENT_STRUCTURE_ASSEMBLY_CONTEXT);
 		}
-		return providedRoles_InterfaceProvidingEntity;
+		return childComponentContexts_ComposedStructure;
 	}
 
 	/**
@@ -232,11 +187,11 @@ public class CompositeComponentImpl extends ComposedStructureImpl implements Com
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList getRequiredRoles_InterfaceRequiringEntity() {
-		if (requiredRoles_InterfaceRequiringEntity == null) {
-			requiredRoles_InterfaceRequiringEntity = new EObjectContainmentEList(RequiredRole.class, this, RepositoryPackage.COMPOSITE_COMPONENT__REQUIRED_ROLES_INTERFACE_REQUIRING_ENTITY);
+	public EList getProvidedDelegationConnectors_ComposedStructure() {
+		if (providedDelegationConnectors_ComposedStructure == null) {
+			providedDelegationConnectors_ComposedStructure = new EObjectContainmentWithInverseEList(ProvidedDelegationConnector.class, this, RepositoryPackage.COMPOSITE_COMPONENT__PROVIDED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE, CompositionPackage.PROVIDED_DELEGATION_CONNECTOR__PARENT_STRUCTURE_PROVIDED_DELEGATION_CONNECTOR);
 		}
-		return requiredRoles_InterfaceRequiringEntity;
+		return providedDelegationConnectors_ComposedStructure;
 	}
 
 	/**
@@ -244,11 +199,11 @@ public class CompositeComponentImpl extends ComposedStructureImpl implements Com
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList getParentProvidesComponentTypes() {
-		if (parentProvidesComponentTypes == null) {
-			parentProvidesComponentTypes = new EObjectResolvingEList(ProvidesComponentType.class, this, RepositoryPackage.COMPOSITE_COMPONENT__PARENT_PROVIDES_COMPONENT_TYPES);
+	public EList getRequiredDelegationConnectors_ComposedStructure() {
+		if (requiredDelegationConnectors_ComposedStructure == null) {
+			requiredDelegationConnectors_ComposedStructure = new EObjectContainmentWithInverseEList(RequiredDelegationConnector.class, this, RepositoryPackage.COMPOSITE_COMPONENT__REQUIRED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE, CompositionPackage.REQUIRED_DELEGATION_CONNECTOR__PARENT_STRUCTURE_REQUIRED_DELEGATION_CONNECTOR);
 		}
-		return parentProvidesComponentTypes;
+		return requiredDelegationConnectors_ComposedStructure;
 	}
 
 	/**
@@ -256,11 +211,11 @@ public class CompositeComponentImpl extends ComposedStructureImpl implements Com
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList getParentCompleteComponentTypes() {
-		if (parentCompleteComponentTypes == null) {
-			parentCompleteComponentTypes = new EObjectResolvingEList(CompleteComponentType.class, this, RepositoryPackage.COMPOSITE_COMPONENT__PARENT_COMPLETE_COMPONENT_TYPES);
+	public EList getCompositeAssemblyConnectors_ComposedStructure() {
+		if (compositeAssemblyConnectors_ComposedStructure == null) {
+			compositeAssemblyConnectors_ComposedStructure = new EObjectContainmentWithInverseEList(AssemblyConnector.class, this, RepositoryPackage.COMPOSITE_COMPONENT__COMPOSITE_ASSEMBLY_CONNECTORS_COMPOSED_STRUCTURE, CompositionPackage.ASSEMBLY_CONNECTOR__PARENT_STRUCTURE_ASSEMBLY_CONNECTOR);
 		}
-		return parentCompleteComponentTypes;
+		return compositeAssemblyConnectors_ComposedStructure;
 	}
 
 	/**
@@ -381,204 +336,23 @@ public class CompositeComponentImpl extends ComposedStructureImpl implements Com
 		
 	}
 
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean RequiredInterfacesHaveToConformToCompleteType(DiagnosticChain diagnostics, Map context) {
-		if (RequiredInterfacesHaveToConformToCompleteTypeInvOCL == null) {
-			Environment env = ExpressionsUtil.createClassifierContext(eClass());
-			
-			
-			String body = "                               true ";
-			
-			try {
-				RequiredInterfacesHaveToConformToCompleteTypeInvOCL = ExpressionsUtil.createInvariant(env, body, true);
-			} catch (ParserException e) {
-				throw new UnsupportedOperationException(e.getLocalizedMessage());
-			}
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case RepositoryPackage.COMPOSITE_COMPONENT__CHILD_COMPONENT_CONTEXTS_COMPOSED_STRUCTURE:
+				return ((InternalEList)getChildComponentContexts_ComposedStructure()).basicAdd(otherEnd, msgs);
+			case RepositoryPackage.COMPOSITE_COMPONENT__PROVIDED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE:
+				return ((InternalEList)getProvidedDelegationConnectors_ComposedStructure()).basicAdd(otherEnd, msgs);
+			case RepositoryPackage.COMPOSITE_COMPONENT__REQUIRED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE:
+				return ((InternalEList)getRequiredDelegationConnectors_ComposedStructure()).basicAdd(otherEnd, msgs);
+			case RepositoryPackage.COMPOSITE_COMPONENT__COMPOSITE_ASSEMBLY_CONNECTORS_COMPOSED_STRUCTURE:
+				return ((InternalEList)getCompositeAssemblyConnectors_ComposedStructure()).basicAdd(otherEnd, msgs);
 		}
-		
-		Query query = QueryFactory.eINSTANCE.createQuery(RequiredInterfacesHaveToConformToCompleteTypeInvOCL);
-		EvalEnvironment evalEnv = new EvalEnvironment();
-		query.setEvaluationEnvironment(evalEnv);
-		
-		if (!query.check(this)) {
-			if (diagnostics != null) {
-				diagnostics.add
-					(new BasicDiagnostic
-						(Diagnostic.ERROR,
-						 RepositoryValidator.DIAGNOSTIC_SOURCE,
-						 RepositoryValidator.IMPLEMENTATION_COMPONENT_TYPE__REQUIRED_INTERFACES_HAVE_TO_CONFORM_TO_COMPLETE_TYPE,
-						 EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "RequiredInterfacesHaveToConformToCompleteType", EObjectValidator.getObjectLabel(this, context) }),
-						 new Object [] { this }));
-			}
-			return false;
-		}
-		return true;
-		
-	}
-
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean providedInterfacesHaveToConformToCompleteType(DiagnosticChain diagnostics, Map context) {
-		if (providedInterfacesHaveToConformToCompleteTypeInvOCL == null) {
-			Environment env = ExpressionsUtil.createClassifierContext(eClass());
-			
-			
-			String body = "                             true ";
-			
-			try {
-				providedInterfacesHaveToConformToCompleteTypeInvOCL = ExpressionsUtil.createInvariant(env, body, true);
-			} catch (ParserException e) {
-				throw new UnsupportedOperationException(e.getLocalizedMessage());
-			}
-		}
-		
-		Query query = QueryFactory.eINSTANCE.createQuery(providedInterfacesHaveToConformToCompleteTypeInvOCL);
-		EvalEnvironment evalEnv = new EvalEnvironment();
-		query.setEvaluationEnvironment(evalEnv);
-		
-		if (!query.check(this)) {
-			if (diagnostics != null) {
-				diagnostics.add
-					(new BasicDiagnostic
-						(Diagnostic.ERROR,
-						 RepositoryValidator.DIAGNOSTIC_SOURCE,
-						 RepositoryValidator.IMPLEMENTATION_COMPONENT_TYPE__PROVIDED_INTERFACES_HAVE_TO_CONFORM_TO_COMPLETE_TYPE,
-						 EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "providedInterfacesHaveToConformToCompleteType", EObjectValidator.getObjectLabel(this, context) }),
-						 new Object [] { this }));
-			}
-			return false;
-		}
-		return true;
-		
-	}
-
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean AtLeastOneInterfaceHasToBeProvidedOrRequiredByAUsefullCompleteComponentType(DiagnosticChain diagnostics, Map context) {
-		if (AtLeastOneInterfaceHasToBeProvidedOrRequiredByAUsefullCompleteComponentTypeInvOCL == null) {
-			Environment env = ExpressionsUtil.createClassifierContext(eClass());
-			
-			
-			String body = "(   self.oclIsTypeOf(CompleteComponentType)   or   self.oclIsTypeOf(ImplementationComponentType)   or   self.oclIsTypeOf(CompositeComponent)   or   self.oclIsTypeOf(BasicComponent)  )  implies  (   self.providedRoles_InterfaceProvidingEntity->size() >= 1   or   self.requiredRoles_InterfaceRequiringEntity->size() >= 1  ) ";
-			
-			try {
-				AtLeastOneInterfaceHasToBeProvidedOrRequiredByAUsefullCompleteComponentTypeInvOCL = ExpressionsUtil.createInvariant(env, body, true);
-			} catch (ParserException e) {
-				throw new UnsupportedOperationException(e.getLocalizedMessage());
-			}
-		}
-		
-		Query query = QueryFactory.eINSTANCE.createQuery(AtLeastOneInterfaceHasToBeProvidedOrRequiredByAUsefullCompleteComponentTypeInvOCL);
-		EvalEnvironment evalEnv = new EvalEnvironment();
-		query.setEvaluationEnvironment(evalEnv);
-		
-		if (!query.check(this)) {
-			if (diagnostics != null) {
-				diagnostics.add
-					(new BasicDiagnostic
-						(Diagnostic.ERROR,
-						 RepositoryValidator.DIAGNOSTIC_SOURCE,
-						 RepositoryValidator.COMPLETE_COMPONENT_TYPE__AT_LEAST_ONE_INTERFACE_HAS_TO_BE_PROVIDED_OR_REQUIRED_BY_AUSEFULL_COMPLETE_COMPONENT_TYPE,
-						 EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "AtLeastOneInterfaceHasToBeProvidedOrRequiredByAUsefullCompleteComponentType", EObjectValidator.getObjectLabel(this, context) }),
-						 new Object [] { this }));
-			}
-			return false;
-		}
-		return true;
-		
-	}
-
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean providedInterfacesHaveToConformToProvidedType2(DiagnosticChain diagnostics, Map context) {
-		if (providedInterfacesHaveToConformToProvidedType2InvOCL == null) {
-			Environment env = ExpressionsUtil.createClassifierContext(eClass());
-			
-			
-			String body = "                           true ";
-			
-			try {
-				providedInterfacesHaveToConformToProvidedType2InvOCL = ExpressionsUtil.createInvariant(env, body, true);
-			} catch (ParserException e) {
-				throw new UnsupportedOperationException(e.getLocalizedMessage());
-			}
-		}
-		
-		Query query = QueryFactory.eINSTANCE.createQuery(providedInterfacesHaveToConformToProvidedType2InvOCL);
-		EvalEnvironment evalEnv = new EvalEnvironment();
-		query.setEvaluationEnvironment(evalEnv);
-		
-		if (!query.check(this)) {
-			if (diagnostics != null) {
-				diagnostics.add
-					(new BasicDiagnostic
-						(Diagnostic.ERROR,
-						 RepositoryValidator.DIAGNOSTIC_SOURCE,
-						 RepositoryValidator.COMPLETE_COMPONENT_TYPE__PROVIDED_INTERFACES_HAVE_TO_CONFORM_TO_PROVIDED_TYPE2,
-						 EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "providedInterfacesHaveToConformToProvidedType2", EObjectValidator.getObjectLabel(this, context) }),
-						 new Object [] { this }));
-			}
-			return false;
-		}
-		return true;
-		
-	}
-
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean AtLeastOneInterfaceHasToBeProvidedByAUsefullProvidesComponentType(DiagnosticChain diagnostics, Map context) {
-		if (AtLeastOneInterfaceHasToBeProvidedByAUsefullProvidesComponentTypeInvOCL == null) {
-			Environment env = ExpressionsUtil.createClassifierContext(eClass());
-			
-			
-			String body = "self.oclIsTypeOf(ProvidesComponentType)  implies  self.providedRoles_InterfaceProvidingEntity->size() >= 1 ";
-			
-			try {
-				AtLeastOneInterfaceHasToBeProvidedByAUsefullProvidesComponentTypeInvOCL = ExpressionsUtil.createInvariant(env, body, true);
-			} catch (ParserException e) {
-				throw new UnsupportedOperationException(e.getLocalizedMessage());
-			}
-		}
-		
-		Query query = QueryFactory.eINSTANCE.createQuery(AtLeastOneInterfaceHasToBeProvidedByAUsefullProvidesComponentTypeInvOCL);
-		EvalEnvironment evalEnv = new EvalEnvironment();
-		query.setEvaluationEnvironment(evalEnv);
-		
-		if (!query.check(this)) {
-			if (diagnostics != null) {
-				diagnostics.add
-					(new BasicDiagnostic
-						(Diagnostic.ERROR,
-						 RepositoryValidator.DIAGNOSTIC_SOURCE,
-						 RepositoryValidator.PROVIDES_COMPONENT_TYPE__AT_LEAST_ONE_INTERFACE_HAS_TO_BE_PROVIDED_BY_AUSEFULL_PROVIDES_COMPONENT_TYPE,
-						 EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "AtLeastOneInterfaceHasToBeProvidedByAUsefullProvidesComponentType", EObjectValidator.getObjectLabel(this, context) }),
-						 new Object [] { this }));
-			}
-			return false;
-		}
-		return true;
-		
+		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -588,10 +362,14 @@ public class CompositeComponentImpl extends ComposedStructureImpl implements Com
 	 */
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case RepositoryPackage.COMPOSITE_COMPONENT__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY:
-				return ((InternalEList)getProvidedRoles_InterfaceProvidingEntity()).basicRemove(otherEnd, msgs);
-			case RepositoryPackage.COMPOSITE_COMPONENT__REQUIRED_ROLES_INTERFACE_REQUIRING_ENTITY:
-				return ((InternalEList)getRequiredRoles_InterfaceRequiringEntity()).basicRemove(otherEnd, msgs);
+			case RepositoryPackage.COMPOSITE_COMPONENT__CHILD_COMPONENT_CONTEXTS_COMPOSED_STRUCTURE:
+				return ((InternalEList)getChildComponentContexts_ComposedStructure()).basicRemove(otherEnd, msgs);
+			case RepositoryPackage.COMPOSITE_COMPONENT__PROVIDED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE:
+				return ((InternalEList)getProvidedDelegationConnectors_ComposedStructure()).basicRemove(otherEnd, msgs);
+			case RepositoryPackage.COMPOSITE_COMPONENT__REQUIRED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE:
+				return ((InternalEList)getRequiredDelegationConnectors_ComposedStructure()).basicRemove(otherEnd, msgs);
+			case RepositoryPackage.COMPOSITE_COMPONENT__COMPOSITE_ASSEMBLY_CONNECTORS_COMPOSED_STRUCTURE:
+				return ((InternalEList)getCompositeAssemblyConnectors_ComposedStructure()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -603,14 +381,14 @@ public class CompositeComponentImpl extends ComposedStructureImpl implements Com
 	 */
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case RepositoryPackage.COMPOSITE_COMPONENT__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY:
-				return getProvidedRoles_InterfaceProvidingEntity();
-			case RepositoryPackage.COMPOSITE_COMPONENT__REQUIRED_ROLES_INTERFACE_REQUIRING_ENTITY:
-				return getRequiredRoles_InterfaceRequiringEntity();
-			case RepositoryPackage.COMPOSITE_COMPONENT__PARENT_PROVIDES_COMPONENT_TYPES:
-				return getParentProvidesComponentTypes();
-			case RepositoryPackage.COMPOSITE_COMPONENT__PARENT_COMPLETE_COMPONENT_TYPES:
-				return getParentCompleteComponentTypes();
+			case RepositoryPackage.COMPOSITE_COMPONENT__CHILD_COMPONENT_CONTEXTS_COMPOSED_STRUCTURE:
+				return getChildComponentContexts_ComposedStructure();
+			case RepositoryPackage.COMPOSITE_COMPONENT__PROVIDED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE:
+				return getProvidedDelegationConnectors_ComposedStructure();
+			case RepositoryPackage.COMPOSITE_COMPONENT__REQUIRED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE:
+				return getRequiredDelegationConnectors_ComposedStructure();
+			case RepositoryPackage.COMPOSITE_COMPONENT__COMPOSITE_ASSEMBLY_CONNECTORS_COMPOSED_STRUCTURE:
+				return getCompositeAssemblyConnectors_ComposedStructure();
 			case RepositoryPackage.COMPOSITE_COMPONENT__IMPLEMENTATION_COMPONENT_TYPE:
 				if (resolve) return getImplementationComponentType();
 				return basicGetImplementationComponentType();
@@ -625,21 +403,21 @@ public class CompositeComponentImpl extends ComposedStructureImpl implements Com
 	 */
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case RepositoryPackage.COMPOSITE_COMPONENT__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY:
-				getProvidedRoles_InterfaceProvidingEntity().clear();
-				getProvidedRoles_InterfaceProvidingEntity().addAll((Collection)newValue);
+			case RepositoryPackage.COMPOSITE_COMPONENT__CHILD_COMPONENT_CONTEXTS_COMPOSED_STRUCTURE:
+				getChildComponentContexts_ComposedStructure().clear();
+				getChildComponentContexts_ComposedStructure().addAll((Collection)newValue);
 				return;
-			case RepositoryPackage.COMPOSITE_COMPONENT__REQUIRED_ROLES_INTERFACE_REQUIRING_ENTITY:
-				getRequiredRoles_InterfaceRequiringEntity().clear();
-				getRequiredRoles_InterfaceRequiringEntity().addAll((Collection)newValue);
+			case RepositoryPackage.COMPOSITE_COMPONENT__PROVIDED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE:
+				getProvidedDelegationConnectors_ComposedStructure().clear();
+				getProvidedDelegationConnectors_ComposedStructure().addAll((Collection)newValue);
 				return;
-			case RepositoryPackage.COMPOSITE_COMPONENT__PARENT_PROVIDES_COMPONENT_TYPES:
-				getParentProvidesComponentTypes().clear();
-				getParentProvidesComponentTypes().addAll((Collection)newValue);
+			case RepositoryPackage.COMPOSITE_COMPONENT__REQUIRED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE:
+				getRequiredDelegationConnectors_ComposedStructure().clear();
+				getRequiredDelegationConnectors_ComposedStructure().addAll((Collection)newValue);
 				return;
-			case RepositoryPackage.COMPOSITE_COMPONENT__PARENT_COMPLETE_COMPONENT_TYPES:
-				getParentCompleteComponentTypes().clear();
-				getParentCompleteComponentTypes().addAll((Collection)newValue);
+			case RepositoryPackage.COMPOSITE_COMPONENT__COMPOSITE_ASSEMBLY_CONNECTORS_COMPOSED_STRUCTURE:
+				getCompositeAssemblyConnectors_ComposedStructure().clear();
+				getCompositeAssemblyConnectors_ComposedStructure().addAll((Collection)newValue);
 				return;
 			case RepositoryPackage.COMPOSITE_COMPONENT__IMPLEMENTATION_COMPONENT_TYPE:
 				setImplementationComponentType((ImplementationComponentType)newValue);
@@ -655,17 +433,17 @@ public class CompositeComponentImpl extends ComposedStructureImpl implements Com
 	 */
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case RepositoryPackage.COMPOSITE_COMPONENT__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY:
-				getProvidedRoles_InterfaceProvidingEntity().clear();
+			case RepositoryPackage.COMPOSITE_COMPONENT__CHILD_COMPONENT_CONTEXTS_COMPOSED_STRUCTURE:
+				getChildComponentContexts_ComposedStructure().clear();
 				return;
-			case RepositoryPackage.COMPOSITE_COMPONENT__REQUIRED_ROLES_INTERFACE_REQUIRING_ENTITY:
-				getRequiredRoles_InterfaceRequiringEntity().clear();
+			case RepositoryPackage.COMPOSITE_COMPONENT__PROVIDED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE:
+				getProvidedDelegationConnectors_ComposedStructure().clear();
 				return;
-			case RepositoryPackage.COMPOSITE_COMPONENT__PARENT_PROVIDES_COMPONENT_TYPES:
-				getParentProvidesComponentTypes().clear();
+			case RepositoryPackage.COMPOSITE_COMPONENT__REQUIRED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE:
+				getRequiredDelegationConnectors_ComposedStructure().clear();
 				return;
-			case RepositoryPackage.COMPOSITE_COMPONENT__PARENT_COMPLETE_COMPONENT_TYPES:
-				getParentCompleteComponentTypes().clear();
+			case RepositoryPackage.COMPOSITE_COMPONENT__COMPOSITE_ASSEMBLY_CONNECTORS_COMPOSED_STRUCTURE:
+				getCompositeAssemblyConnectors_ComposedStructure().clear();
 				return;
 			case RepositoryPackage.COMPOSITE_COMPONENT__IMPLEMENTATION_COMPONENT_TYPE:
 				setImplementationComponentType((ImplementationComponentType)null);
@@ -681,14 +459,14 @@ public class CompositeComponentImpl extends ComposedStructureImpl implements Com
 	 */
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case RepositoryPackage.COMPOSITE_COMPONENT__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY:
-				return providedRoles_InterfaceProvidingEntity != null && !providedRoles_InterfaceProvidingEntity.isEmpty();
-			case RepositoryPackage.COMPOSITE_COMPONENT__REQUIRED_ROLES_INTERFACE_REQUIRING_ENTITY:
-				return requiredRoles_InterfaceRequiringEntity != null && !requiredRoles_InterfaceRequiringEntity.isEmpty();
-			case RepositoryPackage.COMPOSITE_COMPONENT__PARENT_PROVIDES_COMPONENT_TYPES:
-				return parentProvidesComponentTypes != null && !parentProvidesComponentTypes.isEmpty();
-			case RepositoryPackage.COMPOSITE_COMPONENT__PARENT_COMPLETE_COMPONENT_TYPES:
-				return parentCompleteComponentTypes != null && !parentCompleteComponentTypes.isEmpty();
+			case RepositoryPackage.COMPOSITE_COMPONENT__CHILD_COMPONENT_CONTEXTS_COMPOSED_STRUCTURE:
+				return childComponentContexts_ComposedStructure != null && !childComponentContexts_ComposedStructure.isEmpty();
+			case RepositoryPackage.COMPOSITE_COMPONENT__PROVIDED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE:
+				return providedDelegationConnectors_ComposedStructure != null && !providedDelegationConnectors_ComposedStructure.isEmpty();
+			case RepositoryPackage.COMPOSITE_COMPONENT__REQUIRED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE:
+				return requiredDelegationConnectors_ComposedStructure != null && !requiredDelegationConnectors_ComposedStructure.isEmpty();
+			case RepositoryPackage.COMPOSITE_COMPONENT__COMPOSITE_ASSEMBLY_CONNECTORS_COMPOSED_STRUCTURE:
+				return compositeAssemblyConnectors_ComposedStructure != null && !compositeAssemblyConnectors_ComposedStructure.isEmpty();
 			case RepositoryPackage.COMPOSITE_COMPONENT__IMPLEMENTATION_COMPONENT_TYPE:
 				return implementationComponentType != null;
 		}
@@ -701,37 +479,12 @@ public class CompositeComponentImpl extends ComposedStructureImpl implements Com
 	 * @generated
 	 */
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class baseClass) {
-		if (baseClass == InterfaceProvidingEntity.class) {
+		if (baseClass == ComposedStructure.class) {
 			switch (derivedFeatureID) {
-				case RepositoryPackage.COMPOSITE_COMPONENT__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY: return EntityPackage.INTERFACE_PROVIDING_ENTITY__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY;
-				default: return -1;
-			}
-		}
-		if (baseClass == InterfaceRequiringEntity.class) {
-			switch (derivedFeatureID) {
-				case RepositoryPackage.COMPOSITE_COMPONENT__REQUIRED_ROLES_INTERFACE_REQUIRING_ENTITY: return EntityPackage.INTERFACE_REQUIRING_ENTITY__REQUIRED_ROLES_INTERFACE_REQUIRING_ENTITY;
-				default: return -1;
-			}
-		}
-		if (baseClass == InterfaceProvidingRequiringEntity.class) {
-			switch (derivedFeatureID) {
-				default: return -1;
-			}
-		}
-		if (baseClass == ProvidesComponentType.class) {
-			switch (derivedFeatureID) {
-				default: return -1;
-			}
-		}
-		if (baseClass == CompleteComponentType.class) {
-			switch (derivedFeatureID) {
-				case RepositoryPackage.COMPOSITE_COMPONENT__PARENT_PROVIDES_COMPONENT_TYPES: return RepositoryPackage.COMPLETE_COMPONENT_TYPE__PARENT_PROVIDES_COMPONENT_TYPES;
-				default: return -1;
-			}
-		}
-		if (baseClass == ImplementationComponentType.class) {
-			switch (derivedFeatureID) {
-				case RepositoryPackage.COMPOSITE_COMPONENT__PARENT_COMPLETE_COMPONENT_TYPES: return RepositoryPackage.IMPLEMENTATION_COMPONENT_TYPE__PARENT_COMPLETE_COMPONENT_TYPES;
+				case RepositoryPackage.COMPOSITE_COMPONENT__CHILD_COMPONENT_CONTEXTS_COMPOSED_STRUCTURE: return CompositionPackage.COMPOSED_STRUCTURE__CHILD_COMPONENT_CONTEXTS_COMPOSED_STRUCTURE;
+				case RepositoryPackage.COMPOSITE_COMPONENT__PROVIDED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE: return CompositionPackage.COMPOSED_STRUCTURE__PROVIDED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE;
+				case RepositoryPackage.COMPOSITE_COMPONENT__REQUIRED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE: return CompositionPackage.COMPOSED_STRUCTURE__REQUIRED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE;
+				case RepositoryPackage.COMPOSITE_COMPONENT__COMPOSITE_ASSEMBLY_CONNECTORS_COMPOSED_STRUCTURE: return CompositionPackage.COMPOSED_STRUCTURE__COMPOSITE_ASSEMBLY_CONNECTORS_COMPOSED_STRUCTURE;
 				default: return -1;
 			}
 		}
@@ -744,37 +497,12 @@ public class CompositeComponentImpl extends ComposedStructureImpl implements Com
 	 * @generated
 	 */
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class baseClass) {
-		if (baseClass == InterfaceProvidingEntity.class) {
+		if (baseClass == ComposedStructure.class) {
 			switch (baseFeatureID) {
-				case EntityPackage.INTERFACE_PROVIDING_ENTITY__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY: return RepositoryPackage.COMPOSITE_COMPONENT__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY;
-				default: return -1;
-			}
-		}
-		if (baseClass == InterfaceRequiringEntity.class) {
-			switch (baseFeatureID) {
-				case EntityPackage.INTERFACE_REQUIRING_ENTITY__REQUIRED_ROLES_INTERFACE_REQUIRING_ENTITY: return RepositoryPackage.COMPOSITE_COMPONENT__REQUIRED_ROLES_INTERFACE_REQUIRING_ENTITY;
-				default: return -1;
-			}
-		}
-		if (baseClass == InterfaceProvidingRequiringEntity.class) {
-			switch (baseFeatureID) {
-				default: return -1;
-			}
-		}
-		if (baseClass == ProvidesComponentType.class) {
-			switch (baseFeatureID) {
-				default: return -1;
-			}
-		}
-		if (baseClass == CompleteComponentType.class) {
-			switch (baseFeatureID) {
-				case RepositoryPackage.COMPLETE_COMPONENT_TYPE__PARENT_PROVIDES_COMPONENT_TYPES: return RepositoryPackage.COMPOSITE_COMPONENT__PARENT_PROVIDES_COMPONENT_TYPES;
-				default: return -1;
-			}
-		}
-		if (baseClass == ImplementationComponentType.class) {
-			switch (baseFeatureID) {
-				case RepositoryPackage.IMPLEMENTATION_COMPONENT_TYPE__PARENT_COMPLETE_COMPONENT_TYPES: return RepositoryPackage.COMPOSITE_COMPONENT__PARENT_COMPLETE_COMPONENT_TYPES;
+				case CompositionPackage.COMPOSED_STRUCTURE__CHILD_COMPONENT_CONTEXTS_COMPOSED_STRUCTURE: return RepositoryPackage.COMPOSITE_COMPONENT__CHILD_COMPONENT_CONTEXTS_COMPOSED_STRUCTURE;
+				case CompositionPackage.COMPOSED_STRUCTURE__PROVIDED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE: return RepositoryPackage.COMPOSITE_COMPONENT__PROVIDED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE;
+				case CompositionPackage.COMPOSED_STRUCTURE__REQUIRED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE: return RepositoryPackage.COMPOSITE_COMPONENT__REQUIRED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE;
+				case CompositionPackage.COMPOSED_STRUCTURE__COMPOSITE_ASSEMBLY_CONNECTORS_COMPOSED_STRUCTURE: return RepositoryPackage.COMPOSITE_COMPONENT__COMPOSITE_ASSEMBLY_CONNECTORS_COMPOSED_STRUCTURE;
 				default: return -1;
 			}
 		}

@@ -113,23 +113,23 @@ public class RepositoryAdapterFactory extends AdapterFactoryImpl {
 			public Object caseDataType(DataType object) {
 				return createDataTypeAdapter();
 			}
-			public Object caseExceptionType(ExceptionType object) {
-				return createExceptionTypeAdapter();
-			}
-			public Object caseRole(Role object) {
-				return createRoleAdapter();
-			}
-			public Object caseRequiredRole(RequiredRole object) {
-				return createRequiredRoleAdapter();
-			}
-			public Object caseInterface(Interface object) {
-				return createInterfaceAdapter();
-			}
 			public Object caseRepository(Repository object) {
 				return createRepositoryAdapter();
 			}
 			public Object caseProvidesComponentType(ProvidesComponentType object) {
 				return createProvidesComponentTypeAdapter();
+			}
+			public Object caseRequiredRole(RequiredRole object) {
+				return createRequiredRoleAdapter();
+			}
+			public Object caseRole(Role object) {
+				return createRoleAdapter();
+			}
+			public Object caseInterface(Interface object) {
+				return createInterfaceAdapter();
+			}
+			public Object caseExceptionType(ExceptionType object) {
+				return createExceptionTypeAdapter();
 			}
 			public Object caseImplementationComponentType(ImplementationComponentType object) {
 				return createImplementationComponentTypeAdapter();

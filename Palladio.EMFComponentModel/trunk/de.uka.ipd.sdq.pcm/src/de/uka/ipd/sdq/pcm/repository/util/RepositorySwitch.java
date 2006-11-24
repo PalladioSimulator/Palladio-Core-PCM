@@ -141,40 +141,6 @@ public class RepositorySwitch {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case RepositoryPackage.EXCEPTION_TYPE: {
-				ExceptionType exceptionType = (ExceptionType)theEObject;
-				Object result = caseExceptionType(exceptionType);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case RepositoryPackage.ROLE: {
-				Role role = (Role)theEObject;
-				Object result = caseRole(role);
-				if (result == null) result = caseEntity(role);
-				if (result == null) result = caseIdentifier(role);
-				if (result == null) result = caseNamedElement(role);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case RepositoryPackage.REQUIRED_ROLE: {
-				RequiredRole requiredRole = (RequiredRole)theEObject;
-				Object result = caseRequiredRole(requiredRole);
-				if (result == null) result = caseRole(requiredRole);
-				if (result == null) result = caseEntity(requiredRole);
-				if (result == null) result = caseIdentifier(requiredRole);
-				if (result == null) result = caseNamedElement(requiredRole);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case RepositoryPackage.INTERFACE: {
-				Interface interface_ = (Interface)theEObject;
-				Object result = caseInterface(interface_);
-				if (result == null) result = caseEntity(interface_);
-				if (result == null) result = caseIdentifier(interface_);
-				if (result == null) result = caseNamedElement(interface_);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case RepositoryPackage.REPOSITORY: {
 				Repository repository = (Repository)theEObject;
 				Object result = caseRepository(repository);
@@ -193,6 +159,40 @@ public class RepositorySwitch {
 				if (result == null) result = caseInterfaceRequiringEntity(providesComponentType);
 				if (result == null) result = caseIdentifier(providesComponentType);
 				if (result == null) result = caseNamedElement(providesComponentType);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case RepositoryPackage.REQUIRED_ROLE: {
+				RequiredRole requiredRole = (RequiredRole)theEObject;
+				Object result = caseRequiredRole(requiredRole);
+				if (result == null) result = caseRole(requiredRole);
+				if (result == null) result = caseEntity(requiredRole);
+				if (result == null) result = caseIdentifier(requiredRole);
+				if (result == null) result = caseNamedElement(requiredRole);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case RepositoryPackage.ROLE: {
+				Role role = (Role)theEObject;
+				Object result = caseRole(role);
+				if (result == null) result = caseEntity(role);
+				if (result == null) result = caseIdentifier(role);
+				if (result == null) result = caseNamedElement(role);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case RepositoryPackage.INTERFACE: {
+				Interface interface_ = (Interface)theEObject;
+				Object result = caseInterface(interface_);
+				if (result == null) result = caseEntity(interface_);
+				if (result == null) result = caseIdentifier(interface_);
+				if (result == null) result = caseNamedElement(interface_);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case RepositoryPackage.EXCEPTION_TYPE: {
+				ExceptionType exceptionType = (ExceptionType)theEObject;
+				Object result = caseExceptionType(exceptionType);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -236,13 +236,13 @@ public class RepositorySwitch {
 			case RepositoryPackage.COMPOSITE_COMPONENT: {
 				CompositeComponent compositeComponent = (CompositeComponent)theEObject;
 				Object result = caseCompositeComponent(compositeComponent);
-				if (result == null) result = caseComposedStructure(compositeComponent);
 				if (result == null) result = caseImplementationComponentType(compositeComponent);
-				if (result == null) result = caseEntity(compositeComponent);
+				if (result == null) result = caseComposedStructure(compositeComponent);
 				if (result == null) result = caseCompleteComponentType(compositeComponent);
+				if (result == null) result = caseEntity(compositeComponent);
+				if (result == null) result = caseProvidesComponentType(compositeComponent);
 				if (result == null) result = caseIdentifier(compositeComponent);
 				if (result == null) result = caseNamedElement(compositeComponent);
-				if (result == null) result = caseProvidesComponentType(compositeComponent);
 				if (result == null) result = caseInterfaceProvidingRequiringEntity(compositeComponent);
 				if (result == null) result = caseInterfaceProvidingEntity(compositeComponent);
 				if (result == null) result = caseInterfaceRequiringEntity(compositeComponent);

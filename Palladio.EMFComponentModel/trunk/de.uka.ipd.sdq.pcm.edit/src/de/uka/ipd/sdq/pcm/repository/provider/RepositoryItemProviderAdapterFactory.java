@@ -509,11 +509,11 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
 	public void dispose() {
 		if (signatureItemProvider != null) signatureItemProvider.dispose();
 		if (parameterItemProvider != null) parameterItemProvider.dispose();
-		if (exceptionTypeItemProvider != null) exceptionTypeItemProvider.dispose();
-		if (requiredRoleItemProvider != null) requiredRoleItemProvider.dispose();
-		if (interfaceItemProvider != null) interfaceItemProvider.dispose();
 		if (repositoryItemProvider != null) repositoryItemProvider.dispose();
 		if (providesComponentTypeItemProvider != null) providesComponentTypeItemProvider.dispose();
+		if (requiredRoleItemProvider != null) requiredRoleItemProvider.dispose();
+		if (interfaceItemProvider != null) interfaceItemProvider.dispose();
+		if (exceptionTypeItemProvider != null) exceptionTypeItemProvider.dispose();
 		if (completeComponentTypeItemProvider != null) completeComponentTypeItemProvider.dispose();
 		if (compositeComponentItemProvider != null) compositeComponentItemProvider.dispose();
 		if (basicComponentItemProvider != null) basicComponentItemProvider.dispose();

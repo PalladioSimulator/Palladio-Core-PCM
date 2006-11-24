@@ -21,6 +21,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.eclipse.emf.ecore.util.InternalEList;
 import org.eclipse.emf.ocl.expressions.OCLExpression;
@@ -43,6 +44,7 @@ import de.uka.ipd.sdq.pcm.core.entity.InterfaceRequiringEntity;
 import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
 import de.uka.ipd.sdq.pcm.qosannotations.QoSAnnotations;
 import de.uka.ipd.sdq.pcm.repository.ProvidedRole;
+import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
 import de.uka.ipd.sdq.pcm.repository.RequiredRole;
 import de.uka.ipd.sdq.pcm.system.SystemPackage;
 
@@ -70,7 +72,7 @@ public class SystemImpl extends ComposedStructureImpl implements de.uka.ipd.sdq.
 	public static final String copyright = "(c) by SDQ, IPD, U Karlsruhe (TH), 2006";
 
 	/**
-	 * The cached value of the '{@link #getProvidedRoles_InterfaceProvidingEntity() <em>Provided Roles Interface Providing Entity</em>}' containment reference list.
+	 * The cached value of the '{@link #getProvidedRoles_InterfaceProvidingEntity() <em>Provided Roles Interface Providing Entity</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getProvidedRoles_InterfaceProvidingEntity()
@@ -80,7 +82,7 @@ public class SystemImpl extends ComposedStructureImpl implements de.uka.ipd.sdq.
 	protected EList providedRoles_InterfaceProvidingEntity = null;
 
 	/**
-	 * The cached value of the '{@link #getRequiredRoles_InterfaceRequiringEntity() <em>Required Roles Interface Requiring Entity</em>}' containment reference list.
+	 * The cached value of the '{@link #getRequiredRoles_InterfaceRequiringEntity() <em>Required Roles Interface Requiring Entity</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getRequiredRoles_InterfaceRequiringEntity()
@@ -127,7 +129,7 @@ public class SystemImpl extends ComposedStructureImpl implements de.uka.ipd.sdq.
 	 */
 	public EList getProvidedRoles_InterfaceProvidingEntity() {
 		if (providedRoles_InterfaceProvidingEntity == null) {
-			providedRoles_InterfaceProvidingEntity = new EObjectContainmentEList(ProvidedRole.class, this, SystemPackage.SYSTEM__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY);
+			providedRoles_InterfaceProvidingEntity = new EObjectWithInverseResolvingEList(ProvidedRole.class, this, SystemPackage.SYSTEM__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY, RepositoryPackage.PROVIDED_ROLE__PROVIDING_ENTITY_PROVIDED_ROLE);
 		}
 		return providedRoles_InterfaceProvidingEntity;
 	}
@@ -139,7 +141,7 @@ public class SystemImpl extends ComposedStructureImpl implements de.uka.ipd.sdq.
 	 */
 	public EList getRequiredRoles_InterfaceRequiringEntity() {
 		if (requiredRoles_InterfaceRequiringEntity == null) {
-			requiredRoles_InterfaceRequiringEntity = new EObjectContainmentEList(RequiredRole.class, this, SystemPackage.SYSTEM__REQUIRED_ROLES_INTERFACE_REQUIRING_ENTITY);
+			requiredRoles_InterfaceRequiringEntity = new EObjectWithInverseResolvingEList(RequiredRole.class, this, SystemPackage.SYSTEM__REQUIRED_ROLES_INTERFACE_REQUIRING_ENTITY, RepositoryPackage.REQUIRED_ROLE__REQUIRING_ENTITY_REQUIRED_ROLE);
 		}
 		return requiredRoles_InterfaceRequiringEntity;
 	}
@@ -154,6 +156,21 @@ public class SystemImpl extends ComposedStructureImpl implements de.uka.ipd.sdq.
 			qosAnnotations_System = new EObjectContainmentEList(QoSAnnotations.class, this, SystemPackage.SYSTEM__QOS_ANNOTATIONS_SYSTEM);
 		}
 		return qosAnnotations_System;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case SystemPackage.SYSTEM__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY:
+				return ((InternalEList)getProvidedRoles_InterfaceProvidingEntity()).basicAdd(otherEnd, msgs);
+			case SystemPackage.SYSTEM__REQUIRED_ROLES_INTERFACE_REQUIRING_ENTITY:
+				return ((InternalEList)getRequiredRoles_InterfaceRequiringEntity()).basicAdd(otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
 
 	/**

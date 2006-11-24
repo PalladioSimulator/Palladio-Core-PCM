@@ -87,11 +87,11 @@ public class RepositoryFactoryImpl extends EFactoryImpl implements RepositoryFac
 		switch (eClass.getClassifierID()) {
 			case RepositoryPackage.SIGNATURE: return createSignature();
 			case RepositoryPackage.PARAMETER: return createParameter();
-			case RepositoryPackage.EXCEPTION_TYPE: return createExceptionType();
-			case RepositoryPackage.REQUIRED_ROLE: return createRequiredRole();
-			case RepositoryPackage.INTERFACE: return createInterface();
 			case RepositoryPackage.REPOSITORY: return createRepository();
 			case RepositoryPackage.PROVIDES_COMPONENT_TYPE: return createProvidesComponentType();
+			case RepositoryPackage.REQUIRED_ROLE: return createRequiredRole();
+			case RepositoryPackage.INTERFACE: return createInterface();
+			case RepositoryPackage.EXCEPTION_TYPE: return createExceptionType();
 			case RepositoryPackage.COMPLETE_COMPONENT_TYPE: return createCompleteComponentType();
 			case RepositoryPackage.COMPOSITE_COMPONENT: return createCompositeComponent();
 			case RepositoryPackage.BASIC_COMPONENT: return createBasicComponent();

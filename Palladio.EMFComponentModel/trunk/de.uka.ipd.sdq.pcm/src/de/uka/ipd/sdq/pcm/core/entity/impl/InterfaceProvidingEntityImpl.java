@@ -13,6 +13,7 @@ import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -20,6 +21,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
 import de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingEntity;
 import de.uka.ipd.sdq.pcm.repository.ProvidedRole;
+
+import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -43,7 +46,7 @@ public abstract class InterfaceProvidingEntityImpl extends EntityImpl implements
 	public static final String copyright = "(c) by SDQ, IPD, U Karlsruhe (TH), 2006";
 
 	/**
-	 * The cached value of the '{@link #getProvidedRoles_InterfaceProvidingEntity() <em>Provided Roles Interface Providing Entity</em>}' containment reference list.
+	 * The cached value of the '{@link #getProvidedRoles_InterfaceProvidingEntity() <em>Provided Roles Interface Providing Entity</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getProvidedRoles_InterfaceProvidingEntity()
@@ -78,9 +81,22 @@ public abstract class InterfaceProvidingEntityImpl extends EntityImpl implements
 	 */
 	public EList getProvidedRoles_InterfaceProvidingEntity() {
 		if (providedRoles_InterfaceProvidingEntity == null) {
-			providedRoles_InterfaceProvidingEntity = new EObjectContainmentEList(ProvidedRole.class, this, EntityPackage.INTERFACE_PROVIDING_ENTITY__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY);
+			providedRoles_InterfaceProvidingEntity = new EObjectWithInverseResolvingEList(ProvidedRole.class, this, EntityPackage.INTERFACE_PROVIDING_ENTITY__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY, RepositoryPackage.PROVIDED_ROLE__PROVIDING_ENTITY_PROVIDED_ROLE);
 		}
 		return providedRoles_InterfaceProvidingEntity;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case EntityPackage.INTERFACE_PROVIDING_ENTITY__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY:
+				return ((InternalEList)getProvidedRoles_InterfaceProvidingEntity()).basicAdd(otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
 
 	/**

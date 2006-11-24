@@ -8,6 +8,8 @@
 package de.uka.ipd.sdq.pcm.repository;
 
 
+import de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingEntity;
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Provided Role</b></em>'.
@@ -17,6 +19,7 @@ package de.uka.ipd.sdq.pcm.repository;
  * The following features are supported:
  * <ul>
  *   <li>{@link de.uka.ipd.sdq.pcm.repository.ProvidedRole#getProvidedInterface__ProvidedRole <em>Provided Interface Provided Role</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.repository.ProvidedRole#getProvidingEntity_ProvidedRole <em>Providing Entity Provided Role</em>}</li>
  * </ul>
  * </p>
  *
@@ -57,5 +60,33 @@ public interface ProvidedRole extends Role {
 	 * @generated
 	 */
 	void setProvidedInterface__ProvidedRole(Interface value);
+
+	/**
+	 * Returns the value of the '<em><b>Providing Entity Provided Role</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingEntity#getProvidedRoles_InterfaceProvidingEntity <em>Provided Roles Interface Providing Entity</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Providing Entity Provided Role</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Providing Entity Provided Role</em>' reference.
+	 * @see #setProvidingEntity_ProvidedRole(InterfaceProvidingEntity)
+	 * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getProvidedRole_ProvidingEntity_ProvidedRole()
+	 * @see de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingEntity#getProvidedRoles_InterfaceProvidingEntity
+	 * @model opposite="providedRoles_InterfaceProvidingEntity" required="true" ordered="false"
+	 * @generated
+	 */
+	InterfaceProvidingEntity getProvidingEntity_ProvidedRole();
+
+	/**
+	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.repository.ProvidedRole#getProvidingEntity_ProvidedRole <em>Providing Entity Provided Role</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Providing Entity Provided Role</em>' reference.
+	 * @see #getProvidingEntity_ProvidedRole()
+	 * @generated
+	 */
+	void setProvidingEntity_ProvidedRole(InterfaceProvidingEntity value);
 
 } // ProvidedRole

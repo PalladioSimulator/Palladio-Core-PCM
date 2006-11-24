@@ -68,6 +68,7 @@ public interface Repository extends Entity {
 	/**
 	 * Returns the value of the '<em><b>Components Repository</b></em>' containment reference list.
 	 * The list contents are of type {@link de.uka.ipd.sdq.pcm.repository.ProvidesComponentType}.
+	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.repository.ProvidesComponentType#getRepository_ProvidesComponentType <em>Repository Provides Component Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Components Repository</em>' containment reference list isn't clear,
@@ -76,7 +77,8 @@ public interface Repository extends Entity {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Components Repository</em>' containment reference list.
 	 * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getRepository_Components__Repository()
-	 * @model type="de.uka.ipd.sdq.pcm.repository.ProvidesComponentType" containment="true" ordered="false"
+	 * @see de.uka.ipd.sdq.pcm.repository.ProvidesComponentType#getRepository_ProvidesComponentType
+	 * @model type="de.uka.ipd.sdq.pcm.repository.ProvidesComponentType" opposite="repository_ProvidesComponentType" containment="true" ordered="false"
 	 * @generated
 	 */
 	EList getComponents__Repository();
@@ -84,6 +86,7 @@ public interface Repository extends Entity {
 	/**
 	 * Returns the value of the '<em><b>Interfaces Repository</b></em>' containment reference list.
 	 * The list contents are of type {@link de.uka.ipd.sdq.pcm.repository.Interface}.
+	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.repository.Interface#getRepository_Interface <em>Repository Interface</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Interfaces Repository</em>' containment reference list isn't clear,
@@ -92,7 +95,8 @@ public interface Repository extends Entity {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Interfaces Repository</em>' containment reference list.
 	 * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getRepository_Interfaces__Repository()
-	 * @model type="de.uka.ipd.sdq.pcm.repository.Interface" containment="true" ordered="false"
+	 * @see de.uka.ipd.sdq.pcm.repository.Interface#getRepository_Interface
+	 * @model type="de.uka.ipd.sdq.pcm.repository.Interface" opposite="repository_Interface" containment="true" ordered="false"
 	 * @generated
 	 */
 	EList getInterfaces__Repository();
@@ -100,6 +104,7 @@ public interface Repository extends Entity {
 	/**
 	 * Returns the value of the '<em><b>Datatypes Repository</b></em>' containment reference list.
 	 * The list contents are of type {@link de.uka.ipd.sdq.pcm.repository.DataType}.
+	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.repository.DataType#getRepository_DataType <em>Repository Data Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Datatypes Repository</em>' containment reference list isn't clear,
@@ -108,7 +113,8 @@ public interface Repository extends Entity {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Datatypes Repository</em>' containment reference list.
 	 * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getRepository_Datatypes_Repository()
-	 * @model type="de.uka.ipd.sdq.pcm.repository.DataType" containment="true" ordered="false"
+	 * @see de.uka.ipd.sdq.pcm.repository.DataType#getRepository_DataType
+	 * @model type="de.uka.ipd.sdq.pcm.repository.DataType" opposite="repository_DataType" containment="true" ordered="false"
 	 * @generated
 	 */
 	EList getDatatypes_Repository();

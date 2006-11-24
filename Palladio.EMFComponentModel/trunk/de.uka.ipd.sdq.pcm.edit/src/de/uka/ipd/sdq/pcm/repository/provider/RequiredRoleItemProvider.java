@@ -66,6 +66,7 @@ public class RequiredRoleItemProvider
 			super.getPropertyDescriptors(object);
 
 			addRequiredInterface__RequiredRolePropertyDescriptor(object);
+			addRequiringEntity_RequiredRolePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -84,6 +85,28 @@ public class RequiredRoleItemProvider
 				 getString("_UI_RequiredRole_requiredInterface__RequiredRole_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_RequiredRole_requiredInterface__RequiredRole_feature", "_UI_RequiredRole_type"),
 				 RepositoryPackage.Literals.REQUIRED_ROLE__REQUIRED_INTERFACE_REQUIRED_ROLE,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Requiring Entity Required Role feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addRequiringEntity_RequiredRolePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_RequiredRole_requiringEntity_RequiredRole_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_RequiredRole_requiringEntity_RequiredRole_feature", "_UI_RequiredRole_type"),
+				 RepositoryPackage.Literals.REQUIRED_ROLE__REQUIRING_ENTITY_REQUIRED_ROLE,
 				 true,
 				 false,
 				 true,

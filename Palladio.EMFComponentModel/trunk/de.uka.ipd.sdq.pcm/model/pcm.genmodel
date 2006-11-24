@@ -213,16 +213,29 @@
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pcm.ecore#//repository/Parameter/parameterName"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pcm.ecore#//repository/Parameter/modifier__Parameter"/>
       </genClasses>
-      <genClasses ecoreClass="pcm.ecore#//repository/DataType"/>
-      <genClasses ecoreClass="pcm.ecore#//repository/ExceptionType">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pcm.ecore#//repository/ExceptionType/exceptionName"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pcm.ecore#//repository/ExceptionType/exceptionMessage"/>
+      <genClasses ecoreClass="pcm.ecore#//repository/DataType">
+        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference pcm.ecore#//repository/DataType/repository_DataType"/>
       </genClasses>
-      <genClasses image="false" ecoreClass="pcm.ecore#//repository/Role"/>
+      <genClasses ecoreClass="pcm.ecore#//repository/Repository">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pcm.ecore#//repository/Repository/repositoryDescription"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//repository/Repository/components__Repository"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//repository/Repository/interfaces__Repository"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//repository/Repository/datatypes_Repository"/>
+      </genClasses>
+      <genClasses ecoreClass="pcm.ecore#//repository/ProvidesComponentType">
+        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference pcm.ecore#//repository/ProvidesComponentType/repository_ProvidesComponentType"/>
+        <genOperations ecoreOperation="pcm.ecore#//repository/ProvidesComponentType/AtLeastOneInterfaceHasToBeProvidedByAUsefullProvidesComponentType">
+          <genParameters ecoreParameter="pcm.ecore#//repository/ProvidesComponentType/AtLeastOneInterfaceHasToBeProvidedByAUsefullProvidesComponentType/diagnostics"/>
+          <genParameters ecoreParameter="pcm.ecore#//repository/ProvidesComponentType/AtLeastOneInterfaceHasToBeProvidedByAUsefullProvidesComponentType/context"/>
+        </genOperations>
+      </genClasses>
       <genClasses ecoreClass="pcm.ecore#//repository/RequiredRole">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference pcm.ecore#//repository/RequiredRole/requiredInterface__RequiredRole"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference pcm.ecore#//repository/RequiredRole/requiringEntity_RequiredRole"/>
       </genClasses>
+      <genClasses image="false" ecoreClass="pcm.ecore#//repository/Role"/>
       <genClasses ecoreClass="pcm.ecore#//repository/Interface">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference pcm.ecore#//repository/Interface/parentInterface__Interface"/>
@@ -230,6 +243,7 @@
             ecoreFeature="ecore:EReference pcm.ecore#//repository/Interface/anchestorInterfaces_Interface"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//repository/Interface/protocols__Interface"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//repository/Interface/signatures__Interface"/>
+        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference pcm.ecore#//repository/Interface/repository_Interface"/>
         <genOperations ecoreOperation="pcm.ecore#//repository/Interface/noProtocolTypeIDUsedTwice">
           <genParameters ecoreParameter="pcm.ecore#//repository/Interface/noProtocolTypeIDUsedTwice/diagnostics"/>
           <genParameters ecoreParameter="pcm.ecore#//repository/Interface/noProtocolTypeIDUsedTwice/context"/>
@@ -239,17 +253,9 @@
           <genParameters ecoreParameter="pcm.ecore#//repository/Interface/SignaturesHaveToBeUniqueForAnInterface/context"/>
         </genOperations>
       </genClasses>
-      <genClasses ecoreClass="pcm.ecore#//repository/Repository">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pcm.ecore#//repository/Repository/repositoryDescription"/>
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//repository/Repository/components__Repository"/>
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//repository/Repository/interfaces__Repository"/>
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//repository/Repository/datatypes_Repository"/>
-      </genClasses>
-      <genClasses ecoreClass="pcm.ecore#//repository/ProvidesComponentType">
-        <genOperations ecoreOperation="pcm.ecore#//repository/ProvidesComponentType/AtLeastOneInterfaceHasToBeProvidedByAUsefullProvidesComponentType">
-          <genParameters ecoreParameter="pcm.ecore#//repository/ProvidesComponentType/AtLeastOneInterfaceHasToBeProvidedByAUsefullProvidesComponentType/diagnostics"/>
-          <genParameters ecoreParameter="pcm.ecore#//repository/ProvidesComponentType/AtLeastOneInterfaceHasToBeProvidedByAUsefullProvidesComponentType/context"/>
-        </genOperations>
+      <genClasses ecoreClass="pcm.ecore#//repository/ExceptionType">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pcm.ecore#//repository/ExceptionType/exceptionName"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pcm.ecore#//repository/ExceptionType/exceptionMessage"/>
       </genClasses>
       <genClasses ecoreClass="pcm.ecore#//repository/ImplementationComponentType">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
@@ -323,6 +329,8 @@
       <genClasses ecoreClass="pcm.ecore#//repository/ProvidedRole">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference pcm.ecore#//repository/ProvidedRole/providedInterface__ProvidedRole"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference pcm.ecore#//repository/ProvidedRole/providingEntity_ProvidedRole"/>
       </genClasses>
     </nestedGenPackages>
     <nestedGenPackages prefix="Protocol" basePackage="de.uka.ipd.sdq.pcm" disposableProviderFactory="true"
