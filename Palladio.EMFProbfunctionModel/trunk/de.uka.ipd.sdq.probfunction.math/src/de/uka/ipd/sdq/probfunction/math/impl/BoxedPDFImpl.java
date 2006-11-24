@@ -217,12 +217,20 @@ public class BoxedPDFImpl extends ProbabilityDensityFunctionImpl
 	}
 
 	public boolean checkConstrains() {
-		if (MathTools.equalsDouble(getProbabilitySum(), 1.0))
+		if (!MathTools.equalsDouble(getProbabilitySum(), 1.0))
+			return false;
+
+		if (getUnit() == null || getUnit().getUnitName() == null)
 			return false;
 
 		boolean result = true;
-		for (IContinuousSample s : samples)
-			result = result && (s.getValue() >= 0);
+		for (IContinuousSample s : samples) {
+			if (s == null)
+				return false;
+			result = result && (s.getValue() >= 0.0);
+			result = result && (s.getProbability() >= 0.0)
+					&& (s.getProbability() <= 1.0);
+		}
 		return result;
 	}
 
