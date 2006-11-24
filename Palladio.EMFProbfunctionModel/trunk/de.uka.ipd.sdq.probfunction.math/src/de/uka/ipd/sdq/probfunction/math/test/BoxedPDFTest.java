@@ -123,6 +123,20 @@ public class BoxedPDFTest {
 		Assert.assertEquals(0.1, df1.getMedian());
 	}
 	
+	@Test
+	public void checkConstraints() throws DoubleSampleException {
+		Assert.assertTrue(df1.checkConstrains());
+		IBoxedPDF b = createBoxedPDF(new Double[]{3.0, 0.1, 2.1, 0.4,
+				4.3, 0.3, -1.5, 0.2});
+		Assert.assertFalse(b.checkConstrains());
+		IBoxedPDF b1 = createBoxedPDF(new Double[]{3.0, 0.1, 2.1, 0.4,
+				4.3, 0.3, 1.5, 0.3});
+		Assert.assertFalse(b1.checkConstrains());
+		IBoxedPDF b2 = createBoxedPDF(new Double[]{3.0, -0.1, 2.1, -0.4,
+				4.3, -0.3, 1.5, 0.2});
+		Assert.assertFalse(b2.checkConstrains());
+	}
+	
 	public static junit.framework.Test suite() {
 		return new JUnit4TestAdapter(BoxedPDFTest.class);
 	}
