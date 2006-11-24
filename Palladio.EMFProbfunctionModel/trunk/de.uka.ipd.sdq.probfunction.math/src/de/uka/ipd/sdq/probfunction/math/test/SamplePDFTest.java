@@ -137,7 +137,24 @@ public class SamplePDFTest {
 				0.16, 0.09 });
 		Assert.assertEquals(expected, prod);
 	}
-
+	
+	@Test
+	public void checkConstraints() {
+		Assert.assertTrue(df1.checkConstrains());
+		ISamplePDF s = createSamplePDF(1.0, new Double[] { 0.1, 0.4,
+				0.2, 0.3, 0.2});
+		Assert.assertFalse(s.checkConstrains());
+		ISamplePDF s1 = createSamplePDF(1.0, new Double[] { -0.1, -0.4,
+				-0.2, 0.3});
+		Assert.assertFalse(s1.checkConstrains());
+		ISamplePDF s2 = createSamplePDF(1.0, new Double[] { 0.1, 0.4,
+				0.2, 0.3});
+		Assert.assertTrue(s2.checkConstrains());
+		ISamplePDF s3 = createSamplePDF(0.0, new Double[] { 0.1, 0.4,
+				0.2, 0.3});
+		Assert.assertFalse(s3.checkConstrains());
+		
+	}
 	public static junit.framework.Test suite() {
 		return new JUnit4TestAdapter(SamplePDFTest.class);
 	}
