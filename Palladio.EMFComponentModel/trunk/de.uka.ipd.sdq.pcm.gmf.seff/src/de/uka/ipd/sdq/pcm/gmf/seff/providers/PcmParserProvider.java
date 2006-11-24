@@ -25,7 +25,11 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopActionEntityNameEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopIterationsLabel2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopIterationsLabelEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ParametricResourceDemandEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableCharacterisationEditPart;
+
 import de.uka.ipd.sdq.pcm.gmf.seff.part.PcmVisualIDRegistry;
+
+import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
 
 import de.uka.ipd.sdq.pcm.seff.SeffPackage;
 
@@ -41,22 +45,259 @@ public class PcmParserProvider extends AbstractProvider implements
 	/**
 	 * @generated
 	 */
-	private IParser loopActionLoopActionEntityName_4002Parser;
+	private IParser variableCharacterisationVariableCharacterisation_2002Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getLoopActionLoopActionEntityName_4002Parser() {
-		if (loopActionLoopActionEntityName_4002Parser == null) {
-			loopActionLoopActionEntityName_4002Parser = createLoopActionLoopActionEntityName_4002Parser();
+	private IParser getVariableCharacterisationVariableCharacterisation_2002Parser() {
+		if (variableCharacterisationVariableCharacterisation_2002Parser == null) {
+			variableCharacterisationVariableCharacterisation_2002Parser = createVariableCharacterisationVariableCharacterisation_2002Parser();
 		}
-		return loopActionLoopActionEntityName_4002Parser;
+		return variableCharacterisationVariableCharacterisation_2002Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	protected IParser createLoopActionLoopActionEntityName_4002Parser() {
+	protected IParser createVariableCharacterisationVariableCharacterisation_2002Parser() {
+		List features = new ArrayList(2);
+		features.add(ParameterPackage.eINSTANCE.getVariableCharacterisation()
+				.getEStructuralFeature("type")); //$NON-NLS-1$
+		features.add(StochasticsPackage.eINSTANCE.getRandomVariable()
+				.getEStructuralFeature("specification")); //$NON-NLS-1$
+		PcmStructuralFeaturesParser parser = new PcmStructuralFeaturesParser(
+				features);
+		parser.setViewPattern("{0} {1}");
+		parser.setEditPattern("{0} {1}");
+		return parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser loopActionLoopActionEntityName_4003Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getLoopActionLoopActionEntityName_4003Parser() {
+		if (loopActionLoopActionEntityName_4003Parser == null) {
+			loopActionLoopActionEntityName_4003Parser = createLoopActionLoopActionEntityName_4003Parser();
+		}
+		return loopActionLoopActionEntityName_4003Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	protected IParser createLoopActionLoopActionEntityName_4003Parser() {
+		PcmStructuralFeatureParser parser = new PcmStructuralFeatureParser(
+				EntityPackage.eINSTANCE.getNamedElement()
+						.getEStructuralFeature("entityName")); //$NON-NLS-1$
+		return parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser internalActionInternalActionEntityName_4005Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getInternalActionInternalActionEntityName_4005Parser() {
+		if (internalActionInternalActionEntityName_4005Parser == null) {
+			internalActionInternalActionEntityName_4005Parser = createInternalActionInternalActionEntityName_4005Parser();
+		}
+		return internalActionInternalActionEntityName_4005Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	protected IParser createInternalActionInternalActionEntityName_4005Parser() {
+		PcmStructuralFeatureParser parser = new PcmStructuralFeatureParser(
+				EntityPackage.eINSTANCE.getNamedElement()
+						.getEStructuralFeature("entityName")); //$NON-NLS-1$
+		return parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser parametricResourceDemandParametricResourceDemand_2008Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getParametricResourceDemandParametricResourceDemand_2008Parser() {
+		if (parametricResourceDemandParametricResourceDemand_2008Parser == null) {
+			parametricResourceDemandParametricResourceDemand_2008Parser = createParametricResourceDemandParametricResourceDemand_2008Parser();
+		}
+		return parametricResourceDemandParametricResourceDemand_2008Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	protected IParser createParametricResourceDemandParametricResourceDemand_2008Parser() {
+		List features = new ArrayList(2);
+		features.add(StochasticsPackage.eINSTANCE.getRandomVariable()
+				.getEStructuralFeature("specification")); //$NON-NLS-1$
+		features.add(SeffPackage.eINSTANCE.getParametricResourceDemand()
+				.getEStructuralFeature("unit")); //$NON-NLS-1$
+		PcmStructuralFeaturesParser parser = new PcmStructuralFeaturesParser(
+				features);
+		parser.setViewPattern("{0} {1}");
+		parser.setEditPattern("{0}");
+		return parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser branchActionBranchActionEntityName_4008Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getBranchActionBranchActionEntityName_4008Parser() {
+		if (branchActionBranchActionEntityName_4008Parser == null) {
+			branchActionBranchActionEntityName_4008Parser = createBranchActionBranchActionEntityName_4008Parser();
+		}
+		return branchActionBranchActionEntityName_4008Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	protected IParser createBranchActionBranchActionEntityName_4008Parser() {
+		PcmStructuralFeatureParser parser = new PcmStructuralFeatureParser(
+				EntityPackage.eINSTANCE.getNamedElement()
+						.getEStructuralFeature("entityName")); //$NON-NLS-1$
+		return parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser externalCallActionExternalCallActionEntityName_4006Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getExternalCallActionExternalCallActionEntityName_4006Parser() {
+		if (externalCallActionExternalCallActionEntityName_4006Parser == null) {
+			externalCallActionExternalCallActionEntityName_4006Parser = createExternalCallActionExternalCallActionEntityName_4006Parser();
+		}
+		return externalCallActionExternalCallActionEntityName_4006Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	protected IParser createExternalCallActionExternalCallActionEntityName_4006Parser() {
+		PcmStructuralFeatureParser parser = new PcmStructuralFeatureParser(
+				EntityPackage.eINSTANCE.getNamedElement()
+						.getEStructuralFeature("entityName")); //$NON-NLS-1$
+		return parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser externalCallActionExternalCallActionEntityName_4002Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getExternalCallActionExternalCallActionEntityName_4002Parser() {
+		if (externalCallActionExternalCallActionEntityName_4002Parser == null) {
+			externalCallActionExternalCallActionEntityName_4002Parser = createExternalCallActionExternalCallActionEntityName_4002Parser();
+		}
+		return externalCallActionExternalCallActionEntityName_4002Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	protected IParser createExternalCallActionExternalCallActionEntityName_4002Parser() {
+		PcmStructuralFeatureParser parser = new PcmStructuralFeatureParser(
+				EntityPackage.eINSTANCE.getNamedElement()
+						.getEStructuralFeature("entityName")); //$NON-NLS-1$
+		return parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser loopActionLoopActionEntityName_4009Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getLoopActionLoopActionEntityName_4009Parser() {
+		if (loopActionLoopActionEntityName_4009Parser == null) {
+			loopActionLoopActionEntityName_4009Parser = createLoopActionLoopActionEntityName_4009Parser();
+		}
+		return loopActionLoopActionEntityName_4009Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	protected IParser createLoopActionLoopActionEntityName_4009Parser() {
+		PcmStructuralFeatureParser parser = new PcmStructuralFeatureParser(
+				EntityPackage.eINSTANCE.getNamedElement()
+						.getEStructuralFeature("entityName")); //$NON-NLS-1$
+		return parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser branchActionBranchActionEntityName_4011Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getBranchActionBranchActionEntityName_4011Parser() {
+		if (branchActionBranchActionEntityName_4011Parser == null) {
+			branchActionBranchActionEntityName_4011Parser = createBranchActionBranchActionEntityName_4011Parser();
+		}
+		return branchActionBranchActionEntityName_4011Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	protected IParser createBranchActionBranchActionEntityName_4011Parser() {
+		PcmStructuralFeatureParser parser = new PcmStructuralFeatureParser(
+				EntityPackage.eINSTANCE.getNamedElement()
+						.getEStructuralFeature("entityName")); //$NON-NLS-1$
+		return parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser internalActionInternalActionEntityName_4012Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getInternalActionInternalActionEntityName_4012Parser() {
+		if (internalActionInternalActionEntityName_4012Parser == null) {
+			internalActionInternalActionEntityName_4012Parser = createInternalActionInternalActionEntityName_4012Parser();
+		}
+		return internalActionInternalActionEntityName_4012Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	protected IParser createInternalActionInternalActionEntityName_4012Parser() {
 		PcmStructuralFeatureParser parser = new PcmStructuralFeatureParser(
 				EntityPackage.eINSTANCE.getNamedElement()
 						.getEStructuralFeature("entityName")); //$NON-NLS-1$
@@ -88,238 +329,34 @@ public class PcmParserProvider extends AbstractProvider implements
 	}
 
 	/**
-	 * @generated
-	 */
-	private IParser internalActionInternalActionEntityName_4004Parser;
-
-	/**
-	 * @generated
-	 */
-	private IParser getInternalActionInternalActionEntityName_4004Parser() {
-		if (internalActionInternalActionEntityName_4004Parser == null) {
-			internalActionInternalActionEntityName_4004Parser = createInternalActionInternalActionEntityName_4004Parser();
-		}
-		return internalActionInternalActionEntityName_4004Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	protected IParser createInternalActionInternalActionEntityName_4004Parser() {
-		PcmStructuralFeatureParser parser = new PcmStructuralFeatureParser(
-				EntityPackage.eINSTANCE.getNamedElement()
-						.getEStructuralFeature("entityName")); //$NON-NLS-1$
-		return parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	private IParser parametricResourceDemandParametricResourceDemand_2007Parser;
-
-	/**
-	 * @generated
-	 */
-	private IParser getParametricResourceDemandParametricResourceDemand_2007Parser() {
-		if (parametricResourceDemandParametricResourceDemand_2007Parser == null) {
-			parametricResourceDemandParametricResourceDemand_2007Parser = createParametricResourceDemandParametricResourceDemand_2007Parser();
-		}
-		return parametricResourceDemandParametricResourceDemand_2007Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	protected IParser createParametricResourceDemandParametricResourceDemand_2007Parser() {
-		List features = new ArrayList(2);
-		features.add(StochasticsPackage.eINSTANCE.getRandomVariable()
-				.getEStructuralFeature("specification")); //$NON-NLS-1$
-		features.add(SeffPackage.eINSTANCE.getParametricResourceDemand()
-				.getEStructuralFeature("unit")); //$NON-NLS-1$
-		PcmStructuralFeaturesParser parser = new PcmStructuralFeaturesParser(
-				features);
-		parser.setViewPattern("{0} {1}");
-		parser.setEditPattern("{0}");
-		return parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	private IParser branchActionBranchActionEntityName_4007Parser;
-
-	/**
-	 * @generated
-	 */
-	private IParser getBranchActionBranchActionEntityName_4007Parser() {
-		if (branchActionBranchActionEntityName_4007Parser == null) {
-			branchActionBranchActionEntityName_4007Parser = createBranchActionBranchActionEntityName_4007Parser();
-		}
-		return branchActionBranchActionEntityName_4007Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	protected IParser createBranchActionBranchActionEntityName_4007Parser() {
-		PcmStructuralFeatureParser parser = new PcmStructuralFeatureParser(
-				EntityPackage.eINSTANCE.getNamedElement()
-						.getEStructuralFeature("entityName")); //$NON-NLS-1$
-		return parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	private IParser externalCallActionExternalCallActionEntityName_4005Parser;
-
-	/**
-	 * @generated
-	 */
-	private IParser getExternalCallActionExternalCallActionEntityName_4005Parser() {
-		if (externalCallActionExternalCallActionEntityName_4005Parser == null) {
-			externalCallActionExternalCallActionEntityName_4005Parser = createExternalCallActionExternalCallActionEntityName_4005Parser();
-		}
-		return externalCallActionExternalCallActionEntityName_4005Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	protected IParser createExternalCallActionExternalCallActionEntityName_4005Parser() {
-		PcmStructuralFeatureParser parser = new PcmStructuralFeatureParser(
-				EntityPackage.eINSTANCE.getNamedElement()
-						.getEStructuralFeature("entityName")); //$NON-NLS-1$
-		return parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	private IParser externalCallActionExternalCallActionEntityName_4001Parser;
-
-	/**
-	 * @generated
-	 */
-	private IParser getExternalCallActionExternalCallActionEntityName_4001Parser() {
-		if (externalCallActionExternalCallActionEntityName_4001Parser == null) {
-			externalCallActionExternalCallActionEntityName_4001Parser = createExternalCallActionExternalCallActionEntityName_4001Parser();
-		}
-		return externalCallActionExternalCallActionEntityName_4001Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	protected IParser createExternalCallActionExternalCallActionEntityName_4001Parser() {
-		PcmStructuralFeatureParser parser = new PcmStructuralFeatureParser(
-				EntityPackage.eINSTANCE.getNamedElement()
-						.getEStructuralFeature("entityName")); //$NON-NLS-1$
-		return parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	private IParser loopActionLoopActionEntityName_4008Parser;
-
-	/**
-	 * @generated
-	 */
-	private IParser getLoopActionLoopActionEntityName_4008Parser() {
-		if (loopActionLoopActionEntityName_4008Parser == null) {
-			loopActionLoopActionEntityName_4008Parser = createLoopActionLoopActionEntityName_4008Parser();
-		}
-		return loopActionLoopActionEntityName_4008Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	protected IParser createLoopActionLoopActionEntityName_4008Parser() {
-		PcmStructuralFeatureParser parser = new PcmStructuralFeatureParser(
-				EntityPackage.eINSTANCE.getNamedElement()
-						.getEStructuralFeature("entityName")); //$NON-NLS-1$
-		return parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	private IParser branchActionBranchActionEntityName_4010Parser;
-
-	/**
-	 * @generated
-	 */
-	private IParser getBranchActionBranchActionEntityName_4010Parser() {
-		if (branchActionBranchActionEntityName_4010Parser == null) {
-			branchActionBranchActionEntityName_4010Parser = createBranchActionBranchActionEntityName_4010Parser();
-		}
-		return branchActionBranchActionEntityName_4010Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	protected IParser createBranchActionBranchActionEntityName_4010Parser() {
-		PcmStructuralFeatureParser parser = new PcmStructuralFeatureParser(
-				EntityPackage.eINSTANCE.getNamedElement()
-						.getEStructuralFeature("entityName")); //$NON-NLS-1$
-		return parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	private IParser internalActionInternalActionEntityName_4011Parser;
-
-	/**
-	 * @generated
-	 */
-	private IParser getInternalActionInternalActionEntityName_4011Parser() {
-		if (internalActionInternalActionEntityName_4011Parser == null) {
-			internalActionInternalActionEntityName_4011Parser = createInternalActionInternalActionEntityName_4011Parser();
-		}
-		return internalActionInternalActionEntityName_4011Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	protected IParser createInternalActionInternalActionEntityName_4011Parser() {
-		PcmStructuralFeatureParser parser = new PcmStructuralFeatureParser(
-				EntityPackage.eINSTANCE.getNamedElement()
-						.getEStructuralFeature("entityName")); //$NON-NLS-1$
-		return parser;
-	}
-
-	/**
 	 * @generated NOT
 	 */
 	protected IParser getParser(int visualID) {
 		switch (visualID) {
-		case LoopActionEntityNameEditPart.VISUAL_ID:
-			return getLoopActionLoopActionEntityName_4002Parser();
 		case LoopIterationsLabelEditPart.VISUAL_ID:
 			return getLoopActionIterations_4003Parser();
 		case LoopIterationsLabel2EditPart.VISUAL_ID:
 			return getLoopActionIterations_4009Parser();
+		case VariableCharacterisationEditPart.VISUAL_ID:
+			return getVariableCharacterisationVariableCharacterisation_2002Parser();
+		case LoopActionEntityNameEditPart.VISUAL_ID:
+			return getLoopActionLoopActionEntityName_4003Parser();
 		case InternalActionEntityNameEditPart.VISUAL_ID:
-			return getInternalActionInternalActionEntityName_4004Parser();
+			return getInternalActionInternalActionEntityName_4005Parser();
 		case ParametricResourceDemandEditPart.VISUAL_ID:
-			return getParametricResourceDemandParametricResourceDemand_2007Parser();
+			return getParametricResourceDemandParametricResourceDemand_2008Parser();
 		case BranchActionEntityNameEditPart.VISUAL_ID:
-			return getBranchActionBranchActionEntityName_4007Parser();
+			return getBranchActionBranchActionEntityName_4008Parser();
 		case ExternalCallActionEntityName2EditPart.VISUAL_ID:
-			return getExternalCallActionExternalCallActionEntityName_4005Parser();
+			return getExternalCallActionExternalCallActionEntityName_4006Parser();
 		case ExternalCallActionEntityNameEditPart.VISUAL_ID:
-			return getExternalCallActionExternalCallActionEntityName_4001Parser();
+			return getExternalCallActionExternalCallActionEntityName_4002Parser();
 		case LoopActionEntityName2EditPart.VISUAL_ID:
-			return getLoopActionLoopActionEntityName_4008Parser();
+			return getLoopActionLoopActionEntityName_4009Parser();
 		case BranchActionEntityName2EditPart.VISUAL_ID:
-			return getBranchActionBranchActionEntityName_4010Parser();
+			return getBranchActionBranchActionEntityName_4011Parser();
 		case InternalActionEntityName2EditPart.VISUAL_ID:
-			return getInternalActionInternalActionEntityName_4011Parser();
+			return getInternalActionInternalActionEntityName_4012Parser();
 		}
 		return null;
 	}

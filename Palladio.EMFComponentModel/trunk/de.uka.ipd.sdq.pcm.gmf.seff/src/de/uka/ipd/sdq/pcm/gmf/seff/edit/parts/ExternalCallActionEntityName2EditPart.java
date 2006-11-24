@@ -65,7 +65,7 @@ public class ExternalCallActionEntityName2EditPart extends CompartmentEditPart
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 4005;
+	public static final int VISUAL_ID = 4006;
 
 	/**
 	 * @generated
@@ -320,7 +320,7 @@ public class ExternalCallActionEntityName2EditPart extends CompartmentEditPart
 
 				public Object getAdapter(Class adapter) {
 					if (IElementType.class.equals(adapter)) {
-						return PcmElementTypes.ExternalCallAction_2011;
+						return PcmElementTypes.ExternalCallAction_2012;
 					}
 					return super.getAdapter(adapter);
 				}

@@ -64,7 +64,7 @@ public class BranchActionEntityNameEditPart extends CompartmentEditPart
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 4007;
+	public static final int VISUAL_ID = 4008;
 
 	/**
 	 * @generated
@@ -317,7 +317,7 @@ public class BranchActionEntityNameEditPart extends CompartmentEditPart
 
 				public Object getAdapter(Class adapter) {
 					if (IElementType.class.equals(adapter)) {
-						return PcmElementTypes.BranchAction_2008;
+						return PcmElementTypes.BranchAction_2009;
 					}
 					return super.getAdapter(adapter);
 				}

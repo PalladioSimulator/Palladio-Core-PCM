@@ -32,7 +32,7 @@ public class BranchActionEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 2008;
+	public static final int VISUAL_ID = 2009;
 
 	/**
 	 * @generated

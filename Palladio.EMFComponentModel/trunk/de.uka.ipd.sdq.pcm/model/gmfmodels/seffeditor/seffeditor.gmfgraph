@@ -7,8 +7,13 @@
       name="default">
     <figures
         xsi:type="gmfgraph:Rectangle"
-        referencingElements="ParametricParameterUsageNode"
+        referencingElements="ParametricParameterUsageNode VariableCharacterisation"
         name="ParametricParameterUsageFigure">
+      <children
+          xsi:type="gmfgraph:Label"
+          referencingElements="VariableUsageReferenceLabel"
+          name="VariableUsageReferenceLabelFigure"
+          text="&lt;?>"/>
       <backgroundColor
           xsi:type="gmfgraph:ConstantColor"
           value="cyan"/>
@@ -193,6 +198,10 @@
         referencingElements="ParametricParameterUsageSpecificationDiagramLabel"
         name="ParametricParameterUsageSpecificationLabel"
         text="&lt;PU>"/>
+    <figures
+        xsi:type="gmfgraph:Label"
+        referencingElements="VariableCharacterisationLabel"
+        name="VariableCharacterisationLabelFigure"/>
   </figures>
   <nodes
       name="ParametricParameterUsageNode"
@@ -270,6 +279,11 @@
       figure="ExternalCallActionFigure"
       collapsible="true"
       needsTitle="true"/>
+  <compartments
+      name="VariableCharacterisation"
+      figure="ParametricParameterUsageFigure"
+      collapsible="true"
+      needsTitle="true"/>
   <labels
       name="EntityEntityNameLabel"/>
   <labels
@@ -302,4 +316,10 @@
   <labels
       name="LoopIterationsLabel"
       figure="LoopIterationsLabelFigure"/>
+  <labels
+      name="VariableUsageReferenceLabel"
+      figure="VariableUsageReferenceLabelFigure"/>
+  <labels
+      name="VariableCharacterisationLabel"
+      figure="VariableCharacterisationLabelFigure"/>
 </gmfgraph:Canvas>

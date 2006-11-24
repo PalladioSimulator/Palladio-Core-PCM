@@ -47,6 +47,7 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.StartAction2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.StartActionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.StopAction2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.StopActionEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableCharacterisationEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableUsageEditPart;
 
 import de.uka.ipd.sdq.pcm.gmf.seff.part.PcmVisualIDRegistry;
@@ -235,6 +236,7 @@ public class ResourceDemandingSEFFCanonicalEditPolicy extends
 		case BranchAction2EditPart.VISUAL_ID:
 		case InternalAction2EditPart.VISUAL_ID:
 		case VariableUsageEditPart.VISUAL_ID:
+		case VariableCharacterisationEditPart.VISUAL_ID:
 		case ResourceDemandingBehaviourEditPart.VISUAL_ID:
 		case StartAction2EditPart.VISUAL_ID:
 		case StopAction2EditPart.VISUAL_ID:

@@ -11,14 +11,20 @@ header{
 class VariableUsageParser extends StochasticExpressionsParser;
 
 variable_usage returns [VariableUsage vu]
-	{vu = null; AbstractNamedReference id; Expression ex; VariableCharacterisationType type;} :
-		id = scoped_id type = characterisation ex = expression
+	{vu = null; AbstractNamedReference id; VariableCharacterisation vc;} :
+		id = scoped_id DOT vc = variable_characterisation 
 		{vu = ParameterFactory.eINSTANCE.createVariableUsage();
 		vu.setNamedReference_VariableUsage(id);
-		VariableCharacterisation vc = ParameterFactory.eINSTANCE.createVariableCharacterisation();
-		vc.setType(type);
-		String result = "= " + new StoExPrettyPrintVisitor().prettyPrint(ex);
-		vc.setSpecification(result);
 		vu.getVariableCharacterisation_VariableUsage().add(vc);
+		}
+;
+ 
+variable_characterisation returns [VariableCharacterisation vc]
+	{vc = ParameterFactory.eINSTANCE.createVariableCharacterisation();
+	Expression ex; VariableCharacterisationType type;} :
+		type = characterisation ex = expression
+		{	vc.setType(type);
+			String result = "= " + new StoExPrettyPrintVisitor().prettyPrint(ex);
+			vc.setSpecification(result);
 		}
 ;

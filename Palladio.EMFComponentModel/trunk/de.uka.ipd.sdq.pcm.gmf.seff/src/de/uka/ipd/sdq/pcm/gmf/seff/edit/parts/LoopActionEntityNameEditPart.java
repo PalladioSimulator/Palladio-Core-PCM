@@ -64,7 +64,7 @@ public class LoopActionEntityNameEditPart extends CompartmentEditPart implements
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 4002;
+	public static final int VISUAL_ID = 4003;
 
 	/**
 	 * @generated
@@ -317,7 +317,7 @@ public class LoopActionEntityNameEditPart extends CompartmentEditPart implements
 
 				public Object getAdapter(Class adapter) {
 					if (IElementType.class.equals(adapter)) {
-						return PcmElementTypes.LoopAction_2005;
+						return PcmElementTypes.LoopAction_2006;
 					}
 					return super.getAdapter(adapter);
 				}

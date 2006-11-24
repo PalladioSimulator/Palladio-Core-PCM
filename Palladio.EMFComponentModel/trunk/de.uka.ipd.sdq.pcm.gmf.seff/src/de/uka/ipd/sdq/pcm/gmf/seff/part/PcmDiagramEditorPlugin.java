@@ -22,7 +22,6 @@ import org.eclipse.swt.graphics.Image;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
 
-import de.uka.ipd.sdq.dialogs.selection.PalladioSelectEObjectDialog;
 import de.uka.ipd.sdq.identifier.provider.IdentifierItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.allocation.provider.AllocationItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.core.composition.provider.CompositionItemProviderAdapterFactory;
@@ -38,7 +37,6 @@ import de.uka.ipd.sdq.pcm.resourcetype.provider.ResourcetypeItemProviderAdapterF
 import de.uka.ipd.sdq.pcm.seff.provider.SeffItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.system.provider.SystemItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.usagemodel.provider.UsagemodelItemProviderAdapterFactory;
-import de.uka.ipd.sdq.pcmbench.ui.provider.PalladioItemProviderAdapterFactory;
 import de.uka.ipd.sdq.probfunction.provider.ProbfunctionItemProviderAdapterFactory;
 
 /**
@@ -63,9 +61,9 @@ public class PcmDiagramEditorPlugin extends AbstractUIPlugin {
 	private static PcmDiagramEditorPlugin instance;
 
 	/**
-	 * @generated NOT
+	 * @generated
 	 */
-	private AdapterFactory adapterFactory;
+	private ComposedAdapterFactory adapterFactory;
 
 	/**
 	 * @generated
@@ -88,7 +86,7 @@ public class PcmDiagramEditorPlugin extends AbstractUIPlugin {
 	 * @generated
 	 */
 	public void stop(BundleContext context) throws Exception {
-		((PalladioItemProviderAdapterFactory)adapterFactory).dispose();
+		adapterFactory.dispose();
 		adapterFactory = null;
 		instance = null;
 		super.stop(context);
@@ -102,12 +100,12 @@ public class PcmDiagramEditorPlugin extends AbstractUIPlugin {
 	}
 
 	/**
-	 * @generated NOT
+	 * @generated
 	 */
-	protected AdapterFactory createAdapterFactory() {
+	protected ComposedAdapterFactory createAdapterFactory() {
 		List factories = new ArrayList();
 		fillItemProviderFactories(factories);
-		return new PalladioItemProviderAdapterFactory(new ComposedAdapterFactory(factories));
+		return new ComposedAdapterFactory(factories);
 	}
 
 	/**

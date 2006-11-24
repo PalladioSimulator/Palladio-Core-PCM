@@ -82,7 +82,7 @@ atom returns [Atom a]
 			}
 		  |
 		  {AbstractNamedReference id = null; VariableCharacterisationType type;}
-		  id = scoped_id type = characterisation
+		  id = scoped_id DOT type = characterisation
 		  { a = StochasticsFactory.eINSTANCE.createVariable();
 		  	((Variable)a).setId_Variable(id);
 		  	((Variable)a).setCharacterisationType(type);
@@ -217,7 +217,7 @@ stringsample returns [Sample s]
 
 characterisation returns [VariableCharacterisationType ct]
 {ct = null;} :
-	DOT type : CHARACTERISATIONS
+	type : CHARACTERISATIONS
 	{if(type.getText().equals("TYPE"))
 		ct = VariableCharacterisationType.DATATYPE_LITERAL;
 	 else if(type.getText().equals("BYTESIZE"))

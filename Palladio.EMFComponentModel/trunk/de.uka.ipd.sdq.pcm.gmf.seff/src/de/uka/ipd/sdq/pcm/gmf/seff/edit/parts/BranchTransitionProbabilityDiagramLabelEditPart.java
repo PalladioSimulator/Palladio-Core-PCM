@@ -64,7 +64,7 @@ public class BranchTransitionProbabilityDiagramLabelEditPart extends
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 4006;
+	public static final int VISUAL_ID = 4007;
 
 	/**
 	 * @generated
@@ -317,7 +317,7 @@ public class BranchTransitionProbabilityDiagramLabelEditPart extends
 
 				public Object getAdapter(Class adapter) {
 					if (IElementType.class.equals(adapter)) {
-						return PcmElementTypes.BranchTransition_2009;
+						return PcmElementTypes.BranchTransition_2010;
 					}
 					return super.getAdapter(adapter);
 				}

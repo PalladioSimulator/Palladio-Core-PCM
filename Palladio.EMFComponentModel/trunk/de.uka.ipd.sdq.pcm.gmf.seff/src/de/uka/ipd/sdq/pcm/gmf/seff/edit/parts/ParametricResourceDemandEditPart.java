@@ -94,7 +94,7 @@ public class ParametricResourceDemandEditPart extends CompartmentEditPart
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 2007;
+	public static final int VISUAL_ID = 2008;
 
 	/**
 	 * @generated
@@ -349,7 +349,7 @@ public class ParametricResourceDemandEditPart extends CompartmentEditPart
 
 				public Object getAdapter(Class adapter) {
 					if (IElementType.class.equals(adapter)) {
-						return PcmElementTypes.ParametricResourceDemand_2007;
+						return PcmElementTypes.ParametricResourceDemand_2008;
 					}
 					return super.getAdapter(adapter);
 				}

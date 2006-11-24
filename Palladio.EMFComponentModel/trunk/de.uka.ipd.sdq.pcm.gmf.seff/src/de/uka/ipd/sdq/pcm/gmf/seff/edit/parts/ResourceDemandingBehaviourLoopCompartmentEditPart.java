@@ -24,7 +24,7 @@ public class ResourceDemandingBehaviourLoopCompartmentEditPart extends
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 5003;
+	public static final int VISUAL_ID = 5004;
 
 	/**
 	 * @generated

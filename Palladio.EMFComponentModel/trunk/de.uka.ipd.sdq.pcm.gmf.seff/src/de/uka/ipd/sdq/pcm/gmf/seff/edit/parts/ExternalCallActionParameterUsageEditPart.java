@@ -12,6 +12,8 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.gef.EditPolicy;
 
+import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeCompartmentEditPart;
+
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ListCompartmentEditPart;
 
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CreationEditPolicy;
@@ -24,7 +26,7 @@ import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
  * @generated
  */
 public class ExternalCallActionParameterUsageEditPart extends
-		ListCompartmentEditPart {
+		ShapeCompartmentEditPart {
 
 	/**
 	 * @generated
@@ -36,13 +38,6 @@ public class ExternalCallActionParameterUsageEditPart extends
 	 */
 	public ExternalCallActionParameterUsageEditPart(View view) {
 		super(view);
-	}
-
-	/**
-	 * @generated
-	 */
-	protected boolean hasModelChildrenChanged(Notification evt) {
-		return false;
 	}
 
 	/**

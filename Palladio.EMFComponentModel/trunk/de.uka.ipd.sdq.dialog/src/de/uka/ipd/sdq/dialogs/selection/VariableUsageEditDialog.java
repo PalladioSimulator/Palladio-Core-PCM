@@ -8,7 +8,9 @@ import java.io.StringReader;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.swt.widgets.Shell;
 
+import de.uka.ipd.sdq.pcm.parameter.AbstractNamedReference;
 import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
+import de.uka.ipd.sdq.pcm.stochasticexpressions.ParameterPrettyPrint;
 import de.uka.ipd.sdq.pcm.stochasticexpressions.parser.StochasticExpressionsLexer;
 import de.uka.ipd.sdq.pcm.stochasticexpressions.parser.StochasticExpressionsParser;
 import de.uka.ipd.sdq.pcm.stochasticexpressions.parser.VariableUsageParser;
@@ -35,7 +37,7 @@ public class VariableUsageEditDialog extends AbstractGrammerBasedEditDialog {
 	 */
 	@Override
 	protected String getInitialText() {
-		return "a.BYTESIZE = b.BYTESIZE";
+		return "a.b.INNER";
 	}
 
 	@Override
@@ -45,12 +47,12 @@ public class VariableUsageEditDialog extends AbstractGrammerBasedEditDialog {
 
 	@Override
 	protected String getTitle() {
-		return "Edit variable usage";
+		return "Edit variable reference";
 	}
 
 	@Override
 	protected EObject parse(CharScanner lexer) throws RecognitionException, TokenStreamException {
-		return new VariableUsageParser(lexer).variable_usage();
+		return new VariableUsageParser(lexer).scoped_id();
 	}
 
 	@Override
@@ -63,12 +65,19 @@ public class VariableUsageEditDialog extends AbstractGrammerBasedEditDialog {
 		return new StoExTokenMapper();
 	}
 
-	public void setInitialExpression(VariableUsage randVar) {
-		
+	public void setInitialExpression(AbstractNamedReference vu) {
+		try
+		{
+			newText = (String)new ParameterPrettyPrint().doSwitch(vu);
+		}
+		catch(Exception e)
+		{
+			newText = getInitialText();
+		}
 	}
 	
-	public VariableUsage getResult()
+	public AbstractNamedReference getResult()
 	{
-		return (VariableUsage)super.getResult();
+		return (AbstractNamedReference)super.getResult();
 	}
 }

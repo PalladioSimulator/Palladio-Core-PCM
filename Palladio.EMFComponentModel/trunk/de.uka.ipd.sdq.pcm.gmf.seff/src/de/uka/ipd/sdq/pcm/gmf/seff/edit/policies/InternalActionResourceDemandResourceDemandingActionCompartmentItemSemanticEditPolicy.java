@@ -47,14 +47,14 @@ public class InternalActionResourceDemandResourceDemandingActionCompartmentItemS
 	 * @generated
 	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
-		if (PcmElementTypes.ParametricResourceDemand_2007 == req
+		if (PcmElementTypes.ParametricResourceDemand_2008 == req
 				.getElementType()) {
 			if (req.getContainmentFeature() == null) {
 				req
 						.setContainmentFeature(SeffPackage.eINSTANCE
 								.getAbstractResourceDemandingAction_ResourceDemand_Action());
 			}
-			return getMSLWrapper(new CreateParametricResourceDemand_2007Command(
+			return getMSLWrapper(new CreateParametricResourceDemand_2008Command(
 					req));
 		}
 		return super.getCreateCommand(req);
@@ -63,7 +63,7 @@ public class InternalActionResourceDemandResourceDemandingActionCompartmentItemS
 	/**
 	 * @generated NOT
 	 */
-	private class CreateParametricResourceDemand_2007Command extends
+	private class CreateParametricResourceDemand_2008Command extends
 			CreateElementCommand {
 
 		private ProcessingResourceType resourceType;
@@ -71,7 +71,7 @@ public class InternalActionResourceDemandResourceDemandingActionCompartmentItemS
 		/**
 		 * @generated
 		 */
-		public CreateParametricResourceDemand_2007Command(
+		public CreateParametricResourceDemand_2008Command(
 				CreateElementRequest req) {
 			super(req);
 		}

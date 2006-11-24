@@ -3,13 +3,31 @@
  */
 package de.uka.ipd.sdq.pcm.gmf.seff.edit.parts;
 
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.VariableUsageCanonicalEditPolicy;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.VariableUsageGraphicalNodeEditPolicy;
 import java.util.Collections;
 import org.eclipse.gef.DragTracker;
 import org.eclipse.gef.EditPolicy;
 import org.eclipse.gef.Request;
+import org.eclipse.gef.commands.Command;
+
+import org.eclipse.gef.editpolicies.LayoutEditPolicy;
+import org.eclipse.gef.editpolicies.NonResizableEditPolicy;
+
+import org.eclipse.gef.requests.CreateRequest;
+
+import org.eclipse.gmf.runtime.diagram.core.edithelpers.CreateElementRequestAdapter;
+
+import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
+
+import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CreationEditPolicy;
 import org.eclipse.gef.requests.SelectionRequest;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ITextAwareEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
+import org.eclipse.gmf.runtime.diagram.ui.requests.CreateViewAndElementRequest;
+
+import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
+
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.LabelDirectEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.ListItemComponentEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.tools.DragEditPartsTrackerEx;
@@ -19,8 +37,9 @@ import de.uka.ipd.sdq.pcm.core.stochastics.RandomVariable;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.OpenStoExEditorEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.PcmTextNonResizableEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.PcmTextSelectionEditPolicy;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.VariableUsageEditorEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.VariableUsageItemSemanticEditPolicy;
+
+import de.uka.ipd.sdq.pcm.gmf.seff.part.PcmVisualIDRegistry;
 
 import de.uka.ipd.sdq.pcm.gmf.seff.part.PcmDiagramEditorPlugin;
 
@@ -31,6 +50,9 @@ import de.uka.ipd.sdq.pcm.stochasticexpressions.ParameterPrettyPrint;
 import java.util.List;
 
 import org.eclipse.draw2d.IFigure;
+import org.eclipse.draw2d.StackLayout;
+
+import org.eclipse.gef.EditPart;
 import org.eclipse.draw2d.Label;
 
 import org.eclipse.draw2d.geometry.Point;
@@ -68,6 +90,9 @@ import org.eclipse.gmf.runtime.emf.core.util.EObjectAdapter;
 
 import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 
+import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
+import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
+
 import org.eclipse.gmf.runtime.emf.ui.services.parser.ISemanticParser;
 import org.eclipse.gmf.runtime.emf.ui.services.parser.ParserHintAdapter;
 
@@ -91,8 +116,7 @@ import org.eclipse.swt.graphics.Image;
 /**
  * @generated
  */
-public class VariableUsageEditPart extends CompartmentEditPart implements
-		ITextAwareEditPart {
+public class VariableUsageEditPart extends ShapeNodeEditPart {
 
 	/**
 	 * @generated
@@ -102,22 +126,12 @@ public class VariableUsageEditPart extends CompartmentEditPart implements
 	/**
 	 * @generated
 	 */
-	private DirectEditManager manager;
+	protected IFigure contentPane;
 
 	/**
 	 * @generated
 	 */
-	private IParser parser;
-
-	/**
-	 * @generated
-	 */
-	private List parserElements;
-
-	/**
-	 * @generated
-	 */
-	private String defaultText;
+	protected IFigure primaryShape;
 
 	/**
 	 * @generated
@@ -129,529 +143,194 @@ public class VariableUsageEditPart extends CompartmentEditPart implements
 	/**
 	 * @generated
 	 */
-	public DragTracker getDragTracker(Request request) {
-		if (request instanceof SelectionRequest
-				&& ((SelectionRequest) request).getLastButtonPressed() == 3) {
-			return null;
-		}
-		return new DragEditPartsTrackerEx(this);
-	}
-
-	/**
-	 * @generated NOT
-	 */
 	protected void createDefaultEditPolicies() {
+		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
+				new CreationEditPolicy() {
+
+					public Command getCommand(Request request) {
+						if (understandsRequest(request)) {
+							if (request instanceof CreateViewAndElementRequest) {
+								CreateElementRequestAdapter adapter = ((CreateViewAndElementRequest) request)
+										.getViewAndElementDescriptor()
+										.getCreateElementRequestAdapter();
+								IElementType type = (IElementType) adapter
+										.getAdapter(IElementType.class);
+								if (type == PcmElementTypes.VariableCharacterisation_2002) {
+									EditPart compartmentEditPart = getChildBySemanticHint(PcmVisualIDRegistry
+											.getType(VariableUsageVariableCharacterisationEditPart.VISUAL_ID));
+									return compartmentEditPart == null ? null
+											: compartmentEditPart
+													.getCommand(request);
+								}
+							}
+							return super.getCommand(request);
+						}
+						return null;
+					}
+				});
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
 				new VariableUsageItemSemanticEditPolicy());
-		installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE,
-				new PcmTextNonResizableEditPolicy());
-		installEditPolicy(EditPolicy.COMPONENT_ROLE,
-				new ListItemComponentEditPolicy());
-		installEditPolicy(EditPolicy.DIRECT_EDIT_ROLE,
-				new LabelDirectEditPolicy());
-		installEditPolicy(EditPolicyRoles.OPEN_ROLE,
-				new VariableUsageEditorEditPolicy(
-						(VariableUsage) (((View) getModel()).getElement())));
+		installEditPolicy(EditPolicy.GRAPHICAL_NODE_ROLE,
+				new VariableUsageGraphicalNodeEditPolicy());
+		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE,
+				new VariableUsageCanonicalEditPolicy());
+		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
 	}
 
 	/**
 	 * @generated
 	 */
-	protected String getLabelTextHelper(IFigure figure) {
-		if (figure instanceof WrapLabel) {
-			return ((WrapLabel) figure).getText();
-		} else {
-			return ((Label) figure).getText();
+	protected LayoutEditPolicy createLayoutEditPolicy() {
+		LayoutEditPolicy lep = new LayoutEditPolicy() {
+
+			protected EditPolicy createChildEditPolicy(EditPart child) {
+				EditPolicy result = child
+						.getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
+				if (result == null) {
+					result = new NonResizableEditPolicy();
+				}
+				return result;
+			}
+
+			protected Command getMoveChildrenCommand(Request request) {
+				return null;
+			}
+
+			protected Command getCreateCommand(CreateRequest request) {
+				return null;
+			}
+		};
+		return lep;
+	}
+
+	/**
+	 * @generated
+	 */
+	protected IFigure createNodeShape() {
+		ParametricParameterUsageFigure figure = new ParametricParameterUsageFigure();
+		return primaryShape = figure;
+	}
+
+	/**
+	 * @generated
+	 */
+	public ParametricParameterUsageFigure getPrimaryShape() {
+		return (ParametricParameterUsageFigure) primaryShape;
+	}
+
+	/**
+	 * @generated
+	 */
+	protected boolean addFixedChild(EditPart childEditPart) {
+		if (childEditPart instanceof VariableUsageReferenceLabelEditPart) {
+			((VariableUsageReferenceLabelEditPart) childEditPart)
+					.setLabel(getPrimaryShape()
+							.getFigureVariableUsageReferenceLabelFigure());
+			return true;
 		}
-	}
-
-	/**
-	 * @generated
-	 */
-	protected void setLabelTextHelper(IFigure figure, String text) {
-		if (figure instanceof WrapLabel) {
-			((WrapLabel) figure).setText(text);
-		} else {
-			((Label) figure).setText(text);
-		}
-	}
-
-	/**
-	 * @generated
-	 */
-	protected Image getLabelIconHelper(IFigure figure) {
-		if (figure instanceof WrapLabel) {
-			return ((WrapLabel) figure).getIcon();
-		} else {
-			return ((Label) figure).getIcon();
-		}
-	}
-
-	/**
-	 * @generated
-	 */
-	protected void setLabelIconHelper(IFigure figure, Image icon) {
-		if (figure instanceof WrapLabel) {
-			((WrapLabel) figure).setIcon(icon);
-		} else {
-			((Label) figure).setIcon(icon);
-		}
-	}
-
-	/**
-	 * @generated
-	 */
-	public void setLabel(IFigure figure) {
-		unregisterVisuals();
-		setFigure(figure);
-		defaultText = getLabelTextHelper(figure);
-		registerVisuals();
-		refreshVisuals();
-	}
-
-	/**
-	 * @generated
-	 */
-	protected List getModelChildren() {
-		return Collections.EMPTY_LIST;
-	}
-
-	/**
-	 * @generated
-	 */
-	public IGraphicalEditPart getChildBySemanticHint(String semanticHint) {
-		return null;
-	}
-
-	/**
-	 * @generated
-	 */
-	protected EObject getParserElement() {
-		EObject element = resolveSemanticElement();
-		return element != null ? element : (View) getModel();
-	}
-
-	/**
-	 * @generated
-	 */
-	protected Image getLabelIcon() {
-		ImageDescriptor descriptor = PcmDiagramEditorPlugin.getInstance()
-				.getItemImageDescriptor(getParserElement());
-		if (descriptor == null) {
-			descriptor = ImageDescriptor.getMissingImageDescriptor();
-		}
-		return descriptor.createImage();
-	}
-
-	/**
-	 * @generated NOT
-	 */
-	protected String getLabelText() {
-		String text = null;
-		//		if (getParser() != null) {
-		//			text = getParser().getPrintString(
-		//					new EObjectAdapter(getParserElement()),
-		//					getParserOptions().intValue());
-		//		}
-		VariableUsage usage = (VariableUsage) resolveSemanticElement();
-		text = (String) new ParameterPrettyPrint().doSwitch(usage);
-		if (text == null || text.length() == 0) {
-			text = defaultText;
-		}
-		return text;
-	}
-
-	/**
-	 * @generated
-	 */
-	public void setLabelText(String text) {
-		setLabelTextHelper(getFigure(), text);
-		Object pdEditPolicy = getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
-		if (pdEditPolicy instanceof PcmTextSelectionEditPolicy) {
-			((PcmTextSelectionEditPolicy) pdEditPolicy).refreshFeedback();
-		}
-	}
-
-	/**
-	 * @generated
-	 */
-	public String getEditText() {
-		if (getParser() == null) {
-			return ""; //$NON-NLS-1$
-		}
-		return getParser().getEditString(
-				new EObjectAdapter(getParserElement()),
-				getParserOptions().intValue());
-	}
-
-	/**
-	 * @generated NOT
-	 */
-	protected boolean isEditable() {
 		return false;
 	}
 
 	/**
 	 * @generated
 	 */
-	public ICellEditorValidator getEditTextValidator() {
-		return new ICellEditorValidator() {
-
-			public String isValid(final Object value) {
-				if (value instanceof String) {
-					final EObject element = getParserElement();
-					final IParser parser = getParser();
-					try {
-						IParserEditStatus valid = (IParserEditStatus) getEditingDomain()
-								.runExclusive(new RunnableWithResult.Impl() {
-
-									public void run() {
-										setResult(parser.isValidEditString(
-												new EObjectAdapter(element),
-												(String) value));
-									}
-								});
-						return valid.getCode() == ParserEditStatus.EDITABLE ? null
-								: valid.getMessage();
-					} catch (InterruptedException ie) {
-						ie.printStackTrace();
-					}
-				}
-
-				// shouldn't get here
-				return null;
-			}
-		};
+	protected boolean removeFixedChild(EditPart childEditPart) {
+		return false;
 	}
 
 	/**
 	 * @generated
 	 */
-	public IContentAssistProcessor getCompletionProcessor() {
-		if (getParser() == null) {
-			return null;
+	protected NodeFigure createNodePlate() {
+		return new DefaultSizeNodeFigure(getMapMode().DPtoLP(40), getMapMode()
+				.DPtoLP(40));
+	}
+
+	/**
+	 * Creates figure for this edit part.
+	 * 
+	 * Body of this method does not depend on settings in generation model
+	 * so you may safely remove <i>generated</i> tag and modify it.
+	 * 
+	 * @generated
+	 */
+	protected NodeFigure createNodeFigure() {
+		NodeFigure figure = createNodePlate();
+		figure.setLayoutManager(new StackLayout());
+		IFigure shape = createNodeShape();
+		figure.add(shape);
+		contentPane = setupContentPane(shape);
+		return figure;
+	}
+
+	/**
+	 * Default implementation treats passed figure as content pane.
+	 * Respects layout one may have set for generated figure.
+	 * @param nodeShape instance of generated figure class
+	 * @generated
+	 */
+	protected IFigure setupContentPane(IFigure nodeShape) {
+		if (nodeShape.getLayoutManager() == null) {
+			ConstrainedToolbarLayout layout = new ConstrainedToolbarLayout();
+			layout.setSpacing(getMapMode().DPtoLP(5));
+			nodeShape.setLayoutManager(layout);
 		}
-		return getParser().getCompletionProcessor(
-				new EObjectAdapter(getParserElement()));
+		return nodeShape; // use nodeShape itself as contentPane
 	}
 
 	/**
 	 * @generated
 	 */
-	public ParserOptions getParserOptions() {
-		return ParserOptions.NONE;
-	}
-
-	/**
-	 * @generated
-	 */
-	public IParser getParser() {
-		if (parser == null) {
-			String parserHint = ((View) getModel()).getType();
-			ParserHintAdapter hintAdapter = new ParserHintAdapter(
-					getParserElement(), parserHint) {
-
-				public Object getAdapter(Class adapter) {
-					if (IElementType.class.equals(adapter)) {
-						return PcmElementTypes.VariableUsage_2001;
-					}
-					return super.getAdapter(adapter);
-				}
-			};
-			parser = ParserService.getInstance().getParser(hintAdapter);
+	public IFigure getContentPane() {
+		if (contentPane != null) {
+			return contentPane;
 		}
-		return parser;
+		return super.getContentPane();
 	}
 
 	/**
 	 * @generated
 	 */
-	protected DirectEditManager getManager() {
-		if (manager == null) {
-			setManager(new TextDirectEditManager(this, TextDirectEditManager
-					.getTextCellEditorClass(this), PcmEditPartFactory
-					.getTextCellEditorLocator(this)));
+	public EditPart getPrimaryChildEditPart() {
+		return getChildBySemanticHint(PcmVisualIDRegistry
+				.getType(VariableUsageReferenceLabelEditPart.VISUAL_ID));
+	}
+
+	/**
+	 * @generated
+	 */
+	protected void addChildVisual(EditPart childEditPart, int index) {
+		if (addFixedChild(childEditPart)) {
+			return;
 		}
-		return manager;
+		super.addChildVisual(childEditPart, -1);
 	}
 
 	/**
 	 * @generated
 	 */
-	protected void setManager(DirectEditManager manager) {
-		this.manager = manager;
-	}
-
-	/**
-	 * @generated
-	 */
-	protected void performDirectEdit() {
-		getManager().show();
-	}
-
-	/**
-	 * @generated
-	 */
-	protected void performDirectEdit(Point eventLocation) {
-		if (getManager().getClass() == TextDirectEditManager.class) {
-			((TextDirectEditManager) getManager()).show(eventLocation
-					.getSWTPoint());
+	protected void removeChildVisual(EditPart childEditPart) {
+		if (removeFixedChild(childEditPart)) {
+			return;
 		}
+		super.removeChildVisual(childEditPart);
 	}
 
 	/**
 	 * @generated
 	 */
-	private void performDirectEdit(char initialCharacter) {
-		if (getManager() instanceof TextDirectEditManager) {
-			((TextDirectEditManager) getManager()).show(initialCharacter);
-		} else {
-			performDirectEdit();
-		}
-	}
-
-	/**
-	 * @generated
-	 */
-	protected void performDirectEditRequest(Request request) {
-		final Request theRequest = request;
-		try {
-			getEditingDomain().runExclusive(new Runnable() {
-
-				public void run() {
-					if (isActive() && isEditable()) {
-						if (theRequest
-								.getExtendedData()
-								.get(
-										RequestConstants.REQ_DIRECTEDIT_EXTENDEDDATA_INITIAL_CHAR) instanceof Character) {
-							Character initialChar = (Character) theRequest
-									.getExtendedData()
-									.get(
-											RequestConstants.REQ_DIRECTEDIT_EXTENDEDDATA_INITIAL_CHAR);
-							performDirectEdit(initialChar.charValue());
-						} else if ((theRequest instanceof DirectEditRequest)
-								&& (getEditText().equals(getLabelText()))) {
-							DirectEditRequest editRequest = (DirectEditRequest) theRequest;
-							performDirectEdit(editRequest.getLocation());
-						} else {
-							performDirectEdit();
-						}
-					}
-				}
-			});
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-	}
-
-	/**
-	 * @generated
-	 */
-	protected void refreshVisuals() {
-		super.refreshVisuals();
-		refreshLabel();
-		refreshFont();
-		refreshFontColor();
-		refreshUnderline();
-		refreshStrikeThrough();
-	}
-
-	/**
-	 * @generated
-	 */
-	protected void refreshLabel() {
-		setLabelTextHelper(getFigure(), getLabelText());
-		setLabelIconHelper(getFigure(), getLabelIcon());
-		Object pdEditPolicy = getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
-		if (pdEditPolicy instanceof PcmTextSelectionEditPolicy) {
-			((PcmTextSelectionEditPolicy) pdEditPolicy).refreshFeedback();
-		}
-	}
-
-	/**
-	 * @generated
-	 */
-	protected void refreshUnderline() {
-		FontStyle style = (FontStyle) getFontStyleOwnerView().getStyle(
-				NotationPackage.eINSTANCE.getFontStyle());
-		if (style != null && getFigure() instanceof WrapLabel) {
-			((WrapLabel) getFigure()).setTextUnderline(style.isUnderline());
-		}
-	}
-
-	/**
-	 * @generated
-	 */
-	protected void refreshStrikeThrough() {
-		FontStyle style = (FontStyle) getFontStyleOwnerView().getStyle(
-				NotationPackage.eINSTANCE.getFontStyle());
-		if (style != null && getFigure() instanceof WrapLabel) {
-			((WrapLabel) getFigure()).setTextStrikeThrough(style
-					.isStrikeThrough());
-		}
-	}
-
-	/**
-	 * @generated
-	 */
-	protected void refreshFont() {
-		FontStyle style = (FontStyle) getFontStyleOwnerView().getStyle(
-				NotationPackage.eINSTANCE.getFontStyle());
-		if (style != null) {
-			FontData fontData = new FontData(style.getFontName(), style
-					.getFontHeight(), (style.isBold() ? SWT.BOLD : SWT.NORMAL)
-					| (style.isItalic() ? SWT.ITALIC : SWT.NORMAL));
-			setFont(fontData);
-		}
-	}
-
-	/**
-	 * @generated
-	 */
-	protected void setFontColor(Color color) {
-		getFigure().setForegroundColor(color);
-	}
-
-	/**
-	 * @generated
-	 */
-	protected void addSemanticListeners() {
-		if (getParser() instanceof ISemanticParser) {
-			EObject element = resolveSemanticElement();
-			parserElements = ((ISemanticParser) getParser())
-					.getSemanticElementsBeingParsed(element);
-			for (int i = 0; i < parserElements.size(); i++) {
-				addListenerFilter(
-						"SemanticModel" + i, this, (EObject) parserElements.get(i)); //$NON-NLS-1$
-			}
-		} else {
-			super.addSemanticListeners();
-		}
-	}
-
-	/**
-	 * @generated
-	 */
-	protected void removeSemanticListeners() {
-		if (parserElements != null) {
-			for (int i = 0; i < parserElements.size(); i++) {
-				removeListenerFilter("SemanticModel" + i); //$NON-NLS-1$
-			}
-		} else {
-			super.removeSemanticListeners();
-		}
-	}
-
-	/**
-	 * @generated
-	 */
-	protected AccessibleEditPart getAccessibleEditPart() {
-		if (accessibleEP == null) {
-			accessibleEP = new AccessibleGraphicalEditPart() {
-
-				public void getName(AccessibleEvent e) {
-					e.result = getLabelTextHelper(getFigure());
-				}
-			};
-		}
-		return accessibleEP;
-	}
-
-	/**
-	 * @generated
-	 */
-	private View getFontStyleOwnerView() {
-		return getPrimaryView();
-	}
-
-	/**
-	 * @generated
-	 */
-	protected void addNotationalListeners() {
-		super.addNotationalListeners();
-		addListenerFilter("PrimaryView", this, getPrimaryView()); //$NON-NLS-1$
-	}
-
-	/**
-	 * @generated
-	 */
-	protected void removeNotationalListeners() {
-		super.removeNotationalListeners();
-		removeListenerFilter("PrimaryView"); //$NON-NLS-1$
-	}
-
-	/**
-	 * @generated
-	 */
-	protected void handleNotificationEvent(Notification event) {
-		Object feature = event.getFeature();
-		if (NotationPackage.eINSTANCE.getFontStyle_FontColor().equals(feature)) {
-			Integer c = (Integer) event.getNewValue();
-			setFontColor(DiagramColorRegistry.getInstance().getColor(c));
-		} else if (NotationPackage.eINSTANCE.getFontStyle_Underline().equals(
-				feature)) {
-			refreshUnderline();
-		} else if (NotationPackage.eINSTANCE.getFontStyle_StrikeThrough()
-				.equals(feature)) {
-			refreshStrikeThrough();
-		} else if (NotationPackage.eINSTANCE.getFontStyle_FontHeight().equals(
-				feature)
-				|| NotationPackage.eINSTANCE.getFontStyle_FontName().equals(
-						feature)
-				|| NotationPackage.eINSTANCE.getFontStyle_Bold()
-						.equals(feature)
-				|| NotationPackage.eINSTANCE.getFontStyle_Italic().equals(
-						feature)) {
-			refreshFont();
-		} else {
-			if (getParser() != null
-					&& getParser().isAffectingEvent(event,
-							getParserOptions().intValue())) {
-				refreshLabel();
-			}
-			if (getParser() instanceof ISemanticParser) {
-				ISemanticParser modelParser = (ISemanticParser) getParser();
-				if (modelParser.areSemanticElementsAffected(null, event)) {
-					removeSemanticListeners();
-					if (resolveSemanticElement() != null) {
-						addSemanticListeners();
-					}
-					refreshLabel();
-				}
-			}
-		}
-		super.handleNotificationEvent(event);
-	}
-
-	/**
-	 * @generated
-	 */
-	protected IFigure createFigure() {
-		IFigure label = createFigurePrim();
-		defaultText = getLabelTextHelper(label);
-		return label;
-	}
-
-	/**
-	 * @generated
-	 */
-	protected IFigure createFigurePrim() {
-		return new ParametricResourceDemandDemandFigure();
-	}
-
-	/**
-	 * @generated
-	 */
-	public class ParametricResourceDemandDemandFigure extends
-			org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel {
+	public class ParametricParameterUsageFigure extends
+			org.eclipse.draw2d.RectangleFigure {
 
 		/**
 		 * @generated
 		 */
-		public ParametricResourceDemandDemandFigure() {
+		public ParametricParameterUsageFigure() {
 
-			this.setText("<...>");
+			this.setBackgroundColor(org.eclipse.draw2d.ColorConstants.cyan
+
+			);
 			createContents();
 		}
 
@@ -659,6 +338,34 @@ public class VariableUsageEditPart extends CompartmentEditPart implements
 		 * @generated
 		 */
 		private void createContents() {
+			org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel fig_0 = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel();
+			fig_0.setText("<?>");
+
+			setFigureVariableUsageReferenceLabelFigure(fig_0);
+
+			Object layData0 = null;
+
+			this.add(fig_0, layData0);
+		}
+
+		/**
+		 * @generated
+		 */
+		private org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel fVariableUsageReferenceLabelFigure;
+
+		/**
+		 * @generated
+		 */
+		public org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel getFigureVariableUsageReferenceLabelFigure() {
+			return fVariableUsageReferenceLabelFigure;
+		}
+
+		/**
+		 * @generated
+		 */
+		private void setFigureVariableUsageReferenceLabelFigure(
+				org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel fig) {
+			fVariableUsageReferenceLabelFigure = fig;
 		}
 
 		/**
@@ -681,5 +388,4 @@ public class VariableUsageEditPart extends CompartmentEditPart implements
 		}
 
 	}
-
 }

@@ -62,6 +62,10 @@ public class PcmEditPartFactory implements EditPartFactory {
 				return new InternalActionEntityName2EditPart(view);
 			case VariableUsageEditPart.VISUAL_ID:
 				return new VariableUsageEditPart(view);
+			case VariableUsageReferenceLabelEditPart.VISUAL_ID:
+				return new VariableUsageReferenceLabelEditPart(view);
+			case VariableCharacterisationEditPart.VISUAL_ID:
+				return new VariableCharacterisationEditPart(view);
 			case ResourceDemandingBehaviourEditPart.VISUAL_ID:
 				return new ResourceDemandingBehaviourEditPart(view);
 			case StartAction2EditPart.VISUAL_ID:
@@ -96,6 +100,8 @@ public class PcmEditPartFactory implements EditPartFactory {
 				return new ExternalCallActionEntityName2EditPart(view);
 			case ExternalCallActionParameterUsageEditPart.VISUAL_ID:
 				return new ExternalCallActionParameterUsageEditPart(view);
+			case VariableUsageVariableCharacterisationEditPart.VISUAL_ID:
+				return new VariableUsageVariableCharacterisationEditPart(view);
 			case LoopActionBehaviourCompartmentEditPart.VISUAL_ID:
 				return new LoopActionBehaviourCompartmentEditPart(view);
 			case ResourceDemandingBehaviourLoopCompartmentEditPart.VISUAL_ID:

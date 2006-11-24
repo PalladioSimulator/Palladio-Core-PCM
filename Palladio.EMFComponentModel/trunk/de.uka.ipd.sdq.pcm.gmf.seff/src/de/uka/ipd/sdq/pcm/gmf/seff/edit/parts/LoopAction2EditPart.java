@@ -32,7 +32,7 @@ public class LoopAction2EditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 2005;
+	public static final int VISUAL_ID = 2006;
 
 	/**
 	 * @generated

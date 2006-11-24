@@ -15,15 +15,20 @@ options {
 	importVocab=StochasticExpressionsParser;
 }
 
-variable_usage returns [VariableUsage vu]{vu = null; AbstractNamedReference id; Expression ex; VariableCharacterisationType type;}
-:id = scoped_id type = characterisation ex = expression
+variable_usage returns [VariableUsage vu]{vu = null; AbstractNamedReference id; VariableCharacterisation vc;}
+:id = scoped_id DOT vc = variable_characterisation 
 		{vu = ParameterFactory.eINSTANCE.createVariableUsage();
 		vu.setNamedReference_VariableUsage(id);
-		VariableCharacterisation vc = ParameterFactory.eINSTANCE.createVariableCharacterisation();
-		vc.setType(type);
-		String result = "= " + new StoExPrettyPrintVisitor().prettyPrint(ex);
-		vc.setSpecification(result);
 		vu.getVariableCharacterisation_VariableUsage().add(vc);
+		}
+;
+
+variable_characterisation returns [VariableCharacterisation vc]{vc = ParameterFactory.eINSTANCE.createVariableCharacterisation();
+	Expression ex; VariableCharacterisationType type;}
+:type = characterisation ex = expression
+		{	vc.setType(type);
+			String result = "= " + new StoExPrettyPrintVisitor().prettyPrint(ex);
+			vc.setSpecification(result);
 		}
 ;
 
@@ -99,7 +104,7 @@ atom returns [Atom a]{a = null;}
 			}
 		  |
 		  {AbstractNamedReference id = null; VariableCharacterisationType type;}
-		  id = scoped_id type = characterisation
+		  id = scoped_id DOT type = characterisation
 		  { a = StochasticsFactory.eINSTANCE.createVariable();
 		  	((Variable)a).setId_Variable(id);
 		  	((Variable)a).setCharacterisationType(type);
@@ -232,7 +237,7 @@ stringsample returns [Sample s]{s = null;}
 
 // inherited from grammar StochasticExpressionsParser
 characterisation returns [VariableCharacterisationType ct]{ct = null;}
-:DOT type : CHARACTERISATIONS
+:type : CHARACTERISATIONS
 	{if(type.getText().equals("TYPE"))
 		ct = VariableCharacterisationType.DATATYPE_LITERAL;
 	 else if(type.getText().equals("BYTESIZE"))

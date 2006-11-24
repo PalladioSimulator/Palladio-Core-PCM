@@ -41,7 +41,5 @@ Require-Bundle: org.eclipse.core.runtime,
  de.uka.ipd.sdq.probfunction.edit;visibility:=reexport,
  org.eclipse.gmf.runtime.draw2d.ui;visibility:=reexport,
  org.eclipse.draw2d;visibility:=reexport,
- de.uka.ipd.sdq.dialog,
- de.uka.ipd.sdq.pcmbench.ui,
- org.eclipse.gmf.runtime.diagram.ui.properties
+ de.uka.ipd.sdq.dialog
 Eclipse-LazyStart: true

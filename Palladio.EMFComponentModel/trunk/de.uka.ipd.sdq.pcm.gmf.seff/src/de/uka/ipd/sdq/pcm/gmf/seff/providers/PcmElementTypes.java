@@ -150,25 +150,27 @@ public class PcmElementTypes {
 					.getResourceDemandingSEFF());
 			elements.put(VariableUsage_2001, ParameterPackage.eINSTANCE
 					.getVariableUsage());
-			elements.put(ResourceDemandingBehaviour_2002, SeffPackage.eINSTANCE
+			elements.put(VariableCharacterisation_2002,
+					ParameterPackage.eINSTANCE.getVariableCharacterisation());
+			elements.put(ResourceDemandingBehaviour_2003, SeffPackage.eINSTANCE
 					.getResourceDemandingBehaviour());
-			elements.put(StartAction_2003, SeffPackage.eINSTANCE
+			elements.put(StartAction_2004, SeffPackage.eINSTANCE
 					.getStartAction());
 			elements
-					.put(StopAction_2004, SeffPackage.eINSTANCE.getStopAction());
+					.put(StopAction_2005, SeffPackage.eINSTANCE.getStopAction());
 			elements
-					.put(LoopAction_2005, SeffPackage.eINSTANCE.getLoopAction());
-			elements.put(InternalAction_2006, SeffPackage.eINSTANCE
+					.put(LoopAction_2006, SeffPackage.eINSTANCE.getLoopAction());
+			elements.put(InternalAction_2007, SeffPackage.eINSTANCE
 					.getInternalAction());
-			elements.put(ParametricResourceDemand_2007, SeffPackage.eINSTANCE
+			elements.put(ParametricResourceDemand_2008, SeffPackage.eINSTANCE
 					.getParametricResourceDemand());
-			elements.put(BranchAction_2008, SeffPackage.eINSTANCE
+			elements.put(BranchAction_2009, SeffPackage.eINSTANCE
 					.getBranchAction());
-			elements.put(BranchTransition_2009, SeffPackage.eINSTANCE
+			elements.put(BranchTransition_2010, SeffPackage.eINSTANCE
 					.getBranchTransition());
-			elements.put(ResourceDemandingBehaviour_2010, SeffPackage.eINSTANCE
+			elements.put(ResourceDemandingBehaviour_2011, SeffPackage.eINSTANCE
 					.getResourceDemandingBehaviour());
-			elements.put(ExternalCallAction_2011, SeffPackage.eINSTANCE
+			elements.put(ExternalCallAction_2012, SeffPackage.eINSTANCE
 					.getExternalCallAction());
 			elements.put(StartAction_1001, SeffPackage.eINSTANCE
 					.getStartAction());
@@ -202,52 +204,57 @@ public class PcmElementTypes {
 	/**
 	 * @generated
 	 */
-	public static final IElementType ResourceDemandingBehaviour_2002 = getElementType("de.uka.ipd.sdq.pcm.gmf.seff.ResourceDemandingBehaviour_2002"); //$NON-NLS-1$
+	public static final IElementType VariableCharacterisation_2002 = getElementType("de.uka.ipd.sdq.pcm.gmf.seff.VariableCharacterisation_2002"); //$NON-NLS-1$
 
 	/**
 	 * @generated
 	 */
-	public static final IElementType StartAction_2003 = getElementType("de.uka.ipd.sdq.pcm.gmf.seff.StartAction_2003"); //$NON-NLS-1$
+	public static final IElementType ResourceDemandingBehaviour_2003 = getElementType("de.uka.ipd.sdq.pcm.gmf.seff.ResourceDemandingBehaviour_2003"); //$NON-NLS-1$
 
 	/**
 	 * @generated
 	 */
-	public static final IElementType StopAction_2004 = getElementType("de.uka.ipd.sdq.pcm.gmf.seff.StopAction_2004"); //$NON-NLS-1$
+	public static final IElementType StartAction_2004 = getElementType("de.uka.ipd.sdq.pcm.gmf.seff.StartAction_2004"); //$NON-NLS-1$
 
 	/**
 	 * @generated
 	 */
-	public static final IElementType LoopAction_2005 = getElementType("de.uka.ipd.sdq.pcm.gmf.seff.LoopAction_2005"); //$NON-NLS-1$
+	public static final IElementType StopAction_2005 = getElementType("de.uka.ipd.sdq.pcm.gmf.seff.StopAction_2005"); //$NON-NLS-1$
 
 	/**
 	 * @generated
 	 */
-	public static final IElementType InternalAction_2006 = getElementType("de.uka.ipd.sdq.pcm.gmf.seff.InternalAction_2006"); //$NON-NLS-1$
+	public static final IElementType LoopAction_2006 = getElementType("de.uka.ipd.sdq.pcm.gmf.seff.LoopAction_2006"); //$NON-NLS-1$
 
 	/**
 	 * @generated
 	 */
-	public static final IElementType ParametricResourceDemand_2007 = getElementType("de.uka.ipd.sdq.pcm.gmf.seff.ParametricResourceDemand_2007"); //$NON-NLS-1$
+	public static final IElementType InternalAction_2007 = getElementType("de.uka.ipd.sdq.pcm.gmf.seff.InternalAction_2007"); //$NON-NLS-1$
 
 	/**
 	 * @generated
 	 */
-	public static final IElementType BranchAction_2008 = getElementType("de.uka.ipd.sdq.pcm.gmf.seff.BranchAction_2008"); //$NON-NLS-1$
+	public static final IElementType ParametricResourceDemand_2008 = getElementType("de.uka.ipd.sdq.pcm.gmf.seff.ParametricResourceDemand_2008"); //$NON-NLS-1$
 
 	/**
 	 * @generated
 	 */
-	public static final IElementType BranchTransition_2009 = getElementType("de.uka.ipd.sdq.pcm.gmf.seff.BranchTransition_2009"); //$NON-NLS-1$
+	public static final IElementType BranchAction_2009 = getElementType("de.uka.ipd.sdq.pcm.gmf.seff.BranchAction_2009"); //$NON-NLS-1$
 
 	/**
 	 * @generated
 	 */
-	public static final IElementType ResourceDemandingBehaviour_2010 = getElementType("de.uka.ipd.sdq.pcm.gmf.seff.ResourceDemandingBehaviour_2010"); //$NON-NLS-1$
+	public static final IElementType BranchTransition_2010 = getElementType("de.uka.ipd.sdq.pcm.gmf.seff.BranchTransition_2010"); //$NON-NLS-1$
 
 	/**
 	 * @generated
 	 */
-	public static final IElementType ExternalCallAction_2011 = getElementType("de.uka.ipd.sdq.pcm.gmf.seff.ExternalCallAction_2011"); //$NON-NLS-1$
+	public static final IElementType ResourceDemandingBehaviour_2011 = getElementType("de.uka.ipd.sdq.pcm.gmf.seff.ResourceDemandingBehaviour_2011"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType ExternalCallAction_2012 = getElementType("de.uka.ipd.sdq.pcm.gmf.seff.ExternalCallAction_2012"); //$NON-NLS-1$
 
 	/**
 	 * @generated
@@ -304,16 +311,17 @@ public class PcmElementTypes {
 			KNOWN_ELEMENT_TYPES = new HashSet();
 			KNOWN_ELEMENT_TYPES.add(ResourceDemandingSEFF_79);
 			KNOWN_ELEMENT_TYPES.add(VariableUsage_2001);
-			KNOWN_ELEMENT_TYPES.add(ResourceDemandingBehaviour_2002);
-			KNOWN_ELEMENT_TYPES.add(StartAction_2003);
-			KNOWN_ELEMENT_TYPES.add(StopAction_2004);
-			KNOWN_ELEMENT_TYPES.add(LoopAction_2005);
-			KNOWN_ELEMENT_TYPES.add(InternalAction_2006);
-			KNOWN_ELEMENT_TYPES.add(ParametricResourceDemand_2007);
-			KNOWN_ELEMENT_TYPES.add(BranchAction_2008);
-			KNOWN_ELEMENT_TYPES.add(BranchTransition_2009);
-			KNOWN_ELEMENT_TYPES.add(ResourceDemandingBehaviour_2010);
-			KNOWN_ELEMENT_TYPES.add(ExternalCallAction_2011);
+			KNOWN_ELEMENT_TYPES.add(VariableCharacterisation_2002);
+			KNOWN_ELEMENT_TYPES.add(ResourceDemandingBehaviour_2003);
+			KNOWN_ELEMENT_TYPES.add(StartAction_2004);
+			KNOWN_ELEMENT_TYPES.add(StopAction_2005);
+			KNOWN_ELEMENT_TYPES.add(LoopAction_2006);
+			KNOWN_ELEMENT_TYPES.add(InternalAction_2007);
+			KNOWN_ELEMENT_TYPES.add(ParametricResourceDemand_2008);
+			KNOWN_ELEMENT_TYPES.add(BranchAction_2009);
+			KNOWN_ELEMENT_TYPES.add(BranchTransition_2010);
+			KNOWN_ELEMENT_TYPES.add(ResourceDemandingBehaviour_2011);
+			KNOWN_ELEMENT_TYPES.add(ExternalCallAction_2012);
 			KNOWN_ELEMENT_TYPES.add(StartAction_1001);
 			KNOWN_ELEMENT_TYPES.add(StopAction_1002);
 			KNOWN_ELEMENT_TYPES.add(ExternalCallAction_1003);

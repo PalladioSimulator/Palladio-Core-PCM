@@ -54,6 +54,7 @@ public class PcmPaletteFactory {
 		paletteContainer.add(createControlFlow1CreationTool());
 		paletteContainer.add(createResourceDemand2CreationTool());
 		paletteContainer.add(createParametricParameterUsage3CreationTool());
+		paletteContainer.add(createVariableCharacterisation4CreationTool());
 		return paletteContainer;
 	}
 
@@ -81,7 +82,7 @@ public class PcmPaletteFactory {
 
 		final List elementTypes = new ArrayList();
 		elementTypes.add(PcmElementTypes.StopAction_1002);
-		elementTypes.add(PcmElementTypes.StopAction_2004);
+		elementTypes.add(PcmElementTypes.StopAction_2005);
 		ToolEntry result = new NodeToolEntry("StopAction",
 				"Create new StopAction", smallImage, largeImage, elementTypes);
 
@@ -102,7 +103,7 @@ public class PcmPaletteFactory {
 
 		final List elementTypes = new ArrayList();
 		elementTypes.add(PcmElementTypes.StartAction_1001);
-		elementTypes.add(PcmElementTypes.StartAction_2003);
+		elementTypes.add(PcmElementTypes.StartAction_2004);
 		ToolEntry result = new NodeToolEntry("StartAction",
 				"Create new StartAction", smallImage, largeImage, elementTypes);
 
@@ -123,7 +124,7 @@ public class PcmPaletteFactory {
 
 		final List elementTypes = new ArrayList();
 		elementTypes.add(PcmElementTypes.LoopAction_1004);
-		elementTypes.add(PcmElementTypes.LoopAction_2005);
+		elementTypes.add(PcmElementTypes.LoopAction_2006);
 		ToolEntry result = new NodeToolEntry("LoopAction",
 				"Create new LoopAction", smallImage, largeImage, elementTypes);
 
@@ -138,12 +139,12 @@ public class PcmPaletteFactory {
 		ImageDescriptor largeImage;
 
 		smallImage = PcmElementTypes
-				.getImageDescriptor(PcmElementTypes.InternalAction_2006);
+				.getImageDescriptor(PcmElementTypes.InternalAction_2007);
 
 		largeImage = smallImage;
 
 		final List elementTypes = new ArrayList();
-		elementTypes.add(PcmElementTypes.InternalAction_2006);
+		elementTypes.add(PcmElementTypes.InternalAction_2007);
 		elementTypes.add(PcmElementTypes.InternalAction_1006);
 		ToolEntry result = new NodeToolEntry("InternalAction",
 				"Create new InternalAction", smallImage, largeImage,
@@ -166,7 +167,7 @@ public class PcmPaletteFactory {
 
 		final List elementTypes = new ArrayList();
 		elementTypes.add(PcmElementTypes.ExternalCallAction_1003);
-		elementTypes.add(PcmElementTypes.ExternalCallAction_2011);
+		elementTypes.add(PcmElementTypes.ExternalCallAction_2012);
 		ToolEntry result = new NodeToolEntry("ExternalCallAction",
 				"Create new ExternalCallAction", smallImage, largeImage,
 				elementTypes);
@@ -182,12 +183,12 @@ public class PcmPaletteFactory {
 		ImageDescriptor largeImage;
 
 		smallImage = PcmElementTypes
-				.getImageDescriptor(PcmElementTypes.BranchAction_2008);
+				.getImageDescriptor(PcmElementTypes.BranchAction_2009);
 
 		largeImage = smallImage;
 
 		final List elementTypes = new ArrayList();
-		elementTypes.add(PcmElementTypes.BranchAction_2008);
+		elementTypes.add(PcmElementTypes.BranchAction_2009);
 		elementTypes.add(PcmElementTypes.BranchAction_1005);
 		ToolEntry result = new NodeToolEntry("BranchAction",
 				"Create new BranchAction", smallImage, largeImage, elementTypes);
@@ -230,7 +231,7 @@ public class PcmPaletteFactory {
 		largeImage = smallImage;
 
 		final List elementTypes = new ArrayList();
-		elementTypes.add(PcmElementTypes.ParametricResourceDemand_2007);
+		elementTypes.add(PcmElementTypes.ParametricResourceDemand_2008);
 		ToolEntry result = new NodeToolEntry("Resource Demand",
 				"Create new Resource Demand", smallImage, largeImage,
 				elementTypes);
@@ -262,18 +263,39 @@ public class PcmPaletteFactory {
 	/**
 	 * @generated
 	 */
+	private ToolEntry createVariableCharacterisation4CreationTool() {
+		ImageDescriptor smallImage;
+		ImageDescriptor largeImage;
+
+		smallImage = PcmElementTypes
+				.getImageDescriptor(PcmElementTypes.VariableCharacterisation_2002);
+
+		largeImage = smallImage;
+
+		final List elementTypes = new ArrayList();
+		elementTypes.add(PcmElementTypes.VariableCharacterisation_2002);
+		ToolEntry result = new NodeToolEntry("VariableCharacterisation",
+				"VariableCharacterisation", smallImage, largeImage,
+				elementTypes);
+
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
 	private ToolEntry createResourceDemandingBehaviour1CreationTool() {
 		ImageDescriptor smallImage;
 		ImageDescriptor largeImage;
 
 		smallImage = PcmElementTypes
-				.getImageDescriptor(PcmElementTypes.ResourceDemandingBehaviour_2002);
+				.getImageDescriptor(PcmElementTypes.ResourceDemandingBehaviour_2003);
 
 		largeImage = smallImage;
 
 		final List elementTypes = new ArrayList();
-		elementTypes.add(PcmElementTypes.ResourceDemandingBehaviour_2002);
-		elementTypes.add(PcmElementTypes.ResourceDemandingBehaviour_2010);
+		elementTypes.add(PcmElementTypes.ResourceDemandingBehaviour_2003);
+		elementTypes.add(PcmElementTypes.ResourceDemandingBehaviour_2011);
 		ToolEntry result = new NodeToolEntry("ResourceDemandingBehaviour",
 				"Create new ResourceDemandingBehaviour", smallImage,
 				largeImage, elementTypes);
@@ -289,12 +311,12 @@ public class PcmPaletteFactory {
 		ImageDescriptor largeImage;
 
 		smallImage = PcmElementTypes
-				.getImageDescriptor(PcmElementTypes.BranchTransition_2009);
+				.getImageDescriptor(PcmElementTypes.BranchTransition_2010);
 
 		largeImage = smallImage;
 
 		final List elementTypes = new ArrayList();
-		elementTypes.add(PcmElementTypes.BranchTransition_2009);
+		elementTypes.add(PcmElementTypes.BranchTransition_2010);
 		ToolEntry result = new NodeToolEntry("BranchTransition",
 				"Create new BranchTransition", smallImage, largeImage,
 				elementTypes);

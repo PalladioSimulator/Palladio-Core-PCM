@@ -50,17 +50,13 @@ public VariableUsageParser(ParserSharedInputState state) {
 	public final VariableUsage  variable_usage() throws RecognitionException, TokenStreamException {
 		VariableUsage vu;
 		
-		vu = null; AbstractNamedReference id; Expression ex; VariableCharacterisationType type;
+		vu = null; AbstractNamedReference id; VariableCharacterisation vc;
 		
 		id=scoped_id();
-		type=characterisation();
-		ex=expression();
+		match(DOT);
+		vc=variable_characterisation();
 		vu = ParameterFactory.eINSTANCE.createVariableUsage();
 				vu.setNamedReference_VariableUsage(id);
-				VariableCharacterisation vc = ParameterFactory.eINSTANCE.createVariableCharacterisation();
-				vc.setType(type);
-				String result = "= " + new StoExPrettyPrintVisitor().prettyPrint(ex);
-				vc.setSpecification(result);
 				vu.getVariableCharacterisation_VariableUsage().add(vc);
 				
 		return vu;
@@ -79,7 +75,7 @@ public VariableUsageParser(ParserSharedInputState state) {
 		match(ID);
 		nameParts.add(id1.getText());
 		{
-		_loop168:
+		_loop254:
 		do {
 			if ((LA(1)==DOT) && (LA(2)==ID||LA(2)==INNER)) {
 				match(DOT);
@@ -107,7 +103,7 @@ public VariableUsageParser(ParserSharedInputState state) {
 				}
 			}
 			else {
-				break _loop168;
+				break _loop254;
 			}
 			
 		} while (true);
@@ -137,13 +133,27 @@ public VariableUsageParser(ParserSharedInputState state) {
 		return ref;
 	}
 	
+	public final VariableCharacterisation  variable_characterisation() throws RecognitionException, TokenStreamException {
+		VariableCharacterisation vc;
+		
+		vc = ParameterFactory.eINSTANCE.createVariableCharacterisation();
+			Expression ex; VariableCharacterisationType type;
+		
+		type=characterisation();
+		ex=expression();
+			vc.setType(type);
+					String result = "= " + new StoExPrettyPrintVisitor().prettyPrint(ex);
+					vc.setSpecification(result);
+				
+		return vc;
+	}
+	
 	public final VariableCharacterisationType  characterisation() throws RecognitionException, TokenStreamException {
 		VariableCharacterisationType ct;
 		
 		Token  type = null;
 		ct = null;
 		
-		match(DOT);
 		type = LT(1);
 		match(CHARACTERISATIONS);
 		if(type.getText().equals("TYPE"))
@@ -260,7 +270,7 @@ public VariableUsageParser(ParserSharedInputState state) {
 		p1=prodExpr();
 		t = p1;
 		{
-		_loop136:
+		_loop222:
 		do {
 			if ((LA(1)==PLUS||LA(1)==MINUS)) {
 				TermExpression termExp = StochasticsFactory.eINSTANCE.createTermExpression();
@@ -288,7 +298,7 @@ public VariableUsageParser(ParserSharedInputState state) {
 				termExp.setLeft(t); termExp.setRight(p2); t = termExp;
 			}
 			else {
-				break _loop136;
+				break _loop222;
 			}
 			
 		} while (true);
@@ -305,7 +315,7 @@ public VariableUsageParser(ParserSharedInputState state) {
 		pw1=powExpr();
 		p = pw1;
 		{
-		_loop140:
+		_loop226:
 		do {
 			if (((LA(1) >= MUL && LA(1) <= MOD))) {
 				ProductExpression prodExp = StochasticsFactory.eINSTANCE.createProductExpression();
@@ -339,7 +349,7 @@ public VariableUsageParser(ParserSharedInputState state) {
 				prodExp.setLeft(p); prodExp.setRight(pw2); p = prodExp;
 			}
 			else {
-				break _loop140;
+				break _loop226;
 			}
 			
 		} while (true);
@@ -420,6 +430,7 @@ public VariableUsageParser(ParserSharedInputState state) {
 		{
 			AbstractNamedReference id = null; VariableCharacterisationType type;
 			id=scoped_id();
+			match(DOT);
 			type=characterisation();
 			a = StochasticsFactory.eINSTANCE.createVariable();
 					  	((Variable)a).setId_Variable(id);
@@ -465,8 +476,8 @@ public VariableUsageParser(ParserSharedInputState state) {
 			match(RPAREN);
 			match(SQUARE_PAREN_L);
 			{
-			int _cnt148=0;
-			_loop148:
+			int _cnt234=0;
+			_loop234:
 			do {
 				if ((LA(1)==LPAREN)) {
 					Sample isample=null;
@@ -474,10 +485,10 @@ public VariableUsageParser(ParserSharedInputState state) {
 					((ProbabilityMassFunction)probFunction).getSamples().add(isample);
 				}
 				else {
-					if ( _cnt148>=1 ) { break _loop148; } else {throw new NoViableAltException(LT(1), getFilename());}
+					if ( _cnt234>=1 ) { break _loop234; } else {throw new NoViableAltException(LT(1), getFilename());}
 				}
 				
-				_cnt148++;
+				_cnt234++;
 			} while (true);
 			}
 			match(SQUARE_PAREN_R);
@@ -497,8 +508,8 @@ public VariableUsageParser(ParserSharedInputState state) {
 			match(RPAREN);
 			match(SQUARE_PAREN_L);
 			{
-			int _cnt151=0;
-			_loop151:
+			int _cnt237=0;
+			_loop237:
 			do {
 				if ((LA(1)==LPAREN)) {
 					Sample rsample=null;
@@ -506,10 +517,10 @@ public VariableUsageParser(ParserSharedInputState state) {
 					((ProbabilityMassFunction)probFunction).getSamples().add(rsample);
 				}
 				else {
-					if ( _cnt151>=1 ) { break _loop151; } else {throw new NoViableAltException(LT(1), getFilename());}
+					if ( _cnt237>=1 ) { break _loop237; } else {throw new NoViableAltException(LT(1), getFilename());}
 				}
 				
-				_cnt151++;
+				_cnt237++;
 			} while (true);
 			}
 			match(SQUARE_PAREN_R);
@@ -550,8 +561,8 @@ public VariableUsageParser(ParserSharedInputState state) {
 			match(RPAREN);
 			match(SQUARE_PAREN_L);
 			{
-			int _cnt155=0;
-			_loop155:
+			int _cnt241=0;
+			_loop241:
 			do {
 				if ((LA(1)==LPAREN)) {
 					Sample ssample=null;
@@ -559,10 +570,10 @@ public VariableUsageParser(ParserSharedInputState state) {
 					((ProbabilityMassFunction)probFunction).getSamples().add(ssample);
 				}
 				else {
-					if ( _cnt155>=1 ) { break _loop155; } else {throw new NoViableAltException(LT(1), getFilename());}
+					if ( _cnt241>=1 ) { break _loop241; } else {throw new NoViableAltException(LT(1), getFilename());}
 				}
 				
-				_cnt155++;
+				_cnt241++;
 			} while (true);
 			}
 			match(SQUARE_PAREN_R);
@@ -582,8 +593,8 @@ public VariableUsageParser(ParserSharedInputState state) {
 			match(RPAREN);
 			match(SQUARE_PAREN_L);
 			{
-			int _cnt158=0;
-			_loop158:
+			int _cnt244=0;
+			_loop244:
 			do {
 				if ((LA(1)==LPAREN)) {
 					ContinuousSample pdf_sample=null;
@@ -591,10 +602,10 @@ public VariableUsageParser(ParserSharedInputState state) {
 					((BoxedPDF)probFunction).getSamples().add(pdf_sample);
 				}
 				else {
-					if ( _cnt158>=1 ) { break _loop158; } else {throw new NoViableAltException(LT(1), getFilename());}
+					if ( _cnt244>=1 ) { break _loop244; } else {throw new NoViableAltException(LT(1), getFilename());}
 				}
 				
-				_cnt158++;
+				_cnt244++;
 			} while (true);
 			}
 			match(SQUARE_PAREN_R);
@@ -722,6 +733,7 @@ public VariableUsageParser(ParserSharedInputState state) {
 		"MOD",
 		"POW",
 		"NUMBER",
+		"DOT",
 		"INT_DEF",
 		"LPAREN",
 		"RPAREN",
@@ -734,7 +746,6 @@ public VariableUsageParser(ParserSharedInputState state) {
 		"REAL_PDF",
 		"UNIT_DEF",
 		"STRING_LITERAL",
-		"DOT",
 		"CHARACTERISATIONS",
 		"ID",
 		"INNER",

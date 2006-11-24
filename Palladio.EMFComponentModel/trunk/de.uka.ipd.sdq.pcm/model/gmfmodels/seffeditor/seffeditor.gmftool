@@ -99,6 +99,10 @@
         <largeIcon
             xsi:type="gmftool:DefaultImage"/>
       </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="VariableCharacterisation"
+          description="VariableCharacterisation"/>
     </tools>
     <tools
         xsi:type="gmftool:ToolGroup"

@@ -3,7 +3,11 @@
  */
 package de.uka.ipd.sdq.pcm.gmf.seff.view.factories;
 
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ParametricResourceDemandDemandLabelEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingSEFFEditPart;
+
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableUsageReferenceLabelEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableUsageVariableCharacterisationEditPart;
 
 import de.uka.ipd.sdq.pcm.gmf.seff.part.PcmVisualIDRegistry;
 
@@ -15,6 +19,11 @@ import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.emf.ecore.EAnnotation;
 import org.eclipse.emf.ecore.EcoreFactory;
 
+import org.eclipse.gmf.runtime.diagram.core.util.ViewUtil;
+
+import org.eclipse.gmf.runtime.diagram.ui.view.factories.AbstractShapeViewFactory;
+
+import org.eclipse.gmf.runtime.notation.NotationFactory;
 import org.eclipse.gmf.runtime.diagram.ui.view.factories.AbstractLabelViewFactory;
 
 import org.eclipse.gmf.runtime.notation.View;
@@ -22,13 +31,17 @@ import org.eclipse.gmf.runtime.notation.View;
 /**
  * @generated
  */
-public class VariableUsageViewFactory extends AbstractLabelViewFactory {
+public class VariableUsageViewFactory extends AbstractShapeViewFactory {
 
 	/**
 	 * @generated 
 	 */
 	protected List createStyles(View view) {
 		List styles = new ArrayList();
+		styles.add(NotationFactory.eINSTANCE.createFontStyle());
+		styles.add(NotationFactory.eINSTANCE.createDescriptionStyle());
+		styles.add(NotationFactory.eINSTANCE.createFillStyle());
+		styles.add(NotationFactory.eINSTANCE.createLineStyle());
 		return styles;
 	}
 
@@ -54,6 +67,20 @@ public class VariableUsageViewFactory extends AbstractLabelViewFactory {
 					"modelID", ResourceDemandingSEFFEditPart.MODEL_ID); //$NON-NLS-1$
 			view.getEAnnotations().add(shortcutAnnotation);
 		}
+		getViewService()
+				.createNode(
+						semanticAdapter,
+						view,
+						PcmVisualIDRegistry
+								.getType(VariableUsageReferenceLabelEditPart.VISUAL_ID),
+						ViewUtil.APPEND, true, getPreferencesHint());
+		getViewService()
+				.createNode(
+						semanticAdapter,
+						view,
+						PcmVisualIDRegistry
+								.getType(VariableUsageVariableCharacterisationEditPart.VISUAL_ID),
+						ViewUtil.APPEND, true, getPreferencesHint());
 	}
 
 }

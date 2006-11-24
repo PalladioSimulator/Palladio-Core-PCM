@@ -64,7 +64,7 @@ public class InternalActionEntityNameEditPart extends CompartmentEditPart
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 4004;
+	public static final int VISUAL_ID = 4005;
 
 	/**
 	 * @generated
@@ -317,7 +317,7 @@ public class InternalActionEntityNameEditPart extends CompartmentEditPart
 
 				public Object getAdapter(Class adapter) {
 					if (IElementType.class.equals(adapter)) {
-						return PcmElementTypes.InternalAction_2006;
+						return PcmElementTypes.InternalAction_2007;
 					}
 					return super.getAdapter(adapter);
 				}

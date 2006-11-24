@@ -24,7 +24,7 @@ public class BranchTransitionBehaviourCompartmentItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
-		if (PcmElementTypes.ResourceDemandingBehaviour_2010 == req
+		if (PcmElementTypes.ResourceDemandingBehaviour_2011 == req
 				.getElementType()) {
 			BranchTransition container = (BranchTransition) (req.getContainer() instanceof View ? ((View) req
 					.getContainer()).getElement()
@@ -37,7 +37,7 @@ public class BranchTransitionBehaviourCompartmentItemSemanticEditPolicy extends
 						.setContainmentFeature(SeffPackage.eINSTANCE
 								.getBranchTransition_BranchBehaviour_BranchTransition());
 			}
-			return getMSLWrapper(new CreateResourceDemandingBehaviour_2010Command(
+			return getMSLWrapper(new CreateResourceDemandingBehaviour_2011Command(
 					req));
 		}
 		return super.getCreateCommand(req);
@@ -46,13 +46,13 @@ public class BranchTransitionBehaviourCompartmentItemSemanticEditPolicy extends
 	/**
 	 * @generated
 	 */
-	private static class CreateResourceDemandingBehaviour_2010Command extends
+	private static class CreateResourceDemandingBehaviour_2011Command extends
 			CreateElementCommand {
 
 		/**
 		 * @generated
 		 */
-		public CreateResourceDemandingBehaviour_2010Command(
+		public CreateResourceDemandingBehaviour_2011Command(
 				CreateElementRequest req) {
 			super(req);
 		}

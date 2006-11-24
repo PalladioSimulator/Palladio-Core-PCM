@@ -27,6 +27,8 @@ import org.eclipse.ui.dialogs.ElementListSelectionDialog;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.BranchActionBranchTransitionCompartment2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.BranchActionBranchTransitionCompartmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.BranchTransitionBehaviourCompartmentEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ExternalCallActionParameterUsage2EditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ExternalCallActionParameterUsageEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ExternalCallAction2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ExternalCallActionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.InternalAction2EditPart;
@@ -36,6 +38,8 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopActionBehaviourCompartmentEdit
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviourBranchCompartmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviourLoopCompartmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingSEFFEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableUsageEditPart;
+
 import de.uka.ipd.sdq.pcm.gmf.seff.part.PcmDiagramEditorPlugin;
 
 /**
@@ -49,69 +53,74 @@ public class PcmModelingAssistantProvider extends ModelingAssistantProvider {
 	public List getTypesForPopupBar(IAdaptable host) {
 		IGraphicalEditPart editPart = (IGraphicalEditPart) host
 				.getAdapter(IGraphicalEditPart.class);
-		if (editPart instanceof ExternalCallActionEditPart) {
-			List types = new ArrayList();
-			types.add(PcmElementTypes.VariableUsage_2001);
-			return types;
-		}
 		if (editPart instanceof InternalAction2EditPart) {
 			List types = new ArrayList();
-			types.add(PcmElementTypes.ParametricResourceDemand_2007);
+			types.add(PcmElementTypes.ParametricResourceDemand_2008);
+			return types;
+		}
+		if (editPart instanceof VariableUsageEditPart) {
+			List types = new ArrayList();
+			types.add(PcmElementTypes.VariableCharacterisation_2002);
 			return types;
 		}
 		if (editPart instanceof InternalActionEditPart) {
 			List types = new ArrayList();
-			types.add(PcmElementTypes.ParametricResourceDemand_2007);
+			types.add(PcmElementTypes.ParametricResourceDemand_2008);
 			return types;
 		}
-		if (editPart instanceof ExternalCallAction2EditPart) {
+		if (editPart instanceof ExternalCallActionParameterUsageEditPart) {
 			List types = new ArrayList();
 			types.add(PcmElementTypes.VariableUsage_2001);
 			return types;
 		}
 		if (editPart instanceof LoopActionBehaviourCompartmentEditPart) {
 			List types = new ArrayList();
-			types.add(PcmElementTypes.ResourceDemandingBehaviour_2002);
+			types.add(PcmElementTypes.ResourceDemandingBehaviour_2003);
 			return types;
 		}
 		if (editPart instanceof ResourceDemandingBehaviourLoopCompartmentEditPart) {
 			List types = new ArrayList();
-			types.add(PcmElementTypes.StartAction_2003);
-			types.add(PcmElementTypes.StopAction_2004);
-			types.add(PcmElementTypes.LoopAction_2005);
-			types.add(PcmElementTypes.InternalAction_2006);
-			types.add(PcmElementTypes.BranchAction_2008);
-			types.add(PcmElementTypes.ExternalCallAction_2011);
+			types.add(PcmElementTypes.StartAction_2004);
+			types.add(PcmElementTypes.StopAction_2005);
+			types.add(PcmElementTypes.LoopAction_2006);
+			types.add(PcmElementTypes.InternalAction_2007);
+			types.add(PcmElementTypes.BranchAction_2009);
+			types.add(PcmElementTypes.ExternalCallAction_2012);
 			return types;
 		}
 		if (editPart instanceof LoopActionBehaviourCompartment2EditPart) {
 			List types = new ArrayList();
-			types.add(PcmElementTypes.ResourceDemandingBehaviour_2002);
+			types.add(PcmElementTypes.ResourceDemandingBehaviour_2003);
 			return types;
 		}
 		if (editPart instanceof BranchActionBranchTransitionCompartmentEditPart) {
 			List types = new ArrayList();
-			types.add(PcmElementTypes.BranchTransition_2009);
+			types.add(PcmElementTypes.BranchTransition_2010);
 			return types;
 		}
 		if (editPart instanceof BranchTransitionBehaviourCompartmentEditPart) {
 			List types = new ArrayList();
-			types.add(PcmElementTypes.ResourceDemandingBehaviour_2010);
+			types.add(PcmElementTypes.ResourceDemandingBehaviour_2011);
 			return types;
 		}
 		if (editPart instanceof ResourceDemandingBehaviourBranchCompartmentEditPart) {
 			List types = new ArrayList();
-			types.add(PcmElementTypes.StartAction_2003);
-			types.add(PcmElementTypes.StopAction_2004);
-			types.add(PcmElementTypes.LoopAction_2005);
-			types.add(PcmElementTypes.InternalAction_2006);
-			types.add(PcmElementTypes.BranchAction_2008);
-			types.add(PcmElementTypes.ExternalCallAction_2011);
+			types.add(PcmElementTypes.StartAction_2004);
+			types.add(PcmElementTypes.StopAction_2005);
+			types.add(PcmElementTypes.LoopAction_2006);
+			types.add(PcmElementTypes.InternalAction_2007);
+			types.add(PcmElementTypes.BranchAction_2009);
+			types.add(PcmElementTypes.ExternalCallAction_2012);
+			return types;
+		}
+		if (editPart instanceof ExternalCallActionParameterUsage2EditPart) {
+			List types = new ArrayList();
+			types.add(PcmElementTypes.VariableUsage_2001);
 			return types;
 		}
 		if (editPart instanceof BranchActionBranchTransitionCompartment2EditPart) {
 			List types = new ArrayList();
-			types.add(PcmElementTypes.BranchTransition_2009);
+			types.add(PcmElementTypes.BranchTransition_2010);
 			return types;
 		}
 		if (editPart instanceof ResourceDemandingSEFFEditPart) {

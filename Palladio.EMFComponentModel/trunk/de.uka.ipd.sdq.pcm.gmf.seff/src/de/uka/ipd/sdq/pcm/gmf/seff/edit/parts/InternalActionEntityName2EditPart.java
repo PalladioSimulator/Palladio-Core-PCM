@@ -64,7 +64,7 @@ public class InternalActionEntityName2EditPart extends CompartmentEditPart
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 4011;
+	public static final int VISUAL_ID = 4012;
 
 	/**
 	 * @generated
