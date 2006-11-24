@@ -104,7 +104,7 @@
     </figures>
     <figures
         xsi:type="gmfgraph:RoundedRectangle"
-        referencingElements="InternalActionNode ResourceDemandResourceDemandingActionCompartment"
+        referencingElements="InternalActionNode ResourceDemand"
         name="InternalActionFigure">
       <children
           xsi:type="gmfgraph:Label"
@@ -261,7 +261,7 @@
       name="BranchTransitionCompartment"
       figure="BranchTransitionFigure"/>
   <compartments
-      name="ResourceDemandResourceDemandingActionCompartment"
+      name="ResourceDemand"
       figure="InternalActionFigure"
       collapsible="true"
       needsTitle="true"/>

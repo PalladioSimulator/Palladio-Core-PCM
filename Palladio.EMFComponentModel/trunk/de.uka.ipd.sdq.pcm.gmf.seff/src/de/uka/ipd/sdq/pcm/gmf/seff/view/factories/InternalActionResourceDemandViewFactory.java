@@ -3,9 +3,6 @@
  */
 package de.uka.ipd.sdq.pcm.gmf.seff.view.factories;
 
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.InternalActionEntityNameEditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.InternalActionResourceDemandEditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.InternalActionResourceDemandResourceDemandingActionCompartmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingSEFFEditPart;
 
 import de.uka.ipd.sdq.pcm.gmf.seff.part.PcmVisualIDRegistry;
@@ -18,27 +15,29 @@ import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.emf.ecore.EAnnotation;
 import org.eclipse.emf.ecore.EcoreFactory;
 
-import org.eclipse.gmf.runtime.diagram.core.util.ViewUtil;
+import org.eclipse.gmf.runtime.diagram.ui.view.factories.ListCompartmentViewFactory;
 
-import org.eclipse.gmf.runtime.diagram.ui.view.factories.AbstractShapeViewFactory;
-
+import org.eclipse.gmf.runtime.notation.DrawerStyle;
 import org.eclipse.gmf.runtime.notation.NotationFactory;
+import org.eclipse.gmf.runtime.notation.NotationPackage;
+import org.eclipse.gmf.runtime.notation.TitleStyle;
 import org.eclipse.gmf.runtime.notation.View;
 
 /**
  * @generated
  */
-public class InternalActionViewFactory extends AbstractShapeViewFactory {
+public class InternalActionResourceDemandViewFactory extends
+		ListCompartmentViewFactory {
 
 	/**
 	 * @generated 
 	 */
 	protected List createStyles(View view) {
 		List styles = new ArrayList();
-		styles.add(NotationFactory.eINSTANCE.createFontStyle());
-		styles.add(NotationFactory.eINSTANCE.createDescriptionStyle());
-		styles.add(NotationFactory.eINSTANCE.createFillStyle());
-		styles.add(NotationFactory.eINSTANCE.createLineStyle());
+		styles.add(NotationFactory.eINSTANCE.createDrawerStyle());
+		styles.add(NotationFactory.eINSTANCE.createTitleStyle());
+		styles.add(NotationFactory.eINSTANCE.createSortingStyle());
+		styles.add(NotationFactory.eINSTANCE.createFilteringStyle());
 		return styles;
 	}
 
@@ -50,11 +49,13 @@ public class InternalActionViewFactory extends AbstractShapeViewFactory {
 			boolean persisted) {
 		if (semanticHint == null) {
 			semanticHint = PcmVisualIDRegistry
-					.getType(de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.InternalActionEditPart.VISUAL_ID);
+					.getType(de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.InternalActionResourceDemandEditPart.VISUAL_ID);
 			view.setType(semanticHint);
 		}
 		super.decorateView(containerView, view, semanticAdapter, semanticHint,
 				index, persisted);
+		setupCompartmentTitle(view);
+		setupCompartmentCollapsed(view);
 		if (!ResourceDemandingSEFFEditPart.MODEL_ID.equals(PcmVisualIDRegistry
 				.getModelID(containerView))) {
 			EAnnotation shortcutAnnotation = EcoreFactory.eINSTANCE
@@ -64,19 +65,28 @@ public class InternalActionViewFactory extends AbstractShapeViewFactory {
 					"modelID", ResourceDemandingSEFFEditPart.MODEL_ID); //$NON-NLS-1$
 			view.getEAnnotations().add(shortcutAnnotation);
 		}
-		getViewService().createNode(
-				semanticAdapter,
-				view,
-				PcmVisualIDRegistry
-						.getType(InternalActionEntityNameEditPart.VISUAL_ID),
-				ViewUtil.APPEND, true, getPreferencesHint());
-		getViewService()
-				.createNode(
-						semanticAdapter,
-						view,
-						PcmVisualIDRegistry
-								.getType(InternalActionResourceDemandEditPart.VISUAL_ID),
-						ViewUtil.APPEND, true, getPreferencesHint());
+	}
+
+	/**
+	 * @generated
+	 */
+	protected void setupCompartmentTitle(View view) {
+		TitleStyle titleStyle = (TitleStyle) view
+				.getStyle(NotationPackage.eINSTANCE.getTitleStyle());
+		if (titleStyle != null) {
+			titleStyle.setShowTitle(true);
+		}
+	}
+
+	/**
+	 * @generated
+	 */
+	protected void setupCompartmentCollapsed(View view) {
+		DrawerStyle drawerStyle = (DrawerStyle) view
+				.getStyle(NotationPackage.eINSTANCE.getDrawerStyle());
+		if (drawerStyle != null) {
+			drawerStyle.setCollapsed(false);
+		}
 	}
 
 }

@@ -4,6 +4,7 @@
 package de.uka.ipd.sdq.pcm.gmf.seff.view.factories;
 
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.InternalActionEntityName2EditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.InternalActionResourceDemand2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.InternalActionResourceDemandResourceDemandingActionCompartment2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingSEFFEditPart;
 
@@ -74,7 +75,7 @@ public class InternalAction2ViewFactory extends AbstractShapeViewFactory {
 						semanticAdapter,
 						view,
 						PcmVisualIDRegistry
-								.getType(InternalActionResourceDemandResourceDemandingActionCompartment2EditPart.VISUAL_ID),
+								.getType(InternalActionResourceDemand2EditPart.VISUAL_ID),
 						ViewUtil.APPEND, true, getPreferencesHint());
 	}
 

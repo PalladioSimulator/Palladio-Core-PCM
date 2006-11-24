@@ -28,8 +28,7 @@ public class PcmPaletteFactory {
 	public void fillPalette(PaletteRoot paletteRoot) {
 		paletteRoot.add(createActions1Group());
 		paletteRoot.add(createLinks2Group());
-		paletteRoot.add(createAnnotations3Group());
-		paletteRoot.add(createComposite4Group());
+		paletteRoot.add(createComposite3Group());
 	}
 
 	/**
@@ -61,20 +60,7 @@ public class PcmPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private PaletteContainer createAnnotations3Group() {
-		PaletteContainer paletteContainer = new PaletteDrawer("Annotations");
-		paletteContainer.add(createParametricResourceDemand1CreationTool());
-		paletteContainer
-				.add(createPrimitiveParametricParameterUsage2CreationTool());
-		paletteContainer
-				.add(createCollectionParametricParameterUsage3CreationTool());
-		return paletteContainer;
-	}
-
-	/**
-	 * @generated
-	 */
-	private PaletteContainer createComposite4Group() {
+	private PaletteContainer createComposite3Group() {
 		PaletteContainer paletteContainer = new PaletteDrawer("Composite");
 		paletteContainer.add(createResourceDemandingBehaviour1CreationTool());
 		paletteContainer.add(createBranchTransition2CreationTool());
@@ -269,62 +255,6 @@ public class PcmPaletteFactory {
 		ToolEntry result = new NodeToolEntry("ParametricParameterUsage",
 				"Link a Parametric Parameter Usage", smallImage, largeImage,
 				elementTypes);
-
-		return result;
-	}
-
-	/**
-	 * @generated
-	 */
-	private ToolEntry createParametricResourceDemand1CreationTool() {
-		ImageDescriptor smallImage;
-		ImageDescriptor largeImage;
-
-		smallImage = null;
-
-		largeImage = smallImage;
-
-		ToolEntry result = new ToolEntry("ParametricResourceDemand",
-				"Create new ParametricResourceDemand", smallImage, largeImage) {
-		};
-
-		return result;
-	}
-
-	/**
-	 * @generated
-	 */
-	private ToolEntry createPrimitiveParametricParameterUsage2CreationTool() {
-		ImageDescriptor smallImage;
-		ImageDescriptor largeImage;
-
-		smallImage = null;
-
-		largeImage = smallImage;
-
-		ToolEntry result = new ToolEntry("PrimitiveParametricParameterUsage",
-				"Create new PrimitiveParametricParameterUsage", smallImage,
-				largeImage) {
-		};
-
-		return result;
-	}
-
-	/**
-	 * @generated
-	 */
-	private ToolEntry createCollectionParametricParameterUsage3CreationTool() {
-		ImageDescriptor smallImage;
-		ImageDescriptor largeImage;
-
-		smallImage = null;
-
-		largeImage = smallImage;
-
-		ToolEntry result = new ToolEntry("CollectionParametricParameterUsage",
-				"Create new CollectionParametricParameterUsage", smallImage,
-				largeImage) {
-		};
 
 		return result;
 	}

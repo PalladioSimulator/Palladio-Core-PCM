@@ -103,9 +103,8 @@ public class PcmEditPartFactory implements EditPartFactory {
 						view);
 			case LoopActionBehaviourCompartment2EditPart.VISUAL_ID:
 				return new LoopActionBehaviourCompartment2EditPart(view);
-			case InternalActionResourceDemandResourceDemandingActionCompartmentEditPart.VISUAL_ID:
-				return new InternalActionResourceDemandResourceDemandingActionCompartmentEditPart(
-						view);
+			case InternalActionResourceDemandEditPart.VISUAL_ID:
+				return new InternalActionResourceDemandEditPart(view);
 			case BranchActionBranchTransitionCompartmentEditPart.VISUAL_ID:
 				return new BranchActionBranchTransitionCompartmentEditPart(view);
 			case BranchTransitionBehaviourCompartmentEditPart.VISUAL_ID:
@@ -118,9 +117,8 @@ public class PcmEditPartFactory implements EditPartFactory {
 			case BranchActionBranchTransitionCompartment2EditPart.VISUAL_ID:
 				return new BranchActionBranchTransitionCompartment2EditPart(
 						view);
-			case InternalActionResourceDemandResourceDemandingActionCompartment2EditPart.VISUAL_ID:
-				return new InternalActionResourceDemandResourceDemandingActionCompartment2EditPart(
-						view);
+			case InternalActionResourceDemand2EditPart.VISUAL_ID:
+				return new InternalActionResourceDemand2EditPart(view);
 			case ResourceDemandingSEFFEditPart.VISUAL_ID:
 				return new ResourceDemandingSEFFEditPart(view);
 			case AbstractActionSuccessor_AbstractActionEditPart.VISUAL_ID:

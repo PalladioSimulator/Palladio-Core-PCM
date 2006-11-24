@@ -1,59 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.0/notation" xmlns:pcm.seff="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0" xmi:id="_QPlpIHjmEduuSvsux_US9A" type="Pcm" measurementUnit="Pixel">
-  <children xmi:type="notation:Node" xmi:id="_Q_RZoHjmEduuSvsux_US9A" type="1001">
-    <styles xmi:type="notation:FontStyle" xmi:id="_Q_RZoXjmEduuSvsux_US9A"/>
-    <styles xmi:type="notation:DescriptionStyle" xmi:id="_Q_RZonjmEduuSvsux_US9A"/>
-    <styles xmi:type="notation:FillStyle" xmi:id="_Q_RZo3jmEduuSvsux_US9A"/>
-    <styles xmi:type="notation:LineStyle" xmi:id="_Q_RZpHjmEduuSvsux_US9A"/>
-    <element xmi:type="pcm.seff:StartAction" href="Qosa.repository#_Q_IPsHjmEduuSvsux_US9A"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Q_RZpXjmEduuSvsux_US9A" x="43" y="84"/>
-  </children>
-  <children xmi:type="notation:Node" xmi:id="_Rv2iAHjmEduuSvsux_US9A" type="1006">
-    <children xmi:type="notation:Node" xmi:id="_RwJc8HjmEduuSvsux_US9A" type="4011"/>
-    <children xmi:type="notation:Node" xmi:id="_RwJc8XjmEduuSvsux_US9A" type="5011">
-      <children xmi:type="notation:Node" xmi:id="_VQ3KoHjmEduuSvsux_US9A" type="2007">
-        <element xmi:type="pcm.seff:ParametricResourceDemand" href="Qosa.repository#//@components__Repository.2/@serviceEffectSpecifications__BasicComponent.0/@steps_Behaviour.1/@resourceDemand_Action.0"/>
-        <layoutConstraint xmi:type="notation:Location" xmi:id="_VQ3KoXjmEduuSvsux_US9A"/>
-      </children>
-      <styles xmi:type="notation:DrawerStyle" xmi:id="_RwJc8njmEduuSvsux_US9A"/>
-      <styles xmi:type="notation:TitleStyle" xmi:id="_RwJc83jmEduuSvsux_US9A" showTitle="true"/>
-      <styles xmi:type="notation:SortingStyle" xmi:id="_RwJc9HjmEduuSvsux_US9A"/>
-      <styles xmi:type="notation:FilteringStyle" xmi:id="_RwJc9XjmEduuSvsux_US9A"/>
-    </children>
-    <styles xmi:type="notation:FontStyle" xmi:id="_Rv2iAXjmEduuSvsux_US9A"/>
-    <styles xmi:type="notation:DescriptionStyle" xmi:id="_Rv2iAnjmEduuSvsux_US9A"/>
-    <styles xmi:type="notation:FillStyle" xmi:id="_Rv2iA3jmEduuSvsux_US9A"/>
-    <styles xmi:type="notation:LineStyle" xmi:id="_Rv2iBHjmEduuSvsux_US9A"/>
-    <element xmi:type="pcm.seff:InternalAction" href="Qosa.repository#_RvZ2EHjmEduuSvsux_US9A"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Rv2iBXjmEduuSvsux_US9A" x="187" y="80"/>
-  </children>
-  <children xmi:type="notation:Node" xmi:id="_Zg9G0XjmEduuSvsux_US9A" type="1002">
-    <styles xmi:type="notation:FontStyle" xmi:id="_Zg9G0njmEduuSvsux_US9A"/>
-    <styles xmi:type="notation:DescriptionStyle" xmi:id="_Zg9G03jmEduuSvsux_US9A"/>
-    <styles xmi:type="notation:FillStyle" xmi:id="_Zg9G1HjmEduuSvsux_US9A"/>
-    <styles xmi:type="notation:LineStyle" xmi:id="_Zg9G1XjmEduuSvsux_US9A"/>
-    <element xmi:type="pcm.seff:StopAction" href="Qosa.repository#_Zg9G0HjmEduuSvsux_US9A"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Zg9G1njmEduuSvsux_US9A" x="564" y="84"/>
-  </children>
-  <styles xmi:type="notation:PageStyle" xmi:id="_QPlpIXjmEduuSvsux_US9A"/>
-  <styles xmi:type="notation:GuideStyle" xmi:id="_QPlpInjmEduuSvsux_US9A"/>
-  <styles xmi:type="notation:DescriptionStyle" xmi:id="_QPlpI3jmEduuSvsux_US9A"/>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.0/notation" xmlns:pcm.seff="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0" xmi:id="_ywnFAHuKEduf5qkpq1aGEw" type="Pcm" measurementUnit="Pixel">
+  <styles xmi:type="notation:PageStyle" xmi:id="_ywnFAXuKEduf5qkpq1aGEw"/>
+  <styles xmi:type="notation:GuideStyle" xmi:id="_ywnFAnuKEduf5qkpq1aGEw"/>
+  <styles xmi:type="notation:DescriptionStyle" xmi:id="_ywnFA3uKEduf5qkpq1aGEw"/>
   <element xmi:type="pcm.seff:ResourceDemandingSEFF" href="Qosa.repository#//@components__Repository.2/@serviceEffectSpecifications__BasicComponent.0"/>
-  <edges xmi:type="notation:Edge" xmi:id="_amP68HjmEduuSvsux_US9A" type="3001" source="_Q_RZoHjmEduuSvsux_US9A" target="_Rv2iAHjmEduuSvsux_US9A">
-    <styles xmi:type="notation:RoutingStyle" xmi:id="_amP68XjmEduuSvsux_US9A"/>
-    <styles xmi:type="notation:FontStyle" xmi:id="_amP68njmEduuSvsux_US9A"/>
-    <styles xmi:type="notation:LineStyle" xmi:id="_amP683jmEduuSvsux_US9A"/>
-    <element xsi:nil="true"/>
-    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_amP69HjmEduuSvsux_US9A" points="[20, 0, -115, 0]$[124, 0, -11, 0]"/>
-    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_amP69XjmEduuSvsux_US9A" id="(0.039711192,0.4528302)"/>
-  </edges>
-  <edges xmi:type="notation:Edge" xmi:id="_dAxcoHjmEduuSvsux_US9A" type="3001" source="_Rv2iAHjmEduuSvsux_US9A" target="_Zg9G0XjmEduuSvsux_US9A">
-    <styles xmi:type="notation:RoutingStyle" xmi:id="_dAxcoXjmEduuSvsux_US9A"/>
-    <styles xmi:type="notation:FontStyle" xmi:id="_dAxconjmEduuSvsux_US9A"/>
-    <styles xmi:type="notation:LineStyle" xmi:id="_dAxco3jmEduuSvsux_US9A"/>
-    <element xsi:nil="true"/>
-    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_dAxcpHjmEduuSvsux_US9A" points="[13, -1, -106, 0]$[113, 0, -6, 1]"/>
-    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_dAxcpXjmEduuSvsux_US9A" id="(0.9530686,0.5283019)"/>
-    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_dAxcpnjmEduuSvsux_US9A" id="(0.15,0.575)"/>
-  </edges>
 </notation:Diagram>

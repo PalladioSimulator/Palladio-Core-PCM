@@ -46,8 +46,8 @@
   <components__Repository xsi:type="pcm.repository:BasicComponent" id="_FzO2EHiFEdujPfhn5Gb-iA" entityName="OggEncoder">
     <providedRoles_InterfaceProvidingEntity id="_ZZm_wHiFEdujPfhn5Gb-iA" providedInterface__ProvidedRole="_XgBA4HiFEdujPfhn5Gb-iA"/>
     <serviceEffectSpecifications__BasicComponent xsi:type="pcm.seff:ResourceDemandingSEFF" describedService__SEFF="//@interfaces__Repository.3/@signatures__Interface.0">
-      <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_Q_IPsHjmEduuSvsux_US9A"/>
-      <steps_Behaviour xsi:type="pcm.seff:InternalAction" id="_RvZ2EHjmEduuSvsux_US9A" entityName="EncodeFile" successor_AbstractAction="_Zg9G0HjmEduuSvsux_US9A">
+      <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_Q_IPsHjmEduuSvsux_US9A" successor_AbstractAction="_RvZ2EHjmEduuSvsux_US9A"/>
+      <steps_Behaviour xsi:type="pcm.seff:InternalAction" id="_RvZ2EHjmEduuSvsux_US9A" entityName="EncodeFile" predecessor_AbstractAction="_Q_IPsHjmEduuSvsux_US9A" successor_AbstractAction="_Zg9G0HjmEduuSvsux_US9A">
         <resourceDemand_Action specification="= file.BYTESIZE / 500000">
           <requiredResource_ParametricResourceDemand href="Palladio.resourcetype#cpu"/>
         </resourceDemand_Action>

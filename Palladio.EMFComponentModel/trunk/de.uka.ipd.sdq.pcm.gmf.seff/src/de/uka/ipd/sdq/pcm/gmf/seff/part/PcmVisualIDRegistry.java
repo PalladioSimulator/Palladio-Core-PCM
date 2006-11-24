@@ -29,6 +29,8 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.InternalAction2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.InternalActionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.InternalActionEntityName2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.InternalActionEntityNameEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.InternalActionResourceDemand2EditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.InternalActionResourceDemandEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.InternalActionResourceDemandResourceDemandingActionCompartment2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.InternalActionResourceDemandResourceDemandingActionCompartmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopAction2EditPart;
@@ -234,8 +236,8 @@ public class PcmVisualIDRegistry {
 			if (InternalActionEntityName2EditPart.VISUAL_ID == nodeVisualID) {
 				return InternalActionEntityName2EditPart.VISUAL_ID;
 			}
-			if (InternalActionResourceDemandResourceDemandingActionCompartment2EditPart.VISUAL_ID == nodeVisualID) {
-				return InternalActionResourceDemandResourceDemandingActionCompartment2EditPart.VISUAL_ID;
+			if (InternalActionResourceDemand2EditPart.VISUAL_ID == nodeVisualID) {
+				return InternalActionResourceDemand2EditPart.VISUAL_ID;
 			}
 			return getUnrecognizedInternalAction_1006ChildNodeID(domainElement,
 					semanticHint);
@@ -270,8 +272,8 @@ public class PcmVisualIDRegistry {
 			if (InternalActionEntityNameEditPart.VISUAL_ID == nodeVisualID) {
 				return InternalActionEntityNameEditPart.VISUAL_ID;
 			}
-			if (InternalActionResourceDemandResourceDemandingActionCompartmentEditPart.VISUAL_ID == nodeVisualID) {
-				return InternalActionResourceDemandResourceDemandingActionCompartmentEditPart.VISUAL_ID;
+			if (InternalActionResourceDemandEditPart.VISUAL_ID == nodeVisualID) {
+				return InternalActionResourceDemandEditPart.VISUAL_ID;
 			}
 			return getUnrecognizedInternalAction_2006ChildNodeID(domainElement,
 					semanticHint);
@@ -377,14 +379,14 @@ public class PcmVisualIDRegistry {
 			}
 			return getUnrecognizedLoopActionBehaviourCompartment_5004ChildNodeID(
 					domainElement, semanticHint);
-		case InternalActionResourceDemandResourceDemandingActionCompartmentEditPart.VISUAL_ID:
+		case InternalActionResourceDemandEditPart.VISUAL_ID:
 			if ((semanticHint == null || ParametricResourceDemandEditPart.VISUAL_ID == nodeVisualID)
 					&& SeffPackage.eINSTANCE.getParametricResourceDemand()
 							.isSuperTypeOf(domainElementMetaclass)
 					&& (domainElement == null || isNodeParametricResourceDemand_2007((ParametricResourceDemand) domainElement))) {
 				return ParametricResourceDemandEditPart.VISUAL_ID;
 			}
-			return getUnrecognizedInternalActionResourceDemandResourceDemandingActionCompartment_5005ChildNodeID(
+			return getUnrecognizedInternalActionResourceDemand_5005ChildNodeID(
 					domainElement, semanticHint);
 		case BranchActionBranchTransitionCompartmentEditPart.VISUAL_ID:
 			if ((semanticHint == null || BranchTransitionEditPart.VISUAL_ID == nodeVisualID)
@@ -461,14 +463,14 @@ public class PcmVisualIDRegistry {
 			}
 			return getUnrecognizedBranchActionBranchTransitionCompartment_5010ChildNodeID(
 					domainElement, semanticHint);
-		case InternalActionResourceDemandResourceDemandingActionCompartment2EditPart.VISUAL_ID:
+		case InternalActionResourceDemand2EditPart.VISUAL_ID:
 			if ((semanticHint == null || ParametricResourceDemandEditPart.VISUAL_ID == nodeVisualID)
 					&& SeffPackage.eINSTANCE.getParametricResourceDemand()
 							.isSuperTypeOf(domainElementMetaclass)
 					&& (domainElement == null || isNodeParametricResourceDemand_2007((ParametricResourceDemand) domainElement))) {
 				return ParametricResourceDemandEditPart.VISUAL_ID;
 			}
-			return getUnrecognizedInternalActionResourceDemandResourceDemandingActionCompartment_5011ChildNodeID(
+			return getUnrecognizedInternalActionResourceDemand_5011ChildNodeID(
 					domainElement, semanticHint);
 		case ResourceDemandingSEFFEditPart.VISUAL_ID:
 			if ((semanticHint == null || StartActionEditPart.VISUAL_ID == nodeVisualID)
@@ -967,7 +969,7 @@ public class PcmVisualIDRegistry {
 	 *
 	 * @generated
 	 */
-	private static int getUnrecognizedInternalActionResourceDemandResourceDemandingActionCompartment_5005ChildNodeID(
+	private static int getUnrecognizedInternalActionResourceDemand_5005ChildNodeID(
 			EObject domainElement, String semanticHint) {
 		return -1;
 	}
@@ -1033,7 +1035,7 @@ public class PcmVisualIDRegistry {
 	 *
 	 * @generated
 	 */
-	private static int getUnrecognizedInternalActionResourceDemandResourceDemandingActionCompartment_5011ChildNodeID(
+	private static int getUnrecognizedInternalActionResourceDemand_5011ChildNodeID(
 			EObject domainElement, String semanticHint) {
 		return -1;
 	}

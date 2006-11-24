@@ -116,7 +116,7 @@
               href="../../pcm.ecore#//seff/ResourceDemandingBehaviour"/>
           <tool
               xsi:type="gmftool:CreationTool"
-              href="seffeditor.gmftool#//@palette/@tools.3/@tools.0"/>
+              href="seffeditor.gmftool#//@palette/@tools.2/@tools.0"/>
           <diagramNode
               href="seffeditor.gmfgraph#BehaviourNode"/>
           <children
@@ -215,7 +215,7 @@
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
-              href="seffeditor.gmftool#//@palette/@tools.3/@tools.1"/>
+              href="seffeditor.gmftool#//@palette/@tools.2/@tools.1"/>
           <diagramNode
               href="seffeditor.gmfgraph#BranchTransitionNode"/>
           <children
@@ -229,7 +229,7 @@
                   href="../../pcm.ecore#//seff/ResourceDemandingBehaviour"/>
               <tool
                   xsi:type="gmftool:CreationTool"
-                  href="seffeditor.gmftool#//@palette/@tools.3/@tools.0"/>
+                  href="seffeditor.gmftool#//@palette/@tools.2/@tools.0"/>
               <diagramNode
                   href="seffeditor.gmfgraph#BehaviourNode"/>
               <children
@@ -349,7 +349,7 @@
       <compartments
           children="//@nodes.5/@ownedChild/@children.0">
         <compartment
-            href="seffeditor.gmfgraph#ResourceDemandResourceDemandingActionCompartment"/>
+            href="seffeditor.gmfgraph#ResourceDemand"/>
       </compartments>
     </ownedChild>
   </nodes>

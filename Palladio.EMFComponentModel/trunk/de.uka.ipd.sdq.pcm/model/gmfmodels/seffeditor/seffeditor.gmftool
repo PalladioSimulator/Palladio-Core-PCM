@@ -102,38 +102,6 @@
     </tools>
     <tools
         xsi:type="gmftool:ToolGroup"
-        title="Annotations"
-        collapsible="true">
-      <tools
-          xsi:type="gmftool:CreationTool"
-          title="ParametricResourceDemand"
-          description="Create new ParametricResourceDemand">
-        <smallIcon
-            xsi:type="gmftool:DefaultImage"/>
-        <largeIcon
-            xsi:type="gmftool:DefaultImage"/>
-      </tools>
-      <tools
-          xsi:type="gmftool:CreationTool"
-          title="PrimitiveParametricParameterUsage"
-          description="Create new PrimitiveParametricParameterUsage">
-        <smallIcon
-            xsi:type="gmftool:DefaultImage"/>
-        <largeIcon
-            xsi:type="gmftool:DefaultImage"/>
-      </tools>
-      <tools
-          xsi:type="gmftool:CreationTool"
-          title="CollectionParametricParameterUsage"
-          description="Create new CollectionParametricParameterUsage">
-        <smallIcon
-            xsi:type="gmftool:DefaultImage"/>
-        <largeIcon
-            xsi:type="gmftool:DefaultImage"/>
-      </tools>
-    </tools>
-    <tools
-        xsi:type="gmftool:ToolGroup"
         title="Composite"
         collapsible="true">
       <tools

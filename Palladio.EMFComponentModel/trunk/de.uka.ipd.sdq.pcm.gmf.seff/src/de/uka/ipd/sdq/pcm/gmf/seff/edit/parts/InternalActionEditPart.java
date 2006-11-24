@@ -77,7 +77,7 @@ public class InternalActionEditPart extends ShapeNodeEditPart {
 										.getAdapter(IElementType.class);
 								if (type == PcmElementTypes.ParametricResourceDemand_2007) {
 									EditPart compartmentEditPart = getChildBySemanticHint(PcmVisualIDRegistry
-											.getType(InternalActionResourceDemandResourceDemandingActionCompartmentEditPart.VISUAL_ID));
+											.getType(InternalActionResourceDemandEditPart.VISUAL_ID));
 									return compartmentEditPart == null ? null
 											: compartmentEditPart
 													.getCommand(request);

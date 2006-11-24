@@ -249,13 +249,13 @@ public class VariableUsageEditPart extends CompartmentEditPart implements
 	 */
 	protected String getLabelText() {
 		String text = null;
-//		if (getParser() != null) {
-//			text = getParser().getPrintString(
-//					new EObjectAdapter(getParserElement()),
-//					getParserOptions().intValue());
-//		}
+		//		if (getParser() != null) {
+		//			text = getParser().getPrintString(
+		//					new EObjectAdapter(getParserElement()),
+		//					getParserOptions().intValue());
+		//		}
 		VariableUsage usage = (VariableUsage) resolveSemanticElement();
-		text = (String)new ParameterPrettyPrint().doSwitch(usage);
+		text = (String) new ParameterPrettyPrint().doSwitch(usage);
 		if (text == null || text.length() == 0) {
 			text = defaultText;
 		}

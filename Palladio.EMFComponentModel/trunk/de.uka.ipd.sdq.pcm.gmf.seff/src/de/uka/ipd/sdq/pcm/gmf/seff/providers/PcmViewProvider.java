@@ -29,6 +29,8 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.InternalAction2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.InternalActionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.InternalActionEntityName2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.InternalActionEntityNameEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.InternalActionResourceDemand2EditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.InternalActionResourceDemandEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.InternalActionResourceDemandResourceDemandingActionCompartment2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.InternalActionResourceDemandResourceDemandingActionCompartmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopAction2EditPart;
@@ -71,6 +73,8 @@ import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.ExternalCallActionViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.InternalAction2ViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.InternalActionEntityName2ViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.InternalActionEntityNameViewFactory;
+import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.InternalActionResourceDemand2ViewFactory;
+import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.InternalActionResourceDemandViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.InternalActionResourceDemandResourceDemandingActionCompartment2ViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.InternalActionResourceDemandResourceDemandingActionCompartmentViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.InternalActionViewFactory;
@@ -195,8 +199,8 @@ public class PcmViewProvider extends AbstractViewProvider {
 			return ResourceDemandingBehaviourLoopCompartmentViewFactory.class;
 		case LoopActionBehaviourCompartment2EditPart.VISUAL_ID:
 			return LoopActionBehaviourCompartment2ViewFactory.class;
-		case InternalActionResourceDemandResourceDemandingActionCompartmentEditPart.VISUAL_ID:
-			return InternalActionResourceDemandResourceDemandingActionCompartmentViewFactory.class;
+		case InternalActionResourceDemandEditPart.VISUAL_ID:
+			return InternalActionResourceDemandViewFactory.class;
 		case BranchActionBranchTransitionCompartmentEditPart.VISUAL_ID:
 			return BranchActionBranchTransitionCompartmentViewFactory.class;
 		case BranchTransitionBehaviourCompartmentEditPart.VISUAL_ID:
@@ -207,8 +211,8 @@ public class PcmViewProvider extends AbstractViewProvider {
 			return ExternalCallActionParameterUsage2ViewFactory.class;
 		case BranchActionBranchTransitionCompartment2EditPart.VISUAL_ID:
 			return BranchActionBranchTransitionCompartment2ViewFactory.class;
-		case InternalActionResourceDemandResourceDemandingActionCompartment2EditPart.VISUAL_ID:
-			return InternalActionResourceDemandResourceDemandingActionCompartment2ViewFactory.class;
+		case InternalActionResourceDemand2EditPart.VISUAL_ID:
+			return InternalActionResourceDemand2ViewFactory.class;
 		}
 		return null;
 	}
