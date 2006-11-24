@@ -529,12 +529,19 @@ public class SamplePDFImpl extends ProbabilityDensityFunctionImpl
 	}
 
 	public boolean checkConstrains() {
+		if (distance <= 0.0 || getUnit() == null
+				|| getUnit().getUnitName() == null)
+			return false;
 		try {
-			if (MathTools.equalsDouble(getProbabilitySum(), 1.0))
+			if (!MathTools.equalsDouble(getProbabilitySum(), 1.0))
 				return false;
+			for (double p : getValuesAsDouble())
+				if (!(p >= 0.0 && p <= 1.0))
+					return false;
 		} catch (FunctionNotInTimeDomainException e) {
 			return false;
 		}
+
 		return true;
 	}
 
