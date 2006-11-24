@@ -13,6 +13,7 @@ import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
@@ -46,7 +47,7 @@ public abstract class InterfaceProvidingEntityImpl extends EntityImpl implements
 	public static final String copyright = "(c) by SDQ, IPD, U Karlsruhe (TH), 2006";
 
 	/**
-	 * The cached value of the '{@link #getProvidedRoles_InterfaceProvidingEntity() <em>Provided Roles Interface Providing Entity</em>}' reference list.
+	 * The cached value of the '{@link #getProvidedRoles_InterfaceProvidingEntity() <em>Provided Roles Interface Providing Entity</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getProvidedRoles_InterfaceProvidingEntity()
@@ -81,7 +82,7 @@ public abstract class InterfaceProvidingEntityImpl extends EntityImpl implements
 	 */
 	public EList getProvidedRoles_InterfaceProvidingEntity() {
 		if (providedRoles_InterfaceProvidingEntity == null) {
-			providedRoles_InterfaceProvidingEntity = new EObjectWithInverseResolvingEList(ProvidedRole.class, this, EntityPackage.INTERFACE_PROVIDING_ENTITY__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY, RepositoryPackage.PROVIDED_ROLE__PROVIDING_ENTITY_PROVIDED_ROLE);
+			providedRoles_InterfaceProvidingEntity = new EObjectContainmentWithInverseEList(ProvidedRole.class, this, EntityPackage.INTERFACE_PROVIDING_ENTITY__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY, RepositoryPackage.PROVIDED_ROLE__PROVIDING_ENTITY_PROVIDED_ROLE);
 		}
 		return providedRoles_InterfaceProvidingEntity;
 	}

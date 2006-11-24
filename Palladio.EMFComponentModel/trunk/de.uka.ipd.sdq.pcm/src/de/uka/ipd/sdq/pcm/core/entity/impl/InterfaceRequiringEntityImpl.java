@@ -13,6 +13,7 @@ import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
@@ -45,7 +46,7 @@ public abstract class InterfaceRequiringEntityImpl extends EntityImpl implements
 	public static final String copyright = "(c) by SDQ, IPD, U Karlsruhe (TH), 2006";
 
 	/**
-	 * The cached value of the '{@link #getRequiredRoles_InterfaceRequiringEntity() <em>Required Roles Interface Requiring Entity</em>}' reference list.
+	 * The cached value of the '{@link #getRequiredRoles_InterfaceRequiringEntity() <em>Required Roles Interface Requiring Entity</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getRequiredRoles_InterfaceRequiringEntity()
@@ -80,7 +81,7 @@ public abstract class InterfaceRequiringEntityImpl extends EntityImpl implements
 	 */
 	public EList getRequiredRoles_InterfaceRequiringEntity() {
 		if (requiredRoles_InterfaceRequiringEntity == null) {
-			requiredRoles_InterfaceRequiringEntity = new EObjectWithInverseResolvingEList(RequiredRole.class, this, EntityPackage.INTERFACE_REQUIRING_ENTITY__REQUIRED_ROLES_INTERFACE_REQUIRING_ENTITY, RepositoryPackage.REQUIRED_ROLE__REQUIRING_ENTITY_REQUIRED_ROLE);
+			requiredRoles_InterfaceRequiringEntity = new EObjectContainmentWithInverseEList(RequiredRole.class, this, EntityPackage.INTERFACE_REQUIRING_ENTITY__REQUIRED_ROLES_INTERFACE_REQUIRING_ENTITY, RepositoryPackage.REQUIRED_ROLE__REQUIRING_ENTITY_REQUIRED_ROLE);
 		}
 		return requiredRoles_InterfaceRequiringEntity;
 	}

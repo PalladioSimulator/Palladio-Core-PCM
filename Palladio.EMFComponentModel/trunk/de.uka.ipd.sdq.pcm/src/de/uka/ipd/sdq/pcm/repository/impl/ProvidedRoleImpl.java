@@ -17,6 +17,8 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.eclipse.emf.ecore.util.EcoreUtil;
+
 import de.uka.ipd.sdq.pcm.repository.Interface;
 import de.uka.ipd.sdq.pcm.repository.ProvidedRole;
 import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
@@ -52,17 +54,6 @@ public class ProvidedRoleImpl extends RoleImpl implements ProvidedRole {
 	 * @ordered
 	 */
 	protected Interface providedInterface__ProvidedRole = null;
-
-
-	/**
-	 * The cached value of the '{@link #getProvidingEntity_ProvidedRole() <em>Providing Entity Provided Role</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getProvidingEntity_ProvidedRole()
-	 * @generated
-	 * @ordered
-	 */
-	protected InterfaceProvidingEntity providingEntity_ProvidedRole = null;
 
 
 	/**
@@ -127,24 +118,8 @@ public class ProvidedRoleImpl extends RoleImpl implements ProvidedRole {
 	 * @generated
 	 */
 	public InterfaceProvidingEntity getProvidingEntity_ProvidedRole() {
-		if (providingEntity_ProvidedRole != null && providingEntity_ProvidedRole.eIsProxy()) {
-			InternalEObject oldProvidingEntity_ProvidedRole = (InternalEObject)providingEntity_ProvidedRole;
-			providingEntity_ProvidedRole = (InterfaceProvidingEntity)eResolveProxy(oldProvidingEntity_ProvidedRole);
-			if (providingEntity_ProvidedRole != oldProvidingEntity_ProvidedRole) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, RepositoryPackage.PROVIDED_ROLE__PROVIDING_ENTITY_PROVIDED_ROLE, oldProvidingEntity_ProvidedRole, providingEntity_ProvidedRole));
-			}
-		}
-		return providingEntity_ProvidedRole;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public InterfaceProvidingEntity basicGetProvidingEntity_ProvidedRole() {
-		return providingEntity_ProvidedRole;
+		if (eContainerFeatureID != RepositoryPackage.PROVIDED_ROLE__PROVIDING_ENTITY_PROVIDED_ROLE) return null;
+		return (InterfaceProvidingEntity)eContainer();
 	}
 
 	/**
@@ -153,12 +128,7 @@ public class ProvidedRoleImpl extends RoleImpl implements ProvidedRole {
 	 * @generated
 	 */
 	public NotificationChain basicSetProvidingEntity_ProvidedRole(InterfaceProvidingEntity newProvidingEntity_ProvidedRole, NotificationChain msgs) {
-		InterfaceProvidingEntity oldProvidingEntity_ProvidedRole = providingEntity_ProvidedRole;
-		providingEntity_ProvidedRole = newProvidingEntity_ProvidedRole;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, RepositoryPackage.PROVIDED_ROLE__PROVIDING_ENTITY_PROVIDED_ROLE, oldProvidingEntity_ProvidedRole, newProvidingEntity_ProvidedRole);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
+		msgs = eBasicSetContainer((InternalEObject)newProvidingEntity_ProvidedRole, RepositoryPackage.PROVIDED_ROLE__PROVIDING_ENTITY_PROVIDED_ROLE, msgs);
 		return msgs;
 	}
 
@@ -168,10 +138,12 @@ public class ProvidedRoleImpl extends RoleImpl implements ProvidedRole {
 	 * @generated
 	 */
 	public void setProvidingEntity_ProvidedRole(InterfaceProvidingEntity newProvidingEntity_ProvidedRole) {
-		if (newProvidingEntity_ProvidedRole != providingEntity_ProvidedRole) {
+		if (newProvidingEntity_ProvidedRole != eInternalContainer() || (eContainerFeatureID != RepositoryPackage.PROVIDED_ROLE__PROVIDING_ENTITY_PROVIDED_ROLE && newProvidingEntity_ProvidedRole != null)) {
+			if (EcoreUtil.isAncestor(this, newProvidingEntity_ProvidedRole))
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
 			NotificationChain msgs = null;
-			if (providingEntity_ProvidedRole != null)
-				msgs = ((InternalEObject)providingEntity_ProvidedRole).eInverseRemove(this, EntityPackage.INTERFACE_PROVIDING_ENTITY__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY, InterfaceProvidingEntity.class, msgs);
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
 			if (newProvidingEntity_ProvidedRole != null)
 				msgs = ((InternalEObject)newProvidingEntity_ProvidedRole).eInverseAdd(this, EntityPackage.INTERFACE_PROVIDING_ENTITY__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY, InterfaceProvidingEntity.class, msgs);
 			msgs = basicSetProvidingEntity_ProvidedRole(newProvidingEntity_ProvidedRole, msgs);
@@ -189,8 +161,8 @@ public class ProvidedRoleImpl extends RoleImpl implements ProvidedRole {
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case RepositoryPackage.PROVIDED_ROLE__PROVIDING_ENTITY_PROVIDED_ROLE:
-				if (providingEntity_ProvidedRole != null)
-					msgs = ((InternalEObject)providingEntity_ProvidedRole).eInverseRemove(this, EntityPackage.INTERFACE_PROVIDING_ENTITY__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY, InterfaceProvidingEntity.class, msgs);
+				if (eInternalContainer() != null)
+					msgs = eBasicRemoveFromContainer(msgs);
 				return basicSetProvidingEntity_ProvidedRole((InterfaceProvidingEntity)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
@@ -214,14 +186,26 @@ public class ProvidedRoleImpl extends RoleImpl implements ProvidedRole {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
+		switch (eContainerFeatureID) {
+			case RepositoryPackage.PROVIDED_ROLE__PROVIDING_ENTITY_PROVIDED_ROLE:
+				return eInternalContainer().eInverseRemove(this, EntityPackage.INTERFACE_PROVIDING_ENTITY__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY, InterfaceProvidingEntity.class, msgs);
+		}
+		return super.eBasicRemoveFromContainerFeature(msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case RepositoryPackage.PROVIDED_ROLE__PROVIDED_INTERFACE_PROVIDED_ROLE:
 				if (resolve) return getProvidedInterface__ProvidedRole();
 				return basicGetProvidedInterface__ProvidedRole();
 			case RepositoryPackage.PROVIDED_ROLE__PROVIDING_ENTITY_PROVIDED_ROLE:
-				if (resolve) return getProvidingEntity_ProvidedRole();
-				return basicGetProvidingEntity_ProvidedRole();
+				return getProvidingEntity_ProvidedRole();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -270,7 +254,7 @@ public class ProvidedRoleImpl extends RoleImpl implements ProvidedRole {
 			case RepositoryPackage.PROVIDED_ROLE__PROVIDED_INTERFACE_PROVIDED_ROLE:
 				return providedInterface__ProvidedRole != null;
 			case RepositoryPackage.PROVIDED_ROLE__PROVIDING_ENTITY_PROVIDED_ROLE:
-				return providingEntity_ProvidedRole != null;
+				return getProvidingEntity_ProvidedRole() != null;
 		}
 		return super.eIsSet(featureID);
 	}

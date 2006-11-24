@@ -62,7 +62,7 @@ public interface ProvidedRole extends Role {
 	void setProvidedInterface__ProvidedRole(Interface value);
 
 	/**
-	 * Returns the value of the '<em><b>Providing Entity Provided Role</b></em>' reference.
+	 * Returns the value of the '<em><b>Providing Entity Provided Role</b></em>' container reference.
 	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingEntity#getProvidedRoles_InterfaceProvidingEntity <em>Provided Roles Interface Providing Entity</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -70,7 +70,7 @@ public interface ProvidedRole extends Role {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Providing Entity Provided Role</em>' reference.
+	 * @return the value of the '<em>Providing Entity Provided Role</em>' container reference.
 	 * @see #setProvidingEntity_ProvidedRole(InterfaceProvidingEntity)
 	 * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getProvidedRole_ProvidingEntity_ProvidedRole()
 	 * @see de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingEntity#getProvidedRoles_InterfaceProvidingEntity
@@ -80,10 +80,10 @@ public interface ProvidedRole extends Role {
 	InterfaceProvidingEntity getProvidingEntity_ProvidedRole();
 
 	/**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.repository.ProvidedRole#getProvidingEntity_ProvidedRole <em>Providing Entity Provided Role</em>}' reference.
+	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.repository.ProvidedRole#getProvidingEntity_ProvidedRole <em>Providing Entity Provided Role</em>}' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Providing Entity Provided Role</em>' reference.
+	 * @param value the new value of the '<em>Providing Entity Provided Role</em>' container reference.
 	 * @see #getProvidingEntity_ProvidedRole()
 	 * @generated
 	 */

@@ -62,7 +62,7 @@ public interface RequiredRole extends Role {
 	void setRequiredInterface__RequiredRole(Interface value);
 
 	/**
-	 * Returns the value of the '<em><b>Requiring Entity Required Role</b></em>' reference.
+	 * Returns the value of the '<em><b>Requiring Entity Required Role</b></em>' container reference.
 	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.core.entity.InterfaceRequiringEntity#getRequiredRoles_InterfaceRequiringEntity <em>Required Roles Interface Requiring Entity</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -70,7 +70,7 @@ public interface RequiredRole extends Role {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Requiring Entity Required Role</em>' reference.
+	 * @return the value of the '<em>Requiring Entity Required Role</em>' container reference.
 	 * @see #setRequiringEntity_RequiredRole(InterfaceRequiringEntity)
 	 * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getRequiredRole_RequiringEntity_RequiredRole()
 	 * @see de.uka.ipd.sdq.pcm.core.entity.InterfaceRequiringEntity#getRequiredRoles_InterfaceRequiringEntity
@@ -80,10 +80,10 @@ public interface RequiredRole extends Role {
 	InterfaceRequiringEntity getRequiringEntity_RequiredRole();
 
 	/**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.repository.RequiredRole#getRequiringEntity_RequiredRole <em>Requiring Entity Required Role</em>}' reference.
+	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.repository.RequiredRole#getRequiringEntity_RequiredRole <em>Requiring Entity Required Role</em>}' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Requiring Entity Required Role</em>' reference.
+	 * @param value the new value of the '<em>Requiring Entity Required Role</em>' container reference.
 	 * @see #getRequiringEntity_RequiredRole()
 	 * @generated
 	 */

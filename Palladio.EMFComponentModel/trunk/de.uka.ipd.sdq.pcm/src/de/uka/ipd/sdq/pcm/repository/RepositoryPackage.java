@@ -361,7 +361,7 @@ public interface RepositoryPackage extends EPackage {
 	int PROVIDES_COMPONENT_TYPE__ENTITY_NAME = EntityPackage.INTERFACE_PROVIDING_REQUIRING_ENTITY__ENTITY_NAME;
 
 	/**
-	 * The feature id for the '<em><b>Provided Roles Interface Providing Entity</b></em>' reference list.
+	 * The feature id for the '<em><b>Provided Roles Interface Providing Entity</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -370,7 +370,7 @@ public interface RepositoryPackage extends EPackage {
 	int PROVIDES_COMPONENT_TYPE__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY = EntityPackage.INTERFACE_PROVIDING_REQUIRING_ENTITY__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY;
 
 	/**
-	 * The feature id for the '<em><b>Required Roles Interface Requiring Entity</b></em>' reference list.
+	 * The feature id for the '<em><b>Required Roles Interface Requiring Entity</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -451,7 +451,7 @@ public interface RepositoryPackage extends EPackage {
 	int REQUIRED_ROLE__REQUIRED_INTERFACE_REQUIRED_ROLE = ROLE_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Requiring Entity Required Role</b></em>' reference.
+	 * The feature id for the '<em><b>Requiring Entity Required Role</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -606,7 +606,7 @@ public interface RepositoryPackage extends EPackage {
 	int COMPLETE_COMPONENT_TYPE__ENTITY_NAME = PROVIDES_COMPONENT_TYPE__ENTITY_NAME;
 
 	/**
-	 * The feature id for the '<em><b>Provided Roles Interface Providing Entity</b></em>' reference list.
+	 * The feature id for the '<em><b>Provided Roles Interface Providing Entity</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -615,7 +615,7 @@ public interface RepositoryPackage extends EPackage {
 	int COMPLETE_COMPONENT_TYPE__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY = PROVIDES_COMPONENT_TYPE__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY;
 
 	/**
-	 * The feature id for the '<em><b>Required Roles Interface Requiring Entity</b></em>' reference list.
+	 * The feature id for the '<em><b>Required Roles Interface Requiring Entity</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -679,7 +679,7 @@ public interface RepositoryPackage extends EPackage {
 	int IMPLEMENTATION_COMPONENT_TYPE__ENTITY_NAME = COMPLETE_COMPONENT_TYPE__ENTITY_NAME;
 
 	/**
-	 * The feature id for the '<em><b>Provided Roles Interface Providing Entity</b></em>' reference list.
+	 * The feature id for the '<em><b>Provided Roles Interface Providing Entity</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -688,7 +688,7 @@ public interface RepositoryPackage extends EPackage {
 	int IMPLEMENTATION_COMPONENT_TYPE__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY = COMPLETE_COMPONENT_TYPE__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY;
 
 	/**
-	 * The feature id for the '<em><b>Required Roles Interface Requiring Entity</b></em>' reference list.
+	 * The feature id for the '<em><b>Required Roles Interface Requiring Entity</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -808,7 +808,7 @@ public interface RepositoryPackage extends EPackage {
 	int COMPOSITE_COMPONENT__ENTITY_NAME = IMPLEMENTATION_COMPONENT_TYPE__ENTITY_NAME;
 
 	/**
-	 * The feature id for the '<em><b>Provided Roles Interface Providing Entity</b></em>' reference list.
+	 * The feature id for the '<em><b>Provided Roles Interface Providing Entity</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -817,7 +817,7 @@ public interface RepositoryPackage extends EPackage {
 	int COMPOSITE_COMPONENT__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY = IMPLEMENTATION_COMPONENT_TYPE__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY;
 
 	/**
-	 * The feature id for the '<em><b>Required Roles Interface Requiring Entity</b></em>' reference list.
+	 * The feature id for the '<em><b>Required Roles Interface Requiring Entity</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -925,7 +925,7 @@ public interface RepositoryPackage extends EPackage {
 	int BASIC_COMPONENT__ENTITY_NAME = IMPLEMENTATION_COMPONENT_TYPE__ENTITY_NAME;
 
 	/**
-	 * The feature id for the '<em><b>Provided Roles Interface Providing Entity</b></em>' reference list.
+	 * The feature id for the '<em><b>Provided Roles Interface Providing Entity</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -934,7 +934,7 @@ public interface RepositoryPackage extends EPackage {
 	int BASIC_COMPONENT__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY = IMPLEMENTATION_COMPONENT_TYPE__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY;
 
 	/**
-	 * The feature id for the '<em><b>Required Roles Interface Requiring Entity</b></em>' reference list.
+	 * The feature id for the '<em><b>Required Roles Interface Requiring Entity</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1217,7 +1217,7 @@ public interface RepositoryPackage extends EPackage {
 	int PROVIDED_ROLE__PROVIDED_INTERFACE_PROVIDED_ROLE = ROLE_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Providing Entity Provided Role</b></em>' reference.
+	 * The feature id for the '<em><b>Providing Entity Provided Role</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1460,10 +1460,10 @@ public interface RepositoryPackage extends EPackage {
 	EReference getRequiredRole_RequiredInterface__RequiredRole();
 
 	/**
-	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.pcm.repository.RequiredRole#getRequiringEntity_RequiredRole <em>Requiring Entity Required Role</em>}'.
+	 * Returns the meta object for the container reference '{@link de.uka.ipd.sdq.pcm.repository.RequiredRole#getRequiringEntity_RequiredRole <em>Requiring Entity Required Role</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Requiring Entity Required Role</em>'.
+	 * @return the meta object for the container reference '<em>Requiring Entity Required Role</em>'.
 	 * @see de.uka.ipd.sdq.pcm.repository.RequiredRole#getRequiringEntity_RequiredRole()
 	 * @see #getRequiredRole()
 	 * @generated
@@ -1632,10 +1632,10 @@ public interface RepositoryPackage extends EPackage {
 	EReference getProvidedRole_ProvidedInterface__ProvidedRole();
 
 	/**
-	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.pcm.repository.ProvidedRole#getProvidingEntity_ProvidedRole <em>Providing Entity Provided Role</em>}'.
+	 * Returns the meta object for the container reference '{@link de.uka.ipd.sdq.pcm.repository.ProvidedRole#getProvidingEntity_ProvidedRole <em>Providing Entity Provided Role</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Providing Entity Provided Role</em>'.
+	 * @return the meta object for the container reference '<em>Providing Entity Provided Role</em>'.
 	 * @see de.uka.ipd.sdq.pcm.repository.ProvidedRole#getProvidingEntity_ProvidedRole()
 	 * @see #getProvidedRole()
 	 * @generated
@@ -2049,7 +2049,7 @@ public interface RepositoryPackage extends EPackage {
 		EReference REQUIRED_ROLE__REQUIRED_INTERFACE_REQUIRED_ROLE = eINSTANCE.getRequiredRole_RequiredInterface__RequiredRole();
 
 		/**
-		 * The meta object literal for the '<em><b>Requiring Entity Required Role</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Requiring Entity Required Role</b></em>' container reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -2185,7 +2185,7 @@ public interface RepositoryPackage extends EPackage {
 		EReference PROVIDED_ROLE__PROVIDED_INTERFACE_PROVIDED_ROLE = eINSTANCE.getProvidedRole_ProvidedInterface__ProvidedRole();
 
 		/**
-		 * The meta object literal for the '<em><b>Providing Entity Provided Role</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Providing Entity Provided Role</b></em>' container reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated

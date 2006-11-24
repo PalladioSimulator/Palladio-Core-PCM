@@ -163,7 +163,7 @@ public interface EntityPackage extends EPackage {
 	int INTERFACE_PROVIDING_ENTITY__ENTITY_NAME = ENTITY__ENTITY_NAME;
 
 	/**
-	 * The feature id for the '<em><b>Provided Roles Interface Providing Entity</b></em>' reference list.
+	 * The feature id for the '<em><b>Provided Roles Interface Providing Entity</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -209,7 +209,7 @@ public interface EntityPackage extends EPackage {
 	int INTERFACE_PROVIDING_REQUIRING_ENTITY__ENTITY_NAME = INTERFACE_PROVIDING_ENTITY__ENTITY_NAME;
 
 	/**
-	 * The feature id for the '<em><b>Provided Roles Interface Providing Entity</b></em>' reference list.
+	 * The feature id for the '<em><b>Provided Roles Interface Providing Entity</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -218,7 +218,7 @@ public interface EntityPackage extends EPackage {
 	int INTERFACE_PROVIDING_REQUIRING_ENTITY__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY = INTERFACE_PROVIDING_ENTITY__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY;
 
 	/**
-	 * The feature id for the '<em><b>Required Roles Interface Requiring Entity</b></em>' reference list.
+	 * The feature id for the '<em><b>Required Roles Interface Requiring Entity</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -264,7 +264,7 @@ public interface EntityPackage extends EPackage {
 	int INTERFACE_REQUIRING_ENTITY__ENTITY_NAME = ENTITY__ENTITY_NAME;
 
 	/**
-	 * The feature id for the '<em><b>Required Roles Interface Requiring Entity</b></em>' reference list.
+	 * The feature id for the '<em><b>Required Roles Interface Requiring Entity</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -324,10 +324,10 @@ public interface EntityPackage extends EPackage {
 	EClass getInterfaceProvidingEntity();
 
 	/**
-	 * Returns the meta object for the reference list '{@link de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingEntity#getProvidedRoles_InterfaceProvidingEntity <em>Provided Roles Interface Providing Entity</em>}'.
+	 * Returns the meta object for the containment reference list '{@link de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingEntity#getProvidedRoles_InterfaceProvidingEntity <em>Provided Roles Interface Providing Entity</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Provided Roles Interface Providing Entity</em>'.
+	 * @return the meta object for the containment reference list '<em>Provided Roles Interface Providing Entity</em>'.
 	 * @see de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingEntity#getProvidedRoles_InterfaceProvidingEntity()
 	 * @see #getInterfaceProvidingEntity()
 	 * @generated
@@ -355,10 +355,10 @@ public interface EntityPackage extends EPackage {
 	EClass getInterfaceRequiringEntity();
 
 	/**
-	 * Returns the meta object for the reference list '{@link de.uka.ipd.sdq.pcm.core.entity.InterfaceRequiringEntity#getRequiredRoles_InterfaceRequiringEntity <em>Required Roles Interface Requiring Entity</em>}'.
+	 * Returns the meta object for the containment reference list '{@link de.uka.ipd.sdq.pcm.core.entity.InterfaceRequiringEntity#getRequiredRoles_InterfaceRequiringEntity <em>Required Roles Interface Requiring Entity</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Required Roles Interface Requiring Entity</em>'.
+	 * @return the meta object for the containment reference list '<em>Required Roles Interface Requiring Entity</em>'.
 	 * @see de.uka.ipd.sdq.pcm.core.entity.InterfaceRequiringEntity#getRequiredRoles_InterfaceRequiringEntity()
 	 * @see #getInterfaceRequiringEntity()
 	 * @generated
@@ -426,7 +426,7 @@ public interface EntityPackage extends EPackage {
 		EClass INTERFACE_PROVIDING_ENTITY = eINSTANCE.getInterfaceProvidingEntity();
 
 		/**
-		 * The meta object literal for the '<em><b>Provided Roles Interface Providing Entity</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Provided Roles Interface Providing Entity</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -454,7 +454,7 @@ public interface EntityPackage extends EPackage {
 		EClass INTERFACE_REQUIRING_ENTITY = eINSTANCE.getInterfaceRequiringEntity();
 
 		/**
-		 * The meta object literal for the '<em><b>Required Roles Interface Requiring Entity</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Required Roles Interface Requiring Entity</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated

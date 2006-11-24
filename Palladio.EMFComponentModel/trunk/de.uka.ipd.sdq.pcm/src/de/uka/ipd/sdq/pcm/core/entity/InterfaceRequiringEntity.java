@@ -35,7 +35,7 @@ public interface InterfaceRequiringEntity extends Entity {
 	String copyright = "(c) by SDQ, IPD, U Karlsruhe (TH), 2006";
 
 	/**
-	 * Returns the value of the '<em><b>Required Roles Interface Requiring Entity</b></em>' reference list.
+	 * Returns the value of the '<em><b>Required Roles Interface Requiring Entity</b></em>' containment reference list.
 	 * The list contents are of type {@link de.uka.ipd.sdq.pcm.repository.RequiredRole}.
 	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.repository.RequiredRole#getRequiringEntity_RequiredRole <em>Requiring Entity Required Role</em>}'.
 	 * <!-- begin-user-doc -->
@@ -44,10 +44,10 @@ public interface InterfaceRequiringEntity extends Entity {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Required Roles Interface Requiring Entity</em>' reference list.
+	 * @return the value of the '<em>Required Roles Interface Requiring Entity</em>' containment reference list.
 	 * @see de.uka.ipd.sdq.pcm.core.entity.EntityPackage#getInterfaceRequiringEntity_RequiredRoles_InterfaceRequiringEntity()
 	 * @see de.uka.ipd.sdq.pcm.repository.RequiredRole#getRequiringEntity_RequiredRole
-	 * @model type="de.uka.ipd.sdq.pcm.repository.RequiredRole" opposite="requiringEntity_RequiredRole" ordered="false"
+	 * @model type="de.uka.ipd.sdq.pcm.repository.RequiredRole" opposite="requiringEntity_RequiredRole" containment="true" ordered="false"
 	 * @generated
 	 */
 	EList getRequiredRoles_InterfaceRequiringEntity();

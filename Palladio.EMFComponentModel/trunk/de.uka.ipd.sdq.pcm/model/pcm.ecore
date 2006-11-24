@@ -97,14 +97,16 @@
       <eClassifiers xsi:type="ecore:EClass" name="InterfaceProvidingEntity" abstract="true"
           eSuperTypes="#//core/entity/Entity">
         <eStructuralFeatures xsi:type="ecore:EReference" name="providedRoles_InterfaceProvidingEntity"
-            ordered="false" upperBound="-1" eType="#//repository/ProvidedRole" eOpposite="#//repository/ProvidedRole/providingEntity_ProvidedRole"/>
+            ordered="false" upperBound="-1" eType="#//repository/ProvidedRole" containment="true"
+            eOpposite="#//repository/ProvidedRole/providingEntity_ProvidedRole"/>
       </eClassifiers>
       <eClassifiers xsi:type="ecore:EClass" name="InterfaceProvidingRequiringEntity"
           abstract="true" eSuperTypes="#//core/entity/InterfaceProvidingEntity #//core/entity/InterfaceRequiringEntity"/>
       <eClassifiers xsi:type="ecore:EClass" name="InterfaceRequiringEntity" abstract="true"
           eSuperTypes="#//core/entity/Entity">
         <eStructuralFeatures xsi:type="ecore:EReference" name="requiredRoles_InterfaceRequiringEntity"
-            ordered="false" upperBound="-1" eType="#//repository/RequiredRole" eOpposite="#//repository/RequiredRole/requiringEntity_RequiredRole"/>
+            ordered="false" upperBound="-1" eType="#//repository/RequiredRole" containment="true"
+            eOpposite="#//repository/RequiredRole/requiringEntity_RequiredRole"/>
       </eClassifiers>
     </eSubpackages>
     <eSubpackages name="connectors" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Core/Connectors/1.0"
