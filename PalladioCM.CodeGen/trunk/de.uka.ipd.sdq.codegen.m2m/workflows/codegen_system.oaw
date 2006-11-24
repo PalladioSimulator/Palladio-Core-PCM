@@ -1,7 +1,7 @@
 <workflow>
 	
 	<component class="oaw.emf.XmiReader">
-		<modelFile value="C:\coding\svn\Palladio.EMFComponentModel\trunk\ModelExample.QoSA06\My.system"/>
+		<modelFile value="C:\coding\code\Palladio.EMFComponentModel\trunk\ModelExample.QoSA06\qosa.system"/>
 		<outputSlot value="pcmmodel"/>
 	</component>
     

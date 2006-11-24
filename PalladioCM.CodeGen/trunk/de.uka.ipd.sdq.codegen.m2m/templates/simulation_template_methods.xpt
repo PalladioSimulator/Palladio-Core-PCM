@@ -1,8 +1,9 @@
-«IMPORT repository»
 «EXTENSION m2t_transforms::pcm»
+«IMPORT repository»
+«IMPORT seff»
 
-«AROUND BasicComponentTM FOR BasicComponent»
-   «EXPAND m2t_transforms::sim::BasicComponent FOR this»
+«AROUND ProvidesComponentTypeTM FOR ProvidesComponentType»
+   «EXPAND m2t_transforms::java_core::ComponentImplementation FOR this»
 «ENDAROUND»
 
 «AROUND ParameterListTM FOR Signature»
@@ -24,10 +25,6 @@
             iterationCount < maxIterationCount; iterationCount++){
        «EXPAND m2t_transforms::java_core::Actions FOR this.bodyBehaviour_Loop.steps_Behaviour.findStart()»
    }
-«ENDAROUND»
-
-«AROUND Action FOR ExternalCallAction»
-	«EXPAND m2t_transforms::java_core::ExternalCall FOR this.calledService_ExternalService»
 «ENDAROUND»
 
 «AROUND Action FOR InternalAction»

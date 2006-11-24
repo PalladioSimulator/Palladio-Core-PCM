@@ -1,6 +1,6 @@
-«IMPORT seff»
 «EXTENSION m2t_transforms::java_names»
 «EXTENSION m2t_transforms::pcm»
+«IMPORT seff»
 
 «DEFINE Action FOR AbstractAction»
    // Unknown Action found «this.entityName»
@@ -18,7 +18,9 @@
 «ENDDEFINE»
 
 «DEFINE Action FOR ExternalCallAction»
-   «ERROR "ExternalCallAction is a template method and must be overridden"»
+    myContext.getRole«this.calledService_ExternalService.interface_Signature.javaName()»().
+    	«this.calledService_ExternalService.serviceName» 
+    	(«EXPAND m2t_transforms::java_core::ParameterUsageListTM FOR this.calledService_ExternalService»);
 «ENDDEFINE»
 
 «DEFINE Action FOR InternalAction»

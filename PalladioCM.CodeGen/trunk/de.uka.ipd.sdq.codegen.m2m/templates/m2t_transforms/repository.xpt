@@ -1,29 +1,33 @@
-«IMPORT repository»
 «EXTENSION m2t_transforms::java_names»
+«EXTENSION m2t_transforms::pcm»
+«IMPORT repository»
+«IMPORT entity»
+«IMPORT system»
+«IMPORT composition»
 
 «DEFINE Root FOR Repository»
    «EXPAND InterfaceFile FOREACH this.interfaces__Repository»
-   «EXPAND BasicComponentFile FOREACH this.components__Repository.typeSelect(BasicComponent)»
+   «EXPAND ComponentRoot FOREACH this.components__Repository»
 «ENDDEFINE»
 
 «DEFINE InterfaceFile FOR Interface»
-   «FILE this.eContainer.basePackageDirectory()+"/"+this.entityName+".java"»
-      package «this.eContainer.basePackageName()»;
+   «FILE this.getFileName()»
+      package «this.repository_Interface.basePackageName()»;
       
       «EXPAND m2t_transforms::java_core::ImportsTM FOR this»   
       
-      public interface «this.entityName» {
+      public interface «this.javaName()» {
 	         «EXPAND m2t_transforms::java_core::Signature FOREACH this.signatures__Interface SEPARATOR ";"»;
       }
    «ENDFILE»
 «ENDDEFINE»
 
-«DEFINE BasicComponentFile FOR BasicComponent»
-   «FILE this.eContainer.basePackageDirectory()+"/impl/"+this.entityName+".java"»
-      «EXPAND BasicComponentTM FOR this»
+«DEFINE ComponentRoot FOR ProvidesComponentType»
+   «FILE this.getFileName()»
+      «EXPAND ProvidesComponentTypeTM FOR this»
    «ENDFILE»
 «ENDDEFINE»
 
-«DEFINE BasicComponentTM FOR BasicComponent»
+«DEFINE ProvidesComponentTypeTM FOR ProvidesComponentType»
   «ERROR "This is a template method and must be overridden"»
 «ENDDEFINE»  

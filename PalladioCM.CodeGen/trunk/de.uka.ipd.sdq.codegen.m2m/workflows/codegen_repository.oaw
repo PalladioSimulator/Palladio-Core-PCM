@@ -1,7 +1,7 @@
 <workflow>
 	
 	<component class="oaw.emf.XmiReader">
-		<modelFile value="C:\coding\svn\Palladio.EMFComponentModel\trunk\ModelExample.QoSA06\Qosa.repository"/>
+		<modelFile value="C:\coding\code\Palladio.EMFComponentModel\trunk\ModelExample.QoSA06\Qosa.repository"/>
 		<outputSlot value="pcmmodel"/>
 	</component>
     
@@ -57,7 +57,7 @@
 		<metaModel id="pcm.core.composition.emf" class="oaw.type.emf.EmfMetaModel">
 			<metaModelPackage value="de.uka.ipd.sdq.pcm.core.composition.CompositionPackage"/>
 		</metaModel>
-		<expand value="m2t_transforms::Root::Root FOR pcmmodel"/>
+		<expand value="m2t_transforms::repository::Root FOR pcmmodel"/>
 		<outlet path="src-gen">
 			<postprocessor class="oaw.xpand2.output.JavaBeautifier"/>
 		</outlet>
