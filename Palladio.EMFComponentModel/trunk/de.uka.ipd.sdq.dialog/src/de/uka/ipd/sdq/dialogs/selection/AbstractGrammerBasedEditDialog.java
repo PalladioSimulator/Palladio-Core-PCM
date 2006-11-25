@@ -43,6 +43,7 @@ import com.swtdesigner.SWTResourceManager;
 
 import antlr.CharScanner;
 import antlr.RecognitionException;
+import antlr.Token;
 import antlr.TokenStreamException;
 import de.uka.ipd.sdq.pcm.core.stochastics.Expression;
 import de.uka.ipd.sdq.pcm.stochasticexpressions.StoExPrettyPrintVisitor;

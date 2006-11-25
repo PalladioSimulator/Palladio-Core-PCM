@@ -6,7 +6,7 @@ header{
 	import java.util.ArrayList;
 	import de.uka.ipd.sdq.pcm.stochasticexpressions.StoExPrettyPrintVisitor;
 }
-
+  
 {@SuppressWarnings({"unused"})}
 class VariableUsageParser extends StochasticExpressionsParser;
 

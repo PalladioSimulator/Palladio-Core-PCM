@@ -35,16 +35,20 @@ public class StoExTokenMapper implements ITokenMapper {
 		case StochasticExpressionsParserTokenTypes.MUL:
 		case StochasticExpressionsParserTokenTypes.DIV:
 			return null; //new TextAttribute (new Color( null, new RGB(255,255,0) ), null, SWT.BOLD);
-		case StochasticExpressionsParserTokenTypes.REAL_DEF:
-		case StochasticExpressionsParserTokenTypes.INT_DEF:
-		case StochasticExpressionsParserTokenTypes.ENUM_DEF:
-		case StochasticExpressionsParserTokenTypes.REAL_PDF:
+		case StochasticExpressionsParserTokenTypes.LITERAL_DoublePDF:
+		case StochasticExpressionsParserTokenTypes.LITERAL_IntPMF:
+		case StochasticExpressionsParserTokenTypes.LITERAL_EnumPMF:
+		case StochasticExpressionsParserTokenTypes.LITERAL_DoublePMF:
 			return new TextAttribute (new Color( null, new RGB(255,0,0) ), null, SWT.BOLD);
 		case StochasticExpressionsParserTokenTypes.NUMBER:
 		case StochasticExpressionsParserTokenTypes.STRING_LITERAL:
 			return new TextAttribute (new Color( null, new RGB(0,0,255) ), null, SWT.BOLD);
-		case StochasticExpressionsParserTokenTypes.CHARACTERISATIONS:
-		case StochasticExpressionsParserTokenTypes.INNER:
+		case StochasticExpressionsParserTokenTypes.LITERAL_BYTESIZE:
+		case StochasticExpressionsParserTokenTypes.LITERAL_NUMBER_OF_ELEMENTS:
+		case StochasticExpressionsParserTokenTypes.LITERAL_STRUCTURE:
+		case StochasticExpressionsParserTokenTypes.LITERAL_VALUE:
+		case StochasticExpressionsParserTokenTypes.LITERAL_TYPE:
+		case StochasticExpressionsParserTokenTypes.LITERAL_INNER:
 			return new TextAttribute (new Color( null, new RGB(255,0,255) ), null, SWT.ITALIC);
 		case StochasticExpressionsParserTokenTypes.ID:
 			return new TextAttribute (new Color( null, new RGB(255,0,255) ), null, SWT.NONE);

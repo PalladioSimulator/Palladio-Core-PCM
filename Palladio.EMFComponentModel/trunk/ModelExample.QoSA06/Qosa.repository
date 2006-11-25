@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<pcm.repository:Repository xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pcm.parameter="http://sdq.ipd.uka.de/PalladioComponentModel/Parameter/1.0" xmlns:pcm.repository="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/1.0" xmlns:pcm.seff="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0">
+<pcm.repository:Repository xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pcm.parameter="http://sdq.ipd.uka.de/PalladioComponentModel/Parameter/1.0" xmlns:pcm.repository="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/1.0" xmlns:pcm.seff="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0" id="_WSASwHwAEduH1Ymk7_QCwA" entityName="QoSA Repository">
   <components__Repository xsi:type="pcm.repository:BasicComponent" id="_LulPoHiEEdujPfhn5Gb-iA" entityName="WebUI">
     <providedRoles_InterfaceProvidingEntity id="_NwEmQHiEEdujPfhn5Gb-iA" providedInterface__ProvidedRole="_5zotAHiDEdujPfhn5Gb-iA"/>
     <requiredRoles_InterfaceRequiringEntity id="_bpX4YHiEEdujPfhn5Gb-iA" requiredInterface__RequiredRole="_PGWcsHiEEdujPfhn5Gb-iA"/>

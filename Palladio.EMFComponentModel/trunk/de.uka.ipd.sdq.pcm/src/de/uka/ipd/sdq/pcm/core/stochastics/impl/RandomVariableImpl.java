@@ -8,6 +8,7 @@
 package de.uka.ipd.sdq.pcm.core.stochastics.impl;
 
 import java.io.StringBufferInputStream;
+import java.io.StringReader;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
@@ -125,7 +126,7 @@ public class RandomVariableImpl extends EObjectImpl implements RandomVariable {
 		
 		try {
 			StochasticExpressionsLexer lexer = new StochasticExpressionsLexer(
-					new StringBufferInputStream(this.getSpecification()));
+					new StringReader(this.getSpecification()));
 			StochasticExpressionsParser parser = new StochasticExpressionsParser(lexer);
 			value = parser.expression();
 		} catch (Exception e) {

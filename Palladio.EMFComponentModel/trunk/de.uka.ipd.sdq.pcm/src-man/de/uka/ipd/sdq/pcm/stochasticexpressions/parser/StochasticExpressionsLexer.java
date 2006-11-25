@@ -46,6 +46,17 @@ public StochasticExpressionsLexer(LexerSharedInputState state) {
 	caseSensitiveLiterals = true;
 	setCaseSensitive(true);
 	literals = new Hashtable();
+	literals.put(new ANTLRHashString("VALUE", this), new Integer(34));
+	literals.put(new ANTLRHashString("NUMBER_OF_ELEMENTS", this), new Integer(32));
+	literals.put(new ANTLRHashString("unit", this), new Integer(28));
+	literals.put(new ANTLRHashString("INNER", this), new Integer(36));
+	literals.put(new ANTLRHashString("EnumPMF", this), new Integer(24));
+	literals.put(new ANTLRHashString("DoublePMF", this), new Integer(23));
+	literals.put(new ANTLRHashString("DoublePDF", this), new Integer(27));
+	literals.put(new ANTLRHashString("IntPMF", this), new Integer(18));
+	literals.put(new ANTLRHashString("STRUCTURE", this), new Integer(31));
+	literals.put(new ANTLRHashString("BYTESIZE", this), new Integer(30));
+	literals.put(new ANTLRHashString("TYPE", this), new Integer(33));
 }
 
 public Token nextToken() throws TokenStreamException {
@@ -150,6 +161,25 @@ tryAgain:
 					theRetToken=_returnToken;
 					break;
 				}
+				case 'A':  case 'B':  case 'C':  case 'D':
+				case 'E':  case 'F':  case 'G':  case 'H':
+				case 'I':  case 'J':  case 'K':  case 'L':
+				case 'M':  case 'N':  case 'O':  case 'P':
+				case 'Q':  case 'R':  case 'S':  case 'T':
+				case 'U':  case 'V':  case 'W':  case 'X':
+				case 'Y':  case 'Z':  case '_':  case 'a':
+				case 'b':  case 'c':  case 'd':  case 'e':
+				case 'f':  case 'g':  case 'h':  case 'i':
+				case 'j':  case 'k':  case 'l':  case 'm':
+				case 'n':  case 'o':  case 'p':  case 'q':
+				case 'r':  case 's':  case 't':  case 'u':
+				case 'v':  case 'w':  case 'x':  case 'y':
+				case 'z':
+				{
+					mID(true);
+					theRetToken=_returnToken;
+					break;
+				}
 				case '\t':  case '\n':  case '\r':  case ' ':
 				{
 					mWS(true);
@@ -157,43 +187,7 @@ tryAgain:
 					break;
 				}
 				default:
-					if ((LA(1)=='D') && (LA(2)=='o') && (LA(3)=='u') && (LA(4)=='b') && (LA(5)=='l') && (LA(6)=='e') && (LA(7)=='P') && (LA(8)=='M') && (LA(9)=='F')) {
-						mREAL_DEF(true);
-						theRetToken=_returnToken;
-					}
-					else if ((LA(1)=='D') && (LA(2)=='o') && (LA(3)=='u') && (LA(4)=='b') && (LA(5)=='l') && (LA(6)=='e') && (LA(7)=='P') && (LA(8)=='D') && (LA(9)=='F')) {
-						mREAL_PDF(true);
-						theRetToken=_returnToken;
-					}
-					else if ((LA(1)=='E') && (LA(2)=='n') && (LA(3)=='u') && (LA(4)=='m') && (LA(5)=='P') && (LA(6)=='M') && (LA(7)=='F') && (true) && (true)) {
-						mENUM_DEF(true);
-						theRetToken=_returnToken;
-					}
-					else if ((LA(1)=='o') && (LA(2)=='r') && (LA(3)=='d') && (LA(4)=='e') && (LA(5)=='r') && (LA(6)=='e') && (LA(7)=='d') && (true) && (true)) {
-						mORDERED_DEF(true);
-						theRetToken=_returnToken;
-					}
-					else if ((LA(1)=='I') && (LA(2)=='n') && (LA(3)=='t') && (LA(4)=='P') && (LA(5)=='M') && (LA(6)=='F') && (true) && (true) && (true)) {
-						mINT_DEF(true);
-						theRetToken=_returnToken;
-					}
-					else if ((LA(1)=='I') && (LA(2)=='N') && (LA(3)=='N') && (LA(4)=='E') && (LA(5)=='R') && (true) && (true) && (true) && (true)) {
-						mINNER(true);
-						theRetToken=_returnToken;
-					}
-					else if ((LA(1)=='u') && (LA(2)=='n') && (LA(3)=='i') && (LA(4)=='t') && (true) && (true) && (true) && (true) && (true)) {
-						mUNIT_DEF(true);
-						theRetToken=_returnToken;
-					}
-					else if ((_tokenSet_0.member(LA(1))) && (_tokenSet_1.member(LA(2))) && (_tokenSet_2.member(LA(3))) && (LA(4)=='B'||LA(4)=='E'||LA(4)=='U') && (true) && (true) && (true) && (true) && (true)) {
-						mCHARACTERISATIONS(true);
-						theRetToken=_returnToken;
-					}
-					else if ((LA(1)=='m'||LA(1)=='p') && (LA(2)=='e'||LA(2)=='r') && (LA(3)=='a'||LA(3)=='o') && (LA(4)=='b'||LA(4)=='n') && (true) && (true) && (true) && (true) && (true)) {
-						mFUNCTION_DEF(true);
-						theRetToken=_returnToken;
-					}
-					else if ((LA(1)=='<') && (LA(2)=='>')) {
+					if ((LA(1)=='<') && (LA(2)=='>')) {
 						mNOTEQUAL(true);
 						theRetToken=_returnToken;
 					}
@@ -211,10 +205,6 @@ tryAgain:
 					}
 					else if ((LA(1)=='<') && (true)) {
 						mLESS(true);
-						theRetToken=_returnToken;
-					}
-					else if ((_tokenSet_3.member(LA(1))) && (true) && (true) && (true) && (true) && (true) && (true) && (true) && (true)) {
-						mID(true);
 						theRetToken=_returnToken;
 					}
 				else {
@@ -373,58 +363,6 @@ tryAgain:
 		_returnToken = _token;
 	}
 	
-	public final void mINT_DEF(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
-		int _ttype; Token _token=null; int _begin=text.length();
-		_ttype = INT_DEF;
-		int _saveIndex;
-		
-		match("IntPMF");
-		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-			_token = makeToken(_ttype);
-			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-		}
-		_returnToken = _token;
-	}
-	
-	public final void mREAL_DEF(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
-		int _ttype; Token _token=null; int _begin=text.length();
-		_ttype = REAL_DEF;
-		int _saveIndex;
-		
-		match("DoublePMF");
-		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-			_token = makeToken(_ttype);
-			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-		}
-		_returnToken = _token;
-	}
-	
-	public final void mENUM_DEF(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
-		int _ttype; Token _token=null; int _begin=text.length();
-		_ttype = ENUM_DEF;
-		int _saveIndex;
-		
-		match("EnumPMF");
-		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-			_token = makeToken(_ttype);
-			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-		}
-		_returnToken = _token;
-	}
-	
-	public final void mREAL_PDF(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
-		int _ttype; Token _token=null; int _begin=text.length();
-		_ttype = REAL_PDF;
-		int _saveIndex;
-		
-		match("DoublePDF");
-		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-			_token = makeToken(_ttype);
-			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-		}
-		_returnToken = _token;
-	}
-	
 	public final void mSQUARE_PAREN_L(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
 		_ttype = SQUARE_PAREN_L;
@@ -451,32 +389,6 @@ tryAgain:
 		_returnToken = _token;
 	}
 	
-	public final void mUNIT_DEF(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
-		int _ttype; Token _token=null; int _begin=text.length();
-		_ttype = UNIT_DEF;
-		int _saveIndex;
-		
-		match("unit");
-		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-			_token = makeToken(_ttype);
-			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-		}
-		_returnToken = _token;
-	}
-	
-	public final void mORDERED_DEF(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
-		int _ttype; Token _token=null; int _begin=text.length();
-		_ttype = ORDERED_DEF;
-		int _saveIndex;
-		
-		match("ordered");
-		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-			_token = makeToken(_ttype);
-			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-		}
-		_returnToken = _token;
-	}
-	
 	protected final void mDIGIT(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
 		_ttype = DIGIT;
@@ -496,34 +408,34 @@ tryAgain:
 		int _saveIndex;
 		
 		{
-		int _cnt62=0;
-		_loop62:
+		int _cnt2189=0;
+		_loop2189:
 		do {
 			if (((LA(1) >= '0' && LA(1) <= '9'))) {
 				mDIGIT(false);
 			}
 			else {
-				if ( _cnt62>=1 ) { break _loop62; } else {throw new NoViableAltForCharException((char)LA(1), getFilename(), getLine(), getColumn());}
+				if ( _cnt2189>=1 ) { break _loop2189; } else {throw new NoViableAltForCharException((char)LA(1), getFilename(), getLine(), getColumn());}
 			}
 			
-			_cnt62++;
+			_cnt2189++;
 		} while (true);
 		}
 		{
 		if ((LA(1)=='.')) {
 			match('.');
 			{
-			int _cnt65=0;
-			_loop65:
+			int _cnt2192=0;
+			_loop2192:
 			do {
 				if (((LA(1) >= '0' && LA(1) <= '9'))) {
 					mDIGIT(false);
 				}
 				else {
-					if ( _cnt65>=1 ) { break _loop65; } else {throw new NoViableAltForCharException((char)LA(1), getFilename(), getLine(), getColumn());}
+					if ( _cnt2192>=1 ) { break _loop2192; } else {throw new NoViableAltForCharException((char)LA(1), getFilename(), getLine(), getColumn());}
 				}
 				
-				_cnt65++;
+				_cnt2192++;
 			} while (true);
 			}
 		}
@@ -650,8 +562,8 @@ tryAgain:
 		
 		match("\"");
 		{
-		int _cnt74=0;
-		_loop74:
+		int _cnt2201=0;
+		_loop2201:
 		do {
 			switch ( LA(1)) {
 			case 'A':  case 'B':  case 'C':  case 'D':
@@ -678,26 +590,13 @@ tryAgain:
 			}
 			default:
 			{
-				if ( _cnt74>=1 ) { break _loop74; } else {throw new NoViableAltForCharException((char)LA(1), getFilename(), getLine(), getColumn());}
+				if ( _cnt2201>=1 ) { break _loop2201; } else {throw new NoViableAltForCharException((char)LA(1), getFilename(), getLine(), getColumn());}
 			}
 			}
-			_cnt74++;
+			_cnt2201++;
 		} while (true);
 		}
 		match("\"");
-		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-			_token = makeToken(_ttype);
-			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-		}
-		_returnToken = _token;
-	}
-	
-	public final void mINNER(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
-		int _ttype; Token _token=null; int _begin=text.length();
-		_ttype = INNER;
-		int _saveIndex;
-		
-		match("INNER");
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -724,8 +623,8 @@ tryAgain:
 		int _saveIndex;
 		
 		{
-		int _cnt79=0;
-		_loop79:
+		int _cnt2205=0;
+		_loop2205:
 		do {
 			switch ( LA(1)) {
 			case 'A':  case 'B':  case 'C':  case 'D':
@@ -752,109 +651,13 @@ tryAgain:
 			}
 			default:
 			{
-				if ( _cnt79>=1 ) { break _loop79; } else {throw new NoViableAltForCharException((char)LA(1), getFilename(), getLine(), getColumn());}
+				if ( _cnt2205>=1 ) { break _loop2205; } else {throw new NoViableAltForCharException((char)LA(1), getFilename(), getLine(), getColumn());}
 			}
 			}
-			_cnt79++;
+			_cnt2205++;
 		} while (true);
 		}
-		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-			_token = makeToken(_ttype);
-			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-		}
-		_returnToken = _token;
-	}
-	
-	public final void mCHARACTERISATIONS(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
-		int _ttype; Token _token=null; int _begin=text.length();
-		_ttype = CHARACTERISATIONS;
-		int _saveIndex;
-		
-		switch ( LA(1)) {
-		case 'B':
-		{
-			match("BYTESIZE");
-			break;
-		}
-		case 'S':
-		{
-			match("STRUCTURE");
-			break;
-		}
-		case 'N':
-		{
-			match("NUMBER_OF_ELEMENTS");
-			break;
-		}
-		case 'T':
-		{
-			match("TYPE");
-			break;
-		}
-		case 'V':
-		{
-			match("VALUE");
-			break;
-		}
-		default:
-		{
-			throw new NoViableAltForCharException((char)LA(1), getFilename(), getLine(), getColumn());
-		}
-		}
-		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-			_token = makeToken(_ttype);
-			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-		}
-		_returnToken = _token;
-	}
-	
-	protected final void mMEAN(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
-		int _ttype; Token _token=null; int _begin=text.length();
-		_ttype = MEAN;
-		int _saveIndex;
-		
-		match("mean");
-		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-			_token = makeToken(_ttype);
-			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-		}
-		_returnToken = _token;
-	}
-	
-	protected final void mPROB(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
-		int _ttype; Token _token=null; int _begin=text.length();
-		_ttype = PROB;
-		int _saveIndex;
-		
-		match("prob");
-		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
-			_token = makeToken(_ttype);
-			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
-		}
-		_returnToken = _token;
-	}
-	
-	public final void mFUNCTION_DEF(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
-		int _ttype; Token _token=null; int _begin=text.length();
-		_ttype = FUNCTION_DEF;
-		int _saveIndex;
-		
-		switch ( LA(1)) {
-		case 'm':
-		{
-			mMEAN(false);
-			break;
-		}
-		case 'p':
-		{
-			mPROB(false);
-			break;
-		}
-		default:
-		{
-			throw new NoViableAltForCharException((char)LA(1), getFilename(), getLine(), getColumn());
-		}
-		}
+		_ttype = testLiteralsTable(_ttype);
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -904,25 +707,5 @@ tryAgain:
 	}
 	
 	
-	private static final long[] mk_tokenSet_0() {
-		long[] data = { 0L, 5783556L, 0L, 0L};
-		return data;
-	}
-	public static final BitSet _tokenSet_0 = new BitSet(mk_tokenSet_0());
-	private static final long[] mk_tokenSet_1() {
-		long[] data = { 0L, 36700162L, 0L, 0L};
-		return data;
-	}
-	public static final BitSet _tokenSet_1 = new BitSet(mk_tokenSet_1());
-	private static final long[] mk_tokenSet_2() {
-		long[] data = { 0L, 1388544L, 0L, 0L};
-		return data;
-	}
-	public static final BitSet _tokenSet_2 = new BitSet(mk_tokenSet_2());
-	private static final long[] mk_tokenSet_3() {
-		long[] data = { 0L, 576460745995190270L, 0L, 0L};
-		return data;
-	}
-	public static final BitSet _tokenSet_3 = new BitSet(mk_tokenSet_3());
 	
 	}

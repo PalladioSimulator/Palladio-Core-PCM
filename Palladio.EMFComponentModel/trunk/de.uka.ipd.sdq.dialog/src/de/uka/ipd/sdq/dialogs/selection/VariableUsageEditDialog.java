@@ -17,6 +17,7 @@ import de.uka.ipd.sdq.pcm.stochasticexpressions.parser.VariableUsageParser;
 
 import antlr.CharScanner;
 import antlr.RecognitionException;
+import antlr.Token;
 import antlr.TokenStreamException;
 
 /**
@@ -52,7 +53,11 @@ public class VariableUsageEditDialog extends AbstractGrammerBasedEditDialog {
 
 	@Override
 	protected EObject parse(CharScanner lexer) throws RecognitionException, TokenStreamException {
-		return new VariableUsageParser(lexer).scoped_id();
+		VariableUsageParser parser = new VariableUsageParser(lexer); 
+		EObject result = parser.scoped_id();
+		if (parser.LT(1).getType() != Token.EOF_TYPE)
+			throw new RecognitionException("Expecting EOF, found "+parser.LT(1).getText(),parser.LT(1).getText(),parser.LT(1).getLine(),parser.LT(1).getColumn());
+		return  result;
 	}
 
 	@Override

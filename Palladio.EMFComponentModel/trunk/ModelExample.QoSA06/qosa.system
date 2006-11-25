@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<pcm.system:System xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pcm.qosannotations="http://sdq.ipd.uka.de/PalladioComponentModel/QoSAnnotations/1.0" xmlns:pcm.system="http://sdq.ipd.uka.de/PalladioComponentModel/System/1.0">
+<pcm.system:System xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pcm.qosannotations="http://sdq.ipd.uka.de/PalladioComponentModel/QoSAnnotations/1.0" xmlns:pcm.system="http://sdq.ipd.uka.de/PalladioComponentModel/System/1.0" id="_eXK7sHwDEduH1Ymk7_QCwA" entityName="QoSA System">
   <childComponentContexts_ComposedStructure id="_zOCwEHjmEduuSvsux_US9A" entityName="AssCtx_WebUI">
     <encapsulatedComponent_ChildComponentContext href="Qosa.repository#_LulPoHiEEdujPfhn5Gb-iA"/>
   </childComponentContexts_ComposedStructure>

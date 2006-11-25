@@ -98,7 +98,7 @@ definition returns [ProbabilityFunctionLiteral pfl]
 		
 		// Numeric PMF
 			
-			INT_DEF
+			"IntPMF"
 				{probFunction = ProbfunctionFactory.eINSTANCE.createProbabilityMassFunction();
 				   pfl.setFunction_ProbabilityFunctionLiteral(probFunction);}
 			LPAREN
@@ -112,7 +112,7 @@ definition returns [ProbabilityFunctionLiteral pfl]
 				  {((ProbabilityMassFunction)probFunction).getSamples().add(isample);})+ 
 	 		SQUARE_PAREN_R 
 	 		|
-		 	REAL_DEF 
+		 	"DoublePMF" 
 				{probFunction = ProbfunctionFactory.eINSTANCE.createProbabilityMassFunction();
 				   pfl.setFunction_ProbabilityFunctionLiteral(probFunction);}
 			LPAREN
@@ -127,7 +127,7 @@ definition returns [ProbabilityFunctionLiteral pfl]
 			SQUARE_PAREN_R
 			| 
 		// Enum PMF
-			ENUM_DEF 
+			"EnumPMF" 
 				{probFunction = ProbfunctionFactory.eINSTANCE.createProbabilityMassFunction();
 				   pfl.setFunction_ProbabilityFunctionLiteral(probFunction);
 				   ((ProbabilityMassFunction)probFunction).setOrderedDomain(false);
@@ -147,7 +147,7 @@ definition returns [ProbabilityFunctionLiteral pfl]
 			   	{((ProbabilityMassFunction)probFunction).getSamples().add(ssample);})+ 
 			SQUARE_PAREN_R
 			|
-			REAL_PDF
+			"DoublePDF"
 				{probFunction = ProbfunctionFactory.eINSTANCE.createBoxedPDF();
 				   pfl.setFunction_ProbabilityFunctionLiteral(probFunction);}
 			LPAREN
@@ -165,7 +165,7 @@ definition returns [ProbabilityFunctionLiteral pfl]
 
 unit returns [Unit u]
 	{u = null;}:
-		UNIT_DEF
+		"unit"
 			{ u = ProbfunctionFactory.eINSTANCE.createUnit(); }
 			EQUAL
 			str:STRING_LITERAL 
@@ -216,26 +216,35 @@ stringsample returns [Sample s]
 		RPAREN;
 
 characterisation returns [VariableCharacterisationType ct]
-{ct = null;} :
-	type : CHARACTERISATIONS
-	{if(type.getText().equals("TYPE"))
+{ct = null; String type="";} :
+	type = characterisation_keywords
+	{if(type.equals("TYPE"))
 		ct = VariableCharacterisationType.DATATYPE_LITERAL;
-	 else if(type.getText().equals("BYTESIZE"))
+	 else if(type.equals("BYTESIZE"))
 		ct = VariableCharacterisationType.BYTESIZE_LITERAL;
-	 else if(type.getText().equals("NUMBER_OF_ELEMENTS"))
+	 else if(type.equals("NUMBER_OF_ELEMENTS"))
 		ct = VariableCharacterisationType.NUMBER_OF_ELEMENTS_LITERAL;
-	 else if(type.getText().equals("VALUE"))
+	 else if(type.equals("VALUE"))
 		ct = VariableCharacterisationType.VALUE_LITERAL;
-	 else if(type.getText().equals("STRUCTURE"))
+	 else if(type.equals("STRUCTURE"))
 		ct = VariableCharacterisationType.STRUCTURE_LITERAL;
 	}
 ;
-	
+
+characterisation_keywords returns [String keyword] 
+{keyword = null;}:
+ ("BYTESIZE" {keyword="BYTESIZE";}
+ | "STRUCTURE" {keyword="STRUCTURE";}
+ | "NUMBER_OF_ELEMENTS" {keyword="NUMBER_OF_ELEMENTS";}
+ | "TYPE" {keyword="TYPE";}
+ | "VALUE" {keyword="VALUE";}
+);
+ 	
 scoped_id returns [AbstractNamedReference ref]
 {ref = null;
 ArrayList<String> nameParts = new ArrayList<String>();} :
 	id1:ID {nameParts.add(id1.getText());} 
-	    (DOT (id2:ID {nameParts.add(id2.getText());} | id3:INNER {nameParts.add("INNER");}) )*
+	    (DOT (id2:ID {nameParts.add(id2.getText());} | "INNER" {nameParts.add("INNER");}) )*
 	{
 	AbstractNamedReference firstNsRef=null;
 	NamespaceReference lastNsRef = null;
@@ -244,7 +253,7 @@ ArrayList<String> nameParts = new ArrayList<String>();} :
 		NamespaceReference nsRef = ParameterFactory.eINSTANCE.createNamespaceReference();
 		nsRef.setReferenceName(nameParts.get(i));
 		if (lastNsRef != null)
-			lastNsRef.setInnerReference_NamespaceReference(lastNsRef);
+			lastNsRef.setInnerReference_NamespaceReference(nsRef);
 		if (i == 0)
 		   	firstNsRef = nsRef;
 		lastNsRef = nsRef;
@@ -262,7 +271,9 @@ ArrayList<String> nameParts = new ArrayList<String>();} :
 	
 {@SuppressWarnings({"unused"})}
 class StochasticExpressionsLexer extends Lexer;
-options { k = 9; }
+options { 
+	k = 2;  
+}
 
 PLUS  : '+' ;
 MINUS : '-' ;
@@ -274,32 +285,19 @@ LPAREN: '(' ;
 RPAREN: ')' ;
 SEMI  : ';' ;
 EQUAL : '=' ;
-INT_DEF : "IntPMF" ;
-REAL_DEF: "DoublePMF" ;
-ENUM_DEF: "EnumPMF" ;
-REAL_PDF: "DoublePDF" ;
 SQUARE_PAREN_L : '[' ;
 SQUARE_PAREN_R : ']' ;
-UNIT_DEF : "unit" ;
-ORDERED_DEF : "ordered" ;
 protected DIGIT : '0'..'9' ;
 NUMBER : (DIGIT)+ ('.' (DIGIT)+)?;
 protected ALPHA : 'a'..'z' | 'A'..'Z' ;
-// PARAM : "prim_param" | "coll_param" ;
 NOTEQUAL : "<>" ;
 GREATER : ">" ;
 LESS : "<" ;
 GREATEREQUAL : ">=" ;
 LESSEQUAL : "<=" ;
 STRING_LITERAL : "\"" (ALPHA|'_')+ "\"" ;
-INNER : "INNER";
 DOT: '.';
-ID: (ALPHA|'_')+;
-CHARACTERISATIONS: "BYTESIZE" | "STRUCTURE" | "NUMBER_OF_ELEMENTS" | "TYPE" | "VALUE";
-
-protected MEAN : "mean" ;
-protected PROB : "prob" ;
-FUNCTION_DEF : MEAN | PROB ;
+ID options {testLiterals=true;}: (ALPHA|'_')+;
 
 
 WS    : (' ' | '\t' | '\r' | '\n') {$setType(Token.SKIP);} ;
