@@ -90,7 +90,8 @@ public class «this.javaName()»
    
    «EXPAND m2t_transforms::java_core::ClassHeader FOR this»
    «EXPAND SuperClassesTM FOR this»
-   { 
+   {
+   	  «EXPAND ComponentConstructorTM FOR this» 
       «EXPAND m2t_transforms::provided_ports::ProvidedPorts FOR this»
       «EXPAND m2t_transforms::context_pattern::RequiredInterfaces FOR this»
       «EXPAND InnerImplementation FOR this»
@@ -110,3 +111,6 @@ public class «this.javaName()»
 «DEFINE InnerImplementation FOR CompositeComponent»
 «ENDDEFINE»
 ///-----
+
+«DEFINE ComponentConstructorTM FOR ProvidesComponentType»
+«ENDDEFINE»

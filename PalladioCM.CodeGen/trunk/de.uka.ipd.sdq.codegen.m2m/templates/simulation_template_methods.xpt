@@ -1,6 +1,13 @@
 «EXTENSION m2t_transforms::pcm»
+«EXTENSION m2t_transforms::java_names»
+«IMPORT system»
+«IMPORT composition»
+«IMPORT usagemodel»
+«IMPORT entity»
 «IMPORT repository»
 «IMPORT seff»
+«IMPORT resourcetype»
+«IMPORT allocation»
 
 «AROUND ProvidesComponentTypeTM FOR ProvidesComponentType»
    «EXPAND m2t_transforms::java_core::ComponentImplementation FOR this»
@@ -24,7 +31,7 @@
    for (int iterationCount = 0, maxIterationCount = ctx.evaluate("«this.iterations_LoopAction.specification»"); 
             iterationCount < maxIterationCount; iterationCount++){
        «EXPAND m2t_transforms::java_core::Actions FOR this.bodyBehaviour_Loop.steps_Behaviour.findStart()»
-   }
+   } 
 «ENDAROUND»
 
 «AROUND Action FOR InternalAction»
@@ -32,4 +39,23 @@
 «ENDAROUND»
 
 
+«AROUND AllocationContextTM FOR Allocation»
+	private Context ctx = new «this.fqnAllocationContext()»();
+«ENDAROUND»
 
+«AROUND DummyRequiredSystemTM(System s) FOR RequiredRole»
+	«EXPAND m2t_transforms::dummies::DummyComponent(s) FOR this»
+	new «s.implementationPackage()».«this.fqnDummyComponent()»()
+«ENDAROUND»
+
+«AROUND ComponentConstructorTM FOR ProvidesComponentType»
+	private String assemblyContextID = null;
+	
+	public «this.javaName()» (String assemblyContextID) {
+		this.assemblyContextID = assemblyContextID;
+	}
+«ENDAROUND»
+
+«AROUND ComponentConstructorParametersTM FOR AssemblyContext»
+	"«this.id»"
+«ENDAROUND»

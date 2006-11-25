@@ -57,6 +57,9 @@
 		<metaModel id="pcm.core.composition.emf" class="oaw.type.emf.EmfMetaModel">
 			<metaModelPackage value="de.uka.ipd.sdq.pcm.core.composition.CompositionPackage"/>
 		</metaModel>
+		<metaModel id="pcm.core.composition.emf" class="oaw.type.emf.EmfMetaModel">
+			<metaModelPackage value="de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage"/>
+		</metaModel>
 		<expand value="m2t_transforms::repository::Root FOR pcmmodel"/>
 		<outlet path="src-gen">
 			<postprocessor class="oaw.xpand2.output.JavaBeautifier"/>

@@ -1,0 +1,23 @@
+«EXTENSION m2t_transforms::java_names»
+«EXTENSION m2t_transforms::pcm»
+«IMPORT system»
+«IMPORT composition»
+«IMPORT usagemodel»
+«IMPORT entity»
+«IMPORT repository»
+
+«DEFINE UserAction FOR AbstractUserAction»
+	// Unknown user action
+«ENDDEFINE»
+
+«DEFINE UserAction FOR Start»
+«ENDDEFINE»
+
+«DEFINE UserAction FOR Stop»
+«ENDDEFINE»
+
+«DEFINE UserAction FOR EntryLevelSystemCall»
+    «this.providedRole_EntryLevelSystemCall.portMemberVar()».
+    	«this.signature_EntryLevelSystemCall.serviceName» 
+    	(«EXPAND m2t_transforms::java_core::ParameterUsageListTM FOR this.signature_EntryLevelSystemCall»);
+«ENDDEFINE»

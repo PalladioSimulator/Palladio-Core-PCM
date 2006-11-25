@@ -9,4 +9,5 @@ Require-Bundle: org.openarchitectureware.core.check,
  org.openarchitectureware.core.xpand2,
  de.uka.ipd.sdq.identifier,
  de.uka.ipd.sdq.pcm,
- de.uka.ipd.sdq.probfunction
+ de.uka.ipd.sdq.probfunction,
+ org.aspectj.runtime

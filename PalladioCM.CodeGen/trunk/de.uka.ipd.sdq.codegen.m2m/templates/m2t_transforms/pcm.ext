@@ -3,6 +3,7 @@ import repository;
 import seff;
 import system;
 import composition;
+import usagemodel;
 
 findStart(List[AbstractAction] actions) :
    actions.typeSelect(StartAction).first();
@@ -30,3 +31,6 @@ hasRequiredDelegationConnector(ComposedStructure s, AssemblyContext ctx, Require
    
 getRequiredDelegationConnector(ComposedStructure s, AssemblyContext ctx, RequiredRole r) :
    s.requiredDelegationConnectors_ComposedStructure.select(dc|dc.innerRequiredRole_RequiredDelegationConnector ==  r).get(0);  
+   
+querySystemCalls(UsageScenario us) :
+  us.scenarioBehaviour_UsageScenario.actions_ScenarioBehaviour.typeSelect(EntryLevelSystemCall);

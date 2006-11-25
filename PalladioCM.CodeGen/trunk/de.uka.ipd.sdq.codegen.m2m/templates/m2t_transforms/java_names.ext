@@ -2,6 +2,8 @@ import entity;
 import repository;
 import system;
 import composition;
+import usagemodel;
+import allocation;
 
 // Generate a java name by replacing all characters which are not java conform
 javaName(Entity e) :
@@ -11,7 +13,7 @@ javaName(Entity e) :
 portClassName(ProvidedRole r) :
    r.providedInterface__ProvidedRole.javaName()+"_"+r.providingEntity_ProvidedRole.javaName();
 
-// ?
+// Name of the class containing the interfaces of the required roles
 contextClassName(InterfaceRequiringEntity c) :
    c.javaName()+"Context";
    
@@ -29,6 +31,10 @@ portGetter(ProvidedRole r) :
 basePackageName(Repository r) :
    r.javaName().toLowerCase();
 
+// Name of the base package which is generated from a repository model instance
+basePackageName(UsageScenario u) :
+   u.javaName().toLowerCase();
+   
 implementationPackage(Entity e) :
    "should never be called!";
 
@@ -39,7 +45,11 @@ implementationPackage(Interface i) :
 // Base package of the implementation of a system
 implementationPackage(ComposedStructure s) :
    s.basePackageName()+".impl";
-   
+  
+// Base package of the implementation of a system
+implementationPackage(UsageScenario u) :
+   u.basePackageName()+".impl";
+      
 // Package name of the implementation classes implementing a component     
 implementationPackage(ProvidesComponentType c) :
    c.repository_ProvidesComponentType.basePackageName()+".impl";
@@ -52,6 +62,15 @@ basePackageName(ComposedStructure s) :
 className(ComposedStructure s) :
    s.javaName().toFirstUpper();
 
+fqnAllocationContextPackage(Allocation a) :
+   a.system_Allocation.implementationPackage()+".allocation";
+
+fqnAllocationContextClass(Allocation a) :
+   a.javaName()+"RuntimeContext";
+      
+fqnAllocationContext(Allocation a) :
+	a.fqnAllocationContextPackage()+"."+a.fqnAllocationContextClass();
+	
 // ------------------- FQNs -------------------
 fqn(Entity e) :
   "Should never be called";
@@ -68,14 +87,24 @@ fqn(ComposedStructure s) :
 fqnContextPackage(Entity c) :
   c.implementationPackage()+".contexts";
 
-fqnContext(Entity c) :
-  c.fqnContextPackage()+"."+c.javaName()+"Context";
+fqnContext(InterfaceRequiringEntity c) :
+  c.fqnContextPackage()+"."+c.contextClassName();
 
 fqnPortPackage(ProvidedRole pr) :
   pr.providingEntity_ProvidedRole.implementationPackage()+".ports";
 
 fqnPort(ProvidedRole pr) :
   pr.providingEntity_ProvidedRole.implementationPackage()+".ports."+pr.portClassName();
+  
+dummyComponentName(RequiredRole rr):
+	rr.requiredInterface__RequiredRole.javaName()+"Dummy";
+
+fqnDummyComponentPackage(RequiredRole rr):
+	"dummies";
+
+fqnDummyComponent(RequiredRole rr):
+  rr.fqnDummyComponentPackage()+"."+rr.dummyComponentName();
+  
 // ---------------- End FQN -------------------
 
 // Convert a FQ package name to a directory path

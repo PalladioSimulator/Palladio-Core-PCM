@@ -25,7 +25,8 @@
 «DEFINE ChildMemberVars FOR AssemblyContext»
    protected 
       «this.encapsulatedComponent_ChildComponentContext.javaName()» 
-         my«this.javaName()» = new «this.encapsulatedComponent_ChildComponentContext.javaName()»();
+         my«this.javaName()» = new «this.encapsulatedComponent_ChildComponentContext.javaName()»
+         	(«EXPAND ComponentConstructorParametersTM FOR this»);
 «ENDDEFINE»
 
 «DEFINE InitCall FOR AssemblyContext»
@@ -55,4 +56,8 @@
 	        null
 	    «ENDIF» 
     «ENDIF»
+«ENDDEFINE»
+
+«DEFINE ComponentConstructorParametersTM FOR AssemblyContext»
+	/* Add Parameters here */
 «ENDDEFINE»

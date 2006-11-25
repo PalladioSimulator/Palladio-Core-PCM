@@ -1,0 +1,23 @@
+«EXTENSION m2t_transforms::pcm»
+«IMPORT system»
+«IMPORT composition»
+«IMPORT usagemodel»
+«IMPORT entity»
+«IMPORT repository»
+«IMPORT seff»
+«IMPORT resourcetype»
+
+«AROUND Action FOR ExternalCallAction»
+	System.out.println("Calling «this.calledService_ExternalService.serviceName»");
+	«targetDef.proceed()»
+«ENDAROUND»
+
+«AROUND Action FOR InternalAction»
+	System.out.println("Internal Action «this.entityName»");
+	«targetDef.proceed()»
+«ENDAROUND»
+
+«AROUND UserAction FOR EntryLevelSystemCall»
+	System.out.println("Calling system method «this.signature_EntryLevelSystemCall.serviceName»");
+	«targetDef.proceed()»
+«ENDAROUND»

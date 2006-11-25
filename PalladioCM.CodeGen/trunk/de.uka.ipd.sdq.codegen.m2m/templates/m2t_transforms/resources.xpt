@@ -9,7 +9,7 @@
    «FOREACH this.resourceDemand_Action AS resDemand»
    {
       double demand = ctx.evaluate("«resDemand.specification»");
-      ctx.findResource("«resDemand.requiredResource_ParametricResourceDemand.entityName»").load(demand);
+      ctx.findResource(this.assemblyContextID,"«resDemand.requiredResource_ParametricResourceDemand.entityName»").load(demand);
    }
    «ENDFOREACH»
 «ENDDEFINE»

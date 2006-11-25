@@ -1,0 +1,78 @@
+«EXTENSION m2t_transforms::java_names»
+«EXTENSION m2t_transforms::pcm»
+«IMPORT system»
+«IMPORT composition»
+«IMPORT usagemodel»
+«IMPORT entity»
+«IMPORT repository»
+«IMPORT allocation»
+
+«DEFINE UsageModel(Allocation a) FOR UsageModel»
+	«EXPAND UsageScenario(a) FOREACH this.usageScenario_UsageModel»
+«ENDDEFINE» 
+
+«DEFINE UsageScenario(Allocation a) FOR UsageScenario»
+	«FILE this.implementationPackage().fqnToDirectoryPath() + "/" + this.javaName() + ".java"»
+		package «this.implementationPackage()»;
+		«EXPAND m2t_transforms::java_core::ImportsTM FOR this»
+		«EXPAND m2t_transforms::java_core::Import FOREACH this.querySystemCalls().providedRole_EntryLevelSystemCall.providedInterface__ProvidedRole»
+		«EXPAND m2t_transforms::java_core::Import FOREACH this.querySystemCalls().providedRole_EntryLevelSystemCall.providingEntity_ProvidedRole.toSet()»
+		«EXPAND ContextImports FOR this»
+		public class «this.javaName()» {
+			«EXPAND SystemMemberVar FOREACH this.querySystemCalls().providedRole_EntryLevelSystemCall»
+			«EXPAND AllocationContextTM FOR a»
+			«EXPAND UsageScenarioConstructor FOR this»
+			
+			«EXPAND ScenarioRunner FOR this.scenarioBehaviour_UsageScenario»
+		}
+	«ENDFILE»
+«ENDDEFINE» 
+
+«DEFINE ContextImports FOR UsageScenario»
+	/**
+	* Imports for the system context classes
+	**/
+	«FOREACH this.querySystemCalls().providedRole_EntryLevelSystemCall AS pr»
+		«EXPAND m2t_transforms::java_core::Import FOR ((System)pr.providingEntity_ProvidedRole).fqnContext()»
+	«ENDFOREACH»
+«ENDDEFINE»
+
+«DEFINE UsageScenarioConstructor FOR UsageScenario»
+public «this.javaName()»() {
+	«FOREACH this.querySystemCalls().providedRole_EntryLevelSystemCall AS pr»
+		«pr.providingEntity_ProvidedRole.javaName()» my«pr.providingEntity_ProvidedRole.javaName()» = new «pr.providingEntity_ProvidedRole.javaName()»();
+		«LET ((System)pr.providingEntity_ProvidedRole) AS system»
+			«system.contextClassName()» context«pr.providingEntity_ProvidedRole.javaName()» = 
+				new «system.contextClassName()»
+					(«EXPAND DummyRequiredSystemTM(system) FOREACH system.requiredRoles_InterfaceRequiringEntity SEPARATOR ","»);
+		«ENDLET»
+      	my«pr.providingEntity_ProvidedRole.javaName()».setContext(context«pr.providingEntity_ProvidedRole.javaName()»);
+
+		«pr.portMemberVar()» = my«pr.providingEntity_ProvidedRole.javaName()».«pr.portGetter()»();
+	«ENDFOREACH»
+}
+«ENDDEFINE»
+
+«DEFINE SystemMemberVar FOR ProvidedRole»
+   protected «this.providedInterface__ProvidedRole.javaName()» «this.portMemberVar()» = null;
+«ENDDEFINE»
+
+«DEFINE ScenarioRunner FOR ScenarioBehaviour»
+public void scenarioRunner() {
+	«EXPAND UserActions FOR this.actions_ScenarioBehaviour.typeSelect(Start).get(0)»
+}
+«ENDDEFINE»
+
+«DEFINE UserActions FOR AbstractUserAction»
+   «EXPAND m2t_transforms::user_actions::UserAction FOR this»
+   «IF !Stop.isInstance(this)»
+      «EXPAND UserActions FOR this.successor»
+   «ENDIF»
+«ENDDEFINE»
+
+«DEFINE DummyRequiredSystemTM(System s) FOR RequiredRole»
+	null
+«ENDDEFINE»
+
+«DEFINE AllocationContextTM FOR Allocation»
+«ENDDEFINE»
