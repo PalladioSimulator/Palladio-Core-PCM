@@ -456,15 +456,6 @@ public class StoexPackageImpl extends EPackageImpl implements StoexPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getRandomVariable_Specification_RandomVariable() {
-		return (EReference)randomVariableEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getProductExpression() {
 		return productExpressionEClass;
 	}
@@ -698,7 +689,6 @@ public class StoexPackageImpl extends EPackageImpl implements StoexPackage {
 
 		randomVariableEClass = createEClass(RANDOM_VARIABLE);
 		createEAttribute(randomVariableEClass, RANDOM_VARIABLE__SPECIFICATION);
-		createEReference(randomVariableEClass, RANDOM_VARIABLE__SPECIFICATION_RANDOM_VARIABLE);
 
 		productExpressionEClass = createEClass(PRODUCT_EXPRESSION);
 		createEReference(productExpressionEClass, PRODUCT_EXPRESSION__LEFT);
@@ -805,7 +795,6 @@ public class StoexPackageImpl extends EPackageImpl implements StoexPackage {
 
 		initEClass(randomVariableEClass, RandomVariable.class, "RandomVariable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getRandomVariable_Specification(), ecorePackage.getEString(), "specification", null, 1, 1, RandomVariable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getRandomVariable_Specification_RandomVariable(), this.getExpression(), null, "specification_RandomVariable", null, 1, 1, RandomVariable.class, IS_TRANSIENT, IS_VOLATILE, !IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(productExpressionEClass, ProductExpression.class, "ProductExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getProductExpression_Left(), this.getProduct(), null, "left", null, 1, 1, ProductExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);

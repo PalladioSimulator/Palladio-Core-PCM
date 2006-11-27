@@ -29,7 +29,6 @@ import de.uka.ipd.sdq.stoex.parser.StochasticExpressionsParser;
  * The following features are implemented:
  * <ul>
  *   <li>{@link de.uka.ipd.sdq.stoex.impl.RandomVariableImpl#getSpecification <em>Specification</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.stoex.impl.RandomVariableImpl#getSpecification_RandomVariable <em>Specification Random Variable</em>}</li>
  * </ul>
  * </p>
  *
@@ -107,35 +106,10 @@ public class RandomVariableImpl extends EObjectImpl implements RandomVariable {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Expression getSpecification_RandomVariable() {
-		Expression specification_RandomVariable = basicGetSpecification_RandomVariable();
-		return specification_RandomVariable != null && specification_RandomVariable.eIsProxy() ? (Expression)eResolveProxy((InternalEObject)specification_RandomVariable) : specification_RandomVariable;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Expression basicGetSpecification_RandomVariable() {
-		// TODO: implement this method to return the 'Specification Random Variable' reference
-		// -> do not perform proxy resolution
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case StoexPackage.RANDOM_VARIABLE__SPECIFICATION:
 				return getSpecification();
-			case StoexPackage.RANDOM_VARIABLE__SPECIFICATION_RANDOM_VARIABLE:
-				if (resolve) return getSpecification_RandomVariable();
-				return basicGetSpecification_RandomVariable();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -177,8 +151,6 @@ public class RandomVariableImpl extends EObjectImpl implements RandomVariable {
 		switch (featureID) {
 			case StoexPackage.RANDOM_VARIABLE__SPECIFICATION:
 				return SPECIFICATION_EDEFAULT == null ? specification != null : !SPECIFICATION_EDEFAULT.equals(specification);
-			case StoexPackage.RANDOM_VARIABLE__SPECIFICATION_RANDOM_VARIABLE:
-				return basicGetSpecification_RandomVariable() != null;
 		}
 		return super.eIsSet(featureID);
 	}

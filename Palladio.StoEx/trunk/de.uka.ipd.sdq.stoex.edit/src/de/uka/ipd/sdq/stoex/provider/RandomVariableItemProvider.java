@@ -70,7 +70,6 @@ public class RandomVariableItemProvider
 			super.getPropertyDescriptors(object);
 
 			addSpecificationPropertyDescriptor(object);
-			addSpecification_RandomVariablePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -93,28 +92,6 @@ public class RandomVariableItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Specification Random Variable feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addSpecification_RandomVariablePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_RandomVariable_specification_RandomVariable_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_RandomVariable_specification_RandomVariable_feature", "_UI_RandomVariable_type"),
-				 StoexPackage.Literals.RANDOM_VARIABLE__SPECIFICATION_RANDOM_VARIABLE,
-				 false,
-				 false,
-				 false,
-				 null,
 				 null,
 				 null));
 	}

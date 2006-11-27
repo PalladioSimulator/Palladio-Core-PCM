@@ -50,9 +50,6 @@
   <eClassifiers xsi:type="ecore:EClass" name="RandomVariable">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="specification" ordered="false"
         lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="specification_RandomVariable"
-        ordered="false" lowerBound="1" eType="#//Expression" changeable="false" volatile="true"
-        transient="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ProductExpression" eSuperTypes="#//Product">
     <eStructuralFeatures xsi:type="ecore:EReference" name="left" ordered="false" lowerBound="1"

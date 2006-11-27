@@ -17,7 +17,6 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * <ul>
  *   <li>{@link de.uka.ipd.sdq.stoex.RandomVariable#getSpecification <em>Specification</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.stoex.RandomVariable#getSpecification_RandomVariable <em>Specification Random Variable</em>}</li>
  * </ul>
  * </p>
  *
@@ -58,20 +57,5 @@ public interface RandomVariable extends EObject {
 	 * @generated
 	 */
 	void setSpecification(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Specification Random Variable</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Specification Random Variable</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Specification Random Variable</em>' reference.
-	 * @see de.uka.ipd.sdq.stoex.StoexPackage#getRandomVariable_Specification_RandomVariable()
-	 * @model required="true" transient="true" changeable="false" volatile="true" ordered="false"
-	 * @generated
-	 */
-	Expression getSpecification_RandomVariable();
 
 } // RandomVariable

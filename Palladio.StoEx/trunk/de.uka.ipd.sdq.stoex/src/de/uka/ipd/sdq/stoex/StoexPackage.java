@@ -368,22 +368,13 @@ public interface StoexPackage extends EPackage {
 	int RANDOM_VARIABLE__SPECIFICATION = 0;
 
 	/**
-	 * The feature id for the '<em><b>Specification Random Variable</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RANDOM_VARIABLE__SPECIFICATION_RANDOM_VARIABLE = 1;
-
-	/**
 	 * The number of structural features of the '<em>Random Variable</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RANDOM_VARIABLE_FEATURE_COUNT = 2;
+	int RANDOM_VARIABLE_FEATURE_COUNT = 1;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.stoex.impl.ProductExpressionImpl <em>Product Expression</em>}' class.
@@ -837,17 +828,6 @@ public interface StoexPackage extends EPackage {
 	EAttribute getRandomVariable_Specification();
 
 	/**
-	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.stoex.RandomVariable#getSpecification_RandomVariable <em>Specification Random Variable</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Specification Random Variable</em>'.
-	 * @see de.uka.ipd.sdq.stoex.RandomVariable#getSpecification_RandomVariable()
-	 * @see #getRandomVariable()
-	 * @generated
-	 */
-	EReference getRandomVariable_Specification_RandomVariable();
-
-	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.stoex.ProductExpression <em>Product Expression</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1254,14 +1234,6 @@ public interface StoexPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute RANDOM_VARIABLE__SPECIFICATION = eINSTANCE.getRandomVariable_Specification();
-
-		/**
-		 * The meta object literal for the '<em><b>Specification Random Variable</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference RANDOM_VARIABLE__SPECIFICATION_RANDOM_VARIABLE = eINSTANCE.getRandomVariable_Specification_RandomVariable();
 
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.stoex.impl.ProductExpressionImpl <em>Product Expression</em>}' class.
