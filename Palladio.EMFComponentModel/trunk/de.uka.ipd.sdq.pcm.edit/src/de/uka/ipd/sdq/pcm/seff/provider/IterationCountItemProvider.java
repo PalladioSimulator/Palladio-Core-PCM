@@ -19,9 +19,9 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 
-import de.uka.ipd.sdq.pcm.core.stochastics.provider.PcmEditPlugin;
-import de.uka.ipd.sdq.pcm.core.stochastics.provider.RandomVariableItemProvider;
+import de.uka.ipd.sdq.pcm.core.entity.provider.PcmEditPlugin;
 import de.uka.ipd.sdq.pcm.seff.IterationCount;
+import de.uka.ipd.sdq.stoex.provider.RandomVariableItemProvider;
 
 /**
  * This is the item provider adapter for a {@link de.uka.ipd.sdq.pcm.seff.IterationCount} object.

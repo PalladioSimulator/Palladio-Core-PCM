@@ -8,17 +8,13 @@ import java.io.StringReader;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.swt.widgets.Shell;
 
-import de.uka.ipd.sdq.pcm.parameter.VariableCharacterisation;
-import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
-import de.uka.ipd.sdq.pcm.stochasticexpressions.ParameterPrettyPrint;
-import de.uka.ipd.sdq.pcm.stochasticexpressions.StoExPrettyPrintVisitor;
-import de.uka.ipd.sdq.pcm.stochasticexpressions.parser.StochasticExpressionsLexer;
-import de.uka.ipd.sdq.pcm.stochasticexpressions.parser.StochasticExpressionsParser;
-import de.uka.ipd.sdq.pcm.stochasticexpressions.parser.VariableUsageParser;
-
 import antlr.CharScanner;
 import antlr.RecognitionException;
 import antlr.TokenStreamException;
+import de.uka.ipd.sdq.pcm.parameter.VariableCharacterisation;
+import de.uka.ipd.sdq.pcm.stochasticexpressions.ParameterPrettyPrint;
+import de.uka.ipd.sdq.pcm.stochasticexpressions.parser.VariableUsageParser;
+import de.uka.ipd.sdq.stoex.parser.StochasticExpressionsLexer;
 
 /**
  * @author Steffen Becker

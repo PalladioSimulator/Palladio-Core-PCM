@@ -1,12 +1,12 @@
 header{  
 	package de.uka.ipd.sdq.pcm.stochasticexpressions.parser;
-	import de.uka.ipd.sdq.pcm.core.stochastics.*;
+	import de.uka.ipd.sdq.stoex.*;
 	import de.uka.ipd.sdq.probfunction.*;
 	import de.uka.ipd.sdq.pcm.parameter.*;
 	import java.util.ArrayList;
-	import de.uka.ipd.sdq.pcm.stochasticexpressions.StoExPrettyPrintVisitor;
+	import de.uka.ipd.sdq.stoex.analyser.visitors.StoExPrettyPrintVisitor;
 }
-  
+    
 {@SuppressWarnings({"unused"})}
 class VariableUsageParser extends StochasticExpressionsParser;
 
@@ -27,4 +27,20 @@ variable_characterisation returns [VariableCharacterisation vc]
 			String result = "= " + new StoExPrettyPrintVisitor().prettyPrint(ex);
 			vc.setSpecification(result);
 		}
+;
+
+characterisation returns [VariableCharacterisationType ct]
+{ct = null; String type="";} :
+	type = characterisation_keywords
+	{if(type.equals("TYPE"))
+		ct = VariableCharacterisationType.DATATYPE_LITERAL;
+	 else if(type.equals("BYTESIZE"))
+		ct = VariableCharacterisationType.BYTESIZE_LITERAL;
+	 else if(type.equals("NUMBER_OF_ELEMENTS"))
+		ct = VariableCharacterisationType.NUMBER_OF_ELEMENTS_LITERAL;
+	 else if(type.equals("VALUE"))
+		ct = VariableCharacterisationType.VALUE_LITERAL;
+	 else if(type.equals("STRUCTURE"))
+		ct = VariableCharacterisationType.STRUCTURE_LITERAL;
+	}
 ;

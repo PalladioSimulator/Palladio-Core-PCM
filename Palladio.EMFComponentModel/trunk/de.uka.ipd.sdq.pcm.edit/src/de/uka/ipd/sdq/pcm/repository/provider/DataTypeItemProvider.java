@@ -21,8 +21,7 @@ import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 
-import de.uka.ipd.sdq.pcm.core.stochastics.provider.PcmEditPlugin;
-
+import de.uka.ipd.sdq.pcm.core.entity.provider.PcmEditPlugin;
 import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
 
 /**

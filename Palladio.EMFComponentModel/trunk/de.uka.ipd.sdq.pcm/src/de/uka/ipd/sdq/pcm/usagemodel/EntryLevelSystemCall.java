@@ -7,10 +7,9 @@
  */
 package de.uka.ipd.sdq.pcm.usagemodel;
 
-import de.uka.ipd.sdq.pcm.repository.ProvidedRole;
-
 import org.eclipse.emf.common.util.EList;
 
+import de.uka.ipd.sdq.pcm.repository.ProvidedRole;
 import de.uka.ipd.sdq.pcm.repository.Signature;
 
 /**

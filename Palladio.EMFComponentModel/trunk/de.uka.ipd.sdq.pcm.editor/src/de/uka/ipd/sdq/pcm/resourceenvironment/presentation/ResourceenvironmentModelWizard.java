@@ -59,11 +59,10 @@ import org.eclipse.ui.dialogs.WizardNewFileCreationPage;
 import org.eclipse.ui.part.FileEditorInput;
 import org.eclipse.ui.part.ISetSelectionTarget;
 
+import de.uka.ipd.sdq.pcm.core.entity.provider.PcmEditPlugin;
 import de.uka.ipd.sdq.pcm.core.stochastics.presentation.PcmEditorPlugin;
-import de.uka.ipd.sdq.pcm.core.stochastics.provider.PcmEditPlugin;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentFactory;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage;
-
 
 /**
  * This is a simple wizard for creating a new model file.

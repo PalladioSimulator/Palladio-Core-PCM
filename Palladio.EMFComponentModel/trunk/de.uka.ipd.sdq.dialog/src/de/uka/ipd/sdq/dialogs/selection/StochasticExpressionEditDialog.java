@@ -8,11 +8,10 @@ import org.eclipse.swt.widgets.Shell;
 import antlr.CharScanner;
 import antlr.RecognitionException;
 import antlr.TokenStreamException;
-
-import de.uka.ipd.sdq.pcm.core.stochastics.Expression;
-import de.uka.ipd.sdq.pcm.stochasticexpressions.StoExPrettyPrintVisitor;
-import de.uka.ipd.sdq.pcm.stochasticexpressions.parser.StochasticExpressionsLexer;
-import de.uka.ipd.sdq.pcm.stochasticexpressions.parser.StochasticExpressionsParser;
+import de.uka.ipd.sdq.stoex.Expression;
+import de.uka.ipd.sdq.stoex.analyser.visitors.StoExPrettyPrintVisitor;
+import de.uka.ipd.sdq.stoex.parser.StochasticExpressionsLexer;
+import de.uka.ipd.sdq.stoex.parser.StochasticExpressionsParser;
 
 public class StochasticExpressionEditDialog extends
 		AbstractGrammerBasedEditDialog {

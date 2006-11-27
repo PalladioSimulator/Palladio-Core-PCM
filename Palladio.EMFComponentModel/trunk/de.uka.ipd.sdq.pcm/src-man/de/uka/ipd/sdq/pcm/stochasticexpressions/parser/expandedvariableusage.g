@@ -1,10 +1,10 @@
 header{  
 	package de.uka.ipd.sdq.pcm.stochasticexpressions.parser;
-	import de.uka.ipd.sdq.pcm.core.stochastics.*;
+	import de.uka.ipd.sdq.stoex.*;
 	import de.uka.ipd.sdq.probfunction.*;
 	import de.uka.ipd.sdq.pcm.parameter.*;
 	import java.util.ArrayList;
-	import de.uka.ipd.sdq.pcm.stochasticexpressions.StoExPrettyPrintVisitor;
+	import de.uka.ipd.sdq.stoex.analyser.visitors.StoExPrettyPrintVisitor;
 }
 {@SuppressWarnings({"unused"})}class VariableUsageParser extends Parser;
 
@@ -32,6 +32,21 @@ variable_characterisation returns [VariableCharacterisation vc]{vc = ParameterFa
 		}
 ;
 
+characterisation returns [VariableCharacterisationType ct]{ct = null; String type="";}
+:type = characterisation_keywords
+	{if(type.equals("TYPE"))
+		ct = VariableCharacterisationType.DATATYPE_LITERAL;
+	 else if(type.equals("BYTESIZE"))
+		ct = VariableCharacterisationType.BYTESIZE_LITERAL;
+	 else if(type.equals("NUMBER_OF_ELEMENTS"))
+		ct = VariableCharacterisationType.NUMBER_OF_ELEMENTS_LITERAL;
+	 else if(type.equals("VALUE"))
+		ct = VariableCharacterisationType.VALUE_LITERAL;
+	 else if(type.equals("STRUCTURE"))
+		ct = VariableCharacterisationType.STRUCTURE_LITERAL;
+	}
+;
+
 // inherited from grammar StochasticExpressionsParser
 expression returns [Expression exp]{exp = null;}
 :{Comparison c;} 
@@ -42,7 +57,7 @@ expression returns [Expression exp]{exp = null;}
 compareExpr returns [Comparison comp]{comp = null;}
 :{Term t1 = null, t2 = null;}
 			t1 = sumExpr {comp = t1;} (
-				{CompareExpression compExp = StochasticsFactory.eINSTANCE.createCompareExpression();}
+				{CompareExpression compExp = StoexFactory.eINSTANCE.createCompareExpression();}
 				(GREATER {compExp.setOperation(CompareOperations.GREATER_LITERAL);}|
 				 LESS {compExp.setOperation(CompareOperations.LESS_LITERAL);}|
 				 EQUAL {compExp.setOperation(CompareOperations.EQUALS_LITERAL);}|
@@ -56,7 +71,7 @@ compareExpr returns [Comparison comp]{comp = null;}
 sumExpr returns [Term t]{t = null;}
 :{Product p1 = null, p2 = null;}
 		p1 = prodExpr {t = p1;} (
-			{TermExpression termExp = StochasticsFactory.eINSTANCE.createTermExpression();}			
+			{TermExpression termExp = StoexFactory.eINSTANCE.createTermExpression();}			
 			(PLUS {termExp.setOperation(TermOperations.ADD_LITERAL);}|
 			MINUS  {termExp.setOperation(TermOperations.SUB_LITERAL);}) 
 			p2 = prodExpr
@@ -69,7 +84,7 @@ prodExpr returns [Product p]{p = null;}
 :{Power pw1 = null, pw2 = null;}
 		pw1 = powExpr {p = pw1;} 
 			(
-			{ProductExpression prodExp = StochasticsFactory.eINSTANCE.createProductExpression();}
+			{ProductExpression prodExp = StoexFactory.eINSTANCE.createProductExpression();}
 			 (MUL {prodExp.setOperation(ProductOperations.MULT_LITERAL);} |
 			  DIV {prodExp.setOperation(ProductOperations.DIV_LITERAL);} |
 			  MOD {prodExp.setOperation(ProductOperations.MOD_LITERAL);} ) 
@@ -91,23 +106,23 @@ atom returns [Atom a]{a = null;}
 				String value = number.getText();
 				if (value.indexOf('.') < 0)
 				{
-					IntLiteral il = StochasticsFactory.eINSTANCE.createIntLiteral();
+					IntLiteral il = StoexFactory.eINSTANCE.createIntLiteral();
 					il.setValue(Integer.parseInt(value));
 					a = il;
 				}
 				else
 				{
-					DoubleLiteral dl = StochasticsFactory.eINSTANCE.createDoubleLiteral();
+					DoubleLiteral dl = StoexFactory.eINSTANCE.createDoubleLiteral();
 					dl.setValue(Double.parseDouble(value));
 					a = dl;
 				}
 			}
 		  |
-		  {AbstractNamedReference id = null; VariableCharacterisationType type;}
-		  id = scoped_id DOT type = characterisation
-		  { a = StochasticsFactory.eINSTANCE.createVariable();
+		  {AbstractNamedReference id = null;} // VariableCharacterisationType type;}
+		  id = scoped_id // DOT type = characterisation
+		  { a = StoexFactory.eINSTANCE.createVariable();
 		  	((Variable)a).setId_Variable(id);
-		  	((Variable)a).setCharacterisationType(type);
+		  	//((Variable)a).setCharacterisationType(type);
 		  }
 		  | 
 		  a = definition
@@ -115,7 +130,7 @@ atom returns [Atom a]{a = null;}
 ;
 
 // inherited from grammar StochasticExpressionsParser
-definition returns [ProbabilityFunctionLiteral pfl]{pfl = StochasticsFactory.eINSTANCE.createProbabilityFunctionLiteral();
+definition returns [ProbabilityFunctionLiteral pfl]{pfl = StoexFactory.eINSTANCE.createProbabilityFunctionLiteral();
 	 ProbabilityFunction probFunction = null; }
 :// Numeric PMF
 			
@@ -236,22 +251,6 @@ stringsample returns [Sample s]{s = null;}
 		RPAREN;
 
 // inherited from grammar StochasticExpressionsParser
-characterisation returns [VariableCharacterisationType ct]{ct = null; String type="";}
-:type = characterisation_keywords
-	{if(type.equals("TYPE"))
-		ct = VariableCharacterisationType.DATATYPE_LITERAL;
-	 else if(type.equals("BYTESIZE"))
-		ct = VariableCharacterisationType.BYTESIZE_LITERAL;
-	 else if(type.equals("NUMBER_OF_ELEMENTS"))
-		ct = VariableCharacterisationType.NUMBER_OF_ELEMENTS_LITERAL;
-	 else if(type.equals("VALUE"))
-		ct = VariableCharacterisationType.VALUE_LITERAL;
-	 else if(type.equals("STRUCTURE"))
-		ct = VariableCharacterisationType.STRUCTURE_LITERAL;
-	}
-;
-
-// inherited from grammar StochasticExpressionsParser
 characterisation_keywords returns [String keyword]{keyword = null;}
 :("BYTESIZE" {keyword="BYTESIZE";}
  | "STRUCTURE" {keyword="STRUCTURE";}
@@ -270,7 +269,7 @@ ArrayList<String> nameParts = new ArrayList<String>();}
 	NamespaceReference lastNsRef = null;
 	for (int i=0; i < nameParts.size()-1; i++)
 	{
-		NamespaceReference nsRef = ParameterFactory.eINSTANCE.createNamespaceReference();
+		NamespaceReference nsRef = StoexFactory.eINSTANCE.createNamespaceReference();
 		nsRef.setReferenceName(nameParts.get(i));
 		if (lastNsRef != null)
 			lastNsRef.setInnerReference_NamespaceReference(nsRef);
@@ -278,7 +277,7 @@ ArrayList<String> nameParts = new ArrayList<String>();}
 		   	firstNsRef = nsRef;
 		lastNsRef = nsRef;
 	}
-	VariableReference varRef = ParameterFactory.eINSTANCE.createVariableReference();
+	VariableReference varRef = StoexFactory.eINSTANCE.createVariableReference();
 	varRef.setReferenceName(nameParts.get(nameParts.size()-1));
 		if (lastNsRef != null) {
 			lastNsRef.setInnerReference_NamespaceReference(varRef);

@@ -3,7 +3,6 @@
  */
 package de.uka.ipd.sdq.dialogs.selection;
 
-import java.text.MessageFormat;
 import java.util.ArrayList;
 
 import org.eclipse.jface.text.ITextViewer;
@@ -13,7 +12,6 @@ import org.eclipse.jface.text.contentassist.ICompletionProposal;
 import org.eclipse.jface.text.contentassist.IContentAssistProcessor;
 import org.eclipse.jface.text.contentassist.IContextInformation;
 import org.eclipse.jface.text.contentassist.IContextInformationValidator;
-import org.eclipse.jface.text.templates.TemplateCompletionProcessor;
 
 /**
  * @author Snowball

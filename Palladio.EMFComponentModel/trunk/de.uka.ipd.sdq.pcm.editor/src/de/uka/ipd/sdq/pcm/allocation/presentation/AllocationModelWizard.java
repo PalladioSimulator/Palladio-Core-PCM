@@ -61,8 +61,8 @@ import org.eclipse.ui.part.ISetSelectionTarget;
 
 import de.uka.ipd.sdq.pcm.allocation.AllocationFactory;
 import de.uka.ipd.sdq.pcm.allocation.AllocationPackage;
-import de.uka.ipd.sdq.pcm.core.stochastics.presentation.PcmEditorPlugin;
-import de.uka.ipd.sdq.pcm.core.stochastics.provider.PcmEditPlugin;
+import de.uka.ipd.sdq.pcm.core.entity.presentation.PcmEditorPlugin;
+import de.uka.ipd.sdq.pcm.core.entity.provider.PcmEditPlugin;
 
 
 /**

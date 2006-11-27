@@ -7,11 +7,11 @@
  */
 package de.uka.ipd.sdq.pcm.parameter.impl;
 
-import de.uka.ipd.sdq.pcm.core.stochastics.impl.RandomVariableImpl;
-
 import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
 import de.uka.ipd.sdq.pcm.parameter.VariableCharacterisation;
 import de.uka.ipd.sdq.pcm.parameter.VariableCharacterisationType;
+
+import de.uka.ipd.sdq.stoex.impl.RandomVariableImpl;
 
 import org.eclipse.emf.common.notify.Notification;
 

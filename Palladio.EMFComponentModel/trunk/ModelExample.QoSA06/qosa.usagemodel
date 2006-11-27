@@ -16,7 +16,7 @@
           </namedReference_VariableUsage>
         </actualParameterUsage_EntryLevelSystemCall>
         <providedRole_EntryLevelSystemCall href="qosa.system#_yGq4UHjmEduuSvsux_US9A"/>
-        <signature_EntryLevelSystemCall href="Qosa.repository#//@interfaces__Repository.1/@signatures__Interface.0"/>
+        <signature_EntryLevelSystemCall href="Qosa.repository#//@interfaces__Repository.0/@signatures__Interface.0"/>
       </actions_ScenarioBehaviour>
       <actions_ScenarioBehaviour xsi:type="pcm.usagemodel:Stop" predecessor="//@usageScenario_UsageModel.0/@scenarioBehaviour_UsageScenario/@actions_ScenarioBehaviour.1"/>
     </scenarioBehaviour_UsageScenario>

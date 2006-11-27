@@ -6,9 +6,16 @@
  */
 package de.uka.ipd.sdq.pcm.parameter.util;
 
-import de.uka.ipd.sdq.pcm.core.stochastics.RandomVariable;
-
 import de.uka.ipd.sdq.pcm.parameter.*;
+
+import de.uka.ipd.sdq.stoex.Atom;
+import de.uka.ipd.sdq.stoex.Comparison;
+import de.uka.ipd.sdq.stoex.Expression;
+import de.uka.ipd.sdq.stoex.Power;
+import de.uka.ipd.sdq.stoex.Product;
+import de.uka.ipd.sdq.stoex.RandomVariable;
+import de.uka.ipd.sdq.stoex.Term;
+import de.uka.ipd.sdq.stoex.Variable;
 
 import java.util.List;
 
@@ -96,12 +103,6 @@ public class ParameterSwitch {
 	 */
 	protected Object doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
-			case ParameterPackage.VARIABLE_USAGE: {
-				VariableUsage variableUsage = (VariableUsage)theEObject;
-				Object result = caseVariableUsage(variableUsage);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case ParameterPackage.VARIABLE_CHARACTERISATION: {
 				VariableCharacterisation variableCharacterisation = (VariableCharacterisation)theEObject;
 				Object result = caseVariableCharacterisation(variableCharacterisation);
@@ -109,23 +110,22 @@ public class ParameterSwitch {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case ParameterPackage.ABSTRACT_NAMED_REFERENCE: {
-				AbstractNamedReference abstractNamedReference = (AbstractNamedReference)theEObject;
-				Object result = caseAbstractNamedReference(abstractNamedReference);
+			case ParameterPackage.CHARACTERISED_VARIABLE: {
+				CharacterisedVariable characterisedVariable = (CharacterisedVariable)theEObject;
+				Object result = caseCharacterisedVariable(characterisedVariable);
+				if (result == null) result = caseVariable(characterisedVariable);
+				if (result == null) result = caseAtom(characterisedVariable);
+				if (result == null) result = casePower(characterisedVariable);
+				if (result == null) result = caseProduct(characterisedVariable);
+				if (result == null) result = caseTerm(characterisedVariable);
+				if (result == null) result = caseComparison(characterisedVariable);
+				if (result == null) result = caseExpression(characterisedVariable);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case ParameterPackage.NAMESPACE_REFERENCE: {
-				NamespaceReference namespaceReference = (NamespaceReference)theEObject;
-				Object result = caseNamespaceReference(namespaceReference);
-				if (result == null) result = caseAbstractNamedReference(namespaceReference);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case ParameterPackage.VARIABLE_REFERENCE: {
-				VariableReference variableReference = (VariableReference)theEObject;
-				Object result = caseVariableReference(variableReference);
-				if (result == null) result = caseAbstractNamedReference(variableReference);
+			case ParameterPackage.VARIABLE_USAGE: {
+				VariableUsage variableUsage = (VariableUsage)theEObject;
+				Object result = caseVariableUsage(variableUsage);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -149,47 +149,17 @@ public class ParameterSwitch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Abstract Named Reference</em>'.
+	 * Returns the result of interpretting the object as an instance of '<em>Characterised Variable</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Abstract Named Reference</em>'.
+	 * @return the result of interpretting the object as an instance of '<em>Characterised Variable</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public Object caseAbstractNamedReference(AbstractNamedReference object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Namespace Reference</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Namespace Reference</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public Object caseNamespaceReference(NamespaceReference object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Variable Reference</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Variable Reference</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public Object caseVariableReference(VariableReference object) {
+	public Object caseCharacterisedVariable(CharacterisedVariable object) {
 		return null;
 	}
 
@@ -220,6 +190,111 @@ public class ParameterSwitch {
 	 * @generated
 	 */
 	public Object caseRandomVariable(RandomVariable object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpretting the object as an instance of '<em>Expression</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpretting the object as an instance of '<em>Expression</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public Object caseExpression(Expression object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpretting the object as an instance of '<em>Comparison</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpretting the object as an instance of '<em>Comparison</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public Object caseComparison(Comparison object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpretting the object as an instance of '<em>Term</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpretting the object as an instance of '<em>Term</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public Object caseTerm(Term object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpretting the object as an instance of '<em>Product</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpretting the object as an instance of '<em>Product</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public Object caseProduct(Product object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpretting the object as an instance of '<em>Power</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpretting the object as an instance of '<em>Power</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public Object casePower(Power object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpretting the object as an instance of '<em>Atom</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpretting the object as an instance of '<em>Atom</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public Object caseAtom(Atom object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpretting the object as an instance of '<em>Variable</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpretting the object as an instance of '<em>Variable</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public Object caseVariable(Variable object) {
 		return null;
 	}
 

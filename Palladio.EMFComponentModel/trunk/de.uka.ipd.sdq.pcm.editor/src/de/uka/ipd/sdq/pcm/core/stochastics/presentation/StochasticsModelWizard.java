@@ -59,9 +59,9 @@ import org.eclipse.ui.dialogs.WizardNewFileCreationPage;
 import org.eclipse.ui.part.FileEditorInput;
 import org.eclipse.ui.part.ISetSelectionTarget;
 
-import de.uka.ipd.sdq.pcm.core.stochastics.StochasticsFactory;
-import de.uka.ipd.sdq.pcm.core.stochastics.StochasticsPackage;
-import de.uka.ipd.sdq.pcm.core.stochastics.provider.PcmEditPlugin;
+import de.uka.ipd.sdq.pcm.core.entity.provider.PcmEditPlugin;
+import de.uka.ipd.sdq.stoex.StoexFactory;
+import de.uka.ipd.sdq.stoex.StoexPackage;
 
 
 /**
@@ -84,7 +84,7 @@ public class StochasticsModelWizard extends Wizard implements INewWizard {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected StochasticsPackage stochasticsPackage = StochasticsPackage.eINSTANCE;
+	protected StoexPackage stochasticsPackage = StoexPackage.eINSTANCE;
 
 	/**
 	 * This caches an instance of the model factory.
@@ -92,7 +92,7 @@ public class StochasticsModelWizard extends Wizard implements INewWizard {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected StochasticsFactory stochasticsFactory = stochasticsPackage.getStochasticsFactory();
+	protected StoexFactory stochasticsFactory = stochasticsPackage.getStoexFactory();
 
 	/**
 	 * This is the file creation page.

@@ -39,7 +39,7 @@ import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.PartInitException;
 
-import de.uka.ipd.sdq.pcm.core.stochastics.presentation.PcmEditorPlugin;
+import de.uka.ipd.sdq.pcm.core.entity.presentation.PcmEditorPlugin;
 
 /**
  * This is the action bar contributor for the System model editor.

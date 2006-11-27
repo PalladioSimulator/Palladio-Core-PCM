@@ -6,7 +6,6 @@ package de.uka.ipd.sdq.dialogs.selection;
 import java.util.ArrayList;
 import java.util.Collection;
 
-import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 import org.eclipse.emf.edit.provider.ReflectiveItemProviderAdapterFactory;
 import org.eclipse.emf.edit.provider.resource.ResourceItemProviderAdapterFactory;

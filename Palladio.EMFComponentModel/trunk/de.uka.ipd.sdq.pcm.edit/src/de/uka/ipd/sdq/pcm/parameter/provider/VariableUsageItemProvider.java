@@ -7,11 +7,13 @@
 package de.uka.ipd.sdq.pcm.parameter.provider;
 
 
-import de.uka.ipd.sdq.pcm.core.stochastics.provider.PcmEditPlugin;
+import de.uka.ipd.sdq.pcm.core.entity.provider.PcmEditPlugin;
 
 import de.uka.ipd.sdq.pcm.parameter.ParameterFactory;
 import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
 import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
+
+import de.uka.ipd.sdq.stoex.StoexFactory;
 
 import java.util.Collection;
 import java.util.List;
@@ -162,12 +164,12 @@ public class VariableUsageItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(ParameterPackage.Literals.VARIABLE_USAGE__NAMED_REFERENCE_VARIABLE_USAGE,
-				 ParameterFactory.eINSTANCE.createNamespaceReference()));
+				 StoexFactory.eINSTANCE.createVariableReference()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(ParameterPackage.Literals.VARIABLE_USAGE__NAMED_REFERENCE_VARIABLE_USAGE,
-				 ParameterFactory.eINSTANCE.createVariableReference()));
+				 StoexFactory.eINSTANCE.createNamespaceReference()));
 	}
 
 	/**

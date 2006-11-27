@@ -7,11 +7,12 @@
 package de.uka.ipd.sdq.pcm.parameter.provider;
 
 
-import de.uka.ipd.sdq.pcm.core.stochastics.provider.PcmEditPlugin;
-import de.uka.ipd.sdq.pcm.core.stochastics.provider.RandomVariableItemProvider;
+import de.uka.ipd.sdq.pcm.core.entity.provider.PcmEditPlugin;
 
 import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
 import de.uka.ipd.sdq.pcm.parameter.VariableCharacterisation;
+
+import de.uka.ipd.sdq.stoex.provider.RandomVariableItemProvider;
 
 import java.util.Collection;
 import java.util.List;

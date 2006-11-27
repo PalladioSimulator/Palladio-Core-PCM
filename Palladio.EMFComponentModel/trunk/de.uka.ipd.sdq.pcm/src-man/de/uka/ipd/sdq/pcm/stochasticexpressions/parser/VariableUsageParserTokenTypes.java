@@ -1,11 +1,11 @@
 // $ANTLR : "expandedvariableusage.g" -> "VariableUsageParser.java"$
   
 	package de.uka.ipd.sdq.pcm.stochasticexpressions.parser;
-	import de.uka.ipd.sdq.pcm.core.stochastics.*;
+	import de.uka.ipd.sdq.stoex.*;
 	import de.uka.ipd.sdq.probfunction.*;
 	import de.uka.ipd.sdq.pcm.parameter.*;
 	import java.util.ArrayList;
-	import de.uka.ipd.sdq.pcm.stochasticexpressions.StoExPrettyPrintVisitor;
+	import de.uka.ipd.sdq.stoex.analyser.visitors.StoExPrettyPrintVisitor;
 
 public interface VariableUsageParserTokenTypes {
 	int EOF = 1;
@@ -23,25 +23,25 @@ public interface VariableUsageParserTokenTypes {
 	int MOD = 14;
 	int POW = 15;
 	int NUMBER = 16;
-	int DOT = 17;
-	int LITERAL_IntPMF = 18;
-	int LPAREN = 19;
-	int RPAREN = 20;
-	int SQUARE_PAREN_L = 21;
-	int SQUARE_PAREN_R = 22;
-	int LITERAL_DoublePMF = 23;
-	int LITERAL_EnumPMF = 24;
-	int SEMI = 25;
-	int ORDERED_DEF = 26;
-	int LITERAL_DoublePDF = 27;
-	int LITERAL_unit = 28;
-	int STRING_LITERAL = 29;
-	int LITERAL_BYTESIZE = 30;
-	int LITERAL_STRUCTURE = 31;
-	int LITERAL_NUMBER_OF_ELEMENTS = 32;
-	int LITERAL_TYPE = 33;
-	int LITERAL_VALUE = 34;
-	int ID = 35;
+	int LITERAL_IntPMF = 17;
+	int LPAREN = 18;
+	int RPAREN = 19;
+	int SQUARE_PAREN_L = 20;
+	int SQUARE_PAREN_R = 21;
+	int LITERAL_DoublePMF = 22;
+	int LITERAL_EnumPMF = 23;
+	int SEMI = 24;
+	int ORDERED_DEF = 25;
+	int LITERAL_DoublePDF = 26;
+	int LITERAL_unit = 27;
+	int STRING_LITERAL = 28;
+	int LITERAL_BYTESIZE = 29;
+	int LITERAL_STRUCTURE = 30;
+	int LITERAL_NUMBER_OF_ELEMENTS = 31;
+	int LITERAL_TYPE = 32;
+	int LITERAL_VALUE = 33;
+	int ID = 34;
+	int DOT = 35;
 	int LITERAL_INNER = 36;
 	int DIGIT = 37;
 	int ALPHA = 38;

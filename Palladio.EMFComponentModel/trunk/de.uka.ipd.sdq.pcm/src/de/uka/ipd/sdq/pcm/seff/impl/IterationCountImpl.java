@@ -9,9 +9,9 @@ package de.uka.ipd.sdq.pcm.seff.impl;
 
 import org.eclipse.emf.ecore.EClass;
 
-import de.uka.ipd.sdq.pcm.core.stochastics.impl.RandomVariableImpl;
 import de.uka.ipd.sdq.pcm.seff.IterationCount;
 import de.uka.ipd.sdq.pcm.seff.SeffPackage;
+import de.uka.ipd.sdq.stoex.impl.RandomVariableImpl;
 
 /**
  * <!-- begin-user-doc -->

@@ -20,7 +20,7 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.SetRequest;
 import de.uka.ipd.sdq.dialogs.selection.StochasticExpressionEditDialog;
 import de.uka.ipd.sdq.pcm.core.stochastics.RandomVariable;
 import de.uka.ipd.sdq.pcm.core.stochastics.StochasticsPackage;
-import de.uka.ipd.sdq.pcm.stochasticexpressions.StoExPrettyPrintVisitor;
+import de.uka.ipd.sdq.stoex.analyser.visitors.StoExPrettyPrintVisitor;
 
 /**
  * @author Snowball

@@ -11,7 +11,7 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
 import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
-import de.uka.ipd.sdq.pcm.core.stochastics.StochasticsPackage;
+import de.uka.ipd.sdq.stoex.StoexPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -85,7 +85,7 @@ public interface QosannotationsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SPECIFIED_EXECUTION_TIME__SPECIFICATION = StochasticsPackage.RANDOM_VARIABLE__SPECIFICATION;
+	int SPECIFIED_EXECUTION_TIME__SPECIFICATION = StoexPackage.RANDOM_VARIABLE__SPECIFICATION;
 
 	/**
 	 * The feature id for the '<em><b>Specification Random Variable</b></em>' reference.
@@ -94,7 +94,7 @@ public interface QosannotationsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SPECIFIED_EXECUTION_TIME__SPECIFICATION_RANDOM_VARIABLE = StochasticsPackage.RANDOM_VARIABLE__SPECIFICATION_RANDOM_VARIABLE;
+	int SPECIFIED_EXECUTION_TIME__SPECIFICATION_RANDOM_VARIABLE = StoexPackage.RANDOM_VARIABLE__SPECIFICATION_RANDOM_VARIABLE;
 
 	/**
 	 * The feature id for the '<em><b>Signature Specified Time Consumption</b></em>' reference.
@@ -103,7 +103,7 @@ public interface QosannotationsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SPECIFIED_EXECUTION_TIME__SIGNATURE_SPECIFIED_TIME_CONSUMPTION = StochasticsPackage.RANDOM_VARIABLE_FEATURE_COUNT + 0;
+	int SPECIFIED_EXECUTION_TIME__SIGNATURE_SPECIFIED_TIME_CONSUMPTION = StoexPackage.RANDOM_VARIABLE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Role Specified Execution Time</b></em>' reference.
@@ -112,7 +112,7 @@ public interface QosannotationsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SPECIFIED_EXECUTION_TIME__ROLE_SPECIFIED_EXECUTION_TIME = StochasticsPackage.RANDOM_VARIABLE_FEATURE_COUNT + 1;
+	int SPECIFIED_EXECUTION_TIME__ROLE_SPECIFIED_EXECUTION_TIME = StoexPackage.RANDOM_VARIABLE_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Specified Execution Time</em>' class.
@@ -121,7 +121,7 @@ public interface QosannotationsPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SPECIFIED_EXECUTION_TIME_FEATURE_COUNT = StochasticsPackage.RANDOM_VARIABLE_FEATURE_COUNT + 2;
+	int SPECIFIED_EXECUTION_TIME_FEATURE_COUNT = StoexPackage.RANDOM_VARIABLE_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.qosannotations.impl.SpecifiedFailureProbabilityImpl <em>Specified Failure Probability</em>}' class.

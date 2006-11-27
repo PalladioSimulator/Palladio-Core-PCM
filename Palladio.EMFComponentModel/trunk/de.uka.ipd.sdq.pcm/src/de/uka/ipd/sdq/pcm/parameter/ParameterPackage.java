@@ -6,7 +6,7 @@
  */
 package de.uka.ipd.sdq.pcm.parameter;
 
-import de.uka.ipd.sdq.pcm.core.stochastics.StochasticsPackage;
+import de.uka.ipd.sdq.stoex.StoexPackage;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
@@ -77,37 +77,80 @@ public interface ParameterPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.parameter.impl.ParameterPackageImpl#getVariableCharacterisation()
 	 * @generated
 	 */
-	int VARIABLE_CHARACTERISATION = 1;
+	int VARIABLE_CHARACTERISATION = 0;
 
 	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.parameter.impl.AbstractNamedReferenceImpl <em>Abstract Named Reference</em>}' class.
+	 * The feature id for the '<em><b>Specification</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.pcm.parameter.impl.AbstractNamedReferenceImpl
-	 * @see de.uka.ipd.sdq.pcm.parameter.impl.ParameterPackageImpl#getAbstractNamedReference()
 	 * @generated
+	 * @ordered
 	 */
-	int ABSTRACT_NAMED_REFERENCE = 2;
+	int VARIABLE_CHARACTERISATION__SPECIFICATION = StoexPackage.RANDOM_VARIABLE__SPECIFICATION;
 
 	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.parameter.impl.NamespaceReferenceImpl <em>Namespace Reference</em>}' class.
+	 * The feature id for the '<em><b>Specification Random Variable</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.pcm.parameter.impl.NamespaceReferenceImpl
-	 * @see de.uka.ipd.sdq.pcm.parameter.impl.ParameterPackageImpl#getNamespaceReference()
 	 * @generated
+	 * @ordered
 	 */
-	int NAMESPACE_REFERENCE = 3;
+	int VARIABLE_CHARACTERISATION__SPECIFICATION_RANDOM_VARIABLE = StoexPackage.RANDOM_VARIABLE__SPECIFICATION_RANDOM_VARIABLE;
 
 	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.parameter.impl.VariableReferenceImpl <em>Variable Reference</em>}' class.
+	 * The feature id for the '<em><b>Type</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.pcm.parameter.impl.VariableReferenceImpl
-	 * @see de.uka.ipd.sdq.pcm.parameter.impl.ParameterPackageImpl#getVariableReference()
+	 * @generated
+	 * @ordered
+	 */
+	int VARIABLE_CHARACTERISATION__TYPE = StoexPackage.RANDOM_VARIABLE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Variable Characterisation</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIABLE_CHARACTERISATION_FEATURE_COUNT = StoexPackage.RANDOM_VARIABLE_FEATURE_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.parameter.impl.CharacterisedVariableImpl <em>Characterised Variable</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.pcm.parameter.impl.CharacterisedVariableImpl
+	 * @see de.uka.ipd.sdq.pcm.parameter.impl.ParameterPackageImpl#getCharacterisedVariable()
 	 * @generated
 	 */
-	int VARIABLE_REFERENCE = 4;
+	int CHARACTERISED_VARIABLE = 1;
+
+	/**
+	 * The feature id for the '<em><b>Id Variable</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHARACTERISED_VARIABLE__ID_VARIABLE = StoexPackage.VARIABLE__ID_VARIABLE;
+
+	/**
+	 * The feature id for the '<em><b>Characterisation Type</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHARACTERISED_VARIABLE__CHARACTERISATION_TYPE = StoexPackage.VARIABLE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Characterised Variable</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHARACTERISED_VARIABLE_FEATURE_COUNT = StoexPackage.VARIABLE_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.parameter.impl.VariableUsageImpl <em>Variable Usage</em>}' class.
@@ -117,7 +160,7 @@ public interface ParameterPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.parameter.impl.ParameterPackageImpl#getVariableUsage()
 	 * @generated
 	 */
-	int VARIABLE_USAGE = 0;
+	int VARIABLE_USAGE = 2;
 
 	/**
 	 * The feature id for the '<em><b>Variable Characterisation Variable Usage</b></em>' containment reference list.
@@ -147,105 +190,6 @@ public interface ParameterPackage extends EPackage {
 	int VARIABLE_USAGE_FEATURE_COUNT = 2;
 
 	/**
-	 * The feature id for the '<em><b>Specification</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VARIABLE_CHARACTERISATION__SPECIFICATION = StochasticsPackage.RANDOM_VARIABLE__SPECIFICATION;
-
-	/**
-	 * The feature id for the '<em><b>Specification Random Variable</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VARIABLE_CHARACTERISATION__SPECIFICATION_RANDOM_VARIABLE = StochasticsPackage.RANDOM_VARIABLE__SPECIFICATION_RANDOM_VARIABLE;
-
-	/**
-	 * The feature id for the '<em><b>Type</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VARIABLE_CHARACTERISATION__TYPE = StochasticsPackage.RANDOM_VARIABLE_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>Variable Characterisation</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VARIABLE_CHARACTERISATION_FEATURE_COUNT = StochasticsPackage.RANDOM_VARIABLE_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Reference Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ABSTRACT_NAMED_REFERENCE__REFERENCE_NAME = 0;
-
-	/**
-	 * The number of structural features of the '<em>Abstract Named Reference</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ABSTRACT_NAMED_REFERENCE_FEATURE_COUNT = 1;
-
-	/**
-	 * The feature id for the '<em><b>Reference Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NAMESPACE_REFERENCE__REFERENCE_NAME = ABSTRACT_NAMED_REFERENCE__REFERENCE_NAME;
-
-	/**
-	 * The feature id for the '<em><b>Inner Reference Namespace Reference</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NAMESPACE_REFERENCE__INNER_REFERENCE_NAMESPACE_REFERENCE = ABSTRACT_NAMED_REFERENCE_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>Namespace Reference</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NAMESPACE_REFERENCE_FEATURE_COUNT = ABSTRACT_NAMED_REFERENCE_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Reference Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VARIABLE_REFERENCE__REFERENCE_NAME = ABSTRACT_NAMED_REFERENCE__REFERENCE_NAME;
-
-	/**
-	 * The number of structural features of the '<em>Variable Reference</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VARIABLE_REFERENCE_FEATURE_COUNT = ABSTRACT_NAMED_REFERENCE_FEATURE_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.parameter.VariableCharacterisationType <em>Variable Characterisation Type</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -253,7 +197,7 @@ public interface ParameterPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.parameter.impl.ParameterPackageImpl#getVariableCharacterisationType()
 	 * @generated
 	 */
-	int VARIABLE_CHARACTERISATION_TYPE = 5;
+	int VARIABLE_CHARACTERISATION_TYPE = 3;
 
 
 	/**
@@ -278,56 +222,25 @@ public interface ParameterPackage extends EPackage {
 	EAttribute getVariableCharacterisation_Type();
 
 	/**
-	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.parameter.AbstractNamedReference <em>Abstract Named Reference</em>}'.
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.parameter.CharacterisedVariable <em>Characterised Variable</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Abstract Named Reference</em>'.
-	 * @see de.uka.ipd.sdq.pcm.parameter.AbstractNamedReference
+	 * @return the meta object for class '<em>Characterised Variable</em>'.
+	 * @see de.uka.ipd.sdq.pcm.parameter.CharacterisedVariable
 	 * @generated
 	 */
-	EClass getAbstractNamedReference();
+	EClass getCharacterisedVariable();
 
 	/**
-	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.pcm.parameter.AbstractNamedReference#getReferenceName <em>Reference Name</em>}'.
+	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.pcm.parameter.CharacterisedVariable#getCharacterisationType <em>Characterisation Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Reference Name</em>'.
-	 * @see de.uka.ipd.sdq.pcm.parameter.AbstractNamedReference#getReferenceName()
-	 * @see #getAbstractNamedReference()
+	 * @return the meta object for the attribute '<em>Characterisation Type</em>'.
+	 * @see de.uka.ipd.sdq.pcm.parameter.CharacterisedVariable#getCharacterisationType()
+	 * @see #getCharacterisedVariable()
 	 * @generated
 	 */
-	EAttribute getAbstractNamedReference_ReferenceName();
-
-	/**
-	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.parameter.NamespaceReference <em>Namespace Reference</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Namespace Reference</em>'.
-	 * @see de.uka.ipd.sdq.pcm.parameter.NamespaceReference
-	 * @generated
-	 */
-	EClass getNamespaceReference();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link de.uka.ipd.sdq.pcm.parameter.NamespaceReference#getInnerReference_NamespaceReference <em>Inner Reference Namespace Reference</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Inner Reference Namespace Reference</em>'.
-	 * @see de.uka.ipd.sdq.pcm.parameter.NamespaceReference#getInnerReference_NamespaceReference()
-	 * @see #getNamespaceReference()
-	 * @generated
-	 */
-	EReference getNamespaceReference_InnerReference_NamespaceReference();
-
-	/**
-	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.parameter.VariableReference <em>Variable Reference</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Variable Reference</em>'.
-	 * @see de.uka.ipd.sdq.pcm.parameter.VariableReference
-	 * @generated
-	 */
-	EClass getVariableReference();
+	EAttribute getCharacterisedVariable_CharacterisationType();
 
 	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.parameter.VariableUsage <em>Variable Usage</em>}'.
@@ -392,7 +305,7 @@ public interface ParameterPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	interface Literals  {
+	interface Literals {
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.parameter.impl.VariableCharacterisationImpl <em>Variable Characterisation</em>}' class.
 		 * <!-- begin-user-doc -->
@@ -412,50 +325,22 @@ public interface ParameterPackage extends EPackage {
 		EAttribute VARIABLE_CHARACTERISATION__TYPE = eINSTANCE.getVariableCharacterisation_Type();
 
 		/**
-		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.parameter.impl.AbstractNamedReferenceImpl <em>Abstract Named Reference</em>}' class.
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.parameter.impl.CharacterisedVariableImpl <em>Characterised Variable</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see de.uka.ipd.sdq.pcm.parameter.impl.AbstractNamedReferenceImpl
-		 * @see de.uka.ipd.sdq.pcm.parameter.impl.ParameterPackageImpl#getAbstractNamedReference()
+		 * @see de.uka.ipd.sdq.pcm.parameter.impl.CharacterisedVariableImpl
+		 * @see de.uka.ipd.sdq.pcm.parameter.impl.ParameterPackageImpl#getCharacterisedVariable()
 		 * @generated
 		 */
-		EClass ABSTRACT_NAMED_REFERENCE = eINSTANCE.getAbstractNamedReference();
+		EClass CHARACTERISED_VARIABLE = eINSTANCE.getCharacterisedVariable();
 
 		/**
-		 * The meta object literal for the '<em><b>Reference Name</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Characterisation Type</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute ABSTRACT_NAMED_REFERENCE__REFERENCE_NAME = eINSTANCE.getAbstractNamedReference_ReferenceName();
-
-		/**
-		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.parameter.impl.NamespaceReferenceImpl <em>Namespace Reference</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see de.uka.ipd.sdq.pcm.parameter.impl.NamespaceReferenceImpl
-		 * @see de.uka.ipd.sdq.pcm.parameter.impl.ParameterPackageImpl#getNamespaceReference()
-		 * @generated
-		 */
-		EClass NAMESPACE_REFERENCE = eINSTANCE.getNamespaceReference();
-
-		/**
-		 * The meta object literal for the '<em><b>Inner Reference Namespace Reference</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference NAMESPACE_REFERENCE__INNER_REFERENCE_NAMESPACE_REFERENCE = eINSTANCE.getNamespaceReference_InnerReference_NamespaceReference();
-
-		/**
-		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.parameter.impl.VariableReferenceImpl <em>Variable Reference</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see de.uka.ipd.sdq.pcm.parameter.impl.VariableReferenceImpl
-		 * @see de.uka.ipd.sdq.pcm.parameter.impl.ParameterPackageImpl#getVariableReference()
-		 * @generated
-		 */
-		EClass VARIABLE_REFERENCE = eINSTANCE.getVariableReference();
+		EAttribute CHARACTERISED_VARIABLE__CHARACTERISATION_TYPE = eINSTANCE.getCharacterisedVariable_CharacterisationType();
 
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.parameter.impl.VariableUsageImpl <em>Variable Usage</em>}' class.

@@ -8,8 +8,8 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.RGB;
 
-import de.uka.ipd.sdq.pcm.stochasticexpressions.parser.StochasticExpressionsParserTokenTypes;
 import antlr.Token;
+import de.uka.ipd.sdq.stoex.parser.StochasticExpressionsParserTokenTypes;
 
 /**
  * @author Steffen Becker

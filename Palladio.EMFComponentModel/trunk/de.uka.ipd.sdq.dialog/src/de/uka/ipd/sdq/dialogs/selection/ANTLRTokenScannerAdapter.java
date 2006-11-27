@@ -14,7 +14,6 @@ import org.eclipse.jface.text.rules.ITokenScanner;
 
 import antlr.CharScanner;
 import antlr.CharStreamException;
-import antlr.Token;
 import antlr.TokenStreamException;
 
 /**

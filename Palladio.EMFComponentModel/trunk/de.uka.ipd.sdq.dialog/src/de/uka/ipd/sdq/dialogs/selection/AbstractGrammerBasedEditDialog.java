@@ -3,13 +3,9 @@
  */
 package de.uka.ipd.sdq.dialogs.selection;
 
-import java.io.StringBufferInputStream;
-import java.io.StringReader;
-
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.jface.dialogs.Dialog;
 import org.eclipse.jface.dialogs.IDialogConstants;
-import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.text.Document;
 import org.eclipse.jface.text.ITextListener;
 import org.eclipse.jface.text.Position;
@@ -23,12 +19,10 @@ import org.eclipse.jface.text.source.IAnnotationAccess;
 import org.eclipse.jface.text.source.IAnnotationAccessExtension;
 import org.eclipse.jface.text.source.ImageUtilities;
 import org.eclipse.jface.text.source.SourceViewer;
-import org.eclipse.jface.text.source.VerticalRuler;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.StyledText;
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.GC;
-import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.graphics.RGB;
 import org.eclipse.swt.graphics.Rectangle;
 import org.eclipse.swt.layout.GridData;
@@ -39,16 +33,12 @@ import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Shell;
-import com.swtdesigner.SWTResourceManager;
 
 import antlr.CharScanner;
 import antlr.RecognitionException;
-import antlr.Token;
 import antlr.TokenStreamException;
-import de.uka.ipd.sdq.pcm.core.stochastics.Expression;
-import de.uka.ipd.sdq.pcm.stochasticexpressions.StoExPrettyPrintVisitor;
-import de.uka.ipd.sdq.pcm.stochasticexpressions.parser.StochasticExpressionsLexer;
-import de.uka.ipd.sdq.pcm.stochasticexpressions.parser.StochasticExpressionsParser;
+
+import com.swtdesigner.SWTResourceManager;
 
 /**
  * @author Snowball

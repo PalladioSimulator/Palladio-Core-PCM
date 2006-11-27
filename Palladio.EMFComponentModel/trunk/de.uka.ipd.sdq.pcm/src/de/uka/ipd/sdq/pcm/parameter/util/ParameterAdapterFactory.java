@@ -6,9 +6,16 @@
  */
 package de.uka.ipd.sdq.pcm.parameter.util;
 
-import de.uka.ipd.sdq.pcm.core.stochastics.RandomVariable;
-
 import de.uka.ipd.sdq.pcm.parameter.*;
+
+import de.uka.ipd.sdq.stoex.Atom;
+import de.uka.ipd.sdq.stoex.Comparison;
+import de.uka.ipd.sdq.stoex.Expression;
+import de.uka.ipd.sdq.stoex.Power;
+import de.uka.ipd.sdq.stoex.Product;
+import de.uka.ipd.sdq.stoex.RandomVariable;
+import de.uka.ipd.sdq.stoex.Term;
+import de.uka.ipd.sdq.stoex.Variable;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
@@ -79,23 +86,38 @@ public class ParameterAdapterFactory extends AdapterFactoryImpl {
 	 */
 	protected ParameterSwitch modelSwitch =
 		new ParameterSwitch() {
-			public Object caseVariableUsage(VariableUsage object) {
-				return createVariableUsageAdapter();
-			}
 			public Object caseVariableCharacterisation(VariableCharacterisation object) {
 				return createVariableCharacterisationAdapter();
 			}
-			public Object caseAbstractNamedReference(AbstractNamedReference object) {
-				return createAbstractNamedReferenceAdapter();
+			public Object caseCharacterisedVariable(CharacterisedVariable object) {
+				return createCharacterisedVariableAdapter();
 			}
-			public Object caseNamespaceReference(NamespaceReference object) {
-				return createNamespaceReferenceAdapter();
-			}
-			public Object caseVariableReference(VariableReference object) {
-				return createVariableReferenceAdapter();
+			public Object caseVariableUsage(VariableUsage object) {
+				return createVariableUsageAdapter();
 			}
 			public Object caseRandomVariable(RandomVariable object) {
 				return createRandomVariableAdapter();
+			}
+			public Object caseExpression(Expression object) {
+				return createExpressionAdapter();
+			}
+			public Object caseComparison(Comparison object) {
+				return createComparisonAdapter();
+			}
+			public Object caseTerm(Term object) {
+				return createTermAdapter();
+			}
+			public Object caseProduct(Product object) {
+				return createProductAdapter();
+			}
+			public Object casePower(Power object) {
+				return createPowerAdapter();
+			}
+			public Object caseAtom(Atom object) {
+				return createAtomAdapter();
+			}
+			public Object caseVariable(Variable object) {
+				return createVariableAdapter();
 			}
 			public Object defaultCase(EObject object) {
 				return createEObjectAdapter();
@@ -130,44 +152,16 @@ public class ParameterAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.parameter.AbstractNamedReference <em>Abstract Named Reference</em>}'.
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.parameter.CharacterisedVariable <em>Characterised Variable</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.pcm.parameter.AbstractNamedReference
+	 * @see de.uka.ipd.sdq.pcm.parameter.CharacterisedVariable
 	 * @generated
 	 */
-	public Adapter createAbstractNamedReferenceAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.parameter.NamespaceReference <em>Namespace Reference</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.pcm.parameter.NamespaceReference
-	 * @generated
-	 */
-	public Adapter createNamespaceReferenceAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.parameter.VariableReference <em>Variable Reference</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.pcm.parameter.VariableReference
-	 * @generated
-	 */
-	public Adapter createVariableReferenceAdapter() {
+	public Adapter createCharacterisedVariableAdapter() {
 		return null;
 	}
 
@@ -186,16 +180,114 @@ public class ParameterAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.core.stochastics.RandomVariable <em>Random Variable</em>}'.
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.stoex.RandomVariable <em>Random Variable</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.pcm.core.stochastics.RandomVariable
+	 * @see de.uka.ipd.sdq.stoex.RandomVariable
 	 * @generated
 	 */
 	public Adapter createRandomVariableAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.stoex.Expression <em>Expression</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.stoex.Expression
+	 * @generated
+	 */
+	public Adapter createExpressionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.stoex.Comparison <em>Comparison</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.stoex.Comparison
+	 * @generated
+	 */
+	public Adapter createComparisonAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.stoex.Term <em>Term</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.stoex.Term
+	 * @generated
+	 */
+	public Adapter createTermAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.stoex.Product <em>Product</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.stoex.Product
+	 * @generated
+	 */
+	public Adapter createProductAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.stoex.Power <em>Power</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.stoex.Power
+	 * @generated
+	 */
+	public Adapter createPowerAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.stoex.Atom <em>Atom</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.stoex.Atom
+	 * @generated
+	 */
+	public Adapter createAtomAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.stoex.Variable <em>Variable</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.stoex.Variable
+	 * @generated
+	 */
+	public Adapter createVariableAdapter() {
 		return null;
 	}
 

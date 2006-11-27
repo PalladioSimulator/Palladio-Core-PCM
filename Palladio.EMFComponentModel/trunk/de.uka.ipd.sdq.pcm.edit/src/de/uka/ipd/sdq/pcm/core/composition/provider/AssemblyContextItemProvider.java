@@ -23,7 +23,7 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
 import de.uka.ipd.sdq.pcm.core.composition.CompositionPackage;
 import de.uka.ipd.sdq.pcm.core.entity.provider.EntityItemProvider;
-import de.uka.ipd.sdq.pcm.core.stochastics.provider.PcmEditPlugin;
+import de.uka.ipd.sdq.pcm.core.entity.provider.PcmEditPlugin;
 
 /**
  * This is the item provider adapter for a {@link de.uka.ipd.sdq.pcm.core.composition.AssemblyContext} object.

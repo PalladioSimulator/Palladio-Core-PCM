@@ -21,8 +21,6 @@ import de.uka.ipd.sdq.pcm.core.connectors.ConnectorsPackage;
 import de.uka.ipd.sdq.pcm.core.connectors.impl.ConnectorsPackageImpl;
 import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
 import de.uka.ipd.sdq.pcm.core.entity.impl.EntityPackageImpl;
-import de.uka.ipd.sdq.pcm.core.stochastics.StochasticsPackage;
-import de.uka.ipd.sdq.pcm.core.stochastics.impl.StochasticsPackageImpl;
 import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
 import de.uka.ipd.sdq.pcm.parameter.impl.ParameterPackageImpl;
 import de.uka.ipd.sdq.pcm.protocol.ProtocolPackage;
@@ -61,6 +59,7 @@ import de.uka.ipd.sdq.pcm.system.impl.SystemPackageImpl;
 import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
 import de.uka.ipd.sdq.pcm.usagemodel.impl.UsagemodelPackageImpl;
 import de.uka.ipd.sdq.probfunction.ProbfunctionPackage;
+import de.uka.ipd.sdq.stoex.StoexPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -268,16 +267,16 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 		// Initialize simple dependencies
 		IdentifierPackage.eINSTANCE.eClass();
 		ProbfunctionPackage.eINSTANCE.eClass();
+		StoexPackage.eINSTANCE.eClass();
 
 		// Obtain or create and register interdependencies
-		StochasticsPackageImpl theStochasticsPackage = (StochasticsPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(StochasticsPackage.eNS_URI) instanceof StochasticsPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(StochasticsPackage.eNS_URI) : StochasticsPackage.eINSTANCE);
 		EntityPackageImpl theEntityPackage = (EntityPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(EntityPackage.eNS_URI) instanceof EntityPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(EntityPackage.eNS_URI) : EntityPackage.eINSTANCE);
 		ConnectorsPackageImpl theConnectorsPackage = (ConnectorsPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ConnectorsPackage.eNS_URI) instanceof ConnectorsPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ConnectorsPackage.eNS_URI) : ConnectorsPackage.eINSTANCE);
 		CompositionPackageImpl theCompositionPackage = (CompositionPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(CompositionPackage.eNS_URI) instanceof CompositionPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(CompositionPackage.eNS_URI) : CompositionPackage.eINSTANCE);
-		ParameterPackageImpl theParameterPackage = (ParameterPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ParameterPackage.eNS_URI) instanceof ParameterPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ParameterPackage.eNS_URI) : ParameterPackage.eINSTANCE);
 		RepositoryPackageImpl theRepositoryPackage = (RepositoryPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(RepositoryPackage.eNS_URI) instanceof RepositoryPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(RepositoryPackage.eNS_URI) : RepositoryPackage.eINSTANCE);
 		ProtocolPackageImpl theProtocolPackage = (ProtocolPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ProtocolPackage.eNS_URI) instanceof ProtocolPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ProtocolPackage.eNS_URI) : ProtocolPackage.eINSTANCE);
 		ResourcetypePackageImpl theResourcetypePackage = (ResourcetypePackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ResourcetypePackage.eNS_URI) instanceof ResourcetypePackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ResourcetypePackage.eNS_URI) : ResourcetypePackage.eINSTANCE);
+		ParameterPackageImpl theParameterPackage = (ParameterPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ParameterPackage.eNS_URI) instanceof ParameterPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ParameterPackage.eNS_URI) : ParameterPackage.eINSTANCE);
 		AllocationPackageImpl theAllocationPackage = (AllocationPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(AllocationPackage.eNS_URI) instanceof AllocationPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(AllocationPackage.eNS_URI) : AllocationPackage.eINSTANCE);
 		ResourceenvironmentPackageImpl theResourceenvironmentPackage = (ResourceenvironmentPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ResourceenvironmentPackage.eNS_URI) instanceof ResourceenvironmentPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ResourceenvironmentPackage.eNS_URI) : ResourceenvironmentPackage.eINSTANCE);
 		SystemPackageImpl theSystemPackage = (SystemPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(SystemPackage.eNS_URI) instanceof SystemPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(SystemPackage.eNS_URI) : SystemPackage.eINSTANCE);
@@ -286,14 +285,13 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 
 		// Create package meta-data objects
 		theSeffPackage.createPackageContents();
-		theStochasticsPackage.createPackageContents();
 		theEntityPackage.createPackageContents();
 		theConnectorsPackage.createPackageContents();
 		theCompositionPackage.createPackageContents();
-		theParameterPackage.createPackageContents();
 		theRepositoryPackage.createPackageContents();
 		theProtocolPackage.createPackageContents();
 		theResourcetypePackage.createPackageContents();
+		theParameterPackage.createPackageContents();
 		theAllocationPackage.createPackageContents();
 		theResourceenvironmentPackage.createPackageContents();
 		theSystemPackage.createPackageContents();
@@ -302,14 +300,13 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 
 		// Initialize created meta-data
 		theSeffPackage.initializePackageContents();
-		theStochasticsPackage.initializePackageContents();
 		theEntityPackage.initializePackageContents();
 		theConnectorsPackage.initializePackageContents();
 		theCompositionPackage.initializePackageContents();
-		theParameterPackage.initializePackageContents();
 		theRepositoryPackage.initializePackageContents();
 		theProtocolPackage.initializePackageContents();
 		theResourcetypePackage.initializePackageContents();
+		theParameterPackage.initializePackageContents();
 		theAllocationPackage.initializePackageContents();
 		theResourceenvironmentPackage.initializePackageContents();
 		theSystemPackage.initializePackageContents();
@@ -805,7 +802,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 
 		// Obtain other dependent packages
 		EntityPackage theEntityPackage = (EntityPackage)EPackage.Registry.INSTANCE.getEPackage(EntityPackage.eNS_URI);
-		StochasticsPackage theStochasticsPackage = (StochasticsPackage)EPackage.Registry.INSTANCE.getEPackage(StochasticsPackage.eNS_URI);
+		StoexPackage theStoexPackage = (StoexPackage)EPackage.Registry.INSTANCE.getEPackage(StoexPackage.eNS_URI);
 		ResourcetypePackage theResourcetypePackage = (ResourcetypePackage)EPackage.Registry.INSTANCE.getEPackage(ResourcetypePackage.eNS_URI);
 		RepositoryPackage theRepositoryPackage = (RepositoryPackage)EPackage.Registry.INSTANCE.getEPackage(RepositoryPackage.eNS_URI);
 		ParameterPackage theParameterPackage = (ParameterPackage)EPackage.Registry.INSTANCE.getEPackage(ParameterPackage.eNS_URI);
@@ -814,17 +811,17 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 		stopActionEClass.getESuperTypes().add(this.getAbstractResourceDemandingAction());
 		abstractResourceDemandingActionEClass.getESuperTypes().add(this.getAbstractAction());
 		abstractActionEClass.getESuperTypes().add(theEntityPackage.getEntity());
-		parametricResourceDemandEClass.getESuperTypes().add(theStochasticsPackage.getRandomVariable());
+		parametricResourceDemandEClass.getESuperTypes().add(theStoexPackage.getRandomVariable());
 		startActionEClass.getESuperTypes().add(this.getAbstractResourceDemandingAction());
 		resourceDemandingSEFFEClass.getESuperTypes().add(this.getServiceEffectSpecification());
 		resourceDemandingSEFFEClass.getESuperTypes().add(this.getResourceDemandingBehaviour());
 		releaseActionEClass.getESuperTypes().add(this.getAbstractResourceDemandingAction());
 		loopActionEClass.getESuperTypes().add(this.getAbstractResourceDemandingAction());
-		iterationCountEClass.getESuperTypes().add(theStochasticsPackage.getRandomVariable());
+		iterationCountEClass.getESuperTypes().add(theStoexPackage.getRandomVariable());
 		internalActionEClass.getESuperTypes().add(this.getAbstractResourceDemandingAction());
 		forkActionEClass.getESuperTypes().add(this.getAbstractResourceDemandingAction());
 		externalCallActionEClass.getESuperTypes().add(this.getAbstractAction());
-		branchConditionEClass.getESuperTypes().add(theStochasticsPackage.getRandomVariable());
+		branchConditionEClass.getESuperTypes().add(theStoexPackage.getRandomVariable());
 		branchActionEClass.getESuperTypes().add(this.getAbstractResourceDemandingAction());
 		aquireActionEClass.getESuperTypes().add(this.getAbstractResourceDemandingAction());
 		collectionIteratorActionEClass.getESuperTypes().add(this.getLoopAction());

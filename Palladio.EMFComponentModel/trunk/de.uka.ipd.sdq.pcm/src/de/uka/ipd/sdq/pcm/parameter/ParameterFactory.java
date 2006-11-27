@@ -42,22 +42,13 @@ public interface ParameterFactory extends EFactory {
 	VariableCharacterisation createVariableCharacterisation();
 
 	/**
-	 * Returns a new object of class '<em>Namespace Reference</em>'.
+	 * Returns a new object of class '<em>Characterised Variable</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Namespace Reference</em>'.
+	 * @return a new object of class '<em>Characterised Variable</em>'.
 	 * @generated
 	 */
-	NamespaceReference createNamespaceReference();
-
-	/**
-	 * Returns a new object of class '<em>Variable Reference</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Variable Reference</em>'.
-	 * @generated
-	 */
-	VariableReference createVariableReference();
+	CharacterisedVariable createCharacterisedVariable();
 
 	/**
 	 * Returns a new object of class '<em>Variable Usage</em>'.

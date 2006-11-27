@@ -7,7 +7,7 @@
  */
 package de.uka.ipd.sdq.pcm.usagemodel;
 
-import de.uka.ipd.sdq.pcm.core.stochastics.RandomVariable;
+import de.uka.ipd.sdq.stoex.RandomVariable;
 
 /**
  * <!-- begin-user-doc -->

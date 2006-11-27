@@ -12,7 +12,7 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
 import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
-import de.uka.ipd.sdq.pcm.core.stochastics.StochasticsPackage;
+import de.uka.ipd.sdq.stoex.StoexPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -410,7 +410,7 @@ public interface UsagemodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LOOP_ITERATIONS__SPECIFICATION = StochasticsPackage.RANDOM_VARIABLE__SPECIFICATION;
+	int LOOP_ITERATIONS__SPECIFICATION = StoexPackage.RANDOM_VARIABLE__SPECIFICATION;
 
 	/**
 	 * The feature id for the '<em><b>Specification Random Variable</b></em>' reference.
@@ -419,7 +419,7 @@ public interface UsagemodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LOOP_ITERATIONS__SPECIFICATION_RANDOM_VARIABLE = StochasticsPackage.RANDOM_VARIABLE__SPECIFICATION_RANDOM_VARIABLE;
+	int LOOP_ITERATIONS__SPECIFICATION_RANDOM_VARIABLE = StoexPackage.RANDOM_VARIABLE__SPECIFICATION_RANDOM_VARIABLE;
 
 	/**
 	 * The number of structural features of the '<em>Loop Iterations</em>' class.
@@ -428,7 +428,7 @@ public interface UsagemodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LOOP_ITERATIONS_FEATURE_COUNT = StochasticsPackage.RANDOM_VARIABLE_FEATURE_COUNT + 0;
+	int LOOP_ITERATIONS_FEATURE_COUNT = StoexPackage.RANDOM_VARIABLE_FEATURE_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.usagemodel.impl.EntryLevelSystemCallImpl <em>Entry Level System Call</em>}' class.

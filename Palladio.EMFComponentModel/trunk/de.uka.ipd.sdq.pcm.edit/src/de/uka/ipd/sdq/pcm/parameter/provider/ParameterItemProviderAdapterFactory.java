@@ -6,12 +6,15 @@
  */
 package de.uka.ipd.sdq.pcm.parameter.provider;
 
+import de.uka.ipd.sdq.pcm.parameter.util.ParameterAdapterFactory;
+
 import java.util.ArrayList;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.Notifier;
+
 import org.eclipse.emf.edit.provider.ChangeNotifier;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
@@ -23,8 +26,6 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.INotifyChangedListener;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-
-import de.uka.ipd.sdq.pcm.parameter.util.ParameterAdapterFactory;
 
 /**
  * This is the factory that is used to provide the interfaces needed to support Viewers.
@@ -104,47 +105,25 @@ public class ParameterItemProviderAdapterFactory extends ParameterAdapterFactory
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.parameter.NamespaceReference} instances.
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.parameter.CharacterisedVariable} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected NamespaceReferenceItemProvider namespaceReferenceItemProvider;
+	protected CharacterisedVariableItemProvider characterisedVariableItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.parameter.NamespaceReference}.
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.parameter.CharacterisedVariable}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Adapter createNamespaceReferenceAdapter() {
-		if (namespaceReferenceItemProvider == null) {
-			namespaceReferenceItemProvider = new NamespaceReferenceItemProvider(this);
+	public Adapter createCharacterisedVariableAdapter() {
+		if (characterisedVariableItemProvider == null) {
+			characterisedVariableItemProvider = new CharacterisedVariableItemProvider(this);
 		}
 
-		return namespaceReferenceItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.parameter.VariableReference} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected VariableReferenceItemProvider variableReferenceItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.parameter.VariableReference}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Adapter createVariableReferenceAdapter() {
-		if (variableReferenceItemProvider == null) {
-			variableReferenceItemProvider = new VariableReferenceItemProvider(this);
-		}
-
-		return variableReferenceItemProvider;
+		return characterisedVariableItemProvider;
 	}
 
 	/**
@@ -265,10 +244,9 @@ public class ParameterItemProviderAdapterFactory extends ParameterAdapterFactory
 	 * @generated
 	 */
 	public void dispose() {
-		if (variableUsageItemProvider != null) variableUsageItemProvider.dispose();
 		if (variableCharacterisationItemProvider != null) variableCharacterisationItemProvider.dispose();
-		if (namespaceReferenceItemProvider != null) namespaceReferenceItemProvider.dispose();
-		if (variableReferenceItemProvider != null) variableReferenceItemProvider.dispose();
+		if (characterisedVariableItemProvider != null) characterisedVariableItemProvider.dispose();
+		if (variableUsageItemProvider != null) variableUsageItemProvider.dispose();
 	}
 
 }

@@ -14,7 +14,6 @@ import org.eclipse.emf.ecore.EObject;
 import de.uka.ipd.sdq.identifier.Identifier;
 import de.uka.ipd.sdq.pcm.core.entity.Entity;
 import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
-import de.uka.ipd.sdq.pcm.core.stochastics.RandomVariable;
 import de.uka.ipd.sdq.pcm.qosannotations.*;
 
 import de.uka.ipd.sdq.pcm.qosannotations.ComponentSpecifiedExecutionTime;
@@ -23,6 +22,7 @@ import de.uka.ipd.sdq.pcm.qosannotations.QosannotationsPackage;
 import de.uka.ipd.sdq.pcm.qosannotations.SpecifiedExecutionTime;
 import de.uka.ipd.sdq.pcm.qosannotations.SpecifiedFailureProbability;
 import de.uka.ipd.sdq.pcm.qosannotations.SystemSpecifiedExecutionTime;
+import de.uka.ipd.sdq.stoex.RandomVariable;
 
 /**
  * <!-- begin-user-doc -->
@@ -202,13 +202,13 @@ public class QosannotationsAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.core.stochastics.RandomVariable <em>Random Variable</em>}'.
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.stoex.RandomVariable <em>Random Variable</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.pcm.core.stochastics.RandomVariable
+	 * @see de.uka.ipd.sdq.stoex.RandomVariable
 	 * @generated
 	 */
 	public Adapter createRandomVariableAdapter() {

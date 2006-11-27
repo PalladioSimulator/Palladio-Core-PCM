@@ -25,7 +25,6 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 import de.uka.ipd.sdq.identifier.provider.IdentifierItemProvider;
 import de.uka.ipd.sdq.pcm.core.entity.Entity;
 import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
-import de.uka.ipd.sdq.pcm.core.stochastics.provider.PcmEditPlugin;
 
 /**
  * This is the item provider adapter for a {@link de.uka.ipd.sdq.pcm.core.entity.Entity} object.

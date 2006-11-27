@@ -7,10 +7,6 @@
 package de.uka.ipd.sdq.pcm.repository.provider;
 
 
-import de.uka.ipd.sdq.pcm.core.composition.provider.ComposedStructureItemProvider;
-
-import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
-
 import java.util.Collection;
 import java.util.List;
 
@@ -28,9 +24,8 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import de.uka.ipd.sdq.pcm.core.composition.CompositionFactory;
 import de.uka.ipd.sdq.pcm.core.composition.CompositionPackage;
-import de.uka.ipd.sdq.pcm.core.stochastics.provider.PcmEditPlugin;
+import de.uka.ipd.sdq.pcm.core.entity.provider.PcmEditPlugin;
 import de.uka.ipd.sdq.pcm.repository.CompositeComponent;
-import de.uka.ipd.sdq.pcm.repository.RepositoryFactory;
 import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
 
 /**

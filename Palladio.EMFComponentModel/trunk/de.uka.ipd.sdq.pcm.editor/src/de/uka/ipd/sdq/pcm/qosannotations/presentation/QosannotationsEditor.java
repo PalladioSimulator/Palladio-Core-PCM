@@ -125,9 +125,8 @@ import de.uka.ipd.sdq.identifier.provider.IdentifierItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.allocation.provider.AllocationItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.core.composition.provider.CompositionItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.core.connectors.provider.ConnectorsItemProviderAdapterFactory;
+import de.uka.ipd.sdq.pcm.core.entity.presentation.PcmEditorPlugin;
 import de.uka.ipd.sdq.pcm.core.entity.provider.EntityItemProviderAdapterFactory;
-import de.uka.ipd.sdq.pcm.core.stochastics.presentation.PcmEditorPlugin;
-import de.uka.ipd.sdq.pcm.core.stochastics.provider.StochasticsItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.parameter.provider.ParameterItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.protocol.provider.ProtocolItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.qosannotations.provider.QosannotationsItemProviderAdapterFactory;
@@ -138,7 +137,7 @@ import de.uka.ipd.sdq.pcm.seff.provider.SeffItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.system.provider.SystemItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.usagemodel.provider.UsagemodelItemProviderAdapterFactory;
 import de.uka.ipd.sdq.probfunction.provider.ProbfunctionItemProviderAdapterFactory;
-
+import de.uka.ipd.sdq.stoex.provider.StoexItemProviderAdapterFactory;
 
 /**
  * This is an example of a Qosannotations model editor.
@@ -661,7 +660,6 @@ public class QosannotationsEditor
 		//
 		List factories = new ArrayList();
 		factories.add(new ResourceItemProviderAdapterFactory());
-		factories.add(new StochasticsItemProviderAdapterFactory());
 		factories.add(new EntityItemProviderAdapterFactory());
 		factories.add(new ConnectorsItemProviderAdapterFactory());
 		factories.add(new CompositionItemProviderAdapterFactory());
@@ -677,6 +675,7 @@ public class QosannotationsEditor
 		factories.add(new UsagemodelItemProviderAdapterFactory());
 		factories.add(new IdentifierItemProviderAdapterFactory());
 		factories.add(new ProbfunctionItemProviderAdapterFactory());
+		factories.add(new StoexItemProviderAdapterFactory());
 		factories.add(new ReflectiveItemProviderAdapterFactory());
 
 		adapterFactory = new ComposedAdapterFactory(factories);

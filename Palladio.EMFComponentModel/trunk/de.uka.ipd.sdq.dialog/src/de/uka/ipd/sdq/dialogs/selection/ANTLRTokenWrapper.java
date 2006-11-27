@@ -1,12 +1,7 @@
 package de.uka.ipd.sdq.dialogs.selection;
 
-import org.eclipse.jface.text.TextAttribute;
 import org.eclipse.jface.text.rules.IToken;
-import org.eclipse.swt.SWT;
-import org.eclipse.swt.graphics.Color;
-import org.eclipse.swt.graphics.RGB;
 
-import antlr.CharScanner;
 import antlr.Token;
 
 public class ANTLRTokenWrapper implements IToken {

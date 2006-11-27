@@ -14,7 +14,10 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.jface.text,
  de.uka.ipd.sdq.pcm.edit,
  de.uka.ipd.sdq.pcmbench.ui,
- org.eclipse.core.runtime
+ org.eclipse.core.runtime,
+ de.uka.ipd.sdq.stoex.analyser,
+ de.uka.ipd.sdq.stoex,
+ de.uka.ipd.sdq.stoex.edit
 Export-Package: de.uka.ipd.sdq.dialogs.selection
 Eclipse-LazyStart: true
 Bundle-Activator: DialogPluginActivator

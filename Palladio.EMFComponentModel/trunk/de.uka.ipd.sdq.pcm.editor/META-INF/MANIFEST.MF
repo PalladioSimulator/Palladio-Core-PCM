@@ -27,5 +27,8 @@ Require-Bundle: org.eclipse.core.runtime,
  org.antlr,
  de.uka.ipd.sdq.probfunction.edit,
  de.uka.ipd.sdq.dialog,
- de.uka.ipd.sdq.pcmbench.ui
+ de.uka.ipd.sdq.pcmbench.ui,
+ de.uka.ipd.sdq.stoex,
+ de.uka.ipd.sdq.stoex.edit,
+ de.uka.ipd.sdq.stoex.analyser
 Eclipse-LazyStart: true

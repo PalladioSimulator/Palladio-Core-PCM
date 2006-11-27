@@ -24,17 +24,11 @@ import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
 
 import de.uka.ipd.sdq.pcm.core.entity.impl.EntityPackageImpl;
 
-import de.uka.ipd.sdq.pcm.core.stochastics.StochasticsPackage;
-
-import de.uka.ipd.sdq.pcm.core.stochastics.impl.StochasticsPackageImpl;
-
-import de.uka.ipd.sdq.pcm.parameter.AbstractNamedReference;
-import de.uka.ipd.sdq.pcm.parameter.NamespaceReference;
+import de.uka.ipd.sdq.pcm.parameter.CharacterisedVariable;
 import de.uka.ipd.sdq.pcm.parameter.ParameterFactory;
 import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
 import de.uka.ipd.sdq.pcm.parameter.VariableCharacterisation;
 import de.uka.ipd.sdq.pcm.parameter.VariableCharacterisationType;
-import de.uka.ipd.sdq.pcm.parameter.VariableReference;
 import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
 
 import de.uka.ipd.sdq.pcm.protocol.ProtocolPackage;
@@ -71,6 +65,8 @@ import de.uka.ipd.sdq.pcm.usagemodel.impl.UsagemodelPackageImpl;
 
 import de.uka.ipd.sdq.probfunction.ProbfunctionPackage;
 
+import de.uka.ipd.sdq.stoex.StoexPackage;
+
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
@@ -105,21 +101,7 @@ public class ParameterPackageImpl extends EPackageImpl implements ParameterPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass abstractNamedReferenceEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass namespaceReferenceEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass variableReferenceEClass = null;
+	private EClass characterisedVariableEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -194,9 +176,9 @@ public class ParameterPackageImpl extends EPackageImpl implements ParameterPacka
 		// Initialize simple dependencies
 		IdentifierPackage.eINSTANCE.eClass();
 		ProbfunctionPackage.eINSTANCE.eClass();
+		StoexPackage.eINSTANCE.eClass();
 
 		// Obtain or create and register interdependencies
-		StochasticsPackageImpl theStochasticsPackage = (StochasticsPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(StochasticsPackage.eNS_URI) instanceof StochasticsPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(StochasticsPackage.eNS_URI) : StochasticsPackage.eINSTANCE);
 		EntityPackageImpl theEntityPackage = (EntityPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(EntityPackage.eNS_URI) instanceof EntityPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(EntityPackage.eNS_URI) : EntityPackage.eINSTANCE);
 		ConnectorsPackageImpl theConnectorsPackage = (ConnectorsPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ConnectorsPackage.eNS_URI) instanceof ConnectorsPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ConnectorsPackage.eNS_URI) : ConnectorsPackage.eINSTANCE);
 		CompositionPackageImpl theCompositionPackage = (CompositionPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(CompositionPackage.eNS_URI) instanceof CompositionPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(CompositionPackage.eNS_URI) : CompositionPackage.eINSTANCE);
@@ -212,7 +194,6 @@ public class ParameterPackageImpl extends EPackageImpl implements ParameterPacka
 
 		// Create package meta-data objects
 		theParameterPackage.createPackageContents();
-		theStochasticsPackage.createPackageContents();
 		theEntityPackage.createPackageContents();
 		theConnectorsPackage.createPackageContents();
 		theCompositionPackage.createPackageContents();
@@ -228,7 +209,6 @@ public class ParameterPackageImpl extends EPackageImpl implements ParameterPacka
 
 		// Initialize created meta-data
 		theParameterPackage.initializePackageContents();
-		theStochasticsPackage.initializePackageContents();
 		theEntityPackage.initializePackageContents();
 		theConnectorsPackage.initializePackageContents();
 		theCompositionPackage.initializePackageContents();
@@ -271,8 +251,8 @@ public class ParameterPackageImpl extends EPackageImpl implements ParameterPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getAbstractNamedReference() {
-		return abstractNamedReferenceEClass;
+	public EClass getCharacterisedVariable() {
+		return characterisedVariableEClass;
 	}
 
 	/**
@@ -280,35 +260,8 @@ public class ParameterPackageImpl extends EPackageImpl implements ParameterPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getAbstractNamedReference_ReferenceName() {
-		return (EAttribute)abstractNamedReferenceEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getNamespaceReference() {
-		return namespaceReferenceEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getNamespaceReference_InnerReference_NamespaceReference() {
-		return (EReference)namespaceReferenceEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getVariableReference() {
-		return variableReferenceEClass;
+	public EAttribute getCharacterisedVariable_CharacterisationType() {
+		return (EAttribute)characterisedVariableEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -375,20 +328,15 @@ public class ParameterPackageImpl extends EPackageImpl implements ParameterPacka
 		isCreated = true;
 
 		// Create classes and their features
-		variableUsageEClass = createEClass(VARIABLE_USAGE);
-		createEReference(variableUsageEClass, VARIABLE_USAGE__VARIABLE_CHARACTERISATION_VARIABLE_USAGE);
-		createEReference(variableUsageEClass, VARIABLE_USAGE__NAMED_REFERENCE_VARIABLE_USAGE);
-
 		variableCharacterisationEClass = createEClass(VARIABLE_CHARACTERISATION);
 		createEAttribute(variableCharacterisationEClass, VARIABLE_CHARACTERISATION__TYPE);
 
-		abstractNamedReferenceEClass = createEClass(ABSTRACT_NAMED_REFERENCE);
-		createEAttribute(abstractNamedReferenceEClass, ABSTRACT_NAMED_REFERENCE__REFERENCE_NAME);
+		characterisedVariableEClass = createEClass(CHARACTERISED_VARIABLE);
+		createEAttribute(characterisedVariableEClass, CHARACTERISED_VARIABLE__CHARACTERISATION_TYPE);
 
-		namespaceReferenceEClass = createEClass(NAMESPACE_REFERENCE);
-		createEReference(namespaceReferenceEClass, NAMESPACE_REFERENCE__INNER_REFERENCE_NAMESPACE_REFERENCE);
-
-		variableReferenceEClass = createEClass(VARIABLE_REFERENCE);
+		variableUsageEClass = createEClass(VARIABLE_USAGE);
+		createEReference(variableUsageEClass, VARIABLE_USAGE__VARIABLE_CHARACTERISATION_VARIABLE_USAGE);
+		createEReference(variableUsageEClass, VARIABLE_USAGE__NAMED_REFERENCE_VARIABLE_USAGE);
 
 		// Create enums
 		variableCharacterisationTypeEEnum = createEEnum(VARIABLE_CHARACTERISATION_TYPE);
@@ -418,28 +366,22 @@ public class ParameterPackageImpl extends EPackageImpl implements ParameterPacka
 		setNsURI(eNS_URI);
 
 		// Obtain other dependent packages
-		StochasticsPackage theStochasticsPackage = (StochasticsPackage)EPackage.Registry.INSTANCE.getEPackage(StochasticsPackage.eNS_URI);
+		StoexPackage theStoexPackage = (StoexPackage)EPackage.Registry.INSTANCE.getEPackage(StoexPackage.eNS_URI);
 
 		// Add supertypes to classes
-		variableCharacterisationEClass.getESuperTypes().add(theStochasticsPackage.getRandomVariable());
-		namespaceReferenceEClass.getESuperTypes().add(this.getAbstractNamedReference());
-		variableReferenceEClass.getESuperTypes().add(this.getAbstractNamedReference());
+		variableCharacterisationEClass.getESuperTypes().add(theStoexPackage.getRandomVariable());
+		characterisedVariableEClass.getESuperTypes().add(theStoexPackage.getVariable());
 
 		// Initialize classes and features; add operations and parameters
-		initEClass(variableUsageEClass, VariableUsage.class, "VariableUsage", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getVariableUsage_VariableCharacterisation_VariableUsage(), this.getVariableCharacterisation(), null, "variableCharacterisation_VariableUsage", null, 0, -1, VariableUsage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getVariableUsage_NamedReference_VariableUsage(), this.getAbstractNamedReference(), null, "namedReference_VariableUsage", null, 1, 1, VariableUsage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-
 		initEClass(variableCharacterisationEClass, VariableCharacterisation.class, "VariableCharacterisation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getVariableCharacterisation_Type(), this.getVariableCharacterisationType(), "type", null, 1, 1, VariableCharacterisation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-		initEClass(abstractNamedReferenceEClass, AbstractNamedReference.class, "AbstractNamedReference", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getAbstractNamedReference_ReferenceName(), ecorePackage.getEString(), "referenceName", null, 1, 1, AbstractNamedReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEClass(characterisedVariableEClass, CharacterisedVariable.class, "CharacterisedVariable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getCharacterisedVariable_CharacterisationType(), this.getVariableCharacterisationType(), "characterisationType", null, 1, 1, CharacterisedVariable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-		initEClass(namespaceReferenceEClass, NamespaceReference.class, "NamespaceReference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getNamespaceReference_InnerReference_NamespaceReference(), this.getAbstractNamedReference(), null, "innerReference_NamespaceReference", null, 1, 1, NamespaceReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-
-		initEClass(variableReferenceEClass, VariableReference.class, "VariableReference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(variableUsageEClass, VariableUsage.class, "VariableUsage", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getVariableUsage_VariableCharacterisation_VariableUsage(), this.getVariableCharacterisation(), null, "variableCharacterisation_VariableUsage", null, 0, -1, VariableUsage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getVariableUsage_NamedReference_VariableUsage(), theStoexPackage.getAbstractNamedReference(), null, "namedReference_VariableUsage", null, 1, 1, VariableUsage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(variableCharacterisationTypeEEnum, VariableCharacterisationType.class, "VariableCharacterisationType");

@@ -6,8 +6,6 @@
  */
 package de.uka.ipd.sdq.pcm.repository;
 
-import de.uka.ipd.sdq.pcm.core.composition.CompositionPackage;
-
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
