@@ -45,4 +45,8 @@ public class SimuComModel extends Model {
 	public ResouceRegistry getResourceRegistry() {
 		return resourceRegistry;
 	}
+
+	public SensorFactory getSensorFactory() {
+		return sensorFactory;
+	}
 }

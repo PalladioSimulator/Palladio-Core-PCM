@@ -40,7 +40,7 @@
 			<metaModelPackage value="de.uka.ipd.sdq.pcm.core.entity.EntityPackage"/>
 		</metaModel>	    
 		<metaModel id="pcm.core.stochastics.emf" class="oaw.type.emf.EmfMetaModel">
-			<metaModelPackage value="de.uka.ipd.sdq.pcm.core.stochastics.StochasticsPackage"/>
+			<metaModelPackage value="de.uka.ipd.sdq.stoex.StoexPackage"/>
 		</metaModel>
 	    <metaModel id="pcm.seff.emf" class="oaw.type.emf.EmfMetaModel">
 			<metaModelPackage value="de.uka.ipd.sdq.pcm.seff.SeffPackage"/>

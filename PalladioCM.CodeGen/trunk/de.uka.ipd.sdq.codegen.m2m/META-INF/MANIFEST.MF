@@ -10,4 +10,5 @@ Require-Bundle: org.openarchitectureware.core.check,
  de.uka.ipd.sdq.identifier,
  de.uka.ipd.sdq.pcm,
  de.uka.ipd.sdq.probfunction,
- org.aspectj.runtime
+ org.aspectj.runtime,
+ de.uka.ipd.sdq.stoex
