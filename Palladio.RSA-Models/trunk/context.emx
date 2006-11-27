@@ -5,6 +5,7 @@
   <eAnnotations xmi:id="_JS82sDHjEduYw4tR7Gtf7Q" source="appliedStereotypes">
     <contents xmi:type="Ecore_0:Ecore__EPackage" xmi:id="_JS82sTHjEduYw4tR7Gtf7Q" nsPrefix="context" nsURI="http://sdq.ipd.uka.de/Context/1.0" basePackage="de.uka.ipd.sdq"/>
   </eAnnotations>
+  <eAnnotations xmi:id="_NXE-kX4CEduxavwLjLThgg" source="http://www.eclipse.org/emf/2002/Ecore"/>
   <packageImport xmi:type="uml:ProfileApplication" xmi:id="_1R48JDHiEduYw4tR7Gtf7Q">
     <eAnnotations xmi:id="_1R48JTHiEduYw4tR7Gtf7Q" source="attributes">
       <details xmi:id="_1R48JjHiEduYw4tR7Gtf7Q" key="version" value="0"/>
@@ -180,33 +181,33 @@
         </children>
         <children xmi:id="_b0EMADHkEduYw4tR7Gtf7Q" targetEdges="_ewkZYDHkEduYw4tR7Gtf7Q">
           <children xmi:id="_b0EMAzHkEduYw4tR7Gtf7Q" type="ImageCompartment">
-            <element xmi:type="uml:Class" href="pcm.emx#_GIDLsPdxEdqB_7dkOscBPA?pcm/core/stochastics/RandomVariable"/>
+            <element xmi:type="uml:Class" href="stoex.emx#_GIDLsPdxEdqB_7dkOscBPA?stoex/RandomVariable"/>
             <layoutConstraint xmi:type="notation:Size" xmi:id="_b0EMBDHkEduYw4tR7Gtf7Q" width="1320" height="1320"/>
           </children>
           <children xmi:id="_b0EMBTHkEduYw4tR7Gtf7Q" type="Stereotype">
-            <element xmi:type="uml:Class" href="pcm.emx#_GIDLsPdxEdqB_7dkOscBPA?pcm/core/stochastics/RandomVariable"/>
+            <element xmi:type="uml:Class" href="stoex.emx#_GIDLsPdxEdqB_7dkOscBPA?stoex/RandomVariable"/>
           </children>
           <children xmi:id="_b0EMBjHkEduYw4tR7Gtf7Q" type="Name">
-            <element xmi:type="uml:Class" href="pcm.emx#_GIDLsPdxEdqB_7dkOscBPA?pcm/core/stochastics/RandomVariable"/>
+            <element xmi:type="uml:Class" href="stoex.emx#_GIDLsPdxEdqB_7dkOscBPA?stoex/RandomVariable"/>
           </children>
           <children xmi:id="_b0EMBzHkEduYw4tR7Gtf7Q" type="AttributeCompartment">
             <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_b0EMCDHkEduYw4tR7Gtf7Q"/>
-            <element xmi:type="uml:Class" href="pcm.emx#_GIDLsPdxEdqB_7dkOscBPA?pcm/core/stochastics/RandomVariable"/>
+            <element xmi:type="uml:Class" href="stoex.emx#_GIDLsPdxEdqB_7dkOscBPA?stoex/RandomVariable"/>
           </children>
           <children xmi:id="_b0EMCTHkEduYw4tR7Gtf7Q" type="OperationCompartment">
             <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_b0EMCjHkEduYw4tR7Gtf7Q"/>
-            <element xmi:type="uml:Class" href="pcm.emx#_GIDLsPdxEdqB_7dkOscBPA?pcm/core/stochastics/RandomVariable"/>
+            <element xmi:type="uml:Class" href="stoex.emx#_GIDLsPdxEdqB_7dkOscBPA?stoex/RandomVariable"/>
           </children>
           <children xmi:id="_b0EMCzHkEduYw4tR7Gtf7Q" visible="false" type="SignalCompartment">
             <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_b0EMDDHkEduYw4tR7Gtf7Q"/>
-            <element xmi:type="uml:Class" href="pcm.emx#_GIDLsPdxEdqB_7dkOscBPA?pcm/core/stochastics/RandomVariable"/>
+            <element xmi:type="uml:Class" href="stoex.emx#_GIDLsPdxEdqB_7dkOscBPA?stoex/RandomVariable"/>
           </children>
           <children xmi:id="_b0EMDTHkEduYw4tR7Gtf7Q" visible="false" type="StructureCompartment">
             <styles xmi:type="umlnotation:UMLShapeCompartmentStyle" xmi:id="_b0EMDjHkEduYw4tR7Gtf7Q"/>
-            <element xmi:type="uml:Class" href="pcm.emx#_GIDLsPdxEdqB_7dkOscBPA?pcm/core/stochastics/RandomVariable"/>
+            <element xmi:type="uml:Class" href="stoex.emx#_GIDLsPdxEdqB_7dkOscBPA?stoex/RandomVariable"/>
           </children>
           <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_b0EMATHkEduYw4tR7Gtf7Q" showStereotype="Label"/>
-          <element xmi:type="uml:Class" href="pcm.emx#_GIDLsPdxEdqB_7dkOscBPA?pcm/core/stochastics/RandomVariable"/>
+          <element xmi:type="uml:Class" href="stoex.emx#_GIDLsPdxEdqB_7dkOscBPA?stoex/RandomVariable"/>
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_b0EMAjHkEduYw4tR7Gtf7Q" x="17490" y="7314"/>
         </children>
         <children xmi:id="_CByrUDHlEduYw4tR7Gtf7Q" targetEdges="_CmALoDHlEduYw4tR7Gtf7Q">
@@ -662,7 +663,7 @@
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Ul-0szHkEduYw4tR7Gtf7Q" value="1"/>
       </ownedAttribute>
       <ownedAttribute xmi:id="_ewHtcTHkEduYw4tR7Gtf7Q" name="iterations_LoopIteration" association="_ewHtcDHkEduYw4tR7Gtf7Q" aggregation="composite">
-        <type xmi:type="uml:Class" href="pcm.emx#_GIDLsPdxEdqB_7dkOscBPA?pcm/core/stochastics/RandomVariable"/>
+        <type xmi:type="uml:Class" href="stoex.emx#_GIDLsPdxEdqB_7dkOscBPA?stoex/RandomVariable"/>
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ewHtdDHkEduYw4tR7Gtf7Q" value="1"/>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ewHtczHkEduYw4tR7Gtf7Q" value="1"/>
       </ownedAttribute>
@@ -682,15 +683,15 @@
     <ownedMember xmi:type="uml:Association" xmi:id="_CltQsDHlEduYw4tR7Gtf7Q" memberEnd="_CltQsTHlEduYw4tR7Gtf7Q _CltQsjHlEduYw4tR7Gtf7Q">
       <ownedEnd xmi:id="_CltQsjHlEduYw4tR7Gtf7Q" name="_UsageContext" visibility="private" type="_rP-84DHjEduYw4tR7Gtf7Q" association="_CltQsDHlEduYw4tR7Gtf7Q"/>
     </ownedMember>
+    <ownedMember xmi:type="uml:Association" xmi:id="_ewHtcDHkEduYw4tR7Gtf7Q" memberEnd="_ewHtcTHkEduYw4tR7Gtf7Q _ewHtcjHkEduYw4tR7Gtf7Q">
+      <ownedEnd xmi:id="_ewHtcjHkEduYw4tR7Gtf7Q" visibility="private" type="_OHIh8DHkEduYw4tR7Gtf7Q" association="_ewHtcDHkEduYw4tR7Gtf7Q"/>
+    </ownedMember>
   </ownedMember>
   <ownedMember xmi:type="uml:Association" xmi:id="_AlOcIDHkEduYw4tR7Gtf7Q" memberEnd="_AlOcITHkEduYw4tR7Gtf7Q _AlOcIjHkEduYw4tR7Gtf7Q">
     <ownedEnd xmi:id="_AlOcIjHkEduYw4tR7Gtf7Q" visibility="private" type="_1F210DHjEduYw4tR7Gtf7Q" association="_AlOcIDHkEduYw4tR7Gtf7Q"/>
   </ownedMember>
   <ownedMember xmi:type="uml:Association" xmi:id="_Ul-0sDHkEduYw4tR7Gtf7Q" memberEnd="_Ul-0sTHkEduYw4tR7Gtf7Q _Ul-0sjHkEduYw4tR7Gtf7Q">
     <ownedEnd xmi:id="_Ul-0sjHkEduYw4tR7Gtf7Q" visibility="private" type="_OHIh8DHkEduYw4tR7Gtf7Q" association="_Ul-0sDHkEduYw4tR7Gtf7Q"/>
-  </ownedMember>
-  <ownedMember xmi:type="uml:Association" xmi:id="_ewHtcDHkEduYw4tR7Gtf7Q" memberEnd="_ewHtcTHkEduYw4tR7Gtf7Q _ewHtcjHkEduYw4tR7Gtf7Q">
-    <ownedEnd xmi:id="_ewHtcjHkEduYw4tR7Gtf7Q" visibility="private" type="_OHIh8DHkEduYw4tR7Gtf7Q" association="_ewHtcDHkEduYw4tR7Gtf7Q"/>
   </ownedMember>
   <ownedMember xmi:type="uml:Package" xmi:id="_t6z5gDHlEduYw4tR7Gtf7Q" name="allocation">
     <eAnnotations xmi:id="_t6z5gTHlEduYw4tR7Gtf7Q" source="uml2.diagrams" references="_t6z5gjHlEduYw4tR7Gtf7Q">
@@ -770,33 +771,33 @@
         </children>
         <children xmi:id="_OHWScDHmEduYw4tR7Gtf7Q" targetEdges="_PHaoUDHmEduYw4tR7Gtf7Q">
           <children xmi:id="_OHWSczHmEduYw4tR7Gtf7Q" type="ImageCompartment">
-            <element xmi:type="uml:Class" href="pcm.emx#_GIDLsPdxEdqB_7dkOscBPA?pcm/core/stochastics/RandomVariable"/>
+            <element xmi:type="uml:Class" href="stoex.emx#_GIDLsPdxEdqB_7dkOscBPA?stoex/RandomVariable"/>
             <layoutConstraint xmi:type="notation:Size" xmi:id="_OHWSdDHmEduYw4tR7Gtf7Q" width="1320" height="1320"/>
           </children>
           <children xmi:id="_OHWSdTHmEduYw4tR7Gtf7Q" type="Stereotype">
-            <element xmi:type="uml:Class" href="pcm.emx#_GIDLsPdxEdqB_7dkOscBPA?pcm/core/stochastics/RandomVariable"/>
+            <element xmi:type="uml:Class" href="stoex.emx#_GIDLsPdxEdqB_7dkOscBPA?stoex/RandomVariable"/>
           </children>
           <children xmi:id="_OHWSdjHmEduYw4tR7Gtf7Q" type="Name">
-            <element xmi:type="uml:Class" href="pcm.emx#_GIDLsPdxEdqB_7dkOscBPA?pcm/core/stochastics/RandomVariable"/>
+            <element xmi:type="uml:Class" href="stoex.emx#_GIDLsPdxEdqB_7dkOscBPA?stoex/RandomVariable"/>
           </children>
           <children xmi:id="_OHWSdzHmEduYw4tR7Gtf7Q" type="AttributeCompartment">
             <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_OHWSeDHmEduYw4tR7Gtf7Q"/>
-            <element xmi:type="uml:Class" href="pcm.emx#_GIDLsPdxEdqB_7dkOscBPA?pcm/core/stochastics/RandomVariable"/>
+            <element xmi:type="uml:Class" href="stoex.emx#_GIDLsPdxEdqB_7dkOscBPA?stoex/RandomVariable"/>
           </children>
           <children xmi:id="_OHWSeTHmEduYw4tR7Gtf7Q" type="OperationCompartment">
             <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_OHWSejHmEduYw4tR7Gtf7Q"/>
-            <element xmi:type="uml:Class" href="pcm.emx#_GIDLsPdxEdqB_7dkOscBPA?pcm/core/stochastics/RandomVariable"/>
+            <element xmi:type="uml:Class" href="stoex.emx#_GIDLsPdxEdqB_7dkOscBPA?stoex/RandomVariable"/>
           </children>
           <children xmi:id="_OHWSezHmEduYw4tR7Gtf7Q" visible="false" type="SignalCompartment">
             <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_OHWSfDHmEduYw4tR7Gtf7Q"/>
-            <element xmi:type="uml:Class" href="pcm.emx#_GIDLsPdxEdqB_7dkOscBPA?pcm/core/stochastics/RandomVariable"/>
+            <element xmi:type="uml:Class" href="stoex.emx#_GIDLsPdxEdqB_7dkOscBPA?stoex/RandomVariable"/>
           </children>
           <children xmi:id="_OHWSfTHmEduYw4tR7Gtf7Q" visible="false" type="StructureCompartment">
             <styles xmi:type="umlnotation:UMLShapeCompartmentStyle" xmi:id="_OHWSfjHmEduYw4tR7Gtf7Q"/>
-            <element xmi:type="uml:Class" href="pcm.emx#_GIDLsPdxEdqB_7dkOscBPA?pcm/core/stochastics/RandomVariable"/>
+            <element xmi:type="uml:Class" href="stoex.emx#_GIDLsPdxEdqB_7dkOscBPA?stoex/RandomVariable"/>
           </children>
           <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_OHWScTHmEduYw4tR7Gtf7Q" showStereotype="Label"/>
-          <element xmi:type="uml:Class" href="pcm.emx#_GIDLsPdxEdqB_7dkOscBPA?pcm/core/stochastics/RandomVariable"/>
+          <element xmi:type="uml:Class" href="stoex.emx#_GIDLsPdxEdqB_7dkOscBPA?stoex/RandomVariable"/>
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_OHWScjHmEduYw4tR7Gtf7Q" x="15663" y="8228"/>
         </children>
         <children xmi:id="_QlAAoDHmEduYw4tR7Gtf7Q" targetEdges="_ROuTEDHmEduYw4tR7Gtf7Q" element="_rP-84DHjEduYw4tR7Gtf7Q">
@@ -1119,7 +1120,7 @@
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_LhfqgzHmEduYw4tR7Gtf7Q" value="1"/>
       </ownedAttribute>
       <ownedAttribute xmi:id="_PG-jcTHmEduYw4tR7Gtf7Q" name="randomVariable_ActualResourceDemand" association="_PG-jcDHmEduYw4tR7Gtf7Q">
-        <type xmi:type="uml:Class" href="pcm.emx#_GIDLsPdxEdqB_7dkOscBPA?pcm/core/stochastics/RandomVariable"/>
+        <type xmi:type="uml:Class" href="stoex.emx#_GIDLsPdxEdqB_7dkOscBPA?stoex/RandomVariable"/>
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_PG-jdDHmEduYw4tR7Gtf7Q" value="1"/>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_PG-jczHmEduYw4tR7Gtf7Q" value="1"/>
       </ownedAttribute>
@@ -1136,12 +1137,12 @@
     <ownedMember xmi:type="uml:Association" xmi:id="_hh2EYGgtEduXgfUNzFlJIw" memberEnd="_hh2EYWgtEduXgfUNzFlJIw _hh2EYmgtEduXgfUNzFlJIw">
       <ownedEnd xmi:id="_hh2EYmgtEduXgfUNzFlJIw" visibility="private" type="_VR46MGgjEduXgfUNzFlJIw" association="_hh2EYGgtEduXgfUNzFlJIw"/>
     </ownedMember>
+    <ownedMember xmi:type="uml:Association" xmi:id="_PG-jcDHmEduYw4tR7Gtf7Q" memberEnd="_PG-jcTHmEduYw4tR7Gtf7Q _PG-jcjHmEduYw4tR7Gtf7Q">
+      <ownedEnd xmi:id="_PG-jcjHmEduYw4tR7Gtf7Q" visibility="private" type="_FScHQDHmEduYw4tR7Gtf7Q" association="_PG-jcDHmEduYw4tR7Gtf7Q"/>
+    </ownedMember>
   </ownedMember>
   <ownedMember xmi:type="uml:Association" xmi:id="_LhfqgDHmEduYw4tR7Gtf7Q" memberEnd="_LhfqgTHmEduYw4tR7Gtf7Q _LhfqgjHmEduYw4tR7Gtf7Q">
     <ownedEnd xmi:id="_LhfqgjHmEduYw4tR7Gtf7Q" visibility="private" type="_FScHQDHmEduYw4tR7Gtf7Q" association="_LhfqgDHmEduYw4tR7Gtf7Q"/>
-  </ownedMember>
-  <ownedMember xmi:type="uml:Association" xmi:id="_PG-jcDHmEduYw4tR7Gtf7Q" memberEnd="_PG-jcTHmEduYw4tR7Gtf7Q _PG-jcjHmEduYw4tR7Gtf7Q">
-    <ownedEnd xmi:id="_PG-jcjHmEduYw4tR7Gtf7Q" visibility="private" type="_FScHQDHmEduYw4tR7Gtf7Q" association="_PG-jcDHmEduYw4tR7Gtf7Q"/>
   </ownedMember>
   <ownedMember xmi:type="uml:Association" xmi:id="_RObYIDHmEduYw4tR7Gtf7Q" memberEnd="_RObYITHmEduYw4tR7Gtf7Q _RObYIjHmEduYw4tR7Gtf7Q">
     <ownedEnd xmi:id="_RObYIjHmEduYw4tR7Gtf7Q" visibility="private" type="_Dkn6kDHmEduYw4tR7Gtf7Q" association="_RObYIDHmEduYw4tR7Gtf7Q"/>
