@@ -22,9 +22,14 @@
 «ENDAROUND»
 
 «AROUND ImportsTM FOR Object»
-   import de.uka.ipd.sdq.simucom.Context;
-   import de.uka.ipd.sdq.simucom.SimulatedComponent;   
-   import de.uka.ipd.sdq.simucom.SimulatedSystem;
+   import de.uka.ipd.sdq.simucomframework.Context;
+   import de.uka.ipd.sdq.simucomframework.SimulatedComponent;   
+   import de.uka.ipd.sdq.simucomframework.SimulatedSystem;
+   import de.uka.ipd.sdq.simucomframework.AbstractUsageScenario;
+   import de.uka.ipd.sdq.simucomframework.IUsageScenario;
+   import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
+   import de.uka.ipd.sdq.simucomframework.resources.SimulatedResourceContainer;
+   import desmoj.core.simulator.SimProcess;
 «ENDAROUND»
 
 «AROUND Action FOR LoopAction»
@@ -40,7 +45,7 @@
 
 
 «AROUND AllocationContextTM FOR Allocation»
-	private Context ctx = new «this.fqnAllocationContext()»();
+	private Context ctx = null;
 «ENDAROUND»
 
 «AROUND DummyRequiredSystemTM(System s) FOR RequiredRole»

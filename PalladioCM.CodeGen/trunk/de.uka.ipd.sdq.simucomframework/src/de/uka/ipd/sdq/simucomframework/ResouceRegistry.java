@@ -1,33 +1,30 @@
-package de.uka.ipd.sdq.simucom;
+package de.uka.ipd.sdq.simucomframework;
 
 import java.util.HashMap;
+
+import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
+import de.uka.ipd.sdq.simucomframework.resources.SimulatedActiveResource;
+import de.uka.ipd.sdq.simucomframework.resources.SimulatedResourceContainer;
 
 public class ResouceRegistry {
 	// ResourceContainerID -> ResourceContainer Object
 	private HashMap<String, SimulatedResourceContainer> resourceContainerHash = new HashMap<String, SimulatedResourceContainer>();
+	
+	private SimuComModel myModel = null;
 
-	private static ResouceRegistry singleton;
-
-	static {
-		singleton = new ResouceRegistry();
-	}
-
-	private ResouceRegistry() {
-
+	public ResouceRegistry(SimuComModel model) {
+		this.myModel = model;
 	}
 
 	protected SimulatedResourceContainer createResourceContainer(
 			String containerID) {
 		if (!resourceContainerHash.containsKey(containerID)) {
 			SimulatedResourceContainer container = new SimulatedResourceContainer(
+					myModel,
 					containerID);
 			resourceContainerHash.put(containerID, container);
 		}
 		return resourceContainerHash.get(containerID);
-	}
-
-	public static ResouceRegistry singleton() {
-		return singleton;
 	}
 
 	public boolean containsResourceContainer(String resourceContainerID) {
@@ -38,5 +35,13 @@ public class ResouceRegistry {
 			String resourceContainerID) {
 		assert containsResourceContainer(resourceContainerID);
 		return resourceContainerHash.get(resourceContainerID);
+	}
+
+	public void activateAllActiveResources() {
+		for(SimulatedResourceContainer src : resourceContainerHash.values()) {
+			for (SimulatedActiveResource sar : src.getActiveResources()) {
+				sar.activateResource();
+			}
+		}
 	}
 }

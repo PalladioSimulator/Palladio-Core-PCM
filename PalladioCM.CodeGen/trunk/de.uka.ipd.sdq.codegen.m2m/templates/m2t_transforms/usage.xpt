@@ -18,10 +18,13 @@
 		«EXPAND m2t_transforms::java_core::Import FOREACH this.querySystemCalls().providedRole_EntryLevelSystemCall.providedInterface__ProvidedRole»
 		«EXPAND m2t_transforms::java_core::Import FOREACH this.querySystemCalls().providedRole_EntryLevelSystemCall.providingEntity_ProvidedRole.toSet()»
 		«EXPAND ContextImports FOR this»
-		public class «this.javaName()» {
+		public class «this.javaName()» 
+		extends AbstractUsageScenario
+		implements IUsageScenario
+		{
 			«EXPAND SystemMemberVar FOREACH this.querySystemCalls().providedRole_EntryLevelSystemCall»
 			«EXPAND AllocationContextTM FOR a»
-			«EXPAND UsageScenarioConstructor FOR this»
+			«EXPAND UsageScenarioConstructor(a) FOR this»
 			
 			«EXPAND ScenarioRunner FOR this.scenarioBehaviour_UsageScenario»
 		}
@@ -37,11 +40,14 @@
 	«ENDFOREACH»
 «ENDDEFINE»
 
-«DEFINE UsageScenarioConstructor FOR UsageScenario»
-public «this.javaName()»() {
+«DEFINE UsageScenarioConstructor(Allocation a) FOR UsageScenario»
+public «this.javaName()»(SimuComModel myModel) {
+	super(myModel,"«this.entityName»");
+
 	«FOREACH this.querySystemCalls().providedRole_EntryLevelSystemCall AS pr»
 		«pr.providingEntity_ProvidedRole.javaName()» my«pr.providingEntity_ProvidedRole.javaName()» = new «pr.providingEntity_ProvidedRole.javaName()»();
 		«LET ((System)pr.providingEntity_ProvidedRole) AS system»
+			ctx = new «a.fqnAllocationContext()»(myModel,this);
 			«system.contextClassName()» context«pr.providingEntity_ProvidedRole.javaName()» = 
 				new «system.contextClassName()»
 					(«EXPAND DummyRequiredSystemTM(system) FOREACH system.requiredRoles_InterfaceRequiringEntity SEPARATOR ","»);

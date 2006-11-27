@@ -6,16 +6,20 @@
 «IMPORT composition»
 «IMPORT allocation»
 «IMPORT resourceenvironment»
+«IMPORT resourcerepository»
 
 «DEFINE Root FOR Allocation»
 	«FILE this.fqnAllocationContext().fqnToDirectoryPath()+".java"»
 		package «this.fqnAllocationContextPackage()»;
-		import de.uka.ipd.sdq.simucom.Context;
+		import de.uka.ipd.sdq.simucomframework.Context;
+		import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
+   		import de.uka.ipd.sdq.simucomframework.resources.SimulatedResourceContainer;
+   		import desmoj.core.simulator.SimProcess;
 		 
 		public class «this.fqnAllocationContextClass()» 
 		extends Context {
-			public «this.fqnAllocationContextClass()»() {
-				super();
+			public «this.fqnAllocationContextClass()»(SimuComModel myModel, SimProcess myProcess) {
+				super(myModel,myProcess);
 			}
 			
 			protected void initialiseAssemblyContextLookup() {
@@ -30,11 +34,18 @@
 «ENDDEFINE»
 
 «DEFINE ResouceContainerInit FOR ResourceContainer»
-	createResourceContainer("«this.id»");
+	{
+	SimulatedResourceContainer rc=createResourceContainer("«this.id»");
+	«EXPAND ActiveResourceAdd FOREACH this.activeResourceSpecifications_ResourceContainer»
+    }
 «ENDDEFINE»
 
 // The following rule assumes the current 1:1 relationship between allocation context and
 // assembly context!
 «DEFINE AssemblyContextLink FOR AllocationContext»
 	linkAssemblyContextAndResourceContainer("«this.assemblyContext_AllocationContext.id»","«this.resourceContainer_AllocationContext.id»");
+«ENDDEFINE»
+
+«DEFINE ActiveResourceAdd FOR ProcessingResourceSpecification»
+	rc.addActiveResource("«this.activeResourceType_ActiveResourceSpecification.entityName»");
 «ENDDEFINE»

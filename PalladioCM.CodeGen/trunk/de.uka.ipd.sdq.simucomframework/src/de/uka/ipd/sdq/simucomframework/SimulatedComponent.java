@@ -1,4 +1,4 @@
-package de.uka.ipd.sdq.simucom;
+package de.uka.ipd.sdq.simucomframework;
 
 public class SimulatedComponent {
 
