@@ -4,11 +4,12 @@ header{
 	import de.uka.ipd.sdq.probfunction.*;
 	import de.uka.ipd.sdq.pcm.parameter.*;
 	import java.util.ArrayList;
-	import de.uka.ipd.sdq.stoex.analyser.visitors.StoExPrettyPrintVisitor;
-}
-    
+	import de.uka.ipd.sdq.pcm.stochasticexpressions.PCMStoExPrettyPrintVisitor;
+} 
+     
 {@SuppressWarnings({"unused"})}
-class VariableUsageParser extends StochasticExpressionsParser;
+class VariableUsageParser extends PCMStoExParser;
+options { buildAST=false; defaultErrorHandler=false; k=2; }
 
 variable_usage returns [VariableUsage vu]
 	{vu = null; AbstractNamedReference id; VariableCharacterisation vc;} :
@@ -24,23 +25,8 @@ variable_characterisation returns [VariableCharacterisation vc]
 	Expression ex; VariableCharacterisationType type;} :
 		type = characterisation ex = expression
 		{	vc.setType(type);
-			String result = "= " + new StoExPrettyPrintVisitor().prettyPrint(ex);
+			String result = "= " + new PCMStoExPrettyPrintVisitor().prettyPrint(ex);
 			vc.setSpecification(result);
 		}
 ;
 
-characterisation returns [VariableCharacterisationType ct]
-{ct = null; String type="";} :
-	type = characterisation_keywords
-	{if(type.equals("TYPE"))
-		ct = VariableCharacterisationType.DATATYPE_LITERAL;
-	 else if(type.equals("BYTESIZE"))
-		ct = VariableCharacterisationType.BYTESIZE_LITERAL;
-	 else if(type.equals("NUMBER_OF_ELEMENTS"))
-		ct = VariableCharacterisationType.NUMBER_OF_ELEMENTS_LITERAL;
-	 else if(type.equals("VALUE"))
-		ct = VariableCharacterisationType.VALUE_LITERAL;
-	 else if(type.equals("STRUCTURE"))
-		ct = VariableCharacterisationType.STRUCTURE_LITERAL;
-	}
-;

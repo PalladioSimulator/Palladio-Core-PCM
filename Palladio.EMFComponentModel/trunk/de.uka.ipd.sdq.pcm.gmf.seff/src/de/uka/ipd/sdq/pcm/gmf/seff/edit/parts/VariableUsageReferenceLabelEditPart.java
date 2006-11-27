@@ -58,6 +58,7 @@ import de.uka.ipd.sdq.pcm.gmf.seff.part.PcmDiagramEditorPlugin;
 import de.uka.ipd.sdq.pcm.gmf.seff.providers.PcmElementTypes;
 import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
 import de.uka.ipd.sdq.pcm.stochasticexpressions.ParameterPrettyPrint;
+import de.uka.ipd.sdq.stoex.analyser.visitors.StoExPrettyPrintVisitor;
 
 /**
  * @generated
@@ -228,7 +229,7 @@ public class VariableUsageReferenceLabelEditPart extends CompartmentEditPart
 		//		}
 		VariableUsage usage = (VariableUsage) resolveSemanticElement();
 		if (usage.getNamedReference_VariableUsage() != null)
-			text = (String) new ParameterPrettyPrint().doSwitch(usage
+			text = (String) new StoExPrettyPrintVisitor().doSwitch(usage
 					.getNamedReference_VariableUsage());
 		if (text == null || text.length() == 0) {
 			text = defaultText;

@@ -6,8 +6,15 @@
  */
 package de.uka.ipd.sdq.pcm.parameter.util;
 
-import de.uka.ipd.sdq.pcm.parameter.*;
+import java.util.List;
 
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
+
+import de.uka.ipd.sdq.pcm.parameter.CharacterisedVariable;
+import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
+import de.uka.ipd.sdq.pcm.parameter.VariableCharacterisation;
+import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
 import de.uka.ipd.sdq.stoex.Atom;
 import de.uka.ipd.sdq.stoex.Comparison;
 import de.uka.ipd.sdq.stoex.Expression;
@@ -16,11 +23,6 @@ import de.uka.ipd.sdq.stoex.Product;
 import de.uka.ipd.sdq.stoex.RandomVariable;
 import de.uka.ipd.sdq.stoex.Term;
 import de.uka.ipd.sdq.stoex.Variable;
-
-import java.util.List;
-
-import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->

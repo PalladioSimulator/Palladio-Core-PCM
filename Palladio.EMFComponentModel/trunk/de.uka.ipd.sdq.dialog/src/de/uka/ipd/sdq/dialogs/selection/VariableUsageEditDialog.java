@@ -15,6 +15,7 @@ import antlr.TokenStreamException;
 import de.uka.ipd.sdq.pcm.stochasticexpressions.ParameterPrettyPrint;
 import de.uka.ipd.sdq.pcm.stochasticexpressions.parser.VariableUsageParser;
 import de.uka.ipd.sdq.stoex.AbstractNamedReference;
+import de.uka.ipd.sdq.stoex.analyser.visitors.StoExPrettyPrintVisitor;
 import de.uka.ipd.sdq.stoex.parser.StochasticExpressionsLexer;
 
 /**
@@ -70,7 +71,7 @@ public class VariableUsageEditDialog extends AbstractGrammerBasedEditDialog {
 	public void setInitialExpression(AbstractNamedReference vu) {
 		try
 		{
-			newText = (String)new ParameterPrettyPrint().doSwitch(vu);
+			newText = (String)new StoExPrettyPrintVisitor().doSwitch(vu);
 		}
 		catch(Exception e)
 		{

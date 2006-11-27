@@ -8,6 +8,8 @@ import org.eclipse.swt.widgets.Shell;
 import antlr.CharScanner;
 import antlr.RecognitionException;
 import antlr.TokenStreamException;
+import de.uka.ipd.sdq.pcm.stochasticexpressions.PCMStoExPrettyPrintVisitor;
+import de.uka.ipd.sdq.pcm.stochasticexpressions.parser.PCMStoExParser;
 import de.uka.ipd.sdq.stoex.Expression;
 import de.uka.ipd.sdq.stoex.analyser.visitors.StoExPrettyPrintVisitor;
 import de.uka.ipd.sdq.stoex.parser.StochasticExpressionsLexer;
@@ -21,7 +23,7 @@ public class StochasticExpressionEditDialog extends
 	}
 
 	public void setInitialExpression(Expression ex) {
-		newText = "= " + new StoExPrettyPrintVisitor().prettyPrint(ex);
+		newText = "= " + new PCMStoExPrettyPrintVisitor().prettyPrint(ex);
 	}
 
 	public Expression getResult() {
@@ -45,7 +47,7 @@ public class StochasticExpressionEditDialog extends
 
 	@Override
 	protected EObject parse(CharScanner lexer) throws RecognitionException, TokenStreamException {
-		return new StochasticExpressionsParser(lexer).expression();
+		return new PCMStoExParser(lexer).expression();
 	}
 
 	@Override

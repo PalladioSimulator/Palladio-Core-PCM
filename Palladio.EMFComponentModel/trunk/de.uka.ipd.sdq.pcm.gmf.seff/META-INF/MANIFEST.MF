@@ -44,5 +44,6 @@ Require-Bundle: org.eclipse.core.runtime,
  de.uka.ipd.sdq.dialog,
  de.uka.ipd.sdq.stoex,
  de.uka.ipd.sdq.stoex.analyser,
- de.uka.ipd.sdq.stoex.edit
+ de.uka.ipd.sdq.stoex.edit,
+ de.uka.ipd.sdq.pcm.stochasticexpressions
 Eclipse-LazyStart: true

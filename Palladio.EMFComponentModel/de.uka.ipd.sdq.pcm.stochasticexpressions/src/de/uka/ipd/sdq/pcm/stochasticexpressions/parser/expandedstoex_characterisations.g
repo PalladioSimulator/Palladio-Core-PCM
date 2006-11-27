@@ -6,7 +6,7 @@ header{
 	import java.util.ArrayList;
 	import de.uka.ipd.sdq.stoex.analyser.visitors.StoExPrettyPrintVisitor;
 }
-{@SuppressWarnings({"unused"})}class VariableUsageParser extends Parser;
+{@SuppressWarnings({"unused"})}class PCMStoExParser extends Parser;
 
 options {
 	buildAST=false;
@@ -15,21 +15,34 @@ options {
 	importVocab=StochasticExpressionsParser;
 }
 
-variable_usage returns [VariableUsage vu]{vu = null; AbstractNamedReference id; VariableCharacterisation vc;}
-:id = scoped_id DOT vc = variable_characterisation 
-		{vu = ParameterFactory.eINSTANCE.createVariableUsage();
-		vu.setNamedReference_VariableUsage(id);
-		vu.getVariableCharacterisation_VariableUsage().add(vc);
-		}
-;
-
-variable_characterisation returns [VariableCharacterisation vc]{vc = ParameterFactory.eINSTANCE.createVariableCharacterisation();
-	Expression ex; VariableCharacterisationType type;}
-:type = characterisation ex = expression
-		{	vc.setType(type);
-			String result = "= " + new StoExPrettyPrintVisitor().prettyPrint(ex);
-			vc.setSpecification(result);
-		}
+atom returns [Atom a]{a = null;}
+:(
+		  number:NUMBER 
+			{
+				String value = number.getText();
+				if (value.indexOf('.') < 0)
+				{
+					IntLiteral il = StoexFactory.eINSTANCE.createIntLiteral();
+					il.setValue(Integer.parseInt(value));
+					a = il;
+				}
+				else
+				{
+					DoubleLiteral dl = StoexFactory.eINSTANCE.createDoubleLiteral();
+					dl.setValue(Double.parseDouble(value));
+					a = dl;
+				}
+			}
+		  |
+		  {AbstractNamedReference id = null; VariableCharacterisationType type;}
+		  id = scoped_id DOT type = characterisation
+		  { a = ParameterFactory.eINSTANCE.createCharacterisedVariable();
+		  	((CharacterisedVariable)a).setId_Variable(id);
+		  	((CharacterisedVariable)a).setCharacterisationType(type);
+		  }
+		  | 
+		  a = definition
+	    )
 ;
 
 characterisation returns [VariableCharacterisationType ct]{ct = null; String type="";}
@@ -97,37 +110,6 @@ prodExpr returns [Product p]{p = null;}
 powExpr returns [Power pw]{pw = null;}
 :{Atom a1 = null, a2 = null;}
 		a1 = atom {pw = a1;} (POW a2 = atom |) ;
-
-// inherited from grammar StochasticExpressionsParser
-atom returns [Atom a]{a = null;}
-:(
-		  number:NUMBER 
-			{
-				String value = number.getText();
-				if (value.indexOf('.') < 0)
-				{
-					IntLiteral il = StoexFactory.eINSTANCE.createIntLiteral();
-					il.setValue(Integer.parseInt(value));
-					a = il;
-				}
-				else
-				{
-					DoubleLiteral dl = StoexFactory.eINSTANCE.createDoubleLiteral();
-					dl.setValue(Double.parseDouble(value));
-					a = dl;
-				}
-			}
-		  |
-		  {AbstractNamedReference id = null;} // VariableCharacterisationType type;}
-		  id = scoped_id // DOT type = characterisation
-		  { a = StoexFactory.eINSTANCE.createVariable();
-		  	((Variable)a).setId_Variable(id);
-		  	//((Variable)a).setCharacterisationType(type);
-		  }
-		  | 
-		  a = definition
-	    )
-;
 
 // inherited from grammar StochasticExpressionsParser
 definition returns [ProbabilityFunctionLiteral pfl]{pfl = StoexFactory.eINSTANCE.createProbabilityFunctionLiteral();

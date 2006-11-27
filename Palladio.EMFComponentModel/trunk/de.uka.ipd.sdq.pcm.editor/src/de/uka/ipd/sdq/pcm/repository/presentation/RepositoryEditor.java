@@ -146,13 +146,13 @@ import de.uka.ipd.sdq.pcm.repository.provider.RepositoryItemProviderAdapterFacto
 import de.uka.ipd.sdq.pcm.resourceenvironment.provider.ResourceenvironmentItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.resourcetype.provider.ResourcetypeItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.seff.provider.SeffItemProviderAdapterFactory;
+import de.uka.ipd.sdq.pcm.stochasticexpressions.PCMStoExPrettyPrintVisitor;
 import de.uka.ipd.sdq.pcm.system.provider.SystemItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.usagemodel.provider.UsagemodelItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcmbench.ui.provider.PalladioItemProviderAdapterFactory;
 import de.uka.ipd.sdq.probfunction.provider.ProbfunctionItemProviderAdapterFactory;
 import de.uka.ipd.sdq.stoex.RandomVariable;
 import de.uka.ipd.sdq.stoex.StoexPackage;
-import de.uka.ipd.sdq.stoex.analyser.visitors.StoExPrettyPrintVisitor;
 import de.uka.ipd.sdq.stoex.provider.StoexItemProviderAdapterFactory;
 
 
@@ -1405,7 +1405,7 @@ public class RepositoryEditor
 							dialog.setInitialExpression(randVar.getSpecification_RandomVariable());
 						dialog.open();
 						if (dialog.getResult() != null) {
-							String result = "= " + new StoExPrettyPrintVisitor().prettyPrint(dialog.getResult());
+							String result = "= " + new PCMStoExPrettyPrintVisitor().prettyPrint(dialog.getResult());
 							SetCommand setRandomVariableCommand = new SetCommand(editingDomain, randVar, 
 									StoexPackage.eINSTANCE.getRandomVariable_Specification(), result);
 							editingDomain.getCommandStack().execute(setRandomVariableCommand);

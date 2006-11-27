@@ -5,7 +5,7 @@
 	import de.uka.ipd.sdq.probfunction.*;
 	import de.uka.ipd.sdq.pcm.parameter.*;
 	import java.util.ArrayList;
-	import de.uka.ipd.sdq.stoex.analyser.visitors.StoExPrettyPrintVisitor;
+	import de.uka.ipd.sdq.pcm.stochasticexpressions.PCMStoExPrettyPrintVisitor;
 
 public interface VariableUsageParserTokenTypes {
 	int EOF = 1;

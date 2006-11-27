@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<pcm.repository:Repository xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pcm.parameter="http://sdq.ipd.uka.de/PalladioComponentModel/Parameter/1.0" xmlns:pcm.repository="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/1.0" xmlns:pcm.seff="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0" id="_WSASwHwAEduH1Ymk7_QCwA" entityName="QoSA Repository">
+<pcm.repository:Repository xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pcm.repository="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/1.0" xmlns:pcm.seff="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0" xmlns:stoex="http://sdq.ipd.uka.de/StochasticExpressions/1.0" id="_WSASwHwAEduH1Ymk7_QCwA" entityName="QoSA Repository">
   <components__Repository xsi:type="pcm.repository:BasicComponent" id="_LulPoHiEEdujPfhn5Gb-iA" entityName="WebUI">
     <providedRoles_InterfaceProvidingEntity id="_NwEmQHiEEdujPfhn5Gb-iA" providedInterface__ProvidedRole="_5zotAHiDEdujPfhn5Gb-iA"/>
     <requiredRoles_InterfaceRequiringEntity id="_bpX4YHiEEdujPfhn5Gb-iA" requiredInterface__RequiredRole="_PGWcsHiEEdujPfhn5Gb-iA"/>
@@ -14,7 +14,7 @@
           <steps_Behaviour xsi:type="pcm.seff:ExternalCallAction" id="_mOvHAHikEduI2qb8vPxxKg" predecessor_AbstractAction="_bMTRIHigEduukpybJ6mGaw" successor_AbstractAction="_aK4QYHigEduukpybJ6mGaw" calledService_ExternalService="//@interfaces__Repository.1/@signatures__Interface.0">
             <parameterUsage_ExternalCallAction>
               <variableCharacterisation_VariableUsage specification="= files.INNER.BYTESIZE" type="BYTESIZE"/>
-              <namedReference_VariableUsage xsi:type="pcm.parameter:VariableReference" referenceName="file"/>
+              <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="file"/>
             </parameterUsage_ExternalCallAction>
           </steps_Behaviour>
         </bodyBehaviour_Loop>
@@ -31,7 +31,6 @@
       <steps_Behaviour xsi:type="pcm.seff:ExternalCallAction" id="_qkMiMHjiEduuSvsux_US9A" predecessor_AbstractAction="_pchIcHjiEduuSvsux_US9A" successor_AbstractAction="_sde_EHjiEduuSvsux_US9A" calledService_ExternalService="//@interfaces__Repository.2/@signatures__Interface.0">
         <parameterUsage_ExternalCallAction>
           <variableCharacterisation_VariableUsage specification="= file.BYTESIZE" type="BYTESIZE"/>
-          <namedReference_VariableUsage xsi:type="pcm.parameter:VariableReference" referenceName="file"/>
         </parameterUsage_ExternalCallAction>
       </steps_Behaviour>
       <steps_Behaviour xsi:type="pcm.seff:ExternalCallAction" id="_sde_EHjiEduuSvsux_US9A" predecessor_AbstractAction="_qkMiMHjiEduuSvsux_US9A" successor_AbstractAction="_FzVNAHjjEduuSvsux_US9A" calledService_ExternalService="//@interfaces__Repository.2/@signatures__Interface.1"/>
@@ -64,7 +63,6 @@
       <steps_Behaviour xsi:type="pcm.seff:ExternalCallAction" id="_ot0vEHjlEduuSvsux_US9A" predecessor_AbstractAction="_m0OwMHjlEduuSvsux_US9A" successor_AbstractAction="_zBy5QHjlEduuSvsux_US9A" calledService_ExternalService="//@interfaces__Repository.3/@signatures__Interface.0">
         <parameterUsage_ExternalCallAction>
           <variableCharacterisation_VariableUsage specification="= file.BYTESIZE" type="BYTESIZE"/>
-          <namedReference_VariableUsage xsi:type="pcm.parameter:VariableReference" referenceName="file"/>
         </parameterUsage_ExternalCallAction>
       </steps_Behaviour>
       <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_qifxsHjlEduuSvsux_US9A" predecessor_AbstractAction="_zBy5QHjlEduuSvsux_US9A"/>
