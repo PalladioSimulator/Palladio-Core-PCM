@@ -15,10 +15,6 @@ import de.uka.ipd.sdq.dsolver.PCMInstance;
 import de.uka.ipd.sdq.dsolver.helper.EMFHelper;
 import de.uka.ipd.sdq.pcm.core.composition.ProvidedDelegationConnector;
 import de.uka.ipd.sdq.pcm.core.stochastics.Expression;
-import de.uka.ipd.sdq.pcm.parameter.CollectionParameterCharacterisation;
-import de.uka.ipd.sdq.pcm.parameter.CollectionParameterUsage;
-import de.uka.ipd.sdq.pcm.parameter.ParameterCharacterisation;
-import de.uka.ipd.sdq.pcm.parameter.ParameterUsage;
 import de.uka.ipd.sdq.pcm.repository.BasicComponent;
 import de.uka.ipd.sdq.pcm.repository.Interface;
 import de.uka.ipd.sdq.pcm.repository.ProvidedRole;
@@ -222,26 +218,16 @@ public class UsageModelVisitor extends UsagemodelSwitch {
 		// not initialized. Added the following for-loop to ensure this.
 		// Probably because of EMF's lazy loading? Any nice solution possible?
 		for (Object o : parList){
-			ParameterUsage pu = (ParameterUsage)o;
-//			EList parChar = pu.getParameterCharacterisation_ParameterUsage();
-//			for (Object p : parChar){
-//				ParameterCharacterisation pc = (ParameterCharacterisation) p;
-//				Expression expr = pc.getSpecification_RandomVariable();
-//				StoExPrettyPrintVisitor printer = new StoExPrettyPrintVisitor();
-//				String exprStr = (String)printer.doSwitch(expr);
-//				pc.setSpecification(exprStr);
-//			}
-			pu.getParameter_ParameterUsage().getParameterName();
-		}
-		for (Object o : parList){
-			if (o instanceof CollectionParameterUsage){
-				CollectionParameterUsage cpu = (CollectionParameterUsage)o;
-				EList cpuList = cpu.getParameterCharacterisation_CollectionParameterUsage();
-				for (Object p : cpuList){
-					CollectionParameterCharacterisation cpc  = (CollectionParameterCharacterisation)p;
-					cpc.getSpecification();
-				}
-			}
+//			ParameterUsage pu = (ParameterUsage)o;
+////			EList parChar = pu.getParameterCharacterisation_ParameterUsage();
+////			for (Object p : parChar){
+////				ParameterCharacterisation pc = (ParameterCharacterisation) p;
+////				Expression expr = pc.getSpecification_RandomVariable();
+////				StoExPrettyPrintVisitor printer = new StoExPrettyPrintVisitor();
+////				String exprStr = (String)printer.doSwitch(expr);
+////				pc.setSpecification(exprStr);
+////			}
+//			pu.getParameter_ParameterUsage().getParameterName();
 		}
 			
 		

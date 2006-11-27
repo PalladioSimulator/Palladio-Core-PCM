@@ -3,7 +3,7 @@
   <usageContext_Usage>
     <loopiterations_UsageContext>
       <loopaction_LoopIteration href="DSolverExample1.repository#_CRToczQeEduaPaOP6VcQiw"/>
-      <iterations_LoopIteration specification="= 25"/>
+      <iterations_LoopIteration specification="= 5"/>
     </loopiterations_UsageContext>
     <actualParameterUsage_UsageContext xsi:type="pcm.parameter:CollectionParameterUsage">
       <parameter_ParameterUsage href="DSolverExample1.repository#//@interfaces__Repository.1/@signatures__Interface.0/@parameters__Signature.0"/>

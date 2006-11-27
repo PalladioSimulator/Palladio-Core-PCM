@@ -17,13 +17,9 @@ import de.uka.ipd.sdq.dsolver.visitors.ExpressionSolveVisitor;
 import de.uka.ipd.sdq.dsolver.visitors.SeffVisitor;
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyConnector;
 import de.uka.ipd.sdq.pcm.core.stochastics.Expression;
-import de.uka.ipd.sdq.pcm.parameter.CollectionParameterCharacterisation;
-import de.uka.ipd.sdq.pcm.parameter.CollectionParameterUsage;
-import de.uka.ipd.sdq.pcm.parameter.CompositeParameterUsage;
-import de.uka.ipd.sdq.pcm.parameter.ParameterCharacterisation;
 import de.uka.ipd.sdq.pcm.parameter.ParameterFactory;
-import de.uka.ipd.sdq.pcm.parameter.ParameterUsage;
-import de.uka.ipd.sdq.pcm.parameter.PrimitiveParameterUsage;
+import de.uka.ipd.sdq.pcm.parameter.VariableCharacterisation;
+import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
 import de.uka.ipd.sdq.pcm.repository.BasicComponent;
 import de.uka.ipd.sdq.pcm.repository.Interface;
 import de.uka.ipd.sdq.pcm.repository.Parameter;
@@ -184,101 +180,32 @@ public class ExternalCallActionHandler extends AbstractHandler{
 	 * @param uc
 	 */
 	private void createActualParameters(EList parametricParameterUsages, UsageContext uc) {
-		Iterator iter = parametricParameterUsages.iterator();
-		while (iter.hasNext()){
-			Object ppu = iter.next();
-			
-			
-			if (ppu instanceof PrimitiveParameterUsage){
-				ParameterUsage actUsage = createPrimitiveParameterUsage(uc, (ParameterUsage)ppu);
-				uc.getActualParameterUsage_UsageContext().add(actUsage);
+		for (Object o1 : parametricParameterUsages){
+			VariableUsage oldUsage = (VariableUsage)o1;
+			VariableUsage newUsage = parameterFactory.createVariableUsage();
+			newUsage.setNamedReference_VariableUsage(oldUsage.getNamedReference_VariableUsage());
+			// TODO inner elements?
+			EList characterisations = oldUsage.getVariableCharacterisation_VariableUsage();
+			for (Object o2 : characterisations){
+				VariableCharacterisation oldCharacterisation = (VariableCharacterisation)o2;
+				Expression expr = oldCharacterisation.getSpecification_RandomVariable();
+
+				// solve dependencies to other parameters
+				ExpressionSolveVisitor pcExprVisitor = new ExpressionSolveVisitor(
+						expr, myContext);
+				Expression solvedExpr = (Expression) pcExprVisitor.doSwitch(expr);
 				
-			} else if (ppu instanceof CollectionParameterUsage){
-				CollectionParameterUsage actUsage = createCollectionParameterUsage(uc, (CollectionParameterUsage)ppu);
-				uc.getActualParameterUsage_UsageContext().add(actUsage);
+				VariableCharacterisation solvedCharacterisation = parameterFactory.createVariableCharacterisation();
+				solvedCharacterisation.setType(oldCharacterisation.getType());
 				
-			} else if (ppu instanceof CompositeParameterUsage){
-				// TODO: not implemented yet
+				StoExPrettyPrintVisitor printer = new StoExPrettyPrintVisitor();
+				String solvedExprString = "= "+(String) printer.doSwitch(solvedExpr);
+				solvedCharacterisation.setSpecification(solvedExprString);
+				
+				newUsage.getVariableCharacterisation_VariableUsage().add(solvedCharacterisation);
 			}
+			uc.getActualParameterUsage_UsageContext().add(newUsage);
 		}
-	}
-
-	/**
-	 * @param uc
-	 * @param ppu
-	 */
-	private ParameterUsage createPrimitiveParameterUsage(UsageContext uc,
-			ParameterUsage pu) {
-		ParameterUsage actPrimUsage = parameterFactory
-				.createPrimitiveParameterUsage();
-
-		Parameter param = pu.getParameter_ParameterUsage();
-		actPrimUsage.setParameter_ParameterUsage(param);
-
-		EList parChar = pu.getParameterCharacterisation_ParameterUsage();
-		Iterator iter = parChar.iterator();
-		while (iter.hasNext()) { //iterate over value, type, bytesize
-			ParameterCharacterisation pc = (ParameterCharacterisation) iter
-					.next();
-			Expression pcExpr = pc.getSpecification_RandomVariable();
-			
-			// solve dependencies to other parameters
-			ExpressionSolveVisitor pcExprVisitor = new ExpressionSolveVisitor(
-					pcExpr, myContext);
-			Expression solvedExpr = (Expression) pcExprVisitor.doSwitch(pcExpr);
-
-			ParameterCharacterisation solvedPc = parameterFactory
-					.createParameterCharacterisation();
-			solvedPc.setType(pc.getType());
-			StoExPrettyPrintVisitor printer = new StoExPrettyPrintVisitor();
-			String solvedChar = "= "+(String) printer.doSwitch(solvedExpr);
-			solvedPc.setSpecification(solvedChar);
-
-			actPrimUsage.getParameterCharacterisation_ParameterUsage().add(
-					solvedPc);
-			
-		}
-		return actPrimUsage;
-		
-	}
-	
-	/**
-	 * @param uc
-	 * @param ppu
-	 */
-	private CollectionParameterUsage createCollectionParameterUsage(UsageContext uc, CollectionParameterUsage pu) {
-		CollectionParameterUsage actCollUsage = parameterFactory.createCollectionParameterUsage();
-		
-		Parameter param = pu.getParameter_ParameterUsage();
-		actCollUsage.setParameter_ParameterUsage(param);
-		
-		EList collParChar = pu.getParameterCharacterisation_CollectionParameterUsage();
-		Iterator iter = collParChar.iterator();
-		while (iter.hasNext()){
-			CollectionParameterCharacterisation cpc = (CollectionParameterCharacterisation)iter.next();
-			Expression pcExpr = cpc.getSpecification_RandomVariable();
-			
-			ExpressionSolveVisitor pcExprVisitor = new ExpressionSolveVisitor(pcExpr, myContext);
-			Expression solvedExpr = (Expression) pcExprVisitor.doSwitch(pcExpr);
-			
-			CollectionParameterCharacterisation solvedPc = parameterFactory.createCollectionParameterCharacterisation();
-			solvedPc.setType(cpc.getType());
-			
-			StoExPrettyPrintVisitor printer = new StoExPrettyPrintVisitor();
-			String solvedChar = "= "+(String) printer.doSwitch(solvedExpr);
-			solvedPc.setSpecification(solvedChar);
-
-			actCollUsage.getParameterCharacterisation_CollectionParameterUsage().add(
-					solvedPc);
-		
-		}
-		
-		ParameterUsage innerUsage = pu.getInnerElement_ParameterUsage();
-		if (innerUsage != null){
-			ParameterUsage solvedInnerUsage = createPrimitiveParameterUsage(uc, innerUsage);
-			actCollUsage.setInnerElement_ParameterUsage(solvedInnerUsage);
-		}
-		return actCollUsage;
 	}
 
 	/**

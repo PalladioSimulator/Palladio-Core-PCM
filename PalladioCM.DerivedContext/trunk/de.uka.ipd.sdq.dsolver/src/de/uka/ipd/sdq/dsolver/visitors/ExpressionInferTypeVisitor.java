@@ -1,16 +1,8 @@
 package de.uka.ipd.sdq.dsolver.visitors;
 
-import java.io.StringBufferInputStream;
 import java.util.HashMap;
-import java.util.StringTokenizer;
 
 import org.apache.log4j.Logger;
-import org.eclipse.emf.common.util.ECollections;
-import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.ecore.EObject;
-
-import antlr.RecognitionException;
-import antlr.TokenStreamException;
 
 import de.uka.ipd.sdq.dsolver.Context;
 import de.uka.ipd.sdq.pcm.core.stochastics.CompareExpression;
@@ -20,17 +12,11 @@ import de.uka.ipd.sdq.pcm.core.stochastics.IntLiteral;
 import de.uka.ipd.sdq.pcm.core.stochastics.ProbabilityFunctionLiteral;
 import de.uka.ipd.sdq.pcm.core.stochastics.ProductExpression;
 import de.uka.ipd.sdq.pcm.core.stochastics.ProductOperations;
-import de.uka.ipd.sdq.pcm.core.stochastics.StochasticsFactory;
 import de.uka.ipd.sdq.pcm.core.stochastics.TermExpression;
 import de.uka.ipd.sdq.pcm.core.stochastics.TermOperations;
 import de.uka.ipd.sdq.pcm.core.stochastics.Variable;
 import de.uka.ipd.sdq.pcm.core.stochastics.util.StochasticsSwitch;
-import de.uka.ipd.sdq.pcm.parameter.CollectionParameterCharacterisation;
-import de.uka.ipd.sdq.pcm.parameter.CollectionParameterUsage;
-import de.uka.ipd.sdq.pcm.parameter.ParameterCharacterisation;
-import de.uka.ipd.sdq.pcm.parameter.ParameterUsage;
-import de.uka.ipd.sdq.pcm.stochasticexpressions.parser.StochasticExpressionsLexer;
-import de.uka.ipd.sdq.pcm.stochasticexpressions.parser.StochasticExpressionsParser;
+import de.uka.ipd.sdq.pcm.parameter.ParameterFactory;
 import de.uka.ipd.sdq.probfunction.ProbabilityDensityFunction;
 import de.uka.ipd.sdq.probfunction.ProbabilityFunction;
 import de.uka.ipd.sdq.probfunction.ProbabilityMassFunction;
@@ -47,6 +33,8 @@ public class ExpressionInferTypeVisitor extends StochasticsSwitch {
 		new HashMap<Expression, Expression>();
 	
 	private Context context;
+	
+	private ParameterFactory paramFactory = ParameterFactory.eINSTANCE;
 	
 	public ExpressionInferTypeVisitor(Context _context){
 		this.context = _context;
@@ -130,104 +118,121 @@ public class ExpressionInferTypeVisitor extends StochasticsSwitch {
 	}
 	
 	public Object caseVariable(Variable var){
-		logger.debug("Found variable: "+var.getId());
-
-		StringTokenizer st = new StringTokenizer(var.getId(), ".");
-		EList parChars = ECollections.EMPTY_ELIST;
-		while (st.hasMoreTokens()) {
-			String currentToken = st.nextToken().toUpperCase();
-			if (isCharacterisationType(currentToken)){
-				handleParameterCharacterisationType(var, parChars, currentToken);
-			} else if (currentToken.equals("INNER")){
-				// TODO
-			} else { // currentToken is variable name
-				parChars = getParameterCharacterisations(currentToken);
-				//TODO: support CompositeParameters
-			}
-		}
+//		logger.debug("Found variable: "+var.getId());
+//		
+//		StringTokenizer st = new StringTokenizer(var.getId(), ".");
+//		
+//		EList parChars = ECollections.EMPTY_ELIST;
+//		
+//		ParameterUsage currentParamUsage = null;
+//		while (st.hasMoreTokens()) {
+//			String currentToken = st.nextToken().toUpperCase();
+//			if (isCharacterisationType(currentToken)){
+//				handleParameterCharacterisationType(var, currentParamUsage, currentToken);
+//			} else if (currentToken.equals("INNER")){
+//				// TODO
+//			} else { // currentToken is variable name
+//				currentParamUsage = getParameterUsage(currentToken);
+//				//parChars = getParameterCharacterisations(currentToken);
+//				//TODO: support CompositeParameters
+//			}
+//		}
 		return var;
 	}
 
-	/**
-	 * @param referencedParameterName
-	 * @return
-	 */
-	private EList getParameterCharacterisations(String referencedParameterName) {
-		EList parameters = context.getUsageContext()
-				.getActualParameterUsage_UsageContext();
-		for (Object o : parameters) {
-			if (o instanceof CollectionParameterUsage) {
-				CollectionParameterUsage cpu = (CollectionParameterUsage) o;
-				String parameterName = cpu.getParameter_ParameterUsage()
-						.getParameterName().toUpperCase();
-				if (parameterName.equals(referencedParameterName)) {
-					return cpu
-							.getParameterCharacterisation_CollectionParameterUsage();
-				}
-			} else if (o instanceof ParameterUsage) {
-				ParameterUsage pu = (ParameterUsage) o;
-				String parameterName = pu.getParameter_ParameterUsage()
-						.getParameterName().toUpperCase();
-				if (parameterName.equals(referencedParameterName)) {
-					return pu.getParameterCharacterisation_ParameterUsage();
-				}
-			}
-		}
-		return null;
-	}
+//	/**
+//	 * @param referencedParameterName
+//	 * @return
+//	 */
+//	private ParameterUsage getParameterUsage(String referencedParameterName) {
+////		EList parameters = context.getUsageContext()
+////				.getActualParameterUsage_UsageContext();
+////		for (Object o : parameters) {
+////			ParameterUsage pu = (ParameterUsage) o;
+////			String parameterName = pu.getParameter_ParameterUsage()
+////					.getParameterName().toUpperCase();
+////			if (parameterName.equals(referencedParameterName)) {
+////				return pu;
+////			}
+////		}
+//		return null;
+//	}
 
-	/**
-	 * @param var
-	 * @param parChars
-	 * @param currentToken
-	 */
-	private void handleParameterCharacterisationType(Variable var, EList parChars, String currentToken) {
-		Object parChar = parChars.get(0);
-		// this is duplicated code, because ParameterCharacterisation and
-		// CollectionParameterCharacterisation do not inherit from the same class
-		if (parChar instanceof ParameterCharacterisation){
-			for(Object o : parChars){
-				ParameterCharacterisation pc = (ParameterCharacterisation)o;
-				if (pc.getType().getName().equals(currentToken)){
-					Expression expr = pc.getSpecification_RandomVariable();
-					storeAnnotations(var, expr);
-				}
-			}
-		} else if (parChar instanceof CollectionParameterCharacterisation){
-			for(Object o : parChars){
-				CollectionParameterCharacterisation cpc = (CollectionParameterCharacterisation)o;
-				if (cpc.getType().getName().equals(currentToken)){
-					Expression expr = cpc.getSpecification_RandomVariable();
-					storeAnnotations(var, expr);
-				}
-			}			
-		}
-		
-	}
+//	/**
+//	 * @param var
+//	 * @param parChars
+//	 * @param currentToken
+//	 */
+//	private void handleParameterCharacterisationType(Variable var, ParameterUsage currentUsage, String currentToken) {
+//		// this is duplicated code, because ParameterCharacterisation and
+//		// CollectionParameterCharacterisation do not inherit from the same class
+//		if (currentUsage instanceof CollectionParameterUsage){
+//			CollectionParameterUsage cpu = (CollectionParameterUsage)currentUsage;	
+//			EList parChars = cpu.getParameterCharacterisation_CollectionParameterUsage();
+//			for(Object o : parChars){
+//				CollectionParameterCharacterisation cpc = (CollectionParameterCharacterisation)o;
+//				if (cpc.getType().getName().equals(currentToken)){
+//					Expression expr = cpc.getSpecification_RandomVariable();
+//					storeAnnotations(var, expr);
+//					return;
+//				}
+//			}
+//			parChars = cpu.getParameterCharacterisation_ParameterUsage();
+//			for(Object o : parChars){
+//				ParameterCharacterisation pc = (ParameterCharacterisation)o;
+//				if (pc.getType().getName().equals(currentToken)){
+//					Expression expr = pc.getSpecification_RandomVariable();
+//					storeAnnotations(var, expr);
+//				}
+//			}
+//			
+//			
+//			
+//		} else if (currentUsage instanceof PrimitiveParameterUsage){
+//			handleParameterCharacterisation(var, currentUsage, currentToken);
+//		}
+//	}
 
-	/**
-	 * @param var
-	 * @param expr
-	 */
-	private void storeAnnotations(Variable var, Expression expr) {
-		parameterAnnotation.put(var, expr);
-		//	resolve type annotation
-		doSwitch(expr); 
-		// get resolved type annotation and use it as var type annotation
-		typeAnnotation.put(var, getTypeAnnotation(expr));
-	}
+//	/**
+//	 * @param var
+//	 * @param currentUsage
+//	 * @param currentToken
+//	 */
+//	private void handleParameterCharacterisation(Variable var, ParameterUsage currentUsage, String currentToken) {
+//		PrimitiveParameterUsage ppu = (PrimitiveParameterUsage)currentUsage;
+//		EList parChars = ppu.getParameterCharacterisation_ParameterUsage();
+//		for(Object o : parChars){
+//			ParameterCharacterisation pc = (ParameterCharacterisation)o;
+//			if (pc.getType().getName().equals(currentToken)){
+//				Expression expr = pc.getSpecification_RandomVariable();
+//				storeAnnotations(var, expr);
+//			}
+//		}
+//	}
 
-	/**
-	 * @param currentToken
-	 * @return
-	 */
-	private boolean isCharacterisationType(String currentToken) {
-		return currentToken.equals("VALUE") 
-				|| currentToken.equals("TYPE")
-				|| currentToken.equals("BYTESIZE")
-				|| currentToken.equals("NUMBER_OF_ELEMENTS")
-				|| currentToken.equals("STRUCTURE");
-	}
+//	/**
+//	 * @param var
+//	 * @param expr
+//	 */
+//	private void storeAnnotations(Variable var, Expression expr) {
+//		parameterAnnotation.put(var, expr);
+//		//	resolve type annotation
+//		doSwitch(expr); 
+//		// get resolved type annotation and use it as var type annotation
+//		typeAnnotation.put(var, getTypeAnnotation(expr));
+//	}
+//
+//	/**
+//	 * @param currentToken
+//	 * @return
+//	 */
+//	private boolean isCharacterisationType(String currentToken) {
+//		return currentToken.equals("VALUE") 
+//				|| currentToken.equals("TYPE")
+//				|| currentToken.equals("BYTESIZE")
+//				|| currentToken.equals("NUMBER_OF_ELEMENTS")
+//				|| currentToken.equals("STRUCTURE");
+//	}
 
 	/**
 	 * @param expr

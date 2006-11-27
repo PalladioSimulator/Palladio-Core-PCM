@@ -2,8 +2,8 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="lib" path="C:/Programme/eclipse-callisto-3.2.1/plugins/de.uka.ipd.sdq.identifier_1.2.3.200610291421.jar"/>
-	<classpathentry kind="lib" path="C:/Programme/eclipse-callisto-3.2.1/plugins/de.uka.ipd.sdq.pcm_1.2.3.200610291421.jar"/>
+	<classpathentry kind="lib" path="C:/Programme/eclipse-callisto-3.2.1/plugins/de.uka.ipd.sdq.identifier_1.3.0.200611211657.jar"/>
+	<classpathentry kind="lib" path="C:/Programme/eclipse-callisto-3.2.1/plugins/de.uka.ipd.sdq.pcm_1.3.0.200611211657.jar"/>
 	<classpathentry kind="lib" path="C:/Programme/eclipse-callisto-3.2.1/plugins/org.eclipse.emf.common_2.2.1.v200609210005.jar"/>
 	<classpathentry kind="lib" path="C:/Programme/eclipse-callisto-3.2.1/plugins/org.eclipse.emf.ecore.xmi_2.2.1.v200609210005.jar"/>
 	<classpathentry kind="lib" path="C:/Programme/eclipse-callisto-3.2.1/plugins/org.eclipse.emf.ecore_2.2.1.v200609210005.jar"/>

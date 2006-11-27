@@ -164,9 +164,9 @@ public class SeffVisitor extends SeffSwitch {
 	 */
 	private void saveContexts() {
 		UsageContext usageContext = myContext.getUsageContext();
-		pcmInstance.getUsage().getUsageContext_Usage().add(usageContext);
+		pcmInstance.getUsage().getUsageContexts_Usage().add(usageContext);
 		ActualAllocationContext actAll = myContext.getActualAllocationContext();
-		pcmInstance.getActualAllocation().getActualAllocationContext_ActualAllocation().add(actAll);
+		pcmInstance.getActualAllocation().getActualAllocationContexts_ActualAllocation().add(actAll);
 	}
 
 	/**
