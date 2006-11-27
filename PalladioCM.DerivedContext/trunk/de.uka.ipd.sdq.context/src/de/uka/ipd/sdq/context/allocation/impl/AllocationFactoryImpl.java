@@ -6,15 +6,17 @@
  */
 package de.uka.ipd.sdq.context.allocation.impl;
 
-import de.uka.ipd.sdq.context.allocation.*;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
-
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
+
+import de.uka.ipd.sdq.context.allocation.ActualAllocation;
+import de.uka.ipd.sdq.context.allocation.ActualAllocationContext;
+import de.uka.ipd.sdq.context.allocation.ActualResourceDemand;
+import de.uka.ipd.sdq.context.allocation.AllocationFactory;
+import de.uka.ipd.sdq.context.allocation.AllocationPackage;
 
 /**
  * <!-- begin-user-doc -->

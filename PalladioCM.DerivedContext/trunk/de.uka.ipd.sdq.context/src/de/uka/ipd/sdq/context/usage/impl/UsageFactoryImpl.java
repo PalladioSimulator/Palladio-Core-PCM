@@ -6,15 +6,18 @@
  */
 package de.uka.ipd.sdq.context.usage.impl;
 
-import de.uka.ipd.sdq.context.usage.*;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
-
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
+
+import de.uka.ipd.sdq.context.usage.BranchProbability;
+import de.uka.ipd.sdq.context.usage.LoopIteration;
+import de.uka.ipd.sdq.context.usage.Usage;
+import de.uka.ipd.sdq.context.usage.UsageContext;
+import de.uka.ipd.sdq.context.usage.UsageFactory;
+import de.uka.ipd.sdq.context.usage.UsagePackage;
 
 /**
  * <!-- begin-user-doc -->

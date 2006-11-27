@@ -16,5 +16,6 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
  de.uka.ipd.sdq.identifier;visibility:=reexport,
  de.uka.ipd.sdq.pcm;visibility:=reexport,
- de.uka.ipd.sdq.probfunction
+ de.uka.ipd.sdq.probfunction,
+ de.uka.ipd.sdq.stoex
 Eclipse-LazyStart: true

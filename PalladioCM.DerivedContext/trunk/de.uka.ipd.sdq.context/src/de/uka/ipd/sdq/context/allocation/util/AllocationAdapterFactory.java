@@ -6,14 +6,15 @@
  */
 package de.uka.ipd.sdq.context.allocation.util;
 
-import de.uka.ipd.sdq.context.allocation.*;
-
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
-
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
-
 import org.eclipse.emf.ecore.EObject;
+
+import de.uka.ipd.sdq.context.allocation.ActualAllocation;
+import de.uka.ipd.sdq.context.allocation.ActualAllocationContext;
+import de.uka.ipd.sdq.context.allocation.ActualResourceDemand;
+import de.uka.ipd.sdq.context.allocation.AllocationPackage;
 
 /**
  * <!-- begin-user-doc -->

@@ -6,11 +6,10 @@
  */
 package de.uka.ipd.sdq.context.allocation;
 
-import de.uka.ipd.sdq.pcm.core.stochastics.RandomVariable;
+import org.eclipse.emf.ecore.EObject;
 
 import de.uka.ipd.sdq.pcm.seff.ParametricResourceDemand;
-
-import org.eclipse.emf.ecore.EObject;
+import de.uka.ipd.sdq.stoex.RandomVariable;
 
 /**
  * <!-- begin-user-doc -->

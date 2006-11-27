@@ -6,9 +6,9 @@
  */
 package de.uka.ipd.sdq.context.usage;
 
-import de.uka.ipd.sdq.pcm.seff.BranchTransition;
-
 import org.eclipse.emf.ecore.EObject;
+
+import de.uka.ipd.sdq.pcm.seff.BranchTransition;
 
 /**
  * <!-- begin-user-doc -->

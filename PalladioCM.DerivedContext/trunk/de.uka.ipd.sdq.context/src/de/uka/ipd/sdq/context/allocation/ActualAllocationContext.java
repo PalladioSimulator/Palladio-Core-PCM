@@ -6,11 +6,10 @@
  */
 package de.uka.ipd.sdq.context.allocation;
 
-import de.uka.ipd.sdq.context.usage.UsageContext;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EObject;
+
+import de.uka.ipd.sdq.context.usage.UsageContext;
 
 /**
  * <!-- begin-user-doc -->

@@ -6,17 +6,14 @@
  */
 package de.uka.ipd.sdq.context.usage.presentation;
 
-import de.uka.ipd.sdq.identifier.provider.IdentifierEditPlugin;
-
-import de.uka.ipd.sdq.pcm.core.stochastics.provider.PcmEditPlugin;
-
-import de.uka.ipd.sdq.probfunction.provider.ProbabilityFunctionEditPlugin;
-
 import org.eclipse.emf.common.EMFPlugin;
-
 import org.eclipse.emf.common.ui.EclipseUIPlugin;
-
 import org.eclipse.emf.common.util.ResourceLocator;
+
+import de.uka.ipd.sdq.identifier.provider.IdentifierEditPlugin;
+import de.uka.ipd.sdq.pcm.core.entity.provider.PcmEditPlugin;
+import de.uka.ipd.sdq.probfunction.provider.ProbabilityFunctionEditPlugin;
+import de.uka.ipd.sdq.stoex.provider.StoexEditPlugin;
 
 /**
  * This is the central singleton for the Context editor plugin.
@@ -60,6 +57,7 @@ public final class ContextEditorPlugin extends EMFPlugin {
 		     IdentifierEditPlugin.INSTANCE,
 		     PcmEditPlugin.INSTANCE,
 		     ProbabilityFunctionEditPlugin.INSTANCE,
+		     StoexEditPlugin.INSTANCE,
 		   });
 	}
 
