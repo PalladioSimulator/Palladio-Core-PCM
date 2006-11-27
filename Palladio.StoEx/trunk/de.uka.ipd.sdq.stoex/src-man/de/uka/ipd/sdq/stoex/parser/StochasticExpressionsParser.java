@@ -145,7 +145,7 @@ public StochasticExpressionsParser(ParserSharedInputState state) {
 		p1=prodExpr();
 		t = p1;
 		{
-		_loop930:
+		_loop8:
 		do {
 			if ((LA(1)==PLUS||LA(1)==MINUS)) {
 				TermExpression termExp = StoexFactory.eINSTANCE.createTermExpression();
@@ -173,7 +173,7 @@ public StochasticExpressionsParser(ParserSharedInputState state) {
 				termExp.setLeft(t); termExp.setRight(p2); t = termExp;
 			}
 			else {
-				break _loop930;
+				break _loop8;
 			}
 			
 		} while (true);
@@ -190,7 +190,7 @@ public StochasticExpressionsParser(ParserSharedInputState state) {
 		pw1=powExpr();
 		p = pw1;
 		{
-		_loop934:
+		_loop12:
 		do {
 			if (((LA(1) >= MUL && LA(1) <= MOD))) {
 				ProductExpression prodExp = StoexFactory.eINSTANCE.createProductExpression();
@@ -224,7 +224,7 @@ public StochasticExpressionsParser(ParserSharedInputState state) {
 				prodExp.setLeft(p); prodExp.setRight(pw2); p = prodExp;
 			}
 			else {
-				break _loop934;
+				break _loop12;
 			}
 			
 		} while (true);
@@ -340,7 +340,7 @@ public StochasticExpressionsParser(ParserSharedInputState state) {
 		match(ID);
 		nameParts.add(id1.getText());
 		{
-		_loop963:
+		_loop41:
 		do {
 			if ((LA(1)==DOT)) {
 				match(DOT);
@@ -367,7 +367,7 @@ public StochasticExpressionsParser(ParserSharedInputState state) {
 				}
 			}
 			else {
-				break _loop963;
+				break _loop41;
 			}
 			
 		} while (true);
@@ -418,8 +418,8 @@ public StochasticExpressionsParser(ParserSharedInputState state) {
 			match(RPAREN);
 			match(SQUARE_PAREN_L);
 			{
-			int _cnt942=0;
-			_loop942:
+			int _cnt20=0;
+			_loop20:
 			do {
 				if ((LA(1)==LPAREN)) {
 					Sample isample=null;
@@ -427,10 +427,10 @@ public StochasticExpressionsParser(ParserSharedInputState state) {
 					((ProbabilityMassFunction)probFunction).getSamples().add(isample);
 				}
 				else {
-					if ( _cnt942>=1 ) { break _loop942; } else {throw new NoViableAltException(LT(1), getFilename());}
+					if ( _cnt20>=1 ) { break _loop20; } else {throw new NoViableAltException(LT(1), getFilename());}
 				}
 				
-				_cnt942++;
+				_cnt20++;
 			} while (true);
 			}
 			match(SQUARE_PAREN_R);
@@ -450,8 +450,8 @@ public StochasticExpressionsParser(ParserSharedInputState state) {
 			match(RPAREN);
 			match(SQUARE_PAREN_L);
 			{
-			int _cnt945=0;
-			_loop945:
+			int _cnt23=0;
+			_loop23:
 			do {
 				if ((LA(1)==LPAREN)) {
 					Sample rsample=null;
@@ -459,10 +459,10 @@ public StochasticExpressionsParser(ParserSharedInputState state) {
 					((ProbabilityMassFunction)probFunction).getSamples().add(rsample);
 				}
 				else {
-					if ( _cnt945>=1 ) { break _loop945; } else {throw new NoViableAltException(LT(1), getFilename());}
+					if ( _cnt23>=1 ) { break _loop23; } else {throw new NoViableAltException(LT(1), getFilename());}
 				}
 				
-				_cnt945++;
+				_cnt23++;
 			} while (true);
 			}
 			match(SQUARE_PAREN_R);
@@ -503,8 +503,8 @@ public StochasticExpressionsParser(ParserSharedInputState state) {
 			match(RPAREN);
 			match(SQUARE_PAREN_L);
 			{
-			int _cnt949=0;
-			_loop949:
+			int _cnt27=0;
+			_loop27:
 			do {
 				if ((LA(1)==LPAREN)) {
 					Sample ssample=null;
@@ -512,10 +512,10 @@ public StochasticExpressionsParser(ParserSharedInputState state) {
 					((ProbabilityMassFunction)probFunction).getSamples().add(ssample);
 				}
 				else {
-					if ( _cnt949>=1 ) { break _loop949; } else {throw new NoViableAltException(LT(1), getFilename());}
+					if ( _cnt27>=1 ) { break _loop27; } else {throw new NoViableAltException(LT(1), getFilename());}
 				}
 				
-				_cnt949++;
+				_cnt27++;
 			} while (true);
 			}
 			match(SQUARE_PAREN_R);
@@ -535,8 +535,8 @@ public StochasticExpressionsParser(ParserSharedInputState state) {
 			match(RPAREN);
 			match(SQUARE_PAREN_L);
 			{
-			int _cnt952=0;
-			_loop952:
+			int _cnt30=0;
+			_loop30:
 			do {
 				if ((LA(1)==LPAREN)) {
 					ContinuousSample pdf_sample=null;
@@ -544,10 +544,10 @@ public StochasticExpressionsParser(ParserSharedInputState state) {
 					((BoxedPDF)probFunction).getSamples().add(pdf_sample);
 				}
 				else {
-					if ( _cnt952>=1 ) { break _loop952; } else {throw new NoViableAltException(LT(1), getFilename());}
+					if ( _cnt30>=1 ) { break _loop30; } else {throw new NoViableAltException(LT(1), getFilename());}
 				}
 				
-				_cnt952++;
+				_cnt30++;
 			} while (true);
 			}
 			match(SQUARE_PAREN_R);
