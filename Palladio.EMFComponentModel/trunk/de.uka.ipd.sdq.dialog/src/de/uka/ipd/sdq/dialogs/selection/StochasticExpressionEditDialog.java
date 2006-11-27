@@ -24,7 +24,7 @@ public class StochasticExpressionEditDialog extends
 	}
 
 	public void setInitialExpression(RandomVariable ex) {
-		newText = "= " + ex.getSpecification();
+		newText = ex.getSpecification();
 	}
 
 	public Expression getResult() {
