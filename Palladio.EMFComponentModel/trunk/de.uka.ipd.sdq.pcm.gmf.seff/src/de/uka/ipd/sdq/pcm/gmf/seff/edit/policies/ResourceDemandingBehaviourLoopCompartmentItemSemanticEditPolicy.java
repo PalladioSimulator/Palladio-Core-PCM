@@ -26,9 +26,7 @@ import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
 import de.uka.ipd.sdq.pcm.repository.RequiredRole;
 import de.uka.ipd.sdq.pcm.repository.Signature;
 import de.uka.ipd.sdq.pcm.seff.ExternalCallAction;
-import de.uka.ipd.sdq.pcm.seff.LoopAction;
 import de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF;
-import de.uka.ipd.sdq.pcm.seff.SeffFactory;
 import de.uka.ipd.sdq.pcm.seff.SeffPackage;
 
 /**

@@ -5,31 +5,26 @@ package de.uka.ipd.sdq.pcm.gmf.seff.edit.policies;
 
 import java.util.ArrayList;
 
-import de.uka.ipd.sdq.dialogs.selection.PalladioSelectEObjectDialog;
-import de.uka.ipd.sdq.pcm.gmf.seff.providers.PcmElementTypes;
-
-import de.uka.ipd.sdq.pcm.resourcetype.ProcessingResourceType;
-import de.uka.ipd.sdq.pcm.resourcetype.ResourceRepository;
-import de.uka.ipd.sdq.pcm.resourcetype.ResourceType;
-import de.uka.ipd.sdq.pcm.seff.ParametricResourceDemand;
-import de.uka.ipd.sdq.pcm.seff.SeffPackage;
-
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
-
 import org.eclipse.gef.commands.Command;
-
 import org.eclipse.gmf.runtime.common.core.command.CommandResult;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.GraphicalEditPart;
 import org.eclipse.gmf.runtime.emf.type.core.commands.CreateElementCommand;
-
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
-
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.widgets.Shell;
+
+import de.uka.ipd.sdq.dialogs.selection.PalladioSelectEObjectDialog;
+import de.uka.ipd.sdq.pcm.gmf.seff.providers.PcmElementTypes;
+import de.uka.ipd.sdq.pcm.resourcetype.ProcessingResourceType;
+import de.uka.ipd.sdq.pcm.resourcetype.ResourceRepository;
+import de.uka.ipd.sdq.pcm.resourcetype.ResourceType;
+import de.uka.ipd.sdq.pcm.seff.ParametricResourceDemand;
+import de.uka.ipd.sdq.pcm.seff.SeffPackage;
 
 /**
  * @generated

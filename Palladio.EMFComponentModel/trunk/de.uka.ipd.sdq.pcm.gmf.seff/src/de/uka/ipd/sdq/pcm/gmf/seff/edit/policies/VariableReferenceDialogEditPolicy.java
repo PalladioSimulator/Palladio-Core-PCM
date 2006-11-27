@@ -7,33 +7,17 @@ import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
-import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.edit.command.SetCommand;
-import org.eclipse.emf.transaction.RecordingCommand;
 import org.eclipse.gef.Request;
 import org.eclipse.gef.commands.Command;
-import org.eclipse.gmf.runtime.common.core.command.CompositeCommand;
-import org.eclipse.gmf.runtime.common.core.command.ICommand;
 import org.eclipse.gmf.runtime.diagram.ui.commands.ICommandProxy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.OpenEditPolicy;
-import org.eclipse.gmf.runtime.emf.type.core.ElementTypeRegistry;
-import org.eclipse.gmf.runtime.emf.type.core.IElementType;
-import org.eclipse.gmf.runtime.emf.type.core.commands.CreateElementCommand;
 import org.eclipse.gmf.runtime.emf.type.core.commands.SetValueCommand;
-import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.SetRequest;
 
-import de.uka.ipd.sdq.dialogs.selection.StochasticExpressionEditDialog;
-import de.uka.ipd.sdq.dialogs.selection.VariableCharacterisationEditDialog;
 import de.uka.ipd.sdq.dialogs.selection.VariableUsageEditDialog;
-import de.uka.ipd.sdq.pcm.core.stochastics.RandomVariable;
-import de.uka.ipd.sdq.pcm.core.stochastics.StochasticsPackage;
-import de.uka.ipd.sdq.pcm.gmf.seff.providers.PcmElementTypes;
-import de.uka.ipd.sdq.pcm.parameter.AbstractNamedReference;
 import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
-import de.uka.ipd.sdq.pcm.parameter.VariableCharacterisation;
 import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
-import de.uka.ipd.sdq.stoex.analyser.visitors.StoExPrettyPrintVisitor;
+import de.uka.ipd.sdq.stoex.AbstractNamedReference;
 
 /**
  * @author Snowball

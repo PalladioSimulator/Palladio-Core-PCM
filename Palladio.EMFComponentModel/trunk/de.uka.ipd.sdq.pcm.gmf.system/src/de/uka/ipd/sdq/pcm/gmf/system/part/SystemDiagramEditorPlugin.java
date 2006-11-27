@@ -27,7 +27,6 @@ import de.uka.ipd.sdq.pcm.allocation.provider.AllocationItemProviderAdapterFacto
 import de.uka.ipd.sdq.pcm.core.composition.provider.CompositionItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.core.connectors.provider.ConnectorsItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.core.entity.provider.EntityItemProviderAdapterFactory;
-import de.uka.ipd.sdq.pcm.core.stochastics.provider.StochasticsItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.parameter.provider.ParameterItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.protocol.provider.ProtocolItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.repository.provider.RepositoryItemProviderAdapterFactory;
@@ -37,6 +36,7 @@ import de.uka.ipd.sdq.pcm.seff.provider.SeffItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.system.provider.SystemItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.usagemodel.provider.UsagemodelItemProviderAdapterFactory;
 import de.uka.ipd.sdq.probfunction.provider.ProbfunctionItemProviderAdapterFactory;
+import de.uka.ipd.sdq.stoex.provider.StoexItemProviderAdapterFactory;
 
 /**
  * @generated
@@ -111,7 +111,7 @@ public class SystemDiagramEditorPlugin extends AbstractUIPlugin {
 	 * @generated
 	 */
 	protected void fillItemProviderFactories(List factories) {
-		factories.add(new StochasticsItemProviderAdapterFactory());
+		factories.add(new StoexItemProviderAdapterFactory());
 		factories.add(new EntityItemProviderAdapterFactory());
 		factories.add(new ConnectorsItemProviderAdapterFactory());
 		factories.add(new CompositionItemProviderAdapterFactory());

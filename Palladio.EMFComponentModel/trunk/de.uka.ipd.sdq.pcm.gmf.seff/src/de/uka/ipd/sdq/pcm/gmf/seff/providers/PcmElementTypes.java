@@ -20,7 +20,6 @@ import org.eclipse.swt.graphics.Image;
 
 import de.uka.ipd.sdq.pcm.gmf.seff.part.PcmDiagramEditorPlugin;
 import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
-
 import de.uka.ipd.sdq.pcm.seff.SeffPackage;
 
 /**

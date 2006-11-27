@@ -49,7 +49,6 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.StopAction2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.StopActionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableCharacterisationEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableUsageEditPart;
-
 import de.uka.ipd.sdq.pcm.gmf.seff.part.PcmVisualIDRegistry;
 import de.uka.ipd.sdq.pcm.gmf.seff.providers.PcmElementTypes;
 import de.uka.ipd.sdq.pcm.seff.AbstractAction;

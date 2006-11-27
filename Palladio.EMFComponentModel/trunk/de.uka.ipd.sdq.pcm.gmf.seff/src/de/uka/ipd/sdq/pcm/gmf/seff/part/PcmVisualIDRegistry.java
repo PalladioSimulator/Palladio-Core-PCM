@@ -31,8 +31,6 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.InternalActionEntityName2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.InternalActionEntityNameEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.InternalActionResourceDemand2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.InternalActionResourceDemandEditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.InternalActionResourceDemandResourceDemandingActionCompartment2EditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.InternalActionResourceDemandResourceDemandingActionCompartmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopAction2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopActionBehaviourCompartment2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopActionBehaviourCompartmentEditPart;
@@ -41,7 +39,6 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopActionEntityName2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopActionEntityNameEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopIterationsLabel2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopIterationsLabelEditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ParametricResourceDemandDemandLabelEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ParametricResourceDemandEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviour2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviourBranchCompartmentEditPart;
@@ -54,14 +51,11 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.StopAction2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.StopActionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableCharacterisationEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableUsageEditPart;
-
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableUsageReferenceLabelEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableUsageVariableCharacterisationEditPart;
-
 import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
 import de.uka.ipd.sdq.pcm.parameter.VariableCharacterisation;
 import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
-
 import de.uka.ipd.sdq.pcm.seff.BranchAction;
 import de.uka.ipd.sdq.pcm.seff.BranchTransition;
 import de.uka.ipd.sdq.pcm.seff.ExternalCallAction;

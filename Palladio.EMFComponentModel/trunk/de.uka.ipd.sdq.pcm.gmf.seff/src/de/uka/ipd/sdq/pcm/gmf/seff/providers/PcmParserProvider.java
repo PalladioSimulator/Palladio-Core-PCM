@@ -3,6 +3,9 @@
  */
 package de.uka.ipd.sdq.pcm.gmf.seff.providers;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.gmf.runtime.common.core.service.AbstractProvider;
 import org.eclipse.gmf.runtime.common.core.service.IOperation;
@@ -12,8 +15,6 @@ import org.eclipse.gmf.runtime.common.ui.services.parser.IParserProvider;
 import org.eclipse.gmf.runtime.notation.View;
 
 import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
-import de.uka.ipd.sdq.pcm.core.stochastics.StochasticsPackage;
-
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.BranchActionEntityName2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.BranchActionEntityNameEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ExternalCallActionEntityName2EditPart;
@@ -26,15 +27,10 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopIterationsLabel2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopIterationsLabelEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ParametricResourceDemandEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableCharacterisationEditPart;
-
 import de.uka.ipd.sdq.pcm.gmf.seff.part.PcmVisualIDRegistry;
-
 import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
-
 import de.uka.ipd.sdq.pcm.seff.SeffPackage;
-
-import java.util.ArrayList;
-import java.util.List;
+import de.uka.ipd.sdq.stoex.StoexPackage;
 
 /**
  * @generated
@@ -64,7 +60,7 @@ public class PcmParserProvider extends AbstractProvider implements
 		List features = new ArrayList(2);
 		features.add(ParameterPackage.eINSTANCE.getVariableCharacterisation()
 				.getEStructuralFeature("type")); //$NON-NLS-1$
-		features.add(StochasticsPackage.eINSTANCE.getRandomVariable()
+		features.add(StoexPackage.eINSTANCE.getRandomVariable()
 				.getEStructuralFeature("specification")); //$NON-NLS-1$
 		PcmStructuralFeaturesParser parser = new PcmStructuralFeaturesParser(
 				features);
@@ -143,7 +139,7 @@ public class PcmParserProvider extends AbstractProvider implements
 	 */
 	protected IParser createParametricResourceDemandParametricResourceDemand_2008Parser() {
 		List features = new ArrayList(2);
-		features.add(StochasticsPackage.eINSTANCE.getRandomVariable()
+		features.add(StoexPackage.eINSTANCE.getRandomVariable()
 				.getEStructuralFeature("specification")); //$NON-NLS-1$
 		features.add(SeffPackage.eINSTANCE.getParametricResourceDemand()
 				.getEStructuralFeature("unit")); //$NON-NLS-1$
@@ -324,7 +320,7 @@ public class PcmParserProvider extends AbstractProvider implements
 
 	protected IParser createLoopActionIterations_4003Parser() {
 		PcmStructuralFeatureParser parser = new PcmStructuralFeatureParser(
-				StochasticsPackage.eINSTANCE.getRandomVariable_Specification()); //$NON-NLS-1$
+				StoexPackage.eINSTANCE.getRandomVariable_Specification()); //$NON-NLS-1$
 		return parser;
 	}
 

@@ -26,14 +26,12 @@ import de.uka.ipd.sdq.dialogs.selection.PalladioSelectEObjectDialog;
 import de.uka.ipd.sdq.pcm.gmf.seff.providers.PcmElementTypes;
 import de.uka.ipd.sdq.pcm.repository.BasicComponent;
 import de.uka.ipd.sdq.pcm.repository.Interface;
-import de.uka.ipd.sdq.pcm.repository.ProvidedRole;
 import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
 import de.uka.ipd.sdq.pcm.repository.RequiredRole;
 import de.uka.ipd.sdq.pcm.repository.Signature;
 import de.uka.ipd.sdq.pcm.seff.ExternalCallAction;
 import de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF;
 import de.uka.ipd.sdq.pcm.seff.SeffPackage;
-import de.uka.ipd.sdq.pcm.seff.ServiceEffectSpecification;
 
 /**
  * @generated

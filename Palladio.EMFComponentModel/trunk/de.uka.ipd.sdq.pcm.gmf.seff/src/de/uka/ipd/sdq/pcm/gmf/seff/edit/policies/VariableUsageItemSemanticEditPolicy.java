@@ -3,12 +3,12 @@
  */
 package de.uka.ipd.sdq.pcm.gmf.seff.edit.policies;
 
+import org.eclipse.emf.ecore.EAnnotation;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.gef.commands.Command;
 import org.eclipse.gmf.runtime.emf.type.core.commands.DestroyElementCommand;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateRelationshipRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.DestroyElementRequest;
-import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.EAnnotation;
 import org.eclipse.gmf.runtime.notation.View;
 
 /**

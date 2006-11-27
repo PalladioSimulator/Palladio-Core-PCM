@@ -31,8 +31,6 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.InternalActionEntityName2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.InternalActionEntityNameEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.InternalActionResourceDemand2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.InternalActionResourceDemandEditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.InternalActionResourceDemandResourceDemandingActionCompartment2EditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.InternalActionResourceDemandResourceDemandingActionCompartmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopAction2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopActionBehaviourCompartment2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopActionBehaviourCompartmentEditPart;
@@ -41,7 +39,6 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopActionEntityName2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopActionEntityNameEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopIterationsLabel2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopIterationsLabelEditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ParametricResourceDemandDemandLabelEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ParametricResourceDemandEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviour2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviourBranchCompartmentEditPart;
@@ -54,10 +51,8 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.StopAction2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.StopActionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableCharacterisationEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableUsageEditPart;
-
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableUsageReferenceLabelEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableUsageVariableCharacterisationEditPart;
-
 import de.uka.ipd.sdq.pcm.gmf.seff.part.PcmVisualIDRegistry;
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.AbstractActionSuccessor_AbstractActionViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.BranchAction2ViewFactory;
@@ -80,8 +75,6 @@ import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.InternalActionEntityName2ViewF
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.InternalActionEntityNameViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.InternalActionResourceDemand2ViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.InternalActionResourceDemandViewFactory;
-import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.InternalActionResourceDemandResourceDemandingActionCompartment2ViewFactory;
-import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.InternalActionResourceDemandResourceDemandingActionCompartmentViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.InternalActionViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.LoopAction2ViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.LoopActionBehaviourCompartment2ViewFactory;
@@ -91,7 +84,6 @@ import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.LoopActionEntityNameViewFactor
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.LoopActionViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.LoopIterationsLabel2ViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.LoopIterationsLabelViewFactory;
-import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.ParametricResourceDemandDemandLabelViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.ParametricResourceDemandViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.ResourceDemandingBehaviour2ViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.ResourceDemandingBehaviourBranchCompartmentViewFactory;
@@ -102,7 +94,6 @@ import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.StartAction2ViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.StartActionViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.StopAction2ViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.StopActionViewFactory;
-
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.VariableCharacterisationViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.VariableUsageReferenceLabelViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.VariableUsageVariableCharacterisationViewFactory;

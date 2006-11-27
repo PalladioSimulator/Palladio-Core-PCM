@@ -3,115 +3,31 @@
  */
 package de.uka.ipd.sdq.pcm.gmf.seff.edit.parts;
 
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.VariableUsageCanonicalEditPolicy;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.VariableUsageGraphicalNodeEditPolicy;
-import java.util.Collections;
-import org.eclipse.gef.DragTracker;
+import org.eclipse.draw2d.IFigure;
+import org.eclipse.draw2d.StackLayout;
+import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
 import org.eclipse.gef.Request;
 import org.eclipse.gef.commands.Command;
-
 import org.eclipse.gef.editpolicies.LayoutEditPolicy;
 import org.eclipse.gef.editpolicies.NonResizableEditPolicy;
-
 import org.eclipse.gef.requests.CreateRequest;
-
 import org.eclipse.gmf.runtime.diagram.core.edithelpers.CreateElementRequestAdapter;
-
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
-
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CreationEditPolicy;
-import org.eclipse.gef.requests.SelectionRequest;
-import org.eclipse.gmf.runtime.diagram.ui.editparts.ITextAwareEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.diagram.ui.requests.CreateViewAndElementRequest;
-
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
-
-import org.eclipse.gmf.runtime.diagram.ui.editpolicies.LabelDirectEditPolicy;
-import org.eclipse.gmf.runtime.diagram.ui.editpolicies.ListItemComponentEditPolicy;
-import org.eclipse.gmf.runtime.diagram.ui.tools.DragEditPartsTrackerEx;
-import org.eclipse.gmf.runtime.notation.View;
-
-import de.uka.ipd.sdq.pcm.core.stochastics.RandomVariable;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.OpenStoExEditorEditPolicy;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.PcmTextNonResizableEditPolicy;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.PcmTextSelectionEditPolicy;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.VariableUsageItemSemanticEditPolicy;
-
-import de.uka.ipd.sdq.pcm.gmf.seff.part.PcmVisualIDRegistry;
-
-import de.uka.ipd.sdq.pcm.gmf.seff.part.PcmDiagramEditorPlugin;
-
-import de.uka.ipd.sdq.pcm.gmf.seff.providers.PcmElementTypes;
-import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
-import de.uka.ipd.sdq.pcm.stochasticexpressions.ParameterPrettyPrint;
-
-import java.util.List;
-
-import org.eclipse.draw2d.IFigure;
-import org.eclipse.draw2d.StackLayout;
-
-import org.eclipse.gef.EditPart;
-import org.eclipse.draw2d.Label;
-
-import org.eclipse.draw2d.geometry.Point;
-
-import org.eclipse.emf.common.notify.Notification;
-
-import org.eclipse.emf.ecore.EObject;
-
-import org.eclipse.emf.transaction.RunnableWithResult;
-
-import org.eclipse.gef.AccessibleEditPart;
-
-import org.eclipse.gef.requests.DirectEditRequest;
-
-import org.eclipse.gef.tools.DirectEditManager;
-
-import org.eclipse.gmf.runtime.common.ui.services.parser.IParser;
-import org.eclipse.gmf.runtime.common.ui.services.parser.IParserEditStatus;
-import org.eclipse.gmf.runtime.common.ui.services.parser.ParserEditStatus;
-import org.eclipse.gmf.runtime.common.ui.services.parser.ParserOptions;
-import org.eclipse.gmf.runtime.common.ui.services.parser.ParserService;
-
-import org.eclipse.gmf.runtime.diagram.ui.editparts.CompartmentEditPart;
-import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
-
-import org.eclipse.gmf.runtime.diagram.ui.l10n.DiagramColorRegistry;
-
-import org.eclipse.gmf.runtime.diagram.ui.requests.RequestConstants;
-
-import org.eclipse.gmf.runtime.diagram.ui.tools.TextDirectEditManager;
-
-import org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel;
-
-import org.eclipse.gmf.runtime.emf.core.util.EObjectAdapter;
-
 import org.eclipse.gmf.runtime.emf.type.core.IElementType;
-
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
+import org.eclipse.gmf.runtime.notation.View;
 
-import org.eclipse.gmf.runtime.emf.ui.services.parser.ISemanticParser;
-import org.eclipse.gmf.runtime.emf.ui.services.parser.ParserHintAdapter;
-
-import org.eclipse.gmf.runtime.notation.FontStyle;
-import org.eclipse.gmf.runtime.notation.NotationPackage;
-
-import org.eclipse.jface.resource.ImageDescriptor;
-
-import org.eclipse.jface.text.contentassist.IContentAssistProcessor;
-
-import org.eclipse.jface.viewers.ICellEditorValidator;
-
-import org.eclipse.swt.SWT;
-
-import org.eclipse.swt.accessibility.AccessibleEvent;
-
-import org.eclipse.swt.graphics.Color;
-import org.eclipse.swt.graphics.FontData;
-import org.eclipse.swt.graphics.Image;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.VariableUsageCanonicalEditPolicy;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.VariableUsageGraphicalNodeEditPolicy;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.VariableUsageItemSemanticEditPolicy;
+import de.uka.ipd.sdq.pcm.gmf.seff.part.PcmVisualIDRegistry;
+import de.uka.ipd.sdq.pcm.gmf.seff.providers.PcmElementTypes;
 
 /**
  * @generated

@@ -29,8 +29,6 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.BranchActionBranchTransitionCompar
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.BranchTransitionBehaviourCompartmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ExternalCallActionParameterUsage2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ExternalCallActionParameterUsageEditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ExternalCallAction2EditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ExternalCallActionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.InternalAction2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.InternalActionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopActionBehaviourCompartment2EditPart;
@@ -39,7 +37,6 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviourBranchCo
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviourLoopCompartmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingSEFFEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableUsageEditPart;
-
 import de.uka.ipd.sdq.pcm.gmf.seff.part.PcmDiagramEditorPlugin;
 
 /**

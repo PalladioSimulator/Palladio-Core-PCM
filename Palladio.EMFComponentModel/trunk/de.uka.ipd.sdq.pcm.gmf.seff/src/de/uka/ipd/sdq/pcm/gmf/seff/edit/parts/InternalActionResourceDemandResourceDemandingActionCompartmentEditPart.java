@@ -3,27 +3,18 @@
  */
 package de.uka.ipd.sdq.pcm.gmf.seff.edit.parts;
 
-import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
-import org.eclipse.gmf.runtime.notation.View;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.InternalActionResourceDemandResourceDemandingActionCompartmentCanonicalEditPolicy;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.InternalActionResourceDemandResourceDemandingActionCompartmentItemSemanticEditPolicy;
-
-import org.eclipse.draw2d.IFigure;
-
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.gef.EditPolicy;
-
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ListCompartmentEditPart;
-
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CreationEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.DragDropEditPolicy;
-
+import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.ResizableCompartmentEditPolicy;
-
-import org.eclipse.gmf.runtime.diagram.ui.figures.ResizableCompartmentFigure;
-
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
+import org.eclipse.gmf.runtime.notation.View;
+
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.InternalActionResourceDemandResourceDemandingActionCompartmentCanonicalEditPolicy;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.InternalActionResourceDemandResourceDemandingActionCompartmentItemSemanticEditPolicy;
 
 /**
  * @generated
