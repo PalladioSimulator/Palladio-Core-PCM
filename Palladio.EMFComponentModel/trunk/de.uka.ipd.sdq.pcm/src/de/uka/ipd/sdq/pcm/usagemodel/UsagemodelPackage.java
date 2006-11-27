@@ -413,15 +413,6 @@ public interface UsagemodelPackage extends EPackage {
 	int LOOP_ITERATIONS__SPECIFICATION = StoexPackage.RANDOM_VARIABLE__SPECIFICATION;
 
 	/**
-	 * The feature id for the '<em><b>Specification Random Variable</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LOOP_ITERATIONS__SPECIFICATION_RANDOM_VARIABLE = StoexPackage.RANDOM_VARIABLE__SPECIFICATION_RANDOM_VARIABLE;
-
-	/**
 	 * The number of structural features of the '<em>Loop Iterations</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

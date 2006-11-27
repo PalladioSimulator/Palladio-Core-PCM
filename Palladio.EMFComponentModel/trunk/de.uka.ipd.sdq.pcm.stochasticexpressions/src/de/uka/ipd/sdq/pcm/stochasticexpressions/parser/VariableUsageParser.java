@@ -74,7 +74,7 @@ public VariableUsageParser(ParserSharedInputState state) {
 		match(ID);
 		nameParts.add(id1.getText());
 		{
-		_loop1473:
+		_loop172:
 		do {
 			if ((LA(1)==DOT) && (LA(2)==ID||LA(2)==LITERAL_INNER)) {
 				match(DOT);
@@ -101,7 +101,7 @@ public VariableUsageParser(ParserSharedInputState state) {
 				}
 			}
 			else {
-				break _loop1473;
+				break _loop172;
 			}
 			
 		} while (true);
@@ -257,8 +257,8 @@ public VariableUsageParser(ParserSharedInputState state) {
 			match(RPAREN);
 			match(SQUARE_PAREN_L);
 			{
-			int _cnt1452=0;
-			_loop1452:
+			int _cnt151=0;
+			_loop151:
 			do {
 				if ((LA(1)==LPAREN)) {
 					Sample isample=null;
@@ -266,10 +266,10 @@ public VariableUsageParser(ParserSharedInputState state) {
 					((ProbabilityMassFunction)probFunction).getSamples().add(isample);
 				}
 				else {
-					if ( _cnt1452>=1 ) { break _loop1452; } else {throw new NoViableAltException(LT(1), getFilename());}
+					if ( _cnt151>=1 ) { break _loop151; } else {throw new NoViableAltException(LT(1), getFilename());}
 				}
 				
-				_cnt1452++;
+				_cnt151++;
 			} while (true);
 			}
 			match(SQUARE_PAREN_R);
@@ -289,8 +289,8 @@ public VariableUsageParser(ParserSharedInputState state) {
 			match(RPAREN);
 			match(SQUARE_PAREN_L);
 			{
-			int _cnt1455=0;
-			_loop1455:
+			int _cnt154=0;
+			_loop154:
 			do {
 				if ((LA(1)==LPAREN)) {
 					Sample rsample=null;
@@ -298,10 +298,10 @@ public VariableUsageParser(ParserSharedInputState state) {
 					((ProbabilityMassFunction)probFunction).getSamples().add(rsample);
 				}
 				else {
-					if ( _cnt1455>=1 ) { break _loop1455; } else {throw new NoViableAltException(LT(1), getFilename());}
+					if ( _cnt154>=1 ) { break _loop154; } else {throw new NoViableAltException(LT(1), getFilename());}
 				}
 				
-				_cnt1455++;
+				_cnt154++;
 			} while (true);
 			}
 			match(SQUARE_PAREN_R);
@@ -342,8 +342,8 @@ public VariableUsageParser(ParserSharedInputState state) {
 			match(RPAREN);
 			match(SQUARE_PAREN_L);
 			{
-			int _cnt1459=0;
-			_loop1459:
+			int _cnt158=0;
+			_loop158:
 			do {
 				if ((LA(1)==LPAREN)) {
 					Sample ssample=null;
@@ -351,10 +351,10 @@ public VariableUsageParser(ParserSharedInputState state) {
 					((ProbabilityMassFunction)probFunction).getSamples().add(ssample);
 				}
 				else {
-					if ( _cnt1459>=1 ) { break _loop1459; } else {throw new NoViableAltException(LT(1), getFilename());}
+					if ( _cnt158>=1 ) { break _loop158; } else {throw new NoViableAltException(LT(1), getFilename());}
 				}
 				
-				_cnt1459++;
+				_cnt158++;
 			} while (true);
 			}
 			match(SQUARE_PAREN_R);
@@ -374,8 +374,8 @@ public VariableUsageParser(ParserSharedInputState state) {
 			match(RPAREN);
 			match(SQUARE_PAREN_L);
 			{
-			int _cnt1462=0;
-			_loop1462:
+			int _cnt161=0;
+			_loop161:
 			do {
 				if ((LA(1)==LPAREN)) {
 					ContinuousSample pdf_sample=null;
@@ -383,10 +383,10 @@ public VariableUsageParser(ParserSharedInputState state) {
 					((BoxedPDF)probFunction).getSamples().add(pdf_sample);
 				}
 				else {
-					if ( _cnt1462>=1 ) { break _loop1462; } else {throw new NoViableAltException(LT(1), getFilename());}
+					if ( _cnt161>=1 ) { break _loop161; } else {throw new NoViableAltException(LT(1), getFilename());}
 				}
 				
-				_cnt1462++;
+				_cnt161++;
 			} while (true);
 			}
 			match(SQUARE_PAREN_R);
@@ -534,7 +534,7 @@ public VariableUsageParser(ParserSharedInputState state) {
 		p1=prodExpr();
 		t = p1;
 		{
-		_loop1442:
+		_loop141:
 		do {
 			if ((LA(1)==PLUS||LA(1)==MINUS)) {
 				TermExpression termExp = StoexFactory.eINSTANCE.createTermExpression();
@@ -562,7 +562,7 @@ public VariableUsageParser(ParserSharedInputState state) {
 				termExp.setLeft(t); termExp.setRight(p2); t = termExp;
 			}
 			else {
-				break _loop1442;
+				break _loop141;
 			}
 			
 		} while (true);
@@ -579,7 +579,7 @@ public VariableUsageParser(ParserSharedInputState state) {
 		pw1=powExpr();
 		p = pw1;
 		{
-		_loop1446:
+		_loop145:
 		do {
 			if (((LA(1) >= MUL && LA(1) <= MOD))) {
 				ProductExpression prodExp = StoexFactory.eINSTANCE.createProductExpression();
@@ -613,7 +613,7 @@ public VariableUsageParser(ParserSharedInputState state) {
 				prodExp.setLeft(p); prodExp.setRight(pw2); p = prodExp;
 			}
 			else {
-				break _loop1446;
+				break _loop145;
 			}
 			
 		} while (true);

@@ -14,6 +14,8 @@ import org.eclipse.emf.ecore.EObject;
 import de.uka.ipd.sdq.identifier.Identifier;
 import de.uka.ipd.sdq.pcm.core.entity.Entity;
 import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
+import de.uka.ipd.sdq.pcm.resourcetype.*;
+
 import de.uka.ipd.sdq.pcm.resourcetype.CommunicationLinkResourceType;
 import de.uka.ipd.sdq.pcm.resourcetype.PassiveResourceType;
 import de.uka.ipd.sdq.pcm.resourcetype.ProcessingResourceType;

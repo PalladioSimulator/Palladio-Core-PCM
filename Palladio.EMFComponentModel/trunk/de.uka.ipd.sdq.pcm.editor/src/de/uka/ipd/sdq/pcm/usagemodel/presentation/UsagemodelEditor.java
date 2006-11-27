@@ -1388,8 +1388,7 @@ public class UsagemodelEditor
 					protected Object openDialogBox(Control cellEditorWindow) {
 						RandomVariable randVar = (RandomVariable) object;
 						StochasticExpressionEditDialog dialog = new StochasticExpressionEditDialog(cellEditorWindow.getShell());
-						if (randVar.getSpecification_RandomVariable() != null)
-							dialog.setInitialExpression(randVar.getSpecification_RandomVariable());
+						dialog.setInitialExpression(randVar);
 						dialog.open();
 						if (dialog.getResult() != null) {
 							String result = "= " + new PCMStoExPrettyPrintVisitor().prettyPrint(dialog.getResult());

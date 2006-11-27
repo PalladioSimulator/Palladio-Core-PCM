@@ -41,7 +41,7 @@ public class OpenStoExEditorEditPolicy extends OpenEditPolicy {
 	@Override
 	protected Command getOpenCommand(Request request) {
 		StochasticExpressionEditDialog dialog = new StochasticExpressionEditDialog(getHost().getRoot().getViewer().getControl().getShell());
-		dialog.setInitialExpression(randVar.getSpecification_RandomVariable());
+		dialog.setInitialExpression(randVar);
 		dialog.open();
 		if (dialog.getResult() != null) {
 			String result = "= " + new PCMStoExPrettyPrintVisitor().prettyPrint(dialog.getResult());

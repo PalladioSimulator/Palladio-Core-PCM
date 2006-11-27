@@ -88,15 +88,6 @@ public interface QosannotationsPackage extends EPackage {
 	int SPECIFIED_EXECUTION_TIME__SPECIFICATION = StoexPackage.RANDOM_VARIABLE__SPECIFICATION;
 
 	/**
-	 * The feature id for the '<em><b>Specification Random Variable</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SPECIFIED_EXECUTION_TIME__SPECIFICATION_RANDOM_VARIABLE = StoexPackage.RANDOM_VARIABLE__SPECIFICATION_RANDOM_VARIABLE;
-
-	/**
 	 * The feature id for the '<em><b>Signature Specified Time Consumption</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -162,15 +153,6 @@ public interface QosannotationsPackage extends EPackage {
 	int SYSTEM_SPECIFIED_EXECUTION_TIME__SPECIFICATION = SPECIFIED_EXECUTION_TIME__SPECIFICATION;
 
 	/**
-	 * The feature id for the '<em><b>Specification Random Variable</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SYSTEM_SPECIFIED_EXECUTION_TIME__SPECIFICATION_RANDOM_VARIABLE = SPECIFIED_EXECUTION_TIME__SPECIFICATION_RANDOM_VARIABLE;
-
-	/**
 	 * The feature id for the '<em><b>Signature Specified Time Consumption</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -215,15 +197,6 @@ public interface QosannotationsPackage extends EPackage {
 	 * @ordered
 	 */
 	int COMPONENT_SPECIFIED_EXECUTION_TIME__SPECIFICATION = SPECIFIED_EXECUTION_TIME__SPECIFICATION;
-
-	/**
-	 * The feature id for the '<em><b>Specification Random Variable</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COMPONENT_SPECIFIED_EXECUTION_TIME__SPECIFICATION_RANDOM_VARIABLE = SPECIFIED_EXECUTION_TIME__SPECIFICATION_RANDOM_VARIABLE;
 
 	/**
 	 * The feature id for the '<em><b>Signature Specified Time Consumption</b></em>' reference.

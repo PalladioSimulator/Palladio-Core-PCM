@@ -17,6 +17,7 @@ public class PCMStoExPrettyPrintVisitor extends StoExPrettyPrintVisitor {
 			return super.doSwitch(theEClass,theEObject);
 		}
 	}
+	
 	public Object caseCharacterisedVariable(CharacterisedVariable object) {
 		String result = (String)doSwitch(object.getId_Variable());
 		result += "." + object.getCharacterisationType().getLiteral();

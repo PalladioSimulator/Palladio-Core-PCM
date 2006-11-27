@@ -272,15 +272,6 @@ public interface SeffPackage extends EPackage {
 	int PARAMETRIC_RESOURCE_DEMAND__SPECIFICATION = StoexPackage.RANDOM_VARIABLE__SPECIFICATION;
 
 	/**
-	 * The feature id for the '<em><b>Specification Random Variable</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PARAMETRIC_RESOURCE_DEMAND__SPECIFICATION_RANDOM_VARIABLE = StoexPackage.RANDOM_VARIABLE__SPECIFICATION_RANDOM_VARIABLE;
-
-	/**
 	 * The feature id for the '<em><b>Unit</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -747,15 +738,6 @@ public interface SeffPackage extends EPackage {
 	int ITERATION_COUNT__SPECIFICATION = StoexPackage.RANDOM_VARIABLE__SPECIFICATION;
 
 	/**
-	 * The feature id for the '<em><b>Specification Random Variable</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ITERATION_COUNT__SPECIFICATION_RANDOM_VARIABLE = StoexPackage.RANDOM_VARIABLE__SPECIFICATION_RANDOM_VARIABLE;
-
-	/**
 	 * The number of structural features of the '<em>Iteration Count</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -997,15 +979,6 @@ public interface SeffPackage extends EPackage {
 	 * @ordered
 	 */
 	int BRANCH_CONDITION__SPECIFICATION = StoexPackage.RANDOM_VARIABLE__SPECIFICATION;
-
-	/**
-	 * The feature id for the '<em><b>Specification Random Variable</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BRANCH_CONDITION__SPECIFICATION_RANDOM_VARIABLE = StoexPackage.RANDOM_VARIABLE__SPECIFICATION_RANDOM_VARIABLE;
 
 	/**
 	 * The number of structural features of the '<em>Branch Condition</em>' class.

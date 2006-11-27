@@ -11,6 +11,7 @@ import antlr.TokenStreamException;
 import de.uka.ipd.sdq.pcm.stochasticexpressions.PCMStoExPrettyPrintVisitor;
 import de.uka.ipd.sdq.pcm.stochasticexpressions.parser.PCMStoExParser;
 import de.uka.ipd.sdq.stoex.Expression;
+import de.uka.ipd.sdq.stoex.RandomVariable;
 import de.uka.ipd.sdq.stoex.analyser.visitors.StoExPrettyPrintVisitor;
 import de.uka.ipd.sdq.stoex.parser.StochasticExpressionsLexer;
 import de.uka.ipd.sdq.stoex.parser.StochasticExpressionsParser;
@@ -22,8 +23,8 @@ public class StochasticExpressionEditDialog extends
 		super(parent);
 	}
 
-	public void setInitialExpression(Expression ex) {
-		newText = "= " + new PCMStoExPrettyPrintVisitor().prettyPrint(ex);
+	public void setInitialExpression(RandomVariable ex) {
+		newText = "= " + ex.getSpecification();
 	}
 
 	public Expression getResult() {

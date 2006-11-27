@@ -89,15 +89,6 @@ public interface ParameterPackage extends EPackage {
 	int VARIABLE_CHARACTERISATION__SPECIFICATION = StoexPackage.RANDOM_VARIABLE__SPECIFICATION;
 
 	/**
-	 * The feature id for the '<em><b>Specification Random Variable</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VARIABLE_CHARACTERISATION__SPECIFICATION_RANDOM_VARIABLE = StoexPackage.RANDOM_VARIABLE__SPECIFICATION_RANDOM_VARIABLE;
-
-	/**
 	 * The feature id for the '<em><b>Type</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -305,7 +296,7 @@ public interface ParameterPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	interface Literals {
+	interface Literals  {
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.parameter.impl.VariableCharacterisationImpl <em>Variable Characterisation</em>}' class.
 		 * <!-- begin-user-doc -->

@@ -46,7 +46,7 @@ public class ParameterPrettyPrint extends ParameterSwitch {
 	public Object caseVariableCharacterisation(VariableCharacterisation object) {
 		String result = "";
 		result += object.getType().getLiteral();
-		result += " = " + (String) new PCMStoExPrettyPrintVisitor().doSwitch(object.getSpecification_RandomVariable());
+		result += " = " + object.getSpecification();
 		return result;
 	}
 	
