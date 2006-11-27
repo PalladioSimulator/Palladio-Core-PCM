@@ -1,10 +1,8 @@
 package de.uka.ipd.sdq.pcmbench.tabs.table;
 
-import java.util.Arrays;
 
 import org.eclipse.jface.util.Assert;
 import org.eclipse.jface.viewers.CellEditor;
-import org.eclipse.jface.viewers.DialogCellEditor;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
@@ -16,23 +14,23 @@ import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.layout.FormAttachment;
 import org.eclipse.swt.layout.FormData;
 import org.eclipse.swt.widgets.Composite;
-import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.swt.widgets.ToolBar;
 import org.eclipse.swt.widgets.ToolItem;
 
 import de.uka.ipd.sdq.pcm.repository.Signature;
+import de.uka.ipd.sdq.pcmbench.tabs.dialog.AttributesSection;
 
 public class OperationsTabViewer {
 
 	private TableViewer tableViewer;
-
 	private Table table;
-
 	private ToolBar toolBar;
-
 	private ToolItem addItem, deleteItem;
+	private Signature selectedSignature;
+	
+	private String[] columnNames;
 
 	public static final int ICON_COLUMN_INDEX = 0;
 	public static final int RETURNTYPE_COLUMN_INDEX = 1;
@@ -40,14 +38,6 @@ public class OperationsTabViewer {
 	public static final int PARAMETER_COLUMN_INDEX = 3;
 	public static final int EXCEPTIONS_COLUMN_INDEX = 4;
 
-	final String OWNEDPARAMETER_COLUMN = "OwnedParameters";
-	final String RETURNTYPE_COLUMN = "ReturnType";
-	final String SERVICENAME_COLUMN = "ServiceName";
-	final String EXEPTIONTYPE_COLUM = "ExeptionType";
-
-	// Set column names of Tabele
-	String[] columnNames = new String[] { RETURNTYPE_COLUMN,
-			SERVICENAME_COLUMN, OWNEDPARAMETER_COLUMN, EXEPTIONTYPE_COLUM };
 
 	public OperationsTabViewer(Composite composite) {
 		/**
@@ -55,6 +45,8 @@ public class OperationsTabViewer {
 		 *      de.uka.ipd.sdq.pcmbench.tabs.OperationsPropertySection#createControls(Composite,
 		 *      TabbedPropertySheetPage)
 		 */
+		columnNames = TabResources.getOperationsTableColumn();
+		
 		this.createToolBar(composite);
 		this.createTable(composite);
 		this.createTableViewer(composite);
@@ -83,11 +75,11 @@ public class OperationsTabViewer {
 		column.setText("");
 		column.setWidth(25);
 
-		for (int i = 0; i < columnNames.length; i++) {
+		for (int i = 1; i < columnNames.length; i++) {
 
 			// n-te column with task Description
-			column = new TableColumn(table, SWT.LEFT, i + 1);
-			column.setText(columnNames[i]);
+			column = new TableColumn(table, SWT.LEFT, i);
+			column.setText((String) columnNames[i]);
 			column.setWidth(140);
 		}
 	}
@@ -101,21 +93,23 @@ public class OperationsTabViewer {
 		tableViewer.setColumnProperties(columnNames);
 
 		// Create the cell editors
-		CellEditor[] editors = new CellEditor[columnNames.length + 1];
+		CellEditor[] editors = new CellEditor[columnNames.length];
 
-		editors[RETURNTYPE_COLUMN_INDEX] = createDialogCellEditor(table, RETURNTYPE_COLUMN); 
-			
 		textEditor = new TextCellEditor(table);
 		editors[SIGNATURENAME_COLUMN_INDEX] = textEditor;
-
-		editors[PARAMETER_COLUMN_INDEX] = createDialogCellEditor(table, OWNEDPARAMETER_COLUMN);
 
 		textEditor = new TextCellEditor(table);
 		editors[EXCEPTIONS_COLUMN_INDEX] = textEditor;
 
+		editors[RETURNTYPE_COLUMN_INDEX] = new AttributesSection(table,
+				TabResources.RETURNTYPE_COLUMN, this);
+
+		editors[PARAMETER_COLUMN_INDEX] = new AttributesSection(table,
+				TabResources.OWNEDPARAMETER_COLUMN, this);
+
 		// Assign the cell editors to the viewer
 		tableViewer.setCellEditors(editors);
-		tableViewer.setCellModifier(new CellModifierImpl(getColumnNames()));
+		tableViewer.setCellModifier(new CellModifierImpl());
 		tableViewer
 				.addSelectionChangedListener(new ISelectionChangedListener() {
 
@@ -130,8 +124,10 @@ public class OperationsTabViewer {
 							selected = selection.getFirstElement();
 							Assert.isTrue(selected instanceof Signature);
 
+							selectedSignature = (Signature) selected;
+
 							(DeleteActionListener.getSingelton())
-									.setSelectedSignature((Signature) selected);
+									.setSelectedSignature(selectedSignature);
 
 						} else
 							deleteItem.setEnabled(false);
@@ -168,29 +164,18 @@ public class OperationsTabViewer {
 		return tableViewer;
 	}
 
-	public java.util.List getColumnNames() {
-		return Arrays.asList(columnNames);
-	}
-	
 	/**
-	 * The function provides a DialogCellEditor. With a pressure on the Button right
-	 * in the cell an AttributeTypeDialog is opened
-	 * 
-	 * @param table, properties - column Name
-	 * @return DialogCellEditor
+	 * @return the selectedSignature
 	 */
-	private CellEditor	createDialogCellEditor(Table table, String propertie){
-		final String columnName = propertie;
-		
-		CellEditor cellEditor =  new DialogCellEditor(table) {
-			@Override
-			protected Object openDialogBox(Control cellEditorWindow) {
-				AttributeTypeDialog dialog = new AttributeTypeDialog(
-						cellEditorWindow.getShell(), columnName);
-				dialog.open();
-				return null;
-			}
-		};
-		return cellEditor;
+	public Signature getSelectedSignature() {
+		return selectedSignature;
+	}
+
+	/**
+	 * @param selectedSignature
+	 *            the selectedSignature to set
+	 */
+	public void setSelectedSignature(Signature selectedSignature) {
+		this.selectedSignature = selectedSignature;
 	}
 }
