@@ -115,22 +115,15 @@ public class RandomVariableImpl extends EObjectImpl implements RandomVariable {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated NOT
+	 * @generated
 	 */
 	public Expression basicGetSpecification_RandomVariable() {
-		EObject value = null;
-		
-		try {
-			StochasticExpressionsLexer lexer = new StochasticExpressionsLexer(
-					new StringReader(this.getSpecification()));
-			StochasticExpressionsParser parser = new StochasticExpressionsParser(lexer);
-			value = parser.expression();
-		} catch (Exception e) {
-			value = null;
-		}
-		return (Expression)value;
+		// TODO: implement this method to return the 'Specification Random Variable' reference
+		// -> do not perform proxy resolution
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
-	
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
