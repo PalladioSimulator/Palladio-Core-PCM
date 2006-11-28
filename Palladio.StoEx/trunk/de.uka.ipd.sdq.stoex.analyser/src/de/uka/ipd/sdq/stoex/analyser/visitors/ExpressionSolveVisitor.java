@@ -93,7 +93,7 @@ public class ExpressionSolveVisitor extends StoexSwitch {
 
 		Expression left = (Expression) doSwitch(expr.getLeft());
 		Expression right = (Expression) doSwitch(expr.getRight());
-		TypeEnum exprType = typeVisitor.getTypeAnnotation(expr);
+		TypeEnum exprType = null; //typeVisitor.getTypeAnnotation(expr);
 
 		return handleComputation(exprType, left, right, op);
 	}
@@ -112,7 +112,7 @@ public class ExpressionSolveVisitor extends StoexSwitch {
 
 		Expression left = (Expression) doSwitch(expr.getLeft());
 		Expression right = (Expression) doSwitch(expr.getRight());
-		TypeEnum exprType = typeVisitor.getTypeAnnotation(expr);
+		TypeEnum exprType = null; // typeVisitor.getTypeAnnotation(expr);
 
 		return handleComputation(exprType, left, right, op);
 	}

@@ -40,7 +40,7 @@ public class ProbFunctionPrettyPrint extends ProbfunctionSwitch {
 		String rightSeparator = ")";
 		
 		pmfType += "(unit=\""+object.getUnit().getUnitName() + "\"";
-
+		
 		if ( sample.getValue() instanceof String) {
 			leftSeparator = "; \"";
 			rightSeparator = "\")";
@@ -63,6 +63,8 @@ public class ProbFunctionPrettyPrint extends ProbfunctionSwitch {
 			return "IntPMF";
 		if (object.getValue() instanceof Double)
 			return "DoublePMF";
+		if (object.getValue().equals("true") || object.getValue().equals("false"))
+			return "BoolPMF";
 		if (object.getValue() instanceof String)
 			return "EnumPMF";
 		throw new UnsupportedOperationException("Unknown PMF found!");

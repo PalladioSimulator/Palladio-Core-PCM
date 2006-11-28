@@ -167,7 +167,7 @@ definition returns [ProbabilityFunctionLiteral pfl]
 				   }
 			LPAREN
 			  ({Unit uunit = null;}
-			  uunit = unit 
+			  uunit = bool_unit 
 			  {probFunction.setUnit(uunit);})
 			  (SEMI
 			  ORDERED_DEF
@@ -189,6 +189,15 @@ unit returns [Unit u]
 			EQUAL
 			str:STRING_LITERAL 
 			{u.setUnitName(str.getText().replace("\"",""));} ;
+
+bool_unit returns [Unit u]
+	{u = null;}:
+		"unit"
+			{ u = ProbfunctionFactory.eINSTANCE.createUnit(); }
+			EQUAL
+			"\"bool\""
+			{u.setUnitName("bool");} ;
+
 
 numeric_int_sample returns [Sample s]
 	{s = null;} : 
