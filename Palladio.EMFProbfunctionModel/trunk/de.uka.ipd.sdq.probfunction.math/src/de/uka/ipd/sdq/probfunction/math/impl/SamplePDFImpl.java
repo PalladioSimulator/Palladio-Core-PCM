@@ -210,8 +210,13 @@ public class SamplePDFImpl extends ProbabilityDensityFunctionImpl
 	public Object getMedian() throws UnorderedDomainException {
 		if (!hasOrderedDomain())
 			throw new UnorderedDomainException();
-
-		return getPercentile(50);
+		if (values.size() % 2 != 0) {
+			int i = (int) Math.floor(values.size() / 2.0);
+			return distance * i;
+		} else {
+			int i = (int) Math.round(values.size() / 2.0);
+			return (distance * (2*i - 1)) /2;
+		}
 	}
 
 	public Object getPercentile(int p) throws IndexOutOfBoundsException,
@@ -222,7 +227,7 @@ public class SamplePDFImpl extends ProbabilityDensityFunctionImpl
 			throw new IndexOutOfBoundsException();
 
 		int rank = (int) Math.round((p * (values.size() + 1.0)) / 100.0);
-		return values.get(rank);
+		return values.get(rank).getReal();
 	}
 
 	public int numberOfSamples() {
@@ -376,7 +381,6 @@ public class SamplePDFImpl extends ProbabilityDensityFunctionImpl
 
 		ISamplePDF sPDF1 = operands.get(0);
 		ISamplePDF sPDF2 = operands.get(1);
-
 		ArrayList<Complex> resultList = new ArrayList<Complex>();
 		double distance = sPDF1.getDistance();
 		boolean inFrequencyDomain = sPDF1.isInFrequencyDomain();
@@ -404,8 +408,9 @@ public class SamplePDFImpl extends ProbabilityDensityFunctionImpl
 			}
 			resultList.add(result);
 		}
-		return pfFactory.createSamplePDFFromComplex(distance, resultList,
-				inFrequencyDomain, pfFactory.createDefaultUnit());
+		IProbabilityDensityFunction p =pfFactory.createSamplePDFFromComplex(distance, resultList,
+				inFrequencyDomain, sPDF1.getUnit());
+		return p;
 	}
 
 	private static List<ISamplePDF> prepareForComputation(
@@ -423,7 +428,7 @@ public class SamplePDFImpl extends ProbabilityDensityFunctionImpl
 		// number of samples
 		ISamplePDF sPDF2 = pfFactory.transformToSamplePDF(pdf1);
 		ISamplePDF sPDF1 = pfFactory.transformToSamplePDF(pdf2);
-
+		
 		List<ISamplePDF> operands;
 		operands = createFunctionsWithEqualDistance(sPDF1, sPDF2);
 		sPDF1 = operands.get(0);
