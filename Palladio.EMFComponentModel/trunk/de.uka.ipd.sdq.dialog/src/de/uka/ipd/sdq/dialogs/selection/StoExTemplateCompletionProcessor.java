@@ -53,7 +53,7 @@ public class StoExTemplateCompletionProcessor extends
 				"IntPMF(unit=\"${unit}\")[(p;x)]",false);
 		Template t2 = new Template("BoolPMF","Creates an boolean random variable",
 				STO_EX_CONTEXT_TYPE,
-				"BoolPMF(unit=\"bool\")[(p;x)]",false);
+				"BoolPMF(unit=\"bool\")[(p;true)(p;false)]",false);
 
 		return new Template[]{t,t2};
 	}
