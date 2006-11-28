@@ -118,7 +118,8 @@ public class ExpressionSolveVisitor extends StoexSwitch {
 	}
 
 	public Object caseVariable(Variable var){
-		return typeVisitor.getParameterAnnotation(var);
+		//return typeVisitor.getParameterAnnotation(var);
+		return var;
 	}
 	
 	public Object caseIntLiteral(IntLiteral il) {

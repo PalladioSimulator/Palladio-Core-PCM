@@ -4,10 +4,13 @@ import java.util.HashMap;
 
 import org.apache.log4j.Logger;
 
+import de.uka.ipd.sdq.pcm.parameter.CharacterisedVariable;
+import de.uka.ipd.sdq.pcm.parameter.VariableCharacterisationType;
 import de.uka.ipd.sdq.probfunction.ProbabilityDensityFunction;
 import de.uka.ipd.sdq.probfunction.ProbabilityFunction;
 import de.uka.ipd.sdq.probfunction.ProbabilityMassFunction;
 import de.uka.ipd.sdq.probfunction.Sample;
+import de.uka.ipd.sdq.stoex.AbstractNamedReference;
 import de.uka.ipd.sdq.stoex.CompareExpression;
 import de.uka.ipd.sdq.stoex.DoubleLiteral;
 import de.uka.ipd.sdq.stoex.Expression;
@@ -22,16 +25,12 @@ import de.uka.ipd.sdq.stoex.util.StoexSwitch;
 
 public class ExpressionInferTypeVisitor extends StoexSwitch {
 
-	private static Logger logger = Logger.getLogger(ExpressionInferTypeVisitor.class.getName());
+	private static Logger logger = Logger
+			.getLogger(ExpressionInferTypeVisitor.class.getName());
 	
 	private HashMap<Expression, TypeEnum> typeAnnotation = 
 		new HashMap<Expression, TypeEnum>();
 
-	private HashMap<Expression, Expression> parameterAnnotation = 
-		new HashMap<Expression, Expression>();
-		
-	// private ParameterFactory paramFactory = ParameterFactory.eINSTANCE;
-	
 	public ExpressionInferTypeVisitor(){
 	}
 	
@@ -48,11 +47,8 @@ public class ExpressionInferTypeVisitor extends StoexSwitch {
 		TypeEnum rightType = getTypeOfChild((Expression)expr.getRight());
 		
 		ProductOperations op = expr.getOperation();  
-		if (op.getName().equals("MULT")){
+		if (op.getName().equals("MULT") || op.getName().equals("DIV")){
 			// may result in ints or doubles
-			inferIntAndDouble(expr, leftType, rightType);
-		} else if (op.getName().equals("DIV")){
-			// always results in doubles
 			inferIntAndDouble(expr, leftType, rightType);
 		} else if (op.getName().equals("MOD")){
 			//TODO
@@ -113,45 +109,24 @@ public class ExpressionInferTypeVisitor extends StoexSwitch {
 	}
 	
 	public Object caseVariable(Variable var){
-//		logger.debug("Found variable: "+var.getId());
-//		
-//		StringTokenizer st = new StringTokenizer(var.getId(), ".");
-//		
-//		EList parChars = ECollections.EMPTY_ELIST;
-//		
-//		ParameterUsage currentParamUsage = null;
-//		while (st.hasMoreTokens()) {
-//			String currentToken = st.nextToken().toUpperCase();
-//			if (isCharacterisationType(currentToken)){
-//				handleParameterCharacterisationType(var, currentParamUsage, currentToken);
-//			} else if (currentToken.equals("INNER")){
-//				// TODO
-//			} else { // currentToken is variable name
-//				currentParamUsage = getParameterUsage(currentToken);
-//				//parChars = getParameterCharacterisations(currentToken);
-//				//TODO: support CompositeParameters
-//			}
-//		}
+		logger.debug("Found variable: " + var.getId_Variable());
+		if (var instanceof CharacterisedVariable) {
+			CharacterisedVariable chVar = (CharacterisedVariable) var;
+			VariableCharacterisationType chType = chVar
+					.getCharacterisationType();
+			String chTypeString = chType.getName();
+			if (chTypeString.equals("VALUE") || chTypeString.equals("DATATYPE")
+					|| chTypeString.equals("STRUCTURE")) {
+				typeAnnotation.put(var, TypeEnum.ENUM_PMF);
+				logger.debug("Inferred to ENUM_PMF");
+			} else if (chTypeString.equals("NUMBER_OF_ELEMENTS")
+					|| chTypeString.equals("BYTESIZE")) {
+				typeAnnotation.put(var, TypeEnum.INT_PMF);
+				logger.debug("Inferred to INT_PMF");
+			}
+		}
 		return var;
 	}
-
-//	/**
-//	 * @param referencedParameterName
-//	 * @return
-//	 */
-//	private ParameterUsage getParameterUsage(String referencedParameterName) {
-////		EList parameters = context.getUsageContext()
-////				.getActualParameterUsage_UsageContext();
-////		for (Object o : parameters) {
-////			ParameterUsage pu = (ParameterUsage) o;
-////			String parameterName = pu.getParameter_ParameterUsage()
-////					.getParameterName().toUpperCase();
-////			if (parameterName.equals(referencedParameterName)) {
-////				return pu;
-////			}
-////		}
-//		return null;
-//	}
 
 //	/**
 //	 * @param var
@@ -272,12 +247,16 @@ public class ExpressionInferTypeVisitor extends StoexSwitch {
 		return (inferedType == TypeEnum.INT || inferedType == TypeEnum.DOUBLE);
 	}
 	
-	public TypeEnum getTypeAnnotation(Expression expr) {
-		return typeAnnotation.get(expr);
+//	public TypeEnum getTypeAnnotation(Expression expr) {
+//		return typeAnnotation.get(expr);
+//	}
+
+	public HashMap<Expression, TypeEnum> getTypeAnnotation() {
+		return typeAnnotation;
 	}
-	
-	public Expression getParameterAnnotation(Expression expr){
-		return parameterAnnotation.get(expr);
+
+	public void setTypeAnnotation(HashMap<Expression, TypeEnum> typeAnnotation) {
+		this.typeAnnotation = typeAnnotation;
 	}
-	
+
 }

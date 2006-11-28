@@ -45,17 +45,20 @@ public StochasticExpressionsLexer(LexerSharedInputState state) {
 	caseSensitiveLiterals = true;
 	setCaseSensitive(true);
 	literals = new Hashtable();
-	literals.put(new ANTLRHashString("VALUE", this), new Integer(33));
-	literals.put(new ANTLRHashString("NUMBER_OF_ELEMENTS", this), new Integer(31));
-	literals.put(new ANTLRHashString("unit", this), new Integer(27));
-	literals.put(new ANTLRHashString("INNER", this), new Integer(36));
+	literals.put(new ANTLRHashString("VALUE", this), new Integer(36));
+	literals.put(new ANTLRHashString("NUMBER_OF_ELEMENTS", this), new Integer(34));
+	literals.put(new ANTLRHashString("unit", this), new Integer(28));
+	literals.put(new ANTLRHashString("INNER", this), new Integer(39));
+	literals.put(new ANTLRHashString("BoolPMF", this), new Integer(27));
 	literals.put(new ANTLRHashString("EnumPMF", this), new Integer(23));
 	literals.put(new ANTLRHashString("DoublePMF", this), new Integer(22));
 	literals.put(new ANTLRHashString("DoublePDF", this), new Integer(26));
 	literals.put(new ANTLRHashString("IntPMF", this), new Integer(17));
-	literals.put(new ANTLRHashString("STRUCTURE", this), new Integer(30));
-	literals.put(new ANTLRHashString("BYTESIZE", this), new Integer(29));
-	literals.put(new ANTLRHashString("TYPE", this), new Integer(32));
+	literals.put(new ANTLRHashString("STRUCTURE", this), new Integer(33));
+	literals.put(new ANTLRHashString("true", this), new Integer(31));
+	literals.put(new ANTLRHashString("false", this), new Integer(30));
+	literals.put(new ANTLRHashString("BYTESIZE", this), new Integer(32));
+	literals.put(new ANTLRHashString("TYPE", this), new Integer(35));
 }
 
 public Token nextToken() throws TokenStreamException {
@@ -407,34 +410,34 @@ tryAgain:
 		int _saveIndex;
 		
 		{
-		int _cnt1282=0;
-		_loop1282:
+		int _cnt1208=0;
+		_loop1208:
 		do {
 			if (((LA(1) >= '0' && LA(1) <= '9'))) {
 				mDIGIT(false);
 			}
 			else {
-				if ( _cnt1282>=1 ) { break _loop1282; } else {throw new NoViableAltForCharException((char)LA(1), getFilename(), getLine(), getColumn());}
+				if ( _cnt1208>=1 ) { break _loop1208; } else {throw new NoViableAltForCharException((char)LA(1), getFilename(), getLine(), getColumn());}
 			}
 			
-			_cnt1282++;
+			_cnt1208++;
 		} while (true);
 		}
 		{
 		if ((LA(1)=='.')) {
 			match('.');
 			{
-			int _cnt1285=0;
-			_loop1285:
+			int _cnt1211=0;
+			_loop1211:
 			do {
 				if (((LA(1) >= '0' && LA(1) <= '9'))) {
 					mDIGIT(false);
 				}
 				else {
-					if ( _cnt1285>=1 ) { break _loop1285; } else {throw new NoViableAltForCharException((char)LA(1), getFilename(), getLine(), getColumn());}
+					if ( _cnt1211>=1 ) { break _loop1211; } else {throw new NoViableAltForCharException((char)LA(1), getFilename(), getLine(), getColumn());}
 				}
 				
-				_cnt1285++;
+				_cnt1211++;
 			} while (true);
 			}
 		}
@@ -561,8 +564,8 @@ tryAgain:
 		
 		match("\"");
 		{
-		int _cnt1294=0;
-		_loop1294:
+		int _cnt1220=0;
+		_loop1220:
 		do {
 			switch ( LA(1)) {
 			case 'A':  case 'B':  case 'C':  case 'D':
@@ -589,10 +592,10 @@ tryAgain:
 			}
 			default:
 			{
-				if ( _cnt1294>=1 ) { break _loop1294; } else {throw new NoViableAltForCharException((char)LA(1), getFilename(), getLine(), getColumn());}
+				if ( _cnt1220>=1 ) { break _loop1220; } else {throw new NoViableAltForCharException((char)LA(1), getFilename(), getLine(), getColumn());}
 			}
 			}
-			_cnt1294++;
+			_cnt1220++;
 		} while (true);
 		}
 		match("\"");
@@ -622,8 +625,8 @@ tryAgain:
 		int _saveIndex;
 		
 		{
-		int _cnt1298=0;
-		_loop1298:
+		int _cnt1224=0;
+		_loop1224:
 		do {
 			switch ( LA(1)) {
 			case 'A':  case 'B':  case 'C':  case 'D':
@@ -650,10 +653,10 @@ tryAgain:
 			}
 			default:
 			{
-				if ( _cnt1298>=1 ) { break _loop1298; } else {throw new NoViableAltForCharException((char)LA(1), getFilename(), getLine(), getColumn());}
+				if ( _cnt1224>=1 ) { break _loop1224; } else {throw new NoViableAltForCharException((char)LA(1), getFilename(), getLine(), getColumn());}
 			}
 			}
-			_cnt1298++;
+			_cnt1224++;
 		} while (true);
 		}
 		_ttype = testLiteralsTable(_ttype);

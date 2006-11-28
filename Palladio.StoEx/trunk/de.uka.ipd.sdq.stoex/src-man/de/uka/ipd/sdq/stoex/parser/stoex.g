@@ -159,6 +159,26 @@ definition returns [ProbabilityFunctionLiteral pfl]
 				  pdf_sample = real_pdf_sample
 				  {((BoxedPDF)probFunction).getSamples().add(pdf_sample);})+ 
 	 		SQUARE_PAREN_R 
+			|
+			"BoolPMF" 
+				{probFunction = ProbfunctionFactory.eINSTANCE.createProbabilityMassFunction();
+				   pfl.setFunction_ProbabilityFunctionLiteral(probFunction);
+				   ((ProbabilityMassFunction)probFunction).setOrderedDomain(false);
+				   }
+			LPAREN
+			  ({Unit uunit = null;}
+			  uunit = unit 
+			  {probFunction.setUnit(uunit);})
+			  (SEMI
+			  ORDERED_DEF
+			  {((ProbabilityMassFunction)probFunction).setOrderedDomain(true);}
+			  )?
+			RPAREN
+			SQUARE_PAREN_L 
+				( {Sample ssample=null;} 
+				ssample = boolsample
+			   	{((ProbabilityMassFunction)probFunction).getSamples().add(ssample);})+ 
+			SQUARE_PAREN_R
 ;	 		
 			
 
@@ -213,6 +233,23 @@ stringsample returns [Sample s]
 		str:STRING_LITERAL 
 			{s.setValue(str.getText().replace("\"",""));} 
 		RPAREN;
+
+boolsample returns [Sample s] 
+	{s = null;} : 
+		LPAREN
+			{s = ProbfunctionFactory.eINSTANCE.createSample();} 
+		n:NUMBER 
+			{s.setProbability(Double.parseDouble(n.getText()));} 
+		SEMI
+		(
+		"false"
+			{s.setValue("false");} 
+		|
+		"true"
+			{s.setValue("true");} 
+		)
+		RPAREN;
+
 
 characterisation_keywords returns [String keyword] 
 {keyword = null;}:

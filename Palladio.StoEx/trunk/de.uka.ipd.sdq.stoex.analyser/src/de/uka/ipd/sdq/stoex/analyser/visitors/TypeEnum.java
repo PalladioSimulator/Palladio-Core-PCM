@@ -9,5 +9,6 @@ public enum TypeEnum
 	INT_PMF,
 	DOUBLE_PMF,
 	ENUM_PMF,
+	BOOL_PMF,
 	DOUBLE_PDF
 }
