@@ -141,6 +141,7 @@ public class LoopImpl extends OperationImpl implements Loop {
 	 * <!-- end-user-doc -->
 	 * @generated NOT
 	 */
+	@SuppressWarnings("deprecation")
 	public ProbabilityMassFunction getIterationsPMF() {
 		try {
 			if (iterationsPMF == null) {
