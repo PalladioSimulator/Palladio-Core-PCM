@@ -1165,13 +1165,6 @@
     <ownedAttribute xmi:id="_Hj--MPdxEdqB_7dkOscBPA" name="specification">
       <type xmi:type="uml:PrimitiveType" href="pathmap://UML2_LIBRARIES/UML2PrimitiveTypes.library.uml2#_IXlH8a86EdieaYgxtVWN8Q"/>
     </ownedAttribute>
-    <ownedAttribute xmi:id="_6QCoQTuSEduKtOWw2f6nDA" name="specification_RandomVariable" type="_IPhNoDpQEduKtOWw2f6nDA" isReadOnly="true" association="_6QCoQDuSEduKtOWw2f6nDA">
-      <eAnnotations xmi:id="_uiwxIGcpEduCGaQAxkcIwA" source="appliedStereotypes">
-        <contents xmi:type="Ecore_0:Ecore__EReference" xmi:id="_uiwxIWcpEduCGaQAxkcIwA" isTransient="true" isVolatile="true"/>
-      </eAnnotations>
-      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_6QCoRDuSEduKtOWw2f6nDA" value="1"/>
-      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_6QCoQzuSEduKtOWw2f6nDA" value="1"/>
-    </ownedAttribute>
   </ownedMember>
   <ownedMember xmi:type="uml:Class" xmi:id="_uSRvAFOqEduyKfhIjBdbtA" name="ProductExpression">
     <generalization xmi:id="_7r1xIFOqEduyKfhIjBdbtA" general="_jsECUDpQEduKtOWw2f6nDA"/>
@@ -1257,9 +1250,6 @@
   </ownedMember>
   <ownedMember xmi:type="uml:Association" xmi:id="_v9kMIFOqEduyKfhIjBdbtA" memberEnd="_v9kMIVOqEduyKfhIjBdbtA _v9tWEFOqEduyKfhIjBdbtA">
     <ownedEnd xmi:id="_v9tWEFOqEduyKfhIjBdbtA" visibility="private" type="_uSRvAFOqEduyKfhIjBdbtA" association="_v9kMIFOqEduyKfhIjBdbtA"/>
-  </ownedMember>
-  <ownedMember xmi:type="uml:Association" xmi:id="_6QCoQDuSEduKtOWw2f6nDA" memberEnd="_6QCoQTuSEduKtOWw2f6nDA _6QCoQjuSEduKtOWw2f6nDA">
-    <ownedEnd xmi:id="_6QCoQjuSEduKtOWw2f6nDA" visibility="private" type="_GIDLsPdxEdqB_7dkOscBPA" association="_6QCoQDuSEduKtOWw2f6nDA"/>
   </ownedMember>
   <ownedMember xmi:type="uml:Association" xmi:id="_W_j2cFOqEduyKfhIjBdbtA" memberEnd="_W_j2cVOqEduyKfhIjBdbtA _W_j2clOqEduyKfhIjBdbtA">
     <ownedEnd xmi:id="_W_j2clOqEduyKfhIjBdbtA" visibility="private" type="_TjLPIFOqEduyKfhIjBdbtA" association="_W_j2cFOqEduyKfhIjBdbtA"/>
