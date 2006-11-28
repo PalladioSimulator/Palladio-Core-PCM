@@ -9,7 +9,7 @@ package de.uka.ipd.sdq.qnm.resultmodel.impl;
 import de.uka.ipd.sdq.qnm.QNModel;
 
 import de.uka.ipd.sdq.qnm.resultmodel.QNMResultModel;
-import de.uka.ipd.sdq.qnm.resultmodel.ResourceUsageTime;
+import de.uka.ipd.sdq.qnm.resultmodel.TimeConsumption;
 import de.uka.ipd.sdq.qnm.resultmodel.ResultModelPackage;
 import de.uka.ipd.sdq.qnm.resultmodel.TaskResourceUsage;
 
@@ -150,7 +150,7 @@ public class QNMResultModelImpl extends EObjectImpl implements QNMResultModel {
 	 */
 	public EList getResourceUsageTimes() {
 		if (resourceUsageTimes == null) {
-			resourceUsageTimes = new EObjectContainmentEList(ResourceUsageTime.class, this, ResultModelPackage.QNM_RESULT_MODEL__RESOURCE_USAGE_TIMES);
+			resourceUsageTimes = new EObjectContainmentEList(TimeConsumption.class, this, ResultModelPackage.QNM_RESULT_MODEL__RESOURCE_USAGE_TIMES);
 		}
 		return resourceUsageTimes;
 	}

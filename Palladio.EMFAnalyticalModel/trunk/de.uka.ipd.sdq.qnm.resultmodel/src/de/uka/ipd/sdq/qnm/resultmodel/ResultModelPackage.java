@@ -281,13 +281,31 @@ public interface ResultModelPackage extends EPackage {
 	int SERVICE_TIME_BREAK_DOWN__USED_RESOURCE = 2;
 
 	/**
+	 * The feature id for the '<em><b>Last Usage Probability</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERVICE_TIME_BREAK_DOWN__LAST_USAGE_PROBABILITY = 3;
+
+	/**
+	 * The feature id for the '<em><b>Last Usage Time</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERVICE_TIME_BREAK_DOWN__LAST_USAGE_TIME = 4;
+
+	/**
 	 * The number of structural features of the '<em>Service Time Break Down</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SERVICE_TIME_BREAK_DOWN_FEATURE_COUNT = 3;
+	int SERVICE_TIME_BREAK_DOWN_FEATURE_COUNT = 5;
 
 	/**
 	 * The meta object id for the '<em>Managed PMF</em>' data type.
@@ -441,54 +459,54 @@ public interface ResultModelPackage extends EPackage {
 	EReference getTaskResourceUsage_Resource();
 
 	/**
-	 * Returns the meta object for class '{@link de.uka.ipd.sdq.qnm.resultmodel.ResourceUsageTime <em>Resource Usage Time</em>}'.
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.qnm.resultmodel.TimeConsumption <em>Resource Usage Time</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for class '<em>Resource Usage Time</em>'.
-	 * @see de.uka.ipd.sdq.qnm.resultmodel.ResourceUsageTime
+	 * @see de.uka.ipd.sdq.qnm.resultmodel.TimeConsumption
 	 * @generated
 	 */
 	EClass getResourceUsageTime();
 
 	/**
-	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.qnm.resultmodel.ResourceUsageTime#getResourceUsage <em>Resource Usage</em>}'.
+	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.qnm.resultmodel.TimeConsumption#getResourceUsage <em>Resource Usage</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the reference '<em>Resource Usage</em>'.
-	 * @see de.uka.ipd.sdq.qnm.resultmodel.ResourceUsageTime#getResourceUsage()
+	 * @see de.uka.ipd.sdq.qnm.resultmodel.TimeConsumption#getResourceUsage()
 	 * @see #getResourceUsageTime()
 	 * @generated
 	 */
 	EReference getResourceUsageTime_ResourceUsage();
 
 	/**
-	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.qnm.resultmodel.ResourceUsageTime#getServiceTime <em>Service Time</em>}'.
+	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.qnm.resultmodel.TimeConsumption#getServiceTime <em>Service Time</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Service Time</em>'.
-	 * @see de.uka.ipd.sdq.qnm.resultmodel.ResourceUsageTime#getServiceTime()
+	 * @see de.uka.ipd.sdq.qnm.resultmodel.TimeConsumption#getServiceTime()
 	 * @see #getResourceUsageTime()
 	 * @generated
 	 */
 	EAttribute getResourceUsageTime_ServiceTime();
 
 	/**
-	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.qnm.resultmodel.ResourceUsageTime#getResponseTime <em>Response Time</em>}'.
+	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.qnm.resultmodel.TimeConsumption#getResponseTime <em>Response Time</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Response Time</em>'.
-	 * @see de.uka.ipd.sdq.qnm.resultmodel.ResourceUsageTime#getResponseTime()
+	 * @see de.uka.ipd.sdq.qnm.resultmodel.TimeConsumption#getResponseTime()
 	 * @see #getResourceUsageTime()
 	 * @generated
 	 */
 	EAttribute getResourceUsageTime_ResponseTime();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link de.uka.ipd.sdq.qnm.resultmodel.ResourceUsageTime#getServiceTimeBreakDowns <em>Service Time Break Downs</em>}'.
+	 * Returns the meta object for the containment reference list '{@link de.uka.ipd.sdq.qnm.resultmodel.TimeConsumption#getServiceTimeBreakDowns <em>Service Time Break Downs</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference list '<em>Service Time Break Downs</em>'.
-	 * @see de.uka.ipd.sdq.qnm.resultmodel.ResourceUsageTime#getServiceTimeBreakDowns()
+	 * @see de.uka.ipd.sdq.qnm.resultmodel.TimeConsumption#getServiceTimeBreakDowns()
 	 * @see #getResourceUsageTime()
 	 * @generated
 	 */
@@ -536,6 +554,28 @@ public interface ResultModelPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getServiceTimeBreakDown_UsedResource();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.qnm.resultmodel.ServiceTimeBreakDown#getLastUsageProbability <em>Last Usage Probability</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Last Usage Probability</em>'.
+	 * @see de.uka.ipd.sdq.qnm.resultmodel.ServiceTimeBreakDown#getLastUsageProbability()
+	 * @see #getServiceTimeBreakDown()
+	 * @generated
+	 */
+	EAttribute getServiceTimeBreakDown_LastUsageProbability();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.qnm.resultmodel.ServiceTimeBreakDown#getLastUsageTime <em>Last Usage Time</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Last Usage Time</em>'.
+	 * @see de.uka.ipd.sdq.qnm.resultmodel.ServiceTimeBreakDown#getLastUsageTime()
+	 * @see #getServiceTimeBreakDown()
+	 * @generated
+	 */
+	EAttribute getServiceTimeBreakDown_LastUsageTime();
 
 	/**
 	 * Returns the meta object for data type '{@link de.uka.ipd.sdq.probfunction.math.ManagedPMF <em>Managed PMF</em>}'.
@@ -758,6 +798,22 @@ public interface ResultModelPackage extends EPackage {
 		 * @generated
 		 */
 		EReference SERVICE_TIME_BREAK_DOWN__USED_RESOURCE = eINSTANCE.getServiceTimeBreakDown_UsedResource();
+
+		/**
+		 * The meta object literal for the '<em><b>Last Usage Probability</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SERVICE_TIME_BREAK_DOWN__LAST_USAGE_PROBABILITY = eINSTANCE.getServiceTimeBreakDown_LastUsageProbability();
+
+		/**
+		 * The meta object literal for the '<em><b>Last Usage Time</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SERVICE_TIME_BREAK_DOWN__LAST_USAGE_TIME = eINSTANCE.getServiceTimeBreakDown_LastUsageTime();
 
 		/**
 		 * The meta object literal for the '<em>Managed PMF</em>' data type.

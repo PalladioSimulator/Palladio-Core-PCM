@@ -14,7 +14,7 @@ import de.uka.ipd.sdq.probfunction.math.ManagedPMF;
 import de.uka.ipd.sdq.qnm.QnmPackage;
 
 import de.uka.ipd.sdq.qnm.resultmodel.QNMResultModel;
-import de.uka.ipd.sdq.qnm.resultmodel.ResourceUsageTime;
+import de.uka.ipd.sdq.qnm.resultmodel.TimeConsumption;
 import de.uka.ipd.sdq.qnm.resultmodel.ResultModelFactory;
 import de.uka.ipd.sdq.qnm.resultmodel.ResultModelPackage;
 import de.uka.ipd.sdq.qnm.resultmodel.ServiceTimeBreakDown;
@@ -346,6 +346,24 @@ public class ResultModelPackageImpl extends EPackageImpl implements ResultModelP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getServiceTimeBreakDown_LastUsageProbability() {
+		return (EAttribute)serviceTimeBreakDownEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getServiceTimeBreakDown_LastUsageTime() {
+		return (EAttribute)serviceTimeBreakDownEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EDataType getManagedPMF() {
 		return managedPMFEDataType;
 	}
@@ -411,6 +429,8 @@ public class ResultModelPackageImpl extends EPackageImpl implements ResultModelP
 		createEAttribute(serviceTimeBreakDownEClass, SERVICE_TIME_BREAK_DOWN__USAGE_PROBABILITY);
 		createEAttribute(serviceTimeBreakDownEClass, SERVICE_TIME_BREAK_DOWN__USAGE_TIME);
 		createEReference(serviceTimeBreakDownEClass, SERVICE_TIME_BREAK_DOWN__USED_RESOURCE);
+		createEAttribute(serviceTimeBreakDownEClass, SERVICE_TIME_BREAK_DOWN__LAST_USAGE_PROBABILITY);
+		createEAttribute(serviceTimeBreakDownEClass, SERVICE_TIME_BREAK_DOWN__LAST_USAGE_TIME);
 
 		// Create data types
 		managedPMFEDataType = createEDataType(MANAGED_PMF);
@@ -461,16 +481,18 @@ public class ResultModelPackageImpl extends EPackageImpl implements ResultModelP
 		initEReference(getTaskResourceUsage_Task(), theQnmPackage.getTask(), null, "task", null, 1, 1, TaskResourceUsage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTaskResourceUsage_Resource(), theResourceModelPackage.getResource(), null, "resource", null, 1, 1, TaskResourceUsage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(resourceUsageTimeEClass, ResourceUsageTime.class, "ResourceUsageTime", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getResourceUsageTime_ResourceUsage(), theResourceModelPackage.getAbstractResourceUsage(), null, "resourceUsage", null, 1, 1, ResourceUsageTime.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getResourceUsageTime_ServiceTime(), this.getManagedPDF(), "serviceTime", null, 1, 1, ResourceUsageTime.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getResourceUsageTime_ResponseTime(), this.getManagedPDF(), "responseTime", null, 1, 1, ResourceUsageTime.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getResourceUsageTime_ServiceTimeBreakDowns(), this.getServiceTimeBreakDown(), null, "serviceTimeBreakDowns", null, 0, -1, ResourceUsageTime.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(resourceUsageTimeEClass, TimeConsumption.class, "ResourceUsageTime", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getResourceUsageTime_ResourceUsage(), theResourceModelPackage.getAbstractResourceUsage(), null, "resourceUsage", null, 1, 1, TimeConsumption.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getResourceUsageTime_ServiceTime(), this.getManagedPDF(), "serviceTime", null, 1, 1, TimeConsumption.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getResourceUsageTime_ResponseTime(), this.getManagedPDF(), "responseTime", null, 1, 1, TimeConsumption.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getResourceUsageTime_ServiceTimeBreakDowns(), this.getServiceTimeBreakDown(), null, "serviceTimeBreakDowns", null, 0, -1, TimeConsumption.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(serviceTimeBreakDownEClass, ServiceTimeBreakDown.class, "ServiceTimeBreakDown", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getServiceTimeBreakDown_UsageProbability(), ecorePackage.getEDouble(), "usageProbability", "0", 1, 1, ServiceTimeBreakDown.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getServiceTimeBreakDown_UsageTime(), ecorePackage.getEDouble(), "usageTime", "0", 1, 1, ServiceTimeBreakDown.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getServiceTimeBreakDown_UsedResource(), theResourceModelPackage.getResource(), null, "usedResource", null, 1, 1, ServiceTimeBreakDown.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getServiceTimeBreakDown_LastUsageProbability(), ecorePackage.getEDouble(), "lastUsageProbability", null, 1, 1, ServiceTimeBreakDown.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getServiceTimeBreakDown_LastUsageTime(), ecorePackage.getEDouble(), "lastUsageTime", null, 1, 1, ServiceTimeBreakDown.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize data types
 		initEDataType(managedPMFEDataType, ManagedPMF.class, "ManagedPMF", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);

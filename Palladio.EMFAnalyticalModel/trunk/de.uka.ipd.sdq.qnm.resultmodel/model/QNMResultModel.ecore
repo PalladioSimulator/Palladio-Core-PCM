@@ -53,5 +53,9 @@
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble" defaultValueLiteral="0"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="usedResource" lowerBound="1"
         eType="ecore:EClass ../../de.uka.ipd.spq.spa.resourcemodel/model/ResourceModel.ecore#//Resource"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="lastUsageProbability" unique="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="lastUsageTime" unique="false"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
   </eClassifiers>
 </ecore:EPackage>

@@ -29,6 +29,8 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  *   <li>{@link de.uka.ipd.sdq.qnm.resultmodel.impl.ServiceTimeBreakDownImpl#getUsageProbability <em>Usage Probability</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.qnm.resultmodel.impl.ServiceTimeBreakDownImpl#getUsageTime <em>Usage Time</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.qnm.resultmodel.impl.ServiceTimeBreakDownImpl#getUsedResource <em>Used Resource</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.qnm.resultmodel.impl.ServiceTimeBreakDownImpl#getLastUsageProbability <em>Last Usage Probability</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.qnm.resultmodel.impl.ServiceTimeBreakDownImpl#getLastUsageTime <em>Last Usage Time</em>}</li>
  * </ul>
  * </p>
  *
@@ -84,6 +86,46 @@ public class ServiceTimeBreakDownImpl extends EObjectImpl implements ServiceTime
 	 * @ordered
 	 */
 	protected Resource usedResource = null;
+
+	/**
+	 * The default value of the '{@link #getLastUsageProbability() <em>Last Usage Probability</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLastUsageProbability()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final double LAST_USAGE_PROBABILITY_EDEFAULT = 0.0;
+
+	/**
+	 * The cached value of the '{@link #getLastUsageProbability() <em>Last Usage Probability</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLastUsageProbability()
+	 * @generated
+	 * @ordered
+	 */
+	protected double lastUsageProbability = LAST_USAGE_PROBABILITY_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getLastUsageTime() <em>Last Usage Time</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLastUsageTime()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final double LAST_USAGE_TIME_EDEFAULT = 0.0;
+
+	/**
+	 * The cached value of the '{@link #getLastUsageTime() <em>Last Usage Time</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLastUsageTime()
+	 * @generated
+	 * @ordered
+	 */
+	protected double lastUsageTime = LAST_USAGE_TIME_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -188,6 +230,48 @@ public class ServiceTimeBreakDownImpl extends EObjectImpl implements ServiceTime
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public double getLastUsageProbability() {
+		return lastUsageProbability;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setLastUsageProbability(double newLastUsageProbability) {
+		double oldLastUsageProbability = lastUsageProbability;
+		lastUsageProbability = newLastUsageProbability;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ResultModelPackage.SERVICE_TIME_BREAK_DOWN__LAST_USAGE_PROBABILITY, oldLastUsageProbability, lastUsageProbability));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public double getLastUsageTime() {
+		return lastUsageTime;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setLastUsageTime(double newLastUsageTime) {
+		double oldLastUsageTime = lastUsageTime;
+		lastUsageTime = newLastUsageTime;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ResultModelPackage.SERVICE_TIME_BREAK_DOWN__LAST_USAGE_TIME, oldLastUsageTime, lastUsageTime));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case ResultModelPackage.SERVICE_TIME_BREAK_DOWN__USAGE_PROBABILITY:
@@ -197,6 +281,10 @@ public class ServiceTimeBreakDownImpl extends EObjectImpl implements ServiceTime
 			case ResultModelPackage.SERVICE_TIME_BREAK_DOWN__USED_RESOURCE:
 				if (resolve) return getUsedResource();
 				return basicGetUsedResource();
+			case ResultModelPackage.SERVICE_TIME_BREAK_DOWN__LAST_USAGE_PROBABILITY:
+				return new Double(getLastUsageProbability());
+			case ResultModelPackage.SERVICE_TIME_BREAK_DOWN__LAST_USAGE_TIME:
+				return new Double(getLastUsageTime());
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -216,6 +304,12 @@ public class ServiceTimeBreakDownImpl extends EObjectImpl implements ServiceTime
 				return;
 			case ResultModelPackage.SERVICE_TIME_BREAK_DOWN__USED_RESOURCE:
 				setUsedResource((Resource)newValue);
+				return;
+			case ResultModelPackage.SERVICE_TIME_BREAK_DOWN__LAST_USAGE_PROBABILITY:
+				setLastUsageProbability(((Double)newValue).doubleValue());
+				return;
+			case ResultModelPackage.SERVICE_TIME_BREAK_DOWN__LAST_USAGE_TIME:
+				setLastUsageTime(((Double)newValue).doubleValue());
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -237,6 +331,12 @@ public class ServiceTimeBreakDownImpl extends EObjectImpl implements ServiceTime
 			case ResultModelPackage.SERVICE_TIME_BREAK_DOWN__USED_RESOURCE:
 				setUsedResource((Resource)null);
 				return;
+			case ResultModelPackage.SERVICE_TIME_BREAK_DOWN__LAST_USAGE_PROBABILITY:
+				setLastUsageProbability(LAST_USAGE_PROBABILITY_EDEFAULT);
+				return;
+			case ResultModelPackage.SERVICE_TIME_BREAK_DOWN__LAST_USAGE_TIME:
+				setLastUsageTime(LAST_USAGE_TIME_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -254,6 +354,10 @@ public class ServiceTimeBreakDownImpl extends EObjectImpl implements ServiceTime
 				return usageTime != USAGE_TIME_EDEFAULT;
 			case ResultModelPackage.SERVICE_TIME_BREAK_DOWN__USED_RESOURCE:
 				return usedResource != null;
+			case ResultModelPackage.SERVICE_TIME_BREAK_DOWN__LAST_USAGE_PROBABILITY:
+				return lastUsageProbability != LAST_USAGE_PROBABILITY_EDEFAULT;
+			case ResultModelPackage.SERVICE_TIME_BREAK_DOWN__LAST_USAGE_TIME:
+				return lastUsageTime != LAST_USAGE_TIME_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -271,6 +375,10 @@ public class ServiceTimeBreakDownImpl extends EObjectImpl implements ServiceTime
 		result.append(usageProbability);
 		result.append(", usageTime: ");
 		result.append(usageTime);
+		result.append(", lastUsageProbability: ");
+		result.append(lastUsageProbability);
+		result.append(", lastUsageTime: ");
+		result.append(lastUsageTime);
 		result.append(')');
 		return result.toString();
 	}

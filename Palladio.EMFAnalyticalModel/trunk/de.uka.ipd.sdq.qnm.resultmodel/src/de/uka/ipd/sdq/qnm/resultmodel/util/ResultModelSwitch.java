@@ -100,8 +100,8 @@ public class ResultModelSwitch {
 				return result;
 			}
 			case ResultModelPackage.RESOURCE_USAGE_TIME: {
-				ResourceUsageTime resourceUsageTime = (ResourceUsageTime)theEObject;
-				Object result = caseResourceUsageTime(resourceUsageTime);
+				TimeConsumption timeConsumption = (TimeConsumption)theEObject;
+				Object result = caseResourceUsageTime(timeConsumption);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -156,7 +156,7 @@ public class ResultModelSwitch {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public Object caseResourceUsageTime(ResourceUsageTime object) {
+	public Object caseResourceUsageTime(TimeConsumption object) {
 		return null;
 	}
 

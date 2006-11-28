@@ -75,7 +75,7 @@ public interface QNMResultModel extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Resource Usage Times</b></em>' containment reference list.
-	 * The list contents are of type {@link de.uka.ipd.sdq.qnm.resultmodel.ResourceUsageTime}.
+	 * The list contents are of type {@link de.uka.ipd.sdq.qnm.resultmodel.TimeConsumption}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Resource Usage Times</em>' containment reference list isn't clear,

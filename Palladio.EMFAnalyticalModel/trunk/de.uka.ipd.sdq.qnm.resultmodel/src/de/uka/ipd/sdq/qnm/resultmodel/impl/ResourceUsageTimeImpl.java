@@ -8,7 +8,7 @@ package de.uka.ipd.sdq.qnm.resultmodel.impl;
 
 import de.uka.ipd.sdq.probfunction.math.ManagedPDF;
 
-import de.uka.ipd.sdq.qnm.resultmodel.ResourceUsageTime;
+import de.uka.ipd.sdq.qnm.resultmodel.TimeConsumption;
 import de.uka.ipd.sdq.qnm.resultmodel.ResultModelPackage;
 import de.uka.ipd.sdq.qnm.resultmodel.ServiceTimeBreakDown;
 
@@ -46,7 +46,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class ResourceUsageTimeImpl extends EObjectImpl implements ResourceUsageTime {
+public class ResourceUsageTimeImpl extends EObjectImpl implements TimeConsumption {
 	/**
 	 * The cached value of the '{@link #getResourceUsage() <em>Resource Usage</em>}' reference.
 	 * <!-- begin-user-doc -->

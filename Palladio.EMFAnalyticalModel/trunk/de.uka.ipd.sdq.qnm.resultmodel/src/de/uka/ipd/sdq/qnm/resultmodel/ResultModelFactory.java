@@ -50,7 +50,7 @@ public interface ResultModelFactory extends EFactory {
 	 * @return a new object of class '<em>Resource Usage Time</em>'.
 	 * @generated
 	 */
-	ResourceUsageTime createResourceUsageTime();
+	TimeConsumption createResourceUsageTime();
 
 	/**
 	 * Returns a new object of class '<em>Service Time Break Down</em>'.

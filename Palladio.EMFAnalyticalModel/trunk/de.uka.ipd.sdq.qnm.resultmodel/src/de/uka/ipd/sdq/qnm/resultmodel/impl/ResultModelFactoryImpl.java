@@ -8,6 +8,7 @@ package de.uka.ipd.sdq.qnm.resultmodel.impl;
 
 import de.uka.ipd.sdq.probfunction.math.ManagedPDF;
 import de.uka.ipd.sdq.probfunction.math.ManagedPMF;
+import de.uka.ipd.sdq.probfunction.math.exception.StringNotPDFException;
 
 import de.uka.ipd.sdq.qnm.resultmodel.*;
 
@@ -19,6 +20,9 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
 
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
+
+import antlr.RecognitionException;
+import antlr.TokenStreamException;
 
 /**
  * <!-- begin-user-doc -->
@@ -129,7 +133,7 @@ public class ResultModelFactoryImpl extends EFactoryImpl implements ResultModelF
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ResourceUsageTime createResourceUsageTime() {
+	public TimeConsumption createResourceUsageTime() {
 		ResourceUsageTimeImpl resourceUsageTime = new ResourceUsageTimeImpl();
 		return resourceUsageTime;
 	}
@@ -147,27 +151,46 @@ public class ResultModelFactoryImpl extends EFactoryImpl implements ResultModelF
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public ManagedPMF createManagedPMFFromString(EDataType eDataType, String initialValue) {
+		try {
+			return ManagedPMF.createFromString(initialValue);
+		} catch (RecognitionException e) {
+			e.printStackTrace();
+		} catch (TokenStreamException e) {
+			e.printStackTrace();
+		} catch (StringNotPDFException e) {
+			e.printStackTrace();
+		}
 		return (ManagedPMF)super.createFromString(eDataType, initialValue);
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public String convertManagedPMFToString(EDataType eDataType, Object instanceValue) {
-		return super.convertToString(eDataType, instanceValue);
+		ManagedPMF pmf = (ManagedPMF)instanceValue;
+		return pmf.toString();
 	}
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public ManagedPDF createManagedPDFFromString(EDataType eDataType, String initialValue) {
+		try {
+			return ManagedPDF.createFromString(initialValue);
+		} catch (RecognitionException e) {
+			e.printStackTrace();
+		} catch (TokenStreamException e) {
+			e.printStackTrace();
+		} catch (StringNotPDFException e) {
+			e.printStackTrace();
+		}
 		return (ManagedPDF)super.createFromString(eDataType, initialValue);
 	}
 
@@ -177,7 +200,8 @@ public class ResultModelFactoryImpl extends EFactoryImpl implements ResultModelF
 	 * @generated NOT
 	 */
 	public String convertManagedPDFToString(EDataType eDataType, Object instanceValue) {
-		return super.convertToString(eDataType, instanceValue);
+		ManagedPDF pdf = (ManagedPDF) instanceValue;
+		return pdf.toString();
 	}
 
 	/**

@@ -76,7 +76,7 @@ public class ResultModelAdapterFactory extends AdapterFactoryImpl {
 			public Object caseTaskResourceUsage(TaskResourceUsage object) {
 				return createTaskResourceUsageAdapter();
 			}
-			public Object caseResourceUsageTime(ResourceUsageTime object) {
+			public Object caseResourceUsageTime(TimeConsumption object) {
 				return createResourceUsageTimeAdapter();
 			}
 			public Object caseServiceTimeBreakDown(ServiceTimeBreakDown object) {
@@ -129,13 +129,13 @@ public class ResultModelAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.qnm.resultmodel.ResourceUsageTime <em>Resource Usage Time</em>}'.
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.qnm.resultmodel.TimeConsumption <em>Resource Usage Time</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.qnm.resultmodel.ResourceUsageTime
+	 * @see de.uka.ipd.sdq.qnm.resultmodel.TimeConsumption
 	 * @generated
 	 */
 	public Adapter createResourceUsageTimeAdapter() {

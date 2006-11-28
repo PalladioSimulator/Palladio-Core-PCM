@@ -14,5 +14,6 @@ Require-Bundle: org.eclipse.core.runtime,
  de.uka.ipd.sdq.probfunction;visibility:=reexport,
  de.uka.ipd.sdq.qnm;visibility:=reexport,
  de.uka.ipd.spq.spa.resourcemodel;visibility:=reexport,
- de.uka.ipd.sdq.probfunction.math
+ de.uka.ipd.sdq.probfunction.math,
+ org.antlr
 Eclipse-LazyStart: true
