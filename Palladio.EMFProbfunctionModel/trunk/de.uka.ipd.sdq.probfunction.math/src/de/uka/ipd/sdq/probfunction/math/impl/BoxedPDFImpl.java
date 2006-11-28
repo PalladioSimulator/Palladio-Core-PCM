@@ -96,7 +96,7 @@ public class BoxedPDFImpl extends ProbabilityDensityFunctionImpl
 		return probs;
 	}
 
-	protected void setSamples(List<IContinuousSample> samples)
+	public void setSamples(List<IContinuousSample> samples)
 			throws DoubleSampleException {
 		if (containsDoubleSamples(samples))
 			throw new DoubleSampleException();
@@ -180,7 +180,13 @@ public class BoxedPDFImpl extends ProbabilityDensityFunctionImpl
 		if (!hasOrderedDomain())
 			throw new UnorderedDomainException();
 
-		return getPercentile(50);
+		if (samples.size() % 2 != 0) {
+			int i = (int) Math.floor(samples.size() / 2.0);
+			return samples.get(i).getValue();
+		} else {
+			int i1 = (int) Math.round(samples.size() / 2.0);
+			return (samples.get(i1).getValue() + samples.get(i1 - 1).getValue()) / 2;
+		}
 	}
 
 	public Object getPercentile(int p) throws IndexOutOfBoundsException,
