@@ -96,7 +96,7 @@ public class BoxedPDFImpl extends ProbabilityDensityFunctionImpl
 		return probs;
 	}
 
-	public void setSamples(List<IContinuousSample> samples)
+	protected void setSamples(List<IContinuousSample> samples)
 			throws DoubleSampleException {
 		if (containsDoubleSamples(samples))
 			throw new DoubleSampleException();

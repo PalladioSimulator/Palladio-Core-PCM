@@ -10,6 +10,7 @@ import de.uka.ipd.sdq.probfunction.Sample;
 import de.uka.ipd.sdq.probfunction.SamplePDF;
 import de.uka.ipd.sdq.probfunction.Unit;
 import de.uka.ipd.sdq.probfunction.math.exception.DoubleSampleException;
+import de.uka.ipd.sdq.probfunction.math.exception.FunctionNotInTimeDomainException;
 import de.uka.ipd.sdq.probfunction.math.exception.ProbabilitySumNotOneException;
 import de.uka.ipd.sdq.probfunction.math.exception.UnknownPDFTypeException;
 import flanagan.complex.Complex;
@@ -288,16 +289,6 @@ public interface IProbabilityFunctionFactory {
 			throws UnknownPDFTypeException;
 
 	/**
-	 * Creates a new, empty BoxedPDF.
-	 * 
-	 * @return New BoxedPDF instance.
-	 * @throws ProbabilitySumNotOneException
-	 * @throws DoubleSampleException
-	 */
-	IBoxedPDF createBoxedPDF(IUnit unit) throws ProbabilitySumNotOneException,
-			DoubleSampleException;
-
-	/**
 	 * Creates a new BoxedPDF, whose boxes are defined by 'samples'.
 	 * 
 	 * @param samples
@@ -325,10 +316,11 @@ public interface IProbabilityFunctionFactory {
 	 *             Thrown in case pdf is neither a BoxedPDF nor a SamplePDF.
 	 * @throws DoubleSampleException
 	 * @throws ProbabilitySumNotOneException
+	 * @throws FunctionNotInTimeDomainException 
 	 */
 	IBoxedPDF transformToBoxedPDF(IProbabilityDensityFunction pdf)
 			throws UnknownPDFTypeException, ProbabilitySumNotOneException,
-			DoubleSampleException;
+			DoubleSampleException, FunctionNotInTimeDomainException;
 
 	/**
 	 * Converts a model object to a function object with the same attributes.
@@ -350,18 +342,12 @@ public interface IProbabilityFunctionFactory {
 	 * @return New BoxedPDF instance.
 	 * @throws DoubleSampleException
 	 * @throws ProbabilitySumNotOneException
+	 * @throws FunctionNotInTimeDomainException 
 	 */
 	BoxedPDF transformToModelBoxedPDF(IProbabilityDensityFunction pdf)
 			throws UnknownPDFTypeException, ProbabilitySumNotOneException,
-			DoubleSampleException;
+			DoubleSampleException, FunctionNotInTimeDomainException;
 
-	/**
-	 * Creates a new, empty ProbabilityMassFunction.
-	 * 
-	 * @return New ProbabilityMassFunction instance.
-	 */
-	IProbabilityMassFunction createProbabilityMassFunction(IUnit unit,
-			boolean hasOrderedDomain);
 
 	/**
 	 * Creates a new ProbabilityMassFunction whose samples are set to 'samples'.
@@ -416,10 +402,11 @@ public interface IProbabilityFunctionFactory {
 	 *            Object to transform.
 	 * @return New ProbabilityDensityFunction instance.
 	 * @throws DoubleSampleException
+	 * @throws FunctionNotInTimeDomainException 
 	 * @throws ProbabilitySumNotOneException
 	 */
 	ProbabilityDensityFunction transformToModelPDF(
 			IProbabilityDensityFunction pdf) throws UnknownPDFTypeException,
-			DoubleSampleException;
+			DoubleSampleException, FunctionNotInTimeDomainException;
 
 }

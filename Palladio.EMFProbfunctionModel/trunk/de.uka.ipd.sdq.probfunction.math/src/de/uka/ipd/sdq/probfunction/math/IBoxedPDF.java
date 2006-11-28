@@ -29,15 +29,4 @@ public interface IBoxedPDF extends IProbabilityDensityFunction {
 	 */
 	List<IContinuousSample> getSamples();
 
-	/**
-	 * Resets the boxes of a probability density function. The incoming set of
-	 * samples might be unorderd. It will be sorted by this function.<br>
-	 * 
-	 * If the probabilities in the samples do not sum up to one a ProbabilitiesNotOneException is thrown.
-	 * 
-	 * @param samples List of sampling points describing a probability density function.
-	 * @throws DoubleSampleException 
-	 */
-	void setSamples(List<IContinuousSample> samples) throws DoubleSampleException;
-
 }

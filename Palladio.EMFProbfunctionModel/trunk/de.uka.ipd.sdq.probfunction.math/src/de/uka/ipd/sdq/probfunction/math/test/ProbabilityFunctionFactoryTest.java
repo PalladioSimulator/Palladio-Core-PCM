@@ -39,15 +39,6 @@ public class ProbabilityFunctionFactoryTest {
 
 	@Before
 	public void setUp() {
-		try {
-			boxed = pfFactory.createBoxedPDF(null);
-		} catch (ProbabilitySumNotOneException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (DoubleSampleException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 	}
 
 	@Test
@@ -58,7 +49,7 @@ public class ProbabilityFunctionFactoryTest {
 						.createContinuousSample(1.8, 0.2), pfFactory
 						.createContinuousSample(2.4, 0.1));
 		try {
-			boxed.setSamples(samples);
+			boxed = pfFactory.createBoxedPDF(samples, null);
 		} catch (DoubleSampleException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
