@@ -51,12 +51,16 @@ public class FunctionWrapper {
 
 		List<Object> values = new ArrayList<Object>();
 		for (int i = 1; i <= spdf.getValues().size(); i++)
-			values.add(new Double(i) * spdf.getDistance());
+			values.add(round(new Double(i) * spdf.getDistance(), 3));
 		originalFunction = spdf;
 		this.values = values;
 		this.probabilities = spdf.getValuesAsDouble();
 	}
 
+	private double round(double value, int fractal) {
+		double b = value * Math.pow(10, fractal);
+		return  1.0*Math.round(b)/Math.pow(10, fractal);
+	}
 	@SuppressWarnings("unchecked")
 	private void doConfiguration() {
 		maxIndex = minIndex = 0;
@@ -65,7 +69,7 @@ public class FunctionWrapper {
 			ISamplePDF s = (ISamplePDF) originalFunction;
 			int diff = values.size() + (valuesSize - values.size());
 			for (int i = values.size(); i < diff; i++) {
-				values.add(new Double(i + 1) * s.getDistance());
+				values.add(round(new Double(i + 1) * s.getDistance(), 3));
 				probabilities.add(s.getFillValueAsDouble());
 			}
 		}
