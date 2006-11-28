@@ -178,6 +178,26 @@ definition returns [ProbabilityFunctionLiteral pfl]{pfl = StoexFactory.eINSTANCE
 				  pdf_sample = real_pdf_sample
 				  {((BoxedPDF)probFunction).getSamples().add(pdf_sample);})+ 
 	 		SQUARE_PAREN_R 
+			|
+			"BoolPMF" 
+				{probFunction = ProbfunctionFactory.eINSTANCE.createProbabilityMassFunction();
+				   pfl.setFunction_ProbabilityFunctionLiteral(probFunction);
+				   ((ProbabilityMassFunction)probFunction).setOrderedDomain(false);
+				   }
+			LPAREN
+			  ({Unit uunit = null;}
+			  uunit = bool_unit 
+			  {probFunction.setUnit(uunit);})
+			  (SEMI
+			  ORDERED_DEF
+			  {((ProbabilityMassFunction)probFunction).setOrderedDomain(true);}
+			  )?
+			RPAREN
+			SQUARE_PAREN_L 
+				( {Sample ssample=null;} 
+				ssample = boolsample
+			   	{((ProbabilityMassFunction)probFunction).getSamples().add(ssample);})+ 
+			SQUARE_PAREN_R
 ;
 
 // inherited from grammar StochasticExpressionsParser
@@ -187,6 +207,14 @@ unit returns [Unit u]{u = null;}
 			EQUAL
 			str:STRING_LITERAL 
 			{u.setUnitName(str.getText().replace("\"",""));} ;
+
+// inherited from grammar StochasticExpressionsParser
+bool_unit returns [Unit u]{u = null;}
+:"unit"
+			{ u = ProbfunctionFactory.eINSTANCE.createUnit(); }
+			EQUAL
+			"\"bool\""
+			{u.setUnitName("bool");} ;
 
 // inherited from grammar StochasticExpressionsParser
 numeric_int_sample returns [Sample s]{s = null;}
@@ -230,6 +258,22 @@ stringsample returns [Sample s]{s = null;}
 		SEMI
 		str:STRING_LITERAL 
 			{s.setValue(str.getText().replace("\"",""));} 
+		RPAREN;
+
+// inherited from grammar StochasticExpressionsParser
+boolsample returns [Sample s]{s = null;}
+:LPAREN
+			{s = ProbfunctionFactory.eINSTANCE.createSample();} 
+		n:NUMBER 
+			{s.setProbability(Double.parseDouble(n.getText()));} 
+		SEMI
+		(
+		"false"
+			{s.setValue("false");} 
+		|
+		"true"
+			{s.setValue("true");} 
+		)
 		RPAREN;
 
 // inherited from grammar StochasticExpressionsParser
