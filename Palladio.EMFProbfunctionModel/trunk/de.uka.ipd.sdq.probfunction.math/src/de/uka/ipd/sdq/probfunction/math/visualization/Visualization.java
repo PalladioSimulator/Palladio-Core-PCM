@@ -54,6 +54,7 @@ import de.uka.ipd.sdq.probfunction.math.exception.NegativeDistanceException;
 import de.uka.ipd.sdq.probfunction.math.exception.UnknownPDFTypeException;
 import de.uka.ipd.sdq.probfunction.math.exception.UnorderedDomainException;
 import de.uka.ipd.sdq.probfunction.math.impl.SamplePDFImpl;
+import de.uka.ipd.sdq.probfunction.math.visualization.ExportHandler.ImageFormat;
 
 /**
  * @author Ihssane
@@ -63,6 +64,7 @@ public class Visualization {
 
 	public static final int UNDEFINED = -1;
 	public static final double DEFAULT_DISTANCE = 0.1;
+	public static final String DEFAULT_CONFIG_FILE = "src/de/uka/ipd/sdq/probfunction/math/visualization/resource/defalutconfig.xml";
 
 	public enum ChartType {
 		BARCHART, LINECHART
@@ -81,6 +83,7 @@ public class Visualization {
 	private AppType startAs = AppType.SWING;
 	private ChartType chartTyp = ChartType.BARCHART;
 	private List<FunctionWrapper> wrappers;
+	private String srcFile = DEFAULT_CONFIG_FILE;
 	private int pmfCounter = 0;
 	private int pdfCounter = 0;
 	private double maxValue = UNDEFINED;
@@ -109,9 +112,9 @@ public class Visualization {
 		List<Double> samples = new ArrayList<Double>();
 		List<Double> samples2 = new ArrayList<Double>();
 		Collections.addAll(samples, 0.2, 0.1, 0.3, 0.4);
-		Collections.addAll(samples2, 0.1, 0.4, 0.2, 0.3, 0.5, 0.6);
+		Collections.addAll(samples2, 0.1, 0.4, 0.2, 0.3, 0.5, 0.6, 0.3);
 		ISamplePDF s = null;
-		s = pfFactory.createSamplePDFFromDouble(0.2, samples, null);
+		s = pfFactory.createSamplePDFFromDouble(0.1, samples, null);
 
 		scv.startAs(AppType.SWT);
 		scv.setChartTyp(ChartType.LINECHART);
@@ -131,7 +134,7 @@ public class Visualization {
 		// scv.setMaxValue(0.4);
 		// scv.setMinValue(0.1);
 
-		// scv.exportChartToPNG("chart.png");
+		scv.exportChartToImage("chart.svg", ImageFormat.SVG);
 		scv.visualize();
 
 	}
@@ -215,7 +218,8 @@ public class Visualization {
 		if (pf instanceof ISamplePDF) {
 			ISamplePDF samplePDF = null;
 			try {
-				samplePDF = ((SamplePDFImpl) pf).getFunctionWithNewDistance(distance);
+				samplePDF = ((SamplePDFImpl) pf)
+						.getFunctionWithNewDistance(distance);
 			} catch (NegativeDistanceException e) {
 				e.printStackTrace();
 			} catch (FunctionNotInTimeDomainException e) {
@@ -274,13 +278,12 @@ public class Visualization {
 
 		// Demand load resource for this file.
 		Resource resource = resourceSet.getResource(uri, true);
-		System.out.println("Loaded " + uri);
+//		System.out.println("Loaded " + uri);
 
-		EObject eObject = (EObject) resource.getContents().iterator().next();
+		EObject eObject = (EObject) resource.getContents().get(0);
 		return EcoreUtil.getRootContainer(eObject);
 	}
 
-	@SuppressWarnings({"unchecked", "deprecation"})
 	private void createChart() {
 
 		if (wrappers.size() == 0) {
@@ -294,10 +297,10 @@ public class Visualization {
 			w.setValuesSize(maxLength);
 		}
 
-		EObject o = loadFromXMI("test2.xml");
-//		ChartWithAxes cwa = ChartWithAxesImpl.create();
+		EObject o = loadFromXMI(srcFile);
+		// ChartWithAxes cwa = ChartWithAxesImpl.create();
 		ChartWithAxes cwa1 = (ChartWithAxesImpl) o;
-		
+
 		// CUSTOMIZE THE X-AXIS
 		Axis xAxisPrimary = cwa1.getPrimaryBaseAxes()[0];
 
@@ -308,36 +311,35 @@ public class Visualization {
 		TextDataSet categoryValues = TextDataSetImpl.create(wrappers.get(0)
 				.getValues());
 
-		// CREATE THE CATEGORY BASE SERIES
-
 		Series seCategory = SeriesImpl.create();
 		seCategory.setDataSet(categoryValues);
-		// INITIALIZE A COLLECTION WITH THE Y-SERIES DATA
 
 		// WRAP THE BASE SERIES IN THE X-AXIS SERIES DEFINITION
-		Series seriesX = (Series)(
-				((SeriesDefinition) xAxisPrimary
-						.getSeriesDefinitions().get(0)).getSeries().get(0));
+		Series seriesX = (Series) (((SeriesDefinition) xAxisPrimary
+				.getSeriesDefinitions().get(0)).getSeries().get(0));
 		seriesX.setDataSet(categoryValues);
 		//
+		// INITIALIZE A COLLECTION WITH THE Y-SERIES DATA
 		NumberDataSet orthoValues1 = null;
-		Series series = (Series)(
-		((SeriesDefinition) yAxisPrimary
-				.getSeriesDefinitions().get(0)).getSeries().get(0));
+		int i=0;
 		for (FunctionWrapper wrapper : wrappers) {
 			orthoValues1 = NumberDataSetImpl.create(wrapper.getProbabilities());
+			Series series = (Series) (((SeriesDefinition) yAxisPrimary
+					.getSeriesDefinitions().get(i))
+					.getSeries().get(0));
 			series.setDataSet(orthoValues1);
+			i++;
 		}
 		cm = cwa1;
 	}
-	public void exportChartToPNG(String fileName) {
+	public void exportChartToImage(String fileName, ImageFormat format) {
 		if (wrappers.size() == 0) {
 			System.err.println("no data to visualize !");
 			return;
 		}
 		createChart();
 
-		PNGExporter pngr = new PNGExporter(cm);
+		ExportHandler pngr = new ExportHandler(cm, format);
 		pngr.exportChartToPNGImage(fileName);
 	}
 
@@ -497,6 +499,21 @@ public class Visualization {
 	 */
 	public void setMinValue(double minValue) {
 		this.minValue = minValue;
+	}
+
+	/**
+	 * @return the source File
+	 */
+	public String getSourceConfigFile() {
+		return srcFile;
+	}
+
+	/**
+	 * @param srcFile
+	 *            the srcFile to set
+	 */
+	public void setSourceConfigFile(String srcFile) {
+		this.srcFile = srcFile;
 	}
 
 }
