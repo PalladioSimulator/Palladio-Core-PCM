@@ -38,6 +38,7 @@ public class StoExTokenMapper implements ITokenMapper {
 		case StochasticExpressionsParserTokenTypes.LITERAL_DoublePDF:
 		case StochasticExpressionsParserTokenTypes.LITERAL_IntPMF:
 		case StochasticExpressionsParserTokenTypes.LITERAL_EnumPMF:
+		case StochasticExpressionsParserTokenTypes.LITERAL_BoolPMF:			
 		case StochasticExpressionsParserTokenTypes.LITERAL_DoublePMF:
 			return new TextAttribute (new Color( null, new RGB(255,0,0) ), null, SWT.BOLD);
 		case StochasticExpressionsParserTokenTypes.NUMBER:
@@ -49,6 +50,8 @@ public class StoExTokenMapper implements ITokenMapper {
 		case StochasticExpressionsParserTokenTypes.LITERAL_VALUE:
 		case StochasticExpressionsParserTokenTypes.LITERAL_TYPE:
 		case StochasticExpressionsParserTokenTypes.LITERAL_INNER:
+		case StochasticExpressionsParserTokenTypes.LITERAL_false:
+		case StochasticExpressionsParserTokenTypes.LITERAL_true:
 			return new TextAttribute (new Color( null, new RGB(255,0,255) ), null, SWT.ITALIC);
 		case StochasticExpressionsParserTokenTypes.ID:
 			return new TextAttribute (new Color( null, new RGB(255,0,255) ), null, SWT.NONE);
@@ -58,3 +61,4 @@ public class StoExTokenMapper implements ITokenMapper {
 	}
 
 }
+
