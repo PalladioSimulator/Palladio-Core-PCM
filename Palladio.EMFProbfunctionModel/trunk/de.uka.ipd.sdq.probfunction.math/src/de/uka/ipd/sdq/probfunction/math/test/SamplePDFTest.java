@@ -19,6 +19,7 @@ import de.uka.ipd.sdq.probfunction.math.exception.FunctionsInDifferenDomainsExce
 import de.uka.ipd.sdq.probfunction.math.exception.IncompatibleUnitsException;
 import de.uka.ipd.sdq.probfunction.math.exception.NegativeDistanceException;
 import de.uka.ipd.sdq.probfunction.math.exception.UnknownPDFTypeException;
+import de.uka.ipd.sdq.probfunction.math.exception.UnorderedDomainException;
 
 /**
  * @author Ihssane
@@ -155,6 +156,15 @@ public class SamplePDFTest {
 		Assert.assertFalse(s3.checkConstrains());
 		
 	}
+	
+	@Test
+	public void getMedian() throws UnorderedDomainException {
+		Assert.assertEquals(15.0, df1.getMedian());
+		Assert.assertEquals(25.0, df2.getMedian());
+		Assert.assertEquals(40.0, df3.getMedian());
+		
+	}
+	
 	public static junit.framework.Test suite() {
 		return new JUnit4TestAdapter(SamplePDFTest.class);
 	}
