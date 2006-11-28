@@ -232,7 +232,7 @@ public class MathTools {
 	}
 
 	public static String asString(double val) {
-		double rVal = (double) Math.round(val * 1000) / 1000.0;
+		double rVal = ((double) Math.round(val * 10000.0)) / 10000.0;
 		return Double.toString(rVal);
 	}
 
