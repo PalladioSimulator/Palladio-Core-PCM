@@ -74,10 +74,13 @@ public class StoexFactoryImpl extends EFactoryImpl implements StoexFactory {
 			case StoexPackage.RANDOM_VARIABLE: return createRandomVariable();
 			case StoexPackage.PRODUCT_EXPRESSION: return createProductExpression();
 			case StoexPackage.PROBABILITY_FUNCTION_LITERAL: return createProbabilityFunctionLiteral();
-			case StoexPackage.PARANTESIS: return createParantesis();
+			case StoexPackage.PARENTHESIS: return createParenthesis();
 			case StoexPackage.INT_LITERAL: return createIntLiteral();
 			case StoexPackage.DOUBLE_LITERAL: return createDoubleLiteral();
 			case StoexPackage.COMPARE_EXPRESSION: return createCompareExpression();
+			case StoexPackage.BOOL_LITERAL: return createBoolLiteral();
+			case StoexPackage.STRING_LITERAL: return createStringLiteral();
+			case StoexPackage.POWER_EXPRESSION: return createPowerExpression();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -194,9 +197,9 @@ public class StoexFactoryImpl extends EFactoryImpl implements StoexFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Parantesis createParantesis() {
-		ParantesisImpl parantesis = new ParantesisImpl();
-		return parantesis;
+	public Parenthesis createParenthesis() {
+		ParenthesisImpl parenthesis = new ParenthesisImpl();
+		return parenthesis;
 	}
 
 	/**
@@ -227,6 +230,36 @@ public class StoexFactoryImpl extends EFactoryImpl implements StoexFactory {
 	public CompareExpression createCompareExpression() {
 		CompareExpressionImpl compareExpression = new CompareExpressionImpl();
 		return compareExpression;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public BoolLiteral createBoolLiteral() {
+		BoolLiteralImpl boolLiteral = new BoolLiteralImpl();
+		return boolLiteral;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public StringLiteral createStringLiteral() {
+		StringLiteralImpl stringLiteral = new StringLiteralImpl();
+		return stringLiteral;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public PowerExpression createPowerExpression() {
+		PowerExpressionImpl powerExpression = new PowerExpressionImpl();
+		return powerExpression;
 	}
 
 	/**

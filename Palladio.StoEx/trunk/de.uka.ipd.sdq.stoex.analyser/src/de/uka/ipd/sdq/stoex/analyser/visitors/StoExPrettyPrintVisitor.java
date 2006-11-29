@@ -2,15 +2,18 @@ package de.uka.ipd.sdq.stoex.analyser.visitors;
 
 import org.eclipse.emf.ecore.EObject;
 
+import de.uka.ipd.sdq.stoex.BoolLiteral;
 import de.uka.ipd.sdq.stoex.CompareExpression;
 import de.uka.ipd.sdq.stoex.CompareOperations;
 import de.uka.ipd.sdq.stoex.DoubleLiteral;
 import de.uka.ipd.sdq.stoex.IntLiteral;
 import de.uka.ipd.sdq.stoex.NamespaceReference;
-import de.uka.ipd.sdq.stoex.Parantesis;
+import de.uka.ipd.sdq.stoex.Parenthesis;
+import de.uka.ipd.sdq.stoex.PowerExpression;
 import de.uka.ipd.sdq.stoex.ProbabilityFunctionLiteral;
 import de.uka.ipd.sdq.stoex.ProductExpression;
 import de.uka.ipd.sdq.stoex.ProductOperations;
+import de.uka.ipd.sdq.stoex.StringLiteral;
 import de.uka.ipd.sdq.stoex.TermExpression;
 import de.uka.ipd.sdq.stoex.TermOperations;
 import de.uka.ipd.sdq.stoex.Variable;
@@ -20,6 +23,21 @@ import de.uka.ipd.sdq.stoex.util.StoexSwitch;
 public class StoExPrettyPrintVisitor
 extends StoexSwitch
 {
+	@Override
+	public Object caseBoolLiteral(BoolLiteral object) {
+		return object.isValue() ? "true" : "false";
+	}
+
+	@Override
+	public Object casePowerExpression(PowerExpression object) {
+		return ((String)doSwitch(object.getBase()))+" ^ "+((String)doSwitch(object.getExponent()));
+	}
+
+	@Override
+	public Object caseStringLiteral(StringLiteral object) {
+		return "\""+object.getValue()+"\"";
+	}
+
 	/* (non-Javadoc)
 	 * @see de.uka.ipd.sdq.pcm.core.stochastics.util.StochasticsSwitch#caseCompareExpression(de.uka.ipd.sdq.pcm.core.stochastics.CompareExpression)
 	 */
@@ -70,8 +88,8 @@ extends StoexSwitch
 	 * @see de.uka.ipd.sdq.pcm.core.stochastics.util.StochasticsSwitch#caseParantesis(de.uka.ipd.sdq.pcm.core.stochastics.Parantesis)
 	 */
 	@Override
-	public Object caseParantesis(Parantesis object) {
-		return "(" + (String)doSwitch(object.getInnerExpression())+")";
+	public Object caseParenthesis(Parenthesis object) {
+		return "( " + (String)doSwitch(object.getInnerExpression())+" )";
 	}
 
 	/* (non-Javadoc)

@@ -119,8 +119,8 @@ public class StoexAdapterFactory extends AdapterFactoryImpl {
 			public Object caseProbabilityFunctionLiteral(ProbabilityFunctionLiteral object) {
 				return createProbabilityFunctionLiteralAdapter();
 			}
-			public Object caseParantesis(Parantesis object) {
-				return createParantesisAdapter();
+			public Object caseParenthesis(Parenthesis object) {
+				return createParenthesisAdapter();
 			}
 			public Object caseNumericLiteral(NumericLiteral object) {
 				return createNumericLiteralAdapter();
@@ -133,6 +133,15 @@ public class StoexAdapterFactory extends AdapterFactoryImpl {
 			}
 			public Object caseCompareExpression(CompareExpression object) {
 				return createCompareExpressionAdapter();
+			}
+			public Object caseBoolLiteral(BoolLiteral object) {
+				return createBoolLiteralAdapter();
+			}
+			public Object caseStringLiteral(StringLiteral object) {
+				return createStringLiteralAdapter();
+			}
+			public Object casePowerExpression(PowerExpression object) {
+				return createPowerExpressionAdapter();
 			}
 			public Object defaultCase(EObject object) {
 				return createEObjectAdapter();
@@ -349,16 +358,16 @@ public class StoexAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.stoex.Parantesis <em>Parantesis</em>}'.
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.stoex.Parenthesis <em>Parenthesis</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.stoex.Parantesis
+	 * @see de.uka.ipd.sdq.stoex.Parenthesis
 	 * @generated
 	 */
-	public Adapter createParantesisAdapter() {
+	public Adapter createParenthesisAdapter() {
 		return null;
 	}
 
@@ -415,6 +424,48 @@ public class StoexAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createCompareExpressionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.stoex.BoolLiteral <em>Bool Literal</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.stoex.BoolLiteral
+	 * @generated
+	 */
+	public Adapter createBoolLiteralAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.stoex.StringLiteral <em>String Literal</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.stoex.StringLiteral
+	 * @generated
+	 */
+	public Adapter createStringLiteralAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.stoex.PowerExpression <em>Power Expression</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.stoex.PowerExpression
+	 * @generated
+	 */
+	public Adapter createPowerExpressionAdapter() {
 		return null;
 	}
 

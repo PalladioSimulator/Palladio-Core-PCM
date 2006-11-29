@@ -237,25 +237,25 @@ public class StoexItemProviderAdapterFactory extends StoexAdapterFactory impleme
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.stoex.Parantesis} instances.
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.stoex.Parenthesis} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ParantesisItemProvider parantesisItemProvider;
+	protected ParenthesisItemProvider parenthesisItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link de.uka.ipd.sdq.stoex.Parantesis}.
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.stoex.Parenthesis}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Adapter createParantesisAdapter() {
-		if (parantesisItemProvider == null) {
-			parantesisItemProvider = new ParantesisItemProvider(this);
+	public Adapter createParenthesisAdapter() {
+		if (parenthesisItemProvider == null) {
+			parenthesisItemProvider = new ParenthesisItemProvider(this);
 		}
 
-		return parantesisItemProvider;
+		return parenthesisItemProvider;
 	}
 
 	/**
@@ -322,6 +322,72 @@ public class StoexItemProviderAdapterFactory extends StoexAdapterFactory impleme
 		}
 
 		return compareExpressionItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.stoex.BoolLiteral} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected BoolLiteralItemProvider boolLiteralItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.stoex.BoolLiteral}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Adapter createBoolLiteralAdapter() {
+		if (boolLiteralItemProvider == null) {
+			boolLiteralItemProvider = new BoolLiteralItemProvider(this);
+		}
+
+		return boolLiteralItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.stoex.StringLiteral} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected StringLiteralItemProvider stringLiteralItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.stoex.StringLiteral}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Adapter createStringLiteralAdapter() {
+		if (stringLiteralItemProvider == null) {
+			stringLiteralItemProvider = new StringLiteralItemProvider(this);
+		}
+
+		return stringLiteralItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.stoex.PowerExpression} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected PowerExpressionItemProvider powerExpressionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.stoex.PowerExpression}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Adapter createPowerExpressionAdapter() {
+		if (powerExpressionItemProvider == null) {
+			powerExpressionItemProvider = new PowerExpressionItemProvider(this);
+		}
+
+		return powerExpressionItemProvider;
 	}
 
 	/**
@@ -427,10 +493,13 @@ public class StoexItemProviderAdapterFactory extends StoexAdapterFactory impleme
 		if (randomVariableItemProvider != null) randomVariableItemProvider.dispose();
 		if (productExpressionItemProvider != null) productExpressionItemProvider.dispose();
 		if (probabilityFunctionLiteralItemProvider != null) probabilityFunctionLiteralItemProvider.dispose();
-		if (parantesisItemProvider != null) parantesisItemProvider.dispose();
+		if (parenthesisItemProvider != null) parenthesisItemProvider.dispose();
 		if (intLiteralItemProvider != null) intLiteralItemProvider.dispose();
 		if (doubleLiteralItemProvider != null) doubleLiteralItemProvider.dispose();
 		if (compareExpressionItemProvider != null) compareExpressionItemProvider.dispose();
+		if (boolLiteralItemProvider != null) boolLiteralItemProvider.dispose();
+		if (stringLiteralItemProvider != null) stringLiteralItemProvider.dispose();
+		if (powerExpressionItemProvider != null) powerExpressionItemProvider.dispose();
 	}
 
 }

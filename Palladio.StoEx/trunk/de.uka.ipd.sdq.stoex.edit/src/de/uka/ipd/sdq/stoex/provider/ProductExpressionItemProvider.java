@@ -202,7 +202,7 @@ public class ProductExpressionItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(StoexPackage.Literals.PRODUCT_EXPRESSION__LEFT,
-				 StoexFactory.eINSTANCE.createParantesis()));
+				 StoexFactory.eINSTANCE.createParenthesis()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -213,6 +213,21 @@ public class ProductExpressionItemProvider
 			(createChildParameter
 				(StoexPackage.Literals.PRODUCT_EXPRESSION__LEFT,
 				 StoexFactory.eINSTANCE.createDoubleLiteral()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(StoexPackage.Literals.PRODUCT_EXPRESSION__LEFT,
+				 StoexFactory.eINSTANCE.createBoolLiteral()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(StoexPackage.Literals.PRODUCT_EXPRESSION__LEFT,
+				 StoexFactory.eINSTANCE.createStringLiteral()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(StoexPackage.Literals.PRODUCT_EXPRESSION__LEFT,
+				 StoexFactory.eINSTANCE.createPowerExpression()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -227,7 +242,7 @@ public class ProductExpressionItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(StoexPackage.Literals.PRODUCT_EXPRESSION__RIGHT,
-				 StoexFactory.eINSTANCE.createParantesis()));
+				 StoexFactory.eINSTANCE.createParenthesis()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -238,6 +253,21 @@ public class ProductExpressionItemProvider
 			(createChildParameter
 				(StoexPackage.Literals.PRODUCT_EXPRESSION__RIGHT,
 				 StoexFactory.eINSTANCE.createDoubleLiteral()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(StoexPackage.Literals.PRODUCT_EXPRESSION__RIGHT,
+				 StoexFactory.eINSTANCE.createBoolLiteral()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(StoexPackage.Literals.PRODUCT_EXPRESSION__RIGHT,
+				 StoexFactory.eINSTANCE.createStringLiteral()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(StoexPackage.Literals.PRODUCT_EXPRESSION__RIGHT,
+				 StoexFactory.eINSTANCE.createPowerExpression()));
 	}
 
 	/**

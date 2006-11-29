@@ -38,7 +38,7 @@ public class ExpressionInferTypeVisitor extends StoexSwitch {
 		doSwitch(expr.getLeft());
 		doSwitch(expr.getRight());
 
-		typeAnnotation.put(expr, TypeEnum.DOUBLE);
+		typeAnnotation.put(expr, TypeEnum.BOOL_PMF);
 		return expr; 
 	}
 	

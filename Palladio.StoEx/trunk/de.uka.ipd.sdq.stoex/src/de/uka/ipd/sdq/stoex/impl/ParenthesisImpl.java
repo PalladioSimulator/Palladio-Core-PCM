@@ -7,7 +7,7 @@
 package de.uka.ipd.sdq.stoex.impl;
 
 import de.uka.ipd.sdq.stoex.Expression;
-import de.uka.ipd.sdq.stoex.Parantesis;
+import de.uka.ipd.sdq.stoex.Parenthesis;
 import de.uka.ipd.sdq.stoex.StoexPackage;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -20,18 +20,18 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Parantesis</b></em>'.
+ * An implementation of the model object '<em><b>Parenthesis</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link de.uka.ipd.sdq.stoex.impl.ParantesisImpl#getInnerExpression <em>Inner Expression</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.stoex.impl.ParenthesisImpl#getInnerExpression <em>Inner Expression</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class ParantesisImpl extends AtomImpl implements Parantesis {
+public class ParenthesisImpl extends AtomImpl implements Parenthesis {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -54,7 +54,7 @@ public class ParantesisImpl extends AtomImpl implements Parantesis {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ParantesisImpl() {
+	protected ParenthesisImpl() {
 		super();
 	}
 
@@ -64,7 +64,7 @@ public class ParantesisImpl extends AtomImpl implements Parantesis {
 	 * @generated
 	 */
 	protected EClass eStaticClass() {
-		return StoexPackage.Literals.PARANTESIS;
+		return StoexPackage.Literals.PARENTHESIS;
 	}
 
 	/**
@@ -85,7 +85,7 @@ public class ParantesisImpl extends AtomImpl implements Parantesis {
 		Expression oldInnerExpression = innerExpression;
 		innerExpression = newInnerExpression;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, StoexPackage.PARANTESIS__INNER_EXPRESSION, oldInnerExpression, newInnerExpression);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, StoexPackage.PARENTHESIS__INNER_EXPRESSION, oldInnerExpression, newInnerExpression);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -100,14 +100,14 @@ public class ParantesisImpl extends AtomImpl implements Parantesis {
 		if (newInnerExpression != innerExpression) {
 			NotificationChain msgs = null;
 			if (innerExpression != null)
-				msgs = ((InternalEObject)innerExpression).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - StoexPackage.PARANTESIS__INNER_EXPRESSION, null, msgs);
+				msgs = ((InternalEObject)innerExpression).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - StoexPackage.PARENTHESIS__INNER_EXPRESSION, null, msgs);
 			if (newInnerExpression != null)
-				msgs = ((InternalEObject)newInnerExpression).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - StoexPackage.PARANTESIS__INNER_EXPRESSION, null, msgs);
+				msgs = ((InternalEObject)newInnerExpression).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - StoexPackage.PARENTHESIS__INNER_EXPRESSION, null, msgs);
 			msgs = basicSetInnerExpression(newInnerExpression, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, StoexPackage.PARANTESIS__INNER_EXPRESSION, newInnerExpression, newInnerExpression));
+			eNotify(new ENotificationImpl(this, Notification.SET, StoexPackage.PARENTHESIS__INNER_EXPRESSION, newInnerExpression, newInnerExpression));
 	}
 
 	/**
@@ -117,7 +117,7 @@ public class ParantesisImpl extends AtomImpl implements Parantesis {
 	 */
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case StoexPackage.PARANTESIS__INNER_EXPRESSION:
+			case StoexPackage.PARENTHESIS__INNER_EXPRESSION:
 				return basicSetInnerExpression(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -130,7 +130,7 @@ public class ParantesisImpl extends AtomImpl implements Parantesis {
 	 */
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case StoexPackage.PARANTESIS__INNER_EXPRESSION:
+			case StoexPackage.PARENTHESIS__INNER_EXPRESSION:
 				return getInnerExpression();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -143,7 +143,7 @@ public class ParantesisImpl extends AtomImpl implements Parantesis {
 	 */
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case StoexPackage.PARANTESIS__INNER_EXPRESSION:
+			case StoexPackage.PARENTHESIS__INNER_EXPRESSION:
 				setInnerExpression((Expression)newValue);
 				return;
 		}
@@ -157,7 +157,7 @@ public class ParantesisImpl extends AtomImpl implements Parantesis {
 	 */
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case StoexPackage.PARANTESIS__INNER_EXPRESSION:
+			case StoexPackage.PARENTHESIS__INNER_EXPRESSION:
 				setInnerExpression((Expression)null);
 				return;
 		}
@@ -171,10 +171,10 @@ public class ParantesisImpl extends AtomImpl implements Parantesis {
 	 */
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case StoexPackage.PARANTESIS__INNER_EXPRESSION:
+			case StoexPackage.PARENTHESIS__INNER_EXPRESSION:
 				return innerExpression != null;
 		}
 		return super.eIsSet(featureID);
 	}
 
-} //ParantesisImpl
+} //ParenthesisImpl

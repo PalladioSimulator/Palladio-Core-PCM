@@ -18,7 +18,7 @@
     <details key="UNION_PROPERTIES" value="REPORT"/>
     <details key="DUPLICATE_OPERATION_INHERITANCE" value="DISCARD"/>
   </genAnnotations>
-  <foreignModel>file:/C:/coding/code/rsa_exports/stoex.uml2</foreignModel>
+  <foreignModel>file:/D:/Diss/Work/RSA-Export/stoex.uml2</foreignModel>
   <genPackages prefix="Stoex" basePackage="de.uka.ipd.sdq" disposableProviderFactory="true"
       ecorePackage="stoex.ecore#/">
     <genEnums ecoreEnum="stoex.ecore#//TermOperations">
@@ -70,8 +70,8 @@
     <genClasses ecoreClass="stoex.ecore#//ProbabilityFunctionLiteral">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference stoex.ecore#//ProbabilityFunctionLiteral/function_ProbabilityFunctionLiteral"/>
     </genClasses>
-    <genClasses ecoreClass="stoex.ecore#//Parantesis">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference stoex.ecore#//Parantesis/innerExpression"/>
+    <genClasses ecoreClass="stoex.ecore#//Parenthesis">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference stoex.ecore#//Parenthesis/innerExpression"/>
     </genClasses>
     <genClasses image="false" ecoreClass="stoex.ecore#//NumericLiteral"/>
     <genClasses ecoreClass="stoex.ecore#//IntLiteral">
@@ -84,6 +84,16 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference stoex.ecore#//CompareExpression/left"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference stoex.ecore#//CompareExpression/right"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute stoex.ecore#//CompareExpression/operation"/>
+    </genClasses>
+    <genClasses ecoreClass="stoex.ecore#//BoolLiteral">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute stoex.ecore#//BoolLiteral/value"/>
+    </genClasses>
+    <genClasses ecoreClass="stoex.ecore#//StringLiteral">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute stoex.ecore#//StringLiteral/value"/>
+    </genClasses>
+    <genClasses ecoreClass="stoex.ecore#//PowerExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference stoex.ecore#//PowerExpression/base"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference stoex.ecore#//PowerExpression/exponent"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

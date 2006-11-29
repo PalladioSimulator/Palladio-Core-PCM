@@ -96,13 +96,13 @@ public interface StoexFactory extends EFactory {
 	ProbabilityFunctionLiteral createProbabilityFunctionLiteral();
 
 	/**
-	 * Returns a new object of class '<em>Parantesis</em>'.
+	 * Returns a new object of class '<em>Parenthesis</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Parantesis</em>'.
+	 * @return a new object of class '<em>Parenthesis</em>'.
 	 * @generated
 	 */
-	Parantesis createParantesis();
+	Parenthesis createParenthesis();
 
 	/**
 	 * Returns a new object of class '<em>Int Literal</em>'.
@@ -130,6 +130,33 @@ public interface StoexFactory extends EFactory {
 	 * @generated
 	 */
 	CompareExpression createCompareExpression();
+
+	/**
+	 * Returns a new object of class '<em>Bool Literal</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Bool Literal</em>'.
+	 * @generated
+	 */
+	BoolLiteral createBoolLiteral();
+
+	/**
+	 * Returns a new object of class '<em>String Literal</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>String Literal</em>'.
+	 * @generated
+	 */
+	StringLiteral createStringLiteral();
+
+	/**
+	 * Returns a new object of class '<em>Power Expression</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Power Expression</em>'.
+	 * @generated
+	 */
+	PowerExpression createPowerExpression();
 
 	/**
 	 * Returns the package supported by this factory.

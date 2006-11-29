@@ -12,8 +12,8 @@ options { buildAST=false; defaultErrorHandler=false; k=2; }
 expression returns [Expression exp] 
 	{exp = null;} : 
 		{Comparison c;} 
-			EQUAL c=compareExpr
-		{exp = c;};
+			c=compareExpr
+		{exp = c;}; 
 
 compareExpr returns [Comparison comp]
 	{comp = null;} :
@@ -58,11 +58,18 @@ prodExpr returns [Product p]
 powExpr returns [Power pw]  
 	{pw = null;} : 
 		{Atom a1 = null, a2 = null;}
-		a1 = atom {pw = a1;} (POW a2 = atom |) ;
+		a1 = atom {pw = a1;} 
+			(POW a2 = atom
+				{PowerExpression pwExp = StoexFactory.eINSTANCE.createPowerExpression();
+					pwExp.setBase(a1); pwExp.setExponent(a2); pw = pwExp;
+				}
+			)? 		
+;
 
 atom returns [Atom a]
 	{a = null;} :
 		(
+		  // numeric literals (int, double)
 		  number:NUMBER 
 			{
 				String value = number.getText();
@@ -80,15 +87,44 @@ atom returns [Atom a]
 				}
 			}
 		  |
-		  {AbstractNamedReference id = null;} // VariableCharacterisationType type;}
-		  id = scoped_id // DOT type = characterisation
+		  // variables
+		  {AbstractNamedReference id = null;} 
+		  id = scoped_id 
 		  { a = StoexFactory.eINSTANCE.createVariable();
 		  	((Variable)a).setId_Variable(id);
-		  	//((Variable)a).setCharacterisationType(type);
 		  }
 		  | 
+		  // probability function literals
 		  a = definition
-	    )
+		  |
+		  // string literal
+		  sl:STRING_LITERAL
+		  {
+		  	StringLiteral stringLiteral = StoexFactory.eINSTANCE.createStringLiteral();
+		  	stringLiteral.setValue(sl.getText().replace("\"",""));
+		  	a = stringLiteral;
+		  }
+		  |
+		  // boolean literal
+		  {String bl = null;}
+		  bl = boolean_keywords
+		  {
+		  	BoolLiteral boolLiteral = StoexFactory.eINSTANCE.createBoolLiteral();
+	   		boolLiteral.setValue(bl.equals("true"));
+		  	a = boolLiteral;
+		  } 
+		  |
+		  // parenthesis expression
+		  {Expression inner = null;}
+		  LPAREN
+		  inner = compareExpr
+		  RPAREN
+		  {
+			Parenthesis paren = StoexFactory.eINSTANCE.createParenthesis();
+			paren.setInnerExpression(inner);
+			a = paren;
+		  }
+	    ) 
 ;
 
 definition returns [ProbabilityFunctionLiteral pfl] 
@@ -244,21 +280,25 @@ stringsample returns [Sample s]
 		RPAREN;
 
 boolsample returns [Sample s] 
-	{s = null;} : 
+	{s = null;String str = null;} : 
 		LPAREN
 			{s = ProbfunctionFactory.eINSTANCE.createSample();} 
 		n:NUMBER 
 			{s.setProbability(Double.parseDouble(n.getText()));} 
 		SEMI
-		(
-		"false"
-			{s.setValue("false");} 
-		|
-		"true"
-			{s.setValue("true");} 
-		)
+		str = boolean_keywords
+		{s.setValue(str);}
 		RPAREN;
 
+boolean_keywords returns [String keyword]
+{keyword = null;}:
+		(
+		"false"
+			{keyword = "false";} 
+		|
+		"true"
+			{keyword = "true";} 
+		);
 
 characterisation_keywords returns [String keyword] 
 {keyword = null;}:
@@ -313,7 +353,8 @@ POW   : '^' ;
 LPAREN: '(' ;
 RPAREN: ')' ;
 SEMI  : ';' ;
-EQUAL : '=' ;
+DEFINITION : '=' ;
+EQUAL : "==" ;
 SQUARE_PAREN_L : '[' ;
 SQUARE_PAREN_R : ']' ;
 protected DIGIT : '0'..'9' ;

@@ -4,12 +4,12 @@ import de.uka.ipd.sdq.probfunction.math.IProbabilityMassFunction;
 
 public interface ICompareOperation {
 
-	public double compare(double left, double right);
+	public IProbabilityMassFunction compare(double left, double right);
 	
-	public double compare(IProbabilityMassFunction left, double right);
+	public IProbabilityMassFunction compare(IProbabilityMassFunction left, double right);
 	
-	public double compare(double left, IProbabilityMassFunction right);
+	public IProbabilityMassFunction compare(double left, IProbabilityMassFunction right);
 	
-	public double compare(IProbabilityMassFunction left, IProbabilityMassFunction right);
+	public IProbabilityMassFunction compare(IProbabilityMassFunction left, IProbabilityMassFunction right);
 	
 }

@@ -47,14 +47,14 @@ public StochasticExpressionsLexer(LexerSharedInputState state) {
 	literals = new Hashtable();
 	literals.put(new ANTLRHashString("VALUE", this), new Integer(37));
 	literals.put(new ANTLRHashString("NUMBER_OF_ELEMENTS", this), new Integer(35));
-	literals.put(new ANTLRHashString("unit", this), new Integer(28));
+	literals.put(new ANTLRHashString("unit", this), new Integer(29));
 	literals.put(new ANTLRHashString("\"bool\"", this), new Integer(30));
 	literals.put(new ANTLRHashString("INNER", this), new Integer(40));
-	literals.put(new ANTLRHashString("BoolPMF", this), new Integer(27));
-	literals.put(new ANTLRHashString("EnumPMF", this), new Integer(23));
-	literals.put(new ANTLRHashString("DoublePMF", this), new Integer(22));
-	literals.put(new ANTLRHashString("DoublePDF", this), new Integer(26));
-	literals.put(new ANTLRHashString("IntPMF", this), new Integer(17));
+	literals.put(new ANTLRHashString("BoolPMF", this), new Integer(28));
+	literals.put(new ANTLRHashString("EnumPMF", this), new Integer(24));
+	literals.put(new ANTLRHashString("DoublePMF", this), new Integer(23));
+	literals.put(new ANTLRHashString("DoublePDF", this), new Integer(27));
+	literals.put(new ANTLRHashString("IntPMF", this), new Integer(20));
 	literals.put(new ANTLRHashString("STRUCTURE", this), new Integer(34));
 	literals.put(new ANTLRHashString("true", this), new Integer(32));
 	literals.put(new ANTLRHashString("false", this), new Integer(31));
@@ -126,12 +126,6 @@ tryAgain:
 					theRetToken=_returnToken;
 					break;
 				}
-				case '=':
-				{
-					mEQUAL(true);
-					theRetToken=_returnToken;
-					break;
-				}
 				case '[':
 				{
 					mSQUARE_PAREN_L(true);
@@ -190,7 +184,11 @@ tryAgain:
 					break;
 				}
 				default:
-					if ((LA(1)=='<') && (LA(2)=='>')) {
+					if ((LA(1)=='=') && (LA(2)=='=')) {
+						mEQUAL(true);
+						theRetToken=_returnToken;
+					}
+					else if ((LA(1)=='<') && (LA(2)=='>')) {
 						mNOTEQUAL(true);
 						theRetToken=_returnToken;
 					}
@@ -200,6 +198,10 @@ tryAgain:
 					}
 					else if ((LA(1)=='<') && (LA(2)=='=')) {
 						mLESSEQUAL(true);
+						theRetToken=_returnToken;
+					}
+					else if ((LA(1)=='=') && (true)) {
+						mDEFINITION(true);
 						theRetToken=_returnToken;
 					}
 					else if ((LA(1)=='>') && (true)) {
@@ -353,12 +355,25 @@ tryAgain:
 		_returnToken = _token;
 	}
 	
+	public final void mDEFINITION(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
+		int _ttype; Token _token=null; int _begin=text.length();
+		_ttype = DEFINITION;
+		int _saveIndex;
+		
+		match('=');
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
+		}
+		_returnToken = _token;
+	}
+	
 	public final void mEQUAL(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
 		int _ttype; Token _token=null; int _begin=text.length();
 		_ttype = EQUAL;
 		int _saveIndex;
 		
-		match('=');
+		match("==");
 		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
 			_token = makeToken(_ttype);
 			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
@@ -411,34 +426,34 @@ tryAgain:
 		int _saveIndex;
 		
 		{
-		int _cnt2183=0;
-		_loop2183:
+		int _cnt1033=0;
+		_loop1033:
 		do {
 			if (((LA(1) >= '0' && LA(1) <= '9'))) {
 				mDIGIT(false);
 			}
 			else {
-				if ( _cnt2183>=1 ) { break _loop2183; } else {throw new NoViableAltForCharException((char)LA(1), getFilename(), getLine(), getColumn());}
+				if ( _cnt1033>=1 ) { break _loop1033; } else {throw new NoViableAltForCharException((char)LA(1), getFilename(), getLine(), getColumn());}
 			}
 			
-			_cnt2183++;
+			_cnt1033++;
 		} while (true);
 		}
 		{
 		if ((LA(1)=='.')) {
 			match('.');
 			{
-			int _cnt2186=0;
-			_loop2186:
+			int _cnt1036=0;
+			_loop1036:
 			do {
 				if (((LA(1) >= '0' && LA(1) <= '9'))) {
 					mDIGIT(false);
 				}
 				else {
-					if ( _cnt2186>=1 ) { break _loop2186; } else {throw new NoViableAltForCharException((char)LA(1), getFilename(), getLine(), getColumn());}
+					if ( _cnt1036>=1 ) { break _loop1036; } else {throw new NoViableAltForCharException((char)LA(1), getFilename(), getLine(), getColumn());}
 				}
 				
-				_cnt2186++;
+				_cnt1036++;
 			} while (true);
 			}
 		}
@@ -565,8 +580,8 @@ tryAgain:
 		
 		match("\"");
 		{
-		int _cnt2195=0;
-		_loop2195:
+		int _cnt1045=0;
+		_loop1045:
 		do {
 			switch ( LA(1)) {
 			case 'A':  case 'B':  case 'C':  case 'D':
@@ -593,10 +608,10 @@ tryAgain:
 			}
 			default:
 			{
-				if ( _cnt2195>=1 ) { break _loop2195; } else {throw new NoViableAltForCharException((char)LA(1), getFilename(), getLine(), getColumn());}
+				if ( _cnt1045>=1 ) { break _loop1045; } else {throw new NoViableAltForCharException((char)LA(1), getFilename(), getLine(), getColumn());}
 			}
 			}
-			_cnt2195++;
+			_cnt1045++;
 		} while (true);
 		}
 		match("\"");
@@ -626,8 +641,8 @@ tryAgain:
 		int _saveIndex;
 		
 		{
-		int _cnt2199=0;
-		_loop2199:
+		int _cnt1049=0;
+		_loop1049:
 		do {
 			switch ( LA(1)) {
 			case 'A':  case 'B':  case 'C':  case 'D':
@@ -654,10 +669,10 @@ tryAgain:
 			}
 			default:
 			{
-				if ( _cnt2199>=1 ) { break _loop2199; } else {throw new NoViableAltForCharException((char)LA(1), getFilename(), getLine(), getColumn());}
+				if ( _cnt1049>=1 ) { break _loop1049; } else {throw new NoViableAltForCharException((char)LA(1), getFilename(), getLine(), getColumn());}
 			}
 			}
-			_cnt2199++;
+			_cnt1049++;
 		} while (true);
 		}
 		_ttype = testLiteralsTable(_ttype);

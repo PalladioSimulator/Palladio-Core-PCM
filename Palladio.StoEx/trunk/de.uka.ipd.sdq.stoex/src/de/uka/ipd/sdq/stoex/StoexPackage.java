@@ -451,14 +451,14 @@ public interface StoexPackage extends EPackage {
 	int PROBABILITY_FUNCTION_LITERAL_FEATURE_COUNT = ATOM_FEATURE_COUNT + 1;
 
 	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.stoex.impl.ParantesisImpl <em>Parantesis</em>}' class.
+	 * The meta object id for the '{@link de.uka.ipd.sdq.stoex.impl.ParenthesisImpl <em>Parenthesis</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.stoex.impl.ParantesisImpl
-	 * @see de.uka.ipd.sdq.stoex.impl.StoexPackageImpl#getParantesis()
+	 * @see de.uka.ipd.sdq.stoex.impl.ParenthesisImpl
+	 * @see de.uka.ipd.sdq.stoex.impl.StoexPackageImpl#getParenthesis()
 	 * @generated
 	 */
-	int PARANTESIS = 14;
+	int PARENTHESIS = 14;
 
 	/**
 	 * The feature id for the '<em><b>Inner Expression</b></em>' containment reference.
@@ -467,16 +467,16 @@ public interface StoexPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARANTESIS__INNER_EXPRESSION = ATOM_FEATURE_COUNT + 0;
+	int PARENTHESIS__INNER_EXPRESSION = ATOM_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of structural features of the '<em>Parantesis</em>' class.
+	 * The number of structural features of the '<em>Parenthesis</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PARANTESIS_FEATURE_COUNT = ATOM_FEATURE_COUNT + 1;
+	int PARENTHESIS_FEATURE_COUNT = ATOM_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.stoex.impl.NumericLiteralImpl <em>Numeric Literal</em>}' class.
@@ -600,6 +600,99 @@ public interface StoexPackage extends EPackage {
 	int COMPARE_EXPRESSION_FEATURE_COUNT = COMPARISON_FEATURE_COUNT + 3;
 
 	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.stoex.impl.BoolLiteralImpl <em>Bool Literal</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.stoex.impl.BoolLiteralImpl
+	 * @see de.uka.ipd.sdq.stoex.impl.StoexPackageImpl#getBoolLiteral()
+	 * @generated
+	 */
+	int BOOL_LITERAL = 19;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOL_LITERAL__VALUE = ATOM_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Bool Literal</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOL_LITERAL_FEATURE_COUNT = ATOM_FEATURE_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.stoex.impl.StringLiteralImpl <em>String Literal</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.stoex.impl.StringLiteralImpl
+	 * @see de.uka.ipd.sdq.stoex.impl.StoexPackageImpl#getStringLiteral()
+	 * @generated
+	 */
+	int STRING_LITERAL = 20;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_LITERAL__VALUE = ATOM_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>String Literal</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_LITERAL_FEATURE_COUNT = ATOM_FEATURE_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.stoex.impl.PowerExpressionImpl <em>Power Expression</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.stoex.impl.PowerExpressionImpl
+	 * @see de.uka.ipd.sdq.stoex.impl.StoexPackageImpl#getPowerExpression()
+	 * @generated
+	 */
+	int POWER_EXPRESSION = 21;
+
+	/**
+	 * The feature id for the '<em><b>Base</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POWER_EXPRESSION__BASE = POWER_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Exponent</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POWER_EXPRESSION__EXPONENT = POWER_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Power Expression</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POWER_EXPRESSION_FEATURE_COUNT = POWER_FEATURE_COUNT + 2;
+
+	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.stoex.TermOperations <em>Term Operations</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -607,7 +700,7 @@ public interface StoexPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.stoex.impl.StoexPackageImpl#getTermOperations()
 	 * @generated
 	 */
-	int TERM_OPERATIONS = 19;
+	int TERM_OPERATIONS = 22;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.stoex.ProductOperations <em>Product Operations</em>}' enum.
@@ -617,7 +710,7 @@ public interface StoexPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.stoex.impl.StoexPackageImpl#getProductOperations()
 	 * @generated
 	 */
-	int PRODUCT_OPERATIONS = 20;
+	int PRODUCT_OPERATIONS = 23;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.stoex.CompareOperations <em>Compare Operations</em>}' enum.
@@ -627,7 +720,7 @@ public interface StoexPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.stoex.impl.StoexPackageImpl#getCompareOperations()
 	 * @generated
 	 */
-	int COMPARE_OPERATIONS = 21;
+	int COMPARE_OPERATIONS = 24;
 
 
 	/**
@@ -892,25 +985,25 @@ public interface StoexPackage extends EPackage {
 	EReference getProbabilityFunctionLiteral_Function_ProbabilityFunctionLiteral();
 
 	/**
-	 * Returns the meta object for class '{@link de.uka.ipd.sdq.stoex.Parantesis <em>Parantesis</em>}'.
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.stoex.Parenthesis <em>Parenthesis</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Parantesis</em>'.
-	 * @see de.uka.ipd.sdq.stoex.Parantesis
+	 * @return the meta object for class '<em>Parenthesis</em>'.
+	 * @see de.uka.ipd.sdq.stoex.Parenthesis
 	 * @generated
 	 */
-	EClass getParantesis();
+	EClass getParenthesis();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link de.uka.ipd.sdq.stoex.Parantesis#getInnerExpression <em>Inner Expression</em>}'.
+	 * Returns the meta object for the containment reference '{@link de.uka.ipd.sdq.stoex.Parenthesis#getInnerExpression <em>Inner Expression</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference '<em>Inner Expression</em>'.
-	 * @see de.uka.ipd.sdq.stoex.Parantesis#getInnerExpression()
-	 * @see #getParantesis()
+	 * @see de.uka.ipd.sdq.stoex.Parenthesis#getInnerExpression()
+	 * @see #getParenthesis()
 	 * @generated
 	 */
-	EReference getParantesis_InnerExpression();
+	EReference getParenthesis_InnerExpression();
 
 	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.stoex.NumericLiteral <em>Numeric Literal</em>}'.
@@ -1006,6 +1099,80 @@ public interface StoexPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getCompareExpression_Operation();
+
+	/**
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.stoex.BoolLiteral <em>Bool Literal</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Bool Literal</em>'.
+	 * @see de.uka.ipd.sdq.stoex.BoolLiteral
+	 * @generated
+	 */
+	EClass getBoolLiteral();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.stoex.BoolLiteral#isValue <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Value</em>'.
+	 * @see de.uka.ipd.sdq.stoex.BoolLiteral#isValue()
+	 * @see #getBoolLiteral()
+	 * @generated
+	 */
+	EAttribute getBoolLiteral_Value();
+
+	/**
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.stoex.StringLiteral <em>String Literal</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>String Literal</em>'.
+	 * @see de.uka.ipd.sdq.stoex.StringLiteral
+	 * @generated
+	 */
+	EClass getStringLiteral();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.stoex.StringLiteral#getValue <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Value</em>'.
+	 * @see de.uka.ipd.sdq.stoex.StringLiteral#getValue()
+	 * @see #getStringLiteral()
+	 * @generated
+	 */
+	EAttribute getStringLiteral_Value();
+
+	/**
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.stoex.PowerExpression <em>Power Expression</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Power Expression</em>'.
+	 * @see de.uka.ipd.sdq.stoex.PowerExpression
+	 * @generated
+	 */
+	EClass getPowerExpression();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link de.uka.ipd.sdq.stoex.PowerExpression#getBase <em>Base</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Base</em>'.
+	 * @see de.uka.ipd.sdq.stoex.PowerExpression#getBase()
+	 * @see #getPowerExpression()
+	 * @generated
+	 */
+	EReference getPowerExpression_Base();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link de.uka.ipd.sdq.stoex.PowerExpression#getExponent <em>Exponent</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Exponent</em>'.
+	 * @see de.uka.ipd.sdq.stoex.PowerExpression#getExponent()
+	 * @see #getPowerExpression()
+	 * @generated
+	 */
+	EReference getPowerExpression_Exponent();
 
 	/**
 	 * Returns the meta object for enum '{@link de.uka.ipd.sdq.stoex.TermOperations <em>Term Operations</em>}'.
@@ -1288,14 +1455,14 @@ public interface StoexPackage extends EPackage {
 		EReference PROBABILITY_FUNCTION_LITERAL__FUNCTION_PROBABILITY_FUNCTION_LITERAL = eINSTANCE.getProbabilityFunctionLiteral_Function_ProbabilityFunctionLiteral();
 
 		/**
-		 * The meta object literal for the '{@link de.uka.ipd.sdq.stoex.impl.ParantesisImpl <em>Parantesis</em>}' class.
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.stoex.impl.ParenthesisImpl <em>Parenthesis</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see de.uka.ipd.sdq.stoex.impl.ParantesisImpl
-		 * @see de.uka.ipd.sdq.stoex.impl.StoexPackageImpl#getParantesis()
+		 * @see de.uka.ipd.sdq.stoex.impl.ParenthesisImpl
+		 * @see de.uka.ipd.sdq.stoex.impl.StoexPackageImpl#getParenthesis()
 		 * @generated
 		 */
-		EClass PARANTESIS = eINSTANCE.getParantesis();
+		EClass PARENTHESIS = eINSTANCE.getParenthesis();
 
 		/**
 		 * The meta object literal for the '<em><b>Inner Expression</b></em>' containment reference feature.
@@ -1303,7 +1470,7 @@ public interface StoexPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference PARANTESIS__INNER_EXPRESSION = eINSTANCE.getParantesis_InnerExpression();
+		EReference PARENTHESIS__INNER_EXPRESSION = eINSTANCE.getParenthesis_InnerExpression();
 
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.stoex.impl.NumericLiteralImpl <em>Numeric Literal</em>}' class.
@@ -1384,6 +1551,68 @@ public interface StoexPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute COMPARE_EXPRESSION__OPERATION = eINSTANCE.getCompareExpression_Operation();
+
+		/**
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.stoex.impl.BoolLiteralImpl <em>Bool Literal</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.uka.ipd.sdq.stoex.impl.BoolLiteralImpl
+		 * @see de.uka.ipd.sdq.stoex.impl.StoexPackageImpl#getBoolLiteral()
+		 * @generated
+		 */
+		EClass BOOL_LITERAL = eINSTANCE.getBoolLiteral();
+
+		/**
+		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute BOOL_LITERAL__VALUE = eINSTANCE.getBoolLiteral_Value();
+
+		/**
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.stoex.impl.StringLiteralImpl <em>String Literal</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.uka.ipd.sdq.stoex.impl.StringLiteralImpl
+		 * @see de.uka.ipd.sdq.stoex.impl.StoexPackageImpl#getStringLiteral()
+		 * @generated
+		 */
+		EClass STRING_LITERAL = eINSTANCE.getStringLiteral();
+
+		/**
+		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute STRING_LITERAL__VALUE = eINSTANCE.getStringLiteral_Value();
+
+		/**
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.stoex.impl.PowerExpressionImpl <em>Power Expression</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.uka.ipd.sdq.stoex.impl.PowerExpressionImpl
+		 * @see de.uka.ipd.sdq.stoex.impl.StoexPackageImpl#getPowerExpression()
+		 * @generated
+		 */
+		EClass POWER_EXPRESSION = eINSTANCE.getPowerExpression();
+
+		/**
+		 * The meta object literal for the '<em><b>Base</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference POWER_EXPRESSION__BASE = eINSTANCE.getPowerExpression_Base();
+
+		/**
+		 * The meta object literal for the '<em><b>Exponent</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference POWER_EXPRESSION__EXPONENT = eINSTANCE.getPowerExpression_Exponent();
 
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.stoex.TermOperations <em>Term Operations</em>}' enum.

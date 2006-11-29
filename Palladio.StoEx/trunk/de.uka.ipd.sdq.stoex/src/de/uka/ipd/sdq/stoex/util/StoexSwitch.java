@@ -214,15 +214,15 @@ public class StoexSwitch {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case StoexPackage.PARANTESIS: {
-				Parantesis parantesis = (Parantesis)theEObject;
-				Object result = caseParantesis(parantesis);
-				if (result == null) result = caseAtom(parantesis);
-				if (result == null) result = casePower(parantesis);
-				if (result == null) result = caseProduct(parantesis);
-				if (result == null) result = caseTerm(parantesis);
-				if (result == null) result = caseComparison(parantesis);
-				if (result == null) result = caseExpression(parantesis);
+			case StoexPackage.PARENTHESIS: {
+				Parenthesis parenthesis = (Parenthesis)theEObject;
+				Object result = caseParenthesis(parenthesis);
+				if (result == null) result = caseAtom(parenthesis);
+				if (result == null) result = casePower(parenthesis);
+				if (result == null) result = caseProduct(parenthesis);
+				if (result == null) result = caseTerm(parenthesis);
+				if (result == null) result = caseComparison(parenthesis);
+				if (result == null) result = caseExpression(parenthesis);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -269,6 +269,41 @@ public class StoexSwitch {
 				Object result = caseCompareExpression(compareExpression);
 				if (result == null) result = caseComparison(compareExpression);
 				if (result == null) result = caseExpression(compareExpression);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case StoexPackage.BOOL_LITERAL: {
+				BoolLiteral boolLiteral = (BoolLiteral)theEObject;
+				Object result = caseBoolLiteral(boolLiteral);
+				if (result == null) result = caseAtom(boolLiteral);
+				if (result == null) result = casePower(boolLiteral);
+				if (result == null) result = caseProduct(boolLiteral);
+				if (result == null) result = caseTerm(boolLiteral);
+				if (result == null) result = caseComparison(boolLiteral);
+				if (result == null) result = caseExpression(boolLiteral);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case StoexPackage.STRING_LITERAL: {
+				StringLiteral stringLiteral = (StringLiteral)theEObject;
+				Object result = caseStringLiteral(stringLiteral);
+				if (result == null) result = caseAtom(stringLiteral);
+				if (result == null) result = casePower(stringLiteral);
+				if (result == null) result = caseProduct(stringLiteral);
+				if (result == null) result = caseTerm(stringLiteral);
+				if (result == null) result = caseComparison(stringLiteral);
+				if (result == null) result = caseExpression(stringLiteral);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case StoexPackage.POWER_EXPRESSION: {
+				PowerExpression powerExpression = (PowerExpression)theEObject;
+				Object result = casePowerExpression(powerExpression);
+				if (result == null) result = casePower(powerExpression);
+				if (result == null) result = caseProduct(powerExpression);
+				if (result == null) result = caseTerm(powerExpression);
+				if (result == null) result = caseComparison(powerExpression);
+				if (result == null) result = caseExpression(powerExpression);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -487,17 +522,17 @@ public class StoexSwitch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Parantesis</em>'.
+	 * Returns the result of interpretting the object as an instance of '<em>Parenthesis</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Parantesis</em>'.
+	 * @return the result of interpretting the object as an instance of '<em>Parenthesis</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public Object caseParantesis(Parantesis object) {
+	public Object caseParenthesis(Parenthesis object) {
 		return null;
 	}
 
@@ -558,6 +593,51 @@ public class StoexSwitch {
 	 * @generated
 	 */
 	public Object caseCompareExpression(CompareExpression object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpretting the object as an instance of '<em>Bool Literal</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpretting the object as an instance of '<em>Bool Literal</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public Object caseBoolLiteral(BoolLiteral object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpretting the object as an instance of '<em>String Literal</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpretting the object as an instance of '<em>String Literal</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public Object caseStringLiteral(StringLiteral object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpretting the object as an instance of '<em>Power Expression</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpretting the object as an instance of '<em>Power Expression</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public Object casePowerExpression(PowerExpression object) {
 		return null;
 	}
 

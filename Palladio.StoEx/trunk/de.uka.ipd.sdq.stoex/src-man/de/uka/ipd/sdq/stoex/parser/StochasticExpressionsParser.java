@@ -51,7 +51,6 @@ public StochasticExpressionsParser(ParserSharedInputState state) {
 		exp = null;
 		
 		Comparison c;
-		match(EQUAL);
 		c=compareExpr();
 		exp = c;
 		return exp;
@@ -67,9 +66,9 @@ public StochasticExpressionsParser(ParserSharedInputState state) {
 		comp = t1;
 		{
 		switch ( LA(1)) {
-		case EQUAL:
 		case GREATER:
 		case LESS:
+		case EQUAL:
 		case NOTEQUAL:
 		case GREATEREQUAL:
 		case LESSEQUAL:
@@ -124,6 +123,7 @@ public StochasticExpressionsParser(ParserSharedInputState state) {
 			break;
 		}
 		case EOF:
+		case RPAREN:
 		{
 			break;
 		}
@@ -145,7 +145,7 @@ public StochasticExpressionsParser(ParserSharedInputState state) {
 		p1=prodExpr();
 		t = p1;
 		{
-		_loop2127:
+		_loop975:
 		do {
 			if ((LA(1)==PLUS||LA(1)==MINUS)) {
 				TermExpression termExp = StoexFactory.eINSTANCE.createTermExpression();
@@ -173,7 +173,7 @@ public StochasticExpressionsParser(ParserSharedInputState state) {
 				termExp.setLeft(t); termExp.setRight(p2); t = termExp;
 			}
 			else {
-				break _loop2127;
+				break _loop975;
 			}
 			
 		} while (true);
@@ -190,7 +190,7 @@ public StochasticExpressionsParser(ParserSharedInputState state) {
 		pw1=powExpr();
 		p = pw1;
 		{
-		_loop2131:
+		_loop979:
 		do {
 			if (((LA(1) >= MUL && LA(1) <= MOD))) {
 				ProductExpression prodExp = StoexFactory.eINSTANCE.createProductExpression();
@@ -224,7 +224,7 @@ public StochasticExpressionsParser(ParserSharedInputState state) {
 				prodExp.setLeft(p); prodExp.setRight(pw2); p = prodExp;
 			}
 			else {
-				break _loop2131;
+				break _loop979;
 			}
 			
 		} while (true);
@@ -246,12 +246,15 @@ public StochasticExpressionsParser(ParserSharedInputState state) {
 		{
 			match(POW);
 			a2=atom();
+			PowerExpression pwExp = StoexFactory.eINSTANCE.createPowerExpression();
+								pwExp.setBase(a1); pwExp.setExponent(a2); pw = pwExp;
+							
 			break;
 		}
 		case EOF:
-		case EQUAL:
 		case GREATER:
 		case LESS:
+		case EQUAL:
 		case NOTEQUAL:
 		case GREATEREQUAL:
 		case LESSEQUAL:
@@ -260,6 +263,7 @@ public StochasticExpressionsParser(ParserSharedInputState state) {
 		case MUL:
 		case DIV:
 		case MOD:
+		case RPAREN:
 		{
 			break;
 		}
@@ -276,6 +280,7 @@ public StochasticExpressionsParser(ParserSharedInputState state) {
 		Atom a;
 		
 		Token  number = null;
+		Token  sl = null;
 		a = null;
 		
 		{
@@ -307,7 +312,6 @@ public StochasticExpressionsParser(ParserSharedInputState state) {
 			id=scoped_id();
 			a = StoexFactory.eINSTANCE.createVariable();
 					  	((Variable)a).setId_Variable(id);
-					  	//((Variable)a).setCharacterisationType(type);
 					
 			break;
 		}
@@ -318,6 +322,42 @@ public StochasticExpressionsParser(ParserSharedInputState state) {
 		case LITERAL_BoolPMF:
 		{
 			a=definition();
+			break;
+		}
+		case STRING_LITERAL:
+		{
+			sl = LT(1);
+			match(STRING_LITERAL);
+			
+					  	StringLiteral stringLiteral = StoexFactory.eINSTANCE.createStringLiteral();
+					  	stringLiteral.setValue(sl.getText().replace("\"",""));
+					  	a = stringLiteral;
+					
+			break;
+		}
+		case LITERAL_false:
+		case LITERAL_true:
+		{
+			String bl = null;
+			bl=boolean_keywords();
+			
+					  	BoolLiteral boolLiteral = StoexFactory.eINSTANCE.createBoolLiteral();
+				   		boolLiteral.setValue(bl.equals("true"));
+					  	a = boolLiteral;
+					
+			break;
+		}
+		case LPAREN:
+		{
+			Expression inner = null;
+			match(LPAREN);
+			inner=compareExpr();
+			match(RPAREN);
+			
+						Parenthesis paren = StoexFactory.eINSTANCE.createParenthesis();
+						paren.setInnerExpression(inner);
+						a = paren;
+					
 			break;
 		}
 		default:
@@ -341,7 +381,7 @@ public StochasticExpressionsParser(ParserSharedInputState state) {
 		match(ID);
 		nameParts.add(id1.getText());
 		{
-		_loop2167:
+		_loop1016:
 		do {
 			if ((LA(1)==DOT)) {
 				match(DOT);
@@ -368,7 +408,7 @@ public StochasticExpressionsParser(ParserSharedInputState state) {
 				}
 			}
 			else {
-				break _loop2167;
+				break _loop1016;
 			}
 			
 		} while (true);
@@ -419,8 +459,8 @@ public StochasticExpressionsParser(ParserSharedInputState state) {
 			match(RPAREN);
 			match(SQUARE_PAREN_L);
 			{
-			int _cnt2139=0;
-			_loop2139:
+			int _cnt987=0;
+			_loop987:
 			do {
 				if ((LA(1)==LPAREN)) {
 					Sample isample=null;
@@ -428,10 +468,10 @@ public StochasticExpressionsParser(ParserSharedInputState state) {
 					((ProbabilityMassFunction)probFunction).getSamples().add(isample);
 				}
 				else {
-					if ( _cnt2139>=1 ) { break _loop2139; } else {throw new NoViableAltException(LT(1), getFilename());}
+					if ( _cnt987>=1 ) { break _loop987; } else {throw new NoViableAltException(LT(1), getFilename());}
 				}
 				
-				_cnt2139++;
+				_cnt987++;
 			} while (true);
 			}
 			match(SQUARE_PAREN_R);
@@ -451,8 +491,8 @@ public StochasticExpressionsParser(ParserSharedInputState state) {
 			match(RPAREN);
 			match(SQUARE_PAREN_L);
 			{
-			int _cnt2142=0;
-			_loop2142:
+			int _cnt990=0;
+			_loop990:
 			do {
 				if ((LA(1)==LPAREN)) {
 					Sample rsample=null;
@@ -460,10 +500,10 @@ public StochasticExpressionsParser(ParserSharedInputState state) {
 					((ProbabilityMassFunction)probFunction).getSamples().add(rsample);
 				}
 				else {
-					if ( _cnt2142>=1 ) { break _loop2142; } else {throw new NoViableAltException(LT(1), getFilename());}
+					if ( _cnt990>=1 ) { break _loop990; } else {throw new NoViableAltException(LT(1), getFilename());}
 				}
 				
-				_cnt2142++;
+				_cnt990++;
 			} while (true);
 			}
 			match(SQUARE_PAREN_R);
@@ -504,8 +544,8 @@ public StochasticExpressionsParser(ParserSharedInputState state) {
 			match(RPAREN);
 			match(SQUARE_PAREN_L);
 			{
-			int _cnt2146=0;
-			_loop2146:
+			int _cnt994=0;
+			_loop994:
 			do {
 				if ((LA(1)==LPAREN)) {
 					Sample ssample=null;
@@ -513,10 +553,10 @@ public StochasticExpressionsParser(ParserSharedInputState state) {
 					((ProbabilityMassFunction)probFunction).getSamples().add(ssample);
 				}
 				else {
-					if ( _cnt2146>=1 ) { break _loop2146; } else {throw new NoViableAltException(LT(1), getFilename());}
+					if ( _cnt994>=1 ) { break _loop994; } else {throw new NoViableAltException(LT(1), getFilename());}
 				}
 				
-				_cnt2146++;
+				_cnt994++;
 			} while (true);
 			}
 			match(SQUARE_PAREN_R);
@@ -536,8 +576,8 @@ public StochasticExpressionsParser(ParserSharedInputState state) {
 			match(RPAREN);
 			match(SQUARE_PAREN_L);
 			{
-			int _cnt2149=0;
-			_loop2149:
+			int _cnt997=0;
+			_loop997:
 			do {
 				if ((LA(1)==LPAREN)) {
 					ContinuousSample pdf_sample=null;
@@ -545,10 +585,10 @@ public StochasticExpressionsParser(ParserSharedInputState state) {
 					((BoxedPDF)probFunction).getSamples().add(pdf_sample);
 				}
 				else {
-					if ( _cnt2149>=1 ) { break _loop2149; } else {throw new NoViableAltException(LT(1), getFilename());}
+					if ( _cnt997>=1 ) { break _loop997; } else {throw new NoViableAltException(LT(1), getFilename());}
 				}
 				
-				_cnt2149++;
+				_cnt997++;
 			} while (true);
 			}
 			match(SQUARE_PAREN_R);
@@ -589,8 +629,8 @@ public StochasticExpressionsParser(ParserSharedInputState state) {
 			match(RPAREN);
 			match(SQUARE_PAREN_L);
 			{
-			int _cnt2153=0;
-			_loop2153:
+			int _cnt1001=0;
+			_loop1001:
 			do {
 				if ((LA(1)==LPAREN)) {
 					Sample ssample=null;
@@ -598,10 +638,10 @@ public StochasticExpressionsParser(ParserSharedInputState state) {
 					((ProbabilityMassFunction)probFunction).getSamples().add(ssample);
 				}
 				else {
-					if ( _cnt2153>=1 ) { break _loop2153; } else {throw new NoViableAltException(LT(1), getFilename());}
+					if ( _cnt1001>=1 ) { break _loop1001; } else {throw new NoViableAltException(LT(1), getFilename());}
 				}
 				
-				_cnt2153++;
+				_cnt1001++;
 			} while (true);
 			}
 			match(SQUARE_PAREN_R);
@@ -613,6 +653,34 @@ public StochasticExpressionsParser(ParserSharedInputState state) {
 		}
 		}
 		return pfl;
+	}
+	
+	public final String  boolean_keywords() throws RecognitionException, TokenStreamException {
+		String keyword;
+		
+		keyword = null;
+		
+		{
+		switch ( LA(1)) {
+		case LITERAL_false:
+		{
+			match(LITERAL_false);
+			keyword = "false";
+			break;
+		}
+		case LITERAL_true:
+		{
+			match(LITERAL_true);
+			keyword = "true";
+			break;
+		}
+		default:
+		{
+			throw new NoViableAltException(LT(1), getFilename());
+		}
+		}
+		}
+		return keyword;
 	}
 	
 	public final Unit  unit() throws RecognitionException, TokenStreamException {
@@ -727,7 +795,7 @@ public StochasticExpressionsParser(ParserSharedInputState state) {
 		Sample s;
 		
 		Token  n = null;
-		s = null;
+		s = null;String str = null;
 		
 		match(LPAREN);
 		s = ProbfunctionFactory.eINSTANCE.createSample();
@@ -735,26 +803,8 @@ public StochasticExpressionsParser(ParserSharedInputState state) {
 		match(NUMBER);
 		s.setProbability(Double.parseDouble(n.getText()));
 		match(SEMI);
-		{
-		switch ( LA(1)) {
-		case LITERAL_false:
-		{
-			match(LITERAL_false);
-			s.setValue("false");
-			break;
-		}
-		case LITERAL_true:
-		{
-			match(LITERAL_true);
-			s.setValue("true");
-			break;
-		}
-		default:
-		{
-			throw new NoViableAltException(LT(1), getFilename());
-		}
-		}
-		}
+		str=boolean_keywords();
+		s.setValue(str);
 		match(RPAREN);
 		return s;
 	}
@@ -811,9 +861,9 @@ public StochasticExpressionsParser(ParserSharedInputState state) {
 		"EOF",
 		"<2>",
 		"NULL_TREE_LOOKAHEAD",
-		"EQUAL",
 		"GREATER",
 		"LESS",
+		"EQUAL",
 		"NOTEQUAL",
 		"GREATEREQUAL",
 		"LESSEQUAL",
@@ -824,9 +874,10 @@ public StochasticExpressionsParser(ParserSharedInputState state) {
 		"MOD",
 		"POW",
 		"NUMBER",
-		"\"IntPMF\"",
+		"STRING_LITERAL",
 		"LPAREN",
 		"RPAREN",
+		"\"IntPMF\"",
 		"SQUARE_PAREN_L",
 		"SQUARE_PAREN_R",
 		"\"DoublePMF\"",
@@ -836,7 +887,6 @@ public StochasticExpressionsParser(ParserSharedInputState state) {
 		"\"DoublePDF\"",
 		"\"BoolPMF\"",
 		"\"unit\"",
-		"STRING_LITERAL",
 		"\"\\\"bool\\\"\"",
 		"\"false\"",
 		"\"true\"",
@@ -848,6 +898,7 @@ public StochasticExpressionsParser(ParserSharedInputState state) {
 		"ID",
 		"DOT",
 		"\"INNER\"",
+		"DEFINITION",
 		"DIGIT",
 		"ALPHA",
 		"WS"

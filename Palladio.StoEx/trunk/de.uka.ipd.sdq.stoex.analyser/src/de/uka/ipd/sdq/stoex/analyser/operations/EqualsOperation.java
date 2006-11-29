@@ -11,35 +11,38 @@ import de.uka.ipd.sdq.probfunction.math.IUnit;
 
 public class EqualsOperation implements ICompareOperation {
 
-	public double compare(double left, double right) {
+	public IProbabilityMassFunction compare(double left, double right) {
+		if (left == right){
+			return getBoolPMF(1.0);
+		}
+		return null;
 		
-//		IProbabilityFunctionFactory probFac = 
-//			IProbabilityFunctionFactory.eINSTANCE;
-//
-//		IUnit unit = probFac.createUnit("BOOLEAN");
-//		
-//		List<ISample> sampleList = new ArrayList<ISample>();
-//		if (left == right) {
-//			sampleList.add(probFac.createSample("TRUE", 1.0));
-//			sampleList.add(probFac.createSample("FALSE", 0.0));
-//		}
-//		else {
-//			sampleList.add(probFac.createSample("TRUE", 0.0));
-//			sampleList.add(probFac.createSample("FALSE", 1.0));
-//		}
-//
-//		IProbabilityMassFunction boolPMF = probFac
-//				.createProbabilityMassFunction(sampleList, unit, true);
-//		
-//		return boolPMF;
 		
-		if (left == right)
-			return 1.0;
-		else
-			return 0.0;
+
 	}
 
-	public double compare(IProbabilityMassFunction left, double right) {
+	/**
+	 * @param left
+	 * @param right
+	 * @return
+	 */
+	private IProbabilityMassFunction getBoolPMF(double trueProb) {
+		IProbabilityFunctionFactory probFac = 
+			IProbabilityFunctionFactory.eINSTANCE;
+
+		IUnit unit = probFac.createUnit("bool");
+		
+		List<ISample> sampleList = new ArrayList<ISample>();
+		sampleList.add(probFac.createSample("TRUE", trueProb));
+		sampleList.add(probFac.createSample("FALSE", 1-trueProb));
+
+		IProbabilityMassFunction boolPMF = probFac
+				.createProbabilityMassFunction(sampleList, unit, true);
+
+		return boolPMF;
+	}
+
+	public IProbabilityMassFunction compare(IProbabilityMassFunction left, double right) {
 		List samples = left.getSamples();
 		for (Object o : samples){
 			Sample sample = (Sample)o;
@@ -53,7 +56,7 @@ public class EqualsOperation implements ICompareOperation {
 		return 0.0;
 	}
 
-	public double compare(IProbabilityMassFunction left,
+	public IProbabilityMassFunction compare(IProbabilityMassFunction left,
 			IProbabilityMassFunction right) {
 		List leftSamples = left.getSamples();
 		List rightSamples = right.getSamples();
@@ -73,7 +76,7 @@ public class EqualsOperation implements ICompareOperation {
 		return 1.0;
 	}
 
-	public double compare(double left, IProbabilityMassFunction right) {
+	public IProbabilityMassFunction compare(double left, IProbabilityMassFunction right) {
 		return compare(right,left);
 	}
 

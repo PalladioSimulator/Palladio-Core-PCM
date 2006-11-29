@@ -6,10 +6,17 @@
  */
 package de.uka.ipd.sdq.stoex.impl;
 
-import de.uka.ipd.sdq.probfunction.ProbfunctionPackage;
+import org.eclipse.emf.ecore.EAttribute;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
+import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.EReference;
+import org.eclipse.emf.ecore.impl.EPackageImpl;
 
+import de.uka.ipd.sdq.probfunction.ProbfunctionPackage;
 import de.uka.ipd.sdq.stoex.AbstractNamedReference;
 import de.uka.ipd.sdq.stoex.Atom;
+import de.uka.ipd.sdq.stoex.BoolLiteral;
 import de.uka.ipd.sdq.stoex.CompareExpression;
 import de.uka.ipd.sdq.stoex.CompareOperations;
 import de.uka.ipd.sdq.stoex.Comparison;
@@ -18,8 +25,9 @@ import de.uka.ipd.sdq.stoex.Expression;
 import de.uka.ipd.sdq.stoex.IntLiteral;
 import de.uka.ipd.sdq.stoex.NamespaceReference;
 import de.uka.ipd.sdq.stoex.NumericLiteral;
-import de.uka.ipd.sdq.stoex.Parantesis;
+import de.uka.ipd.sdq.stoex.Parenthesis;
 import de.uka.ipd.sdq.stoex.Power;
+import de.uka.ipd.sdq.stoex.PowerExpression;
 import de.uka.ipd.sdq.stoex.ProbabilityFunctionLiteral;
 import de.uka.ipd.sdq.stoex.Product;
 import de.uka.ipd.sdq.stoex.ProductExpression;
@@ -27,19 +35,12 @@ import de.uka.ipd.sdq.stoex.ProductOperations;
 import de.uka.ipd.sdq.stoex.RandomVariable;
 import de.uka.ipd.sdq.stoex.StoexFactory;
 import de.uka.ipd.sdq.stoex.StoexPackage;
+import de.uka.ipd.sdq.stoex.StringLiteral;
 import de.uka.ipd.sdq.stoex.Term;
 import de.uka.ipd.sdq.stoex.TermExpression;
 import de.uka.ipd.sdq.stoex.TermOperations;
 import de.uka.ipd.sdq.stoex.Variable;
 import de.uka.ipd.sdq.stoex.VariableReference;
-
-import org.eclipse.emf.ecore.EAttribute;
-import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EEnum;
-import org.eclipse.emf.ecore.EPackage;
-import org.eclipse.emf.ecore.EReference;
-
-import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -158,7 +159,7 @@ public class StoexPackageImpl extends EPackageImpl implements StoexPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass parantesisEClass = null;
+	private EClass parenthesisEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -187,6 +188,27 @@ public class StoexPackageImpl extends EPackageImpl implements StoexPackage {
 	 * @generated
 	 */
 	private EClass compareExpressionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass boolLiteralEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass stringLiteralEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass powerExpressionEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -510,8 +532,8 @@ public class StoexPackageImpl extends EPackageImpl implements StoexPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getParantesis() {
-		return parantesisEClass;
+	public EClass getParenthesis() {
+		return parenthesisEClass;
 	}
 
 	/**
@@ -519,8 +541,8 @@ public class StoexPackageImpl extends EPackageImpl implements StoexPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getParantesis_InnerExpression() {
-		return (EReference)parantesisEClass.getEStructuralFeatures().get(0);
+	public EReference getParenthesis_InnerExpression() {
+		return (EReference)parenthesisEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -602,6 +624,69 @@ public class StoexPackageImpl extends EPackageImpl implements StoexPackage {
 	 */
 	public EAttribute getCompareExpression_Operation() {
 		return (EAttribute)compareExpressionEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getBoolLiteral() {
+		return boolLiteralEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getBoolLiteral_Value() {
+		return (EAttribute)boolLiteralEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getStringLiteral() {
+		return stringLiteralEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getStringLiteral_Value() {
+		return (EAttribute)stringLiteralEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getPowerExpression() {
+		return powerExpressionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getPowerExpression_Base() {
+		return (EReference)powerExpressionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getPowerExpression_Exponent() {
+		return (EReference)powerExpressionEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -698,8 +783,8 @@ public class StoexPackageImpl extends EPackageImpl implements StoexPackage {
 		probabilityFunctionLiteralEClass = createEClass(PROBABILITY_FUNCTION_LITERAL);
 		createEReference(probabilityFunctionLiteralEClass, PROBABILITY_FUNCTION_LITERAL__FUNCTION_PROBABILITY_FUNCTION_LITERAL);
 
-		parantesisEClass = createEClass(PARANTESIS);
-		createEReference(parantesisEClass, PARANTESIS__INNER_EXPRESSION);
+		parenthesisEClass = createEClass(PARENTHESIS);
+		createEReference(parenthesisEClass, PARENTHESIS__INNER_EXPRESSION);
 
 		numericLiteralEClass = createEClass(NUMERIC_LITERAL);
 
@@ -713,6 +798,16 @@ public class StoexPackageImpl extends EPackageImpl implements StoexPackage {
 		createEReference(compareExpressionEClass, COMPARE_EXPRESSION__LEFT);
 		createEReference(compareExpressionEClass, COMPARE_EXPRESSION__RIGHT);
 		createEAttribute(compareExpressionEClass, COMPARE_EXPRESSION__OPERATION);
+
+		boolLiteralEClass = createEClass(BOOL_LITERAL);
+		createEAttribute(boolLiteralEClass, BOOL_LITERAL__VALUE);
+
+		stringLiteralEClass = createEClass(STRING_LITERAL);
+		createEAttribute(stringLiteralEClass, STRING_LITERAL__VALUE);
+
+		powerExpressionEClass = createEClass(POWER_EXPRESSION);
+		createEReference(powerExpressionEClass, POWER_EXPRESSION__BASE);
+		createEReference(powerExpressionEClass, POWER_EXPRESSION__EXPONENT);
 
 		// Create enums
 		termOperationsEEnum = createEEnum(TERM_OPERATIONS);
@@ -758,11 +853,14 @@ public class StoexPackageImpl extends EPackageImpl implements StoexPackage {
 		termExpressionEClass.getESuperTypes().add(this.getTerm());
 		productExpressionEClass.getESuperTypes().add(this.getProduct());
 		probabilityFunctionLiteralEClass.getESuperTypes().add(this.getAtom());
-		parantesisEClass.getESuperTypes().add(this.getAtom());
+		parenthesisEClass.getESuperTypes().add(this.getAtom());
 		numericLiteralEClass.getESuperTypes().add(this.getAtom());
 		intLiteralEClass.getESuperTypes().add(this.getNumericLiteral());
 		doubleLiteralEClass.getESuperTypes().add(this.getNumericLiteral());
 		compareExpressionEClass.getESuperTypes().add(this.getComparison());
+		boolLiteralEClass.getESuperTypes().add(this.getAtom());
+		stringLiteralEClass.getESuperTypes().add(this.getAtom());
+		powerExpressionEClass.getESuperTypes().add(this.getPower());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(variableReferenceEClass, VariableReference.class, "VariableReference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -804,8 +902,8 @@ public class StoexPackageImpl extends EPackageImpl implements StoexPackage {
 		initEClass(probabilityFunctionLiteralEClass, ProbabilityFunctionLiteral.class, "ProbabilityFunctionLiteral", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getProbabilityFunctionLiteral_Function_ProbabilityFunctionLiteral(), theProbfunctionPackage.getProbabilityFunction(), null, "function_ProbabilityFunctionLiteral", null, 1, 1, ProbabilityFunctionLiteral.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-		initEClass(parantesisEClass, Parantesis.class, "Parantesis", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getParantesis_InnerExpression(), this.getExpression(), null, "innerExpression", null, 1, 1, Parantesis.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEClass(parenthesisEClass, Parenthesis.class, "Parenthesis", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getParenthesis_InnerExpression(), this.getExpression(), null, "innerExpression", null, 1, 1, Parenthesis.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(numericLiteralEClass, NumericLiteral.class, "NumericLiteral", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -819,6 +917,16 @@ public class StoexPackageImpl extends EPackageImpl implements StoexPackage {
 		initEReference(getCompareExpression_Left(), this.getTerm(), null, "left", null, 1, 1, CompareExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getCompareExpression_Right(), this.getTerm(), null, "right", null, 1, 1, CompareExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getCompareExpression_Operation(), this.getCompareOperations(), "operation", null, 1, 1, CompareExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+		initEClass(boolLiteralEClass, BoolLiteral.class, "BoolLiteral", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getBoolLiteral_Value(), ecorePackage.getEBoolean(), "value", null, 1, 1, BoolLiteral.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+		initEClass(stringLiteralEClass, StringLiteral.class, "StringLiteral", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getStringLiteral_Value(), ecorePackage.getEString(), "value", null, 1, 1, StringLiteral.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+		initEClass(powerExpressionEClass, PowerExpression.class, "PowerExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getPowerExpression_Base(), this.getPower(), null, "base", null, 1, 1, PowerExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getPowerExpression_Exponent(), this.getAtom(), null, "exponent", null, 1, 1, PowerExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(termOperationsEEnum, TermOperations.class, "TermOperations");
