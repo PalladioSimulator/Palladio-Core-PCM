@@ -6,11 +6,11 @@
       <actions_ScenarioBehaviour xsi:type="pcm.usagemodel:Start" successor="//@usageScenario_UsageModel.0/@scenarioBehaviour_UsageScenario/@actions_ScenarioBehaviour.1"/>
       <actions_ScenarioBehaviour xsi:type="pcm.usagemodel:EntryLevelSystemCall" successor="//@usageScenario_UsageModel.0/@scenarioBehaviour_UsageScenario/@actions_ScenarioBehaviour.2" predecessor="//@usageScenario_UsageModel.0/@scenarioBehaviour_UsageScenario/@actions_ScenarioBehaviour.0">
         <actualParameterUsage_EntryLevelSystemCall>
-          <variableCharacterisation_VariableUsage specification="= IntPMF(unit=&quot;no_files&quot;)[ (0.1; 8) (0.1; 9) (0.2; 10) (0.4; 11) (0.2; 12) ]" type="NUMBER_OF_ELEMENTS"/>
+          <variableCharacterisation_VariableUsage specification="IntPMF(unit=&quot;no_files&quot;)[ (0.1; 8) (0.1; 9) (0.2; 10) (0.4; 11) (0.2; 12) ]" type="NUMBER_OF_ELEMENTS"/>
           <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="files"/>
         </actualParameterUsage_EntryLevelSystemCall>
         <actualParameterUsage_EntryLevelSystemCall>
-          <variableCharacterisation_VariableUsage specification="= IntPMF(unit=&quot;bytes&quot;)[ (0.1; 3500000) (0.6; 4000000) (0.3; 4500000) ]" type="BYTESIZE"/>
+          <variableCharacterisation_VariableUsage specification="IntPMF(unit=&quot;bytes&quot;)[ (0.1; 3500000) (0.6; 4000000) (0.3; 4500000) ]" type="BYTESIZE"/>
           <namedReference_VariableUsage xsi:type="stoex:NamespaceReference" referenceName="files">
             <innerReference_NamespaceReference xsi:type="stoex:VariableReference" referenceName="INNER"/>
           </namedReference_VariableUsage>
