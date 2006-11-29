@@ -1,6 +1,7 @@
 package de.uka.ipd.sdq.spa.concurrencysolver.qnm.helper;
 
 import java.util.ArrayList;
+import java.util.Hashtable;
 import java.util.Iterator;
 import java.util.List;
 
@@ -10,8 +11,9 @@ import org.eclipse.emf.ocl.query.QueryFactory;
 
 import de.uka.ipd.sdq.qnm.Task;
 import de.uka.ipd.sdq.qnm.resultmodel.QNMResultModel;
-import de.uka.ipd.sdq.qnm.resultmodel.ResourceUsageTime;
+import de.uka.ipd.sdq.qnm.resultmodel.TimeConsumption;
 import de.uka.ipd.sdq.qnm.resultmodel.ResultModelPackage;
+import de.uka.ipd.sdq.qnm.resultmodel.ServiceTimeBreakDown;
 import de.uka.ipd.sdq.qnm.resultmodel.TaskResourceUsage;
 import de.uka.ipd.sdq.spa.resourcemodel.AbstractResourceUsage;
 import de.uka.ipd.sdq.spa.resourcemodel.CompositeResourceUsage;
@@ -30,15 +32,20 @@ public class QNHelper {
 	}
 	
 	public TaskResourceUsage getTaskResourceUsage(Task task, Resource resource) {
-		Query q = QueryFactory.eINSTANCE.createQuery("taskResourceUsages.resource.name = '" + resource.getName() + "' and taskResourceUsages.task.name = '"+ task.getName() + "'", ResultModelPackage.eINSTANCE.getTaskResourceUsage());
+		Query q = QueryFactory.eINSTANCE.createQuery("self.resource.name = '" + resource.getName() + "' and self.task.name = '"+ task.getName() + "'", ResultModelPackage.eINSTANCE.getTaskResourceUsage());
 		List result = (List) q.select(resultModel.getTaskResourceUsages());
 		return (TaskResourceUsage) result.get(0);
 	}
 	
-	public ResourceUsageTime getUsageTime(AbstractResourceUsage abstractResourceUsage){
+	/**
+	 * Returns the time an abstract resource usage consumes.
+	 * @param abstractResourceUsage
+	 * @return
+	 */
+	public TimeConsumption getTimeConsumptionFor(AbstractResourceUsage abstractResourceUsage){
 		
 		for (Object usageTimeObj  : resultModel.getResourceUsageTimes()) {
-			ResourceUsageTime usageTime = (ResourceUsageTime) usageTimeObj;
+			TimeConsumption usageTime = (TimeConsumption) usageTimeObj;
 			if( usageTime.getResourceUsage().equals(abstractResourceUsage) )
 				return usageTime;
 		}
@@ -46,7 +53,7 @@ public class QNHelper {
 		return null;
 	}
 	
-	public List<Resource> getUsedResources(AbstractResourceUsage resourceUsage){
+	public static List<Resource> getUsedResources(AbstractResourceUsage resourceUsage){
 		
 		ResourceModelSwitch rmSwitch = new ResourceModelSwitch() {
 			@Override
@@ -61,8 +68,8 @@ public class QNHelper {
 				List<Resource> list = new ArrayList<Resource>();				
 				list.add( seqResourceUsage.getResource() );
 				for (Iterator iter = seqResourceUsage.getResourceUsages().iterator(); iter.hasNext();) {
-					ResourceUsage resourceUsage = (ResourceUsage) iter.next();
-					disjointUnion(list, (List<Resource>) this.doSwitch(resourceUsage));
+					AbstractResourceUsage abstractUsage = (AbstractResourceUsage) iter.next();
+					disjointUnion(list, (List<Resource>) this.doSwitch(abstractUsage));
 				}
 				return list;
 			}
@@ -72,7 +79,7 @@ public class QNHelper {
 	}
 	
 	
-	public List<AbstractResourceUsage> getAllResourceUsages(Task task){
+	public static List<AbstractResourceUsage> getAllResourceUsages(Task task){
 		@SuppressWarnings("unchecked")
 		ResourceModelSwitch resourceUsageCollector = new ResourceModelSwitch(){
 			
@@ -97,7 +104,7 @@ public class QNHelper {
 		return (List<AbstractResourceUsage>) resourceUsageCollector.doSwitch(task.getResourceUsage());
 	}
 	
-	protected void disjointUnion(List<Resource> addList, List<Resource> inList) {
+	protected static void disjointUnion(List<Resource> addList, List<Resource> inList) {
 		for (Resource resource : inList) {
 			if (!addList.contains(resource)){
 				addList.add(resource);
@@ -126,9 +133,33 @@ public class QNHelper {
 		}
 		return resultList;
 	}
-	
-	
-	
-	
+
+
+	public ServiceTimeBreakDown getServiceTimeBreakDown(TimeConsumption time, Resource resource) {
+		for (Iterator iter = time.getServiceTimeBreakDowns().iterator(); iter.hasNext();) {
+			ServiceTimeBreakDown breakdown = (ServiceTimeBreakDown) iter.next();
+			if (breakdown.getUsedResource().equals(resource)){
+				return breakdown;
+			}
+		}
+		return null;
+	}
+
+	public ServiceTimeBreakDown getServiceTimeBreakDown(AbstractResourceUsage resourceUsage, Resource resource) {
+		TimeConsumption ruTime = getTimeConsumptionFor(resourceUsage);
+		return getServiceTimeBreakDown(ruTime, resource);
+	}
+
+	public Hashtable<Resource, ServiceTimeBreakDown> createInitialServiceTimeBreakDownTable(AbstractResourceUsage abstractUsage) {
+		Hashtable<Resource, ServiceTimeBreakDown> resultTable = new Hashtable<Resource, ServiceTimeBreakDown>();
+		
+		List<Resource> usedResources = getUsedResources(abstractUsage);
+		for (Resource resource : usedResources) {
+			ServiceTimeBreakDown breakdown = getServiceTimeBreakDown(abstractUsage, resource);
+			resultTable.put(resource, breakdown);
+		}
+		
+		return resultTable;
+	}
 }
 

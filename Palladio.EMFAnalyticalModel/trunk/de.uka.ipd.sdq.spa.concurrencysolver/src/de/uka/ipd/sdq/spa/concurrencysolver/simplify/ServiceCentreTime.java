@@ -10,11 +10,13 @@ import de.uka.ipd.sdq.probfunction.math.IProbabilityMassFunction;
 import de.uka.ipd.sdq.probfunction.math.ISample;
 import de.uka.ipd.sdq.probfunction.math.ISamplePDF;
 import de.uka.ipd.sdq.probfunction.math.IUnit;
+import de.uka.ipd.sdq.probfunction.math.ManagedPDF;
+import de.uka.ipd.sdq.probfunction.math.exception.ConfigurationNotSetException;
 import de.uka.ipd.sdq.probfunction.math.exception.FunctionNotInFrequencyDomainException;
 import de.uka.ipd.sdq.probfunction.math.exception.FunctionNotInTimeDomainException;
 import de.uka.ipd.sdq.probfunction.math.exception.ProbabilityFunctionException;
 import de.uka.ipd.sdq.probfunction.math.util.MathTools;
-import de.uka.ipd.sdq.spa.basicsolver.operations.PDFOperations;
+import de.uka.ipd.sdq.spa.basicsolver.operations.PDFPerformanceOps;
 import de.uka.ipd.sdq.spa.concurrencysolver.exceptions.ConcurrencySolverException;
 import de.uka.ipd.sdq.spa.concurrencysolver.exceptions.NumProcessesSmallerThanZeroException;
 
@@ -46,8 +48,8 @@ public class ServiceCentreTime {
 	
 	private IProbabilityDensityFunction waitingTimeFourier;
 	
-	private PDFOperations perfOps;
-
+	private PDFPerformanceOps performanceOps;
+	
 	private static IProbabilityFunctionFactory pfFactory = IProbabilityFunctionFactory.eINSTANCE;
 	
 	private static IUnit queueUnit = pfFactory.createUnit("length (int)");
@@ -66,14 +68,14 @@ public class ServiceCentreTime {
 			waitingTime = pfFactory.createDiracImpulse(size, distance, unit);
 			waitingTimeFourier = waitingTime.getFourierTransform();
 			
-			perfOps = new PDFOperations(size);
+			performanceOps = new PDFPerformanceOps();
 		} catch (FunctionNotInTimeDomainException e) {
 			e.printStackTrace();
 			System.exit(1);
 		}
 	}
 	
-	public void computeNewValues(double prob, int numOtherProcesses) throws ProbabilityFunctionException, ConcurrencySolverException {
+	public void computeNewValues(double prob, int numOtherProcesses) throws ProbabilityFunctionException, ConcurrencySolverException, ConfigurationNotSetException {
 		if (numOtherProcesses < 0)
 			throw new NumProcessesSmallerThanZeroException();
 		
@@ -91,8 +93,8 @@ public class ServiceCentreTime {
 	}
 
 
-	private IProbabilityDensityFunction getWaitingTimeFourier(IProbabilityDensityFunction serviceTimeFourier, IProbabilityMassFunction queueLength) throws ProbabilityFunctionException {
-		return perfOps.computeIteration((ISamplePDF)serviceTimeFourier, queueLength);
+	private IProbabilityDensityFunction getWaitingTimeFourier(IProbabilityDensityFunction serviceTimeFourier, IProbabilityMassFunction queueLength) throws ProbabilityFunctionException, ConfigurationNotSetException {
+		return performanceOps.computeIteration(new ManagedPDF( serviceTimeFourier, true), queueLength).getPdfFrequencyDomain();
 	}
 
 	

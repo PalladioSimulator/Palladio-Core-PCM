@@ -15,7 +15,6 @@ import de.uka.ipd.sdq.spa.expression.Release;
 import de.uka.ipd.sdq.spa.expression.Sequence;
 import de.uka.ipd.sdq.spa.expression.Symbol;
 import de.uka.ipd.sdq.spa.expression.util.ExpressionSwitch;
-import de.uka.ipd.sdq.spa.resourcemodel.ActiveResource;
 import de.uka.ipd.sdq.spa.resourcemodel.PassiveResource;
 import de.uka.ipd.sdq.spa.resourcemodel.Resource;
 import de.uka.ipd.sdq.spa.resourcemodel.ResourceUsage;

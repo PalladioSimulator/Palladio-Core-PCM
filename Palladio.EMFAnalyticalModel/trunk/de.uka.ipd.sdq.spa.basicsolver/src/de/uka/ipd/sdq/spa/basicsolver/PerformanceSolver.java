@@ -6,9 +6,8 @@ import java.util.List;
 import de.uka.ipd.sdq.probfunction.math.IProbabilityFunctionFactory;
 import de.uka.ipd.sdq.probfunction.math.IProbabilityMassFunction;
 import de.uka.ipd.sdq.probfunction.math.ManagedPDF;
-import de.uka.ipd.sdq.spa.basicsolver.operations.PDFOperations;
-import de.uka.ipd.sdq.spa.basicsolver.operations.RUOperations;
-import de.uka.ipd.sdq.spa.basicsolver.operations.RUTableOperations;
+import de.uka.ipd.sdq.probfunction.math.exception.ConfigurationNotSetException;
+import de.uka.ipd.sdq.spa.basicsolver.operations.RUPerformanceOps;
 import de.uka.ipd.sdq.spa.expression.Acquire;
 import de.uka.ipd.sdq.spa.expression.Alternative;
 import de.uka.ipd.sdq.spa.expression.Expression;
@@ -19,14 +18,13 @@ import de.uka.ipd.sdq.spa.expression.Sequence;
 import de.uka.ipd.sdq.spa.expression.Symbol;
 import de.uka.ipd.sdq.spa.expression.util.ExpressionSwitch;
 import de.uka.ipd.sdq.spa.resourcemodel.ActiveResource;
-import de.uka.ipd.sdq.spa.resourcemodel.ProcessingResource;
 import de.uka.ipd.sdq.spa.resourcemodel.ResourceUsage;
 
 public class PerformanceSolver {
 	
 	private IProbabilityFunctionFactory pfFactory = IProbabilityFunctionFactory.eINSTANCE;
 	
-	private RUTableOperations performanceOps;
+	private RUPerformanceOps performanceOps;
 	
 	private ExpressionSwitch exprSwitch = new ExpressionSwitch() {
 
@@ -52,7 +50,13 @@ public class PerformanceSolver {
 		public Object caseLoop(Loop loop) {
 			Hashtable<ActiveResource, ManagedPDF> innerRUs = (Hashtable<ActiveResource, ManagedPDF>) doSwitch(loop.getRegExp());
 			IProbabilityMassFunction iterations = pfFactory.transformToPMF( loop.getIterationsPMF() );
-			return performanceOps.computeIteration(innerRUs, iterations);
+			try {
+				return performanceOps.computeIteration(innerRUs, iterations);
+			} catch (ConfigurationNotSetException e) {
+				e.printStackTrace();
+				System.exit(-1);
+				return null;
+			}
 		}
 
 		@SuppressWarnings("unchecked")
@@ -85,18 +89,16 @@ public class PerformanceSolver {
 		}
 	};
 	
-	public PerformanceSolver(int numSamplingPoints){
-		PDFOperations pdfOps = new PDFOperations(numSamplingPoints);
-		RUOperations ruOps = new RUOperations(pdfOps);
-		performanceOps = new RUTableOperations(ruOps);
+	public PerformanceSolver(RUPerformanceOps performanceOps){
+		this.performanceOps = performanceOps;
 	}
 	
-	public PerformanceSolver(RUTableOperations performanceOps){
-		this.performanceOps = performanceOps;
+	public PerformanceSolver(){
+		this.performanceOps = new RUPerformanceOps();
 	}
 
 	@SuppressWarnings("unchecked")
-	public Hashtable<ActiveResource, ManagedPDF> getDemandTimes(Expression expression){
+	public Hashtable<ActiveResource, ManagedPDF> getResourceUsageTimes(Expression expression){
 		return (Hashtable<ActiveResource, ManagedPDF>) exprSwitch.doSwitch(expression);
 	}
 

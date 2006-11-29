@@ -19,7 +19,6 @@ import de.uka.ipd.sdq.spa.resourcemodel.ResourceModelFactory;
 public class ResourceModelBuilderImpl implements ResourceModelBuilder {
 	
 	private static final String ROOT = "!!ROOT!!";
-	private static final int INFINITE = -1;
 	
 	private QnmFactory qnmFactory = QnmFactory.eINSTANCE;
 	private ResourceModelFactory rmFactory = ResourceModelFactory.eINSTANCE;
@@ -29,12 +28,12 @@ public class ResourceModelBuilderImpl implements ResourceModelBuilder {
 	private Hashtable<String, Resource> resourceHash;
 	
 
-	public ResourceModelBuilderImpl() {
+	public ResourceModelBuilderImpl(int totalNumOfTasks) {
 		super();
 		qnModel = qnmFactory.createQNModel();
 		taskHash = new Hashtable<String, Task>();
 		resourceHash = new Hashtable<String, Resource>();
-		addPassivResource(ROOT, INFINITE); // add a root resource with infinite replicas
+		addPassivResource(ROOT, totalNumOfTasks); // add a root resource with infinite replicas
 	}
 
 	public boolean hasResource(String serverName){

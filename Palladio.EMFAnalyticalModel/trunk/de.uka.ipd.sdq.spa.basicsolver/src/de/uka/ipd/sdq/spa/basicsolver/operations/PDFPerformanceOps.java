@@ -1,30 +1,41 @@
 package de.uka.ipd.sdq.spa.basicsolver.operations;
 
+import java.util.Iterator;
+
 import de.uka.ipd.sdq.probfunction.math.IProbabilityDensityFunction;
 import de.uka.ipd.sdq.probfunction.math.IProbabilityMassFunction;
+import de.uka.ipd.sdq.probfunction.math.ISample;
+import de.uka.ipd.sdq.probfunction.math.ISamplePDF;
 import de.uka.ipd.sdq.probfunction.math.ManagedPDF;
+import de.uka.ipd.sdq.probfunction.math.exception.ConfigurationNotSetException;
 import de.uka.ipd.sdq.probfunction.math.exception.ProbabilityFunctionException;
 
-public class RUOperations {
+public class PDFPerformanceOps {
 
-	private PDFOperations pdfOps;
-
-	public RUOperations(PDFOperations pdfOps) {
+	public PDFPerformanceOps() {
 		super();
-		this.pdfOps = pdfOps;
 	}
 	
-	public RUOperations(int numSamplingPoints) {
-		this(new PDFOperations(numSamplingPoints));
-	}
-
 	public ManagedPDF computeIteration(ManagedPDF usage,
 			IProbabilityMassFunction iterations)
-			throws ProbabilityFunctionException {
-		IProbabilityDensityFunction pdf = usage.getPdfFrequencyDomain();
-		IProbabilityDensityFunction resultPDF = pdfOps.computeIteration(pdf,
-				iterations);
-		return new ManagedPDF(resultPDF);
+			throws ProbabilityFunctionException, ConfigurationNotSetException {
+		ISamplePDF innerPDF = usage.getSamplePdfFrequencyDomain();
+		
+		ISamplePDF resultPDF = ManagedPDF.createZeroFunction().getSamplePdfFrequencyDomain();
+		ISamplePDF tempPDF = ManagedPDF.createDiracImpulse().getSamplePdfFrequencyDomain();
+
+		int pos = 0;
+		for (Iterator<ISample> iter = iterations.getSamples().iterator(); iter
+				.hasNext();) {
+			ISample sample = iter.next();
+			Integer nextPos = (Integer) sample.getValue();
+			while (pos < nextPos) {
+				tempPDF = (ISamplePDF)tempPDF.mult(innerPDF);
+				pos++;
+			}
+			resultPDF = (ISamplePDF) resultPDF.add(tempPDF.scale(sample.getProbability()));
+		}
+		return new ManagedPDF(resultPDF, true);
 	}
 
 	public ManagedPDF computeAlternative(ManagedPDF leftRU, double leftProbability,
@@ -56,24 +67,20 @@ public class RUOperations {
 
 		switch (op) {
 		case SEQUENCE:
-			resultPDF = pdfOps.computeSequence(leftPDF, rightPDF);
+			resultPDF = leftPDF.mult(rightPDF); 
 			break;
 		case ALTERNATIVE:
-			resultPDF = pdfOps.computeAlternative(leftPDF, leftProbability,
-					rightPDF, rightProbability);
+			resultPDF = leftPDF.scale(leftProbability).add(rightPDF.scale(rightProbability));
 			break;
 		case PARALLEL:
-			resultPDF = pdfOps.computeParallel(leftPDF, rightPDF);
+			// TODO add correct computation for parallel
+			resultPDF = leftPDF.mult(rightPDF); 
 			break;
 		default:
 			break;
 		}
 
-		return new ManagedPDF(resultPDF);
+		return new ManagedPDF(resultPDF, true);
 	}
 
-	public int getNumSamplingPoints() {
-		return pdfOps.getNumSamplingPoints();
-	}
-	
 }

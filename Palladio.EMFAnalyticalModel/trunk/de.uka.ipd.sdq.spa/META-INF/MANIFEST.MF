@@ -18,5 +18,6 @@ Require-Bundle: org.eclipse.core.runtime,
  de.uka.ipd.spq.spa.resourcemodel,
  de.uka.ipd.sdq.pcm,
  org.antlr,
- org.eclipse.emf.ecore.xmi
+ org.eclipse.emf.ecore.xmi,
+ de.uka.ipd.sdq.stoex
 Eclipse-LazyStart: true

@@ -18,4 +18,6 @@ Require-Bundle: de.uka.ipd.sdq.probfunction.math,
 Eclipse-LazyStart: true
 Export-Package: de.uka.ipd.sdq.spa.concurrencysolver
 Bundle-ClassPath: lib/lpgjavaruntime.jar,
- .
+ .,
+ lib/jcommon-1.0.6.jar,
+ lib/jfreechart-1.0.2.jar

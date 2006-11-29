@@ -26,12 +26,9 @@ import de.uka.ipd.sdq.spa.resourcemodel.util.ResourceModelSwitch;
 
 public class QNDirector {
 	
-	private int numSamplingPoints;
-	
 
-	public QNDirector(int numSamplingPoints) {
+	public QNDirector() {
 		super();
-		this.numSamplingPoints = numSamplingPoints;
 	}
 
 	public void buildFrom(SPAModel spaModel, ResourceModelBuilder builder){
@@ -101,7 +98,7 @@ public class QNDirector {
 		
 		public BuildExpressionSwitch(ResourceUsageBuilder builder) {
 			this.currentBuilder = builder;
-			this.perfSolver = new PerformanceSolver(numSamplingPoints);
+			this.perfSolver = new PerformanceSolver();
 		}
 
 		@Override
@@ -118,7 +115,7 @@ public class QNDirector {
 		@Override
 		public Object caseExpression(Expression expression) {
 			try {
-				Hashtable<ActiveResource, ManagedPDF> timeTable = perfSolver.getDemandTimes(expression);
+				Hashtable<ActiveResource, ManagedPDF> timeTable = perfSolver.getResourceUsageTimes(expression);
 				for (ActiveResource resource : timeTable.keySet()) {
 					currentBuilder.addResourceUsage(
 							resource.getName(), 
