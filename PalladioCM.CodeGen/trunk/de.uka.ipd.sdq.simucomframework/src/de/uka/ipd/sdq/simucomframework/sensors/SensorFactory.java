@@ -51,7 +51,18 @@ public class SensorFactory {
 		return histogramSensors.get(id);
 	}
 
+	public Histogram safeGetHistogram(String id) {
+		if (!histogramSensors.containsKey(id))
+			this.createHistogramSensor(id);
+		return histogramSensors.get(id);
+	}
+
 	public ResponseTimeValueSupplier getValueSupplierForSensor(String id) {
+		return this.histogramValueSupplier.get(id);
+	}
+
+	public ResponseTimeValueSupplier safeGetValueSupplierForSensor(String id) {
+		safeGetHistogram(id);
 		return this.histogramValueSupplier.get(id);
 	}
 
@@ -75,4 +86,9 @@ public class SensorFactory {
 	public static SensorFactory singleton() {
 		return sensorFactory;
 	}
+
+	public void addMeasurement(String id, double d) {
+        this.safeGetValueSupplierForSensor(id)
+        .newMeasurement(d);	
+    }
 }

@@ -4,6 +4,8 @@ import seff;
 import system;
 import composition;
 import usagemodel;
+import parameter;
+import stoex;
 
 findStart(List[AbstractAction] actions) :
    actions.typeSelect(StartAction).first();
@@ -34,3 +36,15 @@ getRequiredDelegationConnector(ComposedStructure s, AssemblyContext ctx, Require
    
 querySystemCalls(UsageScenario us) :
   us.scenarioBehaviour_UsageScenario.actions_ScenarioBehaviour.typeSelect(EntryLevelSystemCall);
+  
+getID(VariableReference vr) :
+  vr.referenceName;
+
+getID(AbstractNamedReference nsr):
+  'this is never called';
+  
+getID(NamespaceReference nsr):
+  nsr.referenceName + '.' + nsr.innerReference_NamespaceReference.getID();
+
+parameterUsageLHS(VariableUsage vu) :
+  vu.namedReference_VariableUsage.getID();

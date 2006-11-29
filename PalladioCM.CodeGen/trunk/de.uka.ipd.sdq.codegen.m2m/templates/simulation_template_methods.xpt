@@ -8,6 +8,7 @@
 «IMPORT seff»
 «IMPORT resourcetype»
 «IMPORT allocation»
+«IMPORT parameter»
 
 «AROUND ProvidesComponentTypeTM FOR ProvidesComponentType»
    «EXPAND m2t_transforms::java_core::ComponentImplementation FOR this»
@@ -33,7 +34,7 @@
 «ENDAROUND»
 
 «AROUND Action FOR LoopAction»
-   for (int iterationCount = 0, maxIterationCount = ctx.evaluate("«this.iterations_LoopAction.specification»"); 
+   for (int iterationCount = 0, maxIterationCount = (Integer)ctx.evaluate("«this.iterations_LoopAction.specification.javaString()»"); 
             iterationCount < maxIterationCount; iterationCount++){
        «EXPAND m2t_transforms::java_core::Actions FOR this.bodyBehaviour_Loop.steps_Behaviour.findStart()»
    } 
@@ -63,4 +64,31 @@
 
 «AROUND ComponentConstructorParametersTM FOR AssemblyContext»
 	"«this.id»"
+«ENDAROUND»
+
+«AROUND PreCallTM(List[VariableUsage] parameterUsages) FOR Signature»
+	// Start Simulate an external call
+	{
+	SimulatedStackframe currentFrame = ctx.getStack().currentStackFrame();
+	// prepare stackframe
+	de.uka.ipd.sdq.simucomframework.stackframe.SimulatedStackframe stackframe = ctx.getStack().createAndPushNewStackFrame();
+	«FOREACH parameterUsages AS pu»
+		«LET pu.parameterUsageLHS() AS lhs_prefix»
+			«FOREACH pu.variableCharacterisation_VariableUsage AS vc»
+				stackframe.addValue("«lhs_prefix+'.'+vc.type.toString()»",
+				   	ctx.evaluate("«vc.specification.javaString()»",currentFrame));
+			«ENDFOREACH»
+		«ENDLET»
+	«ENDFOREACH» 
+	// Start a resonse time measurement
+	double startTime = ctx.getModel().currentTime().getTimeValue();
+«ENDAROUND»
+
+«AROUND PostCallTM FOR Signature»
+	// Stop the resonse time measurement
+	ctx.getModel().getSensorFactory().addMeasurement("Usage_«this.javaSignature()»",
+		ctx.getModel().currentTime().getTimeValue()-startTime);
+ 	ctx.getStack().removeStackFrame();
+	}
+	// END Simulate an external call
 «ENDAROUND»

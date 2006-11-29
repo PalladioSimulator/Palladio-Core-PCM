@@ -8,7 +8,14 @@ import allocation;
 // Generate a java name by replacing all characters which are not java conform
 javaName(Entity e) :
    e.entityName.replaceAll(" ","_");
-   
+
+// Generate a java name by replacing all characters which are not java conform
+javaString(String s) :
+   s.replaceAll('"','\\\\"');
+ 
+javaSignature(Signature s) :
+   s.serviceName.toFirstLower();
+         
 // ID of a single port class
 portClassName(ProvidedRole r) :
    r.providedInterface__ProvidedRole.javaName()+"_"+r.providingEntity_ProvidedRole.javaName();
@@ -20,7 +27,7 @@ contextClassName(InterfaceRequiringEntity c) :
 // ID of a member variable used in the main component implementation to store the singleton port
 // instance
 portMemberVar(ProvidedRole r) :
-   "port"+r.providedInterface__ProvidedRole.javaName();
+   "m_port"+r.providedInterface__ProvidedRole.javaName();
    
 // Name of the getter Method used to get the singleton port instances
 // of the provided ports

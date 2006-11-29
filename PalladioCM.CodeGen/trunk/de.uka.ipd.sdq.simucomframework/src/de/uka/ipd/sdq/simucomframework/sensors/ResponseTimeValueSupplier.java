@@ -16,7 +16,7 @@ extends ValueSupplier
 		return lastValue;
 	}
 
-	public void newResponseTimeMeassurment(double responseTime)
+	public void newMeasurement(double responseTime)
 	{
 		lastValue = responseTime;
 		notifyStatistics(new Double(responseTime));

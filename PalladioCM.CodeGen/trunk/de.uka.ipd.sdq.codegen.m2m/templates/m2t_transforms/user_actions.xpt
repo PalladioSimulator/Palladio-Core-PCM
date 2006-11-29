@@ -17,7 +17,8 @@
 «ENDDEFINE»
 
 «DEFINE UserAction FOR EntryLevelSystemCall»
-    «this.providedRole_EntryLevelSystemCall.portMemberVar()».
-    	«this.signature_EntryLevelSystemCall.serviceName» 
-    	(«EXPAND m2t_transforms::java_core::ParameterUsageListTM FOR this.signature_EntryLevelSystemCall»);
+    «EXPAND m2t_transforms::calls::Call(
+    	this.providedRole_EntryLevelSystemCall.portMemberVar()+".",
+    	this.actualParameterUsage_EntryLevelSystemCall) FOR this.signature_EntryLevelSystemCall»
 «ENDDEFINE»
+

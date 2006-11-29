@@ -22,7 +22,7 @@ public class «this.javaName()»
 
 «DEFINE Signature FOR Signature»
    «EXPAND ReturnType FOR this»
-   «this.serviceName»
+   «this.javaSignature()»
    ( «EXPAND ParameterListTM FOR this» )
 «ENDDEFINE»
 
@@ -63,7 +63,7 @@ public class «this.javaName()»
 
 «DEFINE ComponentService FOR ResourceDemandingSEFF»
    public «EXPAND ReturnType FOR this.describedService__SEFF»
-      «this.describedService__SEFF.interface_Signature.javaName().toFirstLower()»_«this.describedService__SEFF.serviceName»
+      «this.describedService__SEFF.interface_Signature.javaName().toFirstLower()»_«this.describedService__SEFF.javaSignature()»
          («EXPAND ParameterListTM FOR this.describedService__SEFF») {
       «EXPAND Actions FOR this.steps_Behaviour.findStart()»      
    }   

@@ -48,6 +48,7 @@ public «this.javaName()»(SimuComModel myModel) {
 		«pr.providingEntity_ProvidedRole.javaName()» my«pr.providingEntity_ProvidedRole.javaName()» = new «pr.providingEntity_ProvidedRole.javaName()»();
 		«LET ((System)pr.providingEntity_ProvidedRole) AS system»
 			ctx = new «a.fqnAllocationContext()»(myModel,this);
+			ctx.getStack().createAndPushNewStackFrame();
 			«system.contextClassName()» context«pr.providingEntity_ProvidedRole.javaName()» = 
 				new «system.contextClassName()»
 					(«EXPAND DummyRequiredSystemTM(system) FOREACH system.requiredRoles_InterfaceRequiringEntity SEPARATOR ","»);

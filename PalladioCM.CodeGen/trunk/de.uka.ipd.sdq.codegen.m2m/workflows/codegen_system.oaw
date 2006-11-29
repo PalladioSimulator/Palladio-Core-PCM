@@ -38,6 +38,9 @@
 		<metaModel id="pcm.core.composition.emf" class="oaw.type.emf.EmfMetaModel">
 			<metaModelPackage value="de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage"/>
 		</metaModel>
+		<metaModel id="pcm.core.composition.emf" class="oaw.type.emf.EmfMetaModel">
+			<metaModelPackage value="de.uka.ipd.sdq.pcm.parameter.ParameterPackage"/>
+		</metaModel>
 		<expand value="m2t_transforms::system::Root FOR pcmmodel"/>
 		<outlet path="src-gen">
 			<postprocessor class="oaw.xpand2.output.JavaBeautifier"/>
@@ -78,6 +81,9 @@
 		</metaModel>		
 		<metaModel id="pcm.core.composition.emf" class="oaw.type.emf.EmfMetaModel">
 			<metaModelPackage value="de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage"/>
+		</metaModel>
+		<metaModel id="pcm.core.composition.emf" class="oaw.type.emf.EmfMetaModel">
+			<metaModelPackage value="de.uka.ipd.sdq.pcm.parameter.ParameterPackage"/>
 		</metaModel>
 		<expand value="m2t_transforms::allocation::Root FOR allocation"/>
 		<outlet path="src-gen">

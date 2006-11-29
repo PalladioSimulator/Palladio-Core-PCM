@@ -41,10 +41,15 @@
 		<metaModel id="pcm.core.composition.emf" class="oaw.type.emf.EmfMetaModel">
 			<metaModelPackage value="de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage"/>
 		</metaModel>		
+		<metaModel id="pcm.core.composition.emf" class="oaw.type.emf.EmfMetaModel">
+			<metaModelPackage value="de.uka.ipd.sdq.pcm.parameter.ParameterPackage"/>
+		</metaModel>
 		<expand value="m2t_transforms::usage::UsageModel(allocation) FOR pcmmodel"/>
 		<outlet path="src-gen">
-			<postprocessor class="oaw.xpand2.output.JavaBeautifier"/>
 		</outlet>
+		<beautifier class="org.hybridlabs.source.formatter.JavaImportBeautifier"
+		organizeImports="true"
+		format="true"/>	
 	</component>	
 
 	<component adviceTarget="generator" id="reflectionAdvice" class="oaw.xpand2.GeneratorAdvice">
