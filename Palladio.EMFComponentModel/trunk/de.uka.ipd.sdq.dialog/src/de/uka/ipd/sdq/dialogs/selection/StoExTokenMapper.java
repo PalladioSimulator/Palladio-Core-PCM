@@ -34,6 +34,9 @@ public class StoExTokenMapper implements ITokenMapper {
 		case StochasticExpressionsParserTokenTypes.MINUS:
 		case StochasticExpressionsParserTokenTypes.MUL:
 		case StochasticExpressionsParserTokenTypes.DIV:
+		case StochasticExpressionsParserTokenTypes.POW:
+		case StochasticExpressionsParserTokenTypes.LPAREN:
+		case StochasticExpressionsParserTokenTypes.RPAREN:
 			return null; //new TextAttribute (new Color( null, new RGB(255,255,0) ), null, SWT.BOLD);
 		case StochasticExpressionsParserTokenTypes.LITERAL_DoublePDF:
 		case StochasticExpressionsParserTokenTypes.LITERAL_IntPMF:

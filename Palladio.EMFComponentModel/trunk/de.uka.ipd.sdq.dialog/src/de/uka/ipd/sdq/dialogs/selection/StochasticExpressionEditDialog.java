@@ -33,7 +33,7 @@ public class StochasticExpressionEditDialog extends
 	
 	@Override
 	protected String getInitialText() {
-		return "= ";
+		return "";
 	}
 
 	@Override
