@@ -155,7 +155,7 @@ public PCMStoExParser(ParserSharedInputState state) {
 		match(ID);
 		nameParts.add(id1.getText());
 		{
-		_loop237:
+		_loop576:
 		do {
 			if ((LA(1)==DOT) && (LA(2)==ID||LA(2)==LITERAL_INNER)) {
 				match(DOT);
@@ -182,7 +182,7 @@ public PCMStoExParser(ParserSharedInputState state) {
 				}
 			}
 			else {
-				break _loop237;
+				break _loop576;
 			}
 			
 		} while (true);
@@ -253,8 +253,8 @@ public PCMStoExParser(ParserSharedInputState state) {
 			match(RPAREN);
 			match(SQUARE_PAREN_L);
 			{
-			int _cnt208=0;
-			_loop208:
+			int _cnt547=0;
+			_loop547:
 			do {
 				if ((LA(1)==LPAREN)) {
 					Sample isample=null;
@@ -262,10 +262,10 @@ public PCMStoExParser(ParserSharedInputState state) {
 					((ProbabilityMassFunction)probFunction).getSamples().add(isample);
 				}
 				else {
-					if ( _cnt208>=1 ) { break _loop208; } else {throw new NoViableAltException(LT(1), getFilename());}
+					if ( _cnt547>=1 ) { break _loop547; } else {throw new NoViableAltException(LT(1), getFilename());}
 				}
 				
-				_cnt208++;
+				_cnt547++;
 			} while (true);
 			}
 			match(SQUARE_PAREN_R);
@@ -285,8 +285,8 @@ public PCMStoExParser(ParserSharedInputState state) {
 			match(RPAREN);
 			match(SQUARE_PAREN_L);
 			{
-			int _cnt211=0;
-			_loop211:
+			int _cnt550=0;
+			_loop550:
 			do {
 				if ((LA(1)==LPAREN)) {
 					Sample rsample=null;
@@ -294,10 +294,10 @@ public PCMStoExParser(ParserSharedInputState state) {
 					((ProbabilityMassFunction)probFunction).getSamples().add(rsample);
 				}
 				else {
-					if ( _cnt211>=1 ) { break _loop211; } else {throw new NoViableAltException(LT(1), getFilename());}
+					if ( _cnt550>=1 ) { break _loop550; } else {throw new NoViableAltException(LT(1), getFilename());}
 				}
 				
-				_cnt211++;
+				_cnt550++;
 			} while (true);
 			}
 			match(SQUARE_PAREN_R);
@@ -338,8 +338,8 @@ public PCMStoExParser(ParserSharedInputState state) {
 			match(RPAREN);
 			match(SQUARE_PAREN_L);
 			{
-			int _cnt215=0;
-			_loop215:
+			int _cnt554=0;
+			_loop554:
 			do {
 				if ((LA(1)==LPAREN)) {
 					Sample ssample=null;
@@ -347,10 +347,10 @@ public PCMStoExParser(ParserSharedInputState state) {
 					((ProbabilityMassFunction)probFunction).getSamples().add(ssample);
 				}
 				else {
-					if ( _cnt215>=1 ) { break _loop215; } else {throw new NoViableAltException(LT(1), getFilename());}
+					if ( _cnt554>=1 ) { break _loop554; } else {throw new NoViableAltException(LT(1), getFilename());}
 				}
 				
-				_cnt215++;
+				_cnt554++;
 			} while (true);
 			}
 			match(SQUARE_PAREN_R);
@@ -370,8 +370,8 @@ public PCMStoExParser(ParserSharedInputState state) {
 			match(RPAREN);
 			match(SQUARE_PAREN_L);
 			{
-			int _cnt218=0;
-			_loop218:
+			int _cnt557=0;
+			_loop557:
 			do {
 				if ((LA(1)==LPAREN)) {
 					ContinuousSample pdf_sample=null;
@@ -379,10 +379,10 @@ public PCMStoExParser(ParserSharedInputState state) {
 					((BoxedPDF)probFunction).getSamples().add(pdf_sample);
 				}
 				else {
-					if ( _cnt218>=1 ) { break _loop218; } else {throw new NoViableAltException(LT(1), getFilename());}
+					if ( _cnt557>=1 ) { break _loop557; } else {throw new NoViableAltException(LT(1), getFilename());}
 				}
 				
-				_cnt218++;
+				_cnt557++;
 			} while (true);
 			}
 			match(SQUARE_PAREN_R);
@@ -423,8 +423,8 @@ public PCMStoExParser(ParserSharedInputState state) {
 			match(RPAREN);
 			match(SQUARE_PAREN_L);
 			{
-			int _cnt222=0;
-			_loop222:
+			int _cnt561=0;
+			_loop561:
 			do {
 				if ((LA(1)==LPAREN)) {
 					Sample ssample=null;
@@ -432,10 +432,10 @@ public PCMStoExParser(ParserSharedInputState state) {
 					((ProbabilityMassFunction)probFunction).getSamples().add(ssample);
 				}
 				else {
-					if ( _cnt222>=1 ) { break _loop222; } else {throw new NoViableAltException(LT(1), getFilename());}
+					if ( _cnt561>=1 ) { break _loop561; } else {throw new NoViableAltException(LT(1), getFilename());}
 				}
 				
-				_cnt222++;
+				_cnt561++;
 			} while (true);
 			}
 			match(SQUARE_PAREN_R);
@@ -623,7 +623,7 @@ public PCMStoExParser(ParserSharedInputState state) {
 		p1=prodExpr();
 		t = p1;
 		{
-		_loop198:
+		_loop537:
 		do {
 			if ((LA(1)==PLUS||LA(1)==MINUS)) {
 				TermExpression termExp = StoexFactory.eINSTANCE.createTermExpression();
@@ -651,7 +651,7 @@ public PCMStoExParser(ParserSharedInputState state) {
 				termExp.setLeft(t); termExp.setRight(p2); t = termExp;
 			}
 			else {
-				break _loop198;
+				break _loop537;
 			}
 			
 		} while (true);
@@ -668,7 +668,7 @@ public PCMStoExParser(ParserSharedInputState state) {
 		pw1=powExpr();
 		p = pw1;
 		{
-		_loop202:
+		_loop541:
 		do {
 			if (((LA(1) >= MUL && LA(1) <= MOD))) {
 				ProductExpression prodExp = StoexFactory.eINSTANCE.createProductExpression();
@@ -702,7 +702,7 @@ public PCMStoExParser(ParserSharedInputState state) {
 				prodExp.setLeft(p); prodExp.setRight(pw2); p = prodExp;
 			}
 			else {
-				break _loop202;
+				break _loop541;
 			}
 			
 		} while (true);
@@ -762,7 +762,7 @@ public PCMStoExParser(ParserSharedInputState state) {
 		
 		match(LITERAL_unit);
 		u = ProbfunctionFactory.eINSTANCE.createUnit();
-		match(EQUAL);
+		match(DEFINITION);
 		str = LT(1);
 		match(STRING_LITERAL);
 		u.setUnitName(str.getText().replace("\"",""));
@@ -857,7 +857,7 @@ public PCMStoExParser(ParserSharedInputState state) {
 		match(LITERAL_unit);
 		u = ProbfunctionFactory.eINSTANCE.createUnit();
 		match(EQUAL);
-		match(30);
+		match(31);
 		u.setUnitName("bool");
 		return u;
 	}
@@ -912,6 +912,7 @@ public PCMStoExParser(ParserSharedInputState state) {
 		"\"DoublePDF\"",
 		"\"BoolPMF\"",
 		"\"unit\"",
+		"DEFINITION",
 		"\"\\\"bool\\\"\"",
 		"\"false\"",
 		"\"true\"",
@@ -923,7 +924,6 @@ public PCMStoExParser(ParserSharedInputState state) {
 		"ID",
 		"DOT",
 		"\"INNER\"",
-		"DEFINITION",
 		"DIGIT",
 		"ALPHA",
 		"WS"

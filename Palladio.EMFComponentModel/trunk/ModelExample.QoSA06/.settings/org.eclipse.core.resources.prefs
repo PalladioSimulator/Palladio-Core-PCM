@@ -1,4 +1,4 @@
-#Sat Nov 25 09:26:25 CET 2006
+#Wed Nov 29 16:23:01 CET 2006
 eclipse.preferences.version=1
 encoding/AudioStore_Finalize.seff_diagram=UTF-8
 encoding/AudioStore_HandleUpload.seff_diagram=UTF-8
@@ -13,6 +13,8 @@ encoding/OggEncoder_Encode.seff_diagram=UTF-8
 encoding/Qosa.repository=UTF-8
 encoding/Qosa.repository_diagram=UTF-8
 encoding/Qosa.seff_diagram=UTF-8
+encoding/Qosa1.repository_diagram=UTF-8
+encoding/Qosa1.seff_diagram=UTF-8
 encoding/WebUI_UploadFiles.seff_diagram=UTF-8
 encoding/default.repository=UTF-8
 encoding/qosa.allocation_diagram=UTF-8

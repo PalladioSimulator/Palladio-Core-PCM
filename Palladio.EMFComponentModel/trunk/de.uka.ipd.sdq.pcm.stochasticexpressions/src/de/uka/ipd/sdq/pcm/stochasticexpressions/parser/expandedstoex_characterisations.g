@@ -238,7 +238,7 @@ definition returns [ProbabilityFunctionLiteral pfl]{pfl = StoexFactory.eINSTANCE
 unit returns [Unit u]{u = null;}
 :"unit"
 			{ u = ProbfunctionFactory.eINSTANCE.createUnit(); }
-			EQUAL
+			DEFINITION
 			str:STRING_LITERAL 
 			{u.setUnitName(str.getText().replace("\"",""));} ;
 

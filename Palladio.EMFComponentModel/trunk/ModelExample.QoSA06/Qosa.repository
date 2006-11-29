@@ -30,7 +30,7 @@
       <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_pchIcHjiEduuSvsux_US9A" successor_AbstractAction="_qkMiMHjiEduuSvsux_US9A"/>
       <steps_Behaviour xsi:type="pcm.seff:ExternalCallAction" id="_qkMiMHjiEduuSvsux_US9A" predecessor_AbstractAction="_pchIcHjiEduuSvsux_US9A" successor_AbstractAction="_sde_EHjiEduuSvsux_US9A" calledService_ExternalService="//@interfaces__Repository.2/@signatures__Interface.0">
         <parameterUsage_ExternalCallAction>
-          <variableCharacterisation_VariableUsage specification="= file.BYTESIZE" type="BYTESIZE"/>
+          <variableCharacterisation_VariableUsage specification="file.BYTESIZE" type="BYTESIZE"/>
           <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="file"/>
         </parameterUsage_ExternalCallAction>
       </steps_Behaviour>

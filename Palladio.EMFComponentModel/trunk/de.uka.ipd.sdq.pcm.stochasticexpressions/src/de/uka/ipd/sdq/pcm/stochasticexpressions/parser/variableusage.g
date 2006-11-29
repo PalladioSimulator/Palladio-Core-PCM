@@ -10,7 +10,7 @@ header{
 {@SuppressWarnings({"unused"})}
 class VariableUsageParser extends PCMStoExParser;
 options { buildAST=false; defaultErrorHandler=false; k=2; }
- 
+  
 variable_usage returns [VariableUsage vu]
 	{vu = null; AbstractNamedReference id; VariableCharacterisation vc;} :
 		id = scoped_id DOT vc = variable_characterisation 
