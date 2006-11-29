@@ -1391,7 +1391,7 @@ public class UsagemodelEditor
 						dialog.setInitialExpression(randVar);
 						dialog.open();
 						if (dialog.getResult() != null) {
-							String result = "= " + new PCMStoExPrettyPrintVisitor().prettyPrint(dialog.getResult());
+							String result = new PCMStoExPrettyPrintVisitor().prettyPrint(dialog.getResult());
 							SetCommand setRandomVariableCommand = new SetCommand(editingDomain, randVar, 
 									StoexPackage.eINSTANCE.getRandomVariable_Specification(), result);
 							editingDomain.getCommandStack().execute(setRandomVariableCommand);

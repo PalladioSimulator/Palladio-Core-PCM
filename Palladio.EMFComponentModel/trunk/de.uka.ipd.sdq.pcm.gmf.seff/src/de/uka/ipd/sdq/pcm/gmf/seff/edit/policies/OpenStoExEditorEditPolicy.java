@@ -44,7 +44,7 @@ public class OpenStoExEditorEditPolicy extends OpenEditPolicy {
 		dialog.setInitialExpression(randVar);
 		dialog.open();
 		if (dialog.getResult() != null) {
-			String result = "= " + new PCMStoExPrettyPrintVisitor().prettyPrint(dialog.getResult());
+			String result = new PCMStoExPrettyPrintVisitor().prettyPrint(dialog.getResult());
 			SetValueCommand cmd = new SetValueCommand(
 					new SetRequest(randVar, StoexPackage.eINSTANCE.getRandomVariable_Specification(), result)) {
 

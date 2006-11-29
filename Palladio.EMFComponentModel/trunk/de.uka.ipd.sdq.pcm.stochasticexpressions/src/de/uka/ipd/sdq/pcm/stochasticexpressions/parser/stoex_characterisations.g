@@ -10,7 +10,7 @@ header{
 {@SuppressWarnings({"unused"})}
 class PCMStoExParser extends StochasticExpressionsParser;
 options { buildAST=false; defaultErrorHandler=false; k=2; }
-
+ 
 atom returns [Atom a]
 	{a = null;} :
 		(

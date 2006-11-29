@@ -81,7 +81,7 @@ atom returns [Atom a]{a = null;}
 		  // parenthesis expression
 		  {Expression inner = null;}
 		  LPAREN
-		  inner = expression
+		  inner = compareExpr
 		  RPAREN
 		  {
 			Parenthesis paren = StoexFactory.eINSTANCE.createParenthesis();
