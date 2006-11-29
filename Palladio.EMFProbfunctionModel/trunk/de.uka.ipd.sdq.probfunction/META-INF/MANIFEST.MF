@@ -8,6 +8,7 @@ Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Export-Package: de.uka.ipd.sdq.probfunction,
  de.uka.ipd.sdq.probfunction.impl,
+ de.uka.ipd.sdq.probfunction.print,
  de.uka.ipd.sdq.probfunction.util
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport

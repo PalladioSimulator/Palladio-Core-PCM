@@ -79,7 +79,7 @@ public class ChartConfigReader {
 
 	public static void main(String[] ihs) {
 		ChartConfigReader c = new ChartConfigReader("new_report.rptdesign",
-				"src/de/uka/ipd/sdq/probfunction/math/visualization/resource/defalutconfig.xml");
+				"src/de/uka/ipd/sdq/probfunction/math/visualization/resource/defalutconfig1.xml");
 		try {
 			c.readSrcFile();
 		} catch (IOException e) {

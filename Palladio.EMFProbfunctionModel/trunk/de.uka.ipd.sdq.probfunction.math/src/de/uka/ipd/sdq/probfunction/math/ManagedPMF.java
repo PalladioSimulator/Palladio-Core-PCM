@@ -4,12 +4,12 @@ import java.io.StringBufferInputStream;
 
 import antlr.RecognitionException;
 import antlr.TokenStreamException;
-import de.uka.ipd.sdq.pcm.core.stochastics.ProbabilityFunctionLiteral;
-import de.uka.ipd.sdq.pcm.stochasticexpressions.ProbFunctionPrettyPrint;
-import de.uka.ipd.sdq.pcm.stochasticexpressions.parser.StochasticExpressionsLexer;
-import de.uka.ipd.sdq.pcm.stochasticexpressions.parser.StochasticExpressionsParser;
 import de.uka.ipd.sdq.probfunction.ProbabilityMassFunction;
 import de.uka.ipd.sdq.probfunction.math.exception.StringNotPDFException;
+import de.uka.ipd.sdq.probfunction.print.ProbFunctionPrettyPrint;
+import de.uka.ipd.sdq.stoex.ProbabilityFunctionLiteral;
+import de.uka.ipd.sdq.stoex.parser.StochasticExpressionsLexer;
+import de.uka.ipd.sdq.stoex.parser.StochasticExpressionsParser;
 
 
 public class ManagedPMF {

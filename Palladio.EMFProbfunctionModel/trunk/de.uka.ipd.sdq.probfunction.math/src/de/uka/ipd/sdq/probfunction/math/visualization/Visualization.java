@@ -131,6 +131,9 @@ public class Visualization {
 		} catch (DifferentDomainsException e) {
 			e.printStackTrace();
 		}
+		
+		scv.setSourceConfigFile("src/de/uka/ipd/sdq/probfunction/math/visualization/resource/defalutconfig.xml");
+		
 		// scv.setMaxValue(0.4);
 		// scv.setMinValue(0.1);
 
@@ -311,8 +314,8 @@ public class Visualization {
 		TextDataSet categoryValues = TextDataSetImpl.create(wrappers.get(0)
 				.getValues());
 
-		Series seCategory = SeriesImpl.create();
-		seCategory.setDataSet(categoryValues);
+//		Series seCategory = SeriesImpl.create();
+//		seCategory.setDataSet(categoryValues);
 
 		// WRAP THE BASE SERIES IN THE X-AXIS SERIES DEFINITION
 		Series seriesX = (Series) (((SeriesDefinition) xAxisPrimary
