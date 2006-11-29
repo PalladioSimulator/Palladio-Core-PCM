@@ -19,3 +19,7 @@ feature@de.uka.ipd.sdq.context.feature=COPY,C:/Temp/testpcm,build/src/svn_checko
 plugin@de.uka.ipd.sdq.context=COPY,C:/Temp/testpcm,build/src/svn_checkout/Context/de.uka.ipd.sdq.context
 plugin@de.uka.ipd.sdq.context.edit=COPY,C:/Temp/testpcm,build/src/svn_checkout/Context/de.uka.ipd.sdq.context.edit
 plugin@de.uka.ipd.sdq.context.editor=COPY,C:/Temp/testpcm,build/src/svn_checkout/Context/de.uka.ipd.sdq.context.editor
+plugin@de.uka.ipd.sdq.stoex=COPY,C:/Temp/testpcm,build/src/svn_checkout/StoEx/de.uka.ipd.sdq.stoex
+plugin@de.uka.ipd.sdq.stoex.edit=COPY,C:/Temp/testpcm,build/src/svn_checkout/StoEx/de.uka.ipd.sdq.stoex.edit
+plugin@de.uka.ipd.sdq.stoex.analyser=COPY,C:/Temp/testpcm,build/src/svn_checkout/StoEx/de.uka.ipd.sdq.stoex.analyser
+plugin@de.uka.ipd.sdq.pcm.stochasticexpressions=COPY,C:/Temp/testpcm,build/src/svn_checkout/PCM/de.uka.ipd.sdq.pcm.stochasticexpressions
