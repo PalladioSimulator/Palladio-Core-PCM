@@ -145,7 +145,7 @@ public StochasticExpressionsParser(ParserSharedInputState state) {
 		p1=prodExpr();
 		t = p1;
 		{
-		_loop975:
+		_loop399:
 		do {
 			if ((LA(1)==PLUS||LA(1)==MINUS)) {
 				TermExpression termExp = StoexFactory.eINSTANCE.createTermExpression();
@@ -173,7 +173,7 @@ public StochasticExpressionsParser(ParserSharedInputState state) {
 				termExp.setLeft(t); termExp.setRight(p2); t = termExp;
 			}
 			else {
-				break _loop975;
+				break _loop399;
 			}
 			
 		} while (true);
@@ -190,7 +190,7 @@ public StochasticExpressionsParser(ParserSharedInputState state) {
 		pw1=powExpr();
 		p = pw1;
 		{
-		_loop979:
+		_loop403:
 		do {
 			if (((LA(1) >= MUL && LA(1) <= MOD))) {
 				ProductExpression prodExp = StoexFactory.eINSTANCE.createProductExpression();
@@ -224,7 +224,7 @@ public StochasticExpressionsParser(ParserSharedInputState state) {
 				prodExp.setLeft(p); prodExp.setRight(pw2); p = prodExp;
 			}
 			else {
-				break _loop979;
+				break _loop403;
 			}
 			
 		} while (true);
@@ -381,7 +381,7 @@ public StochasticExpressionsParser(ParserSharedInputState state) {
 		match(ID);
 		nameParts.add(id1.getText());
 		{
-		_loop1016:
+		_loop440:
 		do {
 			if ((LA(1)==DOT)) {
 				match(DOT);
@@ -408,7 +408,7 @@ public StochasticExpressionsParser(ParserSharedInputState state) {
 				}
 			}
 			else {
-				break _loop1016;
+				break _loop440;
 			}
 			
 		} while (true);
@@ -459,8 +459,8 @@ public StochasticExpressionsParser(ParserSharedInputState state) {
 			match(RPAREN);
 			match(SQUARE_PAREN_L);
 			{
-			int _cnt987=0;
-			_loop987:
+			int _cnt411=0;
+			_loop411:
 			do {
 				if ((LA(1)==LPAREN)) {
 					Sample isample=null;
@@ -468,10 +468,10 @@ public StochasticExpressionsParser(ParserSharedInputState state) {
 					((ProbabilityMassFunction)probFunction).getSamples().add(isample);
 				}
 				else {
-					if ( _cnt987>=1 ) { break _loop987; } else {throw new NoViableAltException(LT(1), getFilename());}
+					if ( _cnt411>=1 ) { break _loop411; } else {throw new NoViableAltException(LT(1), getFilename());}
 				}
 				
-				_cnt987++;
+				_cnt411++;
 			} while (true);
 			}
 			match(SQUARE_PAREN_R);
@@ -491,8 +491,8 @@ public StochasticExpressionsParser(ParserSharedInputState state) {
 			match(RPAREN);
 			match(SQUARE_PAREN_L);
 			{
-			int _cnt990=0;
-			_loop990:
+			int _cnt414=0;
+			_loop414:
 			do {
 				if ((LA(1)==LPAREN)) {
 					Sample rsample=null;
@@ -500,10 +500,10 @@ public StochasticExpressionsParser(ParserSharedInputState state) {
 					((ProbabilityMassFunction)probFunction).getSamples().add(rsample);
 				}
 				else {
-					if ( _cnt990>=1 ) { break _loop990; } else {throw new NoViableAltException(LT(1), getFilename());}
+					if ( _cnt414>=1 ) { break _loop414; } else {throw new NoViableAltException(LT(1), getFilename());}
 				}
 				
-				_cnt990++;
+				_cnt414++;
 			} while (true);
 			}
 			match(SQUARE_PAREN_R);
@@ -544,8 +544,8 @@ public StochasticExpressionsParser(ParserSharedInputState state) {
 			match(RPAREN);
 			match(SQUARE_PAREN_L);
 			{
-			int _cnt994=0;
-			_loop994:
+			int _cnt418=0;
+			_loop418:
 			do {
 				if ((LA(1)==LPAREN)) {
 					Sample ssample=null;
@@ -553,10 +553,10 @@ public StochasticExpressionsParser(ParserSharedInputState state) {
 					((ProbabilityMassFunction)probFunction).getSamples().add(ssample);
 				}
 				else {
-					if ( _cnt994>=1 ) { break _loop994; } else {throw new NoViableAltException(LT(1), getFilename());}
+					if ( _cnt418>=1 ) { break _loop418; } else {throw new NoViableAltException(LT(1), getFilename());}
 				}
 				
-				_cnt994++;
+				_cnt418++;
 			} while (true);
 			}
 			match(SQUARE_PAREN_R);
@@ -576,8 +576,8 @@ public StochasticExpressionsParser(ParserSharedInputState state) {
 			match(RPAREN);
 			match(SQUARE_PAREN_L);
 			{
-			int _cnt997=0;
-			_loop997:
+			int _cnt421=0;
+			_loop421:
 			do {
 				if ((LA(1)==LPAREN)) {
 					ContinuousSample pdf_sample=null;
@@ -585,10 +585,10 @@ public StochasticExpressionsParser(ParserSharedInputState state) {
 					((BoxedPDF)probFunction).getSamples().add(pdf_sample);
 				}
 				else {
-					if ( _cnt997>=1 ) { break _loop997; } else {throw new NoViableAltException(LT(1), getFilename());}
+					if ( _cnt421>=1 ) { break _loop421; } else {throw new NoViableAltException(LT(1), getFilename());}
 				}
 				
-				_cnt997++;
+				_cnt421++;
 			} while (true);
 			}
 			match(SQUARE_PAREN_R);
@@ -629,8 +629,8 @@ public StochasticExpressionsParser(ParserSharedInputState state) {
 			match(RPAREN);
 			match(SQUARE_PAREN_L);
 			{
-			int _cnt1001=0;
-			_loop1001:
+			int _cnt425=0;
+			_loop425:
 			do {
 				if ((LA(1)==LPAREN)) {
 					Sample ssample=null;
@@ -638,10 +638,10 @@ public StochasticExpressionsParser(ParserSharedInputState state) {
 					((ProbabilityMassFunction)probFunction).getSamples().add(ssample);
 				}
 				else {
-					if ( _cnt1001>=1 ) { break _loop1001; } else {throw new NoViableAltException(LT(1), getFilename());}
+					if ( _cnt425>=1 ) { break _loop425; } else {throw new NoViableAltException(LT(1), getFilename());}
 				}
 				
-				_cnt1001++;
+				_cnt425++;
 			} while (true);
 			}
 			match(SQUARE_PAREN_R);
@@ -691,7 +691,7 @@ public StochasticExpressionsParser(ParserSharedInputState state) {
 		
 		match(LITERAL_unit);
 		u = ProbfunctionFactory.eINSTANCE.createUnit();
-		match(EQUAL);
+		match(DEFINITION);
 		str = LT(1);
 		match(STRING_LITERAL);
 		u.setUnitName(str.getText().replace("\"",""));
@@ -786,7 +786,7 @@ public StochasticExpressionsParser(ParserSharedInputState state) {
 		match(LITERAL_unit);
 		u = ProbfunctionFactory.eINSTANCE.createUnit();
 		match(EQUAL);
-		match(30);
+		match(31);
 		u.setUnitName("bool");
 		return u;
 	}
@@ -887,6 +887,7 @@ public StochasticExpressionsParser(ParserSharedInputState state) {
 		"\"DoublePDF\"",
 		"\"BoolPMF\"",
 		"\"unit\"",
+		"DEFINITION",
 		"\"\\\"bool\\\"\"",
 		"\"false\"",
 		"\"true\"",
@@ -898,7 +899,6 @@ public StochasticExpressionsParser(ParserSharedInputState state) {
 		"ID",
 		"DOT",
 		"\"INNER\"",
-		"DEFINITION",
 		"DIGIT",
 		"ALPHA",
 		"WS"

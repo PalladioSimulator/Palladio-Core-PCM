@@ -126,7 +126,7 @@ atom returns [Atom a]
 		  }
 	    ) 
 ;
-
+ 
 definition returns [ProbabilityFunctionLiteral pfl] 
 	{pfl = StoexFactory.eINSTANCE.createProbabilityFunctionLiteral();
 	 ProbabilityFunction probFunction = null; } : 
@@ -222,7 +222,7 @@ unit returns [Unit u]
 	{u = null;}:
 		"unit"
 			{ u = ProbfunctionFactory.eINSTANCE.createUnit(); }
-			EQUAL
+			DEFINITION
 			str:STRING_LITERAL 
 			{u.setUnitName(str.getText().replace("\"",""));} ;
 

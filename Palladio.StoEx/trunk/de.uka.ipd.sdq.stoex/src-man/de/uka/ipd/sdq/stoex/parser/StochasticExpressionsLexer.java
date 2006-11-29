@@ -45,21 +45,21 @@ public StochasticExpressionsLexer(LexerSharedInputState state) {
 	caseSensitiveLiterals = true;
 	setCaseSensitive(true);
 	literals = new Hashtable();
-	literals.put(new ANTLRHashString("VALUE", this), new Integer(37));
-	literals.put(new ANTLRHashString("NUMBER_OF_ELEMENTS", this), new Integer(35));
+	literals.put(new ANTLRHashString("VALUE", this), new Integer(38));
+	literals.put(new ANTLRHashString("NUMBER_OF_ELEMENTS", this), new Integer(36));
 	literals.put(new ANTLRHashString("unit", this), new Integer(29));
-	literals.put(new ANTLRHashString("\"bool\"", this), new Integer(30));
-	literals.put(new ANTLRHashString("INNER", this), new Integer(40));
+	literals.put(new ANTLRHashString("\"bool\"", this), new Integer(31));
+	literals.put(new ANTLRHashString("INNER", this), new Integer(41));
 	literals.put(new ANTLRHashString("BoolPMF", this), new Integer(28));
 	literals.put(new ANTLRHashString("EnumPMF", this), new Integer(24));
 	literals.put(new ANTLRHashString("DoublePMF", this), new Integer(23));
 	literals.put(new ANTLRHashString("DoublePDF", this), new Integer(27));
 	literals.put(new ANTLRHashString("IntPMF", this), new Integer(20));
-	literals.put(new ANTLRHashString("STRUCTURE", this), new Integer(34));
-	literals.put(new ANTLRHashString("true", this), new Integer(32));
-	literals.put(new ANTLRHashString("false", this), new Integer(31));
-	literals.put(new ANTLRHashString("BYTESIZE", this), new Integer(33));
-	literals.put(new ANTLRHashString("TYPE", this), new Integer(36));
+	literals.put(new ANTLRHashString("STRUCTURE", this), new Integer(35));
+	literals.put(new ANTLRHashString("true", this), new Integer(33));
+	literals.put(new ANTLRHashString("false", this), new Integer(32));
+	literals.put(new ANTLRHashString("BYTESIZE", this), new Integer(34));
+	literals.put(new ANTLRHashString("TYPE", this), new Integer(37));
 }
 
 public Token nextToken() throws TokenStreamException {
@@ -426,34 +426,34 @@ tryAgain:
 		int _saveIndex;
 		
 		{
-		int _cnt1033=0;
-		_loop1033:
+		int _cnt457=0;
+		_loop457:
 		do {
 			if (((LA(1) >= '0' && LA(1) <= '9'))) {
 				mDIGIT(false);
 			}
 			else {
-				if ( _cnt1033>=1 ) { break _loop1033; } else {throw new NoViableAltForCharException((char)LA(1), getFilename(), getLine(), getColumn());}
+				if ( _cnt457>=1 ) { break _loop457; } else {throw new NoViableAltForCharException((char)LA(1), getFilename(), getLine(), getColumn());}
 			}
 			
-			_cnt1033++;
+			_cnt457++;
 		} while (true);
 		}
 		{
 		if ((LA(1)=='.')) {
 			match('.');
 			{
-			int _cnt1036=0;
-			_loop1036:
+			int _cnt460=0;
+			_loop460:
 			do {
 				if (((LA(1) >= '0' && LA(1) <= '9'))) {
 					mDIGIT(false);
 				}
 				else {
-					if ( _cnt1036>=1 ) { break _loop1036; } else {throw new NoViableAltForCharException((char)LA(1), getFilename(), getLine(), getColumn());}
+					if ( _cnt460>=1 ) { break _loop460; } else {throw new NoViableAltForCharException((char)LA(1), getFilename(), getLine(), getColumn());}
 				}
 				
-				_cnt1036++;
+				_cnt460++;
 			} while (true);
 			}
 		}
@@ -580,8 +580,8 @@ tryAgain:
 		
 		match("\"");
 		{
-		int _cnt1045=0;
-		_loop1045:
+		int _cnt469=0;
+		_loop469:
 		do {
 			switch ( LA(1)) {
 			case 'A':  case 'B':  case 'C':  case 'D':
@@ -608,10 +608,10 @@ tryAgain:
 			}
 			default:
 			{
-				if ( _cnt1045>=1 ) { break _loop1045; } else {throw new NoViableAltForCharException((char)LA(1), getFilename(), getLine(), getColumn());}
+				if ( _cnt469>=1 ) { break _loop469; } else {throw new NoViableAltForCharException((char)LA(1), getFilename(), getLine(), getColumn());}
 			}
 			}
-			_cnt1045++;
+			_cnt469++;
 		} while (true);
 		}
 		match("\"");
@@ -641,8 +641,8 @@ tryAgain:
 		int _saveIndex;
 		
 		{
-		int _cnt1049=0;
-		_loop1049:
+		int _cnt473=0;
+		_loop473:
 		do {
 			switch ( LA(1)) {
 			case 'A':  case 'B':  case 'C':  case 'D':
@@ -669,10 +669,10 @@ tryAgain:
 			}
 			default:
 			{
-				if ( _cnt1049>=1 ) { break _loop1049; } else {throw new NoViableAltForCharException((char)LA(1), getFilename(), getLine(), getColumn());}
+				if ( _cnt473>=1 ) { break _loop473; } else {throw new NoViableAltForCharException((char)LA(1), getFilename(), getLine(), getColumn());}
 			}
 			}
-			_cnt1049++;
+			_cnt473++;
 		} while (true);
 		}
 		_ttype = testLiteralsTable(_ttype);
