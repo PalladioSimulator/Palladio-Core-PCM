@@ -19,11 +19,11 @@ import de.uka.ipd.sdq.stoex.StoexFactory;
 import de.uka.ipd.sdq.stoex.TermExpression;
 import de.uka.ipd.sdq.stoex.Variable;
 import de.uka.ipd.sdq.stoex.analyser.operations.AddOperation;
+import de.uka.ipd.sdq.stoex.analyser.operations.CompareOperation;
 import de.uka.ipd.sdq.stoex.analyser.operations.DivOperation;
 import de.uka.ipd.sdq.stoex.analyser.operations.EqualsOperation;
 import de.uka.ipd.sdq.stoex.analyser.operations.GreaterEqualOperation;
 import de.uka.ipd.sdq.stoex.analyser.operations.GreaterOperation;
-import de.uka.ipd.sdq.stoex.analyser.operations.ICompareOperation;
 import de.uka.ipd.sdq.stoex.analyser.operations.IOperation;
 import de.uka.ipd.sdq.stoex.analyser.operations.LessEqualOperation;
 import de.uka.ipd.sdq.stoex.analyser.operations.LessOperation;
@@ -59,7 +59,7 @@ public class ExpressionSolveVisitor extends StoexSwitch {
 
 	public Object caseCompareExpression(CompareExpression expr){
 		String opName = expr.getOperation().getName();
-		ICompareOperation op;
+		CompareOperation op;
 		if (opName.equals("GREATER"))
 			op = new GreaterOperation();
 		else if(opName.equals("EQUALS"))
@@ -142,7 +142,7 @@ public class ExpressionSolveVisitor extends StoexSwitch {
 	 * @return
 	 */
 	private Object handleComparison(Expression left, Expression right,
-			ICompareOperation op) {
+			CompareOperation op) {
 		if (isIntDouble(left) && isIntDouble(right))
 			return op.compare(extractDoubleFromLiteral(left),
 					extractDoubleFromLiteral(right));

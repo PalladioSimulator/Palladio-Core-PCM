@@ -1,59 +1,32 @@
 package de.uka.ipd.sdq.stoex.analyser.operations;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import de.uka.ipd.sdq.probfunction.Sample;
-import de.uka.ipd.sdq.probfunction.math.IProbabilityFunctionFactory;
 import de.uka.ipd.sdq.probfunction.math.IProbabilityMassFunction;
-import de.uka.ipd.sdq.probfunction.math.ISample;
-import de.uka.ipd.sdq.probfunction.math.IUnit;
 
-public class EqualsOperation implements ICompareOperation {
+public class EqualsOperation extends CompareOperation {
 
 	public IProbabilityMassFunction compare(double left, double right) {
-		if (left == right){
+		if (left == right)
 			return getBoolPMF(1.0);
-		}
-		return null;
-		
-		
-
+		else
+			return getBoolPMF(0.0);
 	}
 
-	/**
-	 * @param left
-	 * @param right
-	 * @return
-	 */
-	private IProbabilityMassFunction getBoolPMF(double trueProb) {
-		IProbabilityFunctionFactory probFac = 
-			IProbabilityFunctionFactory.eINSTANCE;
-
-		IUnit unit = probFac.createUnit("bool");
-		
-		List<ISample> sampleList = new ArrayList<ISample>();
-		sampleList.add(probFac.createSample("TRUE", trueProb));
-		sampleList.add(probFac.createSample("FALSE", 1-trueProb));
-
-		IProbabilityMassFunction boolPMF = probFac
-				.createProbabilityMassFunction(sampleList, unit, true);
-
-		return boolPMF;
-	}
-
-	public IProbabilityMassFunction compare(IProbabilityMassFunction left, double right) {
+	public IProbabilityMassFunction compare(IProbabilityMassFunction left,
+			double right) {
 		List samples = left.getSamples();
-		for (Object o : samples){
-			Sample sample = (Sample)o;
-			if (sample.getValue() instanceof Double){
-				Double value = (Double)sample.getValue();
-				if (value.doubleValue() == right){
-					return sample.getProbability();
+		for (Object o : samples) {
+			Sample sample = (Sample) o;
+			if (sample.getValue() instanceof Double) {
+				Double value = (Double) sample.getValue();
+				if (value.doubleValue() == right) {
+					return getBoolPMF(sample.getProbability());
 				}
 			}
 		}
-		return 0.0;
+		return getBoolPMF(0.0);
 	}
 
 	public IProbabilityMassFunction compare(IProbabilityMassFunction left,
@@ -62,7 +35,7 @@ public class EqualsOperation implements ICompareOperation {
 		List rightSamples = right.getSamples();
 
 		if (leftSamples.size() != rightSamples.size())
-			return 0.0;
+			return getBoolPMF(0.0);
 
 		for (int i = 0; i < leftSamples.size(); i++) {
 			Sample leftSample = (Sample) leftSamples.get(i);
@@ -70,14 +43,15 @@ public class EqualsOperation implements ICompareOperation {
 
 			if (leftSample.getProbability() != rightSample.getProbability()
 					|| leftSample.getValue() != rightSample.getValue()) {
-				return 0.0;
+				return getBoolPMF(0.0);
 			}
 		}
-		return 1.0;
+		return getBoolPMF(1.0);
 	}
 
-	public IProbabilityMassFunction compare(double left, IProbabilityMassFunction right) {
-		return compare(right,left);
+	public IProbabilityMassFunction compare(double left,
+			IProbabilityMassFunction right) {
+		return compare(right, left);
 	}
 
 }

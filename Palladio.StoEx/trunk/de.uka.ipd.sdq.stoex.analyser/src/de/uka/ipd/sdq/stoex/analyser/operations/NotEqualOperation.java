@@ -2,29 +2,28 @@ package de.uka.ipd.sdq.stoex.analyser.operations;
 
 import de.uka.ipd.sdq.probfunction.math.IProbabilityMassFunction;
 
-public class NotEqualOperation implements ICompareOperation {
+public class NotEqualOperation extends CompareOperation {
 
-	public double compare(double left, double right) {
+	public IProbabilityMassFunction compare(double left, double right) {
 		if (left != right)
-			return 1.0;
+			return getBoolPMF(1.0);
 		else
-			return 0.0;
+			return getBoolPMF(0.0);
 	}
 
-	public double compare(IProbabilityMassFunction left, double right) {
+	public IProbabilityMassFunction compare(IProbabilityMassFunction left, double right) {
 		// TODO Auto-generated method stub
-		return 0;
+		return getBoolPMF(0.0);
 	}
 
-	public double compare(double left, IProbabilityMassFunction right) {
+	public IProbabilityMassFunction compare(double left, IProbabilityMassFunction right) {
 		// TODO Auto-generated method stub
-		return 0;
+		return getBoolPMF(0.0);
 	}
 
-	public double compare(IProbabilityMassFunction left,
+	public IProbabilityMassFunction compare(IProbabilityMassFunction left,
 			IProbabilityMassFunction right) {
 		// TODO Auto-generated method stub
-		return 0;
+		return getBoolPMF(0.0);
 	}
-
 }
