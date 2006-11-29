@@ -39,9 +39,37 @@ atom returns [Atom a]
 		  }
 		  | 
 		  a = definition
+		  |
+		  // string literal
+		  sl:STRING_LITERAL
+		  {
+		  	StringLiteral stringLiteral = StoexFactory.eINSTANCE.createStringLiteral();
+		  	stringLiteral.setValue(sl.getText().replace("\"",""));
+		  	a = stringLiteral;
+		  }
+		  |
+		  // boolean literal
+		  {String bl = null;}
+		  bl = boolean_keywords
+		  {
+		  	BoolLiteral boolLiteral = StoexFactory.eINSTANCE.createBoolLiteral();
+	  		boolLiteral.setValue(bl.equals("true"));
+		  	a = boolLiteral;
+		  }
+		  |
+		  // parenthesis expression
+		  {Expression inner = null;}
+		  LPAREN
+		  inner = compareExpr
+		  RPAREN
+		  {
+			Parenthesis paren = StoexFactory.eINSTANCE.createParenthesis();
+			paren.setInnerExpression(inner);
+			a = paren;
+		  }
 	    )
 ;
- 
+  
 characterisation returns [VariableCharacterisationType ct]
 {ct = null; String type="";} :
 	type = characterisation_keywords

@@ -10,9 +10,9 @@
 public interface VariableUsageParserTokenTypes {
 	int EOF = 1;
 	int NULL_TREE_LOOKAHEAD = 3;
-	int EQUAL = 4;
-	int GREATER = 5;
-	int LESS = 6;
+	int GREATER = 4;
+	int LESS = 5;
+	int EQUAL = 6;
 	int NOTEQUAL = 7;
 	int GREATEREQUAL = 8;
 	int LESSEQUAL = 9;
@@ -23,19 +23,19 @@ public interface VariableUsageParserTokenTypes {
 	int MOD = 14;
 	int POW = 15;
 	int NUMBER = 16;
-	int LITERAL_IntPMF = 17;
+	int STRING_LITERAL = 17;
 	int LPAREN = 18;
 	int RPAREN = 19;
-	int SQUARE_PAREN_L = 20;
-	int SQUARE_PAREN_R = 21;
-	int LITERAL_DoublePMF = 22;
-	int LITERAL_EnumPMF = 23;
-	int SEMI = 24;
-	int ORDERED_DEF = 25;
-	int LITERAL_DoublePDF = 26;
-	int LITERAL_BoolPMF = 27;
-	int LITERAL_unit = 28;
-	int STRING_LITERAL = 29;
+	int LITERAL_IntPMF = 20;
+	int SQUARE_PAREN_L = 21;
+	int SQUARE_PAREN_R = 22;
+	int LITERAL_DoublePMF = 23;
+	int LITERAL_EnumPMF = 24;
+	int SEMI = 25;
+	int ORDERED_DEF = 26;
+	int LITERAL_DoublePDF = 27;
+	int LITERAL_BoolPMF = 28;
+	int LITERAL_unit = 29;
 	// "\"bool\"" = 30
 	int LITERAL_false = 31;
 	int LITERAL_true = 32;
@@ -47,7 +47,8 @@ public interface VariableUsageParserTokenTypes {
 	int ID = 38;
 	int DOT = 39;
 	int LITERAL_INNER = 40;
-	int DIGIT = 41;
-	int ALPHA = 42;
-	int WS = 43;
+	int DEFINITION = 41;
+	int DIGIT = 42;
+	int ALPHA = 43;
+	int WS = 44;
 }

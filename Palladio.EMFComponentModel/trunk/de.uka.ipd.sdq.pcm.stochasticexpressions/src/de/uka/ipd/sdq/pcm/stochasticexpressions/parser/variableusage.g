@@ -23,7 +23,7 @@ variable_usage returns [VariableUsage vu]
 variable_characterisation returns [VariableCharacterisation vc]
 	{vc = ParameterFactory.eINSTANCE.createVariableCharacterisation();
 	Expression ex; VariableCharacterisationType type;} :
-		type = characterisation ex = expression
+		type = characterisation DEFINITION ex = expression
 		{	vc.setType(type);
 			String result = "= " + new PCMStoExPrettyPrintVisitor().prettyPrint(ex);
 			vc.setSpecification(result);

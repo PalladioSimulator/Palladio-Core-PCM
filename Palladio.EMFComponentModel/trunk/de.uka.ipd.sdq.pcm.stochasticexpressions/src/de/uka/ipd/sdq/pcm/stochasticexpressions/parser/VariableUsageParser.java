@@ -74,7 +74,7 @@ public VariableUsageParser(ParserSharedInputState state) {
 		match(ID);
 		nameParts.add(id1.getText());
 		{
-		_loop2402:
+		_loop1254:
 		do {
 			if ((LA(1)==DOT) && (LA(2)==ID||LA(2)==LITERAL_INNER)) {
 				match(DOT);
@@ -101,7 +101,7 @@ public VariableUsageParser(ParserSharedInputState state) {
 				}
 			}
 			else {
-				break _loop2402;
+				break _loop1254;
 			}
 			
 		} while (true);
@@ -138,6 +138,7 @@ public VariableUsageParser(ParserSharedInputState state) {
 			Expression ex; VariableCharacterisationType type;
 		
 		type=characterisation();
+		match(DEFINITION);
 		ex=expression();
 			vc.setType(type);
 					String result = "= " + new PCMStoExPrettyPrintVisitor().prettyPrint(ex);
@@ -172,7 +173,6 @@ public VariableUsageParser(ParserSharedInputState state) {
 		exp = null;
 		
 		Comparison c;
-		match(EQUAL);
 		c=compareExpr();
 		exp = c;
 		return exp;
@@ -182,6 +182,7 @@ public VariableUsageParser(ParserSharedInputState state) {
 		Atom a;
 		
 		Token  number = null;
+		Token  sl = null;
 		a = null;
 		
 		{
@@ -228,6 +229,42 @@ public VariableUsageParser(ParserSharedInputState state) {
 			a=definition();
 			break;
 		}
+		case STRING_LITERAL:
+		{
+			sl = LT(1);
+			match(STRING_LITERAL);
+			
+					  	StringLiteral stringLiteral = StoexFactory.eINSTANCE.createStringLiteral();
+					  	stringLiteral.setValue(sl.getText().replace("\"",""));
+					  	a = stringLiteral;
+					
+			break;
+		}
+		case LITERAL_false:
+		case LITERAL_true:
+		{
+			String bl = null;
+			bl=boolean_keywords();
+			
+					  	BoolLiteral boolLiteral = StoexFactory.eINSTANCE.createBoolLiteral();
+				  		boolLiteral.setValue(bl.equals("true"));
+					  	a = boolLiteral;
+					
+			break;
+		}
+		case LPAREN:
+		{
+			Expression inner = null;
+			match(LPAREN);
+			inner=expression();
+			match(RPAREN);
+			
+						Parenthesis paren = StoexFactory.eINSTANCE.createParenthesis();
+						paren.setInnerExpression(inner);
+						a = paren;
+					
+			break;
+		}
 		default:
 		{
 			throw new NoViableAltException(LT(1), getFilename());
@@ -258,8 +295,8 @@ public VariableUsageParser(ParserSharedInputState state) {
 			match(RPAREN);
 			match(SQUARE_PAREN_L);
 			{
-			int _cnt2374=0;
-			_loop2374:
+			int _cnt1225=0;
+			_loop1225:
 			do {
 				if ((LA(1)==LPAREN)) {
 					Sample isample=null;
@@ -267,10 +304,10 @@ public VariableUsageParser(ParserSharedInputState state) {
 					((ProbabilityMassFunction)probFunction).getSamples().add(isample);
 				}
 				else {
-					if ( _cnt2374>=1 ) { break _loop2374; } else {throw new NoViableAltException(LT(1), getFilename());}
+					if ( _cnt1225>=1 ) { break _loop1225; } else {throw new NoViableAltException(LT(1), getFilename());}
 				}
 				
-				_cnt2374++;
+				_cnt1225++;
 			} while (true);
 			}
 			match(SQUARE_PAREN_R);
@@ -290,8 +327,8 @@ public VariableUsageParser(ParserSharedInputState state) {
 			match(RPAREN);
 			match(SQUARE_PAREN_L);
 			{
-			int _cnt2377=0;
-			_loop2377:
+			int _cnt1228=0;
+			_loop1228:
 			do {
 				if ((LA(1)==LPAREN)) {
 					Sample rsample=null;
@@ -299,10 +336,10 @@ public VariableUsageParser(ParserSharedInputState state) {
 					((ProbabilityMassFunction)probFunction).getSamples().add(rsample);
 				}
 				else {
-					if ( _cnt2377>=1 ) { break _loop2377; } else {throw new NoViableAltException(LT(1), getFilename());}
+					if ( _cnt1228>=1 ) { break _loop1228; } else {throw new NoViableAltException(LT(1), getFilename());}
 				}
 				
-				_cnt2377++;
+				_cnt1228++;
 			} while (true);
 			}
 			match(SQUARE_PAREN_R);
@@ -343,8 +380,8 @@ public VariableUsageParser(ParserSharedInputState state) {
 			match(RPAREN);
 			match(SQUARE_PAREN_L);
 			{
-			int _cnt2381=0;
-			_loop2381:
+			int _cnt1232=0;
+			_loop1232:
 			do {
 				if ((LA(1)==LPAREN)) {
 					Sample ssample=null;
@@ -352,10 +389,10 @@ public VariableUsageParser(ParserSharedInputState state) {
 					((ProbabilityMassFunction)probFunction).getSamples().add(ssample);
 				}
 				else {
-					if ( _cnt2381>=1 ) { break _loop2381; } else {throw new NoViableAltException(LT(1), getFilename());}
+					if ( _cnt1232>=1 ) { break _loop1232; } else {throw new NoViableAltException(LT(1), getFilename());}
 				}
 				
-				_cnt2381++;
+				_cnt1232++;
 			} while (true);
 			}
 			match(SQUARE_PAREN_R);
@@ -375,8 +412,8 @@ public VariableUsageParser(ParserSharedInputState state) {
 			match(RPAREN);
 			match(SQUARE_PAREN_L);
 			{
-			int _cnt2384=0;
-			_loop2384:
+			int _cnt1235=0;
+			_loop1235:
 			do {
 				if ((LA(1)==LPAREN)) {
 					ContinuousSample pdf_sample=null;
@@ -384,10 +421,10 @@ public VariableUsageParser(ParserSharedInputState state) {
 					((BoxedPDF)probFunction).getSamples().add(pdf_sample);
 				}
 				else {
-					if ( _cnt2384>=1 ) { break _loop2384; } else {throw new NoViableAltException(LT(1), getFilename());}
+					if ( _cnt1235>=1 ) { break _loop1235; } else {throw new NoViableAltException(LT(1), getFilename());}
 				}
 				
-				_cnt2384++;
+				_cnt1235++;
 			} while (true);
 			}
 			match(SQUARE_PAREN_R);
@@ -428,8 +465,8 @@ public VariableUsageParser(ParserSharedInputState state) {
 			match(RPAREN);
 			match(SQUARE_PAREN_L);
 			{
-			int _cnt2388=0;
-			_loop2388:
+			int _cnt1239=0;
+			_loop1239:
 			do {
 				if ((LA(1)==LPAREN)) {
 					Sample ssample=null;
@@ -437,10 +474,10 @@ public VariableUsageParser(ParserSharedInputState state) {
 					((ProbabilityMassFunction)probFunction).getSamples().add(ssample);
 				}
 				else {
-					if ( _cnt2388>=1 ) { break _loop2388; } else {throw new NoViableAltException(LT(1), getFilename());}
+					if ( _cnt1239>=1 ) { break _loop1239; } else {throw new NoViableAltException(LT(1), getFilename());}
 				}
 				
-				_cnt2388++;
+				_cnt1239++;
 			} while (true);
 			}
 			match(SQUARE_PAREN_R);
@@ -452,6 +489,34 @@ public VariableUsageParser(ParserSharedInputState state) {
 		}
 		}
 		return pfl;
+	}
+	
+	public final String  boolean_keywords() throws RecognitionException, TokenStreamException {
+		String keyword;
+		
+		keyword = null;
+		
+		{
+		switch ( LA(1)) {
+		case LITERAL_false:
+		{
+			match(LITERAL_false);
+			keyword = "false";
+			break;
+		}
+		case LITERAL_true:
+		{
+			match(LITERAL_true);
+			keyword = "true";
+			break;
+		}
+		default:
+		{
+			throw new NoViableAltException(LT(1), getFilename());
+		}
+		}
+		}
+		return keyword;
 	}
 	
 	public final String  characterisation_keywords() throws RecognitionException, TokenStreamException {
@@ -510,9 +575,9 @@ public VariableUsageParser(ParserSharedInputState state) {
 		comp = t1;
 		{
 		switch ( LA(1)) {
-		case EQUAL:
 		case GREATER:
 		case LESS:
+		case EQUAL:
 		case NOTEQUAL:
 		case GREATEREQUAL:
 		case LESSEQUAL:
@@ -567,6 +632,7 @@ public VariableUsageParser(ParserSharedInputState state) {
 			break;
 		}
 		case EOF:
+		case RPAREN:
 		{
 			break;
 		}
@@ -588,7 +654,7 @@ public VariableUsageParser(ParserSharedInputState state) {
 		p1=prodExpr();
 		t = p1;
 		{
-		_loop2364:
+		_loop1215:
 		do {
 			if ((LA(1)==PLUS||LA(1)==MINUS)) {
 				TermExpression termExp = StoexFactory.eINSTANCE.createTermExpression();
@@ -616,7 +682,7 @@ public VariableUsageParser(ParserSharedInputState state) {
 				termExp.setLeft(t); termExp.setRight(p2); t = termExp;
 			}
 			else {
-				break _loop2364;
+				break _loop1215;
 			}
 			
 		} while (true);
@@ -633,7 +699,7 @@ public VariableUsageParser(ParserSharedInputState state) {
 		pw1=powExpr();
 		p = pw1;
 		{
-		_loop2368:
+		_loop1219:
 		do {
 			if (((LA(1) >= MUL && LA(1) <= MOD))) {
 				ProductExpression prodExp = StoexFactory.eINSTANCE.createProductExpression();
@@ -667,7 +733,7 @@ public VariableUsageParser(ParserSharedInputState state) {
 				prodExp.setLeft(p); prodExp.setRight(pw2); p = prodExp;
 			}
 			else {
-				break _loop2368;
+				break _loop1219;
 			}
 			
 		} while (true);
@@ -689,12 +755,15 @@ public VariableUsageParser(ParserSharedInputState state) {
 		{
 			match(POW);
 			a2=atom();
+			PowerExpression pwExp = StoexFactory.eINSTANCE.createPowerExpression();
+								pwExp.setBase(a1); pwExp.setExponent(a2); pw = pwExp;
+							
 			break;
 		}
 		case EOF:
-		case EQUAL:
 		case GREATER:
 		case LESS:
+		case EQUAL:
 		case NOTEQUAL:
 		case GREATEREQUAL:
 		case LESSEQUAL:
@@ -703,6 +772,7 @@ public VariableUsageParser(ParserSharedInputState state) {
 		case MUL:
 		case DIV:
 		case MOD:
+		case RPAREN:
 		{
 			break;
 		}
@@ -827,7 +897,7 @@ public VariableUsageParser(ParserSharedInputState state) {
 		Sample s;
 		
 		Token  n = null;
-		s = null;
+		s = null;String str = null;
 		
 		match(LPAREN);
 		s = ProbfunctionFactory.eINSTANCE.createSample();
@@ -835,26 +905,8 @@ public VariableUsageParser(ParserSharedInputState state) {
 		match(NUMBER);
 		s.setProbability(Double.parseDouble(n.getText()));
 		match(SEMI);
-		{
-		switch ( LA(1)) {
-		case LITERAL_false:
-		{
-			match(LITERAL_false);
-			s.setValue("false");
-			break;
-		}
-		case LITERAL_true:
-		{
-			match(LITERAL_true);
-			s.setValue("true");
-			break;
-		}
-		default:
-		{
-			throw new NoViableAltException(LT(1), getFilename());
-		}
-		}
-		}
+		str=boolean_keywords();
+		s.setValue(str);
 		match(RPAREN);
 		return s;
 	}
@@ -865,9 +917,9 @@ public VariableUsageParser(ParserSharedInputState state) {
 		"EOF",
 		"<2>",
 		"NULL_TREE_LOOKAHEAD",
-		"EQUAL",
 		"GREATER",
 		"LESS",
+		"EQUAL",
 		"NOTEQUAL",
 		"GREATEREQUAL",
 		"LESSEQUAL",
@@ -878,9 +930,10 @@ public VariableUsageParser(ParserSharedInputState state) {
 		"MOD",
 		"POW",
 		"NUMBER",
-		"\"IntPMF\"",
+		"STRING_LITERAL",
 		"LPAREN",
 		"RPAREN",
+		"\"IntPMF\"",
 		"SQUARE_PAREN_L",
 		"SQUARE_PAREN_R",
 		"\"DoublePMF\"",
@@ -890,7 +943,6 @@ public VariableUsageParser(ParserSharedInputState state) {
 		"\"DoublePDF\"",
 		"\"BoolPMF\"",
 		"\"unit\"",
-		"STRING_LITERAL",
 		"\"\\\"bool\\\"\"",
 		"\"false\"",
 		"\"true\"",
@@ -902,6 +954,7 @@ public VariableUsageParser(ParserSharedInputState state) {
 		"ID",
 		"DOT",
 		"\"INNER\"",
+		"DEFINITION",
 		"DIGIT",
 		"ALPHA",
 		"WS"

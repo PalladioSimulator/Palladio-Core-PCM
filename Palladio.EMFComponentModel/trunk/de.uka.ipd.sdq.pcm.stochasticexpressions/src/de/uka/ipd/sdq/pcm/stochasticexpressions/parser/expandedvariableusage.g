@@ -25,7 +25,7 @@ variable_usage returns [VariableUsage vu]{vu = null; AbstractNamedReference id; 
 
 variable_characterisation returns [VariableCharacterisation vc]{vc = ParameterFactory.eINSTANCE.createVariableCharacterisation();
 	Expression ex; VariableCharacterisationType type;}
-:type = characterisation ex = expression
+:type = characterisation DEFINITION ex = expression
 		{	vc.setType(type);
 			String result = "= " + new PCMStoExPrettyPrintVisitor().prettyPrint(ex);
 			vc.setSpecification(result);
@@ -60,6 +60,34 @@ atom returns [Atom a]{a = null;}
 		  }
 		  | 
 		  a = definition
+		  |
+		  // string literal
+		  sl:STRING_LITERAL
+		  {
+		  	StringLiteral stringLiteral = StoexFactory.eINSTANCE.createStringLiteral();
+		  	stringLiteral.setValue(sl.getText().replace("\"",""));
+		  	a = stringLiteral;
+		  }
+		  |
+		  // boolean literal
+		  {String bl = null;}
+		  bl = boolean_keywords
+		  {
+		  	BoolLiteral boolLiteral = StoexFactory.eINSTANCE.createBoolLiteral();
+	  		boolLiteral.setValue(bl.equals("true"));
+		  	a = boolLiteral;
+		  }
+		  |
+		  // parenthesis expression
+		  {Expression inner = null;}
+		  LPAREN
+		  inner = expression
+		  RPAREN
+		  {
+			Parenthesis paren = StoexFactory.eINSTANCE.createParenthesis();
+			paren.setInnerExpression(inner);
+			a = paren;
+		  }
 	    )
 ;
 
@@ -82,7 +110,7 @@ characterisation returns [VariableCharacterisationType ct]{ct = null; String typ
 // inherited from grammar PCMStoExParser
 expression returns [Expression exp]{exp = null;}
 :{Comparison c;} 
-			EQUAL c=compareExpr
+			c=compareExpr
 		{exp = c;};
 
 // inherited from grammar PCMStoExParser
@@ -128,7 +156,13 @@ prodExpr returns [Product p]{p = null;}
 // inherited from grammar PCMStoExParser
 powExpr returns [Power pw]{pw = null;}
 :{Atom a1 = null, a2 = null;}
-		a1 = atom {pw = a1;} (POW a2 = atom |) ;
+		a1 = atom {pw = a1;} 
+			(POW a2 = atom
+				{PowerExpression pwExp = StoexFactory.eINSTANCE.createPowerExpression();
+					pwExp.setBase(a1); pwExp.setExponent(a2); pw = pwExp;
+				}
+			)? 		
+;
 
 // inherited from grammar PCMStoExParser
 definition returns [ProbabilityFunctionLiteral pfl]{pfl = StoexFactory.eINSTANCE.createProbabilityFunctionLiteral();
@@ -280,20 +314,25 @@ stringsample returns [Sample s]{s = null;}
 		RPAREN;
 
 // inherited from grammar PCMStoExParser
-boolsample returns [Sample s]{s = null;}
+boolsample returns [Sample s]{s = null;String str = null;}
 :LPAREN
 			{s = ProbfunctionFactory.eINSTANCE.createSample();} 
 		n:NUMBER 
 			{s.setProbability(Double.parseDouble(n.getText()));} 
 		SEMI
-		(
+		str = boolean_keywords
+		{s.setValue(str);}
+		RPAREN;
+
+// inherited from grammar PCMStoExParser
+boolean_keywords returns [String keyword]{keyword = null;}
+:(
 		"false"
-			{s.setValue("false");} 
+			{keyword = "false";} 
 		|
 		"true"
-			{s.setValue("true");} 
-		)
-		RPAREN;
+			{keyword = "true";} 
+		);
 
 // inherited from grammar PCMStoExParser
 characterisation_keywords returns [String keyword]{keyword = null;}
