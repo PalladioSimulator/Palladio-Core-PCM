@@ -12,17 +12,16 @@ import org.eclipse.emf.ecore.EObject;
 import de.uka.ipd.sdq.context.allocation.ActualResourceDemand;
 import de.uka.ipd.sdq.context.allocation.AllocationFactory;
 import de.uka.ipd.sdq.dsolver.Context;
+import de.uka.ipd.sdq.dsolver.helper.ExpressionHelper;
 import de.uka.ipd.sdq.pcm.allocation.Allocation;
 import de.uka.ipd.sdq.pcm.allocation.AllocationContext;
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
-import de.uka.ipd.sdq.pcm.core.stochastics.Expression;
-import de.uka.ipd.sdq.pcm.core.stochastics.RandomVariable;
-import de.uka.ipd.sdq.pcm.core.stochastics.StochasticsFactory;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer;
 import de.uka.ipd.sdq.pcm.resourcetype.ProcessingResourceType;
 import de.uka.ipd.sdq.pcm.seff.InternalAction;
 import de.uka.ipd.sdq.pcm.seff.ParametricResourceDemand;
+import de.uka.ipd.sdq.stoex.StoexFactory;
 
 /**
  * @author Koziolek
@@ -32,14 +31,11 @@ public class InternalActionHandler extends AbstractHandler{
 	
 	private static Logger logger = Logger.getLogger(InternalActionHandler.class.getName());
 	
-	private StochasticsFactory stochasticsFactory;
-
 	private AllocationFactory actualAllocationFactory;
 
 	private Context myContext;
 	
 	public InternalActionHandler(Context context, AbstractHandler nextHandler) {
-		stochasticsFactory = StochasticsFactory.eINSTANCE;
 		actualAllocationFactory = AllocationFactory.eINSTANCE;
 		myContext = context;
 		successor = nextHandler;
@@ -59,10 +55,7 @@ public class InternalActionHandler extends AbstractHandler{
 			ParametricResourceDemand prd = (ParametricResourceDemand) resourceDemands.next();
 			ProcessingResourceType requiredResourceType = prd.getRequiredResource_ParametricResourceDemand();
 
-			AllocationContext ac = findAllocationContext(myContext.getDerivedAssemblyContext());
-			ResourceContainer currentResourceContainer = ac.getResourceContainer_AllocationContext();
-			EList resourceList = currentResourceContainer
-					.getActiveResourceSpecifications_ResourceContainer();
+			EList resourceList = getResourceList();
 			Iterator iter = resourceList.iterator();
 			while (iter.hasNext()) {
 				ProcessingResourceSpecification prs = (ProcessingResourceSpecification) iter.next();
@@ -70,29 +63,44 @@ public class InternalActionHandler extends AbstractHandler{
 						.getActiveResourceType_ActiveResourceSpecification();
 				if (currentResourceType.getEntityName().equals(
 						requiredResourceType.getEntityName())) {
-					// TODO: solve dependency, include branch conditions and loop iterations
-					// here: only copy random variable specification
-					Expression expression = prd.getSpecification_RandomVariable();
-					String specification = prd.getSpecification();
-					RandomVariable rv = stochasticsFactory
-							.createRandomVariable();
-					//rv.setSpecification_RandomVariable(expression);
-					rv.setSpecification(specification);
-					
-					
-					ActualResourceDemand ard = actualAllocationFactory
-							.createActualResourceDemand();
-					ard.setParametricResourceDemand_ActualResourceDemand(prd);
-					ard.setParametricResourceDemand_ActualResourceDemand(prd);
-
-					ard.setRandomVariable_ActualResourceDemand(rv);
-
-					myContext.getActualAllocationContext()
-							.getActualResourceDemands_ActualAllocationContext()
-							.add(ard);
+					createActualResourceDemand(prd);
 				}
 			}
 		}
+	}
+
+	/**
+	 * @param prd
+	 */
+	private void createActualResourceDemand(ParametricResourceDemand prd) {
+		// TODO: include branch conditions and loop iterations
+		String specification = prd.getSpecification();
+		String solvedSpecification = ExpressionHelper
+				.getSolvedExpressionAsString(specification,
+						myContext);
+		logger.debug("Computed Actual Resource Demand: "+solvedSpecification);
+		
+		ActualResourceDemand ard = actualAllocationFactory
+				.createActualResourceDemand();
+		ard.setParametricResourceDemand_ActualResourceDemand(prd);
+		ard.setParametricResourceDemand_ActualResourceDemand(prd);
+
+		ard.setSpecification(solvedSpecification);
+
+		myContext.getActualAllocationContext()
+				.getActualResourceDemands_ActualAllocationContext()
+				.add(ard);
+	}
+
+	/**
+	 * @return
+	 */
+	private EList getResourceList() {
+		AllocationContext ac = findAllocationContext(myContext.getDerivedAssemblyContext());
+		ResourceContainer currentResourceContainer = ac.getResourceContainer_AllocationContext();
+		EList resourceList = currentResourceContainer
+				.getActiveResourceSpecifications_ResourceContainer();
+		return resourceList;
 	}
 
 	/**

@@ -13,23 +13,19 @@ import de.uka.ipd.sdq.context.usage.UsageFactory;
 import de.uka.ipd.sdq.dsolver.Context;
 import de.uka.ipd.sdq.dsolver.PCMInstance;
 import de.uka.ipd.sdq.dsolver.helper.EMFHelper;
-import de.uka.ipd.sdq.dsolver.visitors.ExpressionSolveVisitor;
+import de.uka.ipd.sdq.dsolver.helper.ExpressionHelper;
 import de.uka.ipd.sdq.dsolver.visitors.SeffVisitor;
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyConnector;
-import de.uka.ipd.sdq.pcm.core.stochastics.Expression;
 import de.uka.ipd.sdq.pcm.parameter.ParameterFactory;
 import de.uka.ipd.sdq.pcm.parameter.VariableCharacterisation;
 import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
 import de.uka.ipd.sdq.pcm.repository.BasicComponent;
 import de.uka.ipd.sdq.pcm.repository.Interface;
-import de.uka.ipd.sdq.pcm.repository.Parameter;
 import de.uka.ipd.sdq.pcm.repository.Signature;
 import de.uka.ipd.sdq.pcm.seff.ExternalCallAction;
 import de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF;
 import de.uka.ipd.sdq.pcm.seff.ServiceEffectSpecification;
 import de.uka.ipd.sdq.pcm.seff.util.SeffSwitch;
-import de.uka.ipd.sdq.pcm.stochasticexpressions.ProbFunctionPrettyPrint;
-import de.uka.ipd.sdq.pcm.stochasticexpressions.StoExPrettyPrintVisitor;
 
 public class ExternalCallActionHandler extends AbstractHandler{
 	
@@ -188,21 +184,18 @@ public class ExternalCallActionHandler extends AbstractHandler{
 			EList characterisations = oldUsage.getVariableCharacterisation_VariableUsage();
 			for (Object o2 : characterisations){
 				VariableCharacterisation oldCharacterisation = (VariableCharacterisation)o2;
-				Expression expr = oldCharacterisation.getSpecification_RandomVariable();
 
-				// solve dependencies to other parameters
-				ExpressionSolveVisitor pcExprVisitor = new ExpressionSolveVisitor(
-						expr, myContext);
-				Expression solvedExpr = (Expression) pcExprVisitor.doSwitch(expr);
-				
-				VariableCharacterisation solvedCharacterisation = parameterFactory.createVariableCharacterisation();
+				String specification = oldCharacterisation.getSpecification();
+				String solvedSpecification = ExpressionHelper
+						.getSolvedExpressionAsString(specification, myContext); 
+
+				VariableCharacterisation solvedCharacterisation = parameterFactory
+						.createVariableCharacterisation();
 				solvedCharacterisation.setType(oldCharacterisation.getType());
-				
-				StoExPrettyPrintVisitor printer = new StoExPrettyPrintVisitor();
-				String solvedExprString = "= "+(String) printer.doSwitch(solvedExpr);
-				solvedCharacterisation.setSpecification(solvedExprString);
+				solvedCharacterisation.setSpecification(solvedSpecification);
 				
 				newUsage.getVariableCharacterisation_VariableUsage().add(solvedCharacterisation);
+				
 			}
 			uc.getActualParameterUsage_UsageContext().add(newUsage);
 		}

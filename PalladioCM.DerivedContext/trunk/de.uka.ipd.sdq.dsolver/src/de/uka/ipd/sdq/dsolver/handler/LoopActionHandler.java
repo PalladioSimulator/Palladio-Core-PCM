@@ -15,20 +15,18 @@ import antlr.TokenStreamException;
 import de.uka.ipd.sdq.context.usage.LoopIteration;
 import de.uka.ipd.sdq.context.usage.UsageFactory;
 import de.uka.ipd.sdq.dsolver.Context;
-import de.uka.ipd.sdq.dsolver.visitors.ExpressionSolveVisitor;
+import de.uka.ipd.sdq.dsolver.helper.ExpressionHelper;
 import de.uka.ipd.sdq.dsolver.visitors.SeffVisitor;
-import de.uka.ipd.sdq.pcm.core.stochastics.Expression;
-import de.uka.ipd.sdq.pcm.core.stochastics.IntLiteral;
-import de.uka.ipd.sdq.pcm.core.stochastics.ProbabilityFunctionLiteral;
-import de.uka.ipd.sdq.pcm.core.stochastics.RandomVariable;
-import de.uka.ipd.sdq.pcm.core.stochastics.StochasticsFactory;
 import de.uka.ipd.sdq.pcm.seff.LoopAction;
 import de.uka.ipd.sdq.pcm.seff.ResourceDemandingBehaviour;
-import de.uka.ipd.sdq.pcm.stochasticexpressions.StoExPrettyPrintVisitor;
-import de.uka.ipd.sdq.pcm.stochasticexpressions.parser.StochasticExpressionsLexer;
-import de.uka.ipd.sdq.pcm.stochasticexpressions.parser.StochasticExpressionsParser;
 import de.uka.ipd.sdq.probfunction.ProbabilityMassFunction;
 import de.uka.ipd.sdq.probfunction.Sample;
+import de.uka.ipd.sdq.stoex.Expression;
+import de.uka.ipd.sdq.stoex.IntLiteral;
+import de.uka.ipd.sdq.stoex.ProbabilityFunctionLiteral;
+import de.uka.ipd.sdq.stoex.StoexFactory;
+import de.uka.ipd.sdq.stoex.parser.StochasticExpressionsLexer;
+import de.uka.ipd.sdq.stoex.parser.StochasticExpressionsParser;
 
 /**
  * @author Koziolek
@@ -38,10 +36,8 @@ public class LoopActionHandler extends AbstractHandler {
 	
 	private static Logger logger = Logger.getLogger(LoopActionHandler.class.getName());
 
-	private UsageFactory usageFactory;
+	private UsageFactory usageFactory = UsageFactory.eINSTANCE;
 
-	private StochasticsFactory stochasticsFactory;
-	
 	private SeffVisitor visitor;
 
 	private Context myContext;
@@ -56,8 +52,6 @@ public class LoopActionHandler extends AbstractHandler {
 		myContext = context;
 		visitor = _visitor;
 		successor = nextHandler;
-		usageFactory = UsageFactory.eINSTANCE;
-		stochasticsFactory = StochasticsFactory.eINSTANCE;
 	}
 
 	/*
@@ -78,18 +72,36 @@ public class LoopActionHandler extends AbstractHandler {
 	 * @param loop
 	 */
 	private void handle(LoopAction loop) {
-		Expression solvedIterationCountExpr = solveDependenciesIterationCount(loop);
+		String specification = loop.getIterations_LoopAction()
+				.getSpecification();
+		String solvedSpecification = ExpressionHelper
+				.getSolvedExpressionAsString(specification, myContext);
+
+		createLoopIteration(loop, solvedSpecification);
 		
-		storeToUsageContext(loop, solvedIterationCountExpr);
+		visitLoopBody(loop, solvedSpecification);
+	}
+
+	/**
+	 * @param loop
+	 * @param solvedSpecification
+	 */
+	private void createLoopIteration(LoopAction loop, String solvedSpecification) {
+		LoopIteration loopIteration = usageFactory.createLoopIteration();
+		loopIteration.setLoopaction_LoopIteration(loop);
+		loopIteration.setSpecification(solvedSpecification);
 		
-		visitLoopBody(loop, solvedIterationCountExpr);
+		myContext.getUsageContext().getLoopiterations_UsageContext().add(loopIteration);
 	}
 
 	/**
 	 * @param loop
 	 * @param solvedIterationCountExpr
 	 */
-	private void visitLoopBody(LoopAction loop, Expression solvedIterationCountExpr) {
+	private void visitLoopBody(LoopAction loop, String iterationCountSpecification) {
+		Expression solvedIterationCountExpr = ExpressionHelper
+				.parseToExpression(iterationCountSpecification);
+		
 		int lowerBound = 0;
 		int upperBound = getUpperBound(solvedIterationCountExpr);
 		
@@ -111,38 +123,6 @@ public class LoopActionHandler extends AbstractHandler {
 		}
 		ArrayList curLoop = myContext.getCurrentLoopIterationNumber();
 		curLoop.remove(curLoop.size()-1);
-	}
-
-	/**
-	 * @param loop
-	 * @param solvedIterationCountExpr
-	 */
-	private void storeToUsageContext(LoopAction loop, Expression solvedIterationCountExpr) {
-		StoExPrettyPrintVisitor printer = new StoExPrettyPrintVisitor();		
-		String loopSpecification = "= "+(String) printer.doSwitch(solvedIterationCountExpr);
-		
-		RandomVariable rv = stochasticsFactory.createRandomVariable();
-		rv.setSpecification(loopSpecification);
-		
-		LoopIteration loopIteration = usageFactory.createLoopIteration();
-		loopIteration.setLoopaction_LoopIteration(loop);
-		loopIteration.setIterations_LoopIteration(rv);
-		
-		myContext.getUsageContext().getLoopiterations_UsageContext().add(loopIteration);
-	}
-
-	/**
-	 * @param loop
-	 * @return
-	 */
-	private Expression solveDependenciesIterationCount(LoopAction loop) {
-		Expression loopCountExpr = loop.getIterations_LoopAction()
-				.getSpecification_RandomVariable();
-		ExpressionSolveVisitor loopCountVisitor = new ExpressionSolveVisitor(
-				loopCountExpr,myContext);
-		Expression solvedLoopCountExpr = (Expression) loopCountVisitor
-				.doSwitch(loopCountExpr);
-		return solvedLoopCountExpr;
 	}
 
 	/**
@@ -182,26 +162,4 @@ public class LoopActionHandler extends AbstractHandler {
 		return upperBound;
 	}
 
-	/**
-	 * @param iterations
-	 * @return
-	 */
-	private Expression parseLoopIterations(String iterations) {
-		EObject value = null;
-
-		try {
-			StochasticExpressionsLexer lexer = new StochasticExpressionsLexer(
-					new StringBufferInputStream(iterations));
-			StochasticExpressionsParser parser = new StochasticExpressionsParser(
-					lexer);
-			value = parser.expression();
-		} catch (RecognitionException e) {
-			logger.error("ParserError: " + e.getMessage());
-			return null;
-		} catch (TokenStreamException e) {
-			logger.error("ParserError: " + e.getMessage());
-			return null;
-		}
-		return (Expression) value;
-	}
 }

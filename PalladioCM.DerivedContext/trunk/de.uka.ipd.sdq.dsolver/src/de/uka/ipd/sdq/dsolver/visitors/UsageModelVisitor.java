@@ -1,7 +1,6 @@
 package de.uka.ipd.sdq.dsolver.visitors;
 
 import org.apache.log4j.Logger;
-import org.eclipse.emf.common.util.ECollections;
 import org.eclipse.emf.common.util.EList;
 
 import de.uka.ipd.sdq.context.allocation.ActualAllocation;
@@ -14,9 +13,7 @@ import de.uka.ipd.sdq.dsolver.Context;
 import de.uka.ipd.sdq.dsolver.PCMInstance;
 import de.uka.ipd.sdq.dsolver.helper.EMFHelper;
 import de.uka.ipd.sdq.pcm.core.composition.ProvidedDelegationConnector;
-import de.uka.ipd.sdq.pcm.core.stochastics.Expression;
 import de.uka.ipd.sdq.pcm.repository.BasicComponent;
-import de.uka.ipd.sdq.pcm.repository.Interface;
 import de.uka.ipd.sdq.pcm.repository.ProvidedRole;
 import de.uka.ipd.sdq.pcm.repository.ProvidesComponentType;
 import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
@@ -24,8 +21,6 @@ import de.uka.ipd.sdq.pcm.repository.Signature;
 import de.uka.ipd.sdq.pcm.seff.ResourceDemandingBehaviour;
 import de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF;
 import de.uka.ipd.sdq.pcm.seff.ServiceEffectSpecification;
-import de.uka.ipd.sdq.pcm.stochasticexpressions.StoExPrettyPrintVisitor;
-import de.uka.ipd.sdq.pcm.usagemodel.AbstractUserAction;
 import de.uka.ipd.sdq.pcm.usagemodel.EntryLevelSystemCall;
 import de.uka.ipd.sdq.pcm.usagemodel.ScenarioBehaviour;
 import de.uka.ipd.sdq.pcm.usagemodel.Start;
@@ -217,7 +212,7 @@ public class UsageModelVisitor extends UsagemodelSwitch {
 		// hmm... while copying parList, some of the inner elements were
 		// not initialized. Added the following for-loop to ensure this.
 		// Probably because of EMF's lazy loading? Any nice solution possible?
-		for (Object o : parList){
+		//for (Object o : parList){
 //			ParameterUsage pu = (ParameterUsage)o;
 ////			EList parChar = pu.getParameterCharacterisation_ParameterUsage();
 ////			for (Object p : parChar){
@@ -228,7 +223,7 @@ public class UsageModelVisitor extends UsagemodelSwitch {
 ////				pc.setSpecification(exprStr);
 ////			}
 //			pu.getParameter_ParameterUsage().getParameterName();
-		}
+		//}
 			
 		
 		uc.getActualParameterUsage_UsageContext().addAll(parList);
