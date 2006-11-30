@@ -13,6 +13,8 @@ import de.uka.ipd.sdq.identifier.provider.IdentifierEditPlugin;
 import de.uka.ipd.sdq.pcm.core.entity.provider.PcmEditPlugin;
 import de.uka.ipd.sdq.probfunction.provider.ProbabilityFunctionEditPlugin;
 
+import de.uka.ipd.sdq.stoex.provider.StoexEditPlugin;
+
 /**
  * This is the central singleton for the Context edit plugin.
  * <!-- begin-user-doc -->
@@ -55,6 +57,7 @@ public final class ContextEditPlugin extends EMFPlugin {
 		     IdentifierEditPlugin.INSTANCE,
 		     PcmEditPlugin.INSTANCE,
 		     ProbabilityFunctionEditPlugin.INSTANCE,
+		     StoexEditPlugin.INSTANCE,
 		   });
 	}
 

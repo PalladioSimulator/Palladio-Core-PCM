@@ -7,6 +7,8 @@
 package de.uka.ipd.sdq.context.usage.provider;
 
 
+import de.uka.ipd.sdq.pcm.parameter.ParameterFactory;
+
 import java.util.Collection;
 import java.util.List;
 
@@ -160,6 +162,11 @@ public class UsageContextItemProvider
 			(createChildParameter
 				(UsagePackage.Literals.USAGE_CONTEXT__LOOPITERATIONS_USAGE_CONTEXT,
 				 UsageFactory.eINSTANCE.createLoopIteration()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(UsagePackage.Literals.USAGE_CONTEXT__ACTUAL_PARAMETER_USAGE_USAGE_CONTEXT,
+				 ParameterFactory.eINSTANCE.createVariableUsage()));
 	}
 
 	/**
