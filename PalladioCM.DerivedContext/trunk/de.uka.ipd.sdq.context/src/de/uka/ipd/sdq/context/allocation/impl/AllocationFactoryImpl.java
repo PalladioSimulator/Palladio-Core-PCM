@@ -6,6 +6,8 @@
  */
 package de.uka.ipd.sdq.context.allocation.impl;
 
+import de.uka.ipd.sdq.context.allocation.*;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;

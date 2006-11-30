@@ -68,7 +68,7 @@ public interface UsageContext extends EObject {
 	EList getLoopiterations_UsageContext();
 
 	/**
-	 * Returns the value of the '<em><b>Actual Parameter Usage Usage Context</b></em>' reference list.
+	 * Returns the value of the '<em><b>Actual Parameter Usage Usage Context</b></em>' containment reference list.
 	 * The list contents are of type {@link de.uka.ipd.sdq.pcm.parameter.VariableUsage}.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -76,9 +76,9 @@ public interface UsageContext extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Actual Parameter Usage Usage Context</em>' reference list.
+	 * @return the value of the '<em>Actual Parameter Usage Usage Context</em>' containment reference list.
 	 * @see de.uka.ipd.sdq.context.usage.UsagePackage#getUsageContext_ActualParameterUsage_UsageContext()
-	 * @model type="de.uka.ipd.sdq.pcm.parameter.VariableUsage" ordered="false"
+	 * @model type="de.uka.ipd.sdq.pcm.parameter.VariableUsage" containment="true" ordered="false"
 	 * @generated
 	 */
 	EList getActualParameterUsage_UsageContext();

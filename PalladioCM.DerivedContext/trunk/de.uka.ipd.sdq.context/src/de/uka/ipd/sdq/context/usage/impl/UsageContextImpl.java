@@ -67,7 +67,7 @@ public class UsageContextImpl extends EObjectImpl implements UsageContext {
 	protected EList loopiterations_UsageContext = null;
 
 	/**
-	 * The cached value of the '{@link #getActualParameterUsage_UsageContext() <em>Actual Parameter Usage Usage Context</em>}' reference list.
+	 * The cached value of the '{@link #getActualParameterUsage_UsageContext() <em>Actual Parameter Usage Usage Context</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getActualParameterUsage_UsageContext()
@@ -125,7 +125,7 @@ public class UsageContextImpl extends EObjectImpl implements UsageContext {
 	 */
 	public EList getActualParameterUsage_UsageContext() {
 		if (actualParameterUsage_UsageContext == null) {
-			actualParameterUsage_UsageContext = new EObjectResolvingEList(VariableUsage.class, this, UsagePackage.USAGE_CONTEXT__ACTUAL_PARAMETER_USAGE_USAGE_CONTEXT);
+			actualParameterUsage_UsageContext = new EObjectContainmentEList(VariableUsage.class, this, UsagePackage.USAGE_CONTEXT__ACTUAL_PARAMETER_USAGE_USAGE_CONTEXT);
 		}
 		return actualParameterUsage_UsageContext;
 	}
@@ -141,6 +141,8 @@ public class UsageContextImpl extends EObjectImpl implements UsageContext {
 				return ((InternalEList)getBranchprobabilities_UsageContext()).basicRemove(otherEnd, msgs);
 			case UsagePackage.USAGE_CONTEXT__LOOPITERATIONS_USAGE_CONTEXT:
 				return ((InternalEList)getLoopiterations_UsageContext()).basicRemove(otherEnd, msgs);
+			case UsagePackage.USAGE_CONTEXT__ACTUAL_PARAMETER_USAGE_USAGE_CONTEXT:
+				return ((InternalEList)getActualParameterUsage_UsageContext()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}

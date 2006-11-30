@@ -6,6 +6,8 @@
  */
 package de.uka.ipd.sdq.context.usage;
 
+import de.uka.ipd.sdq.stoex.StoexPackage;
+
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
@@ -95,7 +97,7 @@ public interface UsagePackage extends EPackage {
 	int USAGE_CONTEXT__LOOPITERATIONS_USAGE_CONTEXT = 1;
 
 	/**
-	 * The feature id for the '<em><b>Actual Parameter Usage Usage Context</b></em>' reference list.
+	 * The feature id for the '<em><b>Actual Parameter Usage Usage Context</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -160,22 +162,22 @@ public interface UsagePackage extends EPackage {
 	int LOOP_ITERATION = 2;
 
 	/**
+	 * The feature id for the '<em><b>Specification</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LOOP_ITERATION__SPECIFICATION = StoexPackage.RANDOM_VARIABLE__SPECIFICATION;
+
+	/**
 	 * The feature id for the '<em><b>Loopaction Loop Iteration</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LOOP_ITERATION__LOOPACTION_LOOP_ITERATION = 0;
-
-	/**
-	 * The feature id for the '<em><b>Iterations Loop Iteration</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LOOP_ITERATION__ITERATIONS_LOOP_ITERATION = 1;
+	int LOOP_ITERATION__LOOPACTION_LOOP_ITERATION = StoexPackage.RANDOM_VARIABLE_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Loop Iteration</em>' class.
@@ -184,7 +186,7 @@ public interface UsagePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LOOP_ITERATION_FEATURE_COUNT = 2;
+	int LOOP_ITERATION_FEATURE_COUNT = StoexPackage.RANDOM_VARIABLE_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.context.usage.impl.UsageImpl <em>Usage</em>}' class.
@@ -248,10 +250,10 @@ public interface UsagePackage extends EPackage {
 	EReference getUsageContext_Loopiterations_UsageContext();
 
 	/**
-	 * Returns the meta object for the reference list '{@link de.uka.ipd.sdq.context.usage.UsageContext#getActualParameterUsage_UsageContext <em>Actual Parameter Usage Usage Context</em>}'.
+	 * Returns the meta object for the containment reference list '{@link de.uka.ipd.sdq.context.usage.UsageContext#getActualParameterUsage_UsageContext <em>Actual Parameter Usage Usage Context</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Actual Parameter Usage Usage Context</em>'.
+	 * @return the meta object for the containment reference list '<em>Actual Parameter Usage Usage Context</em>'.
 	 * @see de.uka.ipd.sdq.context.usage.UsageContext#getActualParameterUsage_UsageContext()
 	 * @see #getUsageContext()
 	 * @generated
@@ -312,17 +314,6 @@ public interface UsagePackage extends EPackage {
 	EReference getLoopIteration_Loopaction_LoopIteration();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link de.uka.ipd.sdq.context.usage.LoopIteration#getIterations_LoopIteration <em>Iterations Loop Iteration</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Iterations Loop Iteration</em>'.
-	 * @see de.uka.ipd.sdq.context.usage.LoopIteration#getIterations_LoopIteration()
-	 * @see #getLoopIteration()
-	 * @generated
-	 */
-	EReference getLoopIteration_Iterations_LoopIteration();
-
-	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.context.usage.Usage <em>Usage</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -364,7 +355,7 @@ public interface UsagePackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	interface Literals {
+	interface Literals  {
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.context.usage.impl.UsageContextImpl <em>Context</em>}' class.
 		 * <!-- begin-user-doc -->
@@ -392,7 +383,7 @@ public interface UsagePackage extends EPackage {
 		EReference USAGE_CONTEXT__LOOPITERATIONS_USAGE_CONTEXT = eINSTANCE.getUsageContext_Loopiterations_UsageContext();
 
 		/**
-		 * The meta object literal for the '<em><b>Actual Parameter Usage Usage Context</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Actual Parameter Usage Usage Context</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -442,14 +433,6 @@ public interface UsagePackage extends EPackage {
 		 * @generated
 		 */
 		EReference LOOP_ITERATION__LOOPACTION_LOOP_ITERATION = eINSTANCE.getLoopIteration_Loopaction_LoopIteration();
-
-		/**
-		 * The meta object literal for the '<em><b>Iterations Loop Iteration</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference LOOP_ITERATION__ITERATIONS_LOOP_ITERATION = eINSTANCE.getLoopIteration_Iterations_LoopIteration();
 
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.context.usage.impl.UsageImpl <em>Usage</em>}' class.
