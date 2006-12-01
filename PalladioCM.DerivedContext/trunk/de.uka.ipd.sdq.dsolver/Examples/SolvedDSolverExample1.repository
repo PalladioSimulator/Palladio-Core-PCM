@@ -11,20 +11,22 @@
         </resourceDemand_Action>
       </steps_Behaviour>
       <steps_Behaviour xsi:type="pcm.seff:BranchAction" id="_a5KPVzQbEduaPaOP6VcQiw" entityName="Branching" predecessor_AbstractAction="_Z92dpDQbEduaPaOP6VcQiw" successor_AbstractAction="_dy1LIDQbEduaPaOP6VcQiw">
-        <branches_Branch>
+        <branches_Branch id="_Eh7xsoFWEdupiOspyPBvhg">
           <branchBehaviour_BranchTransition>
             <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_kQ73ATQbEduaPaOP6VcQiw" entityName="Starting" successor_AbstractAction="_lwvc5jQbEduaPaOP6VcQiw"/>
             <steps_Behaviour xsi:type="pcm.seff:ExternalCallAction" id="_lwvc5jQbEduaPaOP6VcQiw" entityName="ExternalCalling" predecessor_AbstractAction="_kQ73ATQbEduaPaOP6VcQiw" successor_AbstractAction="_mIlVIDQbEduaPaOP6VcQiw" calledService_ExternalService="//@interfaces__Repository.1/@signatures__Interface.0">
               <parameterUsage_ExternalCallAction>
-                <variableCharacterisation_VariableUsage specification="number.VALUE" type="NUMBER_OF_ELEMENTS"/>
-                <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="someCollection"/>
+                <variableCharacterisation_VariableUsage specification="20" type="BYTESIZE"/>
+                <namedReference_VariableUsage xsi:type="stoex:NamespaceReference" referenceName="someCollection">
+                  <innerReference_NamespaceReference xsi:type="stoex:VariableReference" referenceName="INNER"/>
+                </namedReference_VariableUsage>
               </parameterUsage_ExternalCallAction>
             </steps_Behaviour>
             <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_mIlVIDQbEduaPaOP6VcQiw" entityName="Stopping" predecessor_AbstractAction="_lwvc5jQbEduaPaOP6VcQiw"/>
           </branchBehaviour_BranchTransition>
           <branchCondition_BranchTransition specification="( 3 &lt; 4 )"/>
         </branches_Branch>
-        <branches_Branch>
+        <branches_Branch id="_EiE7oYFWEdupiOspyPBvhg">
           <branchBehaviour_BranchTransition>
             <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_1n0DQTQbEduaPaOP6VcQiw" entityName="Starting" successor_AbstractAction="_VqZmlHS1Edua9s77tdrqIA"/>
             <steps_Behaviour xsi:type="pcm.seff:InternalAction" id="_VqZmlHS1Edua9s77tdrqIA" entityName="Doing" predecessor_AbstractAction="_1n0DQTQbEduaPaOP6VcQiw" successor_AbstractAction="_2Bl1MDQbEduaPaOP6VcQiw" failureProbability="0.0">
@@ -36,7 +38,7 @@
           </branchBehaviour_BranchTransition>
           <branchCondition_BranchTransition specification="true"/>
         </branches_Branch>
-        <branches_Branch branchProbability="0.7">
+        <branches_Branch id="_EiE7poFWEdupiOspyPBvhg" branchProbability="0.7">
           <branchBehaviour_BranchTransition>
             <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_KfyKoXAHEduM17cwNTLmIQ" entityName="Starting" successor_AbstractAction="_LzrbdHAHEduM17cwNTLmIQ"/>
             <steps_Behaviour xsi:type="pcm.seff:InternalAction" id="_LzrbdHAHEduM17cwNTLmIQ" entityName="Doing" predecessor_AbstractAction="_KfyKoXAHEduM17cwNTLmIQ" successor_AbstractAction="_MKVA4HAHEduM17cwNTLmIQ" failureProbability="0.0">
@@ -59,13 +61,13 @@
         <bodyBehaviour_Loop>
           <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_DG83ATQeEduaPaOP6VcQiw" entityName="Starting" successor_AbstractAction="_DZ3zBDQeEduaPaOP6VcQiw"/>
           <steps_Behaviour xsi:type="pcm.seff:InternalAction" id="_DZ3zBDQeEduaPaOP6VcQiw" entityName="Doing" predecessor_AbstractAction="_DG83ATQeEduaPaOP6VcQiw" successor_AbstractAction="_D4awMDQeEduaPaOP6VcQiw" failureProbability="0">
-            <resourceDemand_Action specification="1000 * someCollection.NUMBER_OF_ELEMENTS" unit="CPU cycles">
+            <resourceDemand_Action specification="1000" unit="CPU cycles">
               <requiredResource_ParametricResourceDemand href="DSolverExample1.resourcetype#_YPBH0TQcEduaPaOP6VcQiw"/>
             </resourceDemand_Action>
           </steps_Behaviour>
           <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_D4awMDQeEduaPaOP6VcQiw" entityName="Stopping" predecessor_AbstractAction="_DZ3zBDQeEduaPaOP6VcQiw"/>
         </bodyBehaviour_Loop>
-        <iterations_LoopAction specification="someCollection.NUMBER_OF_ELEMENTS / 3"/>
+        <iterations_LoopAction specification="IntPMF(unit=&quot;s&quot;)[ (0.1; 1) (0.9; 2) ] / 0.5"/>
       </steps_Behaviour>
       <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_EqV8YDQeEduaPaOP6VcQiw" entityName="Stopping" predecessor_AbstractAction="_CRToczQeEduaPaOP6VcQiw"/>
     </serviceEffectSpecifications__BasicComponent>

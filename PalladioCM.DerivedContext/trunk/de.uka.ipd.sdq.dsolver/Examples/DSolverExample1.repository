@@ -16,8 +16,10 @@
             <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_kQ73ATQbEduaPaOP6VcQiw" entityName="Starting" successor_AbstractAction="_lwvc5jQbEduaPaOP6VcQiw"/>
             <steps_Behaviour xsi:type="pcm.seff:ExternalCallAction" id="_lwvc5jQbEduaPaOP6VcQiw" entityName="ExternalCalling" predecessor_AbstractAction="_kQ73ATQbEduaPaOP6VcQiw" successor_AbstractAction="_mIlVIDQbEduaPaOP6VcQiw" calledService_ExternalService="//@interfaces__Repository.1/@signatures__Interface.0">
               <parameterUsage_ExternalCallAction>
-                <variableCharacterisation_VariableUsage specification="number.VALUE" type="NUMBER_OF_ELEMENTS"/>
-                <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="someCollection"/>
+                <variableCharacterisation_VariableUsage specification="20" type="BYTESIZE"/>
+                <namedReference_VariableUsage xsi:type="stoex:NamespaceReference" referenceName="someCollection">
+                  <innerReference_NamespaceReference xsi:type="stoex:VariableReference" referenceName="INNER"/>
+                </namedReference_VariableUsage>
               </parameterUsage_ExternalCallAction>
             </steps_Behaviour>
             <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_mIlVIDQbEduaPaOP6VcQiw" entityName="Stopping" predecessor_AbstractAction="_lwvc5jQbEduaPaOP6VcQiw"/>
@@ -59,13 +61,13 @@
         <bodyBehaviour_Loop>
           <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_DG83ATQeEduaPaOP6VcQiw" entityName="Starting" successor_AbstractAction="_DZ3zBDQeEduaPaOP6VcQiw"/>
           <steps_Behaviour xsi:type="pcm.seff:InternalAction" id="_DZ3zBDQeEduaPaOP6VcQiw" entityName="Doing" predecessor_AbstractAction="_DG83ATQeEduaPaOP6VcQiw" successor_AbstractAction="_D4awMDQeEduaPaOP6VcQiw" failureProbability="0">
-            <resourceDemand_Action specification="1000 * someCollection.NUMBER_OF_ELEMENTS" unit="CPU cycles">
+            <resourceDemand_Action specification="1000" unit="CPU cycles">
               <requiredResource_ParametricResourceDemand href="DSolverExample1.resourcetype#_YPBH0TQcEduaPaOP6VcQiw"/>
             </resourceDemand_Action>
           </steps_Behaviour>
           <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_D4awMDQeEduaPaOP6VcQiw" entityName="Stopping" predecessor_AbstractAction="_DZ3zBDQeEduaPaOP6VcQiw"/>
         </bodyBehaviour_Loop>
-        <iterations_LoopAction specification="someCollection.NUMBER_OF_ELEMENTS / 3"/>
+        <iterations_LoopAction specification="IntPMF(unit=&quot;s&quot;)[ (0.1; 1) (0.9; 2) ] / 0.5"/>
       </steps_Behaviour>
       <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_EqV8YDQeEduaPaOP6VcQiw" entityName="Stopping" predecessor_AbstractAction="_CRToczQeEduaPaOP6VcQiw"/>
     </serviceEffectSpecifications__BasicComponent>

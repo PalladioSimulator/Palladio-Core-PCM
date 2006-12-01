@@ -1,23 +1,25 @@
 <?xml version="1.0" encoding="ASCII"?>
 <context.usage:Usage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context.usage="http://sdq.ipd.uka.de/Context/Usage/1.0" xmlns:stoex="http://sdq.ipd.uka.de/StochasticExpressions/1.0">
   <usageContexts_Usage>
-    <loopiterations_UsageContext specification="3">
+    <loopiterations_UsageContext specification="IntPMF(unit=&quot;s&quot;)[ (0.1; 2) (0.9; 4) ]">
       <loopaction_LoopIteration href="DSolverExample1.repository#_CRToczQeEduaPaOP6VcQiw"/>
     </loopiterations_UsageContext>
     <actualParameterUsage_UsageContext>
-      <variableCharacterisation_VariableUsage specification="10" type="NUMBER_OF_ELEMENTS"/>
-      <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="someCollection"/>
+      <variableCharacterisation_VariableUsage specification="20" type="BYTESIZE"/>
+      <namedReference_VariableUsage xsi:type="stoex:NamespaceReference" referenceName="someCollection">
+        <innerReference_NamespaceReference xsi:type="stoex:VariableReference" referenceName="INNER"/>
+      </namedReference_VariableUsage>
     </actualParameterUsage_UsageContext>
   </usageContexts_Usage>
   <usageContexts_Usage>
     <branchprobabilities_UsageContext probability="1.0">
-      <branchtransition_BranchProbability href="DSolverExample1.repository#//@components__Repository.0/@serviceEffectSpecifications__BasicComponent.0/@steps_Behaviour.2/@branches_Branch.0"/>
+      <branchtransition_BranchProbability href="DSolverExample1.repository#_EmGgCIFWEdupiOspyPBvhg"/>
     </branchprobabilities_UsageContext>
     <branchprobabilities_UsageContext probability="1.0">
-      <branchtransition_BranchProbability href="DSolverExample1.repository#//@components__Repository.0/@serviceEffectSpecifications__BasicComponent.0/@steps_Behaviour.2/@branches_Branch.1"/>
+      <branchtransition_BranchProbability href="DSolverExample1.repository#_EmGgDIFWEdupiOspyPBvhg"/>
     </branchprobabilities_UsageContext>
     <branchprobabilities_UsageContext probability="0.7">
-      <branchtransition_BranchProbability href="DSolverExample1.repository#//@components__Repository.0/@serviceEffectSpecifications__BasicComponent.0/@steps_Behaviour.2/@branches_Branch.2"/>
+      <branchtransition_BranchProbability href="DSolverExample1.repository#_EmGgEYFWEdupiOspyPBvhg"/>
     </branchprobabilities_UsageContext>
     <actualParameterUsage_UsageContext>
       <variableCharacterisation_VariableUsage specification="10" type="VALUE"/>
