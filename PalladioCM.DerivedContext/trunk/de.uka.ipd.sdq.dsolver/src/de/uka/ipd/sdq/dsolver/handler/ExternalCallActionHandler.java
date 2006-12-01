@@ -26,6 +26,7 @@ import de.uka.ipd.sdq.pcm.seff.ExternalCallAction;
 import de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF;
 import de.uka.ipd.sdq.pcm.seff.ServiceEffectSpecification;
 import de.uka.ipd.sdq.pcm.seff.util.SeffSwitch;
+import de.uka.ipd.sdq.stoex.AbstractNamedReference;
 
 public class ExternalCallActionHandler extends AbstractHandler{
 	
@@ -179,8 +180,9 @@ public class ExternalCallActionHandler extends AbstractHandler{
 		for (Object o1 : parametricParameterUsages){
 			VariableUsage oldUsage = (VariableUsage)o1;
 			VariableUsage newUsage = parameterFactory.createVariableUsage();
+			
 			newUsage.setNamedReference_VariableUsage(oldUsage.getNamedReference_VariableUsage());
-			// TODO inner elements?
+
 			EList characterisations = oldUsage.getVariableCharacterisation_VariableUsage();
 			for (Object o2 : characterisations){
 				VariableCharacterisation oldCharacterisation = (VariableCharacterisation)o2;
