@@ -7,14 +7,17 @@
  */
 package de.uka.ipd.sdq.pcm.core.entity.impl;
 
-import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
 import de.uka.ipd.sdq.identifier.impl.IdentifierImpl;
+
 import de.uka.ipd.sdq.pcm.core.entity.Entity;
 import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
 import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
+
+import org.eclipse.emf.common.notify.Notification;
+
+import org.eclipse.emf.ecore.EClass;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -46,7 +49,6 @@ public abstract class EntityImpl extends IdentifierImpl implements Entity {
 	 * @ordered
 	 */
 	protected static final String ENTITY_NAME_EDEFAULT = null;
-
 
 	/**
 	 * The cached value of the '{@link #getEntityName() <em>Entity Name</em>}' attribute.

@@ -8,6 +8,7 @@
 package de.uka.ipd.sdq.pcm.core.composition;
 
 import de.uka.ipd.sdq.pcm.core.entity.Entity;
+
 import de.uka.ipd.sdq.pcm.repository.ProvidesComponentType;
 
 /**

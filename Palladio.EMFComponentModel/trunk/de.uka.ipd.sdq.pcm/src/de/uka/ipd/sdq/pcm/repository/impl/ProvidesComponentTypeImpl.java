@@ -7,32 +7,43 @@
  */
 package de.uka.ipd.sdq.pcm.repository.impl;
 
+import de.uka.ipd.sdq.pcm.core.entity.impl.InterfaceProvidingRequiringEntityImpl;
+
+import de.uka.ipd.sdq.pcm.repository.ProvidesComponentType;
+import de.uka.ipd.sdq.pcm.repository.Repository;
+import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
+
+import de.uka.ipd.sdq.pcm.repository.util.RepositoryValidator;
+
 import java.util.Map;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+
 import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
+
 import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+
 import org.eclipse.emf.ocl.expressions.OCLExpression;
+
 import org.eclipse.emf.ocl.expressions.util.EvalEnvironment;
 import org.eclipse.emf.ocl.expressions.util.ExpressionsUtil;
+
 import org.eclipse.emf.ocl.parser.Environment;
 import org.eclipse.emf.ocl.parser.ParserException;
+
 import org.eclipse.emf.ocl.query.Query;
 import org.eclipse.emf.ocl.query.QueryFactory;
-
-import de.uka.ipd.sdq.pcm.core.entity.impl.InterfaceProvidingRequiringEntityImpl;
-import de.uka.ipd.sdq.pcm.repository.ProvidesComponentType;
-import de.uka.ipd.sdq.pcm.repository.Repository;
-import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
-import de.uka.ipd.sdq.pcm.repository.util.RepositoryValidator;
 
 /**
  * <!-- begin-user-doc -->
@@ -54,6 +65,7 @@ public class ProvidesComponentTypeImpl extends InterfaceProvidingRequiringEntity
 	 * @generated
 	 */
 	public static final String copyright = "(c) by SDQ, IPD, U Karlsruhe (TH), 2006";
+
 
 	/**
 	 * The parsed OCL expression for the definition of the '{@link #AtLeastOneInterfaceHasToBeProvidedByAUsefullProvidesComponentType <em>At Least One Interface Has To Be Provided By AUsefull Provides Component Type</em>}' invariant constraint.

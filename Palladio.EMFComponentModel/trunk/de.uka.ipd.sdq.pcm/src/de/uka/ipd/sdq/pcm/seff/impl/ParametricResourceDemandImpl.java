@@ -7,18 +7,23 @@
  */
 package de.uka.ipd.sdq.pcm.seff.impl;
 
-import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
-import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.util.EcoreUtil;
-
 import de.uka.ipd.sdq.pcm.resourcetype.ProcessingResourceType;
+
 import de.uka.ipd.sdq.pcm.seff.AbstractResourceDemandingAction;
 import de.uka.ipd.sdq.pcm.seff.ParametricResourceDemand;
 import de.uka.ipd.sdq.pcm.seff.SeffPackage;
+
 import de.uka.ipd.sdq.stoex.impl.RandomVariableImpl;
+
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
+import org.eclipse.emf.ecore.util.EcoreUtil;
 
 /**
  * <!-- begin-user-doc -->
@@ -53,7 +58,6 @@ public class ParametricResourceDemandImpl extends RandomVariableImpl implements 
 	 */
 	protected static final String UNIT_EDEFAULT = null;
 
-
 	/**
 	 * The cached value of the '{@link #getUnit() <em>Unit</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -73,6 +77,7 @@ public class ParametricResourceDemandImpl extends RandomVariableImpl implements 
 	 * @ordered
 	 */
 	protected ProcessingResourceType requiredResource_ParametricResourceDemand = null;
+
 
 	/**
 	 * <!-- begin-user-doc -->

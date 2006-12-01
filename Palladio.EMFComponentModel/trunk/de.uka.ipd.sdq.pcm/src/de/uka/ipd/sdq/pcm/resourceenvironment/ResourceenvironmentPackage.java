@@ -6,12 +6,12 @@
  */
 package de.uka.ipd.sdq.pcm.resourceenvironment;
 
+import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
+
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
-
-import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -582,7 +582,7 @@ public interface ResourceenvironmentPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	interface Literals  {
+	interface Literals {
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.resourceenvironment.impl.ResourceEnvironmentImpl <em>Resource Environment</em>}' class.
 		 * <!-- begin-user-doc -->

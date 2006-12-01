@@ -40,7 +40,7 @@ public interface Parameter extends EObject {
 	 * Returns the value of the '<em><b>Datatype Parameter</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Datatype Parameter</em>' containment reference isn't clear,
+	 * If the meaning of the '<em>Datatype Parameter</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->

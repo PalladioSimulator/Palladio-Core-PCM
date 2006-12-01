@@ -6,37 +6,21 @@
  */
 package de.uka.ipd.sdq.pcm.seff.util;
 
-import org.eclipse.emf.common.notify.Adapter;
-import org.eclipse.emf.common.notify.Notifier;
-import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
-import org.eclipse.emf.ecore.EObject;
-
 import de.uka.ipd.sdq.identifier.Identifier;
+
 import de.uka.ipd.sdq.pcm.core.entity.Entity;
 import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
+
 import de.uka.ipd.sdq.pcm.seff.*;
 
-import de.uka.ipd.sdq.pcm.seff.AbstractAction;
-import de.uka.ipd.sdq.pcm.seff.AbstractResourceDemandingAction;
-import de.uka.ipd.sdq.pcm.seff.AquireAction;
-import de.uka.ipd.sdq.pcm.seff.BranchAction;
-import de.uka.ipd.sdq.pcm.seff.BranchCondition;
-import de.uka.ipd.sdq.pcm.seff.BranchTransition;
-import de.uka.ipd.sdq.pcm.seff.CollectionIteratorAction;
-import de.uka.ipd.sdq.pcm.seff.ExternalCallAction;
-import de.uka.ipd.sdq.pcm.seff.ForkAction;
-import de.uka.ipd.sdq.pcm.seff.InternalAction;
-import de.uka.ipd.sdq.pcm.seff.IterationCount;
-import de.uka.ipd.sdq.pcm.seff.LoopAction;
-import de.uka.ipd.sdq.pcm.seff.ParametricResourceDemand;
-import de.uka.ipd.sdq.pcm.seff.ReleaseAction;
-import de.uka.ipd.sdq.pcm.seff.ResourceDemandingBehaviour;
-import de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF;
-import de.uka.ipd.sdq.pcm.seff.SeffPackage;
-import de.uka.ipd.sdq.pcm.seff.ServiceEffectSpecification;
-import de.uka.ipd.sdq.pcm.seff.StartAction;
-import de.uka.ipd.sdq.pcm.seff.StopAction;
 import de.uka.ipd.sdq.stoex.RandomVariable;
+
+import org.eclipse.emf.common.notify.Adapter;
+import org.eclipse.emf.common.notify.Notifier;
+
+import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
+
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->

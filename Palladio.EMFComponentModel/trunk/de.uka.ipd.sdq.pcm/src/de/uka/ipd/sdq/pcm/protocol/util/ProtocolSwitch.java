@@ -13,10 +13,6 @@ import java.util.List;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 
-import de.uka.ipd.sdq.pcm.protocol.Protocol;
-import de.uka.ipd.sdq.pcm.protocol.ProtocolPackage;
-import de.uka.ipd.sdq.pcm.protocol.ServiceCall;
-
 /**
  * <!-- begin-user-doc -->
  * The <b>Switch</b> for the model's inheritance hierarchy.

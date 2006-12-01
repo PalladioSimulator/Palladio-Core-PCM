@@ -6,30 +6,36 @@
  */
 package de.uka.ipd.sdq.pcm.repository.impl;
 
-import org.eclipse.emf.ecore.EAttribute;
-import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EEnum;
-import org.eclipse.emf.ecore.EOperation;
-import org.eclipse.emf.ecore.EPackage;
-import org.eclipse.emf.ecore.EReference;
-import org.eclipse.emf.ecore.EValidator;
-import org.eclipse.emf.ecore.impl.EPackageImpl;
-
 import de.uka.ipd.sdq.identifier.IdentifierPackage;
+
 import de.uka.ipd.sdq.pcm.allocation.AllocationPackage;
+
 import de.uka.ipd.sdq.pcm.allocation.impl.AllocationPackageImpl;
+
 import de.uka.ipd.sdq.pcm.core.composition.CompositionPackage;
+
 import de.uka.ipd.sdq.pcm.core.composition.impl.CompositionPackageImpl;
+
 import de.uka.ipd.sdq.pcm.core.connectors.ConnectorsPackage;
+
 import de.uka.ipd.sdq.pcm.core.connectors.impl.ConnectorsPackageImpl;
+
 import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
+
 import de.uka.ipd.sdq.pcm.core.entity.impl.EntityPackageImpl;
+
 import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
+
 import de.uka.ipd.sdq.pcm.parameter.impl.ParameterPackageImpl;
+
 import de.uka.ipd.sdq.pcm.protocol.ProtocolPackage;
+
 import de.uka.ipd.sdq.pcm.protocol.impl.ProtocolPackageImpl;
+
 import de.uka.ipd.sdq.pcm.qosannotations.QosannotationsPackage;
+
 import de.uka.ipd.sdq.pcm.qosannotations.impl.QosannotationsPackageImpl;
+
 import de.uka.ipd.sdq.pcm.repository.BasicComponent;
 import de.uka.ipd.sdq.pcm.repository.CollectionDataType;
 import de.uka.ipd.sdq.pcm.repository.CompleteComponentType;
@@ -53,19 +59,42 @@ import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
 import de.uka.ipd.sdq.pcm.repository.RequiredRole;
 import de.uka.ipd.sdq.pcm.repository.Role;
 import de.uka.ipd.sdq.pcm.repository.Signature;
+
 import de.uka.ipd.sdq.pcm.repository.util.RepositoryValidator;
+
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage;
+
 import de.uka.ipd.sdq.pcm.resourceenvironment.impl.ResourceenvironmentPackageImpl;
+
 import de.uka.ipd.sdq.pcm.resourcetype.ResourcetypePackage;
+
 import de.uka.ipd.sdq.pcm.resourcetype.impl.ResourcetypePackageImpl;
+
 import de.uka.ipd.sdq.pcm.seff.SeffPackage;
+
 import de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl;
+
 import de.uka.ipd.sdq.pcm.system.SystemPackage;
+
 import de.uka.ipd.sdq.pcm.system.impl.SystemPackageImpl;
+
 import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
+
 import de.uka.ipd.sdq.pcm.usagemodel.impl.UsagemodelPackageImpl;
+
 import de.uka.ipd.sdq.probfunction.ProbfunctionPackage;
+
 import de.uka.ipd.sdq.stoex.StoexPackage;
+
+import org.eclipse.emf.ecore.EAttribute;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
+import org.eclipse.emf.ecore.EOperation;
+import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.EReference;
+import org.eclipse.emf.ecore.EValidator;
+
+import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -107,34 +136,6 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass exceptionTypeEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass roleEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass requiredRoleEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass interfaceEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EClass repositoryEClass = null;
 
 	/**
@@ -149,7 +150,28 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass providedRoleEClass = null;
+	private EClass requiredRoleEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass roleEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass interfaceEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass exceptionTypeEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -164,6 +186,13 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 	 * @generated
 	 */
 	private EClass completeComponentTypeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass delegationConnectorEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -212,7 +241,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass delegationConnectorEClass = null;
+	private EClass providedRoleEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -470,123 +499,6 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getExceptionType() {
-		return exceptionTypeEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getExceptionType_ExceptionName() {
-		return (EAttribute)exceptionTypeEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getExceptionType_ExceptionMessage() {
-		return (EAttribute)exceptionTypeEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getRole() {
-		return roleEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getRequiredRole() {
-		return requiredRoleEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getRequiredRole_RequiredInterface__RequiredRole() {
-		return (EReference)requiredRoleEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getRequiredRole_RequiringEntity_RequiredRole() {
-		return (EReference)requiredRoleEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getInterface() {
-		return interfaceEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getInterface_ParentInterface__Interface() {
-		return (EReference)interfaceEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getInterface_AnchestorInterfaces_Interface() {
-		return (EReference)interfaceEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getInterface_Protocols__Interface() {
-		return (EReference)interfaceEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getInterface_Signatures__Interface() {
-		return (EReference)interfaceEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getInterface_Repository_Interface() {
-		return (EReference)interfaceEClass.getEStructuralFeatures().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getRepository() {
 		return repositoryEClass;
 	}
@@ -650,8 +562,8 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getProvidedRole() {
-		return providedRoleEClass;
+	public EClass getRequiredRole() {
+		return requiredRoleEClass;
 	}
 
 	/**
@@ -659,8 +571,8 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getProvidedRole_ProvidedInterface__ProvidedRole() {
-		return (EReference)providedRoleEClass.getEStructuralFeatures().get(0);
+	public EReference getRequiredRole_RequiredInterface__RequiredRole() {
+		return (EReference)requiredRoleEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -668,8 +580,98 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getProvidedRole_ProvidingEntity_ProvidedRole() {
-		return (EReference)providedRoleEClass.getEStructuralFeatures().get(1);
+	public EReference getRequiredRole_RequiringEntity_RequiredRole() {
+		return (EReference)requiredRoleEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getRole() {
+		return roleEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getInterface() {
+		return interfaceEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getInterface_ParentInterface__Interface() {
+		return (EReference)interfaceEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getInterface_AnchestorInterfaces_Interface() {
+		return (EReference)interfaceEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getInterface_Protocols__Interface() {
+		return (EReference)interfaceEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getInterface_Signatures__Interface() {
+		return (EReference)interfaceEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getInterface_Repository_Interface() {
+		return (EReference)interfaceEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getExceptionType() {
+		return exceptionTypeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getExceptionType_ExceptionName() {
+		return (EAttribute)exceptionTypeEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getExceptionType_ExceptionMessage() {
+		return (EAttribute)exceptionTypeEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -706,6 +708,15 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 	 */
 	public EReference getCompleteComponentType_ParentProvidesComponentTypes() {
 		return (EReference)completeComponentTypeEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getDelegationConnector() {
+		return delegationConnectorEClass;
 	}
 
 	/**
@@ -839,8 +850,26 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getDelegationConnector() {
-		return delegationConnectorEClass;
+	public EClass getProvidedRole() {
+		return providedRoleEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getProvidedRole_ProvidedInterface__ProvidedRole() {
+		return (EReference)providedRoleEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getProvidedRole_ProvidingEntity_ProvidedRole() {
+		return (EReference)providedRoleEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**

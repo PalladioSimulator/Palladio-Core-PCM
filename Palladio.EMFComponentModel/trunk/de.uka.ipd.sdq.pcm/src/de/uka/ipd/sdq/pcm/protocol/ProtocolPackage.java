@@ -186,7 +186,7 @@ public interface ProtocolPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	interface Literals  {
+	interface Literals {
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.protocol.impl.ServiceCallImpl <em>Service Call</em>}' class.
 		 * <!-- begin-user-doc -->

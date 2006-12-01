@@ -6,12 +6,12 @@
  */
 package de.uka.ipd.sdq.pcm.core.entity;
 
+import de.uka.ipd.sdq.identifier.IdentifierPackage;
+
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
-
-import de.uka.ipd.sdq.identifier.IdentifierPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -104,7 +104,6 @@ public interface EntityPackage extends EPackage {
 	 * @ordered
 	 */
 	int ENTITY_FEATURE_COUNT = IdentifierPackage.IDENTIFIER_FEATURE_COUNT + 1;
-
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.core.entity.impl.NamedElementImpl <em>Named Element</em>}' class.
@@ -386,7 +385,7 @@ public interface EntityPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	interface Literals  {
+	interface Literals {
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.core.entity.impl.EntityImpl <em>Entity</em>}' class.
 		 * <!-- begin-user-doc -->

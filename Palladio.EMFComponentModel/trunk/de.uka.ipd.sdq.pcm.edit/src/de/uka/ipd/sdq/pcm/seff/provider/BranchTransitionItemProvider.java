@@ -7,6 +7,8 @@
 package de.uka.ipd.sdq.pcm.seff.provider;
 
 
+import de.uka.ipd.sdq.identifier.provider.IdentifierItemProvider;
+
 import java.util.Collection;
 import java.util.List;
 
@@ -36,7 +38,7 @@ import de.uka.ipd.sdq.pcm.seff.SeffPackage;
  * @generated
  */
 public class BranchTransitionItemProvider
-	extends ItemProviderAdapter
+	extends IdentifierItemProvider
 	implements	
 		IEditingDomainItemProvider,	
 		IStructuredItemContentProvider,	
@@ -143,8 +145,10 @@ public class BranchTransitionItemProvider
 	 * @generated
 	 */
 	public String getText(Object object) {
-		BranchTransition branchTransition = (BranchTransition)object;
-		return getString("_UI_BranchTransition_type") + " " + branchTransition.getBranchProbability();
+		String label = ((BranchTransition)object).getId();
+		return label == null || label.length() == 0 ?
+			getString("_UI_BranchTransition_type") :
+			getString("_UI_BranchTransition_type") + " " + label;
 	}
 
 	/**

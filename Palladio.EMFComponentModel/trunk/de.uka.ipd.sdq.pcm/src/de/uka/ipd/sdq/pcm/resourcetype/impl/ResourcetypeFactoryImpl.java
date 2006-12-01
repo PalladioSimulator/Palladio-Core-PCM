@@ -11,15 +11,10 @@ import de.uka.ipd.sdq.pcm.resourcetype.*;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-import org.eclipse.emf.ecore.impl.EFactoryImpl;
-import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
-import de.uka.ipd.sdq.pcm.resourcetype.CommunicationLinkResourceType;
-import de.uka.ipd.sdq.pcm.resourcetype.PassiveResourceType;
-import de.uka.ipd.sdq.pcm.resourcetype.ProcessingResourceType;
-import de.uka.ipd.sdq.pcm.resourcetype.ResourceRepository;
-import de.uka.ipd.sdq.pcm.resourcetype.ResourcetypeFactory;
-import de.uka.ipd.sdq.pcm.resourcetype.ResourcetypePackage;
+import org.eclipse.emf.ecore.impl.EFactoryImpl;
+
+import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
 /**
  * <!-- begin-user-doc -->

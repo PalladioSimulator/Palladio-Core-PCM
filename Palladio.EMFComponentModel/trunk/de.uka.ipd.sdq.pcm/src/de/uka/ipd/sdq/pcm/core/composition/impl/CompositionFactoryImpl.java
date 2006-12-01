@@ -11,15 +11,10 @@ import de.uka.ipd.sdq.pcm.core.composition.*;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-import org.eclipse.emf.ecore.impl.EFactoryImpl;
-import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
-import de.uka.ipd.sdq.pcm.core.composition.AssemblyConnector;
-import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
-import de.uka.ipd.sdq.pcm.core.composition.CompositionFactory;
-import de.uka.ipd.sdq.pcm.core.composition.CompositionPackage;
-import de.uka.ipd.sdq.pcm.core.composition.ProvidedDelegationConnector;
-import de.uka.ipd.sdq.pcm.core.composition.RequiredDelegationConnector;
+import org.eclipse.emf.ecore.impl.EFactoryImpl;
+
+import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
 /**
  * <!-- begin-user-doc -->
@@ -105,9 +100,9 @@ public class CompositionFactoryImpl extends EFactoryImpl implements CompositionF
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public AssemblyConnector createAssemblyConnector() {
-		AssemblyConnectorImpl assemblyConnector = new AssemblyConnectorImpl();
-		return assemblyConnector;
+	public RequiredDelegationConnector createRequiredDelegationConnector() {
+		RequiredDelegationConnectorImpl requiredDelegationConnector = new RequiredDelegationConnectorImpl();
+		return requiredDelegationConnector;
 	}
 
 	/**
@@ -115,9 +110,9 @@ public class CompositionFactoryImpl extends EFactoryImpl implements CompositionF
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RequiredDelegationConnector createRequiredDelegationConnector() {
-		RequiredDelegationConnectorImpl requiredDelegationConnector = new RequiredDelegationConnectorImpl();
-		return requiredDelegationConnector;
+	public AssemblyConnector createAssemblyConnector() {
+		AssemblyConnectorImpl assemblyConnector = new AssemblyConnectorImpl();
+		return assemblyConnector;
 	}
 
 	/**

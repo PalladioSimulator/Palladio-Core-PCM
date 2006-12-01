@@ -39,7 +39,7 @@ public interface AbstractResourceDemandingAction extends AbstractAction {
 	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.seff.ParametricResourceDemand#getAction_ParametricResourceDemand <em>Action Parametric Resource Demand</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Resource Demand Action</em>' reference list isn't clear,
+	 * If the meaning of the '<em>Resource Demand Action</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->

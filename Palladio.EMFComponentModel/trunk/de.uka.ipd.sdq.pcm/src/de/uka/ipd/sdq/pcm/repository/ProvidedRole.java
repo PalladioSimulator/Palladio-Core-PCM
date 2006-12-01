@@ -7,7 +7,6 @@
  */
 package de.uka.ipd.sdq.pcm.repository;
 
-
 import de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingEntity;
 
 /**
@@ -66,7 +65,7 @@ public interface ProvidedRole extends Role {
 	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingEntity#getProvidedRoles_InterfaceProvidingEntity <em>Provided Roles Interface Providing Entity</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Providing Entity Provided Role</em>' reference isn't clear,
+	 * If the meaning of the '<em>Providing Entity Provided Role</em>' container reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->

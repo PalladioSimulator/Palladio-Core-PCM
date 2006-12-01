@@ -7,17 +7,21 @@
  */
 package de.uka.ipd.sdq.pcm.seff.impl;
 
-import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
-import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.EObjectImpl;
+import de.uka.ipd.sdq.identifier.impl.IdentifierImpl;
 
 import de.uka.ipd.sdq.pcm.seff.BranchCondition;
 import de.uka.ipd.sdq.pcm.seff.BranchTransition;
 import de.uka.ipd.sdq.pcm.seff.ResourceDemandingBehaviour;
 import de.uka.ipd.sdq.pcm.seff.SeffPackage;
+
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.EObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -34,7 +38,7 @@ import de.uka.ipd.sdq.pcm.seff.SeffPackage;
  *
  * @generated
  */
-public class BranchTransitionImpl extends EObjectImpl implements BranchTransition {
+public class BranchTransitionImpl extends IdentifierImpl implements BranchTransition {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -51,7 +55,6 @@ public class BranchTransitionImpl extends EObjectImpl implements BranchTransitio
 	 * @ordered
 	 */
 	protected ResourceDemandingBehaviour branchBehaviour_BranchTransition = null;
-
 
 	/**
 	 * The cached value of the '{@link #getBranchCondition_BranchTransition() <em>Branch Condition Branch Transition</em>}' containment reference.

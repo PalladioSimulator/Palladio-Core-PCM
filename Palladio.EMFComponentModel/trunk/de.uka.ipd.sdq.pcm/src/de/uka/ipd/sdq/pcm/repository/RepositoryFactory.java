@@ -51,13 +51,22 @@ public interface RepositoryFactory extends EFactory {
 	Parameter createParameter();
 
 	/**
-	 * Returns a new object of class '<em>Exception Type</em>'.
+	 * Returns a new object of class '<em>Repository</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Exception Type</em>'.
+	 * @return a new object of class '<em>Repository</em>'.
 	 * @generated
 	 */
-	ExceptionType createExceptionType();
+	Repository createRepository();
+
+	/**
+	 * Returns a new object of class '<em>Provides Component Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Provides Component Type</em>'.
+	 * @generated
+	 */
+	ProvidesComponentType createProvidesComponentType();
 
 	/**
 	 * Returns a new object of class '<em>Required Role</em>'.
@@ -78,31 +87,13 @@ public interface RepositoryFactory extends EFactory {
 	Interface createInterface();
 
 	/**
-	 * Returns a new object of class '<em>Repository</em>'.
+	 * Returns a new object of class '<em>Exception Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Repository</em>'.
+	 * @return a new object of class '<em>Exception Type</em>'.
 	 * @generated
 	 */
-	Repository createRepository();
-
-	/**
-	 * Returns a new object of class '<em>Provides Component Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Provides Component Type</em>'.
-	 * @generated
-	 */
-	ProvidesComponentType createProvidesComponentType();
-
-	/**
-	 * Returns a new object of class '<em>Provided Role</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Provided Role</em>'.
-	 * @generated
-	 */
-	ProvidedRole createProvidedRole();
+	ExceptionType createExceptionType();
 
 	/**
 	 * Returns a new object of class '<em>Complete Component Type</em>'.
@@ -166,6 +157,15 @@ public interface RepositoryFactory extends EFactory {
 	 * @generated
 	 */
 	InnerDeclaration createInnerDeclaration();
+
+	/**
+	 * Returns a new object of class '<em>Provided Role</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Provided Role</em>'.
+	 * @generated
+	 */
+	ProvidedRole createProvidedRole();
 
 	/**
 	 * Returns the package supported by this factory.

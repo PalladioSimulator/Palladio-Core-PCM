@@ -9,6 +9,7 @@ package de.uka.ipd.sdq.pcm.qosannotations;
 
 import de.uka.ipd.sdq.pcm.repository.Role;
 import de.uka.ipd.sdq.pcm.repository.Signature;
+
 import de.uka.ipd.sdq.stoex.RandomVariable;
 
 /**

@@ -6,11 +6,11 @@
  */
 package de.uka.ipd.sdq.pcm.system;
 
+import de.uka.ipd.sdq.pcm.core.composition.CompositionPackage;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
-
-import de.uka.ipd.sdq.pcm.core.composition.CompositionPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -167,6 +167,7 @@ public interface SystemPackage extends EPackage {
 	 */
 	int SYSTEM_FEATURE_COUNT = CompositionPackage.COMPOSED_STRUCTURE_FEATURE_COUNT + 3;
 
+
 	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.system.System <em>System</em>}'.
 	 * <!-- begin-user-doc -->
@@ -209,7 +210,7 @@ public interface SystemPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	interface Literals  {
+	interface Literals {
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.system.impl.SystemImpl <em>System</em>}' class.
 		 * <!-- begin-user-doc -->

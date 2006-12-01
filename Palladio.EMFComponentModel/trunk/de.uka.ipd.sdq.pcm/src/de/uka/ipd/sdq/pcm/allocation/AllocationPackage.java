@@ -6,11 +6,11 @@
  */
 package de.uka.ipd.sdq.pcm.allocation;
 
+import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
-
-import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -283,7 +283,7 @@ public interface AllocationPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	interface Literals  {
+	interface Literals {
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.allocation.impl.AllocationContextImpl <em>Context</em>}' class.
 		 * <!-- begin-user-doc -->

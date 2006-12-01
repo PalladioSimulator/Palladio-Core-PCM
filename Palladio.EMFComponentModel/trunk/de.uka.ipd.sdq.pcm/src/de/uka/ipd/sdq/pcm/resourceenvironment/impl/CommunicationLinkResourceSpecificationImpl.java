@@ -7,15 +7,18 @@
  */
 package de.uka.ipd.sdq.pcm.resourceenvironment.impl;
 
-import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.EObjectImpl;
-
 import de.uka.ipd.sdq.pcm.resourceenvironment.CommunicationLinkResourceSpecification;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage;
+
 import de.uka.ipd.sdq.pcm.resourcetype.CommunicationLinkResourceType;
+
+import org.eclipse.emf.common.notify.Notification;
+
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.EObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -79,7 +82,6 @@ public class CommunicationLinkResourceSpecificationImpl extends EObjectImpl impl
 	 * @ordered
 	 */
 	protected static final String UNITS_EDEFAULT = null;
-
 
 	/**
 	 * The cached value of the '{@link #getUnits() <em>Units</em>}' attribute.

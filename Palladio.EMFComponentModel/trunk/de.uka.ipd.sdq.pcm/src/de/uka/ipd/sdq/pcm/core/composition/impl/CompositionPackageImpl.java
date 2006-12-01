@@ -6,16 +6,12 @@
  */
 package de.uka.ipd.sdq.pcm.core.composition.impl;
 
-import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EOperation;
-import org.eclipse.emf.ecore.EPackage;
-import org.eclipse.emf.ecore.EReference;
-import org.eclipse.emf.ecore.EValidator;
-import org.eclipse.emf.ecore.impl.EPackageImpl;
-
 import de.uka.ipd.sdq.identifier.IdentifierPackage;
+
 import de.uka.ipd.sdq.pcm.allocation.AllocationPackage;
+
 import de.uka.ipd.sdq.pcm.allocation.impl.AllocationPackageImpl;
+
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyConnector;
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
 import de.uka.ipd.sdq.pcm.core.composition.ComposedStructure;
@@ -23,31 +19,64 @@ import de.uka.ipd.sdq.pcm.core.composition.CompositionFactory;
 import de.uka.ipd.sdq.pcm.core.composition.CompositionPackage;
 import de.uka.ipd.sdq.pcm.core.composition.ProvidedDelegationConnector;
 import de.uka.ipd.sdq.pcm.core.composition.RequiredDelegationConnector;
+
 import de.uka.ipd.sdq.pcm.core.composition.util.CompositionValidator;
+
 import de.uka.ipd.sdq.pcm.core.connectors.ConnectorsPackage;
+
 import de.uka.ipd.sdq.pcm.core.connectors.impl.ConnectorsPackageImpl;
+
 import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
+
 import de.uka.ipd.sdq.pcm.core.entity.impl.EntityPackageImpl;
+
 import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
+
 import de.uka.ipd.sdq.pcm.parameter.impl.ParameterPackageImpl;
+
 import de.uka.ipd.sdq.pcm.protocol.ProtocolPackage;
+
 import de.uka.ipd.sdq.pcm.protocol.impl.ProtocolPackageImpl;
+
 import de.uka.ipd.sdq.pcm.qosannotations.QosannotationsPackage;
+
 import de.uka.ipd.sdq.pcm.qosannotations.impl.QosannotationsPackageImpl;
+
 import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
+
 import de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl;
+
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage;
+
 import de.uka.ipd.sdq.pcm.resourceenvironment.impl.ResourceenvironmentPackageImpl;
+
 import de.uka.ipd.sdq.pcm.resourcetype.ResourcetypePackage;
+
 import de.uka.ipd.sdq.pcm.resourcetype.impl.ResourcetypePackageImpl;
+
 import de.uka.ipd.sdq.pcm.seff.SeffPackage;
+
 import de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl;
+
 import de.uka.ipd.sdq.pcm.system.SystemPackage;
+
 import de.uka.ipd.sdq.pcm.system.impl.SystemPackageImpl;
+
 import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
+
 import de.uka.ipd.sdq.pcm.usagemodel.impl.UsagemodelPackageImpl;
+
 import de.uka.ipd.sdq.probfunction.ProbfunctionPackage;
+
 import de.uka.ipd.sdq.stoex.StoexPackage;
+
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EOperation;
+import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.EReference;
+import org.eclipse.emf.ecore.EValidator;
+
+import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -75,14 +104,14 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass composedStructureEClass = null;
+	private EClass assemblyContextEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass assemblyContextEClass = null;
+	private EClass requiredDelegationConnectorEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -96,7 +125,7 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass requiredDelegationConnectorEClass = null;
+	private EClass composedStructureEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -268,51 +297,6 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getComposedStructure() {
-		return composedStructureEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getComposedStructure_ChildComponentContexts_ComposedStructure() {
-		return (EReference)composedStructureEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getComposedStructure_CompositeAssemblyConnectors_ComposedStructure() {
-		return (EReference)composedStructureEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getComposedStructure_ProvidedDelegationConnectors_ComposedStructure() {
-		return (EReference)composedStructureEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getComposedStructure_RequiredDelegationConnectors_ComposedStructure() {
-		return (EReference)composedStructureEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getAssemblyContext() {
 		return assemblyContextEClass;
 	}
@@ -333,6 +317,51 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
 	 */
 	public EReference getAssemblyContext_ParentStructure_AssemblyContext() {
 		return (EReference)assemblyContextEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getRequiredDelegationConnector() {
+		return requiredDelegationConnectorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getRequiredDelegationConnector_InnerRequiredRole_RequiredDelegationConnector() {
+		return (EReference)requiredDelegationConnectorEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getRequiredDelegationConnector_OuterRequiredRole_RequiredDelegationConnector() {
+		return (EReference)requiredDelegationConnectorEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getRequiredDelegationConnector_ChildComponentContext_RequiredDelegationConnector() {
+		return (EReference)requiredDelegationConnectorEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getRequiredDelegationConnector_ParentStructure_RequiredDelegationConnector() {
+		return (EReference)requiredDelegationConnectorEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -394,8 +423,8 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getRequiredDelegationConnector() {
-		return requiredDelegationConnectorEClass;
+	public EClass getComposedStructure() {
+		return composedStructureEClass;
 	}
 
 	/**
@@ -403,8 +432,8 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getRequiredDelegationConnector_InnerRequiredRole_RequiredDelegationConnector() {
-		return (EReference)requiredDelegationConnectorEClass.getEStructuralFeatures().get(0);
+	public EReference getComposedStructure_ChildComponentContexts_ComposedStructure() {
+		return (EReference)composedStructureEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -412,8 +441,8 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getRequiredDelegationConnector_OuterRequiredRole_RequiredDelegationConnector() {
-		return (EReference)requiredDelegationConnectorEClass.getEStructuralFeatures().get(1);
+	public EReference getComposedStructure_ProvidedDelegationConnectors_ComposedStructure() {
+		return (EReference)composedStructureEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -421,8 +450,8 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getRequiredDelegationConnector_ChildComponentContext_RequiredDelegationConnector() {
-		return (EReference)requiredDelegationConnectorEClass.getEStructuralFeatures().get(2);
+	public EReference getComposedStructure_RequiredDelegationConnectors_ComposedStructure() {
+		return (EReference)composedStructureEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -430,8 +459,8 @@ public class CompositionPackageImpl extends EPackageImpl implements CompositionP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getRequiredDelegationConnector_ParentStructure_RequiredDelegationConnector() {
-		return (EReference)requiredDelegationConnectorEClass.getEStructuralFeatures().get(3);
+	public EReference getComposedStructure_CompositeAssemblyConnectors_ComposedStructure() {
+		return (EReference)composedStructureEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**

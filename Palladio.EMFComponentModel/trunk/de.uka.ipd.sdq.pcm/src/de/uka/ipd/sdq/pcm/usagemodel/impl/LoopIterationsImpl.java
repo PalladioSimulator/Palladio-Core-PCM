@@ -7,11 +7,12 @@
  */
 package de.uka.ipd.sdq.pcm.usagemodel.impl;
 
-import org.eclipse.emf.ecore.EClass;
-
 import de.uka.ipd.sdq.pcm.usagemodel.LoopIterations;
 import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
+
 import de.uka.ipd.sdq.stoex.impl.RandomVariableImpl;
+
+import org.eclipse.emf.ecore.EClass;
 
 /**
  * <!-- begin-user-doc -->

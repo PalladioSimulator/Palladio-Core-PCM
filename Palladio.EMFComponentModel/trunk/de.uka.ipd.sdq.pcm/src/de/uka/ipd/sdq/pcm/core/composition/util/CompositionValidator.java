@@ -6,21 +6,17 @@
  */
 package de.uka.ipd.sdq.pcm.core.composition.util;
 
+import de.uka.ipd.sdq.identifier.util.IdentifierValidator;
+
+import de.uka.ipd.sdq.pcm.core.composition.*;
+
 import java.util.Map;
 
 import org.eclipse.emf.common.util.DiagnosticChain;
+
 import org.eclipse.emf.ecore.EPackage;
+
 import org.eclipse.emf.ecore.util.EObjectValidator;
-
-import de.uka.ipd.sdq.identifier.util.IdentifierValidator;
-import de.uka.ipd.sdq.pcm.core.composition.*;
-
-import de.uka.ipd.sdq.pcm.core.composition.AssemblyConnector;
-import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
-import de.uka.ipd.sdq.pcm.core.composition.ComposedStructure;
-import de.uka.ipd.sdq.pcm.core.composition.CompositionPackage;
-import de.uka.ipd.sdq.pcm.core.composition.ProvidedDelegationConnector;
-import de.uka.ipd.sdq.pcm.core.composition.RequiredDelegationConnector;
 
 /**
  * <!-- begin-user-doc -->
@@ -169,40 +165,12 @@ public class CompositionValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateComposedStructure(ComposedStructure composedStructure, DiagnosticChain diagnostics, Map context) {
-		boolean result = validate_EveryMultiplicityConforms(composedStructure, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(composedStructure, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(composedStructure, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryProxyResolves(composedStructure, diagnostics, context);
-		if (result || diagnostics != null) result &= identifierValidator.validateIdentifier_idHasToBeUnique(composedStructure, diagnostics, context);
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public boolean validateAssemblyContext(AssemblyContext assemblyContext, DiagnosticChain diagnostics, Map context) {
 		boolean result = validate_EveryMultiplicityConforms(assemblyContext, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(assemblyContext, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(assemblyContext, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryProxyResolves(assemblyContext, diagnostics, context);
 		if (result || diagnostics != null) result &= identifierValidator.validateIdentifier_idHasToBeUnique(assemblyContext, diagnostics, context);
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateAssemblyConnector(AssemblyConnector assemblyConnector, DiagnosticChain diagnostics, Map context) {
-		boolean result = validate_EveryMultiplicityConforms(assemblyConnector, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(assemblyConnector, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(assemblyConnector, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryProxyResolves(assemblyConnector, diagnostics, context);
-		if (result || diagnostics != null) result &= identifierValidator.validateIdentifier_idHasToBeUnique(assemblyConnector, diagnostics, context);
 		return result;
 	}
 
@@ -229,6 +197,34 @@ public class CompositionValidator extends EObjectValidator {
 	 */
 	public boolean validateRequiredDelegationConnector_InnerContainingComponentEqualOuterRequiringComponent(RequiredDelegationConnector requiredDelegationConnector, DiagnosticChain diagnostics, Map context) {
 		return requiredDelegationConnector.InnerContainingComponentEqualOuterRequiringComponent(diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateAssemblyConnector(AssemblyConnector assemblyConnector, DiagnosticChain diagnostics, Map context) {
+		boolean result = validate_EveryMultiplicityConforms(assemblyConnector, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(assemblyConnector, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(assemblyConnector, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(assemblyConnector, diagnostics, context);
+		if (result || diagnostics != null) result &= identifierValidator.validateIdentifier_idHasToBeUnique(assemblyConnector, diagnostics, context);
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateComposedStructure(ComposedStructure composedStructure, DiagnosticChain diagnostics, Map context) {
+		boolean result = validate_EveryMultiplicityConforms(composedStructure, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(composedStructure, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(composedStructure, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(composedStructure, diagnostics, context);
+		if (result || diagnostics != null) result &= identifierValidator.validateIdentifier_idHasToBeUnique(composedStructure, diagnostics, context);
+		return result;
 	}
 
 } //CompositionValidator

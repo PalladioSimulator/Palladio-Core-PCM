@@ -11,23 +11,10 @@ import de.uka.ipd.sdq.pcm.usagemodel.*;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-import org.eclipse.emf.ecore.impl.EFactoryImpl;
-import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
-import de.uka.ipd.sdq.pcm.usagemodel.Branch;
-import de.uka.ipd.sdq.pcm.usagemodel.BranchTransition;
-import de.uka.ipd.sdq.pcm.usagemodel.ClosedWorkload;
-import de.uka.ipd.sdq.pcm.usagemodel.EntryLevelSystemCall;
-import de.uka.ipd.sdq.pcm.usagemodel.Loop;
-import de.uka.ipd.sdq.pcm.usagemodel.LoopIterations;
-import de.uka.ipd.sdq.pcm.usagemodel.OpenWorkload;
-import de.uka.ipd.sdq.pcm.usagemodel.ScenarioBehaviour;
-import de.uka.ipd.sdq.pcm.usagemodel.Start;
-import de.uka.ipd.sdq.pcm.usagemodel.Stop;
-import de.uka.ipd.sdq.pcm.usagemodel.UsageModel;
-import de.uka.ipd.sdq.pcm.usagemodel.UsageScenario;
-import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelFactory;
-import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
+import org.eclipse.emf.ecore.impl.EFactoryImpl;
+
+import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
 /**
  * <!-- begin-user-doc -->

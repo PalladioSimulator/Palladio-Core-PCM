@@ -6,13 +6,14 @@
  */
 package de.uka.ipd.sdq.pcm.usagemodel;
 
+import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
+
+import de.uka.ipd.sdq.stoex.StoexPackage;
+
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
-
-import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
-import de.uka.ipd.sdq.stoex.StoexPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -568,7 +569,6 @@ public interface UsagemodelPackage extends EPackage {
 	 */
 	int BRANCH_FEATURE_COUNT = ABSTRACT_USER_ACTION_FEATURE_COUNT + 1;
 
-
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.usagemodel.impl.BranchTransitionImpl <em>Branch Transition</em>}' class.
 	 * <!-- begin-user-doc -->
@@ -955,7 +955,7 @@ public interface UsagemodelPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	interface Literals  {
+	interface Literals {
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.usagemodel.impl.WorkloadImpl <em>Workload</em>}' class.
 		 * <!-- begin-user-doc -->

@@ -7,22 +7,28 @@
  */
 package de.uka.ipd.sdq.pcm.allocation.impl;
 
+import de.uka.ipd.sdq.pcm.allocation.Allocation;
+import de.uka.ipd.sdq.pcm.allocation.AllocationContext;
+import de.uka.ipd.sdq.pcm.allocation.AllocationPackage;
+
+import de.uka.ipd.sdq.pcm.core.entity.impl.EntityImpl;
+
+import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceEnvironment;
+
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+
 import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
-
-import de.uka.ipd.sdq.pcm.allocation.Allocation;
-import de.uka.ipd.sdq.pcm.allocation.AllocationContext;
-import de.uka.ipd.sdq.pcm.allocation.AllocationPackage;
-import de.uka.ipd.sdq.pcm.core.entity.impl.EntityImpl;
-import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceEnvironment;
 
 /**
  * <!-- begin-user-doc -->
@@ -66,7 +72,6 @@ public class AllocationImpl extends EntityImpl implements Allocation {
 	 * @ordered
 	 */
 	protected ResourceEnvironment targetResourceEnvironment_Allocation = null;
-
 
 	/**
 	 * The cached value of the '{@link #getSystem_Allocation() <em>System Allocation</em>}' reference.

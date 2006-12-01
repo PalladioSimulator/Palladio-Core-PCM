@@ -6,12 +6,13 @@
  */
 package de.uka.ipd.sdq.pcm.qosannotations;
 
+import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
+
+import de.uka.ipd.sdq.stoex.StoexPackage;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
-
-import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
-import de.uka.ipd.sdq.stoex.StoexPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -396,7 +397,7 @@ public interface QosannotationsPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	interface Literals  {
+	interface Literals {
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.qosannotations.impl.SpecifiedExecutionTimeImpl <em>Specified Execution Time</em>}' class.
 		 * <!-- begin-user-doc -->

@@ -7,15 +7,18 @@
  */
 package de.uka.ipd.sdq.pcm.seff.impl;
 
-import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.EObjectImpl;
-
 import de.uka.ipd.sdq.pcm.repository.Signature;
+
 import de.uka.ipd.sdq.pcm.seff.SeffPackage;
 import de.uka.ipd.sdq.pcm.seff.ServiceEffectSpecification;
+
+import org.eclipse.emf.common.notify.Notification;
+
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.EObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -48,7 +51,6 @@ public abstract class ServiceEffectSpecificationImpl extends EObjectImpl impleme
 	 * @ordered
 	 */
 	protected static final String SEFF_TYPE_ID_EDEFAULT = null;
-
 
 	/**
 	 * The cached value of the '{@link #getSeffTypeID() <em>Seff Type ID</em>}' attribute.

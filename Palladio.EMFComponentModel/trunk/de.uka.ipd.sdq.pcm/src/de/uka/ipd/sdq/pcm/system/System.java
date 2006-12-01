@@ -7,11 +7,12 @@
  */
 package de.uka.ipd.sdq.pcm.system;
 
-import org.eclipse.emf.common.util.EList;
-
 import de.uka.ipd.sdq.pcm.core.composition.ComposedStructure;
+
 import de.uka.ipd.sdq.pcm.core.entity.Entity;
 import de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingRequiringEntity;
+
+import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->

@@ -7,7 +7,6 @@
  */
 package de.uka.ipd.sdq.pcm.usagemodel;
 
-
 import org.eclipse.emf.common.util.EList;
 
 /**

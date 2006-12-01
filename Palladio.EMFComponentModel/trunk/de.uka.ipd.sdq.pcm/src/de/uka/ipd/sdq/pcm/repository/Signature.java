@@ -11,6 +11,7 @@ import java.util.Map;
 
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -117,7 +118,7 @@ public interface Signature extends EObject {
 	 * Returns the value of the '<em><b>Returntype Signature</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Returntype Signature</em>' containment reference isn't clear,
+	 * If the meaning of the '<em>Returntype Signature</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->

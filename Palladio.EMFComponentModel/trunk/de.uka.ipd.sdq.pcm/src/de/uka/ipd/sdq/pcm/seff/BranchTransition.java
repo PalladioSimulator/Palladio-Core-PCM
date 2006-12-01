@@ -7,6 +7,8 @@
  */
 package de.uka.ipd.sdq.pcm.seff;
 
+import de.uka.ipd.sdq.identifier.Identifier;
+
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -27,7 +29,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface BranchTransition extends EObject {
+public interface BranchTransition extends Identifier {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

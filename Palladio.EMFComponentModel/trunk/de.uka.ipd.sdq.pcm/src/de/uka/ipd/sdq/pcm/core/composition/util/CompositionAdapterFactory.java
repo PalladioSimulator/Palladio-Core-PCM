@@ -6,24 +6,23 @@
  */
 package de.uka.ipd.sdq.pcm.core.composition.util;
 
-import org.eclipse.emf.common.notify.Adapter;
-import org.eclipse.emf.common.notify.Notifier;
-import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
-import org.eclipse.emf.ecore.EObject;
-
 import de.uka.ipd.sdq.identifier.Identifier;
+
 import de.uka.ipd.sdq.pcm.core.composition.*;
 
-import de.uka.ipd.sdq.pcm.core.composition.AssemblyConnector;
-import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
-import de.uka.ipd.sdq.pcm.core.composition.ComposedStructure;
-import de.uka.ipd.sdq.pcm.core.composition.CompositionPackage;
-import de.uka.ipd.sdq.pcm.core.composition.ProvidedDelegationConnector;
-import de.uka.ipd.sdq.pcm.core.composition.RequiredDelegationConnector;
 import de.uka.ipd.sdq.pcm.core.connectors.Connector;
+
 import de.uka.ipd.sdq.pcm.core.entity.Entity;
 import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
+
 import de.uka.ipd.sdq.pcm.repository.DelegationConnector;
+
+import org.eclipse.emf.common.notify.Adapter;
+import org.eclipse.emf.common.notify.Notifier;
+
+import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
+
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -150,20 +149,6 @@ public class CompositionAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.core.composition.ComposedStructure <em>Composed Structure</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.pcm.core.composition.ComposedStructure
-	 * @generated
-	 */
-	public Adapter createComposedStructureAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.core.composition.AssemblyContext <em>Assembly Context</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -174,6 +159,20 @@ public class CompositionAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createAssemblyContextAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.core.composition.RequiredDelegationConnector <em>Required Delegation Connector</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.pcm.core.composition.RequiredDelegationConnector
+	 * @generated
+	 */
+	public Adapter createRequiredDelegationConnectorAdapter() {
 		return null;
 	}
 
@@ -192,16 +191,16 @@ public class CompositionAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.core.composition.RequiredDelegationConnector <em>Required Delegation Connector</em>}'.
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.core.composition.ComposedStructure <em>Composed Structure</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.pcm.core.composition.RequiredDelegationConnector
+	 * @see de.uka.ipd.sdq.pcm.core.composition.ComposedStructure
 	 * @generated
 	 */
-	public Adapter createRequiredDelegationConnectorAdapter() {
+	public Adapter createComposedStructureAdapter() {
 		return null;
 	}
 

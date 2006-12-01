@@ -7,22 +7,28 @@
  */
 package de.uka.ipd.sdq.pcm.usagemodel.impl;
 
+import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
+
+import de.uka.ipd.sdq.pcm.repository.ProvidedRole;
+import de.uka.ipd.sdq.pcm.repository.Signature;
+
+import de.uka.ipd.sdq.pcm.usagemodel.EntryLevelSystemCall;
+import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
+
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+
 import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
-
-import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
-import de.uka.ipd.sdq.pcm.repository.ProvidedRole;
-import de.uka.ipd.sdq.pcm.repository.Signature;
-import de.uka.ipd.sdq.pcm.usagemodel.EntryLevelSystemCall;
-import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -66,7 +72,6 @@ public class EntryLevelSystemCallImpl extends AbstractUserActionImpl implements 
 	 * @ordered
 	 */
 	protected ProvidedRole providedRole_EntryLevelSystemCall = null;
-
 
 	/**
 	 * The cached value of the '{@link #getSignature_EntryLevelSystemCall() <em>Signature Entry Level System Call</em>}' reference.

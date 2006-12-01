@@ -6,23 +6,21 @@
  */
 package de.uka.ipd.sdq.pcm.qosannotations.util;
 
-import org.eclipse.emf.common.notify.Adapter;
-import org.eclipse.emf.common.notify.Notifier;
-import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
-import org.eclipse.emf.ecore.EObject;
-
 import de.uka.ipd.sdq.identifier.Identifier;
+
 import de.uka.ipd.sdq.pcm.core.entity.Entity;
 import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
+
 import de.uka.ipd.sdq.pcm.qosannotations.*;
 
-import de.uka.ipd.sdq.pcm.qosannotations.ComponentSpecifiedExecutionTime;
-import de.uka.ipd.sdq.pcm.qosannotations.QoSAnnotations;
-import de.uka.ipd.sdq.pcm.qosannotations.QosannotationsPackage;
-import de.uka.ipd.sdq.pcm.qosannotations.SpecifiedExecutionTime;
-import de.uka.ipd.sdq.pcm.qosannotations.SpecifiedFailureProbability;
-import de.uka.ipd.sdq.pcm.qosannotations.SystemSpecifiedExecutionTime;
 import de.uka.ipd.sdq.stoex.RandomVariable;
+
+import org.eclipse.emf.common.notify.Adapter;
+import org.eclipse.emf.common.notify.Notifier;
+
+import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
+
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->

@@ -7,11 +7,12 @@
  */
 package de.uka.ipd.sdq.pcm.resourcetype.impl;
 
-import org.eclipse.emf.ecore.EClass;
-
 import de.uka.ipd.sdq.pcm.core.entity.impl.EntityImpl;
+
 import de.uka.ipd.sdq.pcm.resourcetype.ResourceType;
 import de.uka.ipd.sdq.pcm.resourcetype.ResourcetypePackage;
+
+import org.eclipse.emf.ecore.EClass;
 
 /**
  * <!-- begin-user-doc -->
@@ -29,6 +30,7 @@ public abstract class ResourceTypeImpl extends EntityImpl implements ResourceTyp
 	 * @generated
 	 */
 	public static final String copyright = "(c) by SDQ, IPD, U Karlsruhe (TH), 2006";
+
 
 	/**
 	 * <!-- begin-user-doc -->

@@ -7,11 +7,12 @@
  */
 package de.uka.ipd.sdq.pcm.seff.impl;
 
-import org.eclipse.emf.ecore.EClass;
-
 import de.uka.ipd.sdq.pcm.seff.IterationCount;
 import de.uka.ipd.sdq.pcm.seff.SeffPackage;
+
 import de.uka.ipd.sdq.stoex.impl.RandomVariableImpl;
+
+import org.eclipse.emf.ecore.EClass;
 
 /**
  * <!-- begin-user-doc -->
@@ -29,6 +30,7 @@ public class IterationCountImpl extends RandomVariableImpl implements IterationC
 	 * @generated
 	 */
 	public static final String copyright = "(c) by SDQ, IPD, U Karlsruhe (TH), 2006";
+
 
 	/**
 	 * <!-- begin-user-doc -->

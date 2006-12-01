@@ -8,6 +8,7 @@
 package de.uka.ipd.sdq.pcm.seff;
 
 import de.uka.ipd.sdq.pcm.resourcetype.ProcessingResourceType;
+
 import de.uka.ipd.sdq.stoex.RandomVariable;
 
 /**
@@ -93,7 +94,7 @@ public interface ParametricResourceDemand extends RandomVariable {
 	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.seff.AbstractResourceDemandingAction#getResourceDemand_Action <em>Resource Demand Action</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Action Parametric Resource Demand</em>' reference isn't clear,
+	 * If the meaning of the '<em>Action Parametric Resource Demand</em>' container reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->

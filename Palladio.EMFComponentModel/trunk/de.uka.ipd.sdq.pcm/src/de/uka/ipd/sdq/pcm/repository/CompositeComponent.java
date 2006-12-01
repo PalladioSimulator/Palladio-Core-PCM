@@ -7,11 +7,11 @@
  */
 package de.uka.ipd.sdq.pcm.repository;
 
+import de.uka.ipd.sdq.pcm.core.composition.ComposedStructure;
+
 import java.util.Map;
 
 import org.eclipse.emf.common.util.DiagnosticChain;
-
-import de.uka.ipd.sdq.pcm.core.composition.ComposedStructure;
 
 /**
  * <!-- begin-user-doc -->

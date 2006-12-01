@@ -6,33 +6,48 @@
  */
 package de.uka.ipd.sdq.pcm.seff.impl;
 
-import org.eclipse.emf.ecore.EAttribute;
-import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EPackage;
-import org.eclipse.emf.ecore.EReference;
-import org.eclipse.emf.ecore.impl.EPackageImpl;
-
 import de.uka.ipd.sdq.identifier.IdentifierPackage;
+
 import de.uka.ipd.sdq.pcm.allocation.AllocationPackage;
+
 import de.uka.ipd.sdq.pcm.allocation.impl.AllocationPackageImpl;
+
 import de.uka.ipd.sdq.pcm.core.composition.CompositionPackage;
+
 import de.uka.ipd.sdq.pcm.core.composition.impl.CompositionPackageImpl;
+
 import de.uka.ipd.sdq.pcm.core.connectors.ConnectorsPackage;
+
 import de.uka.ipd.sdq.pcm.core.connectors.impl.ConnectorsPackageImpl;
+
 import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
+
 import de.uka.ipd.sdq.pcm.core.entity.impl.EntityPackageImpl;
+
 import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
+
 import de.uka.ipd.sdq.pcm.parameter.impl.ParameterPackageImpl;
+
 import de.uka.ipd.sdq.pcm.protocol.ProtocolPackage;
+
 import de.uka.ipd.sdq.pcm.protocol.impl.ProtocolPackageImpl;
+
 import de.uka.ipd.sdq.pcm.qosannotations.QosannotationsPackage;
+
 import de.uka.ipd.sdq.pcm.qosannotations.impl.QosannotationsPackageImpl;
+
 import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
+
 import de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl;
+
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage;
+
 import de.uka.ipd.sdq.pcm.resourceenvironment.impl.ResourceenvironmentPackageImpl;
+
 import de.uka.ipd.sdq.pcm.resourcetype.ResourcetypePackage;
+
 import de.uka.ipd.sdq.pcm.resourcetype.impl.ResourcetypePackageImpl;
+
 import de.uka.ipd.sdq.pcm.seff.AbstractAction;
 import de.uka.ipd.sdq.pcm.seff.AbstractResourceDemandingAction;
 import de.uka.ipd.sdq.pcm.seff.AquireAction;
@@ -54,12 +69,25 @@ import de.uka.ipd.sdq.pcm.seff.SeffPackage;
 import de.uka.ipd.sdq.pcm.seff.ServiceEffectSpecification;
 import de.uka.ipd.sdq.pcm.seff.StartAction;
 import de.uka.ipd.sdq.pcm.seff.StopAction;
+
 import de.uka.ipd.sdq.pcm.system.SystemPackage;
+
 import de.uka.ipd.sdq.pcm.system.impl.SystemPackageImpl;
+
 import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
+
 import de.uka.ipd.sdq.pcm.usagemodel.impl.UsagemodelPackageImpl;
+
 import de.uka.ipd.sdq.probfunction.ProbfunctionPackage;
+
 import de.uka.ipd.sdq.stoex.StoexPackage;
+
+import org.eclipse.emf.ecore.EAttribute;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.EReference;
+
+import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -806,6 +834,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 		ResourcetypePackage theResourcetypePackage = (ResourcetypePackage)EPackage.Registry.INSTANCE.getEPackage(ResourcetypePackage.eNS_URI);
 		RepositoryPackage theRepositoryPackage = (RepositoryPackage)EPackage.Registry.INSTANCE.getEPackage(RepositoryPackage.eNS_URI);
 		ParameterPackage theParameterPackage = (ParameterPackage)EPackage.Registry.INSTANCE.getEPackage(ParameterPackage.eNS_URI);
+		IdentifierPackage theIdentifierPackage = (IdentifierPackage)EPackage.Registry.INSTANCE.getEPackage(IdentifierPackage.eNS_URI);
 
 		// Add supertypes to classes
 		stopActionEClass.getESuperTypes().add(this.getAbstractResourceDemandingAction());
@@ -821,6 +850,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 		internalActionEClass.getESuperTypes().add(this.getAbstractResourceDemandingAction());
 		forkActionEClass.getESuperTypes().add(this.getAbstractResourceDemandingAction());
 		externalCallActionEClass.getESuperTypes().add(this.getAbstractAction());
+		branchTransitionEClass.getESuperTypes().add(theIdentifierPackage.getIdentifier());
 		branchConditionEClass.getESuperTypes().add(theStoexPackage.getRandomVariable());
 		branchActionEClass.getESuperTypes().add(this.getAbstractResourceDemandingAction());
 		aquireActionEClass.getESuperTypes().add(this.getAbstractResourceDemandingAction());

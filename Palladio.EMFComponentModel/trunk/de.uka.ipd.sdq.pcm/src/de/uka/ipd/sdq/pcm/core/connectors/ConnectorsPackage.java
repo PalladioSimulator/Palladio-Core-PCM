@@ -6,10 +6,10 @@
  */
 package de.uka.ipd.sdq.pcm.core.connectors;
 
+import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
-
-import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -135,7 +135,7 @@ public interface ConnectorsPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	interface Literals  {
+	interface Literals {
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.core.connectors.impl.ConnectorImpl <em>Connector</em>}' class.
 		 * <!-- begin-user-doc -->

@@ -6,24 +6,21 @@
  */
 package de.uka.ipd.sdq.pcm.core.composition.util;
 
+import de.uka.ipd.sdq.identifier.Identifier;
+
+import de.uka.ipd.sdq.pcm.core.composition.*;
+
+import de.uka.ipd.sdq.pcm.core.connectors.Connector;
+
+import de.uka.ipd.sdq.pcm.core.entity.Entity;
+import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
+
+import de.uka.ipd.sdq.pcm.repository.DelegationConnector;
+
 import java.util.List;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
-
-import de.uka.ipd.sdq.identifier.Identifier;
-import de.uka.ipd.sdq.pcm.core.composition.*;
-
-import de.uka.ipd.sdq.pcm.core.composition.AssemblyConnector;
-import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
-import de.uka.ipd.sdq.pcm.core.composition.ComposedStructure;
-import de.uka.ipd.sdq.pcm.core.composition.CompositionPackage;
-import de.uka.ipd.sdq.pcm.core.composition.ProvidedDelegationConnector;
-import de.uka.ipd.sdq.pcm.core.composition.RequiredDelegationConnector;
-import de.uka.ipd.sdq.pcm.core.connectors.Connector;
-import de.uka.ipd.sdq.pcm.core.entity.Entity;
-import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
-import de.uka.ipd.sdq.pcm.repository.DelegationConnector;
 
 /**
  * <!-- begin-user-doc -->
@@ -176,21 +173,6 @@ public class CompositionSwitch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Composed Structure</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Composed Structure</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public Object caseComposedStructure(ComposedStructure object) {
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpretting the object as an instance of '<em>Assembly Context</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -202,6 +184,21 @@ public class CompositionSwitch {
 	 * @generated
 	 */
 	public Object caseAssemblyContext(AssemblyContext object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpretting the object as an instance of '<em>Required Delegation Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpretting the object as an instance of '<em>Required Delegation Connector</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public Object caseRequiredDelegationConnector(RequiredDelegationConnector object) {
 		return null;
 	}
 
@@ -221,17 +218,17 @@ public class CompositionSwitch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Required Delegation Connector</em>'.
+	 * Returns the result of interpretting the object as an instance of '<em>Composed Structure</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Required Delegation Connector</em>'.
+	 * @return the result of interpretting the object as an instance of '<em>Composed Structure</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public Object caseRequiredDelegationConnector(RequiredDelegationConnector object) {
+	public Object caseComposedStructure(ComposedStructure object) {
 		return null;
 	}
 

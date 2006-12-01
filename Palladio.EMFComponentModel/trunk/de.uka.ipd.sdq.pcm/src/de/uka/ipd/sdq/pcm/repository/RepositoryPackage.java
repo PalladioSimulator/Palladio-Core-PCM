@@ -6,14 +6,15 @@
  */
 package de.uka.ipd.sdq.pcm.repository;
 
+import de.uka.ipd.sdq.pcm.core.connectors.ConnectorsPackage;
+
+import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
+
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
-
-import de.uka.ipd.sdq.pcm.core.connectors.ConnectorsPackage;
-import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -218,46 +219,6 @@ public interface RepositoryPackage extends EPackage {
 	int DATA_TYPE_FEATURE_COUNT = 1;
 
 	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.repository.impl.ExceptionTypeImpl <em>Exception Type</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.pcm.repository.impl.ExceptionTypeImpl
-	 * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getExceptionType()
-	 * @generated
-	 */
-	int EXCEPTION_TYPE = 8;
-
-	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.repository.impl.RoleImpl <em>Role</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.pcm.repository.impl.RoleImpl
-	 * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getRole()
-	 * @generated
-	 */
-	int ROLE = 6;
-
-	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.repository.impl.RequiredRoleImpl <em>Required Role</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.pcm.repository.impl.RequiredRoleImpl
-	 * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getRequiredRole()
-	 * @generated
-	 */
-	int REQUIRED_ROLE = 5;
-
-	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.repository.impl.InterfaceImpl <em>Interface</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.pcm.repository.impl.InterfaceImpl
-	 * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getInterface()
-	 * @generated
-	 */
-	int INTERFACE = 7;
-
-	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.repository.impl.RepositoryImpl <em>Repository</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -395,6 +356,16 @@ public interface RepositoryPackage extends EPackage {
 	int PROVIDES_COMPONENT_TYPE_FEATURE_COUNT = EntityPackage.INTERFACE_PROVIDING_REQUIRING_ENTITY_FEATURE_COUNT + 1;
 
 	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.repository.impl.RoleImpl <em>Role</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.pcm.repository.impl.RoleImpl
+	 * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getRole()
+	 * @generated
+	 */
+	int ROLE = 6;
+
+	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -420,6 +391,16 @@ public interface RepositoryPackage extends EPackage {
 	 * @ordered
 	 */
 	int ROLE_FEATURE_COUNT = EntityPackage.ENTITY_FEATURE_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.repository.impl.RequiredRoleImpl <em>Required Role</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.pcm.repository.impl.RequiredRoleImpl
+	 * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getRequiredRole()
+	 * @generated
+	 */
+	int REQUIRED_ROLE = 5;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -465,6 +446,16 @@ public interface RepositoryPackage extends EPackage {
 	 * @ordered
 	 */
 	int REQUIRED_ROLE_FEATURE_COUNT = ROLE_FEATURE_COUNT + 2;
+
+	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.repository.impl.InterfaceImpl <em>Interface</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.pcm.repository.impl.InterfaceImpl
+	 * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getInterface()
+	 * @generated
+	 */
+	int INTERFACE = 7;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -539,6 +530,16 @@ public interface RepositoryPackage extends EPackage {
 	int INTERFACE_FEATURE_COUNT = EntityPackage.ENTITY_FEATURE_COUNT + 5;
 
 	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.repository.impl.ExceptionTypeImpl <em>Exception Type</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.pcm.repository.impl.ExceptionTypeImpl
+	 * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getExceptionType()
+	 * @generated
+	 */
+	int EXCEPTION_TYPE = 8;
+
+	/**
 	 * The feature id for the '<em><b>Exception Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -564,16 +565,6 @@ public interface RepositoryPackage extends EPackage {
 	 * @ordered
 	 */
 	int EXCEPTION_TYPE_FEATURE_COUNT = 2;
-
-	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.repository.impl.ProvidedRoleImpl <em>Provided Role</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.pcm.repository.impl.ProvidedRoleImpl
-	 * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getProvidedRole()
-	 * @generated
-	 */
-	int PROVIDED_ROLE = 18;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.repository.impl.CompleteComponentTypeImpl <em>Complete Component Type</em>}' class.
@@ -731,26 +722,6 @@ public interface RepositoryPackage extends EPackage {
 	int IMPLEMENTATION_COMPONENT_TYPE_FEATURE_COUNT = COMPLETE_COMPONENT_TYPE_FEATURE_COUNT + 1;
 
 	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.repository.impl.CompositeComponentImpl <em>Composite Component</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.pcm.repository.impl.CompositeComponentImpl
-	 * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getCompositeComponent()
-	 * @generated
-	 */
-	int COMPOSITE_COMPONENT = 12;
-
-	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.repository.impl.BasicComponentImpl <em>Basic Component</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.pcm.repository.impl.BasicComponentImpl
-	 * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getBasicComponent()
-	 * @generated
-	 */
-	int BASIC_COMPONENT = 13;
-
-	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.repository.impl.DelegationConnectorImpl <em>Delegation Connector</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -786,6 +757,16 @@ public interface RepositoryPackage extends EPackage {
 	 * @ordered
 	 */
 	int DELEGATION_CONNECTOR_FEATURE_COUNT = ConnectorsPackage.CONNECTOR_FEATURE_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.repository.impl.CompositeComponentImpl <em>Composite Component</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.pcm.repository.impl.CompositeComponentImpl
+	 * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getCompositeComponent()
+	 * @generated
+	 */
+	int COMPOSITE_COMPONENT = 12;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -903,6 +884,16 @@ public interface RepositoryPackage extends EPackage {
 	 * @ordered
 	 */
 	int COMPOSITE_COMPONENT_FEATURE_COUNT = IMPLEMENTATION_COMPONENT_TYPE_FEATURE_COUNT + 5;
+
+	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.repository.impl.BasicComponentImpl <em>Basic Component</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.pcm.repository.impl.BasicComponentImpl
+	 * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getBasicComponent()
+	 * @generated
+	 */
+	int BASIC_COMPONENT = 13;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1188,6 +1179,16 @@ public interface RepositoryPackage extends EPackage {
 	int INNER_DECLARATION_FEATURE_COUNT = EntityPackage.NAMED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.repository.impl.ProvidedRoleImpl <em>Provided Role</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.pcm.repository.impl.ProvidedRoleImpl
+	 * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getProvidedRole()
+	 * @generated
+	 */
+	int PROVIDED_ROLE = 18;
+
+	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1241,7 +1242,6 @@ public interface RepositoryPackage extends EPackage {
 	 * @generated
 	 */
 	int PARAMETER_MODIFIER = 19;
-
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.repository.PrimitiveTypeEnum <em>Primitive Type Enum</em>}' enum.
@@ -1395,145 +1395,6 @@ public interface RepositoryPackage extends EPackage {
 	EReference getDataType_Repository_DataType();
 
 	/**
-	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.repository.ExceptionType <em>Exception Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Exception Type</em>'.
-	 * @see de.uka.ipd.sdq.pcm.repository.ExceptionType
-	 * @generated
-	 */
-	EClass getExceptionType();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.pcm.repository.ExceptionType#getExceptionName <em>Exception Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Exception Name</em>'.
-	 * @see de.uka.ipd.sdq.pcm.repository.ExceptionType#getExceptionName()
-	 * @see #getExceptionType()
-	 * @generated
-	 */
-	EAttribute getExceptionType_ExceptionName();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.pcm.repository.ExceptionType#getExceptionMessage <em>Exception Message</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Exception Message</em>'.
-	 * @see de.uka.ipd.sdq.pcm.repository.ExceptionType#getExceptionMessage()
-	 * @see #getExceptionType()
-	 * @generated
-	 */
-	EAttribute getExceptionType_ExceptionMessage();
-
-	/**
-	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.repository.Role <em>Role</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Role</em>'.
-	 * @see de.uka.ipd.sdq.pcm.repository.Role
-	 * @generated
-	 */
-	EClass getRole();
-
-	/**
-	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.repository.RequiredRole <em>Required Role</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Required Role</em>'.
-	 * @see de.uka.ipd.sdq.pcm.repository.RequiredRole
-	 * @generated
-	 */
-	EClass getRequiredRole();
-
-	/**
-	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.pcm.repository.RequiredRole#getRequiredInterface__RequiredRole <em>Required Interface Required Role</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Required Interface Required Role</em>'.
-	 * @see de.uka.ipd.sdq.pcm.repository.RequiredRole#getRequiredInterface__RequiredRole()
-	 * @see #getRequiredRole()
-	 * @generated
-	 */
-	EReference getRequiredRole_RequiredInterface__RequiredRole();
-
-	/**
-	 * Returns the meta object for the container reference '{@link de.uka.ipd.sdq.pcm.repository.RequiredRole#getRequiringEntity_RequiredRole <em>Requiring Entity Required Role</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Requiring Entity Required Role</em>'.
-	 * @see de.uka.ipd.sdq.pcm.repository.RequiredRole#getRequiringEntity_RequiredRole()
-	 * @see #getRequiredRole()
-	 * @generated
-	 */
-	EReference getRequiredRole_RequiringEntity_RequiredRole();
-
-	/**
-	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.repository.Interface <em>Interface</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Interface</em>'.
-	 * @see de.uka.ipd.sdq.pcm.repository.Interface
-	 * @generated
-	 */
-	EClass getInterface();
-
-	/**
-	 * Returns the meta object for the reference list '{@link de.uka.ipd.sdq.pcm.repository.Interface#getParentInterface__Interface <em>Parent Interface Interface</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Parent Interface Interface</em>'.
-	 * @see de.uka.ipd.sdq.pcm.repository.Interface#getParentInterface__Interface()
-	 * @see #getInterface()
-	 * @generated
-	 */
-	EReference getInterface_ParentInterface__Interface();
-
-	/**
-	 * Returns the meta object for the reference list '{@link de.uka.ipd.sdq.pcm.repository.Interface#getAnchestorInterfaces_Interface <em>Anchestor Interfaces Interface</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Anchestor Interfaces Interface</em>'.
-	 * @see de.uka.ipd.sdq.pcm.repository.Interface#getAnchestorInterfaces_Interface()
-	 * @see #getInterface()
-	 * @generated
-	 */
-	EReference getInterface_AnchestorInterfaces_Interface();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link de.uka.ipd.sdq.pcm.repository.Interface#getProtocols__Interface <em>Protocols Interface</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Protocols Interface</em>'.
-	 * @see de.uka.ipd.sdq.pcm.repository.Interface#getProtocols__Interface()
-	 * @see #getInterface()
-	 * @generated
-	 */
-	EReference getInterface_Protocols__Interface();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link de.uka.ipd.sdq.pcm.repository.Interface#getSignatures__Interface <em>Signatures Interface</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Signatures Interface</em>'.
-	 * @see de.uka.ipd.sdq.pcm.repository.Interface#getSignatures__Interface()
-	 * @see #getInterface()
-	 * @generated
-	 */
-	EReference getInterface_Signatures__Interface();
-
-	/**
-	 * Returns the meta object for the container reference '{@link de.uka.ipd.sdq.pcm.repository.Interface#getRepository_Interface <em>Repository Interface</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Repository Interface</em>'.
-	 * @see de.uka.ipd.sdq.pcm.repository.Interface#getRepository_Interface()
-	 * @see #getInterface()
-	 * @generated
-	 */
-	EReference getInterface_Repository_Interface();
-
-	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.repository.Repository <em>Repository</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1609,36 +1470,143 @@ public interface RepositoryPackage extends EPackage {
 	EReference getProvidesComponentType_Repository_ProvidesComponentType();
 
 	/**
-	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.repository.ProvidedRole <em>Provided Role</em>}'.
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.repository.RequiredRole <em>Required Role</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Provided Role</em>'.
-	 * @see de.uka.ipd.sdq.pcm.repository.ProvidedRole
+	 * @return the meta object for class '<em>Required Role</em>'.
+	 * @see de.uka.ipd.sdq.pcm.repository.RequiredRole
 	 * @generated
 	 */
-	EClass getProvidedRole();
+	EClass getRequiredRole();
 
 	/**
-	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.pcm.repository.ProvidedRole#getProvidedInterface__ProvidedRole <em>Provided Interface Provided Role</em>}'.
+	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.pcm.repository.RequiredRole#getRequiredInterface__RequiredRole <em>Required Interface Required Role</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Provided Interface Provided Role</em>'.
-	 * @see de.uka.ipd.sdq.pcm.repository.ProvidedRole#getProvidedInterface__ProvidedRole()
-	 * @see #getProvidedRole()
+	 * @return the meta object for the reference '<em>Required Interface Required Role</em>'.
+	 * @see de.uka.ipd.sdq.pcm.repository.RequiredRole#getRequiredInterface__RequiredRole()
+	 * @see #getRequiredRole()
 	 * @generated
 	 */
-	EReference getProvidedRole_ProvidedInterface__ProvidedRole();
+	EReference getRequiredRole_RequiredInterface__RequiredRole();
 
 	/**
-	 * Returns the meta object for the container reference '{@link de.uka.ipd.sdq.pcm.repository.ProvidedRole#getProvidingEntity_ProvidedRole <em>Providing Entity Provided Role</em>}'.
+	 * Returns the meta object for the container reference '{@link de.uka.ipd.sdq.pcm.repository.RequiredRole#getRequiringEntity_RequiredRole <em>Requiring Entity Required Role</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Providing Entity Provided Role</em>'.
-	 * @see de.uka.ipd.sdq.pcm.repository.ProvidedRole#getProvidingEntity_ProvidedRole()
-	 * @see #getProvidedRole()
+	 * @return the meta object for the container reference '<em>Requiring Entity Required Role</em>'.
+	 * @see de.uka.ipd.sdq.pcm.repository.RequiredRole#getRequiringEntity_RequiredRole()
+	 * @see #getRequiredRole()
 	 * @generated
 	 */
-	EReference getProvidedRole_ProvidingEntity_ProvidedRole();
+	EReference getRequiredRole_RequiringEntity_RequiredRole();
+
+	/**
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.repository.Role <em>Role</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Role</em>'.
+	 * @see de.uka.ipd.sdq.pcm.repository.Role
+	 * @generated
+	 */
+	EClass getRole();
+
+	/**
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.repository.Interface <em>Interface</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Interface</em>'.
+	 * @see de.uka.ipd.sdq.pcm.repository.Interface
+	 * @generated
+	 */
+	EClass getInterface();
+
+	/**
+	 * Returns the meta object for the reference list '{@link de.uka.ipd.sdq.pcm.repository.Interface#getParentInterface__Interface <em>Parent Interface Interface</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Parent Interface Interface</em>'.
+	 * @see de.uka.ipd.sdq.pcm.repository.Interface#getParentInterface__Interface()
+	 * @see #getInterface()
+	 * @generated
+	 */
+	EReference getInterface_ParentInterface__Interface();
+
+	/**
+	 * Returns the meta object for the reference list '{@link de.uka.ipd.sdq.pcm.repository.Interface#getAnchestorInterfaces_Interface <em>Anchestor Interfaces Interface</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Anchestor Interfaces Interface</em>'.
+	 * @see de.uka.ipd.sdq.pcm.repository.Interface#getAnchestorInterfaces_Interface()
+	 * @see #getInterface()
+	 * @generated
+	 */
+	EReference getInterface_AnchestorInterfaces_Interface();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link de.uka.ipd.sdq.pcm.repository.Interface#getProtocols__Interface <em>Protocols Interface</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Protocols Interface</em>'.
+	 * @see de.uka.ipd.sdq.pcm.repository.Interface#getProtocols__Interface()
+	 * @see #getInterface()
+	 * @generated
+	 */
+	EReference getInterface_Protocols__Interface();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link de.uka.ipd.sdq.pcm.repository.Interface#getSignatures__Interface <em>Signatures Interface</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Signatures Interface</em>'.
+	 * @see de.uka.ipd.sdq.pcm.repository.Interface#getSignatures__Interface()
+	 * @see #getInterface()
+	 * @generated
+	 */
+	EReference getInterface_Signatures__Interface();
+
+	/**
+	 * Returns the meta object for the container reference '{@link de.uka.ipd.sdq.pcm.repository.Interface#getRepository_Interface <em>Repository Interface</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Repository Interface</em>'.
+	 * @see de.uka.ipd.sdq.pcm.repository.Interface#getRepository_Interface()
+	 * @see #getInterface()
+	 * @generated
+	 */
+	EReference getInterface_Repository_Interface();
+
+	/**
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.repository.ExceptionType <em>Exception Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Exception Type</em>'.
+	 * @see de.uka.ipd.sdq.pcm.repository.ExceptionType
+	 * @generated
+	 */
+	EClass getExceptionType();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.pcm.repository.ExceptionType#getExceptionName <em>Exception Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Exception Name</em>'.
+	 * @see de.uka.ipd.sdq.pcm.repository.ExceptionType#getExceptionName()
+	 * @see #getExceptionType()
+	 * @generated
+	 */
+	EAttribute getExceptionType_ExceptionName();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.pcm.repository.ExceptionType#getExceptionMessage <em>Exception Message</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Exception Message</em>'.
+	 * @see de.uka.ipd.sdq.pcm.repository.ExceptionType#getExceptionMessage()
+	 * @see #getExceptionType()
+	 * @generated
+	 */
+	EAttribute getExceptionType_ExceptionMessage();
 
 	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.repository.ImplementationComponentType <em>Implementation Component Type</em>}'.
@@ -1681,6 +1649,16 @@ public interface RepositoryPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getCompleteComponentType_ParentProvidesComponentTypes();
+
+	/**
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.repository.DelegationConnector <em>Delegation Connector</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Delegation Connector</em>'.
+	 * @see de.uka.ipd.sdq.pcm.repository.DelegationConnector
+	 * @generated
+	 */
+	EClass getDelegationConnector();
 
 	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.repository.CompositeComponent <em>Composite Component</em>}'.
@@ -1831,14 +1809,36 @@ public interface RepositoryPackage extends EPackage {
 	EReference getInnerDeclaration_Datatype_InnerDeclaration();
 
 	/**
-	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.repository.DelegationConnector <em>Delegation Connector</em>}'.
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.repository.ProvidedRole <em>Provided Role</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Delegation Connector</em>'.
-	 * @see de.uka.ipd.sdq.pcm.repository.DelegationConnector
+	 * @return the meta object for class '<em>Provided Role</em>'.
+	 * @see de.uka.ipd.sdq.pcm.repository.ProvidedRole
 	 * @generated
 	 */
-	EClass getDelegationConnector();
+	EClass getProvidedRole();
+
+	/**
+	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.pcm.repository.ProvidedRole#getProvidedInterface__ProvidedRole <em>Provided Interface Provided Role</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Provided Interface Provided Role</em>'.
+	 * @see de.uka.ipd.sdq.pcm.repository.ProvidedRole#getProvidedInterface__ProvidedRole()
+	 * @see #getProvidedRole()
+	 * @generated
+	 */
+	EReference getProvidedRole_ProvidedInterface__ProvidedRole();
+
+	/**
+	 * Returns the meta object for the container reference '{@link de.uka.ipd.sdq.pcm.repository.ProvidedRole#getProvidingEntity_ProvidedRole <em>Providing Entity Provided Role</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Providing Entity Provided Role</em>'.
+	 * @see de.uka.ipd.sdq.pcm.repository.ProvidedRole#getProvidingEntity_ProvidedRole()
+	 * @see #getProvidedRole()
+	 * @generated
+	 */
+	EReference getProvidedRole_ProvidingEntity_ProvidedRole();
 
 	/**
 	 * Returns the meta object for enum '{@link de.uka.ipd.sdq.pcm.repository.ParameterModifier <em>Parameter Modifier</em>}'.
@@ -1881,7 +1881,7 @@ public interface RepositoryPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	interface Literals  {
+	interface Literals {
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.repository.impl.SignatureImpl <em>Signature</em>}' class.
 		 * <!-- begin-user-doc -->
@@ -1993,118 +1993,6 @@ public interface RepositoryPackage extends EPackage {
 		EReference DATA_TYPE__REPOSITORY_DATA_TYPE = eINSTANCE.getDataType_Repository_DataType();
 
 		/**
-		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.repository.impl.ExceptionTypeImpl <em>Exception Type</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see de.uka.ipd.sdq.pcm.repository.impl.ExceptionTypeImpl
-		 * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getExceptionType()
-		 * @generated
-		 */
-		EClass EXCEPTION_TYPE = eINSTANCE.getExceptionType();
-
-		/**
-		 * The meta object literal for the '<em><b>Exception Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute EXCEPTION_TYPE__EXCEPTION_NAME = eINSTANCE.getExceptionType_ExceptionName();
-
-		/**
-		 * The meta object literal for the '<em><b>Exception Message</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute EXCEPTION_TYPE__EXCEPTION_MESSAGE = eINSTANCE.getExceptionType_ExceptionMessage();
-
-		/**
-		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.repository.impl.RoleImpl <em>Role</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see de.uka.ipd.sdq.pcm.repository.impl.RoleImpl
-		 * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getRole()
-		 * @generated
-		 */
-		EClass ROLE = eINSTANCE.getRole();
-
-		/**
-		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.repository.impl.RequiredRoleImpl <em>Required Role</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see de.uka.ipd.sdq.pcm.repository.impl.RequiredRoleImpl
-		 * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getRequiredRole()
-		 * @generated
-		 */
-		EClass REQUIRED_ROLE = eINSTANCE.getRequiredRole();
-
-		/**
-		 * The meta object literal for the '<em><b>Required Interface Required Role</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference REQUIRED_ROLE__REQUIRED_INTERFACE_REQUIRED_ROLE = eINSTANCE.getRequiredRole_RequiredInterface__RequiredRole();
-
-		/**
-		 * The meta object literal for the '<em><b>Requiring Entity Required Role</b></em>' container reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference REQUIRED_ROLE__REQUIRING_ENTITY_REQUIRED_ROLE = eINSTANCE.getRequiredRole_RequiringEntity_RequiredRole();
-
-		/**
-		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.repository.impl.InterfaceImpl <em>Interface</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see de.uka.ipd.sdq.pcm.repository.impl.InterfaceImpl
-		 * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getInterface()
-		 * @generated
-		 */
-		EClass INTERFACE = eINSTANCE.getInterface();
-
-		/**
-		 * The meta object literal for the '<em><b>Parent Interface Interface</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference INTERFACE__PARENT_INTERFACE_INTERFACE = eINSTANCE.getInterface_ParentInterface__Interface();
-
-		/**
-		 * The meta object literal for the '<em><b>Anchestor Interfaces Interface</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference INTERFACE__ANCHESTOR_INTERFACES_INTERFACE = eINSTANCE.getInterface_AnchestorInterfaces_Interface();
-
-		/**
-		 * The meta object literal for the '<em><b>Protocols Interface</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference INTERFACE__PROTOCOLS_INTERFACE = eINSTANCE.getInterface_Protocols__Interface();
-
-		/**
-		 * The meta object literal for the '<em><b>Signatures Interface</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference INTERFACE__SIGNATURES_INTERFACE = eINSTANCE.getInterface_Signatures__Interface();
-
-		/**
-		 * The meta object literal for the '<em><b>Repository Interface</b></em>' container reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference INTERFACE__REPOSITORY_INTERFACE = eINSTANCE.getInterface_Repository_Interface();
-
-		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.repository.impl.RepositoryImpl <em>Repository</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2165,30 +2053,116 @@ public interface RepositoryPackage extends EPackage {
 		EReference PROVIDES_COMPONENT_TYPE__REPOSITORY_PROVIDES_COMPONENT_TYPE = eINSTANCE.getProvidesComponentType_Repository_ProvidesComponentType();
 
 		/**
-		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.repository.impl.ProvidedRoleImpl <em>Provided Role</em>}' class.
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.repository.impl.RequiredRoleImpl <em>Required Role</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see de.uka.ipd.sdq.pcm.repository.impl.ProvidedRoleImpl
-		 * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getProvidedRole()
+		 * @see de.uka.ipd.sdq.pcm.repository.impl.RequiredRoleImpl
+		 * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getRequiredRole()
 		 * @generated
 		 */
-		EClass PROVIDED_ROLE = eINSTANCE.getProvidedRole();
+		EClass REQUIRED_ROLE = eINSTANCE.getRequiredRole();
 
 		/**
-		 * The meta object literal for the '<em><b>Provided Interface Provided Role</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Required Interface Required Role</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference PROVIDED_ROLE__PROVIDED_INTERFACE_PROVIDED_ROLE = eINSTANCE.getProvidedRole_ProvidedInterface__ProvidedRole();
+		EReference REQUIRED_ROLE__REQUIRED_INTERFACE_REQUIRED_ROLE = eINSTANCE.getRequiredRole_RequiredInterface__RequiredRole();
 
 		/**
-		 * The meta object literal for the '<em><b>Providing Entity Provided Role</b></em>' container reference feature.
+		 * The meta object literal for the '<em><b>Requiring Entity Required Role</b></em>' container reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference PROVIDED_ROLE__PROVIDING_ENTITY_PROVIDED_ROLE = eINSTANCE.getProvidedRole_ProvidingEntity_ProvidedRole();
+		EReference REQUIRED_ROLE__REQUIRING_ENTITY_REQUIRED_ROLE = eINSTANCE.getRequiredRole_RequiringEntity_RequiredRole();
+
+		/**
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.repository.impl.RoleImpl <em>Role</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.uka.ipd.sdq.pcm.repository.impl.RoleImpl
+		 * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getRole()
+		 * @generated
+		 */
+		EClass ROLE = eINSTANCE.getRole();
+
+		/**
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.repository.impl.InterfaceImpl <em>Interface</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.uka.ipd.sdq.pcm.repository.impl.InterfaceImpl
+		 * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getInterface()
+		 * @generated
+		 */
+		EClass INTERFACE = eINSTANCE.getInterface();
+
+		/**
+		 * The meta object literal for the '<em><b>Parent Interface Interface</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference INTERFACE__PARENT_INTERFACE_INTERFACE = eINSTANCE.getInterface_ParentInterface__Interface();
+
+		/**
+		 * The meta object literal for the '<em><b>Anchestor Interfaces Interface</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference INTERFACE__ANCHESTOR_INTERFACES_INTERFACE = eINSTANCE.getInterface_AnchestorInterfaces_Interface();
+
+		/**
+		 * The meta object literal for the '<em><b>Protocols Interface</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference INTERFACE__PROTOCOLS_INTERFACE = eINSTANCE.getInterface_Protocols__Interface();
+
+		/**
+		 * The meta object literal for the '<em><b>Signatures Interface</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference INTERFACE__SIGNATURES_INTERFACE = eINSTANCE.getInterface_Signatures__Interface();
+
+		/**
+		 * The meta object literal for the '<em><b>Repository Interface</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference INTERFACE__REPOSITORY_INTERFACE = eINSTANCE.getInterface_Repository_Interface();
+
+		/**
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.repository.impl.ExceptionTypeImpl <em>Exception Type</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.uka.ipd.sdq.pcm.repository.impl.ExceptionTypeImpl
+		 * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getExceptionType()
+		 * @generated
+		 */
+		EClass EXCEPTION_TYPE = eINSTANCE.getExceptionType();
+
+		/**
+		 * The meta object literal for the '<em><b>Exception Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute EXCEPTION_TYPE__EXCEPTION_NAME = eINSTANCE.getExceptionType_ExceptionName();
+
+		/**
+		 * The meta object literal for the '<em><b>Exception Message</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute EXCEPTION_TYPE__EXCEPTION_MESSAGE = eINSTANCE.getExceptionType_ExceptionMessage();
 
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.repository.impl.ImplementationComponentTypeImpl <em>Implementation Component Type</em>}' class.
@@ -2225,6 +2199,16 @@ public interface RepositoryPackage extends EPackage {
 		 * @generated
 		 */
 		EReference COMPLETE_COMPONENT_TYPE__PARENT_PROVIDES_COMPONENT_TYPES = eINSTANCE.getCompleteComponentType_ParentProvidesComponentTypes();
+
+		/**
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.repository.impl.DelegationConnectorImpl <em>Delegation Connector</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.uka.ipd.sdq.pcm.repository.impl.DelegationConnectorImpl
+		 * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getDelegationConnector()
+		 * @generated
+		 */
+		EClass DELEGATION_CONNECTOR = eINSTANCE.getDelegationConnector();
 
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.repository.impl.CompositeComponentImpl <em>Composite Component</em>}' class.
@@ -2351,14 +2335,30 @@ public interface RepositoryPackage extends EPackage {
 		EReference INNER_DECLARATION__DATATYPE_INNER_DECLARATION = eINSTANCE.getInnerDeclaration_Datatype_InnerDeclaration();
 
 		/**
-		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.repository.impl.DelegationConnectorImpl <em>Delegation Connector</em>}' class.
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.repository.impl.ProvidedRoleImpl <em>Provided Role</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see de.uka.ipd.sdq.pcm.repository.impl.DelegationConnectorImpl
-		 * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getDelegationConnector()
+		 * @see de.uka.ipd.sdq.pcm.repository.impl.ProvidedRoleImpl
+		 * @see de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl#getProvidedRole()
 		 * @generated
 		 */
-		EClass DELEGATION_CONNECTOR = eINSTANCE.getDelegationConnector();
+		EClass PROVIDED_ROLE = eINSTANCE.getProvidedRole();
+
+		/**
+		 * The meta object literal for the '<em><b>Provided Interface Provided Role</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PROVIDED_ROLE__PROVIDED_INTERFACE_PROVIDED_ROLE = eINSTANCE.getProvidedRole_ProvidedInterface__ProvidedRole();
+
+		/**
+		 * The meta object literal for the '<em><b>Providing Entity Provided Role</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PROVIDED_ROLE__PROVIDING_ENTITY_PROVIDED_ROLE = eINSTANCE.getProvidedRole_ProvidingEntity_ProvidedRole();
 
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.repository.ParameterModifier <em>Parameter Modifier</em>}' enum.

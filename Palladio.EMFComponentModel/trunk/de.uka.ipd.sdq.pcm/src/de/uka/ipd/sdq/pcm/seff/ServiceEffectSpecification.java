@@ -7,9 +7,9 @@
  */
 package de.uka.ipd.sdq.pcm.seff;
 
-import org.eclipse.emf.ecore.EObject;
-
 import de.uka.ipd.sdq.pcm.repository.Signature;
+
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->

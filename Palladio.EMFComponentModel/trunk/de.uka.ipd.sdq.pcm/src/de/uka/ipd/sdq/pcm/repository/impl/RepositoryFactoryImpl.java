@@ -12,28 +12,10 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-import org.eclipse.emf.ecore.impl.EFactoryImpl;
-import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
-import de.uka.ipd.sdq.pcm.repository.BasicComponent;
-import de.uka.ipd.sdq.pcm.repository.CollectionDataType;
-import de.uka.ipd.sdq.pcm.repository.CompleteComponentType;
-import de.uka.ipd.sdq.pcm.repository.CompositeComponent;
-import de.uka.ipd.sdq.pcm.repository.CompositeDataType;
-import de.uka.ipd.sdq.pcm.repository.ExceptionType;
-import de.uka.ipd.sdq.pcm.repository.InnerDeclaration;
-import de.uka.ipd.sdq.pcm.repository.Interface;
-import de.uka.ipd.sdq.pcm.repository.Parameter;
-import de.uka.ipd.sdq.pcm.repository.ParameterModifier;
-import de.uka.ipd.sdq.pcm.repository.PrimitiveDataType;
-import de.uka.ipd.sdq.pcm.repository.PrimitiveTypeEnum;
-import de.uka.ipd.sdq.pcm.repository.ProvidedRole;
-import de.uka.ipd.sdq.pcm.repository.ProvidesComponentType;
-import de.uka.ipd.sdq.pcm.repository.Repository;
-import de.uka.ipd.sdq.pcm.repository.RepositoryFactory;
-import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
-import de.uka.ipd.sdq.pcm.repository.RequiredRole;
-import de.uka.ipd.sdq.pcm.repository.Signature;
+import org.eclipse.emf.ecore.impl.EFactoryImpl;
+
+import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
 /**
  * <!-- begin-user-doc -->
@@ -162,9 +144,19 @@ public class RepositoryFactoryImpl extends EFactoryImpl implements RepositoryFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ExceptionType createExceptionType() {
-		ExceptionTypeImpl exceptionType = new ExceptionTypeImpl();
-		return exceptionType;
+	public Repository createRepository() {
+		RepositoryImpl repository = new RepositoryImpl();
+		return repository;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ProvidesComponentType createProvidesComponentType() {
+		ProvidesComponentTypeImpl providesComponentType = new ProvidesComponentTypeImpl();
+		return providesComponentType;
 	}
 
 	/**
@@ -192,29 +184,9 @@ public class RepositoryFactoryImpl extends EFactoryImpl implements RepositoryFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Repository createRepository() {
-		RepositoryImpl repository = new RepositoryImpl();
-		return repository;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ProvidesComponentType createProvidesComponentType() {
-		ProvidesComponentTypeImpl providesComponentType = new ProvidesComponentTypeImpl();
-		return providesComponentType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ProvidedRole createProvidedRole() {
-		ProvidedRoleImpl providedRole = new ProvidedRoleImpl();
-		return providedRole;
+	public ExceptionType createExceptionType() {
+		ExceptionTypeImpl exceptionType = new ExceptionTypeImpl();
+		return exceptionType;
 	}
 
 	/**
@@ -285,6 +257,16 @@ public class RepositoryFactoryImpl extends EFactoryImpl implements RepositoryFac
 	public InnerDeclaration createInnerDeclaration() {
 		InnerDeclarationImpl innerDeclaration = new InnerDeclarationImpl();
 		return innerDeclaration;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ProvidedRole createProvidedRole() {
+		ProvidedRoleImpl providedRole = new ProvidedRoleImpl();
+		return providedRole;
 	}
 
 	/**

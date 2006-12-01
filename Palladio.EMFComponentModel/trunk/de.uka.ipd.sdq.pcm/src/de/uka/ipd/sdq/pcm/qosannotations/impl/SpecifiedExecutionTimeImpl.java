@@ -7,16 +7,20 @@
  */
 package de.uka.ipd.sdq.pcm.qosannotations.impl;
 
-import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
 import de.uka.ipd.sdq.pcm.qosannotations.QosannotationsPackage;
 import de.uka.ipd.sdq.pcm.qosannotations.SpecifiedExecutionTime;
+
 import de.uka.ipd.sdq.pcm.repository.Role;
 import de.uka.ipd.sdq.pcm.repository.Signature;
+
 import de.uka.ipd.sdq.stoex.impl.RandomVariableImpl;
+
+import org.eclipse.emf.common.notify.Notification;
+
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
  * <!-- begin-user-doc -->

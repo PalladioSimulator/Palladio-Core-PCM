@@ -6,41 +6,24 @@
  */
 package de.uka.ipd.sdq.pcm.repository.util;
 
-import java.util.List;
-
-import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
-
 import de.uka.ipd.sdq.identifier.Identifier;
+
 import de.uka.ipd.sdq.pcm.core.composition.ComposedStructure;
+
 import de.uka.ipd.sdq.pcm.core.connectors.Connector;
+
 import de.uka.ipd.sdq.pcm.core.entity.Entity;
 import de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingEntity;
 import de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingRequiringEntity;
 import de.uka.ipd.sdq.pcm.core.entity.InterfaceRequiringEntity;
 import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
+
 import de.uka.ipd.sdq.pcm.repository.*;
 
-import de.uka.ipd.sdq.pcm.repository.BasicComponent;
-import de.uka.ipd.sdq.pcm.repository.CollectionDataType;
-import de.uka.ipd.sdq.pcm.repository.CompleteComponentType;
-import de.uka.ipd.sdq.pcm.repository.CompositeComponent;
-import de.uka.ipd.sdq.pcm.repository.CompositeDataType;
-import de.uka.ipd.sdq.pcm.repository.DataType;
-import de.uka.ipd.sdq.pcm.repository.DelegationConnector;
-import de.uka.ipd.sdq.pcm.repository.ExceptionType;
-import de.uka.ipd.sdq.pcm.repository.ImplementationComponentType;
-import de.uka.ipd.sdq.pcm.repository.InnerDeclaration;
-import de.uka.ipd.sdq.pcm.repository.Interface;
-import de.uka.ipd.sdq.pcm.repository.Parameter;
-import de.uka.ipd.sdq.pcm.repository.PrimitiveDataType;
-import de.uka.ipd.sdq.pcm.repository.ProvidedRole;
-import de.uka.ipd.sdq.pcm.repository.ProvidesComponentType;
-import de.uka.ipd.sdq.pcm.repository.Repository;
-import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
-import de.uka.ipd.sdq.pcm.repository.RequiredRole;
-import de.uka.ipd.sdq.pcm.repository.Role;
-import de.uka.ipd.sdq.pcm.repository.Signature;
+import java.util.List;
+
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -358,66 +341,6 @@ public class RepositorySwitch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Exception Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Exception Type</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public Object caseExceptionType(ExceptionType object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Role</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Role</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public Object caseRole(Role object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Required Role</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Required Role</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public Object caseRequiredRole(RequiredRole object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Interface</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Interface</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public Object caseInterface(Interface object) {
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpretting the object as an instance of '<em>Repository</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -448,17 +371,62 @@ public class RepositorySwitch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Provided Role</em>'.
+	 * Returns the result of interpretting the object as an instance of '<em>Required Role</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Provided Role</em>'.
+	 * @return the result of interpretting the object as an instance of '<em>Required Role</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public Object caseProvidedRole(ProvidedRole object) {
+	public Object caseRequiredRole(RequiredRole object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpretting the object as an instance of '<em>Role</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpretting the object as an instance of '<em>Role</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public Object caseRole(Role object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpretting the object as an instance of '<em>Interface</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpretting the object as an instance of '<em>Interface</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public Object caseInterface(Interface object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpretting the object as an instance of '<em>Exception Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpretting the object as an instance of '<em>Exception Type</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public Object caseExceptionType(ExceptionType object) {
 		return null;
 	}
 
@@ -489,6 +457,21 @@ public class RepositorySwitch {
 	 * @generated
 	 */
 	public Object caseCompleteComponentType(CompleteComponentType object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpretting the object as an instance of '<em>Delegation Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpretting the object as an instance of '<em>Delegation Connector</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public Object caseDelegationConnector(DelegationConnector object) {
 		return null;
 	}
 
@@ -583,17 +566,17 @@ public class RepositorySwitch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Delegation Connector</em>'.
+	 * Returns the result of interpretting the object as an instance of '<em>Provided Role</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Delegation Connector</em>'.
+	 * @return the result of interpretting the object as an instance of '<em>Provided Role</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public Object caseDelegationConnector(DelegationConnector object) {
+	public Object caseProvidedRole(ProvidedRole object) {
 		return null;
 	}
 
@@ -688,21 +671,6 @@ public class RepositorySwitch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Composed Structure</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Composed Structure</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public Object caseComposedStructure(ComposedStructure object) {
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpretting the object as an instance of '<em>Connector</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -714,6 +682,21 @@ public class RepositorySwitch {
 	 * @generated
 	 */
 	public Object caseConnector(Connector object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpretting the object as an instance of '<em>Composed Structure</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpretting the object as an instance of '<em>Composed Structure</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public Object caseComposedStructure(ComposedStructure object) {
 		return null;
 	}
 

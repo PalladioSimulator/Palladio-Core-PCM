@@ -7,9 +7,9 @@
  */
 package de.uka.ipd.sdq.pcm.resourceenvironment;
 
-import org.eclipse.emf.ecore.EObject;
-
 import de.uka.ipd.sdq.pcm.resourcetype.CommunicationLinkResourceType;
+
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->

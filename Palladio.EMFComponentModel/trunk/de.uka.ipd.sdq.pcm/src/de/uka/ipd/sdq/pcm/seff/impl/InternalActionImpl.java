@@ -7,12 +7,14 @@
  */
 package de.uka.ipd.sdq.pcm.seff.impl;
 
-import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
 import de.uka.ipd.sdq.pcm.seff.InternalAction;
 import de.uka.ipd.sdq.pcm.seff.SeffPackage;
+
+import org.eclipse.emf.common.notify.Notification;
+
+import org.eclipse.emf.ecore.EClass;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -44,7 +46,6 @@ public class InternalActionImpl extends AbstractResourceDemandingActionImpl impl
 	 * @ordered
 	 */
 	protected static final String FAILURE_PROBABILITY_EDEFAULT = null;
-
 
 	/**
 	 * The cached value of the '{@link #getFailureProbability() <em>Failure Probability</em>}' attribute.

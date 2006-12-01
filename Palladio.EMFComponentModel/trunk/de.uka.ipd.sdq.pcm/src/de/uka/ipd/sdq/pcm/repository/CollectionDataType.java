@@ -7,7 +7,6 @@
  */
 package de.uka.ipd.sdq.pcm.repository;
 
-
 import de.uka.ipd.sdq.pcm.core.entity.Entity;
 
 /**
@@ -38,7 +37,7 @@ public interface CollectionDataType extends Entity, DataType {
 	 * Returns the value of the '<em><b>Inner Type Collection Data Type</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Inner Type Collection Data Type</em>' containment reference isn't clear,
+	 * If the meaning of the '<em>Inner Type Collection Data Type</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->

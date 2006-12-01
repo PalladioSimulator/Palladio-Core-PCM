@@ -6,37 +6,17 @@
  */
 package de.uka.ipd.sdq.pcm.repository.util;
 
+import de.uka.ipd.sdq.identifier.util.IdentifierValidator;
+
+import de.uka.ipd.sdq.pcm.repository.*;
+
 import java.util.Map;
 
 import org.eclipse.emf.common.util.DiagnosticChain;
+
 import org.eclipse.emf.ecore.EPackage;
+
 import org.eclipse.emf.ecore.util.EObjectValidator;
-
-import de.uka.ipd.sdq.identifier.util.IdentifierValidator;
-import de.uka.ipd.sdq.pcm.repository.*;
-
-import de.uka.ipd.sdq.pcm.repository.BasicComponent;
-import de.uka.ipd.sdq.pcm.repository.CollectionDataType;
-import de.uka.ipd.sdq.pcm.repository.CompleteComponentType;
-import de.uka.ipd.sdq.pcm.repository.CompositeComponent;
-import de.uka.ipd.sdq.pcm.repository.CompositeDataType;
-import de.uka.ipd.sdq.pcm.repository.DataType;
-import de.uka.ipd.sdq.pcm.repository.DelegationConnector;
-import de.uka.ipd.sdq.pcm.repository.ExceptionType;
-import de.uka.ipd.sdq.pcm.repository.ImplementationComponentType;
-import de.uka.ipd.sdq.pcm.repository.InnerDeclaration;
-import de.uka.ipd.sdq.pcm.repository.Interface;
-import de.uka.ipd.sdq.pcm.repository.Parameter;
-import de.uka.ipd.sdq.pcm.repository.ParameterModifier;
-import de.uka.ipd.sdq.pcm.repository.PrimitiveDataType;
-import de.uka.ipd.sdq.pcm.repository.PrimitiveTypeEnum;
-import de.uka.ipd.sdq.pcm.repository.ProvidedRole;
-import de.uka.ipd.sdq.pcm.repository.ProvidesComponentType;
-import de.uka.ipd.sdq.pcm.repository.Repository;
-import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
-import de.uka.ipd.sdq.pcm.repository.RequiredRole;
-import de.uka.ipd.sdq.pcm.repository.Role;
-import de.uka.ipd.sdq.pcm.repository.Signature;
 
 /**
  * <!-- begin-user-doc -->
@@ -80,6 +60,14 @@ public class RepositoryValidator extends EObjectValidator {
 	public static final int SIGNATURE__PARAMETER_NAMES_HAVE_TO_BE_UNIQUE_FOR_ASIGNATURE = 1;
 
 	/**
+	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'At Least One Interface Has To Be Provided By AUsefull Provides Component Type' of 'Provides Component Type'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final int PROVIDES_COMPONENT_TYPE__AT_LEAST_ONE_INTERFACE_HAS_TO_BE_PROVIDED_BY_AUSEFULL_PROVIDES_COMPONENT_TYPE = 2;
+
+	/**
 	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'No Protocol Type ID Used Twice' of 'Interface'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -94,14 +82,6 @@ public class RepositoryValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public static final int INTERFACE__SIGNATURES_HAVE_TO_BE_UNIQUE_FOR_AN_INTERFACE = 4;
-
-	/**
-	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'At Least One Interface Has To Be Provided By AUsefull Provides Component Type' of 'Provides Component Type'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static final int PROVIDES_COMPONENT_TYPE__AT_LEAST_ONE_INTERFACE_HAS_TO_BE_PROVIDED_BY_AUSEFULL_PROVIDES_COMPONENT_TYPE = 2;
 
 	/**
 	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Required Interfaces Have To Conform To Complete Type' of 'Implementation Component Type'.
@@ -322,8 +302,13 @@ public class RepositoryValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateExceptionType(ExceptionType exceptionType, DiagnosticChain diagnostics, Map context) {
-		return validate_EveryDefaultConstraint(exceptionType, diagnostics, context);
+	public boolean validateRepository(Repository repository, DiagnosticChain diagnostics, Map context) {
+		boolean result = validate_EveryMultiplicityConforms(repository, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(repository, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(repository, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(repository, diagnostics, context);
+		if (result || diagnostics != null) result &= identifierValidator.validateIdentifier_idHasToBeUnique(repository, diagnostics, context);
+		return result;
 	}
 
 	/**
@@ -331,13 +316,24 @@ public class RepositoryValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateRole(Role role, DiagnosticChain diagnostics, Map context) {
-		boolean result = validate_EveryMultiplicityConforms(role, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(role, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(role, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryProxyResolves(role, diagnostics, context);
-		if (result || diagnostics != null) result &= identifierValidator.validateIdentifier_idHasToBeUnique(role, diagnostics, context);
+	public boolean validateProvidesComponentType(ProvidesComponentType providesComponentType, DiagnosticChain diagnostics, Map context) {
+		boolean result = validate_EveryMultiplicityConforms(providesComponentType, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(providesComponentType, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(providesComponentType, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(providesComponentType, diagnostics, context);
+		if (result || diagnostics != null) result &= identifierValidator.validateIdentifier_idHasToBeUnique(providesComponentType, diagnostics, context);
+		if (result || diagnostics != null) result &= validateProvidesComponentType_AtLeastOneInterfaceHasToBeProvidedByAUsefullProvidesComponentType(providesComponentType, diagnostics, context);
 		return result;
+	}
+
+	/**
+	 * Validates the AtLeastOneInterfaceHasToBeProvidedByAUsefullProvidesComponentType constraint of '<em>Provides Component Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateProvidesComponentType_AtLeastOneInterfaceHasToBeProvidedByAUsefullProvidesComponentType(ProvidesComponentType providesComponentType, DiagnosticChain diagnostics, Map context) {
+		return providesComponentType.AtLeastOneInterfaceHasToBeProvidedByAUsefullProvidesComponentType(diagnostics, context);
 	}
 
 	/**
@@ -351,6 +347,20 @@ public class RepositoryValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(requiredRole, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryProxyResolves(requiredRole, diagnostics, context);
 		if (result || diagnostics != null) result &= identifierValidator.validateIdentifier_idHasToBeUnique(requiredRole, diagnostics, context);
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateRole(Role role, DiagnosticChain diagnostics, Map context) {
+		boolean result = validate_EveryMultiplicityConforms(role, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(role, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(role, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(role, diagnostics, context);
+		if (result || diagnostics != null) result &= identifierValidator.validateIdentifier_idHasToBeUnique(role, diagnostics, context);
 		return result;
 	}
 
@@ -395,52 +405,8 @@ public class RepositoryValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateRepository(Repository repository, DiagnosticChain diagnostics, Map context) {
-		boolean result = validate_EveryMultiplicityConforms(repository, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(repository, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(repository, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryProxyResolves(repository, diagnostics, context);
-		if (result || diagnostics != null) result &= identifierValidator.validateIdentifier_idHasToBeUnique(repository, diagnostics, context);
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateProvidesComponentType(ProvidesComponentType providesComponentType, DiagnosticChain diagnostics, Map context) {
-		boolean result = validate_EveryMultiplicityConforms(providesComponentType, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(providesComponentType, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(providesComponentType, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryProxyResolves(providesComponentType, diagnostics, context);
-		if (result || diagnostics != null) result &= identifierValidator.validateIdentifier_idHasToBeUnique(providesComponentType, diagnostics, context);
-		if (result || diagnostics != null) result &= validateProvidesComponentType_AtLeastOneInterfaceHasToBeProvidedByAUsefullProvidesComponentType(providesComponentType, diagnostics, context);
-		return result;
-	}
-
-	/**
-	 * Validates the AtLeastOneInterfaceHasToBeProvidedByAUsefullProvidesComponentType constraint of '<em>Provides Component Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateProvidesComponentType_AtLeastOneInterfaceHasToBeProvidedByAUsefullProvidesComponentType(ProvidesComponentType providesComponentType, DiagnosticChain diagnostics, Map context) {
-		return providesComponentType.AtLeastOneInterfaceHasToBeProvidedByAUsefullProvidesComponentType(diagnostics, context);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateProvidedRole(ProvidedRole providedRole, DiagnosticChain diagnostics, Map context) {
-		boolean result = validate_EveryMultiplicityConforms(providedRole, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(providedRole, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(providedRole, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryProxyResolves(providedRole, diagnostics, context);
-		if (result || diagnostics != null) result &= identifierValidator.validateIdentifier_idHasToBeUnique(providedRole, diagnostics, context);
-		return result;
+	public boolean validateExceptionType(ExceptionType exceptionType, DiagnosticChain diagnostics, Map context) {
+		return validate_EveryDefaultConstraint(exceptionType, diagnostics, context);
 	}
 
 	/**
@@ -517,6 +483,20 @@ public class RepositoryValidator extends EObjectValidator {
 	 */
 	public boolean validateCompleteComponentType_providedInterfacesHaveToConformToProvidedType2(CompleteComponentType completeComponentType, DiagnosticChain diagnostics, Map context) {
 		return completeComponentType.providedInterfacesHaveToConformToProvidedType2(diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateDelegationConnector(DelegationConnector delegationConnector, DiagnosticChain diagnostics, Map context) {
+		boolean result = validate_EveryMultiplicityConforms(delegationConnector, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(delegationConnector, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(delegationConnector, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(delegationConnector, diagnostics, context);
+		if (result || diagnostics != null) result &= identifierValidator.validateIdentifier_idHasToBeUnique(delegationConnector, diagnostics, context);
+		return result;
 	}
 
 	/**
@@ -663,12 +643,12 @@ public class RepositoryValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateDelegationConnector(DelegationConnector delegationConnector, DiagnosticChain diagnostics, Map context) {
-		boolean result = validate_EveryMultiplicityConforms(delegationConnector, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(delegationConnector, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(delegationConnector, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryProxyResolves(delegationConnector, diagnostics, context);
-		if (result || diagnostics != null) result &= identifierValidator.validateIdentifier_idHasToBeUnique(delegationConnector, diagnostics, context);
+	public boolean validateProvidedRole(ProvidedRole providedRole, DiagnosticChain diagnostics, Map context) {
+		boolean result = validate_EveryMultiplicityConforms(providedRole, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(providedRole, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(providedRole, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(providedRole, diagnostics, context);
+		if (result || diagnostics != null) result &= identifierValidator.validateIdentifier_idHasToBeUnique(providedRole, diagnostics, context);
 		return result;
 	}
 

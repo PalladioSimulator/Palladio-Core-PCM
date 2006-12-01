@@ -51,15 +51,6 @@ public interface CompositionFactory extends EFactory {
 	AssemblyContext createAssemblyContext();
 
 	/**
-	 * Returns a new object of class '<em>Assembly Connector</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Assembly Connector</em>'.
-	 * @generated
-	 */
-	AssemblyConnector createAssemblyConnector();
-
-	/**
 	 * Returns a new object of class '<em>Required Delegation Connector</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -67,6 +58,15 @@ public interface CompositionFactory extends EFactory {
 	 * @generated
 	 */
 	RequiredDelegationConnector createRequiredDelegationConnector();
+
+	/**
+	 * Returns a new object of class '<em>Assembly Connector</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Assembly Connector</em>'.
+	 * @generated
+	 */
+	AssemblyConnector createAssemblyConnector();
 
 	/**
 	 * Returns the package supported by this factory.

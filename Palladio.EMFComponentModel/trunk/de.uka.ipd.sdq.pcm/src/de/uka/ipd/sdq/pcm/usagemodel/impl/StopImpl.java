@@ -7,10 +7,10 @@
  */
 package de.uka.ipd.sdq.pcm.usagemodel.impl;
 
-import org.eclipse.emf.ecore.EClass;
-
 import de.uka.ipd.sdq.pcm.usagemodel.Stop;
 import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
+
+import org.eclipse.emf.ecore.EClass;
 
 /**
  * <!-- begin-user-doc -->
@@ -28,6 +28,7 @@ public class StopImpl extends AbstractUserActionImpl implements Stop {
 	 * @generated
 	 */
 	public static final String copyright = "(c) by SDQ, IPD, U Karlsruhe (TH), 2006";
+
 
 	/**
 	 * <!-- begin-user-doc -->

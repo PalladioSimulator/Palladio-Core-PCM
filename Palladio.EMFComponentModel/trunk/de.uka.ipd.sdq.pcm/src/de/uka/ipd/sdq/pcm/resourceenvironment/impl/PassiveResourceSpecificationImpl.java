@@ -7,15 +7,18 @@
  */
 package de.uka.ipd.sdq.pcm.resourceenvironment.impl;
 
-import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.EObjectImpl;
-
 import de.uka.ipd.sdq.pcm.resourceenvironment.PassiveResourceSpecification;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage;
+
 import de.uka.ipd.sdq.pcm.resourcetype.PassiveResourceType;
+
+import org.eclipse.emf.common.notify.Notification;
+
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.EObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -58,7 +61,6 @@ public class PassiveResourceSpecificationImpl extends EObjectImpl implements Pas
 	 * @ordered
 	 */
 	protected int capacity = CAPACITY_EDEFAULT;
-
 
 	/**
 	 * The cached value of the '{@link #getPassiveResourceType_PassiveResourceSpecification() <em>Passive Resource Type Passive Resource Specification</em>}' reference.

@@ -7,26 +7,33 @@
  */
 package de.uka.ipd.sdq.pcm.system.impl;
 
-import java.util.Collection;
-
-import org.eclipse.emf.common.notify.NotificationChain;
-import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
-import org.eclipse.emf.ecore.util.InternalEList;
-
 import de.uka.ipd.sdq.pcm.core.composition.impl.ComposedStructureImpl;
+
 import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
 import de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingEntity;
 import de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingRequiringEntity;
 import de.uka.ipd.sdq.pcm.core.entity.InterfaceRequiringEntity;
+
 import de.uka.ipd.sdq.pcm.qosannotations.QoSAnnotations;
+
 import de.uka.ipd.sdq.pcm.repository.ProvidedRole;
 import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
 import de.uka.ipd.sdq.pcm.repository.RequiredRole;
+
 import de.uka.ipd.sdq.pcm.system.SystemPackage;
+
+import java.util.Collection;
+
+import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
+
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -82,8 +89,6 @@ public class SystemImpl extends ComposedStructureImpl implements de.uka.ipd.sdq.
 	protected EList qosAnnotations_System = null;
 
 
-	private static final String OCL_ANNOTATION_SOURCE = "http://www.eclipse.org/emf/2002/GenModel";
-	
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -7,13 +7,15 @@
  */
 package de.uka.ipd.sdq.pcm.repository.impl;
 
-import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.EObjectImpl;
-
 import de.uka.ipd.sdq.pcm.repository.ExceptionType;
 import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
+
+import org.eclipse.emf.common.notify.Notification;
+
+import org.eclipse.emf.ecore.EClass;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.EObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -66,7 +68,6 @@ public class ExceptionTypeImpl extends EObjectImpl implements ExceptionType {
 	 * @ordered
 	 */
 	protected static final String EXCEPTION_MESSAGE_EDEFAULT = null;
-
 
 	/**
 	 * The cached value of the '{@link #getExceptionMessage() <em>Exception Message</em>}' attribute.
