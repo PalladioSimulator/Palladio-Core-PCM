@@ -1,9 +1,14 @@
 package de.uka.ipd.sdq.stoex.analyser.operations;
 
+import de.uka.ipd.sdq.probfunction.math.IProbabilityDensityFunction;
 import de.uka.ipd.sdq.probfunction.math.IProbabilityMassFunction;
 import de.uka.ipd.sdq.probfunction.math.exception.DifferentDomainsException;
+import de.uka.ipd.sdq.probfunction.math.exception.DomainNotNumbersException;
+import de.uka.ipd.sdq.probfunction.math.exception.FunctionsInDifferenDomainsException;
+import de.uka.ipd.sdq.probfunction.math.exception.IncompatibleUnitsException;
+import de.uka.ipd.sdq.probfunction.math.exception.UnknownPDFTypeException;
 
-public class AddOperation implements IOperation {
+public class AddOperation implements TermProductOperation {
 
 	public IProbabilityMassFunction compute(IProbabilityMassFunction left,
 			IProbabilityMassFunction right) throws DifferentDomainsException {
@@ -18,10 +23,16 @@ public class AddOperation implements IOperation {
 		return left+right;
 	}
 
-	public IProbabilityMassFunction compute(IProbabilityMassFunction left, int right) {
-		// TODO
-		// return left.shiftDomain(right);
-		throw new UnsupportedOperationException();
+	public IProbabilityMassFunction compute(IProbabilityMassFunction left, double right) throws DomainNotNumbersException {
+		return left.shiftValues(right);
+	}
+
+	public IProbabilityDensityFunction compute(
+			IProbabilityDensityFunction leftPDF,
+			IProbabilityDensityFunction rightPDF)
+			throws FunctionsInDifferenDomainsException,
+			UnknownPDFTypeException, IncompatibleUnitsException {
+		return leftPDF.add(rightPDF);
 	}
 
 }

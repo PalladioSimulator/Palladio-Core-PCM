@@ -11,10 +11,12 @@ import de.uka.ipd.sdq.probfunction.ProbabilityFunction;
 import de.uka.ipd.sdq.probfunction.ProbabilityMassFunction;
 import de.uka.ipd.sdq.probfunction.Sample;
 import de.uka.ipd.sdq.stoex.AbstractNamedReference;
+import de.uka.ipd.sdq.stoex.BoolLiteral;
 import de.uka.ipd.sdq.stoex.CompareExpression;
 import de.uka.ipd.sdq.stoex.DoubleLiteral;
 import de.uka.ipd.sdq.stoex.Expression;
 import de.uka.ipd.sdq.stoex.IntLiteral;
+import de.uka.ipd.sdq.stoex.Parenthesis;
 import de.uka.ipd.sdq.stoex.ProbabilityFunctionLiteral;
 import de.uka.ipd.sdq.stoex.ProductExpression;
 import de.uka.ipd.sdq.stoex.ProductOperations;
@@ -87,11 +89,13 @@ public class ExpressionInferTypeVisitor extends StoexSwitch {
 				typeAnnotation.put(pfl, TypeEnum.DOUBLE_PMF);
 			} else if (value instanceof String){
 				typeAnnotation.put(pfl, TypeEnum.ENUM_PMF);
+			} else if (value instanceof Boolean){
+				typeAnnotation.put(pfl, TypeEnum.BOOL_PMF);
 			} else {
 				logger.error("Could not determine type of PMF!");
 			}
 		} else if (pf instanceof ProbabilityDensityFunction){
-			typeAnnotation.put(pfl, TypeEnum.DOUBLE_PDF); //TODO
+			typeAnnotation.put(pfl, TypeEnum.DOUBLE_PDF);
 		} else {
 			logger.error("Could not determine type of ProbabilityFunctionLiteral!");
 		}
@@ -115,8 +119,9 @@ public class ExpressionInferTypeVisitor extends StoexSwitch {
 			VariableCharacterisationType chType = chVar
 					.getCharacterisationType();
 			String chTypeString = chType.getName();
-			if (chTypeString.equals("VALUE") || chTypeString.equals("DATATYPE")
-					|| chTypeString.equals("STRUCTURE")) {
+			if (chTypeString.equals("VALUE") 
+			 || chTypeString.equals("DATATYPE")
+			 || chTypeString.equals("STRUCTURE")) {
 				typeAnnotation.put(var, TypeEnum.ENUM_PMF);
 				logger.debug("Inferred to ENUM_PMF");
 			} else if (chTypeString.equals("NUMBER_OF_ELEMENTS")
@@ -128,81 +133,18 @@ public class ExpressionInferTypeVisitor extends StoexSwitch {
 		return var;
 	}
 
-//	/**
-//	 * @param var
-//	 * @param parChars
-//	 * @param currentToken
-//	 */
-//	private void handleParameterCharacterisationType(Variable var, ParameterUsage currentUsage, String currentToken) {
-//		// this is duplicated code, because ParameterCharacterisation and
-//		// CollectionParameterCharacterisation do not inherit from the same class
-//		if (currentUsage instanceof CollectionParameterUsage){
-//			CollectionParameterUsage cpu = (CollectionParameterUsage)currentUsage;	
-//			EList parChars = cpu.getParameterCharacterisation_CollectionParameterUsage();
-//			for(Object o : parChars){
-//				CollectionParameterCharacterisation cpc = (CollectionParameterCharacterisation)o;
-//				if (cpc.getType().getName().equals(currentToken)){
-//					Expression expr = cpc.getSpecification_RandomVariable();
-//					storeAnnotations(var, expr);
-//					return;
-//				}
-//			}
-//			parChars = cpu.getParameterCharacterisation_ParameterUsage();
-//			for(Object o : parChars){
-//				ParameterCharacterisation pc = (ParameterCharacterisation)o;
-//				if (pc.getType().getName().equals(currentToken)){
-//					Expression expr = pc.getSpecification_RandomVariable();
-//					storeAnnotations(var, expr);
-//				}
-//			}
-//			
-//			
-//			
-//		} else if (currentUsage instanceof PrimitiveParameterUsage){
-//			handleParameterCharacterisation(var, currentUsage, currentToken);
-//		}
-//	}
+	@Override
+	public Object caseBoolLiteral(BoolLiteral bl) {
+		typeAnnotation.put(bl, TypeEnum.BOOL);
+		return bl;
+	}
 
-//	/**
-//	 * @param var
-//	 * @param currentUsage
-//	 * @param currentToken
-//	 */
-//	private void handleParameterCharacterisation(Variable var, ParameterUsage currentUsage, String currentToken) {
-//		PrimitiveParameterUsage ppu = (PrimitiveParameterUsage)currentUsage;
-//		EList parChars = ppu.getParameterCharacterisation_ParameterUsage();
-//		for(Object o : parChars){
-//			ParameterCharacterisation pc = (ParameterCharacterisation)o;
-//			if (pc.getType().getName().equals(currentToken)){
-//				Expression expr = pc.getSpecification_RandomVariable();
-//				storeAnnotations(var, expr);
-//			}
-//		}
-//	}
-
-//	/**
-//	 * @param var
-//	 * @param expr
-//	 */
-//	private void storeAnnotations(Variable var, Expression expr) {
-//		parameterAnnotation.put(var, expr);
-//		//	resolve type annotation
-//		doSwitch(expr); 
-//		// get resolved type annotation and use it as var type annotation
-//		typeAnnotation.put(var, getTypeAnnotation(expr));
-//	}
-//
-//	/**
-//	 * @param currentToken
-//	 * @return
-//	 */
-//	private boolean isCharacterisationType(String currentToken) {
-//		return currentToken.equals("VALUE") 
-//				|| currentToken.equals("TYPE")
-//				|| currentToken.equals("BYTESIZE")
-//				|| currentToken.equals("NUMBER_OF_ELEMENTS")
-//				|| currentToken.equals("STRUCTURE");
-//	}
+	@Override
+	public Object caseParenthesis(Parenthesis parenthesis) {
+		TypeEnum type = getTypeOfChild(parenthesis.getInnerExpression());
+		typeAnnotation.put(parenthesis, type);
+		return parenthesis;
+	}
 
 	/**
 	 * @param expr
@@ -218,6 +160,8 @@ public class ExpressionInferTypeVisitor extends StoexSwitch {
 			typeAnnotation.put(expr, TypeEnum.DOUBLE);
 		} else if (isDoubleIntPMF(leftType) && isDoubleIntPMF(rightType)){
 			typeAnnotation.put(expr, TypeEnum.DOUBLE_PMF);
+		} else if (isDoubleIntPDF(leftType) && isDoubleIntPDF(rightType)){
+			typeAnnotation.put(expr, TypeEnum.DOUBLE_PDF);
 		} else {
 			throw new UnsupportedOperationException();
 		}
@@ -228,29 +172,37 @@ public class ExpressionInferTypeVisitor extends StoexSwitch {
 	 * @return
 	 */ 
 	private TypeEnum getTypeOfChild(Expression expr) {
-		Expression left = (Expression)doSwitch(expr);
-		TypeEnum leftType = typeAnnotation.get(left);
-		return leftType;
+		Expression childExpr = (Expression)doSwitch(expr);
+		TypeEnum type = typeAnnotation.get(childExpr);
+		return type;
 	}
 	
 	private boolean isIntPMF(TypeEnum type) {
-		return (type == TypeEnum.INT || type == TypeEnum.INT_PMF);
+		return (type == TypeEnum.INT 
+			 || type == TypeEnum.INT_PMF);
+	}
+
+	private boolean isNumeric(TypeEnum type) {
+		return (type == TypeEnum.INT 
+			 || type == TypeEnum.DOUBLE);
 	}
 
 	private boolean isDoubleIntPMF(TypeEnum type) {
-		return (type == TypeEnum.DOUBLE || type == TypeEnum.INT
-				|| type == TypeEnum.INT_PMF || type == TypeEnum.DOUBLE_PMF);
+		return (type == TypeEnum.DOUBLE 
+			 || type == TypeEnum.INT
+			 || type == TypeEnum.INT_PMF 
+			 || type == TypeEnum.DOUBLE_PMF);
 	
 	}
 
-	private boolean isNumeric(TypeEnum inferedType) {
-		return (inferedType == TypeEnum.INT || inferedType == TypeEnum.DOUBLE);
+	private boolean isDoubleIntPDF(TypeEnum type) {
+		return (type == TypeEnum.DOUBLE 
+ 			 || type == TypeEnum.INT
+			 || type == TypeEnum.INT_PMF 
+			 || type == TypeEnum.DOUBLE_PMF 
+			 || type == TypeEnum.DOUBLE_PDF);
 	}
 	
-//	public TypeEnum getTypeAnnotation(Expression expr) {
-//		return typeAnnotation.get(expr);
-//	}
-
 	public HashMap<Expression, TypeEnum> getTypeAnnotation() {
 		return typeAnnotation;
 	}

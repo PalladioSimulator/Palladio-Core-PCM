@@ -1,18 +1,30 @@
 package de.uka.ipd.sdq.stoex.analyser.visitors;
 
+import java.util.HashMap;
+
 import org.apache.log4j.Logger;
 
+import de.uka.ipd.sdq.probfunction.BoxedPDF;
+import de.uka.ipd.sdq.probfunction.ProbabilityDensityFunction;
 import de.uka.ipd.sdq.probfunction.ProbabilityMassFunction;
 import de.uka.ipd.sdq.probfunction.ProbfunctionFactory;
 import de.uka.ipd.sdq.probfunction.Unit;
+import de.uka.ipd.sdq.probfunction.math.IProbabilityDensityFunction;
 import de.uka.ipd.sdq.probfunction.math.IProbabilityFunctionFactory;
 import de.uka.ipd.sdq.probfunction.math.IProbabilityMassFunction;
 import de.uka.ipd.sdq.probfunction.math.exception.DifferentDomainsException;
+import de.uka.ipd.sdq.probfunction.math.exception.DoubleSampleException;
+import de.uka.ipd.sdq.probfunction.math.exception.FunctionNotInTimeDomainException;
+import de.uka.ipd.sdq.probfunction.math.exception.FunctionsInDifferenDomainsException;
+import de.uka.ipd.sdq.probfunction.math.exception.IncompatibleUnitsException;
 import de.uka.ipd.sdq.probfunction.math.exception.ProbabilitySumNotOneException;
+import de.uka.ipd.sdq.probfunction.math.exception.UnknownPDFTypeException;
+import de.uka.ipd.sdq.stoex.BoolLiteral;
 import de.uka.ipd.sdq.stoex.CompareExpression;
 import de.uka.ipd.sdq.stoex.DoubleLiteral;
 import de.uka.ipd.sdq.stoex.Expression;
 import de.uka.ipd.sdq.stoex.IntLiteral;
+import de.uka.ipd.sdq.stoex.Parenthesis;
 import de.uka.ipd.sdq.stoex.ProbabilityFunctionLiteral;
 import de.uka.ipd.sdq.stoex.ProductExpression;
 import de.uka.ipd.sdq.stoex.StoexFactory;
@@ -24,7 +36,7 @@ import de.uka.ipd.sdq.stoex.analyser.operations.DivOperation;
 import de.uka.ipd.sdq.stoex.analyser.operations.EqualsOperation;
 import de.uka.ipd.sdq.stoex.analyser.operations.GreaterEqualOperation;
 import de.uka.ipd.sdq.stoex.analyser.operations.GreaterOperation;
-import de.uka.ipd.sdq.stoex.analyser.operations.IOperation;
+import de.uka.ipd.sdq.stoex.analyser.operations.TermProductOperation;
 import de.uka.ipd.sdq.stoex.analyser.operations.LessEqualOperation;
 import de.uka.ipd.sdq.stoex.analyser.operations.LessOperation;
 import de.uka.ipd.sdq.stoex.analyser.operations.ModOperation;
@@ -35,26 +47,20 @@ import de.uka.ipd.sdq.stoex.util.StoexSwitch;
 
 public class ExpressionSolveVisitor extends StoexSwitch {
 
-	private static Logger logger = Logger.getLogger(ExpressionSolveVisitor.class
-			.getName());
+	private static Logger logger = Logger
+			.getLogger(ExpressionSolveVisitor.class.getName());
 
-	private ExpressionInferTypeVisitor typeVisitor;
+	protected IProbabilityFunctionFactory iProbFuncFactory = 
+		IProbabilityFunctionFactory.eINSTANCE;
 
-	private IProbabilityFunctionFactory iProbFuncFactory = IProbabilityFunctionFactory.eINSTANCE;
+	protected ProbfunctionFactory probFuncFactory = ProbfunctionFactory.eINSTANCE;
 
-	private ProbfunctionFactory probFuncFactory = ProbfunctionFactory.eINSTANCE;
+	protected StoexFactory stocFactory = StoexFactory.eINSTANCE;
 
-	private StoexFactory stocFactory = StoexFactory.eINSTANCE;
+	protected HashMap<Expression, TypeEnum> typeAnnotation;
 
-	public ExpressionSolveVisitor(Expression expr) {
-		typeVisitor = new ExpressionInferTypeVisitor();
-		try {
-			typeVisitor.doSwitch(expr);
-		} catch (Exception e) {
-			logger.error("Inferring Expression Types caused Exception!"
-					+ e.getMessage());
-			e.printStackTrace();
-		}
+	public ExpressionSolveVisitor(HashMap<Expression, TypeEnum> typeAnn) {
+		this.typeAnnotation = typeAnn;
 	}
 
 	public Object caseCompareExpression(CompareExpression expr){
@@ -83,7 +89,7 @@ public class ExpressionSolveVisitor extends StoexSwitch {
 
 	public Object caseTermExpression(TermExpression expr) {
 		String opName = expr.getOperation().getName();
-		IOperation op;
+		TermProductOperation op;
 		if (opName.equals("ADD"))
 			op = new AddOperation();
 		else if (opName.equals("SUB"))
@@ -93,14 +99,14 @@ public class ExpressionSolveVisitor extends StoexSwitch {
 
 		Expression left = (Expression) doSwitch(expr.getLeft());
 		Expression right = (Expression) doSwitch(expr.getRight());
-		TypeEnum exprType = null; //typeVisitor.getTypeAnnotation(expr);
+		TypeEnum exprType = this.typeAnnotation.get(expr); 
 
 		return handleComputation(exprType, left, right, op);
 	}
 
 	public Object caseProductExpression(ProductExpression expr) {
 		String opName = expr.getOperation().getName();
-		IOperation op;
+		TermProductOperation op;
 		if (opName.equals("MULT"))
 			op = new MultOperation();
 		else if (opName.equals("DIV"))
@@ -112,16 +118,36 @@ public class ExpressionSolveVisitor extends StoexSwitch {
 
 		Expression left = (Expression) doSwitch(expr.getLeft());
 		Expression right = (Expression) doSwitch(expr.getRight());
-		TypeEnum exprType = null; // typeVisitor.getTypeAnnotation(expr);
+		TypeEnum exprType = this.typeAnnotation.get(expr); 
+			
 
 		return handleComputation(exprType, left, right, op);
 	}
 
+	@Override
+	public Object caseParenthesis(Parenthesis parenthesis) {
+		Expression child = (Expression)doSwitch(parenthesis.getInnerExpression());
+		return child;
+	}
+
+	@Override
 	public Object caseVariable(Variable var){
-		//return typeVisitor.getParameterAnnotation(var);
+		// Cannot handle variables! Use inheritance to add this.
 		return var;
 	}
 	
+	@Override
+	public Object caseBoolLiteral(BoolLiteral bl) {
+		EqualsOperation eo = new EqualsOperation();
+		IProbabilityMassFunction iPMF = null;
+		if (bl.isValue()){
+			iPMF = eo.getBoolPMF(1.0);
+		} else {
+			iPMF = eo.getBoolPMF(0.0);
+		}
+		return createLiteralForIPMF(iPMF);
+	}
+
 	public Object caseIntLiteral(IntLiteral il) {
 		return il;
 	}
@@ -143,20 +169,24 @@ public class ExpressionSolveVisitor extends StoexSwitch {
 	 */
 	private Object handleComparison(Expression left, Expression right,
 			CompareOperation op) {
+		IProbabilityMassFunction iPMF = null;
+		
 		if (isIntDouble(left) && isIntDouble(right))
-			return op.compare(extractDoubleFromLiteral(left),
+			iPMF = op.compare(extractDoubleFromLiteral(left),
 					extractDoubleFromLiteral(right));
 		else if (isProbFunc(left) && isIntDouble(right))
-			return op.compare(extractIPMFFromLiteral(left),
+			iPMF = op.compare(extractIPMFFromLiteral(left),
 					extractDoubleFromLiteral(right));
 		else if (isIntDouble(left) && isProbFunc(right))
-			return op.compare(extractDoubleFromLiteral(left),
+			iPMF = op.compare(extractDoubleFromLiteral(left),
 					extractIPMFFromLiteral(right));
 		else if (isProbFunc(left) && isProbFunc(right))
-			return op.compare(extractIPMFFromLiteral(left),
+			iPMF = op.compare(extractIPMFFromLiteral(left),
 					extractIPMFFromLiteral(right));
 		else
 			throw new UnsupportedOperationException();
+		
+		return createLiteralForIPMF(iPMF);
 	}
 
 	/**
@@ -166,7 +196,7 @@ public class ExpressionSolveVisitor extends StoexSwitch {
 	 * @throws ProbabilitySumNotOneException
 	 */
 	private Expression handleComputation(TypeEnum exprType, Expression left,
-			Expression right, IOperation op) {
+			Expression right, TermProductOperation op) {
 		switch (exprType) {
 		case INT:
 			return handle(extractIntFromLiteral(left),
@@ -175,26 +205,102 @@ public class ExpressionSolveVisitor extends StoexSwitch {
 			return handle(extractDoubleFromLiteral(left),
 					extractDoubleFromLiteral(right), op);
 		case INT_PMF:
-			if (left instanceof IntLiteral) {
-				return handle(extractIPMFFromLiteral(right),
-						extractIntFromLiteral(left), op);
-			} else if (right instanceof IntLiteral) {
-				return handle(extractIPMFFromLiteral(left),
+			if (left instanceof IntLiteral && right instanceof IntLiteral){
+				// this case can happen because the 
+				// typeAnnotation assumes INT_PMF as type
+				// for some parameter characterisations
+				// where in fact they could be composed just out 
+				// of INTs in an expression
+				return handle(extractIntFromLiteral(left),
 						extractIntFromLiteral(right), op);
+			} else if (left instanceof IntLiteral 
+					&& right instanceof ProbabilityFunctionLiteral) {
+				return handle(extractIPMFFromLiteral(right),extractIntFromLiteral(left), op);
+			} else if (left instanceof ProbabilityFunctionLiteral 
+					&& right instanceof IntLiteral) {
+				return handle(extractIPMFFromLiteral(left),extractIntFromLiteral(right), op);
 			} else if (left instanceof ProbabilityFunctionLiteral
 					&& right instanceof ProbabilityFunctionLiteral) {
-				return handle(extractIPMFFromLiteral(left),
-						extractIPMFFromLiteral(right), op);
+				return handle(extractIPMFFromLiteral(left),extractIPMFFromLiteral(right), op);
 			} else 
 				throw new UnsupportedOperationException();
 		case DOUBLE_PMF:
-			// TODO
+			if (left instanceof ProbabilityFunctionLiteral
+				&& right instanceof DoubleLiteral){
+				return handle(extractIPMFFromLiteral(left),extractDoubleFromLiteral(right), op);					
+			}
+		case DOUBLE_PDF:
+			if (left instanceof ProbabilityFunctionLiteral
+					&& right instanceof ProbabilityFunctionLiteral){
+				return handle(extractIPDFFromLiteral(left),extractIPDFFromLiteral(right), op);
+			}
 		}
 		return null;
 	}
 
+	private Expression handle(IProbabilityDensityFunction iLeftPDF, IProbabilityDensityFunction iRightPDF, TermProductOperation op) {
+		IProbabilityDensityFunction resultIPDF = null;
+		
+		try {
+			resultIPDF = op.compute(iLeftPDF, iRightPDF);
+		} catch (FunctionsInDifferenDomainsException e){
+			logger.error("Calculation with two PDFs failed!");
+			e.printStackTrace();
+		} catch (UnknownPDFTypeException e){
+			logger.error("Calculation with two PDFs failed!");
+			e.printStackTrace();
+		} catch (IncompatibleUnitsException e){
+			logger.error("Calculation with two PDFs failed!");
+			e.printStackTrace();
+		}
+		logger.debug("Result: "+resultIPDF.toString());
+
+		return createLiteralForIPDF(resultIPDF);
+
+	}
+
+	private Expression createLiteralForIPDF(IProbabilityDensityFunction iPDF) {
+		ProbabilityDensityFunction pdf = null;
+		try {
+			pdf = iProbFuncFactory.transformToModelPDF(iPDF);
+		} catch (UnknownPDFTypeException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (DoubleSampleException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (FunctionNotInTimeDomainException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		ProbabilityFunctionLiteral resultPDFLiteral = stocFactory.createProbabilityFunctionLiteral();
+		resultPDFLiteral.setFunction_ProbabilityFunctionLiteral(pdf);
+
+		return resultPDFLiteral;
+	}
+
+	private IProbabilityDensityFunction extractIPDFFromLiteral(Expression expr) {
+		ProbabilityFunctionLiteral pfl = (ProbabilityFunctionLiteral)expr;
+		ProbabilityDensityFunction pdf = (ProbabilityDensityFunction)pfl.getFunction_ProbabilityFunctionLiteral();
+		IProbabilityDensityFunction ipdf = null;
+		try {
+			ipdf = iProbFuncFactory.transformToPDF(pdf);
+		} catch (UnknownPDFTypeException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ProbabilitySumNotOneException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (DoubleSampleException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return ipdf;
+	}
+
 	private ProbabilityFunctionLiteral handle(IProbabilityMassFunction iLeftPMF,
-			IProbabilityMassFunction iRightPMF, IOperation operation) {
+			IProbabilityMassFunction iRightPMF, TermProductOperation operation) {
 		IProbabilityMassFunction resultIPMF = null;
 		try {
 			resultIPMF = operation.compute(iLeftPMF, iRightPMF);
@@ -216,10 +322,10 @@ public class ExpressionSolveVisitor extends StoexSwitch {
 	 * @return
 	 */
 	private ProbabilityFunctionLiteral handle(IProbabilityMassFunction iIntPMF,
-			int intValue, IOperation operation) {
+			double doubleValue, TermProductOperation operation) {
 		IProbabilityMassFunction resultIPMF = null;
 		try {
-			resultIPMF = operation.compute(iIntPMF, intValue);
+			resultIPMF = operation.compute(iIntPMF, doubleValue);
 		} catch (Exception e) {
 			logger.error("Calculation with PMF and int failed!");
 			e.printStackTrace();
@@ -236,7 +342,7 @@ public class ExpressionSolveVisitor extends StoexSwitch {
 	 * @return
 	 */
 	private DoubleLiteral handle(double leftValue, double rightValue,
-			IOperation operation) {
+			TermProductOperation operation) {
 		DoubleLiteral result = stocFactory.createDoubleLiteral();
 		double resultValue = operation.compute(leftValue, rightValue);
 		result.setValue(resultValue);
@@ -251,7 +357,7 @@ public class ExpressionSolveVisitor extends StoexSwitch {
 	 * @return
 	 */
 	private IntLiteral handle(int leftValue, int rightValue,
-			IOperation operation) {
+			TermProductOperation operation) {
 		IntLiteral result = stocFactory.createIntLiteral();
 		int resultValue = operation.compute(leftValue, rightValue);
 		result.setValue(resultValue);
@@ -288,9 +394,9 @@ public class ExpressionSolveVisitor extends StoexSwitch {
 		ProbabilityFunctionLiteral probFuncLiteral = (ProbabilityFunctionLiteral)expr;
 		ProbabilityMassFunction pmf = (ProbabilityMassFunction)probFuncLiteral.getFunction_ProbabilityFunctionLiteral();
 		
-		Unit unit = probFuncFactory.createUnit(); // TODO: remove
-		unit.setUnitName("sec");
-		pmf.setUnit(unit);
+//		Unit unit = probFuncFactory.createUnit(); // TODO: remove
+//		unit.setUnitName("sec");
+//		pmf.setUnit(unit);
 		
 		return iProbFuncFactory.transformToPMF(pmf);
 	}
@@ -306,10 +412,10 @@ public class ExpressionSolveVisitor extends StoexSwitch {
 	
 		// TODO: setting ordered domain and unit should already be done by
 		// transform method
-		resultPMF.setOrderedDomain(resultIPMF.hasOrderedDomain());
-		Unit unit2 = probFuncFactory.createUnit();
-		unit2.setUnitName("sec");
-		resultPMF.setUnit(unit2);
+//		resultPMF.setOrderedDomain(resultIPMF.hasOrderedDomain());
+//		Unit unit2 = probFuncFactory.createUnit();
+//		unit2.setUnitName("sec");
+//		resultPMF.setUnit(unit2);
 	
 		ProbabilityFunctionLiteral resultPMFLiteral = stocFactory
 				.createProbabilityFunctionLiteral();
