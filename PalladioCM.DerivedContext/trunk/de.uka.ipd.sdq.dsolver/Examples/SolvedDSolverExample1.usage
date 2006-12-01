@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="ASCII"?>
-<context.usage:Usage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:context.usage="http://sdq.ipd.uka.de/Context/Usage/1.0">
+<context.usage:Usage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context.usage="http://sdq.ipd.uka.de/Context/Usage/1.0" xmlns:stoex="http://sdq.ipd.uka.de/StochasticExpressions/1.0">
   <usageContexts_Usage>
-    <loopiterations_UsageContext>
+    <loopiterations_UsageContext specification="3">
       <loopaction_LoopIteration href="DSolverExample1.repository#_CRToczQeEduaPaOP6VcQiw"/>
-      <iterations_LoopIteration specification="= 3"/>
     </loopiterations_UsageContext>
+    <actualParameterUsage_UsageContext>
+      <variableCharacterisation_VariableUsage specification="10" type="NUMBER_OF_ELEMENTS"/>
+      <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="someCollection"/>
+    </actualParameterUsage_UsageContext>
   </usageContexts_Usage>
   <usageContexts_Usage>
     <branchprobabilities_UsageContext probability="1.0">
@@ -13,9 +16,12 @@
     <branchprobabilities_UsageContext probability="1.0">
       <branchtransition_BranchProbability href="DSolverExample1.repository#//@components__Repository.0/@serviceEffectSpecifications__BasicComponent.0/@steps_Behaviour.2/@branches_Branch.1"/>
     </branchprobabilities_UsageContext>
-    <branchprobabilities_UsageContext probability="1.0">
+    <branchprobabilities_UsageContext probability="0.7">
       <branchtransition_BranchProbability href="DSolverExample1.repository#//@components__Repository.0/@serviceEffectSpecifications__BasicComponent.0/@steps_Behaviour.2/@branches_Branch.2"/>
     </branchprobabilities_UsageContext>
-    <actualParameterUsage_UsageContext href="SolvedDSolverExample1.usagemodel#//@usageScenario_UsageModel.0/@scenarioBehaviour_UsageScenario/@actions_ScenarioBehaviour.1/@actualParameterUsage_EntryLevelSystemCall.0"/>
+    <actualParameterUsage_UsageContext>
+      <variableCharacterisation_VariableUsage specification="10" type="VALUE"/>
+      <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="number"/>
+    </actualParameterUsage_UsageContext>
   </usageContexts_Usage>
 </context.usage:Usage>
