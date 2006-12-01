@@ -54,9 +54,8 @@ public class ProbabilityFunctionFactoryImpl
 		List<IContinuousSample> samples = new ArrayList<IContinuousSample>();
 		
 		if (epdf instanceof BoxedPDF) {
-			List<IContinuousSample> sampleList = new ArrayList<IContinuousSample>();
 			for (Object s : ((BoxedPDF) epdf).getSamples()){
-				sampleList.add(transformToContinuousSample((ContinuousSample) s));
+				samples.add(transformToContinuousSample((ContinuousSample) s));
 			}
 		} else if (epdf instanceof SamplePDF) {
 			int i = 1;

@@ -29,7 +29,7 @@ public class ProbabilityMassFunctionImpl extends ProbabilityFunctionImpl
 	private List<ISample> samples;
 
 	private enum Operation {
-		ADD, SUB, MULT, DIV
+		ADD, SUB, MULT, DIV, SHIFT, STRETCH
 	}
 
 	protected ProbabilityMassFunctionImpl(IUnit unit, boolean hasOrderedDomain,
@@ -313,5 +313,83 @@ public class ProbabilityMassFunctionImpl extends ProbabilityFunctionImpl
 				.getUnit(), this.hasOrderedDomain());
 
 		return pmf;
+	}
+
+	public IProbabilityMassFunction shiftValues(double scalar) throws DomainNotNumbersException{
+		return transformDomainValues(scalar, Operation.SHIFT);
+	}
+
+	public IProbabilityMassFunction stretchValues(double scalar) throws DomainNotNumbersException {
+		return transformDomainValues(scalar, Operation.STRETCH);
+	}
+
+	/**
+	 * Shifts or stretches the domain of the PMF according to the scalar factor
+	 * given as a parameter. Only works if the sample values are numbers.
+	 * 
+	 * Tries to preserve the value types. For example, 
+	 * if the factor scalar is an Integer and all sample values are Integer, 
+	 * then the resulting PMF will also contain Integer-samples.
+	 * 
+	 * @author Koziolek (kill me)
+	 * @param scalar the factor to shift or stretch the domain 
+	 * @return
+	 */
+	private IProbabilityMassFunction transformDomainValues(double scalar, Operation op) throws DomainNotNumbersException{
+		List<ISample> resultList = new ArrayList<ISample>();
+
+		// determine whether scalar is an int 
+		// (i.e., zero behind the point; example: 2.0)
+		Double factorDouble = scalar;
+		Integer factorInteger = factorDouble.intValue();
+		boolean factorIsInteger = (factorDouble == factorInteger.doubleValue());
+	
+		for (ISample sample : samples) {
+			Object value = sample.getValue();
+			Object resultValue = null;
+			// Ok, there are several cases, as we would like to 
+			// preserve the type of the value. Please beautify
+			// this if possible. :)
+			switch (op){
+				case SHIFT:
+					if (value instanceof Integer && factorIsInteger){
+						resultValue = new Integer((Integer)value + factorInteger);
+					} else if (value instanceof Long && factorIsInteger){
+						resultValue = new Long((Long)value + factorInteger);
+					} else if (value instanceof Integer){
+						resultValue = new Double((Integer)value + factorDouble);
+					} else if (value instanceof Long){
+						resultValue = new Double((Long)value + factorDouble);
+					} else if (value instanceof Float){
+						resultValue = new Double((Float)value + factorDouble);
+					} else if (value instanceof Double){
+						resultValue = new Double((Double)value + factorDouble);
+					} else throw new DomainNotNumbersException(); 
+					break;
+				case STRETCH:
+					if (value instanceof Integer && factorIsInteger){
+						resultValue = new Integer((Integer)value * factorInteger);
+					} else if (value instanceof Long && factorIsInteger){
+						resultValue = new Long((Long)value * factorInteger);
+					} else if (value instanceof Integer){
+						resultValue = new Double((Integer)value * factorDouble);
+					} else if (value instanceof Long){
+						resultValue = new Double((Long)value * factorDouble);
+					} else if (value instanceof Float){
+						resultValue = new Double((Float)value * factorDouble);
+					} else if (value instanceof Double){
+						resultValue = new Double((Double)value * factorDouble);
+					} else throw new DomainNotNumbersException(); 
+					break;
+				default:
+					resultValue = 0.0;
+			}
+			
+			resultList.add(pfFactory.createSample(resultValue, sample
+					.getProbability()));
+		}
+		
+		return pfFactory.createProbabilityMassFunction(resultList, this
+				.getUnit(), hasOrderedDomain());
 	}
 }

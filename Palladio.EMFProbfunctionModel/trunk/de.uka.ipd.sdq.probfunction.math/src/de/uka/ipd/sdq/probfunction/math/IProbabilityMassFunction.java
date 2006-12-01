@@ -3,6 +3,7 @@ package de.uka.ipd.sdq.probfunction.math;
 import java.util.List;
 
 import de.uka.ipd.sdq.probfunction.math.exception.DifferentDomainsException;
+import de.uka.ipd.sdq.probfunction.math.exception.DomainNotNumbersException;
 import de.uka.ipd.sdq.probfunction.math.exception.FunctionNotInFrequencyDomainException;
 import de.uka.ipd.sdq.probfunction.math.exception.FunctionNotInTimeDomainException;
 import de.uka.ipd.sdq.probfunction.math.exception.ProbabilitySumNotOneException;
@@ -143,6 +144,32 @@ public interface IProbabilityMassFunction extends IProbabilityFunction {
 	 */
 	IProbabilityMassFunction scale(double scalar);
 
+	
+	/**
+	 * Shifts each value of the PMF by the given scalar (i.e., adds the
+	 * given scalar to each value). If the scalar is 
+	 * larger than zero, the PMF gets shifted to the right, otherwise it
+	 * gets shifted to the left. 
+	 *
+	 * @author Koziolek
+	 * @param scalar
+	 * @return
+	 */
+	IProbabilityMassFunction shiftValues(double scalar) throws DomainNotNumbersException;
+	
+	/**
+	 * Stretches the domain of the PMF by the given scalar (i.e, multiplies
+	 * each value with the given scalar). If the scalar is larger than 1, 
+	 * the PMF gets stretched. If the scalar is between zero and 1, the 
+	 * PMF gets compressed.
+	 * 
+	 * @author Koziolek
+	 * @param scalar
+	 * @return
+	 */
+	IProbabilityMassFunction stretchValues(double scalar) throws DomainNotNumbersException;
+	
+	
 	/**
 	 * Computes the Fourier transform of the probability mass function. Note,
 	 * that you should only use this function if you really know what you are
