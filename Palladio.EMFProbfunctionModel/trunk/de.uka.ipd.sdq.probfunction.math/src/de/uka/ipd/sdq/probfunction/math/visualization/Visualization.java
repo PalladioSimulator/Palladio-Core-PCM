@@ -132,12 +132,12 @@ public class Visualization {
 			e.printStackTrace();
 		}
 		
-		scv.setSourceConfigFile("src/de/uka/ipd/sdq/probfunction/math/visualization/resource/defalutconfig.xml");
+		scv.setSourceConfigFile("src/de/uka/ipd/sdq/probfunction/math/visualization/resource/defalutconfig2.xml");
 		
 		// scv.setMaxValue(0.4);
 		// scv.setMinValue(0.1);
 
-		scv.exportChartToImage("chart.svg", ImageFormat.SVG);
+		//scv.exportChartToImage("chart.svg", ImageFormat.SVG);
 		scv.visualize();
 
 	}

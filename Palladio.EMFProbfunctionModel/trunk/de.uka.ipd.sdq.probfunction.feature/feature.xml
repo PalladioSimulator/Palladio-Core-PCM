@@ -21,6 +21,19 @@
          id="de.uka.ipd.sdq.probfunction.feature.source"
          version="0.0.0"/>
 
+   <requires>
+      <import feature="org.eclipse.birt" version="2.1.1.v20060926-0959"/>
+      <import feature="org.eclipse.birt.chart" version="2.1.1.v20060926-0959"/>
+      <import feature="org.eclipse.birt.chart.cshelp" version="2.1.1.v20060926-0959"/>
+      <import feature="org.eclipse.birt.chart.runtime" version="2.1.1.v20060926-0959"/>
+      <import feature="org.eclipse.birt.cshelp" version="2.1.1.v20060926-0959"/>
+      <import feature="org.eclipse.birt.example" version="2.1.1.v20060926-0959"/>
+      <import feature="org.eclipse.birt.report.designer" version="2.1.1.v20060926-0959"/>
+      <import feature="org.eclipse.birt.report.runtime" version="2.1.1.v20060926-0959"/>
+      <import plugin="org.antlr"/>
+      <import plugin="org.junit4"/>
+   </requires>
+
    <plugin
          id="de.uka.ipd.sdq.probfunction"
          download-size="0"
