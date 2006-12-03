@@ -346,7 +346,7 @@ public class ProbabilityMassFunctionImpl extends ProbabilityFunctionImpl
 	
 		for (ISample sample : samples) {
 			Object value = sample.getValue();
-			Object resultValue = null;
+			Number resultValue = null;
 			// Ok, there are several cases, as we would like to 
 			// preserve the type of the value. Please beautify
 			// this if possible. :)
@@ -356,14 +356,9 @@ public class ProbabilityMassFunctionImpl extends ProbabilityFunctionImpl
 						resultValue = new Integer((Integer)value + factorInteger);
 					} else if (value instanceof Long && factorIsInteger){
 						resultValue = new Long((Long)value + factorInteger);
-					} else if (value instanceof Integer){
-						resultValue = new Double((Integer)value + factorDouble);
-					} else if (value instanceof Long){
-						resultValue = new Double((Long)value + factorDouble);
-					} else if (value instanceof Float){
-						resultValue = new Double((Float)value + factorDouble);
-					} else if (value instanceof Double){
-						resultValue = new Double((Double)value + factorDouble);
+					} else if (value instanceof Number){
+						Number valueNumber = (Number)value;
+						resultValue = new Double(valueNumber.doubleValue() + factorDouble);
 					} else throw new DomainNotNumbersException(); 
 					break;
 				case STRETCH:
@@ -371,14 +366,9 @@ public class ProbabilityMassFunctionImpl extends ProbabilityFunctionImpl
 						resultValue = new Integer((Integer)value * factorInteger);
 					} else if (value instanceof Long && factorIsInteger){
 						resultValue = new Long((Long)value * factorInteger);
-					} else if (value instanceof Integer){
-						resultValue = new Double((Integer)value * factorDouble);
-					} else if (value instanceof Long){
-						resultValue = new Double((Long)value * factorDouble);
-					} else if (value instanceof Float){
-						resultValue = new Double((Float)value * factorDouble);
-					} else if (value instanceof Double){
-						resultValue = new Double((Double)value * factorDouble);
+					} else if (value instanceof Number){
+						Number valueNumber = (Number)value;
+						resultValue = new Double(valueNumber.doubleValue() * factorDouble);
 					} else throw new DomainNotNumbersException(); 
 					break;
 				default:
