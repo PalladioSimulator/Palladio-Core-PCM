@@ -4,11 +4,9 @@ import java.util.HashMap;
 
 import org.apache.log4j.Logger;
 
-import de.uka.ipd.sdq.probfunction.BoxedPDF;
 import de.uka.ipd.sdq.probfunction.ProbabilityDensityFunction;
 import de.uka.ipd.sdq.probfunction.ProbabilityMassFunction;
 import de.uka.ipd.sdq.probfunction.ProbfunctionFactory;
-import de.uka.ipd.sdq.probfunction.Unit;
 import de.uka.ipd.sdq.probfunction.math.IProbabilityDensityFunction;
 import de.uka.ipd.sdq.probfunction.math.IProbabilityFunctionFactory;
 import de.uka.ipd.sdq.probfunction.math.IProbabilityMassFunction;
@@ -24,7 +22,9 @@ import de.uka.ipd.sdq.stoex.CompareExpression;
 import de.uka.ipd.sdq.stoex.DoubleLiteral;
 import de.uka.ipd.sdq.stoex.Expression;
 import de.uka.ipd.sdq.stoex.IntLiteral;
+import de.uka.ipd.sdq.stoex.NumericLiteral;
 import de.uka.ipd.sdq.stoex.Parenthesis;
+import de.uka.ipd.sdq.stoex.PowerExpression;
 import de.uka.ipd.sdq.stoex.ProbabilityFunctionLiteral;
 import de.uka.ipd.sdq.stoex.ProductExpression;
 import de.uka.ipd.sdq.stoex.StoexFactory;
@@ -36,13 +36,13 @@ import de.uka.ipd.sdq.stoex.analyser.operations.DivOperation;
 import de.uka.ipd.sdq.stoex.analyser.operations.EqualsOperation;
 import de.uka.ipd.sdq.stoex.analyser.operations.GreaterEqualOperation;
 import de.uka.ipd.sdq.stoex.analyser.operations.GreaterOperation;
-import de.uka.ipd.sdq.stoex.analyser.operations.TermProductOperation;
 import de.uka.ipd.sdq.stoex.analyser.operations.LessEqualOperation;
 import de.uka.ipd.sdq.stoex.analyser.operations.LessOperation;
 import de.uka.ipd.sdq.stoex.analyser.operations.ModOperation;
 import de.uka.ipd.sdq.stoex.analyser.operations.MultOperation;
 import de.uka.ipd.sdq.stoex.analyser.operations.NotEqualOperation;
 import de.uka.ipd.sdq.stoex.analyser.operations.SubOperation;
+import de.uka.ipd.sdq.stoex.analyser.operations.TermProductOperation;
 import de.uka.ipd.sdq.stoex.util.StoexSwitch;
 
 public class ExpressionSolveVisitor extends StoexSwitch {
@@ -161,6 +161,36 @@ public class ExpressionSolveVisitor extends StoexSwitch {
 		return probFuncLit;
 	}
 
+	@Override
+	public Object casePowerExpression(PowerExpression expr) {
+		Expression base = (Expression) doSwitch(expr.getBase());
+		Expression exponent = (Expression) doSwitch(expr.getExponent());
+		
+		double baseValue = getDoubleFromNumericLiteral(base);
+		double exponentValue = getDoubleFromNumericLiteral(exponent);
+		
+		DoubleLiteral doubleLiteral = StoexFactory.eINSTANCE.createDoubleLiteral();
+		doubleLiteral.setValue(Math.pow(baseValue, exponentValue));
+		
+		return doubleLiteral;
+	}
+
+	/**
+	 * @param base
+	 */
+	private double getDoubleFromNumericLiteral(Expression base) {
+		
+		if (base instanceof IntLiteral){
+			IntLiteral intLiteral = (IntLiteral)base;
+			Integer intValue = intLiteral.getValue();
+			return intValue.doubleValue();
+		} else if (base instanceof DoubleLiteral){
+			DoubleLiteral doubleLiteral = (DoubleLiteral)base;
+			return doubleLiteral.getValue();
+		} else
+			throw new UnsupportedOperationException();
+	}
+
 	/**
 	 * @param left
 	 * @param right
@@ -225,10 +255,19 @@ public class ExpressionSolveVisitor extends StoexSwitch {
 			} else 
 				throw new UnsupportedOperationException();
 		case DOUBLE_PMF:
-			if (left instanceof ProbabilityFunctionLiteral
+			if (left instanceof DoubleLiteral && right instanceof DoubleLiteral) {
+				return handle(extractDoubleFromLiteral(left), extractDoubleFromLiteral(right), op);
+			} else if(left instanceof ProbabilityFunctionLiteral
 				&& right instanceof DoubleLiteral){
 				return handle(extractIPMFFromLiteral(left),extractDoubleFromLiteral(right), op);					
-			}
+			} else if(left instanceof DoubleLiteral
+				&& right instanceof ProbabilityFunctionLiteral){
+				return handle(extractIPMFFromLiteral(right),extractDoubleFromLiteral(left), op);
+			} else if(left instanceof ProbabilityFunctionLiteral 
+				&& right instanceof ProbabilityFunctionLiteral){
+				return handle(extractIPMFFromLiteral(left), extractIPMFFromLiteral(right), op);
+			} else 
+				throw new UnsupportedOperationException();
 		case DOUBLE_PDF:
 			if (left instanceof ProbabilityFunctionLiteral
 					&& right instanceof ProbabilityFunctionLiteral){
@@ -238,6 +277,12 @@ public class ExpressionSolveVisitor extends StoexSwitch {
 		return null;
 	}
 
+	/**
+	 * @param iLeftPDF
+	 * @param iRightPDF
+	 * @param op
+	 * @return
+	 */
 	private Expression handle(IProbabilityDensityFunction iLeftPDF, IProbabilityDensityFunction iRightPDF, TermProductOperation op) {
 		IProbabilityDensityFunction resultIPDF = null;
 		
@@ -259,18 +304,34 @@ public class ExpressionSolveVisitor extends StoexSwitch {
 
 	}
 
+	/**
+	 * @param resultIPMF
+	 * @return
+	 */
+	private ProbabilityFunctionLiteral createLiteralForIPMF(
+			IProbabilityMassFunction resultIPMF) {
+		ProbabilityMassFunction resultPMF = iProbFuncFactory
+				.transformToModelPMF(resultIPMF);
+		ProbabilityFunctionLiteral resultPMFLiteral = stocFactory
+				.createProbabilityFunctionLiteral();
+		resultPMFLiteral.setFunction_ProbabilityFunctionLiteral(resultPMF);
+	
+		return resultPMFLiteral;
+	}
+
+	/**
+	 * @param iPDF
+	 * @return
+	 */
 	private Expression createLiteralForIPDF(IProbabilityDensityFunction iPDF) {
 		ProbabilityDensityFunction pdf = null;
 		try {
 			pdf = iProbFuncFactory.transformToModelPDF(iPDF);
 		} catch (UnknownPDFTypeException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (DoubleSampleException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (FunctionNotInTimeDomainException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
@@ -280,25 +341,12 @@ public class ExpressionSolveVisitor extends StoexSwitch {
 		return resultPDFLiteral;
 	}
 
-	private IProbabilityDensityFunction extractIPDFFromLiteral(Expression expr) {
-		ProbabilityFunctionLiteral pfl = (ProbabilityFunctionLiteral)expr;
-		ProbabilityDensityFunction pdf = (ProbabilityDensityFunction)pfl.getFunction_ProbabilityFunctionLiteral();
-		IProbabilityDensityFunction ipdf = null;
-		try {
-			ipdf = iProbFuncFactory.transformToPDF(pdf);
-		} catch (UnknownPDFTypeException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (ProbabilitySumNotOneException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (DoubleSampleException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return ipdf;
-	}
-
+	/**
+	 * @param iLeftPMF
+	 * @param iRightPMF
+	 * @param operation
+	 * @return
+	 */
 	private ProbabilityFunctionLiteral handle(IProbabilityMassFunction iLeftPMF,
 			IProbabilityMassFunction iRightPMF, TermProductOperation operation) {
 		IProbabilityMassFunction resultIPMF = null;
@@ -312,13 +360,11 @@ public class ExpressionSolveVisitor extends StoexSwitch {
 		return createLiteralForIPMF(resultIPMF);
 	}
 
+
 	/**
+	 * @param iIntPMF
+	 * @param doubleValue
 	 * @param operation
-	 *            TODO
-	 * @param right
-	 *            IntPMF
-	 * @param left
-	 *            IntLiteral
 	 * @return
 	 */
 	private ProbabilityFunctionLiteral handle(IProbabilityMassFunction iIntPMF,
@@ -334,11 +380,11 @@ public class ExpressionSolveVisitor extends StoexSwitch {
 		return createLiteralForIPMF(resultIPMF);
 	}
 
+
 	/**
-	 * @param left
-	 * @param right
+	 * @param leftValue
+	 * @param rightValue
 	 * @param operation
-	 *            TODO
 	 * @return
 	 */
 	private DoubleLiteral handle(double leftValue, double rightValue,
@@ -349,11 +395,11 @@ public class ExpressionSolveVisitor extends StoexSwitch {
 		return result;
 	}
 
+
 	/**
-	 * @param left
-	 * @param right
+	 * @param leftValue
+	 * @param rightValue
 	 * @param operation
-	 *            TODO
 	 * @return
 	 */
 	private IntLiteral handle(int leftValue, int rightValue,
@@ -364,16 +410,25 @@ public class ExpressionSolveVisitor extends StoexSwitch {
 		return result;
 	}
 
+	/**
+	 * @param expr
+	 * @return
+	 */
 	private boolean isProbFunc(Expression expr) {
 		return (expr instanceof ProbabilityFunctionLiteral);
 	}
 
+	/**
+	 * @param expr
+	 * @return
+	 */
 	private boolean isIntDouble(Expression expr) {
 		return (expr instanceof IntLiteral || expr instanceof DoubleLiteral);		
 	}
 
 	/**
 	 * @param expr
+	 * @return
 	 */
 	private double extractDoubleFromLiteral(Expression expr) {
 		if (expr instanceof IntLiteral) {
@@ -386,42 +441,42 @@ public class ExpressionSolveVisitor extends StoexSwitch {
 		}
 	}
 
+	/**
+	 * @param expr
+	 * @return
+	 */
 	private int extractIntFromLiteral(Expression expr) {
 		return ((IntLiteral) expr).getValue();
 	}
 
+	/**
+	 * @param expr
+	 * @return
+	 */
 	private IProbabilityMassFunction extractIPMFFromLiteral(Expression expr) {
 		ProbabilityFunctionLiteral probFuncLiteral = (ProbabilityFunctionLiteral)expr;
 		ProbabilityMassFunction pmf = (ProbabilityMassFunction)probFuncLiteral.getFunction_ProbabilityFunctionLiteral();
-		
-//		Unit unit = probFuncFactory.createUnit(); // TODO: remove
-//		unit.setUnitName("sec");
-//		pmf.setUnit(unit);
-		
 		return iProbFuncFactory.transformToPMF(pmf);
 	}
 
 	/**
-	 * @param resultIPMF
+	 * @param expr
 	 * @return
 	 */
-	private ProbabilityFunctionLiteral createLiteralForIPMF(
-			IProbabilityMassFunction resultIPMF) {
-		ProbabilityMassFunction resultPMF = iProbFuncFactory
-				.transformToModelPMF(resultIPMF);
-	
-		// TODO: setting ordered domain and unit should already be done by
-		// transform method
-//		resultPMF.setOrderedDomain(resultIPMF.hasOrderedDomain());
-//		Unit unit2 = probFuncFactory.createUnit();
-//		unit2.setUnitName("sec");
-//		resultPMF.setUnit(unit2);
-	
-		ProbabilityFunctionLiteral resultPMFLiteral = stocFactory
-				.createProbabilityFunctionLiteral();
-		resultPMFLiteral.setFunction_ProbabilityFunctionLiteral(resultPMF);
-	
-		return resultPMFLiteral;
+	private IProbabilityDensityFunction extractIPDFFromLiteral(Expression expr) {
+		ProbabilityFunctionLiteral pfl = (ProbabilityFunctionLiteral)expr;
+		ProbabilityDensityFunction pdf = (ProbabilityDensityFunction)pfl.getFunction_ProbabilityFunctionLiteral();
+		IProbabilityDensityFunction ipdf = null;
+		try {
+			ipdf = iProbFuncFactory.transformToPDF(pdf);
+		} catch (UnknownPDFTypeException e) {
+			e.printStackTrace();
+		} catch (ProbabilitySumNotOneException e) {
+			e.printStackTrace();
+		} catch (DoubleSampleException e) {
+			e.printStackTrace();
+		}
+		return ipdf;
 	}
 
 }

@@ -12,19 +12,22 @@ public class LessEqualOperation extends CompareOperation {
 	}
 
 	public IProbabilityMassFunction compare(IProbabilityMassFunction left, double right) {
-		// TODO Auto-generated method stub
-		return getBoolPMF(0.0);
+		return getBoolPMF(getProbabilitySumUntil(left, right, true));
 	}
 
 	public IProbabilityMassFunction compare(double left, IProbabilityMassFunction right) {
-		// TODO Auto-generated method stub
-		return getBoolPMF(0.0);
+		return compare(right, left);
 	}
 
 	public IProbabilityMassFunction compare(IProbabilityMassFunction left,
 			IProbabilityMassFunction right) {
-		// TODO Auto-generated method stub
-		return getBoolPMF(0.0);
+		Object firstValueRight = right.getSamples().get(0).getValue();
+		if (firstValueRight instanceof Number){
+			Number firstValueRightNumber = (Number)firstValueRight;
+			double prob = getProbabilitySumUntil(left, firstValueRightNumber.doubleValue(), true);
+			return getBoolPMF(prob);
+		} else
+			throw new UnsupportedOperationException();
 	}
 
 }

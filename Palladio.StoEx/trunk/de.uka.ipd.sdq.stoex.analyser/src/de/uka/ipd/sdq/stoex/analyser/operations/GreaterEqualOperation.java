@@ -12,19 +12,23 @@ public class GreaterEqualOperation extends CompareOperation {
 	}
 
 	public IProbabilityMassFunction compare(IProbabilityMassFunction left, double right) {
-		// TODO Auto-generated method stub
-		return getBoolPMF(0.0);
+		return getBoolPMF(1-getProbabilitySumUntil(left, right, false));
 	}
 
 	public IProbabilityMassFunction compare(double left, IProbabilityMassFunction right) {
-		// TODO Auto-generated method stub
-		return getBoolPMF(0.0);
+		return compare(right,left);
 	}
 
 	public IProbabilityMassFunction compare(IProbabilityMassFunction left,
 			IProbabilityMassFunction right) {
-		// TODO Auto-generated method stub
-		return getBoolPMF(0.0);
+		int numberOfSamples = right.getSamples().size();
+		Object lastValueRight = right.getSamples().get(numberOfSamples-1).getValue();
+		if (lastValueRight instanceof Number){
+			Number lastValueRightNumber = (Number)lastValueRight;
+			double prob = getProbabilitySumUntil(left, lastValueRightNumber.doubleValue(), false);
+			return getBoolPMF(1-prob);
+		} else
+			throw new UnsupportedOperationException();
 	}
 
 }

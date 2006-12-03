@@ -10,13 +10,13 @@ import de.uka.ipd.sdq.probfunction.ProbabilityDensityFunction;
 import de.uka.ipd.sdq.probfunction.ProbabilityFunction;
 import de.uka.ipd.sdq.probfunction.ProbabilityMassFunction;
 import de.uka.ipd.sdq.probfunction.Sample;
-import de.uka.ipd.sdq.stoex.AbstractNamedReference;
 import de.uka.ipd.sdq.stoex.BoolLiteral;
 import de.uka.ipd.sdq.stoex.CompareExpression;
 import de.uka.ipd.sdq.stoex.DoubleLiteral;
 import de.uka.ipd.sdq.stoex.Expression;
 import de.uka.ipd.sdq.stoex.IntLiteral;
 import de.uka.ipd.sdq.stoex.Parenthesis;
+import de.uka.ipd.sdq.stoex.PowerExpression;
 import de.uka.ipd.sdq.stoex.ProbabilityFunctionLiteral;
 import de.uka.ipd.sdq.stoex.ProductExpression;
 import de.uka.ipd.sdq.stoex.ProductOperations;
@@ -59,6 +59,19 @@ public class ExpressionInferTypeVisitor extends StoexSwitch {
 			throw new UnsupportedOperationException();
 		logger.debug(expr.getOperation().toString());
 
+		return expr;
+	}
+
+	@Override
+	public Object casePowerExpression(PowerExpression expr) {
+		TypeEnum baseType = getTypeOfChild((Expression)expr.getBase());
+		TypeEnum exponentType = getTypeOfChild((Expression)expr.getExponent());
+		
+		if (isNumeric(baseType) && isNumeric(exponentType)){
+			typeAnnotation.put(expr, TypeEnum.DOUBLE);
+		} else
+			throw new UnsupportedOperationException();
+		
 		return expr;
 	}
 

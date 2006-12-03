@@ -11,19 +11,17 @@ public class NotEqualOperation extends CompareOperation {
 			return getBoolPMF(0.0);
 	}
 
-	public IProbabilityMassFunction compare(IProbabilityMassFunction left, double right) {
-		// TODO Auto-generated method stub
-		return getBoolPMF(0.0);
+	public IProbabilityMassFunction compare(IProbabilityMassFunction left,
+			double right) {
+		return getBoolPMF(1-getProbabilityForValue(left, right));
 	}
 
 	public IProbabilityMassFunction compare(double left, IProbabilityMassFunction right) {
-		// TODO Auto-generated method stub
-		return getBoolPMF(0.0);
+		return compare(right, left);
 	}
 
 	public IProbabilityMassFunction compare(IProbabilityMassFunction left,
 			IProbabilityMassFunction right) {
-		// TODO Auto-generated method stub
-		return getBoolPMF(0.0);
+		return getBoolPMF(1-allSamplingPointsEqual(left, right));
 	}
 }
