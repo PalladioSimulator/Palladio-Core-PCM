@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <qnm:QNModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:probfunction="http://sdq.ipd.uka.de/ProbFunction/1.0" xmlns:qnm="http://sdq.ipd.uka.de/QueueingNetworkModel/1.0" xmlns:resourcemodel="http://sdq.ipd.uka.de/ResourceModel/1.0">
-  <tasks numReplicas="5" name="SimpleTask">
+  <tasks numReplicas="2" name="SimpleTask">
     <resourceUsage xsi:type="resourcemodel:SequentialResourceUsage" resource="//@resources.0">
       <resourceUsages xsi:type="resourcemodel:SequentialResourceUsage" resource="//@resources.4">
         <resourceUsages xsi:type="resourcemodel:ResourceUsage" resource="//@resources.2">
@@ -8,17 +8,6 @@
             <unit unitName="ms"/>
             <values>0.0</values>
             <values>0.0</values>
-            <values>0.0</values>
-            <values>0.0</values>
-            <values>0.0</values>
-            <values>0.0</values>
-            <values>0.0</values>
-            <values>1.0</values>
-          </usageTime>
-        </resourceUsages>
-        <resourceUsages xsi:type="resourcemodel:ResourceUsage" resource="//@resources.2">
-          <usageTime xsi:type="probfunction:SamplePDF" distance="1.0">
-            <unit unitName="ms"/>
             <values>0.0</values>
             <values>0.0</values>
             <values>0.0</values>
