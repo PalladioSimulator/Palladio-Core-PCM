@@ -52,7 +52,6 @@ import de.uka.ipd.sdq.probfunction.math.exception.FunctionNotInTimeDomainExcepti
 import de.uka.ipd.sdq.probfunction.math.exception.NegativeDistanceException;
 import de.uka.ipd.sdq.probfunction.math.exception.UnknownPDFTypeException;
 import de.uka.ipd.sdq.probfunction.math.exception.UnorderedDomainException;
-import de.uka.ipd.sdq.probfunction.math.impl.SamplePDFImpl;
 
 /**
  * @author Ihssane
@@ -220,7 +219,7 @@ public class Visualization {
 		if (pf instanceof ISamplePDF) {
 			ISamplePDF samplePDF = null;
 			try {
-				samplePDF = ((SamplePDFImpl) pf)
+				samplePDF = ((ISamplePDF) pf)
 						.getFunctionWithNewDistance(distance);
 			} catch (NegativeDistanceException e) {
 				e.printStackTrace();
