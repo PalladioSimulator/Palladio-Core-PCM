@@ -37,12 +37,16 @@ public class SimulatedProcessingResourceReplica extends SimProcess{
 				
 				Double demand = simTask.getCurrentDemand();
 				
-				if (this.getName().startsWith("HD")){
-					SimuQNModel qnModel = (SimuQNModel)this.currentModel();
-					qnModel.monitoredSingleFunction.addValue(demand);
-					System.out.println(demand);
-				}
-
+//				if (this.getName().startsWith("CPU")){
+//					SimuQNModel qnModel = (SimuQNModel)this.currentModel();
+//					qnModel.monitoredSingleFunction.addValue(demand);
+//					System.out.println(demand);
+//				}
+				String histogramID = "Demand "+master.getName();
+				//System.out.println(master.getName()+" demand: "+demand);
+				SimuQNModel qnModel = (SimuQNModel)this.currentModel();
+				qnModel.getSensorFactory().getValueSupplierForSensor(histogramID)
+				.newResponseTimeMeasurement(demand);
 				
 				hold(new SimTime(demand));
 				

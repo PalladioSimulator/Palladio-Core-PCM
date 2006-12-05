@@ -3,6 +3,7 @@ package de.uka.ipd.sdq.qnm.simulator.resources;
 import java.util.ArrayList;
 import java.util.List;
 
+import de.uka.ipd.sdq.qnm.simulator.SimuQNModel;
 import desmoj.core.simulator.Model;
 import desmoj.core.simulator.ProcessQueue;
 import desmoj.core.simulator.SimProcess;
@@ -23,6 +24,11 @@ public class SimulatedPassiveResource extends SimProcess {
 		this.waitingTasks = taskQueue;
 		this.waitingSemaphores = semaphoreQueue;
 		this.childResources = new ArrayList<SimulatedPassiveResourceReplica>();
+		
+		SimuQNModel model = (SimuQNModel)owner;
+		if (!model.getSensorFactory().hasHistogram("Used "+getName()))
+			model.getSensorFactory().createHistogramSensor("Used "+getName());
+
 	}
 
 	@Override
@@ -41,13 +47,25 @@ public class SimulatedPassiveResource extends SimProcess {
 	}
 
 	public void unlock(SimProcess lockingProcess){
+		double blockedCounter=0;
 		for(SimulatedPassiveResourceReplica sprr : childResources){
+			if(sprr.getLockedBy() != null){
+				blockedCounter++;
+			}
+			
 			if (sprr.getLockedBy() == lockingProcess){
 				sprr.setLockedBy(null);
-				System.out.println("Unlocked "+sprr.getName());
+				//System.out.println("Unlocked "+sprr.getName());
 				sprr.activate(new SimTime(SimTime.NOW));
 			}
 		}
+		
+		String histogramID = "Used " + getName();
+		SimuQNModel qnModel = (SimuQNModel)this.currentModel();
+		qnModel.getSensorFactory().getValueSupplierForSensor(histogramID)
+		.newResponseTimeMeasurement(blockedCounter);
+		
+		
 	}
 	
 	

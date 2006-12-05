@@ -24,7 +24,21 @@ public class QNModelInstance {
 	public QNModelInstance(){
 		qnModel = (QNModel) loadFromXMIFile("D:\\Diss\\svn\\code\\"
 				+ "Palladio.EMFAnalyticalModel\\trunk\\de.uka"
-				+ ".ipd.sdq.qnm.simulator\\Example\\Test1.qnm");
+				+ ".ipd.sdq.qnm.simulator\\Example\\Test1-Sequence_CPU_HD.qnm");
+
+//		qnModel = (QNModel) loadFromXMIFile("D:\\Diss\\svn\\code\\"
+//				+ "Palladio.EMFAnalyticalModel\\trunk\\de.uka"
+//				+ ".ipd.sdq.qnm.simulator\\Example\\Test3-Sequence_CPU_Delay.qnm");
+
+//		qnModel = (QNModel) loadFromXMIFile("D:\\Diss\\svn\\code\\"
+//				+ "Palladio.EMFAnalyticalModel\\trunk\\de.uka"
+//				+ ".ipd.sdq.qnm.simulator\\Example\\Test4-Sequence_CPU_HD_Delay.qnm");
+
+//		qnModel = (QNModel) loadFromXMIFile("D:\\Diss\\svn\\code\\"
+//				+ "Palladio.EMFAnalyticalModel\\trunk\\de.uka"
+//				+ ".ipd.sdq.qnm.simulator\\Example\\Test5-Sequence(System)_Sequence(Thread)_CPU_HD_Delay.qnm");
+
+		
 	}
 		
 	private EObject loadFromXMIFile(String fileName) {
@@ -55,6 +69,7 @@ public class QNModelInstance {
 		try {
 			resource = resourceSet.getResource(uri, true);
 		} catch (Exception e) {
+			e.printStackTrace();
 			System.exit(1);
 		}
 

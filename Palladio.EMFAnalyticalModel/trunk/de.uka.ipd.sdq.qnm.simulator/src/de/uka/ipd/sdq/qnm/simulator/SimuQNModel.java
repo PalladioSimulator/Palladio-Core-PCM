@@ -13,6 +13,8 @@ import de.uka.ipd.sdq.qnm.simulator.resources.SimulatedProcessingResource;
 import de.uka.ipd.sdq.qnm.simulator.resources.SimulatedProcessingResourceReplica;
 import de.uka.ipd.sdq.qnm.simulator.resources.SimulatedResources;
 import de.uka.ipd.sdq.qnm.simulator.tasks.SimulatedTask;
+import de.uka.ipd.sdq.qnm.simulator.sensors.SensorFactory;
+import de.uka.ipd.sdq.qnm.simulator.ui.MainUI;
 import de.uka.ipd.sdq.spa.resourcemodel.AbstractResourceUsage;
 import de.uka.ipd.sdq.spa.resourcemodel.DelayResource;
 import de.uka.ipd.sdq.spa.resourcemodel.PassiveResource;
@@ -37,6 +39,10 @@ public class SimuQNModel extends Model {
 	
 	private SimulatedResources resourceContainer; 
 	
+	protected SensorFactory sensorFactory = null;
+	
+	protected static final int SIMULATION_TIME = 100000;
+	
 	public MonitoringData serviceTimeMonitoringData;
 	public MonitoringData monitoredSingleFunction;
 	
@@ -48,6 +54,8 @@ public class SimuQNModel extends Model {
 		
 		serviceTimeMonitoringData = new MonitoringData();
 		monitoredSingleFunction = new MonitoringData();
+		
+		sensorFactory = new SensorFactory(this);
 	}
 
 	public SimuQNModel() {
@@ -63,27 +71,17 @@ public class SimuQNModel extends Model {
 	@Override
 	public void doInitialSchedules() {
 		createSimulatedResources();
-		
 		createSimulatedTasks();
-		
-//		SimulatedProcessingResource processor = new SimulatedProcessingResource(
-//				this, "CPU1", true);
-//		processor.activate(new SimTime(0));
-//
-//		SimulatedTask resUsage = new SimulatedTask(this,
-//				"Task1", true);
-//		resUsage.activate(new SimTime(0));
 	}
 
 	private void createSimulatedTasks() {
 		EList tasks = emfModel.getQnModel().getTasks();
 		for (Object o : tasks){
 			Task task = (Task)o;
-			AbstractResourceUsage aru = (AbstractResourceUsage)task.getResourceUsage();
+			AbstractResourceUsage aru = task.getResourceUsage();
 			for (int i=0; i<task.getNumReplicas(); i++){
 				String id = task.getName() + "#" + i;
-				SimulatedTask simTask = new SimulatedTask(this, 
-						id, true, aru, this);
+				SimulatedTask simTask = new SimulatedTask(this,	id, false, aru);
 				simTask.activate(new SimTime(0));
 				resourceContainer.getResources().put(id, simTask);
 			}
@@ -99,7 +97,7 @@ public class SimuQNModel extends Model {
 				ProcessQueue waitingTasks = new ProcessQueue(this, ps.getName()+"TaskQueue", true, false);
 				ProcessQueue waitingProcessors = new ProcessQueue(this, ps.getName()+"ProcessorQueue", true, false);
 				
-				SimulatedProcessingResource procRes = new SimulatedProcessingResource(this, ps.getName(), true, waitingTasks, waitingProcessors);
+				SimulatedProcessingResource procRes = new SimulatedProcessingResource(this, ps.getName(), false, waitingTasks, waitingProcessors);
 				resourceContainer.getResources().put(ps.getName(), procRes);
 				procRes.activate(new SimTime(0));
 				
@@ -107,7 +105,7 @@ public class SimuQNModel extends Model {
 					String id = ps.getName() + "_" + i;
 					SimulatedProcessingResourceReplica processor = 
 						new SimulatedProcessingResourceReplica(
-							this, id, true, procRes);
+							this, id, false, procRes);
 					processor.activate(new SimTime(0));
 					resourceContainer.getResources().put(id, processor);
 					procRes.addChildResource(processor);
@@ -118,14 +116,14 @@ public class SimuQNModel extends Model {
 				ProcessQueue waitingTasks = new ProcessQueue(this, ps.getName()+"TaskQueue", true, false);
 				ProcessQueue waitingPassiveResources = new ProcessQueue(this, ps.getName()+"PassiveResourceQueue", true, false);
 				
-				SimulatedPassiveResource passRes = new SimulatedPassiveResource(this, ps.getName(), true, waitingTasks, waitingPassiveResources);
+				SimulatedPassiveResource passRes = new SimulatedPassiveResource(this, ps.getName(), false, waitingTasks, waitingPassiveResources);
 				resourceContainer.getResources().put(ps.getName(), passRes);
 				passRes.activate(new SimTime(0));
 				for (int i= 0; i< ps.getNumReplicas(); i++){
 					String id = ps.getName() + "_" + i;
 					SimulatedPassiveResourceReplica passiveResource = 
 						new SimulatedPassiveResourceReplica(
-								this, id, true, passRes);
+								this, id, false, passRes);
 					passiveResource.activate(new SimTime(0));
 					resourceContainer.getResources().put(id, passiveResource);
 					passRes.addChildResource(passiveResource);
@@ -155,30 +153,37 @@ public class SimuQNModel extends Model {
 		SimuQNModel queueingModel = new SimuQNModel(null, "SimQNModel", true, false);
 		queueingModel.connectToExperiment(exp);
 
-		exp.stop(new SimTime(100000));
-		exp.setShowProgressBar(true);
+		// set experiment parameters
+		exp.setShowProgressBar(false); // display a progress bar (or not)
+		exp.stop(new SimTime(SIMULATION_TIME)); // set end of simulation at 1500
+												// time units
+		exp.tracePeriod(new SimTime(0.0), new SimTime(SIMULATION_TIME));
+		exp.debugPeriod(new SimTime(0.0), new SimTime(SIMULATION_TIME)); 
+		
+		new MainUI(queueingModel).setVisible(true);
+
 		exp.start();
+
+		// generate the report (and other output files)
 		exp.report();
+
+		// stop all threads still alive and close all output files
 		exp.finish();
 		
-		queueingModel.serviceTimeMonitoringData.visualize(1);
-		queueingModel.monitoredSingleFunction.visualize(1);
+		//queueingModel.serviceTimeMonitoringData.visualize(1);
+		//queueingModel.monitoredSingleFunction.visualize(1);
 
-		storeResults(queueingModel);
 	}
 
 	private static void storeResults(SimuQNModel queueingModel) {
-		ResultModelFactory resultFactory = ResultModelFactory.eINSTANCE;
-		QNMResultModel results = resultFactory.createQNMResultModel();
+		//ResultModelFactory resultFactory = ResultModelFactory.eINSTANCE;
+		//QNMResultModel results = resultFactory.createQNMResultModel();
 		
 		//results.setQnmodel(new QNModelInstance().getQnModel());
 		//results.getTaskResourceUsages()
 		//TODO
 		
-		IProbabilityDensityFunction serviceTime = queueingModel.serviceTimeMonitoringData.getDistFunc(1.0);
-		
-		
-		
+		//IProbabilityDensityFunction serviceTime = queueingModel.serviceTimeMonitoringData.getDistFunc(1.0);
 	}
 
 	public SimulatedResources getResourceContainer() {
@@ -195,5 +200,13 @@ public class SimuQNModel extends Model {
 
 	public void setMonitoredSingleFunction(MonitoringData monitoredSingleFunction) {
 		this.monitoredSingleFunction = monitoredSingleFunction;
+	}
+
+	public SensorFactory getSensorFactory() {
+		return sensorFactory;
+	}
+
+	public QNModelInstance getEmfModel() {
+		return emfModel;
 	}
 }

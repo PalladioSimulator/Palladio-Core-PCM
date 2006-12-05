@@ -3,6 +3,7 @@ package de.uka.ipd.sdq.qnm.simulator.resources;
 import java.util.ArrayList;
 import java.util.List;
 
+import de.uka.ipd.sdq.qnm.simulator.SimuQNModel;
 import de.uka.ipd.sdq.qnm.simulator.tasks.SimulatedResourceUsage;
 import de.uka.ipd.sdq.qnm.simulator.tasks.SimulatedTask;
 import desmoj.core.simulator.Model;
@@ -29,6 +30,11 @@ public class SimulatedProcessingResource extends SimProcess {
 		this.waitingTasks = taskQueue;
 		this.waitingProcessingResources = processorQueue;
 		this.childResources = new ArrayList<SimulatedProcessingResourceReplica>();
+		
+		SimuQNModel model = (SimuQNModel)owner;
+		if (!model.getSensorFactory().hasHistogram("Demand "+name+"#1"))
+			model.getSensorFactory().createHistogramSensor("Demand "+name+"#1");
+
 	}
 	
 	@Override
