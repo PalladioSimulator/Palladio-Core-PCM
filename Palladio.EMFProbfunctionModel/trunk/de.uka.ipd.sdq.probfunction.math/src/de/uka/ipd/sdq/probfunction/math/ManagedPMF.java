@@ -12,6 +12,12 @@ import de.uka.ipd.sdq.stoex.parser.StochasticExpressionsLexer;
 import de.uka.ipd.sdq.stoex.parser.StochasticExpressionsParser;
 
 
+/**
+ * To be continued...
+ * 
+ * @author jens
+ *
+ */
 public class ManagedPMF {
 
 	private IProbabilityFunctionFactory pfFactory = IProbabilityFunctionFactory.eINSTANCE;

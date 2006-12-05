@@ -19,6 +19,12 @@ import de.uka.ipd.sdq.stoex.ProbabilityFunctionLiteral;
 import de.uka.ipd.sdq.stoex.parser.StochasticExpressionsLexer;
 import de.uka.ipd.sdq.stoex.parser.StochasticExpressionsParser;
 
+/**
+ * To be continued...
+ * 
+ * @author jens
+ *
+ */
 public class ManagedPDF {
 
 	private IProbabilityDensityFunction pdfTimeDomain;

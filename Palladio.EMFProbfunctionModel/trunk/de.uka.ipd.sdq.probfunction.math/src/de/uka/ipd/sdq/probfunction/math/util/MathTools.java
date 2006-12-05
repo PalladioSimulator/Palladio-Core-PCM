@@ -2,8 +2,10 @@ package de.uka.ipd.sdq.probfunction.math.util;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Comparator;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 
 import de.uka.ipd.sdq.probfunction.math.IContinuousSample;
@@ -243,13 +245,33 @@ public class MathTools {
 	public static BigDecimal over(int n, int k) {
 		return factorial(n).divide(factorial(k).multiply(factorial(n - k)));
 	}
+	
+	public static BigDecimal over(int n, int[] nList){
+		BigDecimal numerator = factorial(n);
+		BigDecimal denominator = BigDecimal.ONE;
+		for (int ni : nList) {
+			denominator = denominator.multiply(factorial(ni));
+		}
+		return numerator.divide(denominator);
+	}
+
+	
+	public static BigDecimal computeJointProbability(BigDecimal[] probList, int[] nList){
+		assert(nList.length == probList.length);
+		BigDecimal result = BigDecimal.ONE;
+		for (int i = 0; i < nList.length; i++) {
+			result = result.multiply(probList[i].pow(nList[i]));
+		}
+		return result;
+	}
+	
 
 	public static BigDecimal factorial(long n) {
 		if (n < 0)
 			return null;
 		if (n == 0)
-			return new BigDecimal(1);
-		BigDecimal fac = new BigDecimal(1);
+			return BigDecimal.ONE;
+		BigDecimal fac = BigDecimal.ONE;
 		for (long i = 1; i <= n; i++) {
 			fac = fac.multiply(new BigDecimal(i));
 		}
