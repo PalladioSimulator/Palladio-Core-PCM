@@ -4,6 +4,9 @@
 package de.uka.ipd.sdq.probfunction.math.impl;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
 
 import org.eclipse.emf.common.util.EList;
@@ -52,22 +55,20 @@ public class ProbabilityFunctionFactoryImpl
 			throws ProbabilitySumNotOneException, DoubleSampleException {
 		IUnit unit = transformToUnit(epdf.getUnit());
 		List<IContinuousSample> samples = new ArrayList<IContinuousSample>();
-		
+
 		if (epdf instanceof BoxedPDF) {
-			for (Object s : ((BoxedPDF) epdf).getSamples()){
+			for (Object s : ((BoxedPDF) epdf).getSamples()) {
 				samples.add(transformToContinuousSample((ContinuousSample) s));
 			}
 		} else if (epdf instanceof SamplePDF) {
 			int i = 1;
 			for (Object v : ((SamplePDF) epdf).getValues()) {
-						samples.add(
-								createContinuousSample(i
-										* ((SamplePDF) epdf).getDistance(),
-										(Double) v));
+				samples.add(createContinuousSample(i
+						* ((SamplePDF) epdf).getDistance(), (Double) v));
 				i++;
 			}
 		}
-		return createBoxedPDF(samples,unit);
+		return createBoxedPDF(samples, unit);
 	}
 
 	@SuppressWarnings("unchecked")
@@ -92,13 +93,13 @@ public class ProbabilityFunctionFactoryImpl
 		IUnit unit = transformToUnit(epmf.getUnit());
 		boolean hasOrderedDomain = epmf.isOrderedDomain();
 		IProbabilityMassFunction pmf = new ProbabilityMassFunctionImpl(unit,
-				hasOrderedDomain,false);
+				hasOrderedDomain, false);
 		List samples = new ArrayList();
-		for (Object s : epmf.getSamples()){
+		for (Object s : epmf.getSamples()) {
 			Sample sample = (Sample) s;
 			samples.add(transformToSample(sample));
 		}
-		
+
 		pmf.setSamples(samples);
 		return pmf;
 	}
@@ -145,6 +146,82 @@ public class ProbabilityFunctionFactoryImpl
 			List<ISample> samples, IUnit unit, boolean hasOrderedDomain) {
 		return new ProbabilityMassFunctionImpl(samples, unit, hasOrderedDomain,
 				false);
+	}
+
+	public IProbabilityMassFunction createPMFFromMeasurements(
+			Boolean[] measurements, IUnit unit, boolean hasOrderedDomain) {
+		HashMap<Boolean, Integer> times = new HashMap<Boolean, Integer>();
+		List<Boolean> measurementsList = Arrays.asList(measurements);
+		for (Boolean i : measurementsList) {
+			int oldValue = times.get(i) == null ? 0 : times.get(i);
+			times.put(i, ++oldValue);
+		}
+		List<ISample> samples = createPMFFromList(times, measurementsList
+				.size());
+		return createProbabilityMassFunction(samples, unit, hasOrderedDomain);
+	}
+
+	public IProbabilityMassFunction createPMFFromMeasurements(
+			Double[] measurements, double epsilon, IUnit unit,
+			boolean hasOrderedDomain) {
+		HashMap<Double, Integer> times = new HashMap<Double, Integer>();
+		List<Double> measurementsList = Arrays.asList(measurements);
+		List<Integer> compared = new ArrayList<Integer>();
+		int index1 = 0;
+		for (Double d1 : measurementsList) {
+			int index = 0;
+			if (compared.contains(index1)) {
+				index1++;
+				continue;
+			}
+			for (Double d2 : measurementsList) {
+				if (Math.abs(d1 - d2) < epsilon && !compared.contains(index)) {
+					int oldValue = times.get(d1) == null ? 0 : times.get(d1);
+					times.put(d1, ++oldValue);
+					compared.add(index);
+				}
+				index++;
+			}
+			index1++;
+		}
+		List<ISample> samples = createPMFFromList(times, measurementsList
+				.size());
+		return createProbabilityMassFunction(samples, unit, hasOrderedDomain);
+	}
+
+	public IProbabilityMassFunction createPMFFromMeasurements(
+			String[] measurements, IUnit unit, boolean hasOrderedDomain) {
+		HashMap<String, Integer> times = new HashMap<String, Integer>();
+		List<String> measurementsList = Arrays.asList(measurements);
+		for (String i : measurementsList) {
+			int oldValue = times.get(i) == null ? 0 : times.get(i);
+			times.put(i, ++oldValue);
+		}
+		List<ISample> samples = createPMFFromList(times, measurementsList
+				.size());
+		return createProbabilityMassFunction(samples, unit, hasOrderedDomain);
+	}
+
+	public IProbabilityMassFunction createPMFFromMeasurements(
+			Integer[] measurements, IUnit unit, boolean hasOrderedDomain) {
+		HashMap<Integer, Integer> times = new HashMap<Integer, Integer>();
+		List<Integer> measurementsList = Arrays.asList(measurements);
+		for (Integer i : measurementsList) {
+			int oldValue = times.get(i) == null ? 0 : times.get(i);
+			times.put(i, ++oldValue);
+		}
+		List<ISample> samples = createPMFFromList(times, measurementsList
+				.size());
+		return createProbabilityMassFunction(samples, unit, hasOrderedDomain);
+	}
+
+	private List<ISample> createPMFFromList(
+			HashMap<? extends Object, Integer> map, int count) {
+		List<ISample> samples = new ArrayList<ISample>();
+		for (Object value : map.keySet())
+			samples.add(createSample(value, map.get(value) * 1.0 / count));
+
+		return samples;
 	}
 
 	public ISample createSample(Object value, double probability) {
@@ -211,6 +288,42 @@ public class ProbabilityFunctionFactoryImpl
 		return spdf;
 	}
 
+	public ISamplePDF createSamplePDFFromMeasurements(double distance,
+			List<Double> measurements, IUnit unit) {
+		Collections.sort(measurements);
+		List<Double> samples = new ArrayList<Double>();
+		HashMap<Double, Integer> times = new HashMap<Double, Integer>();
+		double maxX = distance / 2.0;
+		int measurementCount = measurements.size();
+		int index = 0;
+		int measurementIndex = 0;
+
+		while (measurementIndex < measurementCount) {
+			double d = measurements.get(measurementIndex);
+			if (d < maxX) {
+				int oldTimes = times.get(new Double(index * distance)) == null
+						? 0
+						: times.get(new Double(index * distance));
+				times.put(new Double(index * distance), ++oldTimes);
+				measurementIndex++;
+			} else {
+				index++;
+				maxX += distance;
+				if (d < maxX) {
+					times.put(new Double(index * distance), 1);
+					measurementIndex++;
+				} else
+					times.put(new Double(index * distance), 0);
+			}
+		}
+
+		for (int i = 0; i < times.size(); i++)
+			samples.add(times.get(new Double(i * distance)) * 1.0
+					/ measurementCount);
+
+		return createSamplePDFFromDouble(distance, samples, unit);
+	}
+
 	public IUnit createUnit(String unitName) {
 		return new UnitImpl(unitName);
 	}
@@ -222,8 +335,8 @@ public class ProbabilityFunctionFactoryImpl
 	}
 
 	public IBoxedPDF transformToBoxedPDF(IProbabilityDensityFunction pdf)
-			throws UnknownPDFTypeException, 
-			DoubleSampleException, FunctionNotInTimeDomainException {
+			throws UnknownPDFTypeException, DoubleSampleException,
+			FunctionNotInTimeDomainException {
 		IBoxedPDF resultPDF;
 		if (pdf instanceof IBoxedPDF) {
 			resultPDF = (IBoxedPDF) pdf;
@@ -237,13 +350,13 @@ public class ProbabilityFunctionFactoryImpl
 
 	@SuppressWarnings("unchecked")
 	public BoxedPDF transformToModelBoxedPDF(IProbabilityDensityFunction pdf)
-			throws UnknownPDFTypeException, 
-			DoubleSampleException, FunctionNotInTimeDomainException {
+			throws UnknownPDFTypeException, DoubleSampleException,
+			FunctionNotInTimeDomainException {
 		IBoxedPDF boxedPDF = transformToBoxedPDF(pdf);
 
 		BoxedPDF ePDF = eFactory.createBoxedPDF();
 		EList list = ePDF.getSamples();
-		
+
 		Unit unit = transformToModelUnit(pdf.getUnit());
 		ePDF.setUnit(unit);
 
@@ -289,12 +402,12 @@ public class ProbabilityFunctionFactoryImpl
 
 		for (Complex d : samplePDF.getValues())
 			list.add(d.getReal());
-		
+
 		Unit unit = transformToModelUnit(pdf.getUnit());
 		ePDF.setUnit(unit);
-		
+
 		ePDF.setDistance(samplePDF.getDistance());
-		
+
 		return ePDF;
 	}
 
@@ -378,9 +491,9 @@ public class ProbabilityFunctionFactoryImpl
 
 		for (IContinuousSample s : pdf.getSamples()) {
 			int times = (int) Math.round((s.getValue() - start) / distance);
-			double fractal = 1.0 / times;
 			for (int i = 0; i < times; i++) {
-				newValues.add(fractal * s.getProbability());
+				double np = s.getProbability() / times;
+				newValues.add(np);
 			}
 			start = s.getValue();
 		}
@@ -391,7 +504,7 @@ public class ProbabilityFunctionFactoryImpl
 			throws DoubleSampleException, FunctionNotInTimeDomainException {
 		if (spdf.isInFrequencyDomain())
 			throw new FunctionNotInTimeDomainException();
-		
+
 		List<Double> values = spdf.getValuesAsDouble();
 		List<IContinuousSample> samples = new ArrayList<IContinuousSample>();
 
