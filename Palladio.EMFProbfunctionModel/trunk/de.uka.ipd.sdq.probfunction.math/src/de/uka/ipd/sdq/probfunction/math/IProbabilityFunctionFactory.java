@@ -220,6 +220,14 @@ public interface IProbabilityFunctionFactory {
 			List<Complex> samples, boolean isInFrequencyDomain, IUnit unit);
 
 	/**
+	 * @param distance
+	 * @param measurements
+	 * @return
+	 */
+	ISamplePDF createSamplePDFFromMeasurements(double distance,
+			List<Double> measurements, IUnit unit);
+
+	/**
 	 * creates a distribution function, wich represents a dirac impulse. The
 	 * returned function consists of numOfSamplingPoints equidistant points.
 	 * 
@@ -316,7 +324,7 @@ public interface IProbabilityFunctionFactory {
 	 *             Thrown in case pdf is neither a BoxedPDF nor a SamplePDF.
 	 * @throws DoubleSampleException
 	 * @throws ProbabilitySumNotOneException
-	 * @throws FunctionNotInTimeDomainException 
+	 * @throws FunctionNotInTimeDomainException
 	 */
 	IBoxedPDF transformToBoxedPDF(IProbabilityDensityFunction pdf)
 			throws UnknownPDFTypeException, ProbabilitySumNotOneException,
@@ -342,12 +350,11 @@ public interface IProbabilityFunctionFactory {
 	 * @return New BoxedPDF instance.
 	 * @throws DoubleSampleException
 	 * @throws ProbabilitySumNotOneException
-	 * @throws FunctionNotInTimeDomainException 
+	 * @throws FunctionNotInTimeDomainException
 	 */
 	BoxedPDF transformToModelBoxedPDF(IProbabilityDensityFunction pdf)
 			throws UnknownPDFTypeException, ProbabilitySumNotOneException,
 			DoubleSampleException, FunctionNotInTimeDomainException;
-
 
 	/**
 	 * Creates a new ProbabilityMassFunction whose samples are set to 'samples'.
@@ -362,6 +369,42 @@ public interface IProbabilityFunctionFactory {
 	 */
 	IProbabilityMassFunction createProbabilityMassFunction(
 			List<ISample> samples, IUnit unit, boolean hasOrderedDomain);
+
+	/**
+	 * @param measurements
+	 * @param unit
+	 * @param hasOrderedDomain
+	 * @return
+	 */
+	IProbabilityMassFunction createPMFFromMeasurements(Double[] measurements,
+			double epsilon, IUnit unit, boolean hasOrderedDomain);
+
+	/**
+	 * @param measurements
+	 * @param unit
+	 * @param hasOrderedDomain
+	 * @return
+	 */
+	IProbabilityMassFunction createPMFFromMeasurements(Integer[] measurements,
+			IUnit unit, boolean hasOrderedDomain);
+
+	/**
+	 * @param measurements
+	 * @param unit
+	 * @param hasOrderedDomain
+	 * @return
+	 */
+	IProbabilityMassFunction createPMFFromMeasurements(String[] measurements,
+			IUnit unit, boolean hasOrderedDomain);
+
+	/**
+	 * @param measurements
+	 * @param unit
+	 * @param hasOrderedDomain
+	 * @return
+	 */
+	IProbabilityMassFunction createPMFFromMeasurements(Boolean[] measurements,
+			IUnit unit, boolean hasOrderedDomain);
 
 	/**
 	 * Converts a model object to a function object with the same attributes.
@@ -402,7 +445,7 @@ public interface IProbabilityFunctionFactory {
 	 *            Object to transform.
 	 * @return New ProbabilityDensityFunction instance.
 	 * @throws DoubleSampleException
-	 * @throws FunctionNotInTimeDomainException 
+	 * @throws FunctionNotInTimeDomainException
 	 * @throws ProbabilitySumNotOneException
 	 */
 	ProbabilityDensityFunction transformToModelPDF(
