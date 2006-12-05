@@ -294,7 +294,7 @@ public class ProbabilityMassFunctionImpl extends ProbabilityFunctionImpl
 				result = result && (i >= 0);
 			}
 		}
-		return true;
+		return result;
 	}
 
 	public IProbabilityMassFunction getCumulativeFunction() {
