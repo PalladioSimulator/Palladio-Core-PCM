@@ -9,11 +9,16 @@ import java.util.List;
 
 import junit.framework.JUnit4TestAdapter;
 
+import org.eclipse.emf.common.util.EList;
 import org.junit.Before;
 import org.junit.Test;
 
+import de.uka.ipd.sdq.probfunction.BoxedPDF;
+import de.uka.ipd.sdq.probfunction.ContinuousSample;
 import de.uka.ipd.sdq.probfunction.ProbabilityMassFunction;
+import de.uka.ipd.sdq.probfunction.ProbfunctionFactory;
 import de.uka.ipd.sdq.probfunction.Sample;
+import de.uka.ipd.sdq.probfunction.SamplePDF;
 import de.uka.ipd.sdq.probfunction.math.IBoxedPDF;
 import de.uka.ipd.sdq.probfunction.math.IContinuousSample;
 import de.uka.ipd.sdq.probfunction.math.IProbabilityFunctionFactory;
@@ -22,8 +27,10 @@ import de.uka.ipd.sdq.probfunction.math.ISample;
 import de.uka.ipd.sdq.probfunction.math.ISamplePDF;
 import de.uka.ipd.sdq.probfunction.math.IUnit;
 import de.uka.ipd.sdq.probfunction.math.exception.DoubleSampleException;
+import de.uka.ipd.sdq.probfunction.math.exception.FunctionNotInTimeDomainException;
 import de.uka.ipd.sdq.probfunction.math.exception.ProbabilitySumNotOneException;
 import de.uka.ipd.sdq.probfunction.math.exception.UnknownPDFTypeException;
+import de.uka.ipd.sdq.probfunction.math.util.MathTools;
 
 /**
  * @author Ihssane
@@ -36,6 +43,7 @@ public class ProbabilityFunctionFactoryTest {
 	private double err = 1e-10;
 
 	private IProbabilityFunctionFactory pfFactory = IProbabilityFunctionFactory.eINSTANCE;
+	private ProbfunctionFactory epfFactory = ProbfunctionFactory.eINSTANCE;
 
 	@Before
 	public void setUp() {
@@ -115,6 +123,195 @@ public class ProbabilityFunctionFactoryTest {
 		assertTrue(probFunc.isOrderedDomain());
 	}
 
+	@Test
+	public void ePMFToIPMF() {
+		ProbabilityMassFunction epmf = epfFactory
+				.createProbabilityMassFunction();
+		epmf.setOrderedDomain(true);
+		epmf.setUnit(pfFactory.transformToModelUnit(getTestUnit()));
+		initTestESamples(epmf.getSamples());
+
+		IProbabilityMassFunction pmf = pfFactory.transformToPMF(epmf);
+
+		ISample sample0 = pmf.getSamples().get(0);
+		assertTrue((Integer) sample0.getValue() == 2);
+		assertTrue(sample0.getProbability() == 0.1);
+		ISample sample1 = pmf.getSamples().get(1);
+		assertTrue((Integer) sample1.getValue() == 4);
+		assertTrue(sample1.getProbability() == 0.3);
+		ISample sample2 = pmf.getSamples().get(2);
+		assertTrue((Integer) sample2.getValue() == 6);
+		assertTrue(sample2.getProbability() == 0.5);
+		ISample sample3 = pmf.getSamples().get(3);
+		assertTrue((Integer) sample3.getValue() == 8);
+		assertTrue(sample3.getProbability() == 0.1);
+
+		assertTrue(pmf.getUnit().getUnitName().equals("sec"));
+		assertTrue(pmf.hasOrderedDomain());
+	}
+
+	@Test
+	public void iSamplePDFToSamplePDF() throws UnknownPDFTypeException {
+		List<Double> samples = new ArrayList<Double>();
+		Collections.addAll(samples, 0.1, 0.3, 0.2, 0.2, 0.2);
+		ISamplePDF spdf = pfFactory.createSamplePDFFromDouble(0.1, samples,
+				getTestUnit());
+
+		SamplePDF espdf = pfFactory.transformToModelSamplePDF(spdf);
+
+		assertTrue(MathTools.equalsDouble(espdf.getDistance(), 0.1));
+		assertTrue((Double) espdf.getValues().get(0) == 0.1);
+		assertTrue((Double) espdf.getValues().get(1) == 0.3);
+		assertTrue((Double) espdf.getValues().get(2) == 0.2);
+		assertTrue((Double) espdf.getValues().get(3) == 0.2);
+		assertTrue((Double) espdf.getValues().get(4) == 0.2);
+		assertEquals(espdf.getUnit().getUnitName(), getTestUnit().getUnitName());
+	}
+
+	@SuppressWarnings("unchecked")
+	@Test
+	public void eSamplePDFToSamplePDF() throws UnknownPDFTypeException,
+			ProbabilitySumNotOneException, DoubleSampleException {
+		SamplePDF espdf = epfFactory.createSamplePDF();
+		espdf.setDistance(0.2);
+		Collections.addAll(espdf.getValues(), 0.1, 0.3, 0.2, 0.2, 0.2);
+		espdf.setUnit(pfFactory.transformToModelUnit(getTestUnit()));
+
+		ISamplePDF spdf = pfFactory.transformToSamplePDF(espdf);
+		assertTrue(spdf.getDistance() == 0.2);
+		assertEquals(espdf.getUnit().getUnitName(), getTestUnit().getUnitName());
+		assertTrue(spdf.getValues().get(0).getReal() == 0.1);
+		assertTrue(spdf.getValues().get(1).getReal() == 0.3);
+		assertTrue(spdf.getValues().get(2).getReal() == 0.2);
+		assertTrue(spdf.getValues().get(3).getReal() == 0.2);
+		assertTrue(spdf.getValues().get(4).getReal() == 0.2);
+	}
+
+	@Test
+	public void iBoxedPDFToBoxedPDF() throws DoubleSampleException,
+			UnknownPDFTypeException, ProbabilitySumNotOneException,
+			FunctionNotInTimeDomainException {
+		IBoxedPDF bpdf = pfFactory.createBoxedPDF(getTestContinuousSamples(),
+				getTestUnit());
+
+		// this is the method to be tested:
+		BoxedPDF ebpdf = pfFactory.transformToModelBoxedPDF(bpdf);
+
+		ContinuousSample sample0 = (ContinuousSample) ebpdf.getSamples().get(0);
+		assertTrue(sample0.getValue() == 1.0);
+		assertTrue(sample0.getProbability() == 0.1);
+		ContinuousSample sample1 = (ContinuousSample) ebpdf.getSamples().get(1);
+		assertTrue(sample1.getValue() == 2.0);
+		assertTrue(sample1.getProbability() == 0.3);
+		ContinuousSample sample2 = (ContinuousSample) ebpdf.getSamples().get(2);
+		assertTrue(sample2.getValue() == 3.0);
+		assertTrue(sample2.getProbability() == 0.5);
+		ContinuousSample sample3 = (ContinuousSample) ebpdf.getSamples().get(3);
+		assertTrue(sample3.getValue() == 4.0);
+		assertTrue(sample3.getProbability() == 0.1);
+
+		assertTrue(ebpdf.getUnit().getUnitName().equals("sec"));
+	}
+
+	@Test
+	public void eBoxedPDFToIBoxedPDF() throws ProbabilitySumNotOneException,
+			DoubleSampleException {
+		BoxedPDF ebpdf = epfFactory.createBoxedPDF();
+		ebpdf.setUnit(pfFactory.transformToModelUnit(getTestUnit()));
+		initTestEContinuousSamples(ebpdf.getSamples());
+
+		IBoxedPDF bpdf = pfFactory.transformToBoxedPDF(ebpdf);
+
+		IContinuousSample sample0 = (IContinuousSample) bpdf.getSamples()
+				.get(0);
+		assertTrue(sample0.getValue() == 2.1);
+		assertTrue(sample0.getProbability() == 0.1);
+		IContinuousSample sample1 = (IContinuousSample) bpdf.getSamples()
+				.get(1);
+		assertTrue(sample1.getValue() == 3.5);
+		assertTrue(sample1.getProbability() == 0.3);
+		IContinuousSample sample2 = (IContinuousSample) bpdf.getSamples()
+				.get(2);
+		assertTrue(sample2.getValue() == 6.2);
+		assertTrue(sample2.getProbability() == 0.5);
+		IContinuousSample sample3 = (IContinuousSample) bpdf.getSamples()
+				.get(3);
+		assertTrue(sample3.getValue() == 6.7);
+		assertTrue(sample3.getProbability() == 0.1);
+
+		assertTrue(bpdf.getUnit().getUnitName().equals("sec"));
+	}
+
+	@Test
+	public void createSamplePDFFromMeasurements() {
+		List<Double> measurements = new ArrayList<Double>();
+		Collections.addAll(measurements, 0.12, 0.34, 0.54, 1.4, 4.0, 3.0, 1.7,
+				1.8, 1.9, 2.1);
+		ISamplePDF spdf = pfFactory.createSamplePDFFromMeasurements(0.5,
+				measurements, getTestUnit());
+
+		assertTrue(MathTools.equalsDouble(0.5, spdf.getDistance()));
+		assertEquals(spdf.getValues().size(), 9);
+		assertTrue(MathTools.equalsDouble(spdf.getValues().get(0).getReal(),
+				0.1));
+		assertTrue(MathTools.equalsDouble(spdf.getValues().get(1).getReal(),
+				0.2));
+		assertTrue(MathTools.equalsDouble(spdf.getValues().get(2).getReal(),
+				0.0));
+		assertTrue(MathTools.equalsDouble(spdf.getValues().get(3).getReal(),
+				0.2));
+		assertTrue(MathTools.equalsDouble(spdf.getValues().get(4).getReal(),
+				0.3));
+		assertTrue(MathTools.equalsDouble(spdf.getValues().get(5).getReal(),
+				0.0));
+		assertTrue(MathTools.equalsDouble(spdf.getValues().get(6).getReal(),
+				0.1));
+		assertTrue(MathTools.equalsDouble(spdf.getValues().get(7).getReal(),
+				0.0));
+		assertTrue(MathTools.equalsDouble(spdf.getValues().get(8).getReal(),
+				0.1));
+	}
+
+	@Test
+	public void createPMFFromMeasurements() {
+		Double[] measurements = {0.123, 0.340, 0.124, 0.343, 1.934, 0.345,
+				1.935, 1.940, 1.945, 2.134};
+		IProbabilityMassFunction pmf = pfFactory.createPMFFromMeasurements(
+				measurements, 0.01, getTestUnit(), true);
+
+		assertEquals(5, pmf.getSamples().size());
+		assertTrue(0.2 == pmf.getSamples().get(0).getProbability());
+		assertTrue(0.3 == pmf.getSamples().get(1).getProbability());
+		assertTrue(0.3 == pmf.getSamples().get(2).getProbability());
+		assertTrue(0.1 == pmf.getSamples().get(3).getProbability());
+		assertTrue(0.1 == pmf.getSamples().get(4).getProbability());
+
+		Integer[] m2 = {2, 7, 7, 3, 2, 3, 3, 1, 3, 0};
+		pmf = pfFactory.createPMFFromMeasurements(m2, getTestUnit(), true);
+		assertEquals(5, pmf.getSamples().size());
+		assertTrue(0.1 == pmf.getSamples().get(0).getProbability());
+		assertTrue(0.1 == pmf.getSamples().get(1).getProbability());
+		assertTrue(0.2 == pmf.getSamples().get(2).getProbability());
+		assertTrue(0.4 == pmf.getSamples().get(3).getProbability());
+		assertTrue(0.2 == pmf.getSamples().get(4).getProbability());
+
+		String[] m3 = {"test1", "test2", "1test", "test1", "1test", "test3",
+				"test3", "test1", "test2", "test2"};
+		pmf = pfFactory.createPMFFromMeasurements(m3, getTestUnit(), true);
+		assertEquals(4, pmf.getSamples().size());
+		assertTrue(0.2 == pmf.getSamples().get(0).getProbability());
+		assertTrue(0.3 == pmf.getSamples().get(1).getProbability());
+		assertTrue(0.3 == pmf.getSamples().get(2).getProbability());
+		assertTrue(0.2 == pmf.getSamples().get(3).getProbability());
+
+		Boolean[] m4 = {true, true, false, true, false, true, false, false,
+				false, false};
+		pmf = pfFactory.createPMFFromMeasurements(m4, getTestUnit(), true);
+		assertEquals(2, pmf.getSamples().size());
+		assertTrue(0.6 == pmf.getSamples().get(0).getProbability());
+		assertTrue(0.4 == pmf.getSamples().get(1).getProbability());
+	}
+
 	public static junit.framework.Test suite() {
 		return new JUnit4TestAdapter(ProbabilityFunctionFactoryTest.class);
 	}
@@ -130,6 +327,38 @@ public class ProbabilityFunctionFactoryTest {
 		return sList;
 	}
 
+	private List<IContinuousSample> getTestContinuousSamples() {
+		Double[] testSamples = {1.0, 0.1, 2.0, 0.3, 3.0, 0.5, 4.0, 0.1};
+		List<IContinuousSample> sList = new ArrayList<IContinuousSample>();
+		for (int i = 0; i < testSamples.length; i += 2) {
+			IContinuousSample s = pfFactory.createContinuousSample(
+					testSamples[i], (Double) testSamples[i + 1]);
+			sList.add(s);
+		}
+		return sList;
+	}
+
+	@SuppressWarnings("unchecked")
+	private void initTestESamples(EList esList) {
+		Object[] testSamples = {2, 0.1, 4, 0.3, 6, 0.5, 8, 0.1};
+		for (int i = 0; i < testSamples.length; i += 2) {
+			Sample s = epfFactory.createSample();
+			s.setValue(testSamples[i]);
+			s.setProbability((Double) testSamples[i + 1]);
+			esList.add(s);
+		}
+	}
+
+	@SuppressWarnings("unchecked")
+	private void initTestEContinuousSamples(EList esList) {
+		Double[] testSamples = {2.1, 0.1, 3.5, 0.3, 6.2, 0.5, 6.7, 0.1};
+		for (int i = 0; i < testSamples.length; i += 2) {
+			ContinuousSample s = epfFactory.createContinuousSample();
+			s.setValue(testSamples[i]);
+			s.setProbability((Double) testSamples[i + 1]);
+			esList.add(s);
+		}
+	}
 	private IUnit getTestUnit() {
 		return pfFactory.createUnit("sec");
 	}
