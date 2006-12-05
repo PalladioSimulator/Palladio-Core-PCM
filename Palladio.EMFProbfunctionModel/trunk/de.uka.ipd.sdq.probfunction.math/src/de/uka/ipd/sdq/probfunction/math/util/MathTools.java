@@ -52,7 +52,11 @@ public class MathTools {
 	 * @return Returns the GDC of y and x.
 	 */
 	public static double gcd(double x, double y) {
-		while (Math.abs(x - y) > 1e-10) {
+		if (x == 0.0)
+			return y;
+		if (y == 0.0)
+			return x;
+		while (Math.abs(x - y) > EPSILON_ERROR) {
 			if (x > y) {
 				x -= y;
 
