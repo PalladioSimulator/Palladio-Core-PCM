@@ -19,17 +19,17 @@
     </actualParameterUsage_UsageContext>
   </usageContexts_Usage>
   <usageContexts_Usage>
-    <branchprobabilities_UsageContext>
+    <branchprobabilities_UsageContext probability="0.2">
       <branchtransition_BranchProbability href="DSolverExample1.repository#_L0a-FoRaEduMitCaSna7dg"/>
     </branchprobabilities_UsageContext>
-    <branchprobabilities_UsageContext probability="1.0">
+    <branchprobabilities_UsageContext probability="0.8">
       <branchtransition_BranchProbability href="DSolverExample1.repository#_L0kvE4RaEduMitCaSna7dg"/>
     </branchprobabilities_UsageContext>
-    <branchprobabilities_UsageContext probability="0.7">
+    <branchprobabilities_UsageContext>
       <branchtransition_BranchProbability href="DSolverExample1.repository#_L0kvGIRaEduMitCaSna7dg"/>
     </branchprobabilities_UsageContext>
     <actualParameterUsage_UsageContext>
-      <variableCharacterisation_VariableUsage specification="10" type="VALUE"/>
+      <variableCharacterisation_VariableUsage specification="IntPMF(unit=&quot;zimtsterne&quot;)[ (0.2; 9) (0.5; 10) (0.3; 11) ]" type="VALUE"/>
       <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="number"/>
     </actualParameterUsage_UsageContext>
   </usageContexts_Usage>
