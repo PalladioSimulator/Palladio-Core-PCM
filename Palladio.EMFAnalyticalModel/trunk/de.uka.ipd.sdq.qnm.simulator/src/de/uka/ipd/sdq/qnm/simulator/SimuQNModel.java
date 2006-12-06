@@ -2,18 +2,15 @@ package de.uka.ipd.sdq.qnm.simulator;
 
 import org.eclipse.emf.common.util.EList;
 
-import de.uka.ipd.sdq.probfunction.math.IProbabilityDensityFunction;
 import de.uka.ipd.sdq.qnm.Task;
-import de.uka.ipd.sdq.qnm.resultmodel.QNMResultModel;
-import de.uka.ipd.sdq.qnm.resultmodel.ResultModelFactory;
 import de.uka.ipd.sdq.qnm.simulator.resources.SimulatedDelayResource;
 import de.uka.ipd.sdq.qnm.simulator.resources.SimulatedPassiveResource;
 import de.uka.ipd.sdq.qnm.simulator.resources.SimulatedPassiveResourceReplica;
 import de.uka.ipd.sdq.qnm.simulator.resources.SimulatedProcessingResource;
 import de.uka.ipd.sdq.qnm.simulator.resources.SimulatedProcessingResourceReplica;
 import de.uka.ipd.sdq.qnm.simulator.resources.SimulatedResources;
-import de.uka.ipd.sdq.qnm.simulator.tasks.SimulatedTask;
 import de.uka.ipd.sdq.qnm.simulator.sensors.SensorFactory;
+import de.uka.ipd.sdq.qnm.simulator.tasks.SimulatedTask;
 import de.uka.ipd.sdq.qnm.simulator.ui.MainUI;
 import de.uka.ipd.sdq.spa.resourcemodel.AbstractResourceUsage;
 import de.uka.ipd.sdq.spa.resourcemodel.DelayResource;
