@@ -51,15 +51,8 @@ public class ResourceModelVisitor extends ResourceModelSwitch {
 	}
 
 	public Object caseSequentialResourceUsage(SequentialResourceUsage sru) {
-		
 		SimTime startTime = task.currentTime();
 
-		SimTime stopTime = task.currentTime();
-		model.getSensorFactory().getValueSupplierForSensor(histogramId)
-			.newResponseTimeMeasurement(
-					SimTime.diff(stopTime, startTime).getTimeValue());
-		
-		
 		// get corresponding passive resource
 		PassiveResource passiveResource = (PassiveResource) sru.getResource();
 		SimulatedPassiveResource simPassRes = acquirePassiveResource(passiveResource);
@@ -73,6 +66,16 @@ public class ResourceModelVisitor extends ResourceModelSwitch {
 		// reactivate passive resource replica after finishing execution
 		simPassRes.unlock(task);
 
+		SimTime stopTime = task.currentTime();
+		String histogramID = "Response Time (SeqResUsage) "+sru.getResource().getName();
+		
+		SimuQNModel model = (SimuQNModel) task.getModel();
+		if (!model.getSensorFactory().hasHistogram(histogramID))
+			model.getSensorFactory().createHistogramSensor(histogramID);
+		model.getSensorFactory().getValueSupplierForSensor(histogramID)
+			.newResponseTimeMeasurement(
+					SimTime.diff(stopTime, startTime).getTimeValue());
+		
 		return sru;
 	}
 
