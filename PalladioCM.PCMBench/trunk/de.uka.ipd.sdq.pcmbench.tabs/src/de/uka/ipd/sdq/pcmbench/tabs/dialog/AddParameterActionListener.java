@@ -1,6 +1,3 @@
-/**
- * 
- */
 package de.uka.ipd.sdq.pcmbench.tabs.dialog;
 
 import org.eclipse.emf.common.util.EList;
@@ -13,13 +10,12 @@ import org.eclipse.swt.events.SelectionEvent;
 import de.uka.ipd.sdq.pcm.repository.Parameter;
 import de.uka.ipd.sdq.pcm.repository.RepositoryFactory;
 import de.uka.ipd.sdq.pcm.repository.Signature;
-import de.uka.ipd.sdq.pcmbench.tabs.table.TabResources;
+import de.uka.ipd.sdq.pcmbench.EditingDomainFactory;
 
 /**
- * @author admin
- *
+ * @author roman
  */
-public class AddAttributeListener extends SelectionAdapter {
+public class AddParameterActionListener extends SelectionAdapter {
 	
 	private Signature parentSignature;
 	private EList parameters;
@@ -27,13 +23,14 @@ public class AddAttributeListener extends SelectionAdapter {
 	/**
 	 * The transactional editing domain which is used to get the commands and alter the model 
 	 */
+	
 	final protected TransactionalEditingDomain editingDomain = TransactionalEditingDomain.Registry.INSTANCE
-					.getEditingDomain(TabResources.EDITING_DOMAIN_ID);
+	.getEditingDomain(EditingDomainFactory.EDITING_DOMAIN_ID);
 	
 	/**
 	 * @param parentSignature
 	 */
-	public AddAttributeListener(Signature parentSignature) {
+	public AddParameterActionListener(Signature parentSignature) {
 		this.parentSignature = parentSignature;
 		this.parameters = parentSignature.getParameters__Signature();
 	}

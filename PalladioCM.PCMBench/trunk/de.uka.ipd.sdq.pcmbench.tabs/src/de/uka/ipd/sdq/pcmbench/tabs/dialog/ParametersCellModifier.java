@@ -4,34 +4,44 @@ import java.util.Arrays;
 import java.util.List;
 
 import org.eclipse.core.runtime.Assert;
+import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.transaction.RecordingCommand;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.jface.viewers.ICellModifier;
 import org.eclipse.swt.widgets.TableItem;
 
+import de.uka.ipd.sdq.pcm.repository.CollectionDataType;
+import de.uka.ipd.sdq.pcm.repository.CompositeDataType;
+import de.uka.ipd.sdq.pcm.repository.DataType;
 import de.uka.ipd.sdq.pcm.repository.Parameter;
-import de.uka.ipd.sdq.pcmbench.tabs.table.TabResources;
+import de.uka.ipd.sdq.pcm.repository.PrimitiveDataType;
+import de.uka.ipd.sdq.pcm.repository.PrimitiveTypeEnum;
+import de.uka.ipd.sdq.pcm.repository.RepositoryFactory;
+import de.uka.ipd.sdq.pcmbench.EditingDomainFactory;
+import de.uka.ipd.sdq.pcmbench.tabs.table.OperationsTabResources;
 
 /**
  * @author admin
  * 
  */
-public class AttributeCellModifier implements ICellModifier {
+public class ParametersCellModifier implements ICellModifier {
 
 	private List columnNames;
 
 	private Parameter parameter;
+	private ParametersDialogViewer attributesViewer;
 
 	/**
 	 * The transactional editing domain which is used to get the commands and
 	 * alter the model
 	 */
 	final protected TransactionalEditingDomain editingDomain = TransactionalEditingDomain.Registry.INSTANCE
-			.getEditingDomain(TabResources.EDITING_DOMAIN_ID);
+			.getEditingDomain(EditingDomainFactory.EDITING_DOMAIN_ID);
 
-	public AttributeCellModifier() {
+	public ParametersCellModifier(ParametersDialogViewer attributesViewer) {
 		this.columnNames = Arrays
-				.asList(TabResources.getAttributeTableColumn());
+				.asList(OperationsTabResources.getAttributeTableColumn());
+		this.attributesViewer = attributesViewer;
 	}
 
 	/*
@@ -51,7 +61,10 @@ public class AttributeCellModifier implements ICellModifier {
 	 *      java.lang.String)
 	 */
 	public Object getValue(Object element, String property) {
-		return (new AttributesItemProvider(null)).getColumnText(element,
+		
+		AdapterFactory decoratedFactory = OperationsTabResources.getAttributeDecoratedFactory();
+		
+		return (new ParametersItemProvider(null,decoratedFactory)).getColumnText(element,
 				columnNames.indexOf(property));
 	}
 
@@ -71,20 +84,49 @@ public class AttributeCellModifier implements ICellModifier {
 		parameter = (Parameter) item.getData();
 
 		switch (columnIndex) {
-		case AttributesViewer.ICON_COLUMN_INDEX: // COMPLETED_COLUMN
+		case ParametersDialogViewer.ICON_COLUMN_INDEX: // COMPLETED_COLUMN
 			break;
-		case AttributesViewer.CONTEXT_COLUMN_INDEX: // RETURNTYPE_COLUMN
+		case ParametersDialogViewer.CONTEXT_COLUMN_INDEX: // RETURNTYPE_COLUMN
 			break;
-		case AttributesViewer.NAME_COLUMN_INDEX: // SERVICENAME_COLUMN
+		case ParametersDialogViewer.NAME_COLUMN_INDEX: // SERVICENAME_COLUMN
 			String valueString = ((String) value).trim();
 			textChanged(valueString);
 			break;
-		case AttributesViewer.TYPE_COLUMN_INDEX: // OWNEDPARAMETER_COLUMN
+		case ParametersDialogViewer.TYPE_COLUMN_INDEX: // OWNEDPARAMETER_COLUMN
+			if (value instanceof DataType) {
+				DataType valueDataType = (DataType) value;
+				setDataType(valueDataType);
+			}
 			break;
 		default:
 		}
 	}
 
+	/**
+	 * TODO
+	 * @param type
+	 */
+	private void setDataType(DataType type) {
+		final DataType dataType = type;
+
+		RecordingCommand recCommand = new RecordingCommand(editingDomain) {
+			@Override
+			protected void doExecute() {
+				parameter.setDatatype__Parameter(dataType);
+			}
+		};
+
+		if (!dataType.equals(parameter.getDatatype__Parameter())) {
+			recCommand.setDescription("Edit Parameter Property");
+			recCommand.setLabel("Set parameter DataType");
+			editingDomain.getCommandStack().execute(recCommand);
+			reloadTableViewer();
+		}
+		
+	}
+	/*
+	 * TODO
+	 */
 	private void textChanged(String valueString) {
 		final String value = valueString;
 
@@ -100,5 +142,7 @@ public class AttributeCellModifier implements ICellModifier {
 			editingDomain.getCommandStack().execute(recCommand);
 		}
 	}
-
+	private void reloadTableViewer(){
+		attributesViewer.getTableViewer().refresh();
+	}
 }

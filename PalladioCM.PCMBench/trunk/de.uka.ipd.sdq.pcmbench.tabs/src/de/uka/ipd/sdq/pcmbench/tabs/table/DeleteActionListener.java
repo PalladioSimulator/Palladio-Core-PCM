@@ -8,6 +8,7 @@ import org.eclipse.swt.events.SelectionEvent;
 
 import de.uka.ipd.sdq.pcm.repository.Interface;
 import de.uka.ipd.sdq.pcm.repository.Signature;
+import de.uka.ipd.sdq.pcmbench.EditingDomainFactory;
 
 
 public class DeleteActionListener extends SelectionAdapter {
@@ -15,13 +16,11 @@ public class DeleteActionListener extends SelectionAdapter {
 	private Signature selectedSignature;
 	private Interface selectedInterface;
 	
-	public static final String EDITING_DOMAIN_ID = "de.uka.ipd.sdq.PCMBench.editingDomain";
-	
 	/**
 	 * The transactional editing domain which is used to get the commands and alter the model 
 	 */
-	final protected static TransactionalEditingDomain editingDomain = TransactionalEditingDomain.Registry.INSTANCE
-					.getEditingDomain(EDITING_DOMAIN_ID);
+	final protected TransactionalEditingDomain editingDomain = TransactionalEditingDomain.Registry.INSTANCE
+	.getEditingDomain(EditingDomainFactory.EDITING_DOMAIN_ID);
 
 	/**
 	 * singleton design patterns

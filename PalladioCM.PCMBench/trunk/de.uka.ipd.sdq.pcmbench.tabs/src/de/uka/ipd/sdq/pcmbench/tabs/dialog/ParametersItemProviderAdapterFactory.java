@@ -8,17 +8,17 @@ import org.eclipse.emf.edit.provider.IItemProviderDecorator;
 import org.eclipse.emf.edit.provider.ITableItemLabelProvider;
 
 
-public class AttributesItemProviderAdapterFactory extends
+public class ParametersItemProviderAdapterFactory extends
 		DecoratorAdapterFactory {
 
-	public AttributesItemProviderAdapterFactory(AdapterFactory decoratedAdapterFactory) {
+	public ParametersItemProviderAdapterFactory(AdapterFactory decoratedAdapterFactory) {
 		super(decoratedAdapterFactory);
 	}
 	
 	@Override
 	protected IItemProviderDecorator createItemProviderDecorator(Object target,
 			Object type) {
-		IItemProviderDecorator decorator = new AttributesItemProvider(this);
+		IItemProviderDecorator decorator = new ParametersItemProvider(this,decoratedAdapterFactory);
 		if (type == ITableItemLabelProvider.class) {
 			decorator
 					.setDecoratedItemProvider((IChangeNotifier) decoratedAdapterFactory

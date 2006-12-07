@@ -9,6 +9,7 @@ import org.eclipse.swt.events.SelectionEvent;
 import de.uka.ipd.sdq.pcm.repository.Interface;
 import de.uka.ipd.sdq.pcm.repository.RepositoryFactory;
 import de.uka.ipd.sdq.pcm.repository.Signature;
+import de.uka.ipd.sdq.pcmbench.EditingDomainFactory;
 
 
 public class AddActionListener extends SelectionAdapter {
@@ -19,7 +20,7 @@ public class AddActionListener extends SelectionAdapter {
 	 * The transactional editing domain which is used to get the commands and alter the model 
 	 */
 	final protected TransactionalEditingDomain editingDomain = TransactionalEditingDomain.Registry.INSTANCE
-					.getEditingDomain(TabResources.EDITING_DOMAIN_ID);
+	.getEditingDomain(EditingDomainFactory.EDITING_DOMAIN_ID);
 	
 	/**
 	 * singleton design patterns

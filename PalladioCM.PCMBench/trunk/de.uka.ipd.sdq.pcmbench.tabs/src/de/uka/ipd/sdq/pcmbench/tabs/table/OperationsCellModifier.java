@@ -3,12 +3,18 @@ package de.uka.ipd.sdq.pcmbench.tabs.table;
 import java.util.Arrays;
 import java.util.List;
 
+import javax.swing.text.TableView;
+
 import org.eclipse.core.runtime.Assert;
+import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.transaction.RecordingCommand;
+import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.jface.viewers.ICellModifier;
 import org.eclipse.swt.widgets.TableItem;
 
+import de.uka.ipd.sdq.pcm.repository.DataType;
 import de.uka.ipd.sdq.pcm.repository.Signature;
+import de.uka.ipd.sdq.pcmbench.EditingDomainFactory;
 
 /**
  * @author roman
@@ -17,15 +23,25 @@ import de.uka.ipd.sdq.pcm.repository.Signature;
  * user modifes a cell in the tableViewer
  */
 
-public class CellModifierImpl implements ICellModifier {
+public class OperationsCellModifier implements ICellModifier {
 
 	private List columnNames;
 
 	private Signature signature;
 
-	public CellModifierImpl() {
-		this.columnNames = Arrays.asList(TabResources
+	/**
+	 * The transactional editing domain which is used to get the commands and
+	 * alter the model
+	 */
+	final protected TransactionalEditingDomain editingDomain = TransactionalEditingDomain.Registry.INSTANCE
+			.getEditingDomain(EditingDomainFactory.EDITING_DOMAIN_ID);
+
+	private OperationsTabViewer operationsTabViewer;
+
+	public OperationsCellModifier(OperationsTabViewer operationsTabViewer) {
+		this.columnNames = Arrays.asList(OperationsTabResources
 				.getOperationsTableColumn());
+		this.operationsTabViewer = operationsTabViewer;
 	}
 
 	/*
@@ -39,7 +55,10 @@ public class CellModifierImpl implements ICellModifier {
 	}
 
 	public Object getValue(Object element, String property) {
-		return (new OperationsTabItemProvider(null)).getColumnText(element,
+		
+		AdapterFactory decoratedFactory = OperationsTabResources.getOperationsDecoratedFactory();
+		
+		return (new OperationsTabItemProvider(null,decoratedFactory)).getColumnText(element,
 				columnNames.indexOf(property));
 	}
 
@@ -47,7 +66,7 @@ public class CellModifierImpl implements ICellModifier {
 
 		// Find the index of the column
 		int columnIndex = columnNames.indexOf(property);
-		
+
 		Assert.isNotNull(element);
 		TableItem item = (TableItem) element;
 		signature = (Signature) item.getData();
@@ -56,10 +75,12 @@ public class CellModifierImpl implements ICellModifier {
 		case OperationsTabViewer.ICON_COLUMN_INDEX: // COMPLETED_COLUMN
 			break;
 		case OperationsTabViewer.RETURNTYPE_COLUMN_INDEX: // RETURNTYPE_COLUMN
+			if (value instanceof DataType)
+				setReturnType((DataType) value);
 			break;
 		case OperationsTabViewer.SIGNATURENAME_COLUMN_INDEX: // SERVICENAME_COLUMN
 			String valueString = ((String) value).trim();
-			textChanged(valueString);
+			setServiceName(valueString);
 			break;
 		case OperationsTabViewer.PARAMETER_COLUMN_INDEX: // OWNEDPARAMETER_COLUMN
 			break;
@@ -69,11 +90,10 @@ public class CellModifierImpl implements ICellModifier {
 		}
 	}
 
-	private void textChanged(String valueString) {
+	private void setServiceName(String valueString) {
 		final String value = valueString;
 
-		RecordingCommand recCommand = new RecordingCommand(
-				TabResources.editingDomain) {
+		RecordingCommand recCommand = new RecordingCommand(editingDomain) {
 			@Override
 			protected void doExecute() {
 				signature.setServiceName(value);
@@ -82,8 +102,31 @@ public class CellModifierImpl implements ICellModifier {
 
 		if (!value.equals(signature.getServiceName())) {
 			recCommand.setDescription("Edit Signature Property");
-			recCommand.setLabel("Set ServiceName");
-			TabResources.editingDomain.getCommandStack().execute(recCommand);
+			recCommand.setLabel("Set name");
+			editingDomain.getCommandStack().execute(recCommand);
 		}
+	}
+
+	private void setReturnType(DataType type) {
+		final DataType dataType = type;
+
+		RecordingCommand recCommand = new RecordingCommand(editingDomain) {
+			@Override
+			protected void doExecute() {
+				signature.setReturntype__Signature(dataType);
+			}
+		};
+
+		if (!dataType.equals(signature.getReturntype__Signature())) {
+			recCommand.setDescription("Edit Signature Property");
+			recCommand.setLabel("Set return type");
+			editingDomain.getCommandStack().execute(recCommand);
+			reloadTableViewer();
+		}
+		
+	}
+	
+	private void reloadTableViewer(){
+		operationsTabViewer.getTableViewer().refresh();
 	}
 }

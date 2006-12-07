@@ -1,30 +1,30 @@
 package de.uka.ipd.sdq.pcmbench.tabs.table;
 
-import java.util.Arrays;
-
-import org.eclipse.emf.transaction.TransactionalEditingDomain;
+import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.resource.ImageRegistry;
 
 import de.uka.ipd.sdq.pcmbench.tabs.PCMBenchTabsActivator;
 
 /**
- * @author admin
- *
+ * @author roman
+ * 
+ * A Containerklass for the administration of images, the columns and
+ * decorierten AdapterFactories for each table, which is used with OperationsTab.
  */
-public class TabResources {
+public class OperationsTabResources {
 
-	public static final String EDITING_DOMAIN_ID = "de.uka.ipd.sdq.PCMBench.editingDomain";
+	public static String PLUGIN_ID = PCMBenchTabsActivator.PLUGIN_ID;
 	
 	/**
-	 * The transactional editing domain which is used to get the commands and alter the model 
+	 * Decorated adapterFactory
 	 */
-	final protected static TransactionalEditingDomain editingDomain = TransactionalEditingDomain.Registry.INSTANCE
-					.getEditingDomain(EDITING_DOMAIN_ID);
-	
-	public static String PLUGIN_ID = PCMBenchTabsActivator.PLUGIN_ID;
+	private static AdapterFactory operationsDecoratedFactory;
+	private static AdapterFactory attributeDecoratedFactory;
 
-	//	 Names of images used to represent actions in ToolBar
+	/**
+	 * Names of images used to represent actions in ToolBar
+	 */
 	public static final String ADD_SIGN 	= "add_sign";
 	public static final String DELETE_SIGN  = "delete_sign";
 	public static final String ADD_PARAM 	= "add_param";
@@ -63,12 +63,12 @@ public class TabResources {
      *@return an image descriptor, or null if no image could be found
 	 */
 	public static ImageDescriptor getImageDescriptor(String imageFilePath) {
-		return PCMBenchTabsActivator.imageDescriptorFromPlugin(TabResources.PLUGIN_ID, imageFilePath);
+		return PCMBenchTabsActivator.imageDescriptorFromPlugin(OperationsTabResources.PLUGIN_ID, imageFilePath);
 	}
 
 	
 	/**
-	 * attribute table resource
+	 * Columns of a table, which is used into ParameterEditDialog
 	 */
 	
 	public final static String ATTRIBUTE_ICON_COLUMN 	= "";
@@ -85,7 +85,7 @@ public class TabResources {
 	}
 	
 	/**
-	 * operations table resourcen
+	 * Columns of a table, which is used into operations table
 	 */
 	
 	public final static String OPERATIONS_ICON_COLUMN	= "";
@@ -103,9 +103,32 @@ public class TabResources {
 	}
 
 	/**
-	 * @return the editingDomain
+	 * @return the operationsDecoratedFactory
 	 */
-	public static TransactionalEditingDomain getEditingDomain() {
-		return editingDomain;
+	public static AdapterFactory getOperationsDecoratedFactory() {
+		return operationsDecoratedFactory;
+	}
+
+	/**
+	 * @param operationsDecoratedFactory the operationsDecoratedFactory to set
+	 */
+	public static void setOperationsDecoratedFactory(
+			AdapterFactory operationsDecoratedFactory) {
+		OperationsTabResources.operationsDecoratedFactory = operationsDecoratedFactory;
+	}
+
+	/**
+	 * @return the attributeDecoratedFactory
+	 */
+	public static AdapterFactory getAttributeDecoratedFactory() {
+		return attributeDecoratedFactory;
+	}
+
+	/**
+	 * @param attributeDecoratedFactory the attributeDecoratedFactory to set
+	 */
+	public static void setAttributeDecoratedFactory(
+			AdapterFactory attributeDecoratedFactory) {
+		OperationsTabResources.attributeDecoratedFactory = attributeDecoratedFactory;
 	}
 }

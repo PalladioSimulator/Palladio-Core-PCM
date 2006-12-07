@@ -1,8 +1,8 @@
 package de.uka.ipd.sdq.pcmbench.tabs.table;
 
-
 import org.eclipse.jface.util.Assert;
 import org.eclipse.jface.viewers.CellEditor;
+import org.eclipse.jface.viewers.DialogCellEditor;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
@@ -14,30 +14,40 @@ import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.layout.FormAttachment;
 import org.eclipse.swt.layout.FormData;
 import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.swt.widgets.ToolBar;
 import org.eclipse.swt.widgets.ToolItem;
 
 import de.uka.ipd.sdq.pcm.repository.Signature;
-import de.uka.ipd.sdq.pcmbench.tabs.dialog.AttributesSection;
+import de.uka.ipd.sdq.pcmbench.tabs.dialog.DataTypeDialogCellEditor;
+import de.uka.ipd.sdq.pcmbench.tabs.dialog.ParametersDialogCellEditor;
+import de.uka.ipd.sdq.pcmbench.tabs.dialog.ParametersDialogViewer;
 
 public class OperationsTabViewer {
 
 	private TableViewer tableViewer;
+
 	private Table table;
+
 	private ToolBar toolBar;
+
 	private ToolItem addItem, deleteItem;
+
 	private Signature selectedSignature;
-	
+
 	private String[] columnNames;
 
 	public static final int ICON_COLUMN_INDEX = 0;
-	public static final int RETURNTYPE_COLUMN_INDEX = 1;
-	public static final int SIGNATURENAME_COLUMN_INDEX = 2;
-	public static final int PARAMETER_COLUMN_INDEX = 3;
-	public static final int EXCEPTIONS_COLUMN_INDEX = 4;
 
+	public static final int RETURNTYPE_COLUMN_INDEX = 1;
+
+	public static final int SIGNATURENAME_COLUMN_INDEX = 2;
+
+	public static final int PARAMETER_COLUMN_INDEX = 3;
+
+	public static final int EXCEPTIONS_COLUMN_INDEX = 4;
 
 	public OperationsTabViewer(Composite composite) {
 		/**
@@ -45,8 +55,8 @@ public class OperationsTabViewer {
 		 *      de.uka.ipd.sdq.pcmbench.tabs.OperationsPropertySection#createControls(Composite,
 		 *      TabbedPropertySheetPage)
 		 */
-		columnNames = TabResources.getOperationsTableColumn();
-		
+		columnNames = OperationsTabResources.getOperationsTableColumn();
+
 		this.createToolBar(composite);
 		this.createTable(composite);
 		this.createTableViewer(composite);
@@ -69,7 +79,6 @@ public class OperationsTabViewer {
 		table.setLayoutData(data);
 		table.setHeaderVisible(true);
 		table.setLinesVisible(true);
-
 		// 1st column
 		TableColumn column = new TableColumn(table, SWT.CENTER, 0);
 		column.setText("");
@@ -101,15 +110,14 @@ public class OperationsTabViewer {
 		textEditor = new TextCellEditor(table);
 		editors[EXCEPTIONS_COLUMN_INDEX] = textEditor;
 
-		editors[RETURNTYPE_COLUMN_INDEX] = new AttributesSection(table,
-				TabResources.RETURNTYPE_COLUMN, this);
+		editors[RETURNTYPE_COLUMN_INDEX] = new DataTypeDialogCellEditor(table);
 
-		editors[PARAMETER_COLUMN_INDEX] = new AttributesSection(table,
-				TabResources.OWNEDPARAMETER_COLUMN, this);
+		editors[PARAMETER_COLUMN_INDEX] = new ParametersDialogCellEditor(table,
+				OperationsTabResources.OWNEDPARAMETER_COLUMN, this);
 
-		// Assign the cell editors to the viewer
+		// Assign the cell editors to the viewe
 		tableViewer.setCellEditors(editors);
-		tableViewer.setCellModifier(new CellModifierImpl());
+		tableViewer.setCellModifier(new OperationsCellModifier(this));
 		tableViewer
 				.addSelectionChangedListener(new ISelectionChangedListener() {
 
@@ -146,13 +154,14 @@ public class OperationsTabViewer {
 		toolBar = new ToolBar(composite, SWT.VERTICAL | SWT.FLAT | SWT.RIGHT);
 
 		addItem = new ToolItem(toolBar, SWT.PUSH);
-		Image addIcon = TabResources.imageRegistry.get(TabResources.ADD_SIGN);
+		Image addIcon = OperationsTabResources.imageRegistry
+				.get(OperationsTabResources.ADD_SIGN);
 		addItem.setImage(addIcon);
 		addItem.addSelectionListener(AddActionListener.getSingelton());
 
 		deleteItem = new ToolItem(toolBar, SWT.PUSH);
-		Image deleteIcon = TabResources.imageRegistry
-				.get(TabResources.DELETE_SIGN);
+		Image deleteIcon = OperationsTabResources.imageRegistry
+				.get(OperationsTabResources.DELETE_SIGN);
 		deleteItem.setImage(deleteIcon);
 		deleteItem.setEnabled(false);
 		deleteItem.addSelectionListener(DeleteActionListener.getSingelton());

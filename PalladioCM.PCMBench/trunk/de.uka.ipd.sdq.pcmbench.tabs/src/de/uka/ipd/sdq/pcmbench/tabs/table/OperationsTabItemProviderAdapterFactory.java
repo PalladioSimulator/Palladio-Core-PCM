@@ -13,11 +13,11 @@ public class OperationsTabItemProviderAdapterFactory extends
 	public OperationsTabItemProviderAdapterFactory(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
-
+	
 	@Override
 	protected IItemProviderDecorator createItemProviderDecorator(Object target,
 			Object type) {
-		IItemProviderDecorator decorator = new OperationsTabItemProvider(this);
+		IItemProviderDecorator decorator = new OperationsTabItemProvider(this,decoratedAdapterFactory);
 		if (type == ITableItemLabelProvider.class) {
 			decorator
 					.setDecoratedItemProvider((IChangeNotifier) decoratedAdapterFactory

@@ -11,12 +11,13 @@ import org.eclipse.swt.widgets.Control;
 import de.uka.ipd.sdq.pcm.repository.Signature;
 import de.uka.ipd.sdq.pcm.repository.provider.RepositoryItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcmbench.tabs.table.OperationsTabViewer;
+import de.uka.ipd.sdq.pcmbench.ui.provider.PalladioItemProviderAdapterFactory;
 
 /**
  * @author admin
  *
  */
-public class AttributesSection extends DialogCellEditor {
+public class ParametersDialogCellEditor extends DialogCellEditor {
 
 	private String property;
 	
@@ -28,7 +29,7 @@ public class AttributesSection extends DialogCellEditor {
 	/**
 	 * @param parent
 	 */
-	public AttributesSection(Composite parent, String property, OperationsTabViewer oTabViewer) {
+	public ParametersDialogCellEditor(Composite parent, String property, OperationsTabViewer oTabViewer) {
 		super(parent);
 		this.property = property;
 		this.operationsTabViewer = oTabViewer;
@@ -43,7 +44,7 @@ public class AttributesSection extends DialogCellEditor {
 		
 		Signature parentSignature = operationsTabViewer.getSelectedSignature();
 		
-		AttributesViewer dialog = new AttributesViewer(
+		ParametersDialogViewer dialog = new ParametersDialogViewer(
 				cellEditorWindow.getShell(), property, parentSignature);
 		dialog.create();
 		
@@ -56,7 +57,8 @@ public class AttributesSection extends DialogCellEditor {
 		tableViewer.setContentProvider(new AdapterFactoryContentProvider(
 				adapterFactory));
 		tableViewer.setLabelProvider(new AdapterFactoryLabelProvider(
-				new AttributesItemProviderAdapterFactory(adapterFactory)));
+				new ParametersItemProviderAdapterFactory(
+								new PalladioItemProviderAdapterFactory(adapterFactory))));
 		tableViewer.setInput(parentSignature);
 		
 		return dialog.open();
