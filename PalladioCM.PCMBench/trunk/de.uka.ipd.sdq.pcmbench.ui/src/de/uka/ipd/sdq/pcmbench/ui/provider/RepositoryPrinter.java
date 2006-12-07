@@ -2,6 +2,7 @@ package de.uka.ipd.sdq.pcmbench.ui.provider;
 
 import de.uka.ipd.sdq.pcm.repository.Interface;
 import de.uka.ipd.sdq.pcm.repository.Parameter;
+import de.uka.ipd.sdq.pcm.repository.PrimitiveDataType;
 import de.uka.ipd.sdq.pcm.repository.Signature;
 import de.uka.ipd.sdq.pcm.repository.util.RepositorySwitch;
 
@@ -22,5 +23,17 @@ public class RepositoryPrinter extends RepositorySwitch {
 		result = ((Interface)object.eContainer().eContainer()).getEntityName() + "." +result;
 		return result;
 	}
+
+	/* (non-Javadoc)
+	 * @see de.uka.ipd.sdq.pcm.repository.util.RepositorySwitch#casePrimitiveDataType(de.uka.ipd.sdq.pcm.repository.PrimitiveDataType)
+	 */
+	@Override
+	public Object casePrimitiveDataType(PrimitiveDataType object) {
+		String result = "";
+		result += object.getType();
+		return result;
+	}
+	
+	
 
 }
