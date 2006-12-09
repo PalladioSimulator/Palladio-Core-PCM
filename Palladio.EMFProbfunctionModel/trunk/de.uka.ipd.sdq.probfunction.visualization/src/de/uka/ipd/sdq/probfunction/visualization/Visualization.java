@@ -114,7 +114,7 @@ public class Visualization {
 		s = pfFactory.createSamplePDFFromDouble(0.1, samples, null);
 
 		scv.startAs(AppType.SWT);
-		scv.setChartTyp(ChartType.LINECHART);
+		//deprecated (acc. to Ihssane)... scv.setChartTyp(ChartType.LINECHART);
 
 		try {
 			scv.addProbabilityFunction(s);
