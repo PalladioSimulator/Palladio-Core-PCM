@@ -10,19 +10,19 @@
 «IMPORT allocation»
 «IMPORT parameter»
 
-«AROUND ProvidesComponentTypeTM FOR ProvidesComponentType»
+«AROUND m2t_transforms::repository::ProvidesComponentTypeTM FOR ProvidesComponentType»
    «EXPAND m2t_transforms::java_core::ComponentImplementation FOR this»
 «ENDAROUND»
 
-«AROUND ParameterListTM FOR Signature»
+«AROUND m2t_transforms::java_core::ParameterListTM FOR Signature»
 	Context ctx
 «ENDAROUND»
 
-«AROUND ParameterUsageListTM FOR Signature»
+«AROUND m2t_transforms::java_core::ParameterUsageListTM FOR Signature»
    ctx
 «ENDAROUND»
 
-«AROUND ImportsTM FOR Object»
+«AROUND m2t_transforms::java_core::ImportsTM FOR Object»
    import de.uka.ipd.sdq.simucomframework.Context;
    import de.uka.ipd.sdq.simucomframework.SimulatedComponent;   
    import de.uka.ipd.sdq.simucomframework.SimulatedSystem;
@@ -33,28 +33,28 @@
    import desmoj.core.simulator.SimProcess;
 «ENDAROUND»
 
-«AROUND Action FOR LoopAction»
+«AROUND m2t_transforms::seff::Action FOR LoopAction»
    for (int iterationCount = 0, maxIterationCount = (Integer)ctx.evaluate("«this.iterations_LoopAction.specification.javaString()»"); 
             iterationCount < maxIterationCount; iterationCount++){
        «EXPAND m2t_transforms::java_core::Actions FOR this.bodyBehaviour_Loop.steps_Behaviour.findStart()»
    } 
 «ENDAROUND»
 
-«AROUND Action FOR InternalAction»
+«AROUND m2t_transforms::seff::Action FOR InternalAction»
 	«EXPAND m2t_transforms::resources::ResourceDemands FOR this»
 «ENDAROUND»
 
 
-«AROUND AllocationContextTM FOR Allocation»
+«AROUND m2t_transforms::usage::AllocationContextTM FOR Allocation»
 	private Context ctx = null;
 «ENDAROUND»
 
-«AROUND DummyRequiredSystemTM(System s) FOR RequiredRole»
+«AROUND m2t_transforms::usage::DummyRequiredSystemTM(System s) FOR RequiredRole»
 	«EXPAND m2t_transforms::dummies::DummyComponent(s) FOR this»
 	new «s.implementationPackage()».«this.fqnDummyComponent()»()
 «ENDAROUND»
 
-«AROUND ComponentConstructorTM FOR ProvidesComponentType»
+«AROUND m2t_transforms::java_core::ComponentConstructorTM FOR ProvidesComponentType»
 	private String assemblyContextID = null;
 	
 	public «this.javaName()» (String assemblyContextID) {
@@ -62,11 +62,11 @@
 	}
 «ENDAROUND»
 
-«AROUND ComponentConstructorParametersTM FOR AssemblyContext»
+«AROUND m2t_transforms::composed_structure::ComponentConstructorParametersTM FOR AssemblyContext»
 	"«this.id»"
 «ENDAROUND»
 
-«AROUND PreCallTM(List[VariableUsage] parameterUsages) FOR Signature»
+«AROUND m2t_transforms::calls::PreCallTM(List[VariableUsage] parameterUsages) FOR Signature»
 	// Start Simulate an external call
 	{
 	SimulatedStackframe currentFrame = ctx.getStack().currentStackFrame();
@@ -84,7 +84,7 @@
 	double startTime = ctx.getModel().currentTime().getTimeValue();
 «ENDAROUND»
 
-«AROUND PostCallTM FOR Signature»
+«AROUND m2t_transforms::calls::PostCallTM FOR Signature»
 	// Stop the resonse time measurement
 	ctx.getModel().getSensorFactory().addMeasurement("Usage_«this.javaSignature()»",
 		ctx.getModel().currentTime().getTimeValue()-startTime);
