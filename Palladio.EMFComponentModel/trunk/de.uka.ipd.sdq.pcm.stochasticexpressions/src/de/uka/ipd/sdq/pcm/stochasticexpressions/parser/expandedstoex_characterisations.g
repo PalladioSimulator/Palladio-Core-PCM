@@ -255,10 +255,10 @@ numeric_int_sample returns [Sample s]{s = null;}
 :LPAREN
 			{s = ProbfunctionFactory.eINSTANCE.createSample();} 
 			n:NUMBER
-			{s.setValue(Integer.parseInt(n2.getText()));} 
+			{s.setValue(Integer.parseInt(n.getText()));} 
 			SEMI 
 			n2:NUMBER 
-			{s.setProbability(Double.parseDouble(n.getText()));} 
+			{s.setProbability(Double.parseDouble(n2.getText()));} 
 			RPAREN;
 
 // inherited from grammar StochasticExpressionsParser
@@ -266,10 +266,10 @@ numeric_real_sample returns [Sample s]{s = null;}
 :LPAREN
 			{s = ProbfunctionFactory.eINSTANCE.createSample();} 
 			n:NUMBER
-			{s.setValue(Double.parseDouble(n2.getText()));} 
+			{s.setValue(Double.parseDouble(n.getText()));} 
 			SEMI 
 			n2:NUMBER 
-			{s.setProbability(Double.parseDouble(n.getText()));} 
+			{s.setProbability(Double.parseDouble(n2.getText()));} 
 			RPAREN;
 
 // inherited from grammar StochasticExpressionsParser
