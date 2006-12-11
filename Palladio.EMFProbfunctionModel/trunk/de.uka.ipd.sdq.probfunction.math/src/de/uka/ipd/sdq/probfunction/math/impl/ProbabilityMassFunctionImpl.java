@@ -315,7 +315,7 @@ public class ProbabilityMassFunctionImpl extends ProbabilityFunctionImpl
 		return pmf;
 	}
 
-	public IProbabilityMassFunction shiftValues(double scalar) throws DomainNotNumbersException{
+	public IProbabilityMassFunction shiftDomain(double scalar) throws DomainNotNumbersException{
 		return transformDomainValues(scalar, Operation.SHIFT);
 	}
 

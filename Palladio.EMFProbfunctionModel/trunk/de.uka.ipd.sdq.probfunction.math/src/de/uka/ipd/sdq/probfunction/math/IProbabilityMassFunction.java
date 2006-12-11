@@ -155,7 +155,7 @@ public interface IProbabilityMassFunction extends IProbabilityFunction {
 	 * @param scalar
 	 * @return
 	 */
-	IProbabilityMassFunction shiftValues(double scalar) throws DomainNotNumbersException;
+	IProbabilityMassFunction shiftDomain(double scalar) throws DomainNotNumbersException;
 	
 	/**
 	 * Stretches the domain of the PMF by the given scalar (i.e, multiplies

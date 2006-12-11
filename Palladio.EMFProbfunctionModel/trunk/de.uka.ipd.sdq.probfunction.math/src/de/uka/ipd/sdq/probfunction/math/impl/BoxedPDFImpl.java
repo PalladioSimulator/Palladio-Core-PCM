@@ -10,9 +10,12 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 
+import javax.swing.Box;
+
 import de.uka.ipd.sdq.probfunction.math.IBoxedPDF;
 import de.uka.ipd.sdq.probfunction.math.IContinuousSample;
 import de.uka.ipd.sdq.probfunction.math.IProbabilityDensityFunction;
+import de.uka.ipd.sdq.probfunction.math.IProbabilityMassFunction;
 import de.uka.ipd.sdq.probfunction.math.IRandomGenerator;
 import de.uka.ipd.sdq.probfunction.math.ISamplePDF;
 import de.uka.ipd.sdq.probfunction.math.IUnit;
@@ -298,6 +301,23 @@ public class BoxedPDFImpl extends ProbabilityDensityFunctionImpl
 	}
 
 	public IProbabilityDensityFunction stretchDomain(double scalar) {
+		List<IContinuousSample> newSamples = new ArrayList<IContinuousSample>();
+		for (IContinuousSample oldSample : samples){
+			newSamples.add(pfFactory.createContinuousSample(oldSample.getValue()
+					+ scalar, oldSample.getProbability()));
+		}
+
+		IBoxedPDF result = null;
+		try {
+			result = pfFactory.createBoxedPDF(newSamples, this.getUnit());
+		} catch (DoubleSampleException e) {
+			e.printStackTrace();
+			System.exit(1); // should never happen
+		}
+		return result;
+	}
+
+	public IProbabilityDensityFunction shiftDomain(double scalar) throws DomainNotNumbersException {
 		// TODO Auto-generated method stub
 		return null;
 	}

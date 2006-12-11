@@ -9,6 +9,7 @@ import java.util.Iterator;
 import java.util.List;
 
 import de.uka.ipd.sdq.probfunction.math.IProbabilityDensityFunction;
+import de.uka.ipd.sdq.probfunction.math.IProbabilityMassFunction;
 import de.uka.ipd.sdq.probfunction.math.IRandomGenerator;
 import de.uka.ipd.sdq.probfunction.math.ISamplePDF;
 import de.uka.ipd.sdq.probfunction.math.IUnit;
@@ -638,5 +639,12 @@ public class SamplePDFImpl extends ProbabilityDensityFunctionImpl implements
 		sPDF.setValues(this.getValues(), this.isInFrequencyDomain());
 		sPDF.setFillValue(this.getFillValue());
 		return sPDF;
+	}
+
+	public IProbabilityDensityFunction shiftDomain(double scalar) throws DomainNotNumbersException {
+		throw new UnsupportedOperationException();
+//		SamplePDFImpl sPDF = new SamplePDFImpl(this.getDistance(), this.getUnit(), this.randomGenerator);
+//		List<Complex> sampleList = this.getValues();
+//		sampleList.add(0, new Complex(0,0));
 	}
 }

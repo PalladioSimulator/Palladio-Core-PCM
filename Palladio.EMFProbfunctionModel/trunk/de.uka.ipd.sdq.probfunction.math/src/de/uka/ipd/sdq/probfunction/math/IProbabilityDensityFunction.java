@@ -1,5 +1,6 @@
 package de.uka.ipd.sdq.probfunction.math;
 
+import de.uka.ipd.sdq.probfunction.math.exception.DomainNotNumbersException;
 import de.uka.ipd.sdq.probfunction.math.exception.FunctionNotInFrequencyDomainException;
 import de.uka.ipd.sdq.probfunction.math.exception.FunctionNotInTimeDomainException;
 import de.uka.ipd.sdq.probfunction.math.exception.FunctionsInDifferenDomainsException;
@@ -220,5 +221,15 @@ public interface IProbabilityDensityFunction extends IProbabilityFunction {
 	 * @return
 	 */
 	IProbabilityDensityFunction stretchDomain(double scalar);
+	
+	/**
+	 * Shifts the domain values of the PDF by the given scalar  
+	 *
+	 * @author Koziolek
+	 * @param scalar
+	 * @return
+	 */
+	IProbabilityDensityFunction shiftDomain(double scalar) throws DomainNotNumbersException;
+
 
 }
