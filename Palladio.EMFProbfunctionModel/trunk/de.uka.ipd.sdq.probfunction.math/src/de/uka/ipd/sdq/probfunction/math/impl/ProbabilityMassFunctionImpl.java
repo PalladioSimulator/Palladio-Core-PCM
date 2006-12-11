@@ -319,7 +319,7 @@ public class ProbabilityMassFunctionImpl extends ProbabilityFunctionImpl
 		return transformDomainValues(scalar, Operation.SHIFT);
 	}
 
-	public IProbabilityMassFunction stretchValues(double scalar) throws DomainNotNumbersException {
+	public IProbabilityMassFunction stretchDomain(double scalar) throws DomainNotNumbersException {
 		return transformDomainValues(scalar, Operation.STRETCH);
 	}
 

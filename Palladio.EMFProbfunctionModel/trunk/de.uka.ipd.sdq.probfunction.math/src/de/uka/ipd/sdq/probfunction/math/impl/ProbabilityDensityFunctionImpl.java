@@ -17,6 +17,9 @@ public abstract class ProbabilityDensityFunctionImpl extends
 			boolean isInFrequencyDomain) {
 		super(unit, true, isInFrequencyDomain);
 	}
-
-
+	
+	
+	protected enum CompareOperation {
+		GREATER, LESS, EQUALS
+	};
 }

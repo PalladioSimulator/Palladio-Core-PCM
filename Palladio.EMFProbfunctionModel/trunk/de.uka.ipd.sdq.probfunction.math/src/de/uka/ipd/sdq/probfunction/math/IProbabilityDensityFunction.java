@@ -4,6 +4,7 @@ import de.uka.ipd.sdq.probfunction.math.exception.FunctionNotInFrequencyDomainEx
 import de.uka.ipd.sdq.probfunction.math.exception.FunctionNotInTimeDomainException;
 import de.uka.ipd.sdq.probfunction.math.exception.FunctionsInDifferenDomainsException;
 import de.uka.ipd.sdq.probfunction.math.exception.IncompatibleUnitsException;
+import de.uka.ipd.sdq.probfunction.math.exception.ProbabilityFunctionException;
 import de.uka.ipd.sdq.probfunction.math.exception.UnknownPDFTypeException;
 
 /**
@@ -162,7 +163,7 @@ public interface IProbabilityDensityFunction extends IProbabilityFunction {
 	 */
 	IProbabilityDensityFunction getInverseFourierTransform()
 			throws FunctionNotInFrequencyDomainException;
-	
+
 	/**
 	 * returns the cumulative probability function associated with this
 	 * probability function.
@@ -170,4 +171,54 @@ public interface IProbabilityDensityFunction extends IProbabilityFunction {
 	 * @return the computed cumulative probability function.
 	 */
 	IProbabilityDensityFunction getCumulativeFunction();
+
+	/**
+	 * Computes the probability that two random variables characterised by the
+	 * given PDFs are equal. Note that the randomvariables have to be
+	 * independent.
+	 * 
+	 * @param pdf
+	 *            PDF to compare to.
+	 * @return Probability that the two random variables characterised by the
+	 *         PDFs are equal.
+	 * @throws ProbabilityFunctionException
+	 */
+	double probabilisticEquals(IProbabilityDensityFunction pdf)
+			throws ProbabilityFunctionException;
+
+	/**
+	 * Computes the probability that the random variable specified by this PDF
+	 * is greater than the random variable specified by pdf. Note that the
+	 * randomvariables have to be independent.
+	 * 
+	 * @param pdf
+	 *            PDF to compare to.
+	 * @return Probability X_this > X_pdf
+	 * @throws ProbabilityFunctionException
+	 */
+	double greaterThan(IProbabilityDensityFunction pdf)
+			throws ProbabilityFunctionException;
+
+	/**
+	 * Computes the probability that the random variable specified by this PDF
+	 * is less than the random variable specified by pdf. Note that the
+	 * randomvariables have to be independent.
+	 * 
+	 * @param pdf
+	 *            PDF to compare to.
+	 * @return Probability X_this < X_pdf
+	 * @throws ProbabilityFunctionException
+	 */
+	double lessThan(IProbabilityDensityFunction pdf)
+			throws ProbabilityFunctionException;
+
+	/**
+	 * Stretches the domain values of the PDF. This is equivalent to the
+	 * multiplication of the specified random variable by the given scalar.
+	 * 
+	 * @param scalar
+	 * @return
+	 */
+	IProbabilityDensityFunction stretchDomain(double scalar);
+
 }

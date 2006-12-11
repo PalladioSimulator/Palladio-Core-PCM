@@ -167,7 +167,7 @@ public interface IProbabilityMassFunction extends IProbabilityFunction {
 	 * @param scalar
 	 * @return
 	 */
-	IProbabilityMassFunction stretchValues(double scalar) throws DomainNotNumbersException;
+	IProbabilityMassFunction stretchDomain(double scalar) throws DomainNotNumbersException;
 	
 	
 	/**

@@ -282,4 +282,24 @@ public class BoxedPDFImpl extends ProbabilityDensityFunctionImpl
 		return false;
 	}
 
+	public double probabilisticEquals(IProbabilityDensityFunction pdf) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	public double greaterThan(IProbabilityDensityFunction pdf) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	public double lessThan(IProbabilityDensityFunction pdf) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	public IProbabilityDensityFunction stretchDomain(double scalar) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

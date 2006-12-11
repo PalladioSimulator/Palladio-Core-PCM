@@ -18,6 +18,7 @@ import de.uka.ipd.sdq.probfunction.math.exception.FunctionNotInTimeDomainExcepti
 import de.uka.ipd.sdq.probfunction.math.exception.FunctionsInDifferenDomainsException;
 import de.uka.ipd.sdq.probfunction.math.exception.IncompatibleUnitsException;
 import de.uka.ipd.sdq.probfunction.math.exception.NegativeDistanceException;
+import de.uka.ipd.sdq.probfunction.math.exception.ProbabilityFunctionException;
 import de.uka.ipd.sdq.probfunction.math.exception.SizeTooSmallException;
 import de.uka.ipd.sdq.probfunction.math.exception.UnknownPDFTypeException;
 import de.uka.ipd.sdq.probfunction.math.exception.UnorderedDomainException;
@@ -29,19 +30,23 @@ import flanagan.math.FourierTransform;
  * @author Ihssane
  * 
  */
-public class SamplePDFImpl extends ProbabilityDensityFunctionImpl
-		implements
-			ISamplePDF {
+public class SamplePDFImpl extends ProbabilityDensityFunctionImpl implements
+		ISamplePDF {
 
 	private enum Operation {
 		ADD, SUB, MULT, DIV
 	}
 
 	private static final Complex DEFAULT_FILL_VALUE = new Complex(0, 0);
+
 	private static final int FOURIER_TRANSFORM = 0;
+
 	private static final int INVERSE_FOURIER_TRANSFORM = 1;
+
 	private double distance;
+
 	private List<Complex> values;
+
 	private Complex fillValue;
 
 	private FourierTransform fft = new FourierTransform();
@@ -69,6 +74,7 @@ public class SamplePDFImpl extends ProbabilityDensityFunctionImpl
 		fillValue = DEFAULT_FILL_VALUE;
 		randomGenerator = generator;
 	}
+
 	public IProbabilityDensityFunction add(IProbabilityDensityFunction pdf)
 			throws UnknownPDFTypeException,
 			FunctionsInDifferenDomainsException, IncompatibleUnitsException {
@@ -215,7 +221,7 @@ public class SamplePDFImpl extends ProbabilityDensityFunctionImpl
 			return distance * i;
 		} else {
 			int i = (int) Math.round(values.size() / 2.0);
-			return (distance * (2*i - 1)) /2;
+			return (distance * (2 * i - 1)) / 2;
 		}
 	}
 
@@ -390,26 +396,26 @@ public class SamplePDFImpl extends ProbabilityDensityFunctionImpl
 			Complex z2 = iterator.next();
 			Complex result;
 			switch (op) {
-				case ADD :
-					result = z1.plus(z2);
-					break;
-				case SUB :
-					result = z1.minus(z2);
-					break;
-				case MULT :
-					result = z1.times(z2);
-					break;
-				case DIV :
-					result = z1.over(z2);
-					break;
-				default :
-					result = null;
-					break;
+			case ADD:
+				result = z1.plus(z2);
+				break;
+			case SUB:
+				result = z1.minus(z2);
+				break;
+			case MULT:
+				result = z1.times(z2);
+				break;
+			case DIV:
+				result = z1.over(z2);
+				break;
+			default:
+				result = null;
+				break;
 			}
 			resultList.add(result);
 		}
-		IProbabilityDensityFunction p =pfFactory.createSamplePDFFromComplex(distance, resultList,
-				inFrequencyDomain, sPDF1.getUnit());
+		IProbabilityDensityFunction p = pfFactory.createSamplePDFFromComplex(
+				distance, resultList, inFrequencyDomain, sPDF1.getUnit());
 		return p;
 	}
 
@@ -426,9 +432,9 @@ public class SamplePDFImpl extends ProbabilityDensityFunctionImpl
 
 		// ensure that we only have SamplePDFs with equal distances and the same
 		// number of samples
-		ISamplePDF sPDF2 = pfFactory.transformToSamplePDF(pdf1);
-		ISamplePDF sPDF1 = pfFactory.transformToSamplePDF(pdf2);
-		
+		ISamplePDF sPDF1 = pfFactory.transformToSamplePDF(pdf1);
+		ISamplePDF sPDF2 = pfFactory.transformToSamplePDF(pdf2);
+
 		List<ISamplePDF> operands;
 		operands = createFunctionsWithEqualDistance(sPDF1, sPDF2);
 		sPDF1 = operands.get(0);
@@ -564,5 +570,73 @@ public class SamplePDFImpl extends ProbabilityDensityFunctionImpl
 						.getRandomGenerator());
 		spdf.setFillValue(new Complex(1.0, 0.0));
 		return spdf;
+	}
+
+	public double probabilisticEquals(IProbabilityDensityFunction pdf) throws ProbabilityFunctionException {
+		return compareTo(pdf, CompareOperation.EQUALS);
+	}
+
+	public double greaterThan(IProbabilityDensityFunction pdf) throws ProbabilityFunctionException {
+		return compareTo(pdf, CompareOperation.GREATER);
+	}
+
+	public double lessThan(IProbabilityDensityFunction pdf) throws ProbabilityFunctionException {
+		return compareTo(pdf, CompareOperation.LESS);
+	}
+
+	private double compareTo(IProbabilityDensityFunction pdf,
+			CompareOperation op) throws ProbabilityFunctionException {
+		ISamplePDF sPDF = pfFactory.transformToSamplePDF(pdf);
+		sPDF = sPDF.getFunctionWithNewDistance(this.distance);
+		int maxSize = Math
+				.max(sPDF.getValues().size(), this.getValues().size());
+		sPDF.expand(maxSize);
+		this.expand(maxSize);
+		List<Double> pdfValues = sPDF.getValuesAsDouble();
+		List<Double> thisValues = this.getValuesAsDouble();
+
+		switch (op) {
+		case EQUALS:
+			return equals(thisValues, pdfValues);
+		case GREATER:
+			return greaterThan(thisValues, pdfValues);
+		case LESS:
+			return greaterThan(pdfValues, thisValues);
+		default:
+			return 0;
+		}
+	}
+
+	private double greaterThan(List<Double> firstValues, List<Double> secondValues) {
+		assert(firstValues.size() == secondValues.size());
+		double prob = 0;
+		for(int i=0; i<secondValues.size(); i++){
+			double tempProb = greaterThan(secondValues,i);
+			prob += tempProb * secondValues.get(i);
+		}
+		return prob;
+	}
+
+	private double greaterThan(List<Double> secondValues, int i) {
+		double prob = 0;
+		for(int j= i+1; j<secondValues.size(); j++){
+			prob += secondValues.get(j);
+		}
+		return prob;
+	}
+
+	private double equals(List<Double> firstValues, List<Double> secondValues) {
+		double prob = 0;
+		for (int i = 0; i < firstValues.size(); i++) {
+			prob += firstValues.get(i) * secondValues.get(i);
+		}
+		return prob;
+	}
+
+	public IProbabilityDensityFunction stretchDomain(double scalar) {
+		SamplePDFImpl sPDF = new SamplePDFImpl(this.getDistance()*scalar,this.getUnit(),this.randomGenerator);
+		sPDF.setValues(this.getValues(), this.isInFrequencyDomain());
+		sPDF.setFillValue(this.getFillValue());
+		return sPDF;
 	}
 }
