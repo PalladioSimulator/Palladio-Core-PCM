@@ -13,6 +13,7 @@ import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
 import de.uka.ipd.sdq.simucomframework.resources.SimulatedResourceContainer;
 import de.uka.ipd.sdq.simucomframework.stackframe.SimulatedStack;
 import de.uka.ipd.sdq.simucomframework.stackframe.SimulatedStackframe;
+import de.uka.ipd.sdq.simucomframework.stoexvisitor.EvaluationProxy;
 import de.uka.ipd.sdq.simucomframework.stoexvisitor.PCMStoExEvaluationVisitor;
 import de.uka.ipd.sdq.simucomframework.stoexvisitor.SimulationExpressionInferTypeVisitor;
 import de.uka.ipd.sdq.stoex.Expression;

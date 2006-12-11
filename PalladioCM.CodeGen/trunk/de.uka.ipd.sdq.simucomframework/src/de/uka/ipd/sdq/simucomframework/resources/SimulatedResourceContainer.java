@@ -30,9 +30,9 @@ public class SimulatedResourceContainer {
 		resource.consumeResource(requestingProcess, demand);
 	}
 
-	public void addActiveResource(String typeID) {
+	public void addActiveResource(String typeID, int processingRate, String units) {
 		activeResources.put(typeID, 
-				new SimulatedActiveResource(myModel, typeID));
+				new SimulatedActiveResource(myModel, typeID, processingRate, units));
 	}
 	
 	public String getResourceContainerID() {

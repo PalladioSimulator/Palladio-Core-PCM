@@ -6,7 +6,6 @@ import de.uka.ipd.sdq.pcm.stochasticexpressions.PCMStoExPrettyPrintVisitor;
 import de.uka.ipd.sdq.pcm.stochasticexpressions.PCMStoExSwitch;
 import de.uka.ipd.sdq.probfunction.ProbabilityFunction;
 import de.uka.ipd.sdq.simucomframework.Context;
-import de.uka.ipd.sdq.simucomframework.EvaluationProxy;
 import de.uka.ipd.sdq.simucomframework.stackframe.SimulatedStackframe;
 import de.uka.ipd.sdq.simucomframework.stackframe.ValueNotInFrameException;
 import de.uka.ipd.sdq.stoex.AbstractNamedReference;

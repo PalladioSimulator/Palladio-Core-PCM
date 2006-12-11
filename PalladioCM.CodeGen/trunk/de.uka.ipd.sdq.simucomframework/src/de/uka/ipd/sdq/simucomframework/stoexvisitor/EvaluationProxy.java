@@ -1,4 +1,4 @@
-package de.uka.ipd.sdq.simucomframework;
+package de.uka.ipd.sdq.simucomframework.stoexvisitor;
 
 import de.uka.ipd.sdq.simucomframework.stackframe.SimulatedStackframe;
 

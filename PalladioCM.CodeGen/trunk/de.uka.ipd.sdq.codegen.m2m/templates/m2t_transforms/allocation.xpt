@@ -47,5 +47,8 @@
 «ENDDEFINE»
 
 «DEFINE ActiveResourceAdd FOR ProcessingResourceSpecification»
-	rc.addActiveResource("«this.activeResourceType_ActiveResourceSpecification.entityName»");
+	rc.addActiveResource(
+		"«this.activeResourceType_ActiveResourceSpecification.entityName»",
+		«this.processingRate»,
+		"«this.units.javaString()»");
 «ENDDEFINE»

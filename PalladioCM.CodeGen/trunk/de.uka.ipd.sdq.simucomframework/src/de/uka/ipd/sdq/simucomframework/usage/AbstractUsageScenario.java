@@ -1,5 +1,6 @@
-package de.uka.ipd.sdq.simucomframework;
+package de.uka.ipd.sdq.simucomframework.usage;
 
+import de.uka.ipd.sdq.simucomframework.IUsageScenario;
 import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
 import desmoj.core.simulator.SimProcess;
 import desmoj.core.simulator.SimTime;
