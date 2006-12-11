@@ -274,10 +274,10 @@ numeric_int_sample returns [Sample s]{s = null;}
 :LPAREN
 			{s = ProbfunctionFactory.eINSTANCE.createSample();} 
 			n:NUMBER
-			{s.setProbability(Double.parseDouble(n.getText()));} 
+			{s.setValue(Integer.parseInt(n2.getText()));} 
 			SEMI 
 			n2:NUMBER 
-			{s.setValue(Integer.parseInt(n2.getText()));} 
+			{s.setProbability(Double.parseDouble(n.getText()));} 
 			RPAREN;
 
 // inherited from grammar PCMStoExParser
@@ -285,10 +285,10 @@ numeric_real_sample returns [Sample s]{s = null;}
 :LPAREN
 			{s = ProbfunctionFactory.eINSTANCE.createSample();} 
 			n:NUMBER
-			{s.setProbability(Double.parseDouble(n.getText()));} 
+			{s.setValue(Double.parseDouble(n2.getText()));} 
 			SEMI 
 			n2:NUMBER 
-			{s.setValue(Double.parseDouble(n2.getText()));} 
+			{s.setProbability(Double.parseDouble(n.getText()));} 
 			RPAREN;
 
 // inherited from grammar PCMStoExParser
@@ -306,22 +306,22 @@ real_pdf_sample returns [ContinuousSample s]{s = null;}
 stringsample returns [Sample s]{s = null;}
 :LPAREN
 			{s = ProbfunctionFactory.eINSTANCE.createSample();} 
-		n:NUMBER 
-			{s.setProbability(Double.parseDouble(n.getText()));} 
-		SEMI
 		str:STRING_LITERAL 
 			{s.setValue(str.getText().replace("\"",""));} 
+		SEMI
+		n:NUMBER 
+			{s.setProbability(Double.parseDouble(n.getText()));} 
 		RPAREN;
 
 // inherited from grammar PCMStoExParser
 boolsample returns [Sample s]{s = null;String str = null;}
 :LPAREN
 			{s = ProbfunctionFactory.eINSTANCE.createSample();} 
-		n:NUMBER 
-			{s.setProbability(Double.parseDouble(n.getText()));} 
-		SEMI
 		str = boolean_keywords
 		{s.setValue(str);}
+		SEMI
+		n:NUMBER 
+			{s.setProbability(Double.parseDouble(n.getText()));} 
 		RPAREN;
 
 // inherited from grammar PCMStoExParser
