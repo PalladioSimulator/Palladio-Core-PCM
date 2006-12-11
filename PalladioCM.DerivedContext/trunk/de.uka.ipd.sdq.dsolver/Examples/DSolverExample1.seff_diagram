@@ -57,6 +57,21 @@
                     <element xmi:type="pcm.parameter:VariableUsage" href="DSolverExample1.repository#//@components__Repository.0/@serviceEffectSpecifications__BasicComponent.0/@steps_Behaviour.2/@branches_Branch.0/@branchBehaviour_BranchTransition/@steps_Behaviour.1/@parameterUsage_ExternalCallAction.0"/>
                     <layoutConstraint xmi:type="notation:Bounds" xmi:id="_tMoNJYBuEdurRsGsNGv2rA" x="48" y="14"/>
                   </children>
+                  <children xmi:type="notation:Node" xmi:id="_CBJioIk7Edu-dYY_7CQedg" type="2001">
+                    <children xmi:type="notation:Node" xmi:id="_CBJipok7Edu-dYY_7CQedg" type="4001"/>
+                    <children xmi:type="notation:Node" xmi:id="_CBJip4k7Edu-dYY_7CQedg" type="5002">
+                      <styles xmi:type="notation:DrawerStyle" xmi:id="_CBJiqIk7Edu-dYY_7CQedg"/>
+                      <styles xmi:type="notation:TitleStyle" xmi:id="_CBJiqYk7Edu-dYY_7CQedg" showTitle="true"/>
+                      <styles xmi:type="notation:SortingStyle" xmi:id="_CBJiqok7Edu-dYY_7CQedg"/>
+                      <styles xmi:type="notation:FilteringStyle" xmi:id="_CBJiq4k7Edu-dYY_7CQedg"/>
+                    </children>
+                    <styles xmi:type="notation:FontStyle" xmi:id="_CBJioYk7Edu-dYY_7CQedg"/>
+                    <styles xmi:type="notation:DescriptionStyle" xmi:id="_CBJiook7Edu-dYY_7CQedg"/>
+                    <styles xmi:type="notation:FillStyle" xmi:id="_CBJio4k7Edu-dYY_7CQedg"/>
+                    <styles xmi:type="notation:LineStyle" xmi:id="_CBJipIk7Edu-dYY_7CQedg"/>
+                    <element xmi:type="pcm.parameter:VariableUsage" href="DSolverExample1.repository#//@components__Repository.0/@serviceEffectSpecifications__BasicComponent.0/@steps_Behaviour.2/@branches_Branch.0/@branchBehaviour_BranchTransition/@steps_Behaviour.1/@parameterUsage_ExternalCallAction.1"/>
+                    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_CBJipYk7Edu-dYY_7CQedg" x="55" y="74"/>
+                  </children>
                   <styles xmi:type="notation:DrawerStyle" xmi:id="_tMfDMoBuEdurRsGsNGv2rA"/>
                   <styles xmi:type="notation:TitleStyle" xmi:id="_tMfDM4BuEdurRsGsNGv2rA" showTitle="true"/>
                   <styles xmi:type="notation:SortingStyle" xmi:id="_tMfDNIBuEdurRsGsNGv2rA"/>
@@ -67,7 +82,7 @@
                 <styles xmi:type="notation:FillStyle" xmi:id="_tMVSQoBuEdurRsGsNGv2rA"/>
                 <styles xmi:type="notation:LineStyle" xmi:id="_tMVSQ4BuEdurRsGsNGv2rA"/>
                 <element xmi:type="pcm.seff:ExternalCallAction" href="DSolverExample1.repository#_lwvc5jQbEduaPaOP6VcQiw"/>
-                <layoutConstraint xmi:type="notation:Bounds" xmi:id="_tMVSRIBuEdurRsGsNGv2rA" x="55" y="155"/>
+                <layoutConstraint xmi:type="notation:Bounds" xmi:id="_tMVSRIBuEdurRsGsNGv2rA" x="12" y="155"/>
               </children>
               <children xmi:type="notation:Node" xmi:id="_tMfDNoBuEdurRsGsNGv2rA" type="2005">
                 <styles xmi:type="notation:FontStyle" xmi:id="_tMfDN4BuEdurRsGsNGv2rA"/>
@@ -94,7 +109,7 @@
         <styles xmi:type="notation:DescriptionStyle" xmi:id="_tMCXQoBuEdurRsGsNGv2rA"/>
         <styles xmi:type="notation:FillStyle" xmi:id="_tMCXQ4BuEdurRsGsNGv2rA"/>
         <styles xmi:type="notation:LineStyle" xmi:id="_tMCXRIBuEdurRsGsNGv2rA"/>
-        <element xmi:type="pcm.seff:BranchTransition" href="DSolverExample1.repository#//@components__Repository.0/@serviceEffectSpecifications__BasicComponent.0/@steps_Behaviour.2/@branches_Branch.0"/>
+        <element xmi:type="pcm.seff:BranchTransition" href="DSolverExample1.repository#_L0a-FoRaEduMitCaSna7dg"/>
         <layoutConstraint xmi:type="notation:Bounds" xmi:id="_tMCXRYBuEdurRsGsNGv2rA" x="55" y="55"/>
       </children>
       <children xmi:type="notation:Node" xmi:id="_tMMIQIBuEdurRsGsNGv2rA" type="2010">
@@ -150,8 +165,8 @@
         <styles xmi:type="notation:DescriptionStyle" xmi:id="_tMMIQoBuEdurRsGsNGv2rA"/>
         <styles xmi:type="notation:FillStyle" xmi:id="_tMMIQ4BuEdurRsGsNGv2rA"/>
         <styles xmi:type="notation:LineStyle" xmi:id="_tMMIRIBuEdurRsGsNGv2rA"/>
-        <element xmi:type="pcm.seff:BranchTransition" href="DSolverExample1.repository#//@components__Repository.0/@serviceEffectSpecifications__BasicComponent.0/@steps_Behaviour.2/@branches_Branch.1"/>
-        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_tMMIRYBuEdurRsGsNGv2rA" x="563" y="55"/>
+        <element xmi:type="pcm.seff:BranchTransition" href="DSolverExample1.repository#_L0kvE4RaEduMitCaSna7dg"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_tMMIRYBuEdurRsGsNGv2rA" x="612" y="51"/>
       </children>
       <children xmi:type="notation:Node" xmi:id="_tMMISoBuEdurRsGsNGv2rA" type="2010">
         <children xmi:type="notation:Node" xmi:id="_tMMIUIBuEdurRsGsNGv2rA" type="4007"/>
@@ -206,7 +221,7 @@
         <styles xmi:type="notation:DescriptionStyle" xmi:id="_tMMITIBuEdurRsGsNGv2rA"/>
         <styles xmi:type="notation:FillStyle" xmi:id="_tMMITYBuEdurRsGsNGv2rA"/>
         <styles xmi:type="notation:LineStyle" xmi:id="_tMMIToBuEdurRsGsNGv2rA"/>
-        <element xmi:type="pcm.seff:BranchTransition" href="DSolverExample1.repository#//@components__Repository.0/@serviceEffectSpecifications__BasicComponent.0/@steps_Behaviour.2/@branches_Branch.2"/>
+        <element xmi:type="pcm.seff:BranchTransition" href="DSolverExample1.repository#_L0kvGIRaEduMitCaSna7dg"/>
         <layoutConstraint xmi:type="notation:Bounds" xmi:id="_tMMIT4BuEdurRsGsNGv2rA" x="874" y="55"/>
       </children>
       <styles xmi:type="notation:SortingStyle" xmi:id="_tLSwYYBuEdurRsGsNGv2rA"/>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<pcm.repository:Repository xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pcm.repository="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/1.0" xmlns:pcm.seff="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0" xmlns:stoex="http://sdq.ipd.uka.de/StochasticExpressions/1.0" id="_4tVDbH6xEdud8MGZ5QaR_Q">
+<pcm.repository:Repository xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pcm.repository="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/1.0" xmlns:pcm.seff="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0" xmlns:stoex="http://sdq.ipd.uka.de/StochasticExpressions/1.0" id="_4tVDbH6xEdud8MGZ5QaR_Q" entityName="dsolver_rep">
   <components__Repository xsi:type="pcm.repository:BasicComponent" id="_empqNDQaEduaPaOP6VcQiw" entityName="FirstComponent">
     <providedRoles_InterfaceProvidingEntity id="_2rc3kHckEdugqbdw26ZvAA" entityName="" providedInterface__ProvidedRole="_iu2OpTQaEduaPaOP6VcQiw"/>
     <requiredRoles_InterfaceRequiringEntity id="_8P4wgXckEdugqbdw26ZvAA" requiredInterface__RequiredRole="_pIeqNDQaEduaPaOP6VcQiw"/>
@@ -16,7 +16,7 @@
             <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_kQ73ATQbEduaPaOP6VcQiw" entityName="Starting" successor_AbstractAction="_lwvc5jQbEduaPaOP6VcQiw"/>
             <steps_Behaviour xsi:type="pcm.seff:ExternalCallAction" id="_lwvc5jQbEduaPaOP6VcQiw" entityName="ExternalCalling" predecessor_AbstractAction="_kQ73ATQbEduaPaOP6VcQiw" successor_AbstractAction="_mIlVIDQbEduaPaOP6VcQiw" calledService_ExternalService="//@interfaces__Repository.1/@signatures__Interface.0">
               <parameterUsage_ExternalCallAction>
-                <variableCharacterisation_VariableUsage specification="IntPMF(unit=&quot;bytes&quot;)[ (0.4; 50) (0.6; 60) ]" type="BYTESIZE"/>
+                <variableCharacterisation_VariableUsage specification="IntPMF(unit=&quot;bytes&quot;)[ (50; 0.4) (60; 0.6) ]" type="BYTESIZE"/>
                 <namedReference_VariableUsage xsi:type="stoex:NamespaceReference" referenceName="someCollection">
                   <innerReference_NamespaceReference xsi:type="stoex:VariableReference" referenceName="INNER"/>
                 </namedReference_VariableUsage>
