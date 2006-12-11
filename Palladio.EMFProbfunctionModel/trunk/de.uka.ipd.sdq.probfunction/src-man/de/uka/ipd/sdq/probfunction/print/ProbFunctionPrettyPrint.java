@@ -52,8 +52,8 @@ public class ProbFunctionPrettyPrint extends ProbfunctionSwitch {
 		pmfType += ")";
 		
 		for (Sample s : (List<Sample>) object.getSamples()) {
-			sampleString += " (" + s.getProbability() + leftSeparator
-					+ s.getValue() + rightSeparator;
+			sampleString += " (" + s.getValue() + leftSeparator
+			+ s.getProbability() + rightSeparator;
 		}
 		return pmfType + "[" + sampleString + " ]";
 	}
