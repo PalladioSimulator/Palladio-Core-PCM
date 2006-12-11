@@ -146,8 +146,7 @@ public class LoopImpl extends OperationImpl implements Loop {
 		try {
 			if (iterationsPMF == null) {
 				StochasticExpressionsLexer lexer = new StochasticExpressionsLexer(
-						new StringBufferInputStream("="
-								+ this.getIterationsString()));
+						new StringBufferInputStream( this.getIterationsString()));
 				StochasticExpressionsParser parser = new StochasticExpressionsParser(
 						lexer);
 				ProbabilityFunctionLiteral value = (ProbabilityFunctionLiteral) parser
