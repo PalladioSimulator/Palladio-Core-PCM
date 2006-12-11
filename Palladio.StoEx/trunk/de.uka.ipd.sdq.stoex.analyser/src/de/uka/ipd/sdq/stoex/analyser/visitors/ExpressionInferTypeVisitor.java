@@ -236,4 +236,15 @@ public class ExpressionInferTypeVisitor extends StoexSwitch {
 		this.typeAnnotation = typeAnnotation;
 	}
 
+	/**
+	 * Return the infered type of the passed in expression node
+	 * @pre e is part of the expression tree on which this inferer infered its types
+	 * @param e The node whose type should be returned
+	 * @return The infered type of the expresion
+	 */
+	public TypeEnum getType(Expression e)
+	{
+		assert typeAnnotation.containsKey(e);
+		return typeAnnotation.get(e);
+	}
 }

@@ -2,6 +2,7 @@ package de.uka.ipd.sdq.stoex.analyser.visitors;
 
 import org.eclipse.emf.ecore.EObject;
 
+import de.uka.ipd.sdq.probfunction.print.ProbFunctionPrettyPrint;
 import de.uka.ipd.sdq.stoex.BoolLiteral;
 import de.uka.ipd.sdq.stoex.CompareExpression;
 import de.uka.ipd.sdq.stoex.CompareOperations;

@@ -11,5 +11,6 @@ public enum TypeEnum
 	ENUM_PMF,
 	BOOL_PMF,
 	DOUBLE_PDF,
-	ANY_PMF
+	ANY_PMF,
+	ANY
 }
