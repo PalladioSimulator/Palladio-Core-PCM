@@ -50,10 +50,10 @@ public class StoExTemplateCompletionProcessor extends
 	protected Template[] getTemplates(String contextTypeId) {
 		Template t = new Template("IntPMF","Creates an integer random variable",
 				STO_EX_CONTEXT_TYPE,
-				"IntPMF(unit=\"${unit}\")[(p;x)]",false);
+				"IntPMF(unit=\"${unit}\")[(x;p)]",false);
 		Template t2 = new Template("BoolPMF","Creates an boolean random variable",
 				STO_EX_CONTEXT_TYPE,
-				"BoolPMF(unit=\"bool\")[(p;true)(p;false)]",false);
+				"BoolPMF(unit=\"bool\")[(true;p)(false;p)]",false);
 
 		return new Template[]{t,t2};
 	}
