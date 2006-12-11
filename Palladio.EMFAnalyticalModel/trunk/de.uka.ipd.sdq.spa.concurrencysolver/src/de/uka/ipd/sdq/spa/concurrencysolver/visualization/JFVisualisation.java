@@ -39,7 +39,7 @@ public class JFVisualisation {
 
 	public JFVisualisation(double distance) {
 		dataset = new DefaultTableXYDataset();
-		graphFrame = new JFrame("Result: Measured Execution Time");
+		graphFrame = new JFrame("Execution Time");
 		this.distance = distance;
 	}
 
@@ -102,7 +102,7 @@ public class JFVisualisation {
 
 		plot.setBackgroundPaint(Color.white);
 
-		graphFrame.setSize(600, 400);
+		graphFrame.setSize(677, 495);
 		graphFrame
 				.setLocation(
 						(Toolkit.getDefaultToolkit().getScreenSize().width - graphFrame

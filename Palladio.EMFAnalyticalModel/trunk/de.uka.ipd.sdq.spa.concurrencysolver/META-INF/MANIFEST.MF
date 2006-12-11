@@ -14,7 +14,8 @@ Require-Bundle: de.uka.ipd.sdq.probfunction.math,
  org.eclipse.emf.query,
  org.eclipse.emf.query.ocl,
  de.uka.ipd.spq.spa.resourcemodel,
- de.uka.ipd.sdq.qnm.resultmodel
+ de.uka.ipd.sdq.qnm.resultmodel,
+ de.uka.ipd.sdq.probfunction.visualization
 Eclipse-LazyStart: true
 Export-Package: de.uka.ipd.sdq.spa.concurrencysolver
 Bundle-ClassPath: lib/lpgjavaruntime.jar,

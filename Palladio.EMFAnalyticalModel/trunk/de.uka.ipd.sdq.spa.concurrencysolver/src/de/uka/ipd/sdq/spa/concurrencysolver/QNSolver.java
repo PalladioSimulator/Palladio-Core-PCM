@@ -24,6 +24,7 @@ import de.uka.ipd.sdq.qnm.resultmodel.ResultModelFactory;
 import de.uka.ipd.sdq.qnm.resultmodel.ServiceTimeBreakDown;
 import de.uka.ipd.sdq.qnm.resultmodel.TaskResourceUsage;
 import de.uka.ipd.sdq.spa.basicsolver.operations.PDFPerformanceOps;
+import de.uka.ipd.sdq.spa.concurrencysolver.exceptions.InvalidSystemStateException;
 import de.uka.ipd.sdq.spa.concurrencysolver.qnm.helper.QNHelper;
 import de.uka.ipd.sdq.spa.resourcemodel.AbstractResourceUsage;
 import de.uka.ipd.sdq.spa.resourcemodel.CompositeResourceUsage;
@@ -77,18 +78,17 @@ public class QNSolver {
 	}
 
 	public void solve() throws ProbabilityFunctionException,
-			ConfigurationNotSetException {
-		int i = 0;
+			ConfigurationNotSetException, InvalidSystemStateException {
 		do {
-			i++;
-			System.out.println("\n\n[" + i
-					+ " iteration]----------------------------------");
 			computeResponseTimes();
 			computeAverageServiceTimes();
 			computeServiceTimeBreakDown();
 			computeContention();
 		} while (!fixPointReached());
 	}
+	
+	
+	
 
 	private boolean fixPointReached() {
 		for (Iterator iter = qnModel.getTasks().iterator(); iter.hasNext();) {
@@ -113,9 +113,6 @@ public class QNSolver {
 		for (Iterator iter = resultModel.getTaskResourceUsages().iterator(); iter
 				.hasNext();) {
 			TaskResourceUsage tru = (TaskResourceUsage) iter.next();
-
-			// System.out.println("processing (" + tru.getTask().getName() + ","
-			// + tru.getResource().getName() + ")" );
 
 			if (tru.getResource() instanceof ContentionResource) {
 				ServiceTimeBreakDown breakdown = qnHelper
@@ -143,11 +140,6 @@ public class QNSolver {
 						.getTaskServiceTime());
 				ManagedPDF waitingTimeOneLess = getWaitingTime(
 						waitQueueOneLess, tru.getTaskServiceTime());
-
-				// System.out.println(queueLength);
-//				 System.out.println(" "+waitingTime);
-				// System.out.println(queueLengthOneLess);
-//				 System.out.println(" "+waitingTimeOneLess);
 
 				tru.setQueueLength(queueLength);
 				tru.setQueueLengthOneLess(queueLengthOneLess);
@@ -216,9 +208,10 @@ public class QNSolver {
 	 * resources are used.
 	 * 
 	 * @throws ProbabilityFunctionException
+	 * @throws InvalidSystemStateException 
 	 */
 	private void computeServiceTimeBreakDown()
-			throws ProbabilityFunctionException {
+			throws ProbabilityFunctionException, InvalidSystemStateException {
 		for (Iterator iter = qnModel.getTasks().iterator(); iter.hasNext();) {
 			Task task = (Task) iter.next();
 			computeServiceTimeBreakDown(task.getResourceUsage());
@@ -230,10 +223,11 @@ public class QNSolver {
 	 * @param abstractUsage
 	 * @return
 	 * @throws ProbabilityFunctionException
+	 * @throws InvalidSystemStateException 
 	 */
 	private Hashtable<Resource, ServiceTimeBreakDown> computeServiceTimeBreakDown(
 			AbstractResourceUsage abstractUsage)
-			throws ProbabilityFunctionException {
+			throws ProbabilityFunctionException, InvalidSystemStateException {
 
 		TimeConsumption time = qnHelper.getTimeConsumptionFor(abstractUsage);
 		Hashtable<Resource, ServiceTimeBreakDown> breakdownTable = qnHelper
@@ -264,11 +258,12 @@ public class QNSolver {
 	 * @param breakdownTable
 	 * @param compUsage
 	 * @throws ProbabilityFunctionException
+	 * @throws InvalidSystemStateException 
 	 */
 	private void handleCompositeResourceUsage(TimeConsumption time,
 			Hashtable<Resource, ServiceTimeBreakDown> breakdownTable,
 			CompositeResourceUsage compUsage, double totalTime)
-			throws ProbabilityFunctionException {
+			throws ProbabilityFunctionException, InvalidSystemStateException {
 		for (Iterator iter = compUsage.getResourceUsages().iterator(); iter
 				.hasNext();) {
 			AbstractResourceUsage innerUsage = (AbstractResourceUsage) iter
@@ -294,9 +289,12 @@ public class QNSolver {
 			for (ServiceTimeBreakDown bd : breakdownTable.values()) {
 				double usageTime = bd.getUsageTime();
 				bd.setUsageProbability(usageTime / totalTime);
+				if (usageTime > totalTime)
+					throw new InvalidSystemStateException();
 			}
 		}
 	}
+
 
 	private void initialiseValues(
 			Hashtable<Resource, ServiceTimeBreakDown> breakdownTable) {
@@ -354,7 +352,6 @@ public class QNSolver {
 		// on the counter of a surrounding semaphore, no more tasks are let in!!!
 
 		TimeConsumption time = computeServiceTime(abstractUsage, task);
-		System.out.println("\nTime Consumption for: " + task.getName() +"; " + abstractUsage.getResource().getName());
 
 		if (abstractUsage.getResource() instanceof DelayResource) {
 			time.setResponseTime(time.getServiceTime()); // no queueing for
@@ -362,17 +359,10 @@ public class QNSolver {
 		} else {
 			ManagedPDF waitingTime = getWaitingTimeFor(abstractUsage
 					.getResource(), task);
-			System.out.println("WaitingTime:");
-			System.out.println(" "+waitingTime);
 			ManagedPDF responseTime = performanceOps.computeSequence(time
 					.getServiceTime(), waitingTime);
 			time.setResponseTime(responseTime);
 		}
-		System.out.println("ServiceTime:");
-		System.out.println(" "+time.getServiceTime());
-		System.out.println("ResponseTime:");
-		System.out.println(" "+time.getResponseTime());
-		
 	}
 
 	private ManagedPDF getWaitingTimeFor(Resource resource, Task task)
