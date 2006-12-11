@@ -1,12 +1,14 @@
 <workflow>
+
+	<property file='./workflows/codegen_qosa.properties'/>
 	
 	<component class="oaw.emf.XmiReader">
-		<modelFile value="C:\coding\code\Palladio.EMFComponentModel\trunk\ModelExample.QoSA06\qosa.system"/>
+		<modelFile value="${systemFile}"/>
 		<outputSlot value="pcmmodel"/>
 	</component>
 
 	<component class="oaw.emf.XmiReader">
-		<modelFile value="C:\coding\code\Palladio.EMFComponentModel\trunk\ModelExample.QoSA06\qosa.allocation"/>
+		<modelFile value="${allocationFile}"/>
 		<outputSlot value="allocation"/>
 	</component>
     
@@ -42,7 +44,7 @@
 			<metaModelPackage value="de.uka.ipd.sdq.pcm.parameter.ParameterPackage"/>
 		</metaModel>
 		<expand value="m2t_transforms::system::Root FOR pcmmodel"/>
-		<outlet path="src-gen">
+		<outlet path="${outpath}">
 			<postprocessor class="oaw.xpand2.output.JavaBeautifier"/>
 		</outlet>
 	</component>	
@@ -86,7 +88,7 @@
 			<metaModelPackage value="de.uka.ipd.sdq.pcm.parameter.ParameterPackage"/>
 		</metaModel>
 		<expand value="m2t_transforms::allocation::Root FOR allocation"/>
-		<outlet path="src-gen">
+		<outlet path="${outpath}">
 			<postprocessor class="oaw.xpand2.output.JavaBeautifier"/>
 		</outlet>
 	</component>	

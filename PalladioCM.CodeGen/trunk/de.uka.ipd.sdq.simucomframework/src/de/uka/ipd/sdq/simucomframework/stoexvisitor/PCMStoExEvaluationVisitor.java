@@ -4,6 +4,8 @@ import de.uka.ipd.sdq.pcm.parameter.CharacterisedVariable;
 import de.uka.ipd.sdq.pcm.stochasticexpressions.PCMStoExPrettyPrintVisitor;
 import de.uka.ipd.sdq.pcm.stochasticexpressions.PCMStoExSwitch;
 import de.uka.ipd.sdq.probfunction.ProbabilityFunction;
+import de.uka.ipd.sdq.simucomframework.Context;
+import de.uka.ipd.sdq.simucomframework.EvaluationProxy;
 import de.uka.ipd.sdq.simucomframework.stackframe.SimulatedStackframe;
 import de.uka.ipd.sdq.simucomframework.stackframe.ValueNotInFrameException;
 import de.uka.ipd.sdq.stoex.AbstractNamedReference;
@@ -39,7 +41,13 @@ public class PCMStoExEvaluationVisitor extends PCMStoExSwitch {
 	public Object caseCharacterisedVariable(CharacterisedVariable object) {
 		String variableID = (String)printVisitor.caseCharacterisedVariable(object);
 		try {
-			return this.myStackFrame.getValue(variableID);
+			Object value = this.myStackFrame.getValue(variableID); 
+			if (value instanceof EvaluationProxy) {
+				EvaluationProxy proxy = (EvaluationProxy)value;
+				return Context.evaluate(proxy.getStoEx(), proxy.getStackFrame());
+			} else {
+				return value;
+			}
 		} catch (ValueNotInFrameException e) {
 			e.printStackTrace();
 		}

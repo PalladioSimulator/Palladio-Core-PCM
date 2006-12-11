@@ -1,12 +1,14 @@
 <workflow>
+
+	<property file='./workflows/codegen_qosa.properties'/>
 	
 	<component class="oaw.emf.XmiReader">
-		<modelFile value="C:\coding\code\Palladio.EMFComponentModel\trunk\ModelExample.QoSA06\qosa.usagemodel"/>
+		<modelFile value="${usageFile}"/>
 		<outputSlot value="pcmmodel"/>
 	</component>
  	
  	<component class="oaw.emf.XmiReader">
-		<modelFile value="C:\coding\code\Palladio.EMFComponentModel\trunk\ModelExample.QoSA06\qosa.allocation"/>
+		<modelFile value="${allocationFile}"/>
 		<outputSlot value="allocation"/>
 	</component>
 	   
@@ -43,13 +45,16 @@
 		</metaModel>		
 		<metaModel id="pcm.core.composition.emf" class="oaw.type.emf.EmfMetaModel">
 			<metaModelPackage value="de.uka.ipd.sdq.pcm.parameter.ParameterPackage"/>
+		</metaModel>		
+		<metaModel id="pcm.core.qosannotations.emf" class="oaw.type.emf.EmfMetaModel">
+			<metaModelPackage value="de.uka.ipd.sdq.pcm.qosannotations.QosannotationsPackage"/>
 		</metaModel>
 		<expand value="m2t_transforms::usage::UsageModel(allocation) FOR pcmmodel"/>
-		<outlet path="src-gen">
-		</outlet>
+		<outlet path="${outpath}">
+			</outlet>
 		<beautifier class="org.hybridlabs.source.formatter.JavaImportBeautifier"
-		organizeImports="true"
-		format="true"/>	
+			organizeImports="true"
+			format="true"/>	
 	</component>	
 
 	<component adviceTarget="generator" id="reflectionAdvice" class="oaw.xpand2.GeneratorAdvice">

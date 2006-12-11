@@ -32,4 +32,19 @@ public class SimulatedStackframe <T> {
 			return parentFrame.getValue(id);
 		throw new ValueNotInFrameException("Identifier "+id+" not found in stackframe!");
 	}
+	
+	public SimulatedStackframe<T> copyFrame()
+	{
+		SimulatedStackframe<T> copy = new SimulatedStackframe<T>();
+		for (String key : this.contents.keySet()) {
+			copy.addValue(key, contents.get(key));
+		}
+		if (parentFrame != null)
+			copy.setParentFrame(parentFrame.copyFrame());
+		return copy;
+	}
+
+	private void setParentFrame(SimulatedStackframe<T> frame) {
+		this.parentFrame = frame;
+	}
 }

@@ -14,17 +14,17 @@
 		
 		public class «this.dummyComponentName()» 
 		implements «this.requiredInterface__RequiredRole.javaName()» {
-			«EXPAND DummyMethod(s) FOREACH this.requiredInterface__RequiredRole.signatures__Interface»
+			«EXPAND DummyMethod(s,this) FOREACH this.requiredInterface__RequiredRole.signatures__Interface»
 		}
 	«ENDFILE»
 «ENDDEFINE»
 
-«DEFINE DummyMethod(System s) FOR Signature»
+«DEFINE DummyMethod(System s, RequiredRole r) FOR Signature»
 	public «EXPAND m2t_transforms::java_core::Signature FOR this» {
-		«EXPAND DummyMethodBodyTM FOR this»
+		«EXPAND DummyMethodBodyTM(s,r) FOR this»
 	}
 «ENDDEFINE»
 
-«DEFINE DummyMethodBodyTM FOR Signature»
+«DEFINE DummyMethodBodyTM(System s,RequiredRole r) FOR Signature»
 	// No implementation provided yet
 «ENDDEFINE»

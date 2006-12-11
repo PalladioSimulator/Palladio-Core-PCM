@@ -39,7 +39,7 @@ public abstract class Context {
 		return evaluate(string,stack.currentStackFrame());
 	}
 	
-	public Object evaluate(String string, SimulatedStackframe currentFrame) {
+	public static Object evaluate(String string, SimulatedStackframe currentFrame) {
 		StochasticExpressionsLexer lexer = new StochasticExpressionsLexer(
 				new StringReader(string));
 		Expression formula = null;

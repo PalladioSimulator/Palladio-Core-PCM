@@ -48,3 +48,13 @@ getID(NamespaceReference nsr):
 
 parameterUsageLHS(VariableUsage vu) :
   vu.namedReference_VariableUsage.getID();
+  
+isInnerReference(VariableReference vr) :
+  vr.referenceName == "INNER";
+
+isInnerReference(AbstractNamedReference nsr):
+  false;
+  
+isInnerReference(NamespaceReference nsr):
+  nsr.referenceName == "INNER" || nsr.innerReference_NamespaceReference.isInnerReference();
+  

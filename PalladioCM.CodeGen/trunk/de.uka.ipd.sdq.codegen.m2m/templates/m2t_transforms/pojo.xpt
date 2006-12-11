@@ -4,7 +4,6 @@
    // POJO code for BasicComponent «this.entityName»
    // Mapping Component->POJOComponent
    «EXPAND m2t_transforms::java_core::ClassHeader FOR this»
-   «EXPAND m2t_transforms::java_core::ImplementsStatement FOR this»
    {
    }
 «ENDDEFINE»

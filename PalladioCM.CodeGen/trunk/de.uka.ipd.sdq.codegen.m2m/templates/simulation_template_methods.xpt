@@ -9,6 +9,7 @@
 «IMPORT resourcetype»
 «IMPORT allocation»
 «IMPORT parameter»
+«IMPORT qosannotations»
 
 «AROUND m2t_transforms::repository::ProvidesComponentTypeTM FOR ProvidesComponentType»
    «EXPAND m2t_transforms::java_core::ComponentImplementation FOR this»
@@ -75,8 +76,13 @@
 	«FOREACH parameterUsages AS pu»
 		«LET pu.parameterUsageLHS() AS lhs_prefix»
 			«FOREACH pu.variableCharacterisation_VariableUsage AS vc»
-				stackframe.addValue("«lhs_prefix+'.'+vc.type.toString()»",
-				   	ctx.evaluate("«vc.specification.javaString()»",currentFrame));
+				«IF pu.namedReference_VariableUsage.isInnerReference()»
+					stackframe.addValue("«lhs_prefix+'.'+vc.type.toString()»",
+					   	new de.uka.ipd.sdq.simucomframework.EvaluationProxy("«vc.specification.javaString()»",currentFrame.copyFrame()));
+				«ELSE»
+					stackframe.addValue("«lhs_prefix+'.'+vc.type.toString()»",
+					   	ctx.evaluate("«vc.specification.javaString()»",currentFrame));
+				«ENDIF»
 			«ENDFOREACH»
 		«ENDLET»
 	«ENDFOREACH» 
@@ -91,4 +97,13 @@
  	ctx.getStack().removeStackFrame();
 	}
 	// END Simulate an external call
+«ENDAROUND»
+
+«AROUND DummyMethodBodyTM(System s,RequiredRole r) FOR Signature»
+	«LET s.qosAnnotations_System.specifiedExecutionTimes_QoSAnnotations.select(spet|spet.role_SpecifiedExecutionTime==r && spet.signature_SpecifiedTimeConsumption==this) AS annotations»
+		«IF annotations.size == 1»
+			double delay = (Double)ctx.evaluate("«annotations.get(0).specification.javaString()»");
+			ctx.getThread().hold(new desmoj.core.simulator.SimTime(delay));
+		«ENDIF»
+	«ENDLET»
 «ENDAROUND»

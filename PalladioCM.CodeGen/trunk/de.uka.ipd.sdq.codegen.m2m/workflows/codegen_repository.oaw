@@ -1,36 +1,12 @@
 <workflow>
 	
+	<property file='./workflows/codegen_qosa.properties'/>
+	
 	<component class="oaw.emf.XmiReader">
-		<modelFile value="C:\coding\code\Palladio.EMFComponentModel\trunk\ModelExample.QoSA06\Qosa.repository"/>
+		<modelFile value="${repositoryFile}"/>
 		<outputSlot value="pcmmodel"/>
 	</component>
     
-    <!--
-	<component class="oaw.xtend.XtendComponent">
-	    <metaModel id="pcm.repository.emf" class="oaw.type.emf.EmfMetaModel">
-			<metaModelPackage value="de.uka.ipd.sdq.pcm.repository.RepositoryPackage"/>
-		</metaModel>
-	    <metaModel id="pcm.seff.emf" class="oaw.type.emf.EmfMetaModel">
-			<metaModelPackage value="de.uka.ipd.sdq.pcm.seff.SeffPackage"/>
-		</metaModel>
-	    <metaModel id="codegen.emf" class="oaw.type.emf.EmfMetaModel">
-			<metaModelPackage value="de.uka.ipd.sdq.codegen.CodegenPackage"/>
-		</metaModel>
-	    <metaModel id="codegen.sim.emf" class="oaw.type.emf.EmfMetaModel">
-			<metaModelPackage value="de.uka.ipd.sdq.codegensim.CodegensimPackage"/>
-		</metaModel>	   
-	    <metaModel id="codegen.pojo.emf" class="oaw.type.emf.EmfMetaModel">
-			<metaModelPackage value="de.uka.ipd.sdq.codegenpojo.CodegenpojoPackage"/>
-		</metaModel>	   
-		<invoke value="m2m_transforms::pcm2code_main::transform(pcmmodel)"/>
-	   <outputSlot value="codegenmodel"/>
-	</component>
-	
-	<component id="xmiWriter" class="oaw.emf.XmiWriter">
-		<inputSlot value="codegenmodel"/>
-		<modelFile value="test.codegen"/>
-	</component> 
-	-->
 	<component
 		class="org.openarchitectureware.check.CheckComponent">
 	    <metaModel id="pcm.repository.emf" class="oaw.type.emf.EmfMetaModel">
@@ -99,11 +75,11 @@
 			<metaModelPackage value="de.uka.ipd.sdq.pcm.parameter.ParameterPackage"/>
 		</metaModel>
 		<expand value="m2t_transforms::repository::Root FOR pcmmodel"/>
-		<outlet path="src-gen">
-		</outlet>
-	    <beautifier class="org.hybridlabs.source.formatter.JavaImportBeautifier"
-		organizeImports="true"
-		format="true"/>	
+			<outlet path="${outpath}">
+			</outlet>
+	    	<beautifier class="org.hybridlabs.source.formatter.JavaImportBeautifier"
+				organizeImports="true"
+				format="true"/>	
 	</component>	
 	
 	<component adviceTarget="generator" id="reflectionAdvice" class="oaw.xpand2.GeneratorAdvice">
