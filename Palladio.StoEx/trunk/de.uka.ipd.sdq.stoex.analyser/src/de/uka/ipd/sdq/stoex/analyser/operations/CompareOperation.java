@@ -56,25 +56,6 @@ public abstract class CompareOperation {
 		return 0.0;
 	}
 	
-	public double allSamplingPointsEqual(IProbabilityMassFunction left, IProbabilityMassFunction right){
-		List leftSamples = left.getSamples();
-		List rightSamples = right.getSamples();
-
-		if (leftSamples.size() != rightSamples.size())
-			return 0.0;
-
-		for (int i = 0; i < leftSamples.size(); i++) {
-			Sample leftSample = (Sample) leftSamples.get(i);
-			Sample rightSample = (Sample) rightSamples.get(i);
-
-			if (leftSample.getProbability() != rightSample.getProbability()
-					|| leftSample.getValue() != rightSample.getValue()) {
-				return 0.0;
-			}
-		}
-		return 1.0;
-	}
-	
 	public double getProbabilitySumUntil(IProbabilityMassFunction iPMF,
 			double value, boolean includeValue) {
 		double probabilitySum = 0.0;
@@ -95,4 +76,44 @@ public abstract class CompareOperation {
 
 		return 0.0;
 	}
+	
+	/**
+	 * @param left
+	 * @param right
+	 * @return
+	 */
+	public double comparePointWise(IProbabilityMassFunction left, 
+			IProbabilityMassFunction right, CompareOperation op) {
+		List<ISample> samplingPointsLeft = left.getSamples();
+		List<ISample> samplingPointsRight = right.getSamples();
+		double probabilitySum = 0.0;
+		for (ISample leftSamplingPoint : samplingPointsLeft){
+			Number leftNumber = getNumberFromSamplingPoint(leftSamplingPoint);
+			for(ISample rightSamplingPoint : samplingPointsRight){
+				Number rightNumber = getNumberFromSamplingPoint(rightSamplingPoint);
+
+				// ok, we have to get a boolPMF to stay consistent with the interface
+				IProbabilityMassFunction boolPMF = op.compare(leftNumber
+						.doubleValue(), rightNumber.doubleValue());
+				double trueProb = (Double) boolPMF.getSamples().get(1).getProbability();
+				if (trueProb == 1.0) {
+					probabilitySum += 
+						leftSamplingPoint.getProbability() * rightSamplingPoint.getProbability();
+				}
+			}
+		}
+		return probabilitySum;
+	}
+
+	/**
+	 * @param leftSamplingPoint
+	 */
+	private Number getNumberFromSamplingPoint(ISample leftSamplingPoint) {
+		Object leftValue = leftSamplingPoint.getValue();
+		if (leftValue instanceof Number){
+			return (Number)leftValue;
+		} else
+			throw new UnsupportedOperationException();
+	}
+	
 }

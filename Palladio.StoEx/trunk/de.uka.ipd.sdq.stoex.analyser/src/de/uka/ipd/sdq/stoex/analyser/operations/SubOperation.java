@@ -20,7 +20,7 @@ public class SubOperation implements TermProductOperation {
 
 	public IProbabilityMassFunction compute(IProbabilityMassFunction left,
 			double right) throws DomainNotNumbersException {
-		return left.shiftValues(-right);
+		return left.shiftDomain(-right);
 	}
 
 	public IProbabilityMassFunction compute(IProbabilityMassFunction left,
@@ -30,6 +30,10 @@ public class SubOperation implements TermProductOperation {
 
 	public IProbabilityDensityFunction compute(IProbabilityDensityFunction leftPDF, IProbabilityDensityFunction rightPDF) throws FunctionsInDifferenDomainsException, UnknownPDFTypeException, IncompatibleUnitsException {
 		return leftPDF.sub(rightPDF);
+	}
+
+	public IProbabilityDensityFunction compute(IProbabilityDensityFunction left, double right) throws DomainNotNumbersException {
+		return left.shiftDomain(-right);
 	}
 
 }

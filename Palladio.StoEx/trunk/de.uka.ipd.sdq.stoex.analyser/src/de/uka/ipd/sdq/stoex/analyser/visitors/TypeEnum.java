@@ -10,5 +10,6 @@ public enum TypeEnum
 	DOUBLE_PMF,
 	ENUM_PMF,
 	BOOL_PMF,
-	DOUBLE_PDF
+	DOUBLE_PDF,
+	ANY_PMF
 }

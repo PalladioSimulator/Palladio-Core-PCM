@@ -10,7 +10,9 @@ import de.uka.ipd.sdq.probfunction.ProbfunctionFactory;
 import de.uka.ipd.sdq.probfunction.math.IProbabilityDensityFunction;
 import de.uka.ipd.sdq.probfunction.math.IProbabilityFunctionFactory;
 import de.uka.ipd.sdq.probfunction.math.IProbabilityMassFunction;
+import de.uka.ipd.sdq.probfunction.math.ISample;
 import de.uka.ipd.sdq.probfunction.math.exception.DifferentDomainsException;
+import de.uka.ipd.sdq.probfunction.math.exception.DomainNotNumbersException;
 import de.uka.ipd.sdq.probfunction.math.exception.DoubleSampleException;
 import de.uka.ipd.sdq.probfunction.math.exception.FunctionNotInTimeDomainException;
 import de.uka.ipd.sdq.probfunction.math.exception.FunctionsInDifferenDomainsException;
@@ -200,7 +202,7 @@ public class ExpressionSolveVisitor extends StoexSwitch {
 	private Object handleComparison(Expression left, Expression right,
 			CompareOperation op) {
 		IProbabilityMassFunction iPMF = null;
-		
+
 		if (isIntDouble(left) && isIntDouble(right))
 			iPMF = op.compare(extractDoubleFromLiteral(left),
 					extractDoubleFromLiteral(right));
@@ -227,6 +229,16 @@ public class ExpressionSolveVisitor extends StoexSwitch {
 	 */
 	private Expression handleComputation(TypeEnum exprType, Expression left,
 			Expression right, TermProductOperation op) {
+
+		if (exprType == TypeEnum.ANY_PMF){
+			if (left instanceof ProbabilityFunctionLiteral){
+				exprType = resolveActualType(exprType, left);
+			} else if (right instanceof ProbabilityFunctionLiteral){
+				exprType = resolveActualType(exprType, right);
+			} else 
+				throw new UnsupportedOperationException();
+		}
+		
 		switch (exprType) {
 		case INT:
 			return handle(extractIntFromLiteral(left),
@@ -234,6 +246,8 @@ public class ExpressionSolveVisitor extends StoexSwitch {
 		case DOUBLE:
 			return handle(extractDoubleFromLiteral(left),
 					extractDoubleFromLiteral(right), op);
+		case ANY_PMF:
+			throw new UnsupportedOperationException();
 		case INT_PMF:
 			if (left instanceof IntLiteral && right instanceof IntLiteral){
 				// this case can happen because the 
@@ -269,12 +283,58 @@ public class ExpressionSolveVisitor extends StoexSwitch {
 			} else 
 				throw new UnsupportedOperationException();
 		case DOUBLE_PDF:
-			if (left instanceof ProbabilityFunctionLiteral
-					&& right instanceof ProbabilityFunctionLiteral){
-				return handle(extractIPDFFromLiteral(left),extractIPDFFromLiteral(right), op);
-			}
+			if (left instanceof ProbabilityFunctionLiteral){
+				if (right instanceof IntLiteral){
+					return handle(extractIPDFFromLiteral(left), extractIntFromLiteral(right), op);
+				} else if (right instanceof DoubleLiteral){
+					return handle(extractIPDFFromLiteral(left), extractDoubleFromLiteral(right), op);
+				} else if (right instanceof ProbabilityFunctionLiteral){
+					return handle(extractIPDFFromLiteral(left),extractIPDFFromLiteral(right), op);
+				} else
+					throw new UnsupportedOperationException();
+			} else if (right instanceof ProbabilityFunctionLiteral){
+				if (left instanceof IntLiteral){
+					return handle(extractIPDFFromLiteral(right), extractIntFromLiteral(left), op);	
+				} else if (left instanceof DoubleLiteral){
+					return handle(extractIPDFFromLiteral(right), extractDoubleFromLiteral(left), op);
+				} else
+					throw new UnsupportedOperationException();
+			} else
+				throw new UnsupportedOperationException();
 		}
 		return null;
+	}
+
+	private Expression handle(IProbabilityDensityFunction iLeftPDF, double right, TermProductOperation op) {
+		IProbabilityDensityFunction resultIPDF = null;
+
+		try {
+			resultIPDF = op.compute(iLeftPDF, right);
+		} catch (DomainNotNumbersException e) {
+			logger.error("Calculation with PDF and Literal failed!");
+			e.printStackTrace();
+		}
+
+		logger.debug("Result: "+resultIPDF.toString());
+
+		return createLiteralForIPDF(resultIPDF);
+	}
+
+	/**
+	 * @param exprType
+	 * @param expr
+	 * @return
+	 */
+	private TypeEnum resolveActualType(TypeEnum exprType, Expression expr) {
+		IProbabilityMassFunction iPMF = extractIPMFFromLiteral(expr);
+		ISample samplePoint = iPMF.getSamples().get(0);
+		
+		if (samplePoint.getValue() instanceof Integer){
+			exprType = TypeEnum.INT_PMF;
+		} else if (samplePoint.getValue() instanceof Double){
+			exprType = TypeEnum.DOUBLE_PMF;
+		}
+		return exprType;
 	}
 
 	/**

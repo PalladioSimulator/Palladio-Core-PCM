@@ -21,14 +21,7 @@ public class GreaterOperation extends CompareOperation {
 
 	public IProbabilityMassFunction compare(IProbabilityMassFunction left,
 			IProbabilityMassFunction right) {
-		int numberOfSamples = right.getSamples().size();
-		Object lastValueRight = right.getSamples().get(numberOfSamples-1).getValue();
-		if (lastValueRight instanceof Number){
-			Number lastValueRightNumber = (Number)lastValueRight;
-			double prob = getProbabilitySumUntil(left, lastValueRightNumber.doubleValue(), true);
-			return getBoolPMF(1-prob);
-		} else
-			throw new UnsupportedOperationException();
+		return getBoolPMF(comparePointWise(left, right, this));
 	}
 
 }

@@ -1,6 +1,9 @@
 package de.uka.ipd.sdq.stoex.analyser.operations;
 
+import java.util.List;
+
 import de.uka.ipd.sdq.probfunction.math.IProbabilityMassFunction;
+import de.uka.ipd.sdq.probfunction.math.ISample;
 
 public class GreaterEqualOperation extends CompareOperation {
 
@@ -21,14 +24,20 @@ public class GreaterEqualOperation extends CompareOperation {
 
 	public IProbabilityMassFunction compare(IProbabilityMassFunction left,
 			IProbabilityMassFunction right) {
-		int numberOfSamples = right.getSamples().size();
-		Object lastValueRight = right.getSamples().get(numberOfSamples-1).getValue();
-		if (lastValueRight instanceof Number){
-			Number lastValueRightNumber = (Number)lastValueRight;
-			double prob = getProbabilitySumUntil(left, lastValueRightNumber.doubleValue(), false);
-			return getBoolPMF(1-prob);
-		} else
-			throw new UnsupportedOperationException();
+		return getBoolPMF(comparePointWise(left, right, this));
+		
+		
+		
+//		int numberOfSamples = right.getSamples().size();
+//		Object lastValueRight = right.getSamples().get(numberOfSamples-1).getValue();
+//		if (lastValueRight instanceof Number){
+//			Number lastValueRightNumber = (Number)lastValueRight;
+//			double prob = getProbabilitySumUntil(left, lastValueRightNumber.doubleValue(), false);
+//			return getBoolPMF(1-prob);
+//		} else
+//			throw new UnsupportedOperationException();
 	}
+
+
 
 }

@@ -20,7 +20,7 @@ public class MultOperation implements TermProductOperation {
 
 	public IProbabilityMassFunction compute(IProbabilityMassFunction left,
 			double right) throws DomainNotNumbersException {
-		return left.stretchValues(right);
+		return left.stretchDomain(right);
 	}
 
 	public IProbabilityMassFunction compute(IProbabilityMassFunction left,
@@ -30,6 +30,10 @@ public class MultOperation implements TermProductOperation {
 
 	public IProbabilityDensityFunction compute(IProbabilityDensityFunction leftPDF, IProbabilityDensityFunction rightPDF) throws FunctionsInDifferenDomainsException, UnknownPDFTypeException, IncompatibleUnitsException {
 		return leftPDF.mult(rightPDF);
+	}
+
+	public IProbabilityDensityFunction compute(IProbabilityDensityFunction left, double right) throws DomainNotNumbersException {
+		return left.stretchDomain(right);
 	}
 
 }

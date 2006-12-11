@@ -25,4 +25,8 @@ public interface TermProductOperation {
 			IProbabilityDensityFunction rightPDF)
 			throws FunctionsInDifferenDomainsException,
 			UnknownPDFTypeException, IncompatibleUnitsException;
+
+	public IProbabilityDensityFunction compute(
+			IProbabilityDensityFunction left, double right)
+			throws DomainNotNumbersException;
 }

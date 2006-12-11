@@ -21,13 +21,7 @@ public class LessOperation extends CompareOperation {
 
 	public IProbabilityMassFunction compare(IProbabilityMassFunction left,
 			IProbabilityMassFunction right) {
-		Object firstValueRight = right.getSamples().get(0).getValue();
-		if (firstValueRight instanceof Number){
-			Number firstValueRightNumber = (Number)firstValueRight;
-			double prob = getProbabilitySumUntil(left, firstValueRightNumber.doubleValue(), false);
-			return getBoolPMF(prob);
-		} else
-			throw new UnsupportedOperationException();
+		return getBoolPMF(comparePointWise(left, right, this));
 	}
 
 }

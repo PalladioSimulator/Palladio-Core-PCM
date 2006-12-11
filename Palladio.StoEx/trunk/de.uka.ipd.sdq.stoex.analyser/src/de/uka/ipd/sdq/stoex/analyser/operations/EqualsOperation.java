@@ -23,7 +23,7 @@ public class EqualsOperation extends CompareOperation {
 
 	public IProbabilityMassFunction compare(IProbabilityMassFunction left,
 			IProbabilityMassFunction right) {
-		return getBoolPMF(allSamplingPointsEqual(left, right));
+		return getBoolPMF(comparePointWise(left, right, this));
 	}
 
 	public IProbabilityMassFunction compare(double left,

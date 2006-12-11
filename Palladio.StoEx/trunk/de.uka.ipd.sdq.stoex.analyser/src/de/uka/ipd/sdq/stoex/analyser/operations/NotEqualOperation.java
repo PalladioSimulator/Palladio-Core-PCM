@@ -22,6 +22,6 @@ public class NotEqualOperation extends CompareOperation {
 
 	public IProbabilityMassFunction compare(IProbabilityMassFunction left,
 			IProbabilityMassFunction right) {
-		return getBoolPMF(1-allSamplingPointsEqual(left, right));
+		return getBoolPMF(comparePointWise(left, right, this));
 	}
 }

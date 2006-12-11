@@ -126,7 +126,7 @@ public class ExpressionInferTypeVisitor extends StoexSwitch {
 	}
 	
 	public Object caseVariable(Variable var){
-		logger.debug("Found variable: " + var.getId_Variable());
+		//logger.debug("Found variable: " + var.getId_Variable());
 		if (var instanceof CharacterisedVariable) {
 			CharacterisedVariable chVar = (CharacterisedVariable) var;
 			VariableCharacterisationType chType = chVar
@@ -135,12 +135,12 @@ public class ExpressionInferTypeVisitor extends StoexSwitch {
 			if (chTypeString.equals("VALUE") 
 			 || chTypeString.equals("DATATYPE")
 			 || chTypeString.equals("STRUCTURE")) {
-				typeAnnotation.put(var, TypeEnum.ENUM_PMF);
-				logger.debug("Inferred to ENUM_PMF");
+				typeAnnotation.put(var, TypeEnum.ANY_PMF);
+				//logger.debug("Inferred to ENUM_PMF");
 			} else if (chTypeString.equals("NUMBER_OF_ELEMENTS")
 					|| chTypeString.equals("BYTESIZE")) {
 				typeAnnotation.put(var, TypeEnum.INT_PMF);
-				logger.debug("Inferred to INT_PMF");
+				//logger.debug("Inferred to INT_PMF");
 			}
 		}
 		return var;
@@ -173,12 +173,15 @@ public class ExpressionInferTypeVisitor extends StoexSwitch {
 			typeAnnotation.put(expr, TypeEnum.DOUBLE);
 		} else if (isDoubleIntPMF(leftType) && isDoubleIntPMF(rightType)){
 			typeAnnotation.put(expr, TypeEnum.DOUBLE_PMF);
+		} else if (isDoubleIntAnyPMF(leftType) && isDoubleIntAnyPMF(rightType)) {
+			typeAnnotation.put(expr, TypeEnum.ANY_PMF);
 		} else if (isDoubleIntPDF(leftType) && isDoubleIntPDF(rightType)){
 			typeAnnotation.put(expr, TypeEnum.DOUBLE_PDF);
 		} else {
 			throw new UnsupportedOperationException();
 		}
 	}
+
 
 	/**
 	 * @param expr
@@ -207,6 +210,15 @@ public class ExpressionInferTypeVisitor extends StoexSwitch {
 			 || type == TypeEnum.DOUBLE_PMF);
 	
 	}
+	
+	private boolean isDoubleIntAnyPMF(TypeEnum type) {
+		return (type == TypeEnum.DOUBLE 
+				 || type == TypeEnum.INT
+				 || type == TypeEnum.INT_PMF 
+				 || type == TypeEnum.DOUBLE_PMF
+				 || type == TypeEnum.ANY_PMF);
+	}
+
 
 	private boolean isDoubleIntPDF(TypeEnum type) {
 		return (type == TypeEnum.DOUBLE 

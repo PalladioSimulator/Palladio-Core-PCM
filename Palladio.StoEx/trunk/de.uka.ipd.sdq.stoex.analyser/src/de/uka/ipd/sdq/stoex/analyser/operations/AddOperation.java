@@ -24,7 +24,7 @@ public class AddOperation implements TermProductOperation {
 	}
 
 	public IProbabilityMassFunction compute(IProbabilityMassFunction left, double right) throws DomainNotNumbersException {
-		return left.shiftValues(right);
+		return left.shiftDomain(right);
 	}
 
 	public IProbabilityDensityFunction compute(
@@ -33,6 +33,10 @@ public class AddOperation implements TermProductOperation {
 			throws FunctionsInDifferenDomainsException,
 			UnknownPDFTypeException, IncompatibleUnitsException {
 		return leftPDF.add(rightPDF);
+	}
+
+	public IProbabilityDensityFunction compute(IProbabilityDensityFunction left, double right) throws DomainNotNumbersException {
+		return left.shiftDomain(right);
 	}
 
 }
