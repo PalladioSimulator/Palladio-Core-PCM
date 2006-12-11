@@ -240,10 +240,10 @@ numeric_int_sample returns [Sample s]
 		LPAREN
 			{s = ProbfunctionFactory.eINSTANCE.createSample();} 
 			n:NUMBER
-			{s.setValue(Integer.parseInt(n2.getText()));} 
+			{s.setValue(Integer.parseInt(n.getText()));} 
 			SEMI 
 			n2:NUMBER 
-			{s.setProbability(Double.parseDouble(n.getText()));} 
+			{s.setProbability(Double.parseDouble(n2.getText()));} 
 			RPAREN;
 		
 numeric_real_sample returns [Sample s]
@@ -251,10 +251,10 @@ numeric_real_sample returns [Sample s]
 		LPAREN
 			{s = ProbfunctionFactory.eINSTANCE.createSample();} 
 			n:NUMBER
-			{s.setValue(Double.parseDouble(n2.getText()));} 
+			{s.setValue(Double.parseDouble(n.getText()));} 
 			SEMI 
 			n2:NUMBER 
-			{s.setProbability(Double.parseDouble(n.getText()));} 
+			{s.setProbability(Double.parseDouble(n2.getText()));} 
 			RPAREN;
 			
 real_pdf_sample returns [ContinuousSample s]
