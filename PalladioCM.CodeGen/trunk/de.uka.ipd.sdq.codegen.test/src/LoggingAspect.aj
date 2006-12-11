@@ -9,7 +9,7 @@ public aspect LoggingAspect {
     	return result;
     }
     
-    pointcut myClass(): within(*.impl.*);
+    pointcut myClass(): within(*.impkkl.*);
     pointcut myRunner(): execution(* scenarioRunner(..));
 	/**
      * The methods of those classes.

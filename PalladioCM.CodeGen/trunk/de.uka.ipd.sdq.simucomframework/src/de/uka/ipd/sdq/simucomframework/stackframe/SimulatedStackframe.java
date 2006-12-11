@@ -1,6 +1,8 @@
 package de.uka.ipd.sdq.simucomframework.stackframe;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map.Entry;
 
 public class SimulatedStackframe <T> {
 	
@@ -46,5 +48,23 @@ public class SimulatedStackframe <T> {
 
 	private void setParentFrame(SimulatedStackframe<T> frame) {
 		this.parentFrame = frame;
+	}
+	
+	public ArrayList<Entry<String,T>> getContents()
+	{
+		return getContentsRecursive(new HashMap<String, T>());
+	}
+	
+	private ArrayList<Entry<String,T>> getContentsRecursive(HashMap<String,T> alreadyFound) {
+		ArrayList<Entry<String,T>> result = new ArrayList<Entry<String,T>>();
+		for (Entry<String,T> e : contents.entrySet()) {
+			if (!alreadyFound.containsKey(e.getKey())) {
+				alreadyFound.put(e.getKey(),e.getValue());
+				result.add(e);
+			}
+		}
+		if (parentFrame != null)
+			result.addAll(parentFrame.getContentsRecursive(alreadyFound));
+		return result;
 	}
 }

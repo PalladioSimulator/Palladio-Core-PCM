@@ -34,11 +34,26 @@
    import desmoj.core.simulator.SimProcess;
 «ENDAROUND»
 
+«AROUND m2t_transforms::seff::Action FOR CollectionIteratorAction»
+   for (int iterationCount = 0, maxIterationCount = (Integer)ctx.evaluate("«this.parameter_CollectionIteratorAction.parameterName».NUMBER_OF_ELEMENTS",Integer.class); 
+            iterationCount < maxIterationCount; iterationCount++){
+       	de.uka.ipd.sdq.simucomframework.stackframe.SimulatedStackframe loopFrame = ctx.getStack().createAndPushNewStackFrame(ctx.getStack().currentStackFrame());
+       	ctx.evaluateInner(loopFrame, "«this.parameter_CollectionIteratorAction.parameterName».INNER");
+
+       «EXPAND m2t_transforms::java_core::Actions FOR this.bodyBehaviour_Loop.steps_Behaviour.findStart()»
+	   ctx.getStack().removeStackFrame();
+   } 
+«ENDAROUND»
+
 «AROUND m2t_transforms::seff::Action FOR LoopAction»
-   for (int iterationCount = 0, maxIterationCount = (Integer)ctx.evaluate("«this.iterations_LoopAction.specification.javaString()»"); 
+   for (int iterationCount = 0, maxIterationCount = (Integer)ctx.evaluate("«this.iterations_LoopAction.specification.javaString()»",Integer.class); 
             iterationCount < maxIterationCount; iterationCount++){
        «EXPAND m2t_transforms::java_core::Actions FOR this.bodyBehaviour_Loop.steps_Behaviour.findStart()»
    } 
+«ENDAROUND»
+
+«AROUND m2t_transforms::seff::Action FOR BranchAction»
+	«EXPAND m2t_transforms::sim::Branch FOR this»
 «ENDAROUND»
 
 «AROUND m2t_transforms::seff::Action FOR InternalAction»

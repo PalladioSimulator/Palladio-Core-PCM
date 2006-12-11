@@ -8,7 +8,7 @@
 «DEFINE ResourceDemands FOR AbstractResourceDemandingAction»
    «FOREACH this.resourceDemand_Action AS resDemand»
    {
-      double demand = (Double) ctx.evaluate("«resDemand.specification.javaString()»");
+      double demand = (Double) ctx.evaluate("«resDemand.specification.javaString()»",Double.class);
       ctx.findResource(this.assemblyContextID).loadActiveResource(ctx.getThread(),"«resDemand.requiredResource_ParametricResourceDemand.entityName»",demand);
    }
    «ENDFOREACH»

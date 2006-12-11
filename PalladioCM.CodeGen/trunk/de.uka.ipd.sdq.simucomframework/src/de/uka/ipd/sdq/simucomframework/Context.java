@@ -1,7 +1,9 @@
 package de.uka.ipd.sdq.simucomframework;
 
 import java.io.StringReader;
+import java.util.Collection;
 import java.util.HashMap;
+import java.util.Map.Entry;
 
 import antlr.RecognitionException;
 import antlr.TokenStreamException;
@@ -12,7 +14,9 @@ import de.uka.ipd.sdq.simucomframework.resources.SimulatedResourceContainer;
 import de.uka.ipd.sdq.simucomframework.stackframe.SimulatedStack;
 import de.uka.ipd.sdq.simucomframework.stackframe.SimulatedStackframe;
 import de.uka.ipd.sdq.simucomframework.stoexvisitor.PCMStoExEvaluationVisitor;
+import de.uka.ipd.sdq.simucomframework.stoexvisitor.SimulationExpressionInferTypeVisitor;
 import de.uka.ipd.sdq.stoex.Expression;
+import de.uka.ipd.sdq.stoex.analyser.visitors.ExpressionInferTypeVisitor;
 import de.uka.ipd.sdq.stoex.parser.StochasticExpressionsLexer;
 import desmoj.core.simulator.SimProcess;
 
@@ -35,6 +39,17 @@ public abstract class Context {
 		initialiseAssemblyContextLookup();
 	}
 
+	public Object evaluate(String string, Class expectedType) {
+		Object result = evaluate(string,stack.currentStackFrame());
+		if (expectedType.isInstance(result))
+			return result;
+		if (expectedType == Double.class && result.getClass() == Integer.class)
+			return ((Integer)result).doubleValue();
+		throw new UnsupportedOperationException("Evaluation result is of type "+result.getClass().getCanonicalName()+
+				" but expected was "+expectedType.getCanonicalName()+ " and no conversion was available...");
+	}
+
+	
 	public Object evaluate(String string) {
 		return evaluate(string,stack.currentStackFrame());
 	}
@@ -43,10 +58,11 @@ public abstract class Context {
 		StochasticExpressionsLexer lexer = new StochasticExpressionsLexer(
 				new StringReader(string));
 		Expression formula = null;
-		int result = 1;
 		try {
 			formula = new PCMStoExParser(lexer).expression();
-			return new PCMStoExEvaluationVisitor(currentFrame)
+			ExpressionInferTypeVisitor typeInferer = new SimulationExpressionInferTypeVisitor();
+			typeInferer.doSwitch(formula);
+			return new PCMStoExEvaluationVisitor(typeInferer,currentFrame)
 					.doSwitch(formula);
 		} catch (RecognitionException e) {
 			e.printStackTrace();
@@ -93,5 +109,25 @@ public abstract class Context {
 
 	public SimuComModel getModel() {
 		return myModel;
+	}
+
+	
+	/**
+	 * Evaluate all EvaluationProxies starting with "variable name" and store the 
+	 * results in the given stack frame
+	 * @param frame The frame which stores the evaluated proxy results
+	 * @param variablename
+	 */
+	public void evaluateInner(SimulatedStackframe frame, String variablename) {
+		SimulatedStackframe topmostFrame = this.getStack().currentStackFrame();
+		for(Entry<String,Object> e : (Collection<Entry<String,Object>>)topmostFrame.getContents()) {
+			if (e.getKey().startsWith(variablename)) {
+				if (e.getValue() instanceof EvaluationProxy) {
+					EvaluationProxy proxy = (EvaluationProxy) e.getValue();
+					Object result = this.evaluate(proxy.getStoEx(), proxy.getStackFrame());
+					frame.addValue(e.getKey(),result);
+				}
+			}
+		}
 	}
 }

@@ -1,4 +1,4 @@
-import qosa_upload_usage.impl.QoSA_Upload_Usage;
+import uscenario.impl.UScenario;
 import de.uka.ipd.sdq.simucomframework.ExperimentRunner;
 import de.uka.ipd.sdq.simucomframework.IUsageScenario;
 import de.uka.ipd.sdq.simucomframework.SimuComFactory;
@@ -22,8 +22,10 @@ public class Main {
 		SimuComModel model = 
 			SimuComFactory.getSimuComModel( 
                 "SimuCom Model", true, true);
+//		model.setUsageScenarios(new IUsageScenario[]{
+//				new QoSA_Upload_Usage(model)});
 		model.setUsageScenarios(new IUsageScenario[]{
-				new QoSA_Upload_Usage(model)});
+				new UScenario(model)});
 		ExperimentRunner.run(model, 150000);
 	}
 }

@@ -1,6 +1,7 @@
 <workflow>
 
-	<property file='./workflows/codegen_qosa.properties'/>
+	<property file='./workflows/codegen.properties'/>
+	<property file='${propertyFile}'/>
 	
 	<component class="oaw.emf.XmiReader">
 		<modelFile value="${systemFile}"/>

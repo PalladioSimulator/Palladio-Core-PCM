@@ -13,6 +13,10 @@
 «DEFINE Action FOR StopAction»
 «ENDDEFINE»
 
+«DEFINE Action FOR CollectionIteratorAction»
+   «ERROR "CollectionIterationAction is a template method and must be overridden"»
+«ENDDEFINE»
+
 «DEFINE Action FOR LoopAction»
    «ERROR "LoopAction is a template method and must be overridden"»
 «ENDDEFINE»
@@ -26,3 +30,8 @@
 «DEFINE Action FOR InternalAction»
    «ERROR "InternalAction is a template method and must be overridden"»
 «ENDDEFINE»
+
+«DEFINE Action FOR BranchAction»
+   «ERROR "BranchAction is a template method and must be overridden"»
+«ENDDEFINE»
+
