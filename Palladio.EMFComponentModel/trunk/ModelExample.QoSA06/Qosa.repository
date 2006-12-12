@@ -69,7 +69,7 @@
       <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_qifxsHjlEduuSvsux_US9A" predecessor_AbstractAction="_zBy5QHjlEduuSvsux_US9A"/>
       <steps_Behaviour xsi:type="pcm.seff:ExternalCallAction" id="_zBy5QHjlEduuSvsux_US9A" predecessor_AbstractAction="_ot0vEHjlEduuSvsux_US9A" successor_AbstractAction="_qifxsHjlEduuSvsux_US9A" calledService_ExternalService="//@interfaces__Repository.2/@signatures__Interface.0">
         <parameterUsage_ExternalCallAction>
-          <variableCharacterisation_VariableUsage specification="DoublePMF(unit=&quot;s&quot;)[ (0.05; 36.0) (0.03; 37.0) (0.29; 41.0) (0.31; 42.0) (0.11; 46.0) (0.21; 47.0) ]" type="BYTESIZE"/>
+          <variableCharacterisation_VariableUsage specification="DoublePMF(unit=&quot;s&quot;)[ (36.0; 0.05) (37.0; 0.03) (41.0; 0.29) (42.0; 0.31) (46.0; 0.11) (47.0; 0.21) ]" type="BYTESIZE"/>
           <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="file"/>
         </parameterUsage_ExternalCallAction>
       </steps_Behaviour>
