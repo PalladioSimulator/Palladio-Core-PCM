@@ -192,10 +192,11 @@ public class SamplePDFImpl extends ProbabilityDensityFunctionImpl implements
 		List<Double> intervals = MathTools
 				.computeIntervalsOfProb(getValuesAsDouble());
 
-		double random = randomGenerator.random();
-		for (int j = 0; j < intervals.size(); j++)
-			if (random < intervals.get(j)) {
-				result = distance * (j + 1);
+		double random = randomGenerator.random() * 100;
+		for (int j = intervals.size()-1; j >= 0; j--)
+			if (random > intervals.get(j)) {
+				// TODO: strech sample over distance? Start at 0 or <distance>?
+				result = distance * (j+1);
 				break;
 			}
 		return result;
