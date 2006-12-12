@@ -6,9 +6,9 @@
  */
 package de.uka.ipd.sdq.context.usage;
 
-import org.eclipse.emf.ecore.EObject;
+import de.uka.ipd.sdq.pcm.seff.AbstractBranchTransition;
 
-import de.uka.ipd.sdq.pcm.seff.BranchTransition;
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -70,12 +70,12 @@ public interface BranchProbability extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Branchtransition Branch Probability</em>' reference.
-	 * @see #setBranchtransition_BranchProbability(BranchTransition)
+	 * @see #setBranchtransition_BranchProbability(AbstractBranchTransition)
 	 * @see de.uka.ipd.sdq.context.usage.UsagePackage#getBranchProbability_Branchtransition_BranchProbability()
 	 * @model required="true" ordered="false"
 	 * @generated
 	 */
-	BranchTransition getBranchtransition_BranchProbability();
+	AbstractBranchTransition getBranchtransition_BranchProbability();
 
 	/**
 	 * Sets the value of the '{@link de.uka.ipd.sdq.context.usage.BranchProbability#getBranchtransition_BranchProbability <em>Branchtransition Branch Probability</em>}' reference.
@@ -85,6 +85,6 @@ public interface BranchProbability extends EObject {
 	 * @see #getBranchtransition_BranchProbability()
 	 * @generated
 	 */
-	void setBranchtransition_BranchProbability(BranchTransition value);
+	void setBranchtransition_BranchProbability(AbstractBranchTransition value);
 
 } // BranchProbability

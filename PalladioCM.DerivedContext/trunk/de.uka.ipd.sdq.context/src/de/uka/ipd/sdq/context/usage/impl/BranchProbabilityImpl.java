@@ -6,15 +6,18 @@
  */
 package de.uka.ipd.sdq.context.usage.impl;
 
-import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.EObjectImpl;
-
 import de.uka.ipd.sdq.context.usage.BranchProbability;
 import de.uka.ipd.sdq.context.usage.UsagePackage;
-import de.uka.ipd.sdq.pcm.seff.BranchTransition;
+
+import de.uka.ipd.sdq.pcm.seff.AbstractBranchTransition;
+
+import org.eclipse.emf.common.notify.Notification;
+
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.EObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -66,7 +69,7 @@ public class BranchProbabilityImpl extends EObjectImpl implements BranchProbabil
 	 * @generated
 	 * @ordered
 	 */
-	protected BranchTransition branchtransition_BranchProbability = null;
+	protected AbstractBranchTransition branchtransition_BranchProbability = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -112,10 +115,10 @@ public class BranchProbabilityImpl extends EObjectImpl implements BranchProbabil
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public BranchTransition getBranchtransition_BranchProbability() {
+	public AbstractBranchTransition getBranchtransition_BranchProbability() {
 		if (branchtransition_BranchProbability != null && branchtransition_BranchProbability.eIsProxy()) {
 			InternalEObject oldBranchtransition_BranchProbability = (InternalEObject)branchtransition_BranchProbability;
-			branchtransition_BranchProbability = (BranchTransition)eResolveProxy(oldBranchtransition_BranchProbability);
+			branchtransition_BranchProbability = (AbstractBranchTransition)eResolveProxy(oldBranchtransition_BranchProbability);
 			if (branchtransition_BranchProbability != oldBranchtransition_BranchProbability) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, UsagePackage.BRANCH_PROBABILITY__BRANCHTRANSITION_BRANCH_PROBABILITY, oldBranchtransition_BranchProbability, branchtransition_BranchProbability));
@@ -129,7 +132,7 @@ public class BranchProbabilityImpl extends EObjectImpl implements BranchProbabil
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public BranchTransition basicGetBranchtransition_BranchProbability() {
+	public AbstractBranchTransition basicGetBranchtransition_BranchProbability() {
 		return branchtransition_BranchProbability;
 	}
 
@@ -138,8 +141,8 @@ public class BranchProbabilityImpl extends EObjectImpl implements BranchProbabil
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setBranchtransition_BranchProbability(BranchTransition newBranchtransition_BranchProbability) {
-		BranchTransition oldBranchtransition_BranchProbability = branchtransition_BranchProbability;
+	public void setBranchtransition_BranchProbability(AbstractBranchTransition newBranchtransition_BranchProbability) {
+		AbstractBranchTransition oldBranchtransition_BranchProbability = branchtransition_BranchProbability;
 		branchtransition_BranchProbability = newBranchtransition_BranchProbability;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, UsagePackage.BRANCH_PROBABILITY__BRANCHTRANSITION_BRANCH_PROBABILITY, oldBranchtransition_BranchProbability, branchtransition_BranchProbability));
@@ -172,7 +175,7 @@ public class BranchProbabilityImpl extends EObjectImpl implements BranchProbabil
 				setProbability(((Double)newValue).doubleValue());
 				return;
 			case UsagePackage.BRANCH_PROBABILITY__BRANCHTRANSITION_BRANCH_PROBABILITY:
-				setBranchtransition_BranchProbability((BranchTransition)newValue);
+				setBranchtransition_BranchProbability((AbstractBranchTransition)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -189,7 +192,7 @@ public class BranchProbabilityImpl extends EObjectImpl implements BranchProbabil
 				setProbability(PROBABILITY_EDEFAULT);
 				return;
 			case UsagePackage.BRANCH_PROBABILITY__BRANCHTRANSITION_BRANCH_PROBABILITY:
-				setBranchtransition_BranchProbability((BranchTransition)null);
+				setBranchtransition_BranchProbability((AbstractBranchTransition)null);
 				return;
 		}
 		super.eUnset(featureID);
