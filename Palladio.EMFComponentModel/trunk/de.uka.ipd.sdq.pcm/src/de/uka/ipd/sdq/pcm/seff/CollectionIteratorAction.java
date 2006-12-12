@@ -25,7 +25,7 @@ import de.uka.ipd.sdq.pcm.repository.Parameter;
  * @model
  * @generated
  */
-public interface CollectionIteratorAction extends LoopAction {
+public interface CollectionIteratorAction extends AbstractLoopAction {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

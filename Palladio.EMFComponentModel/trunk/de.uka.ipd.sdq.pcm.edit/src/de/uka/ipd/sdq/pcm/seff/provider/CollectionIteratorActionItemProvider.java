@@ -31,7 +31,7 @@ import de.uka.ipd.sdq.pcm.seff.SeffPackage;
  * @generated
  */
 public class CollectionIteratorActionItemProvider
-	extends LoopActionItemProvider
+	extends AbstractLoopActionItemProvider
 	implements	
 		IEditingDomainItemProvider,	
 		IStructuredItemContentProvider,	

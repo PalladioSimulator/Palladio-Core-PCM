@@ -93,7 +93,7 @@
                 <features
                     href="../../pcm.ecore#//parameter/VariableCharacterisation/type"/>
                 <features
-                    href="../../pcm.ecore#//core/stochastics/RandomVariable/specification"/>
+                    href="../../../../de.uka.ipd.sdq.stoex/model/stoex.ecore#//RandomVariable/specification"/>
               </labelMappings>
               <tool
                   xsi:type="gmftool:CreationTool"
@@ -143,9 +143,9 @@
       <children
           compartment="//@nodes.3/@ownedChild/@compartments.0">
         <containmentFeature
-            href="../../pcm.ecore#//seff/LoopAction/bodyBehaviour_Loop"/>
+            href="../../pcm.ecore#//seff/AbstractLoopAction/bodyBehaviour_Loop"/>
         <childrenFeature
-            href="../../pcm.ecore#//seff/LoopAction/bodyBehaviour_Loop"/>
+            href="../../pcm.ecore#//seff/AbstractLoopAction/bodyBehaviour_Loop"/>
         <ownedChild>
           <domainMetaElement
               href="../../pcm.ecore#//seff/ResourceDemandingBehaviour"/>
@@ -243,10 +243,12 @@
             href="../../pcm.ecore#//seff/BranchAction/branches_Branch"/>
         <ownedChild>
           <domainMetaElement
-              href="../../pcm.ecore#//seff/BranchTransition"/>
+              href="../../pcm.ecore#//seff/ProbabilisticBranchTransition"/>
           <labelMappings>
             <diagramLabel
                 href="seffeditor.gmfgraph#BranchTransitionProbabilityDiagramLabel"/>
+            <features
+                href="../../pcm.ecore#//seff/ProbabilisticBranchTransition/branchProbability"/>
           </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
@@ -256,9 +258,9 @@
           <children
               compartment="//@nodes.4/@ownedChild/@children.0/@ownedChild/@compartments.0">
             <containmentFeature
-                href="../../pcm.ecore#//seff/BranchTransition/branchBehaviour_BranchTransition"/>
+                href="../../pcm.ecore#//seff/AbstractBranchTransition/branchBehaviour_BranchTransition"/>
             <childrenFeature
-                href="../../pcm.ecore#//seff/BranchTransition/branchBehaviour_BranchTransition"/>
+                href="../../pcm.ecore#//seff/AbstractBranchTransition/branchBehaviour_BranchTransition"/>
             <ownedChild>
               <domainMetaElement
                   href="../../pcm.ecore#//seff/ResourceDemandingBehaviour"/>
@@ -370,7 +372,7 @@
             <diagramLabel
                 href="seffeditor.gmfgraph#ParametricResourceDemandDemandLabel"/>
             <features
-                href="../../pcm.ecore#//core/stochastics/RandomVariable/specification"/>
+                href="../../../../de.uka.ipd.sdq.stoex/model/stoex.ecore#//RandomVariable/specification"/>
             <features
                 href="../../pcm.ecore#//seff/ParametricResourceDemand/unit"/>
           </labelMappings>

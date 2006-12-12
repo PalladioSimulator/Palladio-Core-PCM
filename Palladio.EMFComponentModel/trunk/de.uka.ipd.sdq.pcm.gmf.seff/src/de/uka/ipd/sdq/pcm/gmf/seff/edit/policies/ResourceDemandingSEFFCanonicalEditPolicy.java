@@ -32,7 +32,6 @@ import org.eclipse.gmf.runtime.notation.View;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.AbstractActionSuccessor_AbstractActionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.BranchAction2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.BranchActionEditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.BranchTransitionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ExternalCallAction2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ExternalCallActionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.InternalAction2EditPart;
@@ -40,6 +39,7 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.InternalActionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopAction2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopActionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ParametricResourceDemandEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ProbabilisticBranchTransitionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviour2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviourEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingSEFFEditPart;
@@ -243,7 +243,7 @@ public class ResourceDemandingSEFFCanonicalEditPolicy extends
 		case InternalActionEditPart.VISUAL_ID:
 		case ParametricResourceDemandEditPart.VISUAL_ID:
 		case BranchActionEditPart.VISUAL_ID:
-		case BranchTransitionEditPart.VISUAL_ID:
+		case ProbabilisticBranchTransitionEditPart.VISUAL_ID:
 		case ResourceDemandingBehaviour2EditPart.VISUAL_ID:
 		case ExternalCallAction2EditPart.VISUAL_ID:
 		case ResourceDemandingSEFFEditPart.VISUAL_ID: {

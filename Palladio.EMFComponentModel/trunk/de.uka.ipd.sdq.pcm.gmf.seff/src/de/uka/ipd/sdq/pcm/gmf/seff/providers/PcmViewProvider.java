@@ -16,9 +16,6 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.BranchActionBranchTransitionCompar
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.BranchActionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.BranchActionEntityName2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.BranchActionEntityNameEditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.BranchTransitionBehaviourCompartmentEditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.BranchTransitionEditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.BranchTransitionProbabilityDiagramLabelEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ExternalCallAction2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ExternalCallActionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ExternalCallActionEntityName2EditPart;
@@ -40,6 +37,9 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopActionEntityNameEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopIterationsLabel2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopIterationsLabelEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ParametricResourceDemandEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ProbabilisticBranchTransitionBehaviourCompartmentEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ProbabilisticBranchTransitionBranchProbabilityEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ProbabilisticBranchTransitionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviour2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviourBranchCompartmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviourEditPart;
@@ -61,9 +61,6 @@ import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.BranchActionBranchTransitionCo
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.BranchActionEntityName2ViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.BranchActionEntityNameViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.BranchActionViewFactory;
-import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.BranchTransitionBehaviourCompartmentViewFactory;
-import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.BranchTransitionProbabilityDiagramLabelViewFactory;
-import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.BranchTransitionViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.ExternalCallAction2ViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.ExternalCallActionEntityName2ViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.ExternalCallActionEntityNameViewFactory;
@@ -85,6 +82,9 @@ import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.LoopActionViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.LoopIterationsLabel2ViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.LoopIterationsLabelViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.ParametricResourceDemandViewFactory;
+import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.ProbabilisticBranchTransitionBehaviourCompartmentViewFactory;
+import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.ProbabilisticBranchTransitionBranchProbabilityViewFactory;
+import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.ProbabilisticBranchTransitionViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.ResourceDemandingBehaviour2ViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.ResourceDemandingBehaviourBranchCompartmentViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.ResourceDemandingBehaviourLoopCompartmentViewFactory;
@@ -185,10 +185,10 @@ public class PcmViewProvider extends AbstractViewProvider {
 			return BranchActionViewFactory.class;
 		case BranchActionEntityNameEditPart.VISUAL_ID:
 			return BranchActionEntityNameViewFactory.class;
-		case BranchTransitionEditPart.VISUAL_ID:
-			return BranchTransitionViewFactory.class;
-		case BranchTransitionProbabilityDiagramLabelEditPart.VISUAL_ID:
-			return BranchTransitionProbabilityDiagramLabelViewFactory.class;
+		case ProbabilisticBranchTransitionEditPart.VISUAL_ID:
+			return ProbabilisticBranchTransitionViewFactory.class;
+		case ProbabilisticBranchTransitionBranchProbabilityEditPart.VISUAL_ID:
+			return ProbabilisticBranchTransitionBranchProbabilityViewFactory.class;
 		case ResourceDemandingBehaviour2EditPart.VISUAL_ID:
 			return ResourceDemandingBehaviour2ViewFactory.class;
 		case ExternalCallAction2EditPart.VISUAL_ID:
@@ -209,8 +209,8 @@ public class PcmViewProvider extends AbstractViewProvider {
 			return InternalActionResourceDemandViewFactory.class;
 		case BranchActionBranchTransitionCompartmentEditPart.VISUAL_ID:
 			return BranchActionBranchTransitionCompartmentViewFactory.class;
-		case BranchTransitionBehaviourCompartmentEditPart.VISUAL_ID:
-			return BranchTransitionBehaviourCompartmentViewFactory.class;
+		case ProbabilisticBranchTransitionBehaviourCompartmentEditPart.VISUAL_ID:
+			return ProbabilisticBranchTransitionBehaviourCompartmentViewFactory.class;
 		case ResourceDemandingBehaviourBranchCompartmentEditPart.VISUAL_ID:
 			return ResourceDemandingBehaviourBranchCompartmentViewFactory.class;
 		case ExternalCallActionParameterUsage2EditPart.VISUAL_ID:

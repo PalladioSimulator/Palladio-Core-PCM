@@ -9,30 +9,29 @@ import java.util.List;
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.emf.ecore.EAnnotation;
 import org.eclipse.emf.ecore.EcoreFactory;
-import org.eclipse.gmf.runtime.diagram.core.util.ViewUtil;
-import org.eclipse.gmf.runtime.diagram.ui.view.factories.AbstractShapeViewFactory;
+import org.eclipse.gmf.runtime.diagram.ui.view.factories.ListCompartmentViewFactory;
+import org.eclipse.gmf.runtime.notation.DrawerStyle;
 import org.eclipse.gmf.runtime.notation.NotationFactory;
+import org.eclipse.gmf.runtime.notation.NotationPackage;
+import org.eclipse.gmf.runtime.notation.TitleStyle;
 import org.eclipse.gmf.runtime.notation.View;
 
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.BranchTransitionBehaviourCompartmentEditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.BranchTransitionProbabilityDiagramLabelEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingSEFFEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.part.PcmVisualIDRegistry;
 
 /**
  * @generated
  */
-public class BranchTransitionViewFactory extends AbstractShapeViewFactory {
+public class ProbabilisticBranchTransitionBehaviourCompartmentViewFactory
+		extends ListCompartmentViewFactory {
 
 	/**
 	 * @generated 
 	 */
 	protected List createStyles(View view) {
 		List styles = new ArrayList();
-		styles.add(NotationFactory.eINSTANCE.createFontStyle());
-		styles.add(NotationFactory.eINSTANCE.createDescriptionStyle());
-		styles.add(NotationFactory.eINSTANCE.createFillStyle());
-		styles.add(NotationFactory.eINSTANCE.createLineStyle());
+		styles.add(NotationFactory.eINSTANCE.createSortingStyle());
+		styles.add(NotationFactory.eINSTANCE.createFilteringStyle());
 		return styles;
 	}
 
@@ -44,11 +43,13 @@ public class BranchTransitionViewFactory extends AbstractShapeViewFactory {
 			boolean persisted) {
 		if (semanticHint == null) {
 			semanticHint = PcmVisualIDRegistry
-					.getType(de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.BranchTransitionEditPart.VISUAL_ID);
+					.getType(de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ProbabilisticBranchTransitionBehaviourCompartmentEditPart.VISUAL_ID);
 			view.setType(semanticHint);
 		}
 		super.decorateView(containerView, view, semanticAdapter, semanticHint,
 				index, persisted);
+		setupCompartmentTitle(view);
+		setupCompartmentCollapsed(view);
 		if (!ResourceDemandingSEFFEditPart.MODEL_ID.equals(PcmVisualIDRegistry
 				.getModelID(containerView))) {
 			EAnnotation shortcutAnnotation = EcoreFactory.eINSTANCE
@@ -58,20 +59,28 @@ public class BranchTransitionViewFactory extends AbstractShapeViewFactory {
 					"modelID", ResourceDemandingSEFFEditPart.MODEL_ID); //$NON-NLS-1$
 			view.getEAnnotations().add(shortcutAnnotation);
 		}
-		getViewService()
-				.createNode(
-						semanticAdapter,
-						view,
-						PcmVisualIDRegistry
-								.getType(BranchTransitionProbabilityDiagramLabelEditPart.VISUAL_ID),
-						ViewUtil.APPEND, true, getPreferencesHint());
-		getViewService()
-				.createNode(
-						semanticAdapter,
-						view,
-						PcmVisualIDRegistry
-								.getType(BranchTransitionBehaviourCompartmentEditPart.VISUAL_ID),
-						ViewUtil.APPEND, true, getPreferencesHint());
+	}
+
+	/**
+	 * @generated
+	 */
+	protected void setupCompartmentTitle(View view) {
+		TitleStyle titleStyle = (TitleStyle) view
+				.getStyle(NotationPackage.eINSTANCE.getTitleStyle());
+		if (titleStyle != null) {
+			titleStyle.setShowTitle(true);
+		}
+	}
+
+	/**
+	 * @generated
+	 */
+	protected void setupCompartmentCollapsed(View view) {
+		DrawerStyle drawerStyle = (DrawerStyle) view
+				.getStyle(NotationPackage.eINSTANCE.getDrawerStyle());
+		if (drawerStyle != null) {
+			drawerStyle.setCollapsed(false);
+		}
 	}
 
 }

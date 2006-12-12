@@ -366,6 +366,9 @@
   </eSubpackages>
   <eSubpackages name="seff" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0"
       nsPrefix="pcm.seff">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="self.branches_Branch->forAll(bt|bt.oclIsTypeOf(ProbabilisticBranchTransition) or self.branches_Branch->forAll(bt|bt.oclIsTypeOf(GuardedBranchTransition)"/>
+    </eAnnotations>
     <eClassifiers xsi:type="ecore:EClass" name="StopAction" eSuperTypes="#//seff/AbstractResourceDemandingAction"/>
     <eClassifiers xsi:type="ecore:EClass" name="AbstractResourceDemandingAction" abstract="true"
         eSuperTypes="#//seff/AbstractAction">
@@ -398,11 +401,14 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="resourceType_Release"
           ordered="false" lowerBound="1" eType="#//resourcetype/PassiveResourceType"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="LoopAction" eSuperTypes="#//seff/AbstractResourceDemandingAction">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="bodyBehaviour_Loop" ordered="false"
-          lowerBound="1" eType="#//seff/ResourceDemandingBehaviour" containment="true"/>
+    <eClassifiers xsi:type="ecore:EClass" name="LoopAction" eSuperTypes="#//seff/AbstractLoopAction">
       <eStructuralFeatures xsi:type="ecore:EReference" name="iterations_LoopAction"
           ordered="false" lowerBound="1" eType="#//seff/IterationCount" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="AbstractLoopAction" abstract="true"
+        eSuperTypes="#//seff/AbstractResourceDemandingAction">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="bodyBehaviour_Loop" ordered="false"
+          lowerBound="1" eType="#//seff/ResourceDemandingBehaviour" containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="IterationCount" eSuperTypes="../../de.uka.ipd.sdq.stoex/model/stoex.ecore#//RandomVariable"/>
     <eClassifiers xsi:type="ecore:EClass" name="InternalAction" eSuperTypes="#//seff/AbstractResourceDemandingAction">
@@ -420,27 +426,32 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="parameterUsage_ExternalCallAction"
           ordered="false" upperBound="-1" eType="#//parameter/VariableUsage" containment="true"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="BranchTransition" eSuperTypes="../../de.uka.ipd.sdq.identifier/model/identifier.ecore#//Identifier">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="branchBehaviour_BranchTransition"
-          ordered="false" lowerBound="1" eType="#//seff/ResourceDemandingBehaviour"
-          containment="true"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="branchCondition_BranchTransition"
-          ordered="false" lowerBound="1" eType="#//seff/BranchCondition" containment="true"/>
+    <eClassifiers xsi:type="ecore:EClass" name="ProbabilisticBranchTransition" eSuperTypes="#//seff/AbstractBranchTransition">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="branchProbability" ordered="false"
           lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="BranchCondition" eSuperTypes="../../de.uka.ipd.sdq.stoex/model/stoex.ecore#//RandomVariable"/>
+    <eClassifiers xsi:type="ecore:EClass" name="AbstractBranchTransition" abstract="true"
+        eSuperTypes="../../de.uka.ipd.sdq.identifier/model/identifier.ecore#//Identifier">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="branchBehaviour_BranchTransition"
+          ordered="false" lowerBound="1" eType="#//seff/ResourceDemandingBehaviour"
+          containment="true"/>
+    </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="BranchAction" eSuperTypes="#//seff/AbstractResourceDemandingAction">
       <eStructuralFeatures xsi:type="ecore:EReference" name="branches_Branch" ordered="false"
-          upperBound="-1" eType="#//seff/BranchTransition" containment="true"/>
+          upperBound="-1" eType="#//seff/AbstractBranchTransition" containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="AquireAction" eSuperTypes="#//seff/AbstractResourceDemandingAction">
       <eStructuralFeatures xsi:type="ecore:EReference" name="resourceType_Aquire"
           ordered="false" lowerBound="1" eType="#//resourcetype/PassiveResourceType"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="CollectionIteratorAction" eSuperTypes="#//seff/LoopAction">
+    <eClassifiers xsi:type="ecore:EClass" name="BranchCondition" eSuperTypes="../../de.uka.ipd.sdq.stoex/model/stoex.ecore#//RandomVariable"/>
+    <eClassifiers xsi:type="ecore:EClass" name="CollectionIteratorAction" eSuperTypes="#//seff/AbstractLoopAction">
       <eStructuralFeatures xsi:type="ecore:EReference" name="parameter_CollectionIteratorAction"
           ordered="false" lowerBound="1" eType="#//repository/Parameter"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="GuardedBranchTransition" eSuperTypes="#//seff/AbstractBranchTransition">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="branchCondition_BranchTransition"
+          ordered="false" lowerBound="1" eType="#//seff/BranchCondition" containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ServiceEffectSpecification" abstract="true">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="seffTypeID" ordered="false"
@@ -526,7 +537,7 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="communicationLinkResourceType_CommunicationLinkResourceSpecification"
           ordered="false" lowerBound="1" eType="#//resourcetype/CommunicationLinkResourceType"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="throughput" ordered="false"
-          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="units" ordered="false"
           lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eClassifiers>
@@ -534,7 +545,7 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="activeResourceType_ActiveResourceSpecification"
           ordered="false" lowerBound="1" eType="#//resourcetype/ProcessingResourceType"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="processingRate" ordered="false"
-          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="units" ordered="false"
           lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eClassifiers>
@@ -609,9 +620,10 @@
     <eClassifiers xsi:type="ecore:EClass" name="Stop" eSuperTypes="#//usagemodel/AbstractUserAction"/>
     <eClassifiers xsi:type="ecore:EClass" name="Start" eSuperTypes="#//usagemodel/AbstractUserAction"/>
     <eClassifiers xsi:type="ecore:EClass" name="OpenWorkload" eSuperTypes="#//usagemodel/Workload">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="arrivalRate" ordered="false"
-          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="interArrivalTime_OpenWorkload"
+          ordered="false" lowerBound="1" eType="#//usagemodel/InterArrivalTime" containment="true"/>
     </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="InterArrivalTime" eSuperTypes="../../de.uka.ipd.sdq.stoex/model/stoex.ecore#//RandomVariable"/>
     <eClassifiers xsi:type="ecore:EClass" name="Loop" eSuperTypes="#//usagemodel/AbstractUserAction">
       <eStructuralFeatures xsi:type="ecore:EReference" name="bodyBehaviour_Loop" ordered="false"
           lowerBound="1" eType="#//usagemodel/ScenarioBehaviour" containment="true"/>
@@ -630,9 +642,10 @@
     <eClassifiers xsi:type="ecore:EClass" name="ClosedWorkload" eSuperTypes="#//usagemodel/Workload">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="population" ordered="false"
           lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="thinkTime" ordered="false"
-          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="thinkTime_ClosedWorkload"
+          ordered="false" lowerBound="1" eType="#//usagemodel/ThinkTime" containment="true"/>
     </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ThinkTime" eSuperTypes="../../de.uka.ipd.sdq.stoex/model/stoex.ecore#//RandomVariable"/>
     <eClassifiers xsi:type="ecore:EClass" name="Branch" eSuperTypes="#//usagemodel/AbstractUserAction">
       <eStructuralFeatures xsi:type="ecore:EReference" name="branchTransitions_Branch"
           ordered="false" upperBound="-1" eType="#//usagemodel/BranchTransition" containment="true"/>

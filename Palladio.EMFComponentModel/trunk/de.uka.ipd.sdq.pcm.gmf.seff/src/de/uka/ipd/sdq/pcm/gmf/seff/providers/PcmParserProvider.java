@@ -26,6 +26,7 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopActionEntityNameEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopIterationsLabel2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopIterationsLabelEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ParametricResourceDemandEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ProbabilisticBranchTransitionBranchProbabilityEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableCharacterisationEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.part.PcmVisualIDRegistry;
 import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
@@ -172,6 +173,31 @@ public class PcmParserProvider extends AbstractProvider implements
 		PcmStructuralFeatureParser parser = new PcmStructuralFeatureParser(
 				EntityPackage.eINSTANCE.getNamedElement()
 						.getEStructuralFeature("entityName")); //$NON-NLS-1$
+		return parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser probabilisticBranchTransitionProbabilisticBranchTransitionBranchProbability_4007Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getProbabilisticBranchTransitionProbabilisticBranchTransitionBranchProbability_4007Parser() {
+		if (probabilisticBranchTransitionProbabilisticBranchTransitionBranchProbability_4007Parser == null) {
+			probabilisticBranchTransitionProbabilisticBranchTransitionBranchProbability_4007Parser = createProbabilisticBranchTransitionProbabilisticBranchTransitionBranchProbability_4007Parser();
+		}
+		return probabilisticBranchTransitionProbabilisticBranchTransitionBranchProbability_4007Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	protected IParser createProbabilisticBranchTransitionProbabilisticBranchTransitionBranchProbability_4007Parser() {
+		PcmStructuralFeatureParser parser = new PcmStructuralFeatureParser(
+				SeffPackage.eINSTANCE.getProbabilisticBranchTransition()
+						.getEStructuralFeature("branchProbability")); //$NON-NLS-1$
 		return parser;
 	}
 
@@ -329,6 +355,8 @@ public class PcmParserProvider extends AbstractProvider implements
 	 */
 	protected IParser getParser(int visualID) {
 		switch (visualID) {
+		case ProbabilisticBranchTransitionBranchProbabilityEditPart.VISUAL_ID:
+			return getProbabilisticBranchTransitionProbabilisticBranchTransitionBranchProbability_4007Parser();
 		case LoopIterationsLabelEditPart.VISUAL_ID:
 			return getLoopActionIterations_4003Parser();
 		case LoopIterationsLabel2EditPart.VISUAL_ID:

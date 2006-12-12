@@ -108,7 +108,7 @@
         <metaFeatures
             href="../../pcm.genmodel#//pcm/parameter/VariableCharacterisation/type"/>
         <metaFeatures
-            href="../../pcm.genmodel#//pcm/core/stochastics/RandomVariable/specification"/>
+            href="../../../../de.uka.ipd.sdq.stoex/model/stoex.genmodel#//stoex/RandomVariable/specification"/>
       </labelModelFacet>
     </childNodes>
     <childNodes
@@ -136,9 +136,9 @@
         <metaClass
             href="../../pcm.genmodel#//pcm/seff/ResourceDemandingBehaviour"/>
         <containmentMetaFeature
-            href="../../pcm.genmodel#//pcm/seff/LoopAction/bodyBehaviour_Loop"/>
+            href="../../pcm.genmodel#//pcm/seff/AbstractLoopAction/bodyBehaviour_Loop"/>
         <childMetaFeature
-            href="../../pcm.genmodel#//pcm/seff/LoopAction/bodyBehaviour_Loop"/>
+            href="../../pcm.genmodel#//pcm/seff/AbstractLoopAction/bodyBehaviour_Loop"/>
       </modelFacet>
     </childNodes>
     <childNodes
@@ -354,7 +354,7 @@
           viewPattern="{0} {1}"
           editPattern="{0}">
         <metaFeatures
-            href="../../pcm.genmodel#//pcm/core/stochastics/RandomVariable/specification"/>
+            href="../../../../de.uka.ipd.sdq.stoex/model/stoex.genmodel#//stoex/RandomVariable/specification"/>
         <metaFeatures
             href="../../pcm.genmodel#//pcm/seff/ParametricResourceDemand/unit"/>
       </labelModelFacet>
@@ -409,18 +409,18 @@
     </childNodes>
     <childNodes
         visualID="2010"
-        editPartClassName="BranchTransitionEditPart"
-        itemSemanticEditPolicyClassName="BranchTransitionItemSemanticEditPolicy"
-        notationViewFactoryClassName="BranchTransitionViewFactory"
-        canonicalEditPolicyClassName="BranchTransitionCanonicalEditPolicy"
+        editPartClassName="ProbabilisticBranchTransitionEditPart"
+        itemSemanticEditPolicyClassName="ProbabilisticBranchTransitionItemSemanticEditPolicy"
+        notationViewFactoryClassName="ProbabilisticBranchTransitionViewFactory"
+        canonicalEditPolicyClassName="ProbabilisticBranchTransitionCanonicalEditPolicy"
         compartments="//@diagram/@compartments.7"
-        graphicalNodeEditPolicyClassName="BranchTransitionGraphicalNodeEditPolicy"
+        graphicalNodeEditPolicyClassName="ProbabilisticBranchTransitionGraphicalNodeEditPolicy"
         containers="//@diagram/@compartments.6 //@diagram/@compartments.10">
       <diagramRunTimeClass
           href="../../../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
           xsi:type="gmfgen:MetamodelType"
-          editHelperClassName="BranchTransitionEditHelper"/>
+          editHelperClassName="ProbabilisticBranchTransitionEditHelper"/>
       <viewmap
           xsi:type="gmfgen:InnerClassViewmap"
           className="BranchTransitionFigure"
@@ -430,7 +430,7 @@
       </viewmap>
       <modelFacet>
         <metaClass
-            href="../../pcm.genmodel#//pcm/seff/BranchTransition"/>
+            href="../../pcm.genmodel#//pcm/seff/ProbabilisticBranchTransition"/>
         <containmentMetaFeature
             href="../../pcm.genmodel#//pcm/seff/BranchAction/branches_Branch"/>
         <childMetaFeature
@@ -438,9 +438,9 @@
       </modelFacet>
       <labels
           visualID="4007"
-          editPartClassName="BranchTransitionProbabilityDiagramLabelEditPart"
-          itemSemanticEditPolicyClassName="BranchTransitionProbabilityDiagramLabelItemSemanticEditPolicy"
-          notationViewFactoryClassName="BranchTransitionProbabilityDiagramLabelViewFactory"
+          editPartClassName="ProbabilisticBranchTransitionBranchProbabilityEditPart"
+          itemSemanticEditPolicyClassName="ProbabilisticBranchTransitionBranchProbabilityItemSemanticEditPolicy"
+          notationViewFactoryClassName="ProbabilisticBranchTransitionBranchProbabilityViewFactory"
           elementIcon="true">
         <diagramRunTimeClass
             href="../../../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
@@ -448,6 +448,11 @@
             xsi:type="gmfgen:ParentAssignedViewmap"
             getterName="getFigureBranchTransitionProbabilityLabel"
             figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel"/>
+        <modelFacet
+            xsi:type="gmfgen:FeatureLabelModelFacet">
+          <metaFeature
+              href="../../pcm.genmodel#//pcm/seff/ProbabilisticBranchTransition/branchProbability"/>
+        </modelFacet>
       </labels>
     </childNodes>
     <childNodes
@@ -476,9 +481,9 @@
         <metaClass
             href="../../pcm.genmodel#//pcm/seff/ResourceDemandingBehaviour"/>
         <containmentMetaFeature
-            href="../../pcm.genmodel#//pcm/seff/BranchTransition/branchBehaviour_BranchTransition"/>
+            href="../../pcm.genmodel#//pcm/seff/AbstractBranchTransition/branchBehaviour_BranchTransition"/>
         <childMetaFeature
-            href="../../pcm.genmodel#//pcm/seff/BranchTransition/branchBehaviour_BranchTransition"/>
+            href="../../pcm.genmodel#//pcm/seff/AbstractBranchTransition/branchBehaviour_BranchTransition"/>
       </modelFacet>
     </childNodes>
     <childNodes
@@ -971,11 +976,11 @@
     </compartments>
     <compartments
         visualID="5008"
-        editPartClassName="BranchTransitionBehaviourCompartmentEditPart"
-        itemSemanticEditPolicyClassName="BranchTransitionBehaviourCompartmentItemSemanticEditPolicy"
-        notationViewFactoryClassName="BranchTransitionBehaviourCompartmentViewFactory"
+        editPartClassName="ProbabilisticBranchTransitionBehaviourCompartmentEditPart"
+        itemSemanticEditPolicyClassName="ProbabilisticBranchTransitionBehaviourCompartmentItemSemanticEditPolicy"
+        notationViewFactoryClassName="ProbabilisticBranchTransitionBehaviourCompartmentViewFactory"
         childNodes="//@diagram/@childNodes.10"
-        canonicalEditPolicyClassName="BranchTransitionBehaviourCompartmentCanonicalEditPolicy"
+        canonicalEditPolicyClassName="ProbabilisticBranchTransitionBehaviourCompartmentCanonicalEditPolicy"
         title="BehaviourCompartment"
         canCollapse="false"
         needsTitle="false"

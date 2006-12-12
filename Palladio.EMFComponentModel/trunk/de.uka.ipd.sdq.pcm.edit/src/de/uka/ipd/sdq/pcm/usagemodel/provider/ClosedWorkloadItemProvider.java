@@ -24,6 +24,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import de.uka.ipd.sdq.pcm.core.entity.provider.PcmEditPlugin;
 import de.uka.ipd.sdq.pcm.usagemodel.ClosedWorkload;
+import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelFactory;
 import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
 
 /**
@@ -68,7 +69,6 @@ public class ClosedWorkloadItemProvider
 			super.getPropertyDescriptors(object);
 
 			addPopulationPropertyDescriptor(object);
-			addThinkTimePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -96,25 +96,19 @@ public class ClosedWorkloadItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Think Time feature.
+	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
+	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
+	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addThinkTimePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_ClosedWorkload_thinkTime_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ClosedWorkload_thinkTime_feature", "_UI_ClosedWorkload_type"),
-				 UsagemodelPackage.Literals.CLOSED_WORKLOAD__THINK_TIME,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
-				 null,
-				 null));
+	public Collection getChildrenFeatures(Object object) {
+		if (childrenFeatures == null) {
+			super.getChildrenFeatures(object);
+			childrenFeatures.add(UsagemodelPackage.Literals.CLOSED_WORKLOAD__THINK_TIME_CLOSED_WORKLOAD);
+		}
+		return childrenFeatures;
 	}
 
 	/**
@@ -150,8 +144,10 @@ public class ClosedWorkloadItemProvider
 
 		switch (notification.getFeatureID(ClosedWorkload.class)) {
 			case UsagemodelPackage.CLOSED_WORKLOAD__POPULATION:
-			case UsagemodelPackage.CLOSED_WORKLOAD__THINK_TIME:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+			case UsagemodelPackage.CLOSED_WORKLOAD__THINK_TIME_CLOSED_WORKLOAD:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
 		super.notifyChanged(notification);
@@ -166,6 +162,11 @@ public class ClosedWorkloadItemProvider
 	 */
 	protected void collectNewChildDescriptors(Collection newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+
+		newChildDescriptors.add
+			(createChildParameter
+				(UsagemodelPackage.Literals.CLOSED_WORKLOAD__THINK_TIME_CLOSED_WORKLOAD,
+				 UsagemodelFactory.eINSTANCE.createThinkTime()));
 	}
 
 	/**

@@ -108,6 +108,9 @@ public class UsagemodelAdapterFactory extends AdapterFactoryImpl {
 			public Object caseOpenWorkload(OpenWorkload object) {
 				return createOpenWorkloadAdapter();
 			}
+			public Object caseInterArrivalTime(InterArrivalTime object) {
+				return createInterArrivalTimeAdapter();
+			}
 			public Object caseLoop(Loop object) {
 				return createLoopAdapter();
 			}
@@ -119,6 +122,9 @@ public class UsagemodelAdapterFactory extends AdapterFactoryImpl {
 			}
 			public Object caseClosedWorkload(ClosedWorkload object) {
 				return createClosedWorkloadAdapter();
+			}
+			public Object caseThinkTime(ThinkTime object) {
+				return createThinkTimeAdapter();
 			}
 			public Object caseBranch(Branch object) {
 				return createBranchAdapter();
@@ -269,6 +275,20 @@ public class UsagemodelAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.usagemodel.InterArrivalTime <em>Inter Arrival Time</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.pcm.usagemodel.InterArrivalTime
+	 * @generated
+	 */
+	public Adapter createInterArrivalTimeAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.usagemodel.Loop <em>Loop</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -321,6 +341,20 @@ public class UsagemodelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createClosedWorkloadAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.usagemodel.ThinkTime <em>Think Time</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.pcm.usagemodel.ThinkTime
+	 * @generated
+	 */
+	public Adapter createThinkTimeAdapter() {
 		return null;
 	}
 

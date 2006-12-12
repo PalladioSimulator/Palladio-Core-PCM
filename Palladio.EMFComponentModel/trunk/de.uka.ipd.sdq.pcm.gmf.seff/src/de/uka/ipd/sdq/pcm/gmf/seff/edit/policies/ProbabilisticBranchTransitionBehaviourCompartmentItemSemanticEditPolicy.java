@@ -11,14 +11,14 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 import org.eclipse.gmf.runtime.notation.View;
 
 import de.uka.ipd.sdq.pcm.gmf.seff.providers.PcmElementTypes;
-import de.uka.ipd.sdq.pcm.seff.BranchTransition;
+import de.uka.ipd.sdq.pcm.seff.ProbabilisticBranchTransition;
 import de.uka.ipd.sdq.pcm.seff.SeffPackage;
 
 /**
  * @generated
  */
-public class BranchTransitionBehaviourCompartmentItemSemanticEditPolicy extends
-		PcmBaseItemSemanticEditPolicy {
+public class ProbabilisticBranchTransitionBehaviourCompartmentItemSemanticEditPolicy
+		extends PcmBaseItemSemanticEditPolicy {
 
 	/**
 	 * @generated
@@ -26,16 +26,16 @@ public class BranchTransitionBehaviourCompartmentItemSemanticEditPolicy extends
 	protected Command getCreateCommand(CreateElementRequest req) {
 		if (PcmElementTypes.ResourceDemandingBehaviour_2011 == req
 				.getElementType()) {
-			BranchTransition container = (BranchTransition) (req.getContainer() instanceof View ? ((View) req
-					.getContainer()).getElement()
-					: req.getContainer());
+			ProbabilisticBranchTransition container = (ProbabilisticBranchTransition) (req
+					.getContainer() instanceof View ? ((View) req
+					.getContainer()).getElement() : req.getContainer());
 			if (container.getBranchBehaviour_BranchTransition() != null) {
 				return super.getCreateCommand(req);
 			}
 			if (req.getContainmentFeature() == null) {
 				req
 						.setContainmentFeature(SeffPackage.eINSTANCE
-								.getBranchTransition_BranchBehaviour_BranchTransition());
+								.getAbstractBranchTransition_BranchBehaviour_BranchTransition());
 			}
 			return getMSLWrapper(new CreateResourceDemandingBehaviour_2011Command(
 					req));
@@ -61,7 +61,7 @@ public class BranchTransitionBehaviourCompartmentItemSemanticEditPolicy extends
 		 * @generated
 		 */
 		protected EClass getEClassToEdit() {
-			return SeffPackage.eINSTANCE.getBranchTransition();
+			return SeffPackage.eINSTANCE.getProbabilisticBranchTransition();
 		};
 
 		/**

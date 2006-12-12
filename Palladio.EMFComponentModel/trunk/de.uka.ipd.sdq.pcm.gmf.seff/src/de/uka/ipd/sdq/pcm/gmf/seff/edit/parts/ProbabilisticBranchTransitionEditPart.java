@@ -19,15 +19,15 @@ import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
 
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.BranchTransitionCanonicalEditPolicy;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.BranchTransitionGraphicalNodeEditPolicy;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.BranchTransitionItemSemanticEditPolicy;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.ProbabilisticBranchTransitionCanonicalEditPolicy;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.ProbabilisticBranchTransitionGraphicalNodeEditPolicy;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.ProbabilisticBranchTransitionItemSemanticEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.seff.part.PcmVisualIDRegistry;
 
 /**
  * @generated
  */
-public class BranchTransitionEditPart extends ShapeNodeEditPart {
+public class ProbabilisticBranchTransitionEditPart extends ShapeNodeEditPart {
 
 	/**
 	 * @generated
@@ -47,7 +47,7 @@ public class BranchTransitionEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public BranchTransitionEditPart(View view) {
+	public ProbabilisticBranchTransitionEditPart(View view) {
 		super(view);
 	}
 
@@ -57,11 +57,11 @@ public class BranchTransitionEditPart extends ShapeNodeEditPart {
 	protected void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
-				new BranchTransitionItemSemanticEditPolicy());
+				new ProbabilisticBranchTransitionItemSemanticEditPolicy());
 		installEditPolicy(EditPolicy.GRAPHICAL_NODE_ROLE,
-				new BranchTransitionGraphicalNodeEditPolicy());
+				new ProbabilisticBranchTransitionGraphicalNodeEditPolicy());
 		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE,
-				new BranchTransitionCanonicalEditPolicy());
+				new ProbabilisticBranchTransitionCanonicalEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
 	}
 
@@ -110,8 +110,8 @@ public class BranchTransitionEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof BranchTransitionProbabilityDiagramLabelEditPart) {
-			((BranchTransitionProbabilityDiagramLabelEditPart) childEditPart)
+		if (childEditPart instanceof ProbabilisticBranchTransitionBranchProbabilityEditPart) {
+			((ProbabilisticBranchTransitionBranchProbabilityEditPart) childEditPart)
 					.setLabel(getPrimaryShape()
 							.getFigureBranchTransitionProbabilityLabel());
 			return true;
@@ -181,7 +181,7 @@ public class BranchTransitionEditPart extends ShapeNodeEditPart {
 	 */
 	public EditPart getPrimaryChildEditPart() {
 		return getChildBySemanticHint(PcmVisualIDRegistry
-				.getType(BranchTransitionProbabilityDiagramLabelEditPart.VISUAL_ID));
+				.getType(ProbabilisticBranchTransitionBranchProbabilityEditPart.VISUAL_ID));
 	}
 
 	/**

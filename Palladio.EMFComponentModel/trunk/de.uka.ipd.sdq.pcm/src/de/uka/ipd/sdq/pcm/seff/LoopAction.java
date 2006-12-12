@@ -16,7 +16,6 @@ package de.uka.ipd.sdq.pcm.seff;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link de.uka.ipd.sdq.pcm.seff.LoopAction#getBodyBehaviour_Loop <em>Body Behaviour Loop</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.seff.LoopAction#getIterations_LoopAction <em>Iterations Loop Action</em>}</li>
  * </ul>
  * </p>
@@ -25,39 +24,13 @@ package de.uka.ipd.sdq.pcm.seff;
  * @model
  * @generated
  */
-public interface LoopAction extends AbstractResourceDemandingAction {
+public interface LoopAction extends AbstractLoopAction {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	String copyright = "(c) by SDQ, IPD, U Karlsruhe (TH), 2006";
-
-	/**
-	 * Returns the value of the '<em><b>Body Behaviour Loop</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Body Behaviour Loop</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Body Behaviour Loop</em>' containment reference.
-	 * @see #setBodyBehaviour_Loop(ResourceDemandingBehaviour)
-	 * @see de.uka.ipd.sdq.pcm.seff.SeffPackage#getLoopAction_BodyBehaviour_Loop()
-	 * @model containment="true" required="true" ordered="false"
-	 * @generated
-	 */
-	ResourceDemandingBehaviour getBodyBehaviour_Loop();
-
-	/**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.seff.LoopAction#getBodyBehaviour_Loop <em>Body Behaviour Loop</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Body Behaviour Loop</em>' containment reference.
-	 * @see #getBodyBehaviour_Loop()
-	 * @generated
-	 */
-	void setBodyBehaviour_Loop(ResourceDemandingBehaviour value);
 
 	/**
 	 * Returns the value of the '<em><b>Iterations Loop Action</b></em>' containment reference.

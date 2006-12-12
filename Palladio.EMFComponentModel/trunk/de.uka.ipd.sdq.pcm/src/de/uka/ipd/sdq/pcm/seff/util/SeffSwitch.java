@@ -177,11 +177,23 @@ public class SeffSwitch {
 			case SeffPackage.LOOP_ACTION: {
 				LoopAction loopAction = (LoopAction)theEObject;
 				Object result = caseLoopAction(loopAction);
+				if (result == null) result = caseAbstractLoopAction(loopAction);
 				if (result == null) result = caseAbstractResourceDemandingAction(loopAction);
 				if (result == null) result = caseAbstractAction(loopAction);
 				if (result == null) result = caseEntity(loopAction);
 				if (result == null) result = caseIdentifier(loopAction);
 				if (result == null) result = caseNamedElement(loopAction);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case SeffPackage.ABSTRACT_LOOP_ACTION: {
+				AbstractLoopAction abstractLoopAction = (AbstractLoopAction)theEObject;
+				Object result = caseAbstractLoopAction(abstractLoopAction);
+				if (result == null) result = caseAbstractResourceDemandingAction(abstractLoopAction);
+				if (result == null) result = caseAbstractAction(abstractLoopAction);
+				if (result == null) result = caseEntity(abstractLoopAction);
+				if (result == null) result = caseIdentifier(abstractLoopAction);
+				if (result == null) result = caseNamedElement(abstractLoopAction);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -224,17 +236,18 @@ public class SeffSwitch {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case SeffPackage.BRANCH_TRANSITION: {
-				BranchTransition branchTransition = (BranchTransition)theEObject;
-				Object result = caseBranchTransition(branchTransition);
-				if (result == null) result = caseIdentifier(branchTransition);
+			case SeffPackage.PROBABILISTIC_BRANCH_TRANSITION: {
+				ProbabilisticBranchTransition probabilisticBranchTransition = (ProbabilisticBranchTransition)theEObject;
+				Object result = caseProbabilisticBranchTransition(probabilisticBranchTransition);
+				if (result == null) result = caseAbstractBranchTransition(probabilisticBranchTransition);
+				if (result == null) result = caseIdentifier(probabilisticBranchTransition);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case SeffPackage.BRANCH_CONDITION: {
-				BranchCondition branchCondition = (BranchCondition)theEObject;
-				Object result = caseBranchCondition(branchCondition);
-				if (result == null) result = caseRandomVariable(branchCondition);
+			case SeffPackage.ABSTRACT_BRANCH_TRANSITION: {
+				AbstractBranchTransition abstractBranchTransition = (AbstractBranchTransition)theEObject;
+				Object result = caseAbstractBranchTransition(abstractBranchTransition);
+				if (result == null) result = caseIdentifier(abstractBranchTransition);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -260,15 +273,30 @@ public class SeffSwitch {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case SeffPackage.BRANCH_CONDITION: {
+				BranchCondition branchCondition = (BranchCondition)theEObject;
+				Object result = caseBranchCondition(branchCondition);
+				if (result == null) result = caseRandomVariable(branchCondition);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case SeffPackage.COLLECTION_ITERATOR_ACTION: {
 				CollectionIteratorAction collectionIteratorAction = (CollectionIteratorAction)theEObject;
 				Object result = caseCollectionIteratorAction(collectionIteratorAction);
-				if (result == null) result = caseLoopAction(collectionIteratorAction);
+				if (result == null) result = caseAbstractLoopAction(collectionIteratorAction);
 				if (result == null) result = caseAbstractResourceDemandingAction(collectionIteratorAction);
 				if (result == null) result = caseAbstractAction(collectionIteratorAction);
 				if (result == null) result = caseEntity(collectionIteratorAction);
 				if (result == null) result = caseIdentifier(collectionIteratorAction);
 				if (result == null) result = caseNamedElement(collectionIteratorAction);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case SeffPackage.GUARDED_BRANCH_TRANSITION: {
+				GuardedBranchTransition guardedBranchTransition = (GuardedBranchTransition)theEObject;
+				Object result = caseGuardedBranchTransition(guardedBranchTransition);
+				if (result == null) result = caseAbstractBranchTransition(guardedBranchTransition);
+				if (result == null) result = caseIdentifier(guardedBranchTransition);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -418,6 +446,21 @@ public class SeffSwitch {
 	}
 
 	/**
+	 * Returns the result of interpretting the object as an instance of '<em>Abstract Loop Action</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpretting the object as an instance of '<em>Abstract Loop Action</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public Object caseAbstractLoopAction(AbstractLoopAction object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpretting the object as an instance of '<em>Iteration Count</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -478,17 +521,32 @@ public class SeffSwitch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Branch Transition</em>'.
+	 * Returns the result of interpretting the object as an instance of '<em>Probabilistic Branch Transition</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Branch Transition</em>'.
+	 * @return the result of interpretting the object as an instance of '<em>Probabilistic Branch Transition</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public Object caseBranchTransition(BranchTransition object) {
+	public Object caseProbabilisticBranchTransition(ProbabilisticBranchTransition object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpretting the object as an instance of '<em>Abstract Branch Transition</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpretting the object as an instance of '<em>Abstract Branch Transition</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public Object caseAbstractBranchTransition(AbstractBranchTransition object) {
 		return null;
 	}
 
@@ -549,6 +607,21 @@ public class SeffSwitch {
 	 * @generated
 	 */
 	public Object caseCollectionIteratorAction(CollectionIteratorAction object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpretting the object as an instance of '<em>Guarded Branch Transition</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpretting the object as an instance of '<em>Guarded Branch Transition</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public Object caseGuardedBranchTransition(GuardedBranchTransition object) {
 		return null;
 	}
 

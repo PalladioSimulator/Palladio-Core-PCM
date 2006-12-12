@@ -11,7 +11,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CanonicalEditPolicy;
 import org.eclipse.gmf.runtime.notation.View;
 
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.BranchTransitionEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ProbabilisticBranchTransitionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.part.PcmVisualIDRegistry;
 import de.uka.ipd.sdq.pcm.seff.BranchAction;
 
@@ -35,7 +35,7 @@ public class BranchActionBranchTransitionCompartment2CanonicalEditPolicy extends
 			nextValue = (EObject) values.next();
 			nodeVID = PcmVisualIDRegistry
 					.getNodeVisualID(viewObject, nextValue);
-			if (BranchTransitionEditPart.VISUAL_ID == nodeVID) {
+			if (ProbabilisticBranchTransitionEditPart.VISUAL_ID == nodeVID) {
 				result.add(nextValue);
 			}
 		}

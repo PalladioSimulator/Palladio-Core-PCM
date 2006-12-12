@@ -32,7 +32,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class CollectionIteratorActionImpl extends LoopActionImpl implements CollectionIteratorAction {
+public class CollectionIteratorActionImpl extends AbstractLoopActionImpl implements CollectionIteratorAction {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

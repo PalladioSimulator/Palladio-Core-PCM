@@ -87,6 +87,15 @@ public interface UsagemodelFactory extends EFactory {
 	OpenWorkload createOpenWorkload();
 
 	/**
+	 * Returns a new object of class '<em>Inter Arrival Time</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Inter Arrival Time</em>'.
+	 * @generated
+	 */
+	InterArrivalTime createInterArrivalTime();
+
+	/**
 	 * Returns a new object of class '<em>Loop</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -121,6 +130,15 @@ public interface UsagemodelFactory extends EFactory {
 	 * @generated
 	 */
 	ClosedWorkload createClosedWorkload();
+
+	/**
+	 * Returns a new object of class '<em>Think Time</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Think Time</em>'.
+	 * @generated
+	 */
+	ThinkTime createThinkTime();
 
 	/**
 	 * Returns a new object of class '<em>Branch</em>'.

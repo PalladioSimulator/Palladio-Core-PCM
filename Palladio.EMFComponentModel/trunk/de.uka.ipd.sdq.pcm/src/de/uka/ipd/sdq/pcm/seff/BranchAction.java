@@ -35,7 +35,7 @@ public interface BranchAction extends AbstractResourceDemandingAction {
 
 	/**
 	 * Returns the value of the '<em><b>Branches Branch</b></em>' containment reference list.
-	 * The list contents are of type {@link de.uka.ipd.sdq.pcm.seff.BranchTransition}.
+	 * The list contents are of type {@link de.uka.ipd.sdq.pcm.seff.AbstractBranchTransition}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Branches Branch</em>' containment reference list isn't clear,
@@ -44,7 +44,7 @@ public interface BranchAction extends AbstractResourceDemandingAction {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Branches Branch</em>' containment reference list.
 	 * @see de.uka.ipd.sdq.pcm.seff.SeffPackage#getBranchAction_Branches_Branch()
-	 * @model type="de.uka.ipd.sdq.pcm.seff.BranchTransition" containment="true" ordered="false"
+	 * @model type="de.uka.ipd.sdq.pcm.seff.AbstractBranchTransition" containment="true" ordered="false"
 	 * @generated
 	 */
 	EList getBranches_Branch();

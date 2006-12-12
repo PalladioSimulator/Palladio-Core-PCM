@@ -77,11 +77,12 @@ public class SeffFactoryImpl extends EFactoryImpl implements SeffFactory {
 			case SeffPackage.INTERNAL_ACTION: return createInternalAction();
 			case SeffPackage.FORK_ACTION: return createForkAction();
 			case SeffPackage.EXTERNAL_CALL_ACTION: return createExternalCallAction();
-			case SeffPackage.BRANCH_TRANSITION: return createBranchTransition();
-			case SeffPackage.BRANCH_CONDITION: return createBranchCondition();
+			case SeffPackage.PROBABILISTIC_BRANCH_TRANSITION: return createProbabilisticBranchTransition();
 			case SeffPackage.BRANCH_ACTION: return createBranchAction();
 			case SeffPackage.AQUIRE_ACTION: return createAquireAction();
+			case SeffPackage.BRANCH_CONDITION: return createBranchCondition();
 			case SeffPackage.COLLECTION_ITERATOR_ACTION: return createCollectionIteratorAction();
+			case SeffPackage.GUARDED_BRANCH_TRANSITION: return createGuardedBranchTransition();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -202,9 +203,9 @@ public class SeffFactoryImpl extends EFactoryImpl implements SeffFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public BranchTransition createBranchTransition() {
-		BranchTransitionImpl branchTransition = new BranchTransitionImpl();
-		return branchTransition;
+	public ProbabilisticBranchTransition createProbabilisticBranchTransition() {
+		ProbabilisticBranchTransitionImpl probabilisticBranchTransition = new ProbabilisticBranchTransitionImpl();
+		return probabilisticBranchTransition;
 	}
 
 	/**
@@ -245,6 +246,16 @@ public class SeffFactoryImpl extends EFactoryImpl implements SeffFactory {
 	public CollectionIteratorAction createCollectionIteratorAction() {
 		CollectionIteratorActionImpl collectionIteratorAction = new CollectionIteratorActionImpl();
 		return collectionIteratorAction;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public GuardedBranchTransition createGuardedBranchTransition() {
+		GuardedBranchTransitionImpl guardedBranchTransition = new GuardedBranchTransitionImpl();
+		return guardedBranchTransition;
 	}
 
 	/**

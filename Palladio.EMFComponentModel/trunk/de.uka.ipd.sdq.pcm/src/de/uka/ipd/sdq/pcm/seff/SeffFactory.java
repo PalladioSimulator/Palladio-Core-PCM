@@ -132,13 +132,13 @@ public interface SeffFactory extends EFactory {
 	ExternalCallAction createExternalCallAction();
 
 	/**
-	 * Returns a new object of class '<em>Branch Transition</em>'.
+	 * Returns a new object of class '<em>Probabilistic Branch Transition</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Branch Transition</em>'.
+	 * @return a new object of class '<em>Probabilistic Branch Transition</em>'.
 	 * @generated
 	 */
-	BranchTransition createBranchTransition();
+	ProbabilisticBranchTransition createProbabilisticBranchTransition();
 
 	/**
 	 * Returns a new object of class '<em>Branch Condition</em>'.
@@ -175,6 +175,15 @@ public interface SeffFactory extends EFactory {
 	 * @generated
 	 */
 	CollectionIteratorAction createCollectionIteratorAction();
+
+	/**
+	 * Returns a new object of class '<em>Guarded Branch Transition</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Guarded Branch Transition</em>'.
+	 * @generated
+	 */
+	GuardedBranchTransition createGuardedBranchTransition();
 
 	/**
 	 * Returns the package supported by this factory.

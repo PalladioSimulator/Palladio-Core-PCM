@@ -18,7 +18,6 @@ import de.uka.ipd.sdq.dialogs.selection.StochasticExpressionEditDialog;
 import de.uka.ipd.sdq.pcm.stochasticexpressions.PCMStoExPrettyPrintVisitor;
 import de.uka.ipd.sdq.stoex.RandomVariable;
 import de.uka.ipd.sdq.stoex.StoexPackage;
-import de.uka.ipd.sdq.stoex.analyser.visitors.StoExPrettyPrintVisitor;
 
 /**
  * @author Snowball

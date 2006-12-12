@@ -61,12 +61,14 @@ import de.uka.ipd.sdq.pcm.usagemodel.Branch;
 import de.uka.ipd.sdq.pcm.usagemodel.BranchTransition;
 import de.uka.ipd.sdq.pcm.usagemodel.ClosedWorkload;
 import de.uka.ipd.sdq.pcm.usagemodel.EntryLevelSystemCall;
+import de.uka.ipd.sdq.pcm.usagemodel.InterArrivalTime;
 import de.uka.ipd.sdq.pcm.usagemodel.Loop;
 import de.uka.ipd.sdq.pcm.usagemodel.LoopIterations;
 import de.uka.ipd.sdq.pcm.usagemodel.OpenWorkload;
 import de.uka.ipd.sdq.pcm.usagemodel.ScenarioBehaviour;
 import de.uka.ipd.sdq.pcm.usagemodel.Start;
 import de.uka.ipd.sdq.pcm.usagemodel.Stop;
+import de.uka.ipd.sdq.pcm.usagemodel.ThinkTime;
 import de.uka.ipd.sdq.pcm.usagemodel.UsageModel;
 import de.uka.ipd.sdq.pcm.usagemodel.UsageScenario;
 import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelFactory;
@@ -159,6 +161,13 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass interArrivalTimeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass loopEClass = null;
 
 	/**
@@ -181,6 +190,13 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
 	 * @generated
 	 */
 	private EClass closedWorkloadEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass thinkTimeEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -438,8 +454,17 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getOpenWorkload_ArrivalRate() {
-		return (EAttribute)openWorkloadEClass.getEStructuralFeatures().get(0);
+	public EReference getOpenWorkload_InterArrivalTime_OpenWorkload() {
+		return (EReference)openWorkloadEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getInterArrivalTime() {
+		return interArrivalTimeEClass;
 	}
 
 	/**
@@ -537,8 +562,17 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getClosedWorkload_ThinkTime() {
-		return (EAttribute)closedWorkloadEClass.getEStructuralFeatures().get(1);
+	public EReference getClosedWorkload_ThinkTime_ClosedWorkload() {
+		return (EReference)closedWorkloadEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getThinkTime() {
+		return thinkTimeEClass;
 	}
 
 	/**
@@ -635,7 +669,9 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
 		startEClass = createEClass(START);
 
 		openWorkloadEClass = createEClass(OPEN_WORKLOAD);
-		createEAttribute(openWorkloadEClass, OPEN_WORKLOAD__ARRIVAL_RATE);
+		createEReference(openWorkloadEClass, OPEN_WORKLOAD__INTER_ARRIVAL_TIME_OPEN_WORKLOAD);
+
+		interArrivalTimeEClass = createEClass(INTER_ARRIVAL_TIME);
 
 		loopEClass = createEClass(LOOP);
 		createEReference(loopEClass, LOOP__BODY_BEHAVIOUR_LOOP);
@@ -650,7 +686,9 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
 
 		closedWorkloadEClass = createEClass(CLOSED_WORKLOAD);
 		createEAttribute(closedWorkloadEClass, CLOSED_WORKLOAD__POPULATION);
-		createEAttribute(closedWorkloadEClass, CLOSED_WORKLOAD__THINK_TIME);
+		createEReference(closedWorkloadEClass, CLOSED_WORKLOAD__THINK_TIME_CLOSED_WORKLOAD);
+
+		thinkTimeEClass = createEClass(THINK_TIME);
 
 		branchEClass = createEClass(BRANCH);
 		createEReference(branchEClass, BRANCH__BRANCH_TRANSITIONS_BRANCH);
@@ -694,10 +732,12 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
 		stopEClass.getESuperTypes().add(this.getAbstractUserAction());
 		startEClass.getESuperTypes().add(this.getAbstractUserAction());
 		openWorkloadEClass.getESuperTypes().add(this.getWorkload());
+		interArrivalTimeEClass.getESuperTypes().add(theStoexPackage.getRandomVariable());
 		loopEClass.getESuperTypes().add(this.getAbstractUserAction());
 		loopIterationsEClass.getESuperTypes().add(theStoexPackage.getRandomVariable());
 		entryLevelSystemCallEClass.getESuperTypes().add(this.getAbstractUserAction());
 		closedWorkloadEClass.getESuperTypes().add(this.getWorkload());
+		thinkTimeEClass.getESuperTypes().add(theStoexPackage.getRandomVariable());
 		branchEClass.getESuperTypes().add(this.getAbstractUserAction());
 
 		// Initialize classes and features; add operations and parameters
@@ -722,7 +762,9 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
 		initEClass(startEClass, Start.class, "Start", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(openWorkloadEClass, OpenWorkload.class, "OpenWorkload", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getOpenWorkload_ArrivalRate(), ecorePackage.getEDouble(), "arrivalRate", null, 1, 1, OpenWorkload.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getOpenWorkload_InterArrivalTime_OpenWorkload(), this.getInterArrivalTime(), null, "interArrivalTime_OpenWorkload", null, 1, 1, OpenWorkload.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+		initEClass(interArrivalTimeEClass, InterArrivalTime.class, "InterArrivalTime", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(loopEClass, Loop.class, "Loop", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getLoop_BodyBehaviour_Loop(), this.getScenarioBehaviour(), null, "bodyBehaviour_Loop", null, 1, 1, Loop.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
@@ -737,7 +779,9 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
 
 		initEClass(closedWorkloadEClass, ClosedWorkload.class, "ClosedWorkload", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getClosedWorkload_Population(), ecorePackage.getEInt(), "population", null, 1, 1, ClosedWorkload.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEAttribute(getClosedWorkload_ThinkTime(), ecorePackage.getEDouble(), "thinkTime", null, 1, 1, ClosedWorkload.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getClosedWorkload_ThinkTime_ClosedWorkload(), this.getThinkTime(), null, "thinkTime_ClosedWorkload", null, 1, 1, ClosedWorkload.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+		initEClass(thinkTimeEClass, ThinkTime.class, "ThinkTime", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(branchEClass, Branch.class, "Branch", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getBranch_BranchTransitions_Branch(), this.getBranchTransition(), null, "branchTransitions_Branch", null, 0, -1, Branch.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);

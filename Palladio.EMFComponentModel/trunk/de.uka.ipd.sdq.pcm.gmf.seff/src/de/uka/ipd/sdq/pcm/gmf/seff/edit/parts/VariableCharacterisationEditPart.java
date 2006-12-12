@@ -123,7 +123,8 @@ public class VariableCharacterisationEditPart extends CompartmentEditPart
 				new LabelDirectEditPolicy());
 		installEditPolicy(EditPolicyRoles.OPEN_ROLE,
 				new VariableCharacterisationDialogEditPolicy(
-						(VariableCharacterisation) (((View) getModel()).getElement())));
+						(VariableCharacterisation) (((View) getModel())
+								.getElement())));
 	}
 
 	/**

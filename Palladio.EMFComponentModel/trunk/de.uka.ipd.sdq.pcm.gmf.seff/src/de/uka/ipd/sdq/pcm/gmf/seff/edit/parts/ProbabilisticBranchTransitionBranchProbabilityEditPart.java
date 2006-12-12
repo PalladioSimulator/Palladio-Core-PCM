@@ -58,7 +58,7 @@ import de.uka.ipd.sdq.pcm.gmf.seff.providers.PcmElementTypes;
 /**
  * @generated
  */
-public class BranchTransitionProbabilityDiagramLabelEditPart extends
+public class ProbabilisticBranchTransitionBranchProbabilityEditPart extends
 		CompartmentEditPart implements ITextAwareEditPart {
 
 	/**
@@ -89,7 +89,7 @@ public class BranchTransitionProbabilityDiagramLabelEditPart extends
 	/**
 	 * @generated
 	 */
-	public BranchTransitionProbabilityDiagramLabelEditPart(View view) {
+	public ProbabilisticBranchTransitionBranchProbabilityEditPart(View view) {
 		super(view);
 	}
 
@@ -317,7 +317,7 @@ public class BranchTransitionProbabilityDiagramLabelEditPart extends
 
 				public Object getAdapter(Class adapter) {
 					if (IElementType.class.equals(adapter)) {
-						return PcmElementTypes.BranchTransition_2010;
+						return PcmElementTypes.ProbabilisticBranchTransition_2010;
 					}
 					return super.getAdapter(adapter);
 				}

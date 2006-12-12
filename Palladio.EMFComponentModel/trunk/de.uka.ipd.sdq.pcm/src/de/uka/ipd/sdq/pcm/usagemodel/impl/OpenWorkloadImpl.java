@@ -7,12 +7,17 @@
  */
 package de.uka.ipd.sdq.pcm.usagemodel.impl;
 
+import de.uka.ipd.sdq.pcm.usagemodel.InterArrivalTime;
 import de.uka.ipd.sdq.pcm.usagemodel.OpenWorkload;
 import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
 
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.notify.NotificationChain;
+
 import org.eclipse.emf.ecore.EClass;
+
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
@@ -23,7 +28,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link de.uka.ipd.sdq.pcm.usagemodel.impl.OpenWorkloadImpl#getArrivalRate <em>Arrival Rate</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.usagemodel.impl.OpenWorkloadImpl#getInterArrivalTime_OpenWorkload <em>Inter Arrival Time Open Workload</em>}</li>
  * </ul>
  * </p>
  *
@@ -38,24 +43,14 @@ public class OpenWorkloadImpl extends WorkloadImpl implements OpenWorkload {
 	public static final String copyright = "(c) by SDQ, IPD, U Karlsruhe (TH), 2006";
 
 	/**
-	 * The default value of the '{@link #getArrivalRate() <em>Arrival Rate</em>}' attribute.
+	 * The cached value of the '{@link #getInterArrivalTime_OpenWorkload() <em>Inter Arrival Time Open Workload</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getArrivalRate()
+	 * @see #getInterArrivalTime_OpenWorkload()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final double ARRIVAL_RATE_EDEFAULT = 0.0;
-
-	/**
-	 * The cached value of the '{@link #getArrivalRate() <em>Arrival Rate</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getArrivalRate()
-	 * @generated
-	 * @ordered
-	 */
-	protected double arrivalRate = ARRIVAL_RATE_EDEFAULT;
+	protected InterArrivalTime interArrivalTime_OpenWorkload = null;
 
 
 	/**
@@ -81,8 +76,8 @@ public class OpenWorkloadImpl extends WorkloadImpl implements OpenWorkload {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public double getArrivalRate() {
-		return arrivalRate;
+	public InterArrivalTime getInterArrivalTime_OpenWorkload() {
+		return interArrivalTime_OpenWorkload;
 	}
 
 	/**
@@ -90,11 +85,46 @@ public class OpenWorkloadImpl extends WorkloadImpl implements OpenWorkload {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setArrivalRate(double newArrivalRate) {
-		double oldArrivalRate = arrivalRate;
-		arrivalRate = newArrivalRate;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, UsagemodelPackage.OPEN_WORKLOAD__ARRIVAL_RATE, oldArrivalRate, arrivalRate));
+	public NotificationChain basicSetInterArrivalTime_OpenWorkload(InterArrivalTime newInterArrivalTime_OpenWorkload, NotificationChain msgs) {
+		InterArrivalTime oldInterArrivalTime_OpenWorkload = interArrivalTime_OpenWorkload;
+		interArrivalTime_OpenWorkload = newInterArrivalTime_OpenWorkload;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, UsagemodelPackage.OPEN_WORKLOAD__INTER_ARRIVAL_TIME_OPEN_WORKLOAD, oldInterArrivalTime_OpenWorkload, newInterArrivalTime_OpenWorkload);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setInterArrivalTime_OpenWorkload(InterArrivalTime newInterArrivalTime_OpenWorkload) {
+		if (newInterArrivalTime_OpenWorkload != interArrivalTime_OpenWorkload) {
+			NotificationChain msgs = null;
+			if (interArrivalTime_OpenWorkload != null)
+				msgs = ((InternalEObject)interArrivalTime_OpenWorkload).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - UsagemodelPackage.OPEN_WORKLOAD__INTER_ARRIVAL_TIME_OPEN_WORKLOAD, null, msgs);
+			if (newInterArrivalTime_OpenWorkload != null)
+				msgs = ((InternalEObject)newInterArrivalTime_OpenWorkload).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - UsagemodelPackage.OPEN_WORKLOAD__INTER_ARRIVAL_TIME_OPEN_WORKLOAD, null, msgs);
+			msgs = basicSetInterArrivalTime_OpenWorkload(newInterArrivalTime_OpenWorkload, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, UsagemodelPackage.OPEN_WORKLOAD__INTER_ARRIVAL_TIME_OPEN_WORKLOAD, newInterArrivalTime_OpenWorkload, newInterArrivalTime_OpenWorkload));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case UsagemodelPackage.OPEN_WORKLOAD__INTER_ARRIVAL_TIME_OPEN_WORKLOAD:
+				return basicSetInterArrivalTime_OpenWorkload(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -104,8 +134,8 @@ public class OpenWorkloadImpl extends WorkloadImpl implements OpenWorkload {
 	 */
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case UsagemodelPackage.OPEN_WORKLOAD__ARRIVAL_RATE:
-				return new Double(getArrivalRate());
+			case UsagemodelPackage.OPEN_WORKLOAD__INTER_ARRIVAL_TIME_OPEN_WORKLOAD:
+				return getInterArrivalTime_OpenWorkload();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -117,8 +147,8 @@ public class OpenWorkloadImpl extends WorkloadImpl implements OpenWorkload {
 	 */
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case UsagemodelPackage.OPEN_WORKLOAD__ARRIVAL_RATE:
-				setArrivalRate(((Double)newValue).doubleValue());
+			case UsagemodelPackage.OPEN_WORKLOAD__INTER_ARRIVAL_TIME_OPEN_WORKLOAD:
+				setInterArrivalTime_OpenWorkload((InterArrivalTime)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -131,8 +161,8 @@ public class OpenWorkloadImpl extends WorkloadImpl implements OpenWorkload {
 	 */
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case UsagemodelPackage.OPEN_WORKLOAD__ARRIVAL_RATE:
-				setArrivalRate(ARRIVAL_RATE_EDEFAULT);
+			case UsagemodelPackage.OPEN_WORKLOAD__INTER_ARRIVAL_TIME_OPEN_WORKLOAD:
+				setInterArrivalTime_OpenWorkload((InterArrivalTime)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -145,25 +175,10 @@ public class OpenWorkloadImpl extends WorkloadImpl implements OpenWorkload {
 	 */
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case UsagemodelPackage.OPEN_WORKLOAD__ARRIVAL_RATE:
-				return arrivalRate != ARRIVAL_RATE_EDEFAULT;
+			case UsagemodelPackage.OPEN_WORKLOAD__INTER_ARRIVAL_TIME_OPEN_WORKLOAD:
+				return interArrivalTime_OpenWorkload != null;
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (arrivalRate: ");
-		result.append(arrivalRate);
-		result.append(')');
-		return result.toString();
 	}
 
 } //OpenWorkloadImpl

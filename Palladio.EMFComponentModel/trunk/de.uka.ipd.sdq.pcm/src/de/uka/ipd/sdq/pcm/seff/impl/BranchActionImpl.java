@@ -7,8 +7,8 @@
  */
 package de.uka.ipd.sdq.pcm.seff.impl;
 
+import de.uka.ipd.sdq.pcm.seff.AbstractBranchTransition;
 import de.uka.ipd.sdq.pcm.seff.BranchAction;
-import de.uka.ipd.sdq.pcm.seff.BranchTransition;
 import de.uka.ipd.sdq.pcm.seff.SeffPackage;
 
 import java.util.Collection;
@@ -80,7 +80,7 @@ public class BranchActionImpl extends AbstractResourceDemandingActionImpl implem
 	 */
 	public EList getBranches_Branch() {
 		if (branches_Branch == null) {
-			branches_Branch = new EObjectContainmentEList(BranchTransition.class, this, SeffPackage.BRANCH_ACTION__BRANCHES_BRANCH);
+			branches_Branch = new EObjectContainmentEList(AbstractBranchTransition.class, this, SeffPackage.BRANCH_ACTION__BRANCHES_BRANCH);
 		}
 		return branches_Branch;
 	}

@@ -24,6 +24,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import de.uka.ipd.sdq.pcm.core.entity.provider.PcmEditPlugin;
 import de.uka.ipd.sdq.pcm.usagemodel.OpenWorkload;
+import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelFactory;
 import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
 
 /**
@@ -67,31 +68,24 @@ public class OpenWorkloadItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addArrivalRatePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Arrival Rate feature.
+	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
+	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
+	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addArrivalRatePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_OpenWorkload_arrivalRate_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_OpenWorkload_arrivalRate_feature", "_UI_OpenWorkload_type"),
-				 UsagemodelPackage.Literals.OPEN_WORKLOAD__ARRIVAL_RATE,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
-				 null,
-				 null));
+	public Collection getChildrenFeatures(Object object) {
+		if (childrenFeatures == null) {
+			super.getChildrenFeatures(object);
+			childrenFeatures.add(UsagemodelPackage.Literals.OPEN_WORKLOAD__INTER_ARRIVAL_TIME_OPEN_WORKLOAD);
+		}
+		return childrenFeatures;
 	}
 
 	/**
@@ -111,8 +105,7 @@ public class OpenWorkloadItemProvider
 	 * @generated
 	 */
 	public String getText(Object object) {
-		OpenWorkload openWorkload = (OpenWorkload)object;
-		return getString("_UI_OpenWorkload_type") + " " + openWorkload.getArrivalRate();
+		return getString("_UI_OpenWorkload_type");
 	}
 
 	/**
@@ -126,8 +119,8 @@ public class OpenWorkloadItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(OpenWorkload.class)) {
-			case UsagemodelPackage.OPEN_WORKLOAD__ARRIVAL_RATE:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+			case UsagemodelPackage.OPEN_WORKLOAD__INTER_ARRIVAL_TIME_OPEN_WORKLOAD:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
 		super.notifyChanged(notification);
@@ -142,6 +135,11 @@ public class OpenWorkloadItemProvider
 	 */
 	protected void collectNewChildDescriptors(Collection newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+
+		newChildDescriptors.add
+			(createChildParameter
+				(UsagemodelPackage.Literals.OPEN_WORKLOAD__INTER_ARRIVAL_TIME_OPEN_WORKLOAD,
+				 UsagemodelFactory.eINSTANCE.createInterArrivalTime()));
 	}
 
 	/**

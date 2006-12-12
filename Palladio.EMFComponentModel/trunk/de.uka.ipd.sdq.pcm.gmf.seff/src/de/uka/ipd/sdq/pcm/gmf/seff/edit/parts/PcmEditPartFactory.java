@@ -88,10 +88,11 @@ public class PcmEditPartFactory implements EditPartFactory {
 				return new BranchActionEditPart(view);
 			case BranchActionEntityNameEditPart.VISUAL_ID:
 				return new BranchActionEntityNameEditPart(view);
-			case BranchTransitionEditPart.VISUAL_ID:
-				return new BranchTransitionEditPart(view);
-			case BranchTransitionProbabilityDiagramLabelEditPart.VISUAL_ID:
-				return new BranchTransitionProbabilityDiagramLabelEditPart(view);
+			case ProbabilisticBranchTransitionEditPart.VISUAL_ID:
+				return new ProbabilisticBranchTransitionEditPart(view);
+			case ProbabilisticBranchTransitionBranchProbabilityEditPart.VISUAL_ID:
+				return new ProbabilisticBranchTransitionBranchProbabilityEditPart(
+						view);
 			case ResourceDemandingBehaviour2EditPart.VISUAL_ID:
 				return new ResourceDemandingBehaviour2EditPart(view);
 			case ExternalCallAction2EditPart.VISUAL_ID:
@@ -113,8 +114,9 @@ public class PcmEditPartFactory implements EditPartFactory {
 				return new InternalActionResourceDemandEditPart(view);
 			case BranchActionBranchTransitionCompartmentEditPart.VISUAL_ID:
 				return new BranchActionBranchTransitionCompartmentEditPart(view);
-			case BranchTransitionBehaviourCompartmentEditPart.VISUAL_ID:
-				return new BranchTransitionBehaviourCompartmentEditPart(view);
+			case ProbabilisticBranchTransitionBehaviourCompartmentEditPart.VISUAL_ID:
+				return new ProbabilisticBranchTransitionBehaviourCompartmentEditPart(
+						view);
 			case ResourceDemandingBehaviourBranchCompartmentEditPart.VISUAL_ID:
 				return new ResourceDemandingBehaviourBranchCompartmentEditPart(
 						view);

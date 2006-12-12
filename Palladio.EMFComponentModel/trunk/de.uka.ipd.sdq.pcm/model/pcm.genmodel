@@ -19,7 +19,7 @@
     <details key="UNION_PROPERTIES" value="REPORT"/>
     <details key="DUPLICATE_OPERATION_INHERITANCE" value="DISCARD"/>
   </genAnnotations>
-  <foreignModel>file:/D:/Diss/Work/RSA-Export/pcm.uml2</foreignModel>
+  <foreignModel>file:/C:/coding/code/rsa_exports/pcm.uml2</foreignModel>
   <modelPluginVariables>EMFT_OCL=org.eclipse.emf.ocl</modelPluginVariables>
   <genPackages prefix="Pcm" basePackage="de.uka.ipd.sdq" disposableProviderFactory="true"
       ecorePackage="pcm.ecore#/">
@@ -288,8 +288,10 @@
             ecoreFeature="ecore:EReference pcm.ecore#//seff/ReleaseAction/resourceType_Release"/>
       </genClasses>
       <genClasses ecoreClass="pcm.ecore#//seff/LoopAction">
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//seff/LoopAction/bodyBehaviour_Loop"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//seff/LoopAction/iterations_LoopAction"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="pcm.ecore#//seff/AbstractLoopAction">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//seff/AbstractLoopAction/bodyBehaviour_Loop"/>
       </genClasses>
       <genClasses ecoreClass="pcm.ecore#//seff/IterationCount"/>
       <genClasses ecoreClass="pcm.ecore#//seff/InternalAction">
@@ -303,12 +305,12 @@
             ecoreFeature="ecore:EReference pcm.ecore#//seff/ExternalCallAction/calledService_ExternalService"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//seff/ExternalCallAction/parameterUsage_ExternalCallAction"/>
       </genClasses>
-      <genClasses ecoreClass="pcm.ecore#//seff/BranchTransition">
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//seff/BranchTransition/branchBehaviour_BranchTransition"/>
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//seff/BranchTransition/branchCondition_BranchTransition"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pcm.ecore#//seff/BranchTransition/branchProbability"/>
+      <genClasses ecoreClass="pcm.ecore#//seff/ProbabilisticBranchTransition">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pcm.ecore#//seff/ProbabilisticBranchTransition/branchProbability"/>
       </genClasses>
-      <genClasses ecoreClass="pcm.ecore#//seff/BranchCondition"/>
+      <genClasses image="false" ecoreClass="pcm.ecore#//seff/AbstractBranchTransition">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//seff/AbstractBranchTransition/branchBehaviour_BranchTransition"/>
+      </genClasses>
       <genClasses ecoreClass="pcm.ecore#//seff/BranchAction">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//seff/BranchAction/branches_Branch"/>
       </genClasses>
@@ -316,9 +318,13 @@
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference pcm.ecore#//seff/AquireAction/resourceType_Aquire"/>
       </genClasses>
+      <genClasses ecoreClass="pcm.ecore#//seff/BranchCondition"/>
       <genClasses ecoreClass="pcm.ecore#//seff/CollectionIteratorAction">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference pcm.ecore#//seff/CollectionIteratorAction/parameter_CollectionIteratorAction"/>
+      </genClasses>
+      <genClasses ecoreClass="pcm.ecore#//seff/GuardedBranchTransition">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//seff/GuardedBranchTransition/branchCondition_BranchTransition"/>
       </genClasses>
       <genClasses image="false" ecoreClass="pcm.ecore#//seff/ServiceEffectSpecification">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pcm.ecore#//seff/ServiceEffectSpecification/seffTypeID"/>
@@ -453,8 +459,9 @@
       <genClasses ecoreClass="pcm.ecore#//usagemodel/Stop"/>
       <genClasses ecoreClass="pcm.ecore#//usagemodel/Start"/>
       <genClasses ecoreClass="pcm.ecore#//usagemodel/OpenWorkload">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pcm.ecore#//usagemodel/OpenWorkload/arrivalRate"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//usagemodel/OpenWorkload/interArrivalTime_OpenWorkload"/>
       </genClasses>
+      <genClasses ecoreClass="pcm.ecore#//usagemodel/InterArrivalTime"/>
       <genClasses ecoreClass="pcm.ecore#//usagemodel/Loop">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//usagemodel/Loop/bodyBehaviour_Loop"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//usagemodel/Loop/iterations_Loop"/>
@@ -469,8 +476,9 @@
       </genClasses>
       <genClasses ecoreClass="pcm.ecore#//usagemodel/ClosedWorkload">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pcm.ecore#//usagemodel/ClosedWorkload/population"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pcm.ecore#//usagemodel/ClosedWorkload/thinkTime"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//usagemodel/ClosedWorkload/thinkTime_ClosedWorkload"/>
       </genClasses>
+      <genClasses ecoreClass="pcm.ecore#//usagemodel/ThinkTime"/>
       <genClasses ecoreClass="pcm.ecore#//usagemodel/Branch">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//usagemodel/Branch/branchTransitions_Branch"/>
       </genClasses>

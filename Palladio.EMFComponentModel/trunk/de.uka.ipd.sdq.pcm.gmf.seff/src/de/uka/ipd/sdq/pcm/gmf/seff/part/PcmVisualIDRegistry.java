@@ -16,9 +16,6 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.BranchActionBranchTransitionCompar
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.BranchActionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.BranchActionEntityName2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.BranchActionEntityNameEditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.BranchTransitionBehaviourCompartmentEditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.BranchTransitionEditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.BranchTransitionProbabilityDiagramLabelEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ExternalCallAction2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ExternalCallActionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ExternalCallActionEntityName2EditPart;
@@ -40,6 +37,9 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopActionEntityNameEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopIterationsLabel2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopIterationsLabelEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ParametricResourceDemandEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ProbabilisticBranchTransitionBehaviourCompartmentEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ProbabilisticBranchTransitionBranchProbabilityEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ProbabilisticBranchTransitionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviour2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviourBranchCompartmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviourEditPart;
@@ -57,11 +57,11 @@ import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
 import de.uka.ipd.sdq.pcm.parameter.VariableCharacterisation;
 import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
 import de.uka.ipd.sdq.pcm.seff.BranchAction;
-import de.uka.ipd.sdq.pcm.seff.BranchTransition;
 import de.uka.ipd.sdq.pcm.seff.ExternalCallAction;
 import de.uka.ipd.sdq.pcm.seff.InternalAction;
 import de.uka.ipd.sdq.pcm.seff.LoopAction;
 import de.uka.ipd.sdq.pcm.seff.ParametricResourceDemand;
+import de.uka.ipd.sdq.pcm.seff.ProbabilisticBranchTransition;
 import de.uka.ipd.sdq.pcm.seff.ResourceDemandingBehaviour;
 import de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF;
 import de.uka.ipd.sdq.pcm.seff.SeffPackage;
@@ -298,14 +298,14 @@ public class PcmVisualIDRegistry {
 			}
 			return getUnrecognizedBranchAction_2009ChildNodeID(domainElement,
 					semanticHint);
-		case BranchTransitionEditPart.VISUAL_ID:
-			if (BranchTransitionProbabilityDiagramLabelEditPart.VISUAL_ID == nodeVisualID) {
-				return BranchTransitionProbabilityDiagramLabelEditPart.VISUAL_ID;
+		case ProbabilisticBranchTransitionEditPart.VISUAL_ID:
+			if (ProbabilisticBranchTransitionBranchProbabilityEditPart.VISUAL_ID == nodeVisualID) {
+				return ProbabilisticBranchTransitionBranchProbabilityEditPart.VISUAL_ID;
 			}
-			if (BranchTransitionBehaviourCompartmentEditPart.VISUAL_ID == nodeVisualID) {
-				return BranchTransitionBehaviourCompartmentEditPart.VISUAL_ID;
+			if (ProbabilisticBranchTransitionBehaviourCompartmentEditPart.VISUAL_ID == nodeVisualID) {
+				return ProbabilisticBranchTransitionBehaviourCompartmentEditPart.VISUAL_ID;
 			}
-			return getUnrecognizedBranchTransition_2010ChildNodeID(
+			return getUnrecognizedProbabilisticBranchTransition_2010ChildNodeID(
 					domainElement, semanticHint);
 		case ResourceDemandingBehaviour2EditPart.VISUAL_ID:
 			if (ResourceDemandingBehaviourBranchCompartmentEditPart.VISUAL_ID == nodeVisualID) {
@@ -407,22 +407,22 @@ public class PcmVisualIDRegistry {
 			return getUnrecognizedInternalActionResourceDemand_5006ChildNodeID(
 					domainElement, semanticHint);
 		case BranchActionBranchTransitionCompartmentEditPart.VISUAL_ID:
-			if ((semanticHint == null || BranchTransitionEditPart.VISUAL_ID == nodeVisualID)
-					&& SeffPackage.eINSTANCE.getBranchTransition()
+			if ((semanticHint == null || ProbabilisticBranchTransitionEditPart.VISUAL_ID == nodeVisualID)
+					&& SeffPackage.eINSTANCE.getProbabilisticBranchTransition()
 							.isSuperTypeOf(domainElementMetaclass)
-					&& (domainElement == null || isNodeBranchTransition_2010((BranchTransition) domainElement))) {
-				return BranchTransitionEditPart.VISUAL_ID;
+					&& (domainElement == null || isNodeProbabilisticBranchTransition_2010((ProbabilisticBranchTransition) domainElement))) {
+				return ProbabilisticBranchTransitionEditPart.VISUAL_ID;
 			}
 			return getUnrecognizedBranchActionBranchTransitionCompartment_5007ChildNodeID(
 					domainElement, semanticHint);
-		case BranchTransitionBehaviourCompartmentEditPart.VISUAL_ID:
+		case ProbabilisticBranchTransitionBehaviourCompartmentEditPart.VISUAL_ID:
 			if ((semanticHint == null || ResourceDemandingBehaviour2EditPart.VISUAL_ID == nodeVisualID)
 					&& SeffPackage.eINSTANCE.getResourceDemandingBehaviour()
 							.isSuperTypeOf(domainElementMetaclass)
 					&& (domainElement == null || isNodeResourceDemandingBehaviour_2011((ResourceDemandingBehaviour) domainElement))) {
 				return ResourceDemandingBehaviour2EditPart.VISUAL_ID;
 			}
-			return getUnrecognizedBranchTransitionBehaviourCompartment_5008ChildNodeID(
+			return getUnrecognizedProbabilisticBranchTransitionBehaviourCompartment_5008ChildNodeID(
 					domainElement, semanticHint);
 		case ResourceDemandingBehaviourBranchCompartmentEditPart.VISUAL_ID:
 			if ((semanticHint == null || StartAction2EditPart.VISUAL_ID == nodeVisualID)
@@ -473,11 +473,11 @@ public class PcmVisualIDRegistry {
 			return getUnrecognizedExternalCallActionParameterUsage_5010ChildNodeID(
 					domainElement, semanticHint);
 		case BranchActionBranchTransitionCompartment2EditPart.VISUAL_ID:
-			if ((semanticHint == null || BranchTransitionEditPart.VISUAL_ID == nodeVisualID)
-					&& SeffPackage.eINSTANCE.getBranchTransition()
+			if ((semanticHint == null || ProbabilisticBranchTransitionEditPart.VISUAL_ID == nodeVisualID)
+					&& SeffPackage.eINSTANCE.getProbabilisticBranchTransition()
 							.isSuperTypeOf(domainElementMetaclass)
-					&& (domainElement == null || isNodeBranchTransition_2010((BranchTransition) domainElement))) {
-				return BranchTransitionEditPart.VISUAL_ID;
+					&& (domainElement == null || isNodeProbabilisticBranchTransition_2010((ProbabilisticBranchTransition) domainElement))) {
+				return ProbabilisticBranchTransitionEditPart.VISUAL_ID;
 			}
 			return getUnrecognizedBranchActionBranchTransitionCompartment_5011ChildNodeID(
 					domainElement, semanticHint);
@@ -735,7 +735,8 @@ public class PcmVisualIDRegistry {
 	 *
 	 * @generated
 	 */
-	private static boolean isNodeBranchTransition_2010(BranchTransition element) {
+	private static boolean isNodeProbabilisticBranchTransition_2010(
+			ProbabilisticBranchTransition element) {
 		return true;
 	}
 
@@ -932,7 +933,7 @@ public class PcmVisualIDRegistry {
 	 *
 	 * @generated
 	 */
-	private static int getUnrecognizedBranchTransition_2010ChildNodeID(
+	private static int getUnrecognizedProbabilisticBranchTransition_2010ChildNodeID(
 			EObject domainElement, String semanticHint) {
 		return -1;
 	}
@@ -1042,7 +1043,7 @@ public class PcmVisualIDRegistry {
 	 *
 	 * @generated
 	 */
-	private static int getUnrecognizedBranchTransitionBehaviourCompartment_5008ChildNodeID(
+	private static int getUnrecognizedProbabilisticBranchTransitionBehaviourCompartment_5008ChildNodeID(
 			EObject domainElement, String semanticHint) {
 		return -1;
 	}

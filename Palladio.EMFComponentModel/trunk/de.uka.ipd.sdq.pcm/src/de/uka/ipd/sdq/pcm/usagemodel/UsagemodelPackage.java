@@ -322,13 +322,13 @@ public interface UsagemodelPackage extends EPackage {
 	int OPEN_WORKLOAD = 7;
 
 	/**
-	 * The feature id for the '<em><b>Arrival Rate</b></em>' attribute.
+	 * The feature id for the '<em><b>Inter Arrival Time Open Workload</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OPEN_WORKLOAD__ARRIVAL_RATE = WORKLOAD_FEATURE_COUNT + 0;
+	int OPEN_WORKLOAD__INTER_ARRIVAL_TIME_OPEN_WORKLOAD = WORKLOAD_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Open Workload</em>' class.
@@ -340,6 +340,34 @@ public interface UsagemodelPackage extends EPackage {
 	int OPEN_WORKLOAD_FEATURE_COUNT = WORKLOAD_FEATURE_COUNT + 1;
 
 	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.usagemodel.impl.InterArrivalTimeImpl <em>Inter Arrival Time</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.pcm.usagemodel.impl.InterArrivalTimeImpl
+	 * @see de.uka.ipd.sdq.pcm.usagemodel.impl.UsagemodelPackageImpl#getInterArrivalTime()
+	 * @generated
+	 */
+	int INTER_ARRIVAL_TIME = 8;
+
+	/**
+	 * The feature id for the '<em><b>Specification</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTER_ARRIVAL_TIME__SPECIFICATION = StoexPackage.RANDOM_VARIABLE__SPECIFICATION;
+
+	/**
+	 * The number of structural features of the '<em>Inter Arrival Time</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTER_ARRIVAL_TIME_FEATURE_COUNT = StoexPackage.RANDOM_VARIABLE_FEATURE_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.usagemodel.impl.LoopImpl <em>Loop</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -347,7 +375,7 @@ public interface UsagemodelPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.usagemodel.impl.UsagemodelPackageImpl#getLoop()
 	 * @generated
 	 */
-	int LOOP = 8;
+	int LOOP = 9;
 
 	/**
 	 * The feature id for the '<em><b>Successor</b></em>' reference.
@@ -402,7 +430,7 @@ public interface UsagemodelPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.usagemodel.impl.UsagemodelPackageImpl#getLoopIterations()
 	 * @generated
 	 */
-	int LOOP_ITERATIONS = 9;
+	int LOOP_ITERATIONS = 10;
 
 	/**
 	 * The feature id for the '<em><b>Specification</b></em>' attribute.
@@ -430,7 +458,7 @@ public interface UsagemodelPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.usagemodel.impl.UsagemodelPackageImpl#getEntryLevelSystemCall()
 	 * @generated
 	 */
-	int ENTRY_LEVEL_SYSTEM_CALL = 10;
+	int ENTRY_LEVEL_SYSTEM_CALL = 11;
 
 	/**
 	 * The feature id for the '<em><b>Successor</b></em>' reference.
@@ -494,7 +522,7 @@ public interface UsagemodelPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.usagemodel.impl.UsagemodelPackageImpl#getClosedWorkload()
 	 * @generated
 	 */
-	int CLOSED_WORKLOAD = 11;
+	int CLOSED_WORKLOAD = 12;
 
 	/**
 	 * The feature id for the '<em><b>Population</b></em>' attribute.
@@ -506,13 +534,13 @@ public interface UsagemodelPackage extends EPackage {
 	int CLOSED_WORKLOAD__POPULATION = WORKLOAD_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Think Time</b></em>' attribute.
+	 * The feature id for the '<em><b>Think Time Closed Workload</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CLOSED_WORKLOAD__THINK_TIME = WORKLOAD_FEATURE_COUNT + 1;
+	int CLOSED_WORKLOAD__THINK_TIME_CLOSED_WORKLOAD = WORKLOAD_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Closed Workload</em>' class.
@@ -524,6 +552,34 @@ public interface UsagemodelPackage extends EPackage {
 	int CLOSED_WORKLOAD_FEATURE_COUNT = WORKLOAD_FEATURE_COUNT + 2;
 
 	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.usagemodel.impl.ThinkTimeImpl <em>Think Time</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.pcm.usagemodel.impl.ThinkTimeImpl
+	 * @see de.uka.ipd.sdq.pcm.usagemodel.impl.UsagemodelPackageImpl#getThinkTime()
+	 * @generated
+	 */
+	int THINK_TIME = 13;
+
+	/**
+	 * The feature id for the '<em><b>Specification</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int THINK_TIME__SPECIFICATION = StoexPackage.RANDOM_VARIABLE__SPECIFICATION;
+
+	/**
+	 * The number of structural features of the '<em>Think Time</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int THINK_TIME_FEATURE_COUNT = StoexPackage.RANDOM_VARIABLE_FEATURE_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.usagemodel.impl.BranchImpl <em>Branch</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -531,7 +587,7 @@ public interface UsagemodelPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.usagemodel.impl.UsagemodelPackageImpl#getBranch()
 	 * @generated
 	 */
-	int BRANCH = 12;
+	int BRANCH = 14;
 
 	/**
 	 * The feature id for the '<em><b>Successor</b></em>' reference.
@@ -577,7 +633,7 @@ public interface UsagemodelPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.usagemodel.impl.UsagemodelPackageImpl#getBranchTransition()
 	 * @generated
 	 */
-	int BRANCH_TRANSITION = 13;
+	int BRANCH_TRANSITION = 15;
 
 	/**
 	 * The feature id for the '<em><b>Branch Probability</b></em>' attribute.
@@ -754,15 +810,25 @@ public interface UsagemodelPackage extends EPackage {
 	EClass getOpenWorkload();
 
 	/**
-	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.pcm.usagemodel.OpenWorkload#getArrivalRate <em>Arrival Rate</em>}'.
+	 * Returns the meta object for the containment reference '{@link de.uka.ipd.sdq.pcm.usagemodel.OpenWorkload#getInterArrivalTime_OpenWorkload <em>Inter Arrival Time Open Workload</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Arrival Rate</em>'.
-	 * @see de.uka.ipd.sdq.pcm.usagemodel.OpenWorkload#getArrivalRate()
+	 * @return the meta object for the containment reference '<em>Inter Arrival Time Open Workload</em>'.
+	 * @see de.uka.ipd.sdq.pcm.usagemodel.OpenWorkload#getInterArrivalTime_OpenWorkload()
 	 * @see #getOpenWorkload()
 	 * @generated
 	 */
-	EAttribute getOpenWorkload_ArrivalRate();
+	EReference getOpenWorkload_InterArrivalTime_OpenWorkload();
+
+	/**
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.usagemodel.InterArrivalTime <em>Inter Arrival Time</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Inter Arrival Time</em>'.
+	 * @see de.uka.ipd.sdq.pcm.usagemodel.InterArrivalTime
+	 * @generated
+	 */
+	EClass getInterArrivalTime();
 
 	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.usagemodel.Loop <em>Loop</em>}'.
@@ -871,15 +937,25 @@ public interface UsagemodelPackage extends EPackage {
 	EAttribute getClosedWorkload_Population();
 
 	/**
-	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.pcm.usagemodel.ClosedWorkload#getThinkTime <em>Think Time</em>}'.
+	 * Returns the meta object for the containment reference '{@link de.uka.ipd.sdq.pcm.usagemodel.ClosedWorkload#getThinkTime_ClosedWorkload <em>Think Time Closed Workload</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Think Time</em>'.
-	 * @see de.uka.ipd.sdq.pcm.usagemodel.ClosedWorkload#getThinkTime()
+	 * @return the meta object for the containment reference '<em>Think Time Closed Workload</em>'.
+	 * @see de.uka.ipd.sdq.pcm.usagemodel.ClosedWorkload#getThinkTime_ClosedWorkload()
 	 * @see #getClosedWorkload()
 	 * @generated
 	 */
-	EAttribute getClosedWorkload_ThinkTime();
+	EReference getClosedWorkload_ThinkTime_ClosedWorkload();
+
+	/**
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.usagemodel.ThinkTime <em>Think Time</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Think Time</em>'.
+	 * @see de.uka.ipd.sdq.pcm.usagemodel.ThinkTime
+	 * @generated
+	 */
+	EClass getThinkTime();
 
 	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.usagemodel.Branch <em>Branch</em>}'.
@@ -955,7 +1031,7 @@ public interface UsagemodelPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	interface Literals {
+	interface Literals  {
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.usagemodel.impl.WorkloadImpl <em>Workload</em>}' class.
 		 * <!-- begin-user-doc -->
@@ -1085,12 +1161,22 @@ public interface UsagemodelPackage extends EPackage {
 		EClass OPEN_WORKLOAD = eINSTANCE.getOpenWorkload();
 
 		/**
-		 * The meta object literal for the '<em><b>Arrival Rate</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Inter Arrival Time Open Workload</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute OPEN_WORKLOAD__ARRIVAL_RATE = eINSTANCE.getOpenWorkload_ArrivalRate();
+		EReference OPEN_WORKLOAD__INTER_ARRIVAL_TIME_OPEN_WORKLOAD = eINSTANCE.getOpenWorkload_InterArrivalTime_OpenWorkload();
+
+		/**
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.usagemodel.impl.InterArrivalTimeImpl <em>Inter Arrival Time</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.uka.ipd.sdq.pcm.usagemodel.impl.InterArrivalTimeImpl
+		 * @see de.uka.ipd.sdq.pcm.usagemodel.impl.UsagemodelPackageImpl#getInterArrivalTime()
+		 * @generated
+		 */
+		EClass INTER_ARRIVAL_TIME = eINSTANCE.getInterArrivalTime();
 
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.usagemodel.impl.LoopImpl <em>Loop</em>}' class.
@@ -1181,12 +1267,22 @@ public interface UsagemodelPackage extends EPackage {
 		EAttribute CLOSED_WORKLOAD__POPULATION = eINSTANCE.getClosedWorkload_Population();
 
 		/**
-		 * The meta object literal for the '<em><b>Think Time</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Think Time Closed Workload</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute CLOSED_WORKLOAD__THINK_TIME = eINSTANCE.getClosedWorkload_ThinkTime();
+		EReference CLOSED_WORKLOAD__THINK_TIME_CLOSED_WORKLOAD = eINSTANCE.getClosedWorkload_ThinkTime_ClosedWorkload();
+
+		/**
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.usagemodel.impl.ThinkTimeImpl <em>Think Time</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.uka.ipd.sdq.pcm.usagemodel.impl.ThinkTimeImpl
+		 * @see de.uka.ipd.sdq.pcm.usagemodel.impl.UsagemodelPackageImpl#getThinkTime()
+		 * @generated
+		 */
+		EClass THINK_TIME = eINSTANCE.getThinkTime();
 
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.usagemodel.impl.BranchImpl <em>Branch</em>}' class.

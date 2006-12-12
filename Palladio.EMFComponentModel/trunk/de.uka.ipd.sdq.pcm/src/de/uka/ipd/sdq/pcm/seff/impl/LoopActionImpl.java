@@ -27,30 +27,19 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link de.uka.ipd.sdq.pcm.seff.impl.LoopActionImpl#getBodyBehaviour_Loop <em>Body Behaviour Loop</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.seff.impl.LoopActionImpl#getIterations_LoopAction <em>Iterations Loop Action</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class LoopActionImpl extends AbstractResourceDemandingActionImpl implements LoopAction {
+public class LoopActionImpl extends AbstractLoopActionImpl implements LoopAction {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public static final String copyright = "(c) by SDQ, IPD, U Karlsruhe (TH), 2006";
-
-	/**
-	 * The cached value of the '{@link #getBodyBehaviour_Loop() <em>Body Behaviour Loop</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getBodyBehaviour_Loop()
-	 * @generated
-	 * @ordered
-	 */
-	protected ResourceDemandingBehaviour bodyBehaviour_Loop = null;
 
 	/**
 	 * The cached value of the '{@link #getIterations_LoopAction() <em>Iterations Loop Action</em>}' containment reference.
@@ -79,49 +68,6 @@ public class LoopActionImpl extends AbstractResourceDemandingActionImpl implemen
 	 */
 	protected EClass eStaticClass() {
 		return SeffPackage.Literals.LOOP_ACTION;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ResourceDemandingBehaviour getBodyBehaviour_Loop() {
-		return bodyBehaviour_Loop;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetBodyBehaviour_Loop(ResourceDemandingBehaviour newBodyBehaviour_Loop, NotificationChain msgs) {
-		ResourceDemandingBehaviour oldBodyBehaviour_Loop = bodyBehaviour_Loop;
-		bodyBehaviour_Loop = newBodyBehaviour_Loop;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, SeffPackage.LOOP_ACTION__BODY_BEHAVIOUR_LOOP, oldBodyBehaviour_Loop, newBodyBehaviour_Loop);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setBodyBehaviour_Loop(ResourceDemandingBehaviour newBodyBehaviour_Loop) {
-		if (newBodyBehaviour_Loop != bodyBehaviour_Loop) {
-			NotificationChain msgs = null;
-			if (bodyBehaviour_Loop != null)
-				msgs = ((InternalEObject)bodyBehaviour_Loop).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - SeffPackage.LOOP_ACTION__BODY_BEHAVIOUR_LOOP, null, msgs);
-			if (newBodyBehaviour_Loop != null)
-				msgs = ((InternalEObject)newBodyBehaviour_Loop).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - SeffPackage.LOOP_ACTION__BODY_BEHAVIOUR_LOOP, null, msgs);
-			msgs = basicSetBodyBehaviour_Loop(newBodyBehaviour_Loop, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SeffPackage.LOOP_ACTION__BODY_BEHAVIOUR_LOOP, newBodyBehaviour_Loop, newBodyBehaviour_Loop));
 	}
 
 	/**
@@ -174,8 +120,6 @@ public class LoopActionImpl extends AbstractResourceDemandingActionImpl implemen
 	 */
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case SeffPackage.LOOP_ACTION__BODY_BEHAVIOUR_LOOP:
-				return basicSetBodyBehaviour_Loop(null, msgs);
 			case SeffPackage.LOOP_ACTION__ITERATIONS_LOOP_ACTION:
 				return basicSetIterations_LoopAction(null, msgs);
 		}
@@ -189,8 +133,6 @@ public class LoopActionImpl extends AbstractResourceDemandingActionImpl implemen
 	 */
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case SeffPackage.LOOP_ACTION__BODY_BEHAVIOUR_LOOP:
-				return getBodyBehaviour_Loop();
 			case SeffPackage.LOOP_ACTION__ITERATIONS_LOOP_ACTION:
 				return getIterations_LoopAction();
 		}
@@ -204,9 +146,6 @@ public class LoopActionImpl extends AbstractResourceDemandingActionImpl implemen
 	 */
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case SeffPackage.LOOP_ACTION__BODY_BEHAVIOUR_LOOP:
-				setBodyBehaviour_Loop((ResourceDemandingBehaviour)newValue);
-				return;
 			case SeffPackage.LOOP_ACTION__ITERATIONS_LOOP_ACTION:
 				setIterations_LoopAction((IterationCount)newValue);
 				return;
@@ -221,9 +160,6 @@ public class LoopActionImpl extends AbstractResourceDemandingActionImpl implemen
 	 */
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case SeffPackage.LOOP_ACTION__BODY_BEHAVIOUR_LOOP:
-				setBodyBehaviour_Loop((ResourceDemandingBehaviour)null);
-				return;
 			case SeffPackage.LOOP_ACTION__ITERATIONS_LOOP_ACTION:
 				setIterations_LoopAction((IterationCount)null);
 				return;
@@ -238,8 +174,6 @@ public class LoopActionImpl extends AbstractResourceDemandingActionImpl implemen
 	 */
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case SeffPackage.LOOP_ACTION__BODY_BEHAVIOUR_LOOP:
-				return bodyBehaviour_Loop != null;
 			case SeffPackage.LOOP_ACTION__ITERATIONS_LOOP_ACTION:
 				return iterations_LoopAction != null;
 		}

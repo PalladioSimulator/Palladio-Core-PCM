@@ -324,25 +324,25 @@ public class SeffItemProviderAdapterFactory extends SeffAdapterFactory implement
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.seff.BranchTransition} instances.
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.seff.ProbabilisticBranchTransition} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected BranchTransitionItemProvider branchTransitionItemProvider;
+	protected ProbabilisticBranchTransitionItemProvider probabilisticBranchTransitionItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.seff.BranchTransition}.
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.seff.ProbabilisticBranchTransition}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Adapter createBranchTransitionAdapter() {
-		if (branchTransitionItemProvider == null) {
-			branchTransitionItemProvider = new BranchTransitionItemProvider(this);
+	public Adapter createProbabilisticBranchTransitionAdapter() {
+		if (probabilisticBranchTransitionItemProvider == null) {
+			probabilisticBranchTransitionItemProvider = new ProbabilisticBranchTransitionItemProvider(this);
 		}
 
-		return branchTransitionItemProvider;
+		return probabilisticBranchTransitionItemProvider;
 	}
 
 	/**
@@ -431,6 +431,28 @@ public class SeffItemProviderAdapterFactory extends SeffAdapterFactory implement
 		}
 
 		return collectionIteratorActionItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.seff.GuardedBranchTransition} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected GuardedBranchTransitionItemProvider guardedBranchTransitionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.seff.GuardedBranchTransition}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Adapter createGuardedBranchTransitionAdapter() {
+		if (guardedBranchTransitionItemProvider == null) {
+			guardedBranchTransitionItemProvider = new GuardedBranchTransitionItemProvider(this);
+		}
+
+		return guardedBranchTransitionItemProvider;
 	}
 
 	/**
@@ -540,11 +562,12 @@ public class SeffItemProviderAdapterFactory extends SeffAdapterFactory implement
 		if (internalActionItemProvider != null) internalActionItemProvider.dispose();
 		if (forkActionItemProvider != null) forkActionItemProvider.dispose();
 		if (externalCallActionItemProvider != null) externalCallActionItemProvider.dispose();
-		if (branchTransitionItemProvider != null) branchTransitionItemProvider.dispose();
-		if (branchConditionItemProvider != null) branchConditionItemProvider.dispose();
+		if (probabilisticBranchTransitionItemProvider != null) probabilisticBranchTransitionItemProvider.dispose();
 		if (branchActionItemProvider != null) branchActionItemProvider.dispose();
 		if (aquireActionItemProvider != null) aquireActionItemProvider.dispose();
+		if (branchConditionItemProvider != null) branchConditionItemProvider.dispose();
 		if (collectionIteratorActionItemProvider != null) collectionIteratorActionItemProvider.dispose();
+		if (guardedBranchTransitionItemProvider != null) guardedBranchTransitionItemProvider.dispose();
 	}
 
 }

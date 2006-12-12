@@ -17,7 +17,7 @@ package de.uka.ipd.sdq.pcm.usagemodel;
  * The following features are supported:
  * <ul>
  *   <li>{@link de.uka.ipd.sdq.pcm.usagemodel.ClosedWorkload#getPopulation <em>Population</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.usagemodel.ClosedWorkload#getThinkTime <em>Think Time</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.usagemodel.ClosedWorkload#getThinkTime_ClosedWorkload <em>Think Time Closed Workload</em>}</li>
  * </ul>
  * </p>
  *
@@ -60,29 +60,29 @@ public interface ClosedWorkload extends Workload {
 	void setPopulation(int value);
 
 	/**
-	 * Returns the value of the '<em><b>Think Time</b></em>' attribute.
+	 * Returns the value of the '<em><b>Think Time Closed Workload</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Think Time</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Think Time Closed Workload</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Think Time</em>' attribute.
-	 * @see #setThinkTime(double)
-	 * @see de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage#getClosedWorkload_ThinkTime()
-	 * @model required="true" ordered="false"
+	 * @return the value of the '<em>Think Time Closed Workload</em>' containment reference.
+	 * @see #setThinkTime_ClosedWorkload(ThinkTime)
+	 * @see de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage#getClosedWorkload_ThinkTime_ClosedWorkload()
+	 * @model containment="true" required="true" ordered="false"
 	 * @generated
 	 */
-	double getThinkTime();
+	ThinkTime getThinkTime_ClosedWorkload();
 
 	/**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.usagemodel.ClosedWorkload#getThinkTime <em>Think Time</em>}' attribute.
+	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.usagemodel.ClosedWorkload#getThinkTime_ClosedWorkload <em>Think Time Closed Workload</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Think Time</em>' attribute.
-	 * @see #getThinkTime()
+	 * @param value the new value of the '<em>Think Time Closed Workload</em>' containment reference.
+	 * @see #getThinkTime_ClosedWorkload()
 	 * @generated
 	 */
-	void setThinkTime(double value);
+	void setThinkTime_ClosedWorkload(ThinkTime value);
 
 } // ClosedWorkload

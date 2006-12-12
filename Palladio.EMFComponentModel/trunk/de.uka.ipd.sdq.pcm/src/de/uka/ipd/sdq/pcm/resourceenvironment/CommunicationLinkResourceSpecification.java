@@ -72,12 +72,12 @@ public interface CommunicationLinkResourceSpecification extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Throughput</em>' attribute.
-	 * @see #setThroughput(int)
+	 * @see #setThroughput(double)
 	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage#getCommunicationLinkResourceSpecification_Throughput()
 	 * @model required="true" ordered="false"
 	 * @generated
 	 */
-	int getThroughput();
+	double getThroughput();
 
 	/**
 	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.resourceenvironment.CommunicationLinkResourceSpecification#getThroughput <em>Throughput</em>}' attribute.
@@ -87,7 +87,7 @@ public interface CommunicationLinkResourceSpecification extends EObject {
 	 * @see #getThroughput()
 	 * @generated
 	 */
-	void setThroughput(int value);
+	void setThroughput(double value);
 
 	/**
 	 * Returns the value of the '<em><b>Units</b></em>' attribute.

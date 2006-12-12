@@ -61,7 +61,7 @@ public class CommunicationLinkResourceSpecificationImpl extends EObjectImpl impl
 	 * @generated
 	 * @ordered
 	 */
-	protected static final int THROUGHPUT_EDEFAULT = 0;
+	protected static final double THROUGHPUT_EDEFAULT = 0.0;
 
 	/**
 	 * The cached value of the '{@link #getThroughput() <em>Throughput</em>}' attribute.
@@ -71,7 +71,7 @@ public class CommunicationLinkResourceSpecificationImpl extends EObjectImpl impl
 	 * @generated
 	 * @ordered
 	 */
-	protected int throughput = THROUGHPUT_EDEFAULT;
+	protected double throughput = THROUGHPUT_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getUnits() <em>Units</em>}' attribute.
@@ -155,7 +155,7 @@ public class CommunicationLinkResourceSpecificationImpl extends EObjectImpl impl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public int getThroughput() {
+	public double getThroughput() {
 		return throughput;
 	}
 
@@ -164,8 +164,8 @@ public class CommunicationLinkResourceSpecificationImpl extends EObjectImpl impl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setThroughput(int newThroughput) {
-		int oldThroughput = throughput;
+	public void setThroughput(double newThroughput) {
+		double oldThroughput = throughput;
 		throughput = newThroughput;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ResourceenvironmentPackage.COMMUNICATION_LINK_RESOURCE_SPECIFICATION__THROUGHPUT, oldThroughput, throughput));
@@ -203,7 +203,7 @@ public class CommunicationLinkResourceSpecificationImpl extends EObjectImpl impl
 				if (resolve) return getCommunicationLinkResourceType_CommunicationLinkResourceSpecification();
 				return basicGetCommunicationLinkResourceType_CommunicationLinkResourceSpecification();
 			case ResourceenvironmentPackage.COMMUNICATION_LINK_RESOURCE_SPECIFICATION__THROUGHPUT:
-				return new Integer(getThroughput());
+				return new Double(getThroughput());
 			case ResourceenvironmentPackage.COMMUNICATION_LINK_RESOURCE_SPECIFICATION__UNITS:
 				return getUnits();
 		}
@@ -221,7 +221,7 @@ public class CommunicationLinkResourceSpecificationImpl extends EObjectImpl impl
 				setCommunicationLinkResourceType_CommunicationLinkResourceSpecification((CommunicationLinkResourceType)newValue);
 				return;
 			case ResourceenvironmentPackage.COMMUNICATION_LINK_RESOURCE_SPECIFICATION__THROUGHPUT:
-				setThroughput(((Integer)newValue).intValue());
+				setThroughput(((Double)newValue).doubleValue());
 				return;
 			case ResourceenvironmentPackage.COMMUNICATION_LINK_RESOURCE_SPECIFICATION__UNITS:
 				setUnits((String)newValue);

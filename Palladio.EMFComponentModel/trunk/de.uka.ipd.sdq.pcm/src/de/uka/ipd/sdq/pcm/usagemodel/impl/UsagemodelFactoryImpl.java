@@ -72,10 +72,12 @@ public class UsagemodelFactoryImpl extends EFactoryImpl implements UsagemodelFac
 			case UsagemodelPackage.STOP: return createStop();
 			case UsagemodelPackage.START: return createStart();
 			case UsagemodelPackage.OPEN_WORKLOAD: return createOpenWorkload();
+			case UsagemodelPackage.INTER_ARRIVAL_TIME: return createInterArrivalTime();
 			case UsagemodelPackage.LOOP: return createLoop();
 			case UsagemodelPackage.LOOP_ITERATIONS: return createLoopIterations();
 			case UsagemodelPackage.ENTRY_LEVEL_SYSTEM_CALL: return createEntryLevelSystemCall();
 			case UsagemodelPackage.CLOSED_WORKLOAD: return createClosedWorkload();
+			case UsagemodelPackage.THINK_TIME: return createThinkTime();
 			case UsagemodelPackage.BRANCH: return createBranch();
 			case UsagemodelPackage.BRANCH_TRANSITION: return createBranchTransition();
 			default:
@@ -148,6 +150,16 @@ public class UsagemodelFactoryImpl extends EFactoryImpl implements UsagemodelFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public InterArrivalTime createInterArrivalTime() {
+		InterArrivalTimeImpl interArrivalTime = new InterArrivalTimeImpl();
+		return interArrivalTime;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Loop createLoop() {
 		LoopImpl loop = new LoopImpl();
 		return loop;
@@ -181,6 +193,16 @@ public class UsagemodelFactoryImpl extends EFactoryImpl implements UsagemodelFac
 	public ClosedWorkload createClosedWorkload() {
 		ClosedWorkloadImpl closedWorkload = new ClosedWorkloadImpl();
 		return closedWorkload;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ThinkTime createThinkTime() {
+		ThinkTimeImpl thinkTime = new ThinkTimeImpl();
+		return thinkTime;
 	}
 
 	/**

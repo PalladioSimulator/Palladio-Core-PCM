@@ -72,12 +72,12 @@ public interface ProcessingResourceSpecification extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Processing Rate</em>' attribute.
-	 * @see #setProcessingRate(int)
+	 * @see #setProcessingRate(double)
 	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage#getProcessingResourceSpecification_ProcessingRate()
 	 * @model required="true" ordered="false"
 	 * @generated
 	 */
-	int getProcessingRate();
+	double getProcessingRate();
 
 	/**
 	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification#getProcessingRate <em>Processing Rate</em>}' attribute.
@@ -87,7 +87,7 @@ public interface ProcessingResourceSpecification extends EObject {
 	 * @see #getProcessingRate()
 	 * @generated
 	 */
-	void setProcessingRate(int value);
+	void setProcessingRate(double value);
 
 	/**
 	 * Returns the value of the '<em><b>Units</b></em>' attribute.

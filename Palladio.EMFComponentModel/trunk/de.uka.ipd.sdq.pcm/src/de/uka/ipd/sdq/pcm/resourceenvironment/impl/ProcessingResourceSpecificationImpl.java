@@ -61,7 +61,7 @@ public class ProcessingResourceSpecificationImpl extends EObjectImpl implements 
 	 * @generated
 	 * @ordered
 	 */
-	protected static final int PROCESSING_RATE_EDEFAULT = 0;
+	protected static final double PROCESSING_RATE_EDEFAULT = 0.0;
 
 	/**
 	 * The cached value of the '{@link #getProcessingRate() <em>Processing Rate</em>}' attribute.
@@ -71,7 +71,7 @@ public class ProcessingResourceSpecificationImpl extends EObjectImpl implements 
 	 * @generated
 	 * @ordered
 	 */
-	protected int processingRate = PROCESSING_RATE_EDEFAULT;
+	protected double processingRate = PROCESSING_RATE_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getUnits() <em>Units</em>}' attribute.
@@ -155,7 +155,7 @@ public class ProcessingResourceSpecificationImpl extends EObjectImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public int getProcessingRate() {
+	public double getProcessingRate() {
 		return processingRate;
 	}
 
@@ -164,8 +164,8 @@ public class ProcessingResourceSpecificationImpl extends EObjectImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setProcessingRate(int newProcessingRate) {
-		int oldProcessingRate = processingRate;
+	public void setProcessingRate(double newProcessingRate) {
+		double oldProcessingRate = processingRate;
 		processingRate = newProcessingRate;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__PROCESSING_RATE, oldProcessingRate, processingRate));
@@ -203,7 +203,7 @@ public class ProcessingResourceSpecificationImpl extends EObjectImpl implements 
 				if (resolve) return getActiveResourceType_ActiveResourceSpecification();
 				return basicGetActiveResourceType_ActiveResourceSpecification();
 			case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__PROCESSING_RATE:
-				return new Integer(getProcessingRate());
+				return new Double(getProcessingRate());
 			case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__UNITS:
 				return getUnits();
 		}
@@ -221,7 +221,7 @@ public class ProcessingResourceSpecificationImpl extends EObjectImpl implements 
 				setActiveResourceType_ActiveResourceSpecification((ProcessingResourceType)newValue);
 				return;
 			case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__PROCESSING_RATE:
-				setProcessingRate(((Integer)newValue).intValue());
+				setProcessingRate(((Double)newValue).doubleValue());
 				return;
 			case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__UNITS:
 				setUnits((String)newValue);

@@ -12,13 +12,13 @@ import org.eclipse.gmf.runtime.diagram.ui.figures.ResizableCompartmentFigure;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.notation.View;
 
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.BranchTransitionBehaviourCompartmentCanonicalEditPolicy;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.BranchTransitionBehaviourCompartmentItemSemanticEditPolicy;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.ProbabilisticBranchTransitionBehaviourCompartmentCanonicalEditPolicy;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.ProbabilisticBranchTransitionBehaviourCompartmentItemSemanticEditPolicy;
 
 /**
  * @generated
  */
-public class BranchTransitionBehaviourCompartmentEditPart extends
+public class ProbabilisticBranchTransitionBehaviourCompartmentEditPart extends
 		ShapeCompartmentEditPart {
 
 	/**
@@ -29,7 +29,7 @@ public class BranchTransitionBehaviourCompartmentEditPart extends
 	/**
 	 * @generated
 	 */
-	public BranchTransitionBehaviourCompartmentEditPart(View view) {
+	public ProbabilisticBranchTransitionBehaviourCompartmentEditPart(View view) {
 		super(view);
 	}
 
@@ -57,13 +57,14 @@ public class BranchTransitionBehaviourCompartmentEditPart extends
 		super.createDefaultEditPolicies();
 		installEditPolicy(
 				EditPolicyRoles.SEMANTIC_ROLE,
-				new BranchTransitionBehaviourCompartmentItemSemanticEditPolicy());
+				new ProbabilisticBranchTransitionBehaviourCompartmentItemSemanticEditPolicy());
 		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
 				new CreationEditPolicy());
 		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE,
 				new DragDropEditPolicy());
-		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE,
-				new BranchTransitionBehaviourCompartmentCanonicalEditPolicy());
+		installEditPolicy(
+				EditPolicyRoles.CANONICAL_ROLE,
+				new ProbabilisticBranchTransitionBehaviourCompartmentCanonicalEditPolicy());
 	}
 
 	/**

@@ -49,18 +49,21 @@ import de.uka.ipd.sdq.pcm.resourcetype.ResourcetypePackage;
 import de.uka.ipd.sdq.pcm.resourcetype.impl.ResourcetypePackageImpl;
 
 import de.uka.ipd.sdq.pcm.seff.AbstractAction;
+import de.uka.ipd.sdq.pcm.seff.AbstractBranchTransition;
+import de.uka.ipd.sdq.pcm.seff.AbstractLoopAction;
 import de.uka.ipd.sdq.pcm.seff.AbstractResourceDemandingAction;
 import de.uka.ipd.sdq.pcm.seff.AquireAction;
 import de.uka.ipd.sdq.pcm.seff.BranchAction;
 import de.uka.ipd.sdq.pcm.seff.BranchCondition;
-import de.uka.ipd.sdq.pcm.seff.BranchTransition;
 import de.uka.ipd.sdq.pcm.seff.CollectionIteratorAction;
 import de.uka.ipd.sdq.pcm.seff.ExternalCallAction;
 import de.uka.ipd.sdq.pcm.seff.ForkAction;
+import de.uka.ipd.sdq.pcm.seff.GuardedBranchTransition;
 import de.uka.ipd.sdq.pcm.seff.InternalAction;
 import de.uka.ipd.sdq.pcm.seff.IterationCount;
 import de.uka.ipd.sdq.pcm.seff.LoopAction;
 import de.uka.ipd.sdq.pcm.seff.ParametricResourceDemand;
+import de.uka.ipd.sdq.pcm.seff.ProbabilisticBranchTransition;
 import de.uka.ipd.sdq.pcm.seff.ReleaseAction;
 import de.uka.ipd.sdq.pcm.seff.ResourceDemandingBehaviour;
 import de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF;
@@ -171,6 +174,13 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass abstractLoopActionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass iterationCountEClass = null;
 
 	/**
@@ -199,7 +209,14 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass branchTransitionEClass = null;
+	private EClass probabilisticBranchTransitionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass abstractBranchTransitionEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -228,6 +245,13 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 	 * @generated
 	 */
 	private EClass collectionIteratorActionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass guardedBranchTransitionEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -505,7 +529,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getLoopAction_BodyBehaviour_Loop() {
+	public EReference getLoopAction_Iterations_LoopAction() {
 		return (EReference)loopActionEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -514,8 +538,17 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getLoopAction_Iterations_LoopAction() {
-		return (EReference)loopActionEClass.getEStructuralFeatures().get(1);
+	public EClass getAbstractLoopAction() {
+		return abstractLoopActionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getAbstractLoopAction_BodyBehaviour_Loop() {
+		return (EReference)abstractLoopActionEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -595,8 +628,8 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getBranchTransition() {
-		return branchTransitionEClass;
+	public EClass getProbabilisticBranchTransition() {
+		return probabilisticBranchTransitionEClass;
 	}
 
 	/**
@@ -604,8 +637,8 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getBranchTransition_BranchBehaviour_BranchTransition() {
-		return (EReference)branchTransitionEClass.getEStructuralFeatures().get(0);
+	public EAttribute getProbabilisticBranchTransition_BranchProbability() {
+		return (EAttribute)probabilisticBranchTransitionEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -613,8 +646,8 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getBranchTransition_BranchCondition_BranchTransition() {
-		return (EReference)branchTransitionEClass.getEStructuralFeatures().get(1);
+	public EClass getAbstractBranchTransition() {
+		return abstractBranchTransitionEClass;
 	}
 
 	/**
@@ -622,8 +655,8 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getBranchTransition_BranchProbability() {
-		return (EAttribute)branchTransitionEClass.getEStructuralFeatures().get(2);
+	public EReference getAbstractBranchTransition_BranchBehaviour_BranchTransition() {
+		return (EReference)abstractBranchTransitionEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -687,6 +720,24 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 	 */
 	public EReference getCollectionIteratorAction_Parameter_CollectionIteratorAction() {
 		return (EReference)collectionIteratorActionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getGuardedBranchTransition() {
+		return guardedBranchTransitionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getGuardedBranchTransition_BranchCondition_BranchTransition() {
+		return (EReference)guardedBranchTransitionEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -769,8 +820,10 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 		createEReference(releaseActionEClass, RELEASE_ACTION__RESOURCE_TYPE_RELEASE);
 
 		loopActionEClass = createEClass(LOOP_ACTION);
-		createEReference(loopActionEClass, LOOP_ACTION__BODY_BEHAVIOUR_LOOP);
 		createEReference(loopActionEClass, LOOP_ACTION__ITERATIONS_LOOP_ACTION);
+
+		abstractLoopActionEClass = createEClass(ABSTRACT_LOOP_ACTION);
+		createEReference(abstractLoopActionEClass, ABSTRACT_LOOP_ACTION__BODY_BEHAVIOUR_LOOP);
 
 		iterationCountEClass = createEClass(ITERATION_COUNT);
 
@@ -784,12 +837,11 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 		createEReference(externalCallActionEClass, EXTERNAL_CALL_ACTION__CALLED_SERVICE_EXTERNAL_SERVICE);
 		createEReference(externalCallActionEClass, EXTERNAL_CALL_ACTION__PARAMETER_USAGE_EXTERNAL_CALL_ACTION);
 
-		branchTransitionEClass = createEClass(BRANCH_TRANSITION);
-		createEReference(branchTransitionEClass, BRANCH_TRANSITION__BRANCH_BEHAVIOUR_BRANCH_TRANSITION);
-		createEReference(branchTransitionEClass, BRANCH_TRANSITION__BRANCH_CONDITION_BRANCH_TRANSITION);
-		createEAttribute(branchTransitionEClass, BRANCH_TRANSITION__BRANCH_PROBABILITY);
+		probabilisticBranchTransitionEClass = createEClass(PROBABILISTIC_BRANCH_TRANSITION);
+		createEAttribute(probabilisticBranchTransitionEClass, PROBABILISTIC_BRANCH_TRANSITION__BRANCH_PROBABILITY);
 
-		branchConditionEClass = createEClass(BRANCH_CONDITION);
+		abstractBranchTransitionEClass = createEClass(ABSTRACT_BRANCH_TRANSITION);
+		createEReference(abstractBranchTransitionEClass, ABSTRACT_BRANCH_TRANSITION__BRANCH_BEHAVIOUR_BRANCH_TRANSITION);
 
 		branchActionEClass = createEClass(BRANCH_ACTION);
 		createEReference(branchActionEClass, BRANCH_ACTION__BRANCHES_BRANCH);
@@ -797,8 +849,13 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 		aquireActionEClass = createEClass(AQUIRE_ACTION);
 		createEReference(aquireActionEClass, AQUIRE_ACTION__RESOURCE_TYPE_AQUIRE);
 
+		branchConditionEClass = createEClass(BRANCH_CONDITION);
+
 		collectionIteratorActionEClass = createEClass(COLLECTION_ITERATOR_ACTION);
 		createEReference(collectionIteratorActionEClass, COLLECTION_ITERATOR_ACTION__PARAMETER_COLLECTION_ITERATOR_ACTION);
+
+		guardedBranchTransitionEClass = createEClass(GUARDED_BRANCH_TRANSITION);
+		createEReference(guardedBranchTransitionEClass, GUARDED_BRANCH_TRANSITION__BRANCH_CONDITION_BRANCH_TRANSITION);
 
 		serviceEffectSpecificationEClass = createEClass(SERVICE_EFFECT_SPECIFICATION);
 		createEAttribute(serviceEffectSpecificationEClass, SERVICE_EFFECT_SPECIFICATION__SEFF_TYPE_ID);
@@ -845,16 +902,19 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 		resourceDemandingSEFFEClass.getESuperTypes().add(this.getServiceEffectSpecification());
 		resourceDemandingSEFFEClass.getESuperTypes().add(this.getResourceDemandingBehaviour());
 		releaseActionEClass.getESuperTypes().add(this.getAbstractResourceDemandingAction());
-		loopActionEClass.getESuperTypes().add(this.getAbstractResourceDemandingAction());
+		loopActionEClass.getESuperTypes().add(this.getAbstractLoopAction());
+		abstractLoopActionEClass.getESuperTypes().add(this.getAbstractResourceDemandingAction());
 		iterationCountEClass.getESuperTypes().add(theStoexPackage.getRandomVariable());
 		internalActionEClass.getESuperTypes().add(this.getAbstractResourceDemandingAction());
 		forkActionEClass.getESuperTypes().add(this.getAbstractResourceDemandingAction());
 		externalCallActionEClass.getESuperTypes().add(this.getAbstractAction());
-		branchTransitionEClass.getESuperTypes().add(theIdentifierPackage.getIdentifier());
-		branchConditionEClass.getESuperTypes().add(theStoexPackage.getRandomVariable());
+		probabilisticBranchTransitionEClass.getESuperTypes().add(this.getAbstractBranchTransition());
+		abstractBranchTransitionEClass.getESuperTypes().add(theIdentifierPackage.getIdentifier());
 		branchActionEClass.getESuperTypes().add(this.getAbstractResourceDemandingAction());
 		aquireActionEClass.getESuperTypes().add(this.getAbstractResourceDemandingAction());
-		collectionIteratorActionEClass.getESuperTypes().add(this.getLoopAction());
+		branchConditionEClass.getESuperTypes().add(theStoexPackage.getRandomVariable());
+		collectionIteratorActionEClass.getESuperTypes().add(this.getAbstractLoopAction());
+		guardedBranchTransitionEClass.getESuperTypes().add(this.getAbstractBranchTransition());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(stopActionEClass, StopAction.class, "StopAction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -882,8 +942,10 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 		initEReference(getReleaseAction_ResourceType_Release(), theResourcetypePackage.getPassiveResourceType(), null, "resourceType_Release", null, 1, 1, ReleaseAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(loopActionEClass, LoopAction.class, "LoopAction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getLoopAction_BodyBehaviour_Loop(), this.getResourceDemandingBehaviour(), null, "bodyBehaviour_Loop", null, 1, 1, LoopAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getLoopAction_Iterations_LoopAction(), this.getIterationCount(), null, "iterations_LoopAction", null, 1, 1, LoopAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+		initEClass(abstractLoopActionEClass, AbstractLoopAction.class, "AbstractLoopAction", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getAbstractLoopAction_BodyBehaviour_Loop(), this.getResourceDemandingBehaviour(), null, "bodyBehaviour_Loop", null, 1, 1, AbstractLoopAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(iterationCountEClass, IterationCount.class, "IterationCount", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -897,21 +959,25 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 		initEReference(getExternalCallAction_CalledService_ExternalService(), theRepositoryPackage.getSignature(), null, "calledService_ExternalService", null, 1, 1, ExternalCallAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getExternalCallAction_ParameterUsage_ExternalCallAction(), theParameterPackage.getVariableUsage(), null, "parameterUsage_ExternalCallAction", null, 0, -1, ExternalCallAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-		initEClass(branchTransitionEClass, BranchTransition.class, "BranchTransition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getBranchTransition_BranchBehaviour_BranchTransition(), this.getResourceDemandingBehaviour(), null, "branchBehaviour_BranchTransition", null, 1, 1, BranchTransition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getBranchTransition_BranchCondition_BranchTransition(), this.getBranchCondition(), null, "branchCondition_BranchTransition", null, 1, 1, BranchTransition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEAttribute(getBranchTransition_BranchProbability(), ecorePackage.getEDouble(), "branchProbability", null, 1, 1, BranchTransition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEClass(probabilisticBranchTransitionEClass, ProbabilisticBranchTransition.class, "ProbabilisticBranchTransition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getProbabilisticBranchTransition_BranchProbability(), ecorePackage.getEDouble(), "branchProbability", null, 1, 1, ProbabilisticBranchTransition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-		initEClass(branchConditionEClass, BranchCondition.class, "BranchCondition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(abstractBranchTransitionEClass, AbstractBranchTransition.class, "AbstractBranchTransition", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getAbstractBranchTransition_BranchBehaviour_BranchTransition(), this.getResourceDemandingBehaviour(), null, "branchBehaviour_BranchTransition", null, 1, 1, AbstractBranchTransition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(branchActionEClass, BranchAction.class, "BranchAction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getBranchAction_Branches_Branch(), this.getBranchTransition(), null, "branches_Branch", null, 0, -1, BranchAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getBranchAction_Branches_Branch(), this.getAbstractBranchTransition(), null, "branches_Branch", null, 0, -1, BranchAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(aquireActionEClass, AquireAction.class, "AquireAction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getAquireAction_ResourceType_Aquire(), theResourcetypePackage.getPassiveResourceType(), null, "resourceType_Aquire", null, 1, 1, AquireAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
+		initEClass(branchConditionEClass, BranchCondition.class, "BranchCondition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
 		initEClass(collectionIteratorActionEClass, CollectionIteratorAction.class, "CollectionIteratorAction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getCollectionIteratorAction_Parameter_CollectionIteratorAction(), theRepositoryPackage.getParameter(), null, "parameter_CollectionIteratorAction", null, 1, 1, CollectionIteratorAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+		initEClass(guardedBranchTransitionEClass, GuardedBranchTransition.class, "GuardedBranchTransition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getGuardedBranchTransition_BranchCondition_BranchTransition(), this.getBranchCondition(), null, "branchCondition_BranchTransition", null, 1, 1, GuardedBranchTransition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(serviceEffectSpecificationEClass, ServiceEffectSpecification.class, "ServiceEffectSpecification", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getServiceEffectSpecification_SeffTypeID(), ecorePackage.getEString(), "seffTypeID", null, 1, 1, ServiceEffectSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);

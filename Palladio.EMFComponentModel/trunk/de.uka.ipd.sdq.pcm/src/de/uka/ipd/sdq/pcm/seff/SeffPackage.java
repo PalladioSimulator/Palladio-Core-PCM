@@ -28,6 +28,9 @@ import org.eclipse.emf.ecore.EReference;
  *   <li>and each data type</li>
  * </ul>
  * <!-- end-user-doc -->
+ * <!-- begin-model-doc -->
+ * self.branches_Branch->forAll(bt|bt.oclIsTypeOf(ProbabilisticBranchTransition) or self.branches_Branch->forAll(bt|bt.oclIsTypeOf(GuardedBranchTransition)
+ * <!-- end-model-doc -->
  * @see de.uka.ipd.sdq.pcm.seff.SeffFactory
  * @model kind="package"
  * @generated
@@ -382,7 +385,7 @@ public interface SeffPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl#getServiceEffectSpecification()
 	 * @generated
 	 */
-	int SERVICE_EFFECT_SPECIFICATION = 18;
+	int SERVICE_EFFECT_SPECIFICATION = 21;
 
 	/**
 	 * The feature id for the '<em><b>Seff Type ID</b></em>' attribute.
@@ -559,6 +562,79 @@ public interface SeffPackage extends EPackage {
 	int RELEASE_ACTION_FEATURE_COUNT = ABSTRACT_RESOURCE_DEMANDING_ACTION_FEATURE_COUNT + 1;
 
 	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.seff.impl.AbstractLoopActionImpl <em>Abstract Loop Action</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.pcm.seff.impl.AbstractLoopActionImpl
+	 * @see de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl#getAbstractLoopAction()
+	 * @generated
+	 */
+	int ABSTRACT_LOOP_ACTION = 9;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_LOOP_ACTION__ID = ABSTRACT_RESOURCE_DEMANDING_ACTION__ID;
+
+	/**
+	 * The feature id for the '<em><b>Entity Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_LOOP_ACTION__ENTITY_NAME = ABSTRACT_RESOURCE_DEMANDING_ACTION__ENTITY_NAME;
+
+	/**
+	 * The feature id for the '<em><b>Predecessor Abstract Action</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_LOOP_ACTION__PREDECESSOR_ABSTRACT_ACTION = ABSTRACT_RESOURCE_DEMANDING_ACTION__PREDECESSOR_ABSTRACT_ACTION;
+
+	/**
+	 * The feature id for the '<em><b>Successor Abstract Action</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_LOOP_ACTION__SUCCESSOR_ABSTRACT_ACTION = ABSTRACT_RESOURCE_DEMANDING_ACTION__SUCCESSOR_ABSTRACT_ACTION;
+
+	/**
+	 * The feature id for the '<em><b>Resource Demand Action</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_LOOP_ACTION__RESOURCE_DEMAND_ACTION = ABSTRACT_RESOURCE_DEMANDING_ACTION__RESOURCE_DEMAND_ACTION;
+
+	/**
+	 * The feature id for the '<em><b>Body Behaviour Loop</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_LOOP_ACTION__BODY_BEHAVIOUR_LOOP = ABSTRACT_RESOURCE_DEMANDING_ACTION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Abstract Loop Action</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_LOOP_ACTION_FEATURE_COUNT = ABSTRACT_RESOURCE_DEMANDING_ACTION_FEATURE_COUNT + 1;
+
+	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.seff.impl.LoopActionImpl <em>Loop Action</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -575,7 +651,7 @@ public interface SeffPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LOOP_ACTION__ID = ABSTRACT_RESOURCE_DEMANDING_ACTION__ID;
+	int LOOP_ACTION__ID = ABSTRACT_LOOP_ACTION__ID;
 
 	/**
 	 * The feature id for the '<em><b>Entity Name</b></em>' attribute.
@@ -584,7 +660,7 @@ public interface SeffPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LOOP_ACTION__ENTITY_NAME = ABSTRACT_RESOURCE_DEMANDING_ACTION__ENTITY_NAME;
+	int LOOP_ACTION__ENTITY_NAME = ABSTRACT_LOOP_ACTION__ENTITY_NAME;
 
 	/**
 	 * The feature id for the '<em><b>Predecessor Abstract Action</b></em>' reference.
@@ -593,7 +669,7 @@ public interface SeffPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LOOP_ACTION__PREDECESSOR_ABSTRACT_ACTION = ABSTRACT_RESOURCE_DEMANDING_ACTION__PREDECESSOR_ABSTRACT_ACTION;
+	int LOOP_ACTION__PREDECESSOR_ABSTRACT_ACTION = ABSTRACT_LOOP_ACTION__PREDECESSOR_ABSTRACT_ACTION;
 
 	/**
 	 * The feature id for the '<em><b>Successor Abstract Action</b></em>' reference.
@@ -602,7 +678,7 @@ public interface SeffPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LOOP_ACTION__SUCCESSOR_ABSTRACT_ACTION = ABSTRACT_RESOURCE_DEMANDING_ACTION__SUCCESSOR_ABSTRACT_ACTION;
+	int LOOP_ACTION__SUCCESSOR_ABSTRACT_ACTION = ABSTRACT_LOOP_ACTION__SUCCESSOR_ABSTRACT_ACTION;
 
 	/**
 	 * The feature id for the '<em><b>Resource Demand Action</b></em>' containment reference list.
@@ -611,7 +687,7 @@ public interface SeffPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LOOP_ACTION__RESOURCE_DEMAND_ACTION = ABSTRACT_RESOURCE_DEMANDING_ACTION__RESOURCE_DEMAND_ACTION;
+	int LOOP_ACTION__RESOURCE_DEMAND_ACTION = ABSTRACT_LOOP_ACTION__RESOURCE_DEMAND_ACTION;
 
 	/**
 	 * The feature id for the '<em><b>Body Behaviour Loop</b></em>' containment reference.
@@ -620,7 +696,7 @@ public interface SeffPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LOOP_ACTION__BODY_BEHAVIOUR_LOOP = ABSTRACT_RESOURCE_DEMANDING_ACTION_FEATURE_COUNT + 0;
+	int LOOP_ACTION__BODY_BEHAVIOUR_LOOP = ABSTRACT_LOOP_ACTION__BODY_BEHAVIOUR_LOOP;
 
 	/**
 	 * The feature id for the '<em><b>Iterations Loop Action</b></em>' containment reference.
@@ -629,7 +705,7 @@ public interface SeffPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LOOP_ACTION__ITERATIONS_LOOP_ACTION = ABSTRACT_RESOURCE_DEMANDING_ACTION_FEATURE_COUNT + 1;
+	int LOOP_ACTION__ITERATIONS_LOOP_ACTION = ABSTRACT_LOOP_ACTION_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Loop Action</em>' class.
@@ -638,7 +714,7 @@ public interface SeffPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LOOP_ACTION_FEATURE_COUNT = ABSTRACT_RESOURCE_DEMANDING_ACTION_FEATURE_COUNT + 2;
+	int LOOP_ACTION_FEATURE_COUNT = ABSTRACT_LOOP_ACTION_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.seff.impl.IterationCountImpl <em>Iteration Count</em>}' class.
@@ -648,7 +724,7 @@ public interface SeffPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl#getIterationCount()
 	 * @generated
 	 */
-	int ITERATION_COUNT = 9;
+	int ITERATION_COUNT = 10;
 
 	/**
 	 * The feature id for the '<em><b>Specification</b></em>' attribute.
@@ -676,7 +752,7 @@ public interface SeffPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl#getInternalAction()
 	 * @generated
 	 */
-	int INTERNAL_ACTION = 10;
+	int INTERNAL_ACTION = 11;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -749,7 +825,7 @@ public interface SeffPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl#getForkAction()
 	 * @generated
 	 */
-	int FORK_ACTION = 11;
+	int FORK_ACTION = 12;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -822,7 +898,7 @@ public interface SeffPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl#getExternalCallAction()
 	 * @generated
 	 */
-	int EXTERNAL_CALL_ACTION = 12;
+	int EXTERNAL_CALL_ACTION = 13;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -888,14 +964,14 @@ public interface SeffPackage extends EPackage {
 	int EXTERNAL_CALL_ACTION_FEATURE_COUNT = ABSTRACT_ACTION_FEATURE_COUNT + 2;
 
 	/**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.seff.impl.BranchTransitionImpl <em>Branch Transition</em>}' class.
+	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.seff.impl.AbstractBranchTransitionImpl <em>Abstract Branch Transition</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.pcm.seff.impl.BranchTransitionImpl
-	 * @see de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl#getBranchTransition()
+	 * @see de.uka.ipd.sdq.pcm.seff.impl.AbstractBranchTransitionImpl
+	 * @see de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl#getAbstractBranchTransition()
 	 * @generated
 	 */
-	int BRANCH_TRANSITION = 13;
+	int ABSTRACT_BRANCH_TRANSITION = 15;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -904,7 +980,7 @@ public interface SeffPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BRANCH_TRANSITION__ID = IdentifierPackage.IDENTIFIER__ID;
+	int ABSTRACT_BRANCH_TRANSITION__ID = IdentifierPackage.IDENTIFIER__ID;
 
 	/**
 	 * The feature id for the '<em><b>Branch Behaviour Branch Transition</b></em>' containment reference.
@@ -913,16 +989,44 @@ public interface SeffPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BRANCH_TRANSITION__BRANCH_BEHAVIOUR_BRANCH_TRANSITION = IdentifierPackage.IDENTIFIER_FEATURE_COUNT + 0;
+	int ABSTRACT_BRANCH_TRANSITION__BRANCH_BEHAVIOUR_BRANCH_TRANSITION = IdentifierPackage.IDENTIFIER_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Branch Condition Branch Transition</b></em>' containment reference.
+	 * The number of structural features of the '<em>Abstract Branch Transition</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BRANCH_TRANSITION__BRANCH_CONDITION_BRANCH_TRANSITION = IdentifierPackage.IDENTIFIER_FEATURE_COUNT + 1;
+	int ABSTRACT_BRANCH_TRANSITION_FEATURE_COUNT = IdentifierPackage.IDENTIFIER_FEATURE_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.seff.impl.ProbabilisticBranchTransitionImpl <em>Probabilistic Branch Transition</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.pcm.seff.impl.ProbabilisticBranchTransitionImpl
+	 * @see de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl#getProbabilisticBranchTransition()
+	 * @generated
+	 */
+	int PROBABILISTIC_BRANCH_TRANSITION = 14;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROBABILISTIC_BRANCH_TRANSITION__ID = ABSTRACT_BRANCH_TRANSITION__ID;
+
+	/**
+	 * The feature id for the '<em><b>Branch Behaviour Branch Transition</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROBABILISTIC_BRANCH_TRANSITION__BRANCH_BEHAVIOUR_BRANCH_TRANSITION = ABSTRACT_BRANCH_TRANSITION__BRANCH_BEHAVIOUR_BRANCH_TRANSITION;
 
 	/**
 	 * The feature id for the '<em><b>Branch Probability</b></em>' attribute.
@@ -931,16 +1035,16 @@ public interface SeffPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BRANCH_TRANSITION__BRANCH_PROBABILITY = IdentifierPackage.IDENTIFIER_FEATURE_COUNT + 2;
+	int PROBABILISTIC_BRANCH_TRANSITION__BRANCH_PROBABILITY = ABSTRACT_BRANCH_TRANSITION_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of structural features of the '<em>Branch Transition</em>' class.
+	 * The number of structural features of the '<em>Probabilistic Branch Transition</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BRANCH_TRANSITION_FEATURE_COUNT = IdentifierPackage.IDENTIFIER_FEATURE_COUNT + 3;
+	int PROBABILISTIC_BRANCH_TRANSITION_FEATURE_COUNT = ABSTRACT_BRANCH_TRANSITION_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.seff.impl.BranchConditionImpl <em>Branch Condition</em>}' class.
@@ -950,25 +1054,7 @@ public interface SeffPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl#getBranchCondition()
 	 * @generated
 	 */
-	int BRANCH_CONDITION = 14;
-
-	/**
-	 * The feature id for the '<em><b>Specification</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BRANCH_CONDITION__SPECIFICATION = StoexPackage.RANDOM_VARIABLE__SPECIFICATION;
-
-	/**
-	 * The number of structural features of the '<em>Branch Condition</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BRANCH_CONDITION_FEATURE_COUNT = StoexPackage.RANDOM_VARIABLE_FEATURE_COUNT + 0;
+	int BRANCH_CONDITION = 18;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.seff.impl.BranchActionImpl <em>Branch Action</em>}' class.
@@ -978,7 +1064,7 @@ public interface SeffPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl#getBranchAction()
 	 * @generated
 	 */
-	int BRANCH_ACTION = 15;
+	int BRANCH_ACTION = 16;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1051,7 +1137,7 @@ public interface SeffPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl#getAquireAction()
 	 * @generated
 	 */
-	int AQUIRE_ACTION = 16;
+	int AQUIRE_ACTION = 17;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1117,6 +1203,24 @@ public interface SeffPackage extends EPackage {
 	int AQUIRE_ACTION_FEATURE_COUNT = ABSTRACT_RESOURCE_DEMANDING_ACTION_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Specification</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BRANCH_CONDITION__SPECIFICATION = StoexPackage.RANDOM_VARIABLE__SPECIFICATION;
+
+	/**
+	 * The number of structural features of the '<em>Branch Condition</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BRANCH_CONDITION_FEATURE_COUNT = StoexPackage.RANDOM_VARIABLE_FEATURE_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.seff.impl.CollectionIteratorActionImpl <em>Collection Iterator Action</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1124,7 +1228,7 @@ public interface SeffPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl#getCollectionIteratorAction()
 	 * @generated
 	 */
-	int COLLECTION_ITERATOR_ACTION = 17;
+	int COLLECTION_ITERATOR_ACTION = 19;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1133,7 +1237,7 @@ public interface SeffPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COLLECTION_ITERATOR_ACTION__ID = LOOP_ACTION__ID;
+	int COLLECTION_ITERATOR_ACTION__ID = ABSTRACT_LOOP_ACTION__ID;
 
 	/**
 	 * The feature id for the '<em><b>Entity Name</b></em>' attribute.
@@ -1142,7 +1246,7 @@ public interface SeffPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COLLECTION_ITERATOR_ACTION__ENTITY_NAME = LOOP_ACTION__ENTITY_NAME;
+	int COLLECTION_ITERATOR_ACTION__ENTITY_NAME = ABSTRACT_LOOP_ACTION__ENTITY_NAME;
 
 	/**
 	 * The feature id for the '<em><b>Predecessor Abstract Action</b></em>' reference.
@@ -1151,7 +1255,7 @@ public interface SeffPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COLLECTION_ITERATOR_ACTION__PREDECESSOR_ABSTRACT_ACTION = LOOP_ACTION__PREDECESSOR_ABSTRACT_ACTION;
+	int COLLECTION_ITERATOR_ACTION__PREDECESSOR_ABSTRACT_ACTION = ABSTRACT_LOOP_ACTION__PREDECESSOR_ABSTRACT_ACTION;
 
 	/**
 	 * The feature id for the '<em><b>Successor Abstract Action</b></em>' reference.
@@ -1160,7 +1264,7 @@ public interface SeffPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COLLECTION_ITERATOR_ACTION__SUCCESSOR_ABSTRACT_ACTION = LOOP_ACTION__SUCCESSOR_ABSTRACT_ACTION;
+	int COLLECTION_ITERATOR_ACTION__SUCCESSOR_ABSTRACT_ACTION = ABSTRACT_LOOP_ACTION__SUCCESSOR_ABSTRACT_ACTION;
 
 	/**
 	 * The feature id for the '<em><b>Resource Demand Action</b></em>' containment reference list.
@@ -1169,7 +1273,7 @@ public interface SeffPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COLLECTION_ITERATOR_ACTION__RESOURCE_DEMAND_ACTION = LOOP_ACTION__RESOURCE_DEMAND_ACTION;
+	int COLLECTION_ITERATOR_ACTION__RESOURCE_DEMAND_ACTION = ABSTRACT_LOOP_ACTION__RESOURCE_DEMAND_ACTION;
 
 	/**
 	 * The feature id for the '<em><b>Body Behaviour Loop</b></em>' containment reference.
@@ -1178,16 +1282,7 @@ public interface SeffPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COLLECTION_ITERATOR_ACTION__BODY_BEHAVIOUR_LOOP = LOOP_ACTION__BODY_BEHAVIOUR_LOOP;
-
-	/**
-	 * The feature id for the '<em><b>Iterations Loop Action</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int COLLECTION_ITERATOR_ACTION__ITERATIONS_LOOP_ACTION = LOOP_ACTION__ITERATIONS_LOOP_ACTION;
+	int COLLECTION_ITERATOR_ACTION__BODY_BEHAVIOUR_LOOP = ABSTRACT_LOOP_ACTION__BODY_BEHAVIOUR_LOOP;
 
 	/**
 	 * The feature id for the '<em><b>Parameter Collection Iterator Action</b></em>' reference.
@@ -1196,7 +1291,7 @@ public interface SeffPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COLLECTION_ITERATOR_ACTION__PARAMETER_COLLECTION_ITERATOR_ACTION = LOOP_ACTION_FEATURE_COUNT + 0;
+	int COLLECTION_ITERATOR_ACTION__PARAMETER_COLLECTION_ITERATOR_ACTION = ABSTRACT_LOOP_ACTION_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Collection Iterator Action</em>' class.
@@ -1205,7 +1300,54 @@ public interface SeffPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COLLECTION_ITERATOR_ACTION_FEATURE_COUNT = LOOP_ACTION_FEATURE_COUNT + 1;
+	int COLLECTION_ITERATOR_ACTION_FEATURE_COUNT = ABSTRACT_LOOP_ACTION_FEATURE_COUNT + 1;
+
+
+	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.seff.impl.GuardedBranchTransitionImpl <em>Guarded Branch Transition</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.pcm.seff.impl.GuardedBranchTransitionImpl
+	 * @see de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl#getGuardedBranchTransition()
+	 * @generated
+	 */
+	int GUARDED_BRANCH_TRANSITION = 20;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GUARDED_BRANCH_TRANSITION__ID = ABSTRACT_BRANCH_TRANSITION__ID;
+
+	/**
+	 * The feature id for the '<em><b>Branch Behaviour Branch Transition</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GUARDED_BRANCH_TRANSITION__BRANCH_BEHAVIOUR_BRANCH_TRANSITION = ABSTRACT_BRANCH_TRANSITION__BRANCH_BEHAVIOUR_BRANCH_TRANSITION;
+
+	/**
+	 * The feature id for the '<em><b>Branch Condition Branch Transition</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GUARDED_BRANCH_TRANSITION__BRANCH_CONDITION_BRANCH_TRANSITION = ABSTRACT_BRANCH_TRANSITION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Guarded Branch Transition</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GUARDED_BRANCH_TRANSITION_FEATURE_COUNT = ABSTRACT_BRANCH_TRANSITION_FEATURE_COUNT + 1;
 
 
 	/**
@@ -1387,17 +1529,6 @@ public interface SeffPackage extends EPackage {
 	EClass getLoopAction();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link de.uka.ipd.sdq.pcm.seff.LoopAction#getBodyBehaviour_Loop <em>Body Behaviour Loop</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Body Behaviour Loop</em>'.
-	 * @see de.uka.ipd.sdq.pcm.seff.LoopAction#getBodyBehaviour_Loop()
-	 * @see #getLoopAction()
-	 * @generated
-	 */
-	EReference getLoopAction_BodyBehaviour_Loop();
-
-	/**
 	 * Returns the meta object for the containment reference '{@link de.uka.ipd.sdq.pcm.seff.LoopAction#getIterations_LoopAction <em>Iterations Loop Action</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1407,6 +1538,27 @@ public interface SeffPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getLoopAction_Iterations_LoopAction();
+
+	/**
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.seff.AbstractLoopAction <em>Abstract Loop Action</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Abstract Loop Action</em>'.
+	 * @see de.uka.ipd.sdq.pcm.seff.AbstractLoopAction
+	 * @generated
+	 */
+	EClass getAbstractLoopAction();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link de.uka.ipd.sdq.pcm.seff.AbstractLoopAction#getBodyBehaviour_Loop <em>Body Behaviour Loop</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Body Behaviour Loop</em>'.
+	 * @see de.uka.ipd.sdq.pcm.seff.AbstractLoopAction#getBodyBehaviour_Loop()
+	 * @see #getAbstractLoopAction()
+	 * @generated
+	 */
+	EReference getAbstractLoopAction_BodyBehaviour_Loop();
 
 	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.seff.IterationCount <em>Iteration Count</em>}'.
@@ -1493,47 +1645,46 @@ public interface SeffPackage extends EPackage {
 	EReference getExternalCallAction_ParameterUsage_ExternalCallAction();
 
 	/**
-	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.seff.BranchTransition <em>Branch Transition</em>}'.
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.seff.ProbabilisticBranchTransition <em>Probabilistic Branch Transition</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Branch Transition</em>'.
-	 * @see de.uka.ipd.sdq.pcm.seff.BranchTransition
+	 * @return the meta object for class '<em>Probabilistic Branch Transition</em>'.
+	 * @see de.uka.ipd.sdq.pcm.seff.ProbabilisticBranchTransition
 	 * @generated
 	 */
-	EClass getBranchTransition();
+	EClass getProbabilisticBranchTransition();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link de.uka.ipd.sdq.pcm.seff.BranchTransition#getBranchBehaviour_BranchTransition <em>Branch Behaviour Branch Transition</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Branch Behaviour Branch Transition</em>'.
-	 * @see de.uka.ipd.sdq.pcm.seff.BranchTransition#getBranchBehaviour_BranchTransition()
-	 * @see #getBranchTransition()
-	 * @generated
-	 */
-	EReference getBranchTransition_BranchBehaviour_BranchTransition();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link de.uka.ipd.sdq.pcm.seff.BranchTransition#getBranchCondition_BranchTransition <em>Branch Condition Branch Transition</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Branch Condition Branch Transition</em>'.
-	 * @see de.uka.ipd.sdq.pcm.seff.BranchTransition#getBranchCondition_BranchTransition()
-	 * @see #getBranchTransition()
-	 * @generated
-	 */
-	EReference getBranchTransition_BranchCondition_BranchTransition();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.pcm.seff.BranchTransition#getBranchProbability <em>Branch Probability</em>}'.
+	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.pcm.seff.ProbabilisticBranchTransition#getBranchProbability <em>Branch Probability</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Branch Probability</em>'.
-	 * @see de.uka.ipd.sdq.pcm.seff.BranchTransition#getBranchProbability()
-	 * @see #getBranchTransition()
+	 * @see de.uka.ipd.sdq.pcm.seff.ProbabilisticBranchTransition#getBranchProbability()
+	 * @see #getProbabilisticBranchTransition()
 	 * @generated
 	 */
-	EAttribute getBranchTransition_BranchProbability();
+	EAttribute getProbabilisticBranchTransition_BranchProbability();
+
+	/**
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.seff.AbstractBranchTransition <em>Abstract Branch Transition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Abstract Branch Transition</em>'.
+	 * @see de.uka.ipd.sdq.pcm.seff.AbstractBranchTransition
+	 * @generated
+	 */
+	EClass getAbstractBranchTransition();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link de.uka.ipd.sdq.pcm.seff.AbstractBranchTransition#getBranchBehaviour_BranchTransition <em>Branch Behaviour Branch Transition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Branch Behaviour Branch Transition</em>'.
+	 * @see de.uka.ipd.sdq.pcm.seff.AbstractBranchTransition#getBranchBehaviour_BranchTransition()
+	 * @see #getAbstractBranchTransition()
+	 * @generated
+	 */
+	EReference getAbstractBranchTransition_BranchBehaviour_BranchTransition();
 
 	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.seff.BranchCondition <em>Branch Condition</em>}'.
@@ -1607,6 +1758,27 @@ public interface SeffPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getCollectionIteratorAction_Parameter_CollectionIteratorAction();
+
+	/**
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.seff.GuardedBranchTransition <em>Guarded Branch Transition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Guarded Branch Transition</em>'.
+	 * @see de.uka.ipd.sdq.pcm.seff.GuardedBranchTransition
+	 * @generated
+	 */
+	EClass getGuardedBranchTransition();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link de.uka.ipd.sdq.pcm.seff.GuardedBranchTransition#getBranchCondition_BranchTransition <em>Branch Condition Branch Transition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Branch Condition Branch Transition</em>'.
+	 * @see de.uka.ipd.sdq.pcm.seff.GuardedBranchTransition#getBranchCondition_BranchTransition()
+	 * @see #getGuardedBranchTransition()
+	 * @generated
+	 */
+	EReference getGuardedBranchTransition_BranchCondition_BranchTransition();
 
 	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.seff.ServiceEffectSpecification <em>Service Effect Specification</em>}'.
@@ -1817,20 +1989,30 @@ public interface SeffPackage extends EPackage {
 		EClass LOOP_ACTION = eINSTANCE.getLoopAction();
 
 		/**
-		 * The meta object literal for the '<em><b>Body Behaviour Loop</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference LOOP_ACTION__BODY_BEHAVIOUR_LOOP = eINSTANCE.getLoopAction_BodyBehaviour_Loop();
-
-		/**
 		 * The meta object literal for the '<em><b>Iterations Loop Action</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EReference LOOP_ACTION__ITERATIONS_LOOP_ACTION = eINSTANCE.getLoopAction_Iterations_LoopAction();
+
+		/**
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.seff.impl.AbstractLoopActionImpl <em>Abstract Loop Action</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.uka.ipd.sdq.pcm.seff.impl.AbstractLoopActionImpl
+		 * @see de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl#getAbstractLoopAction()
+		 * @generated
+		 */
+		EClass ABSTRACT_LOOP_ACTION = eINSTANCE.getAbstractLoopAction();
+
+		/**
+		 * The meta object literal for the '<em><b>Body Behaviour Loop</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ABSTRACT_LOOP_ACTION__BODY_BEHAVIOUR_LOOP = eINSTANCE.getAbstractLoopAction_BodyBehaviour_Loop();
 
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.seff.impl.IterationCountImpl <em>Iteration Count</em>}' class.
@@ -1905,30 +2087,14 @@ public interface SeffPackage extends EPackage {
 		EReference EXTERNAL_CALL_ACTION__PARAMETER_USAGE_EXTERNAL_CALL_ACTION = eINSTANCE.getExternalCallAction_ParameterUsage_ExternalCallAction();
 
 		/**
-		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.seff.impl.BranchTransitionImpl <em>Branch Transition</em>}' class.
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.seff.impl.ProbabilisticBranchTransitionImpl <em>Probabilistic Branch Transition</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see de.uka.ipd.sdq.pcm.seff.impl.BranchTransitionImpl
-		 * @see de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl#getBranchTransition()
+		 * @see de.uka.ipd.sdq.pcm.seff.impl.ProbabilisticBranchTransitionImpl
+		 * @see de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl#getProbabilisticBranchTransition()
 		 * @generated
 		 */
-		EClass BRANCH_TRANSITION = eINSTANCE.getBranchTransition();
-
-		/**
-		 * The meta object literal for the '<em><b>Branch Behaviour Branch Transition</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference BRANCH_TRANSITION__BRANCH_BEHAVIOUR_BRANCH_TRANSITION = eINSTANCE.getBranchTransition_BranchBehaviour_BranchTransition();
-
-		/**
-		 * The meta object literal for the '<em><b>Branch Condition Branch Transition</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference BRANCH_TRANSITION__BRANCH_CONDITION_BRANCH_TRANSITION = eINSTANCE.getBranchTransition_BranchCondition_BranchTransition();
+		EClass PROBABILISTIC_BRANCH_TRANSITION = eINSTANCE.getProbabilisticBranchTransition();
 
 		/**
 		 * The meta object literal for the '<em><b>Branch Probability</b></em>' attribute feature.
@@ -1936,7 +2102,25 @@ public interface SeffPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute BRANCH_TRANSITION__BRANCH_PROBABILITY = eINSTANCE.getBranchTransition_BranchProbability();
+		EAttribute PROBABILISTIC_BRANCH_TRANSITION__BRANCH_PROBABILITY = eINSTANCE.getProbabilisticBranchTransition_BranchProbability();
+
+		/**
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.seff.impl.AbstractBranchTransitionImpl <em>Abstract Branch Transition</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.uka.ipd.sdq.pcm.seff.impl.AbstractBranchTransitionImpl
+		 * @see de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl#getAbstractBranchTransition()
+		 * @generated
+		 */
+		EClass ABSTRACT_BRANCH_TRANSITION = eINSTANCE.getAbstractBranchTransition();
+
+		/**
+		 * The meta object literal for the '<em><b>Branch Behaviour Branch Transition</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ABSTRACT_BRANCH_TRANSITION__BRANCH_BEHAVIOUR_BRANCH_TRANSITION = eINSTANCE.getAbstractBranchTransition_BranchBehaviour_BranchTransition();
 
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.seff.impl.BranchConditionImpl <em>Branch Condition</em>}' class.
@@ -2001,6 +2185,24 @@ public interface SeffPackage extends EPackage {
 		 * @generated
 		 */
 		EReference COLLECTION_ITERATOR_ACTION__PARAMETER_COLLECTION_ITERATOR_ACTION = eINSTANCE.getCollectionIteratorAction_Parameter_CollectionIteratorAction();
+
+		/**
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.seff.impl.GuardedBranchTransitionImpl <em>Guarded Branch Transition</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.uka.ipd.sdq.pcm.seff.impl.GuardedBranchTransitionImpl
+		 * @see de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl#getGuardedBranchTransition()
+		 * @generated
+		 */
+		EClass GUARDED_BRANCH_TRANSITION = eINSTANCE.getGuardedBranchTransition();
+
+		/**
+		 * The meta object literal for the '<em><b>Branch Condition Branch Transition</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference GUARDED_BRANCH_TRANSITION__BRANCH_CONDITION_BRANCH_TRANSITION = eINSTANCE.getGuardedBranchTransition_BranchCondition_BranchTransition();
 
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.seff.impl.ServiceEffectSpecificationImpl <em>Service Effect Specification</em>}' class.

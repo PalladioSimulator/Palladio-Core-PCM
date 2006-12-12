@@ -112,15 +112,14 @@ public class PcmDiagramEditorPlugin extends AbstractUIPlugin {
 	 * @generated
 	 */
 	protected void fillItemProviderFactories(List factories) {
-		factories.add(new StoexItemProviderAdapterFactory());
 		factories.add(new EntityItemProviderAdapterFactory());
 		factories.add(new ConnectorsItemProviderAdapterFactory());
 		factories.add(new CompositionItemProviderAdapterFactory());
-		factories.add(new ParameterItemProviderAdapterFactory());
 		factories.add(new RepositoryItemProviderAdapterFactory());
 		factories.add(new ProtocolItemProviderAdapterFactory());
 		factories.add(new SeffItemProviderAdapterFactory());
 		factories.add(new ResourcetypeItemProviderAdapterFactory());
+		factories.add(new ParameterItemProviderAdapterFactory());
 		factories.add(new AllocationItemProviderAdapterFactory());
 		factories.add(new ResourceenvironmentItemProviderAdapterFactory());
 		factories.add(new SystemItemProviderAdapterFactory());
@@ -128,6 +127,7 @@ public class PcmDiagramEditorPlugin extends AbstractUIPlugin {
 		factories.add(new UsagemodelItemProviderAdapterFactory());
 		factories.add(new IdentifierItemProviderAdapterFactory());
 		factories.add(new ProbfunctionItemProviderAdapterFactory());
+		factories.add(new StoexItemProviderAdapterFactory());
 		factories.add(new ResourceItemProviderAdapterFactory());
 		factories.add(new ReflectiveItemProviderAdapterFactory());
 	}

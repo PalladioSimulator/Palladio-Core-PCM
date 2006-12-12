@@ -311,12 +311,12 @@ public class PcmPaletteFactory {
 		ImageDescriptor largeImage;
 
 		smallImage = PcmElementTypes
-				.getImageDescriptor(PcmElementTypes.BranchTransition_2010);
+				.getImageDescriptor(PcmElementTypes.ProbabilisticBranchTransition_2010);
 
 		largeImage = smallImage;
 
 		final List elementTypes = new ArrayList();
-		elementTypes.add(PcmElementTypes.BranchTransition_2010);
+		elementTypes.add(PcmElementTypes.ProbabilisticBranchTransition_2010);
 		ToolEntry result = new NodeToolEntry("BranchTransition",
 				"Create new BranchTransition", smallImage, largeImage,
 				elementTypes);

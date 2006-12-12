@@ -30,7 +30,6 @@ import org.eclipse.gmf.runtime.common.ui.services.parser.ParserService;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.CompartmentEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ITextAwareEditPart;
-import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.LabelDirectEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.l10n.DiagramColorRegistry;
 import org.eclipse.gmf.runtime.diagram.ui.requests.RequestConstants;
@@ -53,11 +52,9 @@ import org.eclipse.swt.graphics.FontData;
 import org.eclipse.swt.graphics.Image;
 
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.PcmTextSelectionEditPolicy;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.VariableReferenceDialogEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.seff.part.PcmDiagramEditorPlugin;
 import de.uka.ipd.sdq.pcm.gmf.seff.providers.PcmElementTypes;
 import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
-import de.uka.ipd.sdq.pcm.stochasticexpressions.ParameterPrettyPrint;
 import de.uka.ipd.sdq.stoex.analyser.visitors.StoExPrettyPrintVisitor;
 
 /**
@@ -105,9 +102,6 @@ public class VariableUsageReferenceLabelEditPart extends CompartmentEditPart
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicy.DIRECT_EDIT_ROLE,
 				new LabelDirectEditPolicy());
-		installEditPolicy(EditPolicyRoles.OPEN_ROLE,
-				new VariableReferenceDialogEditPolicy(
-						(VariableUsage) (((View) getModel()).getElement())));
 		installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE,
 				new NonResizableEditPolicy() {
 

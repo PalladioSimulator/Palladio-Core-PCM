@@ -26,13 +26,13 @@ import org.eclipse.ui.dialogs.ElementListSelectionDialog;
 
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.BranchActionBranchTransitionCompartment2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.BranchActionBranchTransitionCompartmentEditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.BranchTransitionBehaviourCompartmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ExternalCallActionParameterUsage2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ExternalCallActionParameterUsageEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.InternalAction2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.InternalActionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopActionBehaviourCompartment2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopActionBehaviourCompartmentEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ProbabilisticBranchTransitionBehaviourCompartmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviourBranchCompartmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviourLoopCompartmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingSEFFEditPart;
@@ -92,10 +92,10 @@ public class PcmModelingAssistantProvider extends ModelingAssistantProvider {
 		}
 		if (editPart instanceof BranchActionBranchTransitionCompartmentEditPart) {
 			List types = new ArrayList();
-			types.add(PcmElementTypes.BranchTransition_2010);
+			types.add(PcmElementTypes.ProbabilisticBranchTransition_2010);
 			return types;
 		}
-		if (editPart instanceof BranchTransitionBehaviourCompartmentEditPart) {
+		if (editPart instanceof ProbabilisticBranchTransitionBehaviourCompartmentEditPart) {
 			List types = new ArrayList();
 			types.add(PcmElementTypes.ResourceDemandingBehaviour_2011);
 			return types;
@@ -117,7 +117,7 @@ public class PcmModelingAssistantProvider extends ModelingAssistantProvider {
 		}
 		if (editPart instanceof BranchActionBranchTransitionCompartment2EditPart) {
 			List types = new ArrayList();
-			types.add(PcmElementTypes.BranchTransition_2010);
+			types.add(PcmElementTypes.ProbabilisticBranchTransition_2010);
 			return types;
 		}
 		if (editPart instanceof ResourceDemandingSEFFEditPart) {

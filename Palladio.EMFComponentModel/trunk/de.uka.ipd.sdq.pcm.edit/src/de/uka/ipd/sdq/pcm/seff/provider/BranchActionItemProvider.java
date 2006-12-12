@@ -140,7 +140,12 @@ public class BranchActionItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(SeffPackage.Literals.BRANCH_ACTION__BRANCHES_BRANCH,
-				 SeffFactory.eINSTANCE.createBranchTransition()));
+				 SeffFactory.eINSTANCE.createProbabilisticBranchTransition()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(SeffPackage.Literals.BRANCH_ACTION__BRANCHES_BRANCH,
+				 SeffFactory.eINSTANCE.createGuardedBranchTransition()));
 	}
 
 	/**

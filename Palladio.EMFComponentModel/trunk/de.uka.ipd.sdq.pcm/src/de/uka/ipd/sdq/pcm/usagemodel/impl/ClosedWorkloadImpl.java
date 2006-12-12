@@ -8,11 +8,16 @@
 package de.uka.ipd.sdq.pcm.usagemodel.impl;
 
 import de.uka.ipd.sdq.pcm.usagemodel.ClosedWorkload;
+import de.uka.ipd.sdq.pcm.usagemodel.ThinkTime;
 import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
 
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.notify.NotificationChain;
+
 import org.eclipse.emf.ecore.EClass;
+
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
@@ -24,7 +29,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * <ul>
  *   <li>{@link de.uka.ipd.sdq.pcm.usagemodel.impl.ClosedWorkloadImpl#getPopulation <em>Population</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.usagemodel.impl.ClosedWorkloadImpl#getThinkTime <em>Think Time</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.usagemodel.impl.ClosedWorkloadImpl#getThinkTime_ClosedWorkload <em>Think Time Closed Workload</em>}</li>
  * </ul>
  * </p>
  *
@@ -59,24 +64,14 @@ public class ClosedWorkloadImpl extends WorkloadImpl implements ClosedWorkload {
 	protected int population = POPULATION_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getThinkTime() <em>Think Time</em>}' attribute.
+	 * The cached value of the '{@link #getThinkTime_ClosedWorkload() <em>Think Time Closed Workload</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getThinkTime()
+	 * @see #getThinkTime_ClosedWorkload()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final double THINK_TIME_EDEFAULT = 0.0;
-
-	/**
-	 * The cached value of the '{@link #getThinkTime() <em>Think Time</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getThinkTime()
-	 * @generated
-	 * @ordered
-	 */
-	protected double thinkTime = THINK_TIME_EDEFAULT;
+	protected ThinkTime thinkTime_ClosedWorkload = null;
 
 
 	/**
@@ -123,8 +118,8 @@ public class ClosedWorkloadImpl extends WorkloadImpl implements ClosedWorkload {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public double getThinkTime() {
-		return thinkTime;
+	public ThinkTime getThinkTime_ClosedWorkload() {
+		return thinkTime_ClosedWorkload;
 	}
 
 	/**
@@ -132,11 +127,46 @@ public class ClosedWorkloadImpl extends WorkloadImpl implements ClosedWorkload {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setThinkTime(double newThinkTime) {
-		double oldThinkTime = thinkTime;
-		thinkTime = newThinkTime;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, UsagemodelPackage.CLOSED_WORKLOAD__THINK_TIME, oldThinkTime, thinkTime));
+	public NotificationChain basicSetThinkTime_ClosedWorkload(ThinkTime newThinkTime_ClosedWorkload, NotificationChain msgs) {
+		ThinkTime oldThinkTime_ClosedWorkload = thinkTime_ClosedWorkload;
+		thinkTime_ClosedWorkload = newThinkTime_ClosedWorkload;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, UsagemodelPackage.CLOSED_WORKLOAD__THINK_TIME_CLOSED_WORKLOAD, oldThinkTime_ClosedWorkload, newThinkTime_ClosedWorkload);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setThinkTime_ClosedWorkload(ThinkTime newThinkTime_ClosedWorkload) {
+		if (newThinkTime_ClosedWorkload != thinkTime_ClosedWorkload) {
+			NotificationChain msgs = null;
+			if (thinkTime_ClosedWorkload != null)
+				msgs = ((InternalEObject)thinkTime_ClosedWorkload).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - UsagemodelPackage.CLOSED_WORKLOAD__THINK_TIME_CLOSED_WORKLOAD, null, msgs);
+			if (newThinkTime_ClosedWorkload != null)
+				msgs = ((InternalEObject)newThinkTime_ClosedWorkload).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - UsagemodelPackage.CLOSED_WORKLOAD__THINK_TIME_CLOSED_WORKLOAD, null, msgs);
+			msgs = basicSetThinkTime_ClosedWorkload(newThinkTime_ClosedWorkload, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, UsagemodelPackage.CLOSED_WORKLOAD__THINK_TIME_CLOSED_WORKLOAD, newThinkTime_ClosedWorkload, newThinkTime_ClosedWorkload));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case UsagemodelPackage.CLOSED_WORKLOAD__THINK_TIME_CLOSED_WORKLOAD:
+				return basicSetThinkTime_ClosedWorkload(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -148,8 +178,8 @@ public class ClosedWorkloadImpl extends WorkloadImpl implements ClosedWorkload {
 		switch (featureID) {
 			case UsagemodelPackage.CLOSED_WORKLOAD__POPULATION:
 				return new Integer(getPopulation());
-			case UsagemodelPackage.CLOSED_WORKLOAD__THINK_TIME:
-				return new Double(getThinkTime());
+			case UsagemodelPackage.CLOSED_WORKLOAD__THINK_TIME_CLOSED_WORKLOAD:
+				return getThinkTime_ClosedWorkload();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -164,8 +194,8 @@ public class ClosedWorkloadImpl extends WorkloadImpl implements ClosedWorkload {
 			case UsagemodelPackage.CLOSED_WORKLOAD__POPULATION:
 				setPopulation(((Integer)newValue).intValue());
 				return;
-			case UsagemodelPackage.CLOSED_WORKLOAD__THINK_TIME:
-				setThinkTime(((Double)newValue).doubleValue());
+			case UsagemodelPackage.CLOSED_WORKLOAD__THINK_TIME_CLOSED_WORKLOAD:
+				setThinkTime_ClosedWorkload((ThinkTime)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -181,8 +211,8 @@ public class ClosedWorkloadImpl extends WorkloadImpl implements ClosedWorkload {
 			case UsagemodelPackage.CLOSED_WORKLOAD__POPULATION:
 				setPopulation(POPULATION_EDEFAULT);
 				return;
-			case UsagemodelPackage.CLOSED_WORKLOAD__THINK_TIME:
-				setThinkTime(THINK_TIME_EDEFAULT);
+			case UsagemodelPackage.CLOSED_WORKLOAD__THINK_TIME_CLOSED_WORKLOAD:
+				setThinkTime_ClosedWorkload((ThinkTime)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -197,8 +227,8 @@ public class ClosedWorkloadImpl extends WorkloadImpl implements ClosedWorkload {
 		switch (featureID) {
 			case UsagemodelPackage.CLOSED_WORKLOAD__POPULATION:
 				return population != POPULATION_EDEFAULT;
-			case UsagemodelPackage.CLOSED_WORKLOAD__THINK_TIME:
-				return thinkTime != THINK_TIME_EDEFAULT;
+			case UsagemodelPackage.CLOSED_WORKLOAD__THINK_TIME_CLOSED_WORKLOAD:
+				return thinkTime_ClosedWorkload != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -214,8 +244,6 @@ public class ClosedWorkloadImpl extends WorkloadImpl implements ClosedWorkload {
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (population: ");
 		result.append(population);
-		result.append(", thinkTime: ");
-		result.append(thinkTime);
 		result.append(')');
 		return result.toString();
 	}

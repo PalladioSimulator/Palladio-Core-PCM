@@ -155,6 +155,13 @@ public class UsagemodelSwitch {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case UsagemodelPackage.INTER_ARRIVAL_TIME: {
+				InterArrivalTime interArrivalTime = (InterArrivalTime)theEObject;
+				Object result = caseInterArrivalTime(interArrivalTime);
+				if (result == null) result = caseRandomVariable(interArrivalTime);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case UsagemodelPackage.LOOP: {
 				Loop loop = (Loop)theEObject;
 				Object result = caseLoop(loop);
@@ -180,6 +187,13 @@ public class UsagemodelSwitch {
 				ClosedWorkload closedWorkload = (ClosedWorkload)theEObject;
 				Object result = caseClosedWorkload(closedWorkload);
 				if (result == null) result = caseWorkload(closedWorkload);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case UsagemodelPackage.THINK_TIME: {
+				ThinkTime thinkTime = (ThinkTime)theEObject;
+				Object result = caseThinkTime(thinkTime);
+				if (result == null) result = caseRandomVariable(thinkTime);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -321,6 +335,21 @@ public class UsagemodelSwitch {
 	}
 
 	/**
+	 * Returns the result of interpretting the object as an instance of '<em>Inter Arrival Time</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpretting the object as an instance of '<em>Inter Arrival Time</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public Object caseInterArrivalTime(InterArrivalTime object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpretting the object as an instance of '<em>Loop</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -377,6 +406,21 @@ public class UsagemodelSwitch {
 	 * @generated
 	 */
 	public Object caseClosedWorkload(ClosedWorkload object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpretting the object as an instance of '<em>Think Time</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpretting the object as an instance of '<em>Think Time</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public Object caseThinkTime(ThinkTime object) {
 		return null;
 	}
 

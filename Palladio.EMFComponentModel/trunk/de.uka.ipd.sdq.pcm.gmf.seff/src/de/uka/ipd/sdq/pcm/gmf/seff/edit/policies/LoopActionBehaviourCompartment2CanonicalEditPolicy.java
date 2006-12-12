@@ -12,7 +12,7 @@ import org.eclipse.gmf.runtime.notation.View;
 
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviourEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.part.PcmVisualIDRegistry;
-import de.uka.ipd.sdq.pcm.seff.LoopAction;
+import de.uka.ipd.sdq.pcm.seff.AbstractLoopAction;
 
 /**
  * @generated
@@ -29,7 +29,7 @@ public class LoopActionBehaviourCompartment2CanonicalEditPolicy extends
 		View viewObject = (View) getHost().getModel();
 		EObject nextValue;
 		int nodeVID;
-		nextValue = ((LoopAction) modelObject).getBodyBehaviour_Loop();
+		nextValue = ((AbstractLoopAction) modelObject).getBodyBehaviour_Loop();
 		nodeVID = PcmVisualIDRegistry.getNodeVisualID(viewObject, nextValue);
 		if (ResourceDemandingBehaviourEditPart.VISUAL_ID == nodeVID) {
 			result.add(nextValue);

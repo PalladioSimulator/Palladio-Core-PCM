@@ -16,7 +16,7 @@ package de.uka.ipd.sdq.pcm.usagemodel;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link de.uka.ipd.sdq.pcm.usagemodel.OpenWorkload#getArrivalRate <em>Arrival Rate</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.usagemodel.OpenWorkload#getInterArrivalTime_OpenWorkload <em>Inter Arrival Time Open Workload</em>}</li>
  * </ul>
  * </p>
  *
@@ -33,29 +33,29 @@ public interface OpenWorkload extends Workload {
 	String copyright = "(c) by SDQ, IPD, U Karlsruhe (TH), 2006";
 
 	/**
-	 * Returns the value of the '<em><b>Arrival Rate</b></em>' attribute.
+	 * Returns the value of the '<em><b>Inter Arrival Time Open Workload</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Arrival Rate</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Inter Arrival Time Open Workload</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Arrival Rate</em>' attribute.
-	 * @see #setArrivalRate(double)
-	 * @see de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage#getOpenWorkload_ArrivalRate()
-	 * @model required="true" ordered="false"
+	 * @return the value of the '<em>Inter Arrival Time Open Workload</em>' containment reference.
+	 * @see #setInterArrivalTime_OpenWorkload(InterArrivalTime)
+	 * @see de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage#getOpenWorkload_InterArrivalTime_OpenWorkload()
+	 * @model containment="true" required="true" ordered="false"
 	 * @generated
 	 */
-	double getArrivalRate();
+	InterArrivalTime getInterArrivalTime_OpenWorkload();
 
 	/**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.usagemodel.OpenWorkload#getArrivalRate <em>Arrival Rate</em>}' attribute.
+	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.usagemodel.OpenWorkload#getInterArrivalTime_OpenWorkload <em>Inter Arrival Time Open Workload</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Arrival Rate</em>' attribute.
-	 * @see #getArrivalRate()
+	 * @param value the new value of the '<em>Inter Arrival Time Open Workload</em>' containment reference.
+	 * @see #getInterArrivalTime_OpenWorkload()
 	 * @generated
 	 */
-	void setArrivalRate(double value);
+	void setInterArrivalTime_OpenWorkload(InterArrivalTime value);
 
 } // OpenWorkload

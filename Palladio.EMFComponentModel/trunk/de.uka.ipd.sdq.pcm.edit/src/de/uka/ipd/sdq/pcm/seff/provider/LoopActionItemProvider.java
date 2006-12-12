@@ -33,7 +33,7 @@ import de.uka.ipd.sdq.pcm.seff.SeffPackage;
  * @generated
  */
 public class LoopActionItemProvider
-	extends AbstractResourceDemandingActionItemProvider
+	extends AbstractLoopActionItemProvider
 	implements	
 		IEditingDomainItemProvider,	
 		IStructuredItemContentProvider,	
@@ -82,22 +82,9 @@ public class LoopActionItemProvider
 	public Collection getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(SeffPackage.Literals.LOOP_ACTION__BODY_BEHAVIOUR_LOOP);
 			childrenFeatures.add(SeffPackage.Literals.LOOP_ACTION__ITERATIONS_LOOP_ACTION);
 		}
 		return childrenFeatures;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected EStructuralFeature getChildFeature(Object object, Object child) {
-		// Check the type of the specified child object and return the proper feature to use for
-		// adding (see {@link AddCommand}) it as a child.
-
-		return super.getChildFeature(object, child);
 	}
 
 	/**
@@ -134,7 +121,6 @@ public class LoopActionItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(LoopAction.class)) {
-			case SeffPackage.LOOP_ACTION__BODY_BEHAVIOUR_LOOP:
 			case SeffPackage.LOOP_ACTION__ITERATIONS_LOOP_ACTION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
@@ -151,16 +137,6 @@ public class LoopActionItemProvider
 	 */
 	protected void collectNewChildDescriptors(Collection newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-
-		newChildDescriptors.add
-			(createChildParameter
-				(SeffPackage.Literals.LOOP_ACTION__BODY_BEHAVIOUR_LOOP,
-				 SeffFactory.eINSTANCE.createResourceDemandingSEFF()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(SeffPackage.Literals.LOOP_ACTION__BODY_BEHAVIOUR_LOOP,
-				 SeffFactory.eINSTANCE.createResourceDemandingBehaviour()));
 
 		newChildDescriptors.add
 			(createChildParameter

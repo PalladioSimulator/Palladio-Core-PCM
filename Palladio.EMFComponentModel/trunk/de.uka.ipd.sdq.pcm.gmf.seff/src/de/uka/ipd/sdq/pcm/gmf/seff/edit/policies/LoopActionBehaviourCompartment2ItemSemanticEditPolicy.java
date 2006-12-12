@@ -34,7 +34,7 @@ public class LoopActionBehaviourCompartment2ItemSemanticEditPolicy extends
 			}
 			if (req.getContainmentFeature() == null) {
 				req.setContainmentFeature(SeffPackage.eINSTANCE
-						.getLoopAction_BodyBehaviour_Loop());
+						.getAbstractLoopAction_BodyBehaviour_Loop());
 			}
 			return getMSLWrapper(new CreateResourceDemandingBehaviour_2003Command(
 					req));

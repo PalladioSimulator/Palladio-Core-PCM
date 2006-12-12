@@ -147,11 +147,11 @@ Copyright 2006 SDQ Research Group, University of Karlsruhe (TH)
             <popupPredefinedItem id="deleteFromDiagramAction" remove="true"/>
          </popupContribution>
          <popupContribution class="org.eclipse.gmf.runtime.diagram.ui.providers.DiagramContextMenuProvider">
-            <popupStructuredContributionCriteria objectClass="de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.BranchTransitionEditPart"/>
+            <popupStructuredContributionCriteria objectClass="de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ProbabilisticBranchTransitionEditPart"/>
             <popupPredefinedItem id="deleteFromDiagramAction" remove="true"/>
          </popupContribution>
          <popupContribution class="org.eclipse.gmf.runtime.diagram.ui.providers.DiagramContextMenuProvider">
-            <popupStructuredContributionCriteria objectClass="de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.BranchTransitionProbabilityDiagramLabelEditPart"/>
+            <popupStructuredContributionCriteria objectClass="de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ProbabilisticBranchTransitionBranchProbabilityEditPart"/>
             <popupPredefinedItem id="deleteFromDiagramAction" remove="true"/>
          </popupContribution>
          <popupContribution class="org.eclipse.gmf.runtime.diagram.ui.providers.DiagramContextMenuProvider">
@@ -427,11 +427,11 @@ Copyright 2006 SDQ Research Group, University of Karlsruhe (TH)
 
       <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0">
          <metamodelType
-               id="de.uka.ipd.sdq.pcm.gmf.seff.BranchTransition_2010"
+               id="de.uka.ipd.sdq.pcm.gmf.seff.ProbabilisticBranchTransition_2010"
                name="BranchTransition"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
-               eclass="BranchTransition"
-               edithelper="de.uka.ipd.sdq.pcm.gmf.seff.edit.helpers.BranchTransitionEditHelper">
+               eclass="ProbabilisticBranchTransition"
+               edithelper="de.uka.ipd.sdq.pcm.gmf.seff.edit.helpers.ProbabilisticBranchTransitionEditHelper">
             <param name="semanticHint" value="2010"/>
          </metamodelType>
       </metamodel>
@@ -555,7 +555,7 @@ Copyright 2006 SDQ Research Group, University of Karlsruhe (TH)
          <elementType ref="de.uka.ipd.sdq.pcm.gmf.seff.InternalAction_2007"/>
          <elementType ref="de.uka.ipd.sdq.pcm.gmf.seff.ParametricResourceDemand_2008"/>
          <elementType ref="de.uka.ipd.sdq.pcm.gmf.seff.BranchAction_2009"/>
-         <elementType ref="de.uka.ipd.sdq.pcm.gmf.seff.BranchTransition_2010"/>
+         <elementType ref="de.uka.ipd.sdq.pcm.gmf.seff.ProbabilisticBranchTransition_2010"/>
          <elementType ref="de.uka.ipd.sdq.pcm.gmf.seff.ResourceDemandingBehaviour_2011"/>
          <elementType ref="de.uka.ipd.sdq.pcm.gmf.seff.ExternalCallAction_2012"/>
          <elementType ref="de.uka.ipd.sdq.pcm.gmf.seff.StartAction_1001"/>

@@ -111,6 +111,9 @@ public class SeffAdapterFactory extends AdapterFactoryImpl {
 			public Object caseLoopAction(LoopAction object) {
 				return createLoopActionAdapter();
 			}
+			public Object caseAbstractLoopAction(AbstractLoopAction object) {
+				return createAbstractLoopActionAdapter();
+			}
 			public Object caseIterationCount(IterationCount object) {
 				return createIterationCountAdapter();
 			}
@@ -123,11 +126,11 @@ public class SeffAdapterFactory extends AdapterFactoryImpl {
 			public Object caseExternalCallAction(ExternalCallAction object) {
 				return createExternalCallActionAdapter();
 			}
-			public Object caseBranchTransition(BranchTransition object) {
-				return createBranchTransitionAdapter();
+			public Object caseProbabilisticBranchTransition(ProbabilisticBranchTransition object) {
+				return createProbabilisticBranchTransitionAdapter();
 			}
-			public Object caseBranchCondition(BranchCondition object) {
-				return createBranchConditionAdapter();
+			public Object caseAbstractBranchTransition(AbstractBranchTransition object) {
+				return createAbstractBranchTransitionAdapter();
 			}
 			public Object caseBranchAction(BranchAction object) {
 				return createBranchActionAdapter();
@@ -135,8 +138,14 @@ public class SeffAdapterFactory extends AdapterFactoryImpl {
 			public Object caseAquireAction(AquireAction object) {
 				return createAquireActionAdapter();
 			}
+			public Object caseBranchCondition(BranchCondition object) {
+				return createBranchConditionAdapter();
+			}
 			public Object caseCollectionIteratorAction(CollectionIteratorAction object) {
 				return createCollectionIteratorActionAdapter();
+			}
+			public Object caseGuardedBranchTransition(GuardedBranchTransition object) {
+				return createGuardedBranchTransitionAdapter();
 			}
 			public Object caseServiceEffectSpecification(ServiceEffectSpecification object) {
 				return createServiceEffectSpecificationAdapter();
@@ -298,6 +307,20 @@ public class SeffAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.seff.AbstractLoopAction <em>Abstract Loop Action</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.pcm.seff.AbstractLoopAction
+	 * @generated
+	 */
+	public Adapter createAbstractLoopActionAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.seff.IterationCount <em>Iteration Count</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -354,16 +377,30 @@ public class SeffAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.seff.BranchTransition <em>Branch Transition</em>}'.
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.seff.ProbabilisticBranchTransition <em>Probabilistic Branch Transition</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.pcm.seff.BranchTransition
+	 * @see de.uka.ipd.sdq.pcm.seff.ProbabilisticBranchTransition
 	 * @generated
 	 */
-	public Adapter createBranchTransitionAdapter() {
+	public Adapter createProbabilisticBranchTransitionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.seff.AbstractBranchTransition <em>Abstract Branch Transition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.pcm.seff.AbstractBranchTransition
+	 * @generated
+	 */
+	public Adapter createAbstractBranchTransitionAdapter() {
 		return null;
 	}
 
@@ -420,6 +457,20 @@ public class SeffAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createCollectionIteratorActionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.seff.GuardedBranchTransition <em>Guarded Branch Transition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.pcm.seff.GuardedBranchTransition
+	 * @generated
+	 */
+	public Adapter createGuardedBranchTransitionAdapter() {
 		return null;
 	}
 

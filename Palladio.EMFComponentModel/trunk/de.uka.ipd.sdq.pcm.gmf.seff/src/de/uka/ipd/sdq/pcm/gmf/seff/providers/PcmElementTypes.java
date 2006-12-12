@@ -165,8 +165,8 @@ public class PcmElementTypes {
 					.getParametricResourceDemand());
 			elements.put(BranchAction_2009, SeffPackage.eINSTANCE
 					.getBranchAction());
-			elements.put(BranchTransition_2010, SeffPackage.eINSTANCE
-					.getBranchTransition());
+			elements.put(ProbabilisticBranchTransition_2010,
+					SeffPackage.eINSTANCE.getProbabilisticBranchTransition());
 			elements.put(ResourceDemandingBehaviour_2011, SeffPackage.eINSTANCE
 					.getResourceDemandingBehaviour());
 			elements.put(ExternalCallAction_2012, SeffPackage.eINSTANCE
@@ -243,7 +243,7 @@ public class PcmElementTypes {
 	/**
 	 * @generated
 	 */
-	public static final IElementType BranchTransition_2010 = getElementType("de.uka.ipd.sdq.pcm.gmf.seff.BranchTransition_2010"); //$NON-NLS-1$
+	public static final IElementType ProbabilisticBranchTransition_2010 = getElementType("de.uka.ipd.sdq.pcm.gmf.seff.ProbabilisticBranchTransition_2010"); //$NON-NLS-1$
 
 	/**
 	 * @generated
@@ -318,7 +318,7 @@ public class PcmElementTypes {
 			KNOWN_ELEMENT_TYPES.add(InternalAction_2007);
 			KNOWN_ELEMENT_TYPES.add(ParametricResourceDemand_2008);
 			KNOWN_ELEMENT_TYPES.add(BranchAction_2009);
-			KNOWN_ELEMENT_TYPES.add(BranchTransition_2010);
+			KNOWN_ELEMENT_TYPES.add(ProbabilisticBranchTransition_2010);
 			KNOWN_ELEMENT_TYPES.add(ResourceDemandingBehaviour_2011);
 			KNOWN_ELEMENT_TYPES.add(ExternalCallAction_2012);
 			KNOWN_ELEMENT_TYPES.add(StartAction_1001);
