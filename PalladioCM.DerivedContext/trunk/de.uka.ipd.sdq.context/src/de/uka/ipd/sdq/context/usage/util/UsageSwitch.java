@@ -117,6 +117,7 @@ public class UsageSwitch {
 			case UsagePackage.LOOP_ITERATION: {
 				LoopIteration loopIteration = (LoopIteration)theEObject;
 				Object result = caseLoopIteration(loopIteration);
+				if (result == null) result = caseRandomVariable(loopIteration);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -187,6 +188,21 @@ public class UsageSwitch {
 	 * @generated
 	 */
 	public Object caseUsage(Usage object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpretting the object as an instance of '<em>Random Variable</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpretting the object as an instance of '<em>Random Variable</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public Object caseRandomVariable(RandomVariable object) {
 		return null;
 	}
 
