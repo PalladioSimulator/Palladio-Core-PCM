@@ -1,0 +1,116 @@
+«EXTENSION m2t_transforms::java_names»
+«EXTENSION m2t_transforms::pcm»
+«IMPORT repository»
+«IMPORT seff»
+«IMPORT system»
+«IMPORT entity»
+
+«DEFINE ImportsTM FOR Entity»
+«ENDDEFINE»
+
+«DEFINE Import FOR Entity»
+      import «this.fqn()»;
+«ENDDEFINE»
+
+«DEFINE Import FOR String»
+      import «this»;
+«ENDDEFINE»
+
+«DEFINE ClassHeader FOR ProvidesComponentType»
+public class «this.javaName()»
+«ENDDEFINE»
+
+«DEFINE Signature FOR Signature»
+   «EXPAND ReturnType FOR this»
+   «this.javaSignature()»
+   ( «EXPAND ParameterListTM FOR this» )
+«ENDDEFINE»
+
+«DEFINE ReturnType FOR Signature»
+   «IF this.returntype__Signature != null»
+      «EXPAND m2t_transforms::datatypes::DataType FOR this.returntype__Signature»
+   «ELSE»
+      void
+   «ENDIF»
+«ENDDEFINE»
+
+«DEFINE ParameterListTM FOR Signature»
+   «ERROR "Template method must be overridden"»
+«ENDDEFINE»
+
+«DEFINE ParameterUsageListTM FOR Signature»
+   «ERROR "Template method must be overridden"»
+«ENDDEFINE»
+
+«DEFINE Parameter FOR Parameter»
+   «IF this.datatype__Parameter != null»
+      «EXPAND m2t_transforms::datatypes::DataType FOR this.datatype__Parameter»
+   «ELSE»
+      void
+   «ENDIF»
+   «this.parameterName»
+«ENDDEFINE»
+
+«DEFINE ParameterUse FOR Parameter»
+   «this.parameterName»
+«ENDDEFINE»
+
+//-----
+// Generate method implementations by traversing the SEFF
+«DEFINE ComponentService FOR ServiceEffectSpecification»
+	«ERROR "Unknown Service Effect Specification found!"»
+«ENDDEFINE»
+
+«DEFINE ComponentService FOR ResourceDemandingSEFF»
+   public «EXPAND ReturnType FOR this.describedService__SEFF»
+      «this.describedService__SEFF.interface_Signature.javaName().toFirstLower()»_«this.describedService__SEFF.javaSignature()»
+         («EXPAND ParameterListTM FOR this.describedService__SEFF») {
+      «EXPAND Actions FOR this.steps_Behaviour.findStart()»      
+   }   
+«ENDDEFINE»
+
+«DEFINE Actions FOR AbstractAction»
+   «EXPAND m2t_transforms::seff::Action FOR this»
+   «IF !StopAction.isInstance(this)»
+      «EXPAND Actions FOR this.successor_AbstractAction»
+   «ENDIF»
+«ENDDEFINE»
+//-----
+
+//-----
+// Polymorphic switch to generate different thing for {Basic,Complete and Provides}-Types and for
+// ComposedStructure
+«DEFINE ComponentImplementation FOR ProvidesComponentType»
+   package «this.implementationPackage()»;
+   
+   «EXPAND ImportsTM FOR this»
+   «EXPAND Import FOREACH this.providedRoles_InterfaceProvidingEntity.fqnPort()»
+   «EXPAND Import FOREACH this.providedRoles_InterfaceProvidingEntity.providedInterface__ProvidedRole»
+   import «this.fqnContext()»;
+   
+   «EXPAND m2t_transforms::java_core::ClassHeader FOR this»
+   «EXPAND SuperClassesTM FOR this»
+   {
+   	  «EXPAND ComponentConstructorTM FOR this» 
+      «EXPAND m2t_transforms::provided_ports::ProvidedPorts FOR this»
+      «EXPAND m2t_transforms::context_pattern::RequiredInterfaces FOR this»
+      «EXPAND InnerImplementation FOR this»
+   }
+«ENDDEFINE»
+
+«DEFINE SuperClassesTM FOR ProvidesComponentType»
+«ENDDEFINE»
+
+«DEFINE InnerImplementation FOR ProvidesComponentType»
+«ENDDEFINE»
+
+«DEFINE InnerImplementation FOR BasicComponent»
+	«EXPAND ComponentService FOREACH this.serviceEffectSpecifications__BasicComponent»
+«ENDDEFINE»
+
+«DEFINE InnerImplementation FOR CompositeComponent»
+«ENDDEFINE»
+///-----
+
+«DEFINE ComponentConstructorTM FOR ProvidesComponentType»
+«ENDDEFINE»
