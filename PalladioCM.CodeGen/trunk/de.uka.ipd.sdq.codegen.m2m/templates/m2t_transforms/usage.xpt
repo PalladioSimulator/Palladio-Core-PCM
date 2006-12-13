@@ -9,6 +9,8 @@
 
 «DEFINE UsageModel(Allocation a) FOR UsageModel»
 	«EXPAND UsageScenario(a) FOREACH this.usageScenario_UsageModel»
+	«EXPAND UsageScenarioFactory FOREACH this.usageScenario_UsageModel»
+	«EXPAND Main FOR this»
 «ENDDEFINE» 
 
 «DEFINE UsageScenario(Allocation a) FOR UsageScenario»
@@ -19,8 +21,7 @@
 		«EXPAND m2t_transforms::java_core::Import FOREACH this.querySystemCalls().providedRole_EntryLevelSystemCall.providingEntity_ProvidedRole.toSet()»
 		«EXPAND ContextImports FOR this»
 		public class «this.javaName()» 
-		extends AbstractUsageScenario
-		implements IUsageScenario
+		implements de.uka.ipd.sdq.simucomframework.usage.IScenarioRunner
 		{
 			«EXPAND SystemMemberVar FOREACH this.querySystemCalls().providedRole_EntryLevelSystemCall»
 			«EXPAND AllocationContextTM FOR a»
@@ -42,12 +43,10 @@
 
 «DEFINE UsageScenarioConstructor(Allocation a) FOR UsageScenario»
 public «this.javaName()»(SimuComModel myModel) {
-	super(myModel,"«this.entityName»");
-
 	«FOREACH this.querySystemCalls().providedRole_EntryLevelSystemCall AS pr»
 		«pr.providingEntity_ProvidedRole.javaName()» my«pr.providingEntity_ProvidedRole.javaName()» = new «pr.providingEntity_ProvidedRole.javaName()»();
 		«LET ((System)pr.providingEntity_ProvidedRole) AS system»
-			ctx = new «a.fqnAllocationContext()»(myModel,this);
+			ctx = new «a.fqnAllocationContext()»(myModel);
 			ctx.getStack().createAndPushNewStackFrame();
 			«system.contextClassName()» context«pr.providingEntity_ProvidedRole.javaName()» = 
 				new «system.contextClassName()»
@@ -65,7 +64,8 @@ public «this.javaName()»(SimuComModel myModel) {
 «ENDDEFINE»
 
 «DEFINE ScenarioRunner FOR ScenarioBehaviour»
-public void scenarioRunner() {
+public void scenarioRunner(SimProcess thread) {
+	ctx.setSimProcess(thread);
 	«EXPAND UserActions FOR this.actions_ScenarioBehaviour.typeSelect(Start).get(0)»
 }
 «ENDDEFINE»
@@ -82,4 +82,86 @@ public void scenarioRunner() {
 «ENDDEFINE»
 
 «DEFINE AllocationContextTM FOR Allocation»
+«ENDDEFINE»
+
+«DEFINE UsageScenarioFactory FOR UsageScenario»
+	«FILE this.implementationPackage().fqnToDirectoryPath() + "/" + this.javaName() + "Factory.java"»
+		package «this.implementationPackage()»;
+		public class «this.javaName()+"Factory"» 
+		extends «EXPAND UsageFactoryBaseClass FOR this.workload_UsageScenario»
+		{
+			«EXPAND FactoryConstructor FOR this»
+			
+			public de.uka.ipd.sdq.simucomframework.usage.IScenarioRunner createScenarioRunner() {
+				return new «this.implementationPackage()+"."+this.javaName()»(model);
+			}
+		}
+	«ENDFILE»
+«ENDDEFINE» 
+
+«DEFINE UsageFactoryBaseClass FOR Workload»
+	«ERROR "AbstractWorkload found! This is imposible!"»
+«ENDDEFINE»
+
+«DEFINE UsageFactoryBaseClass FOR ClosedWorkload»
+de.uka.ipd.sdq.simucomframework.usage.ClosedWorkloadUserFactory
+«ENDDEFINE»
+
+«DEFINE UsageFactoryBaseClass FOR OpenWorkload»
+de.uka.ipd.sdq.simucomframework.usage.OpenWorkloadUserFactory
+«ENDDEFINE»
+
+«DEFINE FactoryConstructor FOR UsageScenario»
+	private de.uka.ipd.sdq.simucomframework.model.SimuComModel model = null;
+	public «this.javaName()+"Factory"»(de.uka.ipd.sdq.simucomframework.model.SimuComModel model){
+		«EXPAND FactoryConstructor FOR this.workload_UsageScenario»
+		this.model = model;
+	}
+«ENDDEFINE»
+
+«DEFINE FactoryConstructor FOR Workload»
+	«ERROR "AbstractWorkload found! This is imposible!"»
+«ENDDEFINE»
+
+«DEFINE FactoryConstructor FOR ClosedWorkload»
+	super(model,"«this.thinkTime_ClosedWorkload.specification.javaString()»");
+«ENDDEFINE»
+
+«DEFINE FactoryConstructor FOR OpenWorkload»
+	super(model);
+«ENDDEFINE»
+
+«DEFINE Main FOR UsageModel»
+	«FILE "MainClass.java"»
+		public class MainClass extends de.uka.ipd.sdq.simucomframework.AbstractMain {
+			public static void main(String[] args) {
+				new MainClass().run();
+			}
+			
+			protected de.uka.ipd.sdq.simucomframework.usage.IWorkloadDriver[] getWorkloads() {
+				return new de.uka.ipd.sdq.simucomframework.usage.IWorkloadDriver[] {
+					«EXPAND WorkloadDriver FOREACH this.usageScenario_UsageModel SEPARATOR ","»
+				};
+			}
+		}
+	«ENDFILE»
+«ENDDEFINE»
+
+«DEFINE WorkloadDriver FOR UsageScenario»
+	new «EXPAND WorkloadClass(this) FOR this.workload_UsageScenario»
+«ENDDEFINE»
+
+«DEFINE WorkloadClass(UsageScenario u) FOR Workload»
+	«ERROR "AbstractWorkload found! This is imposible!"»
+«ENDDEFINE»
+
+«DEFINE WorkloadClass(UsageScenario u) FOR ClosedWorkload»
+de.uka.ipd.sdq.simucomframework.usage.ClosedWorkload(
+	new «u.implementationPackage()+"."+u.javaName()+"Factory"»(getModel()),«this.population»)
+«ENDDEFINE»
+
+«DEFINE WorkloadClass(UsageScenario u) FOR OpenWorkload»
+de.uka.ipd.sdq.simucomframework.usage.OpenWorkload( getModel(),
+	new «u.implementationPackage()+"."+u.javaName()+"Factory"»(getModel()),
+	"«this.interArrivalTime_OpenWorkload.specification.javaString()»")
 «ENDDEFINE»

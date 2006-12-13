@@ -18,8 +18,8 @@
 		 
 		public class «this.fqnAllocationContextClass()» 
 		extends Context {
-			public «this.fqnAllocationContextClass()»(SimuComModel myModel, SimProcess myProcess) {
-				super(myModel,myProcess);
+			public «this.fqnAllocationContextClass()»(SimuComModel myModel) {
+				super(myModel);
 			}
 			
 			protected void initialiseAssemblyContextLookup() {

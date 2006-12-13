@@ -1,15 +1,15 @@
 package de.uka.ipd.sdq.simucomframework.model;
 
-import de.uka.ipd.sdq.simucomframework.IUsageScenario;
 import de.uka.ipd.sdq.simucomframework.ResouceRegistry;
 import de.uka.ipd.sdq.simucomframework.sensors.SensorFactory;
+import de.uka.ipd.sdq.simucomframework.usage.IWorkloadDriver;
 import desmoj.core.simulator.Model;
 
 public class SimuComModel extends Model {
 
 	protected ResouceRegistry resourceRegistry = null;
 	protected SensorFactory sensorFactory = null;
-	private IUsageScenario[] usageScenarios;
+	private IWorkloadDriver[] workloadDrivers;
 	
 	public SimuComModel(Model owner, String myName, boolean showInReport, boolean showInTrace) {
 		super(owner, myName, showInReport, showInTrace);
@@ -27,9 +27,9 @@ public class SimuComModel extends Model {
 	@Override
 	public void doInitialSchedules() {
 		resourceRegistry.activateAllActiveResources();
-		for (IUsageScenario u : usageScenarios)
+		for (IWorkloadDriver w : workloadDrivers)
 		{
-			u.doInitialSchedules();
+			w.run();
 		}
 	}
 
@@ -37,9 +37,9 @@ public class SimuComModel extends Model {
 	public void init() {
 	}
 	
-	public void setUsageScenarios(IUsageScenario[] scenarios)
+	public void setUsageScenarios(IWorkloadDriver[] workload)
 	{
-		this.usageScenarios = scenarios;
+		this.workloadDrivers = workload;
 	}
 
 	public ResouceRegistry getResourceRegistry() {

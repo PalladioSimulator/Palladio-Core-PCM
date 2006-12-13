@@ -32,16 +32,19 @@ public abstract class Context {
 	private SimProcess myThread = null;
 	private SimuComModel myModel = null;
 	
-	public Context(SimuComModel myModel, SimProcess myThread) {
+	public Context(SimuComModel myModel) {
 		this.registry = myModel.getResourceRegistry();
-		this.myThread = myThread;
 		this.myModel = myModel;
 		initialiseResourceContainer();
 		initialiseAssemblyContextLookup();
 	}
 
 	public Object evaluate(String string, Class expectedType) {
-		Object result = evaluate(string,stack.currentStackFrame());
+		return evaluate(string,expectedType,stack.currentStackFrame());
+	}
+
+	public static Object evaluate(String string, Class expectedType, SimulatedStackframe frame) {
+		Object result = evaluate(string,frame);
 		if (expectedType.isInstance(result))
 			return result;
 		if (expectedType == Double.class && result.getClass() == Integer.class)
@@ -49,7 +52,6 @@ public abstract class Context {
 		throw new UnsupportedOperationException("Evaluation result is of type "+result.getClass().getCanonicalName()+
 				" but expected was "+expectedType.getCanonicalName()+ " and no conversion was available...");
 	}
-
 	
 	public Object evaluate(String string) {
 		return evaluate(string,stack.currentStackFrame());
@@ -130,5 +132,9 @@ public abstract class Context {
 				}
 			}
 		}
+	}
+
+	public void setSimProcess(SimProcess process) {
+		this.myThread = process;
 	}
 }

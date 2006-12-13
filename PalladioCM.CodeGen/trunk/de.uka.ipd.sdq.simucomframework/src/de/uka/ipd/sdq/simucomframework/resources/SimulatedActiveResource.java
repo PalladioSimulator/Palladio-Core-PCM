@@ -12,10 +12,10 @@ public class SimulatedActiveResource extends SimProcess {
 	protected ProcessQueue associatedQueue = null;
 	protected HashMap<SimProcess,Double> resourceDemands = null;
 	
-	private int processingRate = 0;
+	private double processingRate = 0;
 	private String units = null; 
 	
-	public SimulatedActiveResource(SimuComModel myModel, String typeID, int processingRate, String units)
+	public SimulatedActiveResource(SimuComModel myModel, String typeID, double d, String units)
 	{
 		super (myModel, typeID, true);
 		associatedQueue = new ProcessQueue(
@@ -24,7 +24,7 @@ public class SimulatedActiveResource extends SimProcess {
 				true,
 				true);
 		resourceDemands = new HashMap<SimProcess, Double>();
-		this.processingRate = processingRate;
+		this.processingRate = d;
 		this.units = units;
 	}
 	

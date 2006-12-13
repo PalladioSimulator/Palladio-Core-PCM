@@ -27,8 +27,6 @@
    import de.uka.ipd.sdq.simucomframework.Context;
    import de.uka.ipd.sdq.simucomframework.SimulatedComponent;   
    import de.uka.ipd.sdq.simucomframework.SimulatedSystem;
-   import de.uka.ipd.sdq.simucomframework.AbstractUsageScenario;
-   import de.uka.ipd.sdq.simucomframework.IUsageScenario;
    import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
    import de.uka.ipd.sdq.simucomframework.resources.SimulatedResourceContainer;
    import desmoj.core.simulator.SimProcess;
@@ -93,7 +91,7 @@
 			«FOREACH pu.variableCharacterisation_VariableUsage AS vc»
 				«IF pu.namedReference_VariableUsage.isInnerReference()»
 					stackframe.addValue("«lhs_prefix+'.'+vc.type.toString()»",
-					   	new de.uka.ipd.sdq.simucomframework.EvaluationProxy("«vc.specification.javaString()»",currentFrame.copyFrame()));
+					   	new de.uka.ipd.sdq.simucomframework.stoexvisitor.EvaluationProxy("«vc.specification.javaString()»",currentFrame.copyFrame()));
 				«ELSE»
 					stackframe.addValue("«lhs_prefix+'.'+vc.type.toString()»",
 					   	ctx.evaluate("«vc.specification.javaString()»",currentFrame));
