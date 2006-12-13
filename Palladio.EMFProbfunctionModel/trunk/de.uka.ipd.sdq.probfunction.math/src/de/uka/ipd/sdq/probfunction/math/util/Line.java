@@ -21,10 +21,13 @@ public class Line {
 		public Line(double x1, double y1, double x2, double y2) {
 			
 			a = (y2 - y1) / (x2 - x1);
-			if (x1 != 0)
-				b = y1 - (a * x1);
-			else
-				b = y2 - (a * x2);
+			b = y1 - (a * x1);
+
+// HK
+//			if (x1 != 0)
+//				b = y1 - (a * x1);
+//			else
+//				b = y2 - (a * x2);
 		}
 		
 		/**

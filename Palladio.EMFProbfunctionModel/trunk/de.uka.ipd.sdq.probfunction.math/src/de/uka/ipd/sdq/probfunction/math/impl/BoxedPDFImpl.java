@@ -304,7 +304,7 @@ public class BoxedPDFImpl extends ProbabilityDensityFunctionImpl
 		List<IContinuousSample> newSamples = new ArrayList<IContinuousSample>();
 		for (IContinuousSample oldSample : samples){
 			newSamples.add(pfFactory.createContinuousSample(oldSample.getValue()
-					+ scalar, oldSample.getProbability()));
+					* scalar, oldSample.getProbability()));
 		}
 
 		IBoxedPDF result = null;
