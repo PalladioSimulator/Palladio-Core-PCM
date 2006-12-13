@@ -1,0 +1,77 @@
+«EXTENSION m2t_transforms::java_names»
+«EXTENSION m2t_transforms::pcm»
+«IMPORT repository»
+«IMPORT seff»
+«IMPORT system»
+«IMPORT entity»
+«IMPORT composition»
+
+// Generate a class for each provided role implementing the interface of that role
+// This so called port delegates to implementations in the main component class
+// Additionally, generate a local member variable for my provided roles/ports and a
+// respective getter
+«DEFINE ProvidedPorts FOR InterfaceProvidingEntity»
+	«EXPAND PortImplFile FOREACH this.providedRoles_InterfaceProvidingEntity»
+   	«EXPAND PortMemberVars FOREACH this.providedRoles_InterfaceProvidingEntity»
+   	«EXPAND PortGetter FOREACH this.providedRoles_InterfaceProvidingEntity»
+«ENDDEFINE»
+
+«DEFINE ProvidedPorts FOR System»
+	«EXPAND ContextPortGetter(this) FOREACH this.providedRoles_InterfaceProvidingEntity»
+«ENDDEFINE»
+
+«DEFINE ProvidedPorts FOR CompositeComponent»
+	«EXPAND ContextPortGetter(this) FOREACH this.providedRoles_InterfaceProvidingEntity»
+«ENDDEFINE»
+
+«DEFINE PortImplFile FOR ProvidedRole»
+   «FILE this.fqnPortPackage().fqnToDirectoryPath()+"/"+this.portClassName()+".java"»
+	  package «this.fqnPortPackage()»;
+	  import «this.providedInterface__ProvidedRole.fqn()»;
+	  import «this.providingEntity_ProvidedRole.fqn()»;
+      «EXPAND PortImpl FOR this»
+   «ENDFILE» 
+«ENDDEFINE»
+
+«DEFINE PortImpl FOR ProvidedRole»
+	  «EXPAND m2t_transforms::java_core::ImportsTM FOR this»   
+	  // Port class for «this.portClassName()»
+	  public class «this.portClassName()» implements «this.providedInterface__ProvidedRole.javaName()»
+	  {
+	     protected «this.providingEntity_ProvidedRole.javaName()» myComponent = null;
+	     
+	     public «this.portClassName()»(«this.providingEntity_ProvidedRole.javaName()» myComponent){
+	        this.myComponent = myComponent;
+	     }
+	     «EXPAND PortDelegator FOREACH this.providedInterface__ProvidedRole.signatures__Interface»
+	  }
+«ENDDEFINE»
+
+«DEFINE PortDelegator FOR Signature»
+   public «EXPAND m2t_transforms::java_core::Signature FOR this» {
+      myComponent.«this.interface_Signature.javaName().toFirstLower()»_«this.javaSignature()»(
+         «EXPAND m2t_transforms::java_core::ParameterUsageListTM FOR this»);
+   }   
+«ENDDEFINE»
+
+«DEFINE PortMemberVars FOR ProvidedRole»
+    protected «this.portClassName()» «this.portMemberVar()» = new «this.portClassName()»(this);
+«ENDDEFINE»
+
+«DEFINE ContextPortGetter(ComposedStructure cs) FOR ProvidedRole»
+   public «this.providedInterface__ProvidedRole.javaName()» «this.portGetter()» () {
+      return 
+		«IF cs.hasProvidedDelegationConnector(this)»
+			my«cs.getProvidedDelegationConnector(this).childComponentContext_ProvidedDelegationConnector.javaName()».
+			«cs.getProvidedDelegationConnector(this).innerProvidedRole_ProvidedDelegationConnector.portGetter()»();
+		«ELSE»
+		   null;
+		«ENDIF»
+   }
+«ENDDEFINE»
+
+«DEFINE PortGetter FOR ProvidedRole»
+   public «this.providedInterface__ProvidedRole.javaName()» «this.portGetter()» () {
+      return «this.portMemberVar()»;
+   }
+«ENDDEFINE»

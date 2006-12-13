@@ -1,0 +1,63 @@
+«IMPORT system»
+«IMPORT composition»
+«IMPORT repository»
+«EXTENSION m2t_transforms::pcm»
+«EXTENSION m2t_transforms::java_names»
+ 
+«DEFINE InnerImplementation FOR ComposedStructure»
+      /**
+      * Inner Structure initialisation
+      */
+      private void initInnerComponents() {
+         «EXPAND InitCall FOREACH this.childComponentContexts_ComposedStructure»
+      }
+      «EXPAND Init(this) FOREACH this.childComponentContexts_ComposedStructure»
+      /**
+      * Inner Structure initialisation end
+      */
+«ENDDEFINE»
+
+«DEFINE ClientContextImports FOR AssemblyContext»
+   import «this.encapsulatedComponent_ChildComponentContext.fqn()»;
+   import «this.encapsulatedComponent_ChildComponentContext.fqnContext()»;
+«ENDDEFINE»
+
+«DEFINE ChildMemberVars FOR AssemblyContext»
+   protected 
+      «this.encapsulatedComponent_ChildComponentContext.javaName()» 
+         my«this.javaName()» = new «this.encapsulatedComponent_ChildComponentContext.javaName()»
+         	(«EXPAND ComponentConstructorParametersTM FOR this»);
+«ENDDEFINE»
+
+«DEFINE InitCall FOR AssemblyContext»
+   init«this.javaName()»();
+«ENDDEFINE»
+
+«DEFINE Init(ComposedStructure s) FOR AssemblyContext»
+   private void init«this.javaName()»() {
+      «this.encapsulatedComponent_ChildComponentContext.contextClassName()» context = new «this.encapsulatedComponent_ChildComponentContext.contextClassName()»(
+         «EXPAND PortQuery(s,this) FOREACH this.encapsulatedComponent_ChildComponentContext.requiredRoles_InterfaceRequiringEntity SEPARATOR ","»
+      );
+      my«this.javaName()».setContext(context);
+   }
+«ENDDEFINE»
+
+«DEFINE PortQuery(ComposedStructure s, AssemblyContext ctx) FOR RequiredRole»
+	«IF hasConnector(s,ctx,this)»
+		«LET getConnector(s,ctx,this) AS connector»
+			my«connector.providingChildComponentContext_CompositeAssemblyConnector.javaName()».«connector.providedRole_CompositeAssemblyConnector.portGetter()»()
+	   	«ENDLET»
+	«ELSE» 
+		«IF hasRequiredDelegationConnector(s,ctx,this)»
+			«LET getRequiredDelegationConnector(s,ctx,this) AS connector»
+				this.myContext.getRole«connector.outerRequiredRole_RequiredDelegationConnector.requiredInterface__RequiredRole.javaName()»()
+	   		«ENDLET»
+	    «ELSE»
+	        null
+	    «ENDIF» 
+    «ENDIF»
+«ENDDEFINE»
+
+«DEFINE ComponentConstructorParametersTM FOR AssemblyContext»
+	/* Add Parameters here */
+«ENDDEFINE»
