@@ -1,25 +1,20 @@
 package de.uka.ipd.sdq.simucomframework.stoexvisitor;
 
-import sun.awt.datatransfer.DataTransferer.IndexedComparator;
 import de.uka.ipd.sdq.pcm.parameter.CharacterisedVariable;
 import de.uka.ipd.sdq.pcm.stochasticexpressions.PCMStoExPrettyPrintVisitor;
 import de.uka.ipd.sdq.pcm.stochasticexpressions.PCMStoExSwitch;
-import de.uka.ipd.sdq.probfunction.ProbabilityFunction;
 import de.uka.ipd.sdq.simucomframework.Context;
+import de.uka.ipd.sdq.simucomframework.cache.StoExCache;
 import de.uka.ipd.sdq.simucomframework.stackframe.SimulatedStackframe;
 import de.uka.ipd.sdq.simucomframework.stackframe.ValueNotInFrameException;
-import de.uka.ipd.sdq.stoex.AbstractNamedReference;
-import de.uka.ipd.sdq.stoex.Atom;
 import de.uka.ipd.sdq.stoex.CompareExpression;
 import de.uka.ipd.sdq.stoex.CompareOperations;
-import de.uka.ipd.sdq.stoex.Comparison;
 import de.uka.ipd.sdq.stoex.DoubleLiteral;
 import de.uka.ipd.sdq.stoex.Expression;
 import de.uka.ipd.sdq.stoex.IntLiteral;
 import de.uka.ipd.sdq.stoex.Parenthesis;
 import de.uka.ipd.sdq.stoex.Power;
 import de.uka.ipd.sdq.stoex.ProbabilityFunctionLiteral;
-import de.uka.ipd.sdq.stoex.Product;
 import de.uka.ipd.sdq.stoex.ProductExpression;
 import de.uka.ipd.sdq.stoex.ProductOperations;
 import de.uka.ipd.sdq.stoex.RandomVariable;
@@ -32,14 +27,17 @@ import de.uka.ipd.sdq.stoex.analyser.visitors.TypeEnum;
 
 public class PCMStoExEvaluationVisitor extends PCMStoExSwitch {
 
-	private PCMProbfunctionEvaluationVisitor probfunctionVisitor = new PCMProbfunctionEvaluationVisitor();
+	private PCMProbfunctionEvaluationVisitor probfunctionVisitor;
 	private SimulatedStackframe<Object> myStackFrame;
 	private ExpressionInferTypeVisitor typeInferer;
 	private static PCMStoExPrettyPrintVisitor printVisitor = new PCMStoExPrettyPrintVisitor();
+	private String stoex;
 	
-	public PCMStoExEvaluationVisitor(ExpressionInferTypeVisitor typeInferer, SimulatedStackframe<Object> frame) {
+	public PCMStoExEvaluationVisitor(String stoex, SimulatedStackframe<Object> frame) {
 		myStackFrame = frame;
-		this.typeInferer = typeInferer;
+		this.typeInferer = StoExCache.singleton().getEntry(stoex).getTypeInferer();
+		this.stoex = stoex;
+		probfunctionVisitor = new PCMProbfunctionEvaluationVisitor(stoex);
 	}
 
 	@Override

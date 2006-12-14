@@ -36,14 +36,14 @@
 	/**
 	* Imports for the system context classes
 	**/
-	«FOREACH this.querySystemCalls().providedRole_EntryLevelSystemCall AS pr»
+	«FOREACH this.querySystemCalls().providedRole_EntryLevelSystemCall.toSet() AS pr»
 		«EXPAND m2t_transforms::java_core::Import FOR ((System)pr.providingEntity_ProvidedRole).fqnContext()»
 	«ENDFOREACH»
 «ENDDEFINE»
 
 «DEFINE UsageScenarioConstructor(Allocation a) FOR UsageScenario»
 public «this.javaName()»(SimuComModel myModel) {
-	«FOREACH this.querySystemCalls().providedRole_EntryLevelSystemCall AS pr»
+	«FOREACH this.querySystemCalls().providedRole_EntryLevelSystemCall.toSet() AS pr»
 		«pr.providingEntity_ProvidedRole.javaName()» my«pr.providingEntity_ProvidedRole.javaName()» = new «pr.providingEntity_ProvidedRole.javaName()»();
 		«LET ((System)pr.providingEntity_ProvidedRole) AS system»
 			ctx = new «a.fqnAllocationContext()»(myModel);

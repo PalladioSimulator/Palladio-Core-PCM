@@ -9,6 +9,8 @@ import antlr.RecognitionException;
 import antlr.TokenStreamException;
 
 import de.uka.ipd.sdq.pcm.stochasticexpressions.parser.PCMStoExParser;
+import de.uka.ipd.sdq.simucomframework.cache.StoExCache;
+import de.uka.ipd.sdq.simucomframework.cache.StoExCacheEntry;
 import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
 import de.uka.ipd.sdq.simucomframework.resources.SimulatedResourceContainer;
 import de.uka.ipd.sdq.simucomframework.stackframe.SimulatedStack;
@@ -57,26 +59,10 @@ public abstract class Context {
 		return evaluate(string,stack.currentStackFrame());
 	}
 	
-	public static Object evaluate(String string, SimulatedStackframe currentFrame) {
-		StochasticExpressionsLexer lexer = new StochasticExpressionsLexer(
-				new StringReader(string));
-		Expression formula = null;
-		try {
-			formula = new PCMStoExParser(lexer).expression();
-			ExpressionInferTypeVisitor typeInferer = new SimulationExpressionInferTypeVisitor();
-			typeInferer.doSwitch(formula);
-			return new PCMStoExEvaluationVisitor(typeInferer,currentFrame)
-					.doSwitch(formula);
-		} catch (RecognitionException e) {
-			e.printStackTrace();
-			return 1;
-		} catch (TokenStreamException e) {
-			e.printStackTrace();
-			return 1;
-		} catch (Exception e) {
-			e.printStackTrace();
-			return 1;
-		}
+	public static Object evaluate(String stoex, SimulatedStackframe currentFrame) {
+		StoExCacheEntry cacheEntry = StoExCache.singleton().getEntry(stoex);
+		return new PCMStoExEvaluationVisitor(stoex,currentFrame)
+					.doSwitch(cacheEntry.getParsedExpression());
 	}
 
 	public SimulatedResourceContainer findResource(String assemblyContextID) {

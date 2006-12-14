@@ -17,7 +17,6 @@
 	<classpathentry combineaccessrules="false" kind="src" path="/de.uka.ipd.sdq.stoex.analyser"/>
 	<classpathentry kind="lib" path="C:/eclipse3.2.1/eclipse/plugins/de.uka.ipd.sdq.dialog_1.3.0.200612121621.jar"/>
 	<classpathentry kind="lib" path="C:/eclipse3.2.1/eclipse/plugins/de.uka.ipd.sdq.probfunction_1.0.0.200612121621.jar"/>
-	<classpathentry kind="lib" path="C:/eclipse3.2.1/eclipse/plugins/de.uka.ipd.sdq.probfunction.math_1.0.0.200612121621.jar"/>
 	<classpathentry kind="lib" path="C:/eclipse3.2.1/eclipse/plugins/de.uka.ipd.sdq.probfunction.edit_1.0.0.200612121621.jar"/>
 	<classpathentry kind="lib" path="C:/eclipse3.2.1/eclipse/plugins/de.uka.ipd.sdq.stoex_1.3.0.200612121621.jar"/>
 	<classpathentry kind="lib" path="C:/eclipse3.2.1/eclipse/plugins/de.uka.ipd.sdq.stoex.edit_1.3.0.200612121621.jar"/>
@@ -33,5 +32,6 @@
 	<classpathentry kind="lib" path="C:/eclipse3.2.1/eclipse/plugins/de.uka.ipd.sdq.pcm.edit_1.3.0.200612121621.jar"/>
 	<classpathentry kind="lib" path="C:/eclipse3.2.1/eclipse/plugins/de.uka.ipd.sdq.identifier_1.3.0.200612121621.jar"/>
 	<classpathentry kind="lib" path="C:/eclipse3.2.1/eclipse/plugins/de.uka.ipd.sdq.identifier.edit_1.3.0.200612121621.jar"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/de.uka.ipd.sdq.probfunction.math"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

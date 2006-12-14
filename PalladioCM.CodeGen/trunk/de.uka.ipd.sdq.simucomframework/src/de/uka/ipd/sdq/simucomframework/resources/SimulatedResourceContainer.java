@@ -25,7 +25,7 @@ public class SimulatedResourceContainer {
 	}
 
 	public void loadActiveResource(SimProcess requestingProcess, String typeID, double demand) {
-		System.out.println(typeID+" loaded with "+demand);
+		System.out.println(typeID + " loaded with "+demand);
 		SimulatedActiveResource resource = activeResources.get(typeID);
 		resource.consumeResource(requestingProcess, demand);
 	}
