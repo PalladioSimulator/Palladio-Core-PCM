@@ -1,5 +1,6 @@
 package de.uka.ipd.sdq.simucomframework;
 import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
+import de.uka.ipd.sdq.simucomframework.resources.IResourceContainerFactory;
 import de.uka.ipd.sdq.simucomframework.usage.IWorkloadDriver;
 
 public abstract class AbstractMain {
@@ -10,8 +11,9 @@ public abstract class AbstractMain {
 		model = 
 			SimuComFactory.getSimuComModel( 
                 "SimuCom Model", true, true);
+		model.initialiseResourceContainer(getResourceContainerFactory());
 		model.setUsageScenarios(getWorkloads());
-		ExperimentRunner.run(model, 150000000);
+		ExperimentRunner.run(model, 1500000);
 	}
 	
 	protected SimuComModel getModel() {
@@ -19,4 +21,5 @@ public abstract class AbstractMain {
 	}
 	
 	protected abstract IWorkloadDriver[] getWorkloads();
+	protected abstract IResourceContainerFactory getResourceContainerFactory();
 }

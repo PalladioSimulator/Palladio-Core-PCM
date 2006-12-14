@@ -30,9 +30,26 @@ public class SimulatedResourceContainer {
 		resource.consumeResource(requestingProcess, demand);
 	}
 
+	public void aquirePassiveResource(SimProcess requestingProcess, String typeID) {
+		System.out.println(typeID + " aquire request");
+		SimulatedPassiveResource resource = passiveResources.get(typeID);
+		resource.aquire(requestingProcess);
+	}
+	
+	public void releasePassiveResource(String typeID) {
+		System.out.println(typeID + " release request");
+		SimulatedPassiveResource resource = passiveResources.get(typeID);
+		resource.release();
+	}
+	
 	public void addActiveResource(String typeID, double d, String units) {
 		activeResources.put(typeID, 
 				new SimulatedActiveResource(myModel, typeID, d, units));
+	}
+	
+	public void addPassiveResource(String typeID, int capacity) {
+		passiveResources.put(typeID, 
+				new SimulatedPassiveResource(myModel, typeID, capacity));
 	}
 	
 	public String getResourceContainerID() {
@@ -43,4 +60,7 @@ public class SimulatedResourceContainer {
 		return activeResources.values();
 	}
 
+	public Collection<SimulatedPassiveResource> getPassiveResources() {
+		return passiveResources.values();
+	}
 }

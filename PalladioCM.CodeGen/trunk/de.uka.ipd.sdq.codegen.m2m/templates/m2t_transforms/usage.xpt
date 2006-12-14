@@ -23,11 +23,11 @@
 		public class «this.javaName()» 
 		implements de.uka.ipd.sdq.simucomframework.usage.IScenarioRunner
 		{
-			«EXPAND SystemMemberVar FOREACH this.querySystemCalls().providedRole_EntryLevelSystemCall»
+			«EXPAND SystemMemberVar FOREACH this.querySystemCalls().providedRole_EntryLevelSystemCall.toSet()»
 			«EXPAND AllocationContextTM FOR a»
 			«EXPAND UsageScenarioConstructor(a) FOR this»
 			
-			«EXPAND ScenarioRunner FOR this.scenarioBehaviour_UsageScenario»
+			«EXPAND ScenarioRunner(this) FOR this.scenarioBehaviour_UsageScenario»
 		}
 	«ENDFILE»
 «ENDDEFINE» 
@@ -63,10 +63,14 @@ public «this.javaName()»(SimuComModel myModel) {
    protected «this.providedInterface__ProvidedRole.javaName()» «this.portMemberVar()» = null;
 «ENDDEFINE»
 
-«DEFINE ScenarioRunner FOR ScenarioBehaviour»
+«DEFINE ScenarioRunner(UsageScenario us) FOR ScenarioBehaviour»
 public void scenarioRunner(SimProcess thread) {
 	ctx.setSimProcess(thread);
-	«EXPAND UserActions FOR this.actions_ScenarioBehaviour.typeSelect(Start).get(0)»
+	«EXPAND m2t_transforms::sensors::StartResponseTimeMeasurement FOR us.entityName»
+	{
+		«EXPAND UserActions FOR this.actions_ScenarioBehaviour.typeSelect(Start).get(0)»
+	}
+	«EXPAND m2t_transforms::sensors::EndResponseTimeMeasurement FOR us.entityName»
 }
 «ENDDEFINE»
 

@@ -28,7 +28,7 @@ public class SimulatedPassiveResource extends SimProcess {
 		thread.passivate();
 	}
 
-	public void release() throws Exception
+	public void release()
 	{
 		available++;
 		this.activateAfter(currentSimProcess());

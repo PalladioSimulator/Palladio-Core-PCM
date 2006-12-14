@@ -35,3 +35,11 @@
    «ERROR "BranchAction is a template method and must be overridden"»
 «ENDDEFINE»
 
+«DEFINE Action FOR AquireAction»
+   «ERROR "AquireAction is a template method and must be overridden"»
+«ENDDEFINE»
+
+«DEFINE Action FOR ReleaseAction»
+   «ERROR "ReleaseAction is a template method and must be overridden"»
+«ENDDEFINE»
+

@@ -79,11 +79,6 @@ public abstract class Context {
 		assemblyLinkHash.put(assemblyContextID, container);
 	}
 
-	protected SimulatedResourceContainer createResourceContainer(
-			String containerID) {
-		return registry.createResourceContainer(containerID);
-	}
-
 	public SimulatedStack<Object> getStack(){
 		return stack;
 	}

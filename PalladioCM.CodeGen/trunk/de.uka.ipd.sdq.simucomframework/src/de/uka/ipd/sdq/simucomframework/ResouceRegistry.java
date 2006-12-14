@@ -16,7 +16,7 @@ public class ResouceRegistry {
 		this.myModel = model;
 	}
 
-	protected SimulatedResourceContainer createResourceContainer(
+	public SimulatedResourceContainer createResourceContainer(
 			String containerID) {
 		if (!resourceContainerHash.containsKey(containerID)) {
 			SimulatedResourceContainer container = new SimulatedResourceContainer(

@@ -1,6 +1,8 @@
 package de.uka.ipd.sdq.simucomframework.model;
 
 import de.uka.ipd.sdq.simucomframework.ResouceRegistry;
+import de.uka.ipd.sdq.simucomframework.resources.IResourceContainerFactory;
+import de.uka.ipd.sdq.simucomframework.resources.SimulatedResourceContainer;
 import de.uka.ipd.sdq.simucomframework.sensors.SensorFactory;
 import de.uka.ipd.sdq.simucomframework.usage.IWorkloadDriver;
 import desmoj.core.simulator.Model;
@@ -26,7 +28,6 @@ public class SimuComModel extends Model {
 
 	@Override
 	public void doInitialSchedules() {
-		resourceRegistry.activateAllActiveResources();
 		for (IWorkloadDriver w : workloadDrivers)
 		{
 			w.run();
@@ -48,5 +49,13 @@ public class SimuComModel extends Model {
 
 	public SensorFactory getSensorFactory() {
 		return sensorFactory;
+	}
+
+	public void initialiseResourceContainer(IResourceContainerFactory resourceContainerFactory) {
+		for (String id : resourceContainerFactory.getResourceContainerIDList()) {
+			SimulatedResourceContainer rc = resourceRegistry.createResourceContainer(id);
+			resourceContainerFactory.fillResourceContainer(rc);
+		}
+		resourceRegistry.activateAllActiveResources();
 	}
 }
