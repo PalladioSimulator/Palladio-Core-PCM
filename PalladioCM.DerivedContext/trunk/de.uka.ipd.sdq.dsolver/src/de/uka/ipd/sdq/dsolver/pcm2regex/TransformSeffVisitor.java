@@ -34,6 +34,7 @@ import de.uka.ipd.sdq.pcm.seff.StopAction;
 import de.uka.ipd.sdq.pcm.seff.util.SeffSwitch;
 import de.uka.ipd.sdq.probfunction.ProbabilityDensityFunction;
 import de.uka.ipd.sdq.spa.expression.Alternative;
+import de.uka.ipd.sdq.spa.expression.Expression;
 import de.uka.ipd.sdq.spa.expression.ExpressionFactory;
 import de.uka.ipd.sdq.spa.expression.Option;
 import de.uka.ipd.sdq.spa.expression.Sequence;
@@ -46,120 +47,128 @@ public class TransformSeffVisitor extends SeffSwitch{
 
 	private ExpressionFactory expFactory = ExpressionFactory.eINSTANCE;
 	private ResourceModelFactory resFactory = ResourceModelFactory.eINSTANCE;
-	private ExpressionBuilder expBuilder;
 	private PCMInstance pcmInstance;
 	private AssemblyContext assCtx;
 	private HashMap<AbstractBranchTransition, Double> branchProbs;
 	private HashMap<AbstractLoopAction, String> loopIters;
 	private HashMap<ParametricResourceDemand, String> resDemands;
 	
-	public TransformSeffVisitor(ExpressionBuilder builder, PCMInstance pcm, AssemblyContext ctx){
-		expBuilder = builder;
+	public TransformSeffVisitor(PCMInstance pcm, AssemblyContext ctx){
 		pcmInstance = pcm;
 		assCtx = ctx;
 		readUsageContexts();
 		readActualAllocationContexts();
 	}
 
-
-
 	@Override
 	public Object caseResourceDemandingSEFF(ResourceDemandingSEFF object) {
 		ResourceDemandingBehaviour rdb = (ResourceDemandingBehaviour) object;
-		doSwitch(getStartAction(rdb));
-		return object;
+		return doSwitch(getStartAction(rdb));
 	}
 
 	@Override
 	public Object caseResourceDemandingBehaviour(ResourceDemandingBehaviour object) {
-		doSwitch(getStartAction(object));
-		return object;
+		return doSwitch(getStartAction(object));
 	}
 
 	@Override
 	public Object caseStartAction(StartAction object) {
-		Sequence seq = expFactory.createSequence();
-		
 		Symbol sym = expFactory.createSymbol();
 		sym.setName("Start");
 		
+		Sequence seq = expFactory.createSequence();
 		seq.setLeftRegExp(sym);
-		expBuilder.connectToExpression(seq);
-		doSwitch(object.getSuccessor_AbstractAction());
-		return object;
+		seq.setRightRegExp((Expression)doSwitch(object.getSuccessor_AbstractAction()));
+		return seq;
 	}
 
 	@Override
 	public Object caseStopAction(StopAction object) {
 		Symbol sym = expFactory.createSymbol();
 		sym.setName("Stop");
-		expBuilder.connectLastSymbol(sym);
-		return object;
+		return sym;
 	}
 
 	@Override
 	public Object caseBranchAction(BranchAction object) {
-		Sequence seq = expFactory.createSequence();
-		expBuilder.connectToExpression(seq);
-		
 		Alternative alt = expFactory.createAlternative();
 
 		AbstractBranchTransition bt1 = (AbstractBranchTransition)object.getBranches_Branch().get(0);
 		Option opt1 = expFactory.createOption();
 		opt1.setProbability(branchProbs.get(bt1));
+		Expression leftExpr = (Expression)doSwitch(bt1.getBranchBehaviour_BranchTransition());
+		opt1.setRegexp(leftExpr);
 		alt.setLeftOption(opt1);
 		
 		AbstractBranchTransition bt2 = (AbstractBranchTransition)object.getBranches_Branch().get(1);
 		Option opt2 = expFactory.createOption();
+		Expression rightExpr = (Expression)doSwitch(bt2.getBranchBehaviour_BranchTransition());
+		opt2.setRegexp(rightExpr);
 		opt2.setProbability(branchProbs.get(bt2));
 		alt.setRightOption(opt2);
 		
-		expBuilder.connectToExpression(alt);
+		Sequence seq = expFactory.createSequence();
+		seq.setLeftRegExp(alt);
+		seq.setRightRegExp((Expression)doSwitch(object.getSuccessor_AbstractAction()));
 		
-		doSwitch(bt1.getBranchBehaviour_BranchTransition());
-		doSwitch(bt2.getBranchBehaviour_BranchTransition());
-		doSwitch(object.getSuccessor_AbstractAction());
-		
-		return object;
+		return seq;
 	}
 
 	@Override
 	public Object caseCollectionIteratorAction(CollectionIteratorAction object) {
-		Sequence seq = expFactory.createSequence();
-		expBuilder.connectToExpression(seq);
-		
 		de.uka.ipd.sdq.spa.expression.Loop loop = expFactory.createLoop();
 		loop.setIterationsString(loopIters.get(object));
+		loop.setRegExp((Expression)doSwitch(object.getBodyBehaviour_Loop()));
+	
+		Sequence seq = expFactory.createSequence();
+		seq.setLeftRegExp(loop);
+		seq.setRightRegExp((Expression)doSwitch(object.getSuccessor_AbstractAction()));
 		
-		expBuilder.connectToExpression(loop);
-		
-		doSwitch(object.getBodyBehaviour_Loop());
-		doSwitch(object.getSuccessor_AbstractAction());
-		
-		return object;
+		return seq;
 	}
 	
 	
 	@Override
 	public Object caseLoopAction(LoopAction object) {
-		Sequence seq = expFactory.createSequence();
-		expBuilder.connectToExpression(seq);
-		
 		de.uka.ipd.sdq.spa.expression.Loop loop = expFactory.createLoop();
 		loop.setIterationsString(loopIters.get(object));
+		loop.setRegExp((Expression)doSwitch(object.getBodyBehaviour_Loop()));
 		
-		expBuilder.connectToExpression(loop);
+		Sequence seq = expFactory.createSequence();
+		seq.setLeftRegExp(loop);
+		seq.setRightRegExp((Expression)doSwitch(object.getSuccessor_AbstractAction()));
 		
-		doSwitch(object.getBodyBehaviour_Loop());
-		doSwitch(object.getSuccessor_AbstractAction());
-		
-		return object;
+		return seq;
 	}
 
 	@Override
-	public Object caseExternalCallAction(ExternalCallAction object) {
+	public Object caseInternalAction(InternalAction object) {
+		Symbol sym = expFactory.createSymbol();
+		sym.setName(object.getEntityName());
+		
+		EList resourceDemands = object.getResourceDemand_Action();
+		for (Object o : resourceDemands){
+			ParametricResourceDemand prd = (ParametricResourceDemand)o;
+			String spec = resDemands.get(prd);
+			ProbabilityFunctionLiteral probFuncLiteral = (ProbabilityFunctionLiteral)ExpressionHelper.parseToExpression(spec);
+			ProbabilityDensityFunction pdf = (ProbabilityDensityFunction)probFuncLiteral.getFunction_ProbabilityFunctionLiteral();
+			
+			ResourceUsage ru = resFactory.createResourceUsage();
+			ru.setUsageTime(pdf);
+			
+			sym.getResourceUsages().add(ru);
+		}
+	
 		Sequence seq = expFactory.createSequence();
-		expBuilder.connectToExpression(seq);
+		seq.setLeftRegExp(sym);
+		seq.setRightRegExp((Expression)doSwitch(object.getSuccessor_AbstractAction()));
+		return seq;
+	}
+
+
+
+	@Override
+	public Object caseExternalCallAction(ExternalCallAction object) {
 		
 		Signature serviceToBeCalled = object.getCalledService_ExternalService();
 		Interface requiredInterface = (Interface) serviceToBeCalled.eContainer();
@@ -170,14 +179,18 @@ public class TransformSeffVisitor extends SeffSwitch{
 		ResourceDemandingSEFF seff = getTargetBehaviourFromAssemblyConnector(
 				foundAssemblyConnector, serviceToBeCalled);
 		
+		// memorize current assembly context
 		AssemblyContext oldctx = assCtx;
-		
+		// get new assembly context
 		assCtx = foundAssemblyConnector.getProvidingChildComponentContext_CompositeAssemblyConnector();
-		doSwitch(seff);
+		Sequence seq = expFactory.createSequence();
+		seq.setLeftRegExp((Expression)doSwitch(seff));
+		// restore current assembly context
 		assCtx = oldctx;
 		
-		doSwitch(object.getSuccessor_AbstractAction());
-		return object;
+		seq.setRightRegExp((Expression)doSwitch(object.getSuccessor_AbstractAction()));
+		
+		return seq;
 	}
 
 	/**
@@ -232,35 +245,6 @@ public class TransformSeffVisitor extends SeffSwitch{
 	
 	
 	
-	@Override
-	public Object caseInternalAction(InternalAction object) {
-		Sequence seq = expFactory.createSequence();
-		
-		Symbol sym = expFactory.createSymbol();
-		sym.setName(object.getEntityName());
-		
-		EList resourceDemands = object.getResourceDemand_Action();
-		for (Object o : resourceDemands){
-			ParametricResourceDemand prd = (ParametricResourceDemand)o;
-			String spec = resDemands.get(prd);
-			ProbabilityFunctionLiteral probFuncLiteral = (ProbabilityFunctionLiteral)ExpressionHelper.parseToExpression(spec);
-			ProbabilityDensityFunction pdf = (ProbabilityDensityFunction)probFuncLiteral.getFunction_ProbabilityFunctionLiteral();
-			
-			ResourceUsage ru = resFactory.createResourceUsage();
-			ru.setUsageTime(pdf);
-			
-			sym.getResourceUsages().add(ru);
-		}
-
-		seq.setLeftRegExp(sym);
-		
-		expBuilder.connectToExpression(seq);
-		doSwitch(object.getSuccessor_AbstractAction());
-		return object;
-	}
-
-
-	
 	private StartAction getStartAction(ResourceDemandingBehaviour behaviour) {
 		StartAction startAction = (StartAction) EMFHelper.getObjectByType(
 				behaviour.getSteps_Behaviour(), StartAction.class);
@@ -284,8 +268,6 @@ public class TransformSeffVisitor extends SeffSwitch{
 			}
 		}
 	}
-
-
 
 	/**
 	 * 

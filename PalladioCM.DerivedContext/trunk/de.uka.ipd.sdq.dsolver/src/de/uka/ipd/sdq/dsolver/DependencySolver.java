@@ -130,14 +130,13 @@ public class DependencySolver {
 	private Expression pcm2RegEx(PCMInstance currentModel) {
 		TransformUsageModelVisitor umVisit = new TransformUsageModelVisitor(currentModel);
 		UsageScenario us = (UsageScenario)currentModel.getUsageModel().getUsageScenario_UsageModel().get(0);
+		Expression result = null;
 		try {
-			umVisit.doSwitch(us.getScenarioBehaviour_UsageScenario());
+			result = (Expression)umVisit.doSwitch(us.getScenarioBehaviour_UsageScenario());
 		} catch (Exception e) {
 			logger.error("Usage Scenario caused Exception!" + e.getMessage());
 			e.printStackTrace();
 		}
-		
-		Expression result = umVisit.getResultExpression();
 		
 		ExpressionPrinter expPrinter = new ExpressionPrinter();
 		expPrinter.doSwitch(result);

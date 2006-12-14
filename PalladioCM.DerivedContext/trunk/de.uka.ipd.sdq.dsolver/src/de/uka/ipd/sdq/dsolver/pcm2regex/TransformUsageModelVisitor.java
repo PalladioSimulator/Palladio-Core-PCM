@@ -41,90 +41,75 @@ public class TransformUsageModelVisitor extends UsagemodelSwitch {
 	private ExpressionFactory expFactory = ExpressionFactory.eINSTANCE;
 	private IProbabilityFunctionFactory pfFactory = IProbabilityFunctionFactory.eINSTANCE;
 	
-	private ExpressionBuilder expBuilder;
 	private PCMInstance pcmInstance;
 	
-	
 	public TransformUsageModelVisitor(PCMInstance pcm){
-		expBuilder = new ExpressionBuilder();
 		pcmInstance = pcm;
 	}
 
-	public Expression getResultExpression(){
-		return expBuilder.getResultExpression();
-	}
-	
 	@Override
 	public Object caseBranch(Branch object) {
-		Sequence seq = expFactory.createSequence();
-		expBuilder.connectToExpression(seq);
-		
 		Alternative alt = expFactory.createAlternative();
 
 		BranchTransition bt1 = (BranchTransition) object.getBranchTransitions_Branch().get(0);
 		Option opt1 = expFactory.createOption();
 		opt1.setProbability(bt1.getBranchProbability());
+		Expression leftExpr = (Expression)doSwitch(bt1.getBranchedBehaviour_BranchTransition());
+		opt1.setRegexp(leftExpr);
 		alt.setLeftOption(opt1);
 		
 		BranchTransition bt2 = (BranchTransition) object.getBranchTransitions_Branch().get(1);
 		Option opt2 = expFactory.createOption();
 		opt2.setProbability(bt2.getBranchProbability());
+		Expression rightExpr = (Expression)doSwitch(bt2.getBranchedBehaviour_BranchTransition());
+		opt2.setRegexp(rightExpr);
 		alt.setRightOption(opt2);
 		
-		expBuilder.connectToExpression(alt);
+		Sequence seq = expFactory.createSequence();
+		seq.setLeftRegExp(alt);
+		seq.setRightRegExp((Expression)doSwitch(object.getSuccessor()));
 		
-		doSwitch(bt1.getBranchedBehaviour_BranchTransition());
-		doSwitch(bt2.getBranchedBehaviour_BranchTransition());
-		doSwitch(object.getSuccessor());
-		
-		return object;
+		return seq;
 	}
 
 	@Override
 	public Object caseLoop(Loop object) {
-		Sequence seq = expFactory.createSequence();
-		expBuilder.connectToExpression(seq);
-		
 		de.uka.ipd.sdq.spa.expression.Loop loop = expFactory.createLoop();
 		RandomVariable iterations = (RandomVariable)object.getIterations_Loop().get(0);
 		loop.setIterationsString(iterations.getSpecification());
+		loop.setRegExp((Expression)doSwitch(object.getBodyBehaviour_Loop()));
 		
-		expBuilder.connectToExpression(loop);
+		Sequence seq = expFactory.createSequence();		
+		seq.setLeftRegExp(loop);
+		seq.setRightRegExp((Expression)doSwitch(object.getSuccessor()));
 		
-		doSwitch(object.getBodyBehaviour_Loop());
-		doSwitch(object.getSuccessor());
-		
-		return object;
+		return seq;
 	}
 
 	@Override
 	public Object caseScenarioBehaviour(ScenarioBehaviour object) {
-		doSwitch(getStartAction(object));
-		return object;
+		return doSwitch(getStartAction(object));
 	}
 
 	@Override
 	public Object caseEntryLevelSystemCall(EntryLevelSystemCall object) {
-		Sequence seq = expFactory.createSequence();
-		expBuilder.connectToExpression(seq);
-		
 		Signature signature = object.getSignature_EntryLevelSystemCall();
 		ProvidedRole role = object.getProvidedRole_EntryLevelSystemCall();
 		ProvidedDelegationConnector delegationConnector = getDelegationConnector(role);
 		
 		AssemblyContext assCtx = delegationConnector.getChildComponentContext_ProvidedDelegationConnector();
 		
-		
 		ProvidesComponentType offeringComponent = delegationConnector
 				.getChildComponentContext_ProvidedDelegationConnector()
 				.getEncapsulatedComponent_ChildComponentContext();
 
+		Expression expr = null;
 		if (offeringComponent instanceof BasicComponent){
 			ServiceEffectSpecification seff = getSeff(signature, (BasicComponent)offeringComponent);
 
-			TransformSeffVisitor seffVisitor = new TransformSeffVisitor(expBuilder, pcmInstance, assCtx);
+			TransformSeffVisitor seffVisitor = new TransformSeffVisitor(pcmInstance, assCtx);
 			try {
-				seffVisitor.doSwitch((ResourceDemandingSEFF) seff);
+				expr = (Expression)seffVisitor.doSwitch((ResourceDemandingSEFF) seff);
 			} catch (Exception e) {
 				logger.error("Error while visiting RDSEFF");
 				e.printStackTrace();
@@ -133,24 +118,24 @@ public class TransformUsageModelVisitor extends UsagemodelSwitch {
 			logger.error("Composite Component type not yet supported.");
 			System.exit(-1);
 		}
-
-		doSwitch(object.getSuccessor());
-		return object;
+		
+		Sequence seq = expFactory.createSequence();
+		seq.setLeftRegExp(expr);
+		seq.setRightRegExp((Expression)doSwitch(object.getSuccessor()));
+		
+		return seq;
 	}
 
 	@Override
 	public Object caseStart(Start object) {
-		Sequence seq = expFactory.createSequence();
-		
 		Symbol sym = expFactory.createSymbol();
 		sym.setName("Start");
-		//sym.getResourceUsages().add(pfFactory.createDiracImpulse(0, 1.0, pfFactory.createDefaultUnit()));
-		//pfFactory.createDiracImpulse(numSamplingPoints, distance, unit);
-		
+
+		Sequence seq = expFactory.createSequence();
 		seq.setLeftRegExp(sym);
-		expBuilder.connectToExpression(seq);
-		doSwitch(object.getSuccessor());
-		return object;
+		seq.setRightRegExp((Expression)doSwitch(object.getSuccessor()));
+
+		return seq;
 	}
 
 
@@ -158,12 +143,7 @@ public class TransformUsageModelVisitor extends UsagemodelSwitch {
 	public Object caseStop(Stop object) {
 		Symbol sym = expFactory.createSymbol();
 		sym.setName("Stop");
-		//sym.getResourceUsages().add(pfFactory.createDiracImpulse(0, 1.0, pfFactory.createDefaultUnit()));
-		//pfFactory.createDiracImpulse(numSamplingPoints, distance, unit);
-
-		expBuilder.connectLastSymbol(sym);
-	
-		return object;
+		return sym;
 	}
 
 	private Start getStartAction(ScenarioBehaviour object) {

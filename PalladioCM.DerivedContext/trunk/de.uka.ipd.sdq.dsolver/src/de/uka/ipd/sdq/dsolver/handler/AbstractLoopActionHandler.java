@@ -50,7 +50,7 @@ public abstract class AbstractLoopActionHandler {
 			visitor.getMyContext().getCurrentLoopIterationNumber().add(lowerBound);
 
 			for (int i=lowerBound; i<upperBound; i++){
-				logger.debug("Loop Execution Number "+i);
+				//logger.debug("Loop Execution Number "+i);
 				ArrayList curLoop = visitor.getMyContext().getCurrentLoopIterationNumber();
 				curLoop.remove(curLoop.size()-1); // delete last element
 				curLoop.add(i); // add current loop iteration number to scope

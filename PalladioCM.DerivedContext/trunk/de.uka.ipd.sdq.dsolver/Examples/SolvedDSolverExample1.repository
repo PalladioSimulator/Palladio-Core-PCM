@@ -22,7 +22,7 @@
                 </namedReference_VariableUsage>
               </parameterUsage_ExternalCallAction>
               <parameterUsage_ExternalCallAction>
-                <variableCharacterisation_VariableUsage specification="10" type="NUMBER_OF_ELEMENTS"/>
+                <variableCharacterisation_VariableUsage specification="2" type="NUMBER_OF_ELEMENTS"/>
                 <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="someCollection"/>
               </parameterUsage_ExternalCallAction>
             </steps_Behaviour>
@@ -81,7 +81,7 @@
           </steps_Behaviour>
           <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_D4awMDQeEduaPaOP6VcQiw" entityName="Stopping" predecessor_AbstractAction="_DZ3zBDQeEduaPaOP6VcQiw"/>
         </bodyBehaviour_Loop>
-        <iterations_LoopAction specification="10"/>
+        <iterations_LoopAction specification="1000"/>
       </steps_Behaviour>
       <steps_Behaviour xsi:type="pcm.seff:CollectionIteratorAction" id="_6ilhuYIbEduSjvx9OYljwQ" entityName="CollectionIteration" predecessor_AbstractAction="_CRToczQeEduaPaOP6VcQiw" successor_AbstractAction="_EqV8YDQeEduaPaOP6VcQiw" parameter_CollectionIteratorAction="//@interfaces__Repository.1/@signatures__Interface.0/@parameters__Signature.0">
         <bodyBehaviour_Loop>
