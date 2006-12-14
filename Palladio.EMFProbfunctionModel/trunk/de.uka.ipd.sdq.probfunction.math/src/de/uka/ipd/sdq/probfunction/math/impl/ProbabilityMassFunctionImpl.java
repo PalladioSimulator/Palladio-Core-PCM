@@ -271,11 +271,11 @@ public class ProbabilityMassFunctionImpl extends ProbabilityFunctionImpl
 	}
 
 	public boolean checkConstrains() {
-		if (MathTools.equalsDouble(getProbabilitySum(), 1.0))
+		if (!MathTools.equalsDouble(getProbabilitySum(), 1.0))
 			return false;
 		if (samples.size() > 0
-				|| MathTools.isNumeric(samples.get(0).getValue()))
-			return false;
+				&& !MathTools.isNumeric(samples.get(0).getValue()))
+			return true;
 
 		boolean result = true;
 		for (ISample sample : this.samples) {

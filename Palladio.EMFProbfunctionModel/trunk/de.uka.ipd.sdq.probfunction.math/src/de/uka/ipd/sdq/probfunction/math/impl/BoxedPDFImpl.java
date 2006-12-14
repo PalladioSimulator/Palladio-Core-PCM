@@ -47,7 +47,7 @@ public class BoxedPDFImpl extends ProbabilityDensityFunctionImpl
 	protected BoxedPDFImpl(IUnit unit, IRandomGenerator generator) {
 		super(unit, false);
 		this.randomGenerator = generator;
-		samples = new ArrayList<IContinuousSample>();
+		samples = new ArrayList<IContinuousSample>();		
 	}
 
 	public IProbabilityDensityFunction add(IProbabilityDensityFunction pdf)
@@ -106,6 +106,7 @@ public class BoxedPDFImpl extends ProbabilityDensityFunctionImpl
 
 		Collections.sort(samples, MathTools.getContinuousSampleComparator());
 		this.samples = samples;
+		initDrawSampleDataStructures();
 	}
 
 	public IProbabilityDensityFunction div(IProbabilityDensityFunction pdf)
@@ -115,21 +116,31 @@ public class BoxedPDFImpl extends ProbabilityDensityFunctionImpl
 		return sPDF.div(pdf);
 	}
 
+	private void initDrawSampleDataStructures()
+	{
+		initPartedIntervals();
+		initPartedLines();
+	}
+	
+	private List<Double> partedIntervals = null;
+	private void initPartedIntervals() {
+		// StB: getValues() ---> getProbabilities gefixt
+		partedIntervals = MathTools.computeIntervalsOfProb(getProbabilities());
+	}
+	
+	private HashMap<Double, Line> lines = null;
+	private void initPartedLines()
+	{
+		lines = MathTools.computeLines(samples, partedIntervals);
+	}
+	
 	public double drawSample() {
-		double result = 0.0;
-
-		List<Double> intervals = MathTools.computeIntervalsOfProb(getValues());
-		HashMap<Double, Line> lines = MathTools
-				.computeLines(samples, intervals);
-
 		double random = randomGenerator.random();
-		for (int j = 0; j < intervals.size(); j++)
-			if (random < intervals.get(j)) {
-				result = lines.get(intervals.get(j)).getX(random);
-				break;
+		for (Double currentInterval : partedIntervals)
+			if (random < currentInterval) {
+				return lines.get(currentInterval).getX(random);
 			}
-
-		return result;
+		throw new RuntimeException("No interval found for probability. This should never happen!");
 	}
 
 	public IProbabilityDensityFunction getFourierTransform()
