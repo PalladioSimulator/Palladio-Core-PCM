@@ -11,8 +11,8 @@
           <variableCharacterisation_VariableUsage specification="IntPMF(unit=&quot;zimtsterne&quot;)[ (9; 0.2) (10; 0.4) (11; 0.3) (15; 0.1) ]" type="VALUE"/>
           <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="number"/>
         </actualParameterUsage_EntryLevelSystemCall>
-        <providedRole_EntryLevelSystemCall href="DSolverExample1.system#_i6s_AHcmEdugqbdw26ZvAA"/>
-        <signature_EntryLevelSystemCall href="DSolverExample1.repository#//@interfaces__Repository.0/@signatures__Interface.0"/>
+        <providedRole_EntryLevelSystemCall href="DSolverExample2.system#_i6s_AHcmEdugqbdw26ZvAA"/>
+        <signature_EntryLevelSystemCall href="DSolverExample2.repository#//@interfaces__Repository.0/@signatures__Interface.0"/>
       </actions_ScenarioBehaviour>
       <actions_ScenarioBehaviour xsi:type="pcm.usagemodel:Stop" predecessor="//@usageScenario_UsageModel.0/@scenarioBehaviour_UsageScenario/@actions_ScenarioBehaviour.1"/>
     </scenarioBehaviour_UsageScenario>

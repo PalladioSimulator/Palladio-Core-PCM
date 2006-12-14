@@ -7,19 +7,24 @@ import org.apache.log4j.Logger;
 import org.eclipse.emf.common.util.EList;
 
 import de.uka.ipd.sdq.context.allocation.ActualAllocationContext;
-import de.uka.ipd.sdq.context.usage.Usage;
 import de.uka.ipd.sdq.context.usage.UsageContext;
 import de.uka.ipd.sdq.dsolver.Context;
 import de.uka.ipd.sdq.dsolver.PCMInstance;
-import de.uka.ipd.sdq.dsolver.handler.AbstractHandler;
+import de.uka.ipd.sdq.dsolver.handler.CollectionIteratorActionHandler;
+import de.uka.ipd.sdq.dsolver.handler.ExternalCallActionHandler;
+import de.uka.ipd.sdq.dsolver.handler.GuardedBranchTransitionHandler;
+import de.uka.ipd.sdq.dsolver.handler.InternalActionHandler;
+import de.uka.ipd.sdq.dsolver.handler.LoopActionHandler;
+import de.uka.ipd.sdq.dsolver.handler.ProbabilisticBranchTransitionHandler;
 import de.uka.ipd.sdq.dsolver.helper.EMFHelper;
-import de.uka.ipd.sdq.pcm.seff.AbstractAction;
-import de.uka.ipd.sdq.pcm.seff.AquireAction;
+import de.uka.ipd.sdq.pcm.seff.AbstractBranchTransition;
 import de.uka.ipd.sdq.pcm.seff.BranchAction;
+import de.uka.ipd.sdq.pcm.seff.CollectionIteratorAction;
 import de.uka.ipd.sdq.pcm.seff.ExternalCallAction;
+import de.uka.ipd.sdq.pcm.seff.GuardedBranchTransition;
 import de.uka.ipd.sdq.pcm.seff.InternalAction;
 import de.uka.ipd.sdq.pcm.seff.LoopAction;
-import de.uka.ipd.sdq.pcm.seff.ReleaseAction;
+import de.uka.ipd.sdq.pcm.seff.ProbabilisticBranchTransition;
 import de.uka.ipd.sdq.pcm.seff.ResourceDemandingBehaviour;
 import de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF;
 import de.uka.ipd.sdq.pcm.seff.StartAction;
@@ -38,7 +43,13 @@ public class SeffVisitor extends SeffSwitch {
 
 	private PCMInstance pcmInstance;
 
-	private AbstractHandler handler;
+	private ExternalCallActionHandler extCallAH;
+	private InternalActionHandler intAH;
+	private GuardedBranchTransitionHandler guardedBTH;
+	private ProbabilisticBranchTransitionHandler probBTH;
+	private CollectionIteratorActionHandler collIterAH;
+	private LoopActionHandler loopAH;
+	
 	/**
 	 * @param inst
 	 * @param callContext
@@ -46,7 +57,14 @@ public class SeffVisitor extends SeffSwitch {
 	public SeffVisitor(PCMInstance inst, Context callContext) {
 		pcmInstance = inst;
 		myContext = callContext;
-		handler = AbstractHandler.createHandler(this);
+		
+		extCallAH = new ExternalCallActionHandler(this);
+		intAH = new InternalActionHandler(this);
+		guardedBTH = new GuardedBranchTransitionHandler(this);
+		probBTH = new ProbabilisticBranchTransitionHandler(this);
+		collIterAH = new CollectionIteratorActionHandler(this);
+		loopAH = new LoopActionHandler(this);
+		
 	}
 
 	/* (non-Javadoc)
@@ -54,7 +72,7 @@ public class SeffVisitor extends SeffSwitch {
 	 */
 	@Override
 	public Object caseResourceDemandingSEFF(ResourceDemandingSEFF seff) {
-		logger.debug("Visit"+seff.getClass().getSimpleName());
+		//logger.debug("Visit"+seff.getClass().getSimpleName());
 		ResourceDemandingBehaviour rdb = (ResourceDemandingBehaviour) seff;
 		doSwitch(getStartAction(rdb));
 		return seff;
@@ -66,7 +84,7 @@ public class SeffVisitor extends SeffSwitch {
 	@Override
 	public Object caseResourceDemandingBehaviour(
 			ResourceDemandingBehaviour behaviour) {
-		logger.debug("Visit"+behaviour.getClass().getSimpleName());
+		//logger.debug("Visit"+behaviour.getClass().getSimpleName());
 		doSwitch(getStartAction(behaviour));
 		return behaviour;
 	}
@@ -75,8 +93,9 @@ public class SeffVisitor extends SeffSwitch {
 	 * @see de.uka.ipd.sdq.pcm.seff.util.SeffSwitch#caseStartAction(de.uka.ipd.sdq.pcm.seff.StartAction)
 	 */
 	@Override
-	public Object caseStartAction(StartAction object) {
-		return caseDefault(object);
+	public Object caseStartAction(StartAction start) {
+		doSwitch(start.getSuccessor_AbstractAction());
+		return start;
 	}
 
 	/* (non-Javadoc)
@@ -84,7 +103,7 @@ public class SeffVisitor extends SeffSwitch {
 	 */
 	@Override
 	public Object caseStopAction(StopAction object) {
-		logger.debug("Visit"+object.getClass().getSimpleName());
+		//logger.debug("Visit"+object.getClass().getSimpleName());
 		if (object.eContainer() instanceof ResourceDemandingSEFF){
 			saveContexts();			
 		}
@@ -92,12 +111,11 @@ public class SeffVisitor extends SeffSwitch {
 		return object;
 	}
 
-	/* (non-Javadoc)
-	 * @see de.uka.ipd.sdq.pcm.seff.util.SeffSwitch#caseInternalAction(de.uka.ipd.sdq.pcm.seff.InternalAction)
-	 */
 	@Override
 	public Object caseInternalAction(InternalAction action) {
-		return caseDefault(action);
+		intAH.handle(action);
+		doSwitch(action.getSuccessor_AbstractAction());
+		return action;
 	}
 
 	/* (non-Javadoc)
@@ -105,7 +123,22 @@ public class SeffVisitor extends SeffSwitch {
 	 */
 	@Override
 	public Object caseBranchAction(BranchAction branch) {
-		return caseDefault(branch);
+		EList branchTransitions = branch.getBranches_Branch();
+		for (Object o : branchTransitions) doSwitch((AbstractBranchTransition)o);
+		doSwitch(branch.getSuccessor_AbstractAction());
+		return branch;
+	}
+	
+	@Override
+	public Object caseGuardedBranchTransition(GuardedBranchTransition gbt) {
+		guardedBTH.handle(gbt);
+		return gbt;
+	}
+
+	@Override
+	public Object caseProbabilisticBranchTransition(ProbabilisticBranchTransition pbt) {
+		probBTH.handle(pbt);
+		return pbt;
 	}
 
 	/* (non-Javadoc)
@@ -113,50 +146,23 @@ public class SeffVisitor extends SeffSwitch {
 	 */
 	@Override
 	public Object caseLoopAction(LoopAction loop) {
-		return caseDefault(loop);
+		loopAH.handle(loop);
+		doSwitch(loop.getSuccessor_AbstractAction());
+		return loop;
 	}
-
-	/* (non-Javadoc)
-	 * @see de.uka.ipd.sdq.pcm.seff.util.SeffSwitch#caseAquireAction(de.uka.ipd.sdq.pcm.seff.AquireAction)
-	 */
+	
 	@Override
-	public Object caseAquireAction(AquireAction acquire) {
-		return caseDefault(acquire);
+	public Object caseCollectionIteratorAction(CollectionIteratorAction ciAction) {
+		collIterAH.handle(ciAction);
+		doSwitch(ciAction.getSuccessor_AbstractAction());
+		return ciAction;
 	}
 
-	/* (non-Javadoc)
-	 * @see de.uka.ipd.sdq.pcm.seff.util.SeffSwitch#caseReleaseAction(de.uka.ipd.sdq.pcm.seff.ReleaseAction)
-	 */
-	@Override
-	public Object caseReleaseAction(ReleaseAction release) {
-		return caseDefault(release);
-	}
-
-	/* (non-Javadoc)
-	 * @see de.uka.ipd.sdq.pcm.seff.util.SeffSwitch#caseExternalCallAction(de.uka.ipd.sdq.pcm.seff.ExternalCallAction)
-	 */
 	@Override
 	public Object caseExternalCallAction(ExternalCallAction call) {
-		logger.debug("Calling "
-				+ call.getCalledService_ExternalService().getServiceName());
-		return caseDefault(call);
-	}
-
-	/**
-	 * @param object
-	 * @return
-	 */
-	private Object caseDefault(AbstractAction object) {
-		logger.debug("Visit"+object.getClass().getSimpleName());
-
-		// solve the dependencies for a particular type of action
-		// (invokes chain of responsibility of handlers)
-		handler.handle(object);
-		
-		// visit the following action 
-		doSwitch(object.getSuccessor_AbstractAction());
-		
-		return object;
+		extCallAH.handle(call);
+		doSwitch(call.getSuccessor_AbstractAction());
+		return call;
 	}
 
 	/**

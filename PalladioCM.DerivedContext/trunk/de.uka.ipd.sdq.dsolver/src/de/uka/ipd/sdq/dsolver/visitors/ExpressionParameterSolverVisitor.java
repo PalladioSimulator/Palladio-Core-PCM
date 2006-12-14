@@ -12,6 +12,7 @@ import de.uka.ipd.sdq.pcm.parameter.VariableCharacterisation;
 import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
 import de.uka.ipd.sdq.stoex.AbstractNamedReference;
 import de.uka.ipd.sdq.stoex.Expression;
+import de.uka.ipd.sdq.stoex.NamespaceReference;
 import de.uka.ipd.sdq.stoex.Variable;
 import de.uka.ipd.sdq.stoex.analyser.visitors.ExpressionSolveVisitor;
 import de.uka.ipd.sdq.stoex.analyser.visitors.TypeEnum;
@@ -41,10 +42,14 @@ public class ExpressionParameterSolverVisitor extends ExpressionSolveVisitor {
 		
 		EList parList = context.getUsageContext().getActualParameterUsage_UsageContext();
 
-		String soughtParameterName = anr.getReferenceName();
+		String soughtParameterName = getFullParameterName(anr);
 		for (Object o : parList){ // iterate over parameters
 			VariableUsage vu = (VariableUsage)o;
-			String currentParameterName = vu.getNamedReference_VariableUsage().getReferenceName();
+
+			AbstractNamedReference ref = vu.getNamedReference_VariableUsage();
+			String currentParameterName = getFullParameterName(ref);
+			
+			//String currentParameterName = vu.getNamedReference_VariableUsage().getReferenceName();
 
 			if (currentParameterName.equals(soughtParameterName)){
 				EList parChars = vu.getVariableCharacterisation_VariableUsage();
@@ -65,5 +70,20 @@ public class ExpressionParameterSolverVisitor extends ExpressionSolveVisitor {
 		logger.error("Variable missing " +
 				"in Usage Context ("+soughtParameterName+")!");
 		return null;
+	}
+
+	/**
+	 * @param currentParameterName
+	 * @param ref
+	 * @return
+	 */
+	private String getFullParameterName(AbstractNamedReference ref) {
+		String name = ""; 
+		while (ref instanceof NamespaceReference){
+			NamespaceReference nsRef = (NamespaceReference)ref;
+			name += nsRef.getReferenceName() + ".";
+			ref = nsRef.getInnerReference_NamespaceReference();
+		}
+		return name += ref.getReferenceName();
 	}
 }

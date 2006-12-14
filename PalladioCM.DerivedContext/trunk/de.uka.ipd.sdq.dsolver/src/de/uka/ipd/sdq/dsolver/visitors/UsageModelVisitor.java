@@ -209,23 +209,6 @@ public class UsageModelVisitor extends UsagemodelSwitch {
 		UsageContext uc = usageFactory.createUsageContext();
 		EList parList = call.getActualParameterUsage_EntryLevelSystemCall();
 		
-		// hmm... while copying parList, some of the inner elements were
-		// not initialized. Added the following for-loop to ensure this.
-		// Probably because of EMF's lazy loading? Any nice solution possible?
-		//for (Object o : parList){
-//			ParameterUsage pu = (ParameterUsage)o;
-////			EList parChar = pu.getParameterCharacterisation_ParameterUsage();
-////			for (Object p : parChar){
-////				ParameterCharacterisation pc = (ParameterCharacterisation) p;
-////				Expression expr = pc.getSpecification_RandomVariable();
-////				StoExPrettyPrintVisitor printer = new StoExPrettyPrintVisitor();
-////				String exprStr = (String)printer.doSwitch(expr);
-////				pc.setSpecification(exprStr);
-////			}
-//			pu.getParameter_ParameterUsage().getParameterName();
-		//}
-			
-		
 		uc.getActualParameterUsage_UsageContext().addAll(parList);
 		callContext.setUsageContext(uc);
 

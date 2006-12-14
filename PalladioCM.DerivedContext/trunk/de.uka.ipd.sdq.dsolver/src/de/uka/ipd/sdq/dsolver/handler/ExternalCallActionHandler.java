@@ -4,14 +4,12 @@ import java.util.Iterator;
 
 import org.apache.log4j.Logger;
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.ecore.EObject;
 
 import de.uka.ipd.sdq.context.allocation.ActualAllocationContext;
 import de.uka.ipd.sdq.context.allocation.AllocationFactory;
 import de.uka.ipd.sdq.context.usage.UsageContext;
 import de.uka.ipd.sdq.context.usage.UsageFactory;
 import de.uka.ipd.sdq.dsolver.Context;
-import de.uka.ipd.sdq.dsolver.PCMInstance;
 import de.uka.ipd.sdq.dsolver.helper.EMFHelper;
 import de.uka.ipd.sdq.dsolver.helper.ExpressionHelper;
 import de.uka.ipd.sdq.dsolver.visitors.SeffVisitor;
@@ -27,45 +25,30 @@ import de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF;
 import de.uka.ipd.sdq.pcm.seff.ServiceEffectSpecification;
 import de.uka.ipd.sdq.pcm.seff.util.SeffSwitch;
 import de.uka.ipd.sdq.stoex.AbstractNamedReference;
+import de.uka.ipd.sdq.stoex.NamespaceReference;
+import de.uka.ipd.sdq.stoex.StoexFactory;
+import de.uka.ipd.sdq.stoex.VariableReference;
 
-public class ExternalCallActionHandler extends AbstractHandler{
+public class ExternalCallActionHandler {
 	
-	private Context myContext;
+	private SeffVisitor visitor;
 	
-	private PCMInstance pcmInstance;
+	private UsageFactory usageFactory = UsageFactory.eINSTANCE;
 	
-	private UsageFactory usageFactory;
+	private AllocationFactory actualAllocationFactory = AllocationFactory.eINSTANCE;
 	
-	private AllocationFactory actualAllocationFactory;
-	
-	private ParameterFactory parameterFactory;
+	private ParameterFactory parameterFactory = ParameterFactory.eINSTANCE;
 	
 	private static Logger logger = Logger.getLogger(ExternalCallActionHandler.class.getName());
 	
-	public ExternalCallActionHandler(PCMInstance _pcmInstance, Context context, AbstractHandler nextHandler){
-		pcmInstance = _pcmInstance;
-		myContext = context;
-		successor = nextHandler;
-		usageFactory = UsageFactory.eINSTANCE;
-		actualAllocationFactory = AllocationFactory.eINSTANCE;
-		parameterFactory = ParameterFactory.eINSTANCE;
-	}
-	
-	/* (non-Javadoc)
-	 * @see de.uka.ipd.sdq.dsolver.handler.AbstractHandler#handle(org.eclipse.emf.ecore.EObject)
-	 */
-	public void handle(EObject object){
-		if (object instanceof ExternalCallAction){
-			handle((ExternalCallAction)object);
-		} else {
-			if (successor!=null) successor.handle(object);
-		}
+	public ExternalCallActionHandler(SeffVisitor seffVisitor){
+		visitor=seffVisitor;
 	}
 	
 	/**
 	 * @param call
 	 */
-	private void handle(ExternalCallAction call) {
+	public void handle(ExternalCallAction call) {
 		Signature serviceToBeCalled = call.getCalledService_ExternalService();
 		Interface requiredInterface = (Interface) serviceToBeCalled
 				.eContainer();
@@ -93,7 +76,7 @@ public class ExternalCallActionHandler extends AbstractHandler{
 	 */
 	private AssemblyConnector findAssemblyConnector(
 			Interface requiredRole) {
-		Iterator connectorIterator = myContext.getSystem()
+		Iterator connectorIterator = visitor.getMyContext().getSystem()
 				.getCompositeAssemblyConnectors_ComposedStructure().iterator();
 
 		AssemblyConnector result = null;
@@ -104,7 +87,7 @@ public class ExternalCallActionHandler extends AbstractHandler{
 			if (connector
 					.getRequiringChildComponentContext_CompositeAssemblyConnector()
 					.getId().equals(
-							myContext.getDerivedAssemblyContext().getId())
+							visitor.getMyContext().getDerivedAssemblyContext().getId())
 					&& connector.getRequiredRole_CompositeAssemblyConnector()
 							.getRequiredInterface__RequiredRole().getId()
 							.equals(requiredRole.getId())) {
@@ -126,12 +109,12 @@ public class ExternalCallActionHandler extends AbstractHandler{
 		Context callContext = createCallContext(foundAssemblyConnector, 
 				parametricParameterUsages);
 
-		SeffSwitch visitor = new SeffVisitor(pcmInstance, callContext);
+		SeffSwitch seffVisitor = new SeffVisitor(visitor.getPcmInstance(), callContext);
 		
 		ResourceDemandingSEFF b = getTargetBehaviourFromAssemblyConnector(
 				foundAssemblyConnector, serviceToBeCalled);
 		
-		visitor.doSwitch(b);
+		seffVisitor.doSwitch(b);
 	}
 
 	/**
@@ -142,6 +125,8 @@ public class ExternalCallActionHandler extends AbstractHandler{
 	private Context createCallContext(
 			AssemblyConnector foundAssemblyConnector, 
 			EList parametricParameterUsages) {
+		
+		Context myContext = visitor.getMyContext();
 		Context callContext = new Context();
 
 		callContext.setSystem(myContext.getSystem());
@@ -172,16 +157,33 @@ public class ExternalCallActionHandler extends AbstractHandler{
 		return callContext;
 	}
 
+	private AbstractNamedReference getReferenceCopy(AbstractNamedReference anr){
+		if (anr instanceof NamespaceReference){
+			NamespaceReference nr = (NamespaceReference)anr;
+			NamespaceReference newRef = StoexFactory.eINSTANCE.createNamespaceReference();
+			newRef.setReferenceName(nr.getReferenceName());
+			newRef.setInnerReference_NamespaceReference(getReferenceCopy(nr.getInnerReference_NamespaceReference()));
+			return newRef;
+		} else if (anr instanceof VariableReference){
+			VariableReference vr = (VariableReference)anr;
+			VariableReference varRef = StoexFactory.eINSTANCE.createVariableReference();
+			varRef.setReferenceName(vr.getReferenceName());
+			return varRef;
+		} else 
+			return null;
+	}
+	
 	/**
 	 * @param parametricParameterUsages
 	 * @param uc
 	 */
 	private void createActualParameters(EList parametricParameterUsages, UsageContext uc) {
-		for (Object o1 : parametricParameterUsages){
+ 		for (Object o1 : parametricParameterUsages){
 			VariableUsage oldUsage = (VariableUsage)o1;
 			VariableUsage newUsage = parameterFactory.createVariableUsage();
 			
-			newUsage.setNamedReference_VariableUsage(oldUsage.getNamedReference_VariableUsage());
+			newUsage.setNamedReference_VariableUsage(getReferenceCopy(oldUsage.getNamedReference_VariableUsage()));
+			//newUsage.setNamedReference_VariableUsage(oldUsage.getNamedReference_VariableUsage());
 
 			EList characterisations = oldUsage.getVariableCharacterisation_VariableUsage();
 			for (Object o2 : characterisations){
@@ -189,7 +191,7 @@ public class ExternalCallActionHandler extends AbstractHandler{
 
 				String specification = oldCharacterisation.getSpecification();
 				String solvedSpecification = ExpressionHelper
-						.getSolvedExpressionAsString(specification, myContext); 
+						.getSolvedExpressionAsString(specification, visitor.getMyContext()); 
 
 				VariableCharacterisation solvedCharacterisation = parameterFactory
 						.createVariableCharacterisation();

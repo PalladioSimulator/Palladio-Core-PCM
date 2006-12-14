@@ -19,5 +19,12 @@
 	<classpathentry kind="src" path="/de.uka.ipd.sdq.stoex"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/de.uka.ipd.sdq.pcm.stochasticexpressions"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/de.uka.ipd.sdq.pcm"/>
+	<classpathentry kind="con" path="org.eclipse.pde.core.requiredPlugins"/>
+	<classpathentry kind="lib" path="C:/Programme/eclipse-callisto-3.2.1/plugins/org.junit4_4.1.0.1/junit-4.1.jar"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/de.uka.ipd.sdq.spa"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/de.uka.ipd.spq.spa.resourcemodel"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/de.uka.ipd.sdq.spa.basicsolver"/>
+	<classpathentry kind="lib" path="C:/Programme/jfreechart-1.0.1/lib/jfreechart-1.0.1.jar"/>
+	<classpathentry kind="lib" path="C:/Programme/jfreechart-1.0.1/lib/jcommon-1.0.0.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

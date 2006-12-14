@@ -6,7 +6,12 @@ import de.uka.ipd.sdq.context.allocation.ActualAllocationContext;
 import de.uka.ipd.sdq.context.usage.UsageContext;
 import de.uka.ipd.sdq.pcm.allocation.Allocation;
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
+import de.uka.ipd.sdq.stoex.Expression;
 
+/**
+ * @author Koziolek
+ *
+ */
 public class Context {
 	private de.uka.ipd.sdq.pcm.system.System mySystem;
 	private AssemblyContext myAssemblyContext;

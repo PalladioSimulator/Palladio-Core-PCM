@@ -48,7 +48,7 @@ public class ExpressionHelper {
 	public static Expression getSolvedExpression(String specification,
 			Context context) {
 		Expression expr = parseToExpression(specification);
-
+		
 		ExpressionInferTypeVisitor inferTypeVisitor = new ExpressionInferTypeVisitor();
 		inferTypeVisitor.doSwitch(expr);
 

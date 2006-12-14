@@ -14,9 +14,19 @@ import org.apache.log4j.ConsoleAppender;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PatternLayout;
 
+import de.uka.ipd.sdq.dsolver.pcm2regex.ExpressionPrinter;
+import de.uka.ipd.sdq.dsolver.pcm2regex.TransformUsageModelVisitor;
 import de.uka.ipd.sdq.dsolver.visitors.UsageModelVisitor;
 import de.uka.ipd.sdq.pcm.usagemodel.UsageScenario;
-
+import de.uka.ipd.sdq.probfunction.SamplePDF;
+import de.uka.ipd.sdq.probfunction.math.IProbabilityDensityFunction;
+import de.uka.ipd.sdq.probfunction.math.IProbabilityFunctionFactory;
+import de.uka.ipd.sdq.probfunction.math.ISamplePDF;
+import de.uka.ipd.sdq.probfunction.math.exception.ProbabilityFunctionException;
+import de.uka.ipd.sdq.probfunction.math.exception.UnknownPDFTypeException;
+import de.uka.ipd.sdq.spa.basicsolver.visitor.PerformanceVisitor;
+import de.uka.ipd.sdq.spa.basicsolver.visitor.perfhandler.PerformanceHandlerFactory;
+import de.uka.ipd.sdq.spa.expression.Expression;
 
 
 
@@ -26,6 +36,9 @@ import de.uka.ipd.sdq.pcm.usagemodel.UsageScenario;
  */
 public class DependencySolver {
 
+	protected IProbabilityFunctionFactory iProbFuncFactory = 
+		IProbabilityFunctionFactory.eINSTANCE;
+	
 	private Properties config;
 	private PCMInstance currentModel;
 	private static Logger logger = 
@@ -36,15 +49,101 @@ public class DependencySolver {
 		logger.debug("Loading PCM Instance");
 		currentModel = new PCMInstance(config);
 		
+		runDSolver();
+		
+		Expression result = runPcm2RegEx();
+		
+		IProbabilityDensityFunction iPDF = runCalculation(result);
+		
+		visualize(iPDF);
+		
+	}
+
+	/**
+	 * @param result
+	 */
+	private IProbabilityDensityFunction runCalculation(Expression result) {
+		long timeBeforeCalc = System.nanoTime();
+		PerformanceHandlerFactory perfHandFac = new PerformanceHandlerFactory(16);
+		PerformanceVisitor perfVisitor = new PerformanceVisitor(perfHandFac);
+		IProbabilityDensityFunction iPDF = perfVisitor.getResponseTime(result);
+		
+		long timeAfterCalc = System.nanoTime();
+		long duration3 = TimeUnit.NANOSECONDS.toMillis(timeAfterCalc-timeBeforeCalc);
+		logger.debug("Finished Calculation, Duration: "+ duration3 + " ms");
+		return iPDF;
+	}
+
+	/**
+	 * @param iPDF
+	 */
+	private void visualize(IProbabilityDensityFunction iPDF) {
+		long timeBeforeVis = System.nanoTime();
+		ISamplePDF samplePDF = null;
+		try {
+			samplePDF = iProbFuncFactory.transformToSamplePDF(iPDF);
+		} catch (UnknownPDFTypeException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+
+		try {
+			JFVisualisation vis = new JFVisualisation(0.1);
+			vis.addSamplePDF(samplePDF,"Execution Time");
+			vis.visualizeOverlay();
+		} catch (ProbabilityFunctionException e) {
+			e.printStackTrace();
+		}
+		long timeAfterVis = System.nanoTime();
+		long duration = TimeUnit.NANOSECONDS.toMillis(timeAfterVis-timeBeforeVis);
+		logger.debug("Finished Visualisation, Duration: "+ duration + " ms");
+		
+	}
+
+	/**
+	 * @return
+	 */
+	private Expression runPcm2RegEx() {
+		long timeBeforeTransform = System.nanoTime();
+		Expression result = pcm2RegEx(currentModel);
+		long timeAfterTransform = System.nanoTime();
+		long duration2 = TimeUnit.NANOSECONDS.toMillis(timeAfterTransform-timeBeforeTransform);
+		logger.debug("Finished Transform, Duration: "+ duration2 + " ms");
+		return result;
+	}
+
+	/**
+	 * 
+	 */
+	private void runDSolver() {
 		long startTime = System.nanoTime();
 		visitScenarioEMFSwitch();
-		long endTime = System.nanoTime();
-
-		long duration = TimeUnit.NANOSECONDS.toMillis(endTime-startTime);
-		logger.debug("Finished Traversal, Duration: "+ duration + " ms");
-		
-		logger.debug("Saving PCM Instance");
 		currentModel.saveToFiles("SolvedDSolverExample1");
+		long timeAfterDSolve = System.nanoTime();
+		long duration = TimeUnit.NANOSECONDS.toMillis(timeAfterDSolve-startTime);
+		logger.debug("Finished Traversal, Saving; Duration: "+ duration + " ms");
+	}
+
+	/**
+	 * 
+	 */
+	private Expression pcm2RegEx(PCMInstance currentModel) {
+		TransformUsageModelVisitor umVisit = new TransformUsageModelVisitor(currentModel);
+		UsageScenario us = (UsageScenario)currentModel.getUsageModel().getUsageScenario_UsageModel().get(0);
+		try {
+			umVisit.doSwitch(us.getScenarioBehaviour_UsageScenario());
+		} catch (Exception e) {
+			logger.error("Usage Scenario caused Exception!" + e.getMessage());
+			e.printStackTrace();
+		}
+		
+		Expression result = umVisit.getResultExpression();
+		
+		ExpressionPrinter expPrinter = new ExpressionPrinter();
+		expPrinter.doSwitch(result);
+		System.out.println();
+		
+		return result;
 	}
 
 	private void visitScenarioEMFSwitch(){
