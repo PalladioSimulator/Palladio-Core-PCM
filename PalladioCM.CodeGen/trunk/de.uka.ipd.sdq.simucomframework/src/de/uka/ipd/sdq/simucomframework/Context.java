@@ -37,7 +37,6 @@ public abstract class Context {
 	public Context(SimuComModel myModel) {
 		this.registry = myModel.getResourceRegistry();
 		this.myModel = myModel;
-		initialiseResourceContainer();
 		initialiseAssemblyContextLookup();
 	}
 
@@ -84,8 +83,6 @@ public abstract class Context {
 	}
 	
 	protected abstract void initialiseAssemblyContextLookup();
-
-	protected abstract void initialiseResourceContainer();
 
 	public SimProcess getThread() {
 		return myThread;

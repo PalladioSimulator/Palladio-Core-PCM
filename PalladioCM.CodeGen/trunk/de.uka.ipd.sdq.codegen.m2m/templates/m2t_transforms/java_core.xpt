@@ -35,11 +35,11 @@ public class «this.javaName()»
 «ENDDEFINE»
 
 «DEFINE ParameterListTM FOR Signature»
-   «ERROR "Template method must be overridden"»
+   «ERROR "ParameterListTemplate method must be overridden"»
 «ENDDEFINE»
 
 «DEFINE ParameterUsageListTM FOR Signature»
-   «ERROR "Template method must be overridden"»
+   «ERROR "ParameterUsageTemplate method must be overridden"»
 «ENDDEFINE»
 
 «DEFINE Parameter FOR Parameter»

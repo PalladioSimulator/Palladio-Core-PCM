@@ -45,6 +45,7 @@
 	</component>
 
 	<component id="generator" class="oaw.xpand2.Generator" skipOnErrors="true">
+		<fileEncoding value="ISO-8859-1"/>
 	    <metaModel id="pcm.repository.emf" class="oaw.type.emf.EmfMetaModel">
 			<metaModelPackage value="de.uka.ipd.sdq.pcm.repository.RepositoryPackage"/>
 		</metaModel>
@@ -84,6 +85,6 @@
 	</component>	
 	
 	<component adviceTarget="generator" id="reflectionAdvice" class="oaw.xpand2.GeneratorAdvice">
-		<advices value="templates::simulation_template_methods"/>
+		<advices value="${aop_templates}"/>
 	</component>	
 </workflow>

@@ -5,6 +5,11 @@
 «IMPORT system»
 «IMPORT composition»
 
+// Generate code for a single repository
+// This means:
+// - Generate all Interfaces
+// - Generate all components
+// - Generate all datatypes (POJO only)
 «DEFINE Root FOR Repository»
    «EXPAND InterfaceFile FOREACH this.interfaces__Repository»
    «EXPAND ComponentRoot FOREACH this.components__Repository»
@@ -24,10 +29,6 @@
 
 «DEFINE ComponentRoot FOR ProvidesComponentType»
    «FILE this.getFileName()»
-      «EXPAND ProvidesComponentTypeTM FOR this»
+	   «EXPAND m2t_transforms::java_core::ComponentImplementation FOR this»
    «ENDFILE»
 «ENDDEFINE»
-
-«DEFINE ProvidesComponentTypeTM FOR ProvidesComponentType»
-  «ERROR "This is a template method and must be overridden"»
-«ENDDEFINE»  

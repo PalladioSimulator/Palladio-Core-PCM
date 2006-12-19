@@ -15,12 +15,20 @@
    «ENDFOREACH»
 «ENDDEFINE»
 
-«DEFINE Aquire FOR AquireAction»
+«DEFINE AquireSim FOR AquireAction»
    ctx.findResource(this.assemblyContextID).aquirePassiveResource(ctx.getThread(),"«this.resourceType_Aquire.entityName»");
 «ENDDEFINE»
 
-«DEFINE Release FOR ReleaseAction»
+«DEFINE ReleaseSim FOR ReleaseAction»
    ctx.findResource(this.assemblyContextID).releasePassiveResource("«this.resourceType_Release.entityName»");
+«ENDDEFINE»
+
+«DEFINE ResourceEnvironment FOR ResourceEnvironment»
+	«FILE "ResourceEnvironment.java"»
+		public class ResourceEnvironment implements de.uka.ipd.sdq.simucomframework.resources.IResourceContainerFactory {
+		   «EXPAND ResourceContainerInit FOR this»
+		}
+	«ENDFILE»
 «ENDDEFINE»
 
 «DEFINE ResourceContainerInit FOR ResourceEnvironment»
@@ -40,7 +48,7 @@
 «ENDDEFINE»
 
 «DEFINE ResourceContainerCase FOR ResourceContainer»
-	if (rc.getId().equals("«this.id»") {
+	if (rc.getResourceContainerID().equals("«this.id»")) {
 		«EXPAND ActiveResourceAdd FOREACH this.activeResourceSpecifications_ResourceContainer»
 		«EXPAND PassiveResourceAdd FOREACH this.passiveResourceSpecifications_ResourceContainer»
 	}

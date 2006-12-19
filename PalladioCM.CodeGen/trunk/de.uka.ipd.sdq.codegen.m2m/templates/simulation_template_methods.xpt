@@ -11,8 +11,39 @@
 «IMPORT parameter»
 «IMPORT qosannotations»
 
-«AROUND m2t_transforms::repository::ProvidesComponentTypeTM FOR ProvidesComponentType»
-   «EXPAND m2t_transforms::java_core::ComponentImplementation FOR this»
+«AROUND UsageScenarioParameterTM FOR UsageScenario»
+SimuComModel myModel
+«ENDAROUND»
+
+«AROUND UsageScenarioConstructorTM(Allocation a, ProvidedRole pr) FOR UsageScenario»
+		«LET ((System)pr.providingEntity_ProvidedRole) AS system»
+			ctx = new «a.fqnAllocationContext()»(myModel);
+			ctx.getStack().createAndPushNewStackFrame();
+			«system.contextClassName()» context«pr.providingEntity_ProvidedRole.javaName()» = 
+				new «system.contextClassName()»
+					(«EXPAND m2t_transforms::usage::DummyRequiredSystemTM(system) FOREACH system.requiredRoles_InterfaceRequiringEntity SEPARATOR ","»);
+		«ENDLET»
+      	my«pr.providingEntity_ProvidedRole.javaName()».setContext(context«pr.providingEntity_ProvidedRole.javaName()»);
+«ENDAROUND»
+
+«AROUND m2t_transforms::sensors::StartResponseTimeMeasurementTM FOR String»
+	«EXPAND m2t_transforms::sensors::StartResponseTimeMeasurementSim FOR this»	
+«ENDAROUND»
+
+«AROUND m2t_transforms::sensors::EndResponseTimeMeasurementTM FOR String»
+	«EXPAND m2t_transforms::sensors::EndResponseTimeMeasurementSim FOR this»	
+«ENDAROUND»
+
+«AROUND m2t_transforms::usage::StartScenarioRunnerTM FOR ScenarioBehaviour»
+ctx.setSimProcess(thread);
+«ENDAROUND»
+
+«AROUND mt2_transforms::usage::ScenarioRunnerParameterTM FOR ScenarioBehaviour»
+SimProcess thread
+«ENDAROUND»
+
+«AROUND m2t_transforms::usage::UsageClassImplementsTM FOR UsageScenario»
+implements de.uka.ipd.sdq.simucomframework.usage.IScenarioRunner
 «ENDAROUND»
 
 «AROUND m2t_transforms::java_core::ParameterListTM FOR Signature»
@@ -60,12 +91,12 @@
 
 «AROUND m2t_transforms::seff::Action FOR AquireAction»
 	// Aquire «this.resourceType_Aquire.entityName»
-	«EXPAND m2t_transforms::resources::Aquire FOR this»
+	«EXPAND m2t_transforms::resources::AquireSim FOR this»
 «ENDAROUND»
 
 «AROUND m2t_transforms::seff::Action FOR ReleaseAction»
 	// Release «this.resourceType_Release.entityName»
-	«EXPAND m2t_transforms::resources::Release FOR this»
+	«EXPAND m2t_transforms::resources::ReleaseSim FOR this»
 «ENDAROUND»
 
 

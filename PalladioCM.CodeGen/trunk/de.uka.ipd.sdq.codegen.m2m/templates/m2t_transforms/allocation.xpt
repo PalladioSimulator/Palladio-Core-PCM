@@ -9,6 +9,7 @@
 «IMPORT resourcerepository»
 
 «DEFINE Root FOR Allocation»
+	«EXPAND m2t_transforms::resources::ResourceEnvironment FOR this.targetResourceEnvironment_Allocation»
 	«FILE this.fqnAllocationContext().fqnToDirectoryPath()+".java"»
 		package «this.fqnAllocationContextPackage()»;
 		import de.uka.ipd.sdq.simucomframework.Context;
