@@ -11,11 +11,11 @@
 «IMPORT parameter»
 «IMPORT qosannotations»
 
-«AROUND UsageScenarioParameterTM FOR UsageScenario»
+«AROUND m2t_transforms::usage::UsageScenarioParameterTM FOR UsageScenario»
 SimuComModel myModel
 «ENDAROUND»
 
-«AROUND UsageScenarioConstructorTM(Allocation a, ProvidedRole pr) FOR UsageScenario»
+«AROUND m2t_transforms::usage::UsageScenarioConstructorTM(Allocation a, ProvidedRole pr) FOR UsageScenario»
 		«LET ((System)pr.providingEntity_ProvidedRole) AS system»
 			ctx = new «a.fqnAllocationContext()»(myModel);
 			ctx.getStack().createAndPushNewStackFrame();
@@ -141,11 +141,11 @@ implements de.uka.ipd.sdq.simucomframework.usage.IScenarioRunner
 			«ENDFOREACH»
 		«ENDLET»
 	«ENDFOREACH» 
-	«EXPAND m2t_transforms::sensors::StartResponseTimeMeasurement FOR "Usage_"+this.javaSignature()»
+	«EXPAND m2t_transforms::sensors::StartResponseTimeMeasurementSim FOR "Usage_"+this.javaSignature()»
 «ENDAROUND»
 
 «AROUND m2t_transforms::calls::PostCallTM FOR Signature»
-	«EXPAND m2t_transforms::sensors::EndResponseTimeMeasurement FOR "Usage_"+this.javaSignature()»
+	«EXPAND m2t_transforms::sensors::EndResponseTimeMeasurementSim FOR "Usage_"+this.javaSignature()»
  	ctx.getStack().removeStackFrame();
 	}
 	// END Simulate an external call
@@ -158,4 +158,8 @@ implements de.uka.ipd.sdq.simucomframework.usage.IScenarioRunner
 			ctx.getThread().hold(new desmoj.core.simulator.SimTime(delay));
 		«ENDIF»
 	«ENDLET»
+«ENDAROUND»
+
+«AROUND m2t_transforms::usage::ScenarioRunnerParameterTM FOR ScenarioBehaviour»
+	SimProcess thread
 «ENDAROUND»
