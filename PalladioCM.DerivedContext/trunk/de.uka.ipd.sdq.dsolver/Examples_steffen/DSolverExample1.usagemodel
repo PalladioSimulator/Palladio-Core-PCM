@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <pcm.usagemodel:UsageModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pcm.usagemodel="http://sdq.ipd.uka.de/PalladioComponentModel/UsageModel/1.0" xmlns:stoex="http://sdq.ipd.uka.de/StochasticExpressions/1.0">
   <usageScenario_UsageModel id="_wf7cEDQeEduaPaOP6VcQiw" entityName="UScenario">
-    <workload_UsageScenario xsi:type="pcm.usagemodel:ClosedWorkload" population="1">
+    <workload_UsageScenario xsi:type="pcm.usagemodel:ClosedWorkload" population="4">
       <thinkTime_ClosedWorkload specification="DoublePDF(unit=&quot;s&quot;)[ (1.0; 0.3) (2.0; 0.3) (3.0; 0.4) ]"/>
     </workload_UsageScenario>
     <scenarioBehaviour_UsageScenario>

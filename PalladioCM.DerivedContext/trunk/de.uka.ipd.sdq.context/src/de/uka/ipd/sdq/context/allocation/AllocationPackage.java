@@ -115,22 +115,22 @@ public interface AllocationPackage extends EPackage {
 	int ACTUAL_RESOURCE_DEMAND = 1;
 
 	/**
-	 * The feature id for the '<em><b>Specification</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTUAL_RESOURCE_DEMAND__SPECIFICATION = StoexPackage.RANDOM_VARIABLE__SPECIFICATION;
-
-	/**
 	 * The feature id for the '<em><b>Parametric Resource Demand Actual Resource Demand</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ACTUAL_RESOURCE_DEMAND__PARAMETRIC_RESOURCE_DEMAND_ACTUAL_RESOURCE_DEMAND = StoexPackage.RANDOM_VARIABLE_FEATURE_COUNT + 0;
+	int ACTUAL_RESOURCE_DEMAND__PARAMETRIC_RESOURCE_DEMAND_ACTUAL_RESOURCE_DEMAND = 0;
+
+	/**
+	 * The feature id for the '<em><b>Random Variable Actual Resource Demand</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTUAL_RESOURCE_DEMAND__RANDOM_VARIABLE_ACTUAL_RESOURCE_DEMAND = 1;
 
 	/**
 	 * The number of structural features of the '<em>Actual Resource Demand</em>' class.
@@ -139,7 +139,7 @@ public interface AllocationPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ACTUAL_RESOURCE_DEMAND_FEATURE_COUNT = StoexPackage.RANDOM_VARIABLE_FEATURE_COUNT + 1;
+	int ACTUAL_RESOURCE_DEMAND_FEATURE_COUNT = 2;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.context.allocation.impl.ActualAllocationImpl <em>Actual Allocation</em>}' class.
@@ -222,6 +222,17 @@ public interface AllocationPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getActualResourceDemand_ParametricResourceDemand_ActualResourceDemand();
+
+	/**
+	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.context.allocation.ActualResourceDemand#getRandomVariable_ActualResourceDemand <em>Random Variable Actual Resource Demand</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Random Variable Actual Resource Demand</em>'.
+	 * @see de.uka.ipd.sdq.context.allocation.ActualResourceDemand#getRandomVariable_ActualResourceDemand()
+	 * @see #getActualResourceDemand()
+	 * @generated
+	 */
+	EReference getActualResourceDemand_RandomVariable_ActualResourceDemand();
 
 	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.context.allocation.ActualAllocation <em>Actual Allocation</em>}'.
@@ -309,6 +320,14 @@ public interface AllocationPackage extends EPackage {
 		 * @generated
 		 */
 		EReference ACTUAL_RESOURCE_DEMAND__PARAMETRIC_RESOURCE_DEMAND_ACTUAL_RESOURCE_DEMAND = eINSTANCE.getActualResourceDemand_ParametricResourceDemand_ActualResourceDemand();
+
+		/**
+		 * The meta object literal for the '<em><b>Random Variable Actual Resource Demand</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ACTUAL_RESOURCE_DEMAND__RANDOM_VARIABLE_ACTUAL_RESOURCE_DEMAND = eINSTANCE.getActualResourceDemand_RandomVariable_ActualResourceDemand();
 
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.context.allocation.impl.ActualAllocationImpl <em>Actual Allocation</em>}' class.

@@ -30,12 +30,13 @@ import de.uka.ipd.sdq.stoex.RandomVariable;
  * The following features are implemented:
  * <ul>
  *   <li>{@link de.uka.ipd.sdq.context.usage.impl.LoopIterationImpl#getLoopaction_LoopIteration <em>Loopaction Loop Iteration</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.context.usage.impl.LoopIterationImpl#getIterations_LoopIteration <em>Iterations Loop Iteration</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class LoopIterationImpl extends RandomVariableImpl implements LoopIteration {
+public class LoopIterationImpl extends EObjectImpl implements LoopIteration {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -52,6 +53,16 @@ public class LoopIterationImpl extends RandomVariableImpl implements LoopIterati
 	 * @ordered
 	 */
 	protected AbstractLoopAction loopaction_LoopIteration = null;
+
+	/**
+	 * The cached value of the '{@link #getIterations_LoopIteration() <em>Iterations Loop Iteration</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getIterations_LoopIteration()
+	 * @generated
+	 * @ordered
+	 */
+	protected RandomVariable iterations_LoopIteration = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -114,11 +125,69 @@ public class LoopIterationImpl extends RandomVariableImpl implements LoopIterati
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public RandomVariable getIterations_LoopIteration() {
+		return iterations_LoopIteration;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetIterations_LoopIteration(RandomVariable newIterations_LoopIteration, NotificationChain msgs) {
+		RandomVariable oldIterations_LoopIteration = iterations_LoopIteration;
+		iterations_LoopIteration = newIterations_LoopIteration;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, UsagePackage.LOOP_ITERATION__ITERATIONS_LOOP_ITERATION, oldIterations_LoopIteration, newIterations_LoopIteration);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setIterations_LoopIteration(RandomVariable newIterations_LoopIteration) {
+		if (newIterations_LoopIteration != iterations_LoopIteration) {
+			NotificationChain msgs = null;
+			if (iterations_LoopIteration != null)
+				msgs = ((InternalEObject)iterations_LoopIteration).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - UsagePackage.LOOP_ITERATION__ITERATIONS_LOOP_ITERATION, null, msgs);
+			if (newIterations_LoopIteration != null)
+				msgs = ((InternalEObject)newIterations_LoopIteration).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - UsagePackage.LOOP_ITERATION__ITERATIONS_LOOP_ITERATION, null, msgs);
+			msgs = basicSetIterations_LoopIteration(newIterations_LoopIteration, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, UsagePackage.LOOP_ITERATION__ITERATIONS_LOOP_ITERATION, newIterations_LoopIteration, newIterations_LoopIteration));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case UsagePackage.LOOP_ITERATION__ITERATIONS_LOOP_ITERATION:
+				return basicSetIterations_LoopIteration(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case UsagePackage.LOOP_ITERATION__LOOPACTION_LOOP_ITERATION:
 				if (resolve) return getLoopaction_LoopIteration();
 				return basicGetLoopaction_LoopIteration();
+			case UsagePackage.LOOP_ITERATION__ITERATIONS_LOOP_ITERATION:
+				return getIterations_LoopIteration();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -132,6 +201,9 @@ public class LoopIterationImpl extends RandomVariableImpl implements LoopIterati
 		switch (featureID) {
 			case UsagePackage.LOOP_ITERATION__LOOPACTION_LOOP_ITERATION:
 				setLoopaction_LoopIteration((AbstractLoopAction)newValue);
+				return;
+			case UsagePackage.LOOP_ITERATION__ITERATIONS_LOOP_ITERATION:
+				setIterations_LoopIteration((RandomVariable)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -147,6 +219,9 @@ public class LoopIterationImpl extends RandomVariableImpl implements LoopIterati
 			case UsagePackage.LOOP_ITERATION__LOOPACTION_LOOP_ITERATION:
 				setLoopaction_LoopIteration((AbstractLoopAction)null);
 				return;
+			case UsagePackage.LOOP_ITERATION__ITERATIONS_LOOP_ITERATION:
+				setIterations_LoopIteration((RandomVariable)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -160,6 +235,8 @@ public class LoopIterationImpl extends RandomVariableImpl implements LoopIterati
 		switch (featureID) {
 			case UsagePackage.LOOP_ITERATION__LOOPACTION_LOOP_ITERATION:
 				return loopaction_LoopIteration != null;
+			case UsagePackage.LOOP_ITERATION__ITERATIONS_LOOP_ITERATION:
+				return iterations_LoopIteration != null;
 		}
 		return super.eIsSet(featureID);
 	}
