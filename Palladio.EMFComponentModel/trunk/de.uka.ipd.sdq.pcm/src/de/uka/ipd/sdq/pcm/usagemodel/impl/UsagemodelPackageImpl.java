@@ -723,12 +723,14 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
 
 		// Obtain other dependent packages
 		EntityPackage theEntityPackage = (EntityPackage)EPackage.Registry.INSTANCE.getEPackage(EntityPackage.eNS_URI);
+		IdentifierPackage theIdentifierPackage = (IdentifierPackage)EPackage.Registry.INSTANCE.getEPackage(IdentifierPackage.eNS_URI);
 		StoexPackage theStoexPackage = (StoexPackage)EPackage.Registry.INSTANCE.getEPackage(StoexPackage.eNS_URI);
 		ParameterPackage theParameterPackage = (ParameterPackage)EPackage.Registry.INSTANCE.getEPackage(ParameterPackage.eNS_URI);
 		RepositoryPackage theRepositoryPackage = (RepositoryPackage)EPackage.Registry.INSTANCE.getEPackage(RepositoryPackage.eNS_URI);
 
 		// Add supertypes to classes
 		usageScenarioEClass.getESuperTypes().add(theEntityPackage.getEntity());
+		scenarioBehaviourEClass.getESuperTypes().add(theIdentifierPackage.getIdentifier());
 		stopEClass.getESuperTypes().add(this.getAbstractUserAction());
 		startEClass.getESuperTypes().add(this.getAbstractUserAction());
 		openWorkloadEClass.getESuperTypes().add(this.getWorkload());

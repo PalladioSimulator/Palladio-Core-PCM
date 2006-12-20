@@ -6,6 +6,8 @@
  */
 package de.uka.ipd.sdq.pcm.usagemodel;
 
+import de.uka.ipd.sdq.identifier.IdentifierPackage;
+
 import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
 
 import de.uka.ipd.sdq.stoex.StoexPackage;
@@ -155,13 +157,22 @@ public interface UsagemodelPackage extends EPackage {
 	int SCENARIO_BEHAVIOUR = 2;
 
 	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCENARIO_BEHAVIOUR__ID = IdentifierPackage.IDENTIFIER__ID;
+
+	/**
 	 * The feature id for the '<em><b>Actions Scenario Behaviour</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SCENARIO_BEHAVIOUR__ACTIONS_SCENARIO_BEHAVIOUR = 0;
+	int SCENARIO_BEHAVIOUR__ACTIONS_SCENARIO_BEHAVIOUR = IdentifierPackage.IDENTIFIER_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Scenario Behaviour</em>' class.
@@ -170,7 +181,7 @@ public interface UsagemodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SCENARIO_BEHAVIOUR_FEATURE_COUNT = 1;
+	int SCENARIO_BEHAVIOUR_FEATURE_COUNT = IdentifierPackage.IDENTIFIER_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.usagemodel.impl.AbstractUserActionImpl <em>Abstract User Action</em>}' class.

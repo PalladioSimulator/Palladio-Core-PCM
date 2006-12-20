@@ -7,6 +7,8 @@
  */
 package de.uka.ipd.sdq.pcm.usagemodel.impl;
 
+import de.uka.ipd.sdq.identifier.impl.IdentifierImpl;
+
 import de.uka.ipd.sdq.pcm.usagemodel.AbstractUserAction;
 import de.uka.ipd.sdq.pcm.usagemodel.ScenarioBehaviour;
 import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
@@ -38,7 +40,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class ScenarioBehaviourImpl extends EObjectImpl implements ScenarioBehaviour {
+public class ScenarioBehaviourImpl extends IdentifierImpl implements ScenarioBehaviour {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

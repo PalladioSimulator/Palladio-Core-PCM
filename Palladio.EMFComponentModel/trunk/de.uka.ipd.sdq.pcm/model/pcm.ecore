@@ -602,7 +602,7 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="scenarioBehaviour_UsageScenario"
           ordered="false" lowerBound="1" eType="#//usagemodel/ScenarioBehaviour" containment="true"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="ScenarioBehaviour">
+    <eClassifiers xsi:type="ecore:EClass" name="ScenarioBehaviour" eSuperTypes="../../de.uka.ipd.sdq.identifier/model/identifier.ecore#//Identifier">
       <eStructuralFeatures xsi:type="ecore:EReference" name="actions_ScenarioBehaviour"
           ordered="false" upperBound="-1" eType="#//usagemodel/AbstractUserAction"
           containment="true"/>

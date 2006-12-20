@@ -7,6 +7,8 @@
 package de.uka.ipd.sdq.pcm.usagemodel.provider;
 
 
+import de.uka.ipd.sdq.identifier.provider.IdentifierItemProvider;
+
 import java.util.Collection;
 import java.util.List;
 
@@ -33,7 +35,7 @@ import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
  * @generated
  */
 public class ScenarioBehaviourItemProvider
-	extends ItemProviderAdapter
+	extends IdentifierItemProvider
 	implements	
 		IEditingDomainItemProvider,	
 		IStructuredItemContentProvider,	
@@ -104,7 +106,10 @@ public class ScenarioBehaviourItemProvider
 	 * @generated
 	 */
 	public String getText(Object object) {
-		return getString("_UI_ScenarioBehaviour_type");
+		String label = ((ScenarioBehaviour)object).getId();
+		return label == null || label.length() == 0 ?
+			getString("_UI_ScenarioBehaviour_type") :
+			getString("_UI_ScenarioBehaviour_type") + " " + label;
 	}
 
 	/**

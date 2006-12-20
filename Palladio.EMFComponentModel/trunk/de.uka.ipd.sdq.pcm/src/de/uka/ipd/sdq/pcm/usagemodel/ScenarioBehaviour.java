@@ -7,6 +7,8 @@
  */
 package de.uka.ipd.sdq.pcm.usagemodel;
 
+import de.uka.ipd.sdq.identifier.Identifier;
+
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EObject;
@@ -27,7 +29,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface ScenarioBehaviour extends EObject {
+public interface ScenarioBehaviour extends Identifier {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
