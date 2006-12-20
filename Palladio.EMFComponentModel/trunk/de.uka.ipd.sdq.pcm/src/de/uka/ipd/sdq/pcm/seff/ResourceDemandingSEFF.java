@@ -8,6 +8,8 @@
 package de.uka.ipd.sdq.pcm.seff;
 
 
+import de.uka.ipd.sdq.identifier.Identifier;
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Resource Demanding SEFF</b></em>'.
@@ -18,7 +20,7 @@ package de.uka.ipd.sdq.pcm.seff;
  * @model
  * @generated
  */
-public interface ResourceDemandingSEFF extends ServiceEffectSpecification, ResourceDemandingBehaviour {
+public interface ResourceDemandingSEFF extends Identifier, ServiceEffectSpecification, ResourceDemandingBehaviour {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

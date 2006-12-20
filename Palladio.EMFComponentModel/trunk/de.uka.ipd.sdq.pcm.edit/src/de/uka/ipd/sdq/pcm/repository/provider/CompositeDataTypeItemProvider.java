@@ -7,6 +7,10 @@
 package de.uka.ipd.sdq.pcm.repository.provider;
 
 
+import de.uka.ipd.sdq.identifier.IdentifierPackage;
+
+import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
+
 import java.util.Collection;
 import java.util.List;
 
@@ -19,6 +23,7 @@ import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import de.uka.ipd.sdq.pcm.core.entity.provider.EntityItemProvider;

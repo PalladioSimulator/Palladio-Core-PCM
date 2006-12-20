@@ -889,9 +889,9 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 		EntityPackage theEntityPackage = (EntityPackage)EPackage.Registry.INSTANCE.getEPackage(EntityPackage.eNS_URI);
 		StoexPackage theStoexPackage = (StoexPackage)EPackage.Registry.INSTANCE.getEPackage(StoexPackage.eNS_URI);
 		ResourcetypePackage theResourcetypePackage = (ResourcetypePackage)EPackage.Registry.INSTANCE.getEPackage(ResourcetypePackage.eNS_URI);
+		IdentifierPackage theIdentifierPackage = (IdentifierPackage)EPackage.Registry.INSTANCE.getEPackage(IdentifierPackage.eNS_URI);
 		RepositoryPackage theRepositoryPackage = (RepositoryPackage)EPackage.Registry.INSTANCE.getEPackage(RepositoryPackage.eNS_URI);
 		ParameterPackage theParameterPackage = (ParameterPackage)EPackage.Registry.INSTANCE.getEPackage(ParameterPackage.eNS_URI);
-		IdentifierPackage theIdentifierPackage = (IdentifierPackage)EPackage.Registry.INSTANCE.getEPackage(IdentifierPackage.eNS_URI);
 
 		// Add supertypes to classes
 		stopActionEClass.getESuperTypes().add(this.getAbstractResourceDemandingAction());
@@ -899,6 +899,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 		abstractActionEClass.getESuperTypes().add(theEntityPackage.getEntity());
 		parametricResourceDemandEClass.getESuperTypes().add(theStoexPackage.getRandomVariable());
 		startActionEClass.getESuperTypes().add(this.getAbstractResourceDemandingAction());
+		resourceDemandingSEFFEClass.getESuperTypes().add(theIdentifierPackage.getIdentifier());
 		resourceDemandingSEFFEClass.getESuperTypes().add(this.getServiceEffectSpecification());
 		resourceDemandingSEFFEClass.getESuperTypes().add(this.getResourceDemandingBehaviour());
 		releaseActionEClass.getESuperTypes().add(this.getAbstractResourceDemandingAction());

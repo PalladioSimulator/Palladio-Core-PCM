@@ -1029,8 +1029,8 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 
 		// Add supertypes to classes
 		repositoryEClass.getESuperTypes().add(theEntityPackage.getEntity());
-		providesComponentTypeEClass.getESuperTypes().add(theEntityPackage.getInterfaceProvidingRequiringEntity());
 		providesComponentTypeEClass.getESuperTypes().add(theEntityPackage.getEntity());
+		providesComponentTypeEClass.getESuperTypes().add(theEntityPackage.getInterfaceProvidingRequiringEntity());
 		requiredRoleEClass.getESuperTypes().add(this.getRole());
 		roleEClass.getESuperTypes().add(theEntityPackage.getEntity());
 		interfaceEClass.getESuperTypes().add(theEntityPackage.getEntity());

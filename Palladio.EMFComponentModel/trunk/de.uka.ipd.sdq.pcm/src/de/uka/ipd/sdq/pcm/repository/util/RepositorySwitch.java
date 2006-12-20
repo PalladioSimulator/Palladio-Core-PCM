@@ -136,12 +136,12 @@ public class RepositorySwitch {
 			case RepositoryPackage.PROVIDES_COMPONENT_TYPE: {
 				ProvidesComponentType providesComponentType = (ProvidesComponentType)theEObject;
 				Object result = caseProvidesComponentType(providesComponentType);
-				if (result == null) result = caseInterfaceProvidingRequiringEntity(providesComponentType);
 				if (result == null) result = caseEntity(providesComponentType);
-				if (result == null) result = caseInterfaceProvidingEntity(providesComponentType);
-				if (result == null) result = caseInterfaceRequiringEntity(providesComponentType);
+				if (result == null) result = caseInterfaceProvidingRequiringEntity(providesComponentType);
 				if (result == null) result = caseIdentifier(providesComponentType);
 				if (result == null) result = caseNamedElement(providesComponentType);
+				if (result == null) result = caseInterfaceProvidingEntity(providesComponentType);
+				if (result == null) result = caseInterfaceRequiringEntity(providesComponentType);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -184,12 +184,12 @@ public class RepositorySwitch {
 				Object result = caseImplementationComponentType(implementationComponentType);
 				if (result == null) result = caseCompleteComponentType(implementationComponentType);
 				if (result == null) result = caseProvidesComponentType(implementationComponentType);
-				if (result == null) result = caseInterfaceProvidingRequiringEntity(implementationComponentType);
 				if (result == null) result = caseEntity(implementationComponentType);
-				if (result == null) result = caseInterfaceProvidingEntity(implementationComponentType);
-				if (result == null) result = caseInterfaceRequiringEntity(implementationComponentType);
+				if (result == null) result = caseInterfaceProvidingRequiringEntity(implementationComponentType);
 				if (result == null) result = caseIdentifier(implementationComponentType);
 				if (result == null) result = caseNamedElement(implementationComponentType);
+				if (result == null) result = caseInterfaceProvidingEntity(implementationComponentType);
+				if (result == null) result = caseInterfaceRequiringEntity(implementationComponentType);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -197,12 +197,12 @@ public class RepositorySwitch {
 				CompleteComponentType completeComponentType = (CompleteComponentType)theEObject;
 				Object result = caseCompleteComponentType(completeComponentType);
 				if (result == null) result = caseProvidesComponentType(completeComponentType);
-				if (result == null) result = caseInterfaceProvidingRequiringEntity(completeComponentType);
 				if (result == null) result = caseEntity(completeComponentType);
-				if (result == null) result = caseInterfaceProvidingEntity(completeComponentType);
-				if (result == null) result = caseInterfaceRequiringEntity(completeComponentType);
+				if (result == null) result = caseInterfaceProvidingRequiringEntity(completeComponentType);
 				if (result == null) result = caseIdentifier(completeComponentType);
 				if (result == null) result = caseNamedElement(completeComponentType);
+				if (result == null) result = caseInterfaceProvidingEntity(completeComponentType);
+				if (result == null) result = caseInterfaceRequiringEntity(completeComponentType);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -238,12 +238,12 @@ public class RepositorySwitch {
 				if (result == null) result = caseImplementationComponentType(basicComponent);
 				if (result == null) result = caseCompleteComponentType(basicComponent);
 				if (result == null) result = caseProvidesComponentType(basicComponent);
-				if (result == null) result = caseInterfaceProvidingRequiringEntity(basicComponent);
 				if (result == null) result = caseEntity(basicComponent);
-				if (result == null) result = caseInterfaceProvidingEntity(basicComponent);
-				if (result == null) result = caseInterfaceRequiringEntity(basicComponent);
+				if (result == null) result = caseInterfaceProvidingRequiringEntity(basicComponent);
 				if (result == null) result = caseIdentifier(basicComponent);
 				if (result == null) result = caseNamedElement(basicComponent);
+				if (result == null) result = caseInterfaceProvidingEntity(basicComponent);
+				if (result == null) result = caseInterfaceRequiringEntity(basicComponent);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}

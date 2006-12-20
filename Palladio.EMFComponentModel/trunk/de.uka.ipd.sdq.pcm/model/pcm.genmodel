@@ -15,7 +15,7 @@
     <details key="ECORE_TAGGED_VALUES" value="PROCESS"/>
     <details key="REDEFINING_OPERATIONS" value="REPORT"/>
     <details key="ANNOTATION_DETAILS" value="PROCESS"/>
-    <details key="SUPER_CLASS_ORDER" value="PROCESS"/>
+    <details key="SUPER_CLASS_ORDER" value="REPORT"/>
     <details key="UNION_PROPERTIES" value="REPORT"/>
     <details key="DUPLICATE_OPERATION_INHERITANCE" value="DISCARD"/>
   </genAnnotations>

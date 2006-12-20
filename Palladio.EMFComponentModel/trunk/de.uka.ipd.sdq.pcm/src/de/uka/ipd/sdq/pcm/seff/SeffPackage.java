@@ -388,33 +388,6 @@ public interface SeffPackage extends EPackage {
 	int SERVICE_EFFECT_SPECIFICATION = 21;
 
 	/**
-	 * The feature id for the '<em><b>Seff Type ID</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SERVICE_EFFECT_SPECIFICATION__SEFF_TYPE_ID = 0;
-
-	/**
-	 * The feature id for the '<em><b>Described Service SEFF</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SERVICE_EFFECT_SPECIFICATION__DESCRIBED_SERVICE_SEFF = 1;
-
-	/**
-	 * The number of structural features of the '<em>Service Effect Specification</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SERVICE_EFFECT_SPECIFICATION_FEATURE_COUNT = 2;
-
-	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.seff.impl.ResourceDemandingSEFFImpl <em>Resource Demanding SEFF</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -425,13 +398,22 @@ public interface SeffPackage extends EPackage {
 	int RESOURCE_DEMANDING_SEFF = 5;
 
 	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESOURCE_DEMANDING_SEFF__ID = IdentifierPackage.IDENTIFIER__ID;
+
+	/**
 	 * The feature id for the '<em><b>Seff Type ID</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RESOURCE_DEMANDING_SEFF__SEFF_TYPE_ID = SERVICE_EFFECT_SPECIFICATION__SEFF_TYPE_ID;
+	int RESOURCE_DEMANDING_SEFF__SEFF_TYPE_ID = IdentifierPackage.IDENTIFIER_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Described Service SEFF</b></em>' reference.
@@ -440,7 +422,7 @@ public interface SeffPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESOURCE_DEMANDING_SEFF__DESCRIBED_SERVICE_SEFF = SERVICE_EFFECT_SPECIFICATION__DESCRIBED_SERVICE_SEFF;
+	int RESOURCE_DEMANDING_SEFF__DESCRIBED_SERVICE_SEFF = IdentifierPackage.IDENTIFIER_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Steps Behaviour</b></em>' containment reference list.
@@ -449,7 +431,7 @@ public interface SeffPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESOURCE_DEMANDING_SEFF__STEPS_BEHAVIOUR = SERVICE_EFFECT_SPECIFICATION_FEATURE_COUNT + 0;
+	int RESOURCE_DEMANDING_SEFF__STEPS_BEHAVIOUR = IdentifierPackage.IDENTIFIER_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Resource Demanding SEFF</em>' class.
@@ -458,7 +440,7 @@ public interface SeffPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RESOURCE_DEMANDING_SEFF_FEATURE_COUNT = SERVICE_EFFECT_SPECIFICATION_FEATURE_COUNT + 1;
+	int RESOURCE_DEMANDING_SEFF_FEATURE_COUNT = IdentifierPackage.IDENTIFIER_FEATURE_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.seff.impl.ResourceDemandingBehaviourImpl <em>Resource Demanding Behaviour</em>}' class.
@@ -1349,6 +1331,33 @@ public interface SeffPackage extends EPackage {
 	 */
 	int GUARDED_BRANCH_TRANSITION_FEATURE_COUNT = ABSTRACT_BRANCH_TRANSITION_FEATURE_COUNT + 1;
 
+
+	/**
+	 * The feature id for the '<em><b>Seff Type ID</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERVICE_EFFECT_SPECIFICATION__SEFF_TYPE_ID = 0;
+
+	/**
+	 * The feature id for the '<em><b>Described Service SEFF</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERVICE_EFFECT_SPECIFICATION__DESCRIBED_SERVICE_SEFF = 1;
+
+	/**
+	 * The number of structural features of the '<em>Service Effect Specification</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERVICE_EFFECT_SPECIFICATION_FEATURE_COUNT = 2;
 
 	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.seff.StopAction <em>Stop Action</em>}'.
