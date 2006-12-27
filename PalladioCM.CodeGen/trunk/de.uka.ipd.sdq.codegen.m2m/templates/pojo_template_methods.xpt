@@ -2,8 +2,11 @@
 «EXTENSION m2t_transforms::pcm»
 «IMPORT repository»
 «IMPORT seff»
+«IMPORT usagemodel»
 
+// ----------------------------
 // Parameter
+// ----------------------------
 «AROUND m2t_transforms::java_core::ParameterListTM FOR Signature»
 	«EXPAND m2t_transforms::java_core::Parameter FOREACH this.parameters__Signature SEPARATOR ","»
 «ENDAROUND»
@@ -12,39 +15,48 @@
    «EXPAND m2t_transforms::java_core::ParameterUse FOREACH this.parameters__Signature SEPARATOR ","»
 «ENDAROUND»
 
-// Actions
-«AROUND m2t_transforms::seff::Action FOR CollectionIteratorAction»
-   for (int i = 0; i < «this.parameter_CollectionIteratorAction.parameterName».length; i++ ){
-       «EXPAND m2t_transforms::java_core::Actions FOR this.bodyBehaviour_Loop.steps_Behaviour.findStart()»
-   } 
+// ----------------------------
+// JUnit for UsageScenarios
+// ----------------------------
+
+«AROUND m2t_transforms::usage::TestDefinitionTM FOR ScenarioBehaviour»
+	@org.junit.Test
 «ENDAROUND»
+
+// ----------------------------
+// Resource Demand
+// ----------------------------
+
+«AROUND m2t_transforms::resources::ResourceDemandTM FOR ParametricResourceDemand»
+	«EXPAND m2t_transforms::pojo::resources::ResourceDemand FOR this»
+«ENDAROUND»
+
+// ----------------------------
+// Actions Dispatcher ---> SEFF
+// ----------------------------
+«AROUND m2t_transforms::seff::Action FOR CollectionIteratorAction»
+	«EXPAND m2t_transforms::pojo::seff::Action FOR this»
+«ENDAROUND» 
 
 «AROUND m2t_transforms::seff::Action FOR LoopAction»
-   for (int iterationCount = 0; iterationCount < 0; /* hint: «this.iterations_LoopAction.specification.javaString()»" */ 
-            iterationCount++){
-       «EXPAND m2t_transforms::java_core::Actions FOR this.bodyBehaviour_Loop.steps_Behaviour.findStart()»
-   } 
+	«EXPAND m2t_transforms::pojo::seff::Action FOR this»
 «ENDAROUND»
-
+ 
 «AROUND m2t_transforms::seff::Action FOR BranchAction»
-	«EXPAND m2t_transforms::pojo::Branch FOR this»
+	«EXPAND m2t_transforms::pojo::seff::Action FOR this»
 «ENDAROUND»
 
 «AROUND m2t_transforms::seff::Action FOR InternalAction»
-	// Internal calculation <«this.entityName»>
-	// TODO: Implement me!
-	«FOREACH this.resourceDemand_Action AS demand»
-	// Hint: ResourceDemand of type «demand.requiredResource_ParametricResourceDemand.entityName»
-	//       => «demand.specification»
-	«ENDFOREACH»
+	«EXPAND m2t_transforms::pojo::seff::Action FOR this»
 «ENDAROUND»
 
 «AROUND m2t_transforms::seff::Action FOR AquireAction»
-	// Aquire «this.resourceType_Aquire.entityName»
-	// TODO: Implement code to get the resource
+	«EXPAND m2t_transforms::pojo::seff::Action FOR this»
 «ENDAROUND»
 
 «AROUND m2t_transforms::seff::Action FOR ReleaseAction»
-	// Release «this.resourceType_Release.entityName»
-	// TODO: Implement code to release the resource
+	«EXPAND m2t_transforms::pojo::seff::Action FOR this»
 «ENDAROUND»
+// ----------------------------
+// End of Actions Dispatcher 
+// ----------------------------

@@ -1,37 +1,10 @@
-«EXTENSION m2t_transforms::java_names»
-«EXTENSION m2t_transforms::pcm»
-«IMPORT repository»
-«IMPORT entity»
-«IMPORT system»
-«IMPORT composition»
 «IMPORT allocation»
-«IMPORT resourceenvironment»
-«IMPORT resourcerepository»
 
-«DEFINE Root FOR Allocation»
-	«EXPAND m2t_transforms::resources::ResourceEnvironment FOR this.targetResourceEnvironment_Allocation»
-	«FILE this.fqnAllocationContext().fqnToDirectoryPath()+".java"»
-		package «this.fqnAllocationContextPackage()»;
-		import de.uka.ipd.sdq.simucomframework.Context;
-		import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
-   		import de.uka.ipd.sdq.simucomframework.resources.SimulatedResourceContainer;
-   		import desmoj.core.simulator.SimProcess;
-		 
-		public class «this.fqnAllocationContextClass()» 
-		extends Context {
-			public «this.fqnAllocationContextClass()»(SimuComModel myModel) {
-				super(myModel);
-			}
-			
-			protected void initialiseAssemblyContextLookup() {
-				«EXPAND AssemblyContextLink FOREACH this.allocationContexts_Allocation»
-			}
-		}
-	«ENDFILE»
+// ------------------------------------------------
+// Define a Template Method if you want to generate
+// code/config files for an instance of the allocation model
+// ------------------------------------------------
+«DEFINE AllocationTM FOR Allocation»
+	«ERROR "AllocationTM not defined!"»
 «ENDDEFINE»
 
-// The following rule assumes the current 1:1 relationship between allocation context and
-// assembly context!
-«DEFINE AssemblyContextLink FOR AllocationContext»
-	linkAssemblyContextAndResourceContainer("«this.assemblyContext_AllocationContext.id»","«this.resourceContainer_AllocationContext.id»");
-«ENDDEFINE»

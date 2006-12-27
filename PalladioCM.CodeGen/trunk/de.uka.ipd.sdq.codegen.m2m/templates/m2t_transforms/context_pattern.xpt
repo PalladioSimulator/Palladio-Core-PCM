@@ -19,8 +19,7 @@
 «DEFINE ComponentContextImpl FOR InterfaceRequiringEntity»
    «FILE this.fqnContext().fqnToDirectoryPath()+".java"»
       package «this.fqnContextPackage()»;
-      «EXPAND m2t_transforms::java_core::Import FOREACH this.requiredRoles_InterfaceRequiringEntity.requiredInterface__RequiredRole»
-      «EXPAND m2t_transforms::java_core::ImportsTM FOR this»   
+
       // Component context class for «this.javaName()»
       public class «this.contextClassName()»
       {
@@ -39,7 +38,7 @@
 «ENDDEFINE»
 
 «DEFINE ComponentContextSetter FOR InterfaceRequiringEntity»
-   public void setContext(«this.contextClassName()» myContext) {
+   public void setContext(«this.fqnContext()» myContext) {
       this.myContext = myContext;
       «IF ComposedStructure.isInstance(this)»
       	initInnerComponents();
@@ -60,7 +59,7 @@
 «ENDDEFINE»
 
 «DEFINE ContextInterfaceGetter FOR RequiredRole»
-   public «this.requiredInterface__RequiredRole.javaName()» getRole«this.requiredInterface__RequiredRole.javaName()»() {
+   public «this.requiredInterface__RequiredRole.fqn()» getRole«this.requiredInterface__RequiredRole.javaName()»() {
    	  if («this.requiredInterface__RequiredRole.javaName().toFirstLower()» == null)
    	  	  throw new RuntimeException("Attempt to retrieve unbounded port. Check your architecture!");
       return «this.requiredInterface__RequiredRole.javaName().toFirstLower()»;

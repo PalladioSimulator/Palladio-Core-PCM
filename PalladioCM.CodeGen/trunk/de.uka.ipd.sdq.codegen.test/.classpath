@@ -2,8 +2,11 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/de.uka.ipd.sdq.simucomframework"/>
 	<classpathentry kind="lib" path="lib/desmoj_2.1.1.jar" sourcepath="C:/downloads/desmoj_2.1.1_src"/>
+	<classpathentry kind="lib" path="C:/eclipse3.2.1/eclipse/plugins/org.antlr_2.7.6/antlr.jar"/>
 	<classpathentry kind="con" path="org.eclipse.ajdt.core.ASPECTJRT_CONTAINER"/>
+	<classpathentry kind="lib" path="C:/downloads/logging-log4j-1.2.14/logging-log4j-1.2.14/dist/lib/log4j-1.2.14.jar"/>
+	<classpathentry kind="lib" path="C:/eclipse3.2.1/eclipse/plugins/org.junit4_4.1.0.1/junit-4.1.jar"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/de.uka.ipd.sdq.simucomframework"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

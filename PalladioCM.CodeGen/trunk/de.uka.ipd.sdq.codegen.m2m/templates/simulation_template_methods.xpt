@@ -11,105 +11,6 @@
 «IMPORT parameter»
 «IMPORT qosannotations»
 
-«AROUND m2t_transforms::usage::UsageScenarioParameterTM FOR UsageScenario»
-SimuComModel myModel
-«ENDAROUND»
-
-«AROUND m2t_transforms::usage::UsageScenarioConstructorTM(Allocation a, ProvidedRole pr) FOR UsageScenario»
-		«LET ((System)pr.providingEntity_ProvidedRole) AS system»
-			ctx = new «a.fqnAllocationContext()»(myModel);
-			ctx.getStack().createAndPushNewStackFrame();
-			«system.contextClassName()» context«pr.providingEntity_ProvidedRole.javaName()» = 
-				new «system.contextClassName()»
-					(«EXPAND m2t_transforms::usage::DummyRequiredSystemTM(system) FOREACH system.requiredRoles_InterfaceRequiringEntity SEPARATOR ","»);
-		«ENDLET»
-      	my«pr.providingEntity_ProvidedRole.javaName()».setContext(context«pr.providingEntity_ProvidedRole.javaName()»);
-«ENDAROUND»
-
-«AROUND m2t_transforms::sensors::StartResponseTimeMeasurementTM FOR String»
-	«EXPAND m2t_transforms::sensors::StartResponseTimeMeasurementSim FOR this»	
-«ENDAROUND»
-
-«AROUND m2t_transforms::sensors::EndResponseTimeMeasurementTM FOR String»
-	«EXPAND m2t_transforms::sensors::EndResponseTimeMeasurementSim FOR this»	
-«ENDAROUND»
-
-«AROUND m2t_transforms::usage::StartScenarioRunnerTM FOR ScenarioBehaviour»
-ctx.setSimProcess(thread);
-«ENDAROUND»
-
-«AROUND mt2_transforms::usage::ScenarioRunnerParameterTM FOR ScenarioBehaviour»
-SimProcess thread
-«ENDAROUND»
-
-«AROUND m2t_transforms::usage::UsageClassImplementsTM FOR UsageScenario»
-implements de.uka.ipd.sdq.simucomframework.usage.IScenarioRunner
-«ENDAROUND»
-
-«AROUND m2t_transforms::java_core::ParameterListTM FOR Signature»
-	Context ctx
-«ENDAROUND»
-
-«AROUND m2t_transforms::java_core::ParameterUsageListTM FOR Signature»
-   ctx
-«ENDAROUND»
-
-«AROUND m2t_transforms::java_core::ImportsTM FOR Object»
-   import de.uka.ipd.sdq.simucomframework.Context;
-   import de.uka.ipd.sdq.simucomframework.SimulatedComponent;   
-   import de.uka.ipd.sdq.simucomframework.SimulatedSystem;
-   import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
-   import de.uka.ipd.sdq.simucomframework.resources.SimulatedResourceContainer;
-   import desmoj.core.simulator.SimProcess;
-«ENDAROUND»
-
-«AROUND m2t_transforms::seff::Action FOR CollectionIteratorAction»
-   for (int iterationCount = 0, maxIterationCount = (Integer)ctx.evaluate("«this.parameter_CollectionIteratorAction.parameterName».NUMBER_OF_ELEMENTS",Integer.class); 
-            iterationCount < maxIterationCount; iterationCount++){
-       	de.uka.ipd.sdq.simucomframework.stackframe.SimulatedStackframe loopFrame = ctx.getStack().createAndPushNewStackFrame(ctx.getStack().currentStackFrame());
-       	ctx.evaluateInner(loopFrame, "«this.parameter_CollectionIteratorAction.parameterName».INNER");
-
-       «EXPAND m2t_transforms::java_core::Actions FOR this.bodyBehaviour_Loop.steps_Behaviour.findStart()»
-	   ctx.getStack().removeStackFrame();
-   } 
-«ENDAROUND»
-
-«AROUND m2t_transforms::seff::Action FOR LoopAction»
-   for (int iterationCount = 0, maxIterationCount = (Integer)ctx.evaluate("«this.iterations_LoopAction.specification.javaString()»",Integer.class); 
-            iterationCount < maxIterationCount; iterationCount++){
-       «EXPAND m2t_transforms::java_core::Actions FOR this.bodyBehaviour_Loop.steps_Behaviour.findStart()»
-   } 
-«ENDAROUND»
-
-«AROUND m2t_transforms::seff::Action FOR BranchAction»
-	«EXPAND m2t_transforms::sim::Branch FOR this»
-«ENDAROUND»
-
-«AROUND m2t_transforms::seff::Action FOR InternalAction»
-	«EXPAND m2t_transforms::resources::ResourceDemands FOR this»
-«ENDAROUND»
-
-«AROUND m2t_transforms::seff::Action FOR AquireAction»
-	// Aquire «this.resourceType_Aquire.entityName»
-	«EXPAND m2t_transforms::resources::AquireSim FOR this»
-«ENDAROUND»
-
-«AROUND m2t_transforms::seff::Action FOR ReleaseAction»
-	// Release «this.resourceType_Release.entityName»
-	«EXPAND m2t_transforms::resources::ReleaseSim FOR this»
-«ENDAROUND»
-
-
-
-«AROUND m2t_transforms::usage::AllocationContextTM FOR Allocation»
-	private Context ctx = null;
-«ENDAROUND»
-
-«AROUND m2t_transforms::usage::DummyRequiredSystemTM(System s) FOR RequiredRole»
-	«EXPAND m2t_transforms::dummies::DummyComponent(s) FOR this»
-	new «s.implementationPackage()».«this.fqnDummyComponent()»()
-«ENDAROUND»
-
 «AROUND m2t_transforms::java_core::ComponentConstructorTM FOR ProvidesComponentType»
 	private String assemblyContextID = null;
 	
@@ -122,44 +23,101 @@ implements de.uka.ipd.sdq.simucomframework.usage.IScenarioRunner
 	"«this.id»"
 «ENDAROUND»
 
+«AROUND m2t_transforms::allocation::AllocationTM FOR Allocation»
+	«EXPAND m2t_transforms::sim::allocation::Allocation FOR this»
+«ENDAROUND»
+
+//-------------------------
+// Sensors TM
+//-------------------------
+«AROUND m2t_transforms::sensors::StartResponseTimeMeasurementTM FOR String»
+	«EXPAND m2t_transforms::sim::sensors::StartResponseTimeMeasurement FOR this»	
+«ENDAROUND»
+
+«AROUND m2t_transforms::sensors::EndResponseTimeMeasurementTM FOR String»
+	«EXPAND m2t_transforms::sim::sensors::EndResponseTimeMeasurement FOR this»	
+«ENDAROUND»
+
+//-------------------------
+// Call parameter Template Methods
+//-------------------------
+«AROUND m2t_transforms::java_core::ParameterListTM FOR Signature»
+	de.uka.ipd.sdq.simucomframework.Context ctx
+«ENDAROUND»
+
+«AROUND m2t_transforms::java_core::ParameterUsageListTM FOR Signature»
+	ctx
+«ENDAROUND»
+
+//-------------------------
+// Pre-/Post-Call TM
+//-------------------------
+
 «AROUND m2t_transforms::calls::PreCallTM(List[VariableUsage] parameterUsages) FOR Signature»
-	// Start Simulate an external call
-	{
-	SimulatedStackframe currentFrame = ctx.getStack().currentStackFrame();
-	// prepare stackframe
-	de.uka.ipd.sdq.simucomframework.stackframe.SimulatedStackframe stackframe = ctx.getStack().createAndPushNewStackFrame();
-	«FOREACH parameterUsages AS pu»
-		«LET pu.parameterUsageLHS() AS lhs_prefix»
-			«FOREACH pu.variableCharacterisation_VariableUsage AS vc»
-				«IF pu.namedReference_VariableUsage.isInnerReference()»
-					stackframe.addValue("«lhs_prefix+'.'+vc.type.toString()»",
-					   	new de.uka.ipd.sdq.simucomframework.stoexvisitor.EvaluationProxy("«vc.specification.javaString()»",currentFrame.copyFrame()));
-				«ELSE»
-					stackframe.addValue("«lhs_prefix+'.'+vc.type.toString()»",
-					   	ctx.evaluate("«vc.specification.javaString()»",currentFrame));
-				«ENDIF»
-			«ENDFOREACH»
-		«ENDLET»
-	«ENDFOREACH» 
-	«EXPAND m2t_transforms::sensors::StartResponseTimeMeasurementSim FOR "Usage_"+this.javaSignature()»
+	«EXPAND m2t_transforms::sim::calls::PreCall(parameterUsages) FOR this»
 «ENDAROUND»
-
+ 
 «AROUND m2t_transforms::calls::PostCallTM FOR Signature»
-	«EXPAND m2t_transforms::sensors::EndResponseTimeMeasurementSim FOR "Usage_"+this.javaSignature()»
- 	ctx.getStack().removeStackFrame();
-	}
-	// END Simulate an external call
+	«EXPAND m2t_transforms::sim::calls::PostCall FOR this»
 «ENDAROUND»
 
-«AROUND DummyMethodBodyTM(System s,RequiredRole r) FOR Signature»
-	«LET s.qosAnnotations_System.specifiedExecutionTimes_QoSAnnotations.select(spet|spet.role_SpecifiedExecutionTime==r && spet.signature_SpecifiedTimeConsumption==this) AS annotations»
-		«IF annotations.size == 1»
-			double delay = (Double)ctx.evaluate("«annotations.get(0).specification.javaString()»");
-			ctx.getThread().hold(new desmoj.core.simulator.SimTime(delay));
-		«ENDIF»
-	«ENDLET»
+// ----------------------------
+// Resource Demand
+// ----------------------------
+
+«AROUND m2t_transforms::resources::ResourceDemandTM FOR ParametricResourceDemand»
+	«EXPAND m2t_transforms::sim::resources::ResourceDemand FOR this»
 «ENDAROUND»
 
-«AROUND m2t_transforms::usage::ScenarioRunnerParameterTM FOR ScenarioBehaviour»
-	SimProcess thread
+// ----------------------------
+// Actions Dispatcher ---> SEFF
+// ----------------------------
+«AROUND m2t_transforms::seff::Action FOR CollectionIteratorAction»
+	«EXPAND m2t_transforms::sim::seff::Action FOR this»
+«ENDAROUND» 
+
+«AROUND m2t_transforms::seff::Action FOR LoopAction»
+	«EXPAND m2t_transforms::sim::seff::Action FOR this»
+«ENDAROUND»
+ 
+«AROUND m2t_transforms::seff::Action FOR BranchAction»
+	«EXPAND m2t_transforms::sim::seff::Action FOR this»
+«ENDAROUND»
+
+«AROUND m2t_transforms::seff::Action FOR InternalAction»
+	«EXPAND m2t_transforms::sim::seff::Action FOR this»
+«ENDAROUND»
+
+«AROUND m2t_transforms::seff::Action FOR AquireAction»
+	«EXPAND m2t_transforms::sim::seff::Action FOR this»
+«ENDAROUND»
+
+«AROUND m2t_transforms::seff::Action FOR ReleaseAction»
+	«EXPAND m2t_transforms::sim::seff::Action FOR this»
+«ENDAROUND»
+// ----------------------------
+// End of Actions Dispatcher 
+// ----------------------------
+
+//-----------------------------
+// Dummies TM
+//-----------------------------
+«AROUND m2t_transforms::usage::DummyRequiredSystemTM(System s) FOR RequiredRole»
+	«EXPAND m2t_transforms::dummies::DummyComponent(s) FOR this»
+	new «s.implementationPackage()».«this.fqnDummyComponent()»()
+«ENDAROUND»
+
+«AROUND m2t_transforms::dummies::DummyMethodBodyTM(System s,RequiredRole r) FOR Signature»
+	«EXPAND m2t_transforms::sim::dummies::DummyMethodBody(s,r) FOR this»
+«ENDAROUND»
+
+//-----------------------------
+// Usage TM
+//-----------------------------
+«AROUND m2t_transforms::usage::MainTM FOR UsageModel»
+	«EXPAND m2t_transforms::sim::usage::Main FOR this»
+«ENDAROUND»
+
+«AROUND m2t_transforms::usage::UsageScenarioTM(Allocation a) FOR UsageScenario»
+	«EXPAND m2t_transforms::sim::usage::UsageScenario(a) FOR this»
 «ENDAROUND»

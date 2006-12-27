@@ -1,0 +1,41 @@
+«EXTENSION m2t_transforms::java_names»
+«EXTENSION m2t_transforms::pcm»
+«IMPORT system»
+«IMPORT composition»
+«IMPORT usagemodel»
+«IMPORT entity»
+«IMPORT repository»
+«IMPORT parameter»
+
+«DEFINE PreCall(List[VariableUsage] parameterUsages) FOR Signature»
+	«EXPAND PrepareSimulatedStackFrame(parameterUsages) FOR this»
+	«EXPAND m2t_transforms::sensors::StartResponseTimeMeasurementTM FOR "Usage_"+this.javaSignature()»
+«ENDDEFINE»
+
+«DEFINE PrepareSimulatedStackFrame(List[VariableUsage] parameterUsages) FOR Signature»
+	// Start Simulate an external call
+	{
+	de.uka.ipd.sdq.simucomframework.stackframe.SimulatedStackframe currentFrame = ctx.getStack().currentStackFrame();
+	// prepare stackframe
+	de.uka.ipd.sdq.simucomframework.stackframe.SimulatedStackframe stackframe = ctx.getStack().createAndPushNewStackFrame();
+	«FOREACH parameterUsages AS pu»
+		«LET pu.parameterUsageLHS() AS lhs_prefix»
+			«FOREACH pu.variableCharacterisation_VariableUsage AS vc»
+				«IF pu.namedReference_VariableUsage.isInnerReference()»
+					stackframe.addValue("«lhs_prefix+'.'+vc.type.toString()»",
+					   	new de.uka.ipd.sdq.simucomframework.stoexvisitor.EvaluationProxy("«vc.specification.javaString()»",currentFrame.copyFrame()));
+				«ELSE»
+					stackframe.addValue("«lhs_prefix+'.'+vc.type.toString()»",
+					   	ctx.evaluate("«vc.specification.javaString()»",currentFrame));
+				«ENDIF»
+			«ENDFOREACH»
+		«ENDLET»
+	«ENDFOREACH» 
+«ENDDEFINE»
+
+«DEFINE PostCall FOR Signature»
+	«EXPAND m2t_transforms::sensors::EndResponseTimeMeasurementTM FOR "Usage_"+this.javaSignature()»
+ 	ctx.getStack().removeStackFrame();
+	}
+	// END Simulate an external call
+«ENDDEFINE»

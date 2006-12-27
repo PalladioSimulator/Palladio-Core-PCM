@@ -1,14 +1,3 @@
-«DEFINE StartResponseTimeMeasurementSim FOR String»
-	// Start a resonse time measurement
-	double startTime«this» = ctx.getModel().currentTime().getTimeValue();
-«ENDDEFINE»
-
-«DEFINE EndResponseTimeMeasurementSim FOR String»
-	// Stop the resonse time measurement
-	ctx.getModel().getSensorFactory().addMeasurement("Response Time of «this»",
-		ctx.getModel().currentTime().getTimeValue()-startTime«this»);
-«ENDDEFINE»
-
 «DEFINE StartResponseTimeMeasurementTM FOR String»
 «ENDDEFINE»
 

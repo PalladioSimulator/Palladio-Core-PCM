@@ -9,11 +9,9 @@
 «DEFINE DummyComponent(System s) FOR RequiredRole»
 	«FILE (s.implementationPackage()+"."+this.fqnDummyComponent()).fqnToDirectoryPath()+".java"»
 		package «s.implementationPackage()».«this.fqnDummyComponentPackage()»;
-		«EXPAND m2t_transforms::java_core::Import FOR this.requiredInterface__RequiredRole»
-		«EXPAND m2t_transforms::java_core::ImportsTM FOR this»   
 		
 		public class «this.dummyComponentName()» 
-		implements «this.requiredInterface__RequiredRole.javaName()» {
+		implements «this.requiredInterface__RequiredRole.fqn()» {
 			«EXPAND DummyMethod(s,this) FOREACH this.requiredInterface__RequiredRole.signatures__Interface»
 		}
 	«ENDFILE»
@@ -25,6 +23,11 @@
 	}
 «ENDDEFINE»
 
+//---------------------------------------------
+// Template method to generate code for the body
+// of dummy components attached to the unbound
+// system required roles
+//---------------------------------------------
 «DEFINE DummyMethodBodyTM(System s,RequiredRole r) FOR Signature»
 	// No implementation provided yet
 «ENDDEFINE»

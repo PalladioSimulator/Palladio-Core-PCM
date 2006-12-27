@@ -5,17 +5,6 @@
 «IMPORT system»
 «IMPORT entity»
 
-«DEFINE ImportsTM FOR Entity»
-«ENDDEFINE»
-
-«DEFINE Import FOR Entity»
-      import «this.fqn()»;
-«ENDDEFINE»
-
-«DEFINE Import FOR String»
-      import «this»;
-«ENDDEFINE»
-
 «DEFINE ClassHeader FOR ProvidesComponentType»
 public class «this.javaName()»
 «ENDDEFINE»
@@ -65,7 +54,9 @@ public class «this.javaName()»
    public «EXPAND ReturnType FOR this.describedService__SEFF»
       «this.describedService__SEFF.interface_Signature.javaName().toFirstLower()»_«this.describedService__SEFF.javaSignature()»
          («EXPAND ParameterListTM FOR this.describedService__SEFF») {
+      «PROTECT CSTART '/*' CEND '*/' ID this.id»
       «EXPAND Actions FOR this.steps_Behaviour.findStart()»      
+      «ENDPROTECT»
    }   
 «ENDDEFINE»
 
@@ -82,12 +73,7 @@ public class «this.javaName()»
 // ComposedStructure
 «DEFINE ComponentImplementation FOR ProvidesComponentType»
    package «this.implementationPackage()»;
-   
-   «EXPAND ImportsTM FOR this»
-   «EXPAND Import FOREACH this.providedRoles_InterfaceProvidingEntity.fqnPort()»
-   «EXPAND Import FOREACH this.providedRoles_InterfaceProvidingEntity.providedInterface__ProvidedRole»
-   import «this.fqnContext()»;
-   
+      
    «EXPAND m2t_transforms::java_core::ClassHeader FOR this»
    «EXPAND SuperClassesTM FOR this»
    {

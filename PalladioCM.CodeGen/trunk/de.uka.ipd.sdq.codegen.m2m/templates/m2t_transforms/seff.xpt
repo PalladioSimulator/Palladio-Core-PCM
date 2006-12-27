@@ -2,6 +2,9 @@
 «EXTENSION m2t_transforms::pcm»
 «IMPORT seff»
 
+// ----------------------------
+// General templates for parts of a SEFF
+// ----------------------------
 «DEFINE Action FOR AbstractAction»
    // Unknown Action found «this.entityName»
    «ERROR "Abstract Action Unknown: "+this.metaType.toString()»

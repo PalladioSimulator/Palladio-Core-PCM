@@ -7,6 +7,11 @@
 «IMPORT repository»
 «IMPORT parameter»
 
+//-----------------------------------
+// Templates for the call to an external method
+// An instance of a port can be passed as prefix
+// The list of parameter usages characterises the paramter contents
+// ----------------------------------
 «DEFINE Call(String prefix, List[VariableUsage] parameterUsages) FOR Signature»
 	«EXPAND PreCallTM(parameterUsages) FOR this»
    	«prefix»«this.javaSignature()» 
@@ -14,8 +19,17 @@
 	«EXPAND PostCallTM FOR this»
 «ENDDEFINE»
 
+// ----------------------------------
+// Template method for code to be executed before 
+// an external call
+// ----------------------------------
 «DEFINE PreCallTM(List[VariableUsage] parameterUsages) FOR Signature»
 «ENDDEFINE»
 
+
+// ----------------------------------
+// Template method for code to be executed after 
+// an external call
+// ----------------------------------
 «DEFINE PostCallTM FOR Signature»
 «ENDDEFINE»

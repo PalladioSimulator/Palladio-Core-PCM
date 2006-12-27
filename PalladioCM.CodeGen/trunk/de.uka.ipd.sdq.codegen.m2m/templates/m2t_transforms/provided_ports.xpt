@@ -27,18 +27,15 @@
 «DEFINE PortImplFile FOR ProvidedRole»
    «FILE this.fqnPortPackage().fqnToDirectoryPath()+"/"+this.portClassName()+".java"»
 	  package «this.fqnPortPackage()»;
-	  import «this.providedInterface__ProvidedRole.fqn()»;
-	  import «this.providingEntity_ProvidedRole.fqn()»;
       «EXPAND PortImpl FOR this»
    «ENDFILE» 
 «ENDDEFINE»
 
 «DEFINE PortImpl FOR ProvidedRole»
-	  «EXPAND m2t_transforms::java_core::ImportsTM FOR this»   
 	  // Port class for «this.portClassName()»
-	  public class «this.portClassName()» implements «this.providedInterface__ProvidedRole.javaName()»
+	  public class «this.portClassName()» implements «this.providedInterface__ProvidedRole.fqn()»
 	  {
-	     protected «this.providingEntity_ProvidedRole.javaName()» myComponent = null;
+	     protected «this.providingEntity_ProvidedRole.fqn()» myComponent = null;
 	     
 	     public «this.portClassName()»(«this.providingEntity_ProvidedRole.javaName()» myComponent){
 	        this.myComponent = myComponent;
@@ -55,11 +52,11 @@
 «ENDDEFINE»
 
 «DEFINE PortMemberVars FOR ProvidedRole»
-    protected «this.portClassName()» «this.portMemberVar()» = new «this.portClassName()»(this);
+    protected «this.fqnPort()» «this.portMemberVar()» = new «this.fqnPort()»(this);
 «ENDDEFINE»
 
 «DEFINE ContextPortGetter(ComposedStructure cs) FOR ProvidedRole»
-   public «this.providedInterface__ProvidedRole.javaName()» «this.portGetter()» () {
+   public «this.providedInterface__ProvidedRole.fqn()» «this.portGetter()» () {
       return 
 		«IF cs.hasProvidedDelegationConnector(this)»
 			my«cs.getProvidedDelegationConnector(this).childComponentContext_ProvidedDelegationConnector.javaName()».
@@ -71,7 +68,7 @@
 «ENDDEFINE»
 
 «DEFINE PortGetter FOR ProvidedRole»
-   public «this.providedInterface__ProvidedRole.javaName()» «this.portGetter()» () {
+   public «this.providedInterface__ProvidedRole.fqn()» «this.portGetter()» () {
       return «this.portMemberVar()»;
    }
 «ENDDEFINE»

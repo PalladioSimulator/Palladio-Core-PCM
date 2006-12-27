@@ -57,6 +57,8 @@
 		<beautifier class="org.hybridlabs.source.formatter.JavaImportBeautifier"
 			organizeImports="true"
 			format="true"/>	
+		<!-- protected regions configuration -->
+		<prSrcPaths value="${outpath}"/>
 	</component>	
 
 	<component adviceTarget="generator" id="reflectionAdvice" class="oaw.xpand2.GeneratorAdvice">

@@ -18,9 +18,7 @@
 «DEFINE InterfaceFile FOR Interface»
    «FILE this.getFileName()»
       package «this.repository_Interface.basePackageName()»;
-      
-      «EXPAND m2t_transforms::java_core::ImportsTM FOR this»   
-      
+            
       public interface «this.javaName()» {
 	         «EXPAND m2t_transforms::java_core::Signature FOREACH this.signatures__Interface SEPARATOR ";"»;
       }

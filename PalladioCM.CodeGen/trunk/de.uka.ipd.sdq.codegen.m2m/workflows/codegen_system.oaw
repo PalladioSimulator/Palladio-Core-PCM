@@ -57,7 +57,7 @@
 		<advices value="${aop_templates}"/>
 	</component>	
 
-	<component id="generator" class="oaw.xpand2.Generator" skipOnErrors="true">
+	<component id="generator2" class="oaw.xpand2.Generator" skipOnErrors="true">
 		<fileEncoding value="ISO-8859-1"/>
 	    <metaModel id="pcm.repository.emf" class="oaw.type.emf.EmfMetaModel">
 			<metaModelPackage value="de.uka.ipd.sdq.pcm.repository.RepositoryPackage"/>
@@ -92,7 +92,7 @@
 		<metaModel id="pcm.core.composition.emf" class="oaw.type.emf.EmfMetaModel">
 			<metaModelPackage value="de.uka.ipd.sdq.pcm.parameter.ParameterPackage"/>
 		</metaModel>
-		<expand value="m2t_transforms::allocation::Root FOR allocation"/>
+		<expand value="m2t_transforms::allocation::AllocationTM FOR allocation"/>
 			<outlet path="${outpath}">
 			</outlet>
 	    	<beautifier class="org.hybridlabs.source.formatter.JavaImportBeautifier"
@@ -100,7 +100,7 @@
 				format="true"/>	
 	</component>	
 
-	<component adviceTarget="generator" id="reflectionAdvice" class="oaw.xpand2.GeneratorAdvice">
+	<component adviceTarget="generator2" id="reflectionAdvice" class="oaw.xpand2.GeneratorAdvice">
 		<advices value="${aop_templates}"/>
 	</component>	
 </workflow>
