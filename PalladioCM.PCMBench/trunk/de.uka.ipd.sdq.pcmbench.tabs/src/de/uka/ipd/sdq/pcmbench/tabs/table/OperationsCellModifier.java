@@ -3,8 +3,6 @@ package de.uka.ipd.sdq.pcmbench.tabs.table;
 import java.util.Arrays;
 import java.util.List;
 
-import javax.swing.text.TableView;
-
 import org.eclipse.core.runtime.Assert;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.transaction.RecordingCommand;
@@ -36,12 +34,9 @@ public class OperationsCellModifier implements ICellModifier {
 	final protected TransactionalEditingDomain editingDomain = TransactionalEditingDomain.Registry.INSTANCE
 			.getEditingDomain(EditingDomainFactory.EDITING_DOMAIN_ID);
 
-	private OperationsTabViewer operationsTabViewer;
-
-	public OperationsCellModifier(OperationsTabViewer operationsTabViewer) {
+	public OperationsCellModifier() {
 		this.columnNames = Arrays.asList(OperationsTabResources
 				.getOperationsTableColumn());
-		this.operationsTabViewer = operationsTabViewer;
 	}
 
 	/*
@@ -121,12 +116,12 @@ public class OperationsCellModifier implements ICellModifier {
 			recCommand.setDescription("Edit Signature Property");
 			recCommand.setLabel("Set return type");
 			editingDomain.getCommandStack().execute(recCommand);
-			reloadTableViewer();
+			reloadOperationsViewer();
 		}
 		
 	}
 	
-	private void reloadTableViewer(){
-		operationsTabViewer.getTableViewer().refresh();
+	private void reloadOperationsViewer(){
+		OperationsTabResources.getOperationsViewer().refresh();
 	}
 }

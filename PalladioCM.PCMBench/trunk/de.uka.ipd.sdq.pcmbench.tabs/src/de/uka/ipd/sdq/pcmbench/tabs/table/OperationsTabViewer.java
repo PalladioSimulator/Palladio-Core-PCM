@@ -21,32 +21,22 @@ import org.eclipse.swt.widgets.ToolBar;
 import org.eclipse.swt.widgets.ToolItem;
 
 import de.uka.ipd.sdq.pcm.repository.Signature;
-import de.uka.ipd.sdq.pcmbench.tabs.dialog.DataTypeDialogCellEditor;
-import de.uka.ipd.sdq.pcmbench.tabs.dialog.ParametersDialogCellEditor;
-import de.uka.ipd.sdq.pcmbench.tabs.dialog.ParametersDialogViewer;
+import de.uka.ipd.sdq.pcmbench.tabs.dialogs.ParametersDialogViewer;
+import de.uka.ipd.sdq.pcmbench.tabs.dialogs.ReturnTypeDialogCellEditor;
 
 public class OperationsTabViewer {
 
 	private TableViewer tableViewer;
-
 	private Table table;
-
 	private ToolBar toolBar;
-
 	private ToolItem addItem, deleteItem;
-
 	private Signature selectedSignature;
-
 	private String[] columnNames;
 
 	public static final int ICON_COLUMN_INDEX = 0;
-
 	public static final int RETURNTYPE_COLUMN_INDEX = 1;
-
 	public static final int SIGNATURENAME_COLUMN_INDEX = 2;
-
 	public static final int PARAMETER_COLUMN_INDEX = 3;
-
 	public static final int EXCEPTIONS_COLUMN_INDEX = 4;
 
 	public OperationsTabViewer(Composite composite) {
@@ -110,14 +100,21 @@ public class OperationsTabViewer {
 		textEditor = new TextCellEditor(table);
 		editors[EXCEPTIONS_COLUMN_INDEX] = textEditor;
 
-		editors[RETURNTYPE_COLUMN_INDEX] = new DataTypeDialogCellEditor(table);
+		editors[RETURNTYPE_COLUMN_INDEX] = new ReturnTypeDialogCellEditor(table);
 
-		editors[PARAMETER_COLUMN_INDEX] = new ParametersDialogCellEditor(table,
-				OperationsTabResources.OWNEDPARAMETER_COLUMN, this);
+		editors[PARAMETER_COLUMN_INDEX] = new DialogCellEditor(table){
+			@Override
+			protected Object openDialogBox(Control cellEditorWindow) {
+				ParametersDialogViewer dialog = new ParametersDialogViewer(
+						cellEditorWindow.getShell(), OperationsTabResources.OWNEDPARAMETER_COLUMN);
+				
+				return dialog.open();
+			}
+		};
 
 		// Assign the cell editors to the viewe
 		tableViewer.setCellEditors(editors);
-		tableViewer.setCellModifier(new OperationsCellModifier(this));
+		tableViewer.setCellModifier(new OperationsCellModifier());
 		tableViewer
 				.addSelectionChangedListener(new ISelectionChangedListener() {
 
@@ -136,11 +133,14 @@ public class OperationsTabViewer {
 
 							(DeleteActionListener.getSingelton())
 									.setSelectedSignature(selectedSignature);
+							//TODO
+							OperationsTabResources.setEditedSignature(selectedSignature);
 
 						} else
 							deleteItem.setEnabled(false);
 					}
 				});
+		OperationsTabResources.setOperationsViewer(tableViewer);
 	}
 
 	public void createToolBar(Composite composite) {

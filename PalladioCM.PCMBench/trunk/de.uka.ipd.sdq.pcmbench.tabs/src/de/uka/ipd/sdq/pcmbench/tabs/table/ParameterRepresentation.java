@@ -9,7 +9,6 @@ import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import de.uka.ipd.sdq.pcm.repository.DataType;
 import de.uka.ipd.sdq.pcm.repository.ExceptionType;
 import de.uka.ipd.sdq.pcm.repository.Parameter;
-import de.uka.ipd.sdq.pcmbench.ui.provider.RepositoryPrinter;
 
 /**
  * @author roman
@@ -39,10 +38,9 @@ public class ParameterRepresentation {
 	public String setParametersToString(EList parameters) {
 
 		String result = "";
-		RepositoryPrinter reposPrinter = new RepositoryPrinter();
 
 		for (Iterator<Parameter> it = parameters.iterator(); it.hasNext();) {
-			result += (String) reposPrinter.caseParameter(it.next()) + ", ";
+			result += it.next().getParameterName() + ", ";
 		}
 		return deleteComma(result);
 	}

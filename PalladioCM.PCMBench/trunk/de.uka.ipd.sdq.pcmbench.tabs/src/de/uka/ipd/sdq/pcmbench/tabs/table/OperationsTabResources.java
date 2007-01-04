@@ -3,7 +3,10 @@ package de.uka.ipd.sdq.pcmbench.tabs.table;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.resource.ImageRegistry;
+import org.eclipse.jface.viewers.TableViewer;
 
+import de.uka.ipd.sdq.pcm.repository.Parameter;
+import de.uka.ipd.sdq.pcm.repository.Signature;
 import de.uka.ipd.sdq.pcmbench.tabs.PCMBenchTabsActivator;
 
 /**
@@ -21,7 +24,16 @@ public class OperationsTabResources {
 	 */
 	private static AdapterFactory operationsDecoratedFactory;
 	private static AdapterFactory attributeDecoratedFactory;
-
+	
+	// TODO
+	private static Signature editedSignature;
+	private static Parameter editedParameter;
+	
+	/**
+	 * Operations TableViewer
+	 */
+	private static TableViewer operationsViewer;
+	private static TableViewer parametersViewer;
 	/**
 	 * Names of images used to represent actions in ToolBar
 	 */
@@ -130,5 +142,61 @@ public class OperationsTabResources {
 	public static void setAttributeDecoratedFactory(
 			AdapterFactory attributeDecoratedFactory) {
 		OperationsTabResources.attributeDecoratedFactory = attributeDecoratedFactory;
+	}
+
+	/**
+	 * @return the viewer
+	 */
+	public static TableViewer getOperationsViewer() {
+		return operationsViewer;
+	}
+
+	/**
+	 * @param viewer the viewer to set
+	 */
+	public static void setOperationsViewer(TableViewer viewer) {
+		OperationsTabResources.operationsViewer = viewer;
+	}
+
+	/**
+	 * @return the parametersViewer
+	 */
+	public static TableViewer getParametersViewer() {
+		return parametersViewer;
+	}
+
+	/**
+	 * @param parametersViewer the parametersViewer to set
+	 */
+	public static void setParametersViewer(TableViewer parametersViewer) {
+		OperationsTabResources.parametersViewer = parametersViewer;
+	}
+
+	/**
+	 * @return the editedSignature
+	 */
+	public static Signature getEditedSignature() {
+		return editedSignature;
+	}
+
+	/**
+	 * @param editedSignature the editedSignature to set
+	 */
+	public static void setEditedSignature(Signature editedSignature) {
+		OperationsTabResources.editedSignature = editedSignature;
+	}
+
+	/**
+	 * @return the editedParameter
+	 */
+	public static Parameter getEditedParameter() {
+		return editedParameter;
+	}
+
+	/**
+	 * @param editedParameter the editedParameter to set
+	 */
+	public static void setEditedParameter(Parameter editedParameter) {
+		OperationsTabResources.editedParameter = editedParameter;
 	}
 }
