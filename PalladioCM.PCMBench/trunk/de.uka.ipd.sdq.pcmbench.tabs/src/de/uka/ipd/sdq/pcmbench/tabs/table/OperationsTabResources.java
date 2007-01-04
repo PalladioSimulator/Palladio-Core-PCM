@@ -1,6 +1,7 @@
 package de.uka.ipd.sdq.pcmbench.tabs.table;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
+import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.resource.ImageRegistry;
 import org.eclipse.jface.viewers.TableViewer;
@@ -28,6 +29,9 @@ public class OperationsTabResources {
 	// TODO
 	private static Signature editedSignature;
 	private static Parameter editedParameter;
+	
+	// Set the current resource, which edit to are selected.
+	private static Resource editedResource;
 	
 	/**
 	 * Operations TableViewer
@@ -198,5 +202,19 @@ public class OperationsTabResources {
 	 */
 	public static void setEditedParameter(Parameter editedParameter) {
 		OperationsTabResources.editedParameter = editedParameter;
+	}
+
+	/**
+	 * @return the editedResource
+	 */
+	public static Resource getEditedResource() {
+		return editedResource;
+	}
+
+	/**
+	 * @param editedResource the editedResource to set
+	 */
+	public static void setEditedResource(Resource editedResource) {
+		OperationsTabResources.editedResource = editedResource;
 	}
 }
