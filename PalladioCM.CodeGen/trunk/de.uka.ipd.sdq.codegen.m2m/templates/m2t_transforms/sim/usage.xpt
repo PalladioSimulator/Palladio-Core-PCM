@@ -75,21 +75,9 @@ de.uka.ipd.sdq.simucomframework.usage.OpenWorkload(getModel(),
 
 «DEFINE UsageScenarioConstructor(Allocation a) FOR UsageScenario»
 public «this.javaName()»(de.uka.ipd.sdq.simucomframework.model.SimuComModel model) {
-	«FOREACH this.querySystemCalls().providedRole_EntryLevelSystemCall.toSet() AS pr»
-		«pr.providingEntity_ProvidedRole.fqn()» my«pr.providingEntity_ProvidedRole.javaName()» = new «pr.providingEntity_ProvidedRole.fqn()»();
-		«EXPAND UsageScenarioConstructor(a,pr) FOR this»
-		«pr.portMemberVar()» = my«pr.providingEntity_ProvidedRole.javaName()».«pr.portGetter()»();
-	«ENDFOREACH»
+	ctx = new «a.fqnAllocationContext()»(model);
+	ctx.getStack().createAndPushNewStackFrame();
+	«EXPAND m2t_transforms::usage::UsageScenarioConstructorContextInit(a) FOR this»
 }
 «ENDDEFINE»
 
-«DEFINE UsageScenarioConstructor(Allocation a, ProvidedRole pr) FOR UsageScenario»
-		«LET ((System)pr.providingEntity_ProvidedRole) AS system»
-			ctx = new «a.fqnAllocationContext()»(model);
-			ctx.getStack().createAndPushNewStackFrame();
-			«system.fqnContext()» context«pr.providingEntity_ProvidedRole.javaName()» = 
-				new «system.fqnContext()»
-					(«EXPAND m2t_transforms::usage::DummyRequiredSystemTM(system) FOREACH system.requiredRoles_InterfaceRequiringEntity SEPARATOR ","»);
-		«ENDLET»
-      	my«pr.providingEntity_ProvidedRole.javaName()».setContext(context«pr.providingEntity_ProvidedRole.javaName()»);
-«ENDDEFINE»

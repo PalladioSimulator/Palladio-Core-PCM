@@ -1,8 +1,15 @@
 «EXTENSION m2t_transforms::java_names»
 «EXTENSION m2t_transforms::pcm»
+«IMPORT system»
+«IMPORT composition»
+«IMPORT usagemodel»
+«IMPORT entity»
 «IMPORT repository»
 «IMPORT seff»
-«IMPORT usagemodel»
+«IMPORT resourcetype»
+«IMPORT allocation»
+«IMPORT parameter»
+«IMPORT qosannotations»
 
 // ----------------------------
 // Parameter
@@ -60,3 +67,14 @@
 // ----------------------------
 // End of Actions Dispatcher 
 // ----------------------------
+
+//-----------------------------
+// Usage TM
+//-----------------------------
+«AROUND m2t_transforms::usage::MainTM FOR UsageModel»
+ 	«EXPAND m2t_transforms::pojo::usage::Main FOR this»
+«ENDAROUND»
+
+«AROUND m2t_transforms::usage::UsageScenarioTM(Allocation a) FOR UsageScenario»
+	«EXPAND m2t_transforms::pojo::usage::UsageScenario(a) FOR this»
+«ENDAROUND»

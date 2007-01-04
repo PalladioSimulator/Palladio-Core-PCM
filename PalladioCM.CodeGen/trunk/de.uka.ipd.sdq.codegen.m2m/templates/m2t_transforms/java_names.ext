@@ -90,6 +90,9 @@ fqn(ProvidesComponentType c) :
 
 fqn(ComposedStructure s) :
   s.implementationPackage()+"."+s.javaName();
+
+fqn(UsageScenario us) :
+  us.implementationPackage()+"."+us.javaName();
  
 fqnContextPackage(Entity c) :
   c.implementationPackage()+".contexts";

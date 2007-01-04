@@ -35,9 +35,13 @@ public abstract class Context {
 	private SimuComModel myModel = null;
 	
 	public Context(SimuComModel myModel) {
-		this.registry = myModel.getResourceRegistry();
-		this.myModel = myModel;
-		initialiseAssemblyContextLookup();
+		if (myModel != null) { // This is for the prototype mapping, where we don't need resources
+			this.registry = myModel.getResourceRegistry();
+			this.myModel = myModel;
+			initialiseAssemblyContextLookup();
+		} else {
+			stack.createAndPushNewStackFrame();
+		}
 	}
 
 	public Object evaluate(String string, Class expectedType) {
