@@ -1,4 +1,4 @@
-package de.uka.ipd.sdq.simucomframework.cache;
+package de.uka.ipd.sdq.simucomframework.variables.cache;
 
 import java.io.StringReader;
 
@@ -8,7 +8,7 @@ import antlr.RecognitionException;
 import antlr.TokenStreamException;
 import de.uka.ipd.sdq.pcm.stochasticexpressions.parser.PCMStoExParser;
 import de.uka.ipd.sdq.probfunction.math.IProbabilityFunction;
-import de.uka.ipd.sdq.simucomframework.stoexvisitor.SimulationExpressionInferTypeVisitor;
+import de.uka.ipd.sdq.simucomframework.variables.stoexvisitor.SimulationExpressionInferTypeVisitor;
 import de.uka.ipd.sdq.stoex.Expression;
 import de.uka.ipd.sdq.stoex.analyser.visitors.ExpressionInferTypeVisitor;
 import de.uka.ipd.sdq.stoex.analyser.visitors.TypeEnum;

@@ -72,16 +72,33 @@ public class «this.javaName()»
 // Polymorphic switch to generate different thing for {Basic,Complete and Provides}-Types and for
 // ComposedStructure
 «DEFINE ComponentImplementation FOR ProvidesComponentType»
+   «EXPAND ComponentImplementationInterface FOR this»
    package «this.implementationPackage()»;
       
    «EXPAND m2t_transforms::java_core::ClassHeader FOR this»
    «EXPAND SuperClassesTM FOR this»
+   implements «this.fqnInterface()»
    {
    	  «EXPAND ComponentConstructorTM FOR this» 
       «EXPAND m2t_transforms::provided_ports::ProvidedPorts FOR this»
       «EXPAND m2t_transforms::context_pattern::RequiredInterfaces FOR this»
       «EXPAND InnerImplementation FOR this»
    }
+   «EXPAND ComponentImplementationChildClassTM FOR this»
+«ENDDEFINE»
+
+«DEFINE ComponentImplementationInterface FOR InterfaceProvidingEntity»
+	«FILE this.fqnInterface().fqnToDirectoryPath()+'.java'»
+		package «this.implementationPackage()»;
+	      
+		public interface «this.interfaceName()»
+	    {
+	   		«EXPAND m2t_transforms::provided_ports::ComponentPortGetter FOREACH this.providedRoles_InterfaceProvidingEntity»
+	    }
+	«ENDFILE»
+«ENDDEFINE»
+
+«DEFINE ComponentImplementationChildClassTM FOR ProvidesComponentType»
 «ENDDEFINE»
 
 «DEFINE SuperClassesTM FOR ProvidesComponentType»

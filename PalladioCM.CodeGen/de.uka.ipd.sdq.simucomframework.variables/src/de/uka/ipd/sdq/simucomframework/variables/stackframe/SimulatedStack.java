@@ -1,4 +1,4 @@
-package de.uka.ipd.sdq.simucomframework.stackframe;
+package de.uka.ipd.sdq.simucomframework.variables.stackframe;
 
 import java.util.Stack;
 

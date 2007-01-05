@@ -1,4 +1,4 @@
-package de.uka.ipd.sdq.simucomframework.cache;
+package de.uka.ipd.sdq.simucomframework.variables.cache;
 
 import java.util.HashMap;
 

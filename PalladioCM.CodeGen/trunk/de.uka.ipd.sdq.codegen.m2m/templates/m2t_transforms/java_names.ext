@@ -105,7 +105,19 @@ fqnPortPackage(ProvidedRole pr) :
 
 fqnPort(ProvidedRole pr) :
   pr.providingEntity_ProvidedRole.implementationPackage()+".ports."+pr.portClassName();
-  
+
+fqnBean(ProvidesComponentType c) :
+  c.fqn()+'Bean';
+
+beanName(ProvidesComponentType c) :
+  c.javaName()+'Bean';
+
+fqnInterface(InterfaceProvidingEntity c) :
+  c.implementationPackage()+'.I'+c.javaName();
+
+interfaceName(InterfaceProvidingEntity c) :
+  'I'+c.javaName();
+    
 dummyComponentName(RequiredRole rr):
 	rr.requiredInterface__RequiredRole.javaName()+"Dummy";
 

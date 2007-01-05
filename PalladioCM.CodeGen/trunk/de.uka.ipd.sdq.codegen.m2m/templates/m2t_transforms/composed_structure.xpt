@@ -1,6 +1,7 @@
 «IMPORT system»
 «IMPORT composition»
 «IMPORT repository»
+«IMPORT entities»
 «EXTENSION m2t_transforms::pcm»
 «EXTENSION m2t_transforms::java_names»
  
@@ -11,9 +12,13 @@
  // assembly contexts
  //-------------------------------------
 «DEFINE ComposedStructureStart FOR ComposedStructure»
+   «EXPAND m2t_transforms::java_core::ComponentImplementationInterface FOR this»
+ 
    package «this.implementationPackage()»;
   
-   public class «this.className()» {
+   public class «this.className()» 
+   implements «this.fqnInterface()»
+   {
       «EXPAND m2t_transforms::composed_structure::InnerImplementation FOR this»
 «ENDDEFINE»
 
@@ -37,18 +42,24 @@
 «DEFINE ChildMemberVar FOR AssemblyContext»
    protected 
       «this.encapsulatedComponent_ChildComponentContext.fqn()» 
-         my«this.javaName()» = new «this.encapsulatedComponent_ChildComponentContext.fqn()»
+         my«this.javaName()» = null;
+«ENDDEFINE»
+
+«DEFINE ChildMemberVarInit FOR AssemblyContext»
+   my«this.javaName()» = new «this.encapsulatedComponent_ChildComponentContext.fqn()»
          	(«EXPAND ComponentConstructorParametersTM FOR this»);
 «ENDDEFINE»
 
 «DEFINE InnerImplementation FOR ComposedStructure»
       // Composed child components member variables
       «EXPAND ChildMemberVar FOREACH this.childComponentContexts_ComposedStructure»
-      
+            
       /**
       * Inner Structure initialisation
       */
       private void initInnerComponents() {
+	      «EXPAND ChildMemberVarInit FOREACH this.childComponentContexts_ComposedStructure»
+
 		  «FOREACH this.childComponentContexts_ComposedStructure AS child»
 			  init«child.javaName()»();
 		  «ENDFOREACH»

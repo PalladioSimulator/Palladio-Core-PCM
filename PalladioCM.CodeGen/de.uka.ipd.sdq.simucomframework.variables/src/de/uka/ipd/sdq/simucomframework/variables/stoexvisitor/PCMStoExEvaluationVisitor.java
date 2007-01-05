@@ -1,12 +1,13 @@
-package de.uka.ipd.sdq.simucomframework.stoexvisitor;
+package de.uka.ipd.sdq.simucomframework.variables.stoexvisitor;
 
 import de.uka.ipd.sdq.pcm.parameter.CharacterisedVariable;
 import de.uka.ipd.sdq.pcm.stochasticexpressions.PCMStoExPrettyPrintVisitor;
 import de.uka.ipd.sdq.pcm.stochasticexpressions.PCMStoExSwitch;
-import de.uka.ipd.sdq.simucomframework.Context;
-import de.uka.ipd.sdq.simucomframework.cache.StoExCache;
-import de.uka.ipd.sdq.simucomframework.stackframe.SimulatedStackframe;
-import de.uka.ipd.sdq.simucomframework.stackframe.ValueNotInFrameException;
+import de.uka.ipd.sdq.simucomframework.variables.EvaluationProxy;
+import de.uka.ipd.sdq.simucomframework.variables.StackContext;
+import de.uka.ipd.sdq.simucomframework.variables.cache.StoExCache;
+import de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe;
+import de.uka.ipd.sdq.simucomframework.variables.stackframe.ValueNotInFrameException;
 import de.uka.ipd.sdq.stoex.CompareExpression;
 import de.uka.ipd.sdq.stoex.CompareOperations;
 import de.uka.ipd.sdq.stoex.DoubleLiteral;
@@ -47,7 +48,7 @@ public class PCMStoExEvaluationVisitor extends PCMStoExSwitch {
 			Object value = this.myStackFrame.getValue(variableID); 
 			if (value instanceof EvaluationProxy) {
 				EvaluationProxy proxy = (EvaluationProxy)value;
-				return Context.evaluate(proxy.getStoEx(), proxy.getStackFrame());
+				return StackContext.evaluate(proxy.getStoEx(), proxy.getStackFrame());
 			} else {
 				return value;
 			}

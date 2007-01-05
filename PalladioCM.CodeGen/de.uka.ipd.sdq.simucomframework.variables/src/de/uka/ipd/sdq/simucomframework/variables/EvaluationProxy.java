@@ -1,6 +1,6 @@
-package de.uka.ipd.sdq.simucomframework.stoexvisitor;
+package de.uka.ipd.sdq.simucomframework.variables;
 
-import de.uka.ipd.sdq.simucomframework.stackframe.SimulatedStackframe;
+import de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe;
 
 public class EvaluationProxy {
 	private String stoex;

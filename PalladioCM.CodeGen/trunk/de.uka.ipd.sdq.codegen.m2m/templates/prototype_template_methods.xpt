@@ -11,16 +11,14 @@
 «IMPORT parameter»
 «IMPORT qosannotations»
 
+«AROUND m2t_transforms::java_core::ComponentImplementationChildClassTM FOR ProvidesComponentType»
+	«EXPAND m2t_transforms::ejb3::bean::Bean FOR this» 
+«ENDAROUND»
+
 «AROUND m2t_transforms::java_core::ComponentConstructorTM FOR ProvidesComponentType»
-	private String assemblyContextID = null;
-	
-	public «this.javaName()» (String assemblyContextID) {
-		this.assemblyContextID = assemblyContextID;
-	}
 «ENDAROUND»
 
 «AROUND m2t_transforms::composed_structure::ComponentConstructorParametersTM FOR AssemblyContext»
-	"«this.id»"
 «ENDAROUND»
 
 «AROUND m2t_transforms::allocation::AllocationTM FOR Allocation»

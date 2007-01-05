@@ -37,7 +37,7 @@
 	  {
 	     protected «this.providingEntity_ProvidedRole.fqn()» myComponent = null;
 	     
-	     public «this.portClassName()»(«this.providingEntity_ProvidedRole.javaName()» myComponent){
+	     public «this.portClassName()»(«this.providingEntity_ProvidedRole.fqn()» myComponent){
 	        this.myComponent = myComponent;
 	     }
 	     «EXPAND PortDelegator FOREACH this.providedInterface__ProvidedRole.signatures__Interface»
@@ -71,4 +71,9 @@
    public «this.providedInterface__ProvidedRole.fqn()» «this.portGetter()» () {
       return «this.portMemberVar()»;
    }
+«ENDDEFINE»
+
+// Generate method signatures for basic component port getters
+«DEFINE ComponentPortGetter FOR ProvidedRole»
+   public «this.providedInterface__ProvidedRole.fqn()» «this.portGetter()» ();
 «ENDDEFINE»

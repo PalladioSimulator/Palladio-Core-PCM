@@ -1,7 +1,7 @@
 /**
  * 
  */
-package de.uka.ipd.sdq.simucomframework.stoexvisitor;
+package de.uka.ipd.sdq.simucomframework.variables.stoexvisitor;
 
 import de.uka.ipd.sdq.stoex.Expression;
 import de.uka.ipd.sdq.stoex.analyser.visitors.ExpressionInferTypeVisitor;

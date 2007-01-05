@@ -1,17 +1,7 @@
 package de.uka.ipd.sdq.simucomframework.usage;
 
-import java.io.StringReader;
-
-import antlr.RecognitionException;
-import antlr.TokenStreamException;
-import de.uka.ipd.sdq.pcm.stochasticexpressions.parser.PCMStoExParser;
 import de.uka.ipd.sdq.simucomframework.Context;
 import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
-import de.uka.ipd.sdq.simucomframework.stoexvisitor.PCMStoExEvaluationVisitor;
-import de.uka.ipd.sdq.simucomframework.stoexvisitor.SimulationExpressionInferTypeVisitor;
-import de.uka.ipd.sdq.stoex.Expression;
-import de.uka.ipd.sdq.stoex.analyser.visitors.ExpressionInferTypeVisitor;
-import de.uka.ipd.sdq.stoex.parser.StochasticExpressionsLexer;
 import desmoj.core.simulator.SimProcess;
 import desmoj.core.simulator.SimTime;
 

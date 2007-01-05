@@ -1,0 +1,38 @@
+«EXTENSION m2t_transforms::java_names»
+«EXTENSION m2t_transforms::pcm»
+«IMPORT system»
+«IMPORT composition»
+«IMPORT usagemodel»
+«IMPORT entity»
+«IMPORT repository»
+«IMPORT seff»
+«IMPORT resourcetype»
+«IMPORT allocation»
+«IMPORT parameter»
+«IMPORT qosannotations»
+
+«DEFINE Bean FOR ProvidesComponentType»
+	«FILE this.fqnBean().fqnToDirectoryPath()+".java"»
+		package «this.implementationPackage()»;
+		public class «this.beanName()»
+			extends «this.fqn()»
+		{
+			«EXPAND Constructor FOR this»
+			«EXPAND DependencyInjection FOREACH this.requiredRoles_InterfaceRequiringEntity»
+		}
+	«ENDFILE»	
+«ENDDEFINE»
+
+«DEFINE Constructor FOR ProvidesComponentType»
+	public «this.beanName()»() {
+		this.myContext = new «this.fqnContext()»();
+	}
+«ENDDEFINE»
+
+«DEFINE DependencyInjection FOR RequiredRole»
+   // Called by the Container to inject a reference to remote business interface
+   // «this.requiredInterface__RequiredRole.fqn()»
+   public void setRole«this.requiredInterface__RequiredRole.javaName()»(«this.requiredInterface__RequiredRole.fqn()» newValue) {
+      this.myContext.setRole«this.requiredInterface__RequiredRole.javaName()»(newValue);
+   }
+«ENDDEFINE»

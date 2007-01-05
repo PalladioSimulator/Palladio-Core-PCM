@@ -1,17 +1,12 @@
-package de.uka.ipd.sdq.simucomframework.stoexvisitor;
+package de.uka.ipd.sdq.simucomframework.variables.stoexvisitor;
 
 import de.uka.ipd.sdq.probfunction.ProbabilityDensityFunction;
 import de.uka.ipd.sdq.probfunction.ProbabilityMassFunction;
 import de.uka.ipd.sdq.probfunction.math.IProbabilityDensityFunction;
 import de.uka.ipd.sdq.probfunction.math.IProbabilityFunction;
-import de.uka.ipd.sdq.probfunction.math.IProbabilityFunctionFactory;
 import de.uka.ipd.sdq.probfunction.math.IProbabilityMassFunction;
-import de.uka.ipd.sdq.probfunction.math.exception.DoubleSampleException;
-import de.uka.ipd.sdq.probfunction.math.exception.ProbabilitySumNotOneException;
-import de.uka.ipd.sdq.probfunction.math.exception.UnknownPDFTypeException;
 import de.uka.ipd.sdq.probfunction.util.ProbfunctionSwitch;
-import de.uka.ipd.sdq.simucomframework.cache.StoExCache;
-import de.uka.ipd.sdq.simucomframework.cache.StoExCacheEntry;
+import de.uka.ipd.sdq.simucomframework.variables.cache.StoExCache;
 
 public class PCMProbfunctionEvaluationVisitor extends ProbfunctionSwitch {
 

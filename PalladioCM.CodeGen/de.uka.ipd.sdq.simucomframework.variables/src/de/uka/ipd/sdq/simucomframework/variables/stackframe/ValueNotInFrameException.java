@@ -1,4 +1,4 @@
-package de.uka.ipd.sdq.simucomframework.stackframe;
+package de.uka.ipd.sdq.simucomframework.variables.stackframe;
 
 public class ValueNotInFrameException extends Exception {
 
