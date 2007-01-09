@@ -1,12 +1,13 @@
 package de.uka.ipd.sdq.pcmbench.tabs.table;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
-import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.resource.ImageRegistry;
 import org.eclipse.jface.viewers.TableViewer;
 
+import de.uka.ipd.sdq.pcm.repository.CompositeDataType;
 import de.uka.ipd.sdq.pcm.repository.Parameter;
+import de.uka.ipd.sdq.pcm.repository.Repository;
 import de.uka.ipd.sdq.pcm.repository.Signature;
 import de.uka.ipd.sdq.pcmbench.tabs.PCMBenchTabsActivator;
 
@@ -25,19 +26,24 @@ public class OperationsTabResources {
 	 */
 	private static AdapterFactory operationsDecoratedFactory;
 	private static AdapterFactory attributeDecoratedFactory;
+	private static AdapterFactory declarationDecoratedFactory;
 	
 	// TODO
 	private static Signature editedSignature;
 	private static Parameter editedParameter;
 	
 	// Set the current resource, which edit to are selected.
-	private static Resource editedResource;
+	private static Repository editedRepository;
+	
+	// Created CompositeDataType in dialog PalladioCreateDataType
+	private static CompositeDataType newCompositeDataType;
 	
 	/**
 	 * Operations TableViewer
 	 */
 	private static TableViewer operationsViewer;
 	private static TableViewer parametersViewer;
+	private static TableViewer declarationViewer;
 	/**
 	 * Names of images used to represent actions in ToolBar
 	 */
@@ -205,16 +211,61 @@ public class OperationsTabResources {
 	}
 
 	/**
-	 * @return the editedResource
+	 * @return the editedRepository
 	 */
-	public static Resource getEditedResource() {
-		return editedResource;
+	public static Repository getEditedRepository() {
+		return editedRepository;
 	}
 
 	/**
-	 * @param editedResource the editedResource to set
+	 * @param editedRepository the editedRepository to set
 	 */
-	public static void setEditedResource(Resource editedResource) {
-		OperationsTabResources.editedResource = editedResource;
+	public static void setEditedRepository(Repository editedRepository) {
+		OperationsTabResources.editedRepository = editedRepository;
 	}
+
+	/**
+	 * @return the newCompositeDataType
+	 */
+	public static CompositeDataType getNewCompositeDataType() {
+		return newCompositeDataType;
+	}
+
+	/**
+	 * @param newCompositeDataType the newCompositeDataType to set
+	 */
+	public static void setNewCompositeDataType(
+			CompositeDataType newCompositeDataType) {
+		OperationsTabResources.newCompositeDataType = newCompositeDataType;
+	}
+
+	/**
+	 * @return the declarationDecoratedFactory
+	 */
+	public static AdapterFactory getDeclarationDecoratedFactory() {
+		return declarationDecoratedFactory;
+	}
+
+	/**
+	 * @param declarationDecoratedFactory the declarationDecoratedFactory to set
+	 */
+	public static void setDeclarationDecoratedFactory(
+			AdapterFactory declarationDecoratedFactory) {
+		OperationsTabResources.declarationDecoratedFactory = declarationDecoratedFactory;
+	}
+
+	/**
+	 * @return the declarationViewer
+	 */
+	public static TableViewer getDeclarationViewer() {
+		return declarationViewer;
+	}
+
+	/**
+	 * @param declarationViewer the declarationViewer to set
+	 */
+	public static void setDeclarationViewer(TableViewer declarationViewer) {
+		OperationsTabResources.declarationViewer = declarationViewer;
+	}
+
 }

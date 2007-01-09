@@ -3,6 +3,7 @@ package de.uka.ipd.sdq.pcmbench.tabs.dialogs;
 import org.eclipse.core.runtime.Assert;
 import org.eclipse.jface.viewers.CellEditor;
 import org.eclipse.jface.viewers.IBaseLabelProvider;
+import org.eclipse.jface.viewers.ICellModifier;
 import org.eclipse.jface.viewers.IContentProvider;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
 import org.eclipse.jface.viewers.IStructuredSelection;
@@ -41,8 +42,12 @@ public class ParametersDialogResources {
 	
 	String[] columnNames = OperationsTabResources.getAttributeTableColumn();
 
+	/**
+	 * TODO
+	 */
 	protected void createToolBarWithTableViewer(Composite composite,
 			IContentProvider contentProvider, IBaseLabelProvider labelProvider,
+			ICellModifier cellModifier,
 			SelectionListener addActionListener,
 			SelectionListener deleteActionListener, Object input) {
 
@@ -98,7 +103,7 @@ public class ParametersDialogResources {
 
 		// Assign the cell editors to the viewer
 		tableViewer.setCellEditors(editors);
-		tableViewer.setCellModifier(new ParametersCellModifier());
+		tableViewer.setCellModifier(cellModifier);
 		tableViewer
 				.addSelectionChangedListener(new ISelectionChangedListener() {
 					public void selectionChanged(SelectionChangedEvent event) {
@@ -158,20 +163,13 @@ public class ParametersDialogResources {
 	private void setSelectionsEObject(IStructuredSelection selection) {
 
 		Object selected = selection.getFirstElement();
-
-		Assert.isTrue(selected instanceof Parameter);
+		// TODO
+		/*Assert.isTrue(selected instanceof Parameter);
 		Parameter selectedParameter = (Parameter) selected;
 
 		(DeleteParameterActionListener.getSingelton())
 				.setParentSignature(OperationsTabResources.getEditedSignature());
 		(DeleteParameterActionListener.getSingelton())
-				.setSelectedParameter(selectedParameter);
-	}
-
-	/**
-	 * @return the tableViewer
-	 */
-	public TableViewer getTableViewer() {
-		return tableViewer;
+				.setSelectedParameter(selectedParameter);*/
 	}
 }

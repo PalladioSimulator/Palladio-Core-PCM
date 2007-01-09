@@ -5,20 +5,22 @@ import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 
-import quicktime.app.spaces.Collection;
-
-import de.uka.ipd.sdq.pcm.repository.CollectionDataType;
 import de.uka.ipd.sdq.pcm.repository.CompositeDataType;
-import de.uka.ipd.sdq.pcm.repository.DataType;
 import de.uka.ipd.sdq.pcm.repository.InnerDeclaration;
 import de.uka.ipd.sdq.pcm.repository.RepositoryFactory;
 import de.uka.ipd.sdq.pcmbench.EditingDomainFactory;
+import de.uka.ipd.sdq.pcmbench.tabs.table.OperationsTabResources;
 
 /**
  * @author roman
  * 
  */
 public class AddInnerDataTypeActionListener extends SelectionAdapter {
+
+	/**
+	 * TODO
+	 */
+	CompositeDataType compositeDataType;
 
 	/**
 	 * The transactional editing domain which is used to get the commands and
@@ -39,20 +41,31 @@ public class AddInnerDataTypeActionListener extends SelectionAdapter {
 		RecordingCommand recCommand = new RecordingCommand(editingDomain) {
 			@Override
 			protected void doExecute() {
-				CompositeDataType dataType = RepositoryFactory.eINSTANCE
-						.createCompositeDataType();
-				
+
+				if (compositeDataType == null)
+					compositeDataType = RepositoryFactory.eINSTANCE
+							.createCompositeDataType();
 				InnerDeclaration declaration = RepositoryFactory.eINSTANCE
 						.createInnerDeclaration();
-				
-				declaration.setDatatype_InnerDeclaration(dataType);
-				
-				
+				// delete leter
+				declaration
+						.setEntityName("DeclarationName"
+								+ (compositeDataType
+										.getInnerDeclaration_CompositeDataType()
+										.size() + 1));
+
+				compositeDataType.getInnerDeclaration_CompositeDataType().add(
+						declaration);
 			}
 		};
 
 		recCommand.setDescription("Add new CompositeDataTYpe");
 		editingDomain.getCommandStack().execute(recCommand);
-	}
 
+		// Set input for TableViewer
+		OperationsTabResources.getParametersViewer()
+				.setInput(compositeDataType);
+		
+		OperationsTabResources.setNewCompositeDataType(compositeDataType);
+	}
 }

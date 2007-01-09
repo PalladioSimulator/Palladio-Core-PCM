@@ -26,7 +26,9 @@ import de.uka.ipd.sdq.pcmbench.ui.provider.PalladioItemProviderAdapterFactory;
 public class ParametersDialogViewer extends TitleAreaDialog {
 
 	private ParametersDialogResources dialogResources;
+
 	private ComposedAdapterFactory adapterFactory;
+
 	private String properties;
 
 	/**
@@ -49,14 +51,14 @@ public class ParametersDialogViewer extends TitleAreaDialog {
 	@Override
 	protected Control createDialogArea(Composite parent) {
 		setTitle(properties);
-		
+
 		Composite area = (Composite) super.createDialogArea(parent);
 		Composite container = new Composite(area, SWT.NONE);
 		container.setLayout(new FormLayout());
 		container.setLayoutData(new GridData(GridData.FILL_BOTH));
 
 		dialogResources = new ParametersDialogResources();
-		
+
 		adapterFactory = new ComposedAdapterFactory();
 		adapterFactory
 				.addAdapterFactory(new RepositoryItemProviderAdapterFactory());
@@ -67,7 +69,7 @@ public class ParametersDialogViewer extends TitleAreaDialog {
 						new ParametersItemProviderAdapterFactory(
 								new PalladioItemProviderAdapterFactory(
 										adapterFactory))),
-				new AddParameterActionListener(),
+				new ParametersCellModifier(), new AddParameterActionListener(),
 				DeleteParameterActionListener.getSingelton(),
 				OperationsTabResources.getEditedSignature());
 
