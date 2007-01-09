@@ -58,13 +58,11 @@ ITableItemLabelProvider, IItemLabelProvider {
 		case ParametersDialogResources.ICON_COLUMN_INDEX:
 			break;
 		case ParametersDialogResources.CONTEXT_COLUMN_INDEX:
-			// TODO
+			result = declaration.getClass().getSimpleName();
 			break;
 		case ParametersDialogResources.NAME_COLUMN_INDEX:
 			if (declaration != null)
 				result = declaration.getEntityName();
-			else
-				result = "null";
 			break;
 		case ParametersDialogResources.TYPE_COLUMN_INDEX:
 			result = parser.setDataTypeToString(declaration

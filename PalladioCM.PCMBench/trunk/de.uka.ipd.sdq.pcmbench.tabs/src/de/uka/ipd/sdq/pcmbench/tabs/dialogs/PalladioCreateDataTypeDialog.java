@@ -127,7 +127,7 @@ public class PalladioCreateDataTypeDialog extends CreateDataTypeDialog {
 										adapterFactory))),
 				new DeclarationCellModifier(),
 				new AddInnerDataTypeActionListener(),
-				DeleteParameterActionListener.getSingelton(),
+				new DeleteInnerDataTypeActionListener(),
 				null);
 	}
 

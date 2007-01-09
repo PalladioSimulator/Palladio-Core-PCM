@@ -1,6 +1,7 @@
 package de.uka.ipd.sdq.pcmbench.tabs.dialogs;
 
 import org.eclipse.core.runtime.Assert;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.jface.viewers.CellEditor;
 import org.eclipse.jface.viewers.IBaseLabelProvider;
 import org.eclipse.jface.viewers.ICellModifier;
@@ -22,7 +23,6 @@ import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.swt.widgets.ToolBar;
 import org.eclipse.swt.widgets.ToolItem;
 
-import de.uka.ipd.sdq.pcm.repository.Parameter;
 import de.uka.ipd.sdq.pcmbench.tabs.table.OperationsTabResources;
 
 /**
@@ -75,6 +75,7 @@ public class ParametersDialogResources {
 		final ToolItem deleteItem = new ToolItem(toolBar, SWT.PUSH);
 		deleteItem.addSelectionListener(deleteActionListener);
 		deleteItem.setImage(deleteIcon);
+		deleteItem.setEnabled(false);
 
 		final FormData fdTableViewer = new FormData();
 		fdTableViewer.right = new FormAttachment(toolBar, -5, SWT.LEFT);
@@ -109,9 +110,7 @@ public class ParametersDialogResources {
 					public void selectionChanged(SelectionChangedEvent event) {
 						if (!event.getSelection().isEmpty()) {
 							deleteItem.setEnabled(true);
-							setSelectionsEObject((IStructuredSelection) event
-									.getSelection());
-
+							setSelectionsEObject(event);
 						} else
 							deleteItem.setEnabled(false);
 					}
@@ -160,16 +159,11 @@ public class ParametersDialogResources {
 	 * 
 	 * @param IStructuredSelection
 	 */
-	private void setSelectionsEObject(IStructuredSelection selection) {
+	private void setSelectionsEObject(SelectionChangedEvent event) {
 
-		Object selected = selection.getFirstElement();
-		// TODO
-		/*Assert.isTrue(selected instanceof Parameter);
-		Parameter selectedParameter = (Parameter) selected;
-
-		(DeleteParameterActionListener.getSingelton())
-				.setParentSignature(OperationsTabResources.getEditedSignature());
-		(DeleteParameterActionListener.getSingelton())
-				.setSelectedParameter(selectedParameter);*/
+		Object selected = ((IStructuredSelection) event.getSelection()).getFirstElement();
+		
+		Assert.isTrue(selected instanceof EObject);
+		OperationsTabResources.setSelectedEObject((EObject) selected);
 	}
 }

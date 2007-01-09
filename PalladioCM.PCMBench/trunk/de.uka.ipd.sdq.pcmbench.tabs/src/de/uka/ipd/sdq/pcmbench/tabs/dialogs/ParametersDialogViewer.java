@@ -1,4 +1,4 @@
-package de.uka.ipd.sdq.pcmbench.tabs.dialogs;
+	package de.uka.ipd.sdq.pcmbench.tabs.dialogs;
 
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryContentProvider;
@@ -70,7 +70,7 @@ public class ParametersDialogViewer extends TitleAreaDialog {
 								new PalladioItemProviderAdapterFactory(
 										adapterFactory))),
 				new ParametersCellModifier(), new AddParameterActionListener(),
-				DeleteParameterActionListener.getSingelton(),
+				new DeleteParameterActionListener(),
 				OperationsTabResources.getEditedSignature());
 
 		dialogResources.createSeparator(container);

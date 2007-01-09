@@ -7,22 +7,21 @@ import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 
-import de.uka.ipd.sdq.pcm.repository.Parameter;
-import de.uka.ipd.sdq.pcm.repository.Signature;
+import de.uka.ipd.sdq.pcm.repository.CompositeDataType;
+import de.uka.ipd.sdq.pcm.repository.InnerDeclaration;
 import de.uka.ipd.sdq.pcmbench.EditingDomainFactory;
 import de.uka.ipd.sdq.pcmbench.tabs.table.OperationsTabResources;
 
 /**
- * TODO Refactaring?
- * @author roman
+ * @author admin
  *
  */
-public class DeleteParameterActionListener extends SelectionAdapter {
-
-	private Signature parentSignature;
-	private Parameter selectedParameter;
-	private EList parameters;
-
+public class DeleteInnerDataTypeActionListener extends SelectionAdapter {
+	
+	private InnerDeclaration selectedDeclaration;
+	private CompositeDataType parentDataType;
+	private EList declarations;
+	
 	/**
 	 * The transactional editing domain which is used to get the commands and alter the model 
 	 */
@@ -33,18 +32,19 @@ public class DeleteParameterActionListener extends SelectionAdapter {
 	 * @see org.eclipse.swt.events.SelectionListener#widgetSelected(org.eclipse.swt.events.SelectionEvent)
 	 */
 	public void widgetSelected(SelectionEvent e) {
-		this.parentSignature = OperationsTabResources.getEditedSignature();
-		this.selectedParameter = (Parameter) OperationsTabResources.getSelectedEObject();
 
-		Assert.isNotNull(parentSignature);
-		Assert.isNotNull(selectedParameter);
+		this.parentDataType = OperationsTabResources.getNewCompositeDataType();
+		this.selectedDeclaration = (InnerDeclaration) OperationsTabResources.getSelectedEObject();
+
+		Assert.isNotNull(parentDataType);
+		Assert.isNotNull(selectedDeclaration);
 		
-		parameters = parentSignature.getParameters__Signature();
+		declarations = parentDataType.getInnerDeclaration_CompositeDataType();
 		
 		RecordingCommand recCommand = new RecordingCommand(editingDomain) {
 			@Override
 			protected void doExecute() {
-				parameters.remove(selectedParameter);
+				declarations.remove(selectedDeclaration);
 			}		
 		};
 		
