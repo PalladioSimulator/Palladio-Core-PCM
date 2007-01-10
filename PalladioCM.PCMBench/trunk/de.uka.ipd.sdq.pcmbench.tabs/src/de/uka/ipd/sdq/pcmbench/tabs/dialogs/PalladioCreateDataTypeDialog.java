@@ -147,7 +147,7 @@ public class PalladioCreateDataTypeDialog extends CreateDataTypeDialog {
 		filterList.add(Repository.class);
 		ArrayList additionalReferences = new ArrayList();
 
-		MyDialog dialog = new MyDialog(shell, filterList, additionalReferences,
+		ReturnTypeDialog dialog = new ReturnTypeDialog(shell, filterList, additionalReferences,
 				editingDomain.getResourceSet());
 
 		dialog.open();

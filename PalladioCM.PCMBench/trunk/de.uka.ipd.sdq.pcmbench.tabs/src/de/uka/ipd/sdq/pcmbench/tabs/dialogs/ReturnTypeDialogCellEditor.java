@@ -2,8 +2,6 @@ package de.uka.ipd.sdq.pcmbench.tabs.dialogs;
 
 import java.util.ArrayList;
 
-import javax.swing.text.TableView;
-
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.jface.viewers.DialogCellEditor;
 import org.eclipse.swt.widgets.Composite;
@@ -12,7 +10,6 @@ import org.eclipse.swt.widgets.Control;
 import de.uka.ipd.sdq.pcm.repository.DataType;
 import de.uka.ipd.sdq.pcm.repository.Repository;
 import de.uka.ipd.sdq.pcmbench.EditingDomainFactory;
-import de.uka.ipd.sdq.dialogs.selection.PalladioSelectEObjectDialog;
 
 /**
  * @author admin
@@ -50,15 +47,13 @@ public class ReturnTypeDialogCellEditor extends DialogCellEditor {
 		filterList.add(Repository.class);
 		ArrayList additionalReferences = new ArrayList();
 
-		MyDialog dialog = new MyDialog(
+		ReturnTypeDialog dialog = new ReturnTypeDialog(
 				cellEditorWindow.getShell(),
 				filterList,
 				additionalReferences,
 				editingDomain.getResourceSet());
 		dialog.open();
 
-		if (dialog.getResult() == null)
-			return null;
 		if (!(dialog.getResult() instanceof DataType))
 			return null;
 		

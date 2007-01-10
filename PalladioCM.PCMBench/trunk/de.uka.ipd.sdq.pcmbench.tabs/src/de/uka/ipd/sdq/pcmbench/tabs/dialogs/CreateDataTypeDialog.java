@@ -46,7 +46,7 @@ public abstract class CreateDataTypeDialog extends TitleAreaDialog {
 	/**
 	 * TODO
 	 */
-	private Button OK_BUTTON;
+	private Button OKButton;
 
 	private Group compositeGroup, collectionGroup;
 	private Button compositeButton;
@@ -174,6 +174,7 @@ public abstract class CreateDataTypeDialog extends TitleAreaDialog {
 			public void widgetDefaultSelected(SelectionEvent e) {
 				setEntityName(nameTextField.getText());
 			}
+
 		});
 		nameTextField.addFocusListener(new FocusAdapter() {
 
@@ -195,6 +196,7 @@ public abstract class CreateDataTypeDialog extends TitleAreaDialog {
 			 */
 			public void modifyText(ModifyEvent e) {
 				setErrorMessage(null);
+				setOKButtonEnabled();
 			}
 			
 		});
@@ -285,9 +287,9 @@ public abstract class CreateDataTypeDialog extends TitleAreaDialog {
 	protected void createButtonsForButtonBar(Composite parent) {
 		createButton(parent, IDialogConstants.CANCEL_ID,
 				IDialogConstants.CANCEL_LABEL, false);
-		OK_BUTTON = createButton(parent, IDialogConstants.OK_ID,
+		OKButton = createButton(parent, IDialogConstants.OK_ID,
 				IDialogConstants.OK_LABEL, false);
-		OK_BUTTON.addSelectionListener(new SelectionAdapter() {
+		OKButton.addSelectionListener(new SelectionAdapter() {
 
 			/*
 			 * (non-Javadoc)
@@ -302,6 +304,15 @@ public abstract class CreateDataTypeDialog extends TitleAreaDialog {
 					createCompositeDataType();
 			}
 		});
+		OKButton.setEnabled(false);
+	}
+	
+	/**
+	 * TODO
+	 */
+	protected void setOKButtonEnabled() {
+		if (getEntityName() != null)
+			OKButton.setEnabled(true);
 	}
 
 	/**
