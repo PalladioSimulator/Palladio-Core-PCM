@@ -45,11 +45,12 @@
 	java.util.ArrayList<Thread> threads = new java.util.ArrayList<Thread>();
 	for (int i = 0; i < «this.population»; i++) {
 		threads.add(new Thread(new java.lang.Runnable(){
+			«u.fqn()» us = new «u.fqn()»();
 			public void run() {
-				«u.fqn()» us = new «u.fqn()»();
 				while (true) {
 					us.run();
                     try {
+                    	// TODO: Wait for think time of the model instance
 						Thread.sleep(200);
 					} catch (InterruptedException e) {
 						// TODO Auto-generated catch block
@@ -58,9 +59,9 @@
 				}
 			}
 		}));
-        for (java.util.Iterator<Thread> it = threads.iterator(); it.hasNext(); )
-            it.next().start();
 	}
+    for (java.util.Iterator<Thread> it = threads.iterator(); it.hasNext(); )
+        it.next().start();
 «ENDDEFINE»
 
 «DEFINE UsageScenario(Allocation a) FOR UsageScenario»
@@ -88,6 +89,7 @@ public «this.javaName()»() {
 
 «DEFINE ScenarioRunner(UsageScenario us) FOR ScenarioBehaviour»
 	@org.junit.Test public void scenarioRunner() {
+		ctx.getStack().createAndPushNewStackFrame();
 	«PROTECT CSTART '/*' CEND '*/' ID this.id»
 		«EXPAND m2t_transforms::sensors::StartResponseTimeMeasurementTM FOR us.entityName»
 		{

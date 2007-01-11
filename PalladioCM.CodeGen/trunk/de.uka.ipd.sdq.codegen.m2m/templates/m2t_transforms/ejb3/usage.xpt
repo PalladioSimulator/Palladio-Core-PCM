@@ -16,6 +16,14 @@
 
 			public «this.javaName()»() {
 				ctx = new de.uka.ipd.sdq.simucomframework.variables.StackContext();
+			    javax.naming.InitialContext initial;
+		        try {
+		            initial = new javax.naming.InitialContext();
+		            javax.naming.Context context = (javax.naming.Context) initial.lookup("java:comp/env");
+		            «EXPAND ContextInit FOREACH this.querySystemCalls().providedRole_EntryLevelSystemCall.toSet()»
+		        } catch (javax.naming.NamingException e) {
+		            e.printStackTrace();
+		        }        
 			}
 			
 			«EXPAND m2t_transforms::pojo::usage::ScenarioRunner(this) FOR this.scenarioBehaviour_UsageScenario»
@@ -26,3 +34,9 @@
 		}
 	«ENDFILE»
 «ENDDEFINE» 
+
+«DEFINE ContextInit FOR ProvidedRole»
+	«this.portMemberVar()» = («this.providedInterface__ProvidedRole.fqn()»)
+		javax.rmi.PortableRemoteObject.narrow(
+			context.lookup("ejb/«this.providedInterface__ProvidedRole.javaName()»"),«this.providedInterface__ProvidedRole.fqn()».class);
+«ENDDEFINE»
