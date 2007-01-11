@@ -27,14 +27,6 @@
 «ENDAROUND»
 
 // ----------------------------
-// JUnit for UsageScenarios
-// ----------------------------
-
-«AROUND m2t_transforms::usage::TestDefinitionTM FOR ScenarioBehaviour»
-	@org.junit.Test
-«ENDAROUND»
-
-// ----------------------------
 // Resource Demand
 // ----------------------------
 

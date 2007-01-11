@@ -29,6 +29,8 @@ public class PCMProbfunctionEvaluationVisitor extends ProbfunctionSwitch {
 	}
 
 	private Object drawSample(IProbabilityFunction f) {
+		if (f == null)
+			throw new RuntimeException("Probability function in drawSample() must be != null");
 		if (f instanceof IProbabilityMassFunction)
 			return ((IProbabilityMassFunction)f).drawSample();
 		if (f instanceof IProbabilityDensityFunction)

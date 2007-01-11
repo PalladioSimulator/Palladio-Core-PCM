@@ -50,10 +50,15 @@ public class «this.javaName()»
 	«ERROR "Unknown Service Effect Specification found!"»
 «ENDDEFINE»
 
+«DEFINE ComponentServiceSignature FOR Signature»
+	«EXPAND ReturnType FOR this»
+      «this.interface_Signature.javaName().toFirstLower()»_«this.javaSignature()»
+         («EXPAND ParameterListTM FOR this»)
+«ENDDEFINE»
+
 «DEFINE ComponentService FOR ResourceDemandingSEFF»
-   public «EXPAND ReturnType FOR this.describedService__SEFF»
-      «this.describedService__SEFF.interface_Signature.javaName().toFirstLower()»_«this.describedService__SEFF.javaSignature()»
-         («EXPAND ParameterListTM FOR this.describedService__SEFF») {
+   public «EXPAND ComponentServiceSignature FOR this.describedService__SEFF»
+    {
       «PROTECT CSTART '/*' CEND '*/' ID this.id»
       «EXPAND Actions FOR this.steps_Behaviour.findStart()»      
       «ENDPROTECT»
@@ -93,7 +98,7 @@ public class «this.javaName()»
 	      
 		public interface «this.interfaceName()»
 	    {
-	   		«EXPAND m2t_transforms::provided_ports::ComponentPortGetter FOREACH this.providedRoles_InterfaceProvidingEntity»
+	   		«EXPAND ComponentServiceSignature FOREACH this.providedRoles_InterfaceProvidingEntity.providedInterface__ProvidedRole.signatures__Interface SEPARATOR ";"»;
 	    }
 	«ENDFILE»
 «ENDDEFINE»

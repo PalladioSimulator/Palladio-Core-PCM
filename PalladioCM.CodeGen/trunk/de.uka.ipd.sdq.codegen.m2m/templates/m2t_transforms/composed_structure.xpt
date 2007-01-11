@@ -12,12 +12,9 @@
  // assembly contexts
  //-------------------------------------
 «DEFINE ComposedStructureStart FOR ComposedStructure»
-   «EXPAND m2t_transforms::java_core::ComponentImplementationInterface FOR this»
- 
    package «this.implementationPackage()»;
   
    public class «this.className()» 
-   implements «this.fqnInterface()»
    {
       «EXPAND m2t_transforms::composed_structure::InnerImplementation FOR this»
 «ENDDEFINE»

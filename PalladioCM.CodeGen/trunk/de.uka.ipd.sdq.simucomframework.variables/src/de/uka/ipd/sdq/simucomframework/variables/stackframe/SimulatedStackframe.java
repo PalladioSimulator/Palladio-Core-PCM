@@ -1,10 +1,11 @@
 package de.uka.ipd.sdq.simucomframework.variables.stackframe;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map.Entry;
 
-public class SimulatedStackframe <T> {
+public class SimulatedStackframe <T> implements Serializable {
 	
 	private SimulatedStackframe<T> parentFrame = null;
 	

@@ -1,8 +1,9 @@
 package de.uka.ipd.sdq.simucomframework.variables.stackframe;
 
+import java.io.Serializable;
 import java.util.Stack;
 
-public class SimulatedStack<T> {
+public class SimulatedStack<T> implements Serializable {
 
 	Stack<SimulatedStackframe<T>> stack = new Stack<SimulatedStackframe<T>>();
 	

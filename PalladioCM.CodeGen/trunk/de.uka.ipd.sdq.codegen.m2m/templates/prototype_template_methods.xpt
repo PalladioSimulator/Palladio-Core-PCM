@@ -11,6 +11,10 @@
 «IMPORT parameter»
 «IMPORT qosannotations»
 
+«AROUND m2t_transforms::system::SystemAdditionsTM FOR System»
+	«EXPAND m2t_transforms::ejb3::system::DeploymentDescriptor FOR this»
+«ENDAROUND»
+
 «AROUND m2t_transforms::java_core::ComponentImplementationChildClassTM FOR ProvidesComponentType»
 	«EXPAND m2t_transforms::ejb3::bean::Bean FOR this» 
 «ENDAROUND»
@@ -21,9 +25,6 @@
 «AROUND m2t_transforms::composed_structure::ComponentConstructorParametersTM FOR AssemblyContext»
 «ENDAROUND»
 
-«AROUND m2t_transforms::allocation::AllocationTM FOR Allocation»
-	«EXPAND m2t_transforms::sim::allocation::Allocation FOR this»
-«ENDAROUND»
 //-------------------------
 // Sensors TM
 //-------------------------
@@ -39,7 +40,7 @@
 // Call parameter Template Methods
 //-------------------------
 «AROUND m2t_transforms::java_core::ParameterListTM FOR Signature»
-	de.uka.ipd.sdq.simucomframework.Context ctx
+	de.uka.ipd.sdq.simucomframework.variables.StackContext ctx
 «ENDAROUND»
 
 «AROUND m2t_transforms::java_core::ParameterUsageListTM FOR Signature»
@@ -116,13 +117,13 @@
 «ENDAROUND»
 
 «AROUND m2t_transforms::usage::UsageScenarioTM(Allocation a) FOR UsageScenario»
-	«EXPAND m2t_transforms::pojo::usage::UsageScenario(a) FOR this»
+	«EXPAND m2t_transforms::ejb3::usage::UsageScenario(a) FOR this»
 «ENDAROUND»
 
 //----------------------------
 // Method override: Add a context to the scenario runner
 //----------------------------
 «AROUND m2t_transforms::pojo::usage::ScenarioRunner(UsageScenario us) FOR ScenarioBehaviour»
-	private de.uka.ipd.sdq.simucomframework.Context ctx = new de.uka.ipd.sdq.simucomframework.Context(null);
+	private de.uka.ipd.sdq.simucomframework.variables.StackContext ctx = new de.uka.ipd.sdq.simucomframework.variables.StackContext();
 	«targetDef.proceed()»
 «ENDAROUND»

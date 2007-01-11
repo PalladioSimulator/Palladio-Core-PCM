@@ -1,5 +1,8 @@
 package de.uka.ipd.sdq.simucomframework.variables;
 
+import java.io.Serializable;
+import java.rmi.RemoteException;
+import java.rmi.server.UnicastRemoteObject;
 import java.util.Collection;
 import java.util.Map.Entry;
 
@@ -9,8 +12,10 @@ import de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStack;
 import de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe;
 import de.uka.ipd.sdq.simucomframework.variables.stoexvisitor.PCMStoExEvaluationVisitor;
 
-public class StackContext {
-
+public class StackContext implements Serializable {
+        
+    public StackContext() {}
+        
 	protected SimulatedStack<Object> stack = new SimulatedStack<Object>();
 
 	public Object evaluate(String string, Class expectedType) {

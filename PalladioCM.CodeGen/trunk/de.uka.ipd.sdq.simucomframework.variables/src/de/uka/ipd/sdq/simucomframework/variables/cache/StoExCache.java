@@ -20,7 +20,7 @@ public class StoExCache {
 	 * @param spec The stoex to search for in the cache
 	 * @return The StoExCacheEntry containing the static information on the stoex 
 	 */
-	public StoExCacheEntry getEntry(String spec) {
+	public synchronized StoExCacheEntry getEntry(String spec) {
 		if (!cache.containsKey(spec)){
 			cache.put(spec, new StoExCacheEntry(spec));
 		}

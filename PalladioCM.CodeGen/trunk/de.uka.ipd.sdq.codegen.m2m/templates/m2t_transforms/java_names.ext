@@ -24,6 +24,9 @@ portClassName(ProvidedRole r) :
 contextClassName(InterfaceRequiringEntity c) :
    c.javaName()+"Context";
    
+contextInterfaceName(InterfaceRequiringEntity c) :
+   "I"+c.javaName()+"Context";
+   
 // ID of a member variable used in the main component implementation to store the singleton port
 // instance
 portMemberVar(ProvidedRole r) :
@@ -100,14 +103,14 @@ fqnContextPackage(Entity c) :
 fqnContext(InterfaceRequiringEntity c) :
   c.fqnContextPackage()+"."+c.contextClassName();
 
+fqnContextInterface(InterfaceRequiringEntity c) :
+  c.fqnContextPackage()+".I"+c.contextClassName();
+
 fqnPortPackage(ProvidedRole pr) :
   pr.providingEntity_ProvidedRole.implementationPackage()+".ports";
 
 fqnPort(ProvidedRole pr) :
   pr.providingEntity_ProvidedRole.implementationPackage()+".ports."+pr.portClassName();
-
-fqnBean(ProvidesComponentType c) :
-  c.fqn()+'Bean';
 
 beanName(ProvidesComponentType c) :
   c.javaName()+'Bean';

@@ -11,9 +11,23 @@
 // main implementation and made settable by the component environment
 //
 «DEFINE RequiredInterfaces FOR InterfaceRequiringEntity»
+   «EXPAND ComponentContextInterface FOR this»
    «EXPAND ComponentContextImpl FOR this»
    «EXPAND ComponentContextMemberVar FOR this»
    «EXPAND ComponentContextSetter FOR this»
+«ENDDEFINE»
+
+«DEFINE ComponentContextInterface FOR InterfaceRequiringEntity»
+   «FILE this.fqnContextInterface().fqnToDirectoryPath()+".java"»
+      package «this.fqnContextPackage()»;
+
+      // Component context interface for «this.javaName()»
+      public interface «this.contextInterfaceName()»
+      {
+         «EXPAND ContextInterfaceGetterSignature FOREACH this.requiredRoles_InterfaceRequiringEntity»
+         «EXPAND ContextInterfaceSetterSignature FOREACH this.requiredRoles_InterfaceRequiringEntity»
+      }
+   «ENDFILE»
 «ENDDEFINE»
 
 «DEFINE ComponentContextImpl FOR InterfaceRequiringEntity»
@@ -21,7 +35,7 @@
       package «this.fqnContextPackage()»;
 
       // Component context class for «this.javaName()»
-      public class «this.contextClassName()»
+      public class «this.contextClassName()» implements «this.fqnContextInterface()»
       {
          «EXPAND ContextInterfaceMemberVar FOREACH this.requiredRoles_InterfaceRequiringEntity»
          «EXPAND ContextInterfaceGetter FOREACH this.requiredRoles_InterfaceRequiringEntity»
@@ -40,11 +54,11 @@
 «ENDDEFINE»
 
 «DEFINE ComponentContextMemberVar FOR InterfaceRequiringEntity»
-   protected «this.fqnContext()» myContext = null;
+   protected «this.fqnContextInterface()» myContext = null;
 «ENDDEFINE»
 
 «DEFINE ComponentContextSetter FOR InterfaceRequiringEntity»
-   public void setContext(«this.fqnContext()» myContext) {
+   public void setContext(«this.fqnContextInterface()» myContext) {
       this.myContext = myContext;
       «IF ComposedStructure.isInstance(this)»
       	initInnerComponents();
@@ -76,4 +90,12 @@
    public void setRole«this.requiredInterface__RequiredRole.javaName()»(«this.requiredInterface__RequiredRole.fqn()» newValue) {
       this.«this.requiredInterface__RequiredRole.javaName().toFirstLower()» = newValue;
    }
+«ENDDEFINE»
+
+«DEFINE ContextInterfaceGetterSignature FOR RequiredRole»
+   «this.requiredInterface__RequiredRole.fqn()» getRole«this.requiredInterface__RequiredRole.javaName()»();
+«ENDDEFINE»
+
+«DEFINE ContextInterfaceSetterSignature FOR RequiredRole»
+   void setRole«this.requiredInterface__RequiredRole.javaName()»(«this.requiredInterface__RequiredRole.fqn()» newValue);
 «ENDDEFINE»

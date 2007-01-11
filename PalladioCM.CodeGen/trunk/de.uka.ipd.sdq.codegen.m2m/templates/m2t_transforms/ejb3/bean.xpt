@@ -1,5 +1,6 @@
 «EXTENSION m2t_transforms::java_names»
 «EXTENSION m2t_transforms::pcm»
+«EXTENSION m2t_transforms::ejb3::java_names»
 «IMPORT system»
 «IMPORT composition»
 «IMPORT usagemodel»
@@ -12,27 +13,48 @@
 «IMPORT qosannotations»
 
 «DEFINE Bean FOR ProvidesComponentType»
+	«EXPAND BeanInterface FOR this»
 	«FILE this.fqnBean().fqnToDirectoryPath()+".java"»
-		package «this.implementationPackage()»;
+		package «this.beanPackage()»;
+		
+		/** The Enterprise Java Bean for the component «this.entityName»
+		*/
+		@javax.ejb.Stateless
 		public class «this.beanName()»
 			extends «this.fqn()»
+			implements «this.fqnBeanInterface()»
 		{
 			«EXPAND Constructor FOR this»
-			«EXPAND DependencyInjection FOREACH this.requiredRoles_InterfaceRequiringEntity»
+			«EXPAND DependencyInjection FOR this»
+		}
+	«ENDFILE»	
+«ENDDEFINE»
+ 
+«DEFINE BeanInterface FOR ProvidesComponentType»
+	«FILE this.fqnBeanInterface().fqnToDirectoryPath()+".java"»
+		package «this.beanPackage()»;
+		
+		/** The Enterprise Java Bean Local Interface for the component «this.entityName»
+		*/
+		@javax.ejb.Local
+		public interface «this.beanInterfaceName()»
+			extends «this.fqnInterface()»
+		{
 		}
 	«ENDFILE»	
 «ENDDEFINE»
 
 «DEFINE Constructor FOR ProvidesComponentType»
 	public «this.beanName()»() {
-		this.myContext = new «this.fqnContext()»();
 	}
 «ENDDEFINE»
 
-«DEFINE DependencyInjection FOR RequiredRole»
-   // Called by the Container to inject a reference to remote business interface
-   // «this.requiredInterface__RequiredRole.fqn()»
-   public void setRole«this.requiredInterface__RequiredRole.javaName()»(«this.requiredInterface__RequiredRole.fqn()» newValue) {
-      this.myContext.setRole«this.requiredInterface__RequiredRole.javaName()»(newValue);
+«DEFINE DependencyInjection FOR ProvidesComponentType»
+   // Called by the Container to inject a reference to the local interface of this components
+   // context class
+   @javax.ejb.EJB(name="«this.contextDependencyJNDIName()»",beanInterface=«this.fqnContextInterface()».class)
+   @Override
+   public void setContext(«this.fqnContextInterface()» context) {
+      super.setContext(context);
    }
 «ENDDEFINE»
