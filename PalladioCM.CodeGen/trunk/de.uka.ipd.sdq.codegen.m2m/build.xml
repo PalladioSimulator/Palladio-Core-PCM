@@ -1,4 +1,4 @@
-<project>
+<project name="PCM oAW Generator">
 	<taskdef name="workflow"
 		classname="org.openarchitectureware.workflow.ant.WorkflowAntTask"/>
 

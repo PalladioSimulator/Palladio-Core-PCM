@@ -97,5 +97,6 @@ public «this.javaName()»() {
 		}
 		«EXPAND m2t_transforms::sensors::EndResponseTimeMeasurementTM FOR us.entityName»
 	«ENDPROTECT»
+		ctx.getStack().removeStackFrame();
 	}
 «ENDDEFINE»

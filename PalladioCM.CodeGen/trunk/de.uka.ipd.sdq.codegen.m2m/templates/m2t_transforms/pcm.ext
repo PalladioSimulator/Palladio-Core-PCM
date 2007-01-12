@@ -58,3 +58,20 @@ isInnerReference(AbstractNamedReference nsr):
 isInnerReference(NamespaceReference nsr):
   nsr.referenceName == "INNER" || nsr.innerReference_NamespaceReference.isInnerReference();
   
+collectRepositories(System s):
+  s.childComponentContexts_ComposedStructure.encapsulatedComponent_ChildComponentContext.collectRepositories().
+  	union(s.providedRoles_InterfaceProvidingEntity.collectRepositories()).
+  	union(s.requiredRoles_InterfaceRequiringEntity.collectRepositories()).toSet();
+  
+collectRepositories(ProvidedRole pr):
+	pr.providedInterface__ProvidedRole.repository_Interface;
+	
+collectRepositories(RequiredRole rr):
+	rr.requiredInterface__RequiredRole.repository_Interface;
+	
+collectRepositories(ProvidesComponentType pct):
+	pct.repository_ProvidesComponentType;
+	
+collectRepositories(CompositeComponent cc):
+	cc.childComponentContexts_ComposedStructure.encapsulatedComponent_ChildComponentContext.collectRepositories().addAll(
+		{cc.repository_ProvidesComponentType});

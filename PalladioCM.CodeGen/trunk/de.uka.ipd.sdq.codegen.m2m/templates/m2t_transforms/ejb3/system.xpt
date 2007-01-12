@@ -30,6 +30,9 @@
 «DEFINE SessionBeanPortBean(System s, AssemblyContext a) FOR ProvidedRole»
 <session>
 	<ejb-name>«a.portSessionBeanName(this)»</ejb-name>
+	<!--
+	<mapped-name>/ejb/«s.javaName()»/«a.encapsulatedComponent_ChildComponentContext.javaName()»_«a.id»</mapped-name>
+	-->
 	<business-remote>«this.providedInterface__ProvidedRole.fqn()»</business-remote>
 	<ejb-class>«this.fqnPort()»</ejb-class>
 	<session-type>Stateless</session-type>
