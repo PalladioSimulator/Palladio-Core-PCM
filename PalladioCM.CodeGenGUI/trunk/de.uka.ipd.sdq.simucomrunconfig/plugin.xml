@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+	<extension point="org.eclipse.debug.core.launchConfigurationTypes">
+	    <launchConfigurationType
+	        name="SimuCom"
+	        delegate="de.uka.ipd.sdq.simucomrunconfig.SimuComLaunchConfigurationDelegate"
+	        modes="run, debug"               
+	        id="de.uka.ipd.sdq.SimuComLaunching">        
+	    </launchConfigurationType>
+	</extension>
+	<extension point="org.eclipse.debug.ui.launchConfigurationTypeImages">
+	    <launchConfigurationTypeImage
+	        icon="icons/app_simucim.gif"
+	        configTypeID="de.uka.ipd.sdq.SimuComLaunching"
+	        id="de.uka.ipd.sdq.launchConfigurationTypeImage.SimuComLaunching">
+	    </launchConfigurationTypeImage>
+	</extension>
+	<extension point="org.eclipse.debug.ui.launchConfigurationTabGroups">
+	    <launchConfigurationTabGroup
+	        type="de.uka.ipd.sdq.SimuComLaunching"
+	        class="de.uka.ipd.sdq.simucomrunconfig.SimuComTabGroup"
+	        id="de.uka.ipd.sdq.launchConfigurationTabGroup.SimuComLaunching">
+	    </launchConfigurationTabGroup>
+	</extension>
+	<extension point="org.eclipse.debug.ui.launchShortcuts">
+	    <shortcut
+	        id="de.uka.ipd.sdq.SimuComShortcut"
+	        class="de.uka.ipd.sdq.simucomrunconfig.SimuComLaunchShortcut"
+	        label="SimuCom"
+	        icon="icons/app_simucim.gif"
+	        modes="run, debug">
+	    </shortcut>
+	</extension>
+
+	
+</plugin>
