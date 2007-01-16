@@ -1,0 +1,8 @@
+import uml;
+import Persistence;
+
+List[Property] getAllProperties(Class c):
+	c.attribute.select(p|PrimitiveType.isInstance(p.type) && !Key.isInstance(p)).union(c.superClass.getAllProperties());
+	
+List[Class] getAllSubtypes(Class c):
+	{c}.union(c.getModel().eAllContents.typeSelect(Class).select(oc|oc.superClass.contains(c)));

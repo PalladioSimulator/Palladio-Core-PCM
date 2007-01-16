@@ -1,0 +1,173 @@
+«IMPORT uml»
+«IMPORT Persistence»
+«EXTENSION templates::UMLNaming»
+«EXTENSION templates::UMLQueries»
+
+«DEFINE Root FOR Model»
+	«EXPAND Classes FOREACH eAllContents.typeSelect(Entity)»
+«ENDDEFINE»
+
+«DEFINE Classes FOR Class»
+	«EXPAND AbstractClass FOR this»
+	«IF !this.isAbstract»
+		«EXPAND Implementation FOR this»
+	«ENDIF»
+«ENDDEFINE»
+ 
+«DEFINE Interface FOR Class»
+	«FILE this.fqn().toPath()+".java"»
+		package «this.packageName()»;
+		public interface «this.name» {
+			«EXPAND BasicDecl FOREACH attribute.select(p|!p.isMultivalued()) SEPARATOR ";"»
+			«EXPAND MultivaluedDecl FOREACH attribute.select(p|p.isMultivalued()) SEPARATOR ";"»
+		}
+	«ENDFILE»
+«ENDDEFINE»
+
+«DEFINE MultivaluedDecl FOR Property»
+	«EXPAND AdderDecl FOR this»;
+	«EXPAND RemoverDecl FOR this»;
+	«EXPAND MultiGetterDecl FOR this»;
+«ENDDEFINE»
+
+«DEFINE AdderDecl FOR Property»
+	void add«this.name.toFirstUpper()»(«((Classifier)this.type).basefqn()» value)
+«ENDDEFINE»
+
+«DEFINE AddCompositeDecl(Class c) FOR Property»
+	«c.basefqn()» add«c.name.toFirstUpper()»(
+		«EXPAND VariableInitialiser FOREACH c.getAllProperties() SEPARATOR ","»
+	)
+«ENDDEFINE»
+
+«DEFINE VariableInitialiser FOR Property»
+   «this.type.fqn()» p_«this.name.toLowerCase()»
+«ENDDEFINE»
+
+«DEFINE RemoverDecl FOR Property»
+	void remove«this.name.toFirstUpper()»(«((Classifier)this.type).basefqn()» value)
+«ENDDEFINE»
+
+«DEFINE MultiGetterDecl FOR Property»
+	java.util.Collection<«((Classifier)this.type).basefqn()»> get«this.name.toFirstUpper()»s()
+«ENDDEFINE»
+
+«DEFINE BasicDecl FOR Property»
+	«EXPAND GetterDecl FOR this»;
+	«EXPAND SetterDecl FOR this»;
+«ENDDEFINE»
+
+«DEFINE GetterDecl FOR Property»
+	«EXPAND TypeDecl FOR this.type» get«this.name.toFirstUpper()»()
+«ENDDEFINE»
+
+«DEFINE SetterDecl FOR Property»
+	void set«this.name.toFirstUpper()»(«EXPAND TypeDecl FOR this.type» value)
+«ENDDEFINE»
+
+«DEFINE TypeDecl FOR Type»
+	«this.fqn()»
+«ENDDEFINE»
+
+«DEFINE TypeDecl FOR PrimitiveType»
+	«this.name == "Integer" ? "int" : 
+	 (this.name == "Double" ? "double" : 
+	 (this.name == "String" ? "String" : this.name))»
+«ENDDEFINE»
+
+«DEFINE AbstractClass FOR Class»
+	«FILE this.basefqn().toPath()+".java"»
+		package «this.packageName()»;
+		@javax.persistence.Entity
+		«IF this.superClass.size == 0»
+			@javax.persistence.Table(name="«this.name.toUpperCase()»")
+		«ENDIF»
+		public abstract class «this.name»
+		«IF this.superClass.size > 0»
+			extends «this.superClass.get(0).basefqn()»
+		«ENDIF»
+		{
+			«EXPAND Basic FOREACH attribute.select(p|!p.isMultivalued() && p.aggregation.toString() != "composite") SEPARATOR ";"»
+			«EXPAND BasicComposite FOREACH attribute.select(p|!p.isMultivalued() && p.aggregation.toString() == "composite") SEPARATOR ";"»
+			«EXPAND Multivalued FOREACH attribute.select(p|p.isMultivalued() && p.aggregation.toString() != "composite") SEPARATOR ";"»
+			«EXPAND MultivaluedComposite FOREACH attribute.select(p|p.isMultivalued() && p.aggregation.toString() == "composite") SEPARATOR ";"»
+		}
+	«ENDFILE»
+«ENDDEFINE»
+
+«DEFINE BasicComposite FOR Property»
+«ENDDEFINE»
+
+«DEFINE MultivaluedComposite FOR Property»
+	«EXPAND MultiAnnotations FOR this»
+	private java.util.Collection<«this.type.basefqn()»> m_«this.name»s 
+	   = java.util.Collections.synchronizedList(new java.util.ArrayList<«this.type.basefqn()»>(10000));
+	«FOREACH this.type.getAllSubtypes().select(c|!c.isAbstract) AS subtype»
+		public «EXPAND AddCompositeDecl(subtype) FOR this» {
+			«subtype.basefqn()» result = new «subtype.packageName()+".impl."+subtype.name.toFirstUpper()»Impl();
+			«FOREACH subtype.getAllProperties() AS p»
+				result.set«p.name.toFirstUpper()»(p_«p.name.toLowerCase()»);
+			«ENDFOREACH»
+			m_«this.name»s.add(result);
+			return result;
+		}
+	«ENDFOREACH»
+	public «EXPAND MultiGetterDecl FOR this» {
+		return this.m_«this.name»s;
+	}
+«ENDDEFINE»
+
+«DEFINE Multivalued FOR Property»
+	«EXPAND MultiAnnotations FOR this»
+	private java.util.Collection<«this.type.basefqn()»> m_«this.name»s 
+	   = java.util.Collections.synchronizedList(new java.util.ArrayList<«this.type.basefqn()»>(10000));
+	public «EXPAND AdderDecl FOR this» {
+		m_«this.name»s.add(value);
+	}
+	public «EXPAND RemoverDecl FOR this» {
+		m_«this.name»s.remove(value);
+	}
+	public «EXPAND MultiGetterDecl FOR this» {
+		return this.m_«this.name»s;
+	}
+«ENDDEFINE»
+
+«DEFINE Basic FOR Property»
+	«EXPAND FieldAnnotations FOR this»
+	private «this.type.fqn()» m_«this.name»;
+	public «EXPAND GetterDecl FOR this» {
+		return m_«this.name»;
+	}
+	public «EXPAND SetterDecl FOR this» {
+		this.m_«this.name» = value;
+	}
+«ENDDEFINE»
+
+«DEFINE FieldAnnotations FOR Key»
+	@javax.persistence.Id @javax.persistence.GeneratedValue
+	@javax.persistence.Column(name="«this.name.toUpperCase()»")
+«ENDDEFINE»
+
+«DEFINE FieldAnnotations FOR Property»
+	«IF !PrimitiveType.isInstance(this.type)»
+		@javax.persistence.OneToOne(cascade=javax.persistence.CascadeType.ALL)
+		@javax.persistence.JoinColumn(name="FK_«this.class.name.toUpperCase()»")
+	«ELSE»
+		@javax.persistence.Column(name="«this.name.toUpperCase()»")
+	«ENDIF»
+«ENDDEFINE»
+
+«DEFINE MultiAnnotations FOR Property»
+	@javax.persistence.OneToMany(cascade=javax.persistence.CascadeType.ALL)
+	@javax.persistence.JoinColumn(name="FK_«this.class.name.toUpperCase()»")
+«ENDDEFINE»
+
+«DEFINE Implementation FOR Class»
+	«FILE this.implfqn().toPath()+".java" MAN_SRC»
+		package «this.packageName()».impl;
+		
+		@javax.persistence.Entity
+	    public class «this.name»Impl extends «this.basefqn()» {
+	    }
+	«ENDFILE»
+«ENDDEFINE»

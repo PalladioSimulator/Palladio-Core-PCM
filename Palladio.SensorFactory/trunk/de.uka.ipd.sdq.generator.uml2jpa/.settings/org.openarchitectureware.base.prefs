@@ -1,0 +1,4 @@
+#Sun Jan 14 21:10:18 CET 2007
+eclipse.preferences.version=1
+metamodel=org.openarchitecturware.uml2.Uml2MetamodelContributor,
+project.specific.metamodel=true

@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Persistence_0="http:///Persistence_0_CpLmcIRuEdu0HNZg8bM6sQ.profile.uml2" xmlns:uml="http://www.eclipse.org/uml2/1.0.0/UML" xsi:schemaLocation="http:///Persistence_0_CpLmcIRuEdu0HNZg8bM6sQ.profile.uml2 Persistence.profile.uml2#_CpkoRYRuEdu0HNZg8bM6sQ" xmi:id="_ruV0_6UzEdu67aH61_l2Wg" name="SensorFactory" appliedProfile="_ruV1AKUzEdu67aH61_l2Wg _ruV1A6UzEdu67aH61_l2Wg _ruV1BqUzEdu67aH61_l2Wg _ruV1CqUzEdu67aH61_l2Wg">
+  <packageImport xmi:type="uml:ProfileApplication" xmi:id="_ruV1AKUzEdu67aH61_l2Wg">
+    <eAnnotations xmi:id="_ruV1AaUzEdu67aH61_l2Wg" source="attributes">
+      <details xmi:id="_ruV1AqUzEdu67aH61_l2Wg" key="version" value="0"/>
+    </eAnnotations>
+    <importedPackage xmi:type="uml:Profile" href="pathmap://UML2_PROFILES/Basic.profile.uml2#_6mFRgK86Edih9-GG5afQ0g"/>
+    <importedProfile href="pathmap://UML2_PROFILES/Basic.profile.uml2#_6mFRgK86Edih9-GG5afQ0g"/>
+  </packageImport>
+  <packageImport xmi:type="uml:ProfileApplication" xmi:id="_ruV1A6UzEdu67aH61_l2Wg">
+    <eAnnotations xmi:id="_ruV1BKUzEdu67aH61_l2Wg" source="attributes">
+      <details xmi:id="_ruV1BaUzEdu67aH61_l2Wg" key="version" value="0"/>
+    </eAnnotations>
+    <importedPackage xmi:type="uml:Profile" href="pathmap://UML2_PROFILES/Intermediate.profile.uml2#_Cz7csK87Edih9-GG5afQ0g"/>
+    <importedProfile href="pathmap://UML2_PROFILES/Intermediate.profile.uml2#_Cz7csK87Edih9-GG5afQ0g"/>
+  </packageImport>
+  <packageImport xmi:type="uml:ProfileApplication" xmi:id="_ruV1BqUzEdu67aH61_l2Wg">
+    <eAnnotations xmi:id="_ruV1B6UzEdu67aH61_l2Wg" source="attributes">
+      <details xmi:id="_ruV1CKUzEdu67aH61_l2Wg" key="version" value="0"/>
+    </eAnnotations>
+    <importedPackage xmi:type="uml:Profile" href="pathmap://UML2_PROFILES/Complete.profile.uml2#_M7pTkK87Edih9-GG5afQ0g"/>
+    <importedProfile href="pathmap://UML2_PROFILES/Complete.profile.uml2#_M7pTkK87Edih9-GG5afQ0g"/>
+  </packageImport>
+  <packageImport xmi:id="_ruV1CaUzEdu67aH61_l2Wg">
+    <importedPackage xmi:type="uml:Model" href="pathmap://UML2_LIBRARIES/UML2PrimitiveTypes.library.uml2#_EfRZoK86EdieaYgxtVWN8Q"/>
+  </packageImport>
+  <packageImport xmi:type="uml:ProfileApplication" xmi:id="_ruV1CqUzEdu67aH61_l2Wg">
+    <eAnnotations xmi:id="_ruV1C6UzEdu67aH61_l2Wg" source="attributes">
+      <details xmi:id="_ruV1DKUzEdu67aH61_l2Wg" key="version" value="0"/>
+    </eAnnotations>
+    <importedPackage xmi:type="uml:Profile" href="Persistence.profile.uml2#_CpkoQYRuEdu0HNZg8bM6sQ"/>
+    <importedProfile href="Persistence.profile.uml2#_CpkoQYRuEdu0HNZg8bM6sQ"/>
+  </packageImport>
+  <packageImport xmi:id="_ruV1DaUzEdu67aH61_l2Wg">
+    <importedPackage xmi:type="uml:Model" href="pathmap://UML2_LIBRARIES/JavaPrimitiveTypes.library.uml2#_RjmyoK86EdieaYgxtVWN8Q"/>
+  </packageImport>
+  <ownedMember xmi:type="uml:Package" xmi:id="_ruV1DqUzEdu67aH61_l2Wg" name="de.uka.ipd.sdq.sensorfactory.entities">
+    <ownedMember xmi:type="uml:Class" xmi:id="_ruV1D6UzEdu67aH61_l2Wg" name="Measurement" isAbstract="true">
+      <eAnnotations xmi:id="_ruV1EKUzEdu67aH61_l2Wg" source="appliedStereotypes">
+        <contents xmi:type="Persistence_0:Persistence__Entity" xmi:id="_ruV1EaUzEdu67aH61_l2Wg"/>
+      </eAnnotations>
+      <ownedAttribute xmi:id="_ruV1EqUzEdu67aH61_l2Wg" name="measurementID">
+        <eAnnotations xmi:id="_ruV1E6UzEdu67aH61_l2Wg" source="appliedStereotypes">
+          <contents xmi:type="Persistence_0:Persistence__Key" xmi:id="_ruV1FKUzEdu67aH61_l2Wg"/>
+        </eAnnotations>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML2_LIBRARIES/JavaPrimitiveTypes.library.uml2#_TBrTIK86EdieaYgxtVWN8Q"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_ruV1FaUzEdu67aH61_l2Wg" name="eventTime">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML2_LIBRARIES/JavaPrimitiveTypes.library.uml2#_TBlMga86EdieaYgxtVWN8Q"/>
+      </ownedAttribute>
+    </ownedMember>
+    <ownedMember xmi:type="uml:Class" xmi:id="_ruV1FqUzEdu67aH61_l2Wg" name="Sensor" isAbstract="true">
+      <eAnnotations xmi:id="_ruV1F6UzEdu67aH61_l2Wg" source="appliedStereotypes">
+        <contents xmi:type="Persistence_0:Persistence__Entity" xmi:id="_ruV1GKUzEdu67aH61_l2Wg"/>
+      </eAnnotations>
+      <ownedAttribute xmi:id="_ruV1GaUzEdu67aH61_l2Wg" name="sensorName">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML2_LIBRARIES/UML2PrimitiveTypes.library.uml2#_IXlH8a86EdieaYgxtVWN8Q"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_ruV1GqUzEdu67aH61_l2Wg" name="sensorID" visibility="protected">
+        <eAnnotations xmi:id="_ruV1G6UzEdu67aH61_l2Wg" source="appliedStereotypes">
+          <contents xmi:type="Persistence_0:Persistence__Key" xmi:id="_ruV1HKUzEdu67aH61_l2Wg"/>
+        </eAnnotations>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML2_LIBRARIES/JavaPrimitiveTypes.library.uml2#_TBrTIK86EdieaYgxtVWN8Q"/>
+      </ownedAttribute>
+    </ownedMember>
+    <ownedMember xmi:type="uml:Association" xmi:id="_ruV1HaUzEdu67aH61_l2Wg" memberEnd="_ruV1I6UzEdu67aH61_l2Wg _ruV1HqUzEdu67aH61_l2Wg">
+      <ownedEnd xmi:id="_ruV1HqUzEdu67aH61_l2Wg" type="_ruV1H6UzEdu67aH61_l2Wg" association="_ruV1HaUzEdu67aH61_l2Wg"/>
+    </ownedMember>
+    <ownedMember xmi:type="uml:Class" xmi:id="_ruV1H6UzEdu67aH61_l2Wg" name="TimeSpanSensor">
+      <eAnnotations xmi:id="_ruV1IKUzEdu67aH61_l2Wg" source="appliedStereotypes">
+        <contents xmi:type="Persistence_0:Persistence__Entity" xmi:id="_ruV1IaUzEdu67aH61_l2Wg"/>
+      </eAnnotations>
+      <generalization xmi:id="_ruV1IqUzEdu67aH61_l2Wg" general="_ruV1FqUzEdu67aH61_l2Wg"/>
+      <ownedAttribute xmi:id="_ruV1I6UzEdu67aH61_l2Wg" name="timespan" type="_ruV1JqUzEdu67aH61_l2Wg" association="_ruV1HaUzEdu67aH61_l2Wg" aggregation="composite">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ruV1JKUzEdu67aH61_l2Wg" value="-1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ruV1JaUzEdu67aH61_l2Wg"/>
+      </ownedAttribute>
+    </ownedMember>
+    <ownedMember xmi:type="uml:Class" xmi:id="_ruV1JqUzEdu67aH61_l2Wg" name="TimeSpan">
+      <eAnnotations xmi:id="_ruV1J6UzEdu67aH61_l2Wg" source="appliedStereotypes">
+        <contents xmi:type="Persistence_0:Persistence__Entity" xmi:id="_ruV1KKUzEdu67aH61_l2Wg"/>
+      </eAnnotations>
+      <generalization xmi:id="_ruV1KaUzEdu67aH61_l2Wg" general="_ruV1D6UzEdu67aH61_l2Wg"/>
+      <ownedAttribute xmi:id="_ruV1KqUzEdu67aH61_l2Wg" name="timeSpan">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML2_LIBRARIES/JavaPrimitiveTypes.library.uml2#_TBlMga86EdieaYgxtVWN8Q"/>
+      </ownedAttribute>
+    </ownedMember>
+    <ownedMember xmi:type="uml:Class" xmi:id="_ruV1K6UzEdu67aH61_l2Wg" name="StateSensor">
+      <eAnnotations xmi:id="_ruV1LKUzEdu67aH61_l2Wg" source="appliedStereotypes">
+        <contents xmi:type="Persistence_0:Persistence__Entity" xmi:id="_ruV1LaUzEdu67aH61_l2Wg"/>
+      </eAnnotations>
+      <generalization xmi:id="_ruV1LqUzEdu67aH61_l2Wg" general="_ruV1FqUzEdu67aH61_l2Wg"/>
+      <ownedAttribute xmi:id="_ruV1L6UzEdu67aH61_l2Wg" name="sensorState" type="_ruV1NqUzEdu67aH61_l2Wg" association="_ruV1PaUzEdu67aH61_l2Wg" aggregation="composite">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ruV1MKUzEdu67aH61_l2Wg" value="-1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ruV1MaUzEdu67aH61_l2Wg"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_ruV1MqUzEdu67aH61_l2Wg" name="stateChange" type="_ruV1P6UzEdu67aH61_l2Wg" association="_ruV1SKUzEdu67aH61_l2Wg" aggregation="composite">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ruV1M6UzEdu67aH61_l2Wg" value="-1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ruV1NKUzEdu67aH61_l2Wg"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_ruV1NaUzEdu67aH61_l2Wg" name="initialState" visibility="private" type="_ruV1NqUzEdu67aH61_l2Wg"/>
+    </ownedMember>
+    <ownedMember xmi:type="uml:Class" xmi:id="_ruV1NqUzEdu67aH61_l2Wg" name="SensorState">
+      <eAnnotations xmi:id="_ruV1N6UzEdu67aH61_l2Wg" source="appliedStereotypes">
+        <contents xmi:type="Persistence_0:Persistence__Entity" xmi:id="_ruV1OKUzEdu67aH61_l2Wg"/>
+      </eAnnotations>
+      <ownedAttribute xmi:id="_ruV1OaUzEdu67aH61_l2Wg" name="stateID" visibility="private">
+        <eAnnotations xmi:id="_ruV1OqUzEdu67aH61_l2Wg" source="appliedStereotypes">
+          <contents xmi:type="Persistence_0:Persistence__Key" xmi:id="_ruV1O6UzEdu67aH61_l2Wg"/>
+        </eAnnotations>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML2_LIBRARIES/JavaPrimitiveTypes.library.uml2#_TBrTIK86EdieaYgxtVWN8Q"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_ruV1PKUzEdu67aH61_l2Wg" name="stateLiteral" visibility="private">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML2_LIBRARIES/UML2PrimitiveTypes.library.uml2#_IXlH8a86EdieaYgxtVWN8Q"/>
+      </ownedAttribute>
+    </ownedMember>
+    <ownedMember xmi:type="uml:Association" xmi:id="_ruV1PaUzEdu67aH61_l2Wg" memberEnd="_ruV1L6UzEdu67aH61_l2Wg _ruV1PqUzEdu67aH61_l2Wg">
+      <ownedEnd xmi:id="_ruV1PqUzEdu67aH61_l2Wg" visibility="private" type="_ruV1K6UzEdu67aH61_l2Wg" association="_ruV1PaUzEdu67aH61_l2Wg"/>
+    </ownedMember>
+    <ownedMember xmi:type="uml:Class" xmi:id="_ruV1P6UzEdu67aH61_l2Wg" name="State">
+      <eAnnotations xmi:id="_ruV1QKUzEdu67aH61_l2Wg" source="appliedStereotypes">
+        <contents xmi:type="Persistence_0:Persistence__Entity" xmi:id="_ruV1QaUzEdu67aH61_l2Wg"/>
+      </eAnnotations>
+      <generalization xmi:id="_ruV1QqUzEdu67aH61_l2Wg" general="_ruV1D6UzEdu67aH61_l2Wg"/>
+      <ownedAttribute xmi:id="_ruV1Q6UzEdu67aH61_l2Wg" name="sensorState" type="_ruV1NqUzEdu67aH61_l2Wg" association="_ruV1RqUzEdu67aH61_l2Wg">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ruV1RKUzEdu67aH61_l2Wg" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ruV1RaUzEdu67aH61_l2Wg" value="1"/>
+      </ownedAttribute>
+    </ownedMember>
+    <ownedMember xmi:type="uml:Association" xmi:id="_ruV1RqUzEdu67aH61_l2Wg" memberEnd="_ruV1Q6UzEdu67aH61_l2Wg _ruV1R6UzEdu67aH61_l2Wg">
+      <ownedEnd xmi:id="_ruV1R6UzEdu67aH61_l2Wg" visibility="private" type="_ruV1P6UzEdu67aH61_l2Wg" association="_ruV1RqUzEdu67aH61_l2Wg"/>
+    </ownedMember>
+    <ownedMember xmi:type="uml:Association" xmi:id="_ruV1SKUzEdu67aH61_l2Wg" memberEnd="_ruV1MqUzEdu67aH61_l2Wg _ruV1SaUzEdu67aH61_l2Wg">
+      <ownedEnd xmi:id="_ruV1SaUzEdu67aH61_l2Wg" visibility="private" type="_ruV1K6UzEdu67aH61_l2Wg" association="_ruV1SKUzEdu67aH61_l2Wg"/>
+    </ownedMember>
+    <ownedMember xmi:type="uml:Class" xmi:id="_ruV1SqUzEdu67aH61_l2Wg" name="Experiment">
+      <eAnnotations xmi:id="_ruV1S6UzEdu67aH61_l2Wg" source="appliedStereotypes">
+        <contents xmi:type="Persistence_0:Persistence__Entity" xmi:id="_ruV1TKUzEdu67aH61_l2Wg"/>
+      </eAnnotations>
+      <ownedAttribute xmi:id="_ruV1TaUzEdu67aH61_l2Wg" name="sensor" type="_ruV1FqUzEdu67aH61_l2Wg" association="_ruV1VKUzEdu67aH61_l2Wg" aggregation="composite">
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ruV1TqUzEdu67aH61_l2Wg" value="-1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ruV1T6UzEdu67aH61_l2Wg"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_ruV1UKUzEdu67aH61_l2Wg" name="experimentID" visibility="private">
+        <eAnnotations xmi:id="_ruV1UaUzEdu67aH61_l2Wg" source="appliedStereotypes">
+          <contents xmi:type="Persistence_0:Persistence__Key" xmi:id="_ruV1UqUzEdu67aH61_l2Wg"/>
+        </eAnnotations>
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML2_LIBRARIES/JavaPrimitiveTypes.library.uml2#_TBrTIK86EdieaYgxtVWN8Q"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_ruV1U6UzEdu67aH61_l2Wg" name="experimentName" visibility="private">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML2_LIBRARIES/UML2PrimitiveTypes.library.uml2#_IXlH8a86EdieaYgxtVWN8Q"/>
+      </ownedAttribute>
+    </ownedMember>
+    <ownedMember xmi:type="uml:Association" xmi:id="_ruV1VKUzEdu67aH61_l2Wg" memberEnd="_ruV1TaUzEdu67aH61_l2Wg _ruV1VaUzEdu67aH61_l2Wg">
+      <ownedEnd xmi:id="_ruV1VaUzEdu67aH61_l2Wg" visibility="private" type="_ruV1SqUzEdu67aH61_l2Wg" association="_ruV1VKUzEdu67aH61_l2Wg"/>
+    </ownedMember>
+  </ownedMember>
+  <ownedMember xmi:type="uml:Class" xmi:id="_ruV1VqUzEdu67aH61_l2Wg" name="SensorFramework">
+    <ownedOperation xmi:id="_ruV1V6UzEdu67aH61_l2Wg" name="init"/>
+  </ownedMember>
+</uml:Model>
