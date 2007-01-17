@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pcm.repository:Repository xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pcm.repository="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/1.0" id="_PFfcwKYFEduWZfldHy3B1Q" entityName="MediaStoreRepository">
+  <components__Repository xsi:type="pcm.repository:BasicComponent" id="_RLTSs6YFEduWZfldHy3B1Q" entityName="WebGUI">
+    <providedRoles_InterfaceProvidingEntity id="_R3NqkKYSEduWZfldHy3B1Q" providedInterface__ProvidedRole="_O42SdKYGEduWZfldHy3B1Q"/>
+    <requiredRoles_InterfaceRequiringEntity id="_UejgQKYSEduWZfldHy3B1Q" requiredInterface__RequiredRole="_QW4WtKYGEduWZfldHy3B1Q"/>
+  </components__Repository>
+  <components__Repository xsi:type="pcm.repository:BasicComponent" id="_USFdc6YFEduWZfldHy3B1Q" entityName="MediaStore">
+    <providedRoles_InterfaceProvidingEntity id="_VB3osKYSEduWZfldHy3B1Q" providedInterface__ProvidedRole="_QW4WtKYGEduWZfldHy3B1Q"/>
+    <requiredRoles_InterfaceRequiringEntity id="_WltaAKYSEduWZfldHy3B1Q" requiredInterface__RequiredRole="_R63R9KYGEduWZfldHy3B1Q"/>
+    <requiredRoles_InterfaceRequiringEntity id="_YeHGEKYSEduWZfldHy3B1Q" requiredInterface__RequiredRole="_Vpb1e6YGEduWZfldHy3B1Q"/>
+  </components__Repository>
+  <components__Repository xsi:type="pcm.repository:BasicComponent" id="_V8B2w6YFEduWZfldHy3B1Q" entityName="DigitalWatermarking">
+    <providedRoles_InterfaceProvidingEntity id="_XxtTEKYSEduWZfldHy3B1Q" providedInterface__ProvidedRole="_R63R9KYGEduWZfldHy3B1Q"/>
+  </components__Repository>
+  <components__Repository xsi:type="pcm.repository:BasicComponent" id="_Z04Xo6YFEduWZfldHy3B1Q" entityName="DBAdapter">
+    <providedRoles_InterfaceProvidingEntity id="_ZYrQ4KYSEduWZfldHy3B1Q" providedInterface__ProvidedRole="_Vpb1e6YGEduWZfldHy3B1Q"/>
+    <requiredRoles_InterfaceRequiringEntity id="_a_MiwKYSEduWZfldHy3B1Q" requiredInterface__RequiredRole="_Wf-b66YGEduWZfldHy3B1Q"/>
+  </components__Repository>
+  <components__Repository xsi:type="pcm.repository:BasicComponent" id="_a5a906YFEduWZfldHy3B1Q" entityName="AudioDB">
+    <providedRoles_InterfaceProvidingEntity id="_anzWcKYSEduWZfldHy3B1Q" providedInterface__ProvidedRole="_Wf-b66YGEduWZfldHy3B1Q"/>
+  </components__Repository>
+  <interfaces__Repository id="_O42SdKYGEduWZfldHy3B1Q" entityName="IHTTP">
+    <signatures__Interface serviceName="download" returntype__Signature="_sCx2BaYGEduWZfldHy3B1Q">
+      <parameters__Signature datatype__Parameter="//@datatypes_Repository.2" parameterName="NumberOfFiles"/>
+    </signatures__Interface>
+  </interfaces__Repository>
+  <interfaces__Repository id="_QW4WtKYGEduWZfldHy3B1Q" entityName="IMediaStore">
+    <signatures__Interface serviceName="download" returntype__Signature="_sCx2BaYGEduWZfldHy3B1Q">
+      <parameters__Signature datatype__Parameter="//@datatypes_Repository.2" parameterName="NumberOfFiles"/>
+    </signatures__Interface>
+  </interfaces__Repository>
+  <interfaces__Repository id="_R63R9KYGEduWZfldHy3B1Q" entityName="ISound">
+    <signatures__Interface serviceName="watermark" returntype__Signature="//@datatypes_Repository.1">
+      <parameters__Signature datatype__Parameter="//@datatypes_Repository.1" parameterName="fileToMark" modifier__Parameter="in"/>
+    </signatures__Interface>
+  </interfaces__Repository>
+  <interfaces__Repository id="_Vpb1e6YGEduWZfldHy3B1Q" entityName="IAudioDB">
+    <signatures__Interface serviceName="queryDB" returntype__Signature="_sCx2BaYGEduWZfldHy3B1Q">
+      <parameters__Signature datatype__Parameter="//@datatypes_Repository.2" parameterName="NumberOfFiles"/>
+    </signatures__Interface>
+  </interfaces__Repository>
+  <interfaces__Repository id="_Wf-b66YGEduWZfldHy3B1Q" entityName="IMySQL">
+    <signatures__Interface serviceName="getFiles" returntype__Signature="_sCx2BaYGEduWZfldHy3B1Q">
+      <parameters__Signature datatype__Parameter="//@datatypes_Repository.2" parameterName="NumberOfFiles"/>
+    </signatures__Interface>
+  </interfaces__Repository>
+  <datatypes_Repository xsi:type="pcm.repository:CollectionDataType" id="_sCx2BaYGEduWZfldHy3B1Q" entityName="FileList" innerType_CollectionDataType="//@datatypes_Repository.1"/>
+  <datatypes_Repository xsi:type="pcm.repository:PrimitiveDataType" type="BYTE"/>
+  <datatypes_Repository xsi:type="pcm.repository:PrimitiveDataType"/>
+</pcm.repository:Repository>
