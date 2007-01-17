@@ -144,10 +144,10 @@
     <serviceEffectSpecifications__BasicComponent xsi:type="pcm.seff:ResourceDemandingSEFF" id="_Z_JD9KYmEdunyPSYvCWVNg" describedService__SEFF="//@interfaces__Repository.4/@signatures__Interface.0">
       <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_-4UdAKYkEduWZfldHy3B1Q" successor_AbstractAction="__fg_4KYkEduWZfldHy3B1Q"/>
       <steps_Behaviour xsi:type="pcm.seff:InternalAction" id="__fg_4KYkEduWZfldHy3B1Q" entityName="SelectFiles" predecessor_AbstractAction="_-4UdAKYkEduWZfldHy3B1Q" successor_AbstractAction="_0M-W2qYzEdudtvdezBq5JQ">
-        <resourceDemand_Action specification="DoublePDF(unit=&quot;unit&quot;)[ (3.0; 0.4) (4.0; 0.3) (5.0; 0.3) ]" unit="ms">
+        <resourceDemand_Action specification="DoublePDF(unit=&quot;unit&quot;)[ (1.0; 0.4) (2.0; 0.3) (3.0; 0.3) ]" unit="ms">
           <requiredResource_ParametricResourceDemand href="MediaStore.resourcetype#_AtY7gaYVEduWZfldHy3B1Q"/>
         </resourceDemand_Action>
-        <resourceDemand_Action specification="DoublePDF(unit=&quot;unit&quot;)[ (3.0; 0.4) (4.0; 0.3) (5.0; 0.3) ]" unit="Bytes">
+        <resourceDemand_Action specification="DoublePDF(unit=&quot;unit&quot;)[ (10.0; 0.4) (20.0; 0.3) (30.0; 0.3) ]" unit="Bytes">
           <requiredResource_ParametricResourceDemand href="MediaStore.resourcetype#_DH6dMaYVEduWZfldHy3B1Q"/>
         </resourceDemand_Action>
       </steps_Behaviour>
