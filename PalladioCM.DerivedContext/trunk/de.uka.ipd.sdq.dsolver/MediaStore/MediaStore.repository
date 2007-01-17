@@ -39,7 +39,7 @@
       <steps_Behaviour xsi:type="pcm.seff:CollectionIteratorAction" id="_6DsTmaYoEdunyPSYvCWVNg" predecessor_AbstractAction="_IVFI0KYZEduWZfldHy3B1Q" successor_AbstractAction="_70Mn66YoEdunyPSYvCWVNg" parameter_CollectionIteratorAction="//@interfaces__Repository.1/@signatures__Interface.0/@parameters__Signature.0">
         <bodyBehaviour_Loop>
           <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_IQ9qkaYpEdunyPSYvCWVNg" successor_AbstractAction="_JSO6VqYpEdunyPSYvCWVNg"/>
-          <steps_Behaviour xsi:type="pcm.seff:ExternalCallAction" id="_JSO6VqYpEdunyPSYvCWVNg" predecessor_AbstractAction="_IQ9qkaYpEdunyPSYvCWVNg" successor_AbstractAction="_J2lkkKYpEdunyPSYvCWVNg" calledService_ExternalService="//@interfaces__Repository.2/@signatures__Interface.0">
+          <steps_Behaviour xsi:type="pcm.seff:ExternalCallAction" id="_JSO6VqYpEdunyPSYvCWVNg" predecessor_AbstractAction="_IQ9qkaYpEdunyPSYvCWVNg" calledService_ExternalService="//@interfaces__Repository.2/@signatures__Interface.0">
             <parameterUsage_ExternalCallAction>
               <variableCharacterisation_VariableUsage specification="returnedFiles.INNER.BYTESIZE" type="BYTESIZE"/>
               <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="fileToMark"/>
@@ -49,7 +49,7 @@
               <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="markedFile"/>
             </outputVariableUsage_ExternalCallAction>
           </steps_Behaviour>
-          <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_J2lkkKYpEdunyPSYvCWVNg" predecessor_AbstractAction="_JSO6VqYpEdunyPSYvCWVNg"/>
+          <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_J2lkkKYpEdunyPSYvCWVNg"/>
         </bodyBehaviour_Loop>
       </steps_Behaviour>
       <steps_Behaviour xsi:type="pcm.seff:SetVariableAction" id="_70Mn66YoEdunyPSYvCWVNg" predecessor_AbstractAction="_6DsTmaYoEdunyPSYvCWVNg" successor_AbstractAction="_8cIxqqYoEdunyPSYvCWVNg">
@@ -102,13 +102,41 @@
     <requiredRoles_InterfaceRequiringEntity id="_a_MiwKYSEduWZfldHy3B1Q" requiredInterface__RequiredRole="_Wf-b66YGEduWZfldHy3B1Q"/>
     <serviceEffectSpecifications__BasicComponent xsi:type="pcm.seff:ResourceDemandingSEFF" id="_Z_JD7qYmEdunyPSYvCWVNg" describedService__SEFF="//@interfaces__Repository.3/@signatures__Interface.0">
       <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_j__IoKYkEduWZfldHy3B1Q" successor_AbstractAction="_k0STYKYkEduWZfldHy3B1Q"/>
-      <steps_Behaviour xsi:type="pcm.seff:ExternalCallAction" id="_k0STYKYkEduWZfldHy3B1Q" entityName="" predecessor_AbstractAction="_j__IoKYkEduWZfldHy3B1Q" successor_AbstractAction="_lcXnEKYkEduWZfldHy3B1Q" calledService_ExternalService="//@interfaces__Repository.4/@signatures__Interface.0">
+      <steps_Behaviour xsi:type="pcm.seff:ExternalCallAction" id="_k0STYKYkEduWZfldHy3B1Q" entityName="" predecessor_AbstractAction="_j__IoKYkEduWZfldHy3B1Q" successor_AbstractAction="_NW9oKqY2EdudtvdezBq5JQ" calledService_ExternalService="//@interfaces__Repository.4/@signatures__Interface.0">
         <parameterUsage_ExternalCallAction>
           <variableCharacterisation_VariableUsage specification="NumberOfFiles.VALUE" type="VALUE"/>
           <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="NumberOfFiles"/>
         </parameterUsage_ExternalCallAction>
+        <outputVariableUsage_ExternalCallAction>
+          <variableCharacterisation_VariableUsage specification="getFiles.RETURN.NUMBER_OF_ELEMENTS" type="NUMBER_OF_ELEMENTS"/>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="filesFromDB"/>
+        </outputVariableUsage_ExternalCallAction>
+        <outputVariableUsage_ExternalCallAction>
+          <variableCharacterisation_VariableUsage specification="getFiles.RETURN.INNER.BYTESIZE" type="BYTESIZE"/>
+          <namedReference_VariableUsage xsi:type="stoex:NamespaceReference" referenceName="filesFromDB">
+            <innerReference_NamespaceReference xsi:type="stoex:VariableReference" referenceName="INNER"/>
+          </namedReference_VariableUsage>
+        </outputVariableUsage_ExternalCallAction>
       </steps_Behaviour>
-      <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_lcXnEKYkEduWZfldHy3B1Q" predecessor_AbstractAction="_k0STYKYkEduWZfldHy3B1Q"/>
+      <steps_Behaviour xsi:type="pcm.seff:SetVariableAction" id="_NW9oKqY2EdudtvdezBq5JQ" predecessor_AbstractAction="_k0STYKYkEduWZfldHy3B1Q" successor_AbstractAction="_PlkNuqY2EdudtvdezBq5JQ">
+        <variableUsage_SetVariableAction>
+          <variableCharacterisation_VariableUsage specification="filesFromDB.NUMBER_OF_ELEMENTS" type="NUMBER_OF_ELEMENTS"/>
+          <namedReference_VariableUsage xsi:type="stoex:NamespaceReference" referenceName="queryDB">
+            <innerReference_NamespaceReference xsi:type="stoex:VariableReference" referenceName="RETURN"/>
+          </namedReference_VariableUsage>
+        </variableUsage_SetVariableAction>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="pcm.seff:SetVariableAction" id="_PlkNuqY2EdudtvdezBq5JQ" predecessor_AbstractAction="_NW9oKqY2EdudtvdezBq5JQ" successor_AbstractAction="_lcXnEKYkEduWZfldHy3B1Q">
+        <variableUsage_SetVariableAction>
+          <variableCharacterisation_VariableUsage specification="filesFromDB.INNER.BYTESIZE" type="BYTESIZE"/>
+          <namedReference_VariableUsage xsi:type="stoex:NamespaceReference" referenceName="queryDB">
+            <innerReference_NamespaceReference xsi:type="stoex:NamespaceReference" referenceName="RETURN">
+              <innerReference_NamespaceReference xsi:type="stoex:VariableReference" referenceName="INNER"/>
+            </innerReference_NamespaceReference>
+          </namedReference_VariableUsage>
+        </variableUsage_SetVariableAction>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_lcXnEKYkEduWZfldHy3B1Q" predecessor_AbstractAction="_PlkNuqY2EdudtvdezBq5JQ"/>
     </serviceEffectSpecifications__BasicComponent>
   </components__Repository>
   <components__Repository xsi:type="pcm.repository:BasicComponent" id="_a5a906YFEduWZfldHy3B1Q" entityName="AudioDB">

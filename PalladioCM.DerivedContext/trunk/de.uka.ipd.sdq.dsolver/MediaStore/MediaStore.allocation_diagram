@@ -10,7 +10,7 @@
         <styles xmi:type="notation:FillStyle" xmi:id="_ZHscVKYXEduWZfldHy3B1Q"/>
         <styles xmi:type="notation:LineStyle" xmi:id="_ZHscVaYXEduWZfldHy3B1Q"/>
         <element xmi:type="pcm.allocation:AllocationContext" href="MediaStore.allocation#_ZHscUKYXEduWZfldHy3B1Q"/>
-        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ZHscVqYXEduWZfldHy3B1Q" x="19" y="21"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ZHscVqYXEduWZfldHy3B1Q" x="7" y="165"/>
       </children>
       <children xmi:type="notation:Node" xmi:id="_bcGu8aYXEduWZfldHy3B1Q" type="2001">
         <children xmi:type="notation:Node" xmi:id="_bcGu96YXEduWZfldHy3B1Q" type="4001"/>
