@@ -21,30 +21,31 @@
   </components__Repository>
   <interfaces__Repository id="_O42SdKYGEduWZfldHy3B1Q" entityName="IHTTP">
     <signatures__Interface serviceName="download" returntype__Signature="_sCx2BaYGEduWZfldHy3B1Q">
-      <parameters__Signature datatype__Parameter="//@datatypes_Repository.2" parameterName="NumberOfFiles"/>
+      <parameters__Signature datatype__Parameter="//@datatypes_Repository.3" parameterName="NumberOfFiles"/>
     </signatures__Interface>
   </interfaces__Repository>
   <interfaces__Repository id="_QW4WtKYGEduWZfldHy3B1Q" entityName="IMediaStore">
     <signatures__Interface serviceName="download" returntype__Signature="_sCx2BaYGEduWZfldHy3B1Q">
-      <parameters__Signature datatype__Parameter="//@datatypes_Repository.2" parameterName="NumberOfFiles"/>
+      <parameters__Signature datatype__Parameter="//@datatypes_Repository.3" parameterName="NumberOfFiles"/>
     </signatures__Interface>
   </interfaces__Repository>
   <interfaces__Repository id="_R63R9KYGEduWZfldHy3B1Q" entityName="ISound">
-    <signatures__Interface serviceName="watermark" returntype__Signature="//@datatypes_Repository.1">
-      <parameters__Signature datatype__Parameter="//@datatypes_Repository.1" parameterName="fileToMark" modifier__Parameter="in"/>
+    <signatures__Interface serviceName="watermark" returntype__Signature="_t-PNZaYXEduWZfldHy3B1Q">
+      <parameters__Signature datatype__Parameter="_t-PNZaYXEduWZfldHy3B1Q" parameterName="fileToMark" modifier__Parameter="in"/>
     </signatures__Interface>
   </interfaces__Repository>
   <interfaces__Repository id="_Vpb1e6YGEduWZfldHy3B1Q" entityName="IAudioDB">
     <signatures__Interface serviceName="queryDB" returntype__Signature="_sCx2BaYGEduWZfldHy3B1Q">
-      <parameters__Signature datatype__Parameter="//@datatypes_Repository.2" parameterName="NumberOfFiles"/>
+      <parameters__Signature datatype__Parameter="//@datatypes_Repository.3" parameterName="NumberOfFiles"/>
     </signatures__Interface>
   </interfaces__Repository>
   <interfaces__Repository id="_Wf-b66YGEduWZfldHy3B1Q" entityName="IMySQL">
     <signatures__Interface serviceName="getFiles" returntype__Signature="_sCx2BaYGEduWZfldHy3B1Q">
-      <parameters__Signature datatype__Parameter="//@datatypes_Repository.2" parameterName="NumberOfFiles"/>
+      <parameters__Signature datatype__Parameter="//@datatypes_Repository.3" parameterName="NumberOfFiles"/>
     </signatures__Interface>
   </interfaces__Repository>
-  <datatypes_Repository xsi:type="pcm.repository:CollectionDataType" id="_sCx2BaYGEduWZfldHy3B1Q" entityName="FileList" innerType_CollectionDataType="//@datatypes_Repository.1"/>
+  <datatypes_Repository xsi:type="pcm.repository:CollectionDataType" id="_t-PNZaYXEduWZfldHy3B1Q" entityName="FILE" innerType_CollectionDataType="//@datatypes_Repository.2"/>
+  <datatypes_Repository xsi:type="pcm.repository:CollectionDataType" id="_sCx2BaYGEduWZfldHy3B1Q" entityName="FILELIST" innerType_CollectionDataType="_t-PNZaYXEduWZfldHy3B1Q"/>
   <datatypes_Repository xsi:type="pcm.repository:PrimitiveDataType" type="BYTE"/>
   <datatypes_Repository xsi:type="pcm.repository:PrimitiveDataType"/>
 </pcm.repository:Repository>
