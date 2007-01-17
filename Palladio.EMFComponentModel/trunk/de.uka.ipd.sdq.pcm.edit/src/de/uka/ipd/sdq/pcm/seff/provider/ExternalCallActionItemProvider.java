@@ -13,6 +13,8 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
+import org.eclipse.emf.ecore.EStructuralFeature;
+
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -106,8 +108,21 @@ public class ExternalCallActionItemProvider
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(SeffPackage.Literals.EXTERNAL_CALL_ACTION__PARAMETER_USAGE_EXTERNAL_CALL_ACTION);
+			childrenFeatures.add(SeffPackage.Literals.EXTERNAL_CALL_ACTION__OUTPUT_VARIABLE_USAGE_EXTERNAL_CALL_ACTION);
 		}
 		return childrenFeatures;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected EStructuralFeature getChildFeature(Object object, Object child) {
+		// Check the type of the specified child object and return the proper feature to use for
+		// adding (see {@link AddCommand}) it as a child.
+
+		return super.getChildFeature(object, child);
 	}
 
 	/**
@@ -145,6 +160,7 @@ public class ExternalCallActionItemProvider
 
 		switch (notification.getFeatureID(ExternalCallAction.class)) {
 			case SeffPackage.EXTERNAL_CALL_ACTION__PARAMETER_USAGE_EXTERNAL_CALL_ACTION:
+			case SeffPackage.EXTERNAL_CALL_ACTION__OUTPUT_VARIABLE_USAGE_EXTERNAL_CALL_ACTION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -165,6 +181,33 @@ public class ExternalCallActionItemProvider
 			(createChildParameter
 				(SeffPackage.Literals.EXTERNAL_CALL_ACTION__PARAMETER_USAGE_EXTERNAL_CALL_ACTION,
 				 ParameterFactory.eINSTANCE.createVariableUsage()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(SeffPackage.Literals.EXTERNAL_CALL_ACTION__OUTPUT_VARIABLE_USAGE_EXTERNAL_CALL_ACTION,
+				 ParameterFactory.eINSTANCE.createVariableUsage()));
+	}
+
+	/**
+	 * This returns the label text for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getCreateChildText(Object owner, Object feature, Object child, Collection selection) {
+		Object childFeature = feature;
+		Object childObject = child;
+
+		boolean qualify =
+			childFeature == SeffPackage.Literals.EXTERNAL_CALL_ACTION__PARAMETER_USAGE_EXTERNAL_CALL_ACTION ||
+			childFeature == SeffPackage.Literals.EXTERNAL_CALL_ACTION__OUTPUT_VARIABLE_USAGE_EXTERNAL_CALL_ACTION;
+
+		if (qualify) {
+			return getString
+				("_UI_CreateChild_text2",
+				 new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
+		}
+		return super.getCreateChildText(owner, feature, child, selection);
 	}
 
 	/**

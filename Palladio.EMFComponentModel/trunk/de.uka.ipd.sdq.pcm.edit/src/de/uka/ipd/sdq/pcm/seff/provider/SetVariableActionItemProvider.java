@@ -7,33 +7,36 @@
 package de.uka.ipd.sdq.pcm.seff.provider;
 
 
+import de.uka.ipd.sdq.pcm.core.entity.provider.PcmEditPlugin;
+
+import de.uka.ipd.sdq.pcm.parameter.ParameterFactory;
+
+import de.uka.ipd.sdq.pcm.seff.SeffPackage;
+import de.uka.ipd.sdq.pcm.seff.SetVariableAction;
+
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.common.util.ResourceLocator;
+
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
-import de.uka.ipd.sdq.pcm.core.entity.provider.PcmEditPlugin;
-import de.uka.ipd.sdq.pcm.seff.ResourceDemandingBehaviour;
-import de.uka.ipd.sdq.pcm.seff.SeffFactory;
-import de.uka.ipd.sdq.pcm.seff.SeffPackage;
-
 /**
- * This is the item provider adapter for a {@link de.uka.ipd.sdq.pcm.seff.ResourceDemandingBehaviour} object.
+ * This is the item provider adapter for a {@link de.uka.ipd.sdq.pcm.seff.SetVariableAction} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class ResourceDemandingBehaviourItemProvider
-	extends ItemProviderAdapter
+public class SetVariableActionItemProvider
+	extends AbstractResourceDemandingActionItemProvider
 	implements	
 		IEditingDomainItemProvider,	
 		IStructuredItemContentProvider,	
@@ -53,7 +56,7 @@ public class ResourceDemandingBehaviourItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ResourceDemandingBehaviourItemProvider(AdapterFactory adapterFactory) {
+	public SetVariableActionItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -82,19 +85,19 @@ public class ResourceDemandingBehaviourItemProvider
 	public Collection getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(SeffPackage.Literals.RESOURCE_DEMANDING_BEHAVIOUR__STEPS_BEHAVIOUR);
+			childrenFeatures.add(SeffPackage.Literals.SET_VARIABLE_ACTION__VARIABLE_USAGE_SET_VARIABLE_ACTION);
 		}
 		return childrenFeatures;
 	}
 
 	/**
-	 * This returns ResourceDemandingBehaviour.gif.
+	 * This returns SetVariableAction.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/ResourceDemandingBehaviour"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/SetVariableAction"));
 	}
 
 	/**
@@ -104,7 +107,10 @@ public class ResourceDemandingBehaviourItemProvider
 	 * @generated
 	 */
 	public String getText(Object object) {
-		return getString("_UI_ResourceDemandingBehaviour_type");
+		String label = ((SetVariableAction)object).getId();
+		return label == null || label.length() == 0 ?
+			getString("_UI_SetVariableAction_type") :
+			getString("_UI_SetVariableAction_type") + " " + label;
 	}
 
 	/**
@@ -117,8 +123,8 @@ public class ResourceDemandingBehaviourItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(ResourceDemandingBehaviour.class)) {
-			case SeffPackage.RESOURCE_DEMANDING_BEHAVIOUR__STEPS_BEHAVIOUR:
+		switch (notification.getFeatureID(SetVariableAction.class)) {
+			case SeffPackage.SET_VARIABLE_ACTION__VARIABLE_USAGE_SET_VARIABLE_ACTION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -137,58 +143,8 @@ public class ResourceDemandingBehaviourItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(SeffPackage.Literals.RESOURCE_DEMANDING_BEHAVIOUR__STEPS_BEHAVIOUR,
-				 SeffFactory.eINSTANCE.createStopAction()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(SeffPackage.Literals.RESOURCE_DEMANDING_BEHAVIOUR__STEPS_BEHAVIOUR,
-				 SeffFactory.eINSTANCE.createStartAction()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(SeffPackage.Literals.RESOURCE_DEMANDING_BEHAVIOUR__STEPS_BEHAVIOUR,
-				 SeffFactory.eINSTANCE.createReleaseAction()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(SeffPackage.Literals.RESOURCE_DEMANDING_BEHAVIOUR__STEPS_BEHAVIOUR,
-				 SeffFactory.eINSTANCE.createLoopAction()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(SeffPackage.Literals.RESOURCE_DEMANDING_BEHAVIOUR__STEPS_BEHAVIOUR,
-				 SeffFactory.eINSTANCE.createInternalAction()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(SeffPackage.Literals.RESOURCE_DEMANDING_BEHAVIOUR__STEPS_BEHAVIOUR,
-				 SeffFactory.eINSTANCE.createForkAction()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(SeffPackage.Literals.RESOURCE_DEMANDING_BEHAVIOUR__STEPS_BEHAVIOUR,
-				 SeffFactory.eINSTANCE.createExternalCallAction()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(SeffPackage.Literals.RESOURCE_DEMANDING_BEHAVIOUR__STEPS_BEHAVIOUR,
-				 SeffFactory.eINSTANCE.createBranchAction()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(SeffPackage.Literals.RESOURCE_DEMANDING_BEHAVIOUR__STEPS_BEHAVIOUR,
-				 SeffFactory.eINSTANCE.createAquireAction()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(SeffPackage.Literals.RESOURCE_DEMANDING_BEHAVIOUR__STEPS_BEHAVIOUR,
-				 SeffFactory.eINSTANCE.createCollectionIteratorAction()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(SeffPackage.Literals.RESOURCE_DEMANDING_BEHAVIOUR__STEPS_BEHAVIOUR,
-				 SeffFactory.eINSTANCE.createSetVariableAction()));
+				(SeffPackage.Literals.SET_VARIABLE_ACTION__VARIABLE_USAGE_SET_VARIABLE_ACTION,
+				 ParameterFactory.eINSTANCE.createVariableUsage()));
 	}
 
 	/**
