@@ -1,13 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<pcm.repository:Repository xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pcm.repository="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/1.0" id="_PFfcwKYFEduWZfldHy3B1Q" entityName="MediaStoreRepository">
+<pcm.repository:Repository xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pcm.repository="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/1.0" xmlns:pcm.seff="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0" xmlns:stoex="http://sdq.ipd.uka.de/StochasticExpressions/1.0" id="_PFfcwKYFEduWZfldHy3B1Q" entityName="MediaStoreRepository">
   <components__Repository xsi:type="pcm.repository:BasicComponent" id="_RLTSs6YFEduWZfldHy3B1Q" entityName="WebGUI">
     <providedRoles_InterfaceProvidingEntity id="_R3NqkKYSEduWZfldHy3B1Q" providedInterface__ProvidedRole="_O42SdKYGEduWZfldHy3B1Q"/>
     <requiredRoles_InterfaceRequiringEntity id="_UejgQKYSEduWZfldHy3B1Q" requiredInterface__RequiredRole="_QW4WtKYGEduWZfldHy3B1Q"/>
+    <serviceEffectSpecifications__BasicComponent xsi:type="pcm.seff:ResourceDemandingSEFF">
+      <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_eAMm4aYYEduWZfldHy3B1Q" successor_AbstractAction="_ftICxqYYEduWZfldHy3B1Q"/>
+      <steps_Behaviour xsi:type="pcm.seff:ExternalCallAction" id="_ftICxqYYEduWZfldHy3B1Q" entityName="" predecessor_AbstractAction="_eAMm4aYYEduWZfldHy3B1Q" successor_AbstractAction="_ggYrsKYYEduWZfldHy3B1Q" calledService_ExternalService="//@interfaces__Repository.1/@signatures__Interface.0">
+        <parameterUsage_ExternalCallAction>
+          <variableCharacterisation_VariableUsage specification="NumberOfFiles.VALUE" type="VALUE"/>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="NumberOfFiles"/>
+        </parameterUsage_ExternalCallAction>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_ggYrsKYYEduWZfldHy3B1Q" predecessor_AbstractAction="_ftICxqYYEduWZfldHy3B1Q"/>
+    </serviceEffectSpecifications__BasicComponent>
   </components__Repository>
   <components__Repository xsi:type="pcm.repository:BasicComponent" id="_USFdc6YFEduWZfldHy3B1Q" entityName="MediaStore">
     <providedRoles_InterfaceProvidingEntity id="_VB3osKYSEduWZfldHy3B1Q" providedInterface__ProvidedRole="_QW4WtKYGEduWZfldHy3B1Q"/>
     <requiredRoles_InterfaceRequiringEntity id="_WltaAKYSEduWZfldHy3B1Q" requiredInterface__RequiredRole="_R63R9KYGEduWZfldHy3B1Q"/>
     <requiredRoles_InterfaceRequiringEntity id="_733McKYTEduWZfldHy3B1Q" requiredInterface__RequiredRole="_Vpb1e6YGEduWZfldHy3B1Q"/>
+    <serviceEffectSpecifications__BasicComponent xsi:type="pcm.seff:ResourceDemandingSEFF" describedService__SEFF="//@interfaces__Repository.1/@signatures__Interface.0">
+      <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_HGjgMKYZEduWZfldHy3B1Q" successor_AbstractAction="_IVFI0KYZEduWZfldHy3B1Q"/>
+      <steps_Behaviour xsi:type="pcm.seff:ExternalCallAction" id="_IVFI0KYZEduWZfldHy3B1Q" predecessor_AbstractAction="_HGjgMKYZEduWZfldHy3B1Q" successor_AbstractAction="_IpM-sKYZEduWZfldHy3B1Q" calledService_ExternalService="//@interfaces__Repository.3/@signatures__Interface.0">
+        <parameterUsage_ExternalCallAction>
+          <variableCharacterisation_VariableUsage specification="NumberOfFiles.VALUE" type="VALUE"/>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="NumberOfFiles"/>
+        </parameterUsage_ExternalCallAction>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_IpM-sKYZEduWZfldHy3B1Q" predecessor_AbstractAction="_IVFI0KYZEduWZfldHy3B1Q"/>
+    </serviceEffectSpecifications__BasicComponent>
   </components__Repository>
   <components__Repository xsi:type="pcm.repository:BasicComponent" id="_V8B2w6YFEduWZfldHy3B1Q" entityName="DigitalWatermarking">
     <providedRoles_InterfaceProvidingEntity id="_XxtTEKYSEduWZfldHy3B1Q" providedInterface__ProvidedRole="_R63R9KYGEduWZfldHy3B1Q"/>
@@ -20,12 +40,12 @@
     <providedRoles_InterfaceProvidingEntity id="_anzWcKYSEduWZfldHy3B1Q" providedInterface__ProvidedRole="_Wf-b66YGEduWZfldHy3B1Q"/>
   </components__Repository>
   <interfaces__Repository id="_O42SdKYGEduWZfldHy3B1Q" entityName="IHTTP">
-    <signatures__Interface serviceName="download" returntype__Signature="_sCx2BaYGEduWZfldHy3B1Q">
+    <signatures__Interface serviceName="downloadHTTP" returntype__Signature="_sCx2BaYGEduWZfldHy3B1Q">
       <parameters__Signature datatype__Parameter="//@datatypes_Repository.3" parameterName="NumberOfFiles"/>
     </signatures__Interface>
   </interfaces__Repository>
   <interfaces__Repository id="_QW4WtKYGEduWZfldHy3B1Q" entityName="IMediaStore">
-    <signatures__Interface serviceName="download" returntype__Signature="_sCx2BaYGEduWZfldHy3B1Q">
+    <signatures__Interface serviceName="downloadFromDB" returntype__Signature="_sCx2BaYGEduWZfldHy3B1Q">
       <parameters__Signature datatype__Parameter="//@datatypes_Repository.3" parameterName="NumberOfFiles"/>
     </signatures__Interface>
   </interfaces__Repository>
