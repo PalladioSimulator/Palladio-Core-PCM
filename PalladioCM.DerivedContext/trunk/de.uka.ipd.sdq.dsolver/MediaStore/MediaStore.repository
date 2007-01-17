@@ -147,7 +147,7 @@
         <resourceDemand_Action specification="DoublePDF(unit=&quot;unit&quot;)[ (1.0; 0.4) (2.0; 0.3) (3.0; 0.3) ]" unit="ms">
           <requiredResource_ParametricResourceDemand href="MediaStore.resourcetype#_AtY7gaYVEduWZfldHy3B1Q"/>
         </resourceDemand_Action>
-        <resourceDemand_Action specification="DoublePDF(unit=&quot;unit&quot;)[ (10.0; 0.4) (20.0; 0.3) (30.0; 0.3) ]" unit="Bytes">
+        <resourceDemand_Action specification="DoublePDF(unit=&quot;unit&quot;)[ (1.0; 0.4) (2.0; 0.3) (3.0; 0.3) ]" unit="Bytes">
           <requiredResource_ParametricResourceDemand href="MediaStore.resourcetype#_DH6dMaYVEduWZfldHy3B1Q"/>
         </resourceDemand_Action>
       </steps_Behaviour>
