@@ -7,7 +7,7 @@
   <components__Repository xsi:type="pcm.repository:BasicComponent" id="_USFdc6YFEduWZfldHy3B1Q" entityName="MediaStore">
     <providedRoles_InterfaceProvidingEntity id="_VB3osKYSEduWZfldHy3B1Q" providedInterface__ProvidedRole="_QW4WtKYGEduWZfldHy3B1Q"/>
     <requiredRoles_InterfaceRequiringEntity id="_WltaAKYSEduWZfldHy3B1Q" requiredInterface__RequiredRole="_R63R9KYGEduWZfldHy3B1Q"/>
-    <requiredRoles_InterfaceRequiringEntity id="_YeHGEKYSEduWZfldHy3B1Q" requiredInterface__RequiredRole="_Vpb1e6YGEduWZfldHy3B1Q"/>
+    <requiredRoles_InterfaceRequiringEntity id="_733McKYTEduWZfldHy3B1Q" requiredInterface__RequiredRole="_Vpb1e6YGEduWZfldHy3B1Q"/>
   </components__Repository>
   <components__Repository xsi:type="pcm.repository:BasicComponent" id="_V8B2w6YFEduWZfldHy3B1Q" entityName="DigitalWatermarking">
     <providedRoles_InterfaceProvidingEntity id="_XxtTEKYSEduWZfldHy3B1Q" providedInterface__ProvidedRole="_R63R9KYGEduWZfldHy3B1Q"/>
