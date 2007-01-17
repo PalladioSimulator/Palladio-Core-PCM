@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <pcm.usagemodel:UsageModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pcm.usagemodel="http://sdq.ipd.uka.de/PalladioComponentModel/UsageModel/1.0" xmlns:stoex="http://sdq.ipd.uka.de/StochasticExpressions/1.0">
-  <usageScenario_UsageModel id="_KOGcwKYVEduWZfldHy3B1Q">
+  <usageScenario_UsageModel id="_KOGcwKYVEduWZfldHy3B1Q" entityName="DownloadFiles">
     <workload_UsageScenario xsi:type="pcm.usagemodel:ClosedWorkload" population="1">
       <thinkTime_ClosedWorkload specification="0.0"/>
     </workload_UsageScenario>
