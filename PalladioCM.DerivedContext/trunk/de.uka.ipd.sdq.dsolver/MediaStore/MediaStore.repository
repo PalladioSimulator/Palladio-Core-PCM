@@ -26,13 +26,13 @@
           <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="NumberOfFiles"/>
         </parameterUsage_ExternalCallAction>
         <outputVariableUsage_ExternalCallAction>
-          <variableCharacterisation_VariableUsage specification="getFiles.RETURN.INNER.BYTESIZE" type="BYTESIZE"/>
+          <variableCharacterisation_VariableUsage specification="queryDB.RETURN.INNER.BYTESIZE" type="BYTESIZE"/>
           <namedReference_VariableUsage xsi:type="stoex:NamespaceReference" referenceName="returnedFiles">
             <innerReference_NamespaceReference xsi:type="stoex:VariableReference" referenceName="INNER"/>
           </namedReference_VariableUsage>
         </outputVariableUsage_ExternalCallAction>
         <outputVariableUsage_ExternalCallAction>
-          <variableCharacterisation_VariableUsage specification="getFiles.RETURN.NUMBER_OF_ELEMENTS" type="NUMBER_OF_ELEMENTS"/>
+          <variableCharacterisation_VariableUsage specification="queryDB.RETURN.NUMBER_OF_ELEMENTS" type="NUMBER_OF_ELEMENTS"/>
           <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="returnedFiles"/>
         </outputVariableUsage_ExternalCallAction>
       </steps_Behaviour>
