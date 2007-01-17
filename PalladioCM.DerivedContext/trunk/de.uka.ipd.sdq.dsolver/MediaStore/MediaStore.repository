@@ -39,7 +39,7 @@
       <steps_Behaviour xsi:type="pcm.seff:CollectionIteratorAction" id="_6DsTmaYoEdunyPSYvCWVNg" predecessor_AbstractAction="_IVFI0KYZEduWZfldHy3B1Q" successor_AbstractAction="_70Mn66YoEdunyPSYvCWVNg" parameter_CollectionIteratorAction="//@interfaces__Repository.1/@signatures__Interface.0/@parameters__Signature.0">
         <bodyBehaviour_Loop>
           <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_IQ9qkaYpEdunyPSYvCWVNg" successor_AbstractAction="_JSO6VqYpEdunyPSYvCWVNg"/>
-          <steps_Behaviour xsi:type="pcm.seff:ExternalCallAction" id="_JSO6VqYpEdunyPSYvCWVNg" predecessor_AbstractAction="_IQ9qkaYpEdunyPSYvCWVNg" calledService_ExternalService="//@interfaces__Repository.2/@signatures__Interface.0">
+          <steps_Behaviour xsi:type="pcm.seff:ExternalCallAction" id="_JSO6VqYpEdunyPSYvCWVNg" predecessor_AbstractAction="_IQ9qkaYpEdunyPSYvCWVNg" successor_AbstractAction="_J2lkkKYpEdunyPSYvCWVNg" calledService_ExternalService="//@interfaces__Repository.2/@signatures__Interface.0">
             <parameterUsage_ExternalCallAction>
               <variableCharacterisation_VariableUsage specification="returnedFiles.INNER.BYTESIZE" type="BYTESIZE"/>
               <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="fileToMark"/>
@@ -49,7 +49,7 @@
               <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="markedFile"/>
             </outputVariableUsage_ExternalCallAction>
           </steps_Behaviour>
-          <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_J2lkkKYpEdunyPSYvCWVNg"/>
+          <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_J2lkkKYpEdunyPSYvCWVNg" predecessor_AbstractAction="_JSO6VqYpEdunyPSYvCWVNg"/>
         </bodyBehaviour_Loop>
       </steps_Behaviour>
       <steps_Behaviour xsi:type="pcm.seff:SetVariableAction" id="_70Mn66YoEdunyPSYvCWVNg" predecessor_AbstractAction="_6DsTmaYoEdunyPSYvCWVNg" successor_AbstractAction="_8cIxqqYoEdunyPSYvCWVNg">
