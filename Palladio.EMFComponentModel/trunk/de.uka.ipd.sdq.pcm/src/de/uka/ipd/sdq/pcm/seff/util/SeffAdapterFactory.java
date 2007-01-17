@@ -147,6 +147,9 @@ public class SeffAdapterFactory extends AdapterFactoryImpl {
 			public Object caseGuardedBranchTransition(GuardedBranchTransition object) {
 				return createGuardedBranchTransitionAdapter();
 			}
+			public Object caseSetVariableAction(SetVariableAction object) {
+				return createSetVariableActionAdapter();
+			}
 			public Object caseServiceEffectSpecification(ServiceEffectSpecification object) {
 				return createServiceEffectSpecificationAdapter();
 			}
@@ -471,6 +474,20 @@ public class SeffAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createGuardedBranchTransitionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.seff.SetVariableAction <em>Set Variable Action</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.pcm.seff.SetVariableAction
+	 * @generated
+	 */
+	public Adapter createSetVariableActionAdapter() {
 		return null;
 	}
 

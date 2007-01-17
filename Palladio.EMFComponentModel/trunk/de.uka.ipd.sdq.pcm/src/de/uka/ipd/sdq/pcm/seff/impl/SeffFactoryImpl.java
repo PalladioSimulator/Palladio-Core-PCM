@@ -83,6 +83,7 @@ public class SeffFactoryImpl extends EFactoryImpl implements SeffFactory {
 			case SeffPackage.BRANCH_CONDITION: return createBranchCondition();
 			case SeffPackage.COLLECTION_ITERATOR_ACTION: return createCollectionIteratorAction();
 			case SeffPackage.GUARDED_BRANCH_TRANSITION: return createGuardedBranchTransition();
+			case SeffPackage.SET_VARIABLE_ACTION: return createSetVariableAction();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -256,6 +257,16 @@ public class SeffFactoryImpl extends EFactoryImpl implements SeffFactory {
 	public GuardedBranchTransition createGuardedBranchTransition() {
 		GuardedBranchTransitionImpl guardedBranchTransition = new GuardedBranchTransitionImpl();
 		return guardedBranchTransition;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SetVariableAction createSetVariableAction() {
+		SetVariableActionImpl setVariableAction = new SetVariableActionImpl();
+		return setVariableAction;
 	}
 
 	/**

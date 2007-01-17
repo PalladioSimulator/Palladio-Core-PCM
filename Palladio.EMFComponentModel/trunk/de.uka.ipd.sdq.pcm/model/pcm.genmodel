@@ -19,7 +19,7 @@
     <details key="UNION_PROPERTIES" value="REPORT"/>
     <details key="DUPLICATE_OPERATION_INHERITANCE" value="DISCARD"/>
   </genAnnotations>
-  <foreignModel>file:/C:/coding/code/rsa_exports/pcm.uml2</foreignModel>
+  <foreignModel>file:/D:/Diss/Work/RSA-Export/pcm.uml2</foreignModel>
   <modelPluginVariables>EMFT_OCL=org.eclipse.emf.ocl</modelPluginVariables>
   <genPackages prefix="Pcm" basePackage="de.uka.ipd.sdq" disposableProviderFactory="true"
       ecorePackage="pcm.ecore#/">
@@ -213,6 +213,7 @@
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference pcm.ecore#//repository/BasicComponent/implementationComponentType"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//repository/BasicComponent/serviceEffectSpecifications__BasicComponent"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//repository/BasicComponent/internalVariables_BasicComponent"/>
         <genOperations ecoreOperation="pcm.ecore#//repository/BasicComponent/noSeffTypeUsedTwice">
           <genParameters ecoreParameter="pcm.ecore#//repository/BasicComponent/noSeffTypeUsedTwice/diagnostics"/>
           <genParameters ecoreParameter="pcm.ecore#//repository/BasicComponent/noSeffTypeUsedTwice/context"/>
@@ -304,6 +305,7 @@
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference pcm.ecore#//seff/ExternalCallAction/calledService_ExternalService"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//seff/ExternalCallAction/parameterUsage_ExternalCallAction"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//seff/ExternalCallAction/outputVariableUsage_ExternalCallAction"/>
       </genClasses>
       <genClasses ecoreClass="pcm.ecore#//seff/ProbabilisticBranchTransition">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pcm.ecore#//seff/ProbabilisticBranchTransition/branchProbability"/>
@@ -325,6 +327,9 @@
       </genClasses>
       <genClasses ecoreClass="pcm.ecore#//seff/GuardedBranchTransition">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//seff/GuardedBranchTransition/branchCondition_BranchTransition"/>
+      </genClasses>
+      <genClasses ecoreClass="pcm.ecore#//seff/SetVariableAction">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//seff/SetVariableAction/variableUsage_SetVariableAction"/>
       </genClasses>
       <genClasses image="false" ecoreClass="pcm.ecore#//seff/ServiceEffectSpecification">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pcm.ecore#//seff/ServiceEffectSpecification/seffTypeID"/>

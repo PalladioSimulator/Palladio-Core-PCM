@@ -977,13 +977,22 @@ public interface RepositoryPackage extends EPackage {
 	int BASIC_COMPONENT__SERVICE_EFFECT_SPECIFICATIONS_BASIC_COMPONENT = IMPLEMENTATION_COMPONENT_TYPE_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Internal Variables Basic Component</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BASIC_COMPONENT__INTERNAL_VARIABLES_BASIC_COMPONENT = IMPLEMENTATION_COMPONENT_TYPE_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Basic Component</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BASIC_COMPONENT_FEATURE_COUNT = IMPLEMENTATION_COMPONENT_TYPE_FEATURE_COUNT + 2;
+	int BASIC_COMPONENT_FEATURE_COUNT = IMPLEMENTATION_COMPONENT_TYPE_FEATURE_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.repository.impl.PrimitiveDataTypeImpl <em>Primitive Data Type</em>}' class.
@@ -1714,6 +1723,17 @@ public interface RepositoryPackage extends EPackage {
 	EReference getBasicComponent_ServiceEffectSpecifications__BasicComponent();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link de.uka.ipd.sdq.pcm.repository.BasicComponent#getInternalVariables_BasicComponent <em>Internal Variables Basic Component</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Internal Variables Basic Component</em>'.
+	 * @see de.uka.ipd.sdq.pcm.repository.BasicComponent#getInternalVariables_BasicComponent()
+	 * @see #getBasicComponent()
+	 * @generated
+	 */
+	EReference getBasicComponent_InternalVariables_BasicComponent();
+
+	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.repository.PrimitiveDataType <em>Primitive Data Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2253,6 +2273,14 @@ public interface RepositoryPackage extends EPackage {
 		 * @generated
 		 */
 		EReference BASIC_COMPONENT__SERVICE_EFFECT_SPECIFICATIONS_BASIC_COMPONENT = eINSTANCE.getBasicComponent_ServiceEffectSpecifications__BasicComponent();
+
+		/**
+		 * The meta object literal for the '<em><b>Internal Variables Basic Component</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference BASIC_COMPONENT__INTERNAL_VARIABLES_BASIC_COMPONENT = eINSTANCE.getBasicComponent_InternalVariables_BasicComponent();
 
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.repository.impl.PrimitiveDataTypeImpl <em>Primitive Data Type</em>}' class.

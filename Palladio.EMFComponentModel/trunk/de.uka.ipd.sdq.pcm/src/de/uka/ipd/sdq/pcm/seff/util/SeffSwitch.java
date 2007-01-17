@@ -301,6 +301,17 @@ public class SeffSwitch {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case SeffPackage.SET_VARIABLE_ACTION: {
+				SetVariableAction setVariableAction = (SetVariableAction)theEObject;
+				Object result = caseSetVariableAction(setVariableAction);
+				if (result == null) result = caseAbstractResourceDemandingAction(setVariableAction);
+				if (result == null) result = caseAbstractAction(setVariableAction);
+				if (result == null) result = caseEntity(setVariableAction);
+				if (result == null) result = caseIdentifier(setVariableAction);
+				if (result == null) result = caseNamedElement(setVariableAction);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case SeffPackage.SERVICE_EFFECT_SPECIFICATION: {
 				ServiceEffectSpecification serviceEffectSpecification = (ServiceEffectSpecification)theEObject;
 				Object result = caseServiceEffectSpecification(serviceEffectSpecification);
@@ -623,6 +634,21 @@ public class SeffSwitch {
 	 * @generated
 	 */
 	public Object caseGuardedBranchTransition(GuardedBranchTransition object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpretting the object as an instance of '<em>Set Variable Action</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpretting the object as an instance of '<em>Set Variable Action</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public Object caseSetVariableAction(SetVariableAction object) {
 		return null;
 	}
 
