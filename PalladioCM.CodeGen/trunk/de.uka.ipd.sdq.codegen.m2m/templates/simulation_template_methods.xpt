@@ -49,6 +49,14 @@
 	ctx
 «ENDAROUND»
 
+«AROUND m2t_transforms::java_core::ReturnTypeTM FOR Signature»
+   de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe
+«ENDAROUND»
+
+«AROUND m2t_transforms::provided_ports::PortDelegationDelegatingCallTM FOR Signature»
+   «EXPAND m2t_transforms::sim::provided_ports::PortDelegationDelegatingCall FOR this»
+«ENDAROUND»
+
 //-------------------------
 // Pre-/Post-Call TM
 //-------------------------
@@ -57,9 +65,9 @@
 	«EXPAND m2t_transforms::sim::calls::PreCall(parameterUsages) FOR this»
 «ENDAROUND»
  
-«AROUND m2t_transforms::calls::PostCallTM FOR Signature»
-	«EXPAND m2t_transforms::sim::calls::PostCall FOR this»
-«ENDAROUND»
+«AROUND m2t_transforms::calls::PostCallTM(List[VariableUsage] outParameterUsages) FOR Signature»
+	«EXPAND m2t_transforms::sim::calls::PostCall(outParameterUsages) FOR this»
+«ENDAROUND» 
 
 // ----------------------------
 // Resource Demand
@@ -72,6 +80,18 @@
 // ----------------------------
 // Actions Dispatcher ---> SEFF
 // ----------------------------
+«AROUND m2t_transforms::seff::Action FOR StartAction»
+	«EXPAND m2t_transforms::sim::seff::Action FOR this»
+«ENDAROUND» 
+
+«AROUND m2t_transforms::seff::Action FOR StopAction»
+	«EXPAND m2t_transforms::sim::seff::Action FOR this»
+«ENDAROUND» 
+
+«AROUND m2t_transforms::seff::Action FOR SetVariableAction»
+	«EXPAND m2t_transforms::sim::seff::Action FOR this»
+«ENDAROUND» 
+
 «AROUND m2t_transforms::seff::Action FOR CollectionIteratorAction»
 	«EXPAND m2t_transforms::sim::seff::Action FOR this»
 «ENDAROUND» 

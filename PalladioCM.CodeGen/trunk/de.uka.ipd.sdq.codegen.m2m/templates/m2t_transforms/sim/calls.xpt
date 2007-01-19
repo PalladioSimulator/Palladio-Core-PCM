@@ -10,6 +10,7 @@
 «DEFINE PreCall(List[VariableUsage] parameterUsages) FOR Signature»
 	«EXPAND PrepareSimulatedStackFrame(parameterUsages) FOR this»
 	«EXPAND m2t_transforms::sensors::StartResponseTimeMeasurementTM FOR "Usage_"+this.javaSignature()»
+	de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe callResult =	
 «ENDDEFINE»
 
 «DEFINE PrepareSimulatedStackFrame(List[VariableUsage] parameterUsages) FOR Signature»
@@ -33,9 +34,22 @@
 	«ENDFOREACH» 
 «ENDDEFINE»
 
-«DEFINE PostCall FOR Signature»
+«DEFINE PostCall(List[VariableUsage] outParameterUsages) FOR Signature»
 	«EXPAND m2t_transforms::sensors::EndResponseTimeMeasurementTM FOR "Usage_"+this.javaSignature()»
  	ctx.getStack().removeStackFrame();
+	«FOREACH outParameterUsages AS pu»
+		«LET pu.parameterUsageLHS() AS lhs_prefix»
+			«FOREACH pu.variableCharacterisation_VariableUsage AS vc»
+				«IF pu.namedReference_VariableUsage.isInnerReference()»
+					methodBodyStackFrame.addValue("«lhs_prefix+'.'+vc.type.toString()»",
+					   	new de.uka.ipd.sdq.simucomframework.variables.EvaluationProxy("«vc.specification.javaString()»",callResult.copyFrame()));
+				«ELSE»
+					methodBodyStackFrame.addValue("«lhs_prefix+'.'+vc.type.toString()»",
+					   	ctx.evaluate("«vc.specification.javaString()»",callResult));
+				«ENDIF»
+			«ENDFOREACH»
+		«ENDLET»
+	«ENDFOREACH» 
 	}
 	// END Simulate an external call
 «ENDDEFINE»

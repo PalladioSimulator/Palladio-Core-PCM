@@ -54,9 +54,12 @@
 		<expand value="m2t_transforms::usage::UsageModel(allocation) FOR pcmmodel"/>
 		<outlet path="${outpath}">
 			</outlet>
-		<beautifier class="org.hybridlabs.source.formatter.JavaImportBeautifier"
-			organizeImports="true"
-			format="true"/>	
+			<beautifier class="org.openarchitectureware.xpand2.output.JavaBeautifier"/>
+			<!--
+	    	<beautifier class="org.hybridlabs.source.formatter.JavaImportBeautifier"
+				organizeImports="true"
+				format="true"/>	
+			-->
 		<!-- protected regions configuration -->
 		<prSrcPaths value="${outpath}"/>
 	</component>	

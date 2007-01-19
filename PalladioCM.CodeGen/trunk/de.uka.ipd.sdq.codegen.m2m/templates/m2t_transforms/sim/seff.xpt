@@ -1,6 +1,7 @@
 «EXTENSION m2t_transforms::java_names»
 «EXTENSION m2t_transforms::pcm»
 «IMPORT seff»
+«IMPORT repository»
 
 // ----------------------------
 // SimuCom templates for parts of a SEFF
@@ -52,4 +53,36 @@
 «DEFINE Action FOR ReleaseAction»
 	// Release «this.resourceType_Release.entityName»
 	ctx.findResource(this.assemblyContextID).releasePassiveResource("«this.resourceType_Release.entityName»");
+«ENDDEFINE»
+
+«DEFINE Action FOR StartAction»
+	«IF ResourceDemandingSEFF.isInstance(this.eContainer)»
+	de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe resultStackFrame = 
+		new de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe();
+	de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe methodBodyStackFrame = 
+		ctx.getStack().currentStackFrame();
+	«ENDIF»
+	«IF BasicComponent.isInstance(this.eContainer.eContainer)»
+		«LET (BasicComponent)this.eContainer.eContainer AS bc»
+			«FOREACH bc.internalVariables_BasicComponent AS pu»
+				«FOREACH pu.variableCharacterisation_VariableUsage AS vc»
+					ctx.getStack().currentStackFrame().addValue("«pu.parameterUsageLHS()+'.'+vc.type.toString()»",
+					   	ctx.evaluate("«vc.specification.javaString()»",ctx.getStack().currentStackFrame()));
+				«ENDFOREACH»
+			«ENDFOREACH»
+		«ENDLET»
+	«ENDIF»
+«ENDDEFINE»
+
+«DEFINE Action FOR StopAction»
+	«IF ResourceDemandingSEFF.isInstance(this.eContainer)»
+	return resultStackFrame;
+	«ENDIF»
+«ENDDEFINE»
+
+«DEFINE Action FOR SetVariableAction»
+	«FOREACH this.variableUsage_SetVariableAction.variableCharacterisation_VariableUsage AS vc»
+	resultStackFrame.addValue("«this.variableUsage_SetVariableAction.parameterUsageLHS()».«vc.type.toString()»",
+		ctx.evaluate("«vc.specification.javaString()»"));
+	«ENDFOREACH»
 «ENDDEFINE»

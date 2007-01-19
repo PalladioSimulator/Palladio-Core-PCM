@@ -48,9 +48,12 @@
 		<expand value="m2t_transforms::system::Root FOR pcmmodel"/>
 			<outlet path="${outpath}">
 			</outlet>
+			<beautifier class="org.openarchitectureware.xpand2.output.JavaBeautifier"/>
+			<!--
 	    	<beautifier class="org.hybridlabs.source.formatter.JavaImportBeautifier"
 				organizeImports="true"
 				format="true"/>	
+			-->
 	</component>	
 	
 	<component adviceTarget="generator" id="reflectionAdvice" class="oaw.xpand2.GeneratorAdvice">
@@ -95,9 +98,12 @@
 		<expand value="m2t_transforms::allocation::AllocationTM FOR allocation"/>
 			<outlet path="${outpath}">
 			</outlet>
+			<beautifier class="org.openarchitectureware.xpand2.output.JavaBeautifier"/>
+			<!--
 	    	<beautifier class="org.hybridlabs.source.formatter.JavaImportBeautifier"
 				organizeImports="true"
 				format="true"/>	
+			-->
 	</component>	
 
 	<component adviceTarget="generator2" id="reflectionAdvice" class="oaw.xpand2.GeneratorAdvice">

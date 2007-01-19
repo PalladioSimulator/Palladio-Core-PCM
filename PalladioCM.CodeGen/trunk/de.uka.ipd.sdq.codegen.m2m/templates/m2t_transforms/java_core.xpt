@@ -10,7 +10,7 @@ public class «this.javaName()»
 «ENDDEFINE»
 
 «DEFINE Signature FOR Signature»
-   «EXPAND ReturnType FOR this»
+   «EXPAND ReturnTypeTM FOR this»
    «this.javaSignature()»
    ( «EXPAND ParameterListTM FOR this» )
 «ENDDEFINE»
@@ -21,6 +21,10 @@ public class «this.javaName()»
    «ELSE»
       void
    «ENDIF»
+«ENDDEFINE»
+
+«DEFINE ReturnTypeTM FOR Signature»
+	«ERROR "ReturnTypeTM must be overridden"»
 «ENDDEFINE»
 
 «DEFINE ParameterListTM FOR Signature»
@@ -51,17 +55,21 @@ public class «this.javaName()»
 «ENDDEFINE»
 
 «DEFINE ComponentServiceSignature FOR Signature»
-	«EXPAND ReturnType FOR this»
+	«EXPAND ReturnTypeTM FOR this»
       «this.interface_Signature.javaName().toFirstLower()»_«this.javaSignature()»
          («EXPAND ParameterListTM FOR this»)
 «ENDDEFINE»
 
-«DEFINE ComponentService FOR ResourceDemandingSEFF»
-   public «EXPAND ComponentServiceSignature FOR this.describedService__SEFF»
-    {
-      «PROTECT CSTART '/*' CEND '*/' ID this.id»
-      «EXPAND Actions FOR this.steps_Behaviour.findStart()»      
-      «ENDPROTECT»
+«DEFINE ComponentService(ProvidesComponentType component) FOR Signature»
+   public «EXPAND ComponentServiceSignature FOR this»
+   { 
+      «PROTECT CSTART '/*' CEND '*/' ID this.serviceName + "_" + component.id + "_" + this.interface_Signature.id»
+   	  «IF this.hasSEFF(component)»
+   	  	«LET ((ResourceDemandingSEFF)this.getSEFF(component)) AS seff»
+	      «EXPAND Actions FOR seff.steps_Behaviour.findStart()»      
+    	«ENDLET»
+   	  «ENDIF»
+   	  «ENDPROTECT»
    }   
 «ENDDEFINE»
 
@@ -113,7 +121,7 @@ public class «this.javaName()»
 «ENDDEFINE»
 
 «DEFINE InnerImplementation FOR BasicComponent»
-	«EXPAND ComponentService FOREACH this.serviceEffectSpecifications__BasicComponent»
+	«EXPAND ComponentService(this) FOREACH this.providedRoles_InterfaceProvidingEntity.providedInterface__ProvidedRole.signatures__Interface»
 «ENDDEFINE»
 
 «DEFINE InnerImplementation FOR CompositeComponent»

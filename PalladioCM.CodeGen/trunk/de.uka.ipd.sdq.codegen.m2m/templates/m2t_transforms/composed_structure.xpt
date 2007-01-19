@@ -70,7 +70,7 @@
 
 «DEFINE Init(ComposedStructure s) FOR AssemblyContext»
    private void init«this.javaName()»() {
-      «this.encapsulatedComponent_ChildComponentContext.fqnContext()» context = new «this.encapsulatedComponent_ChildComponentContext.contextClassName()»(
+      «this.encapsulatedComponent_ChildComponentContext.fqnContext()» context = new «this.encapsulatedComponent_ChildComponentContext.fqnContext()»(
          «EXPAND PortQuery(s,this) FOREACH this.encapsulatedComponent_ChildComponentContext.requiredRoles_InterfaceRequiringEntity SEPARATOR ","»
       );
       my«this.javaName()».setContext(context);

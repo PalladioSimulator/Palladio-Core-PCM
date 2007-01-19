@@ -50,7 +50,7 @@
 «ENDDEFINE»
 
 «DEFINE DummyRequiredSystemTM(System s) FOR RequiredRole»
-	null
+	null 
 «ENDDEFINE»
 
 «DEFINE UsageScenarioConstructorContextInit(Allocation a) FOR UsageScenario»

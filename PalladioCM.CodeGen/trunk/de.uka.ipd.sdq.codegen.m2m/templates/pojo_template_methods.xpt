@@ -26,6 +26,14 @@
    «EXPAND m2t_transforms::java_core::ParameterUse FOREACH this.parameters__Signature SEPARATOR ","»
 «ENDAROUND»
 
+«AROUND m2t_transforms::java_core::ReturnTypeTM FOR Signature»
+   «EXPAND m2t_transforms::java_core::ReturnType FOR this»
+«ENDAROUND»
+
+«AROUND PortDelegationDelegatingCallTM FOR Signature»
+   «EXPAND m2t_transforms::pojo::provided_ports::PortDelegationDelegatingCall FOR this»
+«ENDAROUND»
+
 // ----------------------------
 // Resource Demand
 // ----------------------------

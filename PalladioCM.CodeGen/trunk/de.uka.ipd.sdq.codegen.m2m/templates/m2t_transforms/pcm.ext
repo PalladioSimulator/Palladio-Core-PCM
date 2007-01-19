@@ -75,3 +75,9 @@ collectRepositories(ProvidesComponentType pct):
 collectRepositories(CompositeComponent cc):
 	cc.childComponentContexts_ComposedStructure.encapsulatedComponent_ChildComponentContext.collectRepositories().addAll(
 		{cc.repository_ProvidesComponentType});
+		
+hasSEFF(Signature service, ProvidesComponentType c):
+	!BasicComponent.isInstance(c) ? false : ((BasicComponent)c).serviceEffectSpecifications__BasicComponent.select(e|e.describedService__SEFF==service).size > 0;
+	
+getSEFF(Signature service, ProvidesComponentType c):
+	((BasicComponent)c).serviceEffectSpecifications__BasicComponent.select(e|e.describedService__SEFF==service).get(0);

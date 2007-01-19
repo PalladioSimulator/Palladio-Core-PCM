@@ -68,4 +68,11 @@ public class SimulatedStackframe <T> implements Serializable {
 			result.addAll(parentFrame.getContentsRecursive(alreadyFound));
 		return result;
 	}
+
+	public void addVariables(SimulatedStackframe<T> callResult) {
+		for (Entry<String,T> e : callResult.contents.entrySet()) {
+			this.addValue(e.getKey(), e.getValue());
+		}
+		
+	}
 }

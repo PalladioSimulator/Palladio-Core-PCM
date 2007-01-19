@@ -48,9 +48,12 @@
 
 «DEFINE PortDelegator FOR Signature»
    public «EXPAND m2t_transforms::java_core::Signature FOR this» {
-      myComponent.«this.interface_Signature.javaName().toFirstLower()»_«this.javaSignature()»(
-         «EXPAND m2t_transforms::java_core::ParameterUsageListTM FOR this»);
+   	  «EXPAND PortDelegationDelegatingCallTM FOR this»
    }   
+«ENDDEFINE»
+
+«DEFINE PortDelegationDelegatingCallTM FOR Signature»
+	«ERROR "PortDelegationDelegatingCallTM must be overridden"»
 «ENDDEFINE»
 
 «DEFINE PortMemberVars FOR ProvidedRole»

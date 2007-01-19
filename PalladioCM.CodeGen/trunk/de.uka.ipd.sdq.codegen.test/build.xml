@@ -1,0 +1,188 @@
+<project name="PCM Code Builder" default="default">
+	<property file="src/build.properties" />
+	<property name="verifier-executable" value="${sun-appserver-dir}/verifier.bat"/>
+	<property name="asadmin-executable" value="${sun-appserver-dir}/asadmin.bat"/>
+	<property name="cp-jars" refid="libs.jars" />
+
+	<!-- import the list of client/server classes to build -->
+	<import file="generated-filesets.xml" />
+
+	<path id="libs.jars" path="${lib-dir}">
+	<fileset id="full-jar-list" dir="${lib-dir}">
+		<include name="*.jar" />
+		<exclude name="j2ee.jar" />
+		<exclude name="javaee.jar" />
+	</fileset>
+	<fileset id="full-jar-list" dir="hibernate-libs">
+		<include name="*.jar" />
+		<exclude name="j2ee.jar" />
+		<exclude name="javaee.jar" />
+	</fileset>
+	</path>
+
+	<!-- convert the libraries to be included in the 
+	  Class-Path attribute of the MANIFEST.MF file -->
+	<pathconvert property="cp-jars-flat" pathsep=" ">
+		<path refid="libs.jars" />
+		<flattenmapper />
+	</pathconvert>
+
+	<target name="clean">
+		<delete dir="${build}" />
+		<delete dir="${dist-dir}" />
+		<delete dir="${output}" />
+	</target>
+
+	<target name="build-src">
+		<mkdir dir="${build}" />
+		<javac srcdir="${src}" destdir="${build}" source="1.5" target="1.5">
+			<classpath>
+				<fileset dir="${lib-dir}">
+					<include name="*.jar" />
+				</fileset>
+			</classpath>
+		</javac>
+	</target>
+
+	<target name="dist" depends="build-src">
+		<mkdir dir="${dist-dir}" />
+		<mkdir dir="${dist-dir}/META-INF" />
+		<copy todir="${dist-dir}">
+			<fileset dir="${build}">
+				<include name="**/*.class" />
+			</fileset>
+			<fileset dir="${build}">
+				<include name="**/persistence.xml" />
+			</fileset>
+			<fileset dir="${lib-dir}">
+				<include name="**/*.jar" />
+				<exclude name="j2ee.jar" />
+				<exclude name="javaee.jar" />
+			</fileset>
+			<fileset dir="hibernate-libs">
+				<include name="**/*.jar" />
+				<exclude name="j2ee.jar" />
+				<exclude name="javaee.jar" />
+			</fileset>
+		</copy>
+		<exec executable="htb">
+			<arg value="${src}/ejb-jar.xml" />
+			<arg value="${dist-dir}/META-INF/ejb-jar.xml" />
+		</exec>
+
+		<replace file="${src}/application.xml" propertyFile="${src}/build.properties">
+			<replacefilter token="@@projectname@@" property="projectname" />
+		</replace>
+
+		<exec executable="htb">
+			<arg value="${src}/application.xml" />
+			<arg value="${dist-dir}/META-INF/application.xml" />
+		</exec>
+
+		<replace file="${src}/application-client.xml" propertyFile="${src}/build.properties">
+			<replacefilter token="@@projectname@@" property="projectname" />
+		</replace>
+
+		<exec executable="htb">
+			<arg value="${src}/application-client.xml" />
+			<arg value="${dist-dir}/META-INF/application-client.xml" />
+		</exec>
+	</target>
+
+	<target name="jar" depends="dist">
+		<mkdir dir="${output}" />
+		<jar destfile="${output}/${projectname}-ejb.jar">
+			<fileset refid="ejb-classes" />
+			<fileset dir="${lib-dir}">
+				<include name="*.jar" />
+				<exclude name="j2ee.jar" />
+				<exclude name="javaee.jar" />
+			</fileset>
+			<manifest>
+				<attribute name="Built-By" value="${user.name}" />
+				<attribute name="Class-Path" value="${cp-jars-flat}" />
+			</manifest>
+		</jar>
+	</target>
+
+	<target name="client-jar" depends="jar">
+		<mkdir dir="${output}" />
+		<jar destfile="${output}/${projectname}-client.jar">
+			<fileset refid="client-classes" />
+			<fileset dir="${output}">
+				<include name="${projectname}-ejb.jar" />
+			</fileset>
+			<!-- TODO: Include less jars -->
+			<fileset dir="${dist-dir}">
+				<include name="**/persistence.xml" />
+				<include name="*.jar" />
+				<exclude name="j2ee.jar" />
+				<exclude name="javaee.jar" />
+			</fileset>
+			<manifest>
+				<attribute name="Built-By" value="${user.name}" />
+				<attribute name="Main-Class" value="Main" />
+				<attribute name="Class-Path" value="${cp-jars-flat}" />
+			</manifest>
+		</jar>
+	</target>
+
+	<target name="application-ear" depends="jar,client-jar">
+		<mkdir dir="${output}" />
+		<jar destfile="${output}/${projectname}.ear">
+			<fileset dir="${dist-dir}">
+				<include name="META-INF/application.xml" />
+				<include name="META-INF/persistence.xml" />
+			</fileset>
+			<fileset dir="${output}">
+				<include name="${projectname}-ejb.jar" />
+				<include name="${projectname}-client.jar" />
+			</fileset>
+			<manifest>
+				<attribute name="Built-By" value="${user.name}" />
+			</manifest>
+		</jar>
+	</target>
+
+	<target name="deploy-ejb" depends="jar">
+		<exec executable="${asadmin-executable}">
+			<arg value="deploy" />
+			<arg value="${output}\${projectname}-ear.jar" />
+		</exec>
+	</target>
+
+	<target name="deploy-client" depends="client-jar">
+		<exec executable="${asadmin-executable}">
+			<arg value="deploy" />
+			<arg value="${output}\${projectname}-client.jar" />
+		</exec>
+	</target>
+
+	<target name="deploy-app" depends="application-ear">
+		<exec executable="${asadmin-executable}">
+			<arg value="deploy" />
+			<arg value="${output}\${projectname}.ear" />
+		</exec>
+	</target>
+
+	<target name="verify-ejb" depends="jar">
+		<exec executable="${verifier-executable}">
+			<arg value="${output}/${projectname}-ejb.jar" />
+		</exec>
+	</target>
+
+	<target name="verify-client" depends="client-jar">
+		<exec executable="${verifier-executable}">
+			<arg value="${output}/${projectname}-client.jar" />
+		</exec>
+	</target>
+
+	<target name="verify-app" depends="application-ear">
+		<exec executable="${verifier-executable}">
+			<arg value="${output}/${projectname}.ear" />
+		</exec>
+	</target>
+
+	<target name="default" depends="deploy-app">
+	</target>
+</project>
