@@ -10,10 +10,9 @@ import org.eclipse.emf.edit.ui.provider.AdapterFactoryContentProvider;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
 import org.eclipse.emf.transaction.RecordingCommand;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
-import org.eclipse.jface.util.Assert;
+import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Shell;
-import org.eclipse.swt.widgets.Text;
 
 import de.uka.ipd.sdq.pcm.repository.CollectionDataType;
 import de.uka.ipd.sdq.pcm.repository.CompositeDataType;
@@ -127,19 +126,18 @@ public class PalladioCreateDataTypeDialog extends CreateDataTypeDialog {
 										adapterFactory))),
 				new DeclarationCellModifier(),
 				new AddInnerDataTypeActionListener(),
-				new DeleteInnerDataTypeActionListener(),
-				null);
+				new DeleteInnerDataTypeActionListener(), null);
 	}
 
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see de.uka.ipd.sdq.pcmbench.tabs.dialog.CreateDataTypeDialog#innerTypeAction(org.eclipse.swt.widgets.Shell,
-	 *      Text)
+	 * @see de.uka.ipd.sdq.pcmbench.tabs.dialogs.CreateDataTypeDialog#defeniereActionTypeButton(org.eclipse.swt.events.SelectionEvent)
 	 */
 	@Override
-	public void defeniereActionTypeButton(Shell shell, Text textField) {
+	public void defeniereActionTypeButton(SelectionEvent e) {
 
+		Shell shell = e.display.getActiveShell();
 		ParameterRepresentation representation = new ParameterRepresentation();
 
 		ArrayList filterList = new ArrayList();
@@ -147,8 +145,8 @@ public class PalladioCreateDataTypeDialog extends CreateDataTypeDialog {
 		filterList.add(Repository.class);
 		ArrayList additionalReferences = new ArrayList();
 
-		ReturnTypeDialog dialog = new ReturnTypeDialog(shell, filterList, additionalReferences,
-				editingDomain.getResourceSet());
+		ReturnTypeDialog dialog = new ReturnTypeDialog(shell, filterList,
+				additionalReferences, editingDomain.getResourceSet());
 
 		dialog.open();
 
@@ -157,7 +155,7 @@ public class PalladioCreateDataTypeDialog extends CreateDataTypeDialog {
 			selectedDataType = (DataType) dialog.getResult();
 
 			if (selectedDataType != null)
-				textField.setText(representation.setDataTypeToString(
+				setTypeField(representation.setDataTypeToString(
 						selectedDataType, OperationsTabResources
 								.getOperationsDecoratedFactory()));
 		}
@@ -178,13 +176,12 @@ public class PalladioCreateDataTypeDialog extends CreateDataTypeDialog {
 				CollectionDataType collectionDataType = RepositoryFactory.eINSTANCE
 						.createCollectionDataType();
 
-				Assert.isNotNull(selectedDataType);
-				collectionDataType
-						.setInnerType_CollectionDataType(selectedDataType);
-
+				if (selectedDataType != null)
+					collectionDataType
+							.setInnerType_CollectionDataType(selectedDataType);
 				if (getEntityName() != null)
 					collectionDataType.setEntityName(getEntityName());
-
+				
 				collectionDataType
 						.setRepository_DataType(OperationsTabResources
 								.getEditedRepository());

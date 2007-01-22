@@ -5,6 +5,7 @@ import java.util.Collection;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.widgets.Shell;
+
 import de.uka.ipd.sdq.dialogs.selection.PalladioSelectEObjectDialog;
 
 /**
@@ -45,7 +46,7 @@ public class ReturnTypeDialog extends PalladioSelectEObjectDialog {
 		super.createContents();
 		
 		// Activire the ToolBar with items
-		enableToolBar(true, false, false);
+		super.enableToolBar(true, false, false);
 		
 		setAddSelectionListener(new SelectionAdapter(){
 

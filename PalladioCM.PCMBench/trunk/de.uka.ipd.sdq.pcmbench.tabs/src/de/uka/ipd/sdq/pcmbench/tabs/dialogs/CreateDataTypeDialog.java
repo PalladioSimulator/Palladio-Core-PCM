@@ -31,29 +31,24 @@ import org.eclipse.swt.widgets.Text;
  */
 public abstract class CreateDataTypeDialog extends TitleAreaDialog {
 	/**
-	 * Define the Titleand Message of Dialog
+	 * Define the Title,Message and ErrorMassage of Dialog
 	 */
 	private String TITEL = "Create new DataType..";
 	private String MESSAGE = "";
 	private String ERROR_MESSAGE = "DataType name is empty.";
-	/**
-	 * TODO
-	 */
+	
 	private String entityName;
+	
 	// TODO
 	private String selectedButton = "CollectionDataType";
 
-	/**
-	 * TODO
-	 */
 	private Button OKButton;
-
 	private Group compositeGroup, collectionGroup;
 	private Button compositeButton;
 	private Button collectionButton;
 	private Label nameLabelField;
 	private Label typeLabelField;
-	private Text nameTextField, typeTextField;
+	private Text nameField, typeField;
 	private Button typeButton;
 
 	public CreateDataTypeDialog(Shell parentShell) {
@@ -94,7 +89,7 @@ public abstract class CreateDataTypeDialog extends TitleAreaDialog {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
 				setEditedResource(combo.getText());
-				setEnabled();
+				setEnabled(true);
 				setErrorMessage(ERROR_MESSAGE);
 			}
 
@@ -106,7 +101,7 @@ public abstract class CreateDataTypeDialog extends TitleAreaDialog {
 			@Override
 			public void widgetDefaultSelected(SelectionEvent e) {
 				setEditedResource(combo.getText());
-				setEnabled();
+				setEnabled(true);
 				setErrorMessage(ERROR_MESSAGE);
 			}
 
@@ -119,8 +114,6 @@ public abstract class CreateDataTypeDialog extends TitleAreaDialog {
 		gridLayout.numColumns = 2;
 		choiceTypeGroup.setLayout(gridLayout);
 		choiceTypeGroup.setLayoutData(new GridData(478, 74));
-		// choiceTypeGroup.pack();
-		
 
 		// Create new Composite
 		final Composite composite = new Composite(container, SWT.NONE);
@@ -160,11 +153,11 @@ public abstract class CreateDataTypeDialog extends TitleAreaDialog {
 		nameLabelField.setLayoutData(gridData);
 		nameLabelField.setText("Name:");
 		
-		nameTextField = new Text(choiceTypeGroup, SWT.BORDER);
+		nameField = new Text(choiceTypeGroup, SWT.BORDER);
 		final GridData gdNameField = new GridData(SWT.LEFT, SWT.CENTER, true, false);
 		gdNameField.widthHint = 334;
-		nameTextField.setLayoutData(gdNameField);
-		nameTextField.addSelectionListener(new SelectionAdapter() {
+		nameField.setLayoutData(gdNameField);
+		nameField.addSelectionListener(new SelectionAdapter() {
 			/*
 			 * (non-Javadoc)
 			 * 
@@ -172,12 +165,11 @@ public abstract class CreateDataTypeDialog extends TitleAreaDialog {
 			 */
 			@Override
 			public void widgetDefaultSelected(SelectionEvent e) {
-				setEntityName(nameTextField.getText());
+				setEntityName(nameField.getText());
 			}
 
 		});
-		nameTextField.addFocusListener(new FocusAdapter() {
-
+		nameField.addFocusListener(new FocusAdapter() {
 			/*
 			 * (non-Javadoc)
 			 * 
@@ -185,31 +177,30 @@ public abstract class CreateDataTypeDialog extends TitleAreaDialog {
 			 */
 			public void focusLost(FocusEvent e) {
 				if (getEntityName() == null) {
-					setEntityName(nameTextField.getText());
+					setEntityName(nameField.getText());
 				}
 			}
 		});
-		nameTextField.addModifyListener( new ModifyListener(){
-
+		nameField.addModifyListener( new ModifyListener(){
 			/* (non-Javadoc)
 			 * @see org.eclipse.swt.events.ModifyListener#modifyText(org.eclipse.swt.events.ModifyEvent)
 			 */
 			public void modifyText(ModifyEvent e) {
+				setEntityName(nameField.getText());
 				setErrorMessage(null);
 				setOKButtonEnabled();
 			}
-			
 		});
 		
 		// Create CompositeDataType Group with FormLayout
 		compositeGroup = new Group(composite, SWT.NONE);
 		compositeGroup.setLayout(new FormLayout());
 		compositeGroup.setText("innerDeclaration CompositeDataType");
-
 		/**
 		 * Create inner section for CompositeDataType group
 		 */
 		createInnerSectionCompositeGroup(compositeGroup);
+
 
 		// Create CollectionDataType Group
 		collectionGroup = new Group(composite, SWT.NONE);
@@ -228,16 +219,16 @@ public abstract class CreateDataTypeDialog extends TitleAreaDialog {
 		typeLabelField.setLayoutData(new GridData(40, SWT.DEFAULT));
 		typeLabelField.setText("Type: ");
 
-		typeTextField = new Text(collectionGroup, SWT.BORDER | SWT.SINGLE
+		typeField = new Text(collectionGroup, SWT.BORDER | SWT.SINGLE
 				| SWT.READ_ONLY);
-		typeTextField.setLayoutData(new GridData(200, 15));
+		typeField.setLayoutData(new GridData(200, 15));
 
 		typeButton = new Button(collectionGroup, SWT.NONE);
 		typeButton.setLayoutData(new GridData(SWT.DEFAULT, 20));
 		typeButton.setText("Select...");
 		typeButton.addSelectionListener(new SelectionAdapter() {
 			public void widgetSelected(SelectionEvent e) {
-				defeniereActionTypeButton(e.display.getActiveShell(), typeTextField);
+				defeniereActionTypeButton(e);
 			}
 		});
 
@@ -245,27 +236,25 @@ public abstract class CreateDataTypeDialog extends TitleAreaDialog {
 		final Label label = new Label(container, SWT.SEPARATOR | SWT.HORIZONTAL);
 		label.setLayoutData(new GridData(482, SWT.DEFAULT));
 
-		// ------- setEnabled(false) ---------
-		compositeButton.setEnabled(false);
-		collectionButton.setEnabled(false);
-		typeLabelField.setEnabled(false);
-		typeTextField.setEnabled(false);
-		typeButton.setEnabled(false);
-		nameLabelField.setEnabled(false);
-		nameTextField.setEnabled(false);
+		setEnabled(false);
 
 		return container;
 	}
 
-	// make all component enbled
-	public void setEnabled() {
-		compositeButton.setEnabled(true);
-		collectionButton.setEnabled(true);
-		typeLabelField.setEnabled(true);
-		typeTextField.setEnabled(true);
-		typeButton.setEnabled(true);
-		nameLabelField.setEnabled(true);
-		nameTextField.setEnabled(true);
+	/**
+	 * Enables the receiver all component if the argument is true,
+	 * and disables it otherwise.
+	 *
+	 * @param enabled the new enabled state
+	 */
+	public void setEnabled(boolean enabled) {
+		compositeButton.setEnabled(enabled);
+		collectionButton.setEnabled(enabled);
+		typeLabelField.setEnabled(enabled);
+		typeField.setEnabled(enabled);
+		typeButton.setEnabled(enabled);
+		nameLabelField.setEnabled(enabled);
+		nameField.setEnabled(enabled);
 	}
 
 	/*
@@ -334,7 +323,7 @@ public abstract class CreateDataTypeDialog extends TitleAreaDialog {
 	 * @param -
 	 *            active shell
 	 */
-	public abstract void defeniereActionTypeButton(Shell shell, Text field);
+	public abstract void defeniereActionTypeButton(SelectionEvent event);
 
 	/**
 	 * @param resource,
@@ -375,5 +364,13 @@ public abstract class CreateDataTypeDialog extends TitleAreaDialog {
 	 */
 	protected void setSelectedButton(String selectedButton) {
 		this.selectedButton = selectedButton;
+	}
+
+	protected String getTypeField() {
+		return typeField.getText();
+	}
+
+	protected void setTypeField(String text) {
+		typeField.setText(text);
 	}
 }
