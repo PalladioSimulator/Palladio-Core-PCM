@@ -129,9 +129,17 @@ public class ProbabilityFunctionFactoryImpl
 
 	public ISamplePDF createDiracImpulse(int numOfSamplingPoints,
 			double distance, IUnit unit) {
+		return createImpulseAt(0, numOfSamplingPoints, distance, unit);
+	}
+	
+	public ISamplePDF createImpulseAt(int pos, int numOfSamplingPoints,
+			double distance, IUnit unit){
+		assert(pos < numOfSamplingPoints);
+		
 		List<Complex> zeroList = createZeroList(numOfSamplingPoints);
-		zeroList.get(0).setReal(1.0);
+		zeroList.get(pos).setReal(1.0);
 		return createSamplePDFFromComplex(distance, zeroList, false, unit);
+		
 	}
 
 	private List<Complex> createZeroList(int numOfSamplingPoints) {
@@ -433,8 +441,10 @@ public class ProbabilityFunctionFactoryImpl
 			resultPDF = (ISamplePDF) pdf;
 		} else if (pdf instanceof IBoxedPDF) {
 			resultPDF = transformBoxedToSamplePDF((IBoxedPDF) pdf);
-		} else {
+		} else if (pdf != null) {
 			throw new UnknownPDFTypeException();
+		} else {
+			return null;
 		}
 		return resultPDF;
 	}

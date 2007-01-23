@@ -190,7 +190,7 @@ public class SamplePDFImpl extends ProbabilityDensityFunctionImpl implements
 	public double drawSample() {
 		double result = 0.0;
 		List<Double> intervals = MathTools
-				.computeIntervalsOfProb(getValuesAsDouble());
+				.computeCumulativeProbabilities(getValuesAsDouble());
 
 		double probability = randomGenerator.random();
 		double lowerBoundProbability;
@@ -259,12 +259,6 @@ public class SamplePDFImpl extends ProbabilityDensityFunctionImpl implements
 
 	public int numberOfSamples() {
 		return values.size();
-	}
-
-	@Override
-	protected Object clone() throws CloneNotSupportedException {
-		// TODO Auto-generated method stub
-		return super.clone();
 	}
 
 	@Override
@@ -534,15 +528,7 @@ public class SamplePDFImpl extends ProbabilityDensityFunctionImpl implements
 
 			resultList.add(pdf1);
 			resultList.add(pdf2);
-		} catch (FunctionNotInFrequencyDomainException e) {
-			// should never happen
-			e.printStackTrace();
-			System.exit(1);
-		} catch (NegativeDistanceException e) {
-			// should never happen
-			e.printStackTrace();
-			System.exit(1);
-		} catch (FunctionNotInTimeDomainException e) {
+		} catch (ProbabilityFunctionException e) {
 			// should never happen
 			e.printStackTrace();
 			System.exit(1);
@@ -568,7 +554,7 @@ public class SamplePDFImpl extends ProbabilityDensityFunctionImpl implements
 			if (!MathTools.equalsDouble(getProbabilitySum(), 1.0))
 				return false;
 			for (double p : getValuesAsDouble())
-				if (!(p >= 0.0 && p <= 1.0))
+				if (!(p >= 0.0 - MathTools.EPSILON_ERROR && p <= 1.0 + MathTools.EPSILON_ERROR))
 					return false;
 		} catch (FunctionNotInTimeDomainException e) {
 			return false;
@@ -577,17 +563,15 @@ public class SamplePDFImpl extends ProbabilityDensityFunctionImpl implements
 		return true;
 	}
 
-	public IProbabilityDensityFunction getCumulativeFunction() {
-		List<Double> newProb = MathTools
-				.computeIntervalsOfProb(getValuesAsDouble());
-		List<Complex> newValues = new ArrayList<Complex>();
-		int index = 0;
-		for (Double d : newProb) {
-			newValues.add(new Complex(d, values.get(index).getImag()));
-			index++;
-		}
-		ISamplePDF spdf = pfFactory.createSamplePDFFromComplex(distance,
-				newValues, isInFrequencyDomain(), this.getUnit(), this
+	public IProbabilityDensityFunction getCumulativeFunction() throws FunctionNotInTimeDomainException {
+		
+		if(!isInTimeDomain())
+			throw new FunctionNotInTimeDomainException();
+		
+		List<Double> cumulativeProbabilities = MathTools
+				.computeCumulativeProbabilities(getValuesAsDouble());
+		ISamplePDF spdf = pfFactory.createSamplePDFFromDouble(distance,
+				cumulativeProbabilities, isInFrequencyDomain(), this.getUnit(), this
 						.getRandomGenerator());
 		spdf.setFillValue(new Complex(1.0, 0.0));
 		return spdf;
@@ -666,5 +650,13 @@ public class SamplePDFImpl extends ProbabilityDensityFunctionImpl implements
 //		SamplePDFImpl sPDF = new SamplePDFImpl(this.getDistance(), this.getUnit(), this.randomGenerator);
 //		List<Complex> sampleList = this.getValues();
 //		sampleList.add(0, new Complex(0,0));
+	}
+
+	public Complex getValue(int pos) {
+		return pos < values.size() ? values.get(pos) : fillValue;
+	}
+
+	public Double getValueAsDouble(int pos) {
+		return getValue(pos).getReal();
 	}
 }

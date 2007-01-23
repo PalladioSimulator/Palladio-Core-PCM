@@ -125,7 +125,7 @@ public class BoxedPDFImpl extends ProbabilityDensityFunctionImpl
 	private List<Double> partedIntervals = null;
 	private void initPartedIntervals() {
 		// StB: getValues() ---> getProbabilities gefixt
-		partedIntervals = MathTools.computeIntervalsOfProb(getProbabilities());
+		partedIntervals = MathTools.computeCumulativeProbabilities(getProbabilities());
 	}
 	
 	private HashMap<Double, Line> lines = null;
@@ -255,19 +255,20 @@ public class BoxedPDFImpl extends ProbabilityDensityFunctionImpl
 	}
 
 	public IProbabilityDensityFunction getCumulativeFunction() {
-		List<Double> newProb = MathTools
-				.computeIntervalsOfProb(getProbabilities());
-		List<IContinuousSample> newSamples = new ArrayList<IContinuousSample>();
-		int index = 0;
-		for (Double d : newProb) {
-			newSamples.add(pfFactory.createContinuousSample(samples.get(index)
-					.getValue(), d));
-			index++;
+		List<Double> cumulativeProbabilities = MathTools
+				.computeCumulativeProbabilities(getProbabilities());
+		List<IContinuousSample> cdfSamples = new ArrayList<IContinuousSample>();
+
+		for (int i = 0; i < cumulativeProbabilities.size(); i++) {
+			double value = samples.get(i).getValue();
+			double cumulativeProb = cumulativeProbabilities.get(i);
+			IContinuousSample sample = pfFactory.createContinuousSample( value, cumulativeProb); 
+			cdfSamples.add(sample);
 		}
 
 		IBoxedPDF bpdf = null;
 		try {
-			bpdf = pfFactory.createBoxedPDF(newSamples, this.getUnit());
+			bpdf = pfFactory.createBoxedPDF(cdfSamples, this.getUnit());
 		} catch (DoubleSampleException e) {
 			// should never happen
 			e.printStackTrace();

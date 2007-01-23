@@ -237,10 +237,23 @@ public interface IProbabilityFunctionFactory {
 	 *            distance between each two points.
 	 * @param unit
 	 *            TODO
-	 * @return a new DistributionFunction with entered parameters.
+	 * @return a new probability density function with entered parameters.
 	 */
 	ISamplePDF createDiracImpulse(int numOfSamplingPoints, double distance,
 			IUnit unit);
+	
+	
+	/**
+	 * Creates a distribution function, which describes a random variable with a constant outcome.
+	 * In this case, it is given by distance * pos.
+	 * @param pos
+	 * @param numOfSamplingPoints
+	 * @param distance
+	 * @param unit
+	 * @return a new probability density function with entered parameters.
+	 */
+	ISamplePDF createImpulseAt(int pos, int numOfSamplingPoints,
+			double distance, IUnit unit);
 
 	/**
 	 * creates a distribution function, wich consists of numOfSamplingspoints

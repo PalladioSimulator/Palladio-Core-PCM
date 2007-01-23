@@ -224,7 +224,7 @@ public class ProbabilityMassFunctionImpl extends ProbabilityFunctionImpl
 	public Object drawSample() {
 		Object result = 0.0;
 		List<Double> intervals = MathTools
-				.computeIntervalsOfProb(getProbabilities());
+				.computeCumulativeProbabilities(getProbabilities());
 
 		double random = randomGenerator.random();
 		for (int j = 0; j < intervals.size(); j++)
@@ -299,7 +299,7 @@ public class ProbabilityMassFunctionImpl extends ProbabilityFunctionImpl
 
 	public IProbabilityMassFunction getCumulativeFunction() {
 		List<Double> newProb = MathTools
-				.computeIntervalsOfProb(getProbabilities());
+				.computeCumulativeProbabilities(getProbabilities());
 		List<ISample> newSamples = new ArrayList<ISample>();
 		int index = 0;
 		for (Double d : newProb) {

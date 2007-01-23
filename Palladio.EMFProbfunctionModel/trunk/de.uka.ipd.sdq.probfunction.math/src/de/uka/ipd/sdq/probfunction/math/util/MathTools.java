@@ -176,21 +176,25 @@ public class MathTools {
 	}
 
 	/**
-	 * @param prob
+	 * Returns the cumulative probabilities of the list of input probabilities.
+	 * The size of the result list might be smaller than the size of the input list, 
+	 * since the function terminates when it reaches 1.0.
+	 * 
+	 * @param probabilityList
 	 * @return
 	 */
-	public static List<Double> computeIntervalsOfProb(List<Double> prob) {
-		List<Double> probabilities = new ArrayList<Double>();
-		if (prob == null || prob.size() == 0)
-			throw new IllegalArgumentException("bad parameter");
-		probabilities.add(prob.get(0));
+	public static List<Double> computeCumulativeProbabilities(List<Double> probabilityList) {
+		List<Double> resultList = new ArrayList<Double>();
+		if (probabilityList == null || probabilityList.size() == 0)
+			throw new IllegalArgumentException("ProbabilityList is empty or null!");
+		resultList.add(probabilityList.get(0));
 
-		for (int i = 1; i < prob.size(); i++) {
-			if (equalsDouble(1.0, probabilities.get(i - 1)))
+		for (int i = 1; i < probabilityList.size(); i++) {
+			if (equalsDouble(1.0, resultList.get(i - 1)))
 				break;
-			probabilities.add(probabilities.get(i - 1) + prob.get(i));
+			resultList.add(resultList.get(i - 1) + probabilityList.get(i));
 		}
-		return probabilities;
+		return resultList;
 	}
 
 	/**
@@ -305,5 +309,11 @@ public class MathTools {
 		} else if (value instanceof Float)
 			r = ((Float) value).doubleValue();
 		return r;
+	}
+	
+	public static double round(double value,double precision){
+		value *= 1 / precision;
+		long temp = Math.round(value);
+		return temp * precision;
 	}
 }

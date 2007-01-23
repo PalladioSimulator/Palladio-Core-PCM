@@ -74,6 +74,10 @@ public interface ISamplePDF extends IProbabilityDensityFunction {
 	 * @return Samples of the function.
 	 */
 	List<Complex> getValues();
+	
+	Complex getValue(int pos);
+	
+	Double getValueAsDouble(int pos);
 
 	/**
 	 * /** Sets the sampling points of the function. As the values are doubles,

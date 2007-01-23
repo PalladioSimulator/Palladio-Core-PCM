@@ -11,6 +11,7 @@ import de.uka.ipd.sdq.probfunction.math.exception.ConfigurationNotSetException;
 import de.uka.ipd.sdq.probfunction.math.exception.FunctionNotInFrequencyDomainException;
 import de.uka.ipd.sdq.probfunction.math.exception.FunctionNotInTimeDomainException;
 import de.uka.ipd.sdq.probfunction.math.exception.ProbabilityFunctionException;
+import de.uka.ipd.sdq.probfunction.math.exception.SizeTooSmallException;
 import de.uka.ipd.sdq.probfunction.math.exception.StringNotPDFException;
 import de.uka.ipd.sdq.probfunction.math.exception.UnknownPDFTypeException;
 import de.uka.ipd.sdq.probfunction.math.util.MathTools;
@@ -23,7 +24,7 @@ import de.uka.ipd.sdq.stoex.parser.StochasticExpressionsParser;
  * To be continued...
  * 
  * @author jens
- *
+ * 
  */
 public class ManagedPDF {
 
@@ -46,6 +47,10 @@ public class ManagedPDF {
 	private boolean useConfiguration = false;
 
 	private String pdfAsString;
+
+	private double meanValue;
+
+	private ISamplePDF cumulativeDistributionFunction;
 
 	private static IProbabilityFunctionFactory pfFactory = IProbabilityFunctionFactory.eINSTANCE;
 
@@ -87,6 +92,8 @@ public class ManagedPDF {
 		this.modelBoxedPDF = null;
 		this.modelSamplePDF = null;
 		this.pdfAsString = null;
+		this.cumulativeDistributionFunction = null;
+		this.meanValue = -1;
 	}
 
 	public IProbabilityDensityFunction getPdfTimeDomain() {
@@ -259,11 +266,16 @@ public class ManagedPDF {
 
 	public static ManagedPDF createDiracImpulse()
 			throws ConfigurationNotSetException {
+		return createImpulseAt(0);
+	}
+
+	public static ManagedPDF createImpulseAt(int pos)
+			throws ConfigurationNotSetException {
 		PDFConfiguration config = PDFConfiguration.getCurrentConfiguration();
 		IProbabilityDensityFunction pdf = pfFactory
-				.createDiracImpulse(config.getNumSamplingPoints(), config
+				.createImpulseAt(pos, config.getNumSamplingPoints(), config
 						.getDistance(), config.getUnit());
-		return new ManagedPDF(pdf);
+		return new ManagedPDF(pdf, true);
 	}
 
 	public static ManagedPDF createZeroFunction()
@@ -272,7 +284,7 @@ public class ManagedPDF {
 		IProbabilityDensityFunction pdf = pfFactory
 				.createZeroFunction(config.getNumSamplingPoints(), config
 						.getDistance(), config.getUnit());
-		return new ManagedPDF(pdf);
+		return new ManagedPDF(pdf, true);
 	}
 
 	@Override
@@ -329,4 +341,101 @@ public class ManagedPDF {
 		}
 		return modelSamplePDF;
 	}
+
+	public double getMeanValue() {
+		if (this.meanValue < 0) {
+			try {
+				meanValue = this.getPdfTimeDomain().getArithmeticMeanValue();
+			} catch (ProbabilityFunctionException e) {
+				e.printStackTrace();
+				System.exit(-1);
+			}
+		}
+		return meanValue;
+	}
+
+	public ISamplePDF getCumulativeDistributionFunction() {
+		if (this.cumulativeDistributionFunction == null) {
+			try {
+				this.cumulativeDistributionFunction = (ISamplePDF) this
+						.getSamplePdfTimeDomain().getCumulativeFunction();
+			} catch (FunctionNotInTimeDomainException e) {
+				e.printStackTrace();
+				System.exit(-1);
+			}
+		}
+		return this.cumulativeDistributionFunction;
+	}
+
+	public double probEquals(ManagedPDF pdf) {
+		try {
+			return getSamplePdfTimeDomain().probabilisticEquals(
+					pdf.getSamplePdfTimeDomain());
+		} catch (ProbabilityFunctionException e) {
+			e.printStackTrace();
+			System.exit(-1);
+			return -1;
+		}
+	}
+
+	public double probGreaterThan(ManagedPDF pdf) {
+		ISamplePDF cdfA = this.getCumulativeDistributionFunction();
+		ISamplePDF pdfA = this.getSamplePdfTimeDomain();
+		int size = pdfA.getValues().size();
+		double distance = pdfA.getDistance();
+		pdf.adjustPDF(distance, size);
+		ISamplePDF pdfB = pdf.getSamplePdfTimeDomain();
+
+		double prob = 0;
+		for (int i = 0; i < size; i++) {
+			prob += pdfB.getValueAsDouble(i)
+					* (1 - cdfA.getValueAsDouble(i));
+		}
+		return prob;
+	}
+
+	public double probGreaterOrEqualThan(ManagedPDF pdf) {
+		ISamplePDF pdfA = this.getSamplePdfTimeDomain();
+		ISamplePDF cdfA = this.getCumulativeDistributionFunction();
+		int size = pdfA.getValues().size();
+		double distance = pdfA.getDistance();
+		pdf.adjustPDF( distance, size);
+		ISamplePDF pdfB = pdf.getSamplePdfTimeDomain();
+
+		double prob = 0;
+		for (int i = 0; i < size; i++) {
+			prob += pdfB.getValueAsDouble(i)
+					* (1 - cdfA.getValueAsDouble(i) + pdfA.getValueAsDouble(i));
+		}
+		return prob;
+	}
+	
+	public double probLessThan(ManagedPDF pdf) {
+		return pdf.probGreaterThan(this);
+	}
+
+	public void adjustPDF(double distance, int size) {
+		try {
+			ISamplePDF sPDF = this.getSamplePdfTimeDomain();
+			
+			sPDF = sPDF.getFunctionWithNewDistance(distance);
+			if (size > sPDF.getValues().size()) {
+				sPDF.expand(size);
+			}
+			this.setPdf(sPDF);
+		} catch (ProbabilityFunctionException e) {
+			e.printStackTrace();
+			System.exit(-1);
+		}
+	}
+
+	@Override
+	public Object clone() throws CloneNotSupportedException {
+		return new ManagedPDF(this.getPdfTimeDomain());
+	}
+	
+	public boolean usesConfiguration(){
+		return this.useConfiguration;
+	}
+
 }

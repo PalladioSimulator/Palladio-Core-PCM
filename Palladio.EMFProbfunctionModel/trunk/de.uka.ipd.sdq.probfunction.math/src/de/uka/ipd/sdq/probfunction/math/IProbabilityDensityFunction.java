@@ -170,8 +170,9 @@ public interface IProbabilityDensityFunction extends IProbabilityFunction {
 	 * probability function.
 	 * 
 	 * @return the computed cumulative probability function.
+	 * @throws FunctionNotInTimeDomainException 
 	 */
-	IProbabilityDensityFunction getCumulativeFunction();
+	IProbabilityDensityFunction getCumulativeFunction() throws FunctionNotInTimeDomainException;
 
 	/**
 	 * Computes the probability that two random variables characterised by the
