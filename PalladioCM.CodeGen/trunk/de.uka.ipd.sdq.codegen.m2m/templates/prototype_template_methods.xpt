@@ -133,7 +133,7 @@
 // Usage TM
 //-----------------------------
 «AROUND m2t_transforms::usage::MainTM FOR UsageModel»
-	«EXPAND m2t_transforms::pojo::usage::Main FOR this»
+	«EXPAND m2t_transforms::prototype::usage::Main FOR this»
 «ENDAROUND»
 
 «AROUND m2t_transforms::usage::UsageScenarioTM(Allocation a) FOR UsageScenario»

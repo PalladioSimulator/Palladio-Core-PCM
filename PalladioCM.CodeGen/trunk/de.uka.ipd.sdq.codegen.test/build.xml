@@ -1,31 +1,29 @@
 <project name="PCM Code Builder" default="default">
 	<property file="src/build.properties" />
-	<property name="verifier-executable" value="${sun-appserver-dir}/verifier.bat"/>
-	<property name="asadmin-executable" value="${sun-appserver-dir}/asadmin.bat"/>
-	<property name="cp-jars" refid="libs.jars" />
+	<property name="verifier-executable" value="${sun-appserver-dir}/verifier.bat" />
+	<property name="asadmin-executable" value="${sun-appserver-dir}/asadmin.bat" />
 
 	<!-- import the list of client/server classes to build -->
 	<import file="generated-filesets.xml" />
 
-	<path id="libs.jars" path="${lib-dir}">
-	<fileset id="full-jar-list" dir="${lib-dir}">
-		<include name="*.jar" />
-		<exclude name="j2ee.jar" />
-		<exclude name="javaee.jar" />
+	<fileset dir="${ejb-lib-dir}" id="ejb.libs.jars">
+			<include name="*.jar" />
+			<exclude name="j2ee.jar" />
+			<exclude name="javaee.jar" />
 	</fileset>
-	<fileset id="full-jar-list" dir="hibernate-libs">
-		<include name="*.jar" />
-		<exclude name="j2ee.jar" />
-		<exclude name="javaee.jar" />
+
+	<fileset dir="${client-lib-dir}" id="client.libs.jars">
+			<include name="*.jar" />
+			<exclude name="j2ee.jar" />
+			<exclude name="javaee.jar" />
 	</fileset>
-	</path>
 
 	<!-- convert the libraries to be included in the 
 	  Class-Path attribute of the MANIFEST.MF file -->
-	<pathconvert property="cp-jars-flat" pathsep=" ">
+	<!--<pathconvert property="cp-jars-flat" pathsep=" ">
 		<path refid="libs.jars" />
 		<flattenmapper />
-	</pathconvert>
+	</pathconvert>-->
 
 	<target name="clean">
 		<delete dir="${build}" />
@@ -37,8 +35,10 @@
 		<mkdir dir="${build}" />
 		<javac srcdir="${src}" destdir="${build}" source="1.5" target="1.5">
 			<classpath>
-				<fileset dir="${lib-dir}">
-					<include name="*.jar" />
+				<fileset refid="client.libs.jars" />
+				<fileset refid="ejb.libs.jars" />
+				<fileset dir="lib">
+					<include name="j2ee.jar" />
 				</fileset>
 			</classpath>
 		</javac>
@@ -51,19 +51,8 @@
 			<fileset dir="${build}">
 				<include name="**/*.class" />
 			</fileset>
-			<fileset dir="${build}">
-				<include name="**/persistence.xml" />
-			</fileset>
-			<fileset dir="${lib-dir}">
-				<include name="**/*.jar" />
-				<exclude name="j2ee.jar" />
-				<exclude name="javaee.jar" />
-			</fileset>
-			<fileset dir="hibernate-libs">
-				<include name="**/*.jar" />
-				<exclude name="j2ee.jar" />
-				<exclude name="javaee.jar" />
-			</fileset>
+			<fileset refid="ejb.libs.jars" />
+			<fileset refid="client.libs.jars" />
 		</copy>
 		<exec executable="htb">
 			<arg value="${src}/ejb-jar.xml" />
@@ -93,14 +82,8 @@
 		<mkdir dir="${output}" />
 		<jar destfile="${output}/${projectname}-ejb.jar">
 			<fileset refid="ejb-classes" />
-			<fileset dir="${lib-dir}">
-				<include name="*.jar" />
-				<exclude name="j2ee.jar" />
-				<exclude name="javaee.jar" />
-			</fileset>
 			<manifest>
 				<attribute name="Built-By" value="${user.name}" />
-				<attribute name="Class-Path" value="${cp-jars-flat}" />
 			</manifest>
 		</jar>
 	</target>
@@ -109,20 +92,10 @@
 		<mkdir dir="${output}" />
 		<jar destfile="${output}/${projectname}-client.jar">
 			<fileset refid="client-classes" />
-			<fileset dir="${output}">
-				<include name="${projectname}-ejb.jar" />
-			</fileset>
-			<!-- TODO: Include less jars -->
-			<fileset dir="${dist-dir}">
-				<include name="**/persistence.xml" />
-				<include name="*.jar" />
-				<exclude name="j2ee.jar" />
-				<exclude name="javaee.jar" />
-			</fileset>
+			<fileset refid="client.libs.jars" />
 			<manifest>
 				<attribute name="Built-By" value="${user.name}" />
 				<attribute name="Main-Class" value="Main" />
-				<attribute name="Class-Path" value="${cp-jars-flat}" />
 			</manifest>
 		</jar>
 	</target>
@@ -132,8 +105,8 @@
 		<jar destfile="${output}/${projectname}.ear">
 			<fileset dir="${dist-dir}">
 				<include name="META-INF/application.xml" />
-				<include name="META-INF/persistence.xml" />
 			</fileset>
+			<fileset refid="ejb.libs.jars"/>
 			<fileset dir="${output}">
 				<include name="${projectname}-ejb.jar" />
 				<include name="${projectname}-client.jar" />

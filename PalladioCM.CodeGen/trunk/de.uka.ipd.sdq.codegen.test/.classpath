@@ -4,24 +4,8 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="lib" path="C:/Sun/SDK/lib/javaee.jar"/>
 	<classpathentry kind="lib" path="C:/Sun/SDK/lib/j2ee.jar"/>
-	<classpathentry kind="lib" path="C:/coding/code/PalladioCM.CodeGen/trunk/de.uka.ipd.sdq.codegen.test/hibernate-libs/antlr-2.7.6.jar"/>
-	<classpathentry kind="lib" path="libs/de.uka.ipd.sdq.identifier_1.3.0.200612282142.jar"/>
-	<classpathentry kind="lib" path="libs/de.uka.ipd.sdq.pcm_1.3.0.200612282142.jar"/>
-	<classpathentry kind="lib" path="libs/de.uka.ipd.sdq.pcm.stochasticexpressions_1.3.0.200612282142.jar"/>
-	<classpathentry kind="lib" path="libs/de.uka.ipd.sdq.probfunction_1.0.0.200612282142.jar"/>
-	<classpathentry kind="lib" path="libs/de.uka.ipd.sdq.probfunction.math_1.0.0.200612282142.jar"/>
-	<classpathentry kind="lib" path="libs/de.uka.ipd.sdq.stoex_1.3.0.200612282142.jar"/>
-	<classpathentry kind="lib" path="libs/de.uka.ipd.sdq.stoex.analyser_1.3.0.200612282142.jar"/>
-	<classpathentry kind="lib" path="libs/log4j-1.2.14.jar"/>
-	<classpathentry kind="lib" path="libs/org.eclipse.emf_2.2.0.v200609210005.jar"/>
-	<classpathentry kind="lib" path="libs/org.eclipse.emf.common_2.2.1.v200609210005.jar"/>
-	<classpathentry kind="lib" path="libs/org.eclipse.emf.ecore_2.2.1.v200609210005.jar"/>
-	<classpathentry kind="lib" path="libs/org.eclipse.emf.ecore.xmi_2.2.1.v200609210005.jar"/>
-	<classpathentry kind="lib" path="lib/desmoj_2.1.1.jar"/>
-	<classpathentry kind="lib" path="libs/de.uka.ipd.sdq.sensorframework.jar"/>
-	<classpathentry kind="lib" path="libs/de.uka.ipd.sdq.simucomframework.variables.jar"/>
+	<classpathentry kind="lib" path="C:/downloads/desmoj_2.1.1.jar"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/de.uka.ipd.sdq.simucomframework.variables"/>
-	<classpathentry kind="lib" path="C:/downloads/junit4.1/junit4.1/junit-4.1.jar"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/de.uka.ipd.sdq.sensorframework"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/de.uka.ipd.sdq.simucomframework"/>
 	<classpathentry kind="output" path="bin"/>
