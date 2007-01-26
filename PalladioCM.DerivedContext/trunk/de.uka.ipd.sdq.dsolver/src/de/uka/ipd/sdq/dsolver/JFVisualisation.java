@@ -84,7 +84,7 @@ public class JFVisualisation {
 	public void visualize() {
 		dataset.setIntervalWidth(distance);
 		myChart = ChartFactory.createHistogram(
-				"Measured Execution Time Histogram", "Time [10 ms]",
+				"Measured Execution Time Histogram", "Time ["+distance+" ms]",
 				"Probability", dataset, PlotOrientation.VERTICAL, true, true,
 				true);
 		XYPlot plot = (XYPlot) myChart.getPlot();
@@ -106,7 +106,7 @@ public class JFVisualisation {
 
 	public void visualizeOverlay() {
 		dataset.setIntervalWidth(1);
-		myChart = ChartFactory.createHistogram("", "Time [ms]", // x Axis label
+		myChart = ChartFactory.createHistogram("", "Time ["+distance+" ms]", // x Axis label
 				"Probability", // y Axis label
 				dataset, PlotOrientation.VERTICAL, true, // legend
 				true, // tooltips

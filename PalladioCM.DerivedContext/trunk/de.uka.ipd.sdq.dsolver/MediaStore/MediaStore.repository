@@ -78,7 +78,7 @@
     <serviceEffectSpecifications__BasicComponent xsi:type="pcm.seff:ResourceDemandingSEFF" id="_K6uFoqYqEdunyPSYvCWVNg" describedService__SEFF="//@interfaces__Repository.2/@signatures__Interface.0">
       <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_LOPekaYqEdunyPSYvCWVNg" successor_AbstractAction="_Lt09lKYqEdunyPSYvCWVNg"/>
       <steps_Behaviour xsi:type="pcm.seff:InternalAction" id="_Lt09lKYqEdunyPSYvCWVNg" predecessor_AbstractAction="_LOPekaYqEdunyPSYvCWVNg" successor_AbstractAction="_M_VoyqYqEdunyPSYvCWVNg">
-        <resourceDemand_Action specification="DoublePDF(unit=&quot;unit&quot;)[ (1.0; 0.1) (2.0; 0.0) (3.0; 0.0) ]" unit="ms">
+        <resourceDemand_Action specification="DoublePDF(unit=&quot;unit&quot;)[ (4000.0; 0.0) (4500.0; 0.5) (5000.0; 0.3) (5500.0; 0.1) (6000.0; 0.1) (6500.0; 0.0) ] * 0.016" unit="s">
           <requiredResource_ParametricResourceDemand href="MediaStore.resourcetype#_9-JuEaYUEduWZfldHy3B1Q"/>
         </resourceDemand_Action>
       </steps_Behaviour>
@@ -144,8 +144,11 @@
     <serviceEffectSpecifications__BasicComponent xsi:type="pcm.seff:ResourceDemandingSEFF" id="_Z_JD9KYmEdunyPSYvCWVNg" describedService__SEFF="//@interfaces__Repository.4/@signatures__Interface.0">
       <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_-4UdAKYkEduWZfldHy3B1Q" successor_AbstractAction="__fg_4KYkEduWZfldHy3B1Q"/>
       <steps_Behaviour xsi:type="pcm.seff:InternalAction" id="__fg_4KYkEduWZfldHy3B1Q" entityName="SelectFiles" predecessor_AbstractAction="_-4UdAKYkEduWZfldHy3B1Q" successor_AbstractAction="_0M-W2qYzEdudtvdezBq5JQ">
-        <resourceDemand_Action specification="DoublePDF(unit=&quot;unit&quot;)[ (10.0; 0.3) (20.0; 0.5) (30.0; 0.2) (31.0; 0.0) ]" unit="ms">
+        <resourceDemand_Action specification="DoublePDF(unit=&quot;unit&quot;)[ (50.0; 0.1) (100.0; 0.8) (150.0; 0.1) ]" unit="ms">
           <requiredResource_ParametricResourceDemand href="MediaStore.resourcetype#_AtY7gaYVEduWZfldHy3B1Q"/>
+        </resourceDemand_Action>
+        <resourceDemand_Action specification="DoublePDF(unit=&quot;unit&quot;)[ (400.0; 0.0) (800.0; 0.1) (1200.0; 0.2) (1600.0; 0.2) (2000.0; 0.4) (2400.0; 0.1) ]" unit="ms">
+          <requiredResource_ParametricResourceDemand href="MediaStore.resourcetype#_DH6dMaYVEduWZfldHy3B1Q"/>
         </resourceDemand_Action>
       </steps_Behaviour>
       <steps_Behaviour xsi:type="pcm.seff:SetVariableAction" id="_0M-W2qYzEdudtvdezBq5JQ" predecessor_AbstractAction="__fg_4KYkEduWZfldHy3B1Q" successor_AbstractAction="_D27uSqY0EdudtvdezBq5JQ">

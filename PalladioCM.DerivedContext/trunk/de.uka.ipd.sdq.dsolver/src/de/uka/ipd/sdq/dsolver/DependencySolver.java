@@ -67,7 +67,7 @@ public class DependencySolver {
 	 */
 	private IProbabilityDensityFunction runCalculation(Expression result) {
 		long timeBeforeCalc = System.nanoTime();
-		PerformanceHandlerFactory perfHandFac = new PerformanceHandlerFactory(64);
+		PerformanceHandlerFactory perfHandFac = new PerformanceHandlerFactory(128);
 		PerformanceVisitor perfVisitor = new PerformanceVisitor(perfHandFac);
 		IProbabilityDensityFunction iPDF = perfVisitor.getResponseTime(result);
 		
@@ -91,7 +91,7 @@ public class DependencySolver {
 		}
 
 		try {
-			JFVisualisation vis = new JFVisualisation(1);
+			JFVisualisation vis = new JFVisualisation(10);
 			vis.addSamplePDF(samplePDF,"Execution Time");
 			vis.visualizeOverlay();
 		} catch (ProbabilityFunctionException e) {
