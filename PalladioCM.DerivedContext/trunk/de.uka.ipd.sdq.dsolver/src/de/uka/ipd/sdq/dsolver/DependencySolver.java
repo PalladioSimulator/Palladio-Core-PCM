@@ -45,6 +45,9 @@ public class DependencySolver {
 		Logger.getLogger(DependencySolver.class.getName());
 
 	public DependencySolver(Properties config){
+
+		
+		
 		this.config = config;
 		logger.debug("Loading PCM Instance");
 		currentModel = new PCMInstance(config);
@@ -64,7 +67,7 @@ public class DependencySolver {
 	 */
 	private IProbabilityDensityFunction runCalculation(Expression result) {
 		long timeBeforeCalc = System.nanoTime();
-		PerformanceHandlerFactory perfHandFac = new PerformanceHandlerFactory(16);
+		PerformanceHandlerFactory perfHandFac = new PerformanceHandlerFactory(64);
 		PerformanceVisitor perfVisitor = new PerformanceVisitor(perfHandFac);
 		IProbabilityDensityFunction iPDF = perfVisitor.getResponseTime(result);
 		
@@ -88,7 +91,7 @@ public class DependencySolver {
 		}
 
 		try {
-			JFVisualisation vis = new JFVisualisation(0.1);
+			JFVisualisation vis = new JFVisualisation(1);
 			vis.addSamplePDF(samplePDF,"Execution Time");
 			vis.visualizeOverlay();
 		} catch (ProbabilityFunctionException e) {
@@ -96,7 +99,7 @@ public class DependencySolver {
 		}
 		long timeAfterVis = System.nanoTime();
 		long duration = TimeUnit.NANOSECONDS.toMillis(timeAfterVis-timeBeforeVis);
-		logger.debug("Finished Visualisation, Duration: "+ duration + " ms");
+		logger.debug("Finished Visualisati on, Duration: "+ duration + " ms");
 		
 	}
 

@@ -16,6 +16,7 @@ import de.uka.ipd.sdq.dsolver.handler.GuardedBranchTransitionHandler;
 import de.uka.ipd.sdq.dsolver.handler.InternalActionHandler;
 import de.uka.ipd.sdq.dsolver.handler.LoopActionHandler;
 import de.uka.ipd.sdq.dsolver.handler.ProbabilisticBranchTransitionHandler;
+import de.uka.ipd.sdq.dsolver.handler.SetVariableActionHandler;
 import de.uka.ipd.sdq.dsolver.helper.EMFHelper;
 import de.uka.ipd.sdq.pcm.seff.AbstractBranchTransition;
 import de.uka.ipd.sdq.pcm.seff.BranchAction;
@@ -27,6 +28,7 @@ import de.uka.ipd.sdq.pcm.seff.LoopAction;
 import de.uka.ipd.sdq.pcm.seff.ProbabilisticBranchTransition;
 import de.uka.ipd.sdq.pcm.seff.ResourceDemandingBehaviour;
 import de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF;
+import de.uka.ipd.sdq.pcm.seff.SetVariableAction;
 import de.uka.ipd.sdq.pcm.seff.StartAction;
 import de.uka.ipd.sdq.pcm.seff.StopAction;
 import de.uka.ipd.sdq.pcm.seff.util.SeffSwitch;
@@ -49,6 +51,7 @@ public class SeffVisitor extends SeffSwitch {
 	private ProbabilisticBranchTransitionHandler probBTH;
 	private CollectionIteratorActionHandler collIterAH;
 	private LoopActionHandler loopAH;
+	private SetVariableActionHandler setVarAH;
 	
 	/**
 	 * @param inst
@@ -64,6 +67,7 @@ public class SeffVisitor extends SeffSwitch {
 		probBTH = new ProbabilisticBranchTransitionHandler(this);
 		collIterAH = new CollectionIteratorActionHandler(this);
 		loopAH = new LoopActionHandler(this);
+		setVarAH = new SetVariableActionHandler(this);
 		
 	}
 
@@ -72,7 +76,7 @@ public class SeffVisitor extends SeffSwitch {
 	 */
 	@Override
 	public Object caseResourceDemandingSEFF(ResourceDemandingSEFF seff) {
-		//logger.debug("Visit"+seff.getClass().getSimpleName());
+		logger.debug("Visit"+seff.getClass().getSimpleName());
 		ResourceDemandingBehaviour rdb = (ResourceDemandingBehaviour) seff;
 		doSwitch(getStartAction(rdb));
 		return seff;
@@ -84,7 +88,7 @@ public class SeffVisitor extends SeffSwitch {
 	@Override
 	public Object caseResourceDemandingBehaviour(
 			ResourceDemandingBehaviour behaviour) {
-		//logger.debug("Visit"+behaviour.getClass().getSimpleName());
+		logger.debug("Visit"+behaviour.getClass().getSimpleName());
 		doSwitch(getStartAction(behaviour));
 		return behaviour;
 	}
@@ -94,6 +98,7 @@ public class SeffVisitor extends SeffSwitch {
 	 */
 	@Override
 	public Object caseStartAction(StartAction start) {
+		logger.debug("Visit"+start.getClass().getSimpleName());
 		doSwitch(start.getSuccessor_AbstractAction());
 		return start;
 	}
@@ -103,7 +108,7 @@ public class SeffVisitor extends SeffSwitch {
 	 */
 	@Override
 	public Object caseStopAction(StopAction object) {
-		//logger.debug("Visit"+object.getClass().getSimpleName());
+		logger.debug("Visit"+object.getClass().getSimpleName());
 		if (object.eContainer() instanceof ResourceDemandingSEFF){
 			saveContexts();			
 		}
@@ -113,6 +118,7 @@ public class SeffVisitor extends SeffSwitch {
 
 	@Override
 	public Object caseInternalAction(InternalAction action) {
+		logger.debug("Visit"+action.getClass().getSimpleName());
 		intAH.handle(action);
 		doSwitch(action.getSuccessor_AbstractAction());
 		return action;
@@ -123,6 +129,7 @@ public class SeffVisitor extends SeffSwitch {
 	 */
 	@Override
 	public Object caseBranchAction(BranchAction branch) {
+		logger.debug("Visit"+branch.getClass().getSimpleName());
 		EList branchTransitions = branch.getBranches_Branch();
 		for (Object o : branchTransitions) doSwitch((AbstractBranchTransition)o);
 		doSwitch(branch.getSuccessor_AbstractAction());
@@ -146,6 +153,7 @@ public class SeffVisitor extends SeffSwitch {
 	 */
 	@Override
 	public Object caseLoopAction(LoopAction loop) {
+		logger.debug("Visit"+loop.getClass().getSimpleName());
 		loopAH.handle(loop);
 		doSwitch(loop.getSuccessor_AbstractAction());
 		return loop;
@@ -153,6 +161,7 @@ public class SeffVisitor extends SeffSwitch {
 	
 	@Override
 	public Object caseCollectionIteratorAction(CollectionIteratorAction ciAction) {
+		logger.debug("Visit"+ciAction.getClass().getSimpleName());
 		collIterAH.handle(ciAction);
 		doSwitch(ciAction.getSuccessor_AbstractAction());
 		return ciAction;
@@ -160,9 +169,18 @@ public class SeffVisitor extends SeffSwitch {
 
 	@Override
 	public Object caseExternalCallAction(ExternalCallAction call) {
+		logger.debug("Visit"+call.getClass().getSimpleName()+" "+call.getCalledService_ExternalService().getServiceName());
 		extCallAH.handle(call);
 		doSwitch(call.getSuccessor_AbstractAction());
 		return call;
+	}
+
+	@Override
+	public Object caseSetVariableAction(SetVariableAction object) {
+		logger.debug("Visit"+object.getClass().getSimpleName());
+		setVarAH.handle(object);
+		doSwitch(object.getSuccessor_AbstractAction());
+		return object;
 	}
 
 	/**

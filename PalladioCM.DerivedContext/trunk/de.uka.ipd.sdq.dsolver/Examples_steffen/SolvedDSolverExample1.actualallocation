@@ -1,114 +1,108 @@
 <?xml version="1.0" encoding="ASCII"?>
 <context.allocation:ActualAllocation xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:context.allocation="http://sdq.ipd.uka.de/Context/Allocation/1.0">
   <actualAllocationContexts_ActualAllocation>
-    <actualResourceDemands_ActualAllocationContext specification="DoublePDF(unit=&quot;s&quot;)[ (1.0; 0.2) (2.0; 0.6) (3.0; 0.2) ]">
-      <parametricResourceDemand_ActualResourceDemand href="DSolverExample1.repository#//@components__Repository.0/@serviceEffectSpecifications__BasicComponent.1/@steps_Behaviour.1/@resourceDemand_Action.0"/>
+    <actualResourceDemands_ActualAllocationContext specification="DoublePDF(unit=&quot;s&quot;)[ (100.0; 1.0) ]">
+      <parametricResourceDemand_ActualResourceDemand href="DSolverExample1.repository#//@components__Repository.1/@serviceEffectSpecifications__BasicComponent.0/@steps_Behaviour.1/@bodyBehaviour_Loop/@steps_Behaviour.1/@resourceDemand_Action.0"/>
+    </actualResourceDemands_ActualAllocationContext>
+    <actualResourceDemands_ActualAllocationContext specification="DoublePDF(unit=&quot;s&quot;)[ (100.0; 1.0) ]">
+      <parametricResourceDemand_ActualResourceDemand href="DSolverExample1.repository#//@components__Repository.1/@serviceEffectSpecifications__BasicComponent.0/@steps_Behaviour.1/@bodyBehaviour_Loop/@steps_Behaviour.1/@resourceDemand_Action.0"/>
+    </actualResourceDemands_ActualAllocationContext>
+    <actualResourceDemands_ActualAllocationContext specification="DoublePDF(unit=&quot;s&quot;)[ (100.0; 1.0) ]">
+      <parametricResourceDemand_ActualResourceDemand href="DSolverExample1.repository#//@components__Repository.1/@serviceEffectSpecifications__BasicComponent.0/@steps_Behaviour.1/@bodyBehaviour_Loop/@steps_Behaviour.1/@resourceDemand_Action.0"/>
+    </actualResourceDemands_ActualAllocationContext>
+    <actualResourceDemands_ActualAllocationContext specification="DoublePDF(unit=&quot;s&quot;)[ (100.0; 1.0) ]">
+      <parametricResourceDemand_ActualResourceDemand href="DSolverExample1.repository#//@components__Repository.1/@serviceEffectSpecifications__BasicComponent.0/@steps_Behaviour.1/@bodyBehaviour_Loop/@steps_Behaviour.1/@resourceDemand_Action.0"/>
+    </actualResourceDemands_ActualAllocationContext>
+    <actualResourceDemands_ActualAllocationContext specification="DoublePDF(unit=&quot;s&quot;)[ (100.0; 1.0) ]">
+      <parametricResourceDemand_ActualResourceDemand href="DSolverExample1.repository#//@components__Repository.1/@serviceEffectSpecifications__BasicComponent.0/@steps_Behaviour.1/@bodyBehaviour_Loop/@steps_Behaviour.1/@resourceDemand_Action.0"/>
+    </actualResourceDemands_ActualAllocationContext>
+    <actualResourceDemands_ActualAllocationContext specification="DoublePDF(unit=&quot;s&quot;)[ (100.0; 1.0) ]">
+      <parametricResourceDemand_ActualResourceDemand href="DSolverExample1.repository#//@components__Repository.1/@serviceEffectSpecifications__BasicComponent.0/@steps_Behaviour.1/@bodyBehaviour_Loop/@steps_Behaviour.1/@resourceDemand_Action.0"/>
+    </actualResourceDemands_ActualAllocationContext>
+    <actualResourceDemands_ActualAllocationContext specification="DoublePDF(unit=&quot;s&quot;)[ (100.0; 1.0) ]">
+      <parametricResourceDemand_ActualResourceDemand href="DSolverExample1.repository#//@components__Repository.1/@serviceEffectSpecifications__BasicComponent.0/@steps_Behaviour.1/@bodyBehaviour_Loop/@steps_Behaviour.1/@resourceDemand_Action.0"/>
+    </actualResourceDemands_ActualAllocationContext>
+    <actualResourceDemands_ActualAllocationContext specification="DoublePDF(unit=&quot;s&quot;)[ (100.0; 1.0) ]">
+      <parametricResourceDemand_ActualResourceDemand href="DSolverExample1.repository#//@components__Repository.1/@serviceEffectSpecifications__BasicComponent.0/@steps_Behaviour.1/@bodyBehaviour_Loop/@steps_Behaviour.1/@resourceDemand_Action.0"/>
+    </actualResourceDemands_ActualAllocationContext>
+    <actualResourceDemands_ActualAllocationContext specification="DoublePDF(unit=&quot;s&quot;)[ (100.0; 1.0) ]">
+      <parametricResourceDemand_ActualResourceDemand href="DSolverExample1.repository#//@components__Repository.1/@serviceEffectSpecifications__BasicComponent.0/@steps_Behaviour.1/@bodyBehaviour_Loop/@steps_Behaviour.1/@resourceDemand_Action.0"/>
+    </actualResourceDemands_ActualAllocationContext>
+    <actualResourceDemands_ActualAllocationContext specification="DoublePDF(unit=&quot;s&quot;)[ (100.0; 1.0) ]">
+      <parametricResourceDemand_ActualResourceDemand href="DSolverExample1.repository#//@components__Repository.1/@serviceEffectSpecifications__BasicComponent.0/@steps_Behaviour.1/@bodyBehaviour_Loop/@steps_Behaviour.1/@resourceDemand_Action.0"/>
+    </actualResourceDemands_ActualAllocationContext>
+    <actualResourceDemands_ActualAllocationContext specification="DoublePMF(unit=&quot;bytes&quot;)[ (5.0; 0.4) (6.0; 0.6) ]">
+      <parametricResourceDemand_ActualResourceDemand href="DSolverExample1.repository#//@components__Repository.1/@serviceEffectSpecifications__BasicComponent.0/@steps_Behaviour.2/@bodyBehaviour_Loop/@steps_Behaviour.1/@resourceDemand_Action.0"/>
+    </actualResourceDemands_ActualAllocationContext>
+    <actualResourceDemands_ActualAllocationContext specification="DoublePMF(unit=&quot;bytes&quot;)[ (5.0; 0.4) (6.0; 0.6) ]">
+      <parametricResourceDemand_ActualResourceDemand href="DSolverExample1.repository#//@components__Repository.1/@serviceEffectSpecifications__BasicComponent.0/@steps_Behaviour.2/@bodyBehaviour_Loop/@steps_Behaviour.2/@resourceDemand_Action.0"/>
+    </actualResourceDemands_ActualAllocationContext>
+    <actualResourceDemands_ActualAllocationContext specification="DoublePMF(unit=&quot;bytes&quot;)[ (5.0; 0.4) (6.0; 0.6) ]">
+      <parametricResourceDemand_ActualResourceDemand href="DSolverExample1.repository#//@components__Repository.1/@serviceEffectSpecifications__BasicComponent.0/@steps_Behaviour.2/@bodyBehaviour_Loop/@steps_Behaviour.1/@resourceDemand_Action.0"/>
+    </actualResourceDemands_ActualAllocationContext>
+    <actualResourceDemands_ActualAllocationContext specification="DoublePMF(unit=&quot;bytes&quot;)[ (5.0; 0.4) (6.0; 0.6) ]">
+      <parametricResourceDemand_ActualResourceDemand href="DSolverExample1.repository#//@components__Repository.1/@serviceEffectSpecifications__BasicComponent.0/@steps_Behaviour.2/@bodyBehaviour_Loop/@steps_Behaviour.2/@resourceDemand_Action.0"/>
+    </actualResourceDemands_ActualAllocationContext>
+    <actualResourceDemands_ActualAllocationContext specification="DoublePMF(unit=&quot;bytes&quot;)[ (5.0; 0.4) (6.0; 0.6) ]">
+      <parametricResourceDemand_ActualResourceDemand href="DSolverExample1.repository#//@components__Repository.1/@serviceEffectSpecifications__BasicComponent.0/@steps_Behaviour.2/@bodyBehaviour_Loop/@steps_Behaviour.1/@resourceDemand_Action.0"/>
+    </actualResourceDemands_ActualAllocationContext>
+    <actualResourceDemands_ActualAllocationContext specification="DoublePMF(unit=&quot;bytes&quot;)[ (5.0; 0.4) (6.0; 0.6) ]">
+      <parametricResourceDemand_ActualResourceDemand href="DSolverExample1.repository#//@components__Repository.1/@serviceEffectSpecifications__BasicComponent.0/@steps_Behaviour.2/@bodyBehaviour_Loop/@steps_Behaviour.2/@resourceDemand_Action.0"/>
+    </actualResourceDemands_ActualAllocationContext>
+    <actualResourceDemands_ActualAllocationContext specification="DoublePMF(unit=&quot;bytes&quot;)[ (5.0; 0.4) (6.0; 0.6) ]">
+      <parametricResourceDemand_ActualResourceDemand href="DSolverExample1.repository#//@components__Repository.1/@serviceEffectSpecifications__BasicComponent.0/@steps_Behaviour.2/@bodyBehaviour_Loop/@steps_Behaviour.1/@resourceDemand_Action.0"/>
+    </actualResourceDemands_ActualAllocationContext>
+    <actualResourceDemands_ActualAllocationContext specification="DoublePMF(unit=&quot;bytes&quot;)[ (5.0; 0.4) (6.0; 0.6) ]">
+      <parametricResourceDemand_ActualResourceDemand href="DSolverExample1.repository#//@components__Repository.1/@serviceEffectSpecifications__BasicComponent.0/@steps_Behaviour.2/@bodyBehaviour_Loop/@steps_Behaviour.2/@resourceDemand_Action.0"/>
+    </actualResourceDemands_ActualAllocationContext>
+    <actualResourceDemands_ActualAllocationContext specification="DoublePMF(unit=&quot;bytes&quot;)[ (5.0; 0.4) (6.0; 0.6) ]">
+      <parametricResourceDemand_ActualResourceDemand href="DSolverExample1.repository#//@components__Repository.1/@serviceEffectSpecifications__BasicComponent.0/@steps_Behaviour.2/@bodyBehaviour_Loop/@steps_Behaviour.1/@resourceDemand_Action.0"/>
+    </actualResourceDemands_ActualAllocationContext>
+    <actualResourceDemands_ActualAllocationContext specification="DoublePMF(unit=&quot;bytes&quot;)[ (5.0; 0.4) (6.0; 0.6) ]">
+      <parametricResourceDemand_ActualResourceDemand href="DSolverExample1.repository#//@components__Repository.1/@serviceEffectSpecifications__BasicComponent.0/@steps_Behaviour.2/@bodyBehaviour_Loop/@steps_Behaviour.2/@resourceDemand_Action.0"/>
+    </actualResourceDemands_ActualAllocationContext>
+    <actualResourceDemands_ActualAllocationContext specification="DoublePMF(unit=&quot;bytes&quot;)[ (5.0; 0.4) (6.0; 0.6) ]">
+      <parametricResourceDemand_ActualResourceDemand href="DSolverExample1.repository#//@components__Repository.1/@serviceEffectSpecifications__BasicComponent.0/@steps_Behaviour.2/@bodyBehaviour_Loop/@steps_Behaviour.1/@resourceDemand_Action.0"/>
+    </actualResourceDemands_ActualAllocationContext>
+    <actualResourceDemands_ActualAllocationContext specification="DoublePMF(unit=&quot;bytes&quot;)[ (5.0; 0.4) (6.0; 0.6) ]">
+      <parametricResourceDemand_ActualResourceDemand href="DSolverExample1.repository#//@components__Repository.1/@serviceEffectSpecifications__BasicComponent.0/@steps_Behaviour.2/@bodyBehaviour_Loop/@steps_Behaviour.2/@resourceDemand_Action.0"/>
+    </actualResourceDemands_ActualAllocationContext>
+    <actualResourceDemands_ActualAllocationContext specification="DoublePMF(unit=&quot;bytes&quot;)[ (5.0; 0.4) (6.0; 0.6) ]">
+      <parametricResourceDemand_ActualResourceDemand href="DSolverExample1.repository#//@components__Repository.1/@serviceEffectSpecifications__BasicComponent.0/@steps_Behaviour.2/@bodyBehaviour_Loop/@steps_Behaviour.1/@resourceDemand_Action.0"/>
+    </actualResourceDemands_ActualAllocationContext>
+    <actualResourceDemands_ActualAllocationContext specification="DoublePMF(unit=&quot;bytes&quot;)[ (5.0; 0.4) (6.0; 0.6) ]">
+      <parametricResourceDemand_ActualResourceDemand href="DSolverExample1.repository#//@components__Repository.1/@serviceEffectSpecifications__BasicComponent.0/@steps_Behaviour.2/@bodyBehaviour_Loop/@steps_Behaviour.2/@resourceDemand_Action.0"/>
+    </actualResourceDemands_ActualAllocationContext>
+    <actualResourceDemands_ActualAllocationContext specification="DoublePMF(unit=&quot;bytes&quot;)[ (5.0; 0.4) (6.0; 0.6) ]">
+      <parametricResourceDemand_ActualResourceDemand href="DSolverExample1.repository#//@components__Repository.1/@serviceEffectSpecifications__BasicComponent.0/@steps_Behaviour.2/@bodyBehaviour_Loop/@steps_Behaviour.1/@resourceDemand_Action.0"/>
+    </actualResourceDemands_ActualAllocationContext>
+    <actualResourceDemands_ActualAllocationContext specification="DoublePMF(unit=&quot;bytes&quot;)[ (5.0; 0.4) (6.0; 0.6) ]">
+      <parametricResourceDemand_ActualResourceDemand href="DSolverExample1.repository#//@components__Repository.1/@serviceEffectSpecifications__BasicComponent.0/@steps_Behaviour.2/@bodyBehaviour_Loop/@steps_Behaviour.2/@resourceDemand_Action.0"/>
+    </actualResourceDemands_ActualAllocationContext>
+    <actualResourceDemands_ActualAllocationContext specification="DoublePMF(unit=&quot;bytes&quot;)[ (5.0; 0.4) (6.0; 0.6) ]">
+      <parametricResourceDemand_ActualResourceDemand href="DSolverExample1.repository#//@components__Repository.1/@serviceEffectSpecifications__BasicComponent.0/@steps_Behaviour.2/@bodyBehaviour_Loop/@steps_Behaviour.1/@resourceDemand_Action.0"/>
+    </actualResourceDemands_ActualAllocationContext>
+    <actualResourceDemands_ActualAllocationContext specification="DoublePMF(unit=&quot;bytes&quot;)[ (5.0; 0.4) (6.0; 0.6) ]">
+      <parametricResourceDemand_ActualResourceDemand href="DSolverExample1.repository#//@components__Repository.1/@serviceEffectSpecifications__BasicComponent.0/@steps_Behaviour.2/@bodyBehaviour_Loop/@steps_Behaviour.2/@resourceDemand_Action.0"/>
+    </actualResourceDemands_ActualAllocationContext>
+    <actualResourceDemands_ActualAllocationContext specification="DoublePMF(unit=&quot;bytes&quot;)[ (5.0; 0.4) (6.0; 0.6) ]">
+      <parametricResourceDemand_ActualResourceDemand href="DSolverExample1.repository#//@components__Repository.1/@serviceEffectSpecifications__BasicComponent.0/@steps_Behaviour.2/@bodyBehaviour_Loop/@steps_Behaviour.1/@resourceDemand_Action.0"/>
+    </actualResourceDemands_ActualAllocationContext>
+    <actualResourceDemands_ActualAllocationContext specification="DoublePMF(unit=&quot;bytes&quot;)[ (5.0; 0.4) (6.0; 0.6) ]">
+      <parametricResourceDemand_ActualResourceDemand href="DSolverExample1.repository#//@components__Repository.1/@serviceEffectSpecifications__BasicComponent.0/@steps_Behaviour.2/@bodyBehaviour_Loop/@steps_Behaviour.2/@resourceDemand_Action.0"/>
     </actualResourceDemands_ActualAllocationContext>
     <usageContext_ActualAllocationContext href="SolvedDSolverExample1.usage#//@usageContexts_Usage.0"/>
   </actualAllocationContexts_ActualAllocation>
   <actualAllocationContexts_ActualAllocation>
-    <actualResourceDemands_ActualAllocationContext specification="100.0">
-      <parametricResourceDemand_ActualResourceDemand href="DSolverExample1.repository#//@components__Repository.1/@serviceEffectSpecifications__BasicComponent.0/@steps_Behaviour.1/@bodyBehaviour_Loop/@steps_Behaviour.1/@resourceDemand_Action.0"/>
-    </actualResourceDemands_ActualAllocationContext>
-    <actualResourceDemands_ActualAllocationContext specification="100.0">
-      <parametricResourceDemand_ActualResourceDemand href="DSolverExample1.repository#//@components__Repository.1/@serviceEffectSpecifications__BasicComponent.0/@steps_Behaviour.1/@bodyBehaviour_Loop/@steps_Behaviour.1/@resourceDemand_Action.0"/>
-    </actualResourceDemands_ActualAllocationContext>
-    <actualResourceDemands_ActualAllocationContext specification="100.0">
-      <parametricResourceDemand_ActualResourceDemand href="DSolverExample1.repository#//@components__Repository.1/@serviceEffectSpecifications__BasicComponent.0/@steps_Behaviour.1/@bodyBehaviour_Loop/@steps_Behaviour.1/@resourceDemand_Action.0"/>
-    </actualResourceDemands_ActualAllocationContext>
-    <actualResourceDemands_ActualAllocationContext specification="100.0">
-      <parametricResourceDemand_ActualResourceDemand href="DSolverExample1.repository#//@components__Repository.1/@serviceEffectSpecifications__BasicComponent.0/@steps_Behaviour.1/@bodyBehaviour_Loop/@steps_Behaviour.1/@resourceDemand_Action.0"/>
-    </actualResourceDemands_ActualAllocationContext>
-    <actualResourceDemands_ActualAllocationContext specification="100.0">
-      <parametricResourceDemand_ActualResourceDemand href="DSolverExample1.repository#//@components__Repository.1/@serviceEffectSpecifications__BasicComponent.0/@steps_Behaviour.1/@bodyBehaviour_Loop/@steps_Behaviour.1/@resourceDemand_Action.0"/>
-    </actualResourceDemands_ActualAllocationContext>
-    <actualResourceDemands_ActualAllocationContext specification="100.0">
-      <parametricResourceDemand_ActualResourceDemand href="DSolverExample1.repository#//@components__Repository.1/@serviceEffectSpecifications__BasicComponent.0/@steps_Behaviour.1/@bodyBehaviour_Loop/@steps_Behaviour.1/@resourceDemand_Action.0"/>
-    </actualResourceDemands_ActualAllocationContext>
-    <actualResourceDemands_ActualAllocationContext specification="100.0">
-      <parametricResourceDemand_ActualResourceDemand href="DSolverExample1.repository#//@components__Repository.1/@serviceEffectSpecifications__BasicComponent.0/@steps_Behaviour.1/@bodyBehaviour_Loop/@steps_Behaviour.1/@resourceDemand_Action.0"/>
-    </actualResourceDemands_ActualAllocationContext>
-    <actualResourceDemands_ActualAllocationContext specification="100.0">
-      <parametricResourceDemand_ActualResourceDemand href="DSolverExample1.repository#//@components__Repository.1/@serviceEffectSpecifications__BasicComponent.0/@steps_Behaviour.1/@bodyBehaviour_Loop/@steps_Behaviour.1/@resourceDemand_Action.0"/>
-    </actualResourceDemands_ActualAllocationContext>
-    <actualResourceDemands_ActualAllocationContext specification="100.0">
-      <parametricResourceDemand_ActualResourceDemand href="DSolverExample1.repository#//@components__Repository.1/@serviceEffectSpecifications__BasicComponent.0/@steps_Behaviour.1/@bodyBehaviour_Loop/@steps_Behaviour.1/@resourceDemand_Action.0"/>
-    </actualResourceDemands_ActualAllocationContext>
-    <actualResourceDemands_ActualAllocationContext specification="100.0">
-      <parametricResourceDemand_ActualResourceDemand href="DSolverExample1.repository#//@components__Repository.1/@serviceEffectSpecifications__BasicComponent.0/@steps_Behaviour.1/@bodyBehaviour_Loop/@steps_Behaviour.1/@resourceDemand_Action.0"/>
-    </actualResourceDemands_ActualAllocationContext>
-    <actualResourceDemands_ActualAllocationContext specification="DoublePMF(unit=&quot;bytes&quot;)[ (5.0; 0.4) (6.0; 0.6) ]">
-      <parametricResourceDemand_ActualResourceDemand href="DSolverExample1.repository#//@components__Repository.1/@serviceEffectSpecifications__BasicComponent.0/@steps_Behaviour.2/@bodyBehaviour_Loop/@steps_Behaviour.1/@resourceDemand_Action.0"/>
-    </actualResourceDemands_ActualAllocationContext>
-    <actualResourceDemands_ActualAllocationContext specification="DoublePMF(unit=&quot;bytes&quot;)[ (5.0; 0.4) (6.0; 0.6) ]">
-      <parametricResourceDemand_ActualResourceDemand href="DSolverExample1.repository#//@components__Repository.1/@serviceEffectSpecifications__BasicComponent.0/@steps_Behaviour.2/@bodyBehaviour_Loop/@steps_Behaviour.2/@resourceDemand_Action.0"/>
-    </actualResourceDemands_ActualAllocationContext>
-    <actualResourceDemands_ActualAllocationContext specification="DoublePMF(unit=&quot;bytes&quot;)[ (5.0; 0.4) (6.0; 0.6) ]">
-      <parametricResourceDemand_ActualResourceDemand href="DSolverExample1.repository#//@components__Repository.1/@serviceEffectSpecifications__BasicComponent.0/@steps_Behaviour.2/@bodyBehaviour_Loop/@steps_Behaviour.1/@resourceDemand_Action.0"/>
-    </actualResourceDemands_ActualAllocationContext>
-    <actualResourceDemands_ActualAllocationContext specification="DoublePMF(unit=&quot;bytes&quot;)[ (5.0; 0.4) (6.0; 0.6) ]">
-      <parametricResourceDemand_ActualResourceDemand href="DSolverExample1.repository#//@components__Repository.1/@serviceEffectSpecifications__BasicComponent.0/@steps_Behaviour.2/@bodyBehaviour_Loop/@steps_Behaviour.2/@resourceDemand_Action.0"/>
-    </actualResourceDemands_ActualAllocationContext>
-    <actualResourceDemands_ActualAllocationContext specification="DoublePMF(unit=&quot;bytes&quot;)[ (5.0; 0.4) (6.0; 0.6) ]">
-      <parametricResourceDemand_ActualResourceDemand href="DSolverExample1.repository#//@components__Repository.1/@serviceEffectSpecifications__BasicComponent.0/@steps_Behaviour.2/@bodyBehaviour_Loop/@steps_Behaviour.1/@resourceDemand_Action.0"/>
-    </actualResourceDemands_ActualAllocationContext>
-    <actualResourceDemands_ActualAllocationContext specification="DoublePMF(unit=&quot;bytes&quot;)[ (5.0; 0.4) (6.0; 0.6) ]">
-      <parametricResourceDemand_ActualResourceDemand href="DSolverExample1.repository#//@components__Repository.1/@serviceEffectSpecifications__BasicComponent.0/@steps_Behaviour.2/@bodyBehaviour_Loop/@steps_Behaviour.2/@resourceDemand_Action.0"/>
-    </actualResourceDemands_ActualAllocationContext>
-    <actualResourceDemands_ActualAllocationContext specification="DoublePMF(unit=&quot;bytes&quot;)[ (5.0; 0.4) (6.0; 0.6) ]">
-      <parametricResourceDemand_ActualResourceDemand href="DSolverExample1.repository#//@components__Repository.1/@serviceEffectSpecifications__BasicComponent.0/@steps_Behaviour.2/@bodyBehaviour_Loop/@steps_Behaviour.1/@resourceDemand_Action.0"/>
-    </actualResourceDemands_ActualAllocationContext>
-    <actualResourceDemands_ActualAllocationContext specification="DoublePMF(unit=&quot;bytes&quot;)[ (5.0; 0.4) (6.0; 0.6) ]">
-      <parametricResourceDemand_ActualResourceDemand href="DSolverExample1.repository#//@components__Repository.1/@serviceEffectSpecifications__BasicComponent.0/@steps_Behaviour.2/@bodyBehaviour_Loop/@steps_Behaviour.2/@resourceDemand_Action.0"/>
-    </actualResourceDemands_ActualAllocationContext>
-    <actualResourceDemands_ActualAllocationContext specification="DoublePMF(unit=&quot;bytes&quot;)[ (5.0; 0.4) (6.0; 0.6) ]">
-      <parametricResourceDemand_ActualResourceDemand href="DSolverExample1.repository#//@components__Repository.1/@serviceEffectSpecifications__BasicComponent.0/@steps_Behaviour.2/@bodyBehaviour_Loop/@steps_Behaviour.1/@resourceDemand_Action.0"/>
-    </actualResourceDemands_ActualAllocationContext>
-    <actualResourceDemands_ActualAllocationContext specification="DoublePMF(unit=&quot;bytes&quot;)[ (5.0; 0.4) (6.0; 0.6) ]">
-      <parametricResourceDemand_ActualResourceDemand href="DSolverExample1.repository#//@components__Repository.1/@serviceEffectSpecifications__BasicComponent.0/@steps_Behaviour.2/@bodyBehaviour_Loop/@steps_Behaviour.2/@resourceDemand_Action.0"/>
-    </actualResourceDemands_ActualAllocationContext>
-    <actualResourceDemands_ActualAllocationContext specification="DoublePMF(unit=&quot;bytes&quot;)[ (5.0; 0.4) (6.0; 0.6) ]">
-      <parametricResourceDemand_ActualResourceDemand href="DSolverExample1.repository#//@components__Repository.1/@serviceEffectSpecifications__BasicComponent.0/@steps_Behaviour.2/@bodyBehaviour_Loop/@steps_Behaviour.1/@resourceDemand_Action.0"/>
-    </actualResourceDemands_ActualAllocationContext>
-    <actualResourceDemands_ActualAllocationContext specification="DoublePMF(unit=&quot;bytes&quot;)[ (5.0; 0.4) (6.0; 0.6) ]">
-      <parametricResourceDemand_ActualResourceDemand href="DSolverExample1.repository#//@components__Repository.1/@serviceEffectSpecifications__BasicComponent.0/@steps_Behaviour.2/@bodyBehaviour_Loop/@steps_Behaviour.2/@resourceDemand_Action.0"/>
-    </actualResourceDemands_ActualAllocationContext>
-    <actualResourceDemands_ActualAllocationContext specification="DoublePMF(unit=&quot;bytes&quot;)[ (5.0; 0.4) (6.0; 0.6) ]">
-      <parametricResourceDemand_ActualResourceDemand href="DSolverExample1.repository#//@components__Repository.1/@serviceEffectSpecifications__BasicComponent.0/@steps_Behaviour.2/@bodyBehaviour_Loop/@steps_Behaviour.1/@resourceDemand_Action.0"/>
-    </actualResourceDemands_ActualAllocationContext>
-    <actualResourceDemands_ActualAllocationContext specification="DoublePMF(unit=&quot;bytes&quot;)[ (5.0; 0.4) (6.0; 0.6) ]">
-      <parametricResourceDemand_ActualResourceDemand href="DSolverExample1.repository#//@components__Repository.1/@serviceEffectSpecifications__BasicComponent.0/@steps_Behaviour.2/@bodyBehaviour_Loop/@steps_Behaviour.2/@resourceDemand_Action.0"/>
-    </actualResourceDemands_ActualAllocationContext>
-    <actualResourceDemands_ActualAllocationContext specification="DoublePMF(unit=&quot;bytes&quot;)[ (5.0; 0.4) (6.0; 0.6) ]">
-      <parametricResourceDemand_ActualResourceDemand href="DSolverExample1.repository#//@components__Repository.1/@serviceEffectSpecifications__BasicComponent.0/@steps_Behaviour.2/@bodyBehaviour_Loop/@steps_Behaviour.1/@resourceDemand_Action.0"/>
-    </actualResourceDemands_ActualAllocationContext>
-    <actualResourceDemands_ActualAllocationContext specification="DoublePMF(unit=&quot;bytes&quot;)[ (5.0; 0.4) (6.0; 0.6) ]">
-      <parametricResourceDemand_ActualResourceDemand href="DSolverExample1.repository#//@components__Repository.1/@serviceEffectSpecifications__BasicComponent.0/@steps_Behaviour.2/@bodyBehaviour_Loop/@steps_Behaviour.2/@resourceDemand_Action.0"/>
-    </actualResourceDemands_ActualAllocationContext>
-    <actualResourceDemands_ActualAllocationContext specification="DoublePMF(unit=&quot;bytes&quot;)[ (5.0; 0.4) (6.0; 0.6) ]">
-      <parametricResourceDemand_ActualResourceDemand href="DSolverExample1.repository#//@components__Repository.1/@serviceEffectSpecifications__BasicComponent.0/@steps_Behaviour.2/@bodyBehaviour_Loop/@steps_Behaviour.1/@resourceDemand_Action.0"/>
-    </actualResourceDemands_ActualAllocationContext>
-    <actualResourceDemands_ActualAllocationContext specification="DoublePMF(unit=&quot;bytes&quot;)[ (5.0; 0.4) (6.0; 0.6) ]">
-      <parametricResourceDemand_ActualResourceDemand href="DSolverExample1.repository#//@components__Repository.1/@serviceEffectSpecifications__BasicComponent.0/@steps_Behaviour.2/@bodyBehaviour_Loop/@steps_Behaviour.2/@resourceDemand_Action.0"/>
-    </actualResourceDemands_ActualAllocationContext>
-    <actualResourceDemands_ActualAllocationContext specification="DoublePMF(unit=&quot;bytes&quot;)[ (5.0; 0.4) (6.0; 0.6) ]">
-      <parametricResourceDemand_ActualResourceDemand href="DSolverExample1.repository#//@components__Repository.1/@serviceEffectSpecifications__BasicComponent.0/@steps_Behaviour.2/@bodyBehaviour_Loop/@steps_Behaviour.1/@resourceDemand_Action.0"/>
-    </actualResourceDemands_ActualAllocationContext>
-    <actualResourceDemands_ActualAllocationContext specification="DoublePMF(unit=&quot;bytes&quot;)[ (5.0; 0.4) (6.0; 0.6) ]">
-      <parametricResourceDemand_ActualResourceDemand href="DSolverExample1.repository#//@components__Repository.1/@serviceEffectSpecifications__BasicComponent.0/@steps_Behaviour.2/@bodyBehaviour_Loop/@steps_Behaviour.2/@resourceDemand_Action.0"/>
-    </actualResourceDemands_ActualAllocationContext>
-    <usageContext_ActualAllocationContext href="SolvedDSolverExample1.usage#//@usageContexts_Usage.1"/>
-  </actualAllocationContexts_ActualAllocation>
-  <actualAllocationContexts_ActualAllocation>
-    <actualResourceDemands_ActualAllocationContext>
+    <actualResourceDemands_ActualAllocationContext specification="DoublePDF(unit=&quot;s&quot;)[ (1.0; 0.2) (2.0; 0.6) (3.0; 0.2) ]">
       <parametricResourceDemand_ActualResourceDemand href="DSolverExample1.repository#//@components__Repository.0/@serviceEffectSpecifications__BasicComponent.0/@steps_Behaviour.1/@resourceDemand_Action.0"/>
     </actualResourceDemands_ActualAllocationContext>
-    <actualResourceDemands_ActualAllocationContext specification="100.0">
+    <actualResourceDemands_ActualAllocationContext specification="DoublePDF(unit=&quot;s&quot;)[ (0.0; 0.010000000000000002) (5.0; 0.06) (10.0; 0.105) (15.0; 0.105) ]">
       <parametricResourceDemand_ActualResourceDemand href="DSolverExample1.repository#//@components__Repository.0/@serviceEffectSpecifications__BasicComponent.0/@steps_Behaviour.2/@branches_Branch.1/@branchBehaviour_BranchTransition/@steps_Behaviour.1/@resourceDemand_Action.0"/>
     </actualResourceDemands_ActualAllocationContext>
-    <actualResourceDemands_ActualAllocationContext specification="200.0">
+    <actualResourceDemands_ActualAllocationContext specification="DoublePDF(unit=&quot;s&quot;)[ (200.0; 1.0) ]">
       <parametricResourceDemand_ActualResourceDemand href="DSolverExample1.repository#//@components__Repository.0/@serviceEffectSpecifications__BasicComponent.0/@steps_Behaviour.2/@branches_Branch.2/@branchBehaviour_BranchTransition/@steps_Behaviour.1/@resourceDemand_Action.0"/>
     </actualResourceDemands_ActualAllocationContext>
-    <usageContext_ActualAllocationContext href="SolvedDSolverExample1.usage#//@usageContexts_Usage.2"/>
+    <usageContext_ActualAllocationContext href="SolvedDSolverExample1.usage#//@usageContexts_Usage.1"/>
   </actualAllocationContexts_ActualAllocation>
 </context.allocation:ActualAllocation>

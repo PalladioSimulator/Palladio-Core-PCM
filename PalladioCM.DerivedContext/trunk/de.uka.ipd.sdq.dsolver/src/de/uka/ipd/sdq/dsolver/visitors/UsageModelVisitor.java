@@ -12,6 +12,7 @@ import de.uka.ipd.sdq.context.usage.UsageFactory;
 import de.uka.ipd.sdq.dsolver.Context;
 import de.uka.ipd.sdq.dsolver.PCMInstance;
 import de.uka.ipd.sdq.dsolver.helper.EMFHelper;
+import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
 import de.uka.ipd.sdq.pcm.core.composition.ProvidedDelegationConnector;
 import de.uka.ipd.sdq.pcm.repository.BasicComponent;
 import de.uka.ipd.sdq.pcm.repository.ProvidedRole;
@@ -205,11 +206,15 @@ public class UsageModelVisitor extends UsagemodelSwitch {
 		callContext.setDerivedAssemblyContext(delegationConnector
 				.getChildComponentContext_ProvidedDelegationConnector());
 
-		
 		UsageContext uc = usageFactory.createUsageContext();
 		EList parList = call.getActualParameterUsage_EntryLevelSystemCall();
-		
 		uc.getActualParameterUsage_UsageContext().addAll(parList);
+
+		AssemblyContext assCtx = delegationConnector.getChildComponentContext_ProvidedDelegationConnector();
+		BasicComponent bc = (BasicComponent)assCtx.getEncapsulatedComponent_ChildComponentContext();
+		EList intParList = bc.getInternalVariables_BasicComponent();
+		uc.getActualParameterUsage_UsageContext().addAll(intParList);
+		
 		callContext.setUsageContext(uc);
 
 		ActualAllocationContext aac = actualAllocationFactory

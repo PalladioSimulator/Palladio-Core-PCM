@@ -20,6 +20,7 @@ import de.uka.ipd.sdq.pcm.repository.Interface;
 import de.uka.ipd.sdq.pcm.repository.Signature;
 import de.uka.ipd.sdq.pcm.seff.AbstractBranchTransition;
 import de.uka.ipd.sdq.pcm.seff.AbstractLoopAction;
+import de.uka.ipd.sdq.pcm.seff.AbstractResourceDemandingAction;
 import de.uka.ipd.sdq.pcm.seff.BranchAction;
 import de.uka.ipd.sdq.pcm.seff.CollectionIteratorAction;
 import de.uka.ipd.sdq.pcm.seff.ExternalCallAction;
@@ -29,6 +30,7 @@ import de.uka.ipd.sdq.pcm.seff.ParametricResourceDemand;
 import de.uka.ipd.sdq.pcm.seff.ResourceDemandingBehaviour;
 import de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF;
 import de.uka.ipd.sdq.pcm.seff.ServiceEffectSpecification;
+import de.uka.ipd.sdq.pcm.seff.SetVariableAction;
 import de.uka.ipd.sdq.pcm.seff.StartAction;
 import de.uka.ipd.sdq.pcm.seff.StopAction;
 import de.uka.ipd.sdq.pcm.seff.util.SeffSwitch;
@@ -143,6 +145,15 @@ public class TransformSeffVisitor extends SeffSwitch{
 
 	@Override
 	public Object caseInternalAction(InternalAction object) {
+		return handleSymbol(object);
+	}
+
+	@Override
+	public Object caseSetVariableAction(SetVariableAction object) {
+		return handleSymbol(object);
+	}
+	
+	private Object handleSymbol(AbstractResourceDemandingAction object){
 		Symbol sym = expFactory.createSymbol();
 		sym.setName(object.getEntityName());
 		
@@ -164,7 +175,6 @@ public class TransformSeffVisitor extends SeffSwitch{
 		seq.setRightRegExp((Expression)doSwitch(object.getSuccessor_AbstractAction()));
 		return seq;
 	}
-
 
 
 	@Override

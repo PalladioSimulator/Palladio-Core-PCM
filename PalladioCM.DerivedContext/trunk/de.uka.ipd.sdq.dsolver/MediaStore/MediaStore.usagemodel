@@ -8,7 +8,7 @@
       <actions_ScenarioBehaviour xsi:type="pcm.usagemodel:Start" successor="//@usageScenario_UsageModel.0/@scenarioBehaviour_UsageScenario/@actions_ScenarioBehaviour.1"/>
       <actions_ScenarioBehaviour xsi:type="pcm.usagemodel:EntryLevelSystemCall" successor="//@usageScenario_UsageModel.0/@scenarioBehaviour_UsageScenario/@actions_ScenarioBehaviour.2" predecessor="//@usageScenario_UsageModel.0/@scenarioBehaviour_UsageScenario/@actions_ScenarioBehaviour.0">
         <actualParameterUsage_EntryLevelSystemCall>
-          <variableCharacterisation_VariableUsage specification="IntPMF(unit=&quot;files&quot;)[ (1; 0.2) (2; 0.5) (3; 0.3) ]" type="NUMBER_OF_ELEMENTS"/>
+          <variableCharacterisation_VariableUsage specification="1" type="NUMBER_OF_ELEMENTS"/>
           <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="desiredFiles"/>
         </actualParameterUsage_EntryLevelSystemCall>
         <providedRole_EntryLevelSystemCall href="MediaStore.system#_alLOUKYUEduWZfldHy3B1Q"/>

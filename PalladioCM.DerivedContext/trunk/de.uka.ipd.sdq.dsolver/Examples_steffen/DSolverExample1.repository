@@ -6,7 +6,7 @@
     <serviceEffectSpecifications__BasicComponent xsi:type="pcm.seff:ResourceDemandingSEFF" seffTypeID="0" describedService__SEFF="//@interfaces__Repository.0/@signatures__Interface.0">
       <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_ZlavgTQbEduaPaOP6VcQiw" entityName="Starting" successor_AbstractAction="_Z92dpDQbEduaPaOP6VcQiw"/>
       <steps_Behaviour xsi:type="pcm.seff:InternalAction" id="_Z92dpDQbEduaPaOP6VcQiw" entityName="Doing" predecessor_AbstractAction="_ZlavgTQbEduaPaOP6VcQiw" successor_AbstractAction="_a5KPVzQbEduaPaOP6VcQiw" failureProbability="0">
-        <resourceDemand_Action specification="DoublePDF(unit=&quot;s&quot;)[ (50.0; 0.1) (100.0; 0.2) (200.0; 0.7) ] * DoublePDF(unit=&quot;s&quot;)[ (50.0; 0.1) (100.0; 0.3) (200.0; 0.6) ]" unit="CPU cycles">
+        <resourceDemand_Action specification="DoublePDF(unit=&quot;s&quot;)[ (10.0; 0.2) (20.0; 0.6) (30.0; 0.2) ]" unit="CPU cycles">
           <requiredResource_ParametricResourceDemand href="DSolverExample1.resourcetype#_YPBH0TQcEduaPaOP6VcQiw"/>
         </resourceDemand_Action>
       </steps_Behaviour>
@@ -34,7 +34,7 @@
           <branchBehaviour_BranchTransition>
             <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_1n0DQTQbEduaPaOP6VcQiw" entityName="Starting" successor_AbstractAction="_VqZmlHS1Edua9s77tdrqIA"/>
             <steps_Behaviour xsi:type="pcm.seff:InternalAction" id="_VqZmlHS1Edua9s77tdrqIA" entityName="Doing" predecessor_AbstractAction="_1n0DQTQbEduaPaOP6VcQiw" successor_AbstractAction="_2Bl1MDQbEduaPaOP6VcQiw" failureProbability="0.0">
-              <resourceDemand_Action specification="1000" unit="CPU cycles">
+              <resourceDemand_Action specification="DoublePDF(unit=&quot;s&quot;)[ (50.0; 0.1) (100.0; 0.2) (200.0; 0.7) ] * DoublePDF(unit=&quot;s&quot;)[ (50.0; 0.1) (100.0; 0.3) (200.0; 0.6) ]" unit="CPU cycles">
                 <requiredResource_ParametricResourceDemand href="DSolverExample1.resourcetype#_YPBH0TQcEduaPaOP6VcQiw"/>
               </resourceDemand_Action>
             </steps_Behaviour>
@@ -46,7 +46,7 @@
           <branchBehaviour_BranchTransition>
             <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_KfyKoXAHEduM17cwNTLmIQ" entityName="Starting" successor_AbstractAction="_LzrbdHAHEduM17cwNTLmIQ"/>
             <steps_Behaviour xsi:type="pcm.seff:InternalAction" id="_LzrbdHAHEduM17cwNTLmIQ" entityName="Doing" predecessor_AbstractAction="_KfyKoXAHEduM17cwNTLmIQ" successor_AbstractAction="_MKVA4HAHEduM17cwNTLmIQ" failureProbability="0.0">
-              <resourceDemand_Action specification="2000" unit="CPU cycles">
+              <resourceDemand_Action specification="DoublePDF(unit=&quot;s&quot;)[ (2000.0; 1.0) ]" unit="CPU cycles">
                 <requiredResource_ParametricResourceDemand href="DSolverExample1.resourcetype#_YPBH0TQcEduaPaOP6VcQiw"/>
               </resourceDemand_Action>
             </steps_Behaviour>
@@ -61,7 +61,7 @@
       <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_LS1t4ItTEdufGYh6XmyGUQ" successor_AbstractAction="_JVOrg4twEduzxJV0yTtf9A"/>
       <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_M581oItTEdufGYh6XmyGUQ" predecessor_AbstractAction="_J_2V0otwEduzxJV0yTtf9A"/>
       <steps_Behaviour xsi:type="pcm.seff:InternalAction" id="_NRpj8ItTEdufGYh6XmyGUQ" entityName="I1" predecessor_AbstractAction="_JVOrg4twEduzxJV0yTtf9A" successor_AbstractAction="_J_2V0otwEduzxJV0yTtf9A">
-        <resourceDemand_Action specification="DoublePDF(unit=&quot;s&quot;)[ (10.0; 0.2) (20.0; 0.6) (30.0; 0.2) ]">
+        <resourceDemand_Action specification="2000">
           <requiredResource_ParametricResourceDemand href="DSolverExample1.resourcetype#_YPBH0TQcEduaPaOP6VcQiw"/>
         </resourceDemand_Action>
       </steps_Behaviour>
@@ -81,7 +81,7 @@
         <bodyBehaviour_Loop>
           <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_DG83ATQeEduaPaOP6VcQiw" entityName="Starting" successor_AbstractAction="_DZ3zBDQeEduaPaOP6VcQiw"/>
           <steps_Behaviour xsi:type="pcm.seff:InternalAction" id="_DZ3zBDQeEduaPaOP6VcQiw" entityName="Doing" predecessor_AbstractAction="_DG83ATQeEduaPaOP6VcQiw" successor_AbstractAction="_D4awMDQeEduaPaOP6VcQiw" failureProbability="0">
-            <resourceDemand_Action specification="1000" unit="CPU cycles">
+            <resourceDemand_Action specification="DoublePDF(unit=&quot;s&quot;)[ (1000.0; 1.0) ]" unit="CPU cycles">
               <requiredResource_ParametricResourceDemand href="DSolverExample1.resourcetype#_YPBH0TQcEduaPaOP6VcQiw"/>
             </resourceDemand_Action>
           </steps_Behaviour>

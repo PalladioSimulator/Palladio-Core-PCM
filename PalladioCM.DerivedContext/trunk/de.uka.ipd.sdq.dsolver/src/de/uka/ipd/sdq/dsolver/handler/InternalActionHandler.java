@@ -20,6 +20,7 @@ import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer;
 import de.uka.ipd.sdq.pcm.resourcetype.ProcessingResourceType;
 import de.uka.ipd.sdq.pcm.seff.InternalAction;
 import de.uka.ipd.sdq.pcm.seff.ParametricResourceDemand;
+import de.uka.ipd.sdq.stoex.Expression;
 
 /**
  * @author Koziolek
@@ -85,6 +86,10 @@ public class InternalActionHandler{
 		// quickly incorporate processing rate
 		specification = "("+ specification+") / "+prs.getProcessingRate();
 		logger.debug("Actual Resource Demand (Expression): "+specification);
+		
+		Expression solvedExpr = (Expression) ExpressionHelper.getSolvedExpression(specification, visitor.getMyContext());
+		
+		
 		
 		String solvedSpecification = ExpressionHelper
 				.getSolvedExpressionAsString(specification,

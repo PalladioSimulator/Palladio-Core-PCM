@@ -14,6 +14,7 @@ import de.uka.ipd.sdq.dsolver.helper.EMFHelper;
 import de.uka.ipd.sdq.dsolver.helper.ExpressionHelper;
 import de.uka.ipd.sdq.dsolver.visitors.SeffVisitor;
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyConnector;
+import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
 import de.uka.ipd.sdq.pcm.parameter.ParameterFactory;
 import de.uka.ipd.sdq.pcm.parameter.VariableCharacterisation;
 import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
@@ -64,11 +65,49 @@ public class ExternalCallActionHandler {
 			// TODO: handle system external call
 		} else {
 			//logger.debug("Found Assembly Connector");
-			visitNextSeff(serviceToBeCalled, 
+			SeffVisitor nextVisitor = visitNextSeff(serviceToBeCalled, 
 					parametricParameterUsages, 
 					foundAssemblyConnector);
+			storeOutputParametersToUsageContext(call, nextVisitor);
 		}
 	}
+	
+	private void storeOutputParametersToUsageContext(ExternalCallAction call, SeffVisitor nextVisitor) {
+		UsageContext uc = visitor.getMyContext().getUsageContext();
+		String returnName = call.getCalledService_ExternalService().getServiceName() + ".RETURN";
+
+		EList outputParamsProducedByExtCall = nextVisitor.getMyContext().getUsageContext().getActualParameterUsage_UsageContext();
+		for (Object o : outputParamsProducedByExtCall){
+			VariableUsage vu = (VariableUsage)o;
+			String paramName = getFullParameterName(vu.getNamedReference_VariableUsage());
+		//	if (paramName.toUpperCase().equals(returnName.toUpperCase())){
+			if (paramName.toUpperCase().equals(returnName.toUpperCase()) ||
+				paramName.toUpperCase().equals(returnName.toUpperCase()+".INNER")){
+				copySolvedVariableUsageToUsageContext(uc, vu);
+				//uc.getActualParameterUsage_UsageContext().add(vu);
+			} else if (paramName.toUpperCase().endsWith("OUT")){
+				//TODO
+			}
+		}
+		
+		EList outputParamsDeclaredInSeff = call.getOutputVariableUsage_ExternalCallAction();
+		for (Object o1 : outputParamsDeclaredInSeff){
+			VariableUsage vu = (VariableUsage)o1;
+			copySolvedVariableUsageToUsageContext(uc, vu);
+		}
+		
+	}
+
+	private String getFullParameterName(AbstractNamedReference ref) {
+		String name = ""; 
+		while (ref instanceof NamespaceReference){
+			NamespaceReference nsRef = (NamespaceReference)ref;
+			name += nsRef.getReferenceName() + ".";
+			ref = nsRef.getInnerReference_NamespaceReference();
+		}
+		return name += ref.getReferenceName();
+	}
+	
 	
 	/**
 	 * @param requiredRole
@@ -102,19 +141,21 @@ public class ExternalCallActionHandler {
 	 * @param parametricParameterUsages TODO
 	 * @param foundAssemblyConnector
 	 */
-	private void visitNextSeff(Signature serviceToBeCalled,
+	private SeffVisitor visitNextSeff(Signature serviceToBeCalled,
 			EList parametricParameterUsages, 
 			AssemblyConnector foundAssemblyConnector) {
 
 		Context callContext = createCallContext(foundAssemblyConnector, 
 				parametricParameterUsages);
 
-		SeffSwitch seffVisitor = new SeffVisitor(visitor.getPcmInstance(), callContext);
+		SeffVisitor seffVisitor = new SeffVisitor(visitor.getPcmInstance(), callContext);
 		
 		ResourceDemandingSEFF b = getTargetBehaviourFromAssemblyConnector(
 				foundAssemblyConnector, serviceToBeCalled);
 		
 		seffVisitor.doSwitch(b);
+		
+		return seffVisitor;
 	}
 
 	/**
@@ -127,21 +168,9 @@ public class ExternalCallActionHandler {
 			EList parametricParameterUsages) {
 		
 		Context myContext = visitor.getMyContext();
-		Context callContext = new Context();
-
-		callContext.setSystem(myContext.getSystem());
-		callContext.setAllocation(myContext.getAllocation());
-		callContext
-				.setDerivedAssemblyContext(foundAssemblyConnector
-						.getProvidingChildComponentContext_CompositeAssemblyConnector());
-		callContext.setCurrentEvaluatedBranchConditions(myContext
-				.getCurrentEvaluatedBranchConditions());
-		callContext.setCurrentLoopIterationNumber(myContext
-				.getCurrentLoopIterationNumber());
+		Context callContext = getCallContext(foundAssemblyConnector, myContext);
 		
-		
-		UsageContext uc = usageFactory.createUsageContext();
-		createActualParameters(parametricParameterUsages, uc);
+		UsageContext uc = getUsageContext(foundAssemblyConnector, parametricParameterUsages);
 		callContext.setUsageContext(uc);
 
 		ActualAllocationContext aac = actualAllocationFactory
@@ -154,6 +183,46 @@ public class ExternalCallActionHandler {
 		callContext.setCurrentLoopIterationNumber(myContext
 				.getCurrentLoopIterationNumber());
 
+		return callContext;
+	}
+
+	/**
+	 * @param foundAssemblyConnector
+	 * @param parametricParameterUsages
+	 * @return
+	 */
+	private UsageContext getUsageContext(AssemblyConnector foundAssemblyConnector, EList parametricParameterUsages) {
+		UsageContext uc = usageFactory.createUsageContext();
+
+		AssemblyContext assCtx = foundAssemblyConnector.getProvidingChildComponentContext_CompositeAssemblyConnector();
+		BasicComponent bc = (BasicComponent)assCtx.getEncapsulatedComponent_ChildComponentContext();
+		EList internalParameterUsages = bc.getInternalVariables_BasicComponent();
+ 		parametricParameterUsages.addAll(bc.getInternalVariables_BasicComponent());
+		
+ 		for (Object o1 : parametricParameterUsages){
+			VariableUsage oldUsage = (VariableUsage)o1;
+			copySolvedVariableUsageToUsageContext(uc, oldUsage);
+		}
+		
+ 		return uc;
+	}
+
+	/**
+	 * @param foundAssemblyConnector
+	 * @param myContext
+	 * @return
+	 */
+	private Context getCallContext(AssemblyConnector foundAssemblyConnector, Context myContext) {
+		Context callContext = new Context();
+		callContext.setSystem(myContext.getSystem());
+		callContext.setAllocation(myContext.getAllocation());
+		callContext
+				.setDerivedAssemblyContext(foundAssemblyConnector
+						.getProvidingChildComponentContext_CompositeAssemblyConnector());
+		callContext.setCurrentEvaluatedBranchConditions(myContext
+				.getCurrentEvaluatedBranchConditions());
+		callContext.setCurrentLoopIterationNumber(myContext
+				.getCurrentLoopIterationNumber());
 		return callContext;
 	}
 
@@ -174,35 +243,32 @@ public class ExternalCallActionHandler {
 	}
 	
 	/**
-	 * @param parametricParameterUsages
 	 * @param uc
+	 * @param oldUsage
 	 */
-	private void createActualParameters(EList parametricParameterUsages, UsageContext uc) {
- 		for (Object o1 : parametricParameterUsages){
-			VariableUsage oldUsage = (VariableUsage)o1;
-			VariableUsage newUsage = parameterFactory.createVariableUsage();
+	private void copySolvedVariableUsageToUsageContext(UsageContext uc, VariableUsage oldUsage) {
+		VariableUsage newUsage = parameterFactory.createVariableUsage();
+		
+		newUsage.setNamedReference_VariableUsage(getReferenceCopy(oldUsage.getNamedReference_VariableUsage()));
+		//newUsage.setNamedReference_VariableUsage(oldUsage.getNamedReference_VariableUsage());
+
+		EList characterisations = oldUsage.getVariableCharacterisation_VariableUsage();
+		for (Object o2 : characterisations){
+			VariableCharacterisation oldCharacterisation = (VariableCharacterisation)o2;
+
+			String specification = oldCharacterisation.getSpecification();
+			String solvedSpecification = ExpressionHelper
+					.getSolvedExpressionAsString(specification, visitor.getMyContext()); 
+
+			VariableCharacterisation solvedCharacterisation = parameterFactory
+					.createVariableCharacterisation();
+			solvedCharacterisation.setType(oldCharacterisation.getType());
+			solvedCharacterisation.setSpecification(solvedSpecification);
 			
-			newUsage.setNamedReference_VariableUsage(getReferenceCopy(oldUsage.getNamedReference_VariableUsage()));
-			//newUsage.setNamedReference_VariableUsage(oldUsage.getNamedReference_VariableUsage());
-
-			EList characterisations = oldUsage.getVariableCharacterisation_VariableUsage();
-			for (Object o2 : characterisations){
-				VariableCharacterisation oldCharacterisation = (VariableCharacterisation)o2;
-
-				String specification = oldCharacterisation.getSpecification();
-				String solvedSpecification = ExpressionHelper
-						.getSolvedExpressionAsString(specification, visitor.getMyContext()); 
-
-				VariableCharacterisation solvedCharacterisation = parameterFactory
-						.createVariableCharacterisation();
-				solvedCharacterisation.setType(oldCharacterisation.getType());
-				solvedCharacterisation.setSpecification(solvedSpecification);
-				
-				newUsage.getVariableCharacterisation_VariableUsage().add(solvedCharacterisation);
-				
-			}
-			uc.getActualParameterUsage_UsageContext().add(newUsage);
+			newUsage.getVariableCharacterisation_VariableUsage().add(solvedCharacterisation);
+			
 		}
+		uc.getActualParameterUsage_UsageContext().add(newUsage);
 	}
 
 	/**
