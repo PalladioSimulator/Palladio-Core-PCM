@@ -205,6 +205,11 @@ public class PalladioCreateDataTypeDialog extends CreateDataTypeDialog {
 			protected void doExecute() {
 				CompositeDataType compositeDataType = OperationsTabResources
 						.getNewCompositeDataType();
+				
+				if (compositeDataType == null)
+					compositeDataType = RepositoryFactory.eINSTANCE
+							.createCompositeDataType();
+				
 				compositeDataType.setEntityName(getEntityName());
 				compositeDataType.setRepository_DataType(OperationsTabResources
 						.getEditedRepository());
