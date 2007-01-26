@@ -255,7 +255,7 @@ public class SelectEObjectDialog extends Dialog {
 		editItem.setEnabled(editedEnabled);
 	}
 	
-	public void setAddSelectionListener(SelectionListener listener){
+	protected void setAddSelectionListener(SelectionListener listener){
 		addItem.addSelectionListener(listener);
 	}
 	
@@ -265,5 +265,12 @@ public class SelectEObjectDialog extends Dialog {
 	
 	protected void setEditeSelectionListener(SelectionListener listener){
 		editItem.addSelectionListener(listener);
+	}
+
+	/**
+	 * @return the TreeViewer
+	 */
+	protected TreeViewer getListViewer() {
+		return listViewer;
 	}
 }
