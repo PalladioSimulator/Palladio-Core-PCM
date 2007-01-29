@@ -13,6 +13,11 @@
       </steps_Behaviour>
       <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_ggYrsKYYEduWZfldHy3B1Q" predecessor_AbstractAction="_ftICxqYYEduWZfldHy3B1Q"/>
     </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="pcm.seff:ResourceDemandingSEFF" id="_oBuaQqx7EduuZPZbSE9EpQ" seffTypeID="" describedService__SEFF="//@interfaces__Repository.0/@signatures__Interface.1">
+      <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_r6bKIax7EduuZPZbSE9EpQ" entityName="" successor_AbstractAction="_sn4GBqx7EduuZPZbSE9EpQ"/>
+      <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_sUzZAKx7EduuZPZbSE9EpQ" predecessor_AbstractAction="_sn4GBqx7EduuZPZbSE9EpQ"/>
+      <steps_Behaviour xsi:type="pcm.seff:ExternalCallAction" id="_sn4GBqx7EduuZPZbSE9EpQ" entityName="mediastore.queryAndGetFromDB" predecessor_AbstractAction="_r6bKIax7EduuZPZbSE9EpQ" successor_AbstractAction="_sUzZAKx7EduuZPZbSE9EpQ" calledService_ExternalService="//@interfaces__Repository.1/@signatures__Interface.1"/>
+    </serviceEffectSpecifications__BasicComponent>
   </components__Repository>
   <components__Repository xsi:type="pcm.repository:BasicComponent" id="_USFdc6YFEduWZfldHy3B1Q" entityName="MediaStore">
     <providedRoles_InterfaceProvidingEntity id="_VB3osKYSEduWZfldHy3B1Q" providedInterface__ProvidedRole="_QW4WtKYGEduWZfldHy3B1Q"/>
@@ -71,6 +76,11 @@
         </variableUsage_SetVariableAction>
       </steps_Behaviour>
       <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_IpM-sKYZEduWZfldHy3B1Q" predecessor_AbstractAction="_8cIxqqYoEdunyPSYvCWVNg"/>
+    </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="pcm.seff:ResourceDemandingSEFF" id="_4lpfkqx7EduuZPZbSE9EpQ" describedService__SEFF="//@interfaces__Repository.3/@signatures__Interface.1">
+      <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_42fX8ax7EduuZPZbSE9EpQ" successor_AbstractAction="_5sucZqx7EduuZPZbSE9EpQ"/>
+      <steps_Behaviour xsi:type="pcm.seff:ExternalCallAction" id="_5sucZqx7EduuZPZbSE9EpQ" entityName="audiodb.queryAndGetFromDB" predecessor_AbstractAction="_42fX8ax7EduuZPZbSE9EpQ" successor_AbstractAction="_6KhysKx7EduuZPZbSE9EpQ" calledService_ExternalService="//@interfaces__Repository.3/@signatures__Interface.1"/>
+      <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_6KhysKx7EduuZPZbSE9EpQ" predecessor_AbstractAction="_5sucZqx7EduuZPZbSE9EpQ"/>
     </serviceEffectSpecifications__BasicComponent>
   </components__Repository>
   <components__Repository xsi:type="pcm.repository:BasicComponent" id="_V8B2w6YFEduWZfldHy3B1Q" entityName="DigitalWatermarking">
@@ -171,6 +181,12 @@
       </steps_Behaviour>
       <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_D3gT0KYlEduWZfldHy3B1Q" predecessor_AbstractAction="_D27uSqY0EdudtvdezBq5JQ"/>
     </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="pcm.seff:ResourceDemandingSEFF" id="_GT7Ncqx8EduuZPZbSE9EpQ">
+      <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_H8FeEax8EduuZPZbSE9EpQ" successor_AbstractAction="_IUEgRqx8EduuZPZbSE9EpQ"/>
+      <steps_Behaviour xsi:type="pcm.seff:ExternalCallAction" id="_IUEgRqx8EduuZPZbSE9EpQ" entityName="mysql.getIDsOfMatchingFiles" predecessor_AbstractAction="_H8FeEax8EduuZPZbSE9EpQ" successor_AbstractAction="_JKdVtqx8EduuZPZbSE9EpQ" calledService_ExternalService="//@interfaces__Repository.4/@signatures__Interface.1"/>
+      <steps_Behaviour xsi:type="pcm.seff:ExternalCallAction" id="_JKdVtqx8EduuZPZbSE9EpQ" entityName="mysql.queryDB" predecessor_AbstractAction="_IUEgRqx8EduuZPZbSE9EpQ" successor_AbstractAction="_JrF9kKx8EduuZPZbSE9EpQ" calledService_ExternalService="//@interfaces__Repository.3/@signatures__Interface.0"/>
+      <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_JrF9kKx8EduuZPZbSE9EpQ" predecessor_AbstractAction="_JKdVtqx8EduuZPZbSE9EpQ"/>
+    </serviceEffectSpecifications__BasicComponent>
     <internalVariables_BasicComponent>
       <variableCharacterisation_VariableUsage specification="10000" type="NUMBER_OF_ELEMENTS"/>
       <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="StoredFiles"/>
@@ -186,10 +202,18 @@
     <signatures__Interface serviceName="downloadHTTP" returntype__Signature="_sCx2BaYGEduWZfldHy3B1Q">
       <parameters__Signature datatype__Parameter="_tR_6BaY5EdudtvdezBq5JQ" parameterName="desiredFiles"/>
     </signatures__Interface>
+    <signatures__Interface serviceName="queryFileByField" returntype__Signature="_sCx2BaYGEduWZfldHy3B1Q">
+      <parameters__Signature datatype__Parameter="//@datatypes_Repository.5" parameterName="queryString"/>
+      <parameters__Signature datatype__Parameter="//@datatypes_Repository.3" parameterName="fieldID"/>
+    </signatures__Interface>
   </interfaces__Repository>
   <interfaces__Repository id="_QW4WtKYGEduWZfldHy3B1Q" entityName="IMediaStore">
     <signatures__Interface serviceName="downloadFromDB" returntype__Signature="_sCx2BaYGEduWZfldHy3B1Q">
-      <parameters__Signature datatype__Parameter="//@datatypes_Repository.3" parameterName="desiredFiles"/>
+      <parameters__Signature datatype__Parameter="_tR_6BaY5EdudtvdezBq5JQ" parameterName="desiredFiles"/>
+    </signatures__Interface>
+    <signatures__Interface serviceName="queryAndGetFromDB" returntype__Signature="_sCx2BaYGEduWZfldHy3B1Q">
+      <parameters__Signature datatype__Parameter="//@datatypes_Repository.5" parameterName="queryString"/>
+      <parameters__Signature datatype__Parameter="//@datatypes_Repository.3" parameterName="fieldID"/>
     </signatures__Interface>
   </interfaces__Repository>
   <interfaces__Repository id="_R63R9KYGEduWZfldHy3B1Q" entityName="ISound">
@@ -201,10 +225,18 @@
     <signatures__Interface serviceName="queryDB" returntype__Signature="_sCx2BaYGEduWZfldHy3B1Q">
       <parameters__Signature datatype__Parameter="_tR_6BaY5EdudtvdezBq5JQ" parameterName="desiredFiles"/>
     </signatures__Interface>
+    <signatures__Interface serviceName="queryAndGetFromDB" returntype__Signature="_sCx2BaYGEduWZfldHy3B1Q">
+      <parameters__Signature datatype__Parameter="//@datatypes_Repository.5" parameterName="queryString"/>
+      <parameters__Signature datatype__Parameter="//@datatypes_Repository.3" parameterName="fieldID"/>
+    </signatures__Interface>
   </interfaces__Repository>
   <interfaces__Repository id="_Wf-b66YGEduWZfldHy3B1Q" entityName="IMySQL">
     <signatures__Interface serviceName="getFiles" returntype__Signature="_sCx2BaYGEduWZfldHy3B1Q">
-      <parameters__Signature datatype__Parameter="//@datatypes_Repository.3" parameterName="NumberOfFiles"/>
+      <parameters__Signature datatype__Parameter="_tR_6BaY5EdudtvdezBq5JQ" parameterName="FilesIDs"/>
+    </signatures__Interface>
+    <signatures__Interface serviceName="getIDsOfMatchingFiles" returntype__Signature="_tR_6BaY5EdudtvdezBq5JQ">
+      <parameters__Signature datatype__Parameter="//@datatypes_Repository.5" parameterName="queryString"/>
+      <parameters__Signature datatype__Parameter="//@datatypes_Repository.3" parameterName="fieldID"/>
     </signatures__Interface>
   </interfaces__Repository>
   <datatypes_Repository xsi:type="pcm.repository:CollectionDataType" id="_t-PNZaYXEduWZfldHy3B1Q" entityName="FILE" innerType_CollectionDataType="//@datatypes_Repository.2"/>
@@ -212,4 +244,5 @@
   <datatypes_Repository xsi:type="pcm.repository:PrimitiveDataType" type="BYTE"/>
   <datatypes_Repository xsi:type="pcm.repository:PrimitiveDataType"/>
   <datatypes_Repository xsi:type="pcm.repository:CollectionDataType" id="_tR_6BaY5EdudtvdezBq5JQ" entityName="ID_LIST" innerType_CollectionDataType="//@datatypes_Repository.3"/>
+  <datatypes_Repository xsi:type="pcm.repository:PrimitiveDataType" type="STRING"/>
 </pcm.repository:Repository>
