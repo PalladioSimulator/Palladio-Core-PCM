@@ -1,0 +1,151 @@
+«EXTENSION templates::Debug»
+«EXTENSION templates::Names»
+«EXTENSION templates::Todo»
+
+«REM» 
+methods and their behaviour - BasicComponent 
+implementation class
+«ENDREM»
+«DEFINE provider(String fqn, repository::ProvidesComponentType c) FOR repository::Interface»
+	«REM» implementation of all inherited interfaces is forced «ENDREM»
+	«EXPAND provider(fqn, c) FOREACH parentInterface__Interface»
+
+	«FOREACH signatures__Interface AS provSignature ITERATOR i»
+		public «EXPAND Interface::definition(this) FOR provSignature»
+		{
+		«methodCalled(fqn, provSignature)»
+		«PROTECT CSTART "/*" CEND "*/" ID fqn + "." + provSignature.serviceName + "_" + i.counter1»
+		«EXPAND Seff::body(provSignature) FOR c»
+		«EXPAND returnFromMethod FOR provSignature»
+		«ENDPROTECT»
+		}
+	«ENDFOREACH»
+«ENDDEFINE»
+
+«REM» methods and their behaviour - CompositeComponent
+implementation class
+«ENDREM»
+«DEFINE provider(String fqn, repository::CompositeComponent c) FOR repository::Interface»
+	«REM» implementation of all inherited interfaces is forced «ENDREM»
+	«EXPAND provider(fqn, c) FOREACH parentInterface__Interface»
+
+	«FOREACH signatures__Interface AS provSignature»
+	/** delegates to inner component
+	 *  with same parameters
+	 */
+	public «EXPAND Interface::definition(this) FOR provSignature» 
+	{
+	«methodCalled(fqn, provSignature)»
+	«FOREACH c.providedDelegationConnectors__CompositeComponent AS prov-»
+		«IF (this==prov.innerProvidedRole_ProvidedDelegationConnector.providedInterface__ProvidedRole)»
+			«EXPAND delegation(prov.childComponentContext_ProvidedDelegationConnector.entityName + this.entityName + ".") FOR provSignature-»
+		«ENDIF»
+	«ENDFOREACH»
+	}
+	«ENDFOREACH»
+«ENDDEFINE»
+
+«REM» methods and their behaviour - System Required Roles 
+implementation class
+«ENDREM»
+«DEFINE provider(String fqn) FOR system::SystemRequiredRole»
+	«FOREACH interface_SystemRequiredRole.signatures__Interface AS provSignature ITERATOR i»
+		public «EXPAND Interface::definition FOR provSignature»
+		{
+			«methodCalled(fqn, provSignature)»
+			«PROTECT CSTART "/*" CEND "*/" ID fqn + "." + provSignature.serviceName + "_" + i.counter1»
+			«FOREACH specifiedTimeConsumption_SystemRequiredRole AS consumption»
+				«IF consumption.signature_SpecifiedTimeConsumption==provSignature»
+					// specified TimeConsumption «consumption.specification»
+				«ENDIF»
+			«ENDFOREACH-»
+			«EXPAND returnFromMethod FOR provSignature»
+			«ENDPROTECT»
+		}
+	«ENDFOREACH»
+«ENDDEFINE»
+
+«REM» ComponentPort - BasicComponent
+delegation to the implementation class
+«ENDREM»
+«DEFINE proxy(String fqn, repository::ProvidesComponentType c) FOR repository::Interface»
+	«REM» implementation of all inherited interfaces is forced «ENDREM»
+	«EXPAND proxy(fqn, c) FOREACH parentInterface__Interface»
+
+	«FOREACH signatures__Interface AS provSignature ITERATOR i»
+		/** 
+		 * delegates to implementation class of the Component {@link «c.entityName»}
+		 */
+		public «EXPAND Interface::declaration FOR provSignature» 
+		{
+			«REM» logging message is not used because 
+				instance of the implementation class is a POJO
+			«ENDREM»
+			«EXPAND delegation("component." + this.entityName + "_") FOR provSignature-»
+		}
+	«ENDFOREACH»
+«ENDDEFINE»
+
+«REM» ComponentPort - CompositeComponent
+delegation to the implementation class
+«ENDREM»
+«DEFINE proxy(String fqn, repository::CompositeComponent c) FOR repository::Interface»
+	«REM» implementation of all inherited interfaces is forced «ENDREM»
+	«EXPAND proxy(fqn, c) FOREACH parentInterface__Interface»
+
+	«FOREACH signatures__Interface AS provSignature»
+		public «EXPAND Interface::declaration FOR provSignature» 
+		{
+		«FOREACH c.providedDelegationConnectors__CompositeComponent AS prov»
+			«IF (this==prov.innerProvidedRole_ProvidedDelegationConnector.providedInterface__ProvidedRole)»
+				«EXPAND delegation("component." + this.entityName + "_" ) FOR provSignature»
+			«ENDIF»
+		«ENDFOREACH»
+		}
+	«ENDFOREACH»
+«ENDDEFINE»
+
+«DEFINE call FOR repository::Signature»
+	«EXPAND Parameter::definition FOR this»
+	«IF(returntype__Signature.type!=null) && (returntype__Signature.type!="void")»
+		«returntype__Signature.type» temp_«returntype__Signature.type» = 
+	«ENDIF-»
+	«reqRole(this.eContainer)».«serviceName»(
+	«FOREACH parameters__Signature AS p SEPARATOR ", "-»
+		«p.parameterName»
+	«ENDFOREACH-»
+	);
+«ENDDEFINE»
+
+«REM» separate call of the delegate and return of the result, 
+if the result type is not void
+«ENDREM»
+«DEFINE delegation(String name) FOR repository::Signature-»
+	«IF (returntype__Signature.type!=null) && (returntype__Signature.type!="void")-»
+		return «EXPAND delegation(name, 0) FOR this-» ;
+	«ELSE»«EXPAND delegation(name, 0) FOR this-» ;
+		«REM» The statement "return;" is implicit in Java. «ENDREM»
+	«ENDIF»
+«ENDDEFINE»
+
+«DEFINE delegation(String name, int i) FOR repository::Signature-»
+	«name»«serviceName»(
+	«FOREACH parameters__Signature AS p SEPARATOR ", "-»
+		«p.parameterName»
+	«ENDFOREACH-»
+	)
+«ENDDEFINE»
+
+«REM» create return statement that depends on the method's type
+«ENDREM»
+«DEFINE returnFromMethod FOR repository::Signature-»
+	«LET returntype__Signature.type AS type»
+		«IF (type!=null) && (type!="void")»
+			«type» result = «EXPAND Parameter::nullValue FOR returntype__Signature»;
+			«returnValue(type)»;
+			return result;
+		«ELSE»
+			return;
+		«ENDIF»
+	«ENDLET»
+«ENDDEFINE»

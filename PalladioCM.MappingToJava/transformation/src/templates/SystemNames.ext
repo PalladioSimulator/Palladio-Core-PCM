@@ -1,0 +1,46 @@
+import de::uka::ipd::sdq::pcm::repository;
+import de::uka::ipd::sdq::pcm::system;
+
+// private
+String systemDir():
+	"systemreqroles";
+
+// private
+String providedRole():
+	"ClientSide";
+
+// private
+String providedRole(system::SystemProvidedRole prov):
+	providedRole();
+
+// private
+String packageName(String basePackage):
+	basePackage + "." + systemDir();
+
+// private
+String packageName(String basePackage, system::SystemRequiredRole req):
+	packageName(basePackage);
+
+String fullQualifiedName(String basePackage, system::SystemRequiredRole req):
+	basePackage + "." + systemDir() + "." + req.entityName;
+	
+String fullQualifiedName(String basePackage, system::SystemRequiredRole s, repository::Interface provided):
+	basePackage + "." + systemDir() + "." + provided.entityName + "Port";
+
+String fullQualifiedPath(String basePackage, system::SystemRequiredRole req):
+	basePackage + "/" + systemDir() + "/" + req.interface_SystemRequiredRole.entityName + "Port" + ".java";
+
+String fqpContext(String basePackage, system::SystemRequiredRole req):
+	basePackage + "/" + systemDir() + "/" + req.entityName + "Context.java";
+
+String implClass(String basePackage, system::SystemRequiredRole req):
+	basePackage + "/" + systemDir() + "/" + req.entityName + ".java";
+
+String abstractClass(String basePackage, system::SystemRequiredRole req):
+	basePackage + "/" + systemDir() + "/Abstract" + req.entityName + ".java";
+
+String fqnAbstractClass(String basePackage, system::SystemRequiredRole req):
+	basePackage + "." + systemDir() + ".Abstract" + req.entityName;
+
+String beanClass(String basePackage, system::SystemRequiredRole req):
+	basePackage + "/" + systemDir() + "/" + req.interface_SystemRequiredRole.entityName + "PortBean.java";

@@ -1,0 +1,102 @@
+<project name="PCM Transformation System" default="all" basedir=".">
+	<description> "Model-2-Text Transformation from a PCM instance to J2EE Version 5 
+		Tranformation contains templates and GUI to start the code generation. "
+	</description>
+
+	<property environment="env" />
+	<property name="src" value="${basedir}/src" />
+	<property name="build" value="${basedir}/build" />
+	<property name="classes" value="${build}/classes" />
+
+	<!-- specific for my development tools -->
+	<property name="instanceDir" value="c:/studium/da-controlled/modellinstanz" />
+	<property name="eclipse.plugins" value="c:/informatik/eclipse/plugins" />
+
+	<path id="classpath-transformation">
+		<pathelement path="${classes}"/>
+		<fileset dir="${eclipse.plugins}">
+		 <include name="**/org.openarchitectureware.*.jar"/>
+		 <include name="**/org.apache.jakarta_log4j*/lib/log4j*.jar"/>
+		</fileset>
+	</path>
+
+	<target name="clean">
+		<delete dir="${classes}"/>
+		<delete dir="${build}/lib"/>
+	</target>
+
+	<target name="init">
+		<mkdir dir="${build}"/>
+		<mkdir dir="${build}/lib"/>
+		<mkdir dir="${build}/docs"/>
+		<mkdir dir="${classes}"/>
+	</target>
+
+	<target name="compile" depends="init">
+		<javac srcdir="${basedir}/src" destdir="${classes}" 
+		debug="off"
+		deprecation="on"
+		optimize="off"
+		includes="**">
+		<classpath refid="classpath-transformation"/>
+		</javac>
+	</target>
+
+	<target name="javadoc" depends="init">
+		<javadoc packagenames="*.*"
+			sourcepath="${src}"
+			destdir="${build}/docs"
+			author="true"
+			windowtitle="PCM Transformation - documentation">
+			<fileset dir="${src}"> 
+				<include name="transformation/**/*.java"/>
+			</fileset>
+			<classpath refid="classpath-transformation"/>
+		</javadoc>
+	</target>
+
+	<target name="jar" depends="compile">
+	<jar jarfile="${build}/lib/PCM-Transformation.jar">
+		<fileset dir="${classes}"
+			includes="transformation/**" />
+		<fileset dir="${src}"
+			includes="templates/**" />
+		<fileset dir="${src}/"
+			includes="workflows/**" />
+	</jar>
+	</target>
+
+	<target name="pack.sourcecode">
+	<!-- Pack the sources of the transformation GUI -->
+	<zip zipfile="${build}/lib/PCM-Transformation-src.zip">
+		<fileset dir="${src}">
+			<include name="transformation/**"/>
+		</fileset> 
+	</zip>
+	</target>
+
+	<target name="pack.documentation">
+	<!-- Pack the documentation of the transformation 
+	but don't recompile with javadoc -->
+	<zip zipfile="${build}/lib/PCM-Transformation-doc.zip">
+		<fileset dir="${build}/docs">
+			<include name="**"/>
+		</fileset>
+	</zip>
+	</target>
+
+	<!-- Copy the libraries containing the transformation GUI and templates 
+		 this destination ist just for development -->
+	<target name="distribution" depends="jar, pack.sourcecode, pack.documentation">
+		<copy todir="${instanceDir}/lib">
+			<fileset dir="${build}/lib">
+			 <include name="**.jar"/>
+			 <include name="**.zip"/>
+			</fileset>
+		</copy>
+	</target>
+
+	<target name="all" depends="init, compile, javadoc, distribution">
+		<echo message="Templates and GUI for the Transformation engine - build all"/>
+	</target>
+</project>

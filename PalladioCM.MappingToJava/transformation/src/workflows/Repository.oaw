@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workflow>
+	<!-- read parameters/variables from a file -->
+    <property file="workflows/Transformation.properties"/>
+
+	<!-- parse the meta-model according to the meta-meta-model -->
+	<component id="xmiParser" class="org.openarchitectureware.emf.XmiReader">
+		<modelFile value="${modelFile.repository}"/>
+		<metaModelPackage value="${metaModelRepository}"/>
+		<metaModelPackage value="${metaModelSEFF}"/>
+		<metaModelPackage value="${metaModelUsagemodel}"/>
+		<metaModelPackage value="${metaModelEntity}"/>
+		<metaModelPackage value="${metaModelResourceenvironment}"/>
+		<metaModelPackage value="${metaModelResourcetype}"/>
+		<outputSlot value="model"/>
+		<firstElementOnly value="true"/>
+	</component>
+
+	<!-- delete all contents of the output directory if neccessary
+    <component id="dirCleaner" class="org.openarchitectureware.workflow.common.DirectoryCleaner" skipOnErrors="true">
+		<directories value="${srcGenPath}"/>
+	</component>
+	-->
+
+	<!-- read files and build instance of the meta-model -->
+	<component id="generator" class="org.openarchitectureware.xpand2.Generator" skipOnErrors="false">
+		<metaModel id="mm" class="${metaMetaModel}">
+		 <metaModelPackage value="${metaModelRepository}"/>
+		</metaModel>
+ 		<metaModel class="${metaMetaModel}">
+		 <metaModelPackage value="${metaModelSystem}"/>
+		</metaModel>
+		<metaModel class="${metaMetaModel}">
+		 <metaModelPackage value="${metaModelAllocation}"/>
+		</metaModel>
+ 		<metaModel class="${metaMetaModel}">
+ 		 <metaModelPackage value="${metaModelSEFF}"/>
+		</metaModel>
+		<metaModel class="${metaMetaModel}">
+ 		 <metaModelPackage value="${metaModelResourceenvironment}"/>
+		</metaModel>
+		<metaModel class="${metaMetaModel}">
+ 		 <metaModelPackage value="${metaModelResourcetype}"/>
+		</metaModel>
+ 		<metaModel class="${metaMetaModel}">
+		 <metaModelPackage value="${metaModelUsagemodel}"/>
+		</metaModel>
+ 		<metaModel class="${metaMetaModel}">
+ 		 <metaModelPackage value="${metaModelEntity}"/>
+		</metaModel>
+
+		<!-- start transformation process with the given parameters -->
+		<expand value="templates::Repository::main(${modelName}, ${basePackage}) FOR model"/>
+
+		<!-- directories -->
+		<prSrcPaths value="${srcGenPath}/"/>
+		<genPath value="${srcGenPath}/"/>
+		<srcPath value="${srcGenPath}/"/>
+
+		<!-- call pretty printer for each output file -->
+		<beautifier class="org.openarchitectureware.xpand2.output.JavaBeautifier"/>
+	</component>
+
+	<!-- 
+	<component id="constrChecker" class="org.openarchitectureware.check.CheckComponent">
+		<metaModel idRef="mm"/>
+		<checkFile value="checks"/>
+		<expression value="model.eAllContents"/>
+	</component>	
+    -->
+</workflow>

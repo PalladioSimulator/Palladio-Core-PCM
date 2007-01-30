@@ -1,0 +1,4 @@
+import data;
+import de::uka::ipd::sdq::pcm::core::entity;
+
+context entity::Entity ERROR "Names must be more than one char long" : id.length > 1;

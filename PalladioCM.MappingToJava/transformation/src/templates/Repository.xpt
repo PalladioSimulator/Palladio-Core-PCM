@@ -1,0 +1,15 @@
+«EXTENSION templates::Names»
+
+«IMPORT de::uka::ipd::sdq::pcm::repository»
+«IMPORT de::uka::ipd::sdq::pcm::seff»
+
+«DEFINE main(String modelName, String basePackage) FOR repository::Repository»
+	«EXPAND Interface::file(basePackage) FOREACH interfaces__Repository»
+	«EXPAND Component::pojo(basePackage) FOREACH components__Repository»
+
+	«EXPAND SkriptAnt::build(modelName, basePackage) FOR this»
+	«EXPAND SkriptAnt::pack(modelName, basePackage) FOR this»
+	«REM» not used anymore because of Usagemodel::scenario
+	-> transform to component tests
+	«EXPAND Test::junit(modelName, basePackage) FOR this» «ENDREM»
+«ENDDEFINE»

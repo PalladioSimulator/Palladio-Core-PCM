@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workflow>
+	<!-- read parameters/variables from a file -->
+    <property file="workflows/Transformation.properties"/>
+
+	<!-- parse the meta-model according to the meta-meta-model -->
+	<component id="xmiParser" class="org.openarchitectureware.emf.XmiReader">
+		<modelFile value="${modelFile.usagemodel}"/>
+		<metaModelPackage value="${metaModelUsagemodel}"/>
+		<metaModelPackage value="${metaModelRepository}"/>
+		<metaModelPackage value="${metaModelSystem}"/>
+		<metaModelPackage value="${metaModelEntity}"/>
+		<outputSlot value="model"/>
+		<firstElementOnly value="true"/>
+	</component>
+
+	<!-- read files and build instance of the meta-model -->
+	<component id="generator" class="org.openarchitectureware.xpand2.Generator" skipOnErrors="true">
+ 		<metaModel class="${metaMetaModel}">
+		 <metaModelPackage value="${metaModelUsagemodel}"/>
+		</metaModel>
+ 		<metaModel class="${metaMetaModel}">
+		 <metaModelPackage value="${metaModelSystem}"/>
+		</metaModel>
+		<metaModel class="${metaMetaModel}">
+		 <metaModelPackage value="${metaModelAssembly}"/> 
+ 		</metaModel>
+ 		<metaModel class="${metaMetaModel}">
+		 <metaModelPackage value="${metaModelRepository}"/>
+		</metaModel>
+ 		<metaModel class="${metaMetaModel}">
+ 		 <metaModelPackage value="${metaModelSEFF}"/>
+		</metaModel>
+ 		<metaModel class="${metaMetaModel}">
+		 <metaModelPackage value="${metaModelAllocation}"/>
+		</metaModel>
+		<metaModel class="${metaMetaModel}">
+		 <metaModelPackage value="${metaModelResourceenvironment}"/>
+		</metaModel>
+		<metaModel class="${metaMetaModel}">
+ 		 <metaModelPackage value="${metaModelEntity}"/>
+		</metaModel>
+
+		<!-- start transformation process with the given parameters -->
+		<expand value="templates::Usagemodel::main(${modelName}, ${basePackage}) FOR model" />
+
+		<!-- directories -->
+		<genPath value="${srcGenPath}/"/>
+		<srcPath value="${srcGenPath}/"/>
+		<prSrcPaths value="${srcGenPath}/"/>
+
+		<!-- call pretty printer for each output file -->
+		<beautifier class="org.openarchitectureware.xpand2.output.JavaBeautifier"/>
+	</component>
+</workflow>

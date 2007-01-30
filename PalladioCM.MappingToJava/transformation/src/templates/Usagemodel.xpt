@@ -1,0 +1,160 @@
+«EXTENSION templates::Debug»
+«EXTENSION templates::Names»
+«EXTENSION templates::SystemNames»
+«EXTENSION templates::Todo»
+
+«IMPORT templates»
+«IMPORT de::uka::ipd::sdq::pcm::system»
+«IMPORT de::uka::ipd::sdq::pcm::assembly»
+«IMPORT de::uka::ipd::sdq::pcm::repository»
+«IMPORT de::uka::ipd::sdq::pcm::core::entity»
+«IMPORT de::uka::ipd::sdq::pcm::usagemodel»
+
+«REM» usage model of a PCM instance«ENDREM»
+«DEFINE main(String modelName, String basePackage) FOR usagemodel::UsageModel»
+	«EXPAND scenario(modelName, basePackage) FOREACH usageScenario_UsageModel»
+«ENDDEFINE»
+
+«DEFINE scenario(String modelName, String basePackage) FOR usagemodel::UsageScenario»
+	«LET "usage" AS packageName»
+	«LET basePackage + "." + packageName.toLowerCase() AS package»
+	«FILE basePackage + "/" + packageName.toLowerCase() + "/" + entityName + "Test.java"»
+		package «package»;
+
+		import junit.framework.*;
+		/**
+		 * usage model with the
+		 «EXPAND workload FOR workload_UsageScenario-»
+		 * behaviour in method {@link #testUsage()}
+ 		 * «stamp(this)»
+		 */
+		public class «entityName»Test extends TestCase {
+			private runtime.IServiceLocator sl;
+
+			protected void setUp() throws Exception {
+				sl = «basePackage».ServiceLocator.getSingleton();
+			}
+
+			protected void teardown() {
+				«methodStub()»
+			}
+
+			public void testUsage() throws Exception {
+			«LET scenarioBehaviour_UsageScenario.actions_ScenarioBehaviour AS actions»
+				«IF actions.size>0»
+					«EXPAND findStartAction(basePackage) FOR actions.get(0)»
+				«ENDIF»
+			«ENDLET»
+			}
+		}
+		«ENDFILE»
+	«ENDLET»
+	«ENDLET»
+«ENDDEFINE»
+
+«REM» abstract rule «ENDREM»
+«DEFINE workload FOR usagemodel::Workload»
+«ENDDEFINE»
+
+«DEFINE workload FOR usagemodel::ClosedWorkload»
+	* closed workload
+	* population: «population»
+	* thinktime: «thinkTime»
+«ENDDEFINE»
+
+«DEFINE workload FOR usagemodel::OpenWorkload»
+	* open workload
+	* arrival Rate: «arrivalRate»
+«ENDDEFINE»
+
+«REM» find the first action in a UsageModel «ENDREM»
+«DEFINE findStartAction(String basePackage) FOR usagemodel::AbstractUserAction»
+	«EXPAND findStartAction(basePackage) FOR predecessor»
+«ENDDEFINE»
+
+«DEFINE findStartAction(String basePackage) FOR usagemodel::Start»
+	«EXPAND blockAction(basePackage) FOR successor»
+«ENDDEFINE»
+
+«REM» The following templates iterate over all elements 
+beginning with the Start and ending with Stop. «ENDREM»
+«DEFINE blockAction(String basePackage) FOR usagemodel::AbstractUserAction»
+	«EXPAND action(basePackage) FOR this»
+	«EXPAND blockAction(basePackage) FOR successor»
+«ENDDEFINE»
+
+«DEFINE blockAction(String basePackage) FOR usagemodel::Stop»
+«ENDDEFINE»
+
+«DEFINE action(String basePackage) FOR usagemodel::AbstractUserAction»
+	 «implAction(this)»
+«ENDDEFINE»
+
+«DEFINE action(String basePackage) FOR usagemodel::EntryLevelSystemCall»
+	«LET signature_EntryLevelSystemCall AS service»
+	«LET systemProvidedRole_EntryLevelSystemCall.interface_SystemProvidedRole AS interface»
+		«fullQualifiedName(basePackage, interface)» use«interface.entityName» = 
+			(«fullQualifiedName(basePackage, interface)») 
+			sl.getTargetComponentPort(«fullQualifiedName(basePackage, interface)».class);
+		«EXPAND Parameter::definition FOR service»
+		// «actualparameterusage»
+		«FOREACH actualparameterusage AS pu»
+			«LET pu.parameter_ParameterUsage AS p»
+			// «p.datatype__Parameter» «p.parameterName»
+			«ENDLET»
+		«ENDFOREACH»
+		«IF service.exceptions__Signature.size==0»
+			«EXPAND call(basePackage, interface) FOR service»
+		«ELSE»
+			try {
+				«EXPAND call(basePackage, interface) FOR service»
+			} catch (Exception e) {
+				«FOREACH service.exceptions__Signature AS ex»
+					«handleException(ex)»
+				«ENDFOREACH-»
+			}
+		«ENDIF»
+	«ENDLET»
+	«ENDLET»
+«ENDDEFINE»
+
+«DEFINE action(String basePackage) FOR usagemodel::Loop»
+ 	«implAction(this)»
+	«calculateSteps()»
+	final int max = 2;
+	for(int i = 1; i<max; i++) {
+		«IF (bodyBehaviour_Loop.actions_ScenarioBehaviour.size>0)»
+			«EXPAND findStartAction(basePackage) FOR bodyBehaviour_Loop.actions_ScenarioBehaviour.get(0)»
+		«ENDIF»
+	}
+«ENDDEFINE»
+
+«DEFINE action(String basePackage) FOR usagemodel::Branch»
+	«implAction(this)»
+	«calculateCondition()»
+	int value = 0;
+	switch (value) {
+	«FOREACH branchedBehaviour_Branch AS branch ITERATOR i»
+		case «i.counter1»: {
+			«IF (branch.actions_ScenarioBehaviour.size>0)»
+				«EXPAND findStartAction(basePackage) FOR branch.actions_ScenarioBehaviour.get(0)»
+			«ENDIF»
+			break;
+		}
+	«ENDFOREACH-»
+	default : {
+		// TODO: implement default behaviour
+	}
+	} «REM» end of switch «ENDREM»
+«ENDDEFINE»
+
+«DEFINE call(String basePackage, repository::Interface interface) FOR repository::Signature»
+	«IF(returntype__Signature.type!=null) && (returntype__Signature.type!="void")»
+		«returntype__Signature.type» temp_«returntype__Signature.type» = 
+	«ENDIF-»
+	use«interface.entityName».«serviceName»(
+	«FOREACH parameters__Signature AS p SEPARATOR ","»
+		«p.parameterName»
+	«ENDFOREACH-»
+	);
+«ENDDEFINE»

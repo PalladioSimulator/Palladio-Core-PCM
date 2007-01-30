@@ -1,0 +1,66 @@
+«EXTENSION templates::Names»
+«EXTENSION templates::SystemNames»
+
+«REM» builds one class for all connectors in the system including 
+assembly contexts, 
+composite components, 
+system borders
+
+mapping could be moved to *.properties -files
+«ENDREM»
+«DEFINE file(String basePackage, String subclass, String portType) FOR system::System»
+	«FILE basePackage + "/ServiceLocator.java"»
+	package «basePackage»;
+	import org.jboss.logging.*;
+	/**
+	 * ServiceLocator for the system «this.entityName»
+	 */
+	public class ServiceLocator extends runtime.«subclass»ServiceLocator {
+		private static final long serialVersionUID = 101L;
+		private static ServiceLocator sl_singleton;
+		/**
+		 * initialize the Singleton and the complete System 
+		 */
+		static {
+			sl_singleton = new ServiceLocator();
+			«FOREACH systemProvidedRole_System AS provRole-»
+				sl_singleton.getTargetComponentPort("«providedRole()»", «fullQualifiedName(basePackage, provRole.interface_SystemProvidedRole)».class);
+			«ENDFOREACH-»
+		}
+
+		/**
+		 * @return a singleton
+		 */
+		public static synchronized ServiceLocator getSingleton() {
+			return (sl_singleton != null) ? sl_singleton : new ServiceLocator();
+		}
+
+		private ServiceLocator() {
+			super();
+			logger = Logger.getLogger(this.getClass());
+			portUsage = runtime.util.PortType.«portType»;
+			/**
+			 * the following interfaces can be accessed from outside 
+			 * via {@link «basePackage».ServiceLocator#getTargetComponentPort(Class interface)}
+			 */
+			«EXPAND Connectors::code(basePackage) FOREACH systemProvidedRole_System»
+			/**
+			 * the following components are implemented in this system
+			 */
+			«EXPAND Connectors::code(basePackage) FOR assembly_System»
+			/**
+			 * the following components are not implemented in this system
+			 * and must be provided by other libraries or applications
+			 */
+			«EXPAND Connectors::code(basePackage) FOREACH requiredDelegationConnector_System»
+			sl_singleton = this;
+			logger.info("started for «basePackage»");
+		}
+
+		@Override
+		public runtime.IComponent getTargetComponentPort(Class reqInterface) {
+			return getTargetComponentPort("«providedRole()»", reqInterface);
+		}
+	}
+	«ENDFILE»
+«ENDDEFINE»

@@ -1,0 +1,192 @@
+«EXTENSION templates::Names»
+«EXTENSION templates::SystemNames»
+«EXTENSION templates::Todo»
+
+«REM» generated test cases «ENDREM»
+«DEFINE client(String basePackage) FOR system::System»
+	«LET "test" AS packageName»
+	«LET basePackage + "." + packageName.toLowerCase() AS package»
+	«FILE basePackage + "/" + packageName.toLowerCase() + "/SystemTest.java"»
+		package «package»;
+
+		import junit.framework.*;
+
+		/**
+		 * system border at client side
+		 * for the system «this.entityName»
+		 */
+		public class SystemTest extends TestCase {
+			private runtime.IServiceLocator sl;
+
+			«FOREACH systemProvidedRole_System AS prov»
+				private «fullQualifiedName(basePackage, prov.interface_SystemProvidedRole)» «prov.entityName»;
+			«ENDFOREACH»
+
+			protected void setUp() throws Exception {
+				sl = «basePackage».ServiceLocator.getSingleton();
+			}
+
+			protected void teardown() {
+				«methodStub()»
+			}
+
+			public void testServiceLocator() throws Exception {
+				«FOREACH systemProvidedRole_System AS prov-»
+					«prov.entityName» = («fullQualifiedName(basePackage, prov.interface_SystemProvidedRole)»)
+						sl.getTargetComponentPort("«fullQualifiedName(basePackage, prov.interface_SystemProvidedRole)».class");
+					System.out.println("System (that provides the role) «prov.entityName» created");
+					«PROTECT CSTART "/*" CEND "*/" ID prov.entityName»
+					«testClass()»
+					«ENDPROTECT»
+				«ENDFOREACH»
+			}
+		}
+		«ENDFILE»
+	«ENDLET»
+	«ENDLET»
+«ENDDEFINE»
+
+«DEFINE junit(String modelName, String basePackage) FOR repository::Repository»
+	«EXPAND local(modelName, basePackage) FOR this»
+	«REM» «EXPAND remote(modelName, basePackage) FOR this» «ENDREM»
+«ENDDEFINE»
+
+«DEFINE local(String modelName, String basePackage) FOR repository::Repository»
+	«FILE basePackage + "/test/LocalTest.java"»
+	«EXPAND header(basePackage) FOR this-»
+		public class LocalTest extends TestCase {
+		«FOREACH components__Repository AS component-»
+			«FOREACH component.providedRoles__ProvidesComponentType AS provRole-»
+				«LET provRole.providedInterface__ProvidedRole AS interface»
+				«LET fullQualifiedName(basePackage, component, interface) AS fqn»
+				«LET testName(basePackage, component, interface) AS name»
+					«fqn» «name»Local;
+					«fqn» «name»Test;
+				«ENDLET»
+				«ENDLET»
+				«ENDLET»
+			«ENDFOREACH»		
+		«ENDFOREACH»
+
+		protected void setUp() throws Exception {
+		«FOREACH components__Repository AS component-»
+			«FOREACH component.providedRoles__ProvidesComponentType AS provRole-»
+				«LET provRole.providedInterface__ProvidedRole AS interface»
+				«LET fullQualifiedName(basePackage, component, interface) AS fqn»
+				«LET testName(basePackage, component, interface) AS name»
+					«name»Test = new «fqn»();
+				«ENDLET»
+				«ENDLET»
+				«ENDLET»
+			«ENDFOREACH»		
+		«ENDFOREACH»
+		}
+	
+		protected void teardown() {
+			«methodStub()»
+		}
+	
+		public void testConstructor() throws Exception {
+		«FOREACH components__Repository AS component-»
+			«FOREACH component.providedRoles__ProvidesComponentType AS provRole-»
+				«LET provRole.providedInterface__ProvidedRole AS interface»
+				«LET fullQualifiedName(basePackage, component, interface) AS fqn»
+				«LET testName(basePackage, component, interface) AS name»
+					«name»Local = new «fqn»();
+				«ENDLET»
+				«ENDLET»
+				«ENDLET»
+				«ENDFOREACH»		
+		«ENDFOREACH»
+		}
+	
+		public void testInit() {
+		«FOREACH components__Repository AS component-»
+			«component.entityName» «component.entityName»Test = new «component.entityName»();
+			«component.entityName»Test.init("«component.entityName»_AssCtx");
+		«ENDFOREACH»
+		}
+	}
+	«ENDFILE»
+«ENDDEFINE»
+
+«DEFINE remote(String modelName, String basePackage) FOR repository::Repository»
+	«FILE basePackage + "/test/RemoteTest.java"»
+
+	«EXPAND header(basePackage) FOR this-»
+	import javax.naming.*;
+	import javax.ejb.*;
+	
+	public class RemoteTest extends TestCase {
+		InitialContext initialContext;
+		«FOREACH components__Repository AS component-»
+			Abstract«component.entityName» «component.entityName»Test;
+			«FOREACH component.providedRoles__ProvidesComponentType AS provRole-»
+			«LET provRole.providedInterface__ProvidedRole AS interface»
+				«interface.entityName» «className(component, interface)»Test;
+			«ENDLET»
+			«ENDFOREACH»
+		«ENDFOREACH»
+	
+		protected void setUp() throws Exception {
+			System.setProperty("java.naming.factory.initial",
+				"org.jnp.interfaces.NamingContextFactory");
+			System.setProperty("java.naming.provider.url", "localhost:1099");
+			try {
+				initialContext = new InitialContext();
+			} catch (NamingException e) {
+				System.err.println("Repository - remote access to components: " + e.toString());
+			}
+		}
+	
+		protected void teardown() {
+			«methodStub()»
+		}
+	
+		public void testInit() throws NamingException {
+		«FOREACH components__Repository AS component-»
+			«component.entityName» «component.entityName»Test = new «component.entityName»();
+			«component.entityName»Test.init("«component.entityName»_AssCtx");
+		«ENDFOREACH»
+		}
+	
+		public void testLookup() throws NamingException {
+		«FOREACH components__Repository AS component»
+			«component.entityName»Test = (Abstract«component.entityName») initialContext.lookup("«fullQualifiedName(basePackage, component)»/remote");
+			«component.entityName»Test.init("«component.entityName»_AssCtx");
+			«FOREACH component.providedRoles__ProvidesComponentType AS provRole-»
+				«LET provRole.providedInterface__ProvidedRole AS interface»
+				«LET className(component, interface) AS className»
+					«className»Test = («interface.entityName») initialContext.lookup("«fullQualifiedName(basePackage, component, interface)»/remote");
+				«ENDLET»
+				«ENDLET»
+			«ENDFOREACH»
+		«ENDFOREACH»
+		}
+	}
+	«ENDFILE»
+«ENDDEFINE»
+
+«DEFINE static(String fqn) FOR repository::ProvidesComponentType»
+	«LET "false" AS bootstraping»
+		«IF bootstraping=="false"»
+		static {
+			if (false) {
+				«fqn» pojo = new «fqn»();
+				pojo.init("dummy");
+				System.err.println("should never be reached at runtime");
+			}
+		}
+		«ENDIF»
+	«ENDLET»
+«ENDDEFINE»
+
+«DEFINE header(String basePackage) FOR repository::Repository»
+	package «basePackage».test;
+
+	import junit.framework.*;
+	import «basePackage».*;
+	«FOREACH components__Repository AS component-»
+		«importFullPackage(basePackage, component)»
+	«ENDFOREACH»
+«ENDDEFINE»

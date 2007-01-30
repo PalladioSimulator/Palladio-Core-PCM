@@ -1,0 +1,12 @@
+import de::uka::ipd::sdq::pcm::repository;
+import de::uka::ipd::sdq::pcm::assembly;
+import de::uka::ipd::sdq::pcm::allocation;
+
+String targetName(repository::ProvidesComponentType component):
+	"jar-" + component.entityName;
+
+String targetName(allocation::AllocationContext context):
+	"deploy-" + context.referencedAssemblyContext_AllocationContext.entityName;
+
+String jarFile(String basePackage, repository::ProvidesComponentType component): 
+	basePackage + "." + component.entityName.toLowerCase();

@@ -1,0 +1,131 @@
+«EXTENSION templates::Names»
+«EXTENSION templates::SystemNames»
+
+«DEFINE code(String basePackage) FOR system::SystemProvidedRole»
+	«LET providedDelegationConnector_SystemProvidedRole.assemblyContext_SystemProvidedDelegationConnector AS context»
+	«LET interface_SystemProvidedRole AS prov»
+		connectors.put("«providedRole(this)»" + SEPARATOR + "«fullQualifiedName(basePackage, prov)»", 
+		"«context.id»" + SEPARATOR + "«fullQualifiedName(basePackage, prov)»");
+		contextIds.put("«context.id»" + SEPARATOR + "«fullQualifiedName(basePackage, prov)»", 
+		"«fullQualifiedName(basePackage, context.encapsulatedComponent__AssemblyContext)»");
+	«ENDLET»
+	«ENDLET»
+«ENDDEFINE»
+
+«DEFINE code(String basePackage) FOR system::SystemRequiredDelegationConnector»
+	«LET assemblyContext_SystemRequiredDelegationConnector AS context»
+	«LET requiredRole_SystemRequiredDelegationConnector.requiredInterface__RequiredRole AS req»
+	«LET systemRequiredRole_SystemRequiredDelegationConnector AS sysreq»
+		connectors.put("«context.id»" + SEPARATOR + "«fullQualifiedName(basePackage, req)»", 
+		"«sysreq.id»" + SEPARATOR + "«fullQualifiedName(basePackage, req)»");
+		contextIds.put("«sysreq.id»" + SEPARATOR + "«fullQualifiedName(basePackage, req)»", 
+		"«fullQualifiedName(basePackage, sysreq)»");
+	«ENDLET»
+	«ENDLET»
+	«ENDLET»
+«ENDDEFINE»
+
+«DEFINE code(String basePackage) FOR assembly::Assembly»
+	«FOREACH assemblyConnectors_Assembly AS con-»
+		connectors.put("«con.requiringContext_SystemAssemblyConnector.id»" + SEPARATOR + 
+		"«fullQualifiedName(basePackage, con.requiredRole_SystemAssemblyConnector.requiredInterface__RequiredRole)»", 
+		"«con.providingContext_SystemAssemblyConnector.id»" + SEPARATOR + 
+		"«fullQualifiedName(basePackage, con.providedRole_SystemAssemblyConnector.providedInterface__ProvidedRole)»");
+	«ENDFOREACH»
+	«FOREACH assemblycontexts_Assembly AS con-»
+		«FOREACH con.encapsulatedComponent__AssemblyContext.providedRoles__ProvidesComponentType AS prov-»
+			contextIds.put("«con.id»" + SEPARATOR + "«fullQualifiedName(basePackage, prov.providedInterface__ProvidedRole)»", 
+				"«fullQualifiedName(basePackage, con.encapsulatedComponent__AssemblyContext)»");
+			«EXPAND innerComponents(basePackage, con.id) FOR con.encapsulatedComponent__AssemblyContext-»
+		«ENDFOREACH»
+	«ENDFOREACH»
+«ENDDEFINE»
+
+«REM» contextId of the Composite Component
+called recursively for each inner Component if it is composite
+«ENDREM»
+«DEFINE innerComponents(String basePackage, String contextId) FOR repository::CompositeComponent»
+	// inner part of the composite component «this.entityName» in the Context [«contextId»]
+	«FOREACH providedDelegationConnectors__CompositeComponent AS prov-»
+		provDelegationConnectors.put("«contextId»" + SEPARATOR + "«fullQualifiedName(basePackage, prov.outerProvidedRole_ProvidedDelegationConnector.providedInterface__ProvidedRole)»", 
+		"«contextId»_«prov.childComponentContext_ProvidedDelegationConnector.id»" + SEPARATOR
+		+ "«fullQualifiedName(basePackage, prov.innerProvidedRole_ProvidedDelegationConnector.providedInterface__ProvidedRole)»");
+	«ENDFOREACH»
+	«FOREACH requiredDelegationConnectors__CompositeComponent AS req-»
+		reqDelegationConnectors.put("«contextId»_«req.childComponentContext_RequiredDelegationConnector.id»"
+		 + SEPARATOR + "«req.innerRequiredRole_RequiredDelegationConnector.requiredInterface__RequiredRole.id»", 
+		"«contextId»" + SEPARATOR + "«fullQualifiedName(basePackage, req.outerRequiredRole_RequiredDelegationConnector.requiredInterface__RequiredRole)»");
+	«ENDFOREACH»
+	«FOREACH compositeAssemblyConnectors_CompositeComponent AS con-»
+		connectors.put("«contextId»_«con.requiringChildComponentContext_CompositeAssemblyConnector.id»"
+		 + SEPARATOR + "«fullQualifiedName(basePackage, con.requiredRole_CompositeAssemblyConnector.requiredInterface__RequiredRole)»", 
+		"«contextId»_«con.providingChildComponentContext_CompositeAssemblyConnector.id»" + SEPARATOR 
+		 + "«fullQualifiedName(basePackage, con.providedRole_CompositeAssemblyConnector.providedInterface__ProvidedRole)»");
+	«ENDFOREACH»
+	«FOREACH childComponentContexts_CompositeComponent AS context-»
+		«FOREACH context.encapsulatedComponent_ChildComponentContext.providedRoles__ProvidesComponentType AS prov-»
+			contextIds.put("«contextId»_«context.id»" + SEPARATOR + "«fullQualifiedName(basePackage, prov.providedInterface__ProvidedRole)»", 
+			"«fullQualifiedName(basePackage, context.encapsulatedComponent_ChildComponentContext)»");
+		«ENDFOREACH»
+		«EXPAND innerComponents(basePackage, contextId + "_" + context.id) FOR context.encapsulatedComponent_ChildComponentContext-»
+	«ENDFOREACH»// end of composite component «this.entityName»
+«ENDDEFINE»
+
+«DEFINE innerComponents(String basePackage, String contextId) FOR repository::ProvidesComponentType»
+«ENDDEFINE»
+
+«REM» not used - begin «ENDREM»
+«DEFINE properties(String basePackage) FOR assembly::Assembly»
+	«FILE "connector.properties"-»
+	«REM» copy all templates for:
+	system::SystemRequiredDelegationConnector
+	repository::CompositeComponent
+	
+	«EXPAND connectors FOREACH assemblyConnectors_Assembly-»
+	«EXPAND infoComponents FOREACH assemblycontexts_Assembly»
+	«ENDREM»
+	# this assembly contains the following components 
+	# that require interfaces (left)
+	# and links them to the components (right)
+	# context_ID-interface_Name = context_ID
+	# context_ID = component_ID
+	«ENDFILE»
+«ENDDEFINE»
+
+«DEFINE properties(String packageName) FOR repository::Repository»
+	«FILE "interface.properties"-»
+	«EXPAND Util::header(packageName) FOR this-»
+	# this repository contains the following interfaces (left)
+	# with the fully qualified names (right)
+	«FOREACH interfaces__Repository AS i-»
+		«i.id»=«fullQualifiedName(packageName, i)»
+	«ENDFOREACH-»
+	«ENDFILE»
+
+	«FILE "component.properties"-»
+	«EXPAND Util::header(packageName) FOR this-»
+	# this repository contains the following components (left)
+	# with the fully qualified names (right)
+	«FOREACH components__Repository AS c-»
+		«c.id»=«fullQualifiedName(packageName, c)»
+	«ENDFOREACH-»
+	«ENDFILE»
+
+	«EXPAND innerComponents(packageName) FOREACH components__Repository»
+«ENDDEFINE»
+
+«DEFINE innerComponents(String packageName) FOR repository::CompositeComponent»
+	«FILE "innercomponent.properties"-»
+	«EXPAND Util::header(packageName) FOR this-»
+	# this repository contains the following composite components (left)
+	# with the fully qualified names (right)
+		«FOREACH childComponentContexts_CompositeComponent AS context»
+			«context.id» = 
+				«fullQualifiedName(packageName, context.encapsulatedComponent_ChildComponentContext)»
+		«ENDFOREACH-»
+	«ENDFILE»
+«ENDDEFINE»
+
+«DEFINE innerComponents(String s) FOR repository::ProvidesComponentType»
+«ENDDEFINE»
+«REM» not used - end«ENDREM»

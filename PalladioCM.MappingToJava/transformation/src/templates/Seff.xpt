@@ -1,0 +1,124 @@
+«EXTENSION templates::Names»
+«EXTENSION templates::Todo»
+
+«IMPORT de::uka::ipd::sdq::pcm::seff»
+«IMPORT de::uka::ipd::sdq::pcm::seff::resourcetype»
+
+«REM»
+SEFF -> Java-sourcecode (only for Basic Components)
+«ENDREM»
+«DEFINE body(repository::Signature method) FOR repository::ProvidesComponentType»
+«ENDDEFINE»
+
+«DEFINE body(repository::Signature method) FOR repository::BasicComponent»
+	/**
+	 * This code is generated from a SEFF
+	 * and must be implemented/completed manually
+	 */
+	«FOREACH serviceEffectSpecifications__BasicComponent AS behaviour»
+		«IF (behaviour.describedService__SEFF==method) && (behaviour.steps_Behaviour.size>0)»
+			// «stamp(this)»
+			«EXPAND findStartAction FOR behaviour.steps_Behaviour.get(0)»
+		«ENDIF»
+	«ENDFOREACH»
+«ENDDEFINE»
+
+«REM» find the first action in a SEFF «ENDREM»
+«DEFINE findStartAction FOR seff::AbstractAction»
+	«EXPAND findStartAction FOR predecessor_AbstractAction»
+«ENDDEFINE»
+
+«DEFINE findStartAction FOR seff::StartAction»
+	«EXPAND blockAction FOR successor_AbstractAction»
+«ENDDEFINE»
+
+«REM» The following templates iterate over all elements 
+beginning with the StartAction and ending with StopAction. «ENDREM»
+«DEFINE blockAction FOR seff::AbstractAction»
+	// «stamp(this)»
+	«EXPAND action FOR this»
+	«EXPAND blockAction FOR successor_AbstractAction»
+«ENDDEFINE»
+
+«DEFINE blockAction FOR seff::StopAction»
+«ENDDEFINE»
+
+«DEFINE action FOR seff::AbstractAction»
+	«implAction(this)»
+«ENDDEFINE»
+
+«DEFINE action FOR seff::ExternalCallAction»
+	«IF calledService_ExternalService.exceptions__Signature.size==0»
+		«EXPAND Method::call FOR calledService_ExternalService»
+	«ELSE»
+		try {
+		«EXPAND Method::call FOR calledService_ExternalService»
+		} catch (Exception e) {
+		«FOREACH calledService_ExternalService.exceptions__Signature AS ex»
+			«handleException(ex)»
+		«ENDFOREACH-»
+		}
+	«ENDIF»
+«ENDDEFINE»
+
+«DEFINE action FOR seff::InternalAction»
+	/** 
+	 * the internal action «entityName»
+	 * could fail with probability: «failureProbability»
+	 */
+	 «implAction(this)»
+«ENDDEFINE»
+
+«DEFINE action FOR seff::LoopAction»
+	«implAction(this)»
+	«calculateSteps()»
+	final int max = 1;
+	for(int i = 1; i<max; i++) {
+		«IF (bodyBehaviour_Loop.steps_Behaviour.size>0)»
+			«EXPAND findStartAction FOR bodyBehaviour_Loop.steps_Behaviour.get(0)»
+		«ENDIF»
+	}
+«ENDDEFINE»
+
+«DEFINE action FOR seff::BranchAction»
+	«implAction(this)»
+	«calculateCondition()»
+	int value = 0;
+	switch (value) {
+	«FOREACH branches_Branch AS branch ITERATOR i»
+		case «i.counter1»: {
+			// branch is taken with probability: «branch.branchProbability»
+			«IF (branch.branchBehaviour_BranchTransition.steps_Behaviour.size>0)»
+				«EXPAND findStartAction FOR branch.branchBehaviour_BranchTransition.steps_Behaviour.get(0)»
+			«ENDIF»
+			break;
+		}
+	«ENDFOREACH-»
+	default : {
+		// TODO: implement default behaviour
+	}
+	} «REM» end of switch «ENDREM»
+«ENDDEFINE»
+
+«DEFINE action FOR seff::ForkAction»
+	«implAction(this)»
+	{
+	«FOREACH forkedBehaviours_Fork AS fork»
+		«IF (fork.steps_Behaviour.size>0)»
+			«EXPAND findStartAction FOR fork.steps_Behaviour.get(0)»
+		«ENDIF»
+	«ENDFOREACH-»
+	}
+«ENDDEFINE»
+
+«DEFINE action FOR seff::AquireAction»
+	«LET resourceType_Aquire AS res»
+		resourceMan.acquire("«res.id»");
+	«ENDLET»
+«ENDDEFINE»
+
+«DEFINE action FOR seff::ReleaseAction»
+	«LET resourceType_Release AS res»
+		resourceMan.release("«res.id»");
+	«ENDLET»
+«ENDDEFINE»
