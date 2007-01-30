@@ -1,0 +1,101 @@
+<project name="PCM Runtime System" default="all" basedir=".">
+	<description> "Model-2-Text Transformation from a PCM instance to J2EE Version 5 
+		Runtime contains framework and helper classes. "
+	</description>
+
+	<property environment="env" />
+
+	<property name="src" value="${basedir}/src" />
+	<property name="build" value="${basedir}/build" />
+	<property name="classes" value="${build}/classes" />
+	<property name="jboss.home" value="${env.JBOSS_HOME}" />
+	<property name="jboss.server.config" value="default" />
+
+	<!-- specific for my development tools -->
+	<property name="instanceDir" value="c:/studium/da-controlled/modellinstanz" />
+	<property name="eclipse.plugins" value="c:/informatik/eclipse/plugins" />
+
+	<path id="classpath-runtime">
+		<pathelement path="${classes}" />
+		<fileset dir="${jboss.home}/lib">
+		 <include name="**/*.jar" />
+		</fileset>
+	</path>
+
+	<target name="clean">
+		<delete dir="${classes}" />
+		<delete dir="${build}/lib"/>
+		<delete dir="${build}/docs"/>
+	</target>
+
+	<target name="init">
+		<mkdir dir="${build}" />
+		<mkdir dir="${build}/lib" />
+		<mkdir dir="${build}/docs" />
+		<mkdir dir="${classes}" />
+	</target>
+
+	<target name="compile" depends="init">
+		<javac srcdir="${basedir}/src" destdir="${classes}" 
+		debug="off"
+		deprecation="on"
+		optimize="off"
+		includes="**">
+		<classpath refid="classpath-runtime" />
+		</javac>
+	</target>
+
+	<target name="javadoc" depends="init">
+		<javadoc packagenames="*.*"
+			sourcepath="${src}"
+			destdir="${build}/docs"
+			author="true"
+			windowtitle="PCM Runtime System - documentation">
+			<fileset dir="${src}"> 
+				<include name="runtime/**/*.java"/>
+			</fileset>
+			<classpath refid="classpath-runtime"/>
+		</javadoc>
+	</target>
+
+	<target name="jar" depends="compile">
+	<jar jarfile="${build}/lib/PCM-RuntimeSystem.jar">
+		<fileset dir="${classes}"
+			includes="runtime/**" /> 
+	</jar>
+	</target>
+
+	<target name="pack.sourcecode">
+	<!-- Pack the sources of the generated system -->
+	<zip zipfile="${build}/lib/PCM-RuntimeSystem-src.zip">
+		<fileset dir="${src}">
+			<include name="runtime/**" />
+		</fileset> 
+	</zip>
+	</target>
+
+	<target name="pack.documentation">
+	<!-- Pack the documentation of the runtime system 
+	but don't recompile with javadoc -->
+	<zip zipfile="${build}/lib/PCM-RuntimeSystem-doc.zip">
+		<fileset dir="${build}/docs">
+			<include name="runtime/**"/>
+		</fileset>
+	</zip>
+	</target>
+
+	<!-- Copy the libraries of the runtime system 
+		 this destination ist just for development -->
+	<target name="distribution" depends="jar, pack.sourcecode, pack.documentation">
+		<copy todir="${instanceDir}/lib">
+			<fileset dir="${build}/lib">
+			 <include name="**.jar"/>
+			 <include name="**.zip"/>
+			</fileset>
+		</copy>
+	</target>
+
+	<target name="all" depends="init, compile, javadoc, distribution">
+		<echo message="Runtime System as part of the Plattform - build all"/>
+	</target>
+</project>
