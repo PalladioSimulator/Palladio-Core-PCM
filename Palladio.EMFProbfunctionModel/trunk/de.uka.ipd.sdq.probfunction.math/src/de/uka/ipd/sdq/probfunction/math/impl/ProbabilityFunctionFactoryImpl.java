@@ -30,6 +30,7 @@ import de.uka.ipd.sdq.probfunction.math.ISamplePDF;
 import de.uka.ipd.sdq.probfunction.math.IUnit;
 import de.uka.ipd.sdq.probfunction.math.exception.DoubleSampleException;
 import de.uka.ipd.sdq.probfunction.math.exception.FunctionNotInTimeDomainException;
+import de.uka.ipd.sdq.probfunction.math.exception.NegativeDistanceException;
 import de.uka.ipd.sdq.probfunction.math.exception.ProbabilitySumNotOneException;
 import de.uka.ipd.sdq.probfunction.math.exception.UnknownPDFTypeException;
 import de.uka.ipd.sdq.probfunction.math.util.MathTools;
@@ -131,15 +132,15 @@ public class ProbabilityFunctionFactoryImpl
 			double distance, IUnit unit) {
 		return createImpulseAt(0, numOfSamplingPoints, distance, unit);
 	}
-	
+
 	public ISamplePDF createImpulseAt(int pos, int numOfSamplingPoints,
-			double distance, IUnit unit){
-		assert(pos < numOfSamplingPoints);
-		
+			double distance, IUnit unit) {
+		assert (pos < numOfSamplingPoints);
+
 		List<Complex> zeroList = createZeroList(numOfSamplingPoints);
 		zeroList.get(pos).setReal(1.0);
 		return createSamplePDFFromComplex(distance, zeroList, false, unit);
-		
+
 	}
 
 	private List<Complex> createZeroList(int numOfSamplingPoints) {
@@ -449,6 +450,22 @@ public class ProbabilityFunctionFactoryImpl
 		return resultPDF;
 	}
 
+	public ISamplePDF transformToSamplePDF(IProbabilityDensityFunction pdf,
+			double newDistance) throws UnknownPDFTypeException,
+			NegativeDistanceException, FunctionNotInTimeDomainException {
+		ISamplePDF resultPDF;
+		if (pdf instanceof ISamplePDF) {
+			resultPDF = ((ISamplePDF) pdf).getFunctionWithNewDistance(newDistance);
+		} else if (pdf instanceof IBoxedPDF) {
+			resultPDF = transformBoxedToSamplePDF((IBoxedPDF) pdf, newDistance);
+		} else if (pdf != null) {
+			throw new UnknownPDFTypeException();
+		} else {
+			return null;
+		}
+		return resultPDF;
+	}
+
 	public IContinuousSample transformToContinuousSample(
 			ContinuousSample eSample) {
 		IContinuousSample sample = createContinuousSample(eSample.getValue(),
@@ -497,19 +514,88 @@ public class ProbabilityFunctionFactoryImpl
 		List<Double> values = continuousSamplesToDoubles(pdf.getSamples());
 		List<Double> newValues = new ArrayList<Double>();
 		double distance = MathTools.gcd(values);
+		double halfDistance = distance / 2;
 		double start = 0;
 
+		// the first value
+		int flag = 1;
+		double np = 0.0;
 		for (IContinuousSample s : pdf.getSamples()) {
-			int times = (int) Math.round((s.getValue() - start) / distance);
+			int times = (int) Math.round((s.getValue() - start) / halfDistance);
 			for (int i = 0; i < times; i++) {
-				double np = s.getProbability() / times;
-				newValues.add(np);
+				if (flag == 1) {
+					np += s.getProbability() / times;
+					newValues.add(np);
+					flag = 0;
+				} else {
+					np = s.getProbability() / times;
+					flag++;
+				}
 			}
 			start = s.getValue();
 		}
+		if (flag == 1)
+			newValues.add(np);
 		return createSamplePDFFromDouble(distance, newValues, pdf.getUnit());
 	}
 
+	public ISamplePDF transformBoxedToSamplePDF(IBoxedPDF bpdf, double distance) {
+		if (bpdf.getSamples().size() == 0)
+			return createSamplePDFFromComplex(distance,
+					new ArrayList<Complex>(), bpdf.getUnit());
+
+		double maxValue = bpdf.getSamples().get(bpdf.getSamples().size() - 1)
+				.getValue();
+		double currentNewSample = distance / 2;
+		int index = 0;
+		List<IContinuousSample> samples = bpdf.getSamples();
+		List<Double> newSamples = new ArrayList<Double>();
+		double newProb = 0.0;
+
+		while (currentNewSample < maxValue || index < samples.size()) {
+			if (currentNewSample < samples.get(index).getValue()) {
+				if (newSamples.size() == 0)
+					newProb = (currentNewSample / samples.get(0).getValue())
+							* samples.get(0).getProbability();
+				else {
+					double dif = index == 0
+							? samples.get(0).getValue()
+							: samples.get(index).getValue()
+									- samples.get(index - 1).getValue();
+					newProb = (distance / dif)
+							* samples.get(index).getProbability();
+				}
+				newSamples.add(newProb);
+				currentNewSample += distance;
+
+			} else {
+				double dif = index == 0 ? samples.get(0).getValue() : samples
+						.get(index).getValue()
+						- samples.get(index - 1).getValue();
+				newProb = ((samples.get(index).getValue() - currentNewSample + distance) / dif)
+						* samples.get(index).getProbability();
+				index++;
+
+				while (index < samples.size()
+						&& samples.get(index).getValue() < currentNewSample) {
+					newProb += samples.get(index).getProbability();
+					index++;
+				}
+				if (index < samples.size())
+					newProb += (1 - ((samples.get(index).getValue() - currentNewSample) / (samples
+							.get(index).getValue() - samples.get(index - 1)
+							.getValue())))
+							* samples.get(index).getProbability();
+				newSamples.add(newProb);
+				currentNewSample += distance;
+				// if (currentNewSample > samples.get(index).getValue())
+				// index++;
+
+			}
+		}
+		return createSamplePDFFromDouble(distance, newSamples, false, bpdf
+				.getUnit());
+	}
 	private IBoxedPDF transformSampledToBoxedPDF(ISamplePDF spdf)
 			throws DoubleSampleException, FunctionNotInTimeDomainException {
 		if (spdf.isInFrequencyDomain())
