@@ -30,6 +30,7 @@ import de.uka.ipd.sdq.probfunction.math.exception.DoubleSampleException;
 import de.uka.ipd.sdq.probfunction.math.exception.FunctionNotInTimeDomainException;
 import de.uka.ipd.sdq.probfunction.math.exception.ProbabilitySumNotOneException;
 import de.uka.ipd.sdq.probfunction.math.exception.UnknownPDFTypeException;
+import de.uka.ipd.sdq.probfunction.math.impl.ProbabilityFunctionFactoryImpl;
 import de.uka.ipd.sdq.probfunction.math.util.MathTools;
 
 /**
@@ -59,7 +60,6 @@ public class ProbabilityFunctionFactoryTest {
 		try {
 			boxed = pfFactory.createBoxedPDF(samples, null);
 		} catch (DoubleSampleException e1) {
-			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
 
@@ -68,28 +68,50 @@ public class ProbabilityFunctionFactoryTest {
 			samplePDF = pfFactory.transformToSamplePDF(boxed);
 
 			assertTrue(Math.abs(samplePDF.getDistance() - 0.3) < err);
-			assertEquals(samplePDF.getValuesAsDouble().size(), 8);
+			assertEquals(samplePDF.getValuesAsDouble().size(), 9);
 
 			assertTrue(Math
-					.abs(samplePDF.getValuesAsDouble().get(0) - 0.3 * 0.3 / 0.9) < err);
+					.abs(samplePDF.getValuesAsDouble().get(0) - 0.3 * 0.15 / 0.9) < err);
 			assertTrue(Math
 					.abs(samplePDF.getValuesAsDouble().get(1) - 0.3 * 0.3 / 0.9) < err);
 			assertTrue(Math
 					.abs(samplePDF.getValuesAsDouble().get(2) - 0.3 * 0.3 / 0.9) < err);
-			assertTrue(Math
-					.abs(samplePDF.getValuesAsDouble().get(3) - 0.4 * 0.3 / 0.6) < err);
+			assertTrue(Math.abs(samplePDF.getValuesAsDouble().get(3)
+					- ((0.3 * 0.15 / 0.9) + (0.4 * 0.15 / 0.6))) < err);
 			assertTrue(Math
 					.abs(samplePDF.getValuesAsDouble().get(4) - 0.4 * 0.3 / 0.6) < err);
-			assertTrue(Math.abs(samplePDF.getValuesAsDouble().get(5) - 0.2) < err);
-			assertTrue(Math
-					.abs(samplePDF.getValuesAsDouble().get(6) - 0.1 * 0.5) < err);
-			assertTrue(Math
-					.abs(samplePDF.getValuesAsDouble().get(7) - 0.1 * 0.5) < err);
+			assertTrue(Math.abs(samplePDF.getValuesAsDouble().get(5)
+					- ((0.4 * 0.15 / 0.6) + (0.2 * 0.15 / 0.3))) < err);
+			assertTrue(Math.abs(samplePDF.getValuesAsDouble().get(6)
+					- ((0.2 * 0.15 / 0.3) + (0.1 * 0.15 / 0.6))) < err);
+			assertTrue(Math.abs(samplePDF.getValuesAsDouble().get(7)
+					- (0.1 * 0.3 / 0.6)) < err);
+			assertTrue(Math.abs(samplePDF.getValuesAsDouble().get(7)
+					- (0.1 * 0.3 / 0.6)) < err);
+			assertTrue(Math.abs(samplePDF.getValuesAsDouble().get(8)
+					- (0.1 * 0.15 / 0.6)) < err);
 		} catch (UnknownPDFTypeException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
+		samplePDF = ((ProbabilityFunctionFactoryImpl) pfFactory)
+				.transformBoxedToSamplePDF(boxed, 0.5);
+		assertTrue(Math.abs(samplePDF.getDistance() - 0.5) < err);
+		assertEquals(samplePDF.getValuesAsDouble().size(), 6);
+
+		assertTrue(Math
+				.abs(samplePDF.getValuesAsDouble().get(0) - 0.3 * 0.25 / 0.9) < err);
+		assertTrue(Math
+				.abs(samplePDF.getValuesAsDouble().get(1) - 0.3 * 0.5 / 0.9) < err);
+		assertTrue(Math.abs(samplePDF.getValuesAsDouble().get(2)
+				- ((0.3 * 0.15 / 0.9) + (0.4 * 0.35 / 0.6))) < err);
+		assertTrue(Math.abs(samplePDF.getValuesAsDouble().get(3)
+				- ((0.4 * 0.25 / 0.6) + (0.2 * 0.25 / 0.3))) < err);
+		assertTrue(Math.abs(samplePDF.getValuesAsDouble().get(4)
+				- ((0.2 * 0.05 / 0.3) + (0.1 * 0.45 / 0.6))) < err);
+		assertTrue(Math.abs(samplePDF.getValuesAsDouble().get(5)
+				- (0.1 * 0.15 / 0.6)) < err);
 	}
 
 	/**
@@ -116,6 +138,25 @@ public class ProbabilityFunctionFactoryTest {
 		assertTrue((Integer) sample2.getValue() == 3);
 		assertTrue(sample2.getProbability() == 0.5);
 		Sample sample3 = (Sample) probFunc.getSamples().get(3);
+		assertTrue((Integer) sample3.getValue() == 4);
+		assertTrue(sample3.getProbability() == 0.1);
+
+		assertTrue(probFunc.getUnit().getUnitName().equals("sec"));
+		assertTrue(probFunc.isOrderedDomain());
+
+		//
+		iProbFunc = pfFactory.transformToPMF(probFunc);
+
+		sample0 = (Sample) probFunc.getSamples().get(0);
+		assertTrue((Integer) sample0.getValue() == 1);
+		assertTrue(sample0.getProbability() == 0.1);
+		sample1 = (Sample) probFunc.getSamples().get(1);
+		assertTrue((Integer) sample1.getValue() == 2);
+		assertTrue(sample1.getProbability() == 0.3);
+		sample2 = (Sample) probFunc.getSamples().get(2);
+		assertTrue((Integer) sample2.getValue() == 3);
+		assertTrue(sample2.getProbability() == 0.5);
+		sample3 = (Sample) probFunc.getSamples().get(3);
 		assertTrue((Integer) sample3.getValue() == 4);
 		assertTrue(sample3.getProbability() == 0.1);
 
@@ -235,6 +276,33 @@ public class ProbabilityFunctionFactoryTest {
 		assertTrue(sample2.getValue() == 6.2);
 		assertTrue(sample2.getProbability() == 0.5);
 		IContinuousSample sample3 = (IContinuousSample) bpdf.getSamples()
+				.get(3);
+		assertTrue(sample3.getValue() == 6.7);
+		assertTrue(sample3.getProbability() == 0.1);
+
+		assertTrue(bpdf.getUnit().getUnitName().equals("sec"));
+
+		try {
+			ebpdf = pfFactory.transformToModelBoxedPDF(bpdf);
+		} catch (UnknownPDFTypeException e) {
+			e.printStackTrace();
+		} catch (FunctionNotInTimeDomainException e) {
+			e.printStackTrace();
+		}
+
+		sample0 = (IContinuousSample) bpdf.getSamples()
+				.get(0);
+		assertTrue(sample0.getValue() == 2.1);
+		assertTrue(sample0.getProbability() == 0.1);
+		sample1 = (IContinuousSample) bpdf.getSamples()
+				.get(1);
+		assertTrue(sample1.getValue() == 3.5);
+		assertTrue(sample1.getProbability() == 0.3);
+		sample2 = (IContinuousSample) bpdf.getSamples()
+				.get(2);
+		assertTrue(sample2.getValue() == 6.2);
+		assertTrue(sample2.getProbability() == 0.5);
+		sample3 = (IContinuousSample) bpdf.getSamples()
 				.get(3);
 		assertTrue(sample3.getValue() == 6.7);
 		assertTrue(sample3.getProbability() == 0.1);
