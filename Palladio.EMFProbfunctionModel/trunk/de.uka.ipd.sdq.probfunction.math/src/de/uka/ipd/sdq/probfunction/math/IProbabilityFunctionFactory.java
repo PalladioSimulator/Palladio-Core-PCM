@@ -11,6 +11,7 @@ import de.uka.ipd.sdq.probfunction.SamplePDF;
 import de.uka.ipd.sdq.probfunction.Unit;
 import de.uka.ipd.sdq.probfunction.math.exception.DoubleSampleException;
 import de.uka.ipd.sdq.probfunction.math.exception.FunctionNotInTimeDomainException;
+import de.uka.ipd.sdq.probfunction.math.exception.NegativeDistanceException;
 import de.uka.ipd.sdq.probfunction.math.exception.ProbabilitySumNotOneException;
 import de.uka.ipd.sdq.probfunction.math.exception.UnknownPDFTypeException;
 import flanagan.complex.Complex;
@@ -241,11 +242,11 @@ public interface IProbabilityFunctionFactory {
 	 */
 	ISamplePDF createDiracImpulse(int numOfSamplingPoints, double distance,
 			IUnit unit);
-	
-	
+
 	/**
-	 * Creates a distribution function, which describes a random variable with a constant outcome.
-	 * In this case, it is given by distance * pos.
+	 * Creates a distribution function, which describes a random variable with a
+	 * constant outcome. In this case, it is given by distance * pos.
+	 * 
 	 * @param pos
 	 * @param numOfSamplingPoints
 	 * @param distance
@@ -283,6 +284,27 @@ public interface IProbabilityFunctionFactory {
 	 */
 	ISamplePDF transformToSamplePDF(IProbabilityDensityFunction pdf)
 			throws UnknownPDFTypeException;
+
+	/**
+	 * Converts a arbitrary PDF to a SamplePDF. So far, only two cases are
+	 * supported: The input PDF is a SamplePDF, then a reference to a new Sample
+	 * PDF with the given distance is returned or the input pdf is a BoxedPDF,
+	 * then a new SamplePDF is created from the BoxedPDF.
+	 * 
+	 * @param pdf
+	 *            PDF to transform.
+	 * @param newDistance
+	 *            the new distance
+	 * @return Either a reference to the input PDF or a new SamplePDF with the
+	 *         same properties as the input pdf.
+	 * @throws UnknownPDFTypeException
+	 *             Thrown in case pdf is neither a BoxedPDF nor a SamplePDF.
+	 * @throws FunctionNotInTimeDomainException
+	 * @throws NegativeDistanceException
+	 */
+	ISamplePDF transformToSamplePDF(IProbabilityDensityFunction pdf,
+			double newDistance) throws UnknownPDFTypeException,
+			NegativeDistanceException, FunctionNotInTimeDomainException;
 
 	/**
 	 * Converts a model object to a function object with the same attributes.
