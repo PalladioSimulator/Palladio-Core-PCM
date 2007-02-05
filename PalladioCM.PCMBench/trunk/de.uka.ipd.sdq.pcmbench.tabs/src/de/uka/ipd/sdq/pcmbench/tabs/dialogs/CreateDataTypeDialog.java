@@ -38,27 +38,22 @@ public abstract class CreateDataTypeDialog extends TitleAreaDialog {
 	private String MESSAGE = "";
 
 	private String ERROR_MESSAGE = "DataType name is empty.";
-
 	private String entityName;
 
 	// TODO
 	private String selectedButton = "CollectionDataType";
-
 	private Button OKButton;
+	
+	private Composite composite;
 
-	private Group compositeGroup, collectionGroup;
-
+	protected Group compositeGroup, collectionGroup;
 	private Button compositeButton;
-
 	private Button collectionButton;
-
 	private Label nameLabelField;
-
 	private Label typeLabelField;
-
 	private Text nameField, typeField;
-
 	private Button typeButton;
+	private StackLayout stackLayout;
 
 	public CreateDataTypeDialog(Shell parentShell) {
 		super(parentShell);
@@ -99,8 +94,8 @@ public abstract class CreateDataTypeDialog extends TitleAreaDialog {
 			public void widgetSelected(SelectionEvent e) {
 				setEditedResource(combo.getText());
 				setEnabled(true);
-				
-				if (nameField.getText() != null)
+
+				if (nameField.getText().equals(""))
 					setErrorMessage(ERROR_MESSAGE);
 			}
 
@@ -113,7 +108,8 @@ public abstract class CreateDataTypeDialog extends TitleAreaDialog {
 			public void widgetDefaultSelected(SelectionEvent e) {
 				setEditedResource(combo.getText());
 				setEnabled(true);
-				setErrorMessage(ERROR_MESSAGE);
+				if (nameField.getText().equals(""))
+					setErrorMessage(ERROR_MESSAGE);
 			}
 
 		});
@@ -127,8 +123,8 @@ public abstract class CreateDataTypeDialog extends TitleAreaDialog {
 		choiceTypeGroup.setLayoutData(new GridData(478, 74));
 
 		// Create new Composite
-		final Composite composite = new Composite(container, SWT.NONE);
-		final StackLayout stackLayout = new StackLayout();
+		composite = new Composite(container, SWT.NONE);
+		stackLayout = new StackLayout();
 		composite.setLayout(stackLayout);
 		composite.setLayoutData(new GridData(484, 139));
 
@@ -223,7 +219,7 @@ public abstract class CreateDataTypeDialog extends TitleAreaDialog {
 		collectionGroup.setLayout(gridLayoutCollGroup);
 		collectionGroup.setText("innerType CollectionDataType");
 		// set the visible group
-		stackLayout.topControl = collectionGroup;
+		setTopCollectionLayout();
 
 		/**
 		 * Create inner section for CollectionDataType group It contains a text
@@ -400,10 +396,24 @@ public abstract class CreateDataTypeDialog extends TitleAreaDialog {
 	}
 
 	protected void setSelectedCollectionButton() {
+		compositeButton.setSelection(false);
 		collectionButton.setSelection(true);
 	}
 
 	protected void setSelectedCompositeButton() {
+		collectionButton.setSelection(false);
 		compositeButton.setSelection(true);
+	}
+	
+	protected void setTopCompositeLayout(){
+		stackLayout.topControl = compositeGroup;
+		composite.layout();
+		setSelectedButton(compositeButton.getText());
+	}
+	
+	protected void setTopCollectionLayout(){
+		stackLayout.topControl = collectionGroup;
+		composite.layout();
+		setSelectedButton(collectionButton.getText());
 	}
 }

@@ -39,6 +39,8 @@ public class PalladioCreateDataTypeDialog extends CreateDataTypeDialog {
 
 	private DataType selectedDataType;
 
+	private DataType editedDataType;
+
 	/**
 	 * The transactional editing domain which is used to get the commands and
 	 * alter the model
@@ -46,6 +48,33 @@ public class PalladioCreateDataTypeDialog extends CreateDataTypeDialog {
 
 	final protected TransactionalEditingDomain editingDomain = TransactionalEditingDomain.Registry.INSTANCE
 			.getEditingDomain(EditingDomainFactory.EDITING_DOMAIN_ID);
+
+	/**
+	 * @param parentShell
+	 * @param editedDataType
+	 */
+	public PalladioCreateDataTypeDialog(Shell parentShell,
+			DataType editedDataType) {
+		super(parentShell);
+		this.editedDataType = editedDataType;
+		// initDialog(editedDataType);
+
+	}
+
+	private void initDialog(DataType inputType) {
+
+		ParameterRepresentation representation = new ParameterRepresentation();
+
+		if (inputType instanceof CollectionDataType) {
+			CollectionDataType collectionDataType = (CollectionDataType) inputType;
+
+			setNameField(collectionDataType.getEntityName());
+			setTypeField(representation.setDataTypeToString(collectionDataType
+					.getInnerType_CollectionDataType(), OperationsTabResources
+					.getOperationsDecoratedFactory()));
+		}
+
+	}
 
 	public PalladioCreateDataTypeDialog(Shell parentShell) {
 		super(parentShell);
@@ -126,7 +155,7 @@ public class PalladioCreateDataTypeDialog extends CreateDataTypeDialog {
 										adapterFactory))),
 				new DeclarationCellModifier(),
 				new AddInnerDataTypeActionListener(),
-				new DeleteInnerDataTypeActionListener(), null);
+				new DeleteInnerDataTypeActionListener(), editedDataType);
 	}
 
 	/*
@@ -173,15 +202,22 @@ public class PalladioCreateDataTypeDialog extends CreateDataTypeDialog {
 			@Override
 			protected void doExecute() {
 
-				CollectionDataType collectionDataType = RepositoryFactory.eINSTANCE
-						.createCollectionDataType();
+				CollectionDataType collectionDataType;
+
+				if (editedDataType instanceof CollectionDataType) {
+					collectionDataType = (CollectionDataType) editedDataType;
+
+				} else {
+					collectionDataType = RepositoryFactory.eINSTANCE
+							.createCollectionDataType();
+				}
 
 				if (selectedDataType != null)
 					collectionDataType
 							.setInnerType_CollectionDataType(selectedDataType);
 				if (getEntityName() != null)
 					collectionDataType.setEntityName(getEntityName());
-				
+
 				collectionDataType
 						.setRepository_DataType(OperationsTabResources
 								.getEditedRepository());
@@ -203,13 +239,20 @@ public class PalladioCreateDataTypeDialog extends CreateDataTypeDialog {
 		RecordingCommand recCommand = new RecordingCommand(editingDomain) {
 			@Override
 			protected void doExecute() {
-				CompositeDataType compositeDataType = OperationsTabResources
-						.getNewCompositeDataType();
-				
+
+				CompositeDataType compositeDataType;
+
+				if (editedDataType instanceof CompositeDataType) {
+					compositeDataType = (CompositeDataType) editedDataType;
+				} else {
+					compositeDataType = OperationsTabResources
+							.getNewCompositeDataType();
+				}
+
 				if (compositeDataType == null)
 					compositeDataType = RepositoryFactory.eINSTANCE
 							.createCompositeDataType();
-				
+
 				compositeDataType.setEntityName(getEntityName());
 				compositeDataType.setRepository_DataType(OperationsTabResources
 						.getEditedRepository());

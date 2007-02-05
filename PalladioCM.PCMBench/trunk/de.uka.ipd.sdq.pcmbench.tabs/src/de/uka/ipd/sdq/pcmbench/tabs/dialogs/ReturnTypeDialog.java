@@ -163,14 +163,14 @@ public class ReturnTypeDialog extends PalladioSelectEObjectDialog {
 				Assert.isNotNull(selectedDataType);
 				Shell shell = e.widget.getDisplay().getActiveShell();
 				PalladioCreateDataTypeDialog dialog = new PalladioCreateDataTypeDialog(
-						shell);
+						shell,selectedDataType);
 				dialog.create();
-				dialog.setSelectedCollectionButton();
 
 				if (selectedDataType instanceof CollectionDataType) {
 
 					CollectionDataType dataType = (CollectionDataType) selectedDataType;
 	
+					dialog.setSelectedCollectionButton();
 					dialog.setNameField(dataType.getEntityName());
 					dialog.setTypeField(representation.setDataTypeToString(
 							dataType.getInnerType_CollectionDataType(),
@@ -181,6 +181,8 @@ public class ReturnTypeDialog extends PalladioSelectEObjectDialog {
 
 				if (selectedDataType instanceof CompositeDataType) {
 					CompositeDataType dataType = (CompositeDataType) selectedDataType;
+					dialog.setTopCompositeLayout();
+					dialog.setSelectedCompositeButton();
 					dialog.setNameField(dataType.getEntityName());
 
 				}
