@@ -40,11 +40,13 @@
 			}
 
 			public void testUsage() throws Exception {
+			«PROTECT CSTART "//" CEND "" ID " [" + id + "]"»
 			«LET scenarioBehaviour_UsageScenario.actions_ScenarioBehaviour AS actions»
 				«IF actions.size>0»
 					«EXPAND findStartAction(basePackage) FOR actions.get(0)»
 				«ENDIF»
 			«ENDLET»
+			«ENDPROTECT»
 			}
 		}
 		«ENDFILE»
@@ -94,8 +96,7 @@ beginning with the Start and ending with Stop. «ENDREM»
 	«LET signature_EntryLevelSystemCall AS service»
 	«LET systemProvidedRole_EntryLevelSystemCall.interface_SystemProvidedRole AS interface»
 		«fullQualifiedName(basePackage, interface)» use«interface.entityName» = 
-			(«fullQualifiedName(basePackage, interface)») 
-			sl.getTargetComponentPort(«fullQualifiedName(basePackage, interface)».class);
+			«usedInterface(basePackage, interface»;
 		«EXPAND Parameter::definition FOR service»
 		// «actualparameterusage»
 		«FOREACH actualparameterusage AS pu»
@@ -151,10 +152,15 @@ beginning with the Start and ending with Stop. «ENDREM»
 «DEFINE call(String basePackage, repository::Interface interface) FOR repository::Signature»
 	«IF(returntype__Signature.type!=null) && (returntype__Signature.type!="void")»
 		«returntype__Signature.type» temp_«returntype__Signature.type» = 
-	«ENDIF-»
-	use«interface.entityName».«serviceName»(
+	«usedInterface(basePackage, interface»«ENDIF-».«serviceName»
+	(
 	«FOREACH parameters__Signature AS p SEPARATOR ","»
 		«p.parameterName»
 	«ENDFOREACH-»
 	);
+«ENDDEFINE»
+
+«DEFINE usedInterface(String basePackage, repository::Interface interface) FOR repository::Signature»
+((«fullQualifiedName(basePackage, interface)») 
+sl.getTargetComponentPort(«fullQualifiedName(basePackage, interface)».class))
 «ENDDEFINE»

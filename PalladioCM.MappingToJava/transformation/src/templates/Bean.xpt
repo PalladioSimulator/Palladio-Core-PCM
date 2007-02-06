@@ -4,6 +4,51 @@
 «REM» f: Component -> dreischichtige Implementierung
 EJB Session Bean for J2EE
 «ENDREM»
+«DEFINE Implementation(String basePackage) FOR repository::ProvidesComponentType»
+	«LET fullQualifiedName(basePackage, this) AS fqn»
+		«FILE beanClass(basePackage, this)»
+			package «packageName(basePackage, this)»;
+			import javax.ejb.Local;
+			import javax.ejb.Remote;
+			import javax.ejb.Stateful;
+			import javax.ejb.PostActivate;
+			import javax.ejb.PrePassivate;
+			@Local({I«entityName».class, runtime.IComponentInstance.class})
+			@Remote({I«entityName».class, runtime.IComponentInstance.class})
+			@Stateful(name="«fqn»", description="generated from a PCM-instance")
+			public class «entityName»Bean extends «entityName» 
+			{
+				private static final long serialVersionUID = 410L;
+				@PostActivate
+				public void ejbActivate() {
+				}
+				
+				@PrePassivate
+				public void ejbPassivate() {
+				}
+			}
+		«ENDFILE»
+	«ENDLET»
+«ENDDEFINE»
+
+«DEFINE Implementation(String basePackage) FOR system::SystemRequiredRole»
+	«LET fullQualifiedName(basePackage, this) AS fqn»
+		«FILE beanClass(basePackage, this)»
+			package «packageName(basePackage, this)»;
+			import javax.ejb.Local;
+			import javax.ejb.Remote;
+			import javax.ejb.Stateful;
+			import javax.ejb.PostActivate;
+			import javax.ejb.PrePassivate;
+			@Local({I«fqnInterface(basePackage, this)».class, runtime.IComponentInstance.class})
+			@Remote({I«fqnInterface(basePackage, this)».class, runtime.IComponentInstance.class})
+			@Stateful(name="«fqn»", description="generated from a PCM-instance")
+			public class «entityName»Bean extends «entityName»
+			{
+			}
+		«ENDFILE»
+	«ENDLET»
+«ENDDEFINE»
 
 «REM» implementation class for EJB3 
 ComponentPort
@@ -17,6 +62,8 @@ ComponentPort
 			import javax.ejb.Local;
 			import javax.ejb.Remote;
 			import javax.ejb.Stateful;
+			import javax.ejb.PostActivate;
+			import javax.ejb.PrePassivate;
 
 			@Local({«fullQualifiedName(basePackage, interface)».class, runtime.IComponent.class})
 			@Remote({«fullQualifiedName(basePackage, interface)».class, runtime.IComponent.class})
@@ -24,13 +71,13 @@ ComponentPort
 			public class «className»Bean extends «className» 
 			{
 				private static final long serialVersionUID = 400L;
-				@Activate
+				@PostActivate
 				public void ejbActivate() {
 					serviceLocator = «basePackage».ServiceLocator.getSingleton();
-					component = («fullQualifiedName(basePackage, this)») serviceLocator.lookupInstance(contextId);
+					component = («fqnInterface(basePackage, this)») serviceLocator.lookupInstance(contextId);
 				}
 				
-				@Passivate
+				@PrePassivate
 				public void ejbPassivate() {
 					component = null;
 					serviceLocator = null;
@@ -44,26 +91,27 @@ ComponentPort
 «DEFINE Port(String basePackage) FOR system::SystemRequiredRole»
 	«LET packageName(basePackage, this) AS package»
 	«LET className(this, interface_SystemRequiredRole) AS className»
-		«FILE beanClass(basePackage, this)»
+		«FILE beanPort(basePackage, this)»
 			package «packageName(basePackage, this)»;
 			import javax.ejb.Local;
 			import javax.ejb.Remote;
 			import javax.ejb.Stateful;
-
+			import javax.ejb.PostActivate;
+			import javax.ejb.PrePassivate;
 			@Local({«fullQualifiedName(basePackage, interface_SystemRequiredRole)».class, runtime.IComponent.class})
 			@Remote({«fullQualifiedName(basePackage, interface_SystemRequiredRole)».class, runtime.IComponent.class})
 			@Stateful(name="«fullQualifiedName(basePackage, this, interface_SystemRequiredRole)»", description="generated from a PCM-instance")
-			public class «className»Bean extends «className» 
+			public class  extends «className» 
 			{
 				private static final long serialVersionUID = 400L;
 
-				@Activate
+				@PostActivate
 				public void ejbActivate() {
 					serviceLocator = «basePackage».ServiceLocator.getSingleton();
-					component = («fullQualifiedName(basePackage, this)») serviceLocator.lookupInstance(contextId);
+					component = («fqnInterface(basePackage, this)») serviceLocator.lookupInstance(contextId);
 				}
 
-				@Passivate
+				@PrePassivate
 				public void ejbPassivate() {
 					component = null;
 					serviceLocator = null;

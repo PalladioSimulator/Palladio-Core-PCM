@@ -24,8 +24,14 @@ String packageName(String basePackage, system::SystemRequiredRole req):
 String fullQualifiedName(String basePackage, system::SystemRequiredRole req):
 	basePackage + "." + systemDir() + "." + req.entityName;
 	
-String fullQualifiedName(String basePackage, system::SystemRequiredRole s, repository::Interface provided):
+String fullQualifiedName(String basePackage, system::SystemRequiredRole req, repository::Interface provided):
 	basePackage + "." + systemDir() + "." + provided.entityName + "Port";
+
+String fqnAbstractClass(String basePackage, system::SystemRequiredRole req):
+	basePackage + "." + systemDir() + ".Abstract" + req.entityName;
+
+String fqnInterface(String basePackage, system::SystemRequiredRole req):
+	basePackage + "." + systemDir() + ".I" + req.entityName;
 
 String fullQualifiedPath(String basePackage, system::SystemRequiredRole req):
 	basePackage + "/" + systemDir() + "/" + req.interface_SystemRequiredRole.entityName + "Port" + ".java";
@@ -39,8 +45,11 @@ String implClass(String basePackage, system::SystemRequiredRole req):
 String abstractClass(String basePackage, system::SystemRequiredRole req):
 	basePackage + "/" + systemDir() + "/Abstract" + req.entityName + ".java";
 
-String fqnAbstractClass(String basePackage, system::SystemRequiredRole req):
-	basePackage + "." + systemDir() + ".Abstract" + req.entityName;
+String localInterface(String basePackage, system::SystemRequiredRole req):
+	basePackage + "/" + systemDir() + "/I" + req.entityName + ".java";
+
+String beanPort(String basePackage, system::SystemRequiredRole req):
+	basePackage + "/" + systemDir() + "/" + req.interface_SystemRequiredRole.entityName + "PortBean.java";
 
 String beanClass(String basePackage, system::SystemRequiredRole req):
-	basePackage + "/" + systemDir() + "/" + req.interface_SystemRequiredRole.entityName + "PortBean.java";
+	basePackage + "/" + systemDir() + "/" + req.entityName + "Bean.java";

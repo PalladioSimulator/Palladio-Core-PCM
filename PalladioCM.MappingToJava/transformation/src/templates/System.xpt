@@ -18,13 +18,13 @@ f: PCM sytem -> complete system including jar-files
 		move to properties- or some .ext-file
 		and add parameters to this rule
 	«ENDREM»
-	«EXPAND DependencyInjection::glassfish(basePackage, "Local", "SINGLE") FOR this»
-	«EXPAND ServiceLocator::file(basePackage, "Local", "SINGLE") FOR this»
+	«EXPAND DependencyInjection::glassfish(basePackage, "Server", "SINGLE") FOR this»
+	«EXPAND ServiceLocator::file(basePackage, "Server", "SINGLE") FOR this»
 	«EXPAND ResourceManager::file(basePackage) FOR this»
 	«EXPAND gateway(basePackage) FOREACH systemRequiredRole_System»
 	«EXPAND SkriptAnt::deploy(modelName, basePackage) FOR allocation_System»
-	«REM» can be used if no Usagemodel::scenario is defined «ENDREM»
-	«EXPAND Test::client(basePackage) FOR this»
+	«REM» can be used if no Usagemodel::scenario is defined 
+	«EXPAND Test::client(basePackage) FOR this»«ENDREM»
 «ENDDEFINE»
 
 «REM» mapping for System Required Roles
@@ -39,14 +39,14 @@ with delegation from the classes
 	«LET packageName(basePackage, this) AS package»
 	«LET className(this, interface_SystemRequiredRole) AS className»
 	«LET fullQualifiedName(basePackage, this) AS fqn»
-		«FILE abstractClass(basePackage, this)»
+		«FILE localInterface(basePackage, this)»
 			package «package»;
 
 			/** «REM» informal description, no java inheritance «ENDREM»
 			 * implements «fullQualifiedName(basePackage, interface_SystemRequiredRole)»
 			 * this class has not a generated body
 			 */
-			public abstract class Abstract«entityName» extends runtime.ComponentInstance
+			public interface I«entityName» 
 			{
 			}
 		«ENDFILE»
@@ -60,7 +60,7 @@ with delegation from the classes
 			 * implementation is in the port class
 			 * but you can insert code here and call it from the ports
 			 */
-			public class «entityName» extends Abstract«entityName»
+			public class «entityName» extends runtime.IComponentInstance implements I«entityName»
 			{
 				«classStub()»
 
@@ -134,7 +134,7 @@ with delegation from the classes
 			/**
 			 * reference to "implementation class", just for consistent usage
 			 */
-			protected transient «entityName» component;
+			protected transient «fqnInterface(basePackage, this)» component;
 
 			«EXPAND Util::manualCode(package + "." + className)»
 
@@ -146,8 +146,8 @@ with delegation from the classes
 			}
 
 			@Override
-			public void setComponentInstance(runtime.ComponentInstance impl) {
-				component = («fqn») impl;
+			public void setComponentInstance(runtime.IComponentInstance impl) {
+				component = («fqnInterface(basePackage, this)») impl;
 			}
 
 			«EXPAND Method::provider(fqn) FOR this»
@@ -158,6 +158,7 @@ with delegation from the classes
 		J2EE Version 5 & EJB Version 3
 		can be substituted by other technologies
 		«ENDREM»
+		«EXPAND Bean::Implementation(basePackage) FOR this»
 		«EXPAND Bean::Port(basePackage) FOR this»
 	«ENDLET»
 	«ENDLET»

@@ -32,7 +32,7 @@ public abstract class ServerServiceLocator extends AbstractServiceLocator {
 	/**
 	 * cache for ComponentInstance
 	 */
-	protected Hashtable<String, ComponentInstance> instances = new Hashtable<String, ComponentInstance>();
+	protected Hashtable<String, IComponentInstance> instances = new Hashtable<String, IComponentInstance>();
 
 	/**
 	 * substitute if {@link ServerServiceLocator#initialContext} 
@@ -73,20 +73,48 @@ public abstract class ServerServiceLocator extends AbstractServiceLocator {
 			//if (result!=null) logger.info("componentPort "  + name + " found : " + result.toString());
 			//else logger.warn("componentPort " + name + " not found");
 		} catch (NamingException e) {
-			logger.warn("componentPort " + name + " not found : " + result + "\n" + e.toString());
-			//result = lsl.getInstanceOfPort(name); // throw Exception ?
+			logger.warn("componentPort " + name + " not found in JNDI: " + result + "\n" + e.toString());
+			result = (IComponent) getInstanceOfClass(name); // throw Exception ?
 		}
 		return result;
 	}
 
 	/**
-	 * looks up in a cache
+	 * @param name full qualified name of a {@link ComponentInstance} 
+	 * @return EJB that implements the business interface provided by this component
+	 */
+	protected IComponentInstance createComponentInstance(String name) {
+		if (name == null) {
+			return null;
+		}
+		IComponentInstance result = null;
+		try {
+			result = (IComponentInstance) initialContext.lookup(name + "/remote");
+		} catch (NamingException e) {
+			logger.warn("componentImplementation " + name + " not found in JNDI: " + result + "\n" + e.toString());
+			result = (IComponentInstance) getInstanceOfClass(name);
+		}
+		return result;
+	}
+
+	/**
+	 * looks up in JNDI
 	 * @param name the component's name
 	 * @return ComponentInstance
 	 */
 	@Override
-	public ComponentInstance lookupInstance(String name) {
-		return instances.get(name);
+	public IComponentInstance lookupInstance(String name) {
+		if (name == null) {
+			return null;
+		}
+		IComponentInstance result = null;
+		try {
+			result = (IComponentInstance) initialContext.lookup(name);
+		} catch (NamingException e) {
+			logger.warn("componentImplementation " + name + " not found -> must be created");
+		}
+		return result;
+		//return instances.get(name);
 	}
 
 	/**
@@ -100,6 +128,7 @@ public abstract class ServerServiceLocator extends AbstractServiceLocator {
 		try {
 			result = (IComponent) initialContext.lookup(name);
 		} catch(NamingException e) {
+			logger.warn("componentPort " + name + " not found -> must be created");
 			// perhaps initialContext is not available
 			// result = lsl.lookupPort(name);
 		}
@@ -112,16 +141,20 @@ public abstract class ServerServiceLocator extends AbstractServiceLocator {
 			try {
 				initialContext.rebind(name, port);
 			} catch(NamingException e) {
-				logger.error("could not register Component:\n" + e.toString());
-				// lsl.bind(name, port);
+				logger.error("could not register ComponentPort:\n" + e.toString());
 			}
 		}
 	}
 
 	@Override
-	protected void bind(String name, ComponentInstance impl) {
+	protected void bind(String name, IComponentInstance impl) {
 		if (name!=null) {
-			instances.put(name, impl);
+			try {
+				initialContext.rebind(name, impl);
+			} catch(NamingException e) {
+				logger.error("could not register ComponentImplementation:\n" + e.toString());
+			}
+			//instances.put(name, impl);
 		}
 	}
 }

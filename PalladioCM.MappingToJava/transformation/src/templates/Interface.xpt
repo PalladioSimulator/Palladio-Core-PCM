@@ -57,7 +57,7 @@ this is a recursive method to include all inherited signatures
 «DEFINE abstractDeclaration FOR repository::Interface»
 	«EXPAND abstractDeclaration FOREACH parentInterface__Interface»
 	«FOREACH signatures__Interface AS provSignature»
-		abstract «EXPAND Parameter::returnType FOR provSignature-»
+		public abstract «EXPAND Parameter::returnType FOR provSignature-»
 		«entityName»_«provSignature.serviceName» 
 		(
 		«EXPAND Parameter::parameter FOREACH provSignature.parameters__Signature SEPARATOR ","»

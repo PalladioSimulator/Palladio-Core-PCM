@@ -3,13 +3,13 @@ package runtime;
 /**
  * Top interface for (Enterprise Java Beans based) ComponentPort
  */
-public interface IComponent extends java.io.Serializable {
+public interface IComponent {
 	/**
 	 * overload with corresponding method that sets
 	 * component = impl;
 	 * @param impl one instance of the implementation class 
 	 */
-	public void setComponentInstance(ComponentInstance impl);
+	public void setComponentInstance(IComponentInstance impl);
 	/**
 	 * called by an ServiceLocator or dependency injection
 	 */

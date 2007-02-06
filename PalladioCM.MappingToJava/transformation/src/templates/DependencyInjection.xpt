@@ -57,8 +57,8 @@ additional mappings for other frameworks could be added
 «DEFINE beans(String basePackage) FOR system::SystemRequiredDelegationConnector»
 	«LET assemblyContext_SystemRequiredDelegationConnector AS context»
 	«LET systemRequiredRole_SystemRequiredDelegationConnector AS sysreq»
-	<session> <!-- Port for «entityName» -->
-		<ejb-name> «id» </ejb-name>
+	<session> <!-- Port for «sysreq.entityName» -->
+		<ejb-name> «sysreq.id» </ejb-name>
 		<ejb-ref>
 			<injection-target>
 				<ejb-ref-name>ejb/component</ejb-ref-name>
@@ -73,7 +73,7 @@ additional mappings for other frameworks could be added
 		</ejb-ref>
 	</session>
 
-	<session>  <!-- Implementation for «entityName» -->
+	<session>  <!-- Implementation for «sysreq.entityName» -->
 		<ejb-name> «context.id» </ejb-name>
 		<ejb-ref>
 			<injection-target>

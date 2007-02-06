@@ -33,7 +33,7 @@
 			public void testServiceLocator() throws Exception {
 				«FOREACH systemProvidedRole_System AS prov-»
 					«prov.entityName» = («fullQualifiedName(basePackage, prov.interface_SystemProvidedRole)»)
-						sl.getTargetComponentPort("«fullQualifiedName(basePackage, prov.interface_SystemProvidedRole)».class");
+						sl.getTargetComponentPort(«fullQualifiedName(basePackage, prov.interface_SystemProvidedRole)».class);
 					System.out.println("System (that provides the role) «prov.entityName» created");
 					«PROTECT CSTART "/*" CEND "*/" ID prov.entityName»
 					«testClass()»

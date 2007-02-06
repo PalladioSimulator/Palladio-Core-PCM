@@ -4,7 +4,6 @@ package runtime;
  * architecture pattern ServiceLocator
  */
 public interface IServiceLocator extends java.io.Serializable {
-
 	/**
 	 * delegates to {@link runtime.IServiceLocator#getTargetComponentPort(String, Class)} 
 	 * with meaningful String representing a Client as first parameter
@@ -33,5 +32,5 @@ public interface IServiceLocator extends java.io.Serializable {
 	 * @param contextId AssemblyContextId of the implementation class, not of the Provided Role 
 	 * @return implementation of a Component or null, if componentName is not bound
 	 */
-	ComponentInstance lookupInstance(String contextId);
+	IComponentInstance lookupInstance(String contextId);
 }

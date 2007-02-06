@@ -19,8 +19,28 @@ with delegation from the classes
 	«LET packageName(basePackage, this) AS package»
 	«LET fullQualifiedName(basePackage, this) AS fqn»
 
-		«REM» f: Component -> ([..], abstract class Abstract«entityName», [..]) 
+		«REM» f: Component -> ([..], interface I«entityName», [..]) 
 		«ENDREM»
+
+«REM» begin rule_business_interface for a Component «ENDREM»
+		«FILE localInterface(basePackage, this)»
+		«EXPAND Util::headerPackage(basePackage, fqn + "Interface") FOR this-»
+			«REM» business methods «ENDREM»
+		 	/** 
+			 * «stamp(this)»
+			«FOREACH providedRoles__ProvidesComponentType AS prov ITERATOR i SEPARATOR ","»
+				«IF (i.counter1<=1)» * this component implements the interface(s) «ENDIF»
+				 * «fullQualifiedName(basePackage, prov.providedInterface__ProvidedRole)»
+			«ENDFOREACH-»
+			*/
+			public interface I«entityName»
+			{
+			«FOREACH providedRoles__ProvidesComponentType AS role»
+				«EXPAND Interface::abstractDeclaration FOR role.providedInterface__ProvidedRole»
+			«ENDFOREACH»
+			}
+		«ENDFILE»
+«REM» end rule_business_interface for a Component «ENDREM»
 
 «REM» begin rule_abstractClass for a Component «ENDREM»
 		«FILE abstractClass(basePackage, this)»
@@ -33,14 +53,14 @@ with delegation from the classes
 				 * «fullQualifiedName(basePackage, prov.providedInterface__ProvidedRole)»
 			«ENDFOREACH-»
 			*/
-			public abstract class Abstract«entityName» extends runtime.ComponentInstance 
+			public abstract class Abstract«entityName» extends runtime.ComponentInstance implements I«entityName»
 			{
 			«REM» all methods are declared abstract: 
 			neither implementation of business logic nor management aspects
-			«ENDREM»
 			«FOREACH providedRoles__ProvidesComponentType AS role»
 				«EXPAND Interface::abstractDeclaration FOR role.providedInterface__ProvidedRole»
 			«ENDFOREACH»
+			«ENDREM»
 			}
 		«ENDFILE»
 «REM» end rule_abstractClass for a Component «ENDREM»
@@ -98,6 +118,7 @@ with delegation from the classes
 			«ENDFOREACH»
 			}
 		«ENDFILE»
+		«EXPAND Bean::Implementation(basePackage) FOR this»
 «REM» end rule_implementationClass for a Component «ENDREM»
 
 «REM» begin rule_contextClass for a Component «ENDREM»
@@ -159,11 +180,11 @@ with delegation from the classes
 						/**
 						 * override {@link runtime.ComponentPort#component}
 						 */
-						protected transient «fullQualifiedName(basePackage, this)» component;
+						protected transient «fqnInterface(basePackage, this)» component;
 
 						@Override
-						public void setComponentInstance(runtime.ComponentInstance impl) {
-							component = («fullQualifiedName(basePackage, this)») impl;
+						public void setComponentInstance(runtime.IComponentInstance impl) {
+							component = («fqnInterface(basePackage, this)») impl;
 						}
 						«REM» 0..n methods are generated here «ENDREM»
 						«EXPAND Method::proxy(fqn, this) FOR interface»

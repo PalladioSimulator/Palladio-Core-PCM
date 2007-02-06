@@ -9,6 +9,21 @@ String stamp(repository::Repository r):
 	"generated from the PCM repository: " + r.repositoryName + 
 	"\n" + r.repositoryDescription;
 
+String stamp(repository::ProvidesComponentType c):
+	"generated from Provides Component Type: " + c.entityName + " [" + c.id + "]";
+
+String stamp(repository::CompleteComponentType c):
+	"generated from Complete Component Type: " + c.entityName + " [" + c.id + "]";
+
+String stamp(repository::ImplementationComponentType c):
+	"generated from Implementation Component Type: " + c.entityName + " [" + c.id + "]";
+
+String stamp(repository::BasicComponent c):
+	"generated from Basic Component: " + c.entityName + " [" + c.id + "]";
+
+String stamp(repository::CompositeComponent c):
+	"generated from Composite Component: " + c.entityName + " [" + c.id + "]";
+
 // reference to component that implements the required interface
 String reqRole(repository::Interface requiredI):
 	"req" + requiredI.entityName;
@@ -58,10 +73,14 @@ String fullQualifiedName(String basePackage, repository::ProvidesComponentType c
 	basePackage + "." + subPackage(c) + "." + c.entityName;
 
 String fullQualifiedName(String basePackage, repository::ProvidesComponentType c, repository::Interface provided):
-	basePackage + "." + subPackage(c) + provided.entityName + "Port";
+	basePackage + "." + subPackage(c) + "." + provided.entityName + "Port";
 
 String fqnAbstractClass(String basePackage, repository::ProvidesComponentType c):
 	basePackage + "." + subPackage(c) + ".Abstract" + c.entityName;
+
+String fqnInterface(String basePackage, repository::ProvidesComponentType c):
+	basePackage + "." + subPackage(c) + ".I" + c.entityName;
+
 
 // file and directory names
 String fullQualifiedPath(String basePackage, repository::Interface i):
@@ -79,8 +98,14 @@ String fqpContext(String basePackage, repository::ProvidesComponentType c):
 String abstractClass(String basePackage, repository::ProvidesComponentType c):
 	basePackage + "/" + subDir(c) + "/Abstract" + c.entityName + ".java";
 
+String localInterface(String basePackage, repository::ProvidesComponentType c):
+	basePackage + "/" + subDir(c) + "/I" + c.entityName + ".java";
+
 String beanClass(String basePackage, repository::ProvidesComponentType c, repository::Interface provided):
 	basePackage + "/" + subDir(c) + "/" + provided.entityName + "Port" + "Bean.java";
+
+String beanClass(String basePackage, repository::ProvidesComponentType c):
+	basePackage + "/" + subDir(c) + "/" + c.entityName + "Bean.java";
 
 String importFullPackage(String basePackage, repository::ProvidesComponentType c):
 	"import " + basePackage + "." + subPackage(c) + ".*;";

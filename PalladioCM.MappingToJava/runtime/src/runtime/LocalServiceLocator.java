@@ -16,7 +16,7 @@ public abstract class LocalServiceLocator extends AbstractServiceLocator {
 	/**
 	 * cache for ComponentInstance
 	 */
-	protected Hashtable<String, ComponentInstance> instances = new Hashtable<String, ComponentInstance>();
+	protected Hashtable<String, IComponentInstance> instances = new Hashtable<String, IComponentInstance>();
 
 	/**
 	 * standard constructor is empty
@@ -42,7 +42,13 @@ public abstract class LocalServiceLocator extends AbstractServiceLocator {
 		return ports.get(name);
 	}
 
-	public ComponentInstance lookupInstance(String name) {
+	@Override
+	protected IComponentInstance createComponentInstance(String name) {
+		return (IComponentInstance) getInstanceOfClass(name);
+	}
+
+	@Override
+	public IComponentInstance lookupInstance(String name) {
 		return instances.get(name);
 	}
 
@@ -50,6 +56,7 @@ public abstract class LocalServiceLocator extends AbstractServiceLocator {
 	 * @param name the component's name
 	 * @param component already initialized instance of a {@link ComponentPort}
 	 */
+	@Override
 	protected void bind(String name, IComponent component) {
 		if (component!=null)
 			ports.put(name, component);
@@ -60,7 +67,8 @@ public abstract class LocalServiceLocator extends AbstractServiceLocator {
 	 * @param component already initialized instance of a {@link ComponentInstance}
 	 * @see runtime.AbstractServiceLocator#bind(String, ComponentInstance)
 	 */
-	protected void bind(String name, ComponentInstance component) {
+	@Override
+	protected void bind(String name, IComponentInstance component) {
 		if (component!=null)
 			instances.put(name, component);
 	}

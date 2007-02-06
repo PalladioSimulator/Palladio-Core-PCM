@@ -18,7 +18,7 @@ public abstract class ComponentPort implements IComponent {
 	 * reference to build up a (complex) state of one component instance
 	 */
 	//private transient ComponentInstance component;
-	public abstract void setComponentInstance(ComponentInstance impl);
+	public abstract void setComponentInstance(IComponentInstance impl);
 
 	/**
 	 * standard constructor is empty, 

@@ -77,23 +77,28 @@ public abstract class AbstractServiceLocator implements IServiceLocator {
 	 */
 	protected abstract IComponent lookupPort(String name);
 
+	protected abstract IComponentInstance createComponentInstance(String fqn);
+
 	/**
 	 * @param componentName AssemblyContextId
 	 * @param impl implementation of a Component
 	 */
-	protected abstract void bind(String componentName, ComponentInstance impl);
+	protected abstract void bind(String componentName, IComponentInstance impl);
 
 	/**
 	 * uses a cache for implementation classes
 	 * @param contextId AssemblyContextId
 	 * @return already initialized instance of a {@link ComponentInstance}
 	 */
-	public abstract ComponentInstance lookupInstance(String contextId);
+	public abstract IComponentInstance lookupInstance(String contextId);
 
 	public AbstractServiceLocator() {
 		//empty
 	}
 
+	/**
+	 * implemented in generated Service Locator
+	 */
 	public abstract IComponent getTargetComponentPort(Class reqInterface);
 
 	/** 
@@ -192,7 +197,7 @@ public abstract class AbstractServiceLocator implements IServiceLocator {
 	 * @return initialized instance of one ComponentPort
 	 */
 	private IComponent createComponentPort(String targetId, String interfaceName) {
-		ComponentInstance componentImpl = null;
+		IComponentInstance componentImpl = null;
 		IComponent componentPort = null;
 		componentPort = getInstanceOfPort(
 				portFqn(targetId, interfaceName));
@@ -209,13 +214,13 @@ public abstract class AbstractServiceLocator implements IServiceLocator {
 	 * @return instance of a ComponentInstance that implements the 
 	 * component's methods and state 
 	 */
-	private ComponentInstance getComponentImplementation(String provRoleId) {
+	private IComponentInstance getComponentImplementation(String provRoleId) {
 		String fqn = contextIds.get(provRoleId);
 		// extract ContextId from "ContextId SEPARATOR providedRole"
 		String componentContextId = contextId(provRoleId);
-		ComponentInstance instance = lookupInstance(componentContextId);
+		IComponentInstance instance = lookupInstance(componentContextId);
 		if (instance==null) {
-			instance = (ComponentInstance) getInstanceOfClass(fqn);
+			instance = createComponentInstance(fqn);
 			/* keep reference for other Provided Roles of this component
 			   and allow cyclic dependencies between components
 			 */ 

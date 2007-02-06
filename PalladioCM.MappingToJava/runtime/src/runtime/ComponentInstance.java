@@ -6,7 +6,7 @@ import runtime.resources.*;
 /**
  * holds the implementation of all methods provided by a component
  */
-public abstract class ComponentInstance implements java.io.Serializable {
+public abstract class ComponentInstance implements IComponentInstance {
 	protected ComponentContext componentContext;
 	protected ResourceManager resourceMan;
 	/**
