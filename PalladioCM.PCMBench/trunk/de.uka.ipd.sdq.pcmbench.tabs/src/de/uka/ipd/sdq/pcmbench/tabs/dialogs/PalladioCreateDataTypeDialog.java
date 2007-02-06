@@ -10,6 +10,7 @@ import org.eclipse.emf.edit.ui.provider.AdapterFactoryContentProvider;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
 import org.eclipse.emf.transaction.RecordingCommand;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
+import org.eclipse.jface.util.Assert;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Shell;
@@ -34,12 +35,12 @@ import de.uka.ipd.sdq.pcmbench.ui.provider.PalladioItemProviderAdapterFactory;
 public class PalladioCreateDataTypeDialog extends CreateDataTypeDialog {
 
 	private ComposedAdapterFactory adapterFactory;
-
 	private ParametersDialogResources dialogResources;
 
-	private DataType selectedDataType;
-
+	private DataType innerDataType;
 	private DataType editedDataType;
+
+	ParameterRepresentation representation = new ParameterRepresentation();
 
 	/**
 	 * The transactional editing domain which is used to get the commands and
@@ -53,32 +54,62 @@ public class PalladioCreateDataTypeDialog extends CreateDataTypeDialog {
 	 * @param parentShell
 	 * @param editedDataType
 	 */
+	public PalladioCreateDataTypeDialog(Shell parentShell) {
+		super(parentShell);
+	}
+
+	/**
+	 * @param parentShell
+	 * @param dialogTitele
+	 * @param reposetoryName
+	 * @param entityName
+	 * @param entityType
+	 */
 	public PalladioCreateDataTypeDialog(Shell parentShell,
 			DataType editedDataType) {
 		super(parentShell);
+
 		this.editedDataType = editedDataType;
-		// initDialog(editedDataType);
+		initDialog(editedDataType);
 
 	}
 
 	private void initDialog(DataType inputType) {
+
+		String entityName;
+		String entityInnerType;
+		String reposetory;
 
 		ParameterRepresentation representation = new ParameterRepresentation();
 
 		if (inputType instanceof CollectionDataType) {
 			CollectionDataType collectionDataType = (CollectionDataType) inputType;
 
-			setNameField(collectionDataType.getEntityName());
-			setTypeField(representation.setDataTypeToString(collectionDataType
-					.getInnerType_CollectionDataType(), OperationsTabResources
-					.getOperationsDecoratedFactory()));
+			entityName = collectionDataType.getEntityName();
+
+			reposetory = collectionDataType.getRepository_DataType()
+					.getEntityName();
+
+			entityInnerType = representation.setDataTypeToString(
+					collectionDataType.getInnerType_CollectionDataType(),
+					OperationsTabResources.getOperationsDecoratedFactory());
+
+			// TODO
+			super.init(collectionSignator, reposetory, entityName, entityInnerType);
 		}
 
-	}
+		if (inputType instanceof CompositeDataType) {
+			CompositeDataType compositeDataType = (CompositeDataType) inputType;
 
-	public PalladioCreateDataTypeDialog(Shell parentShell) {
-		super(parentShell);
-		// TODO Auto-generated constructor stub
+			entityName = compositeDataType.getEntityName();
+
+			reposetory = compositeDataType.getRepository_DataType()
+					.getEntityName();
+
+			// TODO
+			super.init(compositeSignator, reposetory, entityName, null);
+		}
+
 	}
 
 	/*
@@ -154,8 +185,8 @@ public class PalladioCreateDataTypeDialog extends CreateDataTypeDialog {
 								new PalladioItemProviderAdapterFactory(
 										adapterFactory))),
 				new DeclarationCellModifier(),
-				new AddInnerDataTypeActionListener(),
-				new DeleteInnerDataTypeActionListener(), editedDataType);
+				new AddInnerDataTypeActionListener(this),
+				new DeleteInnerDataTypeActionListener(this), editedDataType);
 	}
 
 	/*
@@ -164,8 +195,9 @@ public class PalladioCreateDataTypeDialog extends CreateDataTypeDialog {
 	 * @see de.uka.ipd.sdq.pcmbench.tabs.dialogs.CreateDataTypeDialog#defeniereActionTypeButton(org.eclipse.swt.events.SelectionEvent)
 	 */
 	@Override
-	public void defeniereActionTypeButton(SelectionEvent e) {
+	public String getSelectedInnerType(SelectionEvent e) {
 
+		String selectedType = "";
 		Shell shell = e.display.getActiveShell();
 		ParameterRepresentation representation = new ParameterRepresentation();
 
@@ -181,13 +213,13 @@ public class PalladioCreateDataTypeDialog extends CreateDataTypeDialog {
 
 		if (dialog.getResult() != null
 				&& dialog.getResult() instanceof DataType) {
-			selectedDataType = (DataType) dialog.getResult();
+			innerDataType = (DataType) dialog.getResult();
 
-			if (selectedDataType != null)
-				setTypeField(representation.setDataTypeToString(
-						selectedDataType, OperationsTabResources
-								.getOperationsDecoratedFactory()));
+			selectedType = representation.setDataTypeToString(innerDataType,
+					OperationsTabResources.getOperationsDecoratedFactory());
 		}
+
+		return selectedType;
 
 	}
 
@@ -210,17 +242,17 @@ public class PalladioCreateDataTypeDialog extends CreateDataTypeDialog {
 				} else {
 					collectionDataType = RepositoryFactory.eINSTANCE
 							.createCollectionDataType();
+					collectionDataType
+							.setRepository_DataType(OperationsTabResources
+									.getEditedRepository());
 				}
 
-				if (selectedDataType != null)
+				Assert.isNotNull(getEntityName());
+				collectionDataType.setEntityName(getEntityName());
+				if (innerDataType != null)
 					collectionDataType
-							.setInnerType_CollectionDataType(selectedDataType);
-				if (getEntityName() != null)
-					collectionDataType.setEntityName(getEntityName());
+							.setInnerType_CollectionDataType(innerDataType);
 
-				collectionDataType
-						.setRepository_DataType(OperationsTabResources
-								.getEditedRepository());
 			}
 		};
 
@@ -249,10 +281,7 @@ public class PalladioCreateDataTypeDialog extends CreateDataTypeDialog {
 							.getNewCompositeDataType();
 				}
 
-				if (compositeDataType == null)
-					compositeDataType = RepositoryFactory.eINSTANCE
-							.createCompositeDataType();
-
+				Assert.isNotNull(compositeDataType);
 				compositeDataType.setEntityName(getEntityName());
 				compositeDataType.setRepository_DataType(OperationsTabResources
 						.getEditedRepository());
@@ -261,6 +290,13 @@ public class PalladioCreateDataTypeDialog extends CreateDataTypeDialog {
 
 		recCommand.setDescription("Add new CompositeDataType");
 		editingDomain.getCommandStack().execute(recCommand);
+	}
+
+	/**
+	 * @return the editedDataType
+	 */
+	public DataType getEditedDataType() {
+		return editedDataType;
 	}
 
 }

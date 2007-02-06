@@ -13,17 +13,12 @@ import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
-import org.eclipse.swt.events.SelectionListener;
 import org.eclipse.swt.widgets.Shell;
 
 import de.uka.ipd.sdq.dialogs.selection.PalladioSelectEObjectDialog;
-import de.uka.ipd.sdq.pcm.repository.CollectionDataType;
-import de.uka.ipd.sdq.pcm.repository.CompositeDataType;
 import de.uka.ipd.sdq.pcm.repository.DataType;
 import de.uka.ipd.sdq.pcm.repository.Repository;
 import de.uka.ipd.sdq.pcmbench.EditingDomainFactory;
-import de.uka.ipd.sdq.pcmbench.tabs.table.OperationsTabResources;
-import de.uka.ipd.sdq.pcmbench.tabs.table.ParameterRepresentation;
 
 /**
  * @author roman
@@ -55,6 +50,7 @@ public class ReturnTypeDialog extends PalladioSelectEObjectDialog {
 	}
 
 	/**
+	 * TODO
 	 * @param parent
 	 * @param filterList
 	 * @param input
@@ -63,9 +59,7 @@ public class ReturnTypeDialog extends PalladioSelectEObjectDialog {
 		super(parent, filterList, input);
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
+	/* (non-Javadoc)
 	 * @see de.uka.ipd.sdq.dialogs.selection.SelectEObjectDialog#createContents()
 	 */
 	@Override
@@ -101,9 +95,7 @@ public class ReturnTypeDialog extends PalladioSelectEObjectDialog {
 
 		setAddSelectionListener(new SelectionAdapter() {
 
-			/*
-			 * (non-Javadoc)
-			 * 
+			/* (non-Javadoc)
 			 * @see org.eclipse.swt.events.SelectionAdapter#widgetSelected(org.eclipse.swt.events.SelectionEvent)
 			 */
 			@Override
@@ -118,9 +110,7 @@ public class ReturnTypeDialog extends PalladioSelectEObjectDialog {
 
 		setDeleteSelectionListener(new SelectionAdapter() {
 
-			/*
-			 * (non-Javadoc)
-			 * 
+			/* (non-Javadoc)
 			 * @see org.eclipse.swt.events.SelectionAdapter#widgetSelected(org.eclipse.swt.events.SelectionEvent)
 			 */
 			@Override
@@ -150,43 +140,16 @@ public class ReturnTypeDialog extends PalladioSelectEObjectDialog {
 
 		setEditeSelectionListener(new SelectionAdapter() {
 
-			/*
-			 * (non-Javadoc)
-			 * 
+			/* (non-Javadoc)
 			 * @see org.eclipse.swt.events.SelectionAdapter#widgetSelected(org.eclipse.swt.events.SelectionEvent)
 			 */
 			@Override
 			public void widgetSelected(SelectionEvent e) {
 
-				ParameterRepresentation representation = new ParameterRepresentation();
-
 				Assert.isNotNull(selectedDataType);
 				Shell shell = e.widget.getDisplay().getActiveShell();
 				PalladioCreateDataTypeDialog dialog = new PalladioCreateDataTypeDialog(
 						shell,selectedDataType);
-				dialog.create();
-
-				if (selectedDataType instanceof CollectionDataType) {
-
-					CollectionDataType dataType = (CollectionDataType) selectedDataType;
-	
-					dialog.setSelectedCollectionButton();
-					dialog.setNameField(dataType.getEntityName());
-					dialog.setTypeField(representation.setDataTypeToString(
-							dataType.getInnerType_CollectionDataType(),
-							OperationsTabResources
-									.getOperationsDecoratedFactory()));
-
-				}
-
-				if (selectedDataType instanceof CompositeDataType) {
-					CompositeDataType dataType = (CompositeDataType) selectedDataType;
-					dialog.setTopCompositeLayout();
-					dialog.setSelectedCompositeButton();
-					dialog.setNameField(dataType.getEntityName());
-
-				}
-
 				dialog.open();
 
 			}

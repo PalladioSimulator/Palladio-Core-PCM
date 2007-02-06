@@ -17,10 +17,20 @@ import de.uka.ipd.sdq.pcmbench.tabs.table.OperationsTabResources;
  */
 public class AddInnerDataTypeActionListener extends SelectionAdapter {
 
-	/**
-	 * TODO
-	 */
 	CompositeDataType compositeDataType;
+
+	PalladioCreateDataTypeDialog dialog;
+
+	/**
+	 * @param compositeDataType
+	 */
+	public AddInnerDataTypeActionListener(PalladioCreateDataTypeDialog dialog) {
+		this.dialog = dialog;
+
+		if (dialog.getEditedDataType() instanceof CompositeDataType)
+			this.compositeDataType = (CompositeDataType) dialog
+					.getEditedDataType();
+	}
 
 	/**
 	 * The transactional editing domain which is used to get the commands and
@@ -42,17 +52,18 @@ public class AddInnerDataTypeActionListener extends SelectionAdapter {
 			@Override
 			protected void doExecute() {
 
+				// nur for own instance of the compositeDataType
 				if (compositeDataType == null)
 					compositeDataType = RepositoryFactory.eINSTANCE
 							.createCompositeDataType();
 				InnerDeclaration declaration = RepositoryFactory.eINSTANCE
 						.createInnerDeclaration();
-				// delete leter
-				declaration
-						.setEntityName("DeclarationName"
-								+ (compositeDataType
-										.getInnerDeclaration_CompositeDataType()
-										.size() + 1));
+				// Build the name with count
+				String declaratonName = "DeclarationName"
+						+ (compositeDataType
+								.getInnerDeclaration_CompositeDataType().size() + 1);
+
+				declaration.setEntityName(declaratonName);
 
 				compositeDataType.getInnerDeclaration_CompositeDataType().add(
 						declaration);
@@ -65,7 +76,11 @@ public class AddInnerDataTypeActionListener extends SelectionAdapter {
 		// Set input for TableViewer
 		OperationsTabResources.getParametersViewer()
 				.setInput(compositeDataType);
-		
 		OperationsTabResources.setNewCompositeDataType(compositeDataType);
+
+		// Set enabled OK button in dialog
+		dialog.setOKButtonEnabled();
+		dialog.setErrorMessage(null);
 	}
+
 }
