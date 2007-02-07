@@ -2,10 +2,8 @@ package de.uka.ipd.sdq.probfunction.math.util;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Comparator;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 
 import de.uka.ipd.sdq.probfunction.math.IContinuousSample;
