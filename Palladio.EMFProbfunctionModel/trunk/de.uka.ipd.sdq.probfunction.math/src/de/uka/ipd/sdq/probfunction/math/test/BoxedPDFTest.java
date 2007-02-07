@@ -4,12 +4,14 @@
 package de.uka.ipd.sdq.probfunction.math.test;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import junit.framework.Assert;
 import junit.framework.JUnit4TestAdapter;
 
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import de.uka.ipd.sdq.probfunction.math.IBoxedPDF;
@@ -21,6 +23,11 @@ import de.uka.ipd.sdq.probfunction.math.exception.DoubleSampleException;
 import de.uka.ipd.sdq.probfunction.math.exception.FunctionNotInTimeDomainException;
 import de.uka.ipd.sdq.probfunction.math.exception.FunctionsInDifferenDomainsException;
 import de.uka.ipd.sdq.probfunction.math.exception.IncompatibleUnitsException;
+import de.uka.ipd.sdq.probfunction.math.exception.InvalidSampleValueException;
+import de.uka.ipd.sdq.probfunction.math.exception.NegativeDistanceException;
+import de.uka.ipd.sdq.probfunction.math.exception.ProbabilitySumNotOneException;
+import de.uka.ipd.sdq.probfunction.math.exception.UnitNameNotSetException;
+import de.uka.ipd.sdq.probfunction.math.exception.UnitNotSetException;
 import de.uka.ipd.sdq.probfunction.math.exception.UnknownPDFTypeException;
 import de.uka.ipd.sdq.probfunction.math.exception.UnorderedDomainException;
 
@@ -97,44 +104,84 @@ public class BoxedPDFTest {
 	}
 
 	@Test
+	@Ignore
 	public void mult() throws FunctionsInDifferenDomainsException,
 			UnknownPDFTypeException, IncompatibleUnitsException,
 			DoubleSampleException {
-		IProbabilityDensityFunction prod = df1.mult(df1);
+		// IProbabilityDensityFunction prod = df1.mult(df1);
+		ISamplePDF df11 = dfFactory.transformToSamplePDF(df1);
+		IProbabilityDensityFunction prod = df11.mult(df11);
+		System.out.println(prod);
 		IBoxedPDF expected = createBoxedPDF(new Double[]{3.0, 0.01, 2.1, 0.04,
 				4.3, 0.16, 1.5, 0.09});
 		ISamplePDF sExpexted = dfFactory.transformToSamplePDF(expected);
 		System.out.println(sExpexted);
-		System.out.println(prod);
 		Assert.assertEquals(sExpexted, (ISamplePDF) prod);
-	}
-	
-	@Test
-	public void percentile() throws IndexOutOfBoundsException,
-			UnorderedDomainException {
-		Assert.assertEquals(0.3, df1.getPercentile(10)); 
-		Assert.assertEquals(0.2, df1.getPercentile(40)); 
-		Assert.assertEquals(0.1, df1.getPercentile(50)); 
-		Assert.assertEquals(0.4, df1.getPercentile(99)); 
 	}
 
 	@Test
-	public void getMedian() throws UnorderedDomainException {
-		Assert.assertEquals(0.1, df1.getMedian());
+	public void percentile() throws IndexOutOfBoundsException,
+			UnorderedDomainException {
+		Assert.assertEquals(0.3, df1.getPercentile(10));
+		Assert.assertEquals(0.2, df1.getPercentile(40));
+		Assert.assertEquals(0.1, df1.getPercentile(50));
+		Assert.assertEquals(0.4, df1.getPercentile(99));
 	}
-	
+
 	@Test
-	public void checkConstraints() throws DoubleSampleException {
-		Assert.assertTrue(df1.checkConstrains());
-		IBoxedPDF b = createBoxedPDF(new Double[]{3.0, 0.1, 2.1, 0.4,
-				4.3, 0.3, -1.5, 0.2});
-		Assert.assertFalse(b.checkConstrains());
-		IBoxedPDF b1 = createBoxedPDF(new Double[]{3.0, 0.1, 2.1, 0.4,
-				4.3, 0.3, 1.5, 0.3});
-		Assert.assertFalse(b1.checkConstrains());
-		IBoxedPDF b2 = createBoxedPDF(new Double[]{3.0, -0.1, 2.1, -0.4,
-				4.3, -0.3, 1.5, 0.2});
-		Assert.assertFalse(b2.checkConstrains());
+	public void getMedian() throws UnorderedDomainException,
+			DoubleSampleException {
+		Assert.assertEquals(2.55, df1.getMedian());
+		IBoxedPDF df = createBoxedPDF(new Double[]{3.0, 0.1, 2.1, 0.2, 4.3,
+				0.4, 1.5, 0.1, 1.4, 0.2});
+		Assert.assertEquals(2.1, df.getMedian());
+	}
+
+	// @Test
+	// public void checkConstraints() throws DoubleSampleException {
+	// Assert.assertTrue(df1.checkConstrains());
+	// IBoxedPDF b = createBoxedPDF(new Double[]{3.0, 0.1, 2.1, 0.4, 4.3, 0.3,
+	// -1.5, 0.2});
+	// Assert.assertFalse(b.checkConstrains());
+	// IBoxedPDF b1 = createBoxedPDF(new Double[]{3.0, 0.1, 2.1, 0.4, 4.3,
+	// 0.3, 1.5, 0.3});
+	// Assert.assertFalse(b1.checkConstrains());
+	// IBoxedPDF b2 = createBoxedPDF(new Double[]{3.0, -0.1, 2.1, -0.4, 4.3,
+	// -0.3, 1.5, 0.2});
+	// Assert.assertFalse(b2.checkConstrains());
+	// }
+
+	@Test(expected = InvalidSampleValueException.class)
+	public void checkConstraints1() throws DoubleSampleException,
+			NegativeDistanceException, ProbabilitySumNotOneException,
+			FunctionNotInTimeDomainException, UnitNotSetException,
+			UnitNameNotSetException, InvalidSampleValueException {
+		IBoxedPDF b = createBoxedPDF(new Double[]{3.0, 0.1, 2.1, 0.4, 4.3, 0.3,
+				-1.5, 0.2});
+		b.checkConstrains();
+	}
+
+	@Test(expected = ProbabilitySumNotOneException.class)
+	public void checkConstraints2() throws DoubleSampleException,
+			NegativeDistanceException, ProbabilitySumNotOneException,
+			FunctionNotInTimeDomainException, UnitNotSetException,
+			UnitNameNotSetException, InvalidSampleValueException {
+		IBoxedPDF b = createBoxedPDF(new Double[]{3.0, 0.1, 2.1, 0.4, 4.3, 0.3,
+				1.5, 0.3});
+		b.checkConstrains();
+	}
+
+	@Test(expected = UnitNotSetException.class)
+	public void checkConstraints3() throws DoubleSampleException,
+			NegativeDistanceException, ProbabilitySumNotOneException,
+			FunctionNotInTimeDomainException, UnitNotSetException,
+			UnitNameNotSetException, InvalidSampleValueException {
+		List<IContinuousSample> samples = new ArrayList<IContinuousSample>();
+		Collections.addAll(samples, dfFactory.createContinuousSample(3.0, 0.1), dfFactory
+				.createContinuousSample(2.1, 0.4), dfFactory.createContinuousSample(4.3, 0.5));
+		
+		IBoxedPDF b = dfFactory.createBoxedPDF(samples, null);
+		b.checkConstrains();
 	}
 	
 	public static junit.framework.Test suite() {

@@ -147,21 +147,21 @@ public class ProbabilityFunctionFactoryTest {
 		//
 		iProbFunc = pfFactory.transformToPMF(probFunc);
 
-		sample0 = (Sample) probFunc.getSamples().get(0);
-		assertTrue((Integer) sample0.getValue() == 1);
-		assertTrue(sample0.getProbability() == 0.1);
-		sample1 = (Sample) probFunc.getSamples().get(1);
-		assertTrue((Integer) sample1.getValue() == 2);
-		assertTrue(sample1.getProbability() == 0.3);
-		sample2 = (Sample) probFunc.getSamples().get(2);
-		assertTrue((Integer) sample2.getValue() == 3);
-		assertTrue(sample2.getProbability() == 0.5);
-		sample3 = (Sample) probFunc.getSamples().get(3);
-		assertTrue((Integer) sample3.getValue() == 4);
-		assertTrue(sample3.getProbability() == 0.1);
+		ISample s0 = iProbFunc.getSamples().get(0);
+		assertTrue((Integer) s0.getValue() == 1);
+		assertTrue(s0.getProbability() == 0.1);
+		ISample s1 = iProbFunc.getSamples().get(1);
+		assertTrue((Integer) s1.getValue() == 2);
+		assertTrue(s1.getProbability() == 0.3);
+		ISample s2 = iProbFunc.getSamples().get(2);
+		assertTrue((Integer) s2.getValue() == 3);
+		assertTrue(s2.getProbability() == 0.5);
+		ISample s3 = iProbFunc.getSamples().get(3);
+		assertTrue((Integer) s3.getValue() == 4);
+		assertTrue(s3.getProbability() == 0.1);
 
-		assertTrue(probFunc.getUnit().getUnitName().equals("sec"));
-		assertTrue(probFunc.isOrderedDomain());
+		assertTrue(iProbFunc.getUnit().getUnitName().equals("sec"));
+		assertTrue(iProbFunc.hasOrderedDomain());
 	}
 
 	@Test
@@ -290,26 +290,32 @@ public class ProbabilityFunctionFactoryTest {
 			e.printStackTrace();
 		}
 
-		sample0 = (IContinuousSample) bpdf.getSamples()
-				.get(0);
-		assertTrue(sample0.getValue() == 2.1);
-		assertTrue(sample0.getProbability() == 0.1);
-		sample1 = (IContinuousSample) bpdf.getSamples()
-				.get(1);
-		assertTrue(sample1.getValue() == 3.5);
-		assertTrue(sample1.getProbability() == 0.3);
-		sample2 = (IContinuousSample) bpdf.getSamples()
-				.get(2);
-		assertTrue(sample2.getValue() == 6.2);
-		assertTrue(sample2.getProbability() == 0.5);
-		sample3 = (IContinuousSample) bpdf.getSamples()
-				.get(3);
-		assertTrue(sample3.getValue() == 6.7);
-		assertTrue(sample3.getProbability() == 0.1);
+		ContinuousSample s0 = (ContinuousSample) ebpdf.getSamples().get(0);
+		assertTrue(s0.getValue() == 2.1);
+		assertTrue(s0.getProbability() == 0.1);
+		ContinuousSample s1 = (ContinuousSample) ebpdf.getSamples().get(1);
+		assertTrue(s1.getValue() == 3.5);
+		assertTrue(s1.getProbability() == 0.3);
+		ContinuousSample s2 = (ContinuousSample) ebpdf.getSamples().get(2);
+		assertTrue(s2.getValue() == 6.2);
+		assertTrue(s2.getProbability() == 0.5);
+		ContinuousSample s3 = (ContinuousSample) ebpdf.getSamples().get(3);
+		assertTrue(s3.getValue() == 6.7);
+		assertTrue(s3.getProbability() == 0.1);
 
-		assertTrue(bpdf.getUnit().getUnitName().equals("sec"));
+		assertTrue(ebpdf.getUnit().getUnitName().equals("sec"));
 	}
 
+	@Test
+	public void createISamplePDF() {
+		List<Double> samples = new ArrayList<Double>();
+		Collections.addAll(samples, 0.1, 0.3, 0.2, 0.2, 0.2);
+		ISamplePDF spdf = pfFactory.createSamplePDFFromDouble(0.1, samples,
+				false, getTestUnit());
+		assertTrue(!spdf.isInFrequencyDomain());
+		assertTrue(spdf.getUnit().getUnitName().equals("sec"));
+		
+	}
 	@Test
 	public void createSamplePDFFromMeasurements() {
 		List<Double> measurements = new ArrayList<Double>();

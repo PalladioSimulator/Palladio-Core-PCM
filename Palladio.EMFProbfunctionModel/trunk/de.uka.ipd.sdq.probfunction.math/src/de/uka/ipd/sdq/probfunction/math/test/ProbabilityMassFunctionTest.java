@@ -1,6 +1,7 @@
 package de.uka.ipd.sdq.probfunction.math.test;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import junit.framework.Assert;
@@ -13,6 +14,12 @@ import de.uka.ipd.sdq.probfunction.math.IProbabilityMassFunction;
 import de.uka.ipd.sdq.probfunction.math.ISample;
 import de.uka.ipd.sdq.probfunction.math.IUnit;
 import de.uka.ipd.sdq.probfunction.math.exception.DifferentDomainsException;
+import de.uka.ipd.sdq.probfunction.math.exception.FunctionNotInTimeDomainException;
+import de.uka.ipd.sdq.probfunction.math.exception.InvalidSampleValueException;
+import de.uka.ipd.sdq.probfunction.math.exception.NegativeDistanceException;
+import de.uka.ipd.sdq.probfunction.math.exception.ProbabilitySumNotOneException;
+import de.uka.ipd.sdq.probfunction.math.exception.UnitNameNotSetException;
+import de.uka.ipd.sdq.probfunction.math.exception.UnitNotSetException;
 import de.uka.ipd.sdq.probfunction.math.exception.UnorderedDomainException;
 
 public class ProbabilityMassFunctionTest {
@@ -188,6 +195,40 @@ public class ProbabilityMassFunctionTest {
 	@Test(expected = DifferentDomainsException.class)
 	public void multOrderedUnOrdered() throws DifferentDomainsException {
 		o1.add(u1);
+	}
+
+	@Test(expected = ProbabilitySumNotOneException.class)
+	public void checkConstrains1() throws NegativeDistanceException,
+			ProbabilitySumNotOneException, FunctionNotInTimeDomainException,
+			UnitNotSetException, UnitNameNotSetException,
+			InvalidSampleValueException {
+		IProbabilityMassFunction pmf = createPMF(new Object[]{0.1, 0.3, 0.2,
+				0.3, 0.3, 0.4, 0.4, 0.1}, true);
+		pmf.checkConstrains();
+	}
+
+	@Test(expected = InvalidSampleValueException.class)
+	public void checkConstrains3() throws NegativeDistanceException,
+			ProbabilitySumNotOneException, FunctionNotInTimeDomainException,
+			UnitNotSetException, UnitNameNotSetException,
+			InvalidSampleValueException {
+		IProbabilityMassFunction pmf = createPMF(new Object[]{-0.1, 0.3, 0.2,
+				0.2, 0.3, 0.4, 0.4, 0.1}, true);
+		pmf.checkConstrains();
+	}
+
+	@Test(expected = UnitNotSetException.class)
+	public void checkConstrains2() throws NegativeDistanceException,
+			ProbabilitySumNotOneException, FunctionNotInTimeDomainException,
+			UnitNotSetException, UnitNameNotSetException,
+			InvalidSampleValueException {
+		List<ISample> samples = new ArrayList<ISample>();
+		Collections.addAll(samples, dfFactory.createSample(0.1, 0.3), dfFactory
+				.createSample(0.2, 0.2), dfFactory.createSample(0.3, 0.4),
+				dfFactory.createSample(0.4, 0.1));
+		IProbabilityMassFunction pmf = dfFactory.createProbabilityMassFunction(
+				samples, null, true);
+		pmf.checkConstrains();
 	}
 
 	private IProbabilityFunctionFactory dfFactory = IProbabilityFunctionFactory.eINSTANCE;
