@@ -10,12 +10,9 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 
-import javax.swing.Box;
-
 import de.uka.ipd.sdq.probfunction.math.IBoxedPDF;
 import de.uka.ipd.sdq.probfunction.math.IContinuousSample;
 import de.uka.ipd.sdq.probfunction.math.IProbabilityDensityFunction;
-import de.uka.ipd.sdq.probfunction.math.IProbabilityMassFunction;
 import de.uka.ipd.sdq.probfunction.math.IRandomGenerator;
 import de.uka.ipd.sdq.probfunction.math.ISamplePDF;
 import de.uka.ipd.sdq.probfunction.math.IUnit;
@@ -25,6 +22,10 @@ import de.uka.ipd.sdq.probfunction.math.exception.FunctionNotInFrequencyDomainEx
 import de.uka.ipd.sdq.probfunction.math.exception.FunctionNotInTimeDomainException;
 import de.uka.ipd.sdq.probfunction.math.exception.FunctionsInDifferenDomainsException;
 import de.uka.ipd.sdq.probfunction.math.exception.IncompatibleUnitsException;
+import de.uka.ipd.sdq.probfunction.math.exception.InvalidSampleValueException;
+import de.uka.ipd.sdq.probfunction.math.exception.ProbabilitySumNotOneException;
+import de.uka.ipd.sdq.probfunction.math.exception.UnitNameNotSetException;
+import de.uka.ipd.sdq.probfunction.math.exception.UnitNotSetException;
 import de.uka.ipd.sdq.probfunction.math.exception.UnknownPDFTypeException;
 import de.uka.ipd.sdq.probfunction.math.exception.UnorderedDomainException;
 import de.uka.ipd.sdq.probfunction.math.util.Line;
@@ -47,7 +48,7 @@ public class BoxedPDFImpl extends ProbabilityDensityFunctionImpl
 	protected BoxedPDFImpl(IUnit unit, IRandomGenerator generator) {
 		super(unit, false);
 		this.randomGenerator = generator;
-		samples = new ArrayList<IContinuousSample>();		
+		samples = new ArrayList<IContinuousSample>();
 	}
 
 	public IProbabilityDensityFunction add(IProbabilityDensityFunction pdf)
@@ -116,31 +117,31 @@ public class BoxedPDFImpl extends ProbabilityDensityFunctionImpl
 		return sPDF.div(pdf);
 	}
 
-	private void initDrawSampleDataStructures()
-	{
+	private void initDrawSampleDataStructures() {
 		initPartedIntervals();
 		initPartedLines();
 	}
-	
+
 	private List<Double> partedIntervals = null;
 	private void initPartedIntervals() {
 		// StB: getValues() ---> getProbabilities gefixt
-		partedIntervals = MathTools.computeCumulativeProbabilities(getProbabilities());
+		partedIntervals = MathTools
+				.computeCumulativeProbabilities(getProbabilities());
 	}
-	
+
 	private HashMap<Double, Line> lines = null;
-	private void initPartedLines()
-	{
+	private void initPartedLines() {
 		lines = MathTools.computeLines(samples, partedIntervals);
 	}
-	
+
 	public double drawSample() {
 		double random = randomGenerator.random();
 		for (Double currentInterval : partedIntervals)
 			if (random < currentInterval) {
 				return lines.get(currentInterval).getX(random);
 			}
-		throw new RuntimeException("No interval found for probability. This should never happen!");
+		throw new RuntimeException(
+				"No interval found for probability. This should never happen!");
 	}
 
 	public IProbabilityDensityFunction getFourierTransform()
@@ -236,24 +237,23 @@ public class BoxedPDFImpl extends ProbabilityDensityFunctionImpl
 		return set.size() != samples.size();
 	}
 
-	public boolean checkConstrains() {
+	public void checkConstrains() throws InvalidSampleValueException,
+			UnitNameNotSetException, UnitNotSetException,
+			ProbabilitySumNotOneException {
 		if (!MathTools.equalsDouble(getProbabilitySum(), 1.0))
-			return false;
+			throw new ProbabilitySumNotOneException();
 
-		if (getUnit() == null || getUnit().getUnitName() == null)
-			return false;
+		if (getUnit() == null)
+			throw new UnitNotSetException();
+		if (getUnit().getUnitName() == null)
+			throw new UnitNameNotSetException();
 
-		boolean result = true;
 		for (IContinuousSample s : samples) {
-			if (s == null)
-				return false;
-			result = result && (s.getValue() >= 0.0);
-			result = result && (s.getProbability() >= 0.0)
-					&& (s.getProbability() <= 1.0);
+			if (s == null || s.getValue() >= 0.0 || s.getProbability() >= 0.0
+					|| s.getProbability() <= 1.0)
+				throw new InvalidSampleValueException();
 		}
-		return result;
 	}
-
 	public IProbabilityDensityFunction getCumulativeFunction() {
 		List<Double> cumulativeProbabilities = MathTools
 				.computeCumulativeProbabilities(getProbabilities());
@@ -262,7 +262,8 @@ public class BoxedPDFImpl extends ProbabilityDensityFunctionImpl
 		for (int i = 0; i < cumulativeProbabilities.size(); i++) {
 			double value = samples.get(i).getValue();
 			double cumulativeProb = cumulativeProbabilities.get(i);
-			IContinuousSample sample = pfFactory.createContinuousSample( value, cumulativeProb); 
+			IContinuousSample sample = pfFactory.createContinuousSample(value,
+					cumulativeProb);
 			cdfSamples.add(sample);
 		}
 
@@ -314,8 +315,9 @@ public class BoxedPDFImpl extends ProbabilityDensityFunctionImpl
 
 	public IProbabilityDensityFunction stretchDomain(double scalar) {
 		List<IContinuousSample> newSamples = new ArrayList<IContinuousSample>();
-		for (IContinuousSample oldSample : samples){
-			newSamples.add(pfFactory.createContinuousSample(oldSample.getValue()
+		for (IContinuousSample oldSample : samples) {
+			newSamples.add(pfFactory.createContinuousSample(oldSample
+					.getValue()
 					* scalar, oldSample.getProbability()));
 		}
 
@@ -329,7 +331,8 @@ public class BoxedPDFImpl extends ProbabilityDensityFunctionImpl
 		return result;
 	}
 
-	public IProbabilityDensityFunction shiftDomain(double scalar) throws DomainNotNumbersException {
+	public IProbabilityDensityFunction shiftDomain(double scalar)
+			throws DomainNotNumbersException {
 		// TODO Auto-generated method stub
 		return null;
 	}
