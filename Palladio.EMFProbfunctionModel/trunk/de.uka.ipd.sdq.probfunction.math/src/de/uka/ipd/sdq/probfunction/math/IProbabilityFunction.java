@@ -2,6 +2,11 @@ package de.uka.ipd.sdq.probfunction.math;
 
 import de.uka.ipd.sdq.probfunction.math.exception.DomainNotNumbersException;
 import de.uka.ipd.sdq.probfunction.math.exception.FunctionNotInTimeDomainException;
+import de.uka.ipd.sdq.probfunction.math.exception.InvalidSampleValueException;
+import de.uka.ipd.sdq.probfunction.math.exception.NegativeDistanceException;
+import de.uka.ipd.sdq.probfunction.math.exception.ProbabilitySumNotOneException;
+import de.uka.ipd.sdq.probfunction.math.exception.UnitNameNotSetException;
+import de.uka.ipd.sdq.probfunction.math.exception.UnitNotSetException;
 import de.uka.ipd.sdq.probfunction.math.exception.UnorderedDomainException;
 
 /**
@@ -31,9 +36,10 @@ public interface IProbabilityFunction {
 	 * 
 	 * @return The arithmetic mean.
 	 * @throws DomainNotNumbersException
-	 * @throws FunctionNotInTimeDomainException 
+	 * @throws FunctionNotInTimeDomainException
 	 */
-	double getArithmeticMeanValue() throws DomainNotNumbersException, FunctionNotInTimeDomainException;
+	double getArithmeticMeanValue() throws DomainNotNumbersException,
+			FunctionNotInTimeDomainException;
 
 	/**
 	 * In descriptive statistics, the 'p'th percentile is a scale value for a
@@ -60,7 +66,7 @@ public interface IProbabilityFunction {
 	 * this is the area under the graph; for pmfs the sum of all probabilities.
 	 * 
 	 * @return Sum of all probabilities in the function.
-	 * @throws FunctionNotInTimeDomainException 
+	 * @throws FunctionNotInTimeDomainException
 	 */
 	double getProbabilitySum() throws FunctionNotInTimeDomainException;
 
@@ -97,14 +103,22 @@ public interface IProbabilityFunction {
 	 * @return True, if the domain is ordered.
 	 */
 	boolean hasOrderedDomain();
-	
+
 	/**
-	 * checks whether the following constraints are fulfilled :
-	 *   the sum of all probabilities is one.
-	 *   all values are greater or equal 0. 
+	 * checks whether the following constraints are fulfilled : the sum of all
+	 * probabilities is one. all values are greater or equal 0.
 	 * 
 	 * @return True, if all constraints are fulfilled
+	 * @throws NegativeDistanceException
+	 * @throws ProbabilitySumNotOneException
+	 * @throws FunctionNotInTimeDomainException
+	 * @throws UnitNotSetException
+	 * @throws UnitNameNotSetException 
+	 * @throws InvalidSampleValueException 
 	 */
-	boolean checkConstrains();
+	void checkConstrains() throws NegativeDistanceException,
+			ProbabilitySumNotOneException, FunctionNotInTimeDomainException,
+			UnitNotSetException, UnitNameNotSetException,
+			InvalidSampleValueException;
 
 }
