@@ -20,6 +20,9 @@ import org.eclipse.swt.widgets.Text;
 import org.eclipse.ui.actions.ImportResourcesAction;
 import org.eclipse.core.filesystem.*;
 import org.eclipse.core.resources.*;
+import org.eclipse.core.runtime.CoreException;
+
+import sun.misc.InvalidJarIndexException;
 /**
  * @author admin
  * 
@@ -37,10 +40,10 @@ public class ModelsFileNameInputTab extends AbstractLaunchConfigurationTab {
 	 * TODO
 	 * The default value for the 'width' attribute.
 	 */
-	//public static String REPOSITORY_FILE;
-	//public static String SYSTEM_FILE;
-	//public static String ALLOCATION_FILE;
-	//public static String USAGE_FILE;
+	private String repositoryFile 	= "REPOSITORY_FILE";
+	private String systemFile 		= "SYSTEM_FILE";
+	private String allocationFile 	= "ALLOCATION_FILE";
+	private String usageFile 		= "USAGE_FILE";
 	
 
 	//The default value for the button Name.
@@ -67,9 +70,7 @@ public class ModelsFileNameInputTab extends AbstractLaunchConfigurationTab {
 	
 
 
-	/*
-	 * (non-Javadoc)
-	 * 
+	/* (non-Javadoc)
 	 * @see org.eclipse.debug.ui.ILaunchConfigurationTab#createControl(org.eclipse.swt.widgets.Composite)
 	 */
 	public void createControl(Composite parent) {
@@ -96,9 +97,7 @@ public class ModelsFileNameInputTab extends AbstractLaunchConfigurationTab {
 				SWT.NONE);
 		buttonRepository.setText(BUTTON_NAME);
 		buttonRepository.addSelectionListener(new SelectionAdapter() {
-			/*
-			 * (non-Javadoc)
-			 * 
+			/* (non-Javadoc)
 			 * @see org.eclipse.swt.events.SelectionAdapter#widgetSelected(org.eclipse.swt.events.SelectionEvent)
 			 */
 			@Override
@@ -123,9 +122,7 @@ public class ModelsFileNameInputTab extends AbstractLaunchConfigurationTab {
 		final Button buttonSystem = new Button(systemFileGroup, SWT.NONE);
 		buttonSystem.setText(BUTTON_NAME);
 		buttonSystem.addSelectionListener(new SelectionAdapter() {
-			/*
-			 * (non-Javadoc)
-			 * 
+			/* (non-Javadoc)
 			 * @see org.eclipse.swt.events.SelectionAdapter#widgetSelected(org.eclipse.swt.events.SelectionEvent)
 			 */
 			@Override
@@ -152,9 +149,7 @@ public class ModelsFileNameInputTab extends AbstractLaunchConfigurationTab {
 				SWT.NONE);
 		buttonAllocation.setText(BUTTON_NAME);
 		buttonAllocation.addSelectionListener(new SelectionAdapter() {
-			/*
-			 * (non-Javadoc)
-			 * 
+			/* (non-Javadoc)
 			 * @see org.eclipse.swt.events.SelectionAdapter#widgetSelected(org.eclipse.swt.events.SelectionEvent)
 			 */
 			@Override
@@ -178,9 +173,7 @@ public class ModelsFileNameInputTab extends AbstractLaunchConfigurationTab {
 		final Button buttonUsage = new Button(usageFileGroup, SWT.NONE);
 		buttonUsage.setText(BUTTON_NAME);
 		buttonUsage.addSelectionListener(new SelectionAdapter() {
-			/*
-			 * (non-Javadoc)
-			 * 
+			/* (non-Javadoc)
 			 * @see org.eclipse.swt.events.SelectionAdapter#widgetSelected(org.eclipse.swt.events.SelectionEvent)
 			 */
 			@Override
@@ -191,31 +184,43 @@ public class ModelsFileNameInputTab extends AbstractLaunchConfigurationTab {
 
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
+	/* (non-Javadoc)
 	 * @see org.eclipse.debug.ui.ILaunchConfigurationTab#getName()
 	 */
 	public String getName() {
 		return "Models file";
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
+	/* (non-Javadoc)
 	 * @see org.eclipse.debug.ui.ILaunchConfigurationTab#initializeFrom(org.eclipse.debug.core.ILaunchConfiguration)
 	 */
 	public void initializeFrom(ILaunchConfiguration configuration) {
-		// TODO Auto-generated method stub
-		/*textAllocation.setText("");
-		textRepository.setText("");
-		textSystem.setText("");
-		textUsage.setText("");*/
+		try {
+			textAllocation.setText(configuration.getAttribute(allocationFile, ""));
+		} catch (CoreException e) {
+			textAllocation.setText("CoreException e -> ALLOCATION_FILE");
+		}
+		
+		try {
+			textRepository.setText(configuration.getAttribute(repositoryFile, ""));
+		} catch (CoreException e) {
+			textRepository.setText("CoreException e -> REPOSITORY_FILE");
+		}
+		
+		try {
+			textSystem.setText(configuration.getAttribute(systemFile, ""));
+		} catch (CoreException e) {
+			textSystem.setText("CoreException e -> SYSTEM_FILE");
+		}
+		
+		try {
+			textUsage.setText(configuration.getAttribute(usageFile, ""));
+		} catch (CoreException e) {
+			textUsage.setText("CoreException e -> USAGE_FILE");
+		}
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
+	/* (non-Javadoc)
 	 * @see org.eclipse.debug.ui.ILaunchConfigurationTab#performApply(org.eclipse.debug.core.ILaunchConfigurationWorkingCopy)
 	 */
 	public void performApply(ILaunchConfigurationWorkingCopy configuration) {
@@ -225,23 +230,32 @@ public class ModelsFileNameInputTab extends AbstractLaunchConfigurationTab {
 	//	System.err.println(project.getFullPath().toString());
 		
 		
-		// TODO Entscheiden, wo müssen die Attribute gespeichert werden!!!
-		/*configuration.setAttribute(REPOSITORY_FILE, textRepository.getText());
-		configuration.setAttribute(SYSTEM_FILE, textSystem.getText());
-		configuration.setAttribute(ALLOCATION_FILE, textAllocation.getText());
-		configuration.setAttribute(USAGE_FILE, textUsage.getText());*/
+		configuration.setAttribute(repositoryFile, textRepository.getText());
+		configuration.setAttribute(systemFile, textSystem.getText());
+		configuration.setAttribute(allocationFile, textAllocation.getText());
+		configuration.setAttribute(usageFile, textUsage.getText());
 
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
+	/* (non-Javadoc)
 	 * @see org.eclipse.debug.ui.ILaunchConfigurationTab#setDefaults(org.eclipse.debug.core.ILaunchConfigurationWorkingCopy)
 	 */
 	public void setDefaults(ILaunchConfigurationWorkingCopy configuration) {
 		// TODO Auto-generated method stub
 
 	}
+	
+	/*@Override
+	public boolean isValid(ILaunchConfiguration launchConfig) {
+		// TODO Auto-generated method stub
+		return true;
+	}*/
+	
+	/*@Override
+	public boolean canSave() {
+		// TODO Auto-generated method stub
+		return true;
+	}*/
 	/**
 	 * The function calls the FileDialog and give back absolute path on the file as String
 	 * 

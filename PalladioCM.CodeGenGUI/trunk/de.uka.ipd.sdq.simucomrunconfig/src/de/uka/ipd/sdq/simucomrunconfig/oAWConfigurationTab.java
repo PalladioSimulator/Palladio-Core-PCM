@@ -1,9 +1,9 @@
 package de.uka.ipd.sdq.simucomrunconfig;
 
+import org.eclipse.core.runtime.CoreException;
 import org.eclipse.debug.core.ILaunchConfiguration;
 import org.eclipse.debug.core.ILaunchConfigurationWorkingCopy;
 import org.eclipse.debug.ui.AbstractLaunchConfigurationTab;
-import org.eclipse.jface.resource.ResourceManager;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
@@ -24,9 +24,7 @@ import org.eclipse.swt.widgets.Text;
  */
 public class oAWConfigurationTab extends AbstractLaunchConfigurationTab {
 
-	/*
-	 * (non-Javadoc)
-	 * 
+	/* (non-Javadoc)
 	 * @see org.eclipse.debug.ui.AbstractLaunchConfigurationTab#getImage()
 	 */
 	@Override
@@ -35,21 +33,21 @@ public class oAWConfigurationTab extends AbstractLaunchConfigurationTab {
 	}
 
 	/**
+	 * TODO
+	 */
+	private String GENERATE_PLUGIN_PATH = "${workspace_loc}/de.uka.ipd.sdq.codegen.test";
+	private String outputPath = "OUTPUT_PATH";
+	/**
 	 * The default value for the 'height' Layout attribute.
 	 */
 	private final int LAYOUT_WIDTH = 554;
 
-	private Text outputPath;
-
+	private Text outputPathField;
 	private Label locationLabel;
-
 	private Button workspaceButton;
-
 	private Button fileSystemButton;
 
-	/*
-	 * (non-Javadoc)
-	 * 
+	/* (non-Javadoc)
 	 * @see org.eclipse.debug.ui.ILaunchConfigurationTab#createControl(org.eclipse.swt.widgets.Composite)
 	 */
 	public void createControl(Composite parent) {
@@ -74,16 +72,14 @@ public class oAWConfigurationTab extends AbstractLaunchConfigurationTab {
 		defaultLocationButton.setSelection(true);
 		defaultLocationButton.addSelectionListener(new SelectionAdapter() {
 
-			/*
-			 * (non-Javadoc)
-			 * 
+			/* (non-Javadoc)
 			 * @see org.eclipse.swt.events.SelectionAdapter#widgetSelected(org.eclipse.swt.events.SelectionEvent)
 			 */
 			@Override
 			public void widgetSelected(SelectionEvent e) {
 				setEnabled(false);
-				outputPath
-						.setText(ResourceManagerTab.getGeneretePluginPath());
+				outputPathField
+						.setText(GENERATE_PLUGIN_PATH);
 
 				if (!defaultLocationButton.getSelection())
 					setEnabled(true);
@@ -95,12 +91,12 @@ public class oAWConfigurationTab extends AbstractLaunchConfigurationTab {
 		locationLabel.setLayoutData(new GridData(48, SWT.DEFAULT));
 		locationLabel.setText("Location:");
 
-		outputPath = new Text(outputPathGroup, SWT.BORDER);
+		outputPathField = new Text(outputPathGroup, SWT.BORDER);
 		final GridData gridData = new GridData(SWT.FILL, SWT.CENTER, true,
 				false, 2, 1);
 		gridData.widthHint = 456;
-		outputPath.setLayoutData(gridData);
-		outputPath.setText(ResourceManagerTab.getGeneretePluginPath());
+		outputPathField.setLayoutData(gridData);
+		outputPathField.setText(GENERATE_PLUGIN_PATH);
 		new Label(outputPathGroup, SWT.NONE);
 
 		workspaceButton = new Button(outputPathGroup, SWT.NONE);
@@ -112,15 +108,13 @@ public class oAWConfigurationTab extends AbstractLaunchConfigurationTab {
 		fileSystemButton.setLayoutData(new GridData());
 		fileSystemButton.setText("File System...");
 		fileSystemButton.addSelectionListener(new SelectionAdapter() {
-			/*
-			 * (non-Javadoc)
-			 * 
+			/* (non-Javadoc)
 			 * @see org.eclipse.swt.events.SelectionAdapter#widgetSelected(org.eclipse.swt.events.SelectionEvent)
 			 */
 			@Override
 			public void widgetSelected(SelectionEvent e) {
 				String pluginPath = openDirectoryDialog(e);
-				outputPath.setText(pluginPath);
+				outputPathField.setText(pluginPath);
 				ResourceManagerTab.setGeneretePluginPath(pluginPath);
 			}
 		});
@@ -137,49 +131,40 @@ public class oAWConfigurationTab extends AbstractLaunchConfigurationTab {
 	 */
 	private void setEnabled(Boolean enable) {
 		locationLabel.setEnabled(enable);
-		outputPath.setEnabled(enable);
+		outputPathField.setEnabled(enable);
 		workspaceButton.setEnabled(enable);
 		fileSystemButton.setEnabled(enable);
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
+	/* (non-Javadoc)
 	 * @see org.eclipse.debug.ui.ILaunchConfigurationTab#getName()
 	 */
 	public String getName() {
-		// TODO Auto-generated method stub
 		return "Configuration";
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
+	/* (non-Javadoc)
 	 * @see org.eclipse.debug.ui.ILaunchConfigurationTab#initializeFrom(org.eclipse.debug.core.ILaunchConfiguration)
 	 */
 	public void initializeFrom(ILaunchConfiguration configuration) {
-		// TODO Auto-generated method stub
-
+		try {
+			outputPathField.setText(configuration.getAttribute(outputPath, GENERATE_PLUGIN_PATH));
+		} catch (CoreException e) {
+			outputPathField.setText("CoreException e -> " + outputPath);
+		}
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
+	/* (non-Javadoc)
 	 * @see org.eclipse.debug.ui.ILaunchConfigurationTab#performApply(org.eclipse.debug.core.ILaunchConfigurationWorkingCopy)
 	 */
 	public void performApply(ILaunchConfigurationWorkingCopy configuration) {
-		// TODO Auto-generated method stub
-
+		configuration.setAttribute(outputPath, outputPathField.getText());
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
+	/* (non-Javadoc)
 	 * @see org.eclipse.debug.ui.ILaunchConfigurationTab#setDefaults(org.eclipse.debug.core.ILaunchConfigurationWorkingCopy)
 	 */
 	public void setDefaults(ILaunchConfigurationWorkingCopy configuration) {
-		// TODO Auto-generated method stub
-
 	}
 
 	/**

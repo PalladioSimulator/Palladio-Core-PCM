@@ -16,7 +16,7 @@ public class ResourceManagerTab {
 	/**
 	 * TODO
 	 */
-	private static String GENERATE_PLUGIN_PATH = "${workspace_loc}/de.uka.ipd.sdq.codegen.test";
+	private static String GENERATE_PLUGIN_PATH;
 
 	/**
 	 * Names of images used to represent actions in ToolBar

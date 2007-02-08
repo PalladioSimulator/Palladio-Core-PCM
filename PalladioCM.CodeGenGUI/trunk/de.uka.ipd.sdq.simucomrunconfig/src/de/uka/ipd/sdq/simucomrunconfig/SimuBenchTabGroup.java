@@ -8,7 +8,7 @@ import org.eclipse.debug.ui.ILaunchConfigurationTab;
  * @author roman
  *
  */
-public class SimuComTabGroup extends AbstractLaunchConfigurationTabGroup {
+public class SimuBenchTabGroup extends AbstractLaunchConfigurationTabGroup {
 
 	/* (non-Javadoc)
 	 * @see org.eclipse.debug.ui.ILaunchConfigurationTabGroup#createTabs(org.eclipse.debug.ui.ILaunchConfigurationDialog, java.lang.String)

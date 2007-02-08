@@ -8,7 +8,7 @@ import org.eclipse.ui.IEditorPart;
  * @author roman
  *
  */
-public class SimuComLaunchShortcut implements ILaunchShortcut {
+public class SimuBenchLaunchShortcut implements ILaunchShortcut {
 
 	/* (non-Javadoc)
 	 * @see org.eclipse.debug.ui.ILaunchShortcut#launch(org.eclipse.jface.viewers.ISelection, java.lang.String)
