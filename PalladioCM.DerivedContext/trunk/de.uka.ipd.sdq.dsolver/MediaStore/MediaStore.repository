@@ -88,7 +88,7 @@
     <serviceEffectSpecifications__BasicComponent xsi:type="pcm.seff:ResourceDemandingSEFF" id="_K6uFoqYqEdunyPSYvCWVNg" describedService__SEFF="//@interfaces__Repository.2/@signatures__Interface.0">
       <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_LOPekaYqEdunyPSYvCWVNg" successor_AbstractAction="_Lt09lKYqEdunyPSYvCWVNg"/>
       <steps_Behaviour xsi:type="pcm.seff:InternalAction" id="_Lt09lKYqEdunyPSYvCWVNg" predecessor_AbstractAction="_LOPekaYqEdunyPSYvCWVNg" successor_AbstractAction="_M_VoyqYqEdunyPSYvCWVNg">
-        <resourceDemand_Action specification="DoublePDF(unit=&quot;unit&quot;)[ (0.0; 0.0) (1.0; 0.02836114450589084) (2.0; 0.04664582832411637) (3.0; 0.10387112286607357) (4.0; 0.1606155325799471) (5.0; 0.20389516710747776) (6.0; 0.18826641019475834) (7.0; 0.11372926184178889) (8.0; 0.06852608800192354) (9.0; 0.02933397451310411) (10.0; 0.017311853811012263) (11.0; 0.009377254147631643) (12.0; 0.030055301755229618) ] * 0.0050" unit="s">
+        <resourceDemand_Action specification="IntPMF(unit=&quot;unit&quot;)[ (1; 0.02836114450589084) (2; 0.04664582832411637) (3; 0.10387112286607357) (4; 0.1606155325799471) (5; 0.20389516710747776) (6; 0.18826641019475834) (7; 0.11372926184178889) (8; 0.06852608800192354) (9; 0.02933397451310411) (10; 0.017311853811012263) (11; 0.009377254147631643) (12; 0.030055301755229618) ] * 0.0050" unit="s">
           <requiredResource_ParametricResourceDemand href="MediaStore.resourcetype#_9-JuEaYUEduWZfldHy3B1Q"/>
         </resourceDemand_Action>
       </steps_Behaviour>
@@ -152,13 +152,25 @@
   <components__Repository xsi:type="pcm.repository:BasicComponent" id="_a5a906YFEduWZfldHy3B1Q" entityName="AudioDB">
     <providedRoles_InterfaceProvidingEntity id="_anzWcKYSEduWZfldHy3B1Q" providedInterface__ProvidedRole="_Wf-b66YGEduWZfldHy3B1Q"/>
     <serviceEffectSpecifications__BasicComponent xsi:type="pcm.seff:ResourceDemandingSEFF" id="_Z_JD9KYmEdunyPSYvCWVNg" describedService__SEFF="//@interfaces__Repository.4/@signatures__Interface.0">
-      <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_-4UdAKYkEduWZfldHy3B1Q" successor_AbstractAction="__fg_4KYkEduWZfldHy3B1Q"/>
-      <steps_Behaviour xsi:type="pcm.seff:InternalAction" id="__fg_4KYkEduWZfldHy3B1Q" entityName="SelectFiles" predecessor_AbstractAction="_-4UdAKYkEduWZfldHy3B1Q" successor_AbstractAction="_0M-W2qYzEdudtvdezBq5JQ">
-        <resourceDemand_Action specification="( ( DoublePDF(unit=&quot;unit&quot;)[ (0.0; 0.0) (1.0; 0.02836114450589084) (2.0; 0.04664582832411637) (3.0; 0.10387112286607357) (4.0; 0.1606155325799471) (5.0; 0.20389516710747776) (6.0; 0.18826641019475834) (7.0; 0.11372926184178889) (8.0; 0.06852608800192354) (9.0; 0.02933397451310411) (10.0; 0.017311853811012263) (11.0; 0.009377254147631643) (12.0; 0.030055301755229618) ] * 0.04 + 0.08 ) * 14 ) + 1.6" unit="s">
+      <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_-4UdAKYkEduWZfldHy3B1Q" successor_AbstractAction="_XztR5LuBEdudN7w1caiLFg"/>
+      <steps_Behaviour xsi:type="pcm.seff:InternalAction" id="_XztR5LuBEdudN7w1caiLFg" entityName="queryDB" predecessor_AbstractAction="_-4UdAKYkEduWZfldHy3B1Q" successor_AbstractAction="_fNuMY7uBEdudN7w1caiLFg">
+        <resourceDemand_Action specification="0.4" unit="s">
           <requiredResource_ParametricResourceDemand href="MediaStore.resourcetype#_AtY7gaYVEduWZfldHy3B1Q"/>
         </resourceDemand_Action>
       </steps_Behaviour>
-      <steps_Behaviour xsi:type="pcm.seff:SetVariableAction" id="_0M-W2qYzEdudtvdezBq5JQ" predecessor_AbstractAction="__fg_4KYkEduWZfldHy3B1Q" successor_AbstractAction="_D27uSqY0EdudtvdezBq5JQ">
+      <steps_Behaviour xsi:type="pcm.seff:LoopAction" id="_fNuMY7uBEdudN7w1caiLFg" entityName="getterLoop" predecessor_AbstractAction="_XztR5LuBEdudN7w1caiLFg" successor_AbstractAction="_0M-W2qYzEdudtvdezBq5JQ">
+        <bodyBehaviour_Loop>
+          <steps_Behaviour xsi:type="pcm.seff:InternalAction" id="__fg_4KYkEduWZfldHy3B1Q" entityName="SelectFiles" predecessor_AbstractAction="_lnM28buBEdudN7w1caiLFg" successor_AbstractAction="_l_CvMLuBEdudN7w1caiLFg">
+            <resourceDemand_Action specification="StoredFiles.INNER.BYTESIZE * 0.04 + 0.08 + DoublePMF(unit=&quot;s&quot;)[ (0.0; 0.9) (0.5; 0.1) ]" unit="s">
+              <requiredResource_ParametricResourceDemand href="MediaStore.resourcetype#_AtY7gaYVEduWZfldHy3B1Q"/>
+            </resourceDemand_Action>
+          </steps_Behaviour>
+          <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_lnM28buBEdudN7w1caiLFg" successor_AbstractAction="__fg_4KYkEduWZfldHy3B1Q"/>
+          <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_l_CvMLuBEdudN7w1caiLFg" predecessor_AbstractAction="__fg_4KYkEduWZfldHy3B1Q"/>
+        </bodyBehaviour_Loop>
+        <iterations_LoopAction specification="desiredFiles.NUMBER_OF_ELEMENTS"/>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="pcm.seff:SetVariableAction" id="_0M-W2qYzEdudtvdezBq5JQ" predecessor_AbstractAction="_fNuMY7uBEdudN7w1caiLFg" successor_AbstractAction="_D27uSqY0EdudtvdezBq5JQ">
         <variableUsage_SetVariableAction>
           <variableCharacterisation_VariableUsage specification="desiredFiles.NUMBER_OF_ELEMENTS" type="NUMBER_OF_ELEMENTS"/>
           <namedReference_VariableUsage xsi:type="stoex:NamespaceReference" referenceName="getFiles">
@@ -183,7 +195,7 @@
       <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="StoredFiles"/>
     </internalVariables_BasicComponent>
     <internalVariables_BasicComponent>
-      <variableCharacterisation_VariableUsage specification="IntPMF(unit=&quot;unit&quot;)[ (4000; 0.7) (4500; 0.2) (5000; 0.1) ]" type="BYTESIZE"/>
+      <variableCharacterisation_VariableUsage specification="IntPMF(unit=&quot;unit&quot;)[ (0; 0.0060110603510459245) (1; 0.02236114450589084) (2; 0.04664582832411637) (3; 0.10387112286607357) (4; 0.1606155325799471) (5; 0.20389516710747776) (6; 0.18826641019475834) (7; 0.11372926184178889) (8; 0.06852608800192354) (9; 0.02933397451310411) (10; 0.017311853811012263) (11; 0.009377254147631643) (12; 0.008896369319547967) (13; 0.004327963452753066) (14; 0.005049290694878576) (15; 0.0019235393123346958) (16; 0.002163981726376533) (17; 0.0012022120702091848) ]" type="BYTESIZE"/>
       <namedReference_VariableUsage xsi:type="stoex:NamespaceReference" referenceName="StoredFiles">
         <innerReference_NamespaceReference xsi:type="stoex:VariableReference" referenceName="INNER"/>
       </namedReference_VariableUsage>
