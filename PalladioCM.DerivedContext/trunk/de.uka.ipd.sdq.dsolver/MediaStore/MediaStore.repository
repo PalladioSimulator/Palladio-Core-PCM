@@ -13,10 +13,10 @@
       </steps_Behaviour>
       <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_ggYrsKYYEduWZfldHy3B1Q" predecessor_AbstractAction="_ftICxqYYEduWZfldHy3B1Q"/>
     </serviceEffectSpecifications__BasicComponent>
-    <serviceEffectSpecifications__BasicComponent xsi:type="pcm.seff:ResourceDemandingSEFF" id="_oBuaQqx7EduuZPZbSE9EpQ" seffTypeID="" describedService__SEFF="//@interfaces__Repository.0/@signatures__Interface.1">
+    <serviceEffectSpecifications__BasicComponent xsi:type="pcm.seff:ResourceDemandingSEFF" id="_oBuaQqx7EduuZPZbSE9EpQ" seffTypeID="">
       <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_r6bKIax7EduuZPZbSE9EpQ" entityName="" successor_AbstractAction="_sn4GBqx7EduuZPZbSE9EpQ"/>
       <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_sUzZAKx7EduuZPZbSE9EpQ" predecessor_AbstractAction="_sn4GBqx7EduuZPZbSE9EpQ"/>
-      <steps_Behaviour xsi:type="pcm.seff:ExternalCallAction" id="_sn4GBqx7EduuZPZbSE9EpQ" entityName="mediastore.queryAndGetFromDB" predecessor_AbstractAction="_r6bKIax7EduuZPZbSE9EpQ" successor_AbstractAction="_sUzZAKx7EduuZPZbSE9EpQ" calledService_ExternalService="//@interfaces__Repository.1/@signatures__Interface.1"/>
+      <steps_Behaviour xsi:type="pcm.seff:ExternalCallAction" id="_sn4GBqx7EduuZPZbSE9EpQ" entityName="mediastore.queryAndGetFromDB" predecessor_AbstractAction="_r6bKIax7EduuZPZbSE9EpQ" successor_AbstractAction="_sUzZAKx7EduuZPZbSE9EpQ"/>
     </serviceEffectSpecifications__BasicComponent>
   </components__Repository>
   <components__Repository xsi:type="pcm.repository:BasicComponent" id="_USFdc6YFEduWZfldHy3B1Q" entityName="MediaStore">
@@ -77,9 +77,9 @@
       </steps_Behaviour>
       <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_IpM-sKYZEduWZfldHy3B1Q" predecessor_AbstractAction="_8cIxqqYoEdunyPSYvCWVNg"/>
     </serviceEffectSpecifications__BasicComponent>
-    <serviceEffectSpecifications__BasicComponent xsi:type="pcm.seff:ResourceDemandingSEFF" id="_4lpfkqx7EduuZPZbSE9EpQ" describedService__SEFF="//@interfaces__Repository.3/@signatures__Interface.1">
+    <serviceEffectSpecifications__BasicComponent xsi:type="pcm.seff:ResourceDemandingSEFF" id="_4lpfkqx7EduuZPZbSE9EpQ">
       <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_42fX8ax7EduuZPZbSE9EpQ" successor_AbstractAction="_5sucZqx7EduuZPZbSE9EpQ"/>
-      <steps_Behaviour xsi:type="pcm.seff:ExternalCallAction" id="_5sucZqx7EduuZPZbSE9EpQ" entityName="audiodb.queryAndGetFromDB" predecessor_AbstractAction="_42fX8ax7EduuZPZbSE9EpQ" successor_AbstractAction="_6KhysKx7EduuZPZbSE9EpQ" calledService_ExternalService="//@interfaces__Repository.3/@signatures__Interface.1"/>
+      <steps_Behaviour xsi:type="pcm.seff:ExternalCallAction" id="_5sucZqx7EduuZPZbSE9EpQ" entityName="audiodb.queryAndGetFromDB" predecessor_AbstractAction="_42fX8ax7EduuZPZbSE9EpQ" successor_AbstractAction="_6KhysKx7EduuZPZbSE9EpQ"/>
       <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_6KhysKx7EduuZPZbSE9EpQ" predecessor_AbstractAction="_5sucZqx7EduuZPZbSE9EpQ"/>
     </serviceEffectSpecifications__BasicComponent>
   </components__Repository>
@@ -88,7 +88,7 @@
     <serviceEffectSpecifications__BasicComponent xsi:type="pcm.seff:ResourceDemandingSEFF" id="_K6uFoqYqEdunyPSYvCWVNg" describedService__SEFF="//@interfaces__Repository.2/@signatures__Interface.0">
       <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_LOPekaYqEdunyPSYvCWVNg" successor_AbstractAction="_Lt09lKYqEdunyPSYvCWVNg"/>
       <steps_Behaviour xsi:type="pcm.seff:InternalAction" id="_Lt09lKYqEdunyPSYvCWVNg" predecessor_AbstractAction="_LOPekaYqEdunyPSYvCWVNg" successor_AbstractAction="_M_VoyqYqEdunyPSYvCWVNg">
-        <resourceDemand_Action specification="DoublePDF(unit=&quot;unit&quot;)[ (4000.0; 0.0) (4500.0; 0.5) (5000.0; 0.3) (5500.0; 0.1) (6000.0; 0.1) (6500.0; 0.0) ] * 0.016" unit="s">
+        <resourceDemand_Action specification="DoublePDF(unit=&quot;unit&quot;)[ (0.0; 0.0) (1.0; 0.02836114450589084) (2.0; 0.04664582832411637) (3.0; 0.10387112286607357) (4.0; 0.1606155325799471) (5.0; 0.20389516710747776) (6.0; 0.18826641019475834) (7.0; 0.11372926184178889) (8.0; 0.06852608800192354) (9.0; 0.02933397451310411) (10.0; 0.017311853811012263) (11.0; 0.009377254147631643) (12.0; 0.030055301755229618) ] * 0.0050" unit="s">
           <requiredResource_ParametricResourceDemand href="MediaStore.resourcetype#_9-JuEaYUEduWZfldHy3B1Q"/>
         </resourceDemand_Action>
       </steps_Behaviour>
@@ -154,11 +154,8 @@
     <serviceEffectSpecifications__BasicComponent xsi:type="pcm.seff:ResourceDemandingSEFF" id="_Z_JD9KYmEdunyPSYvCWVNg" describedService__SEFF="//@interfaces__Repository.4/@signatures__Interface.0">
       <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_-4UdAKYkEduWZfldHy3B1Q" successor_AbstractAction="__fg_4KYkEduWZfldHy3B1Q"/>
       <steps_Behaviour xsi:type="pcm.seff:InternalAction" id="__fg_4KYkEduWZfldHy3B1Q" entityName="SelectFiles" predecessor_AbstractAction="_-4UdAKYkEduWZfldHy3B1Q" successor_AbstractAction="_0M-W2qYzEdudtvdezBq5JQ">
-        <resourceDemand_Action specification="DoublePDF(unit=&quot;unit&quot;)[ (50.0; 0.1) (100.0; 0.8) (150.0; 0.1) ]" unit="ms">
+        <resourceDemand_Action specification="( ( DoublePDF(unit=&quot;unit&quot;)[ (0.0; 0.0) (1.0; 0.02836114450589084) (2.0; 0.04664582832411637) (3.0; 0.10387112286607357) (4.0; 0.1606155325799471) (5.0; 0.20389516710747776) (6.0; 0.18826641019475834) (7.0; 0.11372926184178889) (8.0; 0.06852608800192354) (9.0; 0.02933397451310411) (10.0; 0.017311853811012263) (11.0; 0.009377254147631643) (12.0; 0.030055301755229618) ] * 0.04 + 0.08 ) * 14 ) + 1.6" unit="s">
           <requiredResource_ParametricResourceDemand href="MediaStore.resourcetype#_AtY7gaYVEduWZfldHy3B1Q"/>
-        </resourceDemand_Action>
-        <resourceDemand_Action specification="DoublePDF(unit=&quot;unit&quot;)[ (400.0; 0.0) (800.0; 0.1) (1200.0; 0.2) (1600.0; 0.2) (2000.0; 0.4) (2400.0; 0.1) ]" unit="ms">
-          <requiredResource_ParametricResourceDemand href="MediaStore.resourcetype#_DH6dMaYVEduWZfldHy3B1Q"/>
         </resourceDemand_Action>
       </steps_Behaviour>
       <steps_Behaviour xsi:type="pcm.seff:SetVariableAction" id="_0M-W2qYzEdudtvdezBq5JQ" predecessor_AbstractAction="__fg_4KYkEduWZfldHy3B1Q" successor_AbstractAction="_D27uSqY0EdudtvdezBq5JQ">
@@ -181,12 +178,6 @@
       </steps_Behaviour>
       <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_D3gT0KYlEduWZfldHy3B1Q" predecessor_AbstractAction="_D27uSqY0EdudtvdezBq5JQ"/>
     </serviceEffectSpecifications__BasicComponent>
-    <serviceEffectSpecifications__BasicComponent xsi:type="pcm.seff:ResourceDemandingSEFF" id="_GT7Ncqx8EduuZPZbSE9EpQ">
-      <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_H8FeEax8EduuZPZbSE9EpQ" successor_AbstractAction="_IUEgRqx8EduuZPZbSE9EpQ"/>
-      <steps_Behaviour xsi:type="pcm.seff:ExternalCallAction" id="_IUEgRqx8EduuZPZbSE9EpQ" entityName="mysql.getIDsOfMatchingFiles" predecessor_AbstractAction="_H8FeEax8EduuZPZbSE9EpQ" successor_AbstractAction="_JKdVtqx8EduuZPZbSE9EpQ" calledService_ExternalService="//@interfaces__Repository.4/@signatures__Interface.1"/>
-      <steps_Behaviour xsi:type="pcm.seff:ExternalCallAction" id="_JKdVtqx8EduuZPZbSE9EpQ" entityName="mysql.queryDB" predecessor_AbstractAction="_IUEgRqx8EduuZPZbSE9EpQ" successor_AbstractAction="_JrF9kKx8EduuZPZbSE9EpQ" calledService_ExternalService="//@interfaces__Repository.3/@signatures__Interface.0"/>
-      <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_JrF9kKx8EduuZPZbSE9EpQ" predecessor_AbstractAction="_JKdVtqx8EduuZPZbSE9EpQ"/>
-    </serviceEffectSpecifications__BasicComponent>
     <internalVariables_BasicComponent>
       <variableCharacterisation_VariableUsage specification="10000" type="NUMBER_OF_ELEMENTS"/>
       <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="StoredFiles"/>
@@ -202,18 +193,10 @@
     <signatures__Interface serviceName="downloadHTTP" returntype__Signature="_sCx2BaYGEduWZfldHy3B1Q">
       <parameters__Signature datatype__Parameter="_tR_6BaY5EdudtvdezBq5JQ" parameterName="desiredFiles"/>
     </signatures__Interface>
-    <signatures__Interface serviceName="queryFileByField" returntype__Signature="_sCx2BaYGEduWZfldHy3B1Q">
-      <parameters__Signature datatype__Parameter="//@datatypes_Repository.5" parameterName="queryString"/>
-      <parameters__Signature datatype__Parameter="//@datatypes_Repository.3" parameterName="fieldID"/>
-    </signatures__Interface>
   </interfaces__Repository>
   <interfaces__Repository id="_QW4WtKYGEduWZfldHy3B1Q" entityName="IMediaStore">
     <signatures__Interface serviceName="downloadFromDB" returntype__Signature="_sCx2BaYGEduWZfldHy3B1Q">
       <parameters__Signature datatype__Parameter="_tR_6BaY5EdudtvdezBq5JQ" parameterName="desiredFiles"/>
-    </signatures__Interface>
-    <signatures__Interface serviceName="queryAndGetFromDB" returntype__Signature="_sCx2BaYGEduWZfldHy3B1Q">
-      <parameters__Signature datatype__Parameter="//@datatypes_Repository.5" parameterName="queryString"/>
-      <parameters__Signature datatype__Parameter="//@datatypes_Repository.3" parameterName="fieldID"/>
     </signatures__Interface>
   </interfaces__Repository>
   <interfaces__Repository id="_R63R9KYGEduWZfldHy3B1Q" entityName="ISound">
@@ -225,18 +208,10 @@
     <signatures__Interface serviceName="queryDB" returntype__Signature="_sCx2BaYGEduWZfldHy3B1Q">
       <parameters__Signature datatype__Parameter="_tR_6BaY5EdudtvdezBq5JQ" parameterName="desiredFiles"/>
     </signatures__Interface>
-    <signatures__Interface serviceName="queryAndGetFromDB" returntype__Signature="_sCx2BaYGEduWZfldHy3B1Q">
-      <parameters__Signature datatype__Parameter="//@datatypes_Repository.5" parameterName="queryString"/>
-      <parameters__Signature datatype__Parameter="//@datatypes_Repository.3" parameterName="fieldID"/>
-    </signatures__Interface>
   </interfaces__Repository>
   <interfaces__Repository id="_Wf-b66YGEduWZfldHy3B1Q" entityName="IMySQL">
     <signatures__Interface serviceName="getFiles" returntype__Signature="_sCx2BaYGEduWZfldHy3B1Q">
       <parameters__Signature datatype__Parameter="_tR_6BaY5EdudtvdezBq5JQ" parameterName="FilesIDs"/>
-    </signatures__Interface>
-    <signatures__Interface serviceName="getIDsOfMatchingFiles" returntype__Signature="_tR_6BaY5EdudtvdezBq5JQ">
-      <parameters__Signature datatype__Parameter="//@datatypes_Repository.5" parameterName="queryString"/>
-      <parameters__Signature datatype__Parameter="//@datatypes_Repository.3" parameterName="fieldID"/>
     </signatures__Interface>
   </interfaces__Repository>
   <datatypes_Repository xsi:type="pcm.repository:CollectionDataType" id="_t-PNZaYXEduWZfldHy3B1Q" entityName="FILE" innerType_CollectionDataType="//@datatypes_Repository.2"/>
