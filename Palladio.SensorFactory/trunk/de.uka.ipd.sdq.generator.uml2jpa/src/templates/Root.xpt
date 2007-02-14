@@ -1,7 +1,7 @@
-«IMPORT uml»
-«IMPORT Persistence»
 «EXTENSION templates::UMLNaming»
 «EXTENSION templates::UMLQueries»
+«IMPORT uml»
+«IMPORT Persistence»
 
 «DEFINE Root FOR Model»
 	«EXPAND Classes FOREACH eAllContents.typeSelect(Entity)»
@@ -36,7 +36,11 @@
 
 «DEFINE AddCompositeDecl(Class c) FOR Property»
 	«c.basefqn()» add«c.name.toFirstUpper()»(
-		«EXPAND VariableInitialiser FOREACH c.getAllProperties() SEPARATOR ","»
+		«EXPAND VariableInitialiser FOREACH c.getAllAssociationProperties() SEPARATOR "," -»
+		«IF c.getAllAssociationProperties().size > 0 && c.getAllPrimitiveProperties().size > 0 -»
+		,
+		«ENDIF»
+		«EXPAND VariableInitialiser FOREACH c.getAllPrimitiveProperties() SEPARATOR "," -»
 	)
 «ENDDEFINE»
 
@@ -87,12 +91,40 @@
 			extends «this.superClass.get(0).basefqn()»
 		«ENDIF»
 		{
+			/* Getter and Setter for Properties with cardinality 0..1 or 1 which are not a composition */
 			«EXPAND Basic FOREACH attribute.select(p|!p.isMultivalued() && p.aggregation.toString() != "composite") SEPARATOR ";"»
+			
+			/* Getter and Setter for Properties with cardinality 0..1 or 1 which are a composition */
 			«EXPAND BasicComposite FOREACH attribute.select(p|!p.isMultivalued() && p.aggregation.toString() == "composite") SEPARATOR ";"»
+			
+			/* Getter and Setter for Properties with cardinality 0..* which are not a composition */
 			«EXPAND Multivalued FOREACH attribute.select(p|p.isMultivalued() && p.aggregation.toString() != "composite") SEPARATOR ";"»
+			
+			/* Getter and Setter for Properties with cardinality 0..* which are a composition */
 			«EXPAND MultivaluedComposite FOREACH attribute.select(p|p.isMultivalued() && p.aggregation.toString() == "composite") SEPARATOR ";"»
+			
+			/* Abstract Operations */
+			«EXPAND Operation FOREACH ownedOperation»
 		}
 	«ENDFILE»
+«ENDDEFINE»
+
+«DEFINE Operation FOR Operation»
+    public abstract
+    «IF this.hasReturnParameter()»
+    	«IF this.returnParameter().isMultivalued()»
+    		java.util.Collection<«this.returnParameter().type.fqn()»>
+    	«ELSE»
+    		«this.returnParameter().type.fqn()»
+    	«ENDIF»
+    «ELSE»
+    	void
+    «ENDIF»	
+	«this.name» (
+		«FOREACH this.inputParameter() AS p SEPARATOR ","»
+			«p.type.fqn()» «p.name»
+		«ENDFOREACH»
+	);
 «ENDDEFINE»
 
 «DEFINE BasicComposite FOR Property»
@@ -101,13 +133,15 @@
 «DEFINE MultivaluedComposite FOR Property»
 	«EXPAND MultiAnnotations FOR this»
 	private java.util.Collection<«this.type.basefqn()»> m_«this.name»s 
-	   = java.util.Collections.synchronizedList(new java.util.ArrayList<«this.type.basefqn()»>(10000));
+	   = new java.util.ArrayList<«this.type.basefqn()»>(10000);
 	«FOREACH this.type.getAllSubtypes().select(c|!c.isAbstract) AS subtype»
 		public «EXPAND AddCompositeDecl(subtype) FOR this» {
 			«subtype.basefqn()» result = new «subtype.packageName()+".impl."+subtype.name.toFirstUpper()»Impl();
-			«FOREACH subtype.getAllProperties() AS p»
+
+			«FOREACH subtype.getAllProperties() AS p -»
 				result.set«p.name.toFirstUpper()»(p_«p.name.toLowerCase()»);
 			«ENDFOREACH»
+
 			m_«this.name»s.add(result);
 			return result;
 		}
@@ -120,7 +154,7 @@
 «DEFINE Multivalued FOR Property»
 	«EXPAND MultiAnnotations FOR this»
 	private java.util.Collection<«this.type.basefqn()»> m_«this.name»s 
-	   = java.util.Collections.synchronizedList(new java.util.ArrayList<«this.type.basefqn()»>(10000));
+	   = new java.util.ArrayList<«this.type.basefqn()»>(10000);
 	public «EXPAND AdderDecl FOR this» {
 		m_«this.name»s.add(value);
 	}
@@ -144,14 +178,19 @@
 «ENDDEFINE»
 
 «DEFINE FieldAnnotations FOR Key»
-	@javax.persistence.Id @javax.persistence.GeneratedValue
+	@javax.persistence.Id
 	@javax.persistence.Column(name="«this.name.toUpperCase()»")
+	@javax.persistence.GeneratedValue(strategy=javax.persistence.GenerationType.IDENTITY)
 «ENDDEFINE»
 
 «DEFINE FieldAnnotations FOR Property»
 	«IF !PrimitiveType.isInstance(this.type)»
-		@javax.persistence.OneToOne(cascade=javax.persistence.CascadeType.ALL)
-		@javax.persistence.JoinColumn(name="FK_«this.class.name.toUpperCase()»")
+		@javax.persistence.OneToOne(
+		«IF this.aggregation.toString() == "composite" -»
+			cascade=javax.persistence.CascadeType.ALL
+		«ENDIF»
+		)
+		@javax.persistence.JoinColumn(name="FK_«this.name.toUpperCase()»")
 	«ELSE»
 		@javax.persistence.Column(name="«this.name.toUpperCase()»")
 	«ENDIF»
@@ -159,7 +198,9 @@
 
 «DEFINE MultiAnnotations FOR Property»
 	@javax.persistence.OneToMany(cascade=javax.persistence.CascadeType.ALL)
-	@javax.persistence.JoinColumn(name="FK_«this.class.name.toUpperCase()»")
+	@javax.persistence.JoinTable(name="«this.class.name»_«this.name»s",
+					joinColumns={@javax.persistence.JoinColumn(name="«this.class.name.toUpperCase()»_ID")},
+					inverseJoinColumns={@javax.persistence.JoinColumn(name="«this.name.toUpperCase()»_ID")})
 «ENDDEFINE»
 
 «DEFINE Implementation FOR Class»

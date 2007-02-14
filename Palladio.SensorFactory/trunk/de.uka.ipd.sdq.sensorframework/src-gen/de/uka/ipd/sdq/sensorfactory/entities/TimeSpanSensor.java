@@ -2,26 +2,13 @@ package de.uka.ipd.sdq.sensorfactory.entities;
 
 @javax.persistence.Entity
 public abstract class TimeSpanSensor extends de.uka.ipd.sdq.sensorfactory.entities.Sensor {
-    @javax.persistence.OneToMany(cascade = javax.persistence.CascadeType.ALL)
-    @javax.persistence.JoinColumn(name = "FK_TIMESPANSENSOR")
-    private java.util.Collection<de.uka.ipd.sdq.sensorfactory.entities.TimeSpan> m_timespans =
-        java.util.Collections.synchronizedList(new java.util.ArrayList<de.uka.ipd.sdq.sensorfactory.entities.TimeSpan>(
-                10000));
+    /* Getter and Setter for Properties with cardinality 0..1 or 1 which are not a composition */
 
-    public de.uka.ipd.sdq.sensorfactory.entities.TimeSpan addTimeSpan(
-        double p_timespan, double p_eventtime) {
-        de.uka.ipd.sdq.sensorfactory.entities.TimeSpan result = new de.uka.ipd.sdq.sensorfactory.entities.impl.TimeSpanImpl();
+    /* Getter and Setter for Properties with cardinality 0..1 or 1 which are a composition */
 
-        result.setTimeSpan(p_timespan);
+    /* Getter and Setter for Properties with cardinality 0..* which are not a composition */
 
-        result.setEventTime(p_eventtime);
+    /* Getter and Setter for Properties with cardinality 0..* which are a composition */
 
-        m_timespans.add(result);
-
-        return result;
-    }
-
-    public java.util.Collection<de.uka.ipd.sdq.sensorfactory.entities.TimeSpan> getTimespans() {
-        return this.m_timespans;
-    }
+    /* Abstract Operations */
 }

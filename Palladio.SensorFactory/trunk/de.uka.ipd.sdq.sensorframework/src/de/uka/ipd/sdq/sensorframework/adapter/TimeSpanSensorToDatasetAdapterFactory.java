@@ -5,12 +5,12 @@ import org.jfree.data.xy.XYDataItem;
 import org.jfree.data.xy.XYSeries;
 
 import de.uka.ipd.sdq.sensorfactory.entities.Sensor;
-import de.uka.ipd.sdq.sensorfactory.entities.TimeSpan;
+import de.uka.ipd.sdq.sensorfactory.entities.TimeSpanMeasurement;
 import de.uka.ipd.sdq.sensorfactory.entities.TimeSpanSensor;
 
 public class TimeSpanSensorToDatasetAdapterFactory implements IAdapterFactory {
 
-	public static final int HISTOGRAM_CLASS_WIDTH = 10;
+	public static final int HISTOGRAM_CLASS_WIDTH = 1;
 
 	public boolean canAdapt(Class fromClass, Class targetClass) {
 		if (TimeSpanSensor.class.isAssignableFrom(fromClass)
@@ -22,7 +22,7 @@ public class TimeSpanSensorToDatasetAdapterFactory implements IAdapterFactory {
 	public Object getAdapter(Object adaptee, Class targetClass) {
 		TimeSpanSensor s = (TimeSpanSensor) adaptee;
 		XYSeries series = new XYSeries(s.getSensorName()+" [ID: "+s.getSensorID()+"]", true, false);
-		for (TimeSpan ts : s.getTimespans()) {
+		for (TimeSpanMeasurement ts : new TimeSpanMeasurement[0] /*TODO!!!*/) {
 			int histogramClass = (int)((ts.getTimeSpan()+HISTOGRAM_CLASS_WIDTH/2) / HISTOGRAM_CLASS_WIDTH);
 			int index = series.indexOf(histogramClass*HISTOGRAM_CLASS_WIDTH);
 			if (index >= 0)

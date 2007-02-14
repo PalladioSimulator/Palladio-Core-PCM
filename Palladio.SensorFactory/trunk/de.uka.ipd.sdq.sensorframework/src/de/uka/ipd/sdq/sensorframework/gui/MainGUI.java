@@ -11,6 +11,7 @@ import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 import javax.swing.JPopupMenu;
+import javax.swing.JScrollPane;
 import javax.swing.JSplitPane;
 import javax.swing.JTabbedPane;
 import javax.swing.JTree;
@@ -97,6 +98,9 @@ public class MainGUI extends JFrame {
 		tabbedPane = new JTabbedPane();
 		splitPane.setRightComponent(tabbedPane);
 
+		final JScrollPane scrollPane = new JScrollPane();
+		splitPane.setLeftComponent(scrollPane);
+
 		final JTree tree = new JTree();
 		tree.addMouseListener(new MouseAdapter(){
 
@@ -126,8 +130,8 @@ public class MainGUI extends JFrame {
 				}
 			}
 		});
-		splitPane.setLeftComponent(tree);
 		myTree=tree;
+		scrollPane.setViewportView(tree);
 		fillExperimentsTree();
 	}
 	

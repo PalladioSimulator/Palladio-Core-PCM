@@ -3,9 +3,10 @@ package de.uka.ipd.sdq.sensorfactory.entities;
 @javax.persistence.Entity
 @javax.persistence.Table(name = "MEASUREMENT")
 public abstract class Measurement {
+    /* Getter and Setter for Properties with cardinality 0..1 or 1 which are not a composition */
     @javax.persistence.Id
-    @javax.persistence.GeneratedValue
     @javax.persistence.Column(name = "MEASUREMENTID")
+    @javax.persistence.GeneratedValue(strategy = javax.persistence.GenerationType.IDENTITY)
     private long m_measurementID;
     @javax.persistence.Column(name = "EVENTTIME")
     private double m_eventTime;
@@ -25,4 +26,12 @@ public abstract class Measurement {
     public void setEventTime(double value) {
         this.m_eventTime = value;
     }
+
+    /* Getter and Setter for Properties with cardinality 0..1 or 1 which are a composition */
+
+    /* Getter and Setter for Properties with cardinality 0..* which are not a composition */
+
+    /* Getter and Setter for Properties with cardinality 0..* which are a composition */
+
+    /* Abstract Operations */
 }
