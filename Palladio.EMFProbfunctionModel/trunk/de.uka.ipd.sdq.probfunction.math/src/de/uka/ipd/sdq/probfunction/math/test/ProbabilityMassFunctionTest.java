@@ -212,8 +212,8 @@ public class ProbabilityMassFunctionTest {
 			ProbabilitySumNotOneException, FunctionNotInTimeDomainException,
 			UnitNotSetException, UnitNameNotSetException,
 			InvalidSampleValueException {
-		IProbabilityMassFunction pmf = createPMF(new Object[]{-0.1, 0.3, 0.2,
-				0.2, 0.3, 0.4, 0.4, 0.1}, true);
+		IProbabilityMassFunction pmf = createPMF(new Object[]{0.1, 0.3, 0.2,
+				0.4, 0.4, 0.4, 0.4, -0.1}, true);
 		pmf.checkConstrains();
 	}
 
@@ -229,6 +229,16 @@ public class ProbabilityMassFunctionTest {
 		IProbabilityMassFunction pmf = dfFactory.createProbabilityMassFunction(
 				samples, null, true);
 		pmf.checkConstrains();
+	}
+
+	@Test
+	public void checkConstrains4() throws NegativeDistanceException,
+			ProbabilitySumNotOneException, FunctionNotInTimeDomainException,
+			UnitNotSetException, UnitNameNotSetException,
+			InvalidSampleValueException {
+		u1.checkConstrains();
+		o1.checkConstrains();
+		u1extended.checkConstrains();
 	}
 
 	private IProbabilityFunctionFactory dfFactory = IProbabilityFunctionFactory.eINSTANCE;

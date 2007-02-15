@@ -137,19 +137,13 @@ public class BoxedPDFTest {
 		Assert.assertEquals(2.1, df.getMedian());
 	}
 
-	// @Test
-	// public void checkConstraints() throws DoubleSampleException {
-	// Assert.assertTrue(df1.checkConstrains());
-	// IBoxedPDF b = createBoxedPDF(new Double[]{3.0, 0.1, 2.1, 0.4, 4.3, 0.3,
-	// -1.5, 0.2});
-	// Assert.assertFalse(b.checkConstrains());
-	// IBoxedPDF b1 = createBoxedPDF(new Double[]{3.0, 0.1, 2.1, 0.4, 4.3,
-	// 0.3, 1.5, 0.3});
-	// Assert.assertFalse(b1.checkConstrains());
-	// IBoxedPDF b2 = createBoxedPDF(new Double[]{3.0, -0.1, 2.1, -0.4, 4.3,
-	// -0.3, 1.5, 0.2});
-	// Assert.assertFalse(b2.checkConstrains());
-	// }
+	@Test
+	public void checkConstraints() throws NegativeDistanceException,
+			ProbabilitySumNotOneException, FunctionNotInTimeDomainException,
+			UnitNotSetException, UnitNameNotSetException,
+			InvalidSampleValueException {
+		df1.checkConstrains();
+	}
 
 	@Test(expected = InvalidSampleValueException.class)
 	public void checkConstraints1() throws DoubleSampleException,
@@ -177,13 +171,14 @@ public class BoxedPDFTest {
 			FunctionNotInTimeDomainException, UnitNotSetException,
 			UnitNameNotSetException, InvalidSampleValueException {
 		List<IContinuousSample> samples = new ArrayList<IContinuousSample>();
-		Collections.addAll(samples, dfFactory.createContinuousSample(3.0, 0.1), dfFactory
-				.createContinuousSample(2.1, 0.4), dfFactory.createContinuousSample(4.3, 0.5));
-		
+		Collections.addAll(samples, dfFactory.createContinuousSample(3.0, 0.1),
+				dfFactory.createContinuousSample(2.1, 0.4), dfFactory
+						.createContinuousSample(4.3, 0.5));
+
 		IBoxedPDF b = dfFactory.createBoxedPDF(samples, null);
 		b.checkConstrains();
 	}
-	
+
 	public static junit.framework.Test suite() {
 		return new JUnit4TestAdapter(BoxedPDFTest.class);
 	}

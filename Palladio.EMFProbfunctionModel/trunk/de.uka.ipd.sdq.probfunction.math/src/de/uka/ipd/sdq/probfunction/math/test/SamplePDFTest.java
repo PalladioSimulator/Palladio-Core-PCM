@@ -132,8 +132,8 @@ public class SamplePDFTest {
 		ISamplePDF pdf = createSamplePDF(5, new Double[]{0.05, 0.05, 0.1, 0.1,
 				0.2, 0.2, 0.15, 0.15});
 		sum = df1.add(pdf);
-		sumExpected = createSamplePDF(5, new Double[]{0.1, 0.15, 0.2, 0.25, 0.4,
-				0.375, 0.3, 0.225});
+		sumExpected = createSamplePDF(5, new Double[]{0.1, 0.15, 0.2, 0.25,
+				0.4, 0.375, 0.3, 0.225});
 		Assert.assertEquals(sumExpected, sum);
 	}
 
@@ -146,23 +146,15 @@ public class SamplePDFTest {
 		Assert.assertEquals(expected, prod);
 	}
 
-	// @Test
-	// public void checkConstraints() {
-	// Assert.assertTrue(df1.checkConstrains());
-	// ISamplePDF s = createSamplePDF(1.0, new Double[] { 0.1, 0.4,
-	// 0.2, 0.3, 0.2});
-	// Assert.assertFalse(s.checkConstrains());
-	// ISamplePDF s1 = createSamplePDF(1.0, new Double[] { -0.1, -0.4,
-	// -0.2, 0.3});
-	// Assert.assertFalse(s1.checkConstrains());
-	// ISamplePDF s2 = createSamplePDF(1.0, new Double[] { 0.1, 0.4,
-	// 0.2, 0.3});
-	// Assert.assertTrue(s2.checkConstrains());
-	// ISamplePDF s3 = createSamplePDF(0.0, new Double[] { 0.1, 0.4,
-	// 0.2, 0.3});
-	// Assert.assertFalse(s3.checkConstrains());
-	//		
-	// }
+	@Test
+	public void checkConstraints() throws NegativeDistanceException,
+			ProbabilitySumNotOneException, FunctionNotInTimeDomainException,
+			UnitNotSetException, UnitNameNotSetException,
+			InvalidSampleValueException {
+		df1.checkConstrains();
+		df2.checkConstrains();
+		df3.checkConstrains();
+	}
 
 	@Test(expected = NegativeDistanceException.class)
 	public void checkConstraints1() throws NegativeDistanceException,
@@ -173,7 +165,7 @@ public class SamplePDFTest {
 				0.2});
 		s.checkConstrains();
 	}
-	
+
 	@Test(expected = ProbabilitySumNotOneException.class)
 	public void checkConstraints2() throws NegativeDistanceException,
 			ProbabilitySumNotOneException, FunctionNotInTimeDomainException,
@@ -192,7 +184,7 @@ public class SamplePDFTest {
 		ISamplePDF s = createSamplePDF(1.0, new Double[]{0.1, -0.4, 0.2, 1.1});
 		s.checkConstrains();
 	}
-	
+
 	@Test(expected = UnitNotSetException.class)
 	public void checkConstraints4() throws NegativeDistanceException,
 			ProbabilitySumNotOneException, FunctionNotInTimeDomainException,
@@ -203,7 +195,6 @@ public class SamplePDFTest {
 		ISamplePDF s = dfFactory.createSamplePDFFromDouble(1.0, samples, null);
 		s.checkConstrains();
 	}
-
 
 	@Test
 	public void getMedian() throws UnorderedDomainException {
