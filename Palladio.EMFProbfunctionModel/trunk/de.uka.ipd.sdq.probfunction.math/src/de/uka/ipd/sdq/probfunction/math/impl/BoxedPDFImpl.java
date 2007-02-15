@@ -249,8 +249,8 @@ public class BoxedPDFImpl extends ProbabilityDensityFunctionImpl
 			throw new UnitNameNotSetException();
 
 		for (IContinuousSample s : samples) {
-			if (s == null || s.getValue() >= 0.0 || s.getProbability() >= 0.0
-					|| s.getProbability() <= 1.0)
+			if (s == null || s.getValue() < 0.0 || s.getProbability() < 0.0
+					|| s.getProbability() > 1.0)
 				throw new InvalidSampleValueException();
 		}
 	}

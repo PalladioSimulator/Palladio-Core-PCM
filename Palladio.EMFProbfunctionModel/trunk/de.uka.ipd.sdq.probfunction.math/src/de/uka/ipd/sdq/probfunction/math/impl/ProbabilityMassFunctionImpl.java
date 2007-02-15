@@ -278,43 +278,18 @@ public class ProbabilityMassFunctionImpl extends ProbabilityFunctionImpl
 			UnitNameNotSetException {
 		if (!MathTools.equalsDouble(getProbabilitySum(), 1.0))
 			throw new ProbabilitySumNotOneException();
-		
+
 		if (getUnit() == null)
 			throw new UnitNotSetException();
 		if (getUnit().getUnitName() == null)
 			throw new UnitNameNotSetException();
-		
+
 		for (ISample sample : this.samples) {
 			Object value = sample.getValue();
 			if (value == null)
 				throw new InvalidSampleValueException();
-			if (MathTools.isNumeric(samples.get(0).getValue())) {
-				if (value instanceof Double) {
-					Double d = (Double) value;
-					if (d < 0.0 || sample.getProbability() >= 0.0
-							|| sample.getProbability() <= 1.0)
-						throw new InvalidSampleValueException();
-				} else if (value instanceof Integer) {
-					Integer i = (Integer) value;
-					if (i < 0.0 || sample.getProbability() >= 0.0
-							|| sample.getProbability() <= 1.0)
-						throw new InvalidSampleValueException();
-				} else if (value instanceof Long) {
-					Long i = (Long) value;
-					if (i < 0.0 || sample.getProbability() >= 0.0
-							|| sample.getProbability() <= 1.0)
-						throw new InvalidSampleValueException();
-				} else if (value instanceof Float) {
-					Float i = (Float) value;
-					if (i < 0.0 || sample.getProbability() >= 0.0
-							|| sample.getProbability() <= 1.0)
-						throw new InvalidSampleValueException();
-				}
-			} else {
-				if (sample.getProbability() >= 0.0
-						|| sample.getProbability() <= 1.0)
-					throw new InvalidSampleValueException();
-			}
+			if (sample.getProbability() < 0.0 || sample.getProbability() > 1.0)
+				throw new InvalidSampleValueException();
 		}
 	}
 
