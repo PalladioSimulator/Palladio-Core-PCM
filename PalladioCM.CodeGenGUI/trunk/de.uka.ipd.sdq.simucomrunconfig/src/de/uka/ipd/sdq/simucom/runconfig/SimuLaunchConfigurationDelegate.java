@@ -13,7 +13,7 @@ import org.eclipse.debug.core.model.ILaunchConfigurationDelegate;
  * @author admin
  *
  */
-public class SimuBenchLaunchConfigurationDelegate implements
+public class SimuLaunchConfigurationDelegate implements
 		ILaunchConfigurationDelegate {
 
 	/* (non-Javadoc)
