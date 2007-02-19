@@ -1,7 +1,7 @@
 /**
  * 
  */
-package de.uka.ipd.sdq.simucomrunconfig;
+package de.uka.ipd.sdq.simucom.runconfig;
 
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;

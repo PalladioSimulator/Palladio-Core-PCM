@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Simucomrunconfig Plug-in
 Bundle-SymbolicName: de.uka.ipd.sdq.simucomrunconfig; singleton:=true
 Bundle-Version: 1.0.0
-Bundle-Activator: de.uka.ipd.sdq.simucomrunconfig.Activator
+Bundle-Activator: de.uka.ipd.sdq.simucom.runconfig.Activator
 Bundle-Localization: plugin
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,

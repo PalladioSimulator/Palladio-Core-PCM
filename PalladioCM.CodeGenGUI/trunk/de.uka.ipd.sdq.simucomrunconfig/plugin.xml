@@ -1,32 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?eclipse version="3.2"?>
 <plugin>
-	 <extension
-	 		 point="org.eclipse.ui.actionSets">
-       <actionSet
-            description="SimuBench Main Actions"
-            id="de.uka.ipd.sdq.PCMBench.simucomActionSet"
-            label="SimuBench Main Actions"
-            visible="true">  
-	        <menu
-	           		id="de.uka.ipd.sdq.PCMBench.mainSimuBench"
-	           		label="&amp;SimuBench">
-	        	<groupMarker name="SimuBenchGroupMarker"/>
-	        </menu>
-	        <action
-               class="de.uka.ipd.sdq.pcmbench.actions.GeneratePlugin"
-               icon="icons/app_simucim.gif"
-               id="de.uka.ipd.sdq.PCMBench.generatePlugin"
-               label="&amp;Generate Plugin..."
-               menubarPath="de.uka.ipd.sdq.PCMBench.mainSimuBench/SimuBenchGroupMarker"
-               style="push"/>
-         </actionSet> 
-   </extension>
-
+	<extension
+         point="org.eclipse.ui.actionSets">
+	      <actionSet
+	            label="SimuBench Main Actions"
+	            visible="true"
+	            id="de.uka.ipd.sdq.simucontroller.ActionSet">
+	         <menu
+	               label="&amp;SimuBench"
+	               id="mainSimuBench">
+	            <separator
+	                  name="mainGroup">
+	            </separator>
+	         </menu>
+	         <action
+                class="de.uka.ipd.sdq.simucom.actions.GeneratePluginAction"
+                icon="icons/app_simucim.gif"
+                id="de.uka.ipd.sdq.simucontroller.actions.GeneratePluginAction"
+                label="&amp;Generate Plugin..."
+                menubarPath="mainSimuBench/mainGroup"
+                style="push"
+                toolbarPath="mainGroup"
+                tooltip="Hello, Eclipse world">
+	         </action>
+	      </actionSet>
+	</extension>
 	<extension point="org.eclipse.debug.core.launchConfigurationTypes">
 	    <launchConfigurationType
-           delegate="de.uka.ipd.sdq.simucomrunconfig.SimuBenchLaunchConfigurationDelegate"
-           id="de.uka.ipd.sdq.SimuBenchLaunching"
+           delegate="de.uka.ipd.sdq.simucom.runconfig.SimuBenchLaunchConfigurationDelegate"
+           id="de.uka.ipd.sdq.simucontroller.SimuLaunching"
            modes="run"
            name="SimuBench"
            public="true">        
@@ -35,21 +38,21 @@
 	<extension point="org.eclipse.debug.ui.launchConfigurationTypeImages">
 	    <launchConfigurationTypeImage
 	        icon="icons/app_simucim.gif"
-	        configTypeID="de.uka.ipd.sdq.SimuBenchLaunching"
-	        id="de.uka.ipd.sdq.launchConfigurationTypeImage.SimuBenchLaunching">
+	        configTypeID="de.uka.ipd.sdq.simucontroller.SimuLaunching"
+	        id="de.uka.ipd.sdq.simucontroller.launchConfigurationTypeImage">
 	    </launchConfigurationTypeImage>
 	</extension>
 	<extension point="org.eclipse.debug.ui.launchConfigurationTabGroups">
 	    <launchConfigurationTabGroup
-	        type="de.uka.ipd.sdq.SimuBenchLaunching"
-	        class="de.uka.ipd.sdq.simucomrunconfig.SimuBenchTabGroup"
-	        id="de.uka.ipd.sdq.launchConfigurationTabGroup.SimuBenchLaunching">
+	        type="de.uka.ipd.sdq.simucontroller.SimuLaunching"
+	        class="de.uka.ipd.sdq.simucom.runconfig.SimuBenchTabGroup"
+	        id="de.uka.ipd.sdq.simucontroller.launchConfigurationTabGroup">
 	    </launchConfigurationTabGroup>
 	</extension>
 	<extension point="org.eclipse.debug.ui.launchShortcuts">
 	    <shortcut
-	        id="de.uka.ipd.sdq.SimuBenchShortcut"
-	        class="de.uka.ipd.sdq.simucomrunconfig.SimuBenchLaunchShortcut"
+	        id="de.uka.ipd.sdq.simucontroller.SimuShortcut"
+	        class="de.uka.ipd.sdq.simucom.runconfig.SimuBenchLaunchShortcut"
 	        label="SimuBench"
 	        icon="icons/app_simucim.gif"
 	        modes="run">

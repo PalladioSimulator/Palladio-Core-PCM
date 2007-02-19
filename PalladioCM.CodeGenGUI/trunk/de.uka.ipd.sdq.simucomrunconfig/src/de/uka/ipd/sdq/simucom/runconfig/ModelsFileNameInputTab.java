@@ -1,4 +1,4 @@
-package de.uka.ipd.sdq.simucomrunconfig;
+package de.uka.ipd.sdq.simucom.runconfig;
 
 import java.io.File;
 
@@ -17,12 +17,8 @@ import org.eclipse.swt.widgets.FileDialog;
 import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
-import org.eclipse.ui.actions.ImportResourcesAction;
-import org.eclipse.core.filesystem.*;
-import org.eclipse.core.resources.*;
 import org.eclipse.core.runtime.CoreException;
 
-import sun.misc.InvalidJarIndexException;
 /**
  * @author admin
  * 
@@ -32,7 +28,6 @@ public class ModelsFileNameInputTab extends AbstractLaunchConfigurationTab {
 	/* (non-Javadoc)
 	 * @see org.eclipse.debug.ui.AbstractLaunchConfigurationTab#getImage()
 	 */
-	@Override
 	public Image getImage() {
 		return ResourceManagerTab.getModelsListImage();
 	}
@@ -100,7 +95,6 @@ public class ModelsFileNameInputTab extends AbstractLaunchConfigurationTab {
 			/* (non-Javadoc)
 			 * @see org.eclipse.swt.events.SelectionAdapter#widgetSelected(org.eclipse.swt.events.SelectionEvent)
 			 */
-			@Override
 			public void widgetSelected(SelectionEvent e) {
 				textRepository.setText(openFileDialog(e, REPOSITORY_EXTENSION));
 			}
@@ -125,7 +119,6 @@ public class ModelsFileNameInputTab extends AbstractLaunchConfigurationTab {
 			/* (non-Javadoc)
 			 * @see org.eclipse.swt.events.SelectionAdapter#widgetSelected(org.eclipse.swt.events.SelectionEvent)
 			 */
-			@Override
 			public void widgetSelected(SelectionEvent e) {
 				textSystem.setText(openFileDialog(e, SYSTEM_EXTENSION));
 			}
@@ -152,7 +145,6 @@ public class ModelsFileNameInputTab extends AbstractLaunchConfigurationTab {
 			/* (non-Javadoc)
 			 * @see org.eclipse.swt.events.SelectionAdapter#widgetSelected(org.eclipse.swt.events.SelectionEvent)
 			 */
-			@Override
 			public void widgetSelected(SelectionEvent e) {
 				textAllocation.setText(openFileDialog(e, ALLOCATION_EXTENSION));
 			}
@@ -176,7 +168,6 @@ public class ModelsFileNameInputTab extends AbstractLaunchConfigurationTab {
 			/* (non-Javadoc)
 			 * @see org.eclipse.swt.events.SelectionAdapter#widgetSelected(org.eclipse.swt.events.SelectionEvent)
 			 */
-			@Override
 			public void widgetSelected(SelectionEvent e) {
 				textUsage.setText(openFileDialog(e, USAGEMODEL_EXTENSION));
 			}

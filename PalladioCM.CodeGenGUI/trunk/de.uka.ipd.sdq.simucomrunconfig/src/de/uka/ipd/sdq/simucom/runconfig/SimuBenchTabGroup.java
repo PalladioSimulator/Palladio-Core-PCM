@@ -1,4 +1,4 @@
-package de.uka.ipd.sdq.simucomrunconfig;
+package de.uka.ipd.sdq.simucom.runconfig;
 
 import org.eclipse.debug.ui.AbstractLaunchConfigurationTabGroup;
 import org.eclipse.debug.ui.ILaunchConfigurationDialog;

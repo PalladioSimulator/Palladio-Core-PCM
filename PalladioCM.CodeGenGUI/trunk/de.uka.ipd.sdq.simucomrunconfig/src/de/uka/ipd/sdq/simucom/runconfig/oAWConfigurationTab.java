@@ -1,4 +1,4 @@
-package de.uka.ipd.sdq.simucomrunconfig;
+package de.uka.ipd.sdq.simucom.runconfig;
 
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.debug.core.ILaunchConfiguration;
@@ -27,7 +27,6 @@ public class oAWConfigurationTab extends AbstractLaunchConfigurationTab {
 	/* (non-Javadoc)
 	 * @see org.eclipse.debug.ui.AbstractLaunchConfigurationTab#getImage()
 	 */
-	@Override
 	public Image getImage() {
 		return ResourceManagerTab.getConfigurationImage();
 	}
@@ -75,14 +74,13 @@ public class oAWConfigurationTab extends AbstractLaunchConfigurationTab {
 			/* (non-Javadoc)
 			 * @see org.eclipse.swt.events.SelectionAdapter#widgetSelected(org.eclipse.swt.events.SelectionEvent)
 			 */
-			@Override
 			public void widgetSelected(SelectionEvent e) {
-				setEnabled(false);
+				setElementsEnabled(false);
 				outputPathField
 						.setText(GENERATE_PLUGIN_PATH);
 
 				if (!defaultLocationButton.getSelection())
-					setEnabled(true);
+					setElementsEnabled(true);
 			}
 		});
 		new Label(outputPathGroup, SWT.NONE);
@@ -111,7 +109,6 @@ public class oAWConfigurationTab extends AbstractLaunchConfigurationTab {
 			/* (non-Javadoc)
 			 * @see org.eclipse.swt.events.SelectionAdapter#widgetSelected(org.eclipse.swt.events.SelectionEvent)
 			 */
-			@Override
 			public void widgetSelected(SelectionEvent e) {
 				String pluginPath = openDirectoryDialog(e);
 				outputPathField.setText(pluginPath);
@@ -120,7 +117,7 @@ public class oAWConfigurationTab extends AbstractLaunchConfigurationTab {
 		});
 
 		// --- setEnabled(false) ---
-		setEnabled(false);
+		setElementsEnabled(false);
 
 	}
 
@@ -129,7 +126,7 @@ public class oAWConfigurationTab extends AbstractLaunchConfigurationTab {
 	 * 
 	 * @param enable
 	 */
-	private void setEnabled(Boolean enable) {
+	private void setElementsEnabled(boolean enable) {
 		locationLabel.setEnabled(enable);
 		outputPathField.setEnabled(enable);
 		workspaceButton.setEnabled(enable);
