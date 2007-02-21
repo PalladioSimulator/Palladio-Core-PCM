@@ -14,6 +14,7 @@ import org.eclipse.core.runtime.IPath;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.util.EContentAdapter;
 import org.eclipse.emf.ecore.xmi.XMIResource;
@@ -25,6 +26,7 @@ import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.jface.action.MenuManager;
 import org.eclipse.jface.action.Separator;
+import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Composite;
@@ -41,6 +43,7 @@ import de.uka.ipd.sdq.pcm.repository.provider.RepositoryItemProviderAdapterFacto
 import de.uka.ipd.sdq.pcm.seff.provider.SeffItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcmbench.EditingDomainFactory;
 import de.uka.ipd.sdq.pcmbench.PCMBenchActivator;
+import de.uka.ipd.sdq.pcmbench.actions.CloseRepositoryAction;
 import de.uka.ipd.sdq.pcmbench.actions.OpenRepositoryAction;
 import de.uka.ipd.sdq.pcmbench.ui.provider.categoryaware.CategoryAwareItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcmbench.ui.provider.categoryaware.PalladioCategoryDescriptions;
@@ -86,9 +89,16 @@ public class ResourceView extends ViewPart {
 
 			for (int i = 0; i < children.length; i++) {
 				String resourceName = children[i].getString("path");
-				editingDomain.loadResource("file:/" + resourceName);
-			}
 
+				URI model = URI.createFileURI(resourceName);
+				ResourceSet resourceSet = editingDomain.getResourceSet();
+				try {
+					resourceSet.getResource(model, true);
+				} catch (Throwable t) {
+					MessageDialog.openInformation(site.getShell(),
+							"Resource Loader Error", t.getMessage());
+				}
+			}
 		}
 		registerResourceSetListener(editingDomain.getResourceSet());
 	}
@@ -165,10 +175,15 @@ public class ResourceView extends ViewPart {
 
 	private void makeActions() {
 		OpenRepositoryAction openAction = new OpenRepositoryAction();
+		CloseRepositoryAction closeAction = new CloseRepositoryAction();
+
 		openAction.init(getSite().getWorkbenchWindow());
+		closeAction.init(getSite().getWorkbenchWindow());
 
 		MenuManager menuMgr = new MenuManager("resourcePopup");
 		menuMgr.add(openAction);
+		menuMgr.add(new Separator());
+		menuMgr.add(closeAction);
 		menuMgr.add(new Separator(IWorkbenchActionConstants.MB_ADDITIONS));
 		Menu menu = menuMgr.createContextMenu(treeViewer.getControl());
 		treeViewer.getControl().setMenu(menu);
