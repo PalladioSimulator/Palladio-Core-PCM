@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.ui.views">
+      <category
+            name="SimuBench Category"
+            id="de.uka.ipd.sdq.codegen.simudatavisualization">
+      </category>
+      <view
+            name="Experiments View"
+            icon="icons/app_simucim.gif"
+            category="de.uka.ipd.sdq.codegen.simudatavisualization"
+            class="de.uka.ipd.sdq.codegen.simudatavisualization.views.ExperimentsView"
+            id="de.uka.ipd.sdq.codegen.simudatavisualization.ExperimentsView">
+      </view>
+      <view
+            category="de.uka.ipd.sdq.codegen.simudatavisualization"
+            class="de.uka.ipd.sdq.codegen.simudatavisualization.views.SensorsView"
+            icon="icons/app_simucim.gif"
+            id="de.uka.ipd.sdq.codegen.simudatavisualization.SensorsView"
+            name="Sensors View"/>
+      <view
+            class="de.uka.ipd.sdq.codegen.simudatavisualization.views.RunsView"
+            icon="icons/app_simucim.gif"
+            id="de.uka.ipd.sdq.codegen.simudatavisualization.RunsView"
+            name="Runs View"/>
+   </extension>
+	   <extension
+	         point="org.eclipse.ui.perspectives">
+	     	 <perspective
+	            class="de.uka.ipd.sdq.codegen.simudatavisualization.perspective.SimuBenchPerspective"
+	            fixed="false"
+	            icon="icons/app_simucim.gif"
+	            id="de.uka.ipd.sdq.codegen.simudatavisualization.SimuBenchPerspective"
+	            name="SimuBench"/>
+	   </extension>
+
+</plugin>
