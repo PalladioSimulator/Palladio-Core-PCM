@@ -4041,11 +4041,11 @@
       <ownedAttribute xmi:id="_YuRXQpJYEdqSSImFLKDkSg" name="signature_Parameter" type="_hh0OUJJJEdqSSImFLKDkSg" association="_YuRXQJJYEdqSSImFLKDkSg"/>
     </ownedMember>
     <ownedMember xmi:type="uml:Class" xmi:id="_cIR90JJJEdqSSImFLKDkSg" name="Interface">
-      <ownedRule xmi:id="_AjZ8AJybEdqX-LqEpACX-A" name="noProtocolTypeIDUsedTwice" constrainedElement="_cIR90JJJEdqSSImFLKDkSg">
+      <ownedRule xmi:id="_AjZ8AJybEdqX-LqEpACX-A" name="NoProtocolTypeIDUsedTwice" constrainedElement="_cIR90JJJEdqSSImFLKDkSg">
         <specification xmi:type="uml:OpaqueExpression" xmi:id="_AjZ8AZybEdqX-LqEpACX-A" body="self.protocols__Interface->forAll(p1, p2 |&#xD;&#xA;p1.protocolTypeID &lt;> p2.protocolTypeID)&#xD;&#xA;" language="OCL"/>
       </ownedRule>
       <ownedRule xmi:id="_4WL50Kq6EdqOOaiBCPgBBQ" name="SignaturesHaveToBeUniqueForAnInterface" constrainedElement="_cIR90JJJEdqSSImFLKDkSg">
-        <specification xmi:type="uml:OpaqueExpression" xmi:id="_4WL50aq6EdqOOaiBCPgBBQ" body="-- full signature has to be unique &#xD;&#xA;-- (use of ocl-tupels) #&#xD;&#xA;let sigs : Bag(&#xD;&#xA;&#x9;-- parameters: Sequence of DataType, NOT name #&#xD;&#xA;&#x9;-- exceptions have not to be considered #&#xD;&#xA;&#x9;Tuple(returnType : DataType, serviceName : String, parameters : Sequence(DataType) ) &#xD;&#xA;) = &#xD;&#xA;self.signatures__Interface->collect(sig : Signature |&#xD;&#xA;&#x9;Tuple{&#xD;&#xA;&#x9;&#x9;returnType : DataType = sig.returntype__Signature,&#xD;&#xA;&#x9;&#x9;serviceName : String = sig.serviceName,&#xD;&#xA;&#x9;&#x9;parameters : Sequence(DataType) = sig.parameters__Signature.datatype__Parameter&#xD;&#xA;&#x9;}&#xD;&#xA;)&#xD;&#xA;in&#xD;&#xA;sigs->isUnique(sigs)" language="OCL"/>
+        <specification xmi:type="uml:OpaqueExpression" xmi:id="_4WL50aq6EdqOOaiBCPgBBQ" body="-- full signature has to be unique &#xD;&#xA;-- (use of ocl-tupels) #&#xD;&#xA;let sigs : Bag(&#xD;&#xA;&#x9;-- parameters: Sequence of DataType, NOT name #&#xD;&#xA;&#x9;-- exceptions have not to be considered #&#xD;&#xA;&#x9;Tuple(returnType : DataType, serviceName : String, parameters : Sequence(DataType) ) &#xD;&#xA;) = &#xD;&#xA;self.signatures__Interface->collect(sig : Signature |&#xD;&#xA;&#x9;Tuple{&#xD;&#xA;&#x9;&#x9;returnType : DataType = sig.returntype__Signature,&#xD;&#xA;&#x9;&#x9;serviceName : String = sig.serviceName,&#xD;&#xA;&#x9;&#x9;parameters : Sequence(DataType) = sig.parameters__Signature.datatype__Parameter&#xD;&#xA;&#x9;}&#xD;&#xA;)&#xD;&#xA;in&#xD;&#xA;sigs->forAll(s|sigs->isUnique(s))" language="OCL"/>
       </ownedRule>
       <generalization xmi:id="_TmZxoJJwEdqSSImFLKDkSg" general="_au_WlWA_EdqdHZdhXRxKVg"/>
       <ownedAttribute xmi:id="_V-r80ZJeEdqSSImFLKDkSg" name="parentInterface__Interface" type="_cIR90JJJEdqSSImFLKDkSg" association="_V-r80JJeEdqSSImFLKDkSg">
@@ -4121,8 +4121,8 @@
       </ownedAttribute>
     </ownedMember>
     <ownedMember xmi:type="uml:Class" xmi:id="_oz-CwJJIEdqSSImFLKDkSg" name="BasicComponent">
-      <ownedRule xmi:id="_KU54AJyrEdqX-LqEpACX-A" name="noSeffTypeUsedTwice" constrainedElement="_oz-CwJJIEdqSSImFLKDkSg">
-        <specification xmi:type="uml:OpaqueExpression" xmi:id="_KU_-oJyrEdqX-LqEpACX-A" body="self.serviceEffectSpecifications__BasicComponent->forAll(p1, p2 |&#xD;&#xA;p1.seffTypeID &lt;> p2.seffTypeID)" language="OCL"/>
+      <ownedRule xmi:id="_KU54AJyrEdqX-LqEpACX-A" name="NoSeffTypeUsedTwice" constrainedElement="_oz-CwJJIEdqSSImFLKDkSg">
+        <specification xmi:type="uml:OpaqueExpression" xmi:id="_KU_-oJyrEdqX-LqEpACX-A" body="self.serviceEffectSpecifications__BasicComponent->forAll(p1, p2 |&#xD;&#xA;  p1 &lt;> p2 implies (p1.describedService__SEFF = p2.describedService__SEFF implies p1.seffTypeID &lt;> p2.seffTypeID))" language="OCL"/>
       </ownedRule>
       <ownedRule xmi:id="_4ukaUKU4EdqWue6EZILF7w" name="ProvideSameInterfaces" constrainedElement="_oz-CwJJIEdqSSImFLKDkSg">
         <specification xmi:type="uml:OpaqueExpression" xmi:id="_4u2uMKU4EdqWue6EZILF7w" body="-- BC has to provide the same interfaces like the implementationComponentType (if set) #&#xD;&#xA;self.providedRoles_InterfaceProvidingEntity->iterate(pr : ProvidedRole; acc1 : Bag(String) = Bag{} |&#xD;&#xA;&#x9;acc1->union(pr.providedInterface__ProvidedRole.id->asBag())&#xD;&#xA;)&#xD;&#xA;=&#xD;&#xA;if&#xD;&#xA;&#x9; -- apply constraint only for non-empty ImplementationComponentTypes of a BC #&#xD;&#xA;&#x9;self.implementationComponentType->notEmpty()&#xD;&#xA;then&#xD;&#xA;&#x9;self.implementationComponentType.providedRoles_InterfaceProvidingEntity->iterate(pr : ProvidedRole; acc2 : Bag(String) = Bag{} |&#xD;&#xA;&#x9;&#x9;acc2->union(pr.providedInterface__ProvidedRole.id->asBag())&#xD;&#xA;&#x9;)&#xD;&#xA;else&#xD;&#xA;&#x9;Bag{}&#xD;&#xA;endif" language="OCL"/>
