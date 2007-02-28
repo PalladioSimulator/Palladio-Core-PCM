@@ -137,12 +137,6 @@
                label="&amp;Open Repository..."
                menubarPath="de.uka.ipd.sdq.PCMBench.mainMenu/mainGroupMarker"
                style="push"/>
-          <action
-               class="de.uka.ipd.sdq.pcmbench.actions.CloseRepositoryAction"
-               id="de.uka.ipd.sdq.PCMBench.closeRepositoryAction"
-               label="&amp;Close Repository..."
-               menubarPath="de.uka.ipd.sdq.PCMBench.mainMenu/mainGroupMarker"
-               style="push"/>
       </actionSet>
    </extension>
   

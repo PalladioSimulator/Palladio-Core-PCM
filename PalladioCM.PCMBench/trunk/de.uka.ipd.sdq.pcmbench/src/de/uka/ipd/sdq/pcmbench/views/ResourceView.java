@@ -43,7 +43,6 @@ import de.uka.ipd.sdq.pcm.repository.provider.RepositoryItemProviderAdapterFacto
 import de.uka.ipd.sdq.pcm.seff.provider.SeffItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcmbench.EditingDomainFactory;
 import de.uka.ipd.sdq.pcmbench.PCMBenchActivator;
-import de.uka.ipd.sdq.pcmbench.actions.CloseRepositoryAction;
 import de.uka.ipd.sdq.pcmbench.actions.OpenRepositoryAction;
 import de.uka.ipd.sdq.pcmbench.ui.provider.categoryaware.CategoryAwareItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcmbench.ui.provider.categoryaware.PalladioCategoryDescriptions;
@@ -175,15 +174,10 @@ public class ResourceView extends ViewPart {
 
 	private void makeActions() {
 		OpenRepositoryAction openAction = new OpenRepositoryAction();
-		CloseRepositoryAction closeAction = new CloseRepositoryAction();
-
 		openAction.init(getSite().getWorkbenchWindow());
-		closeAction.init(getSite().getWorkbenchWindow());
 
 		MenuManager menuMgr = new MenuManager("resourcePopup");
 		menuMgr.add(openAction);
-		menuMgr.add(new Separator());
-		menuMgr.add(closeAction);
 		menuMgr.add(new Separator(IWorkbenchActionConstants.MB_ADDITIONS));
 		Menu menu = menuMgr.createContextMenu(treeViewer.getControl());
 		treeViewer.getControl().setMenu(menu);
