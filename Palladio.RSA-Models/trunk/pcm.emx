@@ -2768,7 +2768,7 @@
             <styles xmi:type="umlnotation:UMLShapeCompartmentStyle" xmi:id="_kj4yTjytEduB5pxz2UpKVQ"/>
           </children>
           <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_kj4yQTytEduB5pxz2UpKVQ" fillColor="65535" lineColor="0" showStereotype="Label"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_kj4yQjytEduB5pxz2UpKVQ" x="13038" y="9222"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_kj4yQjytEduB5pxz2UpKVQ" x="10812" y="9222"/>
         </children>
         <children xmi:id="_kkVeMDytEduB5pxz2UpKVQ" sourceEdges="_koNR2jytEduB5pxz2UpKVQ _koXCkDytEduB5pxz2UpKVQ _azBkMFOuEduyKfhIjBdbtA _A6xw0XhuEdugjru7Zo1JWg" targetEdges="_koNR2jytEduB5pxz2UpKVQ _koXCkDytEduB5pxz2UpKVQ" element="_cIR90JJJEdqSSImFLKDkSg">
           <children xmi:id="_kkVeMzytEduB5pxz2UpKVQ" type="ImageCompartment" element="_cIR90JJJEdqSSImFLKDkSg">
@@ -2955,7 +2955,7 @@
             <layoutConstraint xmi:type="notation:Location" xmi:id="_koNRsTytEduB5pxz2UpKVQ" y="1058"/>
           </children>
           <styles xmi:type="umlnotation:UMLConnectorStyle" xmi:id="_koNRkTytEduB5pxz2UpKVQ" lineColor="0" showStereotype="Text"/>
-          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_koNRkjytEduB5pxz2UpKVQ" points="[-1, -701, -1826, 2289]$[925, -1494, -900, 1496]$[925, -1495, -900, 1495]$[1825, -2289, 0, 701]"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_koNRkjytEduB5pxz2UpKVQ" points="[2275, 27, -4736, 397]$[3968, 27, -3043, 397]$[5688, 27, -1323, 397]"/>
         </edges>
         <edges xmi:id="_koNR2jytEduB5pxz2UpKVQ" element="_V-r80JJeEdqSSImFLKDkSg" source="_kkVeMDytEduB5pxz2UpKVQ" target="_kkVeMDytEduB5pxz2UpKVQ">
           <children xmi:id="_koNR3TytEduB5pxz2UpKVQ" type="NameLabel" element="_V-r80JJeEdqSSImFLKDkSg">
@@ -3079,7 +3079,7 @@
           </children>
           <children xmi:id="_koXC6jytEduB5pxz2UpKVQ" type="FromRoleLabel" element="_unIg8ZJYEdqSSImFLKDkSg">
             <children xmi:id="_koXC7DytEduB5pxz2UpKVQ" type="FromRole" element="_unIg8ZJYEdqSSImFLKDkSg"/>
-            <layoutConstraint xmi:type="notation:Location" xmi:id="_koXC6zytEduB5pxz2UpKVQ" x="665" y="-1869"/>
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_koXC6zytEduB5pxz2UpKVQ" x="-20" y="-2123"/>
           </children>
           <children xmi:id="_koXC7TytEduB5pxz2UpKVQ" type="ToQualifierLabel" element="_unOnkJJYEdqSSImFLKDkSg">
             <children xmi:id="_koXC7zytEduB5pxz2UpKVQ" type="QualifierCompartment" element="_unOnkJJYEdqSSImFLKDkSg">
