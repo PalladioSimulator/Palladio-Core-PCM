@@ -7,11 +7,26 @@ import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.resource.ImageRegistry;
 import org.eclipse.swt.graphics.Image;
 
+import de.uka.ipd.sdq.codegen.simucontroller.Activator;
+
 /**
  * @author admin
  *
  */
 public class ResourceManagerTab {
+	
+	public static String GENERATE_PLUGIN_ID = "de.uka.ipd.sdq.codegen.simucominstance";
+	
+	/**
+	 * TODO
+	 * The default value for the 'width' attribute.
+	 */
+	public static String REPOSITORY_FILE 	= "repositoryFile";
+	public static String SYSTEM_FILE 		= "systemFile";
+	public static String ALLOCATION_FILE 	= "allocationFile";
+	public static String USAGE_FILE 		= "usageFile";
+	
+	public static String OUTPUT_PATH 		= "outpath";
 	
 	/**
 	 * TODO

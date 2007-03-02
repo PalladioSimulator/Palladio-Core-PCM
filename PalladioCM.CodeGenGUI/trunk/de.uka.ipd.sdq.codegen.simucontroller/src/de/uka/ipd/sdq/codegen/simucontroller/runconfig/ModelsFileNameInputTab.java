@@ -31,15 +31,6 @@ public class ModelsFileNameInputTab extends AbstractLaunchConfigurationTab {
 	public Image getImage() {
 		return ResourceManagerTab.getModelsListImage();
 	}
-	/**
-	 * TODO
-	 * The default value for the 'width' attribute.
-	 */
-	private String repositoryFile 	= "REPOSITORY_FILE";
-	private String systemFile 		= "SYSTEM_FILE";
-	private String allocationFile 	= "ALLOCATION_FILE";
-	private String usageFile 		= "USAGE_FILE";
-	
 
 	//The default value for the button Name.
 	private final String BUTTON_NAME = "Browse...";
@@ -172,7 +163,6 @@ public class ModelsFileNameInputTab extends AbstractLaunchConfigurationTab {
 				textUsage.setText(openFileDialog(e, USAGEMODEL_EXTENSION));
 			}
 		});
-
 	}
 
 	/* (non-Javadoc)
@@ -187,25 +177,25 @@ public class ModelsFileNameInputTab extends AbstractLaunchConfigurationTab {
 	 */
 	public void initializeFrom(ILaunchConfiguration configuration) {
 		try {
-			textAllocation.setText(configuration.getAttribute(allocationFile, ""));
+			textAllocation.setText(configuration.getAttribute(ResourceManagerTab.ALLOCATION_FILE, ""));
 		} catch (CoreException e) {
 			textAllocation.setText("CoreException e -> ALLOCATION_FILE");
 		}
 		
 		try {
-			textRepository.setText(configuration.getAttribute(repositoryFile, ""));
+			textRepository.setText(configuration.getAttribute(ResourceManagerTab.REPOSITORY_FILE, ""));
 		} catch (CoreException e) {
 			textRepository.setText("CoreException e -> REPOSITORY_FILE");
 		}
 		
 		try {
-			textSystem.setText(configuration.getAttribute(systemFile, ""));
+			textSystem.setText(configuration.getAttribute(ResourceManagerTab.SYSTEM_FILE, ""));
 		} catch (CoreException e) {
 			textSystem.setText("CoreException e -> SYSTEM_FILE");
 		}
 		
 		try {
-			textUsage.setText(configuration.getAttribute(usageFile, ""));
+			textUsage.setText(configuration.getAttribute(ResourceManagerTab.USAGE_FILE, ""));
 		} catch (CoreException e) {
 			textUsage.setText("CoreException e -> USAGE_FILE");
 		}
@@ -221,10 +211,10 @@ public class ModelsFileNameInputTab extends AbstractLaunchConfigurationTab {
 	//	System.err.println(project.getFullPath().toString());
 		
 		
-		configuration.setAttribute(repositoryFile, textRepository.getText());
-		configuration.setAttribute(systemFile, textSystem.getText());
-		configuration.setAttribute(allocationFile, textAllocation.getText());
-		configuration.setAttribute(usageFile, textUsage.getText());
+		configuration.setAttribute(ResourceManagerTab.REPOSITORY_FILE, textRepository.getText());
+		configuration.setAttribute(ResourceManagerTab.SYSTEM_FILE, textSystem.getText());
+		configuration.setAttribute(ResourceManagerTab.ALLOCATION_FILE, textAllocation.getText());
+		configuration.setAttribute(ResourceManagerTab.USAGE_FILE, textUsage.getText());
 
 	}
 

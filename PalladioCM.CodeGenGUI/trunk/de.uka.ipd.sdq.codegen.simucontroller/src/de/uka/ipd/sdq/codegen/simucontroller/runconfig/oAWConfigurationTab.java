@@ -35,7 +35,7 @@ public class oAWConfigurationTab extends AbstractLaunchConfigurationTab {
 	/**
 	 * TODO
 	 */
-	private String GENERATE_PLUGIN_PATH = "${workspace_loc}/de.uka.ipd.sdq.codegen.test";
+	private String GENERATE_PLUGIN_PATH = "${workspace_loc}/de.uka.ipd.sdq.codegen.simucominstance";
 	private String outputPath = "OUTPUT_PATH";
 	/**
 	 * The default value for the 'height' Layout attribute.
