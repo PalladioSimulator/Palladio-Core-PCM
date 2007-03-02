@@ -11,7 +11,7 @@ javaName(Entity e) :
 
 // Generate a java name by replacing all characters which are not java conform
 javaString(String s) :
-   s.replaceAll('"','\\\\"');
+   s.replaceAll('"','\\\\"').replaceAll(' ','_');
  
 javaSignature(Signature s) :
    s.serviceName.toFirstLower();

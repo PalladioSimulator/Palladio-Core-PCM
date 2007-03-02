@@ -83,7 +83,7 @@
 
 «DEFINE WorkloadDriver(UsageScenario u) FOR ClosedWorkload»
 	for (int i = 0; i < «this.population»; i++) {
-		threads.add(new «u.javaName()»Thread(exp));
+		threads.add(new «u.javaName()»Thread(exp, exp.addExperimentRun(new java.util.Date().toString())));
 	}
 «ENDDEFINE»
 
@@ -91,11 +91,14 @@
 class «u.javaName()»Thread extends Thread implements IStopable {
     de.uka.ipd.sdq.sensorfactory.entities.TimeSpanSensor tss = null;
     «u.fqn()» us = null;
+    de.uka.ipd.sdq.sensorfactory.entities.ExperimentRun experimentRun = null;
     boolean shouldContinue = true;
     
-    public «u.javaName()»Thread(de.uka.ipd.sdq.sensorfactory.entities.Experiment exp) {
+    public «u.javaName()»Thread(de.uka.ipd.sdq.sensorfactory.entities.Experiment exp,
+    	de.uka.ipd.sdq.sensorfactory.entities.ExperimentRun expRun) {
     	tss = exp.addTimeSpanSensor("Scenario overall «u.entityName»");
 		us = new «u.fqn()»();
+		experimentRun = expRun;
     }
     
     public void requestStop() {
@@ -106,7 +109,7 @@ class «u.javaName()»Thread extends Thread implements IStopable {
 	    while (shouldContinue) {
         	long start = System.nanoTime();
 			us.run();
-            tss.addTimeSpan(System.nanoTime(),(System.nanoTime()-start)/Math.pow(10,9));
+            experimentRun.addTimeSpanMeasurement(tss, System.nanoTime(),(System.nanoTime()-start)/Math.pow(10,9));
             try {
             	// TODO: Wait for think time of the model instance
 				Thread.sleep(200);

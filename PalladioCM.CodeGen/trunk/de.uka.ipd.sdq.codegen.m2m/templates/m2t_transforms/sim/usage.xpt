@@ -46,11 +46,11 @@
 «DEFINE ScenarioRunner(UsageScenario us) FOR ScenarioBehaviour»
 	public void scenarioRunner(desmoj.core.simulator.SimProcess thread) {
 		ctx.setSimProcess(thread);
-		«EXPAND m2t_transforms::sensors::StartResponseTimeMeasurementTM FOR us.entityName»
+		«EXPAND m2t_transforms::sensors::StartResponseTimeMeasurementTM FOR us.entityName.javaString()»
 		{
 			«EXPAND m2t_transforms::usage::UserActions FOR this.actions_ScenarioBehaviour.typeSelect(Start).get(0)»
 		}
-		«EXPAND m2t_transforms::sensors::EndResponseTimeMeasurementTM FOR us.entityName»
+		«EXPAND m2t_transforms::sensors::EndResponseTimeMeasurementTM FOR us.entityName.javaString()»
 	}
 «ENDDEFINE»
 
