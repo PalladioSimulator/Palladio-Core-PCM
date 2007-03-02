@@ -148,7 +148,7 @@ public interface Interface extends Entity {
 	 * @model
 	 * @generated
 	 */
-	boolean noProtocolTypeIDUsedTwice(DiagnosticChain diagnostics, Map context);
+	boolean NoProtocolTypeIDUsedTwice(DiagnosticChain diagnostics, Map context);
 
 
 	/**
@@ -170,7 +170,7 @@ public interface Interface extends Entity {
 	 *  }
 	 * )
 	 * in
-	 * sigs->isUnique(sigs)
+	 * sigs->forAll(s|sigs->isUnique(s))
 	 * <!-- end-model-doc -->
 	 * @model
 	 * @generated

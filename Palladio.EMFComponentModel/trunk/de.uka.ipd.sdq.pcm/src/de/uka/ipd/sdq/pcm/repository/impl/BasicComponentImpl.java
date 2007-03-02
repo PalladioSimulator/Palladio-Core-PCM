@@ -59,7 +59,6 @@ import org.eclipse.emf.ocl.query.QueryFactory;
  * <ul>
  *   <li>{@link de.uka.ipd.sdq.pcm.repository.impl.BasicComponentImpl#getImplementationComponentType <em>Implementation Component Type</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.repository.impl.BasicComponentImpl#getServiceEffectSpecifications__BasicComponent <em>Service Effect Specifications Basic Component</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.repository.impl.BasicComponentImpl#getInternalVariables_BasicComponent <em>Internal Variables Basic Component</em>}</li>
  * </ul>
  * </p>
  *
@@ -95,24 +94,13 @@ public class BasicComponentImpl extends ImplementationComponentTypeImpl implemen
 
 
 	/**
-	 * The cached value of the '{@link #getInternalVariables_BasicComponent() <em>Internal Variables Basic Component</em>}' containment reference list.
+	 * The parsed OCL expression for the definition of the '{@link #NoSeffTypeUsedTwice <em>No Seff Type Used Twice</em>}' invariant constraint.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getInternalVariables_BasicComponent()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList internalVariables_BasicComponent = null;
-
-
-	/**
-	 * The parsed OCL expression for the definition of the '{@link #noSeffTypeUsedTwice <em>No Seff Type Used Twice</em>}' invariant constraint.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #noSeffTypeUsedTwice
+	 * @see #NoSeffTypeUsedTwice
 	 * @generated
 	 */
-	private static OCLExpression noSeffTypeUsedTwiceInvOCL;
+	private static OCLExpression NoSeffTypeUsedTwiceInvOCL;
 	
 	/**
 	 * The parsed OCL expression for the definition of the '{@link #ProvideSameInterfaces <em>Provide Same Interfaces</em>}' invariant constraint.
@@ -202,39 +190,27 @@ public class BasicComponentImpl extends ImplementationComponentTypeImpl implemen
 		return serviceEffectSpecifications__BasicComponent;
 	}
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList getInternalVariables_BasicComponent() {
-		if (internalVariables_BasicComponent == null) {
-			internalVariables_BasicComponent = new EObjectContainmentEList(VariableUsage.class, this, RepositoryPackage.BASIC_COMPONENT__INTERNAL_VARIABLES_BASIC_COMPONENT);
-		}
-		return internalVariables_BasicComponent;
-	}
-
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean noSeffTypeUsedTwice(DiagnosticChain diagnostics, Map context) {
-		if (noSeffTypeUsedTwiceInvOCL == null) {
+	public boolean NoSeffTypeUsedTwice(DiagnosticChain diagnostics, Map context) {
+		if (NoSeffTypeUsedTwiceInvOCL == null) {
 			Environment env = ExpressionsUtil.createClassifierContext(eClass());
 			
 			
-			String body = "self.serviceEffectSpecifications__BasicComponent->forAll(p1, p2 |  p1.seffTypeID <> p2.seffTypeID) ";
+			String body = "self.serviceEffectSpecifications__BasicComponent->forAll(p1, p2 |    p1 <> p2 implies (p1.describedService__SEFF = p2.describedService__SEFF implies p1.seffTypeID <> p2.seffTypeID)) ";
 			
 			try {
-				noSeffTypeUsedTwiceInvOCL = ExpressionsUtil.createInvariant(env, body, true);
+				NoSeffTypeUsedTwiceInvOCL = ExpressionsUtil.createInvariant(env, body, true);
 			} catch (ParserException e) {
 				throw new UnsupportedOperationException(e.getLocalizedMessage());
 			}
 		}
 		
-		Query query = QueryFactory.eINSTANCE.createQuery(noSeffTypeUsedTwiceInvOCL);
+		Query query = QueryFactory.eINSTANCE.createQuery(NoSeffTypeUsedTwiceInvOCL);
 		EvalEnvironment evalEnv = new EvalEnvironment();
 		query.setEvaluationEnvironment(evalEnv);
 		
@@ -245,7 +221,7 @@ public class BasicComponentImpl extends ImplementationComponentTypeImpl implemen
 						(Diagnostic.ERROR,
 						 RepositoryValidator.DIAGNOSTIC_SOURCE,
 						 RepositoryValidator.BASIC_COMPONENT__NO_SEFF_TYPE_USED_TWICE,
-						 EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "noSeffTypeUsedTwice", EObjectValidator.getObjectLabel(this, context) }),
+						 EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "NoSeffTypeUsedTwice", EObjectValidator.getObjectLabel(this, context) }),
 						 new Object [] { this }));
 			}
 			return false;
@@ -343,8 +319,6 @@ public class BasicComponentImpl extends ImplementationComponentTypeImpl implemen
 		switch (featureID) {
 			case RepositoryPackage.BASIC_COMPONENT__SERVICE_EFFECT_SPECIFICATIONS_BASIC_COMPONENT:
 				return ((InternalEList)getServiceEffectSpecifications__BasicComponent()).basicRemove(otherEnd, msgs);
-			case RepositoryPackage.BASIC_COMPONENT__INTERNAL_VARIABLES_BASIC_COMPONENT:
-				return ((InternalEList)getInternalVariables_BasicComponent()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -361,8 +335,6 @@ public class BasicComponentImpl extends ImplementationComponentTypeImpl implemen
 				return basicGetImplementationComponentType();
 			case RepositoryPackage.BASIC_COMPONENT__SERVICE_EFFECT_SPECIFICATIONS_BASIC_COMPONENT:
 				return getServiceEffectSpecifications__BasicComponent();
-			case RepositoryPackage.BASIC_COMPONENT__INTERNAL_VARIABLES_BASIC_COMPONENT:
-				return getInternalVariables_BasicComponent();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -381,10 +353,6 @@ public class BasicComponentImpl extends ImplementationComponentTypeImpl implemen
 				getServiceEffectSpecifications__BasicComponent().clear();
 				getServiceEffectSpecifications__BasicComponent().addAll((Collection)newValue);
 				return;
-			case RepositoryPackage.BASIC_COMPONENT__INTERNAL_VARIABLES_BASIC_COMPONENT:
-				getInternalVariables_BasicComponent().clear();
-				getInternalVariables_BasicComponent().addAll((Collection)newValue);
-				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -402,9 +370,6 @@ public class BasicComponentImpl extends ImplementationComponentTypeImpl implemen
 			case RepositoryPackage.BASIC_COMPONENT__SERVICE_EFFECT_SPECIFICATIONS_BASIC_COMPONENT:
 				getServiceEffectSpecifications__BasicComponent().clear();
 				return;
-			case RepositoryPackage.BASIC_COMPONENT__INTERNAL_VARIABLES_BASIC_COMPONENT:
-				getInternalVariables_BasicComponent().clear();
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -420,8 +385,6 @@ public class BasicComponentImpl extends ImplementationComponentTypeImpl implemen
 				return implementationComponentType != null;
 			case RepositoryPackage.BASIC_COMPONENT__SERVICE_EFFECT_SPECIFICATIONS_BASIC_COMPONENT:
 				return serviceEffectSpecifications__BasicComponent != null && !serviceEffectSpecifications__BasicComponent.isEmpty();
-			case RepositoryPackage.BASIC_COMPONENT__INTERNAL_VARIABLES_BASIC_COMPONENT:
-				return internalVariables_BasicComponent != null && !internalVariables_BasicComponent.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

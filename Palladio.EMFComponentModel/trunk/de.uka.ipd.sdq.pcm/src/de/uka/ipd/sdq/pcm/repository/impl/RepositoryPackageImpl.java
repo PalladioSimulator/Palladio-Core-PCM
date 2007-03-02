@@ -323,9 +323,9 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 		ConnectorsPackageImpl theConnectorsPackage = (ConnectorsPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ConnectorsPackage.eNS_URI) instanceof ConnectorsPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ConnectorsPackage.eNS_URI) : ConnectorsPackage.eINSTANCE);
 		CompositionPackageImpl theCompositionPackage = (CompositionPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(CompositionPackage.eNS_URI) instanceof CompositionPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(CompositionPackage.eNS_URI) : CompositionPackage.eINSTANCE);
 		ProtocolPackageImpl theProtocolPackage = (ProtocolPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ProtocolPackage.eNS_URI) instanceof ProtocolPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ProtocolPackage.eNS_URI) : ProtocolPackage.eINSTANCE);
+		ParameterPackageImpl theParameterPackage = (ParameterPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ParameterPackage.eNS_URI) instanceof ParameterPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ParameterPackage.eNS_URI) : ParameterPackage.eINSTANCE);
 		SeffPackageImpl theSeffPackage = (SeffPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(SeffPackage.eNS_URI) instanceof SeffPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(SeffPackage.eNS_URI) : SeffPackage.eINSTANCE);
 		ResourcetypePackageImpl theResourcetypePackage = (ResourcetypePackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ResourcetypePackage.eNS_URI) instanceof ResourcetypePackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ResourcetypePackage.eNS_URI) : ResourcetypePackage.eINSTANCE);
-		ParameterPackageImpl theParameterPackage = (ParameterPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ParameterPackage.eNS_URI) instanceof ParameterPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ParameterPackage.eNS_URI) : ParameterPackage.eINSTANCE);
 		AllocationPackageImpl theAllocationPackage = (AllocationPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(AllocationPackage.eNS_URI) instanceof AllocationPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(AllocationPackage.eNS_URI) : AllocationPackage.eINSTANCE);
 		ResourceenvironmentPackageImpl theResourceenvironmentPackage = (ResourceenvironmentPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ResourceenvironmentPackage.eNS_URI) instanceof ResourceenvironmentPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ResourceenvironmentPackage.eNS_URI) : ResourceenvironmentPackage.eINSTANCE);
 		SystemPackageImpl theSystemPackage = (SystemPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(SystemPackage.eNS_URI) instanceof SystemPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(SystemPackage.eNS_URI) : SystemPackage.eINSTANCE);
@@ -338,9 +338,9 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 		theConnectorsPackage.createPackageContents();
 		theCompositionPackage.createPackageContents();
 		theProtocolPackage.createPackageContents();
+		theParameterPackage.createPackageContents();
 		theSeffPackage.createPackageContents();
 		theResourcetypePackage.createPackageContents();
-		theParameterPackage.createPackageContents();
 		theAllocationPackage.createPackageContents();
 		theResourceenvironmentPackage.createPackageContents();
 		theSystemPackage.createPackageContents();
@@ -353,9 +353,9 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 		theConnectorsPackage.initializePackageContents();
 		theCompositionPackage.initializePackageContents();
 		theProtocolPackage.initializePackageContents();
+		theParameterPackage.initializePackageContents();
 		theSeffPackage.initializePackageContents();
 		theResourcetypePackage.initializePackageContents();
-		theParameterPackage.initializePackageContents();
 		theAllocationPackage.initializePackageContents();
 		theResourceenvironmentPackage.initializePackageContents();
 		theSystemPackage.initializePackageContents();
@@ -769,15 +769,6 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getBasicComponent_InternalVariables_BasicComponent() {
-		return (EReference)basicComponentEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getPrimitiveDataType() {
 		return primitiveDataTypeEClass;
 	}
@@ -983,7 +974,6 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 		basicComponentEClass = createEClass(BASIC_COMPONENT);
 		createEReference(basicComponentEClass, BASIC_COMPONENT__IMPLEMENTATION_COMPONENT_TYPE);
 		createEReference(basicComponentEClass, BASIC_COMPONENT__SERVICE_EFFECT_SPECIFICATIONS_BASIC_COMPONENT);
-		createEReference(basicComponentEClass, BASIC_COMPONENT__INTERNAL_VARIABLES_BASIC_COMPONENT);
 
 		primitiveDataTypeEClass = createEClass(PRIMITIVE_DATA_TYPE);
 		createEAttribute(primitiveDataTypeEClass, PRIMITIVE_DATA_TYPE__TYPE);
@@ -1036,7 +1026,6 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 		ConnectorsPackage theConnectorsPackage = (ConnectorsPackage)EPackage.Registry.INSTANCE.getEPackage(ConnectorsPackage.eNS_URI);
 		CompositionPackage theCompositionPackage = (CompositionPackage)EPackage.Registry.INSTANCE.getEPackage(CompositionPackage.eNS_URI);
 		SeffPackage theSeffPackage = (SeffPackage)EPackage.Registry.INSTANCE.getEPackage(SeffPackage.eNS_URI);
-		ParameterPackage theParameterPackage = (ParameterPackage)EPackage.Registry.INSTANCE.getEPackage(ParameterPackage.eNS_URI);
 
 		// Add supertypes to classes
 		repositoryEClass.getESuperTypes().add(theEntityPackage.getEntity());
@@ -1106,7 +1095,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 		initEReference(getInterface_Signatures__Interface(), this.getSignature(), this.getSignature_Interface_Signature(), "signatures__Interface", null, 0, -1, Interface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getInterface_Repository_Interface(), this.getRepository(), this.getRepository_Interfaces__Repository(), "repository_Interface", null, 1, 1, Interface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-		op = addEOperation(interfaceEClass, ecorePackage.getEBoolean(), "noProtocolTypeIDUsedTwice", 0, 1);
+		op = addEOperation(interfaceEClass, ecorePackage.getEBoolean(), "NoProtocolTypeIDUsedTwice", 0, 1);
 		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1);
 		addEParameter(op, ecorePackage.getEMap(), "context", 0, 1);
 
@@ -1156,9 +1145,8 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 		initEClass(basicComponentEClass, BasicComponent.class, "BasicComponent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getBasicComponent_ImplementationComponentType(), this.getImplementationComponentType(), null, "implementationComponentType", null, 0, 1, BasicComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getBasicComponent_ServiceEffectSpecifications__BasicComponent(), theSeffPackage.getServiceEffectSpecification(), null, "serviceEffectSpecifications__BasicComponent", null, 0, -1, BasicComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getBasicComponent_InternalVariables_BasicComponent(), theParameterPackage.getVariableUsage(), null, "internalVariables_BasicComponent", null, 0, -1, BasicComponent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-		op = addEOperation(basicComponentEClass, ecorePackage.getEBoolean(), "noSeffTypeUsedTwice", 0, 1);
+		op = addEOperation(basicComponentEClass, ecorePackage.getEBoolean(), "NoSeffTypeUsedTwice", 0, 1);
 		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1);
 		addEParameter(op, ecorePackage.getEMap(), "context", 0, 1);
 

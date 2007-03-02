@@ -20,10 +20,14 @@ import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 
+import org.eclipse.emf.edit.provider.ViewerNotification;
+
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
 import de.uka.ipd.sdq.pcm.core.composition.CompositionPackage;
 import de.uka.ipd.sdq.pcm.core.entity.provider.EntityItemProvider;
 import de.uka.ipd.sdq.pcm.core.entity.provider.PcmEditPlugin;
+
+import de.uka.ipd.sdq.pcm.parameter.ParameterFactory;
 
 /**
  * This is the item provider adapter for a {@link de.uka.ipd.sdq.pcm.core.composition.AssemblyContext} object.
@@ -94,6 +98,22 @@ public class AssemblyContextItemProvider
 	}
 
 	/**
+	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
+	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
+	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Collection getChildrenFeatures(Object object) {
+		if (childrenFeatures == null) {
+			super.getChildrenFeatures(object);
+			childrenFeatures.add(CompositionPackage.Literals.ASSEMBLY_CONTEXT__COMPONENT_PARAMETER_USAGE_ASSEMBLY_CONTEXT);
+		}
+		return childrenFeatures;
+	}
+
+	/**
 	 * This returns AssemblyContext.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -125,6 +145,12 @@ public class AssemblyContextItemProvider
 	 */
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
+
+		switch (notification.getFeatureID(AssemblyContext.class)) {
+			case CompositionPackage.ASSEMBLY_CONTEXT__COMPONENT_PARAMETER_USAGE_ASSEMBLY_CONTEXT:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+				return;
+		}
 		super.notifyChanged(notification);
 	}
 
@@ -137,6 +163,11 @@ public class AssemblyContextItemProvider
 	 */
 	protected void collectNewChildDescriptors(Collection newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CompositionPackage.Literals.ASSEMBLY_CONTEXT__COMPONENT_PARAMETER_USAGE_ASSEMBLY_CONTEXT,
+				 ParameterFactory.eINSTANCE.createVariableUsage()));
 	}
 
 	/**

@@ -121,13 +121,13 @@ public class InterfaceImpl extends EntityImpl implements Interface {
 
 
 	/**
-	 * The parsed OCL expression for the definition of the '{@link #noProtocolTypeIDUsedTwice <em>No Protocol Type ID Used Twice</em>}' invariant constraint.
+	 * The parsed OCL expression for the definition of the '{@link #NoProtocolTypeIDUsedTwice <em>No Protocol Type ID Used Twice</em>}' invariant constraint.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #noProtocolTypeIDUsedTwice
+	 * @see #NoProtocolTypeIDUsedTwice
 	 * @generated
 	 */
-	private static OCLExpression noProtocolTypeIDUsedTwiceInvOCL;
+	private static OCLExpression NoProtocolTypeIDUsedTwiceInvOCL;
 	
 	/**
 	 * The parsed OCL expression for the definition of the '{@link #SignaturesHaveToBeUniqueForAnInterface <em>Signatures Have To Be Unique For An Interface</em>}' invariant constraint.
@@ -253,21 +253,21 @@ public class InterfaceImpl extends EntityImpl implements Interface {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean noProtocolTypeIDUsedTwice(DiagnosticChain diagnostics, Map context) {
-		if (noProtocolTypeIDUsedTwiceInvOCL == null) {
+	public boolean NoProtocolTypeIDUsedTwice(DiagnosticChain diagnostics, Map context) {
+		if (NoProtocolTypeIDUsedTwiceInvOCL == null) {
 			Environment env = ExpressionsUtil.createClassifierContext(eClass());
 			
 			
 			String body = "self.protocols__Interface->forAll(p1, p2 |  p1.protocolTypeID <> p2.protocolTypeID)  ";
 			
 			try {
-				noProtocolTypeIDUsedTwiceInvOCL = ExpressionsUtil.createInvariant(env, body, true);
+				NoProtocolTypeIDUsedTwiceInvOCL = ExpressionsUtil.createInvariant(env, body, true);
 			} catch (ParserException e) {
 				throw new UnsupportedOperationException(e.getLocalizedMessage());
 			}
 		}
 		
-		Query query = QueryFactory.eINSTANCE.createQuery(noProtocolTypeIDUsedTwiceInvOCL);
+		Query query = QueryFactory.eINSTANCE.createQuery(NoProtocolTypeIDUsedTwiceInvOCL);
 		EvalEnvironment evalEnv = new EvalEnvironment();
 		query.setEvaluationEnvironment(evalEnv);
 		
@@ -278,7 +278,7 @@ public class InterfaceImpl extends EntityImpl implements Interface {
 						(Diagnostic.ERROR,
 						 RepositoryValidator.DIAGNOSTIC_SOURCE,
 						 RepositoryValidator.INTERFACE__NO_PROTOCOL_TYPE_ID_USED_TWICE,
-						 EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "noProtocolTypeIDUsedTwice", EObjectValidator.getObjectLabel(this, context) }),
+						 EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "NoProtocolTypeIDUsedTwice", EObjectValidator.getObjectLabel(this, context) }),
 						 new Object [] { this }));
 			}
 			return false;
@@ -298,7 +298,7 @@ public class InterfaceImpl extends EntityImpl implements Interface {
 			Environment env = ExpressionsUtil.createClassifierContext(eClass());
 			
 			
-			String body = "  let sigs : Bag(       Tuple(returnType : DataType, serviceName : String, parameters : Sequence(DataType) )   ) =   self.signatures__Interface->collect(sig : Signature |   Tuple{    returnType : DataType = sig.returntype__Signature,    serviceName : String = sig.serviceName,    parameters : Sequence(DataType) = sig.parameters__Signature.datatype__Parameter   }  )  in  sigs->isUnique(sigs) ";
+			String body = "  let sigs : Bag(       Tuple(returnType : DataType, serviceName : String, parameters : Sequence(DataType) )   ) =   self.signatures__Interface->collect(sig : Signature |   Tuple{    returnType : DataType = sig.returntype__Signature,    serviceName : String = sig.serviceName,    parameters : Sequence(DataType) = sig.parameters__Signature.datatype__Parameter   }  )  in  sigs->forAll(s|sigs->isUnique(s)) ";
 			
 			try {
 				SignaturesHaveToBeUniqueForAnInterfaceInvOCL = ExpressionsUtil.createInvariant(env, body, true);

@@ -1787,7 +1787,9 @@ public class RepositoryEditor
 
 		getSite().getPage().removePartListener(partListener);
 
+		// Start Modified Palladio Block
 		((PalladioItemProviderAdapterFactory)adapterFactory).dispose();
+		// End Modified Palladio Block
 
 		if (getActionBarContributor().getActiveEditor() == this) {
 			getActionBarContributor().setActiveEditor(null);

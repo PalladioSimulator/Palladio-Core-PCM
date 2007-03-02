@@ -58,6 +58,8 @@
         <eStructuralFeatures xsi:type="ecore:EReference" name="parentStructure_AssemblyContext"
             ordered="false" lowerBound="1" eType="#//core/composition/ComposedStructure"
             eOpposite="#//core/composition/ComposedStructure/childComponentContexts_ComposedStructure"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="componentParameterUsage_AssemblyContext"
+            ordered="false" upperBound="-1" eType="#//parameter/VariableUsage" containment="true"/>
       </eClassifiers>
       <eClassifiers xsi:type="ecore:EClass" name="RequiredDelegationConnector" eSuperTypes="#//repository/DelegationConnector">
         <eOperations name="InnerContainingComponentEqualOuterRequiringComponent" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
@@ -201,7 +203,7 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Role" abstract="true" eSuperTypes="#//core/entity/Entity"/>
     <eClassifiers xsi:type="ecore:EClass" name="Interface" eSuperTypes="#//core/entity/Entity">
-      <eOperations name="noProtocolTypeIDUsedTwice" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eOperations name="NoProtocolTypeIDUsedTwice" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="self.protocols__Interface->forAll(p1, p2 |&#xD;&#xA;p1.protocolTypeID &lt;> p2.protocolTypeID)&#xD;&#xA;"/>
         </eAnnotations>
@@ -210,7 +212,7 @@
       </eOperations>
       <eOperations name="SignaturesHaveToBeUniqueForAnInterface" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value="-- full signature has to be unique &#xD;&#xA;-- (use of ocl-tupels) #&#xD;&#xA;let sigs : Bag(&#xD;&#xA; -- parameters: Sequence of DataType, NOT name #&#xD;&#xA; -- exceptions have not to be considered #&#xD;&#xA; Tuple(returnType : DataType, serviceName : String, parameters : Sequence(DataType) ) &#xD;&#xA;) = &#xD;&#xA;self.signatures__Interface->collect(sig : Signature |&#xD;&#xA; Tuple{&#xD;&#xA;  returnType : DataType = sig.returntype__Signature,&#xD;&#xA;  serviceName : String = sig.serviceName,&#xD;&#xA;  parameters : Sequence(DataType) = sig.parameters__Signature.datatype__Parameter&#xD;&#xA; }&#xD;&#xA;)&#xD;&#xA;in&#xD;&#xA;sigs->isUnique(sigs)"/>
+          <details key="documentation" value="-- full signature has to be unique &#xD;&#xA;-- (use of ocl-tupels) #&#xD;&#xA;let sigs : Bag(&#xD;&#xA; -- parameters: Sequence of DataType, NOT name #&#xD;&#xA; -- exceptions have not to be considered #&#xD;&#xA; Tuple(returnType : DataType, serviceName : String, parameters : Sequence(DataType) ) &#xD;&#xA;) = &#xD;&#xA;self.signatures__Interface->collect(sig : Signature |&#xD;&#xA; Tuple{&#xD;&#xA;  returnType : DataType = sig.returntype__Signature,&#xD;&#xA;  serviceName : String = sig.serviceName,&#xD;&#xA;  parameters : Sequence(DataType) = sig.parameters__Signature.datatype__Parameter&#xD;&#xA; }&#xD;&#xA;)&#xD;&#xA;in&#xD;&#xA;sigs->forAll(s|sigs->isUnique(s))"/>
         </eAnnotations>
         <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain"/>
         <eParameters name="context" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap"/>
@@ -292,9 +294,9 @@
           ordered="false" eType="#//repository/ImplementationComponentType"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="BasicComponent" eSuperTypes="#//repository/ImplementationComponentType">
-      <eOperations name="noSeffTypeUsedTwice" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eOperations name="NoSeffTypeUsedTwice" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value="self.serviceEffectSpecifications__BasicComponent->forAll(p1, p2 |&#xD;&#xA;p1.seffTypeID &lt;> p2.seffTypeID)"/>
+          <details key="documentation" value="self.serviceEffectSpecifications__BasicComponent->forAll(p1, p2 |&#xD;&#xA;  p1 &lt;> p2 implies (p1.describedService__SEFF = p2.describedService__SEFF implies p1.seffTypeID &lt;> p2.seffTypeID))"/>
         </eAnnotations>
         <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain"/>
         <eParameters name="context" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap"/>
@@ -318,8 +320,6 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="serviceEffectSpecifications__BasicComponent"
           ordered="false" upperBound="-1" eType="#//seff/ServiceEffectSpecification"
           containment="true"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="internalVariables_BasicComponent"
-          ordered="false" upperBound="-1" eType="#//parameter/VariableUsage" containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="PrimitiveDataType" eSuperTypes="#//repository/DataType">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" ordered="false"
@@ -364,6 +364,32 @@
     <eClassifiers xsi:type="ecore:EClass" name="Protocol" abstract="true">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="protocolTypeID" ordered="false"
           lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+  </eSubpackages>
+  <eSubpackages name="parameter" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Parameter/1.0"
+      nsPrefix="pcm.parameter">
+    <eClassifiers xsi:type="ecore:EEnum" name="VariableCharacterisationType">
+      <eLiterals name="STRUCTURE"/>
+      <eLiterals name="NUMBER_OF_ELEMENTS" value="1"/>
+      <eLiterals name="VALUE" value="2"/>
+      <eLiterals name="BYTESIZE" value="3"/>
+      <eLiterals name="DATATYPE" value="4"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="VariableCharacterisation" eSuperTypes="../../de.uka.ipd.sdq.stoex/model/stoex.ecore#//RandomVariable">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" ordered="false"
+          lowerBound="1" eType="#//parameter/VariableCharacterisationType"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="CharacterisedVariable" eSuperTypes="../../de.uka.ipd.sdq.stoex/model/stoex.ecore#//Variable">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="characterisationType"
+          ordered="false" lowerBound="1" eType="#//parameter/VariableCharacterisationType"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="VariableUsage">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="variableCharacterisation_VariableUsage"
+          ordered="false" upperBound="-1" eType="#//parameter/VariableCharacterisation"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="namedReference_VariableUsage"
+          ordered="false" lowerBound="1" eType="ecore:EClass ../../de.uka.ipd.sdq.stoex/model/stoex.ecore#//AbstractNamedReference"
+          containment="true"/>
     </eClassifiers>
   </eSubpackages>
   <eSubpackages name="seff" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0"
@@ -478,32 +504,6 @@
     <eClassifiers xsi:type="ecore:EClass" name="PassiveResourceType" eSuperTypes="#//resourcetype/ResourceType"/>
     <eClassifiers xsi:type="ecore:EClass" name="CommunicationLinkResourceType" eSuperTypes="#//resourcetype/ProcessingResourceType"/>
     <eClassifiers xsi:type="ecore:EClass" name="ProcessingResourceType" eSuperTypes="#//resourcetype/ResourceType"/>
-  </eSubpackages>
-  <eSubpackages name="parameter" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Parameter/1.0"
-      nsPrefix="pcm.parameter">
-    <eClassifiers xsi:type="ecore:EEnum" name="VariableCharacterisationType">
-      <eLiterals name="STRUCTURE"/>
-      <eLiterals name="NUMBER_OF_ELEMENTS" value="1"/>
-      <eLiterals name="VALUE" value="2"/>
-      <eLiterals name="BYTESIZE" value="3"/>
-      <eLiterals name="DATATYPE" value="4"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="VariableCharacterisation" eSuperTypes="../../de.uka.ipd.sdq.stoex/model/stoex.ecore#//RandomVariable">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" ordered="false"
-          lowerBound="1" eType="#//parameter/VariableCharacterisationType"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="CharacterisedVariable" eSuperTypes="../../de.uka.ipd.sdq.stoex/model/stoex.ecore#//Variable">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="characterisationType"
-          ordered="false" lowerBound="1" eType="#//parameter/VariableCharacterisationType"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="VariableUsage">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="variableCharacterisation_VariableUsage"
-          ordered="false" upperBound="-1" eType="#//parameter/VariableCharacterisation"
-          containment="true"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="namedReference_VariableUsage"
-          ordered="false" lowerBound="1" eType="ecore:EClass ../../de.uka.ipd.sdq.stoex/model/stoex.ecore#//AbstractNamedReference"
-          containment="true"/>
-    </eClassifiers>
   </eSubpackages>
   <eSubpackages name="allocation" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Allocation/1.0"
       nsPrefix="pcm.allocation">

@@ -375,19 +375,19 @@ public class RepositoryValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(interface_, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryProxyResolves(interface_, diagnostics, context);
 		if (result || diagnostics != null) result &= identifierValidator.validateIdentifier_idHasToBeUnique(interface_, diagnostics, context);
-		if (result || diagnostics != null) result &= validateInterface_noProtocolTypeIDUsedTwice(interface_, diagnostics, context);
+		if (result || diagnostics != null) result &= validateInterface_NoProtocolTypeIDUsedTwice(interface_, diagnostics, context);
 		if (result || diagnostics != null) result &= validateInterface_SignaturesHaveToBeUniqueForAnInterface(interface_, diagnostics, context);
 		return result;
 	}
 
 	/**
-	 * Validates the noProtocolTypeIDUsedTwice constraint of '<em>Interface</em>'.
+	 * Validates the NoProtocolTypeIDUsedTwice constraint of '<em>Interface</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateInterface_noProtocolTypeIDUsedTwice(Interface interface_, DiagnosticChain diagnostics, Map context) {
-		return interface_.noProtocolTypeIDUsedTwice(diagnostics, context);
+	public boolean validateInterface_NoProtocolTypeIDUsedTwice(Interface interface_, DiagnosticChain diagnostics, Map context) {
+		return interface_.NoProtocolTypeIDUsedTwice(diagnostics, context);
 	}
 
 	/**
@@ -556,20 +556,20 @@ public class RepositoryValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validateCompleteComponentType_providedInterfacesHaveToConformToProvidedType2(basicComponent, diagnostics, context);
 		if (result || diagnostics != null) result &= validateImplementationComponentType_RequiredInterfacesHaveToConformToCompleteType(basicComponent, diagnostics, context);
 		if (result || diagnostics != null) result &= validateImplementationComponentType_providedInterfacesHaveToConformToCompleteType(basicComponent, diagnostics, context);
-		if (result || diagnostics != null) result &= validateBasicComponent_noSeffTypeUsedTwice(basicComponent, diagnostics, context);
+		if (result || diagnostics != null) result &= validateBasicComponent_NoSeffTypeUsedTwice(basicComponent, diagnostics, context);
 		if (result || diagnostics != null) result &= validateBasicComponent_ProvideSameInterfaces(basicComponent, diagnostics, context);
 		if (result || diagnostics != null) result &= validateBasicComponent_RequireSameInterfacesasImplementationType(basicComponent, diagnostics, context);
 		return result;
 	}
 
 	/**
-	 * Validates the noSeffTypeUsedTwice constraint of '<em>Basic Component</em>'.
+	 * Validates the NoSeffTypeUsedTwice constraint of '<em>Basic Component</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateBasicComponent_noSeffTypeUsedTwice(BasicComponent basicComponent, DiagnosticChain diagnostics, Map context) {
-		return basicComponent.noSeffTypeUsedTwice(diagnostics, context);
+	public boolean validateBasicComponent_NoSeffTypeUsedTwice(BasicComponent basicComponent, DiagnosticChain diagnostics, Map context) {
+		return basicComponent.NoSeffTypeUsedTwice(diagnostics, context);
 	}
 
 	/**
