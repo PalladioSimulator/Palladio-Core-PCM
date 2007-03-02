@@ -7,12 +7,12 @@
 	<classpathentry kind="lib" path="C:/eclipse3.2.1/eclipse/plugins/org.eclipse.emf.ecore.xmi_2.2.1.v200609210005.jar"/>
 	<classpathentry kind="lib" path="C:/eclipse3.2.1/eclipse/plugins/org.eclipse.emf.ecore_2.2.1.v200609210005.jar"/>
 	<classpathentry kind="lib" path="C:/eclipse3.2.1/eclipse/plugins/org.eclipse.emf_2.2.0.v200609210005.jar"/>
-	<classpathentry kind="lib" path="C:/eclipse3.2.1/pcm_unstable/eclipse/plugins/de.uka.ipd.sdq.probfunction.math_1.0.0.200612282142.jar"/>
 	<classpathentry kind="lib" path="C:/eclipse3.2.1/pcm_unstable/eclipse/plugins/de.uka.ipd.sdq.probfunction_1.0.0.200612282142.jar"/>
 	<classpathentry kind="lib" path="C:/eclipse3.2.1/pcm_unstable/eclipse/plugins/de.uka.ipd.sdq.stoex.analyser_1.3.0.200612282142.jar"/>
-	<classpathentry kind="lib" path="C:/eclipse3.2.1/pcm_unstable/eclipse/plugins/de.uka.ipd.sdq.stoex_1.3.0.200612282142.jar"/>
+	<classpathentry kind="lib" path="C:/eclipse3.2.1/pcm_unstable/eclipse/plugins/de.uka.ipd.sdq.stoex_1.3.0.200612282142.jar" sourcepath="C:/coding/code/Palladio.StoEx/trunk/de.uka.ipd.sdq.stoex/src"/>
 	<classpathentry kind="lib" path="C:/eclipse3.2.1/pcm_unstable/eclipse/plugins/de.uka.ipd.sdq.identifier_1.3.0.200612282142.jar"/>
-	<classpathentry kind="lib" path="C:/eclipse3.2.1/pcm_unstable/eclipse/plugins/de.uka.ipd.sdq.pcm.stochasticexpressions_1.3.0.200612282142.jar"/>
+	<classpathentry kind="lib" path="C:/eclipse3.2.1/pcm_unstable/eclipse/plugins/de.uka.ipd.sdq.pcm.stochasticexpressions_1.3.0.200612282142.jar" sourcepath="C:/coding/code/Palladio.EMFComponentModel/trunk/de.uka.ipd.sdq.pcm.stochasticexpressions/src"/>
 	<classpathentry kind="lib" path="C:/eclipse3.2.1/pcm_unstable/eclipse/plugins/de.uka.ipd.sdq.pcm_1.3.0.200612282142.jar"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/de.uka.ipd.sdq.probfunction.math"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

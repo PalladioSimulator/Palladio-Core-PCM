@@ -38,7 +38,7 @@ import de.uka.ipd.sdq.simucomframework.sensors.SensorFactory;
 
 class ValueSupplierObserver implements Observer
 {
-	public static final double HISTOGRAM_CLASS_WIDTH = 1;
+	public static final double HISTOGRAM_CLASS_WIDTH = 0.1;
 	XYSeries series = null;
 	
 	public ValueSupplierObserver(XYSeries series)

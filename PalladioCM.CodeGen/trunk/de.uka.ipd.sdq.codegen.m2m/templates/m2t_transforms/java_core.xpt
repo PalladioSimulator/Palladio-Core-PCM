@@ -63,7 +63,7 @@ public class «this.javaName()»
 «DEFINE ComponentService(ProvidesComponentType component) FOR Signature»
    public «EXPAND ComponentServiceSignature FOR this»
    { 
-      «PROTECT CSTART '/*' CEND '*/' ID this.serviceName + "_" + component.id + "_" + this.interface_Signature.id DISABLE»
+      «PROTECT CSTART '/*' CEND '*/' ID this.serviceName + "_" + component.id + "_" + this.interface_Signature.id»
    	  «IF this.hasSEFF(component)»
    	  	«LET ((ResourceDemandingSEFF)this.getSEFF(component)) AS seff»
 	      «EXPAND Actions FOR seff.steps_Behaviour.findStart()»      

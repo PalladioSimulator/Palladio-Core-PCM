@@ -21,6 +21,7 @@ import de.uka.ipd.sdq.stoex.ProductOperations;
 import de.uka.ipd.sdq.stoex.RandomVariable;
 import de.uka.ipd.sdq.stoex.Term;
 import de.uka.ipd.sdq.stoex.TermExpression;
+import de.uka.ipd.sdq.stoex.TermOperations;
 import de.uka.ipd.sdq.stoex.Variable;
 import de.uka.ipd.sdq.stoex.analyser.visitors.ExpressionInferTypeVisitor;
 import de.uka.ipd.sdq.stoex.analyser.visitors.TypeEnum;
@@ -185,8 +186,36 @@ public class PCMStoExEvaluationVisitor extends PCMStoExSwitch {
 
 	@Override
 	public Object caseTermExpression(TermExpression object) {
-		// TODO Auto-generated method stub
-		return super.caseTermExpression(object);
+		TypeEnum leftType = typeInferer.getType(object.getLeft());
+		TypeEnum rightType = typeInferer.getType(object.getRight());
+		Object left = doSwitch(object.getLeft());
+		Object right = doSwitch(object.getRight());
+		if (leftType == TypeEnum.ANY) leftType = getDynamicType(left);
+		if (leftType == TypeEnum.ANY) rightType = getDynamicType(right);
+		if (leftType == TypeEnum.INT &&	rightType == TypeEnum.INT) {
+			int leftInt = (Integer)left;
+			int rightInt = (Integer)right;
+			switch(object.getOperation().getValue())
+			{
+			case TermOperations.ADD:
+				return leftInt + rightInt;
+			case TermOperations.SUB:
+				return leftInt - rightInt;
+			}
+			throw new RuntimeException("This should never happen!");
+			
+		} else {
+			double leftDouble = getDouble(left);
+			double rightDouble = getDouble(right);
+			switch(object.getOperation().getValue())
+			{
+			case TermOperations.ADD:
+				return leftDouble + rightDouble;
+			case TermOperations.SUB:
+				return leftDouble - rightDouble;
+			}
+			throw new RuntimeException("This should never happen!");
+		}
 	}
 
 	@Override

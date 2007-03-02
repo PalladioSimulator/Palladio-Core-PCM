@@ -30,7 +30,7 @@
    «EXPAND m2t_transforms::java_core::ReturnType FOR this»
 «ENDAROUND»
 
-«AROUND PortDelegationDelegatingCallTM FOR Signature»
+«AROUND m2t_transforms::provided_ports::PortDelegationDelegatingCallTM FOR Signature»
    «EXPAND m2t_transforms::pojo::provided_ports::PortDelegationDelegatingCall FOR this»
 «ENDAROUND»
 

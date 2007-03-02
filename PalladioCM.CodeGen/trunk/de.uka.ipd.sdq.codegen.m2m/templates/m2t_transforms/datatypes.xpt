@@ -20,7 +20,7 @@
 		byte
 	«ENDIF»
 	«IF this.type == PrimitiveTypeEnum::STRING»
-		string
+		String
 	«ENDIF»
 «ENDDEFINE»
 
