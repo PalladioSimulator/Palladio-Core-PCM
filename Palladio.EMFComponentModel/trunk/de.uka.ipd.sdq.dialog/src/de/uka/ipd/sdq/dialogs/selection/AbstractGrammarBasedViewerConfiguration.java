@@ -22,6 +22,8 @@ import org.eclipse.jface.text.source.IAnnotationModel;
 import org.eclipse.jface.text.source.ISourceViewer;
 import org.eclipse.jface.text.source.SourceViewerConfiguration;
 
+import de.uka.ipd.sdq.pcm.repository.Parameter;
+
 /**
  * @author Snowball
  * 
@@ -31,14 +33,16 @@ public class AbstractGrammarBasedViewerConfiguration extends SourceViewerConfigu
 	private IAnnotationModel annotationModel;
 	private Class myLexerClass;
 	private ITokenMapper myMapper;
+	private Parameter[] context = null;
 
 	/**
 	 * 
 	 */
-	public AbstractGrammarBasedViewerConfiguration(IAnnotationModel annotationModel, Class lexerClass, ITokenMapper myMapper) {
+	public AbstractGrammarBasedViewerConfiguration(IAnnotationModel annotationModel, Parameter[] context, Class lexerClass, ITokenMapper myMapper) {
 		this.annotationModel = annotationModel;
 		this.myLexerClass = lexerClass;
 		this.myMapper = myMapper;
+		this.context = context;
 	}
 
 	/*
@@ -70,7 +74,7 @@ public class AbstractGrammarBasedViewerConfiguration extends SourceViewerConfigu
 	public IContentAssistant getContentAssistant(ISourceViewer sourceViewer) {
 
 		ContentAssistant assistant = new ContentAssistant();
-		assistant.setContentAssistProcessor(new StoExCompletionProcessor(),
+		assistant.setContentAssistProcessor(new StoExCompletionProcessor(context),
 				IDocument.DEFAULT_CONTENT_TYPE);
 		assistant.setAutoActivationDelay(1);
 		assistant.enableAutoActivation(true);

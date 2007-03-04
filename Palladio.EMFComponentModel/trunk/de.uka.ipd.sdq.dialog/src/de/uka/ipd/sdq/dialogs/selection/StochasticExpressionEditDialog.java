@@ -8,6 +8,7 @@ import org.eclipse.swt.widgets.Shell;
 import antlr.CharScanner;
 import antlr.RecognitionException;
 import antlr.TokenStreamException;
+import de.uka.ipd.sdq.pcm.repository.Parameter;
 import de.uka.ipd.sdq.pcm.stochasticexpressions.PCMStoExPrettyPrintVisitor;
 import de.uka.ipd.sdq.pcm.stochasticexpressions.parser.PCMStoExParser;
 import de.uka.ipd.sdq.stoex.Expression;
@@ -23,6 +24,10 @@ public class StochasticExpressionEditDialog extends
 		super(parent);
 	}
 
+	public StochasticExpressionEditDialog(Shell parent, Parameter[] context) {
+		super(parent,context);
+	}
+	
 	public void setInitialExpression(RandomVariable ex) {
 		newText = ex.getSpecification();
 	}

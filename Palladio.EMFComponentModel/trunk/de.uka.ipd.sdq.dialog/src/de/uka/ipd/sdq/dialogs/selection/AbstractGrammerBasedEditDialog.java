@@ -40,6 +40,8 @@ import antlr.TokenStreamException;
 
 import com.swtdesigner.SWTResourceManager;
 
+import de.uka.ipd.sdq.pcm.repository.Parameter;
+
 /**
  * @author Snowball
  * 
@@ -56,6 +58,8 @@ public abstract class AbstractGrammerBasedEditDialog extends Dialog {
 	private AnnotationModel fAnnotationModel;
 	
 	private Object result = null;
+	
+	private Parameter[] context = null;
 
 	/**
 	 * @param parent
@@ -63,6 +67,17 @@ public abstract class AbstractGrammerBasedEditDialog extends Dialog {
 	public AbstractGrammerBasedEditDialog(Shell parent) {
 		super(parent);
 		newText = getInitialText();
+		this.context = new Parameter[]{};
+	}
+
+	/**
+	 * @param parent
+	 * @param context - A list of parameters used in code completion
+	 */
+	public AbstractGrammerBasedEditDialog(Shell parent, Parameter[] context) {
+		super(parent);
+		newText = getInitialText();
+		this.context = context;
 	}
 
 	protected abstract String getInitialText();
@@ -108,7 +123,7 @@ public abstract class AbstractGrammerBasedEditDialog extends Dialog {
 		// this will draw the squigglies under the text
 		textViewer.addPainter(ap);
 
-		textViewer.configure(new AbstractGrammarBasedViewerConfiguration(fAnnotationModel,getLexerClass(),getTokenMapper()));
+		textViewer.configure(new AbstractGrammarBasedViewerConfiguration(fAnnotationModel,context,getLexerClass(),getTokenMapper()));
 		GridData layoutData = new GridData(GridData.FILL_BOTH
 				| GridData.GRAB_HORIZONTAL | GridData.GRAB_VERTICAL);
 		layoutData.heightHint = 300;

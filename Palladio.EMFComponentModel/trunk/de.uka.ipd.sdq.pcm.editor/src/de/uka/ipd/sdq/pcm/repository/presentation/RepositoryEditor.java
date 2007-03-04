@@ -9,6 +9,7 @@ package de.uka.ipd.sdq.pcm.repository.presentation;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -142,9 +143,13 @@ import de.uka.ipd.sdq.pcm.core.entity.provider.EntityItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.parameter.provider.ParameterItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.protocol.provider.ProtocolItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.qosannotations.provider.QosannotationsItemProviderAdapterFactory;
+import de.uka.ipd.sdq.pcm.repository.Parameter;
 import de.uka.ipd.sdq.pcm.repository.provider.RepositoryItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.resourceenvironment.provider.ResourceenvironmentItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.resourcetype.provider.ResourcetypeItemProviderAdapterFactory;
+import de.uka.ipd.sdq.pcm.seff.AbstractResourceDemandingAction;
+import de.uka.ipd.sdq.pcm.seff.ParametricResourceDemand;
+import de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF;
 import de.uka.ipd.sdq.pcm.seff.provider.SeffItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.stochasticexpressions.PCMStoExPrettyPrintVisitor;
 import de.uka.ipd.sdq.pcm.system.provider.SystemItemProviderAdapterFactory;
@@ -1400,7 +1405,19 @@ public class RepositoryEditor
 					@Override
 					protected Object openDialogBox(Control cellEditorWindow) {
 						RandomVariable randVar = (RandomVariable) object;
-						StochasticExpressionEditDialog dialog = new StochasticExpressionEditDialog(cellEditorWindow.getShell());
+						StochasticExpressionEditDialog dialog = null;
+						if (randVar instanceof ParametricResourceDemand) {
+							ParametricResourceDemand prd = (ParametricResourceDemand) randVar;
+							AbstractResourceDemandingAction a = prd.getAction_ParametricResourceDemand();
+							EObject container = a;
+							while (!((container = container.eContainer()) instanceof ResourceDemandingSEFF))
+								container = container.eContainer();
+							ResourceDemandingSEFF seff = (ResourceDemandingSEFF) container;
+							Parameter[] parameters = (Parameter[]) seff.getDescribedService__SEFF().getParameters__Signature().toArray();
+							dialog = new StochasticExpressionEditDialog(cellEditorWindow.getShell(),parameters);
+						} else {
+							dialog = new StochasticExpressionEditDialog(cellEditorWindow.getShell());
+						}
 						dialog.setInitialExpression(randVar);
 						dialog.open();
 						if (dialog.getResult() != null) {
