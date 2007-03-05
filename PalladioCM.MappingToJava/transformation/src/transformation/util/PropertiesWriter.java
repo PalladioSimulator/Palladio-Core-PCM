@@ -44,7 +44,7 @@ public class PropertiesWriter {
 		try {
 			fileWriter = new FileOutputStream(filename); 
 		} catch ( FileNotFoundException e ) {
-			System.err.println("Can't find file " + filename + ".");
+			System.err.println("Can't file " + filename + ".");
 		}
 	}
  

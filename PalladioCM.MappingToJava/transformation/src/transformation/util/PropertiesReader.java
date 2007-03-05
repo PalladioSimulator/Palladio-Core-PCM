@@ -32,12 +32,12 @@ public class PropertiesReader {
 			try {
 				file.createNewFile();
 			} catch ( IOException e ) {
-				System.err.println("Can�t create file " + filename + ".");
+				System.err.println("Can't create file " + filename + ".");
 			}
 			try {
 				fileReader = new FileInputStream(filename); 
 			} catch ( FileNotFoundException e ) {
-				System.err.println("Can�t find file " + filename + ".");
+				System.err.println("Can't find file " + filename + ".");
 			}
 	}
 
@@ -50,7 +50,7 @@ public class PropertiesReader {
 			if (p==null) p = new Properties();
 			p.load(fileReader);
 		} catch ( IOException e ) {
-			System.err.println("Can�t read from file " + filename + ".");
+			System.err.println("Can't read from file " + filename + ".");
 		}
 		return p;
 	}

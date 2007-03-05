@@ -38,8 +38,6 @@ EJB Session Bean for J2EE
 			import javax.ejb.Local;
 			import javax.ejb.Remote;
 			import javax.ejb.Stateful;
-			import javax.ejb.PostActivate;
-			import javax.ejb.PrePassivate;
 			@Local({«fqnInterface(basePackage, this)».class, runtime.IComponentInstance.class})
 			@Remote({«fqnInterface(basePackage, this)».class, runtime.IComponentInstance.class})
 			@Stateful(name="«fqn»", description="generated from a PCM-instance")

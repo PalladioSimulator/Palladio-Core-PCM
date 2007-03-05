@@ -96,7 +96,7 @@ beginning with the Start and ending with Stop. «ENDREM»
 	«LET signature_EntryLevelSystemCall AS service»
 	«LET systemProvidedRole_EntryLevelSystemCall.interface_SystemProvidedRole AS interface»
 		«fullQualifiedName(basePackage, interface)» use«interface.entityName» = 
-			«usedInterface(basePackage, interface»;
+			«EXPAND getInterfaceFromSL(basePackage) FOR interface»;
 		«EXPAND Parameter::definition FOR service»
 		// «actualparameterusage»
 		«FOREACH actualparameterusage AS pu»
@@ -151,8 +151,8 @@ beginning with the Start and ending with Stop. «ENDREM»
 
 «DEFINE call(String basePackage, repository::Interface interface) FOR repository::Signature»
 	«IF(returntype__Signature.type!=null) && (returntype__Signature.type!="void")»
-		«returntype__Signature.type» temp_«returntype__Signature.type» = 
-	«usedInterface(basePackage, interface»«ENDIF-».«serviceName»
+		«returntype__Signature.type» temp_«returntype__Signature.type» = «ENDIF-»
+	use«interface.entityName».«serviceName»
 	(
 	«FOREACH parameters__Signature AS p SEPARATOR ","»
 		«p.parameterName»
@@ -160,7 +160,7 @@ beginning with the Start and ending with Stop. «ENDREM»
 	);
 «ENDDEFINE»
 
-«DEFINE usedInterface(String basePackage, repository::Interface interface) FOR repository::Signature»
-((«fullQualifiedName(basePackage, interface)») 
-sl.getTargetComponentPort(«fullQualifiedName(basePackage, interface)».class))
+«DEFINE getInterfaceFromSL(String basePackage) FOR repository::Interface»
+	(«fullQualifiedName(basePackage, this)») 
+	sl.getTargetComponentPort(«fullQualifiedName(basePackage, this)».class)
 «ENDDEFINE»

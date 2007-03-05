@@ -54,7 +54,8 @@ public abstract class LocalServiceLocator extends AbstractServiceLocator {
 
 	/**
 	 * @param name the component's name
-	 * @param component already initialized instance of a {@link ComponentPort}
+	 * @param component already initialized instance of a {@link IComponent}
+	 * @see runtime.AbstractServiceLocator#bind(String, IComponent)
 	 */
 	@Override
 	protected void bind(String name, IComponent component) {
@@ -64,8 +65,8 @@ public abstract class LocalServiceLocator extends AbstractServiceLocator {
 
 	/**
 	 * @param name the component's name
-	 * @param component already initialized instance of a {@link ComponentInstance}
-	 * @see runtime.AbstractServiceLocator#bind(String, ComponentInstance)
+	 * @param component already initialized instance of a {@link IComponentInstance}
+	 * @see runtime.AbstractServiceLocator#bind(String, IComponentInstance)
 	 */
 	@Override
 	protected void bind(String name, IComponentInstance component) {

@@ -123,10 +123,10 @@ public class RunnerFrame extends Frame implements ActionListener {
 		else if (source==aboutItem) {
 			final Dialog aboutDialog = new Dialog(this, "About this program", true);
 			Button button = new Button("OK");
-			Label aboutText = new Label("PCM -> J2EE Version 5 & EJB 3.0 \n" +
-					"Diplomarbeit: \n" +
-					"von Reiner Schaudel" +
-					"WS 2006/07");
+			Label aboutText = new Label("PCM -> J2EE Version 5 & EJB 3.0 \r\n" +
+					"Diplomarbeit: \r\n" +
+					"von Reiner Schaudel \r\n" +
+					"im WS 2006/07");
 			aboutDialog.add(aboutText, BorderLayout.CENTER);
 			aboutDialog.add(button, BorderLayout.SOUTH);
 			button.addActionListener(new ActionListener() {

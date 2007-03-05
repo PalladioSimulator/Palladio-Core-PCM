@@ -25,7 +25,7 @@ public abstract class AbstractServiceLocator implements IServiceLocator {
 	/**
 	 * print warnings and logging information
 	 */
-	protected Logger logger;
+	protected Logger logger = Logger.getLogger(this.getClass());
 
 	/**
 	 * Connectors from an assembly

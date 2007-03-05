@@ -88,9 +88,7 @@ delegation to the implementation class
 
 «REM» ComponentPort - CompositeComponent
 delegation to the implementation class
-«ENDREM»
 «DEFINE proxy(String fqn, repository::CompositeComponent c) FOR repository::Interface»
-	«REM» implementation of all inherited interfaces is forced «ENDREM»
 	«EXPAND proxy(fqn, c) FOREACH parentInterface__Interface»
 
 	«FOREACH signatures__Interface AS provSignature»
@@ -104,6 +102,7 @@ delegation to the implementation class
 		}
 	«ENDFOREACH»
 «ENDDEFINE»
+no special case needed «ENDREM»
 
 «DEFINE call FOR repository::Signature»
 	«EXPAND Parameter::definition FOR this»

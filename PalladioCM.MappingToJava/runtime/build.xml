@@ -12,7 +12,7 @@
 	<property name="jboss.server.config" value="default" />
 
 	<!-- specific for my development tools -->
-	<property name="instanceDir" value="c:/studium/da-controlled/modellinstanz" />
+	<property name="instanceDir" value="c:/studium/da-controlled" />
 	<property name="eclipse.plugins" value="c:/informatik/eclipse/plugins" />
 
 	<path id="classpath-runtime">

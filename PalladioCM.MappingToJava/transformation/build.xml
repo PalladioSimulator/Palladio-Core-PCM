@@ -9,7 +9,7 @@
 	<property name="classes" value="${build}/classes" />
 
 	<!-- specific for my development tools -->
-	<property name="instanceDir" value="c:/studium/da-controlled/modellinstanz" />
+	<property name="instanceDir" value="c:/studium/da-controlled" />
 	<property name="eclipse.plugins" value="c:/informatik/eclipse/plugins" />
 
 	<path id="classpath-transformation">

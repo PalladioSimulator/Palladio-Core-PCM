@@ -178,7 +178,7 @@ with delegation from the classes
 					{
 						private static final long serialVersionUID = 100«portNr.counter1»L;
 						/**
-						 * override {@link runtime.ComponentPort#component}
+						 * reference to implementation class
 						 */
 						protected transient «fqnInterface(basePackage, this)» component;
 

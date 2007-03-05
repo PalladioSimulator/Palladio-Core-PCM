@@ -18,7 +18,10 @@ f: PCM sytem -> complete system including jar-files
 		move to properties- or some .ext-file
 		and add parameters to this rule
 	«ENDREM»
+	«REM» see Diploma thesis for the discussion of 
+		  Dependency Injection vs. Service Locator Pattern
 	«EXPAND DependencyInjection::glassfish(basePackage, "Server", "SINGLE") FOR this»
+	«ENDREM»
 	«EXPAND ServiceLocator::file(basePackage, "Server", "SINGLE") FOR this»
 	«EXPAND ResourceManager::file(basePackage) FOR this»
 	«EXPAND gateway(basePackage) FOREACH systemRequiredRole_System»
@@ -60,7 +63,7 @@ with delegation from the classes
 			 * implementation is in the port class
 			 * but you can insert code here and call it from the ports
 			 */
-			public class «entityName» extends runtime.IComponentInstance implements I«entityName»
+			public class «entityName» extends runtime.ComponentInstance implements I«entityName»
 			{
 				«classStub()»
 
@@ -97,6 +100,7 @@ with delegation from the classes
 			 */
 			public class «entityName»Context extends runtime.ComponentContext
 			{
+				private static final long serialVersionUID = 201L;
 				/**
 				 * shared by all instances
 				 * but super class defines similar variables as protected
