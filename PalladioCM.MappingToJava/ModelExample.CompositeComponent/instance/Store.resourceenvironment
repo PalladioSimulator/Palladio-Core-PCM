@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pcm.resourceenvironment:ResourceEnvironment xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:pcm.resourceenvironment="http://sdq.ipd.uka.de/PalladioComponentModel/ResourceEnvironment/1.0">
+  <linkingresource toResourceContainer_LinkingResource="JBoss-Server" fromResourceContainer_LinkingResource="ClientPC"/>
+  <resourceContainer_ResourceEnvironment id="JBoss-Server" entityName="192.168.0.1">
+    <activeResourceSpecifications_ResourceContainer processingRate="500" units="instr/sec">
+      <activeResourceType_ActiveResourceSpecification href="Store.resourcetype#server_cpu"/>
+    </activeResourceSpecifications_ResourceContainer>
+    <passiveResourceSpecifications_ResourceContainer capacity="4">
+      <passiveResourceType_PassiveResourceSpecification href="Store.resourcetype#HDC1"/>
+    </passiveResourceSpecifications_ResourceContainer>
+  </resourceContainer_ResourceEnvironment>
+  <resourceContainer_ResourceEnvironment id="ClientPC" entityName="192.168.0.67">
+    <activeResourceSpecifications_ResourceContainer processingRate="350" units="instr/sec">
+      <activeResourceType_ActiveResourceSpecification href="Store.resourcetype#ClientPC"/>
+    </activeResourceSpecifications_ResourceContainer>
+    <passiveResourceSpecifications_ResourceContainer capacity="2">
+      <passiveResourceType_PassiveResourceSpecification href="Store.resourcetype#HDC2"/>
+    </passiveResourceSpecifications_ResourceContainer>
+  </resourceContainer_ResourceEnvironment>
+</pcm.resourceenvironment:ResourceEnvironment>

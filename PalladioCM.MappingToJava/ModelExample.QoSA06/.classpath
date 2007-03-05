@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="instance"/>
+	<classpathentry kind="src" path="src-gen"/>
+	<classpathentry kind="src" path="src-man"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="con" path="org.eclipse.pde.core.requiredPlugins"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/JBoss4.0.4-lib"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/EJB 3.0"/>
+	<classpathentry kind="lib" path="C:/Studium/da-controlled/lib/PCM-RuntimeSystem.jar" sourcepath="C:/Studium/da-controlled/lib/PCM-RuntimeSystem-src.zip">
+		<attributes>
+			<attribute name="javadoc_location" value="jar:file:/C:/Studium/da-controlled/lib/PCM-RuntimeSystem-doc.zip!/"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Studium/da-controlled/lib/PCM-Transformation.jar" sourcepath="C:/Studium/da-controlled/lib/PCM-Transformation-src.zip">
+		<attributes>
+			<attribute name="javadoc_location" value="jar:file:/C:/Studium/da-controlled/lib/PCM-Transformation-doc.zip!/"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

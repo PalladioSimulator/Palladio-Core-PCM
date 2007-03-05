@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pcm.system:System xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:pcm.system="http://sdq.ipd.uka.de/PalladioComponentModel/System/1.0" id="System_Store" entityName="SecureStore">
+  <systemProvidedRole_System id="Prov_System_ISecureStore" entityName="Prov_System_ISecureStore" providedDelegationConnector_SystemProvidedRole="//@providedDelegationConnector_System.0">
+    <interface_SystemProvidedRole href="Store.repository#ISecureStore"/>
+  </systemProvidedRole_System>
+  <assembly_System href="Store.assembly#Assembly_Store"/>
+  <providedDelegationConnector_System systemProvidedRole_SystemProvidedDelegationConnector="Prov_System_ISecureStore">
+    <assemblyContext_SystemProvidedDelegationConnector href="Store.assembly#SecureStore_AssCtx"/>
+    <componentProvidedRole_SystemProvidedDelegationConnector href="Store.repository#Prov_SecureStore_ISecureStore"/>
+  </providedDelegationConnector_System>
+  <allocation_System href="Store.allocation#SecureStore_Allocation"/>
+</pcm.system:System>

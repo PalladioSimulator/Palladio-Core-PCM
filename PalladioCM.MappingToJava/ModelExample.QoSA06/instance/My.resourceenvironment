@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pcm.resourceenvironment:ResourceEnvironment xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:pcm.resourceenvironment="http://sdq.ipd.uka.de/PalladioComponentModel/ResourceEnvironment/1.0">
+  <linkingresource>
+    <communicationLinkResourceSpecifications_LinkingResource units="">
+      <communicationLinkResourceType_CommunicationLinkResourceSpecification href="My.resourcetype#LAN"/>
+    </communicationLinkResourceSpecifications_LinkingResource>
+  </linkingresource>
+  <resourceContainer_ResourceEnvironment id="Application Server" entityName="192.168.0.1">
+    <activeResourceSpecifications_ResourceContainer processingRate="1000" units="instr/sec">
+      <activeResourceType_ActiveResourceSpecification href="My.resourcetype#server_cpu"/>
+    </activeResourceSpecifications_ResourceContainer>
+    <passiveResourceSpecifications_ResourceContainer>
+      <passiveResourceType_PassiveResourceSpecification href="My.resourcetype#HDC1"/>
+    </passiveResourceSpecifications_ResourceContainer>
+  </resourceContainer_ResourceEnvironment>
+</pcm.resourceenvironment:ResourceEnvironment>

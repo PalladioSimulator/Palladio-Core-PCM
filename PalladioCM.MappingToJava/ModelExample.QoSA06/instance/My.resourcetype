@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pcm.resourcetype:ResourceRepository xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pcm.resourcetype="http://sdq.ipd.uka.de/PalladioComponentModel/ResourceType/1.0">
+  <availableResourceTypes_ResourceRepository xsi:type="pcm.resourcetype:ProcessingResourceType" id="server_cpu" entityName="server_cpu"/>
+  <availableResourceTypes_ResourceRepository xsi:type="pcm.resourcetype:PassiveResourceType" id="HDC1" entityName="harddisk1"/>
+  <availableResourceTypes_ResourceRepository xsi:type="pcm.resourcetype:CommunicationLinkResourceType" id="LAN" entityName=""/>
+  <availableResourceTypes_ResourceRepository xsi:type="pcm.resourcetype:ProcessingResourceType" id="ClientPC" entityName="ClientPC"/>
+  <availableResourceTypes_ResourceRepository xsi:type="pcm.resourcetype:PassiveResourceType" id="HDC2" entityName="harddisk2"/>
+</pcm.resourcetype:ResourceRepository>
