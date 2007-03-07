@@ -1,13 +1,12 @@
 package de.uka.ipd.sdq.codegen.simudatavisualization.views;
 
-import java.util.Collection;
+import java.util.ArrayList;
 
 import org.eclipse.jface.viewers.IStructuredContentProvider;
 import org.eclipse.jface.viewers.ITreeContentProvider;
 import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.ui.IViewSite;
 
-import de.uka.ipd.sdq.codegen.simudatavisualization.views.TreeParent;
 import de.uka.ipd.sdq.sensorfactory.entities.Experiment;
 import de.uka.ipd.sdq.sensorfactory.entities.ExperimentRun;
 import de.uka.ipd.sdq.sensorfactory.entities.Sensor;
@@ -20,8 +19,10 @@ import de.uka.ipd.sdq.sensorfactory.entities.impl.ExperimentDAO;
 public class TreeViewContentProvider implements IStructuredContentProvider,
 		ITreeContentProvider {
 
-	private TreeParent invisibleRoot;
+	protected static String EXPERIMENT_RUNS = "Experiment Runs";
+	protected static String SENSORS 		= "Sensors";
 
+	private TreeRoot invisibleRoot;
 	private IViewSite viewSite;
 
 	/**
@@ -39,7 +40,7 @@ public class TreeViewContentProvider implements IStructuredContentProvider,
 	public Object[] getElements(Object parent) {
 		if (parent.equals(viewSite)) {
 			if (invisibleRoot == null)
-				initialize();
+				invisibleRoot = new TreeRoot(ExperimentDAO.singleton());
 			return getChildren(invisibleRoot);
 		}
 		return getChildren(parent);
@@ -63,7 +64,6 @@ public class TreeViewContentProvider implements IStructuredContentProvider,
 	 */
 	public void inputChanged(Viewer viewer, Object oldInput, Object newInput) {
 		// TODO Auto-generated method stub
-
 	}
 
 	/*
@@ -72,9 +72,23 @@ public class TreeViewContentProvider implements IStructuredContentProvider,
 	 * @see org.eclipse.jface.viewers.ITreeContentProvider#getChildren(java.lang.Object)
 	 */
 	public Object[] getChildren(Object parent) {
-		if (parent instanceof TreeParent) {
-			return ((TreeParent) parent).getChildren();
+		
+		if (parent instanceof TreeRoot)
+			return ((TreeRoot) parent).getTree().toArray();
+
+		if (parent instanceof ExperimentDAO)
+			return ((ExperimentDAO) parent).getExperiments().toArray();
+
+		if (parent instanceof Experiment) {
+			Experiment experiment = (Experiment) parent;
+			Object[] objects = { new TreeContainer(experiment, EXPERIMENT_RUNS),
+					new TreeContainer(experiment, SENSORS) };
+			return objects;
 		}
+
+		if (parent instanceof TreeContainer)
+			return ((TreeContainer) parent).getElements().toArray();
+
 		return new Object[0];
 	}
 
@@ -84,9 +98,7 @@ public class TreeViewContentProvider implements IStructuredContentProvider,
 	 * @see org.eclipse.jface.viewers.ITreeContentProvider#getParent(java.lang.Object)
 	 */
 	public Object getParent(Object child) {
-		if (child instanceof TreeObject) {
-			return ((TreeObject) child).getParent();
-		}
+		// TODO Auto-generated method stub
 		return null;
 	}
 
@@ -96,46 +108,50 @@ public class TreeViewContentProvider implements IStructuredContentProvider,
 	 * @see org.eclipse.jface.viewers.ITreeContentProvider#hasChildren(java.lang.Object)
 	 */
 	public boolean hasChildren(Object parent) {
-		if (parent instanceof TreeParent)
-			return ((TreeParent) parent).hasChildren();
-		return false;
+
+		if (parent instanceof Sensor)
+			return false;
+		
+		if (parent instanceof ExperimentRun)
+			return false;
+
+		return true;
 	}
+}
+
+class TreeRoot{
+	
+	private ArrayList<ExperimentDAO> tree;
+	
+	
+	/**
+	 * @return the tree
+	 */
+	public void removeFromTree(ExperimentDAO experimentDAO) {
+		tree.remove(experimentDAO);
+	}
+
 
 	/**
-	 * We will set initialize tree heararchy. In a real code, you will connect
-	 * to a real model and expose its hierarchy.
+	 * @param tree the tree to set
 	 */
-	private void initialize() {
-
-		Collection<Experiment> experiments = ExperimentDAO.singleton()
-				.getExperiments();
-
-		TreeParent root = new TreeParent("Experiments");
-
-		for (Experiment e : experiments) {
-			TreeParent simuconf = new TreeParent(e.getExperimentName());
-			root.addChild(simuconf);
-
-			TreeParent sensors = new TreeParent("Sensors");
-			
-			for (Sensor s :e.getSensors()){
-				TreeObject object = new TreeObject(s.getSensorName());
-				sensors.addChild(object);
-			}
-			
-			TreeParent runs = new TreeParent("Runs");
-			
-			for (ExperimentRun r :e.getExperimentRuns()){
-				TreeObject object = new TreeObject(r.getExperimentDateTime());
-				runs.addChild(object);
-			}
-
-			simuconf.addChild(sensors);
-			simuconf.addChild(runs);
-		}
-
-		invisibleRoot = new TreeParent("");
-		invisibleRoot.addChild(root);
+	public void addToTree(ExperimentDAO experimentDAO) {
+		tree.add(experimentDAO);
 	}
 
+
+	public TreeRoot(ExperimentDAO experimentDAO) {
+		this.tree = new ArrayList<ExperimentDAO>();
+		tree.add(experimentDAO);
+	}
+
+
+	/**
+	 * @return the tree
+	 */
+	public ArrayList<ExperimentDAO> getTree() {
+		return tree;
+	}
+
+	
 }

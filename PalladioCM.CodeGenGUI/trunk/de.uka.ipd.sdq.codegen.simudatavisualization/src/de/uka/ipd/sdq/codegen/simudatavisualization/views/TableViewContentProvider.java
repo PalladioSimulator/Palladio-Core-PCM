@@ -16,8 +16,14 @@ public class TableViewContentProvider implements IStructuredContentProvider {
 	 * @see org.eclipse.jface.viewers.IStructuredContentProvider#getElements(java.lang.Object)
 	 */
 	public Object[] getElements(Object inputElement) {
-		TreeParent tree = (TreeParent) inputElement;
-		return tree.getChildren();
+//		TreeParent tree = (TreeParent) inputElement;
+//		return tree.getChildren();
+		
+		if (inputElement instanceof TreeContainer) {
+			TreeContainer container = (TreeContainer) inputElement;
+			return container.getElements().toArray();
+		}
+		return null;
 	}
 
 	/* (non-Javadoc)

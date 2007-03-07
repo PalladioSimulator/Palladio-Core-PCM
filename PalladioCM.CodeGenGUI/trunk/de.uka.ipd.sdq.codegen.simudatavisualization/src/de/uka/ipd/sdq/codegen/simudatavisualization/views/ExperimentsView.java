@@ -9,9 +9,6 @@ import org.eclipse.ui.*;
 import org.eclipse.swt.widgets.Menu;
 import org.eclipse.swt.SWT;
 
-import de.uka.ipd.sdq.codegen.simudatavisualization.Activator;
-
-import sun.security.x509.AVA;
 
 /**
  * This sample class demonstrates how to plug-in a new workbench view. The view
@@ -52,23 +49,23 @@ public class ExperimentsView extends ViewPart {
 		viewer.setLabelProvider(new TreeViewLabelProvider());
 		viewer.setSorter(new NameSorter());
 		viewer.setInput(getViewSite());
+		//viewer.setInput(ExperimentDAO.singleton());
 		viewer.addSelectionChangedListener(new ISelectionChangedListener() {
 
 			public void selectionChanged(SelectionChangedEvent event) {
 				Object input = ((IStructuredSelection) event.getSelection())
 						.getFirstElement();
 
-				if (input instanceof TreeObject) {
-					TreeObject treeObject = (TreeObject) input;
+				if (input instanceof TreeContainer) {
+					TreeContainer treeObject = (TreeContainer) input;
 
-					if (treeObject.getName().equals("Sensors")) {
-						SensorsView.viewer.setInput(treeObject);
-					}
-					
-					if (treeObject.getName().equals("Runs")) {
+					if (treeObject.getName().equals(TreeViewContentProvider.EXPERIMENT_RUNS)) {
 						RunsView.viewer.setInput(treeObject);
 					}
-
+					
+					if (treeObject.getName().equals(TreeViewContentProvider.SENSORS)) {
+						SensorsView.viewer.setInput(treeObject);
+					}
 				}
 			}
 
