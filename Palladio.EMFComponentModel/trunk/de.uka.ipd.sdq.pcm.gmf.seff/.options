@@ -1,7 +1,0 @@
-# Debugging options for the de.uka.ipd.sdq.pcm.gmf.seff plug-in
-
-# Turn on general debugging for the de.uka.ipd.sdq.pcm.gmf.seff plug-in
-de.uka.ipd.sdq.pcm.gmf.seff/debug=false
-
-# Turn on debugging of visualID processing
-de.uka.ipd.sdq.pcm.gmf.seff/debug/visualID=true
