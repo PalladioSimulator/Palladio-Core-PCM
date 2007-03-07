@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: StoEx Analyser Plug-in
 Bundle-SymbolicName: de.uka.ipd.sdq.stoex.analyser
-Bundle-Version: 1.3.0.qualifier
+Bundle-Version: 2.0.0.qualifier
 Bundle-Vendor: sdq.ipd.uka.de
 Bundle-Localization: plugin
 Require-Bundle: de.uka.ipd.sdq.probfunction,
