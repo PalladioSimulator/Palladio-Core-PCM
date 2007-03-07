@@ -260,9 +260,9 @@ Copyright 2007, IPD, SDQ, University of Karlsruhe
             <input type="de.uka.ipd.sdq.pcm.gmf.repository.navigator.PalladioComponentModelAbstractNavigatorItem"/>
          </propertySection>
          <propertySection
-               class="de.uka.ipd.sdq.tabs.OperationsPropertySection"
+               class="de.uka.ipd.sdq.pcmbench.tabs.OperationsPropertySection"
                enablesFor="1"
-               filter="de.uka.ipd.sdq.tabs.InterfaceFilter"
+               filter="de.uka.ipd.sdq.pcmbench.tabs.InterfaceFilter"
                id="property.section.interfaceOps"
                tab="property.tab.interfaceOps">
          </propertySection>         
