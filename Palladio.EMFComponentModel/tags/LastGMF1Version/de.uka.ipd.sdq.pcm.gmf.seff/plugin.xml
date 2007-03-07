@@ -1,0 +1,572 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+Copyright 2006 SDQ Research Group, University of Karlsruhe (TH)
+-->
+<plugin>
+
+   <extension point="org.eclipse.core.runtime.preferences">
+      <initializer class="de.uka.ipd.sdq.pcm.gmf.seff.part.PcmDiagramPreferenceInitializer"/>
+   </extension>
+
+  <extension point="org.eclipse.team.core.fileTypes">
+      <fileTypes
+         type="text"
+         extension="seff_diagram">
+      </fileTypes>
+  </extension>
+
+   <extension point="org.eclipse.emf.ecore.extension_parser">
+      <parser
+         type="seff_diagram"
+         class="org.eclipse.gmf.runtime.emf.core.resources.GMFResourceFactory">
+      </parser>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+     <editor
+        id="de.uka.ipd.sdq.pcm.gmf.seff.part.SeffDiagramEditorID"
+        name="Pcm Diagram Editor"
+        icon="icons/obj16/SeffDiagramFile.gif"
+        extensions="seff_diagram"
+        default="true"
+        class="de.uka.ipd.sdq.pcm.gmf.seff.part.SeffDiagramEditor"
+        matchingStrategy="de.uka.ipd.sdq.pcm.gmf.seff.part.PcmMatchingStrategy"
+        contributorClass="de.uka.ipd.sdq.pcm.gmf.seff.part.PcmDiagramActionBarContributor">
+     </editor>
+   </extension>
+
+   <extension point="org.eclipse.ui.newWizards">
+  	  <wizard
+  	     name="Pcm Diagram"
+  	     icon="icons/obj16/SeffDiagramFile.gif"
+  	     category="org.eclipse.ui.Examples"
+  	     class="de.uka.ipd.sdq.pcm.gmf.seff.part.PcmCreationWizard"
+  	     id="de.uka.ipd.sdq.pcm.gmf.seff.part.PcmCreationWizardID">
+  	  	 <description>
+  	  		Creates Pcm diagram.
+  	  	 </description>  
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.popupMenus">
+      <objectContribution
+            id="de.uka.ipd.sdq.pcm.gmf.seff.ui.objectContribution.IFile1"
+            nameFilter="*.repository"
+            objectClass="org.eclipse.core.resources.IFile">
+         <action
+               label="Initialize seff_diagram diagram file"
+               class="de.uka.ipd.sdq.pcm.gmf.seff.part.PcmInitDiagramFileAction"
+               menubarPath="additions"
+               enablesFor="1"
+               id="de.uka.ipd.sdq.pcm.gmf.seff.part.PcmInitDiagramFileActionID">
+         </action>
+      </objectContribution>  
+      <objectContribution
+            adaptable="false"
+            id="de.uka.ipd.sdq.pcm.gmf.seff.ui.objectContribution.ResourceDemandingSEFFEditPart2"
+            objectClass="de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingSEFFEditPart">
+         <action
+               class="de.uka.ipd.sdq.pcm.gmf.seff.part.PcmLoadResourceAction"
+               enablesFor="1"
+               id="de.uka.ipd.sdq.pcm.gmf.seff.part.PcmLoadResourceActionID"
+               label="Load Resource..."
+               menubarPath="additions">
+         </action>
+      </objectContribution>                      
+  </extension>
+
+   <extension point="org.eclipse.gmf.runtime.common.ui.services.action.contributionItemProviders">
+      <contributionItemProvider class="de.uka.ipd.sdq.pcm.gmf.seff.providers.PcmContributionItemProvider">
+         <Priority name="Low">
+         </Priority>
+         <partContribution id="de.uka.ipd.sdq.pcm.gmf.seff.part.SeffDiagramEditorID">
+            <partAction menubarPath="/file/print" id="printPreviewAction">
+            </partAction>
+         </partContribution>
+      </contributionItemProvider>
+      <contributionItemProvider
+            class="org.eclipse.gmf.runtime.diagram.ui.providers.DiagramContributionItemProvider"
+            checkPluginLoaded="false">
+         <Priority name="Low"/>
+         <popupContribution class="org.eclipse.gmf.runtime.diagram.ui.providers.DiagramContextMenuProvider">
+            <popupStructuredContributionCriteria objectClass="de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableUsageEditPart"/>
+            <popupPredefinedItem id="deleteFromDiagramAction" remove="true"/>
+         </popupContribution>
+         <popupContribution class="org.eclipse.gmf.runtime.diagram.ui.providers.DiagramContextMenuProvider">
+            <popupStructuredContributionCriteria objectClass="de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableUsageReferenceLabelEditPart"/>
+            <popupPredefinedItem id="deleteFromDiagramAction" remove="true"/>
+         </popupContribution>
+         <popupContribution class="org.eclipse.gmf.runtime.diagram.ui.providers.DiagramContextMenuProvider">
+            <popupStructuredContributionCriteria objectClass="de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableCharacterisationEditPart"/>
+            <popupPredefinedItem id="deleteFromDiagramAction" remove="true"/>
+         </popupContribution>
+         <popupContribution class="org.eclipse.gmf.runtime.diagram.ui.providers.DiagramContextMenuProvider">
+            <popupStructuredContributionCriteria objectClass="de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviourEditPart"/>
+            <popupPredefinedItem id="deleteFromDiagramAction" remove="true"/>
+         </popupContribution>
+         <popupContribution class="org.eclipse.gmf.runtime.diagram.ui.providers.DiagramContextMenuProvider">
+            <popupStructuredContributionCriteria objectClass="de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.StartAction2EditPart"/>
+            <popupPredefinedItem id="deleteFromDiagramAction" remove="true"/>
+         </popupContribution>
+         <popupContribution class="org.eclipse.gmf.runtime.diagram.ui.providers.DiagramContextMenuProvider">
+            <popupStructuredContributionCriteria objectClass="de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.StopAction2EditPart"/>
+            <popupPredefinedItem id="deleteFromDiagramAction" remove="true"/>
+         </popupContribution>
+         <popupContribution class="org.eclipse.gmf.runtime.diagram.ui.providers.DiagramContextMenuProvider">
+            <popupStructuredContributionCriteria objectClass="de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopAction2EditPart"/>
+            <popupPredefinedItem id="deleteFromDiagramAction" remove="true"/>
+         </popupContribution>
+         <popupContribution class="org.eclipse.gmf.runtime.diagram.ui.providers.DiagramContextMenuProvider">
+            <popupStructuredContributionCriteria objectClass="de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopActionEntityNameEditPart"/>
+            <popupPredefinedItem id="deleteFromDiagramAction" remove="true"/>
+         </popupContribution>
+         <popupContribution class="org.eclipse.gmf.runtime.diagram.ui.providers.DiagramContextMenuProvider">
+            <popupStructuredContributionCriteria objectClass="de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopIterationsLabelEditPart"/>
+            <popupPredefinedItem id="deleteFromDiagramAction" remove="true"/>
+         </popupContribution>
+         <popupContribution class="org.eclipse.gmf.runtime.diagram.ui.providers.DiagramContextMenuProvider">
+            <popupStructuredContributionCriteria objectClass="de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.InternalActionEditPart"/>
+            <popupPredefinedItem id="deleteFromDiagramAction" remove="true"/>
+         </popupContribution>
+         <popupContribution class="org.eclipse.gmf.runtime.diagram.ui.providers.DiagramContextMenuProvider">
+            <popupStructuredContributionCriteria objectClass="de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.InternalActionEntityNameEditPart"/>
+            <popupPredefinedItem id="deleteFromDiagramAction" remove="true"/>
+         </popupContribution>
+         <popupContribution class="org.eclipse.gmf.runtime.diagram.ui.providers.DiagramContextMenuProvider">
+            <popupStructuredContributionCriteria objectClass="de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ParametricResourceDemandEditPart"/>
+            <popupPredefinedItem id="deleteFromDiagramAction" remove="true"/>
+         </popupContribution>
+         <popupContribution class="org.eclipse.gmf.runtime.diagram.ui.providers.DiagramContextMenuProvider">
+            <popupStructuredContributionCriteria objectClass="de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.BranchActionEditPart"/>
+            <popupPredefinedItem id="deleteFromDiagramAction" remove="true"/>
+         </popupContribution>
+         <popupContribution class="org.eclipse.gmf.runtime.diagram.ui.providers.DiagramContextMenuProvider">
+            <popupStructuredContributionCriteria objectClass="de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.BranchActionEntityNameEditPart"/>
+            <popupPredefinedItem id="deleteFromDiagramAction" remove="true"/>
+         </popupContribution>
+         <popupContribution class="org.eclipse.gmf.runtime.diagram.ui.providers.DiagramContextMenuProvider">
+            <popupStructuredContributionCriteria objectClass="de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ProbabilisticBranchTransitionEditPart"/>
+            <popupPredefinedItem id="deleteFromDiagramAction" remove="true"/>
+         </popupContribution>
+         <popupContribution class="org.eclipse.gmf.runtime.diagram.ui.providers.DiagramContextMenuProvider">
+            <popupStructuredContributionCriteria objectClass="de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ProbabilisticBranchTransitionBranchProbabilityEditPart"/>
+            <popupPredefinedItem id="deleteFromDiagramAction" remove="true"/>
+         </popupContribution>
+         <popupContribution class="org.eclipse.gmf.runtime.diagram.ui.providers.DiagramContextMenuProvider">
+            <popupStructuredContributionCriteria objectClass="de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviour2EditPart"/>
+            <popupPredefinedItem id="deleteFromDiagramAction" remove="true"/>
+         </popupContribution>
+         <popupContribution class="org.eclipse.gmf.runtime.diagram.ui.providers.DiagramContextMenuProvider">
+            <popupStructuredContributionCriteria objectClass="de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ExternalCallAction2EditPart"/>
+            <popupPredefinedItem id="deleteFromDiagramAction" remove="true"/>
+         </popupContribution>
+         <popupContribution class="org.eclipse.gmf.runtime.diagram.ui.providers.DiagramContextMenuProvider">
+            <popupStructuredContributionCriteria objectClass="de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ExternalCallActionEntityName2EditPart"/>
+            <popupPredefinedItem id="deleteFromDiagramAction" remove="true"/>
+         </popupContribution>
+         <popupContribution class="org.eclipse.gmf.runtime.diagram.ui.providers.DiagramContextMenuProvider">
+            <popupStructuredContributionCriteria objectClass="de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.StartActionEditPart"/>
+            <popupPredefinedItem id="deleteFromDiagramAction" remove="true"/>
+         </popupContribution>
+         <popupContribution class="org.eclipse.gmf.runtime.diagram.ui.providers.DiagramContextMenuProvider">
+            <popupStructuredContributionCriteria objectClass="de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.StopActionEditPart"/>
+            <popupPredefinedItem id="deleteFromDiagramAction" remove="true"/>
+         </popupContribution>
+         <popupContribution class="org.eclipse.gmf.runtime.diagram.ui.providers.DiagramContextMenuProvider">
+            <popupStructuredContributionCriteria objectClass="de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ExternalCallActionEditPart"/>
+            <popupPredefinedItem id="deleteFromDiagramAction" remove="true"/>
+         </popupContribution>
+         <popupContribution class="org.eclipse.gmf.runtime.diagram.ui.providers.DiagramContextMenuProvider">
+            <popupStructuredContributionCriteria objectClass="de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ExternalCallActionEntityNameEditPart"/>
+            <popupPredefinedItem id="deleteFromDiagramAction" remove="true"/>
+         </popupContribution>
+         <popupContribution class="org.eclipse.gmf.runtime.diagram.ui.providers.DiagramContextMenuProvider">
+            <popupStructuredContributionCriteria objectClass="de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopActionEditPart"/>
+            <popupPredefinedItem id="deleteFromDiagramAction" remove="true"/>
+         </popupContribution>
+         <popupContribution class="org.eclipse.gmf.runtime.diagram.ui.providers.DiagramContextMenuProvider">
+            <popupStructuredContributionCriteria objectClass="de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopActionEntityName2EditPart"/>
+            <popupPredefinedItem id="deleteFromDiagramAction" remove="true"/>
+         </popupContribution>
+         <popupContribution class="org.eclipse.gmf.runtime.diagram.ui.providers.DiagramContextMenuProvider">
+            <popupStructuredContributionCriteria objectClass="de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopIterationsLabel2EditPart"/>
+            <popupPredefinedItem id="deleteFromDiagramAction" remove="true"/>
+         </popupContribution>
+         <popupContribution class="org.eclipse.gmf.runtime.diagram.ui.providers.DiagramContextMenuProvider">
+            <popupStructuredContributionCriteria objectClass="de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.BranchAction2EditPart"/>
+            <popupPredefinedItem id="deleteFromDiagramAction" remove="true"/>
+         </popupContribution>
+         <popupContribution class="org.eclipse.gmf.runtime.diagram.ui.providers.DiagramContextMenuProvider">
+            <popupStructuredContributionCriteria objectClass="de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.BranchActionEntityName2EditPart"/>
+            <popupPredefinedItem id="deleteFromDiagramAction" remove="true"/>
+         </popupContribution>
+         <popupContribution class="org.eclipse.gmf.runtime.diagram.ui.providers.DiagramContextMenuProvider">
+            <popupStructuredContributionCriteria objectClass="de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.InternalAction2EditPart"/>
+            <popupPredefinedItem id="deleteFromDiagramAction" remove="true"/>
+         </popupContribution>
+         <popupContribution class="org.eclipse.gmf.runtime.diagram.ui.providers.DiagramContextMenuProvider">
+            <popupStructuredContributionCriteria objectClass="de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.InternalActionEntityName2EditPart"/>
+            <popupPredefinedItem id="deleteFromDiagramAction" remove="true"/>
+         </popupContribution>
+         <popupContribution class="org.eclipse.gmf.runtime.diagram.ui.providers.DiagramContextMenuProvider">
+            <popupStructuredContributionCriteria objectClass="de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.AbstractActionSuccessor_AbstractActionEditPart"/>
+            <popupAction path="/editGroup" id="deleteFromModelAction"/>
+            <popupPredefinedItem id="deleteFromDiagramAction" remove="true"/>
+         </popupContribution>
+      </contributionItemProvider>
+   </extension>
+
+   <extension point="org.eclipse.gmf.runtime.common.ui.services.action.globalActionHandlerProviders">
+      <GlobalActionHandlerProvider
+         class="org.eclipse.gmf.runtime.diagram.ui.providers.DiagramGlobalActionHandlerProvider"
+         id="PcmPresentation">
+         <Priority name="Lowest"/>
+         <ViewId id="de.uka.ipd.sdq.pcm.gmf.seff.part.SeffDiagramEditorID">
+            <ElementType class="org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart">
+               <GlobalActionId actionId="delete"/>
+            </ElementType>
+            <ElementType class="org.eclipse.gmf.runtime.diagram.ui.editparts.DiagramEditPart">
+               <GlobalActionId actionId="save"/>
+            </ElementType>
+         </ViewId>
+      </GlobalActionHandlerProvider>
+      <GlobalActionHandlerProvider
+         class="org.eclipse.gmf.runtime.diagram.ui.printing.render.providers.DiagramWithPrintGlobalActionHandlerProvider"
+         id="PcmPresentationPrint">
+         <Priority name="Lowest"/>
+         <ViewId id="de.uka.ipd.sdq.pcm.gmf.seff.part.SeffDiagramEditorID">
+            <ElementType class="org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart">
+               <GlobalActionId actionId="print"/>
+            </ElementType>
+         </ViewId>
+      </GlobalActionHandlerProvider>
+      <GlobalActionHandlerProvider
+         class="org.eclipse.gmf.runtime.diagram.ui.providers.ide.providers.DiagramIDEGlobalActionHandlerProvider"
+         id="PcmPresentationIDE">
+         <Priority name="Lowest"/>
+         <ViewId id="de.uka.ipd.sdq.pcm.gmf.seff.part.SeffDiagramEditorID">
+            <ElementType class="org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart">
+               <GlobalActionId actionId="bookmark"/>
+            </ElementType>
+         </ViewId>
+      </GlobalActionHandlerProvider>
+      <GlobalActionHandlerProvider
+            class="org.eclipse.gmf.runtime.diagram.ui.render.providers.DiagramUIRenderGlobalActionHandlerProvider"
+            id="PcmRender">
+         <Priority name="Lowest"/>
+         <ViewId id="de.uka.ipd.sdq.pcm.gmf.seff.part.SeffDiagramEditorID">
+            <ElementType class="org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart">
+               <GlobalActionId actionId="cut"/>
+               <GlobalActionId actionId="copy"/>
+               <GlobalActionId actionId="paste"/>
+            </ElementType>
+         </ViewId>
+      </GlobalActionHandlerProvider>
+   </extension>
+
+   <extension point="org.eclipse.gmf.runtime.diagram.core.viewProviders">
+      <viewProvider class="de.uka.ipd.sdq.pcm.gmf.seff.providers.PcmViewProvider">
+         <Priority name="Lowest"/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Diagram" semanticHints="Pcm"/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Node" semanticHints=""/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Edge" semanticHints=""/>
+      </viewProvider>
+   </extension>
+
+   <extension point="org.eclipse.gmf.runtime.diagram.ui.editpartProviders">
+      <editpartProvider class="de.uka.ipd.sdq.pcm.gmf.seff.providers.PcmEditPartProvider">
+         <Priority name="Lowest"/>
+      </editpartProvider>
+   </extension>
+
+   <extension point="org.eclipse.gmf.runtime.diagram.ui.paletteProviders">
+      <paletteProvider class="de.uka.ipd.sdq.pcm.gmf.seff.providers.PcmPaletteProvider">
+         <Priority name="Lowest"/>
+         <editor id="de.uka.ipd.sdq.pcm.gmf.seff.part.SeffDiagramEditorID"/>
+      </paletteProvider>
+   </extension>
+
+   <extension point="org.eclipse.gmf.runtime.emf.ui.modelingAssistantProviders">
+      <modelingAssistantProvider class="de.uka.ipd.sdq.pcm.gmf.seff.providers.PcmModelingAssistantProvider">
+         <Priority name="Lowest"/>
+      </modelingAssistantProvider>
+   </extension>
+
+   <extension point="org.eclipse.gmf.runtime.common.ui.services.properties.propertiesProviders">
+      <PropertiesProvider
+            verifyPluginLoaded="false"
+            class="de.uka.ipd.sdq.pcm.gmf.seff.providers.PcmPropertyProvider">
+         <Priority name="Lowest"/>
+      </PropertiesProvider>
+   </extension>
+
+   <extension point="org.eclipse.gmf.runtime.common.ui.services.iconProviders">
+      <IconProvider class="de.uka.ipd.sdq.pcm.gmf.seff.providers.PcmIconProvider">
+         <Priority name="Low"/>
+      </IconProvider>
+   </extension>
+
+   <extension point="org.eclipse.gmf.runtime.common.ui.services.parserProviders">
+      <ParserProvider class="de.uka.ipd.sdq.pcm.gmf.seff.providers.PcmParserProvider">
+         <Priority name="Lowest"/>
+      </ParserProvider>
+   </extension>
+
+   <extension point="org.eclipse.gmf.runtime.emf.type.core.elementTypes">
+
+      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0">
+         <metamodelType
+               id="de.uka.ipd.sdq.pcm.gmf.seff.ResourceDemandingSEFF_79"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="ResourceDemandingSEFF"
+               edithelper="de.uka.ipd.sdq.pcm.gmf.seff.edit.helpers.ResourceDemandingSEFFEditHelper">
+            <param name="semanticHint" value="79"/>
+         </metamodelType>
+      </metamodel>
+
+      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Parameter/1.0">
+         <metamodelType
+               id="de.uka.ipd.sdq.pcm.gmf.seff.VariableUsage_2001"
+               name="ParametricParameterUsage"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="VariableUsage"
+               edithelper="de.uka.ipd.sdq.pcm.gmf.seff.edit.helpers.VariableUsageEditHelper">
+            <param name="semanticHint" value="2001"/>
+         </metamodelType>
+      </metamodel>
+
+      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Parameter/1.0">
+         <metamodelType
+               id="de.uka.ipd.sdq.pcm.gmf.seff.VariableCharacterisation_2002"
+               name="VariableCharacterisation"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="VariableCharacterisation"
+               edithelper="de.uka.ipd.sdq.pcm.gmf.seff.edit.helpers.VariableCharacterisationEditHelper">
+            <param name="semanticHint" value="2002"/>
+         </metamodelType>
+      </metamodel>
+
+      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0">
+         <metamodelType
+               id="de.uka.ipd.sdq.pcm.gmf.seff.ResourceDemandingBehaviour_2003"
+               name="ResourceDemandingBehaviour"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="ResourceDemandingBehaviour"
+               edithelper="de.uka.ipd.sdq.pcm.gmf.seff.edit.helpers.ResourceDemandingBehaviourEditHelper">
+            <param name="semanticHint" value="2003"/>
+         </metamodelType>
+      </metamodel>
+
+      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0">
+         <specializationType
+               id="de.uka.ipd.sdq.pcm.gmf.seff.StartAction_2004"
+               name="StartAction"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               edithelperadvice="de.uka.ipd.sdq.pcm.gmf.seff.edit.helpers.StartActionEditHelperAdvice">
+            <specializes id="de.uka.ipd.sdq.pcm.gmf.seff.StartAction_1001"/>
+            <param name="semanticHint" value="2004"/>
+         </specializationType>
+      </metamodel>
+
+      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0">
+         <specializationType
+               id="de.uka.ipd.sdq.pcm.gmf.seff.StopAction_2005"
+               name="StopAction"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               edithelperadvice="de.uka.ipd.sdq.pcm.gmf.seff.edit.helpers.StopActionEditHelperAdvice">
+            <specializes id="de.uka.ipd.sdq.pcm.gmf.seff.StopAction_1002"/>
+            <param name="semanticHint" value="2005"/>
+         </specializationType>
+      </metamodel>
+
+      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0">
+         <specializationType
+               id="de.uka.ipd.sdq.pcm.gmf.seff.LoopAction_2006"
+               name="LoopAction"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               edithelperadvice="de.uka.ipd.sdq.pcm.gmf.seff.edit.helpers.LoopActionEditHelperAdvice">
+            <specializes id="de.uka.ipd.sdq.pcm.gmf.seff.LoopAction_1004"/>
+            <param name="semanticHint" value="2006"/>
+         </specializationType>
+      </metamodel>
+
+      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0">
+         <metamodelType
+               id="de.uka.ipd.sdq.pcm.gmf.seff.InternalAction_2007"
+               name="InternalAction"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="InternalAction"
+               edithelper="de.uka.ipd.sdq.pcm.gmf.seff.edit.helpers.InternalActionEditHelper">
+            <param name="semanticHint" value="2007"/>
+         </metamodelType>
+      </metamodel>
+
+      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0">
+         <metamodelType
+               id="de.uka.ipd.sdq.pcm.gmf.seff.ParametricResourceDemand_2008"
+               name="Resource Demand"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="ParametricResourceDemand"
+               edithelper="de.uka.ipd.sdq.pcm.gmf.seff.edit.helpers.ParametricResourceDemandEditHelper">
+            <param name="semanticHint" value="2008"/>
+         </metamodelType>
+      </metamodel>
+
+      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0">
+         <metamodelType
+               id="de.uka.ipd.sdq.pcm.gmf.seff.BranchAction_2009"
+               name="BranchAction"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="BranchAction"
+               edithelper="de.uka.ipd.sdq.pcm.gmf.seff.edit.helpers.BranchActionEditHelper">
+            <param name="semanticHint" value="2009"/>
+         </metamodelType>
+      </metamodel>
+
+      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0">
+         <metamodelType
+               id="de.uka.ipd.sdq.pcm.gmf.seff.ProbabilisticBranchTransition_2010"
+               name="BranchTransition"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="ProbabilisticBranchTransition"
+               edithelper="de.uka.ipd.sdq.pcm.gmf.seff.edit.helpers.ProbabilisticBranchTransitionEditHelper">
+            <param name="semanticHint" value="2010"/>
+         </metamodelType>
+      </metamodel>
+
+      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0">
+         <specializationType
+               id="de.uka.ipd.sdq.pcm.gmf.seff.ResourceDemandingBehaviour_2011"
+               name="ResourceDemandingBehaviour"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               edithelperadvice="de.uka.ipd.sdq.pcm.gmf.seff.edit.helpers.ResourceDemandingBehaviourEditHelperAdvice">
+            <specializes id="de.uka.ipd.sdq.pcm.gmf.seff.ResourceDemandingBehaviour_2003"/>
+            <param name="semanticHint" value="2011"/>
+         </specializationType>
+      </metamodel>
+
+      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0">
+         <specializationType
+               id="de.uka.ipd.sdq.pcm.gmf.seff.ExternalCallAction_2012"
+               name="ExternalCallAction"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               edithelperadvice="de.uka.ipd.sdq.pcm.gmf.seff.edit.helpers.ExternalCallActionEditHelperAdvice">
+            <specializes id="de.uka.ipd.sdq.pcm.gmf.seff.ExternalCallAction_1003"/>
+            <param name="semanticHint" value="2012"/>
+         </specializationType>
+      </metamodel>
+
+      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0">
+         <metamodelType
+               id="de.uka.ipd.sdq.pcm.gmf.seff.StartAction_1001"
+               name="StartAction"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="StartAction"
+               edithelper="de.uka.ipd.sdq.pcm.gmf.seff.edit.helpers.StartActionEditHelper">
+            <param name="semanticHint" value="1001"/>
+         </metamodelType>
+      </metamodel>
+
+      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0">
+         <metamodelType
+               id="de.uka.ipd.sdq.pcm.gmf.seff.StopAction_1002"
+               name="StopAction"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="StopAction"
+               edithelper="de.uka.ipd.sdq.pcm.gmf.seff.edit.helpers.StopActionEditHelper">
+            <param name="semanticHint" value="1002"/>
+         </metamodelType>
+      </metamodel>
+
+      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0">
+         <metamodelType
+               id="de.uka.ipd.sdq.pcm.gmf.seff.ExternalCallAction_1003"
+               name="ExternalCallAction"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="ExternalCallAction"
+               edithelper="de.uka.ipd.sdq.pcm.gmf.seff.edit.helpers.ExternalCallActionEditHelper">
+            <param name="semanticHint" value="1003"/>
+         </metamodelType>
+      </metamodel>
+
+      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0">
+         <metamodelType
+               id="de.uka.ipd.sdq.pcm.gmf.seff.LoopAction_1004"
+               name="LoopAction"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="LoopAction"
+               edithelper="de.uka.ipd.sdq.pcm.gmf.seff.edit.helpers.LoopActionEditHelper">
+            <param name="semanticHint" value="1004"/>
+         </metamodelType>
+      </metamodel>
+
+      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0">
+         <specializationType
+               id="de.uka.ipd.sdq.pcm.gmf.seff.BranchAction_1005"
+               name="BranchAction"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               edithelperadvice="de.uka.ipd.sdq.pcm.gmf.seff.edit.helpers.BranchActionEditHelperAdvice">
+            <specializes id="de.uka.ipd.sdq.pcm.gmf.seff.BranchAction_2009"/>
+            <param name="semanticHint" value="1005"/>
+         </specializationType>
+      </metamodel>
+
+      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0">
+         <specializationType
+               id="de.uka.ipd.sdq.pcm.gmf.seff.InternalAction_1006"
+               name="InternalAction"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               edithelperadvice="de.uka.ipd.sdq.pcm.gmf.seff.edit.helpers.InternalActionEditHelperAdvice">
+            <specializes id="de.uka.ipd.sdq.pcm.gmf.seff.InternalAction_2007"/>
+            <param name="semanticHint" value="1006"/>
+         </specializationType>
+      </metamodel>
+
+      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0">
+         <specializationType
+               id="de.uka.ipd.sdq.pcm.gmf.seff.AbstractActionSuccessor_AbstractAction_3001"
+               name="Control Flow"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               edithelperadvice="de.uka.ipd.sdq.pcm.gmf.seff.edit.helpers.AbstractActionSuccessor_AbstractActionEditHelperAdvice">
+            <specializes id="org.eclipse.gmf.runtime.emf.type.core.null"/>
+            <param name="semanticHint" value="3001"/>
+         </specializationType>
+      </metamodel>
+   </extension>
+
+   <extension point="org.eclipse.gmf.runtime.emf.type.core.elementTypeBindings">
+      <clientContext id="PcmClientContext">
+         <enablement>
+            <test
+               property="org.eclipse.gmf.runtime.emf.core.editingDomain"
+               value="de.uka.ipd.sdq.pcm.gmf.seff.EditingDomain"/>
+         </enablement>
+      </clientContext> 
+      <binding context="PcmClientContext">
+         <elementType ref="de.uka.ipd.sdq.pcm.gmf.seff.ResourceDemandingSEFF_79"/>
+         <elementType ref="de.uka.ipd.sdq.pcm.gmf.seff.VariableUsage_2001"/>
+         <elementType ref="de.uka.ipd.sdq.pcm.gmf.seff.VariableCharacterisation_2002"/>
+         <elementType ref="de.uka.ipd.sdq.pcm.gmf.seff.ResourceDemandingBehaviour_2003"/>
+         <elementType ref="de.uka.ipd.sdq.pcm.gmf.seff.StartAction_2004"/>
+         <elementType ref="de.uka.ipd.sdq.pcm.gmf.seff.StopAction_2005"/>
+         <elementType ref="de.uka.ipd.sdq.pcm.gmf.seff.LoopAction_2006"/>
+         <elementType ref="de.uka.ipd.sdq.pcm.gmf.seff.InternalAction_2007"/>
+         <elementType ref="de.uka.ipd.sdq.pcm.gmf.seff.ParametricResourceDemand_2008"/>
+         <elementType ref="de.uka.ipd.sdq.pcm.gmf.seff.BranchAction_2009"/>
+         <elementType ref="de.uka.ipd.sdq.pcm.gmf.seff.ProbabilisticBranchTransition_2010"/>
+         <elementType ref="de.uka.ipd.sdq.pcm.gmf.seff.ResourceDemandingBehaviour_2011"/>
+         <elementType ref="de.uka.ipd.sdq.pcm.gmf.seff.ExternalCallAction_2012"/>
+         <elementType ref="de.uka.ipd.sdq.pcm.gmf.seff.StartAction_1001"/>
+         <elementType ref="de.uka.ipd.sdq.pcm.gmf.seff.StopAction_1002"/>
+         <elementType ref="de.uka.ipd.sdq.pcm.gmf.seff.ExternalCallAction_1003"/>
+         <elementType ref="de.uka.ipd.sdq.pcm.gmf.seff.LoopAction_1004"/>
+         <elementType ref="de.uka.ipd.sdq.pcm.gmf.seff.BranchAction_1005"/>
+         <elementType ref="de.uka.ipd.sdq.pcm.gmf.seff.InternalAction_1006"/>
+         <elementType ref="de.uka.ipd.sdq.pcm.gmf.seff.AbstractActionSuccessor_AbstractAction_3001"/>
+         <advice ref="org.eclipse.gmf.runtime.diagram.core.advice.notationDepdendents"/>
+      </binding>
+   </extension>
+
+</plugin>
