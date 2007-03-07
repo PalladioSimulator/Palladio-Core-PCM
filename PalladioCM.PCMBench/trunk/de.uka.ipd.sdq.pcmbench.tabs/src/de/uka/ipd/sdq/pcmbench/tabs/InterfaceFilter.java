@@ -9,7 +9,6 @@ import de.uka.ipd.sdq.pcm.repository.Interface;
 
 public class InterfaceFilter implements IFilter {
 
-	@Override
 	public boolean select(Object toTest) {
 		Object input = toTest;
 		if (input instanceof GraphicalEditPart)
