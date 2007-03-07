@@ -1,0 +1,533 @@
+/*
+ *Copyright 2007, IPD, SDQ, University of Karlsruhe
+ */
+package de.uka.ipd.sdq.pcm.gmf.repository.navigator;
+
+import de.uka.ipd.sdq.identifier.Identifier;
+
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.BasicComponentEditPart;
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.BasicComponentEntityNameEditPart;
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.CompleteComponentTypeEditPart;
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.CompleteComponentTypeEntityNameEditPart;
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.CompositeComponentEditPart;
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.InterfaceEditPart;
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.InterfaceEntityNameEditPart;
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.ProvidedRoleEditPart;
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.ProvidesComponentTypeEditPart;
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.ProvidesComponentTypeEntityNameEditPart;
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.ProvidesStereotypeLabelEditPart;
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.RepositoryEditPart;
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.RequiredRoleEditPart;
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.RequiresStereotypeLabelEditPart;
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.ResourceDemandingSEFFEditPart;
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.SignatureEditPart;
+
+import de.uka.ipd.sdq.pcm.gmf.repository.part.PalladioComponentModelRepositoryDiagramEditorPlugin;
+import de.uka.ipd.sdq.pcm.gmf.repository.part.PalladioComponentModelVisualIDRegistry;
+
+import de.uka.ipd.sdq.pcm.gmf.repository.providers.PalladioComponentModelElementTypes;
+
+import org.eclipse.core.runtime.IAdaptable;
+
+import org.eclipse.emf.ecore.EObject;
+
+import org.eclipse.gmf.runtime.common.ui.services.parser.IParser;
+import org.eclipse.gmf.runtime.common.ui.services.parser.ParserOptions;
+import org.eclipse.gmf.runtime.common.ui.services.parser.ParserService;
+
+import org.eclipse.gmf.runtime.emf.core.util.EObjectAdapter;
+
+import org.eclipse.gmf.runtime.emf.type.core.IElementType;
+
+import org.eclipse.gmf.runtime.notation.View;
+
+import org.eclipse.jface.resource.ImageDescriptor;
+import org.eclipse.jface.resource.ImageRegistry;
+
+import org.eclipse.jface.viewers.ITreePathLabelProvider;
+import org.eclipse.jface.viewers.LabelProvider;
+import org.eclipse.jface.viewers.TreePath;
+import org.eclipse.jface.viewers.ViewerLabel;
+
+import org.eclipse.swt.graphics.Image;
+
+import org.eclipse.ui.IMemento;
+
+import org.eclipse.ui.navigator.ICommonContentExtensionSite;
+import org.eclipse.ui.navigator.ICommonLabelProvider;
+
+/**
+ * @generated
+ */
+public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
+		implements ICommonLabelProvider, ITreePathLabelProvider {
+
+	/**
+	 * @generated
+	 */
+	static {
+		PalladioComponentModelRepositoryDiagramEditorPlugin.getInstance()
+				.getImageRegistry().put("Navigator?InvalidElement",
+						ImageDescriptor.getMissingImageDescriptor());
+		PalladioComponentModelRepositoryDiagramEditorPlugin.getInstance()
+				.getImageRegistry().put("Navigator?UnknownElement",
+						ImageDescriptor.getMissingImageDescriptor());
+		PalladioComponentModelRepositoryDiagramEditorPlugin.getInstance()
+				.getImageRegistry().put("Navigator?ImageNotFound",
+						ImageDescriptor.getMissingImageDescriptor());
+	}
+
+	/**
+	 * @generated
+	 */
+	public void updateLabel(ViewerLabel label, TreePath elementPath) {
+		Object element = elementPath.getLastSegment();
+		if (element instanceof PalladioComponentModelNavigatorItem
+				&& !isOwnView(((PalladioComponentModelNavigatorItem) element)
+						.getView())) {
+			return;
+		}
+		label.setText(getText(element));
+		label.setImage(getImage(element));
+	}
+
+	/**
+	 * @generated
+	 */
+	public Image getImage(Object element) {
+		if (element instanceof PalladioComponentModelNavigatorGroup) {
+			PalladioComponentModelNavigatorGroup group = (PalladioComponentModelNavigatorGroup) element;
+			return PalladioComponentModelRepositoryDiagramEditorPlugin
+					.getInstance().getBundledImage(group.getIcon());
+		}
+
+		if (element instanceof PalladioComponentModelNavigatorItem) {
+			PalladioComponentModelNavigatorItem navigatorItem = (PalladioComponentModelNavigatorItem) element;
+			if (!isOwnView(navigatorItem.getView())) {
+				return super.getImage(element);
+			}
+			return getImage(navigatorItem.getView());
+		}
+
+		return super.getImage(element);
+	}
+
+	/**
+	 * @generated
+	 */
+	public Image getImage(View view) {
+		switch (PalladioComponentModelVisualIDRegistry.getVisualID(view)) {
+		case InterfaceEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?TopLevelNode?http://sdq.ipd.uka.de/PalladioComponentModel/Repository/1.0?Interface",
+					PalladioComponentModelElementTypes.Interface_2101);
+		case BasicComponentEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?TopLevelNode?http://sdq.ipd.uka.de/PalladioComponentModel/Repository/1.0?BasicComponent",
+					PalladioComponentModelElementTypes.BasicComponent_2102);
+		case CompleteComponentTypeEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?TopLevelNode?http://sdq.ipd.uka.de/PalladioComponentModel/Repository/1.0?CompleteComponentType",
+					PalladioComponentModelElementTypes.CompleteComponentType_2103);
+		case ProvidesComponentTypeEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?TopLevelNode?http://sdq.ipd.uka.de/PalladioComponentModel/Repository/1.0?ProvidesComponentType",
+					PalladioComponentModelElementTypes.ProvidesComponentType_2104);
+		case CompositeComponentEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?TopLevelNode?http://sdq.ipd.uka.de/PalladioComponentModel/Repository/1.0?CompositeComponent",
+					PalladioComponentModelElementTypes.CompositeComponent_2105);
+		case SignatureEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Node?http://sdq.ipd.uka.de/PalladioComponentModel/Repository/1.0?Signature",
+					PalladioComponentModelElementTypes.Signature_3101);
+		case ResourceDemandingSEFFEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Node?http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0?ResourceDemandingSEFF",
+					PalladioComponentModelElementTypes.ResourceDemandingSEFF_3102);
+		case RepositoryEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Diagram?http://sdq.ipd.uka.de/PalladioComponentModel/Repository/1.0?Repository",
+					PalladioComponentModelElementTypes.Repository_1100);
+		case ProvidedRoleEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Link?http://sdq.ipd.uka.de/PalladioComponentModel/Repository/1.0?ProvidedRole",
+					PalladioComponentModelElementTypes.ProvidedRole_4101);
+		case RequiredRoleEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Link?http://sdq.ipd.uka.de/PalladioComponentModel/Repository/1.0?RequiredRole",
+					PalladioComponentModelElementTypes.RequiredRole_4102);
+		default:
+			return getImage("Navigator?UnknownElement", null);
+		}
+	}
+
+	/**
+	 * @generated
+	 */
+	private Image getImage(String key, IElementType elementType) {
+		ImageRegistry imageRegistry = PalladioComponentModelRepositoryDiagramEditorPlugin
+				.getInstance().getImageRegistry();
+		Image image = imageRegistry.get(key);
+		if (image == null
+				&& elementType != null
+				&& PalladioComponentModelElementTypes
+						.isKnownElementType(elementType)) {
+			image = PalladioComponentModelElementTypes.getImage(elementType);
+			imageRegistry.put(key, image);
+		}
+
+		if (image == null) {
+			image = imageRegistry.get("Navigator?ImageNotFound");
+			imageRegistry.put(key, image);
+		}
+		return image;
+	}
+
+	/**
+	 * @generated
+	 */
+	public String getText(Object element) {
+		if (element instanceof PalladioComponentModelNavigatorGroup) {
+			PalladioComponentModelNavigatorGroup group = (PalladioComponentModelNavigatorGroup) element;
+			return group.getGroupName();
+		}
+
+		if (element instanceof PalladioComponentModelNavigatorItem) {
+			PalladioComponentModelNavigatorItem navigatorItem = (PalladioComponentModelNavigatorItem) element;
+			if (!isOwnView(navigatorItem.getView())) {
+				return null;
+			}
+			return getText(navigatorItem.getView());
+		}
+
+		return super.getText(element);
+	}
+
+	/**
+	 * @generated
+	 */
+	public String getText(View view) {
+		switch (PalladioComponentModelVisualIDRegistry.getVisualID(view)) {
+		case InterfaceEditPart.VISUAL_ID:
+			return getInterface_2101Text(view);
+		case BasicComponentEditPart.VISUAL_ID:
+			return getBasicComponent_2102Text(view);
+		case CompleteComponentTypeEditPart.VISUAL_ID:
+			return getCompleteComponentType_2103Text(view);
+		case ProvidesComponentTypeEditPart.VISUAL_ID:
+			return getProvidesComponentType_2104Text(view);
+		case CompositeComponentEditPart.VISUAL_ID:
+			return getCompositeComponent_2105Text(view);
+		case SignatureEditPart.VISUAL_ID:
+			return getSignature_3101Text(view);
+		case ResourceDemandingSEFFEditPart.VISUAL_ID:
+			return getResourceDemandingSEFF_3102Text(view);
+		case RepositoryEditPart.VISUAL_ID:
+			return getRepository_1100Text(view);
+		case ProvidedRoleEditPart.VISUAL_ID:
+			return getProvidedRole_4101Text(view);
+		case RequiredRoleEditPart.VISUAL_ID:
+			return getRequiredRole_4102Text(view);
+		default:
+			return getUnknownElementText(view);
+		}
+	}
+
+	/**
+	 * @generated
+	 */
+	private String getInterface_2101Text(View view) {
+		IParser parser = ParserService.getInstance().getParser(
+				new IAdaptable() {
+					public Object getAdapter(Class adapter) {
+						if (String.class.equals(adapter)) {
+							return PalladioComponentModelVisualIDRegistry
+									.getType(InterfaceEntityNameEditPart.VISUAL_ID);
+						}
+						if (IElementType.class.equals(adapter)) {
+							return PalladioComponentModelElementTypes.Interface_2101;
+						}
+						return null;
+					}
+				});
+		if (parser != null) {
+			return parser.getPrintString(new EObjectAdapter(
+					view.getElement() != null ? view.getElement() : view),
+					ParserOptions.NONE.intValue());
+		} else {
+			PalladioComponentModelRepositoryDiagramEditorPlugin.getInstance()
+					.logError("Parser was not found for label " + 5101);
+			return "";
+		}
+	}
+
+	/**
+	 * @generated
+	 */
+	private String getBasicComponent_2102Text(View view) {
+		IParser parser = ParserService.getInstance().getParser(
+				new IAdaptable() {
+					public Object getAdapter(Class adapter) {
+						if (String.class.equals(adapter)) {
+							return PalladioComponentModelVisualIDRegistry
+									.getType(BasicComponentEntityNameEditPart.VISUAL_ID);
+						}
+						if (IElementType.class.equals(adapter)) {
+							return PalladioComponentModelElementTypes.BasicComponent_2102;
+						}
+						return null;
+					}
+				});
+		if (parser != null) {
+			return parser.getPrintString(new EObjectAdapter(
+					view.getElement() != null ? view.getElement() : view),
+					ParserOptions.NONE.intValue());
+		} else {
+			PalladioComponentModelRepositoryDiagramEditorPlugin.getInstance()
+					.logError("Parser was not found for label " + 5102);
+			return "";
+		}
+	}
+
+	/**
+	 * @generated
+	 */
+	private String getCompleteComponentType_2103Text(View view) {
+		IParser parser = ParserService.getInstance().getParser(
+				new IAdaptable() {
+					public Object getAdapter(Class adapter) {
+						if (String.class.equals(adapter)) {
+							return PalladioComponentModelVisualIDRegistry
+									.getType(CompleteComponentTypeEntityNameEditPart.VISUAL_ID);
+						}
+						if (IElementType.class.equals(adapter)) {
+							return PalladioComponentModelElementTypes.CompleteComponentType_2103;
+						}
+						return null;
+					}
+				});
+		if (parser != null) {
+			return parser.getPrintString(new EObjectAdapter(
+					view.getElement() != null ? view.getElement() : view),
+					ParserOptions.NONE.intValue());
+		} else {
+			PalladioComponentModelRepositoryDiagramEditorPlugin.getInstance()
+					.logError("Parser was not found for label " + 5103);
+			return "";
+		}
+	}
+
+	/**
+	 * @generated
+	 */
+	private String getProvidesComponentType_2104Text(View view) {
+		IParser parser = ParserService.getInstance().getParser(
+				new IAdaptable() {
+					public Object getAdapter(Class adapter) {
+						if (String.class.equals(adapter)) {
+							return PalladioComponentModelVisualIDRegistry
+									.getType(ProvidesComponentTypeEntityNameEditPart.VISUAL_ID);
+						}
+						if (IElementType.class.equals(adapter)) {
+							return PalladioComponentModelElementTypes.ProvidesComponentType_2104;
+						}
+						return null;
+					}
+				});
+		if (parser != null) {
+			return parser.getPrintString(new EObjectAdapter(
+					view.getElement() != null ? view.getElement() : view),
+					ParserOptions.NONE.intValue());
+		} else {
+			PalladioComponentModelRepositoryDiagramEditorPlugin.getInstance()
+					.logError("Parser was not found for label " + 5104);
+			return "";
+		}
+	}
+
+	/**
+	 * @generated
+	 */
+	private String getCompositeComponent_2105Text(View view) {
+		EObject domainModelElement = view.getElement();
+		if (domainModelElement != null) {
+			return ((Identifier) domainModelElement).getId();
+		} else {
+			PalladioComponentModelRepositoryDiagramEditorPlugin
+					.getInstance()
+					.logError(
+							"No domain element for view with visualID = " + 2105);
+			return "";
+		}
+	}
+
+	/**
+	 * @generated
+	 */
+	private String getSignature_3101Text(View view) {
+		IParser parser = ParserService.getInstance().getParser(
+				new IAdaptable() {
+					public Object getAdapter(Class adapter) {
+						if (String.class.equals(adapter)) {
+							return PalladioComponentModelVisualIDRegistry
+									.getType(SignatureEditPart.VISUAL_ID);
+						}
+						if (IElementType.class.equals(adapter)) {
+							return PalladioComponentModelElementTypes.Signature_3101;
+						}
+						return null;
+					}
+				});
+		if (parser != null) {
+			return parser.getPrintString(new EObjectAdapter(
+					view.getElement() != null ? view.getElement() : view),
+					ParserOptions.NONE.intValue());
+		} else {
+			PalladioComponentModelRepositoryDiagramEditorPlugin.getInstance()
+					.logError("Parser was not found for label " + 3101);
+			return "";
+		}
+	}
+
+	/**
+	 * @generated
+	 */
+	private String getResourceDemandingSEFF_3102Text(View view) {
+		IParser parser = ParserService.getInstance().getParser(
+				new IAdaptable() {
+					public Object getAdapter(Class adapter) {
+						if (String.class.equals(adapter)) {
+							return PalladioComponentModelVisualIDRegistry
+									.getType(ResourceDemandingSEFFEditPart.VISUAL_ID);
+						}
+						if (IElementType.class.equals(adapter)) {
+							return PalladioComponentModelElementTypes.ResourceDemandingSEFF_3102;
+						}
+						return null;
+					}
+				});
+		if (parser != null) {
+			return parser.getPrintString(new EObjectAdapter(
+					view.getElement() != null ? view.getElement() : view),
+					ParserOptions.NONE.intValue());
+		} else {
+			PalladioComponentModelRepositoryDiagramEditorPlugin.getInstance()
+					.logError("Parser was not found for label " + 3102);
+			return "";
+		}
+	}
+
+	/**
+	 * @generated
+	 */
+	private String getRepository_1100Text(View view) {
+		EObject domainModelElement = view.getElement();
+		if (domainModelElement != null) {
+			return ((Identifier) domainModelElement).getId();
+		} else {
+			PalladioComponentModelRepositoryDiagramEditorPlugin
+					.getInstance()
+					.logError(
+							"No domain element for view with visualID = " + 1100);
+			return "";
+		}
+	}
+
+	/**
+	 * @generated
+	 */
+	private String getProvidedRole_4101Text(View view) {
+		IParser parser = ParserService.getInstance().getParser(
+				new IAdaptable() {
+					public Object getAdapter(Class adapter) {
+						if (String.class.equals(adapter)) {
+							return PalladioComponentModelVisualIDRegistry
+									.getType(ProvidesStereotypeLabelEditPart.VISUAL_ID);
+						}
+						if (IElementType.class.equals(adapter)) {
+							return PalladioComponentModelElementTypes.ProvidedRole_4101;
+						}
+						return null;
+					}
+				});
+		if (parser != null) {
+			return parser.getPrintString(new EObjectAdapter(
+					view.getElement() != null ? view.getElement() : view),
+					ParserOptions.NONE.intValue());
+		} else {
+			PalladioComponentModelRepositoryDiagramEditorPlugin.getInstance()
+					.logError("Parser was not found for label " + 6101);
+			return "";
+		}
+	}
+
+	/**
+	 * @generated
+	 */
+	private String getRequiredRole_4102Text(View view) {
+		IParser parser = ParserService.getInstance().getParser(
+				new IAdaptable() {
+					public Object getAdapter(Class adapter) {
+						if (String.class.equals(adapter)) {
+							return PalladioComponentModelVisualIDRegistry
+									.getType(RequiresStereotypeLabelEditPart.VISUAL_ID);
+						}
+						if (IElementType.class.equals(adapter)) {
+							return PalladioComponentModelElementTypes.RequiredRole_4102;
+						}
+						return null;
+					}
+				});
+		if (parser != null) {
+			return parser.getPrintString(new EObjectAdapter(
+					view.getElement() != null ? view.getElement() : view),
+					ParserOptions.NONE.intValue());
+		} else {
+			PalladioComponentModelRepositoryDiagramEditorPlugin.getInstance()
+					.logError("Parser was not found for label " + 6102);
+			return "";
+		}
+	}
+
+	/**
+	 * @generated
+	 */
+	private String getUnknownElementText(View view) {
+		return "<UnknownElement Visual_ID = " + view.getType() + ">";
+	}
+
+	/**
+	 * @generated
+	 */
+	public void init(ICommonContentExtensionSite aConfig) {
+	}
+
+	/**
+	 * @generated
+	 */
+	public void restoreState(IMemento aMemento) {
+	}
+
+	/**
+	 * @generated
+	 */
+	public void saveState(IMemento aMemento) {
+	}
+
+	/**
+	 * @generated
+	 */
+	public String getDescription(Object anElement) {
+		return null;
+	}
+
+	/**
+	 * @generated
+	 */
+	private boolean isOwnView(View view) {
+		return RepositoryEditPart.MODEL_ID
+				.equals(PalladioComponentModelVisualIDRegistry.getModelID(view));
+	}
+
+}
