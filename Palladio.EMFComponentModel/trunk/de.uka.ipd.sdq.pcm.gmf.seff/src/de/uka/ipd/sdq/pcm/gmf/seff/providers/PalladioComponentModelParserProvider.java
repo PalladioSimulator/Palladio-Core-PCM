@@ -1,0 +1,381 @@
+/*
+ *Copyright 2006 SDQ Research Group, University of Karlsruhe (TH)
+ */
+package de.uka.ipd.sdq.pcm.gmf.seff.providers;
+
+import org.eclipse.core.runtime.IAdaptable;
+import org.eclipse.gmf.runtime.common.core.service.AbstractProvider;
+import org.eclipse.gmf.runtime.common.core.service.IOperation;
+import org.eclipse.gmf.runtime.common.ui.services.parser.GetParserOperation;
+import org.eclipse.gmf.runtime.common.ui.services.parser.IParser;
+import org.eclipse.gmf.runtime.common.ui.services.parser.IParserProvider;
+import org.eclipse.gmf.runtime.notation.View;
+import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
+
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.BranchActionEntityName2EditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.BranchActionEntityNameEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ExternalCallActionEntityName2EditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ExternalCallActionEntityNameEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.InternalActionEntityName2EditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.InternalActionEntityNameEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopActionEntityName2EditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopActionEntityNameEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ParametricResourceDemandEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ProbabilisticBranchTransitionBranchProbabilityEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableCharacterisationEditPart;
+
+import de.uka.ipd.sdq.pcm.gmf.seff.part.PalladioComponentModelVisualIDRegistry;
+
+import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
+
+import de.uka.ipd.sdq.pcm.seff.SeffPackage;
+
+import de.uka.ipd.sdq.stoex.StoexPackage;
+
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * @generated
+ */
+public class PalladioComponentModelParserProvider extends AbstractProvider
+		implements IParserProvider {
+
+	/**
+	 * @generated
+	 */
+	private IParser variableCharacterisationVariableCharacterisation_3002Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getVariableCharacterisationVariableCharacterisation_3002Parser() {
+		if (variableCharacterisationVariableCharacterisation_3002Parser == null) {
+			variableCharacterisationVariableCharacterisation_3002Parser = createVariableCharacterisationVariableCharacterisation_3002Parser();
+		}
+		return variableCharacterisationVariableCharacterisation_3002Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	protected IParser createVariableCharacterisationVariableCharacterisation_3002Parser() {
+		List features = new ArrayList(2);
+		features.add(ParameterPackage.eINSTANCE
+				.getVariableCharacterisation_Type());
+		features.add(StoexPackage.eINSTANCE.getRandomVariable_Specification());
+		PalladioComponentModelStructuralFeaturesParser parser = new PalladioComponentModelStructuralFeaturesParser(
+				features);
+		parser.setViewPattern("{0} {1}");
+		parser.setEditPattern("{0} {1}");
+		return parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser loopActionLoopActionEntityName_5003Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getLoopActionLoopActionEntityName_5003Parser() {
+		if (loopActionLoopActionEntityName_5003Parser == null) {
+			loopActionLoopActionEntityName_5003Parser = createLoopActionLoopActionEntityName_5003Parser();
+		}
+		return loopActionLoopActionEntityName_5003Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	protected IParser createLoopActionLoopActionEntityName_5003Parser() {
+		PalladioComponentModelStructuralFeatureParser parser = new PalladioComponentModelStructuralFeatureParser(
+				EntityPackage.eINSTANCE.getNamedElement_EntityName());
+		return parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser internalActionInternalActionEntityName_5005Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getInternalActionInternalActionEntityName_5005Parser() {
+		if (internalActionInternalActionEntityName_5005Parser == null) {
+			internalActionInternalActionEntityName_5005Parser = createInternalActionInternalActionEntityName_5005Parser();
+		}
+		return internalActionInternalActionEntityName_5005Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	protected IParser createInternalActionInternalActionEntityName_5005Parser() {
+		PalladioComponentModelStructuralFeatureParser parser = new PalladioComponentModelStructuralFeatureParser(
+				EntityPackage.eINSTANCE.getNamedElement_EntityName());
+		return parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser parametricResourceDemandParametricResourceDemand_3008Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getParametricResourceDemandParametricResourceDemand_3008Parser() {
+		if (parametricResourceDemandParametricResourceDemand_3008Parser == null) {
+			parametricResourceDemandParametricResourceDemand_3008Parser = createParametricResourceDemandParametricResourceDemand_3008Parser();
+		}
+		return parametricResourceDemandParametricResourceDemand_3008Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	protected IParser createParametricResourceDemandParametricResourceDemand_3008Parser() {
+		List features = new ArrayList(2);
+		features.add(StoexPackage.eINSTANCE.getRandomVariable_Specification());
+		features.add(SeffPackage.eINSTANCE.getParametricResourceDemand_Unit());
+		PalladioComponentModelStructuralFeaturesParser parser = new PalladioComponentModelStructuralFeaturesParser(
+				features);
+		parser.setViewPattern("{0} {1}");
+		parser.setEditPattern("{0}");
+		return parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser branchActionBranchActionEntityName_5008Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getBranchActionBranchActionEntityName_5008Parser() {
+		if (branchActionBranchActionEntityName_5008Parser == null) {
+			branchActionBranchActionEntityName_5008Parser = createBranchActionBranchActionEntityName_5008Parser();
+		}
+		return branchActionBranchActionEntityName_5008Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	protected IParser createBranchActionBranchActionEntityName_5008Parser() {
+		PalladioComponentModelStructuralFeatureParser parser = new PalladioComponentModelStructuralFeatureParser(
+				EntityPackage.eINSTANCE.getNamedElement_EntityName());
+		return parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser probabilisticBranchTransitionProbabilisticBranchTransitionBranchProbability_5007Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getProbabilisticBranchTransitionProbabilisticBranchTransitionBranchProbability_5007Parser() {
+		if (probabilisticBranchTransitionProbabilisticBranchTransitionBranchProbability_5007Parser == null) {
+			probabilisticBranchTransitionProbabilisticBranchTransitionBranchProbability_5007Parser = createProbabilisticBranchTransitionProbabilisticBranchTransitionBranchProbability_5007Parser();
+		}
+		return probabilisticBranchTransitionProbabilisticBranchTransitionBranchProbability_5007Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	protected IParser createProbabilisticBranchTransitionProbabilisticBranchTransitionBranchProbability_5007Parser() {
+		PalladioComponentModelStructuralFeatureParser parser = new PalladioComponentModelStructuralFeatureParser(
+				SeffPackage.eINSTANCE
+						.getProbabilisticBranchTransition_BranchProbability());
+		return parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser externalCallActionExternalCallActionEntityName_5006Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getExternalCallActionExternalCallActionEntityName_5006Parser() {
+		if (externalCallActionExternalCallActionEntityName_5006Parser == null) {
+			externalCallActionExternalCallActionEntityName_5006Parser = createExternalCallActionExternalCallActionEntityName_5006Parser();
+		}
+		return externalCallActionExternalCallActionEntityName_5006Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	protected IParser createExternalCallActionExternalCallActionEntityName_5006Parser() {
+		PalladioComponentModelStructuralFeatureParser parser = new PalladioComponentModelStructuralFeatureParser(
+				EntityPackage.eINSTANCE.getNamedElement_EntityName());
+		return parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser externalCallActionExternalCallActionEntityName_5002Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getExternalCallActionExternalCallActionEntityName_5002Parser() {
+		if (externalCallActionExternalCallActionEntityName_5002Parser == null) {
+			externalCallActionExternalCallActionEntityName_5002Parser = createExternalCallActionExternalCallActionEntityName_5002Parser();
+		}
+		return externalCallActionExternalCallActionEntityName_5002Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	protected IParser createExternalCallActionExternalCallActionEntityName_5002Parser() {
+		PalladioComponentModelStructuralFeatureParser parser = new PalladioComponentModelStructuralFeatureParser(
+				EntityPackage.eINSTANCE.getNamedElement_EntityName());
+		return parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser loopActionLoopActionEntityName_5009Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getLoopActionLoopActionEntityName_5009Parser() {
+		if (loopActionLoopActionEntityName_5009Parser == null) {
+			loopActionLoopActionEntityName_5009Parser = createLoopActionLoopActionEntityName_5009Parser();
+		}
+		return loopActionLoopActionEntityName_5009Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	protected IParser createLoopActionLoopActionEntityName_5009Parser() {
+		PalladioComponentModelStructuralFeatureParser parser = new PalladioComponentModelStructuralFeatureParser(
+				EntityPackage.eINSTANCE.getNamedElement_EntityName());
+		return parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser branchActionBranchActionEntityName_5011Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getBranchActionBranchActionEntityName_5011Parser() {
+		if (branchActionBranchActionEntityName_5011Parser == null) {
+			branchActionBranchActionEntityName_5011Parser = createBranchActionBranchActionEntityName_5011Parser();
+		}
+		return branchActionBranchActionEntityName_5011Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	protected IParser createBranchActionBranchActionEntityName_5011Parser() {
+		PalladioComponentModelStructuralFeatureParser parser = new PalladioComponentModelStructuralFeatureParser(
+				EntityPackage.eINSTANCE.getNamedElement_EntityName());
+		return parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	private IParser internalActionInternalActionEntityName_5012Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getInternalActionInternalActionEntityName_5012Parser() {
+		if (internalActionInternalActionEntityName_5012Parser == null) {
+			internalActionInternalActionEntityName_5012Parser = createInternalActionInternalActionEntityName_5012Parser();
+		}
+		return internalActionInternalActionEntityName_5012Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	protected IParser createInternalActionInternalActionEntityName_5012Parser() {
+		PalladioComponentModelStructuralFeatureParser parser = new PalladioComponentModelStructuralFeatureParser(
+				EntityPackage.eINSTANCE.getNamedElement_EntityName());
+		return parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	protected IParser getParser(int visualID) {
+		switch (visualID) {
+		case VariableCharacterisationEditPart.VISUAL_ID:
+			return getVariableCharacterisationVariableCharacterisation_3002Parser();
+		case LoopActionEntityNameEditPart.VISUAL_ID:
+			return getLoopActionLoopActionEntityName_5003Parser();
+		case InternalActionEntityNameEditPart.VISUAL_ID:
+			return getInternalActionInternalActionEntityName_5005Parser();
+		case ParametricResourceDemandEditPart.VISUAL_ID:
+			return getParametricResourceDemandParametricResourceDemand_3008Parser();
+		case BranchActionEntityNameEditPart.VISUAL_ID:
+			return getBranchActionBranchActionEntityName_5008Parser();
+		case ProbabilisticBranchTransitionBranchProbabilityEditPart.VISUAL_ID:
+			return getProbabilisticBranchTransitionProbabilisticBranchTransitionBranchProbability_5007Parser();
+		case ExternalCallActionEntityName2EditPart.VISUAL_ID:
+			return getExternalCallActionExternalCallActionEntityName_5006Parser();
+		case ExternalCallActionEntityNameEditPart.VISUAL_ID:
+			return getExternalCallActionExternalCallActionEntityName_5002Parser();
+		case LoopActionEntityName2EditPart.VISUAL_ID:
+			return getLoopActionLoopActionEntityName_5009Parser();
+		case BranchActionEntityName2EditPart.VISUAL_ID:
+			return getBranchActionBranchActionEntityName_5011Parser();
+		case InternalActionEntityName2EditPart.VISUAL_ID:
+			return getInternalActionInternalActionEntityName_5012Parser();
+		}
+		return null;
+	}
+
+	/**
+	 * @generated
+	 */
+	public IParser getParser(IAdaptable hint) {
+		String vid = (String) hint.getAdapter(String.class);
+		if (vid != null) {
+			return getParser(PalladioComponentModelVisualIDRegistry
+					.getVisualID(vid));
+		}
+		View view = (View) hint.getAdapter(View.class);
+		if (view != null) {
+			return getParser(PalladioComponentModelVisualIDRegistry
+					.getVisualID(view));
+		}
+		return null;
+	}
+
+	/**
+	 * @generated
+	 */
+	public boolean provides(IOperation operation) {
+		if (operation instanceof GetParserOperation) {
+			IAdaptable hint = ((GetParserOperation) operation).getHint();
+			if (PalladioComponentModelElementTypes.getElement(hint) == null) {
+				return false;
+			}
+			return getParser(hint) != null;
+		}
+		return false;
+	}
+}
