@@ -64,12 +64,10 @@ public class PalladioItemProvider extends ItemProviderDecorator implements
 		return result; 
 	}
 
-	@Override
 	public Notifier getTarget() {
 		return ((Adapter)getDecoratedItemProvider()).getTarget();
 	}
 
-	@Override
 	public void setTarget(Notifier newTarget) {
 		((Adapter)getDecoratedItemProvider()).setTarget(newTarget);
 	}
