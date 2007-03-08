@@ -1,9 +1,10 @@
 package de.uka.ipd.sdq.pcmbench.tabs.dialogs;
 
 import java.util.ArrayList;
-import java.util.Iterator;
+import java.util.List;
 
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryContentProvider;
@@ -34,9 +35,7 @@ import de.uka.ipd.sdq.pcmbench.ui.provider.PalladioItemProviderAdapterFactory;
 public class PalladioCreateDataTypeDialog extends CreateDataTypeDialog {
 
 	private ComposedAdapterFactory adapterFactory;
-
 	private ParametersDialogResources dialogResources;
-
 	private DataType selectedDataType;
 
 	/**
@@ -59,27 +58,44 @@ public class PalladioCreateDataTypeDialog extends CreateDataTypeDialog {
 	 */
 	@Override
 	public String[] getLoadedReposetorys() {
-		EList resources = editingDomain.getResourceSet().getResources();
-		ArrayList<String> tempList = new ArrayList<String>();
+		EList<Resource> resources = editingDomain.getResourceSet()
+				.getResources();
+		List<String> tList = new ArrayList<String>();
 
-		// Provide a list with loaded resources without primitive DataType
-		for (Iterator<Resource> it = resources.iterator(); it.hasNext();) {
-			// TODO .get(0)??
-			Repository repository = (Repository) (it.next()).getContents().get(
-					0);
-
-			String repositoryName = repository.getEntityName();
-			if (!repositoryName.contains("PrimitiveTypes"))
-				tempList.add(repositoryName);
+		for (Resource r : resources) {
+			URI uri = r.getURI();
+			if (hasRepositoryExtension(uri) && !isPrimitiveTypesRepository(uri)) {
+				Repository repository = (Repository) r.getContents().get(0);
+				String repositoryName = repository.getEntityName();
+				tList.add(repositoryName);
+			}
 		}
-
 		// conver to String[]
-		String[] comboItems = new String[tempList.size()];
+		return (String[]) tList.toArray(new String[tList.size()]);
+	}
 
-		for (int i = 0; i < tempList.size(); i++)
-			comboItems[i] = tempList.get(i);
+	/**
+	 * TODO
+	 * 
+	 * @param uri
+	 * @return
+	 */
+	private boolean hasRepositoryExtension(URI uri) {
+		if (uri.fileExtension().equals("repository"))
+			return true;
+		return false;
+	}
 
-		return comboItems;
+	/**
+	 * TODO
+	 * 
+	 * @param uri
+	 * @return
+	 */
+	private boolean isPrimitiveTypesRepository(URI uri) {
+		if (uri.path().contains("PrimitiveTypes"))
+			return true;
+		return false;
 	}
 
 	/*
@@ -89,18 +105,15 @@ public class PalladioCreateDataTypeDialog extends CreateDataTypeDialog {
 	 */
 	@Override
 	public void setEditedResource(String repositoryName) {
-
-		EList resources = editingDomain.getResourceSet().getResources();
+		EList<Resource> resources = editingDomain.getResourceSet().getResources();
 
 		// Provide a list with loaded resources without primitive DataType
-		for (Iterator<Resource> it = resources.iterator(); it.hasNext();) {
-			// TODO .get(0)??
-			Repository editedRepository = (Repository) (it.next())
-					.getContents().get(0);
-			String entityName = editedRepository.getEntityName();
-
+		for (Resource r : resources) {
+			Repository repository = (Repository) r.getContents().get(0);
+			String entityName = repository.getEntityName();
+			
 			if (entityName.contains(repositoryName))
-				OperationsTabResources.setEditedRepository(editedRepository);
+				OperationsTabResources.setEditedRepository(repository);
 		}
 	}
 
@@ -181,7 +194,7 @@ public class PalladioCreateDataTypeDialog extends CreateDataTypeDialog {
 							.setInnerType_CollectionDataType(selectedDataType);
 				if (getEntityName() != null)
 					collectionDataType.setEntityName(getEntityName());
-				
+
 				collectionDataType
 						.setRepository_DataType(OperationsTabResources
 								.getEditedRepository());
@@ -205,11 +218,11 @@ public class PalladioCreateDataTypeDialog extends CreateDataTypeDialog {
 			protected void doExecute() {
 				CompositeDataType compositeDataType = OperationsTabResources
 						.getNewCompositeDataType();
-				
+
 				if (compositeDataType == null)
 					compositeDataType = RepositoryFactory.eINSTANCE
 							.createCompositeDataType();
-				
+
 				compositeDataType.setEntityName(getEntityName());
 				compositeDataType.setRepository_DataType(OperationsTabResources
 						.getEditedRepository());
