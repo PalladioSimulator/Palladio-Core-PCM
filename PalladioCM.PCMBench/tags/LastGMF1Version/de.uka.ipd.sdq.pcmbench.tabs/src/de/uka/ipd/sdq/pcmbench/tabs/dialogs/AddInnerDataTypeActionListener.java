@@ -17,9 +17,8 @@ import de.uka.ipd.sdq.pcmbench.tabs.table.OperationsTabResources;
  */
 public class AddInnerDataTypeActionListener extends SelectionAdapter {
 
-	CompositeDataType compositeDataType;
-
-	PalladioCreateDataTypeDialog dialog;
+	private CompositeDataType compositeDataType;
+	private PalladioCreateDataTypeDialog dialog;
 
 	/**
 	 * @param compositeDataType
@@ -82,5 +81,4 @@ public class AddInnerDataTypeActionListener extends SelectionAdapter {
 		dialog.setOKButtonEnabled();
 		dialog.setErrorMessage(null);
 	}
-
 }

@@ -21,7 +21,7 @@ public class DeleteInnerDataTypeActionListener extends SelectionAdapter {
 	private PalladioCreateDataTypeDialog dialog;
 	private InnerDeclaration selectedDeclaration;
 	private CompositeDataType parentDataType;
-	private EList declarations;
+	private EList<InnerDeclaration> declarations;
 	
 	/**
 	 * The transactional editing domain which is used to get the commands and alter the model 
