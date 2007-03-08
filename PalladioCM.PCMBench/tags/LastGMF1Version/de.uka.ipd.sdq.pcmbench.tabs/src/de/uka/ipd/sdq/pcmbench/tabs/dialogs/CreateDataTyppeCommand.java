@@ -11,11 +11,15 @@ import de.uka.ipd.sdq.pcm.repository.RepositoryFactory;
 import de.uka.ipd.sdq.pcmbench.EditingDomainFactory;
 import de.uka.ipd.sdq.pcmbench.tabs.table.OperationsTabResources;
 
+/**
+ * TODO
+ * @author admin
+ */
 public class CreateDataTyppeCommand {
 
 	private DataType dataType;
 	private String dataTypeName;
-	
+
 	/**
 	 * The transactional editing domain which is used to get the commands and
 	 * alter the model
@@ -43,7 +47,7 @@ public class CreateDataTyppeCommand {
 			protected void doExecute() {
 				CollectionDataType collectionDataType;
 
-				if (dataType instanceof CollectionDataType) {
+				if (dataType != null) {
 					collectionDataType = (CollectionDataType) dataType;
 				} else {
 					collectionDataType = RepositoryFactory.eINSTANCE
@@ -52,12 +56,13 @@ public class CreateDataTyppeCommand {
 							.setRepository_DataType(OperationsTabResources
 									.getEditedRepository());
 				}
-
+				
+				Assert.isNotNull(collectionDataType);
 				Assert.isNotNull(dataTypeName);
 				collectionDataType.setEntityName(dataTypeName);
-				if (innerDataType != null)
-					collectionDataType
-							.setInnerType_CollectionDataType(innerDataType);
+				Assert.isNotNull(innerDataType);
+				collectionDataType
+						.setInnerType_CollectionDataType(innerDataType);
 			}
 		};
 		recCommand.setDescription("Add new CollectionDataType");
@@ -75,7 +80,7 @@ public class CreateDataTyppeCommand {
 			protected void doExecute() {
 				CompositeDataType compositeDataType;
 
-				if (dataType instanceof CompositeDataType) {
+				if (dataType != null) {
 					compositeDataType = (CompositeDataType) dataType;
 				} else {
 					compositeDataType = OperationsTabResources
@@ -83,6 +88,7 @@ public class CreateDataTyppeCommand {
 				}
 
 				Assert.isNotNull(compositeDataType);
+				Assert.isNotNull(dataTypeName);
 				compositeDataType.setEntityName(dataTypeName);
 				compositeDataType.setRepository_DataType(OperationsTabResources
 						.getEditedRepository());

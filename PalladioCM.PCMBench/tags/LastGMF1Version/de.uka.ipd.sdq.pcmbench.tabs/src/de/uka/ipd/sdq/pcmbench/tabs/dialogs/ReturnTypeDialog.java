@@ -16,6 +16,8 @@ import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.widgets.Shell;
 
 import de.uka.ipd.sdq.dialogs.selection.PalladioSelectEObjectDialog;
+import de.uka.ipd.sdq.pcm.repository.CollectionDataType;
+import de.uka.ipd.sdq.pcm.repository.CompositeDataType;
 import de.uka.ipd.sdq.pcm.repository.DataType;
 import de.uka.ipd.sdq.pcm.repository.Repository;
 import de.uka.ipd.sdq.pcmbench.EditingDomainFactory;
@@ -51,6 +53,7 @@ public class ReturnTypeDialog extends PalladioSelectEObjectDialog {
 
 	/**
 	 * TODO
+	 * 
 	 * @param parent
 	 * @param filterList
 	 * @param input
@@ -59,7 +62,9 @@ public class ReturnTypeDialog extends PalladioSelectEObjectDialog {
 		super(parent, filterList, input);
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see de.uka.ipd.sdq.dialogs.selection.SelectEObjectDialog#createContents()
 	 */
 	@Override
@@ -84,18 +89,20 @@ public class ReturnTypeDialog extends PalladioSelectEObjectDialog {
 						.getSelection();
 				EObject selection = (EObject) sel.getFirstElement();
 
-				if (selection instanceof DataType) {
+				enableToolBar(true, false, false);
+				if ((selection instanceof CollectionDataType)
+						|| (selection instanceof CompositeDataType)) {
 					selectedDataType = (DataType) selection;
 					enableToolBar(true, true, true);
-				} else {
-					enableToolBar(true, false, false);
 				}
 			}
 		});
 
 		setAddSelectionListener(new SelectionAdapter() {
 
-			/* (non-Javadoc)
+			/*
+			 * (non-Javadoc)
+			 * 
 			 * @see org.eclipse.swt.events.SelectionAdapter#widgetSelected(org.eclipse.swt.events.SelectionEvent)
 			 */
 			@Override
@@ -110,7 +117,9 @@ public class ReturnTypeDialog extends PalladioSelectEObjectDialog {
 
 		setDeleteSelectionListener(new SelectionAdapter() {
 
-			/* (non-Javadoc)
+			/*
+			 * (non-Javadoc)
+			 * 
 			 * @see org.eclipse.swt.events.SelectionAdapter#widgetSelected(org.eclipse.swt.events.SelectionEvent)
 			 */
 			@Override
@@ -140,7 +149,9 @@ public class ReturnTypeDialog extends PalladioSelectEObjectDialog {
 
 		setEditeSelectionListener(new SelectionAdapter() {
 
-			/* (non-Javadoc)
+			/*
+			 * (non-Javadoc)
+			 * 
 			 * @see org.eclipse.swt.events.SelectionAdapter#widgetSelected(org.eclipse.swt.events.SelectionEvent)
 			 */
 			@Override
@@ -149,7 +160,7 @@ public class ReturnTypeDialog extends PalladioSelectEObjectDialog {
 				Assert.isNotNull(selectedDataType);
 				Shell shell = e.widget.getDisplay().getActiveShell();
 				PalladioCreateDataTypeDialog dialog = new PalladioCreateDataTypeDialog(
-						shell,selectedDataType);
+						shell, selectedDataType);
 				dialog.open();
 
 			}
