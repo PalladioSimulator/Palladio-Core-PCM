@@ -1,16 +1,15 @@
 package de.uka.ipd.sdq.pcmbench.tabs.dialogs;
 
 import java.util.ArrayList;
-import java.util.Iterator;
+import java.util.List;
 
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryContentProvider;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
-import org.eclipse.emf.transaction.RecordingCommand;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
-import org.eclipse.jface.util.Assert;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Shell;
@@ -19,7 +18,6 @@ import de.uka.ipd.sdq.pcm.repository.CollectionDataType;
 import de.uka.ipd.sdq.pcm.repository.CompositeDataType;
 import de.uka.ipd.sdq.pcm.repository.DataType;
 import de.uka.ipd.sdq.pcm.repository.Repository;
-import de.uka.ipd.sdq.pcm.repository.RepositoryFactory;
 import de.uka.ipd.sdq.pcm.repository.provider.RepositoryItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcmbench.EditingDomainFactory;
 import de.uka.ipd.sdq.pcmbench.tabs.table.OperationsTabResources;
@@ -49,6 +47,11 @@ public class PalladioCreateDataTypeDialog extends CreateDataTypeDialog {
 
 	final protected TransactionalEditingDomain editingDomain = TransactionalEditingDomain.Registry.INSTANCE
 			.getEditingDomain(EditingDomainFactory.EDITING_DOMAIN_ID);
+
+	/**
+	 * TODO
+	 */
+	EList<Resource> resources = editingDomain.getResourceSet().getResources();
 
 	/**
 	 * @param parentShell
@@ -81,12 +84,11 @@ public class PalladioCreateDataTypeDialog extends CreateDataTypeDialog {
 		String reposetory;
 
 		ParameterRepresentation representation = new ParameterRepresentation();
-
+		
 		if (inputType instanceof CollectionDataType) {
 			CollectionDataType collectionDataType = (CollectionDataType) inputType;
 
 			entityName = collectionDataType.getEntityName();
-
 			reposetory = collectionDataType.getRepository_DataType()
 					.getEntityName();
 
@@ -95,14 +97,14 @@ public class PalladioCreateDataTypeDialog extends CreateDataTypeDialog {
 					OperationsTabResources.getOperationsDecoratedFactory());
 
 			// TODO
-			super.init(collectionSignator, reposetory, entityName, entityInnerType);
+			super.init(collectionSignator, reposetory, entityName,
+					entityInnerType);
 		}
 
 		if (inputType instanceof CompositeDataType) {
 			CompositeDataType compositeDataType = (CompositeDataType) inputType;
 
 			entityName = compositeDataType.getEntityName();
-
 			reposetory = compositeDataType.getRepository_DataType()
 					.getEntityName();
 
@@ -119,27 +121,36 @@ public class PalladioCreateDataTypeDialog extends CreateDataTypeDialog {
 	 */
 	@Override
 	public String[] getLoadedReposetorys() {
-		EList resources = editingDomain.getResourceSet().getResources();
-		ArrayList<String> tempList = new ArrayList<String>();
+		List<String> tList = new ArrayList<String>();
 
-		// Provide a list with loaded resources without primitive DataType
-		for (Iterator<Resource> it = resources.iterator(); it.hasNext();) {
-			// TODO .get(0)??
-			Repository repository = (Repository) (it.next()).getContents().get(
-					0);
-
-			String repositoryName = repository.getEntityName();
-			if (!repositoryName.contains("PrimitiveTypes"))
-				tempList.add(repositoryName);
+		for (Resource r : resources) {
+			URI uri = r.getURI();
+			if (hasRepositoryExtension(uri) && !isPrimitiveTypesRepository(uri)) {
+				Repository repository = (Repository) r.getContents().get(0);
+				String repositoryName = repository.getEntityName();
+				tList.add(repositoryName);
+			}
 		}
-
 		// conver to String[]
-		String[] comboItems = new String[tempList.size()];
+		return (String[]) tList.toArray(new String[tList.size()]);
+	}
 
-		for (int i = 0; i < tempList.size(); i++)
-			comboItems[i] = tempList.get(i);
+	/**
+	 * TODO
+	 */
+	private boolean hasRepositoryExtension(URI uri) {
+		if (uri.fileExtension().equals("repository"))
+			return true;
+		return false;
+	}
 
-		return comboItems;
+	/**
+	 * TODO
+	 */
+	private boolean isPrimitiveTypesRepository(URI uri) {
+		if (uri.path().contains("PrimitiveTypes"))
+			return true;
+		return false;
 	}
 
 	/*
@@ -149,18 +160,15 @@ public class PalladioCreateDataTypeDialog extends CreateDataTypeDialog {
 	 */
 	@Override
 	public void setEditedResource(String repositoryName) {
-
-		EList resources = editingDomain.getResourceSet().getResources();
-
 		// Provide a list with loaded resources without primitive DataType
-		for (Iterator<Resource> it = resources.iterator(); it.hasNext();) {
-			// TODO .get(0)??
-			Repository editedRepository = (Repository) (it.next())
-					.getContents().get(0);
-			String entityName = editedRepository.getEntityName();
-
-			if (entityName.contains(repositoryName))
-				OperationsTabResources.setEditedRepository(editedRepository);
+		for (Resource r : resources) {
+			URI uri = r.getURI();
+			if (hasRepositoryExtension(uri) && !isPrimitiveTypesRepository(uri)) {
+				Repository repository = (Repository) r.getContents().get(0);
+				String entityName = repository.getEntityName();
+				if (entityName.contains(repositoryName))
+					OperationsTabResources.setEditedRepository(repository);
+			}
 		}
 	}
 
@@ -218,9 +226,7 @@ public class PalladioCreateDataTypeDialog extends CreateDataTypeDialog {
 			selectedType = representation.setDataTypeToString(innerDataType,
 					OperationsTabResources.getOperationsDecoratedFactory());
 		}
-
 		return selectedType;
-
 	}
 
 	/*
@@ -230,34 +236,8 @@ public class PalladioCreateDataTypeDialog extends CreateDataTypeDialog {
 	 */
 	@Override
 	public void createCollectionDataType() {
-		RecordingCommand recCommand = new RecordingCommand(editingDomain) {
-			@Override
-			protected void doExecute() {
-
-				CollectionDataType collectionDataType;
-
-				if (editedDataType instanceof CollectionDataType) {
-					collectionDataType = (CollectionDataType) editedDataType;
-
-				} else {
-					collectionDataType = RepositoryFactory.eINSTANCE
-							.createCollectionDataType();
-					collectionDataType
-							.setRepository_DataType(OperationsTabResources
-									.getEditedRepository());
-				}
-
-				Assert.isNotNull(getEntityName());
-				collectionDataType.setEntityName(getEntityName());
-				if (innerDataType != null)
-					collectionDataType
-							.setInnerType_CollectionDataType(innerDataType);
-
-			}
-		};
-
-		recCommand.setDescription("Add new CollectionDataType");
-		editingDomain.getCommandStack().execute(recCommand);
+		new CreateDataTyppeCommand(editedDataType, getEntityName())
+				.createCollectionDataType(innerDataType);
 	}
 
 	/*
@@ -267,29 +247,8 @@ public class PalladioCreateDataTypeDialog extends CreateDataTypeDialog {
 	 */
 	@Override
 	public void createCompositeDataType() {
-
-		RecordingCommand recCommand = new RecordingCommand(editingDomain) {
-			@Override
-			protected void doExecute() {
-
-				CompositeDataType compositeDataType;
-
-				if (editedDataType instanceof CompositeDataType) {
-					compositeDataType = (CompositeDataType) editedDataType;
-				} else {
-					compositeDataType = OperationsTabResources
-							.getNewCompositeDataType();
-				}
-
-				Assert.isNotNull(compositeDataType);
-				compositeDataType.setEntityName(getEntityName());
-				compositeDataType.setRepository_DataType(OperationsTabResources
-						.getEditedRepository());
-			}
-		};
-
-		recCommand.setDescription("Add new CompositeDataType");
-		editingDomain.getCommandStack().execute(recCommand);
+		new CreateDataTyppeCommand(editedDataType, getEntityName())
+				.createCompositeDataType();
 	}
 
 	/**
