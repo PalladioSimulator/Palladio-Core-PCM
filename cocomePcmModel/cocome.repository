@@ -1,2 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<pcm.repository:Repository xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:pcm.repository="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/1.0"/>
+<pcm.repository:Repository xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pcm.repository="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/1.0">
+  <components__Repository xsi:type="pcm.repository:BasicComponent" entityName="TradingSystem.Inventory.Data.Enterprise"/>
+  <components__Repository xsi:type="pcm.repository:BasicComponent" entityName="TradingSystem.Inventory.Data.Persistence"/>
+  <components__Repository xsi:type="pcm.repository:BasicComponent" entityName="TradingSystem.Inventory.Data.Store"/>
+  <components__Repository xsi:type="pcm.repository:BasicComponent" entityName="TradingSystem.Inventory.Data.Facade"/>
+  <interfaces__Repository entityName="EnterpriseQueryIf"/>
+  <interfaces__Repository entityName="PersistenceIf"/>
+  <interfaces__Repository entityName="StoreQueryIf"/>
+</pcm.repository:Repository>

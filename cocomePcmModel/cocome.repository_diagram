@@ -1,7 +1,101 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.0/notation" xmlns:pcm.repository="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/1.0" xmi:id="_1rG4IM5IEduhENsL8pXueg" type="PCM Repository Model" measurementUnit="Pixel">
-  <styles xmi:type="notation:PageStyle" xmi:id="_1rG4Ic5IEduhENsL8pXueg"/>
-  <styles xmi:type="notation:GuideStyle" xmi:id="_1rG4Is5IEduhENsL8pXueg"/>
-  <styles xmi:type="notation:DescriptionStyle" xmi:id="_1rG4I85IEduhENsL8pXueg"/>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.0/notation" xmlns:pcm.repository="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/1.0" xmi:id="_d3pNgM5JEduhENsL8pXueg" type="PCM Repository Model" measurementUnit="Pixel">
+  <children xmi:type="notation:Node" xmi:id="_eVcj0M5JEduhENsL8pXueg" type="2102">
+    <children xmi:type="notation:Node" xmi:id="_eVcj1s5JEduhENsL8pXueg" type="5102"/>
+    <children xmi:type="notation:Node" xmi:id="_eVcj185JEduhENsL8pXueg" type="7102">
+      <styles xmi:type="notation:SortingStyle" xmi:id="_eVcj2M5JEduhENsL8pXueg"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_eVcj2c5JEduhENsL8pXueg"/>
+    </children>
+    <styles xmi:type="notation:FontStyle" xmi:id="_eVcj0c5JEduhENsL8pXueg"/>
+    <styles xmi:type="notation:DescriptionStyle" xmi:id="_eVcj0s5JEduhENsL8pXueg"/>
+    <styles xmi:type="notation:FillStyle" xmi:id="_eVcj085JEduhENsL8pXueg"/>
+    <styles xmi:type="notation:LineStyle" xmi:id="_eVcj1M5JEduhENsL8pXueg"/>
+    <element xmi:type="pcm.repository:BasicComponent" href="cocome.repository#//@components__Repository.0"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_eVcj1c5JEduhENsL8pXueg" x="165" y="144"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_fTuxAM5JEduhENsL8pXueg" type="2102">
+    <children xmi:type="notation:Node" xmi:id="_fTuxBs5JEduhENsL8pXueg" type="5102"/>
+    <children xmi:type="notation:Node" xmi:id="_fTuxB85JEduhENsL8pXueg" type="7102">
+      <styles xmi:type="notation:SortingStyle" xmi:id="_fTuxCM5JEduhENsL8pXueg"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_fTuxCc5JEduhENsL8pXueg"/>
+    </children>
+    <styles xmi:type="notation:FontStyle" xmi:id="_fTuxAc5JEduhENsL8pXueg"/>
+    <styles xmi:type="notation:DescriptionStyle" xmi:id="_fTuxAs5JEduhENsL8pXueg"/>
+    <styles xmi:type="notation:FillStyle" xmi:id="_fTuxA85JEduhENsL8pXueg"/>
+    <styles xmi:type="notation:LineStyle" xmi:id="_fTuxBM5JEduhENsL8pXueg"/>
+    <element xmi:type="pcm.repository:BasicComponent" href="cocome.repository#//@components__Repository.1"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_fTuxBc5JEduhENsL8pXueg" x="166" y="303"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_hAqM4M5JEduhENsL8pXueg" type="2102">
+    <children xmi:type="notation:Node" xmi:id="_hAqM5s5JEduhENsL8pXueg" type="5102"/>
+    <children xmi:type="notation:Node" xmi:id="_hAqM585JEduhENsL8pXueg" type="7102">
+      <styles xmi:type="notation:SortingStyle" xmi:id="_hAqM6M5JEduhENsL8pXueg"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_hAqM6c5JEduhENsL8pXueg"/>
+    </children>
+    <styles xmi:type="notation:FontStyle" xmi:id="_hAqM4c5JEduhENsL8pXueg"/>
+    <styles xmi:type="notation:DescriptionStyle" xmi:id="_hAqM4s5JEduhENsL8pXueg"/>
+    <styles xmi:type="notation:FillStyle" xmi:id="_hAqM485JEduhENsL8pXueg"/>
+    <styles xmi:type="notation:LineStyle" xmi:id="_hAqM5M5JEduhENsL8pXueg"/>
+    <element xmi:type="pcm.repository:BasicComponent" href="cocome.repository#//@components__Repository.2"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_hAqM5c5JEduhENsL8pXueg" x="168" y="432"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_meiK0M5JEduhENsL8pXueg" type="2102">
+    <children xmi:type="notation:Node" xmi:id="_meiK1s5JEduhENsL8pXueg" type="5102"/>
+    <children xmi:type="notation:Node" xmi:id="_meiK185JEduhENsL8pXueg" type="7102">
+      <styles xmi:type="notation:SortingStyle" xmi:id="_meiK2M5JEduhENsL8pXueg"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_meiK2c5JEduhENsL8pXueg"/>
+    </children>
+    <styles xmi:type="notation:FontStyle" xmi:id="_meiK0c5JEduhENsL8pXueg"/>
+    <styles xmi:type="notation:DescriptionStyle" xmi:id="_meiK0s5JEduhENsL8pXueg"/>
+    <styles xmi:type="notation:FillStyle" xmi:id="_meiK085JEduhENsL8pXueg"/>
+    <styles xmi:type="notation:LineStyle" xmi:id="_meiK1M5JEduhENsL8pXueg"/>
+    <element xmi:type="pcm.repository:BasicComponent" href="cocome.repository#//@components__Repository.3"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_meiK1c5JEduhENsL8pXueg" x="175" y="30"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_qgBqUM5JEduhENsL8pXueg" type="2101">
+    <children xmi:type="notation:Node" xmi:id="_qgBqVs5JEduhENsL8pXueg" type="5101"/>
+    <children xmi:type="notation:Node" xmi:id="_qgBqV85JEduhENsL8pXueg" type="7101">
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_qgBqWM5JEduhENsL8pXueg"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_qgBqWc5JEduhENsL8pXueg"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_qgBqWs5JEduhENsL8pXueg"/>
+    </children>
+    <styles xmi:type="notation:FontStyle" xmi:id="_qgBqUc5JEduhENsL8pXueg"/>
+    <styles xmi:type="notation:DescriptionStyle" xmi:id="_qgBqUs5JEduhENsL8pXueg"/>
+    <styles xmi:type="notation:FillStyle" xmi:id="_qgBqU85JEduhENsL8pXueg"/>
+    <styles xmi:type="notation:LineStyle" xmi:id="_qgBqVM5JEduhENsL8pXueg"/>
+    <element xmi:type="pcm.repository:Interface" href="cocome.repository#//@interfaces__Repository.0"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_qgBqVc5JEduhENsL8pXueg" x="15" y="86"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_sL6kYM5JEduhENsL8pXueg" type="2101">
+    <children xmi:type="notation:Node" xmi:id="_sL6kZs5JEduhENsL8pXueg" type="5101"/>
+    <children xmi:type="notation:Node" xmi:id="_sL6kZ85JEduhENsL8pXueg" type="7101">
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_sL6kaM5JEduhENsL8pXueg"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_sL6kac5JEduhENsL8pXueg"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_sL6kas5JEduhENsL8pXueg"/>
+    </children>
+    <styles xmi:type="notation:FontStyle" xmi:id="_sL6kYc5JEduhENsL8pXueg"/>
+    <styles xmi:type="notation:DescriptionStyle" xmi:id="_sL6kYs5JEduhENsL8pXueg"/>
+    <styles xmi:type="notation:FillStyle" xmi:id="_sL6kY85JEduhENsL8pXueg"/>
+    <styles xmi:type="notation:LineStyle" xmi:id="_sL6kZM5JEduhENsL8pXueg"/>
+    <element xmi:type="pcm.repository:Interface" href="cocome.repository#//@interfaces__Repository.1"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_sL6kZc5JEduhENsL8pXueg" x="18" y="256"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_tCmUwM5JEduhENsL8pXueg" type="2101">
+    <children xmi:type="notation:Node" xmi:id="_tCmUxs5JEduhENsL8pXueg" type="5101"/>
+    <children xmi:type="notation:Node" xmi:id="_tCmUx85JEduhENsL8pXueg" type="7101">
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_tCmUyM5JEduhENsL8pXueg"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_tCmUyc5JEduhENsL8pXueg"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_tCmUys5JEduhENsL8pXueg"/>
+    </children>
+    <styles xmi:type="notation:FontStyle" xmi:id="_tCmUwc5JEduhENsL8pXueg"/>
+    <styles xmi:type="notation:DescriptionStyle" xmi:id="_tCmUws5JEduhENsL8pXueg"/>
+    <styles xmi:type="notation:FillStyle" xmi:id="_tCmUw85JEduhENsL8pXueg"/>
+    <styles xmi:type="notation:LineStyle" xmi:id="_tCmUxM5JEduhENsL8pXueg"/>
+    <element xmi:type="pcm.repository:Interface" href="cocome.repository#//@interfaces__Repository.2"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_tCmUxc5JEduhENsL8pXueg" x="27" y="420"/>
+  </children>
+  <styles xmi:type="notation:PageStyle" xmi:id="_d3pNgc5JEduhENsL8pXueg"/>
+  <styles xmi:type="notation:GuideStyle" xmi:id="_d3pNgs5JEduhENsL8pXueg"/>
+  <styles xmi:type="notation:DescriptionStyle" xmi:id="_d3pNg85JEduhENsL8pXueg"/>
   <element xmi:type="pcm.repository:Repository" href="cocome.repository#/"/>
 </notation:Diagram>
