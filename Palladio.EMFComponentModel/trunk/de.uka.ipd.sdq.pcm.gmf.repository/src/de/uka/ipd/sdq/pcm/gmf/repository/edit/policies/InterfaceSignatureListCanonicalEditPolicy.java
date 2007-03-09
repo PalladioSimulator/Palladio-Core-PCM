@@ -45,10 +45,10 @@ public class InterfaceSignatureListCanonicalEditPolicy extends
 	}
 
 	/**
-	 * @generated
+	 * @generated not
 	 */
 	protected boolean shouldDeleteView(View view) {
-		return true; //view.isSetElement() && view.getElement() != null
+		return view.isSetElement() && view.getElement() != null;
 				// && view.getElement().eIsProxy();
 	}
 

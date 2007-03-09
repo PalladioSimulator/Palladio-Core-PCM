@@ -27,6 +27,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
 import org.eclipse.emf.ecore.util.EObjectValidator;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 
 /**
  * <!-- begin-user-doc -->
@@ -65,10 +66,11 @@ public abstract class IdentifierImpl extends EObjectImpl implements Identifier {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated not
 	 */
 	protected IdentifierImpl() {
 		super();
+		setId(EcoreUtil.generateUUID());
 	}
 
 	/**

@@ -53,6 +53,8 @@ import de.uka.ipd.sdq.pcm.gmf.repository.edit.policies.PalladioComponentModelTex
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.policies.PalladioComponentModelTextSelectionEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.policies.ResourceDemandingSEFFItemSemanticEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.repository.providers.PalladioComponentModelElementTypes;
+import de.uka.ipd.sdq.pcm.repository.Signature;
+import de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF;
 
 /**
  * @generated
@@ -208,19 +210,14 @@ public class ResourceDemandingSEFFEditPart extends CompartmentEditPart
 	}
 
 	/**
-	 * @generated
+	 * @generated not
 	 */
 	protected String getLabelText() {
-		String text = null;
-		if (getParser() != null) {
-			text = getParser().getPrintString(
-					new EObjectAdapter(getParserElement()),
-					getParserOptions().intValue());
-		}
-		if (text == null || text.length() == 0) {
-			text = defaultText;
-		}
-		return text;
+		String text = "SEFF <";
+		Signature describedService = ((ResourceDemandingSEFF)((View)this.getModel()).getElement()).getDescribedService__SEFF();
+		if (describedService != null)
+			text += describedService.getServiceName();
+		return text + ">";
 	}
 
 	/**
