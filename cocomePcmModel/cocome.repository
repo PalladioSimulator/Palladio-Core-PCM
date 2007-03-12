@@ -34,8 +34,8 @@
     <providedRoles_InterfaceProvidingEntity id="_2Tx5INCiEduC9O_qbthgAg" entityName="StoreIf" providedInterface__ProvidedRole="_4153pNCiEduC9O_qbthgAg"/>
   </components__Repository>
   <components__Repository xsi:type="pcm.repository:CompositeComponent" id="_5klGGNCjEduC9O_qbthgAg" entityName="TradingSystem.Inventory.GUI">
-    <providedRoles_InterfaceProvidingEntity id="_zY1gENCkEduC9O_qbthgAg" entityName="ReportingIf" providedInterface__ProvidedRole="_vebx9NCiEduC9O_qbthgAg"/>
-    <providedRoles_InterfaceProvidingEntity id="_3Vj0UNCkEduC9O_qbthgAg" entityName="StoreIf" providedInterface__ProvidedRole="_4153pNCiEduC9O_qbthgAg"/>
+    <requiredRoles_InterfaceRequiringEntity id="_Du39kdCpEduC9O_qbthgAg" entityName="StoreIf" requiredInterface__RequiredRole="_4153pNCiEduC9O_qbthgAg"/>
+    <requiredRoles_InterfaceRequiringEntity id="_GM-XsdCpEduC9O_qbthgAg" entityName="ReportingIf" requiredInterface__RequiredRole="_vebx9NCiEduC9O_qbthgAg"/>
     <childComponentContexts_ComposedStructure id="_8ei80tCjEduC9O_qbthgAg" entityName="Reporting" encapsulatedComponent_ChildComponentContext="_sGEvA9CiEduC9O_qbthgAg"/>
     <childComponentContexts_ComposedStructure id="__EPzwtCjEduC9O_qbthgAg" entityName="Store" encapsulatedComponent_ChildComponentContext="_zokQE9CiEduC9O_qbthgAg"/>
   </components__Repository>
@@ -57,7 +57,11 @@
     <requiredRoles_InterfaceRequiringEntity id="_0k7YYdCnEduC9O_qbthgAg" entityName="PersistenceIf" requiredInterface__RequiredRole="_F8ovQNChEduC9O_qbthgAg"/>
     <requiredRoles_InterfaceRequiringEntity id="_4OSEsdCnEduC9O_qbthgAg" entityName="StoreQueryIf" requiredInterface__RequiredRole="_HSKXwNChEduC9O_qbthgAg"/>
   </components__Repository>
-  <components__Repository xsi:type="pcm.repository:CompositeComponent" id="_hfayBNClEduC9O_qbthgAg" entityName="TradingSystem.Inventory.Application"/>
+  <components__Repository xsi:type="pcm.repository:CompositeComponent" id="_hfayBNClEduC9O_qbthgAg" entityName="TradingSystem.Inventory.Application">
+    <childComponentContexts_ComposedStructure id="_F7D9wtCoEduC9O_qbthgAg" entityName="Reporting" encapsulatedComponent_ChildComponentContext="_URW_1dCmEduC9O_qbthgAg"/>
+    <childComponentContexts_ComposedStructure id="_IcmGYtCoEduC9O_qbthgAg" entityName="Store" encapsulatedComponent_ChildComponentContext="_6tZA5dCmEduC9O_qbthgAg"/>
+    <childComponentContexts_ComposedStructure id="_KA38ktCoEduC9O_qbthgAg" entityName="ProductDispatcher" encapsulatedComponent_ChildComponentContext="_XDTf09CiEduC9O_qbthgAg"/>
+  </components__Repository>
   <interfaces__Repository id="_WoD42tCjEduC9O_qbthgAg" entityName="CashDeskConnectorIf"/>
   <interfaces__Repository id="_Eldg8NChEduC9O_qbthgAg" entityName="EnterpriseQueryIf"/>
   <interfaces__Repository id="_F8ovQNChEduC9O_qbthgAg" entityName="PersistenceIf"/>
