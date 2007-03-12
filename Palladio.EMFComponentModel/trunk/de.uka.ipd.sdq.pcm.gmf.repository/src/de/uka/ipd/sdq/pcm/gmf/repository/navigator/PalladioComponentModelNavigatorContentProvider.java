@@ -138,7 +138,7 @@ public class PalladioComponentModelNavigatorContentProvider implements
 		case RepositoryEditPart.VISUAL_ID: {
 			Collection result = new ArrayList();
 			PalladioComponentModelNavigatorGroup links = new PalladioComponentModelNavigatorGroup(
-					Messages.NavigatorGroupName_Repository_1100_links,
+					Messages.NavigatorGroupName_Repository_1000_links,
 					"icons/linksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			Collection connectedViews = getChildrenByType(Collections
 					.singleton(view), InterfaceEditPart.VISUAL_ID);

@@ -196,7 +196,7 @@ Copyright 2007, IPD, SDQ, University of Karlsruhe
    </extension>
 
    <extension point="org.eclipse.ui.views.properties.tabbed.propertyContributor">
-      <?gmfgen generated="true"?>
+      <?gmfgen generated="false"?>
       <propertyContributor
             contributorId="de.uka.ipd.sdq.pcm.gmf.repository"
             >
@@ -229,7 +229,7 @@ Copyright 2007, IPD, SDQ, University of Karlsruhe
    </extension>
 
    <extension point="org.eclipse.ui.views.properties.tabbed.propertySections">
-      <?gmfgen generated="true"?>   
+      <?gmfgen generated="false"?>   
       <propertySections contributorId="de.uka.ipd.sdq.pcm.gmf.repository">
          <propertySection id="property.section.ConnectorAppearancePropertySection" 
             filter="org.eclipse.gmf.runtime.diagram.ui.properties.filters.ConnectionEditPartPropertySectionFilter" 

@@ -185,7 +185,7 @@ public class Messages extends org.eclipse.osgi.util.NLS {
 	/**
 	 * @generated
 	 */
-	public static String NavigatorGroupName_Repository_1100_links;
+	public static String NavigatorGroupName_Repository_1000_links;
 
 	/**
 	 * @generated

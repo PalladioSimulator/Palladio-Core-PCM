@@ -49,6 +49,7 @@ import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.FontData;
 import org.eclipse.swt.graphics.Image;
 
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.policies.OpenSeffDiagramEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.policies.PalladioComponentModelTextNonResizableEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.policies.PalladioComponentModelTextSelectionEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.policies.ResourceDemandingSEFFItemSemanticEditPolicy;
@@ -118,6 +119,8 @@ public class ResourceDemandingSEFFEditPart extends CompartmentEditPart
 				new ListItemComponentEditPolicy());
 		installEditPolicy(EditPolicy.DIRECT_EDIT_ROLE,
 				new LabelDirectEditPolicy());
+		installEditPolicy(EditPolicyRoles.OPEN_ROLE,
+				new OpenSeffDiagramEditPolicy());
 	}
 
 	/**
@@ -214,7 +217,8 @@ public class ResourceDemandingSEFFEditPart extends CompartmentEditPart
 	 */
 	protected String getLabelText() {
 		String text = "SEFF <";
-		Signature describedService = ((ResourceDemandingSEFF)((View)this.getModel()).getElement()).getDescribedService__SEFF();
+		Signature describedService = ((ResourceDemandingSEFF) ((View) this
+				.getModel()).getElement()).getDescribedService__SEFF();
 		if (describedService != null)
 			text += describedService.getServiceName();
 		return text + ">";
@@ -248,7 +252,7 @@ public class ResourceDemandingSEFFEditPart extends CompartmentEditPart
 	 * @generated
 	 */
 	protected boolean isEditable() {
-		return getParser() != null;
+		return false;
 	}
 
 	/**

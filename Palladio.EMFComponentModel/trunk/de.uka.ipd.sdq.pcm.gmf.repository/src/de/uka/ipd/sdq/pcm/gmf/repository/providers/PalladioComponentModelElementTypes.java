@@ -52,7 +52,8 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
 	/**
 	 * @generated
 	 */
-	public static final IElementType Repository_1100 = getElementType("de.uka.ipd.sdq.pcm.gmf.repository.Repository_1100"); //$NON-NLS-1$
+	public static final IElementType Repository_1000 = getElementType("de.uka.ipd.sdq.pcm.gmf.repository.Repository_1000"); //$NON-NLS-1$
+
 	/**
 	 * @generated
 	 */
@@ -201,7 +202,7 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
 		if (elements == null) {
 			elements = new IdentityHashMap();
 
-			elements.put(Repository_1100, RepositoryPackage.eINSTANCE
+			elements.put(Repository_1000, RepositoryPackage.eINSTANCE
 					.getRepository());
 
 			elements.put(Interface_2101, RepositoryPackage.eINSTANCE
@@ -247,7 +248,7 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
 	public static boolean isKnownElementType(IElementType elementType) {
 		if (KNOWN_ELEMENT_TYPES == null) {
 			KNOWN_ELEMENT_TYPES = new HashSet();
-			KNOWN_ELEMENT_TYPES.add(Repository_1100);
+			KNOWN_ELEMENT_TYPES.add(Repository_1000);
 			KNOWN_ELEMENT_TYPES.add(Interface_2101);
 			KNOWN_ELEMENT_TYPES.add(BasicComponent_2102);
 			KNOWN_ELEMENT_TYPES.add(CompleteComponentType_2103);

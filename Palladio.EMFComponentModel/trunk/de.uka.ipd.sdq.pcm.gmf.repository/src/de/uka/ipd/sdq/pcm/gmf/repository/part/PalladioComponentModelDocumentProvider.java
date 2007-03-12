@@ -216,9 +216,8 @@ public class PalladioComponentModelDocumentProvider extends
 					try {
 						Map options = new HashMap(GMFResourceFactory
 								.getDefaultLoadOptions());
-						// @see 171060
-						// options.put(org.eclipse.emf.ecore.xmi.XMLResource.OPTION_RECORD_UNKNOWN_FEATURE,
-						// Boolean.TRUE);
+						// @see 171060 
+						// options.put(org.eclipse.emf.ecore.xmi.XMLResource.OPTION_RECORD_UNKNOWN_FEATURE, Boolean.TRUE);
 						resource.load(options);
 					} catch (IOException e) {
 						resource.unload();

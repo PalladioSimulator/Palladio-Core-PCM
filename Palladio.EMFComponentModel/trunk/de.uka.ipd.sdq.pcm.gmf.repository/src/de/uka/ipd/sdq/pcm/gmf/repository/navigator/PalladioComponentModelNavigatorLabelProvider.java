@@ -148,7 +148,7 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 		case RepositoryEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Diagram?http://sdq.ipd.uka.de/PalladioComponentModel/Repository/1.0?Repository",
-					PalladioComponentModelElementTypes.Repository_1100);
+					PalladioComponentModelElementTypes.Repository_1000);
 		case ProvidedRoleEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Link?http://sdq.ipd.uka.de/PalladioComponentModel/Repository/1.0?ProvidedRole",
@@ -224,7 +224,7 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 		case ResourceDemandingSEFFEditPart.VISUAL_ID:
 			return getResourceDemandingSEFF_3102Text(view);
 		case RepositoryEditPart.VISUAL_ID:
-			return getRepository_1100Text(view);
+			return getRepository_1000Text(view);
 		case ProvidedRoleEditPart.VISUAL_ID:
 			return getProvidedRole_4101Text(view);
 		case RequiredRoleEditPart.VISUAL_ID:
@@ -421,7 +421,7 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 	/**
 	 * @generated
 	 */
-	private String getRepository_1100Text(View view) {
+	private String getRepository_1000Text(View view) {
 		EObject domainModelElement = view.getElement();
 		if (domainModelElement != null) {
 			return ((Identifier) domainModelElement).getId();
@@ -429,7 +429,7 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 			PalladioComponentModelRepositoryDiagramEditorPlugin
 					.getInstance()
 					.logError(
-							"No domain element for view with visualID = " + 1100);
+							"No domain element for view with visualID = " + 1000);
 			return "";
 		}
 	}

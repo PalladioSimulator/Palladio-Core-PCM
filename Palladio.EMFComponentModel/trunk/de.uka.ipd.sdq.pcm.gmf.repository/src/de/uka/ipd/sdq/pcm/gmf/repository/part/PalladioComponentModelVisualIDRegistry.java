@@ -133,7 +133,7 @@ public class PalladioComponentModelVisualIDRegistry {
 			EClass domainElementMetaclass) {
 		if (RepositoryPackage.eINSTANCE.getRepository().isSuperTypeOf(
 				domainElementMetaclass)
-				&& isDiagramRepository_1100((Repository) domainElement)) {
+				&& isDiagramRepository_1000((Repository) domainElement)) {
 			return RepositoryEditPart.VISUAL_ID;
 		}
 		return getUnrecognizedDiagramID(domainElement);
@@ -262,7 +262,7 @@ public class PalladioComponentModelVisualIDRegistry {
 					&& (domainElement == null || isNodeCompositeComponent_2105((CompositeComponent) domainElement))) {
 				return CompositeComponentEditPart.VISUAL_ID;
 			}
-			return getUnrecognizedRepository_1100ChildNodeID(domainElement,
+			return getUnrecognizedRepository_1000ChildNodeID(domainElement,
 					semanticHint);
 		case ProvidedRoleEditPart.VISUAL_ID:
 			if (ProvidesStereotypeLabelEditPart.VISUAL_ID == nodeVisualID) {
@@ -313,7 +313,7 @@ public class PalladioComponentModelVisualIDRegistry {
 	 *
 	 * @generated
 	 */
-	private static boolean isDiagramRepository_1100(Repository element) {
+	private static boolean isDiagramRepository_1000(Repository element) {
 		return true;
 	}
 
@@ -506,7 +506,7 @@ public class PalladioComponentModelVisualIDRegistry {
 	 *
 	 * @generated
 	 */
-	private static int getUnrecognizedRepository_1100ChildNodeID(
+	private static int getUnrecognizedRepository_1000ChildNodeID(
 			EObject domainElement, String semanticHint) {
 		return -1;
 	}

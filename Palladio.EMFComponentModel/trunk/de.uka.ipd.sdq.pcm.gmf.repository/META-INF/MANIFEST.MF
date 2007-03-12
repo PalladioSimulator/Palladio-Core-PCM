@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: de.uka.ipd.sdq.pcm.gmf.repository; singleton:=true
-Bundle-Version: 2.0.0.qualifier
+Bundle-Version: 1.0.0.qualifier
 Bundle-ClassPath: .
 Bundle-Activator: de.uka.ipd.sdq.pcm.gmf.repository.part.PalladioComponentModelRepositoryDiagramEditorPlugin
 Bundle-Vendor: %providerName
@@ -42,8 +42,5 @@ Require-Bundle: org.eclipse.core.runtime,
  de.uka.ipd.sdq.stoex;visibility:=reexport,
  de.uka.ipd.sdq.stoex.edit;visibility:=reexport,
  org.eclipse.gmf.runtime.draw2d.ui;visibility:=reexport,
- org.eclipse.draw2d;visibility:=reexport,
- de.uka.ipd.sdq.pcmbench.tabs,
- de.uka.ipd.sdq.pcmbench.ui,
- de.uka.ipd.sdq.dialog
+ org.eclipse.draw2d;visibility:=reexport
 Eclipse-LazyStart: true

@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Repository Diagram Edit Helper Plug-in
 Bundle-SymbolicName: de.uka.ipd.sdq.pcm.gmf.repository.helper;singleton:=true
-Bundle-Version: 1.0.0.qualifier
+Bundle-Version: 2.0.0.qualifier
 Bundle-Activator: de.uka.ipd.sdq.pcm.gmf.repository.helper.RepositoryHelperPlugin
 Bundle-Vendor: sdq.ipd.uka.de
 Require-Bundle: org.eclipse.ui,

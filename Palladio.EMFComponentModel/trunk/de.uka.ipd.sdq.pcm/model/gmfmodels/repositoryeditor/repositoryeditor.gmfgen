@@ -9,13 +9,12 @@
     templateDirectory=""
     copyrightText="Copyright 2007, IPD, SDQ, University of Karlsruhe">
   <diagram
-      visualID="1100"
+      visualID="1000"
       editPartClassName="RepositoryEditPart"
       itemSemanticEditPolicyClassName="RepositoryItemSemanticEditPolicy"
       notationViewFactoryClassName="RepositoryViewFactory"
       canonicalEditPolicyClassName="RepositoryCanonicalEditPolicy"
       iconProviderPriority="Low"
-      editingDomainID="de.uka.ipd.sdq.PCMBench.editingDomain"
       validationProviderPriority="Low">
     <diagramRunTimeClass
         href="../../../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Diagram"/>
@@ -75,6 +74,7 @@
         graphicalNodeEditPolicyClassName="ResourceDemandingSEFFGraphicalNodeEditPolicy"
         createCommandClassName="ResourceDemandingSEFFCreateCommand"
         containers="//@diagram/@compartments.1"
+        labelReadOnly="true"
         labelElementIcon="true">
       <diagramRunTimeClass
           href="../../../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
@@ -173,6 +173,11 @@
         <requiredPluginIDs>org.eclipse.draw2d</requiredPluginIDs>
         <requiredPluginIDs>org.eclipse.gmf.runtime.draw2d.ui</requiredPluginIDs>
       </viewmap>
+      <behaviour
+          xsi:type="gmfgen:OpenDiagramBehaviour"
+          editPolicyClassName="OpenSeffDiagramEditPolicy"
+          diagramKind="PCM SEFF Model"
+          editorID="de.uka.ipd.sdq.pcm.gmf.seff.part.SeffDiagramEditorID"/>
       <modelFacet>
         <metaClass
             href="../../pcm.genmodel#//pcm/repository/BasicComponent"/>

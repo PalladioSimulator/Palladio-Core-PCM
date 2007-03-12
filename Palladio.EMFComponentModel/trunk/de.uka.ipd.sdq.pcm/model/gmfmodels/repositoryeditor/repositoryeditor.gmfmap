@@ -71,6 +71,8 @@
         <features
             href="../../pcm.ecore#//core/entity/NamedElement/entityName"/>
       </labelMappings>
+      <relatedDiagrams
+          href="../seffeditor/seffeditor.gmfmap#//@diagram"/>
       <tool
           xsi:type="gmftool:CreationTool"
           href="repositoryeditor.gmftool#//@palette/@tools.0/@tools.10"/>
@@ -87,6 +89,7 @@
               href="../../pcm.ecore#//seff/ResourceDemandingSEFF"/>
           <labelMappings
               xsi:type="gmfmap:FeatureLabelMapping"
+              readOnly="true"
               viewPattern=""
               editPattern="">
             <diagramLabel
@@ -94,6 +97,8 @@
             <features
                 href="../../pcm.ecore#//seff/ServiceEffectSpecification/seffTypeID"/>
           </labelMappings>
+          <relatedDiagrams
+              href="../seffeditor/seffeditor.gmfmap#//@diagram"/>
           <tool
               xsi:type="gmftool:CreationTool"
               href="repositoryeditor.gmftool#//@palette/@tools.0/@tools.12"/>

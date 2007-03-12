@@ -65,6 +65,9 @@ public class BasicComponentViewFactory extends AbstractShapeViewFactory {
 					"modelID", RepositoryEditPart.MODEL_ID); //$NON-NLS-1$
 			view.getEAnnotations().add(shortcutAnnotation);
 		}
+		EAnnotation diagramFacet = EcoreFactory.eINSTANCE.createEAnnotation();
+		diagramFacet.setSource("uri://eclipse.org/gmf/openDiagramPolicy");
+		view.getEAnnotations().add(diagramFacet);
 		getViewService().createNode(
 				semanticAdapter,
 				view,
