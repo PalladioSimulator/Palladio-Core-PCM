@@ -124,6 +124,10 @@
     <compositeAssemblyConnectors_ComposedStructure id="_AlsdxdC3EduW_YoCCnq0vw" entityName="StoreIf" requiringChildComponentContext_CompositeAssemblyConnector="_8jQN8tC0EduW_YoCCnq0vw" providingChildComponentContext_CompositeAssemblyConnector="_IcmGYtCoEduC9O_qbthgAg" providedRole_CompositeAssemblyConnector="_8phWYNCmEduC9O_qbthgAg" requiredRole_CompositeAssemblyConnector="_NFajQdC2EduW_YoCCnq0vw"/>
     <compositeAssemblyConnectors_ComposedStructure id="_BSZyxdC3EduW_YoCCnq0vw" entityName="ProductDispatcherIf" requiringChildComponentContext_CompositeAssemblyConnector="_8jQN8tC0EduW_YoCCnq0vw" providingChildComponentContext_CompositeAssemblyConnector="_KA38ktCoEduC9O_qbthgAg" providedRole_CompositeAssemblyConnector="_gMw-sNCiEduC9O_qbthgAg" requiredRole_CompositeAssemblyConnector="_ByZ98dC2EduW_YoCCnq0vw"/>
   </components__Repository>
+  <components__Repository xsi:type="pcm.repository:CompositeComponent" id="_NHccMtC5EduW_YoCCnq0vw" entityName="TradingSystem.CashDeskLine">
+    <requiredRoles_InterfaceRequiringEntity id="_SXUaYdC5EduW_YoCCnq0vw" entityName="CashDeskLine.BankIf" requiredInterface__RequiredRole="_RDRYlNC5EduW_YoCCnq0vw"/>
+    <requiredRoles_InterfaceRequiringEntity id="_ZpuRAdC5EduW_YoCCnq0vw" entityName="TradingSystem.CashDeskLine.CashDeskConnectorIf" requiredInterface__RequiredRole="_WoD42tCjEduC9O_qbthgAg"/>
+  </components__Repository>
   <interfaces__Repository id="_WoD42tCjEduC9O_qbthgAg" entityName="CashDeskConnectorIf"/>
   <interfaces__Repository id="_Eldg8NChEduC9O_qbthgAg" entityName="EnterpriseQueryIf"/>
   <interfaces__Repository id="_F8ovQNChEduC9O_qbthgAg" entityName="PersistenceIf"/>
@@ -135,4 +139,5 @@
   <interfaces__Repository id="_4153pNCiEduC9O_qbthgAg" entityName="StoreIf"/>
   <interfaces__Repository id="_D62rdNCmEduC9O_qbthgAg" entityName="JDBC"/>
   <interfaces__Repository id="_RQoSZNCpEduC9O_qbthgAg" entityName="SaleRegisteredEvent"/>
+  <interfaces__Repository id="_RDRYlNC5EduW_YoCCnq0vw" entityName="Bank"/>
 </pcm.repository:Repository>
