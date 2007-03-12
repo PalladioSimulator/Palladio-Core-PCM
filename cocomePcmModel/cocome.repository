@@ -26,6 +26,14 @@
   <components__Repository xsi:type="pcm.repository:BasicComponent" id="_C7qRkNChEduC9O_qbthgAg" entityName="TradingSystem.Inventory.Data.Store">
     <providedRoles_InterfaceProvidingEntity id="_OmzqENChEduC9O_qbthgAg" entityName="Store.StoreQueryIf" providedInterface__ProvidedRole="_HSKXwNChEduC9O_qbthgAg"/>
   </components__Repository>
+  <components__Repository xsi:type="pcm.repository:BasicComponent" id="_C5W7w9CyEduW_YoCCnq0vw" entityName="TradingSystem.Inventory.Data.Facade">
+    <providedRoles_InterfaceProvidingEntity id="_JwDGwNCyEduW_YoCCnq0vw" entityName="Data.Facade.EnterpriseQueryIf" providedInterface__ProvidedRole="_Eldg8NChEduC9O_qbthgAg"/>
+    <providedRoles_InterfaceProvidingEntity id="_aztcENCyEduW_YoCCnq0vw" entityName="Data.Facade.PersistenceIf" providedInterface__ProvidedRole="_F8ovQNChEduC9O_qbthgAg"/>
+    <providedRoles_InterfaceProvidingEntity id="_eJ_bYNCyEduW_YoCCnq0vw" entityName="Data.Facade.StoreQueryIf" providedInterface__ProvidedRole="_HSKXwNChEduC9O_qbthgAg"/>
+    <requiredRoles_InterfaceRequiringEntity id="_lbprIdCyEduW_YoCCnq0vw" entityName="Data.Facade.EnterpriseQueryIf" requiredInterface__RequiredRole="_Eldg8NChEduC9O_qbthgAg"/>
+    <requiredRoles_InterfaceRequiringEntity id="_oVdw4dCyEduW_YoCCnq0vw" entityName="Data.Facade.PersistenceIf" requiredInterface__RequiredRole="_F8ovQNChEduC9O_qbthgAg"/>
+    <requiredRoles_InterfaceRequiringEntity id="_q9QSgdCyEduW_YoCCnq0vw" entityName="Data.Facade.StoreQueryIf" requiredInterface__RequiredRole="_HSKXwNChEduC9O_qbthgAg"/>
+  </components__Repository>
   <components__Repository xsi:type="pcm.repository:CompositeComponent" id="_hNG20tChEduC9O_qbthgAg" entityName="TradingSystem.Inventory.Data">
     <providedRoles_InterfaceProvidingEntity id="_I9CIsNCiEduC9O_qbthgAg" entityName="Data.EnterpriseQueryIf" providedInterface__ProvidedRole="_Eldg8NChEduC9O_qbthgAg"/>
     <providedRoles_InterfaceProvidingEntity id="_MKhYYNCiEduC9O_qbthgAg" entityName="Data.PersistenceIf" providedInterface__ProvidedRole="_F8ovQNChEduC9O_qbthgAg"/>
@@ -34,12 +42,16 @@
     <childComponentContexts_ComposedStructure id="_ivAuctChEduC9O_qbthgAg" entityName="TradingSystem.Inventory.Data.Enterprise" encapsulatedComponent_ChildComponentContext="_-3VggNCgEduC9O_qbthgAg"/>
     <childComponentContexts_ComposedStructure id="_nCYoItChEduC9O_qbthgAg" entityName="TradingSystem.Inventory.Data.Persistence" encapsulatedComponent_ChildComponentContext="_B8esgNChEduC9O_qbthgAg"/>
     <childComponentContexts_ComposedStructure id="_qGocQtChEduC9O_qbthgAg" entityName="TradingSystem.Inventory.Data.Store" encapsulatedComponent_ChildComponentContext="_C7qRkNChEduC9O_qbthgAg"/>
-    <providedDelegationConnectors_ComposedStructure id="_nWypg9CvEduW_YoCCnq0vw" entityName="EnterpriseQueryIf" innerProvidedRole_ProvidedDelegationConnector="_d1Mf0NChEduC9O_qbthgAg" outerProvidedRole_ProvidedDelegationConnector="_I9CIsNCiEduC9O_qbthgAg"/>
-    <providedDelegationConnectors_ComposedStructure id="_tOTPc9CvEduW_YoCCnq0vw" entityName="PersistenceIf" innerProvidedRole_ProvidedDelegationConnector="_bT0IMNChEduC9O_qbthgAg" outerProvidedRole_ProvidedDelegationConnector="_MKhYYNCiEduC9O_qbthgAg"/>
-    <providedDelegationConnectors_ComposedStructure id="_yXBcw9CvEduW_YoCCnq0vw" entityName="StoreQueryIf" innerProvidedRole_ProvidedDelegationConnector="_OmzqENChEduC9O_qbthgAg" outerProvidedRole_ProvidedDelegationConnector="_OdmOQNCiEduC9O_qbthgAg"/>
+    <childComponentContexts_ComposedStructure id="_zFEcQtC0EduW_YoCCnq0vw" entityName="TradingSystem.Inventory.Data.Facade" encapsulatedComponent_ChildComponentContext="_C5W7w9CyEduW_YoCCnq0vw"/>
+    <providedDelegationConnectors_ComposedStructure id="_nWypg9CvEduW_YoCCnq0vw" entityName="EnterpriseQueryIf" innerProvidedRole_ProvidedDelegationConnector="_JwDGwNCyEduW_YoCCnq0vw" outerProvidedRole_ProvidedDelegationConnector="_I9CIsNCiEduC9O_qbthgAg"/>
+    <providedDelegationConnectors_ComposedStructure id="_tOTPc9CvEduW_YoCCnq0vw" entityName="PersistenceIf" innerProvidedRole_ProvidedDelegationConnector="_aztcENCyEduW_YoCCnq0vw" outerProvidedRole_ProvidedDelegationConnector="_MKhYYNCiEduC9O_qbthgAg"/>
+    <providedDelegationConnectors_ComposedStructure id="_yXBcw9CvEduW_YoCCnq0vw" entityName="StoreQueryIf" innerProvidedRole_ProvidedDelegationConnector="_eJ_bYNCyEduW_YoCCnq0vw" outerProvidedRole_ProvidedDelegationConnector="_OdmOQNCiEduC9O_qbthgAg"/>
+    <compositeAssemblyConnectors_ComposedStructure id="_EPI7ldC1EduW_YoCCnq0vw" entityName="EnterpriseQueryIf" requiringChildComponentContext_CompositeAssemblyConnector="_zFEcQtC0EduW_YoCCnq0vw" providingChildComponentContext_CompositeAssemblyConnector="_ivAuctChEduC9O_qbthgAg" providedRole_CompositeAssemblyConnector="_I9CIsNCiEduC9O_qbthgAg" requiredRole_CompositeAssemblyConnector="_lbprIdCyEduW_YoCCnq0vw"/>
+    <compositeAssemblyConnectors_ComposedStructure id="_l1-IRdC1EduW_YoCCnq0vw" entityName="StoreQueryIf" requiringChildComponentContext_CompositeAssemblyConnector="_zFEcQtC0EduW_YoCCnq0vw" providingChildComponentContext_CompositeAssemblyConnector="_qGocQtChEduC9O_qbthgAg" providedRole_CompositeAssemblyConnector="_OdmOQNCiEduC9O_qbthgAg" requiredRole_CompositeAssemblyConnector="_q9QSgdCyEduW_YoCCnq0vw"/>
+    <compositeAssemblyConnectors_ComposedStructure id="_TcxjZdC1EduW_YoCCnq0vw" entityName="PersistenceIf" requiringChildComponentContext_CompositeAssemblyConnector="_zFEcQtC0EduW_YoCCnq0vw" providingChildComponentContext_CompositeAssemblyConnector="_nCYoItChEduC9O_qbthgAg" providedRole_CompositeAssemblyConnector="_MKhYYNCiEduC9O_qbthgAg" requiredRole_CompositeAssemblyConnector="_oVdw4dCyEduW_YoCCnq0vw"/>
   </components__Repository>
   <components__Repository xsi:type="pcm.repository:BasicComponent" id="_sGEvA9CiEduC9O_qbthgAg" entityName="TradingSystem.Inventory.GUI.Reporting">
-    <providedRoles_InterfaceProvidingEntity id="_xlSwwNCiEduC9O_qbthgAg" entityName="Reporting.ReportingIf" providedInterface__ProvidedRole="_vebx9NCiEduC9O_qbthgAg"/>
+    <providedRoles_InterfaceProvidingEntity id="_xlSwwNCiEduC9O_qbthgAg" entityName="GUI.Reporting.ReportingIf" providedInterface__ProvidedRole="_vebx9NCiEduC9O_qbthgAg"/>
   </components__Repository>
   <components__Repository xsi:type="pcm.repository:BasicComponent" id="_zokQE9CiEduC9O_qbthgAg" entityName="TradingSystem.Inventory.GUI.Store">
     <providedRoles_InterfaceProvidingEntity id="_2Tx5INCiEduC9O_qbthgAg" entityName="GUI.Store.StoreIf" providedInterface__ProvidedRole="_4153pNCiEduC9O_qbthgAg"/>
@@ -57,7 +69,7 @@
     <requiredRoles_InterfaceRequiringEntity id="_kzNlYdCiEduC9O_qbthgAg" entityName="ProductDispatcher.StoreQueryIf" requiredInterface__RequiredRole="_HSKXwNChEduC9O_qbthgAg"/>
   </components__Repository>
   <components__Repository xsi:type="pcm.repository:BasicComponent" id="_URW_1dCmEduC9O_qbthgAg" entityName="TradingSystem.Inventory.Application.Reporting">
-    <providedRoles_InterfaceProvidingEntity id="_wrdB4NCmEduC9O_qbthgAg" entityName="Reporting.ReportingIf" providedInterface__ProvidedRole="_vebx9NCiEduC9O_qbthgAg"/>
+    <providedRoles_InterfaceProvidingEntity id="_wrdB4NCmEduC9O_qbthgAg" entityName="Application.Reporting.ReportingIf" providedInterface__ProvidedRole="_vebx9NCiEduC9O_qbthgAg"/>
     <requiredRoles_InterfaceRequiringEntity id="_b-BUEdCnEduC9O_qbthgAg" entityName="Reporting.EnterpriseQueryIf" requiredInterface__RequiredRole="_Eldg8NChEduC9O_qbthgAg"/>
     <requiredRoles_InterfaceRequiringEntity id="_lmx-EdCnEduC9O_qbthgAg" entityName="Reporting.PersistenceIf" requiredInterface__RequiredRole="_F8ovQNChEduC9O_qbthgAg"/>
     <requiredRoles_InterfaceRequiringEntity id="_t5HAodCnEduC9O_qbthgAg" entityName="Reporting.StoreQueryIf" requiredInterface__RequiredRole="_HSKXwNChEduC9O_qbthgAg"/>
@@ -67,6 +79,17 @@
     <providedRoles_InterfaceProvidingEntity id="__f6UsNCmEduC9O_qbthgAg" entityName="Application.Store.CashDeskConnectorIf" providedInterface__ProvidedRole="_WoD42tCjEduC9O_qbthgAg"/>
     <requiredRoles_InterfaceRequiringEntity id="_0k7YYdCnEduC9O_qbthgAg" entityName="Application.Store.PersistenceIf" requiredInterface__RequiredRole="_F8ovQNChEduC9O_qbthgAg"/>
     <requiredRoles_InterfaceRequiringEntity id="_4OSEsdCnEduC9O_qbthgAg" entityName="Application.Store.StoreQueryIf" requiredInterface__RequiredRole="_HSKXwNChEduC9O_qbthgAg"/>
+    <requiredRoles_InterfaceRequiringEntity id="_aa6McdCwEduW_YoCCnq0vw" entityName="Application.Store.SaleRegisteredEvent" requiredInterface__RequiredRole="_RQoSZNCpEduC9O_qbthgAg"/>
+  </components__Repository>
+  <components__Repository xsi:type="pcm.repository:BasicComponent" id="_471bVdC0EduW_YoCCnq0vw" entityName="TradingSystem.Inventory.Application.Facade">
+    <providedRoles_InterfaceProvidingEntity id="_3fx3kNC1EduW_YoCCnq0vw" entityName="Application.Facade.StoreIf" providedInterface__ProvidedRole="_4153pNCiEduC9O_qbthgAg"/>
+    <providedRoles_InterfaceProvidingEntity id="_8GhZMNC1EduW_YoCCnq0vw" entityName="Application.Facade.ReportingIf" providedInterface__ProvidedRole="_vebx9NCiEduC9O_qbthgAg"/>
+    <providedRoles_InterfaceProvidingEntity id="_CTfRwNC2EduW_YoCCnq0vw" entityName="Application.Facade.CashDeskConnector" providedInterface__ProvidedRole="_WoD42tCjEduC9O_qbthgAg"/>
+    <providedRoles_InterfaceProvidingEntity id="_KFVdcNC2EduW_YoCCnq0vw" entityName="Application.Facade.ProductDispatcherIf" providedInterface__ProvidedRole="_dbS8pNCiEduC9O_qbthgAg"/>
+    <requiredRoles_InterfaceRequiringEntity id="_NFajQdC2EduW_YoCCnq0vw" entityName="Application.Facade.StoreIf" requiredInterface__RequiredRole="_4153pNCiEduC9O_qbthgAg"/>
+    <requiredRoles_InterfaceRequiringEntity id="_TH8tcdC2EduW_YoCCnq0vw" entityName="Application.Facade.ReportingIf" requiredInterface__RequiredRole="_vebx9NCiEduC9O_qbthgAg"/>
+    <requiredRoles_InterfaceRequiringEntity id="_QdU6QdC2EduW_YoCCnq0vw" entityName="Application.Facade.CashDeskConnector" requiredInterface__RequiredRole="_WoD42tCjEduC9O_qbthgAg"/>
+    <requiredRoles_InterfaceRequiringEntity id="_ByZ98dC2EduW_YoCCnq0vw" entityName="Application.Facade.ProductDispatcherIf" requiredInterface__RequiredRole="_dbS8pNCiEduC9O_qbthgAg"/>
   </components__Repository>
   <components__Repository xsi:type="pcm.repository:CompositeComponent" id="_hfayBNClEduC9O_qbthgAg" entityName="TradingSystem.Inventory.Application">
     <providedRoles_InterfaceProvidingEntity id="_dgIVINCpEduC9O_qbthgAg" entityName="Application.StoreIf" providedInterface__ProvidedRole="_4153pNCiEduC9O_qbthgAg"/>
@@ -80,6 +103,13 @@
     <childComponentContexts_ComposedStructure id="_F7D9wtCoEduC9O_qbthgAg" entityName="TradingSystem.Inventory.Application.Reporting" encapsulatedComponent_ChildComponentContext="_URW_1dCmEduC9O_qbthgAg"/>
     <childComponentContexts_ComposedStructure id="_IcmGYtCoEduC9O_qbthgAg" entityName="TradingSystem.Inventory.Application.Store" encapsulatedComponent_ChildComponentContext="_6tZA5dCmEduC9O_qbthgAg"/>
     <childComponentContexts_ComposedStructure id="_KA38ktCoEduC9O_qbthgAg" entityName="TradingSystem.Inventory.Application.ProductDispatcher" encapsulatedComponent_ChildComponentContext="_XDTf09CiEduC9O_qbthgAg"/>
+    <childComponentContexts_ComposedStructure id="_8jQN8tC0EduW_YoCCnq0vw" entityName="TradingSystem.Inventory.Application.Facade" encapsulatedComponent_ChildComponentContext="_471bVdC0EduW_YoCCnq0vw"/>
+    <providedDelegationConnectors_ComposedStructure id="__C-yA9CvEduW_YoCCnq0vw" entityName="ReportingIf" innerProvidedRole_ProvidedDelegationConnector="_wrdB4NCmEduC9O_qbthgAg" outerProvidedRole_ProvidedDelegationConnector="_o77qENCpEduC9O_qbthgAg"/>
+    <providedDelegationConnectors_ComposedStructure id="_Krcp89CwEduW_YoCCnq0vw" entityName="CashDeskConnectorIf" innerProvidedRole_ProvidedDelegationConnector="__f6UsNCmEduC9O_qbthgAg" outerProvidedRole_ProvidedDelegationConnector="_K3H10NCtEduW_YoCCnq0vw"/>
+    <providedDelegationConnectors_ComposedStructure id="_O0rwM9CwEduW_YoCCnq0vw" entityName="StoreIf" innerProvidedRole_ProvidedDelegationConnector="_8phWYNCmEduC9O_qbthgAg" outerProvidedRole_ProvidedDelegationConnector="_dgIVINCpEduC9O_qbthgAg"/>
+    <providedDelegationConnectors_ComposedStructure id="_huz349CwEduW_YoCCnq0vw" entityName="ProductDispatcherIf" innerProvidedRole_ProvidedDelegationConnector="_gMw-sNCiEduC9O_qbthgAg" outerProvidedRole_ProvidedDelegationConnector="_QjwBcNCtEduW_YoCCnq0vw"/>
+    <requiredDelegationConnectors_ComposedStructure id="_SwEntNCwEduW_YoCCnq0vw" entityName="SaleRegisteredEvent" innerRequiredRole_RequiredDelegationConnector="_aa6McdCwEduW_YoCCnq0vw" outerRequiredRole_RequiredDelegationConnector="_XH0LYdCtEduW_YoCCnq0vw"/>
+    <requiredDelegationConnectors_ComposedStructure id="_yXfhZNCwEduW_YoCCnq0vw" entityName="EnterpriseQueryIf_Reporting" innerRequiredRole_RequiredDelegationConnector="_b-BUEdCnEduC9O_qbthgAg" outerRequiredRole_RequiredDelegationConnector="_y23pMdCpEduC9O_qbthgAg"/>
   </components__Repository>
   <interfaces__Repository id="_WoD42tCjEduC9O_qbthgAg" entityName="CashDeskConnectorIf"/>
   <interfaces__Repository id="_Eldg8NChEduC9O_qbthgAg" entityName="EnterpriseQueryIf"/>
