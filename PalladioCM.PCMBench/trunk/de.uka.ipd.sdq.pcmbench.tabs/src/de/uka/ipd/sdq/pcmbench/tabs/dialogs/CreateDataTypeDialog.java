@@ -81,7 +81,7 @@ public abstract class CreateDataTypeDialog extends TitleAreaDialog {
 
 		// Reposetory section
 		final Group reposetoryGroup = new Group(container, SWT.NONE);
-		reposetoryGroup.setText("Reposetory");
+		reposetoryGroup.setText("Repository");
 		reposetoryGroup.setLayoutData(new GridData(478, 30));
 		reposetoryGroup.setLayout(new GridLayout());
 

@@ -3,7 +3,6 @@ package de.uka.ipd.sdq.pcmbench.tabs;
 import org.eclipse.gef.GraphicalEditPart;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.jface.viewers.IFilter;
-import org.eclipse.jface.viewers.IStructuredSelection;
 
 import de.uka.ipd.sdq.pcm.repository.Interface;
 

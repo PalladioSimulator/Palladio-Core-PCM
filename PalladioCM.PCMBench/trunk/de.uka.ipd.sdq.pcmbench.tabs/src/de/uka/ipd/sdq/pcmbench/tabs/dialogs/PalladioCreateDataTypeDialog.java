@@ -67,7 +67,7 @@ public class PalladioCreateDataTypeDialog extends CreateDataTypeDialog {
 			if (hasRepositoryExtension(uri) && !isPrimitiveTypesRepository(uri)) {
 				Repository repository = (Repository) r.getContents().get(0);
 				String repositoryName = repository.getEntityName();
-				tList.add(repositoryName);
+				tList.add(repositoryName == null ? "<Unnamed Repository>" : repositoryName);
 			}
 		}
 		// conver to String[]
@@ -109,11 +109,13 @@ public class PalladioCreateDataTypeDialog extends CreateDataTypeDialog {
 
 		// Provide a list with loaded resources without primitive DataType
 		for (Resource r : resources) {
-			Repository repository = (Repository) r.getContents().get(0);
-			String entityName = repository.getEntityName();
-			
-			if (entityName.contains(repositoryName))
-				OperationsTabResources.setEditedRepository(repository);
+			if (r.getContents().get(0) instanceof Repository) {
+				Repository repository = (Repository) r.getContents().get(0);
+				String entityName = repository.getEntityName() == null ? "<Unnamed Repository>" : repository.getEntityName(); 
+				
+				if (entityName.contains(repositoryName))
+					OperationsTabResources.setEditedRepository(repository);
+			}
 		}
 	}
 

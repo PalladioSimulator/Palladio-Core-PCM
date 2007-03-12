@@ -10,8 +10,8 @@ import org.eclipse.ui.views.properties.tabbed.AbstractTypeMapper;
  */
 public class PropertyTypeMapper extends AbstractTypeMapper {
 
-	public Class mapType(Object object) {
-		Class type = object.getClass();
+	public Class<?> mapType(Object object) {
+		Class<?> type = object.getClass();
 		if (object instanceof EObject) {
 			return type;
 		}
