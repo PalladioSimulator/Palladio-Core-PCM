@@ -46,23 +46,25 @@ public class BasicComponentEditHelperAdvice extends AbstractEditHelperAdvice
 				&& request.getTarget() instanceof Interface) {
 			if (request.getElementType().getEClass() == RepositoryPackage.eINSTANCE.getProvidedRole()) {
 				Interface target = (Interface) request.getTarget();
-				BasicComponent source = (BasicComponent) request.getSource();
-				CompositeCommand createSEFFs = new CompositeCommand(
-						"Create SEFFs");
-				for (Signature s : target.getSignatures__Interface()) {
-					CreateElementRequest ceRequest = new CreateElementRequest(
-							source,
-							ElementTypeRegistry
-									.getInstance()
-									.getType(
-											"de.uka.ipd.sdq.pcm.gmf.seff.ResourceDemandingSEFF_1000"),
-							RepositoryPackage.eINSTANCE
-									.getBasicComponent_ServiceEffectSpecifications__BasicComponent());
-					CreateElementCommand cmd = new CreateLinkedSeffCommand(
-							ceRequest, s);
-					createSEFFs.add(cmd);
+				if (target.getSignatures__Interface().size() > 0){
+					BasicComponent source = (BasicComponent) request.getSource();
+					CompositeCommand createSEFFs = new CompositeCommand(
+							"Create SEFFs");
+					for (Signature s : target.getSignatures__Interface()) {
+						CreateElementRequest ceRequest = new CreateElementRequest(
+								source,
+								ElementTypeRegistry
+										.getInstance()
+										.getType(
+												"de.uka.ipd.sdq.pcm.gmf.seff.ResourceDemandingSEFF_1000"),
+								RepositoryPackage.eINSTANCE
+										.getBasicComponent_ServiceEffectSpecifications__BasicComponent());
+						CreateElementCommand cmd = new CreateLinkedSeffCommand(
+								ceRequest, s);
+						createSEFFs.add(cmd);
+					}
+					return createSEFFs;
 				}
-				return createSEFFs;
 			}
 		}
 		return super.getAfterCreateRelationshipCommand(request);
