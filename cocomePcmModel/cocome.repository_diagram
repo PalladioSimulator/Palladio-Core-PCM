@@ -403,26 +403,6 @@
     <element xmi:type="pcm.repository:ProvidedRole" href="cocome.repository#_ZAWl4NCjEduC9O_qbthgAg"/>
     <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_z0YCEtCjEduC9O_qbthgAg" points="[0, 20, 132, -80]$[-132, 80, 0, -20]"/>
   </edges>
-  <edges xmi:type="notation:Edge" xmi:id="_PeEFYtClEduC9O_qbthgAg" type="4101" source="_A5rEUNCkEduC9O_qbthgAg" target="_xLES4NCiEduC9O_qbthgAg">
-    <children xmi:type="notation:Node" xmi:id="_PeEFZ9ClEduC9O_qbthgAg" type="6101">
-      <layoutConstraint xmi:type="notation:Location" xmi:id="_PeEFaNClEduC9O_qbthgAg" y="40"/>
-    </children>
-    <styles xmi:type="notation:RoutingStyle" xmi:id="_PeEFY9ClEduC9O_qbthgAg"/>
-    <styles xmi:type="notation:FontStyle" xmi:id="_PeEFZNClEduC9O_qbthgAg"/>
-    <styles xmi:type="notation:LineStyle" xmi:id="_PeEFZdClEduC9O_qbthgAg"/>
-    <element xmi:type="pcm.repository:ProvidedRole" href="cocome.repository#_zY1gENCkEduC9O_qbthgAg"/>
-    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_PeEFZtClEduC9O_qbthgAg" points="[0, 20, 269, -80]$[-269, 80, 0, -20]"/>
-  </edges>
-  <edges xmi:type="notation:Edge" xmi:id="_PeEFadClEduC9O_qbthgAg" type="4101" source="_A5rEUNCkEduC9O_qbthgAg" target="_6XzvQNCiEduC9O_qbthgAg">
-    <children xmi:type="notation:Node" xmi:id="_PeEFbtClEduC9O_qbthgAg" type="6101">
-      <layoutConstraint xmi:type="notation:Location" xmi:id="_PeEFb9ClEduC9O_qbthgAg" y="40"/>
-    </children>
-    <styles xmi:type="notation:RoutingStyle" xmi:id="_PeEFatClEduC9O_qbthgAg"/>
-    <styles xmi:type="notation:FontStyle" xmi:id="_PeEFa9ClEduC9O_qbthgAg"/>
-    <styles xmi:type="notation:LineStyle" xmi:id="_PeEFbNClEduC9O_qbthgAg"/>
-    <element xmi:type="pcm.repository:ProvidedRole" href="cocome.repository#_3Vj0UNCkEduC9O_qbthgAg"/>
-    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_PeEFbdClEduC9O_qbthgAg" points="[0, 20, 0, -80]$[0, 80, 0, -20]"/>
-  </edges>
   <edges xmi:type="notation:Edge" xmi:id="_J4K-cNCmEduC9O_qbthgAg" type="4102" source="_lvO-MNChEduC9O_qbthgAg" target="_Gb7hENCmEduC9O_qbthgAg">
     <children xmi:type="notation:Node" xmi:id="_J4K-ddCmEduC9O_qbthgAg" type="6102">
       <layoutConstraint xmi:type="notation:Location" xmi:id="_J4K-dtCmEduC9O_qbthgAg" y="40"/>
