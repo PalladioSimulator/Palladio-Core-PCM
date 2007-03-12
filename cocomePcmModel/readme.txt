@@ -1,1 +1,1 @@
-PCM model instance of CoCoME
+PCM model instance of CoCoME (http://cocome.org/)
