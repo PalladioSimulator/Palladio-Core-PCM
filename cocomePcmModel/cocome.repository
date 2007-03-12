@@ -51,16 +51,18 @@
     <compositeAssemblyConnectors_ComposedStructure id="_TcxjZdC1EduW_YoCCnq0vw" entityName="PersistenceIf" requiringChildComponentContext_CompositeAssemblyConnector="_zFEcQtC0EduW_YoCCnq0vw" providingChildComponentContext_CompositeAssemblyConnector="_nCYoItChEduC9O_qbthgAg" providedRole_CompositeAssemblyConnector="_MKhYYNCiEduC9O_qbthgAg" requiredRole_CompositeAssemblyConnector="_oVdw4dCyEduW_YoCCnq0vw"/>
   </components__Repository>
   <components__Repository xsi:type="pcm.repository:BasicComponent" id="_sGEvA9CiEduC9O_qbthgAg" entityName="TradingSystem.Inventory.GUI.Reporting">
-    <providedRoles_InterfaceProvidingEntity id="_xlSwwNCiEduC9O_qbthgAg" entityName="GUI.Reporting.ReportingIf" providedInterface__ProvidedRole="_vebx9NCiEduC9O_qbthgAg"/>
+    <requiredRoles_InterfaceRequiringEntity id="_vsrnUdC4EduW_YoCCnq0vw" entityName="GUI.Reporting.ReportingIf" requiredInterface__RequiredRole="_vebx9NCiEduC9O_qbthgAg"/>
   </components__Repository>
   <components__Repository xsi:type="pcm.repository:BasicComponent" id="_zokQE9CiEduC9O_qbthgAg" entityName="TradingSystem.Inventory.GUI.Store">
-    <providedRoles_InterfaceProvidingEntity id="_2Tx5INCiEduC9O_qbthgAg" entityName="GUI.Store.StoreIf" providedInterface__ProvidedRole="_4153pNCiEduC9O_qbthgAg"/>
+    <requiredRoles_InterfaceRequiringEntity id="_1a8xsdC4EduW_YoCCnq0vw" entityName="GUI.Store.StoreIf" requiredInterface__RequiredRole="_4153pNCiEduC9O_qbthgAg"/>
   </components__Repository>
   <components__Repository xsi:type="pcm.repository:CompositeComponent" id="_5klGGNCjEduC9O_qbthgAg" entityName="TradingSystem.Inventory.GUI">
     <requiredRoles_InterfaceRequiringEntity id="_Du39kdCpEduC9O_qbthgAg" entityName="GUI.StoreIf" requiredInterface__RequiredRole="_4153pNCiEduC9O_qbthgAg"/>
     <requiredRoles_InterfaceRequiringEntity id="_GM-XsdCpEduC9O_qbthgAg" entityName="GUI.ReportingIf" requiredInterface__RequiredRole="_vebx9NCiEduC9O_qbthgAg"/>
     <childComponentContexts_ComposedStructure id="_8ei80tCjEduC9O_qbthgAg" entityName="TradingSystem.Inventory.GUI.Reporting" encapsulatedComponent_ChildComponentContext="_sGEvA9CiEduC9O_qbthgAg"/>
     <childComponentContexts_ComposedStructure id="__EPzwtCjEduC9O_qbthgAg" entityName="TradingSystem.Inventory.GUI.Store" encapsulatedComponent_ChildComponentContext="_zokQE9CiEduC9O_qbthgAg"/>
+    <requiredDelegationConnectors_ComposedStructure id="_iQJJtNC4EduW_YoCCnq0vw" entityName="ReportingIf" innerRequiredRole_RequiredDelegationConnector="_vsrnUdC4EduW_YoCCnq0vw" outerRequiredRole_RequiredDelegationConnector="_GM-XsdCpEduC9O_qbthgAg"/>
+    <requiredDelegationConnectors_ComposedStructure id="_ynPT9NC4EduW_YoCCnq0vw" entityName="StoreIf" innerRequiredRole_RequiredDelegationConnector="_1a8xsdC4EduW_YoCCnq0vw" outerRequiredRole_RequiredDelegationConnector="_Du39kdCpEduC9O_qbthgAg"/>
   </components__Repository>
   <components__Repository xsi:type="pcm.repository:BasicComponent" id="_XDTf09CiEduC9O_qbthgAg" entityName="TradingSystem.Inventory.Application.ProductDispatcher">
     <providedRoles_InterfaceProvidingEntity id="_gMw-sNCiEduC9O_qbthgAg" entityName="ProductDispatcher.ProductDispatcherIf" providedInterface__ProvidedRole="_dbS8pNCiEduC9O_qbthgAg"/>
