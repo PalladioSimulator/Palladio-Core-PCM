@@ -4404,6 +4404,7 @@
       <ownedLiteral xmi:id="_GPp9oHP2EduxXfd-1j79QQ" name="BYTE">
         <specification xmi:type="uml:OpaqueExpression" xmi:id="_Gdp9YHP2EduxXfd-1j79QQ"/>
       </ownedLiteral>
+      <ownedLiteral xmi:id="_ytE5INFbEduwe8E9OSa5oQ" name="LONG"/>
     </ownedMember>
     <ownedMember xmi:type="uml:Association" xmi:id="_yjJBYHSSEduUYph3ztx_jg" memberEnd="_yjJBYXSSEduUYph3ztx_jg _yjJBYnSSEduUYph3ztx_jg"/>
     <ownedMember xmi:type="uml:Class" xmi:id="_Z_T4gHlvEduf8pXqmhjnpw" name="InnerDeclaration">
