@@ -8,3 +8,6 @@ to support business logic for composite structures
 
 Signatures:
 - used int instead of long for all ids in signatures
+- All non-primitive and non-collection data types are modeled as CompositeDataTypes
+- made TYPE[] data types collection data types with inner composite data type of type TYPE
+- Exceptions are not modelled because of a lack of support by analysis tools

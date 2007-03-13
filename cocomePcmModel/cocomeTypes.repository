@@ -4,4 +4,17 @@
   <datatypes_Repository xsi:type="pcm.repository:CompositeDataType" id="_C72_dtFdEducE6dFyopUlg" entityName="org.cocome.tradingsystem.inventory.data.persistence.PersistenceContext"/>
   <datatypes_Repository xsi:type="pcm.repository:CompositeDataType" id="_HzcZdtFdEducE6dFyopUlg" entityName="org.cocome.tradingsystem.inventory.data.enterprise.ProductSupplier"/>
   <datatypes_Repository xsi:type="pcm.repository:CompositeDataType" id="_tGnVBtFdEducE6dFyopUlg" entityName="org.cocome.tradingsystem.inventory.data.store.Store"/>
+  <datatypes_Repository xsi:type="pcm.repository:CollectionDataType" id="_lM7xFdFfEducE6dFyopUlg" entityName="org.cocome.tradingsystem.inventory.application.store.ProductAmountTO[]" innerType_CollectionDataType="_qBPNltFfEducE6dFyopUlg"/>
+  <datatypes_Repository xsi:type="pcm.repository:CompositeDataType" id="_qBPNltFfEducE6dFyopUlg" entityName="org.cocome.tradingsystem.inventory.application.store.ProductAmountTO"/>
+  <datatypes_Repository xsi:type="pcm.repository:CollectionDataType" id="_8E94xdFfEducE6dFyopUlg" entityName="java.util.Collection&lt;ProductAmountTO>" innerType_CollectionDataType="_qBPNltFfEducE6dFyopUlg"/>
+  <datatypes_Repository xsi:type="pcm.repository:CompositeDataType" id="_1GiHBtFfEducE6dFyopUlg" entityName="org.cocome.tradingsystem.inventory.application.reporting.EnterpriseTO"/>
+  <datatypes_Repository xsi:type="pcm.repository:CompositeDataType" id="_27zmltFfEducE6dFyopUlg" entityName="org.cocome.tradingsystem.inventory.application.reporting.StoreTO"/>
+  <datatypes_Repository xsi:type="pcm.repository:CollectionDataType" id="_4ndL5dFmEducE6dFyopUlg" entityName="java.util.Collection&lt;Product>" innerType_CollectionDataType="_6wQEZtFmEducE6dFyopUlg"/>
+  <datatypes_Repository xsi:type="pcm.repository:CompositeDataType" id="_6wQEZtFmEducE6dFyopUlg" entityName="org.cocome.tradingsystem.inventory.data.enterprise.Product"/>
+  <datatypes_Repository xsi:type="pcm.repository:CompositeDataType" id="_AQXeBtFnEducE6dFyopUlg" entityName="org.cocome.tradingsystem.inventory.data.store.StockItem"/>
+  <datatypes_Repository xsi:type="pcm.repository:CollectionDataType" id="_BeTQxdFnEducE6dFyopUlg" entityName="java.util.Collection&lt;StockItem>" innerType_CollectionDataType="_AQXeBtFnEducE6dFyopUlg"/>
+  <datatypes_Repository xsi:type="pcm.repository:CompositeDataType" id="_JMRpFtFnEducE6dFyopUlg" entityName="org.cocome.tradingsystem.inventory.data.store.ProductOrder"/>
+  <datatypes_Repository xsi:type="pcm.repository:CollectionDataType" id="_bxQxxdFoEducE6dFyopUlg" entityName="long[]">
+    <innerType_CollectionDataType xsi:type="pcm.repository:PrimitiveDataType" href="PrimitiveTypes.repository#//@datatypes_Repository.0"/>
+  </datatypes_Repository>
 </pcm.repository:Repository>

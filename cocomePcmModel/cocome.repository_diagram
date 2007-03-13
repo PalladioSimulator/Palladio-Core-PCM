@@ -86,7 +86,7 @@
     <styles xmi:type="notation:FillStyle" xmi:id="_HSKXxNChEduC9O_qbthgAg"/>
     <styles xmi:type="notation:LineStyle" xmi:id="_HSKXxdChEduC9O_qbthgAg"/>
     <element xmi:type="pcm.repository:Interface" href="cocome.repository#_HSKXwNChEduC9O_qbthgAg"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_HSKXxtChEduC9O_qbthgAg" x="1668" y="288"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_HSKXxtChEduC9O_qbthgAg" x="1668" y="288" height="217"/>
   </children>
   <children xmi:type="notation:Node" xmi:id="_lvO-MNChEduC9O_qbthgAg" type="2103">
     <children xmi:type="notation:Node" xmi:id="_lvO-NtChEduC9O_qbthgAg" type="5103"/>
@@ -123,7 +123,7 @@
     <styles xmi:type="notation:FillStyle" xmi:id="_f1-PU9CiEduC9O_qbthgAg"/>
     <styles xmi:type="notation:LineStyle" xmi:id="_f1-PVNCiEduC9O_qbthgAg"/>
     <element xmi:type="pcm.repository:Interface" href="cocome.repository#_dbS8pNCiEduC9O_qbthgAg"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_f1-PVdCiEduC9O_qbthgAg" x="2875" y="130"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_f1-PVdCiEduC9O_qbthgAg" x="2892" y="300"/>
   </children>
   <children xmi:type="notation:Node" xmi:id="_xLES4NCiEduC9O_qbthgAg" type="2101">
     <children xmi:type="notation:Node" xmi:id="_xLES5tCiEduC9O_qbthgAg" type="5101"/>
@@ -285,7 +285,7 @@
     <styles xmi:type="notation:FillStyle" xmi:id="_tSfvw9CrEduW_YoCCnq0vw"/>
     <styles xmi:type="notation:LineStyle" xmi:id="_tSfvxNCrEduW_YoCCnq0vw"/>
     <element xmi:type="pcm.repository:Interface" href="cocome.repository#_RQoSZNCpEduC9O_qbthgAg"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_tSfvxdCrEduW_YoCCnq0vw" x="2684" y="130"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_tSfvxdCrEduW_YoCCnq0vw" x="2664" y="300"/>
   </children>
   <children xmi:type="notation:Node" xmi:id="_DIL9wtC5EduW_YoCCnq0vw" type="2102">
     <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_DIL9yNC5EduW_YoCCnq0vw" source="uri://eclipse.org/gmf/openDiagramPolicy"/>
