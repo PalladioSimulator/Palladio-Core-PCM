@@ -137,7 +137,7 @@
     <styles xmi:type="notation:FillStyle" xmi:id="_xLES49CiEduC9O_qbthgAg"/>
     <styles xmi:type="notation:LineStyle" xmi:id="_xLES5NCiEduC9O_qbthgAg"/>
     <element xmi:type="pcm.repository:Interface" href="cocome.repository#_vebx9NCiEduC9O_qbthgAg"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_xLES5dCiEduC9O_qbthgAg" x="3219" y="130"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_xLES5dCiEduC9O_qbthgAg" x="3216" y="300"/>
   </children>
   <children xmi:type="notation:Node" xmi:id="_xLES69CiEduC9O_qbthgAg" type="2102">
     <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_xLES8dCiEduC9O_qbthgAg" source="uri://eclipse.org/gmf/openDiagramPolicy"/>
@@ -193,7 +193,7 @@
     <styles xmi:type="notation:FillStyle" xmi:id="_zzxlFdCjEduC9O_qbthgAg"/>
     <styles xmi:type="notation:LineStyle" xmi:id="_zzxlFtCjEduC9O_qbthgAg"/>
     <element xmi:type="pcm.repository:Interface" href="cocome.repository#_WoD42tCjEduC9O_qbthgAg"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_zzxlF9CjEduC9O_qbthgAg" x="3359" y="130"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_zzxlF9CjEduC9O_qbthgAg" x="3432" y="336"/>
   </children>
   <children xmi:type="notation:Node" xmi:id="_zzxlHdCjEduC9O_qbthgAg" type="2103">
     <children xmi:type="notation:Node" xmi:id="_zzxlI9CjEduC9O_qbthgAg" type="5103"/>
@@ -774,7 +774,7 @@
   </edges>
   <edges xmi:type="notation:Edge" xmi:id="_DJEukNC5EduW_YoCCnq0vw" type="4101" source="_DIL9zdC5EduW_YoCCnq0vw" target="_f1-PUNCiEduC9O_qbthgAg">
     <children xmi:type="notation:Node" xmi:id="_DJEuldC5EduW_YoCCnq0vw" type="6101">
-      <layoutConstraint xmi:type="notation:Location" xmi:id="_DJEultC5EduW_YoCCnq0vw" y="40"/>
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_DJEultC5EduW_YoCCnq0vw" x="-21" y="51"/>
     </children>
     <styles xmi:type="notation:RoutingStyle" xmi:id="_DJEukdC5EduW_YoCCnq0vw"/>
     <styles xmi:type="notation:FontStyle" xmi:id="_DJEuktC5EduW_YoCCnq0vw"/>

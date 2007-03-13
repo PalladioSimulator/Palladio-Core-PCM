@@ -128,7 +128,19 @@
     <requiredRoles_InterfaceRequiringEntity id="_SXUaYdC5EduW_YoCCnq0vw" entityName="CashDeskLine.BankIf" requiredInterface__RequiredRole="_RDRYlNC5EduW_YoCCnq0vw"/>
     <requiredRoles_InterfaceRequiringEntity id="_ZpuRAdC5EduW_YoCCnq0vw" entityName="TradingSystem.CashDeskLine.CashDeskConnectorIf" requiredInterface__RequiredRole="_WoD42tCjEduC9O_qbthgAg"/>
   </components__Repository>
-  <interfaces__Repository id="_WoD42tCjEduC9O_qbthgAg" entityName="CashDeskConnectorIf"/>
+  <interfaces__Repository id="_WoD42tCjEduC9O_qbthgAg" entityName="CashDeskConnectorIf">
+    <signatures__Interface serviceName="bookSale">
+      <parameters__Signature parameterName="saleTO">
+        <datatype__Parameter xsi:type="pcm.repository:CompositeDataType" href="cocomeTypes.repository#_J-s5ptFpEducE6dFyopUlg"/>
+      </parameters__Signature>
+    </signatures__Interface>
+    <signatures__Interface serviceName="getProductWithStockItem">
+      <parameters__Signature parameterName="productBarCode">
+        <datatype__Parameter xsi:type="pcm.repository:PrimitiveDataType" href="PrimitiveTypes.repository#//@datatypes_Repository.0"/>
+      </parameters__Signature>
+      <returntype__Signature xsi:type="pcm.repository:CompositeDataType" href="cocomeTypes.repository#_OFaQVtFpEducE6dFyopUlg"/>
+    </signatures__Interface>
+  </interfaces__Repository>
   <interfaces__Repository id="_Eldg8NChEduC9O_qbthgAg" entityName="EnterpriseQueryIf">
     <signatures__Interface serviceName="queryEnterpriseById">
       <parameters__Signature parameterName="enterpriseId">
@@ -257,7 +269,26 @@
       <returntype__Signature xsi:type="pcm.repository:CollectionDataType" href="cocomeTypes.repository#_lM7xFdFfEducE6dFyopUlg"/>
     </signatures__Interface>
   </interfaces__Repository>
-  <interfaces__Repository id="_vebx9NCiEduC9O_qbthgAg" entityName="ReportingIf"/>
+  <interfaces__Repository id="_vebx9NCiEduC9O_qbthgAg" entityName="ReportingIf">
+    <signatures__Interface serviceName="getStockReport">
+      <parameters__Signature parameterName="storeTO">
+        <datatype__Parameter xsi:type="pcm.repository:CompositeDataType" href="cocomeTypes.repository#_27zmltFfEducE6dFyopUlg"/>
+      </parameters__Signature>
+      <returntype__Signature xsi:type="pcm.repository:CompositeDataType" href="cocomeTypes.repository#_yUl0xtFoEducE6dFyopUlg"/>
+    </signatures__Interface>
+    <signatures__Interface serviceName="getStockReport">
+      <parameters__Signature parameterName="enterpriseTO">
+        <datatype__Parameter xsi:type="pcm.repository:CompositeDataType" href="cocomeTypes.repository#_1GiHBtFfEducE6dFyopUlg"/>
+      </parameters__Signature>
+      <returntype__Signature xsi:type="pcm.repository:CompositeDataType" href="cocomeTypes.repository#_yUl0xtFoEducE6dFyopUlg"/>
+    </signatures__Interface>
+    <signatures__Interface serviceName="getMeanTimeToDeliveryReport">
+      <parameters__Signature parameterName="enterpriseTO">
+        <datatype__Parameter xsi:type="pcm.repository:CompositeDataType" href="cocomeTypes.repository#_1GiHBtFfEducE6dFyopUlg"/>
+      </parameters__Signature>
+      <returntype__Signature xsi:type="pcm.repository:CompositeDataType" href="cocomeTypes.repository#_yUl0xtFoEducE6dFyopUlg"/>
+    </signatures__Interface>
+  </interfaces__Repository>
   <interfaces__Repository id="_4153pNCiEduC9O_qbthgAg" entityName="StoreIf"/>
   <interfaces__Repository id="_D62rdNCmEduC9O_qbthgAg" entityName="JDBC"/>
   <interfaces__Repository id="_RQoSZNCpEduC9O_qbthgAg" entityName="SaleRegisteredEvent"/>

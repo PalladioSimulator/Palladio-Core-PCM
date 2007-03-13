@@ -17,4 +17,7 @@
   <datatypes_Repository xsi:type="pcm.repository:CollectionDataType" id="_bxQxxdFoEducE6dFyopUlg" entityName="long[]">
     <innerType_CollectionDataType xsi:type="pcm.repository:PrimitiveDataType" href="PrimitiveTypes.repository#//@datatypes_Repository.0"/>
   </datatypes_Repository>
+  <datatypes_Repository xsi:type="pcm.repository:CompositeDataType" id="_yUl0xtFoEducE6dFyopUlg" entityName="org.cocome.tradingsystem.inventory.application.reporting.ReportTO"/>
+  <datatypes_Repository xsi:type="pcm.repository:CompositeDataType" id="_J-s5ptFpEducE6dFyopUlg" entityName="org.cocome.tradingsystem.inventory.application.store.SaleTO"/>
+  <datatypes_Repository xsi:type="pcm.repository:CompositeDataType" id="_OFaQVtFpEducE6dFyopUlg" entityName="org.cocome.tradingsystem.inventory.application.store.ProductWithStockItemTO"/>
 </pcm.repository:Repository>
