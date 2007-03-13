@@ -42,10 +42,10 @@ public class ReturnTypeDialogCellEditor extends DialogCellEditor {
 	protected Object openDialogBox(Control cellEditorWindow) {
 		
 		
-		ArrayList filterList = new ArrayList();
+		ArrayList<Object> filterList = new ArrayList<Object>();
 		filterList.add(DataType.class);
 		filterList.add(Repository.class);
-		ArrayList additionalReferences = new ArrayList();
+		ArrayList<Object> additionalReferences = new ArrayList<Object>();
 
 		ReturnTypeDialog dialog = new ReturnTypeDialog(
 				cellEditorWindow.getShell(),

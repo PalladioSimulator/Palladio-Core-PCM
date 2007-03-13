@@ -4,8 +4,6 @@ import org.eclipse.jface.dialogs.IDialogConstants;
 import org.eclipse.jface.dialogs.TitleAreaDialog;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.StackLayout;
-import org.eclipse.swt.events.FocusAdapter;
-import org.eclipse.swt.events.FocusEvent;
 import org.eclipse.swt.events.ModifyEvent;
 import org.eclipse.swt.events.ModifyListener;
 import org.eclipse.swt.events.SelectionAdapter;
@@ -33,35 +31,53 @@ public abstract class CreateDataTypeDialog extends TitleAreaDialog {
 	/**
 	 * Define the Title,Message and ErrorMassage of Dialog
 	 */
-	private String TITEL = "Create new DataType..";
-
-	private String MESSAGE = "";
-
-	private String ERROR_MESSAGE = "DataType name is empty.";
-
+	protected String collectionSignator = "COLLECTION";
+	protected String compositeSignator = "COMPOSITE";
+	private String dialogTitleNew = "Create new DataType..";
+	private String dialogTitleEdite = "Edite DataType..";
+	private String errorNsgName = "DataType name is empty.";
+	private String errorMsgInner = "Inner type/declaration is empty";
+	
+	/**
+	 * Edited entity properies
+	 */
 	private String entityName;
+	private String entityType;
+	private String reposetoryName;
+	/**
+	 *  help value define edite DataType (collectionSignator ,compositeSignator)
+	 */
+	private String editeDataType;
 
 	// TODO
-	private String selectedButton = "CollectionDataType";
-
-	private Button OKButton;
-
-	private Group compositeGroup, collectionGroup;
-
+	private Button okButton;
+	private Composite composite;
+	protected Group compositeGroup, collectionGroup;
 	private Button compositeButton;
-
 	private Button collectionButton;
-
 	private Label nameLabelField;
-
 	private Label typeLabelField;
-
 	private Text nameField, typeField;
-
 	private Button typeButton;
+	private StackLayout stackLayout;
 
 	public CreateDataTypeDialog(Shell parentShell) {
 		super(parentShell);
+	}
+
+	/**
+	 * TODO
+	 * 
+	 * @param reposetoryName
+	 * @param entityName
+	 * @param entityInnerType
+	 */
+	protected void init(String editeDataType, String reposetoryName,
+			String entityName, String entityInnerType) {
+		this.reposetoryName = reposetoryName;
+		this.entityName = entityName;
+		this.entityType = entityInnerType;
+		this.editeDataType = editeDataType;
 	}
 
 	/*
@@ -71,8 +87,6 @@ public abstract class CreateDataTypeDialog extends TitleAreaDialog {
 	 */
 	@Override
 	protected Control createDialogArea(Composite parent) {
-		setTitle(TITEL);
-		setMessage(MESSAGE);
 
 		Composite area = (Composite) super.createDialogArea(parent);
 		final Composite container = new Composite(area, SWT.NONE);
@@ -85,35 +99,31 @@ public abstract class CreateDataTypeDialog extends TitleAreaDialog {
 		reposetoryGroup.setLayoutData(new GridData(478, 30));
 		reposetoryGroup.setLayout(new GridLayout());
 
-		final Combo combo = new Combo(reposetoryGroup, SWT.READ_ONLY);
+		final Combo combo = new Combo(reposetoryGroup, SWT.NONE);
 		combo.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
-		combo.setItems(getLoadedReposetorys());
 		combo.addSelectionListener(new SelectionAdapter() {
 
-			/*
-			 * (non-Javadoc)
-			 * 
+			/* (non-Javadoc)
 			 * @see org.eclipse.swt.events.SelectionAdapter#widgetSelected(org.eclipse.swt.events.SelectionEvent)
 			 */
 			@Override
 			public void widgetSelected(SelectionEvent e) {
 				setEditedResource(combo.getText());
 				setEnabled(true);
-				
-				if (nameField.getText() != null)
-					setErrorMessage(ERROR_MESSAGE);
+
+				if (nameField.getText().equals(""))
+					setErrorMessage(errorNsgName);
 			}
 
-			/*
-			 * (non-Javadoc)
-			 * 
+			/* (non-Javadoc)
 			 * @see org.eclipse.swt.events.SelectionAdapter#widgetDefaultSelected(org.eclipse.swt.events.SelectionEvent)
 			 */
 			@Override
 			public void widgetDefaultSelected(SelectionEvent e) {
 				setEditedResource(combo.getText());
 				setEnabled(true);
-				setErrorMessage(ERROR_MESSAGE);
+				if (nameField.getText().equals(""))
+					setErrorMessage(errorNsgName);
 			}
 
 		});
@@ -127,8 +137,8 @@ public abstract class CreateDataTypeDialog extends TitleAreaDialog {
 		choiceTypeGroup.setLayoutData(new GridData(478, 74));
 
 		// Create new Composite
-		final Composite composite = new Composite(container, SWT.NONE);
-		final StackLayout stackLayout = new StackLayout();
+		composite = new Composite(container, SWT.NONE);
+		stackLayout = new StackLayout();
 		composite.setLayout(stackLayout);
 		composite.setLayoutData(new GridData(484, 139));
 
@@ -136,12 +146,9 @@ public abstract class CreateDataTypeDialog extends TitleAreaDialog {
 		collectionButton = new Button(choiceTypeGroup, SWT.RADIO);
 		collectionButton.setLayoutData(new GridData(129, SWT.DEFAULT));
 		collectionButton.setText("CollectionDataType");
-		collectionButton.setSelection(true);
 		collectionButton.addSelectionListener(new SelectionAdapter() {
 			public void widgetSelected(SelectionEvent e) {
-				stackLayout.topControl = collectionGroup;
-				composite.layout();
-				setSelectedButton(collectionButton.getText());
+				setTopCollectionLayout();
 			}
 		});
 		new Label(choiceTypeGroup, SWT.NONE);
@@ -151,9 +158,7 @@ public abstract class CreateDataTypeDialog extends TitleAreaDialog {
 		compositeButton.setText("CompositeDataType");
 		compositeButton.addSelectionListener(new SelectionAdapter() {
 			public void widgetSelected(SelectionEvent e) {
-				stackLayout.topControl = compositeGroup;
-				composite.layout();
-				setSelectedButton(compositeButton.getText());
+				setTopCompositeLayout();
 			}
 		});
 		new Label(choiceTypeGroup, SWT.NONE);
@@ -170,40 +175,22 @@ public abstract class CreateDataTypeDialog extends TitleAreaDialog {
 				false);
 		gdNameField.widthHint = 334;
 		nameField.setLayoutData(gdNameField);
-		nameField.addSelectionListener(new SelectionAdapter() {
-			/*
-			 * (non-Javadoc)
-			 * 
-			 * @see org.eclipse.swt.events.SelectionAdapter#widgetDefaultSelected(org.eclipse.swt.events.SelectionEvent)
-			 */
-			@Override
-			public void widgetDefaultSelected(SelectionEvent e) {
-				setEntityName(nameField.getText());
-			}
-
-		});
-		nameField.addFocusListener(new FocusAdapter() {
-			/*
-			 * (non-Javadoc)
-			 * 
-			 * @see org.eclipse.swt.events.FocusListener#focusLost(org.eclipse.swt.events.FocusEvent)
-			 */
-			public void focusLost(FocusEvent e) {
-				if (getEntityName() == null) {
-					setEntityName(nameField.getText());
-				}
-			}
-		});
+		// TODO
+		if (entityName != null)
+			nameField.setText(entityName);
+		
 		nameField.addModifyListener(new ModifyListener() {
-			/*
-			 * (non-Javadoc)
-			 * 
+			/* (non-Javadoc)
 			 * @see org.eclipse.swt.events.ModifyListener#modifyText(org.eclipse.swt.events.ModifyEvent)
 			 */
 			public void modifyText(ModifyEvent e) {
-				setEntityName(nameField.getText());
+				entityName = nameField.getText();
 				setErrorMessage(null);
-				setOKButtonEnabled();
+				
+				if (collectionButton.isEnabled() && typeField.getText().equals(""))
+					setErrorMessage(errorMsgInner);
+				if (!typeField.getText().equals(""))
+					setOKButtonEnabled();
 			}
 		});
 
@@ -211,9 +198,8 @@ public abstract class CreateDataTypeDialog extends TitleAreaDialog {
 		compositeGroup = new Group(composite, SWT.NONE);
 		compositeGroup.setLayout(new FormLayout());
 		compositeGroup.setText("innerDeclaration CompositeDataType");
-		/**
-		 * Create inner section for CompositeDataType group
-		 */
+		
+		// Create inner section for CompositeDataType group
 		createInnerSectionCompositeGroup(compositeGroup);
 
 		// Create CollectionDataType Group
@@ -222,13 +208,8 @@ public abstract class CreateDataTypeDialog extends TitleAreaDialog {
 		gridLayoutCollGroup.numColumns = 3;
 		collectionGroup.setLayout(gridLayoutCollGroup);
 		collectionGroup.setText("innerType CollectionDataType");
-		// set the visible group
-		stackLayout.topControl = collectionGroup;
 
-		/**
-		 * Create inner section for CollectionDataType group It contains a text
-		 * label and a button
-		 */
+		// Create inner section for CollectionDataType group
 		typeLabelField = new Label(collectionGroup, SWT.NONE);
 		typeLabelField.setLayoutData(new GridData(40, SWT.DEFAULT));
 		typeLabelField.setText("Type: ");
@@ -236,13 +217,21 @@ public abstract class CreateDataTypeDialog extends TitleAreaDialog {
 		typeField = new Text(collectionGroup, SWT.BORDER | SWT.SINGLE
 				| SWT.READ_ONLY);
 		typeField.setLayoutData(new GridData(200, 15));
+		if (entityType != null)
+			typeField.setText(entityType);
+		typeField.addModifyListener(new ModifyListener() {
+			public void modifyText(ModifyEvent e) {
+					setErrorMessage(null);
+					setOKButtonEnabled();
+			}
+		});
 
 		typeButton = new Button(collectionGroup, SWT.NONE);
 		typeButton.setLayoutData(new GridData(SWT.DEFAULT, 20));
 		typeButton.setText("Select...");
 		typeButton.addSelectionListener(new SelectionAdapter() {
 			public void widgetSelected(SelectionEvent e) {
-				defeniereActionTypeButton(e);
+				typeField.setText(getSelectedInnerType(e));
 			}
 		});
 
@@ -250,7 +239,25 @@ public abstract class CreateDataTypeDialog extends TitleAreaDialog {
 		final Label label = new Label(container, SWT.SEPARATOR | SWT.HORIZONTAL);
 		label.setLayoutData(new GridData(482, SWT.DEFAULT));
 
-		setEnabled(false);
+		if (editeDataType != null) {
+			setTitle(dialogTitleEdite);
+			combo.setText(reposetoryName);
+			combo.setEnabled(false);
+			
+			collectionButton.setEnabled(false);
+			compositeButton.setEnabled(false);
+
+			if (editeDataType.equals(collectionSignator))
+				setTopCollectionLayout();
+			if (editeDataType.equals(compositeSignator))
+				setTopCompositeLayout();
+
+		} else {
+			setTitle(dialogTitleNew);
+			combo.setItems(getLoadedReposetorys());
+			setTopCollectionLayout();
+			setEnabled(false);
+		}
 
 		return container;
 	}
@@ -291,32 +298,33 @@ public abstract class CreateDataTypeDialog extends TitleAreaDialog {
 	protected void createButtonsForButtonBar(Composite parent) {
 		createButton(parent, IDialogConstants.CANCEL_ID,
 				IDialogConstants.CANCEL_LABEL, false);
-		OKButton = createButton(parent, IDialogConstants.OK_ID,
+		okButton = createButton(parent, IDialogConstants.OK_ID,
 				IDialogConstants.OK_LABEL, false);
-		OKButton.addSelectionListener(new SelectionAdapter() {
+		okButton.addSelectionListener(new SelectionAdapter() {
 
-			/*
-			 * (non-Javadoc)
-			 * 
+			/* (non-Javadoc)
 			 * @see org.eclipse.swt.events.SelectionAdapter#widgetSelected(org.eclipse.swt.events.SelectionEvent)
 			 */
 			@Override
 			public void widgetSelected(SelectionEvent e) {
-				if (selectedButton.equals("CollectionDataType"))
+				if (editeDataType.equals(collectionSignator))
 					createCollectionDataType();
-				if (selectedButton.equals("CompositeDataType"))
+				if (editeDataType.equals(compositeSignator))
 					createCompositeDataType();
 			}
 		});
-		OKButton.setEnabled(false);
+		okButton.setEnabled(false);
 	}
 
 	/**
 	 * TODO
 	 */
 	protected void setOKButtonEnabled() {
-		if (getEntityName() != null)
-			OKButton.setEnabled(true);
+			okButton.setEnabled(true);
+	}
+	
+	protected void setOKButtonDisabled() {
+			okButton.setEnabled(false);
 	}
 
 	/**
@@ -324,31 +332,12 @@ public abstract class CreateDataTypeDialog extends TitleAreaDialog {
 	 */
 	public abstract String[] getLoadedReposetorys();
 
-	/**
-	 * TODO
-	 * 
-	 * @param -
-	 *            parent Composite
-	 */
 	public abstract void createInnerSectionCompositeGroup(Composite group);
 
-	/**
-	 * TODO
-	 * 
-	 * @param -
-	 *            active shell
-	 */
-	public abstract void defeniereActionTypeButton(SelectionEvent event);
+	public abstract String getSelectedInnerType(SelectionEvent event);
 
-	/**
-	 * @param resource,
-	 *            which edit to are selected.
-	 */
 	public abstract void setEditedResource(String resource);
 
-	/**
-	 * TODO
-	 */
 	public abstract void createCollectionDataType();
 
 	public abstract void createCompositeDataType();
@@ -360,50 +349,26 @@ public abstract class CreateDataTypeDialog extends TitleAreaDialog {
 		return entityName;
 	}
 
-	/**
-	 * @param entityName
-	 *            the entityName to set
-	 */
-	protected void setEntityName(String entityName) {
-		this.entityName = entityName;
+	protected void callErrorMsgInner() {
+		setErrorMessage(errorMsgInner);
 	}
 
 	/**
-	 * @return the selectedButton
+	 * TODO
 	 */
-	protected String getSelectedButton() {
-		return selectedButton;
-	}
-
-	/**
-	 * @param selectedButton
-	 *            the selectedButton to set
-	 */
-	protected void setSelectedButton(String selectedButton) {
-		this.selectedButton = selectedButton;
-	}
-
-	protected String getTypeField() {
-		return typeField.getText();
-	}
-
-	protected void setTypeField(String text) {
-		typeField.setText(text);
-	}
-
-	/**
-	 * @param nameField
-	 *            the nameField to set
-	 */
-	protected void setNameField(String text) {
-		nameField.setText(text);
-	}
-
-	protected void setSelectedCollectionButton() {
-		collectionButton.setSelection(true);
-	}
-
-	protected void setSelectedCompositeButton() {
+	protected void setTopCompositeLayout() {
+		collectionButton.setSelection(false);
 		compositeButton.setSelection(true);
+		stackLayout.topControl = compositeGroup;
+		composite.layout();
+		editeDataType = compositeSignator;
+	}
+
+	protected void setTopCollectionLayout() {
+		compositeButton.setSelection(false);
+		collectionButton.setSelection(true);
+		stackLayout.topControl = collectionGroup;
+		composite.layout();
+		editeDataType = collectionSignator;
 	}
 }

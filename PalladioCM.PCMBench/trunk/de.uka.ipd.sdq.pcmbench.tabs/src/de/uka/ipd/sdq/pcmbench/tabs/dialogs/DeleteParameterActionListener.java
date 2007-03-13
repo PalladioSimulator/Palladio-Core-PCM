@@ -21,7 +21,7 @@ public class DeleteParameterActionListener extends SelectionAdapter {
 
 	private Signature parentSignature;
 	private Parameter selectedParameter;
-	private EList parameters;
+	private EList<Parameter> parameters;
 
 	/**
 	 * The transactional editing domain which is used to get the commands and alter the model 

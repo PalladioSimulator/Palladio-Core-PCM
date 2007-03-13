@@ -21,7 +21,7 @@ import de.uka.ipd.sdq.pcmbench.tabs.table.OperationsTabResources;
  */
 public class DeclarationCellModifier implements ICellModifier {
 
-	private List columnNames;
+	private List<String> columnNames;
 	private InnerDeclaration declaration;
 
 	/**

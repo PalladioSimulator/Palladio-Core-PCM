@@ -23,7 +23,7 @@ import de.uka.ipd.sdq.pcmbench.EditingDomainFactory;
 
 public class OperationsCellModifier implements ICellModifier {
 
-	private List columnNames;
+	private List<String> columnNames;
 
 	private Signature signature;
 

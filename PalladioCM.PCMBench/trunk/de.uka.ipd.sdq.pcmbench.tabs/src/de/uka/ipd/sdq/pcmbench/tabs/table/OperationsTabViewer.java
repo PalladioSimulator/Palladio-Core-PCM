@@ -1,6 +1,6 @@
 package de.uka.ipd.sdq.pcmbench.tabs.table;
 
-import org.eclipse.jface.util.Assert;
+import org.eclipse.core.runtime.Assert;
 import org.eclipse.jface.viewers.CellEditor;
 import org.eclipse.jface.viewers.DialogCellEditor;
 import org.eclipse.jface.viewers.ISelectionChangedListener;

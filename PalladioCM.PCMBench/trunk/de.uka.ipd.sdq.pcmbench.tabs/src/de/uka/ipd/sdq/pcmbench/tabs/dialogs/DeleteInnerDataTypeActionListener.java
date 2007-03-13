@@ -18,15 +18,24 @@ import de.uka.ipd.sdq.pcmbench.tabs.table.OperationsTabResources;
  */
 public class DeleteInnerDataTypeActionListener extends SelectionAdapter {
 	
+	private PalladioCreateDataTypeDialog dialog;
 	private InnerDeclaration selectedDeclaration;
 	private CompositeDataType parentDataType;
-	private EList declarations;
+	private EList<InnerDeclaration> declarations;
 	
 	/**
 	 * The transactional editing domain which is used to get the commands and alter the model 
 	 */
 	final protected TransactionalEditingDomain editingDomain = TransactionalEditingDomain.Registry.INSTANCE
 	.getEditingDomain(EditingDomainFactory.EDITING_DOMAIN_ID);
+	
+	/**
+	 * TODO
+	 * @param dialog
+	 */
+	public DeleteInnerDataTypeActionListener(PalladioCreateDataTypeDialog dialog) {
+		this.dialog = dialog;
+	}
 
 	/* (non-Javadoc)
 	 * @see org.eclipse.swt.events.SelectionListener#widgetSelected(org.eclipse.swt.events.SelectionEvent)
@@ -50,5 +59,19 @@ public class DeleteInnerDataTypeActionListener extends SelectionAdapter {
 		
 		recCommand.setDescription("Delete ...");
 		editingDomain.getCommandStack().execute(recCommand);
+		
+		// Set enabled OK button in dialog
+		dialog.setOKButtonEnabled();
+
+		/**
+		 * Call error message of PalladioCreateDataTypeDialog, if declaration list is empty
+		 * and disable the OK Button.
+		 */
+		if (declarations.isEmpty()){
+			dialog.callErrorMsgInner();
+			dialog.setOKButtonDisabled();
+		}
+		
 	}
+
 }

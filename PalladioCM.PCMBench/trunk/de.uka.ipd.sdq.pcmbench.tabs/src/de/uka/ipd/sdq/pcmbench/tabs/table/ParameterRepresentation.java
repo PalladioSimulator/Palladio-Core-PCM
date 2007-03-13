@@ -35,7 +35,7 @@ public class ParameterRepresentation {
 		return result;
 	}
 
-	public String setParametersToString(EList parameters) {
+	public String setParametersToString(EList<Parameter> parameters) {
 
 		String result = "";
 
@@ -55,7 +55,7 @@ public class ParameterRepresentation {
 		return result;
 	}
 
-	public String setExceptionsToString(EList exceptions) {
+	public String setExceptionsToString(EList<ExceptionType> exceptions) {
 
 		String result = "";
 		ExceptionType exceptionType;

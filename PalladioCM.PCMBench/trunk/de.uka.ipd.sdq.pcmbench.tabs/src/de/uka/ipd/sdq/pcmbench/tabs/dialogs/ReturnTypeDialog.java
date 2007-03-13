@@ -2,18 +2,17 @@ package de.uka.ipd.sdq.pcmbench.tabs.dialogs;
 
 import java.util.Collection;
 
+import org.eclipse.core.runtime.Assert;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.transaction.RecordingCommand;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
-import org.eclipse.jface.util.Assert;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
-import org.eclipse.swt.events.SelectionListener;
 import org.eclipse.swt.widgets.Shell;
 
 import de.uka.ipd.sdq.dialogs.selection.PalladioSelectEObjectDialog;
@@ -22,8 +21,6 @@ import de.uka.ipd.sdq.pcm.repository.CompositeDataType;
 import de.uka.ipd.sdq.pcm.repository.DataType;
 import de.uka.ipd.sdq.pcm.repository.Repository;
 import de.uka.ipd.sdq.pcmbench.EditingDomainFactory;
-import de.uka.ipd.sdq.pcmbench.tabs.table.OperationsTabResources;
-import de.uka.ipd.sdq.pcmbench.tabs.table.ParameterRepresentation;
 
 /**
  * @author roman
@@ -55,6 +52,8 @@ public class ReturnTypeDialog extends PalladioSelectEObjectDialog {
 	}
 
 	/**
+	 * TODO
+	 * 
 	 * @param parent
 	 * @param filterList
 	 * @param input
@@ -90,11 +89,11 @@ public class ReturnTypeDialog extends PalladioSelectEObjectDialog {
 						.getSelection();
 				EObject selection = (EObject) sel.getFirstElement();
 
-				if (selection instanceof DataType) {
+				enableToolBar(true, false, false);
+				if ((selection instanceof CollectionDataType)
+						|| (selection instanceof CompositeDataType)) {
 					selectedDataType = (DataType) selection;
 					enableToolBar(true, true, true);
-				} else {
-					enableToolBar(true, false, false);
 				}
 			}
 		});
@@ -135,7 +134,7 @@ public class ReturnTypeDialog extends PalladioSelectEObjectDialog {
 						Repository repository = selectedDataType
 								.getRepository_DataType();
 
-						EList datatypesRepository = repository
+						EList<DataType> datatypesRepository = repository
 								.getDatatypes_Repository();
 						datatypesRepository.remove(selectedDataType);
 
@@ -158,33 +157,10 @@ public class ReturnTypeDialog extends PalladioSelectEObjectDialog {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
 
-				ParameterRepresentation representation = new ParameterRepresentation();
-
 				Assert.isNotNull(selectedDataType);
 				Shell shell = e.widget.getDisplay().getActiveShell();
 				PalladioCreateDataTypeDialog dialog = new PalladioCreateDataTypeDialog(
-						shell);
-				dialog.create();
-				dialog.setSelectedCollectionButton();
-
-				if (selectedDataType instanceof CollectionDataType) {
-
-					CollectionDataType dataType = (CollectionDataType) selectedDataType;
-	
-					dialog.setNameField(dataType.getEntityName());
-					dialog.setTypeField(representation.setDataTypeToString(
-							dataType.getInnerType_CollectionDataType(),
-							OperationsTabResources
-									.getOperationsDecoratedFactory()));
-
-				}
-
-				if (selectedDataType instanceof CompositeDataType) {
-					CompositeDataType dataType = (CompositeDataType) selectedDataType;
-					dialog.setNameField(dataType.getEntityName());
-
-				}
-
+						shell, selectedDataType);
 				dialog.open();
 
 			}
