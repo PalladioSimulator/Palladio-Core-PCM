@@ -223,7 +223,7 @@
     <styles xmi:type="notation:DescriptionStyle" xmi:id="_rJZM4tC5EduW_YoCCnq0vw"/>
     <styles xmi:type="notation:FillStyle" xmi:id="_rJZM49C5EduW_YoCCnq0vw"/>
     <styles xmi:type="notation:LineStyle" xmi:id="_rJZM5NC5EduW_YoCCnq0vw"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_rJZM5dC5EduW_YoCCnq0vw" x="-84" y="12" width="613" height="529"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_rJZM5dC5EduW_YoCCnq0vw" x="-88" y="12" width="769" height="529"/>
   </children>
   <styles xmi:type="notation:PageStyle" xmi:id="_rHAnQdC5EduW_YoCCnq0vw"/>
   <styles xmi:type="notation:GuideStyle" xmi:id="_rHAnQtC5EduW_YoCCnq0vw"/>

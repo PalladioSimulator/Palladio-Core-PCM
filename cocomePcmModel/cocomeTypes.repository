@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pcm.repository:Repository xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pcm.repository="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/1.0" id="_09C7MNFcEducE6dFyopUlg" entityName="cocomeTypes">
+  <datatypes_Repository xsi:type="pcm.repository:CompositeDataType" id="_43Fu5tFcEducE6dFyopUlg" entityName="org.cocome.tradingsystem.inventory.data.enterprise.TradingEnterprise"/>
+  <datatypes_Repository xsi:type="pcm.repository:CompositeDataType" id="_C72_dtFdEducE6dFyopUlg" entityName="org.cocome.tradingsystem.inventory.data.persistence.PersistenceContext"/>
+  <datatypes_Repository xsi:type="pcm.repository:CompositeDataType" id="_HzcZdtFdEducE6dFyopUlg" entityName="org.cocome.tradingsystem.inventory.data.enterprise.ProductSupplier"/>
+  <datatypes_Repository xsi:type="pcm.repository:CompositeDataType" id="_tGnVBtFdEducE6dFyopUlg" entityName="org.cocome.tradingsystem.inventory.data.store.Store"/>
+</pcm.repository:Repository>

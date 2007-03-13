@@ -1,0 +1,10 @@
+Remarks on modelling of CoCoME:
+
+Modelling:
+- Introduced a facade component for
+	- TradingSystem.Inventory.Data
+	- TradingSystem.Inventory.Application
+to support business logic for composite structures
+
+Signatures:
+- used int instead of long for all ids in signatures

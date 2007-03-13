@@ -129,10 +129,44 @@
     <requiredRoles_InterfaceRequiringEntity id="_ZpuRAdC5EduW_YoCCnq0vw" entityName="TradingSystem.CashDeskLine.CashDeskConnectorIf" requiredInterface__RequiredRole="_WoD42tCjEduC9O_qbthgAg"/>
   </components__Repository>
   <interfaces__Repository id="_WoD42tCjEduC9O_qbthgAg" entityName="CashDeskConnectorIf"/>
-  <interfaces__Repository id="_Eldg8NChEduC9O_qbthgAg" entityName="EnterpriseQueryIf"/>
-  <interfaces__Repository id="_F8ovQNChEduC9O_qbthgAg" entityName="PersistenceIf"/>
+  <interfaces__Repository id="_Eldg8NChEduC9O_qbthgAg" entityName="EnterpriseQueryIf">
+    <signatures__Interface serviceName="queryEnterpriseById">
+      <parameters__Signature parameterName="enterpriseId">
+        <datatype__Parameter xsi:type="pcm.repository:PrimitiveDataType" href="PrimitiveTypes.repository#//@datatypes_Repository.0"/>
+      </parameters__Signature>
+      <parameters__Signature parameterName="pctx">
+        <datatype__Parameter xsi:type="pcm.repository:CompositeDataType" href="cocomeTypes.repository#_C72_dtFdEducE6dFyopUlg"/>
+      </parameters__Signature>
+      <returntype__Signature xsi:type="pcm.repository:CompositeDataType" href="cocomeTypes.repository#_43Fu5tFcEducE6dFyopUlg"/>
+    </signatures__Interface>
+    <signatures__Interface serviceName="getMeanTimeToDelivery">
+      <parameters__Signature parameterName="supplier">
+        <datatype__Parameter xsi:type="pcm.repository:CompositeDataType" href="cocomeTypes.repository#_HzcZdtFdEducE6dFyopUlg"/>
+      </parameters__Signature>
+      <parameters__Signature parameterName="enterprise">
+        <datatype__Parameter xsi:type="pcm.repository:CompositeDataType" href="cocomeTypes.repository#_43Fu5tFcEducE6dFyopUlg"/>
+      </parameters__Signature>
+      <parameters__Signature parameterName="pctx">
+        <datatype__Parameter xsi:type="pcm.repository:CompositeDataType" href="cocomeTypes.repository#_C72_dtFdEducE6dFyopUlg"/>
+      </parameters__Signature>
+      <returntype__Signature xsi:type="pcm.repository:PrimitiveDataType" href="PrimitiveTypes.repository#//@datatypes_Repository.0"/>
+    </signatures__Interface>
+  </interfaces__Repository>
+  <interfaces__Repository id="_F8ovQNChEduC9O_qbthgAg" entityName="PersistenceIf">
+    <signatures__Interface serviceName="getPersistenceContext">
+      <returntype__Signature xsi:type="pcm.repository:CompositeDataType" href="cocomeTypes.repository#_C72_dtFdEducE6dFyopUlg"/>
+    </signatures__Interface>
+  </interfaces__Repository>
   <interfaces__Repository id="_HSKXwNChEduC9O_qbthgAg" entityName="StoreQueryIf">
-    <signatures__Interface serviceName="asd"/>
+    <signatures__Interface serviceName="queryStoreById">
+      <parameters__Signature parameterName="storeId">
+        <datatype__Parameter xsi:type="pcm.repository:PrimitiveDataType" href="PrimitiveTypes.repository#//@datatypes_Repository.0"/>
+      </parameters__Signature>
+      <parameters__Signature parameterName="pctx">
+        <datatype__Parameter xsi:type="pcm.repository:CompositeDataType" href="cocomeTypes.repository#_C72_dtFdEducE6dFyopUlg"/>
+      </parameters__Signature>
+      <returntype__Signature xsi:type="pcm.repository:CompositeDataType" href="cocomeTypes.repository#_tGnVBtFdEducE6dFyopUlg"/>
+    </signatures__Interface>
   </interfaces__Repository>
   <interfaces__Repository id="_dbS8pNCiEduC9O_qbthgAg" entityName="ProductDispatcherIf"/>
   <interfaces__Repository id="_vebx9NCiEduC9O_qbthgAg" entityName="ReportingIf"/>
