@@ -6,8 +6,15 @@ Modelling:
 	- TradingSystem.Inventory.Application
 to support business logic for composite structures
 
+Assembly Connectors at requires side of ProductDispatcher are missing
+
 Signatures:
 - used int instead of long for all ids in signatures
 - All non-primitive and non-collection data types are modeled as CompositeDataTypes
 - made TYPE[] data types collection data types with inner composite data type of type TYPE
 - Exceptions are not modelled because of a lack of support by analysis tools
+
+SEFFs finished:
+- org.cocome.tradingsystem.inventory.application.store:
+	- bookSale(SaleTO saleTO)
+	
