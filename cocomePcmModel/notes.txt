@@ -17,4 +17,13 @@ Signatures:
 SEFFs finished:
 - org.cocome.tradingsystem.inventory.application.store:
 	- bookSale(SaleTO saleTO)
-	
+
+
+SEFF modeling problems:
+- only first call is a interface call. TransactionContext is returned --> NOT a pure data type.
+		PersistenceContext pctx = persistmanager.getPersistenceContext();
+		TransactionContext tx = null;
+
+		try {
+			tx = pctx.getTransactionContext();
+			tx.beginTransaction();

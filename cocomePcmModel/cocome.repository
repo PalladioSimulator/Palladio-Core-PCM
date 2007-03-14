@@ -85,10 +85,18 @@
     <requiredRoles_InterfaceRequiringEntity id="_4OSEsdCnEduC9O_qbthgAg" entityName="Application.Store.StoreQueryIf" requiredInterface__RequiredRole="_HSKXwNChEduC9O_qbthgAg"/>
     <requiredRoles_InterfaceRequiringEntity id="_aa6McdCwEduW_YoCCnq0vw" entityName="Application.Store.SaleRegisteredEvent" requiredInterface__RequiredRole="_RQoSZNCpEduC9O_qbthgAg"/>
     <requiredRoles_InterfaceRequiringEntity id="_IpnV8dItEduQ7qbNANXHPw" entityName="Application.Store.ProductDispatcherIf" requiredInterface__RequiredRole="_dbS8pNCiEduC9O_qbthgAg"/>
-    <serviceEffectSpecifications__BasicComponent xsi:type="pcm.seff:ResourceDemandingSEFF" describedService__SEFF="//@interfaces__Repository.0/@signatures__Interface.0">
-      <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_7syIkNIrEduQ7qbNANXHPw" successor_AbstractAction="_7syIkdIrEduQ7qbNANXHPw"/>
-      <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_7syIkdIrEduQ7qbNANXHPw" predecessor_AbstractAction="_7syIkNIrEduQ7qbNANXHPw"/>
-      <steps_Behaviour xsi:type="pcm.seff:ExternalCallAction" id="_1p_DMNIsEduQ7qbNANXHPw"/>
+    <serviceEffectSpecifications__BasicComponent xsi:type="pcm.seff:ResourceDemandingSEFF">
+      <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_ckGrcNJOEduQ7qbNANXHPw" successor_AbstractAction="_qPZWwNJOEduQ7qbNANXHPw"/>
+      <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_c4EJQNJOEduQ7qbNANXHPw"/>
+      <steps_Behaviour xsi:type="pcm.seff:InternalAction" id="_m1YuANJOEduQ7qbNANXHPw" entityName="persistence context setup" predecessor_AbstractAction="_qPZWwNJOEduQ7qbNANXHPw" successor_AbstractAction="_wAfysNJOEduQ7qbNANXHPw"/>
+      <steps_Behaviour xsi:type="pcm.seff:ExternalCallAction" id="_qPZWwNJOEduQ7qbNANXHPw" entityName="getPersistenceContext" predecessor_AbstractAction="_ckGrcNJOEduQ7qbNANXHPw" successor_AbstractAction="_m1YuANJOEduQ7qbNANXHPw" calledService_ExternalService="//@interfaces__Repository.2/@signatures__Interface.0"/>
+      <steps_Behaviour xsi:type="pcm.seff:LoopAction" id="_wAfysNJOEduQ7qbNANXHPw" entityName="ProductWithStockItemIterator" predecessor_AbstractAction="_m1YuANJOEduQ7qbNANXHPw">
+        <bodyBehaviour_Loop>
+          <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_2ZFscNJOEduQ7qbNANXHPw" predecessor_AbstractAction="_3isY0NJOEduQ7qbNANXHPw"/>
+          <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_2sTjYNJOEduQ7qbNANXHPw" successor_AbstractAction="_3isY0NJOEduQ7qbNANXHPw"/>
+          <steps_Behaviour xsi:type="pcm.seff:ExternalCallAction" id="_3isY0NJOEduQ7qbNANXHPw" entityName="" predecessor_AbstractAction="_2sTjYNJOEduQ7qbNANXHPw" successor_AbstractAction="_2ZFscNJOEduQ7qbNANXHPw" calledService_ExternalService="//@interfaces__Repository.3/@signatures__Interface.7"/>
+        </bodyBehaviour_Loop>
+      </steps_Behaviour>
     </serviceEffectSpecifications__BasicComponent>
   </components__Repository>
   <components__Repository xsi:type="pcm.repository:BasicComponent" id="_471bVdC0EduW_YoCCnq0vw" entityName="TradingSystem.Inventory.Application.Facade">
@@ -229,6 +237,15 @@
       <returntype__Signature xsi:type="pcm.repository:CompositeDataType" href="cocomeTypes.repository#_JMRpFtFnEducE6dFyopUlg"/>
     </signatures__Interface>
     <signatures__Interface serviceName="queryStockItem">
+      <parameters__Signature parameterName="stockId">
+        <datatype__Parameter xsi:type="pcm.repository:PrimitiveDataType" href="PrimitiveTypes.repository#//@datatypes_Repository.0"/>
+      </parameters__Signature>
+      <parameters__Signature parameterName="pctx">
+        <datatype__Parameter xsi:type="pcm.repository:CompositeDataType" href="cocomeTypes.repository#_C72_dtFdEducE6dFyopUlg"/>
+      </parameters__Signature>
+      <returntype__Signature xsi:type="pcm.repository:CompositeDataType" href="cocomeTypes.repository#_AQXeBtFnEducE6dFyopUlg"/>
+    </signatures__Interface>
+    <signatures__Interface serviceName="queryStockItemById">
       <parameters__Signature parameterName="stockId">
         <datatype__Parameter xsi:type="pcm.repository:PrimitiveDataType" href="PrimitiveTypes.repository#//@datatypes_Repository.0"/>
       </parameters__Signature>
