@@ -179,7 +179,7 @@
     <styles xmi:type="notation:FillStyle" xmi:id="_6XzvQ9CiEduC9O_qbthgAg"/>
     <styles xmi:type="notation:LineStyle" xmi:id="_6XzvRNCiEduC9O_qbthgAg"/>
     <element xmi:type="pcm.repository:Interface" href="cocome.repository#_4153pNCiEduC9O_qbthgAg"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_6XzvRdCiEduC9O_qbthgAg" x="3554" y="130"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_6XzvRdCiEduC9O_qbthgAg" x="3648" y="348"/>
   </children>
   <children xmi:type="notation:Node" xmi:id="_zzxlEtCjEduC9O_qbthgAg" type="2101">
     <children xmi:type="notation:Node" xmi:id="_zzxlGNCjEduC9O_qbthgAg" type="5101"/>
@@ -564,7 +564,7 @@
   </edges>
   <edges xmi:type="notation:Edge" xmi:id="_tTZHp9CrEduW_YoCCnq0vw" type="4102" source="_A5rEUNCkEduC9O_qbthgAg" target="_xLES4NCiEduC9O_qbthgAg">
     <children xmi:type="notation:Node" xmi:id="_tTZHrNCrEduW_YoCCnq0vw" type="6102">
-      <layoutConstraint xmi:type="notation:Location" xmi:id="_tTZHrdCrEduW_YoCCnq0vw" y="40"/>
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_tTZHrdCrEduW_YoCCnq0vw" x="32" y="40"/>
     </children>
     <styles xmi:type="notation:RoutingStyle" xmi:id="_tTZHqNCrEduW_YoCCnq0vw"/>
     <styles xmi:type="notation:FontStyle" xmi:id="_tTZHqdCrEduW_YoCCnq0vw"/>

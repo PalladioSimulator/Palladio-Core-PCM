@@ -289,7 +289,49 @@
       <returntype__Signature xsi:type="pcm.repository:CompositeDataType" href="cocomeTypes.repository#_yUl0xtFoEducE6dFyopUlg"/>
     </signatures__Interface>
   </interfaces__Repository>
-  <interfaces__Repository id="_4153pNCiEduC9O_qbthgAg" entityName="StoreIf"/>
+  <interfaces__Repository id="_4153pNCiEduC9O_qbthgAg" entityName="StoreIf">
+    <signatures__Interface serviceName="getStore">
+      <returntype__Signature xsi:type="pcm.repository:CompositeDataType" href="cocomeTypes.repository#_sHYtltIWEduF4-1MMpjBkg"/>
+    </signatures__Interface>
+    <signatures__Interface serviceName="getProductsWithLowStock">
+      <returntype__Signature xsi:type="pcm.repository:CollectionDataType" href="cocomeTypes.repository#_wVjXJdIWEduF4-1MMpjBkg"/>
+    </signatures__Interface>
+    <signatures__Interface serviceName="getAllProducts">
+      <returntype__Signature xsi:type="pcm.repository:CollectionDataType" href="cocomeTypes.repository#_4f1Q9dIWEduF4-1MMpjBkg"/>
+    </signatures__Interface>
+    <signatures__Interface serviceName="getAllProductsWithOptionalStockItem">
+      <returntype__Signature xsi:type="pcm.repository:CollectionDataType" href="cocomeTypes.repository#_FJanpdIXEduF4-1MMpjBkg"/>
+    </signatures__Interface>
+    <signatures__Interface serviceName="orderProducts">
+      <parameters__Signature parameterName="complexOrder">
+        <datatype__Parameter xsi:type="pcm.repository:CompositeDataType" href="cocomeTypes.repository#_L9RhFtIXEduF4-1MMpjBkg"/>
+      </parameters__Signature>
+      <returntype__Signature xsi:type="pcm.repository:CollectionDataType" href="cocomeTypes.repository#_O15UBdIXEduF4-1MMpjBkg"/>
+    </signatures__Interface>
+    <signatures__Interface serviceName="getOrder">
+      <parameters__Signature parameterName="orderId">
+        <datatype__Parameter xsi:type="pcm.repository:PrimitiveDataType" href="PrimitiveTypes.repository#//@datatypes_Repository.0"/>
+      </parameters__Signature>
+      <returntype__Signature xsi:type="pcm.repository:CompositeDataType" href="cocomeTypes.repository#_L9RhFtIXEduF4-1MMpjBkg"/>
+    </signatures__Interface>
+    <signatures__Interface serviceName="rollInReceivedOrder">
+      <parameters__Signature parameterName="complexOrderTO">
+        <datatype__Parameter xsi:type="pcm.repository:CompositeDataType" href="cocomeTypes.repository#_L9RhFtIXEduF4-1MMpjBkg"/>
+      </parameters__Signature>
+    </signatures__Interface>
+    <signatures__Interface serviceName="changePrice">
+      <parameters__Signature parameterName="stockItemTO">
+        <datatype__Parameter xsi:type="pcm.repository:CompositeDataType" href="cocomeTypes.repository#_UfQJNtIXEduF4-1MMpjBkg"/>
+      </parameters__Signature>
+      <returntype__Signature xsi:type="pcm.repository:CompositeDataType" href="cocomeTypes.repository#_OFaQVtFpEducE6dFyopUlg"/>
+    </signatures__Interface>
+    <signatures__Interface serviceName="markProductsUnavailableInStock">
+      <parameters__Signature parameterName="requiredProductsAndAmount">
+        <datatype__Parameter xsi:type="pcm.repository:CompositeDataType" href="cocomeTypes.repository#_ZxgtBtIXEduF4-1MMpjBkg"/>
+      </parameters__Signature>
+    </signatures__Interface>
+    <signatures__Interface serviceName="flushDatabase"/>
+  </interfaces__Repository>
   <interfaces__Repository id="_D62rdNCmEduC9O_qbthgAg" entityName="JDBC"/>
   <interfaces__Repository id="_RQoSZNCpEduC9O_qbthgAg" entityName="SaleRegisteredEvent"/>
   <interfaces__Repository id="_RDRYlNC5EduW_YoCCnq0vw" entityName="Bank"/>
