@@ -8,6 +8,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.gmf.runtime.common.core.command.CommandResult;
 import org.eclipse.gmf.runtime.common.core.command.ICommand;
 import org.eclipse.gmf.runtime.emf.type.core.ElementTypeRegistry;
+import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.gmf.runtime.emf.type.core.commands.ConfigureElementCommand;
 import org.eclipse.gmf.runtime.emf.type.core.commands.CreateElementCommand;
 import org.eclipse.gmf.runtime.emf.type.core.commands.CreateRelationshipCommand;
@@ -19,6 +20,7 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateRelationshipRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.SetRequest;
 
+import de.uka.ipd.sdq.pcm.gmf.seff.providers.PalladioComponentModelElementTypes;
 import de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF;
 import de.uka.ipd.sdq.pcm.seff.SeffPackage;
 import de.uka.ipd.sdq.pcm.seff.StartAction;
@@ -39,13 +41,13 @@ class ConfigureMinimalSeffCommand extends ConfigureElementCommand {
 		StartAction startAction = null;
 		StopAction stopAction = null;
 		
-		CommandResult commandResult = createSEFFAction("de.uka.ipd.sdq.pcm.gmf.seff.StartAction_2001",monitor);
+		CommandResult commandResult = createSEFFAction(PalladioComponentModelElementTypes.StartAction_2001,monitor);
         if (!isOK(commandResult))
         {
         	return CommandResult.newErrorCommandResult("Create StartAction for the new SEFF failed!");
         }
         startAction = (StartAction) commandResult.getReturnValue();
-		commandResult = createSEFFAction("de.uka.ipd.sdq.pcm.gmf.seff.StopAction_2002",monitor);
+		commandResult = createSEFFAction(PalladioComponentModelElementTypes.StopAction_2002,monitor);
         if (!isOK(commandResult))
         {
         	return CommandResult.newErrorCommandResult("Create StopAction for the new SEFF failed!");
@@ -76,12 +78,11 @@ class ConfigureMinimalSeffCommand extends ConfigureElementCommand {
         return commandResult;
 	}
 
-	private CommandResult createSEFFAction(String typeId, IProgressMonitor monitor)
+	private CommandResult createSEFFAction(IElementType typeId, IProgressMonitor monitor)
 			throws ExecutionException {
 		CreateElementRequest startRequest = new CreateElementRequest(
 				myRequest.getElementToConfigure(), 
-				ElementTypeRegistry.getInstance().getType(
-						typeId), 
+				typeId, 
 				SeffPackage.eINSTANCE.getResourceDemandingBehaviour_Steps_Behaviour()
 				);
 		startRequest.setLabel("Create Action");

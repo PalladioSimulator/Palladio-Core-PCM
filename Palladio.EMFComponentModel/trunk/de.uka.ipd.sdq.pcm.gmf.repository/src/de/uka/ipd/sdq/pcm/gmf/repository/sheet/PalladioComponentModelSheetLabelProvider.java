@@ -13,6 +13,7 @@ import org.eclipse.swt.graphics.Image;
 
 import de.uka.ipd.sdq.pcm.gmf.repository.navigator.PalladioComponentModelNavigatorGroup;
 import de.uka.ipd.sdq.pcm.gmf.repository.part.PalladioComponentModelRepositoryDiagramEditorPlugin;
+import de.uka.ipd.sdq.pcmbench.ui.provider.PalladioItemProviderAdapterFactory;
 
 /**
  * @generated
@@ -21,12 +22,12 @@ public class PalladioComponentModelSheetLabelProvider extends
 		DecoratingLabelProvider {
 
 	/**
-	 * @generated
+	 * @generated not
 	 */
 	public PalladioComponentModelSheetLabelProvider() {
-		super(new AdapterFactoryLabelProvider(
+		super(new AdapterFactoryLabelProvider(new PalladioItemProviderAdapterFactory(
 				PalladioComponentModelRepositoryDiagramEditorPlugin
-						.getInstance().getItemProvidersAdapterFactory()), null);
+						.getInstance().getItemProvidersAdapterFactory())), null);
 	}
 
 	/**

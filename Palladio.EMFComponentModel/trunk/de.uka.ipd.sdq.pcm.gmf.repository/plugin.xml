@@ -199,7 +199,7 @@ Copyright 2007, IPD, SDQ, University of Karlsruhe
       <?gmfgen generated="false"?>
       <propertyContributor
             contributorId="de.uka.ipd.sdq.pcm.gmf.repository"
-            >
+            labelProvider="de.uka.ipd.sdq.pcm.gmf.repository.sheet.PalladioComponentModelSheetLabelProvider">
          <propertyCategory category="domain"/>
          <propertyCategory category="visual"/>
          <propertyCategory category="extra"/>

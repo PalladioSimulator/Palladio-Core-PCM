@@ -3,7 +3,11 @@
  */
 package de.uka.ipd.sdq.pcm.gmf.repository.part;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.eclipse.gef.palette.PaletteRoot;
+import org.eclipse.gmf.runtime.diagram.ui.parts.DiagramDropTargetListener;
 import org.eclipse.gmf.runtime.diagram.ui.resources.editor.parts.DiagramDocumentEditor;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.core.resources.IFile;
@@ -18,6 +22,7 @@ import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.NullProgressMonitor;
 
 import org.eclipse.emf.common.ui.URIEditorInput;
+import org.eclipse.emf.ecore.EObject;
 
 import org.eclipse.gmf.runtime.common.ui.services.marker.MarkerNavigationService;
 
@@ -31,10 +36,14 @@ import org.eclipse.jface.dialogs.ErrorDialog;
 import org.eclipse.jface.dialogs.IMessageProvider;
 import org.eclipse.jface.dialogs.MessageDialog;
 
+import org.eclipse.jface.util.TransferDropTargetListener;
+import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.window.Window;
 
 import org.eclipse.osgi.util.NLS;
 
+import org.eclipse.swt.dnd.DropTargetEvent;
+import org.eclipse.swt.dnd.TransferData;
 import org.eclipse.swt.widgets.Shell;
 
 import org.eclipse.ui.IEditorInput;
@@ -48,6 +57,7 @@ import org.eclipse.ui.dialogs.SaveAsDialog;
 import org.eclipse.ui.ide.IGotoMarker;
 
 import org.eclipse.ui.part.FileEditorInput;
+import org.eclipse.ui.views.navigator.LocalSelectionTransfer;
 
 /**
  * @generated
@@ -227,5 +237,50 @@ public class PalladioComponentModelRepositoryDiagramEditor extends
 			progressMonitor.setCanceled(!success);
 		}
 	}
+	
+	@Override
+	protected void initializeGraphicalViewer() {
+		// TODO Auto-generated method stub
+		super.initializeGraphicalViewer();
+
+		getDiagramGraphicalViewer().addDropTargetListener(
+				(TransferDropTargetListener) new DiagramDropTargetListener(
+						getDiagramGraphicalViewer(), LocalSelectionTransfer
+								.getInstance()) {
+					protected List getObjectsBeingDropped() {
+						TransferData[] data = getCurrentEvent().dataTypes;
+						List eObjects = new ArrayList();
+
+						for (int i = 0; i < data.length; i++) {
+							if (LocalSelectionTransfer.getInstance().isSupportedType(
+									data[i])) {
+								IStructuredSelection selection = (IStructuredSelection) LocalSelectionTransfer
+										.getInstance().nativeToJava(data[i]);
+								eObjects.addAll(selection.toList());
+							}
+						}
+						return eObjects;
+					}
+
+					public boolean isEnabled(DropTargetEvent event) {
+						if (super.isEnabled(event)) {
+							Object modelObj = getViewer().getContents()
+									.getModel();
+							if (modelObj instanceof EObject) {
+								List eObjects = getDropObjectsRequest()
+										.getObjects();
+
+								if (eObjects == null)
+									return false;
+
+								return true;
+							}
+						}
+
+						return false;
+					}
+				});
+	}
+	
 
 }
