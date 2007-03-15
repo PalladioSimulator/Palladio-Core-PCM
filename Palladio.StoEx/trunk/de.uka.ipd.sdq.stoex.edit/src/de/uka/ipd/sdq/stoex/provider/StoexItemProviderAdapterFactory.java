@@ -59,7 +59,7 @@ public class StoexItemProviderAdapterFactory extends StoexAdapterFactory impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected Collection supportedTypes = new ArrayList();
+	protected Collection<Object> supportedTypes = new ArrayList<Object>();
 
 	/**
 	 * This constructs an instance.
@@ -72,7 +72,7 @@ public class StoexItemProviderAdapterFactory extends StoexAdapterFactory impleme
 		supportedTypes.add(IStructuredItemContentProvider.class);
 		supportedTypes.add(ITreeItemContentProvider.class);
 		supportedTypes.add(IItemLabelProvider.class);
-		supportedTypes.add(IItemPropertySource.class);		
+		supportedTypes.add(IItemPropertySource.class);
 	}
 
 	/**
@@ -89,6 +89,7 @@ public class StoexItemProviderAdapterFactory extends StoexAdapterFactory impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Adapter createVariableReferenceAdapter() {
 		if (variableReferenceItemProvider == null) {
 			variableReferenceItemProvider = new VariableReferenceItemProvider(this);
@@ -111,6 +112,7 @@ public class StoexItemProviderAdapterFactory extends StoexAdapterFactory impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Adapter createNamespaceReferenceAdapter() {
 		if (namespaceReferenceItemProvider == null) {
 			namespaceReferenceItemProvider = new NamespaceReferenceItemProvider(this);
@@ -133,6 +135,7 @@ public class StoexItemProviderAdapterFactory extends StoexAdapterFactory impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Adapter createVariableAdapter() {
 		if (variableItemProvider == null) {
 			variableItemProvider = new VariableItemProvider(this);
@@ -155,6 +158,7 @@ public class StoexItemProviderAdapterFactory extends StoexAdapterFactory impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Adapter createTermExpressionAdapter() {
 		if (termExpressionItemProvider == null) {
 			termExpressionItemProvider = new TermExpressionItemProvider(this);
@@ -177,6 +181,7 @@ public class StoexItemProviderAdapterFactory extends StoexAdapterFactory impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Adapter createRandomVariableAdapter() {
 		if (randomVariableItemProvider == null) {
 			randomVariableItemProvider = new RandomVariableItemProvider(this);
@@ -199,6 +204,7 @@ public class StoexItemProviderAdapterFactory extends StoexAdapterFactory impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Adapter createProductExpressionAdapter() {
 		if (productExpressionItemProvider == null) {
 			productExpressionItemProvider = new ProductExpressionItemProvider(this);
@@ -221,6 +227,7 @@ public class StoexItemProviderAdapterFactory extends StoexAdapterFactory impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Adapter createProbabilityFunctionLiteralAdapter() {
 		if (probabilityFunctionLiteralItemProvider == null) {
 			probabilityFunctionLiteralItemProvider = new ProbabilityFunctionLiteralItemProvider(this);
@@ -243,6 +250,7 @@ public class StoexItemProviderAdapterFactory extends StoexAdapterFactory impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Adapter createParenthesisAdapter() {
 		if (parenthesisItemProvider == null) {
 			parenthesisItemProvider = new ParenthesisItemProvider(this);
@@ -265,6 +273,7 @@ public class StoexItemProviderAdapterFactory extends StoexAdapterFactory impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Adapter createIntLiteralAdapter() {
 		if (intLiteralItemProvider == null) {
 			intLiteralItemProvider = new IntLiteralItemProvider(this);
@@ -287,6 +296,7 @@ public class StoexItemProviderAdapterFactory extends StoexAdapterFactory impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Adapter createDoubleLiteralAdapter() {
 		if (doubleLiteralItemProvider == null) {
 			doubleLiteralItemProvider = new DoubleLiteralItemProvider(this);
@@ -309,6 +319,7 @@ public class StoexItemProviderAdapterFactory extends StoexAdapterFactory impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Adapter createCompareExpressionAdapter() {
 		if (compareExpressionItemProvider == null) {
 			compareExpressionItemProvider = new CompareExpressionItemProvider(this);
@@ -331,6 +342,7 @@ public class StoexItemProviderAdapterFactory extends StoexAdapterFactory impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Adapter createBoolLiteralAdapter() {
 		if (boolLiteralItemProvider == null) {
 			boolLiteralItemProvider = new BoolLiteralItemProvider(this);
@@ -353,6 +365,7 @@ public class StoexItemProviderAdapterFactory extends StoexAdapterFactory impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Adapter createStringLiteralAdapter() {
 		if (stringLiteralItemProvider == null) {
 			stringLiteralItemProvider = new StringLiteralItemProvider(this);
@@ -375,6 +388,7 @@ public class StoexItemProviderAdapterFactory extends StoexAdapterFactory impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Adapter createPowerExpressionAdapter() {
 		if (powerExpressionItemProvider == null) {
 			powerExpressionItemProvider = new PowerExpressionItemProvider(this);
@@ -408,6 +422,7 @@ public class StoexItemProviderAdapterFactory extends StoexAdapterFactory impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean isFactoryForType(Object type) {
 		return supportedTypes.contains(type) || super.isFactoryForType(type);
 	}
@@ -418,6 +433,7 @@ public class StoexItemProviderAdapterFactory extends StoexAdapterFactory impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Adapter adapt(Notifier notifier, Object type) {
 		return super.adapt(notifier, this);
 	}
@@ -427,10 +443,11 @@ public class StoexItemProviderAdapterFactory extends StoexAdapterFactory impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Object adapt(Object object, Object type) {
 		if (isFactoryForType(type)) {
 			Object adapter = super.adapt(object, type);
-			if (!(type instanceof Class) || (((Class)type).isInstance(adapter))) {
+			if (!(type instanceof Class) || (((Class<?>)type).isInstance(adapter))) {
 				return adapter;
 			}
 		}
