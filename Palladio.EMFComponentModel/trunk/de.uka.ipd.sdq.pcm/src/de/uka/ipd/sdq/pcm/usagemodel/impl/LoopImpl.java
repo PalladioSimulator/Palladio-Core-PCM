@@ -60,14 +60,14 @@ public class LoopImpl extends AbstractUserActionImpl implements Loop {
 	protected ScenarioBehaviour bodyBehaviour_Loop;
 
 	/**
-	 * The cached value of the '{@link #getIterations_Loop() <em>Iterations Loop</em>}' containment reference list.
+	 * The cached value of the '{@link #getIterations_Loop() <em>Iterations Loop</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getIterations_Loop()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<LoopIterations> iterations_Loop;
+	protected LoopIterations iterations_Loop;
 
 
 	/**
@@ -137,11 +137,42 @@ public class LoopImpl extends AbstractUserActionImpl implements Loop {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<LoopIterations> getIterations_Loop() {
-		if (iterations_Loop == null) {
-			iterations_Loop = new EObjectContainmentEList<LoopIterations>(LoopIterations.class, this, UsagemodelPackage.LOOP__ITERATIONS_LOOP);
-		}
+	public LoopIterations getIterations_Loop() {
 		return iterations_Loop;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetIterations_Loop(LoopIterations newIterations_Loop, NotificationChain msgs) {
+		LoopIterations oldIterations_Loop = iterations_Loop;
+		iterations_Loop = newIterations_Loop;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, UsagemodelPackage.LOOP__ITERATIONS_LOOP, oldIterations_Loop, newIterations_Loop);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setIterations_Loop(LoopIterations newIterations_Loop) {
+		if (newIterations_Loop != iterations_Loop) {
+			NotificationChain msgs = null;
+			if (iterations_Loop != null)
+				msgs = ((InternalEObject)iterations_Loop).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - UsagemodelPackage.LOOP__ITERATIONS_LOOP, null, msgs);
+			if (newIterations_Loop != null)
+				msgs = ((InternalEObject)newIterations_Loop).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - UsagemodelPackage.LOOP__ITERATIONS_LOOP, null, msgs);
+			msgs = basicSetIterations_Loop(newIterations_Loop, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, UsagemodelPackage.LOOP__ITERATIONS_LOOP, newIterations_Loop, newIterations_Loop));
 	}
 
 	/**
@@ -155,7 +186,7 @@ public class LoopImpl extends AbstractUserActionImpl implements Loop {
 			case UsagemodelPackage.LOOP__BODY_BEHAVIOUR_LOOP:
 				return basicSetBodyBehaviour_Loop(null, msgs);
 			case UsagemodelPackage.LOOP__ITERATIONS_LOOP:
-				return ((InternalEList<?>)getIterations_Loop()).basicRemove(otherEnd, msgs);
+				return basicSetIterations_Loop(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -189,8 +220,7 @@ public class LoopImpl extends AbstractUserActionImpl implements Loop {
 				setBodyBehaviour_Loop((ScenarioBehaviour)newValue);
 				return;
 			case UsagemodelPackage.LOOP__ITERATIONS_LOOP:
-				getIterations_Loop().clear();
-				getIterations_Loop().addAll((Collection<? extends LoopIterations>)newValue);
+				setIterations_Loop((LoopIterations)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -208,7 +238,7 @@ public class LoopImpl extends AbstractUserActionImpl implements Loop {
 				setBodyBehaviour_Loop((ScenarioBehaviour)null);
 				return;
 			case UsagemodelPackage.LOOP__ITERATIONS_LOOP:
-				getIterations_Loop().clear();
+				setIterations_Loop((LoopIterations)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -225,7 +255,7 @@ public class LoopImpl extends AbstractUserActionImpl implements Loop {
 			case UsagemodelPackage.LOOP__BODY_BEHAVIOUR_LOOP:
 				return bodyBehaviour_Loop != null;
 			case UsagemodelPackage.LOOP__ITERATIONS_LOOP:
-				return iterations_Loop != null && !iterations_Loop.isEmpty();
+				return iterations_Loop != null;
 		}
 		return super.eIsSet(featureID);
 	}

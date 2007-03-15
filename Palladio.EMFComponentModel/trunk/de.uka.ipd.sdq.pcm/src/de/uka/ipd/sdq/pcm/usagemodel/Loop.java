@@ -61,19 +61,29 @@ public interface Loop extends AbstractUserAction {
 	void setBodyBehaviour_Loop(ScenarioBehaviour value);
 
 	/**
-	 * Returns the value of the '<em><b>Iterations Loop</b></em>' containment reference list.
-	 * The list contents are of type {@link de.uka.ipd.sdq.pcm.usagemodel.LoopIterations}.
+	 * Returns the value of the '<em><b>Iterations Loop</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Iterations Loop</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Iterations Loop</em>' containment reference list.
+	 * @return the value of the '<em>Iterations Loop</em>' containment reference.
+	 * @see #setIterations_Loop(LoopIterations)
 	 * @see de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage#getLoop_Iterations_Loop()
-	 * @model type="de.uka.ipd.sdq.pcm.usagemodel.LoopIterations" containment="true" ordered="false"
+	 * @model containment="true" required="true" ordered="false"
 	 * @generated
 	 */
-	EList<LoopIterations> getIterations_Loop();
+	LoopIterations getIterations_Loop();
+
+	/**
+	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.usagemodel.Loop#getIterations_Loop <em>Iterations Loop</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Iterations Loop</em>' containment reference.
+	 * @see #getIterations_Loop()
+	 * @generated
+	 */
+	void setIterations_Loop(LoopIterations value);
 
 } // Loop

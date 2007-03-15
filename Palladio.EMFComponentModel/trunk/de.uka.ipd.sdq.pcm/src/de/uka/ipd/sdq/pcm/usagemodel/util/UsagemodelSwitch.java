@@ -119,7 +119,9 @@ public class UsagemodelSwitch<T> {
 			case UsagemodelPackage.SCENARIO_BEHAVIOUR: {
 				ScenarioBehaviour scenarioBehaviour = (ScenarioBehaviour)theEObject;
 				T result = caseScenarioBehaviour(scenarioBehaviour);
+				if (result == null) result = caseEntity(scenarioBehaviour);
 				if (result == null) result = caseIdentifier(scenarioBehaviour);
+				if (result == null) result = caseNamedElement(scenarioBehaviour);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}

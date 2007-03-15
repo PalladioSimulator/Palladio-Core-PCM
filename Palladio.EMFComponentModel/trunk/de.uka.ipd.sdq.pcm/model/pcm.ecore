@@ -686,7 +686,7 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="scenarioBehaviour_UsageScenario"
           ordered="false" lowerBound="1" eType="#//usagemodel/ScenarioBehaviour" containment="true"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="ScenarioBehaviour" eSuperTypes="../../de.uka.ipd.sdq.identifier/model/identifier.ecore#//Identifier">
+    <eClassifiers xsi:type="ecore:EClass" name="ScenarioBehaviour" eSuperTypes="#//core/entity/Entity">
       <eStructuralFeatures xsi:type="ecore:EReference" name="actions_ScenarioBehaviour"
           ordered="false" upperBound="-1" eType="#//usagemodel/AbstractUserAction"
           containment="true"/>
@@ -712,7 +712,7 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="bodyBehaviour_Loop" ordered="false"
           lowerBound="1" eType="#//usagemodel/ScenarioBehaviour" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="iterations_Loop" ordered="false"
-          upperBound="-1" eType="#//usagemodel/LoopIterations" containment="true"/>
+          lowerBound="1" eType="#//usagemodel/LoopIterations" containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="LoopIterations" eSuperTypes="../../de.uka.ipd.sdq.stoex/model/stoex.ecore#//RandomVariable"/>
     <eClassifiers xsi:type="ecore:EClass" name="EntryLevelSystemCall" eSuperTypes="#//usagemodel/AbstractUserAction">

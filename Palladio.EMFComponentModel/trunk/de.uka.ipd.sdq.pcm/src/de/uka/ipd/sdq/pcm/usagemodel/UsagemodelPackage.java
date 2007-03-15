@@ -163,7 +163,16 @@ public interface UsagemodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SCENARIO_BEHAVIOUR__ID = IdentifierPackage.IDENTIFIER__ID;
+	int SCENARIO_BEHAVIOUR__ID = EntityPackage.ENTITY__ID;
+
+	/**
+	 * The feature id for the '<em><b>Entity Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCENARIO_BEHAVIOUR__ENTITY_NAME = EntityPackage.ENTITY__ENTITY_NAME;
 
 	/**
 	 * The feature id for the '<em><b>Actions Scenario Behaviour</b></em>' containment reference list.
@@ -172,7 +181,7 @@ public interface UsagemodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SCENARIO_BEHAVIOUR__ACTIONS_SCENARIO_BEHAVIOUR = IdentifierPackage.IDENTIFIER_FEATURE_COUNT + 0;
+	int SCENARIO_BEHAVIOUR__ACTIONS_SCENARIO_BEHAVIOUR = EntityPackage.ENTITY_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Scenario Behaviour</em>' class.
@@ -181,7 +190,7 @@ public interface UsagemodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SCENARIO_BEHAVIOUR_FEATURE_COUNT = IdentifierPackage.IDENTIFIER_FEATURE_COUNT + 1;
+	int SCENARIO_BEHAVIOUR_FEATURE_COUNT = EntityPackage.ENTITY_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.usagemodel.impl.AbstractUserActionImpl <em>Abstract User Action</em>}' class.
@@ -416,7 +425,7 @@ public interface UsagemodelPackage extends EPackage {
 	int LOOP__BODY_BEHAVIOUR_LOOP = ABSTRACT_USER_ACTION_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Iterations Loop</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Iterations Loop</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -863,10 +872,10 @@ public interface UsagemodelPackage extends EPackage {
 	EReference getLoop_BodyBehaviour_Loop();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link de.uka.ipd.sdq.pcm.usagemodel.Loop#getIterations_Loop <em>Iterations Loop</em>}'.
+	 * Returns the meta object for the containment reference '{@link de.uka.ipd.sdq.pcm.usagemodel.Loop#getIterations_Loop <em>Iterations Loop</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Iterations Loop</em>'.
+	 * @return the meta object for the containment reference '<em>Iterations Loop</em>'.
 	 * @see de.uka.ipd.sdq.pcm.usagemodel.Loop#getIterations_Loop()
 	 * @see #getLoop()
 	 * @generated
@@ -1208,7 +1217,7 @@ public interface UsagemodelPackage extends EPackage {
 		EReference LOOP__BODY_BEHAVIOUR_LOOP = eINSTANCE.getLoop_BodyBehaviour_Loop();
 
 		/**
-		 * The meta object literal for the '<em><b>Iterations Loop</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Iterations Loop</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
