@@ -220,6 +220,15 @@
           referencingElements="CollectionIteratorParameterLabel"
           name="CollectionIteratorParameterLabelFigure"/>
     </figures>
+    <figures
+        xsi:type="gmfgraph:RoundedRectangle"
+        referencingElements="SetVariableActionNode"
+        name="SetVariableActionFigure">
+      <children
+          xsi:type="gmfgraph:Label"
+          name="StereotypeLabel"
+          text="&lt;&lt;Set Variable>>"/>
+    </figures>
   </figures>
   <nodes
       name="ParametricParameterUsageNode"
@@ -269,6 +278,9 @@
   <nodes
       name="CollectionIteratorNode"
       figure="CollectionIteratorFigure"/>
+  <nodes
+      name="SetVariableActionNode"
+      figure="SetVariableActionFigure"/>
   <connections
       name="ActionResourceDemand_ActionLink"
       figure="ActionResourceDemand_ActionFigure"/>

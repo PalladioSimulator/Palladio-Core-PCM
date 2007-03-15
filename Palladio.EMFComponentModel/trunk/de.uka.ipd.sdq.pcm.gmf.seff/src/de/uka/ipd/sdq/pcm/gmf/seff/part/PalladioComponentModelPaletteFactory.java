@@ -45,6 +45,7 @@ public class PalladioComponentModelPaletteFactory {
 		paletteContainer.add(createExternalCallAction5CreationTool());
 		paletteContainer.add(createBranchAction6CreationTool());
 		paletteContainer.add(createCollectionIteratorAction7CreationTool());
+		paletteContainer.add(createSetVariable8CreationTool());
 		return paletteContainer;
 	}
 
@@ -198,6 +199,22 @@ public class PalladioComponentModelPaletteFactory {
 	/**
 	 * @generated
 	 */
+	private ToolEntry createSetVariable8CreationTool() {
+		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
+		types.add(PalladioComponentModelElementTypes.SetVariableAction_2008);
+		NodeToolEntry entry = new NodeToolEntry(
+				Messages.SetVariable8CreationTool_title,
+				Messages.SetVariable8CreationTool_desc, types);
+		entry
+				.setSmallIcon(PalladioComponentModelElementTypes
+						.getImageDescriptor(PalladioComponentModelElementTypes.SetVariableAction_2008));
+		entry.setLargeIcon(entry.getSmallIcon());
+		return entry;
+	}
+
+	/**
+	 * @generated
+	 */
 	private ToolEntry createControlFlow1CreationTool() {
 		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
 		types
@@ -233,8 +250,9 @@ public class PalladioComponentModelPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createParametricParameterUsage3CreationTool() {
-		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
+		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(2);
 		types.add(PalladioComponentModelElementTypes.VariableUsage_3001);
+		types.add(PalladioComponentModelElementTypes.VariableUsage_3015);
 		NodeToolEntry entry = new NodeToolEntry(
 				Messages.ParametricParameterUsage3CreationTool_title,
 				Messages.ParametricParameterUsage3CreationTool_desc, types);
@@ -249,9 +267,11 @@ public class PalladioComponentModelPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createVariableCharacterisation4CreationTool() {
-		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
+		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(2);
 		types
 				.add(PalladioComponentModelElementTypes.VariableCharacterisation_3002);
+		types
+				.add(PalladioComponentModelElementTypes.VariableCharacterisation_3016);
 		NodeToolEntry entry = new NodeToolEntry(
 				Messages.VariableCharacterisation4CreationTool_title,
 				Messages.VariableCharacterisation4CreationTool_desc, types);

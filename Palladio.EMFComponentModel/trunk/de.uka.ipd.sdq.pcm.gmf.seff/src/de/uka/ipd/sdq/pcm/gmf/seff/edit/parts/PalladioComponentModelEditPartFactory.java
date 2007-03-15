@@ -76,6 +76,9 @@ public class PalladioComponentModelEditPartFactory implements EditPartFactory {
 			case CollectionIteratorParameterLabel2EditPart.VISUAL_ID:
 				return new CollectionIteratorParameterLabel2EditPart(view);
 
+			case SetVariableActionEditPart.VISUAL_ID:
+				return new SetVariableActionEditPart(view);
+
 			case VariableUsageEditPart.VISUAL_ID:
 				return new VariableUsageEditPart(view);
 
@@ -146,6 +149,15 @@ public class PalladioComponentModelEditPartFactory implements EditPartFactory {
 			case ResourceDemandingBehaviour3EditPart.VISUAL_ID:
 				return new ResourceDemandingBehaviour3EditPart(view);
 
+			case VariableUsage2EditPart.VISUAL_ID:
+				return new VariableUsage2EditPart(view);
+
+			case VariableUsageReferenceLabel2EditPart.VISUAL_ID:
+				return new VariableUsageReferenceLabel2EditPart(view);
+
+			case VariableCharacterisation2EditPart.VISUAL_ID:
+				return new VariableCharacterisation2EditPart(view);
+
 			case ExternalCallActionParameterUsageEditPart.VISUAL_ID:
 				return new ExternalCallActionParameterUsageEditPart(view);
 
@@ -197,6 +209,12 @@ public class PalladioComponentModelEditPartFactory implements EditPartFactory {
 			case CollectionIteratorActionBehaviourCompartment2EditPart.VISUAL_ID:
 				return new CollectionIteratorActionBehaviourCompartment2EditPart(
 						view);
+
+			case SetVariableActionParameterUsageEditPart.VISUAL_ID:
+				return new SetVariableActionParameterUsageEditPart(view);
+
+			case VariableUsageVariableCharacterisation2EditPart.VISUAL_ID:
+				return new VariableUsageVariableCharacterisation2EditPart(view);
 
 			case AbstractActionSuccessor_AbstractActionEditPart.VISUAL_ID:
 				return new AbstractActionSuccessor_AbstractActionEditPart(view);

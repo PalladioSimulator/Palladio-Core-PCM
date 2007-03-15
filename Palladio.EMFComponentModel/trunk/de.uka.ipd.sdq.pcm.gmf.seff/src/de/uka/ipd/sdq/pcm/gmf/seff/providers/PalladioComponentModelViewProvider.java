@@ -54,13 +54,19 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviourEditPart
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviourLoopCompartment2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviourLoopCompartmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingSEFFEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.SetVariableActionEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.SetVariableActionParameterUsageEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.StartAction2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.StartActionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.StopAction2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.StopActionEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableCharacterisation2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableCharacterisationEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableUsage2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableUsageEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableUsageReferenceLabel2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableUsageReferenceLabelEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableUsageVariableCharacterisation2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableUsageVariableCharacterisationEditPart;
 
 import de.uka.ipd.sdq.pcm.gmf.seff.part.PalladioComponentModelVisualIDRegistry;
@@ -111,12 +117,18 @@ import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.ResourceDemandingBehaviourLoop
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.ResourceDemandingBehaviourLoopCompartmentViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.ResourceDemandingBehaviourViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.ResourceDemandingSEFFViewFactory;
+import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.SetVariableActionParameterUsageViewFactory;
+import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.SetVariableActionViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.StartAction2ViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.StartActionViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.StopAction2ViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.StopActionViewFactory;
+import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.VariableCharacterisation2ViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.VariableCharacterisationViewFactory;
+import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.VariableUsage2ViewFactory;
+import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.VariableUsageReferenceLabel2ViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.VariableUsageReferenceLabelViewFactory;
+import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.VariableUsageVariableCharacterisation2ViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.VariableUsageVariableCharacterisationViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.VariableUsageViewFactory;
 
@@ -186,6 +198,8 @@ public class PalladioComponentModelViewProvider extends AbstractViewProvider {
 			return CollectionIteratorActionEntityName2ViewFactory.class;
 		case CollectionIteratorParameterLabel2EditPart.VISUAL_ID:
 			return CollectionIteratorParameterLabel2ViewFactory.class;
+		case SetVariableActionEditPart.VISUAL_ID:
+			return SetVariableActionViewFactory.class;
 		case VariableUsageEditPart.VISUAL_ID:
 			return VariableUsageViewFactory.class;
 		case VariableUsageReferenceLabelEditPart.VISUAL_ID:
@@ -232,6 +246,12 @@ public class PalladioComponentModelViewProvider extends AbstractViewProvider {
 			return CollectionIteratorParameterLabelViewFactory.class;
 		case ResourceDemandingBehaviour3EditPart.VISUAL_ID:
 			return ResourceDemandingBehaviour3ViewFactory.class;
+		case VariableUsage2EditPart.VISUAL_ID:
+			return VariableUsage2ViewFactory.class;
+		case VariableUsageReferenceLabel2EditPart.VISUAL_ID:
+			return VariableUsageReferenceLabel2ViewFactory.class;
+		case VariableCharacterisation2EditPart.VISUAL_ID:
+			return VariableCharacterisation2ViewFactory.class;
 		case ExternalCallActionParameterUsageEditPart.VISUAL_ID:
 			return ExternalCallActionParameterUsageViewFactory.class;
 		case VariableUsageVariableCharacterisationEditPart.VISUAL_ID:
@@ -262,6 +282,10 @@ public class PalladioComponentModelViewProvider extends AbstractViewProvider {
 			return InternalActionResourceDemand2ViewFactory.class;
 		case CollectionIteratorActionBehaviourCompartment2EditPart.VISUAL_ID:
 			return CollectionIteratorActionBehaviourCompartment2ViewFactory.class;
+		case SetVariableActionParameterUsageEditPart.VISUAL_ID:
+			return SetVariableActionParameterUsageViewFactory.class;
+		case VariableUsageVariableCharacterisation2EditPart.VISUAL_ID:
+			return VariableUsageVariableCharacterisation2ViewFactory.class;
 		}
 		return null;
 	}

@@ -516,6 +516,80 @@
       </compartments>
     </ownedChild>
   </nodes>
+  <nodes>
+    <containmentFeature
+        href="../../pcm.ecore#//seff/ResourceDemandingBehaviour/steps_Behaviour"/>
+    <childrenFeature
+        href="../../pcm.ecore#//seff/ResourceDemandingBehaviour/steps_Behaviour"/>
+    <ownedChild>
+      <domainMetaElement
+          href="../../pcm.ecore#//seff/SetVariableAction"/>
+      <tool
+          xsi:type="gmftool:CreationTool"
+          href="seffeditor.gmftool#//@palette/@tools.0/@tools.7"/>
+      <diagramNode
+          href="seffeditor.gmfgraph#SetVariableActionNode"/>
+      <children
+          compartment="//@nodes.7/@ownedChild/@compartments.0">
+        <containmentFeature
+            href="../../pcm.ecore#//seff/SetVariableAction/variableUsage_SetVariableAction"/>
+        <childrenFeature
+            href="../../pcm.ecore#//seff/SetVariableAction/variableUsage_SetVariableAction"/>
+        <ownedChild>
+          <domainMetaElement
+              href="../../pcm.ecore#//parameter/VariableUsage"/>
+          <labelMappings
+              readOnly="true">
+            <diagramLabel
+                href="seffeditor.gmfgraph#VariableUsageReferenceLabel"/>
+          </labelMappings>
+          <tool
+              xsi:type="gmftool:CreationTool"
+              href="seffeditor.gmftool#//@palette/@tools.1/@tools.2"/>
+          <diagramNode
+              href="seffeditor.gmfgraph#ParametricParameterUsageNode"/>
+          <children
+              compartment="//@nodes.7/@ownedChild/@children.0/@ownedChild/@compartments.0">
+            <containmentFeature
+                href="../../pcm.ecore#//parameter/VariableUsage/variableCharacterisation_VariableUsage"/>
+            <childrenFeature
+                href="../../pcm.ecore#//parameter/VariableUsage/variableCharacterisation_VariableUsage"/>
+            <ownedChild>
+              <domainMetaElement
+                  href="../../pcm.ecore#//parameter/VariableCharacterisation"/>
+              <labelMappings
+                  xsi:type="gmfmap:FeatureLabelMapping"
+                  readOnly="true"
+                  viewPattern="{0} = {1}"
+                  editPattern="">
+                <diagramLabel
+                    href="seffeditor.gmfgraph#VariableCharacterisationLabel"/>
+                <features
+                    href="../../pcm.ecore#//parameter/VariableCharacterisation/type"/>
+                <features
+                    href="../../../../de.uka.ipd.sdq.stoex/model/stoex.ecore#//RandomVariable/specification"/>
+              </labelMappings>
+              <tool
+                  xsi:type="gmftool:CreationTool"
+                  href="seffeditor.gmftool#//@palette/@tools.1/@tools.3"/>
+              <diagramNode
+                  href="seffeditor.gmfgraph#VariableCharacterisationLabel"/>
+            </ownedChild>
+          </children>
+          <compartments
+              children="//@nodes.7/@ownedChild/@children.0/@ownedChild/@children.0">
+            <compartment
+                href="seffeditor.gmfgraph#VariableCharacterisation"/>
+          </compartments>
+        </ownedChild>
+      </children>
+      <compartments
+          children="//@nodes.7/@ownedChild/@children.0">
+        <compartment
+            href="seffeditor.gmfgraph#ParameterUsage"/>
+      </compartments>
+    </ownedChild>
+  </nodes>
   <links>
     <tool
         xsi:type="gmftool:CreationTool"

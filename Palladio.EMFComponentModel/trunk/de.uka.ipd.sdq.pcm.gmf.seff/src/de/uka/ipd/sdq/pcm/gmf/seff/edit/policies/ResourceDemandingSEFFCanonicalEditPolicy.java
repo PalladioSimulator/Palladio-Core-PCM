@@ -24,11 +24,14 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviour2EditPar
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviour3EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviourEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingSEFFEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.SetVariableActionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.StartAction2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.StartActionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.StopAction2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.StopActionEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableCharacterisation2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableCharacterisationEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableUsage2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableUsageEditPart;
 
 import de.uka.ipd.sdq.pcm.gmf.seff.part.PalladioComponentModelVisualIDRegistry;
@@ -118,6 +121,10 @@ public class ResourceDemandingSEFFCanonicalEditPolicy extends
 				break;
 			}
 			case CollectionIteratorAction2EditPart.VISUAL_ID: {
+				result.add(nextValue);
+				break;
+			}
+			case SetVariableActionEditPart.VISUAL_ID: {
 				result.add(nextValue);
 				break;
 			}
@@ -257,6 +264,7 @@ public class ResourceDemandingSEFFCanonicalEditPolicy extends
 		case BranchAction2EditPart.VISUAL_ID:
 		case InternalAction2EditPart.VISUAL_ID:
 		case CollectionIteratorAction2EditPart.VISUAL_ID:
+		case SetVariableActionEditPart.VISUAL_ID:
 		case VariableUsageEditPart.VISUAL_ID:
 		case VariableCharacterisationEditPart.VISUAL_ID:
 		case ResourceDemandingBehaviourEditPart.VISUAL_ID:
@@ -271,6 +279,8 @@ public class ResourceDemandingSEFFCanonicalEditPolicy extends
 		case ExternalCallAction2EditPart.VISUAL_ID:
 		case CollectionIteratorActionEditPart.VISUAL_ID:
 		case ResourceDemandingBehaviour3EditPart.VISUAL_ID:
+		case VariableUsage2EditPart.VISUAL_ID:
+		case VariableCharacterisation2EditPart.VISUAL_ID:
 		case ResourceDemandingSEFFEditPart.VISUAL_ID: {
 			myEObject2ViewMap.put(modelElement, view);
 			storeLinks(modelElement, getDiagram());

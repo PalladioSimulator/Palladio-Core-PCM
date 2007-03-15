@@ -24,6 +24,7 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopActionEntityName2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopActionEntityNameEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ParametricResourceDemandEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ProbabilisticBranchTransitionBranchProbabilityEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableCharacterisation2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableCharacterisationEditPart;
 
 import de.uka.ipd.sdq.pcm.gmf.seff.part.PalladioComponentModelVisualIDRegistry;
@@ -252,6 +253,36 @@ public class PalladioComponentModelParserProvider extends AbstractProvider
 	/**
 	 * @generated
 	 */
+	private IParser variableCharacterisationVariableCharacterisation_3016Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getVariableCharacterisationVariableCharacterisation_3016Parser() {
+		if (variableCharacterisationVariableCharacterisation_3016Parser == null) {
+			variableCharacterisationVariableCharacterisation_3016Parser = createVariableCharacterisationVariableCharacterisation_3016Parser();
+		}
+		return variableCharacterisationVariableCharacterisation_3016Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	protected IParser createVariableCharacterisationVariableCharacterisation_3016Parser() {
+		List features = new ArrayList(2);
+		features.add(ParameterPackage.eINSTANCE
+				.getVariableCharacterisation_Type());
+		features.add(StoexPackage.eINSTANCE.getRandomVariable_Specification());
+		PalladioComponentModelStructuralFeaturesParser parser = new PalladioComponentModelStructuralFeaturesParser(
+				features);
+		parser.setViewPattern("{0} = {1}");
+		parser.setEditPattern("{0} = {1}");
+		return parser;
+	}
+
+	/**
+	 * @generated
+	 */
 	private IParser externalCallActionExternalCallActionEntityName_5002Parser;
 
 	/**
@@ -392,6 +423,8 @@ public class PalladioComponentModelParserProvider extends AbstractProvider
 			return getExternalCallActionExternalCallActionEntityName_5006Parser();
 		case CollectionIteratorActionEntityNameEditPart.VISUAL_ID:
 			return getCollectionIteratorActionCollectionIteratorActionEntityName_5013Parser();
+		case VariableCharacterisation2EditPart.VISUAL_ID:
+			return getVariableCharacterisationVariableCharacterisation_3016Parser();
 		case ExternalCallActionEntityNameEditPart.VISUAL_ID:
 			return getExternalCallActionExternalCallActionEntityName_5002Parser();
 		case LoopActionEntityName2EditPart.VISUAL_ID:

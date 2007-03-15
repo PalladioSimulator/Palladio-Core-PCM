@@ -13,6 +13,7 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.commands.CollectionIteratorAction2Create
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.commands.ExternalCallActionCreateCommand;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.commands.InternalAction2CreateCommand;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.commands.LoopActionCreateCommand;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.commands.SetVariableActionCreateCommand;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.commands.StartActionCreateCommand;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.commands.StopActionCreateCommand;
 
@@ -87,6 +88,14 @@ public class ResourceDemandingSEFFItemSemanticEditPolicy extends
 						.getResourceDemandingBehaviour_Steps_Behaviour());
 			}
 			return getMSLWrapper(new CollectionIteratorAction2CreateCommand(req));
+		}
+		if (PalladioComponentModelElementTypes.SetVariableAction_2008 == req
+				.getElementType()) {
+			if (req.getContainmentFeature() == null) {
+				req.setContainmentFeature(SeffPackage.eINSTANCE
+						.getResourceDemandingBehaviour_Steps_Behaviour());
+			}
+			return getMSLWrapper(new SetVariableActionCreateCommand(req));
 		}
 		return super.getCreateCommand(req);
 	}

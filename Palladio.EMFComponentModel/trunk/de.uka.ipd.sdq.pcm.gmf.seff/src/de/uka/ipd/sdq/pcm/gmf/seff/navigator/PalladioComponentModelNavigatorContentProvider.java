@@ -53,12 +53,17 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviourEditPart
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviourLoopCompartment2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviourLoopCompartmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingSEFFEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.SetVariableActionEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.SetVariableActionParameterUsageEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.StartAction2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.StartActionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.StopAction2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.StopActionEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableCharacterisation2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableCharacterisationEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableUsage2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableUsageEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableUsageVariableCharacterisation2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableUsageVariableCharacterisationEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.part.Messages;
 import de.uka.ipd.sdq.pcm.gmf.seff.part.PalladioComponentModelVisualIDRegistry;
@@ -193,6 +198,10 @@ public class PalladioComponentModelNavigatorContentProvider implements
 					false));
 			connectedViews = getChildrenByType(Collections.singleton(view),
 					CollectionIteratorAction2EditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(Collections.singleton(view),
+					SetVariableActionEditPart.VISUAL_ID);
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			connectedViews = getDiagramLinksByType(Collections.singleton(view),
@@ -409,6 +418,40 @@ public class PalladioComponentModelNavigatorContentProvider implements
 					CollectionIteratorActionBehaviourCompartment2EditPart.VISUAL_ID);
 			connectedViews = getChildrenByType(connectedViews,
 					ResourceDemandingBehaviour3EditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getIncomingLinksByType(
+					Collections.singleton(view),
+					AbstractActionSuccessor_AbstractActionEditPart.VISUAL_ID);
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			connectedViews = getOutgoingLinksByType(
+					Collections.singleton(view),
+					AbstractActionSuccessor_AbstractActionEditPart.VISUAL_ID);
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			if (!outgoinglinks.isEmpty()) {
+				result.add(outgoinglinks);
+			}
+			if (!incominglinks.isEmpty()) {
+				result.add(incominglinks);
+			}
+			return result.toArray();
+		}
+
+		case SetVariableActionEditPart.VISUAL_ID: {
+			Collection result = new ArrayList();
+			PalladioComponentModelNavigatorGroup outgoinglinks = new PalladioComponentModelNavigatorGroup(
+					Messages.NavigatorGroupName_SetVariableAction_2008_outgoinglinks,
+					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			PalladioComponentModelNavigatorGroup incominglinks = new PalladioComponentModelNavigatorGroup(
+					Messages.NavigatorGroupName_SetVariableAction_2008_incominglinks,
+					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection connectedViews = getChildrenByType(Collections
+					.singleton(view),
+					SetVariableActionParameterUsageEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					VariableUsage2EditPart.VISUAL_ID);
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			connectedViews = getIncomingLinksByType(
@@ -1829,6 +1872,18 @@ public class PalladioComponentModelNavigatorContentProvider implements
 			return result.toArray();
 		}
 
+		case VariableUsage2EditPart.VISUAL_ID: {
+			Collection result = new ArrayList();
+			Collection connectedViews = getChildrenByType(Collections
+					.singleton(view),
+					VariableUsageVariableCharacterisation2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					VariableCharacterisation2EditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			return result.toArray();
+		}
+
 		case AbstractActionSuccessor_AbstractActionEditPart.VISUAL_ID: {
 			Collection result = new ArrayList();
 			PalladioComponentModelNavigatorGroup source = new PalladioComponentModelNavigatorGroup(
@@ -1863,6 +1918,10 @@ public class PalladioComponentModelNavigatorContentProvider implements
 					true));
 			connectedViews = getLinksTargetByType(Collections.singleton(view),
 					CollectionIteratorAction2EditPart.VISUAL_ID);
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksTargetByType(Collections.singleton(view),
+					SetVariableActionEditPart.VISUAL_ID);
 			target.addChildren(createNavigatorItems(connectedViews, target,
 					true));
 			connectedViews = getLinksTargetByType(Collections.singleton(view),
@@ -1919,6 +1978,10 @@ public class PalladioComponentModelNavigatorContentProvider implements
 					true));
 			connectedViews = getLinksSourceByType(Collections.singleton(view),
 					CollectionIteratorAction2EditPart.VISUAL_ID);
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			connectedViews = getLinksSourceByType(Collections.singleton(view),
+					SetVariableActionEditPart.VISUAL_ID);
 			source.addChildren(createNavigatorItems(connectedViews, source,
 					true));
 			connectedViews = getLinksSourceByType(Collections.singleton(view),

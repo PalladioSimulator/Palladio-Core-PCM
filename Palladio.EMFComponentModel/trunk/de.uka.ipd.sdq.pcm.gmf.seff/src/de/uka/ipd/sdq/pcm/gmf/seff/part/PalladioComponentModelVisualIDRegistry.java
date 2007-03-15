@@ -48,13 +48,19 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviourEditPart
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviourLoopCompartment2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviourLoopCompartmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingSEFFEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.SetVariableActionEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.SetVariableActionParameterUsageEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.StartAction2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.StartActionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.StopAction2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.StopActionEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableCharacterisation2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableCharacterisationEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableUsage2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableUsageEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableUsageReferenceLabel2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableUsageReferenceLabelEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableUsageVariableCharacterisation2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableUsageVariableCharacterisationEditPart;
 
 import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
@@ -71,6 +77,7 @@ import de.uka.ipd.sdq.pcm.seff.ProbabilisticBranchTransition;
 import de.uka.ipd.sdq.pcm.seff.ResourceDemandingBehaviour;
 import de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF;
 import de.uka.ipd.sdq.pcm.seff.SeffPackage;
+import de.uka.ipd.sdq.pcm.seff.SetVariableAction;
 import de.uka.ipd.sdq.pcm.seff.StartAction;
 import de.uka.ipd.sdq.pcm.seff.StopAction;
 
@@ -269,6 +276,12 @@ public class PalladioComponentModelVisualIDRegistry {
 			}
 			return getUnrecognizedCollectionIteratorAction_2007ChildNodeID(
 					domainElement, semanticHint);
+		case SetVariableActionEditPart.VISUAL_ID:
+			if (SetVariableActionParameterUsageEditPart.VISUAL_ID == nodeVisualID) {
+				return SetVariableActionParameterUsageEditPart.VISUAL_ID;
+			}
+			return getUnrecognizedSetVariableAction_2008ChildNodeID(
+					domainElement, semanticHint);
 		case VariableUsageEditPart.VISUAL_ID:
 			if (VariableUsageReferenceLabelEditPart.VISUAL_ID == nodeVisualID) {
 				return VariableUsageReferenceLabelEditPart.VISUAL_ID;
@@ -367,6 +380,18 @@ public class PalladioComponentModelVisualIDRegistry {
 				return ResourceDemandingBehaviourLoopCompartment2EditPart.VISUAL_ID;
 			}
 			return getUnrecognizedResourceDemandingBehaviour_3014ChildNodeID(
+					domainElement, semanticHint);
+		case VariableUsage2EditPart.VISUAL_ID:
+			if (VariableUsageReferenceLabel2EditPart.VISUAL_ID == nodeVisualID) {
+				return VariableUsageReferenceLabel2EditPart.VISUAL_ID;
+			}
+			if (VariableUsageVariableCharacterisation2EditPart.VISUAL_ID == nodeVisualID) {
+				return VariableUsageVariableCharacterisation2EditPart.VISUAL_ID;
+			}
+			return getUnrecognizedVariableUsage_3015ChildNodeID(domainElement,
+					semanticHint);
+		case VariableCharacterisation2EditPart.VISUAL_ID:
+			return getUnrecognizedVariableCharacterisation_3016ChildNodeID(
 					domainElement, semanticHint);
 		case ExternalCallActionParameterUsageEditPart.VISUAL_ID:
 			if ((semanticHint == null || VariableUsageEditPart.VISUAL_ID == nodeVisualID)
@@ -605,6 +630,24 @@ public class PalladioComponentModelVisualIDRegistry {
 			}
 			return getUnrecognizedCollectionIteratorActionBehaviourCompartment_7015ChildNodeID(
 					domainElement, semanticHint);
+		case SetVariableActionParameterUsageEditPart.VISUAL_ID:
+			if ((semanticHint == null || VariableUsage2EditPart.VISUAL_ID == nodeVisualID)
+					&& ParameterPackage.eINSTANCE.getVariableUsage()
+							.isSuperTypeOf(domainElementMetaclass)
+					&& (domainElement == null || isNodeVariableUsage_3015((VariableUsage) domainElement))) {
+				return VariableUsage2EditPart.VISUAL_ID;
+			}
+			return getUnrecognizedSetVariableActionParameterUsage_7016ChildNodeID(
+					domainElement, semanticHint);
+		case VariableUsageVariableCharacterisation2EditPart.VISUAL_ID:
+			if ((semanticHint == null || VariableCharacterisation2EditPart.VISUAL_ID == nodeVisualID)
+					&& ParameterPackage.eINSTANCE.getVariableCharacterisation()
+							.isSuperTypeOf(domainElementMetaclass)
+					&& (domainElement == null || isNodeVariableCharacterisation_3016((VariableCharacterisation) domainElement))) {
+				return VariableCharacterisation2EditPart.VISUAL_ID;
+			}
+			return getUnrecognizedVariableUsageVariableCharacterisation_7017ChildNodeID(
+					domainElement, semanticHint);
 		case ResourceDemandingSEFFEditPart.VISUAL_ID:
 			if ((semanticHint == null || StartActionEditPart.VISUAL_ID == nodeVisualID)
 					&& SeffPackage.eINSTANCE.getStartAction().isSuperTypeOf(
@@ -647,6 +690,12 @@ public class PalladioComponentModelVisualIDRegistry {
 							.isSuperTypeOf(domainElementMetaclass)
 					&& (domainElement == null || isNodeCollectionIteratorAction_2007((CollectionIteratorAction) domainElement))) {
 				return CollectionIteratorAction2EditPart.VISUAL_ID;
+			}
+			if ((semanticHint == null || SetVariableActionEditPart.VISUAL_ID == nodeVisualID)
+					&& SeffPackage.eINSTANCE.getSetVariableAction()
+							.isSuperTypeOf(domainElementMetaclass)
+					&& (domainElement == null || isNodeSetVariableAction_2008((SetVariableAction) domainElement))) {
+				return SetVariableActionEditPart.VISUAL_ID;
 			}
 			return getUnrecognizedResourceDemandingSEFF_1000ChildNodeID(
 					domainElement, semanticHint);
@@ -765,6 +814,17 @@ public class PalladioComponentModelVisualIDRegistry {
 	 */
 	private static boolean isNodeCollectionIteratorAction_2007(
 			CollectionIteratorAction element) {
+		return true;
+	}
+
+	/**
+	 * User can change implementation of this method to check some additional 
+	 * conditions here.
+	 *
+	 * @generated
+	 */
+	private static boolean isNodeSetVariableAction_2008(
+			SetVariableAction element) {
 		return true;
 	}
 
@@ -917,6 +977,27 @@ public class PalladioComponentModelVisualIDRegistry {
 	}
 
 	/**
+	 * User can change implementation of this method to check some additional 
+	 * conditions here.
+	 *
+	 * @generated
+	 */
+	private static boolean isNodeVariableUsage_3015(VariableUsage element) {
+		return true;
+	}
+
+	/**
+	 * User can change implementation of this method to check some additional 
+	 * conditions here.
+	 *
+	 * @generated
+	 */
+	private static boolean isNodeVariableCharacterisation_3016(
+			VariableCharacterisation element) {
+		return true;
+	}
+
+	/**
 	 * User can change implementation of this method to handle some specific
 	 * situations not covered by default logic.
 	 *
@@ -989,6 +1070,17 @@ public class PalladioComponentModelVisualIDRegistry {
 	 * @generated
 	 */
 	private static int getUnrecognizedCollectionIteratorAction_2007ChildNodeID(
+			EObject domainElement, String semanticHint) {
+		return -1;
+	}
+
+	/**
+	 * User can change implementation of this method to handle some specific
+	 * situations not covered by default logic.
+	 *
+	 * @generated
+	 */
+	private static int getUnrecognizedSetVariableAction_2008ChildNodeID(
 			EObject domainElement, String semanticHint) {
 		return -1;
 	}
@@ -1143,6 +1235,28 @@ public class PalladioComponentModelVisualIDRegistry {
 	 * @generated
 	 */
 	private static int getUnrecognizedResourceDemandingBehaviour_3014ChildNodeID(
+			EObject domainElement, String semanticHint) {
+		return -1;
+	}
+
+	/**
+	 * User can change implementation of this method to handle some specific
+	 * situations not covered by default logic.
+	 *
+	 * @generated
+	 */
+	private static int getUnrecognizedVariableUsage_3015ChildNodeID(
+			EObject domainElement, String semanticHint) {
+		return -1;
+	}
+
+	/**
+	 * User can change implementation of this method to handle some specific
+	 * situations not covered by default logic.
+	 *
+	 * @generated
+	 */
+	private static int getUnrecognizedVariableCharacterisation_3016ChildNodeID(
 			EObject domainElement, String semanticHint) {
 		return -1;
 	}
@@ -1308,6 +1422,28 @@ public class PalladioComponentModelVisualIDRegistry {
 	 * @generated
 	 */
 	private static int getUnrecognizedCollectionIteratorActionBehaviourCompartment_7015ChildNodeID(
+			EObject domainElement, String semanticHint) {
+		return -1;
+	}
+
+	/**
+	 * User can change implementation of this method to handle some specific
+	 * situations not covered by default logic.
+	 *
+	 * @generated
+	 */
+	private static int getUnrecognizedSetVariableActionParameterUsage_7016ChildNodeID(
+			EObject domainElement, String semanticHint) {
+		return -1;
+	}
+
+	/**
+	 * User can change implementation of this method to handle some specific
+	 * situations not covered by default logic.
+	 *
+	 * @generated
+	 */
+	private static int getUnrecognizedVariableUsageVariableCharacterisation_7017ChildNodeID(
 			EObject domainElement, String semanticHint) {
 		return -1;
 	}

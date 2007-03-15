@@ -38,6 +38,8 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviourBranchCo
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviourLoopCompartment2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviourLoopCompartmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingSEFFEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.SetVariableActionParameterUsageEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableUsage2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableUsageEditPart;
 
 import de.uka.ipd.sdq.pcm.gmf.seff.part.PalladioComponentModelSeffDiagramEditorPlugin;
@@ -70,6 +72,12 @@ public class PalladioComponentModelModelingAssistantProvider extends
 			List types = new ArrayList();
 			types
 					.add(PalladioComponentModelElementTypes.ParametricResourceDemand_3008);
+			return types;
+		}
+		if (editPart instanceof VariableUsage2EditPart) {
+			List types = new ArrayList();
+			types
+					.add(PalladioComponentModelElementTypes.VariableCharacterisation_3016);
 			return types;
 		}
 		if (editPart instanceof ExternalCallActionParameterUsageEditPart) {
@@ -161,6 +169,11 @@ public class PalladioComponentModelModelingAssistantProvider extends
 					.add(PalladioComponentModelElementTypes.ResourceDemandingBehaviour_3014);
 			return types;
 		}
+		if (editPart instanceof SetVariableActionParameterUsageEditPart) {
+			List types = new ArrayList();
+			types.add(PalladioComponentModelElementTypes.VariableUsage_3015);
+			return types;
+		}
 		if (editPart instanceof ResourceDemandingSEFFEditPart) {
 			List types = new ArrayList();
 			types.add(PalladioComponentModelElementTypes.StartAction_2001);
@@ -172,6 +185,8 @@ public class PalladioComponentModelModelingAssistantProvider extends
 			types.add(PalladioComponentModelElementTypes.InternalAction_2006);
 			types
 					.add(PalladioComponentModelElementTypes.CollectionIteratorAction_2007);
+			types
+					.add(PalladioComponentModelElementTypes.SetVariableAction_2008);
 			return types;
 		}
 		return Collections.EMPTY_LIST;

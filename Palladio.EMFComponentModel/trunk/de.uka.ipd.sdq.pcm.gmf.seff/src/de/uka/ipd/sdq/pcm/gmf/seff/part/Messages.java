@@ -125,6 +125,16 @@ public class Messages extends org.eclipse.osgi.util.NLS {
 	/**
 	 * @generated
 	 */
+	public static String SetVariable8CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String SetVariable8CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
 	public static String ControlFlow1CreationTool_title;
 
 	/**
@@ -260,6 +270,16 @@ public class Messages extends org.eclipse.osgi.util.NLS {
 	/**
 	 * @generated
 	 */
+	public static String SetVariableActionParameterUsageEditPart_title;
+
+	/**
+	 * @generated
+	 */
+	public static String VariableUsageVariableCharacterisation2EditPart_title;
+
+	/**
+	 * @generated
+	 */
 	public static String CommandName_OpenDiagram;
 
 	/**
@@ -336,6 +356,16 @@ public class Messages extends org.eclipse.osgi.util.NLS {
 	 * @generated
 	 */
 	public static String NavigatorGroupName_CollectionIteratorAction_2007_incominglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_SetVariableAction_2008_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_SetVariableAction_2008_incominglinks;
 
 	/**
 	 * @generated
