@@ -1032,15 +1032,6 @@
     <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_xXZypNL7EdujoZKiiOMQBA" points="[6, 866, -9, -55]$[-5, 918, -20, -3]"/>
     <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_xXZypdL7EdujoZKiiOMQBA" id="(0.5031686,0.006880734)"/>
   </edges>
-  <edges xmi:type="notation:Edge" xmi:id="_VIZUUNL9EdujoZKiiOMQBA" type="4001" source="_7puwUdL2EduQ7qbNANXHPw" target="_7puwUdL2EduQ7qbNANXHPw">
-    <styles xmi:type="notation:RoutingStyle" xmi:id="_VIZUUdL9EdujoZKiiOMQBA"/>
-    <styles xmi:type="notation:FontStyle" xmi:id="_VIZUUtL9EdujoZKiiOMQBA"/>
-    <styles xmi:type="notation:LineStyle" xmi:id="_VIZUU9L9EdujoZKiiOMQBA"/>
-    <element xsi:nil="true"/>
-    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_VIZUVNL9EdujoZKiiOMQBA" points="[0, -12, 0, -12]$[0, -12, 0, -12]"/>
-    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_VIjFUNL9EdujoZKiiOMQBA" id="(0.49229187,0.009795918)"/>
-    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_VIjFUdL9EdujoZKiiOMQBA" id="(0.49229187,0.009795918)"/>
-  </edges>
   <edges xmi:type="notation:Edge" xmi:id="_bjE4wNL9EdujoZKiiOMQBA" type="4001" source="_7puwUdL2EduQ7qbNANXHPw" target="_RPZpgdL9EdujoZKiiOMQBA">
     <styles xmi:type="notation:RoutingStyle" xmi:id="_bjE4wdL9EdujoZKiiOMQBA"/>
     <styles xmi:type="notation:FontStyle" xmi:id="_bjE4wtL9EdujoZKiiOMQBA"/>
