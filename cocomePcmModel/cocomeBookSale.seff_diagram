@@ -19,6 +19,10 @@
   <children xmi:type="notation:Node" xmi:id="_m1ifANJOEduQ7qbNANXHPw" type="2006">
     <children xmi:type="notation:Node" xmi:id="_m1ifBtJOEduQ7qbNANXHPw" type="5012"/>
     <children xmi:type="notation:Node" xmi:id="_m1ifB9JOEduQ7qbNANXHPw" type="7012">
+      <children xmi:type="notation:Node" xmi:id="_LpaBoNMOEdujoZKiiOMQBA" type="3008">
+        <element xmi:type="pcm.seff:ParametricResourceDemand" href="cocome.repository#//@components__Repository.12/@serviceEffectSpecifications__BasicComponent.0/@steps_Behaviour.2/@resourceDemand_Action.0"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_LpaBodMOEdujoZKiiOMQBA"/>
+      </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_m1ifCNJOEduQ7qbNANXHPw"/>
       <styles xmi:type="notation:TitleStyle" xmi:id="_m1ifCdJOEduQ7qbNANXHPw" showTitle="true"/>
       <styles xmi:type="notation:SortingStyle" xmi:id="_m1ifCtJOEduQ7qbNANXHPw"/>
@@ -471,7 +475,7 @@
   <styles xmi:type="notation:PageStyle" xmi:id="_Ri0vUdJOEduQ7qbNANXHPw"/>
   <styles xmi:type="notation:GuideStyle" xmi:id="_Ri0vUtJOEduQ7qbNANXHPw"/>
   <styles xmi:type="notation:DescriptionStyle" xmi:id="_Ri0vU9JOEduQ7qbNANXHPw"/>
-  <element xmi:type="pcm.seff:ResourceDemandingSEFF" href="cocome.repository#//@components__Repository.12/@serviceEffectSpecifications__BasicComponent.0"/>
+  <element xmi:type="pcm.seff:ResourceDemandingSEFF" href="cocome.repository#bookSale"/>
   <edges xmi:type="notation:Edge" xmi:id="_tMVpANJOEduQ7qbNANXHPw" type="4001" source="_ckGrcdJOEduQ7qbNANXHPw" target="_qPZWwdJOEduQ7qbNANXHPw">
     <styles xmi:type="notation:RoutingStyle" xmi:id="_tMVpAdJOEduQ7qbNANXHPw"/>
     <styles xmi:type="notation:FontStyle" xmi:id="_tMVpAtJOEduQ7qbNANXHPw"/>
