@@ -9,6 +9,7 @@ import org.eclipse.ui.*;
 import org.eclipse.swt.widgets.Menu;
 import org.eclipse.swt.SWT;
 
+import de.uka.ipd.sdq.codegen.simudatavisualization.Activator;
 
 /**
  * This sample class demonstrates how to plug-in a new workbench view. The view
@@ -23,10 +24,8 @@ public class ExperimentsView extends ViewPart {
 
 	private DrillDownAdapter drillDownAdapter;
 
-	private Action action1;
-
-	private Action action2;
-
+	private Action reloadView;
+	private Action collapseAll;
 	private Action doubleClickAction;
 
 	/**
@@ -49,27 +48,6 @@ public class ExperimentsView extends ViewPart {
 		viewer.setLabelProvider(new TreeViewLabelProvider());
 		viewer.setSorter(new NameSorter());
 		viewer.setInput(getViewSite());
-		//viewer.setInput(ExperimentDAO.singleton());
-		viewer.addSelectionChangedListener(new ISelectionChangedListener() {
-
-			public void selectionChanged(SelectionChangedEvent event) {
-				Object input = ((IStructuredSelection) event.getSelection())
-						.getFirstElement();
-
-				if (input instanceof TreeContainer) {
-					TreeContainer treeObject = (TreeContainer) input;
-
-					if (treeObject.getName().equals(TreeViewContentProvider.EXPERIMENT_RUNS)) {
-						RunsView.viewer.setInput(treeObject);
-					}
-					
-					if (treeObject.getName().equals(TreeViewContentProvider.SENSORS)) {
-						SensorsView.viewer.setInput(treeObject);
-					}
-				}
-			}
-
-		});
 
 		makeActions();
 		hookContextMenu();
@@ -97,14 +75,15 @@ public class ExperimentsView extends ViewPart {
 	}
 
 	private void fillLocalPullDown(IMenuManager manager) {
-		manager.add(action1);
+		manager.add(reloadView);
 		manager.add(new Separator());
-		manager.add(action2);
+		manager.add(collapseAll);
 	}
 
 	private void fillContextMenu(IMenuManager manager) {
-		manager.add(action1);
-		manager.add(action2);
+		manager.add(reloadView);
+		manager.add(new Separator());
+		manager.add(collapseAll);
 		manager.add(new Separator());
 		drillDownAdapter.addNavigationActions(manager);
 		// Other plug-ins can contribute there actions here
@@ -112,32 +91,33 @@ public class ExperimentsView extends ViewPart {
 	}
 
 	private void fillLocalToolBar(IToolBarManager manager) {
-		manager.add(action1);
-		manager.add(action2);
+		manager.add(reloadView);
+		manager.add(new Separator());
+		manager.add(collapseAll);
 		manager.add(new Separator());
 		drillDownAdapter.addNavigationActions(manager);
 	}
 
 	private void makeActions() {
-		action1 = new Action() {
+		reloadView = new Action() {
 			public void run() {
-				showMessage("Action 1 executed");
+				viewer.refresh();
 			}
 		};
-		action1.setText("Action 1");
-		action1.setToolTipText("Action 1 tooltip");
-		action1.setImageDescriptor(PlatformUI.getWorkbench().getSharedImages()
-				.getImageDescriptor(ISharedImages.IMG_OBJS_INFO_TSK));
+		reloadView.setText("Reload View");
+		reloadView.setToolTipText("Reload View");
+		reloadView.setImageDescriptor(Activator.getImageDescriptor("/icons/db_reload_obj.gif"));
 
-		action2 = new Action() {
+		collapseAll = new Action() {
 			public void run() {
-				showMessage("Action 2 executed");
+				viewer.collapseAll();
 			}
 		};
-		action2.setText("Action 2");
-		action2.setToolTipText("Action 2 tooltip");
-		action2.setImageDescriptor(PlatformUI.getWorkbench().getSharedImages()
-				.getImageDescriptor(ISharedImages.IMG_OBJS_INFO_TSK));
+		collapseAll.setText("Collapse All");
+		collapseAll.setToolTipText("Collapse All");
+		collapseAll.setImageDescriptor(Activator.getImageDescriptor("/icons/collapseall.gif"));
+		
+		// TODO ???
 		doubleClickAction = new Action() {
 			public void run() {
 				ISelection selection = viewer.getSelection();

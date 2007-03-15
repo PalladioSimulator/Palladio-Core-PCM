@@ -7,8 +7,9 @@ Bundle-Activator: de.uka.ipd.sdq.codegen.simudatavisualization.Activator
 Bundle-Localization: plugin
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
- de.uka.ipd.sdq.sensorframework,
- org.eclipse.core.resources
+ org.eclipse.core.resources,
+ org.eclipse.ui.views.properties.tabbed,
+ de.uka.ipd.sdq.sensorframework
 Eclipse-RegisterBudd: de.uka.ipd.sdq.sensorframework
 Eclipse-BuddyPolicy: dependent
 Eclipse-LazyStart: true

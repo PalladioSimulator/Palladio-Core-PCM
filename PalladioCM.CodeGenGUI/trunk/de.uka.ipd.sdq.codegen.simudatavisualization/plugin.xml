@@ -1,40 +1,73 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?eclipse version="3.2"?>
 <plugin>
-   <extension
-         point="org.eclipse.ui.views">
-      <category
-            name="SimuBench Category"
-            id="de.uka.ipd.sdq.codegen.simudatavisualization">
-      </category>
-      <view
-            name="Experiments View"
-            icon="icons/app_simucim.gif"
-            category="de.uka.ipd.sdq.codegen.simudatavisualization"
-            class="de.uka.ipd.sdq.codegen.simudatavisualization.views.ExperimentsView"
-            id="de.uka.ipd.sdq.codegen.simudatavisualization.ExperimentsView">
-      </view>
-      <view
-            category="de.uka.ipd.sdq.codegen.simudatavisualization"
-            class="de.uka.ipd.sdq.codegen.simudatavisualization.views.SensorsView"
-            icon="icons/app_simucim.gif"
-            id="de.uka.ipd.sdq.codegen.simudatavisualization.SensorsView"
-            name="Sensors View"/>
-      <view
-            category="de.uka.ipd.sdq.codegen.simudatavisualization"
-            class="de.uka.ipd.sdq.codegen.simudatavisualization.views.RunsView"
-            icon="icons/app_simucim.gif"
-            id="de.uka.ipd.sdq.codegen.simudatavisualization.RunsView"
-            name="Runs View"/>
-   </extension>
 	   <extension
-	         point="org.eclipse.ui.perspectives">
-	     	 <perspective
-	            class="de.uka.ipd.sdq.codegen.simudatavisualization.perspective.SimuBenchPerspective"
-	            fixed="false"
+	         point="org.eclipse.ui.views">
+	      <category
+	            name="SimuBench Category"
+	            id="de.uka.ipd.sdq.codegen.simudatavisualization">
+	      </category>
+	      <view
+	            name="Experiments View"
 	            icon="icons/app_simucim.gif"
-	            id="de.uka.ipd.sdq.codegen.simudatavisualization.SimuBenchPerspective"
-	            name="SimuBench"/>
+	            category="de.uka.ipd.sdq.codegen.simudatavisualization"
+	            class="de.uka.ipd.sdq.codegen.simudatavisualization.views.ExperimentsView"
+	            id="de.uka.ipd.sdq.codegen.simudatavisualization.ExperimentsView">
+	      </view>
+	      <view
+	            category="de.uka.ipd.sdq.codegen.simudatavisualization"
+	            class="de.uka.ipd.sdq.codegen.simudatavisualization.views.ReportView"
+	            icon="icons/app_simucim.gif"
+	            id="de.uka.ipd.sdq.codegen.simudatavisualization.ReportView"
+	            name="Report View"/>
+	   </extension>
+		   <extension
+		         point="org.eclipse.ui.perspectives">
+		     	 <perspective
+		            class="de.uka.ipd.sdq.codegen.simudatavisualization.perspective.SimuBenchPerspective"
+		            fixed="false"
+		            icon="icons/app_simucim.gif"
+		            id="de.uka.ipd.sdq.codegen.simudatavisualization.SimuBenchPerspective"
+		            name="SimuBench"/>
+		   </extension>
+	    <extension
+	          point="org.eclipse.ui.views.properties.tabbed.propertyContributor">
+	       <propertyContributor
+	             contributorId="de.uka.ipd.sdq.codegen.simudatavisualization.ReportView"
+	             labelProvider="de.uka.ipd.sdq.codegen.simudatavisualization.tabs.PropertyLabelProvider"
+	             typeMapper="de.uka.ipd.sdq.codegen.simudatavisualization.tabs.PropertyTypeMapper">
+		       		<propertyCategory category="sensors"/>
+		         	<propertyCategory category="configuration"/>
+	       </propertyContributor>
+	    </extension>
+	    
+	    <extension
+	          point="org.eclipse.ui.views.properties.tabbed.propertyTabs">
+	       <propertyTabs 
+	       		contributorId="de.uka.ipd.sdq.codegen.simudatavisualization.ReportView">
+	       		<propertyTab
+	            	category="sensors"
+	               	id="SensorsTab"
+	            	label="Sensors"/>
+	        	<propertyTab
+	                category="configuration"
+	                id="ConfTab"
+	                label="Configuration"/>
+	       </propertyTabs>
+	   </extension>
+	   <extension
+	          point="org.eclipse.ui.views.properties.tabbed.propertySections">
+	       <propertySections contributorId="de.uka.ipd.sdq.codegen.simudatavisualization.ReportView">
+	          <propertySection
+	                class="de.uka.ipd.sdq.codegen.simudatavisualization.tabs.SensorsPropertySection"
+	                id="SensorsSection"
+	                tab="SensorsTab"/>
+	          <propertySection
+	                class="de.uka.ipd.sdq.codegen.simudatavisualization.tabs.ConfPropertySection"
+	                id="ConfSection"
+	                tab="ConfTab">
+	         </propertySection>
+	      </propertySections>
 	   </extension>
 
 </plugin>
