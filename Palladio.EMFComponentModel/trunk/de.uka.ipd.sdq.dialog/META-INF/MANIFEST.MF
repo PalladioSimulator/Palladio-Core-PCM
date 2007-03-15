@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Common SDQ Dialogs
 Bundle-SymbolicName: de.uka.ipd.sdq.dialogs
-Bundle-Version: 2.0.1
+Bundle-Version: 2.0.1.qualifier
 Bundle-Vendor: sdq.ipd.uka.de
 Require-Bundle: org.eclipse.ui,
  org.eclipse.emf,

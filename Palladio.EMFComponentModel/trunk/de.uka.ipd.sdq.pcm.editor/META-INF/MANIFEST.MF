@@ -27,5 +27,9 @@ Require-Bundle: org.eclipse.core.runtime,
  de.uka.ipd.sdq.identifier.edit;visibility:=reexport,
  de.uka.ipd.sdq.probfunction.edit;visibility:=reexport,
  de.uka.ipd.sdq.stoex.edit;visibility:=reexport,
- de.uka.ipd.sdq.pcmbench.ui
+ de.uka.ipd.sdq.stoex;visibility:=reexport,
+ de.uka.ipd.sdq.pcmbench.ui,
+ de.uka.ipd.sdq.stoex.analyser,
+ de.uka.ipd.sdq.dialogs,
+ de.uka.ipd.sdq.pcm.stochasticexpressions
 Eclipse-LazyStart: true

@@ -26,11 +26,11 @@ public class RepositoryEditorSeffEditHelperAdvice extends AbstractEditHelperAdvi
 	@Override
 	protected ICommand getAfterConfigureCommand(ConfigureRequest request) {
 		EObject signature = null;
-		ArrayList<Class<?>> filterList = new ArrayList<Class<?>>();
+		ArrayList<Object> filterList = new ArrayList<Object>();
 		filterList.add(ProvidedRole.class);
 		filterList.add(Interface.class);
 		filterList.add(Signature.class);
-		ArrayList<EReference> additionalReferences = new ArrayList<EReference>();
+		ArrayList<Object> additionalReferences = new ArrayList<Object>();
 		additionalReferences.add(RepositoryPackage.eINSTANCE.getProvidedRole_ProvidedInterface__ProvidedRole());
 		PalladioSelectEObjectDialog dialog = new PalladioSelectEObjectDialog(
 				PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(),
