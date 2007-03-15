@@ -139,9 +139,9 @@ public class PalladioComponentModelSeffDiagramEditorPlugin extends
 		factories.add(new CompositionItemProviderAdapterFactory());
 		factories.add(new RepositoryItemProviderAdapterFactory());
 		factories.add(new ProtocolItemProviderAdapterFactory());
+		factories.add(new ParameterItemProviderAdapterFactory());
 		factories.add(new SeffItemProviderAdapterFactory());
 		factories.add(new ResourcetypeItemProviderAdapterFactory());
-		factories.add(new ParameterItemProviderAdapterFactory());
 		factories.add(new AllocationItemProviderAdapterFactory());
 		factories.add(new ResourceenvironmentItemProviderAdapterFactory());
 		factories.add(new SystemItemProviderAdapterFactory());

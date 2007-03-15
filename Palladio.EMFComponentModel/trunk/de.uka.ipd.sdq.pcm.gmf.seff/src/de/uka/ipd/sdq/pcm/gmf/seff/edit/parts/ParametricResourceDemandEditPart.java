@@ -116,6 +116,8 @@ public class ParametricResourceDemandEditPart extends CompartmentEditPart
 				new ListItemComponentEditPolicy());
 		installEditPolicy(EditPolicy.DIRECT_EDIT_ROLE,
 				new LabelDirectEditPolicy());
+		installEditPolicy(
+				"OpenPolicy", new de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.OpenStoExDialog()); //$NON-NLS-1$
 	}
 
 	/**

@@ -48,6 +48,7 @@ import org.eclipse.jface.operation.IRunnableContext;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.part.FileEditorInput;
+
 /**
  * @generated
  */
@@ -142,11 +143,11 @@ public class PalladioComponentModelDocumentProvider extends
 	 * @generated NOT
 	 */
 	private TransactionalEditingDomain createEditingDomain() {
-//		TransactionalEditingDomain editingDomain = DiagramEditingDomainFactory
-//				.getInstance().createEditingDomain();
-//		editingDomain.setID("de.uka.ipd.sdq.PCMBench.editingDomain"); //$NON-NLS-1$
+		//		TransactionalEditingDomain editingDomain = DiagramEditingDomainFactory
+		//				.getInstance().createEditingDomain();
+		//		editingDomain.setID("de.uka.ipd.sdq.PCMBench.editingDomain"); //$NON-NLS-1$
 		TransactionalEditingDomain editingDomain = TransactionalEditingDomain.Registry.INSTANCE
-			.getEditingDomain("de.uka.ipd.sdq.PCMBench.editingDomain");
+				.getEditingDomain("de.uka.ipd.sdq.PCMBench.editingDomain");
 		final NotificationFilter diagramResourceModifiedFilter = NotificationFilter
 				.createNotifierFilter(editingDomain.getResourceSet()).and(
 						NotificationFilter

@@ -352,6 +352,10 @@
         <requiredPluginIDs>org.eclipse.draw2d</requiredPluginIDs>
         <requiredPluginIDs>org.eclipse.gmf.runtime.draw2d.ui</requiredPluginIDs>
       </viewmap>
+      <behaviour
+          xsi:type="gmfgen:CustomBehaviour"
+          key="OpenPolicy"
+          editPolicyQualifiedClassName="de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.OpenStoExDialog"/>
       <modelFacet>
         <metaClass
             href="../../pcm.genmodel#//pcm/seff/ParametricResourceDemand"/>
@@ -1212,6 +1216,7 @@
       iD="de.uka.ipd.sdq.pcm.gmf.seff"
       name="Seff Editor Plugin"
       provider="sdq.ipd.uka.de"
+      version="2.0.0.qualifier"
       printingEnabled="true"
       activatorClassName="PalladioComponentModelSeffDiagramEditorPlugin"/>
   <editor
