@@ -125,7 +125,7 @@
     <children xmi:type="notation:Node" xmi:id="_XFNkYdJPEduQ7qbNANXHPw" type="Description">
       <element xsi:nil="true"/>
     </children>
-    <styles xmi:type="notation:ShapeStyle" xmi:id="_XFDzYdJPEduQ7qbNANXHPw" description="checkForLowRunningGoods()" fillColor="13369343" lineColor="6737151"/>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_XFDzYdJPEduQ7qbNANXHPw" description="checkForLowRunningGoods() starting here" fillColor="13369343" lineColor="6737151"/>
     <element xsi:nil="true"/>
     <layoutConstraint xmi:type="notation:Bounds" xmi:id="_XFDzYtJPEduQ7qbNANXHPw" x="372" y="648"/>
   </children>
@@ -181,7 +181,7 @@
     <children xmi:type="notation:Node" xmi:id="_s_l7lNJQEduQ7qbNANXHPw" type="Description">
       <element xsi:nil="true"/>
     </children>
-    <styles xmi:type="notation:ShapeStyle" xmi:id="_s_l7kdJQEduQ7qbNANXHPw" description="calculateProductAmounts()" fillColor="13369343" lineColor="6737151"/>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_s_l7kdJQEduQ7qbNANXHPw" description="includes calculateProductAmounts()" fillColor="13369343" lineColor="6737151"/>
     <element xsi:nil="true"/>
     <layoutConstraint xmi:type="notation:Bounds" xmi:id="_s_l7ktJQEduQ7qbNANXHPw" x="446" y="942"/>
   </children>
@@ -270,7 +270,7 @@
                 <styles xmi:type="notation:FillStyle" xmi:id="_7fIm9NJTEduQ7qbNANXHPw"/>
                 <styles xmi:type="notation:LineStyle" xmi:id="_7fIm9dJTEduQ7qbNANXHPw"/>
                 <element xmi:type="pcm.seff:InternalAction" href="cocome.repository#_7fIm8NJTEduQ7qbNANXHPw"/>
-                <layoutConstraint xmi:type="notation:Bounds" xmi:id="_7fIm9tJTEduQ7qbNANXHPw" x="15" y="133" width="68"/>
+                <layoutConstraint xmi:type="notation:Bounds" xmi:id="_7fIm9tJTEduQ7qbNANXHPw" x="3" y="135" width="68"/>
               </children>
               <children xmi:type="notation:Node" xmi:id="_80qPcNJTEduQ7qbNANXHPw" type="3005">
                 <styles xmi:type="notation:FontStyle" xmi:id="_80qPcdJTEduQ7qbNANXHPw"/>
