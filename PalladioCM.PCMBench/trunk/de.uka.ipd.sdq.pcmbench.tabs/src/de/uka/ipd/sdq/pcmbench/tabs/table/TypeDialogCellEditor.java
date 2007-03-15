@@ -1,4 +1,4 @@
-package de.uka.ipd.sdq.pcmbench.tabs.dialogs;
+package de.uka.ipd.sdq.pcmbench.tabs.table;
 
 import java.util.ArrayList;
 
@@ -7,6 +7,7 @@ import org.eclipse.jface.viewers.DialogCellEditor;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 
+import de.uka.ipd.sdq.dialogs.datatype.CallDataTypeDialog;
 import de.uka.ipd.sdq.pcm.repository.DataType;
 import de.uka.ipd.sdq.pcm.repository.Repository;
 import de.uka.ipd.sdq.pcmbench.EditingDomainFactory;
@@ -15,7 +16,7 @@ import de.uka.ipd.sdq.pcmbench.EditingDomainFactory;
  * @author admin
  * 
  */
-public class ReturnTypeDialogCellEditor extends DialogCellEditor {
+public class TypeDialogCellEditor extends DialogCellEditor {
 
 	/**
 	 * The transactional editing domain which is used to get the commands and
@@ -29,7 +30,7 @@ public class ReturnTypeDialogCellEditor extends DialogCellEditor {
 	 * @See org.eclipse.jface.viewers.DialogCellEditor#DialogCellEditor(org.eclipse.swt.widgets.Control
 	 *      parent)
 	 */
-	public ReturnTypeDialogCellEditor(Composite parent) {
+	public TypeDialogCellEditor(Composite parent) {
 		super(parent);
 	}
 
@@ -47,7 +48,7 @@ public class ReturnTypeDialogCellEditor extends DialogCellEditor {
 		filterList.add(Repository.class);
 		ArrayList<Object> additionalReferences = new ArrayList<Object>();
 
-		ReturnTypeDialog dialog = new ReturnTypeDialog(
+		CallDataTypeDialog dialog = new CallDataTypeDialog(
 				cellEditorWindow.getShell(),
 				filterList,
 				additionalReferences,

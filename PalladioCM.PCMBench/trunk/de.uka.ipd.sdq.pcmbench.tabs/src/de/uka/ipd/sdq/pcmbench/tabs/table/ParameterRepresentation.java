@@ -2,13 +2,15 @@ package de.uka.ipd.sdq.pcmbench.tabs.table;
 
 import java.util.Iterator;
 
-import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 
 import de.uka.ipd.sdq.pcm.repository.DataType;
 import de.uka.ipd.sdq.pcm.repository.ExceptionType;
 import de.uka.ipd.sdq.pcm.repository.Parameter;
+import de.uka.ipd.sdq.pcm.repository.provider.RepositoryItemProviderAdapterFactory;
+import de.uka.ipd.sdq.pcmbench.ui.provider.PalladioItemProviderAdapterFactory;
 
 /**
  * @author roman
@@ -21,10 +23,18 @@ public class ParameterRepresentation {
 	 * @param AdapterFactory
 	 * @return String
 	 */
-	public String setDataTypeToString(DataType returnType,
-			AdapterFactory decoratedFactory) {
+	public String setDataTypeToString(DataType returnType) {
 
 		String result = "";
+		
+		// RepositoryItemProviderAdapterFactory
+		ComposedAdapterFactory adapterFactory = new ComposedAdapterFactory();
+		adapterFactory
+				.addAdapterFactory(new RepositoryItemProviderAdapterFactory());
+
+		PalladioItemProviderAdapterFactory decoratedFactory = new PalladioItemProviderAdapterFactory(
+				adapterFactory);
+
 
 		if (returnType != null) {
 			IItemLabelProvider datatypeProvider = (IItemLabelProvider) decoratedFactory

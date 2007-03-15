@@ -10,7 +10,6 @@ import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.jface.viewers.TextCellEditor;
 import org.eclipse.swt.SWT;
-import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.layout.FormAttachment;
 import org.eclipse.swt.layout.FormData;
 import org.eclipse.swt.widgets.Composite;
@@ -20,9 +19,10 @@ import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.swt.widgets.ToolBar;
 import org.eclipse.swt.widgets.ToolItem;
 
+import de.uka.ipd.sdq.dialogs.datatype.DialogRepository;
+import de.uka.ipd.sdq.dialogs.parameters.ParametersDialog;
 import de.uka.ipd.sdq.pcm.repository.Signature;
-import de.uka.ipd.sdq.pcmbench.tabs.dialogs.ParametersDialogViewer;
-import de.uka.ipd.sdq.pcmbench.tabs.dialogs.ReturnTypeDialogCellEditor;
+import de.uka.ipd.sdq.pcmbench.tabs.PCMBenchTabsImages;
 
 public class OperationsTabViewer {
 
@@ -38,6 +38,24 @@ public class OperationsTabViewer {
 	public static final int SIGNATURENAME_COLUMN_INDEX = 2;
 	public static final int PARAMETER_COLUMN_INDEX = 3;
 	public static final int EXCEPTIONS_COLUMN_INDEX = 4;
+	
+	/**
+	 * Columns of a table, which is used into operations table
+	 */
+	
+	public final static String OPERATIONS_ICON_COLUMN	= "";
+	public final static String OWNEDPARAMETER_COLUMN 	= "OwnedParameters";
+	public final static String RETURNTYPE_COLUMN 		= "ReturnType";
+	public final static String SERVICENAME_COLUMN 		= "ServiceName";
+	public final static String EXEPTIONTYPE_COLUM		= "ExeptionType";
+	
+	//	 Set column names of Tabele
+	private static String[] operationsTableColumn = new String[] { OPERATIONS_ICON_COLUMN,RETURNTYPE_COLUMN,
+			SERVICENAME_COLUMN, OWNEDPARAMETER_COLUMN, EXEPTIONTYPE_COLUM };
+
+	public static String[] getOperationsTableColumn() {
+		return operationsTableColumn;
+	}
 
 	public OperationsTabViewer(Composite composite) {
 		/**
@@ -45,7 +63,7 @@ public class OperationsTabViewer {
 		 *      de.uka.ipd.sdq.pcmbench.tabs.OperationsPropertySection#createControls(Composite,
 		 *      TabbedPropertySheetPage)
 		 */
-		columnNames = OperationsTabResources.getOperationsTableColumn();
+		columnNames = getOperationsTableColumn();
 
 		this.createToolBar(composite);
 		this.createTable(composite);
@@ -100,14 +118,14 @@ public class OperationsTabViewer {
 		textEditor = new TextCellEditor(table);
 		editors[EXCEPTIONS_COLUMN_INDEX] = textEditor;
 
-		editors[RETURNTYPE_COLUMN_INDEX] = new ReturnTypeDialogCellEditor(table);
+		editors[RETURNTYPE_COLUMN_INDEX] = new TypeDialogCellEditor(table);
 
-		editors[PARAMETER_COLUMN_INDEX] = new DialogCellEditor(table){
+		editors[PARAMETER_COLUMN_INDEX] = new DialogCellEditor(table) {
 			@Override
 			protected Object openDialogBox(Control cellEditorWindow) {
-				ParametersDialogViewer dialog = new ParametersDialogViewer(
-						cellEditorWindow.getShell(), OperationsTabResources.OWNEDPARAMETER_COLUMN);
-				
+				ParametersDialog dialog = new ParametersDialog(
+						cellEditorWindow.getShell(),
+						selectedSignature);
 				return dialog.open();
 			}
 		};
@@ -133,14 +151,17 @@ public class OperationsTabViewer {
 
 							(DeleteActionListener.getSingelton())
 									.setSelectedSignature(selectedSignature);
-							//TODO
-							OperationsTabResources.setEditedSignature(selectedSignature);
+							// TODO
+							OperationsTabRepository
+									.setEditedSignature(selectedSignature);
 
 						} else
 							deleteItem.setEnabled(false);
 					}
 				});
-		OperationsTabResources.setOperationsViewer(tableViewer);
+		// TODO
+		DialogRepository.setOperationsViewer(tableViewer);
+		OperationsTabRepository.setOperationsViewer(tableViewer);
 	}
 
 	public void createToolBar(Composite composite) {
@@ -154,15 +175,13 @@ public class OperationsTabViewer {
 		toolBar = new ToolBar(composite, SWT.VERTICAL | SWT.FLAT | SWT.RIGHT);
 
 		addItem = new ToolItem(toolBar, SWT.PUSH);
-		Image addIcon = OperationsTabResources.imageRegistry
-				.get(OperationsTabResources.ADD_SIGN);
-		addItem.setImage(addIcon);
+		addItem.setImage(PCMBenchTabsImages.imageRegistry
+				.get(PCMBenchTabsImages.ADD_SIGN));
 		addItem.addSelectionListener(AddActionListener.getSingelton());
 
 		deleteItem = new ToolItem(toolBar, SWT.PUSH);
-		Image deleteIcon = OperationsTabResources.imageRegistry
-				.get(OperationsTabResources.DELETE_SIGN);
-		deleteItem.setImage(deleteIcon);
+		deleteItem.setImage( PCMBenchTabsImages.imageRegistry
+				.get(PCMBenchTabsImages.DELETE_SIGN));
 		deleteItem.setEnabled(false);
 		deleteItem.addSelectionListener(DeleteActionListener.getSingelton());
 
@@ -187,4 +206,5 @@ public class OperationsTabViewer {
 	public void setSelectedSignature(Signature selectedSignature) {
 		this.selectedSignature = selectedSignature;
 	}
+
 }

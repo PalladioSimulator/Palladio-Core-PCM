@@ -18,19 +18,14 @@ import de.uka.ipd.sdq.pcm.repository.Signature;
 public class OperationsTabItemProvider extends ItemProviderDecorator implements
 		ITableItemLabelProvider, IItemLabelProvider {
 
-	private AdapterFactory decoratedFactory;
-
 	/**
 	 * Inherited default constructor
 	 * 
 	 * @param factory
 	 *            The factory which created this object
 	 */
-	public OperationsTabItemProvider(AdapterFactory factory,
-			AdapterFactory decoratedFactory) {
+	public OperationsTabItemProvider(AdapterFactory factory) {
 		super(factory);
-		this.decoratedFactory = decoratedFactory;
-		OperationsTabResources.setOperationsDecoratedFactory(decoratedFactory);
 	}
 
 	/*
@@ -65,7 +60,7 @@ public class OperationsTabItemProvider extends ItemProviderDecorator implements
 			break;
 		case OperationsTabViewer.RETURNTYPE_COLUMN_INDEX:
 			result = parser.setDataTypeToString(signature
-					.getReturntype__Signature(), decoratedFactory);
+					.getReturntype__Signature());
 			break;
 		case OperationsTabViewer.SIGNATURENAME_COLUMN_INDEX:
 			result = signature.getServiceName();
@@ -83,12 +78,4 @@ public class OperationsTabItemProvider extends ItemProviderDecorator implements
 		}
 		return parser.isNotNull(result);
 	}
-
-	/**
-	 * @return the decoratedFactory
-	 */
-	public AdapterFactory getDecoratedFactory() {
-		return decoratedFactory;
-	}
-
 }

@@ -17,7 +17,7 @@ public class OperationsTabItemProviderAdapterFactory extends
 	@Override
 	protected IItemProviderDecorator createItemProviderDecorator(Object target,
 			Object type) {
-		IItemProviderDecorator decorator = new OperationsTabItemProvider(this,decoratedAdapterFactory);
+		IItemProviderDecorator decorator = new OperationsTabItemProvider(this);
 		if (type == ITableItemLabelProvider.class) {
 			decorator
 					.setDecoratedItemProvider((IChangeNotifier) decoratedAdapterFactory

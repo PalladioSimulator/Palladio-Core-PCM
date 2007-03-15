@@ -4,7 +4,6 @@ import java.util.Arrays;
 import java.util.List;
 
 import org.eclipse.core.runtime.Assert;
-import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.transaction.RecordingCommand;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.jface.viewers.ICellModifier;
@@ -35,7 +34,7 @@ public class OperationsCellModifier implements ICellModifier {
 			.getEditingDomain(EditingDomainFactory.EDITING_DOMAIN_ID);
 
 	public OperationsCellModifier() {
-		this.columnNames = Arrays.asList(OperationsTabResources
+		this.columnNames = Arrays.asList(OperationsTabViewer
 				.getOperationsTableColumn());
 	}
 
@@ -50,10 +49,7 @@ public class OperationsCellModifier implements ICellModifier {
 	}
 
 	public Object getValue(Object element, String property) {
-		
-		AdapterFactory decoratedFactory = OperationsTabResources.getOperationsDecoratedFactory();
-		
-		return (new OperationsTabItemProvider(null,decoratedFactory)).getColumnText(element,
+		return (new OperationsTabItemProvider(null)).getColumnText(element,
 				columnNames.indexOf(property));
 	}
 
@@ -122,6 +118,6 @@ public class OperationsCellModifier implements ICellModifier {
 	}
 	
 	private void reloadOperationsViewer(){
-		OperationsTabResources.getOperationsViewer().refresh();
+		OperationsTabRepository.getOperationsViewer().refresh();
 	}
 }
