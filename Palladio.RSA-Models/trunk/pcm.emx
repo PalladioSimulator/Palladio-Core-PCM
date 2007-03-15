@@ -8382,9 +8382,7 @@
       <generalization xmi:id="_7ukSwOQREdqeH_WIC9QRew" general="_lA9SYOQREdqeH_WIC9QRew"/>
     </ownedMember>
     <ownedMember xmi:type="uml:Class" xmi:id="_HTuNcOQREdqeH_WIC9QRew" name="ScenarioBehaviour">
-      <generalization xmi:id="_3YCZEJBEEduoRsekQFNE6A">
-        <general xmi:type="uml:Class" href="identifier.emx#_UMp04JMWEdqSSImFLKDkSg?identifier/Identifier"/>
-      </generalization>
+      <generalization xmi:id="_3YCZEJBEEduoRsekQFNE6A" general="_au_WlWA_EdqdHZdhXRxKVg"/>
       <ownedAttribute xmi:id="_qdDHoeQREdqeH_WIC9QRew" name="actions_ScenarioBehaviour" type="_lA9SYOQREdqeH_WIC9QRew" association="_qdDHoOQREdqeH_WIC9QRew" aggregation="composite">
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_qdDHpOQREdqeH_WIC9QRew" value="-1"/>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_qdDHo-QREdqeH_WIC9QRew"/>
