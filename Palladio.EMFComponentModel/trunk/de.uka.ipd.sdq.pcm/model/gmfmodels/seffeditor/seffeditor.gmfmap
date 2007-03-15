@@ -372,6 +372,7 @@
               href="../../pcm.ecore#//seff/ParametricResourceDemand"/>
           <labelMappings
               xsi:type="gmfmap:FeatureLabelMapping"
+              readOnly="true"
               viewPattern="{0} {1}"
               editPattern="{0}">
             <diagramLabel
