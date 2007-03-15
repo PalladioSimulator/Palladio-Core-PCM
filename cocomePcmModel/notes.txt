@@ -17,6 +17,11 @@ Signatures:
 SEFFs finished:
 - org.cocome.tradingsystem.inventory.application.store:
 	- bookSale(SaleTO saleTO)
+- org.cocome.tradingsystem.inventory.data.store.impl.StoreQueryImpl
+	- queryStockItemById(long stockId, PersistenceContext pctx)
+	- queryLowStockItemsWithRespectToIncomingProducts(long storeId, PersistenceContext pctx)
+- org.cocome.tradingsystem.inventory.data.persistence.impl.PersistenceImpl
+	- getPersistenceContext()
 
 
 SEFF modeling problems:
