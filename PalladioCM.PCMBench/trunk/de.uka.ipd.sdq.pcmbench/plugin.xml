@@ -124,6 +124,10 @@
             <actionExtension pattern="org.eclipse.ui.navigator.resources.*"/>
          </includes>
       </viewerActionBinding>
+      <dragAssistant
+            class="de.uka.ipd.sdq.pcmbench.navigator.DragAssistant"
+            viewerId="de.uka.ipd.sdq.pcmbench.projectview">
+      </dragAssistant>
    </extension>
    <extension
          point="org.eclipse.ui.navigator.navigatorContent">
