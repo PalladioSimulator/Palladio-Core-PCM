@@ -49,6 +49,7 @@ import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.FontData;
 import org.eclipse.swt.graphics.Image;
 
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.OpenStoExDialog;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.PalladioComponentModelTextNonResizableEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.PalladioComponentModelTextSelectionEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.VariableCharacterisationItemSemanticEditPolicy;
@@ -116,6 +117,7 @@ public class VariableCharacterisationEditPart extends CompartmentEditPart
 				new ListItemComponentEditPolicy());
 		installEditPolicy(EditPolicy.DIRECT_EDIT_ROLE,
 				new LabelDirectEditPolicy());
+		installEditPolicy("OpenPolicy", new OpenStoExDialog()); //$NON-NLS-1$
 	}
 
 	/**

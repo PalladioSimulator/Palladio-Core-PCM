@@ -66,8 +66,8 @@ public class PalladioComponentModelParserProvider extends AbstractProvider
 		features.add(StoexPackage.eINSTANCE.getRandomVariable_Specification());
 		PalladioComponentModelStructuralFeaturesParser parser = new PalladioComponentModelStructuralFeaturesParser(
 				features);
-		parser.setViewPattern("{0} {1}");
-		parser.setEditPattern("{0} {1}");
+		parser.setViewPattern("{0} = {1}");
+		parser.setEditPattern("{0} = {1}");
 		return parser;
 	}
 

@@ -86,7 +86,7 @@
               <labelMappings
                   xsi:type="gmfmap:FeatureLabelMapping"
                   readOnly="true"
-                  viewPattern="{0} {1}"
+                  viewPattern="{0} = {1}"
                   editPattern="">
                 <diagramLabel
                     href="seffeditor.gmfgraph#VariableCharacterisationLabel"/>

@@ -23,6 +23,8 @@ import de.uka.ipd.sdq.pcm.stochasticexpressions.PCMStoExPrettyPrintVisitor;
 import de.uka.ipd.sdq.stoex.RandomVariable;
 import de.uka.ipd.sdq.stoex.StoexPackage;
 
+// Manually written open policy to open the StoEx Dialog. It's
+// called via a CustomBehaviour in the genmap
 public class OpenStoExDialog extends OpenEditPolicy {
 
 	@Override
@@ -48,17 +50,23 @@ public class OpenStoExDialog extends OpenEditPolicy {
 	private Parameter[] getContext(EObject rv) {
 		Parameter[] parameters = new Parameter[]{};
 
-		if (rv instanceof ParametricResourceDemand) {
-			ParametricResourceDemand prd = (ParametricResourceDemand) rv;
-			AbstractResourceDemandingAction a = prd.getAction_ParametricResourceDemand();
-			EObject container = a;
-			while (!((container = container.eContainer()) instanceof ResourceDemandingSEFF))
-				container = container.eContainer();
-			ResourceDemandingSEFF seff = (ResourceDemandingSEFF) container;
-			if (seff.getDescribedService__SEFF() != null && seff.getDescribedService__SEFF().getParameters__Signature() != null)
-				parameters = (Parameter[]) seff.getDescribedService__SEFF().getParameters__Signature().toArray();
-		}
+		ResourceDemandingSEFF seff = getSEFF(
+				rv);
+
+		if (seff != null && seff.getDescribedService__SEFF() != null && seff.getDescribedService__SEFF().getParameters__Signature() != null)
+			parameters = (Parameter[]) seff.getDescribedService__SEFF().getParameters__Signature().toArray();
+
 		return parameters;
+	}
+
+	private ResourceDemandingSEFF getSEFF(EObject a) {
+		EObject container = a;
+		while (!(container instanceof ResourceDemandingSEFF))
+			container = container.eContainer();
+		if (!(container instanceof ResourceDemandingSEFF)) 
+			return null;
+		ResourceDemandingSEFF seff = (ResourceDemandingSEFF) container;
+		return seff;
 	}
 
 }

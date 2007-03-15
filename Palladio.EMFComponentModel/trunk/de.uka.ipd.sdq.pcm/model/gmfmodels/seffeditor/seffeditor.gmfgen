@@ -97,6 +97,10 @@
         <requiredPluginIDs>org.eclipse.draw2d</requiredPluginIDs>
         <requiredPluginIDs>org.eclipse.gmf.runtime.draw2d.ui</requiredPluginIDs>
       </viewmap>
+      <behaviour
+          xsi:type="gmfgen:CustomBehaviour"
+          key="OpenPolicy"
+          editPolicyQualifiedClassName="de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.OpenStoExDialog"/>
       <modelFacet>
         <metaClass
             href="../../pcm.genmodel#//pcm/parameter/VariableCharacterisation"/>
@@ -107,7 +111,7 @@
       </modelFacet>
       <labelModelFacet
           xsi:type="gmfgen:FeatureLabelModelFacet"
-          viewPattern="{0} {1}"
+          viewPattern="{0} = {1}"
           editPattern="">
         <metaFeatures
             href="../../pcm.genmodel#//pcm/parameter/VariableCharacterisation/type"/>
