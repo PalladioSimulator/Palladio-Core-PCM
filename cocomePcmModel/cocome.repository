@@ -32,6 +32,11 @@
   </components__Repository>
   <components__Repository xsi:type="pcm.repository:BasicComponent" id="_C7qRkNChEduC9O_qbthgAg" entityName="TradingSystem.Inventory.Data.Store">
     <providedRoles_InterfaceProvidingEntity id="_OmzqENChEduC9O_qbthgAg" entityName="Store.StoreQueryIf" providedInterface__ProvidedRole="_HSKXwNChEduC9O_qbthgAg"/>
+    <serviceEffectSpecifications__BasicComponent xsi:type="pcm.seff:ResourceDemandingSEFF" describedService__SEFF="//@interfaces__Repository.3/@signatures__Interface.7" id="queryStockItemById">
+      <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_TNHoUNLaEduQ7qbNANXHPw" successor_AbstractAction="_T1zY8NLaEduQ7qbNANXHPw"/>
+      <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_Tbk7ENLaEduQ7qbNANXHPw" predecessor_AbstractAction="_T1zY8NLaEduQ7qbNANXHPw"/>
+      <steps_Behaviour xsi:type="pcm.seff:InternalAction" id="_T1zY8NLaEduQ7qbNANXHPw" entityName="interact with java EntityManager" predecessor_AbstractAction="_TNHoUNLaEduQ7qbNANXHPw" successor_AbstractAction="_Tbk7ENLaEduQ7qbNANXHPw"/>
+    </serviceEffectSpecifications__BasicComponent>
   </components__Repository>
   <components__Repository xsi:type="pcm.repository:BasicComponent" id="_C5W7w9CyEduW_YoCCnq0vw" entityName="TradingSystem.Inventory.Data.Facade">
     <providedRoles_InterfaceProvidingEntity id="_JwDGwNCyEduW_YoCCnq0vw" entityName="Data.Facade.EnterpriseQueryIf" providedInterface__ProvidedRole="_Eldg8NChEduC9O_qbthgAg"/>
@@ -90,7 +95,7 @@
     <requiredRoles_InterfaceRequiringEntity id="_4OSEsdCnEduC9O_qbthgAg" entityName="Application.Store.StoreQueryIf" requiredInterface__RequiredRole="_HSKXwNChEduC9O_qbthgAg"/>
     <requiredRoles_InterfaceRequiringEntity id="_aa6McdCwEduW_YoCCnq0vw" entityName="Application.Store.SaleRegisteredEvent" requiredInterface__RequiredRole="_RQoSZNCpEduC9O_qbthgAg"/>
     <requiredRoles_InterfaceRequiringEntity id="_IpnV8dItEduQ7qbNANXHPw" entityName="Application.Store.ProductDispatcherIf" requiredInterface__RequiredRole="_dbS8pNCiEduC9O_qbthgAg"/>
-    <serviceEffectSpecifications__BasicComponent xsi:type="pcm.seff:ResourceDemandingSEFF" describedService__SEFF="//@interfaces__Repository.6/@signatures__Interface.9">
+    <serviceEffectSpecifications__BasicComponent xsi:type="pcm.seff:ResourceDemandingSEFF" describedService__SEFF="//@interfaces__Repository.0/@signatures__Interface.0" id="bookSale">
       <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_ckGrcNJOEduQ7qbNANXHPw" successor_AbstractAction="_qPZWwNJOEduQ7qbNANXHPw"/>
       <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_c4EJQNJOEduQ7qbNANXHPw" predecessor_AbstractAction="_6lsvcNJREduQ7qbNANXHPw"/>
       <steps_Behaviour xsi:type="pcm.seff:InternalAction" id="_m1YuANJOEduQ7qbNANXHPw" entityName="persistence context setup" predecessor_AbstractAction="_qPZWwNJOEduQ7qbNANXHPw" successor_AbstractAction="_wAfysNJOEduQ7qbNANXHPw"/>
@@ -109,7 +114,7 @@
       <steps_Behaviour xsi:type="pcm.seff:ExternalCallAction" id="_1UJywNJQEduQ7qbNANXHPw" entityName="queryStoreById" predecessor_AbstractAction="_qZcYsNJQEduQ7qbNANXHPw" successor_AbstractAction="_-2XI0NJQEduQ7qbNANXHPw" calledService_ExternalService="//@interfaces__Repository.3/@signatures__Interface.0"/>
       <steps_Behaviour xsi:type="pcm.seff:InternalAction" id="_-2XI0NJQEduQ7qbNANXHPw" entityName="prepare" predecessor_AbstractAction="_1UJywNJQEduQ7qbNANXHPw" successor_AbstractAction="_Gi_dUNJREduQ7qbNANXHPw"/>
       <steps_Behaviour xsi:type="pcm.seff:ExternalCallAction" id="_Gi_dUNJREduQ7qbNANXHPw" entityName="orderProductsAvailableAtOtherStores" predecessor_AbstractAction="_-2XI0NJQEduQ7qbNANXHPw" successor_AbstractAction="_m2h2INJREduQ7qbNANXHPw" calledService_ExternalService="//@interfaces__Repository.4/@signatures__Interface.0"/>
-      <steps_Behaviour xsi:type="pcm.seff:BranchAction" id="_m2h2INJREduQ7qbNANXHPw" predecessor_AbstractAction="_Gi_dUNJREduQ7qbNANXHPw" successor_AbstractAction="_6lsvcNJREduQ7qbNANXHPw">
+      <steps_Behaviour xsi:type="pcm.seff:BranchAction" id="_m2h2INJREduQ7qbNANXHPw" entityName="check for null" predecessor_AbstractAction="_Gi_dUNJREduQ7qbNANXHPw" successor_AbstractAction="_6lsvcNJREduQ7qbNANXHPw">
         <branches_Branch xsi:type="pcm.seff:ProbabilisticBranchTransition" id="_LqshgNJSEduQ7qbNANXHPw">
           <branchBehaviour_BranchTransition>
             <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_61aUgNJTEduQ7qbNANXHPw" successor_AbstractAction="_7fIm8NJTEduQ7qbNANXHPw"/>
