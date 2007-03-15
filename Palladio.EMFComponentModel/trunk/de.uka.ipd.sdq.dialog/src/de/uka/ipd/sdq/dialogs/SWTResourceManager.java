@@ -1,4 +1,4 @@
-package com.swtdesigner;
+package de.uka.ipd.sdq.dialogs;
 import java.io.BufferedInputStream;
 import java.io.FileInputStream;
 import java.io.InputStream;
@@ -101,7 +101,7 @@ public class SWTResourceManager {
      * Dispose of all the cached colors
      */
     public static void disposeColors() {
-        for (Iterator iter = m_ColorMap.values().iterator(); iter.hasNext();)
+        for (Iterator<Color> iter = m_ColorMap.values().iterator(); iter.hasNext();)
              ((Color) iter.next()).dispose();
         m_ColorMap.clear();
     }
@@ -271,11 +271,11 @@ public class SWTResourceManager {
      * Dispose all of the cached images
      */
     public static void disposeImages() {
-        for (Iterator I = m_ClassImageMap.values().iterator(); I.hasNext();)
+        for (Iterator<Image> I = m_ClassImageMap.values().iterator(); I.hasNext();)
              ((Image) I.next()).dispose();
         m_ClassImageMap.clear();
         //
-        for (Iterator I = m_ImageToDecoratorMap.values().iterator(); I.hasNext();) {
+        for (Iterator<HashMap<Image, Image>> I = m_ImageToDecoratorMap.values().iterator(); I.hasNext();) {
 			HashMap decoratedMap = (HashMap) I.next();
 			for (Iterator J = decoratedMap.values().iterator(); J.hasNext();) {
 				Image image = (Image) J.next();

@@ -1,10 +1,9 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Common SDQ Dialogs
-Bundle-SymbolicName: de.uka.ipd.sdq.dialog
-Bundle-Version: 2.0.0.qualifier
+Bundle-SymbolicName: de.uka.ipd.sdq.dialogs
+Bundle-Version: 2.0.1
 Bundle-Vendor: sdq.ipd.uka.de
-Bundle-Localization: plugin
 Require-Bundle: org.eclipse.ui,
  org.eclipse.emf,
  org.eclipse.emf.edit,
@@ -18,7 +17,10 @@ Require-Bundle: org.eclipse.ui,
  de.uka.ipd.sdq.stoex.analyser,
  de.uka.ipd.sdq.stoex,
  de.uka.ipd.sdq.stoex.edit,
- de.uka.ipd.sdq.pcm.stochasticexpressions
-Export-Package: de.uka.ipd.sdq.dialogs.selection
+ de.uka.ipd.sdq.pcm.stochasticexpressions,
+ org.eclipse.emf.transaction
+Export-Package: de.uka.ipd.sdq.dialogs.datatype,
+ de.uka.ipd.sdq.dialogs.parameters,
+ de.uka.ipd.sdq.dialogs.selection
 Eclipse-LazyStart: true
-Bundle-Activator: DialogPluginActivator
+Bundle-Activator: de.uka.ipd.sdq.dialogs.DialogPluginActivator

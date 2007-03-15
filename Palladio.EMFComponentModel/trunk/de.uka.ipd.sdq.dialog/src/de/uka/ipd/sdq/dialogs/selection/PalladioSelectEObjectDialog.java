@@ -27,7 +27,7 @@ public class PalladioSelectEObjectDialog extends SelectEObjectDialog {
 	 * @param input
 	 */
 	public PalladioSelectEObjectDialog(Shell parent,
-			Collection filterList, Collection additionalChildReferences, Object input) {
+			Collection<Object> filterList, Collection<Object> additionalChildReferences, Object input) {
 		super(parent, null, filterList, additionalChildReferences, input);
 		ComposedAdapterFactory adapterFactory = new ComposedAdapterFactory();
 		adapterFactory
@@ -40,7 +40,7 @@ public class PalladioSelectEObjectDialog extends SelectEObjectDialog {
 	}
 
 	public PalladioSelectEObjectDialog(Shell parent,
-			Collection filterList, Object input) {
-		this(parent,filterList,new ArrayList(),input);
+			Collection<Object> filterList, Object input) {
+		this(parent,filterList,new ArrayList<Object>(),input);
 	}
 }

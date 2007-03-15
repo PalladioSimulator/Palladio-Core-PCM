@@ -38,8 +38,8 @@ import antlr.CharScanner;
 import antlr.RecognitionException;
 import antlr.TokenStreamException;
 
-import com.swtdesigner.SWTResourceManager;
 
+import de.uka.ipd.sdq.dialogs.SWTResourceManager;
 import de.uka.ipd.sdq.pcm.repository.Parameter;
 
 /**
@@ -145,7 +145,7 @@ public abstract class AbstractGrammerBasedEditDialog extends Dialog {
 	}
 
 	protected abstract ITokenMapper getTokenMapper();
-	protected abstract Class getLexerClass();
+	protected abstract Class<?> getLexerClass();
 
 	protected abstract String getTitle();
 
