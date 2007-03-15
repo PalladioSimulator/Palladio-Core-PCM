@@ -108,8 +108,50 @@
       <steps_Behaviour xsi:type="pcm.seff:InternalAction" id="_EteToNL1EduQ7qbNANXHPw" entityName="time out realisation" predecessor_AbstractAction="_trQxsNLzEduQ7qbNANXHPw" successor_AbstractAction="_OpTDkNL1EduQ7qbNANXHPw"/>
       <steps_Behaviour xsi:type="pcm.seff:InternalAction" id="_OpTDkNL1EduQ7qbNANXHPw" entityName="getProductIds" predecessor_AbstractAction="_EteToNL1EduQ7qbNANXHPw" successor_AbstractAction="_7puwUNL2EduQ7qbNANXHPw"/>
       <steps_Behaviour xsi:type="pcm.seff:BranchAction" id="_7puwUNL2EduQ7qbNANXHPw" entityName="requiredProductAmount.size() > 0" predecessor_AbstractAction="_OpTDkNL1EduQ7qbNANXHPw">
-        <branches_Branch xsi:type="pcm.seff:ProbabilisticBranchTransition" id="_9est4NL2EduQ7qbNANXHPw"/>
-        <branches_Branch xsi:type="pcm.seff:ProbabilisticBranchTransition" id="_-aTagNL2EduQ7qbNANXHPw"/>
+        <branches_Branch xsi:type="pcm.seff:ProbabilisticBranchTransition" id="_9est4NL2EduQ7qbNANXHPw">
+          <branchBehaviour_BranchTransition>
+            <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_5bVUMNL4EdujoZKiiOMQBA" successor_AbstractAction="_5us8INL4EdujoZKiiOMQBA"/>
+            <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_5us8INL4EdujoZKiiOMQBA" predecessor_AbstractAction="_5bVUMNL4EdujoZKiiOMQBA"/>
+          </branchBehaviour_BranchTransition>
+        </branches_Branch>
+        <branches_Branch xsi:type="pcm.seff:ProbabilisticBranchTransition" id="_-aTagNL2EduQ7qbNANXHPw">
+          <branchBehaviour_BranchTransition>
+            <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_GTOMoNL5EdujoZKiiOMQBA" successor_AbstractAction="_HGxwgNL5EdujoZKiiOMQBA"/>
+            <steps_Behaviour xsi:type="pcm.seff:InternalAction" id="_HGxwgNL5EdujoZKiiOMQBA" entityName="write output for AMPL / CPLEX and apply optimization" predecessor_AbstractAction="_GTOMoNL5EdujoZKiiOMQBA" successor_AbstractAction="_kFrIwNL5EdujoZKiiOMQBA"/>
+            <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_MYStcNL5EdujoZKiiOMQBA" predecessor_AbstractAction="_kFrIwNL5EdujoZKiiOMQBA"/>
+            <steps_Behaviour xsi:type="pcm.seff:LoopAction" id="_kFrIwNL5EdujoZKiiOMQBA" entityName="loopStores" predecessor_AbstractAction="_HGxwgNL5EdujoZKiiOMQBA" successor_AbstractAction="_MYStcNL5EdujoZKiiOMQBA">
+              <bodyBehaviour_Loop>
+                <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_3VZtANL5EdujoZKiiOMQBA" successor_AbstractAction="_5f_VQNL5EdujoZKiiOMQBA"/>
+                <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_3oeaANL5EdujoZKiiOMQBA" predecessor_AbstractAction="_pcULYNL7EdujoZKiiOMQBA"/>
+                <steps_Behaviour xsi:type="pcm.seff:ExternalCallAction" id="_5f_VQNL5EdujoZKiiOMQBA" entityName="queryStoreById" predecessor_AbstractAction="_3VZtANL5EdujoZKiiOMQBA" successor_AbstractAction="_INS3MNL6EdujoZKiiOMQBA" calledService_ExternalService="//@interfaces__Repository.3/@signatures__Interface.0"/>
+                <steps_Behaviour xsi:type="pcm.seff:InternalAction" id="_INS3MNL6EdujoZKiiOMQBA" entityName="ctors of collections" predecessor_AbstractAction="_5f_VQNL5EdujoZKiiOMQBA" successor_AbstractAction="_XvDU4NL6EdujoZKiiOMQBA"/>
+                <steps_Behaviour xsi:type="pcm.seff:LoopAction" id="_XvDU4NL6EdujoZKiiOMQBA" entityName="loopProducts" predecessor_AbstractAction="_INS3MNL6EdujoZKiiOMQBA" successor_AbstractAction="_pcULYNL7EdujoZKiiOMQBA">
+                  <bodyBehaviour_Loop>
+                    <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_0YyVcNL6EdujoZKiiOMQBA" successor_AbstractAction="_1EchkNL6EdujoZKiiOMQBA"/>
+                    <steps_Behaviour xsi:type="pcm.seff:BranchAction" id="_1EchkNL6EdujoZKiiOMQBA" entityName="p.Amount> 0" predecessor_AbstractAction="_0YyVcNL6EdujoZKiiOMQBA" successor_AbstractAction="_c2KjMNL7EdujoZKiiOMQBA">
+                      <branches_Branch xsi:type="pcm.seff:ProbabilisticBranchTransition" id="_7CXRgNL6EdujoZKiiOMQBA">
+                        <branchBehaviour_BranchTransition>
+                          <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_9g6XkNL6EdujoZKiiOMQBA" successor_AbstractAction="_97I1cNL6EdujoZKiiOMQBA"/>
+                          <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_97I1cNL6EdujoZKiiOMQBA" predecessor_AbstractAction="_9g6XkNL6EdujoZKiiOMQBA"/>
+                        </branchBehaviour_BranchTransition>
+                      </branches_Branch>
+                      <branches_Branch xsi:type="pcm.seff:ProbabilisticBranchTransition" id="__vERMNL6EdujoZKiiOMQBA">
+                        <branchBehaviour_BranchTransition>
+                          <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_Bf3gcNL7EdujoZKiiOMQBA" successor_AbstractAction="_EnQIINL7EdujoZKiiOMQBA"/>
+                          <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_CHNNQNL7EdujoZKiiOMQBA" predecessor_AbstractAction="_KdHvUNL7EdujoZKiiOMQBA"/>
+                          <steps_Behaviour xsi:type="pcm.seff:ExternalCallAction" id="_EnQIINL7EdujoZKiiOMQBA" entityName="queryProductsById" predecessor_AbstractAction="_Bf3gcNL7EdujoZKiiOMQBA" successor_AbstractAction="_KdHvUNL7EdujoZKiiOMQBA" calledService_ExternalService="//@interfaces__Repository.3/@signatures__Interface.8"/>
+                          <steps_Behaviour xsi:type="pcm.seff:InternalAction" id="_KdHvUNL7EdujoZKiiOMQBA" predecessor_AbstractAction="_EnQIINL7EdujoZKiiOMQBA" successor_AbstractAction="_CHNNQNL7EdujoZKiiOMQBA"/>
+                        </branchBehaviour_BranchTransition>
+                      </branches_Branch>
+                    </steps_Behaviour>
+                    <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_c2KjMNL7EdujoZKiiOMQBA" predecessor_AbstractAction="_1EchkNL6EdujoZKiiOMQBA"/>
+                  </bodyBehaviour_Loop>
+                </steps_Behaviour>
+                <steps_Behaviour xsi:type="pcm.seff:InternalAction" id="_pcULYNL7EdujoZKiiOMQBA" entityName="List.put" predecessor_AbstractAction="_XvDU4NL6EdujoZKiiOMQBA" successor_AbstractAction="_3oeaANL5EdujoZKiiOMQBA"/>
+              </bodyBehaviour_Loop>
+            </steps_Behaviour>
+          </branchBehaviour_BranchTransition>
+        </branches_Branch>
       </steps_Behaviour>
     </serviceEffectSpecifications__BasicComponent>
   </components__Repository>
