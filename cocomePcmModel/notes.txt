@@ -20,9 +20,14 @@ SEFFs finished:
 - org.cocome.tradingsystem.inventory.data.store.impl.StoreQueryImpl
 	- queryStockItemById(long stockId, PersistenceContext pctx)
 	- queryLowStockItemsWithRespectToIncomingProducts(long storeId, PersistenceContext pctx)
+	- QueryStockItem
 - org.cocome.tradingsystem.inventory.data.persistence.impl.PersistenceImpl
 	- getPersistenceContext()
-
+- org.cocome.tradingsystem.inventory.application.productdispatcher.impl.ProductDispatcher
+	- orderProductsAvailableAtOtherStores(
+			EnterpriseTO enterpriseTO, StoreTO callingStore,
+			Collection<ProductAmountTO> productAmounts)
+	
 
 SEFF modeling problems:
 - only first call is a interface call. TransactionContext is returned --> NOT a pure data type.

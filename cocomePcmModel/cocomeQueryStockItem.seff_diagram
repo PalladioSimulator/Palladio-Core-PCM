@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.0/notation" xmlns:pcm.seff="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0" xmi:id="_vJ7uINL-EdujoZKiiOMQBA" type="PCM SEFF Model" measurementUnit="Pixel">
+  <children xmi:type="notation:Node" xmi:id="_1jROwNL-EdujoZKiiOMQBA" type="2001">
+    <styles xmi:type="notation:FontStyle" xmi:id="_1jROwdL-EdujoZKiiOMQBA"/>
+    <styles xmi:type="notation:DescriptionStyle" xmi:id="_1jROwtL-EdujoZKiiOMQBA"/>
+    <styles xmi:type="notation:FillStyle" xmi:id="_1jROw9L-EdujoZKiiOMQBA"/>
+    <styles xmi:type="notation:LineStyle" xmi:id="_1jROxNL-EdujoZKiiOMQBA"/>
+    <element xmi:type="pcm.seff:StartAction" href="cocome.repository#_1i0i0NL-EdujoZKiiOMQBA"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_1jROxdL-EdujoZKiiOMQBA" x="288" y="72"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_11mU4dL-EdujoZKiiOMQBA" type="2002">
+    <styles xmi:type="notation:FontStyle" xmi:id="_11mU4tL-EdujoZKiiOMQBA"/>
+    <styles xmi:type="notation:DescriptionStyle" xmi:id="_11mU49L-EdujoZKiiOMQBA"/>
+    <styles xmi:type="notation:FillStyle" xmi:id="_11mU5NL-EdujoZKiiOMQBA"/>
+    <styles xmi:type="notation:LineStyle" xmi:id="_11mU5dL-EdujoZKiiOMQBA"/>
+    <element xmi:type="pcm.seff:StopAction" href="cocome.repository#_11mU4NL-EdujoZKiiOMQBA"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_11mU5tL-EdujoZKiiOMQBA" x="288" y="348"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_2GlXMdL-EdujoZKiiOMQBA" type="2006">
+    <children xmi:type="notation:Node" xmi:id="_2GlXN9L-EdujoZKiiOMQBA" type="5012"/>
+    <children xmi:type="notation:Node" xmi:id="_2GlXONL-EdujoZKiiOMQBA" type="7012">
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_2GlXOdL-EdujoZKiiOMQBA"/>
+      <styles xmi:type="notation:TitleStyle" xmi:id="_2GlXOtL-EdujoZKiiOMQBA" showTitle="true"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_2GlXO9L-EdujoZKiiOMQBA"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_2GlXPNL-EdujoZKiiOMQBA"/>
+    </children>
+    <styles xmi:type="notation:FontStyle" xmi:id="_2GlXMtL-EdujoZKiiOMQBA"/>
+    <styles xmi:type="notation:DescriptionStyle" xmi:id="_2GlXM9L-EdujoZKiiOMQBA"/>
+    <styles xmi:type="notation:FillStyle" xmi:id="_2GlXNNL-EdujoZKiiOMQBA"/>
+    <styles xmi:type="notation:LineStyle" xmi:id="_2GlXNdL-EdujoZKiiOMQBA"/>
+    <element xmi:type="pcm.seff:InternalAction" href="cocome.repository#_2GlXMNL-EdujoZKiiOMQBA"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_2GlXNtL-EdujoZKiiOMQBA" x="242" y="196"/>
+  </children>
+  <styles xmi:type="notation:PageStyle" xmi:id="_vJ7uIdL-EdujoZKiiOMQBA"/>
+  <styles xmi:type="notation:GuideStyle" xmi:id="_vJ7uItL-EdujoZKiiOMQBA"/>
+  <styles xmi:type="notation:DescriptionStyle" xmi:id="_vJ7uI9L-EdujoZKiiOMQBA"/>
+  <element xmi:type="pcm.seff:ResourceDemandingSEFF" href="cocome.repository#queryStockItem"/>
+  <edges xmi:type="notation:Edge" xmi:id="_3CovwNL-EdujoZKiiOMQBA" type="4001" source="_1jROwNL-EdujoZKiiOMQBA" target="_2GlXMdL-EdujoZKiiOMQBA">
+    <styles xmi:type="notation:RoutingStyle" xmi:id="_3CovwdL-EdujoZKiiOMQBA"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_3CovwtL-EdujoZKiiOMQBA"/>
+    <styles xmi:type="notation:LineStyle" xmi:id="_3Covw9L-EdujoZKiiOMQBA"/>
+    <element xsi:nil="true"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_3CovxNL-EdujoZKiiOMQBA" points="[7, 20, -8, -105]$[-51, 129, -66, 4]"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_3VG_0NL-EdujoZKiiOMQBA" type="4001" source="_2GlXMdL-EdujoZKiiOMQBA" target="_11mU4dL-EdujoZKiiOMQBA">
+    <styles xmi:type="notation:RoutingStyle" xmi:id="_3VG_0dL-EdujoZKiiOMQBA"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_3VG_0tL-EdujoZKiiOMQBA"/>
+    <styles xmi:type="notation:LineStyle" xmi:id="_3VG_09L-EdujoZKiiOMQBA"/>
+    <element xsi:nil="true"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_3VG_1NL-EdujoZKiiOMQBA" points="[-6, 36, 27, -155]$[-32, 211, 1, 20]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_3VQw0NL-EdujoZKiiOMQBA" id="(0.50757575,0.1)"/>
+  </edges>
+</notation:Diagram>

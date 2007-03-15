@@ -543,7 +543,7 @@
                                 <styles xmi:type="notation:FillStyle" xmi:id="_c2KjNNL7EdujoZKiiOMQBA"/>
                                 <styles xmi:type="notation:LineStyle" xmi:id="_c2KjNdL7EdujoZKiiOMQBA"/>
                                 <element xmi:type="pcm.seff:StopAction" href="cocome.repository#_c2KjMNL7EdujoZKiiOMQBA"/>
-                                <layoutConstraint xmi:type="notation:Bounds" xmi:id="_c2KjNtL7EdujoZKiiOMQBA" x="354" y="319"/>
+                                <layoutConstraint xmi:type="notation:Bounds" xmi:id="_c2KjNtL7EdujoZKiiOMQBA" x="355" y="306"/>
                               </children>
                               <styles xmi:type="notation:SortingStyle" xmi:id="_zFC1p9L6EdujoZKiiOMQBA"/>
                               <styles xmi:type="notation:FilteringStyle" xmi:id="_zFC1qNL6EdujoZKiiOMQBA"/>
