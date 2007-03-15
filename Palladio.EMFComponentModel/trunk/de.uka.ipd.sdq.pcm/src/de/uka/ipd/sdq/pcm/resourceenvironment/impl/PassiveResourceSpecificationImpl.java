@@ -70,7 +70,7 @@ public class PassiveResourceSpecificationImpl extends EObjectImpl implements Pas
 	 * @generated
 	 * @ordered
 	 */
-	protected PassiveResourceType passiveResourceType_PassiveResourceSpecification = null;
+	protected PassiveResourceType passiveResourceType_PassiveResourceSpecification;
 
 
 	/**

@@ -48,7 +48,7 @@ public class ReleaseActionImpl extends AbstractResourceDemandingActionImpl imple
 	 * @generated
 	 * @ordered
 	 */
-	protected PassiveResourceType resourceType_Release = null;
+	protected PassiveResourceType resourceType_Release;
 
 
 	/**

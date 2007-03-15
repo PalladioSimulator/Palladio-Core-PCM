@@ -54,7 +54,7 @@ public class UsageModelImpl extends EObjectImpl implements UsageModel {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<UsageScenario> usageScenario_UsageModel = null;
+	protected EList<UsageScenario> usageScenario_UsageModel;
 
 
 	/**

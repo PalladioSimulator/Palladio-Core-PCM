@@ -58,7 +58,7 @@ public class LinkingResourceImpl extends EObjectImpl implements LinkingResource 
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<ResourceContainer> toResourceContainer_LinkingResource = null;
+	protected EList<ResourceContainer> toResourceContainer_LinkingResource;
 
 	/**
 	 * The cached value of the '{@link #getFromResourceContainer_LinkingResource() <em>From Resource Container Linking Resource</em>}' reference list.
@@ -68,7 +68,7 @@ public class LinkingResourceImpl extends EObjectImpl implements LinkingResource 
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<ResourceContainer> fromResourceContainer_LinkingResource = null;
+	protected EList<ResourceContainer> fromResourceContainer_LinkingResource;
 
 	/**
 	 * The cached value of the '{@link #getCommunicationLinkResourceSpecifications_LinkingResource() <em>Communication Link Resource Specifications Linking Resource</em>}' containment reference.
@@ -78,7 +78,7 @@ public class LinkingResourceImpl extends EObjectImpl implements LinkingResource 
 	 * @generated
 	 * @ordered
 	 */
-	protected CommunicationLinkResourceSpecification communicationLinkResourceSpecifications_LinkingResource = null;
+	protected CommunicationLinkResourceSpecification communicationLinkResourceSpecifications_LinkingResource;
 
 
 	/**

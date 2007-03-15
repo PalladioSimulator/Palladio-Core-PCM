@@ -48,7 +48,7 @@ public class CollectionIteratorActionImpl extends AbstractLoopActionImpl impleme
 	 * @generated
 	 * @ordered
 	 */
-	protected Parameter parameter_CollectionIteratorAction = null;
+	protected Parameter parameter_CollectionIteratorAction;
 
 
 	/**

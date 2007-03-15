@@ -80,7 +80,15 @@ public enum PrimitiveTypeEnum implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	BYTE(5, "BYTE", "BYTE");
+	BYTE(5, "BYTE", "BYTE"), /**
+	 * The '<em><b>LONG</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #LONG_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	LONG(6, "LONG", "LONG");
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -180,6 +188,21 @@ public enum PrimitiveTypeEnum implements Enumerator {
 	public static final int BYTE_VALUE = 5;
 
 	/**
+	 * The '<em><b>LONG</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>LONG</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #LONG
+	 * @model
+	 * @generated
+	 * @ordered
+	 */
+	public static final int LONG_VALUE = 6;
+
+	/**
 	 * An array of all the '<em><b>Primitive Type Enum</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -193,6 +216,7 @@ public enum PrimitiveTypeEnum implements Enumerator {
 			DOUBLE,
 			CHAR,
 			BYTE,
+			LONG,
 		};
 
 	/**
@@ -249,6 +273,7 @@ public enum PrimitiveTypeEnum implements Enumerator {
 			case DOUBLE_VALUE: return DOUBLE;
 			case CHAR_VALUE: return CHAR;
 			case BYTE_VALUE: return BYTE;
+			case LONG_VALUE: return LONG;
 		}
 		return null;
 	}

@@ -56,7 +56,7 @@ public class ResourceContainerImpl extends EntityImpl implements ResourceContain
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<ProcessingResourceSpecification> activeResourceSpecifications_ResourceContainer = null;
+	protected EList<ProcessingResourceSpecification> activeResourceSpecifications_ResourceContainer;
 
 	/**
 	 * The cached value of the '{@link #getPassiveResourceSpecifications_ResourceContainer() <em>Passive Resource Specifications Resource Container</em>}' containment reference list.
@@ -66,7 +66,7 @@ public class ResourceContainerImpl extends EntityImpl implements ResourceContain
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<PassiveResourceSpecification> passiveResourceSpecifications_ResourceContainer = null;
+	protected EList<PassiveResourceSpecification> passiveResourceSpecifications_ResourceContainer;
 
 
 	/**

@@ -48,7 +48,7 @@ public class LoopActionImpl extends AbstractLoopActionImpl implements LoopAction
 	 * @generated
 	 * @ordered
 	 */
-	protected IterationCount iterations_LoopAction = null;
+	protected IterationCount iterations_LoopAction;
 
 
 	/**

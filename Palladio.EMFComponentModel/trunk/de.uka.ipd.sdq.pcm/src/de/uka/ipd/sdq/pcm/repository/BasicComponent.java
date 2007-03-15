@@ -87,7 +87,7 @@ public interface BasicComponent extends ImplementationComponentType {
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * self.serviceEffectSpecifications__BasicComponent->forAll(p1, p2 |
-	 * p1.describedService__SEFF = p2.describedService__SEFF implies p1.seffTypeID <> p2.seffTypeID)
+	 *   p1 <> p2 implies (p1.describedService__SEFF = p2.describedService__SEFF implies p1.seffTypeID <> p2.seffTypeID))
 	 * <!-- end-model-doc -->
 	 * @model
 	 * @generated

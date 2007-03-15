@@ -69,7 +69,7 @@ public class ClosedWorkloadImpl extends WorkloadImpl implements ClosedWorkload {
 	 * @generated
 	 * @ordered
 	 */
-	protected ThinkTime thinkTime_ClosedWorkload = null;
+	protected ThinkTime thinkTime_ClosedWorkload;
 
 
 	/**

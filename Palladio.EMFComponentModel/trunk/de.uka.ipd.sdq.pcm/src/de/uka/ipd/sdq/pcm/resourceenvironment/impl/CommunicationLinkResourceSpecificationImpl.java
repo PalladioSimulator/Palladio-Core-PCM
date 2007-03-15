@@ -51,7 +51,7 @@ public class CommunicationLinkResourceSpecificationImpl extends EObjectImpl impl
 	 * @generated
 	 * @ordered
 	 */
-	protected CommunicationLinkResourceType communicationLinkResourceType_CommunicationLinkResourceSpecification = null;
+	protected CommunicationLinkResourceType communicationLinkResourceType_CommunicationLinkResourceSpecification;
 
 	/**
 	 * The default value of the '{@link #getThroughput() <em>Throughput</em>}' attribute.

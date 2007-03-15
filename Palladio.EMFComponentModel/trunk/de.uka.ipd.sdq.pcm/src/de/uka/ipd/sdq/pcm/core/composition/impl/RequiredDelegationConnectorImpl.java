@@ -80,7 +80,7 @@ public class RequiredDelegationConnectorImpl extends DelegationConnectorImpl imp
 	 * @generated
 	 * @ordered
 	 */
-	protected RequiredRole innerRequiredRole_RequiredDelegationConnector = null;
+	protected RequiredRole innerRequiredRole_RequiredDelegationConnector;
 
 	/**
 	 * The cached value of the '{@link #getOuterRequiredRole_RequiredDelegationConnector() <em>Outer Required Role Required Delegation Connector</em>}' reference.
@@ -90,7 +90,7 @@ public class RequiredDelegationConnectorImpl extends DelegationConnectorImpl imp
 	 * @generated
 	 * @ordered
 	 */
-	protected RequiredRole outerRequiredRole_RequiredDelegationConnector = null;
+	protected RequiredRole outerRequiredRole_RequiredDelegationConnector;
 
 	/**
 	 * The cached value of the '{@link #getChildComponentContext_RequiredDelegationConnector() <em>Child Component Context Required Delegation Connector</em>}' reference.
@@ -100,7 +100,7 @@ public class RequiredDelegationConnectorImpl extends DelegationConnectorImpl imp
 	 * @generated
 	 * @ordered
 	 */
-	protected AssemblyContext childComponentContext_RequiredDelegationConnector = null;
+	protected AssemblyContext childComponentContext_RequiredDelegationConnector;
 
 
 	/**

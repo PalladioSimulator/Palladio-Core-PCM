@@ -68,7 +68,7 @@ public abstract class ImplementationComponentTypeImpl extends CompleteComponentT
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<CompleteComponentType> parentCompleteComponentTypes = null;
+	protected EList<CompleteComponentType> parentCompleteComponentTypes;
 
 
 	/**

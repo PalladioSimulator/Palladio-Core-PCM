@@ -48,7 +48,7 @@ public class OpenWorkloadImpl extends WorkloadImpl implements OpenWorkload {
 	 * @generated
 	 * @ordered
 	 */
-	protected InterArrivalTime interArrivalTime_OpenWorkload = null;
+	protected InterArrivalTime interArrivalTime_OpenWorkload;
 
 
 	/**

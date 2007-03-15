@@ -68,7 +68,7 @@ public class CompleteComponentTypeImpl extends ProvidesComponentTypeImpl impleme
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<ProvidesComponentType> parentProvidesComponentTypes = null;
+	protected EList<ProvidesComponentType> parentProvidesComponentTypes;
 
 
 	/**

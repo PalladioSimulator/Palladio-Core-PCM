@@ -57,7 +57,7 @@ public class LoopImpl extends AbstractUserActionImpl implements Loop {
 	 * @generated
 	 * @ordered
 	 */
-	protected ScenarioBehaviour bodyBehaviour_Loop = null;
+	protected ScenarioBehaviour bodyBehaviour_Loop;
 
 	/**
 	 * The cached value of the '{@link #getIterations_Loop() <em>Iterations Loop</em>}' containment reference list.
@@ -67,7 +67,7 @@ public class LoopImpl extends AbstractUserActionImpl implements Loop {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<LoopIterations> iterations_Loop = null;
+	protected EList<LoopIterations> iterations_Loop;
 
 
 	/**

@@ -60,7 +60,7 @@ public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConn
 	 * @generated
 	 * @ordered
 	 */
-	protected AssemblyContext requiringChildComponentContext_CompositeAssemblyConnector = null;
+	protected AssemblyContext requiringChildComponentContext_CompositeAssemblyConnector;
 
 	/**
 	 * The cached value of the '{@link #getProvidingChildComponentContext_CompositeAssemblyConnector() <em>Providing Child Component Context Composite Assembly Connector</em>}' reference.
@@ -70,7 +70,7 @@ public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConn
 	 * @generated
 	 * @ordered
 	 */
-	protected AssemblyContext providingChildComponentContext_CompositeAssemblyConnector = null;
+	protected AssemblyContext providingChildComponentContext_CompositeAssemblyConnector;
 
 	/**
 	 * The cached value of the '{@link #getProvidedRole_CompositeAssemblyConnector() <em>Provided Role Composite Assembly Connector</em>}' reference.
@@ -80,7 +80,7 @@ public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConn
 	 * @generated
 	 * @ordered
 	 */
-	protected ProvidedRole providedRole_CompositeAssemblyConnector = null;
+	protected ProvidedRole providedRole_CompositeAssemblyConnector;
 
 	/**
 	 * The cached value of the '{@link #getRequiredRole_CompositeAssemblyConnector() <em>Required Role Composite Assembly Connector</em>}' reference.
@@ -90,7 +90,7 @@ public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConn
 	 * @generated
 	 * @ordered
 	 */
-	protected RequiredRole requiredRole_CompositeAssemblyConnector = null;
+	protected RequiredRole requiredRole_CompositeAssemblyConnector;
 
 
 	/**

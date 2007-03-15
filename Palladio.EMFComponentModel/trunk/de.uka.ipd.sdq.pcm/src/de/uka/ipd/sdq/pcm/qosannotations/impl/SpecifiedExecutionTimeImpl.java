@@ -52,7 +52,7 @@ public abstract class SpecifiedExecutionTimeImpl extends RandomVariableImpl impl
 	 * @generated
 	 * @ordered
 	 */
-	protected Signature signature_SpecifiedTimeConsumption = null;
+	protected Signature signature_SpecifiedTimeConsumption;
 
 	/**
 	 * The cached value of the '{@link #getRole_SpecifiedExecutionTime() <em>Role Specified Execution Time</em>}' reference.
@@ -62,7 +62,7 @@ public abstract class SpecifiedExecutionTimeImpl extends RandomVariableImpl impl
 	 * @generated
 	 * @ordered
 	 */
-	protected Role role_SpecifiedExecutionTime = null;
+	protected Role role_SpecifiedExecutionTime;
 
 
 	/**

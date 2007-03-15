@@ -66,7 +66,7 @@ public class CompositionItemProviderAdapterFactory extends CompositionAdapterFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected Collection supportedTypes = new ArrayList();
+	protected Collection<Object> supportedTypes = new ArrayList<Object>();
 
 	/**
 	 * This constructs an instance.
@@ -79,7 +79,7 @@ public class CompositionItemProviderAdapterFactory extends CompositionAdapterFac
 		supportedTypes.add(IStructuredItemContentProvider.class);
 		supportedTypes.add(ITreeItemContentProvider.class);
 		supportedTypes.add(IItemLabelProvider.class);
-		supportedTypes.add(IItemPropertySource.class);		
+		supportedTypes.add(IItemPropertySource.class);
 	}
 
 	/**
@@ -96,6 +96,7 @@ public class CompositionItemProviderAdapterFactory extends CompositionAdapterFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Adapter createProvidedDelegationConnectorAdapter() {
 		if (providedDelegationConnectorItemProvider == null) {
 			providedDelegationConnectorItemProvider = new ProvidedDelegationConnectorItemProvider(this);
@@ -118,6 +119,7 @@ public class CompositionItemProviderAdapterFactory extends CompositionAdapterFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Adapter createAssemblyContextAdapter() {
 		if (assemblyContextItemProvider == null) {
 			assemblyContextItemProvider = new AssemblyContextItemProvider(this);
@@ -140,6 +142,7 @@ public class CompositionItemProviderAdapterFactory extends CompositionAdapterFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Adapter createRequiredDelegationConnectorAdapter() {
 		if (requiredDelegationConnectorItemProvider == null) {
 			requiredDelegationConnectorItemProvider = new RequiredDelegationConnectorItemProvider(this);
@@ -162,6 +165,7 @@ public class CompositionItemProviderAdapterFactory extends CompositionAdapterFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Adapter createAssemblyConnectorAdapter() {
 		if (assemblyConnectorItemProvider == null) {
 			assemblyConnectorItemProvider = new AssemblyConnectorItemProvider(this);
@@ -195,6 +199,7 @@ public class CompositionItemProviderAdapterFactory extends CompositionAdapterFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean isFactoryForType(Object type) {
 		return supportedTypes.contains(type) || super.isFactoryForType(type);
 	}
@@ -205,6 +210,7 @@ public class CompositionItemProviderAdapterFactory extends CompositionAdapterFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Adapter adapt(Notifier notifier, Object type) {
 		return super.adapt(notifier, this);
 	}
@@ -214,10 +220,11 @@ public class CompositionItemProviderAdapterFactory extends CompositionAdapterFac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Object adapt(Object object, Object type) {
 		if (isFactoryForType(type)) {
 			Object adapter = super.adapt(object, type);
-			if (!(type instanceof Class) || (((Class)type).isInstance(adapter))) {
+			if (!(type instanceof Class) || (((Class<?>)type).isInstance(adapter))) {
 				return adapter;
 			}
 		}

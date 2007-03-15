@@ -66,7 +66,7 @@ public class SeffItemProviderAdapterFactory extends SeffAdapterFactory implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected Collection supportedTypes = new ArrayList();
+	protected Collection<Object> supportedTypes = new ArrayList<Object>();
 
 	/**
 	 * This constructs an instance.
@@ -79,7 +79,7 @@ public class SeffItemProviderAdapterFactory extends SeffAdapterFactory implement
 		supportedTypes.add(IStructuredItemContentProvider.class);
 		supportedTypes.add(ITreeItemContentProvider.class);
 		supportedTypes.add(IItemLabelProvider.class);
-		supportedTypes.add(IItemPropertySource.class);		
+		supportedTypes.add(IItemPropertySource.class);
 	}
 
 	/**
@@ -96,6 +96,7 @@ public class SeffItemProviderAdapterFactory extends SeffAdapterFactory implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Adapter createStopActionAdapter() {
 		if (stopActionItemProvider == null) {
 			stopActionItemProvider = new StopActionItemProvider(this);
@@ -118,6 +119,7 @@ public class SeffItemProviderAdapterFactory extends SeffAdapterFactory implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Adapter createParametricResourceDemandAdapter() {
 		if (parametricResourceDemandItemProvider == null) {
 			parametricResourceDemandItemProvider = new ParametricResourceDemandItemProvider(this);
@@ -140,6 +142,7 @@ public class SeffItemProviderAdapterFactory extends SeffAdapterFactory implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Adapter createStartActionAdapter() {
 		if (startActionItemProvider == null) {
 			startActionItemProvider = new StartActionItemProvider(this);
@@ -162,6 +165,7 @@ public class SeffItemProviderAdapterFactory extends SeffAdapterFactory implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Adapter createResourceDemandingSEFFAdapter() {
 		if (resourceDemandingSEFFItemProvider == null) {
 			resourceDemandingSEFFItemProvider = new ResourceDemandingSEFFItemProvider(this);
@@ -184,6 +188,7 @@ public class SeffItemProviderAdapterFactory extends SeffAdapterFactory implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Adapter createResourceDemandingBehaviourAdapter() {
 		if (resourceDemandingBehaviourItemProvider == null) {
 			resourceDemandingBehaviourItemProvider = new ResourceDemandingBehaviourItemProvider(this);
@@ -206,6 +211,7 @@ public class SeffItemProviderAdapterFactory extends SeffAdapterFactory implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Adapter createReleaseActionAdapter() {
 		if (releaseActionItemProvider == null) {
 			releaseActionItemProvider = new ReleaseActionItemProvider(this);
@@ -228,6 +234,7 @@ public class SeffItemProviderAdapterFactory extends SeffAdapterFactory implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Adapter createLoopActionAdapter() {
 		if (loopActionItemProvider == null) {
 			loopActionItemProvider = new LoopActionItemProvider(this);
@@ -250,6 +257,7 @@ public class SeffItemProviderAdapterFactory extends SeffAdapterFactory implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Adapter createIterationCountAdapter() {
 		if (iterationCountItemProvider == null) {
 			iterationCountItemProvider = new IterationCountItemProvider(this);
@@ -272,6 +280,7 @@ public class SeffItemProviderAdapterFactory extends SeffAdapterFactory implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Adapter createInternalActionAdapter() {
 		if (internalActionItemProvider == null) {
 			internalActionItemProvider = new InternalActionItemProvider(this);
@@ -294,6 +303,7 @@ public class SeffItemProviderAdapterFactory extends SeffAdapterFactory implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Adapter createForkActionAdapter() {
 		if (forkActionItemProvider == null) {
 			forkActionItemProvider = new ForkActionItemProvider(this);
@@ -316,6 +326,7 @@ public class SeffItemProviderAdapterFactory extends SeffAdapterFactory implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Adapter createExternalCallActionAdapter() {
 		if (externalCallActionItemProvider == null) {
 			externalCallActionItemProvider = new ExternalCallActionItemProvider(this);
@@ -338,6 +349,7 @@ public class SeffItemProviderAdapterFactory extends SeffAdapterFactory implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Adapter createProbabilisticBranchTransitionAdapter() {
 		if (probabilisticBranchTransitionItemProvider == null) {
 			probabilisticBranchTransitionItemProvider = new ProbabilisticBranchTransitionItemProvider(this);
@@ -360,6 +372,7 @@ public class SeffItemProviderAdapterFactory extends SeffAdapterFactory implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Adapter createBranchActionAdapter() {
 		if (branchActionItemProvider == null) {
 			branchActionItemProvider = new BranchActionItemProvider(this);
@@ -382,6 +395,7 @@ public class SeffItemProviderAdapterFactory extends SeffAdapterFactory implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Adapter createAquireActionAdapter() {
 		if (aquireActionItemProvider == null) {
 			aquireActionItemProvider = new AquireActionItemProvider(this);
@@ -404,6 +418,7 @@ public class SeffItemProviderAdapterFactory extends SeffAdapterFactory implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Adapter createBranchConditionAdapter() {
 		if (branchConditionItemProvider == null) {
 			branchConditionItemProvider = new BranchConditionItemProvider(this);
@@ -426,6 +441,7 @@ public class SeffItemProviderAdapterFactory extends SeffAdapterFactory implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Adapter createCollectionIteratorActionAdapter() {
 		if (collectionIteratorActionItemProvider == null) {
 			collectionIteratorActionItemProvider = new CollectionIteratorActionItemProvider(this);
@@ -448,12 +464,36 @@ public class SeffItemProviderAdapterFactory extends SeffAdapterFactory implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Adapter createGuardedBranchTransitionAdapter() {
 		if (guardedBranchTransitionItemProvider == null) {
 			guardedBranchTransitionItemProvider = new GuardedBranchTransitionItemProvider(this);
 		}
 
 		return guardedBranchTransitionItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.seff.SetVariableAction} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected SetVariableActionItemProvider setVariableActionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.seff.SetVariableAction}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createSetVariableActionAdapter() {
+		if (setVariableActionItemProvider == null) {
+			setVariableActionItemProvider = new SetVariableActionItemProvider(this);
+		}
+
+		return setVariableActionItemProvider;
 	}
 
 	/**
@@ -481,6 +521,7 @@ public class SeffItemProviderAdapterFactory extends SeffAdapterFactory implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean isFactoryForType(Object type) {
 		return supportedTypes.contains(type) || super.isFactoryForType(type);
 	}
@@ -491,6 +532,7 @@ public class SeffItemProviderAdapterFactory extends SeffAdapterFactory implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Adapter adapt(Notifier notifier, Object type) {
 		return super.adapt(notifier, this);
 	}
@@ -500,10 +542,11 @@ public class SeffItemProviderAdapterFactory extends SeffAdapterFactory implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Object adapt(Object object, Object type) {
 		if (isFactoryForType(type)) {
 			Object adapter = super.adapt(object, type);
-			if (!(type instanceof Class) || (((Class)type).isInstance(adapter))) {
+			if (!(type instanceof Class) || (((Class<?>)type).isInstance(adapter))) {
 				return adapter;
 			}
 		}
@@ -569,6 +612,7 @@ public class SeffItemProviderAdapterFactory extends SeffAdapterFactory implement
 		if (branchConditionItemProvider != null) branchConditionItemProvider.dispose();
 		if (collectionIteratorActionItemProvider != null) collectionIteratorActionItemProvider.dispose();
 		if (guardedBranchTransitionItemProvider != null) guardedBranchTransitionItemProvider.dispose();
+		if (setVariableActionItemProvider != null) setVariableActionItemProvider.dispose();
 	}
 
 }

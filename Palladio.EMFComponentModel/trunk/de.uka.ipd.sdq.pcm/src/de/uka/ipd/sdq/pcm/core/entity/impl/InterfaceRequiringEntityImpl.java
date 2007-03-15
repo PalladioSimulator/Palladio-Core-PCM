@@ -54,7 +54,7 @@ public abstract class InterfaceRequiringEntityImpl extends EntityImpl implements
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<RequiredRole> requiredRoles_InterfaceRequiringEntity = null;
+	protected EList<RequiredRole> requiredRoles_InterfaceRequiringEntity;
 
 
 	/**

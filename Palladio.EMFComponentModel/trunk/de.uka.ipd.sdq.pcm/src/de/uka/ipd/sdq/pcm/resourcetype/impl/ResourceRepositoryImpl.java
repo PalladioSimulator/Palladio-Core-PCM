@@ -54,7 +54,7 @@ public class ResourceRepositoryImpl extends EObjectImpl implements ResourceRepos
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<ResourceType> availableResourceTypes_ResourceRepository = null;
+	protected EList<ResourceType> availableResourceTypes_ResourceRepository;
 
 
 	/**

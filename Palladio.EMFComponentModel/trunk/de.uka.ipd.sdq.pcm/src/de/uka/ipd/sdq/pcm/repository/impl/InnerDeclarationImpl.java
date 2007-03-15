@@ -49,7 +49,7 @@ public class InnerDeclarationImpl extends NamedElementImpl implements InnerDecla
 	 * @generated
 	 * @ordered
 	 */
-	protected DataType datatype_InnerDeclaration = null;
+	protected DataType datatype_InnerDeclaration;
 
 
 	/**

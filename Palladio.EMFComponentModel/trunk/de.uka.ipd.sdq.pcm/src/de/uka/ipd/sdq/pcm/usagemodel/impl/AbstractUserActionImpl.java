@@ -49,7 +49,7 @@ public abstract class AbstractUserActionImpl extends EObjectImpl implements Abst
 	 * @generated
 	 * @ordered
 	 */
-	protected AbstractUserAction successor = null;
+	protected AbstractUserAction successor;
 
 	/**
 	 * The cached value of the '{@link #getPredecessor() <em>Predecessor</em>}' reference.
@@ -59,7 +59,7 @@ public abstract class AbstractUserActionImpl extends EObjectImpl implements Abst
 	 * @generated
 	 * @ordered
 	 */
-	protected AbstractUserAction predecessor = null;
+	protected AbstractUserAction predecessor;
 
 
 	/**

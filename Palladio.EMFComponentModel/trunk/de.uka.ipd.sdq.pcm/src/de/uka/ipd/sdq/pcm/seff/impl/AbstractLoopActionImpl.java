@@ -48,7 +48,7 @@ public abstract class AbstractLoopActionImpl extends AbstractResourceDemandingAc
 	 * @generated
 	 * @ordered
 	 */
-	protected ResourceDemandingBehaviour bodyBehaviour_Loop = null;
+	protected ResourceDemandingBehaviour bodyBehaviour_Loop;
 
 
 	/**

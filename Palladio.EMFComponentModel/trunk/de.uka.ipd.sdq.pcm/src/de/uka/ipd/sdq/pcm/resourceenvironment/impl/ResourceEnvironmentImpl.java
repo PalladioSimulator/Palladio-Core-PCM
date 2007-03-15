@@ -56,7 +56,7 @@ public class ResourceEnvironmentImpl extends EObjectImpl implements ResourceEnvi
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<LinkingResource> linkingresource = null;
+	protected EList<LinkingResource> linkingresource;
 
 	/**
 	 * The cached value of the '{@link #getResourceContainer_ResourceEnvironment() <em>Resource Container Resource Environment</em>}' containment reference list.
@@ -66,7 +66,7 @@ public class ResourceEnvironmentImpl extends EObjectImpl implements ResourceEnvi
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<ResourceContainer> resourceContainer_ResourceEnvironment = null;
+	protected EList<ResourceContainer> resourceContainer_ResourceEnvironment;
 
 
 	/**

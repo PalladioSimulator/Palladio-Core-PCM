@@ -149,6 +149,7 @@ public class CompositionValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_EveryProxyResolves(providedDelegationConnector, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_UniqueID(providedDelegationConnector, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(providedDelegationConnector, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(providedDelegationConnector, diagnostics, context);
 		if (result || diagnostics != null) result &= identifierValidator.validateIdentifier_idHasToBeUnique(providedDelegationConnector, diagnostics, context);
 		if (result || diagnostics != null) result &= validateProvidedDelegationConnector_ProvidedDelegationConnectorandtheconnectedComponentmustbepartofthesamecompositestructure(providedDelegationConnector, diagnostics, context);
 		return result;
@@ -176,6 +177,7 @@ public class CompositionValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_EveryProxyResolves(assemblyContext, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_UniqueID(assemblyContext, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(assemblyContext, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(assemblyContext, diagnostics, context);
 		if (result || diagnostics != null) result &= identifierValidator.validateIdentifier_idHasToBeUnique(assemblyContext, diagnostics, context);
 		return result;
 	}
@@ -192,6 +194,7 @@ public class CompositionValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_EveryProxyResolves(requiredDelegationConnector, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_UniqueID(requiredDelegationConnector, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(requiredDelegationConnector, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(requiredDelegationConnector, diagnostics, context);
 		if (result || diagnostics != null) result &= identifierValidator.validateIdentifier_idHasToBeUnique(requiredDelegationConnector, diagnostics, context);
 		if (result || diagnostics != null) result &= validateRequiredDelegationConnector_InnerContainingComponentEqualOuterRequiringComponent(requiredDelegationConnector, diagnostics, context);
 		return result;
@@ -219,6 +222,7 @@ public class CompositionValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_EveryProxyResolves(assemblyConnector, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_UniqueID(assemblyConnector, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(assemblyConnector, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(assemblyConnector, diagnostics, context);
 		if (result || diagnostics != null) result &= identifierValidator.validateIdentifier_idHasToBeUnique(assemblyConnector, diagnostics, context);
 		return result;
 	}
@@ -235,6 +239,7 @@ public class CompositionValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_EveryProxyResolves(composedStructure, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_UniqueID(composedStructure, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(composedStructure, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(composedStructure, diagnostics, context);
 		if (result || diagnostics != null) result &= identifierValidator.validateIdentifier_idHasToBeUnique(composedStructure, diagnostics, context);
 		return result;
 	}

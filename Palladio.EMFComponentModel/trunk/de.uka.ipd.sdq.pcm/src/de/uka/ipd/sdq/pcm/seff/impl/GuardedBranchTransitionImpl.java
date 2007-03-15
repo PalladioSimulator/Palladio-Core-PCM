@@ -48,7 +48,7 @@ public class GuardedBranchTransitionImpl extends AbstractBranchTransitionImpl im
 	 * @generated
 	 * @ordered
 	 */
-	protected BranchCondition branchCondition_BranchTransition = null;
+	protected BranchCondition branchCondition_BranchTransition;
 
 
 	/**

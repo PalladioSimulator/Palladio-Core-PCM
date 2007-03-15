@@ -70,7 +70,7 @@ public class BranchTransitionImpl extends EObjectImpl implements BranchTransitio
 	 * @generated
 	 * @ordered
 	 */
-	protected ScenarioBehaviour branchedBehaviour_BranchTransition = null;
+	protected ScenarioBehaviour branchedBehaviour_BranchTransition;
 
 
 	/**

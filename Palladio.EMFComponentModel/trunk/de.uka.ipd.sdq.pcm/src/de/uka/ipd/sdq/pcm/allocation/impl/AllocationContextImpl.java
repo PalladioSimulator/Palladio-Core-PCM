@@ -53,7 +53,7 @@ public class AllocationContextImpl extends EntityImpl implements AllocationConte
 	 * @generated
 	 * @ordered
 	 */
-	protected ResourceContainer resourceContainer_AllocationContext = null;
+	protected ResourceContainer resourceContainer_AllocationContext;
 
 	/**
 	 * The cached value of the '{@link #getAssemblyContext_AllocationContext() <em>Assembly Context Allocation Context</em>}' reference.
@@ -63,7 +63,7 @@ public class AllocationContextImpl extends EntityImpl implements AllocationConte
 	 * @generated
 	 * @ordered
 	 */
-	protected AssemblyContext assemblyContext_AllocationContext = null;
+	protected AssemblyContext assemblyContext_AllocationContext;
 
 
 	/**

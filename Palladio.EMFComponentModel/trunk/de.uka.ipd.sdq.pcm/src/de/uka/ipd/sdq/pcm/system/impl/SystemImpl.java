@@ -66,7 +66,7 @@ public class SystemImpl extends ComposedStructureImpl implements de.uka.ipd.sdq.
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<ProvidedRole> providedRoles_InterfaceProvidingEntity = null;
+	protected EList<ProvidedRole> providedRoles_InterfaceProvidingEntity;
 
 	/**
 	 * The cached value of the '{@link #getRequiredRoles_InterfaceRequiringEntity() <em>Required Roles Interface Requiring Entity</em>}' containment reference list.
@@ -76,7 +76,7 @@ public class SystemImpl extends ComposedStructureImpl implements de.uka.ipd.sdq.
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<RequiredRole> requiredRoles_InterfaceRequiringEntity = null;
+	protected EList<RequiredRole> requiredRoles_InterfaceRequiringEntity;
 
 	/**
 	 * The cached value of the '{@link #getQosAnnotations_System() <em>Qos Annotations System</em>}' containment reference list.
@@ -86,7 +86,7 @@ public class SystemImpl extends ComposedStructureImpl implements de.uka.ipd.sdq.
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<QoSAnnotations> qosAnnotations_System = null;
+	protected EList<QoSAnnotations> qosAnnotations_System;
 
 
 	/**

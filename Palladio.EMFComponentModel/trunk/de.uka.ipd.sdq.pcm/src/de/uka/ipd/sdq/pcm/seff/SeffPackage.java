@@ -385,7 +385,7 @@ public interface SeffPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl#getServiceEffectSpecification()
 	 * @generated
 	 */
-	int SERVICE_EFFECT_SPECIFICATION = 21;
+	int SERVICE_EFFECT_SPECIFICATION = 22;
 
 	/**
 	 * The feature id for the '<em><b>Seff Type ID</b></em>' attribute.
@@ -964,13 +964,22 @@ public interface SeffPackage extends EPackage {
 	int EXTERNAL_CALL_ACTION__PARAMETER_USAGE_EXTERNAL_CALL_ACTION = ABSTRACT_ACTION_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Output Variable Usage External Call Action</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTERNAL_CALL_ACTION__OUTPUT_VARIABLE_USAGE_EXTERNAL_CALL_ACTION = ABSTRACT_ACTION_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>External Call Action</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EXTERNAL_CALL_ACTION_FEATURE_COUNT = ABSTRACT_ACTION_FEATURE_COUNT + 2;
+	int EXTERNAL_CALL_ACTION_FEATURE_COUNT = ABSTRACT_ACTION_FEATURE_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.seff.impl.AbstractBranchTransitionImpl <em>Abstract Branch Transition</em>}' class.
@@ -1359,6 +1368,80 @@ public interface SeffPackage extends EPackage {
 
 
 	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.seff.impl.SetVariableActionImpl <em>Set Variable Action</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.pcm.seff.impl.SetVariableActionImpl
+	 * @see de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl#getSetVariableAction()
+	 * @generated
+	 */
+	int SET_VARIABLE_ACTION = 21;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SET_VARIABLE_ACTION__ID = ABSTRACT_RESOURCE_DEMANDING_ACTION__ID;
+
+	/**
+	 * The feature id for the '<em><b>Entity Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SET_VARIABLE_ACTION__ENTITY_NAME = ABSTRACT_RESOURCE_DEMANDING_ACTION__ENTITY_NAME;
+
+	/**
+	 * The feature id for the '<em><b>Predecessor Abstract Action</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SET_VARIABLE_ACTION__PREDECESSOR_ABSTRACT_ACTION = ABSTRACT_RESOURCE_DEMANDING_ACTION__PREDECESSOR_ABSTRACT_ACTION;
+
+	/**
+	 * The feature id for the '<em><b>Successor Abstract Action</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SET_VARIABLE_ACTION__SUCCESSOR_ABSTRACT_ACTION = ABSTRACT_RESOURCE_DEMANDING_ACTION__SUCCESSOR_ABSTRACT_ACTION;
+
+	/**
+	 * The feature id for the '<em><b>Resource Demand Action</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SET_VARIABLE_ACTION__RESOURCE_DEMAND_ACTION = ABSTRACT_RESOURCE_DEMANDING_ACTION__RESOURCE_DEMAND_ACTION;
+
+	/**
+	 * The feature id for the '<em><b>Variable Usage Set Variable Action</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SET_VARIABLE_ACTION__VARIABLE_USAGE_SET_VARIABLE_ACTION = ABSTRACT_RESOURCE_DEMANDING_ACTION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Set Variable Action</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SET_VARIABLE_ACTION_FEATURE_COUNT = ABSTRACT_RESOURCE_DEMANDING_ACTION_FEATURE_COUNT + 1;
+
+
+	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.seff.StopAction <em>Stop Action</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1653,6 +1736,17 @@ public interface SeffPackage extends EPackage {
 	EReference getExternalCallAction_ParameterUsage_ExternalCallAction();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link de.uka.ipd.sdq.pcm.seff.ExternalCallAction#getOutputVariableUsage_ExternalCallAction <em>Output Variable Usage External Call Action</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Output Variable Usage External Call Action</em>'.
+	 * @see de.uka.ipd.sdq.pcm.seff.ExternalCallAction#getOutputVariableUsage_ExternalCallAction()
+	 * @see #getExternalCallAction()
+	 * @generated
+	 */
+	EReference getExternalCallAction_OutputVariableUsage_ExternalCallAction();
+
+	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.seff.ProbabilisticBranchTransition <em>Probabilistic Branch Transition</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1787,6 +1881,27 @@ public interface SeffPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getGuardedBranchTransition_BranchCondition_BranchTransition();
+
+	/**
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.seff.SetVariableAction <em>Set Variable Action</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Set Variable Action</em>'.
+	 * @see de.uka.ipd.sdq.pcm.seff.SetVariableAction
+	 * @generated
+	 */
+	EClass getSetVariableAction();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link de.uka.ipd.sdq.pcm.seff.SetVariableAction#getVariableUsage_SetVariableAction <em>Variable Usage Set Variable Action</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Variable Usage Set Variable Action</em>'.
+	 * @see de.uka.ipd.sdq.pcm.seff.SetVariableAction#getVariableUsage_SetVariableAction()
+	 * @see #getSetVariableAction()
+	 * @generated
+	 */
+	EReference getSetVariableAction_VariableUsage_SetVariableAction();
 
 	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.seff.ServiceEffectSpecification <em>Service Effect Specification</em>}'.
@@ -2095,6 +2210,14 @@ public interface SeffPackage extends EPackage {
 		EReference EXTERNAL_CALL_ACTION__PARAMETER_USAGE_EXTERNAL_CALL_ACTION = eINSTANCE.getExternalCallAction_ParameterUsage_ExternalCallAction();
 
 		/**
+		 * The meta object literal for the '<em><b>Output Variable Usage External Call Action</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference EXTERNAL_CALL_ACTION__OUTPUT_VARIABLE_USAGE_EXTERNAL_CALL_ACTION = eINSTANCE.getExternalCallAction_OutputVariableUsage_ExternalCallAction();
+
+		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.seff.impl.ProbabilisticBranchTransitionImpl <em>Probabilistic Branch Transition</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2211,6 +2334,24 @@ public interface SeffPackage extends EPackage {
 		 * @generated
 		 */
 		EReference GUARDED_BRANCH_TRANSITION__BRANCH_CONDITION_BRANCH_TRANSITION = eINSTANCE.getGuardedBranchTransition_BranchCondition_BranchTransition();
+
+		/**
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.seff.impl.SetVariableActionImpl <em>Set Variable Action</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.uka.ipd.sdq.pcm.seff.impl.SetVariableActionImpl
+		 * @see de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl#getSetVariableAction()
+		 * @generated
+		 */
+		EClass SET_VARIABLE_ACTION = eINSTANCE.getSetVariableAction();
+
+		/**
+		 * The meta object literal for the '<em><b>Variable Usage Set Variable Action</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SET_VARIABLE_ACTION__VARIABLE_USAGE_SET_VARIABLE_ACTION = eINSTANCE.getSetVariableAction_VariableUsage_SetVariableAction();
 
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.seff.impl.ServiceEffectSpecificationImpl <em>Service Effect Specification</em>}' class.

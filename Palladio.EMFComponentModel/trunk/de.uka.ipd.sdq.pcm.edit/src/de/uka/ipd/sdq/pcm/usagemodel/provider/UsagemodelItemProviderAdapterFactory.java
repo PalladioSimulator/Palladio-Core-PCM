@@ -66,7 +66,7 @@ public class UsagemodelItemProviderAdapterFactory extends UsagemodelAdapterFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected Collection supportedTypes = new ArrayList();
+	protected Collection<Object> supportedTypes = new ArrayList<Object>();
 
 	/**
 	 * This constructs an instance.
@@ -79,7 +79,7 @@ public class UsagemodelItemProviderAdapterFactory extends UsagemodelAdapterFacto
 		supportedTypes.add(IStructuredItemContentProvider.class);
 		supportedTypes.add(ITreeItemContentProvider.class);
 		supportedTypes.add(IItemLabelProvider.class);
-		supportedTypes.add(IItemPropertySource.class);		
+		supportedTypes.add(IItemPropertySource.class);
 	}
 
 	/**
@@ -96,6 +96,7 @@ public class UsagemodelItemProviderAdapterFactory extends UsagemodelAdapterFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Adapter createUsageScenarioAdapter() {
 		if (usageScenarioItemProvider == null) {
 			usageScenarioItemProvider = new UsageScenarioItemProvider(this);
@@ -118,6 +119,7 @@ public class UsagemodelItemProviderAdapterFactory extends UsagemodelAdapterFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Adapter createScenarioBehaviourAdapter() {
 		if (scenarioBehaviourItemProvider == null) {
 			scenarioBehaviourItemProvider = new ScenarioBehaviourItemProvider(this);
@@ -140,6 +142,7 @@ public class UsagemodelItemProviderAdapterFactory extends UsagemodelAdapterFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Adapter createUsageModelAdapter() {
 		if (usageModelItemProvider == null) {
 			usageModelItemProvider = new UsageModelItemProvider(this);
@@ -162,6 +165,7 @@ public class UsagemodelItemProviderAdapterFactory extends UsagemodelAdapterFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Adapter createStopAdapter() {
 		if (stopItemProvider == null) {
 			stopItemProvider = new StopItemProvider(this);
@@ -184,6 +188,7 @@ public class UsagemodelItemProviderAdapterFactory extends UsagemodelAdapterFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Adapter createStartAdapter() {
 		if (startItemProvider == null) {
 			startItemProvider = new StartItemProvider(this);
@@ -206,6 +211,7 @@ public class UsagemodelItemProviderAdapterFactory extends UsagemodelAdapterFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Adapter createOpenWorkloadAdapter() {
 		if (openWorkloadItemProvider == null) {
 			openWorkloadItemProvider = new OpenWorkloadItemProvider(this);
@@ -228,6 +234,7 @@ public class UsagemodelItemProviderAdapterFactory extends UsagemodelAdapterFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Adapter createInterArrivalTimeAdapter() {
 		if (interArrivalTimeItemProvider == null) {
 			interArrivalTimeItemProvider = new InterArrivalTimeItemProvider(this);
@@ -250,6 +257,7 @@ public class UsagemodelItemProviderAdapterFactory extends UsagemodelAdapterFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Adapter createLoopAdapter() {
 		if (loopItemProvider == null) {
 			loopItemProvider = new LoopItemProvider(this);
@@ -272,6 +280,7 @@ public class UsagemodelItemProviderAdapterFactory extends UsagemodelAdapterFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Adapter createLoopIterationsAdapter() {
 		if (loopIterationsItemProvider == null) {
 			loopIterationsItemProvider = new LoopIterationsItemProvider(this);
@@ -294,6 +303,7 @@ public class UsagemodelItemProviderAdapterFactory extends UsagemodelAdapterFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Adapter createEntryLevelSystemCallAdapter() {
 		if (entryLevelSystemCallItemProvider == null) {
 			entryLevelSystemCallItemProvider = new EntryLevelSystemCallItemProvider(this);
@@ -316,6 +326,7 @@ public class UsagemodelItemProviderAdapterFactory extends UsagemodelAdapterFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Adapter createClosedWorkloadAdapter() {
 		if (closedWorkloadItemProvider == null) {
 			closedWorkloadItemProvider = new ClosedWorkloadItemProvider(this);
@@ -338,6 +349,7 @@ public class UsagemodelItemProviderAdapterFactory extends UsagemodelAdapterFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Adapter createThinkTimeAdapter() {
 		if (thinkTimeItemProvider == null) {
 			thinkTimeItemProvider = new ThinkTimeItemProvider(this);
@@ -360,6 +372,7 @@ public class UsagemodelItemProviderAdapterFactory extends UsagemodelAdapterFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Adapter createBranchAdapter() {
 		if (branchItemProvider == null) {
 			branchItemProvider = new BranchItemProvider(this);
@@ -382,6 +395,7 @@ public class UsagemodelItemProviderAdapterFactory extends UsagemodelAdapterFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Adapter createBranchTransitionAdapter() {
 		if (branchTransitionItemProvider == null) {
 			branchTransitionItemProvider = new BranchTransitionItemProvider(this);
@@ -415,6 +429,7 @@ public class UsagemodelItemProviderAdapterFactory extends UsagemodelAdapterFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean isFactoryForType(Object type) {
 		return supportedTypes.contains(type) || super.isFactoryForType(type);
 	}
@@ -425,6 +440,7 @@ public class UsagemodelItemProviderAdapterFactory extends UsagemodelAdapterFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Adapter adapt(Notifier notifier, Object type) {
 		return super.adapt(notifier, this);
 	}
@@ -434,10 +450,11 @@ public class UsagemodelItemProviderAdapterFactory extends UsagemodelAdapterFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Object adapt(Object object, Object type) {
 		if (isFactoryForType(type)) {
 			Object adapter = super.adapt(object, type);
-			if (!(type instanceof Class) || (((Class)type).isInstance(adapter))) {
+			if (!(type instanceof Class) || (((Class<?>)type).isInstance(adapter))) {
 				return adapter;
 			}
 		}

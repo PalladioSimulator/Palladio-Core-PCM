@@ -59,7 +59,7 @@ public class VariableUsageImpl extends EObjectImpl implements VariableUsage {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<VariableCharacterisation> variableCharacterisation_VariableUsage = null;
+	protected EList<VariableCharacterisation> variableCharacterisation_VariableUsage;
 
 	/**
 	 * The cached value of the '{@link #getNamedReference_VariableUsage() <em>Named Reference Variable Usage</em>}' containment reference.
@@ -69,7 +69,7 @@ public class VariableUsageImpl extends EObjectImpl implements VariableUsage {
 	 * @generated
 	 * @ordered
 	 */
-	protected AbstractNamedReference namedReference_VariableUsage = null;
+	protected AbstractNamedReference namedReference_VariableUsage;
 
 
 	/**

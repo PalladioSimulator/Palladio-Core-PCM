@@ -78,7 +78,7 @@ public class BasicComponentImpl extends ImplementationComponentTypeImpl implemen
 	 * @generated
 	 * @ordered
 	 */
-	protected ImplementationComponentType implementationComponentType = null;
+	protected ImplementationComponentType implementationComponentType;
 
 	/**
 	 * The cached value of the '{@link #getServiceEffectSpecifications__BasicComponent() <em>Service Effect Specifications Basic Component</em>}' containment reference list.
@@ -88,7 +88,7 @@ public class BasicComponentImpl extends ImplementationComponentTypeImpl implemen
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<ServiceEffectSpecification> serviceEffectSpecifications__BasicComponent = null;
+	protected EList<ServiceEffectSpecification> serviceEffectSpecifications__BasicComponent;
 
 
 	/**
@@ -200,7 +200,7 @@ public class BasicComponentImpl extends ImplementationComponentTypeImpl implemen
 			Environment env = ExpressionsUtil.createClassifierContext(eClass());
 			
 			
-			String body = "self.serviceEffectSpecifications__BasicComponent->forAll(p1, p2 |  p1.describedService__SEFF = p2.describedService__SEFF implies p1.seffTypeID <> p2.seffTypeID) ";
+			String body = "self.serviceEffectSpecifications__BasicComponent->forAll(p1, p2 |    p1 <> p2 implies (p1.describedService__SEFF = p2.describedService__SEFF implies p1.seffTypeID <> p2.seffTypeID)) ";
 			
 			try {
 				NoSeffTypeUsedTwiceInvOCL = ExpressionsUtil.createInvariant(env, body, true);

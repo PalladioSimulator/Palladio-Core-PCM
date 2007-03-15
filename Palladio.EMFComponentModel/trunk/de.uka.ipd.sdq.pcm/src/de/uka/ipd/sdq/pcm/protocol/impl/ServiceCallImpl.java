@@ -49,7 +49,7 @@ public abstract class ServiceCallImpl extends EObjectImpl implements ServiceCall
 	 * @generated
 	 * @ordered
 	 */
-	protected Signature signature__ServiceCall = null;
+	protected Signature signature__ServiceCall;
 
 
 	/**

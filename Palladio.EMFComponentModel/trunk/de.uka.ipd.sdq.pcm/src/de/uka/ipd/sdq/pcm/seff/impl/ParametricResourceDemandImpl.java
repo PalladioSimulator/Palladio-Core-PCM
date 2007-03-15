@@ -76,7 +76,7 @@ public class ParametricResourceDemandImpl extends RandomVariableImpl implements 
 	 * @generated
 	 * @ordered
 	 */
-	protected ProcessingResourceType requiredResource_ParametricResourceDemand = null;
+	protected ProcessingResourceType requiredResource_ParametricResourceDemand;
 
 
 	/**

@@ -82,7 +82,7 @@ public class RepositoryImpl extends EntityImpl implements Repository {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<ProvidesComponentType> components__Repository = null;
+	protected EList<ProvidesComponentType> components__Repository;
 
 	/**
 	 * The cached value of the '{@link #getInterfaces__Repository() <em>Interfaces Repository</em>}' containment reference list.
@@ -92,7 +92,7 @@ public class RepositoryImpl extends EntityImpl implements Repository {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Interface> interfaces__Repository = null;
+	protected EList<Interface> interfaces__Repository;
 
 	/**
 	 * The cached value of the '{@link #getDatatypes_Repository() <em>Datatypes Repository</em>}' containment reference list.
@@ -102,7 +102,7 @@ public class RepositoryImpl extends EntityImpl implements Repository {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<DataType> datatypes_Repository = null;
+	protected EList<DataType> datatypes_Repository;
 
 
 	/**

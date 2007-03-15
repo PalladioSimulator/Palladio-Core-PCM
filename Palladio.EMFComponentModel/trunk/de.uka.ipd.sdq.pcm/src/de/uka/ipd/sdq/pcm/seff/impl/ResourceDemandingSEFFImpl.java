@@ -100,7 +100,7 @@ public class ResourceDemandingSEFFImpl extends ServiceEffectSpecificationImpl im
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<AbstractAction> steps_Behaviour = null;
+	protected EList<AbstractAction> steps_Behaviour;
 
 
 	/**

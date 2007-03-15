@@ -54,7 +54,7 @@ public class ScenarioBehaviourImpl extends IdentifierImpl implements ScenarioBeh
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<AbstractUserAction> actions_ScenarioBehaviour = null;
+	protected EList<AbstractUserAction> actions_ScenarioBehaviour;
 
 
 	/**

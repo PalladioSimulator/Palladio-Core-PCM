@@ -105,7 +105,7 @@ public class SignatureImpl extends EObjectImpl implements Signature {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Parameter> parameters__Signature = null;
+	protected EList<Parameter> parameters__Signature;
 
 	/**
 	 * The cached value of the '{@link #getReturntype__Signature() <em>Returntype Signature</em>}' reference.
@@ -115,7 +115,7 @@ public class SignatureImpl extends EObjectImpl implements Signature {
 	 * @generated
 	 * @ordered
 	 */
-	protected DataType returntype__Signature = null;
+	protected DataType returntype__Signature;
 
 	/**
 	 * The cached value of the '{@link #getExceptions__Signature() <em>Exceptions Signature</em>}' containment reference list.
@@ -125,7 +125,7 @@ public class SignatureImpl extends EObjectImpl implements Signature {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<ExceptionType> exceptions__Signature = null;
+	protected EList<ExceptionType> exceptions__Signature;
 
 
 	/**

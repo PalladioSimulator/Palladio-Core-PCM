@@ -54,7 +54,7 @@ public class ResourceDemandingBehaviourImpl extends EObjectImpl implements Resou
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<AbstractAction> steps_Behaviour = null;
+	protected EList<AbstractAction> steps_Behaviour;
 
 
 	/**

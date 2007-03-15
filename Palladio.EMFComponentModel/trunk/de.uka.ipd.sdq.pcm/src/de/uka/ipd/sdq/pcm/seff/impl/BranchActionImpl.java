@@ -52,7 +52,7 @@ public class BranchActionImpl extends AbstractResourceDemandingActionImpl implem
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<AbstractBranchTransition> branches_Branch = null;
+	protected EList<AbstractBranchTransition> branches_Branch;
 
 
 	/**

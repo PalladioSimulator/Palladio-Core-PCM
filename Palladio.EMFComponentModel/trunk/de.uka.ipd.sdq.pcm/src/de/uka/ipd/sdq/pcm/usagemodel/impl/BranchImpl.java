@@ -52,7 +52,7 @@ public class BranchImpl extends AbstractUserActionImpl implements Branch {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<BranchTransition> branchTransitions_Branch = null;
+	protected EList<BranchTransition> branchTransitions_Branch;
 
 
 	/**

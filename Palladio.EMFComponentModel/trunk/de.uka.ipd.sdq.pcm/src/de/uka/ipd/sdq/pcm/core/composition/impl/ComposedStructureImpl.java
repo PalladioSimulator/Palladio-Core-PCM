@@ -60,7 +60,7 @@ public abstract class ComposedStructureImpl extends EntityImpl implements Compos
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<AssemblyContext> childComponentContexts_ComposedStructure = null;
+	protected EList<AssemblyContext> childComponentContexts_ComposedStructure;
 
 	/**
 	 * The cached value of the '{@link #getProvidedDelegationConnectors_ComposedStructure() <em>Provided Delegation Connectors Composed Structure</em>}' containment reference list.
@@ -70,7 +70,7 @@ public abstract class ComposedStructureImpl extends EntityImpl implements Compos
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<ProvidedDelegationConnector> providedDelegationConnectors_ComposedStructure = null;
+	protected EList<ProvidedDelegationConnector> providedDelegationConnectors_ComposedStructure;
 
 	/**
 	 * The cached value of the '{@link #getRequiredDelegationConnectors_ComposedStructure() <em>Required Delegation Connectors Composed Structure</em>}' containment reference list.
@@ -80,7 +80,7 @@ public abstract class ComposedStructureImpl extends EntityImpl implements Compos
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<RequiredDelegationConnector> requiredDelegationConnectors_ComposedStructure = null;
+	protected EList<RequiredDelegationConnector> requiredDelegationConnectors_ComposedStructure;
 
 	/**
 	 * The cached value of the '{@link #getCompositeAssemblyConnectors_ComposedStructure() <em>Composite Assembly Connectors Composed Structure</em>}' containment reference list.
@@ -90,7 +90,7 @@ public abstract class ComposedStructureImpl extends EntityImpl implements Compos
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<AssemblyConnector> compositeAssemblyConnectors_ComposedStructure = null;
+	protected EList<AssemblyConnector> compositeAssemblyConnectors_ComposedStructure;
 
 
 	/**

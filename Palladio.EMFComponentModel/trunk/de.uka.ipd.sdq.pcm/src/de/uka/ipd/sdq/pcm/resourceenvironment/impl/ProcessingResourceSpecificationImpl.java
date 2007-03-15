@@ -51,7 +51,7 @@ public class ProcessingResourceSpecificationImpl extends EObjectImpl implements 
 	 * @generated
 	 * @ordered
 	 */
-	protected ProcessingResourceType activeResourceType_ActiveResourceSpecification = null;
+	protected ProcessingResourceType activeResourceType_ActiveResourceSpecification;
 
 	/**
 	 * The default value of the '{@link #getProcessingRate() <em>Processing Rate</em>}' attribute.

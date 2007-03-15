@@ -115,6 +115,7 @@ public class IdentifierValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_EveryProxyResolves(identifier, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_UniqueID(identifier, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(identifier, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(identifier, diagnostics, context);
 		if (result || diagnostics != null) result &= validateIdentifier_idHasToBeUnique(identifier, diagnostics, context);
 		return result;
 	}

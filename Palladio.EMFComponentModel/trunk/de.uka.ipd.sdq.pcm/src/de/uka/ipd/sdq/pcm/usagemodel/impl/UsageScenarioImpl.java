@@ -52,7 +52,7 @@ public class UsageScenarioImpl extends EntityImpl implements UsageScenario {
 	 * @generated
 	 * @ordered
 	 */
-	protected Workload workload_UsageScenario = null;
+	protected Workload workload_UsageScenario;
 
 	/**
 	 * The cached value of the '{@link #getScenarioBehaviour_UsageScenario() <em>Scenario Behaviour Usage Scenario</em>}' containment reference.
@@ -62,7 +62,7 @@ public class UsageScenarioImpl extends EntityImpl implements UsageScenario {
 	 * @generated
 	 * @ordered
 	 */
-	protected ScenarioBehaviour scenarioBehaviour_UsageScenario = null;
+	protected ScenarioBehaviour scenarioBehaviour_UsageScenario;
 
 
 	/**

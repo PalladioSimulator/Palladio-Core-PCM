@@ -61,7 +61,7 @@ public class AllocationImpl extends EntityImpl implements Allocation {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<AllocationContext> allocationContexts_Allocation = null;
+	protected EList<AllocationContext> allocationContexts_Allocation;
 
 	/**
 	 * The cached value of the '{@link #getTargetResourceEnvironment_Allocation() <em>Target Resource Environment Allocation</em>}' reference.
@@ -71,7 +71,7 @@ public class AllocationImpl extends EntityImpl implements Allocation {
 	 * @generated
 	 * @ordered
 	 */
-	protected ResourceEnvironment targetResourceEnvironment_Allocation = null;
+	protected ResourceEnvironment targetResourceEnvironment_Allocation;
 
 	/**
 	 * The cached value of the '{@link #getSystem_Allocation() <em>System Allocation</em>}' reference.
@@ -81,7 +81,7 @@ public class AllocationImpl extends EntityImpl implements Allocation {
 	 * @generated
 	 * @ordered
 	 */
-	protected de.uka.ipd.sdq.pcm.system.System system_Allocation = null;
+	protected de.uka.ipd.sdq.pcm.system.System system_Allocation;
 
 
 	/**

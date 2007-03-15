@@ -52,7 +52,7 @@ public abstract class AbstractResourceDemandingActionImpl extends AbstractAction
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<ParametricResourceDemand> resourceDemand_Action = null;
+	protected EList<ParametricResourceDemand> resourceDemand_Action;
 
 
 	/**

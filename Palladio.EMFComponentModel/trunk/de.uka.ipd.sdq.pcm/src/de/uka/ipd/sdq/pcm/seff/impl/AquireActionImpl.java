@@ -48,7 +48,7 @@ public class AquireActionImpl extends AbstractResourceDemandingActionImpl implem
 	 * @generated
 	 * @ordered
 	 */
-	protected PassiveResourceType resourceType_Aquire = null;
+	protected PassiveResourceType resourceType_Aquire;
 
 
 	/**

@@ -70,7 +70,7 @@ public abstract class ServiceEffectSpecificationImpl extends EObjectImpl impleme
 	 * @generated
 	 * @ordered
 	 */
-	protected Signature describedService__SEFF = null;
+	protected Signature describedService__SEFF;
 
 
 	/**

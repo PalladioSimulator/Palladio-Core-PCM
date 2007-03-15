@@ -80,7 +80,7 @@ public class ProvidedDelegationConnectorImpl extends DelegationConnectorImpl imp
 	 * @generated
 	 * @ordered
 	 */
-	protected ProvidedRole innerProvidedRole_ProvidedDelegationConnector = null;
+	protected ProvidedRole innerProvidedRole_ProvidedDelegationConnector;
 
 	/**
 	 * The cached value of the '{@link #getOuterProvidedRole_ProvidedDelegationConnector() <em>Outer Provided Role Provided Delegation Connector</em>}' reference.
@@ -90,7 +90,7 @@ public class ProvidedDelegationConnectorImpl extends DelegationConnectorImpl imp
 	 * @generated
 	 * @ordered
 	 */
-	protected ProvidedRole outerProvidedRole_ProvidedDelegationConnector = null;
+	protected ProvidedRole outerProvidedRole_ProvidedDelegationConnector;
 
 	/**
 	 * The cached value of the '{@link #getChildComponentContext_ProvidedDelegationConnector() <em>Child Component Context Provided Delegation Connector</em>}' reference.
@@ -100,7 +100,7 @@ public class ProvidedDelegationConnectorImpl extends DelegationConnectorImpl imp
 	 * @generated
 	 * @ordered
 	 */
-	protected AssemblyContext childComponentContext_ProvidedDelegationConnector = null;
+	protected AssemblyContext childComponentContext_ProvidedDelegationConnector;
 
 
 	/**

@@ -61,7 +61,7 @@ public class EntryLevelSystemCallImpl extends AbstractUserActionImpl implements 
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<VariableUsage> actualParameterUsage_EntryLevelSystemCall = null;
+	protected EList<VariableUsage> actualParameterUsage_EntryLevelSystemCall;
 
 	/**
 	 * The cached value of the '{@link #getProvidedRole_EntryLevelSystemCall() <em>Provided Role Entry Level System Call</em>}' reference.
@@ -71,7 +71,7 @@ public class EntryLevelSystemCallImpl extends AbstractUserActionImpl implements 
 	 * @generated
 	 * @ordered
 	 */
-	protected ProvidedRole providedRole_EntryLevelSystemCall = null;
+	protected ProvidedRole providedRole_EntryLevelSystemCall;
 
 	/**
 	 * The cached value of the '{@link #getSignature_EntryLevelSystemCall() <em>Signature Entry Level System Call</em>}' reference.
@@ -81,7 +81,7 @@ public class EntryLevelSystemCallImpl extends AbstractUserActionImpl implements 
 	 * @generated
 	 * @ordered
 	 */
-	protected Signature signature_EntryLevelSystemCall = null;
+	protected Signature signature_EntryLevelSystemCall;
 
 
 	/**

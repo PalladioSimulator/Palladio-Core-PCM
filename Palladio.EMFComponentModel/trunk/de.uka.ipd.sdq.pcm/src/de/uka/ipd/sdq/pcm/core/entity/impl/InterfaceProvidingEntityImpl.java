@@ -54,7 +54,7 @@ public abstract class InterfaceProvidingEntityImpl extends EntityImpl implements
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<ProvidedRole> providedRoles_InterfaceProvidingEntity = null;
+	protected EList<ProvidedRole> providedRoles_InterfaceProvidingEntity;
 
 
 	/**

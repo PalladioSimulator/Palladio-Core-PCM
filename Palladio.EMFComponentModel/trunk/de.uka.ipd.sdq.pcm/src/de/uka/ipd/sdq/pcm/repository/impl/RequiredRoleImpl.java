@@ -54,7 +54,7 @@ public class RequiredRoleImpl extends RoleImpl implements RequiredRole {
 	 * @generated
 	 * @ordered
 	 */
-	protected Interface requiredInterface__RequiredRole = null;
+	protected Interface requiredInterface__RequiredRole;
 
 
 	/**

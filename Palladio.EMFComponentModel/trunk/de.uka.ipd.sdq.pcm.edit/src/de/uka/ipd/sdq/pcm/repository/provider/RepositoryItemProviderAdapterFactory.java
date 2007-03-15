@@ -66,7 +66,7 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected Collection supportedTypes = new ArrayList();
+	protected Collection<Object> supportedTypes = new ArrayList<Object>();
 
 	/**
 	 * This constructs an instance.
@@ -79,7 +79,7 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
 		supportedTypes.add(IStructuredItemContentProvider.class);
 		supportedTypes.add(ITreeItemContentProvider.class);
 		supportedTypes.add(IItemLabelProvider.class);
-		supportedTypes.add(IItemPropertySource.class);		
+		supportedTypes.add(IItemPropertySource.class);
 	}
 
 	/**
@@ -96,6 +96,7 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Adapter createSignatureAdapter() {
 		if (signatureItemProvider == null) {
 			signatureItemProvider = new SignatureItemProvider(this);
@@ -118,6 +119,7 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Adapter createParameterAdapter() {
 		if (parameterItemProvider == null) {
 			parameterItemProvider = new ParameterItemProvider(this);
@@ -140,6 +142,7 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Adapter createRepositoryAdapter() {
 		if (repositoryItemProvider == null) {
 			repositoryItemProvider = new RepositoryItemProvider(this);
@@ -162,6 +165,7 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Adapter createProvidesComponentTypeAdapter() {
 		if (providesComponentTypeItemProvider == null) {
 			providesComponentTypeItemProvider = new ProvidesComponentTypeItemProvider(this);
@@ -184,6 +188,7 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Adapter createRequiredRoleAdapter() {
 		if (requiredRoleItemProvider == null) {
 			requiredRoleItemProvider = new RequiredRoleItemProvider(this);
@@ -206,6 +211,7 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Adapter createInterfaceAdapter() {
 		if (interfaceItemProvider == null) {
 			interfaceItemProvider = new InterfaceItemProvider(this);
@@ -228,6 +234,7 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Adapter createExceptionTypeAdapter() {
 		if (exceptionTypeItemProvider == null) {
 			exceptionTypeItemProvider = new ExceptionTypeItemProvider(this);
@@ -250,6 +257,7 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Adapter createCompleteComponentTypeAdapter() {
 		if (completeComponentTypeItemProvider == null) {
 			completeComponentTypeItemProvider = new CompleteComponentTypeItemProvider(this);
@@ -272,6 +280,7 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Adapter createCompositeComponentAdapter() {
 		if (compositeComponentItemProvider == null) {
 			compositeComponentItemProvider = new CompositeComponentItemProvider(this);
@@ -294,6 +303,7 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Adapter createBasicComponentAdapter() {
 		if (basicComponentItemProvider == null) {
 			basicComponentItemProvider = new BasicComponentItemProvider(this);
@@ -316,6 +326,7 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Adapter createPrimitiveDataTypeAdapter() {
 		if (primitiveDataTypeItemProvider == null) {
 			primitiveDataTypeItemProvider = new PrimitiveDataTypeItemProvider(this);
@@ -338,6 +349,7 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Adapter createCollectionDataTypeAdapter() {
 		if (collectionDataTypeItemProvider == null) {
 			collectionDataTypeItemProvider = new CollectionDataTypeItemProvider(this);
@@ -360,6 +372,7 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Adapter createCompositeDataTypeAdapter() {
 		if (compositeDataTypeItemProvider == null) {
 			compositeDataTypeItemProvider = new CompositeDataTypeItemProvider(this);
@@ -382,6 +395,7 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Adapter createInnerDeclarationAdapter() {
 		if (innerDeclarationItemProvider == null) {
 			innerDeclarationItemProvider = new InnerDeclarationItemProvider(this);
@@ -404,6 +418,7 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Adapter createProvidedRoleAdapter() {
 		if (providedRoleItemProvider == null) {
 			providedRoleItemProvider = new ProvidedRoleItemProvider(this);
@@ -437,6 +452,7 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean isFactoryForType(Object type) {
 		return supportedTypes.contains(type) || super.isFactoryForType(type);
 	}
@@ -447,6 +463,7 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Adapter adapt(Notifier notifier, Object type) {
 		return super.adapt(notifier, this);
 	}
@@ -456,10 +473,11 @@ public class RepositoryItemProviderAdapterFactory extends RepositoryAdapterFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Object adapt(Object object, Object type) {
 		if (isFactoryForType(type)) {
 			Object adapter = super.adapt(object, type);
-			if (!(type instanceof Class) || (((Class)type).isInstance(adapter))) {
+			if (!(type instanceof Class) || (((Class<?>)type).isInstance(adapter))) {
 				return adapter;
 			}
 		}

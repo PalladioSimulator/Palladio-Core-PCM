@@ -87,7 +87,7 @@ public class InterfaceImpl extends EntityImpl implements Interface {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Interface> parentInterface__Interface = null;
+	protected EList<Interface> parentInterface__Interface;
 
 	/**
 	 * The cached value of the '{@link #getAnchestorInterfaces_Interface() <em>Anchestor Interfaces Interface</em>}' reference list.
@@ -97,7 +97,7 @@ public class InterfaceImpl extends EntityImpl implements Interface {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Interface> anchestorInterfaces_Interface = null;
+	protected EList<Interface> anchestorInterfaces_Interface;
 
 	/**
 	 * The cached value of the '{@link #getProtocols__Interface() <em>Protocols Interface</em>}' containment reference list.
@@ -107,7 +107,7 @@ public class InterfaceImpl extends EntityImpl implements Interface {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Protocol> protocols__Interface = null;
+	protected EList<Protocol> protocols__Interface;
 
 	/**
 	 * The cached value of the '{@link #getSignatures__Interface() <em>Signatures Interface</em>}' containment reference list.
@@ -117,7 +117,7 @@ public class InterfaceImpl extends EntityImpl implements Interface {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Signature> signatures__Interface = null;
+	protected EList<Signature> signatures__Interface;
 
 
 	/**

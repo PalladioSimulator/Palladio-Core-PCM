@@ -54,7 +54,7 @@ public class QoSAnnotationsImpl extends EntityImpl implements QoSAnnotations {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<SpecifiedExecutionTime> specifiedExecutionTimes_QoSAnnotations = null;
+	protected EList<SpecifiedExecutionTime> specifiedExecutionTimes_QoSAnnotations;
 
 
 	/**

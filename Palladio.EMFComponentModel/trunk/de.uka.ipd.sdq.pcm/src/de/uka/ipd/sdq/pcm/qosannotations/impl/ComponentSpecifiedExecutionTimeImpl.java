@@ -48,7 +48,7 @@ public class ComponentSpecifiedExecutionTimeImpl extends SpecifiedExecutionTimeI
 	 * @generated
 	 * @ordered
 	 */
-	protected AssemblyContext assemblyContext_ComponentSpecifiedExecutionTime = null;
+	protected AssemblyContext assemblyContext_ComponentSpecifiedExecutionTime;
 
 
 	/**

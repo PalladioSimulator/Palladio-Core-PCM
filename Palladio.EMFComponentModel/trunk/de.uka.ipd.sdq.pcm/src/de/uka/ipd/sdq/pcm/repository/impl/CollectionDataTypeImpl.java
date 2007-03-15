@@ -54,7 +54,7 @@ public class CollectionDataTypeImpl extends EntityImpl implements CollectionData
 	 * @generated
 	 * @ordered
 	 */
-	protected DataType innerType_CollectionDataType = null;
+	protected DataType innerType_CollectionDataType;
 
 
 	/**

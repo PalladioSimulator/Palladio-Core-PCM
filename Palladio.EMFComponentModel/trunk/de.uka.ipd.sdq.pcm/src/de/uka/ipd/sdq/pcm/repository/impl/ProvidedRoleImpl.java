@@ -54,7 +54,7 @@ public class ProvidedRoleImpl extends RoleImpl implements ProvidedRole {
 	 * @generated
 	 * @ordered
 	 */
-	protected Interface providedInterface__ProvidedRole = null;
+	protected Interface providedInterface__ProvidedRole;
 
 
 	/**

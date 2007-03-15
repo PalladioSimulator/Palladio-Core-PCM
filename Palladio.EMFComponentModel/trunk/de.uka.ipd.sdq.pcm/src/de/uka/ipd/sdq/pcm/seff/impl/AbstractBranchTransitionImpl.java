@@ -50,7 +50,7 @@ public abstract class AbstractBranchTransitionImpl extends IdentifierImpl implem
 	 * @generated
 	 * @ordered
 	 */
-	protected ResourceDemandingBehaviour branchBehaviour_BranchTransition = null;
+	protected ResourceDemandingBehaviour branchBehaviour_BranchTransition;
 
 
 	/**

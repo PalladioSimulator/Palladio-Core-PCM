@@ -63,7 +63,7 @@ public class CompositeDataTypeImpl extends EntityImpl implements CompositeDataTy
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<CompositeDataType> parentType_CompositeDataType = null;
+	protected EList<CompositeDataType> parentType_CompositeDataType;
 
 	/**
 	 * The cached value of the '{@link #getInnerDeclaration_CompositeDataType() <em>Inner Declaration Composite Data Type</em>}' containment reference list.
@@ -73,7 +73,7 @@ public class CompositeDataTypeImpl extends EntityImpl implements CompositeDataTy
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<InnerDeclaration> innerDeclaration_CompositeDataType = null;
+	protected EList<InnerDeclaration> innerDeclaration_CompositeDataType;
 
 
 	/**

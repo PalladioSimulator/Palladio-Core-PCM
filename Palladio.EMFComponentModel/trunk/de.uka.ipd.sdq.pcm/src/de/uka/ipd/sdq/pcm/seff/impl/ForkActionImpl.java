@@ -52,7 +52,7 @@ public class ForkActionImpl extends AbstractResourceDemandingActionImpl implemen
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<ResourceDemandingBehaviour> forkedBehaviours_Fork = null;
+	protected EList<ResourceDemandingBehaviour> forkedBehaviours_Fork;
 
 
 	/**

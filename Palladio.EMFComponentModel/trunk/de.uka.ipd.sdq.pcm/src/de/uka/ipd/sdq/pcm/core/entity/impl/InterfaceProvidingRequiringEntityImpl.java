@@ -55,7 +55,7 @@ public abstract class InterfaceProvidingRequiringEntityImpl extends InterfacePro
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<RequiredRole> requiredRoles_InterfaceRequiringEntity = null;
+	protected EList<RequiredRole> requiredRoles_InterfaceRequiringEntity;
 
 
 	/**

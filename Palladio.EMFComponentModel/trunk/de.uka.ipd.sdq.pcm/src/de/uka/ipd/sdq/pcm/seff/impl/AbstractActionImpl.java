@@ -50,7 +50,7 @@ public abstract class AbstractActionImpl extends EntityImpl implements AbstractA
 	 * @generated
 	 * @ordered
 	 */
-	protected AbstractAction predecessor_AbstractAction = null;
+	protected AbstractAction predecessor_AbstractAction;
 
 	/**
 	 * The cached value of the '{@link #getSuccessor_AbstractAction() <em>Successor Abstract Action</em>}' reference.
@@ -60,7 +60,7 @@ public abstract class AbstractActionImpl extends EntityImpl implements AbstractA
 	 * @generated
 	 * @ordered
 	 */
-	protected AbstractAction successor_AbstractAction = null;
+	protected AbstractAction successor_AbstractAction;
 
 
 	/**

@@ -13,17 +13,22 @@ import de.uka.ipd.sdq.pcm.core.composition.CompositionPackage;
 
 import de.uka.ipd.sdq.pcm.core.entity.impl.EntityImpl;
 
+import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
 import de.uka.ipd.sdq.pcm.repository.ProvidesComponentType;
 
+import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -34,6 +39,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  * <ul>
  *   <li>{@link de.uka.ipd.sdq.pcm.core.composition.impl.AssemblyContextImpl#getEncapsulatedComponent_ChildComponentContext <em>Encapsulated Component Child Component Context</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.core.composition.impl.AssemblyContextImpl#getParentStructure_AssemblyContext <em>Parent Structure Assembly Context</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.core.composition.impl.AssemblyContextImpl#getComponentParameterUsage_AssemblyContext <em>Component Parameter Usage Assembly Context</em>}</li>
  * </ul>
  * </p>
  *
@@ -55,7 +61,18 @@ public class AssemblyContextImpl extends EntityImpl implements AssemblyContext {
 	 * @generated
 	 * @ordered
 	 */
-	protected ProvidesComponentType encapsulatedComponent_ChildComponentContext = null;
+	protected ProvidesComponentType encapsulatedComponent_ChildComponentContext;
+
+
+	/**
+	 * The cached value of the '{@link #getComponentParameterUsage_AssemblyContext() <em>Component Parameter Usage Assembly Context</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getComponentParameterUsage_AssemblyContext()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<VariableUsage> componentParameterUsage_AssemblyContext;
 
 
 	/**
@@ -161,6 +178,18 @@ public class AssemblyContextImpl extends EntityImpl implements AssemblyContext {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<VariableUsage> getComponentParameterUsage_AssemblyContext() {
+		if (componentParameterUsage_AssemblyContext == null) {
+			componentParameterUsage_AssemblyContext = new EObjectContainmentEList<VariableUsage>(VariableUsage.class, this, CompositionPackage.ASSEMBLY_CONTEXT__COMPONENT_PARAMETER_USAGE_ASSEMBLY_CONTEXT);
+		}
+		return componentParameterUsage_AssemblyContext;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -182,6 +211,8 @@ public class AssemblyContextImpl extends EntityImpl implements AssemblyContext {
 		switch (featureID) {
 			case CompositionPackage.ASSEMBLY_CONTEXT__PARENT_STRUCTURE_ASSEMBLY_CONTEXT:
 				return basicSetParentStructure_AssemblyContext(null, msgs);
+			case CompositionPackage.ASSEMBLY_CONTEXT__COMPONENT_PARAMETER_USAGE_ASSEMBLY_CONTEXT:
+				return ((InternalEList<?>)getComponentParameterUsage_AssemblyContext()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -213,6 +244,8 @@ public class AssemblyContextImpl extends EntityImpl implements AssemblyContext {
 				return basicGetEncapsulatedComponent_ChildComponentContext();
 			case CompositionPackage.ASSEMBLY_CONTEXT__PARENT_STRUCTURE_ASSEMBLY_CONTEXT:
 				return getParentStructure_AssemblyContext();
+			case CompositionPackage.ASSEMBLY_CONTEXT__COMPONENT_PARAMETER_USAGE_ASSEMBLY_CONTEXT:
+				return getComponentParameterUsage_AssemblyContext();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -222,6 +255,7 @@ public class AssemblyContextImpl extends EntityImpl implements AssemblyContext {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -230,6 +264,10 @@ public class AssemblyContextImpl extends EntityImpl implements AssemblyContext {
 				return;
 			case CompositionPackage.ASSEMBLY_CONTEXT__PARENT_STRUCTURE_ASSEMBLY_CONTEXT:
 				setParentStructure_AssemblyContext((ComposedStructure)newValue);
+				return;
+			case CompositionPackage.ASSEMBLY_CONTEXT__COMPONENT_PARAMETER_USAGE_ASSEMBLY_CONTEXT:
+				getComponentParameterUsage_AssemblyContext().clear();
+				getComponentParameterUsage_AssemblyContext().addAll((Collection<? extends VariableUsage>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -249,6 +287,9 @@ public class AssemblyContextImpl extends EntityImpl implements AssemblyContext {
 			case CompositionPackage.ASSEMBLY_CONTEXT__PARENT_STRUCTURE_ASSEMBLY_CONTEXT:
 				setParentStructure_AssemblyContext((ComposedStructure)null);
 				return;
+			case CompositionPackage.ASSEMBLY_CONTEXT__COMPONENT_PARAMETER_USAGE_ASSEMBLY_CONTEXT:
+				getComponentParameterUsage_AssemblyContext().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -265,6 +306,8 @@ public class AssemblyContextImpl extends EntityImpl implements AssemblyContext {
 				return encapsulatedComponent_ChildComponentContext != null;
 			case CompositionPackage.ASSEMBLY_CONTEXT__PARENT_STRUCTURE_ASSEMBLY_CONTEXT:
 				return getParentStructure_AssemblyContext() != null;
+			case CompositionPackage.ASSEMBLY_CONTEXT__COMPONENT_PARAMETER_USAGE_ASSEMBLY_CONTEXT:
+				return componentParameterUsage_AssemblyContext != null && !componentParameterUsage_AssemblyContext.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

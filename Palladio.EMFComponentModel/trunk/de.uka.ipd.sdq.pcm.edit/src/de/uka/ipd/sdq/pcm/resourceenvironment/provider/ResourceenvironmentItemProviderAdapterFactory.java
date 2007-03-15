@@ -66,7 +66,7 @@ public class ResourceenvironmentItemProviderAdapterFactory extends Resourceenvir
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected Collection supportedTypes = new ArrayList();
+	protected Collection<Object> supportedTypes = new ArrayList<Object>();
 
 	/**
 	 * This constructs an instance.
@@ -79,7 +79,7 @@ public class ResourceenvironmentItemProviderAdapterFactory extends Resourceenvir
 		supportedTypes.add(IStructuredItemContentProvider.class);
 		supportedTypes.add(ITreeItemContentProvider.class);
 		supportedTypes.add(IItemLabelProvider.class);
-		supportedTypes.add(IItemPropertySource.class);		
+		supportedTypes.add(IItemPropertySource.class);
 	}
 
 	/**
@@ -96,6 +96,7 @@ public class ResourceenvironmentItemProviderAdapterFactory extends Resourceenvir
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Adapter createResourceEnvironmentAdapter() {
 		if (resourceEnvironmentItemProvider == null) {
 			resourceEnvironmentItemProvider = new ResourceEnvironmentItemProvider(this);
@@ -118,6 +119,7 @@ public class ResourceenvironmentItemProviderAdapterFactory extends Resourceenvir
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Adapter createLinkingResourceAdapter() {
 		if (linkingResourceItemProvider == null) {
 			linkingResourceItemProvider = new LinkingResourceItemProvider(this);
@@ -140,6 +142,7 @@ public class ResourceenvironmentItemProviderAdapterFactory extends Resourceenvir
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Adapter createCommunicationLinkResourceSpecificationAdapter() {
 		if (communicationLinkResourceSpecificationItemProvider == null) {
 			communicationLinkResourceSpecificationItemProvider = new CommunicationLinkResourceSpecificationItemProvider(this);
@@ -162,6 +165,7 @@ public class ResourceenvironmentItemProviderAdapterFactory extends Resourceenvir
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Adapter createProcessingResourceSpecificationAdapter() {
 		if (processingResourceSpecificationItemProvider == null) {
 			processingResourceSpecificationItemProvider = new ProcessingResourceSpecificationItemProvider(this);
@@ -184,6 +188,7 @@ public class ResourceenvironmentItemProviderAdapterFactory extends Resourceenvir
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Adapter createPassiveResourceSpecificationAdapter() {
 		if (passiveResourceSpecificationItemProvider == null) {
 			passiveResourceSpecificationItemProvider = new PassiveResourceSpecificationItemProvider(this);
@@ -206,6 +211,7 @@ public class ResourceenvironmentItemProviderAdapterFactory extends Resourceenvir
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Adapter createResourceContainerAdapter() {
 		if (resourceContainerItemProvider == null) {
 			resourceContainerItemProvider = new ResourceContainerItemProvider(this);
@@ -239,6 +245,7 @@ public class ResourceenvironmentItemProviderAdapterFactory extends Resourceenvir
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean isFactoryForType(Object type) {
 		return supportedTypes.contains(type) || super.isFactoryForType(type);
 	}
@@ -249,6 +256,7 @@ public class ResourceenvironmentItemProviderAdapterFactory extends Resourceenvir
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Adapter adapt(Notifier notifier, Object type) {
 		return super.adapt(notifier, this);
 	}
@@ -258,10 +266,11 @@ public class ResourceenvironmentItemProviderAdapterFactory extends Resourceenvir
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Object adapt(Object object, Object type) {
 		if (isFactoryForType(type)) {
 			Object adapter = super.adapt(object, type);
-			if (!(type instanceof Class) || (((Class)type).isInstance(adapter))) {
+			if (!(type instanceof Class) || (((Class<?>)type).isInstance(adapter))) {
 				return adapter;
 			}
 		}

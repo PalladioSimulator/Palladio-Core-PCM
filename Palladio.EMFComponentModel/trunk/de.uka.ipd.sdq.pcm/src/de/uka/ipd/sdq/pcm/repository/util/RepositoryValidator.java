@@ -269,6 +269,7 @@ public class RepositoryValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_EveryProxyResolves(signature, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_UniqueID(signature, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(signature, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(signature, diagnostics, context);
 		if (result || diagnostics != null) result &= validateSignature_ParameterNamesHaveToBeUniqueForASignature(signature, diagnostics, context);
 		return result;
 	}
@@ -313,6 +314,7 @@ public class RepositoryValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_EveryProxyResolves(repository, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_UniqueID(repository, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(repository, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(repository, diagnostics, context);
 		if (result || diagnostics != null) result &= identifierValidator.validateIdentifier_idHasToBeUnique(repository, diagnostics, context);
 		return result;
 	}
@@ -329,6 +331,7 @@ public class RepositoryValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_EveryProxyResolves(providesComponentType, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_UniqueID(providesComponentType, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(providesComponentType, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(providesComponentType, diagnostics, context);
 		if (result || diagnostics != null) result &= identifierValidator.validateIdentifier_idHasToBeUnique(providesComponentType, diagnostics, context);
 		if (result || diagnostics != null) result &= validateProvidesComponentType_AtLeastOneInterfaceHasToBeProvidedByAUsefullProvidesComponentType(providesComponentType, diagnostics, context);
 		return result;
@@ -356,6 +359,7 @@ public class RepositoryValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_EveryProxyResolves(requiredRole, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_UniqueID(requiredRole, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(requiredRole, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(requiredRole, diagnostics, context);
 		if (result || diagnostics != null) result &= identifierValidator.validateIdentifier_idHasToBeUnique(requiredRole, diagnostics, context);
 		return result;
 	}
@@ -372,6 +376,7 @@ public class RepositoryValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_EveryProxyResolves(role, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_UniqueID(role, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(role, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(role, diagnostics, context);
 		if (result || diagnostics != null) result &= identifierValidator.validateIdentifier_idHasToBeUnique(role, diagnostics, context);
 		return result;
 	}
@@ -388,6 +393,7 @@ public class RepositoryValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_EveryProxyResolves(interface_, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_UniqueID(interface_, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(interface_, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(interface_, diagnostics, context);
 		if (result || diagnostics != null) result &= identifierValidator.validateIdentifier_idHasToBeUnique(interface_, diagnostics, context);
 		if (result || diagnostics != null) result &= validateInterface_NoProtocolTypeIDUsedTwice(interface_, diagnostics, context);
 		if (result || diagnostics != null) result &= validateInterface_SignaturesHaveToBeUniqueForAnInterface(interface_, diagnostics, context);
@@ -435,6 +441,7 @@ public class RepositoryValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_EveryProxyResolves(implementationComponentType, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_UniqueID(implementationComponentType, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(implementationComponentType, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(implementationComponentType, diagnostics, context);
 		if (result || diagnostics != null) result &= identifierValidator.validateIdentifier_idHasToBeUnique(implementationComponentType, diagnostics, context);
 		if (result || diagnostics != null) result &= validateProvidesComponentType_AtLeastOneInterfaceHasToBeProvidedByAUsefullProvidesComponentType(implementationComponentType, diagnostics, context);
 		if (result || diagnostics != null) result &= validateCompleteComponentType_AtLeastOneInterfaceHasToBeProvidedOrRequiredByAUsefullCompleteComponentType(implementationComponentType, diagnostics, context);
@@ -476,6 +483,7 @@ public class RepositoryValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_EveryProxyResolves(completeComponentType, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_UniqueID(completeComponentType, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(completeComponentType, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(completeComponentType, diagnostics, context);
 		if (result || diagnostics != null) result &= identifierValidator.validateIdentifier_idHasToBeUnique(completeComponentType, diagnostics, context);
 		if (result || diagnostics != null) result &= validateProvidesComponentType_AtLeastOneInterfaceHasToBeProvidedByAUsefullProvidesComponentType(completeComponentType, diagnostics, context);
 		if (result || diagnostics != null) result &= validateCompleteComponentType_AtLeastOneInterfaceHasToBeProvidedOrRequiredByAUsefullCompleteComponentType(completeComponentType, diagnostics, context);
@@ -515,6 +523,7 @@ public class RepositoryValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_EveryProxyResolves(delegationConnector, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_UniqueID(delegationConnector, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(delegationConnector, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(delegationConnector, diagnostics, context);
 		if (result || diagnostics != null) result &= identifierValidator.validateIdentifier_idHasToBeUnique(delegationConnector, diagnostics, context);
 		return result;
 	}
@@ -531,6 +540,7 @@ public class RepositoryValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_EveryProxyResolves(compositeComponent, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_UniqueID(compositeComponent, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(compositeComponent, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(compositeComponent, diagnostics, context);
 		if (result || diagnostics != null) result &= identifierValidator.validateIdentifier_idHasToBeUnique(compositeComponent, diagnostics, context);
 		if (result || diagnostics != null) result &= validateProvidesComponentType_AtLeastOneInterfaceHasToBeProvidedByAUsefullProvidesComponentType(compositeComponent, diagnostics, context);
 		if (result || diagnostics != null) result &= validateCompleteComponentType_AtLeastOneInterfaceHasToBeProvidedOrRequiredByAUsefullCompleteComponentType(compositeComponent, diagnostics, context);
@@ -574,6 +584,7 @@ public class RepositoryValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_EveryProxyResolves(basicComponent, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_UniqueID(basicComponent, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(basicComponent, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(basicComponent, diagnostics, context);
 		if (result || diagnostics != null) result &= identifierValidator.validateIdentifier_idHasToBeUnique(basicComponent, diagnostics, context);
 		if (result || diagnostics != null) result &= validateProvidesComponentType_AtLeastOneInterfaceHasToBeProvidedByAUsefullProvidesComponentType(basicComponent, diagnostics, context);
 		if (result || diagnostics != null) result &= validateCompleteComponentType_AtLeastOneInterfaceHasToBeProvidedOrRequiredByAUsefullCompleteComponentType(basicComponent, diagnostics, context);
@@ -637,6 +648,7 @@ public class RepositoryValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_EveryProxyResolves(collectionDataType, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_UniqueID(collectionDataType, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(collectionDataType, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(collectionDataType, diagnostics, context);
 		if (result || diagnostics != null) result &= identifierValidator.validateIdentifier_idHasToBeUnique(collectionDataType, diagnostics, context);
 		return result;
 	}
@@ -653,6 +665,7 @@ public class RepositoryValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_EveryProxyResolves(compositeDataType, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_UniqueID(compositeDataType, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(compositeDataType, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(compositeDataType, diagnostics, context);
 		if (result || diagnostics != null) result &= identifierValidator.validateIdentifier_idHasToBeUnique(compositeDataType, diagnostics, context);
 		return result;
 	}
@@ -678,6 +691,7 @@ public class RepositoryValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_EveryProxyResolves(providedRole, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_UniqueID(providedRole, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(providedRole, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(providedRole, diagnostics, context);
 		if (result || diagnostics != null) result &= identifierValidator.validateIdentifier_idHasToBeUnique(providedRole, diagnostics, context);
 		return result;
 	}

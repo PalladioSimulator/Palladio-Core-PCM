@@ -56,7 +56,7 @@ public class ParameterImpl extends EObjectImpl implements Parameter {
 	 * @generated
 	 * @ordered
 	 */
-	protected DataType datatype__Parameter = null;
+	protected DataType datatype__Parameter;
 
 	/**
 	 * The default value of the '{@link #getParameterName() <em>Parameter Name</em>}' attribute.
