@@ -67,6 +67,15 @@ public class PalladioComponentModelEditPartFactory implements EditPartFactory {
 			case InternalActionEntityName2EditPart.VISUAL_ID:
 				return new InternalActionEntityName2EditPart(view);
 
+			case CollectionIteratorAction2EditPart.VISUAL_ID:
+				return new CollectionIteratorAction2EditPart(view);
+
+			case CollectionIteratorActionEntityName2EditPart.VISUAL_ID:
+				return new CollectionIteratorActionEntityName2EditPart(view);
+
+			case CollectionIteratorParameterLabel2EditPart.VISUAL_ID:
+				return new CollectionIteratorParameterLabel2EditPart(view);
+
 			case VariableUsageEditPart.VISUAL_ID:
 				return new VariableUsageEditPart(view);
 
@@ -125,6 +134,18 @@ public class PalladioComponentModelEditPartFactory implements EditPartFactory {
 			case ExternalCallActionEntityName2EditPart.VISUAL_ID:
 				return new ExternalCallActionEntityName2EditPart(view);
 
+			case CollectionIteratorActionEditPart.VISUAL_ID:
+				return new CollectionIteratorActionEditPart(view);
+
+			case CollectionIteratorActionEntityNameEditPart.VISUAL_ID:
+				return new CollectionIteratorActionEntityNameEditPart(view);
+
+			case CollectionIteratorParameterLabelEditPart.VISUAL_ID:
+				return new CollectionIteratorParameterLabelEditPart(view);
+
+			case ResourceDemandingBehaviour3EditPart.VISUAL_ID:
+				return new ResourceDemandingBehaviour3EditPart(view);
+
 			case ExternalCallActionParameterUsageEditPart.VISUAL_ID:
 				return new ExternalCallActionParameterUsageEditPart(view);
 
@@ -158,12 +179,24 @@ public class PalladioComponentModelEditPartFactory implements EditPartFactory {
 			case ExternalCallActionParameterUsage2EditPart.VISUAL_ID:
 				return new ExternalCallActionParameterUsage2EditPart(view);
 
+			case CollectionIteratorActionBehaviourCompartmentEditPart.VISUAL_ID:
+				return new CollectionIteratorActionBehaviourCompartmentEditPart(
+						view);
+
+			case ResourceDemandingBehaviourLoopCompartment2EditPart.VISUAL_ID:
+				return new ResourceDemandingBehaviourLoopCompartment2EditPart(
+						view);
+
 			case BranchActionBranchTransitionCompartment2EditPart.VISUAL_ID:
 				return new BranchActionBranchTransitionCompartment2EditPart(
 						view);
 
 			case InternalActionResourceDemand2EditPart.VISUAL_ID:
 				return new InternalActionResourceDemand2EditPart(view);
+
+			case CollectionIteratorActionBehaviourCompartment2EditPart.VISUAL_ID:
+				return new CollectionIteratorActionBehaviourCompartment2EditPart(
+						view);
 
 			case AbstractActionSuccessor_AbstractActionEditPart.VISUAL_ID:
 				return new AbstractActionSuccessor_AbstractActionEditPart(view);

@@ -10,6 +10,8 @@ import org.eclipse.emf.ecore.EObject;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.AbstractActionSuccessor_AbstractActionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.BranchAction2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.BranchActionEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.CollectionIteratorAction2EditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.CollectionIteratorActionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ExternalCallAction2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ExternalCallActionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.InternalAction2EditPart;
@@ -19,6 +21,7 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopActionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ParametricResourceDemandEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ProbabilisticBranchTransitionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviour2EditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviour3EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviourEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingSEFFEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.StartAction2EditPart;
@@ -111,6 +114,10 @@ public class ResourceDemandingSEFFCanonicalEditPolicy extends
 				break;
 			}
 			case InternalAction2EditPart.VISUAL_ID: {
+				result.add(nextValue);
+				break;
+			}
+			case CollectionIteratorAction2EditPart.VISUAL_ID: {
 				result.add(nextValue);
 				break;
 			}
@@ -249,6 +256,7 @@ public class ResourceDemandingSEFFCanonicalEditPolicy extends
 		case LoopActionEditPart.VISUAL_ID:
 		case BranchAction2EditPart.VISUAL_ID:
 		case InternalAction2EditPart.VISUAL_ID:
+		case CollectionIteratorAction2EditPart.VISUAL_ID:
 		case VariableUsageEditPart.VISUAL_ID:
 		case VariableCharacterisationEditPart.VISUAL_ID:
 		case ResourceDemandingBehaviourEditPart.VISUAL_ID:
@@ -261,6 +269,8 @@ public class ResourceDemandingSEFFCanonicalEditPolicy extends
 		case ProbabilisticBranchTransitionEditPart.VISUAL_ID:
 		case ResourceDemandingBehaviour2EditPart.VISUAL_ID:
 		case ExternalCallAction2EditPart.VISUAL_ID:
+		case CollectionIteratorActionEditPart.VISUAL_ID:
+		case ResourceDemandingBehaviour3EditPart.VISUAL_ID:
 		case ResourceDemandingSEFFEditPart.VISUAL_ID: {
 			myEObject2ViewMap.put(modelElement, view);
 			storeLinks(modelElement, getDiagram());

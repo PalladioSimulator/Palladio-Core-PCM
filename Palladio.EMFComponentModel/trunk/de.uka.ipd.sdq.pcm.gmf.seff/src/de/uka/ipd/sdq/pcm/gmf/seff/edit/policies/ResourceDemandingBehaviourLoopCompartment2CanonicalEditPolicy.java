@@ -26,7 +26,7 @@ import org.eclipse.emf.ecore.EObject;
 /**
  * @generated
  */
-public class ResourceDemandingBehaviourLoopCompartmentCanonicalEditPolicy
+public class ResourceDemandingBehaviourLoopCompartment2CanonicalEditPolicy
 		extends CanonicalEditPolicy {
 
 	/**

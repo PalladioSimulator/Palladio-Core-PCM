@@ -202,6 +202,24 @@
         xsi:type="gmfgraph:Label"
         referencingElements="VariableCharacterisationLabel"
         name="VariableCharacterisationLabelFigure"/>
+    <figures
+        xsi:type="gmfgraph:RoundedRectangle"
+        referencingElements="CollectionIteratorNode"
+        name="CollectionIteratorFigure">
+      <children
+          xsi:type="gmfgraph:Label"
+          name="CollectionIteratorStereotype"
+          text="&lt;&lt;CollectionIterator>>"/>
+      <children
+          xsi:type="gmfgraph:Label"
+          referencingElements="CollectionIteratorNameLabel"
+          name="CollectionIteratorNameLabelFigure"
+          text="myLoop"/>
+      <children
+          xsi:type="gmfgraph:Label"
+          referencingElements="CollectionIteratorParameterLabel"
+          name="CollectionIteratorParameterLabelFigure"/>
+    </figures>
   </figures>
   <nodes
       name="ParametricParameterUsageNode"
@@ -248,6 +266,9 @@
       xsi:type="gmfgraph:DiagramLabel"
       name="BranchTransitionProbabilityDiagramLabel"
       figure="BranchTransitionProbabilityLabel"/>
+  <nodes
+      name="CollectionIteratorNode"
+      figure="CollectionIteratorFigure"/>
   <connections
       name="ActionResourceDemand_ActionLink"
       figure="ActionResourceDemand_ActionFigure"/>
@@ -322,4 +343,10 @@
   <labels
       name="VariableCharacterisationLabel"
       figure="VariableCharacterisationLabelFigure"/>
+  <labels
+      name="CollectionIteratorNameLabel"
+      figure="CollectionIteratorNameLabelFigure"/>
+  <labels
+      name="CollectionIteratorParameterLabel"
+      figure="CollectionIteratorParameterLabelFigure"/>
 </gmfgraph:Canvas>

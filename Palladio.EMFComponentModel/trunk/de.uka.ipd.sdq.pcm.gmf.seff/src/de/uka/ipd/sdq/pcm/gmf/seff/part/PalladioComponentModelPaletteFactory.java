@@ -44,6 +44,7 @@ public class PalladioComponentModelPaletteFactory {
 		paletteContainer.add(createInternalAction4CreationTool());
 		paletteContainer.add(createExternalCallAction5CreationTool());
 		paletteContainer.add(createBranchAction6CreationTool());
+		paletteContainer.add(createCollectionIteratorAction7CreationTool());
 		return paletteContainer;
 	}
 
@@ -178,6 +179,25 @@ public class PalladioComponentModelPaletteFactory {
 	/**
 	 * @generated
 	 */
+	private ToolEntry createCollectionIteratorAction7CreationTool() {
+		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(2);
+		types
+				.add(PalladioComponentModelElementTypes.CollectionIteratorAction_3013);
+		types
+				.add(PalladioComponentModelElementTypes.CollectionIteratorAction_2007);
+		NodeToolEntry entry = new NodeToolEntry(
+				Messages.CollectionIteratorAction7CreationTool_title,
+				Messages.CollectionIteratorAction7CreationTool_desc, types);
+		entry
+				.setSmallIcon(PalladioComponentModelElementTypes
+						.getImageDescriptor(PalladioComponentModelElementTypes.CollectionIteratorAction_3013));
+		entry.setLargeIcon(entry.getSmallIcon());
+		return entry;
+	}
+
+	/**
+	 * @generated
+	 */
 	private ToolEntry createControlFlow1CreationTool() {
 		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
 		types
@@ -246,11 +266,13 @@ public class PalladioComponentModelPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createResourceDemandingBehaviour1CreationTool() {
-		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(2);
+		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(3);
 		types
 				.add(PalladioComponentModelElementTypes.ResourceDemandingBehaviour_3003);
 		types
 				.add(PalladioComponentModelElementTypes.ResourceDemandingBehaviour_3011);
+		types
+				.add(PalladioComponentModelElementTypes.ResourceDemandingBehaviour_3014);
 		NodeToolEntry entry = new NodeToolEntry(
 				Messages.ResourceDemandingBehaviour1CreationTool_title,
 				Messages.ResourceDemandingBehaviour1CreationTool_desc, types);

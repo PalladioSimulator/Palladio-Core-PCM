@@ -80,6 +80,11 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
 	/**
 	 * @generated
 	 */
+	public static final IElementType CollectionIteratorAction_2007 = getElementType("de.uka.ipd.sdq.pcm.gmf.seff.CollectionIteratorAction_2007"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
 	public static final IElementType VariableUsage_3001 = getElementType("de.uka.ipd.sdq.pcm.gmf.seff.VariableUsage_3001"); //$NON-NLS-1$
 	/**
 	 * @generated
@@ -125,6 +130,16 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
 	 * @generated
 	 */
 	public static final IElementType ExternalCallAction_3012 = getElementType("de.uka.ipd.sdq.pcm.gmf.seff.ExternalCallAction_3012"); //$NON-NLS-1$
+	/**
+	 * @generated
+	 */
+	public static final IElementType CollectionIteratorAction_3013 = getElementType("de.uka.ipd.sdq.pcm.gmf.seff.CollectionIteratorAction_3013"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType ResourceDemandingBehaviour_3014 = getElementType("de.uka.ipd.sdq.pcm.gmf.seff.ResourceDemandingBehaviour_3014"); //$NON-NLS-1$
+
 	/**
 	 * @generated
 	 */
@@ -262,6 +277,9 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
 			elements.put(InternalAction_2006, SeffPackage.eINSTANCE
 					.getInternalAction());
 
+			elements.put(CollectionIteratorAction_2007, SeffPackage.eINSTANCE
+					.getCollectionIteratorAction());
+
 			elements.put(VariableUsage_3001, ParameterPackage.eINSTANCE
 					.getVariableUsage());
 
@@ -298,6 +316,12 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
 			elements.put(ExternalCallAction_3012, SeffPackage.eINSTANCE
 					.getExternalCallAction());
 
+			elements.put(CollectionIteratorAction_3013, SeffPackage.eINSTANCE
+					.getCollectionIteratorAction());
+
+			elements.put(ResourceDemandingBehaviour_3014, SeffPackage.eINSTANCE
+					.getResourceDemandingBehaviour());
+
 			elements.put(AbstractActionSuccessor_AbstractAction_4001,
 					SeffPackage.eINSTANCE
 							.getAbstractAction_Successor_AbstractAction());
@@ -325,6 +349,7 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
 			KNOWN_ELEMENT_TYPES.add(LoopAction_2004);
 			KNOWN_ELEMENT_TYPES.add(BranchAction_2005);
 			KNOWN_ELEMENT_TYPES.add(InternalAction_2006);
+			KNOWN_ELEMENT_TYPES.add(CollectionIteratorAction_2007);
 			KNOWN_ELEMENT_TYPES.add(VariableUsage_3001);
 			KNOWN_ELEMENT_TYPES.add(VariableCharacterisation_3002);
 			KNOWN_ELEMENT_TYPES.add(ResourceDemandingBehaviour_3003);
@@ -337,6 +362,8 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
 			KNOWN_ELEMENT_TYPES.add(ProbabilisticBranchTransition_3010);
 			KNOWN_ELEMENT_TYPES.add(ResourceDemandingBehaviour_3011);
 			KNOWN_ELEMENT_TYPES.add(ExternalCallAction_3012);
+			KNOWN_ELEMENT_TYPES.add(CollectionIteratorAction_3013);
+			KNOWN_ELEMENT_TYPES.add(ResourceDemandingBehaviour_3014);
 			KNOWN_ELEMENT_TYPES
 					.add(AbstractActionSuccessor_AbstractAction_4001);
 		}

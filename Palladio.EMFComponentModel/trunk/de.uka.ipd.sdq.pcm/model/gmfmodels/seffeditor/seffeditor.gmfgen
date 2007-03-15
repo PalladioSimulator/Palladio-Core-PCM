@@ -158,7 +158,7 @@
         canonicalEditPolicyClassName="StartAction2CanonicalEditPolicy"
         graphicalNodeEditPolicyClassName="StartAction2GraphicalNodeEditPolicy"
         createCommandClassName="StartAction2CreateCommand"
-        containers="//@diagram/@compartments.3 //@diagram/@compartments.8">
+        containers="//@diagram/@compartments.3 //@diagram/@compartments.8 //@diagram/@compartments.11">
       <diagramRunTimeClass
           href="../../../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
@@ -194,7 +194,7 @@
         canonicalEditPolicyClassName="StopAction2CanonicalEditPolicy"
         graphicalNodeEditPolicyClassName="StopAction2GraphicalNodeEditPolicy"
         createCommandClassName="StopAction2CreateCommand"
-        containers="//@diagram/@compartments.3 //@diagram/@compartments.8">
+        containers="//@diagram/@compartments.3 //@diagram/@compartments.8 //@diagram/@compartments.11">
       <diagramRunTimeClass
           href="../../../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
@@ -228,7 +228,7 @@
         compartments="//@diagram/@compartments.4"
         graphicalNodeEditPolicyClassName="LoopAction2GraphicalNodeEditPolicy"
         createCommandClassName="LoopAction2CreateCommand"
-        containers="//@diagram/@compartments.3 //@diagram/@compartments.8">
+        containers="//@diagram/@compartments.3 //@diagram/@compartments.8 //@diagram/@compartments.11">
       <diagramRunTimeClass
           href="../../../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
@@ -274,6 +274,7 @@
           editPartClassName="LoopIterationsLabelEditPart"
           itemSemanticEditPolicyClassName="LoopIterationsLabelItemSemanticEditPolicy"
           notationViewFactoryClassName="LoopIterationsLabelViewFactory"
+          readOnly="true"
           elementIcon="true">
         <diagramRunTimeClass
             href="../../../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
@@ -292,7 +293,7 @@
         compartments="//@diagram/@compartments.5"
         graphicalNodeEditPolicyClassName="InternalActionGraphicalNodeEditPolicy"
         createCommandClassName="InternalActionCreateCommand"
-        containers="//@diagram/@compartments.3 //@diagram/@compartments.8">
+        containers="//@diagram/@compartments.3 //@diagram/@compartments.8 //@diagram/@compartments.11">
       <diagramRunTimeClass
           href="../../../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
@@ -341,7 +342,7 @@
         canonicalEditPolicyClassName="ParametricResourceDemandCanonicalEditPolicy"
         graphicalNodeEditPolicyClassName="ParametricResourceDemandGraphicalNodeEditPolicy"
         createCommandClassName="ParametricResourceDemandCreateCommand"
-        containers="//@diagram/@compartments.5 //@diagram/@compartments.11"
+        containers="//@diagram/@compartments.5 //@diagram/@compartments.13"
         labelReadOnly="true"
         labelElementIcon="true">
       <diagramRunTimeClass
@@ -387,7 +388,7 @@
         compartments="//@diagram/@compartments.6"
         graphicalNodeEditPolicyClassName="BranchActionGraphicalNodeEditPolicy"
         createCommandClassName="BranchActionCreateCommand"
-        containers="//@diagram/@compartments.8 //@diagram/@compartments.3">
+        containers="//@diagram/@compartments.8 //@diagram/@compartments.3 //@diagram/@compartments.11">
       <diagramRunTimeClass
           href="../../../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
@@ -436,7 +437,7 @@
         compartments="//@diagram/@compartments.7"
         graphicalNodeEditPolicyClassName="ProbabilisticBranchTransitionGraphicalNodeEditPolicy"
         createCommandClassName="ProbabilisticBranchTransitionCreateCommand"
-        containers="//@diagram/@compartments.6 //@diagram/@compartments.10">
+        containers="//@diagram/@compartments.6 //@diagram/@compartments.12">
       <diagramRunTimeClass
           href="../../../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
@@ -517,7 +518,7 @@
         compartments="//@diagram/@compartments.9"
         graphicalNodeEditPolicyClassName="ExternalCallAction2GraphicalNodeEditPolicy"
         createCommandClassName="ExternalCallAction2CreateCommand"
-        containers="//@diagram/@compartments.8 //@diagram/@compartments.3">
+        containers="//@diagram/@compartments.8 //@diagram/@compartments.3 //@diagram/@compartments.11">
       <diagramRunTimeClass
           href="../../../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
@@ -557,6 +558,103 @@
               href="../../pcm.genmodel#//pcm/core/entity/NamedElement/entityName"/>
         </modelFacet>
       </labels>
+    </childNodes>
+    <childNodes
+        visualID="3013"
+        editPartClassName="CollectionIteratorActionEditPart"
+        itemSemanticEditPolicyClassName="CollectionIteratorActionItemSemanticEditPolicy"
+        notationViewFactoryClassName="CollectionIteratorActionViewFactory"
+        canonicalEditPolicyClassName="CollectionIteratorActionCanonicalEditPolicy"
+        compartments="//@diagram/@compartments.10"
+        graphicalNodeEditPolicyClassName="CollectionIteratorActionGraphicalNodeEditPolicy"
+        createCommandClassName="CollectionIteratorActionCreateCommand"
+        containers="//@diagram/@compartments.11 //@diagram/@compartments.3">
+      <diagramRunTimeClass
+          href="../../../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+      <elementType
+          xsi:type="gmfgen:MetamodelType"
+          editHelperClassName="CollectionIteratorActionEditHelper"/>
+      <viewmap
+          xsi:type="gmfgen:InnerClassViewmap"
+          className="CollectionIteratorFigure"
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class CollectionIteratorFigure extends org.eclipse.draw2d.RoundedRectangle {&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public CollectionIteratorFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setCornerDimensions(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(8)&#xA;, getMapMode().DPtoLP(8)&#xA;));&#xA;this.setFill(true);&#xA;this.setFillXOR(false);&#xA;this.setOutline(true);&#xA;this.setOutlineXOR(false);&#xA;this.setLineWidth(1);&#xA;this.setLineStyle(org.eclipse.draw2d.Graphics.LINE_SOLID);&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;&#xA;org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel collectionIteratorStereotype0 = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel();&#xA;collectionIteratorStereotype0.setText(&quot;&lt;&lt;CollectionIterator>>&quot;);&#xA;&#xA;this.add(collectionIteratorStereotype0);&#xA;&#xA;&#xA;&#xA;&#xA;org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel collectionIteratorNameLabelFigure0 = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel();&#xA;collectionIteratorNameLabelFigure0.setText(&quot;myLoop&quot;);&#xA;&#xA;this.add(collectionIteratorNameLabelFigure0);&#xA;setFigureCollectionIteratorNameLabelFigure(collectionIteratorNameLabelFigure0);&#xA;&#xA;&#xA;&#xA;org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel collectionIteratorParameterLabelFigure0 = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel();&#xA;collectionIteratorParameterLabelFigure0.setText(&quot;&quot;);&#xA;&#xA;this.add(collectionIteratorParameterLabelFigure0);&#xA;setFigureCollectionIteratorParameterLabelFigure(collectionIteratorParameterLabelFigure0);&#xA;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel fCollectionIteratorNameLabelFigure; &#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel getFigureCollectionIteratorNameLabelFigure() {&#xA;&#x9;&#x9;return fCollectionIteratorNameLabelFigure;&#xA;&#x9;}&#xA;&#x9;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void setFigureCollectionIteratorNameLabelFigure(org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel fig){&#xA;&#x9;&#x9;fCollectionIteratorNameLabelFigure = fig;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel fCollectionIteratorParameterLabelFigure; &#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel getFigureCollectionIteratorParameterLabelFigure() {&#xA;&#x9;&#x9;return fCollectionIteratorParameterLabelFigure;&#xA;&#x9;}&#xA;&#x9;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void setFigureCollectionIteratorParameterLabelFigure(org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel fig){&#xA;&#x9;&#x9;fCollectionIteratorParameterLabelFigure = fig;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private boolean myUseLocalCoordinates = false;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected boolean useLocalCoordinates() {&#xA;&#x9;&#x9;return myUseLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected void setUseLocalCoordinates(boolean useLocalCoordinates) {&#xA;&#x9;&#x9;myUseLocalCoordinates = useLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;}&#xA;&#xA;">
+        <requiredPluginIDs>org.eclipse.draw2d</requiredPluginIDs>
+        <requiredPluginIDs>org.eclipse.gmf.runtime.draw2d.ui</requiredPluginIDs>
+      </viewmap>
+      <modelFacet>
+        <metaClass
+            href="../../pcm.genmodel#//pcm/seff/CollectionIteratorAction"/>
+        <containmentMetaFeature
+            href="../../pcm.genmodel#//pcm/seff/ResourceDemandingBehaviour/steps_Behaviour"/>
+        <childMetaFeature
+            href="../../pcm.genmodel#//pcm/seff/ResourceDemandingBehaviour/steps_Behaviour"/>
+      </modelFacet>
+      <labels
+          visualID="5013"
+          editPartClassName="CollectionIteratorActionEntityNameEditPart"
+          itemSemanticEditPolicyClassName="CollectionIteratorActionEntityNameItemSemanticEditPolicy"
+          notationViewFactoryClassName="CollectionIteratorActionEntityNameViewFactory"
+          elementIcon="true">
+        <diagramRunTimeClass
+            href="../../../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+        <viewmap
+            xsi:type="gmfgen:ParentAssignedViewmap"
+            getterName="getFigureCollectionIteratorNameLabelFigure"
+            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel"/>
+        <modelFacet
+            xsi:type="gmfgen:FeatureLabelModelFacet"
+            viewPattern="{0}"
+            editPattern="{0}">
+          <metaFeatures
+              href="../../pcm.genmodel#//pcm/core/entity/NamedElement/entityName"/>
+        </modelFacet>
+      </labels>
+      <labels
+          visualID="5014"
+          editPartClassName="CollectionIteratorParameterLabelEditPart"
+          itemSemanticEditPolicyClassName="CollectionIteratorParameterLabelItemSemanticEditPolicy"
+          notationViewFactoryClassName="CollectionIteratorParameterLabelViewFactory"
+          readOnly="true"
+          elementIcon="true">
+        <diagramRunTimeClass
+            href="../../../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+        <viewmap
+            xsi:type="gmfgen:ParentAssignedViewmap"
+            getterName="getFigureCollectionIteratorParameterLabelFigure"
+            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel"/>
+      </labels>
+    </childNodes>
+    <childNodes
+        visualID="3014"
+        editPartClassName="ResourceDemandingBehaviour3EditPart"
+        itemSemanticEditPolicyClassName="ResourceDemandingBehaviour3ItemSemanticEditPolicy"
+        notationViewFactoryClassName="ResourceDemandingBehaviour3ViewFactory"
+        canonicalEditPolicyClassName="ResourceDemandingBehaviour3CanonicalEditPolicy"
+        compartments="//@diagram/@compartments.11"
+        graphicalNodeEditPolicyClassName="ResourceDemandingBehaviour3GraphicalNodeEditPolicy"
+        createCommandClassName="ResourceDemandingBehaviour3CreateCommand"
+        containers="//@diagram/@compartments.10 //@diagram/@compartments.14">
+      <diagramRunTimeClass
+          href="../../../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+      <elementType
+          xsi:type="gmfgen:SpecializationType"
+          metamodelType="//@diagram/@childNodes.2/@elementType"
+          editHelperAdviceClassName="ResourceDemandingBehaviour2EditHelperAdvice"/>
+      <viewmap
+          xsi:type="gmfgen:InnerClassViewmap"
+          className="BehaviourFigure"
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class BehaviourFigure extends org.eclipse.draw2d.RectangleFigure {&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public BehaviourFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setFill(true);&#xA;this.setFillXOR(false);&#xA;this.setOutline(true);&#xA;this.setOutlineXOR(false);&#xA;this.setLineWidth(3);&#xA;this.setLineStyle(org.eclipse.draw2d.Graphics.LINE_DOT);&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private boolean myUseLocalCoordinates = false;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected boolean useLocalCoordinates() {&#xA;&#x9;&#x9;return myUseLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected void setUseLocalCoordinates(boolean useLocalCoordinates) {&#xA;&#x9;&#x9;myUseLocalCoordinates = useLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;}&#xA;&#xA;">
+        <requiredPluginIDs>org.eclipse.draw2d</requiredPluginIDs>
+        <requiredPluginIDs>org.eclipse.gmf.runtime.draw2d.ui</requiredPluginIDs>
+      </viewmap>
+      <modelFacet>
+        <metaClass
+            href="../../pcm.genmodel#//pcm/seff/ResourceDemandingBehaviour"/>
+        <containmentMetaFeature
+            href="../../pcm.genmodel#//pcm/seff/AbstractLoopAction/bodyBehaviour_Loop"/>
+        <childMetaFeature
+            href="../../pcm.genmodel#//pcm/seff/AbstractLoopAction/bodyBehaviour_Loop"/>
+      </modelFacet>
     </childNodes>
     <topLevelNodes
         visualID="2001"
@@ -724,6 +822,7 @@
           editPartClassName="LoopIterationsLabel2EditPart"
           itemSemanticEditPolicyClassName="LoopIterationsLabel2ItemSemanticEditPolicy"
           notationViewFactoryClassName="LoopIterationsLabel2ViewFactory"
+          readOnly="true"
           elementIcon="true">
         <diagramRunTimeClass
             href="../../../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
@@ -739,7 +838,7 @@
         itemSemanticEditPolicyClassName="BranchAction2ItemSemanticEditPolicy"
         notationViewFactoryClassName="BranchAction2ViewFactory"
         canonicalEditPolicyClassName="BranchAction2CanonicalEditPolicy"
-        compartments="//@diagram/@compartments.10"
+        compartments="//@diagram/@compartments.12"
         graphicalNodeEditPolicyClassName="BranchAction2GraphicalNodeEditPolicy"
         createCommandClassName="BranchAction2CreateCommand">
       <diagramRunTimeClass
@@ -788,7 +887,7 @@
         itemSemanticEditPolicyClassName="InternalAction2ItemSemanticEditPolicy"
         notationViewFactoryClassName="InternalAction2ViewFactory"
         canonicalEditPolicyClassName="InternalAction2CanonicalEditPolicy"
-        compartments="//@diagram/@compartments.11"
+        compartments="//@diagram/@compartments.13"
         graphicalNodeEditPolicyClassName="InternalAction2GraphicalNodeEditPolicy"
         createCommandClassName="InternalAction2CreateCommand">
       <diagramRunTimeClass
@@ -829,6 +928,71 @@
           <metaFeatures
               href="../../pcm.genmodel#//pcm/core/entity/NamedElement/entityName"/>
         </modelFacet>
+      </labels>
+    </topLevelNodes>
+    <topLevelNodes
+        visualID="2007"
+        editPartClassName="CollectionIteratorAction2EditPart"
+        itemSemanticEditPolicyClassName="CollectionIteratorAction2ItemSemanticEditPolicy"
+        notationViewFactoryClassName="CollectionIteratorAction2ViewFactory"
+        canonicalEditPolicyClassName="CollectionIteratorAction2CanonicalEditPolicy"
+        compartments="//@diagram/@compartments.14"
+        graphicalNodeEditPolicyClassName="CollectionIteratorAction2GraphicalNodeEditPolicy"
+        createCommandClassName="CollectionIteratorAction2CreateCommand">
+      <diagramRunTimeClass
+          href="../../../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+      <elementType
+          xsi:type="gmfgen:SpecializationType"
+          metamodelType="//@diagram/@childNodes.12/@elementType"
+          editHelperAdviceClassName="CollectionIteratorActionEditHelperAdvice"/>
+      <viewmap
+          xsi:type="gmfgen:InnerClassViewmap"
+          className="CollectionIteratorFigure"
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class CollectionIteratorFigure extends org.eclipse.draw2d.RoundedRectangle {&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public CollectionIteratorFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setCornerDimensions(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(8)&#xA;, getMapMode().DPtoLP(8)&#xA;));&#xA;this.setFill(true);&#xA;this.setFillXOR(false);&#xA;this.setOutline(true);&#xA;this.setOutlineXOR(false);&#xA;this.setLineWidth(1);&#xA;this.setLineStyle(org.eclipse.draw2d.Graphics.LINE_SOLID);&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;&#xA;org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel collectionIteratorStereotype0 = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel();&#xA;collectionIteratorStereotype0.setText(&quot;&lt;&lt;CollectionIterator>>&quot;);&#xA;&#xA;this.add(collectionIteratorStereotype0);&#xA;&#xA;&#xA;&#xA;&#xA;org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel collectionIteratorNameLabelFigure0 = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel();&#xA;collectionIteratorNameLabelFigure0.setText(&quot;myLoop&quot;);&#xA;&#xA;this.add(collectionIteratorNameLabelFigure0);&#xA;setFigureCollectionIteratorNameLabelFigure(collectionIteratorNameLabelFigure0);&#xA;&#xA;&#xA;&#xA;org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel collectionIteratorParameterLabelFigure0 = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel();&#xA;collectionIteratorParameterLabelFigure0.setText(&quot;&quot;);&#xA;&#xA;this.add(collectionIteratorParameterLabelFigure0);&#xA;setFigureCollectionIteratorParameterLabelFigure(collectionIteratorParameterLabelFigure0);&#xA;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel fCollectionIteratorNameLabelFigure; &#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel getFigureCollectionIteratorNameLabelFigure() {&#xA;&#x9;&#x9;return fCollectionIteratorNameLabelFigure;&#xA;&#x9;}&#xA;&#x9;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void setFigureCollectionIteratorNameLabelFigure(org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel fig){&#xA;&#x9;&#x9;fCollectionIteratorNameLabelFigure = fig;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel fCollectionIteratorParameterLabelFigure; &#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel getFigureCollectionIteratorParameterLabelFigure() {&#xA;&#x9;&#x9;return fCollectionIteratorParameterLabelFigure;&#xA;&#x9;}&#xA;&#x9;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void setFigureCollectionIteratorParameterLabelFigure(org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel fig){&#xA;&#x9;&#x9;fCollectionIteratorParameterLabelFigure = fig;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private boolean myUseLocalCoordinates = false;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected boolean useLocalCoordinates() {&#xA;&#x9;&#x9;return myUseLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected void setUseLocalCoordinates(boolean useLocalCoordinates) {&#xA;&#x9;&#x9;myUseLocalCoordinates = useLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;}&#xA;&#xA;">
+        <requiredPluginIDs>org.eclipse.draw2d</requiredPluginIDs>
+        <requiredPluginIDs>org.eclipse.gmf.runtime.draw2d.ui</requiredPluginIDs>
+      </viewmap>
+      <modelFacet>
+        <metaClass
+            href="../../pcm.genmodel#//pcm/seff/CollectionIteratorAction"/>
+        <containmentMetaFeature
+            href="../../pcm.genmodel#//pcm/seff/ResourceDemandingBehaviour/steps_Behaviour"/>
+        <childMetaFeature
+            href="../../pcm.genmodel#//pcm/seff/ResourceDemandingBehaviour/steps_Behaviour"/>
+      </modelFacet>
+      <labels
+          visualID="5015"
+          editPartClassName="CollectionIteratorActionEntityName2EditPart"
+          itemSemanticEditPolicyClassName="CollectionIteratorActionEntityName2ItemSemanticEditPolicy"
+          notationViewFactoryClassName="CollectionIteratorActionEntityName2ViewFactory"
+          elementIcon="true">
+        <diagramRunTimeClass
+            href="../../../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+        <viewmap
+            xsi:type="gmfgen:ParentAssignedViewmap"
+            getterName="getFigureCollectionIteratorNameLabelFigure"
+            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel"/>
+        <modelFacet
+            xsi:type="gmfgen:FeatureLabelModelFacet"
+            viewPattern="{0}"
+            editPattern="{0}">
+          <metaFeatures
+              href="../../pcm.genmodel#//pcm/core/entity/NamedElement/entityName"/>
+        </modelFacet>
+      </labels>
+      <labels
+          visualID="5016"
+          editPartClassName="CollectionIteratorParameterLabel2EditPart"
+          itemSemanticEditPolicyClassName="CollectionIteratorParameterLabel2ItemSemanticEditPolicy"
+          notationViewFactoryClassName="CollectionIteratorParameterLabel2ViewFactory"
+          readOnly="true"
+          elementIcon="true">
+        <diagramRunTimeClass
+            href="../../../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+        <viewmap
+            xsi:type="gmfgen:ParentAssignedViewmap"
+            getterName="getFigureCollectionIteratorParameterLabelFigure"
+            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel"/>
       </labels>
     </topLevelNodes>
     <links
@@ -924,7 +1088,7 @@
         itemSemanticEditPolicyClassName="ResourceDemandingBehaviourLoopCompartmentItemSemanticEditPolicy"
         notationViewFactoryClassName="ResourceDemandingBehaviourLoopCompartmentViewFactory"
         canonicalEditPolicyClassName="ResourceDemandingBehaviourLoopCompartmentCanonicalEditPolicy"
-        childNodes="//@diagram/@childNodes.3 //@diagram/@childNodes.4 //@diagram/@childNodes.5 //@diagram/@childNodes.6 //@diagram/@childNodes.8 //@diagram/@childNodes.11"
+        childNodes="//@diagram/@childNodes.3 //@diagram/@childNodes.4 //@diagram/@childNodes.5 //@diagram/@childNodes.6 //@diagram/@childNodes.8 //@diagram/@childNodes.11 //@diagram/@childNodes.12"
         title="LoopCompartment"
         canCollapse="false"
         needsTitle="false"
@@ -1068,6 +1232,50 @@
       </viewmap>
     </compartments>
     <compartments
+        visualID="7013"
+        editPartClassName="CollectionIteratorActionBehaviourCompartmentEditPart"
+        itemSemanticEditPolicyClassName="CollectionIteratorActionBehaviourCompartmentItemSemanticEditPolicy"
+        notationViewFactoryClassName="CollectionIteratorActionBehaviourCompartmentViewFactory"
+        canonicalEditPolicyClassName="CollectionIteratorActionBehaviourCompartmentCanonicalEditPolicy"
+        childNodes="//@diagram/@childNodes.13"
+        title="BehaviourCompartment"
+        canCollapse="false"
+        needsTitle="false"
+        node="//@diagram/@childNodes.12"
+        listLayout="false">
+      <diagramRunTimeClass
+          href="../../../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+      <viewmap
+          xsi:type="gmfgen:InnerClassViewmap"
+          className="BehaviourFigure"
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class BehaviourFigure extends org.eclipse.draw2d.RectangleFigure {&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public BehaviourFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setFill(true);&#xA;this.setFillXOR(false);&#xA;this.setOutline(true);&#xA;this.setOutlineXOR(false);&#xA;this.setLineWidth(3);&#xA;this.setLineStyle(org.eclipse.draw2d.Graphics.LINE_DOT);&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private boolean myUseLocalCoordinates = false;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected boolean useLocalCoordinates() {&#xA;&#x9;&#x9;return myUseLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected void setUseLocalCoordinates(boolean useLocalCoordinates) {&#xA;&#x9;&#x9;myUseLocalCoordinates = useLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;}&#xA;&#xA;">
+        <requiredPluginIDs>org.eclipse.draw2d</requiredPluginIDs>
+        <requiredPluginIDs>org.eclipse.gmf.runtime.draw2d.ui</requiredPluginIDs>
+      </viewmap>
+    </compartments>
+    <compartments
+        visualID="7014"
+        editPartClassName="ResourceDemandingBehaviourLoopCompartment2EditPart"
+        itemSemanticEditPolicyClassName="ResourceDemandingBehaviourLoopCompartment2ItemSemanticEditPolicy"
+        notationViewFactoryClassName="ResourceDemandingBehaviourLoopCompartment2ViewFactory"
+        canonicalEditPolicyClassName="ResourceDemandingBehaviourLoopCompartment2CanonicalEditPolicy"
+        childNodes="//@diagram/@childNodes.3 //@diagram/@childNodes.4 //@diagram/@childNodes.5 //@diagram/@childNodes.6 //@diagram/@childNodes.8 //@diagram/@childNodes.11 //@diagram/@childNodes.12"
+        title="LoopCompartment"
+        canCollapse="false"
+        needsTitle="false"
+        node="//@diagram/@childNodes.13"
+        listLayout="false">
+      <diagramRunTimeClass
+          href="../../../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+      <viewmap
+          xsi:type="gmfgen:InnerClassViewmap"
+          className="LoopFigure"
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class LoopFigure extends org.eclipse.draw2d.RoundedRectangle {&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public LoopFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setCornerDimensions(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(8)&#xA;, getMapMode().DPtoLP(8)&#xA;));&#xA;this.setFill(true);&#xA;this.setFillXOR(false);&#xA;this.setOutline(true);&#xA;this.setOutlineXOR(false);&#xA;this.setLineWidth(1);&#xA;this.setLineStyle(org.eclipse.draw2d.Graphics.LINE_SOLID);&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;&#xA;org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel loopStereotype0 = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel();&#xA;loopStereotype0.setText(&quot;&lt;&lt;Loop>>&quot;);&#xA;&#xA;this.add(loopStereotype0);&#xA;&#xA;&#xA;&#xA;&#xA;org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel loopNameLabelFigure0 = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel();&#xA;loopNameLabelFigure0.setText(&quot;myLoop&quot;);&#xA;&#xA;this.add(loopNameLabelFigure0);&#xA;setFigureLoopNameLabelFigure(loopNameLabelFigure0);&#xA;&#xA;&#xA;&#xA;org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel loopIterationsLabelFigure0 = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel();&#xA;loopIterationsLabelFigure0.setText(&quot;&quot;);&#xA;&#xA;this.add(loopIterationsLabelFigure0);&#xA;setFigureLoopIterationsLabelFigure(loopIterationsLabelFigure0);&#xA;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel fLoopNameLabelFigure; &#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel getFigureLoopNameLabelFigure() {&#xA;&#x9;&#x9;return fLoopNameLabelFigure;&#xA;&#x9;}&#xA;&#x9;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void setFigureLoopNameLabelFigure(org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel fig){&#xA;&#x9;&#x9;fLoopNameLabelFigure = fig;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel fLoopIterationsLabelFigure; &#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel getFigureLoopIterationsLabelFigure() {&#xA;&#x9;&#x9;return fLoopIterationsLabelFigure;&#xA;&#x9;}&#xA;&#x9;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void setFigureLoopIterationsLabelFigure(org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel fig){&#xA;&#x9;&#x9;fLoopIterationsLabelFigure = fig;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private boolean myUseLocalCoordinates = false;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected boolean useLocalCoordinates() {&#xA;&#x9;&#x9;return myUseLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected void setUseLocalCoordinates(boolean useLocalCoordinates) {&#xA;&#x9;&#x9;myUseLocalCoordinates = useLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;}&#xA;&#xA;">
+        <requiredPluginIDs>org.eclipse.draw2d</requiredPluginIDs>
+        <requiredPluginIDs>org.eclipse.gmf.runtime.draw2d.ui</requiredPluginIDs>
+      </viewmap>
+    </compartments>
+    <compartments
         visualID="7011"
         editPartClassName="BranchActionBranchTransitionCompartment2EditPart"
         itemSemanticEditPolicyClassName="BranchActionBranchTransitionCompartment2ItemSemanticEditPolicy"
@@ -1108,6 +1316,28 @@
         <requiredPluginIDs>org.eclipse.gmf.runtime.draw2d.ui</requiredPluginIDs>
       </viewmap>
     </compartments>
+    <compartments
+        visualID="7015"
+        editPartClassName="CollectionIteratorActionBehaviourCompartment2EditPart"
+        itemSemanticEditPolicyClassName="CollectionIteratorActionBehaviourCompartment2ItemSemanticEditPolicy"
+        notationViewFactoryClassName="CollectionIteratorActionBehaviourCompartment2ViewFactory"
+        canonicalEditPolicyClassName="CollectionIteratorActionBehaviourCompartment2CanonicalEditPolicy"
+        childNodes="//@diagram/@childNodes.13"
+        title="BehaviourCompartment"
+        canCollapse="false"
+        needsTitle="false"
+        node="//@diagram/@topLevelNodes.6"
+        listLayout="false">
+      <diagramRunTimeClass
+          href="../../../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+      <viewmap
+          xsi:type="gmfgen:InnerClassViewmap"
+          className="BehaviourFigure"
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class BehaviourFigure extends org.eclipse.draw2d.RectangleFigure {&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public BehaviourFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setFill(true);&#xA;this.setFillXOR(false);&#xA;this.setOutline(true);&#xA;this.setOutlineXOR(false);&#xA;this.setLineWidth(3);&#xA;this.setLineStyle(org.eclipse.draw2d.Graphics.LINE_DOT);&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private boolean myUseLocalCoordinates = false;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected boolean useLocalCoordinates() {&#xA;&#x9;&#x9;return myUseLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected void setUseLocalCoordinates(boolean useLocalCoordinates) {&#xA;&#x9;&#x9;myUseLocalCoordinates = useLocalCoordinates;&#xA;&#x9;}&#xA;&#xA;}&#xA;&#xA;">
+        <requiredPluginIDs>org.eclipse.draw2d</requiredPluginIDs>
+        <requiredPluginIDs>org.eclipse.gmf.runtime.draw2d.ui</requiredPluginIDs>
+      </viewmap>
+    </compartments>
     <palette>
       <groups
           title="Actions"
@@ -1143,6 +1373,11 @@
             title="BranchAction"
             description="Create new BranchAction"
             genNodes="//@diagram/@childNodes.8 //@diagram/@topLevelNodes.4"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
+            title="CollectionIteratorAction"
+            description="Create new CollectionIteratorAction"
+            genNodes="//@diagram/@childNodes.12 //@diagram/@topLevelNodes.6"/>
       </groups>
       <groups
           title="Links"
@@ -1177,7 +1412,7 @@
             xsi:type="gmfgen:ToolEntry"
             title="ResourceDemandingBehaviour"
             description="Create new ResourceDemandingBehaviour"
-            genNodes="//@diagram/@childNodes.2 //@diagram/@childNodes.10"/>
+            genNodes="//@diagram/@childNodes.2 //@diagram/@childNodes.10 //@diagram/@childNodes.13"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="BranchTransition"
@@ -1295,6 +1530,33 @@
         parent="//@diagram/@childNodes.2"
         child="//@diagram/@childNodes.11"/>
     <childReferences
+        parent="//@diagram/@childNodes.13"
+        child="//@diagram/@childNodes.3"/>
+    <childReferences
+        parent="//@diagram/@childNodes.13"
+        child="//@diagram/@childNodes.4"/>
+    <childReferences
+        parent="//@diagram/@childNodes.13"
+        child="//@diagram/@childNodes.5"/>
+    <childReferences
+        parent="//@diagram/@childNodes.13"
+        child="//@diagram/@childNodes.6"/>
+    <childReferences
+        parent="//@diagram/@childNodes.13"
+        child="//@diagram/@childNodes.8"/>
+    <childReferences
+        parent="//@diagram/@childNodes.13"
+        child="//@diagram/@childNodes.11"/>
+    <childReferences
+        parent="//@diagram/@childNodes.13"
+        child="//@diagram/@childNodes.12"/>
+    <childReferences
+        parent="//@diagram/@childNodes.12"
+        child="//@diagram/@childNodes.13"/>
+    <childReferences
+        parent="//@diagram/@childNodes.2"
+        child="//@diagram/@childNodes.12"/>
+    <childReferences
         parent="//@diagram/@topLevelNodes.3"
         child="//@diagram/@childNodes.2"/>
     <childReferences
@@ -1312,6 +1574,12 @@
     <childReferences
         parent="//@diagram"
         child="//@diagram/@topLevelNodes.5"/>
+    <childReferences
+        parent="//@diagram/@topLevelNodes.6"
+        child="//@diagram/@childNodes.13"/>
+    <childReferences
+        parent="//@diagram"
+        child="//@diagram/@topLevelNodes.6"/>
     <childReferences
         parent="//@diagram"
         child="//@diagram/@links.0"
@@ -1391,6 +1659,18 @@
         groupIcon="icons/incomingLinksNavigatorGroup.gif"/>
     <childReferences
         parent="//@diagram/@links.0"
+        child="//@diagram/@topLevelNodes.6"
+        referenceType="out_taget"
+        groupName="target"
+        groupIcon="icons/linkTargetNavigatorGroup.gif"/>
+    <childReferences
+        parent="//@diagram/@topLevelNodes.6"
+        child="//@diagram/@links.0"
+        referenceType="in_source"
+        groupName="incoming links"
+        groupIcon="icons/incomingLinksNavigatorGroup.gif"/>
+    <childReferences
+        parent="//@diagram/@links.0"
         child="//@diagram/@childNodes.3"
         referenceType="out_taget"
         groupName="target"
@@ -1457,6 +1737,18 @@
         groupIcon="icons/linkTargetNavigatorGroup.gif"/>
     <childReferences
         parent="//@diagram/@childNodes.11"
+        child="//@diagram/@links.0"
+        referenceType="in_source"
+        groupName="incoming links"
+        groupIcon="icons/incomingLinksNavigatorGroup.gif"/>
+    <childReferences
+        parent="//@diagram/@links.0"
+        child="//@diagram/@childNodes.12"
+        referenceType="out_taget"
+        groupName="target"
+        groupIcon="icons/linkTargetNavigatorGroup.gif"/>
+    <childReferences
+        parent="//@diagram/@childNodes.12"
         child="//@diagram/@links.0"
         referenceType="in_source"
         groupName="incoming links"
@@ -1535,6 +1827,18 @@
         groupIcon="icons/outgoingLinksNavigatorGroup.gif"/>
     <childReferences
         parent="//@diagram/@links.0"
+        child="//@diagram/@topLevelNodes.6"
+        referenceType="in_source"
+        groupName="source"
+        groupIcon="icons/linkSourceNavigatorGroup.gif"/>
+    <childReferences
+        parent="//@diagram/@topLevelNodes.6"
+        child="//@diagram/@links.0"
+        referenceType="out_taget"
+        groupName="outgoing links"
+        groupIcon="icons/outgoingLinksNavigatorGroup.gif"/>
+    <childReferences
+        parent="//@diagram/@links.0"
         child="//@diagram/@childNodes.3"
         referenceType="in_source"
         groupName="source"
@@ -1601,6 +1905,18 @@
         groupIcon="icons/linkSourceNavigatorGroup.gif"/>
     <childReferences
         parent="//@diagram/@childNodes.11"
+        child="//@diagram/@links.0"
+        referenceType="out_taget"
+        groupName="outgoing links"
+        groupIcon="icons/outgoingLinksNavigatorGroup.gif"/>
+    <childReferences
+        parent="//@diagram/@links.0"
+        child="//@diagram/@childNodes.12"
+        referenceType="in_source"
+        groupName="source"
+        groupIcon="icons/linkSourceNavigatorGroup.gif"/>
+    <childReferences
+        parent="//@diagram/@childNodes.12"
         child="//@diagram/@links.0"
         referenceType="out_taget"
         groupName="outgoing links"

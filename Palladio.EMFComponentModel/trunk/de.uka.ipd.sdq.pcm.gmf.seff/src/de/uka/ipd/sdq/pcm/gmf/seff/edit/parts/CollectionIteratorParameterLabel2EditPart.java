@@ -55,13 +55,13 @@ import de.uka.ipd.sdq.pcm.gmf.seff.providers.PalladioComponentModelElementTypes;
 /**
  * @generated
  */
-public class LoopIterationsLabel2EditPart extends CompartmentEditPart implements
-		ITextAwareEditPart {
+public class CollectionIteratorParameterLabel2EditPart extends
+		CompartmentEditPart implements ITextAwareEditPart {
 
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 5010;
+	public static final int VISUAL_ID = 5016;
 
 	/**
 	 * @generated
@@ -86,7 +86,7 @@ public class LoopIterationsLabel2EditPart extends CompartmentEditPart implements
 	/**
 	 * @generated
 	 */
-	public LoopIterationsLabel2EditPart(View view) {
+	public CollectionIteratorParameterLabel2EditPart(View view) {
 		super(view);
 	}
 
@@ -315,7 +315,7 @@ public class LoopIterationsLabel2EditPart extends CompartmentEditPart implements
 
 				public Object getAdapter(Class adapter) {
 					if (IElementType.class.equals(adapter)) {
-						return PalladioComponentModelElementTypes.LoopAction_2004;
+						return PalladioComponentModelElementTypes.CollectionIteratorAction_2007;
 					}
 					return super.getAdapter(adapter);
 				}

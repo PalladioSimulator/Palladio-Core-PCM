@@ -115,6 +115,16 @@ public class Messages extends org.eclipse.osgi.util.NLS {
 	/**
 	 * @generated
 	 */
+	public static String CollectionIteratorAction7CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String CollectionIteratorAction7CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
 	public static String ControlFlow1CreationTool_title;
 
 	/**
@@ -225,12 +235,27 @@ public class Messages extends org.eclipse.osgi.util.NLS {
 	/**
 	 * @generated
 	 */
+	public static String CollectionIteratorActionBehaviourCompartmentEditPart_title;
+
+	/**
+	 * @generated
+	 */
+	public static String ResourceDemandingBehaviourLoopCompartment2EditPart_title;
+
+	/**
+	 * @generated
+	 */
 	public static String BranchActionBranchTransitionCompartment2EditPart_title;
 
 	/**
 	 * @generated
 	 */
 	public static String InternalActionResourceDemand2EditPart_title;
+
+	/**
+	 * @generated
+	 */
+	public static String CollectionIteratorActionBehaviourCompartment2EditPart_title;
 
 	/**
 	 * @generated
@@ -305,6 +330,16 @@ public class Messages extends org.eclipse.osgi.util.NLS {
 	/**
 	 * @generated
 	 */
+	public static String NavigatorGroupName_CollectionIteratorAction_2007_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_CollectionIteratorAction_2007_incominglinks;
+
+	/**
+	 * @generated
+	 */
 	public static String NavigatorGroupName_StartAction_3004_outgoinglinks;
 
 	/**
@@ -361,6 +396,16 @@ public class Messages extends org.eclipse.osgi.util.NLS {
 	 * @generated
 	 */
 	public static String NavigatorGroupName_ExternalCallAction_3012_incominglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_CollectionIteratorAction_3013_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_CollectionIteratorAction_3013_incominglinks;
 
 	/**
 	 * @generated

@@ -22,7 +22,7 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 /**
  * @generated
  */
-public class ResourceDemandingBehaviourLoopCompartmentItemSemanticEditPolicy
+public class ResourceDemandingBehaviourLoopCompartment2ItemSemanticEditPolicy
 		extends PalladioComponentModelBaseItemSemanticEditPolicy {
 
 	/**

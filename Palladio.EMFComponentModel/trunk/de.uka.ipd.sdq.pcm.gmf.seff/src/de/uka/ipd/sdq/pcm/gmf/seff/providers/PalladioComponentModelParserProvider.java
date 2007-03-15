@@ -14,6 +14,8 @@ import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
 
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.BranchActionEntityName2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.BranchActionEntityNameEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.CollectionIteratorActionEntityName2EditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.CollectionIteratorActionEntityNameEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ExternalCallActionEntityName2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ExternalCallActionEntityNameEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.InternalActionEntityName2EditPart;
@@ -224,6 +226,32 @@ public class PalladioComponentModelParserProvider extends AbstractProvider
 	/**
 	 * @generated
 	 */
+	private IParser collectionIteratorActionCollectionIteratorActionEntityName_5013Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getCollectionIteratorActionCollectionIteratorActionEntityName_5013Parser() {
+		if (collectionIteratorActionCollectionIteratorActionEntityName_5013Parser == null) {
+			collectionIteratorActionCollectionIteratorActionEntityName_5013Parser = createCollectionIteratorActionCollectionIteratorActionEntityName_5013Parser();
+		}
+		return collectionIteratorActionCollectionIteratorActionEntityName_5013Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	protected IParser createCollectionIteratorActionCollectionIteratorActionEntityName_5013Parser() {
+		PalladioComponentModelStructuralFeatureParser parser = new PalladioComponentModelStructuralFeatureParser(
+				EntityPackage.eINSTANCE.getNamedElement_EntityName());
+		parser.setViewPattern("{0}");
+		parser.setEditPattern("{0}");
+		return parser;
+	}
+
+	/**
+	 * @generated
+	 */
 	private IParser externalCallActionExternalCallActionEntityName_5002Parser;
 
 	/**
@@ -320,6 +348,32 @@ public class PalladioComponentModelParserProvider extends AbstractProvider
 	/**
 	 * @generated
 	 */
+	private IParser collectionIteratorActionCollectionIteratorActionEntityName_5015Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getCollectionIteratorActionCollectionIteratorActionEntityName_5015Parser() {
+		if (collectionIteratorActionCollectionIteratorActionEntityName_5015Parser == null) {
+			collectionIteratorActionCollectionIteratorActionEntityName_5015Parser = createCollectionIteratorActionCollectionIteratorActionEntityName_5015Parser();
+		}
+		return collectionIteratorActionCollectionIteratorActionEntityName_5015Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	protected IParser createCollectionIteratorActionCollectionIteratorActionEntityName_5015Parser() {
+		PalladioComponentModelStructuralFeatureParser parser = new PalladioComponentModelStructuralFeatureParser(
+				EntityPackage.eINSTANCE.getNamedElement_EntityName());
+		parser.setViewPattern("{0}");
+		parser.setEditPattern("{0}");
+		return parser;
+	}
+
+	/**
+	 * @generated
+	 */
 	protected IParser getParser(int visualID) {
 		switch (visualID) {
 		case VariableCharacterisationEditPart.VISUAL_ID:
@@ -336,6 +390,8 @@ public class PalladioComponentModelParserProvider extends AbstractProvider
 			return getProbabilisticBranchTransitionProbabilisticBranchTransitionBranchProbability_5007Parser();
 		case ExternalCallActionEntityName2EditPart.VISUAL_ID:
 			return getExternalCallActionExternalCallActionEntityName_5006Parser();
+		case CollectionIteratorActionEntityNameEditPart.VISUAL_ID:
+			return getCollectionIteratorActionCollectionIteratorActionEntityName_5013Parser();
 		case ExternalCallActionEntityNameEditPart.VISUAL_ID:
 			return getExternalCallActionExternalCallActionEntityName_5002Parser();
 		case LoopActionEntityName2EditPart.VISUAL_ID:
@@ -344,6 +400,8 @@ public class PalladioComponentModelParserProvider extends AbstractProvider
 			return getBranchActionBranchActionEntityName_5011Parser();
 		case InternalActionEntityName2EditPart.VISUAL_ID:
 			return getInternalActionInternalActionEntityName_5012Parser();
+		case CollectionIteratorActionEntityName2EditPart.VISUAL_ID:
+			return getCollectionIteratorActionCollectionIteratorActionEntityName_5015Parser();
 		}
 		return null;
 	}

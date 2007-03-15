@@ -9,6 +9,7 @@ import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.emf.commands.core.commands.DuplicateEObjectsCommand;
 import org.eclipse.gmf.runtime.emf.type.core.requests.DuplicateElementsRequest;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.commands.BranchAction2CreateCommand;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.commands.CollectionIteratorAction2CreateCommand;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.commands.ExternalCallActionCreateCommand;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.commands.InternalAction2CreateCommand;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.commands.LoopActionCreateCommand;
@@ -78,6 +79,14 @@ public class ResourceDemandingSEFFItemSemanticEditPolicy extends
 						.getResourceDemandingBehaviour_Steps_Behaviour());
 			}
 			return getMSLWrapper(new InternalAction2CreateCommand(req));
+		}
+		if (PalladioComponentModelElementTypes.CollectionIteratorAction_2007 == req
+				.getElementType()) {
+			if (req.getContainmentFeature() == null) {
+				req.setContainmentFeature(SeffPackage.eINSTANCE
+						.getResourceDemandingBehaviour_Steps_Behaviour());
+			}
+			return getMSLWrapper(new CollectionIteratorAction2CreateCommand(req));
 		}
 		return super.getCreateCommand(req);
 	}
