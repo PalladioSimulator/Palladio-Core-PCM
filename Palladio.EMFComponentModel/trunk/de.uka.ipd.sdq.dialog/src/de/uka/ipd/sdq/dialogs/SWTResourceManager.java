@@ -1,4 +1,5 @@
 package de.uka.ipd.sdq.dialogs;
+
 import java.io.BufferedInputStream;
 import java.io.FileInputStream;
 import java.io.InputStream;
@@ -171,7 +172,7 @@ public class SWTResourceManager {
      * @param path String The path to the image file
      * @return Image The image stored in the file at the specified path
      */
-    public static Image getImage(Class clazz, String path) {
+    public static Image getImage(Class<?> clazz, String path) {
         String key = clazz.getName() + '|' + path;
         Image image = m_ClassImageMap.get(key);
         if (image == null) {
@@ -276,8 +277,8 @@ public class SWTResourceManager {
         m_ClassImageMap.clear();
         //
         for (Iterator<HashMap<Image, Image>> I = m_ImageToDecoratorMap.values().iterator(); I.hasNext();) {
-			HashMap decoratedMap = (HashMap) I.next();
-			for (Iterator J = decoratedMap.values().iterator(); J.hasNext();) {
+			HashMap<?, ?> decoratedMap = (HashMap<?, ?>) I.next();
+			for (Iterator<?> J = decoratedMap.values().iterator(); J.hasNext();) {
 				Image image = (Image) J.next();
 				image.dispose();
 			}
@@ -289,7 +290,7 @@ public class SWTResourceManager {
 	 * @param section the section do dispose
 	 */
 	public static void disposeImages(String section) {
-		for (Iterator I = m_ClassImageMap.keySet().iterator(); I.hasNext();) {
+		for (Iterator<String> I = m_ClassImageMap.keySet().iterator(); I.hasNext();) {
 			String key = (String) I.next();
 			if (!key.startsWith(section + '|'))
 				continue;
@@ -342,7 +343,7 @@ public class SWTResourceManager {
         	FontData fontData = new FontData(name, size, style);
     		if (strikeout || underline) {
     			try {
-    				Class logFontClass = Class.forName("org.eclipse.swt.internal.win32.LOGFONT"); //$NON-NLS-1$
+    				Class<?> logFontClass = Class.forName("org.eclipse.swt.internal.win32.LOGFONT"); //$NON-NLS-1$
     				Object logFont = FontData.class.getField("data").get(fontData); //$NON-NLS-1$
     				if (logFont != null && logFontClass != null) {
     					if (strikeout) {
@@ -384,7 +385,7 @@ public class SWTResourceManager {
      * Dispose all of the cached fonts
      */
     public static void disposeFonts() {
-        for (Iterator iter = m_FontMap.values().iterator(); iter.hasNext();)
+        for (Iterator<Font> iter = m_FontMap.values().iterator(); iter.hasNext();)
              ((Font) iter.next()).dispose();
         m_FontMap.clear();
     }
@@ -448,7 +449,7 @@ public class SWTResourceManager {
      * Dispose all of the cached cursors
      */
     public static void disposeCursors() {
-        for (Iterator iter = m_IdToCursorMap.values().iterator(); iter.hasNext();)
+        for (Iterator<Cursor> iter = m_IdToCursorMap.values().iterator(); iter.hasNext();)
              ((Cursor) iter.next()).dispose();
         m_IdToCursorMap.clear();
     }
