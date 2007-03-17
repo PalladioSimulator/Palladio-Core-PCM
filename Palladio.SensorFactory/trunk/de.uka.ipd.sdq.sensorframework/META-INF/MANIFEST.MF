@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Eclipse-RegisterBuddy: de.uka.ipd.sdq.hibernatewrapper,org.apache.jakarta_log4j
+Bundle-ManifestVersion: 2
+Bundle-Name: Sysensor Framework Plug-in
+Bundle-SymbolicName: de.uka.ipd.sdq.sensorframework
+Bundle-Version: 1.1.0
+Bundle-Activator: Activator
+Bundle-Localization: plugin
+Require-Bundle: org.eclipse.core.runtime,
+ de.uka.ipd.sdq.hibernatewrapper,
+ org.apache.jakarta_log4j
+Eclipse-LazyStart: true
+Export-Package: de.uka.ipd.sdq.sensorfactory.entities,
+ de.uka.ipd.sdq.sensorfactory.entities.impl
+Bundle-ClassPath: src/,
+ .

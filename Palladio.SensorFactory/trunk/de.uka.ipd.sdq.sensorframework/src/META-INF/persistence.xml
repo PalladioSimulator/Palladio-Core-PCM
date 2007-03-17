@@ -4,11 +4,20 @@
 	version="1.0">
 	<persistence-unit name="sensorfactory">
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
-		<exclude-unlisted-classes>false</exclude-unlisted-classes>
+		<class>de.uka.ipd.sdq.sensorfactory.entities.impl.ExperimentImpl</class>
+		<class>de.uka.ipd.sdq.sensorfactory.entities.impl.ExperimentRunImpl</class>
+		<class>de.uka.ipd.sdq.sensorfactory.entities.Measurement</class>
+		<class>de.uka.ipd.sdq.sensorfactory.entities.Sensor</class>
+		<class>de.uka.ipd.sdq.sensorfactory.entities.impl.StateImpl</class>
+		<class>de.uka.ipd.sdq.sensorfactory.entities.impl.StateMeasurementImpl</class>
+		<class>de.uka.ipd.sdq.sensorfactory.entities.impl.StateSensorImpl</class>
+		<class>de.uka.ipd.sdq.sensorfactory.entities.impl.TimeSpanMeasurementImpl</class>
+		<class>de.uka.ipd.sdq.sensorfactory.entities.impl.TimeSpanSensorImpl</class>
+		<exclude-unlisted-classes>true</exclude-unlisted-classes>
 		<properties>
 			<property name="hibernate.dialect"
 				value="org.hibernate.dialect.MySQL5Dialect" />
-			<property name="hibernate.hbm2ddl.auto" value="create" />
+			<property name="hibernate.hbm2ddl.auto" value="ubdate" />
 			<property name="hibernate.show_sql" value="true" />
 			<property name="hibernate.archive.autodetection"
 				value="class, hbm" />
