@@ -4,18 +4,13 @@
     <providedRoles_InterfaceProvidingEntity id="_2rc3kHckEdugqbdw26ZvAA" entityName="" providedInterface__ProvidedRole="_iu2OpTQaEduaPaOP6VcQiw"/>
     <requiredRoles_InterfaceRequiringEntity id="_8P4wgXckEdugqbdw26ZvAA" requiredInterface__RequiredRole="_pIeqNDQaEduaPaOP6VcQiw"/>
     <serviceEffectSpecifications__BasicComponent xsi:type="pcm.seff:ResourceDemandingSEFF" id="_-VnThJ_MEdu_M9mS7O-9Ug" seffTypeID="0" describedService__SEFF="//@interfaces__Repository.0/@signatures__Interface.0">
-      <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_ZlavgTQbEduaPaOP6VcQiw" entityName="Starting" successor_AbstractAction="_0dQIBI9JEdu6Wd_Le8vyxw"/>
-      <steps_Behaviour xsi:type="pcm.seff:InternalAction" id="_0dQIBI9JEdu6Wd_Le8vyxw" predecessor_AbstractAction="_ZlavgTQbEduaPaOP6VcQiw" successor_AbstractAction="_yOspVI-XEduBtJtX61FO7A">
-        <resourceDemand_Action specification="DoublePDF(unit=&quot;s&quot;)[ (2.0; 0.5) (2.2; 0.3) (2.4; 0.2) ]" unit="s">
+      <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_ZlavgTQbEduaPaOP6VcQiw" entityName="Starting" successor_AbstractAction="_a9LrVNLaEduG46-aex4Phw"/>
+      <steps_Behaviour xsi:type="pcm.seff:InternalAction" id="_a9LrVNLaEduG46-aex4Phw" entityName="Doing" predecessor_AbstractAction="_ZlavgTQbEduaPaOP6VcQiw" successor_AbstractAction="_dy1LIDQbEduaPaOP6VcQiw">
+        <resourceDemand_Action specification="DoublePDF(unit=&quot;s&quot;)[ (1.0; 0.0) (2.0; 0.3) (3.0; 0.3) (4.0; 0.4) ] * DoublePDF(unit=&quot;s&quot;)[ (1.0; 0.0) (2.0; 0.3) (3.0; 0.3) (4.0; 0.4) ]" unit="s">
           <requiredResource_ParametricResourceDemand href="DSolverExample2.resourcetype#_YPBH0TQcEduaPaOP6VcQiw"/>
         </resourceDemand_Action>
       </steps_Behaviour>
-      <steps_Behaviour xsi:type="pcm.seff:InternalAction" id="_yOspVI-XEduBtJtX61FO7A" predecessor_AbstractAction="_0dQIBI9JEdu6Wd_Le8vyxw" successor_AbstractAction="_dy1LIDQbEduaPaOP6VcQiw">
-        <resourceDemand_Action specification="DoublePDF(unit=&quot;s&quot;)[ (2.0; 0.5) (2.2; 0.3) (2.4; 0.2) ]" unit="s">
-          <requiredResource_ParametricResourceDemand href="DSolverExample2.resourcetype#_YPBH0TQcEduaPaOP6VcQiw"/>
-        </resourceDemand_Action>
-      </steps_Behaviour>
-      <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_dy1LIDQbEduaPaOP6VcQiw" entityName="Stopping" predecessor_AbstractAction="_yOspVI-XEduBtJtX61FO7A"/>
+      <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_dy1LIDQbEduaPaOP6VcQiw" entityName="Stopping" predecessor_AbstractAction="_a9LrVNLaEduG46-aex4Phw"/>
     </serviceEffectSpecifications__BasicComponent>
   </components__Repository>
   <components__Repository xsi:type="pcm.repository:BasicComponent" id="_hj5edDQaEduaPaOP6VcQiw" entityName="SecondComponent">
