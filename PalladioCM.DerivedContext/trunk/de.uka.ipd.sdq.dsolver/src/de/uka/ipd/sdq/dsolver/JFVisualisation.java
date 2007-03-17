@@ -64,7 +64,7 @@ public class JFVisualisation {
 			int i = 0;
 			for (Double point : points) {
 				series.add(i, point);
-				out.write(i+";"+point);
+				out.write(i/10.0+";"+point);
 				out.newLine();
 				i++;
 			}
@@ -84,7 +84,7 @@ public class JFVisualisation {
 	public void visualize() {
 		dataset.setIntervalWidth(distance);
 		myChart = ChartFactory.createHistogram(
-				"Measured Execution Time Histogram", "Time ["+distance+" ms]",
+				"Measured Execution Time Histogram", "Time ["+distance+" s]",
 				"Probability", dataset, PlotOrientation.VERTICAL, true, true,
 				true);
 		XYPlot plot = (XYPlot) myChart.getPlot();
@@ -131,7 +131,9 @@ public class JFVisualisation {
 		graphFrame.getContentPane().setLayout(new BorderLayout());
 		chartPanel = new ChartPanel(myChart);
 		graphFrame.getContentPane().add(chartPanel, BorderLayout.CENTER);
+		graphFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		graphFrame.setVisible(true);
+		
 
 //		File testFile = new File("examplePMF2.png");
 //		try {

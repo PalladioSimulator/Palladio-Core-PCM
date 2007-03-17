@@ -3,9 +3,15 @@
  */
 package de.uka.ipd.sdq.dsolver;
 
+import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Iterator;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
@@ -22,8 +28,12 @@ import de.uka.ipd.sdq.probfunction.SamplePDF;
 import de.uka.ipd.sdq.probfunction.math.IProbabilityDensityFunction;
 import de.uka.ipd.sdq.probfunction.math.IProbabilityFunctionFactory;
 import de.uka.ipd.sdq.probfunction.math.ISamplePDF;
+import de.uka.ipd.sdq.probfunction.math.ManagedPDF;
+import de.uka.ipd.sdq.probfunction.math.PDFConfiguration;
+import de.uka.ipd.sdq.probfunction.math.exception.ConfigurationNotSetException;
 import de.uka.ipd.sdq.probfunction.math.exception.ProbabilityFunctionException;
 import de.uka.ipd.sdq.probfunction.math.exception.UnknownPDFTypeException;
+import de.uka.ipd.sdq.spa.basicsolver.heiko.ClassicSPASolver;
 import de.uka.ipd.sdq.spa.basicsolver.visitor.PerformanceVisitor;
 import de.uka.ipd.sdq.spa.basicsolver.visitor.perfhandler.PerformanceHandlerFactory;
 import de.uka.ipd.sdq.spa.expression.Expression;
@@ -36,6 +46,11 @@ import de.uka.ipd.sdq.spa.expression.Expression;
  */
 public class DependencySolver {
 
+	private static final int DOMAIN_SIZE = 32;
+
+	private static final double DISTANCE = 0.1;
+
+	
 	protected IProbabilityFunctionFactory iProbFuncFactory = 
 		IProbabilityFunctionFactory.eINSTANCE;
 	
@@ -45,9 +60,6 @@ public class DependencySolver {
 		Logger.getLogger(DependencySolver.class.getName());
 
 	public DependencySolver(Properties config){
-
-		
-		
 		this.config = config;
 		logger.debug("Loading PCM Instance");
 		currentModel = new PCMInstance(config);
@@ -62,19 +74,25 @@ public class DependencySolver {
 		
 	}
 
+
+	
 	/**
 	 * @param result
 	 */
 	private IProbabilityDensityFunction runCalculation(Expression result) {
 		long timeBeforeCalc = System.nanoTime();
-		PerformanceHandlerFactory perfHandFac = new PerformanceHandlerFactory(128);
-		PerformanceVisitor perfVisitor = new PerformanceVisitor(perfHandFac);
-		IProbabilityDensityFunction iPDF = perfVisitor.getResponseTime(result);
+		ClassicSPASolver solver = new ClassicSPASolver();
+		ManagedPDF resultPDF = solver.getResponseTime(result);
+		
+//		PerformanceHandlerFactory perfHandFac = new PerformanceHandlerFactory(DOMAIN_SIZE);
+//		PerformanceVisitor perfVisitor = new PerformanceVisitor(perfHandFac);
+//		IProbabilityDensityFunction iPDF = perfVisitor.getResponseTime(result);
 		
 		long timeAfterCalc = System.nanoTime();
 		long duration3 = TimeUnit.NANOSECONDS.toMillis(timeAfterCalc-timeBeforeCalc);
 		logger.debug("Finished Calculation, Duration: "+ duration3 + " ms");
-		return iPDF;
+//		return iPDF;
+		return resultPDF.getPdfTimeDomain();
 	}
 
 	/**
@@ -90,8 +108,17 @@ public class DependencySolver {
 			e1.printStackTrace();
 		}
 
+		
 		try {
-			JFVisualisation vis = new JFVisualisation(10);
+			//JFVisualisation vis = new JFVisualisation(DISTANCE);
+			double dist = 0.0;
+			try {
+				dist = PDFConfiguration.getCurrentConfiguration().getDistance();
+			} catch (ConfigurationNotSetException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			JFVisualisation vis = new JFVisualisation(dist);
 			vis.addSamplePDF(samplePDF,"Execution Time");
 			vis.visualizeOverlay();
 		} catch (ProbabilityFunctionException e) {
