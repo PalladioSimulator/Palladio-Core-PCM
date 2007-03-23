@@ -1,10 +1,5 @@
 package de.uka.ipd.sdq.pcmbench.application;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.URL;
-import java.util.PropertyResourceBundle;
-
 import org.eclipse.jface.action.GroupMarker;
 import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.action.IMenuManager;
