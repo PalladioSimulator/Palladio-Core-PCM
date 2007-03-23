@@ -7,7 +7,8 @@ import org.eclipse.ui.application.WorkbenchWindowAdvisor;
 
 public class PCMBenchWorkbenchAdvisor extends WorkbenchAdvisor {
 
-	private static final String PCMBENCH_PERSPECTIVE_ID = "de.uka.ipd.sdq.PCMBench.perspective";
+	//private static final String PCMBENCH_PERSPECTIVE_ID = "de.uka.ipd.sdq.PCMBench.perspective";
+	private static final String PCMBENCH_PERSPECTIVE_ID = "de.uka.ipd.sdq.pcmbench.componentdeveloper_perspective";
 
     public WorkbenchWindowAdvisor createWorkbenchWindowAdvisor(IWorkbenchWindowConfigurer configurer) {
         return new PCMBenchApplicationWorkbenchWindowAdvisor(configurer);
