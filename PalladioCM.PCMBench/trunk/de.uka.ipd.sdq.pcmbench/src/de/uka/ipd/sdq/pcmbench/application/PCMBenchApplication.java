@@ -8,7 +8,7 @@ import org.eclipse.ui.PlatformUI;
 
 public class PCMBenchApplication implements IApplication {
 
-	@Override
+	
 	public Object start(IApplicationContext context) throws Exception {
 		Display display = PlatformUI.createDisplay();
 		try {
@@ -22,7 +22,7 @@ public class PCMBenchApplication implements IApplication {
 		}
 	}
 
-	@Override
+	
 	public void stop() {
 		final IWorkbench workbench = PlatformUI.getWorkbench();
 		if (workbench == null)

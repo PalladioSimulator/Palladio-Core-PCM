@@ -5,13 +5,37 @@
    <extension
          point="org.eclipse.ui.perspectives">
       <perspective
-            class="de.uka.ipd.sdq.pcmbench.perspective.PCMBenchPerspective"
-            fixed="false"
-            icon="icons/palladio-logo.gif"
-            id="de.uka.ipd.sdq.PCMBench.perspective"
-            name="PCMBench">
+            class="de.uka.ipd.sdq.pcmbench.perspectives.ComponentDeveloperPerspective"
+            icon="icons/brick.png"
+            id="de.uka.ipd.sdq.pcmbench.componentdeveloper_perspective"
+            name="Component Developer Perspective">
+      </perspective>
+      <perspective
+            class="de.uka.ipd.sdq.pcmbench.perspectives.SoftwareArchitectPerspective"
+            icon="icons/package.png"
+            id="de.uka.ipd.sdq.pcmbench.softwarearchitect_perspective"
+            name="Software Architect Perspective">
+      </perspective>
+      <perspective
+            class="de.uka.ipd.sdq.pcmbench.perspectives.DeployerPerspective"
+            icon="icons/server.png"
+            id="de.uka.ipd.sdq.pcmbench.deployer_perspective"
+            name="Deployer Perspective">
+      </perspective>
+      <perspective
+            class="de.uka.ipd.sdq.pcmbench.perspectives.DomainExpertPerspective"
+            icon="icons/status_away.png"
+            id="de.uka.ipd.sdq.pcmbench.domainexpert_perspective"
+            name="Domain Expert Perspective">
+      </perspective>
+      <perspective
+            class="de.uka.ipd.sdq.pcmbench.perspectives.QosAnalystPerspective"
+            icon="icons/chart_bar.png"
+            id="de.uka.ipd.sdq.pcmbench.qosanalyst_perspective"
+            name="QoS Analyst Perspective">
       </perspective>
    </extension>
+   
    <extension
          id="product"
          point="org.eclipse.core.runtime.products">
@@ -36,11 +60,11 @@
          </property>
          <property
                name="startupMessageRect"
-               value="0,275,450,10">
+               value="0,0,450,10">
          </property>
          <property
                name="startupProgressRect"
-               value="0,285,450,8">
+               value="0,10,400,20">
          </property>
       </product>
    </extension>
@@ -212,26 +236,60 @@
                menubarPath="additions"/>
       </objectContribution>
    </extension>
+   
    <extension
-         id="de.uka.ipd.sdq.pcmbench.newPalladioProject"
-         name="New Palladio Project"
          point="org.eclipse.ui.newWizards">
       <category
-            id="de.uka.ipd.sdq.pcmbench.palladiocategory"
-            name="Palladio Projects"/>
+            id="de.uka.ipd.sdq.pcmbench.palladio_category"
+            name="Palladio Projects">
+      </category>
       <wizard
-            category="de.uka.ipd.sdq.pcmbench.palladiocategory"
-            class="de.uka.ipd.sdq.pcmbench.wizards.NewPalladioProjectWizard"
-            descriptionImage="icons/palladio-logo.gif"
-            finalPerspective="de.uka.ipd.sdq.PCMBench.perspective"
-            icon="icons/palladio-logo.gif"
-            id="de.uka.ipd.sdq.pcmbench.newProjectWizard"
-            name="New Palladio Project Wizard"
-            preferredPerspectives="de.uka.ipd.sdq.PCMBench.perspective"
+            category="de.uka.ipd.sdq.pcmbench.palladio_category"
+            class="de.uka.ipd.sdq.pcmbench.wizards.RepositoryProjectWizard"
+            finalPerspective="de.uka.ipd.sdq.pcmbench.componentdeveloper_perspective"
+            hasPages="true"
+            icon="icons/brick.png"
+            id="de.uka.ipd.sdq.pcmbench.repository_project_wizard"
+            name="Repository Project Wizard"
+            preferredPerspectives="de.uka.ipd.sdq.pcmbench.componentdeveloper_perspective"
             project="true">
-         <description>This wizard creates a new Palladio Modelling Project for CBSE based Quality of Service evaluations.</description>
+      </wizard>
+      <wizard
+            category="de.uka.ipd.sdq.pcmbench.palladio_category"
+            class="de.uka.ipd.sdq.pcmbench.wizards.SystemProjectWizard"
+            finalPerspective="de.uka.ipd.sdq.pcmbench.softwarearchitect_perspective"
+            hasPages="true"
+            icon="icons/package.png"
+            id="de.uka.ipd.sdq.pcmbench.system_assembly_project_wizard"
+            name="System Assembly Project Wizard"
+            preferredPerspectives="de.uka.ipd.sdq.pcmbench.softwarearchitect_perspective"
+            project="true">
+      </wizard>
+      <wizard
+            category="de.uka.ipd.sdq.pcmbench.palladio_category"
+            class="de.uka.ipd.sdq.pcmbench.wizards.ResourceEnvironmentProjectWizard"
+            finalPerspective="de.uka.ipd.sdq.pcmbench.deployer_perspective"
+            hasPages="true"
+            icon="icons/server.png"
+            id="de.uka.ipd.sdq.pcmbench.resource_environment_project_wizard"
+            name="Resource Environment Project Wizard"
+            preferredPerspectives="de.uka.ipd.sdq.pcmbench.deployer_perspective"
+            project="true">
+      </wizard>
+      <wizard
+            category="de.uka.ipd.sdq.pcmbench.palladio_category"
+            class="de.uka.ipd.sdq.pcmbench.wizards.UsageModelProjectWizard"
+            finalPerspective="de.uka.ipd.sdq.pcmbench.domainexpert_perspective"
+            hasPages="true"
+            icon="icons/status_away.png"
+            id="de.uka.ipd.sdq.pcmbench.usage_model_project_wizard"
+            name="Usage Model Project Wizard"
+            preferredPerspectives="de.uka.ipd.sdq.pcmbench.domainexpert_perspective"
+            project="true">
       </wizard>
    </extension>
+   
+   
    <extension
          point="org.eclipse.ui.decorators">
       <decorator
