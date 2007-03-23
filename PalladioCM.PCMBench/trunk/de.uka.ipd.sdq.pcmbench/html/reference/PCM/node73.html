@@ -1,0 +1,126 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Protocols</TITLE>
+<META NAME="description" CONTENT="Protocols">
+<META NAME="keywords" CONTENT="PCM">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="PCM.css">
+
+<LINK REL="next" HREF="node74.html">
+<LINK REL="previous" HREF="node72.html">
+<LINK REL="up" HREF="node71.html">
+<LINK REL="next" HREF="node74.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html1575"
+  HREF="node74.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:///C|/programme/latex2html/icons/next.png"></A> 
+<A NAME="tex2html1569"
+  HREF="node71.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:///C|/programme/latex2html/icons/up.png"></A> 
+<A NAME="tex2html1563"
+  HREF="node72.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:///C|/programme/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html1571"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="file:///C|/programme/latex2html/icons/contents.png"></A> 
+<A NAME="tex2html1573"
+  HREF="node178.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="file:///C|/programme/latex2html/icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1576"
+  HREF="node74.html">Limitations of protocols and</A>
+<B> Up:</B> <A NAME="tex2html1570"
+  HREF="node71.html">Interface Structure</A>
+<B> Previous:</B> <A NAME="tex2html1564"
+  HREF="node72.html">Signatures</A>
+ &nbsp; <B>  <A NAME="tex2html1572"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html1574"
+  HREF="node178.html">Index</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H3><A NAME="SECTION00422200000000000000"></A>
+<A NAME="sec:Component_Developer:Protocols"></A><A NAME="1361"></A>
+<BR>
+Protocols
+</H3>
+In short protocols have been mentioned above. A protocol is a set of calling sequences. In case of a protocol of an interface playing the role of a provides interfaces, the protocol denotes the set of valid calling sequences. If associated to a requires interface, the protocol denotes the set of possible required sequences.
+
+<P>
+Figure <A HREF="node71.html#fig:cm-interfaces-signature-protocol-01">3.2</A> shows an example of protocols visualized as finite state machines. The PCM does not limit protocols to one type like finite state machines or petri-nets, but leaves the number and kinds of types open. An interfaces does not necessarily need to define a protocol.
+
+<P>
+<P>
+<DIV><I>Example  3.2</I> (Protocol)  &nbsp; 
+In Figure <A HREF="node71.html#fig:cm-interfaces-signature-protocol-01">3.2</A> all valid calling sequences of <TT>IReaderWriter</TT> start with <TT>open(..)</TT>. Then <TT>read(..)</TT> and <TT>write(..)</TT> can follow in an arbitrary sequence. In any casae finally <TT>close()</TT> has to be called. Further more sequences that immediately stop are valid (after the initialization the protocol is in a valid final state). The edges of the finite state machine are labeled with the signatures of the interface, that is described by the protocol.</DIV><P></P>
+
+<P>
+Protocols offer an ability to define dependencies among services of <I>one</I> interface. This allows components to express parts of their internal state in the PCM. Service calls are able to change the state of a component. Depending on the current state, only a limited number of further service calls is possible. Only those calling sequences, that lead from a start to an end state are valid. One can expect a defined behaviour of components only if their interface protocols are fulfilled.
+
+<P>
+Protocols are tied to interfaces. Anyhow the protocol state depends on the <I>component</I> that implements and provides an interface. Interfaces itself are stateless. This is the same principle as in object-oriented programming where interfaces are stateless, too. Just runtime-instances (objects) of classes which implement an interface have a state.
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1575"
+  HREF="node74.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:///C|/programme/latex2html/icons/next.png"></A> 
+<A NAME="tex2html1569"
+  HREF="node71.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:///C|/programme/latex2html/icons/up.png"></A> 
+<A NAME="tex2html1563"
+  HREF="node72.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:///C|/programme/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html1571"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="file:///C|/programme/latex2html/icons/contents.png"></A> 
+<A NAME="tex2html1573"
+  HREF="node178.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="file:///C|/programme/latex2html/icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1576"
+  HREF="node74.html">Limitations of protocols and</A>
+<B> Up:</B> <A NAME="tex2html1570"
+  HREF="node71.html">Interface Structure</A>
+<B> Previous:</B> <A NAME="tex2html1564"
+  HREF="node72.html">Signatures</A>
+ &nbsp; <B>  <A NAME="tex2html1572"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html1574"
+  HREF="node178.html">Index</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+Snowball
+2007-03-16
+</ADDRESS>
+</BODY>
+</HTML>

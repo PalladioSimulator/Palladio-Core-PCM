@@ -25,10 +25,12 @@ public class PCMBenchPerspective implements IPerspectiveFactory {
 		IFolderLayout bottomLeft = layout.createFolder("bottomLeft", IPageLayout.BOTTOM, 0.5f, "topLeft");
 
 		topLeft.addView(NAVIGATOR_VIEW);
+		topLeft.addView("org.eclipse.ui.navigator.ProjectExplorer");
 		bottomLeft.addView(ResourceView.ID);
 
 		right.addView(IPageLayout.ID_OUTLINE);
 
 		bottom.addView(IPageLayout.ID_PROP_SHEET);
+		bottom.addView("org.eclipse.pde.runtime.LogView");
 	}
 }

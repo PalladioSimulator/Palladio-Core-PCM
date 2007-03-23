@@ -348,7 +348,8 @@ public class PCMNavigatorContentProvider implements ITreeContentProvider, IAdapt
 		populateHashtable();
 	}
 
-	private void populateHashtable() {
+	private void 
+	populateHashtable() {
 		myLinkedRepositoriesNodes.clear();
 		for (IProject p : ResourcesPlugin.getWorkspace().getRoot().getProjects())
 		{

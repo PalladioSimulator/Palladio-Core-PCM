@@ -2,50 +2,6 @@
 <?eclipse version="3.2"?>
 <plugin>
 
-   <extension point="org.eclipse.ui.editors">
-     <editor
-           class="de.uka.ipd.sdq.pcmbench.MySeffDiagramEditor"
-           contributorClass="de.uka.ipd.sdq.pcm.gmf.seff.part.PcmDiagramActionBarContributor"
-           default="true"
-           extensions="my_seff_diagram"
-           icon="icons/palladio-logo.gif"
-           id="de.uka.ipd.sdq.pcm.gmf.seff.part.MySeffDiagramEditorID"
-           matchingStrategy="de.uka.ipd.sdq.pcm.gmf.seff.part.PcmMatchingStrategy"
-           name="SEFF Diagram Editor">
-     </editor>
-     <editor
-           class="de.uka.ipd.sdq.pcmbench.MyRepositoryDiagramEditor"
-           contributorClass="de.uka.ipd.sdq.pcm.gmf.repository.part.PcmDiagramActionBarContributor"
-           default="true"
-           extensions="my_repository_diagram"
-           icon="icons/palladio-logo.gif"
-           id="de.uka.ipd.sdq.pcm.gmf.repository.part.MyRepositoryDiagramEditorID"
-           matchingStrategy="de.uka.ipd.sdq.pcm.gmf.repository.part.PcmMatchingStrategy"
-           name="repository_model Diagram Editor">
-     </editor>
-   </extension>
-   <extension point="org.eclipse.emf.ecore.extension_parser">
-      <parser
-         type="my_seff_diagram"
-         class="org.eclipse.gmf.runtime.emf.core.resources.GMFResourceFactory">
-      </parser>
-      <parser
-         type="my_repository_diagram"
-         class="org.eclipse.gmf.runtime.emf.core.resources.GMFResourceFactory">
-      </parser>
-   </extension>
-      
-   <extension point="org.eclipse.gmf.runtime.diagram.ui.paletteProviders">
-      <paletteProvider class="de.uka.ipd.sdq.pcm.gmf.seff.providers.PcmPaletteProvider">
-         <Priority name="Lowest"/>
-         <editor id="de.uka.ipd.sdq.pcm.gmf.seff.part.MySeffDiagramEditorID"/>
-      </paletteProvider>
-      <paletteProvider class="de.uka.ipd.sdq.pcm.gmf.repository.providers.PcmPaletteProvider">
-         <Priority name="Lowest"/>
-         <editor id="de.uka.ipd.sdq.pcm.gmf.repository.part.MyRepositoryDiagramEditorID"/>
-      </paletteProvider>
-   </extension>
-   
    <extension
          point="org.eclipse.ui.perspectives">
       <perspective
@@ -56,6 +12,66 @@
             name="PCMBench">
       </perspective>
    </extension>
+   <extension
+         id="product"
+         point="org.eclipse.core.runtime.products">
+      <product
+            application="de.uka.ipd.sdq.pcmbench.application"
+            name="Palladio Component Model Modelling Bench">
+         <property
+               name="windowImages"
+               value="icons/palladio-logo.gif">
+         </property>
+         <property
+               name="appName"
+               value="Palladio Component Model Modelling Bench">
+         </property>
+         <property
+               name="aboutText"
+               value="This ist the Palladio Component Model Modelling Bench.&#x0A;&#x0A;Wrtitten by the members of the chair of Software Design and Quality, IPD, University of Karlsruhe&#x0A;&#x0A;Copyright 2007, SDQ, IPD">
+         </property>
+         <property
+               name="startupForegroundColor"
+               value="0000FF">
+         </property>
+         <property
+               name="startupMessageRect"
+               value="0,275,450,10">
+         </property>
+         <property
+               name="startupProgressRect"
+               value="0,285,450,8">
+         </property>
+      </product>
+   </extension>
+   <extension
+         point="org.eclipse.ui.intro">
+      <intro
+            class="org.eclipse.ui.intro.config.CustomizableIntroPart"
+            icon="icons/palladio-logo.gif"
+            id="de.uka.ipd.sdq.pcmbench.intro">
+      </intro>
+      <introProductBinding
+            introId="de.uka.ipd.sdq.pcmbench.intro"
+            productId="de.uka.ipd.sdq.pcmbench.product">
+      </introProductBinding>
+   </extension>
+   <extension
+         point="org.eclipse.ui.intro.config">
+      <config
+            introId="de.uka.ipd.sdq.pcmbench.intro"
+            content="introContent.xml"
+            id="de.uka.ipd.sdq.pcmbench.configId">
+         <presentation
+               home-page-id="root">
+            <implementation
+                  kind="html"
+                  os="win32,linux,macosx">
+            </implementation>
+         </presentation>
+      </config>
+   </extension>
+   
    <extension
          point="org.eclipse.ui.views">
       <view
@@ -231,5 +247,37 @@
             <objectClass name="org.eclipse.core.resources.IProject"/>
          </enablement>
       </decorator>
+   </extension>
+   <extension
+         id="application"
+         point="org.eclipse.core.runtime.applications">
+      <application
+            visible="true">
+         <run
+               class="de.uka.ipd.sdq.pcmbench.application.PCMBenchApplication">
+         </run>
+      </application>
+   </extension>
+   <extension
+         point="org.eclipse.help.toc">
+      <toc
+            file="toc.xml"
+            primary="true">
+      </toc>
+      <toc
+            file="tocconcepts.xml">
+      </toc>
+      <toc
+            file="tocgettingstarted.xml">
+      </toc>
+      <toc
+            file="tocreference.xml">
+      </toc>
+      <toc
+            file="tocsamples.xml">
+      </toc>
+      <toc
+            file="toctasks.xml">
+      </toc>
    </extension>
 </plugin>

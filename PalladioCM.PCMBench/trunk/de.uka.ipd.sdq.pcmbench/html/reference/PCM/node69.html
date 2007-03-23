@@ -1,0 +1,225 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Component Developer (OLD)</TITLE>
+<META NAME="description" CONTENT="Component Developer (OLD)">
+<META NAME="keywords" CONTENT="PCM">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="PCM.css">
+
+<LINK REL="next" HREF="node128.html">
+<LINK REL="previous" HREF="node47.html">
+<LINK REL="up" HREF="node46.html">
+<LINK REL="next" HREF="node70.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html1457"
+  HREF="node70.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:///C|/programme/latex2html/icons/next.png"></A> 
+<A NAME="tex2html1451"
+  HREF="node46.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:///C|/programme/latex2html/icons/up.png"></A> 
+<A NAME="tex2html1445"
+  HREF="node68.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:///C|/programme/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html1453"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="file:///C|/programme/latex2html/icons/contents.png"></A> 
+<A NAME="tex2html1455"
+  HREF="node178.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="file:///C|/programme/latex2html/icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1458"
+  HREF="node70.html">Interfaces</A>
+<B> Up:</B> <A NAME="tex2html1452"
+  HREF="node46.html">Concepts</A>
+<B> Previous:</B> <A NAME="tex2html1446"
+  HREF="node68.html">Service Effect Specification</A>
+ &nbsp; <B>  <A NAME="tex2html1454"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html1456"
+  HREF="node178.html">Index</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION00420000000000000000">
+Component Developer (OLD)</A>
+</H1>
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL>
+<LI><A NAME="tex2html1459"
+  HREF="node70.html">Interfaces</A>
+<LI><A NAME="tex2html1460"
+  HREF="node71.html">Interface Structure</A>
+<UL>
+<LI><A NAME="tex2html1461"
+  HREF="node72.html">Signatures</A>
+<LI><A NAME="tex2html1462"
+  HREF="node73.html">Protocols</A>
+<LI><A NAME="tex2html1463"
+  HREF="node74.html">Limitations of protocols and component state</A>
+<LI><A NAME="tex2html1464"
+  HREF="node75.html">Limitations of protocol state changes</A>
+</UL>
+<BR>
+<LI><A NAME="tex2html1465"
+  HREF="node76.html">Interface Inheritance</A>
+<LI><A NAME="tex2html1466"
+  HREF="node77.html">Interface Relations/Roles</A>
+<UL>
+<LI><A NAME="tex2html1467"
+  HREF="node78.html">Interpretations of Provided Interfaces</A>
+<LI><A NAME="tex2html1468"
+  HREF="node79.html">Interpretations of Required Interfaces</A>
+</UL>
+<BR>
+<LI><A NAME="tex2html1469"
+  HREF="node80.html">Component Types</A>
+<UL>
+<LI><A NAME="tex2html1470"
+  HREF="node81.html">Type Hierarchy</A>
+<LI><A NAME="tex2html1471"
+  HREF="node82.html">Component types</A>
+<UL>
+<LI><A NAME="tex2html1472"
+  HREF="node83.html">Provided Component Type</A>
+<LI><A NAME="tex2html1473"
+  HREF="node84.html">Complete Component Type</A>
+<LI><A NAME="tex2html1474"
+  HREF="node85.html">Implementation Component Type</A>
+</UL>
+<LI><A NAME="tex2html1475"
+  HREF="node86.html">Relations between Component Type Layers</A>
+<UL>
+<LI><A NAME="tex2html1476"
+  HREF="node87.html">Introductory Note</A>
+<LI><A NAME="tex2html1477"
+  HREF="node88.html">Component inheritance</A>
+<LI><A NAME="tex2html1478"
+  HREF="node89.html">Visualization</A>
+<LI><A NAME="tex2html1479"
+  HREF="node90.html">Conforms-relation</A>
+<UL>
+<LI><A NAME="tex2html1480"
+  HREF="node91.html">Conforms-relation between Complete Type and Provided Type</A>
+<LI><A NAME="tex2html1481"
+  HREF="node92.html">Impl-conforms-relation between Implementation Type and Complete Type</A>
+</UL>
+</UL>
+<LI><A NAME="tex2html1482"
+  HREF="node93.html">Characterization of Component Types</A>
+<UL>
+<LI><A NAME="tex2html1483"
+  HREF="node94.html">Provided Type</A>
+<LI><A NAME="tex2html1484"
+  HREF="node95.html">Complete Type</A>
+<LI><A NAME="tex2html1485"
+  HREF="node96.html">Implementation Type</A>
+</UL>
+<LI><A NAME="tex2html1486"
+  HREF="node97.html">Quantities of Sub-Type-Relations</A>
+<UL>
+<LI><A NAME="tex2html1487"
+  HREF="node98.html">1:n</A>
+<LI><A NAME="tex2html1488"
+  HREF="node99.html">m:1</A>
+<LI><A NAME="tex2html1489"
+  HREF="node100.html">m:n</A>
+</UL>
+<LI><A NAME="tex2html1490"
+  HREF="node101.html">Implementation Type Occurrence</A>
+<UL>
+<LI><A NAME="tex2html1491"
+  HREF="node102.html">Basic Components</A>
+<LI><A NAME="tex2html1492"
+  HREF="node103.html">Composite Components</A>
+<LI><A NAME="tex2html1493"
+  HREF="node104.html">Connectors</A>
+<LI><A NAME="tex2html1494"
+  HREF="node105.html">Assembly Connectors</A>
+<LI><A NAME="tex2html1495"
+  HREF="node106.html">Visualisation</A>
+<LI><A NAME="tex2html1496"
+  HREF="node107.html">Delegation Connector</A>
+<LI><A NAME="tex2html1497"
+  HREF="node108.html">Formal description of composite components</A>
+</UL>
+<LI><A NAME="tex2html1498"
+  HREF="node109.html">Differentiation of Provided Interfaces</A>
+</UL>
+<BR>
+<LI><A NAME="tex2html1499"
+  HREF="node110.html">Interoperability</A>
+<UL>
+<LI><A NAME="tex2html1500"
+  HREF="node111.html">Co- and Contra-Variance</A>
+<LI><A NAME="tex2html1501"
+  HREF="node112.html">Conforms-Relation</A>
+<LI><A NAME="tex2html1502"
+  HREF="node113.html">Protocols</A>
+<LI><A NAME="tex2html1503"
+  HREF="node114.html">Delegation Connector</A>
+<LI><A NAME="tex2html1504"
+  HREF="node115.html">Limitations</A>
+</UL>
+<BR>
+<LI><A NAME="tex2html1505"
+  HREF="node116.html">Substitution of Components</A>
+<LI><A NAME="tex2html1506"
+  HREF="node117.html">First Class Entities</A>
+<LI><A NAME="tex2html1507"
+  HREF="node118.html">Service Effect Specification</A>
+<UL>
+<LI><A NAME="tex2html1508"
+  HREF="node119.html">Motivation</A>
+<LI><A NAME="tex2html1509"
+  HREF="node120.html">Description</A>
+<LI><A NAME="tex2html1510"
+  HREF="node121.html">Types of Service Effect Specifications</A>
+<LI><A NAME="tex2html1511"
+  HREF="node122.html">Resource Demanding Service Effect Specification</A>
+<UL>
+<LI><A NAME="tex2html1512"
+  HREF="node123.html">Overview</A>
+<LI><A NAME="tex2html1513"
+  HREF="node124.html">Resource Demand</A>
+<LI><A NAME="tex2html1514"
+  HREF="node125.html">External Calls and Parameter Usage</A>
+<LI><A NAME="tex2html1515"
+  HREF="node126.html">Control Flow</A>
+<LI><A NAME="tex2html1516"
+  HREF="node127.html">Parametric Dependencies</A>
+</UL></UL></UL>
+<!--End of Table of Child-Links-->
+<BR><HR>
+<ADDRESS>
+Snowball
+2007-03-16
+</ADDRESS>
+</BODY>
+</HTML>
