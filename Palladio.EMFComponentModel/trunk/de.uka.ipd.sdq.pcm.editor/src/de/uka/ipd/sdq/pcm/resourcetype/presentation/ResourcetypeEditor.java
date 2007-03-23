@@ -166,6 +166,7 @@ import de.uka.ipd.sdq.pcm.core.composition.provider.CompositionItemProviderAdapt
 
 import de.uka.ipd.sdq.pcm.core.connectors.provider.ConnectorsItemProviderAdapterFactory;
 
+import de.uka.ipd.sdq.pcm.core.entity.presentation.PalladioComponentModelEditorPlugin;
 import de.uka.ipd.sdq.pcm.core.entity.presentation.PcmEditorPlugin;
 
 import de.uka.ipd.sdq.pcm.core.entity.provider.EntityItemProviderAdapterFactory;
@@ -202,6 +203,13 @@ import org.eclipse.ui.actions.WorkspaceModifyOperation;
 public class ResourcetypeEditor
 	extends MultiPageEditorPart
 	implements IEditingDomainProvider, ISelectionProvider, IMenuListener, IViewerProvider, IGotoMarker {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany";
+
 	/**
 	 * This keeps track of the editing domain that is used to track all changes to the model.
 	 * <!-- begin-user-doc -->
@@ -331,7 +339,7 @@ public class ResourcetypeEditor
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected Collection selectionChangedListeners = new ArrayList();
+	protected Collection<ISelectionChangedListener> selectionChangedListeners = new ArrayList<ISelectionChangedListener>();
 
 	/**
 	 * This keeps track of the selection of the editor as a whole.
@@ -377,12 +385,16 @@ public class ResourcetypeEditor
 				}
 			}
 			public void partBroughtToTop(IWorkbenchPart p) {
+				// Ignore.
 			}
 			public void partClosed(IWorkbenchPart p) {
+				// Ignore.
 			}
 			public void partDeactivated(IWorkbenchPart p) {
+				// Ignore.
 			}
 			public void partOpened(IWorkbenchPart p) {
+				// Ignore.
 			}
 		};
 
@@ -392,7 +404,7 @@ public class ResourcetypeEditor
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected Collection removedResources = new ArrayList();
+	protected Collection<Resource> removedResources = new ArrayList<Resource>();
 
 	/**
 	 * Resources that have been changed since last activation.
@@ -400,7 +412,7 @@ public class ResourcetypeEditor
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected Collection changedResources = new ArrayList();
+	protected Collection<Resource> changedResources = new ArrayList<Resource>();
 
 	/**
 	 * Resources that have been saved.
@@ -408,7 +420,7 @@ public class ResourcetypeEditor
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected Collection savedResources = new ArrayList();
+	protected Collection<Resource> savedResources = new ArrayList<Resource>();
 
 	/**
 	 * Map to store the diagnostic associated with a resource.
@@ -416,7 +428,7 @@ public class ResourcetypeEditor
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected Map resourceToDiagnosticMap = new LinkedHashMap();
+	protected Map<Resource, Diagnostic> resourceToDiagnosticMap = new LinkedHashMap<Resource, Diagnostic>();
 
 	/**
 	 * Controls whether the problem indication should be updated.
@@ -434,6 +446,7 @@ public class ResourcetypeEditor
 	 */
 	protected EContentAdapter problemIndicationAdapter = 
 		new EContentAdapter() {
+			@Override
 			public void notifyChanged(Notification notification) {
 				if (notification.getNotifier() instanceof Resource) {
 					switch (notification.getFeatureID(Resource.class)) {
@@ -457,6 +470,7 @@ public class ResourcetypeEditor
 										 }
 									 });
 							}
+							break;
 						}
 					}
 				}
@@ -465,10 +479,12 @@ public class ResourcetypeEditor
 				}
 			}
 
+			@Override
 			protected void setTarget(Resource target) {
 				basicSetTarget(target);
 			}
 
+			@Override
 			protected void unsetTarget(Resource target) {
 				basicUnsetTarget(target);
 			}
@@ -490,8 +506,8 @@ public class ResourcetypeEditor
 					try {
 						class ResourceDeltaVisitor implements IResourceDeltaVisitor {
 							protected ResourceSet resourceSet = editingDomain.getResourceSet();
-							protected Collection changedResources = new ArrayList();
-							protected Collection removedResources = new ArrayList();
+							protected Collection<Resource> changedResources = new ArrayList<Resource>();
+							protected Collection<Resource> removedResources = new ArrayList<Resource>();
 
 							public boolean visit(IResourceDelta delta) {
 								if (delta.getFlags() != IResourceDelta.MARKERS &&
@@ -512,11 +528,11 @@ public class ResourcetypeEditor
 								return true;
 							}
 
-							public Collection getChangedResources() {
+							public Collection<Resource> getChangedResources() {
 								return changedResources;
 							}
 
-							public Collection getRemovedResources() {
+							public Collection<Resource> getRemovedResources() {
 								return removedResources;
 							}
 						}
@@ -550,7 +566,7 @@ public class ResourcetypeEditor
 						}
 					}
 					catch (CoreException exception) {
-						PcmEditorPlugin.INSTANCE.log(exception);
+						PalladioComponentModelEditorPlugin.INSTANCE.log(exception);
 					}
 				}
 			}
@@ -603,8 +619,7 @@ public class ResourcetypeEditor
 			editingDomain.getCommandStack().flush();
 
 			updateProblemIndication = false;
-			for (Iterator i = changedResources.iterator(); i.hasNext(); ) {
-				Resource resource = (Resource)i.next();
+			for (Resource resource : changedResources) {
 				if (resource.isLoaded()) {
 					resource.unload();
 					try {
@@ -637,8 +652,7 @@ public class ResourcetypeEditor
 					 0,
 					 null,
 					 new Object [] { editingDomain.getResourceSet() });
-			for (Iterator i = resourceToDiagnosticMap.values().iterator(); i.hasNext(); ) {
-				Diagnostic childDiagnostic = (Diagnostic)i.next();
+			for (Diagnostic childDiagnostic : resourceToDiagnosticMap.values()) {
 				if (childDiagnostic.getSeverity() != Diagnostic.OK) {
 					diagnostic.add(childDiagnostic);
 				}
@@ -662,7 +676,7 @@ public class ResourcetypeEditor
 					showTabs();
 				}
 				catch (PartInitException exception) {
-					PcmEditorPlugin.INSTANCE.log(exception);
+					PalladioComponentModelEditorPlugin.INSTANCE.log(exception);
 				}
 			}
 
@@ -673,7 +687,7 @@ public class ResourcetypeEditor
 						markerHelper.createMarkers(diagnostic);
 					}
 					catch (CoreException exception) {
-						PcmEditorPlugin.INSTANCE.log(exception);
+						PalladioComponentModelEditorPlugin.INSTANCE.log(exception);
 					}
 				}
 			}
@@ -705,16 +719,16 @@ public class ResourcetypeEditor
 
 		// Create an adapter factory that yields item providers.
 		//
-		List factories = new ArrayList();
+		List<AdapterFactory> factories = new ArrayList<AdapterFactory>();
 		factories.add(new ResourceItemProviderAdapterFactory());
 		factories.add(new EntityItemProviderAdapterFactory());
 		factories.add(new ConnectorsItemProviderAdapterFactory());
 		factories.add(new CompositionItemProviderAdapterFactory());
 		factories.add(new RepositoryItemProviderAdapterFactory());
 		factories.add(new ProtocolItemProviderAdapterFactory());
+		factories.add(new ParameterItemProviderAdapterFactory());
 		factories.add(new SeffItemProviderAdapterFactory());
 		factories.add(new ResourcetypeItemProviderAdapterFactory());
-		factories.add(new ParameterItemProviderAdapterFactory());
 		factories.add(new AllocationItemProviderAdapterFactory());
 		factories.add(new ResourceenvironmentItemProviderAdapterFactory());
 		factories.add(new SystemItemProviderAdapterFactory());
@@ -757,7 +771,7 @@ public class ResourcetypeEditor
 
 		// Create the editing domain with a special command stack.
 		//
-		editingDomain = new AdapterFactoryEditingDomain(adapterFactory, commandStack, new HashMap());
+		editingDomain = new AdapterFactoryEditingDomain(adapterFactory, commandStack, new HashMap<Resource, Boolean>());
 	}
 
 	/**
@@ -766,6 +780,7 @@ public class ResourcetypeEditor
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	protected void firePropertyChange(int action) {
 		super.firePropertyChange(action);
 	}
@@ -776,8 +791,8 @@ public class ResourcetypeEditor
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setSelectionToViewer(Collection collection) {
-		final Collection theSelection = collection;
+	public void setSelectionToViewer(Collection<?> collection) {
+		final Collection<?> theSelection = collection;
 		// Make sure it's okay.
 		//
 		if (theSelection != null && !theSelection.isEmpty()) {
@@ -944,7 +959,7 @@ public class ResourcetypeEditor
 		// Assumes that the input is a file object.
 		//
 		IFileEditorInput modelFile = (IFileEditorInput)getEditorInput();
-		URI resourceURI = URI.createPlatformResourceURI(modelFile.getFile().getFullPath().toString(), true);;
+		URI resourceURI = URI.createPlatformResourceURI(modelFile.getFile().getFullPath().toString(), true);
 		Exception exception = null;
 		Resource resource = null;
 		try {
@@ -1003,6 +1018,7 @@ public class ResourcetypeEditor
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void createPages() {
 		// Creates the model from the editor input
 		//
@@ -1011,17 +1027,19 @@ public class ResourcetypeEditor
 		// Only creates the other pages if there is something that can be edited
 		//
 		if (!getEditingDomain().getResourceSet().getResources().isEmpty() &&
-		    !((Resource)getEditingDomain().getResourceSet().getResources().get(0)).getContents().isEmpty()) {
+		    !(getEditingDomain().getResourceSet().getResources().get(0)).getContents().isEmpty()) {
 			// Create a page for the selection tree view.
 			//
 			{
 				ViewerPane viewerPane =
 					new ViewerPane(getSite().getPage(), ResourcetypeEditor.this) {
+						@Override
 						public Viewer createViewer(Composite composite) {
 							Tree tree = new Tree(composite, SWT.MULTI);
 							TreeViewer newTreeViewer = new TreeViewer(tree);
 							return newTreeViewer;
 						}
+						@Override
 						public void requestActivation() {
 							super.requestActivation();
 							setCurrentViewerPane(this);
@@ -1049,11 +1067,13 @@ public class ResourcetypeEditor
 			{
 				ViewerPane viewerPane =
 					new ViewerPane(getSite().getPage(), ResourcetypeEditor.this) {
+						@Override
 						public Viewer createViewer(Composite composite) {
 							Tree tree = new Tree(composite, SWT.MULTI);
 							TreeViewer newTreeViewer = new TreeViewer(tree);
 							return newTreeViewer;
 						}
+						@Override
 						public void requestActivation() {
 							super.requestActivation();
 							setCurrentViewerPane(this);
@@ -1076,9 +1096,11 @@ public class ResourcetypeEditor
 			{
 				ViewerPane viewerPane =
 					new ViewerPane(getSite().getPage(), ResourcetypeEditor.this) {
+						@Override
 						public Viewer createViewer(Composite composite) {
 							return new ListViewer(composite);
 						}
+						@Override
 						public void requestActivation() {
 							super.requestActivation();
 							setCurrentViewerPane(this);
@@ -1099,9 +1121,11 @@ public class ResourcetypeEditor
 			{
 				ViewerPane viewerPane =
 					new ViewerPane(getSite().getPage(), ResourcetypeEditor.this) {
+						@Override
 						public Viewer createViewer(Composite composite) {
 							return new TreeViewer(composite);
 						}
+						@Override
 						public void requestActivation() {
 							super.requestActivation();
 							setCurrentViewerPane(this);
@@ -1124,9 +1148,11 @@ public class ResourcetypeEditor
 			{
 				ViewerPane viewerPane =
 					new ViewerPane(getSite().getPage(), ResourcetypeEditor.this) {
+						@Override
 						public Viewer createViewer(Composite composite) {
 							return new TableViewer(composite);
 						}
+						@Override
 						public void requestActivation() {
 							super.requestActivation();
 							setCurrentViewerPane(this);
@@ -1165,9 +1191,11 @@ public class ResourcetypeEditor
 			{
 				ViewerPane viewerPane =
 					new ViewerPane(getSite().getPage(), ResourcetypeEditor.this) {
+						@Override
 						public Viewer createViewer(Composite composite) {
 							return new TreeViewer(composite);
 						}
+						@Override
 						public void requestActivation() {
 							super.requestActivation();
 							setCurrentViewerPane(this);
@@ -1210,6 +1238,7 @@ public class ResourcetypeEditor
 		getContainer().addControlListener
 			(new ControlAdapter() {
 				boolean guard = false;
+				@Override
 				public void controlResized(ControlEvent event) {
 					if (!guard) {
 						guard = true;
@@ -1264,6 +1293,7 @@ public class ResourcetypeEditor
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	protected void pageChange(int pageIndex) {
 		super.pageChange(pageIndex);
 
@@ -1278,6 +1308,8 @@ public class ResourcetypeEditor
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
+		@Override
 	public Object getAdapter(Class key) {
 		if (key.equals(IContentOutlinePage.class)) {
 			return showOutlineView() ? getContentOutlinePage() : null;
@@ -1304,6 +1336,7 @@ public class ResourcetypeEditor
 			// The content outline is just a tree.
 			//
 			class MyContentOutlinePage extends ContentOutlinePage {
+				@Override
 				public void createControl(Composite parent) {
 					super.createControl(parent);
 					contentOutlineViewer = getTreeViewer();
@@ -1326,11 +1359,13 @@ public class ResourcetypeEditor
 					}
 				}
 
+				@Override
 				public void makeContributions(IMenuManager menuManager, IToolBarManager toolBarManager, IStatusLineManager statusLineManager) {
 					super.makeContributions(menuManager, toolBarManager, statusLineManager);
 					contentOutlineStatusLineManager = statusLineManager;
 				}
 
+				@Override
 				public void setActionBars(IActionBars actionBars) {
 					super.setActionBars(actionBars);
 					getActionBarContributor().shareGlobalActions(this, actionBars);
@@ -1364,11 +1399,13 @@ public class ResourcetypeEditor
 		if (propertySheetPage == null) {
 			propertySheetPage =
 				new ExtendedPropertySheetPage(editingDomain) {
-					public void setSelectionToViewer(List selection) {
+					@Override
+					public void setSelectionToViewer(List<?> selection) {
 						ResourcetypeEditor.this.setSelectionToViewer(selection);
 						ResourcetypeEditor.this.setFocus();
 					}
 
+					@Override
 					public void setActionBars(IActionBars actionBars) {
 						super.setActionBars(actionBars);
 						getActionBarContributor().shareGlobalActions(this, actionBars);
@@ -1388,7 +1425,7 @@ public class ResourcetypeEditor
 	 */
 	public void handleContentOutlineSelection(ISelection selection) {
 		if (currentViewerPane != null && !selection.isEmpty() && selection instanceof IStructuredSelection) {
-			Iterator selectedElements = ((IStructuredSelection)selection).iterator();
+			Iterator<?> selectedElements = ((IStructuredSelection)selection).iterator();
 			if (selectedElements.hasNext()) {
 				// Get the first selected element.
 				//
@@ -1397,7 +1434,7 @@ public class ResourcetypeEditor
 				// If it's the selection viewer, then we want it to select the same selection as this selection.
 				//
 				if (currentViewerPane.getViewer() == selectionViewer) {
-					ArrayList selectionList = new ArrayList();
+					ArrayList<Object> selectionList = new ArrayList<Object>();
 					selectionList.add(selectedElement);
 					while (selectedElements.hasNext()) {
 						selectionList.add(selectedElements.next());
@@ -1425,6 +1462,7 @@ public class ResourcetypeEditor
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean isDirty() {
 		return ((BasicCommandStack)editingDomain.getCommandStack()).isSaveNeeded();
 	}
@@ -1435,6 +1473,7 @@ public class ResourcetypeEditor
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void doSave(IProgressMonitor progressMonitor) {
 		// Do the work within an operation because this is a long running activity that modifies the workbench.
 		//
@@ -1442,12 +1481,12 @@ public class ResourcetypeEditor
 			new WorkspaceModifyOperation() {
 				// This is the method that gets invoked when the operation runs.
 				//
+				@Override
 				public void execute(IProgressMonitor monitor) {
 					// Save the resources to the file system.
 					//
 					boolean first = true;
-					for (Iterator i = editingDomain.getResourceSet().getResources().iterator(); i.hasNext(); ) {
-						Resource resource = (Resource)i.next();
+					for (Resource resource : editingDomain.getResourceSet().getResources()) {
 						if ((first || !resource.getContents().isEmpty() || isPersisted(resource)) && !editingDomain.isReadOnly(resource)) {
 							try {
 								savedResources.add(resource);
@@ -1476,7 +1515,7 @@ public class ResourcetypeEditor
 		catch (Exception exception) {
 			// Something went wrong that shouldn't.
 			//
-			PcmEditorPlugin.INSTANCE.log(exception);
+			PalladioComponentModelEditorPlugin.INSTANCE.log(exception);
 		}
 		updateProblemIndication = true;
 		updateProblemIndication();
@@ -1499,6 +1538,7 @@ public class ResourcetypeEditor
 			}
 		}
 		catch (IOException e) {
+			// Ignore
 		}
 		return result;
 	}
@@ -1509,6 +1549,7 @@ public class ResourcetypeEditor
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean isSaveAsAllowed() {
 		return true;
 	}
@@ -1519,6 +1560,7 @@ public class ResourcetypeEditor
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void doSaveAs() {
 		SaveAsDialog saveAsDialog = new SaveAsDialog(getSite().getShell());
 		saveAsDialog.open();
@@ -1537,7 +1579,7 @@ public class ResourcetypeEditor
 	 * @generated
 	 */
 	protected void doSaveAs(URI uri, IEditorInput editorInput) {
-		((Resource)editingDomain.getResourceSet().getResources().get(0)).setURI(uri);
+		(editingDomain.getResourceSet().getResources().get(0)).setURI(uri);
 		setInputWithNotify(editorInput);
 		setPartName(editorInput.getName());
 		IProgressMonitor progressMonitor =
@@ -1566,7 +1608,7 @@ public class ResourcetypeEditor
 			}
 		}
 		catch (CoreException exception) {
-			PcmEditorPlugin.INSTANCE.log(exception);
+			PalladioComponentModelEditorPlugin.INSTANCE.log(exception);
 		}
 	}
 
@@ -1576,6 +1618,7 @@ public class ResourcetypeEditor
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void init(IEditorSite site, IEditorInput editorInput) {
 		setSite(site);
 		setInputWithNotify(editorInput);
@@ -1590,6 +1633,7 @@ public class ResourcetypeEditor
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setFocus() {
 		if (currentViewerPane != null) {
 			currentViewerPane.setFocus();
@@ -1639,8 +1683,7 @@ public class ResourcetypeEditor
 	public void setSelection(ISelection selection) {
 		editorSelection = selection;
 
-		for (Iterator listeners = selectionChangedListeners.iterator(); listeners.hasNext(); ) {
-			ISelectionChangedListener listener = (ISelectionChangedListener)listeners.next();
+		for (ISelectionChangedListener listener : selectionChangedListeners) {
 			listener.selectionChanged(new SelectionChangedEvent(this, selection));
 		}
 		setStatusLineManager(selection);
@@ -1657,7 +1700,7 @@ public class ResourcetypeEditor
 
 		if (statusLineManager != null) {
 			if (selection instanceof IStructuredSelection) {
-				Collection collection = ((IStructuredSelection)selection).toList();
+				Collection<?> collection = ((IStructuredSelection)selection).toList();
 				switch (collection.size()) {
 					case 0: {
 						statusLineManager.setMessage(getString("_UI_NoObjectSelected"));
@@ -1687,7 +1730,7 @@ public class ResourcetypeEditor
 	 * @generated
 	 */
 	private static String getString(String key) {
-		return PcmEditorPlugin.INSTANCE.getString(key);
+		return PalladioComponentModelEditorPlugin.INSTANCE.getString(key);
 	}
 
 	/**
@@ -1697,7 +1740,7 @@ public class ResourcetypeEditor
 	 * @generated
 	 */
 	private static String getString(String key, Object s1) {
-		return PcmEditorPlugin.INSTANCE.getString(key, new Object [] { s1 });
+		return PalladioComponentModelEditorPlugin.INSTANCE.getString(key, new Object [] { s1 });
 	}
 
 	/**
@@ -1742,6 +1785,7 @@ public class ResourcetypeEditor
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void dispose() {
 		updateProblemIndication = false;
 

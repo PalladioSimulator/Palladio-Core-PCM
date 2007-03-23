@@ -141,9 +141,9 @@ public class UsagePackageImpl extends EPackageImpl implements UsagePackage {
 		CompositionPackage.eINSTANCE.eClass();
 		RepositoryPackage.eINSTANCE.eClass();
 		ProtocolPackage.eINSTANCE.eClass();
+		ParameterPackage.eINSTANCE.eClass();
 		SeffPackage.eINSTANCE.eClass();
 		ResourcetypePackage.eINSTANCE.eClass();
-		ParameterPackage.eINSTANCE.eClass();
 		AllocationPackage.eINSTANCE.eClass();
 		ResourceenvironmentPackage.eINSTANCE.eClass();
 		SystemPackage.eINSTANCE.eClass();

@@ -78,7 +78,7 @@ public class AllocationItemProviderAdapterFactory extends AllocationAdapterFacto
 		supportedTypes.add(IStructuredItemContentProvider.class);
 		supportedTypes.add(ITreeItemContentProvider.class);
 		supportedTypes.add(IItemLabelProvider.class);
-		supportedTypes.add(IItemPropertySource.class);		
+		supportedTypes.add(IItemPropertySource.class);
 	}
 
 	/**

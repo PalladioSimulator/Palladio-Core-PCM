@@ -6,6 +6,7 @@
  */
 package de.uka.ipd.sdq.pcm.seff.presentation;
 
+import de.uka.ipd.sdq.pcm.core.entity.presentation.PalladioComponentModelEditorPlugin;
 import de.uka.ipd.sdq.pcm.core.entity.presentation.PcmEditorPlugin;
 
 import java.util.ArrayList;
@@ -14,6 +15,7 @@ import java.util.Iterator;
 
 import org.eclipse.emf.common.ui.viewer.IViewerProvider;
 
+import org.eclipse.emf.edit.command.CommandParameter;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.domain.IEditingDomainProvider;
 
@@ -56,6 +58,13 @@ public class SeffActionBarContributor
 	extends EditingDomainActionBarContributor
 	implements ISelectionChangedListener {
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany";
+
+	/**
 	 * This keeps track of the active editor.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -78,13 +87,14 @@ public class SeffActionBarContributor
 	 * @generated
 	 */
 	protected IAction showPropertiesViewAction =
-		new Action(PcmEditorPlugin.INSTANCE.getString("_UI_ShowPropertiesView_menu_item")) {
+		new Action(PalladioComponentModelEditorPlugin.INSTANCE.getString("_UI_ShowPropertiesView_menu_item")) {
+			@Override
 			public void run() {
 				try {
 					getPage().showView("org.eclipse.ui.views.PropertySheet");
 				}
 				catch (PartInitException exception) {
-					PcmEditorPlugin.INSTANCE.log(exception);
+					PalladioComponentModelEditorPlugin.INSTANCE.log(exception);
 				}
 			}
 		};
@@ -97,11 +107,13 @@ public class SeffActionBarContributor
 	 * @generated
 	 */
 	protected IAction refreshViewerAction =
-		new Action(PcmEditorPlugin.INSTANCE.getString("_UI_RefreshViewer_menu_item")) {
+		new Action(PalladioComponentModelEditorPlugin.INSTANCE.getString("_UI_RefreshViewer_menu_item")) {
+			@Override
 			public boolean isEnabled() {
 				return activeEditorPart instanceof IViewerProvider;
 			}
 
+			@Override
 			public void run() {
 				if (activeEditorPart instanceof IViewerProvider) {
 					Viewer viewer = ((IViewerProvider)activeEditorPart).getViewer();
@@ -119,7 +131,7 @@ public class SeffActionBarContributor
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected Collection createChildActions;
+	protected Collection<IAction> createChildActions;
 
 	/**
 	 * This is the menu manager into which menu contribution items should be added for CreateChild actions.
@@ -136,7 +148,7 @@ public class SeffActionBarContributor
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected Collection createSiblingActions;
+	protected Collection<IAction> createSiblingActions;
 
 	/**
 	 * This is the menu manager into which menu contribution items should be added for CreateSibling actions.
@@ -165,6 +177,7 @@ public class SeffActionBarContributor
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void contributeToToolBar(IToolBarManager toolBarManager) {
 		toolBarManager.add(new Separator("seff-settings"));
 		toolBarManager.add(new Separator("seff-additions"));
@@ -177,10 +190,11 @@ public class SeffActionBarContributor
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void contributeToMenu(IMenuManager menuManager) {
 		super.contributeToMenu(menuManager);
 
-		IMenuManager submenuManager = new MenuManager(PcmEditorPlugin.INSTANCE.getString("_UI_SeffEditor_menu"), "de.uka.ipd.sdq.pcm.seffMenuID");
+		IMenuManager submenuManager = new MenuManager(PalladioComponentModelEditorPlugin.INSTANCE.getString("_UI_SeffEditor_menu"), "de.uka.ipd.sdq.pcm.seffMenuID");
 		menuManager.insertAfter("additions", submenuManager);
 		submenuManager.add(new Separator("settings"));
 		submenuManager.add(new Separator("actions"));
@@ -189,12 +203,12 @@ public class SeffActionBarContributor
 
 		// Prepare for CreateChild item addition or removal.
 		//
-		createChildMenuManager = new MenuManager(PcmEditorPlugin.INSTANCE.getString("_UI_CreateChild_menu_item"));
+		createChildMenuManager = new MenuManager(PalladioComponentModelEditorPlugin.INSTANCE.getString("_UI_CreateChild_menu_item"));
 		submenuManager.insertBefore("additions", createChildMenuManager);
 
 		// Prepare for CreateSibling item addition or removal.
 		//
-		createSiblingMenuManager = new MenuManager(PcmEditorPlugin.INSTANCE.getString("_UI_CreateSibling_menu_item"));
+		createSiblingMenuManager = new MenuManager(PalladioComponentModelEditorPlugin.INSTANCE.getString("_UI_CreateSibling_menu_item"));
 		submenuManager.insertBefore("additions", createSiblingMenuManager);
 
 		// Force an update because Eclipse hides empty menus now.
@@ -215,6 +229,7 @@ public class SeffActionBarContributor
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void setActiveEditor(IEditorPart part) {
 		super.setActiveEditor(part);
 		activeEditorPart = part;
@@ -259,8 +274,8 @@ public class SeffActionBarContributor
 
 		// Query the new selection for appropriate new child/sibling descriptors
 		//
-		Collection newChildDescriptors = null;
-		Collection newSiblingDescriptors = null;
+		Collection<CommandParameter> newChildDescriptors = null;
+		Collection<CommandParameter> newSiblingDescriptors = null;
 
 		ISelection selection = event.getSelection();
 		if (selection instanceof IStructuredSelection && ((IStructuredSelection)selection).size() == 1) {
@@ -294,11 +309,11 @@ public class SeffActionBarContributor
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected Collection generateCreateChildActions(Collection descriptors, ISelection selection) {
-		Collection actions = new ArrayList();
+	protected Collection<IAction> generateCreateChildActions(Collection<? extends CommandParameter> descriptors, ISelection selection) {
+		Collection<IAction> actions = new ArrayList<IAction>();
 		if (descriptors != null) {
-			for (Iterator i = descriptors.iterator(); i.hasNext(); ) {
-				actions.add(new CreateChildAction(activeEditorPart, selection, i.next()));
+			for (CommandParameter descriptor : descriptors) {
+				actions.add(new CreateChildAction(activeEditorPart, selection, descriptor));
 			}
 		}
 		return actions;
@@ -311,11 +326,11 @@ public class SeffActionBarContributor
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected Collection generateCreateSiblingActions(Collection descriptors, ISelection selection) {
-		Collection actions = new ArrayList();
+	protected Collection<IAction> generateCreateSiblingActions(Collection<? extends CommandParameter> descriptors, ISelection selection) {
+		Collection<IAction> actions = new ArrayList<IAction>();
 		if (descriptors != null) {
-			for (Iterator i = descriptors.iterator(); i.hasNext(); ) {
-				actions.add(new CreateSiblingAction(activeEditorPart, selection, i.next()));
+			for (CommandParameter descriptor : descriptors) {
+				actions.add(new CreateSiblingAction(activeEditorPart, selection, descriptor));
 			}
 		}
 		return actions;
@@ -330,10 +345,9 @@ public class SeffActionBarContributor
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void populateManager(IContributionManager manager, Collection actions, String contributionID) {
+	protected void populateManager(IContributionManager manager, Collection<? extends IAction> actions, String contributionID) {
 		if (actions != null) {
-			for (Iterator i = actions.iterator(); i.hasNext(); ) {
-				IAction action = (IAction)i.next();
+			for (IAction action : actions) {
 				if (contributionID != null) {
 					manager.insertBefore(contributionID, action);
 				}
@@ -351,7 +365,7 @@ public class SeffActionBarContributor
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void depopulateManager(IContributionManager manager, Collection actions) {
+	protected void depopulateManager(IContributionManager manager, Collection<? extends IAction> actions) {
 		if (actions != null) {
 			IContributionItem[] items = manager.getItems();
 			for (int i = 0; i < items.length; i++) {
@@ -380,15 +394,16 @@ public class SeffActionBarContributor
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void menuAboutToShow(IMenuManager menuManager) {
 		super.menuAboutToShow(menuManager);
 		MenuManager submenuManager = null;
 
-		submenuManager = new MenuManager(PcmEditorPlugin.INSTANCE.getString("_UI_CreateChild_menu_item"));
+		submenuManager = new MenuManager(PalladioComponentModelEditorPlugin.INSTANCE.getString("_UI_CreateChild_menu_item"));
 		populateManager(submenuManager, createChildActions, null);
 		menuManager.insertBefore("edit", submenuManager);
 
-		submenuManager = new MenuManager(PcmEditorPlugin.INSTANCE.getString("_UI_CreateSibling_menu_item"));
+		submenuManager = new MenuManager(PalladioComponentModelEditorPlugin.INSTANCE.getString("_UI_CreateSibling_menu_item"));
 		populateManager(submenuManager, createSiblingActions, null);
 		menuManager.insertBefore("edit", submenuManager);
 	}
@@ -399,6 +414,7 @@ public class SeffActionBarContributor
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	protected void addGlobalActions(IMenuManager menuManager) {
 		menuManager.insertAfter("additions-end", new Separator("ui-actions"));
 		menuManager.insertAfter("ui-actions", showPropertiesViewAction);
@@ -415,6 +431,7 @@ public class SeffActionBarContributor
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	protected boolean removeAllReferencesOnDelete() {
 		return true;
 	}

@@ -51,7 +51,7 @@ public class LoopIterationImpl extends RandomVariableImpl implements LoopIterati
 	 * @generated
 	 * @ordered
 	 */
-	protected AbstractLoopAction loopaction_LoopIteration = null;
+	protected AbstractLoopAction loopaction_LoopIteration;
 
 	/**
 	 * <!-- begin-user-doc -->

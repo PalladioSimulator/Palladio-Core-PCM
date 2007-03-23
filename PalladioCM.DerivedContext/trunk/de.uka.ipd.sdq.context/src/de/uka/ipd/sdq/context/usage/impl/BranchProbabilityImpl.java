@@ -69,7 +69,7 @@ public class BranchProbabilityImpl extends EObjectImpl implements BranchProbabil
 	 * @generated
 	 * @ordered
 	 */
-	protected AbstractBranchTransition branchtransition_BranchProbability = null;
+	protected AbstractBranchTransition branchtransition_BranchProbability;
 
 	/**
 	 * <!-- begin-user-doc -->

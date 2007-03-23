@@ -331,12 +331,16 @@ public class UsageEditor
 				}
 			}
 			public void partBroughtToTop(IWorkbenchPart p) {
+				// Ignore.
 			}
 			public void partClosed(IWorkbenchPart p) {
+				// Ignore.
 			}
 			public void partDeactivated(IWorkbenchPart p) {
+				// Ignore.
 			}
 			public void partOpened(IWorkbenchPart p) {
+				// Ignore.
 			}
 		};
 
@@ -411,6 +415,7 @@ public class UsageEditor
 										 }
 									 });
 							}
+							break;
 						}
 					}
 				}
@@ -669,9 +674,9 @@ public class UsageEditor
 		factories.add(new CompositionItemProviderAdapterFactory());
 		factories.add(new RepositoryItemProviderAdapterFactory());
 		factories.add(new ProtocolItemProviderAdapterFactory());
+		factories.add(new ParameterItemProviderAdapterFactory());
 		factories.add(new SeffItemProviderAdapterFactory());
 		factories.add(new ResourcetypeItemProviderAdapterFactory());
-		factories.add(new ParameterItemProviderAdapterFactory());
 		factories.add(new de.uka.ipd.sdq.pcm.allocation.provider.AllocationItemProviderAdapterFactory());
 		factories.add(new ResourceenvironmentItemProviderAdapterFactory());
 		factories.add(new SystemItemProviderAdapterFactory());
@@ -900,7 +905,7 @@ public class UsageEditor
 		// Assumes that the input is a file object.
 		//
 		IFileEditorInput modelFile = (IFileEditorInput)getEditorInput();
-		URI resourceURI = URI.createPlatformResourceURI(modelFile.getFile().getFullPath().toString());;
+		URI resourceURI = URI.createPlatformResourceURI(modelFile.getFile().getFullPath().toString(), true);
 		Exception exception = null;
 		Resource resource = null;
 		try {
@@ -990,6 +995,7 @@ public class UsageEditor
 
 				selectionViewer.setLabelProvider(new AdapterFactoryLabelProvider(adapterFactory));
 				selectionViewer.setInput(editingDomain.getResourceSet());
+				selectionViewer.setSelection(new StructuredSelection(editingDomain.getResourceSet().getResources().get(0)), true);
 				viewerPane.setTitle(editingDomain.getResourceSet());
 
 				new AdapterFactoryTreeEditor(selectionViewer.getTree(), adapterFactory);
@@ -1277,9 +1283,7 @@ public class UsageEditor
 					if (!editingDomain.getResourceSet().getResources().isEmpty()) {
 					  // Select the root object in the view.
 					  //
-					  ArrayList selection = new ArrayList();
-					  selection.add(editingDomain.getResourceSet().getResources().get(0));
-					  contentOutlineViewer.setSelection(new StructuredSelection(selection), true);
+					  contentOutlineViewer.setSelection(new StructuredSelection(editingDomain.getResourceSet().getResources().get(0)), true);
 					}
 				}
 
@@ -1456,6 +1460,7 @@ public class UsageEditor
 			}
 		}
 		catch (IOException e) {
+			// Ignore
 		}
 		return result;
 	}
@@ -1477,13 +1482,13 @@ public class UsageEditor
 	 * @generated
 	 */
 	public void doSaveAs() {
-		SaveAsDialog saveAsDialog= new SaveAsDialog(getSite().getShell());
+		SaveAsDialog saveAsDialog = new SaveAsDialog(getSite().getShell());
 		saveAsDialog.open();
-		IPath path= saveAsDialog.getResult();
+		IPath path = saveAsDialog.getResult();
 		if (path != null) {
 			IFile file = ResourcesPlugin.getWorkspace().getRoot().getFile(path);
 			if (file != null) {
-				doSaveAs(URI.createPlatformResourceURI(file.getFullPath().toString()), new FileEditorInput(file));
+				doSaveAs(URI.createPlatformResourceURI(file.getFullPath().toString(), true), new FileEditorInput(file));
 			}
 		}
 	}

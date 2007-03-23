@@ -53,7 +53,7 @@ public class ActualAllocationContextImpl extends EObjectImpl implements ActualAl
 	 * @generated
 	 * @ordered
 	 */
-	protected EList actualResourceDemands_ActualAllocationContext = null;
+	protected EList actualResourceDemands_ActualAllocationContext;
 
 	/**
 	 * The cached value of the '{@link #getUsageContext_ActualAllocationContext() <em>Usage Context Actual Allocation Context</em>}' reference.
@@ -63,7 +63,7 @@ public class ActualAllocationContextImpl extends EObjectImpl implements ActualAl
 	 * @generated
 	 * @ordered
 	 */
-	protected UsageContext usageContext_ActualAllocationContext = null;
+	protected UsageContext usageContext_ActualAllocationContext;
 
 	/**
 	 * <!-- begin-user-doc -->

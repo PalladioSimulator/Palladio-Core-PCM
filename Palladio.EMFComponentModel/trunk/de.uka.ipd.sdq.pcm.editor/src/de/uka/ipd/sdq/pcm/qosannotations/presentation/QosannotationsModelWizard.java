@@ -73,6 +73,8 @@ import org.eclipse.ui.part.ISetSelectionTarget;
 
 import de.uka.ipd.sdq.pcm.qosannotations.QosannotationsFactory;
 import de.uka.ipd.sdq.pcm.qosannotations.QosannotationsPackage;
+import de.uka.ipd.sdq.pcm.core.entity.provider.PalladioComponentModelEditPlugin;
+import de.uka.ipd.sdq.pcm.core.entity.presentation.PalladioComponentModelEditorPlugin;
 import de.uka.ipd.sdq.pcm.core.entity.provider.PcmEditPlugin;
 
 
@@ -96,6 +98,13 @@ import org.eclipse.ui.PartInitException;
  * @generated
  */
 public class QosannotationsModelWizard extends Wizard implements INewWizard {
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final String copyright = "Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany";
+
 	/**
 	 * This caches an instance of the model package.
 	 * <!-- begin-user-doc -->
@@ -150,7 +159,7 @@ public class QosannotationsModelWizard extends Wizard implements INewWizard {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected List initialObjectNames;
+	protected List<String> initialObjectNames;
 
 	/**
 	 * This just records the information.
@@ -161,8 +170,8 @@ public class QosannotationsModelWizard extends Wizard implements INewWizard {
 	public void init(IWorkbench workbench, IStructuredSelection selection) {
 		this.workbench = workbench;
 		this.selection = selection;
-		setWindowTitle(PcmEditorPlugin.INSTANCE.getString("_UI_Wizard_label"));
-		setDefaultPageImageDescriptor(ExtendedImageRegistry.INSTANCE.getImageDescriptor(PcmEditorPlugin.INSTANCE.getImage("full/wizban/NewQosannotations")));
+		setWindowTitle(PalladioComponentModelEditorPlugin.INSTANCE.getString("_UI_Wizard_label"));
+		setDefaultPageImageDescriptor(ExtendedImageRegistry.INSTANCE.getImageDescriptor(PalladioComponentModelEditorPlugin.INSTANCE.getImage("full/wizban/NewQosannotations")));
 	}
 
 	/**
@@ -171,11 +180,10 @@ public class QosannotationsModelWizard extends Wizard implements INewWizard {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected Collection getInitialObjectNames() {
+	protected Collection<String> getInitialObjectNames() {
 		if (initialObjectNames == null) {
-			initialObjectNames = new ArrayList();
-			for (Iterator classifiers = qosannotationsPackage.getEClassifiers().iterator(); classifiers.hasNext(); ) {
-				EClassifier eClassifier = (EClassifier)classifiers.next();
+			initialObjectNames = new ArrayList<String>();
+			for (EClassifier eClassifier : qosannotationsPackage.getEClassifiers()) {
 				if (eClassifier instanceof EClass) {
 					EClass eClass = (EClass)eClassifier;
 					if (!eClass.isAbstract()) {
@@ -206,6 +214,7 @@ public class QosannotationsModelWizard extends Wizard implements INewWizard {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean performFinish() {
 		try {
 			// Remember the file.
@@ -216,6 +225,7 @@ public class QosannotationsModelWizard extends Wizard implements INewWizard {
 			//
 			WorkspaceModifyOperation operation =
 				new WorkspaceModifyOperation() {
+					@Override
 					protected void execute(IProgressMonitor progressMonitor) {
 						try {
 							// Create a resource set
@@ -239,12 +249,12 @@ public class QosannotationsModelWizard extends Wizard implements INewWizard {
 
 							// Save the contents of the resource to the file system.
 							//
-							Map options = new HashMap();
+							Map<Object, Object> options = new HashMap<Object, Object>();
 							options.put(XMLResource.OPTION_ENCODING, initialObjectCreationPage.getEncoding());
 							resource.save(options);
 						}
 						catch (Exception exception) {
-							PcmEditorPlugin.INSTANCE.log(exception);
+							PalladioComponentModelEditorPlugin.INSTANCE.log(exception);
 						}
 						finally {
 							progressMonitor.done();
@@ -277,14 +287,14 @@ public class QosannotationsModelWizard extends Wizard implements INewWizard {
 					 workbench.getEditorRegistry().getDefaultEditor(modelFile.getFullPath().toString()).getId());
 			}
 			catch (PartInitException exception) {
-				MessageDialog.openError(workbenchWindow.getShell(), PcmEditorPlugin.INSTANCE.getString("_UI_OpenEditorError_label"), exception.getMessage());
+				MessageDialog.openError(workbenchWindow.getShell(), PalladioComponentModelEditorPlugin.INSTANCE.getString("_UI_OpenEditorError_label"), exception.getMessage());
 				return false;
 			}
 
 			return true;
 		}
 		catch (Exception exception) {
-			PcmEditorPlugin.INSTANCE.log(exception);
+			PalladioComponentModelEditorPlugin.INSTANCE.log(exception);
 			return false;
 		}
 	}
@@ -312,14 +322,15 @@ public class QosannotationsModelWizard extends Wizard implements INewWizard {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
+		@Override
 		protected boolean validatePage() {
 			if (super.validatePage()) {
 				// Make sure the file ends in ".qosannotations".
 				//
-				String requiredExt = PcmEditorPlugin.INSTANCE.getString("_UI_QosannotationsEditorFilenameExtension");
+				String requiredExt = PalladioComponentModelEditorPlugin.INSTANCE.getString("_UI_QosannotationsEditorFilenameExtension");
 				String enteredExt = new Path(getFileName()).getFileExtension();
 				if (enteredExt == null || !enteredExt.equals(requiredExt)) {
-					setErrorMessage(PcmEditorPlugin.INSTANCE.getString("_WARN_FilenameExtension", new Object [] { requiredExt }));
+					setErrorMessage(PalladioComponentModelEditorPlugin.INSTANCE.getString("_WARN_FilenameExtension", new Object [] { requiredExt }));
 					return false;
 				}
 				else {
@@ -360,7 +371,7 @@ public class QosannotationsModelWizard extends Wizard implements INewWizard {
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 */
-		protected List encodings;
+		protected List<String> encodings;
 
 		/**
 		 * <!-- begin-user-doc -->
@@ -385,8 +396,7 @@ public class QosannotationsModelWizard extends Wizard implements INewWizard {
 		 * @generated
 		 */
 		public void createControl(Composite parent) {
-			Composite composite = new Composite(parent, SWT.NONE);
-			{
+			Composite composite = new Composite(parent, SWT.NONE); {
 				GridLayout layout = new GridLayout();
 				layout.numColumns = 1;
 				layout.verticalSpacing = 12;
@@ -401,7 +411,7 @@ public class QosannotationsModelWizard extends Wizard implements INewWizard {
 
 			Label containerLabel = new Label(composite, SWT.LEFT);
 			{
-				containerLabel.setText(PcmEditorPlugin.INSTANCE.getString("_UI_ModelObject"));
+				containerLabel.setText(PalladioComponentModelEditorPlugin.INSTANCE.getString("_UI_ModelObject"));
 
 				GridData data = new GridData();
 				data.horizontalAlignment = GridData.FILL;
@@ -416,8 +426,8 @@ public class QosannotationsModelWizard extends Wizard implements INewWizard {
 				initialObjectField.setLayoutData(data);
 			}
 
-			for (Iterator i = getInitialObjectNames().iterator(); i.hasNext(); ) {
-				initialObjectField.add(getLabel((String)i.next()));
+			for (String objectName : getInitialObjectNames()) {
+				initialObjectField.add(getLabel(objectName));
 			}
 
 			if (initialObjectField.getItemCount() == 1) {
@@ -427,7 +437,7 @@ public class QosannotationsModelWizard extends Wizard implements INewWizard {
 
 			Label encodingLabel = new Label(composite, SWT.LEFT);
 			{
-				encodingLabel.setText(PcmEditorPlugin.INSTANCE.getString("_UI_XMLEncoding"));
+				encodingLabel.setText(PalladioComponentModelEditorPlugin.INSTANCE.getString("_UI_XMLEncoding"));
 
 				GridData data = new GridData();
 				data.horizontalAlignment = GridData.FILL;
@@ -441,8 +451,8 @@ public class QosannotationsModelWizard extends Wizard implements INewWizard {
 				encodingField.setLayoutData(data);
 			}
 
-			for (Iterator i = getEncodings().iterator(); i.hasNext(); ) {
-				encodingField.add((String)i.next());
+			for (String encoding : getEncodings()) {
+				encodingField.add(encoding);
 			}
 
 			encodingField.select(0);
@@ -478,6 +488,7 @@ public class QosannotationsModelWizard extends Wizard implements INewWizard {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
+		@Override
 		public void setVisible(boolean visible) {
 			super.setVisible(visible);
 			if (visible) {
@@ -500,8 +511,7 @@ public class QosannotationsModelWizard extends Wizard implements INewWizard {
 		public String getInitialObjectName() {
 			String label = initialObjectField.getText();
 
-			for (Iterator i = getInitialObjectNames().iterator(); i.hasNext(); ) {
-				String name = (String)i.next();
+			for (String name : getInitialObjectNames()) {
 				if (getLabel(name).equals(label)) {
 					return name;
 				}
@@ -526,10 +536,10 @@ public class QosannotationsModelWizard extends Wizard implements INewWizard {
 		 */
 		protected String getLabel(String typeName) {
 			try {
-				return PcmEditPlugin.INSTANCE.getString("_UI_" + typeName + "_type");
+				return PalladioComponentModelEditPlugin.INSTANCE.getString("_UI_" + typeName + "_type");
 			}
 			catch(MissingResourceException mre) {
-				PcmEditorPlugin.INSTANCE.log(mre);
+				PalladioComponentModelEditorPlugin.INSTANCE.log(mre);
 			}
 			return typeName;
 		}
@@ -539,10 +549,10 @@ public class QosannotationsModelWizard extends Wizard implements INewWizard {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		protected Collection getEncodings() {
+		protected Collection<String> getEncodings() {
 			if (encodings == null) {
-				encodings = new ArrayList();
-				for (StringTokenizer stringTokenizer = new StringTokenizer(PcmEditorPlugin.INSTANCE.getString("_UI_XMLEncodingChoices")); stringTokenizer.hasMoreTokens(); ) {
+				encodings = new ArrayList<String>();
+				for (StringTokenizer stringTokenizer = new StringTokenizer(PalladioComponentModelEditorPlugin.INSTANCE.getString("_UI_XMLEncodingChoices")); stringTokenizer.hasMoreTokens(); ) {
 					encodings.add(stringTokenizer.nextToken());
 				}
 			}
@@ -556,13 +566,14 @@ public class QosannotationsModelWizard extends Wizard implements INewWizard {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void addPages() {
 		// Create a page, set the title, and the initial model file name.
 		//
 		newFileCreationPage = new QosannotationsModelWizardNewFileCreationPage("Whatever", selection);
-		newFileCreationPage.setTitle(PcmEditorPlugin.INSTANCE.getString("_UI_QosannotationsModelWizard_label"));
-		newFileCreationPage.setDescription(PcmEditorPlugin.INSTANCE.getString("_UI_QosannotationsModelWizard_description"));
-		newFileCreationPage.setFileName(PcmEditorPlugin.INSTANCE.getString("_UI_QosannotationsEditorFilenameDefaultBase") + "." + PcmEditorPlugin.INSTANCE.getString("_UI_QosannotationsEditorFilenameExtension"));
+		newFileCreationPage.setTitle(PalladioComponentModelEditorPlugin.INSTANCE.getString("_UI_QosannotationsModelWizard_label"));
+		newFileCreationPage.setDescription(PalladioComponentModelEditorPlugin.INSTANCE.getString("_UI_QosannotationsModelWizard_description"));
+		newFileCreationPage.setFileName(PalladioComponentModelEditorPlugin.INSTANCE.getString("_UI_QosannotationsEditorFilenameDefaultBase") + "." + PalladioComponentModelEditorPlugin.INSTANCE.getString("_UI_QosannotationsEditorFilenameExtension"));
 		addPage(newFileCreationPage);
 
 		// Try and get the resource selection to determine a current directory for the file dialog.
@@ -588,8 +599,8 @@ public class QosannotationsModelWizard extends Wizard implements INewWizard {
 
 					// Make up a unique new name here.
 					//
-					String defaultModelBaseFilename = PcmEditorPlugin.INSTANCE.getString("_UI_QosannotationsEditorFilenameDefaultBase");
-					String defaultModelFilenameExtension = PcmEditorPlugin.INSTANCE.getString("_UI_QosannotationsEditorFilenameExtension");
+					String defaultModelBaseFilename = PalladioComponentModelEditorPlugin.INSTANCE.getString("_UI_QosannotationsEditorFilenameDefaultBase");
+					String defaultModelFilenameExtension = PalladioComponentModelEditorPlugin.INSTANCE.getString("_UI_QosannotationsEditorFilenameExtension");
 					String modelFilename = defaultModelBaseFilename + "." + defaultModelFilenameExtension;
 					for (int i = 1; ((IContainer)selectedResource).findMember(modelFilename) != null; ++i) {
 						modelFilename = defaultModelBaseFilename + i + "." + defaultModelFilenameExtension;
@@ -599,8 +610,8 @@ public class QosannotationsModelWizard extends Wizard implements INewWizard {
 			}
 		}
 		initialObjectCreationPage = new QosannotationsModelWizardInitialObjectCreationPage("Whatever2");
-		initialObjectCreationPage.setTitle(PcmEditorPlugin.INSTANCE.getString("_UI_QosannotationsModelWizard_label"));
-		initialObjectCreationPage.setDescription(PcmEditorPlugin.INSTANCE.getString("_UI_Wizard_initial_object_description"));
+		initialObjectCreationPage.setTitle(PalladioComponentModelEditorPlugin.INSTANCE.getString("_UI_QosannotationsModelWizard_label"));
+		initialObjectCreationPage.setDescription(PalladioComponentModelEditorPlugin.INSTANCE.getString("_UI_Wizard_initial_object_description"));
 		addPage(initialObjectCreationPage);
 	}
 

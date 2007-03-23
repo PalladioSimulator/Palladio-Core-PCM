@@ -49,7 +49,7 @@ public class UsageImpl extends EObjectImpl implements Usage {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList usageContexts_Usage = null;
+	protected EList usageContexts_Usage;
 
 	/**
 	 * <!-- begin-user-doc -->

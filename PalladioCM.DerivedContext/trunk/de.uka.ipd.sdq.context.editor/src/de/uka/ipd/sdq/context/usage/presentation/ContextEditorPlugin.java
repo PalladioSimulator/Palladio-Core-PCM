@@ -11,6 +11,7 @@ import org.eclipse.emf.common.ui.EclipseUIPlugin;
 import org.eclipse.emf.common.util.ResourceLocator;
 
 import de.uka.ipd.sdq.identifier.provider.IdentifierEditPlugin;
+import de.uka.ipd.sdq.pcm.core.entity.provider.PalladioComponentModelEditPlugin;
 import de.uka.ipd.sdq.pcm.core.entity.provider.PcmEditPlugin;
 import de.uka.ipd.sdq.probfunction.provider.ProbabilityFunctionEditPlugin;
 import de.uka.ipd.sdq.stoex.provider.StoexEditPlugin;
@@ -53,12 +54,12 @@ public final class ContextEditorPlugin extends EMFPlugin {
 	 */
 	public ContextEditorPlugin() {
 		super
-		  (new ResourceLocator [] {
-		     IdentifierEditPlugin.INSTANCE,
-		     PcmEditPlugin.INSTANCE,
-		     ProbabilityFunctionEditPlugin.INSTANCE,
-		     StoexEditPlugin.INSTANCE,
-		   });
+			(new ResourceLocator [] {
+				IdentifierEditPlugin.INSTANCE,
+				PalladioComponentModelEditPlugin.INSTANCE,
+				ProbabilityFunctionEditPlugin.INSTANCE,
+				StoexEditPlugin.INSTANCE,
+			});
 	}
 
 	/**
@@ -98,7 +99,7 @@ public final class ContextEditorPlugin extends EMFPlugin {
 		 */
 		public Implementation() {
 			super();
-
+	
 			// Remember the static instance.
 			//
 			plugin = this;

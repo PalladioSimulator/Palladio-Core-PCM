@@ -132,9 +132,9 @@ public class AllocationPackageImpl extends EPackageImpl implements AllocationPac
 		CompositionPackage.eINSTANCE.eClass();
 		RepositoryPackage.eINSTANCE.eClass();
 		ProtocolPackage.eINSTANCE.eClass();
+		ParameterPackage.eINSTANCE.eClass();
 		SeffPackage.eINSTANCE.eClass();
 		ResourcetypePackage.eINSTANCE.eClass();
-		ParameterPackage.eINSTANCE.eClass();
 		de.uka.ipd.sdq.pcm.allocation.AllocationPackage.eINSTANCE.eClass();
 		ResourceenvironmentPackage.eINSTANCE.eClass();
 		SystemPackage.eINSTANCE.eClass();

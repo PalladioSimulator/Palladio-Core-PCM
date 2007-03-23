@@ -48,7 +48,7 @@ public class ActualResourceDemandImpl extends RandomVariableImpl implements Actu
 	 * @generated
 	 * @ordered
 	 */
-	protected ParametricResourceDemand parametricResourceDemand_ActualResourceDemand = null;
+	protected ParametricResourceDemand parametricResourceDemand_ActualResourceDemand;
 
 	/**
 	 * <!-- begin-user-doc -->

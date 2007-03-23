@@ -49,7 +49,7 @@ public class ActualAllocationImpl extends EObjectImpl implements ActualAllocatio
 	 * @generated
 	 * @ordered
 	 */
-	protected EList actualAllocationContexts_ActualAllocation = null;
+	protected EList actualAllocationContexts_ActualAllocation;
 
 	/**
 	 * <!-- begin-user-doc -->

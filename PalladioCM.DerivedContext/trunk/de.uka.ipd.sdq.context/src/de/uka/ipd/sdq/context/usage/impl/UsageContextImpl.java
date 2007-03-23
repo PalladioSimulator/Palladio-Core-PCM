@@ -54,7 +54,7 @@ public class UsageContextImpl extends EObjectImpl implements UsageContext {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList branchprobabilities_UsageContext = null;
+	protected EList branchprobabilities_UsageContext;
 
 	/**
 	 * The cached value of the '{@link #getLoopiterations_UsageContext() <em>Loopiterations Usage Context</em>}' containment reference list.
@@ -64,7 +64,7 @@ public class UsageContextImpl extends EObjectImpl implements UsageContext {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList loopiterations_UsageContext = null;
+	protected EList loopiterations_UsageContext;
 
 	/**
 	 * The cached value of the '{@link #getActualParameterUsage_UsageContext() <em>Actual Parameter Usage Usage Context</em>}' containment reference list.
@@ -74,7 +74,7 @@ public class UsageContextImpl extends EObjectImpl implements UsageContext {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList actualParameterUsage_UsageContext = null;
+	protected EList actualParameterUsage_UsageContext;
 
 	/**
 	 * <!-- begin-user-doc -->
