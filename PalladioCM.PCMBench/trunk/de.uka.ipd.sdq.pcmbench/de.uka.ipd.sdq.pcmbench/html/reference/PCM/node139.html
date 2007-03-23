@@ -1,0 +1,155 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Resource Types</TITLE>
+<META NAME="description" CONTENT="Resource Types">
+<META NAME="keywords" CONTENT="PCM">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="PCM.css">
+
+<LINK REL="next" HREF="node140.html">
+<LINK REL="previous" HREF="node138.html">
+<LINK REL="up" HREF="node136.html">
+<LINK REL="next" HREF="node140.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2559"
+  HREF="node140.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:///C|/programme/latex2html/icons/next.png"></A> 
+<A NAME="tex2html2553"
+  HREF="node136.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:///C|/programme/latex2html/icons/up.png"></A> 
+<A NAME="tex2html2547"
+  HREF="node138.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:///C|/programme/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html2555"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="file:///C|/programme/latex2html/icons/contents.png"></A> 
+<A NAME="tex2html2557"
+  HREF="node178.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="file:///C|/programme/latex2html/icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html2560"
+  HREF="node140.html">Resource Environment</A>
+<B> Up:</B> <A NAME="tex2html2554"
+  HREF="node136.html">System Deployer</A>
+<B> Previous:</B> <A NAME="tex2html2548"
+  HREF="node138.html">Responsibilities of the Deployer</A>
+ &nbsp; <B>  <A NAME="tex2html2556"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html2558"
+  HREF="node178.html">Index</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION00443000000000000000"></A>
+<A NAME="sec:System_Deployer:Resource_Types"></A>
+<BR>
+Resource Types
+</H2>
+A <I>resource type</I> describes the common properties of a class of resources. For example, a <I>processor</I> type could be used to describe all kinds of CPUs. The concept of resource types allows a flexible specification of different kinds of resources that might occur in a real world scenario. Component developers and deployers agree on a common set of resource types that is specified within a so-called <I>resource repository</I>. 
+
+<P>
+We distinguish <I>passive</I> and <I>processing resources</I>. Passive resources can only be owned by a process or thread, while processing resources do some work by themselves and offer processing services. A scheduler might decide, which process is handled next by the processing resource. CPUs and hard disks are typical processing resources, while connections to a database or a block of memory are passive resources. 
+<I>Communication links</I> are a special kind of processing resource type used to describe connections between different resource containers.
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="fig:System_Deployer:ResourceRepository"></A><A NAME="2768"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 3.26:</STRONG>
+Basic instance of a resource repository.</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">	<IMG
+  WIDTH="1081" HEIGHT="688" ALIGN="BOTTOM" BORDER="0"
+ SRC="./ResourceRepository.gif"
+ ALT="Image ResourceRepository">
+	</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+Figure <A HREF="#fig:System_Deployer:ResourceRepository">3.26</A> shows an initial instance of a resource repository. It contains a set of passive and processing resources. The processing resources themselves are subdivided into plain processing resources and communication resources. The latter can only be used to connect two different resource containers. In this example, resource pools and semaphores are the only passive resources. In the following, we describe the different resource types in more detail.
+
+<P>
+Resource pools manage a limited set of resources of the same type. Typical examples are database connection pools and thread pools. A process or thread can fetch one database connection, use it to read or update some of the database entries and then return it to the pool. If no database connection is available, the process will block until one is available in the pool. 
+
+<P>
+Semaphores are the most basic kind of passive resources. They can be used for synchronisation and limiting access to a resource. Basically, a semaphore is an integer value with an acquire (or <TT>p</TT>) and release (or <TT>v</TT>) operation. Intuitively, the value of a semaphore indicates how many instances of a resource are available. If the semaphore is greater than one, the acquire operation reduces the semaphore counter by one and continues the execution. Otherwise, it waits until the counter is greater than zero. The testing and setting of the semaphore's values has to be atomic. The release operation increases the counter by one, which must be atomic as well, and awakes the waiting threads or processes. 
+
+<P>
+Acquire and release actions are used for semaphores as well as for resource pools and can be directly modelled in the service effect specification (see section <A HREF="node118.html#sec:ComponentDeveloper:ServiceEffectSpecification">3.2.9</A>).
+
+<P>
+Processors and disks are classical processing resources. They are available in every desktop and server computer system and provide the basic computational and storage functionalities. In figure <A HREF="#fig:System_Deployer:ResourceRepository">3.26</A>, the processing rate of a CPU is specified as the number of cycles per second. Another possible metric is the number of instructions per second. 
+
+<P>
+Disks are used to permanently store data and to retrieve if needed. In figure <A HREF="#fig:System_Deployer:ResourceRepository">3.26</A>, we indicate the speed of a disk (or data storage) in megabytes per second. In our case, we assume that the rate is the same for read and write operations.
+
+<P>
+For communication resources, we consider any kind of ethernet connection. The rate or throughput of a connection is specified in megabytes per second. This resource type can be used to model most of the common networks. For example, a wireless connection between two nodes can be described as an ethernet connection with a throughput of 11 MB/s. 
+
+<P>
+The resource types described here can be considered as a basic set, which has to be extended and refined in future. Next, we describe how these resource types can be used to specify an execution environment.
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2559"
+  HREF="node140.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:///C|/programme/latex2html/icons/next.png"></A> 
+<A NAME="tex2html2553"
+  HREF="node136.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:///C|/programme/latex2html/icons/up.png"></A> 
+<A NAME="tex2html2547"
+  HREF="node138.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:///C|/programme/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html2555"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="file:///C|/programme/latex2html/icons/contents.png"></A> 
+<A NAME="tex2html2557"
+  HREF="node178.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="file:///C|/programme/latex2html/icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html2560"
+  HREF="node140.html">Resource Environment</A>
+<B> Up:</B> <A NAME="tex2html2554"
+  HREF="node136.html">System Deployer</A>
+<B> Previous:</B> <A NAME="tex2html2548"
+  HREF="node138.html">Responsibilities of the Deployer</A>
+ &nbsp; <B>  <A NAME="tex2html2556"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html2558"
+  HREF="node178.html">Index</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+Snowball
+2007-03-16
+</ADDRESS>
+</BODY>
+</HTML>

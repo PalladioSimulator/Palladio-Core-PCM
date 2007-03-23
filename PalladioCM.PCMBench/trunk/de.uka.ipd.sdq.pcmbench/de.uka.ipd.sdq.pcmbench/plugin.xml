@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.ui.perspectives">
+      <perspective
+            class="de.uka.ipd.sdq.pcmbench.perspective.PCMBenchPerspective"
+            fixed="false"
+            icon="icons/palladio-logo.gif"
+            id="de.uka.ipd.sdq.PCMBench.perspective"
+            name="PCMBench">
+      </perspective>
+   </extension>
+   <extension
+         id="product"
+         point="org.eclipse.core.runtime.products">
+      <product
+            application="de.uka.ipd.sdq.pcmbench.application"
+            name="Palladio Component Model Modelling Bench">
+         <property
+               name="windowImages"
+               value="icons/palladio-logo.gif">
+         </property>
+         <property
+               name="appName"
+               value="Palladio Component Model Modelling Bench">
+         </property>
+         <property
+               name="aboutText"
+               value="This ist the Palladio Component Model Modelling Bench.&#x0A;&#x0A;Wrtitten by the members of the chair of Software Design and Quality, IPD, University of Karlsruhe&#x0A;&#x0A;Copyright 2007, SDQ, IPD">
+         </property>
+         <property
+               name="startupForegroundColor"
+               value="0000FF">
+         </property>
+         <property
+               name="startupMessageRect"
+               value="0,275,450,10">
+         </property>
+         <property
+               name="startupProgressRect"
+               value="0,285,450,8">
+         </property>
+      </product>
+   </extension>
+   <extension
+         point="org.eclipse.ui.intro">
+      <intro
+            class="org.eclipse.ui.intro.config.CustomizableIntroPart"
+            icon="icons/palladio-logo.gif"
+            id="de.uka.ipd.sdq.pcmbench.intro">
+      </intro>
+      <introProductBinding
+            introId="de.uka.ipd.sdq.pcmbench.intro"
+            productId="de.uka.ipd.sdq.pcmbench.product">
+      </introProductBinding>
+   </extension>
+   <extension
+         point="org.eclipse.ui.intro.config">
+      <config
+            introId="de.uka.ipd.sdq.pcmbench.intro"
+            content="introContent.xml"
+            id="de.uka.ipd.sdq.pcmbench.configId">
+         <presentation
+               home-page-id="root">
+            <implementation
+                  kind="html"
+                  os="win32,linux,macosx">
+            </implementation>
+         </presentation>
+      </config>
+   </extension>
+   
+   <extension
+         point="org.eclipse.ui.views">
+      <view
+            class="de.uka.ipd.sdq.pcmbench.views.ResourceView"
+            icon="icons/palladio-logo.gif"
+            id="de.uka.ipd.sdq.pcmbench.view.ResourceView"
+            name="Resource View"/>
+      <view
+            allowMultiple="false"
+            class="org.eclipse.ui.navigator.CommonNavigator"
+            icon="icons/palladio-logo.gif"
+            id="de.uka.ipd.sdq.pcmbench.projectview"
+            name="PCM Project View"/>
+   </extension>
+   <extension
+         point="org.eclipse.emf.transaction.editingDomains">
+      <editingDomain
+            factory="org.eclipse.gmf.runtime.diagram.core.DiagramEditingDomainFactory"
+            id="de.uka.ipd.sdq.PCMBench.editingDomain"/>
+   </extension>
+   <extension
+         point="org.eclipse.ui.actionSets">
+      <actionSet
+            description="PCM Bench Main Actions"
+            id="de.uka.ipd.sdq.PCMBench.mainActionSet"
+            label="PCM Bench Main Actions"
+            visible="true">
+         <menu
+               id="de.uka.ipd.sdq.PCMBench.mainMenu"
+               label="&amp;PCM Bench">
+            <groupMarker name="mainGroupMarker"/>
+         </menu>
+         <action
+               class="de.uka.ipd.sdq.pcmbench.actions.OpenRepositoryAction"
+               id="de.uka.ipd.sdq.PCMBench.openRepositoryAction"
+               label="&amp;Open Repository..."
+               menubarPath="de.uka.ipd.sdq.PCMBench.mainMenu/mainGroupMarker"
+               style="push"/>
+      </actionSet>
+   </extension>
+  
+   <extension
+         point="org.eclipse.ui.navigator.viewer">
+      <viewer viewerId="de.uka.ipd.sdq.pcmbench.projectview">
+         <popupMenu
+               allowsPlatformContributions="false"
+               id="de.uka.ipd.sdq.pcmbench.projectview.menu">
+            <insertionPoint
+                  name="group.new"
+                  separator="true"/>
+            <insertionPoint
+                  name="group.edit"
+                  separator="true"/>
+         </popupMenu>
+      </viewer>
+      <viewerContentBinding viewerId="de.uka.ipd.sdq.pcmbench.projectview">
+         <includes>
+            <contentExtension pattern="de.uka.ipd.sdq.pcmbench.navigator.propertiesContent"/>
+            <contentExtension pattern="org.eclipse.ui.navigator.resources.filters.*"/>
+            <contentExtension pattern="de.uka.ipd.sdq.pcmbench.navigator.filters.*"/>
+            <contentExtension pattern="org.eclipse.ui.navigator.resourceContent"/>
+         </includes>
+      </viewerContentBinding>
+      <viewerActionBinding viewerId="de.uka.ipd.sdq.pcmbench.projectview">
+         <includes>
+            <actionExtension pattern="org.eclipse.ui.navigator.resources.*"/>
+         </includes>
+      </viewerActionBinding>
+      <dragAssistant
+            class="de.uka.ipd.sdq.pcmbench.navigator.DragAssistant"
+            viewerId="de.uka.ipd.sdq.pcmbench.projectview">
+      </dragAssistant>
+   </extension>
+   <extension
+         point="org.eclipse.ui.navigator.navigatorContent">
+      <commonFilter
+            activeByDefault="false"
+            id="de.uka.ipd.sdq.pcmbench.navigator.filters.hideNonJavaProjects"
+            name="Hide projects without the Palladio Nature">
+         <filterExpression>
+         	<not>
+               <adapt type="org.eclipse.core.resources.IProject">
+                  <test
+                        property="org.eclipse.core.resources.projectNature"
+                        value="de.uka.ipd.sdq.pcmbench.nature"/>
+               </adapt>
+             </not>
+         </filterExpression>
+      </commonFilter>
+      <navigatorContent
+            activeByDefault="true"
+            contentProvider="de.uka.ipd.sdq.pcmbench.navigator.PCMNavigatorContentProvider"
+            icon="icons/palladio-logo.gif"
+            id="de.uka.ipd.sdq.pcmbench.navigator.propertiesContent"
+            labelProvider="de.uka.ipd.sdq.pcmbench.navigator.PCMNavigatorLabelProvider"
+            name="Palladio Modelling Projects Content"
+            priority="normal"
+            providesSaveables="true">
+         <enablement>
+            <or>
+               <instanceof value="org.eclipse.core.resources.IProject"/>
+               <instanceof value="org.eclipse.emf.ecore.EObject"/>
+               <instanceof value="de.uka.ipd.sdq.pcmbench.ui.provider.categoryaware.GenericCategoryItemProvider"/>
+               <instanceof value="de.uka.ipd.sdq.pcmbench.navigator.LinkedRepositoriesNode"/>
+            </or>
+         </enablement>
+         <possibleChildren>
+            <or>
+               <instanceof value="org.eclipse.emf.ecore.EObject"/>
+               <instanceof value="de.uka.ipd.sdq.pcmbench.ui.provider.categoryaware.GenericCategoryItemProvider"/>
+               <instanceof value="de.uka.ipd.sdq.pcmbench.navigator.LinkedRepositoriesNode"/>
+            </or>
+         </possibleChildren>
+         <actionProvider
+               class="de.uka.ipd.sdq.pcmbench.navigator.ChildAddMenuProvider"
+               id="de.uka.ipd.sdq.pcmbench.ChildAddMenuProvider"/>
+      </navigatorContent>
+   </extension>
+   <extension
+         id="de.uka.ipd.sdq.pcmbench.nature"
+         name="Palladio Nature"
+         point="org.eclipse.core.resources.natures">
+      <runtime>
+         <run class="de.uka.ipd.sdq.pcmbench.nature.PalladioProjectNature"/>
+      </runtime>
+   </extension>
+   <extension
+         point="org.eclipse.ui.popupMenus">
+      <objectContribution
+            adaptable="false"
+            id="de.uka.ipd.sdq.pcmbench.addpcmnature"
+            objectClass="org.eclipse.core.resources.IProject">
+         <action
+               class="de.uka.ipd.sdq.pcmbench.actions.AddPalladioNatureAction"
+               enablesFor="1"
+               id="de.uka.ipd.sdq.pcmbench.addNatureAction"
+               label="Add Palladio Nature"
+               menubarPath="additions"/>
+      </objectContribution>
+   </extension>
+   <extension
+         id="de.uka.ipd.sdq.pcmbench.newPalladioProject"
+         name="New Palladio Project"
+         point="org.eclipse.ui.newWizards">
+      <category
+            id="de.uka.ipd.sdq.pcmbench.palladiocategory"
+            name="Palladio Projects"/>
+      <wizard
+            category="de.uka.ipd.sdq.pcmbench.palladiocategory"
+            class="de.uka.ipd.sdq.pcmbench.wizards.NewPalladioProjectWizard"
+            descriptionImage="icons/palladio-logo.gif"
+            finalPerspective="de.uka.ipd.sdq.PCMBench.perspective"
+            icon="icons/palladio-logo.gif"
+            id="de.uka.ipd.sdq.pcmbench.newProjectWizard"
+            name="New Palladio Project Wizard"
+            preferredPerspectives="de.uka.ipd.sdq.PCMBench.perspective"
+            project="true">
+         <description>This wizard creates a new Palladio Modelling Project for CBSE based Quality of Service evaluations.</description>
+      </wizard>
+   </extension>
+   <extension
+         point="org.eclipse.ui.decorators">
+      <decorator
+            adaptable="false"
+            class="de.uka.ipd.sdq.pcmbench.decorator.DecoratorLightwightLabelProvider"
+            icon="icons/palladio-logo-overlay.gif"
+            id="de.uka.ipd.sdq.pcmbench.projectdecorator"
+            label="Palladio Project Decorator"
+            lightweight="true"
+            location="TOP_RIGHT"
+            state="true">
+         <enablement>
+            <objectClass name="org.eclipse.core.resources.IProject"/>
+         </enablement>
+      </decorator>
+   </extension>
+   <extension
+         id="application"
+         point="org.eclipse.core.runtime.applications">
+      <application
+            visible="true">
+         <run
+               class="de.uka.ipd.sdq.pcmbench.application.PCMBenchApplication">
+         </run>
+      </application>
+   </extension>
+   <extension
+         point="org.eclipse.help.toc">
+      <toc
+            file="toc.xml"
+            primary="true">
+      </toc>
+      <toc
+            file="tocconcepts.xml">
+      </toc>
+      <toc
+            file="tocgettingstarted.xml">
+      </toc>
+      <toc
+            file="tocreference.xml">
+      </toc>
+      <toc
+            file="tocsamples.xml">
+      </toc>
+      <toc
+            file="toctasks.xml">
+      </toc>
+   </extension>
+</plugin>
