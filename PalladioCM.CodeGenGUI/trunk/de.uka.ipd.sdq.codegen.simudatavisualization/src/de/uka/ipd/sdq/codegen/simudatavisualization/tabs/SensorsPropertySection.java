@@ -26,6 +26,7 @@ import org.eclipse.ui.views.properties.tabbed.AbstractPropertySection;
 import org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage;
 
 import de.uka.ipd.sdq.codegen.simudatavisualization.SimuImages;
+import de.uka.ipd.sdq.codegen.simudatavisualization.birt.ReportCongiguration;
 
 /**
  * @author admin
@@ -51,6 +52,10 @@ public class SensorsPropertySection extends AbstractPropertySection {
 	private static String[] columnNames = new String[] { ICON_COLUMN,
 			RUN_COLUMN, SENSORS_COLUMN };
 
+	// style the style of table to construct
+	int style = SWT.SINGLE | SWT.BORDER | SWT.H_SCROLL | SWT.V_SCROLL
+	| SWT.FULL_SELECTION | SWT.HIDE_SELECTION;
+	
 	/* (non-Javadoc)
 	 * @see org.eclipse.ui.views.properties.tabbed.AbstractPropertySection#createControls(org.eclipse.swt.widgets.Composite, org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage)
 	 */
@@ -59,10 +64,6 @@ public class SensorsPropertySection extends AbstractPropertySection {
 		// TODO Auto-generated method stub
 		super.createControls(parent, aTabbedPropertySheetPage);
 	
-		// style the style of table to construct
-		int style = SWT.SINGLE | SWT.BORDER | SWT.H_SCROLL | SWT.V_SCROLL
-		| SWT.FULL_SELECTION | SWT.HIDE_SELECTION;
-		
 		Composite composite = getWidgetFactory()
 			.createFlatFormComposite(parent);
 		composite.setLayout(new FormLayout());
@@ -75,7 +76,7 @@ public class SensorsPropertySection extends AbstractPropertySection {
 		
 		Table table = new Table(composite, style);
 		final FormData fd_table = new FormData();
-		fd_table.bottom = new FormAttachment(0, 156);
+		fd_table.bottom = new FormAttachment(0, 120);
 		fd_table.left = new FormAttachment(0, 5);
 		fd_table.top = new FormAttachment(0, 4);
 		table.setLayoutData(fd_table);
@@ -116,31 +117,29 @@ public class SensorsPropertySection extends AbstractPropertySection {
 		sensorsColumn.setWidth(200);
 		sensorsColumn.setText(SENSORS_COLUMN);
 
-
+		ReportCongiguration rconfig = new ReportCongiguration();
 		// Set input fot TableViewer
-		viewer.setInput(null);
+		viewer.setInput(rconfig);
 
 		ToolBar toolBar;
 		toolBar = new ToolBar(composite, SWT.VERTICAL | SWT.FLAT | SWT.RIGHT);
 		fd_table.right = new FormAttachment(toolBar, -5, SWT.LEFT);
 		final FormData fd_toolBar = new FormData();
-		fd_toolBar.left = new FormAttachment(100, -38);
+		fd_toolBar.left = new FormAttachment(100, -32);
+		fd_toolBar.bottom = new FormAttachment(0, 120);
 		fd_toolBar.right = new FormAttachment(100, -6);
-		fd_toolBar.bottom = new FormAttachment(0, 155);
 		fd_toolBar.top = new FormAttachment(0, 4);
 		toolBar.setLayoutData(fd_toolBar);
 
 		ToolItem addRunItem = new ToolItem(toolBar, SWT.PUSH);
 		addRunItem.setImage(SimuImages.imageRegistry
 				.get(SimuImages.RUN));
+		addRunItem.addSelectionListener(new AddRunEntryActionListener(rconfig));
 
 		ToolItem deleteRunItem = new ToolItem(toolBar, SWT.PUSH);
 		deleteRunItem.setImage( SimuImages.imageRegistry
 				.get(SimuImages.RUN));
 		deleteRunItem.setEnabled(false);
-
-		
-
 	}
 
 	/* (non-Javadoc)

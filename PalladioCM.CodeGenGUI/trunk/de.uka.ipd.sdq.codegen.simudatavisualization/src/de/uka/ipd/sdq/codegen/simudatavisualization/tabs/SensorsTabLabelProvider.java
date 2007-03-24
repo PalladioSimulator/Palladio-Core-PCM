@@ -7,6 +7,8 @@ import org.eclipse.jface.viewers.ILabelProviderListener;
 import org.eclipse.jface.viewers.ITableLabelProvider;
 import org.eclipse.swt.graphics.Image;
 
+import de.uka.ipd.sdq.codegen.simudatavisualization.SimuImages;
+
 /**
  * @author admin
  *
@@ -18,7 +20,8 @@ public class SensorsTabLabelProvider implements ITableLabelProvider {
 	 */
 	@Override
 	public Image getColumnImage(Object element, int columnIndex) {
-		// TODO Auto-generated method stub
+		if (columnIndex == SensorsPropertySection.ICON_COLUMN_INDEX)
+			return SimuImages.imageRegistry.get(SimuImages.RUN);
 		return null;
 	}
 
@@ -27,7 +30,7 @@ public class SensorsTabLabelProvider implements ITableLabelProvider {
 	 */
 	@Override
 	public String getColumnText(Object element, int columnIndex) {
-		// TODO Auto-generated method stub
+		
 		return null;
 	}
 
