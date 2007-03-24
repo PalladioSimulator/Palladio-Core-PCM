@@ -4,12 +4,20 @@ Bundle-Name: Simu Data Visualization Plug-in
 Bundle-SymbolicName: de.uka.ipd.sdq.codegen.simudatavisualization; singleton:=true
 Bundle-Version: 1.0.0
 Bundle-Activator: de.uka.ipd.sdq.codegen.simudatavisualization.Activator
-Bundle-Localization: plugin
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
  org.eclipse.core.resources,
  org.eclipse.ui.views.properties.tabbed,
- de.uka.ipd.sdq.sensorframework
+ de.uka.ipd.sdq.sensorframework,
+ org.eclipse.birt,
+ org.eclipse.birt.chart,
+ org.eclipse.birt.chart.ui,
+ org.eclipse.birt.chart.engine,
+ org.eclipse.birt.chart.device.swt,
+ org.eclipse.emf.ecore.xmi,
+ org.eclipse.jface.text,
+ org.eclipse.ui.editors,
+ org.eclipse.ui.ide
 Eclipse-RegisterBudd: de.uka.ipd.sdq.sensorframework
 Eclipse-BuddyPolicy: dependent
 Eclipse-LazyStart: true
