@@ -1,11 +1,10 @@
 package de.uka.ipd.sdq.codegen.simudatavisualization.views;
 
 import java.util.ArrayList;
+import java.util.List;
 
-import org.eclipse.jface.viewers.IStructuredContentProvider;
 import org.eclipse.jface.viewers.ITreeContentProvider;
 import org.eclipse.jface.viewers.Viewer;
-import org.eclipse.ui.IViewSite;
 
 import de.uka.ipd.sdq.sensorfactory.entities.Experiment;
 import de.uka.ipd.sdq.sensorfactory.entities.ExperimentRun;
@@ -13,24 +12,17 @@ import de.uka.ipd.sdq.sensorfactory.entities.Sensor;
 import de.uka.ipd.sdq.sensorfactory.entities.impl.ExperimentDAO;
 
 /**
+ * TODO
+ * 
  * @author admin
  * 
  */
-public class TreeViewContentProvider implements IStructuredContentProvider,
-		ITreeContentProvider {
+public class TreeViewContentProvider implements ITreeContentProvider {
 
-	protected static String EXPERIMENT_RUNS = "Experiment Runs";
-	protected static String SENSORS 		= "Sensors";
+	protected static int EXPERIMENT_RUNS = 0;
+	protected static int SENSORS = 1;
 
-	private TreeRoot invisibleRoot;
-	private IViewSite viewSite;
-
-	/**
-	 * @param viewSite
-	 */
-	public TreeViewContentProvider(IViewSite viewSite) {
-		this.viewSite = viewSite;
-	}
+	private List<ExperimentDAO> rootEntry;
 
 	/*
 	 * (non-Javadoc)
@@ -38,32 +30,11 @@ public class TreeViewContentProvider implements IStructuredContentProvider,
 	 * @see org.eclipse.jface.viewers.IStructuredContentProvider#getElements(java.lang.Object)
 	 */
 	public Object[] getElements(Object parent) {
-		if (parent.equals(viewSite)) {
-			if (invisibleRoot == null)
-				invisibleRoot = new TreeRoot(ExperimentDAO.singleton());
-			return getChildren(invisibleRoot);
+		if (rootEntry == null) {
+			rootEntry = new ArrayList<ExperimentDAO>();
+			rootEntry.add(ExperimentDAO.singleton());
 		}
-		return getChildren(parent);
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see org.eclipse.jface.viewers.IContentProvider#dispose()
-	 */
-	public void dispose() {
-		// TODO Auto-generated method stub
-
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see org.eclipse.jface.viewers.IContentProvider#inputChanged(org.eclipse.jface.viewers.Viewer,
-	 *      java.lang.Object, java.lang.Object)
-	 */
-	public void inputChanged(Viewer viewer, Object oldInput, Object newInput) {
-		// TODO Auto-generated method stub
+		return getChildren(rootEntry);
 	}
 
 	/*
@@ -72,16 +43,17 @@ public class TreeViewContentProvider implements IStructuredContentProvider,
 	 * @see org.eclipse.jface.viewers.ITreeContentProvider#getChildren(java.lang.Object)
 	 */
 	public Object[] getChildren(Object parent) {
-		
-		if (parent instanceof TreeRoot)
-			return ((TreeRoot) parent).getTree().toArray();
+
+		if (parent instanceof ArrayList)
+			return ((ArrayList<ExperimentDAO>) parent).toArray();
 
 		if (parent instanceof ExperimentDAO)
 			return ((ExperimentDAO) parent).getExperiments().toArray();
 
 		if (parent instanceof Experiment) {
 			Experiment experiment = (Experiment) parent;
-			Object[] objects = { new TreeContainer(experiment, EXPERIMENT_RUNS),
+			Object[] objects = {
+					new TreeContainer(experiment, EXPERIMENT_RUNS),
 					new TreeContainer(experiment, SENSORS) };
 			return objects;
 		}
@@ -95,6 +67,29 @@ public class TreeViewContentProvider implements IStructuredContentProvider,
 	/*
 	 * (non-Javadoc)
 	 * 
+	 * @see org.eclipse.jface.viewers.ITreeContentProvider#hasChildren(java.lang.Object)
+	 */
+	public boolean hasChildren(Object parent) {
+		if (parent instanceof Sensor)
+			return false;
+		if (parent instanceof ExperimentRun)
+			return false;
+		return true;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see org.eclipse.jface.viewers.IContentProvider#dispose()
+	 */
+	public void dispose() {
+		if (rootEntry != null)
+			rootEntry.clear();
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see org.eclipse.jface.viewers.ITreeContentProvider#getParent(java.lang.Object)
 	 */
 	public Object getParent(Object child) {
@@ -102,56 +97,9 @@ public class TreeViewContentProvider implements IStructuredContentProvider,
 		return null;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see org.eclipse.jface.viewers.ITreeContentProvider#hasChildren(java.lang.Object)
-	 */
-	public boolean hasChildren(Object parent) {
+	@Override
+	public void inputChanged(Viewer viewer, Object oldInput, Object newInput) {
+		// TODO Auto-generated method stub
 
-		if (parent instanceof Sensor)
-			return false;
-		
-		if (parent instanceof ExperimentRun)
-			return false;
-
-		return true;
 	}
-}
-
-class TreeRoot{
-	
-	private ArrayList<ExperimentDAO> tree;
-	
-	
-	/**
-	 * @return the tree
-	 */
-	public void removeFromTree(ExperimentDAO experimentDAO) {
-		tree.remove(experimentDAO);
-	}
-
-
-	/**
-	 * @param tree the tree to set
-	 */
-	public void addToTree(ExperimentDAO experimentDAO) {
-		tree.add(experimentDAO);
-	}
-
-
-	public TreeRoot(ExperimentDAO experimentDAO) {
-		this.tree = new ArrayList<ExperimentDAO>();
-		tree.add(experimentDAO);
-	}
-
-
-	/**
-	 * @return the tree
-	 */
-	public ArrayList<ExperimentDAO> getTree() {
-		return tree;
-	}
-
-	
 }

@@ -44,7 +44,7 @@ public class ExperimentsView extends ViewPart {
 	public void createPartControl(Composite parent) {
 		viewer = new TreeViewer(parent, SWT.MULTI | SWT.H_SCROLL | SWT.V_SCROLL);
 		drillDownAdapter = new DrillDownAdapter(viewer);
-		viewer.setContentProvider(new TreeViewContentProvider(getViewSite()));
+		viewer.setContentProvider(new TreeViewContentProvider());
 		viewer.setLabelProvider(new TreeViewLabelProvider());
 		viewer.setSorter(new NameSorter());
 		viewer.setInput(getViewSite());

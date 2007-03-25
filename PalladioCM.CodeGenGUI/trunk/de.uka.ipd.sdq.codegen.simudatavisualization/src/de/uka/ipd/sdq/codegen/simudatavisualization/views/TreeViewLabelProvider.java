@@ -39,7 +39,6 @@ public class TreeViewLabelProvider extends LabelProvider {
 
 		if (obj instanceof TreeContainer)
 			return ((TreeContainer) obj).getName();
-
 		if (obj instanceof ExperimentDAO)
 			return "DB NAME";
 

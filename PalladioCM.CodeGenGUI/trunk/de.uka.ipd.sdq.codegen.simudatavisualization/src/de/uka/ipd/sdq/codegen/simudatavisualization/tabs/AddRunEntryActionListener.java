@@ -3,8 +3,7 @@
  */
 package de.uka.ipd.sdq.codegen.simudatavisualization.tabs;
 
-import java.util.List;
-
+import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 
@@ -14,28 +13,35 @@ import de.uka.ipd.sdq.sensorfactory.entities.impl.ExperimentRunImpl;
 
 /**
  * @author admin
- *
+ * 
  */
 public class AddRunEntryActionListener extends SelectionAdapter {
-	
+
 	private ReportCongiguration congiguration;
+	private TableViewer viewer;
 
 	/**
 	 * @param congiguration
 	 */
-	public AddRunEntryActionListener(ReportCongiguration congiguration) {
+	public AddRunEntryActionListener(ReportCongiguration congiguration,
+			TableViewer viewer) {
 		this.congiguration = congiguration;
+		this.viewer = viewer;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see org.eclipse.swt.events.SelectionAdapter#widgetSelected(org.eclipse.swt.events.SelectionEvent)
 	 */
 	@Override
 	public void widgetSelected(SelectionEvent e) {
-		ExperimentRun run = new ExperimentRunImpl() ;
-		run.setExperimentRunID(1122221);
-		run.setExperimentDateTime("2007.03.23 12:00");
-		congiguration.addNewEntry(run);
+
+		ChoiceRunDialog dialog = new ChoiceRunDialog(e.display.getActiveShell());
+		if (dialog.open() == dialog.OK && dialog.getResult() != null){
+				congiguration.addNewEntry(dialog.getResult());
+				viewer.refresh();
+		}
 	}
 
 }

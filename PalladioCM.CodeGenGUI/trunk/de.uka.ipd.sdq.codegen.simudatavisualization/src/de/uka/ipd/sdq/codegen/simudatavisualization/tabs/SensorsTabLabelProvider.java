@@ -8,6 +8,7 @@ import org.eclipse.jface.viewers.ITableLabelProvider;
 import org.eclipse.swt.graphics.Image;
 
 import de.uka.ipd.sdq.codegen.simudatavisualization.SimuImages;
+import de.uka.ipd.sdq.codegen.simudatavisualization.birt.RunEntry;
 
 /**
  * @author admin
@@ -30,8 +31,26 @@ public class SensorsTabLabelProvider implements ITableLabelProvider {
 	 */
 	@Override
 	public String getColumnText(Object element, int columnIndex) {
+			String result = "";
 		
-		return null;
+			RunEntry entry = (RunEntry) element;
+
+			switch (columnIndex) {
+			case SensorsPropertySection.ICON_COLUMN_INDEX:
+				break;
+			case SensorsPropertySection.CONTEXT_COLUMN_INDEX:
+				result = entry.getExperimentRun().getClass().getSimpleName();
+				break;
+			case SensorsPropertySection.RUN_COLUMN_INDEX:
+				result = entry.getExperimentRun().getExperimentDateTime();
+				break;
+			case SensorsPropertySection.SENSORS_COLUMN_INDEX:
+				result = "";
+				break;
+			default:
+				break;
+			}
+			return result;
 	}
 
 	/* (non-Javadoc)

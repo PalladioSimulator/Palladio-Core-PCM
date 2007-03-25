@@ -16,29 +16,33 @@ import de.uka.ipd.sdq.sensorfactory.entities.Experiment;
 public class TreeContainer implements IAdaptable {
 	
 	private Experiment parent;
-	private Collection elements;
+	private Collection<?> elements = null;
 	private String name;
+	
+	private String EXPERIMENT_RUNS_NAME = "Experiment Runs";
+	private String SENSORS_NAME		 = "Sensors";
 
 	/**
 	 * @param parent
 	 */
-	public TreeContainer(Experiment parent, String name) {
+	public TreeContainer(Experiment parent, int index) {
 		this.parent = parent;
-		this.name = name;
 
-		if (name.equals(TreeViewContentProvider.EXPERIMENT_RUNS))
+		if (index == TreeViewContentProvider.EXPERIMENT_RUNS){
 			this.elements = parent.getExperimentRuns();
-		else if (name.equals(TreeViewContentProvider.SENSORS))
+			this.name = EXPERIMENT_RUNS_NAME;
+		}
+		if (index == TreeViewContentProvider.SENSORS){
 			this.elements = parent.getSensors();
-		else
-			this.elements = null;
+			this.name = SENSORS_NAME;
+		}
 	}
 
-	public Collection getElements() {
+	public Collection<?> getElements() {
 		return elements;
 	}
 
-	public void setElements(Collection elements) {
+	public void setElements(Collection<?> elements) {
 		this.elements = elements;
 	}
 
@@ -50,12 +54,12 @@ public class TreeContainer implements IAdaptable {
 		this.parent = parent;
 	}
 
-	public String getName() {
-		return name;
-	}
-
 	public Object getAdapter(Class adapter) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	public String getName() {
+		return name;
 	}
 }

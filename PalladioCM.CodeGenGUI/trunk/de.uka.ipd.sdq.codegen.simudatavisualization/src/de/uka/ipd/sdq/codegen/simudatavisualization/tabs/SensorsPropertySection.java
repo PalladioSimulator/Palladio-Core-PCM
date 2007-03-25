@@ -3,20 +3,20 @@
  */
 package de.uka.ipd.sdq.codegen.simudatavisualization.tabs;
 
+import org.eclipse.core.runtime.Assert;
 import org.eclipse.jface.viewers.CellEditor;
+import org.eclipse.jface.viewers.DialogCellEditor;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
+import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.TableViewer;
-import org.eclipse.jface.viewers.TextCellEditor;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.FormAttachment;
 import org.eclipse.swt.layout.FormData;
 import org.eclipse.swt.layout.FormLayout;
-import org.eclipse.swt.layout.GridData;
-import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
-import org.eclipse.swt.widgets.Label;
+import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.swt.widgets.ToolBar;
@@ -27,6 +27,8 @@ import org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage;
 
 import de.uka.ipd.sdq.codegen.simudatavisualization.SimuImages;
 import de.uka.ipd.sdq.codegen.simudatavisualization.birt.ReportCongiguration;
+import de.uka.ipd.sdq.sensorfactory.entities.ExperimentRun;
+import de.uka.ipd.sdq.sensorfactory.entities.impl.ExperimentRunImpl;
 
 /**
  * @author admin
@@ -35,22 +37,25 @@ import de.uka.ipd.sdq.codegen.simudatavisualization.birt.ReportCongiguration;
 public class SensorsPropertySection extends AbstractPropertySection {
 	
 	private TableViewer viewer;
+	ReportCongiguration rconfig = new ReportCongiguration();
 	
-	public static final int ICON_COLUMN_INDEX = 0;
-	public static final int RUN_COLUMN_INDEX = 1;
-	public static final int SENSORS_COLUMN_INDEX = 2;
+	public static final int ICON_COLUMN_INDEX 		= 0;
+	public static final int CONTEXT_COLUMN_INDEX 	= 1;
+	public static final int RUN_COLUMN_INDEX 		= 2;
+	public static final int SENSORS_COLUMN_INDEX 	= 3;
 
 	/**
 	 * Columns of a table, which is used into ParameterEditDialog
 	 */
 
-	public final static String ICON_COLUMN = "";
-	public final static String RUN_COLUMN = "Experiment Run";
-	public final static String SENSORS_COLUMN = "Sensors";
+	public final static String ICON_COLUMN 		= "";
+	public final static String CONTEXT_COLUMN 	= "Context";
+	public final static String RUN_COLUMN 		= "Experiment Datetime";
+	public final static String SENSORS_COLUMN 	= "Sensors";
 
 	// Set column names of Tabele
-	private static String[] columnNames = new String[] { ICON_COLUMN,
-			RUN_COLUMN, SENSORS_COLUMN };
+	protected static String[] columnNames = new String[] { ICON_COLUMN,
+			CONTEXT_COLUMN,RUN_COLUMN, SENSORS_COLUMN };
 
 	// style the style of table to construct
 	int style = SWT.SINGLE | SWT.BORDER | SWT.H_SCROLL | SWT.V_SCROLL
@@ -68,11 +73,11 @@ public class SensorsPropertySection extends AbstractPropertySection {
 			.createFlatFormComposite(parent);
 		composite.setLayout(new FormLayout());
 		
-		
 		/**
 		 * Create the cell editors for Name, Type column
 		 */
 		CellEditor[] editors = new CellEditor[columnNames.length];
+		
 		
 		Table table = new Table(composite, style);
 		final FormData fd_table = new FormData();
@@ -83,17 +88,12 @@ public class SensorsPropertySection extends AbstractPropertySection {
 		table.setLinesVisible(true);
 		table.setHeaderVisible(true);
 		
-
 		viewer = new TableViewer(table);
-		//Table table = viewer.getTable();
 
 		viewer.setColumnProperties(columnNames);
 		viewer.setContentProvider(new SensorsTabContentProvider());
 		viewer.setLabelProvider(new SensorsTabLabelProvider());
-
-		// Assign the cell editors to the viewer
-		viewer.setCellEditors(editors);
-		//viewer.setCellModifier(cellModifier);
+		viewer.setCellModifier(new SensorsCellModifier());
 		viewer
 				.addSelectionChangedListener(new ISelectionChangedListener() {
 					@Override
@@ -102,24 +102,36 @@ public class SensorsPropertySection extends AbstractPropertySection {
 						
 					}
 				});
-
-		
+		editors[SENSORS_COLUMN_INDEX] = new DialogCellEditor(table){
+			
+			@Override
+			protected Object openDialogBox(Control cellEditorWindow) {
+				ChoiceRunDialog dialog = new ChoiceRunDialog(cellEditorWindow.getShell());
+				dialog.open();
+				
+				return dialog.getResult();
+			}
+		};
+		// Assign the cell editors to the viewer
+		viewer.setCellEditors(editors);
+			
 		// Definere the table columns
 		final TableColumn zeroColumn = new TableColumn(table, SWT.NONE);
 		zeroColumn.setResizable(false);
 		zeroColumn.setWidth(30);
 
+		final TableColumn contextColumn = new TableColumn(table, SWT.NONE);
+		contextColumn.setWidth(100);
+		contextColumn.setText(CONTEXT_COLUMN);
+		
 		final TableColumn runColumn = new TableColumn(table, SWT.NONE);
-		runColumn.setWidth(100);
+		runColumn.setWidth(140);
 		runColumn.setText(RUN_COLUMN);
 
 		final TableColumn sensorsColumn = new TableColumn(table, SWT.NONE);
 		sensorsColumn.setWidth(200);
 		sensorsColumn.setText(SENSORS_COLUMN);
 
-		ReportCongiguration rconfig = new ReportCongiguration();
-		// Set input fot TableViewer
-		viewer.setInput(rconfig);
 
 		ToolBar toolBar;
 		toolBar = new ToolBar(composite, SWT.VERTICAL | SWT.FLAT | SWT.RIGHT);
@@ -134,7 +146,7 @@ public class SensorsPropertySection extends AbstractPropertySection {
 		ToolItem addRunItem = new ToolItem(toolBar, SWT.PUSH);
 		addRunItem.setImage(SimuImages.imageRegistry
 				.get(SimuImages.RUN));
-		addRunItem.addSelectionListener(new AddRunEntryActionListener(rconfig));
+		addRunItem.addSelectionListener(new AddRunEntryActionListener(rconfig,viewer));
 
 		ToolItem deleteRunItem = new ToolItem(toolBar, SWT.PUSH);
 		deleteRunItem.setImage( SimuImages.imageRegistry
@@ -165,8 +177,15 @@ public class SensorsPropertySection extends AbstractPropertySection {
 	 */
 	@Override
 	public void setInput(IWorkbenchPart part, ISelection selection) {
-		// TODO Auto-generated method stub
 		super.setInput(part, selection);
+		Assert.isTrue(selection instanceof IStructuredSelection);
+		Object input = ((IStructuredSelection) selection).getFirstElement();
+		
+		ExperimentRun run = new ExperimentRunImpl() ;
+		run.setExperimentRunID(1122221);
+		run.setExperimentDateTime("2007.03.23 12:00");
+		rconfig.addNewEntry(run);
+		viewer.setInput(rconfig);
 	}
 
 	/**
