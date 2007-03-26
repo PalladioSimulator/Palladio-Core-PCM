@@ -8,8 +8,7 @@ import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 
 import de.uka.ipd.sdq.codegen.simudatavisualization.birt.*;
-import de.uka.ipd.sdq.sensorfactory.entities.ExperimentRun;
-import de.uka.ipd.sdq.sensorfactory.entities.impl.ExperimentRunImpl;
+import de.uka.ipd.sdq.codegen.simudatavisualization.dialogs.ExperimentRunsDialog;
 
 /**
  * @author admin
@@ -19,7 +18,7 @@ public class AddRunEntryActionListener extends SelectionAdapter {
 
 	private ReportCongiguration congiguration;
 	private TableViewer viewer;
-
+	
 	/**
 	 * @param congiguration
 	 */
@@ -37,7 +36,7 @@ public class AddRunEntryActionListener extends SelectionAdapter {
 	@Override
 	public void widgetSelected(SelectionEvent e) {
 
-		ChoiceRunDialog dialog = new ChoiceRunDialog(e.display.getActiveShell());
+		ExperimentRunsDialog dialog = new ExperimentRunsDialog(e.display.getActiveShell());
 		if (dialog.open() == dialog.OK && dialog.getResult() != null){
 				congiguration.addNewEntry(dialog.getResult());
 				viewer.refresh();

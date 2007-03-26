@@ -1,4 +1,4 @@
-package de.uka.ipd.sdq.codegen.simudatavisualization.tabs;
+package de.uka.ipd.sdq.codegen.simudatavisualization.dialogs;
 
 import java.util.ArrayList;
 
@@ -24,7 +24,7 @@ import org.eclipse.swt.widgets.Tree;
 import de.uka.ipd.sdq.codegen.simudatavisualization.views.TreeViewLabelProvider;
 import de.uka.ipd.sdq.sensorfactory.entities.ExperimentRun;
 
-public class ChoiceRunDialog extends TitleAreaDialog {
+public class ExperimentRunsDialog extends TitleAreaDialog {
 
 	private ExperimentRun selectedRun = null;
 
@@ -35,7 +35,7 @@ public class ChoiceRunDialog extends TitleAreaDialog {
 	 * 
 	 * @param parentShell
 	 */
-	public ChoiceRunDialog(Shell parentShell) {
+	public ExperimentRunsDialog(Shell parentShell) {
 		super(parentShell);
 	}
 
@@ -60,7 +60,7 @@ public class ChoiceRunDialog extends TitleAreaDialog {
 		fd_tree.left = new FormAttachment(0, 5);
 		tree.setLayoutData(fd_tree);
 
-		viewer.setContentProvider(new ChoiceRunDialogContentProvider());
+		viewer.setContentProvider(new ExperimentRunsDialogContentProvider());
 		viewer.setLabelProvider(new TreeViewLabelProvider());
 		viewer.setInput(new ArrayList());
 		viewer.addSelectionChangedListener(new ISelectionChangedListener() {

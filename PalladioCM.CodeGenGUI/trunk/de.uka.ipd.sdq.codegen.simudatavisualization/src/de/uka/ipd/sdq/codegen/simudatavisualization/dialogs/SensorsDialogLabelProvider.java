@@ -1,9 +1,7 @@
 /**
  * 
  */
-package de.uka.ipd.sdq.codegen.simudatavisualization.tabs;
-
-import java.util.List;
+package de.uka.ipd.sdq.codegen.simudatavisualization.dialogs;
 
 import org.eclipse.jface.viewers.ILabelProviderListener;
 import org.eclipse.jface.viewers.ITableLabelProvider;
@@ -17,16 +15,26 @@ import de.uka.ipd.sdq.sensorfactory.entities.Sensor;
  * @author admin
  *
  */
-public class SensorsTabLabelProvider implements ITableLabelProvider {
+public class SensorsDialogLabelProvider implements ITableLabelProvider {
 	
+	
+	private RunEntry entry ;
+
+	/**
+	 * @param entry
+	 */
+	public SensorsDialogLabelProvider(RunEntry entry) {
+		this.entry = entry;
+	}
+
 	/* (non-Javadoc)
 	 * @see org.eclipse.jface.viewers.ITableLabelProvider#getColumnImage(java.lang.Object, int)
 	 */
 	@Override
 	public Image getColumnImage(Object element, int columnIndex) {
-		if (columnIndex == SensorsPropertySection.ICON_COLUMN_INDEX)
-			return SimuImages.imageRegistry.get(SimuImages.RUN);
-		return null;
+		return (columnIndex == 0) ?   // COMPLETED_COLUMN?
+				getImage(entry.isSensorChecked((Sensor) element)) :
+				null;
 	}
 
 	/* (non-Javadoc)
@@ -34,47 +42,33 @@ public class SensorsTabLabelProvider implements ITableLabelProvider {
 	 */
 	@Override
 	public String getColumnText(Object element, int columnIndex) {
-			String result = "";
-		
-			RunEntry entry = (RunEntry) element;
-
-			switch (columnIndex) {
-			case SensorsPropertySection.ICON_COLUMN_INDEX:
-				break;
-			case SensorsPropertySection.CONTEXT_COLUMN_INDEX:
-				result = entry.getExperimentRun().getClass().getSimpleName();
-				break;
-			case SensorsPropertySection.RUN_COLUMN_INDEX:
-				result = entry.getExperimentRun().getExperimentDateTime();
-				break;
-			case SensorsPropertySection.SENSORS_COLUMN_INDEX:
-				result = setSenssorsArrayToString(entry);
-				break;
-			default:
-				break;
-			}
-			return result;
-	}
-
-	
-	private String setSenssorsArrayToString(RunEntry entry){
 		String result = "";
-		List<Sensor> sensors= entry.getSensors();
 		
-		for(Sensor s: sensors){
-			result = result + s.getSensorName() + ", ";
-		}
-		return deleteComma(result);
-	}
-	
-	/**
-	 * Comma of the sentence deletes ends
-	 */
-	public String deleteComma(String result) {
-		if (!result.equals("")) {
-			result = result.substring(0, result.length() - 2);
+		Sensor sensor = (Sensor) element;
+
+		switch (columnIndex) {
+		case SensorsDialog.CHECK_COLUMN_INDEX:
+			break;
+		case SensorsDialog.SENSOR_ID_INDEX:
+			// TODO
+			result = "" + sensor.getSensorID();
+			break;
+		case SensorsDialog.SENSOR_NAME_COLUMN_INDEX:
+			result = sensor.getSensorName();
+			break;
+		default:
+			break;
 		}
 		return result;
+	}
+
+	
+	/**
+	 * Returns the image with the given key, or <code>null</code> if not found.
+	 */
+	private Image getImage(boolean isSelected) {
+		String key = isSelected ? SimuImages.CHECKED_IMAGE : SimuImages.UNCHECKED_IMAGE;
+		return  SimuImages.imageRegistry.get(key);
 	}
 	
 	/* (non-Javadoc)

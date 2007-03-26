@@ -1,28 +1,39 @@
 /**
  * 
  */
-package de.uka.ipd.sdq.codegen.simudatavisualization.tabs;
+package de.uka.ipd.sdq.codegen.simudatavisualization.dialogs;
+
+import java.util.ArrayList;
+import java.util.Collection;
 
 import org.eclipse.jface.viewers.IStructuredContentProvider;
 import org.eclipse.jface.viewers.Viewer;
 
-import de.uka.ipd.sdq.codegen.simudatavisualization.birt.ReportCongiguration;
+import de.uka.ipd.sdq.sensorfactory.entities.Experiment;
+import de.uka.ipd.sdq.sensorfactory.entities.Sensor;
+import de.uka.ipd.sdq.sensorfactory.entities.impl.ExperimentDAO;
 
 /**
  * @author admin
  *
  */
-public class SensorsTabContentProvider implements IStructuredContentProvider {
+public class SensorsDialogContentProvider implements IStructuredContentProvider {
 
+	Collection<Experiment> experiments;
+	Collection<Sensor> sensors;
 	/* (non-Javadoc)
 	 * @see org.eclipse.jface.viewers.IStructuredContentProvider#getElements(java.lang.Object)
 	 */
 	@Override
 	public Object[] getElements(Object inputElement) {
-		// TODO Auto-generated method stub
-		if (inputElement instanceof ReportCongiguration) {
-			ReportCongiguration configuration = (ReportCongiguration) inputElement;
-			return configuration.getRunEntrys().toArray();
+		if (inputElement instanceof ExperimentDAO) {
+			ExperimentDAO dao = (ExperimentDAO) inputElement;
+			experiments = dao.getExperiments();
+			sensors = new ArrayList<Sensor>();
+			for (Experiment e : experiments){
+				sensors.addAll(e.getSensors());
+			}
+			return sensors.toArray();
 		}
 		return null;
 	}
@@ -37,16 +48,11 @@ public class SensorsTabContentProvider implements IStructuredContentProvider {
 	}
 
 	/* (non-Javadoc)
-	 * TODO Delete --> Geht nicht!!!
 	 * @see org.eclipse.jface.viewers.IContentProvider#inputChanged(org.eclipse.jface.viewers.Viewer, java.lang.Object, java.lang.Object)
 	 */
 	@Override
 	public void inputChanged(Viewer viewer, Object oldInput, Object newInput) {
-		if (newInput != null)
-            ((ReportCongiguration) newInput).addChangeListener(this);
-        if (oldInput != null)
-            ((ReportCongiguration) oldInput).removeChangeListener(this);
-
+		// TODO Auto-generated method stub
 
 	}
 

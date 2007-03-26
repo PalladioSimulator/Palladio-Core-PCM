@@ -3,6 +3,7 @@ package de.uka.ipd.sdq.codegen.simudatavisualization;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.resource.ImageRegistry;
 
+
 public class SimuImages {
 
 	public static final String RUN = "run_obj";
@@ -10,6 +11,10 @@ public class SimuImages {
 	public static final String EXPERIMENT = "experiment_obj";
 	public static final String SENSORS = "sensors_category";
 	public static final String TREEROOT = "tree_root";
+	
+	// Names of images used to represent checkboxes
+	public static final String CHECKED_IMAGE 	= "checked";
+	public static final String UNCHECKED_IMAGE  = "unchecked";
 
 	// For the toolbar images
 	public static ImageRegistry imageRegistry = new ImageRegistry();
@@ -38,6 +43,12 @@ public class SimuImages {
 		imageRegistry.put(TREEROOT,
 				 getImageDescriptor(iconPath + TREEROOT + ".gif")
 				);
+		imageRegistry.put(CHECKED_IMAGE,
+				getImageDescriptor(iconPath + CHECKED_IMAGE + ".gif")
+			);
+		imageRegistry.put(UNCHECKED_IMAGE,
+				getImageDescriptor(iconPath + UNCHECKED_IMAGE + ".gif")
+			);
 	}
 	
 	/**

@@ -1,7 +1,7 @@
 /**
  * 
  */
-package de.uka.ipd.sdq.codegen.simudatavisualization.tabs;
+package de.uka.ipd.sdq.codegen.simudatavisualization.dialogs;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,7 +17,7 @@ import de.uka.ipd.sdq.sensorfactory.entities.impl.ExperimentDAO;
  * @author admin
  *
  */
-public class ChoiceRunDialogContentProvider implements ITreeContentProvider {
+public class ExperimentRunsDialogContentProvider implements ITreeContentProvider {
 	
 	private List<ExperimentDAO> root;
 
