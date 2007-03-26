@@ -22,12 +22,13 @@ Copyright 2007, SDQ, IPD
 
    <splash
       location="de.uka.ipd.sdq.pcmbench"
-      startupProgressRect="0,10,400,20"
-      startupMessageRect="0,0,450,10"
+      startupProgressRect="240,140,180,10"
+      startupMessageRect="240,155,180,20"
       startupForegroundColor="0000FF" />
-   <launcher>
+   <launcher name="pcmbench.exe">
       <solaris/>
       <win useIco="false">
+         <ico path="/de.uka.ipd.sdq.pcmbench/icons/lupe_32.ico"/>
          <bmp/>
       </win>
    </launcher>
@@ -52,6 +53,7 @@ Copyright 2007, SDQ, IPD
       <plugin id="de.uka.ipd.sdq.stoex.edit"/>
       <plugin id="net.sourceforge.lpg.lpgjavaruntime"/>
       <plugin id="org.antlr"/>
+      <plugin id="org.apache.ant"/>
       <plugin id="org.apache.batik"/>
       <plugin id="org.apache.lucene"/>
       <plugin id="org.apache.xerces"/>
@@ -131,6 +133,8 @@ Copyright 2007, SDQ, IPD
       <plugin id="org.eclipse.help"/>
       <plugin id="org.eclipse.help.appserver"/>
       <plugin id="org.eclipse.help.base"/>
+      <plugin id="org.eclipse.help.ui"/>
+      <plugin id="org.eclipse.help.webapp"/>
       <plugin id="org.eclipse.jdt.core"/>
       <plugin id="org.eclipse.jdt.core.manipulation"/>
       <plugin id="org.eclipse.jdt.debug"/>
@@ -152,6 +156,7 @@ Copyright 2007, SDQ, IPD
       <plugin id="org.eclipse.team.core"/>
       <plugin id="org.eclipse.team.ui"/>
       <plugin id="org.eclipse.text"/>
+      <plugin id="org.eclipse.tomcat"/>
       <plugin id="org.eclipse.ui"/>
       <plugin id="org.eclipse.ui.console"/>
       <plugin id="org.eclipse.ui.editors"/>

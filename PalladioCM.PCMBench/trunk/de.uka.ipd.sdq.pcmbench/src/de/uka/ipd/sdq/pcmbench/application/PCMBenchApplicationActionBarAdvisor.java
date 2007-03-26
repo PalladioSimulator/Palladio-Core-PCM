@@ -43,12 +43,12 @@ public class PCMBenchApplicationActionBarAdvisor extends ActionBarAdvisor {
 	 * @generated
 	 */
 	protected IMenuManager createFileMenu(IWorkbenchWindow window) {
-		IMenuManager menu = new MenuManager(getString("_UI_Menu_File_label"),
+		IMenuManager menu = new MenuManager("&File",
 		IWorkbenchActionConstants.M_FILE);    
 		menu.add(new GroupMarker(IWorkbenchActionConstants.FILE_START));
 		addToMenuAndRegister(menu, ActionFactory.NEW.create(window));
 
-		IMenuManager newMenu = new MenuManager(getString("_UI_Menu_New_label"), "new"); 
+		IMenuManager newMenu = new MenuManager("&New", "new"); 
 		newMenu.add(new GroupMarker(IWorkbenchActionConstants.MB_ADDITIONS));
 
 		menu.add(newMenu);
@@ -74,7 +74,7 @@ public class PCMBenchApplicationActionBarAdvisor extends ActionBarAdvisor {
 	 * @generated
 	 */
 	protected IMenuManager createEditMenu(IWorkbenchWindow window) {
-		IMenuManager menu = new MenuManager(getString("_UI_Menu_Edit_label"),
+		IMenuManager menu = new MenuManager("&Edit",
 		IWorkbenchActionConstants.M_EDIT);
 		menu.add(new GroupMarker(IWorkbenchActionConstants.EDIT_START));
 
@@ -107,11 +107,15 @@ public class PCMBenchApplicationActionBarAdvisor extends ActionBarAdvisor {
 	 * @generated
 	 */
 	protected IMenuManager createWindowMenu(IWorkbenchWindow window) {
-		IMenuManager menu = new MenuManager(getString("_UI_Menu_Window_label"),
+		IMenuManager menu = new MenuManager("&Window",
 		IWorkbenchActionConstants.M_WINDOW);
 
 		addToMenuAndRegister(menu, ActionFactory.OPEN_NEW_WINDOW.create(window));
 		addToMenuAndRegister(menu, ActionFactory.SHOW_VIEW_MENU.create(window));
+		
+		IMenuManager subMenu = new MenuManager("Open &View");
+		subMenu.add(ContributionItemFactory.VIEWS_SHORTLIST.create(window));
+		menu.add(subMenu);
 		addToMenuAndRegister(menu, ActionFactory.RESET_PERSPECTIVE.create(window));
 		menu.add(new GroupMarker(IWorkbenchActionConstants.MB_ADDITIONS));
 		menu.add(ContributionItemFactory.OPEN_WINDOWS.create(window));
@@ -126,7 +130,7 @@ public class PCMBenchApplicationActionBarAdvisor extends ActionBarAdvisor {
 	 * @generated
 	 */
 	protected IMenuManager createHelpMenu(IWorkbenchWindow window) {
-		IMenuManager menu = new MenuManager(getString("_UI_Menu_Help_label"), IWorkbenchActionConstants.M_HELP);
+		IMenuManager menu = new MenuManager("&Help", IWorkbenchActionConstants.M_HELP);
 		// Welcome or intro page would go here
 		// Help contents would go here
 		// Tips and tricks page would go here
@@ -150,9 +154,4 @@ public class PCMBenchApplicationActionBarAdvisor extends ActionBarAdvisor {
 		menuManager.add(action);
 		getActionBarConfigurer().registerGlobalAction(action);
 	}
-
-	private static String getString(String key) {
-		return key;
-	}
-	
 }

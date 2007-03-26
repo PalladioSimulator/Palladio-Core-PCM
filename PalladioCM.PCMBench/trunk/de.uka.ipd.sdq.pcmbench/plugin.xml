@@ -5,6 +5,13 @@
    <extension
          point="org.eclipse.ui.perspectives">
       <perspective
+            class="de.uka.ipd.sdq.pcmbench.perspective.PCMBenchPerspective"
+            fixed="false"
+            icon="icons/palladio-logo.gif"
+            id="de.uka.ipd.sdq.PCMBench.perspective"
+            name="PCMBench">
+      </perspective>
+      <perspective
             class="de.uka.ipd.sdq.pcmbench.perspectives.ComponentDeveloperPerspective"
             icon="icons/brick.png"
             id="de.uka.ipd.sdq.pcmbench.componentdeveloper_perspective"
@@ -54,17 +61,18 @@
                name="aboutText"
                value="This ist the Palladio Component Model Modelling Bench.&#x0A;&#x0A;Wrtitten by the members of the chair of Software Design and Quality, IPD, University of Karlsruhe&#x0A;&#x0A;Copyright 2007, SDQ, IPD">
          </property>
+         <property name="preferenceCustomization" value="plugin_customization.ini"/>
          <property
                name="startupForegroundColor"
                value="0000FF">
          </property>
          <property
                name="startupMessageRect"
-               value="0,0,450,10">
+               value="240,155,180,20">
          </property>
          <property
                name="startupProgressRect"
-               value="0,10,400,20">
+               value="240,140,180,10">
          </property>
       </product>
    </extension>
@@ -243,6 +251,18 @@
             id="de.uka.ipd.sdq.pcmbench.palladio_category"
             name="Palladio Projects">
       </category>
+      <wizard
+            category="de.uka.ipd.sdq.pcmbench.palladio_category"
+            class="de.uka.ipd.sdq.pcmbench.wizards.NewPalladioProjectWizard"
+            descriptionImage="icons/palladio-logo.gif"
+            finalPerspective="de.uka.ipd.sdq.PCMBench.perspective"
+            icon="icons/palladio-logo.gif"
+            id="de.uka.ipd.sdq.pcmbench.newProjectWizard"
+            name="New Palladio Project Wizard"
+            preferredPerspectives="de.uka.ipd.sdq.PCMBench.perspective"
+            project="true">
+         <description>This wizard creates a new Palladio Modelling Project for CBSE based Quality of Service evaluations.</description>
+      </wizard>
       <wizard
             category="de.uka.ipd.sdq.pcmbench.palladio_category"
             class="de.uka.ipd.sdq.pcmbench.wizards.RepositoryProjectWizard"
