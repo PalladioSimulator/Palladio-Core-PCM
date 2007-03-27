@@ -23,12 +23,15 @@ import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.swt.widgets.ToolBar;
 import org.eclipse.swt.widgets.ToolItem;
+import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IWorkbenchPart;
+import org.eclipse.ui.part.EditorPart;
 import org.eclipse.ui.part.ResourceTransfer;
 import org.eclipse.ui.views.properties.tabbed.AbstractPropertySection;
 import org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage;
 
 import de.uka.ipd.sdq.codegen.simudatavisualization.SimuImages;
+import de.uka.ipd.sdq.codegen.simudatavisualization.SimuPlugin;
 import de.uka.ipd.sdq.codegen.simudatavisualization.birt.ReportCongiguration;
 import de.uka.ipd.sdq.codegen.simudatavisualization.birt.RunEntry;
 import de.uka.ipd.sdq.codegen.simudatavisualization.dialogs.SensorsDialog;
@@ -68,6 +71,7 @@ public class SensorsPropertySection extends AbstractPropertySection {
 			| SWT.FULL_SELECTION | SWT.HIDE_SELECTION;
 
 	int ops = DND.DROP_COPY | DND.DROP_MOVE;
+
 	/*
 	 * (non-Javadoc)
 	 * 
@@ -79,7 +83,6 @@ public class SensorsPropertySection extends AbstractPropertySection {
 			TabbedPropertySheetPage aTabbedPropertySheetPage) {
 		// TODO Auto-generated method stub
 		super.createControls(parent, aTabbedPropertySheetPage);
-		
 
 		Composite composite = getWidgetFactory()
 				.createFlatFormComposite(parent);
@@ -128,10 +131,11 @@ public class SensorsPropertySection extends AbstractPropertySection {
 		};
 		// Assign the cell editors to the viewer
 		viewer.setCellEditors(editors);
-		
+
 		// add Drop support
-		Transfer[] transfers = new Transfer[] { ResourceTransfer.getInstance()};
-		viewer.addDropSupport(ops, transfers, new TableDropTargetListener(viewer));
+		Transfer[] transfers = new Transfer[] { ResourceTransfer.getInstance() };
+		viewer.addDropSupport(ops, transfers, new TableDropTargetListener(
+				viewer));
 
 		// Definere the table columns
 		final TableColumn zeroColumn = new TableColumn(table, SWT.NONE);
@@ -162,8 +166,7 @@ public class SensorsPropertySection extends AbstractPropertySection {
 
 		ToolItem addRunItem = new ToolItem(toolBar, SWT.PUSH);
 		addRunItem.setImage(SimuImages.imageRegistry.get(SimuImages.RUN));
-		addRunItem.addSelectionListener(new AddRunEntryActionListener(
-				this));
+		addRunItem.addSelectionListener(new AddRunEntryActionListener(this));
 
 		ToolItem deleteRunItem = new ToolItem(toolBar, SWT.PUSH);
 		deleteRunItem.setImage(SimuImages.imageRegistry.get(SimuImages.RUN));
@@ -203,11 +206,11 @@ public class SensorsPropertySection extends AbstractPropertySection {
 		super.setInput(part, selection);
 		Assert.isTrue(selection instanceof IStructuredSelection);
 		Object input = ((IStructuredSelection) selection).getFirstElement();
-		
-		if (input instanceof ReportEditor){
-			configObject = ((ReportEditor) input).getConfigObject();
-			viewer.setInput(configObject);
-		}
+
+		EditorPart editor = (EditorPart) SimuPlugin.getDefault().getWorkbench()
+				.getActiveWorkbenchWindow().getActivePage().getActiveEditor();
+		configObject = ((ReportEditor) editor).getConfigObject();
+		viewer.setInput(configObject);
 	}
 
 	/**

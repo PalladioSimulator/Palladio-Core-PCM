@@ -61,7 +61,7 @@ public class CreateNewChartAction implements IWorkbenchWindowActionDelegate {
 				.getActiveWorkbenchWindow().getActivePage();
 
 		try {
-			IEditorPart openEditor = page.openEditor(new MyEditorInput(), ReportEditor.EDITOR_ID);
+			IEditorPart openEditor = page.openEditor(new NullEditorInput(), ReportEditor.EDITOR_ID);
 		} catch (PartInitException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

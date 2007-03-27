@@ -1,20 +1,14 @@
 package de.uka.ipd.sdq.codegen.simudatavisualization;
 
-import java.util.ArrayList;
-
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
-
-import de.uka.ipd.sdq.codegen.simudatavisualization.birt.ReportCongiguration;
 
 /**
  * The activator class controls the plug-in life cycle
  */
 public class SimuPlugin extends AbstractUIPlugin {
 	
-	private ArrayList<ReportCongiguration> configObjects;
-
 	// The plug-in ID
 	public static final String PLUGIN_ID = "de.uka.ipd.sdq.codegen.simudatavisualization";
 
@@ -34,8 +28,6 @@ public class SimuPlugin extends AbstractUIPlugin {
 	 */
 	public void start(BundleContext context) throws Exception {
 		super.start(context);
-		
-		configObjects = new ArrayList<ReportCongiguration>();
 	}
 
 	/*
@@ -65,9 +57,5 @@ public class SimuPlugin extends AbstractUIPlugin {
 	 */
 	public static ImageDescriptor getImageDescriptor(String path) {
 		return imageDescriptorFromPlugin(PLUGIN_ID, path);
-	}
-
-	public ArrayList<ReportCongiguration> getConfigObjects() {
-		return configObjects;
 	}
 }

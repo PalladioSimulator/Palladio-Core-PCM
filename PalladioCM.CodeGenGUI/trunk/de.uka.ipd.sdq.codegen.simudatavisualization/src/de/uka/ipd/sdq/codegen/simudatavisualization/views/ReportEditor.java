@@ -20,7 +20,6 @@ import org.eclipse.ui.views.properties.IPropertySheetPage;
 import org.eclipse.ui.views.properties.tabbed.ITabbedPropertySheetPageContributor;
 import org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage;
 
-import de.uka.ipd.sdq.codegen.simudatavisualization.SimuPlugin;
 import de.uka.ipd.sdq.codegen.simudatavisualization.birt.ReportCongiguration;
 
 public class ReportEditor extends EditorPart implements ITabbedPropertySheetPageContributor{
@@ -48,7 +47,6 @@ public class ReportEditor extends EditorPart implements ITabbedPropertySheetPage
     	 
     	 // Create configuratio object
     	 configObject = new ReportCongiguration();
-    	 SimuPlugin.getDefault().getConfigObjects().add(configObject);
 	}
 
 	@Override
