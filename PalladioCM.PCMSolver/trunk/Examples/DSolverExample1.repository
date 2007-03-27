@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pcm.repository:Repository xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pcm.repository="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/1.0" xmlns:pcm.seff="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0" xmlns:stoex="http://sdq.ipd.uka.de/StochasticExpressions/1.0" id="_4tVDbH6xEdud8MGZ5QaR_Q" entityName="DSolver1Repository">
+  <components__Repository xsi:type="pcm.repository:BasicComponent" id="_empqNDQaEduaPaOP6VcQiw" entityName="FirstComponent">
+    <providedRoles_InterfaceProvidingEntity id="_2rc3kHckEdugqbdw26ZvAA" entityName="" providedInterface__ProvidedRole="_iu2OpTQaEduaPaOP6VcQiw"/>
+    <requiredRoles_InterfaceRequiringEntity id="_8P4wgXckEdugqbdw26ZvAA" requiredInterface__RequiredRole="_pIeqNDQaEduaPaOP6VcQiw"/>
+    <serviceEffectSpecifications__BasicComponent xsi:type="pcm.seff:ResourceDemandingSEFF" id="_BE2g9J_NEdu_M9mS7O-9Ug" seffTypeID="0" describedService__SEFF="//@interfaces__Repository.0/@signatures__Interface.0">
+      <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_ZlavgTQbEduaPaOP6VcQiw" entityName="Starting" successor_AbstractAction="_Z92dpDQbEduaPaOP6VcQiw"/>
+      <steps_Behaviour xsi:type="pcm.seff:InternalAction" id="_Z92dpDQbEduaPaOP6VcQiw" entityName="Doing" predecessor_AbstractAction="_ZlavgTQbEduaPaOP6VcQiw" successor_AbstractAction="_a5KPVzQbEduaPaOP6VcQiw" failureProbability="0">
+        <resourceDemand_Action specification="DoublePDF(unit=&quot;s&quot;)[ (500.0; 0.1) (1000.0; 0.2) (2000.0; 0.7) ] * 2" unit="CPU cycles">
+          <requiredResource_ParametricResourceDemand href="DSolverExample1.resourcetype#_YPBH0TQcEduaPaOP6VcQiw"/>
+        </resourceDemand_Action>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="pcm.seff:BranchAction" id="_a5KPVzQbEduaPaOP6VcQiw" entityName="Branching" predecessor_AbstractAction="_Z92dpDQbEduaPaOP6VcQiw" successor_AbstractAction="_dy1LIDQbEduaPaOP6VcQiw">
+        <branches_Branch xsi:type="pcm.seff:GuardedBranchTransition" id="_L0a-FoRaEduMitCaSna7dg">
+          <branchBehaviour_BranchTransition>
+            <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_kQ73ATQbEduaPaOP6VcQiw" entityName="Starting" successor_AbstractAction="_lwvc5jQbEduaPaOP6VcQiw"/>
+            <steps_Behaviour xsi:type="pcm.seff:ExternalCallAction" id="_lwvc5jQbEduaPaOP6VcQiw" entityName="ExternalCalling" predecessor_AbstractAction="_kQ73ATQbEduaPaOP6VcQiw" successor_AbstractAction="_mIlVIDQbEduaPaOP6VcQiw" calledService_ExternalService="//@interfaces__Repository.1/@signatures__Interface.0">
+              <parameterUsage_ExternalCallAction>
+                <variableCharacterisation_VariableUsage specification="IntPMF(unit=&quot;bytes&quot;)[ (5000; 0.4) (6000; 0.6) ]" type="BYTESIZE"/>
+                <namedReference_VariableUsage xsi:type="stoex:NamespaceReference" referenceName="someCollection">
+                  <innerReference_NamespaceReference xsi:type="stoex:VariableReference" referenceName="INNER"/>
+                </namedReference_VariableUsage>
+              </parameterUsage_ExternalCallAction>
+              <parameterUsage_ExternalCallAction>
+                <variableCharacterisation_VariableUsage specification="2" type="NUMBER_OF_ELEMENTS"/>
+                <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="someCollection"/>
+              </parameterUsage_ExternalCallAction>
+            </steps_Behaviour>
+            <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_mIlVIDQbEduaPaOP6VcQiw" entityName="Stopping" predecessor_AbstractAction="_lwvc5jQbEduaPaOP6VcQiw"/>
+          </branchBehaviour_BranchTransition>
+          <branchCondition_BranchTransition specification="number.VALUE * 2 &lt; 20"/>
+        </branches_Branch>
+        <branches_Branch xsi:type="pcm.seff:GuardedBranchTransition" id="_L0kvE4RaEduMitCaSna7dg">
+          <branchBehaviour_BranchTransition>
+            <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_unm7EYbJEduhNZxH-JdYJA" successor_AbstractAction="_hlJKV4bJEduhNZxH-JdYJA"/>
+            <steps_Behaviour xsi:type="pcm.seff:BranchAction" id="_hlJKV4bJEduhNZxH-JdYJA" entityName="Branch" predecessor_AbstractAction="_unm7EYbJEduhNZxH-JdYJA" successor_AbstractAction="_2Bl1MDQbEduaPaOP6VcQiw">
+              <branches_Branch xsi:type="pcm.seff:GuardedBranchTransition" id="_s_TggIbJEduhNZxH-JdYJA">
+                <branchBehaviour_BranchTransition>
+                  <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_1n0DQTQbEduaPaOP6VcQiw" entityName="Starting" successor_AbstractAction="_AF8aMIbKEduhNZxH-JdYJA"/>
+                  <steps_Behaviour xsi:type="pcm.seff:InternalAction" id="_AF8aMIbKEduhNZxH-JdYJA" predecessor_AbstractAction="_1n0DQTQbEduaPaOP6VcQiw" successor_AbstractAction="_BRV2UIbKEduhNZxH-JdYJA">
+                    <resourceDemand_Action specification="DoublePDF(unit=&quot;s&quot;)[ (700.0; 0.3) (1200.0; 0.1) (1500.0; 0.6) ]" unit="CPU cycles">
+                      <requiredResource_ParametricResourceDemand href="DSolverExample1.resourcetype#_YPBH0TQcEduaPaOP6VcQiw"/>
+                    </resourceDemand_Action>
+                  </steps_Behaviour>
+                  <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_BRV2UIbKEduhNZxH-JdYJA" predecessor_AbstractAction="_AF8aMIbKEduhNZxH-JdYJA"/>
+                </branchBehaviour_BranchTransition>
+                <branchCondition_BranchTransition specification="number.VALUE * 2 >= 30"/>
+              </branches_Branch>
+              <branches_Branch xsi:type="pcm.seff:GuardedBranchTransition" id="_tW12wIbJEduhNZxH-JdYJA">
+                <branchBehaviour_BranchTransition>
+                  <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_diWN0YbKEduhNZxH-JdYJA" successor_AbstractAction="_eFW0RIbKEduhNZxH-JdYJA"/>
+                  <steps_Behaviour xsi:type="pcm.seff:InternalAction" id="_eFW0RIbKEduhNZxH-JdYJA" predecessor_AbstractAction="_diWN0YbKEduhNZxH-JdYJA" successor_AbstractAction="_ekp_YIbKEduhNZxH-JdYJA" failureProbability="">
+                    <resourceDemand_Action specification="DoublePDF(unit=&quot;s&quot;)[ (200.0; 0.9) (400.0; 0.05) (600.0; 0.05) ]" unit="CPU cycles">
+                      <requiredResource_ParametricResourceDemand href="DSolverExample1.resourcetype#_YPBH0TQcEduaPaOP6VcQiw"/>
+                    </resourceDemand_Action>
+                  </steps_Behaviour>
+                  <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_ekp_YIbKEduhNZxH-JdYJA" predecessor_AbstractAction="_eFW0RIbKEduhNZxH-JdYJA"/>
+                </branchBehaviour_BranchTransition>
+                <branchCondition_BranchTransition specification="number.VALUE * 2 &lt; 30"/>
+              </branches_Branch>
+            </steps_Behaviour>
+            <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_2Bl1MDQbEduaPaOP6VcQiw" entityName="Stopping" predecessor_AbstractAction="_hlJKV4bJEduhNZxH-JdYJA"/>
+          </branchBehaviour_BranchTransition>
+          <branchCondition_BranchTransition specification="number.VALUE * 2 >= 20"/>
+        </branches_Branch>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_dy1LIDQbEduaPaOP6VcQiw" entityName="Stopping" predecessor_AbstractAction="_a5KPVzQbEduaPaOP6VcQiw"/>
+    </serviceEffectSpecifications__BasicComponent>
+  </components__Repository>
+  <components__Repository xsi:type="pcm.repository:BasicComponent" id="_hj5edDQaEduaPaOP6VcQiw" entityName="SecondComponent">
+    <providedRoles_InterfaceProvidingEntity id="_6nku4HckEdugqbdw26ZvAA" providedInterface__ProvidedRole="_pIeqNDQaEduaPaOP6VcQiw"/>
+    <serviceEffectSpecifications__BasicComponent xsi:type="pcm.seff:ResourceDemandingSEFF" id="_BFmH1p_NEdu_M9mS7O-9Ug" seffTypeID="1" describedService__SEFF="//@interfaces__Repository.1/@signatures__Interface.0">
+      <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_BH_P8TQeEduaPaOP6VcQiw" entityName="Starting" successor_AbstractAction="_CRToczQeEduaPaOP6VcQiw"/>
+      <steps_Behaviour xsi:type="pcm.seff:LoopAction" id="_CRToczQeEduaPaOP6VcQiw" entityName="Looping" predecessor_AbstractAction="_BH_P8TQeEduaPaOP6VcQiw" successor_AbstractAction="_6ilhuYIbEduSjvx9OYljwQ">
+        <bodyBehaviour_Loop>
+          <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_DG83ATQeEduaPaOP6VcQiw" entityName="Starting" successor_AbstractAction="_DZ3zBDQeEduaPaOP6VcQiw"/>
+          <steps_Behaviour xsi:type="pcm.seff:InternalAction" id="_DZ3zBDQeEduaPaOP6VcQiw" entityName="Doing" predecessor_AbstractAction="_DG83ATQeEduaPaOP6VcQiw" successor_AbstractAction="_D4awMDQeEduaPaOP6VcQiw" failureProbability="0">
+            <resourceDemand_Action specification="DoublePDF(unit=&quot;s&quot;)[ (2000.0; 0.5) (2200.0; 0.3) (2400.0; 0.2) ]" unit="CPU cycles">
+              <requiredResource_ParametricResourceDemand href="DSolverExample1.resourcetype#_YPBH0TQcEduaPaOP6VcQiw"/>
+            </resourceDemand_Action>
+          </steps_Behaviour>
+          <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_D4awMDQeEduaPaOP6VcQiw" entityName="Stopping" predecessor_AbstractAction="_DZ3zBDQeEduaPaOP6VcQiw"/>
+        </bodyBehaviour_Loop>
+        <iterations_LoopAction specification="1000"/>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="pcm.seff:CollectionIteratorAction" id="_6ilhuYIbEduSjvx9OYljwQ" entityName="CollectionIteration" predecessor_AbstractAction="_CRToczQeEduaPaOP6VcQiw" successor_AbstractAction="_EqV8YDQeEduaPaOP6VcQiw" parameter_CollectionIteratorAction="//@interfaces__Repository.1/@signatures__Interface.0/@parameters__Signature.0">
+        <bodyBehaviour_Loop>
+          <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_Fqj7sYIcEduSjvx9OYljwQ" successor_AbstractAction="_GEMjtIIcEduSjvx9OYljwQ"/>
+          <steps_Behaviour xsi:type="pcm.seff:InternalAction" id="_GEMjtIIcEduSjvx9OYljwQ" predecessor_AbstractAction="_Fqj7sYIcEduSjvx9OYljwQ" successor_AbstractAction="_O4895IIcEduSjvx9OYljwQ">
+            <resourceDemand_Action specification="DoublePDF(unit=&quot;s&quot;)[ (200.0; 0.1) (300.0; 0.4) (400.0; 0.5) ]" unit="CPU cycles">
+              <requiredResource_ParametricResourceDemand href="DSolverExample1.resourcetype#_YPBH0TQcEduaPaOP6VcQiw"/>
+            </resourceDemand_Action>
+          </steps_Behaviour>
+          <steps_Behaviour xsi:type="pcm.seff:InternalAction" id="_O4895IIcEduSjvx9OYljwQ" predecessor_AbstractAction="_GEMjtIIcEduSjvx9OYljwQ" successor_AbstractAction="_HmigMIIcEduSjvx9OYljwQ">
+            <resourceDemand_Action specification="DoublePDF(unit=&quot;s&quot;)[ (200.0; 0.1) (300.0; 0.4) (400.0; 0.5) ]" unit="CPU cycles">
+              <requiredResource_ParametricResourceDemand href="DSolverExample1.resourcetype#_YPBH0TQcEduaPaOP6VcQiw"/>
+            </resourceDemand_Action>
+          </steps_Behaviour>
+          <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_HmigMIIcEduSjvx9OYljwQ" predecessor_AbstractAction="_O4895IIcEduSjvx9OYljwQ"/>
+        </bodyBehaviour_Loop>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_EqV8YDQeEduaPaOP6VcQiw" entityName="Stopping" predecessor_AbstractAction="_6ilhuYIbEduSjvx9OYljwQ"/>
+    </serviceEffectSpecifications__BasicComponent>
+  </components__Repository>
+  <interfaces__Repository id="_iu2OpTQaEduaPaOP6VcQiw" entityName="FirstInterface">
+    <signatures__Interface serviceName="method1">
+      <parameters__Signature datatype__Parameter="//@datatypes_Repository.0" parameterName="number" modifier__Parameter="in"/>
+    </signatures__Interface>
+  </interfaces__Repository>
+  <interfaces__Repository id="_pIeqNDQaEduaPaOP6VcQiw" entityName="SecondInterface">
+    <signatures__Interface serviceName="method2">
+      <parameters__Signature datatype__Parameter="_yauQ1XimEdu9m905_1LvAQ" parameterName="someCollection" modifier__Parameter="in"/>
+    </signatures__Interface>
+  </interfaces__Repository>
+  <datatypes_Repository xsi:type="pcm.repository:PrimitiveDataType"/>
+  <datatypes_Repository xsi:type="pcm.repository:CollectionDataType" id="_yauQ1XimEdu9m905_1LvAQ" entityName="ARRAYLIST" innerType_CollectionDataType="//@datatypes_Repository.0"/>
+</pcm.repository:Repository>

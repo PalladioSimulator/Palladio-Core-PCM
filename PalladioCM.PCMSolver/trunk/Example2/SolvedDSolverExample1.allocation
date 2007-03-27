@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="ASCII"?>
+<pcm.allocation:Allocation xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:pcm.allocation="http://sdq.ipd.uka.de/PalladioComponentModel/Allocation/1.0" id="_GazP4HcmEdugqbdw26ZvAA" entityName="MyAlloction">
+  <allocationContexts_Allocation id="_LOFjQHcnEdugqbdw26ZvAA" entityName="Component1_CPU">
+    <resourceContainer_AllocationContext href="DSolverExample2.resourceenvironment#_oEjdUDRBEduaPaOP6VcQiw"/>
+    <assemblyContext_AllocationContext href="DSolverExample2.system#_fKfcwHcmEdugqbdw26ZvAA"/>
+  </allocationContexts_Allocation>
+  <targetResourceEnvironment_Allocation href="DSolverExample2.resourceenvironment#/"/>
+  <system_Allocation href="DSolverExample2.system#0"/>
+</pcm.allocation:Allocation>
