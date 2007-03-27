@@ -1,24 +1,30 @@
 package de.uka.ipd.sdq.codegen.simudatavisualization;
 
+import java.util.ArrayList;
+
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
 
+import de.uka.ipd.sdq.codegen.simudatavisualization.birt.ReportCongiguration;
+
 /**
  * The activator class controls the plug-in life cycle
  */
-public class Activator extends AbstractUIPlugin {
+public class SimuPlugin extends AbstractUIPlugin {
+	
+	private ArrayList<ReportCongiguration> configObjects;
 
 	// The plug-in ID
 	public static final String PLUGIN_ID = "de.uka.ipd.sdq.codegen.simudatavisualization";
 
 	// The shared instance
-	private static Activator plugin;
+	private static SimuPlugin plugin;
 	
 	/**
 	 * The constructor
 	 */
-	public Activator() {
+	public SimuPlugin() {
 		plugin = this;
 	}
 
@@ -28,6 +34,8 @@ public class Activator extends AbstractUIPlugin {
 	 */
 	public void start(BundleContext context) throws Exception {
 		super.start(context);
+		
+		configObjects = new ArrayList<ReportCongiguration>();
 	}
 
 	/*
@@ -44,7 +52,7 @@ public class Activator extends AbstractUIPlugin {
 	 *
 	 * @return the shared instance
 	 */
-	public static Activator getDefault() {
+	public static SimuPlugin getDefault() {
 		return plugin;
 	}
 
@@ -57,5 +65,9 @@ public class Activator extends AbstractUIPlugin {
 	 */
 	public static ImageDescriptor getImageDescriptor(String path) {
 		return imageDescriptorFromPlugin(PLUGIN_ID, path);
+	}
+
+	public ArrayList<ReportCongiguration> getConfigObjects() {
+		return configObjects;
 	}
 }

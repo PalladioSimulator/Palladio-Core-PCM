@@ -20,7 +20,7 @@ public class SimuBenchPerspective implements IPerspectiveFactory {
 	 */
 	public void createInitialLayout(IPageLayout layout) {
 		String editorArea = layout.getEditorArea();
-		layout.setEditorAreaVisible(false);
+		layout.setEditorAreaVisible(true);
 		layout.setFixed(false);
 		//layout.addActionSet(MAIN_ACTION_SET);
 		

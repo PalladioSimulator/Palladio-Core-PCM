@@ -56,6 +56,6 @@ public class SimuImages {
      *@return an image descriptor, or null if no image could be found
 	 */
 	public static ImageDescriptor getImageDescriptor(String imageFilePath) {
-		return Activator.getImageDescriptor(imageFilePath);
+		return SimuPlugin.getImageDescriptor(imageFilePath);
 	}
 }

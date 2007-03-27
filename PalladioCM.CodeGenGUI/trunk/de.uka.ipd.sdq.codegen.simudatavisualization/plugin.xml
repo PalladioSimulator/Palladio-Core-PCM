@@ -33,7 +33,7 @@
 	    <extension
 	          point="org.eclipse.ui.views.properties.tabbed.propertyContributor">
 	       <propertyContributor
-	             contributorId="de.uka.ipd.sdq.codegen.simudatavisualization.ReportView"
+	             contributorId="de.uka.ipd.sdq.codegen.simudatavisualization.views.ReportEditor"
 	             labelProvider="de.uka.ipd.sdq.codegen.simudatavisualization.tabs.PropertyLabelProvider"
 	             typeMapper="de.uka.ipd.sdq.codegen.simudatavisualization.tabs.PropertyTypeMapper">
 		       		<propertyCategory category="sensors"/>
@@ -44,7 +44,7 @@
 	    <extension
 	          point="org.eclipse.ui.views.properties.tabbed.propertyTabs">
 	       <propertyTabs 
-	       		contributorId="de.uka.ipd.sdq.codegen.simudatavisualization.ReportView">
+	       		contributorId="de.uka.ipd.sdq.codegen.simudatavisualization.views.ReportEditor">
 	       		<propertyTab
 	            	category="sensors"
 	               	id="SensorsTab"
@@ -58,7 +58,7 @@
 	   </extension>
 	   <extension
 	          point="org.eclipse.ui.views.properties.tabbed.propertySections">
-	       <propertySections contributorId="de.uka.ipd.sdq.codegen.simudatavisualization.ReportView">
+	       <propertySections contributorId="de.uka.ipd.sdq.codegen.simudatavisualization.views.ReportEditor">
 	          <propertySection
                  class="de.uka.ipd.sdq.codegen.simudatavisualization.tabs.SensorsPropertySection"
                  filter="de.uka.ipd.sdq.codegen.simudatavisualization.tabs.TabFilter"
@@ -70,52 +70,50 @@
 	                filter="de.uka.ipd.sdq.codegen.simudatavisualization.tabs.TabFilter"
 	                id="ConfSection"
 	                tab="ConfTab">
+              <input
+                    type="de.uka.ipd.sdq.codegen.simudatavisualization.views.ExperimentsView">
+              </input>
 	         </propertySection>
 	      </propertySections>
 	   </extension>
       <extension
          point="org.eclipse.ui.actionSets">
       <actionSet
-            label="Sample Action Set"
+            label="SimuBench Action Set"
             visible="true"
-            id="birttest.actionSet">
+            id="actions.actionSet">
          <menu
-               label="Sample &amp;Menu"
-               id="sampleMenu">
+               label="SumuBench"
+               id="simuBenchMenu">
             <separator
-                  name="sampleGroup">
+                  name="simuBenchGroup">
             </separator>
          </menu>
          <action
-               label="&amp;CallDialog Action"
-               icon="icons/configure.gif"
-               class="de.uka.ipd.sdq.codegen.simudatavisualization.actions.CallChartDialogAction"
-               tooltip="It is a test Birt Chart!!"
-               menubarPath="sampleMenu/sampleGroup"
+               label="&amp;Create New Chart"
+               icon="icons/new_chart.gif"
+               class="de.uka.ipd.sdq.codegen.simudatavisualization.actions.CreateNewChartAction"
+               tooltip="Create new chart"
+               menubarPath="simuBenchMenu/simuBenchGroup"
                toolbarPath="sampleGroup"
-               id="birttest.actions.SampleAction">
-         </action>
-         <action
-               label="&amp;CreateChart Action"
-               icon="icons/string.gif"
-               class="de.uka.ipd.sdq.codegen.simudatavisualization.actions.CreateChartAction"
-               tooltip="Create Chart!!"
-               menubarPath="sampleMenu/sampleGroup"
-               toolbarPath="sampleGroup"
-               id="birttest.actions.CreateChartAction">
+               id="actions.createNewChartAction">
          </action>
       </actionSet>
    </extension>
       <extension
+            point="org.eclipse.ui.dropActions">
+         <action
+               class="de.uka.ipd.sdq.codegen.simudatavisualization.tabs.DropAdapter"
+               id="de.uka.ipd.sdq.codegen.simudatavisualization.Drop">
+         </action>
+      </extension>
+      <extension
             point="org.eclipse.ui.editors">
          <editor
-               class="de.uka.ipd.sdq.codegen.simudatavisualization.editors.ReportsEditor"
-               contributorClass="de.uka.ipd.sdq.codegen.simudatavisualization.editors.ReportsEditorContributor"
-               default="true"
-               extensions="mpe"
-               icon="icons/sample.gif"
-               id="de.uka.ipd.sdq.codegen.simudatavisualization.editors.ReportsEditor"
-               name="Reports Multi-page Editor">
+               class="de.uka.ipd.sdq.codegen.simudatavisualization.views.ReportEditor"
+               icon="icons/new_chart.gif"
+               id="de.uka.ipd.sdq.codegen.simudatavisualization.views.ReportEditor"
+               name="Report Editor">
          </editor>
       </extension>
 </plugin>

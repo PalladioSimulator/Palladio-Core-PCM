@@ -12,6 +12,8 @@ import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.dnd.DND;
+import org.eclipse.swt.dnd.Transfer;
 import org.eclipse.swt.layout.FormAttachment;
 import org.eclipse.swt.layout.FormData;
 import org.eclipse.swt.layout.FormLayout;
@@ -22,6 +24,7 @@ import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.swt.widgets.ToolBar;
 import org.eclipse.swt.widgets.ToolItem;
 import org.eclipse.ui.IWorkbenchPart;
+import org.eclipse.ui.part.ResourceTransfer;
 import org.eclipse.ui.views.properties.tabbed.AbstractPropertySection;
 import org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage;
 
@@ -29,6 +32,7 @@ import de.uka.ipd.sdq.codegen.simudatavisualization.SimuImages;
 import de.uka.ipd.sdq.codegen.simudatavisualization.birt.ReportCongiguration;
 import de.uka.ipd.sdq.codegen.simudatavisualization.birt.RunEntry;
 import de.uka.ipd.sdq.codegen.simudatavisualization.dialogs.SensorsDialog;
+import de.uka.ipd.sdq.codegen.simudatavisualization.views.ReportEditor;
 
 /**
  * @author admin
@@ -36,6 +40,7 @@ import de.uka.ipd.sdq.codegen.simudatavisualization.dialogs.SensorsDialog;
  */
 public class SensorsPropertySection extends AbstractPropertySection {
 
+	private ReportCongiguration configObject;
 	private RunEntry selectedEntry;
 	private TableViewer viewer;
 	ReportCongiguration rconfig = new ReportCongiguration();
@@ -62,6 +67,7 @@ public class SensorsPropertySection extends AbstractPropertySection {
 	int style = SWT.SINGLE | SWT.BORDER | SWT.H_SCROLL | SWT.V_SCROLL
 			| SWT.FULL_SELECTION | SWT.HIDE_SELECTION;
 
+	int ops = DND.DROP_COPY | DND.DROP_MOVE;
 	/*
 	 * (non-Javadoc)
 	 * 
@@ -73,6 +79,7 @@ public class SensorsPropertySection extends AbstractPropertySection {
 			TabbedPropertySheetPage aTabbedPropertySheetPage) {
 		// TODO Auto-generated method stub
 		super.createControls(parent, aTabbedPropertySheetPage);
+		
 
 		Composite composite = getWidgetFactory()
 				.createFlatFormComposite(parent);
@@ -121,16 +128,10 @@ public class SensorsPropertySection extends AbstractPropertySection {
 		};
 		// Assign the cell editors to the viewer
 		viewer.setCellEditors(editors);
-
-		// //add drag and drop support
-		// int ops = DND.DROP_COPY | DND.DROP_MOVE;
-		// Transfer[] transfers = new Transfer[] { GadgetTransfer.getInstance(),
-		// PluginTransfer.getInstance()};
-		// viewer.addDragSupport(ops, transfers, new
-		// GadgetDragListener(viewer));
-		// transfers = new Transfer[] {GadgetTransfer.getInstance()};
-		// viewer.addDropSupport(ops, transfers, new
-		// GadgetTableDropAdapter(viewer));
+		
+		// add Drop support
+		Transfer[] transfers = new Transfer[] { ResourceTransfer.getInstance()};
+		viewer.addDropSupport(ops, transfers, new TableDropTargetListener(viewer));
 
 		// Definere the table columns
 		final TableColumn zeroColumn = new TableColumn(table, SWT.NONE);
@@ -161,8 +162,8 @@ public class SensorsPropertySection extends AbstractPropertySection {
 
 		ToolItem addRunItem = new ToolItem(toolBar, SWT.PUSH);
 		addRunItem.setImage(SimuImages.imageRegistry.get(SimuImages.RUN));
-		addRunItem.addSelectionListener(new AddRunEntryActionListener(rconfig,
-				viewer));
+		addRunItem.addSelectionListener(new AddRunEntryActionListener(
+				this));
 
 		ToolItem deleteRunItem = new ToolItem(toolBar, SWT.PUSH);
 		deleteRunItem.setImage(SimuImages.imageRegistry.get(SimuImages.RUN));
@@ -202,7 +203,11 @@ public class SensorsPropertySection extends AbstractPropertySection {
 		super.setInput(part, selection);
 		Assert.isTrue(selection instanceof IStructuredSelection);
 		Object input = ((IStructuredSelection) selection).getFirstElement();
-		viewer.setInput(rconfig);
+		
+		if (input instanceof ReportEditor){
+			configObject = ((ReportEditor) input).getConfigObject();
+			viewer.setInput(configObject);
+		}
 	}
 
 	/**
@@ -210,6 +215,20 @@ public class SensorsPropertySection extends AbstractPropertySection {
 	 */
 	public SensorsPropertySection() {
 		// TODO Auto-generated constructor stub
+	}
+
+	/**
+	 * @return the configObject
+	 */
+	public ReportCongiguration getConfigObject() {
+		return configObject;
+	}
+
+	/**
+	 * @return the viewer
+	 */
+	public TableViewer getViewer() {
+		return viewer;
 	}
 
 }

@@ -48,7 +48,7 @@ import org.eclipse.ui.views.IViewDescriptor;
 
 import sun.security.x509.AVA;
 
-import de.uka.ipd.sdq.codegen.simudatavisualization.Activator;
+import de.uka.ipd.sdq.codegen.simudatavisualization.SimuPlugin;
 import de.uka.ipd.sdq.codegen.simudatavisualization.views.ReportView;
 //import de.uka.ipd.sdq.probfunction.math.IBoxedPDF;
 //import de.uka.ipd.sdq.probfunction.math.IProbabilityFunction;

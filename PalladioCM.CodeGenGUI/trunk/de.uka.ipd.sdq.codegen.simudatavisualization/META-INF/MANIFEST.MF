@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Simu Data Visualization Plug-in
 Bundle-SymbolicName: de.uka.ipd.sdq.codegen.simudatavisualization; singleton:=true
 Bundle-Version: 1.0.0
-Bundle-Activator: de.uka.ipd.sdq.codegen.simudatavisualization.Activator
+Bundle-Activator: de.uka.ipd.sdq.codegen.simudatavisualization.SimuPlugin
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
  org.eclipse.core.resources,

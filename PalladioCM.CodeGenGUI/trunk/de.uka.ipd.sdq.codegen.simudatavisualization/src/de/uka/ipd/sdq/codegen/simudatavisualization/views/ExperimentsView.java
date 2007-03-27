@@ -1,5 +1,7 @@
 package de.uka.ipd.sdq.codegen.simudatavisualization.views;
 
+import org.eclipse.swt.dnd.DND;
+import org.eclipse.swt.dnd.Transfer;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.part.*;
 import org.eclipse.jface.viewers.*;
@@ -9,7 +11,7 @@ import org.eclipse.ui.*;
 import org.eclipse.swt.widgets.Menu;
 import org.eclipse.swt.SWT;
 
-import de.uka.ipd.sdq.codegen.simudatavisualization.Activator;
+import de.uka.ipd.sdq.codegen.simudatavisualization.SimuPlugin;
 
 /**
  * This sample class demonstrates how to plug-in a new workbench view. The view
@@ -42,12 +44,18 @@ public class ExperimentsView extends ViewPart {
 	 * it.
 	 */
 	public void createPartControl(Composite parent) {
+		int ops = DND.DROP_COPY | DND.DROP_MOVE;
+
 		viewer = new TreeViewer(parent, SWT.MULTI | SWT.H_SCROLL | SWT.V_SCROLL);
 		drillDownAdapter = new DrillDownAdapter(viewer);
 		viewer.setContentProvider(new TreeViewContentProvider());
 		viewer.setLabelProvider(new TreeViewLabelProvider());
 		viewer.setSorter(new NameSorter());
 		viewer.setInput(getViewSite());
+
+		// add Drag support
+		Transfer[] transfers = new Transfer[] {ResourceTransfer.getInstance()};
+		viewer.addDragSupport(ops, transfers, new TreeDragSourceListener(viewer));
 
 		makeActions();
 		hookContextMenu();
@@ -106,7 +114,7 @@ public class ExperimentsView extends ViewPart {
 		};
 		reloadView.setText("Reload View");
 		reloadView.setToolTipText("Reload View");
-		reloadView.setImageDescriptor(Activator.getImageDescriptor("/icons/db_reload_obj.gif"));
+		reloadView.setImageDescriptor(SimuPlugin.getImageDescriptor("/icons/db_reload_obj.gif"));
 
 		collapseAll = new Action() {
 			public void run() {
@@ -115,7 +123,7 @@ public class ExperimentsView extends ViewPart {
 		};
 		collapseAll.setText("Collapse All");
 		collapseAll.setToolTipText("Collapse All");
-		collapseAll.setImageDescriptor(Activator.getImageDescriptor("/icons/collapseall.gif"));
+		collapseAll.setImageDescriptor(SimuPlugin.getImageDescriptor("/icons/collapseall.gif"));
 		
 		// TODO ???
 		doubleClickAction = new Action() {
