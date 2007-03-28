@@ -1,7 +1,7 @@
 /**
  * 
  */
-package de.uka.ipd.sdq.dialogs.selection;
+package de.uka.ipd.sdq.dialogs.stoex;
 
 import java.util.ArrayList;
 
@@ -29,7 +29,7 @@ public class StoExCompletionProcessor implements IContentAssistProcessor {
 			"Characterise the structure of a datastructure",
 			"Characterise the actual value of a variable",
 			"Characterise the type of a variable"};
-	private String templatePrefixes = "+-*/%";
+	private String templatePrefixes = "+-*/%(";
 	
 	private StoExTemplateCompletionProcessor templateProcessor;
 	private Parameter[] context = null;
@@ -55,28 +55,35 @@ public class StoExCompletionProcessor implements IContentAssistProcessor {
 	}
 
 	private void computeTemplateCompletions(ITextViewer viewer, int offset, ArrayList<ICompletionProposal> resultList, String currentText) {
-		if (templatePrefixes.indexOf(currentText.charAt(offset-1)) >= 0) {
+		if (isAtomStart(currentText,offset)) {
 			for (ICompletionProposal p : templateProcessor.computeCompletionProposals(viewer, offset)){
 				resultList.add(p);
 			}
 		}
 	}
 
+	private boolean isAtomStart(String currentText, int offset) {
+		currentText = offset-1 < currentText.length()-1 && offset-1 >= 0 ? currentText.substring(offset-1) : currentText;
+		return currentText.trim().equals("") || templatePrefixes.indexOf(currentText.trim().charAt(currentText.trim().length()-1)) >= 0;
+	}
+
 	private void computeCharacterisationCompletions(int offset, ArrayList<ICompletionProposal> resultList, String currentText) {
 		int lastDotIndex = currentText.substring(0,offset).lastIndexOf(".");
-		String typedFragment = currentText.substring(lastDotIndex+1, offset);
-		for (int i= 0; i < defaultCharacterisations.length; i++) {
-			if (defaultCharacterisations[i].startsWith(typedFragment)){
-				IContextInformation info= new ContextInformation(defaultCharacterisations[i], defaultCharacterisationsDescriptions[i]); //$NON-NLS-1$
-				resultList.add(new CompletionProposal(
-						defaultCharacterisations[i], 
-						lastDotIndex+1, 
-						typedFragment.length(), 
-						defaultCharacterisations[i].length(), 
-						null, 
-						defaultCharacterisations[i] + " - "+ defaultCharacterisationsDescriptions[i], 
-						info, 
-						defaultCharacterisationsDescriptions[i])); //$NON-NLS-1$
+		if (lastDotIndex-1 >= 0 && lastDotIndex-1 < currentText.length() && Character.isLetter(currentText.charAt(lastDotIndex-1))){
+			String typedFragment = currentText.substring(lastDotIndex+1, offset);
+			for (int i= 0; i < defaultCharacterisations.length; i++) {
+				if (defaultCharacterisations[i].startsWith(typedFragment)){
+					IContextInformation info= new ContextInformation(defaultCharacterisations[i], defaultCharacterisationsDescriptions[i]); //$NON-NLS-1$
+					resultList.add(new CompletionProposal(
+							defaultCharacterisations[i], 
+							lastDotIndex+1, 
+							typedFragment.length(), 
+							defaultCharacterisations[i].length(), 
+							null, 
+							defaultCharacterisations[i] + " - "+ defaultCharacterisationsDescriptions[i], 
+							info, 
+							defaultCharacterisationsDescriptions[i])); //$NON-NLS-1$
+				}
 			}
 		}
 	}
@@ -89,22 +96,33 @@ public class StoExCompletionProcessor implements IContentAssistProcessor {
 			if (newLastIndex > lastIndex)
 				lastIndex = newLastIndex;
 		}
-		String typedFragment = currentText.substring(lastIndex+1, offset).trim();
-		System.out.println(typedFragment);
-		for (int i= 0; i < context.length; i++) {
-			if (context[i].getParameterName().startsWith(typedFragment) || typedFragment.equals("")){
-				IContextInformation info= new ContextInformation(context[i].getParameterName(), context[i].getParameterName()); //$NON-NLS-1$
-				resultList.add(new CompletionProposal(
-						context[i].getParameterName(), 
-						lastIndex+1, 
-						typedFragment.length(), 
-						context[i].getParameterName().length(), 
-						null, 
-						context[i].getParameterName() + " - Signature Parameter " + context[i].getParameterName(), 
-						info, 
-						context[i].getParameterName())); //$NON-NLS-1$
+		if (isContextCompletionActive(currentText,offset)) {
+			String typedFragment = currentText.substring(lastIndex+1, offset).trim();
+			System.out.println(typedFragment);
+			for (int i= 0; i < context.length; i++) {
+				if (context[i].getParameterName().startsWith(typedFragment) || typedFragment.equals("")){
+					IContextInformation info= new ContextInformation(context[i].getParameterName(), context[i].getParameterName()); //$NON-NLS-1$
+					resultList.add(new CompletionProposal(
+							context[i].getParameterName(), 
+							lastIndex+1, 
+							typedFragment.length(), 
+							context[i].getParameterName().length(), 
+							null, 
+							context[i].getParameterName() + " - Signature Parameter " + context[i].getParameterName(), 
+							info, 
+							context[i].getParameterName())); //$NON-NLS-1$
+				}
 			}
 		}
+	}
+
+	private boolean isContextCompletionActive(String currentText, int offset) {
+		if (offset-1 <= currentText.length()-1 && offset-1 >= 0 && Character.isLetter(currentText.charAt(offset-1)))
+			return true; // angefangene Variable
+		currentText = currentText.trim();
+		if (currentText.equals("") || templatePrefixes.indexOf(currentText.charAt(currentText.length()-1))>=0)
+			return true; // letztes echtes zeichen war atom-einleitend
+		return false;
 	}
 
 	/* (non-Javadoc)
@@ -123,7 +141,7 @@ public class StoExCompletionProcessor implements IContentAssistProcessor {
 		for (int i=0; i < context.length; i++)
 			result.add(context[i].getParameterName().charAt(0));
 		for (int i=0; i < templatePrefixes.length(); i++)
-			result.add(templatePrefixes.charAt(0));
+			result.add(templatePrefixes.charAt(i));
 		result.add('.');
 		char[] realResult = new char[result.size()];
 		for (int i=0; i < result.size(); i++)

@@ -1,7 +1,7 @@
 /**
  * 
  */
-package de.uka.ipd.sdq.dialogs.selection;
+package de.uka.ipd.sdq.dialogs.stoex;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -34,6 +34,7 @@ public class AbstractGrammarBasedViewerConfiguration extends SourceViewerConfigu
 	private Class myLexerClass;
 	private ITokenMapper myMapper;
 	private Parameter[] context = null;
+	private ContentAssistant myAssistant;
 
 	/**
 	 * 
@@ -72,14 +73,14 @@ public class AbstractGrammarBasedViewerConfiguration extends SourceViewerConfigu
 	}
 
 	public IContentAssistant getContentAssistant(ISourceViewer sourceViewer) {
-
-		ContentAssistant assistant = new ContentAssistant();
-		assistant.setContentAssistProcessor(new StoExCompletionProcessor(context),
-				IDocument.DEFAULT_CONTENT_TYPE);
-		assistant.setAutoActivationDelay(1);
-		assistant.enableAutoActivation(true);
-
-		return assistant;
+		if (myAssistant == null){
+			myAssistant = new ContentAssistant();
+			myAssistant.setContentAssistProcessor(new StoExCompletionProcessor(context),
+					IDocument.DEFAULT_CONTENT_TYPE);
+			myAssistant.setAutoActivationDelay(1);
+			myAssistant.enableAutoActivation(true);
+		}
+		return myAssistant;
 	}
 }
 

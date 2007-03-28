@@ -1,0 +1,19 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Antlr Plug-in
+Bundle-SymbolicName: org.antlr
+Bundle-Version: 2.7.6
+Bundle-ClassPath: antlr.jar
+Bundle-Vendor: antlr.org
+Export-Package: antlr,
+ antlr.ASdebug,
+ antlr.actions.cpp,
+ antlr.actions.csharp,
+ antlr.actions.java,
+ antlr.actions.python,
+ antlr.build,
+ antlr.collections,
+ antlr.collections.impl,
+ antlr.debug,
+ antlr.debug.misc,
+ antlr.preprocessor

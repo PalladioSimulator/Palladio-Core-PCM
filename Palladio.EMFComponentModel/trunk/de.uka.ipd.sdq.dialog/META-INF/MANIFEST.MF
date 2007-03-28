@@ -21,6 +21,7 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.emf.transaction
 Export-Package: de.uka.ipd.sdq.dialogs.datatype,
  de.uka.ipd.sdq.dialogs.parameters,
- de.uka.ipd.sdq.dialogs.selection
+ de.uka.ipd.sdq.dialogs.selection,
+ de.uka.ipd.sdq.dialogs.stoex
 Eclipse-LazyStart: true
 Bundle-Activator: de.uka.ipd.sdq.dialogs.DialogPluginActivator

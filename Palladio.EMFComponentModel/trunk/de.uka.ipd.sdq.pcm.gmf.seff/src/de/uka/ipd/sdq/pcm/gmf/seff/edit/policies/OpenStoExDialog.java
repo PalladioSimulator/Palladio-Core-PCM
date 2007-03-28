@@ -14,7 +14,7 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.SetRequest;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.ui.PlatformUI;
 
-import de.uka.ipd.sdq.dialogs.selection.StochasticExpressionEditDialog;
+import de.uka.ipd.sdq.dialogs.stoex.StochasticExpressionEditDialog;
 import de.uka.ipd.sdq.pcm.repository.Parameter;
 import de.uka.ipd.sdq.pcm.seff.AbstractResourceDemandingAction;
 import de.uka.ipd.sdq.pcm.seff.ParametricResourceDemand;

@@ -16,9 +16,6 @@
     <property name='output' value='' />
     <property name='diagnosticOutput' value='false' />
   </resource>
-  <resource name='**ANTLR-ECLIPSE-PLUGIN**'>
-    <property name='pluginVersion' value='2.7.6' />
-  </resource>
   <resource name='src/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/variableusage.g'>
     <property name='traceParser' value='false' />
     <property name='docbookOutput' value='false' />
@@ -34,5 +31,8 @@
     <property name='traceLexer' value='false' />
     <property name='output' value='' />
     <property name='diagnosticOutput' value='false' />
+  </resource>
+  <resource name='**ANTLR-ECLIPSE-PLUGIN**'>
+    <property name='pluginVersion' value='2.7.6' />
   </resource>
 </settings>

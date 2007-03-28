@@ -114,14 +114,18 @@ This Agreement is governed by the laws of the State of New York and the intellec
       <import plugin="org.eclipse.core.runtime"/>
       <import plugin="org.eclipse.emf.ecore"/>
       <import plugin="org.eclipse.emf.edit"/>
+      <import plugin="de.uka.ipd.sdq.probfunction"/>
       <import plugin="org.eclipse.emf.ocl"/>
       <import plugin="org.eclipse.core.resources"/>
       <import plugin="org.eclipse.emf.ecore.xmi"/>
       <import plugin="org.eclipse.emf.edit.ui"/>
-      <import plugin="org.eclipse.ui.ide"/>
       <import plugin="org.antlr"/>
-      <import plugin="org.eclipse.pde.build"/>
-      <import plugin="de.uka.ipd.sdq.probfunction"/>
+      <import plugin="de.uka.ipd.sdq.probfunction.edit"/>
+      <import plugin="org.eclipse.ui"/>
+      <import plugin="org.eclipse.emf"/>
+      <import plugin="org.eclipse.jface.text"/>
+      <import plugin="org.eclipse.emf.transaction"/>
+      <import plugin="de.uka.ipd.sdq.probfunction.math"/>
    </requires>
 
    <plugin

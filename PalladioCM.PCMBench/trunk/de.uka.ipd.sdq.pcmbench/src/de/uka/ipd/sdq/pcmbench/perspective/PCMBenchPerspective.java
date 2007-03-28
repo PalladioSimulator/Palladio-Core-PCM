@@ -1,5 +1,6 @@
 package de.uka.ipd.sdq.pcmbench.perspective;
 
+import org.eclipse.debug.ui.IDebugUIConstants;
 import org.eclipse.ui.IFolderLayout;
 import org.eclipse.ui.IPageLayout;
 import org.eclipse.ui.IPerspectiveFactory;
@@ -19,7 +20,7 @@ public class PCMBenchPerspective implements IPerspectiveFactory {
 		
 		layout.addActionSet(MAIN_ACTION_SET);
 		
-		IFolderLayout topLeft = layout.createFolder("topLeft", IPageLayout.LEFT, 0.4f, editorArea);
+		IFolderLayout topLeft = layout.createFolder("topLeft", IPageLayout.LEFT, 0.3f, editorArea);
 		IFolderLayout bottom = layout.createFolder("bottom", IPageLayout.BOTTOM, 0.75f, editorArea);
 		IFolderLayout right = layout.createFolder("right", IPageLayout.RIGHT, 0.66f, editorArea);
 		IFolderLayout bottomLeft = layout.createFolder("bottomLeft", IPageLayout.BOTTOM, 0.5f, "topLeft");
@@ -32,5 +33,7 @@ public class PCMBenchPerspective implements IPerspectiveFactory {
 
 		bottom.addView(IPageLayout.ID_PROP_SHEET);
 		bottom.addView("org.eclipse.pde.runtime.LogView");
+		
+		layout.addActionSet(IDebugUIConstants.LAUNCH_ACTION_SET);
 	}
 }

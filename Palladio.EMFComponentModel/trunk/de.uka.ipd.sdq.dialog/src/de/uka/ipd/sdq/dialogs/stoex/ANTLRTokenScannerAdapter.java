@@ -1,7 +1,7 @@
 /**
  * 
  */
-package de.uka.ipd.sdq.dialogs.selection;
+package de.uka.ipd.sdq.dialogs.stoex;
 
 import java.io.Reader;
 import java.io.StringReader;

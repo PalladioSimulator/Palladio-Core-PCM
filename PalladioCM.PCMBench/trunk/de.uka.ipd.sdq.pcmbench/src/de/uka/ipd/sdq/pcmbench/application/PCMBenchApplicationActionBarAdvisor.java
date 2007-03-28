@@ -1,7 +1,9 @@
 package de.uka.ipd.sdq.pcmbench.application;
 
+import org.eclipse.debug.ui.actions.OpenLaunchDialogAction;
 import org.eclipse.jface.action.GroupMarker;
 import org.eclipse.jface.action.IAction;
+import org.eclipse.jface.action.ICoolBarManager;
 import org.eclipse.jface.action.IMenuManager;
 import org.eclipse.jface.action.MenuManager;
 import org.eclipse.jface.action.Separator;
@@ -24,6 +26,11 @@ public class PCMBenchApplicationActionBarAdvisor extends ActionBarAdvisor {
 	protected void makeActions(IWorkbenchWindow window) {
 		introAction = ActionFactory.INTRO.create(window);
 		register(introAction);
+	}
+
+	@Override
+	protected void fillCoolBar(ICoolBarManager coolBar) {
+		super.fillCoolBar(coolBar);
 	}
 
 	protected void fillMenuBar(IMenuManager menuBar) {

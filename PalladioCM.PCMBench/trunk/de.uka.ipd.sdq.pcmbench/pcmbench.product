@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?pde version="3.1"?>
 
-<product name="Palladio Component Model Modelling Bench" id="de.uka.ipd.sdq.pcmbench.product" application="de.uka.ipd.sdq.pcmbench.application" useFeatures="false">
+<product name="Palladio Component Model Modelling Bench" id="de.uka.ipd.sdq.pcmbench.product" application="de.uka.ipd.sdq.pcmbench.application" useFeatures="true">
 
    <aboutInfo>
       <text>
@@ -175,5 +175,11 @@ Copyright 2007, SDQ, IPD
       <plugin id="org.eclipse.update.core.win32" fragment="true"/>
       <plugin id="org.eclipse.update.ui"/>
    </plugins>
+
+   <features>
+      <feature id="de.uka.ipd.sdq.pcm.diagram.feature" version="2.0.0.qualifier"/>
+      <feature id="de.uka.ipd.sdq.pcm.feature" version="2.0.0.qualifier"/>
+      <feature id="de.uka.ipd.sdq.probfunction.feature" version="2.0.0.qualifier"/>
+   </features>
 
 </product>

@@ -76,33 +76,6 @@
          </property>
       </product>
    </extension>
-   <extension
-         point="org.eclipse.ui.intro">
-      <intro
-            class="org.eclipse.ui.intro.config.CustomizableIntroPart"
-            icon="icons/palladio-logo.gif"
-            id="de.uka.ipd.sdq.pcmbench.intro">
-      </intro>
-      <introProductBinding
-            introId="de.uka.ipd.sdq.pcmbench.intro"
-            productId="de.uka.ipd.sdq.pcmbench.product">
-      </introProductBinding>
-   </extension>
-   <extension
-         point="org.eclipse.ui.intro.config">
-      <config
-            introId="de.uka.ipd.sdq.pcmbench.intro"
-            content="introContent.xml"
-            id="de.uka.ipd.sdq.pcmbench.configId">
-         <presentation
-               home-page-id="root">
-            <implementation
-                  kind="html"
-                  os="win32,linux,macosx">
-            </implementation>
-         </presentation>
-      </config>
-   </extension>
    
    <extension
          point="org.eclipse.ui.views">
@@ -335,27 +308,5 @@
                class="de.uka.ipd.sdq.pcmbench.application.PCMBenchApplication">
          </run>
       </application>
-   </extension>
-   <extension
-         point="org.eclipse.help.toc">
-      <toc
-            file="toc.xml"
-            primary="true">
-      </toc>
-      <toc
-            file="tocconcepts.xml">
-      </toc>
-      <toc
-            file="tocgettingstarted.xml">
-      </toc>
-      <toc
-            file="tocreference.xml">
-      </toc>
-      <toc
-            file="tocsamples.xml">
-      </toc>
-      <toc
-            file="toctasks.xml">
-      </toc>
    </extension>
 </plugin>

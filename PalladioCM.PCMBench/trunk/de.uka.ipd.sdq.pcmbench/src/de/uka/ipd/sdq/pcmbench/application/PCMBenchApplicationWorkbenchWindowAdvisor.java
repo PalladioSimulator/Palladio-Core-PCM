@@ -22,7 +22,7 @@ public class PCMBenchApplicationWorkbenchWindowAdvisor extends
         configurer.setInitialSize(new Point(700, 550));
         configurer.setShowCoolBar(true);
         configurer.setShowStatusLine(true);
-        // configurer.setShowPerspectiveBar(true);
+        configurer.setShowPerspectiveBar(true);
         configurer.setTitle("Palladio Component Model Modelling Bench");
     }
 

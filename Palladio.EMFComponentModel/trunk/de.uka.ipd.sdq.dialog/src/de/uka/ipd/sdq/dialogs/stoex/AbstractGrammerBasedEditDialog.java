@@ -1,13 +1,14 @@
 /**
  * 
  */
-package de.uka.ipd.sdq.dialogs.selection;
+package de.uka.ipd.sdq.dialogs.stoex;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.jface.dialogs.Dialog;
 import org.eclipse.jface.dialogs.IDialogConstants;
 import org.eclipse.jface.text.Document;
 import org.eclipse.jface.text.ITextListener;
+import org.eclipse.jface.text.ITextOperationTarget;
 import org.eclipse.jface.text.Position;
 import org.eclipse.jface.text.TextEvent;
 import org.eclipse.jface.text.source.Annotation;
@@ -31,7 +32,9 @@ import org.eclipse.swt.widgets.Canvas;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Display;
+import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.Group;
+import org.eclipse.swt.widgets.Listener;
 import org.eclipse.swt.widgets.Shell;
 
 import antlr.CharScanner;
@@ -110,8 +113,20 @@ public abstract class AbstractGrammerBasedEditDialog extends Dialog {
 		textViewer = new SourceViewer(editStochasticExpressionGroup,
 				fCompositeRuler, SWT.V_SCROLL | SWT.MULTI | SWT.H_SCROLL);
 		final StyledText styledText = textViewer.getTextWidget();
+		final AbstractGrammarBasedViewerConfiguration config = new AbstractGrammarBasedViewerConfiguration(fAnnotationModel,context,getLexerClass(),getTokenMapper());
 		styledText.setFont(SWTResourceManager.getFont("Courier New", 12,
 				SWT.NONE));
+		styledText.addListener(SWT.KeyDown, new Listener(){
+
+			@Override
+			public void handleEvent(Event event) {
+				if (event.character == ' ' && (event.stateMask & SWT.CTRL) == SWT.CTRL){
+					config.getContentAssistant(textViewer).showPossibleCompletions();
+				}
+				
+			}
+			
+		});
 
 		// to paint the annotations
 		AnnotationPainter ap = new AnnotationPainter(textViewer,
@@ -123,7 +138,7 @@ public abstract class AbstractGrammerBasedEditDialog extends Dialog {
 		// this will draw the squigglies under the text
 		textViewer.addPainter(ap);
 
-		textViewer.configure(new AbstractGrammarBasedViewerConfiguration(fAnnotationModel,context,getLexerClass(),getTokenMapper()));
+		textViewer.configure(config);
 		GridData layoutData = new GridData(GridData.FILL_BOTH
 				| GridData.GRAB_HORIZONTAL | GridData.GRAB_VERTICAL);
 		layoutData.heightHint = 300;

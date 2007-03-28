@@ -1,7 +1,7 @@
 /**
  * 
  */
-package de.uka.ipd.sdq.dialogs.selection;
+package de.uka.ipd.sdq.dialogs.stoex;
 
 import java.io.StringReader;
 
@@ -10,22 +10,24 @@ import org.eclipse.swt.widgets.Shell;
 
 import antlr.CharScanner;
 import antlr.RecognitionException;
+import antlr.Token;
 import antlr.TokenStreamException;
-import de.uka.ipd.sdq.pcm.parameter.VariableCharacterisation;
 import de.uka.ipd.sdq.pcm.stochasticexpressions.ParameterPrettyPrint;
 import de.uka.ipd.sdq.pcm.stochasticexpressions.parser.VariableUsageParser;
+import de.uka.ipd.sdq.stoex.AbstractNamedReference;
+import de.uka.ipd.sdq.stoex.analyser.visitors.StoExPrettyPrintVisitor;
 import de.uka.ipd.sdq.stoex.parser.StochasticExpressionsLexer;
 
 /**
  * @author Steffen Becker
  *
  */
-public class VariableCharacterisationEditDialog extends AbstractGrammerBasedEditDialog {
+public class VariableUsageEditDialog extends AbstractGrammerBasedEditDialog {
 
 	/**
 	 * @param parent
 	 */
-	public VariableCharacterisationEditDialog(Shell parent) {
+	public VariableUsageEditDialog(Shell parent) {
 		super(parent);
 	}
 
@@ -34,7 +36,7 @@ public class VariableCharacterisationEditDialog extends AbstractGrammerBasedEdit
 	 */
 	@Override
 	protected String getInitialText() {
-		return "BYTESIZE = b.BYTESIZE";
+		return "a.b.INNER";
 	}
 
 	@Override
@@ -44,12 +46,16 @@ public class VariableCharacterisationEditDialog extends AbstractGrammerBasedEdit
 
 	@Override
 	protected String getTitle() {
-		return "Edit variable characterisation";
+		return "Edit variable reference";
 	}
 
 	@Override
 	protected EObject parse(CharScanner lexer) throws RecognitionException, TokenStreamException {
-		return new VariableUsageParser(lexer).variable_characterisation();
+		VariableUsageParser parser = new VariableUsageParser(lexer); 
+		EObject result = parser.scoped_id();
+		if (parser.LT(1).getType() != Token.EOF_TYPE)
+			throw new RecognitionException("Expecting EOF, found "+parser.LT(1).getText(),parser.LT(1).getText(),parser.LT(1).getLine(),parser.LT(1).getColumn());
+		return  result;
 	}
 
 	@Override
@@ -62,10 +68,10 @@ public class VariableCharacterisationEditDialog extends AbstractGrammerBasedEdit
 		return new StoExTokenMapper();
 	}
 
-	public void setInitialExpression(VariableCharacterisation vc) {
-		try 
+	public void setInitialExpression(AbstractNamedReference vu) {
+		try
 		{
-			newText = (String)new ParameterPrettyPrint().doSwitch(vc);
+			newText = (String)new StoExPrettyPrintVisitor().doSwitch(vu);
 		}
 		catch(Exception e)
 		{
@@ -73,8 +79,8 @@ public class VariableCharacterisationEditDialog extends AbstractGrammerBasedEdit
 		}
 	}
 	
-	public VariableCharacterisation getResult()
+	public AbstractNamedReference getResult()
 	{
-		return (VariableCharacterisation)super.getResult();
+		return (AbstractNamedReference)super.getResult();
 	}
 }

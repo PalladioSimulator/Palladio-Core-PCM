@@ -1,4 +1,4 @@
-package de.uka.ipd.sdq.dialogs.selection;
+package de.uka.ipd.sdq.dialogs.stoex;
 
 import org.eclipse.jface.text.IDocument;
 
