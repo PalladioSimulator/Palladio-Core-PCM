@@ -15,14 +15,14 @@ import de.uka.ipd.sdq.codegen.simudatavisualization.dialogs.ExperimentRunsDialog
  * @author admin
  * 
  */
-public class AddRunEntryActionListener extends SelectionAdapter {
+public class AddRunEntryListener extends SelectionAdapter {
 
 	private SensorsPropertySection section;
 	
 	/**
 	 * @param section
 	 */
-	public AddRunEntryActionListener(SensorsPropertySection section) {
+	public AddRunEntryListener(SensorsPropertySection section) {
 		this.section = section;
 	}
 

@@ -14,9 +14,12 @@ import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.dnd.DND;
 import org.eclipse.swt.dnd.Transfer;
+import org.eclipse.swt.events.SelectionAdapter;
+import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.layout.FormAttachment;
 import org.eclipse.swt.layout.FormData;
 import org.eclipse.swt.layout.FormLayout;
+import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Table;
@@ -35,7 +38,7 @@ import de.uka.ipd.sdq.codegen.simudatavisualization.SimuPlugin;
 import de.uka.ipd.sdq.codegen.simudatavisualization.birt.ReportCongiguration;
 import de.uka.ipd.sdq.codegen.simudatavisualization.birt.RunEntry;
 import de.uka.ipd.sdq.codegen.simudatavisualization.dialogs.SensorsDialog;
-import de.uka.ipd.sdq.codegen.simudatavisualization.views.ReportEditor;
+import de.uka.ipd.sdq.codegen.simudatavisualization.views.ReportView;
 
 /**
  * @author admin
@@ -46,6 +49,7 @@ public class SensorsPropertySection extends AbstractPropertySection {
 	private ReportCongiguration configObject;
 	private RunEntry selectedEntry;
 	private TableViewer viewer;
+	private Button updateButton;
 	ReportCongiguration rconfig = new ReportCongiguration();
 
 	public static final int ICON_COLUMN_INDEX = 0;
@@ -126,6 +130,11 @@ public class SensorsPropertySection extends AbstractPropertySection {
 
 				if (dialog.open() == dialog.OK)
 					viewer.refresh();
+				
+				if (!selectedEntry.getSensors().isEmpty())
+					updateButton.setEnabled(true);
+				else updateButton.setEnabled(false);
+				
 				return null;
 			}
 		};
@@ -166,11 +175,27 @@ public class SensorsPropertySection extends AbstractPropertySection {
 
 		ToolItem addRunItem = new ToolItem(toolBar, SWT.PUSH);
 		addRunItem.setImage(SimuImages.imageRegistry.get(SimuImages.RUN));
-		addRunItem.addSelectionListener(new AddRunEntryActionListener(this));
+		addRunItem.addSelectionListener(new AddRunEntryListener(this));
 
 		ToolItem deleteRunItem = new ToolItem(toolBar, SWT.PUSH);
 		deleteRunItem.setImage(SimuImages.imageRegistry.get(SimuImages.RUN));
 		deleteRunItem.setEnabled(false);
+		
+		updateButton = new Button(composite, SWT.NONE);
+		final FormData fd_updateButton = new FormData();
+		fd_updateButton.right = new FormAttachment(0, 95);
+		fd_updateButton.top = new FormAttachment(table, 5, SWT.BOTTOM);
+		fd_updateButton.left = new FormAttachment(table, 0, SWT.LEFT);
+		updateButton.setLayoutData(fd_updateButton);
+		updateButton.setText("Update Chart");
+		updateButton.addSelectionListener(new SelectionAdapter() {
+			public void widgetSelected(SelectionEvent e) {
+				EditorPart editor = (EditorPart) SimuPlugin.getDefault().getWorkbench()
+				.getActiveWorkbenchWindow().getActivePage().getActiveEditor();
+				((ReportView) editor).getVisualization().initChart();
+			}
+		});
+		updateButton.setEnabled(false);
 	}
 
 	/*
@@ -209,7 +234,7 @@ public class SensorsPropertySection extends AbstractPropertySection {
 
 		EditorPart editor = (EditorPart) SimuPlugin.getDefault().getWorkbench()
 				.getActiveWorkbenchWindow().getActivePage().getActiveEditor();
-		configObject = ((ReportEditor) editor).getConfigObject();
+		configObject = ((ReportView) editor).getConfigObject();
 		viewer.setInput(configObject);
 	}
 
@@ -232,6 +257,13 @@ public class SensorsPropertySection extends AbstractPropertySection {
 	 */
 	public TableViewer getViewer() {
 		return viewer;
+	}
+
+	/**
+	 * @param updateButton the updateButton to set
+	 */
+	public Button getUpdateButton() {
+		return updateButton;
 	}
 
 }

@@ -33,8 +33,7 @@
 	    <extension
 	          point="org.eclipse.ui.views.properties.tabbed.propertyContributor">
 	       <propertyContributor
-	             contributorId="de.uka.ipd.sdq.codegen.simudatavisualization.views.ReportEditor"
-	             labelProvider="de.uka.ipd.sdq.codegen.simudatavisualization.tabs.PropertyLabelProvider"
+	             contributorId="de.uka.ipd.sdq.codegen.simudatavisualization.views.ReportView"
 	             typeMapper="de.uka.ipd.sdq.codegen.simudatavisualization.tabs.PropertyTypeMapper">
 		       		<propertyCategory category="sensors"/>
 		         	<propertyCategory category="configuration"/>
@@ -44,7 +43,7 @@
 	    <extension
 	          point="org.eclipse.ui.views.properties.tabbed.propertyTabs">
 	       <propertyTabs 
-	       		contributorId="de.uka.ipd.sdq.codegen.simudatavisualization.views.ReportEditor">
+	       		contributorId="de.uka.ipd.sdq.codegen.simudatavisualization.views.ReportView">
 	       		<propertyTab
 	            	category="sensors"
 	               	id="SensorsTab"
@@ -58,7 +57,7 @@
 	   </extension>
 	   <extension
 	          point="org.eclipse.ui.views.properties.tabbed.propertySections">
-	       <propertySections contributorId="de.uka.ipd.sdq.codegen.simudatavisualization.views.ReportEditor">
+	       <propertySections contributorId="de.uka.ipd.sdq.codegen.simudatavisualization.views.ReportView">
 	          <propertySection
                  class="de.uka.ipd.sdq.codegen.simudatavisualization.tabs.SensorsPropertySection"
                  filter="de.uka.ipd.sdq.codegen.simudatavisualization.tabs.TabFilter"
@@ -70,9 +69,6 @@
 	                filter="de.uka.ipd.sdq.codegen.simudatavisualization.tabs.TabFilter"
 	                id="ConfSection"
 	                tab="ConfTab">
-              <input
-                    type="de.uka.ipd.sdq.codegen.simudatavisualization.views.ExperimentsView">
-              </input>
 	         </propertySection>
 	      </propertySections>
 	   </extension>
@@ -92,7 +88,7 @@
          <action
                label="&amp;Create New Chart"
                icon="icons/new_chart.gif"
-               class="de.uka.ipd.sdq.codegen.simudatavisualization.actions.CreateNewChartAction"
+               class="de.uka.ipd.sdq.codegen.simudatavisualization.actions.CreateChartAction"
                tooltip="Create new chart"
                menubarPath="simuBenchMenu/simuBenchGroup"
                toolbarPath="sampleGroup"
@@ -110,9 +106,9 @@
       <extension
             point="org.eclipse.ui.editors">
          <editor
-               class="de.uka.ipd.sdq.codegen.simudatavisualization.views.ReportEditor"
+               class="de.uka.ipd.sdq.codegen.simudatavisualization.views.ReportView"
                icon="icons/new_chart.gif"
-               id="de.uka.ipd.sdq.codegen.simudatavisualization.views.ReportEditor"
+               id="de.uka.ipd.sdq.codegen.simudatavisualization.views.ReportView"
                name="Report Editor">
          </editor>
       </extension>
