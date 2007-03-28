@@ -40,11 +40,9 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.gmf.runtime.diagram.ui.resources.editor.ide,
  org.eclipse.ui.navigator.resources,
  de.uka.ipd.sdq.pcmbench.ui,
- org.eclipse.ui.intro,
- org.eclipse.help,
  org.eclipse.pde.runtime,
- org.apache.commons.logging,
- org.eclipse.debug.ui
+ org.eclipse.debug.ui,
+ de.uka.ipd.sdq.pcmbench.help
 Eclipse-LazyStart: true
 Import-Package: org.eclipse.ui.dialogs
 Bundle-Activator: de.uka.ipd.sdq.pcmbench.PCMBenchActivator
