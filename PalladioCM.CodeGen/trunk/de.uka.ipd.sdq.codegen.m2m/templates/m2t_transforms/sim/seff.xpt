@@ -29,9 +29,17 @@
 «ENDDEFINE»
 
 «DEFINE Action FOR BranchAction»
-	«EXPAND BranchTransition FOREACH this.branches_Branch SEPARATOR " else "»
-	else
-		throw new RuntimeException("No branch condition evaluated to true :-(");
+	{
+		«IF ProbabilisticBranchTransition.isInstance(this.branches_Branch.get(0))»
+			double u = Math.random();
+			double sum = 0;
+			«EXPAND BranchTransition FOREACH this.branches_Branch SEPARATOR ""»
+		«ELSE»
+			«EXPAND BranchTransition FOREACH this.branches_Branch SEPARATOR " else "»
+			else
+				throw new RuntimeException("No branch condition evaluated to true :-(");
+		«ENDIF»
+	}
 «ENDDEFINE»
 
 «DEFINE BranchTransition FOR AbstractBranchTransition»
@@ -39,10 +47,18 @@
 «ENDDEFINE»
 
 «DEFINE BranchTransition FOR GuardedBranchTransition»
-	if ((Boolean)ctx.evaluate("«this.branchCondition_BranchTransition.specification.javaString()»") == true)
+	if ((Boolean)ctx.evaluate("«this.branchCondition_BranchTransition.specification.specificationString()»") == true)
 	{
 		«EXPAND m2t_transforms::java_core::Actions FOR this.branchBehaviour_BranchTransition.steps_Behaviour.findStart()»
 	}
+«ENDDEFINE»
+
+«DEFINE BranchTransition FOR ProbabilisticBranchTransition»
+	if (sum <= u && u < sum + «this.branchProbability» )
+	{
+		«EXPAND m2t_transforms::java_core::Actions FOR this.branchBehaviour_BranchTransition.steps_Behaviour.findStart()»
+	}
+	sum += «this.branchProbability»;
 «ENDDEFINE»
 
 «DEFINE Action FOR AquireAction»
