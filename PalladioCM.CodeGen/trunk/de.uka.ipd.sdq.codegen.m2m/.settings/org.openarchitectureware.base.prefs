@@ -1,4 +1,4 @@
-#Thu Dec 28 12:39:37 CET 2006
+#Wed Mar 28 17:50:20 CEST 2007
 eclipse.preferences.version=1
 metamodel=org.openarchitectureware.EmfMetamodelContributor,
-project.specific.metamodel=false
+project.specific.metamodel=true

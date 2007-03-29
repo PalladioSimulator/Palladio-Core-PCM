@@ -57,8 +57,11 @@ public class ProbFunctionCache {
 				e.printStackTrace();
 				System.exit(-1);
 			}
-			if (!pdf.checkConstrains())
-				throw new RuntimeException("PDF not valid: "+new ProbFunctionPrettyPrint().doSwitch(object));
+			try {
+				pdf.checkConstrains();
+			} catch(Exception ex) {
+				throw new RuntimeException("PMF not valid: "+new ProbFunctionPrettyPrint().doSwitch(object));
+			}
 			probFunctions.put(object, pdf);
 			return super.caseBoxedPDF(object);
 		}
@@ -80,8 +83,11 @@ public class ProbFunctionCache {
 			// END TODO: Quick fix. Adjust wrong PDFs
 
 			IProbabilityMassFunction pmf = IProbabilityFunctionFactory.eINSTANCE.transformToPMF(object);		
-			if (!pmf.checkConstrains())
+			try {
+				pmf.checkConstrains();
+			} catch(Exception ex) {
 				throw new RuntimeException("PMF not valid: "+new ProbFunctionPrettyPrint().doSwitch(object));
+			}
 			probFunctions.put(object, pmf);
 			return super.caseProbabilityMassFunction(object);
 		}

@@ -64,19 +64,19 @@ public class PCMStoExEvaluationVisitor extends PCMStoExSwitch {
 		Object leftExpr = doSwitch(object.getLeft());
 		Object rightExpr = doSwitch(object.getRight());
 		int result = ((Comparable)leftExpr).compareTo(rightExpr);
-		switch(object.getOperation().getValue())
+		switch(object.getOperation())
 		{
-		case CompareOperations.EQUALS:
+		case EQUALS:
 			return result == 0;
-		case CompareOperations.LESS:
+		case LESS:
 			return result < 0;
-		case CompareOperations.LESSEQUAL:
+		case LESSEQUAL:
 			return result <= 0;
-		case CompareOperations.GREATER:
+		case GREATER:
 			return result > 0;
-		case CompareOperations.GREATEREQUAL:
+		case GREATEREQUAL:
 			return result >= 0;
-		case CompareOperations.NOTEQUAL:
+		case NOTEQUAL:
 			return result != 0;
 		}
 		throw new RuntimeException("Unknown Compare Operation found! Should not happen!");
@@ -125,13 +125,13 @@ public class PCMStoExEvaluationVisitor extends PCMStoExSwitch {
 		if (leftType == TypeEnum.INT &&	rightType == TypeEnum.INT) {
 			int leftInt = (Integer)left;
 			int rightInt = (Integer)right;
-			switch(object.getOperation().getValue())
+			switch(object.getOperation())
 			{
-			case ProductOperations.DIV:
+			case DIV:
 				return leftInt / rightInt;
-			case ProductOperations.MULT:
+			case MULT:
 				return leftInt * rightInt;
-			case ProductOperations.MOD:
+			case MOD:
 				return leftInt % rightInt;
 			}
 			throw new RuntimeException("This should never happen!");
@@ -139,13 +139,13 @@ public class PCMStoExEvaluationVisitor extends PCMStoExSwitch {
 		} else {
 			double leftDouble = getDouble(left);
 			double rightDouble = getDouble(right);
-			switch(object.getOperation().getValue())
+			switch(object.getOperation())
 			{
-			case ProductOperations.DIV:
+			case DIV:
 				return leftDouble / rightDouble;
-			case ProductOperations.MULT:
+			case MULT:
 				return leftDouble * rightDouble;
-			case ProductOperations.MOD:
+			case MOD:
 				return leftDouble % rightDouble;
 			}
 			throw new RuntimeException("This should never happen!");
@@ -195,11 +195,11 @@ public class PCMStoExEvaluationVisitor extends PCMStoExSwitch {
 		if (leftType == TypeEnum.INT &&	rightType == TypeEnum.INT) {
 			int leftInt = (Integer)left;
 			int rightInt = (Integer)right;
-			switch(object.getOperation().getValue())
+			switch(object.getOperation())
 			{
-			case TermOperations.ADD:
+			case ADD:
 				return leftInt + rightInt;
-			case TermOperations.SUB:
+			case SUB:
 				return leftInt - rightInt;
 			}
 			throw new RuntimeException("This should never happen!");
@@ -207,11 +207,11 @@ public class PCMStoExEvaluationVisitor extends PCMStoExSwitch {
 		} else {
 			double leftDouble = getDouble(left);
 			double rightDouble = getDouble(right);
-			switch(object.getOperation().getValue())
+			switch(object.getOperation())
 			{
-			case TermOperations.ADD:
+			case ADD:
 				return leftDouble + rightDouble;
-			case TermOperations.SUB:
+			case SUB:
 				return leftDouble - rightDouble;
 			}
 			throw new RuntimeException("This should never happen!");

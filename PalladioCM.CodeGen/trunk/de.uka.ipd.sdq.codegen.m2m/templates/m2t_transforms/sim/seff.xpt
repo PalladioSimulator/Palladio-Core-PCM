@@ -62,7 +62,7 @@
 	de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe methodBodyStackFrame = 
 		ctx.getStack().currentStackFrame();
 	«ENDIF»
-	«IF BasicComponent.isInstance(this.eContainer.eContainer)»
+	«IF BasicComponent.isInstance(this.eContainer.eContainer) && false»
 		«LET (BasicComponent)this.eContainer.eContainer AS bc»
 			«FOREACH bc.internalVariables_BasicComponent AS pu»
 				«FOREACH pu.variableCharacterisation_VariableUsage AS vc»

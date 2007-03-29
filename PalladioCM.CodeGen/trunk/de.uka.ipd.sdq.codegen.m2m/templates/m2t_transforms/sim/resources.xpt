@@ -12,7 +12,7 @@
 // Load the resource demand on a simulated resource
 «DEFINE ResourceDemand FOR ParametricResourceDemand»
    {
-      double demand = (Double) ctx.evaluate("«this.specification.javaString()»",Double.class);
+      double demand = (Double) ctx.evaluate("«this.specification.specificationString()»",Double.class);
       ctx.findResource(this.assemblyContextID).loadActiveResource(ctx.getThread(),"«this.requiredResource_ParametricResourceDemand.entityName»",demand);
    }
 «ENDDEFINE»

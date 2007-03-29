@@ -129,5 +129,5 @@ Export-Package: .,
  org.hibernate.validator.interpolator,
  org.hibernate.validator.resources
 Require-Bundle: org.apache.jakarta_log4j,
- org.apache.commons_logging,
+ org.apache.commons.logging,
  org.apache.derby.core
