@@ -1,0 +1,40 @@
+«EXTENSION m2t_transforms::java_names»
+«EXTENSION m2t_transforms::pcm»
+«IMPORT repository»
+«IMPORT entity»
+«IMPORT system»
+«IMPORT composition»
+«IMPORT allocation»
+«IMPORT resourceenvironment»
+«IMPORT resourcerepository»
+
+//------------------------------
+// Allocation Context
+// 1.) Generate a simulated resource environment
+// 2.) Generate a context class which can be queried
+//     to retrieve the resource container of the component in the 
+//     current context
+//------------------------------
+«DEFINE Allocation FOR Allocation»
+	«EXPAND m2t_transforms::sim::resources::ResourceEnvironment FOR this.targetResourceEnvironment_Allocation»
+	«FILE this.fqnAllocationContext().fqnToDirectoryPath()+".java"»
+		package «this.fqnAllocationContextPackage()»;
+		 
+		public class «this.fqnAllocationContextClass()» 
+		extends de.uka.ipd.sdq.simucomframework.Context {
+			public «this.fqnAllocationContextClass()»(de.uka.ipd.sdq.simucomframework.model.SimuComModel myModel) {
+				super(myModel);
+			}
+			
+			protected void initialiseAssemblyContextLookup() {
+				«EXPAND AssemblyContextLink FOREACH this.allocationContexts_Allocation»
+			}
+		}
+	«ENDFILE»
+«ENDDEFINE»
+
+// The following rule assumes the current 1:1 relationship between allocation context and
+// assembly context!
+«DEFINE AssemblyContextLink FOR AllocationContext»
+	linkAssemblyContextAndResourceContainer("«this.assemblyContext_AllocationContext.id»","«this.resourceContainer_AllocationContext.id»");
+«ENDDEFINE»
