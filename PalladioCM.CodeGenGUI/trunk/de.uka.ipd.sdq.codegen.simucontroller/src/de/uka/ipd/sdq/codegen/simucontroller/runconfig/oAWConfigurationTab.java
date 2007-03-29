@@ -35,7 +35,7 @@ public class oAWConfigurationTab extends AbstractLaunchConfigurationTab {
 	/**
 	 * TODO
 	 */
-	private String GENERATE_PLUGIN_PATH = "${workspace_loc}/de.uka.ipd.sdq.codegen.simucominstance";
+	private String GENERATE_PLUGIN_PATH = "${workspace_loc}/de.uka.ipd.sdq.codegen.simucominstance/src";
 	private String outputPath = "OUTPUT_PATH";
 	/**
 	 * The default value for the 'height' Layout attribute.
@@ -146,7 +146,7 @@ public class oAWConfigurationTab extends AbstractLaunchConfigurationTab {
 	 */
 	public void initializeFrom(ILaunchConfiguration configuration) {
 		try {
-			outputPathField.setText(configuration.getAttribute(outputPath, GENERATE_PLUGIN_PATH));
+			outputPathField.setText(configuration.getAttribute(ResourceManagerTab.OUTPUT_PATH, GENERATE_PLUGIN_PATH));
 		} catch (CoreException e) {
 			outputPathField.setText("CoreException e -> " + outputPath);
 		}
@@ -156,7 +156,7 @@ public class oAWConfigurationTab extends AbstractLaunchConfigurationTab {
 	 * @see org.eclipse.debug.ui.ILaunchConfigurationTab#performApply(org.eclipse.debug.core.ILaunchConfigurationWorkingCopy)
 	 */
 	public void performApply(ILaunchConfigurationWorkingCopy configuration) {
-		configuration.setAttribute(outputPath, outputPathField.getText());
+		configuration.setAttribute(ResourceManagerTab.OUTPUT_PATH, outputPathField.getText());
 	}
 
 	/* (non-Javadoc)
