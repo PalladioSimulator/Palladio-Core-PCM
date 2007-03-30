@@ -201,6 +201,7 @@
           <steps_Behaviour xsi:type="pcm.seff:ExternalCallAction" id="_BmEuwNL-EdujoZKiiOMQBA" entityName="markProductsUnavailableInStock" predecessor_AbstractAction="_81y2oNL9EdujoZKiiOMQBA" successor_AbstractAction="_FOYSMNL-EdujoZKiiOMQBA" calledService_ExternalService="//@interfaces__Repository.6/@signatures__Interface.8"/>
           <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_FOYSMNL-EdujoZKiiOMQBA" predecessor_AbstractAction="_BmEuwNL-EdujoZKiiOMQBA"/>
         </bodyBehaviour_Loop>
+        <iterations_LoopAction specification="numberOfStores.VALUE * 0.05"/>
       </steps_Behaviour>
       <steps_Behaviour xsi:type="pcm.seff:InternalAction" id="_NeLlMNL-EdujoZKiiOMQBA" entityName="sumUp" predecessor_AbstractAction="_pbL4ENL9EdujoZKiiOMQBA" successor_AbstractAction="_A2scgN7AEduAmOtZLewIEg"/>
       <steps_Behaviour xsi:type="pcm.seff:SetVariableAction" id="_A2scgN7AEduAmOtZLewIEg" entityName="setReturnValue" predecessor_AbstractAction="_NeLlMNL-EdujoZKiiOMQBA" successor_AbstractAction="_BYli0NLyEduQ7qbNANXHPw">
