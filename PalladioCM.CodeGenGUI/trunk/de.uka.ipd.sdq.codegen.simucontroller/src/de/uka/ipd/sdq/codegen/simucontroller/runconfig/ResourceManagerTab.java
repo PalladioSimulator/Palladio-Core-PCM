@@ -37,7 +37,7 @@ public class ResourceManagerTab {
 
 	public static Image getModelsListImage() {
 		return SimuControllerImages.imageRegistry
-				.get(SimuControllerImages.MODELSLIST);
+				.get(SimuControllerImages.MODELS_LIST);
 	}
 
 	/**

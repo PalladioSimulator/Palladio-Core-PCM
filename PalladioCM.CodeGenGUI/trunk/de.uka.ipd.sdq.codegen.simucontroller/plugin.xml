@@ -58,6 +58,20 @@
 	        modes="run">
 	    </shortcut>
 	</extension>
+ <extension
+       point="org.eclipse.ui.views">
+    <category
+          id="de.uka.ipd.sdq.codegen.simucontroller"
+          name="SimuController">
+    </category>
+    <view
+          category="de.uka.ipd.sdq.codegen.simucontroller"
+          class="de.uka.ipd.sdq.codegen.simucontroller.views.SumuView"
+          icon="icons/app_simucim.gif"
+          id="de.uka.ipd.sdq.codegen.simucontroller.views.SumuView"
+          name="SimuController View">
+    </view>
+ </extension>
 
 	
 </plugin>

@@ -16,7 +16,11 @@ public class SimuControllerImages {
 	 * Names of images used to represent actions in ToolBar
 	 */
 	public static final String CONFIGURATION 	= "configuration";
-	public static final String MODELSLIST  = "models_list";
+	public static final String MODELS_LIST  	= "models_list";
+	public static final String SIMU_START  		= "nav_start";
+	public static final String SIMU_STOP  		= "nav_stop";
+	public static final String SIMU_GENERATE  	= "new_plugin";
+	public static final String SIMU_DELETE  	= "del_plugin";
 	
 	// For the toolbar images
 	public static ImageRegistry imageRegistry = new ImageRegistry();
@@ -33,8 +37,20 @@ public class SimuControllerImages {
 				 getImageDescriptor(iconPath + CONFIGURATION + ".gif")
 		);
 		
-		imageRegistry.put(MODELSLIST,
-				 getImageDescriptor(iconPath + MODELSLIST + ".gif")
+		imageRegistry.put(MODELS_LIST,
+				 getImageDescriptor(iconPath + MODELS_LIST + ".gif")
+				);
+		imageRegistry.put(SIMU_START,
+				 getImageDescriptor(iconPath + SIMU_START + ".gif")
+				);
+		imageRegistry.put(SIMU_STOP,
+				 getImageDescriptor(iconPath + SIMU_STOP + ".gif")
+				);
+		imageRegistry.put(SIMU_GENERATE,
+				 getImageDescriptor(iconPath + SIMU_GENERATE + ".gif")
+				);
+		imageRegistry.put(SIMU_DELETE,
+				 getImageDescriptor(iconPath + SIMU_DELETE + ".gif")
 				);
 	}
 

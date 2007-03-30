@@ -15,12 +15,15 @@ import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Plugin;
+import org.eclipse.core.runtime.SubProgressMonitor;
 import org.eclipse.debug.core.ILaunch;
 import org.eclipse.debug.core.ILaunchConfiguration;
 import org.eclipse.debug.core.model.ILaunchConfigurationDelegate;
 import org.eclipse.jdt.core.JavaModelException;
+import org.openarchitectureware.wizards.EclipseHelper;
 import org.openarchitectureware.workflow.WorkflowRunner;
 import org.openarchitectureware.workflow.monitor.NullProgressMonitor;
+import org.openarchitectureware.workflow.monitor.ProgressMonitor;
 import org.openarchitectureware.workflow.util.ResourceLoaderFactory;
 import org.osgi.framework.Bundle;
 
@@ -66,17 +69,16 @@ public class SimuLaunchConfigurationDelegate implements
 				.getAttribute(ResourceManagerTab.OUTPUT_PATH, ""));
 
 		IProject project = new CreatePluginProject(monitor).getProject();
-
 		try {
 			OawEclipseProjectResourceLoader resourceLoader = new OawEclipseProjectResourceLoader(
 					project);
 			ResourceLoaderFactory
 					.setCurrentThreadResourceLoader(resourceLoader);
-			
-			for (int i = 0; i < workflowFiles.length; i++){
-				
-			runWorkflowRunner(monitor, getWorkflowFile(workflowFiles[i]), properties,
-					slotContents);
+
+			for (int i = 0; i < workflowFiles.length; i++) {
+
+				runWorkflowRunner(getWorkflowFile(workflowFiles[i]),
+						properties, slotContents);
 			}
 
 		} finally {
@@ -85,10 +87,9 @@ public class SimuLaunchConfigurationDelegate implements
 
 	}
 
-	public void runWorkflowRunner(IProgressMonitor monitor,
-			String workflowFile, Map<String, String> properties,
-			Map<String, Object> slotContents) throws CoreException,
-			JavaModelException {
+	public void runWorkflowRunner(String workflowFile,
+			Map<String, String> properties, Map<String, Object> slotContents)
+			throws CoreException, JavaModelException {
 		WorkflowRunner runner = new WorkflowRunner();
 		runner.run(workflowFile, new NullProgressMonitor(), properties,
 				slotContents);
@@ -98,7 +99,7 @@ public class SimuLaunchConfigurationDelegate implements
 	 * Refactoring TODO
 	 */
 	public String getWorkflowFile(String fileName) {
-		Bundle pluginBundle  = SimuControllerPlugin.getDefault().getBundle();
+		Bundle pluginBundle = SimuControllerPlugin.getDefault().getBundle();
 
 		// where plugin is of type org.eclipse.core.runtime.Plugin:
 		URL url = FileLocator.find(pluginBundle, new Path(fileName), null);
