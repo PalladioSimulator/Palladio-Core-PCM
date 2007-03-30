@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pcm.repository:Repository xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pcm.repository="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/1.0" xmlns:pcm.seff="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0" id="_VbE38N0-EduyyPV1EeYaOQ" entityName="ConcurRepository">
+  <components__Repository xsi:type="pcm.repository:BasicComponent" id="_ZTukgN0-EduyyPV1EeYaOQ" entityName="Component">
+    <providedRoles_InterfaceProvidingEntity id="_exmicN0-EduyyPV1EeYaOQ" providedInterface__ProvidedRole="_YbGTYN0-EduyyPV1EeYaOQ"/>
+    <serviceEffectSpecifications__BasicComponent xsi:type="pcm.seff:ResourceDemandingSEFF" describedService__SEFF="//@interfaces__Repository.0/@signatures__Interface.0">
+      <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_sV5N4N0-EduyyPV1EeYaOQ" successor_AbstractAction="_0Dd9kN0-EduyyPV1EeYaOQ"/>
+      <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_sV5N4d0-EduyyPV1EeYaOQ" predecessor_AbstractAction="_B7u4cN1AEduyyPV1EeYaOQ"/>
+      <steps_Behaviour xsi:type="pcm.seff:BranchAction" id="_0Dd9kN0-EduyyPV1EeYaOQ" predecessor_AbstractAction="_sV5N4N0-EduyyPV1EeYaOQ" successor_AbstractAction="_ykMGsN0_EduyyPV1EeYaOQ">
+        <branches_Branch xsi:type="pcm.seff:ProbabilisticBranchTransition" id="_2EzjMN0-EduyyPV1EeYaOQ" branchProbability="0.7">
+          <branchBehaviour_BranchTransition>
+            <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_-7DLIN0-EduyyPV1EeYaOQ" successor_AbstractAction="__R2hkN0-EduyyPV1EeYaOQ"/>
+            <steps_Behaviour xsi:type="pcm.seff:InternalAction" id="__R2hkN0-EduyyPV1EeYaOQ" entityName="action1" predecessor_AbstractAction="_-7DLIN0-EduyyPV1EeYaOQ" successor_AbstractAction="_EhRz0N0_EduyyPV1EeYaOQ">
+              <resourceDemand_Action specification="DoublePDF(unit=&quot;ms&quot;)[ (1.0; 0.2) (2.0; 0.6) (3.0; 0.2) ]">
+                <requiredResource_ParametricResourceDemand href="My.resourcetype#_kYiq4N1AEduyyPV1EeYaOQ"/>
+              </resourceDemand_Action>
+            </steps_Behaviour>
+            <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_EhRz0N0_EduyyPV1EeYaOQ" predecessor_AbstractAction="__R2hkN0-EduyyPV1EeYaOQ"/>
+          </branchBehaviour_BranchTransition>
+        </branches_Branch>
+        <branches_Branch xsi:type="pcm.seff:ProbabilisticBranchTransition" id="_4JbtYN0-EduyyPV1EeYaOQ" branchProbability="0.3">
+          <branchBehaviour_BranchTransition>
+            <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_gbifQN0_EduyyPV1EeYaOQ" successor_AbstractAction="_hjXqAN0_EduyyPV1EeYaOQ"/>
+            <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_gzFckN0_EduyyPV1EeYaOQ" predecessor_AbstractAction="_hjXqAN0_EduyyPV1EeYaOQ"/>
+            <steps_Behaviour xsi:type="pcm.seff:InternalAction" id="_hjXqAN0_EduyyPV1EeYaOQ" entityName="action2" predecessor_AbstractAction="_gbifQN0_EduyyPV1EeYaOQ" successor_AbstractAction="_gzFckN0_EduyyPV1EeYaOQ">
+              <resourceDemand_Action specification="DoublePDF(unit=&quot;ms&quot;)[ (95.0; 0.2) (100.0; 0.6) (105.0; 0.2) ]">
+                <requiredResource_ParametricResourceDemand href="My.resourcetype#_kYiq4N1AEduyyPV1EeYaOQ"/>
+              </resourceDemand_Action>
+            </steps_Behaviour>
+          </branchBehaviour_BranchTransition>
+        </branches_Branch>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="pcm.seff:InternalAction" id="_ykMGsN0_EduyyPV1EeYaOQ" entityName="Do" predecessor_AbstractAction="_0Dd9kN0-EduyyPV1EeYaOQ" successor_AbstractAction="_B7u4cN1AEduyyPV1EeYaOQ">
+        <resourceDemand_Action specification="DoublePDF(unit=&quot;ms&quot;)[ (5.0; 0.3) (15.0; 0.4) (20.0; 0.3) ]">
+          <requiredResource_ParametricResourceDemand href="My.resourcetype#_kYiq4N1AEduyyPV1EeYaOQ"/>
+        </resourceDemand_Action>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="pcm.seff:LoopAction" id="_B7u4cN1AEduyyPV1EeYaOQ" predecessor_AbstractAction="_ykMGsN0_EduyyPV1EeYaOQ" successor_AbstractAction="_sV5N4d0-EduyyPV1EeYaOQ">
+        <bodyBehaviour_Loop>
+          <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_KwyNkN1AEduyyPV1EeYaOQ" successor_AbstractAction="_LqKFkN1AEduyyPV1EeYaOQ"/>
+          <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_LC-JwN1AEduyyPV1EeYaOQ" predecessor_AbstractAction="_LqKFkN1AEduyyPV1EeYaOQ"/>
+          <steps_Behaviour xsi:type="pcm.seff:InternalAction" id="_LqKFkN1AEduyyPV1EeYaOQ" entityName="loopAction" predecessor_AbstractAction="_KwyNkN1AEduyyPV1EeYaOQ" successor_AbstractAction="_LC-JwN1AEduyyPV1EeYaOQ">
+            <resourceDemand_Action specification="IntPMF(unit=&quot;ms&quot;)[ (5; 0.3) (36; 0.7) ]">
+              <requiredResource_ParametricResourceDemand href="My.resourcetype#_kYiq4N1AEduyyPV1EeYaOQ"/>
+            </resourceDemand_Action>
+          </steps_Behaviour>
+        </bodyBehaviour_Loop>
+        <iterations_LoopAction specification="27"/>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+  </components__Repository>
+  <interfaces__Repository id="_YbGTYN0-EduyyPV1EeYaOQ" entityName="IComponent">
+    <signatures__Interface serviceName="aMethod"/>
+  </interfaces__Repository>
+</pcm.repository:Repository>
