@@ -263,7 +263,7 @@
             </steps_Behaviour>
             <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_80hFgNJTEduQ7qbNANXHPw" predecessor_AbstractAction="_7fIm8NJTEduQ7qbNANXHPw"/>
           </branchBehaviour_BranchTransition>
-          <branchCondition_BranchTransition/>
+          <branchCondition_BranchTransition specification="productList.VALUE == 0"/>
         </branches_Branch>
         <branches_Branch xsi:type="pcm.seff:GuardedBranchTransition" id="_qvCIMd7HEduAmOtZLewIEg">
           <branchBehaviour_BranchTransition>
@@ -284,7 +284,7 @@
               <resourceDemand_Action specification="2" unit="ms"/>
             </steps_Behaviour>
           </branchBehaviour_BranchTransition>
-          <branchCondition_BranchTransition/>
+          <branchCondition_BranchTransition specification="productList.VALUE > 0"/>
         </branches_Branch>
       </steps_Behaviour>
       <steps_Behaviour xsi:type="pcm.seff:InternalAction" id="_6lsvcNJREduQ7qbNANXHPw" entityName="catch rollback" predecessor_AbstractAction="_m2h2INJREduQ7qbNANXHPw" successor_AbstractAction="_c4EJQNJOEduQ7qbNANXHPw">
