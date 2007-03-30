@@ -37,3 +37,6 @@ SEFF modeling problems:
 		try {
 			tx = pctx.getTransactionContext();
 			tx.beginTransaction();
+
+TODOs:
+- parameterise loop iterations

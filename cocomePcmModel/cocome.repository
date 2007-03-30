@@ -9,9 +9,7 @@
     <childComponentContexts_ComposedStructure id="_t2XgktClEduC9O_qbthgAg" entityName="TradingSystem.Inventory.Application" encapsulatedComponent_ChildComponentContext="_hfayBNClEduC9O_qbthgAg"/>
     <childComponentContexts_ComposedStructure id="_wSryAtClEduC9O_qbthgAg" entityName="TradingSystem.Inventory.Data" encapsulatedComponent_ChildComponentContext="_hNG20tChEduC9O_qbthgAg"/>
     <providedDelegationConnectors_ComposedStructure id="_-oqU49CsEduW_YoCCnq0vw" entityName="CashDeskConnectorIf" innerProvidedRole_ProvidedDelegationConnector="_K3H10NCtEduW_YoCCnq0vw" outerProvidedRole_ProvidedDelegationConnector="_ZAWl4NCjEduC9O_qbthgAg"/>
-    <requiredDelegationConnectors_ComposedStructure id="_sYcQYNCtEduW_YoCCnq0vw" entityName="SaleRegisteredEvent" innerRequiredRole_RequiredDelegationConnector="_XH0LYdCtEduW_YoCCnq0vw">
-      <outerRequiredRole_RequiredDelegationConnector href="default.system#_TFT8EdCpEduC9O_qbthgAg"/>
-    </requiredDelegationConnectors_ComposedStructure>
+    <requiredDelegationConnectors_ComposedStructure id="_sYcQYNCtEduW_YoCCnq0vw" entityName="SaleRegisteredEvent" innerRequiredRole_RequiredDelegationConnector="_XH0LYdCtEduW_YoCCnq0vw"/>
     <compositeAssemblyConnectors_ComposedStructure id="_BjufNdCqEduC9O_qbthgAg" entityName="StoreIf" requiringChildComponentContext_CompositeAssemblyConnector="_srWw4tCjEduC9O_qbthgAg" providingChildComponentContext_CompositeAssemblyConnector="_t2XgktClEduC9O_qbthgAg" providedRole_CompositeAssemblyConnector="_dgIVINCpEduC9O_qbthgAg" requiredRole_CompositeAssemblyConnector="_Du39kdCpEduC9O_qbthgAg"/>
     <compositeAssemblyConnectors_ComposedStructure id="_EK1ZddCsEduW_YoCCnq0vw" entityName="ReportingIf" requiringChildComponentContext_CompositeAssemblyConnector="_srWw4tCjEduC9O_qbthgAg" providingChildComponentContext_CompositeAssemblyConnector="_t2XgktClEduC9O_qbthgAg" providedRole_CompositeAssemblyConnector="_o77qENCpEduC9O_qbthgAg" requiredRole_CompositeAssemblyConnector="_GM-XsdCpEduC9O_qbthgAg"/>
     <compositeAssemblyConnectors_ComposedStructure id="_OfQPldCsEduW_YoCCnq0vw" entityName="EnterprisQueryIf" requiringChildComponentContext_CompositeAssemblyConnector="_t2XgktClEduC9O_qbthgAg" providingChildComponentContext_CompositeAssemblyConnector="_wSryAtClEduC9O_qbthgAg" providedRole_CompositeAssemblyConnector="_I9CIsNCiEduC9O_qbthgAg" requiredRole_CompositeAssemblyConnector="_y23pMdCpEduC9O_qbthgAg"/>
@@ -20,6 +18,7 @@
   </components__Repository>
   <components__Repository xsi:type="pcm.repository:BasicComponent" id="_-3VggNCgEduC9O_qbthgAg" entityName="TradingSystem.Inventory.Data.Enterprise">
     <providedRoles_InterfaceProvidingEntity id="_d1Mf0NChEduC9O_qbthgAg" entityName="Enterprise.EnterpriseQueryIf" providedInterface__ProvidedRole="_Eldg8NChEduC9O_qbthgAg"/>
+    <serviceEffectSpecifications__BasicComponent xsi:type="pcm.seff:ResourceDemandingSEFF" seffTypeID="" describedService__SEFF="//@interfaces__Repository.1/@signatures__Interface.0" id="queryEnterpriseById"/>
   </components__Repository>
   <components__Repository xsi:type="pcm.repository:BasicComponent" id="_B8esgNChEduC9O_qbthgAg" entityName="TradingSystem.Inventory.Data.Persistence">
     <providedRoles_InterfaceProvidingEntity id="_bT0IMNChEduC9O_qbthgAg" entityName="Persistence.PersistenceIf" providedInterface__ProvidedRole="_F8ovQNChEduC9O_qbthgAg"/>
@@ -63,6 +62,13 @@
       <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_11mU4NL-EdujoZKiiOMQBA" predecessor_AbstractAction="_2GlXMNL-EdujoZKiiOMQBA"/>
       <steps_Behaviour xsi:type="pcm.seff:InternalAction" id="_2GlXMNL-EdujoZKiiOMQBA" entityName="EntityManager query" predecessor_AbstractAction="_1i0i0NL-EdujoZKiiOMQBA" successor_AbstractAction="_11mU4NL-EdujoZKiiOMQBA">
         <resourceDemand_Action specification="1" unit="ms"/>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="pcm.seff:ResourceDemandingSEFF" seffTypeID="" describedService__SEFF="//@interfaces__Repository.6/@signatures__Interface.9" id="flushDatabase">
+      <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_V6e9MN6xEduAmOtZLewIEg" predecessor_AbstractAction="_WWfjwN6xEduAmOtZLewIEg"/>
+      <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_WJFZ4N6xEduAmOtZLewIEg" successor_AbstractAction="_WWfjwN6xEduAmOtZLewIEg"/>
+      <steps_Behaviour xsi:type="pcm.seff:InternalAction" id="_WWfjwN6xEduAmOtZLewIEg" entityName="Internal" predecessor_AbstractAction="_WJFZ4N6xEduAmOtZLewIEg" successor_AbstractAction="_V6e9MN6xEduAmOtZLewIEg">
+        <resourceDemand_Action specification="" unit="ms"/>
       </steps_Behaviour>
     </serviceEffectSpecifications__BasicComponent>
   </components__Repository>
@@ -114,7 +120,9 @@
       <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_BYli0NLyEduQ7qbNANXHPw" predecessor_AbstractAction="_NeLlMNL-EdujoZKiiOMQBA"/>
       <steps_Behaviour xsi:type="pcm.seff:ExternalCallAction" id="_EJT-ANLyEduQ7qbNANXHPw" entityName="getPersistenceContext" predecessor_AbstractAction="_BHJ0kNLyEduQ7qbNANXHPw" successor_AbstractAction="__MsdkNLyEduQ7qbNANXHPw" calledService_ExternalService="//@interfaces__Repository.2/@signatures__Interface.0"/>
       <steps_Behaviour xsi:type="pcm.seff:ExternalCallAction" id="__MsdkNLyEduQ7qbNANXHPw" entityName="queryEnterpriseById" predecessor_AbstractAction="_EJT-ANLyEduQ7qbNANXHPw" successor_AbstractAction="_Y6-ZoNLzEduQ7qbNANXHPw" calledService_ExternalService="//@interfaces__Repository.1/@signatures__Interface.0"/>
-      <steps_Behaviour xsi:type="pcm.seff:InternalAction" id="_Y6-ZoNLzEduQ7qbNANXHPw" entityName="removeCallingStore" predecessor_AbstractAction="__MsdkNLyEduQ7qbNANXHPw" successor_AbstractAction="_trQxsNLzEduQ7qbNANXHPw"/>
+      <steps_Behaviour xsi:type="pcm.seff:InternalAction" id="_Y6-ZoNLzEduQ7qbNANXHPw" entityName="removeCallingStore" predecessor_AbstractAction="__MsdkNLyEduQ7qbNANXHPw" successor_AbstractAction="_trQxsNLzEduQ7qbNANXHPw">
+        <resourceDemand_Action specification="1" unit="ms"/>
+      </steps_Behaviour>
       <steps_Behaviour xsi:type="pcm.seff:LoopAction" id="_trQxsNLzEduQ7qbNANXHPw" predecessor_AbstractAction="_Y6-ZoNLzEduQ7qbNANXHPw" successor_AbstractAction="_EteToNL1EduQ7qbNANXHPw">
         <bodyBehaviour_Loop>
           <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_7g2BcNLzEduQ7qbNANXHPw" predecessor_AbstractAction="_uyhfQNL0EduQ7qbNANXHPw"/>
@@ -252,12 +260,14 @@
               </bodyBehaviour_Loop>
             </steps_Behaviour>
             <steps_Behaviour xsi:type="pcm.seff:InternalAction" id="_pG-j4NJTEduQ7qbNANXHPw" entityName="commit" predecessor_AbstractAction="_OtyCkNJTEduQ7qbNANXHPw" successor_AbstractAction="_In964NJTEduQ7qbNANXHPw">
-              <resourceDemand_Action specification="1" unit="ms"/>
+              <resourceDemand_Action specification="2" unit="ms"/>
             </steps_Behaviour>
           </branchBehaviour_BranchTransition>
         </branches_Branch>
       </steps_Behaviour>
-      <steps_Behaviour xsi:type="pcm.seff:InternalAction" id="_6lsvcNJREduQ7qbNANXHPw" entityName="catch rollback" predecessor_AbstractAction="_m2h2INJREduQ7qbNANXHPw" successor_AbstractAction="_c4EJQNJOEduQ7qbNANXHPw"/>
+      <steps_Behaviour xsi:type="pcm.seff:InternalAction" id="_6lsvcNJREduQ7qbNANXHPw" entityName="catch rollback" predecessor_AbstractAction="_m2h2INJREduQ7qbNANXHPw" successor_AbstractAction="_c4EJQNJOEduQ7qbNANXHPw">
+        <resourceDemand_Action specification="2" unit="ms"/>
+      </steps_Behaviour>
     </serviceEffectSpecifications__BasicComponent>
   </components__Repository>
   <components__Repository xsi:type="pcm.repository:BasicComponent" id="_471bVdC0EduW_YoCCnq0vw" entityName="TradingSystem.Inventory.Application.Facade">

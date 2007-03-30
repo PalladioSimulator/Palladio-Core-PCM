@@ -49,6 +49,10 @@
   <children xmi:type="notation:Node" xmi:id="_Y6-ZodLzEduQ7qbNANXHPw" type="2006">
     <children xmi:type="notation:Node" xmi:id="_Y6-Zp9LzEduQ7qbNANXHPw" type="5012"/>
     <children xmi:type="notation:Node" xmi:id="_Y6-ZqNLzEduQ7qbNANXHPw" type="7012">
+      <children xmi:type="notation:Node" xmi:id="_wjlYMN6wEduAmOtZLewIEg" type="3008">
+        <element xmi:type="pcm.seff:ParametricResourceDemand" href="cocome.repository#//@components__Repository.10/@serviceEffectSpecifications__BasicComponent.0/@steps_Behaviour.4/@resourceDemand_Action.0"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_wjlYMd6wEduAmOtZLewIEg"/>
+      </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_Y6-ZqdLzEduQ7qbNANXHPw"/>
       <styles xmi:type="notation:TitleStyle" xmi:id="_Y6-ZqtLzEduQ7qbNANXHPw" showTitle="true"/>
       <styles xmi:type="notation:SortingStyle" xmi:id="_Y6-Zq9LzEduQ7qbNANXHPw"/>

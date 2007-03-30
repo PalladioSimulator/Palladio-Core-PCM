@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.0/notation" xmlns:pcm.seff="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0" xmi:id="_iNO9sN6wEduAmOtZLewIEg" type="PCM SEFF Model" name="cocome.seff_diagram" measurementUnit="Pixel">
+  <children xmi:type="notation:Node" xmi:id="_leJU0d6wEduAmOtZLewIEg" type="2001">
+    <styles xmi:type="notation:FontStyle" xmi:id="_leJU0t6wEduAmOtZLewIEg"/>
+    <styles xmi:type="notation:DescriptionStyle" xmi:id="_leJU096wEduAmOtZLewIEg"/>
+    <styles xmi:type="notation:FillStyle" xmi:id="_leJU1N6wEduAmOtZLewIEg"/>
+    <styles xmi:type="notation:LineStyle" xmi:id="_leJU1d6wEduAmOtZLewIEg"/>
+    <element xmi:type="pcm.seff:StartAction" href="default.repository#_leJU0N6wEduAmOtZLewIEg"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_leJU1t6wEduAmOtZLewIEg" x="312" y="72"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_luO_Qd6wEduAmOtZLewIEg" type="2006">
+    <children xmi:type="notation:Node" xmi:id="_luO_R96wEduAmOtZLewIEg" type="5012"/>
+    <children xmi:type="notation:Node" xmi:id="_luO_SN6wEduAmOtZLewIEg" type="7012">
+      <children xmi:type="notation:Node" xmi:id="_moDjMN6wEduAmOtZLewIEg" type="3008">
+        <element xmi:type="pcm.seff:ParametricResourceDemand" href="default.repository#//@steps_Behaviour.1/@resourceDemand_Action.0"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_moDjMd6wEduAmOtZLewIEg"/>
+      </children>
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_luO_Sd6wEduAmOtZLewIEg"/>
+      <styles xmi:type="notation:TitleStyle" xmi:id="_luO_St6wEduAmOtZLewIEg" showTitle="true"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_luO_S96wEduAmOtZLewIEg"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_luO_TN6wEduAmOtZLewIEg"/>
+    </children>
+    <styles xmi:type="notation:FontStyle" xmi:id="_luO_Qt6wEduAmOtZLewIEg"/>
+    <styles xmi:type="notation:DescriptionStyle" xmi:id="_luO_Q96wEduAmOtZLewIEg"/>
+    <styles xmi:type="notation:FillStyle" xmi:id="_luO_RN6wEduAmOtZLewIEg"/>
+    <styles xmi:type="notation:LineStyle" xmi:id="_luO_Rd6wEduAmOtZLewIEg"/>
+    <element xmi:type="pcm.seff:InternalAction" href="default.repository#_luO_QN6wEduAmOtZLewIEg"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_luO_Rt6wEduAmOtZLewIEg" x="288" y="204"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_mI6JEd6wEduAmOtZLewIEg" type="2002">
+    <styles xmi:type="notation:FontStyle" xmi:id="_mI6JEt6wEduAmOtZLewIEg"/>
+    <styles xmi:type="notation:DescriptionStyle" xmi:id="_mI6JE96wEduAmOtZLewIEg"/>
+    <styles xmi:type="notation:FillStyle" xmi:id="_mI6JFN6wEduAmOtZLewIEg"/>
+    <styles xmi:type="notation:LineStyle" xmi:id="_mI6JFd6wEduAmOtZLewIEg"/>
+    <element xmi:type="pcm.seff:StopAction" href="default.repository#_mI6JEN6wEduAmOtZLewIEg"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_mI6JFt6wEduAmOtZLewIEg" x="312" y="324"/>
+  </children>
+  <styles xmi:type="notation:PageStyle" xmi:id="_iNO9sd6wEduAmOtZLewIEg"/>
+  <styles xmi:type="notation:GuideStyle" xmi:id="_iNO9st6wEduAmOtZLewIEg"/>
+  <styles xmi:type="notation:DescriptionStyle" xmi:id="_iNO9s96wEduAmOtZLewIEg"/>
+  <element xmi:type="pcm.seff:ResourceDemandingSEFF" href="default.repository#/"/>
+  <edges xmi:type="notation:Edge" xmi:id="_ozh8QN6wEduAmOtZLewIEg" type="4001" source="_leJU0d6wEduAmOtZLewIEg" target="_luO_Qd6wEduAmOtZLewIEg">
+    <styles xmi:type="notation:RoutingStyle" xmi:id="_ozh8Qd6wEduAmOtZLewIEg"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_ozh8Qt6wEduAmOtZLewIEg"/>
+    <styles xmi:type="notation:LineStyle" xmi:id="_ozh8Q96wEduAmOtZLewIEg"/>
+    <element xsi:nil="true"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_ozh8RN6wEduAmOtZLewIEg" points="[2, 20, -15, -115]$[15, 109, -2, -26]"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_pLg-cN6wEduAmOtZLewIEg" type="4001" source="_luO_Qd6wEduAmOtZLewIEg" target="_mI6JEd6wEduAmOtZLewIEg">
+    <styles xmi:type="notation:RoutingStyle" xmi:id="_pLg-cd6wEduAmOtZLewIEg"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_pLg-ct6wEduAmOtZLewIEg"/>
+    <styles xmi:type="notation:LineStyle" xmi:id="_pLg-c96wEduAmOtZLewIEg"/>
+    <element xsi:nil="true"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_pLg-dN6wEduAmOtZLewIEg" points="[2, 48, 5, -90]$[17, 143, 20, 5]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_pLg-dd6wEduAmOtZLewIEg" id="(0.4047619,0.094339624)"/>
+  </edges>
+</notation:Diagram>
