@@ -210,7 +210,7 @@
     <styles xmi:type="notation:FillStyle" xmi:id="_1UTjw9JQEduQ7qbNANXHPw"/>
     <styles xmi:type="notation:LineStyle" xmi:id="_1UTjxNJQEduQ7qbNANXHPw"/>
     <element xmi:type="pcm.seff:ExternalCallAction" href="cocome.repository#_1UJywNJQEduQ7qbNANXHPw"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_1UTjxdJQEduQ7qbNANXHPw" x="204" y="1044"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_1UTjxdJQEduQ7qbNANXHPw" x="204" y="1020"/>
   </children>
   <children xmi:type="notation:Node" xmi:id="_-2XI0dJQEduQ7qbNANXHPw" type="2006">
     <children xmi:type="notation:Node" xmi:id="_-2XI19JQEduQ7qbNANXHPw" type="5012"/>
@@ -225,7 +225,7 @@
     <styles xmi:type="notation:FillStyle" xmi:id="_-2XI1NJQEduQ7qbNANXHPw"/>
     <styles xmi:type="notation:LineStyle" xmi:id="_-2XI1dJQEduQ7qbNANXHPw"/>
     <element xmi:type="pcm.seff:InternalAction" href="cocome.repository#_-2XI0NJQEduQ7qbNANXHPw"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_-2XI1tJQEduQ7qbNANXHPw" x="240" y="1140"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_-2XI1tJQEduQ7qbNANXHPw" x="240" y="1104"/>
   </children>
   <children xmi:type="notation:Node" xmi:id="_GjSYQNJREduQ7qbNANXHPw" type="2003">
     <children xmi:type="notation:Node" xmi:id="_GjSYRtJREduQ7qbNANXHPw" type="5002"/>
@@ -240,7 +240,7 @@
     <styles xmi:type="notation:FillStyle" xmi:id="_GjSYQ9JREduQ7qbNANXHPw"/>
     <styles xmi:type="notation:LineStyle" xmi:id="_GjSYRNJREduQ7qbNANXHPw"/>
     <element xmi:type="pcm.seff:ExternalCallAction" href="cocome.repository#_Gi_dUNJREduQ7qbNANXHPw"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_GjSYRdJREduQ7qbNANXHPw" x="168" y="1212"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_GjSYRdJREduQ7qbNANXHPw" x="168" y="1164"/>
   </children>
   <children xmi:type="notation:Node" xmi:id="_UaNEwNJREduQ7qbNANXHPw" type="Note">
     <children xmi:type="notation:Node" xmi:id="_UaNEw9JREduQ7qbNANXHPw" type="DiagramName">
