@@ -33,7 +33,7 @@
     <styles xmi:type="notation:FillStyle" xmi:id="_WWfjxN6xEduAmOtZLewIEg"/>
     <styles xmi:type="notation:LineStyle" xmi:id="_WWfjxd6xEduAmOtZLewIEg"/>
     <element xmi:type="pcm.seff:InternalAction" href="cocome.repository#_WWfjwN6xEduAmOtZLewIEg"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_WWfjxt6xEduAmOtZLewIEg" x="304" y="280"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_WWfjxt6xEduAmOtZLewIEg" x="192" y="264"/>
   </children>
   <styles xmi:type="notation:PageStyle" xmi:id="_VTSaUd6xEduAmOtZLewIEg"/>
   <styles xmi:type="notation:GuideStyle" xmi:id="_VTSaUt6xEduAmOtZLewIEg"/>

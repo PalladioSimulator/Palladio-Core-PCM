@@ -68,7 +68,7 @@
       <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_V6e9MN6xEduAmOtZLewIEg" predecessor_AbstractAction="_WWfjwN6xEduAmOtZLewIEg"/>
       <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_WJFZ4N6xEduAmOtZLewIEg" successor_AbstractAction="_WWfjwN6xEduAmOtZLewIEg"/>
       <steps_Behaviour xsi:type="pcm.seff:InternalAction" id="_WWfjwN6xEduAmOtZLewIEg" entityName="Internal" predecessor_AbstractAction="_WJFZ4N6xEduAmOtZLewIEg" successor_AbstractAction="_V6e9MN6xEduAmOtZLewIEg">
-        <resourceDemand_Action specification="" unit="ms"/>
+        <resourceDemand_Action specification="DoublePDF(unit=&quot;ms&quot;)[ (0.5; 0.5) (1.0; 0.5) ]" unit="ms"/>
       </steps_Behaviour>
     </serviceEffectSpecifications__BasicComponent>
   </components__Repository>
@@ -133,7 +133,9 @@
         </bodyBehaviour_Loop>
       </steps_Behaviour>
       <steps_Behaviour xsi:type="pcm.seff:InternalAction" id="_EteToNL1EduQ7qbNANXHPw" entityName="time out realisation" predecessor_AbstractAction="_trQxsNLzEduQ7qbNANXHPw" successor_AbstractAction="_OpTDkNL1EduQ7qbNANXHPw"/>
-      <steps_Behaviour xsi:type="pcm.seff:InternalAction" id="_OpTDkNL1EduQ7qbNANXHPw" entityName="getProductIds" predecessor_AbstractAction="_EteToNL1EduQ7qbNANXHPw"/>
+      <steps_Behaviour xsi:type="pcm.seff:InternalAction" id="_OpTDkNL1EduQ7qbNANXHPw" entityName="getProductIds" predecessor_AbstractAction="_EteToNL1EduQ7qbNANXHPw">
+        <resourceDemand_Action specification="1000" unit="ms"/>
+      </steps_Behaviour>
       <steps_Behaviour xsi:type="pcm.seff:BranchAction" id="_7puwUNL2EduQ7qbNANXHPw" entityName="requiredProductAmount.size() > 0" successor_AbstractAction="_RPZpgNL9EdujoZKiiOMQBA">
         <branches_Branch xsi:type="pcm.seff:ProbabilisticBranchTransition" id="_9est4NL2EduQ7qbNANXHPw">
           <branchBehaviour_BranchTransition>
