@@ -136,6 +136,10 @@
   <children xmi:type="notation:Node" xmi:id="_dbaRcNJPEduQ7qbNANXHPw" type="2006">
     <children xmi:type="notation:Node" xmi:id="_dbaRdtJPEduQ7qbNANXHPw" type="5012"/>
     <children xmi:type="notation:Node" xmi:id="_dbaRd9JPEduQ7qbNANXHPw" type="7012">
+      <children xmi:type="notation:Node" xmi:id="_nGP3YNO1EduL6bgulTgjzg" type="3008">
+        <element xmi:type="pcm.seff:ParametricResourceDemand" href="cocome.repository#//@components__Repository.12/@serviceEffectSpecifications__BasicComponent.0/@steps_Behaviour.6/@resourceDemand_Action.0"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_nGP3YdO1EduL6bgulTgjzg"/>
+      </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_dbaReNJPEduQ7qbNANXHPw"/>
       <styles xmi:type="notation:TitleStyle" xmi:id="_dbaRedJPEduQ7qbNANXHPw" showTitle="true"/>
       <styles xmi:type="notation:SortingStyle" xmi:id="_dbaRetJPEduQ7qbNANXHPw"/>
@@ -166,6 +170,10 @@
   <children xmi:type="notation:Node" xmi:id="_qZcYsdJQEduQ7qbNANXHPw" type="2006">
     <children xmi:type="notation:Node" xmi:id="_qZcYt9JQEduQ7qbNANXHPw" type="5012"/>
     <children xmi:type="notation:Node" xmi:id="_qZcYuNJQEduQ7qbNANXHPw" type="7012">
+      <children xmi:type="notation:Node" xmi:id="_cKQCMN6dEduAmOtZLewIEg" type="3008">
+        <element xmi:type="pcm.seff:ParametricResourceDemand" href="cocome.repository#//@components__Repository.12/@serviceEffectSpecifications__BasicComponent.0/@steps_Behaviour.8/@resourceDemand_Action.0"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_cKQCMd6dEduAmOtZLewIEg"/>
+      </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_qZcYudJQEduQ7qbNANXHPw"/>
       <styles xmi:type="notation:TitleStyle" xmi:id="_qZcYutJQEduQ7qbNANXHPw" showTitle="true"/>
       <styles xmi:type="notation:SortingStyle" xmi:id="_qZcYu9JQEduQ7qbNANXHPw"/>
@@ -264,6 +272,10 @@
               <children xmi:type="notation:Node" xmi:id="_7fIm8dJTEduQ7qbNANXHPw" type="3007">
                 <children xmi:type="notation:Node" xmi:id="_7fRw4NJTEduQ7qbNANXHPw" type="5005"/>
                 <children xmi:type="notation:Node" xmi:id="_7fRw4dJTEduQ7qbNANXHPw" type="7006">
+                  <children xmi:type="notation:Node" xmi:id="_E3i-cN6iEduAmOtZLewIEg" type="3008">
+                    <element xmi:type="pcm.seff:ParametricResourceDemand" href="cocome.repository#//@components__Repository.12/@serviceEffectSpecifications__BasicComponent.0/@steps_Behaviour.12/@branches_Branch.0/@branchBehaviour_BranchTransition/@steps_Behaviour.1/@resourceDemand_Action.0"/>
+                    <layoutConstraint xmi:type="notation:Location" xmi:id="_E3i-cd6iEduAmOtZLewIEg"/>
+                  </children>
                   <styles xmi:type="notation:DrawerStyle" xmi:id="_7fRw4tJTEduQ7qbNANXHPw"/>
                   <styles xmi:type="notation:TitleStyle" xmi:id="_7fRw49JTEduQ7qbNANXHPw" showTitle="true"/>
                   <styles xmi:type="notation:SortingStyle" xmi:id="_7fRw5NJTEduQ7qbNANXHPw"/>
@@ -380,6 +392,10 @@
                       <children xmi:type="notation:Node" xmi:id="_jFC2odJTEduQ7qbNANXHPw" type="3007">
                         <children xmi:type="notation:Node" xmi:id="_jFC2p9JTEduQ7qbNANXHPw" type="5005"/>
                         <children xmi:type="notation:Node" xmi:id="_jFC2qNJTEduQ7qbNANXHPw" type="7006">
+                          <children xmi:type="notation:Node" xmi:id="_saTB4N6gEduAmOtZLewIEg" type="3008">
+                            <element xmi:type="pcm.seff:ParametricResourceDemand" href="cocome.repository#//@components__Repository.12/@serviceEffectSpecifications__BasicComponent.0/@steps_Behaviour.12/@branches_Branch.1/@branchBehaviour_BranchTransition/@steps_Behaviour.3/@bodyBehaviour_Loop/@steps_Behaviour.3/@resourceDemand_Action.0"/>
+                            <layoutConstraint xmi:type="notation:Location" xmi:id="_saTB4d6gEduAmOtZLewIEg"/>
+                          </children>
                           <styles xmi:type="notation:DrawerStyle" xmi:id="_jFC2qdJTEduQ7qbNANXHPw"/>
                           <styles xmi:type="notation:TitleStyle" xmi:id="_jFC2qtJTEduQ7qbNANXHPw" showTitle="true"/>
                           <styles xmi:type="notation:SortingStyle" xmi:id="_jFC2q9JTEduQ7qbNANXHPw"/>
@@ -415,6 +431,10 @@
               <children xmi:type="notation:Node" xmi:id="_pHIU4NJTEduQ7qbNANXHPw" type="3007">
                 <children xmi:type="notation:Node" xmi:id="_pHIU5tJTEduQ7qbNANXHPw" type="5005"/>
                 <children xmi:type="notation:Node" xmi:id="_pHIU59JTEduQ7qbNANXHPw" type="7006">
+                  <children xmi:type="notation:Node" xmi:id="_AA28UN6iEduAmOtZLewIEg" type="3008">
+                    <element xmi:type="pcm.seff:ParametricResourceDemand" href="cocome.repository#//@components__Repository.12/@serviceEffectSpecifications__BasicComponent.0/@steps_Behaviour.12/@branches_Branch.1/@branchBehaviour_BranchTransition/@steps_Behaviour.4/@resourceDemand_Action.0"/>
+                    <layoutConstraint xmi:type="notation:Location" xmi:id="_AA28Ud6iEduAmOtZLewIEg"/>
+                  </children>
                   <styles xmi:type="notation:DrawerStyle" xmi:id="_pHIU6NJTEduQ7qbNANXHPw"/>
                   <styles xmi:type="notation:TitleStyle" xmi:id="_pHIU6dJTEduQ7qbNANXHPw" showTitle="true"/>
                   <styles xmi:type="notation:SortingStyle" xmi:id="_pHIU6tJTEduQ7qbNANXHPw"/>
