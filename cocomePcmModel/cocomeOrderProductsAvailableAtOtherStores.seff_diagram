@@ -14,7 +14,7 @@
     <styles xmi:type="notation:FillStyle" xmi:id="_BYvT09LyEduQ7qbNANXHPw"/>
     <styles xmi:type="notation:LineStyle" xmi:id="_BYvT1NLyEduQ7qbNANXHPw"/>
     <element xmi:type="pcm.seff:StopAction" href="cocome.repository#_BYli0NLyEduQ7qbNANXHPw"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_BYvT1dLyEduQ7qbNANXHPw" x="360" y="2856"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_BYvT1dLyEduQ7qbNANXHPw" x="360" y="2892"/>
   </children>
   <children xmi:type="notation:Node" xmi:id="_EJdvANLyEduQ7qbNANXHPw" type="2003">
     <children xmi:type="notation:Node" xmi:id="_EJdvBtLyEduQ7qbNANXHPw" type="5002"/>
@@ -785,7 +785,7 @@
     <styles xmi:type="notation:FillStyle" xmi:id="_A21mc97AEduAmOtZLewIEg"/>
     <styles xmi:type="notation:LineStyle" xmi:id="_A21mdN7AEduAmOtZLewIEg"/>
     <element xmi:type="pcm.seff:SetVariableAction" href="cocome.repository#_A2scgN7AEduAmOtZLewIEg"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_A21mdd7AEduAmOtZLewIEg" x="324" y="2760"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_A21mdd7AEduAmOtZLewIEg" x="84" y="2760"/>
   </children>
   <styles xmi:type="notation:PageStyle" xmi:id="_ApzKMdLyEduQ7qbNANXHPw"/>
   <styles xmi:type="notation:GuideStyle" xmi:id="_ApzKMtLyEduQ7qbNANXHPw"/>
@@ -1132,6 +1132,6 @@
     <styles xmi:type="notation:LineStyle" xmi:id="_C88-Y97AEduAmOtZLewIEg"/>
     <element xsi:nil="true"/>
     <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_C88-ZN7AEduAmOtZLewIEg" points="[40, 5, -148, -7]$[187, -8, -1, -20]"/>
-    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_C88-Zd7AEduAmOtZLewIEg" id="(0.6039604,0.82222223)"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_C88-Zd7AEduAmOtZLewIEg" id="(0.47479674,0.8969072)"/>
   </edges>
 </notation:Diagram>

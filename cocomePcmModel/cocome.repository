@@ -130,7 +130,7 @@
       <steps_Behaviour xsi:type="pcm.seff:InternalAction" id="_Y6-ZoNLzEduQ7qbNANXHPw" entityName="removeCallingStore" predecessor_AbstractAction="__MsdkNLyEduQ7qbNANXHPw" successor_AbstractAction="_trQxsNLzEduQ7qbNANXHPw">
         <resourceDemand_Action specification="1" unit="ms"/>
       </steps_Behaviour>
-      <steps_Behaviour xsi:type="pcm.seff:LoopAction" id="_trQxsNLzEduQ7qbNANXHPw" predecessor_AbstractAction="_Y6-ZoNLzEduQ7qbNANXHPw" successor_AbstractAction="_EteToNL1EduQ7qbNANXHPw">
+      <steps_Behaviour xsi:type="pcm.seff:LoopAction" id="_trQxsNLzEduQ7qbNANXHPw" entityName="IterateStores" predecessor_AbstractAction="_Y6-ZoNLzEduQ7qbNANXHPw" successor_AbstractAction="_EteToNL1EduQ7qbNANXHPw">
         <bodyBehaviour_Loop>
           <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_7g2BcNLzEduQ7qbNANXHPw" predecessor_AbstractAction="_uyhfQNL0EduQ7qbNANXHPw"/>
           <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_70NpYNLzEduQ7qbNANXHPw" successor_AbstractAction="_85pncNLzEduQ7qbNANXHPw"/>
@@ -138,19 +138,21 @@
           <steps_Behaviour xsi:type="pcm.seff:ExternalCallAction" id="_dVr08NL0EduQ7qbNANXHPw" entityName="flushDatabase" predecessor_AbstractAction="_85pncNLzEduQ7qbNANXHPw" successor_AbstractAction="_uyhfQNL0EduQ7qbNANXHPw" calledService_ExternalService="//@interfaces__Repository.6/@signatures__Interface.9"/>
           <steps_Behaviour xsi:type="pcm.seff:InternalAction" id="_uyhfQNL0EduQ7qbNANXHPw" entityName="collect started threads" predecessor_AbstractAction="_dVr08NL0EduQ7qbNANXHPw" successor_AbstractAction="_7g2BcNLzEduQ7qbNANXHPw"/>
         </bodyBehaviour_Loop>
+        <iterations_LoopAction specification="numberOfStores.VALUE"/>
       </steps_Behaviour>
       <steps_Behaviour xsi:type="pcm.seff:InternalAction" id="_EteToNL1EduQ7qbNANXHPw" entityName="time out realisation" predecessor_AbstractAction="_trQxsNLzEduQ7qbNANXHPw" successor_AbstractAction="_OpTDkNL1EduQ7qbNANXHPw"/>
       <steps_Behaviour xsi:type="pcm.seff:InternalAction" id="_OpTDkNL1EduQ7qbNANXHPw" entityName="getProductIds" predecessor_AbstractAction="_EteToNL1EduQ7qbNANXHPw">
         <resourceDemand_Action specification="1000" unit="ms"/>
       </steps_Behaviour>
       <steps_Behaviour xsi:type="pcm.seff:BranchAction" id="_7puwUNL2EduQ7qbNANXHPw" entityName="requiredProductAmount.size() > 0" successor_AbstractAction="_RPZpgNL9EdujoZKiiOMQBA">
-        <branches_Branch xsi:type="pcm.seff:ProbabilisticBranchTransition" id="_9est4NL2EduQ7qbNANXHPw">
+        <branches_Branch xsi:type="pcm.seff:GuardedBranchTransition" id="_e5nAEd7MEduAmOtZLewIEg">
           <branchBehaviour_BranchTransition>
             <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_5bVUMNL4EdujoZKiiOMQBA" successor_AbstractAction="_5us8INL4EdujoZKiiOMQBA"/>
             <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_5us8INL4EdujoZKiiOMQBA" predecessor_AbstractAction="_5bVUMNL4EdujoZKiiOMQBA"/>
           </branchBehaviour_BranchTransition>
+          <branchCondition_BranchTransition specification="productAmounts.NUMBER_OF_ELEMENTS == 0"/>
         </branches_Branch>
-        <branches_Branch xsi:type="pcm.seff:ProbabilisticBranchTransition" id="_-aTagNL2EduQ7qbNANXHPw">
+        <branches_Branch xsi:type="pcm.seff:GuardedBranchTransition" id="_hriVId7MEduAmOtZLewIEg">
           <branchBehaviour_BranchTransition>
             <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_GTOMoNL5EdujoZKiiOMQBA" successor_AbstractAction="_HGxwgNL5EdujoZKiiOMQBA"/>
             <steps_Behaviour xsi:type="pcm.seff:InternalAction" id="_HGxwgNL5EdujoZKiiOMQBA" entityName="write output for AMPL / CPLEX and apply optimization" predecessor_AbstractAction="_GTOMoNL5EdujoZKiiOMQBA" successor_AbstractAction="_kFrIwNL5EdujoZKiiOMQBA"/>
@@ -185,8 +187,10 @@
                 </steps_Behaviour>
                 <steps_Behaviour xsi:type="pcm.seff:InternalAction" id="_pcULYNL7EdujoZKiiOMQBA" entityName="List.put" predecessor_AbstractAction="_XvDU4NL6EdujoZKiiOMQBA" successor_AbstractAction="_3oeaANL5EdujoZKiiOMQBA"/>
               </bodyBehaviour_Loop>
+              <iterations_LoopAction specification="numberOfStores.VALUE"/>
             </steps_Behaviour>
           </branchBehaviour_BranchTransition>
+          <branchCondition_BranchTransition specification="productAmounts.NUMBER_OF_ELEMENTS > 0"/>
         </branches_Branch>
       </steps_Behaviour>
       <steps_Behaviour xsi:type="pcm.seff:InternalAction" id="_RPZpgNL9EdujoZKiiOMQBA" entityName="prepare" predecessor_AbstractAction="_7puwUNL2EduQ7qbNANXHPw" successor_AbstractAction="_pbL4ENL9EdujoZKiiOMQBA"/>
@@ -235,6 +239,7 @@
           <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_2sTjYNJOEduQ7qbNANXHPw" successor_AbstractAction="_3isY0NJOEduQ7qbNANXHPw"/>
           <steps_Behaviour xsi:type="pcm.seff:ExternalCallAction" id="_3isY0NJOEduQ7qbNANXHPw" entityName="queryStockItemById" predecessor_AbstractAction="_2sTjYNJOEduQ7qbNANXHPw" successor_AbstractAction="_2ZFscNJOEduQ7qbNANXHPw" calledService_ExternalService="//@interfaces__Repository.3/@signatures__Interface.7"/>
         </bodyBehaviour_Loop>
+        <iterations_LoopAction specification="saleTO.NUMBER_OF_ELEMENTS"/>
       </steps_Behaviour>
       <steps_Behaviour xsi:type="pcm.seff:ExternalCallAction" id="_M7N1kNJPEduQ7qbNANXHPw" entityName="getPersistenceContext" predecessor_AbstractAction="_dbRHgNJPEduQ7qbNANXHPw" successor_AbstractAction="_YeyxANJQEduQ7qbNANXHPw" calledService_ExternalService="//@interfaces__Repository.2/@signatures__Interface.0"/>
       <steps_Behaviour xsi:type="pcm.seff:InternalAction" id="_dbRHgNJPEduQ7qbNANXHPw" entityName="catchBlock" predecessor_AbstractAction="_wAfysNJOEduQ7qbNANXHPw" successor_AbstractAction="_M7N1kNJPEduQ7qbNANXHPw">
@@ -311,7 +316,12 @@
     <requiredRoles_InterfaceRequiringEntity id="_XH0LYdCtEduW_YoCCnq0vw" entityName="Application.SaleRegisteredEvent" requiredInterface__RequiredRole="_RQoSZNCpEduC9O_qbthgAg"/>
     <childComponentContexts_ComposedStructure id="_r5EUAtIyEduQ7qbNANXHPw" entityName="TradingSystem.Inventory.ProductDispatcher" encapsulatedComponent_ChildComponentContext="_XDTf09CiEduC9O_qbthgAg"/>
     <childComponentContexts_ComposedStructure id="_F7D9wtCoEduC9O_qbthgAg" entityName="TradingSystem.Inventory.Application.Reporting" encapsulatedComponent_ChildComponentContext="_URW_1dCmEduC9O_qbthgAg"/>
-    <childComponentContexts_ComposedStructure id="_IcmGYtCoEduC9O_qbthgAg" entityName="TradingSystem.Inventory.Application.Store" encapsulatedComponent_ChildComponentContext="_6tZA5dCmEduC9O_qbthgAg"/>
+    <childComponentContexts_ComposedStructure id="_IcmGYtCoEduC9O_qbthgAg" entityName="TradingSystem.Inventory.Application.Store" encapsulatedComponent_ChildComponentContext="_6tZA5dCmEduC9O_qbthgAg">
+      <componentParameterUsage_AssemblyContext>
+        <variableCharacterisation_VariableUsage specification="200" type="VALUE"/>
+        <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="numberOfStores"/>
+      </componentParameterUsage_AssemblyContext>
+    </childComponentContexts_ComposedStructure>
     <childComponentContexts_ComposedStructure id="_8jQN8tC0EduW_YoCCnq0vw" entityName="TradingSystem.Inventory.Application.Facade" encapsulatedComponent_ChildComponentContext="_471bVdC0EduW_YoCCnq0vw"/>
     <providedDelegationConnectors_ComposedStructure id="__C-yA9CvEduW_YoCCnq0vw" entityName="ReportingIf" innerProvidedRole_ProvidedDelegationConnector="_8GhZMNC1EduW_YoCCnq0vw" outerProvidedRole_ProvidedDelegationConnector="_o77qENCpEduC9O_qbthgAg"/>
     <providedDelegationConnectors_ComposedStructure id="_Krcp89CwEduW_YoCCnq0vw" entityName="CashDeskConnectorIf" innerProvidedRole_ProvidedDelegationConnector="_CTfRwNC2EduW_YoCCnq0vw" outerProvidedRole_ProvidedDelegationConnector="_K3H10NCtEduW_YoCCnq0vw"/>
