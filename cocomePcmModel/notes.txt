@@ -40,5 +40,3 @@ SEFF modeling problems:
 - Concurrency for parallel databaseFlush() is not supported. A loop is modelled instead with
 one iteration for each concurrent thread.
 
-TODOs:
-- parameterise loop iterations
