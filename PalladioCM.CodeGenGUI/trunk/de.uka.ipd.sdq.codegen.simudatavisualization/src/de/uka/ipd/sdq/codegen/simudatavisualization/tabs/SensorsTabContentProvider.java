@@ -6,7 +6,7 @@ package de.uka.ipd.sdq.codegen.simudatavisualization.tabs;
 import org.eclipse.jface.viewers.IStructuredContentProvider;
 import org.eclipse.jface.viewers.Viewer;
 
-import de.uka.ipd.sdq.codegen.simudatavisualization.birt.ReportCongiguration;
+import de.uka.ipd.sdq.codegen.simudatavisualization.views.ConfigEditorInput;
 
 /**
  * @author admin
@@ -19,10 +19,9 @@ public class SensorsTabContentProvider implements IStructuredContentProvider {
 	 */
 	@Override
 	public Object[] getElements(Object inputElement) {
-		// TODO Auto-generated method stub
-		if (inputElement instanceof ReportCongiguration) {
-			ReportCongiguration configuration = (ReportCongiguration) inputElement;
-			return configuration.getRunEntrys().toArray();
+		if (inputElement instanceof ConfigEditorInput) {
+			ConfigEditorInput configuration = (ConfigEditorInput) inputElement;
+			return  configuration.getRunEntrys().toArray();
 		}
 		return null;
 	}
@@ -42,11 +41,6 @@ public class SensorsTabContentProvider implements IStructuredContentProvider {
 	 */
 	@Override
 	public void inputChanged(Viewer viewer, Object oldInput, Object newInput) {
-		if (newInput != null)
-            ((ReportCongiguration) newInput).addChangeListener(this);
-        if (oldInput != null)
-            ((ReportCongiguration) oldInput).removeChangeListener(this);
-
 
 	}
 

@@ -54,7 +54,7 @@ public class ExperimentsView extends ViewPart {
 		viewer.setInput(getViewSite());
 
 		// add Drag support
-		Transfer[] transfers = new Transfer[] {ResourceTransfer.getInstance()};
+		Transfer[] transfers = new Transfer[] {EditorInputTransfer.getInstance()};
 		viewer.addDragSupport(ops, transfers, new TreeDragSourceListener(viewer));
 
 		makeActions();

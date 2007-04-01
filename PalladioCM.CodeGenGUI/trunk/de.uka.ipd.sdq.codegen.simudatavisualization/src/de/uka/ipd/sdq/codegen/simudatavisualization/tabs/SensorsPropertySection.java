@@ -3,7 +3,6 @@
  */
 package de.uka.ipd.sdq.codegen.simudatavisualization.tabs;
 
-import org.eclipse.core.runtime.Assert;
 import org.eclipse.jface.viewers.CellEditor;
 import org.eclipse.jface.viewers.DialogCellEditor;
 import org.eclipse.jface.viewers.ISelection;
@@ -13,7 +12,6 @@ import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.dnd.DND;
-import org.eclipse.swt.dnd.Transfer;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.layout.FormAttachment;
@@ -26,18 +24,18 @@ import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.swt.widgets.ToolBar;
 import org.eclipse.swt.widgets.ToolItem;
-import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.part.EditorPart;
-import org.eclipse.ui.part.ResourceTransfer;
 import org.eclipse.ui.views.properties.tabbed.AbstractPropertySection;
 import org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage;
 
+
 import de.uka.ipd.sdq.codegen.simudatavisualization.SimuImages;
 import de.uka.ipd.sdq.codegen.simudatavisualization.SimuPlugin;
-import de.uka.ipd.sdq.codegen.simudatavisualization.birt.ReportCongiguration;
 import de.uka.ipd.sdq.codegen.simudatavisualization.birt.RunEntry;
+import de.uka.ipd.sdq.codegen.simudatavisualization.dialogs.ExperimentRunsDialog;
 import de.uka.ipd.sdq.codegen.simudatavisualization.dialogs.SensorsDialog;
+import de.uka.ipd.sdq.codegen.simudatavisualization.views.ConfigEditorInput;
 import de.uka.ipd.sdq.codegen.simudatavisualization.views.ReportView;
 
 /**
@@ -46,11 +44,10 @@ import de.uka.ipd.sdq.codegen.simudatavisualization.views.ReportView;
  */
 public class SensorsPropertySection extends AbstractPropertySection {
 
-	private ReportCongiguration configObject;
+	private ConfigEditorInput configObject;
 	private RunEntry selectedEntry;
 	private TableViewer viewer;
 	private Button updateButton;
-	ReportCongiguration rconfig = new ReportCongiguration();
 
 	public static final int ICON_COLUMN_INDEX = 0;
 	public static final int CONTEXT_COLUMN_INDEX = 1;
@@ -140,12 +137,6 @@ public class SensorsPropertySection extends AbstractPropertySection {
 		};
 		// Assign the cell editors to the viewer
 		viewer.setCellEditors(editors);
-
-		// add Drop support
-		Transfer[] transfers = new Transfer[] { ResourceTransfer.getInstance() };
-		viewer.addDropSupport(ops, transfers, new TableDropTargetListener(
-				viewer));
-
 		// Definere the table columns
 		final TableColumn zeroColumn = new TableColumn(table, SWT.NONE);
 		zeroColumn.setResizable(false);
@@ -175,7 +166,20 @@ public class SensorsPropertySection extends AbstractPropertySection {
 
 		ToolItem addRunItem = new ToolItem(toolBar, SWT.PUSH);
 		addRunItem.setImage(SimuImages.imageRegistry.get(SimuImages.RUN));
-		addRunItem.addSelectionListener(new AddRunEntryListener(this));
+		addRunItem.addSelectionListener(new SelectionAdapter(){
+			/* (non-Javadoc)
+			 * @see org.eclipse.swt.events.SelectionAdapter#widgetSelected(org.eclipse.swt.events.SelectionEvent)
+			 */
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				ExperimentRunsDialog dialog = new ExperimentRunsDialog(
+						e.display.getActiveShell());
+				if (dialog.open() == dialog.OK && dialog.getResult() != null) {
+					configObject.addNewEntry(dialog.getResult());
+					viewer.refresh();
+				}
+			}
+		});
 
 		ToolItem deleteRunItem = new ToolItem(toolBar, SWT.PUSH);
 		deleteRunItem.setImage(SimuImages.imageRegistry.get(SimuImages.RUN));
@@ -229,34 +233,12 @@ public class SensorsPropertySection extends AbstractPropertySection {
 	@Override
 	public void setInput(IWorkbenchPart part, ISelection selection) {
 		super.setInput(part, selection);
-		Assert.isTrue(selection instanceof IStructuredSelection);
-		Object input = ((IStructuredSelection) selection).getFirstElement();
 
-		EditorPart editor = (EditorPart) SimuPlugin.getDefault().getWorkbench()
-				.getActiveWorkbenchWindow().getActivePage().getActiveEditor();
-		configObject = ((ReportView) editor).getConfigObject();
-		viewer.setInput(configObject);
-	}
-
-	/**
-	 * 
-	 */
-	public SensorsPropertySection() {
-		// TODO Auto-generated constructor stub
-	}
-
-	/**
-	 * @return the configObject
-	 */
-	public ReportCongiguration getConfigObject() {
-		return configObject;
-	}
-
-	/**
-	 * @return the viewer
-	 */
-	public TableViewer getViewer() {
-		return viewer;
+		if (part instanceof ReportView) {
+			ReportView view = (ReportView) part;
+			configObject = (ConfigEditorInput) view.getEditorInput();
+			viewer.setInput(configObject);
+		}
 	}
 
 	/**
@@ -265,5 +247,4 @@ public class SensorsPropertySection extends AbstractPropertySection {
 	public Button getUpdateButton() {
 		return updateButton;
 	}
-
 }

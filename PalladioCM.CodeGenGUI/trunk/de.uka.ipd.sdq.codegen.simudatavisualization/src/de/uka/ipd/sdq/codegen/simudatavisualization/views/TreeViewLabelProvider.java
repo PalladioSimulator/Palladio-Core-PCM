@@ -32,10 +32,10 @@ public class TreeViewLabelProvider extends LabelProvider {
 			return ((Experiment) obj).getExperimentName();
 
 		if (obj instanceof ExperimentRun)
-			return ((ExperimentRun) obj).getExperimentDateTime();
+			return runRepresentation((ExperimentRun) obj);
 
 		if (obj instanceof Sensor)
-			return ((Sensor) obj).getSensorName();
+			return sensorRepresentation((Sensor) obj);
 
 		if (obj instanceof TreeContainer)
 			return ((TreeContainer) obj).getName();
@@ -70,5 +70,13 @@ public class TreeViewLabelProvider extends LabelProvider {
 
 		return PlatformUI.getWorkbench().getSharedImages().getImage(
 				ISharedImages.IMG_OBJ_ELEMENT);
+	}
+
+	public String sensorRepresentation(Sensor sensor) {
+		return sensor.getSensorName() + " [ID:" + sensor.getSensorID() + "]";
+	}
+	
+	public String runRepresentation(ExperimentRun run) {
+		return run.getExperimentDateTime() + " [ID:" + run.getExperimentRunID() + "]";
 	}
 }

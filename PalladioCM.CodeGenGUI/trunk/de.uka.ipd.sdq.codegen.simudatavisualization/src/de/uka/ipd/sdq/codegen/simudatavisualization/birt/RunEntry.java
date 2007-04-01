@@ -10,7 +10,7 @@ public class RunEntry {
 	private List<Sensor> sensors;
 	private ExperimentRun experimentRun;
 
-	RunEntry(ExperimentRun experimentRun) {
+	public RunEntry(ExperimentRun experimentRun) {
 		this.experimentRun = experimentRun;
 		this.sensors = new ArrayList<Sensor>();
 	}

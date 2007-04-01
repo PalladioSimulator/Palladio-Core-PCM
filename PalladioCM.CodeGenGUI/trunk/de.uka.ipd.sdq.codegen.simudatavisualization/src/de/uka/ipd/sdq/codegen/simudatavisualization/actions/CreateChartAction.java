@@ -10,9 +10,9 @@ import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.IWorkbenchWindowActionDelegate;
 import org.eclipse.ui.PartInitException;
-import org.eclipse.ui.internal.part.NullEditorInput;
 
 import de.uka.ipd.sdq.codegen.simudatavisualization.SimuPlugin;
+import de.uka.ipd.sdq.codegen.simudatavisualization.views.ConfigEditorInput;
 import de.uka.ipd.sdq.codegen.simudatavisualization.views.ReportView;
 
 /**
@@ -55,7 +55,7 @@ public class CreateChartAction implements IWorkbenchWindowActionDelegate {
 		.getActiveWorkbenchWindow().getActivePage();
 		
 		try {
-			page.openEditor(new NullEditorInput(), ReportView.EDITOR_ID);
+			page.openEditor(new ConfigEditorInput(), ReportView.EDITOR_ID);
 		} catch (PartInitException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

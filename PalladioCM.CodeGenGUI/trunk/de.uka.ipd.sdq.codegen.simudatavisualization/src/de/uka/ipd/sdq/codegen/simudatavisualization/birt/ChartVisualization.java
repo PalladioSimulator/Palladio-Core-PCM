@@ -33,7 +33,6 @@ import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 
 import de.uka.ipd.sdq.codegen.simudatavisualization.SimuPlugin;
 import de.uka.ipd.sdq.codegen.simudatavisualization.birt.TimeSpanSensorToDatasetAdapterFactory;
-import de.uka.ipd.sdq.codegen.simudatavisualization.birt.ReportCongiguration;
 import de.uka.ipd.sdq.codegen.simudatavisualization.birt.RunEntry;
 import de.uka.ipd.sdq.sensorfactory.entities.Sensor;
 import de.uka.ipd.sdq.sensorframework.adapter.AdapterRegistry;
@@ -44,8 +43,6 @@ import de.uka.ipd.sdq.sensorframework.adapter.AdapterRegistry;
  */
 public class ChartVisualization {
 
-	private ReportCongiguration reportConf;
-
 	private ChartWithAxes cwa;
 	private Axis xAxisPrimary;
 	private Axis yAxisPrimary;
@@ -53,8 +50,7 @@ public class ChartVisualization {
 	/**
 	 * @param reportConf
 	 */
-	public ChartVisualization(ReportCongiguration reportConf) {
-		this.reportConf = reportConf;
+	public ChartVisualization() {
 		createDefaultChart();
 	}
 
@@ -89,31 +85,31 @@ public class ChartVisualization {
 				.getSeriesDefinitions().get(0)).getSeries().get(0));
 		seriesX.setDataSet(categoryValues);
 
-		// get the first entry from configuration object
-		RunEntry runEntry = reportConf.getRunEntrys().get(0);
-
-		AdapterRegistry.singleton().addAdapterFactory(
-				new TimeSpanSensorToDatasetAdapterFactory(runEntry));
+//		// get the first entry from configuration object
+//		RunEntry runEntry = reportConf.getRunEntrys().get(0);
+//
+//		AdapterRegistry.singleton().addAdapterFactory(
+//				new TimeSpanSensorToDatasetAdapterFactory(runEntry));
 		
-		// ADD NEW SERIES AND SET DATA
-		NumberDataSet orthovalues = null;
-		for (Sensor s : runEntry.getSensors()) {
-			
-			orthovalues = NumberDataSetImpl.create(AdapterRegistry.singleton()
-					.getAdapter(s, Histogram.class));
-			
-			SeriesDefinition seriesDef = SeriesDefinitionImpl.create();
-			seriesDef.getSeriesPalette().update(ColorDefinitionImpl.BLUE());
-
-			Series series = SeriesImpl.create();
-			series.setSeriesIdentifier(s.getSensorName() + " [ID:"
-					+ s.getSensorID() + "]");
-			series.getLabel().setVisible(true);
-
-			series.setDataSet(orthovalues);
-			seriesDef.getSeries().add(series);
-			yAxisPrimary.getSeriesDefinitions().add(seriesDef);
-		}
+//		// ADD NEW SERIES AND SET DATA
+//		NumberDataSet orthovalues = null;
+//		for (Sensor s : runEntry.getSensors()) {
+//			
+//			orthovalues = NumberDataSetImpl.create(AdapterRegistry.singleton()
+//					.getAdapter(s, Histogram.class));
+//			
+//			SeriesDefinition seriesDef = SeriesDefinitionImpl.create();
+//			seriesDef.getSeriesPalette().update(ColorDefinitionImpl.BLUE());
+//
+//			Series series = SeriesImpl.create();
+//			series.setSeriesIdentifier(s.getSensorName() + " [ID:"
+//					+ s.getSensorID() + "]");
+//			series.getLabel().setVisible(true);
+//
+//			series.setDataSet(orthovalues);
+//			seriesDef.getSeries().add(series);
+//			yAxisPrimary.getSeriesDefinitions().add(seriesDef);
+//		}
 		return cwa;
 	}
 
