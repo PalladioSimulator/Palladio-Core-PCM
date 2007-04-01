@@ -6,11 +6,13 @@ package de.uka.ipd.sdq.codegen.simucontroller.runconfig;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import java.util.ArrayList;
 
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IProjectDescription;
+import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IPath;
@@ -20,6 +22,20 @@ import org.eclipse.jdt.core.IJavaProject;
 import org.eclipse.jdt.core.JavaCore;
 import org.eclipse.jdt.core.JavaModelException;
 import org.eclipse.jdt.launching.JavaRuntime;
+import org.eclipse.pde.core.plugin.IPluginModelBase;
+import org.eclipse.pde.core.plugin.PluginRegistry;
+import org.eclipse.pde.internal.core.PDEClasspathContainer;
+import org.eclipse.pde.internal.core.PDECore;
+import org.eclipse.pde.internal.core.WorkspaceModelManager;
+import org.eclipse.pde.internal.core.builders.PDEMarkerFactory;
+import org.eclipse.pde.internal.core.converter.PDEPluginConverter;
+import org.eclipse.pde.internal.core.natures.PDE;
+import org.eclipse.pde.internal.core.natures.PluginProject;
+import org.eclipse.pde.internal.ui.PDEPlugin;
+import org.eclipse.pde.internal.ui.wizards.plugin.ClasspathComputer;
+import org.eclipse.pde.internal.ui.wizards.tools.UpdateClasspathJob;
+import org.eclipse.pde.ui.launcher.PDESourcePathProvider;
+import org.openarchitectureware.workflow.monitor.NullProgressMonitor;
 
 /**
  * @author admin
@@ -42,8 +58,7 @@ public class CreatePluginProject {
 	 * @return
 	 * @throws CoreException
 	 */
-	private void createProject(IProgressMonitor monitor)
-			throws CoreException {
+	private void createProject(IProgressMonitor monitor) throws CoreException {
 
 		project = ResourcesPlugin.getWorkspace().getRoot().getProject(
 				PROJECT_ID);
@@ -51,19 +66,32 @@ public class CreatePluginProject {
 		IFolder srcFolder = project.getFolder("src");
 		IFolder manifestFolder = project.getFolder("META-INF");
 
+		// create resourcen
 		createProject(project, monitor);
 		createFolder(project, srcFolder);
 		createFolder(project, manifestFolder);
 
 		// create deskription
 		createDescription(project, monitor);
-		setProjectToJavaProject();
+
+		// create JavaProject
+		setProjectToJavaProject(project);
 		
+		createPluginXml(project);
+		createManifestMf(project);
+		createBuildProperties(project);
+		// set Plug-In class path
+		setClasspath(project);
+
 		new OawEclipseProjectResourceLoader(project);
 	}
 
-	public void setProjectToJavaProject() throws JavaModelException,
-			CoreException {
+	public void setClasspath(IProject project) throws CoreException {
+		ClasspathComputer.setClasspath(project, PluginRegistry.findModel(project));
+	}
+
+	public void setProjectToJavaProject(IProject project)
+			throws JavaModelException, CoreException {
 		// create class path entry
 		IJavaProject javaProject = JavaCore.create(project);
 		IPath srcPath = javaProject.getPath().append("src");
@@ -71,16 +99,14 @@ public class CreatePluginProject {
 		IClasspathEntry[] buildPath = { JavaCore.newSourceEntry(srcPath),
 				JavaRuntime.getDefaultJREContainerEntry() };
 		javaProject.setRawClasspath(buildPath, binPath, null);
-		// createPlugin(project, monitor);
-		createPluginXml(project);
-		createManifestMf(project);
 	}
 
 	private void createDescription(IProject project, IProgressMonitor monitor)
 			throws CoreException {
 		IProjectDescription description = ResourcesPlugin.getWorkspace()
 				.newProjectDescription(project.getName());
-		description.setNatureIds(new String[] { JavaCore.NATURE_ID });
+		description.setNatureIds(new String[] { JavaCore.NATURE_ID,
+				PDE.PLUGIN_NATURE });
 		description.setLocation(null);
 		project.setDescription(description, monitor);
 	}
@@ -99,28 +125,23 @@ public class CreatePluginProject {
 		project.open(monitor);
 	}
 
-	// public IPlugin createPlugin(IProject project, IProgressMonitor monitor) {
-	//		
-	// //PluginPr
-	//		
-	// PluginProject pluginProject = new PluginProject();
-	// pluginProject.setProject((IProject) project);
-	// try {
-	// pluginProject.configure();
-	// } catch (CoreException e) {
-	// // TODO Auto-generated catch block
-	// e.printStackTrace();
-	// }
-	// //
-	// //BundlePluginModel model = new BundlePluginModel();
-	// //IPluginObject
-	// // IPluginBase pluginBase = model.createPluginBase();
-	// // IPluginObject object = new PluginLibrary();
-	// // model.createElement(object);
-	//		
-	// return null;
-	// }
-	//
+	public void createPlugin(IProject project, IProgressMonitor monitor)
+			throws CoreException {
+		ArrayList<IPluginModelBase> models = new ArrayList<IPluginModelBase>();
+		if (project != null && WorkspaceModelManager.isPluginProject(project)
+				&& project.hasNature(JavaCore.NATURE_ID)) {
+			IPluginModelBase model = PluginRegistry.findModel(project);
+			if (model != null) {
+				models.add(model);
+			}
+		}
+
+		final IPluginModelBase[] modelArray = (IPluginModelBase[]) models
+				.toArray(new IPluginModelBase[models.size()]);
+		
+		new UpdateClasspathJob(modelArray).doUpdateClasspath(monitor, modelArray);
+		
+	}
 
 	private void createPluginXml(IProject project) throws CoreException {
 
@@ -139,6 +160,28 @@ public class CreatePluginProject {
 		IFile pluginXml = project.getFile(PLUGIN_XML);
 		if (!pluginXml.exists())
 			pluginXml.create(new ByteArrayInputStream(baos.toByteArray()),
+					true, null);
+	}
+	
+	private void createBuildProperties(IProject project) throws CoreException {
+
+		String BUILD_PROPERTIES = "build.properties";
+		ByteArrayOutputStream baos;
+		PrintStream out;
+
+		baos = new ByteArrayOutputStream();
+		out = new PrintStream(baos);
+		
+		out.println("output.. = bin/"); //$NON-NLS-1$
+		out.println("source.. = src/"); //$NON-NLS-1$
+		out.println("bin.includes = plugin.xml,\\"); //$NON-NLS-1$
+		out.println("				META-INF/,\\"); //$NON-NLS-1$
+		out.println("				."); //$NON-NLS-1$
+		out.close();
+
+		IFile buildProperties = project.getFile(BUILD_PROPERTIES);
+		if (!buildProperties.exists())
+			buildProperties.create(new ByteArrayInputStream(baos.toByteArray()),
 					true, null);
 	}
 

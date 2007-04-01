@@ -22,5 +22,6 @@ Require-Bundle: org.eclipse.ui,
  de.uka.ipd.sdq.pcm,
  org.eclipse.pde,
  org.eclipse.pde.core,
- org.eclipse.emf.ocl
+ org.eclipse.emf.ocl,
+ org.eclipse.pde.ui
 Eclipse-LazyStart: true
