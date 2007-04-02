@@ -10,6 +10,7 @@ import org.eclipse.emf.edit.provider.DecoratorAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemProviderDecorator;
 import org.eclipse.emf.edit.provider.INotifyChangedListener;
 
+
 /**
  * @author Snowball
  * This factory generates the default ItemProvider adapter which can be used 

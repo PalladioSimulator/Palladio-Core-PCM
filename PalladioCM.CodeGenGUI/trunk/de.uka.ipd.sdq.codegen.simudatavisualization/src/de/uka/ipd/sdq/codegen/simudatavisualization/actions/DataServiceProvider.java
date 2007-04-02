@@ -38,8 +38,7 @@ public class DataServiceProvider implements IDataServiceProvider {
 	 */
 	@Override
 	public String[] getAllStyleDisplayNames() {
-		// TODO Auto-generated method stub
-		return null;
+		return new String[]{};
 	}
 
 	/* (non-Javadoc)
@@ -47,8 +46,7 @@ public class DataServiceProvider implements IDataServiceProvider {
 	 */
 	@Override
 	public String[] getAllStyles() {
-		// TODO Auto-generated method stub
-		return null;
+		return new String[]{};
 	}
 
 	/* (non-Javadoc)

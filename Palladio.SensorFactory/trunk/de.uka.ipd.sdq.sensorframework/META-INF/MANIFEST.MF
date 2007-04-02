@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Eclipse-RegisterBuddy: de.uka.ipd.sdq.hibernatewrapper,org.apache.jakarta_log4j
 Bundle-ManifestVersion: 2
 Bundle-Name: Sensor Framework Plug-in
-Bundle-SymbolicName: de.uka.ipd.sdq.sensorframework
+Bundle-SymbolicName: de.uka.ipd.sdq.sensorframework;singleton:=true
 Bundle-Version: 1.1.0.qualifier
 Bundle-Activator: Activator
 Bundle-Localization: plugin

@@ -32,16 +32,18 @@ public class ProbFunctionCache {
 		@Override
 		public Object caseBoxedPDF(BoxedPDF object) {
 			// TODO: Quick fix. Adjust wrong PDFs
-			EList samples = object.getSamples();
+			EList<ContinuousSample> samples = object.getSamples();
 			double sum = 0;
-			for(ContinuousSample sample : (Collection<ContinuousSample>)samples) {
+			for(ContinuousSample sample : samples) {
 				sum += sample.getProbability();
 			}
 			if (Math.abs(sum - 1) > 10e-10 ){
-				ContinuousSample fix = ProbfunctionFactory.eINSTANCE.createContinuousSample();
-				fix.setProbability(1-sum);
-				fix.setValue(((ContinuousSample)object.getSamples().get(object.getSamples().size()-1)).getValue()+0.00001);
-				object.getSamples().add(fix);
+				double delta = (1 - sum) / countNonZeroContiniousSamples(samples);
+				for(ContinuousSample sample : samples) {
+					if (sample.getProbability() > 0)
+						sample.setProbability(sample.getProbability()+delta);
+				}
+				System.err.println("Probfunction needed adjustment as it didn't sum up to 1! Fix your input specification!!");
 			}
 			// END TODO: Quick fix. Adjust wrong PDFs
 			IProbabilityDensityFunction pdf = null;
@@ -66,19 +68,37 @@ public class ProbFunctionCache {
 			return super.caseBoxedPDF(object);
 		}
 
+		private double countNonZeroContiniousSamples(EList<ContinuousSample> samples) {
+			int count=0;
+			for (ContinuousSample s : samples)
+				if (s.getProbability()>0)
+					count++;
+			return count;
+		}
+
+		private double countNonZeroSamples(EList<Sample> samples) {
+			int count=0;
+			for (Sample s : samples)
+				if (s.getProbability()>0)
+					count++;
+			return count;
+		}
+		
 		@Override
 		public Object caseProbabilityMassFunction(ProbabilityMassFunction object) {
 			// TODO: Quick fix. Adjust wrong PDFs
-			EList samples = object.getSamples();
+			EList<Sample> samples = object.getSamples();
 			double sum = 0;
 			for(Sample sample : (Collection<Sample>)samples) {
 				sum += sample.getProbability();
 			}
 			if (Math.abs(sum - 1) > 10e-10 ){
-				Sample fix = ProbfunctionFactory.eINSTANCE.createSample();
-				fix.setProbability(1-sum);
-				fix.setValue(((Sample)object.getSamples().get(object.getSamples().size()-1)).getValue());
-				object.getSamples().add(fix);
+				double delta = (1 - sum) / countNonZeroSamples(samples);
+				for(Sample sample : (Collection<Sample>)samples) {
+					if (sample.getProbability() > 0)
+						sample.setProbability(sample.getProbability()+delta);
+				}
+				System.err.println("Probfunction needed adjustment as it didn't sum up to 1! Fix your input specification!!");
 			}
 			// END TODO: Quick fix. Adjust wrong PDFs
 

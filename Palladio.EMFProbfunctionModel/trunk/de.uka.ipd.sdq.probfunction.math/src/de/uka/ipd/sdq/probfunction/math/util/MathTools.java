@@ -211,7 +211,8 @@ public class MathTools {
 			double y1 = intervals.get(i - 1);
 			double x2 = samples.get(i).getValue();
 			double y2 = intervals.get(i);
-			lines.put(intervals.get(i), new Line(x1, y1, x2, y2));
+			if (y1 != y2)
+				lines.put(intervals.get(i), new Line(x1, y1, x2, y2));
 		}
 
 		return lines;

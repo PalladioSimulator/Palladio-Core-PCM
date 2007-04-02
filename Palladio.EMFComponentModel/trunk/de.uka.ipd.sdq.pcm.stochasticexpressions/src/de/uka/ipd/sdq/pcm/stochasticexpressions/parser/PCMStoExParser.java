@@ -1,25 +1,48 @@
 // $ANTLR : "expandedstoex_characterisations.g" -> "PCMStoExParser.java"$
   
 	package de.uka.ipd.sdq.pcm.stochasticexpressions.parser;
-	import de.uka.ipd.sdq.stoex.*;
-	import de.uka.ipd.sdq.probfunction.*;
-	import de.uka.ipd.sdq.pcm.parameter.*;
 	import java.util.ArrayList;
-	import de.uka.ipd.sdq.stoex.analyser.visitors.StoExPrettyPrintVisitor;
 
-import antlr.TokenBuffer;
-import antlr.TokenStreamException;
-import antlr.TokenStreamIOException;
-import antlr.ANTLRException;
-import antlr.LLkParser;
-import antlr.Token;
-import antlr.TokenStream;
-import antlr.RecognitionException;
 import antlr.NoViableAltException;
-import antlr.MismatchedTokenException;
-import antlr.SemanticException;
 import antlr.ParserSharedInputState;
-import antlr.collections.impl.BitSet;
+import antlr.RecognitionException;
+import antlr.Token;
+import antlr.TokenBuffer;
+import antlr.TokenStream;
+import antlr.TokenStreamException;
+import de.uka.ipd.sdq.pcm.parameter.CharacterisedVariable;
+import de.uka.ipd.sdq.pcm.parameter.ParameterFactory;
+import de.uka.ipd.sdq.pcm.parameter.VariableCharacterisationType;
+import de.uka.ipd.sdq.probfunction.BoxedPDF;
+import de.uka.ipd.sdq.probfunction.ContinuousSample;
+import de.uka.ipd.sdq.probfunction.ProbabilityFunction;
+import de.uka.ipd.sdq.probfunction.ProbabilityMassFunction;
+import de.uka.ipd.sdq.probfunction.ProbfunctionFactory;
+import de.uka.ipd.sdq.probfunction.Sample;
+import de.uka.ipd.sdq.probfunction.Unit;
+import de.uka.ipd.sdq.stoex.AbstractNamedReference;
+import de.uka.ipd.sdq.stoex.Atom;
+import de.uka.ipd.sdq.stoex.BoolLiteral;
+import de.uka.ipd.sdq.stoex.CompareExpression;
+import de.uka.ipd.sdq.stoex.CompareOperations;
+import de.uka.ipd.sdq.stoex.Comparison;
+import de.uka.ipd.sdq.stoex.DoubleLiteral;
+import de.uka.ipd.sdq.stoex.Expression;
+import de.uka.ipd.sdq.stoex.IntLiteral;
+import de.uka.ipd.sdq.stoex.NamespaceReference;
+import de.uka.ipd.sdq.stoex.Parenthesis;
+import de.uka.ipd.sdq.stoex.Power;
+import de.uka.ipd.sdq.stoex.PowerExpression;
+import de.uka.ipd.sdq.stoex.ProbabilityFunctionLiteral;
+import de.uka.ipd.sdq.stoex.Product;
+import de.uka.ipd.sdq.stoex.ProductExpression;
+import de.uka.ipd.sdq.stoex.ProductOperations;
+import de.uka.ipd.sdq.stoex.StoexFactory;
+import de.uka.ipd.sdq.stoex.StringLiteral;
+import de.uka.ipd.sdq.stoex.Term;
+import de.uka.ipd.sdq.stoex.TermExpression;
+import de.uka.ipd.sdq.stoex.TermOperations;
+import de.uka.ipd.sdq.stoex.VariableReference;
 @SuppressWarnings({"unused"})
 public class PCMStoExParser extends antlr.LLkParser       implements PCMStoExParserTokenTypes
  {

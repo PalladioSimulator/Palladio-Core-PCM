@@ -3,5 +3,7 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="con" path="org.eclipse.pde.core.requiredPlugins"/>
+	<classpathentry kind="lib" path="lib/jfreechart-1.0.1.jar" sourcepath="C:/Users/Snowball/Downloads/jfreechart-1.0.1/jfreechart-1.0.1/source"/>
+	<classpathentry kind="lib" path="lib/jcommon-1.0.0.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

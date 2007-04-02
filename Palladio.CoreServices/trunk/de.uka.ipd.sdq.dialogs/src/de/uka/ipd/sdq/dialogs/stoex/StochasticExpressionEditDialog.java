@@ -9,13 +9,10 @@ import antlr.CharScanner;
 import antlr.RecognitionException;
 import antlr.TokenStreamException;
 import de.uka.ipd.sdq.pcm.repository.Parameter;
-import de.uka.ipd.sdq.pcm.stochasticexpressions.PCMStoExPrettyPrintVisitor;
 import de.uka.ipd.sdq.pcm.stochasticexpressions.parser.PCMStoExParser;
 import de.uka.ipd.sdq.stoex.Expression;
 import de.uka.ipd.sdq.stoex.RandomVariable;
-import de.uka.ipd.sdq.stoex.analyser.visitors.StoExPrettyPrintVisitor;
 import de.uka.ipd.sdq.stoex.parser.StochasticExpressionsLexer;
-import de.uka.ipd.sdq.stoex.parser.StochasticExpressionsParser;
 
 public class StochasticExpressionEditDialog extends
 		AbstractGrammerBasedEditDialog {

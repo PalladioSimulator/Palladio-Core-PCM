@@ -12,7 +12,6 @@ import antlr.CharScanner;
 import antlr.RecognitionException;
 import antlr.Token;
 import antlr.TokenStreamException;
-import de.uka.ipd.sdq.pcm.stochasticexpressions.ParameterPrettyPrint;
 import de.uka.ipd.sdq.pcm.stochasticexpressions.parser.VariableUsageParser;
 import de.uka.ipd.sdq.stoex.AbstractNamedReference;
 import de.uka.ipd.sdq.stoex.analyser.visitors.StoExPrettyPrintVisitor;

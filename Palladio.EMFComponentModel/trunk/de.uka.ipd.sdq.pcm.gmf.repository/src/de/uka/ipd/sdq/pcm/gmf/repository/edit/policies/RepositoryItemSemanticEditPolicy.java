@@ -7,18 +7,16 @@ import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.gef.commands.Command;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.emf.commands.core.commands.DuplicateEObjectsCommand;
+import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.DuplicateElementsRequest;
+
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.commands.BasicComponentCreateCommand;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.commands.CompleteComponentTypeCreateCommand;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.commands.CompositeComponentCreateCommand;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.commands.InterfaceCreateCommand;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.commands.ProvidesComponentTypeCreateCommand;
-
 import de.uka.ipd.sdq.pcm.gmf.repository.providers.PalladioComponentModelElementTypes;
-
 import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
-
-import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 
 /**
  * @generated

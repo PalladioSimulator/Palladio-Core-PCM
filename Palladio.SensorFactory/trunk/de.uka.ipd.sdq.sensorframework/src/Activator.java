@@ -1,7 +1,12 @@
 
 
+import org.eclipse.core.runtime.IConfigurationElement;
+import org.eclipse.core.runtime.Platform;
 import org.eclipse.core.runtime.Plugin;
 import org.osgi.framework.BundleContext;
+
+import de.uka.ipd.sdq.sensorframework.adapter.AdapterRegistry;
+import de.uka.ipd.sdq.sensorframework.adapter.IAdapterFactory;
 
 /**
  * The activator class controls the plug-in life cycle
@@ -27,6 +32,13 @@ public class Activator extends Plugin {
 	 */
 	public void start(BundleContext context) throws Exception {
 		super.start(context);
+		
+		for(IConfigurationElement configurationElement : Platform.getExtensionRegistry().
+				getConfigurationElementsFor("de.uka.ipd.sdq.sensorframework.adapter")){
+		            
+			IAdapterFactory factory = (IAdapterFactory)configurationElement.createExecutableExtension("class");
+            AdapterRegistry.singleton().addAdapterFactory(factory);
+		}
 	}
 
 	/*

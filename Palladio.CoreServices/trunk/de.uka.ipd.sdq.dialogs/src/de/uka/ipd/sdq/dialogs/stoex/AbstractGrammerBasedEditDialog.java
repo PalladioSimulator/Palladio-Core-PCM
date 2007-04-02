@@ -8,7 +8,6 @@ import org.eclipse.jface.dialogs.Dialog;
 import org.eclipse.jface.dialogs.IDialogConstants;
 import org.eclipse.jface.text.Document;
 import org.eclipse.jface.text.ITextListener;
-import org.eclipse.jface.text.ITextOperationTarget;
 import org.eclipse.jface.text.Position;
 import org.eclipse.jface.text.TextEvent;
 import org.eclipse.jface.text.source.Annotation;
@@ -40,8 +39,6 @@ import org.eclipse.swt.widgets.Shell;
 import antlr.CharScanner;
 import antlr.RecognitionException;
 import antlr.TokenStreamException;
-
-
 import de.uka.ipd.sdq.dialogs.SWTResourceManager;
 import de.uka.ipd.sdq.pcm.repository.Parameter;
 

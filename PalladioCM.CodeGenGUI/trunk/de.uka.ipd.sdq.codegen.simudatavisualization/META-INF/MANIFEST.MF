@@ -17,7 +17,11 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.jface.text,
  org.eclipse.ui.editors,
  org.eclipse.ui.ide,
- de.uka.ipd.sdq.sensorframework
+ de.uka.ipd.sdq.sensorframework,
+ org.eclipse.draw2d
 Eclipse-RegisterBudd: de.uka.ipd.sdq.sensorframework
 Eclipse-BuddyPolicy: dependent
 Eclipse-LazyStart: true
+Bundle-ClassPath: lib/jcommon-1.0.0.jar,
+ lib/jfreechart-1.0.1.jar,
+ .

@@ -13,13 +13,25 @@ import org.eclipse.birt.chart.model.Chart;
 import org.eclipse.birt.chart.model.ChartWithAxes;
 import org.eclipse.birt.chart.model.ModelPackage;
 import org.eclipse.birt.chart.model.attribute.DataType;
+import org.eclipse.birt.chart.model.attribute.impl.ColorDefinitionImpl;
 import org.eclipse.birt.chart.model.component.Axis;
 import org.eclipse.birt.chart.model.component.Series;
+import org.eclipse.birt.chart.model.component.impl.SeriesImpl;
+import org.eclipse.birt.chart.model.data.BaseSampleData;
+import org.eclipse.birt.chart.model.data.DataFactory;
+import org.eclipse.birt.chart.model.data.DataSet;
 import org.eclipse.birt.chart.model.data.NumberDataSet;
+import org.eclipse.birt.chart.model.data.OrthogonalSampleData;
+import org.eclipse.birt.chart.model.data.Query;
+import org.eclipse.birt.chart.model.data.SampleData;
 import org.eclipse.birt.chart.model.data.SeriesDefinition;
 import org.eclipse.birt.chart.model.data.TextDataSet;
 import org.eclipse.birt.chart.model.data.impl.NumberDataSetImpl;
+import org.eclipse.birt.chart.model.data.impl.QueryImpl;
+import org.eclipse.birt.chart.model.data.impl.SeriesDefinitionImpl;
 import org.eclipse.birt.chart.model.data.impl.TextDataSetImpl;
+import org.eclipse.birt.chart.model.type.BarSeries;
+import org.eclipse.birt.chart.model.type.impl.BarSeriesImpl;
 import org.eclipse.birt.chart.ui.swt.interfaces.IDataServiceProvider;
 import org.eclipse.birt.chart.ui.swt.interfaces.IUIServiceProvider;
 import org.eclipse.birt.chart.ui.swt.wizard.ChartWizard;
@@ -28,6 +40,7 @@ import org.eclipse.core.runtime.FileLocator;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Plugin;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -46,6 +59,8 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.IWorkbenchPart;
+import org.eclipse.ui.PlatformUI;
+import org.eclipse.ui.part.EditorPart;
 import org.eclipse.ui.views.properties.PropertySheetPage;
 import org.eclipse.ui.views.properties.tabbed.AbstractPropertySection;
 import org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage;
@@ -53,6 +68,7 @@ import org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage;
 import de.uka.ipd.sdq.codegen.simudatavisualization.SimuPlugin;
 import de.uka.ipd.sdq.codegen.simudatavisualization.actions.DataServiceProvider;
 import de.uka.ipd.sdq.codegen.simudatavisualization.actions.UIServiceProvider;
+import de.uka.ipd.sdq.codegen.simudatavisualization.views.ReportView;
 
 /**
  * @author admin
@@ -96,53 +112,76 @@ public class ConfPropertySection extends AbstractPropertySection {
 		button.setText("...");
 		button.addSelectionListener(new SelectionAdapter() {
 			public void widgetSelected(SelectionEvent e) {
-				run(composite.getShell());	
+				EditorPart editor = (EditorPart) SimuPlugin.getDefault().getWorkbench()
+					.getActiveWorkbenchWindow().getActivePage().getActiveEditor();
+				ChartWithAxes cwa = ((ReportView) editor).getVisualization().getChart();
+				run(composite.getShell(),cwa);	
 			}
 		});
 	}
 	
-	public void run(Shell parentShell) {
-		
-		ChartWithAxes cwa = (ChartWithAxes) loadFromXMI(getConfigFile());
-		// CUSTOMIZE THE X-AXIS
-		Axis xAxisPrimary = cwa.getPrimaryBaseAxes()[0];
-
-		// CUSTOMIZE THE Y-AXIS
-		Axis yAxisPrimary = cwa.getPrimaryOrthogonalAxis(xAxisPrimary);
-
-		// INITIALIZE A COLLECTION WITH THE X-SERIES DATA
-		TextDataSet categoryValues = TextDataSetImpl.create(new String[]{"1","3","2"});
-
-		// Series seCategory = SeriesImpl.create();
-		// seCategory.setDataSet(categoryValues);
-
-		// WRAP THE BASE SERIES IN THE X-AXIS SERIES DEFINITION
-		Series seriesX = (Series) (((SeriesDefinition) xAxisPrimary
-				.getSeriesDefinitions().get(0)).getSeries().get(0));
-		//seriesX.setDataSet(categoryValues);
-		//
-		// INITIALIZE A COLLECTION WITH THE Y-SERIES DATA
-		NumberDataSet orthoValues1 = null;
-		for (int i=0; i<2; i++){
-			orthoValues1 = NumberDataSetImpl.create(new double[]{1,2,3});
-			Series series = (Series) (((SeriesDefinition) yAxisPrimary
-						.getSeriesDefinitions().get(i)).getSeries().get(0));
-			//series.setDataSet(orthoValues1);
-		}
-		ChartWizard wiz = new ChartWizard(parentShell);
+	public void run(Shell shell, ChartWithAxes cwa) {
+		ChartWizard wiz = new ChartWizard(shell);
 		ChartWizardContext ctx = new ChartWizardContext(null);
 		ctx.setModel(cwa);
+		
+		Axis xAxisPrimary = cwa.getPrimaryBaseAxes()[0];
+		Axis yAxisPrimary = cwa.getPrimaryOrthogonalAxis(xAxisPrimary);		
+
+		DataSet xDs = ((Series)((SeriesDefinition)xAxisPrimary.getSeriesDefinitions().get(0)).getSeries().get(0)).getDataSet();
+		DataSet yDs = ((Series)((SeriesDefinition)yAxisPrimary.getSeriesDefinitions().get(0)).getSeries().get(0)).getDataSet();
+		((Series)((SeriesDefinition)xAxisPrimary.getSeriesDefinitions().get(0)).getSeries().get(0)).setDataSet(null);
+		((Series)((SeriesDefinition)yAxisPrimary.getSeriesDefinitions().get(0)).getSeries().get(0)).setDataSet(null);
+		SampleData sdt = DataFactory.eINSTANCE.createSampleData();
+		BaseSampleData sdBAse = DataFactory.eINSTANCE.createBaseSampleData();
+		sdBAse.setDataSetRepresentation("A");
+		sdt.getBaseSampleData().add(sdBAse);
+		OrthogonalSampleData sdOrth = DataFactory.eINSTANCE.createOrthogonalSampleData();
+		sdOrth.setDataSetRepresentation("1");
+		sdOrth.setSeriesDefinitionIndex(0);
+		sdt.getOrthogonalSampleData().add(sdOrth);
+		cwa.setSampleData(sdt);
+		
 		ctx.setDataServiceProvider( new DataServiceProvider());
 		ctx.setUIServiceProvider(new UIServiceProvider());
 		wiz.open(ctx);
-		try {
-			ctx.getModel().eResource().save(System.out, null);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+
+		((Series)((SeriesDefinition)xAxisPrimary.getSeriesDefinitions().get(0)).getSeries().get(0)).setDataSet(xDs);
+		((Series)((SeriesDefinition)yAxisPrimary.getSeriesDefinitions().get(0)).getSeries().get(0)).setDataSet(yDs);
+		
+		
+		cleanEList(((SeriesDefinition)xAxisPrimary.getSeriesDefinitions().get(0)).getSeries());
+		cleanEList(((SeriesDefinition)yAxisPrimary.getSeriesDefinitions().get(0)).getSeries());
+
+		Query q = QueryImpl.create("");
+		NumberDataSet categoryValues = NumberDataSetImpl.create(new double[] { 1, 2, 3});
+
+		Series seCategory = SeriesImpl.create();
+		seCategory.setDataSet(categoryValues);
+		seCategory.getDataDefinition().add(q);
+		((SeriesDefinition)xAxisPrimary.getSeriesDefinitions().get(0)).getSeries().add(seCategory);
+		
+		NumberDataSet orthovalues = null;
+			orthovalues = NumberDataSetImpl.create(new double[]{0.2,0.3,0.4});
+			
+			BarSeries series = (BarSeries) BarSeriesImpl.create();
+			series.setDataSet(orthovalues);
+			series.getDataDefinition().add(q);
+			series.getLabel().getCaption().setValue("Sensor");
+			series.getLabel().setVisible(true);
+			((SeriesDefinition)yAxisPrimary.getSeriesDefinitions().get(0)).getSeries().add(series);
+
+			//series.setSeriesIdentifier(s.getSensorName() + " [ID:"
+			//		+ s.getSensorID() + "]");
+
+		
 	}
 
+	private void cleanEList(EList list){
+		while (list.size() > 0)
+			list.remove(0);
+	}
+	
 	@SuppressWarnings("unchecked")
 	public static EObject loadFromXMI(String fileName) {
 		// Create a resource set to hold the resources.

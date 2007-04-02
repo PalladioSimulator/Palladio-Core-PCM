@@ -1,12 +1,7 @@
 // $ANTLR : "expandedstoex_characterisations.g" -> "PCMStoExParser.java"$
   
 	package de.uka.ipd.sdq.pcm.stochasticexpressions.parser;
-	import de.uka.ipd.sdq.stoex.*;
-	import de.uka.ipd.sdq.probfunction.*;
-	import de.uka.ipd.sdq.pcm.parameter.*;
-	import java.util.ArrayList;
-	import de.uka.ipd.sdq.stoex.analyser.visitors.StoExPrettyPrintVisitor;
-
+	
 public interface PCMStoExParserTokenTypes {
 	int EOF = 1;
 	int NULL_TREE_LOOKAHEAD = 3;

@@ -1,5 +1,7 @@
 package de.uka.ipd.sdq.sensorframework.adapter;
 
+import java.util.Collection;
+
 import org.jfree.data.xy.DefaultTableXYDataset;
 import org.jfree.data.xy.XYDataItem;
 import org.jfree.data.xy.XYSeries;
@@ -12,8 +14,8 @@ public class TimeSpanSensorToDatasetAdapterFactory implements IAdapterFactory {
 
 	public static final int HISTOGRAM_CLASS_WIDTH = 1;
 
-	public boolean canAdapt(Class fromClass, Class targetClass) {
-		if (TimeSpanSensor.class.isAssignableFrom(fromClass)
+	public boolean canAdapt(Object fromClass, Class targetClass) {
+		if (fromClass instanceof Collection
 				&& targetClass == XYSeries.class)
 			return true;
 		return false;

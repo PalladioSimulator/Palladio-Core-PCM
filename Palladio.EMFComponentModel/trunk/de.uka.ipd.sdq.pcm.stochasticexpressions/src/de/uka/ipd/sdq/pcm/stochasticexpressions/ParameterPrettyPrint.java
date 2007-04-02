@@ -6,7 +6,6 @@ package de.uka.ipd.sdq.pcm.stochasticexpressions;
 import de.uka.ipd.sdq.pcm.parameter.VariableCharacterisation;
 import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
 import de.uka.ipd.sdq.pcm.parameter.util.ParameterSwitch;
-import de.uka.ipd.sdq.stoex.analyser.visitors.StoExPrettyPrintVisitor;
 
 /**
  * @author Steffen Becker

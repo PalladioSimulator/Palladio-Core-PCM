@@ -3,18 +3,15 @@
  */
 package de.uka.ipd.sdq.pcm.gmf.repository.edit.commands;
 
-import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
-import de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingEntity;
-
-import de.uka.ipd.sdq.pcm.repository.Interface;
-import de.uka.ipd.sdq.pcm.repository.ProvidedRole;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
-
 import org.eclipse.gmf.runtime.emf.type.core.commands.CreateRelationshipCommand;
-
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateRelationshipRequest;
+
+import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
+import de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingEntity;
+import de.uka.ipd.sdq.pcm.repository.Interface;
+import de.uka.ipd.sdq.pcm.repository.ProvidedRole;
 
 /**
  * @generated
