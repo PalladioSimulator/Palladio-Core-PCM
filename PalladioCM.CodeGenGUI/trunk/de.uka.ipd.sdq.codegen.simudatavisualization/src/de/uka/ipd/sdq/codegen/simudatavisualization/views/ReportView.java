@@ -25,6 +25,11 @@ import org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage;
 
 import de.uka.ipd.sdq.codegen.simudatavisualization.actions.ChartSwtViewer;
 import de.uka.ipd.sdq.codegen.simudatavisualization.birt.ChartVisualization;
+import de.uka.ipd.sdq.codegen.simudatavisualization.birt.Histogram;
+import de.uka.ipd.sdq.codegen.simudatavisualization.birt.RunEntry;
+import de.uka.ipd.sdq.codegen.simudatavisualization.jfreechart.JFreeChartSWTComponent;
+import de.uka.ipd.sdq.sensorfactory.entities.Sensor;
+import de.uka.ipd.sdq.sensorframework.adapter.AdapterRegistry;
 
 public class ReportView extends EditorPart implements
 		ITabbedPropertySheetPageContributor {
@@ -48,7 +53,8 @@ public class ReportView extends EditorPart implements
 		visualization = new ChartVisualization();
 		
 		// render chart
-		new ChartSwtViewer(parent, 0, idr, visualization.getChart());
+		//new ChartSwtViewer(parent, 0, idr, visualization.getChart());
+		new JFreeChartSWTComponent(parent,0);
 
 		getSite().setSelectionProvider(new ISelectionProvider() {
 
