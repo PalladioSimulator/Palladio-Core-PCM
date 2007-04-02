@@ -126,6 +126,7 @@ This Agreement is governed by the laws of the State of New York and the intellec
       <import plugin="org.eclipse.jface.text"/>
       <import plugin="org.eclipse.emf.transaction"/>
       <import plugin="de.uka.ipd.sdq.probfunction.math"/>
+      <import plugin="de.uka.ipd.sdq.pcmbench.propertytabs"/>
    </requires>
 
    <plugin
