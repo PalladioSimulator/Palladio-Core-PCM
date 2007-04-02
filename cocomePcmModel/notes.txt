@@ -11,6 +11,9 @@ Assembly Connectors at requires side of ProductDispatcher are missing
 Short comings
 - Had to add Facade components
 - Left out POS-Part of CoCoME
+- Distribution: 1:n relations between StoreServer and EnterpriseServer has to be modelled
+explicitly
+
 
 Signatures:
 - used int instead of long for all ids in signatures
