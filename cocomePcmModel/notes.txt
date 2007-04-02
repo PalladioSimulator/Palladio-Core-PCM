@@ -8,6 +8,10 @@ to support business logic for composite structures
 
 Assembly Connectors at requires side of ProductDispatcher are missing
 
+Short comings
+- Had to add Facade components
+- Left out POS-Part of CoCoME
+
 Signatures:
 - used int instead of long for all ids in signatures
 - All non-primitive and non-collection data types are modeled as CompositeDataTypes

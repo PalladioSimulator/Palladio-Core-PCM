@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pcm.resourceenvironment:ResourceEnvironment xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:pcm.resourceenvironment="http://sdq.ipd.uka.de/PalladioComponentModel/ResourceEnvironment/1.0">
+  <linkingresource toResourceContainer_LinkingResource="_ZVdrwOEhEduBSuO8WivxSA" fromResourceContainer_LinkingResource="_cx26IOEhEduBSuO8WivxSA"/>
+  <linkingresource toResourceContainer_LinkingResource="_ZVdrwOEhEduBSuO8WivxSA" fromResourceContainer_LinkingResource="_mpMBEOEgEduBSuO8WivxSA"/>
+  <linkingresource toResourceContainer_LinkingResource="_bTYxAOEhEduBSuO8WivxSA" fromResourceContainer_LinkingResource="_W6WUMOEhEduBSuO8WivxSA"/>
+  <linkingresource toResourceContainer_LinkingResource="_bTYxAOEhEduBSuO8WivxSA" fromResourceContainer_LinkingResource="_ZVdrwOEhEduBSuO8WivxSA"/>
+  <resourceContainer_ResourceEnvironment id="_mpMBEOEgEduBSuO8WivxSA" entityName="StoreClient"/>
+  <resourceContainer_ResourceEnvironment id="_W6WUMOEhEduBSuO8WivxSA" entityName="EnterpriseClient"/>
+  <resourceContainer_ResourceEnvironment id="_ZVdrwOEhEduBSuO8WivxSA" entityName="StoreServer"/>
+  <resourceContainer_ResourceEnvironment id="_bTYxAOEhEduBSuO8WivxSA" entityName="EnterpriseServer"/>
+  <resourceContainer_ResourceEnvironment id="_cx26IOEhEduBSuO8WivxSA" entityName="CashDeskPC"/>
+</pcm.resourceenvironment:ResourceEnvironment>
