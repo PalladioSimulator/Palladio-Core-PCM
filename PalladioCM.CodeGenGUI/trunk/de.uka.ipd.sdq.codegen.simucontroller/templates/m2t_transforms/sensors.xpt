@@ -1,5 +1,0 @@
-«DEFINE StartResponseTimeMeasurementTM FOR String»
-«ENDDEFINE»
-
-«DEFINE EndResponseTimeMeasurementTM FOR String»
-«ENDDEFINE»
