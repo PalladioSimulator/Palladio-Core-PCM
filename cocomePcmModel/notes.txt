@@ -13,7 +13,7 @@ Short comings
 - Left out POS-Part of CoCoME
 - Distribution: 1:n relations between StoreServer and EnterpriseServer has to be modelled
 explicitly
-
+- Simplified allocation: 3 on 3: inventory, data, gui
 
 Signatures:
 - used int instead of long for all ids in signatures
