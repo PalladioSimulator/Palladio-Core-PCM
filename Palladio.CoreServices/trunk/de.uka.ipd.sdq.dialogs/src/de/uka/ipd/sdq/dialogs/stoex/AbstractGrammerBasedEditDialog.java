@@ -115,7 +115,6 @@ public abstract class AbstractGrammerBasedEditDialog extends Dialog {
 				SWT.NONE));
 		styledText.addListener(SWT.KeyDown, new Listener(){
 
-			@Override
 			public void handleEvent(Event event) {
 				if (event.character == ' ' && (event.stateMask & SWT.CTRL) == SWT.CTRL){
 					config.getContentAssistant(textViewer).showPossibleCompletions();
