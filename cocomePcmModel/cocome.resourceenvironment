@@ -1,30 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <pcm.resourceenvironment:ResourceEnvironment xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:pcm.resourceenvironment="http://sdq.ipd.uka.de/PalladioComponentModel/ResourceEnvironment/1.0">
   <linkingresource toResourceContainer_LinkingResource="_ZVdrwOEhEduBSuO8WivxSA" fromResourceContainer_LinkingResource="_cx26IOEhEduBSuO8WivxSA">
-    <communicationLinkResourceSpecifications_LinkingResource throughput="100.0" units="MBit"/>
+    <communicationLinkResourceSpecifications_LinkingResource throughput="10.0" units="MBit">
+      <communicationLinkResourceType_CommunicationLinkResourceSpecification href="cocome.resourcetype#_GnPOYtO1EduL6bgulTgjzg"/>
+    </communicationLinkResourceSpecifications_LinkingResource>
   </linkingresource>
   <linkingresource toResourceContainer_LinkingResource="_ZVdrwOEhEduBSuO8WivxSA" fromResourceContainer_LinkingResource="_mpMBEOEgEduBSuO8WivxSA">
-    <communicationLinkResourceSpecifications_LinkingResource throughput="100.0" units="MBit"/>
+    <communicationLinkResourceSpecifications_LinkingResource throughput="10.0" units="MBit">
+      <communicationLinkResourceType_CommunicationLinkResourceSpecification href="cocome.resourcetype#_GnPOYtO1EduL6bgulTgjzg"/>
+    </communicationLinkResourceSpecifications_LinkingResource>
   </linkingresource>
   <linkingresource toResourceContainer_LinkingResource="_bTYxAOEhEduBSuO8WivxSA" fromResourceContainer_LinkingResource="_W6WUMOEhEduBSuO8WivxSA">
-    <communicationLinkResourceSpecifications_LinkingResource throughput="100.0" units="MBit"/>
+    <communicationLinkResourceSpecifications_LinkingResource throughput="10.0" units="MBit">
+      <communicationLinkResourceType_CommunicationLinkResourceSpecification href="cocome.resourcetype#_GnPOYtO1EduL6bgulTgjzg"/>
+    </communicationLinkResourceSpecifications_LinkingResource>
   </linkingresource>
   <linkingresource toResourceContainer_LinkingResource="_bTYxAOEhEduBSuO8WivxSA" fromResourceContainer_LinkingResource="_ZVdrwOEhEduBSuO8WivxSA">
-    <communicationLinkResourceSpecifications_LinkingResource throughput="100.0" units="MBit"/>
+    <communicationLinkResourceSpecifications_LinkingResource throughput="10.0" units="MBit">
+      <communicationLinkResourceType_CommunicationLinkResourceSpecification href="cocome.resourcetype#_GnPOYtO1EduL6bgulTgjzg"/>
+    </communicationLinkResourceSpecifications_LinkingResource>
   </linkingresource>
   <resourceContainer_ResourceEnvironment id="_mpMBEOEgEduBSuO8WivxSA" entityName="StoreClient">
-    <activeResourceSpecifications_ResourceContainer processingRate="100.0" units="CPU"/>
+    <activeResourceSpecifications_ResourceContainer processingRate="100.0" units="CPU">
+      <activeResourceType_ActiveResourceSpecification href="cocome.resourcetype#_Af748dO1EduL6bgulTgjzg"/>
+    </activeResourceSpecifications_ResourceContainer>
   </resourceContainer_ResourceEnvironment>
   <resourceContainer_ResourceEnvironment id="_W6WUMOEhEduBSuO8WivxSA" entityName="EnterpriseClient">
-    <activeResourceSpecifications_ResourceContainer processingRate="100.0" units="CPU"/>
+    <activeResourceSpecifications_ResourceContainer processingRate="100.0" units="CPU">
+      <activeResourceType_ActiveResourceSpecification href="cocome.resourcetype#_Af748dO1EduL6bgulTgjzg"/>
+    </activeResourceSpecifications_ResourceContainer>
   </resourceContainer_ResourceEnvironment>
   <resourceContainer_ResourceEnvironment id="_ZVdrwOEhEduBSuO8WivxSA" entityName="StoreServer">
-    <activeResourceSpecifications_ResourceContainer processingRate="100.0" units="CPU"/>
+    <activeResourceSpecifications_ResourceContainer processingRate="100.0" units="CPU">
+      <activeResourceType_ActiveResourceSpecification href="cocome.resourcetype#_Af748dO1EduL6bgulTgjzg"/>
+    </activeResourceSpecifications_ResourceContainer>
   </resourceContainer_ResourceEnvironment>
   <resourceContainer_ResourceEnvironment id="_bTYxAOEhEduBSuO8WivxSA" entityName="EnterpriseServer">
-    <activeResourceSpecifications_ResourceContainer processingRate="100.0" units="CPU"/>
+    <activeResourceSpecifications_ResourceContainer processingRate="100.0" units="CPU">
+      <activeResourceType_ActiveResourceSpecification href="cocome.resourcetype#_Af748dO1EduL6bgulTgjzg"/>
+    </activeResourceSpecifications_ResourceContainer>
   </resourceContainer_ResourceEnvironment>
   <resourceContainer_ResourceEnvironment id="_cx26IOEhEduBSuO8WivxSA" entityName="CashDeskPC">
-    <activeResourceSpecifications_ResourceContainer processingRate="100.0" units="CPU"/>
+    <activeResourceSpecifications_ResourceContainer processingRate="100.0" units="CPU">
+      <activeResourceType_ActiveResourceSpecification href="cocome.resourcetype#_Af748dO1EduL6bgulTgjzg"/>
+    </activeResourceSpecifications_ResourceContainer>
   </resourceContainer_ResourceEnvironment>
 </pcm.resourceenvironment:ResourceEnvironment>
