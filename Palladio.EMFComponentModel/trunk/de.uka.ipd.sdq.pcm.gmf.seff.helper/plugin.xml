@@ -17,6 +17,12 @@
                inheritance="all"
                typeId="de.uka.ipd.sdq.pcm.gmf.seff.LoopAction_2004">
          </adviceBinding>
+          <adviceBinding 
+               class="de.uka.ipd.sdq.pcm.gmf.seff.helper.ExternalCallActionEditHelperAdvice"
+               id="de.uka.ipd.sdq.pcm.gmf.seff.ExternalCallActionAdvice"
+               inheritance="all"
+               typeId="de.uka.ipd.sdq.pcm.gmf.seff.ExternalCallAction_2003">
+         </adviceBinding>
       </metamodel>
    </extension>
 
@@ -35,6 +41,9 @@
          </advice>
          <advice
                ref="de.uka.ipd.sdq.pcm.gmf.seff.LoopActionAdvice">
+         </advice>
+          <advice
+               ref="de.uka.ipd.sdq.pcm.gmf.seff.ExternalCallActionAdvice">
          </advice>
        </binding>
    </extension>
