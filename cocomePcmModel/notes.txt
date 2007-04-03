@@ -14,6 +14,7 @@ Short comings
 - Distribution: 1:n relations between StoreServer and EnterpriseServer has to be modelled
 explicitly
 - Simplified allocation: 3 on 3: inventory, data, gui
+- Inventory CC allocated - not system 
 
 Signatures:
 - used int instead of long for all ids in signatures
