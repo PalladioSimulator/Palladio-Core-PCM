@@ -2,6 +2,8 @@ package de.uka.ipd.sdq.simucomframework;
 
 import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
 import de.uka.ipd.sdq.simucomframework.swingui.MainUI;
+import desmoj.core.simulator.Condition;
+import desmoj.core.simulator.Entity;
 import desmoj.core.simulator.Experiment;
 import desmoj.core.simulator.SimTime;
 
@@ -22,6 +24,8 @@ public class ExperimentRunner {
 
 		new MainUI(model).setVisible(true);
 
+		exp.stop(new StopCondition(model,"StopCondtion","Response Time of ConcurScenario",true));
+		
 		exp.start();
 
 		// generate the report (and other output files)

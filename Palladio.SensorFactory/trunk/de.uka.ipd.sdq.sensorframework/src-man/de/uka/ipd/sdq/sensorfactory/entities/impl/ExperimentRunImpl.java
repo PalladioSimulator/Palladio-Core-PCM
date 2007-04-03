@@ -13,11 +13,11 @@ import de.uka.ipd.sdq.sensorfactory.entities.Sensor;
 public class ExperimentRunImpl extends de.uka.ipd.sdq.sensorfactory.entities.ExperimentRun {
 
 	@Override
-	public Collection<Measurement> getMeasurementsOfSensor(Sensor sensor) {
+	public SensorAndMeasurements getMeasurementsOfSensor(Sensor sensor) {
 		EntityManager em = Persistence.createEntityManagerFactory("sensorfactory").createEntityManager();
 		Query q = em.createQuery("SELECT m FROM Measurement m WHERE FK_SENSOR = "+sensor.getSensorID());
 		Collection <Measurement> result = q.getResultList();
 		em.close();
-		return result;
+		return new SensorAndMeasurements(sensor,result);
 	}
 }

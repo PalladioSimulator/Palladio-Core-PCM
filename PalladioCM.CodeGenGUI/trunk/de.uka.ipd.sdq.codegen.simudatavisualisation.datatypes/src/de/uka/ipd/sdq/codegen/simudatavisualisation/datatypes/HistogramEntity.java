@@ -1,22 +1,22 @@
 /**
  * 
  */
-package de.uka.ipd.sdq.codegen.simudatavisualization.birt;
+package de.uka.ipd.sdq.codegen.simudatavisualisation.datatypes;
 
 /**
  * @author admin
  *
  */
-public class Entity {
+public class HistogramEntity {
 	
 	private double probability;
-	private Object value;
+	private double value;
 
 	/**
 	 * @param probability
 	 * @param value
 	 */
-	public Entity(double probability, Object value) {
+	public HistogramEntity(double probability, double value) {
 		this.probability = probability;
 		this.value = value;
 	}
@@ -36,13 +36,13 @@ public class Entity {
 	/**
 	 * @return the value
 	 */
-	public Object getValue() {
+	public double getValue() {
 		return value;
 	}
 	/**
 	 * @param value the value to set
 	 */
-	public void setValue(Object value) {
+	public void setValue(double value) {
 		this.value = value;
 	}
 

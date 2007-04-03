@@ -17,11 +17,11 @@ public class AdapterRegistry {
 		factories.add(adapterFactory);
 	}
 	
-	public Object getAdapter(Object adaptee, Class targetClass){
+	public IAdapter getAdapter(Object adaptee, Class targetClass){
 		for(IAdapterFactory factory : factories){
-			if (factory.canAdapt(adaptee.getClass(),targetClass))
+			if (factory.canAdapt(adaptee,targetClass))
 			{
-				return factory.getAdapter(adaptee, targetClass);
+				return factory.getAdapter(adaptee);
 			}
 		}
 		return null;

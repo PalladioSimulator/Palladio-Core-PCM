@@ -3,6 +3,8 @@
  */
 package de.uka.ipd.sdq.codegen.simudatavisualization.tabs;
 
+import java.util.ArrayList;
+
 import org.eclipse.jface.viewers.CellEditor;
 import org.eclipse.jface.viewers.DialogCellEditor;
 import org.eclipse.jface.viewers.ISelection;
@@ -37,6 +39,8 @@ import de.uka.ipd.sdq.codegen.simudatavisualization.dialogs.ExperimentRunsDialog
 import de.uka.ipd.sdq.codegen.simudatavisualization.dialogs.SensorsDialog;
 import de.uka.ipd.sdq.codegen.simudatavisualization.views.ConfigEditorInput;
 import de.uka.ipd.sdq.codegen.simudatavisualization.views.ReportView;
+import de.uka.ipd.sdq.sensorfactory.entities.Sensor;
+import de.uka.ipd.sdq.sensorframework.visualisation.IVisualisation;
 
 /**
  * @author admin
@@ -196,7 +200,15 @@ public class SensorsPropertySection extends AbstractPropertySection {
 			public void widgetSelected(SelectionEvent e) {
 				EditorPart editor = (EditorPart) SimuPlugin.getDefault().getWorkbench()
 				.getActiveWorkbenchWindow().getActivePage().getActiveEditor();
-				((ReportView) editor).getVisualization().initChart();
+				// ((ReportView) editor).getVisualization().initChart();
+				ArrayList list = new ArrayList();
+				IVisualisation vis = (IVisualisation)editor;
+				for (RunEntry re:configObject.getRunEntrys()){
+					for (Sensor s:re.getSensors()){
+						list.add(re.getExperimentRun().getMeasurementsOfSensor(s));
+					}
+				}
+				vis.setInput(list);
 			}
 		});
 		updateButton.setEnabled(false);

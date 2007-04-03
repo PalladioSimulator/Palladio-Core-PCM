@@ -6,6 +6,7 @@ package de.uka.ipd.sdq.codegen.simudatavisualization.tabs;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.eclipse.birt.chart.exception.ChartException;
@@ -68,7 +69,12 @@ import org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage;
 import de.uka.ipd.sdq.codegen.simudatavisualization.SimuPlugin;
 import de.uka.ipd.sdq.codegen.simudatavisualization.actions.DataServiceProvider;
 import de.uka.ipd.sdq.codegen.simudatavisualization.actions.UIServiceProvider;
+import de.uka.ipd.sdq.codegen.simudatavisualization.birt.RunEntry;
+import de.uka.ipd.sdq.codegen.simudatavisualization.views.ConfigEditorInput;
 import de.uka.ipd.sdq.codegen.simudatavisualization.views.ReportView;
+import de.uka.ipd.sdq.sensorfactory.entities.Sensor;
+import de.uka.ipd.sdq.sensorfactory.entities.impl.SensorAndMeasurements;
+import de.uka.ipd.sdq.sensorframework.visualisation.IVisualisation;
 
 /**
  * @author admin
@@ -115,7 +121,7 @@ public class ConfPropertySection extends AbstractPropertySection {
 				EditorPart editor = (EditorPart) SimuPlugin.getDefault().getWorkbench()
 					.getActiveWorkbenchWindow().getActivePage().getActiveEditor();
 				ChartWithAxes cwa = ((ReportView) editor).getVisualization().getChart();
-				run(composite.getShell(),cwa);	
+				run(composite.getShell(),cwa);
 			}
 		});
 	}

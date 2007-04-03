@@ -1,5 +1,7 @@
 package de.uka.ipd.sdq.sensorfactory.entities;
 
+import de.uka.ipd.sdq.sensorfactory.entities.impl.SensorAndMeasurements;
+
 @javax.persistence.Entity
 @javax.persistence.Table(name = "EXPERIMENTRUN")
 public abstract class ExperimentRun {
@@ -77,6 +79,6 @@ public abstract class ExperimentRun {
     }
 
     /* Abstract Operations */
-    public abstract java.util.Collection<de.uka.ipd.sdq.sensorfactory.entities.Measurement> getMeasurementsOfSensor(
+    public abstract SensorAndMeasurements getMeasurementsOfSensor(
         de.uka.ipd.sdq.sensorfactory.entities.Sensor sensor);
 }
