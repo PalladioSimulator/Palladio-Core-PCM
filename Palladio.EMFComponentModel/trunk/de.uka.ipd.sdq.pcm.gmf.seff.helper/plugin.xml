@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+  <extension
+         point="org.eclipse.gmf.runtime.emf.type.core.elementTypes">
+      <metamodel
+            nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0">
+         <adviceBinding 
+               class="de.uka.ipd.sdq.pcm.gmf.seff.helper.IncludeResourseDemandingEditHelperAdvice"
+               id="de.uka.ipd.sdq.pcm.gmf.seff.CollectionIteratorActionAdvice"
+               inheritance="all"
+               typeId="de.uka.ipd.sdq.pcm.gmf.seff.CollectionIteratorAction_2007">
+         </adviceBinding>
+         <adviceBinding 
+               class="de.uka.ipd.sdq.pcm.gmf.seff.helper.IncludeResourseDemandingEditHelperAdvice"
+               id="de.uka.ipd.sdq.pcm.gmf.seff.LoopActionAdvice"
+               inheritance="all"
+               typeId="de.uka.ipd.sdq.pcm.gmf.seff.LoopAction_2004">
+         </adviceBinding>
+      </metamodel>
+   </extension>
+
+   <extension
+         point="org.eclipse.gmf.runtime.emf.type.core.elementTypeBindings">
+      <clientContext id="PCM SEFF ModelClientContext">
+         <enablement>
+            <test
+               property="org.eclipse.gmf.runtime.emf.core.editingDomain"
+               value="de.uka.ipd.sdq.PCMBench.editingDomain"/>
+         </enablement>
+      </clientContext> 
+      <binding context="PCM SEFF ModelClientContext">
+         <advice
+               ref="de.uka.ipd.sdq.pcm.gmf.seff.CollectionIteratorActionAdvice">
+         </advice>
+         <advice
+               ref="de.uka.ipd.sdq.pcm.gmf.seff.LoopActionAdvice">
+         </advice>
+       </binding>
+   </extension>
+
+
+</plugin>
