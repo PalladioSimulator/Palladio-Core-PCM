@@ -91,6 +91,9 @@
 		<exec executable="svn.exe">
 		  <arg line="co svn://i43pc13.ipd.uka.de/code/Palladio.StoEx/trunk ${rootSourceFolder}/StoEx --username ${svnUserName}"/>
 		</exec>
+		<exec executable="svn.exe">
+		  <arg line="co svn://i43pc13.ipd.uka.de/code/Palladio.CoreServices/trunk ${rootSourceFolder}/Core --username ${svnUserName}"/>
+		</exec>
 	</target>
 
 	<!-- ===================================================================== -->

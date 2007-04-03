@@ -1,7 +1,9 @@
-plugin@de.uka.ipd.sdq.dialog=COPY,C:/coding/pcm2builder,build/src/svn_checkout/PCM/de.uka.ipd.sdq.dialog
+plugin@de.uka.ipd.sdq.dialogs=COPY,C:/coding/pcm2builder,build/src/svn_checkout/Core/de.uka.ipd.sdq.dialogs
 plugin@de.uka.ipd.sdq.pcmbench=COPY,C:/coding/pcm2builder,build/src/svn_checkout/PCMBench/de.uka.ipd.sdq.pcmbench
+plugin@de.uka.ipd.sdq.pcmbench.help=COPY,C:/coding/pcm2builder,build/src/svn_checkout/PCMBench/de.uka.ipd.sdq.pcmbench.help
 plugin@de.uka.ipd.sdq.pcmbench.ui=COPY,C:/coding/pcm2builder,build/src/svn_checkout/PCMBench/de.uka.ipd.sdq.pcmbench.ui
 plugin@de.uka.ipd.sdq.pcmbench.tabs=COPY,C:/coding/pcm2builder,build/src/svn_checkout/PCMBench/de.uka.ipd.sdq.pcmbench.tabs
+plugin@de.uka.ipd.sdq.pcmbench.propertytabs=COPY,C:/coding/pcm2builder,build/src/svn_checkout/PCMBench/de.uka.ipd.sdq.pcmbench.propertytabs
 plugin@de.uka.ipd.sdq.stoex=COPY,C:/coding/pcm2builder,build/src/svn_checkout/StoEx/de.uka.ipd.sdq.stoex
 plugin@de.uka.ipd.sdq.stoex.edit=COPY,C:/coding/pcm2builder,build/src/svn_checkout/StoEx/de.uka.ipd.sdq.stoex.edit
 plugin@de.uka.ipd.sdq.stoex.analyser=COPY,C:/coding/pcm2builder,build/src/svn_checkout/StoEx/de.uka.ipd.sdq.stoex.analyser
