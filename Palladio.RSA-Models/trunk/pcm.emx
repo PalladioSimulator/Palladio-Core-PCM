@@ -5673,6 +5673,7 @@
       </ownedAttribute>
     </ownedMember>
     <ownedMember xmi:type="uml:Class" xmi:id="_X5vv8OMeEdqaQsPH3rPnBQ" name="LinkingResource">
+      <generalization xmi:id="_JuCrsOG1Edu65ZdUH81nfw" general="_au_WlWA_EdqdHZdhXRxKVg"/>
       <ownedAttribute xmi:id="_ueHUweMeEdqaQsPH3rPnBQ" name="toResourceContainer_LinkingResource" type="_qdz5sOD9Edq8ysXH3gTiEg" association="_ueHUwOMeEdqaQsPH3rPnBQ">
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_W29rIeQMEdqeH_WIC9QRew" value="-1"/>
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_W29rIOQMEdqeH_WIC9QRew"/>
