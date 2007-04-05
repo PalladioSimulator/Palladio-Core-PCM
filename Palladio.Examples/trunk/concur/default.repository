@@ -68,7 +68,7 @@
           </steps_Behaviour>
           <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_uz6fQONvEducIYKvCli7qg" predecessor_AbstractAction="_vP7F1ONvEducIYKvCli7qg"/>
         </bodyBehaviour_Loop>
-        <iterations_LoopAction specification="IntPMF(unit=&quot;s&quot;)[ (1; 0.0) (2; 0.0) (3; 0.0) (4; 0.0) (5; 0.0) (6; 0.0) (7; 0.0) (8; 0.1) (9; 0.4) (10; 0.5) ]"/>
+        <iterations_LoopAction specification="IntPMF(unit=&quot;s&quot;)[ (1; 0.09876543) (2; 0.0877915) (3; 0.07803688) (4; 0.06936612) (5; 0.06165877) (6; 0.0548078) (7; 0.04871804) (8; 0.04330493) (9; 0.03849327) (10; 0.03421624) ]"/>
       </steps_Behaviour>
       <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_hWLHwONvEducIYKvCli7qg" predecessor_AbstractAction="_hxS9g-NvEducIYKvCli7qg"/>
     </serviceEffectSpecifications__BasicComponent>
