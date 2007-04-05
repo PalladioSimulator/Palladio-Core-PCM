@@ -80,7 +80,7 @@
           <branchBehaviour_BranchTransition>
             <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_lNS4YONxEduOX9gGpwrUFA" successor_AbstractAction="_li58AONxEduOX9gGpwrUFA"/>
             <steps_Behaviour xsi:type="pcm.seff:InternalAction" id="_li58AONxEduOX9gGpwrUFA" predecessor_AbstractAction="_lNS4YONxEduOX9gGpwrUFA" successor_AbstractAction="_mSlsgONxEduOX9gGpwrUFA">
-              <resourceDemand_Action specification="1000" unit="ms">
+              <resourceDemand_Action specification="DoublePDF(unit=&quot;ms&quot;)[ (100.0; 0.0)(110.0; 0.20000000) (120.0; 0.30000000) (130.0; 0.50000000) ]" unit="ms">
                 <requiredResource_ParametricResourceDemand href="My.resourcetype#_kYiq4N1AEduyyPV1EeYaOQ"/>
               </resourceDemand_Action>
             </steps_Behaviour>
@@ -91,7 +91,7 @@
           <branchBehaviour_BranchTransition>
             <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_rx9fQONxEduOX9gGpwrUFA" successor_AbstractAction="_sElgUONxEduOX9gGpwrUFA"/>
             <steps_Behaviour xsi:type="pcm.seff:InternalAction" id="_sElgUONxEduOX9gGpwrUFA" predecessor_AbstractAction="_rx9fQONxEduOX9gGpwrUFA" successor_AbstractAction="_szX48ONxEduOX9gGpwrUFA">
-              <resourceDemand_Action specification="10" unit="ms">
+              <resourceDemand_Action specification="DoublePDF(unit=&quot;ms&quot;)[ (10.0; 0.20000000) (20.0; 0.30000000) (30.0; 0.50000000) ]" unit="ms">
                 <requiredResource_ParametricResourceDemand href="My.resourcetype#_kYiq4N1AEduyyPV1EeYaOQ"/>
               </resourceDemand_Action>
             </steps_Behaviour>
