@@ -62,7 +62,7 @@
         <bodyBehaviour_Loop>
           <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_-w78oeNvEducIYKvCli7qg" successor_AbstractAction="_vP7F1ONvEducIYKvCli7qg"/>
           <steps_Behaviour xsi:type="pcm.seff:InternalAction" id="_vP7F1ONvEducIYKvCli7qg" predecessor_AbstractAction="_-w78oeNvEducIYKvCli7qg" successor_AbstractAction="_uz6fQONvEducIYKvCli7qg">
-            <resourceDemand_Action specification="100" unit="ms">
+            <resourceDemand_Action specification="DoublePDF(unit=&quot;ms&quot;)[ (100.0; 0.20000000) (200.0; 0.30000000) (300.0; 0.50000000) ]" unit="ms">
               <requiredResource_ParametricResourceDemand href="My.resourcetype#_kYiq4N1AEduyyPV1EeYaOQ"/>
             </resourceDemand_Action>
           </steps_Behaviour>
