@@ -19,7 +19,7 @@
     <details key="DUPLICATE_FEATURE_INHERITANCE" value="DISCARD"/>
     <details key="SUPER_CLASS_ORDER" value="PROCESS"/>
   </genAnnotations>
-  <foreignModel>file:/C:/coding/code/rsa_exports/pcm.uml2</foreignModel>
+  <foreignModel>file:/C:/coding/gmf2/rsa_exports/pcm.uml2</foreignModel>
   <modelPluginVariables>EMFT_OCL=org.eclipse.emf.ocl</modelPluginVariables>
   <genPackages prefix="Pcm" basePackage="de.uka.ipd.sdq" disposableProviderFactory="true"
       ecorePackage="pcm.ecore#/">

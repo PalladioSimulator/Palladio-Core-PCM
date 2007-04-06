@@ -44,7 +44,7 @@ public class TermExpressionImpl extends TermImpl implements TermExpression {
 	 * @generated
 	 * @ordered
 	 */
-	protected Term left = null;
+	protected Term left;
 
 	/**
 	 * The cached value of the '{@link #getRight() <em>Right</em>}' containment reference.
@@ -54,7 +54,7 @@ public class TermExpressionImpl extends TermImpl implements TermExpression {
 	 * @generated
 	 * @ordered
 	 */
-	protected Product right = null;
+	protected Product right;
 
 	/**
 	 * The default value of the '{@link #getOperation() <em>Operation</em>}' attribute.

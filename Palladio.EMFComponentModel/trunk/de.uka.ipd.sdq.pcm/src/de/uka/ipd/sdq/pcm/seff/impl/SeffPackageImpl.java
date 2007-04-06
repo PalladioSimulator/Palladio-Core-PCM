@@ -942,8 +942,8 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 		abstractActionEClass.getESuperTypes().add(theEntityPackage.getEntity());
 		parametricResourceDemandEClass.getESuperTypes().add(theStoexPackage.getRandomVariable());
 		startActionEClass.getESuperTypes().add(this.getAbstractResourceDemandingAction());
-		resourceDemandingSEFFEClass.getESuperTypes().add(this.getServiceEffectSpecification());
 		resourceDemandingSEFFEClass.getESuperTypes().add(theIdentifierPackage.getIdentifier());
+		resourceDemandingSEFFEClass.getESuperTypes().add(this.getServiceEffectSpecification());
 		resourceDemandingSEFFEClass.getESuperTypes().add(this.getResourceDemandingBehaviour());
 		releaseActionEClass.getESuperTypes().add(this.getAbstractResourceDemandingAction());
 		loopActionEClass.getESuperTypes().add(this.getAbstractLoopAction());

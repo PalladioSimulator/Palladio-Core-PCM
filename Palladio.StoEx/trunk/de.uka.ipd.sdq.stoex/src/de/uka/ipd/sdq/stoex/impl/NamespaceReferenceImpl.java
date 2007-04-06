@@ -40,7 +40,7 @@ public class NamespaceReferenceImpl extends AbstractNamedReferenceImpl implement
 	 * @generated
 	 * @ordered
 	 */
-	protected AbstractNamedReference innerReference_NamespaceReference = null;
+	protected AbstractNamedReference innerReference_NamespaceReference;
 
 	/**
 	 * <!-- begin-user-doc -->

@@ -18,7 +18,7 @@
     <details key="DUPLICATE_FEATURE_INHERITANCE" value="DISCARD"/>
     <details key="SUPER_CLASS_ORDER" value="PROCESS"/>
   </genAnnotations>
-  <foreignModel>file:/C:/coding/code/rsa_exports/stoex.uml2</foreignModel>
+  <foreignModel>file:/C:/coding/gmf2/rsa_exports/stoex.uml2</foreignModel>
   <genPackages prefix="Stoex" basePackage="de.uka.ipd.sdq" disposableProviderFactory="true"
       ecorePackage="stoex.ecore#/">
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="stoex.ecore#//TermOperations">

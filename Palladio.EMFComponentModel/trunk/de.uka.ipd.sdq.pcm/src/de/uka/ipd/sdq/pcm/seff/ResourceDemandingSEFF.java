@@ -19,7 +19,7 @@ import de.uka.ipd.sdq.identifier.Identifier;
  * @model
  * @generated
  */
-public interface ResourceDemandingSEFF extends ServiceEffectSpecification, Identifier, ResourceDemandingBehaviour {
+public interface ResourceDemandingSEFF extends Identifier, ServiceEffectSpecification, ResourceDemandingBehaviour {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

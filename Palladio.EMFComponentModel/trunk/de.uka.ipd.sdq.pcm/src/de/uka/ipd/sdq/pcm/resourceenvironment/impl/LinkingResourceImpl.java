@@ -7,6 +7,7 @@
  */
 package de.uka.ipd.sdq.pcm.resourceenvironment.impl;
 
+import de.uka.ipd.sdq.pcm.core.entity.impl.EntityImpl;
 import de.uka.ipd.sdq.pcm.resourceenvironment.CommunicationLinkResourceSpecification;
 import de.uka.ipd.sdq.pcm.resourceenvironment.LinkingResource;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer;
@@ -42,7 +43,7 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  *
  * @generated
  */
-public class LinkingResourceImpl extends EObjectImpl implements LinkingResource {
+public class LinkingResourceImpl extends EntityImpl implements LinkingResource {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

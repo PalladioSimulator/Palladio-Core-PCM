@@ -44,7 +44,7 @@ public class ProductExpressionImpl extends ProductImpl implements ProductExpress
 	 * @generated
 	 * @ordered
 	 */
-	protected Product left = null;
+	protected Product left;
 
 	/**
 	 * The cached value of the '{@link #getRight() <em>Right</em>}' containment reference.
@@ -54,7 +54,7 @@ public class ProductExpressionImpl extends ProductImpl implements ProductExpress
 	 * @generated
 	 * @ordered
 	 */
-	protected Power right = null;
+	protected Power right;
 
 	/**
 	 * The default value of the '{@link #getOperation() <em>Operation</em>}' attribute.

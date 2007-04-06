@@ -30,7 +30,7 @@ import org.eclipse.emf.common.util.DiagnosticChain;
  * @model
  * @generated
  */
-public interface ProvidesComponentType extends InterfaceProvidingRequiringEntity, Entity {
+public interface ProvidesComponentType extends Entity, InterfaceProvidingRequiringEntity {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

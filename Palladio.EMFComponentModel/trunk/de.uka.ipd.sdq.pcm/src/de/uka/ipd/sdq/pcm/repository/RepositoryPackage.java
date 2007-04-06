@@ -308,7 +308,7 @@ public interface RepositoryPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROVIDES_COMPONENT_TYPE__ID = EntityPackage.INTERFACE_PROVIDING_REQUIRING_ENTITY__ID;
+	int PROVIDES_COMPONENT_TYPE__ID = EntityPackage.ENTITY__ID;
 
 	/**
 	 * The feature id for the '<em><b>Entity Name</b></em>' attribute.
@@ -317,7 +317,7 @@ public interface RepositoryPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROVIDES_COMPONENT_TYPE__ENTITY_NAME = EntityPackage.INTERFACE_PROVIDING_REQUIRING_ENTITY__ENTITY_NAME;
+	int PROVIDES_COMPONENT_TYPE__ENTITY_NAME = EntityPackage.ENTITY__ENTITY_NAME;
 
 	/**
 	 * The feature id for the '<em><b>Provided Roles Interface Providing Entity</b></em>' containment reference list.
@@ -326,7 +326,7 @@ public interface RepositoryPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROVIDES_COMPONENT_TYPE__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY = EntityPackage.INTERFACE_PROVIDING_REQUIRING_ENTITY__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY;
+	int PROVIDES_COMPONENT_TYPE__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY = EntityPackage.ENTITY_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Required Roles Interface Requiring Entity</b></em>' containment reference list.
@@ -335,7 +335,7 @@ public interface RepositoryPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROVIDES_COMPONENT_TYPE__REQUIRED_ROLES_INTERFACE_REQUIRING_ENTITY = EntityPackage.INTERFACE_PROVIDING_REQUIRING_ENTITY__REQUIRED_ROLES_INTERFACE_REQUIRING_ENTITY;
+	int PROVIDES_COMPONENT_TYPE__REQUIRED_ROLES_INTERFACE_REQUIRING_ENTITY = EntityPackage.ENTITY_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Repository Provides Component Type</b></em>' container reference.
@@ -344,7 +344,7 @@ public interface RepositoryPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROVIDES_COMPONENT_TYPE__REPOSITORY_PROVIDES_COMPONENT_TYPE = EntityPackage.INTERFACE_PROVIDING_REQUIRING_ENTITY_FEATURE_COUNT + 0;
+	int PROVIDES_COMPONENT_TYPE__REPOSITORY_PROVIDES_COMPONENT_TYPE = EntityPackage.ENTITY_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Provides Component Type</em>' class.
@@ -353,7 +353,7 @@ public interface RepositoryPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROVIDES_COMPONENT_TYPE_FEATURE_COUNT = EntityPackage.INTERFACE_PROVIDING_REQUIRING_ENTITY_FEATURE_COUNT + 1;
+	int PROVIDES_COMPONENT_TYPE_FEATURE_COUNT = EntityPackage.ENTITY_FEATURE_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.repository.impl.RoleImpl <em>Role</em>}' class.

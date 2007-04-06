@@ -108,6 +108,9 @@ public class ResourceenvironmentSwitch<T> {
 			case ResourceenvironmentPackage.LINKING_RESOURCE: {
 				LinkingResource linkingResource = (LinkingResource)theEObject;
 				T result = caseLinkingResource(linkingResource);
+				if (result == null) result = caseEntity(linkingResource);
+				if (result == null) result = caseIdentifier(linkingResource);
+				if (result == null) result = caseNamedElement(linkingResource);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}

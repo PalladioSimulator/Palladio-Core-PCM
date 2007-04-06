@@ -40,7 +40,7 @@ public class ParenthesisImpl extends AtomImpl implements Parenthesis {
 	 * @generated
 	 * @ordered
 	 */
-	protected Expression innerExpression = null;
+	protected Expression innerExpression;
 
 	/**
 	 * <!-- begin-user-doc -->

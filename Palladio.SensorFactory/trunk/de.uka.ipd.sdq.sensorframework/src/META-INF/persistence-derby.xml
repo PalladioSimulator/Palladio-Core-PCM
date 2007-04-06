@@ -16,20 +16,20 @@
 		<exclude-unlisted-classes>true</exclude-unlisted-classes>
 		<properties>
 			<property name="hibernate.dialect"
-				value="org.hibernate.dialect.MySQL5Dialect" />
+				value="org.hibernate.dialect.DerbyDialect" />
 			<property name="hibernate.hbm2ddl.auto" value="update" />
-			<property name="hibernate.show_sql" value="false" />
+			<property name="hibernate.show_sql" value="true" />
 			<property name="hibernate.archive.autodetection"
 				value="class, hbm" />
 			<property name="hibernate.connection.driver_class"
-				value="com.mysql.jdbc.Driver" />
+				value="org.apache.derby.jdbc.EmbeddedDriver" />
 			<property name="hibernate.connection.url"
-				value="jdbc:mysql://localhost/sensorframework" />
+				value="jdbc:derby:/temp/sensor;create=true;user=hibernate;password=hiber!nate" />
 			<property name="hibernate.connection.username"
 				value="hibernate" />
 			<property name="hibernate.connection.password"
 				value="hiber!nate" />
-				
+
 			<property name="hibernate.c3p0.min_size" value="5" />
 			<property name="hibernate.c3p0.max_size" value="20" />
 			<property name="hibernate.c3p0.timeout" value="300" />

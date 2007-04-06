@@ -7,6 +7,7 @@
 package de.uka.ipd.sdq.pcm.seff.provider;
 
 
+import de.uka.ipd.sdq.identifier.provider.IdentifierItemProvider;
 import de.uka.ipd.sdq.identifier.IdentifierPackage;
 
 import de.uka.ipd.sdq.pcm.core.entity.provider.PalladioComponentModelEditPlugin;
@@ -43,7 +44,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * @generated
  */
 public class ResourceDemandingSEFFItemProvider
-	extends ServiceEffectSpecificationItemProvider
+	extends IdentifierItemProvider
 	implements	
 		IEditingDomainItemProvider,	
 		IStructuredItemContentProvider,	
@@ -78,29 +79,52 @@ public class ResourceDemandingSEFFItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addIdPropertyDescriptor(object);
+			addSeffTypeIDPropertyDescriptor(object);
+			addDescribedService__SEFFPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Id feature.
+	 * This adds a property descriptor for the Seff Type ID feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addIdPropertyDescriptor(Object object) {
+	protected void addSeffTypeIDPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Identifier_id_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Identifier_id_feature", "_UI_Identifier_type"),
-				 IdentifierPackage.Literals.IDENTIFIER__ID,
+				 getString("_UI_ServiceEffectSpecification_seffTypeID_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ServiceEffectSpecification_seffTypeID_feature", "_UI_ServiceEffectSpecification_type"),
+				 SeffPackage.Literals.SERVICE_EFFECT_SPECIFICATION__SEFF_TYPE_ID,
 				 true,
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Described Service SEFF feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addDescribedService__SEFFPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ServiceEffectSpecification_describedService__SEFF_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ServiceEffectSpecification_describedService__SEFF_feature", "_UI_ServiceEffectSpecification_type"),
+				 SeffPackage.Literals.SERVICE_EFFECT_SPECIFICATION__DESCRIBED_SERVICE_SEFF,
+				 true,
+				 false,
+				 true,
+				 null,
 				 null,
 				 null));
 	}
@@ -172,7 +196,7 @@ public class ResourceDemandingSEFFItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(ResourceDemandingSEFF.class)) {
-			case SeffPackage.RESOURCE_DEMANDING_SEFF__ID:
+			case SeffPackage.RESOURCE_DEMANDING_SEFF__SEFF_TYPE_ID:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case SeffPackage.RESOURCE_DEMANDING_SEFF__STEPS_BEHAVIOUR:
@@ -183,14 +207,14 @@ public class ResourceDemandingSEFFItemProvider
 	}
 
 	/**
-	 * This adds to the collection of {@link org.eclipse.emf.edit.command.CommandParameter}s
-	 * describing all of the children that can be created under this object.
+	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
+	 * that can be created under this object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	protected void collectNewChildDescriptors(Collection<CommandParameter> newChildDescriptors, Object object) {
+	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
 		newChildDescriptors.add

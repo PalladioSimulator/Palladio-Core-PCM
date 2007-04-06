@@ -6,6 +6,7 @@
  */
 package de.uka.ipd.sdq.pcm.system;
 
+import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
 import de.uka.ipd.sdq.pcm.core.composition.CompositionPackage;
 
 import org.eclipse.emf.ecore.EClass;
@@ -84,7 +85,7 @@ public interface SystemPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SYSTEM__ID = CompositionPackage.COMPOSED_STRUCTURE__ID;
+	int SYSTEM__ID = EntityPackage.ENTITY__ID;
 
 	/**
 	 * The feature id for the '<em><b>Entity Name</b></em>' attribute.
@@ -93,7 +94,7 @@ public interface SystemPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SYSTEM__ENTITY_NAME = CompositionPackage.COMPOSED_STRUCTURE__ENTITY_NAME;
+	int SYSTEM__ENTITY_NAME = EntityPackage.ENTITY__ENTITY_NAME;
 
 	/**
 	 * The feature id for the '<em><b>Child Component Contexts Composed Structure</b></em>' containment reference list.
@@ -102,7 +103,7 @@ public interface SystemPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SYSTEM__CHILD_COMPONENT_CONTEXTS_COMPOSED_STRUCTURE = CompositionPackage.COMPOSED_STRUCTURE__CHILD_COMPONENT_CONTEXTS_COMPOSED_STRUCTURE;
+	int SYSTEM__CHILD_COMPONENT_CONTEXTS_COMPOSED_STRUCTURE = EntityPackage.ENTITY_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Provided Delegation Connectors Composed Structure</b></em>' containment reference list.
@@ -111,7 +112,7 @@ public interface SystemPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SYSTEM__PROVIDED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE = CompositionPackage.COMPOSED_STRUCTURE__PROVIDED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE;
+	int SYSTEM__PROVIDED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE = EntityPackage.ENTITY_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Required Delegation Connectors Composed Structure</b></em>' containment reference list.
@@ -120,7 +121,7 @@ public interface SystemPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SYSTEM__REQUIRED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE = CompositionPackage.COMPOSED_STRUCTURE__REQUIRED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE;
+	int SYSTEM__REQUIRED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE = EntityPackage.ENTITY_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Composite Assembly Connectors Composed Structure</b></em>' containment reference list.
@@ -129,7 +130,7 @@ public interface SystemPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SYSTEM__COMPOSITE_ASSEMBLY_CONNECTORS_COMPOSED_STRUCTURE = CompositionPackage.COMPOSED_STRUCTURE__COMPOSITE_ASSEMBLY_CONNECTORS_COMPOSED_STRUCTURE;
+	int SYSTEM__COMPOSITE_ASSEMBLY_CONNECTORS_COMPOSED_STRUCTURE = EntityPackage.ENTITY_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Provided Roles Interface Providing Entity</b></em>' containment reference list.
@@ -138,7 +139,7 @@ public interface SystemPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SYSTEM__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY = CompositionPackage.COMPOSED_STRUCTURE_FEATURE_COUNT + 0;
+	int SYSTEM__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY = EntityPackage.ENTITY_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Required Roles Interface Requiring Entity</b></em>' containment reference list.
@@ -147,7 +148,7 @@ public interface SystemPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SYSTEM__REQUIRED_ROLES_INTERFACE_REQUIRING_ENTITY = CompositionPackage.COMPOSED_STRUCTURE_FEATURE_COUNT + 1;
+	int SYSTEM__REQUIRED_ROLES_INTERFACE_REQUIRING_ENTITY = EntityPackage.ENTITY_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Qos Annotations System</b></em>' containment reference list.
@@ -156,7 +157,7 @@ public interface SystemPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SYSTEM__QOS_ANNOTATIONS_SYSTEM = CompositionPackage.COMPOSED_STRUCTURE_FEATURE_COUNT + 2;
+	int SYSTEM__QOS_ANNOTATIONS_SYSTEM = EntityPackage.ENTITY_FEATURE_COUNT + 6;
 
 	/**
 	 * The number of structural features of the '<em>System</em>' class.
@@ -165,7 +166,7 @@ public interface SystemPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SYSTEM_FEATURE_COUNT = CompositionPackage.COMPOSED_STRUCTURE_FEATURE_COUNT + 3;
+	int SYSTEM_FEATURE_COUNT = EntityPackage.ENTITY_FEATURE_COUNT + 7;
 
 
 	/**

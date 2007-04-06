@@ -42,7 +42,7 @@ public class PowerExpressionImpl extends PowerImpl implements PowerExpression {
 	 * @generated
 	 * @ordered
 	 */
-	protected Power base = null;
+	protected Power base;
 
 	/**
 	 * The cached value of the '{@link #getExponent() <em>Exponent</em>}' containment reference.
@@ -52,7 +52,7 @@ public class PowerExpressionImpl extends PowerImpl implements PowerExpression {
 	 * @generated
 	 * @ordered
 	 */
-	protected Atom exponent = null;
+	protected Atom exponent;
 
 	/**
 	 * <!-- begin-user-doc -->

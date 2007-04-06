@@ -39,7 +39,7 @@ public class VariableImpl extends AtomImpl implements Variable {
 	 * @generated
 	 * @ordered
 	 */
-	protected AbstractNamedReference id_Variable = null;
+	protected AbstractNamedReference id_Variable;
 
 	/**
 	 * <!-- begin-user-doc -->

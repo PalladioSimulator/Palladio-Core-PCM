@@ -13,7 +13,7 @@ public abstract class AbstractMain {
                 "SimuCom Model", true, true);
 		model.initialiseResourceContainer(getResourceContainerFactory());
 		model.setUsageScenarios(getWorkloads());
-		ExperimentRunner.run(model, 150000000);
+		ExperimentRunner.run(model, 1500000);
 	}
 	
 	protected SimuComModel getModel() {

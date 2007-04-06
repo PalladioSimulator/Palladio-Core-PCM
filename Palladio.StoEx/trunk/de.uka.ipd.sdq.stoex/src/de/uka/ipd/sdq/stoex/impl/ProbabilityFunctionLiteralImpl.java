@@ -41,7 +41,7 @@ public class ProbabilityFunctionLiteralImpl extends AtomImpl implements Probabil
 	 * @generated
 	 * @ordered
 	 */
-	protected ProbabilityFunction function_ProbabilityFunctionLiteral = null;
+	protected ProbabilityFunction function_ProbabilityFunctionLiteral;
 
 	/**
 	 * <!-- begin-user-doc -->

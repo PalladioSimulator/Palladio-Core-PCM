@@ -7,6 +7,7 @@
 package de.uka.ipd.sdq.pcm.resourceenvironment.provider;
 
 
+import de.uka.ipd.sdq.pcm.core.entity.provider.EntityItemProvider;
 import de.uka.ipd.sdq.pcm.core.entity.provider.PalladioComponentModelEditPlugin;
 import de.uka.ipd.sdq.pcm.core.entity.provider.PcmEditPlugin;
 
@@ -41,7 +42,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * @generated
  */
 public class LinkingResourceItemProvider
-	extends ItemProviderAdapter
+	extends EntityItemProvider
 	implements	
 		IEditingDomainItemProvider,	
 		IStructuredItemContentProvider,	
@@ -175,7 +176,10 @@ public class LinkingResourceItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_LinkingResource_type");
+		String label = ((LinkingResource)object).getId();
+		return label == null || label.length() == 0 ?
+			getString("_UI_LinkingResource_type") :
+			getString("_UI_LinkingResource_type") + " " + label;
 	}
 
 	/**
@@ -198,14 +202,14 @@ public class LinkingResourceItemProvider
 	}
 
 	/**
-	 * This adds to the collection of {@link org.eclipse.emf.edit.command.CommandParameter}s
-	 * describing all of the children that can be created under this object.
+	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
+	 * that can be created under this object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	protected void collectNewChildDescriptors(Collection<CommandParameter> newChildDescriptors, Object object) {
+	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
 		newChildDescriptors.add

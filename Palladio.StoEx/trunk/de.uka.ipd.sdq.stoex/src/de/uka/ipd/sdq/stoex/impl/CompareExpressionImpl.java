@@ -43,7 +43,7 @@ public class CompareExpressionImpl extends ComparisonImpl implements CompareExpr
 	 * @generated
 	 * @ordered
 	 */
-	protected Term left = null;
+	protected Term left;
 
 	/**
 	 * The cached value of the '{@link #getRight() <em>Right</em>}' containment reference.
@@ -53,7 +53,7 @@ public class CompareExpressionImpl extends ComparisonImpl implements CompareExpr
 	 * @generated
 	 * @ordered
 	 */
-	protected Term right = null;
+	protected Term right;
 
 	/**
 	 * The default value of the '{@link #getOperation() <em>Operation</em>}' attribute.

@@ -275,8 +275,8 @@ public class SystemPackageImpl extends EPackageImpl implements SystemPackage {
 		setNsURI(eNS_URI);
 
 		// Obtain other dependent packages
-		CompositionPackage theCompositionPackage = (CompositionPackage)EPackage.Registry.INSTANCE.getEPackage(CompositionPackage.eNS_URI);
 		EntityPackage theEntityPackage = (EntityPackage)EPackage.Registry.INSTANCE.getEPackage(EntityPackage.eNS_URI);
+		CompositionPackage theCompositionPackage = (CompositionPackage)EPackage.Registry.INSTANCE.getEPackage(CompositionPackage.eNS_URI);
 		QosannotationsPackage theQosannotationsPackage = (QosannotationsPackage)EPackage.Registry.INSTANCE.getEPackage(QosannotationsPackage.eNS_URI);
 
 		// Create type parameters
@@ -284,9 +284,9 @@ public class SystemPackageImpl extends EPackageImpl implements SystemPackage {
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
+		systemEClass.getESuperTypes().add(theEntityPackage.getEntity());
 		systemEClass.getESuperTypes().add(theCompositionPackage.getComposedStructure());
 		systemEClass.getESuperTypes().add(theEntityPackage.getInterfaceProvidingRequiringEntity());
-		systemEClass.getESuperTypes().add(theEntityPackage.getEntity());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(systemEClass, de.uka.ipd.sdq.pcm.system.System.class, "System", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

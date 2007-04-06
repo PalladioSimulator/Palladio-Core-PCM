@@ -172,7 +172,7 @@ public class ResourceenvironmentEditor
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected AdapterFactory adapterFactory;
+	protected ComposedAdapterFactory adapterFactory;
 
 	/**
 	 * This is the content outline page.
@@ -402,7 +402,7 @@ public class ResourceenvironmentEditor
 						case Resource.RESOURCE__ERRORS:
 						case Resource.RESOURCE__WARNINGS: {
 							Resource resource = (Resource)notification.getNotifier();
-							Diagnostic diagnostic = analyzeResourceProblems((Resource)notification.getNotifier(), null);
+							Diagnostic diagnostic = analyzeResourceProblems(resource, null);
 							if (diagnostic.getSeverity() != Diagnostic.OK) {
 								resourceToDiagnosticMap.put(resource, diagnostic);
 							}
@@ -687,17 +687,8 @@ public class ResourceenvironmentEditor
 		factories.add(new StoexItemProviderAdapterFactory());
 		factories.add(new ReflectiveItemProviderAdapterFactory());
 
-		ComposedAdapterFactory caf = new ComposedAdapterFactory(factories) {
+		adapterFactory = new ComposedAdapterFactory(factories);
 
-			@Override
-			public ComposeableAdapterFactory getRootAdapterFactory() {
-				// TODO Auto-generated method stub
-				return (PalladioItemProviderAdapterFactory)adapterFactory;
-			}
-			
-		};
-		adapterFactory = new PalladioItemProviderAdapterFactory(caf);
-		
 		// Create the command stack that will notify this editor as commands are executed.
 		//
 		BasicCommandStack commandStack = new BasicCommandStack();
@@ -1750,7 +1741,7 @@ public class ResourceenvironmentEditor
 
 		getSite().getPage().removePartListener(partListener);
 
-		((PalladioItemProviderAdapterFactory)adapterFactory).dispose();
+		adapterFactory.dispose();
 
 		if (getActionBarContributor().getActiveEditor() == this) {
 			getActionBarContributor().setActiveEditor(null);

@@ -164,3 +164,4 @@ Export-Package: com.keypoint,
  org.xml.sax.ext,
  org.xml.sax.helpers,
  resource
+Require-Bundle: de.uka.ipd.sdq.sensorframework

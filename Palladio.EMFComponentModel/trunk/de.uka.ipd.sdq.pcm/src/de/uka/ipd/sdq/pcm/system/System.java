@@ -32,7 +32,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface System extends ComposedStructure, InterfaceProvidingRequiringEntity, Entity {
+public interface System extends Entity, ComposedStructure, InterfaceProvidingRequiringEntity {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

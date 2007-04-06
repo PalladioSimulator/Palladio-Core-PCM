@@ -62,8 +62,8 @@ public class SimulatedActiveResource extends Entity {
 		this.processingRate = d;
 		this.units = units;
 		
-		myStrategy = new RoundRobinStrategy();
-		//myStrategy = new FIFOStrategy(myModel,typeID);
+		//myStrategy = new RoundRobinStrategy();
+		myStrategy = new FIFOStrategy(myModel,typeID);
 	}
 		
 	public void consumeResource(SimProcess thread, double demand)
