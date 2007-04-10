@@ -11,19 +11,14 @@ import java.util.Map;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.FileLocator;
-import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.Path;
-import org.eclipse.core.runtime.Plugin;
-import org.eclipse.core.runtime.SubProgressMonitor;
 import org.eclipse.debug.core.ILaunch;
 import org.eclipse.debug.core.ILaunchConfiguration;
 import org.eclipse.debug.core.model.ILaunchConfigurationDelegate;
 import org.eclipse.jdt.core.JavaModelException;
-import org.openarchitectureware.wizards.EclipseHelper;
 import org.openarchitectureware.workflow.WorkflowRunner;
 import org.openarchitectureware.workflow.monitor.NullProgressMonitor;
-import org.openarchitectureware.workflow.monitor.ProgressMonitor;
 import org.openarchitectureware.workflow.util.ResourceLoaderFactory;
 import org.osgi.framework.Bundle;
 
@@ -36,9 +31,10 @@ import de.uka.ipd.sdq.codegen.simucontroller.SimuControllerPlugin;
 public class SimuLaunchConfigurationDelegate implements
 		ILaunchConfigurationDelegate {
 
-	public static String REPOSITORY_FILE = "workflows/codegen_repository.oaw";
-	public static String SYSTEM_FILE = "workflows/codegen_system.oaw";
-	public static String USAGE_FILE = "workflows/codegen_usage.oaw";
+	public static String REPOSITORY_FILE 	= "workflows/codegen_repository.oaw";
+	public static String SYSTEM_FILE 		= "workflows/codegen_system.oaw";
+	public static String USAGE_FILE 		= "workflows/codegen_usage.oaw";
+	public static String TEMPLATE_METHODS 	= "simulation_template_methods";
 
 	public static String[] workflowFiles = { REPOSITORY_FILE, SYSTEM_FILE,
 			USAGE_FILE };
@@ -56,7 +52,7 @@ public class SimuLaunchConfigurationDelegate implements
 		Map<String, String> properties = new HashMap<String, String>();
 		Map<String, Object> slotContents = new HashMap<String, Object>();
 
-		properties.put("aop_templates", "prototype_template_methods");
+		properties.put("aop_templates", TEMPLATE_METHODS);
 		properties.put(ResourceManagerTab.REPOSITORY_FILE, configuration
 				.getAttribute(ResourceManagerTab.REPOSITORY_FILE, ""));
 		properties.put(ResourceManagerTab.SYSTEM_FILE, configuration
@@ -112,5 +108,4 @@ public class SimuLaunchConfigurationDelegate implements
 			}
 		return url.getFile().replaceFirst("/", "");
 	}
-
 }

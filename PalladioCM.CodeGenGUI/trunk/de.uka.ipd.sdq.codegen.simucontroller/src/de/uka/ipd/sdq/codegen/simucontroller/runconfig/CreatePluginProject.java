@@ -8,11 +8,12 @@ import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.util.ArrayList;
 
+import org.eclipse.core.internal.events.BuildCommand;
+import org.eclipse.core.resources.ICommand;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IProjectDescription;
-import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IPath;
@@ -24,18 +25,11 @@ import org.eclipse.jdt.core.JavaModelException;
 import org.eclipse.jdt.launching.JavaRuntime;
 import org.eclipse.pde.core.plugin.IPluginModelBase;
 import org.eclipse.pde.core.plugin.PluginRegistry;
-import org.eclipse.pde.internal.core.PDEClasspathContainer;
-import org.eclipse.pde.internal.core.PDECore;
 import org.eclipse.pde.internal.core.WorkspaceModelManager;
-import org.eclipse.pde.internal.core.builders.PDEMarkerFactory;
-import org.eclipse.pde.internal.core.converter.PDEPluginConverter;
 import org.eclipse.pde.internal.core.natures.PDE;
-import org.eclipse.pde.internal.core.natures.PluginProject;
-import org.eclipse.pde.internal.ui.PDEPlugin;
 import org.eclipse.pde.internal.ui.wizards.plugin.ClasspathComputer;
 import org.eclipse.pde.internal.ui.wizards.tools.UpdateClasspathJob;
 import org.eclipse.pde.ui.launcher.PDESourcePathProvider;
-import org.openarchitectureware.workflow.monitor.NullProgressMonitor;
 
 /**
  * @author admin
@@ -76,7 +70,7 @@ public class CreatePluginProject {
 
 		// create JavaProject
 		setProjectToJavaProject(project);
-		
+
 		createPluginXml(project);
 		createManifestMf(project);
 		createBuildProperties(project);
@@ -87,7 +81,8 @@ public class CreatePluginProject {
 	}
 
 	public void setClasspath(IProject project) throws CoreException {
-		ClasspathComputer.setClasspath(project, PluginRegistry.findModel(project));
+		ClasspathComputer.setClasspath(project, PluginRegistry
+				.findModel(project));
 	}
 
 	public void setProjectToJavaProject(IProject project)
@@ -108,6 +103,10 @@ public class CreatePluginProject {
 		description.setNatureIds(new String[] { JavaCore.NATURE_ID,
 				PDE.PLUGIN_NATURE });
 		description.setLocation(null);
+		// set java bulders
+		ICommand command = description.newCommand();
+		command.setBuilderName(JavaCore.BUILDER_ID);
+		description.setBuildSpec(new BuildCommand[] {(BuildCommand) command});
 		project.setDescription(description, monitor);
 	}
 
@@ -138,9 +137,10 @@ public class CreatePluginProject {
 
 		final IPluginModelBase[] modelArray = (IPluginModelBase[]) models
 				.toArray(new IPluginModelBase[models.size()]);
-		
-		new UpdateClasspathJob(modelArray).doUpdateClasspath(monitor, modelArray);
-		
+
+		new UpdateClasspathJob(modelArray).doUpdateClasspath(monitor,
+				modelArray);
+
 	}
 
 	private void createPluginXml(IProject project) throws CoreException {
@@ -162,7 +162,7 @@ public class CreatePluginProject {
 			pluginXml.create(new ByteArrayInputStream(baos.toByteArray()),
 					true, null);
 	}
-	
+
 	private void createBuildProperties(IProject project) throws CoreException {
 
 		String BUILD_PROPERTIES = "build.properties";
@@ -171,7 +171,7 @@ public class CreatePluginProject {
 
 		baos = new ByteArrayOutputStream();
 		out = new PrintStream(baos);
-		
+
 		out.println("output.. = bin/"); //$NON-NLS-1$
 		out.println("source.. = src/"); //$NON-NLS-1$
 		out.println("bin.includes = plugin.xml,\\"); //$NON-NLS-1$
@@ -181,8 +181,8 @@ public class CreatePluginProject {
 
 		IFile buildProperties = project.getFile(BUILD_PROPERTIES);
 		if (!buildProperties.exists())
-			buildProperties.create(new ByteArrayInputStream(baos.toByteArray()),
-					true, null);
+			buildProperties.create(
+					new ByteArrayInputStream(baos.toByteArray()), true, null);
 	}
 
 	private void createManifestMf(IProject project) throws CoreException {
@@ -201,9 +201,10 @@ public class CreatePluginProject {
 		out
 				.println("Bundle-SymbolicName: " + project.getName() + ";singleton:=true"); //$NON-NLS-1$
 		out.println("Bundle-Version: 1.0.0"); //$NON-NLS-1$
-		out.println("Require-Bundle: org.eclipse.ui,"); //$NON-NLS-1$
-		out.println(" org.eclipse.core.runtime,"); //$NON-NLS-1$
-		out.println(" org.openarchitectureware.core.workflow"); //$NON-NLS-1$
+		out.println("Require-Bundle: de.uka.ipd.sdq.simucomframework,"); //$NON-NLS-1$
+		out.println(" de.uka.ipd.sdq.simucomframework,"); //$NON-NLS-1$
+		out.println(" de.uka.ipd.sdq.simucomframework.variables,"); //$NON-NLS-1$
+		out.println(" de.uka.ipd.sdq.desmojwrapper"); //$NON-NLS-1$
 		out.println("Eclipse-LazyStart: true"); //$NON-NLS-1$
 		out.close();
 
