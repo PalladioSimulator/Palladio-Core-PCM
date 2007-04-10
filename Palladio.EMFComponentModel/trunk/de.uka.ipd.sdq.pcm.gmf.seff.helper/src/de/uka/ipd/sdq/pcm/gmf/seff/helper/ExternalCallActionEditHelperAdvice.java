@@ -33,6 +33,7 @@ public class ExternalCallActionEditHelperAdvice extends
 	 */
 	@Override
 	protected ICommand getAfterConfigureCommand(ConfigureRequest request) {
+		EObject eOobject = request.getElementToConfigure().eContainer().eContainer();
 		EObject signature = null;
 		ArrayList<Object> filterList = new ArrayList<Object>();
 		filterList.add(RequiredRole.class);
@@ -44,7 +45,7 @@ public class ExternalCallActionEditHelperAdvice extends
 				PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(),
 				filterList, 
 				additionalReferences,
-				request.getElementToConfigure().eContainer());
+				eOobject);
 		dialog.open();
 		if (dialog.getResult() == null)
 			return new CanceledCommand();
@@ -52,11 +53,10 @@ public class ExternalCallActionEditHelperAdvice extends
 			return new CanceledCommand();
 		signature = (Signature) dialog.getResult();
 		
-		// TODO
 		ICommand cmd = new SetValueCommand(
 				new SetRequest(
 						request.getElementToConfigure(), 
-						SeffPackage.eINSTANCE.getServiceEffectSpecification_DescribedService__SEFF(),
+						SeffPackage.eINSTANCE.getExternalCallAction_CalledService_ExternalService(),
 						signature));
 		return cmd;
 	}
