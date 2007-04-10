@@ -23,6 +23,18 @@
                inheritance="all"
                typeId="de.uka.ipd.sdq.pcm.gmf.seff.ExternalCallAction_2003">
          </adviceBinding>
+          <adviceBinding 
+               class="de.uka.ipd.sdq.pcm.gmf.seff.helper.InternalActionEditHelperAdvice"
+               id="de.uka.ipd.sdq.pcm.gmf.seff.InternalActionAdvice"
+               inheritance="all"
+               typeId="de.uka.ipd.sdq.pcm.gmf.seff.InternalAction_2006">
+         </adviceBinding>
+          <adviceBinding 
+               class="de.uka.ipd.sdq.pcm.gmf.seff.helper.ParametricResourceDemandEditHelperAdvice"
+               id="de.uka.ipd.sdq.pcm.gmf.seff.ParametricResourceDemandAdvice"
+               inheritance="all"
+               typeId="de.uka.ipd.sdq.pcm.gmf.seff.ParametricResourceDemand_3008">
+         </adviceBinding>
       </metamodel>
    </extension>
 
@@ -44,6 +56,12 @@
          </advice>
           <advice
                ref="de.uka.ipd.sdq.pcm.gmf.seff.ExternalCallActionAdvice">
+         </advice>
+         <advice
+               ref="de.uka.ipd.sdq.pcm.gmf.seff.InternalActionAdvice">
+         </advice>
+         <advice
+               ref="de.uka.ipd.sdq.pcm.gmf.seff.ParametricResourceDemandAdvice">
          </advice>
        </binding>
    </extension>
