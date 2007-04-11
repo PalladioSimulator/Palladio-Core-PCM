@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: SEFF Diagram Edit Helper Plug-in
 Bundle-SymbolicName: de.uka.ipd.sdq.pcm.gmf.seff.helper;singleton:=true
-Bundle-Version: 1.0.0
+Bundle-Version: 1.0.0.qualifier
 Bundle-Activator: de.uka.ipd.sdq.pcm.gmf.seff.helper.SEFFHelperPlugin
 Bundle-Vendor: sdq.ipd.uka.de
 Require-Bundle: org.eclipse.ui,
