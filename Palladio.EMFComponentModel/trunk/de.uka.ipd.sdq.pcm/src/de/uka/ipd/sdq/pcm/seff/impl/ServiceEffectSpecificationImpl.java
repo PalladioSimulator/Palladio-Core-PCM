@@ -50,7 +50,7 @@ public abstract class ServiceEffectSpecificationImpl extends EObjectImpl impleme
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String SEFF_TYPE_ID_EDEFAULT = null;
+	protected static final String SEFF_TYPE_ID_EDEFAULT = "1";
 
 	/**
 	 * The cached value of the '{@link #getSeffTypeID() <em>Seff Type ID</em>}' attribute.

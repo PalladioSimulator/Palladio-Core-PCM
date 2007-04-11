@@ -34,6 +34,7 @@ public interface InternalAction extends AbstractResourceDemandingAction {
 
 	/**
 	 * Returns the value of the '<em><b>Failure Probability</b></em>' attribute.
+	 * The default value is <code>"0"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Failure Probability</em>' attribute isn't clear,
@@ -43,7 +44,7 @@ public interface InternalAction extends AbstractResourceDemandingAction {
 	 * @return the value of the '<em>Failure Probability</em>' attribute.
 	 * @see #setFailureProbability(String)
 	 * @see de.uka.ipd.sdq.pcm.seff.SeffPackage#getInternalAction_FailureProbability()
-	 * @model required="true" ordered="false"
+	 * @model default="0" required="true" ordered="false"
 	 * @generated
 	 */
 	String getFailureProbability();

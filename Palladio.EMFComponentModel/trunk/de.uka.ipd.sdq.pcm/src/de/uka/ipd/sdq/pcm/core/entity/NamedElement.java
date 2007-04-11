@@ -35,6 +35,7 @@ public interface NamedElement extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Entity Name</b></em>' attribute.
+	 * The default value is <code>"aName"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Entity Name</em>' attribute isn't clear,
@@ -44,7 +45,7 @@ public interface NamedElement extends EObject {
 	 * @return the value of the '<em>Entity Name</em>' attribute.
 	 * @see #setEntityName(String)
 	 * @see de.uka.ipd.sdq.pcm.core.entity.EntityPackage#getNamedElement_EntityName()
-	 * @model required="true" ordered="false"
+	 * @model default="aName" required="true" ordered="false"
 	 * @generated
 	 */
 	String getEntityName();

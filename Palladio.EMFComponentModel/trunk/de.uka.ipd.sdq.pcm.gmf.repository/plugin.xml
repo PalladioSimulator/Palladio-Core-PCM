@@ -50,25 +50,13 @@ Copyright 2007, IPD, SDQ, University of Karlsruhe
    <extension point="org.eclipse.ui.popupMenus">
       <?gmfgen generated="true"?>
       <objectContribution
-            id="de.uka.ipd.sdq.pcm.gmf.repository.ui.objectContribution.IFile1"
-            nameFilter="*.repository"
-            objectClass="org.eclipse.core.resources.IFile">
-         <action
-               label="%initDiagramActionLabel"
-               class="de.uka.ipd.sdq.pcm.gmf.repository.part.PalladioComponentModelInitDiagramFileAction"
-               menubarPath="additions"
-               enablesFor="1"
-               id="de.uka.ipd.sdq.pcm.gmf.repository.part.PalladioComponentModelInitDiagramFileActionID">
-         </action>
-      </objectContribution>
-      <objectContribution
             adaptable="false"
-            id="de.uka.ipd.sdq.pcm.gmf.repository.ui.objectContribution.RepositoryEditPart2"
+            id="de.uka.ipd.sdq.pcm.gmf.repository.LoadResource"
             objectClass="de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.RepositoryEditPart">
          <action
                class="de.uka.ipd.sdq.pcm.gmf.repository.part.PalladioComponentModelLoadResourceAction"
                enablesFor="1"
-               id="de.uka.ipd.sdq.pcm.gmf.repository.part.PalladioComponentModelLoadResourceActionID"
+               id="de.uka.ipd.sdq.pcm.gmf.repository.LoadResourceAction"
                label="%loadResourceActionLabel"
                menubarPath="additions">
          </action>
@@ -440,6 +428,7 @@ Copyright 2007, IPD, SDQ, University of Karlsruhe
       <viewerContentBinding viewerId="org.eclipse.ui.navigator.ProjectExplorer">
          <includes>
             <contentExtension pattern="de.uka.ipd.sdq.pcm.gmf.repository.resourceContent"/>
+			<contentExtension pattern="de.uka.ipd.sdq.pcm.gmf.repository.domainResourceContent"/>
             <contentExtension pattern="de.uka.ipd.sdq.pcm.gmf.repository.navigatorLinkHelper"/>
          </includes>
       </viewerContentBinding>
@@ -488,6 +477,33 @@ Copyright 2007, IPD, SDQ, University of Karlsruhe
             </parentExpression>
          </commonSorter>
       </navigatorContent>
+      <navigatorContent
+            id="de.uka.ipd.sdq.pcm.gmf.repository.domainResourceContent" 
+            name="%domainNavigatorContentName" 
+            priority="normal" 
+            contentProvider="de.uka.ipd.sdq.pcm.gmf.repository.navigator.PalladioComponentModelDomainNavigatorContentProvider" 
+            labelProvider="de.uka.ipd.sdq.pcm.gmf.repository.navigator.PalladioComponentModelDomainNavigatorLabelProvider"
+            icon="icons/obj16/RepositoryDiagramFile.gif"
+            activeByDefault="true">
+         <triggerPoints>
+            <or>
+	           <and>
+    	          <instanceof value="org.eclipse.core.resources.IFile"/>
+        	      <test property="org.eclipse.core.resources.extension" value="repository"/>
+               </and>
+               <and>
+                  <instanceof value="org.eclipse.emf.ecore.EObject"/>
+                  <test property="de.uka.ipd.sdq.pcm.gmf.repository.isDomainModelElement"/>
+               </and>
+            </or>
+         </triggerPoints>
+         <possibleChildren>
+            <and>
+       	       <instanceof value="org.eclipse.emf.ecore.EObject"/>
+       	       <test property="de.uka.ipd.sdq.pcm.gmf.repository.isDomainModelElement"/>
+       	    </and>
+         </possibleChildren>
+      </navigatorContent>
       <actionProvider
             id="de.uka.ipd.sdq.pcm.gmf.repository.navigatorActionProvider"
             class="de.uka.ipd.sdq.pcm.gmf.repository.navigator.PalladioComponentModelNavigatorActionProvider">
@@ -505,11 +521,82 @@ Copyright 2007, IPD, SDQ, University of Karlsruhe
             id="de.uka.ipd.sdq.pcm.gmf.repository.navigatorLinkHelper"
             class="de.uka.ipd.sdq.pcm.gmf.repository.navigator.PalladioComponentModelNavigatorLinkHelper">
          <editorInputEnablement>
-            <instanceof value="org.eclipse.gmf.runtime.diagram.ui.resources.editor.ide.document.FileEditorInputProxy"/>
+            <and>
+               <instanceof value="org.eclipse.emf.common.ui.URIEditorInput"/>
+               <test property="de.uka.ipd.sdq.pcm.gmf.repository.isURIEditorInput"/>
+            </and>
          </editorInputEnablement>
          <selectionEnablement>
             <instanceof value="de.uka.ipd.sdq.pcm.gmf.repository.navigator.PalladioComponentModelAbstractNavigatorItem"/>
          </selectionEnablement>
       </linkHelper>
+   </extension><extension point="org.eclipse.ui.popupMenus">
+      <?gmfgen generated="true"?>
+      <objectContribution
+            id="de.uka.ipd.sdq.pcm.gmf.repository.InitDiagram"
+            nameFilter="*.repository"
+            objectClass="org.eclipse.core.resources.IFile">
+         <action
+               label="%initDiagramActionLabel"
+               class="de.uka.ipd.sdq.pcm.gmf.repository.part.PalladioComponentModelInitDiagramFileAction"
+               menubarPath="additions"
+               enablesFor="1"
+               id="de.uka.ipd.sdq.pcm.gmf.repository.InitDiagramAction">
+         </action>
+      </objectContribution>
    </extension>
+<extension id="ValidationContributionItemProvider" name="Validation"
+      point="org.eclipse.gmf.runtime.common.ui.services.action.contributionItemProviders">
+      <?gmfgen generated="true"?>
+      <contributionItemProvider checkPluginLoaded="true"
+         class="de.uka.ipd.sdq.pcm.gmf.repository.providers.PalladioComponentModelValidationProvider">
+         <Priority name="Low"/>
+         <partContribution id="de.uka.ipd.sdq.pcm.gmf.repository.part.PalladioComponentModelRepositoryDiagramEditorID">
+            <partMenuGroup menubarPath="/diagramMenu/" id="validationGroup"/>
+            <partAction id="validateAction" menubarPath="/diagramMenu/validationGroup"/>
+         </partContribution>
+      </contributionItemProvider>
+   </extension>
+<extension point="org.eclipse.gmf.runtime.common.ui.services.markerNavigationProviders">
+      <?gmfgen generated="true"?>
+      <MarkerNavigationProvider class="de.uka.ipd.sdq.pcm.gmf.repository.providers.PalladioComponentModelMarkerNavigationProvider">
+         <MarkerType name="de.uka.ipd.sdq.pcm.gmf.repository.diagnostic"/>
+         <Priority name="Lowest"/>
+      </MarkerNavigationProvider>
+   </extension>
+<extension id="diagnostic" name="PalladioComponentModelRepositoryDiagram Plugin problems" point="org.eclipse.core.resources.markers">
+      <?gmfgen generated="true"?>
+      <super type="org.eclipse.core.resources.problemmarker"/>
+      <super type="org.eclipse.gmf.runtime.common.ui.services.marker"/>
+      <persistent value="true"/>
+   </extension>
+<extension id="validationDecoratorProvider" name="ValidationDecorations" point="org.eclipse.gmf.runtime.diagram.ui.decoratorProviders">
+      <?gmfgen generated="true"?>
+      <decoratorProvider class="de.uka.ipd.sdq.pcm.gmf.repository.providers.PalladioComponentModelValidationDecoratorProvider">
+         <Priority name="Lowest"/>
+         <object class="org.eclipse.gmf.runtime.diagram.ui.editparts.IPrimaryEditPart(org.eclipse.gmf.runtime.diagram.ui)" id="PRIMARY_VIEW"/>
+         <context decoratorTargets="PRIMARY_VIEW"/>
+      </decoratorProvider>
+   </extension>
+<extension point="org.eclipse.core.expressions.propertyTesters">
+      <?gmfgen generated="true"?>
+       <propertyTester
+           id="de.uka.ipd.sdq.pcm.gmf.repository.URIEditorInputPropertyTester"
+           type="org.eclipse.emf.common.ui.URIEditorInput"
+           namespace="de.uka.ipd.sdq.pcm.gmf.repository"
+           properties="isURIEditorInput"
+           class="de.uka.ipd.sdq.pcm.gmf.repository.part.PalladioComponentModelUriEditorInputTester">
+       </propertyTester>
+   </extension>
+<extension point="org.eclipse.core.expressions.propertyTesters">
+      <?gmfgen generated="true"?>
+       <propertyTester
+           id="de.uka.ipd.sdq.pcm.gmf.repository.DomainModelElementPropertyTester"
+           type="org.eclipse.emf.ecore.EObject"
+           namespace="de.uka.ipd.sdq.pcm.gmf.repository"
+           properties="isDomainModelElement"
+           class="de.uka.ipd.sdq.pcm.gmf.repository.part.PalladioComponentModelDomainModelElementTester">
+       </propertyTester>
+   </extension>
+
 </plugin>

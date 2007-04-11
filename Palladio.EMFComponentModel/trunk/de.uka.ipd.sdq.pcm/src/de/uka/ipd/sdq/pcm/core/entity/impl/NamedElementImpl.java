@@ -46,7 +46,7 @@ public abstract class NamedElementImpl extends EObjectImpl implements NamedEleme
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String ENTITY_NAME_EDEFAULT = null;
+	protected static final String ENTITY_NAME_EDEFAULT = "aName";
 
 	/**
 	 * The cached value of the '{@link #getEntityName() <em>Entity Name</em>}' attribute.

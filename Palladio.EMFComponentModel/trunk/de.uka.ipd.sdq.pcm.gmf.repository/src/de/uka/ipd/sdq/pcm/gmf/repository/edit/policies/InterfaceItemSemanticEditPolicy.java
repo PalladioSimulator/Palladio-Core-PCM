@@ -18,15 +18,20 @@ import org.eclipse.gmf.runtime.diagram.ui.requests.EditCommandRequestWrapper;
 import org.eclipse.gmf.runtime.emf.type.core.commands.DestroyElementCommand;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateRelationshipRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.DestroyElementRequest;
+import org.eclipse.gmf.runtime.emf.type.core.requests.ReorientRelationshipRequest;
 import org.eclipse.gmf.runtime.notation.Edge;
 import org.eclipse.gmf.runtime.notation.View;
 
 import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
 import de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingEntity;
 import de.uka.ipd.sdq.pcm.core.entity.InterfaceRequiringEntity;
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.commands.ProvidedRoleReorientCommand;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.commands.ProvidedRoleTypeLinkCreateCommand;
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.commands.RequiredRoleReorientCommand;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.commands.RequiredRoleTypeLinkCreateCommand;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.InterfaceEditPart;
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.ProvidedRoleEditPart;
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.RequiredRoleEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.providers.PalladioComponentModelElementTypes;
 import de.uka.ipd.sdq.pcm.repository.Interface;
 
@@ -137,6 +142,23 @@ public class InterfaceItemSemanticEditPolicy extends
 		}
 		return getMSLWrapper(new RequiredRoleTypeLinkCreateCommand(req, source,
 				target));
+	}
+
+	/**
+	 * Returns command to reorient EClass based link. New link target or source
+	 * should be the domain model element associated with this node.
+	 * 
+	 * @generated
+	 */
+	protected Command getReorientRelationshipCommand(
+			ReorientRelationshipRequest req) {
+		switch (getVisualID(req)) {
+		case ProvidedRoleEditPart.VISUAL_ID:
+			return getMSLWrapper(new ProvidedRoleReorientCommand(req));
+		case RequiredRoleEditPart.VISUAL_ID:
+			return getMSLWrapper(new RequiredRoleReorientCommand(req));
+		}
+		return super.getReorientRelationshipCommand(req);
 	}
 
 }

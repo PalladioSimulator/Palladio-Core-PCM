@@ -103,8 +103,21 @@ public class RepositoryCanonicalEditPolicy extends
 	 * @generated
 	 */
 	protected boolean shouldDeleteView(View view) {
-		return view.isSetElement() && view.getElement() != null
-				&& view.getElement().eIsProxy();
+		if (view.getEAnnotation("Shortcut") != null) { //$NON-NLS-1$
+			return view.isSetElement()
+					&& (view.getElement() == null || view.getElement()
+							.eIsProxy());
+		}
+		int nodeVID = PalladioComponentModelVisualIDRegistry.getVisualID(view);
+		switch (nodeVID) {
+		case InterfaceEditPart.VISUAL_ID:
+		case BasicComponentEditPart.VISUAL_ID:
+		case CompleteComponentTypeEditPart.VISUAL_ID:
+		case ProvidesComponentTypeEditPart.VISUAL_ID:
+		case CompositeComponentEditPart.VISUAL_ID:
+			return true;
+		}
+		return false;
 	}
 
 	/**

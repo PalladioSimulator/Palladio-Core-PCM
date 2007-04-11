@@ -83,13 +83,20 @@ public class PalladioComponentModelNavigatorGroup extends
 	 * @generated
 	 */
 	public boolean equals(Object obj) {
-		if (obj instanceof PalladioComponentModelNavigatorGroup) {
-			PalladioComponentModelNavigatorGroup anotherGroup = (PalladioComponentModelNavigatorGroup) obj;
+		if (obj instanceof de.uka.ipd.sdq.pcm.gmf.repository.navigator.PalladioComponentModelNavigatorGroup) {
+			de.uka.ipd.sdq.pcm.gmf.repository.navigator.PalladioComponentModelNavigatorGroup anotherGroup = (de.uka.ipd.sdq.pcm.gmf.repository.navigator.PalladioComponentModelNavigatorGroup) obj;
 			if (getGroupName().equals(anotherGroup.getGroupName())) {
 				return getParent().equals(anotherGroup.getParent());
 			}
 		}
 		return super.equals(obj);
+	}
+
+	/**
+	 * @generated
+	 */
+	public int hashCode() {
+		return getGroupName().hashCode();
 	}
 
 }

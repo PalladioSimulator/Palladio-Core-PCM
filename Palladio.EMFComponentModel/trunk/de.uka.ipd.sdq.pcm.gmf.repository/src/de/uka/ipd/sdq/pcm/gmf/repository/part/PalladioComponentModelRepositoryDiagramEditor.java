@@ -21,6 +21,8 @@ import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.gef.palette.PaletteRoot;
 import org.eclipse.gmf.runtime.common.ui.services.marker.MarkerNavigationService;
 import org.eclipse.gmf.runtime.diagram.core.preferences.PreferencesHint;
+import org.eclipse.gmf.runtime.diagram.ui.resources.editor.document.IDiagramDocument;
+import org.eclipse.gmf.runtime.diagram.ui.resources.editor.document.IDocument;
 import org.eclipse.gmf.runtime.diagram.ui.parts.DiagramDropTargetListener;
 import org.eclipse.gmf.runtime.diagram.ui.resources.editor.document.IDocumentProvider;
 import org.eclipse.gmf.runtime.diagram.ui.resources.editor.parts.DiagramDocumentEditor;
@@ -222,7 +224,7 @@ public class PalladioComponentModelRepositoryDiagramEditor extends
 			progressMonitor.setCanceled(!success);
 		}
 	}
-	
+
 	@Override
 	protected void initializeGraphicalViewer() {
 		// TODO Auto-generated method stub
@@ -237,8 +239,8 @@ public class PalladioComponentModelRepositoryDiagramEditor extends
 						List eObjects = new ArrayList();
 
 						for (int i = 0; i < data.length; i++) {
-							if (LocalSelectionTransfer.getInstance().isSupportedType(
-									data[i])) {
+							if (LocalSelectionTransfer.getInstance()
+									.isSupportedType(data[i])) {
 								IStructuredSelection selection = (IStructuredSelection) LocalSelectionTransfer
 										.getInstance().nativeToJava(data[i]);
 								eObjects.addAll(selection.toList());
@@ -266,6 +268,5 @@ public class PalladioComponentModelRepositoryDiagramEditor extends
 					}
 				});
 	}
-	
 
 }

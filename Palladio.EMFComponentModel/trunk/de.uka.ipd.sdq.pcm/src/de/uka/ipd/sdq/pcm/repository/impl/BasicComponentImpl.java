@@ -101,23 +101,23 @@ public class BasicComponentImpl extends ImplementationComponentTypeImpl implemen
 	private static OCLExpression NoSeffTypeUsedTwiceInvOCL;
 
 	/**
-	 * The parsed OCL expression for the definition of the '{@link #ProvideSameInterfaces <em>Provide Same Interfaces</em>}' invariant constraint.
+	 * The parsed OCL expression for the definition of the '{@link #ProvideSameInterfacesAsImplementationType <em>Provide Same Interfaces As Implementation Type</em>}' invariant constraint.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #ProvideSameInterfaces
+	 * @see #ProvideSameInterfacesAsImplementationType
 	 * @generated
 	 */
-	private static OCLExpression ProvideSameInterfacesInvOCL;
-	
+	private static OCLExpression ProvideSameInterfacesAsImplementationTypeInvOCL;
+
 	/**
-	 * The parsed OCL expression for the definition of the '{@link #RequireSameInterfacesasImplementationType <em>Require Same Interfacesas Implementation Type</em>}' invariant constraint.
+	 * The parsed OCL expression for the definition of the '{@link #RequireSameInterfacesAsImplementationType <em>Require Same Interfaces As Implementation Type</em>}' invariant constraint.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #RequireSameInterfacesasImplementationType
+	 * @see #RequireSameInterfacesAsImplementationType
 	 * @generated
 	 */
-	private static OCLExpression RequireSameInterfacesasImplementationTypeInvOCL;
-	
+	private static OCLExpression RequireSameInterfacesAsImplementationTypeInvOCL;
+
 	private static final String OCL_ANNOTATION_SOURCE = "http://www.eclipse.org/emf/2002/GenModel";
 	
 	/**
@@ -234,21 +234,21 @@ public class BasicComponentImpl extends ImplementationComponentTypeImpl implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean ProvideSameInterfaces(DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (ProvideSameInterfacesInvOCL == null) {
+	public boolean ProvideSameInterfacesAsImplementationType(DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (ProvideSameInterfacesAsImplementationTypeInvOCL == null) {
 			Environment env = ExpressionsUtil.createClassifierContext(eClass());
 			
 			
 			String body = " self.providedRoles_InterfaceProvidingEntity->iterate(pr : ProvidedRole; acc1 : Bag(String) = Bag{} |   acc1->union(pr.providedInterface__ProvidedRole.id->asBag())  )  =  if      self.implementationComponentType->notEmpty()  then   self.implementationComponentType.providedRoles_InterfaceProvidingEntity->iterate(pr : ProvidedRole; acc2 : Bag(String) = Bag{} |    acc2->union(pr.providedInterface__ProvidedRole.id->asBag())   )  else   Bag{}  endif ";
 			
 			try {
-				ProvideSameInterfacesInvOCL = ExpressionsUtil.createInvariant(env, body, true);
+				ProvideSameInterfacesAsImplementationTypeInvOCL = ExpressionsUtil.createInvariant(env, body, true);
 			} catch (ParserException e) {
 				throw new UnsupportedOperationException(e.getLocalizedMessage());
 			}
 		}
 		
-		Query query = QueryFactory.eINSTANCE.createQuery(ProvideSameInterfacesInvOCL);
+		Query query = QueryFactory.eINSTANCE.createQuery(ProvideSameInterfacesAsImplementationTypeInvOCL);
 		EvalEnvironment evalEnv = new EvalEnvironment();
 		query.setEvaluationEnvironment(evalEnv);
 		
@@ -258,8 +258,8 @@ public class BasicComponentImpl extends ImplementationComponentTypeImpl implemen
 					(new BasicDiagnostic
 						(Diagnostic.ERROR,
 						 RepositoryValidator.DIAGNOSTIC_SOURCE,
-						 RepositoryValidator.BASIC_COMPONENT__PROVIDE_SAME_INTERFACES,
-						 EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "ProvideSameInterfaces", EObjectValidator.getObjectLabel(this, context) }),
+						 RepositoryValidator.BASIC_COMPONENT__PROVIDE_SAME_INTERFACES_AS_IMPLEMENTATION_TYPE,
+						 EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "ProvideSameInterfacesAsImplementationType", EObjectValidator.getObjectLabel(this, context) }),
 						 new Object [] { this }));
 			}
 			return false;
@@ -268,27 +268,26 @@ public class BasicComponentImpl extends ImplementationComponentTypeImpl implemen
 		
 	}
 
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean RequireSameInterfacesasImplementationType(DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (RequireSameInterfacesasImplementationTypeInvOCL == null) {
+	public boolean RequireSameInterfacesAsImplementationType(DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (RequireSameInterfacesAsImplementationTypeInvOCL == null) {
 			Environment env = ExpressionsUtil.createClassifierContext(eClass());
 			
 			
 			String body = " self.requiredRoles_InterfaceRequiringEntity->iterate(pr : RequiredRole; acc1 : Bag(String) = Bag{} |   acc1->union(pr.requiredInterface__RequiredRole.id->asBag())  )  =  if      self.implementationComponentType->notEmpty()  then   self.implementationComponentType.requiredRoles_InterfaceRequiringEntity->iterate(pr : RequiredRole; acc2 : Bag(String) = Bag{} |    acc2->union(pr.requiredInterface__RequiredRole.id->asBag())   )  else   Bag{}  endif ";
 			
 			try {
-				RequireSameInterfacesasImplementationTypeInvOCL = ExpressionsUtil.createInvariant(env, body, true);
+				RequireSameInterfacesAsImplementationTypeInvOCL = ExpressionsUtil.createInvariant(env, body, true);
 			} catch (ParserException e) {
 				throw new UnsupportedOperationException(e.getLocalizedMessage());
 			}
 		}
 		
-		Query query = QueryFactory.eINSTANCE.createQuery(RequireSameInterfacesasImplementationTypeInvOCL);
+		Query query = QueryFactory.eINSTANCE.createQuery(RequireSameInterfacesAsImplementationTypeInvOCL);
 		EvalEnvironment evalEnv = new EvalEnvironment();
 		query.setEvaluationEnvironment(evalEnv);
 		
@@ -298,8 +297,8 @@ public class BasicComponentImpl extends ImplementationComponentTypeImpl implemen
 					(new BasicDiagnostic
 						(Diagnostic.ERROR,
 						 RepositoryValidator.DIAGNOSTIC_SOURCE,
-						 RepositoryValidator.BASIC_COMPONENT__REQUIRE_SAME_INTERFACESAS_IMPLEMENTATION_TYPE,
-						 EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "RequireSameInterfacesasImplementationType", EObjectValidator.getObjectLabel(this, context) }),
+						 RepositoryValidator.BASIC_COMPONENT__REQUIRE_SAME_INTERFACES_AS_IMPLEMENTATION_TYPE,
+						 EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "RequireSameInterfacesAsImplementationType", EObjectValidator.getObjectLabel(this, context) }),
 						 new Object [] { this }));
 			}
 			return false;

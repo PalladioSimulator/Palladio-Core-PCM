@@ -6,8 +6,10 @@ package de.uka.ipd.sdq.pcm.gmf.repository.edit.policies;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
+import org.eclipse.gef.Request;
 import org.eclipse.gef.commands.Command;
 import org.eclipse.gef.commands.UnexecutableCommand;
+import org.eclipse.gef.requests.ReconnectRequest;
 import org.eclipse.gmf.runtime.common.core.command.ICommand;
 import org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand;
 import org.eclipse.gmf.runtime.diagram.core.util.ViewUtil;
@@ -37,6 +39,7 @@ import org.eclipse.gmf.runtime.notation.View;
 import de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingEntity;
 import de.uka.ipd.sdq.pcm.core.entity.InterfaceRequiringEntity;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.helpers.PalladioComponentModelBaseEditHelper;
+import de.uka.ipd.sdq.pcm.gmf.repository.part.PalladioComponentModelVisualIDRegistry;
 import de.uka.ipd.sdq.pcm.repository.Interface;
 
 /**
@@ -44,6 +47,44 @@ import de.uka.ipd.sdq.pcm.repository.Interface;
  */
 public class PalladioComponentModelBaseItemSemanticEditPolicy extends
 		SemanticEditPolicy {
+
+	/**
+	 * Extended request data key to hold editpart visual id.
+	 * 
+	 * @generated
+	 */
+	public static final String VISUAL_ID_KEY = "visual_id"; //$NON-NLS-1$
+
+	/**
+	 * Add visual id of edited editpart to extended data of the request
+	 * so command switch can decide what kind of diagram element is being edited.
+	 * It is done in those cases when it's not possible to deduce diagram
+	 * element kind from domain element.
+	 * 
+	 * @generated
+	 */
+	public Command getCommand(Request request) {
+		if (request instanceof ReconnectRequest) {
+			Object view = ((ReconnectRequest) request).getConnectionEditPart()
+					.getModel();
+			if (view instanceof View) {
+				Integer id = new Integer(PalladioComponentModelVisualIDRegistry
+						.getVisualID((View) view));
+				request.getExtendedData().put(VISUAL_ID_KEY, id);
+			}
+		}
+		return super.getCommand(request);
+	}
+
+	/**
+	 * Returns visual id from request parameters.
+	 * 
+	 * @generated
+	 */
+	protected int getVisualID(IEditCommandRequest request) {
+		Object id = request.getParameter(VISUAL_ID_KEY);
+		return id instanceof Integer ? ((Integer) id).intValue() : -1;
+	}
 
 	/**
 	 * @generated
@@ -239,11 +280,14 @@ public class PalladioComponentModelBaseItemSemanticEditPolicy extends
 	 * 
 	 * @generated
 	 */
-	protected EObject getRelationshipContainer(EObject element,
+	protected EObject getRelationshipContainer(Object uelement,
 			EClass containerClass, IElementType relationshipType) {
-		for (; element != null; element = element.eContainer()) {
-			if (containerClass.isSuperTypeOf(element.eClass())) {
-				return element;
+		if (uelement instanceof EObject) {
+			EObject element = (EObject) uelement;
+			for (; element != null; element = element.eContainer()) {
+				if (containerClass.isSuperTypeOf(element.eClass())) {
+					return element;
+				}
 			}
 		}
 		return null;
@@ -252,12 +296,28 @@ public class PalladioComponentModelBaseItemSemanticEditPolicy extends
 	/**
 	 * @generated
 	 */
-	protected static class LinkConstraints {
+	public static class LinkConstraints {
 
 		/**
 		 * @generated
 		 */
 		public static boolean canCreateProvidedRole_4101(
+				InterfaceProvidingEntity source, Interface target) {
+			return canExistProvidedRole_4101(source, target);
+		}
+
+		/**
+		 * @generated
+		 */
+		public static boolean canCreateRequiredRole_4102(
+				InterfaceRequiringEntity source, Interface target) {
+			return canExistRequiredRole_4102(source, target);
+		}
+
+		/**
+		 * @generated
+		 */
+		public static boolean canExistProvidedRole_4101(
 				InterfaceProvidingEntity source, Interface target) {
 			return true;
 		}
@@ -265,7 +325,7 @@ public class PalladioComponentModelBaseItemSemanticEditPolicy extends
 		/**
 		 * @generated
 		 */
-		public static boolean canCreateRequiredRole_4102(
+		public static boolean canExistRequiredRole_4102(
 				InterfaceRequiringEntity source, Interface target) {
 			return true;
 		}

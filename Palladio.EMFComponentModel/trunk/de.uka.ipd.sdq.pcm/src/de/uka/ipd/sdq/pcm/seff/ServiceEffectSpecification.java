@@ -38,6 +38,7 @@ public interface ServiceEffectSpecification extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Seff Type ID</b></em>' attribute.
+	 * The default value is <code>"1"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Seff Type ID</em>' attribute isn't clear,
@@ -47,7 +48,7 @@ public interface ServiceEffectSpecification extends EObject {
 	 * @return the value of the '<em>Seff Type ID</em>' attribute.
 	 * @see #setSeffTypeID(String)
 	 * @see de.uka.ipd.sdq.pcm.seff.SeffPackage#getServiceEffectSpecification_SeffTypeID()
-	 * @model required="true" ordered="false"
+	 * @model default="1" required="true" ordered="false"
 	 * @generated
 	 */
 	String getSeffTypeID();

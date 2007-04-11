@@ -49,6 +49,8 @@ public class PalladioComponentModelParserProvider extends AbstractProvider
 	protected IParser createSignatureSignature_3101Parser() {
 		PalladioComponentModelStructuralFeatureParser parser = new PalladioComponentModelStructuralFeatureParser(
 				RepositoryPackage.eINSTANCE.getSignature_ServiceName());
+		parser.setViewPattern("{0}");
+		parser.setEditPattern("{0}");
 		return parser;
 	}
 
@@ -74,6 +76,8 @@ public class PalladioComponentModelParserProvider extends AbstractProvider
 		PalladioComponentModelStructuralFeatureParser parser = new PalladioComponentModelStructuralFeatureParser(
 				SeffPackage.eINSTANCE
 						.getServiceEffectSpecification_SeffTypeID());
+		parser.setViewPattern("{0}");
+		parser.setEditPattern("{0}");
 		return parser;
 	}
 
@@ -98,6 +102,8 @@ public class PalladioComponentModelParserProvider extends AbstractProvider
 	protected IParser createInterfaceInterfaceEntityName_5101Parser() {
 		PalladioComponentModelStructuralFeatureParser parser = new PalladioComponentModelStructuralFeatureParser(
 				EntityPackage.eINSTANCE.getNamedElement_EntityName());
+		parser.setViewPattern("{0}");
+		parser.setEditPattern("{0}");
 		return parser;
 	}
 
@@ -122,6 +128,8 @@ public class PalladioComponentModelParserProvider extends AbstractProvider
 	protected IParser createBasicComponentBasicComponentEntityName_5102Parser() {
 		PalladioComponentModelStructuralFeatureParser parser = new PalladioComponentModelStructuralFeatureParser(
 				EntityPackage.eINSTANCE.getNamedElement_EntityName());
+		parser.setViewPattern("{0}");
+		parser.setEditPattern("{0}");
 		return parser;
 	}
 
@@ -146,6 +154,8 @@ public class PalladioComponentModelParserProvider extends AbstractProvider
 	protected IParser createCompleteComponentTypeCompleteComponentTypeEntityName_5103Parser() {
 		PalladioComponentModelStructuralFeatureParser parser = new PalladioComponentModelStructuralFeatureParser(
 				EntityPackage.eINSTANCE.getNamedElement_EntityName());
+		parser.setViewPattern("{0}");
+		parser.setEditPattern("{0}");
 		return parser;
 	}
 
@@ -170,6 +180,8 @@ public class PalladioComponentModelParserProvider extends AbstractProvider
 	protected IParser createProvidesComponentTypeProvidesComponentTypeEntityName_5104Parser() {
 		PalladioComponentModelStructuralFeatureParser parser = new PalladioComponentModelStructuralFeatureParser(
 				EntityPackage.eINSTANCE.getNamedElement_EntityName());
+		parser.setViewPattern("{0}");
+		parser.setEditPattern("{0}");
 		return parser;
 	}
 

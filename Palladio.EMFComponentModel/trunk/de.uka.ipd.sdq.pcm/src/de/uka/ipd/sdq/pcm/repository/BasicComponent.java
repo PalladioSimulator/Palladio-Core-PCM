@@ -117,8 +117,7 @@ public interface BasicComponent extends ImplementationComponentType {
 	 * @model
 	 * @generated
 	 */
-	boolean ProvideSameInterfaces(DiagnosticChain diagnostics, Map<Object, Object> context);
-
+	boolean ProvideSameInterfacesAsImplementationType(DiagnosticChain diagnostics, Map<Object, Object> context);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -143,6 +142,6 @@ public interface BasicComponent extends ImplementationComponentType {
 	 * @model
 	 * @generated
 	 */
-	boolean RequireSameInterfacesasImplementationType(DiagnosticChain diagnostics, Map<Object, Object> context);
+	boolean RequireSameInterfacesAsImplementationType(DiagnosticChain diagnostics, Map<Object, Object> context);
 
 } // BasicComponent

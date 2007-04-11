@@ -1080,7 +1080,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 		initEReference(getDataType_Repository_DataType(), this.getRepository(), this.getRepository_Datatypes_Repository(), "repository_DataType", null, 1, 1, DataType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(repositoryEClass, Repository.class, "Repository", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getRepository_RepositoryDescription(), ecorePackage.getEString(), "repositoryDescription", null, 1, 1, Repository.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getRepository_RepositoryDescription(), ecorePackage.getEString(), "repositoryDescription", null, 0, 1, Repository.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getRepository_Components__Repository(), this.getProvidesComponentType(), this.getProvidesComponentType_Repository_ProvidesComponentType(), "components__Repository", null, 0, -1, Repository.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getRepository_Interfaces__Repository(), this.getInterface(), this.getInterface_Repository_Interface(), "interfaces__Repository", null, 0, -1, Repository.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getRepository_Datatypes_Repository(), this.getDataType(), this.getDataType_Repository_DataType(), "datatypes_Repository", null, 0, -1, Repository.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
@@ -1210,7 +1210,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 		g1.getETypeArguments().add(g2);
 		addEParameter(op, g1, "context", 0, 1);
 
-		op = addEOperation(basicComponentEClass, ecorePackage.getEBoolean(), "ProvideSameInterfaces", 0, 1);
+		op = addEOperation(basicComponentEClass, ecorePackage.getEBoolean(), "ProvideSameInterfacesAsImplementationType", 0, 1);
 		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1);
 		g1 = createEGenericType(ecorePackage.getEMap());
 		g2 = createEGenericType(ecorePackage.getEJavaObject());
@@ -1219,7 +1219,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 		g1.getETypeArguments().add(g2);
 		addEParameter(op, g1, "context", 0, 1);
 
-		op = addEOperation(basicComponentEClass, ecorePackage.getEBoolean(), "RequireSameInterfacesasImplementationType", 0, 1);
+		op = addEOperation(basicComponentEClass, ecorePackage.getEBoolean(), "RequireSameInterfacesAsImplementationType", 0, 1);
 		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1);
 		g1 = createEGenericType(ecorePackage.getEMap());
 		g2 = createEGenericType(ecorePackage.getEJavaObject());

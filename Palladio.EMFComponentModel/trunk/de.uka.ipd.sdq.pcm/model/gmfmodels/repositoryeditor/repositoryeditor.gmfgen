@@ -15,7 +15,9 @@
       notationViewFactoryClassName="RepositoryViewFactory"
       canonicalEditPolicyClassName="RepositoryCanonicalEditPolicy"
       iconProviderPriority="Low"
-      validationProviderPriority="Low">
+      validationProviderPriority="Low"
+      validationEnabled="true"
+      validationDecorators="true">
     <diagramRunTimeClass
         href="../../../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Diagram"/>
     <elementType
@@ -98,7 +100,7 @@
       </modelFacet>
       <labelModelFacet
           xsi:type="gmfgen:FeatureLabelModelFacet"
-          viewPattern=""
+          viewPattern="{0}"
           editPattern="">
         <metaFeatures
             href="../../pcm.genmodel#//pcm/seff/ServiceEffectSpecification/seffTypeID"/>
@@ -332,7 +334,8 @@
         visualID="4101"
         editPartClassName="ProvidedRoleEditPart"
         itemSemanticEditPolicyClassName="ProvidedRoleItemSemanticEditPolicy"
-        notationViewFactoryClassName="ProvidedRoleViewFactory">
+        notationViewFactoryClassName="ProvidedRoleViewFactory"
+        reorientCommandClassName="ProvidedRoleReorientCommand">
       <diagramRunTimeClass
           href="../../../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Edge"/>
       <elementType
@@ -381,7 +384,8 @@
         visualID="4102"
         editPartClassName="RequiredRoleEditPart"
         itemSemanticEditPolicyClassName="RequiredRoleItemSemanticEditPolicy"
-        notationViewFactoryClassName="RequiredRoleViewFactory">
+        notationViewFactoryClassName="RequiredRoleViewFactory"
+        reorientCommandClassName="RequiredRoleReorientCommand">
       <diagramRunTimeClass
           href="../../../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Edge"/>
       <elementType
@@ -604,7 +608,7 @@
     <childReferences
         parent="//@diagram/@links.0"
         child="//@diagram/@topLevelNodes.0"
-        referenceType="out_taget"
+        referenceType="out_target"
         groupName="target"
         groupIcon="icons/linkTargetNavigatorGroup.gif"/>
     <childReferences
@@ -622,7 +626,7 @@
     <childReferences
         parent="//@diagram/@topLevelNodes.1"
         child="//@diagram/@links.0"
-        referenceType="out_taget"
+        referenceType="out_target"
         groupName="outgoing links"
         groupIcon="icons/outgoingLinksNavigatorGroup.gif"/>
     <childReferences
@@ -634,7 +638,7 @@
     <childReferences
         parent="//@diagram/@topLevelNodes.2"
         child="//@diagram/@links.0"
-        referenceType="out_taget"
+        referenceType="out_target"
         groupName="outgoing links"
         groupIcon="icons/outgoingLinksNavigatorGroup.gif"/>
     <childReferences
@@ -646,7 +650,7 @@
     <childReferences
         parent="//@diagram/@topLevelNodes.3"
         child="//@diagram/@links.0"
-        referenceType="out_taget"
+        referenceType="out_target"
         groupName="outgoing links"
         groupIcon="icons/outgoingLinksNavigatorGroup.gif"/>
     <childReferences
@@ -658,7 +662,7 @@
     <childReferences
         parent="//@diagram/@topLevelNodes.4"
         child="//@diagram/@links.0"
-        referenceType="out_taget"
+        referenceType="out_target"
         groupName="outgoing links"
         groupIcon="icons/outgoingLinksNavigatorGroup.gif"/>
     <childReferences
@@ -669,7 +673,7 @@
     <childReferences
         parent="//@diagram/@links.1"
         child="//@diagram/@topLevelNodes.0"
-        referenceType="out_taget"
+        referenceType="out_target"
         groupName="target"
         groupIcon="icons/linkTargetNavigatorGroup.gif"/>
     <childReferences
@@ -687,7 +691,7 @@
     <childReferences
         parent="//@diagram/@topLevelNodes.1"
         child="//@diagram/@links.1"
-        referenceType="out_taget"
+        referenceType="out_target"
         groupName="outgoing links"
         groupIcon="icons/outgoingLinksNavigatorGroup.gif"/>
     <childReferences
@@ -699,7 +703,7 @@
     <childReferences
         parent="//@diagram/@topLevelNodes.2"
         child="//@diagram/@links.1"
-        referenceType="out_taget"
+        referenceType="out_target"
         groupName="outgoing links"
         groupIcon="icons/outgoingLinksNavigatorGroup.gif"/>
     <childReferences
@@ -711,7 +715,7 @@
     <childReferences
         parent="//@diagram/@topLevelNodes.3"
         child="//@diagram/@links.1"
-        referenceType="out_taget"
+        referenceType="out_target"
         groupName="outgoing links"
         groupIcon="icons/outgoingLinksNavigatorGroup.gif"/>
     <childReferences
@@ -723,7 +727,7 @@
     <childReferences
         parent="//@diagram/@topLevelNodes.4"
         child="//@diagram/@links.1"
-        referenceType="out_taget"
+        referenceType="out_target"
         groupName="outgoing links"
         groupIcon="icons/outgoingLinksNavigatorGroup.gif"/>
   </navigator>
@@ -733,8 +737,7 @@
         iD="appearance"/>
     <tabs
         xsi:type="gmfgen:GenStandardPropertyTab"
-        iD="diagram"
-        label="Rulers &amp; Grid"/>
+        iD="diagram"/>
     <tabs
         xsi:type="gmfgen:GenCustomPropertyTab"
         iD="domain"

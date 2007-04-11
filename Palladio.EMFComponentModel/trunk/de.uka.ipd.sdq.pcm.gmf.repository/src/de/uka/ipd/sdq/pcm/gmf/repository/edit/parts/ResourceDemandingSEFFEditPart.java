@@ -44,6 +44,7 @@ import org.eclipse.gmf.runtime.notation.NotationPackage;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.jface.text.contentassist.IContentAssistProcessor;
 import org.eclipse.jface.viewers.ICellEditorValidator;
+import org.eclipse.swt.SWT;
 import org.eclipse.swt.accessibility.AccessibleEvent;
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.FontData;
@@ -119,8 +120,6 @@ public class ResourceDemandingSEFFEditPart extends CompartmentEditPart
 				new ListItemComponentEditPolicy());
 		installEditPolicy(EditPolicy.DIRECT_EDIT_ROLE,
 				new LabelDirectEditPolicy());
-		installEditPolicy(EditPolicyRoles.OPEN_ROLE,
-				new OpenSeffDiagramEditPolicy());
 	}
 
 	/**
@@ -465,11 +464,8 @@ public class ResourceDemandingSEFFEditPart extends CompartmentEditPart
 				NotationPackage.eINSTANCE.getFontStyle());
 		if (style != null) {
 			FontData fontData = new FontData(style.getFontName(), style
-					.getFontHeight(),
-					(style.isBold() ? org.eclipse.swt.SWT.BOLD
-							: org.eclipse.swt.SWT.NORMAL)
-							| (style.isItalic() ? org.eclipse.swt.SWT.ITALIC
-									: org.eclipse.swt.SWT.NORMAL));
+					.getFontHeight(), (style.isBold() ? SWT.BOLD : SWT.NORMAL)
+					| (style.isItalic() ? SWT.ITALIC : SWT.NORMAL));
 			setFont(fontData);
 		}
 	}

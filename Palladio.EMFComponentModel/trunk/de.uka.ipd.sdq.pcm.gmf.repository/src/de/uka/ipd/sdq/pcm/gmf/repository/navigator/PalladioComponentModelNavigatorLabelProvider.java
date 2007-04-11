@@ -195,6 +195,9 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 	 * @generated
 	 */
 	public String getText(View view) {
+		if (view.getElement() != null && view.getElement().eIsProxy()) {
+			return getUnresolvedDomainElementProxyText(view);
+		}
 		switch (PalladioComponentModelVisualIDRegistry.getVisualID(view)) {
 		case InterfaceEditPart.VISUAL_ID:
 			return getInterface_2101Text(view);
@@ -482,6 +485,13 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 	 */
 	private String getUnknownElementText(View view) {
 		return "<UnknownElement Visual_ID = " + view.getType() + ">";
+	}
+
+	/**
+	 * @generated
+	 */
+	private String getUnresolvedDomainElementProxyText(View view) {
+		return "<Unresolved domain element Visual_ID = " + view.getType() + ">";
 	}
 
 	/**

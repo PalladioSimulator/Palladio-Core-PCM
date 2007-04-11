@@ -44,7 +44,7 @@ public class PalladioComponentModelCreationWizardPage extends
 	 * @generated
 	 */
 	public URI getURI() {
-		return URI.createPlatformResourceURI(getFilePath().toString());
+		return URI.createPlatformResourceURI(getFilePath().toString(), false);
 	}
 
 	/**
@@ -65,38 +65,10 @@ public class PalladioComponentModelCreationWizardPage extends
 	/**
 	 * @generated
 	 */
-	private String getUniqueFileName(IPath containerFullPath, String fileName) {
-		if (containerFullPath == null) {
-			containerFullPath = new Path(""); //$NON-NLS-1$
-		}
-		if (fileName == null || fileName.trim().length() == 0) {
-			fileName = "default"; //$NON-NLS-1$
-		}
-		IPath filePath = containerFullPath.append(fileName);
-		String extension = getExtension();
-		if (extension != null && !extension.equals(filePath.getFileExtension())) {
-			filePath = filePath.addFileExtension(extension);
-		}
-
-		extension = filePath.getFileExtension();
-		fileName = filePath.removeFileExtension().lastSegment();
-		int i = 1;
-		while (PalladioComponentModelDiagramEditorUtil.exists(filePath)) {
-			i++;
-			filePath = containerFullPath.append(fileName + i);
-			if (extension != null) {
-				filePath = filePath.addFileExtension(extension);
-			}
-		}
-		return filePath.lastSegment();
-	}
-
-	/**
-	 * @generated
-	 */
 	public void createControl(Composite parent) {
 		super.createControl(parent);
-		setFileName(getUniqueFileName(getContainerFullPath(), getFileName()));
+		setFileName(PalladioComponentModelDiagramEditorUtil.getUniqueFileName(
+				getContainerFullPath(), getFileName(), getExtension()));
 		setPageComplete(validatePage());
 	}
 

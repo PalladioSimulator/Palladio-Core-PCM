@@ -140,20 +140,20 @@ public class RepositoryValidator extends EObjectValidator {
 	public static final int BASIC_COMPONENT__NO_SEFF_TYPE_USED_TWICE = 11;
 
 	/**
-	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Provide Same Interfaces' of 'Basic Component'.
+	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Provide Same Interfaces As Implementation Type' of 'Basic Component'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final int BASIC_COMPONENT__PROVIDE_SAME_INTERFACES = 12;
+	public static final int BASIC_COMPONENT__PROVIDE_SAME_INTERFACES_AS_IMPLEMENTATION_TYPE = 12;
 
 	/**
-	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Require Same Interfacesas Implementation Type' of 'Basic Component'.
+	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Require Same Interfaces As Implementation Type' of 'Basic Component'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final int BASIC_COMPONENT__REQUIRE_SAME_INTERFACESAS_IMPLEMENTATION_TYPE = 13;
+	public static final int BASIC_COMPONENT__REQUIRE_SAME_INTERFACES_AS_IMPLEMENTATION_TYPE = 13;
 
 	/**
 	 * A constant with a fixed name that can be used as the base value for additional hand written constants.
@@ -592,8 +592,8 @@ public class RepositoryValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validateImplementationComponentType_RequiredInterfacesHaveToConformToCompleteType(basicComponent, diagnostics, context);
 		if (result || diagnostics != null) result &= validateImplementationComponentType_providedInterfacesHaveToConformToCompleteType(basicComponent, diagnostics, context);
 		if (result || diagnostics != null) result &= validateBasicComponent_NoSeffTypeUsedTwice(basicComponent, diagnostics, context);
-		if (result || diagnostics != null) result &= validateBasicComponent_ProvideSameInterfaces(basicComponent, diagnostics, context);
-		if (result || diagnostics != null) result &= validateBasicComponent_RequireSameInterfacesasImplementationType(basicComponent, diagnostics, context);
+		if (result || diagnostics != null) result &= validateBasicComponent_ProvideSameInterfacesAsImplementationType(basicComponent, diagnostics, context);
+		if (result || diagnostics != null) result &= validateBasicComponent_RequireSameInterfacesAsImplementationType(basicComponent, diagnostics, context);
 		return result;
 	}
 
@@ -608,23 +608,23 @@ public class RepositoryValidator extends EObjectValidator {
 	}
 
 	/**
-	 * Validates the ProvideSameInterfaces constraint of '<em>Basic Component</em>'.
+	 * Validates the ProvideSameInterfacesAsImplementationType constraint of '<em>Basic Component</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateBasicComponent_ProvideSameInterfaces(BasicComponent basicComponent, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return basicComponent.ProvideSameInterfaces(diagnostics, context);
+	public boolean validateBasicComponent_ProvideSameInterfacesAsImplementationType(BasicComponent basicComponent, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return basicComponent.ProvideSameInterfacesAsImplementationType(diagnostics, context);
 	}
 
 	/**
-	 * Validates the RequireSameInterfacesasImplementationType constraint of '<em>Basic Component</em>'.
+	 * Validates the RequireSameInterfacesAsImplementationType constraint of '<em>Basic Component</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateBasicComponent_RequireSameInterfacesasImplementationType(BasicComponent basicComponent, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return basicComponent.RequireSameInterfacesasImplementationType(diagnostics, context);
+	public boolean validateBasicComponent_RequireSameInterfacesAsImplementationType(BasicComponent basicComponent, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return basicComponent.RequireSameInterfacesAsImplementationType(diagnostics, context);
 	}
 
 	/**

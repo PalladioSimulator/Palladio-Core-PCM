@@ -171,7 +171,7 @@ public interface Interface extends Entity {
 	 *  }
 	 * )
 	 * in
-	 * sigs->forAll(s|sigs->isUnique(s))
+	 * sigs->isUnique(s|s)
 	 * <!-- end-model-doc -->
 	 * @model
 	 * @generated

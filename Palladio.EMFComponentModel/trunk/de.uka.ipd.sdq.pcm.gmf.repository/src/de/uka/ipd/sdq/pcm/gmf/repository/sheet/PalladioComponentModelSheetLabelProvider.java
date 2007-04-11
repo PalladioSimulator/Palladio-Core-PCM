@@ -25,9 +25,13 @@ public class PalladioComponentModelSheetLabelProvider extends
 	 * @generated not
 	 */
 	public PalladioComponentModelSheetLabelProvider() {
-		super(new AdapterFactoryLabelProvider(new PalladioItemProviderAdapterFactory(
-				PalladioComponentModelRepositoryDiagramEditorPlugin
-						.getInstance().getItemProvidersAdapterFactory())), null);
+		super(
+				new AdapterFactoryLabelProvider(
+						new PalladioItemProviderAdapterFactory(
+								PalladioComponentModelRepositoryDiagramEditorPlugin
+										.getInstance()
+										.getItemProvidersAdapterFactory())),
+				null);
 	}
 
 	/**

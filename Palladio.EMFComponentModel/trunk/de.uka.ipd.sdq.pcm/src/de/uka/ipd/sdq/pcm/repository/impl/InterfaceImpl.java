@@ -298,7 +298,7 @@ public class InterfaceImpl extends EntityImpl implements Interface {
 			Environment env = ExpressionsUtil.createClassifierContext(eClass());
 			
 			
-			String body = "  let sigs : Bag(       Tuple(returnType : DataType, serviceName : String, parameters : Sequence(DataType) )   ) =   self.signatures__Interface->collect(sig : Signature |   Tuple{    returnType : DataType = sig.returntype__Signature,    serviceName : String = sig.serviceName,    parameters : Sequence(DataType) = sig.parameters__Signature.datatype__Parameter   }  )  in  sigs->forAll(s|sigs->isUnique(s)) ";
+			String body = "  let sigs : Bag(       Tuple(returnType : DataType, serviceName : String, parameters : Sequence(DataType) )   ) =   self.signatures__Interface->collect(sig : Signature |   Tuple{    returnType : DataType = sig.returntype__Signature,    serviceName : String = sig.serviceName,    parameters : Sequence(DataType) = sig.parameters__Signature.datatype__Parameter   }  )  in  sigs->isUnique(s|s) ";
 			
 			try {
 				SignaturesHaveToBeUniqueForAnInterfaceInvOCL = ExpressionsUtil.createInvariant(env, body, true);

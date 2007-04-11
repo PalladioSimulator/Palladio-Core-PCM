@@ -45,7 +45,7 @@ public class InternalActionImpl extends AbstractResourceDemandingActionImpl impl
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String FAILURE_PROBABILITY_EDEFAULT = null;
+	protected static final String FAILURE_PROBABILITY_EDEFAULT = "0";
 
 	/**
 	 * The cached value of the '{@link #getFailureProbability() <em>Failure Probability</em>}' attribute.

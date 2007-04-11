@@ -3,6 +3,7 @@
  */
 package de.uka.ipd.sdq.pcm.gmf.repository.providers;
 
+import de.uka.ipd.sdq.pcm.gmf.repository.part.PalladioComponentModelRepositoryDiagramEditorPlugin;
 
 /**
  * @generated
