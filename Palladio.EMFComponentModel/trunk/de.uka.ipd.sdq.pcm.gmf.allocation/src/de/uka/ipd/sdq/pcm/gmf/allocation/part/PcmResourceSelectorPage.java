@@ -104,13 +104,11 @@ class ResourceSelectorPage extends WizardPage {
 	private class changeButtonHandler  implements
 	org.eclipse.swt.events.MouseListener {
 
-		@Override
 		public void mouseDoubleClick(org.eclipse.swt.events.MouseEvent e) {
 			//do nothing
 
 		}
 
-		@Override
 		public void mouseDown(org.eclipse.swt.events.MouseEvent e) {
 			LoadResourceDialog loadResourceDialog = new LoadResourceDialog(getShell());
 			loadResourceDialog.open();
@@ -121,7 +119,6 @@ class ResourceSelectorPage extends WizardPage {
 
 		}
 
-		@Override
 		public void mouseUp(org.eclipse.swt.events.MouseEvent e) {
 			//do nothing
 
