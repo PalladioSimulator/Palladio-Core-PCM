@@ -12,6 +12,8 @@ import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.IWorkbenchWindow;
 
 import de.uka.ipd.sdq.pcm.gmf.allocation.edit.parts.AllocationEditPart;
+import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceEnvironment;
+import de.uka.ipd.sdq.pcm.system.System;
 
 import org.eclipse.core.resources.ResourcesPlugin;
 
@@ -20,6 +22,17 @@ import org.eclipse.core.resources.ResourcesPlugin;
  */
 public class PcmCreationWizardPage extends EditorWizardPage {
 
+	private ResourceEnvironment myResourceEnvironment;
+	private System mySystem;
+	
+	public void setResourceEnvironment(ResourceEnvironment resourceEnvironment) {
+		myResourceEnvironment = resourceEnvironment;
+	}
+	
+	public void setSystem(de.uka.ipd.sdq.pcm.system.System system) {
+		mySystem = system;
+	}
+	
 	/**
 	 * @generated
 	 */
@@ -28,10 +41,12 @@ public class PcmCreationWizardPage extends EditorWizardPage {
 		super("CreationWizardPage", workbench, selection); //$NON-NLS-1$
 		setTitle("Create allocation Diagram");
 		setDescription("Create a new allocation diagram.");
+		myResourceEnvironment = null;
+		mySystem = null;
 	}
 
 	/**
-	 * @generated
+	 * @generated not
 	 */
 	public IFile createAndOpenDiagram(IPath containerPath, String fileName,
 			InputStream initialContents, String kind, IWorkbenchWindow dWindow,
@@ -39,7 +54,7 @@ public class PcmCreationWizardPage extends EditorWizardPage {
 		return PcmDiagramEditorUtil.createAndOpenDiagram(
 				getDiagramFileCreator(), containerPath, fileName,
 				initialContents, kind, dWindow, progressMonitor,
-				isOpenNewlyCreatedDiagramEditor(), saveDiagram);
+				isOpenNewlyCreatedDiagramEditor(), saveDiagram, myResourceEnvironment, mySystem);
 	}
 
 	/**

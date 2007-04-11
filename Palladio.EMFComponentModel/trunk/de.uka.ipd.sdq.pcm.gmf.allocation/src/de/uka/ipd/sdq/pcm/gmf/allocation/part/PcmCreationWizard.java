@@ -9,15 +9,29 @@ import org.eclipse.ui.IWorkbench;
  */
 public class PcmCreationWizard extends EditorCreationWizard {
 
+	private ResourceEnvironmentSelectorPage myResourceEnvironmentSelectorPage;
+	private SystemSelectorPage mySystemSelectorPage;
+	private PcmCreationWizardPage myCreationPage;
+
+	public PcmCreationWizard() {
+		myResourceEnvironmentSelectorPage = new ResourceEnvironmentSelectorPage(null);
+		mySystemSelectorPage = new SystemSelectorPage(null);
+		myCreationPage = null;
+	}
+
 	/**
-	 * @generated
+	 * @generated not
 	 */
 	public void addPages() {
 		super.addPages();
 		if (page == null) {
-			page = new PcmCreationWizardPage(getWorkbench(), getSelection());
+			myCreationPage = new PcmCreationWizardPage(getWorkbench(), getSelection());
+			page = myCreationPage;
 		}
-		addPage(page);
+	
+		addPage(myCreationPage);
+		addPage(myResourceEnvironmentSelectorPage);
+		addPage(mySystemSelectorPage);
 	}
 
 	/**
@@ -29,5 +43,19 @@ public class PcmCreationWizard extends EditorCreationWizard {
 		setDefaultPageImageDescriptor(PcmDiagramEditorPlugin
 				.getBundledImageDescriptor("icons/wizban/NewAllocationWizard.gif")); //$NON-NLS-1$
 		setNeedsProgressMonitor(true);
+	}
+
+	@Override
+	public boolean performFinish() {
+		if (myCreationPage != null) {
+			myCreationPage.setResourceEnvironment(myResourceEnvironmentSelectorPage.getSelectedResourceEnvironment());
+			myCreationPage.setSystem(mySystemSelectorPage.getSelectedSystem());
+		} else {
+			PcmDiagramEditorPlugin
+			.getInstance()
+			.logError(
+					"No PcmCreationWizardPage created. Possibly page was already initialized with a CreationWizardPage."); //$NON-NLS-1$
+		}
+		return super.performFinish();		
 	}
 }

@@ -76,7 +76,7 @@ public class PcmInitDiagramFileAction implements IObjectActionDelegate {
 	}
 
 	/**
-	 * @generated
+	 * @generated not
 	 */
 	public void run(IAction action) {
 		TransactionalEditingDomain editingDomain = GMFEditingDomainFactory.INSTANCE
@@ -99,7 +99,7 @@ public class PcmInitDiagramFileAction implements IObjectActionDelegate {
 					"Model file loading failed");
 			return;
 		}
-		Wizard wizard = new PcmNewDiagramFileWizard(mySelectedModelFile, myPart
+		Wizard wizard = new PcmNewAllocationDiagramFileWizard(mySelectedModelFile, myPart
 				.getSite().getPage(), mySelection, diagramRoot, editingDomain);
 		IDialogSettings pluginDialogSettings = PcmDiagramEditorPlugin
 				.getInstance().getDialogSettings();

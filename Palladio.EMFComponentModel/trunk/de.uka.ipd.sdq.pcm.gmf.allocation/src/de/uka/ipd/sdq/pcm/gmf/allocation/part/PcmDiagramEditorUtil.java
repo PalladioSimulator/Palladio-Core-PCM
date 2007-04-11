@@ -29,8 +29,11 @@ import org.eclipse.jface.operation.IRunnableWithProgress;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
+
 import de.uka.ipd.sdq.pcm.allocation.Allocation;
 import de.uka.ipd.sdq.pcm.allocation.AllocationFactory;
+import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceEnvironment;
+import de.uka.ipd.sdq.pcm.system.System;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -48,16 +51,17 @@ import org.eclipse.emf.ecore.xmi.XMIResource;
 public class PcmDiagramEditorUtil extends IDEEditorUtil {
 
 	/**
-	 * @generated
+	 * @generated not
 	 */
 	public static final IFile createAndOpenDiagram(
 			DiagramFileCreator diagramFileCreator, IPath containerPath,
 			String fileName, InputStream initialContents, String kind,
 			IWorkbenchWindow window, IProgressMonitor progressMonitor,
-			boolean openEditor, boolean saveDiagram) {
+			boolean openEditor, boolean saveDiagram,
+			ResourceEnvironment resourceEnvironment, System system) {
 		IFile diagramFile = PcmDiagramEditorUtil.createNewDiagramFile(
 				diagramFileCreator, containerPath, fileName, initialContents,
-				kind, window.getShell(), progressMonitor);
+				kind, window.getShell(), progressMonitor,resourceEnvironment,system);
 		if (diagramFile != null && openEditor) {
 			IDEEditorUtil.openDiagram(diagramFile, window, saveDiagram,
 					progressMonitor);
@@ -69,13 +73,14 @@ public class PcmDiagramEditorUtil extends IDEEditorUtil {
 	 * <p>
 	 * This method should be called within a workspace modify operation since it creates resources.
 	 * </p>
-	 * @generated
+	 * @generated not
 	 * @return the created file resource, or <code>null</code> if the file was not created
 	 */
 	public static final IFile createNewDiagramFile(
 			DiagramFileCreator diagramFileCreator, IPath containerFullPath,
 			String fileName, InputStream initialContents, String kind,
-			Shell shell, IProgressMonitor progressMonitor) {
+			Shell shell, IProgressMonitor progressMonitor,
+			ResourceEnvironment resourceEnvironment, System system) {
 		TransactionalEditingDomain editingDomain = GMFEditingDomainFactory.INSTANCE
 				.createEditingDomain();
 		ResourceSet resourceSet = editingDomain.getResourceSet();
@@ -107,6 +112,8 @@ public class PcmDiagramEditorUtil extends IDEEditorUtil {
 		affectedFiles.add(modelFile);
 
 		final String kindParam = kind;
+		final ResourceEnvironment resourceEnvironmentParam = resourceEnvironment;
+		final System systemParam = system;
 		AbstractTransactionalCommand command = new AbstractTransactionalCommand(
 				editingDomain, "Creating diagram and model", affectedFiles) { //$NON-NLS-1$
 			protected CommandResult doExecuteWithResult(
@@ -114,6 +121,8 @@ public class PcmDiagramEditorUtil extends IDEEditorUtil {
 					throws ExecutionException {
 				Allocation model = createInitialModel();
 				modelResource.getContents().add(createInitialRoot(model));
+				model.setTargetResourceEnvironment_Allocation(resourceEnvironmentParam);
+				model.setSystem_Allocation(systemParam);
 				Diagram diagram = ViewService.createDiagram(model, kindParam,
 						PcmDiagramEditorPlugin.DIAGRAM_PREFERENCES_HINT);
 				if (diagram != null) {
