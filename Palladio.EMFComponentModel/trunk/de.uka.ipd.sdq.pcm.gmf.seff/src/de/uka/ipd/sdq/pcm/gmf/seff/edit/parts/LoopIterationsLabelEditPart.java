@@ -30,6 +30,7 @@ import org.eclipse.gmf.runtime.common.ui.services.parser.ParserService;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.CompartmentEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ITextAwareEditPart;
+import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.LabelDirectEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.l10n.DiagramColorRegistry;
 import org.eclipse.gmf.runtime.diagram.ui.requests.RequestConstants;
@@ -50,8 +51,11 @@ import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.FontData;
 import org.eclipse.swt.graphics.Image;
 
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.OpenLoopIterationsDialog;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.PalladioComponentModelTextSelectionEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.seff.providers.PalladioComponentModelElementTypes;
+import de.uka.ipd.sdq.pcm.seff.LoopAction;
+import de.uka.ipd.sdq.pcm.stochasticexpressions.PCMStoExPrettyPrintVisitor;
 
 /**
  * @generated
@@ -116,6 +120,8 @@ public class LoopIterationsLabelEditPart extends CompartmentEditPart implements
 						return false;
 					}
 				});
+		installEditPolicy(EditPolicyRoles.OPEN_ROLE,
+				new OpenLoopIterationsDialog());
 	}
 
 	/**
@@ -208,15 +214,13 @@ public class LoopIterationsLabelEditPart extends CompartmentEditPart implements
 	}
 
 	/**
-	 * @generated
+	 * @generated not
 	 */
 	protected String getLabelText() {
 		String text = null;
-		if (getParser() != null) {
-			text = getParser().getPrintString(
-					new EObjectAdapter(getParserElement()),
-					getParserOptions().intValue());
-		}
+		LoopAction loop = (LoopAction) resolveSemanticElement();
+		if (loop.getIterations_LoopAction() != null)
+			text = loop.getIterations_LoopAction().getSpecification();
 		if (text == null || text.length() == 0) {
 			text = defaultText;
 		}
@@ -478,33 +482,19 @@ public class LoopIterationsLabelEditPart extends CompartmentEditPart implements
 	}
 
 	/**
-	 * @generated
+	 * @generated not
 	 */
 	protected void addSemanticListeners() {
-		if (getParser() instanceof ISemanticParser) {
-			EObject element = resolveSemanticElement();
-			parserElements = ((ISemanticParser) getParser())
-					.getSemanticElementsBeingParsed(element);
-			for (int i = 0; i < parserElements.size(); i++) {
-				addListenerFilter(
-						"SemanticModel" + i, this, (EObject) parserElements.get(i)); //$NON-NLS-1$
-			}
-		} else {
-			super.addSemanticListeners();
-		}
+		LoopAction loop = (LoopAction) resolveSemanticElement();
+		addListenerFilter(
+				"SemanticModel", this, loop.getIterations_LoopAction()); //$NON-NLS-1$
 	}
 
 	/**
-	 * @generated
+	 * @generated not
 	 */
 	protected void removeSemanticListeners() {
-		if (parserElements != null) {
-			for (int i = 0; i < parserElements.size(); i++) {
-				removeListenerFilter("SemanticModel" + i); //$NON-NLS-1$
-			}
-		} else {
-			super.removeSemanticListeners();
-		}
+		removeListenerFilter("SemanticModel"); //$NON-NLS-1$
 	}
 
 	/**
@@ -546,7 +536,7 @@ public class LoopIterationsLabelEditPart extends CompartmentEditPart implements
 	}
 
 	/**
-	 * @generated
+	 * @generated not
 	 */
 	protected void handleNotificationEvent(Notification event) {
 		Object feature = event.getFeature();
@@ -569,21 +559,7 @@ public class LoopIterationsLabelEditPart extends CompartmentEditPart implements
 						feature)) {
 			refreshFont();
 		} else {
-			if (getParser() != null
-					&& getParser().isAffectingEvent(event,
-							getParserOptions().intValue())) {
-				refreshLabel();
-			}
-			if (getParser() instanceof ISemanticParser) {
-				ISemanticParser modelParser = (ISemanticParser) getParser();
-				if (modelParser.areSemanticElementsAffected(null, event)) {
-					removeSemanticListeners();
-					if (resolveSemanticElement() != null) {
-						addSemanticListeners();
-					}
-					refreshLabel();
-				}
-			}
+			refreshLabel();
 		}
 		super.handleNotificationEvent(event);
 	}

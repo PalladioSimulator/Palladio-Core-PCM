@@ -52,6 +52,7 @@ import org.eclipse.swt.graphics.Image;
 
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.PalladioComponentModelTextSelectionEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.seff.providers.PalladioComponentModelElementTypes;
+import de.uka.ipd.sdq.pcm.seff.CollectionIteratorAction;
 
 /**
  * @generated
@@ -208,15 +209,14 @@ public class CollectionIteratorParameterLabelEditPart extends
 	}
 
 	/**
-	 * @generated
+	 * @generated not
 	 */
 	protected String getLabelText() {
-		String text = null;
-		if (getParser() != null) {
-			text = getParser().getPrintString(
-					new EObjectAdapter(getParserElement()),
-					getParserOptions().intValue());
-		}
+		String text = "Param: ";
+		CollectionIteratorAction action = (CollectionIteratorAction) resolveSemanticElement();
+		if (action.getParameter_CollectionIteratorAction() != null &&
+			action.getParameter_CollectionIteratorAction().getParameterName() != null)
+			text += action.getParameter_CollectionIteratorAction().getParameterName();
 		if (text == null || text.length() == 0) {
 			text = defaultText;
 		}
@@ -478,33 +478,19 @@ public class CollectionIteratorParameterLabelEditPart extends
 	}
 
 	/**
-	 * @generated
+	 * @generated not
 	 */
 	protected void addSemanticListeners() {
-		if (getParser() instanceof ISemanticParser) {
-			EObject element = resolveSemanticElement();
-			parserElements = ((ISemanticParser) getParser())
-					.getSemanticElementsBeingParsed(element);
-			for (int i = 0; i < parserElements.size(); i++) {
-				addListenerFilter(
-						"SemanticModel" + i, this, (EObject) parserElements.get(i)); //$NON-NLS-1$
-			}
-		} else {
-			super.addSemanticListeners();
-		}
+		CollectionIteratorAction action = (CollectionIteratorAction) resolveSemanticElement();
+		addListenerFilter(
+			"SemanticModel", this, action); //$NON-NLS-1$
 	}
 
 	/**
-	 * @generated
+	 * @generated not
 	 */
 	protected void removeSemanticListeners() {
-		if (parserElements != null) {
-			for (int i = 0; i < parserElements.size(); i++) {
-				removeListenerFilter("SemanticModel" + i); //$NON-NLS-1$
-			}
-		} else {
-			super.removeSemanticListeners();
-		}
+		removeListenerFilter("SemanticModel"); //$NON-NLS-1$
 	}
 
 	/**
@@ -546,7 +532,7 @@ public class CollectionIteratorParameterLabelEditPart extends
 	}
 
 	/**
-	 * @generated
+	 * @generated not
 	 */
 	protected void handleNotificationEvent(Notification event) {
 		Object feature = event.getFeature();
@@ -569,21 +555,7 @@ public class CollectionIteratorParameterLabelEditPart extends
 						feature)) {
 			refreshFont();
 		} else {
-			if (getParser() != null
-					&& getParser().isAffectingEvent(event,
-							getParserOptions().intValue())) {
-				refreshLabel();
-			}
-			if (getParser() instanceof ISemanticParser) {
-				ISemanticParser modelParser = (ISemanticParser) getParser();
-				if (modelParser.areSemanticElementsAffected(null, event)) {
-					removeSemanticListeners();
-					if (resolveSemanticElement() != null) {
-						addSemanticListeners();
-					}
-					refreshLabel();
-				}
-			}
+			refreshLabel();
 		}
 		super.handleNotificationEvent(event);
 	}

@@ -27,10 +27,15 @@ import de.uka.ipd.sdq.stoex.StoexPackage;
 // called via a CustomBehaviour in the genmap
 public class OpenStoExDialog extends OpenEditPolicy {
 
+	protected RandomVariable getRandomVariable(EObject parent) {
+		// Default Implementation. Override as necessary
+		return (RandomVariable)parent;
+	}
+	
 	@Override
 	protected Command getOpenCommand(Request request) {
 		IGraphicalEditPart host = (IGraphicalEditPart) getHost();
-		RandomVariable rv = (RandomVariable) ((View)host.getModel()).getElement();
+		RandomVariable rv = getRandomVariable(((View)host.getModel()).getElement());
 		StochasticExpressionEditDialog dialog = new StochasticExpressionEditDialog(
 				PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(),
 				getContext(rv));

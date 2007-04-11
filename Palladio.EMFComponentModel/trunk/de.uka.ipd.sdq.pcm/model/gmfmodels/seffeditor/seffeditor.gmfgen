@@ -243,6 +243,10 @@
         <requiredPluginIDs>org.eclipse.draw2d</requiredPluginIDs>
         <requiredPluginIDs>org.eclipse.gmf.runtime.draw2d.ui</requiredPluginIDs>
       </viewmap>
+      <behaviour
+          xsi:type="gmfgen:CustomBehaviour"
+          key="EditPolicyRoles.OPEN_ROLE"
+          editPolicyQualifiedClassName="de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.OpenLoopIterationsDialog"/>
       <modelFacet>
         <metaClass
             href="../../pcm.genmodel#//pcm/seff/LoopAction"/>
@@ -283,6 +287,10 @@
             xsi:type="gmfgen:ParentAssignedViewmap"
             getterName="getFigureLoopIterationsLabelFigure"
             figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel"/>
+        <behaviour
+            xsi:type="gmfgen:CustomBehaviour"
+            key="EditPolicyRoles.OPEN_ROLE"
+            editPolicyQualifiedClassName="de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.OpenLoopIterationsDialog"/>
       </labels>
     </childNodes>
     <childNodes
@@ -962,6 +970,10 @@
         <requiredPluginIDs>org.eclipse.draw2d</requiredPluginIDs>
         <requiredPluginIDs>org.eclipse.gmf.runtime.draw2d.ui</requiredPluginIDs>
       </viewmap>
+      <behaviour
+          xsi:type="gmfgen:CustomBehaviour"
+          key="EditPolicyRoles.OPEN_ROLE"
+          editPolicyQualifiedClassName="de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.OpenLoopIterationsDialog"/>
       <modelFacet>
         <metaClass
             href="../../pcm.genmodel#//pcm/seff/LoopAction"/>
@@ -1002,6 +1014,10 @@
             xsi:type="gmfgen:ParentAssignedViewmap"
             getterName="getFigureLoopIterationsLabelFigure"
             figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel"/>
+        <behaviour
+            xsi:type="gmfgen:CustomBehaviour"
+            key="EditPolicyRoles.OPEN_ROLE"
+            editPolicyQualifiedClassName="de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.OpenLoopIterationsDialog"/>
       </labels>
     </topLevelNodes>
     <topLevelNodes

@@ -28,6 +28,7 @@ import org.eclipse.gmf.runtime.notation.View;
 
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.LoopAction2CanonicalEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.LoopAction2ItemSemanticEditPolicy;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.OpenLoopIterationsDialog;
 import de.uka.ipd.sdq.pcm.gmf.seff.part.PalladioComponentModelVisualIDRegistry;
 
 /**
@@ -72,6 +73,8 @@ public class LoopAction2EditPart extends ShapeNodeEditPart {
 		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE,
 				new LoopAction2CanonicalEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
+		installEditPolicy(EditPolicyRoles.OPEN_ROLE,
+				new OpenLoopIterationsDialog());
 	}
 
 	/**
