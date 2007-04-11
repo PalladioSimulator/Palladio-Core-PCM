@@ -675,6 +675,9 @@
       <ownedMember xmi:type="uml:Class" xmi:id="_X0NSMHDEEdur9cZft9T4NQ" name="NamedElement" isAbstract="true">
         <ownedAttribute xmi:id="_au_Wl2A_EdqdHZdhXRxKVg" name="entityName">
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML2_LIBRARIES/UML2PrimitiveTypes.library.uml2#_IXlH8a86EdieaYgxtVWN8Q"/>
+          <defaultValue xmi:type="uml:OpaqueExpression" xmi:id="_yv8Y8OfuEdu3wqV8TelBYw" body="aName">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML2_LIBRARIES/UML2PrimitiveTypes.library.uml2#_IXlH8a86EdieaYgxtVWN8Q"/>
+          </defaultValue>
         </ownedAttribute>
       </ownedMember>
       <ownedMember xmi:type="uml:Class" xmi:id="_XSEtIHDSEdur9cZft9T4NQ" name="InterfaceProvidingEntity" isAbstract="true">
@@ -4266,6 +4269,8 @@
       <generalization xmi:id="_xs0PoHvgEdu44vtaHAHjTA" general="_au_WlWA_EdqdHZdhXRxKVg"/>
       <ownedAttribute xmi:id="_MlJl8JcREdq38OEoBK_ByQ" name="repositoryDescription" isUnique="false">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML2_LIBRARIES/UML2PrimitiveTypes.library.uml2#_IXlH8a86EdieaYgxtVWN8Q"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_RWl8sefwEdu3wqV8TelBYw" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_RWl8sOfwEdu3wqV8TelBYw"/>
       </ownedAttribute>
       <ownedAttribute xmi:id="_go_DgZcYEdq38OEoBK_ByQ" name="components__Repository" type="_xtWJIJJGEdqIo-u3cE9-DA" association="_go_DgJcYEdq38OEoBK_ByQ" aggregation="composite">
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_go_DhJcYEdq38OEoBK_ByQ" value="-1"/>
@@ -4312,7 +4317,7 @@
         <specification xmi:type="uml:OpaqueExpression" xmi:id="_AjZ8AZybEdqX-LqEpACX-A" body="self.protocols__Interface->forAll(p1, p2 |&#xD;&#xA;p1.protocolTypeID &lt;> p2.protocolTypeID)&#xD;&#xA;" language="OCL"/>
       </ownedRule>
       <ownedRule xmi:id="_4WL50Kq6EdqOOaiBCPgBBQ" name="SignaturesHaveToBeUniqueForAnInterface" constrainedElement="_cIR90JJJEdqSSImFLKDkSg">
-        <specification xmi:type="uml:OpaqueExpression" xmi:id="_4WL50aq6EdqOOaiBCPgBBQ" body="-- full signature has to be unique &#xD;&#xA;-- (use of ocl-tupels) #&#xD;&#xA;let sigs : Bag(&#xD;&#xA;&#x9;-- parameters: Sequence of DataType, NOT name #&#xD;&#xA;&#x9;-- exceptions have not to be considered #&#xD;&#xA;&#x9;Tuple(returnType : DataType, serviceName : String, parameters : Sequence(DataType) ) &#xD;&#xA;) = &#xD;&#xA;self.signatures__Interface->collect(sig : Signature |&#xD;&#xA;&#x9;Tuple{&#xD;&#xA;&#x9;&#x9;returnType : DataType = sig.returntype__Signature,&#xD;&#xA;&#x9;&#x9;serviceName : String = sig.serviceName,&#xD;&#xA;&#x9;&#x9;parameters : Sequence(DataType) = sig.parameters__Signature.datatype__Parameter&#xD;&#xA;&#x9;}&#xD;&#xA;)&#xD;&#xA;in&#xD;&#xA;sigs->forAll(s|sigs->isUnique(s))" language="OCL"/>
+        <specification xmi:type="uml:OpaqueExpression" xmi:id="_4WL50aq6EdqOOaiBCPgBBQ" body="-- full signature has to be unique &#xD;&#xA;-- (use of ocl-tupels) #&#xD;&#xA;let sigs : Bag(&#xD;&#xA;&#x9;-- parameters: Sequence of DataType, NOT name #&#xD;&#xA;&#x9;-- exceptions have not to be considered #&#xD;&#xA;&#x9;Tuple(returnType : DataType, serviceName : String, parameters : Sequence(DataType) ) &#xD;&#xA;) = &#xD;&#xA;self.signatures__Interface->collect(sig : Signature |&#xD;&#xA;&#x9;Tuple{&#xD;&#xA;&#x9;&#x9;returnType : DataType = sig.returntype__Signature,&#xD;&#xA;&#x9;&#x9;serviceName : String = sig.serviceName,&#xD;&#xA;&#x9;&#x9;parameters : Sequence(DataType) = sig.parameters__Signature.datatype__Parameter&#xD;&#xA;&#x9;}&#xD;&#xA;)&#xD;&#xA;in&#xD;&#xA;sigs->isUnique(s|s)" language="OCL"/>
       </ownedRule>
       <generalization xmi:id="_TmZxoJJwEdqSSImFLKDkSg" general="_au_WlWA_EdqdHZdhXRxKVg"/>
       <ownedAttribute xmi:id="_V-r80ZJeEdqSSImFLKDkSg" name="parentInterface__Interface" type="_cIR90JJJEdqSSImFLKDkSg" association="_V-r80JJeEdqSSImFLKDkSg">
@@ -4391,10 +4396,10 @@
       <ownedRule xmi:id="_KU54AJyrEdqX-LqEpACX-A" name="NoSeffTypeUsedTwice" constrainedElement="_oz-CwJJIEdqSSImFLKDkSg">
         <specification xmi:type="uml:OpaqueExpression" xmi:id="_KU_-oJyrEdqX-LqEpACX-A" body="self.serviceEffectSpecifications__BasicComponent->forAll(p1, p2 |&#xD;&#xA;  p1 &lt;> p2 implies (p1.describedService__SEFF = p2.describedService__SEFF implies p1.seffTypeID &lt;> p2.seffTypeID))" language="OCL"/>
       </ownedRule>
-      <ownedRule xmi:id="_4ukaUKU4EdqWue6EZILF7w" name="ProvideSameInterfaces" constrainedElement="_oz-CwJJIEdqSSImFLKDkSg">
+      <ownedRule xmi:id="_4ukaUKU4EdqWue6EZILF7w" name="ProvideSameInterfaces As Implementation Type" constrainedElement="_oz-CwJJIEdqSSImFLKDkSg">
         <specification xmi:type="uml:OpaqueExpression" xmi:id="_4u2uMKU4EdqWue6EZILF7w" body="-- BC has to provide the same interfaces like the implementationComponentType (if set) #&#xD;&#xA;self.providedRoles_InterfaceProvidingEntity->iterate(pr : ProvidedRole; acc1 : Bag(String) = Bag{} |&#xD;&#xA;&#x9;acc1->union(pr.providedInterface__ProvidedRole.id->asBag())&#xD;&#xA;)&#xD;&#xA;=&#xD;&#xA;if&#xD;&#xA;&#x9; -- apply constraint only for non-empty ImplementationComponentTypes of a BC #&#xD;&#xA;&#x9;self.implementationComponentType->notEmpty()&#xD;&#xA;then&#xD;&#xA;&#x9;self.implementationComponentType.providedRoles_InterfaceProvidingEntity->iterate(pr : ProvidedRole; acc2 : Bag(String) = Bag{} |&#xD;&#xA;&#x9;&#x9;acc2->union(pr.providedInterface__ProvidedRole.id->asBag())&#xD;&#xA;&#x9;)&#xD;&#xA;else&#xD;&#xA;&#x9;Bag{}&#xD;&#xA;endif" language="OCL"/>
       </ownedRule>
-      <ownedRule xmi:id="_AKrKEKU6EdqWue6EZILF7w" name="Require Same Interfaces as Implementation Type" constrainedElement="_oz-CwJJIEdqSSImFLKDkSg">
+      <ownedRule xmi:id="_AKrKEKU6EdqWue6EZILF7w" name="Require Same Interfaces As Implementation Type" constrainedElement="_oz-CwJJIEdqSSImFLKDkSg">
         <specification xmi:type="uml:OpaqueExpression" xmi:id="_AKrKEaU6EdqWue6EZILF7w" body="-- BC has to require the same interfaces like the implementationComponentType (if set) #&#xD;&#xA;self.requiredRoles_InterfaceRequiringEntity->iterate(pr : RequiredRole; acc1 : Bag(String) = Bag{} |&#xD;&#xA;&#x9;acc1->union(pr.requiredInterface__RequiredRole.id->asBag())&#xD;&#xA;)&#xD;&#xA;=&#xD;&#xA;if&#xD;&#xA;&#x9; -- apply constraint only for non-empty ImplementationComponentTypes of a BC #&#xD;&#xA;&#x9;self.implementationComponentType->notEmpty()&#xD;&#xA;then&#xD;&#xA;&#x9;self.implementationComponentType.requiredRoles_InterfaceRequiringEntity->iterate(pr : RequiredRole; acc2 : Bag(String) = Bag{} |&#xD;&#xA;&#x9;&#x9;acc2->union(pr.requiredInterface__RequiredRole.id->asBag())&#xD;&#xA;&#x9;)&#xD;&#xA;else&#xD;&#xA;&#x9;Bag{}&#xD;&#xA;endif" language="OCL"/>
       </ownedRule>
       <generalization xmi:id="_sZLO4JJIEdqSSImFLKDkSg" general="_4XfF4JJGEdqIo-u3cE9-DA"/>
@@ -12465,6 +12470,9 @@
     <ownedMember xmi:type="uml:Class" xmi:id="_1qN_0JJxEdqSSImFLKDkSg" name="ServiceEffectSpecification" isAbstract="true">
       <ownedAttribute xmi:id="_6wc7kJVrEdqSSImFLKDkSg" name="seffTypeID">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML2_LIBRARIES/EcorePrimitiveTypes.library.uml2#_ORTUYa86EdieaYgxtVWN8Q"/>
+        <defaultValue xmi:type="uml:OpaqueExpression" xmi:id="_4_Gp4OfuEdu3wqV8TelBYw" body="1">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML2_LIBRARIES/EcorePrimitiveTypes.library.uml2#_ORTUYa86EdieaYgxtVWN8Q"/>
+        </defaultValue>
       </ownedAttribute>
       <ownedAttribute xmi:id="_USTowNBSEdqflvLz1KCRig" name="describedService__SEFF" type="_hh0OUJJJEdqSSImFLKDkSg" association="_USNiINBSEdqflvLz1KCRig">
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_USTow9BSEdqflvLz1KCRig" value="1"/>
@@ -12509,6 +12517,9 @@
       <generalization xmi:id="_0j8F4ODhEdq8ysXH3gTiEg" general="_kmntkODhEdq8ysXH3gTiEg"/>
       <ownedAttribute xmi:id="_sbTYkODmEdq8ysXH3gTiEg" name="failureProbability" visibility="private">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML2_LIBRARIES/UML2PrimitiveTypes.library.uml2#_IXlH8a86EdieaYgxtVWN8Q"/>
+        <defaultValue xmi:type="uml:OpaqueExpression" xmi:id="_CSKwsOfvEdu3wqV8TelBYw" body="0">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML2_LIBRARIES/UML2PrimitiveTypes.library.uml2#_IXlH8a86EdieaYgxtVWN8Q"/>
+        </defaultValue>
       </ownedAttribute>
     </ownedMember>
     <ownedMember xmi:type="uml:Class" xmi:id="_75L1IODhEdq8ysXH3gTiEg" name="ForkAction">
