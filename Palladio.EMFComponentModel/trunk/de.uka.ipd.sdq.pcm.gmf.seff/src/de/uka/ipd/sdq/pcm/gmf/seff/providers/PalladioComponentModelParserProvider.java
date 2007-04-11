@@ -95,6 +95,8 @@ public class PalladioComponentModelParserProvider extends AbstractProvider
 	protected IParser createLoopActionLoopActionEntityName_5003Parser() {
 		PalladioComponentModelStructuralFeatureParser parser = new PalladioComponentModelStructuralFeatureParser(
 				EntityPackage.eINSTANCE.getNamedElement_EntityName());
+		parser.setViewPattern("{0}");
+		parser.setEditPattern("{0}");
 		return parser;
 	}
 
@@ -119,6 +121,8 @@ public class PalladioComponentModelParserProvider extends AbstractProvider
 	protected IParser createInternalActionInternalActionEntityName_5005Parser() {
 		PalladioComponentModelStructuralFeatureParser parser = new PalladioComponentModelStructuralFeatureParser(
 				EntityPackage.eINSTANCE.getNamedElement_EntityName());
+		parser.setViewPattern("{0}");
+		parser.setEditPattern("{0}");
 		return parser;
 	}
 
@@ -172,6 +176,8 @@ public class PalladioComponentModelParserProvider extends AbstractProvider
 	protected IParser createBranchActionBranchActionEntityName_5008Parser() {
 		PalladioComponentModelStructuralFeatureParser parser = new PalladioComponentModelStructuralFeatureParser(
 				EntityPackage.eINSTANCE.getNamedElement_EntityName());
+		parser.setViewPattern("{0}");
+		parser.setEditPattern("{0}");
 		return parser;
 	}
 
@@ -197,6 +203,8 @@ public class PalladioComponentModelParserProvider extends AbstractProvider
 		PalladioComponentModelStructuralFeatureParser parser = new PalladioComponentModelStructuralFeatureParser(
 				SeffPackage.eINSTANCE
 						.getProbabilisticBranchTransition_BranchProbability());
+		parser.setViewPattern("{0}");
+		parser.setEditPattern("{0}");
 		return parser;
 	}
 
@@ -221,6 +229,8 @@ public class PalladioComponentModelParserProvider extends AbstractProvider
 	protected IParser createExternalCallActionExternalCallActionEntityName_5006Parser() {
 		PalladioComponentModelStructuralFeatureParser parser = new PalladioComponentModelStructuralFeatureParser(
 				EntityPackage.eINSTANCE.getNamedElement_EntityName());
+		parser.setViewPattern("{0}");
+		parser.setEditPattern("{0}");
 		return parser;
 	}
 
@@ -301,6 +311,8 @@ public class PalladioComponentModelParserProvider extends AbstractProvider
 	protected IParser createExternalCallActionExternalCallActionEntityName_5002Parser() {
 		PalladioComponentModelStructuralFeatureParser parser = new PalladioComponentModelStructuralFeatureParser(
 				EntityPackage.eINSTANCE.getNamedElement_EntityName());
+		parser.setViewPattern("{0}");
+		parser.setEditPattern("{0}");
 		return parser;
 	}
 
@@ -325,6 +337,8 @@ public class PalladioComponentModelParserProvider extends AbstractProvider
 	protected IParser createLoopActionLoopActionEntityName_5009Parser() {
 		PalladioComponentModelStructuralFeatureParser parser = new PalladioComponentModelStructuralFeatureParser(
 				EntityPackage.eINSTANCE.getNamedElement_EntityName());
+		parser.setViewPattern("{0}");
+		parser.setEditPattern("{0}");
 		return parser;
 	}
 
@@ -349,6 +363,8 @@ public class PalladioComponentModelParserProvider extends AbstractProvider
 	protected IParser createBranchActionBranchActionEntityName_5011Parser() {
 		PalladioComponentModelStructuralFeatureParser parser = new PalladioComponentModelStructuralFeatureParser(
 				EntityPackage.eINSTANCE.getNamedElement_EntityName());
+		parser.setViewPattern("{0}");
+		parser.setEditPattern("{0}");
 		return parser;
 	}
 
@@ -373,6 +389,8 @@ public class PalladioComponentModelParserProvider extends AbstractProvider
 	protected IParser createInternalActionInternalActionEntityName_5012Parser() {
 		PalladioComponentModelStructuralFeatureParser parser = new PalladioComponentModelStructuralFeatureParser(
 				EntityPackage.eINSTANCE.getNamedElement_EntityName());
+		parser.setViewPattern("{0}");
+		parser.setEditPattern("{0}");
 		return parser;
 	}
 

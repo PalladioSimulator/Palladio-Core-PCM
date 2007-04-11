@@ -14,6 +14,7 @@ import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IAdaptable;
+import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Path;
@@ -61,80 +62,67 @@ public class PalladioComponentModelNewDiagramFileWizard extends Wizard {
 	/**
 	 * @generated
 	 */
-	private WizardNewFileCreationPage myFileCreationPage;
-
-	/**
-	 * @generated
-	 */
-	private IFile mySelectedModelFile;
-
-	/**
-	 * @generated
-	 */
-	private IWorkbenchPage myWorkbenchPage;
-
-	/**
-	 * @generated
-	 */
-	private IStructuredSelection mySelection;
-
-	/**
-	 * @generated
-	 */
-	private EObject myDiagramRoot;
-
-	/**
-	 * @generated
-	 */
-	public PalladioComponentModelNewDiagramFileWizard(IFile selectedModelFile,
-			IWorkbenchPage workbenchPage, IStructuredSelection selection,
+	public PalladioComponentModelNewDiagramFileWizard(
+			org.eclipse.emf.common.util.URI domainModelURI,
 			EObject diagramRoot, TransactionalEditingDomain editingDomain) {
-		assert selectedModelFile != null : "Null selectedModelFile in PalladioComponentModelNewDiagramFileWizard constructor"; //$NON-NLS-1$
-		assert workbenchPage != null : "Null workbenchPage in PalladioComponentModelNewDiagramFileWizard constructor"; //$NON-NLS-1$
-		assert selection != null : "Null selection in PalladioComponentModelNewDiagramFileWizard constructor"; //$NON-NLS-1$
-		assert diagramRoot != null : "Null diagramRoot in PalladioComponentModelNewDiagramFileWizard constructor"; //$NON-NLS-1$
-		assert editingDomain != null : "Null editingDomain in PalladioComponentModelNewDiagramFileWizard constructor"; //$NON-NLS-1$
+		assert domainModelURI != null : "Domain model uri must be specified"; //$NON-NLS-1$
+		assert diagramRoot != null : "Doagram root element must be specified"; //$NON-NLS-1$
+		assert editingDomain != null : "Editing domain must be specified"; //$NON-NLS-1$
 
-		mySelectedModelFile = selectedModelFile;
-		myWorkbenchPage = workbenchPage;
-		mySelection = selection;
-		myDiagramRoot = diagramRoot;
+		myFileCreationPage = new WizardNewFileCreationPage(
+				"Initialize new diagram file", StructuredSelection.EMPTY);
+		myFileCreationPage.setTitle("Diagram file");
+		myFileCreationPage.setDescription("Create new diagram based on "
+				+ ResourceDemandingSEFFEditPart.MODEL_ID + " model content");
+		IPath filePath;
+		String fileName = domainModelURI.trimFileExtension().lastSegment();
+		if (domainModelURI.isPlatformResource()) {
+			filePath = new Path(domainModelURI.trimSegments(1)
+					.toPlatformString(true));
+		} else if (domainModelURI.isFile()) {
+			filePath = new Path(domainModelURI.trimSegments(1).toFileString());
+		} else {
+			// TODO : use some default path
+			throw new IllegalArgumentException("Unsupported URI: "
+					+ domainModelURI);
+		}
+		myFileCreationPage.setContainerFullPath(filePath);
+		myFileCreationPage.setFileName(PalladioComponentModelDiagramEditorUtil
+				.getUniqueFileName(filePath, fileName, "seff_diagram")); //$NON-NLS-1$
+
+		diagramRootElementSelectionPage = new DiagramRootElementSelectionPage(
+				"Select diagram root element");
+		diagramRootElementSelectionPage.setTitle("Diagram root element");
+		diagramRootElementSelectionPage
+				.setDescription("Select semantic model element to be depicted on diagram");
+		diagramRootElementSelectionPage.setModelElement(diagramRoot);
+
 		myEditingDomain = editingDomain;
 	}
 
 	/**
 	 * @generated
 	 */
-	public void addPages() {
-		myFileCreationPage = new WizardNewFileCreationPage(
-				"Initialize new Ecore diagram file", mySelection) {
+	private WizardNewFileCreationPage myFileCreationPage;
 
-			public void createControl(Composite parent) {
-				super.createControl(parent);
-				IContainer parentContainer = mySelectedModelFile.getParent();
-				String originalFileName = mySelectedModelFile
-						.getProjectRelativePath().removeFileExtension()
-						.lastSegment();
-				String fileExtension = ".seff_diagram"; //$NON-NLS-1$
-				String fileName = originalFileName + fileExtension;
-				for (int i = 1; parentContainer.getFile(new Path(fileName))
-						.exists(); i++) {
-					fileName = originalFileName + i + fileExtension;
-				}
-				setFileName(fileName);
-			}
-		};
-		myFileCreationPage.setTitle("Diagram file");
-		myFileCreationPage.setDescription("Create new diagram based on "
-				+ ResourceDemandingSEFFEditPart.MODEL_ID + " model content");
+	/**
+	 * @generated
+	 */
+	private ModelElementSelectionPage diagramRootElementSelectionPage;
+
+	/**
+	 * @generated
+	 */
+	public void addPages() {
 		addPage(myFileCreationPage);
-		addPage(new RootElementSelectorPage());
+		addPage(diagramRootElementSelectionPage);
 	}
 
 	/**
 	 * @generated
 	 */
 	public boolean performFinish() {
+		List affectedFiles = new LinkedList();
 		IFile diagramFile = myFileCreationPage.createNewFile();
 		try {
 			diagramFile.setCharset("UTF-8", new NullProgressMonitor()); //$NON-NLS-1$
@@ -142,14 +130,13 @@ public class PalladioComponentModelNewDiagramFileWizard extends Wizard {
 			PalladioComponentModelSeffDiagramEditorPlugin.getInstance()
 					.logError("Unable to set charset for diagram file", e); //$NON-NLS-1$
 		}
+		affectedFiles.add(diagramFile);
+		org.eclipse.emf.common.util.URI diagramModelURI = org.eclipse.emf.common.util.URI
+				.createPlatformResourceURI(
+						diagramFile.getFullPath().toString(), true);
 		ResourceSet resourceSet = myEditingDomain.getResourceSet();
 		final Resource diagramResource = resourceSet
-				.createResource(org.eclipse.emf.common.util.URI
-						.createPlatformResourceURI(diagramFile.getFullPath()
-								.toString(), true));
-		List affectedFiles = new LinkedList();
-		affectedFiles.add(mySelectedModelFile);
-		affectedFiles.add(diagramFile);
+				.createResource(diagramModelURI);
 		AbstractTransactionalCommand command = new AbstractTransactionalCommand(
 				myEditingDomain, "Initializing diagram contents", affectedFiles) { //$NON-NLS-1$
 
@@ -157,18 +144,19 @@ public class PalladioComponentModelNewDiagramFileWizard extends Wizard {
 					IProgressMonitor monitor, IAdaptable info)
 					throws ExecutionException {
 				int diagramVID = PalladioComponentModelVisualIDRegistry
-						.getDiagramVisualID(myDiagramRoot);
+						.getDiagramVisualID(diagramRootElementSelectionPage
+								.getModelElement());
 				if (diagramVID != ResourceDemandingSEFFEditPart.VISUAL_ID) {
 					return CommandResult
 							.newErrorCommandResult("Incorrect model object stored as a root resource object"); //$NON-NLS-1$
 				}
 				Diagram diagram = ViewService
 						.createDiagram(
-								myDiagramRoot,
+								diagramRootElementSelectionPage
+										.getModelElement(),
 								ResourceDemandingSEFFEditPart.MODEL_ID,
 								PalladioComponentModelSeffDiagramEditorPlugin.DIAGRAM_PREFERENCES_HINT);
 				diagramResource.getContents().add(diagram);
-
 				return CommandResult.newOKCommandResult();
 			}
 		};
@@ -185,7 +173,7 @@ public class PalladioComponentModelNewDiagramFileWizard extends Wizard {
 			PalladioComponentModelSeffDiagramEditorPlugin
 					.getInstance()
 					.logError(
-							"Save operation failed for: " + diagramFile.getFullPath().toString(), ex); //$NON-NLS-1$
+							"Save operation failed for: " + diagramModelURI, ex); //$NON-NLS-1$
 		} catch (PartInitException ex) {
 			PalladioComponentModelSeffDiagramEditorPlugin.getInstance()
 					.logError("Unable to open editor", ex); //$NON-NLS-1$
@@ -196,98 +184,28 @@ public class PalladioComponentModelNewDiagramFileWizard extends Wizard {
 	/**
 	 * @generated
 	 */
-	private class RootElementSelectorPage extends WizardPage implements
-			ISelectionChangedListener {
+	private static class DiagramRootElementSelectionPage extends
+			ModelElementSelectionPage {
 
 		/**
 		 * @generated
 		 */
-		protected RootElementSelectorPage() {
-			super("Select diagram root element");
-			setTitle("Diagram root element");
-			setDescription("Select semantic model element to be depicted on diagram");
+		protected DiagramRootElementSelectionPage(String pageName) {
+			super(pageName);
 		}
 
 		/**
 		 * @generated
 		 */
-		public void createControl(Composite parent) {
-			initializeDialogUnits(parent);
-			Composite topLevel = new Composite(parent, org.eclipse.swt.SWT.NONE);
-			topLevel.setLayout(new GridLayout());
-			topLevel.setLayoutData(new GridData(GridData.VERTICAL_ALIGN_FILL
-					| GridData.HORIZONTAL_ALIGN_FILL));
-			topLevel.setFont(parent.getFont());
-			setControl(topLevel);
-			createModelBrowser(topLevel);
-			setPageComplete(validatePage());
+		protected String getSelectionTitle() {
+			return "Select diagram root element:";
 		}
 
 		/**
 		 * @generated
 		 */
-		private void createModelBrowser(Composite parent) {
-			Composite panel = new Composite(parent, org.eclipse.swt.SWT.NONE);
-			panel.setLayoutData(new GridData(GridData.FILL_BOTH));
-			GridLayout layout = new GridLayout();
-			layout.marginWidth = 0;
-			panel.setLayout(layout);
-
-			Label label = new Label(panel, org.eclipse.swt.SWT.NONE);
-			label.setText("Select diagram root element:");
-			label.setLayoutData(new GridData(
-					GridData.HORIZONTAL_ALIGN_BEGINNING));
-
-			TreeViewer treeViewer = new TreeViewer(panel,
-					org.eclipse.swt.SWT.SINGLE | org.eclipse.swt.SWT.H_SCROLL
-							| org.eclipse.swt.SWT.V_SCROLL
-							| org.eclipse.swt.SWT.BORDER);
-			GridData layoutData = new GridData(GridData.FILL_BOTH);
-			layoutData.heightHint = 300;
-			layoutData.widthHint = 300;
-			treeViewer.getTree().setLayoutData(layoutData);
-			treeViewer.setContentProvider(new AdapterFactoryContentProvider(
-					PalladioComponentModelSeffDiagramEditorPlugin.getInstance()
-							.getItemProvidersAdapterFactory()));
-			treeViewer.setLabelProvider(new AdapterFactoryLabelProvider(
-					PalladioComponentModelSeffDiagramEditorPlugin.getInstance()
-							.getItemProvidersAdapterFactory()));
-			treeViewer.setInput(myDiagramRoot.eResource());
-			treeViewer.setSelection(new StructuredSelection(myDiagramRoot));
-			treeViewer.addSelectionChangedListener(this);
-		}
-
-		/**
-		 * @generated
-		 */
-		public void selectionChanged(SelectionChangedEvent event) {
-			myDiagramRoot = null;
-			if (event.getSelection() instanceof IStructuredSelection) {
-				IStructuredSelection selection = (IStructuredSelection) event
-						.getSelection();
-				if (selection.size() == 1) {
-					Object selectedElement = selection.getFirstElement();
-					if (selectedElement instanceof IWrapperItemProvider) {
-						selectedElement = ((IWrapperItemProvider) selectedElement)
-								.getValue();
-					}
-					if (selectedElement instanceof FeatureMap.Entry) {
-						selectedElement = ((FeatureMap.Entry) selectedElement)
-								.getValue();
-					}
-					if (selectedElement instanceof EObject) {
-						myDiagramRoot = (EObject) selectedElement;
-					}
-				}
-			}
-			setPageComplete(validatePage());
-		}
-
-		/**
-		 * @generated
-		 */
-		private boolean validatePage() {
-			if (myDiagramRoot == null) {
+		protected boolean validatePage() {
+			if (selectedModelElement == null) {
 				setErrorMessage("Diagram root element is not selected");
 				return false;
 			}
@@ -295,11 +213,11 @@ public class PalladioComponentModelNewDiagramFileWizard extends Wizard {
 					.getInstance()
 					.provides(
 							new CreateDiagramViewOperation(
-									new EObjectAdapter(myDiagramRoot),
+									new EObjectAdapter(selectedModelElement),
 									ResourceDemandingSEFFEditPart.MODEL_ID,
 									PalladioComponentModelSeffDiagramEditorPlugin.DIAGRAM_PREFERENCES_HINT));
 			setErrorMessage(result ? null
-					: "Invalid diagram root element was selected");
+					: "Invalid diagram root element is selected");
 			return result;
 		}
 	}

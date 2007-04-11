@@ -142,8 +142,7 @@
           href="seffeditor.gmftool#//@palette/@tools.0/@tools.2"/>
       <diagramNode
           href="seffeditor.gmfgraph#LoopNode"/>
-      <children
-          compartment="//@nodes.3/@ownedChild/@compartments.0">
+      <children>
         <containmentFeature
             href="../../pcm.ecore#//seff/AbstractLoopAction/bodyBehaviour_Loop"/>
         <childrenFeature
@@ -219,11 +218,6 @@
           </compartments>
         </ownedChild>
       </children>
-      <compartments
-          children="//@nodes.3/@ownedChild/@children.0">
-        <compartment
-            href="seffeditor.gmfgraph#BehaviourCompartment"/>
-      </compartments>
     </ownedChild>
   </nodes>
   <nodes>

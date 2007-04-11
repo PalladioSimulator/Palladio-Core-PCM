@@ -137,8 +137,24 @@ public class ResourceDemandingSEFFCanonicalEditPolicy extends
 	 * @generated
 	 */
 	protected boolean shouldDeleteView(View view) {
-		return view.isSetElement() && view.getElement() != null
-				&& view.getElement().eIsProxy();
+		if (view.getEAnnotation("Shortcut") != null) { //$NON-NLS-1$
+			return view.isSetElement()
+					&& (view.getElement() == null || view.getElement()
+							.eIsProxy());
+		}
+		int nodeVID = PalladioComponentModelVisualIDRegistry.getVisualID(view);
+		switch (nodeVID) {
+		case StartActionEditPart.VISUAL_ID:
+		case StopActionEditPart.VISUAL_ID:
+		case ExternalCallActionEditPart.VISUAL_ID:
+		case LoopActionEditPart.VISUAL_ID:
+		case BranchAction2EditPart.VISUAL_ID:
+		case InternalAction2EditPart.VISUAL_ID:
+		case CollectionIteratorAction2EditPart.VISUAL_ID:
+		case SetVariableActionEditPart.VISUAL_ID:
+			return true;
+		}
+		return false;
 	}
 
 	/**

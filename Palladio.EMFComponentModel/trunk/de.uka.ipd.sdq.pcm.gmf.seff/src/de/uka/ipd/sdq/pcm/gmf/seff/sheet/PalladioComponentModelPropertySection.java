@@ -62,6 +62,7 @@ public class PalladioComponentModelPropertySection extends
 	 * @generated
 	 */
 	protected Object transformSelection(Object selected) {
+
 		if (selected instanceof EditPart) {
 			Object model = ((EditPart) selected).getModel();
 			return model instanceof View ? ((View) model).getElement() : null;

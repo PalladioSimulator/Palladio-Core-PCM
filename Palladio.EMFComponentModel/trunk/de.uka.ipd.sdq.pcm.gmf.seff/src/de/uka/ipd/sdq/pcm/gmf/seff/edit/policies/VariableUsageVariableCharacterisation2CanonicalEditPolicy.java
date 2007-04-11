@@ -49,8 +49,17 @@ public class VariableUsageVariableCharacterisation2CanonicalEditPolicy extends
 	 * @generated
 	 */
 	protected boolean shouldDeleteView(View view) {
-		return view.isSetElement() && view.getElement() != null
-				&& view.getElement().eIsProxy();
+		if (view.getEAnnotation("Shortcut") != null) { //$NON-NLS-1$
+			return view.isSetElement()
+					&& (view.getElement() == null || view.getElement()
+							.eIsProxy());
+		}
+		int nodeVID = PalladioComponentModelVisualIDRegistry.getVisualID(view);
+		switch (nodeVID) {
+		case VariableCharacterisation2EditPart.VISUAL_ID:
+			return true;
+		}
+		return false;
 	}
 
 	/**

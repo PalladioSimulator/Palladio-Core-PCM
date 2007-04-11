@@ -31,6 +31,7 @@ import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.jface.wizard.Wizard;
 import org.eclipse.jface.wizard.WizardDialog;
 
+import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.IObjectActionDelegate;
 import org.eclipse.ui.IWorkbenchPart;
 
@@ -43,40 +44,42 @@ public class PalladioComponentModelInitDiagramFileAction implements
 	/**
 	 * @generated
 	 */
-	private IWorkbenchPart myPart;
+	private IWorkbenchPart targetPart;
 
 	/**
 	 * @generated
 	 */
-	private IFile mySelectedModelFile;
-
-	/**
-	 * @generated
-	 */
-	private IStructuredSelection mySelection;
+	private org.eclipse.emf.common.util.URI domainModelURI;
 
 	/**
 	 * @generated
 	 */
 	public void setActivePart(IAction action, IWorkbenchPart targetPart) {
-		myPart = targetPart;
+		this.targetPart = targetPart;
 	}
 
 	/**
 	 * @generated
 	 */
 	public void selectionChanged(IAction action, ISelection selection) {
-		mySelectedModelFile = null;
-		mySelection = StructuredSelection.EMPTY;
+		domainModelURI = null;
 		action.setEnabled(false);
 		if (selection instanceof IStructuredSelection == false
 				|| selection.isEmpty()) {
 			return;
 		}
-		mySelection = (IStructuredSelection) selection;
-		mySelectedModelFile = (IFile) ((IStructuredSelection) selection)
+		IFile file = (IFile) ((IStructuredSelection) selection)
 				.getFirstElement();
+		domainModelURI = org.eclipse.emf.common.util.URI
+				.createPlatformResourceURI(file.getFullPath().toString(), true);
 		action.setEnabled(true);
+	}
+
+	/**
+	 * @generated
+	 */
+	private Shell getShell() {
+		return targetPart.getSite().getShell();
 	}
 
 	/**
@@ -88,43 +91,23 @@ public class PalladioComponentModelInitDiagramFileAction implements
 		ResourceSet resourceSet = editingDomain.getResourceSet();
 		EObject diagramRoot = null;
 		try {
-			Resource resource = resourceSet.getResource(URI
-					.createPlatformResourceURI(mySelectedModelFile
-							.getFullPath().toString(), true), true);
+			Resource resource = resourceSet.getResource(domainModelURI, true);
 			diagramRoot = (EObject) resource.getContents().get(0);
 		} catch (WrappedException ex) {
-			PalladioComponentModelSeffDiagramEditorPlugin
-					.getInstance()
-					.logError(
-							"Unable to load resource: " + mySelectedModelFile.getFullPath().toString(), ex); //$NON-NLS-1$
+			PalladioComponentModelSeffDiagramEditorPlugin.getInstance()
+					.logError("Unable to load resource: " + domainModelURI, ex);
 		}
 		if (diagramRoot == null) {
-			MessageDialog.openError(myPart.getSite().getShell(), "Error",
+			MessageDialog.openError(getShell(), "Error",
 					"Model file loading failed");
 			return;
 		}
 		Wizard wizard = new PalladioComponentModelNewDiagramFileWizard(
-				mySelectedModelFile, myPart.getSite().getPage(), mySelection,
-				diagramRoot, editingDomain);
-		IDialogSettings pluginDialogSettings = PalladioComponentModelSeffDiagramEditorPlugin
-				.getInstance().getDialogSettings();
-		IDialogSettings initDiagramFileSettings = pluginDialogSettings
-				.getSection("InisDiagramFile"); //$NON-NLS-1$
-		if (initDiagramFileSettings == null) {
-			initDiagramFileSettings = pluginDialogSettings
-					.addNewSection("InisDiagramFile"); //$NON-NLS-1$
-		}
-		wizard.setDialogSettings(initDiagramFileSettings);
-		wizard.setForcePreviousAndNextButtons(false);
+				domainModelURI, diagramRoot, editingDomain);
 		wizard.setWindowTitle("Initialize new "
 				+ ResourceDemandingSEFFEditPart.MODEL_ID + " diagram file");
-
-		WizardDialog dialog = new WizardDialog(myPart.getSite().getShell(),
-				wizard);
-		dialog.create();
-		dialog.getShell().setSize(Math.max(500, dialog.getShell().getSize().x),
-				500);
-		dialog.open();
+		PalladioComponentModelDiagramEditorUtil.runWizard(getShell(), wizard,
+				"InitDiagramFile"); //$NON-NLS-1$
 	}
 
 }

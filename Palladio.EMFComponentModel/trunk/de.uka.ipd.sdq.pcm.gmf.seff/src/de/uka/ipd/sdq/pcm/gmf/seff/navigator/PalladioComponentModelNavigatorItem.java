@@ -8,6 +8,7 @@ import org.eclipse.core.runtime.Platform;
 
 import org.eclipse.emf.ecore.EObject;
 
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.gmf.runtime.notation.View;
 
 /**
@@ -21,21 +22,24 @@ public class PalladioComponentModelNavigatorItem extends
 	 */
 	static {
 		final Class[] supportedTypes = new Class[] { View.class, EObject.class };
-		Platform.getAdapterManager().registerAdapters(new IAdapterFactory() {
+		Platform.getAdapterManager().registerAdapters(
+				new IAdapterFactory() {
 
-			public Object getAdapter(Object adaptableObject, Class adapterType) {
-				if (adaptableObject instanceof PalladioComponentModelNavigatorItem
-						&& (adapterType == View.class || adapterType == EObject.class)) {
-					return ((PalladioComponentModelNavigatorItem) adaptableObject)
-							.getView();
-				}
-				return null;
-			}
+					public Object getAdapter(Object adaptableObject,
+							Class adapterType) {
+						if (adaptableObject instanceof de.uka.ipd.sdq.pcm.gmf.seff.navigator.PalladioComponentModelNavigatorItem
+								&& (adapterType == View.class || adapterType == EObject.class)) {
+							return ((de.uka.ipd.sdq.pcm.gmf.seff.navigator.PalladioComponentModelNavigatorItem) adaptableObject)
+									.getView();
+						}
+						return null;
+					}
 
-			public Class[] getAdapterList() {
-				return supportedTypes;
-			}
-		}, PalladioComponentModelNavigatorItem.class);
+					public Class[] getAdapterList() {
+						return supportedTypes;
+					}
+				},
+				de.uka.ipd.sdq.pcm.gmf.seff.navigator.PalladioComponentModelNavigatorItem.class);
 	}
 
 	/**
@@ -76,22 +80,22 @@ public class PalladioComponentModelNavigatorItem extends
 	 * @generated
 	 */
 	public boolean equals(Object obj) {
-		if (obj instanceof PalladioComponentModelNavigatorItem) {
-			EObject eObject = getView().getElement();
-			EObject anotherEObject = ((PalladioComponentModelNavigatorItem) obj)
-					.getView().getElement();
-			if (eObject == null) {
-				return anotherEObject == null;
-			} else if (anotherEObject == null) {
-				return false;
-			}
-			if (eObject.eResource() != null) {
-				return eObject.eResource().getURIFragment(eObject).equals(
-						anotherEObject.eResource().getURIFragment(
-								anotherEObject));
-			}
+		if (obj instanceof de.uka.ipd.sdq.pcm.gmf.seff.navigator.PalladioComponentModelNavigatorItem) {
+			return EcoreUtil
+					.getURI(getView())
+					.equals(
+							EcoreUtil
+									.getURI(((de.uka.ipd.sdq.pcm.gmf.seff.navigator.PalladioComponentModelNavigatorItem) obj)
+											.getView()));
 		}
 		return super.equals(obj);
+	}
+
+	/**
+	 * @generated
+	 */
+	public int hashCode() {
+		return EcoreUtil.getURI(getView()).hashCode();
 	}
 
 }

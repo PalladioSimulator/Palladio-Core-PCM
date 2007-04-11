@@ -44,8 +44,17 @@ public class CollectionIteratorActionBehaviourCompartment2CanonicalEditPolicy
 	 * @generated
 	 */
 	protected boolean shouldDeleteView(View view) {
-		return view.isSetElement() && view.getElement() != null
-				&& view.getElement().eIsProxy();
+		if (view.getEAnnotation("Shortcut") != null) { //$NON-NLS-1$
+			return view.isSetElement()
+					&& (view.getElement() == null || view.getElement()
+							.eIsProxy());
+		}
+		int nodeVID = PalladioComponentModelVisualIDRegistry.getVisualID(view);
+		switch (nodeVID) {
+		case ResourceDemandingBehaviour3EditPart.VISUAL_ID:
+			return true;
+		}
+		return false;
 	}
 
 	/**

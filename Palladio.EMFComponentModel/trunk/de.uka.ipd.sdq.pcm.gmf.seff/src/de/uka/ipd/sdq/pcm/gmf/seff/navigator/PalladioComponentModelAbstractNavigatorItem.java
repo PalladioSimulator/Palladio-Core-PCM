@@ -7,13 +7,14 @@ import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.core.runtime.IAdapterFactory;
 import org.eclipse.core.runtime.Platform;
 
+import org.eclipse.core.runtime.PlatformObject;
 import org.eclipse.ui.views.properties.tabbed.ITabbedPropertySheetPageContributor;
 
 /**
  * @generated
  */
-public abstract class PalladioComponentModelAbstractNavigatorItem implements
-		IAdaptable {
+public abstract class PalladioComponentModelAbstractNavigatorItem extends
+		PlatformObject {
 
 	/**
 	 * @generated
@@ -25,20 +26,23 @@ public abstract class PalladioComponentModelAbstractNavigatorItem implements
 				return "de.uka.ipd.sdq.pcm.gmf.seff"; //$NON-NLS-1$
 			}
 		};
-		Platform.getAdapterManager().registerAdapters(new IAdapterFactory() {
+		Platform.getAdapterManager().registerAdapters(
+				new IAdapterFactory() {
 
-			public Object getAdapter(Object adaptableObject, Class adapterType) {
-				if (adaptableObject instanceof PalladioComponentModelAbstractNavigatorItem
-						&& adapterType == ITabbedPropertySheetPageContributor.class) {
-					return propertySheetPageContributor;
-				}
-				return null;
-			}
+					public Object getAdapter(Object adaptableObject,
+							Class adapterType) {
+						if (adaptableObject instanceof de.uka.ipd.sdq.pcm.gmf.seff.navigator.PalladioComponentModelAbstractNavigatorItem
+								&& adapterType == ITabbedPropertySheetPageContributor.class) {
+							return propertySheetPageContributor;
+						}
+						return null;
+					}
 
-			public Class[] getAdapterList() {
-				return supportedTypes;
-			}
-		}, PalladioComponentModelAbstractNavigatorItem.class);
+					public Class[] getAdapterList() {
+						return supportedTypes;
+					}
+				},
+				de.uka.ipd.sdq.pcm.gmf.seff.navigator.PalladioComponentModelAbstractNavigatorItem.class);
 	}
 
 	/**
@@ -58,13 +62,6 @@ public abstract class PalladioComponentModelAbstractNavigatorItem implements
 	 */
 	public Object getParent() {
 		return myParent;
-	}
-
-	/**
-	 * @generated
-	 */
-	public Object getAdapter(Class adapter) {
-		return Platform.getAdapterManager().getAdapter(this, adapter);
 	}
 
 }

@@ -3,17 +3,18 @@
  */
 package de.uka.ipd.sdq.pcm.gmf.seff.part;
 
+import org.eclipse.osgi.util.NLS;
+
 /**
  * @generated
  */
-public class Messages extends org.eclipse.osgi.util.NLS {
+public class Messages extends NLS {
 
 	/**
 	 * @generated
 	 */
 	static {
-		org.eclipse.osgi.util.NLS
-				.initializeMessages("messages", Messages.class); //$NON-NLS-1$
+		NLS.initializeMessages("messages", Messages.class); //$NON-NLS-1$
 	}
 
 	/**
