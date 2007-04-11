@@ -5,6 +5,7 @@ package de.uka.ipd.sdq.pcm.gmf.seff.edit.policies;
 
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CanonicalEditPolicy;
 import org.eclipse.gmf.runtime.notation.View;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.GuardedBranchTransitionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ProbabilisticBranchTransitionEditPart;
 
 import de.uka.ipd.sdq.pcm.gmf.seff.part.PalladioComponentModelVisualIDRegistry;
@@ -37,8 +38,15 @@ public class BranchActionBranchTransitionCompartmentCanonicalEditPolicy extends
 			nextValue = (EObject) values.next();
 			nodeVID = PalladioComponentModelVisualIDRegistry.getNodeVisualID(
 					viewObject, nextValue);
-			if (ProbabilisticBranchTransitionEditPart.VISUAL_ID == nodeVID) {
+			switch (nodeVID) {
+			case ProbabilisticBranchTransitionEditPart.VISUAL_ID: {
 				result.add(nextValue);
+				break;
+			}
+			case GuardedBranchTransitionEditPart.VISUAL_ID: {
+				result.add(nextValue);
+				break;
+			}
 			}
 		}
 		return result;
@@ -56,6 +64,7 @@ public class BranchActionBranchTransitionCompartmentCanonicalEditPolicy extends
 		int nodeVID = PalladioComponentModelVisualIDRegistry.getVisualID(view);
 		switch (nodeVID) {
 		case ProbabilisticBranchTransitionEditPart.VISUAL_ID:
+		case GuardedBranchTransitionEditPart.VISUAL_ID:
 			return true;
 		}
 		return false;

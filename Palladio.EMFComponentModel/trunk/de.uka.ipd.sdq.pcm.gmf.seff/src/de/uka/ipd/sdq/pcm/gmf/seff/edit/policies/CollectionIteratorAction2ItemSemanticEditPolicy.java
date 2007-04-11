@@ -17,6 +17,7 @@ import org.eclipse.gef.commands.UnexecutableCommand;
 import org.eclipse.gmf.runtime.diagram.ui.requests.EditCommandRequestWrapper;
 import org.eclipse.gmf.runtime.emf.type.core.commands.DestroyElementCommand;
 import org.eclipse.gmf.runtime.emf.type.core.commands.SetValueCommand;
+import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateRelationshipRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.DestroyElementRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.ReorientReferenceRelationshipRequest;
@@ -25,6 +26,8 @@ import org.eclipse.gmf.runtime.notation.Edge;
 import org.eclipse.gmf.runtime.notation.View;
 
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.commands.AbstractActionSuccessor_AbstractActionReorientCommand;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.commands.ResourceDemandingBehaviour3CreateCommand;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.commands.ResourceDemandingBehaviour4CreateCommand;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.AbstractActionSuccessor_AbstractActionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.CollectionIteratorAction2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.providers.PalladioComponentModelElementTypes;
@@ -36,6 +39,22 @@ import de.uka.ipd.sdq.pcm.seff.SeffPackage;
  */
 public class CollectionIteratorAction2ItemSemanticEditPolicy extends
 		PalladioComponentModelBaseItemSemanticEditPolicy {
+
+	/**
+	 * @generated
+	 */
+	protected Command getCreateCommand(CreateElementRequest req) {
+		if (PalladioComponentModelElementTypes.ResourceDemandingBehaviour_3014 == req
+				.getElementType()) {
+			if (req.getContainmentFeature() == null) {
+				req.setContainmentFeature(SeffPackage.eINSTANCE
+						.getAbstractLoopAction_BodyBehaviour_Loop());
+			}
+			return getMSLWrapper(new ResourceDemandingBehaviour4CreateCommand(
+					req));
+		}
+		return super.getCreateCommand(req);
+	}
 
 	/**
 	 * @generated

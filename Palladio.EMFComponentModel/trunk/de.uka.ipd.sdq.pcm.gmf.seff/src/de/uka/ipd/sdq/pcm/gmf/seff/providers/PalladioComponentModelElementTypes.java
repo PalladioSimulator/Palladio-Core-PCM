@@ -138,6 +138,16 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
 	/**
 	 * @generated
 	 */
+	public static final IElementType GuardedBranchTransition_3017 = getElementType("de.uka.ipd.sdq.pcm.gmf.seff.GuardedBranchTransition_3017"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType ResourceDemandingBehaviour_3018 = getElementType("de.uka.ipd.sdq.pcm.gmf.seff.ResourceDemandingBehaviour_3018"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
 	public static final IElementType CollectionIteratorAction_3013 = getElementType("de.uka.ipd.sdq.pcm.gmf.seff.CollectionIteratorAction_3013"); //$NON-NLS-1$
 
 	/**
@@ -334,6 +344,12 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
 			elements.put(ExternalCallAction_3012, SeffPackage.eINSTANCE
 					.getExternalCallAction());
 
+			elements.put(GuardedBranchTransition_3017, SeffPackage.eINSTANCE
+					.getGuardedBranchTransition());
+
+			elements.put(ResourceDemandingBehaviour_3018, SeffPackage.eINSTANCE
+					.getResourceDemandingBehaviour());
+
 			elements.put(CollectionIteratorAction_3013, SeffPackage.eINSTANCE
 					.getCollectionIteratorAction());
 
@@ -387,6 +403,8 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
 			KNOWN_ELEMENT_TYPES.add(ProbabilisticBranchTransition_3010);
 			KNOWN_ELEMENT_TYPES.add(ResourceDemandingBehaviour_3011);
 			KNOWN_ELEMENT_TYPES.add(ExternalCallAction_3012);
+			KNOWN_ELEMENT_TYPES.add(GuardedBranchTransition_3017);
+			KNOWN_ELEMENT_TYPES.add(ResourceDemandingBehaviour_3018);
 			KNOWN_ELEMENT_TYPES.add(CollectionIteratorAction_3013);
 			KNOWN_ELEMENT_TYPES.add(ResourceDemandingBehaviour_3014);
 			KNOWN_ELEMENT_TYPES.add(VariableUsage_3015);

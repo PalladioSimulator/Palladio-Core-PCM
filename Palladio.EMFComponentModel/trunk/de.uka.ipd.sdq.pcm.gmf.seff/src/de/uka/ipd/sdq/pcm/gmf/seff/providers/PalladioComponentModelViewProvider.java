@@ -16,8 +16,6 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.BranchActionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.BranchActionEntityName2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.BranchActionEntityNameEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.CollectionIteratorAction2EditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.CollectionIteratorActionBehaviourCompartment2EditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.CollectionIteratorActionBehaviourCompartmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.CollectionIteratorActionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.CollectionIteratorActionEntityName2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.CollectionIteratorActionEntityNameEditPart;
@@ -29,6 +27,8 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ExternalCallActionEntityName2EditP
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ExternalCallActionEntityNameEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ExternalCallActionParameterUsage2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ExternalCallActionParameterUsageEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.GuardedBranchTransitionEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.GuardedBranchTransitionIdEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.InternalAction2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.InternalActionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.InternalActionEntityName2EditPart;
@@ -36,19 +36,18 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.InternalActionEntityNameEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.InternalActionResourceDemand2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.InternalActionResourceDemandEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopAction2EditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopActionBehaviourCompartment2EditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopActionBehaviourCompartmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopActionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopActionEntityName2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopActionEntityNameEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopIterationsLabel2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopIterationsLabelEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ParametricResourceDemandEditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ProbabilisticBranchTransitionBehaviourCompartmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ProbabilisticBranchTransitionBranchProbabilityEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ProbabilisticBranchTransitionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviour2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviour3EditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviour4EditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviourBranchCompartment2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviourBranchCompartmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviourEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviourLoopCompartment2EditPart;
@@ -79,8 +78,6 @@ import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.BranchActionEntityName2ViewFac
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.BranchActionEntityNameViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.BranchActionViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.CollectionIteratorAction2ViewFactory;
-import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.CollectionIteratorActionBehaviourCompartment2ViewFactory;
-import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.CollectionIteratorActionBehaviourCompartmentViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.CollectionIteratorActionEntityName2ViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.CollectionIteratorActionEntityNameViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.CollectionIteratorActionViewFactory;
@@ -92,6 +89,8 @@ import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.ExternalCallActionEntityNameVi
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.ExternalCallActionParameterUsage2ViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.ExternalCallActionParameterUsageViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.ExternalCallActionViewFactory;
+import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.GuardedBranchTransitionIdViewFactory;
+import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.GuardedBranchTransitionViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.InternalAction2ViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.InternalActionEntityName2ViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.InternalActionEntityNameViewFactory;
@@ -99,19 +98,18 @@ import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.InternalActionResourceDemand2V
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.InternalActionResourceDemandViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.InternalActionViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.LoopAction2ViewFactory;
-import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.LoopActionBehaviourCompartment2ViewFactory;
-import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.LoopActionBehaviourCompartmentViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.LoopActionEntityName2ViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.LoopActionEntityNameViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.LoopActionViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.LoopIterationsLabel2ViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.LoopIterationsLabelViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.ParametricResourceDemandViewFactory;
-import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.ProbabilisticBranchTransitionBehaviourCompartmentViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.ProbabilisticBranchTransitionBranchProbabilityViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.ProbabilisticBranchTransitionViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.ResourceDemandingBehaviour2ViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.ResourceDemandingBehaviour3ViewFactory;
+import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.ResourceDemandingBehaviour4ViewFactory;
+import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.ResourceDemandingBehaviourBranchCompartment2ViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.ResourceDemandingBehaviourBranchCompartmentViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.ResourceDemandingBehaviourLoopCompartment2ViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.ResourceDemandingBehaviourLoopCompartmentViewFactory;
@@ -238,14 +236,20 @@ public class PalladioComponentModelViewProvider extends AbstractViewProvider {
 			return ExternalCallAction2ViewFactory.class;
 		case ExternalCallActionEntityName2EditPart.VISUAL_ID:
 			return ExternalCallActionEntityName2ViewFactory.class;
+		case GuardedBranchTransitionEditPart.VISUAL_ID:
+			return GuardedBranchTransitionViewFactory.class;
+		case GuardedBranchTransitionIdEditPart.VISUAL_ID:
+			return GuardedBranchTransitionIdViewFactory.class;
+		case ResourceDemandingBehaviour3EditPart.VISUAL_ID:
+			return ResourceDemandingBehaviour3ViewFactory.class;
 		case CollectionIteratorActionEditPart.VISUAL_ID:
 			return CollectionIteratorActionViewFactory.class;
 		case CollectionIteratorActionEntityNameEditPart.VISUAL_ID:
 			return CollectionIteratorActionEntityNameViewFactory.class;
 		case CollectionIteratorParameterLabelEditPart.VISUAL_ID:
 			return CollectionIteratorParameterLabelViewFactory.class;
-		case ResourceDemandingBehaviour3EditPart.VISUAL_ID:
-			return ResourceDemandingBehaviour3ViewFactory.class;
+		case ResourceDemandingBehaviour4EditPart.VISUAL_ID:
+			return ResourceDemandingBehaviour4ViewFactory.class;
 		case VariableUsage2EditPart.VISUAL_ID:
 			return VariableUsage2ViewFactory.class;
 		case VariableUsageReferenceLabel2EditPart.VISUAL_ID:
@@ -256,32 +260,24 @@ public class PalladioComponentModelViewProvider extends AbstractViewProvider {
 			return ExternalCallActionParameterUsageViewFactory.class;
 		case VariableUsageVariableCharacterisationEditPart.VISUAL_ID:
 			return VariableUsageVariableCharacterisationViewFactory.class;
-		case LoopActionBehaviourCompartmentEditPart.VISUAL_ID:
-			return LoopActionBehaviourCompartmentViewFactory.class;
 		case ResourceDemandingBehaviourLoopCompartmentEditPart.VISUAL_ID:
 			return ResourceDemandingBehaviourLoopCompartmentViewFactory.class;
-		case LoopActionBehaviourCompartment2EditPart.VISUAL_ID:
-			return LoopActionBehaviourCompartment2ViewFactory.class;
 		case InternalActionResourceDemandEditPart.VISUAL_ID:
 			return InternalActionResourceDemandViewFactory.class;
 		case BranchActionBranchTransitionCompartmentEditPart.VISUAL_ID:
 			return BranchActionBranchTransitionCompartmentViewFactory.class;
-		case ProbabilisticBranchTransitionBehaviourCompartmentEditPart.VISUAL_ID:
-			return ProbabilisticBranchTransitionBehaviourCompartmentViewFactory.class;
 		case ResourceDemandingBehaviourBranchCompartmentEditPart.VISUAL_ID:
 			return ResourceDemandingBehaviourBranchCompartmentViewFactory.class;
 		case ExternalCallActionParameterUsage2EditPart.VISUAL_ID:
 			return ExternalCallActionParameterUsage2ViewFactory.class;
-		case CollectionIteratorActionBehaviourCompartmentEditPart.VISUAL_ID:
-			return CollectionIteratorActionBehaviourCompartmentViewFactory.class;
+		case ResourceDemandingBehaviourBranchCompartment2EditPart.VISUAL_ID:
+			return ResourceDemandingBehaviourBranchCompartment2ViewFactory.class;
 		case ResourceDemandingBehaviourLoopCompartment2EditPart.VISUAL_ID:
 			return ResourceDemandingBehaviourLoopCompartment2ViewFactory.class;
 		case BranchActionBranchTransitionCompartment2EditPart.VISUAL_ID:
 			return BranchActionBranchTransitionCompartment2ViewFactory.class;
 		case InternalActionResourceDemand2EditPart.VISUAL_ID:
 			return InternalActionResourceDemand2ViewFactory.class;
-		case CollectionIteratorActionBehaviourCompartment2EditPart.VISUAL_ID:
-			return CollectionIteratorActionBehaviourCompartment2ViewFactory.class;
 		case SetVariableActionParameterUsageEditPart.VISUAL_ID:
 			return SetVariableActionParameterUsageViewFactory.class;
 		case VariableUsageVariableCharacterisation2EditPart.VISUAL_ID:

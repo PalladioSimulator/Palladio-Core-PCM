@@ -72,6 +72,7 @@ public class PalladioComponentModelPaletteFactory {
 				Messages.Composite3Group_title);
 		paletteContainer.add(createResourceDemandingBehaviour1CreationTool());
 		paletteContainer.add(createBranchTransition2CreationTool());
+		paletteContainer.add(createGuardedBranchTransition3CreationTool());
 		return paletteContainer;
 	}
 
@@ -286,11 +287,13 @@ public class PalladioComponentModelPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createResourceDemandingBehaviour1CreationTool() {
-		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(3);
+		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(4);
 		types
 				.add(PalladioComponentModelElementTypes.ResourceDemandingBehaviour_3003);
 		types
 				.add(PalladioComponentModelElementTypes.ResourceDemandingBehaviour_3011);
+		types
+				.add(PalladioComponentModelElementTypes.ResourceDemandingBehaviour_3018);
 		types
 				.add(PalladioComponentModelElementTypes.ResourceDemandingBehaviour_3014);
 		NodeToolEntry entry = new NodeToolEntry(
@@ -316,6 +319,23 @@ public class PalladioComponentModelPaletteFactory {
 		entry
 				.setSmallIcon(PalladioComponentModelElementTypes
 						.getImageDescriptor(PalladioComponentModelElementTypes.ProbabilisticBranchTransition_3010));
+		entry.setLargeIcon(entry.getSmallIcon());
+		return entry;
+	}
+
+	/**
+	 * @generated
+	 */
+	private ToolEntry createGuardedBranchTransition3CreationTool() {
+		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
+		types
+				.add(PalladioComponentModelElementTypes.GuardedBranchTransition_3017);
+		NodeToolEntry entry = new NodeToolEntry(
+				Messages.GuardedBranchTransition3CreationTool_title,
+				Messages.GuardedBranchTransition3CreationTool_desc, types);
+		entry
+				.setSmallIcon(PalladioComponentModelElementTypes
+						.getImageDescriptor(PalladioComponentModelElementTypes.GuardedBranchTransition_3017));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}

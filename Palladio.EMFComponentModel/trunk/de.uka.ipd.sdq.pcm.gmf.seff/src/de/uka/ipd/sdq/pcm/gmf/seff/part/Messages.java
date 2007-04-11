@@ -196,6 +196,16 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String GuardedBranchTransition3CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String GuardedBranchTransition3CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
 	public static String ExternalCallActionParameterUsageEditPart_title;
 
 	/**
@@ -206,17 +216,7 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String LoopActionBehaviourCompartmentEditPart_title;
-
-	/**
-	 * @generated
-	 */
 	public static String ResourceDemandingBehaviourLoopCompartmentEditPart_title;
-
-	/**
-	 * @generated
-	 */
-	public static String LoopActionBehaviourCompartment2EditPart_title;
 
 	/**
 	 * @generated
@@ -231,11 +231,6 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String ProbabilisticBranchTransitionBehaviourCompartmentEditPart_title;
-
-	/**
-	 * @generated
-	 */
 	public static String ResourceDemandingBehaviourBranchCompartmentEditPart_title;
 
 	/**
@@ -246,7 +241,7 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String CollectionIteratorActionBehaviourCompartmentEditPart_title;
+	public static String ResourceDemandingBehaviourBranchCompartment2EditPart_title;
 
 	/**
 	 * @generated
@@ -262,11 +257,6 @@ public class Messages extends NLS {
 	 * @generated
 	 */
 	public static String InternalActionResourceDemand2EditPart_title;
-
-	/**
-	 * @generated
-	 */
-	public static String CollectionIteratorActionBehaviourCompartment2EditPart_title;
 
 	/**
 	 * @generated

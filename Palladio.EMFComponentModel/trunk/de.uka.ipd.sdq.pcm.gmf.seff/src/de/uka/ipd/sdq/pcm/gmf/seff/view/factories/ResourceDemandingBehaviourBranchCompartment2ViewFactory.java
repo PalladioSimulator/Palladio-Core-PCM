@@ -3,7 +3,7 @@
  */
 package de.uka.ipd.sdq.pcm.gmf.seff.view.factories;
 
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopActionBehaviourCompartment2EditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviourBranchCompartment2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingSEFFEditPart;
 
 import de.uka.ipd.sdq.pcm.gmf.seff.part.PalladioComponentModelVisualIDRegistry;
@@ -27,7 +27,7 @@ import org.eclipse.gmf.runtime.notation.View;
 /**
  * @generated
  */
-public class LoopActionBehaviourCompartment2ViewFactory extends
+public class ResourceDemandingBehaviourBranchCompartment2ViewFactory extends
 		ListCompartmentViewFactory {
 
 	/**
@@ -48,7 +48,7 @@ public class LoopActionBehaviourCompartment2ViewFactory extends
 			boolean persisted) {
 		if (semanticHint == null) {
 			semanticHint = PalladioComponentModelVisualIDRegistry
-					.getType(LoopActionBehaviourCompartment2EditPart.VISUAL_ID);
+					.getType(ResourceDemandingBehaviourBranchCompartment2EditPart.VISUAL_ID);
 			view.setType(semanticHint);
 		}
 		super.decorateView(containerView, view, semanticAdapter, semanticHint,

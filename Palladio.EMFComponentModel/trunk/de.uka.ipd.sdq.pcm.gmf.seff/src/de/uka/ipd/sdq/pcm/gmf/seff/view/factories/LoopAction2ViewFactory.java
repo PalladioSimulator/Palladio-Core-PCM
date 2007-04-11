@@ -4,7 +4,6 @@
 package de.uka.ipd.sdq.pcm.gmf.seff.view.factories;
 
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopAction2EditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopActionBehaviourCompartment2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopActionEntityNameEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopIterationsLabelEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingSEFFEditPart;
@@ -78,13 +77,6 @@ public class LoopAction2ViewFactory extends AbstractShapeViewFactory {
 				PalladioComponentModelVisualIDRegistry
 						.getType(LoopIterationsLabelEditPart.VISUAL_ID),
 				ViewUtil.APPEND, true, getPreferencesHint());
-		getViewService()
-				.createNode(
-						semanticAdapter,
-						view,
-						PalladioComponentModelVisualIDRegistry
-								.getType(LoopActionBehaviourCompartment2EditPart.VISUAL_ID),
-						ViewUtil.APPEND, true, getPreferencesHint());
 	}
 
 }

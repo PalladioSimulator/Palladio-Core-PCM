@@ -3,7 +3,6 @@
  */
 package de.uka.ipd.sdq.pcm.gmf.seff.view.factories;
 
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ProbabilisticBranchTransitionBehaviourCompartmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ProbabilisticBranchTransitionBranchProbabilityEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ProbabilisticBranchTransitionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingSEFFEditPart;
@@ -72,13 +71,6 @@ public class ProbabilisticBranchTransitionViewFactory extends
 						view,
 						PalladioComponentModelVisualIDRegistry
 								.getType(ProbabilisticBranchTransitionBranchProbabilityEditPart.VISUAL_ID),
-						ViewUtil.APPEND, true, getPreferencesHint());
-		getViewService()
-				.createNode(
-						semanticAdapter,
-						view,
-						PalladioComponentModelVisualIDRegistry
-								.getType(ProbabilisticBranchTransitionBehaviourCompartmentEditPart.VISUAL_ID),
 						ViewUtil.APPEND, true, getPreferencesHint());
 	}
 

@@ -14,6 +14,7 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.CollectionIteratorAction2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.CollectionIteratorActionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ExternalCallAction2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ExternalCallActionEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.GuardedBranchTransitionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.InternalAction2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.InternalActionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopAction2EditPart;
@@ -22,6 +23,7 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ParametricResourceDemandEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ProbabilisticBranchTransitionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviour2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviour3EditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviour4EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviourEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingSEFFEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.SetVariableActionEditPart;
@@ -293,8 +295,10 @@ public class ResourceDemandingSEFFCanonicalEditPolicy extends
 		case ProbabilisticBranchTransitionEditPart.VISUAL_ID:
 		case ResourceDemandingBehaviour2EditPart.VISUAL_ID:
 		case ExternalCallAction2EditPart.VISUAL_ID:
-		case CollectionIteratorActionEditPart.VISUAL_ID:
+		case GuardedBranchTransitionEditPart.VISUAL_ID:
 		case ResourceDemandingBehaviour3EditPart.VISUAL_ID:
+		case CollectionIteratorActionEditPart.VISUAL_ID:
+		case ResourceDemandingBehaviour4EditPart.VISUAL_ID:
 		case VariableUsage2EditPart.VISUAL_ID:
 		case VariableCharacterisation2EditPart.VISUAL_ID:
 		case ResourceDemandingSEFFEditPart.VISUAL_ID: {

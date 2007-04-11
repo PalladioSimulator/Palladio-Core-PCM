@@ -3,7 +3,6 @@
  */
 package de.uka.ipd.sdq.pcm.gmf.seff.view.factories;
 
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.CollectionIteratorActionBehaviourCompartmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.CollectionIteratorActionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.CollectionIteratorActionEntityNameEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.CollectionIteratorParameterLabelEditPart;
@@ -80,13 +79,6 @@ public class CollectionIteratorActionViewFactory extends
 						view,
 						PalladioComponentModelVisualIDRegistry
 								.getType(CollectionIteratorParameterLabelEditPart.VISUAL_ID),
-						ViewUtil.APPEND, true, getPreferencesHint());
-		getViewService()
-				.createNode(
-						semanticAdapter,
-						view,
-						PalladioComponentModelVisualIDRegistry
-								.getType(CollectionIteratorActionBehaviourCompartmentEditPart.VISUAL_ID),
 						ViewUtil.APPEND, true, getPreferencesHint());
 	}
 

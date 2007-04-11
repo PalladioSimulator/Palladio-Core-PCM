@@ -25,15 +25,17 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.BranchActionBranchTransitionCompartment2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.BranchActionBranchTransitionCompartmentEditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.CollectionIteratorActionBehaviourCompartment2EditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.CollectionIteratorActionBehaviourCompartmentEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.CollectionIteratorAction2EditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.CollectionIteratorActionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ExternalCallActionParameterUsage2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ExternalCallActionParameterUsageEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.GuardedBranchTransitionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.InternalAction2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.InternalActionEditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopActionBehaviourCompartment2EditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopActionBehaviourCompartmentEditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ProbabilisticBranchTransitionBehaviourCompartmentEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopAction2EditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopActionEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ProbabilisticBranchTransitionEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviourBranchCompartment2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviourBranchCompartmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviourLoopCompartment2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviourLoopCompartmentEditPart;
@@ -56,10 +58,22 @@ public class PalladioComponentModelModelingAssistantProvider extends
 	public List getTypesForPopupBar(IAdaptable host) {
 		IGraphicalEditPart editPart = (IGraphicalEditPart) host
 				.getAdapter(IGraphicalEditPart.class);
+		if (editPart instanceof LoopActionEditPart) {
+			List types = new ArrayList();
+			types
+					.add(PalladioComponentModelElementTypes.ResourceDemandingBehaviour_3003);
+			return types;
+		}
 		if (editPart instanceof InternalAction2EditPart) {
 			List types = new ArrayList();
 			types
 					.add(PalladioComponentModelElementTypes.ParametricResourceDemand_3008);
+			return types;
+		}
+		if (editPart instanceof CollectionIteratorAction2EditPart) {
+			List types = new ArrayList();
+			types
+					.add(PalladioComponentModelElementTypes.ResourceDemandingBehaviour_3014);
 			return types;
 		}
 		if (editPart instanceof VariableUsageEditPart) {
@@ -68,10 +82,34 @@ public class PalladioComponentModelModelingAssistantProvider extends
 					.add(PalladioComponentModelElementTypes.VariableCharacterisation_3002);
 			return types;
 		}
+		if (editPart instanceof LoopAction2EditPart) {
+			List types = new ArrayList();
+			types
+					.add(PalladioComponentModelElementTypes.ResourceDemandingBehaviour_3003);
+			return types;
+		}
 		if (editPart instanceof InternalActionEditPart) {
 			List types = new ArrayList();
 			types
 					.add(PalladioComponentModelElementTypes.ParametricResourceDemand_3008);
+			return types;
+		}
+		if (editPart instanceof ProbabilisticBranchTransitionEditPart) {
+			List types = new ArrayList();
+			types
+					.add(PalladioComponentModelElementTypes.ResourceDemandingBehaviour_3011);
+			return types;
+		}
+		if (editPart instanceof GuardedBranchTransitionEditPart) {
+			List types = new ArrayList();
+			types
+					.add(PalladioComponentModelElementTypes.ResourceDemandingBehaviour_3018);
+			return types;
+		}
+		if (editPart instanceof CollectionIteratorActionEditPart) {
+			List types = new ArrayList();
+			types
+					.add(PalladioComponentModelElementTypes.ResourceDemandingBehaviour_3014);
 			return types;
 		}
 		if (editPart instanceof VariableUsage2EditPart) {
@@ -83,12 +121,6 @@ public class PalladioComponentModelModelingAssistantProvider extends
 		if (editPart instanceof ExternalCallActionParameterUsageEditPart) {
 			List types = new ArrayList();
 			types.add(PalladioComponentModelElementTypes.VariableUsage_3001);
-			return types;
-		}
-		if (editPart instanceof LoopActionBehaviourCompartmentEditPart) {
-			List types = new ArrayList();
-			types
-					.add(PalladioComponentModelElementTypes.ResourceDemandingBehaviour_3003);
 			return types;
 		}
 		if (editPart instanceof ResourceDemandingBehaviourLoopCompartmentEditPart) {
@@ -104,22 +136,12 @@ public class PalladioComponentModelModelingAssistantProvider extends
 					.add(PalladioComponentModelElementTypes.CollectionIteratorAction_3013);
 			return types;
 		}
-		if (editPart instanceof LoopActionBehaviourCompartment2EditPart) {
-			List types = new ArrayList();
-			types
-					.add(PalladioComponentModelElementTypes.ResourceDemandingBehaviour_3003);
-			return types;
-		}
 		if (editPart instanceof BranchActionBranchTransitionCompartmentEditPart) {
 			List types = new ArrayList();
 			types
 					.add(PalladioComponentModelElementTypes.ProbabilisticBranchTransition_3010);
-			return types;
-		}
-		if (editPart instanceof ProbabilisticBranchTransitionBehaviourCompartmentEditPart) {
-			List types = new ArrayList();
 			types
-					.add(PalladioComponentModelElementTypes.ResourceDemandingBehaviour_3011);
+					.add(PalladioComponentModelElementTypes.GuardedBranchTransition_3017);
 			return types;
 		}
 		if (editPart instanceof ResourceDemandingBehaviourBranchCompartmentEditPart) {
@@ -138,10 +160,15 @@ public class PalladioComponentModelModelingAssistantProvider extends
 			types.add(PalladioComponentModelElementTypes.VariableUsage_3001);
 			return types;
 		}
-		if (editPart instanceof CollectionIteratorActionBehaviourCompartmentEditPart) {
+		if (editPart instanceof ResourceDemandingBehaviourBranchCompartment2EditPart) {
 			List types = new ArrayList();
+			types.add(PalladioComponentModelElementTypes.StartAction_3004);
+			types.add(PalladioComponentModelElementTypes.StopAction_3005);
+			types.add(PalladioComponentModelElementTypes.LoopAction_3006);
+			types.add(PalladioComponentModelElementTypes.InternalAction_3007);
+			types.add(PalladioComponentModelElementTypes.BranchAction_3009);
 			types
-					.add(PalladioComponentModelElementTypes.ResourceDemandingBehaviour_3014);
+					.add(PalladioComponentModelElementTypes.ExternalCallAction_3012);
 			return types;
 		}
 		if (editPart instanceof ResourceDemandingBehaviourLoopCompartment2EditPart) {
@@ -161,12 +188,8 @@ public class PalladioComponentModelModelingAssistantProvider extends
 			List types = new ArrayList();
 			types
 					.add(PalladioComponentModelElementTypes.ProbabilisticBranchTransition_3010);
-			return types;
-		}
-		if (editPart instanceof CollectionIteratorActionBehaviourCompartment2EditPart) {
-			List types = new ArrayList();
 			types
-					.add(PalladioComponentModelElementTypes.ResourceDemandingBehaviour_3014);
+					.add(PalladioComponentModelElementTypes.GuardedBranchTransition_3017);
 			return types;
 		}
 		if (editPart instanceof SetVariableActionParameterUsageEditPart) {

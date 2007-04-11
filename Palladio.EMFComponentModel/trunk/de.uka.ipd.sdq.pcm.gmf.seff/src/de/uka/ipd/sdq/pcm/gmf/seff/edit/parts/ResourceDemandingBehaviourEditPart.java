@@ -91,15 +91,14 @@ public class ResourceDemandingBehaviourEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected IFigure createNodeShape() {
-		BehaviourFigure figure = new BehaviourFigure();
-		return primaryShape = figure;
+		return primaryShape = new RectangleFigure();
 	}
 
 	/**
 	 * @generated
 	 */
-	public BehaviourFigure getPrimaryShape() {
-		return (BehaviourFigure) primaryShape;
+	public RectangleFigure getPrimaryShape() {
+		return (RectangleFigure) primaryShape;
 	}
 
 	/**
@@ -151,43 +150,6 @@ public class ResourceDemandingBehaviourEditPart extends ShapeNodeEditPart {
 			return contentPane;
 		}
 		return super.getContentPane();
-	}
-
-	/**
-	 * @generated
-	 */
-	public class BehaviourFigure extends RectangleFigure {
-		/**
-		 * @generated
-		 */
-		public BehaviourFigure() {
-			this.setFill(true);
-			this.setFillXOR(false);
-			this.setOutline(true);
-			this.setOutlineXOR(false);
-			this.setLineWidth(3);
-			this.setLineStyle(Graphics.LINE_DOT);
-		}
-
-		/**
-		 * @generated
-		 */
-		private boolean myUseLocalCoordinates = false;
-
-		/**
-		 * @generated
-		 */
-		protected boolean useLocalCoordinates() {
-			return myUseLocalCoordinates;
-		}
-
-		/**
-		 * @generated
-		 */
-		protected void setUseLocalCoordinates(boolean useLocalCoordinates) {
-			myUseLocalCoordinates = useLocalCoordinates;
-		}
-
 	}
 
 }

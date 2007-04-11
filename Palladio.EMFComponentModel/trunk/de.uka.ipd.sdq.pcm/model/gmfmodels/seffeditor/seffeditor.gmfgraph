@@ -146,9 +146,7 @@
     <figures
         xsi:type="gmfgraph:Rectangle"
         referencingElements="BehaviourNode BehaviourCompartment"
-        name="BehaviourFigure"
-        lineWidth="3"
-        lineKind="LINE_DOT"/>
+        name="BehaviourFigure"/>
     <figures
         xsi:type="gmfgraph:RoundedRectangle"
         referencingElements="LoopNode LoopCompartment"

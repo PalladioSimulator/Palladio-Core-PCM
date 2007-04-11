@@ -18,6 +18,8 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ExternalCallAction2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ExternalCallActionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ExternalCallActionEntityName2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ExternalCallActionEntityNameEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.GuardedBranchTransitionEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.GuardedBranchTransitionIdEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.InternalAction2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.InternalActionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.InternalActionEntityName2EditPart;
@@ -31,6 +33,7 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ProbabilisticBranchTransitionBranc
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ProbabilisticBranchTransitionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviour2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviour3EditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviour4EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviourEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingSEFFEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.SetVariableActionEditPart;
@@ -220,11 +223,19 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 			return getImage(
 					"Navigator?Node?http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0?ExternalCallAction",
 					PalladioComponentModelElementTypes.ExternalCallAction_3012);
+		case GuardedBranchTransitionEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Node?http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0?GuardedBranchTransition",
+					PalladioComponentModelElementTypes.GuardedBranchTransition_3017);
+		case ResourceDemandingBehaviour3EditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Node?http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0?ResourceDemandingBehaviour",
+					PalladioComponentModelElementTypes.ResourceDemandingBehaviour_3018);
 		case CollectionIteratorActionEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Node?http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0?CollectionIteratorAction",
 					PalladioComponentModelElementTypes.CollectionIteratorAction_3013);
-		case ResourceDemandingBehaviour3EditPart.VISUAL_ID:
+		case ResourceDemandingBehaviour4EditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Node?http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0?ResourceDemandingBehaviour",
 					PalladioComponentModelElementTypes.ResourceDemandingBehaviour_3014);
@@ -339,9 +350,13 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 			return getResourceDemandingBehaviour_3011Text(view);
 		case ExternalCallAction2EditPart.VISUAL_ID:
 			return getExternalCallAction_3012Text(view);
+		case GuardedBranchTransitionEditPart.VISUAL_ID:
+			return getGuardedBranchTransition_3017Text(view);
+		case ResourceDemandingBehaviour3EditPart.VISUAL_ID:
+			return getResourceDemandingBehaviour_3018Text(view);
 		case CollectionIteratorActionEditPart.VISUAL_ID:
 			return getCollectionIteratorAction_3013Text(view);
-		case ResourceDemandingBehaviour3EditPart.VISUAL_ID:
+		case ResourceDemandingBehaviour4EditPart.VISUAL_ID:
 			return getResourceDemandingBehaviour_3014Text(view);
 		case VariableUsage2EditPart.VISUAL_ID:
 			return getVariableUsage_3015Text(view);
@@ -812,6 +827,41 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 					.logError("Parser was not found for label " + 5006);
 			return "";
 		}
+	}
+
+	/**
+	 * @generated
+	 */
+	private String getGuardedBranchTransition_3017Text(View view) {
+		IParser parser = ParserService.getInstance().getParser(
+				new IAdaptable() {
+					public Object getAdapter(Class adapter) {
+						if (String.class.equals(adapter)) {
+							return PalladioComponentModelVisualIDRegistry
+									.getType(GuardedBranchTransitionIdEditPart.VISUAL_ID);
+						}
+						if (IElementType.class.equals(adapter)) {
+							return PalladioComponentModelElementTypes.GuardedBranchTransition_3017;
+						}
+						return null;
+					}
+				});
+		if (parser != null) {
+			return parser.getPrintString(new EObjectAdapter(
+					view.getElement() != null ? view.getElement() : view),
+					ParserOptions.NONE.intValue());
+		} else {
+			PalladioComponentModelSeffDiagramEditorPlugin.getInstance()
+					.logError("Parser was not found for label " + 5018);
+			return "";
+		}
+	}
+
+	/**
+	 * @generated
+	 */
+	private String getResourceDemandingBehaviour_3018Text(View view) {
+		return "";
 	}
 
 	/**

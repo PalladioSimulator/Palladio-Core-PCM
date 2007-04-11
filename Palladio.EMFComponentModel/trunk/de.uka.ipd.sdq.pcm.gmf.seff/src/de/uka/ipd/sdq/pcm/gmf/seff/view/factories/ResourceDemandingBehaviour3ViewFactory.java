@@ -4,6 +4,7 @@
 package de.uka.ipd.sdq.pcm.gmf.seff.view.factories;
 
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviour3EditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviourBranchCompartment2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviourLoopCompartment2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingSEFFEditPart;
 
@@ -70,7 +71,7 @@ public class ResourceDemandingBehaviour3ViewFactory extends
 						semanticAdapter,
 						view,
 						PalladioComponentModelVisualIDRegistry
-								.getType(ResourceDemandingBehaviourLoopCompartment2EditPart.VISUAL_ID),
+								.getType(ResourceDemandingBehaviourBranchCompartment2EditPart.VISUAL_ID),
 						ViewUtil.APPEND, true, getPreferencesHint());
 	}
 

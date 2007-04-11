@@ -27,9 +27,6 @@
     <nodeLabelTraces
         visualID="5010"
         queryText="true"/>
-    <compartmentTraces
-        visualID="7003"
-        queryText="true"/>
   </nodeTraces>
   <nodeTraces
       visualID="2005"
@@ -59,9 +56,6 @@
         queryText="true"/>
     <nodeLabelTraces
         visualID="5016"
-        queryText="true"/>
-    <compartmentTraces
-        visualID="7015"
         queryText="true"/>
   </nodeTraces>
   <nodeTraces
@@ -106,9 +100,6 @@
     <nodeLabelTraces
         visualID="5004"
         queryText="true"/>
-    <compartmentTraces
-        visualID="7005"
-        queryText="true"/>
   </childNodeTraces>
   <childNodeTraces
       visualID="3007"
@@ -139,9 +130,6 @@
     <nodeLabelTraces
         visualID="5007"
         queryText="true"/>
-    <compartmentTraces
-        visualID="7008"
-        queryText="true"/>
   </childNodeTraces>
   <childNodeTraces
       visualID="3011"
@@ -169,9 +157,6 @@
     <nodeLabelTraces
         visualID="5014"
         queryText="true"/>
-    <compartmentTraces
-        visualID="7013"
-        queryText="true"/>
   </childNodeTraces>
   <childNodeTraces
       visualID="3014"
@@ -193,6 +178,20 @@
   <childNodeTraces
       visualID="3016"
       queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://sdq.ipd.uka.de/PalladioComponentModel/Parameter/1.0' and _eClass_.name = 'VariableCharacterisation') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://sdq.ipd.uka.de/PalladioComponentModel/Parameter/1.0' and _eClass_.name = 'VariableUsage') and _containmentMF_.name = 'variableCharacterisation_VariableUsage')"/>
+  <childNodeTraces
+      visualID="3017"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0' and _eClass_.name = 'GuardedBranchTransition') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0' and _eClass_.name = 'BranchAction') and _containmentMF_.name = 'branches_Branch')">
+    <nodeLabelTraces
+        visualID="5018"
+        queryText="true"/>
+  </childNodeTraces>
+  <childNodeTraces
+      visualID="3018"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0' and _eClass_.name = 'ResourceDemandingBehaviour') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0' and _eClass_.name = 'AbstractBranchTransition') and _containmentMF_.name = 'branchBehaviour_BranchTransition')">
+    <compartmentTraces
+        visualID="7018"
+        queryText="true"/>
+  </childNodeTraces>
   <linkTraces
       visualID="4001"
       queryText="modelFacet.oclIsKindOf(gmfgen::FeatureLinkModelFacet) and (let _feature_:ecore::EStructuralFeature = modelFacet.oclAsType(gmfgen::FeatureLinkModelFacet).metaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _feature_.eContainingClass in _eClass_.ePackage.nsURI = 'http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0' and _eClass_.name = 'AbstractAction') and _feature_.name = 'successor_AbstractAction')"/>

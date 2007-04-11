@@ -10,8 +10,6 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.BranchActionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.BranchActionEntityName2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.BranchActionEntityNameEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.CollectionIteratorAction2EditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.CollectionIteratorActionBehaviourCompartment2EditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.CollectionIteratorActionBehaviourCompartmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.CollectionIteratorActionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.CollectionIteratorActionEntityName2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.CollectionIteratorActionEntityNameEditPart;
@@ -23,6 +21,8 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ExternalCallActionEntityName2EditP
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ExternalCallActionEntityNameEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ExternalCallActionParameterUsage2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ExternalCallActionParameterUsageEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.GuardedBranchTransitionEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.GuardedBranchTransitionIdEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.InternalAction2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.InternalActionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.InternalActionEntityName2EditPart;
@@ -30,19 +30,18 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.InternalActionEntityNameEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.InternalActionResourceDemand2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.InternalActionResourceDemandEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopAction2EditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopActionBehaviourCompartment2EditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopActionBehaviourCompartmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopActionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopActionEntityName2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopActionEntityNameEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopIterationsLabel2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopIterationsLabelEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ParametricResourceDemandEditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ProbabilisticBranchTransitionBehaviourCompartmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ProbabilisticBranchTransitionBranchProbabilityEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ProbabilisticBranchTransitionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviour2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviour3EditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviour4EditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviourBranchCompartment2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviourBranchCompartmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviourEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviourLoopCompartment2EditPart;
@@ -70,6 +69,7 @@ import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
 import de.uka.ipd.sdq.pcm.seff.BranchAction;
 import de.uka.ipd.sdq.pcm.seff.CollectionIteratorAction;
 import de.uka.ipd.sdq.pcm.seff.ExternalCallAction;
+import de.uka.ipd.sdq.pcm.seff.GuardedBranchTransition;
 import de.uka.ipd.sdq.pcm.seff.InternalAction;
 import de.uka.ipd.sdq.pcm.seff.LoopAction;
 import de.uka.ipd.sdq.pcm.seff.ParametricResourceDemand;
@@ -241,8 +241,11 @@ public class PalladioComponentModelVisualIDRegistry {
 			if (LoopIterationsLabel2EditPart.VISUAL_ID == nodeVisualID) {
 				return LoopIterationsLabel2EditPart.VISUAL_ID;
 			}
-			if (LoopActionBehaviourCompartmentEditPart.VISUAL_ID == nodeVisualID) {
-				return LoopActionBehaviourCompartmentEditPart.VISUAL_ID;
+			if ((semanticHint == null || ResourceDemandingBehaviourEditPart.VISUAL_ID == nodeVisualID)
+					&& SeffPackage.eINSTANCE.getResourceDemandingBehaviour()
+							.isSuperTypeOf(domainElementMetaclass)
+					&& (domainElement == null || isNodeResourceDemandingBehaviour_3003((ResourceDemandingBehaviour) domainElement))) {
+				return ResourceDemandingBehaviourEditPart.VISUAL_ID;
 			}
 			return getUnrecognizedLoopAction_2004ChildNodeID(domainElement,
 					semanticHint);
@@ -271,8 +274,11 @@ public class PalladioComponentModelVisualIDRegistry {
 			if (CollectionIteratorParameterLabel2EditPart.VISUAL_ID == nodeVisualID) {
 				return CollectionIteratorParameterLabel2EditPart.VISUAL_ID;
 			}
-			if (CollectionIteratorActionBehaviourCompartment2EditPart.VISUAL_ID == nodeVisualID) {
-				return CollectionIteratorActionBehaviourCompartment2EditPart.VISUAL_ID;
+			if ((semanticHint == null || ResourceDemandingBehaviour4EditPart.VISUAL_ID == nodeVisualID)
+					&& SeffPackage.eINSTANCE.getResourceDemandingBehaviour()
+							.isSuperTypeOf(domainElementMetaclass)
+					&& (domainElement == null || isNodeResourceDemandingBehaviour_3014((ResourceDemandingBehaviour) domainElement))) {
+				return ResourceDemandingBehaviour4EditPart.VISUAL_ID;
 			}
 			return getUnrecognizedCollectionIteratorAction_2007ChildNodeID(
 					domainElement, semanticHint);
@@ -313,8 +319,11 @@ public class PalladioComponentModelVisualIDRegistry {
 			if (LoopIterationsLabelEditPart.VISUAL_ID == nodeVisualID) {
 				return LoopIterationsLabelEditPart.VISUAL_ID;
 			}
-			if (LoopActionBehaviourCompartment2EditPart.VISUAL_ID == nodeVisualID) {
-				return LoopActionBehaviourCompartment2EditPart.VISUAL_ID;
+			if ((semanticHint == null || ResourceDemandingBehaviourEditPart.VISUAL_ID == nodeVisualID)
+					&& SeffPackage.eINSTANCE.getResourceDemandingBehaviour()
+							.isSuperTypeOf(domainElementMetaclass)
+					&& (domainElement == null || isNodeResourceDemandingBehaviour_3003((ResourceDemandingBehaviour) domainElement))) {
+				return ResourceDemandingBehaviourEditPart.VISUAL_ID;
 			}
 			return getUnrecognizedLoopAction_3006ChildNodeID(domainElement,
 					semanticHint);
@@ -343,8 +352,11 @@ public class PalladioComponentModelVisualIDRegistry {
 			if (ProbabilisticBranchTransitionBranchProbabilityEditPart.VISUAL_ID == nodeVisualID) {
 				return ProbabilisticBranchTransitionBranchProbabilityEditPart.VISUAL_ID;
 			}
-			if (ProbabilisticBranchTransitionBehaviourCompartmentEditPart.VISUAL_ID == nodeVisualID) {
-				return ProbabilisticBranchTransitionBehaviourCompartmentEditPart.VISUAL_ID;
+			if ((semanticHint == null || ResourceDemandingBehaviour2EditPart.VISUAL_ID == nodeVisualID)
+					&& SeffPackage.eINSTANCE.getResourceDemandingBehaviour()
+							.isSuperTypeOf(domainElementMetaclass)
+					&& (domainElement == null || isNodeResourceDemandingBehaviour_3011((ResourceDemandingBehaviour) domainElement))) {
+				return ResourceDemandingBehaviour2EditPart.VISUAL_ID;
 			}
 			return getUnrecognizedProbabilisticBranchTransition_3010ChildNodeID(
 					domainElement, semanticHint);
@@ -363,6 +375,24 @@ public class PalladioComponentModelVisualIDRegistry {
 			}
 			return getUnrecognizedExternalCallAction_3012ChildNodeID(
 					domainElement, semanticHint);
+		case GuardedBranchTransitionEditPart.VISUAL_ID:
+			if (GuardedBranchTransitionIdEditPart.VISUAL_ID == nodeVisualID) {
+				return GuardedBranchTransitionIdEditPart.VISUAL_ID;
+			}
+			if ((semanticHint == null || ResourceDemandingBehaviour3EditPart.VISUAL_ID == nodeVisualID)
+					&& SeffPackage.eINSTANCE.getResourceDemandingBehaviour()
+							.isSuperTypeOf(domainElementMetaclass)
+					&& (domainElement == null || isNodeResourceDemandingBehaviour_3018((ResourceDemandingBehaviour) domainElement))) {
+				return ResourceDemandingBehaviour3EditPart.VISUAL_ID;
+			}
+			return getUnrecognizedGuardedBranchTransition_3017ChildNodeID(
+					domainElement, semanticHint);
+		case ResourceDemandingBehaviour3EditPart.VISUAL_ID:
+			if (ResourceDemandingBehaviourBranchCompartment2EditPart.VISUAL_ID == nodeVisualID) {
+				return ResourceDemandingBehaviourBranchCompartment2EditPart.VISUAL_ID;
+			}
+			return getUnrecognizedResourceDemandingBehaviour_3018ChildNodeID(
+					domainElement, semanticHint);
 		case CollectionIteratorActionEditPart.VISUAL_ID:
 			if (CollectionIteratorActionEntityNameEditPart.VISUAL_ID == nodeVisualID) {
 				return CollectionIteratorActionEntityNameEditPart.VISUAL_ID;
@@ -370,12 +400,15 @@ public class PalladioComponentModelVisualIDRegistry {
 			if (CollectionIteratorParameterLabelEditPart.VISUAL_ID == nodeVisualID) {
 				return CollectionIteratorParameterLabelEditPart.VISUAL_ID;
 			}
-			if (CollectionIteratorActionBehaviourCompartmentEditPart.VISUAL_ID == nodeVisualID) {
-				return CollectionIteratorActionBehaviourCompartmentEditPart.VISUAL_ID;
+			if ((semanticHint == null || ResourceDemandingBehaviour4EditPart.VISUAL_ID == nodeVisualID)
+					&& SeffPackage.eINSTANCE.getResourceDemandingBehaviour()
+							.isSuperTypeOf(domainElementMetaclass)
+					&& (domainElement == null || isNodeResourceDemandingBehaviour_3014((ResourceDemandingBehaviour) domainElement))) {
+				return ResourceDemandingBehaviour4EditPart.VISUAL_ID;
 			}
 			return getUnrecognizedCollectionIteratorAction_3013ChildNodeID(
 					domainElement, semanticHint);
-		case ResourceDemandingBehaviour3EditPart.VISUAL_ID:
+		case ResourceDemandingBehaviour4EditPart.VISUAL_ID:
 			if (ResourceDemandingBehaviourLoopCompartment2EditPart.VISUAL_ID == nodeVisualID) {
 				return ResourceDemandingBehaviourLoopCompartment2EditPart.VISUAL_ID;
 			}
@@ -410,15 +443,6 @@ public class PalladioComponentModelVisualIDRegistry {
 				return VariableCharacterisationEditPart.VISUAL_ID;
 			}
 			return getUnrecognizedVariableUsageVariableCharacterisation_7002ChildNodeID(
-					domainElement, semanticHint);
-		case LoopActionBehaviourCompartmentEditPart.VISUAL_ID:
-			if ((semanticHint == null || ResourceDemandingBehaviourEditPart.VISUAL_ID == nodeVisualID)
-					&& SeffPackage.eINSTANCE.getResourceDemandingBehaviour()
-							.isSuperTypeOf(domainElementMetaclass)
-					&& (domainElement == null || isNodeResourceDemandingBehaviour_3003((ResourceDemandingBehaviour) domainElement))) {
-				return ResourceDemandingBehaviourEditPart.VISUAL_ID;
-			}
-			return getUnrecognizedLoopActionBehaviourCompartment_7003ChildNodeID(
 					domainElement, semanticHint);
 		case ResourceDemandingBehaviourLoopCompartmentEditPart.VISUAL_ID:
 			if ((semanticHint == null || StartAction2EditPart.VISUAL_ID == nodeVisualID)
@@ -465,15 +489,6 @@ public class PalladioComponentModelVisualIDRegistry {
 			}
 			return getUnrecognizedResourceDemandingBehaviourLoopCompartment_7004ChildNodeID(
 					domainElement, semanticHint);
-		case LoopActionBehaviourCompartment2EditPart.VISUAL_ID:
-			if ((semanticHint == null || ResourceDemandingBehaviourEditPart.VISUAL_ID == nodeVisualID)
-					&& SeffPackage.eINSTANCE.getResourceDemandingBehaviour()
-							.isSuperTypeOf(domainElementMetaclass)
-					&& (domainElement == null || isNodeResourceDemandingBehaviour_3003((ResourceDemandingBehaviour) domainElement))) {
-				return ResourceDemandingBehaviourEditPart.VISUAL_ID;
-			}
-			return getUnrecognizedLoopActionBehaviourCompartment_7005ChildNodeID(
-					domainElement, semanticHint);
 		case InternalActionResourceDemandEditPart.VISUAL_ID:
 			if ((semanticHint == null || ParametricResourceDemandEditPart.VISUAL_ID == nodeVisualID)
 					&& SeffPackage.eINSTANCE.getParametricResourceDemand()
@@ -490,16 +505,13 @@ public class PalladioComponentModelVisualIDRegistry {
 					&& (domainElement == null || isNodeProbabilisticBranchTransition_3010((ProbabilisticBranchTransition) domainElement))) {
 				return ProbabilisticBranchTransitionEditPart.VISUAL_ID;
 			}
-			return getUnrecognizedBranchActionBranchTransitionCompartment_7007ChildNodeID(
-					domainElement, semanticHint);
-		case ProbabilisticBranchTransitionBehaviourCompartmentEditPart.VISUAL_ID:
-			if ((semanticHint == null || ResourceDemandingBehaviour2EditPart.VISUAL_ID == nodeVisualID)
-					&& SeffPackage.eINSTANCE.getResourceDemandingBehaviour()
+			if ((semanticHint == null || GuardedBranchTransitionEditPart.VISUAL_ID == nodeVisualID)
+					&& SeffPackage.eINSTANCE.getGuardedBranchTransition()
 							.isSuperTypeOf(domainElementMetaclass)
-					&& (domainElement == null || isNodeResourceDemandingBehaviour_3011((ResourceDemandingBehaviour) domainElement))) {
-				return ResourceDemandingBehaviour2EditPart.VISUAL_ID;
+					&& (domainElement == null || isNodeGuardedBranchTransition_3017((GuardedBranchTransition) domainElement))) {
+				return GuardedBranchTransitionEditPart.VISUAL_ID;
 			}
-			return getUnrecognizedProbabilisticBranchTransitionBehaviourCompartment_7008ChildNodeID(
+			return getUnrecognizedBranchActionBranchTransitionCompartment_7007ChildNodeID(
 					domainElement, semanticHint);
 		case ResourceDemandingBehaviourBranchCompartmentEditPart.VISUAL_ID:
 			if ((semanticHint == null || StartAction2EditPart.VISUAL_ID == nodeVisualID)
@@ -549,14 +561,44 @@ public class PalladioComponentModelVisualIDRegistry {
 			}
 			return getUnrecognizedExternalCallActionParameterUsage_7010ChildNodeID(
 					domainElement, semanticHint);
-		case CollectionIteratorActionBehaviourCompartmentEditPart.VISUAL_ID:
-			if ((semanticHint == null || ResourceDemandingBehaviour3EditPart.VISUAL_ID == nodeVisualID)
-					&& SeffPackage.eINSTANCE.getResourceDemandingBehaviour()
-							.isSuperTypeOf(domainElementMetaclass)
-					&& (domainElement == null || isNodeResourceDemandingBehaviour_3014((ResourceDemandingBehaviour) domainElement))) {
-				return ResourceDemandingBehaviour3EditPart.VISUAL_ID;
+		case ResourceDemandingBehaviourBranchCompartment2EditPart.VISUAL_ID:
+			if ((semanticHint == null || StartAction2EditPart.VISUAL_ID == nodeVisualID)
+					&& SeffPackage.eINSTANCE.getStartAction().isSuperTypeOf(
+							domainElementMetaclass)
+					&& (domainElement == null || isNodeStartAction_3004((StartAction) domainElement))) {
+				return StartAction2EditPart.VISUAL_ID;
 			}
-			return getUnrecognizedCollectionIteratorActionBehaviourCompartment_7013ChildNodeID(
+			if ((semanticHint == null || StopAction2EditPart.VISUAL_ID == nodeVisualID)
+					&& SeffPackage.eINSTANCE.getStopAction().isSuperTypeOf(
+							domainElementMetaclass)
+					&& (domainElement == null || isNodeStopAction_3005((StopAction) domainElement))) {
+				return StopAction2EditPart.VISUAL_ID;
+			}
+			if ((semanticHint == null || LoopAction2EditPart.VISUAL_ID == nodeVisualID)
+					&& SeffPackage.eINSTANCE.getLoopAction().isSuperTypeOf(
+							domainElementMetaclass)
+					&& (domainElement == null || isNodeLoopAction_3006((LoopAction) domainElement))) {
+				return LoopAction2EditPart.VISUAL_ID;
+			}
+			if ((semanticHint == null || InternalActionEditPart.VISUAL_ID == nodeVisualID)
+					&& SeffPackage.eINSTANCE.getInternalAction().isSuperTypeOf(
+							domainElementMetaclass)
+					&& (domainElement == null || isNodeInternalAction_3007((InternalAction) domainElement))) {
+				return InternalActionEditPart.VISUAL_ID;
+			}
+			if ((semanticHint == null || BranchActionEditPart.VISUAL_ID == nodeVisualID)
+					&& SeffPackage.eINSTANCE.getBranchAction().isSuperTypeOf(
+							domainElementMetaclass)
+					&& (domainElement == null || isNodeBranchAction_3009((BranchAction) domainElement))) {
+				return BranchActionEditPart.VISUAL_ID;
+			}
+			if ((semanticHint == null || ExternalCallAction2EditPart.VISUAL_ID == nodeVisualID)
+					&& SeffPackage.eINSTANCE.getExternalCallAction()
+							.isSuperTypeOf(domainElementMetaclass)
+					&& (domainElement == null || isNodeExternalCallAction_3012((ExternalCallAction) domainElement))) {
+				return ExternalCallAction2EditPart.VISUAL_ID;
+			}
+			return getUnrecognizedResourceDemandingBehaviourBranchCompartment_7018ChildNodeID(
 					domainElement, semanticHint);
 		case ResourceDemandingBehaviourLoopCompartment2EditPart.VISUAL_ID:
 			if ((semanticHint == null || StartAction2EditPart.VISUAL_ID == nodeVisualID)
@@ -610,6 +652,12 @@ public class PalladioComponentModelVisualIDRegistry {
 					&& (domainElement == null || isNodeProbabilisticBranchTransition_3010((ProbabilisticBranchTransition) domainElement))) {
 				return ProbabilisticBranchTransitionEditPart.VISUAL_ID;
 			}
+			if ((semanticHint == null || GuardedBranchTransitionEditPart.VISUAL_ID == nodeVisualID)
+					&& SeffPackage.eINSTANCE.getGuardedBranchTransition()
+							.isSuperTypeOf(domainElementMetaclass)
+					&& (domainElement == null || isNodeGuardedBranchTransition_3017((GuardedBranchTransition) domainElement))) {
+				return GuardedBranchTransitionEditPart.VISUAL_ID;
+			}
 			return getUnrecognizedBranchActionBranchTransitionCompartment_7011ChildNodeID(
 					domainElement, semanticHint);
 		case InternalActionResourceDemand2EditPart.VISUAL_ID:
@@ -620,15 +668,6 @@ public class PalladioComponentModelVisualIDRegistry {
 				return ParametricResourceDemandEditPart.VISUAL_ID;
 			}
 			return getUnrecognizedInternalActionResourceDemand_7012ChildNodeID(
-					domainElement, semanticHint);
-		case CollectionIteratorActionBehaviourCompartment2EditPart.VISUAL_ID:
-			if ((semanticHint == null || ResourceDemandingBehaviour3EditPart.VISUAL_ID == nodeVisualID)
-					&& SeffPackage.eINSTANCE.getResourceDemandingBehaviour()
-							.isSuperTypeOf(domainElementMetaclass)
-					&& (domainElement == null || isNodeResourceDemandingBehaviour_3014((ResourceDemandingBehaviour) domainElement))) {
-				return ResourceDemandingBehaviour3EditPart.VISUAL_ID;
-			}
-			return getUnrecognizedCollectionIteratorActionBehaviourCompartment_7015ChildNodeID(
 					domainElement, semanticHint);
 		case SetVariableActionParameterUsageEditPart.VISUAL_ID:
 			if ((semanticHint == null || VariableUsage2EditPart.VISUAL_ID == nodeVisualID)
@@ -960,6 +999,28 @@ public class PalladioComponentModelVisualIDRegistry {
 	 *
 	 * @generated
 	 */
+	private static boolean isNodeGuardedBranchTransition_3017(
+			GuardedBranchTransition element) {
+		return true;
+	}
+
+	/**
+	 * User can change implementation of this method to check some additional 
+	 * conditions here.
+	 *
+	 * @generated
+	 */
+	private static boolean isNodeResourceDemandingBehaviour_3018(
+			ResourceDemandingBehaviour element) {
+		return true;
+	}
+
+	/**
+	 * User can change implementation of this method to check some additional 
+	 * conditions here.
+	 *
+	 * @generated
+	 */
 	private static boolean isNodeCollectionIteratorAction_3013(
 			CollectionIteratorAction element) {
 		return true;
@@ -1223,6 +1284,28 @@ public class PalladioComponentModelVisualIDRegistry {
 	 *
 	 * @generated
 	 */
+	private static int getUnrecognizedGuardedBranchTransition_3017ChildNodeID(
+			EObject domainElement, String semanticHint) {
+		return -1;
+	}
+
+	/**
+	 * User can change implementation of this method to handle some specific
+	 * situations not covered by default logic.
+	 *
+	 * @generated
+	 */
+	private static int getUnrecognizedResourceDemandingBehaviour_3018ChildNodeID(
+			EObject domainElement, String semanticHint) {
+		return -1;
+	}
+
+	/**
+	 * User can change implementation of this method to handle some specific
+	 * situations not covered by default logic.
+	 *
+	 * @generated
+	 */
 	private static int getUnrecognizedCollectionIteratorAction_3013ChildNodeID(
 			EObject domainElement, String semanticHint) {
 		return -1;
@@ -1289,29 +1372,7 @@ public class PalladioComponentModelVisualIDRegistry {
 	 *
 	 * @generated
 	 */
-	private static int getUnrecognizedLoopActionBehaviourCompartment_7003ChildNodeID(
-			EObject domainElement, String semanticHint) {
-		return -1;
-	}
-
-	/**
-	 * User can change implementation of this method to handle some specific
-	 * situations not covered by default logic.
-	 *
-	 * @generated
-	 */
 	private static int getUnrecognizedResourceDemandingBehaviourLoopCompartment_7004ChildNodeID(
-			EObject domainElement, String semanticHint) {
-		return -1;
-	}
-
-	/**
-	 * User can change implementation of this method to handle some specific
-	 * situations not covered by default logic.
-	 *
-	 * @generated
-	 */
-	private static int getUnrecognizedLoopActionBehaviourCompartment_7005ChildNodeID(
 			EObject domainElement, String semanticHint) {
 		return -1;
 	}
@@ -1344,17 +1405,6 @@ public class PalladioComponentModelVisualIDRegistry {
 	 *
 	 * @generated
 	 */
-	private static int getUnrecognizedProbabilisticBranchTransitionBehaviourCompartment_7008ChildNodeID(
-			EObject domainElement, String semanticHint) {
-		return -1;
-	}
-
-	/**
-	 * User can change implementation of this method to handle some specific
-	 * situations not covered by default logic.
-	 *
-	 * @generated
-	 */
 	private static int getUnrecognizedResourceDemandingBehaviourBranchCompartment_7009ChildNodeID(
 			EObject domainElement, String semanticHint) {
 		return -1;
@@ -1377,7 +1427,7 @@ public class PalladioComponentModelVisualIDRegistry {
 	 *
 	 * @generated
 	 */
-	private static int getUnrecognizedCollectionIteratorActionBehaviourCompartment_7013ChildNodeID(
+	private static int getUnrecognizedResourceDemandingBehaviourBranchCompartment_7018ChildNodeID(
 			EObject domainElement, String semanticHint) {
 		return -1;
 	}
@@ -1411,17 +1461,6 @@ public class PalladioComponentModelVisualIDRegistry {
 	 * @generated
 	 */
 	private static int getUnrecognizedInternalActionResourceDemand_7012ChildNodeID(
-			EObject domainElement, String semanticHint) {
-		return -1;
-	}
-
-	/**
-	 * User can change implementation of this method to handle some specific
-	 * situations not covered by default logic.
-	 *
-	 * @generated
-	 */
-	private static int getUnrecognizedCollectionIteratorActionBehaviourCompartment_7015ChildNodeID(
 			EObject domainElement, String semanticHint) {
 		return -1;
 	}

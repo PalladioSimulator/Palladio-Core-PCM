@@ -3,6 +3,7 @@
  */
 package de.uka.ipd.sdq.pcm.gmf.seff.edit.policies;
 
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.commands.GuardedBranchTransitionCreateCommand;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.commands.ProbabilisticBranchTransitionCreateCommand;
 
 import de.uka.ipd.sdq.pcm.gmf.seff.providers.PalladioComponentModelElementTypes;
@@ -31,6 +32,14 @@ public class BranchActionBranchTransitionCompartment2ItemSemanticEditPolicy
 			}
 			return getMSLWrapper(new ProbabilisticBranchTransitionCreateCommand(
 					req));
+		}
+		if (PalladioComponentModelElementTypes.GuardedBranchTransition_3017 == req
+				.getElementType()) {
+			if (req.getContainmentFeature() == null) {
+				req.setContainmentFeature(SeffPackage.eINSTANCE
+						.getBranchAction_Branches_Branch());
+			}
+			return getMSLWrapper(new GuardedBranchTransitionCreateCommand(req));
 		}
 		return super.getCreateCommand(req);
 	}

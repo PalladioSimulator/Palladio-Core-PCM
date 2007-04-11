@@ -10,6 +10,7 @@ import org.eclipse.gmf.runtime.common.ui.services.parser.GetParserOperation;
 import org.eclipse.gmf.runtime.common.ui.services.parser.IParser;
 import org.eclipse.gmf.runtime.common.ui.services.parser.IParserProvider;
 import org.eclipse.gmf.runtime.notation.View;
+import de.uka.ipd.sdq.identifier.IdentifierPackage;
 import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
 
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.BranchActionEntityName2EditPart;
@@ -18,6 +19,7 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.CollectionIteratorActionEntityName
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.CollectionIteratorActionEntityNameEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ExternalCallActionEntityName2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ExternalCallActionEntityNameEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.GuardedBranchTransitionIdEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.InternalActionEntityName2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.InternalActionEntityNameEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopActionEntityName2EditPart;
@@ -237,6 +239,32 @@ public class PalladioComponentModelParserProvider extends AbstractProvider
 	/**
 	 * @generated
 	 */
+	private IParser guardedBranchTransitionGuardedBranchTransitionId_5018Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getGuardedBranchTransitionGuardedBranchTransitionId_5018Parser() {
+		if (guardedBranchTransitionGuardedBranchTransitionId_5018Parser == null) {
+			guardedBranchTransitionGuardedBranchTransitionId_5018Parser = createGuardedBranchTransitionGuardedBranchTransitionId_5018Parser();
+		}
+		return guardedBranchTransitionGuardedBranchTransitionId_5018Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	protected IParser createGuardedBranchTransitionGuardedBranchTransitionId_5018Parser() {
+		PalladioComponentModelStructuralFeatureParser parser = new PalladioComponentModelStructuralFeatureParser(
+				IdentifierPackage.eINSTANCE.getIdentifier_Id());
+		parser.setViewPattern("{0}");
+		parser.setEditPattern("{0}");
+		return parser;
+	}
+
+	/**
+	 * @generated
+	 */
 	private IParser collectionIteratorActionCollectionIteratorActionEntityName_5013Parser;
 
 	/**
@@ -439,6 +467,8 @@ public class PalladioComponentModelParserProvider extends AbstractProvider
 			return getProbabilisticBranchTransitionProbabilisticBranchTransitionBranchProbability_5007Parser();
 		case ExternalCallActionEntityName2EditPart.VISUAL_ID:
 			return getExternalCallActionExternalCallActionEntityName_5006Parser();
+		case GuardedBranchTransitionIdEditPart.VISUAL_ID:
+			return getGuardedBranchTransitionGuardedBranchTransitionId_5018Parser();
 		case CollectionIteratorActionEntityNameEditPart.VISUAL_ID:
 			return getCollectionIteratorActionCollectionIteratorActionEntityName_5013Parser();
 		case VariableCharacterisation2EditPart.VISUAL_ID:
