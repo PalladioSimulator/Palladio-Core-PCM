@@ -37,6 +37,7 @@ import de.uka.ipd.sdq.pcm.resourcetype.provider.ResourcetypeItemProviderAdapterF
 import de.uka.ipd.sdq.pcm.seff.provider.SeffItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.system.provider.SystemItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.usagemodel.provider.UsagemodelItemProviderAdapterFactory;
+import de.uka.ipd.sdq.pcmbench.ui.provider.PalladioItemProviderAdapterFactory;
 import de.uka.ipd.sdq.probfunction.provider.ProbfunctionItemProviderAdapterFactory;
 import de.uka.ipd.sdq.stoex.provider.StoexItemProviderAdapterFactory;
 
@@ -63,9 +64,9 @@ public class PalladioComponentModelRepositoryDiagramEditorPlugin extends
 	private static PalladioComponentModelRepositoryDiagramEditorPlugin instance;
 
 	/**
-	 * @generated
+	 * @generated not
 	 */
-	private ComposedAdapterFactory adapterFactory;
+	private AdapterFactory adapterFactory;
 
 	/**
 	 * @generated
@@ -90,10 +91,10 @@ public class PalladioComponentModelRepositoryDiagramEditorPlugin extends
 	}
 
 	/**
-	 * @generated
+	 * @generated not
 	 */
 	public void stop(BundleContext context) throws Exception {
-		adapterFactory.dispose();
+		((PalladioItemProviderAdapterFactory)adapterFactory).dispose();
 		adapterFactory = null;
 		instance = null;
 		super.stop(context);
@@ -107,12 +108,12 @@ public class PalladioComponentModelRepositoryDiagramEditorPlugin extends
 	}
 
 	/**
-	 * @generated
+	 * @generated not
 	 */
-	protected ComposedAdapterFactory createAdapterFactory() {
+	protected AdapterFactory createAdapterFactory() {
 		List factories = new ArrayList();
 		fillItemProviderFactories(factories);
-		return new ComposedAdapterFactory(factories);
+		return new PalladioItemProviderAdapterFactory(new ComposedAdapterFactory(factories));
 	}
 
 	/**

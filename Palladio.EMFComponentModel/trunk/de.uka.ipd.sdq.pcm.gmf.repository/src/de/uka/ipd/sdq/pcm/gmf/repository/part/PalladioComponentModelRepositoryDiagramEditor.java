@@ -11,10 +11,12 @@ import org.eclipse.core.resources.IMarker;
 import org.eclipse.core.resources.IWorkspaceRoot;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.NullProgressMonitor;
+import org.eclipse.core.runtime.Platform;
 import org.eclipse.emf.common.ui.URIEditorInput;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
@@ -225,6 +227,7 @@ public class PalladioComponentModelRepositoryDiagramEditor extends
 		}
 	}
 
+	/* Manual code to enable drag and drop */
 	@Override
 	protected void initializeGraphicalViewer() {
 		// TODO Auto-generated method stub
@@ -246,7 +249,25 @@ public class PalladioComponentModelRepositoryDiagramEditor extends
 								eObjects.addAll(selection.toList());
 							}
 						}
-						return eObjects;
+						return adaptAllObjects(eObjects);
+					}
+
+					private List adaptAllObjects(List objects) {
+						ArrayList result = new ArrayList();
+						for (Object o : objects) {
+							Object resultingAdaptedObject = null;
+							if (o instanceof EObject) {
+								resultingAdaptedObject = o;
+							} else if (o instanceof IAdaptable) {
+								IAdaptable adaptable = (IAdaptable) o;
+								resultingAdaptedObject = adaptable
+										.getAdapter(EObject.class);
+							}
+							if (!result.contains(resultingAdaptedObject)) {
+								result.add(resultingAdaptedObject);
+							}
+						}
+						return result;
 					}
 
 					public boolean isEnabled(DropTargetEvent event) {
