@@ -136,6 +136,26 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String AquireAction9CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String AquireAction9CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String ReleaseAction10CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String ReleaseAction10CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
 	public static String ControlFlow1CreationTool_title;
 
 	/**
@@ -361,6 +381,26 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String NavigatorGroupName_AquireAction_2009_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_AquireAction_2009_incominglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_ReleaseAction_2010_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_ReleaseAction_2010_incominglinks;
+
+	/**
+	 * @generated
+	 */
 	public static String NavigatorGroupName_StartAction_3004_outgoinglinks;
 
 	/**
@@ -417,6 +457,26 @@ public class Messages extends NLS {
 	 * @generated
 	 */
 	public static String NavigatorGroupName_ExternalCallAction_3012_incominglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_AquireAction_3019_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_AquireAction_3019_incominglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_ReleaseAction_3020_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_ReleaseAction_3020_incominglinks;
 
 	/**
 	 * @generated

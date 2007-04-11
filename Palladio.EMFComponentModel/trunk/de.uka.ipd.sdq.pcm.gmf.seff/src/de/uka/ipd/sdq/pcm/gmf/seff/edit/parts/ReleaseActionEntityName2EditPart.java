@@ -30,7 +30,6 @@ import org.eclipse.gmf.runtime.common.ui.services.parser.ParserService;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.CompartmentEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ITextAwareEditPart;
-import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.LabelDirectEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.l10n.DiagramColorRegistry;
 import org.eclipse.gmf.runtime.diagram.ui.requests.RequestConstants;
@@ -51,23 +50,19 @@ import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.FontData;
 import org.eclipse.swt.graphics.Image;
 
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.OpenLoopIterationsDialog;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.PalladioComponentModelTextSelectionEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.seff.providers.PalladioComponentModelElementTypes;
-import de.uka.ipd.sdq.pcm.seff.LoopAction;
-import de.uka.ipd.sdq.pcm.stochasticexpressions.PCMStoExPrettyPrintVisitor;
-import de.uka.ipd.sdq.stoex.analyser.visitors.StoExPrettyPrintVisitor;
 
 /**
  * @generated
  */
-public class LoopIterationsLabel2EditPart extends CompartmentEditPart implements
-		ITextAwareEditPart {
+public class ReleaseActionEntityName2EditPart extends CompartmentEditPart
+		implements ITextAwareEditPart {
 
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 5010;
+	public static final int VISUAL_ID = 5022;
 
 	/**
 	 * @generated
@@ -92,7 +87,7 @@ public class LoopIterationsLabel2EditPart extends CompartmentEditPart implements
 	/**
 	 * @generated
 	 */
-	public LoopIterationsLabel2EditPart(View view) {
+	public ReleaseActionEntityName2EditPart(View view) {
 		super(view);
 	}
 
@@ -213,13 +208,15 @@ public class LoopIterationsLabel2EditPart extends CompartmentEditPart implements
 	}
 
 	/**
-	 * @generated not
+	 * @generated
 	 */
 	protected String getLabelText() {
 		String text = null;
-		LoopAction loop = (LoopAction) resolveSemanticElement();
-		if (loop.getIterations_LoopAction() != null)
-			text = loop.getIterations_LoopAction().getSpecification();
+		if (getParser() != null) {
+			text = getParser().getPrintString(
+					new EObjectAdapter(getParserElement()),
+					getParserOptions().intValue());
+		}
 		if (text == null || text.length() == 0) {
 			text = defaultText;
 		}
@@ -254,7 +251,7 @@ public class LoopIterationsLabel2EditPart extends CompartmentEditPart implements
 	 * @generated
 	 */
 	protected boolean isEditable() {
-		return false;
+		return getParser() != null;
 	}
 
 	/**
@@ -319,7 +316,7 @@ public class LoopIterationsLabel2EditPart extends CompartmentEditPart implements
 
 				public Object getAdapter(Class adapter) {
 					if (IElementType.class.equals(adapter)) {
-						return PalladioComponentModelElementTypes.LoopAction_2004;
+						return PalladioComponentModelElementTypes.ReleaseAction_2010;
 					}
 					return super.getAdapter(adapter);
 				}
@@ -481,19 +478,33 @@ public class LoopIterationsLabel2EditPart extends CompartmentEditPart implements
 	}
 
 	/**
-	 * @generated not
+	 * @generated
 	 */
 	protected void addSemanticListeners() {
-		LoopAction loop = (LoopAction) resolveSemanticElement();
-		addListenerFilter(
-				"SemanticModel", this, loop.getIterations_LoopAction()); //$NON-NLS-1$
+		if (getParser() instanceof ISemanticParser) {
+			EObject element = resolveSemanticElement();
+			parserElements = ((ISemanticParser) getParser())
+					.getSemanticElementsBeingParsed(element);
+			for (int i = 0; i < parserElements.size(); i++) {
+				addListenerFilter(
+						"SemanticModel" + i, this, (EObject) parserElements.get(i)); //$NON-NLS-1$
+			}
+		} else {
+			super.addSemanticListeners();
+		}
 	}
 
 	/**
-	 * @generated not
+	 * @generated
 	 */
 	protected void removeSemanticListeners() {
-		removeListenerFilter("SemanticModel"); //$NON-NLS-1$
+		if (parserElements != null) {
+			for (int i = 0; i < parserElements.size(); i++) {
+				removeListenerFilter("SemanticModel" + i); //$NON-NLS-1$
+			}
+		} else {
+			super.removeSemanticListeners();
+		}
 	}
 
 	/**
@@ -535,7 +546,7 @@ public class LoopIterationsLabel2EditPart extends CompartmentEditPart implements
 	}
 
 	/**
-	 * @generated not
+	 * @generated
 	 */
 	protected void handleNotificationEvent(Notification event) {
 		Object feature = event.getFeature();
@@ -558,7 +569,21 @@ public class LoopIterationsLabel2EditPart extends CompartmentEditPart implements
 						feature)) {
 			refreshFont();
 		} else {
-			refreshLabel();
+			if (getParser() != null
+					&& getParser().isAffectingEvent(event,
+							getParserOptions().intValue())) {
+				refreshLabel();
+			}
+			if (getParser() instanceof ISemanticParser) {
+				ISemanticParser modelParser = (ISemanticParser) getParser();
+				if (modelParser.areSemanticElementsAffected(null, event)) {
+					removeSemanticListeners();
+					if (resolveSemanticElement() != null) {
+						addSemanticListeners();
+					}
+					refreshLabel();
+				}
+			}
 		}
 		super.handleNotificationEvent(event);
 	}

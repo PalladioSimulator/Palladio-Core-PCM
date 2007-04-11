@@ -3,10 +3,12 @@
  */
 package de.uka.ipd.sdq.pcm.gmf.seff.edit.policies;
 
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.commands.AquireActionCreateCommand;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.commands.BranchActionCreateCommand;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.commands.ExternalCallAction2CreateCommand;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.commands.InternalActionCreateCommand;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.commands.LoopAction2CreateCommand;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.commands.ReleaseActionCreateCommand;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.commands.StartAction2CreateCommand;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.commands.StopAction2CreateCommand;
 
@@ -75,6 +77,22 @@ public class ResourceDemandingBehaviourBranchCompartment2ItemSemanticEditPolicy
 						.getResourceDemandingBehaviour_Steps_Behaviour());
 			}
 			return getMSLWrapper(new ExternalCallAction2CreateCommand(req));
+		}
+		if (PalladioComponentModelElementTypes.AquireAction_3019 == req
+				.getElementType()) {
+			if (req.getContainmentFeature() == null) {
+				req.setContainmentFeature(SeffPackage.eINSTANCE
+						.getResourceDemandingBehaviour_Steps_Behaviour());
+			}
+			return getMSLWrapper(new AquireActionCreateCommand(req));
+		}
+		if (PalladioComponentModelElementTypes.ReleaseAction_3020 == req
+				.getElementType()) {
+			if (req.getContainmentFeature() == null) {
+				req.setContainmentFeature(SeffPackage.eINSTANCE
+						.getResourceDemandingBehaviour_Steps_Behaviour());
+			}
+			return getMSLWrapper(new ReleaseActionCreateCommand(req));
 		}
 		return super.getCreateCommand(req);
 	}

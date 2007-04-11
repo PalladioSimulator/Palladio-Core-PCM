@@ -8,6 +8,8 @@ import java.util.Collection;
 import org.eclipse.gmf.runtime.notation.Edge;
 import org.eclipse.emf.ecore.EObject;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.AbstractActionSuccessor_AbstractActionEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.AquireAction2EditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.AquireActionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.BranchAction2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.BranchActionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.CollectionIteratorAction2EditPart;
@@ -21,6 +23,8 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopAction2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopActionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ParametricResourceDemandEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ProbabilisticBranchTransitionEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ReleaseAction2EditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ReleaseActionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviour2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviour3EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviour4EditPart;
@@ -130,6 +134,14 @@ public class ResourceDemandingSEFFCanonicalEditPolicy extends
 				result.add(nextValue);
 				break;
 			}
+			case AquireAction2EditPart.VISUAL_ID: {
+				result.add(nextValue);
+				break;
+			}
+			case ReleaseAction2EditPart.VISUAL_ID: {
+				result.add(nextValue);
+				break;
+			}
 			}
 		}
 		return result;
@@ -154,6 +166,8 @@ public class ResourceDemandingSEFFCanonicalEditPolicy extends
 		case InternalAction2EditPart.VISUAL_ID:
 		case CollectionIteratorAction2EditPart.VISUAL_ID:
 		case SetVariableActionEditPart.VISUAL_ID:
+		case AquireAction2EditPart.VISUAL_ID:
+		case ReleaseAction2EditPart.VISUAL_ID:
 			return true;
 		}
 		return false;
@@ -283,6 +297,8 @@ public class ResourceDemandingSEFFCanonicalEditPolicy extends
 		case InternalAction2EditPart.VISUAL_ID:
 		case CollectionIteratorAction2EditPart.VISUAL_ID:
 		case SetVariableActionEditPart.VISUAL_ID:
+		case AquireAction2EditPart.VISUAL_ID:
+		case ReleaseAction2EditPart.VISUAL_ID:
 		case VariableUsageEditPart.VISUAL_ID:
 		case VariableCharacterisationEditPart.VISUAL_ID:
 		case ResourceDemandingBehaviourEditPart.VISUAL_ID:
@@ -295,6 +311,8 @@ public class ResourceDemandingSEFFCanonicalEditPolicy extends
 		case ProbabilisticBranchTransitionEditPart.VISUAL_ID:
 		case ResourceDemandingBehaviour2EditPart.VISUAL_ID:
 		case ExternalCallAction2EditPart.VISUAL_ID:
+		case AquireActionEditPart.VISUAL_ID:
+		case ReleaseActionEditPart.VISUAL_ID:
 		case GuardedBranchTransitionEditPart.VISUAL_ID:
 		case ResourceDemandingBehaviour3EditPart.VISUAL_ID:
 		case CollectionIteratorActionEditPart.VISUAL_ID:

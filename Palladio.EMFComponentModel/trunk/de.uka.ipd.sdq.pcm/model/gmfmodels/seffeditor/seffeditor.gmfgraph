@@ -43,8 +43,16 @@
         name="ReleaseFigure">
       <children
           xsi:type="gmfgraph:Label"
-          name="EntityEntityNameFigure"
+          name="ReleaseStereotypeLabel"
+          text="&lt;&lt;Release>>"/>
+      <children
+          xsi:type="gmfgraph:Label"
+          referencingElements="ReleaseNameLabel"
+          name="ReleaseNameLabelFigure"
           text="&lt;...>"/>
+      <children
+          xsi:type="gmfgraph:Label"
+          name="ReleaseResourceLabelFigure"/>
     </figures>
     <figures
         xsi:type="gmfgraph:Rectangle"
@@ -61,8 +69,16 @@
         name="AquireFigure">
       <children
           xsi:type="gmfgraph:Label"
-          name="EntityEntityNameFigure"
+          name="AquireStereotypeLabel"
+          text="&lt;&lt;Aquire>>"/>
+      <children
+          xsi:type="gmfgraph:Label"
+          referencingElements="AquireNameLabel"
+          name="AquireNameLabelFigure"
           text="&lt;...>"/>
+      <children
+          xsi:type="gmfgraph:Label"
+          name="AquireResourceLabelFigure"/>
     </figures>
     <figures
         xsi:type="gmfgraph:PolylineDecoration"
@@ -359,4 +375,10 @@
   <labels
       name="CollectionIteratorParameterLabel"
       figure="CollectionIteratorParameterLabelFigure"/>
+  <labels
+      name="ReleaseNameLabel"
+      figure="ReleaseNameLabelFigure"/>
+  <labels
+      name="AquireNameLabel"
+      figure="AquireNameLabelFigure"/>
 </gmfgraph:Canvas>

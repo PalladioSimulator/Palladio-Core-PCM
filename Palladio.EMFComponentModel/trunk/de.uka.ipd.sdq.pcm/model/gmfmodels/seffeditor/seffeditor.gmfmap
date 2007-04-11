@@ -211,8 +211,24 @@
             <childrenFeature
                 href="../../pcm.ecore#//seff/ResourceDemandingBehaviour/steps_Behaviour"/>
           </children>
+          <children
+              compartment="//@nodes.3/@ownedChild/@children.0/@ownedChild/@compartments.0"
+              referencedChild="//@nodes.8/@ownedChild">
+            <containmentFeature
+                href="../../pcm.ecore#//seff/ResourceDemandingBehaviour/steps_Behaviour"/>
+            <childrenFeature
+                href="../../pcm.ecore#//seff/ResourceDemandingBehaviour/steps_Behaviour"/>
+          </children>
+          <children
+              compartment="//@nodes.3/@ownedChild/@children.0/@ownedChild/@compartments.0"
+              referencedChild="//@nodes.9/@ownedChild">
+            <containmentFeature
+                href="../../pcm.ecore#//seff/ResourceDemandingBehaviour/steps_Behaviour"/>
+            <childrenFeature
+                href="../../pcm.ecore#//seff/ResourceDemandingBehaviour/steps_Behaviour"/>
+          </children>
           <compartments
-              children="//@nodes.3/@ownedChild/@children.0/@ownedChild/@children.0 //@nodes.3/@ownedChild/@children.0/@ownedChild/@children.1 //@nodes.3/@ownedChild/@children.0/@ownedChild/@children.2 //@nodes.3/@ownedChild/@children.0/@ownedChild/@children.3 //@nodes.3/@ownedChild/@children.0/@ownedChild/@children.4 //@nodes.3/@ownedChild/@children.0/@ownedChild/@children.5 //@nodes.3/@ownedChild/@children.0/@ownedChild/@children.6">
+              children="//@nodes.3/@ownedChild/@children.0/@ownedChild/@children.0 //@nodes.3/@ownedChild/@children.0/@ownedChild/@children.1 //@nodes.3/@ownedChild/@children.0/@ownedChild/@children.2 //@nodes.3/@ownedChild/@children.0/@ownedChild/@children.3 //@nodes.3/@ownedChild/@children.0/@ownedChild/@children.4 //@nodes.3/@ownedChild/@children.0/@ownedChild/@children.5 //@nodes.3/@ownedChild/@children.0/@ownedChild/@children.6 //@nodes.3/@ownedChild/@children.0/@ownedChild/@children.7 //@nodes.3/@ownedChild/@children.0/@ownedChild/@children.8">
             <compartment
                 href="seffeditor.gmfgraph#LoopCompartment"/>
           </compartments>
@@ -322,8 +338,24 @@
                 <childrenFeature
                     href="../../pcm.ecore#//seff/ResourceDemandingBehaviour/steps_Behaviour"/>
               </children>
+              <children
+                  compartment="//@nodes.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@compartments.0"
+                  referencedChild="//@nodes.8/@ownedChild">
+                <containmentFeature
+                    href="../../pcm.ecore#//seff/ResourceDemandingBehaviour/steps_Behaviour"/>
+                <childrenFeature
+                    href="../../pcm.ecore#//seff/ResourceDemandingBehaviour/steps_Behaviour"/>
+              </children>
+              <children
+                  compartment="//@nodes.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@compartments.0"
+                  referencedChild="//@nodes.9/@ownedChild">
+                <containmentFeature
+                    href="../../pcm.ecore#//seff/ResourceDemandingBehaviour/steps_Behaviour"/>
+                <childrenFeature
+                    href="../../pcm.ecore#//seff/ResourceDemandingBehaviour/steps_Behaviour"/>
+              </children>
               <compartments
-                  children="//@nodes.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.0 //@nodes.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.1 //@nodes.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.2 //@nodes.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.3 //@nodes.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.4 //@nodes.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.5">
+                  children="//@nodes.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.0 //@nodes.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.1 //@nodes.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.2 //@nodes.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.3 //@nodes.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.4 //@nodes.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.5 //@nodes.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.6 //@nodes.4/@ownedChild/@children.0/@ownedChild/@children.0/@ownedChild/@children.7">
                 <compartment
                     href="seffeditor.gmfgraph#BranchCompartment"/>
               </compartments>
@@ -415,8 +447,24 @@
                 <childrenFeature
                     href="../../pcm.ecore#//seff/ResourceDemandingBehaviour/steps_Behaviour"/>
               </children>
+              <children
+                  compartment="//@nodes.4/@ownedChild/@children.1/@ownedChild/@children.0/@ownedChild/@compartments.0"
+                  referencedChild="//@nodes.8/@ownedChild">
+                <containmentFeature
+                    href="../../pcm.ecore#//seff/ResourceDemandingBehaviour/steps_Behaviour"/>
+                <childrenFeature
+                    href="../../pcm.ecore#//seff/ResourceDemandingBehaviour/steps_Behaviour"/>
+              </children>
+              <children
+                  compartment="//@nodes.4/@ownedChild/@children.1/@ownedChild/@children.0/@ownedChild/@compartments.0"
+                  referencedChild="//@nodes.9/@ownedChild">
+                <containmentFeature
+                    href="../../pcm.ecore#//seff/ResourceDemandingBehaviour/steps_Behaviour"/>
+                <childrenFeature
+                    href="../../pcm.ecore#//seff/ResourceDemandingBehaviour/steps_Behaviour"/>
+              </children>
               <compartments
-                  children="//@nodes.4/@ownedChild/@children.1/@ownedChild/@children.0/@ownedChild/@children.0 //@nodes.4/@ownedChild/@children.1/@ownedChild/@children.0/@ownedChild/@children.1 //@nodes.4/@ownedChild/@children.1/@ownedChild/@children.0/@ownedChild/@children.2 //@nodes.4/@ownedChild/@children.1/@ownedChild/@children.0/@ownedChild/@children.3 //@nodes.4/@ownedChild/@children.1/@ownedChild/@children.0/@ownedChild/@children.4 //@nodes.4/@ownedChild/@children.1/@ownedChild/@children.0/@ownedChild/@children.5">
+                  children="//@nodes.4/@ownedChild/@children.1/@ownedChild/@children.0/@ownedChild/@children.0 //@nodes.4/@ownedChild/@children.1/@ownedChild/@children.0/@ownedChild/@children.1 //@nodes.4/@ownedChild/@children.1/@ownedChild/@children.0/@ownedChild/@children.2 //@nodes.4/@ownedChild/@children.1/@ownedChild/@children.0/@ownedChild/@children.3 //@nodes.4/@ownedChild/@children.1/@ownedChild/@children.0/@ownedChild/@children.4 //@nodes.4/@ownedChild/@children.1/@ownedChild/@children.0/@ownedChild/@children.5 //@nodes.4/@ownedChild/@children.1/@ownedChild/@children.0/@ownedChild/@children.6 //@nodes.4/@ownedChild/@children.1/@ownedChild/@children.0/@ownedChild/@children.7">
                 <compartment
                     href="seffeditor.gmfgraph#BranchCompartment"/>
               </compartments>
@@ -582,8 +630,24 @@
             <childrenFeature
                 href="../../pcm.ecore#//seff/ResourceDemandingBehaviour/steps_Behaviour"/>
           </children>
+          <children
+              compartment="//@nodes.6/@ownedChild/@children.0/@ownedChild/@compartments.0"
+              referencedChild="//@nodes.8/@ownedChild">
+            <containmentFeature
+                href="../../pcm.ecore#//seff/ResourceDemandingBehaviour/steps_Behaviour"/>
+            <childrenFeature
+                href="../../pcm.ecore#//seff/ResourceDemandingBehaviour/steps_Behaviour"/>
+          </children>
+          <children
+              compartment="//@nodes.6/@ownedChild/@children.0/@ownedChild/@compartments.0"
+              referencedChild="//@nodes.9/@ownedChild">
+            <containmentFeature
+                href="../../pcm.ecore#//seff/ResourceDemandingBehaviour/steps_Behaviour"/>
+            <childrenFeature
+                href="../../pcm.ecore#//seff/ResourceDemandingBehaviour/steps_Behaviour"/>
+          </children>
           <compartments
-              children="//@nodes.6/@ownedChild/@children.0/@ownedChild/@children.0 //@nodes.6/@ownedChild/@children.0/@ownedChild/@children.1 //@nodes.6/@ownedChild/@children.0/@ownedChild/@children.2 //@nodes.6/@ownedChild/@children.0/@ownedChild/@children.3 //@nodes.6/@ownedChild/@children.0/@ownedChild/@children.4 //@nodes.6/@ownedChild/@children.0/@ownedChild/@children.5 //@nodes.6/@ownedChild/@children.0/@ownedChild/@children.6">
+              children="//@nodes.6/@ownedChild/@children.0/@ownedChild/@children.0 //@nodes.6/@ownedChild/@children.0/@ownedChild/@children.1 //@nodes.6/@ownedChild/@children.0/@ownedChild/@children.2 //@nodes.6/@ownedChild/@children.0/@ownedChild/@children.3 //@nodes.6/@ownedChild/@children.0/@ownedChild/@children.4 //@nodes.6/@ownedChild/@children.0/@ownedChild/@children.5 //@nodes.6/@ownedChild/@children.0/@ownedChild/@children.6 //@nodes.6/@ownedChild/@children.0/@ownedChild/@children.7 //@nodes.6/@ownedChild/@children.0/@ownedChild/@children.8">
             <compartment
                 href="seffeditor.gmfgraph#LoopCompartment"/>
           </compartments>
@@ -663,6 +727,51 @@
         <compartment
             href="seffeditor.gmfgraph#ParameterUsage"/>
       </compartments>
+    </ownedChild>
+  </nodes>
+  <nodes>
+    <containmentFeature
+        href="../../pcm.ecore#//seff/ResourceDemandingBehaviour/steps_Behaviour"/>
+    <childrenFeature
+        href="../../pcm.ecore#//seff/ResourceDemandingBehaviour/steps_Behaviour"/>
+    <ownedChild>
+      <domainMetaElement
+          href="../../pcm.ecore#//seff/AquireAction"/>
+      <labelMappings
+          xsi:type="gmfmap:FeatureLabelMapping"
+          editPattern="">
+        <diagramLabel
+            href="seffeditor.gmfgraph#AquireNameLabel"/>
+        <features
+            href="../../pcm.ecore#//core/entity/NamedElement/entityName"/>
+      </labelMappings>
+      <tool
+          xsi:type="gmftool:CreationTool"
+          href="seffeditor.gmftool#//@palette/@tools.0/@tools.8"/>
+      <diagramNode
+          href="seffeditor.gmfgraph#AquireNode"/>
+    </ownedChild>
+  </nodes>
+  <nodes>
+    <containmentFeature
+        href="../../pcm.ecore#//seff/ResourceDemandingBehaviour/steps_Behaviour"/>
+    <childrenFeature
+        href="../../pcm.ecore#//seff/ResourceDemandingBehaviour/steps_Behaviour"/>
+    <ownedChild>
+      <domainMetaElement
+          href="../../pcm.ecore#//seff/ReleaseAction"/>
+      <labelMappings
+          xsi:type="gmfmap:FeatureLabelMapping">
+        <diagramLabel
+            href="seffeditor.gmfgraph#ReleaseNameLabel"/>
+        <features
+            href="../../pcm.ecore#//core/entity/NamedElement/entityName"/>
+      </labelMappings>
+      <tool
+          xsi:type="gmftool:CreationTool"
+          href="seffeditor.gmftool#//@palette/@tools.0/@tools.9"/>
+      <diagramNode
+          href="seffeditor.gmfgraph#ReleaseNode"/>
     </ownedChild>
   </nodes>
   <links>

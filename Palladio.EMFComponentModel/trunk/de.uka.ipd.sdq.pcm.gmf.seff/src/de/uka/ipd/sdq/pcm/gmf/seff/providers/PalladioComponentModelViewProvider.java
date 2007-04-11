@@ -9,6 +9,10 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.gmf.runtime.diagram.core.providers.AbstractViewProvider;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.gmf.runtime.emf.type.core.IElementType;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.AquireAction2EditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.AquireActionEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.AquireActionEntityName2EditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.AquireActionEntityNameEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.BranchAction2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.BranchActionBranchTransitionCompartment2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.BranchActionBranchTransitionCompartmentEditPart;
@@ -44,6 +48,10 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopIterationsLabelEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ParametricResourceDemandEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ProbabilisticBranchTransitionBranchProbabilityEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ProbabilisticBranchTransitionEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ReleaseAction2EditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ReleaseActionEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ReleaseActionEntityName2EditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ReleaseActionEntityNameEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviour2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviour3EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviour4EditPart;
@@ -71,6 +79,10 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableUsageVariableCharacterisat
 import de.uka.ipd.sdq.pcm.gmf.seff.part.PalladioComponentModelVisualIDRegistry;
 
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.AbstractActionSuccessor_AbstractActionViewFactory;
+import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.AquireAction2ViewFactory;
+import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.AquireActionEntityName2ViewFactory;
+import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.AquireActionEntityNameViewFactory;
+import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.AquireActionViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.BranchAction2ViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.BranchActionBranchTransitionCompartment2ViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.BranchActionBranchTransitionCompartmentViewFactory;
@@ -106,6 +118,10 @@ import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.LoopIterationsLabelViewFactory
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.ParametricResourceDemandViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.ProbabilisticBranchTransitionBranchProbabilityViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.ProbabilisticBranchTransitionViewFactory;
+import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.ReleaseAction2ViewFactory;
+import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.ReleaseActionEntityName2ViewFactory;
+import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.ReleaseActionEntityNameViewFactory;
+import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.ReleaseActionViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.ResourceDemandingBehaviour2ViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.ResourceDemandingBehaviour3ViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.ResourceDemandingBehaviour4ViewFactory;
@@ -198,6 +214,14 @@ public class PalladioComponentModelViewProvider extends AbstractViewProvider {
 			return CollectionIteratorParameterLabel2ViewFactory.class;
 		case SetVariableActionEditPart.VISUAL_ID:
 			return SetVariableActionViewFactory.class;
+		case AquireAction2EditPart.VISUAL_ID:
+			return AquireAction2ViewFactory.class;
+		case AquireActionEntityName2EditPart.VISUAL_ID:
+			return AquireActionEntityName2ViewFactory.class;
+		case ReleaseAction2EditPart.VISUAL_ID:
+			return ReleaseAction2ViewFactory.class;
+		case ReleaseActionEntityName2EditPart.VISUAL_ID:
+			return ReleaseActionEntityName2ViewFactory.class;
 		case VariableUsageEditPart.VISUAL_ID:
 			return VariableUsageViewFactory.class;
 		case VariableUsageReferenceLabelEditPart.VISUAL_ID:
@@ -236,6 +260,14 @@ public class PalladioComponentModelViewProvider extends AbstractViewProvider {
 			return ExternalCallAction2ViewFactory.class;
 		case ExternalCallActionEntityName2EditPart.VISUAL_ID:
 			return ExternalCallActionEntityName2ViewFactory.class;
+		case AquireActionEditPart.VISUAL_ID:
+			return AquireActionViewFactory.class;
+		case AquireActionEntityNameEditPart.VISUAL_ID:
+			return AquireActionEntityNameViewFactory.class;
+		case ReleaseActionEditPart.VISUAL_ID:
+			return ReleaseActionViewFactory.class;
+		case ReleaseActionEntityNameEditPart.VISUAL_ID:
+			return ReleaseActionEntityNameViewFactory.class;
 		case GuardedBranchTransitionEditPart.VISUAL_ID:
 			return GuardedBranchTransitionViewFactory.class;
 		case GuardedBranchTransitionIdEditPart.VISUAL_ID:

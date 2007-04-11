@@ -90,6 +90,16 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
 	/**
 	 * @generated
 	 */
+	public static final IElementType AquireAction_2009 = getElementType("de.uka.ipd.sdq.pcm.gmf.seff.AquireAction_2009"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType ReleaseAction_2010 = getElementType("de.uka.ipd.sdq.pcm.gmf.seff.ReleaseAction_2010"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
 	public static final IElementType VariableUsage_3001 = getElementType("de.uka.ipd.sdq.pcm.gmf.seff.VariableUsage_3001"); //$NON-NLS-1$
 	/**
 	 * @generated
@@ -135,6 +145,16 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
 	 * @generated
 	 */
 	public static final IElementType ExternalCallAction_3012 = getElementType("de.uka.ipd.sdq.pcm.gmf.seff.ExternalCallAction_3012"); //$NON-NLS-1$
+	/**
+	 * @generated
+	 */
+	public static final IElementType AquireAction_3019 = getElementType("de.uka.ipd.sdq.pcm.gmf.seff.AquireAction_3019"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType ReleaseAction_3020 = getElementType("de.uka.ipd.sdq.pcm.gmf.seff.ReleaseAction_3020"); //$NON-NLS-1$
+
 	/**
 	 * @generated
 	 */
@@ -308,6 +328,12 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
 			elements.put(SetVariableAction_2008, SeffPackage.eINSTANCE
 					.getSetVariableAction());
 
+			elements.put(AquireAction_2009, SeffPackage.eINSTANCE
+					.getAquireAction());
+
+			elements.put(ReleaseAction_2010, SeffPackage.eINSTANCE
+					.getReleaseAction());
+
 			elements.put(VariableUsage_3001, ParameterPackage.eINSTANCE
 					.getVariableUsage());
 
@@ -343,6 +369,12 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
 
 			elements.put(ExternalCallAction_3012, SeffPackage.eINSTANCE
 					.getExternalCallAction());
+
+			elements.put(AquireAction_3019, SeffPackage.eINSTANCE
+					.getAquireAction());
+
+			elements.put(ReleaseAction_3020, SeffPackage.eINSTANCE
+					.getReleaseAction());
 
 			elements.put(GuardedBranchTransition_3017, SeffPackage.eINSTANCE
 					.getGuardedBranchTransition());
@@ -391,6 +423,8 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
 			KNOWN_ELEMENT_TYPES.add(InternalAction_2006);
 			KNOWN_ELEMENT_TYPES.add(CollectionIteratorAction_2007);
 			KNOWN_ELEMENT_TYPES.add(SetVariableAction_2008);
+			KNOWN_ELEMENT_TYPES.add(AquireAction_2009);
+			KNOWN_ELEMENT_TYPES.add(ReleaseAction_2010);
 			KNOWN_ELEMENT_TYPES.add(VariableUsage_3001);
 			KNOWN_ELEMENT_TYPES.add(VariableCharacterisation_3002);
 			KNOWN_ELEMENT_TYPES.add(ResourceDemandingBehaviour_3003);
@@ -403,6 +437,8 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
 			KNOWN_ELEMENT_TYPES.add(ProbabilisticBranchTransition_3010);
 			KNOWN_ELEMENT_TYPES.add(ResourceDemandingBehaviour_3011);
 			KNOWN_ELEMENT_TYPES.add(ExternalCallAction_3012);
+			KNOWN_ELEMENT_TYPES.add(AquireAction_3019);
+			KNOWN_ELEMENT_TYPES.add(ReleaseAction_3020);
 			KNOWN_ELEMENT_TYPES.add(GuardedBranchTransition_3017);
 			KNOWN_ELEMENT_TYPES.add(ResourceDemandingBehaviour_3018);
 			KNOWN_ELEMENT_TYPES.add(CollectionIteratorAction_3013);

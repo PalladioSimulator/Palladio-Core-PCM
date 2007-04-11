@@ -109,7 +109,7 @@ public class PalladioComponentModelSeffDiagramEditorPlugin extends
 	 * @generated not
 	 */
 	public void stop(BundleContext context) throws Exception {
-		((PalladioItemProviderAdapterFactory)adapterFactory).dispose();
+		((PalladioItemProviderAdapterFactory) adapterFactory).dispose();
 		adapterFactory = null;
 		instance = null;
 		super.stop(context);
@@ -128,7 +128,8 @@ public class PalladioComponentModelSeffDiagramEditorPlugin extends
 	protected AdapterFactory createAdapterFactory() {
 		List factories = new ArrayList();
 		fillItemProviderFactories(factories);
-		return new PalladioItemProviderAdapterFactory(new ComposedAdapterFactory(factories));
+		return new PalladioItemProviderAdapterFactory(
+				new ComposedAdapterFactory(factories));
 	}
 
 	/**

@@ -214,9 +214,11 @@ public class CollectionIteratorParameterLabel2EditPart extends
 	protected String getLabelText() {
 		String text = "Param: ";
 		CollectionIteratorAction action = (CollectionIteratorAction) resolveSemanticElement();
-		if (action.getParameter_CollectionIteratorAction() != null &&
-			action.getParameter_CollectionIteratorAction().getParameterName() != null)
-			text += action.getParameter_CollectionIteratorAction().getParameterName();
+		if (action.getParameter_CollectionIteratorAction() != null
+				&& action.getParameter_CollectionIteratorAction()
+						.getParameterName() != null)
+			text += action.getParameter_CollectionIteratorAction()
+					.getParameterName();
 		if (text == null || text.length() == 0) {
 			text = defaultText;
 		}
@@ -482,8 +484,7 @@ public class CollectionIteratorParameterLabel2EditPart extends
 	 */
 	protected void addSemanticListeners() {
 		CollectionIteratorAction action = (CollectionIteratorAction) resolveSemanticElement();
-		addListenerFilter(
-			"SemanticModel", this, action); //$NON-NLS-1$
+		addListenerFilter("SemanticModel", this, action); //$NON-NLS-1$
 	}
 
 	/**

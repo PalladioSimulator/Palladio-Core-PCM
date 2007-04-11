@@ -134,6 +134,8 @@ public class PalladioComponentModelModelingAssistantProvider extends
 					.add(PalladioComponentModelElementTypes.ExternalCallAction_3012);
 			types
 					.add(PalladioComponentModelElementTypes.CollectionIteratorAction_3013);
+			types.add(PalladioComponentModelElementTypes.AquireAction_3019);
+			types.add(PalladioComponentModelElementTypes.ReleaseAction_3020);
 			return types;
 		}
 		if (editPart instanceof BranchActionBranchTransitionCompartmentEditPart) {
@@ -153,6 +155,8 @@ public class PalladioComponentModelModelingAssistantProvider extends
 			types.add(PalladioComponentModelElementTypes.BranchAction_3009);
 			types
 					.add(PalladioComponentModelElementTypes.ExternalCallAction_3012);
+			types.add(PalladioComponentModelElementTypes.AquireAction_3019);
+			types.add(PalladioComponentModelElementTypes.ReleaseAction_3020);
 			return types;
 		}
 		if (editPart instanceof ExternalCallActionParameterUsage2EditPart) {
@@ -169,6 +173,8 @@ public class PalladioComponentModelModelingAssistantProvider extends
 			types.add(PalladioComponentModelElementTypes.BranchAction_3009);
 			types
 					.add(PalladioComponentModelElementTypes.ExternalCallAction_3012);
+			types.add(PalladioComponentModelElementTypes.AquireAction_3019);
+			types.add(PalladioComponentModelElementTypes.ReleaseAction_3020);
 			return types;
 		}
 		if (editPart instanceof ResourceDemandingBehaviourLoopCompartment2EditPart) {
@@ -182,6 +188,8 @@ public class PalladioComponentModelModelingAssistantProvider extends
 					.add(PalladioComponentModelElementTypes.ExternalCallAction_3012);
 			types
 					.add(PalladioComponentModelElementTypes.CollectionIteratorAction_3013);
+			types.add(PalladioComponentModelElementTypes.AquireAction_3019);
+			types.add(PalladioComponentModelElementTypes.ReleaseAction_3020);
 			return types;
 		}
 		if (editPart instanceof BranchActionBranchTransitionCompartment2EditPart) {
@@ -210,6 +218,8 @@ public class PalladioComponentModelModelingAssistantProvider extends
 					.add(PalladioComponentModelElementTypes.CollectionIteratorAction_2007);
 			types
 					.add(PalladioComponentModelElementTypes.SetVariableAction_2008);
+			types.add(PalladioComponentModelElementTypes.AquireAction_2009);
+			types.add(PalladioComponentModelElementTypes.ReleaseAction_2010);
 			return types;
 		}
 		return Collections.EMPTY_LIST;
