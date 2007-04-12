@@ -7,6 +7,8 @@
  */
 package de.uka.ipd.sdq.pcm.seff;
 
+import java.util.Map;
+import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
 
 /**
@@ -48,5 +50,16 @@ public interface BranchAction extends AbstractResourceDemandingAction {
 	 * @generated
 	 */
 	EList<AbstractBranchTransition> getBranches_Branch();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * self.branches_Branch->forAll(bt|bt.oclIsTypeOf(ProbabilisticBranchTransition) or self.branches_Branch->forAll(bt|bt.oclIsTypeOf(GuardedBranchTransition)
+	 * <!-- end-model-doc -->
+	 * @model
+	 * @generated
+	 */
+	boolean EitherGuardedBranchesorProbabilisiticBranchTransitions(DiagnosticChain diagnostics, Map<Object, Object> context);
 
 } // BranchAction

@@ -682,6 +682,10 @@
         <requiredPluginIDs>org.eclipse.draw2d</requiredPluginIDs>
         <requiredPluginIDs>org.eclipse.gmf.runtime.draw2d.ui</requiredPluginIDs>
       </viewmap>
+      <behaviour
+          xsi:type="gmfgen:CustomBehaviour"
+          key="EditPolicyRoles.OPEN_ROLE"
+          editPolicyQualifiedClassName="de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.OpenBranchConditionDialog"/>
       <modelFacet>
         <metaClass
             href="../../pcm.genmodel#//pcm/seff/GuardedBranchTransition"/>
@@ -703,6 +707,10 @@
             xsi:type="gmfgen:ParentAssignedViewmap"
             getterName="getFigureBranchTransitionProbabilityLabel"
             figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel"/>
+        <behaviour
+            xsi:type="gmfgen:CustomBehaviour"
+            key="EditPolicyRoles.OPEN_ROLE"
+            editPolicyQualifiedClassName="de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.OpenBranchConditionDialog"/>
         <modelFacet
             xsi:type="gmfgen:FeatureLabelModelFacet"
             editPattern="">

@@ -28,9 +28,6 @@ import org.eclipse.emf.ecore.EReference;
  *   <li>and each data type</li>
  * </ul>
  * <!-- end-user-doc -->
- * <!-- begin-model-doc -->
- * self.branches_Branch->forAll(bt|bt.oclIsTypeOf(ProbabilisticBranchTransition) or self.branches_Branch->forAll(bt|bt.oclIsTypeOf(GuardedBranchTransition)
- * <!-- end-model-doc -->
  * @see de.uka.ipd.sdq.pcm.seff.SeffFactory
  * @model kind="package"
  * @generated

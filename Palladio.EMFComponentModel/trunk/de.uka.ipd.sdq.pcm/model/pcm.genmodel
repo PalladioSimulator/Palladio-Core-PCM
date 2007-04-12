@@ -338,6 +338,10 @@
       </genClasses>
       <genClasses ecoreClass="pcm.ecore#//seff/BranchAction">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//seff/BranchAction/branches_Branch"/>
+        <genOperations ecoreOperation="pcm.ecore#//seff/BranchAction/EitherGuardedBranchesorProbabilisiticBranchTransitions">
+          <genParameters ecoreParameter="pcm.ecore#//seff/BranchAction/EitherGuardedBranchesorProbabilisiticBranchTransitions/diagnostics"/>
+          <genParameters ecoreParameter="pcm.ecore#//seff/BranchAction/EitherGuardedBranchesorProbabilisiticBranchTransitions/context"/>
+        </genOperations>
       </genClasses>
       <genClasses ecoreClass="pcm.ecore#//seff/AquireAction">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"

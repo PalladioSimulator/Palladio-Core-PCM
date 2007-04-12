@@ -10257,7 +10257,7 @@
         </edges>
       </contents>
       <contents xmi:type="notation:Diagram" xmi:id="_aoqwcGp6EduKlZePhPePrw" type="Class" element="_XZbScCh9Edue7oeC4NTCGg" name="Branch">
-        <children xmi:id="_dPtrMGp6EduKlZePhPePrw" sourceEdges="_dRDIAGp6EduKlZePhPePrw" targetEdges="_3P4aYInoEducPr8SMhBkpQ" element="_6EgLcODhEdq8ysXH3gTiEg">
+        <children xmi:id="_dPtrMGp6EduKlZePhPePrw" sourceEdges="_dRDIAGp6EduKlZePhPePrw" targetEdges="_6Tkh8OksEduAcocC3l-YdQ" element="_6EgLcODhEdq8ysXH3gTiEg">
           <children xmi:id="_dPtrM2p6EduKlZePhPePrw" type="ImageCompartment" element="_6EgLcODhEdq8ysXH3gTiEg">
             <layoutConstraint xmi:type="notation:Size" xmi:id="_dPtrNGp6EduKlZePhPePrw" width="1320" height="1320"/>
           </children>
@@ -10414,7 +10414,7 @@
           <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_oV6VcYnoEducPr8SMhBkpQ" showStereotype="Label"/>
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_oV6VconoEducPr8SMhBkpQ" x="-9540" y="9858"/>
         </children>
-        <children xmi:id="_2gMp4InoEducPr8SMhBkpQ" sourceEdges="_3P4aYInoEducPr8SMhBkpQ" element="_2gC44InoEducPr8SMhBkpQ">
+        <children xmi:id="_2gMp4InoEducPr8SMhBkpQ" sourceEdges="_6Tkh8OksEduAcocC3l-YdQ" element="_2gC44InoEducPr8SMhBkpQ">
           <children xmi:id="_2gMp44noEducPr8SMhBkpQ" type="Name" element="_2gC44InoEducPr8SMhBkpQ"/>
           <children xmi:id="_2gMp5InoEducPr8SMhBkpQ" type="Stereotype" element="_2gC44InoEducPr8SMhBkpQ"/>
           <children xmi:id="_2gMp5YnoEducPr8SMhBkpQ" type="ValueSpecification" element="_2gC44InoEducPr8SMhBkpQ"/>
@@ -10633,10 +10633,6 @@
           <styles xmi:type="umlnotation:UMLConnectorStyle" xmi:id="_rzfPkonoEducPr8SMhBkpQ" showStereotype="Text"/>
           <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_rzfPk4noEducPr8SMhBkpQ" points="[98, -8, -180, -8]$[179, -8, -99, -8]"/>
         </edges>
-        <edges xmi:id="_3P4aYInoEducPr8SMhBkpQ" type="Reference" source="_2gMp4InoEducPr8SMhBkpQ" target="_dPtrMGp6EduKlZePhPePrw">
-          <styles xmi:type="umlnotation:UMLConnectorStyle" xmi:id="_3P4aYYnoEducPr8SMhBkpQ" showStereotype="Text"/>
-          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_3P4aYonoEducPr8SMhBkpQ" points="[-4524, 27, 3916, 0]$[-6800, 27, 1640, 0]"/>
-        </edges>
         <edges xmi:id="_KZvf0InsEducPr8SMhBkpQ" element="_KZmV4InsEducPr8SMhBkpQ" source="_eX_TwInoEducPr8SMhBkpQ" target="_JaHO0InsEducPr8SMhBkpQ">
           <children xmi:id="_KZvf04nsEducPr8SMhBkpQ" type="NameLabel" element="_KZmV4InsEducPr8SMhBkpQ">
             <children xmi:id="_KZvf1YnsEducPr8SMhBkpQ" type="Stereotype" element="_KZmV4InsEducPr8SMhBkpQ"/>
@@ -10645,6 +10641,10 @@
           </children>
           <styles xmi:type="umlnotation:UMLConnectorStyle" xmi:id="_KZvf0YnsEducPr8SMhBkpQ" showStereotype="Text"/>
           <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_KZvf0onsEducPr8SMhBkpQ" points="[-38, -23, 86, 47]$[-58, -44, 66, 26]"/>
+        </edges>
+        <edges xmi:id="_6Tkh8OksEduAcocC3l-YdQ" type="Reference" source="_2gMp4InoEducPr8SMhBkpQ" target="_dPtrMGp6EduKlZePhPePrw">
+          <styles xmi:type="umlnotation:UMLConnectorStyle" xmi:id="_6Tkh8eksEduAcocC3l-YdQ" fontName="Segoe UI" showStereotype="Text"/>
+          <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_6Tkh8uksEduAcocC3l-YdQ" points="[-439, -14, 147, -15]$[-531, -14, 55, -15]"/>
         </edges>
       </contents>
       <contents xmi:type="notation:Diagram" xmi:id="_OPNOwJDtEdu1yp0uU5FcVQ" type="Class" element="_XZbScCh9Edue7oeC4NTCGg" name="PCM_Techrep1">
@@ -12452,9 +12452,6 @@
     <eAnnotations xmi:id="_xi-v0CkuEduWPLsEEctz1g" source="appliedStereotypes">
       <contents xmi:type="Ecore_0:Ecore__EPackage" xmi:id="_xi-v0SkuEduWPLsEEctz1g" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0"/>
     </eAnnotations>
-    <ownedRule xmi:id="_2gC44InoEducPr8SMhBkpQ" name="Either Guarded Branches or Probabilisitic Branch Transitions" constrainedElement="_6EgLcODhEdq8ysXH3gTiEg">
-      <specification xmi:type="uml:OpaqueExpression" xmi:id="_2gC44YnoEducPr8SMhBkpQ" body="self.branches_Branch->forAll(bt|bt.oclIsTypeOf(ProbabilisticBranchTransition) or self.branches_Branch->forAll(bt|bt.oclIsTypeOf(GuardedBranchTransition)" language="OCL"/>
-    </ownedRule>
     <packageImport xmi:id="_6wJ5A-KAEdqAv53nKUeRxw">
       <importedPackage xmi:type="uml:Model" href="pathmap://UML2_LIBRARIES/UML2PrimitiveTypes.library.uml2#_EfRZoK86EdieaYgxtVWN8Q"/>
     </packageImport>
@@ -12548,6 +12545,9 @@
       </ownedAttribute>
     </ownedMember>
     <ownedMember xmi:type="uml:Class" xmi:id="_6EgLcODhEdq8ysXH3gTiEg" name="BranchAction">
+      <ownedRule xmi:id="_2gC44InoEducPr8SMhBkpQ" name="Either Guarded Branches Or Probabilisitic Branch Transitions" constrainedElement="_6EgLcODhEdq8ysXH3gTiEg">
+        <specification xmi:type="uml:OpaqueExpression" xmi:id="_2gC44YnoEducPr8SMhBkpQ" body="self.branches_Branch->forAll(bt|bt.oclIsTypeOf(ProbabilisticBranchTransition)) or self.branches_Branch->forAll(bt|bt.oclIsTypeOf(GuardedBranchTransition))" language="OCL"/>
+      </ownedRule>
       <generalization xmi:id="_7WdikODhEdq8ysXH3gTiEg" general="_kmntkODhEdq8ysXH3gTiEg"/>
       <ownedAttribute xmi:id="_RcaZ0eTDEdq49qz7R-l1Hg" name="branches_Branch" type="_eX2J0InoEducPr8SMhBkpQ" association="_RcaZ0OTDEdq49qz7R-l1Hg" aggregation="composite">
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_RcaZ1OTDEdq49qz7R-l1Hg" value="-1"/>
