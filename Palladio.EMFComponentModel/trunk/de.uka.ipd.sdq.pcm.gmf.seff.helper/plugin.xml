@@ -41,6 +41,18 @@
                inheritance="all"
                typeId="de.uka.ipd.sdq.pcm.gmf.seff.ParametricResourceDemand_3008">
          </adviceBinding>
+          <adviceBinding 
+               class="de.uka.ipd.sdq.pcm.gmf.seff.helper.IncludeResourseDemandingEditHelperAdvice"
+               id="de.uka.ipd.sdq.pcm.gmf.seff.ProbabilisticBranchTransitionAdvice"
+               inheritance="all"
+               typeId="de.uka.ipd.sdq.pcm.gmf.seff.ProbabilisticBranchTransition_3010">
+         </adviceBinding>
+          <adviceBinding 
+               class="de.uka.ipd.sdq.pcm.gmf.seff.helper.IncludeResourseDemandingEditHelperAdvice"
+               id="de.uka.ipd.sdq.pcm.gmf.seff.GuardedBranchTransitionAdvice"
+               inheritance="all"
+               typeId="de.uka.ipd.sdq.pcm.gmf.seff.GuardedBranchTransition_3017">
+         </adviceBinding>
       </metamodel>
       <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0">
          <metamodelType
@@ -81,6 +93,12 @@
          </advice>
          <advice
                ref="de.uka.ipd.sdq.pcm.gmf.seff.LoopIterationsActionAdvice">
+         </advice>
+          <advice
+               ref="de.uka.ipd.sdq.pcm.gmf.seff.ProbabilisticBranchTransitionAdvice">
+         </advice>
+         <advice
+               ref="de.uka.ipd.sdq.pcm.gmf.seff.GuardedBranchTransitionAdvice">
          </advice>
          <elementType
                ref="de.uka.ipd.sdq.pcm.gmf.seff.LoopIterations_9000">
