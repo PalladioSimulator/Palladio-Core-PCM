@@ -11,6 +11,12 @@
                inheritance="all"
                typeId="de.uka.ipd.sdq.pcm.gmf.seff.CollectionIteratorAction_3013">
          </adviceBinding>
+          <adviceBinding 
+               class="de.uka.ipd.sdq.pcm.gmf.seff.helper.ParameterCollectionIteratorActionEditHelperAdvice"
+               id="de.uka.ipd.sdq.pcm.gmf.seff.ParameterCollectionIteratorActionAdvice"
+               inheritance="all"
+               typeId="de.uka.ipd.sdq.pcm.gmf.seff.CollectionIteratorAction_3013">
+         </adviceBinding>
          <adviceBinding 
                class="de.uka.ipd.sdq.pcm.gmf.seff.helper.CreateLoopIterationsEditHelperAdvice"
                id="de.uka.ipd.sdq.pcm.gmf.seff.LoopIterationsActionAdvice"
@@ -59,6 +65,18 @@
                inheritance="all"
                typeId="de.uka.ipd.sdq.pcm.gmf.seff.GuardedBranchTransition_3017">
          </adviceBinding>
+         <adviceBinding 
+               class="de.uka.ipd.sdq.pcm.gmf.seff.helper.AquireActionEditHelperAdvice"
+               id="de.uka.ipd.sdq.pcm.gmf.seff.AquireActionAdvice"
+               inheritance="all"
+               typeId="de.uka.ipd.sdq.pcm.gmf.seff.AquireAction_2009">
+         </adviceBinding>
+         <adviceBinding 
+               class="de.uka.ipd.sdq.pcm.gmf.seff.helper.ReleaseActionEditHelperAdvice"
+               id="de.uka.ipd.sdq.pcm.gmf.seff.ReleaseActionAdvice"
+               inheritance="all"
+               typeId="de.uka.ipd.sdq.pcm.gmf.seff.ReleaseAction_2010">
+         </adviceBinding>
       </metamodel>
       <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0">
          <metamodelType
@@ -95,6 +113,9 @@
          <advice
                ref="de.uka.ipd.sdq.pcm.gmf.seff.CollectionIteratorActionAdvice">
          </advice>
+          <advice
+               ref="de.uka.ipd.sdq.pcm.gmf.seff.ParameterCollectionIteratorActionAdvice">
+         </advice>
          <advice
                ref="de.uka.ipd.sdq.pcm.gmf.seff.LoopActionAdvice">
          </advice>
@@ -119,6 +140,12 @@
          <advice
                ref="de.uka.ipd.sdq.pcm.gmf.seff.BranchConditionActionAdvice">
          </advice>
+          <advice
+               ref="de.uka.ipd.sdq.pcm.gmf.seff.AquireActionAdvice">
+         </advice>
+          <advice
+               ref="de.uka.ipd.sdq.pcm.gmf.seff.ReleaseActionAdvice">
+         </advice>
          <elementType
                ref="de.uka.ipd.sdq.pcm.gmf.seff.LoopIterations_9000">
          </elementType>
@@ -127,6 +154,4 @@
          </elementType>
        </binding>
    </extension>
-
-
 </plugin>
