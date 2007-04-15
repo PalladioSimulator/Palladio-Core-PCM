@@ -19,6 +19,10 @@ public class ExperimentDAO {
 		return singletonInstance;
 	}
 	
+	public EntityManagerFactory getEntityManagerFactory(){
+		return emFactory;
+	}
+	
 	private ExperimentDAO() {
 		emFactory = Persistence.createEntityManagerFactory("sensorfactory");
 		em = emFactory.createEntityManager();

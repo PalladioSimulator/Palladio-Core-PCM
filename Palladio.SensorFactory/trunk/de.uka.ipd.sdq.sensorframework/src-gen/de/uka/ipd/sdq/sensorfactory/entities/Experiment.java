@@ -65,12 +65,10 @@ public abstract class Experiment {
     }
 
     public de.uka.ipd.sdq.sensorfactory.entities.StateSensor addStateSensor(
-        de.uka.ipd.sdq.sensorfactory.entities.State p_initialstate,
         String p_sensorname) {
         de.uka.ipd.sdq.sensorfactory.entities.StateSensor result = new de.uka.ipd.sdq.sensorfactory.entities.impl.StateSensorImpl();
 
         result.setSensorName(p_sensorname);
-        result.setInitialState(p_initialstate);
 
         m_sensors.add(result);
 

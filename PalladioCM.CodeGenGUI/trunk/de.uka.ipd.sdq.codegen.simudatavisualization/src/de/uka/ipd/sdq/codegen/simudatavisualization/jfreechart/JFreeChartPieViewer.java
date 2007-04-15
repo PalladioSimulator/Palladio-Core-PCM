@@ -18,38 +18,38 @@ import org.jfree.chart.ChartFactory;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.chart.plot.XYPlot;
+import org.jfree.data.category.CategoryToPieDataset;
+import org.jfree.data.general.DefaultKeyedValueDataset;
+import org.jfree.data.general.DefaultPieDataset;
+import org.jfree.data.general.PieDataset;
 import org.jfree.data.xy.DefaultTableXYDataset;
 import org.jfree.data.xy.XYSeries;
 
 import de.uka.ipd.sdq.codegen.simudatavisualisation.datatypes.Histogram;
 import de.uka.ipd.sdq.codegen.simudatavisualisation.datatypes.HistogramEntity;
+import de.uka.ipd.sdq.codegen.simudatavisualisation.datatypes.Pie;
+import de.uka.ipd.sdq.codegen.simudatavisualisation.datatypes.PieEntity;
 import de.uka.ipd.sdq.sensorframework.adapter.IAdapter;
 
-public class JFreeChartHistogramViewer extends AbstractJFreeChartChart {
+public class JFreeChartPieViewer extends AbstractJFreeChartChart {
 
-	public JFreeChartHistogramViewer(Composite parent, int style) {
+	DefaultPieDataset pieDataset=null;
+	
+	public JFreeChartPieViewer(Composite parent, int style) {
 		super(parent, style);
 	}
 
-	DefaultTableXYDataset densityDataset=new DefaultTableXYDataset();
-
 	protected void initChart() {
-		myChart = ChartFactory.createHistogram("Histogram","Time [s]","Probability", densityDataset,PlotOrientation.VERTICAL,true,true,true);
-
-		XYPlot plot = (XYPlot)myChart.getPlot();
-		plot.getRangeAxis().setAutoRange(true);
-		plot.setForegroundAlpha(0.8f); // for transparency
+		if(pieDataset != null)
+			myChart = ChartFactory.createPieChart3D("Pie", pieDataset, true, false, false);
+		else
+			myChart = null;
 	}
 
-	public void setHistograms(Collection<IAdapter> data){
-		densityDataset.removeAllSeries();
-		
-		for (IAdapter histAdapter : data) {
-			Histogram hist = (Histogram) histAdapter.getAdaptedObject();
-			XYSeries density = new XYSeries(hist.getLabel(),true,false);
-			for (HistogramEntity e : hist.getEntityList())
-				density.add(e.getValue(), e.getProbability());
-			densityDataset.addSeries(density);
+	public void setPie(Pie data){
+		pieDataset = new DefaultPieDataset();
+		for (PieEntity pe : data.getEntities()){
+			pieDataset.setValue(pe.getLabel(), pe.getValue());
 		}
 		initChart();
 		this.redraw();

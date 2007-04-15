@@ -12,6 +12,8 @@ import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.PartInitException;
 
 import de.uka.ipd.sdq.codegen.simudatavisualization.SimuPlugin;
+import de.uka.ipd.sdq.codegen.simudatavisualization.editor.AbstractReportView;
+import de.uka.ipd.sdq.codegen.simudatavisualization.editor.ConfigEditorInput;
 import de.uka.ipd.sdq.sensorfactory.entities.ExperimentRun;
 import de.uka.ipd.sdq.sensorfactory.entities.Sensor;
 

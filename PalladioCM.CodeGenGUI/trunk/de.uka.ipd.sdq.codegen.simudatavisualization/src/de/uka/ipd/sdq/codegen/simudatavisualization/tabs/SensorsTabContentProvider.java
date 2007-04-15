@@ -6,7 +6,7 @@ package de.uka.ipd.sdq.codegen.simudatavisualization.tabs;
 import org.eclipse.jface.viewers.IStructuredContentProvider;
 import org.eclipse.jface.viewers.Viewer;
 
-import de.uka.ipd.sdq.codegen.simudatavisualization.views.ConfigEditorInput;
+import de.uka.ipd.sdq.codegen.simudatavisualization.editor.ConfigEditorInput;
 
 /**
  * @author admin

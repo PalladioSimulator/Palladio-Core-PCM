@@ -55,7 +55,7 @@
           <styles xmi:type="notation:FillStyle" xmi:id="_1XSUg3jmEduuSvsux_US9A"/>
           <styles xmi:type="notation:LineStyle" xmi:id="_1XSUhHjmEduuSvsux_US9A"/>
           <element xmi:type="pcm.repository:RequiredRole" href="Qosa.repository#_mWYNoHiEEdujPfhn5Gb-iA"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_1XSUhXjmEduuSvsux_US9A"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_1XSUhXjmEduuSvsux_US9A" x="-15" y="1" width="16" height="30"/>
         </children>
         <styles xmi:type="notation:FontStyle" xmi:id="_1XIjgnjmEduuSvsux_US9A"/>
         <styles xmi:type="notation:DescriptionStyle" xmi:id="_1XIjg3jmEduuSvsux_US9A"/>
@@ -155,12 +155,12 @@
     <styles xmi:type="notation:DescriptionStyle" xmi:id="_rLgdAnjmEduuSvsux_US9A"/>
     <styles xmi:type="notation:FillStyle" xmi:id="_rLgdA3jmEduuSvsux_US9A"/>
     <styles xmi:type="notation:LineStyle" xmi:id="_rLgdBHjmEduuSvsux_US9A"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_rLgdBXjmEduuSvsux_US9A" x="60" y="48" width="529" height="241"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_rLgdBXjmEduuSvsux_US9A" x="60" y="24" width="529" height="241"/>
   </children>
   <styles xmi:type="notation:PageStyle" xmi:id="_rFGTAXjmEduuSvsux_US9A"/>
   <styles xmi:type="notation:GuideStyle" xmi:id="_rFGTAnjmEduuSvsux_US9A"/>
   <styles xmi:type="notation:DescriptionStyle" xmi:id="_rFGTA3jmEduuSvsux_US9A"/>
-  <element xmi:type="pcm.system:System" href="qosa.system#/"/>
+  <element xmi:type="pcm.system:System" href="qosa.system#_eXK7sHwDEduH1Ymk7_QCwA"/>
   <edges xmi:type="notation:Edge" xmi:id="_0aofAHjmEduuSvsux_US9A" type="3002" source="_yHtaIHjmEduuSvsux_US9A" target="_zQSLwHjmEduuSvsux_US9A">
     <styles xmi:type="notation:RoutingStyle" xmi:id="_0aofAXjmEduuSvsux_US9A"/>
     <styles xmi:type="notation:FontStyle" xmi:id="_0aofAnjmEduuSvsux_US9A"/>
@@ -199,6 +199,6 @@
     <styles xmi:type="notation:FontStyle" xmi:id="_D7830njnEduuSvsux_US9A"/>
     <styles xmi:type="notation:LineStyle" xmi:id="_D78303jnEduuSvsux_US9A"/>
     <element xmi:type="pcm.core.composition:AssemblyConnector" href="qosa.system#_D7Wa4HjnEduuSvsux_US9A"/>
-    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_D7831HjnEduuSvsux_US9A" points="[-2, 7, -2, -38]$[2, 43, 2, -2]"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_D7831HjnEduuSvsux_US9A" points="[3, -1, 81, -76]$[-75, 63, 3, -12]"/>
   </edges>
 </notation:Diagram>

@@ -8,5 +8,12 @@
             id="de.uka.ipd.sdq.sensorframework.adapter.DataAdapter1">
       </DataAdapter>
    </extension>
+   <extension
+         point="de.uka.ipd.sdq.sensorframework.adapter">
+      <DataAdapter
+            class="de.uka.ipd.sdq.sensorframework.adapter.StateSensorToPieFactory"
+            id="de.uka.ipd.sdq.sensorframework.adapter.StateToPie">
+      </DataAdapter>
+   </extension>
 
 </plugin>

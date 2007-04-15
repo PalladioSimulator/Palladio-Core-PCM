@@ -12,7 +12,10 @@ import org.eclipse.ui.IWorkbenchWindowActionDelegate;
 import org.eclipse.ui.PartInitException;
 
 import de.uka.ipd.sdq.codegen.simudatavisualization.SimuPlugin;
-import de.uka.ipd.sdq.codegen.simudatavisualization.views.ConfigEditorInput;
+import de.uka.ipd.sdq.codegen.simudatavisualization.editor.AbstractReportView;
+import de.uka.ipd.sdq.codegen.simudatavisualization.editor.ConfigEditorInput;
+import de.uka.ipd.sdq.codegen.simudatavisualization.jfreechart.JFreeChartPieViewer;
+import de.uka.ipd.sdq.codegen.simudatavisualization.views.JFreeChartPieReport;
 import de.uka.ipd.sdq.codegen.simudatavisualization.views.ReportView;
 
 /**
@@ -55,7 +58,7 @@ public class CreateChartAction implements IWorkbenchWindowActionDelegate {
 		.getActiveWorkbenchWindow().getActivePage();
 		
 		try {
-			page.openEditor(new ConfigEditorInput(), ReportView.EDITOR_ID);
+			page.openEditor(new ConfigEditorInput(), JFreeChartPieReport.JFREECHART_PIE_EDITOR_ID);
 		} catch (PartInitException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

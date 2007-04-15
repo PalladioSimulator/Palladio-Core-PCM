@@ -79,7 +79,7 @@
             visible="true"
             id="actions.actionSet">
          <menu
-               label="SumuBench"
+               label="SimuBench"
                id="simuBenchMenu">
             <separator
                   name="simuBenchGroup">
@@ -110,6 +110,12 @@
                icon="icons/new_chart.gif"
                id="de.uka.ipd.sdq.codegen.simudatavisualization.views.ReportView"
                name="Report Editor">
+         </editor>
+         <editor
+               class="de.uka.ipd.sdq.codegen.simudatavisualization.views.JFreeChartPieReport"
+               icon="icons/new_chart.gif"
+               id="de.uka.ipd.sdq.codegen.simudatavisualization.views.JFreeChartPieReport"
+               name="JFreeChart Pie Viewer">
          </editor>
       </extension>
 </plugin>

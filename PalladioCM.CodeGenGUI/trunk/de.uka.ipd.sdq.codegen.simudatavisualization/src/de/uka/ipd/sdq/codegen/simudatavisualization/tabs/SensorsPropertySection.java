@@ -37,7 +37,8 @@ import de.uka.ipd.sdq.codegen.simudatavisualization.SimuPlugin;
 import de.uka.ipd.sdq.codegen.simudatavisualization.birt.RunEntry;
 import de.uka.ipd.sdq.codegen.simudatavisualization.dialogs.ExperimentRunsDialog;
 import de.uka.ipd.sdq.codegen.simudatavisualization.dialogs.SensorsDialog;
-import de.uka.ipd.sdq.codegen.simudatavisualization.views.ConfigEditorInput;
+import de.uka.ipd.sdq.codegen.simudatavisualization.editor.AbstractReportView;
+import de.uka.ipd.sdq.codegen.simudatavisualization.editor.ConfigEditorInput;
 import de.uka.ipd.sdq.codegen.simudatavisualization.views.ReportView;
 import de.uka.ipd.sdq.sensorfactory.entities.Sensor;
 import de.uka.ipd.sdq.sensorframework.visualisation.IVisualisation;
@@ -246,8 +247,8 @@ public class SensorsPropertySection extends AbstractPropertySection {
 	public void setInput(IWorkbenchPart part, ISelection selection) {
 		super.setInput(part, selection);
 
-		if (part instanceof ReportView) {
-			ReportView view = (ReportView) part;
+		if (part instanceof AbstractReportView) {
+			AbstractReportView view = (AbstractReportView) part;
 			configObject = (ConfigEditorInput) view.getEditorInput();
 			viewer.setInput(configObject);
 		}

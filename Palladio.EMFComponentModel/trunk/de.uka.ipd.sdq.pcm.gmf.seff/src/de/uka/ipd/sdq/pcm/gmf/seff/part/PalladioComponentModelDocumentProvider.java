@@ -771,7 +771,7 @@ public class PalladioComponentModelDocumentProvider extends
 		}
 
 		/**
-		 * @generated
+		 * @generated not
 		 */
 		public void dispose() {
 			stopResourceListening();
@@ -779,7 +779,8 @@ public class PalladioComponentModelDocumentProvider extends
 			for (Iterator it = getResourceSet().getResources().iterator(); it
 					.hasNext();) {
 				Resource resource = (Resource) it.next();
-				resource.unload();
+				// WORKAROUND for Bug 51
+				//resource.unload();
 			}
 		}
 

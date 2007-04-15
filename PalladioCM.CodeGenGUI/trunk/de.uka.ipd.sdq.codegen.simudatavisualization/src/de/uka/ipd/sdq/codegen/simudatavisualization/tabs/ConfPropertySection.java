@@ -70,7 +70,7 @@ import de.uka.ipd.sdq.codegen.simudatavisualization.SimuPlugin;
 import de.uka.ipd.sdq.codegen.simudatavisualization.actions.DataServiceProvider;
 import de.uka.ipd.sdq.codegen.simudatavisualization.actions.UIServiceProvider;
 import de.uka.ipd.sdq.codegen.simudatavisualization.birt.RunEntry;
-import de.uka.ipd.sdq.codegen.simudatavisualization.views.ConfigEditorInput;
+import de.uka.ipd.sdq.codegen.simudatavisualization.editor.ConfigEditorInput;
 import de.uka.ipd.sdq.codegen.simudatavisualization.views.ReportView;
 import de.uka.ipd.sdq.sensorfactory.entities.Sensor;
 import de.uka.ipd.sdq.sensorfactory.entities.impl.SensorAndMeasurements;

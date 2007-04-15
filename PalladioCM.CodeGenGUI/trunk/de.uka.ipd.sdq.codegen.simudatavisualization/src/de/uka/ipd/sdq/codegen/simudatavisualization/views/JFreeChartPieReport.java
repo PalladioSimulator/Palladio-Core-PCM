@@ -12,45 +12,25 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.views.properties.tabbed.ITabbedPropertySheetPageContributor;
 
 import de.uka.ipd.sdq.codegen.simudatavisualisation.datatypes.Histogram;
+import de.uka.ipd.sdq.codegen.simudatavisualisation.datatypes.Pie;
 import de.uka.ipd.sdq.codegen.simudatavisualization.birt.ChartVisualization;
 import de.uka.ipd.sdq.codegen.simudatavisualization.editor.AbstractReportView;
 import de.uka.ipd.sdq.codegen.simudatavisualization.jfreechart.JFreeChartHistogramViewer;
+import de.uka.ipd.sdq.codegen.simudatavisualization.jfreechart.JFreeChartPieViewer;
 import de.uka.ipd.sdq.sensorframework.adapter.AdapterRegistry;
 import de.uka.ipd.sdq.sensorframework.adapter.IAdapter;
 import de.uka.ipd.sdq.sensorframework.visualisation.IVisualisation;
 
-public class ReportView extends AbstractReportView implements
+public class JFreeChartPieReport extends AbstractReportView implements
 		ITabbedPropertySheetPageContributor,
 		IVisualisation {
 
-	public static String EDITOR_ID = "de.uka.ipd.sdq.codegen.simudatavisualization.views.ReportView";
+	public static String JFREECHART_PIE_EDITOR_ID = "de.uka.ipd.sdq.codegen.simudatavisualization.views.JFreeChartPieReport";
 	
-	ChartVisualization visualization;
-
-	JFreeChartHistogramViewer myViewer;
+	JFreeChartPieViewer myViewer;
 	
 	public void createReportControls(Composite parent){
-		IDeviceRenderer idr = null;
-		final PluginSettings ps = PluginSettings.instance();
-		try {
-			idr = ps.getDevice("dv.SWT");
-		} catch (ChartException pex) {
-			DefaultLoggerImpl.instance().log(pex);
-		}
-	
-		// create new chart
-		visualization = new ChartVisualization();
-		
-		// render chart
-		//new ChartSwtViewer(parent, 0, idr, visualization.getChart());
-		myViewer = new JFreeChartHistogramViewer(parent,0);
-	}
-
-	/**
-	 * @return the visualization
-	 */
-	public ChartVisualization getVisualization() {
-		return visualization;
+		myViewer = new JFreeChartPieViewer(parent,0);
 	}
 	
 	@Override
@@ -63,14 +43,11 @@ public class ReportView extends AbstractReportView implements
 
 	@Override
 	public void setInput(Collection c) {
-		ArrayList<IAdapter> adapters = new ArrayList<IAdapter>();
-		for (Object o : c) {
-			IAdapter adapter = AdapterRegistry.singleton().getAdapter(o,
-					Histogram.class);
-			if (adapter != null)
-				adapters.add(adapter);
+		IAdapter adapter = AdapterRegistry.singleton().getAdapter(c.iterator().next(),
+					Pie.class);
+		if (adapter != null){
+			myViewer.setPie((Pie)adapter.getAdaptedObject());
 		}
-		myViewer.setHistograms(adapters);
 	}
 
 }
