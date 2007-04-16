@@ -9,18 +9,24 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.eclipse.core.resources.IProject;
+import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.FileLocator;
+import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.Path;
+import org.eclipse.core.runtime.Platform;
 import org.eclipse.debug.core.ILaunch;
 import org.eclipse.debug.core.ILaunchConfiguration;
 import org.eclipse.debug.core.model.ILaunchConfigurationDelegate;
 import org.eclipse.jdt.core.JavaModelException;
+import org.eclipse.osgi.framework.internal.core.Framework;
 import org.openarchitectureware.workflow.WorkflowRunner;
 import org.openarchitectureware.workflow.monitor.NullProgressMonitor;
 import org.openarchitectureware.workflow.util.ResourceLoaderFactory;
 import org.osgi.framework.Bundle;
+import org.osgi.framework.BundleContext;
+import org.osgi.framework.BundleException;
 
 import de.uka.ipd.sdq.codegen.simucontroller.SimuControllerPlugin;
 
@@ -80,7 +86,20 @@ public class SimuLaunchConfigurationDelegate implements
 		} finally {
 			ResourceLoaderFactory.setCurrentThreadResourceLoader(null);
 		}
+		
+		String location = project.getLocationURI().toString();
+		
+		BundleContext bundleContext = SimuControllerPlugin.getDefault().getBundle().getBundleContext();
 
+		try {
+			Bundle bundle = bundleContext.installBundle(location);
+			bundle.start();
+		} catch (BundleException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
 	}
 
 	public void runWorkflowRunner(String workflowFile,

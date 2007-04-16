@@ -1,5 +1,6 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
+Eclipse-RegisterBuddy: de.uka.ipd.sdq.codegen.simucominstance
 Bundle-Name: Simu Controller Plug-in
 Bundle-SymbolicName: de.uka.ipd.sdq.codegen.simucontroller;singleton:=true
 Bundle-Version: 1.0.0
@@ -23,5 +24,7 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.pde,
  org.eclipse.pde.core,
  org.eclipse.emf.ocl,
- org.eclipse.pde.ui
+ org.eclipse.pde.ui,
+ org.eclipse.osgi.util
 Eclipse-LazyStart: true
+Export-Package: de.uka.ipd.sdq.codegen.simucontroller.actions

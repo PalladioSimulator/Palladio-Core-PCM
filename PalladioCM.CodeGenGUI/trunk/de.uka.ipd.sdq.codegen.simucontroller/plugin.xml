@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?eclipse version="3.2"?>
 <plugin>
+   <extension-point id="controller" name="SimuCom Controller" schema="schema/controller.exsd"/>
 	<extension
          point="org.eclipse.ui.actionSets">
 	      <actionSet
@@ -71,6 +72,59 @@
           id="de.uka.ipd.sdq.codegen.simucontroller.views.SumuView"
           name="SimuController View">
     </view>
+ </extension>
+ <extension
+       point="org.eclipse.ui.viewActions">
+    <viewContribution
+          id="de.uka.ipd.sdq.codegen.simucontroller.ViewActions"
+          targetID="de.uka.ipd.sdq.codegen.simucontroller.views.SumuView">
+       <menu
+             id="Controller Menu"
+             label="&amp;Controller Menu">
+          <groupMarker
+                name="SimuCom Controll">
+          </groupMarker>
+          <separator
+                name="separator">
+          </separator>
+       </menu>
+       <action
+             class="de.uka.ipd.sdq.codegen.simucontroller.actions.GeneratePluginActionDelegete"
+             icon="icons/new_plugin.gif"
+             id="de.uka.ipd.sdq.codegen.simucontroller.GeneratePluginAction"
+             label="&amp;Generate Plug-In"
+             menubarPath="Controller Menu"
+             style="push"
+             toolbarPath="SimuCom Controll">
+       </action>
+       <action
+             class="de.uka.ipd.sdq.codegen.simucontroller.actions.DeletePluginAction"
+             icon="icons/del_plugin.gif"
+             id="de.uka.ipd.sdq.codegen.simucontroller.DeletePluginAction"
+             label="&amp;Delete Plug-In"
+             menubarPath="separator"
+             style="push"
+             toolbarPath="separator">
+       </action>
+       <action
+             class="de.uka.ipd.sdq.codegen.simucontroller.actions.ControllerActionDelegate"
+             icon="icons/nav_stop.gif"
+             id="StopAction"
+             label="&amp;Stop Simulation"
+             menubarPath="Controller Menu"
+             style="push"
+             toolbarPath="SimuCom Controll">
+       </action>
+       <action
+             class="de.uka.ipd.sdq.codegen.simucontroller.actions.ControllerActionDelegate"
+             icon="icons/nav_start.gif"
+             id="StartAction"
+             label="&amp;Start Simulation"
+             menubarPath="Controller Menu"
+             style="push"
+             toolbarPath="SimuCom Controll">
+       </action>
+    </viewContribution>
  </extension>
 
 	

@@ -39,16 +39,6 @@ import de.uka.ipd.sdq.codegen.simucontroller.SimuControllerImages;
  */
 
 public class SumuView extends ViewPart {
-	private Action startAction;
-	private Action stopAction;
-	private Action generatePlugin;
-	private Action deletePlugin;
-
-	/**
-	 * The constructor.
-	 */
-	public SumuView() {
-	}
 
 	/**
 	 * This is a callback that will allow us to create the viewer and initialize
@@ -66,79 +56,8 @@ public class SumuView extends ViewPart {
 		fd_progressBar.left = new FormAttachment(0, 65);
 		progressBar.setLayoutData(fd_progressBar);
 		progressBar.setSelection(40);
-		makeActions();
-		contributeToActionBars();
 	}
 
-	private void contributeToActionBars() {
-		IActionBars bars = getViewSite().getActionBars();
-		fillLocalPullDown(bars.getMenuManager());
-		fillLocalToolBar(bars.getToolBarManager());
-	}
-
-	private void fillLocalPullDown(IMenuManager manager) {
-		manager.add(generatePlugin);
-		manager.add(deletePlugin);
-		manager.add(new Separator());
-		manager.add(startAction);
-		manager.add(new Separator());
-		manager.add(stopAction);
-	}
-
-	private void fillLocalToolBar(IToolBarManager manager) {
-		manager.add(generatePlugin);
-		manager.add(deletePlugin);
-		manager.add(new Separator());
-		manager.add(startAction);
-		manager.add(stopAction);
-	}
-
-	private void makeActions() {
-		startAction = new Action() {
-			public void run() {
-				showMessage("Simu start executed");
-			}
-		};
-		startAction.setText("Start");
-		startAction.setToolTipText("Start simulation");
-		startAction.setImageDescriptor(SimuControllerImages
-				.getImageDescriptor("icons/nav_start.gif"));
-
-		stopAction = new Action() {
-			public void run() {
-				showMessage("Simu stop executed");
-			}
-		};
-		stopAction.setText("Stop");
-		stopAction.setToolTipText("Stop simulation");
-		stopAction.setImageDescriptor(SimuControllerImages
-				.getImageDescriptor("icons/nav_stop.gif"));
-		
-		generatePlugin = new Action(){
-			public void run() {
-				showMessage("Generate Simu instace");
-			}
-		};
-		generatePlugin.setText("Generate Plug-In");
-		generatePlugin.setToolTipText("Generate simulation instance");
-		generatePlugin.setImageDescriptor(SimuControllerImages
-				.getImageDescriptor("icons/new_plugin.gif"));
-		
-		deletePlugin = new Action(){
-			public void run() {
-				showMessage("Delete Simu instace");
-			}
-		};
-		deletePlugin.setText("Delete Plug-In");
-		deletePlugin.setToolTipText("Delete simulation instance");
-		deletePlugin.setImageDescriptor(SimuControllerImages
-				.getImageDescriptor("icons/del_plugin.gif"));
-	}
-
-	private void showMessage(String message) {
-		MessageDialog.openInformation(PlatformUI.getWorkbench().getDisplay()
-				.getActiveShell(), "Simucontroller View", message);
-	}
 
 	/**
 	 * Passing the focus request to the viewer's control.
