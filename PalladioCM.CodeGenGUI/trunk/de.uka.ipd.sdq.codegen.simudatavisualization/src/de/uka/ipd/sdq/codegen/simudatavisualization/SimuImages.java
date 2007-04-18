@@ -6,7 +6,7 @@ import org.eclipse.jface.resource.ImageRegistry;
 
 public class SimuImages {
 
-	public static final String RUN = "run_obj";
+	public static final String RUN = "lrun_obj";
 	public static final String SENSOR = "sensor_obj";
 	public static final String EXPERIMENT = "experiment_obj";
 	public static final String SENSORS = "sensor_folder";
