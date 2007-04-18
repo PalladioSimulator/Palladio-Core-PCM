@@ -62,8 +62,19 @@ public class TreeViewLabelProvider extends LabelProvider {
 		if (obj instanceof Sensor)
 			return SimuImages.imageRegistry.get(SimuImages.SENSOR);
 
-		if (obj instanceof TreeContainer)
-			return SimuImages.imageRegistry.get(SimuImages.SENSORS);
+		if (obj instanceof TreeContainer){
+			String icon = "";
+			TreeContainer container = (TreeContainer) obj;
+			switch (container.getType()) {
+			case TreeViewContentProvider.EXPERIMENT_RUNS:
+				icon = SimuImages.RUNS;
+				break;
+			case TreeViewContentProvider.SENSORS:
+				icon = SimuImages.SENSORS;
+				break;
+			}
+			return SimuImages.imageRegistry.get(icon);
+		}
 
 		if (obj instanceof ExperimentDAO)
 			return SimuImages.imageRegistry.get(SimuImages.TREEROOT);

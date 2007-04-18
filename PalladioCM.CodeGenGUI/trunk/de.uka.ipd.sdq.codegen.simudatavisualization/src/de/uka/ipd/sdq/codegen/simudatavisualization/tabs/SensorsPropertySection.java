@@ -39,7 +39,6 @@ import de.uka.ipd.sdq.codegen.simudatavisualization.dialogs.ExperimentRunsDialog
 import de.uka.ipd.sdq.codegen.simudatavisualization.dialogs.SensorsDialog;
 import de.uka.ipd.sdq.codegen.simudatavisualization.editor.AbstractReportView;
 import de.uka.ipd.sdq.codegen.simudatavisualization.editor.ConfigEditorInput;
-import de.uka.ipd.sdq.codegen.simudatavisualization.views.ReportView;
 import de.uka.ipd.sdq.sensorfactory.entities.Sensor;
 import de.uka.ipd.sdq.sensorframework.visualisation.IVisualisation;
 
@@ -170,7 +169,7 @@ public class SensorsPropertySection extends AbstractPropertySection {
 		toolBar.setLayoutData(fd_toolBar);
 
 		ToolItem addRunItem = new ToolItem(toolBar, SWT.PUSH);
-		addRunItem.setImage(SimuImages.imageRegistry.get(SimuImages.RUN));
+		addRunItem.setImage(SimuImages.imageRegistry.get(SimuImages.ADD));
 		addRunItem.addSelectionListener(new SelectionAdapter(){
 			/* (non-Javadoc)
 			 * @see org.eclipse.swt.events.SelectionAdapter#widgetSelected(org.eclipse.swt.events.SelectionEvent)
@@ -187,7 +186,7 @@ public class SensorsPropertySection extends AbstractPropertySection {
 		});
 
 		ToolItem deleteRunItem = new ToolItem(toolBar, SWT.PUSH);
-		deleteRunItem.setImage(SimuImages.imageRegistry.get(SimuImages.RUN));
+		deleteRunItem.setImage(SimuImages.imageRegistry.get(SimuImages.DELETE));
 		deleteRunItem.setEnabled(false);
 		
 		updateButton = new Button(composite, SWT.NONE);

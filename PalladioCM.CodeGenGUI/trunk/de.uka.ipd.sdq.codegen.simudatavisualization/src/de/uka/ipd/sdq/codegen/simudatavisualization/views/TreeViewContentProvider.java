@@ -19,8 +19,8 @@ import de.uka.ipd.sdq.sensorfactory.entities.impl.ExperimentDAO;
  */
 public class TreeViewContentProvider implements ITreeContentProvider {
 
-	protected static int EXPERIMENT_RUNS = 0;
-	protected static int SENSORS = 1;
+	protected static final int EXPERIMENT_RUNS = 0;
+	protected static final int SENSORS = 1;
 
 	private List<ExperimentDAO> rootEntry;
 

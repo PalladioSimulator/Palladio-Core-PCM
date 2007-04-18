@@ -9,8 +9,11 @@ public class SimuImages {
 	public static final String RUN = "run_obj";
 	public static final String SENSOR = "sensor_obj";
 	public static final String EXPERIMENT = "experiment_obj";
-	public static final String SENSORS = "sensors_category";
+	public static final String SENSORS = "sensor_folder";
+	public static final String RUNS = "run_folder";
 	public static final String TREEROOT = "tree_root";
+	public static final String DELETE = "delete_obj";
+	public static final String ADD = "add_obj";
 	
 	// Names of images used to represent checkboxes
 	public static final String CHECKED_IMAGE 	= "checked";
@@ -37,6 +40,9 @@ public class SimuImages {
 		imageRegistry.put(SENSORS,
 				 getImageDescriptor(iconPath + SENSORS + ".gif")
 				);
+		imageRegistry.put(RUNS,
+				 getImageDescriptor(iconPath + RUNS + ".gif")
+				);
 		imageRegistry.put(EXPERIMENT,
 				 getImageDescriptor(iconPath + EXPERIMENT + ".gif")
 				);
@@ -48,6 +54,12 @@ public class SimuImages {
 			);
 		imageRegistry.put(UNCHECKED_IMAGE,
 				getImageDescriptor(iconPath + UNCHECKED_IMAGE + ".gif")
+			);
+		imageRegistry.put(DELETE,
+				getImageDescriptor(iconPath + DELETE + ".gif")
+			);
+		imageRegistry.put(ADD,
+				getImageDescriptor(iconPath + ADD + ".gif")
 			);
 	}
 	

@@ -33,8 +33,9 @@
 	    <extension
 	          point="org.eclipse.ui.views.properties.tabbed.propertyContributor">
 	       <propertyContributor
-	             contributorId="de.uka.ipd.sdq.codegen.simudatavisualization.views.ReportView"
-	             typeMapper="de.uka.ipd.sdq.codegen.simudatavisualization.tabs.PropertyTypeMapper">
+              contributorId="de.uka.ipd.sdq.codegen.simudatavisualization.views.ReportView"
+              labelProvider="de.uka.ipd.sdq.codegen.simudatavisualization.tabs.TabbedLabelProvider"
+              typeMapper="de.uka.ipd.sdq.codegen.simudatavisualization.tabs.PropertyTypeMapper">
 		       		<propertyCategory category="sensors"/>
 		         	<propertyCategory category="configuration"/>
 	       </propertyContributor>

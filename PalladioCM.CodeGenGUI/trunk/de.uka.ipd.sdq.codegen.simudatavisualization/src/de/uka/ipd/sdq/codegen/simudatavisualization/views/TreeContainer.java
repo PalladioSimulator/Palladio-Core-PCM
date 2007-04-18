@@ -18,6 +18,7 @@ public class TreeContainer implements IAdaptable {
 	private Experiment parent;
 	private Collection<?> elements = null;
 	private String name;
+	private int type;
 	
 	private String EXPERIMENT_RUNS_NAME = "Experiment Runs";
 	private String SENSORS_NAME		 = "Sensors";
@@ -25,14 +26,15 @@ public class TreeContainer implements IAdaptable {
 	/**
 	 * @param parent
 	 */
-	public TreeContainer(Experiment parent, int index) {
+	public TreeContainer(Experiment parent, int type) {
 		this.parent = parent;
+		this.type = type;
 
-		if (index == TreeViewContentProvider.EXPERIMENT_RUNS){
+		if (type == TreeViewContentProvider.EXPERIMENT_RUNS){
 			this.elements = parent.getExperimentRuns();
 			this.name = EXPERIMENT_RUNS_NAME;
 		}
-		if (index == TreeViewContentProvider.SENSORS){
+		if (type == TreeViewContentProvider.SENSORS){
 			this.elements = parent.getSensors();
 			this.name = SENSORS_NAME;
 		}
@@ -61,5 +63,9 @@ public class TreeContainer implements IAdaptable {
 
 	public String getName() {
 		return name;
+	}
+
+	public int getType() {
+		return type;
 	}
 }
