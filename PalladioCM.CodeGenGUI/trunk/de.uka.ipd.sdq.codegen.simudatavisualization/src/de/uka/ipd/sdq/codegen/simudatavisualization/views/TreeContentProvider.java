@@ -1,6 +1,7 @@
 package de.uka.ipd.sdq.codegen.simudatavisualization.views;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.jface.viewers.ITreeContentProvider;
@@ -17,7 +18,7 @@ import de.uka.ipd.sdq.sensorfactory.entities.impl.ExperimentDAO;
  * @author admin
  * 
  */
-public class TreeViewContentProvider implements ITreeContentProvider {
+public class TreeContentProvider implements ITreeContentProvider {
 
 	protected static final int EXPERIMENT_RUNS = 0;
 	protected static final int SENSORS = 1;
@@ -58,12 +59,35 @@ public class TreeViewContentProvider implements ITreeContentProvider {
 			return objects;
 		}
 
+		if (parent instanceof ExperimentRun) {
+			ExperimentRun run = (ExperimentRun) parent;
+			Experiment experiment = getExperimentToExperimentRun(run);
+			return experiment.getSensors().toArray();
+		}
+		
 		if (parent instanceof TreeContainer)
 			return ((TreeContainer) parent).getElements().toArray();
 
 		return new Object[0];
 	}
 
+	
+	/**
+	 * TODO
+	 * @return
+	 */
+	public static Experiment getExperimentToExperimentRun(ExperimentRun run) {
+		
+		Collection<Experiment> experiments = ExperimentDAO.singleton()
+				.getExperiments();
+
+		for (Experiment e : experiments) {
+			if (e.getExperimentID() == run.getExperimentRunID())
+				return e;
+		}
+		return null;
+	}
+	
 	/*
 	 * (non-Javadoc)
 	 * 
@@ -71,8 +95,6 @@ public class TreeViewContentProvider implements ITreeContentProvider {
 	 */
 	public boolean hasChildren(Object parent) {
 		if (parent instanceof Sensor)
-			return false;
-		if (parent instanceof ExperimentRun)
 			return false;
 		return true;
 	}

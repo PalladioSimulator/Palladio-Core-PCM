@@ -30,11 +30,11 @@ public class TreeContainer implements IAdaptable {
 		this.parent = parent;
 		this.type = type;
 
-		if (type == TreeViewContentProvider.EXPERIMENT_RUNS){
+		if (type == TreeContentProvider.EXPERIMENT_RUNS){
 			this.elements = parent.getExperimentRuns();
 			this.name = EXPERIMENT_RUNS_NAME;
 		}
-		if (type == TreeViewContentProvider.SENSORS){
+		if (type == TreeContentProvider.SENSORS){
 			this.elements = parent.getSensors();
 			this.name = SENSORS_NAME;
 		}

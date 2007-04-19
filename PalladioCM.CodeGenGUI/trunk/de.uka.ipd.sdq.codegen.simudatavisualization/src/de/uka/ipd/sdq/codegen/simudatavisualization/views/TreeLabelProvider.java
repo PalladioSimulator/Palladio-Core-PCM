@@ -19,7 +19,7 @@ import de.uka.ipd.sdq.sensorfactory.entities.impl.ExperimentDAO;
  * in the same way everywhere.
  * 
  */
-public class TreeViewLabelProvider extends LabelProvider {
+public class TreeLabelProvider extends LabelProvider {
 
 	/*
 	 * (non-Javadoc)
@@ -66,10 +66,10 @@ public class TreeViewLabelProvider extends LabelProvider {
 			String icon = "";
 			TreeContainer container = (TreeContainer) obj;
 			switch (container.getType()) {
-			case TreeViewContentProvider.EXPERIMENT_RUNS:
+			case TreeContentProvider.EXPERIMENT_RUNS:
 				icon = SimuImages.RUNS;
 				break;
-			case TreeViewContentProvider.SENSORS:
+			case TreeContentProvider.SENSORS:
 				icon = SimuImages.SENSORS;
 				break;
 			}

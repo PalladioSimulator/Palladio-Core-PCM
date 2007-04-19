@@ -18,8 +18,13 @@ import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableColumn;
 
 import de.uka.ipd.sdq.codegen.simudatavisualization.birt.RunEntry;
-import de.uka.ipd.sdq.sensorfactory.entities.impl.ExperimentDAO;
+import de.uka.ipd.sdq.codegen.simudatavisualization.views.TreeContentProvider;
 
+/**
+ * TODO
+ * @author admin
+ *
+ */
 public class SensorsDialog extends TitleAreaDialog {
 
 	private RunEntry entry;
@@ -101,8 +106,9 @@ public class SensorsDialog extends TitleAreaDialog {
 		tableViewer.setCellModifier(new SensorsDialogCellModifier(entry));
 		tableViewer.setContentProvider(new SensorsDialogContentProvider());
 		tableViewer.setLabelProvider(new SensorsDialogLabelProvider(entry));
-		tableViewer.setInput(ExperimentDAO.singleton());
-
+		tableViewer.setInput(TreeContentProvider
+				.getExperimentToExperimentRun(entry.getExperimentRun()));
+		
 		//
 		return area;
 	}

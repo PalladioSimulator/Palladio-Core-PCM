@@ -21,7 +21,7 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Tree;
 
-import de.uka.ipd.sdq.codegen.simudatavisualization.views.TreeViewLabelProvider;
+import de.uka.ipd.sdq.codegen.simudatavisualization.views.TreeLabelProvider;
 import de.uka.ipd.sdq.sensorfactory.entities.ExperimentRun;
 
 public class ExperimentRunsDialog extends TitleAreaDialog {
@@ -61,7 +61,7 @@ public class ExperimentRunsDialog extends TitleAreaDialog {
 		tree.setLayoutData(fd_tree);
 
 		viewer.setContentProvider(new ExperimentRunsDialogContentProvider());
-		viewer.setLabelProvider(new TreeViewLabelProvider());
+		viewer.setLabelProvider(new TreeLabelProvider());
 		viewer.setInput(new ArrayList());
 		viewer.addSelectionChangedListener(new ISelectionChangedListener() {
 			@Override
