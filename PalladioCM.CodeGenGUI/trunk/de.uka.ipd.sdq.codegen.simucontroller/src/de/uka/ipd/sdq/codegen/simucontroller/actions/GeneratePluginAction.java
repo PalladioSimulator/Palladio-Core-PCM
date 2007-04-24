@@ -2,13 +2,10 @@ package de.uka.ipd.sdq.codegen.simucontroller.actions;
 
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.ResourcesPlugin;
-import org.eclipse.core.runtime.IConfigurationElement;
-import org.eclipse.core.runtime.Platform;
 import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.IWorkbenchWindowActionDelegate;
-import org.eclipse.jface.dialogs.MessageDialog;
 import org.osgi.framework.Bundle;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.BundleException;
@@ -27,8 +24,6 @@ import de.uka.ipd.sdq.codegen.simucontroller.runconfig.CreatePluginProject;
 public class GeneratePluginAction implements IWorkbenchWindowActionDelegate {
 	private IWorkbenchWindow window;
 	
-	private static final String PID = "de.uka.ipd.sdq.codegen.simucontroller";
-	private static final String PT_ID = PID + "." + "controller";
 	/**
 	 * The constructor.
 	 */
@@ -52,16 +47,12 @@ public class GeneratePluginAction implements IWorkbenchWindowActionDelegate {
 		try {
 			Bundle bundle = bundleContext.installBundle(location);
 			bundle.start();
-			bundle.update();
+			//bundle.update();
 			
 		} catch (BundleException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		IConfigurationElement[] elements = Platform.getExtensionRegistry()
-				.getConfigurationElementsFor(
-						SimuControllerPlugin.PLUGIN_ID + ".controller");
 	}
 
 	/**

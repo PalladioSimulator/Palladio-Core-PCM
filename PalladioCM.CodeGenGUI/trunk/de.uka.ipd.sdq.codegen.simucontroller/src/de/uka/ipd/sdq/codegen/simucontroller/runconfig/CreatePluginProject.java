@@ -102,6 +102,7 @@ public class CreatePluginProject {
 				.newProjectDescription(project.getName());
 		description.setNatureIds(new String[] { JavaCore.NATURE_ID,
 				PDE.PLUGIN_NATURE });
+		//description.setNatureIds(new String[] { JavaCore.NATURE_ID});
 		description.setLocation(null);
 		// set java bulders
 		ICommand command = description.newCommand();
@@ -152,8 +153,16 @@ public class CreatePluginProject {
 		baos = new ByteArrayOutputStream();
 		out = new PrintStream(baos);
 
-		out.println("<?xml version='1.0'?>"); //$NON-NLS-1$
-		out.println("<plugin>"); //$NON-NLS-1$
+		
+		out.println("<?xml version='1.0'?>"); 			//$NON-NLS-1$
+		out.println("<plugin>"); 						//$NON-NLS-1$
+		out.println("   <extension"); 					//$NON-NLS-1$
+		out.println("         point=\"de.uka.ipd.sdq.codegen.simucontroller.controller\">"); //$NON-NLS-1$
+		out.println("      <actionDelegate");			 //$NON-NLS-1$
+		out.println("            class=\"de.uka.ipd.sdq.codegen.simucominstance.SimuComControl\""); //$NON-NLS-1$
+		out.println("            id=\"de.uka.ipd.sdq.codegen.simucominstance.actionDelegate\">"); //$NON-NLS-1$
+		out.println("      </actionDelegate>"); 		//$NON-NLS-1$
+		out.println("   </extension>"); 				//$NON-NLS-1$
 		out.println("</plugin>"); //$NON-NLS-1$
 		out.close();
 
@@ -201,10 +210,12 @@ public class CreatePluginProject {
 		out
 				.println("Bundle-SymbolicName: " + project.getName() + ";singleton:=true"); //$NON-NLS-1$
 		out.println("Bundle-Version: 1.0.0"); //$NON-NLS-1$
-		out.println("Require-Bundle: de.uka.ipd.sdq.simucomframework,"); //$NON-NLS-1$
+		out.println("Require-Bundle: org.eclipse.ui,"); //$NON-NLS-1$
+		out.println(" org.eclipse.core.runtime,"); //$NON-NLS-1$
 		out.println(" de.uka.ipd.sdq.simucomframework,"); //$NON-NLS-1$
 		out.println(" de.uka.ipd.sdq.simucomframework.variables,"); //$NON-NLS-1$
-		out.println(" de.uka.ipd.sdq.desmojwrapper"); //$NON-NLS-1$
+		out.println(" de.uka.ipd.sdq.desmojwrapper,"); //$NON-NLS-1$
+		out.println(" de.uka.ipd.sdq.codegen.simucontroller"); //$NON-NLS-1$
 		out.println("Eclipse-LazyStart: true"); //$NON-NLS-1$
 		out.close();
 

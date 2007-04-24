@@ -1,7 +1,9 @@
 package de.uka.ipd.sdq.codegen.simucontroller.runconfig;
 
 
+import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.Platform;
 import org.eclipse.debug.core.ILaunchConfiguration;
 import org.eclipse.debug.core.ILaunchConfigurationWorkingCopy;
 import org.eclipse.debug.ui.AbstractLaunchConfigurationTab;
@@ -35,7 +37,10 @@ public class oAWConfigurationTab extends AbstractLaunchConfigurationTab {
 	/**
 	 * TODO
 	 */
-	private String GENERATE_PLUGIN_PATH = "${workspace_loc}/de.uka.ipd.sdq.codegen.simucominstance/src";
+	private String workspace_location = ResourcesPlugin.getWorkspace()
+			.getRoot().getLocation().toString();
+	private String GENERATE_PLUGIN_PATH = workspace_location
+			+ "/de.uka.ipd.sdq.codegen.simucominstance/src";
 	private String outputPath = "OUTPUT_PATH";
 	/**
 	 * The default value for the 'height' Layout attribute.

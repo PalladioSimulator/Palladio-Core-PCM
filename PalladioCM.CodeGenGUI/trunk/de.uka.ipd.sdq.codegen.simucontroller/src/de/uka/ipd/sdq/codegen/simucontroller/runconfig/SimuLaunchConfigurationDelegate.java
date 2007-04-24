@@ -3,30 +3,33 @@
  */
 package de.uka.ipd.sdq.codegen.simucontroller.runconfig;
 
+import java.awt.Component;
 import java.io.IOException;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 
 import org.eclipse.core.resources.IProject;
-import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.FileLocator;
-import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Platform;
+import org.eclipse.debug.core.DebugPlugin;
 import org.eclipse.debug.core.ILaunch;
 import org.eclipse.debug.core.ILaunchConfiguration;
 import org.eclipse.debug.core.model.ILaunchConfigurationDelegate;
 import org.eclipse.jdt.core.JavaModelException;
 import org.eclipse.osgi.framework.internal.core.Framework;
+import org.eclipse.osgi.service.resolver.PlatformAdmin;
 import org.openarchitectureware.workflow.WorkflowRunner;
 import org.openarchitectureware.workflow.monitor.NullProgressMonitor;
 import org.openarchitectureware.workflow.util.ResourceLoaderFactory;
 import org.osgi.framework.Bundle;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.BundleException;
+
+import com.sun.jndi.toolkit.ctx.ComponentContext;
 
 import de.uka.ipd.sdq.codegen.simucontroller.SimuControllerPlugin;
 
@@ -45,6 +48,7 @@ public class SimuLaunchConfigurationDelegate implements
 	public static String[] workflowFiles = { REPOSITORY_FILE, SYSTEM_FILE,
 			USAGE_FILE };
 
+	
 	/*
 	 * (non-Javadoc)
 	 * 
@@ -54,7 +58,8 @@ public class SimuLaunchConfigurationDelegate implements
 	 */
 	public void launch(ILaunchConfiguration configuration, String mode,
 			ILaunch launch, IProgressMonitor monitor) throws CoreException {
-
+		boolean status = false;
+		
 		Map<String, String> properties = new HashMap<String, String>();
 		Map<String, Object> slotContents = new HashMap<String, Object>();
 
@@ -69,45 +74,81 @@ public class SimuLaunchConfigurationDelegate implements
 				.getAttribute(ResourceManagerTab.USAGE_FILE, ""));
 		properties.put(ResourceManagerTab.OUTPUT_PATH, configuration
 				.getAttribute(ResourceManagerTab.OUTPUT_PATH, ""));
-
-		IProject project = new CreatePluginProject(monitor).getProject();
+		
+		IProject project = null;
 		try {
-			OawEclipseProjectResourceLoader resourceLoader = new OawEclipseProjectResourceLoader(
-					project);
-			ResourceLoaderFactory
-					.setCurrentThreadResourceLoader(resourceLoader);
+			project = createPluginProject(monitor);
 
-			for (int i = 0; i < workflowFiles.length; i++) {
-
-				runWorkflowRunner(getWorkflowFile(workflowFiles[i]),
-						properties, slotContents);
-			}
-
+//			OawEclipseProjectResourceLoader resourceLoader = new OawEclipseProjectResourceLoader(
+//					project);
+//
+//			ResourceLoaderFactory
+//					.setCurrentThreadResourceLoader(resourceLoader);
+//
+//			for (int i = 0; i < workflowFiles.length; i++)
+//				status = runWorkflowRunner(getWorkflowFile(workflowFiles[i]),
+//						properties, slotContents);
+		} catch (CoreException e) {
+			e.printStackTrace();
+			// TODO Auto-generated catch block
 		} finally {
 			ResourceLoaderFactory.setCurrentThreadResourceLoader(null);
 		}
 		
+		if (true)
+			loadGeneratedPlugin(project);
+	}
+	
+	/**
+	 * TODO
+	 * @throws CoreException 
+	 */
+	private IProject createPluginProject(IProgressMonitor monitor) throws CoreException{
+		return new CreatePluginProject(monitor).getProject();
+	}
+
+	/**
+	 * TODO
+	 * @param project
+	 */
+	private void loadGeneratedPlugin(IProject project) {
 		String location = project.getLocationURI().toString();
 		
-		BundleContext bundleContext = SimuControllerPlugin.getDefault().getBundle().getBundleContext();
+		BundleContext bundleContext = SimuControllerPlugin.getDefault()
+				.getBundle().getBundleContext();
 
 		try {
 			Bundle bundle = bundleContext.installBundle(location);
 			bundle.start();
+			bundle.update();
 		} catch (BundleException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
+			// TODO Auto-generated catch block
 		}
-		
-		
 	}
 
-	public void runWorkflowRunner(String workflowFile,
+	/**
+	 * 
+	 * @param workflowFile
+	 * @param properties
+	 * @param slotContents
+	 * @return
+	 * @throws CoreException
+	 * @throws JavaModelException
+	 */
+	public boolean runWorkflowRunner(String workflowFile,
 			Map<String, String> properties, Map<String, Object> slotContents)
 			throws CoreException, JavaModelException {
+		boolean status = false;
+		
 		WorkflowRunner runner = new WorkflowRunner();
-		runner.run(workflowFile, new NullProgressMonitor(), properties,
+		status = runner.run(workflowFile, new NullProgressMonitor(), properties,
 				slotContents);
+		
+		if (status){
+			// TODO loging mit Log4j;
+		}
+		return status;
 	}
 
 	/**
