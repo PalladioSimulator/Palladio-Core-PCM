@@ -36,15 +36,19 @@ Copyright 2007, IPD, SDQ, University of Karlsruhe
    </extension>
 
    <extension point="org.eclipse.ui.newWizards">
-      <?gmfgen generated="true"?>
+      <?gmfgen generated="false"?>
   	  <wizard
   	     name="%newWizardName"
   	     icon="icons/obj16/RepositoryDiagramFile.gif"
-  	     category="org.eclipse.ui.Examples"
+  	     category="de.uka.ipd.sdq.pcmbench.palladio_modeling_category"
   	     class="de.uka.ipd.sdq.pcm.gmf.repository.part.PalladioComponentModelCreationWizard"
   	     id="de.uka.ipd.sdq.pcm.gmf.repository.part.PalladioComponentModelCreationWizardID">
   	  	 <description>%newWizardDesc</description>  
       </wizard>
+     <category
+           id="de.uka.ipd.sdq.pcmbench.palladio_modeling_category"
+           name="Palladio Modeling">
+     </category>
    </extension>
 
    <extension point="org.eclipse.ui.popupMenus">
