@@ -38,16 +38,21 @@ by SDQ, IPD, U Karlrsuhe (TH), 2006
    </extension>
 
    <extension point="org.eclipse.ui.newWizards">
+  	     <?gmfgen generated="false"?>
   	  <wizard
   	     name="system Diagram"
   	     icon="icons/obj16/SystemDiagramFile.gif"
-  	     category="org.eclipse.ui.Examples"
+  	     category="de.uka.ipd.sdq.pcmbench.palladio_modeling_category"
   	     class="de.uka.ipd.sdq.pcm.gmf.system.part.PcmCreationWizard"
   	     id="de.uka.ipd.sdq.pcm.gmf.system.part.PcmCreationWizardID">
   	  	 <description>
   	  		Creates system diagram.
   	  	 </description>  
       </wizard>
+         <category
+           id="de.uka.ipd.sdq.pcmbench.palladio_modeling_category"
+           name="Palladio Modeling">
+        </category>
    </extension>
 
    <extension point="org.eclipse.ui.popupMenus">
