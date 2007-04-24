@@ -8,10 +8,17 @@
 «IMPORT allocation»
 
 «DEFINE Main FOR UsageModel»
-	«FILE "MainClass.java"»
-		public class MainClass extends de.uka.ipd.sdq.simucomframework.AbstractMain {
-			public static void main(String[] args) {
-				new MainClass().run();
+	«FILE "SimuComControl.java"»
+	
+		public class SimuComControl extends de.uka.ipd.sdq.simucomframework.AbstractMain 
+				implements de.uka.ipd.sdq.codegen.simucontroller.actions.ISimuComControl{
+			
+			public void StartSimulation() {
+				new SimuComControl().run(0);
+			}	
+			
+			public void StopSimulation() {
+				// TODO Auto-generated method stub
 			}
 			
 			protected de.uka.ipd.sdq.simucomframework.usage.IWorkloadDriver[] getWorkloads() {
