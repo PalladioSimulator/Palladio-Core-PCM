@@ -38,16 +38,21 @@ copyright 2006, SDQ, IPD, U KA
    </extension>
 
    <extension point="org.eclipse.ui.newWizards">
+  	  <?gmfgen generated="false"?>
   	  <wizard
   	     name="allocation Diagram"
   	     icon="icons/obj16/AllocationDiagramFile.gif"
-  	     category="org.eclipse.ui.Examples"
+  	     category="de.uka.ipd.sdq.pcmbench.palladio_modeling_category"
   	     class="de.uka.ipd.sdq.pcm.gmf.allocation.part.PcmCreationWizard"
   	     id="de.uka.ipd.sdq.pcm.gmf.allocation.part.PcmCreationWizardID">
   	  	 <description>
   	  		Creates allocation diagram.
   	  	 </description>  
       </wizard>
+     <category
+           id="de.uka.ipd.sdq.pcmbench.palladio_modeling_category"
+           name="Palladio Modeling">
+     </category>
    </extension>
 
    <extension point="org.eclipse.ui.popupMenus">
