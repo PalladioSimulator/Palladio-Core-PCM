@@ -5,6 +5,7 @@ package de.uka.ipd.sdq.codegen.simucontroller.runconfig;
 
 import java.awt.Component;
 import java.io.IOException;
+import java.io.PrintStream;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
@@ -25,6 +26,10 @@ import org.eclipse.debug.core.model.ILaunchConfigurationDelegate;
 import org.eclipse.jdt.core.JavaModelException;
 import org.eclipse.osgi.framework.internal.core.Framework;
 import org.eclipse.osgi.service.resolver.PlatformAdmin;
+import org.eclipse.ui.console.ConsolePlugin;
+import org.eclipse.ui.console.IConsole;
+import org.eclipse.ui.console.MessageConsole;
+import org.eclipse.ui.console.MessageConsoleStream;
 import org.openarchitectureware.workflow.WorkflowRunner;
 import org.openarchitectureware.workflow.monitor.NullProgressMonitor;
 import org.openarchitectureware.workflow.util.ResourceLoaderFactory;
@@ -89,10 +94,16 @@ public class SimuLaunchConfigurationDelegate implements
 
 			//ResourceLoaderFactory
 			//		.setCurrentThreadResourceLoader(resourceLoader);
-
+			MessageConsole console = new MessageConsole("SimuComController Generator Console", null);
+			console.activate();
+			ConsolePlugin.getDefault().getConsoleManager().addConsoles(new IConsole[]{ console });
+			MessageConsoleStream stream = console.newMessageStream();
+			PrintStream outStream = System.out;
+			System.setOut(new PrintStream(stream));
 			for (int i = 0; i < workflowFiles.length; i++)
 				status = runWorkflowRunner(workflowFiles[i],
 						properties, slotContents);
+			System.setOut(outStream);
 		} catch (CoreException e) {
 			e.printStackTrace();
 			// TODO Auto-generated catch block
