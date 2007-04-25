@@ -89,7 +89,7 @@
           </separator>
        </menu>
        <action
-             class="de.uka.ipd.sdq.codegen.simucontroller.actions.GeneratePluginActionDelegete"
+             class="de.uka.ipd.sdq.codegen.simucontroller.actions.GeneratePluginAction"
              icon="icons/new_plugin.gif"
              id="de.uka.ipd.sdq.codegen.simucontroller.GeneratePluginAction"
              label="&amp;Generate Plug-In"
