@@ -20,11 +20,11 @@ import de.uka.ipd.sdq.codegen.rvisualisation.reportitems.PlotReportItem;
 import de.uka.ipd.sdq.codegen.rvisualisation.reportitems.StaticReportItem;
 import de.uka.ipd.sdq.codegen.rvisualisation.reportitems.StatisticsReportItem;
 import de.uka.ipd.sdq.codegen.rvisualisation.visitor.HTMLVisitor;
-import de.uka.ipd.sdq.codegen.simudatavisualization.editor.AbstractReportView;
 import de.uka.ipd.sdq.sensorfactory.entities.Measurement;
 import de.uka.ipd.sdq.sensorfactory.entities.TimeSpanMeasurement;
 import de.uka.ipd.sdq.sensorfactory.entities.impl.SensorAndMeasurements;
 import de.uka.ipd.sdq.sensorframework.visualisation.IVisualisation;
+import de.uka.ipd.sdq.sensorframework.visualisation.editor.AbstractReportView;
 
 public class RReportView extends AbstractReportView
 implements IVisualisation {

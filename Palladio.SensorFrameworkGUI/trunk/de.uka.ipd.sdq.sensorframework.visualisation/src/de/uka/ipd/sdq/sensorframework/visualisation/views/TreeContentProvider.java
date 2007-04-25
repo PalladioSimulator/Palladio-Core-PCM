@@ -1,0 +1,127 @@
+package de.uka.ipd.sdq.sensorframework.visualisation.views;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+
+import org.eclipse.jface.viewers.ITreeContentProvider;
+import org.eclipse.jface.viewers.Viewer;
+
+import de.uka.ipd.sdq.sensorfactory.entities.Experiment;
+import de.uka.ipd.sdq.sensorfactory.entities.ExperimentRun;
+import de.uka.ipd.sdq.sensorfactory.entities.Sensor;
+import de.uka.ipd.sdq.sensorfactory.entities.impl.ExperimentDAO;
+
+/**
+ * TODO
+ * 
+ * @author admin
+ * 
+ */
+public class TreeContentProvider implements ITreeContentProvider {
+
+	protected static final int EXPERIMENT_RUNS = 0;
+	protected static final int SENSORS = 1;
+
+	private List<ExperimentDAO> rootEntry;
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see org.eclipse.jface.viewers.IStructuredContentProvider#getElements(java.lang.Object)
+	 */
+	public Object[] getElements(Object parent) {
+		if (rootEntry == null) {
+			rootEntry = new ArrayList<ExperimentDAO>();
+			rootEntry.add(ExperimentDAO.singleton());
+		}
+		return getChildren(rootEntry);
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see org.eclipse.jface.viewers.ITreeContentProvider#getChildren(java.lang.Object)
+	 */
+	public Object[] getChildren(Object parent) {
+
+		if (parent instanceof ArrayList)
+			return ((ArrayList<ExperimentDAO>) parent).toArray();
+
+		if (parent instanceof ExperimentDAO)
+			return ((ExperimentDAO) parent).getExperiments().toArray();
+
+		if (parent instanceof Experiment) {
+			Experiment experiment = (Experiment) parent;
+			Object[] objects = {
+					new TreeContainer(experiment, EXPERIMENT_RUNS),
+					new TreeContainer(experiment, SENSORS) };
+			return objects;
+		}
+
+		if (parent instanceof ExperimentRun) {
+			ExperimentRun run = (ExperimentRun) parent;
+			Experiment experiment = getExperimentToExperimentRun(run);
+			return experiment.getSensors().toArray();
+		}
+		
+		if (parent instanceof TreeContainer)
+			return ((TreeContainer) parent).getElements().toArray();
+
+		return new Object[0];
+	}
+
+	
+	/**
+	 * TODO
+	 * @return
+	 */
+	public static Experiment getExperimentToExperimentRun(ExperimentRun run) {
+		
+		Collection<Experiment> experiments = ExperimentDAO.singleton()
+				.getExperiments();
+
+		for (Experiment e : experiments) {
+			if (e.getExperimentID() == run.getExperimentRunID())
+				return e;
+		}
+		return null;
+	}
+	
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see org.eclipse.jface.viewers.ITreeContentProvider#hasChildren(java.lang.Object)
+	 */
+	public boolean hasChildren(Object parent) {
+		if (parent instanceof Sensor)
+			return false;
+		return true;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see org.eclipse.jface.viewers.IContentProvider#dispose()
+	 */
+	public void dispose() {
+		if (rootEntry != null)
+			rootEntry.clear();
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see org.eclipse.jface.viewers.ITreeContentProvider#getParent(java.lang.Object)
+	 */
+	public Object getParent(Object child) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void inputChanged(Viewer viewer, Object oldInput, Object newInput) {
+		// TODO Auto-generated method stub
+
+	}
+}

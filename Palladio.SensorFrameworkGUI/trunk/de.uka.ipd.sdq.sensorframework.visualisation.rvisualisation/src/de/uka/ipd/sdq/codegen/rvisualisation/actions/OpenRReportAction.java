@@ -9,7 +9,7 @@ import org.eclipse.ui.PartInitException;
 
 import de.uka.ipd.sdq.codegen.rvisualisation.RVisualisationPlugin;
 import de.uka.ipd.sdq.codegen.rvisualization.views.RReportView;
-import de.uka.ipd.sdq.codegen.simudatavisualization.editor.ConfigEditorInput;
+import de.uka.ipd.sdq.sensorframework.visualisation.editor.ConfigEditorInput;
 
 /**
  * Our sample action implements workbench action delegate.
