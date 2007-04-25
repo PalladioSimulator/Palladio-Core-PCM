@@ -33,7 +33,6 @@ public class SimuControllerPlugin extends AbstractUIPlugin {
 		
 		context.addBundleListener(new BundleListener(){
 
-			@Override
 			public void bundleChanged(BundleEvent event) {
 				if (event.getType() == BundleEvent.INSTALLED){
 					

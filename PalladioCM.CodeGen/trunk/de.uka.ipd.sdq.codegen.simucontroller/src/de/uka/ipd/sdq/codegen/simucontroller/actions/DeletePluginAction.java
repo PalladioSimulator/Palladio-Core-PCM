@@ -17,7 +17,6 @@ public class DeletePluginAction implements IViewActionDelegate {
 	/* (non-Javadoc)
 	 * @see org.eclipse.ui.IViewActionDelegate#init(org.eclipse.ui.IViewPart)
 	 */
-	@Override
 	public void init(IViewPart view) {
 		// TODO Auto-generated method stub
 
@@ -26,7 +25,6 @@ public class DeletePluginAction implements IViewActionDelegate {
 	/* (non-Javadoc)
 	 * @see org.eclipse.ui.IActionDelegate#run(org.eclipse.jface.action.IAction)
 	 */
-	@Override
 	public void run(IAction action) {
 		// TODO Auto-generated method stub
 
@@ -35,7 +33,6 @@ public class DeletePluginAction implements IViewActionDelegate {
 	/* (non-Javadoc)
 	 * @see org.eclipse.ui.IActionDelegate#selectionChanged(org.eclipse.jface.action.IAction, org.eclipse.jface.viewers.ISelection)
 	 */
-	@Override
 	public void selectionChanged(IAction action, ISelection selection) {
 		// TODO Auto-generated method stub
 
