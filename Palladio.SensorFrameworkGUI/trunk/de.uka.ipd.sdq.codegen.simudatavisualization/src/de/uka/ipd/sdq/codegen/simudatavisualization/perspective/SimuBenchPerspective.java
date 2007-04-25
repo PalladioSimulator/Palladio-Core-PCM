@@ -14,6 +14,7 @@ import org.eclipse.ui.IPerspectiveFactory;
 public class SimuBenchPerspective implements IPerspectiveFactory {
 	
 	private static final String EXPERIMENTS_VIEW = "de.uka.ipd.sdq.codegen.simudatavisualization.ExperimentsView";
+	
 	/* (non-Javadoc)
 	 * @see org.eclipse.ui.IPerspectiveFactory#createInitialLayout(org.eclipse.ui.IPageLayout)
 	 */
