@@ -1,6 +1,5 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Eclipse-BuddyPolicy: registered
 Bundle-Name: Simu Controller Plug-in
 Bundle-SymbolicName: de.uka.ipd.sdq.codegen.simucontroller;singleton:=true
 Bundle-Version: 1.0.0.qualifier
@@ -22,3 +21,5 @@ Require-Bundle: org.eclipse.ui,
 Eclipse-LazyStart: true
 Export-Package: de.uka.ipd.sdq.codegen.simucontroller.actions
 Bundle-Vendor: sdq.ipd.uka.de
+
+

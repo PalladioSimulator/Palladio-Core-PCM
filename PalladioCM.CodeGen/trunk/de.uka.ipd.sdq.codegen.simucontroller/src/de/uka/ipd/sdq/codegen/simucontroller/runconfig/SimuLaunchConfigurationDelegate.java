@@ -86,29 +86,22 @@ public class SimuLaunchConfigurationDelegate implements
 		properties.put("workspace_loc", workspaceLocation);
 
 		IProject project = null;
+		MessageConsole console = new MessageConsole("SimuComController Generator Console", null);
+		console.activate();
+		ConsolePlugin.getDefault().getConsoleManager().addConsoles(new IConsole[]{ console });
+		MessageConsoleStream stream = console.newMessageStream();
+		PrintStream outStream = System.out;
+		System.setOut(new PrintStream(stream));
 		try {
 			project = createPluginProject(monitor);
 
-			//OawEclipseProjectResourceLoader resourceLoader = new OawEclipseProjectResourceLoader(
-			//		project);
-
-			//ResourceLoaderFactory
-			//		.setCurrentThreadResourceLoader(resourceLoader);
-			MessageConsole console = new MessageConsole("SimuComController Generator Console", null);
-			console.activate();
-			ConsolePlugin.getDefault().getConsoleManager().addConsoles(new IConsole[]{ console });
-			MessageConsoleStream stream = console.newMessageStream();
-			PrintStream outStream = System.out;
-			System.setOut(new PrintStream(stream));
 			for (int i = 0; i < workflowFiles.length; i++)
 				status = runWorkflowRunner(workflowFiles[i],
 						properties, slotContents);
-			System.setOut(outStream);
 		} catch (CoreException e) {
 			e.printStackTrace();
-			// TODO Auto-generated catch block
 		} finally {
-			ResourceLoaderFactory.setCurrentThreadResourceLoader(null);
+			System.setOut(outStream);
 		}
 		project.refreshLocal(IResource.DEPTH_INFINITE, monitor);
 		project.build(IncrementalProjectBuilder.FULL_BUILD, monitor);
