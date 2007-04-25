@@ -18,13 +18,6 @@
    </license>
 
    <plugin
-         id="de.uka.ipd.sdq.codegen.rvisualisation"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
          id="de.uka.ipd.sdq.codegen.simudatavisualisation.datatypes"
          download-size="0"
          install-size="0"
@@ -32,7 +25,28 @@
          unpack="false"/>
 
    <plugin
-         id="de.uka.ipd.sdq.codegen.simudatavisualization"
+         id="de.uka.ipd.sdq.sensorframework.visualisation"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="de.uka.ipd.sdq.sensorframework.visualisation.birt"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="de.uka.ipd.sdq.sensorframework.visualisation.jfreechartvisualisation"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="de.uka.ipd.sdq.sensorframework.visualisation.rvisualisation"
          download-size="0"
          install-size="0"
          version="0.0.0"
