@@ -159,7 +159,7 @@ public class CreatePluginProject {
 		out.println("   <extension"); 					//$NON-NLS-1$
 		out.println("         point=\"de.uka.ipd.sdq.codegen.simucontroller.controller\">"); //$NON-NLS-1$
 		out.println("      <actionDelegate");			 //$NON-NLS-1$
-		out.println("            class=\"de.uka.ipd.sdq.codegen.simucominstance.SimuComControl\""); //$NON-NLS-1$
+		out.println("            class=\"main.SimuComControl\""); //$NON-NLS-1$
 		out.println("            id=\"de.uka.ipd.sdq.codegen.simucominstance.actionDelegate\">"); //$NON-NLS-1$
 		out.println("      </actionDelegate>"); 		//$NON-NLS-1$
 		out.println("   </extension>"); 				//$NON-NLS-1$
@@ -207,8 +207,7 @@ public class CreatePluginProject {
 		out.println("Manifest-Version: 1.0"); //$NON-NLS-1$
 		out.println("Bundle-ManifestVersion: 2"); //$NON-NLS-1$
 		out.println("Bundle-Name: SimuCom Instance Plug-in"); //$NON-NLS-1$
-		out
-				.println("Bundle-SymbolicName: " + project.getName() + ";singleton:=true"); //$NON-NLS-1$
+		out.println("Bundle-SymbolicName: " + project.getName() + ";singleton:=true"); //$NON-NLS-1$
 		out.println("Bundle-Version: 1.0.0"); //$NON-NLS-1$
 		out.println("Require-Bundle: org.eclipse.ui,"); //$NON-NLS-1$
 		out.println(" org.eclipse.core.runtime,"); //$NON-NLS-1$
@@ -217,6 +216,9 @@ public class CreatePluginProject {
 		out.println(" de.uka.ipd.sdq.desmojwrapper,"); //$NON-NLS-1$
 		out.println(" de.uka.ipd.sdq.codegen.simucontroller"); //$NON-NLS-1$
 		out.println("Eclipse-LazyStart: true"); //$NON-NLS-1$
+		out.println("Bundle-ClassPath: bin/,");
+		out.println(" .");
+		out.println("Export-Package: main");
 		out.close();
 
 		IFile manifestMf = project.getFile("META-INF/" + MANIFEST_MF);

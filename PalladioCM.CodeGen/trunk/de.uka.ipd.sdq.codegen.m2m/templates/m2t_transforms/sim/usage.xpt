@@ -8,13 +8,14 @@
 «IMPORT allocation»
 
 «DEFINE Main FOR UsageModel»
-	«FILE "SimuComControl.java"»
-	
+	«FILE "main/SimuComControl.java"»
+		package main;
+		
 		public class SimuComControl extends de.uka.ipd.sdq.simucomframework.AbstractMain 
 				implements de.uka.ipd.sdq.codegen.simucontroller.actions.ISimuComControl{
 			
 			public void StartSimulation() {
-				new SimuComControl().run(0);
+				new SimuComControl().run();
 			}	
 			
 			public void StopSimulation() {

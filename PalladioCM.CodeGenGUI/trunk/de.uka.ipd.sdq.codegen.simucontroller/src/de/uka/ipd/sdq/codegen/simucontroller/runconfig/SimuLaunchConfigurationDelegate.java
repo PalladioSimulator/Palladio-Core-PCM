@@ -10,6 +10,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.eclipse.core.resources.IProject;
+import org.eclipse.core.resources.IResource;
+import org.eclipse.core.resources.IncrementalProjectBuilder;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.FileLocator;
@@ -97,7 +99,8 @@ public class SimuLaunchConfigurationDelegate implements
 		} finally {
 			ResourceLoaderFactory.setCurrentThreadResourceLoader(null);
 		}
-		
+		project.refreshLocal(IResource.DEPTH_INFINITE, monitor);
+		project.build(IncrementalProjectBuilder.FULL_BUILD, monitor);
 		if (true)
 			loadGeneratedPlugin(project);
 	}

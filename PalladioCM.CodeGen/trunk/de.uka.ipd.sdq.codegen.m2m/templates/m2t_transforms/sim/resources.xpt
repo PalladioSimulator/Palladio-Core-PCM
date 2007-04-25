@@ -23,7 +23,9 @@
 // and sets up simulated resources accordingly
 // ----------------------------
 «DEFINE ResourceEnvironment FOR ResourceEnvironment»
-	«FILE "ResourceEnvironment.java"»
+	«FILE "main/ResourceEnvironment.java"»
+		package main;
+		
 		public class ResourceEnvironment implements de.uka.ipd.sdq.simucomframework.resources.IResourceContainerFactory {
 		   «EXPAND ResourceContainerInit FOR this»
 		}
