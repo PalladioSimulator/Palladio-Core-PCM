@@ -13,7 +13,6 @@ public class FIFOStrategy implements ISchedulingStrategy {
 		runQueue = new Queue(myModel, "RunQueue "+typeID, true, true);
 	}
 
-	@Override
 	public void processPassedTime(double timePassed) {
 		if (runQueue.length() > 0){
 			JobAndDemandStruct jobAndDemand = (JobAndDemandStruct) runQueue.first();
@@ -21,17 +20,14 @@ public class FIFOStrategy implements ISchedulingStrategy {
 		}
 	}
 
-	@Override
 	public void addJob(JobAndDemandStruct demand) {
 		runQueue.insert(demand);
 	}
 
-	@Override
 	public double getTimeWhenNextJobIsDone() {
 		return ((JobAndDemandStruct)runQueue.first()).getDemand();
 	}
 
-	@Override
 	public JobAndDemandStruct removeFinshedJob() {
 		JobAndDemandStruct job = (JobAndDemandStruct) runQueue.first();
 		if (Math.abs(job.getDemand()) > Math.pow(10, -3))
@@ -40,12 +36,10 @@ public class FIFOStrategy implements ISchedulingStrategy {
 		return job;
 	}
 
-	@Override
 	public boolean hasMoreJobs() {
 		return runQueue.length() > 0;
 	}
 
-	@Override
 	public int getTotalJobCount() {
 		return runQueue.length();
 	}

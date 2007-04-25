@@ -22,7 +22,6 @@ class SensorObserver implements Observer {
 		this.run = run;
 	}
 
-	@Override
 	public void update(Observable arg0, Object arg1) {
 		run.addTimeSpanMeasurement(mySensor, (Double)arg1, 0);
 	}
@@ -39,7 +38,6 @@ public class SensorFrameworkObserver implements ISensorObserver {
 		run = experiment.addExperimentRun("A Run");
 	}
 	
-	@Override
 	public void sensorAddedEvent(SensorAddedEvent e) {
 		if (!sensors.containsKey(e.getId())){
 			TimeSpanSensor sensor = experiment.addTimeSpanSensor(e.getId());

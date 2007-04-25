@@ -8,12 +8,10 @@ public class RoundRobinStrategy implements ISchedulingStrategy {
 
 	protected ArrayList<JobAndDemandStruct> runQueue = new ArrayList<JobAndDemandStruct>();
 	
-	@Override
 	public void addJob(JobAndDemandStruct demand) {
 		runQueue.add(demand);
 	}
 
-	@Override
 	public double getTimeWhenNextJobIsDone() {
 		double currentMin = runQueue.get(0).getDemand();
 		
@@ -24,12 +22,10 @@ public class RoundRobinStrategy implements ISchedulingStrategy {
 		return currentMin * runQueue.size();
 	}
 
-	@Override
 	public boolean hasMoreJobs() {
 		return runQueue.size() > 0;
 	}
 
-	@Override
 	public void processPassedTime(double timePassed) {
 		int count = runQueue.size();
 		for(JobAndDemandStruct job : runQueue){
@@ -37,7 +33,6 @@ public class RoundRobinStrategy implements ISchedulingStrategy {
 		}
 	}
 
-	@Override
 	public JobAndDemandStruct removeFinshedJob() {
 		JobAndDemandStruct currentMin = runQueue.get(0);
 		
@@ -51,7 +46,6 @@ public class RoundRobinStrategy implements ISchedulingStrategy {
 		return currentMin;
 	}
 
-	@Override
 	public int getTotalJobCount() {
 		return runQueue.size();
 	}

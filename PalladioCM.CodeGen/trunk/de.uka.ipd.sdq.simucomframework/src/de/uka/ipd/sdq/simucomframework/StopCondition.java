@@ -30,7 +30,6 @@ public class StopCondition extends Condition implements Observer
 		});
 	}
 
-	@Override
 	public boolean check() {
 		double[] vals = new double[values.size()];
 		for (int i=0; i<values.size();i++)
@@ -44,13 +43,11 @@ public class StopCondition extends Condition implements Observer
 		return false; //size < Math.pow(10, -3);
 	}
 
-	@Override
 	public boolean check(Entity e) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
-	@Override
 	public void update(Observable o, Object arg) {
 		values.add(arg);
 	}
