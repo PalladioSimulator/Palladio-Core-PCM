@@ -24,7 +24,6 @@ public class TimeSpanToHistogramAdapter implements IAdapter {
 		this.myProperties.put(HISTOGRAM_WIDTH, 1.0);
 	}
 
-	@Override
 	public Object getAdaptedObject() {
 		int maxHistClass = 0;
 		HashMap map = new HashMap();
@@ -55,12 +54,10 @@ public class TimeSpanToHistogramAdapter implements IAdapter {
 		return hist;
 	}
 
-	@Override
 	public Properties getProperties() {
 		return myProperties;
 	}
 
-	@Override
 	public void setProperties(Properties newProperties) {
 		this.myProperties = newProperties;
 	}

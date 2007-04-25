@@ -28,7 +28,6 @@ public class StateToPieAdapter implements IAdapter {
 		this.myValues = sensorAndMeasurements;
 	}
 
-	@Override
 	public Object getAdaptedObject() {
 		Pie p = new Pie();
 		HashMap<String, Double> newPie = new HashMap<String, Double>(); 
@@ -48,12 +47,10 @@ public class StateToPieAdapter implements IAdapter {
 		return p;
 	}
 
-	@Override
 	public Properties getProperties() {
 		return myProperties;
 	}
 
-	@Override
 	public void setProperties(Properties newProperties) {
 		this.myProperties = newProperties;
 	}

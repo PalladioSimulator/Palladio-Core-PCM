@@ -7,7 +7,6 @@ import de.uka.ipd.sdq.sensorfactory.entities.impl.SensorAndMeasurements;
 
 public class TimeSpanSensorToHistogramFactory implements IAdapterFactory {
 
-	@Override
 	public boolean canAdapt(Object adaptee, Class targetClass) {
 		if (adaptee instanceof SensorAndMeasurements){
 			SensorAndMeasurements sam = (SensorAndMeasurements) adaptee;
@@ -18,7 +17,6 @@ public class TimeSpanSensorToHistogramFactory implements IAdapterFactory {
 		return false;
 	}
 	
-	@Override
 	public IAdapter getAdapter(Object adaptee) {
 		return new TimeSpanToHistogramAdapter((SensorAndMeasurements) adaptee);
 	}
