@@ -116,7 +116,7 @@ public class OperationsTabViewer {
 		editors[SIGNATURENAME_COLUMN_INDEX] = textEditor;
 
 		textEditor = new TextCellEditor(table);
-		editors[EXCEPTIONS_COLUMN_INDEX] = textEditor;
+		//editors[EXCEPTIONS_COLUMN_INDEX] = textEditor;
 
 		editors[RETURNTYPE_COLUMN_INDEX] = new TypeDialogCellEditor(table);
 
