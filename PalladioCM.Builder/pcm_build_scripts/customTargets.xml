@@ -94,6 +94,18 @@
 		<exec executable="svn.exe">
 		  <arg line="co svn://i43pc13.ipd.uka.de/code/Palladio.CoreServices/trunk ${rootSourceFolder}/Core --username ${svnUserName}"/>
 		</exec>
+		<exec executable="svn.exe">
+		  <arg line="co svn://i43pc13.ipd.uka.de/code/PalladioCM.CodeGen/trunk ${rootSourceFolder}/CodeGen --username ${svnUserName}"/>
+		</exec>
+		<exec executable="svn.exe">
+		  <arg line="co svn://i43pc13.ipd.uka.de/code/Palladio.SensorFactory/trunk ${rootSourceFolder}/SensorFramework --username ${svnUserName}"/>
+		</exec>
+		<exec executable="svn.exe">
+		  <arg line="co svn://i43pc13.ipd.uka.de/code/Palladio.EMFAnalyticalModel/trunk ${rootSourceFolder}/AnalyticalModel --username ${svnUserName}"/>
+		</exec>
+		<exec executable="svn.exe">
+		  <arg line="co svn://i43pc13.ipd.uka.de/code/PalladioCM.PCMSolver/trunk ${rootSourceFolder}/PCMSolver --username ${svnUserName}"/>
+		</exec>
 	</target>
 
 	<!-- ===================================================================== -->
@@ -192,8 +204,14 @@
 			    token="@@de.uka.ipd.sdq.probfunction.feature.version@@"
     			    property="de.uka.ipd.sdq.probfunction.feature"/>
 			<replacefilter
-			    token="@@de.uka.ipd.sdq.context.feature.version@@"
-    			    property="de.uka.ipd.sdq.context.feature"/>
+			    token="@@de.uka.ipd.sdq.sensorframework.feature.version@@"
+    			    property="de.uka.ipd.sdq.sensorframework.feature"/>
+			<replacefilter
+			    token="@@de.uka.ipd.sdq.simucom.feature.version@@"
+    			    property="de.uka.ipd.sdq.simucom.feature"/>
+			<replacefilter
+			    token="@@de.uka.ipd.sdq.pcmsolver.feature.version@@"
+    			    property="de.uka.ipd.sdq.pcmsolver.feature"/>
 		</replace>
 	</target>
 

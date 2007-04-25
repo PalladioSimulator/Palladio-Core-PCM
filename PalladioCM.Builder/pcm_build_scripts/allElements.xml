@@ -23,7 +23,15 @@
  		</ant>
  		<ant antfile="${genericTargets}" target="${target}">
 	 		<property name="type" value="feature" />
-	 		<property name="id" value="de.uka.ipd.sdq.context.feature" />
+	 		<property name="id" value="de.uka.ipd.sdq.pcmsolver.feature" />
+ 		</ant>
+ 		<ant antfile="${genericTargets}" target="${target}">
+	 		<property name="type" value="feature" />
+	 		<property name="id" value="de.uka.ipd.sdq.sensorframework.feature" />
+ 		</ant>
+ 		<ant antfile="${genericTargets}" target="${target}">
+	 		<property name="type" value="feature" />
+	 		<property name="id" value="de.uka.ipd.sdq.simucom.feature" />
  		</ant>
  	</target>
  
@@ -43,7 +51,13 @@
  	<target name="assemble.de.uka.ipd.sdq.pcm.diagram.feature">
  		<ant antfile="${assembleScriptName}" dir="${buildDirectory}"/>
  	</target>
- 	<target name="assemble.de.uka.ipd.sdq.context.feature">
+ 	<target name="assemble.de.uka.ipd.sdq.pcmsolver.feature">
+ 		<ant antfile="${assembleScriptName}" dir="${buildDirectory}"/>
+ 	</target>
+ 	<target name="assemble.de.uka.ipd.sdq.sensorframework.feature">
+ 		<ant antfile="${assembleScriptName}" dir="${buildDirectory}"/>
+ 	</target>
+ 	<target name="assemble.de.uka.ipd.sdq.simucom.feature">
  		<ant antfile="${assembleScriptName}" dir="${buildDirectory}"/>
  	</target>
 </project>
