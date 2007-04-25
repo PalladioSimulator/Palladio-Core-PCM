@@ -1,14 +1,9 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Variables
+Bundle-Name: Simulation Variables
 Bundle-SymbolicName: de.uka.ipd.sdq.simucomframework.variables
-Bundle-Version: 1.0.0
-Export-Package: de,
- de.uka,
- de.uka.ipd,
- de.uka.ipd.sdq,
- de.uka.ipd.sdq.simucomframework,
- de.uka.ipd.sdq.simucomframework.variables,
+Bundle-Version: 1.0.0.qualifier
+Export-Package: de.uka.ipd.sdq.simucomframework.variables,
  de.uka.ipd.sdq.simucomframework.variables.cache,
  de.uka.ipd.sdq.simucomframework.variables.stackframe,
  de.uka.ipd.sdq.simucomframework.variables.stoexvisitor
@@ -18,4 +13,7 @@ Require-Bundle: de.uka.ipd.sdq.pcm,
  de.uka.ipd.sdq.dialogs,
  de.uka.ipd.sdq.pcm.stochasticexpressions,
  de.uka.ipd.sdq.probfunction.math,
- de.uka.ipd.sdq.stoex.analyser
+ de.uka.ipd.sdq.stoex.analyser,
+ org.antlr
+Bundle-Vendor: sdq.ipd.uka.de
+Eclipse-LazyStart: true

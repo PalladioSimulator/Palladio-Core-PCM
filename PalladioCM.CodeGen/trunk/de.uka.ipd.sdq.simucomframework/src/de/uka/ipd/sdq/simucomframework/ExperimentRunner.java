@@ -2,7 +2,7 @@ package de.uka.ipd.sdq.simucomframework;
 
 import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
 import de.uka.ipd.sdq.simucomframework.sensors.SensorFactory;
-import de.uka.ipd.sdq.simucomframework.swingui.MainUI;
+// import de.uka.ipd.sdq.simucomframework.swingui.MainUI;
 import desmoj.core.simulator.Condition;
 import desmoj.core.simulator.Entity;
 import desmoj.core.simulator.Experiment;
@@ -23,7 +23,7 @@ public class ExperimentRunner {
 		// Don't use too long periods. Otherwise a huge HTML page will
 		// be created which crashes Netscape :-)
 
-		new MainUI(model).setVisible(true);
+		// new MainUI(model).setVisible(true);
 
 		SensorFrameworkObserver sensorObserver = new SensorFrameworkObserver();
 		SensorFactory.singleton().addSensorObserver(sensorObserver);

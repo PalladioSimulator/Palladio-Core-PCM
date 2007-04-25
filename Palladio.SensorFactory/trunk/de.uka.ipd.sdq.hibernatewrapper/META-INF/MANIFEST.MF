@@ -1,5 +1,5 @@
 Manifest-Version: 1.0
-Eclipse-BuddyPolicy: registered
+Eclipse-BuddyPolicy: dependent
 Bundle-ManifestVersion: 2
 Bundle-Name: Hibernate Wrapper Plug-in
 Bundle-SymbolicName: de.uka.ipd.sdq.hibernatewrapper

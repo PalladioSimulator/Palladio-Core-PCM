@@ -12,6 +12,9 @@
 
    <element name="extension">
       <complexType>
+         <sequence>
+            <element ref="Visualisation"/>
+         </sequence>
          <attribute name="point" type="string" use="required">
             <annotation>
                <documentation>
@@ -46,9 +49,6 @@
                <documentation>
                   
                </documentation>
-               <appInfo>
-                  <meta.attribute kind="java"/>
-               </appInfo>
             </annotation>
          </attribute>
          <attribute name="class" type="string" use="required">
@@ -57,11 +57,25 @@
                   
                </documentation>
                <appInfo>
-                  <meta.attribute kind="java" basedOn="de.uka.ipd.sdq.sensorframework.visualisation.IVisualisation"/>
+                  <meta.attribute kind="java" basedOn="de.uka.ipd.sdq.codegen.simudatavisualization.editor.AbstractReportView:de.uka.ipd.sdq.sensorframework.visualisation.IVisualisation"/>
                </appInfo>
             </annotation>
          </attribute>
          <attribute name="displayName" type="string" use="required">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="editorID" type="string" use="required">
+            <annotation>
+               <documentation>
+                  
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="acceptsMultiple" type="boolean" use="required">
             <annotation>
                <documentation>
                   

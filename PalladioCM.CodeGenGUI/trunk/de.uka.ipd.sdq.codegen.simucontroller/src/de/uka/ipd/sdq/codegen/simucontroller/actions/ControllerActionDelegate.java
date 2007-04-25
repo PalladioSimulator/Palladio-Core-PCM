@@ -43,31 +43,22 @@ public class ControllerActionDelegate implements IViewActionDelegate {
 			findPlugin();
 		}else if (action.getId().equals(STOPACTION_ID)){
 		
-		}
+		} 
 	}
 	
 	public void findPlugin(){
 		
 		ISimuComControl control = null;
 		
-		IExtensionTracker tracker = PlatformUI.getWorkbench()
-				.getExtensionTracker();
-		IExtensionPoint point = Platform.getExtensionRegistry()
-				.getExtensionPoint(PID, EPID);
-		
-		IExtension[] extensions = point.getExtensions();
-		for (int i = 0; i < extensions.length; i++) {
-			IConfigurationElement[] elements = extensions[i]
-					.getConfigurationElements();
-			for (int j = 0; j < elements.length; j++) {
+		for(IConfigurationElement configurationElement : Platform.getExtensionRegistry().
+				getConfigurationElementsFor(PID+"."+EPID)){
 				try {
-					control = (ISimuComControl) elements[j]
+					control = (ISimuComControl) configurationElement
 							.createExecutableExtension("class");
 				} catch (CoreException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-			}
 		}
 		if (control != null)
 			control.StartSimulation();

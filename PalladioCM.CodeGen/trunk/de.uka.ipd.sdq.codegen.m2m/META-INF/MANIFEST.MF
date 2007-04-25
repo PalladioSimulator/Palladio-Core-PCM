@@ -2,8 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: de.uka.ipd.sdq.pcm.codegen.m2m
 Bundle-SymbolicName: de.uka.ipd.sdq.pcm.codegen.m2m; singleton:=true
-Bundle-Version: 1.0.0
-Bundle-Localization: plugin
+Bundle-Version: 1.0.0.qulifier
 Require-Bundle: org.openarchitectureware.base,
  org.openarchitectureware.core.check,
  org.openarchitectureware.core.emftools,
@@ -13,3 +12,9 @@ Require-Bundle: org.openarchitectureware.base,
  de.uka.ipd.sdq.stoex,
  de.uka.ipd.sdq.pcm,
  org.eclipse.emf.ocl
+Bundle-ClassPath: templates/
+Export-Package: m2t_transforms,
+ m2t_transforms.pojo,
+ m2t_transforms.prototype,
+ m2t_transforms.sim
+Bundle-Vendor: sdq.ipd.uka.de

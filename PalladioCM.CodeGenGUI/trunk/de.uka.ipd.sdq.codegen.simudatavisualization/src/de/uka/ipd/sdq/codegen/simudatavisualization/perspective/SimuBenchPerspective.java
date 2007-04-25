@@ -31,5 +31,4 @@ public class SimuBenchPerspective implements IPerspectiveFactory {
 		bottom.addView(IPageLayout.ID_PROP_SHEET);
 		bottom.addView(IPageLayout.ID_PROBLEM_VIEW);
 	}
-
 }

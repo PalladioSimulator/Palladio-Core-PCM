@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Observer;
 
-import umontreal.iro.lecuyer.probdist.EmpiricalDist;
-import umontreal.iro.lecuyer.probdist.StudentDist;
+//import umontreal.iro.lecuyer.probdist.EmpiricalDist;
+//import umontreal.iro.lecuyer.probdist.StudentDist;
 
 import de.uka.ipd.sdq.simucomframework.sensors.ISensorObserver;
 import de.uka.ipd.sdq.simucomframework.sensors.SensorAddedEvent;
@@ -37,11 +37,11 @@ public class StopCondition extends Condition implements Observer
 			vals[i] = (Double)values.get(i);
 		if (vals.length < 2) 
 			return false;
-		EmpiricalDist d = new EmpiricalDist(vals);
-		StudentDist sd = new StudentDist(values.size()-1);
-		double size = sd.inverseF(0.95) * d.getSampleStandardDeviation() / Math.sqrt(values.size()) * 2;
-		System.out.println("IntSize: "+size+" Mean: "+d.getMean() + " S: "+d.getSampleStandardDeviation() +" N: "+d.getN());
-		return size < Math.pow(10, -3);
+		//EmpiricalDist d = new EmpiricalDist(vals);
+		//StudentDist sd = new StudentDist(values.size()-1);
+		//double size = sd.inverseF(0.95) * d.getSampleStandardDeviation() / Math.sqrt(values.size()) * 2;
+		//System.out.println("IntSize: "+size+" Mean: "+d.getMean() + " S: "+d.getSampleStandardDeviation() +" N: "+d.getN());
+		return false; //size < Math.pow(10, -3);
 	}
 
 	@Override

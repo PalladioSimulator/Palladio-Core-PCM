@@ -10,6 +10,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.eclipse.core.resources.IProject;
+import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.FileLocator;
 import org.eclipse.core.runtime.IProgressMonitor;
@@ -74,20 +75,22 @@ public class SimuLaunchConfigurationDelegate implements
 				.getAttribute(ResourceManagerTab.USAGE_FILE, ""));
 		properties.put(ResourceManagerTab.OUTPUT_PATH, configuration
 				.getAttribute(ResourceManagerTab.OUTPUT_PATH, ""));
-		
+		String workspaceLocation = ResourcesPlugin.getWorkspace().getRoot().getRawLocationURI().getPath();
+		properties.put("workspace_loc", workspaceLocation);
+
 		IProject project = null;
 		try {
 			project = createPluginProject(monitor);
 
-//			OawEclipseProjectResourceLoader resourceLoader = new OawEclipseProjectResourceLoader(
-//					project);
-//
-//			ResourceLoaderFactory
-//					.setCurrentThreadResourceLoader(resourceLoader);
-//
-//			for (int i = 0; i < workflowFiles.length; i++)
-//				status = runWorkflowRunner(getWorkflowFile(workflowFiles[i]),
-//						properties, slotContents);
+			OawEclipseProjectResourceLoader resourceLoader = new OawEclipseProjectResourceLoader(
+					project);
+
+			ResourceLoaderFactory
+					.setCurrentThreadResourceLoader(resourceLoader);
+
+			for (int i = 0; i < workflowFiles.length; i++)
+				status = runWorkflowRunner(getWorkflowFile(workflowFiles[i]),
+						properties, slotContents);
 		} catch (CoreException e) {
 			e.printStackTrace();
 			// TODO Auto-generated catch block

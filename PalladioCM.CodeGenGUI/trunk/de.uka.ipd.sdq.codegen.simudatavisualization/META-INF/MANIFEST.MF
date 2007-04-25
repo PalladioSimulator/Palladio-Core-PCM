@@ -19,7 +19,8 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.ui.ide,
  de.uka.ipd.sdq.sensorframework,
  org.eclipse.draw2d,
- de.uka.ipd.sdq.codegen.simudatavisualisation.datatypes
+ de.uka.ipd.sdq.codegen.simudatavisualisation.datatypes,
+ org.eclipse.core.expressions
 Eclipse-RegisterBudd: de.uka.ipd.sdq.sensorframework
 Eclipse-BuddyPolicy: dependent
 Eclipse-LazyStart: true

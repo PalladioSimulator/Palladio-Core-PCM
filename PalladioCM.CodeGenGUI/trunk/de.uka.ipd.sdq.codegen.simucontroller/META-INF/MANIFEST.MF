@@ -16,7 +16,6 @@ Require-Bundle: org.eclipse.ui,
  org.openarchitectureware.core.emftools,
  org.openarchitectureware.core.xpand2,
  org.eclipse.pde.ui,
- org.eclipse.emf.ocl,
- de.uka.ipd.sdq.pcm
+ org.eclipse.emf.ocl
 Eclipse-LazyStart: true
 Export-Package: de.uka.ipd.sdq.codegen.simucontroller.actions

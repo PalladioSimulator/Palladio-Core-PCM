@@ -6,7 +6,7 @@
         <children xmi:type="notation:Node" xmi:id="_zOVrAHjmEduuSvsux_US9A" type="4003"/>
         <children xmi:type="notation:Node" xmi:id="_zQSLwHjmEduuSvsux_US9A" type="2001">
           <children xmi:type="notation:Node" xmi:id="_zQSLxnjmEduuSvsux_US9A" type="4001">
-            <layoutConstraint xmi:type="notation:Location" xmi:id="_zQSLx3jmEduuSvsux_US9A" y="5"/>
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_zQSLx3jmEduuSvsux_US9A" x="-17" y="-41"/>
           </children>
           <styles xmi:type="notation:FontStyle" xmi:id="_zQSLwXjmEduuSvsux_US9A"/>
           <styles xmi:type="notation:DescriptionStyle" xmi:id="_zQSLwnjmEduuSvsux_US9A"/>
@@ -55,14 +55,14 @@
           <styles xmi:type="notation:FillStyle" xmi:id="_1XSUg3jmEduuSvsux_US9A"/>
           <styles xmi:type="notation:LineStyle" xmi:id="_1XSUhHjmEduuSvsux_US9A"/>
           <element xmi:type="pcm.repository:RequiredRole" href="Qosa.repository#_mWYNoHiEEdujPfhn5Gb-iA"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_1XSUhXjmEduuSvsux_US9A" x="-15" y="1" width="16" height="30"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_1XSUhXjmEduuSvsux_US9A" x="48" y="39" width="30" height="16"/>
         </children>
         <styles xmi:type="notation:FontStyle" xmi:id="_1XIjgnjmEduuSvsux_US9A"/>
         <styles xmi:type="notation:DescriptionStyle" xmi:id="_1XIjg3jmEduuSvsux_US9A"/>
         <styles xmi:type="notation:FillStyle" xmi:id="_1XIjhHjmEduuSvsux_US9A"/>
         <styles xmi:type="notation:LineStyle" xmi:id="_1XIjhXjmEduuSvsux_US9A"/>
         <element xmi:type="pcm.core.composition:AssemblyContext" href="qosa.system#_1XIjgHjmEduuSvsux_US9A"/>
-        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_1XIjhnjmEduuSvsux_US9A" x="295" y="30"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_1XIjhnjmEduuSvsux_US9A" x="307" y="23"/>
       </children>
       <children xmi:type="notation:Node" xmi:id="_4P6HcXjmEduuSvsux_US9A" type="1001">
         <children xmi:type="notation:Node" xmi:id="_4P6Hd3jmEduuSvsux_US9A" type="4003"/>
@@ -124,7 +124,7 @@
         <styles xmi:type="notation:FillStyle" xmi:id="_8PwoNHjmEduuSvsux_US9A"/>
         <styles xmi:type="notation:LineStyle" xmi:id="_8PwoNXjmEduuSvsux_US9A"/>
         <element xmi:type="pcm.core.composition:AssemblyContext" href="qosa.system#_8PwoMHjmEduuSvsux_US9A"/>
-        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_8PwoNnjmEduuSvsux_US9A" x="27" y="137"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_8PwoNnjmEduuSvsux_US9A" x="31" y="155"/>
       </children>
       <styles xmi:type="notation:SortingStyle" xmi:id="_rLgdB3jmEduuSvsux_US9A"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_rLgdCHjmEduuSvsux_US9A"/>
@@ -155,7 +155,7 @@
     <styles xmi:type="notation:DescriptionStyle" xmi:id="_rLgdAnjmEduuSvsux_US9A"/>
     <styles xmi:type="notation:FillStyle" xmi:id="_rLgdA3jmEduuSvsux_US9A"/>
     <styles xmi:type="notation:LineStyle" xmi:id="_rLgdBHjmEduuSvsux_US9A"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_rLgdBXjmEduuSvsux_US9A" x="60" y="24" width="529" height="241"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_rLgdBXjmEduuSvsux_US9A" x="96" y="48" width="541" height="265"/>
   </children>
   <styles xmi:type="notation:PageStyle" xmi:id="_rFGTAXjmEduuSvsux_US9A"/>
   <styles xmi:type="notation:GuideStyle" xmi:id="_rFGTAnjmEduuSvsux_US9A"/>
