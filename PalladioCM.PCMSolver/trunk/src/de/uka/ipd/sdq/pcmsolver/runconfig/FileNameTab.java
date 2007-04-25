@@ -45,14 +45,11 @@ public class FileNameTab extends AbstractLaunchConfigurationTab {
 	private FileNameTabListener listener = new FileNameTabListener();
 	
 	private class FileNameTabListener extends SelectionAdapter implements ModifyListener {
-		@Override
 		public void modifyText(ModifyEvent e) {
 			updateLaunchConfigurationDialog();
 		}
 	}
 	
-	
-	@Override
 	public void createControl(Composite parent) {
 		Composite container = new Composite(parent, SWT.NONE);
 		setControl(container);
@@ -184,13 +181,10 @@ public class FileNameTab extends AbstractLaunchConfigurationTab {
 		});
 	}
 
-
-	@Override
 	public String getName() {
 		return "File Names";
 	}
 
-	@Override
 	public void initializeFrom(ILaunchConfiguration configuration) {
 		try{
 			textAllocation.setText(configuration.getAttribute("inputAllocation", "n/a"));
@@ -231,7 +225,6 @@ public class FileNameTab extends AbstractLaunchConfigurationTab {
 		
 	}
 
-	@Override
 	public void performApply(ILaunchConfigurationWorkingCopy configuration) {
 		if (isSelectAll){
 			String prefix = textInputFolder.getText() + "\\" + textInputPrefix.getText()+"."; 
@@ -252,7 +245,6 @@ public class FileNameTab extends AbstractLaunchConfigurationTab {
 		configuration.setAttribute("outputPath", textOutput.getText());
 	}
 
-	@Override
 	public void setDefaults(ILaunchConfigurationWorkingCopy configuration) {
 		isSelectAll = true;
 	}

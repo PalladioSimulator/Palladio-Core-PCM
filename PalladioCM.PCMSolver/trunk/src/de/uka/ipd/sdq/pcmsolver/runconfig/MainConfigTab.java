@@ -22,7 +22,6 @@ public class MainConfigTab extends AbstractLaunchConfigurationTab {
 	private Text textMaxDomain;
 	
 	private class MainConfigTabListener extends SelectionAdapter implements ModifyListener {
-		@Override
 		public void modifyText(ModifyEvent e) {
 			updateLaunchConfigurationDialog();
 		}
@@ -30,8 +29,6 @@ public class MainConfigTab extends AbstractLaunchConfigurationTab {
 	
 	private MainConfigTabListener listener = new MainConfigTabListener();
 	
-	
-	@Override
 	public void createControl(Composite parent) {
 		Composite container = new Composite(parent, SWT.NONE);
 		setControl(container);
@@ -63,12 +60,10 @@ public class MainConfigTab extends AbstractLaunchConfigurationTab {
 
 	}
 
-	@Override
 	public String getName() {
 		return "Main Config";
 	}
 
-	@Override
 	public void initializeFrom(ILaunchConfiguration configuration) {
 		try{
 			textSamplingDist.setText(configuration.getAttribute("samplingDist", "n/a"));
@@ -83,13 +78,11 @@ public class MainConfigTab extends AbstractLaunchConfigurationTab {
 		updateLaunchConfigurationDialog();
 	}
 
-	@Override
 	public void performApply(ILaunchConfigurationWorkingCopy configuration) {
 		configuration.setAttribute("samplingDist", textSamplingDist.getText());
 		configuration.setAttribute("maxDomain", textMaxDomain.getText());
 	}
 
-	@Override
 	public void setDefaults(ILaunchConfigurationWorkingCopy configuration) {
 		// TODO Auto-generated method stub
 
