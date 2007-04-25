@@ -23,11 +23,4 @@
 	        id="org.eclipse.jdt.debug.ui.launchConfigurationTabGroup.PCMSolver">
 	    </launchConfigurationTabGroup>
 	</extension>
- <extension
-       point="org.eclipse.ui.console.consoleFactories">
-    <consoleFactory
-          class="de.uka.ipd.sdq.pcmsolver.ConsoleFactory1"
-          label="label">
-    </consoleFactory>
- </extension>
 </plugin>

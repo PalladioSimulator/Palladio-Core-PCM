@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
-      id="de.uka.ipd.sdq.context.feature"
-      label="Derived Context Metamodel Feature"
+      id="de.uka.ipd.sdq.pcmsolver.feature"
+      label="PCM Solver Feature"
       version="1.0.0.qualifier"
       provider-name="sdq.ipd.uka.de">
 
    <description url="http://www.example.com/description">
-      Contains the contexts generated when solving usage dependencies.
+      Contains the contexts and the solver generated when solving usage dependencies.
    </description>
 
    <copyright url="http://www.example.com/copyright">
@@ -217,6 +217,10 @@ litigation.
       <update label="Palladio Update Site" url="http://i43pc12.ipd.uka.de/eclipse/PCM/"/>
    </url>
 
+   <includes
+         id="de.uka.ipd.sdq.context.feature.source"
+         version="0.0.0"/>
+
    <requires>
       <import plugin="org.eclipse.core.runtime"/>
       <import plugin="org.eclipse.emf.ecore"/>
@@ -231,11 +235,6 @@ litigation.
       <import plugin="org.eclipse.ui.ide"/>
    </requires>
 
-
-   <includes
-         id="de.uka.ipd.sdq.context.feature.source"
-         version="0.0.0"/>
-         
    <plugin
          id="de.uka.ipd.sdq.context"
          download-size="0"
@@ -252,6 +251,34 @@ litigation.
 
    <plugin
          id="de.uka.ipd.sdq.context.editor"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="de.uka.ipd.sdq.pcmsolver"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="de.uka.ipd.sdq.spa"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="de.uka.ipd.sdq.spa.basicsolver"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="de.uka.ipd.spq.spa.resourcemodel"
          download-size="0"
          install-size="0"
          version="0.0.0"
