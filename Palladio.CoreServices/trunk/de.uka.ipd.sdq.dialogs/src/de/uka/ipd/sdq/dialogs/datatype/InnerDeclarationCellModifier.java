@@ -7,6 +7,7 @@ import org.eclipse.core.runtime.Assert;
 import org.eclipse.emf.transaction.RecordingCommand;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.jface.viewers.ICellModifier;
+import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.swt.widgets.TableItem;
 
 import de.uka.ipd.sdq.dialogs.parameters.CreateEditorContents;
@@ -19,6 +20,7 @@ import de.uka.ipd.sdq.pcm.repository.InnerDeclaration;
  */
 public class InnerDeclarationCellModifier implements ICellModifier {
 
+	private TableViewer viewer;
 	private List<String> columnNames;
 	private InnerDeclaration declaration;
 
@@ -29,7 +31,8 @@ public class InnerDeclarationCellModifier implements ICellModifier {
 	final protected TransactionalEditingDomain editingDomain = TransactionalEditingDomain.Registry.INSTANCE
 			.getEditingDomain(DialogRepository.EDITING_DOMAIN_ID);
 
-	public InnerDeclarationCellModifier() {
+	public InnerDeclarationCellModifier(TableViewer viewer) {
+		this.viewer = viewer;
 		this.columnNames = Arrays.asList(CreateEditorContents
 				.getColumnNames());
 	}
@@ -130,7 +133,7 @@ public class InnerDeclarationCellModifier implements ICellModifier {
 	}
 
 	private void reloadDeclarationViewer() {
-		DialogRepository.getParametersViewer().refresh();
+		viewer.refresh();
 	}
 
 }

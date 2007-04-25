@@ -33,7 +33,8 @@ import de.uka.ipd.sdq.dialogs.datatype.DialogRepository;
  */
 public class CreateEditorContents {
 	// TODO
-	private TableViewer tableViewer;
+	private TableViewer viewer;
+	private ToolItem addItem,deleteItem;
 
 	public static final int ICON_COLUMN_INDEX = 0;
 	public static final int CONTEXT_COLUMN_INDEX = 1;
@@ -53,31 +54,46 @@ public class CreateEditorContents {
 	private static String[] columnNames = new String[] { ATTRIBUTE_ICON_COLUMN,
 			CONTEXT_COLUMN, NAME_COLUMN, TYPE_COLUMN };
 
-	public CreateEditorContents() {
-
+	private CreateEditorContents(Composite composite) {
+		init(composite);
 	}
 
 	/**
-	 * TODO !!!
-	 * 
-	 * @param columnNames
+	 * Factory Method
 	 */
-	public CreateEditorContents(Composite composite,
-			IContentProvider contentProvider, IBaseLabelProvider labelProvider,
-			ICellModifier cellModifier, SelectionListener addActionListener,
-			SelectionListener deleteActionListener, Object input) {
-
-		init(composite, contentProvider, labelProvider, cellModifier,
-				addActionListener, deleteActionListener, input);
+	public static CreateEditorContents create(Composite composite){
+		return new CreateEditorContents(composite);
+	}
+	
+	
+	public void setViewerContentProvider(IContentProvider contentProvider){
+		viewer.setContentProvider(contentProvider);
+	}
+	
+	public void setViewerLabelProvider(IBaseLabelProvider labelProvider) {
+		viewer.setLabelProvider(labelProvider);
+	}
+	
+	public void setViewerCellModifier(ICellModifier cellModifier){
+		viewer.setCellModifier(cellModifier);
+	}
+	
+	public void setAddButtonActionListener(SelectionListener listener){
+		addItem.addSelectionListener(listener);
+	}
+	
+	public void setDeleteButtonActionListener(SelectionListener listener){
+		deleteItem.addSelectionListener(listener);
+	}
+	
+	public void setViewerInput(Object input){
+		viewer.setInput(input);
 	}
 
 	/**
 	 * TODO
 	 */
-	public void init(Composite composite, IContentProvider contentProvider,
-			IBaseLabelProvider labelProvider, ICellModifier cellModifier,
-			SelectionListener addActionListener,
-			SelectionListener deleteActionListener, Object input) {
+	public void init(Composite composite) {
 
 		FormData fdToolBar = new FormData();
 		fdToolBar.top = new FormAttachment(0, 5);
@@ -88,12 +104,10 @@ public class CreateEditorContents {
 		final ToolBar toolBar = new ToolBar(composite, SWT.VERTICAL | SWT.NONE);
 		toolBar.setLayoutData(fdToolBar);
 
-		final ToolItem addItem = new ToolItem(toolBar, SWT.PUSH);
+		addItem = new ToolItem(toolBar, SWT.PUSH);
 		addItem.setImage(DialogsImages.imageRegistry.get(DialogsImages.ADD));
-		addItem.addSelectionListener(addActionListener);
 
-		final ToolItem deleteItem = new ToolItem(toolBar, SWT.PUSH);
-		deleteItem.addSelectionListener(deleteActionListener);
+		deleteItem = new ToolItem(toolBar, SWT.PUSH);
 		deleteItem.setImage(DialogsImages.imageRegistry
 				.get(DialogsImages.DELETE));
 		deleteItem.setEnabled(false);
@@ -104,16 +118,15 @@ public class CreateEditorContents {
 		fdTableViewer.left = new FormAttachment(0, 5);
 		fdTableViewer.bottom = new FormAttachment(94, 0);
 
-		tableViewer = new TableViewer(composite, SWT.FULL_SELECTION
+		viewer = new TableViewer(composite, SWT.FULL_SELECTION
 				| SWT.BORDER);
-		Table table = tableViewer.getTable();
+		Table table = viewer.getTable();
 		table.setLayoutData(fdTableViewer);
 		table.setLinesVisible(true);
 		table.setHeaderVisible(true);
 
-		tableViewer.setColumnProperties(columnNames);
-		tableViewer.setContentProvider(contentProvider);
-		tableViewer.setLabelProvider(labelProvider);
+		viewer.setColumnProperties(columnNames);
+
 		/**
 		 * Create the cell editors for Name, Type column
 		 */
@@ -123,9 +136,8 @@ public class CreateEditorContents {
 		editors[TYPE_COLUMN_INDEX] = new TypeDialogCellEditor(table);
 
 		// Assign the cell editors to the viewer
-		tableViewer.setCellEditors(editors);
-		tableViewer.setCellModifier(cellModifier);
-		tableViewer
+		viewer.setCellEditors(editors);
+		viewer
 				.addSelectionChangedListener(new ISelectionChangedListener() {
 					public void selectionChanged(SelectionChangedEvent event) {
 						if (!event.getSelection().isEmpty()) {
@@ -154,9 +166,7 @@ public class CreateEditorContents {
 		nameColumn.setText(NAME_COLUMN);
 
 		// Set the curent viewer for OperationsTabResources
-		DialogRepository.setParametersViewer(tableViewer);
-		// Set input fot TableViewer
-		tableViewer.setInput(input);
+		DialogRepository.setParametersViewer(viewer);
 	}
 
 	/**
@@ -193,6 +203,13 @@ public class CreateEditorContents {
 	 */
 	public static String[] getColumnNames() {
 		return columnNames;
+	}
+
+	/**
+	 * @return the viewer
+	 */
+	public TableViewer getViewer() {
+		return viewer;
 	}
 
 }

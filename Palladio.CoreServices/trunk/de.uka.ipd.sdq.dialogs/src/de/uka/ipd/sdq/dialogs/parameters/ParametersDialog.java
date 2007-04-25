@@ -60,17 +60,26 @@ public class ParametersDialog extends TitleAreaDialog {
 		adapterFactory
 				.addAdapterFactory(new RepositoryItemProviderAdapterFactory());
 
-		new CreateEditorContents(container, new AdapterFactoryContentProvider(
-				adapterFactory),
-				new AdapterFactoryLabelProvider(
+		CreateEditorContents editorContents = CreateEditorContents
+				.create(container);
+
+		editorContents
+				.setViewerContentProvider(new AdapterFactoryContentProvider(
+						adapterFactory));
+		editorContents
+				.setViewerLabelProvider(new AdapterFactoryLabelProvider(
 						new ParametersItemProviderAdapterFactory(
 								new PalladioItemProviderAdapterFactory(
-										adapterFactory))),
-				new ParametersCellModifier(), new AddParameterListener(
-						signature), new DeleteParameterListener(signature),
-				signature);
-
-		new CreateEditorContents().createSeparator(container);
+										adapterFactory))));
+		editorContents.setViewerCellModifier(new ParametersCellModifier(
+				editorContents.getViewer()));
+		editorContents.setAddButtonActionListener(new AddParameterListener(
+				signature));
+		editorContents
+				.setDeleteButtonActionListener(new DeleteParameterListener(
+						signature));
+		editorContents.setViewerInput(signature);
+		
 
 		return area;
 	}

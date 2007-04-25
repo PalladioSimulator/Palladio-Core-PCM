@@ -7,6 +7,7 @@ import org.eclipse.core.runtime.Assert;
 import org.eclipse.emf.transaction.RecordingCommand;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.jface.viewers.ICellModifier;
+import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.swt.widgets.TableItem;
 
 import de.uka.ipd.sdq.dialogs.datatype.DialogRepository;
@@ -19,6 +20,7 @@ import de.uka.ipd.sdq.pcm.repository.Parameter;
  */
 public class ParametersCellModifier implements ICellModifier {
 
+	private TableViewer viewer;
 	private List<String> columnNames;
 	private Parameter parameter;
 
@@ -29,7 +31,8 @@ public class ParametersCellModifier implements ICellModifier {
 	final protected TransactionalEditingDomain editingDomain = TransactionalEditingDomain.Registry.INSTANCE
 			.getEditingDomain(DialogRepository.EDITING_DOMAIN_ID);
 
-	public ParametersCellModifier() {
+	public ParametersCellModifier(TableViewer viewer) {
+		this.viewer = viewer;
 		this.columnNames = Arrays.asList(CreateEditorContents
 				.getColumnNames());
 	}
@@ -107,9 +110,9 @@ public class ParametersCellModifier implements ICellModifier {
 			recCommand.setDescription("Edit Parameter Property");
 			recCommand.setLabel("Set parameter DataType");
 			editingDomain.getCommandStack().execute(recCommand);
-			reloadParameterViewer();
 		}
-
+		
+		reloadParametersViewer();
 	}
 
 	/*
@@ -128,14 +131,15 @@ public class ParametersCellModifier implements ICellModifier {
 		if (!value.equals(parameter.getParameterName())) {
 			recCommand.setLabel("Set ParameterName");
 			editingDomain.getCommandStack().execute(recCommand);
-			reloadOperationsViewer();
 		}
+		
+		reloadOperationsViewer();
 	}
 
-	private void reloadParameterViewer() {
-		DialogRepository.getParametersViewer().refresh();
+	private void reloadParametersViewer() {
+		viewer.refresh();
 	}
-
+	
 	private void reloadOperationsViewer() {
 		DialogRepository.getOperationsViewer().refresh();
 	}

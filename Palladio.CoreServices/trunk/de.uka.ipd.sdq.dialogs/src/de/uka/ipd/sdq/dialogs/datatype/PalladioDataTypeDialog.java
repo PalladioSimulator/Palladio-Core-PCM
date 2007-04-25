@@ -185,15 +185,25 @@ public class PalladioDataTypeDialog extends DataTypeDialog {
 		adapterFactory
 				.addAdapterFactory(new RepositoryItemProviderAdapterFactory());
 
-		new CreateEditorContents(group, new AdapterFactoryContentProvider(
-				adapterFactory),
-				new AdapterFactoryLabelProvider(
+		CreateEditorContents editorContents = CreateEditorContents
+				.create(group);
+		editorContents
+				.setViewerContentProvider(new AdapterFactoryContentProvider(
+						adapterFactory));
+		editorContents
+				.setViewerLabelProvider(new AdapterFactoryLabelProvider(
 						new InnerDeclarationItemProviderAdapterFactory(
 								new PalladioItemProviderAdapterFactory(
-										adapterFactory))),
-				new InnerDeclarationCellModifier(),
-				new AddInnerDataTypeListener(this),
-				new DeleteInnerDataTypeListener(this), editedDataType);
+										adapterFactory))));
+		editorContents.setViewerCellModifier(new InnerDeclarationCellModifier(
+				editorContents.getViewer()));
+		editorContents.setAddButtonActionListener(new AddInnerDataTypeListener(
+				this));
+		editorContents
+				.setDeleteButtonActionListener(new DeleteInnerDataTypeListener(
+						this));
+		editorContents.setViewerInput(editedDataType);
+		
 	}
 
 	/*
