@@ -43,9 +43,9 @@ import de.uka.ipd.sdq.codegen.simucontroller.SimuControllerPlugin;
 public class SimuLaunchConfigurationDelegate implements
 		ILaunchConfigurationDelegate {
 
-	public static String REPOSITORY_FILE 	= "workflows/codegen_repository.oaw";
-	public static String SYSTEM_FILE 		= "workflows/codegen_system.oaw";
-	public static String USAGE_FILE 		= "workflows/codegen_usage.oaw";
+	public static String REPOSITORY_FILE 	= "codegen_repository.oaw";
+	public static String SYSTEM_FILE 		= "codegen_system.oaw";
+	public static String USAGE_FILE 		= "codegen_usage.oaw";
 	public static String TEMPLATE_METHODS 	= "simulation_template_methods";
 
 	public static String[] workflowFiles = { REPOSITORY_FILE, SYSTEM_FILE,
@@ -84,14 +84,14 @@ public class SimuLaunchConfigurationDelegate implements
 		try {
 			project = createPluginProject(monitor);
 
-			OawEclipseProjectResourceLoader resourceLoader = new OawEclipseProjectResourceLoader(
-					project);
+			//OawEclipseProjectResourceLoader resourceLoader = new OawEclipseProjectResourceLoader(
+			//		project);
 
-			ResourceLoaderFactory
-					.setCurrentThreadResourceLoader(resourceLoader);
+			//ResourceLoaderFactory
+			//		.setCurrentThreadResourceLoader(resourceLoader);
 
 			for (int i = 0; i < workflowFiles.length; i++)
-				status = runWorkflowRunner(getWorkflowFile(workflowFiles[i]),
+				status = runWorkflowRunner(workflowFiles[i],
 						properties, slotContents);
 		} catch (CoreException e) {
 			e.printStackTrace();

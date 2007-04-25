@@ -76,8 +76,6 @@ public class CreatePluginProject {
 		createBuildProperties(project);
 		// set Plug-In class path
 		setClasspath(project);
-
-		new OawEclipseProjectResourceLoader(project);
 	}
 
 	public void setClasspath(IProject project) throws CoreException {
