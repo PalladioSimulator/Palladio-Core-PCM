@@ -3,7 +3,6 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Basicsolver
 Bundle-SymbolicName: de.uka.ipd.sdq.spa.basicsolver
 Bundle-Version: 1.0.0.qualifier
-Bundle-Localization: plugin
 Require-Bundle: org.eclipse.emf,
  org.eclipse.emf.common,
  org.eclipse.emf.ecore,
@@ -11,7 +10,7 @@ Require-Bundle: org.eclipse.emf,
  de.uka.ipd.sdq.probfunction,
  de.uka.ipd.sdq.probfunction.math,
  de.uka.ipd.sdq.spa,
- de.uka.ipd.spq.spa.resourcemodel
+ de.uka.ipd.sdq.spa.resourcemodel
 Export-Package: de.uka.ipd.sdq.spa.basicsolver,
  de.uka.ipd.sdq.spa.basicsolver.exceptions,
  de.uka.ipd.sdq.spa.basicsolver.operations,
