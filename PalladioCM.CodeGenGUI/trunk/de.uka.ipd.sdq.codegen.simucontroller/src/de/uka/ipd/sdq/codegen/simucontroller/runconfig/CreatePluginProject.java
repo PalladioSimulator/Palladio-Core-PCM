@@ -218,7 +218,7 @@ public class CreatePluginProject {
 		out.println("Eclipse-LazyStart: true"); //$NON-NLS-1$
 		out.println("Bundle-ClassPath: bin/,");
 		out.println(" .");
-		out.println("Export-Package: main");
+		//out.println("Export-Package: main");
 		out.close();
 
 		IFile manifestMf = project.getFile("META-INF/" + MANIFEST_MF);
