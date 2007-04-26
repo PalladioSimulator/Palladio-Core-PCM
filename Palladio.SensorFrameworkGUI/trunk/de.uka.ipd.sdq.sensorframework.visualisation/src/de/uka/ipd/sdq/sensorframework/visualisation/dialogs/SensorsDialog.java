@@ -95,7 +95,6 @@ public class SensorsDialog extends TitleAreaDialog {
 
 		tableViewer.addSelectionChangedListener(new ISelectionChangedListener(){
 
-			@Override
 			public void selectionChanged(SelectionChangedEvent event) {
 				tableViewer.refresh();
 			}

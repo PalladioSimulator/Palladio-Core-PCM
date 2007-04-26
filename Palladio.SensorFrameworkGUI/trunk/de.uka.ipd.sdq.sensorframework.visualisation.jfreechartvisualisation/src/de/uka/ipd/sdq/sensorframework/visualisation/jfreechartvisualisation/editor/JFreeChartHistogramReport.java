@@ -26,15 +26,12 @@ public class JFreeChartHistogramReport extends AbstractReportView implements
 		myViewer = new JFreeChartHistogramViewer(parent,0);
 	}
 	
-	@Override
 	public void addInput(Collection c) {
 	}
 
-	@Override
 	public void deleteInput(Collection c) {
 	}
 
-	@Override
 	public void setInput(Collection c) {
 		ArrayList<IAdapter> adapters = new ArrayList<IAdapter>();
 		for (Object o : c) {

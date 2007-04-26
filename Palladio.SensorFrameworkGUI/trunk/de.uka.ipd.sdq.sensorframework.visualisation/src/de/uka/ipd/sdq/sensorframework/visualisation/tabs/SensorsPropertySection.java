@@ -12,6 +12,7 @@ import org.eclipse.jface.viewers.ISelectionChangedListener;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.TableViewer;
+import org.eclipse.jface.window.Window;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.dnd.DND;
 import org.eclipse.swt.events.SelectionAdapter;
@@ -114,7 +115,6 @@ public class SensorsPropertySection extends AbstractPropertySection {
 		viewer.setLabelProvider(new SensorsTabLabelProvider());
 		viewer.setCellModifier(new SensorsCellModifier());
 		viewer.addSelectionChangedListener(new ISelectionChangedListener() {
-			@Override
 			public void selectionChanged(SelectionChangedEvent event) {
 
 				Object object = ((IStructuredSelection) viewer.getSelection())
@@ -174,11 +174,10 @@ public class SensorsPropertySection extends AbstractPropertySection {
 			/* (non-Javadoc)
 			 * @see org.eclipse.swt.events.SelectionAdapter#widgetSelected(org.eclipse.swt.events.SelectionEvent)
 			 */
-			@Override
 			public void widgetSelected(SelectionEvent e) {
 				ExperimentRunsDialog dialog = new ExperimentRunsDialog(
 						e.display.getActiveShell());
-				if (dialog.open() == dialog.OK && dialog.getResult() != null) {
+				if (dialog.open() == Window.OK && dialog.getResult() != null) {
 					configObject.addNewEntry(dialog.getResult());
 					viewer.refresh();
 				}

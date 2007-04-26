@@ -25,15 +25,12 @@ public class JFreeChartPieReport extends AbstractReportView implements
 		myViewer = new JFreeChartPieViewer(parent,0);
 	}
 	
-	@Override
 	public void addInput(Collection c) {
 	}
 
-	@Override
 	public void deleteInput(Collection c) {
 	}
 
-	@Override
 	public void setInput(Collection c) {
 		IAdapter adapter = AdapterRegistry.singleton().getAdapter(c.iterator().next(),
 					Pie.class);

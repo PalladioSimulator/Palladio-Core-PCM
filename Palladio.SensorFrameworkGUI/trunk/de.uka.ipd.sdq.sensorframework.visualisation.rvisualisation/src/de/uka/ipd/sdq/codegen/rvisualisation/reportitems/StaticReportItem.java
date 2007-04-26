@@ -20,12 +20,10 @@ public class StaticReportItem implements IReportItem {
 		return isHeading;
 	}
 	
-	@Override
 	public void visit(IReportRenderingVisitor v) {
 		v.visitStaticItem(this);
 	}
 
-	@Override
 	public void executeRCommands(RInterface re) {
 	}
 

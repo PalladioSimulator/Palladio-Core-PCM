@@ -23,12 +23,10 @@ public class StatisticsReportItem implements IReportItem {
 		return myDescription;
 	}
 	
-	@Override
 	public void visit(IReportRenderingVisitor v) {
 		v.visitStatisticsItem(this);
 	}
 
-	@Override
 	public void executeRCommands(RInterface re) {
 		re.execute(rCommands);
 		x = re.getLastResult();

@@ -30,7 +30,6 @@ public class HTMLVisitor implements IReportRenderingVisitor {
 		content += result;
 	}
 
-	@Override
 	public void visitPlotItem(PlotReportItem plotReportItem) {
 		if (plotReportItem.getFilename()!= null)
 			content += "<img src=\"file:///"+plotReportItem.getFilename()+"\"/><br/>";

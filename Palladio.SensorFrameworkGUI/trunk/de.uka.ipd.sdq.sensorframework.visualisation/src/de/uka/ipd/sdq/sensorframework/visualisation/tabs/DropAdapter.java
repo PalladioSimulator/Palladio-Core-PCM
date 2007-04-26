@@ -17,7 +17,6 @@ public class DropAdapter implements IDropActionDelegate {
 	/* (non-Javadoc)
 	 * @see org.eclipse.ui.part.IDropActionDelegate#run(java.lang.Object, java.lang.Object)
 	 */
-	@Override
 	public boolean run(Object source, Object target) {
 		/// IStructuredSelection sel = (IStructuredSelection)viewer.getSelection();
 	      //parent of the pasted object is the current selection,

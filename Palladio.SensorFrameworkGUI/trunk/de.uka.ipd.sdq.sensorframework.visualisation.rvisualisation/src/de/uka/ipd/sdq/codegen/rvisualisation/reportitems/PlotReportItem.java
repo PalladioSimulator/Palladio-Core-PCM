@@ -18,14 +18,12 @@ public class PlotReportItem implements IReportItem {
 		this.title = title;
 	}
 	
-	@Override
 	public void visit(IReportRenderingVisitor v) {
 		v.visitPlotItem(this);
 	}
 
 	public static final int bmpSize = 400;
 	
-	@Override
 	public void executeRCommands(RInterface re) {
 		String rCommand = "";
 		try{

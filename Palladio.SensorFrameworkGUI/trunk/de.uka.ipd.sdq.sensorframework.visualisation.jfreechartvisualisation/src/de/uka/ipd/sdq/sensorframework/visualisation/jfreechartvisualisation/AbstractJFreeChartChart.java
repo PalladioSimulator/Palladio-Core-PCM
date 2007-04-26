@@ -21,7 +21,6 @@ public abstract class AbstractJFreeChartChart extends Canvas {
 		
 		addPaintListener(new PaintListener() {
 
-			@Override
 			public void paintControl(org.eclipse.swt.events.PaintEvent e) {
 			    Point controlSize = ((Control) e.getSource()).getSize();
 

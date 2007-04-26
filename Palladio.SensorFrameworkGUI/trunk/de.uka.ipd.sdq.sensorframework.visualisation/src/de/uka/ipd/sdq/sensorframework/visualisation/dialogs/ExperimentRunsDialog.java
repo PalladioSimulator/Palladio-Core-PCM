@@ -64,7 +64,6 @@ public class ExperimentRunsDialog extends TitleAreaDialog {
 		viewer.setLabelProvider(new TreeLabelProvider());
 		viewer.setInput(new ArrayList());
 		viewer.addSelectionChangedListener(new ISelectionChangedListener() {
-			@Override
 			public void selectionChanged(SelectionChangedEvent event) {
 
 				IStructuredSelection sel = (IStructuredSelection) event

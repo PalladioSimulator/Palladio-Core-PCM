@@ -42,19 +42,16 @@ implements IVisualisation {
 		setInput(Collections.EMPTY_LIST);
 	}
 
-	@Override
 	public void addInput(Collection c) {
 		// TODO Auto-generated method stub
 		
 	}
 
-	@Override
 	public void deleteInput(Collection c) {
 		// TODO Auto-generated method stub
 		
 	}
 
-	@Override
 	public void setInput(Collection c) {
 		RInterface t = new RInterface();
 		ArrayList<IReportItem> items = new ArrayList<IReportItem>();

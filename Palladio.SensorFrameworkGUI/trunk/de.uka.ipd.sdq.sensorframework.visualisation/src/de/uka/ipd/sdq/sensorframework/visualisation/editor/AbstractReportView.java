@@ -30,26 +30,21 @@ public abstract class AbstractReportView extends EditorPart implements
 		super();
 	}
 
-	@Override
 	public void createPartControl(Composite parent) {
 		getSite().setSelectionProvider(new ISelectionProvider() {
 
-			@Override
 			public void addSelectionChangedListener(
 					ISelectionChangedListener listener) {
 			}
 
-			@Override
 			public ISelection getSelection() {
 				return new StructuredSelection(this);
 			}
 
-			@Override
 			public void removeSelectionChangedListener(
 					ISelectionChangedListener listener) {
 			}
 
-			@Override
 			public void setSelection(ISelection selection) {
 				// TODO Auto-generated method stub
 
@@ -74,47 +69,35 @@ public abstract class AbstractReportView extends EditorPart implements
 		target.addDropListener(new ViewDropTargetListener());
 	}
 
-	@Override
 	public Object getAdapter(Class adapter) {
 		if (adapter == IPropertySheetPage.class)
 			return new TabbedPropertySheetPage(this);
 		return super.getAdapter(adapter);
 	}
 
-	@Override
 	public String getContributorId() {
 		return ABSTRACT_EDITOR_ID;
 	}
 
-	@Override
 	public void setFocus() {
 	}
 
-	@Override
 	public void doSave(IProgressMonitor monitor) {
-		// TODO Auto-generated method stub
-
 	}
 
-	@Override
 	public void doSaveAs() {
-		// TODO Auto-generated method stub
-
 	}
 
-	@Override
 	public void init(IEditorSite site, IEditorInput input)
 			throws PartInitException {
 		setSite(site);
 		setInput(input);
 	}
 
-	@Override
 	public boolean isDirty() {
 		return false;
 	}
 
-	@Override
 	public boolean isSaveAsAllowed() {
 		return false;
 	}
