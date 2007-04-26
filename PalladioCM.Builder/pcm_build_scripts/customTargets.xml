@@ -106,6 +106,9 @@
 		<exec executable="svn.exe">
 		  <arg line="co svn://i43pc13.ipd.uka.de/code/PalladioCM.PCMSolver/trunk ${rootSourceFolder}/PCMSolver --username ${svnUserName}"/>
 		</exec>
+		<exec executable="svn.exe">
+		  <arg line="co svn://i43pc13.ipd.uka.de/code/Palladio.SensorFrameworkGUI/trunk ${rootSourceFolder}/SensorFrameworkGUI --username ${svnUserName}"/>
+		</exec>
 	</target>
 
 	<!-- ===================================================================== -->
@@ -212,6 +215,9 @@
 			<replacefilter
 			    token="@@de.uka.ipd.sdq.pcmsolver.feature.version@@"
     			    property="de.uka.ipd.sdq.pcmsolver.feature"/>
+			<replacefilter
+			    token="@@de.uka.ipd.sdq.sensorframework.visualisation.feature.version@@"
+    			    property="de.uka.ipd.sdq.sensorframework.visualisation.feature"/>
 		</replace>
 	</target>
 

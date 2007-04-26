@@ -33,6 +33,10 @@
 	 		<property name="type" value="feature" />
 	 		<property name="id" value="de.uka.ipd.sdq.simucom.feature" />
  		</ant>
+ 		<ant antfile="${genericTargets}" target="${target}">
+	 		<property name="type" value="feature" />
+	 		<property name="id" value="de.uka.ipd.sdq.sensorframework.visualisation.feature" />
+ 		</ant>
  	</target>
  
  	<!-- ===================================================================== -->
@@ -58,6 +62,9 @@
  		<ant antfile="${assembleScriptName}" dir="${buildDirectory}"/>
  	</target>
  	<target name="assemble.de.uka.ipd.sdq.simucom.feature">
+ 		<ant antfile="${assembleScriptName}" dir="${buildDirectory}"/>
+ 	</target>
+ 	<target name="assemble.de.uka.ipd.sdq.sensorframework.visualisation.feature">
  		<ant antfile="${assembleScriptName}" dir="${buildDirectory}"/>
  	</target>
 </project>
