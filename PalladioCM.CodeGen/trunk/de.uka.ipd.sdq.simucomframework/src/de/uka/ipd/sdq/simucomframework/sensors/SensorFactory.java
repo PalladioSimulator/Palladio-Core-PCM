@@ -11,13 +11,17 @@ public class SensorFactory {
 	private static SensorFactory sensorFactory;
 
 	private HashMap<String, Histogram> histogramSensors = new HashMap<String, Histogram>();
-
 	private HashMap<String, ResponseTimeValueSupplier> histogramValueSupplier = new HashMap<String, ResponseTimeValueSupplier>();
-
 	private ArrayList<ISensorObserver> sensorObservers = new ArrayList<ISensorObserver>();
 
 	private SimuComModel model;
 
+	public void reset() {
+		histogramSensors = new HashMap<String, Histogram>();
+		histogramValueSupplier = new HashMap<String, ResponseTimeValueSupplier>();
+		sensorObservers = new ArrayList<ISensorObserver>();
+	}
+	
 	static {
 		sensorFactory = new SensorFactory();
 	}

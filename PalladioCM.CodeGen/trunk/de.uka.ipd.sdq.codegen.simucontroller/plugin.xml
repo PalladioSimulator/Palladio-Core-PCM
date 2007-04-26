@@ -67,7 +67,7 @@
     </category>
     <view
           category="de.uka.ipd.sdq.codegen.simucontroller"
-          class="de.uka.ipd.sdq.codegen.simucontroller.views.SumuView"
+          class="de.uka.ipd.sdq.codegen.simucontroller.views.SimuView"
           icon="icons/app_simucim.gif"
           id="de.uka.ipd.sdq.codegen.simucontroller.views.SumuView"
           name="SimuController View">

@@ -29,25 +29,21 @@ public class ExperimentDAO {
 	};
 	
 	public Experiment createExperiment(String experimentName) {
-		EntityManager em = emFactory.createEntityManager();
 		EntityTransaction t = em.getTransaction();
 		t.begin();
 		Experiment result = new ExperimentImpl();
 		result.setExperimentName(experimentName);
 		t.commit();
-		em.close();
 		return result;
 	}
 	
 	public void storeExperiment(Experiment e) {
-		EntityManager em = emFactory.createEntityManager();
 		EntityTransaction t = em.getTransaction();
 		t.begin();
 		em.persist(e);
 		t.commit();
-		em.close();
 	}
-
+	
 	public Collection<Experiment> getExperiments() {
 		List<Experiment> result = em.createQuery("FROM Experiment").getResultList();
 		return result;

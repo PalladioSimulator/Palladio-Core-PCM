@@ -17,7 +17,8 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.pde.ui,
  org.eclipse.emf.ocl,
  de.uka.ipd.sdq.pcm.codegen.m2m,
- org.eclipse.ui.console
+ org.eclipse.ui.console,
+ de.uka.ipd.sdq.simucomframework
 Eclipse-LazyStart: true
 Export-Package: de.uka.ipd.sdq.codegen.simucontroller.actions
 Bundle-Vendor: sdq.ipd.uka.de

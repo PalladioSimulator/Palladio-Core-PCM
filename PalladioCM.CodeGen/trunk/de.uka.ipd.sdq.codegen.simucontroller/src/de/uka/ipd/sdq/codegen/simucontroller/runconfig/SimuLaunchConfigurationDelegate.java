@@ -9,6 +9,7 @@ import java.io.PrintStream;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.logging.Logger;
 
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
@@ -16,6 +17,7 @@ import org.eclipse.core.resources.IncrementalProjectBuilder;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.FileLocator;
+import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Path;
@@ -40,7 +42,9 @@ import org.osgi.framework.BundleException;
 
 import com.sun.jndi.toolkit.ctx.ComponentContext;
 
+import de.uka.ipd.sdq.codegen.simucontroller.SimuComJob;
 import de.uka.ipd.sdq.codegen.simucontroller.SimuControllerPlugin;
+import de.uka.ipd.sdq.codegen.simucontroller.actions.ISimuComControl;
 
 /**
  * @author admin
@@ -48,6 +52,9 @@ import de.uka.ipd.sdq.codegen.simucontroller.SimuControllerPlugin;
  */
 public class SimuLaunchConfigurationDelegate implements
 		ILaunchConfigurationDelegate {
+
+	private static final String PID = "de.uka.ipd.sdq.codegen.simucontroller";
+	private static final String EPID = "controller";
 
 	public static String REPOSITORY_FILE 	= "codegen_repository.oaw";
 	public static String SYSTEM_FILE 		= "codegen_system.oaw";
@@ -93,21 +100,71 @@ public class SimuLaunchConfigurationDelegate implements
 		MessageConsoleStream stream = console.newMessageStream();
 		PrintStream outStream = System.out;
 		System.setOut(new PrintStream(stream));
+		System.out.println("Running oAW Generator");
+		monitor.beginTask("Simulation Run", 5);
 		try {
+			monitor.subTask("Create Plugin");
 			project = createPluginProject(monitor);
+			monitor.worked(1);
 
+			monitor.subTask("Generate Code");
 			for (int i = 0; i < workflowFiles.length; i++)
 				status = runWorkflowRunner(workflowFiles[i],
 						properties, slotContents);
+			monitor.worked(1);
 		} catch (CoreException e) {
 			SimuControllerPlugin.log(IStatus.ERROR, "Codegen failed: "+e.getMessage());
 		} finally {
 			System.setOut(outStream);
+			ConsolePlugin.getDefault().getConsoleManager().removeConsoles(new IConsole[]{ console });
 		}
+		monitor.subTask("Compile Code");
 		project.refreshLocal(IResource.DEPTH_INFINITE, monitor);
 		project.build(IncrementalProjectBuilder.FULL_BUILD, monitor);
-		if (true)
-			loadGeneratedPlugin(project);
+		monitor.worked(1);
+		
+		monitor.subTask("Load Generated Plugin");
+		Bundle plugin = loadGeneratedPlugin(project);
+		monitor.worked(1);
+		
+		monitor.subTask("Simulate");
+		SimuComJob job = new SimuComJob(findPlugin(),null);
+		job.setUser(true);
+		job.schedule();
+		try {
+			job.join();
+		} catch (InterruptedException e) {
+			SimuControllerPlugin.log(IStatus.ERROR, "Simulation: "+e.getMessage());
+		}
+		
+		monitor.subTask("Cleanup");
+		try {
+			plugin.stop();
+			plugin.uninstall();
+		} catch (BundleException e) {
+			SimuControllerPlugin.log(IStatus.ERROR, "Unload Bundle: "+e.getMessage());
+		}
+		project.close(monitor);
+		project.delete(true, monitor);
+		monitor.worked(1);
+		monitor.done();
+	}
+
+	public ISimuComControl findPlugin(){
+		
+		ISimuComControl control = null;
+		
+		for(IConfigurationElement configurationElement : Platform.getExtensionRegistry().
+				getConfigurationElementsFor(PID+"."+EPID)){
+				try {
+					control = (ISimuComControl) configurationElement
+							.createExecutableExtension("class");
+				} catch (CoreException e) {
+					SimuControllerPlugin.log(IStatus.ERROR, 
+							"No simulation plugin found: "+e.getMessage());
+				}
+		}
+		return control;
 	}
 	
 	/**
@@ -122,19 +179,21 @@ public class SimuLaunchConfigurationDelegate implements
 	 * TODO
 	 * @param project
 	 */
-	private void loadGeneratedPlugin(IProject project) {
+	private Bundle loadGeneratedPlugin(IProject project) {
 		String location = project.getLocationURI().toString();
 		
 		BundleContext bundleContext = SimuControllerPlugin.getDefault()
 				.getBundle().getBundleContext();
-
+		Bundle bundle = null;
+		
 		try {
-			Bundle bundle = bundleContext.installBundle(location);
+			bundle = bundleContext.installBundle(location);
 			bundle.start();
 			bundle.update();
 		} catch (BundleException e) {
 			SimuControllerPlugin.log(IStatus.ERROR, "Loading of generated plugin failed: "+e.getMessage());
 		}
+		return bundle;
 	}
 
 	/**

@@ -5,20 +5,25 @@ package de.uka.ipd.sdq.codegen.simucontroller.actions;
 
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IConfigurationElement;
-import org.eclipse.core.runtime.IExtension;
-import org.eclipse.core.runtime.IExtensionPoint;
+import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Platform;
-import org.eclipse.core.runtime.dynamichelpers.IExtensionTracker;
+import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.ui.IViewActionDelegate;
 import org.eclipse.ui.IViewPart;
-import org.eclipse.ui.PlatformUI;
+
+import de.uka.ipd.sdq.codegen.simucontroller.SimuComJob;
+import de.uka.ipd.sdq.codegen.simucontroller.SimuControllerPlugin;
+import de.uka.ipd.sdq.codegen.simucontroller.views.SimuView;
 
 /**
  * @author admin
  *
  */
+
+
+
 public class ControllerActionDelegate implements IViewActionDelegate {
 
 	public static String STARTACTION_ID = "StartAction";
@@ -26,11 +31,13 @@ public class ControllerActionDelegate implements IViewActionDelegate {
 	
 	private static final String PID = "de.uka.ipd.sdq.codegen.simucontroller";
 	private static final String EPID = "controller";
+	private IViewPart myView;
 	
 	/* (non-Javadoc)
 	 * @see org.eclipse.ui.IViewActionDelegate#init(org.eclipse.ui.IViewPart)
 	 */
 	public void init(IViewPart view) {
+		myView = view;
 	}
 
 	/* (non-Javadoc)
@@ -54,12 +61,15 @@ public class ControllerActionDelegate implements IViewActionDelegate {
 					control = (ISimuComControl) configurationElement
 							.createExecutableExtension("class");
 				} catch (CoreException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
+					SimuControllerPlugin.log(IStatus.ERROR, 
+							"No simulation plugin found: "+e.getMessage());
 				}
 		}
-		if (control != null)
-			control.StartSimulation();
+		if (control != null){
+			Job simuJob = new SimuComJob(control,(SimuView)myView);
+			simuJob.setUser(false);
+			simuJob.schedule();
+		}
 	}
 	
 	/* (non-Javadoc)

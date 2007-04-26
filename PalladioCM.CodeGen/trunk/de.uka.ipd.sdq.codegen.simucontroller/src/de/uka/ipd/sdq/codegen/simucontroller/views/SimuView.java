@@ -38,8 +38,10 @@ import de.uka.ipd.sdq.codegen.simucontroller.SimuControllerImages;
  * <p>
  */
 
-public class SumuView extends ViewPart {
+public class SimuView extends ViewPart {
 
+	ProgressBar progressBar = null;
+	
 	/**
 	 * This is a callback that will allow us to create the viewer and initialize
 	 * it.
@@ -48,7 +50,7 @@ public class SumuView extends ViewPart {
 
 		parent.setLayout(new FormLayout());
 
-		final ProgressBar progressBar = new ProgressBar(parent, SWT.NONE);
+		progressBar = new ProgressBar(parent, SWT.NONE);
 		final FormData fd_progressBar = new FormData();
 		fd_progressBar.bottom = new FormAttachment(0, 79);
 		fd_progressBar.right = new FormAttachment(100, -64);
@@ -58,11 +60,14 @@ public class SumuView extends ViewPart {
 		progressBar.setSelection(40);
 	}
 
-
 	/**
 	 * Passing the focus request to the viewer's control.
 	 */
 	public void setFocus() {
 		// TODO
+	}
+
+	public void updateProgressBar(int percentDone) {
+		progressBar.setSelection(percentDone);
 	}
 }
