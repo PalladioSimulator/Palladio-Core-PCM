@@ -40,6 +40,12 @@ public class ParametersDialog extends TitleAreaDialog {
 	public ParametersDialog(Shell parentShell, Signature signature) {
 		super(parentShell);
 		this.signature = signature;
+
+		/**
+		 * the result of combining the constants which are required
+		 * to produce a typical application top level shell
+		 */
+		setShellStyle(SWT.RESIZE|SWT.TITLE|SWT.CLOSE |SWT.MIN|SWT.MAX);
 	}
 
 	/*
@@ -50,6 +56,7 @@ public class ParametersDialog extends TitleAreaDialog {
 	@Override
 	protected Control createDialogArea(Composite parent) {
 		setTitle(TITEL);
+		//setShellStyle(SWT.RESIZE);
 
 		Composite area = (Composite) super.createDialogArea(parent);
 		Composite container = new Composite(area, SWT.NONE);
