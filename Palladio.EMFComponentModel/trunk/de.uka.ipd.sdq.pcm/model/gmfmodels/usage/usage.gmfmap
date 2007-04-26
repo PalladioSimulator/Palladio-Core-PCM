@@ -210,6 +210,11 @@
       <domainMetaElement
           href="../../pcm.ecore#//usagemodel/ClosedWorkload"/>
       <labelMappings
+          readOnly="true">
+        <diagramLabel
+            href="usage.gmfgraph#ClosedWorkloadTitleLabel"/>
+      </labelMappings>
+      <labelMappings
           xsi:type="gmfmap:FeatureLabelMapping"
           viewPattern="Population: {0}"
           editPattern="{0}">
@@ -217,11 +222,6 @@
             href="usage.gmfgraph#ClosedWorkloadPopulation"/>
         <features
             href="../../pcm.ecore#//usagemodel/ClosedWorkload/population"/>
-      </labelMappings>
-      <labelMappings
-          readOnly="true">
-        <diagramLabel
-            href="usage.gmfgraph#ClosedWorkloadTitleLabel"/>
       </labelMappings>
       <tool
           xsi:type="gmftool:CreationTool"
