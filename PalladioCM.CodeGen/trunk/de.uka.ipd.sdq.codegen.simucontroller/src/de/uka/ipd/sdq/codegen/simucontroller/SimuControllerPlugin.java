@@ -1,6 +1,7 @@
 package de.uka.ipd.sdq.codegen.simucontroller;
 
 import org.eclipse.core.runtime.Platform;
+import org.eclipse.core.runtime.Status;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
@@ -60,6 +61,10 @@ public class SimuControllerPlugin extends AbstractUIPlugin {
 	 */
 	public static SimuControllerPlugin getDefault() {
 		return plugin;
+	}
+
+	public static void log(int severity, String message){
+		plugin.getLog().log(new Status(severity,PLUGIN_ID,message));
 	}
 
 }

@@ -6,6 +6,8 @@ import org.eclipse.debug.core.ILaunchConfiguration;
 import org.eclipse.debug.core.ILaunchConfigurationWorkingCopy;
 import org.eclipse.debug.ui.AbstractLaunchConfigurationTab;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.events.ModifyEvent;
+import org.eclipse.swt.events.ModifyListener;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.graphics.Image;
@@ -23,7 +25,8 @@ import org.eclipse.core.runtime.CoreException;
  * @author admin
  * 
  */
-public class ModelsFileNameInputTab extends AbstractLaunchConfigurationTab {
+public class ModelsFileNameInputTab 
+extends AbstractLaunchConfigurationTab {
 
 	/* (non-Javadoc)
 	 * @see org.eclipse.debug.ui.AbstractLaunchConfigurationTab#getImage()
@@ -60,7 +63,14 @@ public class ModelsFileNameInputTab extends AbstractLaunchConfigurationTab {
 	 * @see org.eclipse.debug.ui.ILaunchConfigurationTab#createControl(org.eclipse.swt.widgets.Composite)
 	 */
 	public void createControl(Composite parent) {
+		final ModifyListener modifyListener = new ModifyListener(){
 
+			public void modifyText(ModifyEvent e) {
+				ModelsFileNameInputTab.this.setDirty(true);
+				ModelsFileNameInputTab.this.updateLaunchConfigurationDialog();
+			}
+			
+		};
 		Composite container = new Composite(parent, SWT.NONE);
 		setControl(container);
 		container.setLayout(new GridLayout());
@@ -78,6 +88,7 @@ public class ModelsFileNameInputTab extends AbstractLaunchConfigurationTab {
 				| SWT.BORDER);
 		textRepository.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true,
 				false));
+		textRepository.addModifyListener(modifyListener);
 
 		final Button buttonRepository = new Button(repositoryFileGroup,
 				SWT.NONE);
@@ -103,7 +114,8 @@ public class ModelsFileNameInputTab extends AbstractLaunchConfigurationTab {
 				| SWT.BORDER);
 		textSystem
 				.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
-
+		textSystem.addModifyListener(modifyListener);
+		
 		final Button buttonSystem = new Button(systemFileGroup, SWT.NONE);
 		buttonSystem.setText(BUTTON_NAME);
 		buttonSystem.addSelectionListener(new SelectionAdapter() {
@@ -128,6 +140,7 @@ public class ModelsFileNameInputTab extends AbstractLaunchConfigurationTab {
 				| SWT.BORDER);
 		textAllocation.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true,
 				false));
+		textAllocation.addModifyListener(modifyListener);
 
 		final Button buttonAllocation = new Button(allocationFileGroup,
 				SWT.NONE);
@@ -152,6 +165,7 @@ public class ModelsFileNameInputTab extends AbstractLaunchConfigurationTab {
 		textUsage = new Text(usageFileGroup, SWT.SINGLE | SWT.BORDER);
 		textUsage
 				.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
+		textUsage.addModifyListener(modifyListener);
 
 		final Button buttonUsage = new Button(usageFileGroup, SWT.NONE);
 		buttonUsage.setText(BUTTON_NAME);
@@ -226,17 +240,19 @@ public class ModelsFileNameInputTab extends AbstractLaunchConfigurationTab {
 
 	}
 	
-	/*@Override
 	public boolean isValid(ILaunchConfiguration launchConfig) {
-		// TODO Auto-generated method stub
-		return true;
-	}*/
+		boolean allFilledIn =
+			textRepository.getText().length() >= 0 &&
+			textAllocation.getText().length() >= 0 &&
+			textSystem.getText().length() >= 0 &&
+			textUsage.getText().length() >= 0;
+		return allFilledIn;
+	}
 	
-	/*@Override
 	public boolean canSave() {
-		// TODO Auto-generated method stub
 		return true;
-	}*/
+	}
+	
 	/**
 	 * The function calls the FileDialog and give back absolute path on the file as String
 	 * 

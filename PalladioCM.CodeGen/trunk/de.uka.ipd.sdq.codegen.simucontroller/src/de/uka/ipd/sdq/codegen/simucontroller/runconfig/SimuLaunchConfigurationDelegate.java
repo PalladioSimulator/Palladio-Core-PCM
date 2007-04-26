@@ -17,6 +17,7 @@ import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.FileLocator;
 import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.debug.core.DebugPlugin;
@@ -99,7 +100,7 @@ public class SimuLaunchConfigurationDelegate implements
 				status = runWorkflowRunner(workflowFiles[i],
 						properties, slotContents);
 		} catch (CoreException e) {
-			e.printStackTrace();
+			SimuControllerPlugin.log(IStatus.ERROR, "Codegen failed: "+e.getMessage());
 		} finally {
 			System.setOut(outStream);
 		}
@@ -132,8 +133,7 @@ public class SimuLaunchConfigurationDelegate implements
 			bundle.start();
 			bundle.update();
 		} catch (BundleException e) {
-			e.printStackTrace();
-			// TODO Auto-generated catch block
+			SimuControllerPlugin.log(IStatus.ERROR, "Loading of generated plugin failed: "+e.getMessage());
 		}
 	}
 
