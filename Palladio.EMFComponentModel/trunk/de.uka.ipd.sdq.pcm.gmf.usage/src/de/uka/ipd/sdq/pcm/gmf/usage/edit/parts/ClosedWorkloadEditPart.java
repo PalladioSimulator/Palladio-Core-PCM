@@ -110,16 +110,16 @@ public class ClosedWorkloadEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof ClosedWorkloadPopulationEditPart) {
-			((ClosedWorkloadPopulationEditPart) childEditPart)
-					.setLabel(getPrimaryShape()
-							.getFigureClosedWorkloadPopulationFigure());
-			return true;
-		}
 		if (childEditPart instanceof ClosedWorkloadTitleLabelEditPart) {
 			((ClosedWorkloadTitleLabelEditPart) childEditPart)
 					.setLabel(getPrimaryShape()
 							.getFigureClosedWorkloadTitleLabelFigure());
+			return true;
+		}
+		if (childEditPart instanceof ClosedWorkloadPopulationEditPart) {
+			((ClosedWorkloadPopulationEditPart) childEditPart)
+					.setLabel(getPrimaryShape()
+							.getFigureClosedWorkloadPopulationFigure());
 			return true;
 		}
 		return false;
@@ -217,7 +217,7 @@ public class ClosedWorkloadEditPart extends ShapeNodeEditPart {
 	 */
 	public EditPart getPrimaryChildEditPart() {
 		return getChildBySemanticHint(PalladioComponentModelVisualIDRegistry
-				.getType(ClosedWorkloadPopulationEditPart.VISUAL_ID));
+				.getType(ClosedWorkloadTitleLabelEditPart.VISUAL_ID));
 	}
 
 	/**
@@ -243,17 +243,17 @@ public class ClosedWorkloadEditPart extends ShapeNodeEditPart {
 		 */
 		private void createContents() {
 
-			WrapLabel closedWorkloadPopulationFigure0 = new WrapLabel();
-			closedWorkloadPopulationFigure0.setText("<...>");
-
-			this.add(closedWorkloadPopulationFigure0);
-			setFigureClosedWorkloadPopulationFigure(closedWorkloadPopulationFigure0);
-
 			WrapLabel closedWorkloadTitleLabelFigure0 = new WrapLabel();
 			closedWorkloadTitleLabelFigure0.setText("<<ClosedWorkload>>");
 
 			this.add(closedWorkloadTitleLabelFigure0);
 			setFigureClosedWorkloadTitleLabelFigure(closedWorkloadTitleLabelFigure0);
+
+			WrapLabel closedWorkloadPopulationFigure0 = new WrapLabel();
+			closedWorkloadPopulationFigure0.setText("<...>");
+
+			this.add(closedWorkloadPopulationFigure0);
+			setFigureClosedWorkloadPopulationFigure(closedWorkloadPopulationFigure0);
 
 		}
 

@@ -13,15 +13,6 @@
     <ownedChild>
       <domainMetaElement
           href="../../pcm.ecore#//usagemodel/ScenarioBehaviour"/>
-      <labelMappings
-          xsi:type="gmfmap:FeatureLabelMapping"
-          viewPattern="ID: {0}"
-          editPattern="{0}">
-        <diagramLabel
-            href="usage.gmfgraph#ScenarioBehaviourId"/>
-        <features
-            href="../../../../de.uka.ipd.sdq.identifier/model/identifier.ecore#//Identifier/id"/>
-      </labelMappings>
       <tool
           xsi:type="gmftool:CreationTool"
           href="usage.gmftool#//@palette/@tools.0/@tools.2"/>
@@ -68,6 +59,11 @@
         <ownedChild>
           <domainMetaElement
               href="../../pcm.ecore#//usagemodel/EntryLevelSystemCall"/>
+          <labelMappings
+              readOnly="true">
+            <diagramLabel
+                href="../seffeditor/seffeditor.gmfgraph#ComponentExternalCallNameLabel"/>
+          </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
               href="usage.gmftool#//@palette/@tools.0/@tools.7"/>
@@ -82,6 +78,11 @@
             <ownedChild>
               <domainMetaElement
                   href="../../pcm.ecore#//parameter/VariableUsage"/>
+              <labelMappings
+                  readOnly="true">
+                <diagramLabel
+                    href="../seffeditor/seffeditor.gmfgraph#VariableUsageReferenceLabel"/>
+              </labelMappings>
               <tool
                   xsi:type="gmftool:CreationTool"
                   href="usage.gmftool#//@palette/@tools.0/@tools.1"/>
@@ -100,7 +101,7 @@
                       xsi:type="gmftool:CreationTool"
                       href="usage.gmftool#//@palette/@tools.0/@tools.0"/>
                   <diagramNode
-                      href="../seffeditor/seffeditor.gmfgraph#ParametricParameterUsageNode"/>
+                      href="../seffeditor/seffeditor.gmfgraph#VariableCharacterisationLabel"/>
                 </ownedChild>
               </children>
               <compartments
@@ -126,24 +127,23 @@
         <ownedChild>
           <domainMetaElement
               href="../../pcm.ecore#//usagemodel/Loop"/>
+          <labelMappings
+              readOnly="true">
+            <diagramLabel
+                href="usage.gmfgraph#UsageLoopIterationsLabel"/>
+          </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
               href="usage.gmftool#//@palette/@tools.0/@tools.6"/>
           <diagramNode
-              href="../seffeditor/seffeditor.gmfgraph#LoopNode"/>
+              href="usage.gmfgraph#UsageLoopNode"/>
           <children
-              compartment="//@nodes.0/@ownedChild/@children.3/@ownedChild/@compartments.0"
               referencedChild="//@nodes.0/@ownedChild">
             <containmentFeature
                 href="../../pcm.ecore#//usagemodel/Loop/bodyBehaviour_Loop"/>
             <childrenFeature
                 href="../../pcm.ecore#//usagemodel/Loop/bodyBehaviour_Loop"/>
           </children>
-          <compartments
-              children="//@nodes.0/@ownedChild/@children.3/@ownedChild/@children.0">
-            <compartment
-                href="../seffeditor/seffeditor.gmfgraph#LoopCompartment"/>
-          </compartments>
         </ownedChild>
       </children>
       <children
@@ -155,11 +155,17 @@
         <ownedChild>
           <domainMetaElement
               href="../../pcm.ecore#//usagemodel/Branch"/>
+          <labelMappings
+              xsi:type="gmfmap:DesignLabelMapping"
+              readOnly="true">
+            <diagramLabel
+                href="usage.gmfgraph#UsageBranchStereotypeLabel"/>
+          </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
               href="usage.gmftool#//@palette/@tools.0/@tools.9"/>
           <diagramNode
-              href="../seffeditor/seffeditor.gmfgraph#BranchNode"/>
+              href="usage.gmfgraph#UsageBranchNode"/>
           <children
               compartment="//@nodes.0/@ownedChild/@children.4/@ownedChild/@compartments.0">
             <containmentFeature
@@ -169,30 +175,32 @@
             <ownedChild>
               <domainMetaElement
                   href="../../pcm.ecore#//usagemodel/BranchTransition"/>
+              <labelMappings
+                  xsi:type="gmfmap:FeatureLabelMapping"
+                  editPattern="">
+                <diagramLabel
+                    href="../seffeditor/seffeditor.gmfgraph#BranchTransitionProbabilityDiagramLabel"/>
+                <features
+                    href="../../pcm.ecore#//usagemodel/BranchTransition/branchProbability"/>
+              </labelMappings>
               <tool
                   xsi:type="gmftool:CreationTool"
                   href="usage.gmftool#//@palette/@tools.0/@tools.10"/>
               <diagramNode
                   href="../seffeditor/seffeditor.gmfgraph#BranchTransitionNode"/>
               <children
-                  compartment="//@nodes.0/@ownedChild/@children.4/@ownedChild/@children.0/@ownedChild/@compartments.0"
                   referencedChild="//@nodes.0/@ownedChild">
                 <containmentFeature
                     href="../../pcm.ecore#//usagemodel/BranchTransition/branchedBehaviour_BranchTransition"/>
                 <childrenFeature
                     href="../../pcm.ecore#//usagemodel/BranchTransition/branchedBehaviour_BranchTransition"/>
               </children>
-              <compartments
-                  children="//@nodes.0/@ownedChild/@children.4/@ownedChild/@children.0/@ownedChild/@children.0">
-                <compartment
-                    href="../seffeditor/seffeditor.gmfgraph#BranchTransitionCompartment"/>
-              </compartments>
             </ownedChild>
           </children>
           <compartments
               children="//@nodes.0/@ownedChild/@children.4/@ownedChild/@children.0">
             <compartment
-                href="../seffeditor/seffeditor.gmfgraph#BranchCompartment"/>
+                href="usage.gmfgraph#UsageBranchTransitionsCompartment"/>
           </compartments>
         </ownedChild>
       </children>

@@ -12,25 +12,25 @@ import org.eclipse.gmf.runtime.diagram.ui.figures.ResizableCompartmentFigure;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.notation.View;
 
-import de.uka.ipd.sdq.pcm.gmf.usage.edit.policies.BranchTransitionBranchTransitionCompartmentCanonicalEditPolicy;
-import de.uka.ipd.sdq.pcm.gmf.usage.edit.policies.BranchTransitionBranchTransitionCompartmentItemSemanticEditPolicy;
+import de.uka.ipd.sdq.pcm.gmf.usage.edit.policies.BranchUsageBranchTransitionsCompartmentCanonicalEditPolicy;
+import de.uka.ipd.sdq.pcm.gmf.usage.edit.policies.BranchUsageBranchTransitionsCompartmentItemSemanticEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.usage.part.Messages;
 
 /**
  * @generated
  */
-public class BranchTransitionBranchTransitionCompartmentEditPart extends
+public class BranchUsageBranchTransitionsCompartmentEditPart extends
 		ShapeCompartmentEditPart {
 
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 7007;
+	public static final int VISUAL_ID = 7009;
 
 	/**
 	 * @generated
 	 */
-	public BranchTransitionBranchTransitionCompartmentEditPart(View view) {
+	public BranchUsageBranchTransitionsCompartmentEditPart(View view) {
 		super(view);
 	}
 
@@ -38,7 +38,7 @@ public class BranchTransitionBranchTransitionCompartmentEditPart extends
 	 * @generated
 	 */
 	public String getCompartmentName() {
-		return Messages.BranchTransitionBranchTransitionCompartmentEditPart_title;
+		return Messages.BranchUsageBranchTransitionsCompartmentEditPart_title;
 	}
 
 	/**
@@ -58,14 +58,14 @@ public class BranchTransitionBranchTransitionCompartmentEditPart extends
 		super.createDefaultEditPolicies();
 		installEditPolicy(
 				EditPolicyRoles.SEMANTIC_ROLE,
-				new BranchTransitionBranchTransitionCompartmentItemSemanticEditPolicy());
+				new BranchUsageBranchTransitionsCompartmentItemSemanticEditPolicy());
 		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
 				new CreationEditPolicy());
 		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE,
 				new DragDropEditPolicy());
 		installEditPolicy(
 				EditPolicyRoles.CANONICAL_ROLE,
-				new BranchTransitionBranchTransitionCompartmentCanonicalEditPolicy());
+				new BranchUsageBranchTransitionsCompartmentCanonicalEditPolicy());
 	}
 
 	/**

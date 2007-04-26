@@ -3,7 +3,7 @@
  */
 package de.uka.ipd.sdq.pcm.gmf.usage.view.factories;
 
-import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.BranchTransitionBranchTransitionCompartmentEditPart;
+import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.BranchTransitionBranchProbabilityEditPart;
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.BranchTransitionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.UsageScenarioEditPart;
 
@@ -69,7 +69,7 @@ public class BranchTransitionViewFactory extends AbstractShapeViewFactory {
 						semanticAdapter,
 						view,
 						PalladioComponentModelVisualIDRegistry
-								.getType(BranchTransitionBranchTransitionCompartmentEditPart.VISUAL_ID),
+								.getType(BranchTransitionBranchProbabilityEditPart.VISUAL_ID),
 						ViewUtil.APPEND, true, getPreferencesHint());
 	}
 

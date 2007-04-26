@@ -15,7 +15,10 @@ import org.eclipse.gef.commands.Command;
 import org.eclipse.gef.editpolicies.LayoutEditPolicy;
 import org.eclipse.gef.editpolicies.NonResizableEditPolicy;
 import org.eclipse.gef.requests.CreateRequest;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
+import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CreationEditPolicy;
+import org.eclipse.gmf.runtime.diagram.ui.editpolicies.DragDropEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel;
@@ -23,7 +26,9 @@ import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
 
+import de.uka.ipd.sdq.pcm.gmf.usage.edit.policies.LoopCanonicalEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.policies.LoopItemSemanticEditPolicy;
+import de.uka.ipd.sdq.pcm.gmf.usage.part.PalladioComponentModelVisualIDRegistry;
 
 /**
  * @generated
@@ -56,10 +61,16 @@ public class LoopEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected void createDefaultEditPolicies() {
+		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
+				new CreationEditPolicy());
 
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
 				new LoopItemSemanticEditPolicy());
+		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE,
+				new DragDropEditPolicy());
+		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE,
+				new LoopCanonicalEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
 	}
 
@@ -93,15 +104,64 @@ public class LoopEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected IFigure createNodeShape() {
-		LoopFigure figure = new LoopFigure();
+		UsageLoopFigure figure = new UsageLoopFigure();
 		return primaryShape = figure;
 	}
 
 	/**
 	 * @generated
 	 */
-	public LoopFigure getPrimaryShape() {
-		return (LoopFigure) primaryShape;
+	public UsageLoopFigure getPrimaryShape() {
+		return (UsageLoopFigure) primaryShape;
+	}
+
+	/**
+	 * @generated
+	 */
+	protected boolean addFixedChild(EditPart childEditPart) {
+		if (childEditPart instanceof UsageLoopIterationsLabelEditPart) {
+			((UsageLoopIterationsLabelEditPart) childEditPart)
+					.setLabel(getPrimaryShape()
+							.getFigureUsageLoopIterationsLabelFigure());
+			return true;
+		}
+		return false;
+	}
+
+	/**
+	 * @generated
+	 */
+	protected boolean removeFixedChild(EditPart childEditPart) {
+
+		return false;
+	}
+
+	/**
+	 * @generated
+	 */
+	protected void addChildVisual(EditPart childEditPart, int index) {
+		if (addFixedChild(childEditPart)) {
+			return;
+		}
+		super.addChildVisual(childEditPart, -1);
+	}
+
+	/**
+	 * @generated
+	 */
+	protected void removeChildVisual(EditPart childEditPart) {
+		if (removeFixedChild(childEditPart)) {
+			return;
+		}
+		super.removeChildVisual(childEditPart);
+	}
+
+	/**
+	 * @generated
+	 */
+	protected IFigure getContentPaneFor(IGraphicalEditPart editPart) {
+
+		return super.getContentPaneFor(editPart);
 	}
 
 	/**
@@ -158,11 +218,19 @@ public class LoopEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public class LoopFigure extends RoundedRectangle {
+	public EditPart getPrimaryChildEditPart() {
+		return getChildBySemanticHint(PalladioComponentModelVisualIDRegistry
+				.getType(UsageLoopIterationsLabelEditPart.VISUAL_ID));
+	}
+
+	/**
+	 * @generated
+	 */
+	public class UsageLoopFigure extends RoundedRectangle {
 		/**
 		 * @generated
 		 */
-		public LoopFigure() {
+		public UsageLoopFigure() {
 			this.setCornerDimensions(new Dimension(getMapMode().DPtoLP(8),
 					getMapMode().DPtoLP(8)));
 			this.setFill(true);
@@ -179,61 +247,36 @@ public class LoopEditPart extends ShapeNodeEditPart {
 		 */
 		private void createContents() {
 
-			WrapLabel loopStereotype0 = new WrapLabel();
-			loopStereotype0.setText("<<Loop>>");
+			WrapLabel usageLoopStereotypeLabelFigure0 = new WrapLabel();
+			usageLoopStereotypeLabelFigure0.setText("<<Loop>>");
 
-			this.add(loopStereotype0);
+			this.add(usageLoopStereotypeLabelFigure0);
 
-			WrapLabel loopNameLabelFigure0 = new WrapLabel();
-			loopNameLabelFigure0.setText("myLoop");
+			WrapLabel usageLoopIterationsLabelFigure0 = new WrapLabel();
+			usageLoopIterationsLabelFigure0.setText("");
 
-			this.add(loopNameLabelFigure0);
-			setFigureLoopNameLabelFigure(loopNameLabelFigure0);
-
-			WrapLabel loopIterationsLabelFigure0 = new WrapLabel();
-			loopIterationsLabelFigure0.setText("");
-
-			this.add(loopIterationsLabelFigure0);
-			setFigureLoopIterationsLabelFigure(loopIterationsLabelFigure0);
+			this.add(usageLoopIterationsLabelFigure0);
+			setFigureUsageLoopIterationsLabelFigure(usageLoopIterationsLabelFigure0);
 
 		}
 
 		/**
 		 * @generated
 		 */
-		private WrapLabel fLoopNameLabelFigure;
+		private WrapLabel fUsageLoopIterationsLabelFigure;
 
 		/**
 		 * @generated
 		 */
-		public WrapLabel getFigureLoopNameLabelFigure() {
-			return fLoopNameLabelFigure;
+		public WrapLabel getFigureUsageLoopIterationsLabelFigure() {
+			return fUsageLoopIterationsLabelFigure;
 		}
 
 		/**
 		 * @generated
 		 */
-		private void setFigureLoopNameLabelFigure(WrapLabel fig) {
-			fLoopNameLabelFigure = fig;
-		}
-
-		/**
-		 * @generated
-		 */
-		private WrapLabel fLoopIterationsLabelFigure;
-
-		/**
-		 * @generated
-		 */
-		public WrapLabel getFigureLoopIterationsLabelFigure() {
-			return fLoopIterationsLabelFigure;
-		}
-
-		/**
-		 * @generated
-		 */
-		private void setFigureLoopIterationsLabelFigure(WrapLabel fig) {
-			fLoopIterationsLabelFigure = fig;
+		private void setFigureUsageLoopIterationsLabelFigure(WrapLabel fig) {
+			fUsageLoopIterationsLabelFigure = fig;
 		}
 
 		/**

@@ -3,17 +3,18 @@
  */
 package de.uka.ipd.sdq.pcm.gmf.usage.part;
 
+import org.eclipse.osgi.util.NLS;
+
 /**
  * @generated
  */
-public class Messages extends org.eclipse.osgi.util.NLS {
+public class Messages extends NLS {
 
 	/**
 	 * @generated
 	 */
 	static {
-		org.eclipse.osgi.util.NLS
-				.initializeMessages("messages", Messages.class); //$NON-NLS-1$
+		NLS.initializeMessages("messages", Messages.class); //$NON-NLS-1$
 	}
 
 	/**
@@ -175,22 +176,12 @@ public class Messages extends org.eclipse.osgi.util.NLS {
 	/**
 	 * @generated
 	 */
-	public static String LoopLoopCompartmentEditPart_title;
-
-	/**
-	 * @generated
-	 */
 	public static String ScenarioBehaviourScenarioBehaviourStepsCompartment2EditPart_title;
 
 	/**
 	 * @generated
 	 */
-	public static String BranchBranchCompartmentEditPart_title;
-
-	/**
-	 * @generated
-	 */
-	public static String BranchTransitionBranchTransitionCompartmentEditPart_title;
+	public static String BranchUsageBranchTransitionsCompartmentEditPart_title;
 
 	/**
 	 * @generated

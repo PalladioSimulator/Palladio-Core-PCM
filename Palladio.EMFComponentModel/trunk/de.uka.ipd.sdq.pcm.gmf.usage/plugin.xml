@@ -54,25 +54,13 @@ Copyright 2007, SDQ, IPD, University of Karlsruhe
    <extension point="org.eclipse.ui.popupMenus">
       <?gmfgen generated="true"?>
       <objectContribution
-            id="de.uka.ipd.sdq.pcm.gmf.usage.ui.objectContribution.IFile1"
-            nameFilter="*.usagemodel"
-            objectClass="org.eclipse.core.resources.IFile">
-         <action
-               label="%initDiagramActionLabel"
-               class="de.uka.ipd.sdq.pcm.gmf.usage.part.PalladioComponentModelInitDiagramFileAction"
-               menubarPath="additions"
-               enablesFor="1"
-               id="de.uka.ipd.sdq.pcm.gmf.usage.part.PalladioComponentModelInitDiagramFileActionID">
-         </action>
-      </objectContribution>
-      <objectContribution
             adaptable="false"
-            id="de.uka.ipd.sdq.pcm.gmf.usage.ui.objectContribution.UsageScenarioEditPart2"
+            id="de.uka.ipd.sdq.pcm.gmf.usage.LoadResource"
             objectClass="de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.UsageScenarioEditPart">
          <action
                class="de.uka.ipd.sdq.pcm.gmf.usage.part.PalladioComponentModelLoadResourceAction"
                enablesFor="1"
-               id="de.uka.ipd.sdq.pcm.gmf.usage.part.PalladioComponentModelLoadResourceActionID"
+               id="de.uka.ipd.sdq.pcm.gmf.usage.LoadResourceAction"
                label="%loadResourceActionLabel"
                menubarPath="additions">
          </action>
@@ -481,6 +469,7 @@ Copyright 2007, SDQ, IPD, University of Karlsruhe
       <viewerContentBinding viewerId="org.eclipse.ui.navigator.ProjectExplorer">
          <includes>
             <contentExtension pattern="de.uka.ipd.sdq.pcm.gmf.usage.resourceContent"/>
+			<contentExtension pattern="de.uka.ipd.sdq.pcm.gmf.usage.domainResourceContent"/>
             <contentExtension pattern="de.uka.ipd.sdq.pcm.gmf.usage.navigatorLinkHelper"/>
          </includes>
       </viewerContentBinding>
@@ -529,6 +518,33 @@ Copyright 2007, SDQ, IPD, University of Karlsruhe
             </parentExpression>
          </commonSorter>
       </navigatorContent>
+      <navigatorContent
+            id="de.uka.ipd.sdq.pcm.gmf.usage.domainResourceContent" 
+            name="%domainNavigatorContentName" 
+            priority="normal" 
+            contentProvider="de.uka.ipd.sdq.pcm.gmf.usage.navigator.PalladioComponentModelDomainNavigatorContentProvider" 
+            labelProvider="de.uka.ipd.sdq.pcm.gmf.usage.navigator.PalladioComponentModelDomainNavigatorLabelProvider"
+            icon="icons/obj16/UsagemodelDiagramFile.gif"
+            activeByDefault="true">
+         <triggerPoints>
+            <or>
+	           <and>
+    	          <instanceof value="org.eclipse.core.resources.IFile"/>
+        	      <test property="org.eclipse.core.resources.extension" value="usagemodel"/>
+               </and>
+               <and>
+                  <instanceof value="org.eclipse.emf.ecore.EObject"/>
+                  <test property="de.uka.ipd.sdq.pcm.gmf.usage.isDomainModelElement"/>
+               </and>
+            </or>
+         </triggerPoints>
+         <possibleChildren>
+            <and>
+       	       <instanceof value="org.eclipse.emf.ecore.EObject"/>
+       	       <test property="de.uka.ipd.sdq.pcm.gmf.usage.isDomainModelElement"/>
+       	    </and>
+         </possibleChildren>
+      </navigatorContent>
       <actionProvider
             id="de.uka.ipd.sdq.pcm.gmf.usage.navigatorActionProvider"
             class="de.uka.ipd.sdq.pcm.gmf.usage.navigator.PalladioComponentModelNavigatorActionProvider">
@@ -546,11 +562,49 @@ Copyright 2007, SDQ, IPD, University of Karlsruhe
             id="de.uka.ipd.sdq.pcm.gmf.usage.navigatorLinkHelper"
             class="de.uka.ipd.sdq.pcm.gmf.usage.navigator.PalladioComponentModelNavigatorLinkHelper">
          <editorInputEnablement>
-            <instanceof value="org.eclipse.gmf.runtime.diagram.ui.resources.editor.ide.document.FileEditorInputProxy"/>
+            <and>
+               <instanceof value="org.eclipse.emf.common.ui.URIEditorInput"/>
+               <test property="de.uka.ipd.sdq.pcm.gmf.usage.isURIEditorInput"/>
+            </and>
          </editorInputEnablement>
          <selectionEnablement>
             <instanceof value="de.uka.ipd.sdq.pcm.gmf.usage.navigator.PalladioComponentModelAbstractNavigatorItem"/>
          </selectionEnablement>
       </linkHelper>
+   </extension><extension point="org.eclipse.ui.popupMenus">
+      <?gmfgen generated="true"?>
+      <objectContribution
+            id="de.uka.ipd.sdq.pcm.gmf.usage.InitDiagram"
+            nameFilter="*.usagemodel"
+            objectClass="org.eclipse.core.resources.IFile">
+         <action
+               label="%initDiagramActionLabel"
+               class="de.uka.ipd.sdq.pcm.gmf.usage.part.PalladioComponentModelInitDiagramFileAction"
+               menubarPath="additions"
+               enablesFor="1"
+               id="de.uka.ipd.sdq.pcm.gmf.usage.InitDiagramAction">
+         </action>
+      </objectContribution>
    </extension>
+<extension point="org.eclipse.core.expressions.propertyTesters">
+      <?gmfgen generated="true"?>
+       <propertyTester
+           id="de.uka.ipd.sdq.pcm.gmf.usage.URIEditorInputPropertyTester"
+           type="org.eclipse.emf.common.ui.URIEditorInput"
+           namespace="de.uka.ipd.sdq.pcm.gmf.usage"
+           properties="isURIEditorInput"
+           class="de.uka.ipd.sdq.pcm.gmf.usage.part.PalladioComponentModelUriEditorInputTester">
+       </propertyTester>
+   </extension>
+<extension point="org.eclipse.core.expressions.propertyTesters">
+      <?gmfgen generated="true"?>
+       <propertyTester
+           id="de.uka.ipd.sdq.pcm.gmf.usage.DomainModelElementPropertyTester"
+           type="org.eclipse.emf.ecore.EObject"
+           namespace="de.uka.ipd.sdq.pcm.gmf.usage"
+           properties="isDomainModelElement"
+           class="de.uka.ipd.sdq.pcm.gmf.usage.part.PalladioComponentModelDomainModelElementTester">
+       </propertyTester>
+   </extension>
+
 </plugin>

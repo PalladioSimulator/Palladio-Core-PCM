@@ -12,6 +12,7 @@ import org.eclipse.gmf.runtime.common.ui.services.parser.IParserProvider;
 import org.eclipse.gmf.runtime.notation.View;
 import de.uka.ipd.sdq.identifier.IdentifierPackage;
 
+import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.BranchTransitionBranchProbabilityEditPart;
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.ClosedWorkloadPopulationEditPart;
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.ScenarioBehaviourId2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.ScenarioBehaviourId3EditPart;
@@ -30,25 +31,26 @@ public class PalladioComponentModelParserProvider extends AbstractProvider
 	/**
 	 * @generated
 	 */
-	private IParser scenarioBehaviourScenarioBehaviourId_5005Parser;
+	private IParser branchTransitionBranchTransitionBranchProbability_5007Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getScenarioBehaviourScenarioBehaviourId_5005Parser() {
-		if (scenarioBehaviourScenarioBehaviourId_5005Parser == null) {
-			scenarioBehaviourScenarioBehaviourId_5005Parser = createScenarioBehaviourScenarioBehaviourId_5005Parser();
+	private IParser getBranchTransitionBranchTransitionBranchProbability_5007Parser() {
+		if (branchTransitionBranchTransitionBranchProbability_5007Parser == null) {
+			branchTransitionBranchTransitionBranchProbability_5007Parser = createBranchTransitionBranchTransitionBranchProbability_5007Parser();
 		}
-		return scenarioBehaviourScenarioBehaviourId_5005Parser;
+		return branchTransitionBranchTransitionBranchProbability_5007Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	protected IParser createScenarioBehaviourScenarioBehaviourId_5005Parser() {
+	protected IParser createBranchTransitionBranchTransitionBranchProbability_5007Parser() {
 		PalladioComponentModelStructuralFeatureParser parser = new PalladioComponentModelStructuralFeatureParser(
-				IdentifierPackage.eINSTANCE.getIdentifier_Id());
-		parser.setViewPattern("ID: {0}");
+				UsagemodelPackage.eINSTANCE
+						.getBranchTransition_BranchProbability());
+		parser.setViewPattern("{0}");
 		parser.setEditPattern("{0}");
 		return parser;
 	}
@@ -56,74 +58,22 @@ public class PalladioComponentModelParserProvider extends AbstractProvider
 	/**
 	 * @generated
 	 */
-	private IParser scenarioBehaviourScenarioBehaviourId_5004Parser;
+	private IParser closedWorkloadClosedWorkloadPopulation_5003Parser;
 
 	/**
 	 * @generated
 	 */
-	private IParser getScenarioBehaviourScenarioBehaviourId_5004Parser() {
-		if (scenarioBehaviourScenarioBehaviourId_5004Parser == null) {
-			scenarioBehaviourScenarioBehaviourId_5004Parser = createScenarioBehaviourScenarioBehaviourId_5004Parser();
+	private IParser getClosedWorkloadClosedWorkloadPopulation_5003Parser() {
+		if (closedWorkloadClosedWorkloadPopulation_5003Parser == null) {
+			closedWorkloadClosedWorkloadPopulation_5003Parser = createClosedWorkloadClosedWorkloadPopulation_5003Parser();
 		}
-		return scenarioBehaviourScenarioBehaviourId_5004Parser;
+		return closedWorkloadClosedWorkloadPopulation_5003Parser;
 	}
 
 	/**
 	 * @generated
 	 */
-	protected IParser createScenarioBehaviourScenarioBehaviourId_5004Parser() {
-		PalladioComponentModelStructuralFeatureParser parser = new PalladioComponentModelStructuralFeatureParser(
-				IdentifierPackage.eINSTANCE.getIdentifier_Id());
-		parser.setViewPattern("ID: {0}");
-		parser.setEditPattern("{0}");
-		return parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	private IParser scenarioBehaviourScenarioBehaviourId_5001Parser;
-
-	/**
-	 * @generated
-	 */
-	private IParser getScenarioBehaviourScenarioBehaviourId_5001Parser() {
-		if (scenarioBehaviourScenarioBehaviourId_5001Parser == null) {
-			scenarioBehaviourScenarioBehaviourId_5001Parser = createScenarioBehaviourScenarioBehaviourId_5001Parser();
-		}
-		return scenarioBehaviourScenarioBehaviourId_5001Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	protected IParser createScenarioBehaviourScenarioBehaviourId_5001Parser() {
-		PalladioComponentModelStructuralFeatureParser parser = new PalladioComponentModelStructuralFeatureParser(
-				IdentifierPackage.eINSTANCE.getIdentifier_Id());
-		parser.setViewPattern("ID: {0}");
-		parser.setEditPattern("{0}");
-		return parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	private IParser closedWorkloadClosedWorkloadPopulation_5002Parser;
-
-	/**
-	 * @generated
-	 */
-	private IParser getClosedWorkloadClosedWorkloadPopulation_5002Parser() {
-		if (closedWorkloadClosedWorkloadPopulation_5002Parser == null) {
-			closedWorkloadClosedWorkloadPopulation_5002Parser = createClosedWorkloadClosedWorkloadPopulation_5002Parser();
-		}
-		return closedWorkloadClosedWorkloadPopulation_5002Parser;
-	}
-
-	/**
-	 * @generated
-	 */
-	protected IParser createClosedWorkloadClosedWorkloadPopulation_5002Parser() {
+	protected IParser createClosedWorkloadClosedWorkloadPopulation_5003Parser() {
 		PalladioComponentModelStructuralFeatureParser parser = new PalladioComponentModelStructuralFeatureParser(
 				UsagemodelPackage.eINSTANCE.getClosedWorkload_Population());
 		parser.setViewPattern("Population: {0}");
@@ -136,14 +86,10 @@ public class PalladioComponentModelParserProvider extends AbstractProvider
 	 */
 	protected IParser getParser(int visualID) {
 		switch (visualID) {
-		case ScenarioBehaviourId2EditPart.VISUAL_ID:
-			return getScenarioBehaviourScenarioBehaviourId_5005Parser();
-		case ScenarioBehaviourIdEditPart.VISUAL_ID:
-			return getScenarioBehaviourScenarioBehaviourId_5004Parser();
-		case ScenarioBehaviourId3EditPart.VISUAL_ID:
-			return getScenarioBehaviourScenarioBehaviourId_5001Parser();
+		case BranchTransitionBranchProbabilityEditPart.VISUAL_ID:
+			return getBranchTransitionBranchTransitionBranchProbability_5007Parser();
 		case ClosedWorkloadPopulationEditPart.VISUAL_ID:
-			return getClosedWorkloadClosedWorkloadPopulation_5002Parser();
+			return getClosedWorkloadClosedWorkloadPopulation_5003Parser();
 		}
 		return null;
 	}

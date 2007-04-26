@@ -6,6 +6,7 @@ package de.uka.ipd.sdq.pcm.gmf.usage.view.factories;
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.UsageScenarioEditPart;
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.VariableUsageEditPart;
 
+import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.VariableUsageReferenceLabelEditPart;
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.VariableUsageVariableCharacterisationEditPart;
 import de.uka.ipd.sdq.pcm.gmf.usage.part.PalladioComponentModelVisualIDRegistry;
 
@@ -63,6 +64,13 @@ public class VariableUsageViewFactory extends AbstractShapeViewFactory {
 					"modelID", UsageScenarioEditPart.MODEL_ID); //$NON-NLS-1$
 			view.getEAnnotations().add(shortcutAnnotation);
 		}
+		getViewService()
+				.createNode(
+						semanticAdapter,
+						view,
+						PalladioComponentModelVisualIDRegistry
+								.getType(VariableUsageReferenceLabelEditPart.VISUAL_ID),
+						ViewUtil.APPEND, true, getPreferencesHint());
 		getViewService()
 				.createNode(
 						semanticAdapter,

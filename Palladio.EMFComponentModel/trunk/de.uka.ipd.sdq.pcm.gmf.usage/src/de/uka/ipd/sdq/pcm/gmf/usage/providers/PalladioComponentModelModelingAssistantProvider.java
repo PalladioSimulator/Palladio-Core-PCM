@@ -23,11 +23,12 @@ import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.dialogs.ElementListSelectionDialog;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
-import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.BranchBranchCompartmentEditPart;
-import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.BranchTransitionBranchTransitionCompartmentEditPart;
+import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.BranchEditPart;
+import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.BranchTransitionEditPart;
+import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.BranchUsageBranchTransitionsCompartmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.EntryLevelSystemCallEditPart;
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.EntryLevelSystemCallParameterUsageEditPart;
-import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.LoopLoopCompartmentEditPart;
+import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.LoopEditPart;
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.ScenarioBehaviourEditPart;
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.ScenarioBehaviourScenarioBehaviourStepsCompartment2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.ScenarioBehaviourScenarioBehaviourStepsCompartment3EditPart;
@@ -55,6 +56,18 @@ public class PalladioComponentModelModelingAssistantProvider extends
 					.add(PalladioComponentModelElementTypes.VariableCharacterisation_3006);
 			return types;
 		}
+		if (editPart instanceof LoopEditPart) {
+			List types = new ArrayList();
+			types
+					.add(PalladioComponentModelElementTypes.ScenarioBehaviour_3007);
+			return types;
+		}
+		if (editPart instanceof BranchTransitionEditPart) {
+			List types = new ArrayList();
+			types
+					.add(PalladioComponentModelElementTypes.ScenarioBehaviour_3010);
+			return types;
+		}
 		if (editPart instanceof ScenarioBehaviourScenarioBehaviourStepsCompartmentEditPart) {
 			List types = new ArrayList();
 			types.add(PalladioComponentModelElementTypes.Start_3001);
@@ -70,12 +83,6 @@ public class PalladioComponentModelModelingAssistantProvider extends
 			types.add(PalladioComponentModelElementTypes.VariableUsage_3004);
 			return types;
 		}
-		if (editPart instanceof LoopLoopCompartmentEditPart) {
-			List types = new ArrayList();
-			types
-					.add(PalladioComponentModelElementTypes.ScenarioBehaviour_3007);
-			return types;
-		}
 		if (editPart instanceof ScenarioBehaviourScenarioBehaviourStepsCompartment2EditPart) {
 			List types = new ArrayList();
 			types.add(PalladioComponentModelElementTypes.Start_3001);
@@ -86,15 +93,9 @@ public class PalladioComponentModelModelingAssistantProvider extends
 			types.add(PalladioComponentModelElementTypes.Branch_3008);
 			return types;
 		}
-		if (editPart instanceof BranchBranchCompartmentEditPart) {
+		if (editPart instanceof BranchUsageBranchTransitionsCompartmentEditPart) {
 			List types = new ArrayList();
 			types.add(PalladioComponentModelElementTypes.BranchTransition_3009);
-			return types;
-		}
-		if (editPart instanceof BranchTransitionBranchTransitionCompartmentEditPart) {
-			List types = new ArrayList();
-			types
-					.add(PalladioComponentModelElementTypes.ScenarioBehaviour_3010);
 			return types;
 		}
 		if (editPart instanceof ScenarioBehaviourScenarioBehaviourStepsCompartment3EditPart) {

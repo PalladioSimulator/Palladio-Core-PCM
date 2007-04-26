@@ -69,13 +69,13 @@ public class ClosedWorkloadViewFactory extends AbstractShapeViewFactory {
 				semanticAdapter,
 				view,
 				PalladioComponentModelVisualIDRegistry
-						.getType(ClosedWorkloadPopulationEditPart.VISUAL_ID),
+						.getType(ClosedWorkloadTitleLabelEditPart.VISUAL_ID),
 				ViewUtil.APPEND, true, getPreferencesHint());
 		getViewService().createNode(
 				semanticAdapter,
 				view,
 				PalladioComponentModelVisualIDRegistry
-						.getType(ClosedWorkloadTitleLabelEditPart.VISUAL_ID),
+						.getType(ClosedWorkloadPopulationEditPart.VISUAL_ID),
 				ViewUtil.APPEND, true, getPreferencesHint());
 	}
 

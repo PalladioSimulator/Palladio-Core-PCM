@@ -22,6 +22,9 @@ import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.views.properties.IPropertySource;
 import org.eclipse.ui.views.properties.IPropertySourceProvider;
 
+import de.uka.ipd.sdq.pcmbench.propertytabs.PalladioAdapterFactoryContentProvider;
+import de.uka.ipd.sdq.pcmbench.ui.provider.PalladioItemProviderAdapterFactory;
+
 /**
  * @generated
  */
@@ -29,19 +32,21 @@ public class PalladioComponentModelPropertySection extends
 		AdvancedPropertySection implements IPropertySourceProvider {
 
 	/**
-	 * @generated
+	 * @generated not
 	 */
 	public IPropertySource getPropertySource(Object object) {
 		if (object instanceof IPropertySource) {
 			return (IPropertySource) object;
 		}
-		AdapterFactory af = getAdapterFactory(object);
+		AdapterFactory af = new PalladioItemProviderAdapterFactory(getAdapterFactory(object));
 		if (af != null) {
-			IItemPropertySource ips = (IItemPropertySource) af.adapt(object,
-					IItemPropertySource.class);
-			if (ips != null) {
-				return new PropertySource(object, ips);
-			}
+			PalladioAdapterFactoryContentProvider pafcp = new PalladioAdapterFactoryContentProvider(af);
+			return pafcp.getPropertySource(object);
+//			IItemPropertySource ips = (IItemPropertySource) af.adapt(object,
+//					IItemPropertySource.class);
+//			if (ips != null) {
+//				return new PropertySource(object, ips);
+//			}
 		}
 		if (object instanceof IAdaptable) {
 			return (IPropertySource) ((IAdaptable) object)
@@ -62,6 +67,7 @@ public class PalladioComponentModelPropertySection extends
 	 * @generated
 	 */
 	protected Object transformSelection(Object selected) {
+
 		if (selected instanceof EditPart) {
 			Object model = ((EditPart) selected).getModel();
 			return model instanceof View ? ((View) model).getElement() : null;

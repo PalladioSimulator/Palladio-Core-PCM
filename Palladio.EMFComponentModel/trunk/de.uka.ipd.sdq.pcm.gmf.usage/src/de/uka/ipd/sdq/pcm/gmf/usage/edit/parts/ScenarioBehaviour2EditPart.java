@@ -94,64 +94,14 @@ public class ScenarioBehaviour2EditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected IFigure createNodeShape() {
-		ScenarioBehaviourFigure figure = new ScenarioBehaviourFigure();
-		return primaryShape = figure;
+		return primaryShape = new RectangleFigure();
 	}
 
 	/**
 	 * @generated
 	 */
-	public ScenarioBehaviourFigure getPrimaryShape() {
-		return (ScenarioBehaviourFigure) primaryShape;
-	}
-
-	/**
-	 * @generated
-	 */
-	protected boolean addFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof ScenarioBehaviourId2EditPart) {
-			((ScenarioBehaviourId2EditPart) childEditPart)
-					.setLabel(getPrimaryShape()
-							.getFigureScenarioBehaviourIdFigure());
-			return true;
-		}
-		return false;
-	}
-
-	/**
-	 * @generated
-	 */
-	protected boolean removeFixedChild(EditPart childEditPart) {
-
-		return false;
-	}
-
-	/**
-	 * @generated
-	 */
-	protected void addChildVisual(EditPart childEditPart, int index) {
-		if (addFixedChild(childEditPart)) {
-			return;
-		}
-		super.addChildVisual(childEditPart, -1);
-	}
-
-	/**
-	 * @generated
-	 */
-	protected void removeChildVisual(EditPart childEditPart) {
-		if (removeFixedChild(childEditPart)) {
-			return;
-		}
-		super.removeChildVisual(childEditPart);
-	}
-
-	/**
-	 * @generated
-	 */
-	protected IFigure getContentPaneFor(IGraphicalEditPart editPart) {
-
-		return super.getContentPaneFor(editPart);
+	public RectangleFigure getPrimaryShape() {
+		return (RectangleFigure) primaryShape;
 	}
 
 	/**
@@ -203,84 +153,6 @@ public class ScenarioBehaviour2EditPart extends ShapeNodeEditPart {
 			return contentPane;
 		}
 		return super.getContentPane();
-	}
-
-	/**
-	 * @generated
-	 */
-	public EditPart getPrimaryChildEditPart() {
-		return getChildBySemanticHint(PalladioComponentModelVisualIDRegistry
-				.getType(ScenarioBehaviourId2EditPart.VISUAL_ID));
-	}
-
-	/**
-	 * @generated
-	 */
-	public class ScenarioBehaviourFigure extends RectangleFigure {
-		/**
-		 * @generated
-		 */
-		public ScenarioBehaviourFigure() {
-			this.setFill(true);
-			this.setFillXOR(false);
-			this.setOutline(true);
-			this.setOutlineXOR(false);
-			this.setLineWidth(1);
-			this.setLineStyle(Graphics.LINE_SOLID);
-			createContents();
-		}
-
-		/**
-		 * @generated
-		 */
-		private void createContents() {
-
-			WrapLabel scenarioBehaviourIdFigure0 = new WrapLabel();
-			scenarioBehaviourIdFigure0.setText("<...>");
-
-			this.add(scenarioBehaviourIdFigure0);
-			setFigureScenarioBehaviourIdFigure(scenarioBehaviourIdFigure0);
-
-		}
-
-		/**
-		 * @generated
-		 */
-		private WrapLabel fScenarioBehaviourIdFigure;
-
-		/**
-		 * @generated
-		 */
-		public WrapLabel getFigureScenarioBehaviourIdFigure() {
-			return fScenarioBehaviourIdFigure;
-		}
-
-		/**
-		 * @generated
-		 */
-		private void setFigureScenarioBehaviourIdFigure(WrapLabel fig) {
-			fScenarioBehaviourIdFigure = fig;
-		}
-
-		/**
-		 * @generated
-		 */
-		private boolean myUseLocalCoordinates = false;
-
-		/**
-		 * @generated
-		 */
-		protected boolean useLocalCoordinates() {
-			return myUseLocalCoordinates;
-		}
-
-		/**
-		 * @generated
-		 */
-		protected void setUseLocalCoordinates(boolean useLocalCoordinates) {
-			myUseLocalCoordinates = useLocalCoordinates;
-		}
-
 	}
 
 }

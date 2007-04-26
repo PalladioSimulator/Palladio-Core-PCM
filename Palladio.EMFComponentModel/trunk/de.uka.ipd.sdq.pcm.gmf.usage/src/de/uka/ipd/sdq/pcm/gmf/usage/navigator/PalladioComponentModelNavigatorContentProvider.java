@@ -13,6 +13,8 @@ import org.eclipse.core.resources.IFile;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
+import org.eclipse.emf.transaction.TransactionalEditingDomain;
+import org.eclipse.emf.workspace.util.WorkspaceSynchronizer;
 import org.eclipse.gmf.runtime.emf.core.GMFEditingDomainFactory;
 import org.eclipse.gmf.runtime.notation.Diagram;
 import org.eclipse.gmf.runtime.notation.Edge;
@@ -24,15 +26,13 @@ import org.eclipse.ui.navigator.ICommonContentProvider;
 
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.AbstractUserActionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.AbstractUserActionSuccessorEditPart;
-import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.BranchBranchCompartmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.BranchEditPart;
-import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.BranchTransitionBranchTransitionCompartmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.BranchTransitionEditPart;
+import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.BranchUsageBranchTransitionsCompartmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.ClosedWorkloadEditPart;
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.EntryLevelSystemCallEditPart;
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.EntryLevelSystemCallParameterUsageEditPart;
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.LoopEditPart;
-import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.LoopLoopCompartmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.OpenWorkloadEditPart;
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.ScenarioBehaviour2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.ScenarioBehaviour3EditPart;
@@ -63,13 +63,110 @@ public class PalladioComponentModelNavigatorContentProvider implements
 	/**
 	 * @generated
 	 */
+	private Viewer myViewer;
+	/**
+	 * @generated
+	 */
+	private AdapterFactoryEditingDomain myEditingDomain;
+	/**
+	 * @generated
+	 */
+	private WorkspaceSynchronizer myWorkspaceSynchronizer;
+	/**
+	 * @generated
+	 */
+	private Runnable myViewerRefreshRunnable;
+
+	/**
+	 * @generated
+	 */
+	public PalladioComponentModelNavigatorContentProvider() {
+		TransactionalEditingDomain editingDomain = GMFEditingDomainFactory.INSTANCE
+				.createEditingDomain();
+		myEditingDomain = (AdapterFactoryEditingDomain) editingDomain;
+		myEditingDomain.setResourceToReadOnlyMap(new HashMap() {
+			public Object get(Object key) {
+				if (!containsKey(key)) {
+					put(key, Boolean.TRUE);
+				}
+				return super.get(key);
+			}
+		});
+		myViewerRefreshRunnable = new Runnable() {
+			public void run() {
+				if (myViewer != null) {
+					myViewer.refresh();
+				}
+			}
+		};
+		myWorkspaceSynchronizer = new WorkspaceSynchronizer(editingDomain,
+				new WorkspaceSynchronizer.Delegate() {
+					public void dispose() {
+					}
+
+					public boolean handleResourceChanged(final Resource resource) {
+						for (Iterator it = myEditingDomain.getResourceSet()
+								.getResources().iterator(); it.hasNext();) {
+							Resource nextResource = (Resource) it.next();
+							nextResource.unload();
+						}
+						if (myViewer != null) {
+							myViewer.getControl().getDisplay().asyncExec(
+									myViewerRefreshRunnable);
+						}
+						return true;
+					}
+
+					public boolean handleResourceDeleted(Resource resource) {
+						for (Iterator it = myEditingDomain.getResourceSet()
+								.getResources().iterator(); it.hasNext();) {
+							Resource nextResource = (Resource) it.next();
+							nextResource.unload();
+						}
+						if (myViewer != null) {
+							myViewer.getControl().getDisplay().asyncExec(
+									myViewerRefreshRunnable);
+						}
+						return true;
+					}
+
+					public boolean handleResourceMoved(Resource resource,
+							final org.eclipse.emf.common.util.URI newURI) {
+						for (Iterator it = myEditingDomain.getResourceSet()
+								.getResources().iterator(); it.hasNext();) {
+							Resource nextResource = (Resource) it.next();
+							nextResource.unload();
+						}
+						if (myViewer != null) {
+							myViewer.getControl().getDisplay().asyncExec(
+									myViewerRefreshRunnable);
+						}
+						return true;
+					}
+				});
+	}
+
+	/**
+	 * @generated
+	 */
 	public void dispose() {
+		myWorkspaceSynchronizer.dispose();
+		myWorkspaceSynchronizer = null;
+		myViewerRefreshRunnable = null;
+		for (Iterator it = myEditingDomain.getResourceSet().getResources()
+				.iterator(); it.hasNext();) {
+			Resource resource = (Resource) it.next();
+			resource.unload();
+		}
+		((TransactionalEditingDomain) myEditingDomain).dispose();
+		myEditingDomain = null;
 	}
 
 	/**
 	 * @generated
 	 */
 	public void inputChanged(Viewer viewer, Object oldInput, Object newInput) {
+		myViewer = viewer;
 	}
 
 	/**
@@ -103,22 +200,11 @@ public class PalladioComponentModelNavigatorContentProvider implements
 	public Object[] getChildren(Object parentElement) {
 		if (parentElement instanceof IFile) {
 			IFile file = (IFile) parentElement;
-			AdapterFactoryEditingDomain editingDomain = (AdapterFactoryEditingDomain) GMFEditingDomainFactory.INSTANCE
-					.createEditingDomain();
-			editingDomain.setResourceToReadOnlyMap(new HashMap() {
-				public Object get(Object key) {
-					if (!containsKey(key)) {
-						put(key, Boolean.TRUE);
-					}
-					return super.get(key);
-				}
-			});
-			ResourceSet resourceSet = editingDomain.getResourceSet();
-
 			org.eclipse.emf.common.util.URI fileURI = org.eclipse.emf.common.util.URI
 					.createPlatformResourceURI(file.getFullPath().toString(),
 							true);
-			Resource resource = resourceSet.getResource(fileURI, true);
+			Resource resource = myEditingDomain.getResourceSet().getResource(
+					fileURI, true);
 			Collection result = new ArrayList();
 			result.addAll(createNavigatorItems(selectViewsByType(resource
 					.getContents(), UsageScenarioEditPart.MODEL_ID), file,
@@ -191,8 +277,6 @@ public class PalladioComponentModelNavigatorContentProvider implements
 			connectedViews = getChildrenByType(connectedViews,
 					LoopEditPart.VISUAL_ID);
 			connectedViews = getChildrenByType(connectedViews,
-					LoopLoopCompartmentEditPart.VISUAL_ID);
-			connectedViews = getChildrenByType(connectedViews,
 					ScenarioBehaviour2EditPart.VISUAL_ID);
 			connectedViews = getChildrenByType(
 					connectedViews,
@@ -207,8 +291,6 @@ public class PalladioComponentModelNavigatorContentProvider implements
 			connectedViews = getChildrenByType(connectedViews,
 					LoopEditPart.VISUAL_ID);
 			connectedViews = getChildrenByType(connectedViews,
-					LoopLoopCompartmentEditPart.VISUAL_ID);
-			connectedViews = getChildrenByType(connectedViews,
 					ScenarioBehaviour2EditPart.VISUAL_ID);
 			connectedViews = getChildrenByType(
 					connectedViews,
@@ -216,12 +298,9 @@ public class PalladioComponentModelNavigatorContentProvider implements
 			connectedViews = getChildrenByType(connectedViews,
 					BranchEditPart.VISUAL_ID);
 			connectedViews = getChildrenByType(connectedViews,
-					BranchBranchCompartmentEditPart.VISUAL_ID);
+					BranchUsageBranchTransitionsCompartmentEditPart.VISUAL_ID);
 			connectedViews = getChildrenByType(connectedViews,
 					BranchTransitionEditPart.VISUAL_ID);
-			connectedViews = getChildrenByType(
-					connectedViews,
-					BranchTransitionBranchTransitionCompartmentEditPart.VISUAL_ID);
 			connectedViews = getChildrenByType(connectedViews,
 					ScenarioBehaviour3EditPart.VISUAL_ID);
 			connectedViews = getChildrenByType(
@@ -237,12 +316,9 @@ public class PalladioComponentModelNavigatorContentProvider implements
 			connectedViews = getChildrenByType(connectedViews,
 					BranchEditPart.VISUAL_ID);
 			connectedViews = getChildrenByType(connectedViews,
-					BranchBranchCompartmentEditPart.VISUAL_ID);
+					BranchUsageBranchTransitionsCompartmentEditPart.VISUAL_ID);
 			connectedViews = getChildrenByType(connectedViews,
 					BranchTransitionEditPart.VISUAL_ID);
-			connectedViews = getChildrenByType(
-					connectedViews,
-					BranchTransitionBranchTransitionCompartmentEditPart.VISUAL_ID);
 			connectedViews = getChildrenByType(connectedViews,
 					ScenarioBehaviour3EditPart.VISUAL_ID);
 			connectedViews = getChildrenByType(
@@ -258,12 +334,9 @@ public class PalladioComponentModelNavigatorContentProvider implements
 			connectedViews = getChildrenByType(connectedViews,
 					BranchEditPart.VISUAL_ID);
 			connectedViews = getChildrenByType(connectedViews,
-					BranchBranchCompartmentEditPart.VISUAL_ID);
+					BranchUsageBranchTransitionsCompartmentEditPart.VISUAL_ID);
 			connectedViews = getChildrenByType(connectedViews,
 					BranchTransitionEditPart.VISUAL_ID);
-			connectedViews = getChildrenByType(
-					connectedViews,
-					BranchTransitionBranchTransitionCompartmentEditPart.VISUAL_ID);
 			connectedViews = getChildrenByType(connectedViews,
 					ScenarioBehaviour3EditPart.VISUAL_ID);
 			connectedViews = getChildrenByType(
@@ -271,8 +344,6 @@ public class PalladioComponentModelNavigatorContentProvider implements
 					ScenarioBehaviourScenarioBehaviourStepsCompartment3EditPart.VISUAL_ID);
 			connectedViews = getChildrenByType(connectedViews,
 					LoopEditPart.VISUAL_ID);
-			connectedViews = getChildrenByType(connectedViews,
-					LoopLoopCompartmentEditPart.VISUAL_ID);
 			connectedViews = getChildrenByType(connectedViews,
 					ScenarioBehaviour2EditPart.VISUAL_ID);
 			connectedViews = getChildrenByType(
@@ -295,8 +366,6 @@ public class PalladioComponentModelNavigatorContentProvider implements
 			connectedViews = getChildrenByType(connectedViews,
 					LoopEditPart.VISUAL_ID);
 			connectedViews = getChildrenByType(connectedViews,
-					LoopLoopCompartmentEditPart.VISUAL_ID);
-			connectedViews = getChildrenByType(connectedViews,
 					ScenarioBehaviour2EditPart.VISUAL_ID);
 			connectedViews = getChildrenByType(
 					connectedViews,
@@ -311,8 +380,6 @@ public class PalladioComponentModelNavigatorContentProvider implements
 			connectedViews = getChildrenByType(connectedViews,
 					LoopEditPart.VISUAL_ID);
 			connectedViews = getChildrenByType(connectedViews,
-					LoopLoopCompartmentEditPart.VISUAL_ID);
-			connectedViews = getChildrenByType(connectedViews,
 					ScenarioBehaviour2EditPart.VISUAL_ID);
 			connectedViews = getChildrenByType(
 					connectedViews,
@@ -320,12 +387,9 @@ public class PalladioComponentModelNavigatorContentProvider implements
 			connectedViews = getChildrenByType(connectedViews,
 					BranchEditPart.VISUAL_ID);
 			connectedViews = getChildrenByType(connectedViews,
-					BranchBranchCompartmentEditPart.VISUAL_ID);
+					BranchUsageBranchTransitionsCompartmentEditPart.VISUAL_ID);
 			connectedViews = getChildrenByType(connectedViews,
 					BranchTransitionEditPart.VISUAL_ID);
-			connectedViews = getChildrenByType(
-					connectedViews,
-					BranchTransitionBranchTransitionCompartmentEditPart.VISUAL_ID);
 			connectedViews = getChildrenByType(connectedViews,
 					ScenarioBehaviour3EditPart.VISUAL_ID);
 			connectedViews = getChildrenByType(
@@ -341,12 +405,9 @@ public class PalladioComponentModelNavigatorContentProvider implements
 			connectedViews = getChildrenByType(connectedViews,
 					BranchEditPart.VISUAL_ID);
 			connectedViews = getChildrenByType(connectedViews,
-					BranchBranchCompartmentEditPart.VISUAL_ID);
+					BranchUsageBranchTransitionsCompartmentEditPart.VISUAL_ID);
 			connectedViews = getChildrenByType(connectedViews,
 					BranchTransitionEditPart.VISUAL_ID);
-			connectedViews = getChildrenByType(
-					connectedViews,
-					BranchTransitionBranchTransitionCompartmentEditPart.VISUAL_ID);
 			connectedViews = getChildrenByType(connectedViews,
 					ScenarioBehaviour3EditPart.VISUAL_ID);
 			connectedViews = getChildrenByType(
@@ -362,12 +423,9 @@ public class PalladioComponentModelNavigatorContentProvider implements
 			connectedViews = getChildrenByType(connectedViews,
 					BranchEditPart.VISUAL_ID);
 			connectedViews = getChildrenByType(connectedViews,
-					BranchBranchCompartmentEditPart.VISUAL_ID);
+					BranchUsageBranchTransitionsCompartmentEditPart.VISUAL_ID);
 			connectedViews = getChildrenByType(connectedViews,
 					BranchTransitionEditPart.VISUAL_ID);
-			connectedViews = getChildrenByType(
-					connectedViews,
-					BranchTransitionBranchTransitionCompartmentEditPart.VISUAL_ID);
 			connectedViews = getChildrenByType(connectedViews,
 					ScenarioBehaviour3EditPart.VISUAL_ID);
 			connectedViews = getChildrenByType(
@@ -375,8 +433,6 @@ public class PalladioComponentModelNavigatorContentProvider implements
 					ScenarioBehaviourScenarioBehaviourStepsCompartment3EditPart.VISUAL_ID);
 			connectedViews = getChildrenByType(connectedViews,
 					LoopEditPart.VISUAL_ID);
-			connectedViews = getChildrenByType(connectedViews,
-					LoopLoopCompartmentEditPart.VISUAL_ID);
 			connectedViews = getChildrenByType(connectedViews,
 					ScenarioBehaviour2EditPart.VISUAL_ID);
 			connectedViews = getChildrenByType(
@@ -399,8 +455,6 @@ public class PalladioComponentModelNavigatorContentProvider implements
 			connectedViews = getChildrenByType(connectedViews,
 					LoopEditPart.VISUAL_ID);
 			connectedViews = getChildrenByType(connectedViews,
-					LoopLoopCompartmentEditPart.VISUAL_ID);
-			connectedViews = getChildrenByType(connectedViews,
 					ScenarioBehaviour2EditPart.VISUAL_ID);
 			connectedViews = getChildrenByType(
 					connectedViews,
@@ -415,8 +469,6 @@ public class PalladioComponentModelNavigatorContentProvider implements
 			connectedViews = getChildrenByType(connectedViews,
 					LoopEditPart.VISUAL_ID);
 			connectedViews = getChildrenByType(connectedViews,
-					LoopLoopCompartmentEditPart.VISUAL_ID);
-			connectedViews = getChildrenByType(connectedViews,
 					ScenarioBehaviour2EditPart.VISUAL_ID);
 			connectedViews = getChildrenByType(
 					connectedViews,
@@ -424,12 +476,9 @@ public class PalladioComponentModelNavigatorContentProvider implements
 			connectedViews = getChildrenByType(connectedViews,
 					BranchEditPart.VISUAL_ID);
 			connectedViews = getChildrenByType(connectedViews,
-					BranchBranchCompartmentEditPart.VISUAL_ID);
+					BranchUsageBranchTransitionsCompartmentEditPart.VISUAL_ID);
 			connectedViews = getChildrenByType(connectedViews,
 					BranchTransitionEditPart.VISUAL_ID);
-			connectedViews = getChildrenByType(
-					connectedViews,
-					BranchTransitionBranchTransitionCompartmentEditPart.VISUAL_ID);
 			connectedViews = getChildrenByType(connectedViews,
 					ScenarioBehaviour3EditPart.VISUAL_ID);
 			connectedViews = getChildrenByType(
@@ -445,12 +494,9 @@ public class PalladioComponentModelNavigatorContentProvider implements
 			connectedViews = getChildrenByType(connectedViews,
 					BranchEditPart.VISUAL_ID);
 			connectedViews = getChildrenByType(connectedViews,
-					BranchBranchCompartmentEditPart.VISUAL_ID);
+					BranchUsageBranchTransitionsCompartmentEditPart.VISUAL_ID);
 			connectedViews = getChildrenByType(connectedViews,
 					BranchTransitionEditPart.VISUAL_ID);
-			connectedViews = getChildrenByType(
-					connectedViews,
-					BranchTransitionBranchTransitionCompartmentEditPart.VISUAL_ID);
 			connectedViews = getChildrenByType(connectedViews,
 					ScenarioBehaviour3EditPart.VISUAL_ID);
 			connectedViews = getChildrenByType(
@@ -466,12 +512,9 @@ public class PalladioComponentModelNavigatorContentProvider implements
 			connectedViews = getChildrenByType(connectedViews,
 					BranchEditPart.VISUAL_ID);
 			connectedViews = getChildrenByType(connectedViews,
-					BranchBranchCompartmentEditPart.VISUAL_ID);
+					BranchUsageBranchTransitionsCompartmentEditPart.VISUAL_ID);
 			connectedViews = getChildrenByType(connectedViews,
 					BranchTransitionEditPart.VISUAL_ID);
-			connectedViews = getChildrenByType(
-					connectedViews,
-					BranchTransitionBranchTransitionCompartmentEditPart.VISUAL_ID);
 			connectedViews = getChildrenByType(connectedViews,
 					ScenarioBehaviour3EditPart.VISUAL_ID);
 			connectedViews = getChildrenByType(
@@ -479,8 +522,6 @@ public class PalladioComponentModelNavigatorContentProvider implements
 					ScenarioBehaviourScenarioBehaviourStepsCompartment3EditPart.VISUAL_ID);
 			connectedViews = getChildrenByType(connectedViews,
 					LoopEditPart.VISUAL_ID);
-			connectedViews = getChildrenByType(connectedViews,
-					LoopLoopCompartmentEditPart.VISUAL_ID);
 			connectedViews = getChildrenByType(connectedViews,
 					ScenarioBehaviour2EditPart.VISUAL_ID);
 			connectedViews = getChildrenByType(
@@ -503,12 +544,9 @@ public class PalladioComponentModelNavigatorContentProvider implements
 			connectedViews = getChildrenByType(connectedViews,
 					BranchEditPart.VISUAL_ID);
 			connectedViews = getChildrenByType(connectedViews,
-					BranchBranchCompartmentEditPart.VISUAL_ID);
+					BranchUsageBranchTransitionsCompartmentEditPart.VISUAL_ID);
 			connectedViews = getChildrenByType(connectedViews,
 					BranchTransitionEditPart.VISUAL_ID);
-			connectedViews = getChildrenByType(
-					connectedViews,
-					BranchTransitionBranchTransitionCompartmentEditPart.VISUAL_ID);
 			connectedViews = getChildrenByType(connectedViews,
 					ScenarioBehaviour3EditPart.VISUAL_ID);
 			connectedViews = getChildrenByType(
@@ -523,8 +561,6 @@ public class PalladioComponentModelNavigatorContentProvider implements
 					ScenarioBehaviourScenarioBehaviourStepsCompartmentEditPart.VISUAL_ID);
 			connectedViews = getChildrenByType(connectedViews,
 					LoopEditPart.VISUAL_ID);
-			connectedViews = getChildrenByType(connectedViews,
-					LoopLoopCompartmentEditPart.VISUAL_ID);
 			connectedViews = getChildrenByType(connectedViews,
 					ScenarioBehaviour2EditPart.VISUAL_ID);
 			connectedViews = getChildrenByType(
@@ -653,9 +689,7 @@ public class PalladioComponentModelNavigatorContentProvider implements
 					Messages.NavigatorGroupName_Loop_3005_incominglinks,
 					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			Collection connectedViews = getChildrenByType(Collections
-					.singleton(view), LoopLoopCompartmentEditPart.VISUAL_ID);
-			connectedViews = getChildrenByType(connectedViews,
-					ScenarioBehaviour2EditPart.VISUAL_ID);
+					.singleton(view), ScenarioBehaviour2EditPart.VISUAL_ID);
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			connectedViews = getIncomingLinksByType(
@@ -692,12 +726,9 @@ public class PalladioComponentModelNavigatorContentProvider implements
 			connectedViews = getChildrenByType(connectedViews,
 					BranchEditPart.VISUAL_ID);
 			connectedViews = getChildrenByType(connectedViews,
-					BranchBranchCompartmentEditPart.VISUAL_ID);
+					BranchUsageBranchTransitionsCompartmentEditPart.VISUAL_ID);
 			connectedViews = getChildrenByType(connectedViews,
 					BranchTransitionEditPart.VISUAL_ID);
-			connectedViews = getChildrenByType(
-					connectedViews,
-					BranchTransitionBranchTransitionCompartmentEditPart.VISUAL_ID);
 			connectedViews = getChildrenByType(connectedViews,
 					ScenarioBehaviour3EditPart.VISUAL_ID);
 			connectedViews = getChildrenByType(
@@ -720,12 +751,9 @@ public class PalladioComponentModelNavigatorContentProvider implements
 			connectedViews = getChildrenByType(connectedViews,
 					BranchEditPart.VISUAL_ID);
 			connectedViews = getChildrenByType(connectedViews,
-					BranchBranchCompartmentEditPart.VISUAL_ID);
+					BranchUsageBranchTransitionsCompartmentEditPart.VISUAL_ID);
 			connectedViews = getChildrenByType(connectedViews,
 					BranchTransitionEditPart.VISUAL_ID);
-			connectedViews = getChildrenByType(
-					connectedViews,
-					BranchTransitionBranchTransitionCompartmentEditPart.VISUAL_ID);
 			connectedViews = getChildrenByType(connectedViews,
 					ScenarioBehaviour3EditPart.VISUAL_ID);
 			connectedViews = getChildrenByType(
@@ -748,12 +776,9 @@ public class PalladioComponentModelNavigatorContentProvider implements
 			connectedViews = getChildrenByType(connectedViews,
 					BranchEditPart.VISUAL_ID);
 			connectedViews = getChildrenByType(connectedViews,
-					BranchBranchCompartmentEditPart.VISUAL_ID);
+					BranchUsageBranchTransitionsCompartmentEditPart.VISUAL_ID);
 			connectedViews = getChildrenByType(connectedViews,
 					BranchTransitionEditPart.VISUAL_ID);
-			connectedViews = getChildrenByType(
-					connectedViews,
-					BranchTransitionBranchTransitionCompartmentEditPart.VISUAL_ID);
 			connectedViews = getChildrenByType(connectedViews,
 					ScenarioBehaviour3EditPart.VISUAL_ID);
 			connectedViews = getChildrenByType(
@@ -776,12 +801,9 @@ public class PalladioComponentModelNavigatorContentProvider implements
 			connectedViews = getChildrenByType(connectedViews,
 					BranchEditPart.VISUAL_ID);
 			connectedViews = getChildrenByType(connectedViews,
-					BranchBranchCompartmentEditPart.VISUAL_ID);
+					BranchUsageBranchTransitionsCompartmentEditPart.VISUAL_ID);
 			connectedViews = getChildrenByType(connectedViews,
 					BranchTransitionEditPart.VISUAL_ID);
-			connectedViews = getChildrenByType(
-					connectedViews,
-					BranchTransitionBranchTransitionCompartmentEditPart.VISUAL_ID);
 			connectedViews = getChildrenByType(connectedViews,
 					ScenarioBehaviour3EditPart.VISUAL_ID);
 			connectedViews = getChildrenByType(
@@ -810,7 +832,8 @@ public class PalladioComponentModelNavigatorContentProvider implements
 					Messages.NavigatorGroupName_Branch_3008_incominglinks,
 					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			Collection connectedViews = getChildrenByType(Collections
-					.singleton(view), BranchBranchCompartmentEditPart.VISUAL_ID);
+					.singleton(view),
+					BranchUsageBranchTransitionsCompartmentEditPart.VISUAL_ID);
 			connectedViews = getChildrenByType(connectedViews,
 					BranchTransitionEditPart.VISUAL_ID);
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
@@ -836,11 +859,8 @@ public class PalladioComponentModelNavigatorContentProvider implements
 
 		case BranchTransitionEditPart.VISUAL_ID: {
 			Collection result = new ArrayList();
-			Collection connectedViews = getChildrenByType(
-					Collections.singleton(view),
-					BranchTransitionBranchTransitionCompartmentEditPart.VISUAL_ID);
-			connectedViews = getChildrenByType(connectedViews,
-					ScenarioBehaviour3EditPart.VISUAL_ID);
+			Collection connectedViews = getChildrenByType(Collections
+					.singleton(view), ScenarioBehaviour3EditPart.VISUAL_ID);
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			return result.toArray();
@@ -861,8 +881,6 @@ public class PalladioComponentModelNavigatorContentProvider implements
 			connectedViews = getChildrenByType(connectedViews,
 					LoopEditPart.VISUAL_ID);
 			connectedViews = getChildrenByType(connectedViews,
-					LoopLoopCompartmentEditPart.VISUAL_ID);
-			connectedViews = getChildrenByType(connectedViews,
 					ScenarioBehaviour2EditPart.VISUAL_ID);
 			connectedViews = getChildrenByType(
 					connectedViews,
@@ -884,8 +902,6 @@ public class PalladioComponentModelNavigatorContentProvider implements
 			connectedViews = getChildrenByType(connectedViews,
 					LoopEditPart.VISUAL_ID);
 			connectedViews = getChildrenByType(connectedViews,
-					LoopLoopCompartmentEditPart.VISUAL_ID);
-			connectedViews = getChildrenByType(connectedViews,
 					ScenarioBehaviour2EditPart.VISUAL_ID);
 			connectedViews = getChildrenByType(
 					connectedViews,
@@ -907,8 +923,6 @@ public class PalladioComponentModelNavigatorContentProvider implements
 			connectedViews = getChildrenByType(connectedViews,
 					LoopEditPart.VISUAL_ID);
 			connectedViews = getChildrenByType(connectedViews,
-					LoopLoopCompartmentEditPart.VISUAL_ID);
-			connectedViews = getChildrenByType(connectedViews,
 					ScenarioBehaviour2EditPart.VISUAL_ID);
 			connectedViews = getChildrenByType(
 					connectedViews,
@@ -929,8 +943,6 @@ public class PalladioComponentModelNavigatorContentProvider implements
 					ScenarioBehaviourScenarioBehaviourStepsCompartment3EditPart.VISUAL_ID);
 			connectedViews = getChildrenByType(connectedViews,
 					LoopEditPart.VISUAL_ID);
-			connectedViews = getChildrenByType(connectedViews,
-					LoopLoopCompartmentEditPart.VISUAL_ID);
 			connectedViews = getChildrenByType(connectedViews,
 					ScenarioBehaviour2EditPart.VISUAL_ID);
 			connectedViews = getChildrenByType(

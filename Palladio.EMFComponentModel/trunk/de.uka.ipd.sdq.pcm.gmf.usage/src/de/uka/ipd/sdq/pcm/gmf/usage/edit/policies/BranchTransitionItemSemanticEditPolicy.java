@@ -13,17 +13,37 @@ import org.eclipse.gef.commands.Command;
 import org.eclipse.gef.commands.CompoundCommand;
 import org.eclipse.gmf.runtime.diagram.ui.requests.EditCommandRequestWrapper;
 import org.eclipse.gmf.runtime.emf.type.core.commands.DestroyElementCommand;
+import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.DestroyElementRequest;
 import org.eclipse.gmf.runtime.notation.Edge;
 import org.eclipse.gmf.runtime.notation.View;
 
+import de.uka.ipd.sdq.pcm.gmf.usage.edit.commands.ScenarioBehaviour3CreateCommand;
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.BranchTransitionEditPart;
+import de.uka.ipd.sdq.pcm.gmf.usage.providers.PalladioComponentModelElementTypes;
+import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
 
 /**
  * @generated
  */
 public class BranchTransitionItemSemanticEditPolicy extends
 		PalladioComponentModelBaseItemSemanticEditPolicy {
+
+	/**
+	 * @generated
+	 */
+	protected Command getCreateCommand(CreateElementRequest req) {
+		if (PalladioComponentModelElementTypes.ScenarioBehaviour_3010 == req
+				.getElementType()) {
+			if (req.getContainmentFeature() == null) {
+				req
+						.setContainmentFeature(UsagemodelPackage.eINSTANCE
+								.getBranchTransition_BranchedBehaviour_BranchTransition());
+			}
+			return getMSLWrapper(new ScenarioBehaviour3CreateCommand(req));
+		}
+		return super.getCreateCommand(req);
+	}
 
 	/**
 	 * @generated

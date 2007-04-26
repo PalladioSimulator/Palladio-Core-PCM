@@ -14,6 +14,7 @@ import org.eclipse.gmf.runtime.diagram.ui.editparts.ITextAwareEditPart;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.jface.viewers.CellEditor;
+import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Text;
 
 import de.uka.ipd.sdq.pcm.gmf.usage.part.PalladioComponentModelVisualIDRegistry;
@@ -37,17 +38,14 @@ public class PalladioComponentModelEditPartFactory implements EditPartFactory {
 			case ScenarioBehaviourEditPart.VISUAL_ID:
 				return new ScenarioBehaviourEditPart(view);
 
-			case ScenarioBehaviourId3EditPart.VISUAL_ID:
-				return new ScenarioBehaviourId3EditPart(view);
-
 			case ClosedWorkloadEditPart.VISUAL_ID:
 				return new ClosedWorkloadEditPart(view);
 
-			case ClosedWorkloadPopulationEditPart.VISUAL_ID:
-				return new ClosedWorkloadPopulationEditPart(view);
-
 			case ClosedWorkloadTitleLabelEditPart.VISUAL_ID:
 				return new ClosedWorkloadTitleLabelEditPart(view);
+
+			case ClosedWorkloadPopulationEditPart.VISUAL_ID:
+				return new ClosedWorkloadPopulationEditPart(view);
 
 			case OpenWorkloadEditPart.VISUAL_ID:
 				return new OpenWorkloadEditPart(view);
@@ -61,8 +59,14 @@ public class PalladioComponentModelEditPartFactory implements EditPartFactory {
 			case EntryLevelSystemCallEditPart.VISUAL_ID:
 				return new EntryLevelSystemCallEditPart(view);
 
+			case ComponentExternalCallNameLabelEditPart.VISUAL_ID:
+				return new ComponentExternalCallNameLabelEditPart(view);
+
 			case VariableUsageEditPart.VISUAL_ID:
 				return new VariableUsageEditPart(view);
+
+			case VariableUsageReferenceLabelEditPart.VISUAL_ID:
+				return new VariableUsageReferenceLabelEditPart(view);
 
 			case VariableCharacterisationEditPart.VISUAL_ID:
 				return new VariableCharacterisationEditPart(view);
@@ -70,23 +74,26 @@ public class PalladioComponentModelEditPartFactory implements EditPartFactory {
 			case LoopEditPart.VISUAL_ID:
 				return new LoopEditPart(view);
 
+			case UsageLoopIterationsLabelEditPart.VISUAL_ID:
+				return new UsageLoopIterationsLabelEditPart(view);
+
 			case ScenarioBehaviour2EditPart.VISUAL_ID:
 				return new ScenarioBehaviour2EditPart(view);
-
-			case ScenarioBehaviourId2EditPart.VISUAL_ID:
-				return new ScenarioBehaviourId2EditPart(view);
 
 			case BranchEditPart.VISUAL_ID:
 				return new BranchEditPart(view);
 
+			case UsageBranchStereotypeLabelEditPart.VISUAL_ID:
+				return new UsageBranchStereotypeLabelEditPart(view);
+
 			case BranchTransitionEditPart.VISUAL_ID:
 				return new BranchTransitionEditPart(view);
 
+			case BranchTransitionBranchProbabilityEditPart.VISUAL_ID:
+				return new BranchTransitionBranchProbabilityEditPart(view);
+
 			case ScenarioBehaviour3EditPart.VISUAL_ID:
 				return new ScenarioBehaviour3EditPart(view);
-
-			case ScenarioBehaviourIdEditPart.VISUAL_ID:
-				return new ScenarioBehaviourIdEditPart(view);
 
 			case ScenarioBehaviourScenarioBehaviourStepsCompartmentEditPart.VISUAL_ID:
 				return new ScenarioBehaviourScenarioBehaviourStepsCompartmentEditPart(
@@ -98,19 +105,12 @@ public class PalladioComponentModelEditPartFactory implements EditPartFactory {
 			case VariableUsageVariableCharacterisationEditPart.VISUAL_ID:
 				return new VariableUsageVariableCharacterisationEditPart(view);
 
-			case LoopLoopCompartmentEditPart.VISUAL_ID:
-				return new LoopLoopCompartmentEditPart(view);
-
 			case ScenarioBehaviourScenarioBehaviourStepsCompartment2EditPart.VISUAL_ID:
 				return new ScenarioBehaviourScenarioBehaviourStepsCompartment2EditPart(
 						view);
 
-			case BranchBranchCompartmentEditPart.VISUAL_ID:
-				return new BranchBranchCompartmentEditPart(view);
-
-			case BranchTransitionBranchTransitionCompartmentEditPart.VISUAL_ID:
-				return new BranchTransitionBranchTransitionCompartmentEditPart(
-						view);
+			case BranchUsageBranchTransitionsCompartmentEditPart.VISUAL_ID:
+				return new BranchUsageBranchTransitionsCompartmentEditPart(view);
 
 			case ScenarioBehaviourScenarioBehaviourStepsCompartment3EditPart.VISUAL_ID:
 				return new ScenarioBehaviourScenarioBehaviourStepsCompartment3EditPart(
@@ -177,13 +177,12 @@ public class PalladioComponentModelEditPartFactory implements EditPartFactory {
 			if (getWrapLabel().isTextWrapped()
 					&& getWrapLabel().getText().length() > 0) {
 				rect.setSize(new Dimension(text.computeSize(rect.width,
-						org.eclipse.swt.SWT.DEFAULT)));
+						SWT.DEFAULT)));
 			} else {
 				int avr = FigureUtilities.getFontMetrics(text.getFont())
 						.getAverageCharWidth();
-				rect.setSize(new Dimension(text.computeSize(
-						org.eclipse.swt.SWT.DEFAULT,
-						org.eclipse.swt.SWT.DEFAULT)).expand(avr * 2, 0));
+				rect.setSize(new Dimension(text.computeSize(SWT.DEFAULT,
+						SWT.DEFAULT)).expand(avr * 2, 0));
 			}
 			if (!rect.equals(new Rectangle(text.getBounds()))) {
 				text.setBounds(rect.x, rect.y, rect.width, rect.height);
@@ -225,9 +224,8 @@ public class PalladioComponentModelEditPartFactory implements EditPartFactory {
 			getLabel().translateToAbsolute(rect);
 			int avr = FigureUtilities.getFontMetrics(text.getFont())
 					.getAverageCharWidth();
-			rect.setSize(new Dimension(text.computeSize(
-					org.eclipse.swt.SWT.DEFAULT, org.eclipse.swt.SWT.DEFAULT))
-					.expand(avr * 2, 0));
+			rect.setSize(new Dimension(text.computeSize(SWT.DEFAULT,
+					SWT.DEFAULT)).expand(avr * 2, 0));
 			if (!rect.equals(new Rectangle(text.getBounds()))) {
 				text.setBounds(rect.x, rect.y, rect.width, rect.height);
 			}

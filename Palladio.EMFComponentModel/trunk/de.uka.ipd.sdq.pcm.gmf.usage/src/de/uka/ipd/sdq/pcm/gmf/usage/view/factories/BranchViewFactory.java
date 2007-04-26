@@ -3,8 +3,9 @@
  */
 package de.uka.ipd.sdq.pcm.gmf.usage.view.factories;
 
-import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.BranchBranchCompartmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.BranchEditPart;
+import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.BranchUsageBranchTransitionsCompartmentEditPart;
+import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.UsageBranchStereotypeLabelEditPart;
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.UsageScenarioEditPart;
 
 import de.uka.ipd.sdq.pcm.gmf.usage.part.PalladioComponentModelVisualIDRegistry;
@@ -68,8 +69,15 @@ public class BranchViewFactory extends AbstractShapeViewFactory {
 				semanticAdapter,
 				view,
 				PalladioComponentModelVisualIDRegistry
-						.getType(BranchBranchCompartmentEditPart.VISUAL_ID),
+						.getType(UsageBranchStereotypeLabelEditPart.VISUAL_ID),
 				ViewUtil.APPEND, true, getPreferencesHint());
+		getViewService()
+				.createNode(
+						semanticAdapter,
+						view,
+						PalladioComponentModelVisualIDRegistry
+								.getType(BranchUsageBranchTransitionsCompartmentEditPart.VISUAL_ID),
+						ViewUtil.APPEND, true, getPreferencesHint());
 	}
 
 }

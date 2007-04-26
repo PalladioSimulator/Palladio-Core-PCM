@@ -15,7 +15,10 @@ import org.eclipse.gef.commands.Command;
 import org.eclipse.gef.editpolicies.LayoutEditPolicy;
 import org.eclipse.gef.editpolicies.NonResizableEditPolicy;
 import org.eclipse.gef.requests.CreateRequest;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
+import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CreationEditPolicy;
+import org.eclipse.gmf.runtime.diagram.ui.editpolicies.DragDropEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel;
@@ -23,7 +26,9 @@ import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
 
+import de.uka.ipd.sdq.pcm.gmf.usage.edit.policies.BranchCanonicalEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.policies.BranchItemSemanticEditPolicy;
+import de.uka.ipd.sdq.pcm.gmf.usage.part.PalladioComponentModelVisualIDRegistry;
 
 /**
  * @generated
@@ -93,15 +98,64 @@ public class BranchEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected IFigure createNodeShape() {
-		BranchFigure figure = new BranchFigure();
+		UsageBranchFigure figure = new UsageBranchFigure();
 		return primaryShape = figure;
 	}
 
 	/**
 	 * @generated
 	 */
-	public BranchFigure getPrimaryShape() {
-		return (BranchFigure) primaryShape;
+	public UsageBranchFigure getPrimaryShape() {
+		return (UsageBranchFigure) primaryShape;
+	}
+
+	/**
+	 * @generated
+	 */
+	protected boolean addFixedChild(EditPart childEditPart) {
+		if (childEditPart instanceof UsageBranchStereotypeLabelEditPart) {
+			((UsageBranchStereotypeLabelEditPart) childEditPart)
+					.setLabel(getPrimaryShape()
+							.getFigureUsageBranchStereotypeLabelFigure());
+			return true;
+		}
+		return false;
+	}
+
+	/**
+	 * @generated
+	 */
+	protected boolean removeFixedChild(EditPart childEditPart) {
+
+		return false;
+	}
+
+	/**
+	 * @generated
+	 */
+	protected void addChildVisual(EditPart childEditPart, int index) {
+		if (addFixedChild(childEditPart)) {
+			return;
+		}
+		super.addChildVisual(childEditPart, -1);
+	}
+
+	/**
+	 * @generated
+	 */
+	protected void removeChildVisual(EditPart childEditPart) {
+		if (removeFixedChild(childEditPart)) {
+			return;
+		}
+		super.removeChildVisual(childEditPart);
+	}
+
+	/**
+	 * @generated
+	 */
+	protected IFigure getContentPaneFor(IGraphicalEditPart editPart) {
+
+		return super.getContentPaneFor(editPart);
 	}
 
 	/**
@@ -158,11 +212,19 @@ public class BranchEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public class BranchFigure extends RoundedRectangle {
+	public EditPart getPrimaryChildEditPart() {
+		return getChildBySemanticHint(PalladioComponentModelVisualIDRegistry
+				.getType(UsageBranchStereotypeLabelEditPart.VISUAL_ID));
+	}
+
+	/**
+	 * @generated
+	 */
+	public class UsageBranchFigure extends RoundedRectangle {
 		/**
 		 * @generated
 		 */
-		public BranchFigure() {
+		public UsageBranchFigure() {
 			this.setCornerDimensions(new Dimension(getMapMode().DPtoLP(8),
 					getMapMode().DPtoLP(8)));
 			this.setFill(true);
@@ -179,36 +241,31 @@ public class BranchEditPart extends ShapeNodeEditPart {
 		 */
 		private void createContents() {
 
-			WrapLabel branchStereotype0 = new WrapLabel();
-			branchStereotype0.setText("<<Branch>>");
+			WrapLabel usageBranchStereotypeLabelFigure0 = new WrapLabel();
+			usageBranchStereotypeLabelFigure0.setText("<<Branch>>");
 
-			this.add(branchStereotype0);
-
-			WrapLabel branchNameLabelFigure0 = new WrapLabel();
-			branchNameLabelFigure0.setText("myBranch");
-
-			this.add(branchNameLabelFigure0);
-			setFigureBranchNameLabelFigure(branchNameLabelFigure0);
+			this.add(usageBranchStereotypeLabelFigure0);
+			setFigureUsageBranchStereotypeLabelFigure(usageBranchStereotypeLabelFigure0);
 
 		}
 
 		/**
 		 * @generated
 		 */
-		private WrapLabel fBranchNameLabelFigure;
+		private WrapLabel fUsageBranchStereotypeLabelFigure;
 
 		/**
 		 * @generated
 		 */
-		public WrapLabel getFigureBranchNameLabelFigure() {
-			return fBranchNameLabelFigure;
+		public WrapLabel getFigureUsageBranchStereotypeLabelFigure() {
+			return fUsageBranchStereotypeLabelFigure;
 		}
 
 		/**
 		 * @generated
 		 */
-		private void setFigureBranchNameLabelFigure(WrapLabel fig) {
-			fBranchNameLabelFigure = fig;
+		private void setFigureUsageBranchStereotypeLabelFigure(WrapLabel fig) {
+			fUsageBranchStereotypeLabelFigure = fig;
 		}
 
 		/**

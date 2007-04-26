@@ -66,12 +66,6 @@ public class ScenarioBehaviourViewFactory extends AbstractShapeViewFactory {
 					"modelID", UsageScenarioEditPart.MODEL_ID); //$NON-NLS-1$
 			view.getEAnnotations().add(shortcutAnnotation);
 		}
-		getViewService().createNode(
-				semanticAdapter,
-				view,
-				PalladioComponentModelVisualIDRegistry
-						.getType(ScenarioBehaviourId3EditPart.VISUAL_ID),
-				ViewUtil.APPEND, true, getPreferencesHint());
 		getViewService()
 				.createNode(
 						semanticAdapter,

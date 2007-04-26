@@ -137,6 +137,7 @@ import de.uka.ipd.sdq.pcm.resourcetype.provider.ResourcetypeItemProviderAdapterF
 import de.uka.ipd.sdq.pcm.seff.provider.SeffItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.system.provider.SystemItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.usagemodel.provider.UsagemodelItemProviderAdapterFactory;
+import de.uka.ipd.sdq.pcmbench.propertytabs.PalladioAdapterFactoryContentProvider;
 import de.uka.ipd.sdq.pcmbench.ui.provider.PalladioItemProviderAdapterFactory;
 import de.uka.ipd.sdq.probfunction.provider.ProbfunctionItemProviderAdapterFactory;
 import de.uka.ipd.sdq.stoex.provider.StoexItemProviderAdapterFactory;
@@ -170,9 +171,9 @@ public class ResourceenvironmentEditor
 	 * This is the one adapter factory used for providing views of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
-	protected ComposedAdapterFactory adapterFactory;
+	protected AdapterFactory adapterFactory;
 
 	/**
 	 * This is the content outline page.
@@ -660,7 +661,7 @@ public class ResourceenvironmentEditor
 	 * This creates a model editor.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public ResourceenvironmentEditor() {
 		super();
@@ -687,7 +688,7 @@ public class ResourceenvironmentEditor
 		factories.add(new StoexItemProviderAdapterFactory());
 		factories.add(new ReflectiveItemProviderAdapterFactory());
 
-		adapterFactory = new ComposedAdapterFactory(factories);
+		adapterFactory = new PalladioItemProviderAdapterFactory(new ComposedAdapterFactory(factories));
 
 		// Create the command stack that will notify this editor as commands are executed.
 		//
@@ -1341,7 +1342,7 @@ public class ResourceenvironmentEditor
 	 * This accesses a cached version of the property sheet.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	public IPropertySheetPage getPropertySheetPage() {
 		if (propertySheetPage == null) {
@@ -1359,7 +1360,7 @@ public class ResourceenvironmentEditor
 						getActionBarContributor().shareGlobalActions(this, actionBars);
 					}
 				};
-			propertySheetPage.setPropertySourceProvider(new AdapterFactoryContentProvider(adapterFactory));
+			propertySheetPage.setPropertySourceProvider(new PalladioAdapterFactoryContentProvider(adapterFactory));
 		}
 
 		return propertySheetPage;
@@ -1731,7 +1732,7 @@ public class ResourceenvironmentEditor
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated NOT
 	 */
 	@Override
 	public void dispose() {
@@ -1741,7 +1742,7 @@ public class ResourceenvironmentEditor
 
 		getSite().getPage().removePartListener(partListener);
 
-		adapterFactory.dispose();
+		((PalladioItemProviderAdapterFactory)adapterFactory).dispose();
 
 		if (getActionBarContributor().getActiveEditor() == this) {
 			getActionBarContributor().setActiveEditor(null);

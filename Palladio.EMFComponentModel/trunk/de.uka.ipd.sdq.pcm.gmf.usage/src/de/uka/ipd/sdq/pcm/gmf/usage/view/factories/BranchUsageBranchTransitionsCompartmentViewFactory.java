@@ -3,7 +3,7 @@
  */
 package de.uka.ipd.sdq.pcm.gmf.usage.view.factories;
 
-import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.BranchBranchCompartmentEditPart;
+import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.BranchUsageBranchTransitionsCompartmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.UsageScenarioEditPart;
 
 import de.uka.ipd.sdq.pcm.gmf.usage.part.PalladioComponentModelVisualIDRegistry;
@@ -27,7 +27,7 @@ import org.eclipse.gmf.runtime.notation.View;
 /**
  * @generated
  */
-public class BranchBranchCompartmentViewFactory extends
+public class BranchUsageBranchTransitionsCompartmentViewFactory extends
 		ListCompartmentViewFactory {
 
 	/**
@@ -48,7 +48,7 @@ public class BranchBranchCompartmentViewFactory extends
 			boolean persisted) {
 		if (semanticHint == null) {
 			semanticHint = PalladioComponentModelVisualIDRegistry
-					.getType(BranchBranchCompartmentEditPart.VISUAL_ID);
+					.getType(BranchUsageBranchTransitionsCompartmentEditPart.VISUAL_ID);
 			view.setType(semanticHint);
 		}
 		super.decorateView(containerView, view, semanticAdapter, semanticHint,

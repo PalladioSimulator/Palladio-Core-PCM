@@ -8,17 +8,15 @@
     <figures
         xsi:type="gmfgraph:Rectangle"
         referencingElements="ScenarioBehaviour ScenarioBehaviourStepsCompartment"
-        name="ScenarioBehaviourFigure">
-      <children
-          xsi:type="gmfgraph:Label"
-          referencingElements="ScenarioBehaviourId"
-          name="ScenarioBehaviourIdFigure"
-          text="&lt;...>"/>
-    </figures>
+        name="ScenarioBehaviourFigure"/>
     <figures
         xsi:type="gmfgraph:Rectangle"
         referencingElements="OpenWorkload"
         name="OpenWorkloadFigure">
+      <children
+          xsi:type="gmfgraph:Label"
+          name="OpenWorkloadSpecLabelFigure"
+          text="&lt;spec>"/>
       <backgroundColor
           xsi:type="gmfgraph:ConstantColor"
           value="yellow"/>
@@ -29,17 +27,40 @@
         name="ClosedWorkloadFigure">
       <children
           xsi:type="gmfgraph:Label"
-          referencingElements="ClosedWorkloadPopulation"
-          name="ClosedWorkloadPopulationFigure"
-          text="&lt;...>"/>
-      <children
-          xsi:type="gmfgraph:Label"
           referencingElements="ClosedWorkloadTitleLabel"
           name="ClosedWorkloadTitleLabelFigure"
           text="&lt;&lt;ClosedWorkload>>"/>
+      <children
+          xsi:type="gmfgraph:Label"
+          referencingElements="ClosedWorkloadPopulation"
+          name="ClosedWorkloadPopulationFigure"
+          text="&lt;...>"/>
       <backgroundColor
           xsi:type="gmfgraph:ConstantColor"
           value="yellow"/>
+    </figures>
+    <figures
+        xsi:type="gmfgraph:RoundedRectangle"
+        referencingElements="UsageLoopNode"
+        name="UsageLoopFigure">
+      <children
+          xsi:type="gmfgraph:Label"
+          name="UsageLoopStereotypeLabelFigure"
+          text="&lt;&lt;Loop>>"/>
+      <children
+          xsi:type="gmfgraph:Label"
+          referencingElements="UsageLoopIterationsLabel"
+          name="UsageLoopIterationsLabelFigure"/>
+    </figures>
+    <figures
+        xsi:type="gmfgraph:RoundedRectangle"
+        referencingElements="UsageBranchTransitionsCompartment UsageBranchNode"
+        name="UsageBranchFigure">
+      <children
+          xsi:type="gmfgraph:Label"
+          referencingElements="UsageBranchStereotypeLabel"
+          name="UsageBranchStereotypeLabelFigure"
+          text="&lt;&lt;Branch>>"/>
     </figures>
   </figures>
   <nodes
@@ -51,12 +72,18 @@
   <nodes
       name="ClosedWorkload"
       figure="ClosedWorkloadFigure"/>
+  <nodes
+      name="UsageLoopNode"
+      figure="UsageLoopFigure"/>
+  <nodes
+      name="UsageBranchNode"
+      figure="UsageBranchFigure"/>
   <compartments
       name="ScenarioBehaviourStepsCompartment"
       figure="ScenarioBehaviourFigure"/>
-  <labels
-      name="ScenarioBehaviourId"
-      figure="ScenarioBehaviourIdFigure"/>
+  <compartments
+      name="UsageBranchTransitionsCompartment"
+      figure="UsageBranchFigure"/>
   <labels
       name="ClosedWorkloadPopulation"
       figure="ClosedWorkloadPopulationFigure"/>
@@ -64,4 +91,10 @@
       name="ClosedWorkloadTitleLabel"
       figure="ClosedWorkloadTitleLabelFigure"
       elementIcon="false"/>
+  <labels
+      name="UsageLoopIterationsLabel"
+      figure="UsageLoopIterationsLabelFigure"/>
+  <labels
+      name="UsageBranchStereotypeLabel"
+      figure="UsageBranchStereotypeLabelFigure"/>
 </gmfgraph:Canvas>

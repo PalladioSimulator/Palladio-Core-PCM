@@ -93,15 +93,14 @@ public class VariableCharacterisationEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected IFigure createNodeShape() {
-		ParametricParameterUsageFigure figure = new ParametricParameterUsageFigure();
-		return primaryShape = figure;
+		return primaryShape = new WrapLabel();
 	}
 
 	/**
 	 * @generated
 	 */
-	public ParametricParameterUsageFigure getPrimaryShape() {
-		return (ParametricParameterUsageFigure) primaryShape;
+	public WrapLabel getPrimaryShape() {
+		return (WrapLabel) primaryShape;
 	}
 
 	/**
@@ -153,77 +152,6 @@ public class VariableCharacterisationEditPart extends ShapeNodeEditPart {
 			return contentPane;
 		}
 		return super.getContentPane();
-	}
-
-	/**
-	 * @generated
-	 */
-	public class ParametricParameterUsageFigure extends RectangleFigure {
-		/**
-		 * @generated
-		 */
-		public ParametricParameterUsageFigure() {
-			this.setFill(true);
-			this.setFillXOR(false);
-			this.setOutline(true);
-			this.setOutlineXOR(false);
-			this.setLineWidth(1);
-			this.setLineStyle(Graphics.LINE_SOLID);
-			this.setBackgroundColor(ColorConstants.cyan);
-			createContents();
-		}
-
-		/**
-		 * @generated
-		 */
-		private void createContents() {
-
-			WrapLabel variableUsageReferenceLabelFigure0 = new WrapLabel();
-			variableUsageReferenceLabelFigure0.setText("<?>");
-
-			this.add(variableUsageReferenceLabelFigure0);
-			setFigureVariableUsageReferenceLabelFigure(variableUsageReferenceLabelFigure0);
-
-		}
-
-		/**
-		 * @generated
-		 */
-		private WrapLabel fVariableUsageReferenceLabelFigure;
-
-		/**
-		 * @generated
-		 */
-		public WrapLabel getFigureVariableUsageReferenceLabelFigure() {
-			return fVariableUsageReferenceLabelFigure;
-		}
-
-		/**
-		 * @generated
-		 */
-		private void setFigureVariableUsageReferenceLabelFigure(WrapLabel fig) {
-			fVariableUsageReferenceLabelFigure = fig;
-		}
-
-		/**
-		 * @generated
-		 */
-		private boolean myUseLocalCoordinates = false;
-
-		/**
-		 * @generated
-		 */
-		protected boolean useLocalCoordinates() {
-			return myUseLocalCoordinates;
-		}
-
-		/**
-		 * @generated
-		 */
-		protected void setUseLocalCoordinates(boolean useLocalCoordinates) {
-			myUseLocalCoordinates = useLocalCoordinates;
-		}
-
 	}
 
 }

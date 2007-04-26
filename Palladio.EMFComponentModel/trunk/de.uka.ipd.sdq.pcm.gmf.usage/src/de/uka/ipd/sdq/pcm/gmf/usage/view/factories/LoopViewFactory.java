@@ -4,7 +4,7 @@
 package de.uka.ipd.sdq.pcm.gmf.usage.view.factories;
 
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.LoopEditPart;
-import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.LoopLoopCompartmentEditPart;
+import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.UsageLoopIterationsLabelEditPart;
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.UsageScenarioEditPart;
 
 import de.uka.ipd.sdq.pcm.gmf.usage.part.PalladioComponentModelVisualIDRegistry;
@@ -67,7 +67,7 @@ public class LoopViewFactory extends AbstractShapeViewFactory {
 				semanticAdapter,
 				view,
 				PalladioComponentModelVisualIDRegistry
-						.getType(LoopLoopCompartmentEditPart.VISUAL_ID),
+						.getType(UsageLoopIterationsLabelEditPart.VISUAL_ID),
 				ViewUtil.APPEND, true, getPreferencesHint());
 	}
 

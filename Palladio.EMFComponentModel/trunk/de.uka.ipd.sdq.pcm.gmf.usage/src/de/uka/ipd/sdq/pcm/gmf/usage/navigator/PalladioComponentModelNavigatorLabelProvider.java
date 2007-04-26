@@ -8,9 +8,12 @@ import de.uka.ipd.sdq.identifier.Identifier;
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.AbstractUserActionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.AbstractUserActionSuccessorEditPart;
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.BranchEditPart;
+import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.BranchTransitionBranchProbabilityEditPart;
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.BranchTransitionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.ClosedWorkloadEditPart;
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.ClosedWorkloadPopulationEditPart;
+import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.ClosedWorkloadTitleLabelEditPart;
+import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.ComponentExternalCallNameLabelEditPart;
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.EntryLevelSystemCallEditPart;
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.LoopEditPart;
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.OpenWorkloadEditPart;
@@ -22,10 +25,12 @@ import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.ScenarioBehaviourId3EditPart;
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.ScenarioBehaviourIdEditPart;
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.StartEditPart;
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.StopEditPart;
+import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.UsageLoopIterationsLabelEditPart;
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.UsageScenarioEditPart;
 
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.VariableCharacterisationEditPart;
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.VariableUsageEditPart;
+import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.VariableUsageReferenceLabelEditPart;
 import de.uka.ipd.sdq.pcm.gmf.usage.part.PalladioComponentModelUsageDiagramEditorPlugin;
 import de.uka.ipd.sdq.pcm.gmf.usage.part.PalladioComponentModelVisualIDRegistry;
 
@@ -37,6 +42,7 @@ import org.eclipse.core.runtime.IAdaptable;
 
 import org.eclipse.emf.ecore.EObject;
 
+import org.eclipse.gmf.runtime.common.ui.services.parser.CommonParserHint;
 import org.eclipse.gmf.runtime.common.ui.services.parser.IParser;
 import org.eclipse.gmf.runtime.common.ui.services.parser.ParserOptions;
 import org.eclipse.gmf.runtime.common.ui.services.parser.ParserService;
@@ -234,6 +240,9 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 	 * @generated
 	 */
 	public String getText(View view) {
+		if (view.getElement() != null && view.getElement().eIsProxy()) {
+			return getUnresolvedDomainElementProxyText(view);
+		}
 		switch (PalladioComponentModelVisualIDRegistry.getVisualID(view)) {
 		case ScenarioBehaviourEditPart.VISUAL_ID:
 			return getScenarioBehaviour_2001Text(view);
@@ -274,26 +283,14 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 	 * @generated
 	 */
 	private String getScenarioBehaviour_2001Text(View view) {
-		IParser parser = ParserService.getInstance().getParser(
-				new IAdaptable() {
-					public Object getAdapter(Class adapter) {
-						if (String.class.equals(adapter)) {
-							return PalladioComponentModelVisualIDRegistry
-									.getType(ScenarioBehaviourId3EditPart.VISUAL_ID);
-						}
-						if (IElementType.class.equals(adapter)) {
-							return PalladioComponentModelElementTypes.ScenarioBehaviour_2001;
-						}
-						return null;
-					}
-				});
-		if (parser != null) {
-			return parser.getPrintString(new EObjectAdapter(
-					view.getElement() != null ? view.getElement() : view),
-					ParserOptions.NONE.intValue());
+		EObject domainModelElement = view.getElement();
+		if (domainModelElement != null) {
+			return ((Identifier) domainModelElement).getId();
 		} else {
-			PalladioComponentModelUsageDiagramEditorPlugin.getInstance()
-					.logError("Parser was not found for label " + 5001);
+			PalladioComponentModelUsageDiagramEditorPlugin
+					.getInstance()
+					.logError(
+							"No domain element for view with visualID = " + 2001);
 			return "";
 		}
 	}
@@ -307,7 +304,7 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 					public Object getAdapter(Class adapter) {
 						if (String.class.equals(adapter)) {
 							return PalladioComponentModelVisualIDRegistry
-									.getType(ClosedWorkloadPopulationEditPart.VISUAL_ID);
+									.getType(ClosedWorkloadTitleLabelEditPart.VISUAL_ID);
 						}
 						if (IElementType.class.equals(adapter)) {
 							return PalladioComponentModelElementTypes.ClosedWorkload_2002;
@@ -351,14 +348,56 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 	 * @generated
 	 */
 	private String getEntryLevelSystemCall_3003Text(View view) {
-		return "";
+		IParser parser = ParserService.getInstance().getParser(
+				new IAdaptable() {
+					public Object getAdapter(Class adapter) {
+						if (String.class.equals(adapter)) {
+							return PalladioComponentModelVisualIDRegistry
+									.getType(ComponentExternalCallNameLabelEditPart.VISUAL_ID);
+						}
+						if (IElementType.class.equals(adapter)) {
+							return PalladioComponentModelElementTypes.EntryLevelSystemCall_3003;
+						}
+						return null;
+					}
+				});
+		if (parser != null) {
+			return parser.getPrintString(new EObjectAdapter(
+					view.getElement() != null ? view.getElement() : view),
+					ParserOptions.NONE.intValue());
+		} else {
+			PalladioComponentModelUsageDiagramEditorPlugin.getInstance()
+					.logError("Parser was not found for label " + 5004);
+			return "";
+		}
 	}
 
 	/**
 	 * @generated
 	 */
 	private String getVariableUsage_3004Text(View view) {
-		return "";
+		IParser parser = ParserService.getInstance().getParser(
+				new IAdaptable() {
+					public Object getAdapter(Class adapter) {
+						if (String.class.equals(adapter)) {
+							return PalladioComponentModelVisualIDRegistry
+									.getType(VariableUsageReferenceLabelEditPart.VISUAL_ID);
+						}
+						if (IElementType.class.equals(adapter)) {
+							return PalladioComponentModelElementTypes.VariableUsage_3004;
+						}
+						return null;
+					}
+				});
+		if (parser != null) {
+			return parser.getPrintString(new EObjectAdapter(
+					view.getElement() != null ? view.getElement() : view),
+					ParserOptions.NONE.intValue());
+		} else {
+			PalladioComponentModelUsageDiagramEditorPlugin.getInstance()
+					.logError("Parser was not found for label " + 5006);
+			return "";
+		}
 	}
 
 	/**
@@ -381,22 +420,15 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 	 * @generated
 	 */
 	private String getLoop_3005Text(View view) {
-		return "";
-	}
-
-	/**
-	 * @generated
-	 */
-	private String getScenarioBehaviour_3007Text(View view) {
 		IParser parser = ParserService.getInstance().getParser(
 				new IAdaptable() {
 					public Object getAdapter(Class adapter) {
 						if (String.class.equals(adapter)) {
 							return PalladioComponentModelVisualIDRegistry
-									.getType(ScenarioBehaviourId2EditPart.VISUAL_ID);
+									.getType(UsageLoopIterationsLabelEditPart.VISUAL_ID);
 						}
 						if (IElementType.class.equals(adapter)) {
-							return PalladioComponentModelElementTypes.ScenarioBehaviour_3007;
+							return PalladioComponentModelElementTypes.Loop_3005;
 						}
 						return null;
 					}
@@ -415,23 +447,15 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 	/**
 	 * @generated
 	 */
-	private String getBranch_3008Text(View view) {
-		return "";
-	}
-
-	/**
-	 * @generated
-	 */
-	private String getBranchTransition_3009Text(View view) {
+	private String getScenarioBehaviour_3007Text(View view) {
 		EObject domainModelElement = view.getElement();
 		if (domainModelElement != null) {
-			return String.valueOf(((BranchTransition) domainModelElement)
-					.getBranchProbability());
+			return ((Identifier) domainModelElement).getId();
 		} else {
 			PalladioComponentModelUsageDiagramEditorPlugin
 					.getInstance()
 					.logError(
-							"No domain element for view with visualID = " + 3009);
+							"No domain element for view with visualID = " + 3007);
 			return "";
 		}
 	}
@@ -439,16 +463,15 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 	/**
 	 * @generated
 	 */
-	private String getScenarioBehaviour_3010Text(View view) {
+	private String getBranch_3008Text(View view) {
 		IParser parser = ParserService.getInstance().getParser(
 				new IAdaptable() {
 					public Object getAdapter(Class adapter) {
 						if (String.class.equals(adapter)) {
-							return PalladioComponentModelVisualIDRegistry
-									.getType(ScenarioBehaviourIdEditPart.VISUAL_ID);
+							return CommonParserHint.DESCRIPTION;
 						}
 						if (IElementType.class.equals(adapter)) {
-							return PalladioComponentModelElementTypes.ScenarioBehaviour_3010;
+							return PalladioComponentModelElementTypes.Branch_3008;
 						}
 						return null;
 					}
@@ -459,7 +482,51 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 					ParserOptions.NONE.intValue());
 		} else {
 			PalladioComponentModelUsageDiagramEditorPlugin.getInstance()
-					.logError("Parser was not found for label " + 5004);
+					.logError("Parser was not found for label " + 5008);
+			return "";
+		}
+	}
+
+	/**
+	 * @generated
+	 */
+	private String getBranchTransition_3009Text(View view) {
+		IParser parser = ParserService.getInstance().getParser(
+				new IAdaptable() {
+					public Object getAdapter(Class adapter) {
+						if (String.class.equals(adapter)) {
+							return PalladioComponentModelVisualIDRegistry
+									.getType(BranchTransitionBranchProbabilityEditPart.VISUAL_ID);
+						}
+						if (IElementType.class.equals(adapter)) {
+							return PalladioComponentModelElementTypes.BranchTransition_3009;
+						}
+						return null;
+					}
+				});
+		if (parser != null) {
+			return parser.getPrintString(new EObjectAdapter(
+					view.getElement() != null ? view.getElement() : view),
+					ParserOptions.NONE.intValue());
+		} else {
+			PalladioComponentModelUsageDiagramEditorPlugin.getInstance()
+					.logError("Parser was not found for label " + 5007);
+			return "";
+		}
+	}
+
+	/**
+	 * @generated
+	 */
+	private String getScenarioBehaviour_3010Text(View view) {
+		EObject domainModelElement = view.getElement();
+		if (domainModelElement != null) {
+			return ((Identifier) domainModelElement).getId();
+		} else {
+			PalladioComponentModelUsageDiagramEditorPlugin
+					.getInstance()
+					.logError(
+							"No domain element for view with visualID = " + 3010);
 			return "";
 		}
 	}
@@ -492,6 +559,13 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 	 */
 	private String getUnknownElementText(View view) {
 		return "<UnknownElement Visual_ID = " + view.getType() + ">";
+	}
+
+	/**
+	 * @generated
+	 */
+	private String getUnresolvedDomainElementProxyText(View view) {
+		return "<Unresolved domain element Visual_ID = " + view.getType() + ">";
 	}
 
 	/**
