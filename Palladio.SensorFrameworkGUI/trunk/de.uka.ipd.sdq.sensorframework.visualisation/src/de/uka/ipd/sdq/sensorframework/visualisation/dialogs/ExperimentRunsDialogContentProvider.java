@@ -58,7 +58,6 @@ public class ExperimentRunsDialogContentProvider implements ITreeContentProvider
 	/* (non-Javadoc)
 	 * @see org.eclipse.jface.viewers.IStructuredContentProvider#getElements(java.lang.Object)
 	 */
-	@Override
 	public Object[] getElements(Object inputElement) {
 		if (root == null){
 			root = new ArrayList<ExperimentDAO>();

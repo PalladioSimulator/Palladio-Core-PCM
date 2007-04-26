@@ -83,7 +83,6 @@ public class TreeDragSourceListener implements DragSourceListener {
 			event.doit = true;
 	}
 
-	@Override
 	public void dragFinished(DragSourceEvent event) {
 		// TODO Auto-generated method stub
 		

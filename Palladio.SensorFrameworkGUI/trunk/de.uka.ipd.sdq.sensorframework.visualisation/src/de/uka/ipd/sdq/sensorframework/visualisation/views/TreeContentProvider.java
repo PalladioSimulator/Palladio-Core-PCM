@@ -119,7 +119,6 @@ public class TreeContentProvider implements ITreeContentProvider {
 		return null;
 	}
 
-	@Override
 	public void inputChanged(Viewer viewer, Object oldInput, Object newInput) {
 		// TODO Auto-generated method stub
 

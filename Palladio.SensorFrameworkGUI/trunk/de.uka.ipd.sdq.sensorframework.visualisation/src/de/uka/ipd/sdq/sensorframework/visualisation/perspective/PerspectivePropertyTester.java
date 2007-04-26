@@ -5,7 +5,6 @@ import org.eclipse.ui.PlatformUI;
 
 public class PerspectivePropertyTester extends PropertyTester {
 
-	@Override
 	public boolean test(Object receiver, String property, Object[] args,
 			Object expectedValue) {
 		try{
