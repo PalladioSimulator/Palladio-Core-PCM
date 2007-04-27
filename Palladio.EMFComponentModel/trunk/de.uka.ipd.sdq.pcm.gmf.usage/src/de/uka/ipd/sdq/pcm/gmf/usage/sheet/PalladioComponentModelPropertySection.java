@@ -32,21 +32,19 @@ public class PalladioComponentModelPropertySection extends
 		AdvancedPropertySection implements IPropertySourceProvider {
 
 	/**
-	 * @generated not
+	 * @generated
 	 */
 	public IPropertySource getPropertySource(Object object) {
 		if (object instanceof IPropertySource) {
 			return (IPropertySource) object;
 		}
-		AdapterFactory af = new PalladioItemProviderAdapterFactory(getAdapterFactory(object));
+		AdapterFactory af = getAdapterFactory(object);
 		if (af != null) {
-			PalladioAdapterFactoryContentProvider pafcp = new PalladioAdapterFactoryContentProvider(af);
-			return pafcp.getPropertySource(object);
-//			IItemPropertySource ips = (IItemPropertySource) af.adapt(object,
-//					IItemPropertySource.class);
-//			if (ips != null) {
-//				return new PropertySource(object, ips);
-//			}
+			IItemPropertySource ips = (IItemPropertySource) af.adapt(object,
+					IItemPropertySource.class);
+			if (ips != null) {
+				return new PropertySource(object, ips);
+			}
 		}
 		if (object instanceof IAdaptable) {
 			return (IPropertySource) ((IAdaptable) object)

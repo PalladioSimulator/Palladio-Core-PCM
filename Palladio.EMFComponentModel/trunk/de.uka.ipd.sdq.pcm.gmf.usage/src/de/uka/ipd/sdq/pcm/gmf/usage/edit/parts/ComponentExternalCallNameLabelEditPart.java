@@ -52,6 +52,7 @@ import org.eclipse.swt.graphics.Image;
 
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.policies.PalladioComponentModelTextSelectionEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.usage.providers.PalladioComponentModelElementTypes;
+import de.uka.ipd.sdq.pcm.usagemodel.EntryLevelSystemCall;
 
 /**
  * @generated
@@ -208,14 +209,14 @@ public class ComponentExternalCallNameLabelEditPart extends CompartmentEditPart
 	}
 
 	/**
-	 * @generated
+	 * @generated not
 	 */
 	protected String getLabelText() {
 		String text = null;
-		if (getParser() != null) {
-			text = getParser().getPrintString(
-					new EObjectAdapter(getParserElement()),
-					getParserOptions().intValue());
+		EntryLevelSystemCall call = (EntryLevelSystemCall) resolveSemanticElement();
+		if (call.getProvidedRole_EntryLevelSystemCall() != null && call.getSignature_EntryLevelSystemCall() != null){
+			text = call.getProvidedRole_EntryLevelSystemCall().getProvidedInterface__ProvidedRole().getEntityName() + "." +
+				call.getSignature_EntryLevelSystemCall().getServiceName();
 		}
 		if (text == null || text.length() == 0) {
 			text = defaultText;
@@ -546,7 +547,7 @@ public class ComponentExternalCallNameLabelEditPart extends CompartmentEditPart
 	}
 
 	/**
-	 * @generated
+	 * @generated not
 	 */
 	protected void handleNotificationEvent(Notification event) {
 		Object feature = event.getFeature();
@@ -569,21 +570,7 @@ public class ComponentExternalCallNameLabelEditPart extends CompartmentEditPart
 						feature)) {
 			refreshFont();
 		} else {
-			if (getParser() != null
-					&& getParser().isAffectingEvent(event,
-							getParserOptions().intValue())) {
-				refreshLabel();
-			}
-			if (getParser() instanceof ISemanticParser) {
-				ISemanticParser modelParser = (ISemanticParser) getParser();
-				if (modelParser.areSemanticElementsAffected(null, event)) {
-					removeSemanticListeners();
-					if (resolveSemanticElement() != null) {
-						addSemanticListeners();
-					}
-					refreshLabel();
-				}
-			}
+			refreshLabel();
 		}
 		super.handleNotificationEvent(event);
 	}

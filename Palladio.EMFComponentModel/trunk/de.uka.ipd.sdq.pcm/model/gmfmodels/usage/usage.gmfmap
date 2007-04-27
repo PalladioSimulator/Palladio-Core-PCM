@@ -97,6 +97,17 @@
                 <ownedChild>
                   <domainMetaElement
                       href="../../pcm.ecore#//parameter/VariableCharacterisation"/>
+                  <labelMappings
+                      xsi:type="gmfmap:FeatureLabelMapping"
+                      readOnly="true"
+                      viewPattern="{0} = {1}">
+                    <diagramLabel
+                        href="../seffeditor/seffeditor.gmfgraph#VariableCharacterisationLabel"/>
+                    <features
+                        href="../../pcm.ecore#//parameter/VariableCharacterisation/type"/>
+                    <features
+                        href="../../../../de.uka.ipd.sdq.stoex/model/stoex.ecore#//RandomVariable/specification"/>
+                  </labelMappings>
                   <tool
                       xsi:type="gmftool:CreationTool"
                       href="usage.gmftool#//@palette/@tools.0/@tools.0"/>

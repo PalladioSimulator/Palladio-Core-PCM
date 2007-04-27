@@ -18,15 +18,50 @@ import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.ScenarioBehaviourId2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.ScenarioBehaviourId3EditPart;
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.ScenarioBehaviourIdEditPart;
 
+import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.VariableCharacterisationEditPart;
 import de.uka.ipd.sdq.pcm.gmf.usage.part.PalladioComponentModelVisualIDRegistry;
 
+import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
 import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
+import de.uka.ipd.sdq.stoex.StoexPackage;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @generated
  */
 public class PalladioComponentModelParserProvider extends AbstractProvider
 		implements IParserProvider {
+
+	/**
+	 * @generated
+	 */
+	private IParser variableCharacterisationVariableCharacterisation_3006Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getVariableCharacterisationVariableCharacterisation_3006Parser() {
+		if (variableCharacterisationVariableCharacterisation_3006Parser == null) {
+			variableCharacterisationVariableCharacterisation_3006Parser = createVariableCharacterisationVariableCharacterisation_3006Parser();
+		}
+		return variableCharacterisationVariableCharacterisation_3006Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	protected IParser createVariableCharacterisationVariableCharacterisation_3006Parser() {
+		List features = new ArrayList(2);
+		features.add(ParameterPackage.eINSTANCE
+				.getVariableCharacterisation_Type());
+		features.add(StoexPackage.eINSTANCE.getRandomVariable_Specification());
+		PalladioComponentModelStructuralFeaturesParser parser = new PalladioComponentModelStructuralFeaturesParser(
+				features);
+		parser.setViewPattern("{0} = {1}");
+		parser.setEditPattern("{0} = {1}");
+		return parser;
+	}
 
 	/**
 	 * @generated
@@ -86,6 +121,8 @@ public class PalladioComponentModelParserProvider extends AbstractProvider
 	 */
 	protected IParser getParser(int visualID) {
 		switch (visualID) {
+		case VariableCharacterisationEditPart.VISUAL_ID:
+			return getVariableCharacterisationVariableCharacterisation_3006Parser();
 		case BranchTransitionBranchProbabilityEditPart.VISUAL_ID:
 			return getBranchTransitionBranchTransitionBranchProbability_5007Parser();
 		case ClosedWorkloadPopulationEditPart.VISUAL_ID:

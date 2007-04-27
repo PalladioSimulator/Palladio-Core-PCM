@@ -186,6 +186,7 @@
       </labels>
     </childNodes>
     <childNodes
+        xsi:type="gmfgen:GenChildLabelNode"
         visualID="3006"
         editPartClassName="VariableCharacterisationEditPart"
         itemSemanticEditPolicyClassName="VariableCharacterisationItemSemanticEditPolicy"
@@ -193,7 +194,9 @@
         canonicalEditPolicyClassName="VariableCharacterisationCanonicalEditPolicy"
         graphicalNodeEditPolicyClassName="VariableCharacterisationGraphicalNodeEditPolicy"
         createCommandClassName="VariableCharacterisationCreateCommand"
-        containers="//@diagram/@compartments.2">
+        containers="//@diagram/@compartments.2"
+        labelReadOnly="true"
+        labelElementIcon="true">
       <diagramRunTimeClass
           href="../../../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <elementType
@@ -205,6 +208,10 @@
         <requiredPluginIDs>org.eclipse.draw2d</requiredPluginIDs>
         <requiredPluginIDs>org.eclipse.gmf.runtime.draw2d.ui</requiredPluginIDs>
       </viewmap>
+      <behaviour
+          xsi:type="gmfgen:CustomBehaviour"
+          key="EditPolicyRoles.OPEN_ROLE"
+          editPolicyQualifiedClassName="de.uka.ipd.sdq.pcm.gmf.usage.edit.policies.OpenStoExDialog"/>
       <modelFacet>
         <metaClass
             href="../../pcm.genmodel#//pcm/parameter/VariableCharacterisation"/>
@@ -213,6 +220,14 @@
         <childMetaFeature
             href="../../pcm.genmodel#//pcm/parameter/VariableUsage/variableCharacterisation_VariableUsage"/>
       </modelFacet>
+      <labelModelFacet
+          xsi:type="gmfgen:FeatureLabelModelFacet"
+          viewPattern="{0} = {1}">
+        <metaFeatures
+            href="../../pcm.genmodel#//pcm/parameter/VariableCharacterisation/type"/>
+        <metaFeatures
+            href="../../../../de.uka.ipd.sdq.stoex/model/stoex.genmodel#//stoex/RandomVariable/specification"/>
+      </labelModelFacet>
     </childNodes>
     <childNodes
         visualID="3005"

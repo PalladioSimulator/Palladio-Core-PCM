@@ -52,6 +52,8 @@ import org.eclipse.swt.graphics.Image;
 
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.policies.PalladioComponentModelTextSelectionEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.usage.providers.PalladioComponentModelElementTypes;
+import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
+import de.uka.ipd.sdq.pcm.stochasticexpressions.PCMStoExPrettyPrintVisitor;
 
 /**
  * @generated
@@ -208,14 +210,14 @@ public class VariableUsageReferenceLabelEditPart extends CompartmentEditPart
 	}
 
 	/**
-	 * @generated
+	 * @generated not
 	 */
 	protected String getLabelText() {
 		String text = null;
-		if (getParser() != null) {
-			text = getParser().getPrintString(
-					new EObjectAdapter(getParserElement()),
-					getParserOptions().intValue());
+		VariableUsage usage = (VariableUsage) resolveSemanticElement();
+		if (usage.getNamedReference_VariableUsage() != null) {
+			text = new PCMStoExPrettyPrintVisitor().prettyPrint(usage
+					.getNamedReference_VariableUsage());
 		}
 		if (text == null || text.length() == 0) {
 			text = defaultText;
