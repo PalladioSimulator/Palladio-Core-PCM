@@ -611,7 +611,7 @@ Copyright 2006 SDQ Research Group, University of Karlsruhe (TH)
          <enablement>
             <test
                property="org.eclipse.gmf.runtime.emf.core.editingDomain"
-               value="de.uka.ipd.sdq.pcm.gmf.seff.EditingDomain"/>
+               value="de.uka.ipd.sdq.PCMBench.editingDomain"/>
          </enablement>
       </clientContext> 
       <binding context="PCM SEFF ModelClientContext">
