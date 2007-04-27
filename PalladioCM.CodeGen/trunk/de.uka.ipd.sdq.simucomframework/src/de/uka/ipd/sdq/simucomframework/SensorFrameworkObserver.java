@@ -29,7 +29,7 @@ class SensorObserver implements Observer {
 	public void update(Observable arg0, Object arg1) {
 		run.addTimeSpanMeasurement(mySensor, (Double)arg1, 0);
 		storeCountdown++;
-		if (storeCountdown % 1000 == 0)
+		if (storeCountdown % 10000 == 0)
 			ExperimentDAO.singleton().storeExperiment(experiment);
 	}
 	

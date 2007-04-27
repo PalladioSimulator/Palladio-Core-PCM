@@ -7,7 +7,7 @@ import de.uka.ipd.sdq.simucomframework.resources.IResourceContainerFactory;
 import de.uka.ipd.sdq.simucomframework.usage.IWorkloadDriver;
 
 public abstract class AbstractMain {
-	private static final long SIM_STOP_TIME = 15000;
+	private static final long SIM_STOP_TIME = 150000;
 	private SimuComModel model = null;
 
 	protected void run(final IStatusObserver statusObserver)
