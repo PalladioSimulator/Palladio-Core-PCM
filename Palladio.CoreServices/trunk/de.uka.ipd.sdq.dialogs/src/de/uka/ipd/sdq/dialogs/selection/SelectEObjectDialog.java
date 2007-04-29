@@ -117,7 +117,6 @@ public class SelectEObjectDialog extends Dialog {
 			/* (non-Javadoc)
 			 * @see org.eclipse.swt.events.DisposeListener#widgetDisposed(org.eclipse.swt.events.DisposeEvent)
 			 */
-			@Override
 			public void widgetDisposed(DisposeEvent e) {
 				if(!okAssert)
 					selection = null;
