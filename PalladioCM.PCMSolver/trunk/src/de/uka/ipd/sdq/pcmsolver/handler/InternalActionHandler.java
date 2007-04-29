@@ -49,11 +49,23 @@ public class InternalActionHandler{
 			ParametricResourceDemand prd = (ParametricResourceDemand) resourceDemands.next();
 			ProcessingResourceType requiredResourceType = prd.getRequiredResource_ParametricResourceDemand();
 
-			EList<ProcessingResourceSpecification> resourceList = getResourceList();
-			for (ProcessingResourceSpecification prs : resourceList) {
-				ProcessingResourceType currentResourceType = prs.getActiveResourceType_ActiveResourceSpecification();
-				if (currentResourceType.getEntityName().equals(requiredResourceType.getEntityName())) {
-					createActualResourceDemand(prd, prs);
+			if (requiredResourceType.getEntityName().equals("SystemExternalResource")){
+				EList<ResourceContainer> resConList = visitor.getPcmInstance().getResourceEnvironment().getResourceContainer_ResourceEnvironment();
+				for (ResourceContainer resCon : resConList){
+					if(resCon.getEntityName().equals("SystemExternalResourceContainer")){
+						ProcessingResourceSpecification prs = resCon.getActiveResourceSpecifications_ResourceContainer().get(0);
+						createActualResourceDemand(prd, prs);
+					}
+				}
+			} else {
+				EList<ProcessingResourceSpecification> resourceList = getResourceList();
+				for (ProcessingResourceSpecification prs : resourceList) {
+					ProcessingResourceType currentResourceType = prs
+							.getActiveResourceType_ActiveResourceSpecification();
+					if (currentResourceType.getEntityName().equals(
+							requiredResourceType.getEntityName())) {
+						createActualResourceDemand(prd, prs);
+					}
 				}
 			}
 		}
@@ -103,6 +115,7 @@ public class InternalActionHandler{
 		ResourceContainer currentResourceContainer = ac.getResourceContainer_AllocationContext();
 		EList<ProcessingResourceSpecification> resourceList = currentResourceContainer
 				.getActiveResourceSpecifications_ResourceContainer();
+				
 		return resourceList;
 	}
 

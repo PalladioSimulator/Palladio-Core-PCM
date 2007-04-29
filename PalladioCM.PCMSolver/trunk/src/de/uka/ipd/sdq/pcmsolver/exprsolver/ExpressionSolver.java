@@ -6,6 +6,8 @@ import java.util.List;
 import org.apache.log4j.Logger;
 
 import de.uka.ipd.sdq.pcmsolver.PCMSolver;
+import de.uka.ipd.sdq.pcmsolver.visitors.ExpressionHelper;
+import de.uka.ipd.sdq.probfunction.ProbabilityMassFunction;
 import de.uka.ipd.sdq.probfunction.math.IBoxedPDF;
 import de.uka.ipd.sdq.probfunction.math.IContinuousSample;
 import de.uka.ipd.sdq.probfunction.math.IProbabilityDensityFunction;
@@ -28,6 +30,7 @@ import de.uka.ipd.sdq.spa.expression.Sequence;
 import de.uka.ipd.sdq.spa.expression.Symbol;
 import de.uka.ipd.sdq.spa.expression.util.ExpressionSwitch;
 import de.uka.ipd.sdq.spa.resourcemodel.ResourceUsage;
+import de.uka.ipd.sdq.stoex.ProbabilityFunctionLiteral;
 import flanagan.complex.Complex;
 
 public class ExpressionSolver {
@@ -183,7 +186,10 @@ public class ExpressionSolver {
 				IUnit unit = pfFactory.createDefaultUnit();
 				return pfFactory.createProbabilityMassFunction(sampleList, unit, true);
 			} catch(NumberFormatException e){
-				return pfFactory.transformToPMF( object.getIterationsPMF() );
+				ProbabilityFunctionLiteral loopLiteral = (ProbabilityFunctionLiteral)ExpressionHelper.parseToExpression(object.getIterationsString());
+				ProbabilityMassFunction loopPMF = (ProbabilityMassFunction) loopLiteral.getFunction_ProbabilityFunctionLiteral();
+				//return pfFactory.transformToPMF( object.getIterationsPMF() );
+				return pfFactory.transformToPMF( loopPMF );
 			}
 		}
 

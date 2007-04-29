@@ -39,6 +39,7 @@ import de.uka.ipd.sdq.pcmsolver.models.PCMInstance;
 import de.uka.ipd.sdq.pcmsolver.visitors.EMFHelper;
 import de.uka.ipd.sdq.pcmsolver.visitors.ExpressionHelper;
 import de.uka.ipd.sdq.probfunction.ProbabilityDensityFunction;
+import de.uka.ipd.sdq.probfunction.ProbabilityFunction;
 import de.uka.ipd.sdq.probfunction.SamplePDF;
 import de.uka.ipd.sdq.probfunction.math.IProbabilityFunctionFactory;
 import de.uka.ipd.sdq.probfunction.math.ISamplePDF;
@@ -185,8 +186,17 @@ public class TransformSeffVisitor extends SeffSwitch{
 				pdf = getPDFForDouble(pdf, resDemDouble);
 			} else if (resDemExpression instanceof ProbabilityFunctionLiteral){
 				ProbabilityFunctionLiteral probFuncLiteral = (ProbabilityFunctionLiteral) resDemExpression;
-				pdf = (ProbabilityDensityFunction) probFuncLiteral
-						.getFunction_ProbabilityFunctionLiteral();
+				ProbabilityFunction probFunc = probFuncLiteral
+					.getFunction_ProbabilityFunctionLiteral();
+				if (probFunc instanceof ProbabilityDensityFunction){
+					pdf = (ProbabilityDensityFunction)probFunc;	
+				} else{
+					logger.error("Invalid Resource Demand: ("+probFunc.getClass().getSimpleName()+"). Only DoublePDF is valid.");
+					return null;
+				}
+			} else {
+				logger.error("Invalid Resource Demand: ("+resDemExpression.getClass().getSimpleName()+"). Only DoublePDF is valid.");
+				return null;
 			}
 
 			ResourceUsage ru = resFactory.createResourceUsage();
@@ -217,16 +227,18 @@ public class TransformSeffVisitor extends SeffSwitch{
 		
 		double value = resDemDouble.getValue() / distance;
 
-		if (value > numOfSamples){
-			numOfSamples = (int)value+1;
-			PDFConfiguration.setCurrentConfiguration(numOfSamples, distance, unit);
-			logger.info("Reset PDFConfiguration: numOfSamples=" +
-					numOfSamples+", distance="+distance+", unit="+unit.getUnitName());
-		} else if (value < distance){
-			PDFConfiguration.setCurrentConfiguration(numOfSamples, value, unit);
-			logger.info("Reset PDFConfiguration: numOfSamples=" +
-					numOfSamples+", distance="+value+", unit="+unit.getUnitName());
-
+		if (value != 0.0){
+			if (value > numOfSamples){
+				numOfSamples = (int)value+1;
+				PDFConfiguration.setCurrentConfiguration(numOfSamples, distance, unit);
+				logger.info("Reset PDFConfiguration: numOfSamples=" +
+						numOfSamples+", distance="+distance+", unit="+unit.getUnitName());
+			} else if (value < distance){
+				PDFConfiguration.setCurrentConfiguration(numOfSamples, value, unit);
+				logger.info("Reset PDFConfiguration: numOfSamples=" +
+						numOfSamples+", distance="+value+", unit="+unit.getUnitName());
+		
+			}
 		}
 		
 		List<Double> sampleList = new ArrayList<Double>();
@@ -258,21 +270,27 @@ public class TransformSeffVisitor extends SeffSwitch{
 		AssemblyConnector foundAssemblyConnector = 
 			findAssemblyConnector(requiredInterface);
 
-		ResourceDemandingSEFF seff = getTargetBehaviourFromAssemblyConnector(
-				foundAssemblyConnector, serviceToBeCalled);
-		
-		// memorize current assembly context
-		AssemblyContext oldctx = assCtx;
-		// get new assembly context
-		assCtx = foundAssemblyConnector.getProvidingChildComponentContext_CompositeAssemblyConnector();
-		Sequence seq = expFactory.createSequence();
-		seq.setLeftRegExp((Expression)doSwitch(seff));
-		// restore current assembly context
-		assCtx = oldctx;
-		
-		seq.setRightRegExp((Expression)doSwitch(object.getSuccessor_AbstractAction()));
-		
-		return seq;
+		if (foundAssemblyConnector == null){
+			// this is a system external call
+			// we continue with the internal action added after this action
+			return doSwitch(object.getSuccessor_AbstractAction());
+		} else {
+			ResourceDemandingSEFF seff = getTargetBehaviourFromAssemblyConnector(
+					foundAssemblyConnector, serviceToBeCalled);
+			
+			// memorize current assembly context
+			AssemblyContext oldctx = assCtx;
+			// get new assembly context
+			assCtx = foundAssemblyConnector.getProvidingChildComponentContext_CompositeAssemblyConnector();
+			Sequence seq = expFactory.createSequence();
+			seq.setLeftRegExp((Expression)doSwitch(seff));
+			// restore current assembly context
+			assCtx = oldctx;
+			seq.setRightRegExp((Expression)doSwitch(object.getSuccessor_AbstractAction()));
+			
+			return seq;
+		}
+	
 	}
 
 	/**

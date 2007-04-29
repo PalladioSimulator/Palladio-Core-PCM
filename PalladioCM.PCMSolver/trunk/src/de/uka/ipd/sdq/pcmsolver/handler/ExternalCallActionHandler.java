@@ -14,17 +14,31 @@ import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
 import de.uka.ipd.sdq.pcm.parameter.ParameterFactory;
 import de.uka.ipd.sdq.pcm.parameter.VariableCharacterisation;
 import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
+import de.uka.ipd.sdq.pcm.qosannotations.QoSAnnotations;
+import de.uka.ipd.sdq.pcm.qosannotations.SpecifiedExecutionTime;
 import de.uka.ipd.sdq.pcm.repository.BasicComponent;
 import de.uka.ipd.sdq.pcm.repository.Interface;
+import de.uka.ipd.sdq.pcm.repository.RequiredRole;
+import de.uka.ipd.sdq.pcm.repository.Role;
 import de.uka.ipd.sdq.pcm.repository.Signature;
+import de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification;
+import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer;
+import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentFactory;
+import de.uka.ipd.sdq.pcm.resourcetype.ProcessingResourceType;
+import de.uka.ipd.sdq.pcm.resourcetype.ResourcetypeFactory;
 import de.uka.ipd.sdq.pcm.seff.ExternalCallAction;
+import de.uka.ipd.sdq.pcm.seff.InternalAction;
+import de.uka.ipd.sdq.pcm.seff.ParametricResourceDemand;
+import de.uka.ipd.sdq.pcm.seff.ResourceDemandingBehaviour;
 import de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF;
+import de.uka.ipd.sdq.pcm.seff.SeffFactory;
 import de.uka.ipd.sdq.pcm.seff.ServiceEffectSpecification;
 import de.uka.ipd.sdq.pcm.seff.util.SeffSwitch;
 import de.uka.ipd.sdq.pcmsolver.models.Context;
 import de.uka.ipd.sdq.pcmsolver.visitors.EMFHelper;
 import de.uka.ipd.sdq.pcmsolver.visitors.ExpressionHelper;
 import de.uka.ipd.sdq.pcmsolver.visitors.SeffVisitor;
+import de.uka.ipd.sdq.spa.resourcemodel.ProcessingResource;
 import de.uka.ipd.sdq.stoex.AbstractNamedReference;
 import de.uka.ipd.sdq.stoex.NamespaceReference;
 import de.uka.ipd.sdq.stoex.StoexFactory;
@@ -39,6 +53,8 @@ public class ExternalCallActionHandler {
 	private AllocationFactory actualAllocationFactory = AllocationFactory.eINSTANCE;
 	
 	private ParameterFactory parameterFactory = ParameterFactory.eINSTANCE;
+	
+	private SeffFactory seffFactory = SeffFactory.eINSTANCE;
 	
 	private static Logger logger = Logger.getLogger(ExternalCallActionHandler.class.getName());
 	
@@ -61,8 +77,9 @@ public class ExternalCallActionHandler {
 			findAssemblyConnector(requiredInterface);
 		
 		if (foundAssemblyConnector == null) {
-			logger.error("Found System External Call, not supported yet!");
-			// TODO: handle system external call
+			logger.info("Found System External Call");
+			String timeSpecification = getTimeSpecification(serviceToBeCalled);
+			createInternalAction(timeSpecification, call);
 		} else {
 			logger.info("Found Assembly Connector");
 			SeffVisitor nextVisitor = visitNextSeff(serviceToBeCalled, 
@@ -72,6 +89,78 @@ public class ExternalCallActionHandler {
 		}
 	}
 	
+	private void createInternalAction(String timeSpecification, ExternalCallAction call) {
+		ParametricResourceDemand demand = seffFactory.createParametricResourceDemand();
+		demand.setSpecification(timeSpecification);
+		demand.setUnit("");
+		demand.setRequiredResource_ParametricResourceDemand(getProcessingResourceType());
+		
+		InternalAction action = seffFactory.createInternalAction();
+		action.getResourceDemand_Action().add(demand);
+		
+		// Add new internal action into control flow after external action
+		action.setSuccessor_AbstractAction(call.getSuccessor_AbstractAction());
+		action.setPredecessor_AbstractAction(call);
+		
+		ResourceDemandingBehaviour rdb = (ResourceDemandingBehaviour)call.eContainer();
+		rdb.getSteps_Behaviour().add(action);
+	}
+
+	private ProcessingResourceType getProcessingResourceType() {
+		EList<ResourceContainer> resConList =visitor.getPcmInstance().getResourceEnvironment().getResourceContainer_ResourceEnvironment();
+		for (ResourceContainer resCon : resConList){
+			if (resCon.getEntityName().equals("SystemExternalResourceContainer")){
+				return resCon.getActiveResourceSpecifications_ResourceContainer().get(0).getActiveResourceType_ActiveResourceSpecification();
+			}
+		}
+		return createNewProcessingResourceType();
+	}
+
+	private ProcessingResourceType createNewProcessingResourceType() {
+		ProcessingResourceType resType = ResourcetypeFactory.eINSTANCE.createProcessingResourceType();
+		resType.setEntityName("SystemExternalResource");
+		visitor.getPcmInstance().getResourceRepository().getAvailableResourceTypes_ResourceRepository().add(resType);
+		
+		ProcessingResourceSpecification res = ResourceenvironmentFactory.eINSTANCE.createProcessingResourceSpecification();
+		res.setActiveResourceType_ActiveResourceSpecification(resType);
+		res.setProcessingRate(1.0);
+		res.setUnits("seconds");
+			
+		ResourceContainer resCon = ResourceenvironmentFactory.eINSTANCE.createResourceContainer();
+		resCon.setEntityName("SystemExternalResourceContainer");
+		resCon.getActiveResourceSpecifications_ResourceContainer().add(res);
+		visitor.getPcmInstance().getResourceEnvironment().getResourceContainer_ResourceEnvironment().add(resCon);
+		
+		return resType;
+	}
+
+	private String getTimeSpecification(Signature serviceToBeCalled) {
+		Interface requiredInterface = (Interface) serviceToBeCalled.eContainer();
+		String reqName = requiredInterface.getEntityName();
+		
+		EList<QoSAnnotations> annList = visitor.getMyContext().getSystem().getQosAnnotations_System();
+		for (QoSAnnotations ann : annList){
+			EList<SpecifiedExecutionTime> timeList = 
+				ann.getSpecifiedExecutionTimes_QoSAnnotations();
+			for (SpecifiedExecutionTime time : timeList){
+				Role role = time.getRole_SpecifiedExecutionTime();
+				if (role instanceof RequiredRole){
+					RequiredRole reqRole = (RequiredRole)role;
+					String reqIntName = reqRole.getRequiredInterface__RequiredRole().getEntityName();
+					if (reqName.equals(reqIntName)){
+						String serviceName = time.getSignature_SpecifiedTimeConsumption().getServiceName();
+						if (serviceToBeCalled.getServiceName().equals(serviceName)){
+							return time.getSpecification();
+						}
+					}
+				}
+				
+			}
+		}
+		return "0";
+		
+	}
+
 	private void storeOutputParametersToUsageContext(ExternalCallAction call, SeffVisitor nextVisitor) {
 		UsageContext uc = visitor.getMyContext().getUsageContext();
 		String returnName = call.getCalledService_ExternalService().getServiceName() + ".RETURN";

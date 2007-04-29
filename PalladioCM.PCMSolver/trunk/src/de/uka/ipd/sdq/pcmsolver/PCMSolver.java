@@ -1,5 +1,6 @@
 package de.uka.ipd.sdq.pcmsolver;
 
+import java.awt.Color;
 import java.io.BufferedWriter;
 import java.io.Writer;
 import java.util.Properties;
@@ -28,6 +29,7 @@ import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.ui.console.ConsolePlugin;
 import org.eclipse.ui.console.IConsole;
+import org.eclipse.ui.console.IOConsoleOutputStream;
 import org.eclipse.ui.console.MessageConsole;
 import org.eclipse.ui.console.MessageConsoleStream;
 
@@ -105,7 +107,7 @@ public class PCMSolver {
 		IProbabilityDensityFunction iPDF = runCalculation(result);
 
 		ManagedPDF resultPDF = new ManagedPDF(iPDF);
-		System.out.println(resultPDF);
+		//System.out.println(resultPDF);
 		
 		monitor.worked(33);
 		
@@ -118,9 +120,14 @@ public class PCMSolver {
 
 	private void configureLogging(ILaunchConfiguration configuration) {
 		MessageConsole console = new MessageConsole("PCM Solver Console: Analysis Tool Output", null);
+		//PCMSolverPatternMatchListener listener = new PCMSolverPatternMatchListener();
+		//console.addPatternMatchListener(listener);
+		
 		console.activate();
 		ConsolePlugin.getDefault().getConsoleManager().addConsoles(new IConsole[]{ console });
 		MessageConsoleStream stream = console.newMessageStream();
+		//IOConsoleOutputStream stream = listener.getStream();
+		//stream.setColor(new org.eclipse.swt.graphics.Color(Display.getCurrent(), 0, 255, 0));
 		
 		PatternLayout myLayout = new PatternLayout("%d{HH:mm:ss,SSS} [%t] %-5p %c - %m%n");
 		WriterAppender writerAppender = new WriterAppender(myLayout, stream);
