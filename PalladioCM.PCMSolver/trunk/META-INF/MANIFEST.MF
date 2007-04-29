@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: PCM Solver Plug-in
 Bundle-SymbolicName: de.uka.ipd.sdq.pcmsolver;singleton:=true
-Bundle-Version: 1.0.0
+Bundle-Version: 1.0.0.qualifier
 Bundle-Activator: de.uka.ipd.sdq.pcmsolver.Activator
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
@@ -14,7 +14,6 @@ Require-Bundle: org.eclipse.ui,
  org.antlr,
  org.eclipse.emf.ocl,
  org.eclipse.emf.ecore.xmi,
- de.uka.ipd.sdq.probfunction.math,
  de.uka.ipd.sdq.spa,
  de.uka.ipd.sdq.spa.basicsolver,
  org.apache.jakarta_log4j,
@@ -24,7 +23,8 @@ Require-Bundle: org.eclipse.ui,
  de.uka.ipd.sdq.pcmbench,
  org.eclipse.emf.transaction,
  de.uka.ipd.sdq.context,
- de.uka.ipd.sdq.spa.resourcemodel
+ de.uka.ipd.sdq.spa.resourcemodel,
+ de.uka.ipd.sdq.probfunction.math
 Eclipse-LazyStart: true
 Bundle-ClassPath: .,
  lib/jcommon-1.0.8.jar,
