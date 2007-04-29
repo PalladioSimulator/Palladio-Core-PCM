@@ -6,7 +6,6 @@ import org.eclipse.debug.ui.ILaunchConfigurationTab;
 
 public class PCMSolverTabGroup extends AbstractLaunchConfigurationTabGroup {
 
-	@Override
 	public void createTabs(ILaunchConfigurationDialog dialog, String mode) {
 		ILaunchConfigurationTab[] tabs = new ILaunchConfigurationTab[] {
 				new MainConfigTab(), new FileNameTab()

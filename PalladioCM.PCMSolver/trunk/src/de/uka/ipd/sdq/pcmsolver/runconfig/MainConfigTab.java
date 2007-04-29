@@ -35,7 +35,6 @@ public class MainConfigTab extends AbstractLaunchConfigurationTab {
 	private MainConfigTabListener listener = new MainConfigTabListener();
 	
 	
-	@Override
 	public void createControl(Composite parent) {
 		Composite container = new Composite(parent, SWT.NONE);
 		setControl(container);
@@ -75,12 +74,10 @@ public class MainConfigTab extends AbstractLaunchConfigurationTab {
 		});
 	}
 
-	@Override
 	public String getName() {
 		return "Main Config";
 	}
 
-	@Override
 	public void initializeFrom(ILaunchConfiguration configuration) {
 		try{
 			textSamplingDist.setText(configuration.getAttribute("samplingDist", "1.0"));
@@ -101,14 +98,12 @@ public class MainConfigTab extends AbstractLaunchConfigurationTab {
 		updateLaunchConfigurationDialog();
 	}
 
-	@Override
 	public void performApply(ILaunchConfigurationWorkingCopy configuration) {
 		configuration.setAttribute("samplingDist", textSamplingDist.getText());
 		configuration.setAttribute("maxDomain", textMaxDomain.getText());
 		configuration.setAttribute("verboseLogging", checkVerboseLogging.getSelection());
 	}
 
-	@Override
 	public void setDefaults(ILaunchConfigurationWorkingCopy configuration) {
 		// TODO Auto-generated method stub
 

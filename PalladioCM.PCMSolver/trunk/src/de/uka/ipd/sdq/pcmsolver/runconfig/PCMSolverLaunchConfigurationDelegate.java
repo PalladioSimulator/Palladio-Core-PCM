@@ -11,7 +11,6 @@ import de.uka.ipd.sdq.pcmsolver.PCMSolver;
 public class PCMSolverLaunchConfigurationDelegate implements
 ILaunchConfigurationDelegate{
 
-	@Override
 	public void launch(ILaunchConfiguration configuration, String mode,
 			ILaunch launch, IProgressMonitor monitor) throws CoreException {
 		//DependencySolver dsolver = new DependencySolver(configuration);
