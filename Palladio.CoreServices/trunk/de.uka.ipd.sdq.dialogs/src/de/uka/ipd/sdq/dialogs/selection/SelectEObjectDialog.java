@@ -12,6 +12,8 @@ import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.events.DisposeEvent;
+import org.eclipse.swt.events.DisposeListener;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.events.SelectionListener;
@@ -41,6 +43,7 @@ public class SelectEObjectDialog extends Dialog {
 	private Object input;
 	private TreeViewer listViewer;
 	protected AdapterFactory adapterFactory;
+	private Class providedService;
 	private EObject selection = null;
 	private Label label;
 	private Collection<Object> childReferences = new ArrayList<Object>();
@@ -48,6 +51,8 @@ public class SelectEObjectDialog extends Dialog {
 	protected Group sharetGroup;
 	private ToolBar toolBar;
 	private ToolItem addItem, editItem, deleteItem;
+	private Button okButton;
+	private boolean okAssert = false;
 
 	/**
 	 * Create the dialog
@@ -61,7 +66,7 @@ public class SelectEObjectDialog extends Dialog {
 		this.input = input;
 		this.adapterFactory = adapterFactory;
 	}
-
+	
 	/**
 	 * Create the dialog
 	 * 
@@ -75,6 +80,17 @@ public class SelectEObjectDialog extends Dialog {
 		this.input = input;
 		this.adapterFactory = adapterFactory;
 		this.childReferences = additionalChildReferences;
+	}
+
+	/**
+	 * The function makes possible for validation a selected type element in in the
+	 * dialogue. If provided service is set, OK button activated only if selected
+	 * element agrees with entered type.
+	 * 
+	 * @param providedService - return type of dialog
+	 */
+	public void setProvidedService(Class providedService) {
+		this.providedService = providedService;
 	}
 
 	/**
@@ -93,6 +109,21 @@ public class SelectEObjectDialog extends Dialog {
 		listViewer.expandAll();
 		shell.open();
 		shell.layout();
+		/**
+		 * Listener is needed for examination, which only if an OK button is pressed,
+		 * which does not empty selection value.
+		 */
+		shell.addDisposeListener(new DisposeListener(){
+			/* (non-Javadoc)
+			 * @see org.eclipse.swt.events.DisposeListener#widgetDisposed(org.eclipse.swt.events.DisposeEvent)
+			 */
+			@Override
+			public void widgetDisposed(DisposeEvent e) {
+				if(!okAssert)
+					selection = null;
+			}
+		});
+		
 		Display display = getParent().getDisplay();
 		while (!shell.isDisposed()) {
 			if (!display.readAndDispatch())
@@ -123,7 +154,13 @@ public class SelectEObjectDialog extends Dialog {
 				selection = (EObject) sel.getFirstElement();
 				label.setText(new AdapterFactoryLabelProvider(adapterFactory)
 						.getText(selection));
+				
+				if (isInstanceOfProvidedService(selection))
+					setOkButtonEnabled(true);
+				else 
+					setOkButtonEnabled(false);
 			}
+
 		});
 		list = listViewer.getTree();
 		list.setBounds(10, 20, 435, 232);
@@ -161,17 +198,19 @@ public class SelectEObjectDialog extends Dialog {
 		gridData.widthHint = 508;
 		composite.setLayoutData(gridData);
 
-		final Button okButton = new Button(composite, SWT.NONE);
+		okButton = new Button(composite, SWT.NONE);
 		okButton.addSelectionListener(new SelectionAdapter() {
 			public void widgetSelected(SelectionEvent e) {
+				okAssert = true;
 				shell.close();
 			}
 		});
-		final RowData rowData_1 = new RowData();
-		rowData_1.width = 86;
-		okButton.setLayoutData(rowData_1);
+		final RowData rdOkButton = new RowData();
+		rdOkButton.width = 86;
+		okButton.setLayoutData(rdOkButton);
 		okButton.setSelection(true);
 		okButton.setText("OK");
+		setOkButtonEnabled(false);
 
 		final Button cancelButton = new Button(composite, SWT.NONE);
 		cancelButton.addSelectionListener(new SelectionAdapter() {
@@ -180,11 +219,31 @@ public class SelectEObjectDialog extends Dialog {
 				shell.close();
 			}
 		});
-		final RowData rowData = new RowData();
-		rowData.width = 84;
-		cancelButton.setLayoutData(rowData);
+		final RowData rdCancelButton = new RowData();
+		rdCancelButton.width = 84;
+		cancelButton.setLayoutData(rdCancelButton);
 		cancelButton.setText("Cancel");
 		//
+		
+	}
+	
+	/**
+	 * @param object - a candidate for return value
+	 */
+	private boolean isInstanceOfProvidedService(Object object) {
+		
+		if (providedService == null)
+			return true;
+		String selectedType = object.getClass().getSimpleName();
+		String type = providedService.getSimpleName();
+		return (selectedType.contains(type));
+	}
+
+	private void setOkButtonEnabled(boolean enabled) {
+		okButton.setEnabled(enabled);
+		
+		if (providedService == null)
+			okButton.setEnabled(true);
 	}
 
 	public EObject getResult() {
