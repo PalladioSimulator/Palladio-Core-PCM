@@ -47,7 +47,7 @@
     <serviceEffectSpecifications__BasicComponent xsi:type="pcm.seff:ResourceDemandingSEFF" id="_-d970umaEduCsN-pUEZDKA" describedService__SEFF="//@interfaces__Repository.3/@signatures__Interface.0">
       <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_Q_IPsHjmEduuSvsux_US9A" successor_AbstractAction="_RvZ2EHjmEduuSvsux_US9A"/>
       <steps_Behaviour xsi:type="pcm.seff:InternalAction" id="_RvZ2EHjmEduuSvsux_US9A" entityName="EncodeFile" predecessor_AbstractAction="_Q_IPsHjmEduuSvsux_US9A" successor_AbstractAction="_Zg9G0HjmEduuSvsux_US9A">
-        <resourceDemand_Action specification="file.BYTESIZE / 500000">
+        <resourceDemand_Action specification="DoublePDF(unit=&quot;s&quot;)[ (3.0; 0.00000000) (3.5; 0.30000000) (4.0; 0.60000000) (4.5; 0.10000000) ]">
           <requiredResource_ParametricResourceDemand href="Palladio.resourcetype#cpu"/>
         </resourceDemand_Action>
       </steps_Behaviour>

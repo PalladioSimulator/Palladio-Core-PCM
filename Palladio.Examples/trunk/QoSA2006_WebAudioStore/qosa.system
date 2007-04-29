@@ -37,7 +37,7 @@
     <requiredInterface__RequiredRole href="Qosa.repository#_kmoHQHiEEdujPfhn5Gb-iA"/>
   </requiredRoles_InterfaceRequiringEntity>
   <qosAnnotations_System id="_O1xhEHjnEduuSvsux_US9A">
-    <specifiedExecutionTimes_QoSAnnotations xsi:type="pcm.qosannotations:SystemSpecifiedExecutionTime" specification=" file.BYTESIZE" role_SpecifiedExecutionTime="_wHtRQHjmEduuSvsux_US9A">
+    <specifiedExecutionTimes_QoSAnnotations xsi:type="pcm.qosannotations:SystemSpecifiedExecutionTime" specification="DoublePDF(unit=&quot;s&quot;)[(3.0;0.0)(3.5;0.3)(4.0;0.6)(4.5;0.1)] " role_SpecifiedExecutionTime="_wHtRQHjmEduuSvsux_US9A">
       <signature_SpecifiedTimeConsumption href="Qosa.repository#//@interfaces__Repository.2/@signatures__Interface.0"/>
     </specifiedExecutionTimes_QoSAnnotations>
   </qosAnnotations_System>
