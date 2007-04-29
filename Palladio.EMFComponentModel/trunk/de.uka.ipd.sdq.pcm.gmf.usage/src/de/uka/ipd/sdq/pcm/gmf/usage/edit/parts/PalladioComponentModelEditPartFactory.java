@@ -47,6 +47,9 @@ public class PalladioComponentModelEditPartFactory implements EditPartFactory {
 			case ClosedWorkloadPopulationEditPart.VISUAL_ID:
 				return new ClosedWorkloadPopulationEditPart(view);
 
+			case ClosedWorkloadThinkTimeLabelEditPart.VISUAL_ID:
+				return new ClosedWorkloadThinkTimeLabelEditPart(view);
+
 			case OpenWorkloadEditPart.VISUAL_ID:
 				return new OpenWorkloadEditPart(view);
 

@@ -122,6 +122,12 @@ public class ClosedWorkloadEditPart extends ShapeNodeEditPart {
 							.getFigureClosedWorkloadPopulationFigure());
 			return true;
 		}
+		if (childEditPart instanceof ClosedWorkloadThinkTimeLabelEditPart) {
+			((ClosedWorkloadThinkTimeLabelEditPart) childEditPart)
+					.setLabel(getPrimaryShape()
+							.getFigureClosedWorkloadThinkTimeLabelFigure());
+			return true;
+		}
 		return false;
 	}
 
@@ -255,6 +261,12 @@ public class ClosedWorkloadEditPart extends ShapeNodeEditPart {
 			this.add(closedWorkloadPopulationFigure0);
 			setFigureClosedWorkloadPopulationFigure(closedWorkloadPopulationFigure0);
 
+			WrapLabel closedWorkloadThinkTimeLabelFigure0 = new WrapLabel();
+			closedWorkloadThinkTimeLabelFigure0.setText("");
+
+			this.add(closedWorkloadThinkTimeLabelFigure0);
+			setFigureClosedWorkloadThinkTimeLabelFigure(closedWorkloadThinkTimeLabelFigure0);
+
 		}
 
 		/**
@@ -274,6 +286,25 @@ public class ClosedWorkloadEditPart extends ShapeNodeEditPart {
 		 */
 		private void setFigureClosedWorkloadPopulationFigure(WrapLabel fig) {
 			fClosedWorkloadPopulationFigure = fig;
+		}
+
+		/**
+		 * @generated
+		 */
+		private WrapLabel fClosedWorkloadThinkTimeLabelFigure;
+
+		/**
+		 * @generated
+		 */
+		public WrapLabel getFigureClosedWorkloadThinkTimeLabelFigure() {
+			return fClosedWorkloadThinkTimeLabelFigure;
+		}
+
+		/**
+		 * @generated
+		 */
+		private void setFigureClosedWorkloadThinkTimeLabelFigure(WrapLabel fig) {
+			fClosedWorkloadThinkTimeLabelFigure = fig;
 		}
 
 		/**

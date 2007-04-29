@@ -16,6 +16,7 @@ import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.BranchTransitionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.BranchUsageBranchTransitionsCompartmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.ClosedWorkloadEditPart;
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.ClosedWorkloadPopulationEditPart;
+import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.ClosedWorkloadThinkTimeLabelEditPart;
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.ClosedWorkloadTitleLabelEditPart;
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.ComponentExternalCallNameLabelEditPart;
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.EntryLevelSystemCallEditPart;
@@ -50,6 +51,7 @@ import de.uka.ipd.sdq.pcm.gmf.usage.view.factories.BranchTransitionViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.usage.view.factories.BranchUsageBranchTransitionsCompartmentViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.usage.view.factories.BranchViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.usage.view.factories.ClosedWorkloadPopulationViewFactory;
+import de.uka.ipd.sdq.pcm.gmf.usage.view.factories.ClosedWorkloadThinkTimeLabelViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.usage.view.factories.ClosedWorkloadTitleLabelViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.usage.view.factories.ClosedWorkloadViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.usage.view.factories.ComponentExternalCallNameLabelViewFactory;
@@ -122,6 +124,8 @@ public class PalladioComponentModelViewProvider extends AbstractViewProvider {
 			return ClosedWorkloadTitleLabelViewFactory.class;
 		case ClosedWorkloadPopulationEditPart.VISUAL_ID:
 			return ClosedWorkloadPopulationViewFactory.class;
+		case ClosedWorkloadThinkTimeLabelEditPart.VISUAL_ID:
+			return ClosedWorkloadThinkTimeLabelViewFactory.class;
 		case OpenWorkloadEditPart.VISUAL_ID:
 			return OpenWorkloadViewFactory.class;
 		case StartEditPart.VISUAL_ID:

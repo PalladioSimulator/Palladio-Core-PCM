@@ -214,9 +214,12 @@ public class ComponentExternalCallNameLabelEditPart extends CompartmentEditPart
 	protected String getLabelText() {
 		String text = null;
 		EntryLevelSystemCall call = (EntryLevelSystemCall) resolveSemanticElement();
-		if (call.getProvidedRole_EntryLevelSystemCall() != null && call.getSignature_EntryLevelSystemCall() != null){
-			text = call.getProvidedRole_EntryLevelSystemCall().getProvidedInterface__ProvidedRole().getEntityName() + "." +
-				call.getSignature_EntryLevelSystemCall().getServiceName();
+		if (call.getProvidedRole_EntryLevelSystemCall() != null
+				&& call.getSignature_EntryLevelSystemCall() != null) {
+			text = call.getProvidedRole_EntryLevelSystemCall()
+					.getProvidedInterface__ProvidedRole().getEntityName()
+					+ "."
+					+ call.getSignature_EntryLevelSystemCall().getServiceName();
 		}
 		if (text == null || text.length() == 0) {
 			text = defaultText;

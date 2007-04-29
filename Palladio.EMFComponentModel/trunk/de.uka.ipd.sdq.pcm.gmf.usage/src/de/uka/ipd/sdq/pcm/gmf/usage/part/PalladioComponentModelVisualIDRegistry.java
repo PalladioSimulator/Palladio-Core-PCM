@@ -10,6 +10,7 @@ import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.BranchTransitionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.BranchUsageBranchTransitionsCompartmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.ClosedWorkloadEditPart;
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.ClosedWorkloadPopulationEditPart;
+import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.ClosedWorkloadThinkTimeLabelEditPart;
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.ClosedWorkloadTitleLabelEditPart;
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.ComponentExternalCallNameLabelEditPart;
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.EntryLevelSystemCallEditPart;
@@ -201,6 +202,9 @@ public class PalladioComponentModelVisualIDRegistry {
 			}
 			if (ClosedWorkloadPopulationEditPart.VISUAL_ID == nodeVisualID) {
 				return ClosedWorkloadPopulationEditPart.VISUAL_ID;
+			}
+			if (ClosedWorkloadThinkTimeLabelEditPart.VISUAL_ID == nodeVisualID) {
+				return ClosedWorkloadThinkTimeLabelEditPart.VISUAL_ID;
 			}
 			return getUnrecognizedClosedWorkload_2002ChildNodeID(domainElement,
 					semanticHint);

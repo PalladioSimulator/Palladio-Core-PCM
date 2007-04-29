@@ -5,6 +5,7 @@ package de.uka.ipd.sdq.pcm.gmf.usage.view.factories;
 
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.ClosedWorkloadEditPart;
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.ClosedWorkloadPopulationEditPart;
+import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.ClosedWorkloadThinkTimeLabelEditPart;
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.ClosedWorkloadTitleLabelEditPart;
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.UsageScenarioEditPart;
 
@@ -77,6 +78,13 @@ public class ClosedWorkloadViewFactory extends AbstractShapeViewFactory {
 				PalladioComponentModelVisualIDRegistry
 						.getType(ClosedWorkloadPopulationEditPart.VISUAL_ID),
 				ViewUtil.APPEND, true, getPreferencesHint());
+		getViewService()
+				.createNode(
+						semanticAdapter,
+						view,
+						PalladioComponentModelVisualIDRegistry
+								.getType(ClosedWorkloadThinkTimeLabelEditPart.VISUAL_ID),
+						ViewUtil.APPEND, true, getPreferencesHint());
 	}
 
 }
