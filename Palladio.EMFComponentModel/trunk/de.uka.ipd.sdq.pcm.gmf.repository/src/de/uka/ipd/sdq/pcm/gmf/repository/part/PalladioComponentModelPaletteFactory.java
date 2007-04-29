@@ -268,10 +268,16 @@ public class PalladioComponentModelPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createProvidesParentType15CreationTool() {
-		ToolEntry entry = new ToolEntry(
+		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
+		types
+				.add(PalladioComponentModelElementTypes.CompleteComponentTypeParentProvidesComponentTypes_4104);
+		LinkToolEntry entry = new LinkToolEntry(
 				Messages.ProvidesParentType15CreationTool_title,
-				Messages.ProvidesParentType15CreationTool_desc, null, null) {
-		};
+				Messages.ProvidesParentType15CreationTool_desc, types);
+		entry
+				.setSmallIcon(PalladioComponentModelElementTypes
+						.getImageDescriptor(PalladioComponentModelElementTypes.CompleteComponentTypeParentProvidesComponentTypes_4104));
+		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
 

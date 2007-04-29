@@ -15,6 +15,7 @@ import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.BasicComponentEntityNameEdit
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.BasicComponentSEFFCompartmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.CompleteComponentTypeEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.CompleteComponentTypeEntityNameEditPart;
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.CompleteParentStereotypeLabel2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.CompleteParentStereotypeLabelEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.CompositeComponentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.InterfaceEditPart;
@@ -23,6 +24,7 @@ import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.InterfaceSignatureListEditPa
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.ProvidedRoleEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.ProvidesComponentTypeEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.ProvidesComponentTypeEntityNameEditPart;
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.ProvidesParentStereotypeLabelEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.ProvidesStereotypeLabelEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.RepositoryEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.RequiredRoleEditPart;
@@ -34,7 +36,9 @@ import de.uka.ipd.sdq.pcm.gmf.repository.view.factories.BasicComponentEntityName
 import de.uka.ipd.sdq.pcm.gmf.repository.view.factories.BasicComponentSEFFCompartmentViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.repository.view.factories.BasicComponentViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.repository.view.factories.CompleteComponentTypeEntityNameViewFactory;
+import de.uka.ipd.sdq.pcm.gmf.repository.view.factories.CompleteComponentTypeParentProvidesComponentTypesViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.repository.view.factories.CompleteComponentTypeViewFactory;
+import de.uka.ipd.sdq.pcm.gmf.repository.view.factories.CompleteParentStereotypeLabel2ViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.repository.view.factories.CompleteParentStereotypeLabelViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.repository.view.factories.CompositeComponentViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.repository.view.factories.ImplementationComponentTypeParentCompleteComponentTypesViewFactory;
@@ -44,6 +48,7 @@ import de.uka.ipd.sdq.pcm.gmf.repository.view.factories.InterfaceViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.repository.view.factories.ProvidedRoleViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.repository.view.factories.ProvidesComponentTypeEntityNameViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.repository.view.factories.ProvidesComponentTypeViewFactory;
+import de.uka.ipd.sdq.pcm.gmf.repository.view.factories.ProvidesParentStereotypeLabelViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.repository.view.factories.ProvidesStereotypeLabelViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.repository.view.factories.RepositoryViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.repository.view.factories.RequiredRoleViewFactory;
@@ -121,6 +126,8 @@ public class PalladioComponentModelViewProvider extends AbstractViewProvider {
 			return RequiresStereotypeLabelViewFactory.class;
 		case CompleteParentStereotypeLabelEditPart.VISUAL_ID:
 			return CompleteParentStereotypeLabelViewFactory.class;
+		case ProvidesParentStereotypeLabelEditPart.VISUAL_ID:
+			return ProvidesParentStereotypeLabelViewFactory.class;
 		}
 		return null;
 	}
@@ -139,6 +146,10 @@ public class PalladioComponentModelViewProvider extends AbstractViewProvider {
 		if (PalladioComponentModelElementTypes.ImplementationComponentTypeParentCompleteComponentTypes_4103
 				.equals(elementType)) {
 			return ImplementationComponentTypeParentCompleteComponentTypesViewFactory.class;
+		}
+		if (PalladioComponentModelElementTypes.CompleteComponentTypeParentProvidesComponentTypes_4104
+				.equals(elementType)) {
+			return CompleteComponentTypeParentProvidesComponentTypesViewFactory.class;
 		}
 		EClass semanticType = getSemanticEClass(semanticAdapter);
 		if (semanticType == null) {

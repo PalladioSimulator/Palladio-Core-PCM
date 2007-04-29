@@ -99,6 +99,11 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
 	/**
 	 * @generated
 	 */
+	public static final IElementType CompleteComponentTypeParentProvidesComponentTypes_4104 = getElementType("de.uka.ipd.sdq.pcm.gmf.repository.CompleteComponentTypeParentProvidesComponentTypes_4104"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
 	private static ImageRegistry getImageRegistry() {
 		if (imageRegistry == null) {
 			imageRegistry = new ImageRegistry();
@@ -242,6 +247,12 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
 							ImplementationComponentTypeParentCompleteComponentTypes_4103,
 							RepositoryPackage.eINSTANCE
 									.getImplementationComponentType_ParentCompleteComponentTypes());
+
+			elements
+					.put(
+							CompleteComponentTypeParentProvidesComponentTypes_4104,
+							RepositoryPackage.eINSTANCE
+									.getCompleteComponentType_ParentProvidesComponentTypes());
 		}
 		return (ENamedElement) elements.get(type);
 	}
@@ -271,6 +282,8 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
 			KNOWN_ELEMENT_TYPES.add(RequiredRole_4102);
 			KNOWN_ELEMENT_TYPES
 					.add(ImplementationComponentTypeParentCompleteComponentTypes_4103);
+			KNOWN_ELEMENT_TYPES
+					.add(CompleteComponentTypeParentProvidesComponentTypes_4104);
 		}
 		return KNOWN_ELEMENT_TYPES.contains(elementType);
 	}

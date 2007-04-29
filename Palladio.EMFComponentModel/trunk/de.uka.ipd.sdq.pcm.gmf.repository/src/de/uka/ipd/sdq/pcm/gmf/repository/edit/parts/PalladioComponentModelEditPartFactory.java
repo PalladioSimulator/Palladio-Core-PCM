@@ -92,6 +92,13 @@ public class PalladioComponentModelEditPartFactory implements EditPartFactory {
 
 			case CompleteParentStereotypeLabelEditPart.VISUAL_ID:
 				return new CompleteParentStereotypeLabelEditPart(view);
+
+			case CompleteComponentTypeParentProvidesComponentTypesEditPart.VISUAL_ID:
+				return new CompleteComponentTypeParentProvidesComponentTypesEditPart(
+						view);
+
+			case ProvidesParentStereotypeLabelEditPart.VISUAL_ID:
+				return new ProvidesParentStereotypeLabelEditPart(view);
 			}
 		}
 		return createUnrecognizedEditPart(context, model);

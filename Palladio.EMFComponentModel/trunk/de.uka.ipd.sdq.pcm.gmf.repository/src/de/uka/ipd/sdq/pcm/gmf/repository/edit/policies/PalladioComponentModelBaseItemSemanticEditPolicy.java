@@ -43,6 +43,7 @@ import de.uka.ipd.sdq.pcm.gmf.repository.part.PalladioComponentModelVisualIDRegi
 import de.uka.ipd.sdq.pcm.repository.CompleteComponentType;
 import de.uka.ipd.sdq.pcm.repository.ImplementationComponentType;
 import de.uka.ipd.sdq.pcm.repository.Interface;
+import de.uka.ipd.sdq.pcm.repository.ProvidesComponentType;
 
 /**
  * @generated
@@ -333,6 +334,20 @@ public class PalladioComponentModelBaseItemSemanticEditPolicy extends
 		/**
 		 * @generated
 		 */
+		public static boolean canCreateCompleteComponentTypeParentProvidesComponentTypes_4104(
+				CompleteComponentType source, ProvidesComponentType target) {
+			if (source != null) {
+				if (source.getParentProvidesComponentTypes().contains(target)) {
+					return false;
+				}
+			}
+			return canExistCompleteComponentTypeParentProvidesComponentTypes_4104(
+					source, target);
+		}
+
+		/**
+		 * @generated
+		 */
 		public static boolean canExistProvidedRole_4101(
 				InterfaceProvidingEntity source, Interface target) {
 			return true;
@@ -351,6 +366,14 @@ public class PalladioComponentModelBaseItemSemanticEditPolicy extends
 		 */
 		public static boolean canExistImplementationComponentTypeParentCompleteComponentTypes_4103(
 				ImplementationComponentType source, CompleteComponentType target) {
+			return true;
+		}
+
+		/**
+		 * @generated
+		 */
+		public static boolean canExistCompleteComponentTypeParentProvidesComponentTypes_4104(
+				CompleteComponentType source, ProvidesComponentType target) {
 			return true;
 		}
 

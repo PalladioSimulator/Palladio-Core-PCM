@@ -27,6 +27,8 @@ import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.BasicComponentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.BasicComponentEntityNameEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.CompleteComponentTypeEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.CompleteComponentTypeEntityNameEditPart;
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.CompleteComponentTypeParentProvidesComponentTypesEditPart;
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.CompleteParentStereotypeLabel2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.CompleteParentStereotypeLabelEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.CompositeComponentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.ImplementationComponentTypeParentCompleteComponentTypesEditPart;
@@ -35,6 +37,7 @@ import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.InterfaceEntityNameEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.ProvidedRoleEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.ProvidesComponentTypeEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.ProvidesComponentTypeEntityNameEditPart;
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.ProvidesParentStereotypeLabelEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.ProvidesStereotypeLabelEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.RepositoryEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.RequiredRoleEditPart;
@@ -150,6 +153,10 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 			return getImage(
 					"Navigator?Link?http://sdq.ipd.uka.de/PalladioComponentModel/Repository/1.0?ImplementationComponentType?parentCompleteComponentTypes",
 					PalladioComponentModelElementTypes.ImplementationComponentTypeParentCompleteComponentTypes_4103);
+		case CompleteComponentTypeParentProvidesComponentTypesEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Link?http://sdq.ipd.uka.de/PalladioComponentModel/Repository/1.0?CompleteComponentType?parentProvidesComponentTypes",
+					PalladioComponentModelElementTypes.CompleteComponentTypeParentProvidesComponentTypes_4104);
 		default:
 			return getImage("Navigator?UnknownElement", null);
 		}
@@ -227,6 +234,8 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 			return getRequiredRole_4102Text(view);
 		case ImplementationComponentTypeParentCompleteComponentTypesEditPart.VISUAL_ID:
 			return getImplementationComponentTypeParentCompleteComponentTypes_4103Text(view);
+		case CompleteComponentTypeParentProvidesComponentTypesEditPart.VISUAL_ID:
+			return getCompleteComponentTypeParentProvidesComponentTypes_4104Text(view);
 		default:
 			return getUnknownElementText(view);
 		}
@@ -513,6 +522,35 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 		} else {
 			PalladioComponentModelRepositoryDiagramEditorPlugin.getInstance()
 					.logError("Parser was not found for label " + 6103);
+			return "";
+		}
+	}
+
+	/**
+	 * @generated
+	 */
+	private String getCompleteComponentTypeParentProvidesComponentTypes_4104Text(
+			View view) {
+		IParser parser = ParserService.getInstance().getParser(
+				new IAdaptable() {
+					public Object getAdapter(Class adapter) {
+						if (String.class.equals(adapter)) {
+							return PalladioComponentModelVisualIDRegistry
+									.getType(ProvidesParentStereotypeLabelEditPart.VISUAL_ID);
+						}
+						if (IElementType.class.equals(adapter)) {
+							return PalladioComponentModelElementTypes.CompleteComponentTypeParentProvidesComponentTypes_4104;
+						}
+						return null;
+					}
+				});
+		if (parser != null) {
+			return parser.getPrintString(new EObjectAdapter(
+					view.getElement() != null ? view.getElement() : view),
+					ParserOptions.NONE.intValue());
+		} else {
+			PalladioComponentModelRepositoryDiagramEditorPlugin.getInstance()
+					.logError("Parser was not found for label " + 6104);
 			return "";
 		}
 	}

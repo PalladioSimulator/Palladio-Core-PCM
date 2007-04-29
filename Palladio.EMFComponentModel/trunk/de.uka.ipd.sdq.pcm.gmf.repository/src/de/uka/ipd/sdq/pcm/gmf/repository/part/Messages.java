@@ -241,6 +241,11 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String NavigatorGroupName_ProvidesComponentType_2104_incominglinks;
+
+	/**
+	 * @generated
+	 */
 	public static String NavigatorGroupName_CompositeComponent_2105_outgoinglinks;
 
 	/**
@@ -277,6 +282,16 @@ public class Messages extends NLS {
 	 * @generated
 	 */
 	public static String NavigatorGroupName_ImplementationComponentTypeParentCompleteComponentTypes_4103_target;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_CompleteComponentTypeParentProvidesComponentTypes_4104_source;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_CompleteComponentTypeParentProvidesComponentTypes_4104_target;
 
 	//TODO: put accessor fields manually	
 }

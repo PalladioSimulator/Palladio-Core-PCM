@@ -27,6 +27,7 @@ import org.eclipse.ui.dialogs.ElementListSelectionDialog;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.BasicComponentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.CompleteComponentTypeEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.InterfaceEditPart;
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.ProvidesComponentTypeEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.RepositoryEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.part.PalladioComponentModelRepositoryDiagramEditorPlugin;
 
@@ -72,6 +73,14 @@ public class PalladioComponentModelModelingAssistantProvider extends
 	 * @generated
 	 */
 	public List getRelTypesOnSource(IAdaptable source) {
+		IGraphicalEditPart sourceEditPart = (IGraphicalEditPart) source
+				.getAdapter(IGraphicalEditPart.class);
+		if (sourceEditPart instanceof CompleteComponentTypeEditPart) {
+			List types = new ArrayList();
+			types
+					.add(PalladioComponentModelElementTypes.CompleteComponentTypeParentProvidesComponentTypes_4104);
+			return types;
+		}
 		return Collections.EMPTY_LIST;
 	}
 
@@ -93,6 +102,12 @@ public class PalladioComponentModelModelingAssistantProvider extends
 					.add(PalladioComponentModelElementTypes.ImplementationComponentTypeParentCompleteComponentTypes_4103);
 			return types;
 		}
+		if (targetEditPart instanceof ProvidesComponentTypeEditPart) {
+			List types = new ArrayList();
+			types
+					.add(PalladioComponentModelElementTypes.CompleteComponentTypeParentProvidesComponentTypes_4104);
+			return types;
+		}
 		return Collections.EMPTY_LIST;
 	}
 
@@ -101,6 +116,18 @@ public class PalladioComponentModelModelingAssistantProvider extends
 	 */
 	public List getRelTypesOnSourceAndTarget(IAdaptable source,
 			IAdaptable target) {
+		IGraphicalEditPart sourceEditPart = (IGraphicalEditPart) source
+				.getAdapter(IGraphicalEditPart.class);
+		IGraphicalEditPart targetEditPart = (IGraphicalEditPart) target
+				.getAdapter(IGraphicalEditPart.class);
+		if (sourceEditPart instanceof CompleteComponentTypeEditPart) {
+			List types = new ArrayList();
+			if (targetEditPart instanceof ProvidesComponentTypeEditPart) {
+				types
+						.add(PalladioComponentModelElementTypes.CompleteComponentTypeParentProvidesComponentTypes_4104);
+			}
+			return types;
+		}
 		return Collections.EMPTY_LIST;
 	}
 
@@ -119,6 +146,14 @@ public class PalladioComponentModelModelingAssistantProvider extends
 			List types = new ArrayList();
 			return types;
 		}
+		if (targetEditPart instanceof ProvidesComponentTypeEditPart) {
+			List types = new ArrayList();
+			if (relationshipType == PalladioComponentModelElementTypes.CompleteComponentTypeParentProvidesComponentTypes_4104) {
+				types
+						.add(PalladioComponentModelElementTypes.CompleteComponentType_2103);
+			}
+			return types;
+		}
 		return Collections.EMPTY_LIST;
 	}
 
@@ -127,6 +162,16 @@ public class PalladioComponentModelModelingAssistantProvider extends
 	 */
 	public List getTypesForTarget(IAdaptable source,
 			IElementType relationshipType) {
+		IGraphicalEditPart sourceEditPart = (IGraphicalEditPart) source
+				.getAdapter(IGraphicalEditPart.class);
+		if (sourceEditPart instanceof CompleteComponentTypeEditPart) {
+			List types = new ArrayList();
+			if (relationshipType == PalladioComponentModelElementTypes.CompleteComponentTypeParentProvidesComponentTypes_4104) {
+				types
+						.add(PalladioComponentModelElementTypes.ProvidesComponentType_2104);
+			}
+			return types;
+		}
 		return Collections.EMPTY_LIST;
 	}
 
