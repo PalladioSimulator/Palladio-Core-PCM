@@ -26,7 +26,6 @@ public class MainConfigTab extends AbstractLaunchConfigurationTab {
 	private Button checkVerboseLogging = null;
 	
 	private class MainConfigTabListener extends SelectionAdapter implements ModifyListener {
-		@Override
 		public void modifyText(ModifyEvent e) {
 			updateLaunchConfigurationDialog();
 		}
