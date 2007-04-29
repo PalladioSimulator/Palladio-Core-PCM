@@ -29,9 +29,10 @@ Eclipse-LazyStart: true
 Bundle-ClassPath: .,
  lib/jcommon-1.0.8.jar,
  lib/jfreechart-1.0.4.jar
-Export-Package: de.uka.ipd.sdq.dsolver,
- de.uka.ipd.sdq.dsolver.handler,
- de.uka.ipd.sdq.pcm2regex,
+Export-Package: de.uka.ipd.sdq.pcmsolver.visitors,
+ de.uka.ipd.sdq.pcmsolver.handler,
+ de.uka.ipd.sdq.pcmsolver.pcm2regex,
+ de.uka.ipd.sdq.pcmsolver.exprsolver,
  de.uka.ipd.sdq.pcmsolver,
  de.uka.ipd.sdq.pcmsolver.models,
  de.uka.ipd.sdq.pcmsolver.runconfig,
