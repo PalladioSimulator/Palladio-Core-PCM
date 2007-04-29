@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="ASCII"?>
+<pcm.resourceenvironment:ResourceEnvironment xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:pcm.resourceenvironment="http://sdq.ipd.uka.de/PalladioComponentModel/ResourceEnvironment/1.0">
+  <resourceContainer_ResourceEnvironment id="_oEjdUDRBEduaPaOP6VcQiw" entityName="ResourceContainer_DSolverExample2">
+    <activeResourceSpecifications_ResourceContainer processingRate="1.0" units="CPU cycles">
+      <activeResourceType_ActiveResourceSpecification href="DSolverExample2.resourcetype#_YPBH0TQcEduaPaOP6VcQiw"/>
+    </activeResourceSpecifications_ResourceContainer>
+  </resourceContainer_ResourceEnvironment>
+</pcm.resourceenvironment:ResourceEnvironment>

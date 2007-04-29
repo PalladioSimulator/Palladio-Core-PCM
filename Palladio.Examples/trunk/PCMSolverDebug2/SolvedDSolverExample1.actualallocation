@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="ASCII"?>
+<context.allocation:ActualAllocation xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:context.allocation="http://sdq.ipd.uka.de/Context/Allocation/1.0">
+  <actualAllocationContexts_ActualAllocation>
+    <actualResourceDemands_ActualAllocationContext specification="DoublePDF(unit=&quot;s&quot;)[ (5.0; 0.20000000) (6.0; 0.10000000) (8.0; 0.70000000) ]">
+      <parametricResourceDemand_ActualResourceDemand href="DSolverExample2.repository#//@components__Repository.0/@serviceEffectSpecifications__BasicComponent.0/@steps_Behaviour.1/@bodyBehaviour_Loop/@steps_Behaviour.1/@resourceDemand_Action.0"/>
+    </actualResourceDemands_ActualAllocationContext>
+    <actualResourceDemands_ActualAllocationContext specification="4.0">
+      <parametricResourceDemand_ActualResourceDemand href="DSolverExample2.repository#//@components__Repository.0/@serviceEffectSpecifications__BasicComponent.0/@steps_Behaviour.1/@bodyBehaviour_Loop/@steps_Behaviour.1/@resourceDemand_Action.1"/>
+    </actualResourceDemands_ActualAllocationContext>
+    <usageContext_ActualAllocationContext href="SolvedDSolverExample1.usage#//@usageContexts_Usage.0"/>
+  </actualAllocationContexts_ActualAllocation>
+</context.allocation:ActualAllocation>

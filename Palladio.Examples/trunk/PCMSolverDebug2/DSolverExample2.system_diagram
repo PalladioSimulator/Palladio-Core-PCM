@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.0/notation" xmlns:pcm.system="http://sdq.ipd.uka.de/PalladioComponentModel/System/1.0" xmi:id="_MzVv8ItWEdu5M5LWBUT1Rg" type="system" measurementUnit="Pixel">
+  <styles xmi:type="notation:PageStyle" xmi:id="_MzVv8YtWEdu5M5LWBUT1Rg"/>
+  <styles xmi:type="notation:GuideStyle" xmi:id="_MzVv8otWEdu5M5LWBUT1Rg"/>
+  <styles xmi:type="notation:DescriptionStyle" xmi:id="_MzVv84tWEdu5M5LWBUT1Rg"/>
+  <element xmi:type="pcm.system:System" href="DSolverExample2.system#0"/>
+</notation:Diagram>
