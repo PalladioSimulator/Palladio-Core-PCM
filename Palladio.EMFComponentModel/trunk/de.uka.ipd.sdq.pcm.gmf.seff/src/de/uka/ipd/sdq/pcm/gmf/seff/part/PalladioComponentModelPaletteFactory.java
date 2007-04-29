@@ -73,7 +73,8 @@ public class PalladioComponentModelPaletteFactory {
 		PaletteDrawer paletteContainer = new PaletteDrawer(
 				Messages.Composite3Group_title);
 		paletteContainer.add(createResourceDemandingBehaviour1CreationTool());
-		paletteContainer.add(createBranchTransition2CreationTool());
+		paletteContainer
+				.add(createProbabilisticBranchTransition2CreationTool());
 		paletteContainer.add(createGuardedBranchTransition3CreationTool());
 		return paletteContainer;
 	}
@@ -345,13 +346,13 @@ public class PalladioComponentModelPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createBranchTransition2CreationTool() {
+	private ToolEntry createProbabilisticBranchTransition2CreationTool() {
 		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
 		types
 				.add(PalladioComponentModelElementTypes.ProbabilisticBranchTransition_3010);
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.BranchTransition2CreationTool_title,
-				Messages.BranchTransition2CreationTool_desc, types);
+				Messages.ProbabilisticBranchTransition2CreationTool_title,
+				Messages.ProbabilisticBranchTransition2CreationTool_desc, types);
 		entry
 				.setSmallIcon(PalladioComponentModelElementTypes
 						.getImageDescriptor(PalladioComponentModelElementTypes.ProbabilisticBranchTransition_3010));

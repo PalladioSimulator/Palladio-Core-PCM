@@ -206,12 +206,12 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String BranchTransition2CreationTool_title;
+	public static String ProbabilisticBranchTransition2CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String BranchTransition2CreationTool_desc;
+	public static String ProbabilisticBranchTransition2CreationTool_desc;
 
 	/**
 	 * @generated
