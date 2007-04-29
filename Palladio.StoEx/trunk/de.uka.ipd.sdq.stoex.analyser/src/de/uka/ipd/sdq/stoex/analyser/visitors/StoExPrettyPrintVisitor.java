@@ -21,9 +21,7 @@ import de.uka.ipd.sdq.stoex.Variable;
 import de.uka.ipd.sdq.stoex.VariableReference;
 import de.uka.ipd.sdq.stoex.util.StoexSwitch;
 
-public class StoExPrettyPrintVisitor
-extends StoexSwitch
-{
+public class StoExPrettyPrintVisitor extends StoexSwitch {
 	@Override
 	public Object caseBoolLiteral(BoolLiteral object) {
 		return object.isValue() ? "true" : "false";

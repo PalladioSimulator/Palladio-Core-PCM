@@ -6,6 +6,7 @@ package de.uka.ipd.sdq.codegen.simucontroller.runconfig;
 import java.awt.Component;
 import java.io.IOException;
 import java.io.PrintStream;
+import java.net.URI;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
@@ -181,6 +182,8 @@ public class SimuLaunchConfigurationDelegate implements
 	 */
 	private Bundle loadGeneratedPlugin(IProject project) {
 		String location = project.getLocationURI().toString();
+		location = location.replaceAll("%20", " "); // Workaround a bug in OSGi
+					// see https://bugs.eclipse.org/bugs/show_bug.cgi?id=184620
 		
 		BundleContext bundleContext = SimuControllerPlugin.getDefault()
 				.getBundle().getBundleContext();

@@ -8,16 +8,16 @@ import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
 import de.uka.ipd.sdq.pcm.parameter.util.ParameterSwitch;
 
 /**
+ * Pretty Print Paramters in a StoEx
  * @author Steffen Becker
  *
  */
-public class ParameterPrettyPrint extends ParameterSwitch {
+public class ParameterPrettyPrint extends ParameterSwitch<String> {
 
 	/**
 	 * 
 	 */
 	public ParameterPrettyPrint() {
-		// TODO Auto-generated constructor stub
 	}
 
 
@@ -25,16 +25,16 @@ public class ParameterPrettyPrint extends ParameterSwitch {
 	 * @see de.uka.ipd.sdq.pcm.parameter.util.ParameterSwitch#caseVariableUsage(de.uka.ipd.sdq.pcm.parameter.VariableUsage)
 	 */
 	@Override
-	public Object caseVariableUsage(VariableUsage object) {
+	public String caseVariableUsage(VariableUsage object) {
 		String result = "";
 		if (object.getNamedReference_VariableUsage() != null)
-			result += (String)doSwitch(object.getNamedReference_VariableUsage());
+			result += doSwitch(object.getNamedReference_VariableUsage());
 		else
-			result += "<?>";
+			result += "<not set yet>";
 		if (object.getVariableCharacterisation_VariableUsage().size() > 0)
-			result += "." + (String)doSwitch((VariableCharacterisation)object.getVariableCharacterisation_VariableUsage().get(0));
+			result += "." + doSwitch((VariableCharacterisation)object.getVariableCharacterisation_VariableUsage().get(0));
 		else
-			result += ".<?> = <?>";
+			result += ".<missing characterisation> = <missing expression>";
 		return result;
 	}
 
@@ -42,13 +42,10 @@ public class ParameterPrettyPrint extends ParameterSwitch {
 	 * @see de.uka.ipd.sdq.pcm.parameter.util.ParameterSwitch#caseVariableCharacterisation(de.uka.ipd.sdq.pcm.parameter.VariableCharacterisation)
 	 */
 	@Override
-	public Object caseVariableCharacterisation(VariableCharacterisation object) {
+	public String caseVariableCharacterisation(VariableCharacterisation object) {
 		String result = "";
 		result += object.getType().getLiteral();
 		result += " = " + object.getSpecification();
 		return result;
 	}
-	
-
-	
 }
