@@ -7,6 +7,7 @@ import java.util.concurrent.TimeUnit;
 
 import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.ConsoleAppender;
+import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PatternLayout;
 import org.apache.log4j.WriterAppender;
@@ -59,6 +60,7 @@ public class PCMSolver {
 	
 	public static final String EDITING_DOMAIN_ID = "de.uka.ipd.sdq.PCMBench.editingDomain";
 
+	private long overallDuration = 0;
 	
 	final protected TransactionalEditingDomain editingDomain = TransactionalEditingDomain.Registry.INSTANCE
 	.getEditingDomain(EDITING_DOMAIN_ID);
@@ -67,7 +69,7 @@ public class PCMSolver {
 	public PCMSolver(ILaunchConfiguration configuration, IProgressMonitor monitor){
 		this.monitor = monitor;
 		
-		configureLogging();
+		configureLogging(configuration);
 		
 		currentModel = new PCMInstance(configuration);
 		
@@ -110,9 +112,11 @@ public class PCMSolver {
 		monitor.done();
 		
 		visualize(iPDF);
+		
+		logger.warn("Completed Analysis:\t\t"+ overallDuration + " ms");
 	}
 
-	private void configureLogging() {
+	private void configureLogging(ILaunchConfiguration configuration) {
 		MessageConsole console = new MessageConsole("PCM Solver Console: Analysis Tool Output", null);
 		console.activate();
 		ConsolePlugin.getDefault().getConsoleManager().addConsoles(new IConsole[]{ console });
@@ -121,6 +125,17 @@ public class PCMSolver {
 		PatternLayout myLayout = new PatternLayout("%d{HH:mm:ss,SSS} [%t] %-5p %c - %m%n");
 		WriterAppender writerAppender = new WriterAppender(myLayout, stream);
 		BasicConfigurator.configure(writerAppender);
+		
+		try {
+			if (configuration.getAttribute("verboseLogging", false)){
+				Logger.getRootLogger().setLevel(Level.DEBUG);
+			} else {
+				Logger.getRootLogger().setLevel(Level.WARN);
+			}
+		} catch (CoreException e) {
+			e.printStackTrace();
+		}
+		
 	}
 	
 	private void runDSolver() {
@@ -129,7 +144,8 @@ public class PCMSolver {
 		currentModel.saveToFiles("SolvedDSolverExample1");
 		long timeAfterDSolve = System.nanoTime();
 		long duration = TimeUnit.NANOSECONDS.toMillis(timeAfterDSolve-startTime);
-		logger.debug("Finished Traversal, Saving; Duration: "+ duration + " ms");
+		overallDuration += duration;
+		logger.warn("Finished DSolver, Saving:\t"+ duration + " ms");
 	}
 	
 	private void visitScenarioEMFSwitch(){
@@ -150,7 +166,8 @@ public class PCMSolver {
 		Expression result = pcm2RegEx(currentModel);
 		long timeAfterTransform = System.nanoTime();
 		long duration2 = TimeUnit.NANOSECONDS.toMillis(timeAfterTransform-timeBeforeTransform);
-		logger.debug("Finished Transform, Duration: "+ duration2 + " ms");
+		overallDuration += duration2;
+		logger.warn("Finished PCM2RegEx:\t\t"+ duration2 + " ms");
 		return result;
 	}
 	
@@ -167,7 +184,7 @@ public class PCMSolver {
 		
 		ExpressionPrinter expPrinter = new ExpressionPrinter();
 		expPrinter.doSwitch(result);
-		logger.debug("ExpressionPrinter: "+expPrinter.getOutput());
+		logger.info("ExpressionPrinter: "+expPrinter.getOutput());
 		
 		return result;
 	}
@@ -180,7 +197,8 @@ public class PCMSolver {
 		
 		long timeAfterCalc = System.nanoTime();
 		long duration = TimeUnit.NANOSECONDS.toMillis(timeAfterCalc-timeBeforeCalc);
-		logger.debug("Finished Calculation, Duration: "+ duration + " ms");
+		overallDuration += duration;
+		logger.warn("Finished Calculation:\t"+ duration + " ms");
 		
 		return resultPDF.getPdfTimeDomain();
 	}
@@ -211,7 +229,8 @@ public class PCMSolver {
 		}
 		long timeAfterVis = System.nanoTime();
 		long duration = TimeUnit.NANOSECONDS.toMillis(timeAfterVis-timeBeforeVis);
-		//logger.debug("Finished Visualisation, Duration: "+ duration + " ms");
+		overallDuration += duration;
+		logger.warn("Finished Visualisation:\t"+ duration + " ms");
 	}
 	
 }

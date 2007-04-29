@@ -27,7 +27,7 @@ public class LoopActionHandler extends AbstractLoopActionHandler {
 			ExpressionHelper.getSolvedExpressionAsString(specification, visitor.getMyContext());
 
 		if (solvedSpecification == null){
-			logger.error("Skipping execution of loop body!");
+			logger.error("Could not determine iterations specification. Skipping execution of loop body!");
 			return;
 		}
 		

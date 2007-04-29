@@ -8,18 +8,22 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.ModifyEvent;
 import org.eclipse.swt.events.ModifyListener;
 import org.eclipse.swt.events.SelectionAdapter;
+import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Label;
+import org.eclipse.swt.widgets.Listener;
 import org.eclipse.swt.widgets.Text;
 
 public class MainConfigTab extends AbstractLaunchConfigurationTab {
 
 	private Text textSamplingDist;
 	private Text textMaxDomain;
+	private Button checkVerboseLogging = null;
 	
 	private class MainConfigTabListener extends SelectionAdapter implements ModifyListener {
 		@Override
@@ -60,7 +64,15 @@ public class MainConfigTab extends AbstractLaunchConfigurationTab {
 		textMaxDomain = new Text(analysisConfigGroup, SWT.SINGLE | SWT.BORDER);
 		textMaxDomain.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
 		textMaxDomain.addModifyListener(listener);
-
+		
+		checkVerboseLogging = new Button(container, SWT.CHECK);
+		checkVerboseLogging.setText("Enable verbose logging");
+		checkVerboseLogging.setSelection(false);
+		checkVerboseLogging.addListener (SWT.Selection, new Listener () {
+			public void handleEvent (Event event) {
+				updateLaunchConfigurationDialog();
+			}
+		});
 	}
 
 	@Override
@@ -80,6 +92,12 @@ public class MainConfigTab extends AbstractLaunchConfigurationTab {
 		} catch(CoreException e){
 			textMaxDomain.setText("256");
 		}
+		try{
+			checkVerboseLogging.setSelection(configuration.getAttribute("verboseLogging", false));
+		}catch(CoreException e){
+			checkVerboseLogging.setSelection(false);
+		}
+		
 		updateLaunchConfigurationDialog();
 	}
 
@@ -87,6 +105,7 @@ public class MainConfigTab extends AbstractLaunchConfigurationTab {
 	public void performApply(ILaunchConfigurationWorkingCopy configuration) {
 		configuration.setAttribute("samplingDist", textSamplingDist.getText());
 		configuration.setAttribute("maxDomain", textMaxDomain.getText());
+		configuration.setAttribute("verboseLogging", checkVerboseLogging.getSelection());
 	}
 
 	@Override

@@ -220,11 +220,11 @@ public class TransformSeffVisitor extends SeffSwitch{
 		if (value > numOfSamples){
 			numOfSamples = (int)value+1;
 			PDFConfiguration.setCurrentConfiguration(numOfSamples, distance, unit);
-			logger.debug("Reset PDFConfiguration: numOfSamples=" +
+			logger.info("Reset PDFConfiguration: numOfSamples=" +
 					numOfSamples+", distance="+distance+", unit="+unit.getUnitName());
 		} else if (value < distance){
 			PDFConfiguration.setCurrentConfiguration(numOfSamples, value, unit);
-			logger.debug("Reset PDFConfiguration: numOfSamples=" +
+			logger.info("Reset PDFConfiguration: numOfSamples=" +
 					numOfSamples+", distance="+value+", unit="+unit.getUnitName());
 
 		}

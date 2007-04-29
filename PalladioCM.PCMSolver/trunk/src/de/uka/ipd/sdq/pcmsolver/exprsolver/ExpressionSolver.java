@@ -137,7 +137,7 @@ public class ExpressionSolver {
 				if (currentDomainSize < maxDomainSize) {
 					double distance = config.getDistance();
 					IUnit unit = config.getUnit();
-					logger.debug("Adjusting MaxDomainSize from "+currentDomainSize+" to "+maxDomainSize);
+					logger.info("Adjusting MaxDomainSize from "+currentDomainSize+" to "+maxDomainSize);
 					PDFConfiguration.setCurrentConfiguration(maxDomainSize,distance, unit);
 				}
 			} catch (ConfigurationNotSetException e1) {

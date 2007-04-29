@@ -61,10 +61,10 @@ public class ExternalCallActionHandler {
 			findAssemblyConnector(requiredInterface);
 		
 		if (foundAssemblyConnector == null) {
-			//logger.debug("Found System External Call");
+			logger.error("Found System External Call, not supported yet!");
 			// TODO: handle system external call
 		} else {
-			//logger.debug("Found Assembly Connector");
+			logger.info("Found Assembly Connector");
 			SeffVisitor nextVisitor = visitNextSeff(serviceToBeCalled, 
 					parametricParameterUsages, 
 					foundAssemblyConnector);

@@ -61,7 +61,7 @@ public class UsageModelVisitor extends UsagemodelSwitch {
 	 */
 	@Override
 	public Object caseScenarioBehaviour(ScenarioBehaviour object) {
-		logger.debug("VisitScenarioBehaviour");
+		logger.info("VisitScenarioBehaviour");
 		doSwitch(getStartAction(object));
 		return object;
 	}
@@ -71,7 +71,7 @@ public class UsageModelVisitor extends UsagemodelSwitch {
 	 */
 	@Override
 	public Object caseStart(Start object) {
-		logger.debug("VisitStart");
+		logger.info("VisitStart");
 		doSwitch(object.getSuccessor());
 		return object;
 	}
@@ -81,7 +81,7 @@ public class UsageModelVisitor extends UsagemodelSwitch {
 	 */
 	@Override
 	public Object caseStop(Stop object) {
-		logger.debug("VisitStop");
+		logger.info("VisitStop");
 		return object;
 	}
 
@@ -91,11 +91,11 @@ public class UsageModelVisitor extends UsagemodelSwitch {
 	@Override
 	public Object caseEntryLevelSystemCall(EntryLevelSystemCall call) {
 
-		logger.debug("VisitEntryLevelSystemCall");
+		logger.info("VisitEntryLevelSystemCall");
 		Signature signature = call.getSignature_EntryLevelSystemCall();
 		ProvidedRole role = call.getProvidedRole_EntryLevelSystemCall();
 
-		logger.debug("Called System Method "
+		logger.info("Called System Method "
 				+ role.getProvidedInterface__ProvidedRole().getEntityName() + "/"
 				+ signature.getServiceName());
 
@@ -113,7 +113,7 @@ public class UsageModelVisitor extends UsagemodelSwitch {
 			// handleCompositeComponent(call, method, delegationConnector,
 			// offeringComponent);
 			logger.error("Component type not yet supported by visitor.");
-			System.exit(-1);
+			return null;
 		}
 
 		doSwitch(call.getSuccessor());

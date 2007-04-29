@@ -116,7 +116,7 @@ public class TransformUsageModelVisitor extends UsagemodelSwitch {
 			}
 		} else {
 			logger.error("Composite Component type not yet supported.");
-			System.exit(-1);
+			return null;
 		}
 		
 		Sequence seq = expFactory.createSequence();
