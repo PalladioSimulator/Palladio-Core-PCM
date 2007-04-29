@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.0/notation" xmlns:pcm.seff="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0" xmi:id="_ywnFAHuKEduf5qkpq1aGEw" type="Pcm" measurementUnit="Pixel">
+  <children xmi:type="notation:Node" xmi:id="_SNHAwHuOEduCc9JrUKc7tw" type="1001">
+    <styles xmi:type="notation:FontStyle" xmi:id="_SNHAwXuOEduCc9JrUKc7tw"/>
+    <styles xmi:type="notation:DescriptionStyle" xmi:id="_SNHAwnuOEduCc9JrUKc7tw"/>
+    <styles xmi:type="notation:FillStyle" xmi:id="_SNHAw3uOEduCc9JrUKc7tw"/>
+    <styles xmi:type="notation:LineStyle" xmi:id="_SNHAxHuOEduCc9JrUKc7tw"/>
+    <element xmi:type="pcm.seff:StartAction" href="Qosa.repository#_Q_IPsHjmEduuSvsux_US9A"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_SNHAxXuOEduCc9JrUKc7tw" x="67"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_SNHAxnuOEduCc9JrUKc7tw" type="1006">
+    <children xmi:type="notation:Node" xmi:id="_SNQxwHuOEduCc9JrUKc7tw" type="4011"/>
+    <children xmi:type="notation:Node" xmi:id="_SNQxwXuOEduCc9JrUKc7tw" type="5011">
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_SNQxwnuOEduCc9JrUKc7tw"/>
+      <styles xmi:type="notation:TitleStyle" xmi:id="_SNQxw3uOEduCc9JrUKc7tw" showTitle="true"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_SNQxxHuOEduCc9JrUKc7tw"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_SNQxxXuOEduCc9JrUKc7tw"/>
+    </children>
+    <styles xmi:type="notation:FontStyle" xmi:id="_SNHAx3uOEduCc9JrUKc7tw"/>
+    <styles xmi:type="notation:DescriptionStyle" xmi:id="_SNHAyHuOEduCc9JrUKc7tw"/>
+    <styles xmi:type="notation:FillStyle" xmi:id="_SNHAyXuOEduCc9JrUKc7tw"/>
+    <styles xmi:type="notation:LineStyle" xmi:id="_SNHAynuOEduCc9JrUKc7tw"/>
+    <element xmi:type="pcm.seff:InternalAction" href="Qosa.repository#_RvZ2EHjmEduuSvsux_US9A"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_SNHAy3uOEduCc9JrUKc7tw" y="100"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_SNQxxnuOEduCc9JrUKc7tw" type="1002">
+    <styles xmi:type="notation:FontStyle" xmi:id="_SNQxx3uOEduCc9JrUKc7tw"/>
+    <styles xmi:type="notation:DescriptionStyle" xmi:id="_SNQxyHuOEduCc9JrUKc7tw"/>
+    <styles xmi:type="notation:FillStyle" xmi:id="_SNQxyXuOEduCc9JrUKc7tw"/>
+    <styles xmi:type="notation:LineStyle" xmi:id="_SNQxynuOEduCc9JrUKc7tw"/>
+    <element xmi:type="pcm.seff:StopAction" href="Qosa.repository#_Zg9G0HjmEduuSvsux_US9A"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_SNQxy3uOEduCc9JrUKc7tw" x="67" y="213"/>
+  </children>
+  <styles xmi:type="notation:PageStyle" xmi:id="_ywnFAXuKEduf5qkpq1aGEw"/>
+  <styles xmi:type="notation:GuideStyle" xmi:id="_ywnFAnuKEduf5qkpq1aGEw"/>
+  <styles xmi:type="notation:DescriptionStyle" xmi:id="_ywnFA3uKEduf5qkpq1aGEw"/>
+  <element xmi:type="pcm.seff:ResourceDemandingSEFF" href="Qosa.repository#//@components__Repository.2/@serviceEffectSpecifications__BasicComponent.0"/>
+  <edges xmi:type="notation:Edge" xmi:id="_Xn2yMHuOEduCc9JrUKc7tw" type="3001" source="_SNHAwHuOEduCc9JrUKc7tw" target="_SNHAxnuOEduCc9JrUKc7tw">
+    <styles xmi:type="notation:RoutingStyle" xmi:id="_Xn2yMXuOEduCc9JrUKc7tw"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_Xn2yMnuOEduCc9JrUKc7tw"/>
+    <styles xmi:type="notation:LineStyle" xmi:id="_Xn2yM3uOEduCc9JrUKc7tw"/>
+    <element xsi:nil="true"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_Xn2yNHuOEduCc9JrUKc7tw" points="[-8, 9, -4, -86]$[-8, 122, -4, 27]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_Xn2yNXuOEduCc9JrUKc7tw" id="(0.6,0.775)"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_ZFSZgHuOEduCc9JrUKc7tw" type="3001" source="_SNHAxnuOEduCc9JrUKc7tw" target="_SNQxxnuOEduCc9JrUKc7tw">
+    <styles xmi:type="notation:RoutingStyle" xmi:id="_ZFSZgXuOEduCc9JrUKc7tw"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_ZFSZgnuOEduCc9JrUKc7tw"/>
+    <styles xmi:type="notation:LineStyle" xmi:id="_ZFSZg3uOEduCc9JrUKc7tw"/>
+    <element xsi:nil="true"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_ZFSZhHuOEduCc9JrUKc7tw" points="[0, 7, 0, -80]$[0, 67, 0, -20]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_ZFSZhXuOEduCc9JrUKc7tw" id="(0.49714285,0.8679245)"/>
+  </edges>
+</notation:Diagram>
