@@ -52,6 +52,7 @@ import org.eclipse.swt.graphics.Image;
 
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.PalladioComponentModelTextSelectionEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.seff.providers.PalladioComponentModelElementTypes;
+import de.uka.ipd.sdq.pcm.seff.ExternalCallAction;
 
 /**
  * @generated
@@ -208,14 +209,13 @@ public class ExternalCallActionEntityName2EditPart extends CompartmentEditPart
 	}
 
 	/**
-	 * @generated
+	 * @generated not
 	 */
 	protected String getLabelText() {
 		String text = null;
-		if (getParser() != null) {
-			text = getParser().getPrintString(
-					new EObjectAdapter(getParserElement()),
-					getParserOptions().intValue());
+		ExternalCallAction eca = (ExternalCallAction) resolveSemanticElement();
+		if (eca.getCalledService_ExternalService() != null){
+			text = eca.getCalledService_ExternalService().getServiceName();
 		}
 		if (text == null || text.length() == 0) {
 			text = defaultText;
@@ -546,7 +546,7 @@ public class ExternalCallActionEntityName2EditPart extends CompartmentEditPart
 	}
 
 	/**
-	 * @generated
+	 * @generated not
 	 */
 	protected void handleNotificationEvent(Notification event) {
 		Object feature = event.getFeature();
@@ -569,21 +569,7 @@ public class ExternalCallActionEntityName2EditPart extends CompartmentEditPart
 						feature)) {
 			refreshFont();
 		} else {
-			if (getParser() != null
-					&& getParser().isAffectingEvent(event,
-							getParserOptions().intValue())) {
-				refreshLabel();
-			}
-			if (getParser() instanceof ISemanticParser) {
-				ISemanticParser modelParser = (ISemanticParser) getParser();
-				if (modelParser.areSemanticElementsAffected(null, event)) {
-					removeSemanticListeners();
-					if (resolveSemanticElement() != null) {
-						addSemanticListeners();
-					}
-					refreshLabel();
-				}
-			}
+			refreshLabel();
 		}
 		super.handleNotificationEvent(event);
 	}
