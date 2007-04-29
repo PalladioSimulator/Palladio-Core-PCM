@@ -94,7 +94,7 @@ public class PalladioComponentModelRepositoryDiagramEditorPlugin extends
 	 * @generated not
 	 */
 	public void stop(BundleContext context) throws Exception {
-		((PalladioItemProviderAdapterFactory)adapterFactory).dispose();
+		((PalladioItemProviderAdapterFactory) adapterFactory).dispose();
 		adapterFactory = null;
 		instance = null;
 		super.stop(context);
@@ -113,7 +113,8 @@ public class PalladioComponentModelRepositoryDiagramEditorPlugin extends
 	protected AdapterFactory createAdapterFactory() {
 		List factories = new ArrayList();
 		fillItemProviderFactories(factories);
-		return new PalladioItemProviderAdapterFactory(new ComposedAdapterFactory(factories));
+		return new PalladioItemProviderAdapterFactory(
+				new ComposedAdapterFactory(factories));
 	}
 
 	/**

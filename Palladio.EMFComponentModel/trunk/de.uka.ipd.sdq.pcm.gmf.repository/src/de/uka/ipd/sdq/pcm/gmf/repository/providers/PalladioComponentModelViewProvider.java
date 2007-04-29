@@ -15,6 +15,7 @@ import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.BasicComponentEntityNameEdit
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.BasicComponentSEFFCompartmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.CompleteComponentTypeEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.CompleteComponentTypeEntityNameEditPart;
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.CompleteParentStereotypeLabelEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.CompositeComponentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.InterfaceEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.InterfaceEntityNameEditPart;
@@ -34,7 +35,9 @@ import de.uka.ipd.sdq.pcm.gmf.repository.view.factories.BasicComponentSEFFCompar
 import de.uka.ipd.sdq.pcm.gmf.repository.view.factories.BasicComponentViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.repository.view.factories.CompleteComponentTypeEntityNameViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.repository.view.factories.CompleteComponentTypeViewFactory;
+import de.uka.ipd.sdq.pcm.gmf.repository.view.factories.CompleteParentStereotypeLabelViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.repository.view.factories.CompositeComponentViewFactory;
+import de.uka.ipd.sdq.pcm.gmf.repository.view.factories.ImplementationComponentTypeParentCompleteComponentTypesViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.repository.view.factories.InterfaceEntityNameViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.repository.view.factories.InterfaceSignatureListViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.repository.view.factories.InterfaceViewFactory;
@@ -116,6 +119,8 @@ public class PalladioComponentModelViewProvider extends AbstractViewProvider {
 			return ProvidesStereotypeLabelViewFactory.class;
 		case RequiresStereotypeLabelEditPart.VISUAL_ID:
 			return RequiresStereotypeLabelViewFactory.class;
+		case CompleteParentStereotypeLabelEditPart.VISUAL_ID:
+			return CompleteParentStereotypeLabelViewFactory.class;
 		}
 		return null;
 	}
@@ -130,6 +135,10 @@ public class PalladioComponentModelViewProvider extends AbstractViewProvider {
 				&& !PalladioComponentModelElementTypes
 						.isKnownElementType(elementType)) {
 			return null;
+		}
+		if (PalladioComponentModelElementTypes.ImplementationComponentTypeParentCompleteComponentTypes_4103
+				.equals(elementType)) {
+			return ImplementationComponentTypeParentCompleteComponentTypesViewFactory.class;
 		}
 		EClass semanticType = getSemanticEClass(semanticAdapter);
 		if (semanticType == null) {

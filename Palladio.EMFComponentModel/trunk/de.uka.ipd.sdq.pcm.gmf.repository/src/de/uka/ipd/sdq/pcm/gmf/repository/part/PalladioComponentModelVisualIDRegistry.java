@@ -15,7 +15,9 @@ import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.BasicComponentEntityNameEdit
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.BasicComponentSEFFCompartmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.CompleteComponentTypeEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.CompleteComponentTypeEntityNameEditPart;
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.CompleteParentStereotypeLabelEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.CompositeComponentEditPart;
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.ImplementationComponentTypeParentCompleteComponentTypesEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.InterfaceEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.InterfaceEntityNameEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.InterfaceSignatureListEditPart;
@@ -270,6 +272,11 @@ public class PalladioComponentModelVisualIDRegistry {
 				return RequiresStereotypeLabelEditPart.VISUAL_ID;
 			}
 			return getUnrecognizedRequiredRole_4102LinkLabelID(semanticHint);
+		case ImplementationComponentTypeParentCompleteComponentTypesEditPart.VISUAL_ID:
+			if (CompleteParentStereotypeLabelEditPart.VISUAL_ID == nodeVisualID) {
+				return CompleteParentStereotypeLabelEditPart.VISUAL_ID;
+			}
+			return getUnrecognizedImplementationComponentTypeParentCompleteComponentTypes_4103LinkLabelID(semanticHint);
 		}
 		return -1;
 	}
@@ -525,6 +532,17 @@ public class PalladioComponentModelVisualIDRegistry {
 	 * @generated
 	 */
 	private static int getUnrecognizedRequiredRole_4102LinkLabelID(
+			String semanticHint) {
+		return -1;
+	}
+
+	/**
+	 * User can change implementation of this method to handle some specific
+	 * situations not covered by default logic.
+	 *
+	 * @generated
+	 */
+	private static int getUnrecognizedImplementationComponentTypeParentCompleteComponentTypes_4103LinkLabelID(
 			String semanticHint) {
 		return -1;
 	}

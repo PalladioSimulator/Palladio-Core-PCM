@@ -35,6 +35,7 @@ import de.uka.ipd.sdq.pcm.core.entity.InterfaceRequiringEntity;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.BasicComponentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.CompleteComponentTypeEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.CompositeComponentEditPart;
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.ImplementationComponentTypeParentCompleteComponentTypesEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.InterfaceEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.ProvidedRoleEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.ProvidesComponentTypeEditPart;
@@ -44,8 +45,10 @@ import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.ResourceDemandingSEFFEditPar
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.SignatureEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.part.PalladioComponentModelVisualIDRegistry;
 import de.uka.ipd.sdq.pcm.gmf.repository.providers.PalladioComponentModelElementTypes;
+import de.uka.ipd.sdq.pcm.repository.ImplementationComponentType;
 import de.uka.ipd.sdq.pcm.repository.ProvidedRole;
 import de.uka.ipd.sdq.pcm.repository.Repository;
+import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
 import de.uka.ipd.sdq.pcm.repository.RequiredRole;
 
 /**
@@ -401,6 +404,21 @@ public class RepositoryCanonicalEditPolicy extends
 	private void storeFeatureModelFacetLinks(EObject container,
 			EClass containerMetaclass, Diagram diagram) {
 
+		if (RepositoryPackage.eINSTANCE.getImplementationComponentType()
+				.isSuperTypeOf(containerMetaclass)) {
+			for (Iterator destinations = ((ImplementationComponentType) container)
+					.getParentCompleteComponentTypes().iterator(); destinations
+					.hasNext();) {
+				EObject nextDestination = (EObject) destinations.next();
+				myLinkDescriptors
+						.add(new LinkDescriptor(
+								container,
+								nextDestination,
+								PalladioComponentModelElementTypes.ImplementationComponentTypeParentCompleteComponentTypes_4103,
+								ImplementationComponentTypeParentCompleteComponentTypesEditPart.VISUAL_ID));
+
+			}
+		}
 	}
 
 	/**

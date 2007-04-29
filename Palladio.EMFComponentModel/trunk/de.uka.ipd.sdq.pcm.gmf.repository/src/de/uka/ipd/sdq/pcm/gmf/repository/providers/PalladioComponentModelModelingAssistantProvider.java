@@ -25,6 +25,7 @@ import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.dialogs.ElementListSelectionDialog;
 
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.BasicComponentEditPart;
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.CompleteComponentTypeEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.InterfaceEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.RepositoryEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.part.PalladioComponentModelRepositoryDiagramEditorPlugin;
@@ -86,6 +87,12 @@ public class PalladioComponentModelModelingAssistantProvider extends
 			types.add(PalladioComponentModelElementTypes.RequiredRole_4102);
 			return types;
 		}
+		if (targetEditPart instanceof CompleteComponentTypeEditPart) {
+			List types = new ArrayList();
+			types
+					.add(PalladioComponentModelElementTypes.ImplementationComponentTypeParentCompleteComponentTypes_4103);
+			return types;
+		}
 		return Collections.EMPTY_LIST;
 	}
 
@@ -105,6 +112,10 @@ public class PalladioComponentModelModelingAssistantProvider extends
 		IGraphicalEditPart targetEditPart = (IGraphicalEditPart) target
 				.getAdapter(IGraphicalEditPart.class);
 		if (targetEditPart instanceof InterfaceEditPart) {
+			List types = new ArrayList();
+			return types;
+		}
+		if (targetEditPart instanceof CompleteComponentTypeEditPart) {
 			List types = new ArrayList();
 			return types;
 		}

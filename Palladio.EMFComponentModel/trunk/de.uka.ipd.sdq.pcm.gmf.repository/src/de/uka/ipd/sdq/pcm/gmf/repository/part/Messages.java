@@ -171,6 +171,26 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String CompleteParentType14CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String CompleteParentType14CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
+	public static String ProvidesParentType15CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String ProvidesParentType15CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
 	public static String InterfaceSignatureListEditPart_title;
 
 	/**
@@ -201,7 +221,17 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String NavigatorGroupName_BasicComponent_2102_incominglinks;
+
+	/**
+	 * @generated
+	 */
 	public static String NavigatorGroupName_CompleteComponentType_2103_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_CompleteComponentType_2103_incominglinks;
 
 	/**
 	 * @generated
@@ -212,6 +242,11 @@ public class Messages extends NLS {
 	 * @generated
 	 */
 	public static String NavigatorGroupName_CompositeComponent_2105_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_CompositeComponent_2105_incominglinks;
 
 	/**
 	 * @generated
@@ -232,6 +267,16 @@ public class Messages extends NLS {
 	 * @generated
 	 */
 	public static String NavigatorGroupName_RequiredRole_4102_target;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_ImplementationComponentTypeParentCompleteComponentTypes_4103_source;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_ImplementationComponentTypeParentCompleteComponentTypes_4103_target;
 
 	//TODO: put accessor fields manually	
 }
