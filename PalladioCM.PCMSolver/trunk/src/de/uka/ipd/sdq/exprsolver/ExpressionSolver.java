@@ -3,6 +3,11 @@ package de.uka.ipd.sdq.exprsolver;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.log4j.Logger;
+
+import de.uka.ipd.sdq.pcmsolver.PCMSolver;
+import de.uka.ipd.sdq.probfunction.math.IBoxedPDF;
+import de.uka.ipd.sdq.probfunction.math.IContinuousSample;
 import de.uka.ipd.sdq.probfunction.math.IProbabilityDensityFunction;
 import de.uka.ipd.sdq.probfunction.math.IProbabilityFunctionFactory;
 import de.uka.ipd.sdq.probfunction.math.IProbabilityMassFunction;
@@ -15,6 +20,7 @@ import de.uka.ipd.sdq.probfunction.math.exception.ConfigurationNotSetException;
 import de.uka.ipd.sdq.probfunction.math.exception.FunctionsInDifferenDomainsException;
 import de.uka.ipd.sdq.probfunction.math.exception.IncompatibleUnitsException;
 import de.uka.ipd.sdq.probfunction.math.exception.UnknownPDFTypeException;
+import de.uka.ipd.sdq.probfunction.math.util.MathTools;
 import de.uka.ipd.sdq.spa.expression.Alternative;
 import de.uka.ipd.sdq.spa.expression.Expression;
 import de.uka.ipd.sdq.spa.expression.Loop;
@@ -22,13 +28,15 @@ import de.uka.ipd.sdq.spa.expression.Sequence;
 import de.uka.ipd.sdq.spa.expression.Symbol;
 import de.uka.ipd.sdq.spa.expression.util.ExpressionSwitch;
 import de.uka.ipd.sdq.spa.resourcemodel.ResourceUsage;
+import flanagan.complex.Complex;
 
 public class ExpressionSolver {
-
+	
+	private static Logger logger = Logger.getLogger(ExpressionSolver.class.getName());
+	
 	private IProbabilityFunctionFactory pfFactory = IProbabilityFunctionFactory.eINSTANCE;
 	
-	public ExpressionSolver(double distance, int domainSize){
-		PDFConfiguration.setCurrentConfiguration(domainSize, distance, pfFactory.createDefaultUnit());
+	public ExpressionSolver(){
 	}
 	
 	public ManagedPDF getResponseTime(Expression expr){
@@ -77,6 +85,9 @@ public class ExpressionSolver {
 			
 			IProbabilityMassFunction iterations = getIterPMF(object); 
 			
+			reconfigureForLoopBody(innerManagedPDF, iterations);
+			
+			
 			ISamplePDF innerPDF = innerManagedPDF.getSamplePdfFrequencyDomain();
 			ISamplePDF resultPDF = null;
 			ISamplePDF tempPDF = null;
@@ -96,8 +107,7 @@ public class ExpressionSolver {
 						tempPDF = (ISamplePDF) tempPDF.mult(innerPDF);
 						pos++;
 					}
-					resultPDF = (ISamplePDF) resultPDF.add(tempPDF.scale(sample
-							.getProbability()));
+					resultPDF = (ISamplePDF) resultPDF.add(tempPDF.scale(sample.getProbability()));
 				}
 			} catch (FunctionsInDifferenDomainsException e) {
 				e.printStackTrace();
@@ -107,6 +117,60 @@ public class ExpressionSolver {
 				e.printStackTrace();
 			}
 			return new ManagedPDF(resultPDF, true);
+		}
+
+		/**
+		 * Adjusts the maximum domain size of the managed PDFs, if the 
+		 * function resulting from convoluting the inner loop PDFs would
+		 * need more sampling points. 
+		 * @param innerManagedPDF
+		 * @param iterations
+		 */
+		private void reconfigureForLoopBody(ManagedPDF innerManagedPDF,
+				IProbabilityMassFunction iterations) {
+			
+			int maxDomainSize = (int) (getMaxIterations(iterations) * getLargestSamplingValue(innerManagedPDF));
+			
+			try {
+				PDFConfiguration config = PDFConfiguration.getCurrentConfiguration();
+				int currentDomainSize = config.getNumSamplingPoints();
+				if (currentDomainSize < maxDomainSize) {
+					double distance = config.getDistance();
+					IUnit unit = config.getUnit();
+					logger.debug("Adjusting MaxDomainSize from "+currentDomainSize+" to "+maxDomainSize);
+					PDFConfiguration.setCurrentConfiguration(maxDomainSize,distance, unit);
+				}
+			} catch (ConfigurationNotSetException e1) {
+				e1.printStackTrace();
+			}
+		}
+
+		private double getLargestSamplingValue(ManagedPDF innerManagedPDF) {
+			ISamplePDF innerSamplePDF = innerManagedPDF.getSamplePdfTimeDomain();
+			
+			double largestValue = 0.0;
+			List<Complex> list = innerSamplePDF.getValues();
+			for (int i=list.size()-1; i>=0; i--){
+				Complex z = list.get(i);
+				double prob = ((double) Math.round(z.getReal() * 10000.0)) / 10000.0;
+				if (prob > 0.0){
+					largestValue = i;
+					break;
+				}
+			}
+			return largestValue;
+		}
+
+		private int getMaxIterations(IProbabilityMassFunction iterations) {
+			List<ISample> sampleList = iterations.getSamples();
+			int maxIterations = 0;
+			for (int i=sampleList.size()-1; i>=0; i--){
+				ISample sample = sampleList.get(i);
+				if (sample.getProbability()!=0.0){
+					maxIterations = (Integer)sample.getValue(); break;
+				}
+			}
+			return maxIterations;
 		}
 
 		private IProbabilityMassFunction getIterPMF(Loop object) {

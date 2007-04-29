@@ -1,7 +1,7 @@
 /**
  * 
  */
-package de.uka.ipd.sdq.dsolver;
+package de.uka.ipd.sdq.pcmsolver;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -19,11 +19,14 @@ import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.ConsoleAppender;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PatternLayout;
+import org.eclipse.debug.core.ILaunchConfiguration;
 
-import de.uka.ipd.sdq.dsolver.pcm2regex.ExpressionPrinter;
-import de.uka.ipd.sdq.dsolver.pcm2regex.TransformUsageModelVisitor;
-import de.uka.ipd.sdq.dsolver.visitors.UsageModelVisitor;
+import de.uka.ipd.sdq.dsolver.UsageModelVisitor;
 import de.uka.ipd.sdq.pcm.usagemodel.UsageScenario;
+import de.uka.ipd.sdq.pcm2regex.ExpressionPrinter;
+import de.uka.ipd.sdq.pcm2regex.TransformUsageModelVisitor;
+import de.uka.ipd.sdq.pcmsolver.models.PCMInstance;
+import de.uka.ipd.sdq.pcmsolver.visualisation.JFVisualisation;
 import de.uka.ipd.sdq.probfunction.SamplePDF;
 import de.uka.ipd.sdq.probfunction.math.IProbabilityDensityFunction;
 import de.uka.ipd.sdq.probfunction.math.IProbabilityFunctionFactory;
@@ -33,7 +36,7 @@ import de.uka.ipd.sdq.probfunction.math.PDFConfiguration;
 import de.uka.ipd.sdq.probfunction.math.exception.ConfigurationNotSetException;
 import de.uka.ipd.sdq.probfunction.math.exception.ProbabilityFunctionException;
 import de.uka.ipd.sdq.probfunction.math.exception.UnknownPDFTypeException;
-import de.uka.ipd.sdq.spa.basicsolver.heiko.ClassicSPASolver;
+//import de.uka.ipd.sdq.spa.basicsolver.heiko.ClassicSPASolver;
 import de.uka.ipd.sdq.spa.basicsolver.visitor.PerformanceVisitor;
 import de.uka.ipd.sdq.spa.basicsolver.visitor.perfhandler.PerformanceHandlerFactory;
 import de.uka.ipd.sdq.spa.expression.Expression;
@@ -68,21 +71,40 @@ public class DependencySolver {
 		
 		Expression result = runPcm2RegEx();
 		
-		IProbabilityDensityFunction iPDF = runCalculation(result);
+		//IProbabilityDensityFunction iPDF = runCalculation(result);
 		
-		visualize(iPDF);
+		//visualize(iPDF);
 		
 	}
 
 
+	public DependencySolver(ILaunchConfiguration configuration){
+		PatternLayout myLayout = new PatternLayout("%d{HH:mm:ss,SSS} [%t] %-5p %c - %m%n");
+		ConsoleAppender myAppender = new ConsoleAppender(myLayout);
+		BasicConfigurator.configure(myAppender);
+		
+		currentModel = new PCMInstance(configuration);
+		
+		runDSolver();
+		
+		Expression result = runPcm2RegEx();
+		
+		//IProbabilityDensityFunction iPDF = runCalculation(result);
+		
+		//visualize(iPDF);
+		
+	}
+	
+	
+	
 	
 	/**
 	 * @param result
 	 */
 	private IProbabilityDensityFunction runCalculation(Expression result) {
 		long timeBeforeCalc = System.nanoTime();
-		ClassicSPASolver solver = new ClassicSPASolver();
-		ManagedPDF resultPDF = solver.getResponseTime(result);
+//		ClassicSPASolver solver = new ClassicSPASolver();
+//		ManagedPDF resultPDF = solver.getResponseTime(result);
 		
 //		PerformanceHandlerFactory perfHandFac = new PerformanceHandlerFactory(DOMAIN_SIZE);
 //		PerformanceVisitor perfVisitor = new PerformanceVisitor(perfHandFac);
@@ -92,7 +114,8 @@ public class DependencySolver {
 		long duration3 = TimeUnit.NANOSECONDS.toMillis(timeAfterCalc-timeBeforeCalc);
 		logger.debug("Finished Calculation, Duration: "+ duration3 + " ms");
 //		return iPDF;
-		return resultPDF.getPdfTimeDomain();
+		//return resultPDF.getPdfTimeDomain();
+		return null;
 	}
 
 	/**
@@ -202,7 +225,7 @@ public class DependencySolver {
 		BasicConfigurator.configure(myAppender);
 	}
 
-	private static Properties getConfig(String[] args) {
+	public static Properties getConfig(String[] args) {
 		Properties configFromFile = new Properties();
 		if (args.length != 1) {
 			System.out.println("Usage: DependencySolver <configfile.xml>");

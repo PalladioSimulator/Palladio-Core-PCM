@@ -1,4 +1,4 @@
-package de.uka.ipd.sdq.dsolver.visitors;
+package de.uka.ipd.sdq.dsolver;
 
 import org.apache.log4j.Logger;
 import org.eclipse.emf.common.util.EList;
@@ -9,9 +9,6 @@ import de.uka.ipd.sdq.context.allocation.AllocationFactory;
 import de.uka.ipd.sdq.context.usage.Usage;
 import de.uka.ipd.sdq.context.usage.UsageContext;
 import de.uka.ipd.sdq.context.usage.UsageFactory;
-import de.uka.ipd.sdq.dsolver.Context;
-import de.uka.ipd.sdq.dsolver.PCMInstance;
-import de.uka.ipd.sdq.dsolver.helper.EMFHelper;
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
 import de.uka.ipd.sdq.pcm.core.composition.ProvidedDelegationConnector;
 import de.uka.ipd.sdq.pcm.repository.BasicComponent;
@@ -27,6 +24,8 @@ import de.uka.ipd.sdq.pcm.usagemodel.ScenarioBehaviour;
 import de.uka.ipd.sdq.pcm.usagemodel.Start;
 import de.uka.ipd.sdq.pcm.usagemodel.Stop;
 import de.uka.ipd.sdq.pcm.usagemodel.util.UsagemodelSwitch;
+import de.uka.ipd.sdq.pcmsolver.models.Context;
+import de.uka.ipd.sdq.pcmsolver.models.PCMInstance;
 
 /**
  * @author Koziolek
@@ -212,7 +211,7 @@ public class UsageModelVisitor extends UsagemodelSwitch {
 
 		AssemblyContext assCtx = delegationConnector.getChildComponentContext_ProvidedDelegationConnector();
 		BasicComponent bc = (BasicComponent)assCtx.getEncapsulatedComponent_ChildComponentContext();
-		EList intParList = bc.getInternalVariables_BasicComponent();
+		EList intParList = assCtx.getComponentParameterUsage_AssemblyContext();
 		uc.getActualParameterUsage_UsageContext().addAll(intParList);
 		
 		callContext.setUsageContext(uc);

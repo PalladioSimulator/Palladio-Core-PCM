@@ -2,12 +2,11 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: PCM Solver Plug-in
 Bundle-SymbolicName: de.uka.ipd.sdq.pcmsolver;singleton:=true
-Bundle-Version: 1.0.0.qualifier
+Bundle-Version: 1.0.0
 Bundle-Activator: de.uka.ipd.sdq.pcmsolver.Activator
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
  org.eclipse.emf,
- de.uka.ipd.sdq.context,
  de.uka.ipd.sdq.pcm,
  de.uka.ipd.sdq.pcm.stochasticexpressions,
  de.uka.ipd.sdq.stoex.analyser,
@@ -18,13 +17,14 @@ Require-Bundle: org.eclipse.ui,
  de.uka.ipd.sdq.probfunction.math,
  de.uka.ipd.sdq.spa,
  de.uka.ipd.sdq.spa.basicsolver,
- de.uka.ipd.sdq.spa.resourcemodel,
  org.apache.jakarta_log4j,
  org.eclipse.debug.core,
  org.eclipse.debug.ui,
  org.eclipse.ui.console,
  de.uka.ipd.sdq.pcmbench,
- org.eclipse.emf.transaction
+ org.eclipse.emf.transaction,
+ de.uka.ipd.sdq.context,
+ de.uka.ipd.sdq.spa.resourcemodel
 Eclipse-LazyStart: true
 Bundle-ClassPath: .,
  lib/jcommon-1.0.8.jar,
@@ -37,4 +37,3 @@ Export-Package: de.uka.ipd.sdq.dsolver,
  de.uka.ipd.sdq.pcmsolver.runconfig,
  de.uka.ipd.sdq.pcmsolver.tests,
  de.uka.ipd.sdq.pcmsolver.visualisation
-Bundle-Vendor: sdq.ipd.uka.de

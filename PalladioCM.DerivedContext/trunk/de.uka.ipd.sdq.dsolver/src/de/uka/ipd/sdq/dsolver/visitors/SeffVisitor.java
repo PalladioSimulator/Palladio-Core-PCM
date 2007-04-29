@@ -1,15 +1,13 @@
 /**
  * 
  */
-package de.uka.ipd.sdq.dsolver.visitors;
+package de.uka.ipd.sdq.dsolver;
 
 import org.apache.log4j.Logger;
 import org.eclipse.emf.common.util.EList;
 
 import de.uka.ipd.sdq.context.allocation.ActualAllocationContext;
 import de.uka.ipd.sdq.context.usage.UsageContext;
-import de.uka.ipd.sdq.dsolver.Context;
-import de.uka.ipd.sdq.dsolver.PCMInstance;
 import de.uka.ipd.sdq.dsolver.handler.CollectionIteratorActionHandler;
 import de.uka.ipd.sdq.dsolver.handler.ExternalCallActionHandler;
 import de.uka.ipd.sdq.dsolver.handler.GuardedBranchTransitionHandler;
@@ -17,7 +15,10 @@ import de.uka.ipd.sdq.dsolver.handler.InternalActionHandler;
 import de.uka.ipd.sdq.dsolver.handler.LoopActionHandler;
 import de.uka.ipd.sdq.dsolver.handler.ProbabilisticBranchTransitionHandler;
 import de.uka.ipd.sdq.dsolver.handler.SetVariableActionHandler;
-import de.uka.ipd.sdq.dsolver.helper.EMFHelper;
+import de.uka.ipd.sdq.pcm.repository.PrimitiveDataType;
+import de.uka.ipd.sdq.pcm.repository.PrimitiveTypeEnum;
+import de.uka.ipd.sdq.pcm.repository.Repository;
+import de.uka.ipd.sdq.pcm.repository.RepositoryFactory;
 import de.uka.ipd.sdq.pcm.seff.AbstractBranchTransition;
 import de.uka.ipd.sdq.pcm.seff.BranchAction;
 import de.uka.ipd.sdq.pcm.seff.CollectionIteratorAction;
@@ -28,10 +29,13 @@ import de.uka.ipd.sdq.pcm.seff.LoopAction;
 import de.uka.ipd.sdq.pcm.seff.ProbabilisticBranchTransition;
 import de.uka.ipd.sdq.pcm.seff.ResourceDemandingBehaviour;
 import de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF;
+import de.uka.ipd.sdq.pcm.seff.SeffFactory;
 import de.uka.ipd.sdq.pcm.seff.SetVariableAction;
 import de.uka.ipd.sdq.pcm.seff.StartAction;
 import de.uka.ipd.sdq.pcm.seff.StopAction;
 import de.uka.ipd.sdq.pcm.seff.util.SeffSwitch;
+import de.uka.ipd.sdq.pcmsolver.models.Context;
+import de.uka.ipd.sdq.pcmsolver.models.PCMInstance;
 
 /**
  * @author Koziolek
@@ -68,7 +72,6 @@ public class SeffVisitor extends SeffSwitch {
 		collIterAH = new CollectionIteratorActionHandler(this);
 		loopAH = new LoopActionHandler(this);
 		setVarAH = new SetVariableActionHandler(this);
-		
 	}
 
 	/* (non-Javadoc)

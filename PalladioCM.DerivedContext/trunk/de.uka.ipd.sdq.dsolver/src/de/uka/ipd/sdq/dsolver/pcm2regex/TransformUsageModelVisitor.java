@@ -1,12 +1,10 @@
-package de.uka.ipd.sdq.dsolver.pcm2regex;
+package de.uka.ipd.sdq.pcm2regex;
 
 import org.apache.log4j.Logger;
 
-import de.uka.ipd.sdq.dsolver.Context;
-import de.uka.ipd.sdq.dsolver.PCMInstance;
-import de.uka.ipd.sdq.dsolver.helper.EMFHelper;
-import de.uka.ipd.sdq.dsolver.visitors.SeffVisitor;
-import de.uka.ipd.sdq.dsolver.visitors.UsageModelVisitor;
+import de.uka.ipd.sdq.dsolver.EMFHelper;
+import de.uka.ipd.sdq.dsolver.SeffVisitor;
+import de.uka.ipd.sdq.dsolver.UsageModelVisitor;
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
 import de.uka.ipd.sdq.pcm.core.composition.ProvidedDelegationConnector;
 import de.uka.ipd.sdq.pcm.repository.BasicComponent;
@@ -25,6 +23,8 @@ import de.uka.ipd.sdq.pcm.usagemodel.ScenarioBehaviour;
 import de.uka.ipd.sdq.pcm.usagemodel.Start;
 import de.uka.ipd.sdq.pcm.usagemodel.Stop;
 import de.uka.ipd.sdq.pcm.usagemodel.util.UsagemodelSwitch;
+import de.uka.ipd.sdq.pcmsolver.models.Context;
+import de.uka.ipd.sdq.pcmsolver.models.PCMInstance;
 import de.uka.ipd.sdq.probfunction.math.IProbabilityFunctionFactory;
 import de.uka.ipd.sdq.spa.expression.Alternative;
 import de.uka.ipd.sdq.spa.expression.Expression;
@@ -75,7 +75,7 @@ public class TransformUsageModelVisitor extends UsagemodelSwitch {
 	@Override
 	public Object caseLoop(Loop object) {
 		de.uka.ipd.sdq.spa.expression.Loop loop = expFactory.createLoop();
-		RandomVariable iterations = (RandomVariable)object.getIterations_Loop().get(0);
+		RandomVariable iterations = (RandomVariable)object.getIterations_Loop();
 		loop.setIterationsString(iterations.getSpecification());
 		loop.setRegExp((Expression)doSwitch(object.getBodyBehaviour_Loop()));
 		

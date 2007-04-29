@@ -1,4 +1,4 @@
-package de.uka.ipd.sdq.dsolver.tests;
+package de.uka.ipd.sdq.pcmsolver.tests;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
@@ -13,13 +13,13 @@ import org.junit.Test;
 
 import de.uka.ipd.sdq.context.usage.LoopIteration;
 import de.uka.ipd.sdq.context.usage.UsageFactory;
-import de.uka.ipd.sdq.dsolver.Context;
+import de.uka.ipd.sdq.dsolver.ExpressionHelper;
+import de.uka.ipd.sdq.dsolver.SeffVisitor;
 import de.uka.ipd.sdq.dsolver.handler.LoopActionHandler;
-import de.uka.ipd.sdq.dsolver.helper.ExpressionHelper;
-import de.uka.ipd.sdq.dsolver.visitors.SeffVisitor;
 import de.uka.ipd.sdq.pcm.seff.IterationCount;
 import de.uka.ipd.sdq.pcm.seff.LoopAction;
 import de.uka.ipd.sdq.pcm.seff.SeffFactory;
+import de.uka.ipd.sdq.pcmsolver.models.Context;
 import de.uka.ipd.sdq.stoex.Expression;
 
 public class LoopActionHandlerTest {

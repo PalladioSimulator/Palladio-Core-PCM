@@ -1,5 +1,8 @@
-package de.uka.ipd.sdq.dsolver.pcm2regex;
+package de.uka.ipd.sdq.pcm2regex;
 
+import org.apache.log4j.Logger;
+
+import de.uka.ipd.sdq.pcmsolver.PCMSolver;
 import de.uka.ipd.sdq.spa.expression.Alternative;
 import de.uka.ipd.sdq.spa.expression.Loop;
 import de.uka.ipd.sdq.spa.expression.Sequence;
@@ -7,41 +10,49 @@ import de.uka.ipd.sdq.spa.expression.Symbol;
 import de.uka.ipd.sdq.spa.expression.util.ExpressionSwitch;
 
 public class ExpressionPrinter extends ExpressionSwitch{
-
+	
+	private static String newline = System.getProperty("line.separator");
+	
+	private StringBuilder outputStr = new StringBuilder();
+	
 	public ExpressionPrinter(){
-		System.out.println();
+	}
+	
+	public String getOutput(){
+		return outputStr.toString();
 	}
 	
 	@Override
 	public Object caseAlternative(Alternative object) {
-		System.out.print("(");
+		//System.out.print("(");
+		outputStr.append("(");
 		doSwitch(object.getLeftOption().getRegexp());
-		System.out.print("|");
+		outputStr.append("|");
 		doSwitch(object.getRightOption().getRegexp());
-		System.out.print(")");
+		outputStr.append(")");
 		return object;
 
 	}
 
 	@Override
 	public Object caseLoop(Loop object) {
-		System.out.print("(");
+		outputStr.append("(");
 		doSwitch(object.getRegExp());
-		System.out.print(")*");
+		outputStr.append(")*");
 		return object;
 	}
 
 	@Override
 	public Object caseSequence(Sequence object) {
 		doSwitch(object.getLeftRegExp());
-		System.out.print("");
+		outputStr.append("");
 		doSwitch(object.getRightRegExp());
 		return object;
 	}
 
 	@Override
 	public Object caseSymbol(Symbol object) {
-		System.out.print("0");
+		outputStr.append("0");
 		
 //		if (object.getName() == null || object.getName().equals("")){
 //			System.out.print("0");
