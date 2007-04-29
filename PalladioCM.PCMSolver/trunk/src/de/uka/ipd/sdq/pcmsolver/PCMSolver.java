@@ -86,6 +86,12 @@ public class PCMSolver {
 //		ResourceSet set = editingDomain.getResourceSet();
 //		EcoreUtil.getObjectByType(, arg1)
 		
+		if (!currentModel.isValid()){
+			logger.error("PCM Instance invalid! Check filenames.");
+			return;
+		}
+		
+		
 		monitor.beginTask("Analysis", 100);
 		
 		runDSolver();

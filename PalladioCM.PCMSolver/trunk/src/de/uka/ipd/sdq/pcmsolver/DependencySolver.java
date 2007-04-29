@@ -83,7 +83,7 @@ public class DependencySolver {
 		ConsoleAppender myAppender = new ConsoleAppender(myLayout);
 		BasicConfigurator.configure(myAppender);
 		
-		currentModel = new PCMInstance(configuration);
+		//currentModel = new PCMInstance(configuration);
 		
 		runDSolver();
 		

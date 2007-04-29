@@ -40,6 +40,10 @@ public class FileNameTab extends AbstractLaunchConfigurationTab {
 	private final String BUTTON_FILES = "Files...";
 	private final String BUTTON_FOLDER = "Folder...";
 	
+	private Button selectSingle = null;
+	private Button selectAll = null;
+	private Group inputFilesGroup = null;
+	
 	private boolean isSelectAll = false;
 	
 	private FileNameTabListener listener = new FileNameTabListener();
@@ -61,12 +65,14 @@ public class FileNameTab extends AbstractLaunchConfigurationTab {
 		final GridLayout glGroup = new GridLayout();
 		glGroup.numColumns = 3;
 		
-		final Group inputFilesGroup = new Group(container, SWT.NONE);
+		inputFilesGroup = new Group(container, SWT.NONE);
 		inputFilesGroup.setLayout(glGroup);
 		inputFilesGroup.setText("Input");
 		inputFilesGroup.setLayoutData(new GridData(500, SWT.DEFAULT));
 		createSelectInputFolder(inputFilesGroup);
 		createSelectIndividualFiles(container, inputFilesGroup);
+		
+		disableControls();
 		
 		final Group outputFilesGroup = new Group(container, SWT.NONE);
 		outputFilesGroup.setLayout(glGroup);
@@ -74,6 +80,24 @@ public class FileNameTab extends AbstractLaunchConfigurationTab {
 		outputFilesGroup.setLayoutData(new GridData(500, SWT.DEFAULT));
 		createSelectOutputFolder(outputFilesGroup);
 		
+	}
+
+	private void disableControls() {
+		Control[] children = inputFilesGroup.getChildren();
+		for (int i = 0; i < children.length; i++) {
+			Control child = children[i];
+			if (isSelectAll) {
+				if (i > 6)
+					child.setEnabled(false);
+				else
+					child.setEnabled(true);
+			} else {
+				if (i > 0 && i < 6)
+					child.setEnabled(false);
+				else
+					child.setEnabled(true);
+			}
+		}
 	}
 
 	private void createSelectOutputFolder(final Group outputFilesGroup) {
@@ -96,7 +120,7 @@ public class FileNameTab extends AbstractLaunchConfigurationTab {
 
 	private void createSelectIndividualFiles(Composite container,
 			final Group inputFilesGroup) {
-		final Button selectSingle = new Button(inputFilesGroup, SWT.RADIO);
+		selectSingle = new Button(inputFilesGroup, SWT.RADIO);
 		selectSingle.setText("Select individual files");
 		selectSingle.addListener (SWT.Selection, new Listener () {
 			public void handleEvent (Event event) {
@@ -110,6 +134,7 @@ public class FileNameTab extends AbstractLaunchConfigurationTab {
 			}
 		});
 		selectSingle.setLayoutData(new GridData(SWT.LEFT, SWT.CENTER, false, false, 3, 1));
+		selectSingle.setSelection(false);
 		
 		textAllocation = new Text(container, SWT.SINGLE | SWT.BORDER);
 		createFolderSelector(inputFilesGroup, textAllocation, "Allocation:", "allocation");
@@ -126,7 +151,7 @@ public class FileNameTab extends AbstractLaunchConfigurationTab {
 	}
 
 	private void createSelectInputFolder(final Group inputFilesGroup) {
-		final Button selectAll = new Button(inputFilesGroup, SWT.RADIO);
+		selectAll = new Button(inputFilesGroup, SWT.RADIO);
 		selectAll.setText("Select a folder");
 		selectAll.addListener (SWT.Selection, new Listener () {
 			public void handleEvent (Event event) {
@@ -140,6 +165,8 @@ public class FileNameTab extends AbstractLaunchConfigurationTab {
 			}
 		});
 		selectAll.setLayoutData(new GridData(SWT.LEFT, SWT.CENTER, false, false, 3, 1));
+		selectAll.setSelection(true);
+		
 		
 		Label folderLabel = new Label(inputFilesGroup, SWT.NONE);
 		folderLabel.setText("Input Folder:");
@@ -192,41 +219,62 @@ public class FileNameTab extends AbstractLaunchConfigurationTab {
 
 	@Override
 	public void initializeFrom(ILaunchConfiguration configuration) {
+		String selectAllActive = "";
 		try{
-			textAllocation.setText(configuration.getAttribute("inputAllocation", "n/a"));
+			 selectAllActive = configuration.getAttribute("isSelectAll", "true");
+		} catch (CoreException e){
+			
+		}
+		if (!selectAllActive.equals("")){
+			if (selectAllActive.equals("true")){
+				isSelectAll = true;
+				selectAll.setSelection(true);
+				selectSingle.setSelection(false);
+			} else if (selectAllActive.equals("false")){
+				isSelectAll = false;
+				selectAll.setSelection(false);
+				selectSingle.setSelection(true);
+
+			}
+			disableControls();
+		}
+		
+		
+		try{
+			textAllocation.setText(configuration.getAttribute("inputAllocation", ""));
 		} catch(CoreException e){
-			textAllocation.setText("n/a");
+			textAllocation.setText("");
 		}
 		try{
-			textRepository.setText(configuration.getAttribute("inputRepository", "n/a"));
+			textRepository.setText(configuration.getAttribute("inputRepository", ""));
 		} catch(CoreException e){
-			textRepository.setText("n/a");
+			textRepository.setText("");
 		}
 		try{
-			textResourceEnvironment.setText(configuration.getAttribute("inputResourceEnvironment", "n/a"));
+			textResourceEnvironment.setText(configuration.getAttribute("inputResourceEnvironment", ""));
 		} catch(CoreException e){
-			textResourceEnvironment.setText("n/a");
+			textResourceEnvironment.setText("");
 		}
 		try{
-			textResourceType.setText(configuration.getAttribute("inputResourceType", "n/a"));
+			textResourceType.setText(configuration.getAttribute("inputResourceType", ""));
 		} catch(CoreException e){
-			textResourceType.setText("n/a");
+			textResourceType.setText("");
 		}
 		try{
-			textSystem.setText(configuration.getAttribute("inputSystem", "n/a"));
+			textSystem.setText(configuration.getAttribute("inputSystem", ""));
 		} catch(CoreException e){
 			textSystem.setText("n/a");
 		}
 		try{
-			textUsage.setText(configuration.getAttribute("inputUsage", "n/a"));
+			textUsage.setText(configuration.getAttribute("inputUsage", ""));
 		} catch(CoreException e){
-			textUsage.setText("n/a");
+			textUsage.setText("");
 		}
 
 		try{
-			textOutput.setText(configuration.getAttribute("outputPath", "n/a"));
+			textOutput.setText(configuration.getAttribute("outputPath", ""));
 		} catch(CoreException e){
-			textOutput.setText("n/a");
+			textOutput.setText("");
 		}
 		
 	}
@@ -234,13 +282,16 @@ public class FileNameTab extends AbstractLaunchConfigurationTab {
 	@Override
 	public void performApply(ILaunchConfigurationWorkingCopy configuration) {
 		if (isSelectAll){
-			String prefix = textInputFolder.getText() + "\\" + textInputPrefix.getText()+"."; 
-			configuration.setAttribute("inputAllocation", prefix+"allocation");
-			configuration.setAttribute("inputRepository", prefix+"repository");
-			configuration.setAttribute("inputResourceEnvironment", prefix+"resourceenvironment");
-			configuration.setAttribute("inputResourceType", prefix+"resourcetype");
-			configuration.setAttribute("inputSystem", prefix+"system");
-			configuration.setAttribute("inputUsage", prefix+"usagemodel");
+			if (!textInputFolder.getText().equals("") && !textInputPrefix.equals("")){
+				String prefix = textInputFolder.getText() + "\\" + textInputPrefix.getText()+"."; 
+				configuration.setAttribute("inputAllocation", prefix+"allocation");
+				configuration.setAttribute("inputRepository", prefix+"repository");
+				configuration.setAttribute("inputResourceEnvironment", prefix+"resourceenvironment");
+				configuration.setAttribute("inputResourceType", prefix+"resourcetype");
+				configuration.setAttribute("inputSystem", prefix+"system");
+				configuration.setAttribute("inputUsage", prefix+"usagemodel");
+				configuration.setAttribute("isSelectAll", "true");
+			}
 		} else {
 			configuration.setAttribute("inputAllocation", textAllocation.getText());
 			configuration.setAttribute("inputRepository", textRepository.getText());
@@ -248,6 +299,7 @@ public class FileNameTab extends AbstractLaunchConfigurationTab {
 			configuration.setAttribute("inputResourceType", textResourceType.getText());
 			configuration.setAttribute("inputSystem", textSystem.getText());
 			configuration.setAttribute("inputUsage", textUsage.getText());
+			configuration.setAttribute("isSelectAll", "false");
 		}
 		configuration.setAttribute("outputPath", textOutput.getText());
 	}
@@ -295,6 +347,43 @@ public class FileNameTab extends AbstractLaunchConfigurationTab {
 	
 	public boolean isValid(ILaunchConfiguration launchConfig) {
 	    setErrorMessage(null);
+	    
+	    if (isSelectAll){
+	    	if (textInputFolder.getText().equals("")){
+		    	setErrorMessage("Input folder is missing!");
+		    	return false;
+	    	}
+	    	if (textInputPrefix.getText().equals("")){
+		    	setErrorMessage("Input prefix is missing!");
+		    	return false;
+	    	}
+	    } else {
+	    	if (textAllocation.getText().equals("")){
+		    	setErrorMessage("Allocation is missing!");
+		    	return false;
+	    	}
+	    	if (textRepository.getText().equals("")){
+		    	setErrorMessage("Repository is missing!");
+		    	return false;
+	    	}
+	    	if (textResourceEnvironment.getText().equals("")){
+		    	setErrorMessage("Resource environment is missing!");
+		    	return false;
+	    	}
+	    	if (textResourceType.getText().equals("")){
+		    	setErrorMessage("Resource type is missing!");
+		    	return false;
+	    	}
+	    	if (textSystem.getText().equals("")){
+	    		setErrorMessage("System is missing!");
+		    	return false;
+	    	}
+	    	if (textUsage.getText().equals("")){
+		    	setErrorMessage("Usage is missing!");
+		    	return false;
+	    	}
+	    }
+	    
 	    if (textOutput.getText().equals("")){
 	    	setErrorMessage("Output path is missing!");
 	    	return false;

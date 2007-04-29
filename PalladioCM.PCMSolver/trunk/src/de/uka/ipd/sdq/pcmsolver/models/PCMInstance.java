@@ -208,7 +208,7 @@ public class PCMInstance {
 			resource = resourceSet.getResource(uri, true);
 		} catch (Exception e) {
 			logger.error(e.getMessage());
-			System.exit(1);
+			return null;
 		}
 
 		//logger.debug("Loaded " + uri);
@@ -277,4 +277,16 @@ public class PCMInstance {
 
 	}
 
+	public boolean isValid(){
+		if (storagePath.equals("") ||
+			allocation == null ||
+			repository == null ||
+			resourceEnvironment == null ||
+			resourceRepository == null ||
+			system == null ||
+			usage == null){
+			return false;
+		} else return true;
+			
+	}
 }

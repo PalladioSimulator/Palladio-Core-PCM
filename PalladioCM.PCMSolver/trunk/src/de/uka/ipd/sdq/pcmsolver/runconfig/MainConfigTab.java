@@ -71,14 +71,14 @@ public class MainConfigTab extends AbstractLaunchConfigurationTab {
 	@Override
 	public void initializeFrom(ILaunchConfiguration configuration) {
 		try{
-			textSamplingDist.setText(configuration.getAttribute("samplingDist", "n/a"));
+			textSamplingDist.setText(configuration.getAttribute("samplingDist", "1.0"));
 		} catch(CoreException e){
-			textSamplingDist.setText("n/a");
+			textSamplingDist.setText("1.0");
 		}
 		try{
-			textMaxDomain.setText(configuration.getAttribute("maxDomain", "n/a"));
+			textMaxDomain.setText(configuration.getAttribute("maxDomain", "256"));
 		} catch(CoreException e){
-			textMaxDomain.setText("n/a");
+			textMaxDomain.setText("256");
 		}
 		updateLaunchConfigurationDialog();
 	}
@@ -97,14 +97,31 @@ public class MainConfigTab extends AbstractLaunchConfigurationTab {
 	
 	public boolean isValid(ILaunchConfiguration launchConfig) {
 	    setErrorMessage(null);
-	    if (textSamplingDist.getText().equals("")){
+	    
+	    String sampDist = textSamplingDist.getText();
+	    if (sampDist.equals("")){
 	    	setErrorMessage("Sampling distance is missing!");
 	    	return false;
 	    }
-	    if (textMaxDomain.getText().equals("")){
+	    try {	
+	    	Double.parseDouble(sampDist);
+	    } catch (NumberFormatException e){
+	    	setErrorMessage("Sampling distance is not a Double Value!");
+	    	return false;
+	    }
+	    
+	    String maxDom = textMaxDomain.getText();
+	    if (maxDom.equals("")){
 	    	setErrorMessage("Maximum domain size is missing!");
 	    	return false;
 	    }
+	    try {	
+	    	Integer.parseInt(maxDom);
+	    } catch (NumberFormatException e){
+	    	setErrorMessage("Maximum domain is not an Integer Value!");
+	    	return false;
+	    }
+	    
 	    return true;
 	}
 
