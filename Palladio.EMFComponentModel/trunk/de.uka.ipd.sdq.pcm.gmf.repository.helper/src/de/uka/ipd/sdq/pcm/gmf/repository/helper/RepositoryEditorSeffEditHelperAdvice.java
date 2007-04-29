@@ -3,7 +3,6 @@ package de.uka.ipd.sdq.pcm.gmf.repository.helper;
 import java.util.ArrayList;
 
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.EReference;
 import org.eclipse.gmf.runtime.common.core.command.ICommand;
 import org.eclipse.gmf.runtime.emf.type.core.commands.SetValueCommand;
 import org.eclipse.gmf.runtime.emf.type.core.edithelper.AbstractEditHelperAdvice;
@@ -37,6 +36,7 @@ public class RepositoryEditorSeffEditHelperAdvice extends AbstractEditHelperAdvi
 				filterList, 
 				additionalReferences,
 				request.getElementToConfigure().eContainer());
+		dialog.setProvidedService(Signature.class);
 		dialog.open();
 		if (dialog.getResult() == null)
 			return new CanceledCommand();
