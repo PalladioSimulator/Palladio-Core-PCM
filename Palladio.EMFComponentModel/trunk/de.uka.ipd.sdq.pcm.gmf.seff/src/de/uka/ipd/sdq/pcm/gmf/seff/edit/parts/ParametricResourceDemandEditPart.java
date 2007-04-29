@@ -11,6 +11,7 @@ import org.eclipse.draw2d.Label;
 import org.eclipse.draw2d.geometry.Point;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.util.EContentAdapter;
 import org.eclipse.emf.transaction.RunnableWithResult;
 import org.eclipse.gef.AccessibleEditPart;
 import org.eclipse.gef.DragTracker;
@@ -55,6 +56,8 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.PalladioComponentModelTextNonRe
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.PalladioComponentModelTextSelectionEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.ParametricResourceDemandItemSemanticEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.seff.providers.PalladioComponentModelElementTypes;
+import de.uka.ipd.sdq.pcm.repository.Signature;
+import de.uka.ipd.sdq.pcm.seff.ParametricResourceDemand;
 
 /**
  * @generated
@@ -211,7 +214,7 @@ public class ParametricResourceDemandEditPart extends CompartmentEditPart
 	}
 
 	/**
-	 * @generated
+	 * @generated not
 	 */
 	protected String getLabelText() {
 		String text = null;
@@ -219,6 +222,14 @@ public class ParametricResourceDemandEditPart extends CompartmentEditPart
 			text = getParser().getPrintString(
 					new EObjectAdapter(getParserElement()),
 					getParserOptions().intValue());
+		}
+		ParametricResourceDemand demand = (ParametricResourceDemand) resolveSemanticElement();
+		if (demand.getRequiredResource_ParametricResourceDemand() != null) {
+			if (text == null)
+				text = "";
+			else
+				text += " ";
+			text += "<" + demand.getRequiredResource_ParametricResourceDemand().getEntityName() +">";
 		}
 		if (text == null || text.length() == 0) {
 			text = defaultText;
@@ -480,34 +491,30 @@ public class ParametricResourceDemandEditPart extends CompartmentEditPart
 		getFigure().setForegroundColor(color);
 	}
 
+	private EContentAdapter changeListener = null;
 	/**
-	 * @generated
+	 * @generated not
 	 */
 	protected void addSemanticListeners() {
-		if (getParser() instanceof ISemanticParser) {
-			EObject element = resolveSemanticElement();
-			parserElements = ((ISemanticParser) getParser())
-					.getSemanticElementsBeingParsed(element);
-			for (int i = 0; i < parserElements.size(); i++) {
-				addListenerFilter(
-						"SemanticModel" + i, this, (EObject) parserElements.get(i)); //$NON-NLS-1$
+		ParametricResourceDemand element = (ParametricResourceDemand) resolveSemanticElement();
+		changeListener = new EContentAdapter(){
+
+			@Override
+			public void notifyChanged(Notification notification) {
+				super.notifyChanged(notification);
+				refreshLabel();
 			}
-		} else {
-			super.addSemanticListeners();
-		}
+			
+		};
+		element.eAdapters().add(changeListener);
 	}
 
 	/**
-	 * @generated
+	 * @generated not
 	 */
 	protected void removeSemanticListeners() {
-		if (parserElements != null) {
-			for (int i = 0; i < parserElements.size(); i++) {
-				removeListenerFilter("SemanticModel" + i); //$NON-NLS-1$
-			}
-		} else {
-			super.removeSemanticListeners();
-		}
+		ParametricResourceDemand element = (ParametricResourceDemand) resolveSemanticElement();
+		element.eAdapters().remove(changeListener);
 	}
 
 	/**
