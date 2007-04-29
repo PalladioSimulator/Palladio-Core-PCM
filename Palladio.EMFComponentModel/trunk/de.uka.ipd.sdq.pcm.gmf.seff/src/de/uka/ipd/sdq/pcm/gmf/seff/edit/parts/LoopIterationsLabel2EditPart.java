@@ -121,6 +121,8 @@ public class LoopIterationsLabel2EditPart extends CompartmentEditPart implements
 						return false;
 					}
 				});
+		installEditPolicy(EditPolicyRoles.OPEN_ROLE,
+				new OpenLoopIterationsDialog());
 	}
 
 	/**

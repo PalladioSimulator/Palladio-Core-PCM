@@ -214,7 +214,7 @@ public class ExternalCallActionEntityName2EditPart extends CompartmentEditPart
 	protected String getLabelText() {
 		String text = null;
 		ExternalCallAction eca = (ExternalCallAction) resolveSemanticElement();
-		if (eca.getCalledService_ExternalService() != null){
+		if (eca.getCalledService_ExternalService() != null) {
 			text = eca.getCalledService_ExternalService().getServiceName();
 		}
 		if (text == null || text.length() == 0) {

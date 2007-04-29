@@ -218,9 +218,11 @@ public class GuardedBranchTransitionIdEditPart extends CompartmentEditPart
 	protected String getLabelText() {
 		String text = "Cond: ";
 		GuardedBranchTransition transition = (GuardedBranchTransition) resolveSemanticElement();
-		if (transition.getBranchCondition_BranchTransition() != null &&
-				transition.getBranchCondition_BranchTransition().getSpecification() != null)
-			text += transition.getBranchCondition_BranchTransition().getSpecification();
+		if (transition.getBranchCondition_BranchTransition() != null
+				&& transition.getBranchCondition_BranchTransition()
+						.getSpecification() != null)
+			text += transition.getBranchCondition_BranchTransition()
+					.getSpecification();
 		if (text == null || text.length() == 0) {
 			text = defaultText;
 		}
