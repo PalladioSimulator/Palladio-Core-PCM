@@ -15,6 +15,7 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.SetRequest;
 import org.eclipse.ui.PlatformUI;
 
 import de.uka.ipd.sdq.dialogs.selection.PalladioSelectEObjectDialog;
+import de.uka.ipd.sdq.pcm.repository.Interface;
 import de.uka.ipd.sdq.pcm.repository.Parameter;
 import de.uka.ipd.sdq.pcm.repository.Signature;
 import de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF;
@@ -29,10 +30,16 @@ public class ParameterCollectionIteratorActionEditHelperAdvice extends
 
 	@Override
 	protected ICommand getAfterConfigureCommand(ConfigureRequest request) {
-		
-		ResourceDemandingSEFF seff = getSEFF(request.getElementToConfigure());
-		
 		EObject parameter = null;
+		Signature signature = null;
+		ResourceDemandingSEFF seff = null;
+		
+		seff = getSEFF(request.getElementToConfigure());
+		signature = seff.getDescribedService__SEFF();
+		
+		if (signature !=null)
+			signature.getInterface_Signature();
+		
 		ArrayList<Object> filterList = new ArrayList<Object>();
 		
 		filterList.add(ResourceDemandingSEFF.class);
@@ -43,7 +50,7 @@ public class ParameterCollectionIteratorActionEditHelperAdvice extends
 				PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(),
 				filterList, 
 				additionalReferences,
-				seff.getDescribedService__SEFF().getInterface_Signature());
+				signature);
 		dialog.open();
 		if (dialog.getResult() == null)
 			return new CanceledCommand();
