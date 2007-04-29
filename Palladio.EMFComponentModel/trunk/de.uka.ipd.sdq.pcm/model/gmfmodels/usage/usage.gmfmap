@@ -242,6 +242,11 @@
         <features
             href="../../pcm.ecore#//usagemodel/ClosedWorkload/population"/>
       </labelMappings>
+      <labelMappings
+          readOnly="true">
+        <diagramLabel
+            href="usage.gmfgraph#ClosedWorkloadThinkTimeLabel"/>
+      </labelMappings>
       <tool
           xsi:type="gmftool:CreationTool"
           href="usage.gmftool#//@palette/@tools.0/@tools.8"/>

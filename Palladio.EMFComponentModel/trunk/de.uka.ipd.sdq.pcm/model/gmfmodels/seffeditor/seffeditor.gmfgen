@@ -476,7 +476,8 @@
             getterName="getFigureBranchTransitionProbabilityLabel"
             figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel"/>
         <modelFacet
-            xsi:type="gmfgen:FeatureLabelModelFacet">
+            xsi:type="gmfgen:FeatureLabelModelFacet"
+            viewPattern="Probability: {0}">
           <metaFeatures
               href="../../pcm.genmodel#//pcm/seff/ProbabilisticBranchTransition/branchProbability"/>
         </modelFacet>
@@ -707,10 +708,6 @@
             xsi:type="gmfgen:ParentAssignedViewmap"
             getterName="getFigureBranchTransitionProbabilityLabel"
             figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel"/>
-        <behaviour
-            xsi:type="gmfgen:CustomBehaviour"
-            key="EditPolicyRoles.OPEN_ROLE"
-            editPolicyQualifiedClassName="de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.OpenBranchConditionDialog"/>
         <modelFacet
             xsi:type="gmfgen:FeatureLabelModelFacet"
             editPattern="">
@@ -1797,8 +1794,8 @@
             genNodes="//@diagram/@childNodes.2 //@diagram/@childNodes.10 //@diagram/@childNodes.15 //@diagram/@childNodes.17"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
-            title="BranchTransition"
-            description="Create new BranchTransition"
+            title="Probabilistic BranchTransition"
+            description="Create new ProbabilisticBranchTransition"
             genNodes="//@diagram/@childNodes.9"/>
         <entries
             xsi:type="gmfgen:ToolEntry"

@@ -35,6 +35,11 @@
           referencingElements="ClosedWorkloadPopulation"
           name="ClosedWorkloadPopulationFigure"
           text="&lt;...>"/>
+      <children
+          xsi:type="gmfgraph:Label"
+          referencingElements="ClosedWorkloadThinkTimeLabel"
+          name="ClosedWorkloadThinkTimeLabelFigure"
+          text=""/>
       <backgroundColor
           xsi:type="gmfgraph:ConstantColor"
           value="yellow"/>
@@ -97,4 +102,7 @@
   <labels
       name="UsageBranchStereotypeLabel"
       figure="UsageBranchStereotypeLabelFigure"/>
+  <labels
+      name="ClosedWorkloadThinkTimeLabel"
+      figure="ClosedWorkloadThinkTimeLabelFigure"/>
 </gmfgraph:Canvas>

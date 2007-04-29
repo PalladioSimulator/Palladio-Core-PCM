@@ -156,6 +156,28 @@
         referencingElements="SEFFLabel"
         name="SEFFLabelFigure"
         text="SEFF"/>
+    <figures
+        xsi:type="gmfgraph:PolylineConnection"
+        referencingElements="ParentCompleteTypeConnection"
+        name="ParentCompleteTypeFigure"
+        targetDecoration="ArrowHead">
+      <children
+          xsi:type="gmfgraph:Label"
+          referencingElements="CompleteParentStereotypeLabel"
+          name="CompleteParentStereotypeLabelFigure"
+          text="&lt;&lt;conforms>>"/>
+    </figures>
+    <figures
+        xsi:type="gmfgraph:PolylineConnection"
+        referencingElements="ParentProvidesTypeConnection"
+        name="ParentProvidesTypeFigure"
+        targetDecoration="ArrowHead">
+      <children
+          xsi:type="gmfgraph:Label"
+          referencingElements="ProvidesParentStereotypeLabel"
+          name="ProvidesParentStereotypeLabelFigure"
+          text="&lt;&lt;conforms>>"/>
+    </figures>
   </figures>
   <nodes
       name="Interface"
@@ -193,6 +215,12 @@
   <connections
       name="CompositeAssemblyConnector"
       figure="CompositeAssemblyConnectorFigure"/>
+  <connections
+      name="ParentCompleteTypeConnection"
+      figure="ParentCompleteTypeFigure"/>
+  <connections
+      name="ParentProvidesTypeConnection"
+      figure="ParentProvidesTypeFigure"/>
   <compartments
       name="SignatureList"
       figure="InterfaceFigure"
@@ -255,4 +283,20 @@
   <labels
       name="SEFFLabel"
       figure="SEFFLabelFigure"/>
+  <labels
+      name="CompleteParentStereotypeLabel"
+      figure="CompleteParentStereotypeLabelFigure"
+      elementIcon="false">
+    <facets
+        xsi:type="gmfgraph:AlignmentFacet"
+        alignment="CENTER"/>
+  </labels>
+  <labels
+      name="ProvidesParentStereotypeLabel"
+      figure="ProvidesParentStereotypeLabelFigure"
+      elementIcon="false">
+    <facets
+        xsi:type="gmfgraph:AlignmentFacet"
+        alignment="CENTER"/>
+  </labels>
 </gmfgraph:Canvas>

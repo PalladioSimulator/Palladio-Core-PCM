@@ -11,6 +11,7 @@ import org.eclipse.draw2d.Label;
 import org.eclipse.draw2d.geometry.Point;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.util.EContentAdapter;
 import org.eclipse.emf.transaction.RunnableWithResult;
 import org.eclipse.gef.AccessibleEditPart;
 import org.eclipse.gef.DragTracker;
@@ -54,6 +55,8 @@ import de.uka.ipd.sdq.pcm.gmf.repository.edit.policies.PalladioComponentModelTex
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.policies.PalladioComponentModelTextSelectionEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.policies.SignatureItemSemanticEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.repository.providers.PalladioComponentModelElementTypes;
+import de.uka.ipd.sdq.pcm.repository.Signature;
+import de.uka.ipd.sdq.pcmbench.ui.provider.SignaturePrinter;
 
 /**
  * @generated
@@ -209,15 +212,12 @@ public class SignatureEditPart extends CompartmentEditPart implements
 	}
 
 	/**
-	 * @generated
+	 * @generated not
 	 */
 	protected String getLabelText() {
-		String text = null;
-		if (getParser() != null) {
-			text = getParser().getPrintString(
-					new EObjectAdapter(getParserElement()),
-					getParserOptions().intValue());
-		}
+		String text = "";
+		Signature sig = (Signature) resolveSemanticElement();
+		text = new SignaturePrinter().doSwitch(sig);
 		if (text == null || text.length() == 0) {
 			text = defaultText;
 		}
@@ -478,34 +478,30 @@ public class SignatureEditPart extends CompartmentEditPart implements
 		getFigure().setForegroundColor(color);
 	}
 
+	private EContentAdapter changeListener = null;
 	/**
-	 * @generated
+	 * @generated not
 	 */
 	protected void addSemanticListeners() {
-		if (getParser() instanceof ISemanticParser) {
-			EObject element = resolveSemanticElement();
-			parserElements = ((ISemanticParser) getParser())
-					.getSemanticElementsBeingParsed(element);
-			for (int i = 0; i < parserElements.size(); i++) {
-				addListenerFilter(
-						"SemanticModel" + i, this, (EObject) parserElements.get(i)); //$NON-NLS-1$
+		Signature element = (Signature) resolveSemanticElement();
+		changeListener = new EContentAdapter(){
+
+			@Override
+			public void notifyChanged(Notification notification) {
+				super.notifyChanged(notification);
+				refreshLabel();
 			}
-		} else {
-			super.addSemanticListeners();
-		}
+			
+		};
+		element.eAdapters().add(changeListener);
 	}
 
 	/**
-	 * @generated
+	 * @generated not
 	 */
 	protected void removeSemanticListeners() {
-		if (parserElements != null) {
-			for (int i = 0; i < parserElements.size(); i++) {
-				removeListenerFilter("SemanticModel" + i); //$NON-NLS-1$
-			}
-		} else {
-			super.removeSemanticListeners();
-		}
+		Signature element = (Signature) resolveSemanticElement();
+		element.eAdapters().remove(changeListener);
 	}
 
 	/**
@@ -547,7 +543,7 @@ public class SignatureEditPart extends CompartmentEditPart implements
 	}
 
 	/**
-	 * @generated
+	 * @generated not
 	 */
 	protected void handleNotificationEvent(Notification event) {
 		Object feature = event.getFeature();
@@ -570,21 +566,7 @@ public class SignatureEditPart extends CompartmentEditPart implements
 						feature)) {
 			refreshFont();
 		} else {
-			if (getParser() != null
-					&& getParser().isAffectingEvent(event,
-							getParserOptions().intValue())) {
-				refreshLabel();
-			}
-			if (getParser() instanceof ISemanticParser) {
-				ISemanticParser modelParser = (ISemanticParser) getParser();
-				if (modelParser.areSemanticElementsAffected(null, event)) {
-					removeSemanticListeners();
-					if (resolveSemanticElement() != null) {
-						addSemanticListeners();
-					}
-					refreshLabel();
-				}
-			}
+			refreshLabel();
 		}
 		super.handleNotificationEvent(event);
 	}

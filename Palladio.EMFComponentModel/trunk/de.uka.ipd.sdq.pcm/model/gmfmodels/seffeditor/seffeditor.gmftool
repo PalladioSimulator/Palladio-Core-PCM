@@ -155,8 +155,8 @@
       </tools>
       <tools
           xsi:type="gmftool:CreationTool"
-          title="BranchTransition"
-          description="Create new BranchTransition">
+          title="Probabilistic BranchTransition"
+          description="Create new ProbabilisticBranchTransition">
         <smallIcon
             xsi:type="gmftool:DefaultImage"/>
         <largeIcon

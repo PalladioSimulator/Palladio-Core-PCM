@@ -266,7 +266,8 @@
           <domainMetaElement
               href="../../pcm.ecore#//seff/ProbabilisticBranchTransition"/>
           <labelMappings
-              xsi:type="gmfmap:FeatureLabelMapping">
+              xsi:type="gmfmap:FeatureLabelMapping"
+              viewPattern="Probability: {0}">
             <diagramLabel
                 href="seffeditor.gmfgraph#BranchTransitionProbabilityDiagramLabel"/>
             <features

@@ -210,6 +210,36 @@
         xsi:type="ecore:EReference"
         href="../../pcm.ecore#//repository/RequiredRole/requiredInterface__RequiredRole"/>
   </links>
+  <links>
+    <labelMappings
+        readOnly="true">
+      <diagramLabel
+          href="repository.gmfgraph#CompleteParentStereotypeLabel"/>
+    </labelMappings>
+    <tool
+        xsi:type="gmftool:CreationTool"
+        href="repositoryeditor.gmftool#//@palette/@tools.0/@tools.13"/>
+    <diagramLink
+        href="repository.gmfgraph#ParentCompleteTypeConnection"/>
+    <linkMetaFeature
+        xsi:type="ecore:EReference"
+        href="../../pcm.ecore#//repository/ImplementationComponentType/parentCompleteComponentTypes"/>
+  </links>
+  <links>
+    <labelMappings
+        readOnly="true">
+      <diagramLabel
+          href="repository.gmfgraph#ProvidesParentStereotypeLabel"/>
+    </labelMappings>
+    <tool
+        xsi:type="gmftool:CreationTool"
+        href="repositoryeditor.gmftool#//@palette/@tools.0/@tools.14"/>
+    <diagramLink
+        href="repository.gmfgraph#ParentProvidesTypeConnection"/>
+    <linkMetaFeature
+        xsi:type="ecore:EReference"
+        href="../../pcm.ecore#//repository/CompleteComponentType/parentProvidesComponentTypes"/>
+  </links>
   <diagram>
     <diagramCanvas
         href="repository.gmfgraph#pcm"/>

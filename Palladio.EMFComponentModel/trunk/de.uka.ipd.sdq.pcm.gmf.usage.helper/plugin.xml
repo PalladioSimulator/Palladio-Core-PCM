@@ -6,6 +6,18 @@
       <metamodel
             nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/UsageModel/1.0">
          <adviceBinding 
+               class="de.uka.ipd.sdq.pcm.gmf.usage.helper.CreateThinkTimeEditHelperAdvice"
+               id="de.uka.ipd.sdq.pcm.gmf.usage.ThinkTimeActionAdvice"
+               inheritance="all"
+               typeId="de.uka.ipd.sdq.pcm.gmf.usage.ClosedWorkload_2002">
+         </adviceBinding>
+         <adviceBinding 
+               class="de.uka.ipd.sdq.pcm.gmf.usage.helper.CreateLoopIterationsEditHelperAdvice"
+               id="de.uka.ipd.sdq.pcm.gmf.usage.LoopIterationsActionAdvice"
+               inheritance="all"
+               typeId="de.uka.ipd.sdq.pcm.gmf.usage.Loop_3005">
+         </adviceBinding>
+         <adviceBinding 
                class="de.uka.ipd.sdq.pcm.gmf.usage.helper.IncludeBehaviourEditHelperAdvice"
                id="de.uka.ipd.sdq.pcm.gmf.usage.LoopAdvice"
                inheritance="all"
@@ -23,6 +35,26 @@
                inheritance="all"
                typeId="de.uka.ipd.sdq.pcm.gmf.usage.EntryLevelSystemCall_3003">
          </adviceBinding>
+      </metamodel>
+      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/UsageModel/1.0">
+         <metamodelType
+               id="de.uka.ipd.sdq.pcm.gmf.usage.ThinkTime_9100"
+               name="ThinkTime"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="ThinkTime"
+               edithelper="de.uka.ipd.sdq.pcm.gmf.usage.helper.ThinkTimeEditHelper">
+            <param name="semanticHint" value="9100"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/UsageModel/1.0">
+         <metamodelType
+               id="de.uka.ipd.sdq.pcm.gmf.usage.LoopIterations_9101"
+               name="LoopIterations"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="LoopIterations"
+               edithelper="de.uka.ipd.sdq.pcm.gmf.usage.helper.LoopIterationsEditHelper">
+            <param name="semanticHint" value="9101"/>
+         </metamodelType>
       </metamodel>
    </extension>
 
@@ -45,6 +77,12 @@
          <advice
                ref="de.uka.ipd.sdq.pcm.gmf.usage.EntryLevelSystemCallAdvice">
          </advice>
+         <advice
+               ref="de.uka.ipd.sdq.pcm.gmf.usage.ThinkTimeActionAdvice">
+         </advice>
+         <advice
+               ref="de.uka.ipd.sdq.pcm.gmf.usage.LoopIterationsActionAdvice">
+         </advice>      
        </binding>
    </extension>
 </plugin>
