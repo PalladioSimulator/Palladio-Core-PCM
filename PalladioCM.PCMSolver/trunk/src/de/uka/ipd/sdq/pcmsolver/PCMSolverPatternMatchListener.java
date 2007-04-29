@@ -16,25 +16,21 @@ public class PCMSolverPatternMatchListener implements IPatternMatchListener {
 	MessageConsole myConsole;
 	IOConsoleOutputStream stream;
 	
-	@Override
 	public int getCompilerFlags() {
 		// TODO Auto-generated method stub
 		return 0;
 	}
 
-	@Override
 	public String getLineQualifier() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
 	public String getPattern() {
 		// TODO Auto-generated method stub
 		return "INFO";
 	}
 
-	@Override
 	public void connect(TextConsole console) {
 		if (console instanceof MessageConsole) {
 			myConsole = (MessageConsole)console;
@@ -43,13 +39,11 @@ public class PCMSolverPatternMatchListener implements IPatternMatchListener {
 			
 	}
 
-	@Override
 	public void disconnect() {
 		// TODO Auto-generated method stub
 
 	}
 
-	@Override
 	public void matchFound(PatternMatchEvent event) {
 		stream.setColor(new org.eclipse.swt.graphics.Color(Display.getCurrent(), 0, 255, 0));
 
