@@ -120,8 +120,6 @@ public class LoopIterationsLabelEditPart extends CompartmentEditPart implements
 						return false;
 					}
 				});
-		installEditPolicy(EditPolicyRoles.OPEN_ROLE,
-				new OpenLoopIterationsDialog());
 	}
 
 	/**

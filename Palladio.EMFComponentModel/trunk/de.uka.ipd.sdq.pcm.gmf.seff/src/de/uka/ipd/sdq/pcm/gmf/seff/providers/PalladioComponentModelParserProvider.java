@@ -209,8 +209,8 @@ public class PalladioComponentModelParserProvider extends AbstractProvider
 		PalladioComponentModelStructuralFeatureParser parser = new PalladioComponentModelStructuralFeatureParser(
 				SeffPackage.eINSTANCE
 						.getProbabilisticBranchTransition_BranchProbability());
-		parser.setViewPattern("{0}");
-		parser.setEditPattern("{0}");
+		parser.setViewPattern("Probability: {0}");
+		parser.setEditPattern("Probability: {0}");
 		return parser;
 	}
 

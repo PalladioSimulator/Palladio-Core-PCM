@@ -119,8 +119,6 @@ public class GuardedBranchTransitionIdEditPart extends CompartmentEditPart
 						return false;
 					}
 				});
-		installEditPolicy(EditPolicyRoles.OPEN_ROLE,
-				new OpenBranchConditionDialog());
 	}
 
 	/**
