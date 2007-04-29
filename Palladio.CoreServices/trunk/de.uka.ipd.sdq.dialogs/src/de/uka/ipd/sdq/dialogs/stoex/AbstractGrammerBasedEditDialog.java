@@ -90,11 +90,14 @@ public abstract class AbstractGrammerBasedEditDialog extends Dialog {
 
 	@Override
 	protected Control createDialogArea(Composite parent) {
-
+// HK: does not work:
+//		setShellStyle(getShellStyle() | SWT.DIALOG_TRIM | SWT.RESIZE | SWT.MAX
+//				| SWT.APPLICATION_MODAL);
+		
 		IAnnotationAccess fAnnotationAccess = new AnnotationMarkerAccess();
 
 		final Group editStochasticExpressionGroup = new Group(parent, SWT.NONE);
-		editStochasticExpressionGroup.setText(getTitle());
+		editStochasticExpressionGroup.setText("");
 		editStochasticExpressionGroup.setLayout(new GridLayout());
 
 		fAnnotationModel = new AnnotationModel();
@@ -108,8 +111,9 @@ public abstract class AbstractGrammerBasedEditDialog extends Dialog {
 		// add what types are show on the different rulers
 		annotationRuler.addAnnotationType(ERROR_TYPE);
 		textViewer = new SourceViewer(editStochasticExpressionGroup,
-				fCompositeRuler, SWT.V_SCROLL | SWT.MULTI | SWT.H_SCROLL);
+				fCompositeRuler, SWT.V_SCROLL | SWT.MULTI | SWT.H_SCROLL | SWT.RESIZE);
 		final StyledText styledText = textViewer.getTextWidget();
+		styledText.setWordWrap(true);
 		final AbstractGrammarBasedViewerConfiguration config = new AbstractGrammarBasedViewerConfiguration(fAnnotationModel,context,getLexerClass(),getTokenMapper());
 		styledText.setFont(SWTResourceManager.getFont("Courier New", 12,
 				SWT.NONE));
@@ -139,11 +143,12 @@ public abstract class AbstractGrammerBasedEditDialog extends Dialog {
 				| GridData.GRAB_HORIZONTAL | GridData.GRAB_VERTICAL);
 		layoutData.heightHint = 300;
 		layoutData.widthHint = 450;
+		
 		textViewer.getControl().setLayoutData(layoutData);
 		// editText.setText(newText);
 		textViewer.setDocument(new Document(newText), fAnnotationModel);
 		textViewer.addTextListener(new ITextListener(){
-
+			
 			public void textChanged(TextEvent event) {
 				if (event.getDocumentEvent() != null)
 				{

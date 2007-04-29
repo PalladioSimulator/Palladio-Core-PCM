@@ -3,6 +3,9 @@
  */
 package de.uka.ipd.sdq.dialogs.stoex;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.eclipse.jface.text.IRegion;
 import org.eclipse.jface.text.ITextViewer;
 import org.eclipse.jface.text.templates.Template;
@@ -48,13 +51,24 @@ public class StoExTemplateCompletionProcessor extends
 	 */
 	@Override
 	protected Template[] getTemplates(String contextTypeId) {
-		Template t = new Template("IntPMF","Creates an integer random variable",
-				STO_EX_CONTEXT_TYPE,
-				"IntPMF(unit=\"${unit}\")[(x;p)]",false);
-		Template t2 = new Template("BoolPMF","Creates an boolean random variable",
-				STO_EX_CONTEXT_TYPE,
-				"BoolPMF(unit=\"bool\")[(true;p)(false;p)]",false);
+		List<Template> templates = new ArrayList<Template>();
 
-		return new Template[]{t,t2};
+		templates.add(new Template("DoublePDF",
+				"Creates a double random variable (BoxedPDF)", STO_EX_CONTEXT_TYPE,
+				"DoublePDF(unit=\"${unit}\")[(${x};${p})(${y};${q})(${z};${r})]", false));
+		templates.add(new Template("IntPMF",
+				"Creates an integer random variable", STO_EX_CONTEXT_TYPE,
+				"IntPMF(unit=\"${unit}\")[(${x};${p})(${y};${q})(${z};${r})]", false));
+		templates.add(new Template("DoublePMF",
+				"Creates a double random variable", STO_EX_CONTEXT_TYPE,
+				"DoublePMF(unit=\"${unit}\")[(${x};${p})(${y};${q})(${z};${r})]", false));
+		templates.add(new Template("BoolPMF",
+				"Creates a boolean random variable", STO_EX_CONTEXT_TYPE,
+				"BoolPMF(unit=\"bool\")[(true;${p})(false;${q})]", false));
+		templates.add(new Template("EnumPMF",
+				"Creates a enum random variable", STO_EX_CONTEXT_TYPE,
+				"EnumPMF(unit=\"${unit}\")[(${x};${p})]", false));
+		
+		return templates.toArray(new Template[templates.size()]);
 	}
 }
