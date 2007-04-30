@@ -53,21 +53,38 @@ public class StoExTemplateCompletionProcessor extends
 	protected Template[] getTemplates(String contextTypeId) {
 		List<Template> templates = new ArrayList<Template>();
 
+// Template with units:
+//		templates.add(new Template("DoublePDF",
+//				"Creates a double random variable (BoxedPDF)", STO_EX_CONTEXT_TYPE,
+//				"DoublePDF(unit=\"${unit}\")[(${x};${p})(${y};${q})(${z};${r})]", false));
+//		templates.add(new Template("IntPMF",
+//				"Creates an integer random variable", STO_EX_CONTEXT_TYPE,
+//				"IntPMF(unit=\"${unit}\")[(${x};${p})(${y};${q})(${z};${r})]", false));
+//		templates.add(new Template("DoublePMF",
+//				"Creates a double random variable", STO_EX_CONTEXT_TYPE,
+//				"DoublePMF(unit=\"${unit}\")[(${x};${p})(${y};${q})(${z};${r})]", false));
+//		templates.add(new Template("BoolPMF",
+//				"Creates a boolean random variable", STO_EX_CONTEXT_TYPE,
+//				"BoolPMF(unit=\"bool\")[(true;${p})(false;${q})]", false));
+//		templates.add(new Template("EnumPMF",
+//				"Creates a enum random variable", STO_EX_CONTEXT_TYPE,
+//				"EnumPMF(unit=\"${unit}\")[(${x};${p})]", false));
+
 		templates.add(new Template("DoublePDF",
 				"Creates a double random variable (BoxedPDF)", STO_EX_CONTEXT_TYPE,
-				"DoublePDF(unit=\"${unit}\")[(${x};${p})(${y};${q})(${z};${r})]", false));
+				"DoublePDF[(${x};${p})(${y};${q})(${z};${r})]", false));
 		templates.add(new Template("IntPMF",
 				"Creates an integer random variable", STO_EX_CONTEXT_TYPE,
-				"IntPMF(unit=\"${unit}\")[(${x};${p})(${y};${q})(${z};${r})]", false));
+				"IntPMF[(${x};${p})(${y};${q})(${z};${r})]", false));
 		templates.add(new Template("DoublePMF",
 				"Creates a double random variable", STO_EX_CONTEXT_TYPE,
-				"DoublePMF(unit=\"${unit}\")[(${x};${p})(${y};${q})(${z};${r})]", false));
+				"DoublePMF[(${x};${p})(${y};${q})(${z};${r})]", false));
 		templates.add(new Template("BoolPMF",
 				"Creates a boolean random variable", STO_EX_CONTEXT_TYPE,
-				"BoolPMF(unit=\"bool\")[(true;${p})(false;${q})]", false));
+				"BoolPMF[(true;${p})(false;${q})]", false));
 		templates.add(new Template("EnumPMF",
 				"Creates a enum random variable", STO_EX_CONTEXT_TYPE,
-				"EnumPMF(unit=\"${unit}\")[(${x};${p})]", false));
+				"EnumPMF[(${x};${p})]", false));
 		
 		return templates.toArray(new Template[templates.size()]);
 	}
