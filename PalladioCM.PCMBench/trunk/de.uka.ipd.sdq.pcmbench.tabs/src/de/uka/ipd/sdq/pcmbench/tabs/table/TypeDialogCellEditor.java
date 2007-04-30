@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import org.eclipse.emf.transaction.RecordingCommand;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.jface.viewers.DialogCellEditor;
-import org.eclipse.jface.viewers.ICellEditorListener;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.FocusEvent;
 import org.eclipse.swt.events.FocusListener;
@@ -16,14 +15,9 @@ import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.Font;
-import org.eclipse.swt.graphics.Point;
-import org.eclipse.swt.graphics.Rectangle;
-import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
-import org.eclipse.swt.widgets.Label;
-import org.eclipse.swt.widgets.Layout;
 
 import de.uka.ipd.sdq.dialogs.datatype.CallDataTypeDialog;
 import de.uka.ipd.sdq.pcm.repository.DataType;
@@ -46,11 +40,6 @@ public class TypeDialogCellEditor extends DialogCellEditor {
      * The current contents.
      */
     private Control contents;
-
-    /**
-     * The label that gets reused by <code>updateLabel</code>.
-     */
-    private Label defaultLabel;
 
     /**
      * The button.
@@ -100,6 +89,7 @@ public class TypeDialogCellEditor extends DialogCellEditor {
 				filterList,
 				additionalReferences,
 				editingDomain.getResourceSet());
+		dialog.setProvidedService(DataType.class);
 		dialog.open();
 
 		if (!(dialog.getResult() instanceof DataType))
@@ -125,31 +115,10 @@ public class TypeDialogCellEditor extends DialogCellEditor {
 		updateContents(value);
 
 
-		delButton = new Button(editor, SWT.PUSH);
+		delButton = new Button(editor, SWT.DOWN);
 		delButton.setText("X");
 		delButton.setFont(font);
-		delButton.addSelectionListener(new SelectionAdapter(){
-
-			/* (non-Javadoc)
-			 * @see org.eclipse.swt.events.SelectionAdapter#widgetSelected(org.eclipse.swt.events.SelectionEvent)
-			 */
-			@Override
-			public void widgetSelected(SelectionEvent e) {
-				final Signature signature = OperationsTabRepository.getEditedSignature();
-				
-
-				RecordingCommand recCommand = new RecordingCommand(editingDomain) {
-					@Override
-					protected void doExecute() {
-						signature.setReturntype__Signature(null);
-					}		
-				};
-				
-				recCommand.setDescription("Set void return type signature");
-				editingDomain.getCommandStack().execute(recCommand);
-			}
-			
-		});
+		delButton.addSelectionListener(new DeleteCellValueListener());
 
 		selButton = createButton(editor);
 		selButton.setFont(font);
@@ -200,6 +169,7 @@ public class TypeDialogCellEditor extends DialogCellEditor {
 
 		return editor;
 	}
+	
 
 	 /**
 	 * Return a listener for button focus.
@@ -237,7 +207,7 @@ public class TypeDialogCellEditor extends DialogCellEditor {
 		 selButton.setFocus();
 	        
 	     // add a FocusListener to the button
-	     selButton.addFocusListener(getButtonFocusListener());
+	     //selButton.addFocusListener(getButtonFocusListener());
 	}
 
 }

@@ -8,7 +8,6 @@ import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 
-import de.uka.ipd.sdq.pcm.repository.RepositoryFactory;
 import de.uka.ipd.sdq.pcm.repository.Signature;
 import de.uka.ipd.sdq.pcmbench.EditingDomainFactory;
 
@@ -44,6 +43,10 @@ public class DeleteCellValueListener extends SelectionAdapter {
 		
 		recCommand.setDescription("Set void return type signature");
 		editingDomain.getCommandStack().execute(recCommand);
+		refreshViewer();
 	}
 
+	private void refreshViewer(){
+		OperationsTabRepository.getOperationsViewer().refresh();
+	}
 }
