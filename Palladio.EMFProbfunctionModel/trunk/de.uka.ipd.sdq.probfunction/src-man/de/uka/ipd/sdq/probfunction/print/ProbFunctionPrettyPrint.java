@@ -1,6 +1,9 @@
 package de.uka.ipd.sdq.probfunction.print;
 
+import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
 import java.util.List;
+import java.util.Locale;
 
 import de.uka.ipd.sdq.probfunction.BoxedPDF;
 import de.uka.ipd.sdq.probfunction.ContinuousSample;
@@ -19,10 +22,24 @@ public class ProbFunctionPrettyPrint extends ProbfunctionSwitch {
 	public Object caseBoxedPDF(BoxedPDF object) {
 		String sampleString = "";
 		for (ContinuousSample s : (List<ContinuousSample>) object.getSamples()) {
-			sampleString += " (" + s.getValue() + "; " + s.getProbability()
+			double value = s.getProbability();
+			double precision = 0.00001;
+			
+			value *= 1 / precision;
+			long temp = Math.round(value);
+			double prob = temp * precision;
+			DecimalFormat df = new DecimalFormat("0.00000000", new DecimalFormatSymbols(Locale.US));
+			
+			sampleString += " (" + s.getValue() + "; " + df.format(prob)
 					+ ")";
 		}
-		return "DoublePDF"+ "(unit=\""+object.getUnit().getUnitName() + "\")[" + sampleString + " ]";
+		
+		if (object.getUnit() != null && 
+		  !(object.getUnit().getUnitName().equals(""))){
+			return "DoublePDF"+ "(unit=\""+object.getUnit().getUnitName() + "\")[" + sampleString + " ]";
+		} else {
+			return "DoublePDF[" + sampleString + " ]";
+		}
 	}
 
 	/*
@@ -39,17 +56,20 @@ public class ProbFunctionPrettyPrint extends ProbfunctionSwitch {
 		String leftSeparator = "; ";
 		String rightSeparator = ")";
 		
-		pmfType += "(unit=\""+object.getUnit().getUnitName() + "\"";
-		
-		if ( sample.getValue() instanceof String) {
-			leftSeparator = "; \"";
-			rightSeparator = "\")";
-			if (object.isOrderedDomain()){
-				pmfType += "; ordered";
+		if (object.getUnit() != null && 
+		  !(object.getUnit().getUnitName().equals(""))){
+			pmfType += "(unit=\""+object.getUnit().getUnitName() + "\"";
+			
+			if ( sample.getValue() instanceof String) {
+				leftSeparator = "; \"";
+				rightSeparator = "\")";
+				if (object.isOrderedDomain()){
+					pmfType += "; ordered";
+				}
 			}
+			
+			pmfType += ")";
 		}
-		
-		pmfType += ")";
 		
 		for (Sample s : (List<Sample>) object.getSamples()) {
 			sampleString += " (" + s.getValue() + leftSeparator
