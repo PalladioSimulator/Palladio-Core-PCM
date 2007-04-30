@@ -136,11 +136,11 @@ definition returns [ProbabilityFunctionLiteral pfl]
 			"IntPMF"
 				{probFunction = ProbfunctionFactory.eINSTANCE.createProbabilityMassFunction();
 				   pfl.setFunction_ProbabilityFunctionLiteral(probFunction);}
-			LPAREN
+			(LPAREN
 			  ({Unit uunit = null;}
 			  uunit = unit 
 			  {probFunction.setUnit(uunit);})
-			RPAREN
+			RPAREN)?
 			SQUARE_PAREN_L 
 				( {Sample isample=null;}
 				  isample = numeric_int_sample
@@ -150,11 +150,11 @@ definition returns [ProbabilityFunctionLiteral pfl]
 		 	"DoublePMF" 
 				{probFunction = ProbfunctionFactory.eINSTANCE.createProbabilityMassFunction();
 				   pfl.setFunction_ProbabilityFunctionLiteral(probFunction);}
-			LPAREN
+			(LPAREN
 			  ({Unit uunit = null;}
 			  uunit = unit 
 			  {probFunction.setUnit(uunit);})
-			RPAREN
+			RPAREN)?
 		 	SQUARE_PAREN_L 
 				( {Sample rsample=null;} 
 				rsample = numeric_real_sample
@@ -167,15 +167,15 @@ definition returns [ProbabilityFunctionLiteral pfl]
 				   pfl.setFunction_ProbabilityFunctionLiteral(probFunction);
 				   ((ProbabilityMassFunction)probFunction).setOrderedDomain(false);
 				   }
-			LPAREN
+			(LPAREN
 			  ({Unit uunit = null;}
 			  uunit = unit 
 			  {probFunction.setUnit(uunit);})
 			  (SEMI
 			  ORDERED_DEF
 			  {((ProbabilityMassFunction)probFunction).setOrderedDomain(true);}
-			  )?
-			RPAREN
+			  )
+			RPAREN)?
 			SQUARE_PAREN_L 
 				( {Sample ssample=null;} 
 				ssample = stringsample
@@ -185,11 +185,11 @@ definition returns [ProbabilityFunctionLiteral pfl]
 			"DoublePDF"
 				{probFunction = ProbfunctionFactory.eINSTANCE.createBoxedPDF();
 				   pfl.setFunction_ProbabilityFunctionLiteral(probFunction);}
-			LPAREN
+			(LPAREN
 			  ({Unit uunit = null;}
 			  uunit = unit 
 			  {probFunction.setUnit(uunit);})
-			RPAREN
+			RPAREN)?
 			SQUARE_PAREN_L 
 				( {ContinuousSample pdf_sample=null;}
 				  pdf_sample = real_pdf_sample
@@ -201,7 +201,7 @@ definition returns [ProbabilityFunctionLiteral pfl]
 				   pfl.setFunction_ProbabilityFunctionLiteral(probFunction);
 				   ((ProbabilityMassFunction)probFunction).setOrderedDomain(false);
 				   }
-			LPAREN
+			(LPAREN
 			  ({Unit uunit = null;}
 			  uunit = bool_unit 
 			  {probFunction.setUnit(uunit);})
@@ -209,7 +209,7 @@ definition returns [ProbabilityFunctionLiteral pfl]
 			  ORDERED_DEF
 			  {((ProbabilityMassFunction)probFunction).setOrderedDomain(true);}
 			  )?
-			RPAREN
+			RPAREN)?
 			SQUARE_PAREN_L 
 				( {Sample ssample=null;} 
 				ssample = boolsample
