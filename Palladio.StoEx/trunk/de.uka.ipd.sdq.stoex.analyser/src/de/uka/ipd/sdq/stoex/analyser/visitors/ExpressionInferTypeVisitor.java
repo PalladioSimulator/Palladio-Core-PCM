@@ -57,7 +57,7 @@ public class ExpressionInferTypeVisitor extends StoexSwitch {
 			throw new UnsupportedOperationException();
 		} else
 			throw new UnsupportedOperationException();
-		logger.debug(expr.getOperation().toString());
+		logger.info(expr.getOperation().toString());
 
 		return expr;
 	}
@@ -85,7 +85,7 @@ public class ExpressionInferTypeVisitor extends StoexSwitch {
 			inferIntAndDouble(expr, leftType, rightType);
 		} else
 			throw new UnsupportedOperationException();
-		logger.debug(expr.getOperation().toString());
+		logger.info(expr.getOperation().toString());
 
 		return expr;
 	}
