@@ -35,26 +35,18 @@ import org.eclipse.pde.ui.launcher.PDESourcePathProvider;
  * @author admin
  * 
  */
-public class CreatePluginProject {
+public class PluginProject {
 
 	public static String PROJECT_ID = "de.uka.ipd.sdq.codegen.simucominstance";
 
-	private IProject project;
-
-	public CreatePluginProject(IProgressMonitor monitor) throws CoreException {
-		createProject(monitor);
-	}
-
 	/**
+	 * TODO
 	 * @param monitor
-	 * @param workspace
-	 * @param project
-	 * @return
 	 * @throws CoreException
 	 */
-	private void createProject(IProgressMonitor monitor) throws CoreException {
+	public static IProject create(IProgressMonitor monitor) throws CoreException {
 
-		project = ResourcesPlugin.getWorkspace().getRoot().getProject(
+		IProject project = ResourcesPlugin.getWorkspace().getRoot().getProject(
 				PROJECT_ID);
 
 		IFolder srcFolder = project.getFolder("src");
@@ -76,14 +68,16 @@ public class CreatePluginProject {
 		createBuildProperties(project);
 		// set Plug-In class path
 		setClasspath(project);
+
+		return project;
 	}
 
-	public void setClasspath(IProject project) throws CoreException {
+	public static void setClasspath(IProject project) throws CoreException {
 		ClasspathComputer.setClasspath(project, PluginRegistry
 				.findModel(project));
 	}
 
-	public void setProjectToJavaProject(IProject project)
+	public static void setProjectToJavaProject(IProject project)
 			throws JavaModelException, CoreException {
 		// create class path entry
 		IJavaProject javaProject = JavaCore.create(project);
@@ -94,7 +88,7 @@ public class CreatePluginProject {
 		javaProject.setRawClasspath(buildPath, binPath, null);
 	}
 
-	private void createDescription(IProject project, IProgressMonitor monitor)
+	private static void createDescription(IProject project, IProgressMonitor monitor)
 			throws CoreException {
 		IProjectDescription description = ResourcesPlugin.getWorkspace()
 				.newProjectDescription(project.getName());
@@ -109,14 +103,14 @@ public class CreatePluginProject {
 		project.setDescription(description, monitor);
 	}
 
-	private void createFolder(IProject project, IFolder folder)
+	private static void createFolder(IProject project, IFolder folder)
 			throws CoreException {
 		if (project.isOpen() && !folder.exists()) {
 			folder.create(false, true, null);
 		}
 	}
 
-	private void createProject(IProject project, IProgressMonitor monitor)
+	private static void createProject(IProject project, IProgressMonitor monitor)
 			throws CoreException {
 		if (!project.exists())
 			project.create(monitor);
@@ -142,7 +136,7 @@ public class CreatePluginProject {
 
 	}
 
-	private void createPluginXml(IProject project) throws CoreException {
+	private static void createPluginXml(IProject project) throws CoreException {
 
 		String PLUGIN_XML = "plugin.xml";
 		ByteArrayOutputStream baos;
@@ -170,7 +164,7 @@ public class CreatePluginProject {
 					true, null);
 	}
 
-	private void createBuildProperties(IProject project) throws CoreException {
+	private static void createBuildProperties(IProject project) throws CoreException {
 
 		String BUILD_PROPERTIES = "build.properties";
 		ByteArrayOutputStream baos;
@@ -192,7 +186,7 @@ public class CreatePluginProject {
 					new ByteArrayInputStream(baos.toByteArray()), true, null);
 	}
 
-	private void createManifestMf(IProject project) throws CoreException {
+	private static void createManifestMf(IProject project) throws CoreException {
 
 		String MANIFEST_MF = "MANIFEST.MF";
 
@@ -224,12 +218,4 @@ public class CreatePluginProject {
 			manifestMf.create(new ByteArrayInputStream(baos.toByteArray()),
 					true, null);
 	}
-
-	/**
-	 * @return the project
-	 */
-	public IProject getProject() {
-		return project;
-	}
-
 }

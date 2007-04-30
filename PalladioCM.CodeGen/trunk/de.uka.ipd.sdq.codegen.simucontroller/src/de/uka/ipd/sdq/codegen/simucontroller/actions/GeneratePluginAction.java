@@ -11,7 +11,7 @@ import org.osgi.framework.BundleContext;
 import org.osgi.framework.BundleException;
 
 import de.uka.ipd.sdq.codegen.simucontroller.SimuControllerPlugin;
-import de.uka.ipd.sdq.codegen.simucontroller.runconfig.CreatePluginProject;
+import de.uka.ipd.sdq.codegen.simucontroller.runconfig.PluginProject;
 
 /**
  * Our sample action implements workbench action delegate.
@@ -38,7 +38,7 @@ public class GeneratePluginAction implements IWorkbenchWindowActionDelegate {
 	 */
 	public void run(IAction action) {
 		IProject project = ResourcesPlugin.getWorkspace().getRoot().getProject(
-				CreatePluginProject.PROJECT_ID);
+				PluginProject.PROJECT_ID);
 
 		String location = project.getLocationURI().toString();
 		
