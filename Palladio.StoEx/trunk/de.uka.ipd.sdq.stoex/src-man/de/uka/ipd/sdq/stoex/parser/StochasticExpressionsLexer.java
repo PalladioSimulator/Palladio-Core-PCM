@@ -90,12 +90,6 @@ tryAgain:
 					theRetToken=_returnToken;
 					break;
 				}
-				case '/':
-				{
-					mDIV(true);
-					theRetToken=_returnToken;
-					break;
-				}
 				case '%':
 				{
 					mMOD(true);
@@ -198,6 +192,18 @@ tryAgain:
 					}
 					else if ((LA(1)=='<') && (LA(2)=='=')) {
 						mLESSEQUAL(true);
+						theRetToken=_returnToken;
+					}
+					else if ((LA(1)=='/') && (LA(2)=='/')) {
+						mCOMMENT(true);
+						theRetToken=_returnToken;
+					}
+					else if ((LA(1)=='/') && (LA(2)=='*')) {
+						mML_COMMENT(true);
+						theRetToken=_returnToken;
+					}
+					else if ((LA(1)=='/') && (true)) {
+						mDIV(true);
 						theRetToken=_returnToken;
 					}
 					else if ((LA(1)=='=') && (true)) {
@@ -426,34 +432,34 @@ tryAgain:
 		int _saveIndex;
 		
 		{
-		int _cnt66=0;
-		_loop66:
+		int _cnt736=0;
+		_loop736:
 		do {
 			if (((LA(1) >= '0' && LA(1) <= '9'))) {
 				mDIGIT(false);
 			}
 			else {
-				if ( _cnt66>=1 ) { break _loop66; } else {throw new NoViableAltForCharException((char)LA(1), getFilename(), getLine(), getColumn());}
+				if ( _cnt736>=1 ) { break _loop736; } else {throw new NoViableAltForCharException((char)LA(1), getFilename(), getLine(), getColumn());}
 			}
 			
-			_cnt66++;
+			_cnt736++;
 		} while (true);
 		}
 		{
 		if ((LA(1)=='.')) {
 			match('.');
 			{
-			int _cnt69=0;
-			_loop69:
+			int _cnt739=0;
+			_loop739:
 			do {
 				if (((LA(1) >= '0' && LA(1) <= '9'))) {
 					mDIGIT(false);
 				}
 				else {
-					if ( _cnt69>=1 ) { break _loop69; } else {throw new NoViableAltForCharException((char)LA(1), getFilename(), getLine(), getColumn());}
+					if ( _cnt739>=1 ) { break _loop739; } else {throw new NoViableAltForCharException((char)LA(1), getFilename(), getLine(), getColumn());}
 				}
 				
-				_cnt69++;
+				_cnt739++;
 			} while (true);
 			}
 		}
@@ -580,8 +586,8 @@ tryAgain:
 		
 		match("\"");
 		{
-		int _cnt78=0;
-		_loop78:
+		int _cnt748=0;
+		_loop748:
 		do {
 			switch ( LA(1)) {
 			case 'A':  case 'B':  case 'C':  case 'D':
@@ -608,10 +614,10 @@ tryAgain:
 			}
 			default:
 			{
-				if ( _cnt78>=1 ) { break _loop78; } else {throw new NoViableAltForCharException((char)LA(1), getFilename(), getLine(), getColumn());}
+				if ( _cnt748>=1 ) { break _loop748; } else {throw new NoViableAltForCharException((char)LA(1), getFilename(), getLine(), getColumn());}
 			}
 			}
-			_cnt78++;
+			_cnt748++;
 		} while (true);
 		}
 		match("\"");
@@ -641,8 +647,8 @@ tryAgain:
 		int _saveIndex;
 		
 		{
-		int _cnt82=0;
-		_loop82:
+		int _cnt752=0;
+		_loop752:
 		do {
 			switch ( LA(1)) {
 			case 'A':  case 'B':  case 'C':  case 'D':
@@ -669,10 +675,10 @@ tryAgain:
 			}
 			default:
 			{
-				if ( _cnt82>=1 ) { break _loop82; } else {throw new NoViableAltForCharException((char)LA(1), getFilename(), getLine(), getColumn());}
+				if ( _cnt752>=1 ) { break _loop752; } else {throw new NoViableAltForCharException((char)LA(1), getFilename(), getLine(), getColumn());}
 			}
 			}
-			_cnt82++;
+			_cnt752++;
 		} while (true);
 		}
 		_ttype = testLiteralsTable(_ttype);
@@ -724,6 +730,126 @@ tryAgain:
 		_returnToken = _token;
 	}
 	
+	public final void mCOMMENT(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
+		int _ttype; Token _token=null; int _begin=text.length();
+		_ttype = COMMENT;
+		int _saveIndex;
+		
+		match("//");
+		{
+		_loop758:
+		do {
+			if ((_tokenSet_0.member(LA(1)))) {
+				{
+				match(_tokenSet_0);
+				}
+			}
+			else {
+				break _loop758;
+			}
+			
+		} while (true);
+		}
+		_ttype = Token.SKIP;
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
+		}
+		_returnToken = _token;
+	}
 	
+	public final void mML_COMMENT(boolean _createToken) throws RecognitionException, CharStreamException, TokenStreamException {
+		int _ttype; Token _token=null; int _begin=text.length();
+		_ttype = ML_COMMENT;
+		int _saveIndex;
+		
+		match("/*");
+		{
+		_loop762:
+		do {
+			switch ( LA(1)) {
+			case '\n':
+			{
+				match('\n');
+				newline();
+				break;
+			}
+			case '\u0000':  case '\u0001':  case '\u0002':  case '\u0003':
+			case '\u0004':  case '\u0005':  case '\u0006':  case '\u0007':
+			case '\u0008':  case '\t':  case '\u000b':  case '\u000c':
+			case '\u000e':  case '\u000f':  case '\u0010':  case '\u0011':
+			case '\u0012':  case '\u0013':  case '\u0014':  case '\u0015':
+			case '\u0016':  case '\u0017':  case '\u0018':  case '\u0019':
+			case '\u001a':  case '\u001b':  case '\u001c':  case '\u001d':
+			case '\u001e':  case '\u001f':  case ' ':  case '!':
+			case '"':  case '#':  case '$':  case '%':
+			case '&':  case '\'':  case '(':  case ')':
+			case '+':  case ',':  case '-':  case '.':
+			case '/':  case '0':  case '1':  case '2':
+			case '3':  case '4':  case '5':  case '6':
+			case '7':  case '8':  case '9':  case ':':
+			case ';':  case '<':  case '=':  case '>':
+			case '?':  case '@':  case 'A':  case 'B':
+			case 'C':  case 'D':  case 'E':  case 'F':
+			case 'G':  case 'H':  case 'I':  case 'J':
+			case 'K':  case 'L':  case 'M':  case 'N':
+			case 'O':  case 'P':  case 'Q':  case 'R':
+			case 'S':  case 'T':  case 'U':  case 'V':
+			case 'W':  case 'X':  case 'Y':  case 'Z':
+			case '[':  case '\\':  case ']':  case '^':
+			case '_':  case '`':  case 'a':  case 'b':
+			case 'c':  case 'd':  case 'e':  case 'f':
+			case 'g':  case 'h':  case 'i':  case 'j':
+			case 'k':  case 'l':  case 'm':  case 'n':
+			case 'o':  case 'p':  case 'q':  case 'r':
+			case 's':  case 't':  case 'u':  case 'v':
+			case 'w':  case 'x':  case 'y':  case 'z':
+			case '{':  case '|':  case '}':  case '~':
+			case '\u007f':
+			{
+				{
+				match(_tokenSet_1);
+				}
+				break;
+			}
+			default:
+				if (((LA(1)=='*') && ((LA(2) >= '\u0000' && LA(2) <= '\u007f')))&&( LA(2)!='/' )) {
+					match('*');
+				}
+				else if ((LA(1)=='\r') && (LA(2)=='\n')) {
+					match('\r');
+					match('\n');
+					newline();
+				}
+				else if ((LA(1)=='\r') && ((LA(2) >= '\u0000' && LA(2) <= '\u007f'))) {
+					match('\r');
+					newline();
+				}
+			else {
+				break _loop762;
+			}
+			}
+		} while (true);
+		}
+		match("*/");
+		_ttype = Token.SKIP;
+		if ( _createToken && _token==null && _ttype!=Token.SKIP ) {
+			_token = makeToken(_ttype);
+			_token.setText(new String(text.getBuffer(), _begin, text.length()-_begin));
+		}
+		_returnToken = _token;
+	}
+	
+	
+	private static final long[] mk_tokenSet_0() {
+		long[] data = { -9217L, -1L, 0L, 0L};
+		return data;
+	}
+	public static final BitSet _tokenSet_0 = new BitSet(mk_tokenSet_0());
+	private static final long[] mk_tokenSet_1() {
+		long[] data = { -4398046520321L, -1L, 0L, 0L};
+		return data;
+	}
+	public static final BitSet _tokenSet_1 = new BitSet(mk_tokenSet_1());
 	
 	}

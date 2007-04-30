@@ -49,4 +49,6 @@ public interface StochasticExpressionsParserTokenTypes {
 	int DIGIT = 42;
 	int ALPHA = 43;
 	int WS = 44;
+	int COMMENT = 45;
+	int ML_COMMENT = 46;
 }

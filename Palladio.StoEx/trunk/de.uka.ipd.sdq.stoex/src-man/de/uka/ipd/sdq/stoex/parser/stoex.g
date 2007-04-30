@@ -371,3 +371,30 @@ ID options {testLiterals=true;}: (ALPHA|'_')+;
 
 
 WS    : (' ' | '\t' | '\r' | '\n') {$setType(Token.SKIP);} ;
+
+
+//Added by HK (30.04.2007)
+//Single-line comments
+COMMENT : "//" (~('\n'|'\r'))* { $setType(Token.SKIP); } ;
+//Multiple-line comments
+ML_COMMENT
+  : "/*"
+    (               /* '\r' '\n' can be matched in one alternative or by matching
+                       '\r' in one iteration and '\n' in another. I am trying to
+                       handle any flavor of newline that comes in, but the language
+                       that allows both "\r\n" and "\r" and "\n" to all be valid
+                       newline is ambiguous. Consequently, the resulting grammar
+                       must be ambiguous. I'm shutting this warning off.
+                    */
+      options {
+        generateAmbigWarnings=false;
+      }
+      :  { LA(2)!='/' }? '*'
+      | '\r' '\n' {newline();}
+      | '\r' {newline();}
+      | '\n' {newline();}
+      | ~('*'|'\n'|'\r')
+    )*
+    "*/"
+    {$setType(Token.SKIP);}
+;
