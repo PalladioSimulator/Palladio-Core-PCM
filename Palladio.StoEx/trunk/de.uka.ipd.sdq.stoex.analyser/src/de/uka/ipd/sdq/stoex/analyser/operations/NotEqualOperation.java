@@ -2,6 +2,10 @@ package de.uka.ipd.sdq.stoex.analyser.operations;
 
 import de.uka.ipd.sdq.probfunction.math.IProbabilityMassFunction;
 
+/**
+ * Implements the operation "not equals" for different kinds of operands.
+ * @author koziolek
+ */
 public class NotEqualOperation extends CompareOperation {
 
 	public IProbabilityMassFunction compare(double left, double right) {

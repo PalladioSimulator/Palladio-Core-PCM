@@ -7,6 +7,11 @@ import de.uka.ipd.sdq.probfunction.math.exception.FunctionsInDifferenDomainsExce
 import de.uka.ipd.sdq.probfunction.math.exception.IncompatibleUnitsException;
 import de.uka.ipd.sdq.probfunction.math.exception.UnknownPDFTypeException;
 
+/**
+ * Implements the operation "modulo" for different kinds of operands.
+ * Note, that so far only integers and doubles are supported.
+ * @author koziolek
+ */
 public class ModOperation implements TermProductOperation {
 
 	public double compute(double left, double right) {

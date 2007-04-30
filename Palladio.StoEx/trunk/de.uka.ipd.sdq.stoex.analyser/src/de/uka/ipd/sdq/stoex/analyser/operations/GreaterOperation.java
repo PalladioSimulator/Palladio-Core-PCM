@@ -2,6 +2,10 @@ package de.uka.ipd.sdq.stoex.analyser.operations;
 
 import de.uka.ipd.sdq.probfunction.math.IProbabilityMassFunction;
 
+/**
+ * Implements the operation "greater" for different kinds of operands.
+ * @author koziolek
+ */
 public class GreaterOperation extends CompareOperation {
 
 	public IProbabilityMassFunction compare(double left, double right) {

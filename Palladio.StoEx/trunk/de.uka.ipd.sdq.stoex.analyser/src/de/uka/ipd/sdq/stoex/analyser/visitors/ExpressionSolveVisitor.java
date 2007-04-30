@@ -24,7 +24,6 @@ import de.uka.ipd.sdq.stoex.CompareExpression;
 import de.uka.ipd.sdq.stoex.DoubleLiteral;
 import de.uka.ipd.sdq.stoex.Expression;
 import de.uka.ipd.sdq.stoex.IntLiteral;
-import de.uka.ipd.sdq.stoex.NumericLiteral;
 import de.uka.ipd.sdq.stoex.Parenthesis;
 import de.uka.ipd.sdq.stoex.PowerExpression;
 import de.uka.ipd.sdq.stoex.ProbabilityFunctionLiteral;
@@ -47,6 +46,23 @@ import de.uka.ipd.sdq.stoex.analyser.operations.SubOperation;
 import de.uka.ipd.sdq.stoex.analyser.operations.TermProductOperation;
 import de.uka.ipd.sdq.stoex.util.StoexSwitch;
 
+/**
+ * A visitor for stochastic expressions, which evaluates
+ * the operations within a expression and returns the
+ * resulting expression, which does not contain any operation
+ * any more.
+ * For example, when a stochastic expression contains a 
+ * division operation between a INT_PMF and a constant it
+ * returns an INT_PMF divided by the constant.
+ * The visitor is invoked as usual via the 
+ * doSwitch(Expression toSolve) command. It returns the solved
+ * expression. 
+ * This class uses the operations in 
+ * de.uka.ipd.sdq.stoex.analyser.operations as an interface
+ * to the probability function package.
+ * 
+ * @author koziolek
+ */
 public class ExpressionSolveVisitor extends StoexSwitch {
 
 	private static Logger logger = Logger
@@ -61,10 +77,17 @@ public class ExpressionSolveVisitor extends StoexSwitch {
 
 	protected HashMap<Expression, TypeEnum> typeAnnotation;
 
+	/**
+	 * Constructor storing the evaluated type annotations.
+	 * @param typeAnn
+	 */
 	public ExpressionSolveVisitor(HashMap<Expression, TypeEnum> typeAnn) {
 		this.typeAnnotation = typeAnn;
 	}
 
+	/**
+	 * Performs compare operations.
+	 */
 	public Object caseCompareExpression(CompareExpression expr){
 		String opName = expr.getOperation().getName();
 		CompareOperation op;
@@ -89,6 +112,9 @@ public class ExpressionSolveVisitor extends StoexSwitch {
 		return handleComparison(left, right, op);
 	}
 
+	/**
+	 * Performs term operations (ADD, SUB)
+	 */
 	public Object caseTermExpression(TermExpression expr) {
 		String opName = expr.getOperation().getName();
 		TermProductOperation op;
@@ -105,7 +131,10 @@ public class ExpressionSolveVisitor extends StoexSwitch {
 
 		return handleComputation(exprType, left, right, op);
 	}
-
+	
+	/**
+	 * Performs product operations (MULT, DIV, MOD).
+	 */
 	public Object caseProductExpression(ProductExpression expr) {
 		String opName = expr.getOperation().getName();
 		TermProductOperation op;
@@ -126,19 +155,26 @@ public class ExpressionSolveVisitor extends StoexSwitch {
 		return handleComputation(exprType, left, right, op);
 	}
 
-	@Override
+	/** 
+	 * Forwards the visitor to the inner expression within the parenthesis.
+	 */
 	public Object caseParenthesis(Parenthesis parenthesis) {
 		Expression child = (Expression)doSwitch(parenthesis.getInnerExpression());
 		return child;
 	}
 
-	@Override
+	/** 
+	 * Skips variables. This visitor cannot handle variables. Use the
+	 * PCM Solver to handle variables in stochastic expressions.
+	 */
 	public Object caseVariable(Variable var){
 		// Cannot handle variables! Use inheritance to add this.
 		return var;
 	}
 	
-	@Override
+	/**
+	 * Creates a BoolPMF for the given BoolLiteral.
+	 */
 	public Object caseBoolLiteral(BoolLiteral bl) {
 		EqualsOperation eo = new EqualsOperation();
 		IProbabilityMassFunction iPMF = null;
@@ -150,20 +186,31 @@ public class ExpressionSolveVisitor extends StoexSwitch {
 		return createLiteralForIPMF(iPMF);
 	}
 
+	/**
+	 * Just returns the given int literal.
+	 */
 	public Object caseIntLiteral(IntLiteral il) {
 		return il;
 	}
 
+	/**
+	 * Just returns the given double literal.
+	 */
 	public Object caseDoubleLiteral(DoubleLiteral dl) {
 		return dl;
 	}
 
+	/**
+	 * Just returns the given probfunction literal.
+	 */
 	public Object caseProbabilityFunctionLiteral(
 			ProbabilityFunctionLiteral probFuncLit) {
 		return probFuncLit;
 	}
 
-	@Override
+	/**
+	 * Performs a power operation (only for constants).
+	 */
 	public Object casePowerExpression(PowerExpression expr) {
 		Expression base = (Expression) doSwitch(expr.getBase());
 		Expression exponent = (Expression) doSwitch(expr.getExponent());

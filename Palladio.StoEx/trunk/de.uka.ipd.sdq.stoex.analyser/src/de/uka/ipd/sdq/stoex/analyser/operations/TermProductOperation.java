@@ -8,6 +8,10 @@ import de.uka.ipd.sdq.probfunction.math.exception.FunctionsInDifferenDomainsExce
 import de.uka.ipd.sdq.probfunction.math.exception.IncompatibleUnitsException;
 import de.uka.ipd.sdq.probfunction.math.exception.UnknownPDFTypeException;
 
+/**
+ * An interface for term (+,-) and product (*,/,%) operations.  
+ * @author koziolek
+ */
 public interface TermProductOperation {
 
 	public IProbabilityMassFunction compute(IProbabilityMassFunction left,

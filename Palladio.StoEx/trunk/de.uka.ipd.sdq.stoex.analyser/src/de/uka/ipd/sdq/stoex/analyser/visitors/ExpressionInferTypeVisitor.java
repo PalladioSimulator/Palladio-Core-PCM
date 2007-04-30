@@ -25,6 +25,19 @@ import de.uka.ipd.sdq.stoex.TermOperations;
 import de.uka.ipd.sdq.stoex.Variable;
 import de.uka.ipd.sdq.stoex.util.StoexSwitch;
 
+/**
+ * A visitor for stochastic expression, which infers
+ * the types before evaluating these expressions. 
+ * 
+ * For example, it infers the result type of an operation add
+ * on a INT and a INT_PMF to a INT_PMF, as the add operation with
+ * a constant shifts the INT_PMF.
+ * 
+ * It stores the inferred types for each expression in a hashmap, 
+ * which can be retrieved via getTypeAnnotation(). 
+ * 
+ * @author koziolek
+ */
 public class ExpressionInferTypeVisitor extends StoexSwitch {
 
 	private static Logger logger = Logger
@@ -33,9 +46,9 @@ public class ExpressionInferTypeVisitor extends StoexSwitch {
 	private HashMap<Expression, TypeEnum> typeAnnotation = 
 		new HashMap<Expression, TypeEnum>();
 
-	public ExpressionInferTypeVisitor(){
-	}
-	
+	/**
+	 * Result of a compare expression is always of type BOOL_PMF.
+	 */
 	public Object caseCompareExpression(CompareExpression expr){
 		doSwitch(expr.getLeft());
 		doSwitch(expr.getRight());
@@ -44,6 +57,10 @@ public class ExpressionInferTypeVisitor extends StoexSwitch {
 		return expr; 
 	}
 	
+	/**
+	 * Result of a product expression can be of type INT, DOUBLE, INT_PMF,
+	 * DOUBLE_PMF, ANY_PMF, DOUBLE_PDF depending on the operands.
+	 */
 	public Object caseProductExpression(ProductExpression expr){
 		TypeEnum leftType = getTypeOfChild((Expression)expr.getLeft());
 		TypeEnum rightType = getTypeOfChild((Expression)expr.getRight());
@@ -62,7 +79,10 @@ public class ExpressionInferTypeVisitor extends StoexSwitch {
 		return expr;
 	}
 
-	@Override
+	/**
+	 * Result of a power expression so far only be of type DOUBLE,
+	 * as the power operation is only allowed on NUMBERs, not PMFs.
+	 */
 	public Object casePowerExpression(PowerExpression expr) {
 		TypeEnum baseType = getTypeOfChild((Expression)expr.getBase());
 		TypeEnum exponentType = getTypeOfChild((Expression)expr.getExponent());
@@ -75,6 +95,10 @@ public class ExpressionInferTypeVisitor extends StoexSwitch {
 		return expr;
 	}
 
+	/**
+	 * Result of a term expression can be of type INT, DOUBLE, INT_PMF,
+	 * DOUBLE_PMF, ANY_PMF, DOUBLE_PDF depending on the operands.
+	 */
 	public Object caseTermExpression(TermExpression expr){
 		TypeEnum leftType = getTypeOfChild((Expression)expr.getLeft());
 		TypeEnum rightType = getTypeOfChild((Expression)expr.getRight());
@@ -90,6 +114,9 @@ public class ExpressionInferTypeVisitor extends StoexSwitch {
 		return expr;
 	}
 
+	/**
+	 * Infers the type of a probability function literal.
+	 */
 	public Object caseProbabilityFunctionLiteral(ProbabilityFunctionLiteral pfl){
 		ProbabilityFunction pf = pfl.getFunction_ProbabilityFunctionLiteral();
 		if (pf instanceof ProbabilityMassFunction){
@@ -115,16 +142,27 @@ public class ExpressionInferTypeVisitor extends StoexSwitch {
 		return pfl;
 	}
 
+	/**
+	 * Infers the type of an int literal to INT.
+	 */
 	public Object caseIntLiteral(IntLiteral il){
 		typeAnnotation.put(il, TypeEnum.INT);
 		return il;
 	}
 
+	/**
+	 * Infers the type of an double literal to DOUBLE.
+	 */
 	public Object caseDoubleLiteral(DoubleLiteral dl){
 		typeAnnotation.put(dl, TypeEnum.DOUBLE);
 		return dl;
 	}
 	
+	/**
+	 * Infers the type of a variable depending on its characterisation
+	 * type. Infers VALUE, DATATYPE, STRUCUTURE to ANY_PMF, while
+	 * NUMBER_OF_ELEMENTS and BYTESIZE to INT_PMF. 
+	 */
 	public Object caseVariable(Variable var){
 		//logger.debug("Found variable: " + var.getId_Variable());
 		if (var instanceof CharacterisedVariable) {
@@ -146,13 +184,17 @@ public class ExpressionInferTypeVisitor extends StoexSwitch {
 		return var;
 	}
 
-	@Override
+	/**
+	 * Infers the type of an bool literal to BOOL.
+	 */
 	public Object caseBoolLiteral(BoolLiteral bl) {
 		typeAnnotation.put(bl, TypeEnum.BOOL);
 		return bl;
 	}
 
-	@Override
+	/**
+	 * Infers the type of an parenthesis to its inner encapsulated expression.
+	 */
 	public Object caseParenthesis(Parenthesis parenthesis) {
 		TypeEnum type = getTypeOfChild(parenthesis.getInnerExpression());
 		typeAnnotation.put(parenthesis, type);
@@ -228,10 +270,18 @@ public class ExpressionInferTypeVisitor extends StoexSwitch {
 			 || type == TypeEnum.DOUBLE_PDF);
 	}
 	
+	/**
+	 * Getter for the type annotation hashmap.
+	 * @return
+	 */
 	public HashMap<Expression, TypeEnum> getTypeAnnotation() {
 		return typeAnnotation;
 	}
 
+	/**
+	 * Setter for the type annotation hashmap.
+	 * @param typeAnnotation
+	 */
 	public void setTypeAnnotation(HashMap<Expression, TypeEnum> typeAnnotation) {
 		this.typeAnnotation = typeAnnotation;
 	}

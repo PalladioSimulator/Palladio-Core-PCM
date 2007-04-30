@@ -8,6 +8,10 @@ import de.uka.ipd.sdq.probfunction.math.exception.FunctionsInDifferenDomainsExce
 import de.uka.ipd.sdq.probfunction.math.exception.IncompatibleUnitsException;
 import de.uka.ipd.sdq.probfunction.math.exception.UnknownPDFTypeException;
 
+/**
+ * Implements the operation "division" for different kinds of operands.
+ * @author koziolek
+ */
 public class DivOperation implements TermProductOperation {
 
 	public double compute(double left, double right) {
