@@ -51,6 +51,7 @@ public class AquireActionEditHelperAdvice extends AbstractEditHelperAdvice
 				filterList, 
 				additionalReferences,
 				editingDomain.getResourceSet());
+		dialog.setProvidedService(PassiveResourceType.class);
 		dialog.open();
 		if (dialog.getResult() == null)
 			return new CanceledCommand();
