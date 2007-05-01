@@ -12,8 +12,6 @@ import org.eclipse.gmf.runtime.emf.type.core.edithelper.IEditHelperAdvice;
 import org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 
-import de.uka.ipd.sdq.pcm.gmf.seff.providers.PalladioComponentModelElementTypes;
-
 /**
  * @author admin
  *

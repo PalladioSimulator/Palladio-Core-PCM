@@ -46,6 +46,7 @@ public class ExternalCallActionEditHelperAdvice extends
 				filterList, 
 				additionalReferences,
 				eOobject);
+		dialog.setProvidedService(Signature.class);
 		dialog.open();
 		if (dialog.getResult() == null)
 			return new CanceledCommand();

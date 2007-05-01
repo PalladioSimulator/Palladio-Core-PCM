@@ -51,6 +51,7 @@ public class ParametricResourceDemandEditHelperAdvice extends
 				filterList, 
 				additionalReferences,
 				editingDomain.getResourceSet());
+		dialog.setProvidedService(ProcessingResourceType.class);
 		dialog.open();
 		if (dialog.getResult() == null)
 			return new CanceledCommand();

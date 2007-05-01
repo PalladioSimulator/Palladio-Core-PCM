@@ -15,7 +15,6 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.SetRequest;
 import org.eclipse.ui.PlatformUI;
 
 import de.uka.ipd.sdq.dialogs.selection.PalladioSelectEObjectDialog;
-import de.uka.ipd.sdq.pcm.repository.Interface;
 import de.uka.ipd.sdq.pcm.repository.Parameter;
 import de.uka.ipd.sdq.pcm.repository.Signature;
 import de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF;
@@ -51,6 +50,7 @@ public class ParameterCollectionIteratorActionEditHelperAdvice extends
 				filterList, 
 				additionalReferences,
 				signature);
+		dialog.setProvidedService(Parameter.class);
 		dialog.open();
 		if (dialog.getResult() == null)
 			return new CanceledCommand();
