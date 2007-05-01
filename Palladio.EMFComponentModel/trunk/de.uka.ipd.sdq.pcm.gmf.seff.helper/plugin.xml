@@ -71,6 +71,12 @@
                inheritance="all"
                typeId="de.uka.ipd.sdq.pcm.gmf.seff.ReleaseAction_2010">
          </adviceBinding>
+         <adviceBinding 
+               class="de.uka.ipd.sdq.pcm.gmf.seff.helper.ResourceDemandingBehaviourEditHelperAdvice"
+               id="de.uka.ipd.sdq.pcm.gmf.seff.ResourceDemandingBehaviourAdvice"
+               inheritance="all"
+               typeId="de.uka.ipd.sdq.pcm.gmf.seff.ResourceDemandingBehaviour_3014">
+         </adviceBinding>
       </metamodel>
       <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0">
          <metamodelType
@@ -142,6 +148,9 @@
          </elementType>
          <elementType
                ref="de.uka.ipd.sdq.pcm.gmf.seff.BranchCondition_9001">
+         </elementType>
+         <elementType
+               ref="de.uka.ipd.sdq.pcm.gmf.seff.ResourceDemandingBehaviourAdvice">
          </elementType>
        </binding>
    </extension>
