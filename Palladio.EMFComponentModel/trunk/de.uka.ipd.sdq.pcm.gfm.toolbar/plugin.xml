@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.ui.actionSets">
+      <actionSet
+            label="PCM New Wizards"
+            visible="true"
+            id="de.uka.ipd.sdq.pcm.gfm.toolbar.actionSet">
+         <menu
+               label="PCM &amp;New Wizards"
+               id="pcmNewWizards">
+            <separator
+                  name="diagramGroup">
+            </separator>
+         </menu>
+         <action
+               label="New &amp;Allocation Diagram"
+               icon="icons/AllocationDiagramFile.gif"
+               class="de.uka.ipd.sdq.pcm.gfm.toolbar.actions.NewAllocationDiagramAction"
+               tooltip="Create a new Allocation Diagram and empty Allocation Model."
+               menubarPath="pcmNewWizards/diagramGroup"
+               toolbarPath="DiagramGroup"
+               id="de.uka.ipd.sdq.pcm.gfm.toolbar.actions.NewAllocationDiagramActionID">
+         </action>
+         <action
+               label="New &amp;System Diagram"
+               icon="icons/SystemDiagramFile.gif"
+               class="de.uka.ipd.sdq.pcm.gfm.toolbar.actions.NewSystemDiagramAction"
+               tooltip="Create a new System Diagram and empty System Model."
+               menubarPath="pcmNewWizards/diagramGroup"
+               toolbarPath="DiagramGroup"
+               id="de.uka.ipd.sdq.pcm.gfm.toolbar.actions.NewSystemDiagramActionID">
+         </action>
+         <action
+               label="New S&amp;eff Diagram"
+               icon="icons/SeffDiagramFile.gif"
+               class="de.uka.ipd.sdq.pcm.gfm.toolbar.actions.NewSeffDiagramAction"
+               tooltip="Create a new SEFF Diagram and empty SEFF Model."
+               menubarPath="pcmNewWizards/diagramGroup"
+               toolbarPath="DiagramGroup"
+               id="de.uka.ipd.sdq.pcm.gfm.toolbar.actions.NewSeffDiagramActionID">
+         </action>
+         <action
+               label="New &amp;Usage Diagram"
+               icon="icons/UsageDiagramFile.gif"
+               class="de.uka.ipd.sdq.pcm.gfm.toolbar.actions.NewUsageDiagramAction"
+               tooltip="Create a new Usage Diagram and empty Usage Model."
+               menubarPath="pcmNewWizards/diagramGroup"
+               toolbarPath="DiagramGroup"
+               id="de.uka.ipd.sdq.pcm.gfm.toolbar.actions.NewUsageDiagramActionID">
+         </action>
+      </actionSet>
+   </extension>
+
+</plugin>
