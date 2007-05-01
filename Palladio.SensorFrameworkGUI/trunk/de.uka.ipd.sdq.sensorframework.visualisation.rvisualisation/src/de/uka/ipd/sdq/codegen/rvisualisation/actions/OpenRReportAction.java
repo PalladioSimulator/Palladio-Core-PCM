@@ -8,7 +8,7 @@ import org.eclipse.ui.IWorkbenchWindowActionDelegate;
 import org.eclipse.ui.PartInitException;
 
 import de.uka.ipd.sdq.codegen.rvisualisation.RVisualisationPlugin;
-import de.uka.ipd.sdq.codegen.rvisualization.views.RReportView;
+import de.uka.ipd.sdq.codegen.rvisualisation.views.RReportView;
 import de.uka.ipd.sdq.sensorframework.visualisation.editor.ConfigEditorInput;
 
 /**

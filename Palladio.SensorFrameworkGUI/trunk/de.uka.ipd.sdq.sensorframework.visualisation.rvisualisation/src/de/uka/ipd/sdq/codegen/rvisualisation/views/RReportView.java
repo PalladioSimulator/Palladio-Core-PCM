@@ -1,4 +1,4 @@
-package de.uka.ipd.sdq.codegen.rvisualization.views;
+package de.uka.ipd.sdq.codegen.rvisualisation.views;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -54,45 +54,37 @@ implements IVisualisation {
 
 	public void setInput(Collection c) {
 		RInterface t = new RInterface();
-		ArrayList<IReportItem> items = new ArrayList<IReportItem>();
-		items.add(new StaticReportItem("R-Report", true));
-	
-		ArrayList<String> data = new ArrayList<String>();
-		Iterator it = c.iterator();
-		for(int i=0; i<c.size();i++){
-			SensorAndMeasurements sm = (SensorAndMeasurements) it.next();
-			String rCommand = getRVector(sm,i) + "\n";
-			System.out.println("Data transfer");
-			t.execute(rCommand);
-			System.out.println("Data transfer done");
-			items.add(new PlotReportItem(new String[]{"density(sensor"+i+")"},sm.getSensor().getSensorName()));
-			data.add("density(sensor"+i+")");
-			rCommand = "mean(sensor"+i+")\n";
-			items.add(new StatisticsReportItem(rCommand, "Mean of Sensor "+sm.getSensor().getSensorName()));
-			rCommand = "sd(sensor"+i+")\n";
-			items.add(new StatisticsReportItem(rCommand, "Standard-Deviation of Sensor "+sm.getSensor().getSensorName()));
-		} 
-		items.add(1, new PlotReportItem(data.toArray(new String[0]),"Combined Plot"));
-		HTMLVisitor visitor = new HTMLVisitor();
-		for(IReportItem item : items) {
-			System.out.println("Exec command");
-			item.executeRCommands(t);
-			System.out.println("Render");
-			item.visit(visitor);
-		}
-		browser.setText(visitor.getHTML());
+		if (t.isEngineAvailable()){
+			ArrayList<IReportItem> items = new ArrayList<IReportItem>();
+			items.add(new StaticReportItem("R-Report", true));
 		
-//		String rCommand = "bmp(\"c:\\\\Temp\\\\x.bmp\",height="+bmpSize+",width="+bmpSize*c.size()+")\n";
-//		rCommand += "par(mfrow=c(1,"+c.size()+"))\n";
-//		for(int i=0; i<c.size();i++){
-//			SensorAndMeasurements sm = (SensorAndMeasurements) it.next();
-//			rCommand += getRVector(sm,i) + "\n";
-//			rCommand += "plot(density(sensor"+i+"),xlab=\"Response Time\",main=\""+sm.getSensor().getSensorName()+"\")\n";
-//			rCommand += "mean(sensor"+i+")\n"; 
-//		}
-//		rCommand += "graphics.off()\n";
-//		String result = t.execute(rCommand);
-//		browser.setText("<html><body><img src=\"file:///C:/Temp/x.bmp\"/><pre>"+result+"</pre></body></html>");
+			ArrayList<String> data = new ArrayList<String>();
+			Iterator it = c.iterator();
+			for(int i=0; i<c.size();i++){
+				SensorAndMeasurements sm = (SensorAndMeasurements) it.next();
+				String rCommand = getRVector(sm,i) + "\n";
+				System.out.println("Data transfer");
+				t.execute(rCommand);
+				System.out.println("Data transfer done");
+				items.add(new PlotReportItem(new String[]{"density(sensor"+i+")"},sm.getSensor().getSensorName()));
+				data.add("density(sensor"+i+")");
+				rCommand = "mean(sensor"+i+")\n";
+				items.add(new StatisticsReportItem(rCommand, "Mean of Sensor "+sm.getSensor().getSensorName()));
+				rCommand = "sd(sensor"+i+")\n";
+				items.add(new StatisticsReportItem(rCommand, "Standard-Deviation of Sensor "+sm.getSensor().getSensorName()));
+			} 
+			items.add(1, new PlotReportItem(data.toArray(new String[0]),"Combined Plot"));
+			HTMLVisitor visitor = new HTMLVisitor();
+			for(IReportItem item : items) {
+				System.out.println("Exec command");
+				item.executeRCommands(t);
+				System.out.println("Render");
+				item.visit(visitor);
+			}
+			browser.setText(visitor.getHTML());
+		} else {
+			browser.setText("<html><body><h1>Error! R-Engine unavailable!</h1></body></html>");
+		}
 	}
 
 	private String getRVector(SensorAndMeasurements sm, int i) {

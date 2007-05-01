@@ -6,7 +6,7 @@
          <Visualisation
                acceptsData="de.uka.ipd.sdq.sensorframework.TimeSpanSensor"
                acceptsMultiple="true"
-               class="de.uka.ipd.sdq.codegen.rvisualization.views.RReportView"
+               class="de.uka.ipd.sdq.codegen.rvisualisation.views.RReportView"
                displayName="R TimeSensor Report"
                editorID="de.uka.ipd.sdq.codegen.rvisualization.views.ReportView">
          </Visualisation>
@@ -15,7 +15,7 @@
       <extension
             point="org.eclipse.ui.editors">
          <editor
-               class="de.uka.ipd.sdq.codegen.rvisualization.views.RReportView"
+               class="de.uka.ipd.sdq.codegen.rvisualisation.views.RReportView"
                icon="icons/sample.gif"
                id="de.uka.ipd.sdq.codegen.rvisualization.views.ReportView"
                name="R Report">
