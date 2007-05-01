@@ -224,10 +224,13 @@ public class SelectEObjectDialog extends TitleAreaDialog {
 	 * dialogue. If provided service is set, OK button activated only if selected
 	 * element agrees with entered type.
 	 * 
+	 * The function must be called forwards open() function!
+	 * 
 	 * @param providedService - return type of dialog
 	 */
 	public void setProvidedService(Class<?> providedService) {
 		this.providedService = providedService;
+		setMessage("Select a " + providedService.getSimpleName() + "...");
 	}
 	
 	/**
