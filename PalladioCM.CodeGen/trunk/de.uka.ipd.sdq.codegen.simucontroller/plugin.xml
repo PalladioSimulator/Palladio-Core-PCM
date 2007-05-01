@@ -2,31 +2,6 @@
 <?eclipse version="3.2"?>
 <plugin>
    <extension-point id="controller" name="SimuCom Controller" schema="schema/controller.exsd"/>
-	<extension
-         point="org.eclipse.ui.actionSets">
-	      <actionSet
-	            label="SimuBench Main Actions"
-	            visible="true"
-	            id="de.uka.ipd.sdq.simucontroller.ActionSet">
-	         <menu
-	               label="&amp;SimuBench"
-	               id="mainSimuBench">
-	            <separator
-	                  name="mainGroup">
-	            </separator>
-	         </menu>
-	         <action
-                class="de.uka.ipd.sdq.codegen.simucontroller.actions.GeneratePluginAction"
-                icon="icons/app_simucim.gif"
-                id="de.uka.ipd.sdq.simucontroller.actions.GeneratePluginAction"
-                label="&amp;Generate Plugin..."
-                menubarPath="mainSimuBench/mainGroup"
-                style="push"
-                toolbarPath="mainGroup"
-                tooltip="Hello, Eclipse world">
-	         </action>
-	      </actionSet>
-	</extension>
 	<extension point="org.eclipse.debug.core.launchConfigurationTypes">
 	    <launchConfigurationType
            delegate="de.uka.ipd.sdq.codegen.simucontroller.runconfig.SimuLaunchConfigurationDelegate"
@@ -91,14 +66,14 @@
        <action
              class="de.uka.ipd.sdq.codegen.simucontroller.actions.GeneratePluginAction"
              icon="icons/new_plugin.gif"
-             id="de.uka.ipd.sdq.codegen.simucontroller.GeneratePluginAction"
+             id="GeneratePluginAction"
              label="&amp;Generate Plug-In"
              menubarPath="Controller Menu"
              style="push"
              toolbarPath="SimuCom Controll">
        </action>
        <action
-             class="de.uka.ipd.sdq.codegen.simucontroller.actions.DeletePluginAction"
+             class="de.uka.ipd.sdq.codegen.simucontroller.actions.DeletePluginAction22"
              icon="icons/del_plugin.gif"
              id="de.uka.ipd.sdq.codegen.simucontroller.DeletePluginAction"
              label="&amp;Delete Plug-In"

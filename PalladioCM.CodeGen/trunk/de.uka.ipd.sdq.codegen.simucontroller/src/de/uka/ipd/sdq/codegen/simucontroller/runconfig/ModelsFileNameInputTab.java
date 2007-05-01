@@ -25,8 +25,7 @@ import org.eclipse.core.runtime.CoreException;
  * @author admin
  * 
  */
-public class ModelsFileNameInputTab 
-extends AbstractLaunchConfigurationTab {
+public class ModelsFileNameInputTab extends AbstractLaunchConfigurationTab {
 
 	/* (non-Javadoc)
 	 * @see org.eclipse.debug.ui.AbstractLaunchConfigurationTab#getImage()
@@ -219,12 +218,6 @@ extends AbstractLaunchConfigurationTab {
 	 * @see org.eclipse.debug.ui.ILaunchConfigurationTab#performApply(org.eclipse.debug.core.ILaunchConfigurationWorkingCopy)
 	 */
 	public void performApply(ILaunchConfigurationWorkingCopy configuration) {
-		
-	//	IWorkspaceRoot root = ResourcesPlugin.getWorkspace().getRoot();
-	//	IProject project = root.getProject(ResourceManagerTab.getGeneretePluginPath());
-	//	System.err.println(project.getFullPath().toString());
-		
-		
 		configuration.setAttribute(ResourceManagerTab.REPOSITORY_FILE, textRepository.getText());
 		configuration.setAttribute(ResourceManagerTab.SYSTEM_FILE, textSystem.getText());
 		configuration.setAttribute(ResourceManagerTab.ALLOCATION_FILE, textAllocation.getText());

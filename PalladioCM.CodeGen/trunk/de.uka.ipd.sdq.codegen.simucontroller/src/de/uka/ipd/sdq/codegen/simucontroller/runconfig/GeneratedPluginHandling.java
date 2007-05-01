@@ -39,7 +39,7 @@ public class GeneratedPluginHandling {
 
 		try {
 			setMonitorSubTask("Create Plugin");
-			project = PluginProject.create(monitor);
+			project = PluginProject.createInstance().createContainerPlugin(monitor);
 			monitorWorked();
 		} catch (CoreException e) {
 			setLogMessage("Create container project failed: ", e);
@@ -116,18 +116,24 @@ public class GeneratedPluginHandling {
 	}
 
 	public void unloadPlugin() {
-		setMonitorSubTask("Cleanup");
+		setMonitorSubTask("Unload");
 		try {
 			bundle.stop();
 			bundle.uninstall();
 		} catch (BundleException e) {
 			setLogMessage("Unload Bundle: ", e);
 		}
+		monitorWorked();
+		deletePlugin();
+	}
+
+	public void deletePlugin() {
+		setMonitorSubTask("Cleanup");
 		try {
 			project.close(monitor);
-			project.delete(true, monitor);
+			project.delete(IResource.ALWAYS_DELETE_PROJECT_CONTENT, monitor);
 		} catch (CoreException e) {
-			setLogMessage("Close project failed: ", e);
+			setLogMessage("Delete project failed: ", e);
 		}
 		monitorWorked();
 		monitoreDone();

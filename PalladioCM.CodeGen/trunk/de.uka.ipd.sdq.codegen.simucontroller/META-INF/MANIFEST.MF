@@ -5,20 +5,18 @@ Bundle-SymbolicName: de.uka.ipd.sdq.codegen.simucontroller;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-Activator: de.uka.ipd.sdq.codegen.simucontroller.SimuControllerPlugin
 Require-Bundle: org.eclipse.ui,
+ org.eclipse.ui.console,
  org.eclipse.core.runtime,
  org.eclipse.core.resources,
  org.eclipse.debug.core,
+ org.eclipse.jdt.core,
  org.eclipse.jdt.launching,
  org.eclipse.debug.ui,
- org.openarchitectureware.base,
- org.openarchitectureware.core.check,
- org.openarchitectureware.core.emftools,
- org.openarchitectureware.core.xpand2,
- org.eclipse.pde.ui,
- org.eclipse.emf.ocl,
  de.uka.ipd.sdq.pcm.codegen.m2m,
- org.eclipse.ui.console,
- de.uka.ipd.sdq.simucomframework
+ de.uka.ipd.sdq.simucomframework,
+ org.eclipse.pde.core,
+ org.eclipse.pde.ui,
+ org.openarchitectureware.workflow
 Eclipse-LazyStart: true
 Export-Package: de.uka.ipd.sdq.codegen.simucontroller.actions
 Bundle-Vendor: sdq.ipd.uka.de

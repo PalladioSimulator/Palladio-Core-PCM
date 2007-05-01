@@ -9,14 +9,10 @@ import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.eclipse.core.resources.IProject;
-import org.eclipse.core.resources.IResource;
-import org.eclipse.core.resources.IncrementalProjectBuilder;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.FileLocator;
 import org.eclipse.core.runtime.IProgressMonitor;
-import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.debug.core.ILaunch;
 import org.eclipse.debug.core.ILaunchConfiguration;
@@ -29,9 +25,7 @@ import org.eclipse.ui.console.MessageConsoleStream;
 import org.openarchitectureware.workflow.WorkflowRunner;
 import org.openarchitectureware.workflow.monitor.NullProgressMonitor;
 import org.osgi.framework.Bundle;
-import org.osgi.framework.BundleException;
 
-import de.uka.ipd.sdq.codegen.simucontroller.SimuComJob;
 import de.uka.ipd.sdq.codegen.simucontroller.SimuControllerPlugin;
 
 /**
@@ -48,6 +42,11 @@ public class SimuLaunchConfigurationDelegate implements
 
 	public static String[] workflowFiles = { REPOSITORY_FILE, SYSTEM_FILE,
 			USAGE_FILE };
+	
+	/**
+	 * Workflow-Engine run status
+	 */
+	private boolean status = true;
 
 	/*
 	 * (non-Javadoc)
@@ -87,8 +86,8 @@ public class SimuLaunchConfigurationDelegate implements
 		try {
 			pluginHandling.setMonitorSubTask("Generate Code");
 			for (int i = 0; i < workflowFiles.length; i++)
-				runWorkflowRunner(workflowFiles[i],
-						properties, slotContents);
+				status &= runWorkflowRunner(workflowFiles[i], properties,
+						slotContents);
 			pluginHandling.monitorWorked();
 		} catch (CoreException e) {
 			pluginHandling.setLogMessage("Codegen failed: ", e);
@@ -97,7 +96,9 @@ public class SimuLaunchConfigurationDelegate implements
 			removeConsole(console);
 		}
 		
-		pluginHandling.simulate();
+		if(status) 
+			pluginHandling.simulate();
+		else pluginHandling.deletePlugin();
 	}
 
 	private void removeConsole(MessageConsole console) {
@@ -114,25 +115,24 @@ public class SimuLaunchConfigurationDelegate implements
 	}
 
 	/**
+	 * Start the Workflow-Engine of oAW - Generator
 	 * 
-	 * @param workflowFile
-	 * @param properties
-	 * @param slotContents
-	 * @return
-	 * @throws CoreException
-	 * @throws JavaModelException
+	 * @param workflowFile - *.oaw
+	 * @param properties - HashMap with workflow properties
+	 * 
+	 * @return code generate status
 	 */
-	public void runWorkflowRunner(String workflowFile,
+	public boolean runWorkflowRunner(String workflowFile,
 			Map<String, String> properties, Map<String, Object> slotContents)
 			throws CoreException, JavaModelException {
 		
 		WorkflowRunner runner = new WorkflowRunner();
-		runner.run(workflowFile, new NullProgressMonitor(), properties,
+		return runner.run(workflowFile, new NullProgressMonitor(), properties,
 				slotContents);
 	}
 
 	/**
-	 * Refactoring TODO
+	 * This function return the workflow file from Plug-In location.
 	 */
 	public String getWorkflowFile(String fileName) {
 		Bundle pluginBundle = SimuControllerPlugin.getDefault().getBundle();

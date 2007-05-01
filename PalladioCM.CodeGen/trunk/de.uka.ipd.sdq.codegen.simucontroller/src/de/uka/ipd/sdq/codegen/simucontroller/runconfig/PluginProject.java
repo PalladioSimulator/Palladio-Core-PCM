@@ -6,7 +6,6 @@ package de.uka.ipd.sdq.codegen.simucontroller.runconfig;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
-import java.util.ArrayList;
 
 import org.eclipse.core.internal.events.BuildCommand;
 import org.eclipse.core.resources.ICommand;
@@ -23,13 +22,10 @@ import org.eclipse.jdt.core.IJavaProject;
 import org.eclipse.jdt.core.JavaCore;
 import org.eclipse.jdt.core.JavaModelException;
 import org.eclipse.jdt.launching.JavaRuntime;
-import org.eclipse.pde.core.plugin.IPluginModelBase;
 import org.eclipse.pde.core.plugin.PluginRegistry;
-import org.eclipse.pde.internal.core.WorkspaceModelManager;
 import org.eclipse.pde.internal.core.natures.PDE;
 import org.eclipse.pde.internal.ui.wizards.plugin.ClasspathComputer;
 import org.eclipse.pde.internal.ui.wizards.tools.UpdateClasspathJob;
-import org.eclipse.pde.ui.launcher.PDESourcePathProvider;
 
 /**
  * @author admin
@@ -39,12 +35,19 @@ public class PluginProject {
 
 	public static String PROJECT_ID = "de.uka.ipd.sdq.codegen.simucominstance";
 
+	private PluginProject(){
+		
+	}
+	
+	public static PluginProject createInstance(){
+		return new PluginProject();
+	}
 	/**
 	 * TODO
 	 * @param monitor
 	 * @throws CoreException
 	 */
-	public static IProject create(IProgressMonitor monitor) throws CoreException {
+	public IProject createContainerPlugin(IProgressMonitor monitor) throws CoreException {
 
 		IProject project = ResourcesPlugin.getWorkspace().getRoot().getProject(
 				PROJECT_ID);
@@ -72,12 +75,12 @@ public class PluginProject {
 		return project;
 	}
 
-	public static void setClasspath(IProject project) throws CoreException {
+	private void setClasspath(IProject project) throws CoreException {
 		ClasspathComputer.setClasspath(project, PluginRegistry
 				.findModel(project));
 	}
 
-	public static void setProjectToJavaProject(IProject project)
+	private void setProjectToJavaProject(IProject project)
 			throws JavaModelException, CoreException {
 		// create class path entry
 		IJavaProject javaProject = JavaCore.create(project);
@@ -88,13 +91,12 @@ public class PluginProject {
 		javaProject.setRawClasspath(buildPath, binPath, null);
 	}
 
-	private static void createDescription(IProject project, IProgressMonitor monitor)
+	private void createDescription(IProject project, IProgressMonitor monitor)
 			throws CoreException {
 		IProjectDescription description = ResourcesPlugin.getWorkspace()
 				.newProjectDescription(project.getName());
 		description.setNatureIds(new String[] { JavaCore.NATURE_ID,
 				PDE.PLUGIN_NATURE });
-		//description.setNatureIds(new String[] { JavaCore.NATURE_ID});
 		description.setLocation(null);
 		// set java bulders
 		ICommand command = description.newCommand();
@@ -103,40 +105,21 @@ public class PluginProject {
 		project.setDescription(description, monitor);
 	}
 
-	private static void createFolder(IProject project, IFolder folder)
+	private void createFolder(IProject project, IFolder folder)
 			throws CoreException {
 		if (project.isOpen() && !folder.exists()) {
 			folder.create(false, true, null);
 		}
 	}
 
-	private static void createProject(IProject project, IProgressMonitor monitor)
+	private void createProject(IProject project, IProgressMonitor monitor)
 			throws CoreException {
 		if (!project.exists())
 			project.create(monitor);
 		project.open(monitor);
 	}
 
-	public void createPlugin(IProject project, IProgressMonitor monitor)
-			throws CoreException {
-		ArrayList<IPluginModelBase> models = new ArrayList<IPluginModelBase>();
-		if (project != null && WorkspaceModelManager.isPluginProject(project)
-				&& project.hasNature(JavaCore.NATURE_ID)) {
-			IPluginModelBase model = PluginRegistry.findModel(project);
-			if (model != null) {
-				models.add(model);
-			}
-		}
-
-		final IPluginModelBase[] modelArray = (IPluginModelBase[]) models
-				.toArray(new IPluginModelBase[models.size()]);
-
-		new UpdateClasspathJob(modelArray).doUpdateClasspath(monitor,
-				modelArray);
-
-	}
-
-	private static void createPluginXml(IProject project) throws CoreException {
+	private void createPluginXml(IProject project) throws CoreException {
 
 		String PLUGIN_XML = "plugin.xml";
 		ByteArrayOutputStream baos;
@@ -164,7 +147,7 @@ public class PluginProject {
 					true, null);
 	}
 
-	private static void createBuildProperties(IProject project) throws CoreException {
+	private void createBuildProperties(IProject project) throws CoreException {
 
 		String BUILD_PROPERTIES = "build.properties";
 		ByteArrayOutputStream baos;
@@ -186,7 +169,7 @@ public class PluginProject {
 					new ByteArrayInputStream(baos.toByteArray()), true, null);
 	}
 
-	private static void createManifestMf(IProject project) throws CoreException {
+	private void createManifestMf(IProject project) throws CoreException {
 
 		String MANIFEST_MF = "MANIFEST.MF";
 
