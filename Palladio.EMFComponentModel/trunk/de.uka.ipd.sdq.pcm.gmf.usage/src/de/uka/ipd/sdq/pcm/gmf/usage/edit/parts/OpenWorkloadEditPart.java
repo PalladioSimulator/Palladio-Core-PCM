@@ -15,6 +15,7 @@ import org.eclipse.gef.commands.Command;
 import org.eclipse.gef.editpolicies.LayoutEditPolicy;
 import org.eclipse.gef.editpolicies.NonResizableEditPolicy;
 import org.eclipse.gef.requests.CreateRequest;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
@@ -24,6 +25,7 @@ import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
 
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.policies.OpenWorkloadItemSemanticEditPolicy;
+import de.uka.ipd.sdq.pcm.gmf.usage.part.PalladioComponentModelVisualIDRegistry;
 
 /**
  * @generated
@@ -107,6 +109,55 @@ public class OpenWorkloadEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
+	protected boolean addFixedChild(EditPart childEditPart) {
+		if (childEditPart instanceof OpenWorkloadSpecLabelEditPart) {
+			((OpenWorkloadSpecLabelEditPart) childEditPart)
+					.setLabel(getPrimaryShape()
+							.getFigureOpenWorkloadSpecLabelFigure());
+			return true;
+		}
+		return false;
+	}
+
+	/**
+	 * @generated
+	 */
+	protected boolean removeFixedChild(EditPart childEditPart) {
+
+		return false;
+	}
+
+	/**
+	 * @generated
+	 */
+	protected void addChildVisual(EditPart childEditPart, int index) {
+		if (addFixedChild(childEditPart)) {
+			return;
+		}
+		super.addChildVisual(childEditPart, -1);
+	}
+
+	/**
+	 * @generated
+	 */
+	protected void removeChildVisual(EditPart childEditPart) {
+		if (removeFixedChild(childEditPart)) {
+			return;
+		}
+		super.removeChildVisual(childEditPart);
+	}
+
+	/**
+	 * @generated
+	 */
+	protected IFigure getContentPaneFor(IGraphicalEditPart editPart) {
+
+		return super.getContentPaneFor(editPart);
+	}
+
+	/**
+	 * @generated
+	 */
 	protected NodeFigure createNodePlate() {
 		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(getMapMode()
 				.DPtoLP(40), getMapMode().DPtoLP(40));
@@ -158,6 +209,14 @@ public class OpenWorkloadEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
+	public EditPart getPrimaryChildEditPart() {
+		return getChildBySemanticHint(PalladioComponentModelVisualIDRegistry
+				.getType(OpenWorkloadSpecLabelEditPart.VISUAL_ID));
+	}
+
+	/**
+	 * @generated
+	 */
 	public class OpenWorkloadFigure extends RectangleFigure {
 		/**
 		 * @generated
@@ -178,11 +237,36 @@ public class OpenWorkloadEditPart extends ShapeNodeEditPart {
 		 */
 		private void createContents() {
 
+			WrapLabel openWorkloadStereotypeLabelFigure0 = new WrapLabel();
+			openWorkloadStereotypeLabelFigure0.setText("<<Open Workload>>");
+
+			this.add(openWorkloadStereotypeLabelFigure0);
+
 			WrapLabel openWorkloadSpecLabelFigure0 = new WrapLabel();
 			openWorkloadSpecLabelFigure0.setText("<spec>");
 
 			this.add(openWorkloadSpecLabelFigure0);
+			setFigureOpenWorkloadSpecLabelFigure(openWorkloadSpecLabelFigure0);
 
+		}
+
+		/**
+		 * @generated
+		 */
+		private WrapLabel fOpenWorkloadSpecLabelFigure;
+
+		/**
+		 * @generated
+		 */
+		public WrapLabel getFigureOpenWorkloadSpecLabelFigure() {
+			return fOpenWorkloadSpecLabelFigure;
+		}
+
+		/**
+		 * @generated
+		 */
+		private void setFigureOpenWorkloadSpecLabelFigure(WrapLabel fig) {
+			fOpenWorkloadSpecLabelFigure = fig;
 		}
 
 		/**

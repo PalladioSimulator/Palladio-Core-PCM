@@ -51,23 +51,22 @@ import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.FontData;
 import org.eclipse.swt.graphics.Image;
 
-import de.uka.ipd.sdq.pcm.gmf.usage.edit.policies.OpenLoopIterationsDialog;
-import de.uka.ipd.sdq.pcm.gmf.usage.edit.policies.OpenStoExDialog;
+import de.uka.ipd.sdq.pcm.gmf.usage.edit.policies.OpenInterArrivalTimeDialog;
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.policies.PalladioComponentModelTextSelectionEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.usage.providers.PalladioComponentModelElementTypes;
 import de.uka.ipd.sdq.pcm.usagemodel.ClosedWorkload;
-import de.uka.ipd.sdq.pcm.usagemodel.Loop;
+import de.uka.ipd.sdq.pcm.usagemodel.OpenWorkload;
 
 /**
  * @generated
  */
-public class UsageLoopIterationsLabelEditPart extends CompartmentEditPart
+public class OpenWorkloadSpecLabelEditPart extends CompartmentEditPart
 		implements ITextAwareEditPart {
 
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 5005;
+	public static final int VISUAL_ID = 5010;
 
 	/**
 	 * @generated
@@ -92,7 +91,7 @@ public class UsageLoopIterationsLabelEditPart extends CompartmentEditPart
 	/**
 	 * @generated
 	 */
-	public UsageLoopIterationsLabelEditPart(View view) {
+	public OpenWorkloadSpecLabelEditPart(View view) {
 		super(view);
 	}
 
@@ -122,7 +121,7 @@ public class UsageLoopIterationsLabelEditPart extends CompartmentEditPart
 					}
 				});
 		installEditPolicy(EditPolicyRoles.OPEN_ROLE,
-				new OpenLoopIterationsDialog());
+				new OpenInterArrivalTimeDialog());
 	}
 
 	/**
@@ -219,10 +218,10 @@ public class UsageLoopIterationsLabelEditPart extends CompartmentEditPart
 	 */
 	protected String getLabelText() {
 		String text = null;
-		Loop loop = (Loop) resolveSemanticElement();
-		if (loop.getIterations_Loop() != null) {
-			text = "Iterations: "
-					+ loop.getIterations_Loop().getSpecification();
+		OpenWorkload ow = (OpenWorkload) resolveSemanticElement();
+		if (ow.getInterArrivalTime_OpenWorkload() != null) {
+			text = "Interarrival Time: "
+					+ ow.getInterArrivalTime_OpenWorkload().getSpecification();
 		}
 		if (text == null || text.length() == 0) {
 			text = defaultText;
@@ -323,7 +322,7 @@ public class UsageLoopIterationsLabelEditPart extends CompartmentEditPart
 
 				public Object getAdapter(Class adapter) {
 					if (IElementType.class.equals(adapter)) {
-						return PalladioComponentModelElementTypes.Loop_3005;
+						return PalladioComponentModelElementTypes.OpenWorkload_2003;
 					}
 					return super.getAdapter(adapter);
 				}
@@ -488,8 +487,9 @@ public class UsageLoopIterationsLabelEditPart extends CompartmentEditPart
 	 * @generated not
 	 */
 	protected void addSemanticListeners() {
-		Loop loop = (Loop) resolveSemanticElement();
-		addListenerFilter("SemanticModel", this, loop.getIterations_Loop()); //$NON-NLS-1$
+		OpenWorkload ow = (OpenWorkload) resolveSemanticElement();
+		addListenerFilter(
+				"SemanticModel", this, ow.getInterArrivalTime_OpenWorkload()); //$NON-NLS-1$
 	}
 
 	/**
@@ -538,7 +538,7 @@ public class UsageLoopIterationsLabelEditPart extends CompartmentEditPart
 	}
 
 	/**
-	 * @generated
+	 * @generated not
 	 */
 	protected void handleNotificationEvent(Notification event) {
 		Object feature = event.getFeature();
@@ -561,21 +561,7 @@ public class UsageLoopIterationsLabelEditPart extends CompartmentEditPart
 						feature)) {
 			refreshFont();
 		} else {
-			if (getParser() != null
-					&& getParser().isAffectingEvent(event,
-							getParserOptions().intValue())) {
-				refreshLabel();
-			}
-			if (getParser() instanceof ISemanticParser) {
-				ISemanticParser modelParser = (ISemanticParser) getParser();
-				if (modelParser.areSemanticElementsAffected(null, event)) {
-					removeSemanticListeners();
-					if (resolveSemanticElement() != null) {
-						addSemanticListeners();
-					}
-					refreshLabel();
-				}
-			}
+			refreshLabel();
 		}
 		super.handleNotificationEvent(event);
 	}

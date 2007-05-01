@@ -17,6 +17,7 @@ import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.EntryLevelSystemCallEditPart;
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.EntryLevelSystemCallParameterUsageEditPart;
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.LoopEditPart;
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.OpenWorkloadEditPart;
+import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.OpenWorkloadSpecLabelEditPart;
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.ScenarioBehaviour2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.ScenarioBehaviour3EditPart;
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.ScenarioBehaviourEditPart;
@@ -209,6 +210,9 @@ public class PalladioComponentModelVisualIDRegistry {
 			return getUnrecognizedClosedWorkload_2002ChildNodeID(domainElement,
 					semanticHint);
 		case OpenWorkloadEditPart.VISUAL_ID:
+			if (OpenWorkloadSpecLabelEditPart.VISUAL_ID == nodeVisualID) {
+				return OpenWorkloadSpecLabelEditPart.VISUAL_ID;
+			}
 			return getUnrecognizedOpenWorkload_2003ChildNodeID(domainElement,
 					semanticHint);
 		case StartEditPart.VISUAL_ID:

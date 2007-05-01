@@ -53,6 +53,9 @@ public class PalladioComponentModelEditPartFactory implements EditPartFactory {
 			case OpenWorkloadEditPart.VISUAL_ID:
 				return new OpenWorkloadEditPart(view);
 
+			case OpenWorkloadSpecLabelEditPart.VISUAL_ID:
+				return new OpenWorkloadSpecLabelEditPart(view);
+
 			case StartEditPart.VISUAL_ID:
 				return new StartEditPart(view);
 

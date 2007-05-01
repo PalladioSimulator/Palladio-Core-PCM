@@ -260,6 +260,11 @@
     <ownedChild>
       <domainMetaElement
           href="../../pcm.ecore#//usagemodel/OpenWorkload"/>
+      <labelMappings
+          readOnly="true">
+        <diagramLabel
+            href="usage.gmfgraph#OpenWorkloadSpecLabel"/>
+      </labelMappings>
       <tool
           xsi:type="gmftool:CreationTool"
           href="usage.gmftool#//@palette/@tools.0/@tools.5"/>

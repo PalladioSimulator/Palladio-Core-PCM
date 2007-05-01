@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Usage Diagram Edit Helper Plug-in
 Bundle-SymbolicName: de.uka.ipd.sdq.pcm.gmf.usage.helper;singleton:=true
-Bundle-Version: 1.0.0
+Bundle-Version: 1.0.0.qualifier
 Bundle-Activator: de.uka.ipd.sdq.pcm.gmf.usage.helper.UsageHelperPlugin
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,

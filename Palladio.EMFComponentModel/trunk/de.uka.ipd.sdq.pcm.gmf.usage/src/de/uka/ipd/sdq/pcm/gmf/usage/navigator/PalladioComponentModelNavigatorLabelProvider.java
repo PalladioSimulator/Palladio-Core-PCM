@@ -17,6 +17,7 @@ import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.ComponentExternalCallNameLabelEdi
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.EntryLevelSystemCallEditPart;
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.LoopEditPart;
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.OpenWorkloadEditPart;
+import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.OpenWorkloadSpecLabelEditPart;
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.ScenarioBehaviour2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.ScenarioBehaviour3EditPart;
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.ScenarioBehaviourEditPart;
@@ -327,7 +328,28 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 	 * @generated
 	 */
 	private String getOpenWorkload_2003Text(View view) {
-		return "";
+		IParser parser = ParserService.getInstance().getParser(
+				new IAdaptable() {
+					public Object getAdapter(Class adapter) {
+						if (String.class.equals(adapter)) {
+							return PalladioComponentModelVisualIDRegistry
+									.getType(OpenWorkloadSpecLabelEditPart.VISUAL_ID);
+						}
+						if (IElementType.class.equals(adapter)) {
+							return PalladioComponentModelElementTypes.OpenWorkload_2003;
+						}
+						return null;
+					}
+				});
+		if (parser != null) {
+			return parser.getPrintString(new EObjectAdapter(
+					view.getElement() != null ? view.getElement() : view),
+					ParserOptions.NONE.intValue());
+		} else {
+			PalladioComponentModelUsageDiagramEditorPlugin.getInstance()
+					.logError("Parser was not found for label " + 5010);
+			return "";
+		}
 	}
 
 	/**

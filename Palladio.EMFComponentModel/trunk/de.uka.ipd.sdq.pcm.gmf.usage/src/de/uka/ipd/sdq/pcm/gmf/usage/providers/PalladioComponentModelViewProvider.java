@@ -23,6 +23,7 @@ import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.EntryLevelSystemCallEditPart;
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.EntryLevelSystemCallParameterUsageEditPart;
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.LoopEditPart;
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.OpenWorkloadEditPart;
+import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.OpenWorkloadSpecLabelEditPart;
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.ScenarioBehaviour2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.ScenarioBehaviour3EditPart;
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.ScenarioBehaviourEditPart;
@@ -58,6 +59,7 @@ import de.uka.ipd.sdq.pcm.gmf.usage.view.factories.ComponentExternalCallNameLabe
 import de.uka.ipd.sdq.pcm.gmf.usage.view.factories.EntryLevelSystemCallParameterUsageViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.usage.view.factories.EntryLevelSystemCallViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.usage.view.factories.LoopViewFactory;
+import de.uka.ipd.sdq.pcm.gmf.usage.view.factories.OpenWorkloadSpecLabelViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.usage.view.factories.OpenWorkloadViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.usage.view.factories.ScenarioBehaviour2ViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.usage.view.factories.ScenarioBehaviour3ViewFactory;
@@ -128,6 +130,8 @@ public class PalladioComponentModelViewProvider extends AbstractViewProvider {
 			return ClosedWorkloadThinkTimeLabelViewFactory.class;
 		case OpenWorkloadEditPart.VISUAL_ID:
 			return OpenWorkloadViewFactory.class;
+		case OpenWorkloadSpecLabelEditPart.VISUAL_ID:
+			return OpenWorkloadSpecLabelViewFactory.class;
 		case StartEditPart.VISUAL_ID:
 			return StartViewFactory.class;
 		case StopEditPart.VISUAL_ID:

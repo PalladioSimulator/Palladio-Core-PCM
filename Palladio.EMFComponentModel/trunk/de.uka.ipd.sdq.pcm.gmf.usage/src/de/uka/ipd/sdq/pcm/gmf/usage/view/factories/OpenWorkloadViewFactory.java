@@ -4,6 +4,7 @@
 package de.uka.ipd.sdq.pcm.gmf.usage.view.factories;
 
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.OpenWorkloadEditPart;
+import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.OpenWorkloadSpecLabelEditPart;
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.UsageScenarioEditPart;
 
 import de.uka.ipd.sdq.pcm.gmf.usage.part.PalladioComponentModelVisualIDRegistry;
@@ -16,6 +17,7 @@ import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.emf.ecore.EAnnotation;
 import org.eclipse.emf.ecore.EcoreFactory;
 
+import org.eclipse.gmf.runtime.diagram.core.util.ViewUtil;
 import org.eclipse.gmf.runtime.diagram.ui.view.factories.AbstractShapeViewFactory;
 
 import org.eclipse.gmf.runtime.notation.NotationFactory;
@@ -61,6 +63,12 @@ public class OpenWorkloadViewFactory extends AbstractShapeViewFactory {
 					"modelID", UsageScenarioEditPart.MODEL_ID); //$NON-NLS-1$
 			view.getEAnnotations().add(shortcutAnnotation);
 		}
+		getViewService().createNode(
+				semanticAdapter,
+				view,
+				PalladioComponentModelVisualIDRegistry
+						.getType(OpenWorkloadSpecLabelEditPart.VISUAL_ID),
+				ViewUtil.APPEND, true, getPreferencesHint());
 	}
 
 }

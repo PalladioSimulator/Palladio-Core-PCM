@@ -15,6 +15,11 @@
         name="OpenWorkloadFigure">
       <children
           xsi:type="gmfgraph:Label"
+          name="OpenWorkloadStereotypeLabelFigure"
+          text="&lt;&lt;Open Workload>>"/>
+      <children
+          xsi:type="gmfgraph:Label"
+          referencingElements="OpenWorkloadSpecLabel"
           name="OpenWorkloadSpecLabelFigure"
           text="&lt;spec>"/>
       <backgroundColor
@@ -105,4 +110,7 @@
   <labels
       name="ClosedWorkloadThinkTimeLabel"
       figure="ClosedWorkloadThinkTimeLabelFigure"/>
+  <labels
+      name="OpenWorkloadSpecLabel"
+      figure="OpenWorkloadSpecLabelFigure"/>
 </gmfgraph:Canvas>

@@ -64,6 +64,8 @@ import de.uka.ipd.sdq.pcmbench.ui.provider.SignaturePrinter;
 public class SignatureEditPart extends CompartmentEditPart implements
 		ITextAwareEditPart {
 
+	private static final int MAX_SIGNATURE_DISPLAY_LENGTH = 50;
+
 	/**
 	 * @generated
 	 */
@@ -218,6 +220,8 @@ public class SignatureEditPart extends CompartmentEditPart implements
 		String text = "";
 		Signature sig = (Signature) resolveSemanticElement();
 		text = new SignaturePrinter().doSwitch(sig);
+		if (text.length() > MAX_SIGNATURE_DISPLAY_LENGTH)
+			text = text.substring(0, MAX_SIGNATURE_DISPLAY_LENGTH-1) + "...";
 		if (text == null || text.length() == 0) {
 			text = defaultText;
 		}
