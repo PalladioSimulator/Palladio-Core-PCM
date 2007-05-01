@@ -115,7 +115,8 @@ public class PalladioDataTypeDialog extends DataTypeDialog {
 
 		for (Resource r : resources) {
 			URI uri = r.getURI();
-			if (hasRepositoryExtension(uri) && !isPrimitiveTypesRepository(uri)) {
+			if (hasRepositoryExtension(uri) && !isPrimitiveTypesRepository(uri)
+					&& r.getContents().get(0) instanceof Repository) {
 				Repository repository = (Repository) r.getContents().get(0);
 				String repositoryName = repository.getEntityName();
 				tList.add(repositoryName == null ? "<Unnamed Repository>"

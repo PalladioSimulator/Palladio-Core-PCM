@@ -9,6 +9,8 @@ import java.util.Collection;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 import org.eclipse.emf.edit.provider.ReflectiveItemProviderAdapterFactory;
 import org.eclipse.emf.edit.provider.resource.ResourceItemProviderAdapterFactory;
+import org.eclipse.emf.edit.ui.provider.AdapterFactoryContentProvider;
+import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
 import org.eclipse.swt.widgets.Shell;
 
 import de.uka.ipd.sdq.pcm.repository.provider.RepositoryItemProviderAdapterFactory;
@@ -27,8 +29,10 @@ public class PalladioSelectEObjectDialog extends SelectEObjectDialog {
 	 * @param input
 	 */
 	public PalladioSelectEObjectDialog(Shell parent,
-			Collection<Object> filterList, Collection<Object> additionalChildReferences, Object input) {
-		super(parent, null, filterList, additionalChildReferences, input);
+			Collection<Object> filterList,
+			Collection<Object> additionalChildReferences, Object input) {
+		super(parent);
+		create();
 		ComposedAdapterFactory adapterFactory = new ComposedAdapterFactory();
 		adapterFactory
 				.addAdapterFactory(new ResourceItemProviderAdapterFactory());
@@ -36,7 +40,13 @@ public class PalladioSelectEObjectDialog extends SelectEObjectDialog {
 				.addAdapterFactory(new RepositoryItemProviderAdapterFactory());
 		adapterFactory
 				.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
-		this.adapterFactory = new PalladioItemProviderAdapterFactory(adapterFactory);
+
+		setViewerContentProvider(new AdapterFactoryContentProvider(
+				new FilteredItemsAdapterFactory(adapterFactory, filterList,
+						additionalChildReferences)));
+		setViewerLabelProvider(new AdapterFactoryLabelProvider(
+				new PalladioItemProviderAdapterFactory(adapterFactory)));
+		setViewerInput(input);
 	}
 
 	public PalladioSelectEObjectDialog(Shell parent,

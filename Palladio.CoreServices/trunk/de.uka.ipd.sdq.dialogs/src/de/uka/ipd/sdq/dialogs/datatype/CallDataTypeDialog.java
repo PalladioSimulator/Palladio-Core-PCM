@@ -13,6 +13,8 @@ import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
+import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Shell;
 
 import de.uka.ipd.sdq.dialogs.selection.PalladioSelectEObjectDialog;
@@ -52,12 +54,11 @@ public class CallDataTypeDialog extends PalladioSelectEObjectDialog {
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see de.uka.ipd.sdq.dialogs.selection.SelectEObjectDialog#createContents()
+	 * @see de.uka.ipd.sdq.dialogs.selection.SelectEObjectDialog#createDialogArea(Composite parent)
 	 */
 	@Override
-	protected void createContents() {
-
-		super.createContents();
+	protected Control createDialogArea(Composite parent) {
+		Composite area = (Composite) super.createDialogArea(parent);
 
 		/**
 		 * Activire the ToolBar with items
@@ -68,7 +69,7 @@ public class CallDataTypeDialog extends PalladioSelectEObjectDialog {
 		 */
 		enableToolBar(true, false, false);
 
-		TreeViewer treeViewer = getListViewer();
+		TreeViewer treeViewer = getTreeViewer();
 		treeViewer.addSelectionChangedListener(new ISelectionChangedListener() {
 
 			public void selectionChanged(SelectionChangedEvent event) {
@@ -144,5 +145,6 @@ public class CallDataTypeDialog extends PalladioSelectEObjectDialog {
 			}
 
 		});
+		return area;
 	}
 }
