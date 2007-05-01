@@ -7,10 +7,10 @@ import java.io.IOException;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Vector;
 
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.commands.operations.OperationHistoryFactory;
-import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IAdaptable;
@@ -18,36 +18,31 @@ import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Path;
+import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
-import org.eclipse.emf.ecore.util.FeatureMap;
-import org.eclipse.emf.edit.provider.IWrapperItemProvider;
-import org.eclipse.emf.edit.ui.provider.AdapterFactoryContentProvider;
-import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.gmf.runtime.common.core.command.CommandResult;
 import org.eclipse.gmf.runtime.diagram.core.services.ViewService;
-import org.eclipse.gmf.runtime.diagram.core.services.view.CreateDiagramViewOperation;
 import org.eclipse.gmf.runtime.emf.commands.core.command.AbstractTransactionalCommand;
-import org.eclipse.gmf.runtime.emf.core.util.EObjectAdapter;
 import org.eclipse.gmf.runtime.notation.Diagram;
-import org.eclipse.jface.viewers.ISelectionChangedListener;
-import org.eclipse.jface.viewers.IStructuredSelection;
-import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.StructuredSelection;
-import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.jface.wizard.Wizard;
 import org.eclipse.jface.wizard.WizardPage;
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.events.SelectionEvent;
+import org.eclipse.swt.events.SelectionListener;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
+import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Label;
-import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.dialogs.WizardNewFileCreationPage;
 
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingSEFFEditPart;
+import de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF;
 
 /**
  * @generated
@@ -60,7 +55,7 @@ public class PalladioComponentModelNewDiagramFileWizard extends Wizard {
 	private TransactionalEditingDomain myEditingDomain;
 
 	/**
-	 * @generated
+	 * @generated not
 	 */
 	public PalladioComponentModelNewDiagramFileWizard(
 			org.eclipse.emf.common.util.URI domainModelURI,
@@ -91,11 +86,10 @@ public class PalladioComponentModelNewDiagramFileWizard extends Wizard {
 				.getUniqueFileName(filePath, fileName, "seff_diagram")); //$NON-NLS-1$
 
 		diagramRootElementSelectionPage = new DiagramRootElementSelectionPage(
-				"Select diagram root element");
+				"Select diagram root element", diagramRoot);
 		diagramRootElementSelectionPage.setTitle("Diagram root element");
 		diagramRootElementSelectionPage
 				.setDescription("Select semantic model element to be depicted on diagram");
-		diagramRootElementSelectionPage.setModelElement(diagramRoot);
 
 		myEditingDomain = editingDomain;
 	}
@@ -106,9 +100,9 @@ public class PalladioComponentModelNewDiagramFileWizard extends Wizard {
 	private WizardNewFileCreationPage myFileCreationPage;
 
 	/**
-	 * @generated
+	 * @generated not
 	 */
-	private ModelElementSelectionPage diagramRootElementSelectionPage;
+	private DiagramRootElementSelectionPage diagramRootElementSelectionPage;
 
 	/**
 	 * @generated
@@ -119,10 +113,10 @@ public class PalladioComponentModelNewDiagramFileWizard extends Wizard {
 	}
 
 	/**
-	 * @generated
+	 * @generated not
 	 */
 	public boolean performFinish() {
-		List affectedFiles = new LinkedList();
+		List<IFile> affectedFiles = new LinkedList<IFile>();
 		IFile diagramFile = myFileCreationPage.createNewFile();
 		try {
 			diagramFile.setCharset("UTF-8", new NullProgressMonitor()); //$NON-NLS-1$
@@ -145,7 +139,7 @@ public class PalladioComponentModelNewDiagramFileWizard extends Wizard {
 					throws ExecutionException {
 				int diagramVID = PalladioComponentModelVisualIDRegistry
 						.getDiagramVisualID(diagramRootElementSelectionPage
-								.getModelElement());
+								.getSeff());
 				if (diagramVID != ResourceDemandingSEFFEditPart.VISUAL_ID) {
 					return CommandResult
 							.newErrorCommandResult("Incorrect model object stored as a root resource object"); //$NON-NLS-1$
@@ -153,7 +147,7 @@ public class PalladioComponentModelNewDiagramFileWizard extends Wizard {
 				Diagram diagram = ViewService
 						.createDiagram(
 								diagramRootElementSelectionPage
-										.getModelElement(),
+										.getSeff(),
 								ResourceDemandingSEFFEditPart.MODEL_ID,
 								PalladioComponentModelSeffDiagramEditorPlugin.DIAGRAM_PREFERENCES_HINT);
 				diagramResource.getContents().add(diagram);
@@ -182,43 +176,126 @@ public class PalladioComponentModelNewDiagramFileWizard extends Wizard {
 	}
 
 	/**
-	 * @generated
+	 * @generated not
 	 */
 	private static class DiagramRootElementSelectionPage extends
-			ModelElementSelectionPage {
+			WizardPage {
+		
+		private Combo myCombo;
+		private List<ResourceDemandingSEFF> myFoundSeffs;
+		private EObject myDiagramRoot;
+		private ResourceDemandingSEFF mySeff;
 
 		/**
-		 * @generated
+		 * @generated not
 		 */
-		protected DiagramRootElementSelectionPage(String pageName) {
+		protected DiagramRootElementSelectionPage(String pageName, EObject diagramRoot) {
 			super(pageName);
+			myCombo = null;
+			myFoundSeffs = new Vector<ResourceDemandingSEFF>();
+			myDiagramRoot = diagramRoot;
+			mySeff = null;
+		}
+		
+		@Override
+		public void createControl(Composite parent) {
+			initializeDialogUnits(parent);
+			Composite topLevel = new Composite(parent, SWT.NONE);
+			topLevel.setLayout(new GridLayout());
+			topLevel.setLayoutData(new GridData(GridData.VERTICAL_ALIGN_FILL
+					| GridData.HORIZONTAL_ALIGN_FILL));
+			topLevel.setFont(parent.getFont());
+			setControl(topLevel);
+			createPageContent(topLevel);
+			setPageComplete(validatePage());
 		}
 
+		private void createPageContent(Composite parent) {
+			Composite panel = new Composite(parent, SWT.NONE);
+			panel.setLayoutData(new GridData(GridData.FILL_BOTH));
+			GridLayout layout = new GridLayout();
+			panel.setLayout(layout);
+
+			Label label = new Label(panel, SWT.NONE);
+			label.setText("Select Resource Demanding SEFF:");
+			label.setLayoutData(new GridData(
+					GridData.HORIZONTAL_ALIGN_BEGINNING));
+
+			myCombo = new Combo(panel, SWT.DROP_DOWN | SWT.READ_ONLY);
+			findSeffs();
+			populateComboBox();					
+			myCombo.addSelectionListener(new ComboSelectionListener());			
+		}
+		
+		private void populateComboBox() {
+			if (myCombo == null) {
+				return;
+			}			
+			
+			myCombo.removeAll();
+			for( ResourceDemandingSEFF seff: myFoundSeffs ) {
+				//TODO find a better way to extract the container name
+				String containerName = seff.eContainer().toString();
+				containerName = containerName.substring(containerName.lastIndexOf(" "), containerName.length()-1);
+				myCombo.add("Container: " + containerName + " - SEFF id: " + seff.getId());
+			}
+		}
+
+		private void findSeffs() {
+			
+			myFoundSeffs.clear();
+			TreeIterator<EObject> it = myDiagramRoot.eAllContents();
+			
+			while (it.hasNext()) {
+				EObject possibleSeff = it.next();
+				if( possibleSeff instanceof ResourceDemandingSEFF ) {
+					myFoundSeffs.add((ResourceDemandingSEFF)possibleSeff);
+				}
+			}
+		}
+		
 		/**
 		 * @generated
 		 */
 		protected String getSelectionTitle() {
 			return "Select diagram root element:";
 		}
+		
+		protected ResourceDemandingSEFF getSeff() {
+			return mySeff;	
+		}
 
 		/**
-		 * @generated
+		 * @generated not
 		 */
 		protected boolean validatePage() {
-			if (selectedModelElement == null) {
-				setErrorMessage("Diagram root element is not selected");
+			mySeff = null;
+			if (myCombo.getSelectionIndex() == -1) {
 				return false;
 			}
-			boolean result = ViewService
-					.getInstance()
-					.provides(
-							new CreateDiagramViewOperation(
-									new EObjectAdapter(selectedModelElement),
-									ResourceDemandingSEFFEditPart.MODEL_ID,
-									PalladioComponentModelSeffDiagramEditorPlugin.DIAGRAM_PREFERENCES_HINT));
-			setErrorMessage(result ? null
-					: "Invalid diagram root element is selected");
-			return result;
+			
+			try {
+				mySeff = myFoundSeffs.get(myCombo.getSelectionIndex());
+			} catch (ArrayIndexOutOfBoundsException e) {
+				return false;
+			}
+					
+			return true;
+		}
+		
+		private class ComboSelectionListener
+			implements SelectionListener {
+
+			@Override
+			public void widgetDefaultSelected(SelectionEvent e) {
+				setPageComplete(validatePage());
+			}
+
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				setPageComplete(validatePage());				
+			}
+
 		}
 	}
 }
