@@ -66,7 +66,6 @@ public class GeneratePluginAction implements IViewActionDelegate {
 	/* (non-Javadoc)
 	 * @see org.eclipse.ui.IActionDelegate#run(org.eclipse.jface.action.IAction)
 	 */
-	@Override
 	public void run(IAction action) {
 
 		Map<String, Object> slotContents = new HashMap<String, Object>();
@@ -136,7 +135,6 @@ public class GeneratePluginAction implements IViewActionDelegate {
 	/* (non-Javadoc)
 	 * @see org.eclipse.ui.IViewActionDelegate#init(org.eclipse.ui.IViewPart)
 	 */
-	@Override
 	public void init(IViewPart view) {
 		// TODO Auto-generated method stub
 	}
@@ -144,7 +142,6 @@ public class GeneratePluginAction implements IViewActionDelegate {
 	/* (non-Javadoc)
 	 * @see org.eclipse.ui.IActionDelegate#selectionChanged(org.eclipse.jface.action.IAction, org.eclipse.jface.viewers.ISelection)
 	 */
-	@Override
 	public void selectionChanged(IAction action, ISelection selection) {
 		// TODO Auto-generated method stub
 		
