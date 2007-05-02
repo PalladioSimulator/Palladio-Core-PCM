@@ -44,6 +44,7 @@ public class SelectEObjectDialog extends TitleAreaDialog {
 	 */
 	public SelectEObjectDialog(Shell parentShell) {
 		super(parentShell);
+		this.setShellStyle(SWT.RESIZE|SWT.MAX);
 	}
 
 	/**

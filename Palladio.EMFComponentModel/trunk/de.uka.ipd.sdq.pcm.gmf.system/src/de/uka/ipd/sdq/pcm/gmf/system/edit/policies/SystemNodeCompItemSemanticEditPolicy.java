@@ -16,6 +16,7 @@ import org.eclipse.gmf.runtime.emf.type.core.commands.CreateElementCommand;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 import org.eclipse.gmf.runtime.notation.View;
 
+import de.uka.ipd.sdq.dialogs.selection.PalladioSelectEObjectDialog;
 import de.uka.ipd.sdq.dialogs.selection.SelectEObjectDialog;
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
 import de.uka.ipd.sdq.pcm.core.composition.CompositionPackage;
@@ -114,9 +115,10 @@ public class SystemNodeCompItemSemanticEditPolicy extends PcmBaseItemSemanticEdi
 			ArrayList filterList = new ArrayList();
 			filterList.add(Repository.class);
 			filterList.add(ProvidesComponentType.class);
-			SelectEObjectDialog dialog = new SelectEObjectDialog(v.getRoot()
-					.getViewer().getControl().getShell(), new PalladioItemProviderAdapterFactory(adapterFactory),
-					filterList, v.getEditingDomain().getResourceSet());
+			PalladioSelectEObjectDialog dialog = new PalladioSelectEObjectDialog(v.getRoot()
+					.getViewer().getControl().getShell(), 
+					filterList, new ArrayList(), 
+					v.getEditingDomain().getResourceSet());
 			dialog.open();
 			if (dialog.getResult() == null)
 				return CommandResult.newCancelledCommandResult();

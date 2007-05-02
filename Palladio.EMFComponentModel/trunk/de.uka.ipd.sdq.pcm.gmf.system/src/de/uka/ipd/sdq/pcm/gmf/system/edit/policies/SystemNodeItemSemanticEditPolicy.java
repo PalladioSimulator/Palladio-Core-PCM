@@ -212,9 +212,9 @@ public class SystemNodeItemSemanticEditPolicy extends
 			ArrayList filterList = new ArrayList();
 			filterList.add(Repository.class);
 			filterList.add(Interface.class);
-			SelectEObjectDialog dialog = new SelectEObjectDialog(v.getRoot()
-					.getViewer().getControl().getShell(), new PalladioItemProviderAdapterFactory(adapterFactory),
-					filterList, v.getEditingDomain().getResourceSet());
+			PalladioSelectEObjectDialog dialog = new PalladioSelectEObjectDialog(v.getRoot()
+					.getViewer().getControl().getShell(),
+					filterList, new ArrayList(), v.getEditingDomain().getResourceSet());
 			dialog.open();
 			if (dialog.getResult() == null)
 				return CommandResult.newCancelledCommandResult();
