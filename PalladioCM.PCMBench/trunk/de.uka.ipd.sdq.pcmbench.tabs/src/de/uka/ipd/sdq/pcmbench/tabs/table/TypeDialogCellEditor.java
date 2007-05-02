@@ -3,7 +3,6 @@ package de.uka.ipd.sdq.pcmbench.tabs.table;
 import java.text.MessageFormat;
 import java.util.ArrayList;
 
-import org.eclipse.emf.transaction.RecordingCommand;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.jface.viewers.DialogCellEditor;
 import org.eclipse.swt.SWT;
@@ -22,7 +21,6 @@ import org.eclipse.swt.widgets.Control;
 import de.uka.ipd.sdq.dialogs.datatype.CallDataTypeDialog;
 import de.uka.ipd.sdq.pcm.repository.DataType;
 import de.uka.ipd.sdq.pcm.repository.Repository;
-import de.uka.ipd.sdq.pcm.repository.Signature;
 import de.uka.ipd.sdq.pcmbench.EditingDomainFactory;
 
 /**
