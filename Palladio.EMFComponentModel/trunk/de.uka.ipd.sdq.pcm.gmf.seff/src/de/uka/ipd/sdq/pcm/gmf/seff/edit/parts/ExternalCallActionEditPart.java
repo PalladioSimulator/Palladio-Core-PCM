@@ -239,7 +239,7 @@ public class ExternalCallActionEditPart extends ShapeNodeEditPart {
 		private void createContents() {
 
 			WrapLabel stereotypeLabel0 = new WrapLabel();
-			stereotypeLabel0.setText("<<component_external>>");
+			stereotypeLabel0.setText("<<ExternalCallAction>>");
 
 			this.add(stereotypeLabel0);
 

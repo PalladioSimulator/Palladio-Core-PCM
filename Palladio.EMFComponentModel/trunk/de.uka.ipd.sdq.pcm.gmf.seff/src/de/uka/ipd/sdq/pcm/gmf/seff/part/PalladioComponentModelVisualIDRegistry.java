@@ -23,8 +23,8 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ExternalCallAction2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ExternalCallActionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ExternalCallActionEntityName2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ExternalCallActionEntityNameEditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ExternalCallActionParameterUsage2EditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ExternalCallActionParameterUsageEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ExternalCallActionVariableUsage2EditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ExternalCallActionVariableUsageEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.GuardedBranchTransitionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.GuardedBranchTransitionIdEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.InternalAction2EditPart;
@@ -56,7 +56,7 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviourLoopComp
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviourLoopCompartmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingSEFFEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.SetVariableActionEditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.SetVariableActionParameterUsageEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.SetVariableActionVariableUsageEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.StartAction2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.StartActionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.StopAction2EditPart;
@@ -239,8 +239,8 @@ public class PalladioComponentModelVisualIDRegistry {
 			if (ExternalCallActionEntityNameEditPart.VISUAL_ID == nodeVisualID) {
 				return ExternalCallActionEntityNameEditPart.VISUAL_ID;
 			}
-			if (ExternalCallActionParameterUsageEditPart.VISUAL_ID == nodeVisualID) {
-				return ExternalCallActionParameterUsageEditPart.VISUAL_ID;
+			if (ExternalCallActionVariableUsageEditPart.VISUAL_ID == nodeVisualID) {
+				return ExternalCallActionVariableUsageEditPart.VISUAL_ID;
 			}
 			return getUnrecognizedExternalCallAction_2003ChildNodeID(
 					domainElement, semanticHint);
@@ -293,8 +293,8 @@ public class PalladioComponentModelVisualIDRegistry {
 			return getUnrecognizedCollectionIteratorAction_2007ChildNodeID(
 					domainElement, semanticHint);
 		case SetVariableActionEditPart.VISUAL_ID:
-			if (SetVariableActionParameterUsageEditPart.VISUAL_ID == nodeVisualID) {
-				return SetVariableActionParameterUsageEditPart.VISUAL_ID;
+			if (SetVariableActionVariableUsageEditPart.VISUAL_ID == nodeVisualID) {
+				return SetVariableActionVariableUsageEditPart.VISUAL_ID;
 			}
 			return getUnrecognizedSetVariableAction_2008ChildNodeID(
 					domainElement, semanticHint);
@@ -392,8 +392,8 @@ public class PalladioComponentModelVisualIDRegistry {
 			if (ExternalCallActionEntityName2EditPart.VISUAL_ID == nodeVisualID) {
 				return ExternalCallActionEntityName2EditPart.VISUAL_ID;
 			}
-			if (ExternalCallActionParameterUsage2EditPart.VISUAL_ID == nodeVisualID) {
-				return ExternalCallActionParameterUsage2EditPart.VISUAL_ID;
+			if (ExternalCallActionVariableUsage2EditPart.VISUAL_ID == nodeVisualID) {
+				return ExternalCallActionVariableUsage2EditPart.VISUAL_ID;
 			}
 			return getUnrecognizedExternalCallAction_3012ChildNodeID(
 					domainElement, semanticHint);
@@ -460,14 +460,14 @@ public class PalladioComponentModelVisualIDRegistry {
 		case VariableCharacterisation2EditPart.VISUAL_ID:
 			return getUnrecognizedVariableCharacterisation_3016ChildNodeID(
 					domainElement, semanticHint);
-		case ExternalCallActionParameterUsageEditPart.VISUAL_ID:
+		case ExternalCallActionVariableUsageEditPart.VISUAL_ID:
 			if ((semanticHint == null || VariableUsageEditPart.VISUAL_ID == nodeVisualID)
 					&& ParameterPackage.eINSTANCE.getVariableUsage()
 							.isSuperTypeOf(domainElementMetaclass)
 					&& (domainElement == null || isNodeVariableUsage_3001((VariableUsage) domainElement))) {
 				return VariableUsageEditPart.VISUAL_ID;
 			}
-			return getUnrecognizedExternalCallActionParameterUsage_7001ChildNodeID(
+			return getUnrecognizedExternalCallActionVariableUsage_7001ChildNodeID(
 					domainElement, semanticHint);
 		case VariableUsageVariableCharacterisationEditPart.VISUAL_ID:
 			if ((semanticHint == null || VariableCharacterisationEditPart.VISUAL_ID == nodeVisualID)
@@ -610,14 +610,14 @@ public class PalladioComponentModelVisualIDRegistry {
 			}
 			return getUnrecognizedResourceDemandingBehaviourBranchCompartment_7009ChildNodeID(
 					domainElement, semanticHint);
-		case ExternalCallActionParameterUsage2EditPart.VISUAL_ID:
+		case ExternalCallActionVariableUsage2EditPart.VISUAL_ID:
 			if ((semanticHint == null || VariableUsageEditPart.VISUAL_ID == nodeVisualID)
 					&& ParameterPackage.eINSTANCE.getVariableUsage()
 							.isSuperTypeOf(domainElementMetaclass)
 					&& (domainElement == null || isNodeVariableUsage_3001((VariableUsage) domainElement))) {
 				return VariableUsageEditPart.VISUAL_ID;
 			}
-			return getUnrecognizedExternalCallActionParameterUsage_7010ChildNodeID(
+			return getUnrecognizedExternalCallActionVariableUsage_7010ChildNodeID(
 					domainElement, semanticHint);
 		case ResourceDemandingBehaviourBranchCompartment2EditPart.VISUAL_ID:
 			if ((semanticHint == null || StartAction2EditPart.VISUAL_ID == nodeVisualID)
@@ -751,14 +751,14 @@ public class PalladioComponentModelVisualIDRegistry {
 			}
 			return getUnrecognizedInternalActionResourceDemand_7012ChildNodeID(
 					domainElement, semanticHint);
-		case SetVariableActionParameterUsageEditPart.VISUAL_ID:
+		case SetVariableActionVariableUsageEditPart.VISUAL_ID:
 			if ((semanticHint == null || VariableUsage2EditPart.VISUAL_ID == nodeVisualID)
 					&& ParameterPackage.eINSTANCE.getVariableUsage()
 							.isSuperTypeOf(domainElementMetaclass)
 					&& (domainElement == null || isNodeVariableUsage_3015((VariableUsage) domainElement))) {
 				return VariableUsage2EditPart.VISUAL_ID;
 			}
-			return getUnrecognizedSetVariableActionParameterUsage_7016ChildNodeID(
+			return getUnrecognizedSetVariableActionVariableUsage_7016ChildNodeID(
 					domainElement, semanticHint);
 		case VariableUsageVariableCharacterisation2EditPart.VISUAL_ID:
 			if ((semanticHint == null || VariableCharacterisation2EditPart.VISUAL_ID == nodeVisualID)
@@ -1528,7 +1528,7 @@ public class PalladioComponentModelVisualIDRegistry {
 	 *
 	 * @generated
 	 */
-	private static int getUnrecognizedExternalCallActionParameterUsage_7001ChildNodeID(
+	private static int getUnrecognizedExternalCallActionVariableUsage_7001ChildNodeID(
 			EObject domainElement, String semanticHint) {
 		return -1;
 	}
@@ -1594,7 +1594,7 @@ public class PalladioComponentModelVisualIDRegistry {
 	 *
 	 * @generated
 	 */
-	private static int getUnrecognizedExternalCallActionParameterUsage_7010ChildNodeID(
+	private static int getUnrecognizedExternalCallActionVariableUsage_7010ChildNodeID(
 			EObject domainElement, String semanticHint) {
 		return -1;
 	}
@@ -1649,7 +1649,7 @@ public class PalladioComponentModelVisualIDRegistry {
 	 *
 	 * @generated
 	 */
-	private static int getUnrecognizedSetVariableActionParameterUsage_7016ChildNodeID(
+	private static int getUnrecognizedSetVariableActionVariableUsage_7016ChildNodeID(
 			EObject domainElement, String semanticHint) {
 		return -1;
 	}

@@ -45,7 +45,7 @@ public class PalladioComponentModelPaletteFactory {
 		paletteContainer.add(createExternalCallAction5CreationTool());
 		paletteContainer.add(createBranchAction6CreationTool());
 		paletteContainer.add(createCollectionIteratorAction7CreationTool());
-		paletteContainer.add(createSetVariable8CreationTool());
+		paletteContainer.add(createSetVariableAction8CreationTool());
 		paletteContainer.add(createAquireAction9CreationTool());
 		paletteContainer.add(createReleaseAction10CreationTool());
 		return paletteContainer;
@@ -60,7 +60,7 @@ public class PalladioComponentModelPaletteFactory {
 				Messages.Links2Group_title);
 		paletteContainer.add(createControlFlow1CreationTool());
 		paletteContainer.add(createResourceDemand2CreationTool());
-		paletteContainer.add(createParametricParameterUsage3CreationTool());
+		paletteContainer.add(createVariableUsage3CreationTool());
 		paletteContainer.add(createVariableCharacterisation4CreationTool());
 		return paletteContainer;
 	}
@@ -203,12 +203,12 @@ public class PalladioComponentModelPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createSetVariable8CreationTool() {
+	private ToolEntry createSetVariableAction8CreationTool() {
 		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
 		types.add(PalladioComponentModelElementTypes.SetVariableAction_2008);
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.SetVariable8CreationTool_title,
-				Messages.SetVariable8CreationTool_desc, types);
+				Messages.SetVariableAction8CreationTool_title,
+				Messages.SetVariableAction8CreationTool_desc, types);
 		entry
 				.setSmallIcon(PalladioComponentModelElementTypes
 						.getImageDescriptor(PalladioComponentModelElementTypes.SetVariableAction_2008));
@@ -287,13 +287,13 @@ public class PalladioComponentModelPaletteFactory {
 	/**
 	 * @generated
 	 */
-	private ToolEntry createParametricParameterUsage3CreationTool() {
+	private ToolEntry createVariableUsage3CreationTool() {
 		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(2);
 		types.add(PalladioComponentModelElementTypes.VariableUsage_3001);
 		types.add(PalladioComponentModelElementTypes.VariableUsage_3015);
 		NodeToolEntry entry = new NodeToolEntry(
-				Messages.ParametricParameterUsage3CreationTool_title,
-				Messages.ParametricParameterUsage3CreationTool_desc, types);
+				Messages.VariableUsage3CreationTool_title,
+				Messages.VariableUsage3CreationTool_desc, types);
 		entry
 				.setSmallIcon(PalladioComponentModelElementTypes
 						.getImageDescriptor(PalladioComponentModelElementTypes.VariableUsage_3001));

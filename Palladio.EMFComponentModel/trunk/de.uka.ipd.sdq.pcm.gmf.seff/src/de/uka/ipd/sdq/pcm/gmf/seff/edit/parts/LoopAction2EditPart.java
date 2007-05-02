@@ -256,7 +256,7 @@ public class LoopAction2EditPart extends ShapeNodeEditPart {
 		private void createContents() {
 
 			WrapLabel loopStereotype0 = new WrapLabel();
-			loopStereotype0.setText("<<Loop>>");
+			loopStereotype0.setText("<<LoopAction>>");
 
 			this.add(loopStereotype0);
 

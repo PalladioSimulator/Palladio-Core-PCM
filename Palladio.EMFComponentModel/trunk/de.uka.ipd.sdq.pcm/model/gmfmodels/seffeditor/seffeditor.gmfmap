@@ -112,7 +112,7 @@
       <compartments
           children="//@nodes.2/@ownedChild/@children.0">
         <compartment
-            href="seffeditor.gmfgraph#ParameterUsage"/>
+            href="seffeditor.gmfgraph#VariableUsage"/>
       </compartments>
     </ownedChild>
   </nodes>
@@ -726,7 +726,7 @@
       <compartments
           children="//@nodes.7/@ownedChild/@children.0">
         <compartment
-            href="seffeditor.gmfgraph#ParameterUsage"/>
+            href="seffeditor.gmfgraph#VariableUsage"/>
       </compartments>
     </ownedChild>
   </nodes>

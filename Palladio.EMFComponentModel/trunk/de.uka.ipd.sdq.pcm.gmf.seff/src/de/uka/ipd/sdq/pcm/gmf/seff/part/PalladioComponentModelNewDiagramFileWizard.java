@@ -25,7 +25,9 @@ import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.gmf.runtime.common.core.command.CommandResult;
 import org.eclipse.gmf.runtime.diagram.core.services.ViewService;
+import org.eclipse.gmf.runtime.diagram.core.services.view.CreateDiagramViewOperation;
 import org.eclipse.gmf.runtime.emf.commands.core.command.AbstractTransactionalCommand;
+import org.eclipse.gmf.runtime.emf.core.util.EObjectAdapter;
 import org.eclipse.gmf.runtime.notation.Diagram;
 import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.jface.wizard.Wizard;
@@ -146,8 +148,7 @@ public class PalladioComponentModelNewDiagramFileWizard extends Wizard {
 				}
 				Diagram diagram = ViewService
 						.createDiagram(
-								diagramRootElementSelectionPage
-										.getSeff(),
+								diagramRootElementSelectionPage.getSeff(),
 								ResourceDemandingSEFFEditPart.MODEL_ID,
 								PalladioComponentModelSeffDiagramEditorPlugin.DIAGRAM_PREFERENCES_HINT);
 				diagramResource.getContents().add(diagram);
@@ -178,9 +179,15 @@ public class PalladioComponentModelNewDiagramFileWizard extends Wizard {
 	/**
 	 * @generated not
 	 */
-	private static class DiagramRootElementSelectionPage extends
-			WizardPage {
-		
+	private static class DiagramRootElementSelectionPage extends WizardPage {
+
+		/**
+		 * @generated
+		 */
+		protected DiagramRootElementSelectionPage(String pageName) {
+			super(pageName);
+		}
+
 		private Combo myCombo;
 		private List<ResourceDemandingSEFF> myFoundSeffs;
 		private EObject myDiagramRoot;
@@ -189,14 +196,15 @@ public class PalladioComponentModelNewDiagramFileWizard extends Wizard {
 		/**
 		 * @generated not
 		 */
-		protected DiagramRootElementSelectionPage(String pageName, EObject diagramRoot) {
+		protected DiagramRootElementSelectionPage(String pageName,
+				EObject diagramRoot) {
 			super(pageName);
 			myCombo = null;
 			myFoundSeffs = new Vector<ResourceDemandingSEFF>();
 			myDiagramRoot = diagramRoot;
 			mySeff = null;
 		}
-		
+
 		public void createControl(Composite parent) {
 			initializeDialogUnits(parent);
 			Composite topLevel = new Composite(parent, SWT.NONE);
@@ -222,46 +230,48 @@ public class PalladioComponentModelNewDiagramFileWizard extends Wizard {
 
 			myCombo = new Combo(panel, SWT.DROP_DOWN | SWT.READ_ONLY);
 			findSeffs();
-			populateComboBox();					
-			myCombo.addSelectionListener(new ComboSelectionListener());			
+			populateComboBox();
+			myCombo.addSelectionListener(new ComboSelectionListener());
 		}
-		
+
 		private void populateComboBox() {
 			if (myCombo == null) {
 				return;
-			}			
-			
+			}
+
 			myCombo.removeAll();
-			for( ResourceDemandingSEFF seff: myFoundSeffs ) {
+			for (ResourceDemandingSEFF seff : myFoundSeffs) {
 				//TODO find a better way to extract the container name
 				String containerName = seff.eContainer().toString();
-				containerName = containerName.substring(containerName.lastIndexOf(" "), containerName.length()-1);
-				myCombo.add("Container: " + containerName + " - SEFF id: " + seff.getId());
+				containerName = containerName.substring(containerName
+						.lastIndexOf(" "), containerName.length() - 1);
+				myCombo.add("Container: " + containerName + " - SEFF id: "
+						+ seff.getId());
 			}
 		}
 
 		private void findSeffs() {
-			
+
 			myFoundSeffs.clear();
 			TreeIterator<EObject> it = myDiagramRoot.eAllContents();
-			
+
 			while (it.hasNext()) {
 				EObject possibleSeff = it.next();
-				if( possibleSeff instanceof ResourceDemandingSEFF ) {
-					myFoundSeffs.add((ResourceDemandingSEFF)possibleSeff);
+				if (possibleSeff instanceof ResourceDemandingSEFF) {
+					myFoundSeffs.add((ResourceDemandingSEFF) possibleSeff);
 				}
 			}
 		}
-		
+
 		/**
 		 * @generated
 		 */
 		protected String getSelectionTitle() {
 			return "Select diagram root element:";
 		}
-		
+
 		protected ResourceDemandingSEFF getSeff() {
-			return mySeff;	
+			return mySeff;
 		}
 
 		/**
@@ -272,25 +282,24 @@ public class PalladioComponentModelNewDiagramFileWizard extends Wizard {
 			if (myCombo.getSelectionIndex() == -1) {
 				return false;
 			}
-			
+
 			try {
 				mySeff = myFoundSeffs.get(myCombo.getSelectionIndex());
 			} catch (ArrayIndexOutOfBoundsException e) {
 				return false;
 			}
-					
+
 			return true;
 		}
-		
-		private class ComboSelectionListener
-			implements SelectionListener {
+
+		private class ComboSelectionListener implements SelectionListener {
 
 			public void widgetDefaultSelected(SelectionEvent e) {
 				setPageComplete(validatePage());
 			}
 
 			public void widgetSelected(SelectionEvent e) {
-				setPageComplete(validatePage());				
+				setPageComplete(validatePage());
 			}
 
 		}

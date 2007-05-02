@@ -35,8 +35,8 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.CollectionIteratorAction2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.CollectionIteratorActionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ExternalCallAction2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ExternalCallActionEditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ExternalCallActionParameterUsage2EditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ExternalCallActionParameterUsageEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ExternalCallActionVariableUsage2EditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ExternalCallActionVariableUsageEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.GuardedBranchTransitionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.InternalAction2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.InternalActionEditPart;
@@ -58,7 +58,7 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviourLoopComp
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviourLoopCompartmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingSEFFEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.SetVariableActionEditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.SetVariableActionParameterUsageEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.SetVariableActionVariableUsageEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.StartAction2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.StartActionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.StopAction2EditPart;
@@ -380,7 +380,7 @@ public class PalladioComponentModelNavigatorContentProvider implements
 					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			Collection connectedViews = getChildrenByType(Collections
 					.singleton(view),
-					ExternalCallActionParameterUsageEditPart.VISUAL_ID);
+					ExternalCallActionVariableUsageEditPart.VISUAL_ID);
 			connectedViews = getChildrenByType(connectedViews,
 					VariableUsageEditPart.VISUAL_ID);
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
@@ -692,7 +692,7 @@ public class PalladioComponentModelNavigatorContentProvider implements
 					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			Collection connectedViews = getChildrenByType(Collections
 					.singleton(view),
-					SetVariableActionParameterUsageEditPart.VISUAL_ID);
+					SetVariableActionVariableUsageEditPart.VISUAL_ID);
 			connectedViews = getChildrenByType(connectedViews,
 					VariableUsage2EditPart.VISUAL_ID);
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
@@ -2778,7 +2778,7 @@ public class PalladioComponentModelNavigatorContentProvider implements
 					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			Collection connectedViews = getChildrenByType(Collections
 					.singleton(view),
-					ExternalCallActionParameterUsage2EditPart.VISUAL_ID);
+					ExternalCallActionVariableUsage2EditPart.VISUAL_ID);
 			connectedViews = getChildrenByType(connectedViews,
 					VariableUsageEditPart.VISUAL_ID);
 			result.addAll(createNavigatorItems(connectedViews, parentElement,

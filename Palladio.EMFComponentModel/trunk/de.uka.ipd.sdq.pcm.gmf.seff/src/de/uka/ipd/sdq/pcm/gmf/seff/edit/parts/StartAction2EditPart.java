@@ -9,6 +9,7 @@ import org.eclipse.draw2d.Graphics;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.PositionConstants;
 import org.eclipse.draw2d.StackLayout;
+import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
 import org.eclipse.gef.Request;
@@ -110,7 +111,7 @@ public class StartAction2EditPart extends ShapeNodeEditPart {
 	 */
 	protected NodeFigure createNodePlate() {
 		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(getMapMode()
-				.DPtoLP(40), getMapMode().DPtoLP(40));
+				.DPtoLP(20), getMapMode().DPtoLP(20));
 		return result;
 	}
 
@@ -183,6 +184,8 @@ public class StartAction2EditPart extends ShapeNodeEditPart {
 			this.setLineWidth(1);
 			this.setLineStyle(Graphics.LINE_SOLID);
 			this.setBackgroundColor(ColorConstants.black);
+			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(20),
+					getMapMode().DPtoLP(20)));
 		}
 
 		/**

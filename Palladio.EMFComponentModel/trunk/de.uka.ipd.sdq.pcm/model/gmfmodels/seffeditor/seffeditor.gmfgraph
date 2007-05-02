@@ -103,6 +103,9 @@
       <backgroundColor
           xsi:type="gmfgraph:ConstantColor"
           value="black"/>
+      <preferredSize
+          dx="20"
+          dy="20"/>
     </figures>
     <figures
         xsi:type="gmfgraph:Ellipse"
@@ -117,11 +120,14 @@
             xsi:type="gmfgraph:ConstantColor"
             value="black"/>
       </children>
+      <preferredSize
+          dx="30"
+          dy="30"/>
       <insets
-          top="5"
-          left="5"
-          bottom="5"
-          right="5"/>
+          top="3"
+          left="3"
+          bottom="3"
+          right="3"/>
     </figures>
     <figures
         xsi:type="gmfgraph:RoundedRectangle"

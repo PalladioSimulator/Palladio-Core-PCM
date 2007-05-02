@@ -239,7 +239,7 @@ public class BranchActionEditPart extends ShapeNodeEditPart {
 		private void createContents() {
 
 			WrapLabel branchStereotype0 = new WrapLabel();
-			branchStereotype0.setText("<<Branch>>");
+			branchStereotype0.setText("<<BranchAction>>");
 
 			this.add(branchStereotype0);
 

@@ -192,8 +192,8 @@ public class PalladioComponentModelEditPartFactory implements EditPartFactory {
 			case VariableCharacterisation2EditPart.VISUAL_ID:
 				return new VariableCharacterisation2EditPart(view);
 
-			case ExternalCallActionParameterUsageEditPart.VISUAL_ID:
-				return new ExternalCallActionParameterUsageEditPart(view);
+			case ExternalCallActionVariableUsageEditPart.VISUAL_ID:
+				return new ExternalCallActionVariableUsageEditPart(view);
 
 			case VariableUsageVariableCharacterisationEditPart.VISUAL_ID:
 				return new VariableUsageVariableCharacterisationEditPart(view);
@@ -212,8 +212,8 @@ public class PalladioComponentModelEditPartFactory implements EditPartFactory {
 				return new ResourceDemandingBehaviourBranchCompartmentEditPart(
 						view);
 
-			case ExternalCallActionParameterUsage2EditPart.VISUAL_ID:
-				return new ExternalCallActionParameterUsage2EditPart(view);
+			case ExternalCallActionVariableUsage2EditPart.VISUAL_ID:
+				return new ExternalCallActionVariableUsage2EditPart(view);
 
 			case ResourceDemandingBehaviourBranchCompartment2EditPart.VISUAL_ID:
 				return new ResourceDemandingBehaviourBranchCompartment2EditPart(
@@ -230,8 +230,8 @@ public class PalladioComponentModelEditPartFactory implements EditPartFactory {
 			case InternalActionResourceDemand2EditPart.VISUAL_ID:
 				return new InternalActionResourceDemand2EditPart(view);
 
-			case SetVariableActionParameterUsageEditPart.VISUAL_ID:
-				return new SetVariableActionParameterUsageEditPart(view);
+			case SetVariableActionVariableUsageEditPart.VISUAL_ID:
+				return new SetVariableActionVariableUsageEditPart(view);
 
 			case VariableUsageVariableCharacterisation2EditPart.VISUAL_ID:
 				return new VariableUsageVariableCharacterisation2EditPart(view);

@@ -254,7 +254,8 @@ public class CollectionIteratorActionEditPart extends ShapeNodeEditPart {
 		private void createContents() {
 
 			WrapLabel collectionIteratorStereotype0 = new WrapLabel();
-			collectionIteratorStereotype0.setText("<<CollectionIterator>>");
+			collectionIteratorStereotype0
+					.setText("<<CollectionIteratorAction>>");
 
 			this.add(collectionIteratorStereotype0);
 

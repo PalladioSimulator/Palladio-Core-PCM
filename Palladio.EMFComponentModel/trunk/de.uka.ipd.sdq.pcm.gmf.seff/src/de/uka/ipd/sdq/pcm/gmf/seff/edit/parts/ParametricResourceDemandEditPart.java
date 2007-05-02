@@ -229,7 +229,9 @@ public class ParametricResourceDemandEditPart extends CompartmentEditPart
 				text = "";
 			else
 				text += " ";
-			text += "<" + demand.getRequiredResource_ParametricResourceDemand().getEntityName() +">";
+			text += "<"
+					+ demand.getRequiredResource_ParametricResourceDemand()
+							.getEntityName() + ">";
 		}
 		if (text == null || text.length() == 0) {
 			text = defaultText;
@@ -492,19 +494,20 @@ public class ParametricResourceDemandEditPart extends CompartmentEditPart
 	}
 
 	private EContentAdapter changeListener = null;
+
 	/**
 	 * @generated not
 	 */
 	protected void addSemanticListeners() {
 		ParametricResourceDemand element = (ParametricResourceDemand) resolveSemanticElement();
-		changeListener = new EContentAdapter(){
+		changeListener = new EContentAdapter() {
 
 			@Override
 			public void notifyChanged(Notification notification) {
 				super.notifyChanged(notification);
 				refreshLabel();
 			}
-			
+
 		};
 		element.eAdapters().add(changeListener);
 	}

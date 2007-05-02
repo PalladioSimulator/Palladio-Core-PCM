@@ -126,12 +126,12 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String SetVariable8CreationTool_title;
+	public static String SetVariableAction8CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String SetVariable8CreationTool_desc;
+	public static String SetVariableAction8CreationTool_desc;
 
 	/**
 	 * @generated
@@ -176,12 +176,12 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String ParametricParameterUsage3CreationTool_title;
+	public static String VariableUsage3CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String ParametricParameterUsage3CreationTool_desc;
+	public static String VariableUsage3CreationTool_desc;
 
 	/**
 	 * @generated
@@ -226,7 +226,7 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String ExternalCallActionParameterUsageEditPart_title;
+	public static String ExternalCallActionVariableUsageEditPart_title;
 
 	/**
 	 * @generated
@@ -256,7 +256,7 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String ExternalCallActionParameterUsage2EditPart_title;
+	public static String ExternalCallActionVariableUsage2EditPart_title;
 
 	/**
 	 * @generated
@@ -281,7 +281,7 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String SetVariableActionParameterUsageEditPart_title;
+	public static String SetVariableActionVariableUsageEditPart_title;
 
 	/**
 	 * @generated

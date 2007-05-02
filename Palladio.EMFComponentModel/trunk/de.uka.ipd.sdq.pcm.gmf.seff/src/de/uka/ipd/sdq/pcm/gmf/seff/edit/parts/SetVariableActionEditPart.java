@@ -179,11 +179,37 @@ public class SetVariableActionEditPart extends ShapeNodeEditPart {
 		 */
 		private void createContents() {
 
-			WrapLabel stereotypeLabel0 = new WrapLabel();
-			stereotypeLabel0.setText("<<Set Variable>>");
+			WrapLabel setVariableActionStereotypeLabelFigure0 = new WrapLabel();
+			setVariableActionStereotypeLabelFigure0
+					.setText("<<SetVariableAction>>");
 
-			this.add(stereotypeLabel0);
+			this.add(setVariableActionStereotypeLabelFigure0);
 
+			WrapLabel setVariableNameLabelFigure0 = new WrapLabel();
+			setVariableNameLabelFigure0.setText("");
+
+			this.add(setVariableNameLabelFigure0);
+			setFigureSetVariableNameLabelFigure(setVariableNameLabelFigure0);
+
+		}
+
+		/**
+		 * @generated
+		 */
+		private WrapLabel fSetVariableNameLabelFigure;
+
+		/**
+		 * @generated
+		 */
+		public WrapLabel getFigureSetVariableNameLabelFigure() {
+			return fSetVariableNameLabelFigure;
+		}
+
+		/**
+		 * @generated
+		 */
+		private void setFigureSetVariableNameLabelFigure(WrapLabel fig) {
+			fSetVariableNameLabelFigure = fig;
 		}
 
 		/**

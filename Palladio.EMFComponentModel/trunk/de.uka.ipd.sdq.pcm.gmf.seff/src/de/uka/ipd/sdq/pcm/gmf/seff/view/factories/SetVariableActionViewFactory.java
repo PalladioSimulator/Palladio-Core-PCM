@@ -5,8 +5,8 @@ package de.uka.ipd.sdq.pcm.gmf.seff.view.factories;
 
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingSEFFEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.SetVariableActionEditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.SetVariableActionParameterUsageEditPart;
 
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.SetVariableActionVariableUsageEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.part.PalladioComponentModelVisualIDRegistry;
 
 import java.util.ArrayList;
@@ -69,7 +69,7 @@ public class SetVariableActionViewFactory extends AbstractShapeViewFactory {
 						semanticAdapter,
 						view,
 						PalladioComponentModelVisualIDRegistry
-								.getType(SetVariableActionParameterUsageEditPart.VISUAL_ID),
+								.getType(SetVariableActionVariableUsageEditPart.VISUAL_ID),
 						ViewUtil.APPEND, true, getPreferencesHint());
 	}
 
