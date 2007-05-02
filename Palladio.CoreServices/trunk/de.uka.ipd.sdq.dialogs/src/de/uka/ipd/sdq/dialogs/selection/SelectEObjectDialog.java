@@ -176,15 +176,15 @@ public class SelectEObjectDialog extends TitleAreaDialog {
 		return new Point(500, 400);
 	}
 	
-	protected void setViewerContentProvider(IContentProvider provider){
+	public void setViewerContentProvider(IContentProvider provider){
 		treeViewer.setContentProvider(provider);
 	}
 	
-	protected void setViewerLabelProvider(IBaseLabelProvider labelProvider){
+	public void setViewerLabelProvider(IBaseLabelProvider labelProvider){
 		treeViewer.setLabelProvider(labelProvider);
 	}
 	
-	protected void setViewerInput(Object input){
+	public void setViewerInput(Object input){
 		treeViewer.setInput(input);
 		treeViewer.expandAll();
 	}
