@@ -74,8 +74,8 @@
       </tools>
       <tools
           xsi:type="gmftool:CreationTool"
-          title="SetVariable"
-          description="Create a SetVariable Action">
+          title="SetVariableAction"
+          description="Create a SetVariableAction">
         <smallIcon
             xsi:type="gmftool:DefaultImage"/>
         <largeIcon
@@ -128,8 +128,8 @@
       </tools>
       <tools
           xsi:type="gmftool:CreationTool"
-          title="ParametricParameterUsage"
-          description="Link a Parametric Parameter Usage">
+          title="Variable Usage"
+          description="Create a VariableUsage">
         <smallIcon
             xsi:type="gmftool:DefaultImage"/>
         <largeIcon
@@ -137,7 +137,7 @@
       </tools>
       <tools
           xsi:type="gmftool:CreationTool"
-          title="VariableCharacterisation"
+          title="Variable Characterisation"
           description="VariableCharacterisation"/>
     </tools>
     <tools
@@ -146,7 +146,7 @@
         collapsible="true">
       <tools
           xsi:type="gmftool:CreationTool"
-          title="ResourceDemandingBehaviour"
+          title="Resource Demanding Behaviour"
           description="Create new ResourceDemandingBehaviour">
         <smallIcon
             xsi:type="gmftool:DefaultImage"/>
@@ -164,7 +164,7 @@
       </tools>
       <tools
           xsi:type="gmftool:CreationTool"
-          title="GuardedBranchTransition"
+          title="Guarded Branch Transition"
           description="GuardedBranchTransition">
         <smallIcon
             xsi:type="gmftool:DefaultImage"/>

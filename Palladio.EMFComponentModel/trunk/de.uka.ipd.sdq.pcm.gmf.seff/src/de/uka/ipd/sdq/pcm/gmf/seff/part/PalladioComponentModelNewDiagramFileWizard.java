@@ -197,7 +197,6 @@ public class PalladioComponentModelNewDiagramFileWizard extends Wizard {
 			mySeff = null;
 		}
 		
-		@Override
 		public void createControl(Composite parent) {
 			initializeDialogUnits(parent);
 			Composite topLevel = new Composite(parent, SWT.NONE);
@@ -286,12 +285,10 @@ public class PalladioComponentModelNewDiagramFileWizard extends Wizard {
 		private class ComboSelectionListener
 			implements SelectionListener {
 
-			@Override
 			public void widgetDefaultSelected(SelectionEvent e) {
 				setPageComplete(validatePage());
 			}
 
-			@Override
 			public void widgetSelected(SelectionEvent e) {
 				setPageComplete(validatePage());				
 			}

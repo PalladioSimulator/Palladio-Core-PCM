@@ -129,6 +129,10 @@
         name="InternalActionFigure">
       <children
           xsi:type="gmfgraph:Label"
+          name="InternalActionStereotypeLabelFigure"
+          text="&lt;&lt;InternalAction>>"/>
+      <children
+          xsi:type="gmfgraph:Label"
           referencingElements="InternalActionNameLabel"
           name="InternalActionFigureNameLabel"
           text="&lt;myName>"/>
@@ -147,12 +151,12 @@
     </figures>
     <figures
         xsi:type="gmfgraph:RoundedRectangle"
-        referencingElements="ExternalCallActionNode ParameterUsage"
+        referencingElements="ExternalCallActionNode VariableUsage"
         name="ExternalCallActionFigure">
       <children
           xsi:type="gmfgraph:Label"
           name="StereotypeLabel"
-          text="&lt;&lt;component_external>>"/>
+          text="&lt;&lt;ExternalCallAction>>"/>
       <children
           xsi:type="gmfgraph:Label"
           referencingElements="ComponentExternalCallNameLabel"
@@ -170,7 +174,7 @@
       <children
           xsi:type="gmfgraph:Label"
           name="LoopStereotype"
-          text="&lt;&lt;Loop>>"/>
+          text="&lt;&lt;LoopAction>>"/>
       <children
           xsi:type="gmfgraph:Label"
           referencingElements="LoopNameLabel"
@@ -188,7 +192,7 @@
       <children
           xsi:type="gmfgraph:Label"
           name="BranchStereotype"
-          text="&lt;&lt;Branch>>"/>
+          text="&lt;&lt;BranchAction>>"/>
       <children
           xsi:type="gmfgraph:Label"
           referencingElements="BranchNameLabel"
@@ -223,7 +227,7 @@
       <children
           xsi:type="gmfgraph:Label"
           name="CollectionIteratorStereotype"
-          text="&lt;&lt;CollectionIterator>>"/>
+          text="&lt;&lt;CollectionIteratorAction>>"/>
       <children
           xsi:type="gmfgraph:Label"
           referencingElements="CollectionIteratorNameLabel"
@@ -240,8 +244,12 @@
         name="SetVariableActionFigure">
       <children
           xsi:type="gmfgraph:Label"
-          name="StereotypeLabel"
-          text="&lt;&lt;Set Variable>>"/>
+          name="SetVariableActionStereotypeLabelFigure"
+          text="&lt;&lt;SetVariableAction>>"/>
+      <children
+          xsi:type="gmfgraph:Label"
+          referencingElements="SetVariableNameLabel"
+          name="SetVariableNameLabelFigure"/>
     </figures>
   </figures>
   <nodes
@@ -322,7 +330,7 @@
       collapsible="true"
       needsTitle="true"/>
   <compartments
-      name="ParameterUsage"
+      name="VariableUsage"
       figure="ExternalCallActionFigure"
       collapsible="true"
       needsTitle="true"/>
@@ -381,4 +389,7 @@
   <labels
       name="AquireNameLabel"
       figure="AquireNameLabelFigure"/>
+  <labels
+      name="SetVariableNameLabel"
+      figure="SetVariableNameLabelFigure"/>
 </gmfgraph:Canvas>
