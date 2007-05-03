@@ -3,6 +3,8 @@
  */
 package de.uka.ipd.sdq.pcm.gmf.seff.helper;
 
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.jface.viewers.ITreeContentProvider;
 import org.eclipse.jface.viewers.Viewer;
 
@@ -21,10 +23,10 @@ import de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF;
  */
 public class VariableUsageContentProvider implements ITreeContentProvider {
 
+	
 	/* (non-Javadoc)
 	 * @see org.eclipse.jface.viewers.IStructuredContentProvider#getElements(java.lang.Object)
 	 */
-	@Override
 	public Object[] getElements(Object inputElement) {
 		if (inputElement instanceof ResourceDemandingSEFF) {
 			return getChildren((ResourceDemandingSEFF) inputElement);
@@ -35,25 +37,15 @@ public class VariableUsageContentProvider implements ITreeContentProvider {
 	/* (non-Javadoc)
 	 * @see org.eclipse.jface.viewers.IContentProvider#dispose()
 	 */
-	@Override
 	public void dispose() {
 		// TODO Auto-generated method stub
 		
 	}
 
-	/* (non-Javadoc)
-	 * @see org.eclipse.jface.viewers.IContentProvider#inputChanged(org.eclipse.jface.viewers.Viewer, java.lang.Object, java.lang.Object)
-	 */
-	@Override
-	public void inputChanged(Viewer viewer, Object oldInput, Object newInput) {
-		// TODO Auto-generated method stub
-		
-	}
 
 	/* (non-Javadoc)
 	 * @see org.eclipse.jface.viewers.ITreeContentProvider#getChildren(java.lang.Object)
 	 */
-	@Override
 	public Object[] getChildren(Object parent) {
 		
 		if (parent instanceof ResourceDemandingSEFF) {
@@ -70,58 +62,63 @@ public class VariableUsageContentProvider implements ITreeContentProvider {
 			Parameter parameter = (Parameter) parent;
 			DataType dataType = parameter.getDatatype__Parameter();
 			if (dataType instanceof CompositeDataType) {
-				CompositeDataType compType = (CompositeDataType) dataType;
-				return compType.getInnerDeclaration_CompositeDataType().toArray();
+				return getObjectsCompositeDataType(dataType,parameter);
 			}
-			return new Object[] {dataType};
+			return new Object[] {new TreeEntry(dataType,parameter)};
 		}
 		
-		if (parent instanceof CollectionDataType) {
-			CollectionDataType dataType = (CollectionDataType) parent;
-			DataType innerType = dataType.getInnerType_CollectionDataType();
-			if (innerType instanceof PrimitiveDataType)
-				return new Object[0];
-			return new Object[] {innerType};
-		}
-		
-		if (parent instanceof CompositeDataType) {
-			CompositeDataType dataType = (CompositeDataType) parent;
-			return dataType.getInnerDeclaration_CompositeDataType().toArray();
-		}
-		
-		if (parent instanceof InnerDeclaration) {
-			InnerDeclaration declaration = (InnerDeclaration) parent;
-			DataType innerType = declaration.getDatatype_InnerDeclaration();
-			
-			if (innerType instanceof CollectionDataType) {
-				CollectionDataType collDataType = (CollectionDataType) innerType;
-				return new Object[] {collDataType.getInnerType_CollectionDataType()};
+		if (parent instanceof TreeEntry) {
+			TreeEntry entry = (TreeEntry) parent;
+			Object object = entry.getObject();
+
+			if (object instanceof CollectionDataType) {
+				CollectionDataType dataType = (CollectionDataType) object;
+				DataType innerType = dataType.getInnerType_CollectionDataType();
+				if (innerType instanceof PrimitiveDataType)
+					return new Object[0];
+				return new Object[] { new TreeEntry(innerType, dataType) };
 			}
 			
-			if (innerType instanceof CompositeDataType) {
-				CompositeDataType compDataType = (CompositeDataType) innerType;
-				return compDataType.getInnerDeclaration_CompositeDataType().toArray();
+			if (object instanceof InnerDeclaration) {
+				InnerDeclaration declaration = (InnerDeclaration) object;
+				DataType innerType = declaration.getDatatype_InnerDeclaration();
+				if (innerType instanceof CollectionDataType) {
+					CollectionDataType collDataType = (CollectionDataType) innerType;
+					return new Object[] { new TreeEntry(collDataType
+							.getInnerType_CollectionDataType(), declaration) };
+				}
+				if (innerType instanceof CompositeDataType)
+					return getObjectsCompositeDataType(innerType,declaration);
 			}
-			
-//			if (innerType instanceof PrimitiveDataType)
-//				return new Object[0];
 		}
 		return new Object[0];
+	}
+
+	private Object[] getObjectsCompositeDataType(Object object, Object parent) {
+		CompositeDataType dataType = (CompositeDataType) object;
+		EList<InnerDeclaration> list = dataType
+				.getInnerDeclaration_CompositeDataType();
+		Object[] objects = new Object[list.size()];
+		int i = 0;
+		for (InnerDeclaration inner : list)
+			objects[i++] = new TreeEntry(inner, parent);
+		return objects;
 	}
 
 	/* (non-Javadoc)
 	 * @see org.eclipse.jface.viewers.ITreeContentProvider#getParent(java.lang.Object)
 	 */
-	@Override
 	public Object getParent(Object element) {
-		// TODO Auto-generated method stub
+		if (element instanceof TreeEntry){
+			TreeEntry entry = (TreeEntry) element;
+			return entry.getParent();
+		}
 		return null;
 	}
 
 	/* (non-Javadoc)
 	 * @see org.eclipse.jface.viewers.ITreeContentProvider#hasChildren(java.lang.Object)
 	 */
-	@Override
 	public boolean hasChildren(Object element) {
 		if (element instanceof ResourceDemandingSEFF)
 			return true;
@@ -129,30 +126,78 @@ public class VariableUsageContentProvider implements ITreeContentProvider {
 			return true;
 		if (element instanceof Parameter)
 			return true;
-		if (element instanceof CollectionDataType){
-			CollectionDataType dataType = (CollectionDataType) element;
-			DataType innerType = dataType.getInnerType_CollectionDataType();
-			if (innerType instanceof PrimitiveDataType)
-				return false;
-			return true;
-		}
-		if (element instanceof CompositeDataType)
-			return true;
-		if (element instanceof InnerDeclaration){
-			InnerDeclaration declaration = (InnerDeclaration) element;
-			DataType dataType = declaration.getDatatype_InnerDeclaration();
-			if (dataType instanceof CollectionDataType){
-				CollectionDataType collDataType = (CollectionDataType) dataType;
-				DataType innerType = collDataType.getInnerType_CollectionDataType();
+
+		if (element instanceof TreeEntry) {
+			TreeEntry entry = (TreeEntry) element;
+			if (entry.getObject() instanceof CollectionDataType) {
+				CollectionDataType dataType = (CollectionDataType) entry
+						.getObject();
+				DataType innerType = dataType.getInnerType_CollectionDataType();
 				if (innerType instanceof PrimitiveDataType)
 					return false;
+				return true;
 			}
-				
-			if (dataType instanceof PrimitiveDataType)
-				return false;
-			return true;
+			if (entry.getObject() instanceof InnerDeclaration) {
+				InnerDeclaration declaration = (InnerDeclaration) entry
+						.getObject();
+				DataType dataType = declaration.getDatatype_InnerDeclaration();
+				if (dataType instanceof CollectionDataType) {
+					CollectionDataType collDataType = (CollectionDataType) dataType;
+					DataType innerType = collDataType
+							.getInnerType_CollectionDataType();
+					if (innerType instanceof PrimitiveDataType)
+						return false;
+				}
+
+				if (dataType instanceof PrimitiveDataType)
+					return false;
+				return true;
+			}
 		}
 		return false;
 	}
 
+	public void inputChanged(Viewer viewer, Object oldInput, Object newInput) {
+		// TODO Auto-generated method stub
+		
+	}
+}
+class TreeEntry extends EObjectImpl{
+	
+	private Object object;
+	private Object parent;
+	/**
+	 * @param child
+	 * @param parent
+	 */
+	public TreeEntry(Object object, Object parent) {
+		this.object = object;
+		this.parent = parent;
+	}
+	/**
+	 * @return the object
+	 */
+	public Object getObject() {
+		return object;
+	}
+	/**
+	 * @param object the object to set
+	 */
+	public void setObject(Object object) {
+		this.object = object;
+	}
+	/**
+	 * @return the parent
+	 */
+	public Object getParent() {
+		return parent;
+	}
+	/**
+	 * @param parent the parent to set
+	 */
+	public void setParent(Object parent) {
+		this.parent = parent;
+	}
+	
+	
 }
