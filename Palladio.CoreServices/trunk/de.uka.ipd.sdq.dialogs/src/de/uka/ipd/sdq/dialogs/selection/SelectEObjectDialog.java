@@ -47,6 +47,11 @@ public class SelectEObjectDialog extends TitleAreaDialog {
 		this.setShellStyle(SWT.RESIZE|SWT.MAX);
 	}
 
+	protected void configureShell(Shell newShell) {
+		super.configureShell(newShell);
+		newShell.setText(DIALOG_TITEL);
+	}	
+	
 	/**
 	 * Create contents of the dialog
 	 * @param parent

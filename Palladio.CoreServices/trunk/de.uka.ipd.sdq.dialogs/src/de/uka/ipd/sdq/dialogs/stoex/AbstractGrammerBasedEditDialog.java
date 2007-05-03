@@ -6,6 +6,7 @@ package de.uka.ipd.sdq.dialogs.stoex;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.jface.dialogs.Dialog;
 import org.eclipse.jface.dialogs.IDialogConstants;
+import org.eclipse.jface.dialogs.TitleAreaDialog;
 import org.eclipse.jface.text.Document;
 import org.eclipse.jface.text.ITextListener;
 import org.eclipse.jface.text.Position;
@@ -25,6 +26,10 @@ import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.GC;
 import org.eclipse.swt.graphics.RGB;
 import org.eclipse.swt.graphics.Rectangle;
+import org.eclipse.swt.layout.FillLayout;
+import org.eclipse.swt.layout.FormAttachment;
+import org.eclipse.swt.layout.FormData;
+import org.eclipse.swt.layout.FormLayout;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Canvas;
@@ -35,6 +40,8 @@ import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Listener;
 import org.eclipse.swt.widgets.Shell;
+import org.eclipse.ui.PlatformUI;
+import org.eclipse.ui.internal.actions.HelpContentsAction;
 
 import antlr.CharScanner;
 import antlr.RecognitionException;
@@ -46,7 +53,9 @@ import de.uka.ipd.sdq.pcm.repository.Parameter;
  * @author Snowball
  * 
  */
-public abstract class AbstractGrammerBasedEditDialog extends Dialog {
+public abstract class AbstractGrammerBasedEditDialog extends TitleAreaDialog {
+
+	private static final String DIALOG_TITLE = "Edit a stochastic expression";
 
 	public static final String ERROR_TYPE = "ERROR";
 
@@ -78,6 +87,8 @@ public abstract class AbstractGrammerBasedEditDialog extends Dialog {
 		super(parent);
 		newText = getInitialText();
 		this.context = context;
+		setShellStyle(SWT.RESIZE|SWT.MAX);
+		this.setHelpAvailable(true);
 	}
 
 	protected abstract String getInitialText();
@@ -89,17 +100,21 @@ public abstract class AbstractGrammerBasedEditDialog extends Dialog {
 	}
 
 	@Override
-	protected Control createDialogArea(Composite parent) {
-// HK: does not work:
-//		setShellStyle(getShellStyle() | SWT.DIALOG_TRIM | SWT.RESIZE | SWT.MAX
-//				| SWT.APPLICATION_MODAL);
+	protected Control createDialogArea(Composite parent) {		
+		Composite area = (Composite) super.createDialogArea(parent);
+		Composite container = new Composite(area, SWT.NONE);
+		container.setLayout(new FillLayout());
+		container.setLayoutData(new GridData(GridData.FILL_BOTH));
 		
+		this.setTitle(DIALOG_TITLE);
+		PlatformUI.getWorkbench().getHelpSystem().setHelp(parent, "de.uka.ipd.sdq.pcmbench.help.stoexdialog");
+
 		IAnnotationAccess fAnnotationAccess = new AnnotationMarkerAccess();
 
-		final Group editStochasticExpressionGroup = new Group(parent, SWT.NONE);
+		final Group editStochasticExpressionGroup = new Group(container, SWT.NONE);
 		editStochasticExpressionGroup.setText("");
-		editStochasticExpressionGroup.setLayout(new GridLayout());
-
+		editStochasticExpressionGroup.setLayout(new FillLayout());
+		
 		fAnnotationModel = new AnnotationModel();
 		CompositeRuler fCompositeRuler = new CompositeRuler();
 		AnnotationRulerColumn annotationRuler = new AnnotationRulerColumn(
@@ -139,12 +154,12 @@ public abstract class AbstractGrammerBasedEditDialog extends Dialog {
 		textViewer.addPainter(ap);
 
 		textViewer.configure(config);
-		GridData layoutData = new GridData(GridData.FILL_BOTH
-				| GridData.GRAB_HORIZONTAL | GridData.GRAB_VERTICAL);
-		layoutData.heightHint = 300;
-		layoutData.widthHint = 450;
+		GridData layoutData = new GridData(GridData.FILL_BOTH);//new GridData(GridData.FILL_BOTH
+				//| GridData.GRAB_HORIZONTAL | GridData.GRAB_VERTICAL);
+		//layoutData.heightHint = 300;
+		//layoutData.widthHint = 450;
 		
-		textViewer.getControl().setLayoutData(layoutData);
+		//textViewer.getControl().setLayoutData(layoutData);
 		// editText.setText(newText);
 		textViewer.setDocument(new Document(newText), fAnnotationModel);
 		textViewer.addTextListener(new ITextListener(){
@@ -184,6 +199,7 @@ public abstract class AbstractGrammerBasedEditDialog extends Dialog {
 			return;
 		}
 		this.getButton(IDialogConstants.OK_ID).setEnabled(true);
+		this.setErrorMessage(null);
 		result = value;
 	}
 
@@ -197,6 +213,7 @@ public abstract class AbstractGrammerBasedEditDialog extends Dialog {
 				e.getMessage()),
 				new Position(ParserHelper.positionToOffset(textViewer.getDocument(), scanner.getLine(), scanner.getColumn()),1));
 		this.getButton(IDialogConstants.OK_ID).setEnabled(false);
+		this.setErrorMessage("Entered stochastic expression is invalid. Cause given: "+e.getMessage());
 	}
 
 	/**
@@ -209,6 +226,7 @@ public abstract class AbstractGrammerBasedEditDialog extends Dialog {
 				e.getMessage()),
 				guessPosition(e));
 		this.getButton(IDialogConstants.OK_ID).setEnabled(false);
+		this.setErrorMessage("Entered stochastic expression is invalid. Cause given: "+e.getMessage());
 	}
 
 	/**

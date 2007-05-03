@@ -20,4 +20,10 @@
   <toc file="tocsamples.xml" /> 
   <toc file="toctasks.xml" /> 
   </extension>
+  <extension
+        point="org.eclipse.help.contexts">
+     <contexts
+           file="contexts.xml">
+     </contexts>
+  </extension>
 </plugin>
