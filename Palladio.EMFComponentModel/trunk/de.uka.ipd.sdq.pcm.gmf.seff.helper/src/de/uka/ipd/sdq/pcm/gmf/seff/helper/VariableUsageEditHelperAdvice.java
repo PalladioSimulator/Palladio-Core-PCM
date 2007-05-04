@@ -25,8 +25,10 @@ import de.uka.ipd.sdq.pcm.repository.Parameter;
 import de.uka.ipd.sdq.pcm.repository.Repository;
 import de.uka.ipd.sdq.pcm.repository.Signature;
 import de.uka.ipd.sdq.pcm.repository.provider.RepositoryItemProviderAdapterFactory;
+import de.uka.ipd.sdq.pcm.seff.ExternalCallAction;
 import de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF;
 import de.uka.ipd.sdq.pcmbench.ui.provider.PalladioItemProviderAdapterFactory;
+import de.uka.ipd.sdq.stoex.AbstractNamedReference;
 import de.uka.ipd.sdq.stoex.NamespaceReference;
 import de.uka.ipd.sdq.stoex.StoexFactory;
 
@@ -43,7 +45,7 @@ public class VariableUsageEditHelperAdvice extends AbstractEditHelperAdvice
 	@Override
 	protected ICommand getAfterConfigureCommand(ConfigureRequest request) {
 		EObject resource = null;
-		ResourceDemandingSEFF seff = getSEFF(request.getElementToConfigure());
+		ExternalCallAction call = getCall(request.getElementToConfigure());
 
 		ArrayList<Object> filterList = new ArrayList<Object>();
 		filterList.add(Repository.class);
@@ -54,7 +56,7 @@ public class VariableUsageEditHelperAdvice extends AbstractEditHelperAdvice
 				PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(),
 				filterList, 
 				additionalReferences,
-				seff);
+				call.getCalledService_ExternalService());
 		/**
 		 * set a ContentProvider for dialog TreeViewer
 		 */
@@ -79,16 +81,17 @@ public class VariableUsageEditHelperAdvice extends AbstractEditHelperAdvice
 		if (dialog.getResult() == null)
 			return new CanceledCommand();
 		if (!(dialog.getResult() instanceof TreeType)
-				&& !(dialog.getResult() instanceof TreeDeclaration))
+				&& !(dialog.getResult() instanceof TreeDeclaration)
+				   && !(dialog.getResult() instanceof Parameter))
 			return new CanceledCommand();
 	
 		resource = (EObject) dialog.getResult();
 		
-		NamespaceReference namedReference = setNamedReference(resource, null);
+		AbstractNamedReference namedReference = setNamedReference(resource, null, true);
 
 		ICommand cmd = new SetValueCommand(new SetRequest(request
 				.getElementToConfigure(), ParameterPackage.eINSTANCE
-				.getVariableUsage_VariableCharacterisation_VariableUsage(),
+				.getVariableUsage_NamedReference_VariableUsage(),
 				namedReference));
 		return cmd;
 	}
@@ -96,16 +99,19 @@ public class VariableUsageEditHelperAdvice extends AbstractEditHelperAdvice
 	/**
 	 * @return - String: specification of VariableCharacterisation
 	 */
-	private NamespaceReference setNamedReference(EObject object,
-			NamespaceReference namedReference) {
+	private AbstractNamedReference setNamedReference(EObject object,
+			AbstractNamedReference namedReference, boolean last) {
 		/**
 		 * Parameter
 		 */
 		if (object instanceof Parameter) {
 			Parameter parameter = (Parameter) object;
-			NamespaceReference parameterReference = (NamespaceReference) referenceFactory(parameter
-					.getParameterName());
-			parameterReference.setInnerReference_NamespaceReference(namedReference);
+			AbstractNamedReference parameterReference = referenceFactory(parameter
+					.getParameterName(),last);
+			if (!last) {
+				((NamespaceReference)parameterReference)
+					.setInnerReference_NamespaceReference(namedReference);
+			}
 			return parameterReference;
 		}
 
@@ -117,11 +123,13 @@ public class VariableUsageEditHelperAdvice extends AbstractEditHelperAdvice
 		if (object instanceof TreeType) {
 			TreeType treeType = (TreeType) object;
 			if (treeType.getParent() != null) {
-				NamespaceReference treetypeReference = referenceFactory("INNER");
-				treetypeReference
+				AbstractNamedReference treetypeReference = referenceFactory("INNER",last);
+				if (!last) {
+					((NamespaceReference)treetypeReference)
 						.setInnerReference_NamespaceReference(namedReference);
+				}
 				return setNamedReference((EObject) treeType.getParent(),
-						treetypeReference);
+						treetypeReference,false);
 			}
 		}
 
@@ -135,12 +143,14 @@ public class VariableUsageEditHelperAdvice extends AbstractEditHelperAdvice
 			InnerDeclaration declaration = (InnerDeclaration) treeDeclaration
 					.getObject();
 
-			NamespaceReference declarationReference = referenceFactory(declaration
-					.getEntityName());
-			declarationReference
+			AbstractNamedReference declarationReference = referenceFactory(declaration
+					.getEntityName(),last);
+			if (!last) {
+				((NamespaceReference)declarationReference)
 					.setInnerReference_NamespaceReference(namedReference);
+			}
 			return setNamedReference((EObject) treeDeclaration.getParent(),
-					declarationReference);
+					declarationReference,false);
 		}
 
 		return namedReference;
@@ -149,21 +159,26 @@ public class VariableUsageEditHelperAdvice extends AbstractEditHelperAdvice
 	/**
 	 * Create the AbstractNamedReference and set a string parameter
 	 */
-	private NamespaceReference referenceFactory(String string) {
-		NamespaceReference parameterReference = StoexFactory.eINSTANCE
+	private AbstractNamedReference referenceFactory(String string,boolean shouldGenerateVariableReference) {
+		AbstractNamedReference parameterReference = null;
+		if (shouldGenerateVariableReference){
+			parameterReference = StoexFactory.eINSTANCE
+			.createVariableReference();
+		}else{
+			parameterReference = StoexFactory.eINSTANCE
 				.createNamespaceReference();
+		}
 		parameterReference.setReferenceName(string);
 		return parameterReference;
 	}
 
 	
-	private ResourceDemandingSEFF getSEFF(EObject a) {
+	private ExternalCallAction getCall(EObject a) {
 		EObject container = a;
-		while (!(container instanceof ResourceDemandingSEFF))
+		while (!(container instanceof ExternalCallAction))
 			container = container.eContainer();
-		if (!(container instanceof ResourceDemandingSEFF)) 
+		if (!(container instanceof ExternalCallAction)) 
 			return null;
-		ResourceDemandingSEFF seff = (ResourceDemandingSEFF) container;
-		return seff;
+		return(ExternalCallAction) container;
 	}
 }

@@ -15,6 +15,7 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.SetRequest;
 import org.eclipse.ui.PlatformUI;
 
 import de.uka.ipd.sdq.dialogs.selection.PalladioSelectEObjectDialog;
+import de.uka.ipd.sdq.pcm.repository.BasicComponent;
 import de.uka.ipd.sdq.pcm.repository.Interface;
 import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
 import de.uka.ipd.sdq.pcm.repository.RequiredRole;
@@ -33,7 +34,7 @@ public class ExternalCallActionEditHelperAdvice extends
 	 */
 	@Override
 	protected ICommand getAfterConfigureCommand(ConfigureRequest request) {
-		EObject eOobject = request.getElementToConfigure().eContainer().eContainer();
+		EObject eOobject = searchBasicComponent(request.getElementToConfigure());
 		EObject signature = null;
 		ArrayList<Object> filterList = new ArrayList<Object>();
 		filterList.add(RequiredRole.class);
@@ -60,6 +61,13 @@ public class ExternalCallActionEditHelperAdvice extends
 						SeffPackage.eINSTANCE.getExternalCallAction_CalledService_ExternalService(),
 						signature));
 		return cmd;
+	}
+
+	private EObject searchBasicComponent(EObject elementToConfigure) {
+		EObject o = elementToConfigure;
+		while (!(o instanceof BasicComponent))
+			o = o.eContainer();
+		return o;
 	}
 
 }

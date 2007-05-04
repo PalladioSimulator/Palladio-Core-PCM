@@ -28,8 +28,8 @@ public class VariableUsageContentProvider implements ITreeContentProvider {
 	 * @see org.eclipse.jface.viewers.IStructuredContentProvider#getElements(java.lang.Object)
 	 */
 	public Object[] getElements(Object inputElement) {
-		if (inputElement instanceof ResourceDemandingSEFF) {
-			return getChildren((ResourceDemandingSEFF) inputElement);
+		if (inputElement instanceof Signature) {
+			return getChildren(inputElement);
 		}
 		return null;
 	}
