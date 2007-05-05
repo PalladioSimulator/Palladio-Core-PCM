@@ -83,12 +83,6 @@
                inheritance="all"
                typeId="de.uka.ipd.sdq.pcm.gmf.seff.VariableUsage_3001">
          </adviceBinding>
-         <adviceBinding 
-               class="de.uka.ipd.sdq.pcm.gmf.seff.helper.VariableCharacterisationEditHelperAdvice"
-               id="de.uka.ipd.sdq.pcm.gmf.seff.VariableCharacterisationAdvice"
-               inheritance="all"
-               typeId="de.uka.ipd.sdq.pcm.gmf.seff.VariableCharacterisation_3002">
-         </adviceBinding>
       </metamodel>
       <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0">
          <metamodelType
@@ -166,9 +160,6 @@
          </elementType>
           <elementType
                ref="de.uka.ipd.sdq.pcm.gmf.seff.VariableUsageAdvice">
-         </elementType>
-          <elementType
-               ref="de.uka.ipd.sdq.pcm.gmf.seff.VariableCharacterisationAdvice">
          </elementType>
        </binding>
    </extension>
