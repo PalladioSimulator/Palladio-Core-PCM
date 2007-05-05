@@ -11,7 +11,11 @@ import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.events.SelectionAdapter;
+import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.events.SelectionListener;
+import org.eclipse.swt.events.ShellAdapter;
+import org.eclipse.swt.events.ShellEvent;
 import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.layout.FormAttachment;
 import org.eclipse.swt.layout.FormData;
@@ -36,21 +40,33 @@ public class SelectEObjectDialog extends TitleAreaDialog {
 	private EObject selection;
 	private Class<?> providedService;
 	private Label label;
-	private Button OKbutton;
+	private Button OKbutton,CANCELbutton;
 	private String DIALOG_TITEL = "Select Object...";
+
 	/**
 	 * Create the dialog
 	 * @param parentShell
 	 */
 	public SelectEObjectDialog(Shell parentShell) {
 		super(parentShell);
-		this.setShellStyle(SWT.RESIZE|SWT.MAX);
+		this.setShellStyle(SWT.RESIZE|SWT.MAX|SWT.CLOSE);
+		
 	}
 
 	protected void configureShell(Shell newShell) {
 		super.configureShell(newShell);
 		newShell.setText(DIALOG_TITEL);
-	}	
+		newShell.addShellListener(new ShellAdapter(){
+
+			/* (non-Javadoc)
+			 * @see org.eclipse.swt.events.ShellAdapter#shellClosed(org.eclipse.swt.events.ShellEvent)
+			 */
+			@Override
+			public void shellClosed(ShellEvent e) {
+				selection = null;
+			}
+		});
+	}
 	
 	/**
 	 * Create contents of the dialog
@@ -151,8 +167,18 @@ public class SelectEObjectDialog extends TitleAreaDialog {
 	 */
 	@Override
 	protected void createButtonsForButtonBar(Composite parent) {
-		createButton(parent, IDialogConstants.CANCEL_ID,
+		CANCELbutton = createButton(parent, IDialogConstants.CANCEL_ID,
 				IDialogConstants.CANCEL_LABEL, false);
+		CANCELbutton.addSelectionListener(new SelectionAdapter(){
+
+			/* (non-Javadoc)
+			 * @see org.eclipse.swt.events.SelectionAdapter#widgetSelected(org.eclipse.swt.events.SelectionEvent)
+			 */
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				selection = null;
+			}
+		});
 		
 		OKbutton = createButton(parent, IDialogConstants.OK_ID, IDialogConstants.OK_LABEL,
 				true);
