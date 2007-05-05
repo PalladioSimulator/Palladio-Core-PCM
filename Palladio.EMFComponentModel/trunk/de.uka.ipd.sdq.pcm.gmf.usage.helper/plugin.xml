@@ -41,6 +41,12 @@
                inheritance="all"
                typeId="de.uka.ipd.sdq.pcm.gmf.usage.EntryLevelSystemCall_3003">
          </adviceBinding>
+          <adviceBinding 
+               class="de.uka.ipd.sdq.pcm.gmf.usage.helper.VariableUsageEditHelperAdvice"
+               id="de.uka.ipd.sdq.pcm.gmf.usage.VariableUsageAdvice"
+               inheritance="all"
+               typeId="de.uka.ipd.sdq.pcm.gmf.usage.VariableUsage_3004">
+         </adviceBinding>
       </metamodel>
       <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/UsageModel/1.0">
          <metamodelType
@@ -101,6 +107,9 @@
          </advice>      
          <advice
                ref="de.uka.ipd.sdq.pcm.gmf.usage.ArrivalRateActionAdvice">
+         </advice>
+          <advice
+               ref="de.uka.ipd.sdq.pcm.gmf.usage.VariableUsageAdvice">
          </advice>      
        </binding>
    </extension>
