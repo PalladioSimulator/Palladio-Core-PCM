@@ -131,8 +131,14 @@ public class VariableUsageContentProvider implements ITreeContentProvider {
 	 */
 	private DataType getTreeTypeInner(Object parent) {
 		TreeType treeType = (TreeType) parent;
-		CollectionDataType dataType = (CollectionDataType) treeType.getObject();
-		return dataType.getInnerType_CollectionDataType();
+		DataType dataType = (DataType) treeType.getObject();
+		
+		if (dataType instanceof PrimitiveDataType) {
+			return dataType;
+			
+		}
+		CollectionDataType collDataType = (CollectionDataType) dataType;
+		return collDataType.getInnerType_CollectionDataType();
 	}
 	
 	/**

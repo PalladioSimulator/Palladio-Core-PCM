@@ -51,8 +51,13 @@ public class VariableUsageLabelProvider extends ItemProviderDecorator implements
 			return ((Parameter) object).getParameterName();
 		
 		if (object instanceof TreeType) {
-			CollectionDataType dataType = getTreeTypeObject(object);
-			return "INNER: " + dataType.getEntityName();
+			DataType dataType = getTreeTypeObject(object);
+			if (dataType instanceof PrimitiveDataType) {
+				PrimitiveDataType primDataType = (PrimitiveDataType) dataType;
+				return  "INNER: " + primDataType.getType().getName();
+			}
+			CollectionDataType collDataType = (CollectionDataType) dataType;
+			return "INNER: " + collDataType.getEntityName();
 		}
 		
 		if (object instanceof TreeDeclaration) {
@@ -82,9 +87,9 @@ public class VariableUsageLabelProvider extends ItemProviderDecorator implements
 	/**
 	 * @return - return the DdataType from TreeType-Object
 	 */
-	private CollectionDataType getTreeTypeObject(Object object){
+	private DataType getTreeTypeObject(Object object){
 		TreeType treeType = (TreeType)object;
-		return (CollectionDataType) treeType.getObject();
+		return (DataType) treeType.getObject();
 	}
 	
 	/**
