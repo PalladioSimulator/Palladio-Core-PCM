@@ -21,7 +21,7 @@ public class ParameterRepresentation {
 	 * @param DataType
 	 * @return String
 	 */
-	public String setDataTypeToString(DataType returnType) {
+	public static String setDataTypeToString(DataType returnType) {
 
 		String result = "";
 
@@ -42,7 +42,7 @@ public class ParameterRepresentation {
 		return result;
 	}
 
-	public String setParametersToString(EList<Parameter> parameters) {
+	public static String setParametersToString(EList<Parameter> parameters) {
 
 		String result = "";
 
@@ -55,14 +55,14 @@ public class ParameterRepresentation {
 	/**
 	 * Comma of the sentence deletes ends
 	 */
-	public String deleteComma(String result) {
+	private static String deleteComma(String result) {
 		if (!result.equals("")) {
 			result = result.substring(0, result.length() - 2);
 		}
 		return result;
 	}
 
-	public String isNotNull(String string) {
+	public static String isNotNull(String string) {
 		return string == null ? "" : string;
 	}
 }

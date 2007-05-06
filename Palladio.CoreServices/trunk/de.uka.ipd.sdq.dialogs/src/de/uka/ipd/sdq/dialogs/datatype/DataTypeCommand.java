@@ -14,56 +14,58 @@ import de.uka.ipd.sdq.pcm.repository.RepositoryFactory;
  * @author admin
  */
 public class DataTypeCommand {
-
-	private DataType dataType;
-	private String dataTypeName;
 	
 	/**
 	 * The transactional editing domain which is used to get the commands and
 	 * alter the model
 	 */
-	final protected TransactionalEditingDomain editingDomain = TransactionalEditingDomain.Registry.INSTANCE
+	final protected static TransactionalEditingDomain editingDomain = TransactionalEditingDomain.Registry.INSTANCE
 			.getEditingDomain(DialogRepository.EDITING_DOMAIN_ID);
 	
-	/**
-	 * @param dataType
-	 * @param dataTypeName
-	 */
-	public DataTypeCommand(DataType dataType, String dataTypeName) {
-		this.dataType = dataType;
-		this.dataTypeName = dataTypeName;
-	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
+	/* (non-Javadoc)
 	 * @see de.uka.ipd.sdq.pcmbench.tabs.dialogs.CreateDataTypeDialog#createCollectionDataType()
 	 */
-	public void createCollectionDataType(final DataType innerDataType) {
+	public static void createCollectionDataType(final DataType dataType,
+			final DataType innerDataType, final String entityName) {
+
 		RecordingCommand recCommand = new RecordingCommand(editingDomain) {
 			@Override
 			protected void doExecute() {
 				CollectionDataType collectionDataType;
 
 				if (dataType != null) {
+					// Edite existet DataType
 					collectionDataType = (CollectionDataType) dataType;
+					String typeName = collectionDataType.getEntityName();
+					DataType innerType = collectionDataType
+							.getInnerType_CollectionDataType();
+
+					if ((entityName != null) && (!typeName.equals(entityName)))
+						collectionDataType.setEntityName(entityName);
+
+					if ((innerDataType != null)
+							&& (!innerType.equals(innerDataType)))
+						collectionDataType
+								.setInnerType_CollectionDataType(innerDataType);
 				} else {
+					// Create new DataType
 					collectionDataType = RepositoryFactory.eINSTANCE
 							.createCollectionDataType();
+					collectionDataType.setRepository_DataType(DialogRepository
+							.getEditedRepository());
+
+					Assert.isNotNull(collectionDataType);
+					Assert.isNotNull(innerDataType);
+					Assert.isNotNull(entityName);
+
+					collectionDataType.setEntityName(entityName);
 					collectionDataType
-							.setRepository_DataType(DialogRepository
-									.getEditedRepository());
+							.setInnerType_CollectionDataType(innerDataType);
 				}
-				
-				Assert.isNotNull(collectionDataType);
-				Assert.isNotNull(dataTypeName);
-				collectionDataType.setEntityName(dataTypeName);
-				Assert.isNotNull(innerDataType);
-				collectionDataType
-						.setInnerType_CollectionDataType(innerDataType);
 			}
 		};
-		recCommand.setDescription("Add new CollectionDataType");
+		recCommand.setDescription("Add new/Edite CollectionDataType");
 		editingDomain.getCommandStack().execute(recCommand);
 	}
 
@@ -72,24 +74,34 @@ public class DataTypeCommand {
 	 * 
 	 * @see de.uka.ipd.sdq.pcmbench.tabs.dialogs.CreateDataTypeDialog#createCompositeDataType()
 	 */
-	public void createCompositeDataType() {
+	public static void createCompositeDataType(final DataType dataType,
+			final String entityName) {
 		RecordingCommand recCommand = new RecordingCommand(editingDomain) {
 			@Override
 			protected void doExecute() {
 				CompositeDataType compositeDataType;
 
 				if (dataType != null) {
+					// Edite existet DataType
 					compositeDataType = (CompositeDataType) dataType;
+
+					String typeName = compositeDataType.getEntityName();
+
+					if ((entityName != null) && (!typeName.equals(entityName)))
+						compositeDataType.setEntityName(entityName);
+
 				} else {
+					// Create new DataType
 					compositeDataType = DialogRepository
 							.getNewCompositeDataType();
-				}
 
-				Assert.isNotNull(compositeDataType);
-				Assert.isNotNull(dataTypeName);
-				compositeDataType.setEntityName(dataTypeName);
-				compositeDataType.setRepository_DataType(DialogRepository
-						.getEditedRepository());
+					Assert.isNotNull(compositeDataType);
+					Assert.isNotNull(entityName);
+
+					compositeDataType.setEntityName(entityName);
+					compositeDataType.setRepository_DataType(DialogRepository
+							.getEditedRepository());
+				}
 			}
 		};
 

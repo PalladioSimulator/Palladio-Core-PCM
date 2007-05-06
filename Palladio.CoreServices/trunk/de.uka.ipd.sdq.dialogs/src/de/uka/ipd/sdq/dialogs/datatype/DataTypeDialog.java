@@ -187,9 +187,13 @@ public abstract class DataTypeDialog extends TitleAreaDialog {
 				entityName = nameField.getText();
 				setErrorMessage(null);
 				
+				if (entityName.equals(""))
+					setOKButtonDisabled();
 				if (collectionButton.isEnabled() && typeField.getText().equals(""))
 					setErrorMessage(errorMsgInner);
-				if (!typeField.getText().equals(""))
+				if (!typeField.getText().equals("") && !entityName.equals(""))
+					setOKButtonEnabled();
+				if (!collectionButton.isEnabled() && !entityName.equals(""))
 					setOKButtonEnabled();
 			}
 		});
@@ -221,8 +225,14 @@ public abstract class DataTypeDialog extends TitleAreaDialog {
 			typeField.setText(entityType);
 		typeField.addModifyListener(new ModifyListener() {
 			public void modifyText(ModifyEvent e) {
+				if ((!typeField.getText().equals(""))
+						&& (!nameField.getText().equals(""))) {
 					setErrorMessage(null);
 					setOKButtonEnabled();
+				} else {
+					setOKButtonDisabled();
+				}
+				
 			}
 		});
 
@@ -316,9 +326,6 @@ public abstract class DataTypeDialog extends TitleAreaDialog {
 		okButton.setEnabled(false);
 	}
 
-	/**
-	 * TODO
-	 */
 	protected void setOKButtonEnabled() {
 			okButton.setEnabled(true);
 	}

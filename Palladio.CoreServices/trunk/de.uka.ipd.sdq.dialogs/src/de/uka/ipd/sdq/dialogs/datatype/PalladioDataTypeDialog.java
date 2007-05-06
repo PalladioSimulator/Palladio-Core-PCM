@@ -59,47 +59,44 @@ public class PalladioDataTypeDialog extends DataTypeDialog {
 	 * @param entityName
 	 * @param entityType
 	 */
-	public PalladioDataTypeDialog(Shell parentShell, DataType editedDataType) {
+	public PalladioDataTypeDialog(Shell parentShell, DataType editeDataType) {
 		super(parentShell);
-		this.editedDataType = editedDataType;
-		initDialog(editedDataType);
+		this.editedDataType = editeDataType;
+		initDialog(editeDataType);
 	}
 
-	private void initDialog(DataType inputType) {
+	private void initDialog(DataType editeDataType) {
 
 		String entityName;
 		String entityInnerType;
 		String reposetory;
 
-		ParameterRepresentation representation = new ParameterRepresentation();
-
-		if (inputType instanceof CollectionDataType) {
-			CollectionDataType collectionDataType = (CollectionDataType) inputType;
+		if (editeDataType instanceof CollectionDataType) {
+			CollectionDataType collectionDataType = (CollectionDataType) editeDataType;
 
 			entityName = collectionDataType.getEntityName();
 			reposetory = collectionDataType.getRepository_DataType()
 					.getEntityName();
 
-			entityInnerType = representation
+			entityInnerType = ParameterRepresentation
 					.setDataTypeToString(collectionDataType
 							.getInnerType_CollectionDataType());
 
-			// TODO
+			// Call constructor of DataTypeDialog
 			super.init(collectionSignator, reposetory, entityName,
 					entityInnerType);
 		}
 
-		if (inputType instanceof CompositeDataType) {
-			CompositeDataType compositeDataType = (CompositeDataType) inputType;
+		if (editeDataType instanceof CompositeDataType) {
+			CompositeDataType compositeDataType = (CompositeDataType) editeDataType;
 
 			entityName = compositeDataType.getEntityName();
 			reposetory = compositeDataType.getRepository_DataType()
 					.getEntityName();
 
-			// TODO
+			// Call constructor of DataTypeDialog
 			super.init(compositeSignator, reposetory, entityName, null);
 		}
-
 	}
 
 	/*
@@ -207,62 +204,52 @@ public class PalladioDataTypeDialog extends DataTypeDialog {
 		
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
+	/* (non-Javadoc)
 	 * @see de.uka.ipd.sdq.pcmbench.tabs.dialogs.CreateDataTypeDialog#defeniereActionTypeButton(org.eclipse.swt.events.SelectionEvent)
 	 */
 	@Override
 	public String getSelectedInnerType(SelectionEvent e) {
 
 		String selectedType = "";
-		Shell shell = e.display.getActiveShell();
-		ParameterRepresentation representation = new ParameterRepresentation();
 
 		ArrayList<Object> filterList = new ArrayList<Object>();
 		filterList.add(DataType.class);
 		filterList.add(Repository.class);
-		ArrayList<Object> additionalReferences = new ArrayList<Object>();
 
-		CallDataTypeDialog dialog = new CallDataTypeDialog(shell, filterList,
-				additionalReferences, editingDomain.getResourceSet());
-
+		CallDataTypeDialog dialog = new CallDataTypeDialog(e.display
+				.getActiveShell(), filterList, new ArrayList<Object>(),
+				editingDomain.getResourceSet());
+		dialog.setProvidedService(DataType.class);
 		dialog.open();
 
 		if (dialog.getResult() != null
 				&& dialog.getResult() instanceof DataType) {
 			innerDataType = (DataType) dialog.getResult();
 
-			selectedType = representation.setDataTypeToString(innerDataType);
+			selectedType = ParameterRepresentation
+					.setDataTypeToString(innerDataType);
 		}
 		return selectedType;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
+	/* (non-Javadoc)
 	 * @see de.uka.ipd.sdq.pcmbench.tabs.dialogs.CreateDataTypeDialog#createCollectionDataType()
 	 */
 	@Override
 	public void createCollectionDataType() {
-		new DataTypeCommand(editedDataType, getEntityName())
-				.createCollectionDataType(innerDataType);
+		DataTypeCommand.createCollectionDataType(editedDataType, innerDataType,
+				getEntityName());
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
+	/* (non-Javadoc)
 	 * @see de.uka.ipd.sdq.pcmbench.tabs.dialogs.CreateDataTypeDialog#createCompositeDataType()
 	 */
 	@Override
 	public void createCompositeDataType() {
-		new DataTypeCommand(editedDataType, getEntityName())
-				.createCompositeDataType();
+		DataTypeCommand
+				.createCompositeDataType(editedDataType, getEntityName());
 	}
 
-	/**
-	 * @return the editedDataType
-	 */
 	public DataType getEditedDataType() {
 		return editedDataType;
 	}
