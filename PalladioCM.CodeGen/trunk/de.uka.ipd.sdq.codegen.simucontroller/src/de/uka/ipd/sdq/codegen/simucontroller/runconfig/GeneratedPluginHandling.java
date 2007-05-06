@@ -1,6 +1,3 @@
-/**
- * 
- */
 package de.uka.ipd.sdq.codegen.simucontroller.runconfig;
 
 
@@ -21,11 +18,17 @@ import de.uka.ipd.sdq.codegen.simucontroller.SimuControllerPlugin;
 import de.uka.ipd.sdq.codegen.simucontroller.actions.ISimuComControl;
 
 /**
- * @author admin
+ * @author roman
  * 
+ * Class defines all operations, which one needs for a complete
+ * simulation execution.
  */
 public class GeneratedPluginHandling {
 	
+	/**
+	 * PID 	- Plug-In ID
+	 * EPID - Extension Point ID
+	 */
 	private static final String PID = "de.uka.ipd.sdq.codegen.simucontroller";
 	private static final String EPID = "controller";
 
@@ -34,9 +37,11 @@ public class GeneratedPluginHandling {
 	private Bundle bundle = null;
 	
 	
+	/* (non-Javadoc) Create s Container - Plugi-In project
+	 * @See de.uka.ipd.sdq.codegen.simucontroller.runconfig.PluginProject
+	 */
 	private GeneratedPluginHandling(IProgressMonitor monitor){
 		this.monitor = monitor;
-
 		try {
 			setMonitorSubTask("Create Plugin");
 			project = PluginProject.createInstance().createContainerPlugin(monitor);
@@ -47,15 +52,13 @@ public class GeneratedPluginHandling {
 	}
 	
 	/**
-	 * Fabric methode
+	 * Constructor with Factory Method - pattern
 	 */
-	public static GeneratedPluginHandling create(IProgressMonitor monitor) {
+	public static GeneratedPluginHandling createContainerPlugin(IProgressMonitor monitor) {
 		return new GeneratedPluginHandling(monitor);
 	}
 	
 	public void simulate(){
-		loadPlugin();
-
 		setMonitorSubTask("Simulate");
 		SimuComJob job = new SimuComJob(findPlugin(),null);
 		job.setUser(true);
@@ -65,12 +68,14 @@ public class GeneratedPluginHandling {
 		} catch (InterruptedException e) {
 			setLogMessage("Simulation: ", e);
 		}
-		
-		unloadPlugin();
 	}
+
 	/**
-	 * TODO
-	 * @return
+	 * The function scans all Extensions of Extension Point EPID. Afterwards for
+	 * it responsible Klass is caste on the control class.
+	 * 
+	 * @return - instance of the control class, that is responsible for the
+	 *         control of simulation.
 	 */
 	public ISimuComControl findPlugin() {
 		ISimuComControl control = null;
@@ -90,18 +95,18 @@ public class GeneratedPluginHandling {
 	}
 
 	/**
-	 * TODO
-	 * @param project
+	 * Installs a Plug-In from the specified location string with use a bundeles
+	 * context.The context is used to grant access to other methods so that this
+	 * bundle can interact with the Framework.
 	 */
 	public Bundle loadPlugin() {
+		// location The location identifier of the bundle to install.
 		String location = project.getLocationURI().toString();
 		location = location.replaceAll("%20", " "); // Workaround a bug in OSGi
 		// see https://bugs.eclipse.org/bugs/show_bug.cgi?id=184620
 
 		BundleContext bundleContext = SimuControllerPlugin.getDefault()
 				.getBundle().getBundleContext();
-
-		compileCode(project);
 
 		try {
 			setMonitorSubTask("Load Generated Plugin");
@@ -115,6 +120,9 @@ public class GeneratedPluginHandling {
 		return bundle;
 	}
 
+	/**
+	 * Unload and delete the Plug-In project
+	 */
 	public void unloadPlugin() {
 		setMonitorSubTask("Unload");
 		try {
@@ -139,7 +147,10 @@ public class GeneratedPluginHandling {
 		monitoreDone();
 	}
 	
-	private void compileCode(IProject project) {
+	/** 
+	 * Builds the project.
+	 */
+	public void compileCode() {
 		setMonitorSubTask("Compile Code");
 		try {
 			project.refreshLocal(IResource.DEPTH_INFINITE, monitor);

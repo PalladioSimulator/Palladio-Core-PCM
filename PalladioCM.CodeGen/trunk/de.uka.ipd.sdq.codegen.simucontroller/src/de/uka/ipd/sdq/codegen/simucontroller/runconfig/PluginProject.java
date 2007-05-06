@@ -1,6 +1,3 @@
-/**
- * 
- */
 package de.uka.ipd.sdq.codegen.simucontroller.runconfig;
 
 import java.io.ByteArrayInputStream;
@@ -28,11 +25,26 @@ import org.eclipse.pde.internal.ui.wizards.plugin.ClasspathComputer;
 import org.eclipse.pde.internal.ui.wizards.tools.UpdateClasspathJob;
 
 /**
- * @author admin
+ * @author roman
  * 
+ * The Klass is responsible for the generation of a container Plug-In. That
+ * means, a project is generated, with that Java-Nature and Plugin-Nature and
+ * also a src folder. Thereby all configuration elements are
+ * along-generated, Plug in necessarily also (MANIFEST.MF, plugin.xml,
+ * build.properties).
  */
 public class PluginProject {
+	
+	public static final String F_MANIFEST = "MANIFEST.MF"; //$NON-NLS-1$
+	public static final String F_MANIFEST_FP = "META-INF/" + F_MANIFEST; //$NON-NLS-1$
+	public static final String F_PLUGIN = "plugin.xml"; //$NON-NLS-1$
+	public static final String F_FRAGMENT = "fragment.xml"; //$NON-NLS-1$
+	public static final String F_PROPERTIES = ".properties"; //$NON-NLS-1$
+	public static final String F_BUILD = "build" + F_PROPERTIES; //$NON-NLS-1$
 
+	/**
+	 * name of generated instance
+	 */
 	public static String PROJECT_ID = "de.uka.ipd.sdq.codegen.simucominstance";
 
 	private PluginProject(){
@@ -42,10 +54,12 @@ public class PluginProject {
 	public static PluginProject createInstance(){
 		return new PluginProject();
 	}
+	
 	/**
-	 * TODO
-	 * @param monitor
-	 * @throws CoreException
+	 * The function implements all steps, which are necessary for the production
+	 * a Plugin Project
+	 * 
+	 * @return - container project (Plug-In)
 	 */
 	public IProject createContainerPlugin(IProgressMonitor monitor) throws CoreException {
 
@@ -75,11 +89,18 @@ public class PluginProject {
 		return project;
 	}
 
+	/* (non-Javadoc)
+	 * @See org.eclipse.pde.internal.ui.wizards.plugin.ClasspathComputer.setClasspath(IProject)
+	 */
 	private void setClasspath(IProject project) throws CoreException {
 		ClasspathComputer.setClasspath(project, PluginRegistry
 				.findModel(project));
 	}
 
+	/**
+	 * Create the Java-Project from IProject and set "src", "bin" folder to
+	 * classpath
+	 */
 	private void setProjectToJavaProject(IProject project)
 			throws JavaModelException, CoreException {
 		// create class path entry
@@ -91,6 +112,10 @@ public class PluginProject {
 		javaProject.setRawClasspath(buildPath, binPath, null);
 	}
 
+	/**
+	 * Create a projeckt description and set the JavaCore.NATURE_ID and
+	 * PDE.PLUGIN_NATURE
+	 */
 	private void createDescription(IProject project, IProgressMonitor monitor)
 			throws CoreException {
 		IProjectDescription description = ResourcesPlugin.getWorkspace()
@@ -101,7 +126,7 @@ public class PluginProject {
 		// set java bulders
 		ICommand command = description.newCommand();
 		command.setBuilderName(JavaCore.BUILDER_ID);
-		description.setBuildSpec(new BuildCommand[] {(BuildCommand) command});
+		description.setBuildSpec(new BuildCommand[] { (BuildCommand) command });
 		project.setDescription(description, monitor);
 	}
 
@@ -121,7 +146,6 @@ public class PluginProject {
 
 	private void createPluginXml(IProject project) throws CoreException {
 
-		String PLUGIN_XML = "plugin.xml";
 		ByteArrayOutputStream baos;
 		PrintStream out;
 
@@ -141,7 +165,7 @@ public class PluginProject {
 		out.println("</plugin>"); //$NON-NLS-1$
 		out.close();
 
-		IFile pluginXml = project.getFile(PLUGIN_XML);
+		IFile pluginXml = project.getFile(F_PLUGIN);
 		if (!pluginXml.exists())
 			pluginXml.create(new ByteArrayInputStream(baos.toByteArray()),
 					true, null);
@@ -149,7 +173,6 @@ public class PluginProject {
 
 	private void createBuildProperties(IProject project) throws CoreException {
 
-		String BUILD_PROPERTIES = "build.properties";
 		ByteArrayOutputStream baos;
 		PrintStream out;
 
@@ -163,15 +186,13 @@ public class PluginProject {
 		out.println("				."); //$NON-NLS-1$
 		out.close();
 
-		IFile buildProperties = project.getFile(BUILD_PROPERTIES);
+		IFile buildProperties = project.getFile(F_BUILD);
 		if (!buildProperties.exists())
 			buildProperties.create(
 					new ByteArrayInputStream(baos.toByteArray()), true, null);
 	}
 
 	private void createManifestMf(IProject project) throws CoreException {
-
-		String MANIFEST_MF = "MANIFEST.MF";
 
 		ByteArrayOutputStream baos;
 		PrintStream out;
@@ -196,7 +217,7 @@ public class PluginProject {
 		//out.println("Export-Package: main");
 		out.close();
 
-		IFile manifestMf = project.getFile("META-INF/" + MANIFEST_MF);
+		IFile manifestMf = project.getFile(F_MANIFEST_FP);
 		if (!manifestMf.exists())
 			manifestMf.create(new ByteArrayInputStream(baos.toByteArray()),
 					true, null);

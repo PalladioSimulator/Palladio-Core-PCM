@@ -35,6 +35,14 @@ import de.uka.ipd.sdq.codegen.simucontroller.SimuControllerPlugin;
 public class SimuLaunchConfigurationDelegate implements
 		ILaunchConfigurationDelegate {
 
+	/**
+	 * Workflow-Engine status
+	 */
+	private boolean status = true;
+	
+	/**
+	 * Workflow-Engine files
+	 */
 	public static String REPOSITORY_FILE 	= "codegen_repository.oaw";
 	public static String SYSTEM_FILE 		= "codegen_system.oaw";
 	public static String USAGE_FILE 		= "codegen_usage.oaw";
@@ -42,11 +50,6 @@ public class SimuLaunchConfigurationDelegate implements
 
 	public static String[] workflowFiles = { REPOSITORY_FILE, SYSTEM_FILE,
 			USAGE_FILE };
-	
-	/**
-	 * Workflow-Engine run status
-	 */
-	private boolean status = true;
 
 	/*
 	 * (non-Javadoc)
@@ -57,6 +60,8 @@ public class SimuLaunchConfigurationDelegate implements
 	 */
 	public void launch(ILaunchConfiguration configuration, String mode,
 			ILaunch launch, IProgressMonitor monitor) throws CoreException {
+		
+		GeneratedPluginHandling pluginHandling = null;
 		
 		Map<String, String> properties = new HashMap<String, String>();
 		Map<String, Object> slotContents = new HashMap<String, Object>();
@@ -75,19 +80,27 @@ public class SimuLaunchConfigurationDelegate implements
 		String workspaceLocation = ResourcesPlugin.getWorkspace().getRoot().getRawLocationURI().getPath();
 		properties.put("workspace_loc", workspaceLocation);
 
-		GeneratedPluginHandling pluginHandling = GeneratedPluginHandling.create(monitor);
 		
 		MessageConsole console = createConsole();
 		MessageConsoleStream stream = console.newMessageStream();
 		PrintStream outStream = System.out;
 		System.setOut(new PrintStream(stream));
 		System.out.println("Running oAW Generator");
+		
+		/**
+		 * Step 1: Create container Plugin 
+		 */
+		pluginHandling = GeneratedPluginHandling.createContainerPlugin(monitor);
 		pluginHandling.setMonitorBeginTask("Simulation Run");
+		
+		/**
+		 * Step 2: Generate source code with oAW-Generator
+		 */
 		try {
 			pluginHandling.setMonitorSubTask("Generate Code");
 			for (int i = 0; i < workflowFiles.length; i++)
-				status &= runWorkflowRunner(workflowFiles[i], properties,
-						slotContents);
+				status &= runWorkflowRunner(workflowFiles[i],
+						properties, slotContents);
 			pluginHandling.monitorWorked();
 		} catch (CoreException e) {
 			pluginHandling.setLogMessage("Codegen failed: ", e);
@@ -96,9 +109,25 @@ public class SimuLaunchConfigurationDelegate implements
 			removeConsole(console);
 		}
 		
-		if(status) 
-			pluginHandling.simulate();
-		else pluginHandling.deletePlugin();
+		/**
+		 * Step 3: Compile the code
+		 */
+		pluginHandling.compileCode();
+		
+		/**
+		 * Step 4: Load a generated Plug-In
+		 */
+		pluginHandling.loadPlugin();
+		
+		/**
+		 * Step 5: Simulate
+		 */
+		//pluginHandling.simulate();
+		
+		/**
+		 * Step 6; Unload and delete a generated Plugin.
+		 */
+		//pluginHandling.unloadPlugin();
 	}
 
 	private void removeConsole(MessageConsole console) {
@@ -125,7 +154,7 @@ public class SimuLaunchConfigurationDelegate implements
 	public boolean runWorkflowRunner(String workflowFile,
 			Map<String, String> properties, Map<String, Object> slotContents)
 			throws CoreException, JavaModelException {
-		
+
 		WorkflowRunner runner = new WorkflowRunner();
 		return runner.run(workflowFile, new NullProgressMonitor(), properties,
 				slotContents);
