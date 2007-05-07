@@ -1,14 +1,18 @@
 package de.uka.ipd.sdq.codegen.simucontroller.runconfig;
 
+import java.util.HashMap;
+import java.util.Map;
 
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.IncrementalProjectBuilder;
+import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IConfigurationElement;
-import org.eclipse.core.runtime.IProgressMonitor;
-import org.eclipse.core.runtime.IStatus;
+import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Platform;
+import org.eclipse.debug.core.ILaunchConfiguration;
+import org.openarchitectureware.workflow.WorkflowRunner;
 import org.osgi.framework.Bundle;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.BundleException;
@@ -17,174 +21,290 @@ import de.uka.ipd.sdq.codegen.simucontroller.SimuComJob;
 import de.uka.ipd.sdq.codegen.simucontroller.SimuControllerPlugin;
 import de.uka.ipd.sdq.codegen.simucontroller.actions.ISimuComControl;
 
-/**
- * @author roman
- * 
- * Class defines all operations, which one needs for a complete
- * simulation execution.
- */
-public class GeneratedPluginHandling {
-	
-	/**
-	 * PID 	- Plug-In ID
-	 * EPID - Extension Point ID
-	 */
-	private static final String PID = "de.uka.ipd.sdq.codegen.simucontroller";
-	private static final String EPID = "controller";
+class CreatePluginProjectJob implements ISimulationJob {
 
-	private IProgressMonitor monitor = null;
-	private IProject project = null;
-	private Bundle bundle = null;
-	
-	
-	/* (non-Javadoc) Create s Container - Plugi-In project
-	 * @See de.uka.ipd.sdq.codegen.simucontroller.runconfig.PluginProject
-	 */
-	private GeneratedPluginHandling(IProgressMonitor monitor){
-		this.monitor = monitor;
+	private IProject myProject;
+
+	public CreatePluginProjectJob() {
+		myProject = null;
+	}
+
+	public IProject getProject() {
+		return myProject;
+	}
+
+	@Override
+	public void execute() throws Exception {
 		try {
-			setMonitorSubTask("Create Plugin");
-			project = PluginProject.createInstance().createContainerPlugin(monitor);
-			monitorWorked();
+			myProject = PluginProject.createInstance().createContainerPlugin(new NullProgressMonitor());		
 		} catch (CoreException e) {
-			setLogMessage("Create container project failed: ", e);
+			throw new Exception("Creating plugin project failed",e);
 		}
 	}
-	
-	/**
-	 * Constructor with Factory Method - pattern
-	 */
-	public static GeneratedPluginHandling createContainerPlugin(IProgressMonitor monitor) {
-		return new GeneratedPluginHandling(monitor);
+
+	@Override
+	public String getName() {
+		return "Create Plugin Project";
 	}
-	
-	public void simulate(){
-		setMonitorSubTask("Simulate");
-		SimuComJob job = new SimuComJob(findPlugin(),null);
-		job.setUser(true);
-		job.schedule();
+
+	@Override
+	public void rollback() throws Exception {
+		if (myProject == null) {
+			return;
+		}
 		try {
-			job.join();
-		} catch (InterruptedException e) {
-			setLogMessage("Simulation: ", e);
+			myProject.close(new NullProgressMonitor());
+		} catch (CoreException e) {
+			throw new Exception("Closing plugin project failed", e);
+		}
+
+		try {
+			myProject.delete(IResource.ALWAYS_DELETE_PROJECT_CONTENT, new NullProgressMonitor());
+		} catch (CoreException e) {
+			throw new Exception("Deleting plugin project failed", e);
 		}
 	}
+}
 
-	/**
-	 * The function scans all Extensions of Extension Point EPID. Afterwards for
-	 * it responsible Klass is caste on the control class.
-	 * 
-	 * @return - instance of the control class, that is responsible for the
-	 *         control of simulation.
-	 */
-	public ISimuComControl findPlugin() {
-		ISimuComControl control = null;
+/**
+ * Start the Workflow-Engine of oAW - Generator
+ * 
+ */
+class GeneratePluginCodeJob implements ISimulationJob {
 
-		for (IConfigurationElement configurationElement : Platform
-				.getExtensionRegistry().getConfigurationElementsFor(
-						PID + "." + EPID)) {
+	private final static String REPOSITORY_FILE 	= "codegen_repository.oaw";
+	private final static String SYSTEM_FILE 		= "codegen_system.oaw";
+	private final static String USAGE_FILE 		= "codegen_usage.oaw";
+	private final static String TEMPLATE_METHODS 	= "simulation_template_methods";
+
+	private final String[] myWorkflowFiles = { REPOSITORY_FILE, SYSTEM_FILE,
+			USAGE_FILE };
+
+	private ILaunchConfiguration myConfiguration;
+
+	public GeneratePluginCodeJob(ILaunchConfiguration configuration) {
+		myConfiguration = configuration;
+	}
+
+	@Override
+	public void execute() throws Exception {
+		assert (myConfiguration != null);
+
+		Map<String, String> properties = new HashMap<String, String>();
+		Map<String, Object> slotContents = new HashMap<String, Object>();
+
+		String workspaceLocation = null;
+
+		try {
+			workspaceLocation = ResourcesPlugin.getWorkspace().getRoot().getRawLocationURI().getPath();
+		} catch (Exception e) {
+			throw new Exception("Getting workspace location failed", e);
+		}
+
+		try {
+			properties.put("aop_templates", TEMPLATE_METHODS);
+			properties.put("workspace_loc", workspaceLocation);
+
+			properties.put(ResourceManagerTab.REPOSITORY_FILE, myConfiguration
+					.getAttribute(ResourceManagerTab.REPOSITORY_FILE, ""));
+			properties.put(ResourceManagerTab.SYSTEM_FILE, myConfiguration
+					.getAttribute(ResourceManagerTab.SYSTEM_FILE, ""));
+			properties.put(ResourceManagerTab.ALLOCATION_FILE, myConfiguration
+					.getAttribute(ResourceManagerTab.ALLOCATION_FILE, ""));
+			properties.put(ResourceManagerTab.USAGE_FILE, myConfiguration
+					.getAttribute(ResourceManagerTab.USAGE_FILE, ""));
+			properties.put(ResourceManagerTab.OUTPUT_PATH, myConfiguration
+					.getAttribute(ResourceManagerTab.OUTPUT_PATH, ""));
+
+		} catch (Exception e) {
+			throw new Exception("Setting up properties failed", e);
+		}			
+
+		for (String workflowFile: myWorkflowFiles) {
 			try {
-				control = (ISimuComControl) configurationElement
-						.createExecutableExtension("class");
-			} catch (CoreException e) {
-				SimuControllerPlugin.log(IStatus.ERROR,
-						"No simulation plugin found: " + e.getMessage());
+				WorkflowRunner runner = new WorkflowRunner();
+				if (!runner.run(workflowFile, 
+						new org.openarchitectureware.workflow.monitor.NullProgressMonitor(),
+						properties,
+						slotContents)) {
+					throw new Exception("oAW workflow returned false: " + workflowFile);
+				}
+			} catch (Exception e) {
+				throw new Exception("Running oAW workflow failed: " + workflowFile, e);
 			}
 		}
-		return control;
 	}
+
+	@Override
+	public String getName() {
+		return "Generate Plugin Code";
+	}
+
+	@Override
+	public void rollback() throws Exception {
+	}
+}
+
+class CompilePluginCodeJob implements ISimulationJob {
+
+	private CreatePluginProjectJob myCreatePluginProjectJob;
+
+	public CompilePluginCodeJob(CreatePluginProjectJob createPluginProjectJob) {
+		myCreatePluginProjectJob = createPluginProjectJob;
+	}
+
+	@Override
+	public void execute() throws Exception {
+		assert (myCreatePluginProjectJob != null);
+
+		IProject project = myCreatePluginProjectJob.getProject();
+		assert (project != null);
+
+		try {
+			project.refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
+
+		} catch (Exception e) {
+			throw new Exception("Refreshing plugin project failed", e);
+		}
+
+		try {
+			project.build(IncrementalProjectBuilder.FULL_BUILD, new NullProgressMonitor());
+
+		} catch (Exception e) {
+			throw new Exception("Building plugin project failed", e);
+		}
+	}
+
+	@Override
+	public String getName() {
+		return "Compile Plugin Code";
+	}
+
+	@Override
+	public void rollback() throws Exception {
+	}
+}
+
+/**
+ * Installs a Plug-In from the specified location string with use a bundeles
+ * context.The context is used to grant access to other methods so that this
+ * bundle can interact with the Framework.
+ */
+class LoadPluginJob implements ISimulationJob {
+
+	private CreatePluginProjectJob myCreatePluginProjectJob;
+	private Bundle myBundle;
+
+	public LoadPluginJob(CreatePluginProjectJob createPluginProjectJob) {
+		myCreatePluginProjectJob = createPluginProjectJob;
+	}
+
+	@Override
+	public void execute() throws Exception {
+		assert (myCreatePluginProjectJob != null);
+
+		IProject project = myCreatePluginProjectJob.getProject();
+		assert (project != null);
+
+		String location = null;
+		try {
+			// location The location identifier of the bundle to install.
+			location = project.getLocationURI().toString();
+			location = location.replaceAll("%20", " "); // Workaround a bug in OSGi
+			// see https://bugs.eclipse.org/bugs/show_bug.cgi?id=184620
+
+		} catch (Exception e) {
+			throw new Exception("Getting project location failed",e);
+		}
+
+		BundleContext bundleContext = null;
+		try {
+			bundleContext = SimuControllerPlugin.getDefault()
+			.getBundle().getBundleContext();
+
+		} catch (Exception e) {
+			throw new Exception("Getting bundle context failed",e);
+		}
+
+		try {
+			myBundle = bundleContext.installBundle(location);
+			myBundle.start();
+			myBundle.update();
+		} catch (Exception e) {
+			throw new Exception("Loading of generated plugin failed", e);
+		}
+	}
+
+	@Override
+	public String getName() {
+		return "Load Plugin";
+	}
+
+	@Override
+	public void rollback() throws Exception {
+		if (myBundle == null) {
+			return;
+		}
+
+		try {
+			myBundle.stop();
+			myBundle.uninstall();
+		} catch (BundleException e) {
+			throw new Exception("Unloading bundle failed", e);
+		}
+	}
+}
+
+class SimulateJob implements ISimulationJob {
 
 	/**
-	 * Installs a Plug-In from the specified location string with use a bundeles
-	 * context.The context is used to grant access to other methods so that this
-	 * bundle can interact with the Framework.
+	 * PID 	- Plug-In ID
 	 */
-	public Bundle loadPlugin() {
-		// location The location identifier of the bundle to install.
-		String location = project.getLocationURI().toString();
-		location = location.replaceAll("%20", " "); // Workaround a bug in OSGi
-		// see https://bugs.eclipse.org/bugs/show_bug.cgi?id=184620
-
-		BundleContext bundleContext = SimuControllerPlugin.getDefault()
-				.getBundle().getBundleContext();
-
-		try {
-			setMonitorSubTask("Load Generated Plugin");
-			bundle = bundleContext.installBundle(location);
-			bundle.start();
-			bundle.update();
-			monitorWorked();
-		} catch (BundleException e) {
-			setLogMessage("Loading of generated plugin failed: ", e);
-		}
-		return bundle;
-	}
+	private static final String PID = "de.uka.ipd.sdq.codegen.simucontroller";
 
 	/**
-	 * Unload and delete the Plug-In project
+	 * EPID - Extension Point ID
 	 */
-	public void unloadPlugin() {
-		setMonitorSubTask("Unload");
-		try {
-			bundle.stop();
-			bundle.uninstall();
-		} catch (BundleException e) {
-			setLogMessage("Unload Bundle: ", e);
-		}
-		monitorWorked();
-		deletePlugin();
+	private static final String EPID = "controller";
+
+	public SimulateJob() {
 	}
 
-	public void deletePlugin() {
-		setMonitorSubTask("Cleanup");
+	@Override
+	public void execute() throws Exception {
+		ISimuComControl control = null;
+
 		try {
-			project.close(monitor);
-			project.delete(IResource.ALWAYS_DELETE_PROJECT_CONTENT, monitor);
-		} catch (CoreException e) {
-			setLogMessage("Delete project failed: ", e);
+			for (IConfigurationElement configurationElement : Platform
+					.getExtensionRegistry().getConfigurationElementsFor(
+							PID + "." + EPID)) {
+				control = (ISimuComControl) configurationElement
+				.createExecutableExtension("class");
+				if (control != null) {
+					//successful
+					break;
+				}
+			}		
+		} catch (Exception e) {
+			throw new Exception("Locationg simulation plugin failed",e);
 		}
-		monitorWorked();
-		monitoreDone();
-	}
-	
-	/** 
-	 * Builds the project.
-	 */
-	public void compileCode() {
-		setMonitorSubTask("Compile Code");
+
 		try {
-			project.refreshLocal(IResource.DEPTH_INFINITE, monitor);
-			project.build(IncrementalProjectBuilder.FULL_BUILD, monitor);
-		} catch (CoreException e) {
-			setLogMessage("Comaling of generated plugin failed: ", e);
+			SimuComJob job = new SimuComJob(control, null);
+			job.setUser(true);
+			job.schedule();			
+			job.join();
+		} catch (Exception e) {
+			throw new Exception("Simulation failed ", e);
 		}
-		monitorWorked();
 	}
-	
-	public void setLogMessage(String msg, Exception e) {
-		SimuControllerPlugin.log(IStatus.ERROR, msg + e.getMessage());
+
+	@Override
+	public String getName() {
+		return "Simulate";
 	}
-	
-	
-	public void monitoreDone(){
-		monitor.done();
-	}
-	
-	public void setMonitorSubTask(String task){
-		monitor.subTask(task);
-	}
-	
-	public void setMonitorBeginTask(String task){
-		int work = 5;
-		monitor.beginTask(task, work);
-	}
-	
-	public void monitorWorked(){
-		int work = 1;
-		monitor.worked(work);
-	}
-	
-	public IProject getProject() {
-		return project;
+
+	@Override
+	public void rollback() throws Exception {
 	}
 }
