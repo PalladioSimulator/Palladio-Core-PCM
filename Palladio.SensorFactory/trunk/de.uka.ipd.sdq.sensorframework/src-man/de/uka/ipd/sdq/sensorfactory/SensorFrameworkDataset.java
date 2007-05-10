@@ -13,7 +13,7 @@ public class SensorFrameworkDataset {
 	
 	private SensorFrameworkDataset() {
 		datasources.add(new MemoryStoreExperimentDAO());
-		datasources.add(new JPAExperimentDAO("Dery DB"));
+		// datasources.add(new JPAExperimentDAO("Dery DB"));
 	}
 	
 	public static SensorFrameworkDataset singleton() {
