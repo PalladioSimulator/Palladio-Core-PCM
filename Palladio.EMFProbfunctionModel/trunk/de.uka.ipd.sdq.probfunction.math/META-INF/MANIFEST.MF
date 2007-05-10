@@ -19,6 +19,6 @@ Require-Bundle: org.eclipse.core.runtime,
  de.uka.ipd.sdq.probfunction,
  org.junit4,
  org.eclipse.emf.ecore.xmi,
- org.antlr,
+ org.antlr;bundle-version="[2.7.6,2.7.6]",
  de.uka.ipd.sdq.stoex
 Eclipse-LazyStart: true
