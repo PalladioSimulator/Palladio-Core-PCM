@@ -75,8 +75,11 @@ public class VariableUsageContentProvider implements ITreeContentProvider {
 			if (dataType instanceof CompositeDataType) {
 				return getCompositeTypeElements(dataType, parameter);
 			}
-			
-			return new Object[] {new DataTypeContainer(dataType,parent)};
+			else if (dataType instanceof CollectionDataType) {
+				return new Object[] {new DataTypeContainer(((CollectionDataType)dataType).getInnerType_CollectionDataType(),parent)};
+			}
+			else
+				return new Object[]{};
 		}
 		
 		/**

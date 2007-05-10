@@ -47,17 +47,18 @@ public class VariableUsageLabelProvider extends ItemProviderDecorator implements
 	@Override
 	public String getText(Object object) {
 		
-		if (object instanceof Parameter)
-			return ((Parameter) object).getParameterName();
+		if (object instanceof Parameter) {
+			Parameter p = (Parameter) object;
+			String result = p.getParameterName();
+			if (p.getDatatype__Parameter() != null) {
+				result += ": " + super.getText(p.getDatatype__Parameter());
+			}
+			return result;
+		}
 		
 		if (object instanceof DataTypeContainer) {
 			DataType dataType = getTreeTypeObject(object);
-			if (dataType instanceof PrimitiveDataType) {
-				PrimitiveDataType primDataType = (PrimitiveDataType) dataType;
-				return  "INNER: " + primDataType.getType().getName();
-			}
-			CollectionDataType collDataType = (CollectionDataType) dataType;
-			return "INNER: " + collDataType.getEntityName();
+			return "INNER: " + super.getText(dataType);
 		}
 		
 		if (object instanceof InnerDeclarationContainer) {
