@@ -33,7 +33,9 @@ class CreatePluginProjectJob implements ISimulationJob {
 		return myProject;
 	}
 
-	@Override
+	/* (non-Javadoc)
+	 * @see de.uka.ipd.sdq.codegen.simucontroller.runconfig.ISimuComJob#execute()
+	 */
 	public void execute() throws Exception {
 		try {
 			myProject = PluginProject.createInstance().createContainerPlugin(new NullProgressMonitor());		
@@ -42,12 +44,16 @@ class CreatePluginProjectJob implements ISimulationJob {
 		}
 	}
 
-	@Override
+	/* (non-Javadoc)
+	 * @see de.uka.ipd.sdq.codegen.simucontroller.runconfig.ISimuComJob#getName()
+	 */
 	public String getName() {
 		return "Create Plugin Project";
 	}
 
-	@Override
+	/* (non-Javadoc)
+	 * @see de.uka.ipd.sdq.codegen.simucontroller.runconfig.ISimuComJob#rollback()
+	 */
 	public void rollback() throws Exception {
 		if (myProject == null) {
 			return;
@@ -86,7 +92,6 @@ class GeneratePluginCodeJob implements ISimulationJob {
 		myConfiguration = configuration;
 	}
 
-	@Override
 	public void execute() throws Exception {
 		assert (myConfiguration != null);
 
@@ -135,12 +140,10 @@ class GeneratePluginCodeJob implements ISimulationJob {
 		}
 	}
 
-	@Override
 	public String getName() {
 		return "Generate Plugin Code";
 	}
 
-	@Override
 	public void rollback() throws Exception {
 	}
 }
@@ -153,7 +156,6 @@ class CompilePluginCodeJob implements ISimulationJob {
 		myCreatePluginProjectJob = createPluginProjectJob;
 	}
 
-	@Override
 	public void execute() throws Exception {
 		assert (myCreatePluginProjectJob != null);
 
@@ -175,12 +177,10 @@ class CompilePluginCodeJob implements ISimulationJob {
 		}
 	}
 
-	@Override
 	public String getName() {
 		return "Compile Plugin Code";
 	}
 
-	@Override
 	public void rollback() throws Exception {
 	}
 }
@@ -199,7 +199,6 @@ class LoadPluginJob implements ISimulationJob {
 		myCreatePluginProjectJob = createPluginProjectJob;
 	}
 
-	@Override
 	public void execute() throws Exception {
 		assert (myCreatePluginProjectJob != null);
 
@@ -235,12 +234,10 @@ class LoadPluginJob implements ISimulationJob {
 		}
 	}
 
-	@Override
 	public String getName() {
 		return "Load Plugin";
 	}
 
-	@Override
 	public void rollback() throws Exception {
 		if (myBundle == null) {
 			return;
@@ -270,7 +267,6 @@ class SimulateJob implements ISimulationJob {
 	public SimulateJob() {
 	}
 
-	@Override
 	public void execute() throws Exception {
 		ISimuComControl control = null;
 
@@ -299,12 +295,10 @@ class SimulateJob implements ISimulationJob {
 		}
 	}
 
-	@Override
 	public String getName() {
 		return "Simulate";
 	}
 
-	@Override
 	public void rollback() throws Exception {
 	}
 }
