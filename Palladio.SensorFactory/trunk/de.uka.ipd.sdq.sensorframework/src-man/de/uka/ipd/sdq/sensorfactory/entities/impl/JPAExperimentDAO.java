@@ -77,17 +77,14 @@ public class JPAExperimentDAO implements IExperimentDAO {
 		return result;
 	}
 
-	@Override
 	public String getDescription() {
 		return "Datasource based on a relational database controlled by JPA";
 	}
 
-	@Override
 	public String getName() {
 		return name;
 	}
 
-	@Override
 	public void insertExperiment(Experiment experiment) {
 		storeExperiment(experiment);
 	}
