@@ -1,6 +1,9 @@
 package de.uka.ipd.sdq.simucomframework.usage;
 
 import de.uka.ipd.sdq.simucomframework.Context;
+import de.uka.ipd.sdq.simucomframework.SimuComStatus;
+import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
+import desmoj.core.exception.SimFinishedException;
 import desmoj.core.simulator.Model;
 import desmoj.core.simulator.SimProcess;
 import desmoj.core.simulator.SimTime;
@@ -18,8 +21,15 @@ public class ClosedWorkloadUser extends SimProcess implements IUser {
 
 	@Override
 	public void lifeCycle() {
-		while (true) {
-			scenarioRunner(this);
+		try {
+			while (true) {
+				scenarioRunner(this);
+			}
+		} catch (SimFinishedException ex) {
+		} catch (Exception e) {
+			this.getModel().getExperiment().stop();
+			((SimuComModel)getModel()).setStatus(SimuComStatus.ERROR,
+					e.getMessage());
 		}
 	}
 

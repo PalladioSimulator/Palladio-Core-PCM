@@ -1,6 +1,7 @@
 package de.uka.ipd.sdq.simucomframework.model;
 
 import de.uka.ipd.sdq.simucomframework.ResouceRegistry;
+import de.uka.ipd.sdq.simucomframework.SimuComStatus;
 import de.uka.ipd.sdq.simucomframework.resources.IResourceContainerFactory;
 import de.uka.ipd.sdq.simucomframework.resources.SimulatedResourceContainer;
 import de.uka.ipd.sdq.simucomframework.sensors.SensorFactory;
@@ -12,6 +13,8 @@ public class SimuComModel extends Model {
 	protected ResouceRegistry resourceRegistry = null;
 	protected SensorFactory sensorFactory = null;
 	private IWorkloadDriver[] workloadDrivers;
+	private SimuComStatus status = SimuComStatus.OK;
+	private String errorMessage = "";
 	
 	public SimuComModel(Model owner, String myName, boolean showInReport, boolean showInTrace) {
 		super(owner, myName, showInReport, showInTrace);
@@ -57,5 +60,18 @@ public class SimuComModel extends Model {
 			resourceContainerFactory.fillResourceContainer(rc);
 		}
 		resourceRegistry.activateAllActiveResources();
+	}
+
+	public void setStatus(SimuComStatus error, String message) {
+		this.status = error;
+		this.errorMessage = message;
+	}
+	
+	public SimuComStatus getErrorStatus(){
+		return status;
+	}
+	
+	public String getErrorMessage(){
+		return this.errorMessage;
 	}
 }

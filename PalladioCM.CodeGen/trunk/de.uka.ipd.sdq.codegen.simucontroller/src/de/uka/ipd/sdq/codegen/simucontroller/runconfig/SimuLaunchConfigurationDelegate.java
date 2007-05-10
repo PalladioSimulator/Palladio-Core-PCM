@@ -10,10 +10,14 @@ import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.debug.core.ILaunch;
 import org.eclipse.debug.core.ILaunchConfiguration;
 import org.eclipse.debug.core.model.ILaunchConfigurationDelegate;
+import org.eclipse.jface.dialogs.MessageDialog;
+import org.eclipse.swt.widgets.Shell;
+import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.console.ConsolePlugin;
 import org.eclipse.ui.console.IConsole;
 import org.eclipse.ui.console.MessageConsole;
 import org.eclipse.ui.console.MessageConsoleStream;
+import org.eclipse.ui.progress.UIJob;
 
 /**
  * @author admin
@@ -71,7 +75,21 @@ public class SimuLaunchConfigurationDelegate implements
 		workflow.addJob(new SimulateJob());	
 		
 		//execute all steps
-		workflow.run();
+		try{
+			workflow.run();
+		}catch(final Exception e){
+			PlatformUI.getWorkbench().getDisplay().syncExec(new Runnable() {
+				public void run() {
+					new MessageDialog(
+							PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(),
+							"Error running the simulation",
+							null,
+							"Error running the simulation. Exception given: "+e.getMessage(),
+							MessageDialog.ERROR, new String[] { "OK" }, 0).open();
+						}
+			});
+			// throw new RuntimeException(e);
+		}
 		//remove all files
 		workflow.rollback();
 		

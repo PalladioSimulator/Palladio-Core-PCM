@@ -3,12 +3,14 @@ package de.uka.ipd.sdq.codegen.simucontroller.runconfig;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.eclipse.core.resources.IMarker;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.IncrementalProjectBuilder;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IConfigurationElement;
+import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.debug.core.ILaunchConfiguration;
@@ -20,6 +22,7 @@ import org.osgi.framework.BundleException;
 import de.uka.ipd.sdq.codegen.simucontroller.SimuComJob;
 import de.uka.ipd.sdq.codegen.simucontroller.SimuControllerPlugin;
 import de.uka.ipd.sdq.codegen.simucontroller.actions.ISimuComControl;
+import de.uka.ipd.sdq.simucomframework.SimuComStatus;
 
 class CreatePluginProjectJob implements ISimulationJob {
 
@@ -171,9 +174,21 @@ class CompilePluginCodeJob implements ISimulationJob {
 
 		try {
 			project.build(IncrementalProjectBuilder.FULL_BUILD, new NullProgressMonitor());
-
 		} catch (Exception e) {
 			throw new Exception("Building plugin project failed", e);
+		}
+		if (project.findMarkers(IMarker.PROBLEM, true, IResource.DEPTH_INFINITE).length > 0){
+			boolean failed = false;
+			IMarker[] markers = project.findMarkers(IMarker.PROBLEM, true, IResource.DEPTH_INFINITE);
+			String errorList = "";
+			for (IMarker marker:markers) {
+				if (((Integer)marker.getAttribute(IMarker.SEVERITY)) == IMarker.SEVERITY_ERROR) {
+					errorList += marker.getAttribute(IMarker.MESSAGE) + "\n";
+					failed = true;
+				}
+			}
+			if (failed)
+				throw new Exception("Unable to build the simulation plugin. Failure Messages: "+errorList);
 		}
 	}
 
@@ -282,17 +297,19 @@ class SimulateJob implements ISimulationJob {
 				}
 			}		
 		} catch (Exception e) {
-			throw new Exception("Locationg simulation plugin failed",e);
+			throw new Exception("Locating simulation plugin failed",e);
 		}
 
+		SimuComJob job = new SimuComJob(control, null);
 		try {
-			SimuComJob job = new SimuComJob(control, null);
 			job.setUser(true);
 			job.schedule();			
 			job.join();
 		} catch (Exception e) {
 			throw new Exception("Simulation failed ", e);
 		}
+		if (job.getStatus() == SimuComStatus.ERROR)
+			throw new Exception(job.getErrorMessage());
 	}
 
 	public String getName() {

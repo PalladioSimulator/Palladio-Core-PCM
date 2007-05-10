@@ -4,7 +4,14 @@ import java.util.LinkedList;
 import java.util.Stack;
 
 import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.NullProgressMonitor;
+import org.eclipse.jface.dialogs.MessageDialog;
+import org.eclipse.swt.widgets.Shell;
+import org.eclipse.ui.IWorkbench;
+import org.eclipse.ui.PlatformUI;
+
+import de.uka.ipd.sdq.codegen.simucontroller.SimuControllerPlugin;
 
 public class SimulationWorkflow {
 	private LinkedList<ISimulationJob> myJobs;
@@ -22,7 +29,7 @@ public class SimulationWorkflow {
 		}
 	}
 	
-	public void run() {
+	public void run() throws Exception {
 		myMonitor.beginTask("Simulation Run", myJobs.size());
 		
 		for (ISimulationJob job: myJobs) {
@@ -37,8 +44,8 @@ public class SimulationWorkflow {
 				myMonitor.worked(1);
 				
 			} catch (Exception e){
-				e.printStackTrace();
-				break;
+				SimuControllerPlugin.log(IStatus.ERROR, e.getMessage());
+				throw e;
 			}			
 		}
 		

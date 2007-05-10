@@ -13,13 +13,13 @@
 		
 		public class SimuComControl extends de.uka.ipd.sdq.simucomframework.AbstractMain 
 				implements de.uka.ipd.sdq.codegen.simucontroller.actions.ISimuComControl{
-			
-			public void startSimulation(de.uka.ipd.sdq.simucomframework.IStatusObserver observer) {
-				new SimuComControl().run(observer);
+						
+			public de.uka.ipd.sdq.simucomframework.SimuComStatus startSimulation(de.uka.ipd.sdq.simucomframework.IStatusObserver observer) {
+				return run(observer);
 			}	
-			
+
 			public void stopSimulation() {
-				// TODO Auto-generated method stub
+				stop();
 			}
 			
 			protected de.uka.ipd.sdq.simucomframework.usage.IWorkloadDriver[] getWorkloads() {

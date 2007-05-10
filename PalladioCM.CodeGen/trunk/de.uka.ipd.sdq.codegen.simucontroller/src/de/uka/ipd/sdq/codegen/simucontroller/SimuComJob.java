@@ -9,6 +9,7 @@ import org.eclipse.ui.PlatformUI;
 import de.uka.ipd.sdq.codegen.simucontroller.actions.ISimuComControl;
 import de.uka.ipd.sdq.codegen.simucontroller.views.SimuView;
 import de.uka.ipd.sdq.simucomframework.IStatusObserver;
+import de.uka.ipd.sdq.simucomframework.SimuComStatus;
 
 public class SimuComJob extends Job implements IStatusObserver {
 
@@ -16,6 +17,9 @@ public class SimuComJob extends Job implements IStatusObserver {
 	private IProgressMonitor monitor;
 	private SimuView myView;
 	private int lastProgress;
+	
+	private String errorMessage;
+	private SimuComStatus status;
 
 	public SimuComJob(ISimuComControl control, SimuView myView) {
 		super("Simulation Run");
@@ -28,8 +32,16 @@ public class SimuComJob extends Job implements IStatusObserver {
 		this.monitor = monitor;
 		lastProgress = 0;
 		monitor.beginTask("Simulation Run", 100);
-		control.startSimulation(this);
-		monitor.done();
+		try {
+			status = control.startSimulation(this);
+		} catch (Exception e) {
+			return Status.CANCEL_STATUS;
+		} finally {
+			monitor.done();
+		}
+		if (status == SimuComStatus.ERROR){
+			this.errorMessage = control.getErrorMessage();
+		}
 		return Status.OK_STATUS;
 	}
 
@@ -51,5 +63,16 @@ public class SimuComJob extends Job implements IStatusObserver {
 
 			});
 		}
+		if (monitor.isCanceled()) {
+			control.stopSimulation();
+		}
+	}
+
+	public String getErrorMessage() {
+		return errorMessage;
+	}
+
+	public SimuComStatus getStatus() {
+		return status;
 	}
 }

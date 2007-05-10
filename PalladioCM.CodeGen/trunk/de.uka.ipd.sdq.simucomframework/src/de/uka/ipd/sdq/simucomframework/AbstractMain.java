@@ -10,7 +10,7 @@ public abstract class AbstractMain {
 	private static final long SIM_STOP_TIME = 1500000;
 	private SimuComModel model = null;
 
-	protected void run(final IStatusObserver statusObserver)
+	protected SimuComStatus run(final IStatusObserver statusObserver)
 	{
 		model = 
 			SimuComFactory.getSimuComModel( 
@@ -26,10 +26,19 @@ public abstract class AbstractMain {
 			
 		});
 		ExperimentRunner.run(model, SIM_STOP_TIME);
+		return model.getErrorStatus();
+	}
+	
+	protected void stop() {
+		model.getExperiment().stop();
 	}
 	
 	protected SimuComModel getModel() {
 		return model;
+	}
+	
+	public String getErrorMessage(){
+		return model.getErrorMessage();
 	}
 	
 	protected abstract IWorkloadDriver[] getWorkloads();
