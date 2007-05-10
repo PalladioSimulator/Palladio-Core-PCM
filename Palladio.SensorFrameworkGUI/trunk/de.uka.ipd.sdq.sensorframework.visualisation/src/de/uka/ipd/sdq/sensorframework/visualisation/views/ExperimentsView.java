@@ -4,6 +4,7 @@ import org.eclipse.swt.dnd.DND;
 import org.eclipse.swt.dnd.Transfer;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.part.*;
+import org.eclipse.jface.util.LocalSelectionTransfer;
 import org.eclipse.jface.viewers.*;
 import org.eclipse.jface.action.*;
 import org.eclipse.jface.dialogs.MessageDialog;
@@ -54,8 +55,11 @@ public class ExperimentsView extends ViewPart {
 		viewer.setInput(getViewSite());
 
 		// add Drag support
-		Transfer[] transfers = new Transfer[] {EditorInputTransfer.getInstance()};
+		Transfer[] transfers = new Transfer[] {EditorInputTransfer.getInstance(),
+				LocalSelectionTransfer.getTransfer()};
 		viewer.addDragSupport(ops, transfers, new TreeDragSourceListener(viewer));
+		viewer.addDropSupport(ops, new Transfer[]{LocalSelectionTransfer.getTransfer()}, 
+				new TreeDropListener(viewer));
 
 		makeActions();
 		hookContextMenu();

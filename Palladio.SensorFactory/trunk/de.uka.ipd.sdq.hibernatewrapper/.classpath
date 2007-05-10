@@ -15,6 +15,7 @@
 	<classpathentry kind="lib" path="jta.jar"/>
 	<classpathentry kind="lib" path="jboss-archive-browsing.jar"/>
 	<classpathentry kind="lib" path="javassist.jar"/>
+	<classpathentry kind="lib" path="hibernate-commons-annotations.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="con" path="org.eclipse.pde.core.requiredPlugins"/>
 	<classpathentry kind="output" path="bin"/>

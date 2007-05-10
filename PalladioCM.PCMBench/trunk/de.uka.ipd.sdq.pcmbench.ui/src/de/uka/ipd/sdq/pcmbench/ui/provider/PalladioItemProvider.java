@@ -64,6 +64,9 @@ public class PalladioItemProvider extends ItemProviderDecorator implements
 		String result = "";
 		if (object instanceof Entity) {
 			result = ((Entity)object).getEntityName();
+		} else if (object instanceof ResourceDemandingSEFF){
+			ResourceDemandingSEFF seff = (ResourceDemandingSEFF) object;
+			result = "SEFF " + (seff.getDescribedService__SEFF() == null ? "" : seff.getDescribedService__SEFF().getServiceName());
 		} else {
 			if (object instanceof EObject && new RepositoryPrinter().doSwitch((EObject)object)!=null)
 				result = (String) new RepositoryPrinter().doSwitch((EObject)object);

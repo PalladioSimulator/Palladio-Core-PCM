@@ -35,10 +35,7 @@ public class RunEntry {
 	 */
 	public boolean isSensorChecked(Sensor sensor) {
 		if (sensors != null) {
-			for (Sensor s : sensors) {
-				if (s.getSensorID() == sensor.getSensorID())
-					return true;
-			}
+			return sensors.contains(sensor);
 		}
 		return false;
 	}

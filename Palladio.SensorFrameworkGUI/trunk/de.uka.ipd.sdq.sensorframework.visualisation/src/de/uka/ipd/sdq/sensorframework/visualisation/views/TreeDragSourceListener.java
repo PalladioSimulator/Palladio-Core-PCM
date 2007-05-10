@@ -11,6 +11,7 @@ import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.PartInitException;
 
+import de.uka.ipd.sdq.sensorfactory.entities.Experiment;
 import de.uka.ipd.sdq.sensorfactory.entities.ExperimentRun;
 import de.uka.ipd.sdq.sensorfactory.entities.Sensor;
 import de.uka.ipd.sdq.sensorframework.visualisation.SimuPlugin;
@@ -78,6 +79,8 @@ public class TreeDragSourceListener implements DragSourceListener {
 		event.doit = false;
 		
 		if (object instanceof ExperimentRun)
+			event.doit = true;
+		if (object instanceof Experiment)
 			event.doit = true;
 		if (editor != null && object instanceof Sensor)
 			event.doit = true;

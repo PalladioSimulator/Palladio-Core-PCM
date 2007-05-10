@@ -9,9 +9,10 @@ import java.util.List;
 import org.eclipse.jface.viewers.ITreeContentProvider;
 import org.eclipse.jface.viewers.Viewer;
 
+import de.uka.ipd.sdq.sensorfactory.IExperimentDAO;
+import de.uka.ipd.sdq.sensorfactory.SensorFrameworkDataset;
 import de.uka.ipd.sdq.sensorfactory.entities.Experiment;
 import de.uka.ipd.sdq.sensorfactory.entities.ExperimentRun;
-import de.uka.ipd.sdq.sensorfactory.entities.impl.ExperimentDAO;
 
 /**
  * @author admin
@@ -19,7 +20,7 @@ import de.uka.ipd.sdq.sensorfactory.entities.impl.ExperimentDAO;
  */
 public class ExperimentRunsDialogContentProvider implements ITreeContentProvider {
 	
-	private List<ExperimentDAO> root;
+	private List<IExperimentDAO> root;
 
 	/* (non-Javadoc)
 	 * @see org.eclipse.jface.viewers.ITreeContentProvider#getChildren(java.lang.Object)
@@ -27,10 +28,10 @@ public class ExperimentRunsDialogContentProvider implements ITreeContentProvider
 	public Object[] getChildren(Object parent) {
 		
 		if (parent instanceof ArrayList) 
-			return ((ArrayList<ExperimentDAO>) parent).toArray();
+			return ((ArrayList<IExperimentDAO>) parent).toArray();
 		
-		if (parent instanceof ExperimentDAO)
-			return ((ExperimentDAO) parent).getExperiments().toArray();
+		if (parent instanceof IExperimentDAO)
+			return ((IExperimentDAO) parent).getExperiments().toArray();
 
 		if (parent instanceof Experiment) 
 			return ((Experiment) parent).getExperimentRuns().toArray();
@@ -60,8 +61,8 @@ public class ExperimentRunsDialogContentProvider implements ITreeContentProvider
 	 */
 	public Object[] getElements(Object inputElement) {
 		if (root == null){
-			root = new ArrayList<ExperimentDAO>();
-			root.add(ExperimentDAO.singleton());
+			root = new ArrayList<IExperimentDAO>();
+			root.addAll(SensorFrameworkDataset.singleton().getDataSources());
 		}
 		return getChildren(root);
 	}

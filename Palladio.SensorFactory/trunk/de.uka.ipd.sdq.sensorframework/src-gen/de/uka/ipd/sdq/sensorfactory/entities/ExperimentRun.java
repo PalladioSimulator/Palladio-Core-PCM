@@ -1,6 +1,6 @@
 package de.uka.ipd.sdq.sensorfactory.entities;
 
-import de.uka.ipd.sdq.sensorfactory.entities.impl.SensorAndMeasurements;
+import de.uka.ipd.sdq.sensorfactory.SensorAndMeasurements;
 
 @javax.persistence.Entity
 @javax.persistence.Table(name = "EXPERIMENTRUN")
@@ -18,7 +18,7 @@ public abstract class ExperimentRun {
     /* Getter and Setter for Properties with cardinality 0..* which are not a composition */
 
     /* Getter and Setter for Properties with cardinality 0..* which are a composition */
-    @javax.persistence.OneToMany(cascade = javax.persistence.CascadeType.ALL)
+    @javax.persistence.OneToMany()
     @javax.persistence.JoinTable(name = "ExperimentRun_measurements", joinColumns =  {
         @javax.persistence.JoinColumn(name = "EXPERIMENTRUN_ID")
     }

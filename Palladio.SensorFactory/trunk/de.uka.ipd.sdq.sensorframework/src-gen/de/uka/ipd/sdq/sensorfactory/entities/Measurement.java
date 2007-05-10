@@ -6,7 +6,7 @@ public abstract class Measurement {
     /* Getter and Setter for Properties with cardinality 0..1 or 1 which are not a composition */
     @javax.persistence.Id
     @javax.persistence.Column(name = "MEASUREMENTID")
-    @javax.persistence.GeneratedValue(strategy = javax.persistence.GenerationType.IDENTITY)
+    @javax.persistence.GeneratedValue(strategy = javax.persistence.GenerationType.AUTO)
     private long m_measurementID;
     @javax.persistence.Column(name = "EVENTTIME")
     private double m_eventTime;

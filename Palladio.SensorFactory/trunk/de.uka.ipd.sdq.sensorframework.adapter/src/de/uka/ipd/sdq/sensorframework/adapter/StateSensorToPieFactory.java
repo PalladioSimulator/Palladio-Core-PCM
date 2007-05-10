@@ -2,9 +2,9 @@ package de.uka.ipd.sdq.sensorframework.adapter;
 
 import java.util.Collection;
 
+import de.uka.ipd.sdq.sensorfactory.SensorAndMeasurements;
 import de.uka.ipd.sdq.sensorfactory.entities.StateMeasurement;
 import de.uka.ipd.sdq.sensorfactory.entities.TimeSpanMeasurement;
-import de.uka.ipd.sdq.sensorfactory.entities.impl.SensorAndMeasurements;
 
 public class StateSensorToPieFactory implements IAdapterFactory {
 

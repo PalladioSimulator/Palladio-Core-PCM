@@ -7,11 +7,13 @@ Bundle-Version: 1.1.0.qualifier
 Bundle-Activator: Activator
 Bundle-Localization: plugin
 Require-Bundle: org.eclipse.core.runtime,
- de.uka.ipd.sdq.hibernatewrapper,
- org.apache.jakarta_log4j
+ org.apache.jakarta_log4j,
+ org.apache.commons.logging,
+ org.apache.derby.core,
+ de.uka.ipd.sdq.hibernatewrapper
 Eclipse-LazyStart: true
-Export-Package: de.uka.ipd.sdq.sensorfactory.entities,
- de.uka.ipd.sdq.sensorfactory.entities.impl,
+Export-Package: de.uka.ipd.sdq.sensorfactory,
+ de.uka.ipd.sdq.sensorfactory.entities,
  de.uka.ipd.sdq.sensorframework.adapter,
  de.uka.ipd.sdq.sensorframework.visualisation
 Bundle-ClassPath: src/,

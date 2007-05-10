@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Birt Plug-in
-Bundle-SymbolicName: de.uka.ipd.sdq.sensorframework.visualisation.birt
+Bundle-SymbolicName: de.uka.ipd.sdq.sensorframework.visualisation.birt;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-Activator: de.uka.ipd.sdq.sensorframework.visualisation.birt.Activator
 Bundle-Vendor: sdq.ipd.uka.de

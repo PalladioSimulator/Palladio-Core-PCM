@@ -65,8 +65,9 @@ import org.eclipse.ui.part.EditorPart;
 import org.eclipse.ui.views.properties.PropertySheetPage;
 import org.eclipse.ui.views.properties.tabbed.AbstractPropertySection;
 import org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage;
+
+import de.uka.ipd.sdq.sensorfactory.SensorAndMeasurements;
 import de.uka.ipd.sdq.sensorfactory.entities.Sensor;
-import de.uka.ipd.sdq.sensorfactory.entities.impl.SensorAndMeasurements;
 import de.uka.ipd.sdq.sensorframework.visualisation.IVisualisation;
 import de.uka.ipd.sdq.sensorframework.visualisation.editor.ConfigEditorInput;
 import de.uka.ipd.sdq.sensorframework.visualisation.editor.RunEntry;
@@ -122,66 +123,8 @@ public class ConfPropertySection extends AbstractPropertySection {
 	}
 	
 	public void run(Shell shell, ChartWithAxes cwa) {
-		ChartWizard wiz = new ChartWizard(shell);
-		ChartWizardContext ctx = new ChartWizardContext(null);
-		ctx.setModel(cwa);
-		
-		Axis xAxisPrimary = cwa.getPrimaryBaseAxes()[0];
-		Axis yAxisPrimary = cwa.getPrimaryOrthogonalAxis(xAxisPrimary);		
-
-		DataSet xDs = ((Series)((SeriesDefinition)xAxisPrimary.getSeriesDefinitions().get(0)).getSeries().get(0)).getDataSet();
-		DataSet yDs = ((Series)((SeriesDefinition)yAxisPrimary.getSeriesDefinitions().get(0)).getSeries().get(0)).getDataSet();
-		((Series)((SeriesDefinition)xAxisPrimary.getSeriesDefinitions().get(0)).getSeries().get(0)).setDataSet(null);
-		((Series)((SeriesDefinition)yAxisPrimary.getSeriesDefinitions().get(0)).getSeries().get(0)).setDataSet(null);
-		SampleData sdt = DataFactory.eINSTANCE.createSampleData();
-		BaseSampleData sdBAse = DataFactory.eINSTANCE.createBaseSampleData();
-		sdBAse.setDataSetRepresentation("A");
-		sdt.getBaseSampleData().add(sdBAse);
-		OrthogonalSampleData sdOrth = DataFactory.eINSTANCE.createOrthogonalSampleData();
-		sdOrth.setDataSetRepresentation("1");
-		sdOrth.setSeriesDefinitionIndex(0);
-		sdt.getOrthogonalSampleData().add(sdOrth);
-		cwa.setSampleData(sdt);
-		
-		//ctx.setDataServiceProvider( new DataServiceProvider());
-		//ctx.setUIServiceProvider(new UIServiceProvider());
-		wiz.open(ctx);
-
-		((Series)((SeriesDefinition)xAxisPrimary.getSeriesDefinitions().get(0)).getSeries().get(0)).setDataSet(xDs);
-		((Series)((SeriesDefinition)yAxisPrimary.getSeriesDefinitions().get(0)).getSeries().get(0)).setDataSet(yDs);
-		
-		
-		cleanEList(((SeriesDefinition)xAxisPrimary.getSeriesDefinitions().get(0)).getSeries());
-		cleanEList(((SeriesDefinition)yAxisPrimary.getSeriesDefinitions().get(0)).getSeries());
-
-		Query q = QueryImpl.create("");
-		NumberDataSet categoryValues = NumberDataSetImpl.create(new double[] { 1, 2, 3});
-
-		Series seCategory = SeriesImpl.create();
-		seCategory.setDataSet(categoryValues);
-		seCategory.getDataDefinition().add(q);
-		((SeriesDefinition)xAxisPrimary.getSeriesDefinitions().get(0)).getSeries().add(seCategory);
-		
-		NumberDataSet orthovalues = null;
-			orthovalues = NumberDataSetImpl.create(new double[]{0.2,0.3,0.4});
-			
-			BarSeries series = (BarSeries) BarSeriesImpl.create();
-			series.setDataSet(orthovalues);
-			series.getDataDefinition().add(q);
-			series.getLabel().getCaption().setValue("Sensor");
-			series.getLabel().setVisible(true);
-			((SeriesDefinition)yAxisPrimary.getSeriesDefinitions().get(0)).getSeries().add(series);
-
-			//series.setSeriesIdentifier(s.getSensorName() + " [ID:"
-			//		+ s.getSensorID() + "]");
-
-		
 	}
 
-	private void cleanEList(EList list){
-		while (list.size() > 0)
-			list.remove(0);
-	}
 	
 	@SuppressWarnings("unchecked")
 	public static EObject loadFromXMI(String fileName) {

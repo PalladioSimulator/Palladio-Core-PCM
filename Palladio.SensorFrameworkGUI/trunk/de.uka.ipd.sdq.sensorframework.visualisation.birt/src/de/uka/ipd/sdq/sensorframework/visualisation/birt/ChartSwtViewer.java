@@ -8,9 +8,11 @@ import org.eclipse.birt.chart.device.IDisplayServer;
 import org.eclipse.birt.chart.factory.GeneratedChartState;
 import org.eclipse.birt.chart.factory.Generator;
 import org.eclipse.birt.chart.model.Chart;
+import org.eclipse.birt.chart.model.ChartWithAxes;
 import org.eclipse.birt.chart.model.attribute.Bounds;
 import org.eclipse.birt.chart.model.attribute.impl.BoundsImpl;
 import org.eclipse.birt.chart.script.IExternalContext;
+import org.eclipse.jface.action.MenuManager;
 import org.eclipse.swt.events.PaintEvent;
 import org.eclipse.swt.events.PaintListener;
 import org.eclipse.swt.graphics.GC;
@@ -18,6 +20,11 @@ import org.eclipse.swt.graphics.Rectangle;
 import org.eclipse.swt.widgets.Canvas;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
+import org.eclipse.swt.widgets.Menu;
+
+import de.uka.ipd.sdq.sensorframework.visualisation.actions.ConfigureBirtViewerAction;
+import de.uka.ipd.sdq.sensorframework.visualisation.actions.ExportAsPNGAction;
+import de.uka.ipd.sdq.sensorframework.visualisation.actions.ExportAsSVGAction;
 
 /**
  * @author Ihssane
@@ -36,6 +43,8 @@ public class ChartSwtViewer extends Canvas {
 		super(parent, flags);
 		this.renderer = idr;
 		this.chart = cm;
+		
+		
 		this.addPaintListener(new PaintListener(){
 	
 			public void paintControl(PaintEvent event) {

@@ -5,10 +5,10 @@ import org.eclipse.swt.graphics.Image;
 import org.eclipse.ui.ISharedImages;
 import org.eclipse.ui.PlatformUI;
 
+import de.uka.ipd.sdq.sensorfactory.IExperimentDAO;
 import de.uka.ipd.sdq.sensorfactory.entities.Experiment;
 import de.uka.ipd.sdq.sensorfactory.entities.ExperimentRun;
 import de.uka.ipd.sdq.sensorfactory.entities.Sensor;
-import de.uka.ipd.sdq.sensorfactory.entities.impl.ExperimentDAO;
 import de.uka.ipd.sdq.sensorframework.visualisation.SimuImages;
 
 /**
@@ -39,8 +39,8 @@ public class TreeLabelProvider extends LabelProvider {
 
 		if (obj instanceof TreeContainer)
 			return ((TreeContainer) obj).getName();
-		if (obj instanceof ExperimentDAO)
-			return "DB NAME";
+		if (obj instanceof IExperimentDAO)
+			return ((IExperimentDAO)obj).getName();
 
 		return obj.toString();
 	}
@@ -76,7 +76,7 @@ public class TreeLabelProvider extends LabelProvider {
 			return SimuImages.imageRegistry.get(icon);
 		}
 
-		if (obj instanceof ExperimentDAO)
+		if (obj instanceof IExperimentDAO)
 			return SimuImages.imageRegistry.get(SimuImages.TREEROOT);
 
 		return PlatformUI.getWorkbench().getSharedImages().getImage(

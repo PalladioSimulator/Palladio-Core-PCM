@@ -7,10 +7,11 @@ import java.util.List;
 import org.eclipse.jface.viewers.ITreeContentProvider;
 import org.eclipse.jface.viewers.Viewer;
 
+import de.uka.ipd.sdq.sensorfactory.IExperimentDAO;
+import de.uka.ipd.sdq.sensorfactory.SensorFrameworkDataset;
 import de.uka.ipd.sdq.sensorfactory.entities.Experiment;
 import de.uka.ipd.sdq.sensorfactory.entities.ExperimentRun;
 import de.uka.ipd.sdq.sensorfactory.entities.Sensor;
-import de.uka.ipd.sdq.sensorfactory.entities.impl.ExperimentDAO;
 
 /**
  * TODO
@@ -23,7 +24,7 @@ public class TreeContentProvider implements ITreeContentProvider {
 	protected static final int EXPERIMENT_RUNS = 0;
 	protected static final int SENSORS = 1;
 
-	private List<ExperimentDAO> rootEntry;
+	private List<IExperimentDAO> rootEntry;
 
 	/*
 	 * (non-Javadoc)
@@ -32,8 +33,8 @@ public class TreeContentProvider implements ITreeContentProvider {
 	 */
 	public Object[] getElements(Object parent) {
 		if (rootEntry == null) {
-			rootEntry = new ArrayList<ExperimentDAO>();
-			rootEntry.add(ExperimentDAO.singleton());
+			rootEntry = new ArrayList<IExperimentDAO>();
+			rootEntry.addAll(SensorFrameworkDataset.singleton().getDataSources());
 		}
 		return getChildren(rootEntry);
 	}
@@ -46,10 +47,10 @@ public class TreeContentProvider implements ITreeContentProvider {
 	public Object[] getChildren(Object parent) {
 
 		if (parent instanceof ArrayList)
-			return ((ArrayList<ExperimentDAO>) parent).toArray();
+			return ((ArrayList<IExperimentDAO>) parent).toArray();
 
-		if (parent instanceof ExperimentDAO)
-			return ((ExperimentDAO) parent).getExperiments().toArray();
+		if (parent instanceof IExperimentDAO)
+			return ((IExperimentDAO) parent).getExperiments().toArray();
 
 		if (parent instanceof Experiment) {
 			Experiment experiment = (Experiment) parent;
@@ -78,12 +79,14 @@ public class TreeContentProvider implements ITreeContentProvider {
 	 */
 	public static Experiment getExperimentToExperimentRun(ExperimentRun run) {
 		
-		Collection<Experiment> experiments = ExperimentDAO.singleton()
-				.getExperiments();
+		Collection<IExperimentDAO> daos = SensorFrameworkDataset.singleton().getDataSources();
+		for (IExperimentDAO dao : daos){
+			Collection<Experiment> experiments = dao.getExperiments();
 
-		for (Experiment e : experiments) {
-			if (e.getExperimentID() == run.getExperimentRunID())
-				return e;
+			for (Experiment e : experiments) {
+				if (e.getExperimentID() == run.getExperimentRunID())
+					return e;
+			}
 		}
 		return null;
 	}

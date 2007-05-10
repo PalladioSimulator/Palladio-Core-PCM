@@ -18,7 +18,7 @@
 			<property name="hibernate.dialect"
 				value="org.hibernate.dialect.DerbyDialect" />
 			<property name="hibernate.hbm2ddl.auto" value="update" />
-			<property name="hibernate.show_sql" value="true" />
+			<property name="hibernate.show_sql" value="false" />
 			<property name="hibernate.archive.autodetection"
 				value="class, hbm" />
 			<property name="hibernate.connection.driver_class"
@@ -29,6 +29,11 @@
 				value="hibernate" />
 			<property name="hibernate.connection.password"
 				value="hiber!nate" />
+			<property name="hibernate.jdbc.batch_size"
+				value="50" />
+			<property name="hibernate.cache.use_second_level_cache"
+				value="false" />
+				
 
 			<property name="hibernate.c3p0.min_size" value="5" />
 			<property name="hibernate.c3p0.max_size" value="20" />

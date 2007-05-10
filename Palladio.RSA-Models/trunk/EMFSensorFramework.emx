@@ -396,7 +396,7 @@
           <children xmi:id="_7ub8oO4-EduP8_ntSq1iGg" type="ToRole" element="_7uXrOO4-EduP8_ntSq1iGg"/>
           <layoutConstraint xmi:type="notation:Location" xmi:id="_7ub8oe4-EduP8_ntSq1iGg" x="213" y="-249"/>
         </children>
-        <children xmi:id="_7ub8ou4-EduP8_ntSq1iGg" type="FromMultiplicityLabel" element="_7uYSQ-4-EduP8_ntSq1iGg">
+        <children xmi:id="_7ub8ou4-EduP8_ntSq1iGg" visible="false" type="FromMultiplicityLabel" element="_7uYSQ-4-EduP8_ntSq1iGg">
           <children xmi:id="_7ub8o-4-EduP8_ntSq1iGg" type="FromMultiplicity" element="_7uYSQ-4-EduP8_ntSq1iGg"/>
           <layoutConstraint xmi:type="notation:Location" xmi:id="_7ub8pO4-EduP8_ntSq1iGg" y="397"/>
         </children>
@@ -747,8 +747,8 @@
       <eAnnotations xmi:id="_7uZgae4-EduP8_ntSq1iGg" source="appliedStereotypes"/>
       <type xmi:type="uml:PrimitiveType" href="pathmap://UML2_LIBRARIES/JavaPrimitiveTypes.library.uml2#_TBrTIK86EdieaYgxtVWN8Q"/>
     </ownedAttribute>
-    <ownedAttribute xmi:id="_1f6vcO4_EduP8_ntSq1iGg" name="runStartTime" visibility="private" type="_38hUwe4_EduP8_ntSq1iGg"/>
-    <ownedAttribute xmi:id="_4zziEO4_EduP8_ntSq1iGg" name="runEndTime" visibility="private" type="_38hUwe4_EduP8_ntSq1iGg"/>
+    <ownedAttribute xmi:id="_1f6vcO4_EduP8_ntSq1iGg" name="runStartTime" visibility="private"/>
+    <ownedAttribute xmi:id="_4zziEO4_EduP8_ntSq1iGg" name="runEndTime" visibility="private"/>
     <ownedOperation xmi:id="_7uZgau4-EduP8_ntSq1iGg" name="getMeasurementsOfSensor" type="_7uUA0O4-EduP8_ntSq1iGg">
       <returnResult xmi:id="_7uZga-4-EduP8_ntSq1iGg" name="result" type="_7uUA0O4-EduP8_ntSq1iGg" direction="return">
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_7uZgbO4-EduP8_ntSq1iGg" value="-1"/>
@@ -763,8 +763,5 @@
   </ownedMember>
   <ownedMember xmi:type="uml:Association" xmi:id="_7uaHcu4-EduP8_ntSq1iGg" memberEnd="_7uYSTu4-EduP8_ntSq1iGg _7uaHc-4-EduP8_ntSq1iGg">
     <ownedEnd xmi:id="_7uaHc-4-EduP8_ntSq1iGg" name="experiment" type="_7uYSRu4-EduP8_ntSq1iGg" association="_7uaHcu4-EduP8_ntSq1iGg"/>
-  </ownedMember>
-  <ownedMember xmi:type="uml:Package" xmi:id="_38hUwO4_EduP8_ntSq1iGg" name="PrimitiveTypes">
-    <ownedMember xmi:type="uml:PrimitiveType" xmi:id="_38hUwe4_EduP8_ntSq1iGg" name="double"/>
   </ownedMember>
 </uml:Model>

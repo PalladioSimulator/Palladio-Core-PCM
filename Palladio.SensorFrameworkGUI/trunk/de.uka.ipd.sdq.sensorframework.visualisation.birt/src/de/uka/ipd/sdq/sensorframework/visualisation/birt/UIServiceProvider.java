@@ -90,4 +90,10 @@ public class UIServiceProvider implements IUIServiceProvider {
 		return null;
 	}
 
+	@Override
+	public boolean isEclipseModeSupported() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 }

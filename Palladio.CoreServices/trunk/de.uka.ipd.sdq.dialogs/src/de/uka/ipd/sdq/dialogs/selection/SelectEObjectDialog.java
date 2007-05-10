@@ -186,6 +186,12 @@ public class SelectEObjectDialog extends TitleAreaDialog {
 		
 	}
 	
+	@Override
+	protected void cancelPressed() {
+		super.cancelPressed();
+		this.selection = null;
+	}
+
 	private void setOkButtonEnabled(boolean enabled) {
 		OKbutton.setEnabled(enabled);
 

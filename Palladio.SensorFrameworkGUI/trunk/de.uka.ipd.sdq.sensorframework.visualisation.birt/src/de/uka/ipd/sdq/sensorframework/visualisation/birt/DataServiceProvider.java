@@ -167,4 +167,10 @@ public class DataServiceProvider implements IDataServiceProvider {
 
 	}
 
+	@Override
+	public boolean isEclipseModeSupported() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 }
