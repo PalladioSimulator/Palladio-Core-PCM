@@ -66,7 +66,7 @@ public class ControllerActionDelegate implements IViewActionDelegate {
 				}
 		}
 		if (control != null){
-			Job simuJob = new SimuComJob(control,(SimuView)myView);
+			Job simuJob = new SimuComJob(control,1,(SimuView)myView);
 			simuJob.setUser(false);
 			simuJob.schedule();
 		}

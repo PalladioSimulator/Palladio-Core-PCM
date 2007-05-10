@@ -279,7 +279,10 @@ class SimulateJob implements ISimulationJob {
 	 */
 	private static final String EPID = "controller";
 
-	public SimulateJob() {
+	private long maxSimulationTime;
+
+	public SimulateJob(long maxSimulationTime) {
+		this.maxSimulationTime = maxSimulationTime;
 	}
 
 	public void execute() throws Exception {
@@ -300,7 +303,7 @@ class SimulateJob implements ISimulationJob {
 			throw new Exception("Locating simulation plugin failed",e);
 		}
 
-		SimuComJob job = new SimuComJob(control, null);
+		SimuComJob job = new SimuComJob(control, maxSimulationTime, null);
 		try {
 			job.setUser(true);
 			job.schedule();			

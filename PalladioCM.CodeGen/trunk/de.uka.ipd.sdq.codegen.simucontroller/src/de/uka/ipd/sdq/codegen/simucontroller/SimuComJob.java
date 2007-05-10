@@ -20,11 +20,13 @@ public class SimuComJob extends Job implements IStatusObserver {
 	
 	private String errorMessage;
 	private SimuComStatus status;
+	private long maxSimulationTime;
 
-	public SimuComJob(ISimuComControl control, SimuView myView) {
+	public SimuComJob(ISimuComControl control, long maxSimulationTime, SimuView myView) {
 		super("Simulation Run");
 		this.control = control;
 		this.myView = myView;
+		this.maxSimulationTime = maxSimulationTime;
 	}
 
 	@Override
@@ -33,7 +35,7 @@ public class SimuComJob extends Job implements IStatusObserver {
 		lastProgress = 0;
 		monitor.beginTask("Simulation Run", 100);
 		try {
-			status = control.startSimulation(this);
+			status = control.startSimulation(maxSimulationTime, this);
 		} catch (Exception e) {
 			return Status.CANCEL_STATUS;
 		} finally {

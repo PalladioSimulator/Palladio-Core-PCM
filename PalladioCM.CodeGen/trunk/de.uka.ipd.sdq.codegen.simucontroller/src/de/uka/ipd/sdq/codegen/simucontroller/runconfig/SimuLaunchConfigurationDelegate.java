@@ -26,6 +26,28 @@ import org.eclipse.ui.progress.UIJob;
 public class SimuLaunchConfigurationDelegate implements
 		ILaunchConfigurationDelegate {
 	
+	private static MessageConsole console = null;
+	private static PrintStream myOutStream = null;
+	
+	private MessageConsole getConsole(){
+		if (console == null) {
+			console = new MessageConsole(
+					"SimuComController Generator Console", null);
+			ConsolePlugin.getDefault().getConsoleManager().addConsoles(
+					new IConsole[] { console });
+		}
+		console.activate();
+		return console;
+	}
+	
+	private PrintStream getPrintStream() {
+		if (myOutStream == null){
+			MessageConsole console = getConsole();
+			myOutStream = new PrintStream(console.newMessageStream());
+		}
+		return myOutStream;
+	}
+	
 	/*
 	 * (non-Javadoc)
 	 * 
@@ -35,16 +57,8 @@ public class SimuLaunchConfigurationDelegate implements
 	 */
 	public void launch(ILaunchConfiguration configuration, String mode,
 			ILaunch launch, IProgressMonitor monitor) throws CoreException {
-			
-		MessageConsole console = new MessageConsole(
-				"SimuComController Generator Console", null);
-		console.activate();
-		ConsolePlugin.getDefault().getConsoleManager().addConsoles(
-				new IConsole[] { console });
-
-		MessageConsoleStream stream = console.newMessageStream();
 		PrintStream outStream = System.out;
-		System.setOut(new PrintStream(stream));	
+		System.setOut(getPrintStream());	
 		
 		SimulationWorkflow workflow = new SimulationWorkflow(monitor);
 		
@@ -72,7 +86,8 @@ public class SimuLaunchConfigurationDelegate implements
 		/**
 		 * Step 5: Simulate
 		 */
-		workflow.addJob(new SimulateJob());	
+		// TODO Roman: SimTime aus Config auslesen!
+		workflow.addJob(new SimulateJob(1500000));	
 		
 		//execute all steps
 		try{
@@ -94,6 +109,6 @@ public class SimuLaunchConfigurationDelegate implements
 		workflow.rollback();
 		
 		System.setOut(outStream);
-		ConsolePlugin.getDefault().getConsoleManager().removeConsoles(new IConsole[]{ console });
+		// ConsolePlugin.getDefault().getConsoleManager().removeConsoles(new IConsole[]{ console });
 	}	
 }
