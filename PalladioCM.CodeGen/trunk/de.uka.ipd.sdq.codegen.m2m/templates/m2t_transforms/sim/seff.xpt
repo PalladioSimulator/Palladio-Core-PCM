@@ -99,7 +99,7 @@
 «DEFINE Action FOR SetVariableAction»
 	«FOREACH this.variableUsage_SetVariableAction.variableCharacterisation_VariableUsage AS vc»
 	resultStackFrame.addValue("«this.variableUsage_SetVariableAction.parameterUsageLHS()».«vc.type.toString()»",
-		ctx.evaluate("«vc.specification.javaString()»"));
+		ctx.evaluate("«vc.specification.specificationString()»"));
 	«ENDFOREACH»
 «ENDDEFINE»
 
