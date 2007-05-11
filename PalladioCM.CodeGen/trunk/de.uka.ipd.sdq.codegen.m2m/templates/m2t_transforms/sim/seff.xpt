@@ -102,3 +102,19 @@
 		ctx.evaluate("«vc.specification.javaString()»"));
 	«ENDFOREACH»
 «ENDDEFINE»
+
+«DEFINE Action FOR ForkAction»
+	{
+		de.uka.ipd.sdq.simucomframework.fork.ForkedBehaviourProcess[] forks =
+			new de.uka.ipd.sdq.simucomframework.fork.ForkedBehaviourProcess[]{ 
+			«FOREACH this.forkedBehaviours_Fork AS f SEPARATOR ","»
+				new de.uka.ipd.sdq.simucomframework.fork.ForkedBehaviourProcess(ctx,assemblyContextID){
+					public void executeBehaviour() {
+						«EXPAND m2t_transforms::java_core::Actions FOR f.steps_Behaviour.findStart()» 
+					}
+				}
+			«ENDFOREACH»
+			};
+		new de.uka.ipd.sdq.simucomframework.fork.ForkExecutor(ctx.getThread(),forks).run();
+	}
+«ENDDEFINE»

@@ -38,4 +38,8 @@ public class SimulatedStack<T> implements Serializable {
 	public int size() {
 		return stack.size();
 	}
+
+	public void pushStackFrame(SimulatedStackframe<T> copyFrame) {
+		stack.push(copyFrame);
+	}
 }
