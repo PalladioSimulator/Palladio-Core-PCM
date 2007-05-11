@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.0/notation" xmlns:pcm.seff="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0" xmi:id="_VR014P_bEduaJLTMDGKSdg" type="PCM SEFF Model" measurementUnit="Pixel">
+  <children xmi:type="notation:Node" xmi:id="_VYNKsP_bEduaJLTMDGKSdg" type="2001">
+    <styles xmi:type="notation:FontStyle" xmi:id="_VYNKsf_bEduaJLTMDGKSdg" fontName="Segoe UI"/>
+    <styles xmi:type="notation:DescriptionStyle" xmi:id="_VYNKsv_bEduaJLTMDGKSdg"/>
+    <styles xmi:type="notation:FillStyle" xmi:id="_VYNKs__bEduaJLTMDGKSdg"/>
+    <styles xmi:type="notation:LineStyle" xmi:id="_VYNKtP_bEduaJLTMDGKSdg"/>
+    <element xmi:type="pcm.seff:StartAction" href="fork.repository#_Rzd4oP_bEduaJLTMDGKSdg"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_VYNKtf_bEduaJLTMDGKSdg" x="5"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_VYPm8P_bEduaJLTMDGKSdg" type="2002">
+    <styles xmi:type="notation:FontStyle" xmi:id="_VYPm8f_bEduaJLTMDGKSdg" fontName="Segoe UI"/>
+    <styles xmi:type="notation:DescriptionStyle" xmi:id="_VYPm8v_bEduaJLTMDGKSdg"/>
+    <styles xmi:type="notation:FillStyle" xmi:id="_VYPm8__bEduaJLTMDGKSdg"/>
+    <styles xmi:type="notation:LineStyle" xmi:id="_VYPm9P_bEduaJLTMDGKSdg"/>
+    <element xmi:type="pcm.seff:StopAction" href="fork.repository#_RzixIP_bEduaJLTMDGKSdg"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_VYPm9f_bEduaJLTMDGKSdg" y="80"/>
+  </children>
+  <styles xmi:type="notation:PageStyle" xmi:id="_VR014f_bEduaJLTMDGKSdg"/>
+  <styles xmi:type="notation:GuideStyle" xmi:id="_VR014v_bEduaJLTMDGKSdg"/>
+  <styles xmi:type="notation:DescriptionStyle" xmi:id="_VR014__bEduaJLTMDGKSdg"/>
+  <element xmi:type="pcm.seff:ResourceDemandingSEFF" href="fork.repository#_RzGFMP_bEduaJLTMDGKSdg"/>
+</notation:Diagram>

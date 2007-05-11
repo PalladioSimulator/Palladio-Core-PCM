@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pcm.resourceenvironment:ResourceEnvironment xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:pcm.resourceenvironment="http://sdq.ipd.uka.de/PalladioComponentModel/ResourceEnvironment/1.0">
+  <resourceContainer_ResourceEnvironment id="__4PMsP_bEduaJLTMDGKSdg">
+    <activeResourceSpecifications_ResourceContainer processingRate="1.0" units="ms">
+      <activeResourceType_ActiveResourceSpecification href="fork.resourcetype#_FckX8P_cEduaJLTMDGKSdg"/>
+    </activeResourceSpecifications_ResourceContainer>
+  </resourceContainer_ResourceEnvironment>
+</pcm.resourceenvironment:ResourceEnvironment>
