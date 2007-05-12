@@ -3,8 +3,8 @@
  */
 package de.uka.ipd.sdq.pcm.gmf.seff.view.factories;
 
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ExternalCallActionVariableUsageEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingSEFFEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableUsageVariableCharacterisation3EditPart;
 
 import de.uka.ipd.sdq.pcm.gmf.seff.part.PalladioComponentModelVisualIDRegistry;
 
@@ -27,7 +27,7 @@ import org.eclipse.gmf.runtime.notation.View;
 /**
  * @generated
  */
-public class ExternalCallActionVariableUsageViewFactory extends
+public class VariableUsageVariableCharacterisation3ViewFactory extends
 		ListCompartmentViewFactory {
 
 	/**
@@ -50,7 +50,7 @@ public class ExternalCallActionVariableUsageViewFactory extends
 			boolean persisted) {
 		if (semanticHint == null) {
 			semanticHint = PalladioComponentModelVisualIDRegistry
-					.getType(ExternalCallActionVariableUsageEditPart.VISUAL_ID);
+					.getType(VariableUsageVariableCharacterisation3EditPart.VISUAL_ID);
 			view.setType(semanticHint);
 		}
 		super.decorateView(containerView, view, semanticAdapter, semanticHint,

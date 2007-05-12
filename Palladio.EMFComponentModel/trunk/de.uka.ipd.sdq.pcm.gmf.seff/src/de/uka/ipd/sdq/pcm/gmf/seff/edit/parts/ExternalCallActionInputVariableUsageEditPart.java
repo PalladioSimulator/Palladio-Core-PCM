@@ -3,9 +3,7 @@
  */
 package de.uka.ipd.sdq.pcm.gmf.seff.edit.parts;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.gef.EditPolicy;
-import org.eclipse.gmf.runtime.diagram.ui.editparts.ListCompartmentEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeCompartmentEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CreationEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.DragDropEditPolicy;
@@ -14,25 +12,25 @@ import org.eclipse.gmf.runtime.diagram.ui.editpolicies.ResizableCompartmentEditP
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.notation.View;
 
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.ExternalCallActionVariableUsage2CanonicalEditPolicy;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.ExternalCallActionVariableUsage2ItemSemanticEditPolicy;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.ExternalCallActionInputVariableUsageCanonicalEditPolicy;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.ExternalCallActionInputVariableUsageItemSemanticEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.seff.part.Messages;
 
 /**
  * @generated
  */
-public class ExternalCallActionVariableUsage2EditPart extends
+public class ExternalCallActionInputVariableUsageEditPart extends
 		ShapeCompartmentEditPart {
 
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 7010;
+	public static final int VISUAL_ID = 7001;
 
 	/**
 	 * @generated
 	 */
-	public ExternalCallActionVariableUsage2EditPart(View view) {
+	public ExternalCallActionInputVariableUsageEditPart(View view) {
 		super(view);
 	}
 
@@ -40,7 +38,7 @@ public class ExternalCallActionVariableUsage2EditPart extends
 	 * @generated
 	 */
 	public String getCompartmentName() {
-		return Messages.ExternalCallActionVariableUsage2EditPart_title;
+		return Messages.ExternalCallActionInputVariableUsageEditPart_title;
 	}
 
 	/**
@@ -50,14 +48,15 @@ public class ExternalCallActionVariableUsage2EditPart extends
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE,
 				new ResizableCompartmentEditPolicy());
-		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
-				new ExternalCallActionVariableUsage2ItemSemanticEditPolicy());
+		installEditPolicy(
+				EditPolicyRoles.SEMANTIC_ROLE,
+				new ExternalCallActionInputVariableUsageItemSemanticEditPolicy());
 		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
 				new CreationEditPolicy());
 		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE,
 				new DragDropEditPolicy());
 		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE,
-				new ExternalCallActionVariableUsage2CanonicalEditPolicy());
+				new ExternalCallActionInputVariableUsageCanonicalEditPolicy());
 	}
 
 	/**

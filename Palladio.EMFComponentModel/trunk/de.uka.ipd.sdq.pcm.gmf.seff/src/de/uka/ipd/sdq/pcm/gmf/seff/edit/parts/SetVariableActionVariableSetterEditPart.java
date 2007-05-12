@@ -27,7 +27,7 @@ public class SetVariableActionVariableSetterEditPart extends
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 7016;
+	public static final int VISUAL_ID = 7025;
 
 	/**
 	 * @generated

@@ -5,7 +5,8 @@ package de.uka.ipd.sdq.pcm.gmf.seff.view.factories;
 
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ExternalCallAction2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ExternalCallActionEntityName2EditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ExternalCallActionVariableUsage2EditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ExternalCallActionInputVariableUsage2EditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ExternalCallActionOutputVariableUsage2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingSEFFEditPart;
 
 import de.uka.ipd.sdq.pcm.gmf.seff.part.PalladioComponentModelVisualIDRegistry;
@@ -77,7 +78,14 @@ public class ExternalCallAction2ViewFactory extends AbstractShapeViewFactory {
 						semanticAdapter,
 						view,
 						PalladioComponentModelVisualIDRegistry
-								.getType(ExternalCallActionVariableUsage2EditPart.VISUAL_ID),
+								.getType(ExternalCallActionInputVariableUsage2EditPart.VISUAL_ID),
+						ViewUtil.APPEND, true, getPreferencesHint());
+		getViewService()
+				.createNode(
+						semanticAdapter,
+						view,
+						PalladioComponentModelVisualIDRegistry
+								.getType(ExternalCallActionOutputVariableUsage2EditPart.VISUAL_ID),
 						ViewUtil.APPEND, true, getPreferencesHint());
 	}
 

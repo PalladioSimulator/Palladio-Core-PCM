@@ -62,7 +62,7 @@ public class ForkActionEntityNameEditPart extends CompartmentEditPart implements
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 5024;
+	public static final int VISUAL_ID = 5026;
 
 	/**
 	 * @generated
@@ -316,7 +316,7 @@ public class ForkActionEntityNameEditPart extends CompartmentEditPart implements
 
 				public Object getAdapter(Class adapter) {
 					if (IElementType.class.equals(adapter)) {
-						return PalladioComponentModelElementTypes.ForkAction_2011;
+						return PalladioComponentModelElementTypes.ForkAction_3023;
 					}
 					return super.getAdapter(adapter);
 				}

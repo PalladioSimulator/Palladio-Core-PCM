@@ -5,10 +5,13 @@ package de.uka.ipd.sdq.pcm.gmf.seff.edit.policies;
 
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.commands.AquireActionCreateCommand;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.commands.BranchActionCreateCommand;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.commands.CollectionIteratorActionCreateCommand;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.commands.ExternalCallAction2CreateCommand;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.commands.ForkActionCreateCommand;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.commands.InternalActionCreateCommand;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.commands.LoopAction2CreateCommand;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.commands.ReleaseActionCreateCommand;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.commands.SetVariableActionCreateCommand;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.commands.StartAction2CreateCommand;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.commands.StopAction2CreateCommand;
 
@@ -93,6 +96,30 @@ public class ResourceDemandingBehaviourBranchCompartmentItemSemanticEditPolicy
 						.getResourceDemandingBehaviour_Steps_Behaviour());
 			}
 			return getMSLWrapper(new ReleaseActionCreateCommand(req));
+		}
+		if (PalladioComponentModelElementTypes.ForkAction_3023 == req
+				.getElementType()) {
+			if (req.getContainmentFeature() == null) {
+				req.setContainmentFeature(SeffPackage.eINSTANCE
+						.getResourceDemandingBehaviour_Steps_Behaviour());
+			}
+			return getMSLWrapper(new ForkActionCreateCommand(req));
+		}
+		if (PalladioComponentModelElementTypes.CollectionIteratorAction_3013 == req
+				.getElementType()) {
+			if (req.getContainmentFeature() == null) {
+				req.setContainmentFeature(SeffPackage.eINSTANCE
+						.getResourceDemandingBehaviour_Steps_Behaviour());
+			}
+			return getMSLWrapper(new CollectionIteratorActionCreateCommand(req));
+		}
+		if (PalladioComponentModelElementTypes.SetVariableAction_3024 == req
+				.getElementType()) {
+			if (req.getContainmentFeature() == null) {
+				req.setContainmentFeature(SeffPackage.eINSTANCE
+						.getResourceDemandingBehaviour_Steps_Behaviour());
+			}
+			return getMSLWrapper(new SetVariableActionCreateCommand(req));
 		}
 		return super.getCreateCommand(req);
 	}

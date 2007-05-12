@@ -364,14 +364,14 @@ Copyright 2006 SDQ Research Group, University of Karlsruhe (TH)
          </specializationType>
       </metamodel>
       <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0">
-         <metamodelType
+         <specializationType
                id="de.uka.ipd.sdq.pcm.gmf.seff.SetVariableAction_2008"
                name="%metatype.name.SetVariableAction_2008"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
-               eclass="SetVariableAction"
-               edithelper="de.uka.ipd.sdq.pcm.gmf.seff.edit.helpers.SetVariableActionEditHelper">
+               edithelperadvice="de.uka.ipd.sdq.pcm.gmf.seff.edit.helpers.SetVariableActionEditHelperAdvice">
+            <specializes id="de.uka.ipd.sdq.pcm.gmf.seff.SetVariableAction_3024"/>
             <param name="semanticHint" value="2008"/>
-         </metamodelType>
+         </specializationType>
       </metamodel>
       <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0">
          <specializationType
@@ -394,14 +394,14 @@ Copyright 2006 SDQ Research Group, University of Karlsruhe (TH)
          </specializationType>
       </metamodel>
       <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0">
-         <metamodelType
+         <specializationType
                id="de.uka.ipd.sdq.pcm.gmf.seff.ForkAction_2011"
                name="%metatype.name.ForkAction_2011"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
-               eclass="ForkAction"
-               edithelper="de.uka.ipd.sdq.pcm.gmf.seff.edit.helpers.ForkActionEditHelper">
+               edithelperadvice="de.uka.ipd.sdq.pcm.gmf.seff.edit.helpers.ForkActionEditHelperAdvice">
+            <specializes id="de.uka.ipd.sdq.pcm.gmf.seff.ForkAction_3023"/>
             <param name="semanticHint" value="2011"/>
-         </metamodelType>
+         </specializationType>
       </metamodel>
       <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Parameter/1.0">
          <metamodelType
@@ -422,6 +422,26 @@ Copyright 2006 SDQ Research Group, University of Karlsruhe (TH)
                edithelper="de.uka.ipd.sdq.pcm.gmf.seff.edit.helpers.VariableCharacterisationEditHelper">
             <param name="semanticHint" value="3002"/>
          </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Parameter/1.0">
+         <specializationType
+               id="de.uka.ipd.sdq.pcm.gmf.seff.VariableUsage_3022"
+               name="%metatype.name.VariableUsage_3022"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               edithelperadvice="de.uka.ipd.sdq.pcm.gmf.seff.edit.helpers.VariableUsageEditHelperAdvice">
+            <specializes id="de.uka.ipd.sdq.pcm.gmf.seff.VariableUsage_3001"/>
+            <param name="semanticHint" value="3022"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Parameter/1.0">
+         <specializationType
+               id="de.uka.ipd.sdq.pcm.gmf.seff.VariableCharacterisation_3016"
+               name="%metatype.name.VariableCharacterisation_3016"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               edithelperadvice="de.uka.ipd.sdq.pcm.gmf.seff.edit.helpers.VariableCharacterisationEditHelperAdvice">
+            <specializes id="de.uka.ipd.sdq.pcm.gmf.seff.VariableCharacterisation_3002"/>
+            <param name="semanticHint" value="3016"/>
+         </specializationType>
       </metamodel>
       <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0">
          <metamodelType
@@ -545,22 +565,22 @@ Copyright 2006 SDQ Research Group, University of Karlsruhe (TH)
       </metamodel>
       <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0">
          <metamodelType
-               id="de.uka.ipd.sdq.pcm.gmf.seff.GuardedBranchTransition_3017"
-               name="%metatype.name.GuardedBranchTransition_3017"
+               id="de.uka.ipd.sdq.pcm.gmf.seff.ForkAction_3023"
+               name="%metatype.name.ForkAction_3023"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
-               eclass="GuardedBranchTransition"
-               edithelper="de.uka.ipd.sdq.pcm.gmf.seff.edit.helpers.GuardedBranchTransitionEditHelper">
-            <param name="semanticHint" value="3017"/>
+               eclass="ForkAction"
+               edithelper="de.uka.ipd.sdq.pcm.gmf.seff.edit.helpers.ForkActionEditHelper">
+            <param name="semanticHint" value="3023"/>
          </metamodelType>
       </metamodel>
       <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0">
          <specializationType
-               id="de.uka.ipd.sdq.pcm.gmf.seff.ResourceDemandingBehaviour_3018"
-               name="%metatype.name.ResourceDemandingBehaviour_3018"
+               id="de.uka.ipd.sdq.pcm.gmf.seff.ResourceDemandingBehaviour_3021"
+               name="%metatype.name.ResourceDemandingBehaviour_3021"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
                edithelperadvice="de.uka.ipd.sdq.pcm.gmf.seff.edit.helpers.ResourceDemandingBehaviour2EditHelperAdvice">
             <specializes id="de.uka.ipd.sdq.pcm.gmf.seff.ResourceDemandingBehaviour_3003"/>
-            <param name="semanticHint" value="3018"/>
+            <param name="semanticHint" value="3021"/>
          </specializationType>
       </metamodel>
       <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0">
@@ -583,34 +603,54 @@ Copyright 2006 SDQ Research Group, University of Karlsruhe (TH)
             <param name="semanticHint" value="3014"/>
          </specializationType>
       </metamodel>
+      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0">
+         <metamodelType
+               id="de.uka.ipd.sdq.pcm.gmf.seff.SetVariableAction_3024"
+               name="%metatype.name.SetVariableAction_3024"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="SetVariableAction"
+               edithelper="de.uka.ipd.sdq.pcm.gmf.seff.edit.helpers.SetVariableActionEditHelper">
+            <param name="semanticHint" value="3024"/>
+         </metamodelType>
+      </metamodel>
       <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Parameter/1.0">
          <specializationType
                id="de.uka.ipd.sdq.pcm.gmf.seff.VariableUsage_3015"
                name="%metatype.name.VariableUsage_3015"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
-               edithelperadvice="de.uka.ipd.sdq.pcm.gmf.seff.edit.helpers.VariableUsageEditHelperAdvice">
+               edithelperadvice="de.uka.ipd.sdq.pcm.gmf.seff.edit.helpers.VariableUsage2EditHelperAdvice">
             <specializes id="de.uka.ipd.sdq.pcm.gmf.seff.VariableUsage_3001"/>
             <param name="semanticHint" value="3015"/>
          </specializationType>
       </metamodel>
       <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Parameter/1.0">
          <specializationType
-               id="de.uka.ipd.sdq.pcm.gmf.seff.VariableCharacterisation_3016"
-               name="%metatype.name.VariableCharacterisation_3016"
+               id="de.uka.ipd.sdq.pcm.gmf.seff.VariableCharacterisation_3025"
+               name="%metatype.name.VariableCharacterisation_3025"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
-               edithelperadvice="de.uka.ipd.sdq.pcm.gmf.seff.edit.helpers.VariableCharacterisationEditHelperAdvice">
+               edithelperadvice="de.uka.ipd.sdq.pcm.gmf.seff.edit.helpers.VariableCharacterisation2EditHelperAdvice">
             <specializes id="de.uka.ipd.sdq.pcm.gmf.seff.VariableCharacterisation_3002"/>
-            <param name="semanticHint" value="3016"/>
+            <param name="semanticHint" value="3025"/>
          </specializationType>
       </metamodel>
       <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0">
+         <metamodelType
+               id="de.uka.ipd.sdq.pcm.gmf.seff.GuardedBranchTransition_3017"
+               name="%metatype.name.GuardedBranchTransition_3017"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="GuardedBranchTransition"
+               edithelper="de.uka.ipd.sdq.pcm.gmf.seff.edit.helpers.GuardedBranchTransitionEditHelper">
+            <param name="semanticHint" value="3017"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0">
          <specializationType
-               id="de.uka.ipd.sdq.pcm.gmf.seff.ResourceDemandingBehaviour_3021"
-               name="%metatype.name.ResourceDemandingBehaviour_3021"
+               id="de.uka.ipd.sdq.pcm.gmf.seff.ResourceDemandingBehaviour_3018"
+               name="%metatype.name.ResourceDemandingBehaviour_3018"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
                edithelperadvice="de.uka.ipd.sdq.pcm.gmf.seff.edit.helpers.ResourceDemandingBehaviour4EditHelperAdvice">
             <specializes id="de.uka.ipd.sdq.pcm.gmf.seff.ResourceDemandingBehaviour_3003"/>
-            <param name="semanticHint" value="3021"/>
+            <param name="semanticHint" value="3018"/>
          </specializationType>
       </metamodel>
       <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0">
@@ -649,6 +689,8 @@ Copyright 2006 SDQ Research Group, University of Karlsruhe (TH)
          <elementType ref="de.uka.ipd.sdq.pcm.gmf.seff.ForkAction_2011"/>
          <elementType ref="de.uka.ipd.sdq.pcm.gmf.seff.VariableUsage_3001"/>
          <elementType ref="de.uka.ipd.sdq.pcm.gmf.seff.VariableCharacterisation_3002"/>
+         <elementType ref="de.uka.ipd.sdq.pcm.gmf.seff.VariableUsage_3022"/>
+         <elementType ref="de.uka.ipd.sdq.pcm.gmf.seff.VariableCharacterisation_3016"/>
          <elementType ref="de.uka.ipd.sdq.pcm.gmf.seff.ResourceDemandingBehaviour_3003"/>
          <elementType ref="de.uka.ipd.sdq.pcm.gmf.seff.StartAction_3004"/>
          <elementType ref="de.uka.ipd.sdq.pcm.gmf.seff.StopAction_3005"/>
@@ -661,13 +703,15 @@ Copyright 2006 SDQ Research Group, University of Karlsruhe (TH)
          <elementType ref="de.uka.ipd.sdq.pcm.gmf.seff.ExternalCallAction_3012"/>
          <elementType ref="de.uka.ipd.sdq.pcm.gmf.seff.AquireAction_3019"/>
          <elementType ref="de.uka.ipd.sdq.pcm.gmf.seff.ReleaseAction_3020"/>
-         <elementType ref="de.uka.ipd.sdq.pcm.gmf.seff.GuardedBranchTransition_3017"/>
-         <elementType ref="de.uka.ipd.sdq.pcm.gmf.seff.ResourceDemandingBehaviour_3018"/>
+         <elementType ref="de.uka.ipd.sdq.pcm.gmf.seff.ForkAction_3023"/>
+         <elementType ref="de.uka.ipd.sdq.pcm.gmf.seff.ResourceDemandingBehaviour_3021"/>
          <elementType ref="de.uka.ipd.sdq.pcm.gmf.seff.CollectionIteratorAction_3013"/>
          <elementType ref="de.uka.ipd.sdq.pcm.gmf.seff.ResourceDemandingBehaviour_3014"/>
+         <elementType ref="de.uka.ipd.sdq.pcm.gmf.seff.SetVariableAction_3024"/>
          <elementType ref="de.uka.ipd.sdq.pcm.gmf.seff.VariableUsage_3015"/>
-         <elementType ref="de.uka.ipd.sdq.pcm.gmf.seff.VariableCharacterisation_3016"/>
-         <elementType ref="de.uka.ipd.sdq.pcm.gmf.seff.ResourceDemandingBehaviour_3021"/>
+         <elementType ref="de.uka.ipd.sdq.pcm.gmf.seff.VariableCharacterisation_3025"/>
+         <elementType ref="de.uka.ipd.sdq.pcm.gmf.seff.GuardedBranchTransition_3017"/>
+         <elementType ref="de.uka.ipd.sdq.pcm.gmf.seff.ResourceDemandingBehaviour_3018"/>
          <elementType ref="de.uka.ipd.sdq.pcm.gmf.seff.AbstractActionSuccessor_AbstractAction_4001"/>
          <advice ref="org.eclipse.gmf.runtime.diagram.core.advice.notationDepdendents"/>
       </binding>

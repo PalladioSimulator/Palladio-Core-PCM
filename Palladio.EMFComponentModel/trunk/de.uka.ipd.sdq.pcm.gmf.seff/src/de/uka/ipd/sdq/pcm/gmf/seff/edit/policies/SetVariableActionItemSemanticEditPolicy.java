@@ -58,18 +58,7 @@ public class SetVariableActionItemSemanticEditPolicy extends
 					Collections.EMPTY_MAP);
 			cc.add(nextEditPart.getCommand(editCommandRequest));
 		}
-		cc.add(getMSLWrapper(new DestroyElementCommand(req) {
-
-			protected EObject getElementToDestroy() {
-				View view = (View) getHost().getModel();
-				EAnnotation annotation = view.getEAnnotation("Shortcut"); //$NON-NLS-1$
-				if (annotation != null) {
-					return view;
-				}
-				return super.getElementToDestroy();
-			}
-
-		}));
+		cc.add(getMSLWrapper(new DestroyElementCommand(req)));
 		return cc;
 	}
 

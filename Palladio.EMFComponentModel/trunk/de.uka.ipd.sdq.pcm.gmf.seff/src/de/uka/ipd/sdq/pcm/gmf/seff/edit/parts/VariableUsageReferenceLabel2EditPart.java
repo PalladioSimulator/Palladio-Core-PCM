@@ -64,7 +64,7 @@ public class VariableUsageReferenceLabel2EditPart extends CompartmentEditPart
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 5017;
+	public static final int VISUAL_ID = 5025;
 
 	/**
 	 * @generated
@@ -318,7 +318,7 @@ public class VariableUsageReferenceLabel2EditPart extends CompartmentEditPart
 
 				public Object getAdapter(Class adapter) {
 					if (IElementType.class.equals(adapter)) {
-						return PalladioComponentModelElementTypes.VariableUsage_3015;
+						return PalladioComponentModelElementTypes.VariableUsage_3022;
 					}
 					return super.getAdapter(adapter);
 				}

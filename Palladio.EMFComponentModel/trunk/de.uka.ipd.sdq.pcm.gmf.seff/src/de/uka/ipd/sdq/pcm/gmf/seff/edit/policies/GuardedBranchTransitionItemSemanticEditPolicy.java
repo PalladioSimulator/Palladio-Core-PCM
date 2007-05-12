@@ -19,6 +19,7 @@ import org.eclipse.gmf.runtime.notation.Edge;
 import org.eclipse.gmf.runtime.notation.View;
 
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.commands.ResourceDemandingBehaviour3CreateCommand;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.commands.ResourceDemandingBehaviour5CreateCommand;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.GuardedBranchTransitionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.providers.PalladioComponentModelElementTypes;
 import de.uka.ipd.sdq.pcm.seff.SeffPackage;
@@ -40,7 +41,7 @@ public class GuardedBranchTransitionItemSemanticEditPolicy extends
 						.setContainmentFeature(SeffPackage.eINSTANCE
 								.getAbstractBranchTransition_BranchBehaviour_BranchTransition());
 			}
-			return getMSLWrapper(new ResourceDemandingBehaviour3CreateCommand(
+			return getMSLWrapper(new ResourceDemandingBehaviour5CreateCommand(
 					req));
 		}
 		return super.getCreateCommand(req);

@@ -7,6 +7,7 @@ import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CanonicalEditPolicy;
 import org.eclipse.gmf.runtime.notation.View;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableUsage2EditPart;
 
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableUsage3EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.part.PalladioComponentModelVisualIDRegistry;
 
 import de.uka.ipd.sdq.pcm.seff.SetVariableAction;
@@ -35,7 +36,7 @@ public class SetVariableActionVariableSetterCanonicalEditPolicy extends
 				.getVariableUsage_SetVariableAction();
 		nodeVID = PalladioComponentModelVisualIDRegistry.getNodeVisualID(
 				viewObject, nextValue);
-		if (VariableUsage2EditPart.VISUAL_ID == nodeVID) {
+		if (VariableUsage3EditPart.VISUAL_ID == nodeVID) {
 			result.add(nextValue);
 		}
 		return result;
@@ -52,7 +53,7 @@ public class SetVariableActionVariableSetterCanonicalEditPolicy extends
 		}
 		int nodeVID = PalladioComponentModelVisualIDRegistry.getVisualID(view);
 		switch (nodeVID) {
-		case VariableUsage2EditPart.VISUAL_ID:
+		case VariableUsage3EditPart.VISUAL_ID:
 			return true;
 		}
 		return false;

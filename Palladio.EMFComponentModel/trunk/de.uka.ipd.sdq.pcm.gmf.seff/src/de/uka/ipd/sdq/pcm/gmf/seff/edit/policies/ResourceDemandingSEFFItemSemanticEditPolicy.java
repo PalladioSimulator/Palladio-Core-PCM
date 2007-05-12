@@ -12,10 +12,12 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.commands.AquireAction2CreateCommand;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.commands.BranchAction2CreateCommand;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.commands.CollectionIteratorAction2CreateCommand;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.commands.ExternalCallActionCreateCommand;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.commands.ForkAction2CreateCommand;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.commands.ForkActionCreateCommand;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.commands.InternalAction2CreateCommand;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.commands.LoopActionCreateCommand;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.commands.ReleaseAction2CreateCommand;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.commands.SetVariableAction2CreateCommand;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.commands.SetVariableActionCreateCommand;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.commands.StartActionCreateCommand;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.commands.StopActionCreateCommand;
@@ -98,7 +100,7 @@ public class ResourceDemandingSEFFItemSemanticEditPolicy extends
 				req.setContainmentFeature(SeffPackage.eINSTANCE
 						.getResourceDemandingBehaviour_Steps_Behaviour());
 			}
-			return getMSLWrapper(new SetVariableActionCreateCommand(req));
+			return getMSLWrapper(new SetVariableAction2CreateCommand(req));
 		}
 		if (PalladioComponentModelElementTypes.AquireAction_2009 == req
 				.getElementType()) {
@@ -122,7 +124,7 @@ public class ResourceDemandingSEFFItemSemanticEditPolicy extends
 				req.setContainmentFeature(SeffPackage.eINSTANCE
 						.getResourceDemandingBehaviour_Steps_Behaviour());
 			}
-			return getMSLWrapper(new ForkActionCreateCommand(req));
+			return getMSLWrapper(new ForkAction2CreateCommand(req));
 		}
 		return super.getCreateCommand(req);
 	}

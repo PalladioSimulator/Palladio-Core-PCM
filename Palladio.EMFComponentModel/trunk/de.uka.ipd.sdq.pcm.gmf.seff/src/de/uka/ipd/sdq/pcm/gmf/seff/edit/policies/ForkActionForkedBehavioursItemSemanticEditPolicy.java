@@ -3,6 +3,7 @@
  */
 package de.uka.ipd.sdq.pcm.gmf.seff.edit.policies;
 
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.commands.ResourceDemandingBehaviour3CreateCommand;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.commands.ResourceDemandingBehaviour5CreateCommand;
 
 import de.uka.ipd.sdq.pcm.gmf.seff.providers.PalladioComponentModelElementTypes;
@@ -29,7 +30,7 @@ public class ForkActionForkedBehavioursItemSemanticEditPolicy extends
 				req.setContainmentFeature(SeffPackage.eINSTANCE
 						.getForkAction_ForkedBehaviours_Fork());
 			}
-			return getMSLWrapper(new ResourceDemandingBehaviour5CreateCommand(
+			return getMSLWrapper(new ResourceDemandingBehaviour3CreateCommand(
 					req));
 		}
 		return super.getCreateCommand(req);

@@ -236,7 +236,12 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String ExternalCallActionVariableUsageEditPart_title;
+	public static String ExternalCallActionInputVariableUsageEditPart_title;
+
+	/**
+	 * @generated
+	 */
+	public static String ExternalCallActionOutputVariableUsageEditPart_title;
 
 	/**
 	 * @generated
@@ -266,7 +271,12 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String ExternalCallActionVariableUsage2EditPart_title;
+	public static String ExternalCallActionInputVariableUsage2EditPart_title;
+
+	/**
+	 * @generated
+	 */
+	public static String ExternalCallActionOutputVariableUsage2EditPart_title;
 
 	/**
 	 * @generated
@@ -291,7 +301,22 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String SetVariableActionVariableSetter2EditPart_title;
+
+	/**
+	 * @generated
+	 */
+	public static String ForkActionForkedBehaviours2EditPart_title;
+
+	/**
+	 * @generated
+	 */
 	public static String SetVariableActionVariableSetterEditPart_title;
+
+	/**
+	 * @generated
+	 */
+	public static String VariableUsageVariableCharacterisation3EditPart_title;
 
 	/**
 	 * @generated
@@ -511,12 +536,32 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String NavigatorGroupName_ForkAction_3023_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_ForkAction_3023_incominglinks;
+
+	/**
+	 * @generated
+	 */
 	public static String NavigatorGroupName_CollectionIteratorAction_3013_outgoinglinks;
 
 	/**
 	 * @generated
 	 */
 	public static String NavigatorGroupName_CollectionIteratorAction_3013_incominglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_SetVariableAction_3024_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_SetVariableAction_3024_incominglinks;
 
 	/**
 	 * @generated

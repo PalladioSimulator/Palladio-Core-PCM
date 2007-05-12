@@ -7,6 +7,7 @@ import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CanonicalEditPolicy;
 import org.eclipse.gmf.runtime.notation.View;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviour3EditPart;
 
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviour5EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.part.PalladioComponentModelVisualIDRegistry;
 
 import de.uka.ipd.sdq.pcm.seff.AbstractBranchTransition;
@@ -35,7 +36,7 @@ public class GuardedBranchTransitionCanonicalEditPolicy extends
 				.getBranchBehaviour_BranchTransition();
 		nodeVID = PalladioComponentModelVisualIDRegistry.getNodeVisualID(
 				viewObject, nextValue);
-		if (ResourceDemandingBehaviour3EditPart.VISUAL_ID == nodeVID) {
+		if (ResourceDemandingBehaviour5EditPart.VISUAL_ID == nodeVID) {
 			result.add(nextValue);
 		}
 		return result;
@@ -52,7 +53,7 @@ public class GuardedBranchTransitionCanonicalEditPolicy extends
 		}
 		int nodeVID = PalladioComponentModelVisualIDRegistry.getVisualID(view);
 		switch (nodeVID) {
-		case ResourceDemandingBehaviour3EditPart.VISUAL_ID:
+		case ResourceDemandingBehaviour5EditPart.VISUAL_ID:
 			return true;
 		}
 		return false;

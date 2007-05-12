@@ -5,6 +5,7 @@ package de.uka.ipd.sdq.pcm.gmf.seff.edit.policies;
 
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.commands.VariableUsage2CreateCommand;
 
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.commands.VariableUsage3CreateCommand;
 import de.uka.ipd.sdq.pcm.gmf.seff.providers.PalladioComponentModelElementTypes;
 
 import de.uka.ipd.sdq.pcm.seff.SeffPackage;
@@ -30,7 +31,7 @@ public class SetVariableActionVariableSetterItemSemanticEditPolicy extends
 						.setContainmentFeature(SeffPackage.eINSTANCE
 								.getSetVariableAction_VariableUsage_SetVariableAction());
 			}
-			return getMSLWrapper(new VariableUsage2CreateCommand(req));
+			return getMSLWrapper(new VariableUsage3CreateCommand(req));
 		}
 		return super.getCreateCommand(req);
 	}

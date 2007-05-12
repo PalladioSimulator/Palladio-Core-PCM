@@ -3,6 +3,7 @@
  */
 package de.uka.ipd.sdq.pcm.gmf.seff.edit.commands;
 
+import de.uka.ipd.sdq.pcm.seff.AbstractBranchTransition;
 import de.uka.ipd.sdq.pcm.seff.SeffPackage;
 
 import org.eclipse.emf.ecore.EClass;
@@ -31,7 +32,7 @@ public class ResourceDemandingBehaviour5CreateCommand extends
 	 * @generated
 	 */
 	protected EClass getEClassToEdit() {
-		return SeffPackage.eINSTANCE.getForkAction();
+		return SeffPackage.eINSTANCE.getAbstractBranchTransition();
 	}
 
 	/**
@@ -44,6 +45,17 @@ public class ResourceDemandingBehaviour5CreateCommand extends
 			container = ((View) container).getElement();
 		}
 		return container;
+	}
+
+	/**
+	 * @generated
+	 */
+	public boolean canExecute() {
+		AbstractBranchTransition container = (AbstractBranchTransition) getElementToEdit();
+		if (container.getBranchBehaviour_BranchTransition() != null) {
+			return false;
+		}
+		return true;
 	}
 
 }

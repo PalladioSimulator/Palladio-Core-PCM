@@ -31,7 +31,7 @@ public class VariableUsage2CreateCommand extends CreateElementCommand {
 	 * @generated
 	 */
 	protected EClass getEClassToEdit() {
-		return SeffPackage.eINSTANCE.getSetVariableAction();
+		return SeffPackage.eINSTANCE.getExternalCallAction();
 	}
 
 	/**
@@ -44,17 +44,6 @@ public class VariableUsage2CreateCommand extends CreateElementCommand {
 			container = ((View) container).getElement();
 		}
 		return container;
-	}
-
-	/**
-	 * @generated
-	 */
-	public boolean canExecute() {
-		SetVariableAction container = (SetVariableAction) getElementToEdit();
-		if (container.getVariableUsage_SetVariableAction() != null) {
-			return false;
-		}
-		return true;
 	}
 
 }

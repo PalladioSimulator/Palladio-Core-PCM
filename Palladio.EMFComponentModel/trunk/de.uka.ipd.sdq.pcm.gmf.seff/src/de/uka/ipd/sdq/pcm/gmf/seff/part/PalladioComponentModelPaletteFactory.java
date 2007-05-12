@@ -205,14 +205,15 @@ public class PalladioComponentModelPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createSetVariableAction8CreationTool() {
-		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
+		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(2);
+		types.add(PalladioComponentModelElementTypes.SetVariableAction_3024);
 		types.add(PalladioComponentModelElementTypes.SetVariableAction_2008);
 		NodeToolEntry entry = new NodeToolEntry(
 				Messages.SetVariableAction8CreationTool_title,
 				Messages.SetVariableAction8CreationTool_desc, types);
 		entry
 				.setSmallIcon(PalladioComponentModelElementTypes
-						.getImageDescriptor(PalladioComponentModelElementTypes.SetVariableAction_2008));
+						.getImageDescriptor(PalladioComponentModelElementTypes.SetVariableAction_3024));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
@@ -255,14 +256,15 @@ public class PalladioComponentModelPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createForkAction11CreationTool() {
-		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
+		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(2);
+		types.add(PalladioComponentModelElementTypes.ForkAction_3023);
 		types.add(PalladioComponentModelElementTypes.ForkAction_2011);
 		NodeToolEntry entry = new NodeToolEntry(
 				Messages.ForkAction11CreationTool_title,
 				Messages.ForkAction11CreationTool_desc, types);
 		entry
 				.setSmallIcon(PalladioComponentModelElementTypes
-						.getImageDescriptor(PalladioComponentModelElementTypes.ForkAction_2011));
+						.getImageDescriptor(PalladioComponentModelElementTypes.ForkAction_3023));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
@@ -305,8 +307,9 @@ public class PalladioComponentModelPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createVariableUsage3CreationTool() {
-		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(2);
+		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(3);
 		types.add(PalladioComponentModelElementTypes.VariableUsage_3001);
+		types.add(PalladioComponentModelElementTypes.VariableUsage_3022);
 		types.add(PalladioComponentModelElementTypes.VariableUsage_3015);
 		NodeToolEntry entry = new NodeToolEntry(
 				Messages.VariableUsage3CreationTool_title,
@@ -322,11 +325,13 @@ public class PalladioComponentModelPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createVariableCharacterisation4CreationTool() {
-		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(2);
+		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(3);
 		types
 				.add(PalladioComponentModelElementTypes.VariableCharacterisation_3002);
 		types
 				.add(PalladioComponentModelElementTypes.VariableCharacterisation_3016);
+		types
+				.add(PalladioComponentModelElementTypes.VariableCharacterisation_3025);
 		NodeToolEntry entry = new NodeToolEntry(
 				Messages.VariableCharacterisation4CreationTool_title,
 				Messages.VariableCharacterisation4CreationTool_desc, types);
@@ -347,11 +352,11 @@ public class PalladioComponentModelPaletteFactory {
 		types
 				.add(PalladioComponentModelElementTypes.ResourceDemandingBehaviour_3011);
 		types
-				.add(PalladioComponentModelElementTypes.ResourceDemandingBehaviour_3018);
+				.add(PalladioComponentModelElementTypes.ResourceDemandingBehaviour_3021);
 		types
 				.add(PalladioComponentModelElementTypes.ResourceDemandingBehaviour_3014);
 		types
-				.add(PalladioComponentModelElementTypes.ResourceDemandingBehaviour_3021);
+				.add(PalladioComponentModelElementTypes.ResourceDemandingBehaviour_3018);
 		NodeToolEntry entry = new NodeToolEntry(
 				Messages.ResourceDemandingBehaviour1CreationTool_title,
 				Messages.ResourceDemandingBehaviour1CreationTool_desc, types);

@@ -25,7 +25,7 @@ public class ForkActionForkedBehavioursEditPart extends
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 7019;
+	public static final int VISUAL_ID = 7024;
 
 	/**
 	 * @generated

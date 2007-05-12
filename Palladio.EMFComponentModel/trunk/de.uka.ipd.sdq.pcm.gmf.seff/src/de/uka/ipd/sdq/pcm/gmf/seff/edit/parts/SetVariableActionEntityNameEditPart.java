@@ -62,7 +62,7 @@ public class SetVariableActionEntityNameEditPart extends CompartmentEditPart
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 5023;
+	public static final int VISUAL_ID = 5027;
 
 	/**
 	 * @generated
@@ -316,7 +316,7 @@ public class SetVariableActionEntityNameEditPart extends CompartmentEditPart
 
 				public Object getAdapter(Class adapter) {
 					if (IElementType.class.equals(adapter)) {
-						return PalladioComponentModelElementTypes.SetVariableAction_2008;
+						return PalladioComponentModelElementTypes.SetVariableAction_3024;
 					}
 					return super.getAdapter(adapter);
 				}

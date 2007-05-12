@@ -5,6 +5,7 @@ package de.uka.ipd.sdq.pcm.gmf.seff.edit.policies;
 
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CanonicalEditPolicy;
 import org.eclipse.gmf.runtime.notation.View;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviour3EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviour5EditPart;
 
 import de.uka.ipd.sdq.pcm.gmf.seff.part.PalladioComponentModelVisualIDRegistry;
@@ -37,7 +38,7 @@ public class ForkActionForkedBehavioursCanonicalEditPolicy extends
 			nextValue = (EObject) values.next();
 			nodeVID = PalladioComponentModelVisualIDRegistry.getNodeVisualID(
 					viewObject, nextValue);
-			if (ResourceDemandingBehaviour5EditPart.VISUAL_ID == nodeVID) {
+			if (ResourceDemandingBehaviour3EditPart.VISUAL_ID == nodeVID) {
 				result.add(nextValue);
 			}
 		}
@@ -55,7 +56,7 @@ public class ForkActionForkedBehavioursCanonicalEditPolicy extends
 		}
 		int nodeVID = PalladioComponentModelVisualIDRegistry.getVisualID(view);
 		switch (nodeVID) {
-		case ResourceDemandingBehaviour5EditPart.VISUAL_ID:
+		case ResourceDemandingBehaviour3EditPart.VISUAL_ID:
 			return true;
 		}
 		return false;

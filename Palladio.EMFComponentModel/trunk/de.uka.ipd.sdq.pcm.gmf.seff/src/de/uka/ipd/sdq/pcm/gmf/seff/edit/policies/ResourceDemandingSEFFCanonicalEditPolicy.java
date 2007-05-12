@@ -16,6 +16,7 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.CollectionIteratorAction2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.CollectionIteratorActionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ExternalCallAction2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ExternalCallActionEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ForkAction2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ForkActionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.GuardedBranchTransitionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.InternalAction2EditPart;
@@ -32,14 +33,17 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviour4EditPar
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviour5EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviourEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingSEFFEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.SetVariableAction2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.SetVariableActionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.StartAction2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.StartActionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.StopAction2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.StopActionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableCharacterisation2EditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableCharacterisation3EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableCharacterisationEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableUsage2EditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableUsage3EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableUsageEditPart;
 
 import de.uka.ipd.sdq.pcm.gmf.seff.part.PalladioComponentModelVisualIDRegistry;
@@ -132,7 +136,7 @@ public class ResourceDemandingSEFFCanonicalEditPolicy extends
 				result.add(nextValue);
 				break;
 			}
-			case SetVariableActionEditPart.VISUAL_ID: {
+			case SetVariableAction2EditPart.VISUAL_ID: {
 				result.add(nextValue);
 				break;
 			}
@@ -144,7 +148,7 @@ public class ResourceDemandingSEFFCanonicalEditPolicy extends
 				result.add(nextValue);
 				break;
 			}
-			case ForkActionEditPart.VISUAL_ID: {
+			case ForkAction2EditPart.VISUAL_ID: {
 				result.add(nextValue);
 				break;
 			}
@@ -171,10 +175,10 @@ public class ResourceDemandingSEFFCanonicalEditPolicy extends
 		case BranchAction2EditPart.VISUAL_ID:
 		case InternalAction2EditPart.VISUAL_ID:
 		case CollectionIteratorAction2EditPart.VISUAL_ID:
-		case SetVariableActionEditPart.VISUAL_ID:
+		case SetVariableAction2EditPart.VISUAL_ID:
 		case AquireAction2EditPart.VISUAL_ID:
 		case ReleaseAction2EditPart.VISUAL_ID:
-		case ForkActionEditPart.VISUAL_ID:
+		case ForkAction2EditPart.VISUAL_ID:
 			return true;
 		}
 		return false;
@@ -303,12 +307,14 @@ public class ResourceDemandingSEFFCanonicalEditPolicy extends
 		case BranchAction2EditPart.VISUAL_ID:
 		case InternalAction2EditPart.VISUAL_ID:
 		case CollectionIteratorAction2EditPart.VISUAL_ID:
-		case SetVariableActionEditPart.VISUAL_ID:
+		case SetVariableAction2EditPart.VISUAL_ID:
 		case AquireAction2EditPart.VISUAL_ID:
 		case ReleaseAction2EditPart.VISUAL_ID:
-		case ForkActionEditPart.VISUAL_ID:
+		case ForkAction2EditPart.VISUAL_ID:
 		case VariableUsageEditPart.VISUAL_ID:
 		case VariableCharacterisationEditPart.VISUAL_ID:
+		case VariableUsage2EditPart.VISUAL_ID:
+		case VariableCharacterisation2EditPart.VISUAL_ID:
 		case ResourceDemandingBehaviourEditPart.VISUAL_ID:
 		case StartAction2EditPart.VISUAL_ID:
 		case StopAction2EditPart.VISUAL_ID:
@@ -321,12 +327,14 @@ public class ResourceDemandingSEFFCanonicalEditPolicy extends
 		case ExternalCallAction2EditPart.VISUAL_ID:
 		case AquireActionEditPart.VISUAL_ID:
 		case ReleaseActionEditPart.VISUAL_ID:
-		case GuardedBranchTransitionEditPart.VISUAL_ID:
+		case ForkActionEditPart.VISUAL_ID:
 		case ResourceDemandingBehaviour3EditPart.VISUAL_ID:
 		case CollectionIteratorActionEditPart.VISUAL_ID:
 		case ResourceDemandingBehaviour4EditPart.VISUAL_ID:
-		case VariableUsage2EditPart.VISUAL_ID:
-		case VariableCharacterisation2EditPart.VISUAL_ID:
+		case SetVariableActionEditPart.VISUAL_ID:
+		case VariableUsage3EditPart.VISUAL_ID:
+		case VariableCharacterisation3EditPart.VISUAL_ID:
+		case GuardedBranchTransitionEditPart.VISUAL_ID:
 		case ResourceDemandingBehaviour5EditPart.VISUAL_ID:
 		case ResourceDemandingSEFFEditPart.VISUAL_ID: {
 			myEObject2ViewMap.put(modelElement, view);
