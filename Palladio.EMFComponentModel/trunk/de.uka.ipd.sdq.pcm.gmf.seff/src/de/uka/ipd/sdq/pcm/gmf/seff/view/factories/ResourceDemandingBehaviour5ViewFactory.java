@@ -3,9 +3,8 @@
  */
 package de.uka.ipd.sdq.pcm.gmf.seff.view.factories;
 
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ForkActionEditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ForkActionEntityNameEditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ForkActionForkedBehavioursEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviour5EditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviourBehaviourCompartmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingSEFFEditPart;
 
 import de.uka.ipd.sdq.pcm.gmf.seff.part.PalladioComponentModelVisualIDRegistry;
@@ -28,7 +27,8 @@ import org.eclipse.gmf.runtime.notation.View;
 /**
  * @generated
  */
-public class ForkActionViewFactory extends AbstractShapeViewFactory {
+public class ResourceDemandingBehaviour5ViewFactory extends
+		AbstractShapeViewFactory {
 
 	/**
 	 * @generated 
@@ -50,7 +50,7 @@ public class ForkActionViewFactory extends AbstractShapeViewFactory {
 			boolean persisted) {
 		if (semanticHint == null) {
 			semanticHint = PalladioComponentModelVisualIDRegistry
-					.getType(ForkActionEditPart.VISUAL_ID);
+					.getType(ResourceDemandingBehaviour5EditPart.VISUAL_ID);
 			view.setType(semanticHint);
 		}
 		super.decorateView(containerView, view, semanticAdapter, semanticHint,
@@ -65,18 +65,13 @@ public class ForkActionViewFactory extends AbstractShapeViewFactory {
 					"modelID", ResourceDemandingSEFFEditPart.MODEL_ID); //$NON-NLS-1$
 			view.getEAnnotations().add(shortcutAnnotation);
 		}
-		getViewService().createNode(
-				semanticAdapter,
-				view,
-				PalladioComponentModelVisualIDRegistry
-						.getType(ForkActionEntityNameEditPart.VISUAL_ID),
-				ViewUtil.APPEND, true, getPreferencesHint());
-		getViewService().createNode(
-				semanticAdapter,
-				view,
-				PalladioComponentModelVisualIDRegistry
-						.getType(ForkActionForkedBehavioursEditPart.VISUAL_ID),
-				ViewUtil.APPEND, true, getPreferencesHint());
+		getViewService()
+				.createNode(
+						semanticAdapter,
+						view,
+						PalladioComponentModelVisualIDRegistry
+								.getType(ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID),
+						ViewUtil.APPEND, true, getPreferencesHint());
 	}
 
 }

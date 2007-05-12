@@ -255,10 +255,15 @@ public class PalladioComponentModelPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createForkAction11CreationTool() {
-		ToolEntry entry = new ToolEntry(
+		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
+		types.add(PalladioComponentModelElementTypes.ForkAction_2011);
+		NodeToolEntry entry = new NodeToolEntry(
 				Messages.ForkAction11CreationTool_title,
-				Messages.ForkAction11CreationTool_desc, null, null) {
-		};
+				Messages.ForkAction11CreationTool_desc, types);
+		entry
+				.setSmallIcon(PalladioComponentModelElementTypes
+						.getImageDescriptor(PalladioComponentModelElementTypes.ForkAction_2011));
+		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
 
@@ -336,7 +341,7 @@ public class PalladioComponentModelPaletteFactory {
 	 * @generated
 	 */
 	private ToolEntry createResourceDemandingBehaviour1CreationTool() {
-		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(4);
+		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(5);
 		types
 				.add(PalladioComponentModelElementTypes.ResourceDemandingBehaviour_3003);
 		types
@@ -345,6 +350,8 @@ public class PalladioComponentModelPaletteFactory {
 				.add(PalladioComponentModelElementTypes.ResourceDemandingBehaviour_3018);
 		types
 				.add(PalladioComponentModelElementTypes.ResourceDemandingBehaviour_3014);
+		types
+				.add(PalladioComponentModelElementTypes.ResourceDemandingBehaviour_3021);
 		NodeToolEntry entry = new NodeToolEntry(
 				Messages.ResourceDemandingBehaviour1CreationTool_title,
 				Messages.ResourceDemandingBehaviour1CreationTool_desc, types);

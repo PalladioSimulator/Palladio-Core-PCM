@@ -33,6 +33,7 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ExternalCallActionVariableUsage2Ed
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ExternalCallActionVariableUsageEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ForkActionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ForkActionEntityNameEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ForkActionForkedBehavioursEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.GuardedBranchTransitionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.GuardedBranchTransitionIdEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.InternalAction2EditPart;
@@ -57,6 +58,8 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ReleaseActionEntityNameEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviour2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviour3EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviour4EditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviour5EditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviourBehaviourCompartmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviourBranchCompartment2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviourBranchCompartmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviourEditPart;
@@ -105,6 +108,7 @@ import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.ExternalCallActionVariableUsag
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.ExternalCallActionVariableUsageViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.ExternalCallActionViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.ForkActionEntityNameViewFactory;
+import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.ForkActionForkedBehavioursViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.ForkActionViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.GuardedBranchTransitionIdViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.GuardedBranchTransitionViewFactory;
@@ -130,6 +134,8 @@ import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.ReleaseActionViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.ResourceDemandingBehaviour2ViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.ResourceDemandingBehaviour3ViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.ResourceDemandingBehaviour4ViewFactory;
+import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.ResourceDemandingBehaviour5ViewFactory;
+import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.ResourceDemandingBehaviourBehaviourCompartmentViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.ResourceDemandingBehaviourBranchCompartment2ViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.ResourceDemandingBehaviourBranchCompartmentViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.seff.view.factories.ResourceDemandingBehaviourLoopCompartment2ViewFactory;
@@ -300,6 +306,8 @@ public class PalladioComponentModelViewProvider extends AbstractViewProvider {
 			return VariableUsageReferenceLabel2ViewFactory.class;
 		case VariableCharacterisation2EditPart.VISUAL_ID:
 			return VariableCharacterisation2ViewFactory.class;
+		case ResourceDemandingBehaviour5EditPart.VISUAL_ID:
+			return ResourceDemandingBehaviour5ViewFactory.class;
 		case ExternalCallActionVariableUsageEditPart.VISUAL_ID:
 			return ExternalCallActionVariableUsageViewFactory.class;
 		case VariableUsageVariableCharacterisationEditPart.VISUAL_ID:
@@ -326,6 +334,10 @@ public class PalladioComponentModelViewProvider extends AbstractViewProvider {
 			return SetVariableActionVariableSetterViewFactory.class;
 		case VariableUsageVariableCharacterisation2EditPart.VISUAL_ID:
 			return VariableUsageVariableCharacterisation2ViewFactory.class;
+		case ForkActionForkedBehavioursEditPart.VISUAL_ID:
+			return ForkActionForkedBehavioursViewFactory.class;
+		case ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID:
+			return ResourceDemandingBehaviourBehaviourCompartmentViewFactory.class;
 		}
 		return null;
 	}

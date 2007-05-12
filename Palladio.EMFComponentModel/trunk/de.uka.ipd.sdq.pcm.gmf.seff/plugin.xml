@@ -605,6 +605,16 @@ Copyright 2006 SDQ Research Group, University of Karlsruhe (TH)
       </metamodel>
       <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0">
          <specializationType
+               id="de.uka.ipd.sdq.pcm.gmf.seff.ResourceDemandingBehaviour_3021"
+               name="%metatype.name.ResourceDemandingBehaviour_3021"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               edithelperadvice="de.uka.ipd.sdq.pcm.gmf.seff.edit.helpers.ResourceDemandingBehaviour4EditHelperAdvice">
+            <specializes id="de.uka.ipd.sdq.pcm.gmf.seff.ResourceDemandingBehaviour_3003"/>
+            <param name="semanticHint" value="3021"/>
+         </specializationType>
+      </metamodel>
+      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0">
+         <specializationType
                id="de.uka.ipd.sdq.pcm.gmf.seff.AbstractActionSuccessor_AbstractAction_4001"
                name="%metatype.name.AbstractActionSuccessor_AbstractAction_4001"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
@@ -657,6 +667,7 @@ Copyright 2006 SDQ Research Group, University of Karlsruhe (TH)
          <elementType ref="de.uka.ipd.sdq.pcm.gmf.seff.ResourceDemandingBehaviour_3014"/>
          <elementType ref="de.uka.ipd.sdq.pcm.gmf.seff.VariableUsage_3015"/>
          <elementType ref="de.uka.ipd.sdq.pcm.gmf.seff.VariableCharacterisation_3016"/>
+         <elementType ref="de.uka.ipd.sdq.pcm.gmf.seff.ResourceDemandingBehaviour_3021"/>
          <elementType ref="de.uka.ipd.sdq.pcm.gmf.seff.AbstractActionSuccessor_AbstractAction_4001"/>
          <advice ref="org.eclipse.gmf.runtime.diagram.core.advice.notationDepdendents"/>
       </binding>

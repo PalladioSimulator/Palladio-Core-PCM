@@ -3,9 +3,7 @@
  */
 package de.uka.ipd.sdq.pcm.gmf.seff.edit.parts;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.gef.EditPolicy;
-import org.eclipse.gmf.runtime.diagram.ui.editparts.ListCompartmentEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeCompartmentEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CreationEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.DragDropEditPolicy;
@@ -14,25 +12,25 @@ import org.eclipse.gmf.runtime.diagram.ui.editpolicies.ResizableCompartmentEditP
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.notation.View;
 
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.SetVariableActionVariableSetterCanonicalEditPolicy;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.SetVariableActionVariableSetterItemSemanticEditPolicy;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.ForkActionForkedBehavioursCanonicalEditPolicy;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.ForkActionForkedBehavioursItemSemanticEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.seff.part.Messages;
 
 /**
  * @generated
  */
-public class SetVariableActionVariableSetterEditPart extends
+public class ForkActionForkedBehavioursEditPart extends
 		ShapeCompartmentEditPart {
 
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 7016;
+	public static final int VISUAL_ID = 7019;
 
 	/**
 	 * @generated
 	 */
-	public SetVariableActionVariableSetterEditPart(View view) {
+	public ForkActionForkedBehavioursEditPart(View view) {
 		super(view);
 	}
 
@@ -40,7 +38,7 @@ public class SetVariableActionVariableSetterEditPart extends
 	 * @generated
 	 */
 	public String getCompartmentName() {
-		return Messages.SetVariableActionVariableSetterEditPart_title;
+		return Messages.ForkActionForkedBehavioursEditPart_title;
 	}
 
 	/**
@@ -51,13 +49,13 @@ public class SetVariableActionVariableSetterEditPart extends
 		installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE,
 				new ResizableCompartmentEditPolicy());
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
-				new SetVariableActionVariableSetterItemSemanticEditPolicy());
+				new ForkActionForkedBehavioursItemSemanticEditPolicy());
 		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
 				new CreationEditPolicy());
 		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE,
 				new DragDropEditPolicy());
 		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE,
-				new SetVariableActionVariableSetterCanonicalEditPolicy());
+				new ForkActionForkedBehavioursCanonicalEditPolicy());
 	}
 
 	/**

@@ -38,6 +38,7 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ExternalCallActionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ExternalCallActionVariableUsage2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ExternalCallActionVariableUsageEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ForkActionEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ForkActionForkedBehavioursEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.GuardedBranchTransitionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.InternalAction2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.InternalActionEditPart;
@@ -52,6 +53,8 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ReleaseActionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviour2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviour3EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviour4EditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviour5EditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviourBehaviourCompartmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviourBranchCompartment2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviourBranchCompartmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviourEditPart;
@@ -783,8 +786,15 @@ public class PalladioComponentModelNavigatorContentProvider implements
 			PalladioComponentModelNavigatorGroup incominglinks = new PalladioComponentModelNavigatorGroup(
 					Messages.NavigatorGroupName_ForkAction_2011_incominglinks,
 					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection connectedViews = getIncomingLinksByType(Collections
+			Collection connectedViews = getChildrenByType(Collections
 					.singleton(view),
+					ForkActionForkedBehavioursEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour5EditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getIncomingLinksByType(
+					Collections.singleton(view),
 					AbstractActionSuccessor_AbstractActionEditPart.VISUAL_ID);
 			incominglinks.addChildren(createNavigatorItems(connectedViews,
 					incominglinks, true));
@@ -5063,6 +5073,3284 @@ public class PalladioComponentModelNavigatorContentProvider implements
 					VariableUsageVariableCharacterisation2EditPart.VISUAL_ID);
 			connectedViews = getChildrenByType(connectedViews,
 					VariableCharacterisation2EditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			return result.toArray();
+		}
+
+		case ResourceDemandingBehaviour5EditPart.VISUAL_ID: {
+			Collection result = new ArrayList();
+			Collection connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					StartAction2EditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					LoopAction2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourLoopCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					StartAction2EditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					LoopAction2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourLoopCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionBranchTransitionCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ProbabilisticBranchTransitionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourBranchCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					StartAction2EditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					LoopAction2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourLoopCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionBranchTransitionCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					GuardedBranchTransitionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour3EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourBranchCompartment2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					StartAction2EditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					LoopAction2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourLoopCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					CollectionIteratorActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour4EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourLoopCompartment2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					StartAction2EditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					LoopAction2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourLoopCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					CollectionIteratorActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour4EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourLoopCompartment2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionBranchTransitionCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ProbabilisticBranchTransitionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourBranchCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					StartAction2EditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					LoopAction2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourLoopCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					CollectionIteratorActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour4EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourLoopCompartment2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionBranchTransitionCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					GuardedBranchTransitionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour3EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourBranchCompartment2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					StartAction2EditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionBranchTransitionCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ProbabilisticBranchTransitionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourBranchCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					StartAction2EditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionBranchTransitionCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ProbabilisticBranchTransitionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourBranchCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					LoopAction2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourLoopCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					StartAction2EditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionBranchTransitionCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ProbabilisticBranchTransitionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourBranchCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					LoopAction2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourLoopCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					CollectionIteratorActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour4EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourLoopCompartment2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					StartAction2EditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionBranchTransitionCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					GuardedBranchTransitionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour3EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourBranchCompartment2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					StartAction2EditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionBranchTransitionCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					GuardedBranchTransitionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour3EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourBranchCompartment2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					LoopAction2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourLoopCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					StartAction2EditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionBranchTransitionCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					GuardedBranchTransitionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour3EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourBranchCompartment2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					LoopAction2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourLoopCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					CollectionIteratorActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour4EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourLoopCompartment2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					StartAction2EditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					CollectionIteratorActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour4EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourLoopCompartment2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					StartAction2EditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					CollectionIteratorActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour4EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourLoopCompartment2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					LoopAction2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourLoopCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					StartAction2EditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					CollectionIteratorActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour4EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourLoopCompartment2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					LoopAction2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourLoopCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionBranchTransitionCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ProbabilisticBranchTransitionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourBranchCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					StartAction2EditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					CollectionIteratorActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour4EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourLoopCompartment2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					LoopAction2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourLoopCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionBranchTransitionCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					GuardedBranchTransitionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour3EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourBranchCompartment2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					StartAction2EditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					CollectionIteratorActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour4EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourLoopCompartment2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionBranchTransitionCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ProbabilisticBranchTransitionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourBranchCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					StartAction2EditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					CollectionIteratorActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour4EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourLoopCompartment2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionBranchTransitionCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ProbabilisticBranchTransitionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourBranchCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					LoopAction2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourLoopCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					StartAction2EditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					CollectionIteratorActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour4EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourLoopCompartment2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionBranchTransitionCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					GuardedBranchTransitionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour3EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourBranchCompartment2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					StartAction2EditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					CollectionIteratorActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour4EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourLoopCompartment2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionBranchTransitionCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					GuardedBranchTransitionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour3EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourBranchCompartment2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					LoopAction2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourLoopCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					StartAction2EditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					StopAction2EditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					LoopAction2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourLoopCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					StopAction2EditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					LoopAction2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourLoopCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionBranchTransitionCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ProbabilisticBranchTransitionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourBranchCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					StopAction2EditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					LoopAction2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourLoopCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionBranchTransitionCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					GuardedBranchTransitionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour3EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourBranchCompartment2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					StopAction2EditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					LoopAction2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourLoopCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					CollectionIteratorActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour4EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourLoopCompartment2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					StopAction2EditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					LoopAction2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourLoopCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					CollectionIteratorActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour4EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourLoopCompartment2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionBranchTransitionCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ProbabilisticBranchTransitionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourBranchCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					StopAction2EditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					LoopAction2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourLoopCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					CollectionIteratorActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour4EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourLoopCompartment2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionBranchTransitionCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					GuardedBranchTransitionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour3EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourBranchCompartment2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					StopAction2EditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionBranchTransitionCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ProbabilisticBranchTransitionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourBranchCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					StopAction2EditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionBranchTransitionCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ProbabilisticBranchTransitionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourBranchCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					LoopAction2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourLoopCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					StopAction2EditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionBranchTransitionCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ProbabilisticBranchTransitionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourBranchCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					LoopAction2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourLoopCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					CollectionIteratorActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour4EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourLoopCompartment2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					StopAction2EditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionBranchTransitionCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					GuardedBranchTransitionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour3EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourBranchCompartment2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					StopAction2EditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionBranchTransitionCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					GuardedBranchTransitionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour3EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourBranchCompartment2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					LoopAction2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourLoopCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					StopAction2EditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionBranchTransitionCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					GuardedBranchTransitionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour3EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourBranchCompartment2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					LoopAction2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourLoopCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					CollectionIteratorActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour4EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourLoopCompartment2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					StopAction2EditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					CollectionIteratorActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour4EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourLoopCompartment2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					StopAction2EditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					CollectionIteratorActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour4EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourLoopCompartment2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					LoopAction2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourLoopCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					StopAction2EditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					CollectionIteratorActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour4EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourLoopCompartment2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					LoopAction2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourLoopCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionBranchTransitionCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ProbabilisticBranchTransitionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourBranchCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					StopAction2EditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					CollectionIteratorActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour4EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourLoopCompartment2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					LoopAction2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourLoopCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionBranchTransitionCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					GuardedBranchTransitionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour3EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourBranchCompartment2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					StopAction2EditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					CollectionIteratorActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour4EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourLoopCompartment2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionBranchTransitionCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ProbabilisticBranchTransitionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourBranchCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					StopAction2EditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					CollectionIteratorActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour4EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourLoopCompartment2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionBranchTransitionCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ProbabilisticBranchTransitionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourBranchCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					LoopAction2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourLoopCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					StopAction2EditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					CollectionIteratorActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour4EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourLoopCompartment2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionBranchTransitionCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					GuardedBranchTransitionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour3EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourBranchCompartment2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					StopAction2EditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					CollectionIteratorActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour4EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourLoopCompartment2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionBranchTransitionCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					GuardedBranchTransitionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour3EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourBranchCompartment2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					LoopAction2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourLoopCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					StopAction2EditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					LoopAction2EditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionBranchTransitionCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ProbabilisticBranchTransitionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourBranchCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					LoopAction2EditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionBranchTransitionCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					GuardedBranchTransitionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour3EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourBranchCompartment2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					LoopAction2EditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					CollectionIteratorActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour4EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourLoopCompartment2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					LoopAction2EditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					CollectionIteratorActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour4EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourLoopCompartment2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionBranchTransitionCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ProbabilisticBranchTransitionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourBranchCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					LoopAction2EditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					CollectionIteratorActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour4EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourLoopCompartment2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionBranchTransitionCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					GuardedBranchTransitionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour3EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourBranchCompartment2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					LoopAction2EditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					LoopAction2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourLoopCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					InternalActionEditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					LoopAction2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourLoopCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionBranchTransitionCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ProbabilisticBranchTransitionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourBranchCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					InternalActionEditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					LoopAction2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourLoopCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionBranchTransitionCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					GuardedBranchTransitionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour3EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourBranchCompartment2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					InternalActionEditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					LoopAction2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourLoopCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					CollectionIteratorActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour4EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourLoopCompartment2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					InternalActionEditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					LoopAction2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourLoopCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					CollectionIteratorActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour4EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourLoopCompartment2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionBranchTransitionCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ProbabilisticBranchTransitionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourBranchCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					InternalActionEditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					LoopAction2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourLoopCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					CollectionIteratorActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour4EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourLoopCompartment2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionBranchTransitionCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					GuardedBranchTransitionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour3EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourBranchCompartment2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					InternalActionEditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					InternalActionEditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionBranchTransitionCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ProbabilisticBranchTransitionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourBranchCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					LoopAction2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourLoopCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					InternalActionEditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionBranchTransitionCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ProbabilisticBranchTransitionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourBranchCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					LoopAction2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourLoopCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					CollectionIteratorActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour4EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourLoopCompartment2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					InternalActionEditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionBranchTransitionCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ProbabilisticBranchTransitionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourBranchCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					InternalActionEditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionBranchTransitionCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					GuardedBranchTransitionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour3EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourBranchCompartment2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					LoopAction2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourLoopCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					InternalActionEditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionBranchTransitionCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					GuardedBranchTransitionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour3EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourBranchCompartment2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					LoopAction2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourLoopCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					CollectionIteratorActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour4EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourLoopCompartment2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					InternalActionEditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionBranchTransitionCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					GuardedBranchTransitionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour3EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourBranchCompartment2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					InternalActionEditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					CollectionIteratorActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour4EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourLoopCompartment2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					LoopAction2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourLoopCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					InternalActionEditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					CollectionIteratorActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour4EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourLoopCompartment2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					LoopAction2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourLoopCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionBranchTransitionCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ProbabilisticBranchTransitionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourBranchCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					InternalActionEditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					CollectionIteratorActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour4EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourLoopCompartment2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					LoopAction2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourLoopCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionBranchTransitionCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					GuardedBranchTransitionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour3EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourBranchCompartment2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					InternalActionEditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					CollectionIteratorActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour4EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourLoopCompartment2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					InternalActionEditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					CollectionIteratorActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour4EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourLoopCompartment2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionBranchTransitionCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ProbabilisticBranchTransitionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourBranchCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					LoopAction2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourLoopCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					InternalActionEditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					CollectionIteratorActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour4EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourLoopCompartment2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionBranchTransitionCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ProbabilisticBranchTransitionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourBranchCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					InternalActionEditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					CollectionIteratorActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour4EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourLoopCompartment2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionBranchTransitionCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					GuardedBranchTransitionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour3EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourBranchCompartment2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					LoopAction2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourLoopCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					InternalActionEditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					CollectionIteratorActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour4EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourLoopCompartment2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionBranchTransitionCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					GuardedBranchTransitionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour3EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourBranchCompartment2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					InternalActionEditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					LoopAction2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourLoopCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionEditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					LoopAction2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourLoopCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					CollectionIteratorActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour4EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourLoopCompartment2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionEditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionEditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					CollectionIteratorActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour4EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourLoopCompartment2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					LoopAction2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourLoopCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionEditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					CollectionIteratorActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour4EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourLoopCompartment2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionEditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					LoopAction2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourLoopCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionBranchTransitionCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ProbabilisticBranchTransitionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourBranchCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ExternalCallAction2EditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					LoopAction2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourLoopCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionBranchTransitionCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					GuardedBranchTransitionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour3EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourBranchCompartment2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ExternalCallAction2EditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					LoopAction2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourLoopCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ExternalCallAction2EditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					LoopAction2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourLoopCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					CollectionIteratorActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour4EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourLoopCompartment2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionBranchTransitionCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ProbabilisticBranchTransitionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourBranchCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ExternalCallAction2EditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					LoopAction2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourLoopCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					CollectionIteratorActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour4EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourLoopCompartment2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionBranchTransitionCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					GuardedBranchTransitionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour3EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourBranchCompartment2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ExternalCallAction2EditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					LoopAction2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourLoopCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					CollectionIteratorActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour4EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourLoopCompartment2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ExternalCallAction2EditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionBranchTransitionCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ProbabilisticBranchTransitionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourBranchCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					LoopAction2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourLoopCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ExternalCallAction2EditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionBranchTransitionCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ProbabilisticBranchTransitionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourBranchCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					LoopAction2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourLoopCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					CollectionIteratorActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour4EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourLoopCompartment2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ExternalCallAction2EditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionBranchTransitionCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ProbabilisticBranchTransitionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourBranchCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ExternalCallAction2EditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionBranchTransitionCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					GuardedBranchTransitionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour3EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourBranchCompartment2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					LoopAction2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourLoopCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ExternalCallAction2EditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionBranchTransitionCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					GuardedBranchTransitionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour3EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourBranchCompartment2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					LoopAction2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourLoopCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					CollectionIteratorActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour4EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourLoopCompartment2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ExternalCallAction2EditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionBranchTransitionCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					GuardedBranchTransitionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour3EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourBranchCompartment2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ExternalCallAction2EditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ExternalCallAction2EditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					CollectionIteratorActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour4EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourLoopCompartment2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					LoopAction2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourLoopCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionBranchTransitionCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ProbabilisticBranchTransitionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourBranchCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ExternalCallAction2EditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					CollectionIteratorActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour4EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourLoopCompartment2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					LoopAction2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourLoopCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionBranchTransitionCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					GuardedBranchTransitionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour3EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourBranchCompartment2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ExternalCallAction2EditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					CollectionIteratorActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour4EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourLoopCompartment2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					LoopAction2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourLoopCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ExternalCallAction2EditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					CollectionIteratorActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour4EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourLoopCompartment2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionBranchTransitionCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ProbabilisticBranchTransitionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourBranchCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					LoopAction2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourLoopCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ExternalCallAction2EditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					CollectionIteratorActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour4EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourLoopCompartment2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionBranchTransitionCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ProbabilisticBranchTransitionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourBranchCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ExternalCallAction2EditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					CollectionIteratorActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour4EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourLoopCompartment2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionBranchTransitionCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					GuardedBranchTransitionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour3EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourBranchCompartment2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					LoopAction2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourLoopCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ExternalCallAction2EditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					CollectionIteratorActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour4EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourLoopCompartment2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionBranchTransitionCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					GuardedBranchTransitionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour3EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourBranchCompartment2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ExternalCallAction2EditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					CollectionIteratorActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour4EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourLoopCompartment2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ExternalCallAction2EditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					LoopAction2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourLoopCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					CollectionIteratorActionEditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionBranchTransitionCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ProbabilisticBranchTransitionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourBranchCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					LoopAction2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourLoopCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					CollectionIteratorActionEditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionBranchTransitionCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					GuardedBranchTransitionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour3EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourBranchCompartment2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					LoopAction2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourLoopCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					CollectionIteratorActionEditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					CollectionIteratorActionEditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					LoopAction2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourLoopCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionBranchTransitionCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ProbabilisticBranchTransitionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourBranchCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					AquireActionEditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					LoopAction2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourLoopCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionBranchTransitionCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					GuardedBranchTransitionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour3EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourBranchCompartment2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					AquireActionEditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					LoopAction2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourLoopCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					CollectionIteratorActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour4EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourLoopCompartment2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionBranchTransitionCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ProbabilisticBranchTransitionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourBranchCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					AquireActionEditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					LoopAction2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourLoopCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					CollectionIteratorActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour4EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourLoopCompartment2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionBranchTransitionCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					GuardedBranchTransitionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour3EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourBranchCompartment2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					AquireActionEditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					LoopAction2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourLoopCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					CollectionIteratorActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour4EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourLoopCompartment2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					AquireActionEditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					LoopAction2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourLoopCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					AquireActionEditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionBranchTransitionCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ProbabilisticBranchTransitionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourBranchCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					LoopAction2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourLoopCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					CollectionIteratorActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour4EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourLoopCompartment2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					AquireActionEditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionBranchTransitionCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ProbabilisticBranchTransitionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourBranchCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					LoopAction2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourLoopCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					AquireActionEditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionBranchTransitionCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ProbabilisticBranchTransitionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourBranchCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					AquireActionEditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionBranchTransitionCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					GuardedBranchTransitionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour3EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourBranchCompartment2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					LoopAction2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourLoopCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					CollectionIteratorActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour4EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourLoopCompartment2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					AquireActionEditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionBranchTransitionCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					GuardedBranchTransitionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour3EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourBranchCompartment2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					LoopAction2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourLoopCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					AquireActionEditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionBranchTransitionCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					GuardedBranchTransitionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour3EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourBranchCompartment2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					AquireActionEditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					CollectionIteratorActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour4EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourLoopCompartment2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					LoopAction2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourLoopCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionBranchTransitionCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ProbabilisticBranchTransitionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourBranchCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					AquireActionEditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					CollectionIteratorActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour4EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourLoopCompartment2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					LoopAction2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourLoopCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionBranchTransitionCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					GuardedBranchTransitionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour3EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourBranchCompartment2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					AquireActionEditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					CollectionIteratorActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour4EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourLoopCompartment2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					LoopAction2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourLoopCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					AquireActionEditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					CollectionIteratorActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour4EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourLoopCompartment2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionBranchTransitionCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ProbabilisticBranchTransitionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourBranchCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					LoopAction2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourLoopCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					AquireActionEditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					CollectionIteratorActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour4EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourLoopCompartment2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionBranchTransitionCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ProbabilisticBranchTransitionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourBranchCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					AquireActionEditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					CollectionIteratorActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour4EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourLoopCompartment2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionBranchTransitionCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					GuardedBranchTransitionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour3EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourBranchCompartment2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					LoopAction2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourLoopCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					AquireActionEditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					CollectionIteratorActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour4EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourLoopCompartment2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionBranchTransitionCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					GuardedBranchTransitionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour3EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourBranchCompartment2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					AquireActionEditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					CollectionIteratorActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour4EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourLoopCompartment2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					AquireActionEditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					AquireActionEditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					LoopAction2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourLoopCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionBranchTransitionCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ProbabilisticBranchTransitionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourBranchCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ReleaseActionEditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					LoopAction2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourLoopCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionBranchTransitionCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					GuardedBranchTransitionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour3EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourBranchCompartment2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ReleaseActionEditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					LoopAction2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourLoopCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					CollectionIteratorActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour4EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourLoopCompartment2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionBranchTransitionCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ProbabilisticBranchTransitionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourBranchCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ReleaseActionEditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					LoopAction2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourLoopCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					CollectionIteratorActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour4EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourLoopCompartment2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionBranchTransitionCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					GuardedBranchTransitionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour3EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourBranchCompartment2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ReleaseActionEditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					LoopAction2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourLoopCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					CollectionIteratorActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour4EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourLoopCompartment2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ReleaseActionEditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					LoopAction2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourLoopCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ReleaseActionEditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionBranchTransitionCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ProbabilisticBranchTransitionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourBranchCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					LoopAction2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourLoopCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					CollectionIteratorActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour4EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourLoopCompartment2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ReleaseActionEditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionBranchTransitionCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ProbabilisticBranchTransitionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourBranchCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					LoopAction2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourLoopCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ReleaseActionEditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionBranchTransitionCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ProbabilisticBranchTransitionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourBranchCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ReleaseActionEditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionBranchTransitionCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					GuardedBranchTransitionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour3EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourBranchCompartment2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					LoopAction2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourLoopCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					CollectionIteratorActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour4EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourLoopCompartment2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ReleaseActionEditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionBranchTransitionCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					GuardedBranchTransitionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour3EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourBranchCompartment2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					LoopAction2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourLoopCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ReleaseActionEditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionBranchTransitionCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					GuardedBranchTransitionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour3EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourBranchCompartment2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ReleaseActionEditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					CollectionIteratorActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour4EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourLoopCompartment2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					LoopAction2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourLoopCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionBranchTransitionCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ProbabilisticBranchTransitionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourBranchCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ReleaseActionEditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					CollectionIteratorActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour4EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourLoopCompartment2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					LoopAction2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourLoopCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionBranchTransitionCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					GuardedBranchTransitionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour3EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourBranchCompartment2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ReleaseActionEditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					CollectionIteratorActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour4EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourLoopCompartment2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					LoopAction2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourLoopCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ReleaseActionEditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					CollectionIteratorActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour4EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourLoopCompartment2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionBranchTransitionCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ProbabilisticBranchTransitionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourBranchCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					LoopAction2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourLoopCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ReleaseActionEditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					CollectionIteratorActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour4EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourLoopCompartment2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionBranchTransitionCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ProbabilisticBranchTransitionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourBranchCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ReleaseActionEditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					CollectionIteratorActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour4EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourLoopCompartment2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionBranchTransitionCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					GuardedBranchTransitionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour3EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourBranchCompartment2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					LoopAction2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviourLoopCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ReleaseActionEditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					CollectionIteratorActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour4EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourLoopCompartment2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					BranchActionBranchTransitionCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					GuardedBranchTransitionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour3EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourBranchCompartment2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ReleaseActionEditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					CollectionIteratorActionEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ResourceDemandingBehaviour4EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(
+					connectedViews,
+					ResourceDemandingBehaviourLoopCompartment2EditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ReleaseActionEditPart.VISUAL_ID);
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID);
+			connectedViews = getChildrenByType(connectedViews,
+					ReleaseActionEditPart.VISUAL_ID);
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			return result.toArray();

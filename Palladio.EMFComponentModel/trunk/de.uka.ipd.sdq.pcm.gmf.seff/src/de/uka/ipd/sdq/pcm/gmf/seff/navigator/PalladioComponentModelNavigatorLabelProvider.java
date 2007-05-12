@@ -44,6 +44,7 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ReleaseActionEntityNameEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviour2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviour3EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviour4EditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviour5EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviourEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingSEFFEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.SetVariableActionEditPart;
@@ -278,6 +279,10 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 			return getImage(
 					"Navigator?Node?http://sdq.ipd.uka.de/PalladioComponentModel/Parameter/1.0?VariableCharacterisation",
 					PalladioComponentModelElementTypes.VariableCharacterisation_3016);
+		case ResourceDemandingBehaviour5EditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Node?http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0?ResourceDemandingBehaviour",
+					PalladioComponentModelElementTypes.ResourceDemandingBehaviour_3021);
 		case ResourceDemandingSEFFEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Diagram?http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0?ResourceDemandingSEFF",
@@ -403,6 +408,8 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 			return getVariableUsage_3015Text(view);
 		case VariableCharacterisation2EditPart.VISUAL_ID:
 			return getVariableCharacterisation_3016Text(view);
+		case ResourceDemandingBehaviour5EditPart.VISUAL_ID:
+			return getResourceDemandingBehaviour_3021Text(view);
 		case ResourceDemandingSEFFEditPart.VISUAL_ID:
 			return getResourceDemandingSEFF_1000Text(view);
 		case AbstractActionSuccessor_AbstractActionEditPart.VISUAL_ID:
@@ -1146,6 +1153,13 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 					.logError("Parser was not found for label " + 3016);
 			return "";
 		}
+	}
+
+	/**
+	 * @generated
+	 */
+	private String getResourceDemandingBehaviour_3021Text(View view) {
+		return "";
 	}
 
 	/**

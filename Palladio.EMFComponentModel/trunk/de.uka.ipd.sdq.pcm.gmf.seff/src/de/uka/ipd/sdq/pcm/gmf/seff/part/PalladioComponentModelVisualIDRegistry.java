@@ -27,6 +27,7 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ExternalCallActionVariableUsage2Ed
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ExternalCallActionVariableUsageEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ForkActionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ForkActionEntityNameEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ForkActionForkedBehavioursEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.GuardedBranchTransitionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.GuardedBranchTransitionIdEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.InternalAction2EditPart;
@@ -51,6 +52,8 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ReleaseActionEntityNameEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviour2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviour3EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviour4EditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviour5EditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviourBehaviourCompartmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviourBranchCompartment2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviourBranchCompartmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviourEditPart;
@@ -321,6 +324,9 @@ public class PalladioComponentModelVisualIDRegistry {
 			if (ForkActionEntityNameEditPart.VISUAL_ID == nodeVisualID) {
 				return ForkActionEntityNameEditPart.VISUAL_ID;
 			}
+			if (ForkActionForkedBehavioursEditPart.VISUAL_ID == nodeVisualID) {
+				return ForkActionForkedBehavioursEditPart.VISUAL_ID;
+			}
 			return getUnrecognizedForkAction_2011ChildNodeID(domainElement,
 					semanticHint);
 		case VariableUsageEditPart.VISUAL_ID:
@@ -472,6 +478,12 @@ public class PalladioComponentModelVisualIDRegistry {
 					semanticHint);
 		case VariableCharacterisation2EditPart.VISUAL_ID:
 			return getUnrecognizedVariableCharacterisation_3016ChildNodeID(
+					domainElement, semanticHint);
+		case ResourceDemandingBehaviour5EditPart.VISUAL_ID:
+			if (ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID == nodeVisualID) {
+				return ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID;
+			}
+			return getUnrecognizedResourceDemandingBehaviour_3021ChildNodeID(
 					domainElement, semanticHint);
 		case ExternalCallActionVariableUsageEditPart.VISUAL_ID:
 			if ((semanticHint == null || VariableUsageEditPart.VISUAL_ID == nodeVisualID)
@@ -781,6 +793,72 @@ public class PalladioComponentModelVisualIDRegistry {
 				return VariableCharacterisation2EditPart.VISUAL_ID;
 			}
 			return getUnrecognizedVariableUsageVariableCharacterisation_7017ChildNodeID(
+					domainElement, semanticHint);
+		case ForkActionForkedBehavioursEditPart.VISUAL_ID:
+			if ((semanticHint == null || ResourceDemandingBehaviour5EditPart.VISUAL_ID == nodeVisualID)
+					&& SeffPackage.eINSTANCE.getResourceDemandingBehaviour()
+							.isSuperTypeOf(domainElementMetaclass)
+					&& (domainElement == null || isNodeResourceDemandingBehaviour_3021((ResourceDemandingBehaviour) domainElement))) {
+				return ResourceDemandingBehaviour5EditPart.VISUAL_ID;
+			}
+			return getUnrecognizedForkActionForkedBehaviours_7019ChildNodeID(
+					domainElement, semanticHint);
+		case ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID:
+			if ((semanticHint == null || StartAction2EditPart.VISUAL_ID == nodeVisualID)
+					&& SeffPackage.eINSTANCE.getStartAction().isSuperTypeOf(
+							domainElementMetaclass)
+					&& (domainElement == null || isNodeStartAction_3004((StartAction) domainElement))) {
+				return StartAction2EditPart.VISUAL_ID;
+			}
+			if ((semanticHint == null || StopAction2EditPart.VISUAL_ID == nodeVisualID)
+					&& SeffPackage.eINSTANCE.getStopAction().isSuperTypeOf(
+							domainElementMetaclass)
+					&& (domainElement == null || isNodeStopAction_3005((StopAction) domainElement))) {
+				return StopAction2EditPart.VISUAL_ID;
+			}
+			if ((semanticHint == null || LoopAction2EditPart.VISUAL_ID == nodeVisualID)
+					&& SeffPackage.eINSTANCE.getLoopAction().isSuperTypeOf(
+							domainElementMetaclass)
+					&& (domainElement == null || isNodeLoopAction_3006((LoopAction) domainElement))) {
+				return LoopAction2EditPart.VISUAL_ID;
+			}
+			if ((semanticHint == null || InternalActionEditPart.VISUAL_ID == nodeVisualID)
+					&& SeffPackage.eINSTANCE.getInternalAction().isSuperTypeOf(
+							domainElementMetaclass)
+					&& (domainElement == null || isNodeInternalAction_3007((InternalAction) domainElement))) {
+				return InternalActionEditPart.VISUAL_ID;
+			}
+			if ((semanticHint == null || BranchActionEditPart.VISUAL_ID == nodeVisualID)
+					&& SeffPackage.eINSTANCE.getBranchAction().isSuperTypeOf(
+							domainElementMetaclass)
+					&& (domainElement == null || isNodeBranchAction_3009((BranchAction) domainElement))) {
+				return BranchActionEditPart.VISUAL_ID;
+			}
+			if ((semanticHint == null || ExternalCallAction2EditPart.VISUAL_ID == nodeVisualID)
+					&& SeffPackage.eINSTANCE.getExternalCallAction()
+							.isSuperTypeOf(domainElementMetaclass)
+					&& (domainElement == null || isNodeExternalCallAction_3012((ExternalCallAction) domainElement))) {
+				return ExternalCallAction2EditPart.VISUAL_ID;
+			}
+			if ((semanticHint == null || CollectionIteratorActionEditPart.VISUAL_ID == nodeVisualID)
+					&& SeffPackage.eINSTANCE.getCollectionIteratorAction()
+							.isSuperTypeOf(domainElementMetaclass)
+					&& (domainElement == null || isNodeCollectionIteratorAction_3013((CollectionIteratorAction) domainElement))) {
+				return CollectionIteratorActionEditPart.VISUAL_ID;
+			}
+			if ((semanticHint == null || AquireActionEditPart.VISUAL_ID == nodeVisualID)
+					&& SeffPackage.eINSTANCE.getAquireAction().isSuperTypeOf(
+							domainElementMetaclass)
+					&& (domainElement == null || isNodeAquireAction_3019((AquireAction) domainElement))) {
+				return AquireActionEditPart.VISUAL_ID;
+			}
+			if ((semanticHint == null || ReleaseActionEditPart.VISUAL_ID == nodeVisualID)
+					&& SeffPackage.eINSTANCE.getReleaseAction().isSuperTypeOf(
+							domainElementMetaclass)
+					&& (domainElement == null || isNodeReleaseAction_3020((ReleaseAction) domainElement))) {
+				return ReleaseActionEditPart.VISUAL_ID;
+			}
+			return getUnrecognizedResourceDemandingBehaviourBehaviourCompartment_7020ChildNodeID(
 					domainElement, semanticHint);
 		case ResourceDemandingSEFFEditPart.VISUAL_ID:
 			if ((semanticHint == null || StartActionEditPart.VISUAL_ID == nodeVisualID)
@@ -1222,6 +1300,17 @@ public class PalladioComponentModelVisualIDRegistry {
 	}
 
 	/**
+	 * User can change implementation of this method to check some additional 
+	 * conditions here.
+	 *
+	 * @generated
+	 */
+	private static boolean isNodeResourceDemandingBehaviour_3021(
+			ResourceDemandingBehaviour element) {
+		return true;
+	}
+
+	/**
 	 * User can change implementation of this method to handle some specific
 	 * situations not covered by default logic.
 	 *
@@ -1568,6 +1657,17 @@ public class PalladioComponentModelVisualIDRegistry {
 	 *
 	 * @generated
 	 */
+	private static int getUnrecognizedResourceDemandingBehaviour_3021ChildNodeID(
+			EObject domainElement, String semanticHint) {
+		return -1;
+	}
+
+	/**
+	 * User can change implementation of this method to handle some specific
+	 * situations not covered by default logic.
+	 *
+	 * @generated
+	 */
 	private static int getUnrecognizedExternalCallActionVariableUsage_7001ChildNodeID(
 			EObject domainElement, String semanticHint) {
 		return -1;
@@ -1701,6 +1801,28 @@ public class PalladioComponentModelVisualIDRegistry {
 	 * @generated
 	 */
 	private static int getUnrecognizedVariableUsageVariableCharacterisation_7017ChildNodeID(
+			EObject domainElement, String semanticHint) {
+		return -1;
+	}
+
+	/**
+	 * User can change implementation of this method to handle some specific
+	 * situations not covered by default logic.
+	 *
+	 * @generated
+	 */
+	private static int getUnrecognizedForkActionForkedBehaviours_7019ChildNodeID(
+			EObject domainElement, String semanticHint) {
+		return -1;
+	}
+
+	/**
+	 * User can change implementation of this method to handle some specific
+	 * situations not covered by default logic.
+	 *
+	 * @generated
+	 */
+	private static int getUnrecognizedResourceDemandingBehaviourBehaviourCompartment_7020ChildNodeID(
 			EObject domainElement, String semanticHint) {
 		return -1;
 	}

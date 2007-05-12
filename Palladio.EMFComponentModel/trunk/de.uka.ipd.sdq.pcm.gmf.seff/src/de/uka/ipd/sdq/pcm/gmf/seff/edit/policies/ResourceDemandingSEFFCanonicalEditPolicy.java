@@ -29,6 +29,7 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ReleaseActionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviour2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviour3EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviour4EditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviour5EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviourEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingSEFFEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.SetVariableActionEditPart;
@@ -326,6 +327,7 @@ public class ResourceDemandingSEFFCanonicalEditPolicy extends
 		case ResourceDemandingBehaviour4EditPart.VISUAL_ID:
 		case VariableUsage2EditPart.VISUAL_ID:
 		case VariableCharacterisation2EditPart.VISUAL_ID:
+		case ResourceDemandingBehaviour5EditPart.VISUAL_ID:
 		case ResourceDemandingSEFFEditPart.VISUAL_ID: {
 			myEObject2ViewMap.put(modelElement, view);
 			storeLinks(modelElement, getDiagram());

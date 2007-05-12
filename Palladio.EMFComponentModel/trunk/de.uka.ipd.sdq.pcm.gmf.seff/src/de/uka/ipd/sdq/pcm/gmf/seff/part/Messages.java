@@ -301,6 +301,16 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String ForkActionForkedBehavioursEditPart_title;
+
+	/**
+	 * @generated
+	 */
+	public static String ResourceDemandingBehaviourBehaviourCompartmentEditPart_title;
+
+	/**
+	 * @generated
+	 */
 	public static String CommandName_OpenDiagram;
 
 	/**

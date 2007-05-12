@@ -27,19 +27,24 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.BranchActionBranchTransitionCompar
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.BranchActionBranchTransitionCompartmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.CollectionIteratorAction2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.CollectionIteratorActionEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ExternalCallAction2EditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ExternalCallActionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ExternalCallActionVariableUsage2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ExternalCallActionVariableUsageEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ForkActionForkedBehavioursEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.GuardedBranchTransitionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.InternalAction2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.InternalActionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopAction2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopActionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ProbabilisticBranchTransitionEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviourBehaviourCompartmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviourBranchCompartment2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviourBranchCompartmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviourLoopCompartment2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviourLoopCompartmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingSEFFEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.SetVariableActionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.SetVariableActionVariableSetterEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableUsage2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableUsageEditPart;
@@ -203,6 +208,27 @@ public class PalladioComponentModelModelingAssistantProvider extends
 		if (editPart instanceof SetVariableActionVariableSetterEditPart) {
 			List types = new ArrayList();
 			types.add(PalladioComponentModelElementTypes.VariableUsage_3015);
+			return types;
+		}
+		if (editPart instanceof ForkActionForkedBehavioursEditPart) {
+			List types = new ArrayList();
+			types
+					.add(PalladioComponentModelElementTypes.ResourceDemandingBehaviour_3021);
+			return types;
+		}
+		if (editPart instanceof ResourceDemandingBehaviourBehaviourCompartmentEditPart) {
+			List types = new ArrayList();
+			types.add(PalladioComponentModelElementTypes.StartAction_3004);
+			types.add(PalladioComponentModelElementTypes.StopAction_3005);
+			types.add(PalladioComponentModelElementTypes.LoopAction_3006);
+			types.add(PalladioComponentModelElementTypes.InternalAction_3007);
+			types.add(PalladioComponentModelElementTypes.BranchAction_3009);
+			types
+					.add(PalladioComponentModelElementTypes.ExternalCallAction_3012);
+			types
+					.add(PalladioComponentModelElementTypes.CollectionIteratorAction_3013);
+			types.add(PalladioComponentModelElementTypes.AquireAction_3019);
+			types.add(PalladioComponentModelElementTypes.ReleaseAction_3020);
 			return types;
 		}
 		if (editPart instanceof ResourceDemandingSEFFEditPart) {
