@@ -22,7 +22,9 @@ import de.uka.ipd.sdq.dialogs.selection.PalladioSelectEObjectDialog;
 import de.uka.ipd.sdq.dialogs.stoex.InnerDeclarationContainer;
 import de.uka.ipd.sdq.dialogs.stoex.DataTypeContainer;
 import de.uka.ipd.sdq.dialogs.stoex.VariableUsageContentProvider;
+import de.uka.ipd.sdq.dialogs.stoex.VariableUsageInputParameterContentProvider;
 import de.uka.ipd.sdq.dialogs.stoex.VariableUsageItemProviderAdapterFactory;
+import de.uka.ipd.sdq.dialogs.stoex.VariableUsageOutputParameterContentProvider;
 import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
 import de.uka.ipd.sdq.pcm.repository.InnerDeclaration;
 import de.uka.ipd.sdq.pcm.repository.Parameter;
@@ -30,6 +32,8 @@ import de.uka.ipd.sdq.pcm.repository.Repository;
 import de.uka.ipd.sdq.pcm.repository.Signature;
 import de.uka.ipd.sdq.pcm.repository.provider.RepositoryItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.seff.ExternalCallAction;
+import de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF;
+import de.uka.ipd.sdq.pcm.seff.SetVariableAction;
 import de.uka.ipd.sdq.pcmbench.ui.provider.PalladioItemProviderAdapterFactory;
 import de.uka.ipd.sdq.stoex.AbstractNamedReference;
 import de.uka.ipd.sdq.stoex.NamespaceReference;
@@ -37,19 +41,27 @@ import de.uka.ipd.sdq.stoex.StoexFactory;
 
 /**
  * @author admin
- *
+ * 
  */
 public class VariableUsageEditHelperAdvice extends AbstractEditHelperAdvice
 		implements IEditHelperAdvice {
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see org.eclipse.gmf.runtime.emf.type.core.edithelper.AbstractEditHelperAdvice#getAfterConfigureCommand(org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest)
 	 */
 	@Override
 	protected ICommand getAfterConfigureCommand(ConfigureRequest request) {
-		EObject resource = null;
-		ExternalCallAction call = getCall(request.getElementToConfigure());
+		if (request.getElementToConfigure().eContainer() instanceof ExternalCallAction) {
+			return caseExternalCallActionInputParameter(request);
+		} else if (request.getElementToConfigure().eContainer() instanceof SetVariableAction) {
+			return caseSetVariableAction(request);
+		} else
+			return new CanceledCommand();
+	}
 
+	private ICommand caseSetVariableAction(ConfigureRequest request) {
 		ArrayList<Object> filterList = new ArrayList<Object>();
 		filterList.add(Repository.class);
 		filterList.add(Signature.class);
@@ -57,13 +69,11 @@ public class VariableUsageEditHelperAdvice extends AbstractEditHelperAdvice
 		ArrayList<Object> additionalReferences = new ArrayList<Object>();
 		PalladioSelectEObjectDialog dialog = new PalladioSelectEObjectDialog(
 				PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(),
-				filterList, 
-				additionalReferences,
-				call.getCalledService_ExternalService());
+				filterList, additionalReferences, this.getMyService(request.getElementToConfigure()));
 		/**
 		 * set a ContentProvider for dialog TreeViewer
 		 */
-		dialog.setViewerContentProvider(new VariableUsageContentProvider());
+		dialog.setViewerContentProvider(new VariableUsageOutputParameterContentProvider());
 		ComposedAdapterFactory adapterFactory = new ComposedAdapterFactory();
 		adapterFactory
 				.addAdapterFactory(new ResourceItemProviderAdapterFactory());
@@ -80,17 +90,79 @@ public class VariableUsageEditHelperAdvice extends AbstractEditHelperAdvice
 								new PalladioItemProviderAdapterFactory(
 										adapterFactory))));
 		dialog.open();
-		
+
 		if (dialog.getResult() == null)
 			return new CanceledCommand();
 		if (!(dialog.getResult() instanceof DataTypeContainer)
 				&& !(dialog.getResult() instanceof InnerDeclarationContainer)
-				   && !(dialog.getResult() instanceof Parameter))
+				&& !(dialog.getResult() instanceof Parameter))
 			return new CanceledCommand();
-	
+
+		EObject resource = (EObject) dialog.getResult();
+
+		AbstractNamedReference namedReference = setNamedReference(resource,
+				null, true);
+
+		ICommand cmd = new SetValueCommand(new SetRequest(request
+				.getElementToConfigure(), ParameterPackage.eINSTANCE
+				.getVariableUsage_NamedReference_VariableUsage(),
+				namedReference));
+		return cmd;
+	}
+
+	private Signature getMyService(EObject elementToConfigure) {
+		EObject current = elementToConfigure;
+		while (current != null && !(current instanceof ResourceDemandingSEFF))
+			current = current.eContainer();
+		return ((ResourceDemandingSEFF)current).getDescribedService__SEFF();
+	}
+
+	private ICommand caseExternalCallActionInputParameter(
+			ConfigureRequest request) {
+		EObject resource = null;
+		ExternalCallAction call = getCall(request.getElementToConfigure());
+
+		ArrayList<Object> filterList = new ArrayList<Object>();
+		filterList.add(Repository.class);
+		filterList.add(Signature.class);
+
+		ArrayList<Object> additionalReferences = new ArrayList<Object>();
+		PalladioSelectEObjectDialog dialog = new PalladioSelectEObjectDialog(
+				PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(),
+				filterList, additionalReferences, call
+						.getCalledService_ExternalService());
+		/**
+		 * set a ContentProvider for dialog TreeViewer
+		 */
+		dialog.setViewerContentProvider(new VariableUsageInputParameterContentProvider());
+		ComposedAdapterFactory adapterFactory = new ComposedAdapterFactory();
+		adapterFactory
+				.addAdapterFactory(new ResourceItemProviderAdapterFactory());
+		adapterFactory
+				.addAdapterFactory(new RepositoryItemProviderAdapterFactory());
+		adapterFactory
+				.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
+		/**
+		 * set a LabelProvider for dialog TreeViewer
+		 */
+		dialog
+				.setViewerLabelProvider(new AdapterFactoryLabelProvider(
+						new VariableUsageItemProviderAdapterFactory(
+								new PalladioItemProviderAdapterFactory(
+										adapterFactory))));
+		dialog.open();
+
+		if (dialog.getResult() == null)
+			return new CanceledCommand();
+		if (!(dialog.getResult() instanceof DataTypeContainer)
+				&& !(dialog.getResult() instanceof InnerDeclarationContainer)
+				&& !(dialog.getResult() instanceof Parameter))
+			return new CanceledCommand();
+
 		resource = (EObject) dialog.getResult();
-		
-		AbstractNamedReference namedReference = setNamedReference(resource, null, true);
+
+		AbstractNamedReference namedReference = setNamedReference(resource,
+				null, true);
 
 		ICommand cmd = new SetValueCommand(new SetRequest(request
 				.getElementToConfigure(), ParameterPackage.eINSTANCE
