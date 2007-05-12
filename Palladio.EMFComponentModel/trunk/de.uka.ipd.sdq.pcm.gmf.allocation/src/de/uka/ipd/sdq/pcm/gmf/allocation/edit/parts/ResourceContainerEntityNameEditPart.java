@@ -1,7 +1,7 @@
 /*
- * Copyright 2006 SDQ Research Group, University of Karlsruhe (TH)
+ * Copyright 2007, SDQ, IPD, U KA
  */
-package de.uka.ipd.sdq.pcm.gmf.seff.edit.parts;
+package de.uka.ipd.sdq.pcm.gmf.allocation.edit.parts;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -50,21 +50,19 @@ import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.FontData;
 import org.eclipse.swt.graphics.Image;
 
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.PalladioComponentModelTextSelectionEditPolicy;
-import de.uka.ipd.sdq.pcm.gmf.seff.providers.PalladioComponentModelElementTypes;
-import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
-import de.uka.ipd.sdq.pcm.stochasticexpressions.PCMStoExPrettyPrintVisitor;
+import de.uka.ipd.sdq.pcm.gmf.allocation.edit.policies.PalladioComponentModelTextSelectionEditPolicy;
+import de.uka.ipd.sdq.pcm.gmf.allocation.providers.PalladioComponentModelElementTypes;
 
 /**
  * @generated
  */
-public class VariableUsageReferenceLabel3EditPart extends CompartmentEditPart
+public class ResourceContainerEntityNameEditPart extends CompartmentEditPart
 		implements ITextAwareEditPart {
 
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 5017;
+	public static final int VISUAL_ID = 5003;
 
 	/**
 	 * @generated
@@ -89,7 +87,7 @@ public class VariableUsageReferenceLabel3EditPart extends CompartmentEditPart
 	/**
 	 * @generated
 	 */
-	public VariableUsageReferenceLabel3EditPart(View view) {
+	public ResourceContainerEntityNameEditPart(View view) {
 		super(view);
 	}
 
@@ -210,14 +208,14 @@ public class VariableUsageReferenceLabel3EditPart extends CompartmentEditPart
 	}
 
 	/**
-	 * @generated not
+	 * @generated
 	 */
 	protected String getLabelText() {
 		String text = null;
-		VariableUsage usage = (VariableUsage) resolveSemanticElement();
-		if (usage.getNamedReference_VariableUsage() != null) {
-			text = new PCMStoExPrettyPrintVisitor().prettyPrint(usage
-					.getNamedReference_VariableUsage());
+		if (getParser() != null) {
+			text = getParser().getPrintString(
+					new EObjectAdapter(getParserElement()),
+					getParserOptions().intValue());
 		}
 		if (text == null || text.length() == 0) {
 			text = defaultText;
@@ -253,7 +251,7 @@ public class VariableUsageReferenceLabel3EditPart extends CompartmentEditPart
 	 * @generated
 	 */
 	protected boolean isEditable() {
-		return false;
+		return getParser() != null;
 	}
 
 	/**
@@ -318,7 +316,7 @@ public class VariableUsageReferenceLabel3EditPart extends CompartmentEditPart
 
 				public Object getAdapter(Class adapter) {
 					if (IElementType.class.equals(adapter)) {
-						return PalladioComponentModelElementTypes.VariableUsage_3015;
+						return PalladioComponentModelElementTypes.ResourceContainer_2002;
 					}
 					return super.getAdapter(adapter);
 				}
