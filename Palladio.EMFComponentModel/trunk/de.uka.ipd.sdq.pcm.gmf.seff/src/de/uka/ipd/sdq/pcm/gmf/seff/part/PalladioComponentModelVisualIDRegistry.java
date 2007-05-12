@@ -25,6 +25,8 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ExternalCallActionEntityName2EditP
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ExternalCallActionEntityNameEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ExternalCallActionVariableUsage2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ExternalCallActionVariableUsageEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ForkActionEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ForkActionEntityNameEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.GuardedBranchTransitionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.GuardedBranchTransitionIdEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.InternalAction2EditPart;
@@ -56,7 +58,8 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviourLoopComp
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviourLoopCompartmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingSEFFEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.SetVariableActionEditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.SetVariableActionVariableUsageEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.SetVariableActionEntityNameEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.SetVariableActionVariableSetterEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.StartAction2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.StartActionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.StopAction2EditPart;
@@ -78,6 +81,7 @@ import de.uka.ipd.sdq.pcm.seff.AquireAction;
 import de.uka.ipd.sdq.pcm.seff.BranchAction;
 import de.uka.ipd.sdq.pcm.seff.CollectionIteratorAction;
 import de.uka.ipd.sdq.pcm.seff.ExternalCallAction;
+import de.uka.ipd.sdq.pcm.seff.ForkAction;
 import de.uka.ipd.sdq.pcm.seff.GuardedBranchTransition;
 import de.uka.ipd.sdq.pcm.seff.InternalAction;
 import de.uka.ipd.sdq.pcm.seff.LoopAction;
@@ -293,8 +297,11 @@ public class PalladioComponentModelVisualIDRegistry {
 			return getUnrecognizedCollectionIteratorAction_2007ChildNodeID(
 					domainElement, semanticHint);
 		case SetVariableActionEditPart.VISUAL_ID:
-			if (SetVariableActionVariableUsageEditPart.VISUAL_ID == nodeVisualID) {
-				return SetVariableActionVariableUsageEditPart.VISUAL_ID;
+			if (SetVariableActionEntityNameEditPart.VISUAL_ID == nodeVisualID) {
+				return SetVariableActionEntityNameEditPart.VISUAL_ID;
+			}
+			if (SetVariableActionVariableSetterEditPart.VISUAL_ID == nodeVisualID) {
+				return SetVariableActionVariableSetterEditPart.VISUAL_ID;
 			}
 			return getUnrecognizedSetVariableAction_2008ChildNodeID(
 					domainElement, semanticHint);
@@ -309,6 +316,12 @@ public class PalladioComponentModelVisualIDRegistry {
 				return ReleaseActionEntityName2EditPart.VISUAL_ID;
 			}
 			return getUnrecognizedReleaseAction_2010ChildNodeID(domainElement,
+					semanticHint);
+		case ForkActionEditPart.VISUAL_ID:
+			if (ForkActionEntityNameEditPart.VISUAL_ID == nodeVisualID) {
+				return ForkActionEntityNameEditPart.VISUAL_ID;
+			}
+			return getUnrecognizedForkAction_2011ChildNodeID(domainElement,
 					semanticHint);
 		case VariableUsageEditPart.VISUAL_ID:
 			if (VariableUsageReferenceLabelEditPart.VISUAL_ID == nodeVisualID) {
@@ -751,14 +764,14 @@ public class PalladioComponentModelVisualIDRegistry {
 			}
 			return getUnrecognizedInternalActionResourceDemand_7012ChildNodeID(
 					domainElement, semanticHint);
-		case SetVariableActionVariableUsageEditPart.VISUAL_ID:
+		case SetVariableActionVariableSetterEditPart.VISUAL_ID:
 			if ((semanticHint == null || VariableUsage2EditPart.VISUAL_ID == nodeVisualID)
 					&& ParameterPackage.eINSTANCE.getVariableUsage()
 							.isSuperTypeOf(domainElementMetaclass)
 					&& (domainElement == null || isNodeVariableUsage_3015((VariableUsage) domainElement))) {
 				return VariableUsage2EditPart.VISUAL_ID;
 			}
-			return getUnrecognizedSetVariableActionVariableUsage_7016ChildNodeID(
+			return getUnrecognizedSetVariableActionVariableSetter_7016ChildNodeID(
 					domainElement, semanticHint);
 		case VariableUsageVariableCharacterisation2EditPart.VISUAL_ID:
 			if ((semanticHint == null || VariableCharacterisation2EditPart.VISUAL_ID == nodeVisualID)
@@ -829,6 +842,12 @@ public class PalladioComponentModelVisualIDRegistry {
 							domainElementMetaclass)
 					&& (domainElement == null || isNodeReleaseAction_2010((ReleaseAction) domainElement))) {
 				return ReleaseAction2EditPart.VISUAL_ID;
+			}
+			if ((semanticHint == null || ForkActionEditPart.VISUAL_ID == nodeVisualID)
+					&& SeffPackage.eINSTANCE.getForkAction().isSuperTypeOf(
+							domainElementMetaclass)
+					&& (domainElement == null || isNodeForkAction_2011((ForkAction) domainElement))) {
+				return ForkActionEditPart.VISUAL_ID;
 			}
 			return getUnrecognizedResourceDemandingSEFF_1000ChildNodeID(
 					domainElement, semanticHint);
@@ -978,6 +997,16 @@ public class PalladioComponentModelVisualIDRegistry {
 	 * @generated
 	 */
 	private static boolean isNodeReleaseAction_2010(ReleaseAction element) {
+		return true;
+	}
+
+	/**
+	 * User can change implementation of this method to check some additional 
+	 * conditions here.
+	 *
+	 * @generated
+	 */
+	private static boolean isNodeForkAction_2011(ForkAction element) {
 		return true;
 	}
 
@@ -1298,6 +1327,17 @@ public class PalladioComponentModelVisualIDRegistry {
 	 * @generated
 	 */
 	private static int getUnrecognizedReleaseAction_2010ChildNodeID(
+			EObject domainElement, String semanticHint) {
+		return -1;
+	}
+
+	/**
+	 * User can change implementation of this method to handle some specific
+	 * situations not covered by default logic.
+	 *
+	 * @generated
+	 */
+	private static int getUnrecognizedForkAction_2011ChildNodeID(
 			EObject domainElement, String semanticHint) {
 		return -1;
 	}
@@ -1649,7 +1689,7 @@ public class PalladioComponentModelVisualIDRegistry {
 	 *
 	 * @generated
 	 */
-	private static int getUnrecognizedSetVariableActionVariableUsage_7016ChildNodeID(
+	private static int getUnrecognizedSetVariableActionVariableSetter_7016ChildNodeID(
 			EObject domainElement, String semanticHint) {
 		return -1;
 	}

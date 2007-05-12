@@ -40,7 +40,7 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviourBranchCo
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviourLoopCompartment2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviourLoopCompartmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingSEFFEditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.SetVariableActionVariableUsageEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.SetVariableActionVariableSetterEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableUsage2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableUsageEditPart;
 
@@ -200,7 +200,7 @@ public class PalladioComponentModelModelingAssistantProvider extends
 					.add(PalladioComponentModelElementTypes.GuardedBranchTransition_3017);
 			return types;
 		}
-		if (editPart instanceof SetVariableActionVariableUsageEditPart) {
+		if (editPart instanceof SetVariableActionVariableSetterEditPart) {
 			List types = new ArrayList();
 			types.add(PalladioComponentModelElementTypes.VariableUsage_3015);
 			return types;
@@ -220,6 +220,7 @@ public class PalladioComponentModelModelingAssistantProvider extends
 					.add(PalladioComponentModelElementTypes.SetVariableAction_2008);
 			types.add(PalladioComponentModelElementTypes.AquireAction_2009);
 			types.add(PalladioComponentModelElementTypes.ReleaseAction_2010);
+			types.add(PalladioComponentModelElementTypes.ForkAction_2011);
 			return types;
 		}
 		return Collections.EMPTY_LIST;

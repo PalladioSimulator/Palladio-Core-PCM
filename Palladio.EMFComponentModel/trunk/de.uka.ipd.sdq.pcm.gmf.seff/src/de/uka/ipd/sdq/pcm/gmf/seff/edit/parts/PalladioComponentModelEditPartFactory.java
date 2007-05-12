@@ -80,6 +80,9 @@ public class PalladioComponentModelEditPartFactory implements EditPartFactory {
 			case SetVariableActionEditPart.VISUAL_ID:
 				return new SetVariableActionEditPart(view);
 
+			case SetVariableActionEntityNameEditPart.VISUAL_ID:
+				return new SetVariableActionEntityNameEditPart(view);
+
 			case AquireAction2EditPart.VISUAL_ID:
 				return new AquireAction2EditPart(view);
 
@@ -91,6 +94,12 @@ public class PalladioComponentModelEditPartFactory implements EditPartFactory {
 
 			case ReleaseActionEntityName2EditPart.VISUAL_ID:
 				return new ReleaseActionEntityName2EditPart(view);
+
+			case ForkActionEditPart.VISUAL_ID:
+				return new ForkActionEditPart(view);
+
+			case ForkActionEntityNameEditPart.VISUAL_ID:
+				return new ForkActionEntityNameEditPart(view);
 
 			case VariableUsageEditPart.VISUAL_ID:
 				return new VariableUsageEditPart(view);
@@ -230,8 +239,8 @@ public class PalladioComponentModelEditPartFactory implements EditPartFactory {
 			case InternalActionResourceDemand2EditPart.VISUAL_ID:
 				return new InternalActionResourceDemand2EditPart(view);
 
-			case SetVariableActionVariableUsageEditPart.VISUAL_ID:
-				return new SetVariableActionVariableUsageEditPart(view);
+			case SetVariableActionVariableSetterEditPart.VISUAL_ID:
+				return new SetVariableActionVariableSetterEditPart(view);
 
 			case VariableUsageVariableCharacterisation2EditPart.VISUAL_ID:
 				return new VariableUsageVariableCharacterisation2EditPart(view);

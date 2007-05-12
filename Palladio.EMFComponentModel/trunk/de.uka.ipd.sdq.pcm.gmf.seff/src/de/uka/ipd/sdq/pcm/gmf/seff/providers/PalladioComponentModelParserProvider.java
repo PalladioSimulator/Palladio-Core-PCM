@@ -21,6 +21,7 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.CollectionIteratorActionEntityName
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.CollectionIteratorActionEntityNameEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ExternalCallActionEntityName2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ExternalCallActionEntityNameEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ForkActionEntityNameEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.GuardedBranchTransitionIdEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.InternalActionEntityName2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.InternalActionEntityNameEditPart;
@@ -30,6 +31,7 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ParametricResourceDemandEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ProbabilisticBranchTransitionBranchProbabilityEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ReleaseActionEntityName2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ReleaseActionEntityNameEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.SetVariableActionEntityNameEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableCharacterisation2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableCharacterisationEditPart;
 
@@ -507,6 +509,32 @@ public class PalladioComponentModelParserProvider extends AbstractProvider
 	/**
 	 * @generated
 	 */
+	private IParser setVariableActionSetVariableActionEntityName_5023Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getSetVariableActionSetVariableActionEntityName_5023Parser() {
+		if (setVariableActionSetVariableActionEntityName_5023Parser == null) {
+			setVariableActionSetVariableActionEntityName_5023Parser = createSetVariableActionSetVariableActionEntityName_5023Parser();
+		}
+		return setVariableActionSetVariableActionEntityName_5023Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	protected IParser createSetVariableActionSetVariableActionEntityName_5023Parser() {
+		PalladioComponentModelStructuralFeatureParser parser = new PalladioComponentModelStructuralFeatureParser(
+				EntityPackage.eINSTANCE.getNamedElement_EntityName());
+		parser.setViewPattern("{0}");
+		parser.setEditPattern("{0}");
+		return parser;
+	}
+
+	/**
+	 * @generated
+	 */
 	private IParser aquireActionAquireActionEntityName_5021Parser;
 
 	/**
@@ -559,6 +587,32 @@ public class PalladioComponentModelParserProvider extends AbstractProvider
 	/**
 	 * @generated
 	 */
+	private IParser forkActionForkActionEntityName_5024Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getForkActionForkActionEntityName_5024Parser() {
+		if (forkActionForkActionEntityName_5024Parser == null) {
+			forkActionForkActionEntityName_5024Parser = createForkActionForkActionEntityName_5024Parser();
+		}
+		return forkActionForkActionEntityName_5024Parser;
+	}
+
+	/**
+	 * @generated
+	 */
+	protected IParser createForkActionForkActionEntityName_5024Parser() {
+		PalladioComponentModelStructuralFeatureParser parser = new PalladioComponentModelStructuralFeatureParser(
+				EntityPackage.eINSTANCE.getNamedElement_EntityName());
+		parser.setViewPattern("{0}");
+		parser.setEditPattern("{0}");
+		return parser;
+	}
+
+	/**
+	 * @generated
+	 */
 	protected IParser getParser(int visualID) {
 		switch (visualID) {
 		case VariableCharacterisationEditPart.VISUAL_ID:
@@ -595,10 +649,14 @@ public class PalladioComponentModelParserProvider extends AbstractProvider
 			return getInternalActionInternalActionEntityName_5012Parser();
 		case CollectionIteratorActionEntityName2EditPart.VISUAL_ID:
 			return getCollectionIteratorActionCollectionIteratorActionEntityName_5015Parser();
+		case SetVariableActionEntityNameEditPart.VISUAL_ID:
+			return getSetVariableActionSetVariableActionEntityName_5023Parser();
 		case AquireActionEntityName2EditPart.VISUAL_ID:
 			return getAquireActionAquireActionEntityName_5021Parser();
 		case ReleaseActionEntityName2EditPart.VISUAL_ID:
 			return getReleaseActionReleaseActionEntityName_5022Parser();
+		case ForkActionEntityNameEditPart.VISUAL_ID:
+			return getForkActionForkActionEntityName_5024Parser();
 		}
 		return null;
 	}

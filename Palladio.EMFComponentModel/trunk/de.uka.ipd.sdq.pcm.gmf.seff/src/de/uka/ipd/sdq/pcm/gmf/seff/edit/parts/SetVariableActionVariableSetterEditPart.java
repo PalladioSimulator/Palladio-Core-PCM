@@ -12,14 +12,14 @@ import org.eclipse.gmf.runtime.diagram.ui.editpolicies.ResizableCompartmentEditP
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.notation.View;
 
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.SetVariableActionVariableUsageCanonicalEditPolicy;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.SetVariableActionVariableUsageItemSemanticEditPolicy;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.SetVariableActionVariableSetterCanonicalEditPolicy;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.SetVariableActionVariableSetterItemSemanticEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.seff.part.Messages;
 
 /**
  * @generated
  */
-public class SetVariableActionVariableUsageEditPart extends
+public class SetVariableActionVariableSetterEditPart extends
 		ShapeCompartmentEditPart {
 
 	/**
@@ -30,7 +30,7 @@ public class SetVariableActionVariableUsageEditPart extends
 	/**
 	 * @generated
 	 */
-	public SetVariableActionVariableUsageEditPart(View view) {
+	public SetVariableActionVariableSetterEditPart(View view) {
 		super(view);
 	}
 
@@ -38,7 +38,7 @@ public class SetVariableActionVariableUsageEditPart extends
 	 * @generated
 	 */
 	public String getCompartmentName() {
-		return Messages.SetVariableActionVariableUsageEditPart_title;
+		return Messages.SetVariableActionVariableSetterEditPart_title;
 	}
 
 	/**
@@ -49,13 +49,13 @@ public class SetVariableActionVariableUsageEditPart extends
 		installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE,
 				new ResizableCompartmentEditPolicy());
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
-				new SetVariableActionVariableUsageItemSemanticEditPolicy());
+				new SetVariableActionVariableSetterItemSemanticEditPolicy());
 		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
 				new CreationEditPolicy());
 		installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE,
 				new DragDropEditPolicy());
 		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE,
-				new SetVariableActionVariableUsageCanonicalEditPolicy());
+				new SetVariableActionVariableSetterCanonicalEditPolicy());
 	}
 
 	/**

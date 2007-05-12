@@ -245,10 +245,12 @@ public class PalladioComponentModelNewDiagramFileWizard extends Wizard {
 				String containerName = seff.eContainer().toString();
 				containerName = containerName.substring(containerName
 						.lastIndexOf(" "), containerName.length() - 1);
-				myCombo.add("Container: " + containerName + " - SEFF " + 
-						(seff.getDescribedService__SEFF() == null ? "" : seff.getDescribedService__SEFF().getServiceName()) 
-						+ " id: "
-						+ seff.getId());
+				myCombo.add("Container: "
+						+ containerName
+						+ " - SEFF "
+						+ (seff.getDescribedService__SEFF() == null ? "" : seff
+								.getDescribedService__SEFF().getServiceName())
+						+ " id: " + seff.getId());
 			}
 		}
 

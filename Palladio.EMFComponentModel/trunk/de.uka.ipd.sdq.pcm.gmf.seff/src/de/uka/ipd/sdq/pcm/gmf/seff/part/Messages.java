@@ -156,6 +156,16 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String ForkAction11CreationTool_title;
+
+	/**
+	 * @generated
+	 */
+	public static String ForkAction11CreationTool_desc;
+
+	/**
+	 * @generated
+	 */
 	public static String ControlFlow1CreationTool_title;
 
 	/**
@@ -281,7 +291,7 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String SetVariableActionVariableUsageEditPart_title;
+	public static String SetVariableActionVariableSetterEditPart_title;
 
 	/**
 	 * @generated
@@ -397,6 +407,16 @@ public class Messages extends NLS {
 	 * @generated
 	 */
 	public static String NavigatorGroupName_ReleaseAction_2010_incominglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_ForkAction_2011_outgoinglinks;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorGroupName_ForkAction_2011_incominglinks;
 
 	/**
 	 * @generated

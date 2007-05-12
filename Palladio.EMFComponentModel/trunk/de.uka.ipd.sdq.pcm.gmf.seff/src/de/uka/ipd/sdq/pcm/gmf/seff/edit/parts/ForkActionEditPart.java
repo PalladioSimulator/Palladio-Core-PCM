@@ -5,9 +5,8 @@ package de.uka.ipd.sdq.pcm.gmf.seff.edit.parts;
 
 import org.eclipse.draw2d.Graphics;
 import org.eclipse.draw2d.IFigure;
-import org.eclipse.draw2d.RoundedRectangle;
+import org.eclipse.draw2d.RectangleFigure;
 import org.eclipse.draw2d.StackLayout;
-import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
 import org.eclipse.gef.Request;
@@ -24,18 +23,18 @@ import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
 
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.SetVariableActionItemSemanticEditPolicy;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.ForkActionItemSemanticEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.seff.part.PalladioComponentModelVisualIDRegistry;
 
 /**
  * @generated
  */
-public class SetVariableActionEditPart extends ShapeNodeEditPart {
+public class ForkActionEditPart extends ShapeNodeEditPart {
 
 	/**
 	 * @generated
 	 */
-	public static final int VISUAL_ID = 2008;
+	public static final int VISUAL_ID = 2011;
 
 	/**
 	 * @generated
@@ -50,7 +49,7 @@ public class SetVariableActionEditPart extends ShapeNodeEditPart {
 	/**
 	 * @generated
 	 */
-	public SetVariableActionEditPart(View view) {
+	public ForkActionEditPart(View view) {
 		super(view);
 	}
 
@@ -61,7 +60,7 @@ public class SetVariableActionEditPart extends ShapeNodeEditPart {
 
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
-				new SetVariableActionItemSemanticEditPolicy());
+				new ForkActionItemSemanticEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
 	}
 
@@ -95,25 +94,25 @@ public class SetVariableActionEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected IFigure createNodeShape() {
-		SetVariableActionFigure figure = new SetVariableActionFigure();
+		ForkFigure figure = new ForkFigure();
 		return primaryShape = figure;
 	}
 
 	/**
 	 * @generated
 	 */
-	public SetVariableActionFigure getPrimaryShape() {
-		return (SetVariableActionFigure) primaryShape;
+	public ForkFigure getPrimaryShape() {
+		return (ForkFigure) primaryShape;
 	}
 
 	/**
 	 * @generated
 	 */
 	protected boolean addFixedChild(EditPart childEditPart) {
-		if (childEditPart instanceof SetVariableActionEntityNameEditPart) {
-			((SetVariableActionEntityNameEditPart) childEditPart)
+		if (childEditPart instanceof ForkActionEntityNameEditPart) {
+			((ForkActionEntityNameEditPart) childEditPart)
 					.setLabel(getPrimaryShape()
-							.getFigureSetVariableNameLabelFigure());
+							.getFigureForkFigureNameLabelFigure());
 			return true;
 		}
 		return false;
@@ -211,19 +210,17 @@ public class SetVariableActionEditPart extends ShapeNodeEditPart {
 	 */
 	public EditPart getPrimaryChildEditPart() {
 		return getChildBySemanticHint(PalladioComponentModelVisualIDRegistry
-				.getType(SetVariableActionEntityNameEditPart.VISUAL_ID));
+				.getType(ForkActionEntityNameEditPart.VISUAL_ID));
 	}
 
 	/**
 	 * @generated
 	 */
-	public class SetVariableActionFigure extends RoundedRectangle {
+	public class ForkFigure extends RectangleFigure {
 		/**
 		 * @generated
 		 */
-		public SetVariableActionFigure() {
-			this.setCornerDimensions(new Dimension(getMapMode().DPtoLP(8),
-					getMapMode().DPtoLP(8)));
+		public ForkFigure() {
 			this.setFill(true);
 			this.setFillXOR(false);
 			this.setOutline(true);
@@ -238,37 +235,36 @@ public class SetVariableActionEditPart extends ShapeNodeEditPart {
 		 */
 		private void createContents() {
 
-			WrapLabel setVariableActionStereotypeLabelFigure0 = new WrapLabel();
-			setVariableActionStereotypeLabelFigure0
-					.setText("<<SetVariableAction>>");
+			WrapLabel stereotypeLabelFigure0 = new WrapLabel();
+			stereotypeLabelFigure0.setText("<<Fork>>");
 
-			this.add(setVariableActionStereotypeLabelFigure0);
+			this.add(stereotypeLabelFigure0);
 
-			WrapLabel setVariableNameLabelFigure0 = new WrapLabel();
-			setVariableNameLabelFigure0.setText("");
+			WrapLabel forkFigureNameLabelFigure0 = new WrapLabel();
+			forkFigureNameLabelFigure0.setText("");
 
-			this.add(setVariableNameLabelFigure0);
-			setFigureSetVariableNameLabelFigure(setVariableNameLabelFigure0);
+			this.add(forkFigureNameLabelFigure0);
+			setFigureForkFigureNameLabelFigure(forkFigureNameLabelFigure0);
 
 		}
 
 		/**
 		 * @generated
 		 */
-		private WrapLabel fSetVariableNameLabelFigure;
+		private WrapLabel fForkFigureNameLabelFigure;
 
 		/**
 		 * @generated
 		 */
-		public WrapLabel getFigureSetVariableNameLabelFigure() {
-			return fSetVariableNameLabelFigure;
+		public WrapLabel getFigureForkFigureNameLabelFigure() {
+			return fForkFigureNameLabelFigure;
 		}
 
 		/**
 		 * @generated
 		 */
-		private void setFigureSetVariableNameLabelFigure(WrapLabel fig) {
-			fSetVariableNameLabelFigure = fig;
+		private void setFigureForkFigureNameLabelFigure(WrapLabel fig) {
+			fForkFigureNameLabelFigure = fig;
 		}
 
 		/**

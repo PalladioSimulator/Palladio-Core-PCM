@@ -16,6 +16,7 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.CollectionIteratorAction2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.CollectionIteratorActionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ExternalCallAction2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ExternalCallActionEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ForkActionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.GuardedBranchTransitionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.InternalAction2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.InternalActionEditPart;
@@ -142,6 +143,10 @@ public class ResourceDemandingSEFFCanonicalEditPolicy extends
 				result.add(nextValue);
 				break;
 			}
+			case ForkActionEditPart.VISUAL_ID: {
+				result.add(nextValue);
+				break;
+			}
 			}
 		}
 		return result;
@@ -168,6 +173,7 @@ public class ResourceDemandingSEFFCanonicalEditPolicy extends
 		case SetVariableActionEditPart.VISUAL_ID:
 		case AquireAction2EditPart.VISUAL_ID:
 		case ReleaseAction2EditPart.VISUAL_ID:
+		case ForkActionEditPart.VISUAL_ID:
 			return true;
 		}
 		return false;
@@ -299,6 +305,7 @@ public class ResourceDemandingSEFFCanonicalEditPolicy extends
 		case SetVariableActionEditPart.VISUAL_ID:
 		case AquireAction2EditPart.VISUAL_ID:
 		case ReleaseAction2EditPart.VISUAL_ID:
+		case ForkActionEditPart.VISUAL_ID:
 		case VariableUsageEditPart.VISUAL_ID:
 		case VariableCharacterisationEditPart.VISUAL_ID:
 		case ResourceDemandingBehaviourEditPart.VISUAL_ID:
