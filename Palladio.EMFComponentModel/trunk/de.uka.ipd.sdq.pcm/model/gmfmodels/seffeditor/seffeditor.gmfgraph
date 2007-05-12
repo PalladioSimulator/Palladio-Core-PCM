@@ -56,12 +56,17 @@
     </figures>
     <figures
         xsi:type="gmfgraph:Rectangle"
-        referencingElements="ForkNode"
+        referencingElements="ForkNode ForkedBehaviours"
         name="ForkFigure">
       <children
           xsi:type="gmfgraph:Label"
-          name="EntityEntityNameFigure"
-          text="&lt;...>"/>
+          name="StereotypeLabelFigure"
+          text="&lt;&lt;Fork>>"/>
+      <children
+          xsi:type="gmfgraph:Label"
+          referencingElements="ForkNameLabel"
+          name="ForkFigureNameLabelFigure"
+          text=""/>
     </figures>
     <figures
         xsi:type="gmfgraph:Rectangle"
@@ -157,7 +162,7 @@
     </figures>
     <figures
         xsi:type="gmfgraph:RoundedRectangle"
-        referencingElements="ExternalCallActionNode VariableUsage"
+        referencingElements="ExternalCallActionNode InputVariableUsage OutputVariableUsage"
         name="ExternalCallActionFigure">
       <children
           xsi:type="gmfgraph:Label"
@@ -246,7 +251,7 @@
     </figures>
     <figures
         xsi:type="gmfgraph:RoundedRectangle"
-        referencingElements="SetVariableActionNode"
+        referencingElements="SetVariableActionNode VariableSetter"
         name="SetVariableActionFigure">
       <children
           xsi:type="gmfgraph:Label"
@@ -336,7 +341,7 @@
       collapsible="true"
       needsTitle="true"/>
   <compartments
-      name="VariableUsage"
+      name="InputVariableUsage"
       figure="ExternalCallActionFigure"
       collapsible="true"
       needsTitle="true"/>
@@ -345,8 +350,24 @@
       figure="ParametricParameterUsageFigure"
       collapsible="true"
       needsTitle="true"/>
+  <compartments
+      name="VariableSetter"
+      figure="SetVariableActionFigure"
+      collapsible="true"
+      needsTitle="true"/>
+  <compartments
+      name="ForkedBehaviours"
+      figure="ForkFigure"
+      collapsible="true"
+      needsTitle="true"/>
+  <compartments
+      name="OutputVariableUsage"
+      figure="ExternalCallActionFigure"
+      collapsible="true"
+      needsTitle="true"/>
   <labels
-      name="EntityEntityNameLabel"/>
+      name="ForkNameLabel"
+      figure="ForkFigureNameLabelFigure"/>
   <labels
       name="ParametricResourceDemandDemandLabel"
       figure="ParametricResourceDemandDemandFigure"/>
