@@ -59,13 +59,6 @@ public class VariableUsageContentProvider implements ITreeContentProvider {
 		}
 		
 		/**
-		 * Signatur
-		 */
-		if (parent instanceof Signature) {
-			Signature signature = (Signature) parent;
-			return signature.getParameters__Signature().toArray();
-		}
-		/**
 		 * Parameter
 		 */
 		if (parent instanceof Parameter) {
