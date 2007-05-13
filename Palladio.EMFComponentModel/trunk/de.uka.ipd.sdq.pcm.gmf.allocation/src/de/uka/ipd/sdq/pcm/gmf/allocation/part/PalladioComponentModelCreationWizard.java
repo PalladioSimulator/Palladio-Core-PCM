@@ -23,6 +23,14 @@ import org.eclipse.ui.actions.WorkspaceModifyOperation;
 public class PalladioComponentModelCreationWizard extends Wizard implements
 		INewWizard {
 
+	private ResourceEnvironmentSelectorPage myResourceEnvironmentSelectorPage;
+	private SystemSelectorPage mySystemSelectorPage;
+
+	public PalladioComponentModelCreationWizard() {
+		myResourceEnvironmentSelectorPage = new ResourceEnvironmentSelectorPage(null);
+		mySystemSelectorPage = new SystemSelectorPage(null);
+	}
+	
 	/**
 	 * @generated
 	 */
@@ -102,7 +110,7 @@ public class PalladioComponentModelCreationWizard extends Wizard implements
 	}
 
 	/**
-	 * @generated
+	 * @generated not
 	 */
 	public void addPages() {
 		diagramModelFilePage = new PalladioComponentModelCreationWizardPage(
@@ -118,10 +126,13 @@ public class PalladioComponentModelCreationWizard extends Wizard implements
 		domainModelFilePage
 				.setDescription("Select file that will contain domain model.");
 		addPage(domainModelFilePage);
+		
+		addPage(myResourceEnvironmentSelectorPage);
+		addPage(mySystemSelectorPage);
 	}
 
 	/**
-	 * @generated
+	 * @generated not
 	 */
 	public boolean performFinish() {
 		IRunnableWithProgress op = new WorkspaceModifyOperation(null) {
@@ -130,7 +141,10 @@ public class PalladioComponentModelCreationWizard extends Wizard implements
 					throws CoreException, InterruptedException {
 				diagram = PalladioComponentModelDiagramEditorUtil
 						.createDiagram(diagramModelFilePage.getURI(),
-								domainModelFilePage.getURI(), monitor);
+								domainModelFilePage.getURI(), 
+								mySystemSelectorPage.getSelectedSystem(),
+								myResourceEnvironmentSelectorPage.getSelectedResourceEnvironment(),
+								monitor);
 				if (isOpenNewlyCreatedDiagramEditor() && diagram != null) {
 					try {
 						PalladioComponentModelDiagramEditorUtil

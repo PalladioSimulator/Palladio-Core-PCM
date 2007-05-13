@@ -35,7 +35,7 @@ public class PalladioComponentModelModelingAssistantProvider extends
 		ModelingAssistantProvider {
 
 	/**
-	 * @generated
+	 * @generated not
 	 */
 	public List getTypesForPopupBar(IAdaptable host) {
 		IGraphicalEditPart editPart = (IGraphicalEditPart) host
@@ -48,8 +48,8 @@ public class PalladioComponentModelModelingAssistantProvider extends
 		}
 		if (editPart instanceof AllocationEditPart) {
 			List types = new ArrayList();
-			types
-					.add(PalladioComponentModelElementTypes.ResourceContainer_2002);
+			//types
+			//		.add(PalladioComponentModelElementTypes.ResourceContainer_2002);
 			return types;
 		}
 		return Collections.EMPTY_LIST;

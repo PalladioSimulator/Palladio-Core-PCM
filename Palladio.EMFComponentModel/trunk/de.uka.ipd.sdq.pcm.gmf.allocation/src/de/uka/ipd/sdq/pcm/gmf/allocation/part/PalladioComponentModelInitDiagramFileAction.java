@@ -69,7 +69,7 @@ public class PalladioComponentModelInitDiagramFileAction implements
 	}
 
 	/**
-	 * @generated
+	 * @generated not
 	 */
 	public void run(IAction action) {
 		TransactionalEditingDomain editingDomain = GMFEditingDomainFactory.INSTANCE
@@ -88,7 +88,7 @@ public class PalladioComponentModelInitDiagramFileAction implements
 					"Model file loading failed");
 			return;
 		}
-		Wizard wizard = new PalladioComponentModelNewDiagramFileWizard(
+		Wizard wizard = new PcmNewAllocationDiagramFileWizard(
 				domainModelURI, diagramRoot, editingDomain);
 		wizard.setWindowTitle("Initialize new " + AllocationEditPart.MODEL_ID
 				+ " diagram file");

@@ -52,6 +52,7 @@ import org.eclipse.ui.PartInitException;
 import de.uka.ipd.sdq.pcm.allocation.Allocation;
 import de.uka.ipd.sdq.pcm.allocation.AllocationFactory;
 import de.uka.ipd.sdq.pcm.gmf.allocation.edit.parts.AllocationEditPart;
+import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceEnvironment;
 
 /**
  * @generated
@@ -151,11 +152,13 @@ public class PalladioComponentModelDiagramEditorUtil {
 
 	/**
 	 * This method should be called within a workspace modify operation since it creates resources.
-	 * @generated
+	 * @generated not
 	 */
 	public static Resource createDiagram(
 			org.eclipse.emf.common.util.URI diagramURI,
 			org.eclipse.emf.common.util.URI modelURI,
+			final de.uka.ipd.sdq.pcm.system.System mySystem,
+			final ResourceEnvironment myResourceEnv,
 			IProgressMonitor progressMonitor) {
 		TransactionalEditingDomain editingDomain = GMFEditingDomainFactory.INSTANCE
 				.createEditingDomain();
@@ -172,6 +175,8 @@ public class PalladioComponentModelDiagramEditorUtil {
 					IProgressMonitor monitor, IAdaptable info)
 					throws ExecutionException {
 				Allocation model = createInitialModel();
+				model.setSystem_Allocation(mySystem);
+				model.setTargetResourceEnvironment_Allocation(myResourceEnv);
 				attachModelToResource(model, modelResource);
 
 				Diagram diagram = ViewService
