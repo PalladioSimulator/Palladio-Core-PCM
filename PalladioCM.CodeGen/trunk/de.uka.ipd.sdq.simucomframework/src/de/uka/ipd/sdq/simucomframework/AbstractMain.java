@@ -2,15 +2,25 @@ package de.uka.ipd.sdq.simucomframework;
 import java.util.Observable;
 import java.util.Observer;
 
+import org.apache.log4j.BasicConfigurator;
+import org.apache.log4j.ConsoleAppender;
+import org.apache.log4j.Logger;
+import org.apache.log4j.PatternLayout;
+import org.apache.log4j.Priority;
+
 import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
 import de.uka.ipd.sdq.simucomframework.resources.IResourceContainerFactory;
 import de.uka.ipd.sdq.simucomframework.usage.IWorkloadDriver;
 
 public abstract class AbstractMain {
 	private SimuComModel model = null;
+	private static Logger logger = 
+		Logger.getLogger(AbstractMain.class.getName());
 
 	protected SimuComStatus run(final IStatusObserver statusObserver, long maxSimTime)
 	{
+		initializeLogger();
+		
 		final long SIM_STOP_TIME = maxSimTime;
 		
 		model = 
@@ -30,6 +40,16 @@ public abstract class AbstractMain {
 		return model.getErrorStatus();
 	}
 	
+	private void initializeLogger() {
+		PatternLayout myLayout = new PatternLayout("%d{HH:mm:ss,SSS} [%t] %-5p %m [%c]%n");
+		ConsoleAppender myAppender = new ConsoleAppender(myLayout);
+		myAppender.setThreshold(Priority.WARN);
+		BasicConfigurator.resetConfiguration();
+		BasicConfigurator.configure(myAppender);
+		logger.debug("Simulation Logging enabled!");
+		logger.info("Starting Simulation");
+	}
+
 	protected void stop() {
 		model.getExperiment().stop();
 	}

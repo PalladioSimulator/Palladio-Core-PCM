@@ -17,7 +17,7 @@
 	«LET s.qosAnnotations_System.specifiedExecutionTimes_QoSAnnotations.select(spet|spet.role_SpecifiedExecutionTime==r && spet.signature_SpecifiedTimeConsumption==this) AS annotations»
 		«IF annotations.size == 1»
 			double delay = de.uka.ipd.sdq.simucomframework.converter.NumberConverter.toDouble(ctx.evaluate("«annotations.get(0).specification.specificationString()»"));
-			System.out.println("Delaying for "+delay);
+			logger.info("SystemExternalCall «annotations.get(0).signature_SpecifiedTimeConsumption.serviceName» delaying execution for "+delay);
 			ctx.getThread().hold(new desmoj.core.simulator.SimTime(delay));
 		«ENDIF»
 	«ENDLET»

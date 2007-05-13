@@ -5,6 +5,8 @@ import java.util.HashMap;
 import java.util.Observable;
 import java.util.Observer;
 
+import org.apache.log4j.Logger;
+
 import de.uka.ipd.sdq.sensorfactory.SensorFrameworkDataset;
 import de.uka.ipd.sdq.sensorfactory.entities.Experiment;
 import de.uka.ipd.sdq.sensorfactory.entities.ExperimentRun;
@@ -40,6 +42,8 @@ class SensorObserver implements Observer {
 }
 
 public class SensorFrameworkObserver implements ISensorObserver {
+	private static Logger logger = 
+		Logger.getLogger(SensorFrameworkObserver.class.getName());
 	
 	private Experiment experiment = SensorFrameworkDataset.singleton().getMemoryDataset().createExperiment("Simucom Experiment");
 	protected HashMap<String, Sensor> sensors = new HashMap<String, Sensor>();
@@ -51,6 +55,7 @@ public class SensorFrameworkObserver implements ISensorObserver {
 	
 	public void sensorAddedEvent(SensorAddedEvent e) {
 		if (!sensors.containsKey(e.getId())){
+			logger.info("Creating TimeSpan Sensor: "+e.getId());
 			TimeSpanSensor sensor = experiment.addTimeSpanSensor(e.getId());
 			sensors.put(e.getId(),sensor);
 			e.getSupplier().addObserver(new SensorObserver(run,sensor));
@@ -58,6 +63,7 @@ public class SensorFrameworkObserver implements ISensorObserver {
 	}
 
 	public void finish() {
+		logger.info("Storing Experiment Results");
 		SensorFrameworkDataset.singleton().getMemoryDataset().storeExperiment(experiment);
 	}
 

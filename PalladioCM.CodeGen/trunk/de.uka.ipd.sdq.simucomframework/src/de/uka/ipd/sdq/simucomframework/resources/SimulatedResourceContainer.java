@@ -4,11 +4,16 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Set;
 
+import org.apache.log4j.Logger;
+
 import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
 import desmoj.core.simulator.SimProcess;
 
 public class SimulatedResourceContainer {
 
+	private static Logger logger = 
+		Logger.getLogger(SimulatedResourceContainer.class.getName());
+	
 	private String myContainerID = null;
 	private SimuComModel myModel = null;
 
@@ -25,19 +30,19 @@ public class SimulatedResourceContainer {
 	}
 
 	public void loadActiveResource(SimProcess requestingProcess, String typeID, double demand) {
-		System.out.println(typeID + " loaded with "+demand);
+		logger.info(typeID + " loaded with "+demand);
 		SimulatedActiveResource resource = activeResources.get(typeID);
 		resource.consumeResource(requestingProcess, demand);
 	}
 
 	public void aquirePassiveResource(SimProcess requestingProcess, String typeID) {
-		System.out.println(typeID + " aquire request");
+		logger.info(typeID + " aquire request");
 		SimulatedPassiveResource resource = passiveResources.get(typeID);
 		resource.aquire(requestingProcess);
 	}
 	
 	public void releasePassiveResource(String typeID) {
-		System.out.println(typeID + " release request");
+		logger.info(typeID + " release request");
 		SimulatedPassiveResource resource = passiveResources.get(typeID);
 		resource.release();
 	}

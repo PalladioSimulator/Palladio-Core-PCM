@@ -2,6 +2,9 @@ package de.uka.ipd.sdq.simucomframework.resources;
 
 import java.util.HashMap;
 
+import org.apache.log4j.Logger;
+
+import de.uka.ipd.sdq.simucomframework.AbstractMain;
 import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
 import desmoj.core.simulator.Entity;
 import desmoj.core.simulator.Event;
@@ -12,6 +15,8 @@ import desmoj.core.simulator.SimTime;
 
 
 public class SimulatedActiveResource extends Entity {
+	private static Logger logger = 
+		Logger.getLogger(SimulatedActiveResource.class.getName());
 
 	class JobAndDemandStruct extends Entity {
 		private double demand;
@@ -54,16 +59,15 @@ public class SimulatedActiveResource extends Entity {
 	public SimulatedActiveResource(SimuComModel myModel, String typeID, double d, String units)
 	{
 		super (myModel, typeID, true);
-		// associatedQueue = new ProcessQueue(
-		//		myModel, 
-		//		typeID+" WaitQueue",
-		//		true,
-		//		true);
 		this.processingRate = d;
 		this.units = units;
 		
+		logger.info("Creating Simulated Active Resource: "+this.getName());
+		
 		//myStrategy = new RoundRobinStrategy();
+		//logger.info("Using RoundRobin Scheduler for Active Resource "+this.getName());
 		myStrategy = new FIFOStrategy(myModel,typeID);
+		logger.info("Using FIFO Scheduler for Active Resource "+this.getName());
 	}
 		
 	public void consumeResource(SimProcess thread, double demand)
@@ -72,36 +76,16 @@ public class SimulatedActiveResource extends Entity {
 		Event ev = new JobArrivalEvent(this.getModel(),
 				job,"Arrival Event", true);
 		ev.schedule(job, SimTime.NOW);
-		// resourceDemands.put(thread,demand / processingRate);
-		// associatedQueue.insert(thread);
-		// activateAfter(thread);
+		logger.debug("Thread "+thread.getName()+" requested processing of demand "+demand);
 		thread.passivate();
 	}
 
 	public void activateResource()
 	{
-		// activate(SimTime.NOW);
+		logger.debug("Starting Resource "+this.getName());
 		lastTimeOfAdjustingJobs = getModel().currentTime();
 	}
 	
-//	@Override
-//	public void lifeCycle() {
-//		while (true)
-//		{
-//			if (associatedQueue.isEmpty()) {
-//				passivate();
-//			}
-//			else
-//			{
-//				SimProcess waitingProcess = associatedQueue.first();
-//				associatedQueue.remove(waitingProcess);
-//				Double demand = resourceDemands.get(waitingProcess);
-//				resourceDemands.remove(waitingProcess);
-//				hold(new SimTime(demand));
-//				waitingProcess.activateAfter(this);
-//			}
-//		}
-//	}
 
 	public void processPassedTime() {
 		double timePassed = getModel().currentTime().getTimeValue() - lastTimeOfAdjustingJobs.getTimeValue();

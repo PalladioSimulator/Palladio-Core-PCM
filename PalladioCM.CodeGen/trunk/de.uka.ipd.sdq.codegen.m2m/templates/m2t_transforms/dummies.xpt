@@ -9,9 +9,12 @@
 «DEFINE DummyComponent(System s) FOR RequiredRole»
 	«FILE (s.implementationPackage()+"."+this.fqnDummyComponent()).fqnToDirectoryPath()+".java"»
 		package «s.implementationPackage()».«this.fqnDummyComponentPackage()»;
-		
+				
 		public class «this.dummyComponentName()» 
 		implements «this.requiredInterface__RequiredRole.fqn()» {
+			private static org.apache.log4j.Logger logger = 
+				org.apache.log4j.Logger.getLogger(«this.dummyComponentName()».class.getName());
+		
 			«EXPAND DummyMethod(s,this) FOREACH this.requiredInterface__RequiredRole.signatures__Interface»
 		}
 	«ENDFILE»

@@ -1,10 +1,13 @@
 package de.uka.ipd.sdq.simucomframework.variables.stoexvisitor;
 
+import org.apache.log4j.Logger;
+
 import de.uka.ipd.sdq.pcm.parameter.CharacterisedVariable;
 import de.uka.ipd.sdq.pcm.stochasticexpressions.PCMStoExPrettyPrintVisitor;
 import de.uka.ipd.sdq.pcm.stochasticexpressions.PCMStoExSwitch;
 import de.uka.ipd.sdq.simucomframework.variables.EvaluationProxy;
 import de.uka.ipd.sdq.simucomframework.variables.StackContext;
+import de.uka.ipd.sdq.simucomframework.variables.cache.ProbFunctionCache;
 import de.uka.ipd.sdq.simucomframework.variables.cache.StoExCache;
 import de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe;
 import de.uka.ipd.sdq.simucomframework.variables.stackframe.ValueNotInFrameException;
@@ -29,6 +32,9 @@ import de.uka.ipd.sdq.stoex.analyser.visitors.TypeEnum;
 
 public class PCMStoExEvaluationVisitor extends PCMStoExSwitch {
 
+	private static Logger logger = 
+		Logger.getLogger(PCMStoExEvaluationVisitor.class.getName());
+	
 	private PCMProbfunctionEvaluationVisitor probfunctionVisitor;
 	private SimulatedStackframe<Object> myStackFrame;
 	private ExpressionInferTypeVisitor typeInferer;
@@ -54,9 +60,12 @@ public class PCMStoExEvaluationVisitor extends PCMStoExSwitch {
 				return value;
 			}
 		} catch (ValueNotInFrameException e) {
+			logger.error("Value should be in stackframe, but it is not!",e);
 			e.printStackTrace();
 		}
-        throw new RuntimeException("Architecture specification incomplete. Stackframe is missing id "+variableID);
+		RuntimeException re = new RuntimeException("Architecture specification incomplete. Stackframe is missing id "+variableID);
+        logger.error("Value not found in specification",re);
+		throw re; 
 	}
 
 	@Override

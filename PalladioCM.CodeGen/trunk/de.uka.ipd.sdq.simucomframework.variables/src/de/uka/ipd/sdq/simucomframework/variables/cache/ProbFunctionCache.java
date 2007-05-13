@@ -5,6 +5,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Iterator;
 
+import org.apache.log4j.Logger;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.EcoreUtil;
@@ -23,9 +24,12 @@ import de.uka.ipd.sdq.probfunction.math.exception.ProbabilitySumNotOneException;
 import de.uka.ipd.sdq.probfunction.math.exception.UnknownPDFTypeException;
 import de.uka.ipd.sdq.probfunction.print.ProbFunctionPrettyPrint;
 import de.uka.ipd.sdq.probfunction.util.ProbfunctionSwitch;
+import de.uka.ipd.sdq.simucomframework.variables.StackContext;
 import de.uka.ipd.sdq.stoex.Expression;
 
 public class ProbFunctionCache {
+	private static Logger logger = 
+		Logger.getLogger(ProbFunctionCache.class.getName());
 
 	private HashMap<EObject,IProbabilityFunction> probFunctions = new HashMap<EObject,IProbabilityFunction>();
 	private ProbfunctionSwitch probFunctionAnnotator = new ProbfunctionSwitch() {
@@ -43,26 +47,17 @@ public class ProbFunctionCache {
 					if (sample.getProbability() > 0)
 						sample.setProbability(sample.getProbability()+delta);
 				}
-				System.err.println("Probfunction needed adjustment as it didn't sum up to 1! Fix your input specification!!");
+				logger.warn("Probfunction needed adjustment as it didn't sum up to 1! Fix your input specification!!");
 			}
 			// END TODO: Quick fix. Adjust wrong PDFs
 			IProbabilityDensityFunction pdf = null;
 			try {
 				pdf = IProbabilityFunctionFactory.eINSTANCE.transformToPDF(object);
-			} catch (UnknownPDFTypeException e) {
-				e.printStackTrace();
-				System.exit(-1);
-			} catch (ProbabilitySumNotOneException e) {
-				e.printStackTrace();
-				System.exit(-1);
-			} catch (DoubleSampleException e) {
-				e.printStackTrace();
-				System.exit(-1);
-			}
-			try {
 				pdf.checkConstrains();
 			} catch(Exception ex) {
-				throw new RuntimeException("PMF not valid: "+new ProbFunctionPrettyPrint().doSwitch(object));
+				RuntimeException ex2 = new RuntimeException("PMF not valid: "+new ProbFunctionPrettyPrint().doSwitch(object));
+				logger.error("PMF not valid!", ex2);
+				throw ex2; 
 			}
 			probFunctions.put(object, pdf);
 			return super.caseBoxedPDF(object);
@@ -98,7 +93,7 @@ public class ProbFunctionCache {
 					if (sample.getProbability() > 0)
 						sample.setProbability(sample.getProbability()+delta);
 				}
-				System.err.println("Probfunction needed adjustment as it didn't sum up to 1! Fix your input specification!!");
+				logger.warn("Probfunction needed adjustment as it didn't sum up to 1! Fix your input specification!!");
 			}
 			// END TODO: Quick fix. Adjust wrong PDFs
 
@@ -106,7 +101,9 @@ public class ProbFunctionCache {
 			try {
 				pmf.checkConstrains();
 			} catch(Exception ex) {
-				throw new RuntimeException("PMF not valid: "+new ProbFunctionPrettyPrint().doSwitch(object));
+				RuntimeException ex2 = new RuntimeException("PMF not valid: "+new ProbFunctionPrettyPrint().doSwitch(object));
+				logger.error("PMF not valid!", ex2);
+				throw ex2; 
 			}
 			probFunctions.put(object, pmf);
 			return super.caseProbabilityMassFunction(object);

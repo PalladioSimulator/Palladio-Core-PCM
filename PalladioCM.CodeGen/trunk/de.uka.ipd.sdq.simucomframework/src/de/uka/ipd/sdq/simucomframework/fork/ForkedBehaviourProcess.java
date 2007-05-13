@@ -1,11 +1,15 @@
 package de.uka.ipd.sdq.simucomframework.fork;
 
+import org.apache.log4j.Logger;
+
 import com.sun.xml.internal.bind.v2.runtime.reflect.Accessor.SetterOnlyReflection;
 
 import de.uka.ipd.sdq.simucomframework.Context;
+import de.uka.ipd.sdq.simucomframework.SimuComStatus;
 import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
 import de.uka.ipd.sdq.simucomframework.resources.SimulatedResourceContainer;
 import de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStack;
+import de.uka.ipd.sdq.simucomframework.variables.stoexvisitor.PCMStoExEvaluationVisitor;
 import desmoj.core.simulator.Model;
 import desmoj.core.simulator.SimProcess;
 
@@ -43,6 +47,9 @@ public abstract class ForkedBehaviourProcess extends SimProcess {
 	private SimProcess myParent;
 	protected String assemblyContextID;
 
+	private static Logger logger = 
+		Logger.getLogger(ForkedBehaviourProcess.class.getName());
+
 	public ForkedBehaviourProcess(Context myContext, String assemblyContextID) {
 		super(myContext.getModel(), "Forked Behaviour", true);
 		this.ctx = new ForkContext(myContext,this);
@@ -52,7 +59,13 @@ public abstract class ForkedBehaviourProcess extends SimProcess {
 
 	@Override
 	public void lifeCycle() {
-		executeBehaviour();
+		try {
+			executeBehaviour();
+		} catch(Exception ex) {
+			logger.error("Error in executing forked behaviour!",ex);
+			((SimuComModel)this.getModel()).setStatus(SimuComStatus.ERROR, ex.getMessage());
+			this.getModel().getExperiment().stop();
+		}
 		myParent.activateAfter(this);
 	}
 

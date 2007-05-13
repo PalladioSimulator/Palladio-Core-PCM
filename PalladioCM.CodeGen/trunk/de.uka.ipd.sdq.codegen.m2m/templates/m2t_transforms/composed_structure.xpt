@@ -16,6 +16,9 @@
   
    public class «this.className()» 
    {
+		private static org.apache.log4j.Logger logger = 
+			org.apache.log4j.Logger.getLogger(«this.className()».class.getName());
+  
       «EXPAND m2t_transforms::composed_structure::InnerImplementation FOR this»
 «ENDDEFINE»
 

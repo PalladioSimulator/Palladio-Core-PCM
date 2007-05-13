@@ -6,6 +6,8 @@ import java.rmi.server.UnicastRemoteObject;
 import java.util.Collection;
 import java.util.Map.Entry;
 
+import org.apache.log4j.Logger;
+
 import de.uka.ipd.sdq.simucomframework.variables.cache.StoExCache;
 import de.uka.ipd.sdq.simucomframework.variables.cache.StoExCacheEntry;
 import de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStack;
@@ -13,6 +15,14 @@ import de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe;
 import de.uka.ipd.sdq.simucomframework.variables.stoexvisitor.PCMStoExEvaluationVisitor;
 
 public class StackContext implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 2031992603442903211L;
+	
+	private static Logger logger = 
+		Logger.getLogger(StackContext.class.getName());
         
     public StackContext() {}
         
@@ -23,13 +33,17 @@ public class StackContext implements Serializable {
 	}
 
 	public static Object evaluate(String string, Class expectedType, SimulatedStackframe frame) {
+		logger.debug("About to evaluate "+string);
 		Object result = evaluate(string,frame);
+		logger.debug("Result "+result);
 		if (expectedType.isInstance(result))
 			return result;
 		if (expectedType == Double.class && result.getClass() == Integer.class)
 			return ((Integer)result).doubleValue();
-		throw new UnsupportedOperationException("Evaluation result is of type "+result.getClass().getCanonicalName()+
-				" but expected was "+expectedType.getCanonicalName()+ " and no conversion was available...");
+		UnsupportedOperationException ex = new UnsupportedOperationException("Evaluation result is of type "+result.getClass().getCanonicalName()+
+				" but expected was "+expectedType.getCanonicalName()+ " and no conversion was available..."); 
+		logger.error("Evaluation of an expression resulted in wrong type!",ex);
+		throw ex; 
 	}
 
 	public Object evaluate(String string) {
