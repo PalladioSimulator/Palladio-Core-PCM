@@ -84,7 +84,7 @@ public class TreeContentProvider implements ITreeContentProvider {
 			Collection<Experiment> experiments = dao.getExperiments();
 
 			for (Experiment e : experiments) {
-				if (e.getExperimentID() == run.getExperimentRunID())
+				if (e.getExperimentRuns().contains(run))
 					return e;
 			}
 		}

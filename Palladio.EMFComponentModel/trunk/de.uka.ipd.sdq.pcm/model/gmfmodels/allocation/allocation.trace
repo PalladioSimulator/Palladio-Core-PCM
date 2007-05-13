@@ -18,5 +18,8 @@
     <nodeLabelTraces
         visualID="5001"
         queryText="true"/>
+    <nodeLabelTraces
+        visualID="5005"
+        queryText="true"/>
   </childNodeTraces>
 </trace:TraceModel>

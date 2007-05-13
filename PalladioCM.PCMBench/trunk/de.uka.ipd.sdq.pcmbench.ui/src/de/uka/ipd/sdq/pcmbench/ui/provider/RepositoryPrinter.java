@@ -19,8 +19,6 @@ public class RepositoryPrinter extends RepositorySwitch {
 	public Object caseParameter(Parameter object) {
 		String result = "";
 		result += object.getParameterName();
-		result = ((Signature)object.eContainer()).getServiceName() + "." +result;
-		result = ((Interface)object.eContainer().eContainer()).getEntityName() + "." +result;
 		return result;
 	}
 

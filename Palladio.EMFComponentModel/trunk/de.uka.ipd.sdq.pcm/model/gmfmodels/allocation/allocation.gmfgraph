@@ -14,6 +14,10 @@
           referencingElements="AllocationNameLabel"
           name="AllocationNameFigure"
           text="&lt;...>"/>
+      <children
+          xsi:type="gmfgraph:Label"
+          referencingElements="AllocationComponentLabel"
+          name="AllocationComponentLabelFigure"/>
     </figures>
     <figures
         xsi:type="gmfgraph:Rectangle"
@@ -41,4 +45,7 @@
   <labels
       name="ResContainerNameLabel"
       figure="ResContainerNameFigure"/>
+  <labels
+      name="AllocationComponentLabel"
+      figure="AllocationComponentLabelFigure"/>
 </gmfgraph:Canvas>

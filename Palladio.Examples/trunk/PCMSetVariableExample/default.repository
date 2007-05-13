@@ -30,6 +30,7 @@
           <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="RETURN"/>
         </variableUsage_SetVariableAction>
       </steps_Behaviour>
+      <steps_Behaviour xsi:type="pcm.seff:SetVariableAction" id="_zXI0cABbEdyaQesd_AtJPw" entityName="xyz"/>
     </serviceEffectSpecifications__BasicComponent>
   </components__Repository>
   <interfaces__Repository id="_3YdhAP_8Edu5_5tCZjPAAA" entityName="IProvided">

@@ -35,6 +35,11 @@
             <features
                 href="../../pcm.ecore#//core/entity/NamedElement/entityName"/>
           </labelMappings>
+          <labelMappings
+              readOnly="true">
+            <diagramLabel
+                href="allocation.gmfgraph#AllocationComponentLabel"/>
+          </labelMappings>
           <tool
               xsi:type="gmftool:CreationTool"
               href="allocation.gmftool#//@palette/@tools.0/@tools.0"/>
