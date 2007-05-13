@@ -26,6 +26,7 @@ import org.eclipse.swt.widgets.Control;
 import org.eclipse.ui.views.properties.IPropertyDescriptor;
 
 import de.uka.ipd.sdq.identifier.Identifier;
+import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
 import de.uka.ipd.sdq.pcm.core.entity.Entity;
 import de.uka.ipd.sdq.pcm.repository.Parameter;
 import de.uka.ipd.sdq.pcm.seff.AbstractResourceDemandingAction;
@@ -62,7 +63,11 @@ public class PalladioItemProvider extends ItemProviderDecorator implements
 	@Override
 	public String getText(Object object) {
 		String result = "";
-		if (object instanceof Entity) {
+		if (object instanceof AssemblyContext) {
+			AssemblyContext ctx = (AssemblyContext)object;
+			result = ctx.getEntityName();
+			result += ctx.getEncapsulatedComponent_ChildComponentContext() == null ? "" : " <Component: "+ctx.getEncapsulatedComponent_ChildComponentContext().getEntityName()+">";
+		} else if (object instanceof Entity) {
 			result = ((Entity)object).getEntityName();
 		} else if (object instanceof ResourceDemandingSEFF){
 			ResourceDemandingSEFF seff = (ResourceDemandingSEFF) object;
