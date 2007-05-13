@@ -4,6 +4,8 @@
 package de.uka.ipd.sdq.sensorframework.visualisation.tabs;
 
 import java.util.ArrayList;
+import java.util.Observable;
+import java.util.Observer;
 
 import org.eclipse.jface.viewers.CellEditor;
 import org.eclipse.jface.viewers.DialogCellEditor;
@@ -14,7 +16,6 @@ import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.jface.window.Window;
 import org.eclipse.swt.SWT;
-import org.eclipse.swt.dnd.DND;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.layout.FormAttachment;
@@ -32,7 +33,8 @@ import org.eclipse.ui.part.EditorPart;
 import org.eclipse.ui.views.properties.tabbed.AbstractPropertySection;
 import org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage;
 
-
+import de.uka.ipd.sdq.sensorfactory.SensorAndMeasurements;
+import de.uka.ipd.sdq.sensorfactory.entities.ExperimentRun;
 import de.uka.ipd.sdq.sensorfactory.entities.Sensor;
 import de.uka.ipd.sdq.sensorframework.visualisation.IVisualisation;
 import de.uka.ipd.sdq.sensorframework.visualisation.SimuImages;
@@ -41,18 +43,31 @@ import de.uka.ipd.sdq.sensorframework.visualisation.dialogs.ExperimentRunsDialog
 import de.uka.ipd.sdq.sensorframework.visualisation.dialogs.SensorsDialog;
 import de.uka.ipd.sdq.sensorframework.visualisation.editor.AbstractReportView;
 import de.uka.ipd.sdq.sensorframework.visualisation.editor.ConfigEditorInput;
-import de.uka.ipd.sdq.sensorframework.visualisation.editor.RunEntry;
+import de.uka.ipd.sdq.sensorframework.visualisation.editor.ConfigEntry;
+import de.uka.ipd.sdq.sensorframework.visualisation.views.TreeObject;
 
 /**
  * @author admin
  * 
  */
-public class SensorsPropertySection extends AbstractPropertySection {
+public class SensorsPropertySection extends AbstractPropertySection implements
+		Observer {
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.util.Observer#update(java.util.Observable, java.lang.Object)
+	 */
+	@Override
+	public void update(Observable subject, Object signal) {
+		refresh();
+	}
 
 	private ConfigEditorInput configObject;
-	private RunEntry selectedEntry;
+	private ConfigEntry selectedEntry;
 	private TableViewer viewer;
 	private Button updateButton;
+	private ToolItem deleteRunItem;
 
 	public static final int ICON_COLUMN_INDEX = 0;
 	public static final int CONTEXT_COLUMN_INDEX = 1;
@@ -76,18 +91,13 @@ public class SensorsPropertySection extends AbstractPropertySection {
 	int style = SWT.SINGLE | SWT.BORDER | SWT.H_SCROLL | SWT.V_SCROLL
 			| SWT.FULL_SELECTION | SWT.HIDE_SELECTION;
 
-	int ops = DND.DROP_COPY | DND.DROP_MOVE;
-
-	/*
-	 * (non-Javadoc)
-	 * 
+	/* (non-Javadoc)
 	 * @see org.eclipse.ui.views.properties.tabbed.AbstractPropertySection#createControls(org.eclipse.swt.widgets.Composite,
 	 *      org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage)
 	 */
 	@Override
 	public void createControls(Composite parent,
 			TabbedPropertySheetPage aTabbedPropertySheetPage) {
-		// TODO Auto-generated method stub
 		super.createControls(parent, aTabbedPropertySheetPage);
 
 		Composite composite = getWidgetFactory()
@@ -116,10 +126,13 @@ public class SensorsPropertySection extends AbstractPropertySection {
 		viewer.setCellModifier(new SensorsCellModifier());
 		viewer.addSelectionChangedListener(new ISelectionChangedListener() {
 			public void selectionChanged(SelectionChangedEvent event) {
-
 				Object object = ((IStructuredSelection) viewer.getSelection())
 						.getFirstElement();
-				selectedEntry = (RunEntry) object;
+				selectedEntry = (ConfigEntry) object;
+				
+				if (selectedEntry != null)
+					deleteRunItem.setEnabled(true);
+				else deleteRunItem.setEnabled(false);
 			}
 		});
 		editors[SENSORS_COLUMN_INDEX] = new DialogCellEditor(table) {
@@ -131,16 +144,18 @@ public class SensorsPropertySection extends AbstractPropertySection {
 
 				if (dialog.open() == dialog.OK)
 					viewer.refresh();
-				
+
 				if (!selectedEntry.getSensors().isEmpty())
 					updateButton.setEnabled(true);
-				else updateButton.setEnabled(false);
-				
+				else
+					updateButton.setEnabled(false);
+
 				return null;
 			}
 		};
 		// Assign the cell editors to the viewer
 		viewer.setCellEditors(editors);
+		
 		// Definere the table columns
 		final TableColumn zeroColumn = new TableColumn(table, SWT.NONE);
 		zeroColumn.setResizable(false);
@@ -158,8 +173,7 @@ public class SensorsPropertySection extends AbstractPropertySection {
 		sensorsColumn.setWidth(200);
 		sensorsColumn.setText(SENSORS_COLUMN);
 
-		ToolBar toolBar;
-		toolBar = new ToolBar(composite, SWT.VERTICAL | SWT.FLAT | SWT.RIGHT);
+		ToolBar toolBar = new ToolBar(composite, SWT.VERTICAL | SWT.FLAT | SWT.RIGHT);
 		fd_table.right = new FormAttachment(toolBar, -5, SWT.LEFT);
 		final FormData fd_toolBar = new FormData();
 		fd_toolBar.left = new FormAttachment(100, -32);
@@ -170,7 +184,8 @@ public class SensorsPropertySection extends AbstractPropertySection {
 
 		ToolItem addRunItem = new ToolItem(toolBar, SWT.PUSH);
 		addRunItem.setImage(SimuImages.imageRegistry.get(SimuImages.ADD));
-		addRunItem.addSelectionListener(new SelectionAdapter(){
+		addRunItem.addSelectionListener(new SelectionAdapter() {
+		
 			/* (non-Javadoc)
 			 * @see org.eclipse.swt.events.SelectionAdapter#widgetSelected(org.eclipse.swt.events.SelectionEvent)
 			 */
@@ -178,16 +193,30 @@ public class SensorsPropertySection extends AbstractPropertySection {
 				ExperimentRunsDialog dialog = new ExperimentRunsDialog(
 						e.display.getActiveShell());
 				if (dialog.open() == Window.OK && dialog.getResult() != null) {
-					configObject.addNewEntry(dialog.getResult());
+					TreeObject object = dialog.getResult();
+					configObject.addNewConfigEntry(
+							(ExperimentRun) object.getObject(), object
+									.getExperiment());
 					viewer.refresh();
 				}
 			}
 		});
 
-		ToolItem deleteRunItem = new ToolItem(toolBar, SWT.PUSH);
+		deleteRunItem = new ToolItem(toolBar, SWT.PUSH);
 		deleteRunItem.setImage(SimuImages.imageRegistry.get(SimuImages.DELETE));
+		deleteRunItem.addSelectionListener(new SelectionAdapter(){
+
+			/* (non-Javadoc)
+			 * @see org.eclipse.swt.events.SelectionAdapter#widgetSelected(org.eclipse.swt.events.SelectionEvent)
+			 */
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				configObject.removeConfigEntry(selectedEntry);
+			}
+			
+		});
 		deleteRunItem.setEnabled(false);
-		
+
 		updateButton = new Button(composite, SWT.NONE);
 		final FormData fd_updateButton = new FormData();
 		fd_updateButton.right = new FormAttachment(0, 95);
@@ -197,14 +226,18 @@ public class SensorsPropertySection extends AbstractPropertySection {
 		updateButton.setText("Update Chart");
 		updateButton.addSelectionListener(new SelectionAdapter() {
 			public void widgetSelected(SelectionEvent e) {
-				EditorPart editor = (EditorPart) SimuPlugin.getDefault().getWorkbench()
-				.getActiveWorkbenchWindow().getActivePage().getActiveEditor();
+
+				EditorPart editor = (EditorPart) SimuPlugin.getDefault()
+						.getWorkbench().getActiveWorkbenchWindow()
+						.getActivePage().getActiveEditor();
 				// ((ReportView) editor).getVisualization().initChart();
-				ArrayList list = new ArrayList();
-				IVisualisation vis = (IVisualisation)editor;
-				for (RunEntry re:configObject.getRunEntrys()){
-					for (Sensor s:re.getSensors()){
-						list.add(re.getExperimentRun().getMeasurementsOfSensor(s));
+				ArrayList<SensorAndMeasurements> list = new ArrayList<SensorAndMeasurements>();
+				IVisualisation vis = (IVisualisation) editor;
+
+				for (ConfigEntry re : configObject.getConfigEntrys()) {
+					for (Sensor s : re.getSensors()) {
+						list.add(re.getExperimentRun().getMeasurementsOfSensor(
+								s));
 					}
 				}
 				vis.setInput(list);
@@ -213,9 +246,7 @@ public class SensorsPropertySection extends AbstractPropertySection {
 		updateButton.setEnabled(false);
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
+	/* (non-Javadoc)
 	 * @see org.eclipse.ui.views.properties.tabbed.AbstractPropertySection#getSelection()
 	 */
 	@Override
@@ -224,20 +255,15 @@ public class SensorsPropertySection extends AbstractPropertySection {
 		return super.getSelection();
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
+	/* (non-Javadoc)
 	 * @see org.eclipse.ui.views.properties.tabbed.AbstractPropertySection#refresh()
 	 */
 	@Override
 	public void refresh() {
-		// TODO Auto-generated method stub
-		super.refresh();
+		viewer.refresh();
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
+	/* (non-Javadoc)
 	 * @see org.eclipse.ui.views.properties.tabbed.AbstractPropertySection#setInput(org.eclipse.ui.IWorkbenchPart,
 	 *      org.eclipse.jface.viewers.ISelection)
 	 */
@@ -248,12 +274,14 @@ public class SensorsPropertySection extends AbstractPropertySection {
 		if (part instanceof AbstractReportView) {
 			AbstractReportView view = (AbstractReportView) part;
 			configObject = (ConfigEditorInput) view.getEditorInput();
+			configObject.addObserver(this);
 			viewer.setInput(configObject);
 		}
 	}
 
 	/**
-	 * @param updateButton the updateButton to set
+	 * @param updateButton
+	 *            the updateButton to set
 	 */
 	public Button getUpdateButton() {
 		return updateButton;

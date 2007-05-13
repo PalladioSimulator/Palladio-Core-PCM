@@ -9,12 +9,17 @@ import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.events.SelectionAdapter;
+import org.eclipse.swt.events.SelectionEvent;
+import org.eclipse.swt.events.ShellAdapter;
+import org.eclipse.swt.events.ShellEvent;
 import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.layout.FormAttachment;
 import org.eclipse.swt.layout.FormData;
 import org.eclipse.swt.layout.FormLayout;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
+import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Label;
@@ -23,26 +28,42 @@ import org.eclipse.swt.widgets.Tree;
 
 import de.uka.ipd.sdq.sensorfactory.entities.ExperimentRun;
 import de.uka.ipd.sdq.sensorframework.visualisation.views.TreeLabelProvider;
+import de.uka.ipd.sdq.sensorframework.visualisation.views.TreeObject;
 
+/** @author roman */
 public class ExperimentRunsDialog extends TitleAreaDialog {
 
-	private ExperimentRun selectedRun = null;
+	private TreeObject selectedObject = null;
 
 	private Label selectedField;
+	private Button okButton,cancelButton;
 
-	/**
-	 * Create the dialog
-	 * 
-	 * @param parentShell
-	 */
 	public ExperimentRunsDialog(Shell parentShell) {
 		super(parentShell);
+		this.setShellStyle(SWT.RESIZE|SWT.MAX|SWT.CLOSE);
 	}
 
-	/**
-	 * Create contents of the dialog
-	 * 
-	 * @param parent
+	/* (non-Javadoc)
+	 * @see org.eclipse.jface.window.Window#configureShell(org.eclipse.swt.widgets.Shell)
+	 */
+	@Override
+	protected void configureShell(Shell newShell) {
+		super.configureShell(newShell);
+		newShell.setText("Selection Run");
+		newShell.addShellListener(new ShellAdapter(){
+
+			/* (non-Javadoc)
+			 * @see org.eclipse.swt.events.ShellAdapter#shellClosed(org.eclipse.swt.events.ShellEvent)
+			 */
+			@Override
+			public void shellClosed(ShellEvent e) {
+				selectedObject = null;
+			}
+		});
+	}
+
+	/* (non-Javadoc)
+	 * @see org.eclipse.jface.dialogs.TitleAreaDialog#createDialogArea(org.eclipse.swt.widgets.Composite)
 	 */
 	@Override
 	protected Control createDialogArea(Composite parent) {
@@ -62,7 +83,7 @@ public class ExperimentRunsDialog extends TitleAreaDialog {
 
 		viewer.setContentProvider(new ExperimentRunsDialogContentProvider());
 		viewer.setLabelProvider(new TreeLabelProvider());
-		viewer.setInput(new ArrayList());
+		viewer.setInput(new ArrayList<Object>());
 		viewer.addSelectionChangedListener(new ISelectionChangedListener() {
 			public void selectionChanged(SelectionChangedEvent event) {
 
@@ -70,12 +91,12 @@ public class ExperimentRunsDialog extends TitleAreaDialog {
 						.getSelection();
 				Object objeckt = (Object) sel.getFirstElement();
 
-				if (objeckt instanceof ExperimentRun) {
-					selectedRun = (ExperimentRun) objeckt;
-					if (selectedField != null)
-						selectedField.setText(selectedRun
-								.getExperimentDateTime());
-				}
+				if (objeckt instanceof TreeObject) {
+					selectedObject = (TreeObject) objeckt;
+					setSelectedField(selectedObject);
+					okButton.setEnabled(true);
+				} else
+					okButton.setEnabled(false);
 			}
 		});
 
@@ -114,33 +135,45 @@ public class ExperimentRunsDialog extends TitleAreaDialog {
 		return area;
 	}
 
-	/**
-	 * Create contents of the button bar
-	 * 
-	 * @param parent
+	/** set selectedField value */
+	private void setSelectedField(TreeObject treeObject) {
+		ExperimentRun run = (ExperimentRun) treeObject.getObject();
+
+		if (selectedField != null)
+			selectedField.setText(run.getExperimentDateTime());
+	}
+	
+	/* (non-Javadoc)
+	 * @see org.eclipse.jface.dialogs.Dialog#createButtonsForButtonBar(org.eclipse.swt.widgets.Composite)
 	 */
 	@Override
 	protected void createButtonsForButtonBar(Composite parent) {
-		createButton(parent, IDialogConstants.OK_ID, IDialogConstants.OK_LABEL,
-				true);
-		createButton(parent, IDialogConstants.CANCEL_ID,
+		cancelButton =createButton(parent, IDialogConstants.CANCEL_ID,
 				IDialogConstants.CANCEL_LABEL, false);
+		cancelButton.addSelectionListener(new SelectionAdapter(){
+
+			/* (non-Javadoc)
+			 * @see org.eclipse.swt.events.SelectionAdapter#widgetSelected(org.eclipse.swt.events.SelectionEvent)
+			 */
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				selectedObject = null;
+			}
+		});
+		okButton = createButton(parent, IDialogConstants.OK_ID, IDialogConstants.OK_LABEL,
+				true);
+		okButton.setEnabled(false);
 	}
 
-	/**
-	 * Return the initial size of the dialog
+	/* (non-Javadoc)
+	 * @see org.eclipse.jface.dialogs.TitleAreaDialog#getInitialSize()
 	 */
 	@Override
 	protected Point getInitialSize() {
 		return new Point(397, 372);
 	}
 
-	protected void configureShell(Shell newShell) {
-		super.configureShell(newShell);
-		newShell.setText("Selection Run");
-	}
-
-	public ExperimentRun getResult() {
-		return selectedRun;
+	public TreeObject getResult() {
+		return selectedObject;
 	}
 }

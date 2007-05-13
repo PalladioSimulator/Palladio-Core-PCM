@@ -20,7 +20,7 @@ public class SensorsTabContentProvider implements IStructuredContentProvider {
 	public Object[] getElements(Object inputElement) {
 		if (inputElement instanceof ConfigEditorInput) {
 			ConfigEditorInput configuration = (ConfigEditorInput) inputElement;
-			return  configuration.getRunEntrys().toArray();
+			return  configuration.getConfigEntrys().toArray();
 		}
 		return null;
 	}

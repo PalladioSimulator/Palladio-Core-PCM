@@ -7,7 +7,7 @@ package de.uka.ipd.sdq.sensorframework.visualisation.dialogs;
 import org.eclipse.jface.viewers.ICellModifier;
 
 import de.uka.ipd.sdq.sensorfactory.entities.Sensor;
-import de.uka.ipd.sdq.sensorframework.visualisation.editor.RunEntry;
+import de.uka.ipd.sdq.sensorframework.visualisation.editor.ConfigEntry;
 
 /**
  * @author admin
@@ -15,10 +15,10 @@ import de.uka.ipd.sdq.sensorframework.visualisation.editor.RunEntry;
  */
 public class SensorsDialogCellModifier implements ICellModifier {
 	
-	private RunEntry entry;
+	private ConfigEntry entry;
 	private Sensor selectedSensor;
 	
-	public SensorsDialogCellModifier(RunEntry entry) {
+	public SensorsDialogCellModifier(ConfigEntry entry) {
 		this.entry = entry;
 	}
 

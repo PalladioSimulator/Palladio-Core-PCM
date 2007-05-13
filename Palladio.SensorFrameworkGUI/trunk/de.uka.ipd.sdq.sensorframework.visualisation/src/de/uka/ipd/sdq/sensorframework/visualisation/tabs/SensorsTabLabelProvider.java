@@ -3,7 +3,7 @@
  */
 package de.uka.ipd.sdq.sensorframework.visualisation.tabs;
 
-import java.util.List;
+import java.util.Collection;
 
 import org.eclipse.jface.viewers.ILabelProviderListener;
 import org.eclipse.jface.viewers.ITableLabelProvider;
@@ -11,7 +11,7 @@ import org.eclipse.swt.graphics.Image;
 
 import de.uka.ipd.sdq.sensorfactory.entities.Sensor;
 import de.uka.ipd.sdq.sensorframework.visualisation.SimuImages;
-import de.uka.ipd.sdq.sensorframework.visualisation.editor.RunEntry;
+import de.uka.ipd.sdq.sensorframework.visualisation.editor.ConfigEntry;
 
 /**
  * @author admin
@@ -34,7 +34,7 @@ public class SensorsTabLabelProvider implements ITableLabelProvider {
 	public String getColumnText(Object element, int columnIndex) {
 			String result = "";
 		
-			RunEntry entry = (RunEntry) element;
+			ConfigEntry entry = (ConfigEntry) element;
 
 			switch (columnIndex) {
 			case SensorsPropertySection.ICON_COLUMN_INDEX:
@@ -55,9 +55,9 @@ public class SensorsTabLabelProvider implements ITableLabelProvider {
 	}
 
 	
-	private String setSenssorsArrayToString(RunEntry entry){
+	private String setSenssorsArrayToString(ConfigEntry entry){
 		String result = "";
-		List<Sensor> sensors= entry.getSensors();
+		Collection<Sensor> sensors=  entry.getSensors();
 		
 		for(Sensor s: sensors){
 			result = result + s.getSensorName() + ", ";

@@ -56,13 +56,6 @@
 	      </propertySections>
 	   </extension>
       <extension
-            point="org.eclipse.ui.dropActions">
-         <action
-               class="de.uka.ipd.sdq.sensorframework.visualisation.tabs.DropAdapter"
-               id="de.uka.ipd.sdq.codegen.simudatavisualization.Drop">
-         </action>
-      </extension>
-      <extension
             point="org.eclipse.ui.menus">
          <menuContribution
                locationURI="menu:org.eclipse.ui.main.menu?before=window">

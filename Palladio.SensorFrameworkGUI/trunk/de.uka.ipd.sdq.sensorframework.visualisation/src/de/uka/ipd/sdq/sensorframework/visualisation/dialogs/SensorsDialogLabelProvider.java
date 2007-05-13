@@ -9,7 +9,7 @@ import org.eclipse.swt.graphics.Image;
 
 import de.uka.ipd.sdq.sensorfactory.entities.Sensor;
 import de.uka.ipd.sdq.sensorframework.visualisation.SimuImages;
-import de.uka.ipd.sdq.sensorframework.visualisation.editor.RunEntry;
+import de.uka.ipd.sdq.sensorframework.visualisation.editor.ConfigEntry;
 
 /**
  * @author admin
@@ -18,12 +18,12 @@ import de.uka.ipd.sdq.sensorframework.visualisation.editor.RunEntry;
 public class SensorsDialogLabelProvider implements ITableLabelProvider {
 	
 	
-	private RunEntry entry ;
+	private ConfigEntry entry ;
 
 	/**
 	 * @param entry
 	 */
-	public SensorsDialogLabelProvider(RunEntry entry) {
+	public SensorsDialogLabelProvider(ConfigEntry entry) {
 		this.entry = entry;
 	}
 

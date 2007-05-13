@@ -5,61 +5,79 @@ package de.uka.ipd.sdq.sensorframework.visualisation.editor;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Observable;
 
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IPersistableElement;
-import org.eclipse.ui.internal.part.NullEditorInput;
 
+import de.uka.ipd.sdq.sensorfactory.entities.Experiment;
 import de.uka.ipd.sdq.sensorfactory.entities.ExperimentRun;
+import de.uka.ipd.sdq.sensorfactory.entities.Sensor;
 
 /**
  * @author admin
  *
  */
-public class ConfigEditorInput implements IEditorInput {
+public class ConfigEditorInput extends Observable
+		implements IEditorInput {
 	
 	
-	private List<RunEntry> runEntrys;
+	private List<ConfigEntry> configEntrys;
 	
-	/**
-	 * @param runEntrys
-	 */
 	public ConfigEditorInput() {
-		this.runEntrys = new ArrayList<RunEntry>();
+		this.configEntrys = new ArrayList<ConfigEntry>();
 	}
 	
-	public ConfigEditorInput(ExperimentRun run) {
-		this.runEntrys = new ArrayList<RunEntry>();
-		runEntrys.add(new RunEntry(run));
+	public ConfigEditorInput(ExperimentRun run, Experiment experiment) {
+		this.configEntrys = new ArrayList<ConfigEntry>();
+		configEntrys.add(new ConfigEntry(run,experiment));
 	}
 
-	public void addNewEntry(ExperimentRun run){
-		runEntrys.add(new RunEntry(run));
+	/** Edit command of ConfigEctry	 */
+	public void editeConfigEntry(ExperimentRun run, Experiment experiment, Sensor sensor) {
+		ConfigEntry configEntry = getConfigEntryToRun(run);
+		
+		if (configEntry == null)
+			configEntrys.add(new ConfigEntry(run,experiment,sensor));
+		else
+			configEntry.setSensorChecked(sensor);
+	}
+	
+	public void addNewConfigEntry(ExperimentRun run, Experiment experiment){
+		configEntrys.add(new ConfigEntry(run, experiment));
+		notify(null);
+	}
+	
+	public void addNewConfigEntry(ConfigEntry runEntry){
+		configEntrys.add(runEntry);
+		notify(null);
 	}
 	
 	// TODO equals
-	public void removeRunEntry(ExperimentRun run){
-		
-		for(RunEntry re : runEntrys){
-			if (re.getExperimentRun().equals(run))
-				runEntrys.remove(re);
+	public void removeConfigEntryToRun(ExperimentRun run){
+		for(ConfigEntry ce : configEntrys){
+			if (ce.getExperimentRun().equals(run))
+				configEntrys.remove(ce);
 		}
+		notify(null);
 	}
 	
-	public RunEntry getRunEntry(ExperimentRun run){
-		for(RunEntry re : runEntrys){
+	public void removeConfigEntry(ConfigEntry entry){
+		configEntrys.remove(entry);
+		notify(null);
+	}
+	
+	public ConfigEntry getConfigEntryToRun(ExperimentRun run){
+		for(ConfigEntry re : configEntrys){
 			if (re.getExperimentRun().equals(run))
 				return re;
 		}
 		return null;
 	}
-
-	/**
-	 * @return the runEntrys
-	 */
-	public List<RunEntry> getRunEntrys() {
-		return runEntrys;
+	
+	public List<ConfigEntry> getConfigEntrys() {
+		return configEntrys;
 	}
 
 	/* (non-Javadoc)
@@ -103,5 +121,9 @@ public class ConfigEditorInput implements IEditorInput {
 	public Object getAdapter(Class adapter) {
 		return null;
 	}
-
+	
+	public void notify(Object signal){
+		setChanged();
+		notifyObservers(signal);
+	}
 }

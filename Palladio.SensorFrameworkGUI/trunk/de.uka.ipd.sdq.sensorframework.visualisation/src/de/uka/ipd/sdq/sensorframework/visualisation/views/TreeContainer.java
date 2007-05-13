@@ -1,13 +1,18 @@
 package de.uka.ipd.sdq.sensorframework.visualisation.views;
 
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 import org.eclipse.core.runtime.IAdaptable;
 
 import de.uka.ipd.sdq.sensorfactory.entities.Experiment;
+import de.uka.ipd.sdq.sensorfactory.entities.ExperimentRun;
+import de.uka.ipd.sdq.sensorfactory.entities.Sensor;
 
 /**
- * TODO
+ * @author roman
+ * 
  * The content provider class is responsible for providing objects to the view.
  * It can wrap existing objects in adapters or simply return objects as-is.
  * These objects may be sensitive to the current input of the view, or ignore it
@@ -15,8 +20,8 @@ import de.uka.ipd.sdq.sensorfactory.entities.Experiment;
  */
 public class TreeContainer implements IAdaptable {
 	
-	private Experiment parent;
-	private Collection<?> elements = null;
+	private Experiment experiment;
+	private List<TreeObject> elements = null;
 	private String name;
 	private int type;
 	
@@ -24,40 +29,53 @@ public class TreeContainer implements IAdaptable {
 	private String SENSORS_NAME		 = "Sensors";
 
 	/**
-	 * @param parent
+	 * REFACTORIN!!
+	 * @param experiment
 	 */
-	public TreeContainer(Experiment parent, int type) {
-		this.parent = parent;
+	public TreeContainer(Experiment experiment, int type) {
+		this.experiment = experiment;
 		this.type = type;
+		this.elements = new ArrayList<TreeObject>();
 
 		if (type == TreeContentProvider.EXPERIMENT_RUNS){
-			this.elements = parent.getExperimentRuns();
+			Collection<ExperimentRun> runs = experiment.getExperimentRuns();
+			for(ExperimentRun r : runs)
+				elements.add(new TreeObject(r,experiment));
+
 			this.name = EXPERIMENT_RUNS_NAME;
 		}
 		if (type == TreeContentProvider.SENSORS){
-			this.elements = parent.getSensors();
+			Collection<Sensor> sensors = experiment.getSensors();
+			for(Sensor s : sensors)
+				elements.add(new TreeObject(s,experiment));
+			
 			this.name = SENSORS_NAME;
 		}
 	}
 
-	public Collection<?> getElements() {
+	public List<TreeObject> getElements() {
 		return elements;
 	}
 
-	public void setElements(Collection<?> elements) {
-		this.elements = elements;
-	}
-
 	public Experiment getParent() {
-		return parent;
+		return experiment;
 	}
 
 	public void setParent(Experiment parent) {
-		this.parent = parent;
+		this.experiment = parent;
 	}
 
 	public Object getAdapter(Class adapter) {
-		// TODO Auto-generated method stub
+//		if (adapter == de.uka.ipd.sdq.sensorfactory.entities.ExperimentRun.class) {
+//			this.elements = experiment.getExperimentRuns();
+//			this.name = EXPERIMENT_RUNS_NAME;
+//			return this;
+//		}
+//		if (adapter == de.uka.ipd.sdq.sensorfactory.entities.Sensor.class) {
+//			this.elements = experiment.getSensors();
+//			this.name = SENSORS_NAME;
+//			return this;
+//		}
 		return null;
 	}
 

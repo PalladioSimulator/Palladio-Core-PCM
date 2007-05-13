@@ -80,6 +80,7 @@ public abstract class AbstractReportView extends EditorPart implements
 	}
 
 	public void setFocus() {
+		// TODO !!
 	}
 
 	public void doSave(IProgressMonitor monitor) {

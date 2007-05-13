@@ -15,9 +15,7 @@ import de.uka.ipd.sdq.sensorfactory.entities.Sensor;
 
 /**
  * TODO
- * 
  * @author admin
- * 
  */
 public class TreeContentProvider implements ITreeContentProvider {
 
@@ -26,9 +24,7 @@ public class TreeContentProvider implements ITreeContentProvider {
 
 	private List<IExperimentDAO> rootEntry;
 
-	/*
-	 * (non-Javadoc)
-	 * 
+	/* (non-Javadoc)
 	 * @see org.eclipse.jface.viewers.IStructuredContentProvider#getElements(java.lang.Object)
 	 */
 	public Object[] getElements(Object parent) {
@@ -39,19 +35,21 @@ public class TreeContentProvider implements ITreeContentProvider {
 		return getChildren(rootEntry);
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
+	/* (non-Javadoc)
 	 * @see org.eclipse.jface.viewers.ITreeContentProvider#getChildren(java.lang.Object)
 	 */
+	@Override
 	public Object[] getChildren(Object parent) {
 
+		/** List of root elements (DAO,...) */
 		if (parent instanceof ArrayList)
 			return ((ArrayList<IExperimentDAO>) parent).toArray();
 
+		/** ExperimentDAO */
 		if (parent instanceof IExperimentDAO)
 			return ((IExperimentDAO) parent).getExperiments().toArray();
 
+		/** Experiment */
 		if (parent instanceof Experiment) {
 			Experiment experiment = (Experiment) parent;
 			Object[] objects = {
@@ -60,63 +58,63 @@ public class TreeContentProvider implements ITreeContentProvider {
 			return objects;
 		}
 
-		if (parent instanceof ExperimentRun) {
-			ExperimentRun run = (ExperimentRun) parent;
-			Experiment experiment = getExperimentToExperimentRun(run);
-			return experiment.getSensors().toArray();
+		/** TreeObject - container of Sensor or ExperimentRun */
+		if (parent instanceof TreeObject) {
+			TreeObject treeObject = (TreeObject) parent;
+			if (treeObject.getObject() instanceof ExperimentRun) {
+				ExperimentRun run = (ExperimentRun) treeObject.getObject();
+				Experiment experiment = treeObject.getExperiment();
+				Collection<Sensor> sensors = experiment.getSensors();
+				
+				Object[] objects = new Object[sensors.size()];
+				
+				int i = 0;
+				for (Sensor s : sensors)
+					objects[i++] = new TreeObject(s, experiment, run);
+
+				return objects;
+			}
 		}
-		
+
+		/** TreeContainer - container a collection of TreeObject */
 		if (parent instanceof TreeContainer)
 			return ((TreeContainer) parent).getElements().toArray();
 
 		return new Object[0];
 	}
 
-	
-	/**
-	 * TODO
-	 * @return
-	 */
-	public static Experiment getExperimentToExperimentRun(ExperimentRun run) {
-		
-		Collection<IExperimentDAO> daos = SensorFrameworkDataset.singleton().getDataSources();
-		for (IExperimentDAO dao : daos){
-			Collection<Experiment> experiments = dao.getExperiments();
-
-			for (Experiment e : experiments) {
-				if (e.getExperimentRuns().contains(run))
-					return e;
-			}
-		}
-		return null;
-	}
-	
-	/*
-	 * (non-Javadoc)
-	 * 
+	/* (non-Javadoc)
 	 * @see org.eclipse.jface.viewers.ITreeContentProvider#hasChildren(java.lang.Object)
 	 */
+	@Override
 	public boolean hasChildren(Object parent) {
-		if (parent instanceof Sensor)
-			return false;
+		if (parent instanceof TreeObject){
+			TreeObject object = (TreeObject) parent;
+			if (object.getObject() instanceof Sensor)
+				return false;
+		}
 		return true;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
+	/* (non-Javadoc)
 	 * @see org.eclipse.jface.viewers.IContentProvider#dispose()
 	 */
+	@Override
 	public void dispose() {
 		if (rootEntry != null)
 			rootEntry.clear();
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
+	public static Collection<Sensor> getSensorsToTreeObject(TreeObject object){
+		Collection<Sensor> sensors = null;
+		Experiment experiment = object.getExperiment();
+		return sensors;
+	}
+	
+	/* (non-Javadoc)
 	 * @see org.eclipse.jface.viewers.ITreeContentProvider#getParent(java.lang.Object)
 	 */
+	@Override
 	public Object getParent(Object child) {
 		// TODO Auto-generated method stub
 		return null;
@@ -124,6 +122,5 @@ public class TreeContentProvider implements ITreeContentProvider {
 
 	public void inputChanged(Viewer viewer, Object oldInput, Object newInput) {
 		// TODO Auto-generated method stub
-
 	}
 }

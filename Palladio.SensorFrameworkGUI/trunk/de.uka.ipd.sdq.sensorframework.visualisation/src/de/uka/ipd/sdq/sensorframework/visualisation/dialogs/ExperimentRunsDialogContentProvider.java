@@ -1,9 +1,7 @@
-/**
- * 
- */
 package de.uka.ipd.sdq.sensorframework.visualisation.dialogs;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.jface.viewers.ITreeContentProvider;
@@ -13,11 +11,9 @@ import de.uka.ipd.sdq.sensorfactory.IExperimentDAO;
 import de.uka.ipd.sdq.sensorfactory.SensorFrameworkDataset;
 import de.uka.ipd.sdq.sensorfactory.entities.Experiment;
 import de.uka.ipd.sdq.sensorfactory.entities.ExperimentRun;
+import de.uka.ipd.sdq.sensorframework.visualisation.views.TreeObject;
 
-/**
- * @author admin
- *
- */
+/** @author roman */
 public class ExperimentRunsDialogContentProvider implements ITreeContentProvider {
 	
 	private List<IExperimentDAO> root;
@@ -33,8 +29,17 @@ public class ExperimentRunsDialogContentProvider implements ITreeContentProvider
 		if (parent instanceof IExperimentDAO)
 			return ((IExperimentDAO) parent).getExperiments().toArray();
 
-		if (parent instanceof Experiment) 
-			return ((Experiment) parent).getExperimentRuns().toArray();
+		if (parent instanceof Experiment) {
+			Experiment experiment = (Experiment) parent;
+			Collection<ExperimentRun> runs = experiment.getExperimentRuns();
+			Object[] objects = new Object[runs.size()];
+			int i = 0;
+			for (ExperimentRun r : runs)
+				objects[i++] = new TreeObject(r, experiment);
+
+			return objects;
+		}
+			
 
 		return new Object[0];
 	}
@@ -51,8 +56,11 @@ public class ExperimentRunsDialogContentProvider implements ITreeContentProvider
 	 * @see org.eclipse.jface.viewers.ITreeContentProvider#hasChildren(java.lang.Object)
 	 */
 	public boolean hasChildren(Object element) {
-		if (element instanceof ExperimentRun)
-			return false;
+		if (element instanceof TreeObject){
+			TreeObject object = (TreeObject) element;
+			if (object.getObject() instanceof ExperimentRun)
+				return false;
+		}
 		return true;
 	}
 

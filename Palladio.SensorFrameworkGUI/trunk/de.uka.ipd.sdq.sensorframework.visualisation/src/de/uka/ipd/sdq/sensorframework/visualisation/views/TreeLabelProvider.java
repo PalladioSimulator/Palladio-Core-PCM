@@ -31,14 +31,23 @@ public class TreeLabelProvider extends LabelProvider {
 		if (obj instanceof Experiment)
 			return ((Experiment) obj).getExperimentName();
 
-		if (obj instanceof ExperimentRun)
-			return runRepresentation((ExperimentRun) obj);
-
-		if (obj instanceof Sensor)
-			return sensorRepresentation((Sensor) obj);
-
 		if (obj instanceof TreeContainer)
 			return ((TreeContainer) obj).getName();
+		
+		if (obj instanceof TreeObject) {
+			TreeObject object = (TreeObject) obj;
+
+			if (object.getObject() instanceof ExperimentRun) {
+				ExperimentRun run = (ExperimentRun) object.getObject();
+				return runRepresentation(run);
+			}
+
+			if (object.getObject() instanceof Sensor) {
+				Sensor sensor = (Sensor) object.getObject();
+				return sensorRepresentation(sensor);
+			}
+		}
+			
 		if (obj instanceof IExperimentDAO)
 			return ((IExperimentDAO)obj).getName();
 
@@ -56,12 +65,6 @@ public class TreeLabelProvider extends LabelProvider {
 		if (obj instanceof Experiment)
 			return SimuImages.imageRegistry.get(SimuImages.EXPERIMENT);
 
-		if (obj instanceof ExperimentRun)
-			return SimuImages.imageRegistry.get(SimuImages.RUN);
-
-		if (obj instanceof Sensor)
-			return SimuImages.imageRegistry.get(SimuImages.SENSOR);
-
 		if (obj instanceof TreeContainer){
 			String icon = "";
 			TreeContainer container = (TreeContainer) obj;
@@ -76,6 +79,16 @@ public class TreeLabelProvider extends LabelProvider {
 			return SimuImages.imageRegistry.get(icon);
 		}
 
+		if (obj instanceof TreeObject) {
+			TreeObject object = (TreeObject) obj;
+
+			if (object.getObject() instanceof ExperimentRun)
+				return SimuImages.imageRegistry.get(SimuImages.RUN);
+
+			if (object.getObject() instanceof Sensor)
+				return SimuImages.imageRegistry.get(SimuImages.SENSOR);
+		}
+		
 		if (obj instanceof IExperimentDAO)
 			return SimuImages.imageRegistry.get(SimuImages.TREEROOT);
 

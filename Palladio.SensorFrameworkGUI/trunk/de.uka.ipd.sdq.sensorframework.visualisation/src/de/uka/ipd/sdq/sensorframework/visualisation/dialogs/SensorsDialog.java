@@ -17,8 +17,7 @@ import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableColumn;
 
-import de.uka.ipd.sdq.sensorframework.visualisation.editor.RunEntry;
-import de.uka.ipd.sdq.sensorframework.visualisation.views.TreeContentProvider;
+import de.uka.ipd.sdq.sensorframework.visualisation.editor.ConfigEntry;
 
 /**
  * TODO
@@ -27,7 +26,7 @@ import de.uka.ipd.sdq.sensorframework.visualisation.views.TreeContentProvider;
  */
 public class SensorsDialog extends TitleAreaDialog {
 
-	private RunEntry entry;
+	private ConfigEntry entry;
 
 	public static final int CHECK_COLUMN_INDEX = 0;
 	public static final int SENSOR_ID_INDEX = 1;
@@ -36,7 +35,6 @@ public class SensorsDialog extends TitleAreaDialog {
 	/**
 	 * Columns of a table, which is used into ParameterEditDialog
 	 */
-
 	public final static String CHECK_COLUMN = "";
 	public final static String SENSOR_ID_COLUMN = "Id";
 	public final static String SENSOR_NAME_COLUMN = "Sensorname";
@@ -47,20 +45,13 @@ public class SensorsDialog extends TitleAreaDialog {
 
 	private Table table;
 
-	/**
-	 * Create the dialog
-	 * 
-	 * @param parentShell
-	 */
-	public SensorsDialog(Shell parentShell, RunEntry entry) {
+	public SensorsDialog(Shell parentShell, ConfigEntry entry) {
 		super(parentShell);
 		this.entry = entry;
 	}
 
-	/**
-	 * Create contents of the dialog
-	 * 
-	 * @param parent
+	/* (non-Javadoc)
+	 * @see org.eclipse.jface.dialogs.TitleAreaDialog#createDialogArea(org.eclipse.swt.widgets.Composite)
 	 */
 	@Override
 	protected Control createDialogArea(Composite parent) {
@@ -105,17 +96,14 @@ public class SensorsDialog extends TitleAreaDialog {
 		tableViewer.setCellModifier(new SensorsDialogCellModifier(entry));
 		tableViewer.setContentProvider(new SensorsDialogContentProvider());
 		tableViewer.setLabelProvider(new SensorsDialogLabelProvider(entry));
-		tableViewer.setInput(TreeContentProvider
-				.getExperimentToExperimentRun(entry.getExperimentRun()));
+		tableViewer.setInput(entry.getExperiment());
 		
 		//
 		return area;
 	}
 
-	/**
-	 * Create contents of the button bar
-	 * 
-	 * @param parent
+	/* (non-Javadoc)
+	 * @see org.eclipse.jface.dialogs.Dialog#createButtonsForButtonBar(org.eclipse.swt.widgets.Composite)
 	 */
 	@Override
 	protected void createButtonsForButtonBar(Composite parent) {
@@ -125,17 +113,20 @@ public class SensorsDialog extends TitleAreaDialog {
 				IDialogConstants.CANCEL_LABEL, false);
 	}
 
-	/**
-	 * Return the initial size of the dialog
+	/* (non-Javadoc)
+	 * @see org.eclipse.jface.dialogs.TitleAreaDialog#getInitialSize()
 	 */
 	@Override
 	protected Point getInitialSize() {
 		return new Point(400, 350);
 	}
 
+	/* (non-Javadoc)
+	 * @see org.eclipse.jface.window.Window#configureShell(org.eclipse.swt.widgets.Shell)
+	 */
+	@Override
 	protected void configureShell(Shell newShell) {
 		super.configureShell(newShell);
 		newShell.setText("Select sensors");
 	}
-
 }
