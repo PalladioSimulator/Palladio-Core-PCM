@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Toolbar Plug-in
-Bundle-SymbolicName: de.uka.ipd.sdq.pcm.gfm.toolbar; singleton:=true
+Bundle-SymbolicName: de.uka.ipd.sdq.pcm.gmf.toolbar;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Require-Bundle: org.eclipse.ui,
  org.eclipse.ui.ide,
