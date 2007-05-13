@@ -7,7 +7,7 @@ import org.eclipse.jface.wizard.WizardDialog;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.IWorkbenchWindowActionDelegate;
 
-import de.uka.ipd.sdq.pcm.gmf.allocation.part.PcmCreationWizard;
+import de.uka.ipd.sdq.pcm.gmf.allocation.part.PalladioComponentModelCreationWizard;
 
 public class NewAllocationDiagramAction implements IWorkbenchWindowActionDelegate {
 	private IWorkbenchWindow window;
@@ -16,7 +16,7 @@ public class NewAllocationDiagramAction implements IWorkbenchWindowActionDelegat
 	}
 
 	public void run(IAction action) {
-		PcmCreationWizard wizard = new PcmCreationWizard();
+		PalladioComponentModelCreationWizard wizard = new PalladioComponentModelCreationWizard();
 		wizard.init(window.getWorkbench(),new StructuredSelection());
 		
 		WizardDialog dialog = new WizardDialog(window.getShell(),

@@ -5,16 +5,16 @@ import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.IWorkbenchWindowActionDelegate;
 
-import de.uka.ipd.sdq.pcm.gmf.allocation.part.PcmInitDiagramFileAction;
+import de.uka.ipd.sdq.pcm.gmf.allocation.part.PalladioComponentModelInitDiagramFileAction;
 
 public class InitializeAllocationDiagramAction 
 		implements IWorkbenchWindowActionDelegate {
 	private IWorkbenchWindow myWindow;
-	private PcmInitDiagramFileAction myAction;
+	private PalladioComponentModelInitDiagramFileAction myAction;
 	
 	public InitializeAllocationDiagramAction() {
 		myWindow = null;
-		myAction = new PcmInitDiagramFileAction();
+		myAction = new PalladioComponentModelInitDiagramFileAction();
 	}
 
 	public void run(IAction action) {
