@@ -22,6 +22,13 @@ import org.eclipse.gmf.runtime.notation.View;
  */
 public class AllocationContextCreateCommand extends CreateElementCommand {
 
+	/**
+	 * @generated
+	 */
+	public AllocationContextCreateCommand(CreateElementRequest req) {
+		super(req);
+	}
+
 	private Allocation allocation;
 
 	/**
@@ -52,10 +59,12 @@ public class AllocationContextCreateCommand extends CreateElementCommand {
 
 	@Override
 	protected EObject doDefaultElementCreation() {
-		AllocationContext ctx = (AllocationContext) super.doDefaultElementCreation();
-		ctx.setResourceContainer_AllocationContext((ResourceContainer) ((CreateElementRequest)this.getRequest()).getContainer());
+		AllocationContext ctx = (AllocationContext) super
+				.doDefaultElementCreation();
+		ctx
+				.setResourceContainer_AllocationContext((ResourceContainer) ((CreateElementRequest) this
+						.getRequest()).getContainer());
 		return ctx;
 	}
 
-	
 }

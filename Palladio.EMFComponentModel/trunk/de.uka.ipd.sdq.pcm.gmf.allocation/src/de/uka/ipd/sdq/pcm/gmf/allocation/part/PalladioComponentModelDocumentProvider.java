@@ -145,8 +145,7 @@ public class PalladioComponentModelDocumentProvider extends
 	private TransactionalEditingDomain createEditingDomain() {
 		TransactionalEditingDomain editingDomain = DiagramEditingDomainFactory
 				.getInstance().createEditingDomain();
-		editingDomain
-				.setID("de.uka.ipd.sdq.pcm.gmf.allocation_new.EditingDomain"); //$NON-NLS-1$
+		editingDomain.setID("de.uka.ipd.sdq.pcm.gmf.allocation.EditingDomain"); //$NON-NLS-1$
 		final NotificationFilter diagramResourceModifiedFilter = NotificationFilter
 				.createNotifierFilter(editingDomain.getResourceSet()).and(
 						NotificationFilter

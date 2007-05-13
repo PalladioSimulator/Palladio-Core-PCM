@@ -8,7 +8,6 @@ import java.util.List;
 import java.util.Collection;
 import org.eclipse.gmf.runtime.notation.Edge;
 import org.eclipse.emf.ecore.EObject;
-
 import de.uka.ipd.sdq.pcm.allocation.Allocation;
 import de.uka.ipd.sdq.pcm.gmf.allocation.edit.parts.AllocationContextEditPart;
 import de.uka.ipd.sdq.pcm.gmf.allocation.edit.parts.AllocationEditPart;
@@ -80,12 +79,13 @@ protected List getSemanticChildrenList() {
 }
 
 /**
- * @generated false
+ * @generated not
  */
 protected boolean shouldDeleteView(View view) {
 	if (view.getEAnnotation("Shortcut") != null) { //$NON-NLS-1$
 		return view.isSetElement() && (view.getElement() == null || view.getElement().eIsProxy());
 	}
+	int nodeVID = PalladioComponentModelVisualIDRegistry.getVisualID(view);
 	return false;
 }
 

@@ -31,8 +31,9 @@ public class ResourceContainerAllocationCompartmentItemSemanticEditPolicy
 				req.setContainmentFeature(AllocationPackage.eINSTANCE
 						.getAllocation_AllocationContexts_Allocation());
 			}
-			Allocation a = (Allocation) ((View)getHost().getParent().getParent().getModel()).getElement();
-			return getMSLWrapper(new AllocationContextCreateCommand(req,a));
+			Allocation a = (Allocation) ((View) getHost().getParent()
+					.getParent().getModel()).getElement();
+			return getMSLWrapper(new AllocationContextCreateCommand(req, a));
 		}
 		return super.getCreateCommand(req);
 	}

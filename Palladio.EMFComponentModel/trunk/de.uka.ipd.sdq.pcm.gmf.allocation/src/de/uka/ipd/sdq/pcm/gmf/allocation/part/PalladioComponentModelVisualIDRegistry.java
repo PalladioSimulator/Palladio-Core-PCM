@@ -7,6 +7,7 @@ import de.uka.ipd.sdq.pcm.allocation.Allocation;
 import de.uka.ipd.sdq.pcm.allocation.AllocationContext;
 import de.uka.ipd.sdq.pcm.allocation.AllocationPackage;
 
+import de.uka.ipd.sdq.pcm.gmf.allocation.edit.parts.AllocationComponentLabelEditPart;
 import de.uka.ipd.sdq.pcm.gmf.allocation.edit.parts.AllocationContextEditPart;
 import de.uka.ipd.sdq.pcm.gmf.allocation.edit.parts.AllocationContextEntityNameEditPart;
 import de.uka.ipd.sdq.pcm.gmf.allocation.edit.parts.AllocationEditPart;
@@ -167,6 +168,9 @@ public class PalladioComponentModelVisualIDRegistry {
 		case AllocationContextEditPart.VISUAL_ID:
 			if (AllocationContextEntityNameEditPart.VISUAL_ID == nodeVisualID) {
 				return AllocationContextEntityNameEditPart.VISUAL_ID;
+			}
+			if (AllocationComponentLabelEditPart.VISUAL_ID == nodeVisualID) {
+				return AllocationComponentLabelEditPart.VISUAL_ID;
 			}
 			return getUnrecognizedAllocationContext_3001ChildNodeID(
 					domainElement, semanticHint);

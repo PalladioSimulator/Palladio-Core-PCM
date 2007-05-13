@@ -64,7 +64,7 @@ public class PalladioComponentModelAllocationDiagramEditorPlugin extends
 	/**
 	 * @generated
 	 */
-	public static final String ID = "de.uka.ipd.sdq.pcm.gmf.allocation_new"; //$NON-NLS-1$
+	public static final String ID = "de.uka.ipd.sdq.pcm.gmf.allocation"; //$NON-NLS-1$
 
 	/**
 	 * @generated

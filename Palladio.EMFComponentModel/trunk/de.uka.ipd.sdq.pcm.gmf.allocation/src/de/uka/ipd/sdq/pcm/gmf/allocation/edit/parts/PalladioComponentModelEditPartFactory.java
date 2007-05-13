@@ -47,6 +47,9 @@ public class PalladioComponentModelEditPartFactory implements EditPartFactory {
 			case AllocationContextEntityNameEditPart.VISUAL_ID:
 				return new AllocationContextEntityNameEditPart(view);
 
+			case AllocationComponentLabelEditPart.VISUAL_ID:
+				return new AllocationComponentLabelEditPart(view);
+
 			case ResourceContainerAllocationCompartmentEditPart.VISUAL_ID:
 				return new ResourceContainerAllocationCompartmentEditPart(view);
 			}

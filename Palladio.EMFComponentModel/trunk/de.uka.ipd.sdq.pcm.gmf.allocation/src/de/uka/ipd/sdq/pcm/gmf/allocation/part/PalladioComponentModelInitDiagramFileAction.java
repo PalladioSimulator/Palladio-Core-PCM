@@ -88,8 +88,8 @@ public class PalladioComponentModelInitDiagramFileAction implements
 					"Model file loading failed");
 			return;
 		}
-		Wizard wizard = new PcmNewAllocationDiagramFileWizard(
-				domainModelURI, diagramRoot, editingDomain);
+		Wizard wizard = new PcmNewAllocationDiagramFileWizard(domainModelURI,
+				diagramRoot, editingDomain);
 		wizard.setWindowTitle("Initialize new " + AllocationEditPart.MODEL_ID
 				+ " diagram file");
 		PalladioComponentModelDiagramEditorUtil.runWizard(getShell(), wizard,

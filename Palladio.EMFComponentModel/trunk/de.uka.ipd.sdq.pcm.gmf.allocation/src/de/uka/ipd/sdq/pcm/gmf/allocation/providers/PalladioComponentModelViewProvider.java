@@ -9,6 +9,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.gmf.runtime.diagram.core.providers.AbstractViewProvider;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.gmf.runtime.emf.type.core.IElementType;
+import de.uka.ipd.sdq.pcm.gmf.allocation.edit.parts.AllocationComponentLabelEditPart;
 import de.uka.ipd.sdq.pcm.gmf.allocation.edit.parts.AllocationContextEditPart;
 import de.uka.ipd.sdq.pcm.gmf.allocation.edit.parts.AllocationContextEntityNameEditPart;
 import de.uka.ipd.sdq.pcm.gmf.allocation.edit.parts.AllocationEditPart;
@@ -18,6 +19,7 @@ import de.uka.ipd.sdq.pcm.gmf.allocation.edit.parts.ResourceContainerEntityNameE
 
 import de.uka.ipd.sdq.pcm.gmf.allocation.part.PalladioComponentModelVisualIDRegistry;
 
+import de.uka.ipd.sdq.pcm.gmf.allocation.view.factories.AllocationComponentLabelViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.allocation.view.factories.AllocationContextEntityNameViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.allocation.view.factories.AllocationContextViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.allocation.view.factories.AllocationViewFactory;
@@ -71,6 +73,8 @@ public class PalladioComponentModelViewProvider extends AbstractViewProvider {
 			return AllocationContextViewFactory.class;
 		case AllocationContextEntityNameEditPart.VISUAL_ID:
 			return AllocationContextEntityNameViewFactory.class;
+		case AllocationComponentLabelEditPart.VISUAL_ID:
+			return AllocationComponentLabelViewFactory.class;
 		case ResourceContainerAllocationCompartmentEditPart.VISUAL_ID:
 			return ResourceContainerAllocationCompartmentViewFactory.class;
 		}

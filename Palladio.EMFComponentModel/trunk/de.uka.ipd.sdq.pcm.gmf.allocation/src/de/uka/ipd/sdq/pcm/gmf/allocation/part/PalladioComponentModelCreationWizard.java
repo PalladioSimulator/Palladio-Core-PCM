@@ -27,10 +27,11 @@ public class PalladioComponentModelCreationWizard extends Wizard implements
 	private SystemSelectorPage mySystemSelectorPage;
 
 	public PalladioComponentModelCreationWizard() {
-		myResourceEnvironmentSelectorPage = new ResourceEnvironmentSelectorPage(null);
+		myResourceEnvironmentSelectorPage = new ResourceEnvironmentSelectorPage(
+				null);
 		mySystemSelectorPage = new SystemSelectorPage(null);
 	}
-	
+
 	/**
 	 * @generated
 	 */
@@ -126,7 +127,7 @@ public class PalladioComponentModelCreationWizard extends Wizard implements
 		domainModelFilePage
 				.setDescription("Select file that will contain domain model.");
 		addPage(domainModelFilePage);
-		
+
 		addPage(myResourceEnvironmentSelectorPage);
 		addPage(mySystemSelectorPage);
 	}
@@ -141,9 +142,10 @@ public class PalladioComponentModelCreationWizard extends Wizard implements
 					throws CoreException, InterruptedException {
 				diagram = PalladioComponentModelDiagramEditorUtil
 						.createDiagram(diagramModelFilePage.getURI(),
-								domainModelFilePage.getURI(), 
+								domainModelFilePage.getURI(),
 								mySystemSelectorPage.getSelectedSystem(),
-								myResourceEnvironmentSelectorPage.getSelectedResourceEnvironment(),
+								myResourceEnvironmentSelectorPage
+										.getSelectedResourceEnvironment(),
 								monitor);
 				if (isOpenNewlyCreatedDiagramEditor() && diagram != null) {
 					try {

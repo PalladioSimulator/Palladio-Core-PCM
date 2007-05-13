@@ -52,15 +52,15 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
 	/**
 	 * @generated
 	 */
-	public static final IElementType Allocation_1000 = getElementType("de.uka.ipd.sdq.pcm.gmf.allocation_new.Allocation_1000"); //$NON-NLS-1$
+	public static final IElementType Allocation_1000 = getElementType("de.uka.ipd.sdq.pcm.gmf.allocation.Allocation_1000"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */
-	public static final IElementType ResourceContainer_2002 = getElementType("de.uka.ipd.sdq.pcm.gmf.allocation_new.ResourceContainer_2002"); //$NON-NLS-1$
+	public static final IElementType ResourceContainer_2002 = getElementType("de.uka.ipd.sdq.pcm.gmf.allocation.ResourceContainer_2002"); //$NON-NLS-1$
 	/**
 	 * @generated
 	 */
-	public static final IElementType AllocationContext_3001 = getElementType("de.uka.ipd.sdq.pcm.gmf.allocation_new.AllocationContext_3001"); //$NON-NLS-1$
+	public static final IElementType AllocationContext_3001 = getElementType("de.uka.ipd.sdq.pcm.gmf.allocation.AllocationContext_3001"); //$NON-NLS-1$
 
 	/**
 	 * @generated

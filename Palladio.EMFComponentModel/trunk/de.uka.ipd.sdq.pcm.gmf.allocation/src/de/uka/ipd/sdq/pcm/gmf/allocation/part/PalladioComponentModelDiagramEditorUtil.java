@@ -152,6 +152,69 @@ public class PalladioComponentModelDiagramEditorUtil {
 
 	/**
 	 * This method should be called within a workspace modify operation since it creates resources.
+	 * @generated
+	 */
+	public static Resource createDiagram(
+			org.eclipse.emf.common.util.URI diagramURI,
+			org.eclipse.emf.common.util.URI modelURI,
+			IProgressMonitor progressMonitor) {
+		TransactionalEditingDomain editingDomain = GMFEditingDomainFactory.INSTANCE
+				.createEditingDomain();
+		progressMonitor.beginTask("Creating diagram and model files", 3);
+		final Resource diagramResource = editingDomain.getResourceSet()
+				.createResource(diagramURI);
+		final Resource modelResource = editingDomain.getResourceSet()
+				.createResource(modelURI);
+		final String diagramName = diagramURI.lastSegment();
+		AbstractTransactionalCommand command = new AbstractTransactionalCommand(
+				editingDomain,
+				"Creating diagram and model", Collections.EMPTY_LIST) { //$NON-NLS-1$
+			protected CommandResult doExecuteWithResult(
+					IProgressMonitor monitor, IAdaptable info)
+					throws ExecutionException {
+				Allocation model = createInitialModel();
+				attachModelToResource(model, modelResource);
+
+				Diagram diagram = ViewService
+						.createDiagram(
+								model,
+								AllocationEditPart.MODEL_ID,
+								PalladioComponentModelAllocationDiagramEditorPlugin.DIAGRAM_PREFERENCES_HINT);
+				if (diagram != null) {
+					diagramResource.getContents().add(diagram);
+					diagram.setName(diagramName);
+					diagram.setElement(model);
+				}
+
+				try {
+					Map options = new HashMap();
+					options.put(XMIResource.OPTION_ENCODING, "UTF-8"); //$NON-NLS-1$
+					modelResource.save(options);
+					diagramResource.save(options);
+				} catch (IOException e) {
+
+					PalladioComponentModelAllocationDiagramEditorPlugin
+							.getInstance()
+							.logError(
+									"Unable to store model and diagram resources", e); //$NON-NLS-1$
+				}
+				return CommandResult.newOKCommandResult();
+			}
+		};
+		try {
+			OperationHistoryFactory.getOperationHistory().execute(command,
+					new SubProgressMonitor(progressMonitor, 1), null);
+		} catch (ExecutionException e) {
+			PalladioComponentModelAllocationDiagramEditorPlugin.getInstance()
+					.logError("Unable to create model and diagram", e); //$NON-NLS-1$
+		}
+		setCharset(modelURI);
+		setCharset(diagramURI);
+		return diagramResource;
+	}
+
+	/**
+	 * This method should be called within a workspace modify operation since it creates resources.
 	 * @generated not
 	 */
 	public static Resource createDiagram(

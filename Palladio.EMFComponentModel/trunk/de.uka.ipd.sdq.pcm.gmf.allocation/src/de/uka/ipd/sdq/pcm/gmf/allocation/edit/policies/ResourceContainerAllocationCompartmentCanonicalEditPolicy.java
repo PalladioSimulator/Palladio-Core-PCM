@@ -30,7 +30,8 @@ public class ResourceContainerAllocationCompartmentCanonicalEditPolicy extends
 	protected List getSemanticChildrenList() {
 		List result = new LinkedList();
 		EObject modelObject = ((View) getHost().getModel()).getElement();
-		EObject allocation = ((View) getHost().getParent().getParent().getModel()).getElement();
+		EObject allocation = ((View) getHost().getParent().getParent()
+				.getModel()).getElement();
 		View viewObject = (View) getHost().getModel();
 		EObject nextValue;
 		int nodeVID;
@@ -39,9 +40,9 @@ public class ResourceContainerAllocationCompartmentCanonicalEditPolicy extends
 				.hasNext();) {
 			nextValue = (EObject) values.next();
 			AllocationContext ac = (AllocationContext) nextValue;
-			if (ac.getResourceContainer_AllocationContext() == modelObject){
-				nodeVID = PalladioComponentModelVisualIDRegistry.getNodeVisualID(
-						viewObject, nextValue);
+			if (ac.getResourceContainer_AllocationContext() == modelObject) {
+				nodeVID = PalladioComponentModelVisualIDRegistry
+						.getNodeVisualID(viewObject, nextValue);
 				if (AllocationContextEditPart.VISUAL_ID == nodeVID) {
 					result.add(nextValue);
 				}

@@ -3,6 +3,7 @@
  */
 package de.uka.ipd.sdq.pcm.gmf.allocation.view.factories;
 
+import de.uka.ipd.sdq.pcm.gmf.allocation.edit.parts.AllocationComponentLabelEditPart;
 import de.uka.ipd.sdq.pcm.gmf.allocation.edit.parts.AllocationContextEditPart;
 import de.uka.ipd.sdq.pcm.gmf.allocation.edit.parts.AllocationContextEntityNameEditPart;
 import de.uka.ipd.sdq.pcm.gmf.allocation.edit.parts.AllocationEditPart;
@@ -71,6 +72,12 @@ public class AllocationContextViewFactory extends AbstractShapeViewFactory {
 						PalladioComponentModelVisualIDRegistry
 								.getType(AllocationContextEntityNameEditPart.VISUAL_ID),
 						ViewUtil.APPEND, true, getPreferencesHint());
+		getViewService().createNode(
+				semanticAdapter,
+				view,
+				PalladioComponentModelVisualIDRegistry
+						.getType(AllocationComponentLabelEditPart.VISUAL_ID),
+				ViewUtil.APPEND, true, getPreferencesHint());
 	}
 
 }

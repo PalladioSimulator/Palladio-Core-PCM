@@ -114,6 +114,12 @@ public class AllocationContextEditPart extends ShapeNodeEditPart {
 					.setLabel(getPrimaryShape().getFigureAllocationNameFigure());
 			return true;
 		}
+		if (childEditPart instanceof AllocationComponentLabelEditPart) {
+			((AllocationComponentLabelEditPart) childEditPart)
+					.setLabel(getPrimaryShape()
+							.getFigureAllocationComponentLabelFigure());
+			return true;
+		}
 		return false;
 	}
 
@@ -240,6 +246,12 @@ public class AllocationContextEditPart extends ShapeNodeEditPart {
 			this.add(allocationNameFigure0);
 			setFigureAllocationNameFigure(allocationNameFigure0);
 
+			WrapLabel allocationComponentLabelFigure0 = new WrapLabel();
+			allocationComponentLabelFigure0.setText("");
+
+			this.add(allocationComponentLabelFigure0);
+			setFigureAllocationComponentLabelFigure(allocationComponentLabelFigure0);
+
 		}
 
 		/**
@@ -259,6 +271,25 @@ public class AllocationContextEditPart extends ShapeNodeEditPart {
 		 */
 		private void setFigureAllocationNameFigure(WrapLabel fig) {
 			fAllocationNameFigure = fig;
+		}
+
+		/**
+		 * @generated
+		 */
+		private WrapLabel fAllocationComponentLabelFigure;
+
+		/**
+		 * @generated
+		 */
+		public WrapLabel getFigureAllocationComponentLabelFigure() {
+			return fAllocationComponentLabelFigure;
+		}
+
+		/**
+		 * @generated
+		 */
+		private void setFigureAllocationComponentLabelFigure(WrapLabel fig) {
+			fAllocationComponentLabelFigure = fig;
 		}
 
 		/**
