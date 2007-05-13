@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.gmf.runtime.common.core.command.CompositeCommand;
 import org.eclipse.gmf.runtime.common.core.command.ICommand;
 import org.eclipse.gmf.runtime.emf.type.core.commands.SetValueCommand;
 import org.eclipse.gmf.runtime.emf.type.core.edithelper.AbstractEditHelperAdvice;
@@ -16,6 +17,7 @@ import org.eclipse.ui.PlatformUI;
 import de.uka.ipd.sdq.dialogs.selection.PalladioSelectEObjectDialog;
 import de.uka.ipd.sdq.pcm.allocation.AllocationPackage;
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
+import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer;
 
 public class AllocationContextEditHelperAdvice
@@ -23,7 +25,7 @@ public class AllocationContextEditHelperAdvice
 
 	@Override
 	protected ICommand getAfterConfigureCommand(ConfigureRequest request) {
-		EObject resource = null;
+		AssemblyContext resource = null;
 
 		ArrayList<Object> filterList = new ArrayList<Object>();
 		filterList.add(de.uka.ipd.sdq.pcm.system.System.class);
@@ -48,6 +50,21 @@ public class AllocationContextEditHelperAdvice
 						request.getElementToConfigure(), 
 						AllocationPackage.eINSTANCE.getAllocationContext_AssemblyContext_AllocationContext(),
 						resource));
-		return cmd;
+		
+		String allocationName = "Allocation_"+resource.getEntityName();
+		if (resource.getEncapsulatedComponent_ChildComponentContext() != null)
+			allocationName += " <"+resource.getEncapsulatedComponent_ChildComponentContext().getEntityName()+">";
+
+		ICommand cmd2 = new SetValueCommand(
+				new SetRequest(
+						request.getElementToConfigure(), 
+						EntityPackage.eINSTANCE.getNamedElement_EntityName(),
+						allocationName));
+		
+		CompositeCommand cc = new CompositeCommand("Configure Allocation Context");
+		cc.add(cmd);
+		cc.add(cmd2);
+		
+		return cc;
 	}
 }
