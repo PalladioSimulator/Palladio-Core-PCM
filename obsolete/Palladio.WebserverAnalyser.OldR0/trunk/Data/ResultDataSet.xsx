@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--Diese Datei wird automatisch vom XML-Schema-Designer generiert. Sie enthält Layoutinformationen für Komponenten auf der Designeroberfläche.-->
-<XSDDesignerLayout layoutVersion="2" viewPortLeft="3466" viewPortTop="0" zoom="100">
-    <CallTable_XmlElement left="5356" top="7091" width="7239" height="4149" selected="0" zOrder="0" index="0" expanded="1" />
-    <ClassTable_XmlElement left="4466" top="1022" width="4233" height="2625" selected="0" zOrder="1" index="1" expanded="1" />
-    <ExecutionTimeTable_XmlElement left="10983" top="1000" width="4233" height="2625" selected="0" zOrder="2" index="2" expanded="1" />
-    <MethodTable_XmlElement left="15152" top="9382" width="4233" height="2625" selected="0" zOrder="3" index="3" expanded="1" />
-    <TimeTable_XmlElement left="14791" top="5234" width="4233" height="2625" selected="0" zOrder="4" index="4" expanded="1" />
-</XSDDesignerLayout>

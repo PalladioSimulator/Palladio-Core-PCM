@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--Diese Datei wird automatisch vom XML-Schema-Designer generiert. Sie enthält Layoutinformationen für Komponenten auf der Designeroberfläche.-->
-<XSDDesignerLayout layoutVersion="2" viewPortLeft="0" viewPortTop="0" zoom="100">
-    <ElementTable_XmlElement left="6794" top="3259" width="4233" height="2625" selected="0" zOrder="1" index="0" expanded="1" />
-    <ConnectionTable_XmlElement left="6900" top="8277" width="4233" height="2625" selected="0" zOrder="3" index="1" expanded="1" />
-</XSDDesignerLayout>

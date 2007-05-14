@@ -1,8 +1,0 @@
-<mm:style name="Absatz-Format 1: Seitentitel" format="h2" align="left" apply="replace" />
-<mm:style name="Absatz-Format 2: Zwischentitel" format="h3" apply="replace" />
-<mm:style name="Absatz-Format 3: Absatztitel" format="h4" apply="replace" />
-<mm:style name="Absatz-Format 4: Text" apply="replace" />
-<mm:style name="Absatz-Stil: Zentriert" align="center" apply="add" />
-<mm:style name="Auswahl-Stil 1: Fett" type="char" apply="add" bold />
-<mm:style name="Auswahl-Stil 2: Kursiv" type="char" apply="add" italic />
-<mm:style name="Auswahl-Stil 3: Klein" type="char" apply="add" size="-1" />

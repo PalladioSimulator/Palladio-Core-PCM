@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<fsm type="tabular">
-	<state name="Start" start="true"/>
-	<state name="Final" final="true"/>
-	<state name="Dummy"/>
-
-	<transition source="Start" target="Final" input="ed1" />
-	<transition source="Final" target="Start" input="ed2" />
-</fsm>

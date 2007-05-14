@@ -1,9 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8" ?> 
-<fsm type="stack">
-	<uses name="provides" file="provides.xml"/>
-	<uses name="d1" file="se_d1s.xml"/>
-	<uses name="d2" file="se_d2.xml"/>
-	<uses name="d3" file="se_d3.xml"/>
-	
-	<top name="provides"/>
-</fsm>

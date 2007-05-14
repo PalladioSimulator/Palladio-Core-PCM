@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<pcm.assembly:Assembly xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:pcm.assembly="http://sdq.ipd.uka.de/PalladioComponentModel/Assembly/1.0" id="Assembly_Store" entityName="Assembly_Store">
-  <assemblycontexts_Assembly id="SecureStore_AssCtx" entityName="SecureStore_AssCtx">
-    <encapsulatedComponent__AssemblyContext href="Store.repository#SecureStore"/>
-  </assemblycontexts_Assembly>
-</pcm.assembly:Assembly>
