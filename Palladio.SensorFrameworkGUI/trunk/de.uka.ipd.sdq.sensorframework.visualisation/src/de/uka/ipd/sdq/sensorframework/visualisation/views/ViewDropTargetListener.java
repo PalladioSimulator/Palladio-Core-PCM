@@ -57,7 +57,6 @@ public class ViewDropTargetListener extends DropTargetAdapter {
 	 */
 	@Override
 	public void drop(DropTargetEvent event) {
-		System.out.println("Dropped!");
 	}
 
 	/* (non-Javadoc)

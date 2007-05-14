@@ -53,14 +53,18 @@ import de.uka.ipd.sdq.sensorframework.visualisation.views.TreeObject;
 public class SensorsPropertySection extends AbstractPropertySection implements
 		Observer {
 
-	/*
-	 * (non-Javadoc)
-	 * 
+	/* (non-Javadoc)
 	 * @see java.util.Observer#update(java.util.Observable, java.lang.Object)
 	 */
 	@Override
 	public void update(Observable subject, Object signal) {
 		refresh();
+		
+		ConfigEditorInput input = (ConfigEditorInput) subject;
+		
+		if (!input.isEmpty())
+			updateButton.setEnabled(true);
+		else updateButton.setEnabled(false);
 	}
 
 	private ConfigEditorInput configObject;
@@ -226,7 +230,6 @@ public class SensorsPropertySection extends AbstractPropertySection implements
 		updateButton.setText("Update Chart");
 		updateButton.addSelectionListener(new SelectionAdapter() {
 			public void widgetSelected(SelectionEvent e) {
-
 				EditorPart editor = (EditorPart) SimuPlugin.getDefault()
 						.getWorkbench().getActiveWorkbenchWindow()
 						.getActivePage().getActiveEditor();

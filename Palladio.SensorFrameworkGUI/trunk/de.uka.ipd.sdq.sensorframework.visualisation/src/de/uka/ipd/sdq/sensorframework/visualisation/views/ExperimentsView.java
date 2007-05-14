@@ -54,13 +54,10 @@ public class ExperimentsView extends ViewPart {
 		viewer.setSorter(new NameSorter());
 		viewer.setInput(getViewSite());
 
-		// add Drag support
 		Transfer[] transfers = new Transfer[] {EditorInputTransfer.getInstance(),
 				LocalSelectionTransfer.getTransfer()};
 		viewer.addDragSupport(ops, transfers, new TreeDragSourceListener(viewer));
-		viewer.addDropSupport(ops, new Transfer[]{LocalSelectionTransfer.getTransfer()}, 
-				new TreeDropListener(viewer));
-
+		
 		makeActions();
 		hookContextMenu();
 		hookDoubleClickAction();
@@ -130,14 +127,14 @@ public class ExperimentsView extends ViewPart {
 		collapseAll.setImageDescriptor(SimuPlugin.getImageDescriptor("/icons/collapseall.gif"));
 		
 		// TODO ???
-		doubleClickAction = new Action() {
-			public void run() {
-				ISelection selection = viewer.getSelection();
-				Object obj = ((IStructuredSelection) selection)
-						.getFirstElement();
-				showMessage("Double-click detected on " + obj.toString());
-			}
-		};
+//		doubleClickAction = new Action() {
+//			public void run() {
+//				ISelection selection = viewer.getSelection();
+//				Object obj = ((IStructuredSelection) selection)
+//						.getFirstElement();
+//				//showMessage("Double-click detected on " + obj.toString());
+//			}
+//		};
 	}
 
 	private void hookDoubleClickAction() {

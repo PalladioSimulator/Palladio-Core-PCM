@@ -42,6 +42,7 @@ public class ConfigEditorInput extends Observable
 			configEntrys.add(new ConfigEntry(run,experiment,sensor));
 		else
 			configEntry.setSensorChecked(sensor);
+		notify(null);
 	}
 	
 	public void addNewConfigEntry(ExperimentRun run, Experiment experiment){
@@ -78,6 +79,10 @@ public class ConfigEditorInput extends Observable
 	
 	public List<ConfigEntry> getConfigEntrys() {
 		return configEntrys;
+	}
+	
+	public boolean isEmpty(){
+		return configEntrys.isEmpty();
 	}
 
 	/* (non-Javadoc)
