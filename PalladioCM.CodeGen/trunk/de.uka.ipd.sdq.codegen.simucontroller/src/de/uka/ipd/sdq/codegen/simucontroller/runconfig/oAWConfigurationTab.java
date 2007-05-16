@@ -3,10 +3,13 @@ package de.uka.ipd.sdq.codegen.simucontroller.runconfig;
 
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.IPath;
 import org.eclipse.debug.core.ILaunchConfiguration;
 import org.eclipse.debug.core.ILaunchConfigurationWorkingCopy;
 import org.eclipse.debug.ui.AbstractLaunchConfigurationTab;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.events.ModifyEvent;
+import org.eclipse.swt.events.ModifyListener;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.graphics.Image;
@@ -17,8 +20,9 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.DirectoryDialog;
 import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Label;
-import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
+import org.eclipse.ui.dialogs.ContainerSelectionDialog;
+
 
 /**
  * @author admin
@@ -55,6 +59,15 @@ public class oAWConfigurationTab extends AbstractLaunchConfigurationTab {
 	 * @see org.eclipse.debug.ui.ILaunchConfigurationTab#createControl(org.eclipse.swt.widgets.Composite)
 	 */
 	public void createControl(Composite parent) {
+		
+		final ModifyListener modifyListener = new ModifyListener(){
+
+			public void modifyText(ModifyEvent e) {
+				oAWConfigurationTab.this.setDirty(true);
+				oAWConfigurationTab.this.updateLaunchConfigurationDialog();
+			}
+		};
+		
 		Composite container = new Composite(parent, SWT.NONE);
 		setControl(container);
 		container.setLayout(new GridLayout());
@@ -81,11 +94,13 @@ public class oAWConfigurationTab extends AbstractLaunchConfigurationTab {
 			 */
 			public void widgetSelected(SelectionEvent e) {
 				setElementsEnabled(false);
-				outputPathField
-						.setText(GENERATE_PLUGIN_PATH);
+				outputPathField.setText(GENERATE_PLUGIN_PATH);
 
-				if (!defaultLocationButton.getSelection())
+				if (!defaultLocationButton.getSelection()) {
 					setElementsEnabled(true);
+					outputPathField.setText("");
+
+				}
 			}
 		});
 		new Label(outputPathGroup, SWT.NONE);
@@ -100,12 +115,23 @@ public class oAWConfigurationTab extends AbstractLaunchConfigurationTab {
 		gridData.widthHint = 456;
 		outputPathField.setLayoutData(gridData);
 		outputPathField.setText(GENERATE_PLUGIN_PATH);
+		outputPathField.addModifyListener(modifyListener);
 		new Label(outputPathGroup, SWT.NONE);
 
 		workspaceButton = new Button(outputPathGroup, SWT.NONE);
 		workspaceButton.setLayoutData(new GridData(SWT.RIGHT, SWT.CENTER, true,
 				false));
 		workspaceButton.setText("Workspace...");
+		workspaceButton.addSelectionListener(new SelectionAdapter() {
+			/* (non-Javadoc)
+			 * @see org.eclipse.swt.events.SelectionAdapter#widgetSelected(org.eclipse.swt.events.SelectionEvent)
+			 */
+			public void widgetSelected(SelectionEvent e) {
+				String pluginPath = openResourceDialog(e);
+				outputPathField.setText(workspace_location + pluginPath);
+				ResourceManagerTab.setGeneretePluginPath(pluginPath);
+			}
+		});
 
 		fileSystemButton = new Button(outputPathGroup, SWT.NONE);
 		fileSystemButton.setLayoutData(new GridData());
@@ -168,28 +194,60 @@ public class oAWConfigurationTab extends AbstractLaunchConfigurationTab {
 	 */
 	public void setDefaults(ILaunchConfigurationWorkingCopy configuration) {
 	}
+	
+	public boolean isValid(ILaunchConfiguration launchConfig) {
+		setErrorMessage(null);
+
+		if (outputPathField.getText().equals("")){
+			setErrorMessage("The output path location is not specified!");
+			return false;
+		}
+		return true;
+	}
 
 	/**
 	 * The function calls the DirectoryDialog and give back absolute path to the
 	 * directory as String
 	 * 
-	 * @param shell
-	 *            which will be the parent of the new instance
 	 * @return absolute path to ordner
 	 */
 	private String openDirectoryDialog(SelectionEvent e) {
 
 		String directoryname = "";
-		Shell shell = e.display.getActiveShell();
 
-		DirectoryDialog dialog = new DirectoryDialog(shell, SWT.OPEN | SWT.SAVE);
-		dialog.setText("Select Directoryn");
+		DirectoryDialog dialog = new DirectoryDialog(
+				e.display.getActiveShell(), SWT.OPEN | SWT.SAVE);
+		dialog.setText("Select Directory");
 
-		if (dialog.open() != null) {
+		if (dialog.open() != null)
 			directoryname = dialog.getFilterPath(); // + File.separatorChar;
-		}
 
 		return directoryname;
 	}
 
+	/**
+	 * The function calls the ContainerSelectionDialog and give back relative to
+	 * the workspace
+	 * 
+	 * @return relative path to ordner
+	 */
+	private String openResourceDialog(SelectionEvent e) {
+		String message = "Choose a location relative to the workspace: "; // openResourceDialog(e);
+
+		String resourceName = "";
+
+		ContainerSelectionDialog dialog = new ContainerSelectionDialog(
+				e.display.getActiveShell(), null, true, message);
+
+		dialog.open();
+
+		Object[] result = dialog.getResult();
+
+		if (result[0] instanceof IPath) {
+			IPath path = (IPath) result[0];
+			resourceName = path.toPortableString();
+
+		}
+		return resourceName;
+	}
 }

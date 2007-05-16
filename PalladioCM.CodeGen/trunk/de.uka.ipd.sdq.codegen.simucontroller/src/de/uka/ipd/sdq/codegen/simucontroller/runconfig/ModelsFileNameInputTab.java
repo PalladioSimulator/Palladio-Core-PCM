@@ -22,8 +22,7 @@ import org.eclipse.swt.widgets.Text;
 import org.eclipse.core.runtime.CoreException;
 
 /**
- * @author admin
- * 
+ * @author roman
  */
 public class ModelsFileNameInputTab extends AbstractLaunchConfigurationTab {
 
@@ -47,7 +46,7 @@ public class ModelsFileNameInputTab extends AbstractLaunchConfigurationTab {
 	 * shows to the argument.
 	 */
 	private final String[] REPOSITORY_EXTENSION = new String[] { "*.repository" };
-	private final String[] SYSTEM_EXTENSION = new String[] { "*.system" };
+	private final String[] SYSTEM_EXTENSION 	= new String[] { "*.system" };
 	private final String[] ALLOCATION_EXTENSION = new String[] { "*.allocation" };
 	private final String[] USAGEMODEL_EXTENSION = new String[] { "*.usagemodel" };
 	
@@ -56,8 +55,6 @@ public class ModelsFileNameInputTab extends AbstractLaunchConfigurationTab {
 	private Text textAllocation;
 	private Text textUsage;
 	
-
-
 	/* (non-Javadoc)
 	 * @see org.eclipse.debug.ui.ILaunchConfigurationTab#createControl(org.eclipse.swt.widgets.Composite)
 	 */
@@ -68,8 +65,8 @@ public class ModelsFileNameInputTab extends AbstractLaunchConfigurationTab {
 				ModelsFileNameInputTab.this.setDirty(true);
 				ModelsFileNameInputTab.this.updateLaunchConfigurationDialog();
 			}
-			
 		};
+
 		Composite container = new Composite(parent, SWT.NONE);
 		setControl(container);
 		container.setLayout(new GridLayout());
@@ -174,6 +171,7 @@ public class ModelsFileNameInputTab extends AbstractLaunchConfigurationTab {
 			 */
 			public void widgetSelected(SelectionEvent e) {
 				textUsage.setText(openFileDialog(e, USAGEMODEL_EXTENSION));
+				updateLaunchConfigurationDialog();
 			}
 		});
 	}
@@ -234,12 +232,25 @@ public class ModelsFileNameInputTab extends AbstractLaunchConfigurationTab {
 	}
 	
 	public boolean isValid(ILaunchConfiguration launchConfig) {
-		boolean allFilledIn =
-			textRepository.getText().length() >= 0 &&
-			textAllocation.getText().length() >= 0 &&
-			textSystem.getText().length() >= 0 &&
-			textUsage.getText().length() >= 0;
-		return allFilledIn;
+		setErrorMessage(null);
+
+		if (textRepository.getText().equals("")){
+			setErrorMessage("Repository is missing!");
+			return false;
+		}
+		if (textSystem.getText().equals("")){
+			setErrorMessage("System is missing!");
+			return false;
+		}
+		if (textAllocation.getText().equals("")){
+	    	setErrorMessage("Allocation is missing!");
+	    	return false;
+    	}
+		if (textUsage.getText().equals("")){
+			setErrorMessage("Usage is missing!");
+			return false;
+		}
+		return true;
 	}
 	
 	public boolean canSave() {
