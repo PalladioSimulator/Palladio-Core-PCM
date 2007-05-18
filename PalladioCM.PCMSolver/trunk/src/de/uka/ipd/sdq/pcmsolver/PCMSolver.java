@@ -115,7 +115,7 @@ public class PCMSolver {
 		
 		visualize(iPDF);
 		
-		logger.warn("Completed Analysis:\t\t"+ overallDuration + " ms");
+		logger.warn("Completed Analysis:\t\t"+ overallDuration + " ms overall");
 	}
 
 	private void configureLogging(ILaunchConfiguration configuration) {
@@ -148,11 +148,15 @@ public class PCMSolver {
 	private void runDSolver() {
 		long startTime = System.nanoTime();
 		visitScenarioEMFSwitch();
-		currentModel.saveToFiles("SolvedDSolverExample1");
+
+		// uncomment for debugging purposes:
+		//currentModel.saveToFiles("SolvedDSolverExample1");
+		
 		long timeAfterDSolve = System.nanoTime();
 		long duration = TimeUnit.NANOSECONDS.toMillis(timeAfterDSolve-startTime);
 		overallDuration += duration;
-		logger.warn("Finished DSolver, Saving:\t"+ duration + " ms");
+		
+		logger.warn("Finished DSolver:\t\t"+ duration + " ms");
 	}
 	
 	private void visitScenarioEMFSwitch(){
