@@ -17,6 +17,7 @@ import de.uka.ipd.sdq.codegen.simucontroller.workflow.CompilePluginCodeJob;
 import de.uka.ipd.sdq.codegen.simucontroller.workflow.CreatePluginProjectJob;
 import de.uka.ipd.sdq.codegen.simucontroller.workflow.GeneratePluginCodeJob;
 import de.uka.ipd.sdq.codegen.simucontroller.workflow.LoadPluginJob;
+import de.uka.ipd.sdq.codegen.simucontroller.workflow.SimuComConfig;
 import de.uka.ipd.sdq.codegen.simucontroller.workflow.SimulateJob;
 import de.uka.ipd.sdq.codegen.simucontroller.workflow.SimulationWorkflow;
 
@@ -62,11 +63,12 @@ public class SimuLaunchConfigurationDelegate implements
 		System.setOut(getPrintStream());
 
 		SimulationWorkflow workflow = new SimulationWorkflow(monitor);
+		SimuComConfig simuConfig = new SimuComConfig(configuration);
 
 		/**
 		 * Step 1: Create container Plugin 
 		 */
-		CreatePluginProjectJob createPluginProjectJob = new CreatePluginProjectJob();
+		CreatePluginProjectJob createPluginProjectJob = new CreatePluginProjectJob(configuration);
 		workflow.addJob(createPluginProjectJob);
 
 		/**
@@ -87,8 +89,7 @@ public class SimuLaunchConfigurationDelegate implements
 		/**
 		 * Step 5: Simulate
 		 */
-		// TODO Roman: SimTime aus Config auslesen!
-		workflow.addJob(new SimulateJob(1500000));
+		workflow.addJob(new SimulateJob(simuConfig.getSimuTime()));
 
 		//execute all steps
 		try {

@@ -16,6 +16,7 @@ public class SimuTabGroup extends AbstractLaunchConfigurationTabGroup {
 	public void createTabs(ILaunchConfigurationDialog dialog, String mode) {
 		ILaunchConfigurationTab[] tabs = new ILaunchConfigurationTab[] {
 				new ModelsFileNameInputTab(),
+				new SimuComConfigurationTab(),
 				new oAWConfigurationTab()
 		};
 		setTabs(tabs);

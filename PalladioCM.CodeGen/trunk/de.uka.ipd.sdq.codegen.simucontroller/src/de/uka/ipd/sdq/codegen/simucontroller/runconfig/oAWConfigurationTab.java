@@ -45,6 +45,8 @@ public class oAWConfigurationTab extends AbstractLaunchConfigurationTab {
 	private String GENERATE_PLUGIN_PATH = workspace_location
 			+ "/de.uka.ipd.sdq.codegen.simucominstance/src";
 	private String outputPath = "OUTPUT_PATH";
+	
+	private boolean CLEAR = true;
 	/**
 	 * The default value for the 'height' Layout attribute.
 	 */
@@ -54,6 +56,7 @@ public class oAWConfigurationTab extends AbstractLaunchConfigurationTab {
 	private Label locationLabel;
 	private Button workspaceButton;
 	private Button fileSystemButton;
+	private Button clearButton;
 
 	/* (non-Javadoc)
 	 * @see org.eclipse.debug.ui.ILaunchConfigurationTab#createControl(org.eclipse.swt.widgets.Composite)
@@ -72,7 +75,7 @@ public class oAWConfigurationTab extends AbstractLaunchConfigurationTab {
 		setControl(container);
 		container.setLayout(new GridLayout());
 
-		// Create outPath section
+		/** Create outPath section */
 		final Group outputPathGroup = new Group(container, SWT.NONE);
 		outputPathGroup.setText("Output Path");
 		final GridLayout gridLayout = new GridLayout();
@@ -80,11 +83,12 @@ public class oAWConfigurationTab extends AbstractLaunchConfigurationTab {
 		outputPathGroup.setLayout(gridLayout);
 		outputPathGroup.setLayoutData(new GridData(LAYOUT_WIDTH, 80));
 
+		/** default location button */
 		final Button defaultLocationButton = new Button(outputPathGroup,
 				SWT.CHECK);
-		final GridData gridData_1 = new GridData(SWT.LEFT, SWT.CENTER, false,
+		final GridData gridData_dl = new GridData(SWT.LEFT, SWT.CENTER, false,
 				false, 2, 1);
-		defaultLocationButton.setLayoutData(gridData_1);
+		defaultLocationButton.setLayoutData(gridData_dl);
 		defaultLocationButton.setText("Use default location");
 		defaultLocationButton.setSelection(true);
 		defaultLocationButton.addSelectionListener(new SelectionAdapter() {
@@ -116,8 +120,26 @@ public class oAWConfigurationTab extends AbstractLaunchConfigurationTab {
 		outputPathField.setLayoutData(gridData);
 		outputPathField.setText(GENERATE_PLUGIN_PATH);
 		outputPathField.addModifyListener(modifyListener);
-		new Label(outputPathGroup, SWT.NONE);
-
+		
+		/** clear button */
+		clearButton = new Button(outputPathGroup,
+				SWT.CHECK);
+		clearButton.setLayoutData( new GridData());
+		clearButton.setText("Generated code at end delete");
+		clearButton.setSelection(true);
+		clearButton.addSelectionListener(new SelectionAdapter() {
+			
+			/* (non-Javadoc)
+			 * @see org.eclipse.swt.events.SelectionAdapter#widgetSelected(org.eclipse.swt.events.SelectionEvent)
+			 */
+			public void widgetSelected(SelectionEvent e) {
+				oAWConfigurationTab.this.setDirty(true);
+				oAWConfigurationTab.this.updateLaunchConfigurationDialog();
+				// TODO
+			}
+		});
+		
+		/** workspace button */
 		workspaceButton = new Button(outputPathGroup, SWT.NONE);
 		workspaceButton.setLayoutData(new GridData(SWT.RIGHT, SWT.CENTER, true,
 				false));
@@ -133,6 +155,7 @@ public class oAWConfigurationTab extends AbstractLaunchConfigurationTab {
 			}
 		});
 
+		/** filesystem button */
 		fileSystemButton = new Button(outputPathGroup, SWT.NONE);
 		fileSystemButton.setLayoutData(new GridData());
 		fileSystemButton.setText("File System...");
@@ -146,7 +169,7 @@ public class oAWConfigurationTab extends AbstractLaunchConfigurationTab {
 				ResourceManagerTab.setGeneretePluginPath(pluginPath);
 			}
 		});
-
+		
 		// --- setEnabled(false) ---
 		setElementsEnabled(false);
 
@@ -176,9 +199,17 @@ public class oAWConfigurationTab extends AbstractLaunchConfigurationTab {
 	 */
 	public void initializeFrom(ILaunchConfiguration configuration) {
 		try {
-			outputPathField.setText(configuration.getAttribute(ResourceManagerTab.OUTPUT_PATH, GENERATE_PLUGIN_PATH));
+			outputPathField.setText(configuration.getAttribute(
+					ResourceManagerTab.OUTPUT_PATH, GENERATE_PLUGIN_PATH));
 		} catch (CoreException e) {
 			outputPathField.setText("CoreException e -> " + outputPath);
+		}
+		
+		try {
+			clearButton.setSelection(configuration.getAttribute(
+					ResourceManagerTab.DELETE_PLUGIN, CLEAR));
+		} catch (CoreException e) {
+			clearButton.setSelection(true);
 		}
 	}
 
@@ -187,6 +218,7 @@ public class oAWConfigurationTab extends AbstractLaunchConfigurationTab {
 	 */
 	public void performApply(ILaunchConfigurationWorkingCopy configuration) {
 		configuration.setAttribute(ResourceManagerTab.OUTPUT_PATH, outputPathField.getText());
+		configuration.setAttribute(ResourceManagerTab.DELETE_PLUGIN, clearButton.getSelection());
 	}
 
 	/* (non-Javadoc)

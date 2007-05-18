@@ -15,19 +15,21 @@ public class ResourceManagerTab {
 
 	public static String GENERATE_PLUGIN_ID = "de.uka.ipd.sdq.codegen.simucominstance";
 
-	/**
-	 * TODO The default value for the 'width' attribute.
-	 */
+	/** Models file name input tab */
 	public static String REPOSITORY_FILE = "repositoryFile";
 	public static String SYSTEM_FILE = "systemFile";
 	public static String ALLOCATION_FILE = "allocationFile";
 	public static String USAGE_FILE = "usageFile";
 
+	/** Configuration tab*/
 	public static String OUTPUT_PATH = "outpath";
+	public static String DELETE_PLUGIN = "clear";
+	
+	/** SimuCom configuration tab */
+	public static String EXPERIMENT_RUN = "experimentRun";
+	public static String SIMULATION_TIME = "simTime";
 
-	/**
-	 * TODO
-	 */
+	/** TODO */
 	private static String GENERATE_PLUGIN_PATH;
 
 	public static Image getConfigurationImage() {
@@ -38,6 +40,11 @@ public class ResourceManagerTab {
 	public static Image getModelsListImage() {
 		return SimuControllerImages.imageRegistry
 				.get(SimuControllerImages.MODELS_LIST);
+	}
+	
+	public static Image getSimuComConfImage() {
+		return SimuControllerImages.imageRegistry
+				.get(SimuControllerImages.SIMUCOM_CONF);
 	}
 
 	/**

@@ -21,6 +21,7 @@ public class SimuControllerImages {
 	public static final String SIMU_STOP  		= "nav_stop";
 	public static final String SIMU_GENERATE  	= "new_plugin";
 	public static final String SIMU_DELETE  	= "del_plugin";
+	public static final String SIMUCOM_CONF  	= "simucom_conf";
 	
 	// For the toolbar images
 	public static ImageRegistry imageRegistry = new ImageRegistry();
@@ -51,6 +52,9 @@ public class SimuControllerImages {
 				);
 		imageRegistry.put(SIMU_DELETE,
 				 getImageDescriptor(iconPath + SIMU_DELETE + ".gif")
+				);
+		imageRegistry.put(SIMUCOM_CONF,
+				 getImageDescriptor(iconPath + SIMUCOM_CONF + ".gif")
 				);
 	}
 

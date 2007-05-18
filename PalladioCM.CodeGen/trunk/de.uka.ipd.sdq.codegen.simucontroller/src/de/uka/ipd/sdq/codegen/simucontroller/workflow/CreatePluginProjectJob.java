@@ -4,14 +4,23 @@ import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.NullProgressMonitor;
+import org.eclipse.debug.core.ILaunchConfiguration;
+
+import de.uka.ipd.sdq.codegen.simucontroller.runconfig.ResourceManagerTab;
 
 
 public class CreatePluginProjectJob implements ISimulationJob {
 
 	private IProject myProject;
+	private boolean deleteProject;
 
-	public CreatePluginProjectJob() {
+	public CreatePluginProjectJob(ILaunchConfiguration configuration) {
 		myProject = null;
+		try {
+			deleteProject = configuration.getAttribute(ResourceManagerTab.DELETE_PLUGIN, true);
+		} catch (CoreException e) {
+			deleteProject = true;
+		}
 	}
 
 	public IProject getProject() {
@@ -51,8 +60,9 @@ public class CreatePluginProjectJob implements ISimulationJob {
 		}
 
 		try {
-			myProject.delete(IResource.ALWAYS_DELETE_PROJECT_CONTENT,
-					new NullProgressMonitor());
+			if (deleteProject)
+				myProject.delete(IResource.ALWAYS_DELETE_PROJECT_CONTENT,
+						new NullProgressMonitor());
 		} catch (CoreException e) {
 			throw new Exception("Deleting plugin project failed", e);
 		}
