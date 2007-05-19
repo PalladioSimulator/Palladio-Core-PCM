@@ -38,7 +38,6 @@ public class SimuComConfigurationTab extends AbstractLaunchConfigurationTab {
 	/* (non-Javadoc)
 	 * @see org.eclipse.debug.ui.ILaunchConfigurationTab#createControl(org.eclipse.swt.widgets.Composite)
 	 */
-	@Override
 	public void createControl(Composite parent) {
 		final ModifyListener modifyListener = new ModifyListener(){
 
@@ -111,7 +110,6 @@ public class SimuComConfigurationTab extends AbstractLaunchConfigurationTab {
 	/* (non-Javadoc)
 	 * @see org.eclipse.debug.ui.ILaunchConfigurationTab#getName()
 	 */
-	@Override
 	public String getName() {
 		return "SimuCom";
 	}
@@ -119,7 +117,6 @@ public class SimuComConfigurationTab extends AbstractLaunchConfigurationTab {
 	/* (non-Javadoc)
 	 * @see org.eclipse.debug.ui.ILaunchConfigurationTab#initializeFrom(org.eclipse.debug.core.ILaunchConfiguration)
 	 */
-	@Override
 	public void initializeFrom(ILaunchConfiguration configuration) {
 		try {
 			nameField.setText(configuration.getAttribute(
@@ -139,7 +136,6 @@ public class SimuComConfigurationTab extends AbstractLaunchConfigurationTab {
 	/* (non-Javadoc)
 	 * @see org.eclipse.debug.ui.ILaunchConfigurationTab#performApply(org.eclipse.debug.core.ILaunchConfigurationWorkingCopy)
 	 */
-	@Override
 	public void performApply(ILaunchConfigurationWorkingCopy configuration) {
 		configuration.setAttribute(SimuComConfig.EXPERIMENT_RUN,
 				nameField.getText());
@@ -150,7 +146,6 @@ public class SimuComConfigurationTab extends AbstractLaunchConfigurationTab {
 	/* (non-Javadoc)
 	 * @see org.eclipse.debug.ui.ILaunchConfigurationTab#setDefaults(org.eclipse.debug.core.ILaunchConfigurationWorkingCopy)
 	 */
-	@Override
 	public void setDefaults(ILaunchConfigurationWorkingCopy configuration) {
 		configuration.setAttribute(SimuComConfig.EXPERIMENT_RUN,
 				"MyRun");
