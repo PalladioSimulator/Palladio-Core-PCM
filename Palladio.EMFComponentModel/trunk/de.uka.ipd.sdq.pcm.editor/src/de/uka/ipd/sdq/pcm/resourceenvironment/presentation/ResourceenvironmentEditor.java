@@ -688,7 +688,16 @@ public class ResourceenvironmentEditor
 		factories.add(new StoexItemProviderAdapterFactory());
 		factories.add(new ReflectiveItemProviderAdapterFactory());
 
-		adapterFactory = new PalladioItemProviderAdapterFactory(new ComposedAdapterFactory(factories));
+		ComposedAdapterFactory caf = new ComposedAdapterFactory(factories) {
+
+			@Override
+			public ComposeableAdapterFactory getRootAdapterFactory() {
+				// TODO Auto-generated method stub
+				return (PalladioItemProviderAdapterFactory)adapterFactory;
+			}
+			
+		};
+		adapterFactory = new PalladioItemProviderAdapterFactory(caf);
 
 		// Create the command stack that will notify this editor as commands are executed.
 		//
