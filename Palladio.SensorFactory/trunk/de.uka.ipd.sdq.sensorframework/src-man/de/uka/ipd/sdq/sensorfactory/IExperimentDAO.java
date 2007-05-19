@@ -11,4 +11,5 @@ public interface IExperimentDAO {
 	String getDescription();
 	void storeExperiment(Experiment experiment);
 	void insertExperiment(Experiment experiment);
+	Experiment createOrReuseExperiment(String nameExperimentRun);
 }

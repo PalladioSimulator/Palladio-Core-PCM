@@ -1,9 +1,6 @@
-package de.uka.ipd.sdq.codegen.simucontroller.workflow;
+package de.uka.ipd.sdq.simucomframework;
 
-import org.eclipse.core.runtime.CoreException;
-import org.eclipse.debug.core.ILaunchConfiguration;
-
-import de.uka.ipd.sdq.codegen.simucontroller.runconfig.ResourceManagerTab;
+import java.util.Map;
 
 /**
  * @author roman
@@ -12,6 +9,10 @@ import de.uka.ipd.sdq.codegen.simucontroller.runconfig.ResourceManagerTab;
  */
 public class SimuComConfig {
 
+	/** SimuCom configuration tab */
+	public static String EXPERIMENT_RUN = "experimentRun";
+	public static String SIMULATION_TIME = "simTime";
+	
 	/** configuration options */
 	private String nameExperimentRun;
 	private long simuTime;
@@ -19,13 +20,13 @@ public class SimuComConfig {
 	/**
 	 * @param ILaunchConfiguration
 	 */
-	public SimuComConfig(ILaunchConfiguration configuration){
+	public SimuComConfig(Map configuration){
 		try {
-			this.nameExperimentRun = configuration.getAttribute(
-					ResourceManagerTab.EXPERIMENT_RUN, "");
-			this.simuTime = Long.valueOf(configuration.getAttribute(
-					ResourceManagerTab.SIMULATION_TIME, ""));
-		} catch (CoreException e) {
+			this.nameExperimentRun = (String) configuration.get(
+					EXPERIMENT_RUN);
+			this.simuTime = Long.valueOf((String)configuration.get(
+					SIMULATION_TIME));
+		} catch (Exception e) {
 			// TODO
 			this.nameExperimentRun = "ExceptionName";
 			this.simuTime = 1500000;

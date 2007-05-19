@@ -88,4 +88,14 @@ public class JPAExperimentDAO implements IExperimentDAO {
 	public void insertExperiment(Experiment experiment) {
 		storeExperiment(experiment);
 	}
+
+	@Override
+	public Experiment createOrReuseExperiment(String nameExperimentRun) {
+		List<Experiment> result = em.createQuery("FROM Experiment WHERE Name='"+nameExperimentRun+"'").getResultList();
+		if (result.size() > 0)
+			return result.get(0);
+		else
+			return createExperiment(nameExperimentRun);
+		
+	}
 }

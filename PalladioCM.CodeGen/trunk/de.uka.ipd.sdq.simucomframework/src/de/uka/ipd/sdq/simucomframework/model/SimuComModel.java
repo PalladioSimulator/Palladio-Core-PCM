@@ -1,6 +1,7 @@
 package de.uka.ipd.sdq.simucomframework.model;
 
 import de.uka.ipd.sdq.simucomframework.ResouceRegistry;
+import de.uka.ipd.sdq.simucomframework.SimuComConfig;
 import de.uka.ipd.sdq.simucomframework.SimuComStatus;
 import de.uka.ipd.sdq.simucomframework.resources.IResourceContainerFactory;
 import de.uka.ipd.sdq.simucomframework.resources.SimulatedResourceContainer;
@@ -15,6 +16,7 @@ public class SimuComModel extends Model {
 	private IWorkloadDriver[] workloadDrivers;
 	private SimuComStatus status = SimuComStatus.OK;
 	private String errorMessage = "";
+	private SimuComConfig config;
 	
 	public SimuComModel(Model owner, String myName, boolean showInReport, boolean showInTrace) {
 		super(owner, myName, showInReport, showInTrace);
@@ -73,5 +75,13 @@ public class SimuComModel extends Model {
 	
 	public String getErrorMessage(){
 		return this.errorMessage;
+	}
+
+	public SimuComConfig getConfig() {
+		return config;
+	}
+
+	public void setConfig(SimuComConfig config) {
+		this.config = config;
 	}
 }

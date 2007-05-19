@@ -17,15 +17,16 @@ public abstract class AbstractMain {
 	private static Logger logger = 
 		Logger.getLogger(AbstractMain.class.getName());
 
-	protected SimuComStatus run(final IStatusObserver statusObserver, long maxSimTime)
+	protected SimuComStatus run(final IStatusObserver statusObserver, SimuComConfig config)
 	{
 		initializeLogger();
 		
-		final long SIM_STOP_TIME = maxSimTime;
+		final long SIM_STOP_TIME = config.getSimuTime();
 		
 		model = 
 			SimuComFactory.getSimuComModel( 
                 "SimuCom Model", true, true);
+		model.setConfig(config);
 		model.initialiseResourceContainer(getResourceContainerFactory());
 		model.setUsageScenarios(getWorkloads());
 		model.getExperiment().getSimClock().addObserver(new Observer(){

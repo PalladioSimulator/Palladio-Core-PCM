@@ -14,8 +14,9 @@
 		public class SimuComControl extends de.uka.ipd.sdq.simucomframework.AbstractMain 
 				implements de.uka.ipd.sdq.codegen.simucontroller.actions.ISimuComControl{
 						
-			public de.uka.ipd.sdq.simucomframework.SimuComStatus startSimulation(long maxSimTime, de.uka.ipd.sdq.simucomframework.IStatusObserver observer) {
-				return run(observer,maxSimTime);
+			public de.uka.ipd.sdq.simucomframework.SimuComStatus startSimulation(
+				de.uka.ipd.sdq.simucomframework.SimuComConfig config, de.uka.ipd.sdq.simucomframework.IStatusObserver observer) {
+				return run(observer,config);
 			}	
 
 			public void stopSimulation() {

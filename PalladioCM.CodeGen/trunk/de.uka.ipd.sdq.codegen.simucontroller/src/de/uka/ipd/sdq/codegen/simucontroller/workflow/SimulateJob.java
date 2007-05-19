@@ -5,6 +5,7 @@ import org.eclipse.core.runtime.Platform;
 
 import de.uka.ipd.sdq.codegen.simucontroller.SimuComJob;
 import de.uka.ipd.sdq.codegen.simucontroller.actions.ISimuComControl;
+import de.uka.ipd.sdq.simucomframework.SimuComConfig;
 import de.uka.ipd.sdq.simucomframework.SimuComStatus;
 
 public class SimulateJob implements ISimulationJob {
@@ -17,8 +18,10 @@ public class SimulateJob implements ISimulationJob {
 
 	private long maxSimulationTime;
 
-	public SimulateJob(long maxSimulationTime) {
-		this.maxSimulationTime = maxSimulationTime;
+	private SimuComConfig config;
+
+	public SimulateJob(SimuComConfig config) {
+		this.config = config;
 	}
 
 	public void execute() throws Exception {
@@ -39,7 +42,7 @@ public class SimulateJob implements ISimulationJob {
 			throw new Exception("Locating simulation plugin failed", e);
 		}
 
-		SimuComJob job = new SimuComJob(control, maxSimulationTime, null);
+		SimuComJob job = new SimuComJob(control, config, null);
 		try {
 			job.setUser(true);
 			job.schedule();

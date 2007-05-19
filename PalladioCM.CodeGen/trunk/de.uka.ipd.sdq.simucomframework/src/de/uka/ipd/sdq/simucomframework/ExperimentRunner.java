@@ -26,7 +26,7 @@ public class ExperimentRunner {
 		// new MainUI(model).setVisible(true);
 		SensorFactory.singleton().reset();
 		
-		SensorFrameworkObserver sensorObserver = new SensorFrameworkObserver();
+		SensorFrameworkObserver sensorObserver = new SensorFrameworkObserver(model);
 		SensorFactory.singleton().addSensorObserver(sensorObserver);
 		
 		// exp.stop(new StopCondition(model,"StopCondtion","Response Time of ConcurScenario",true));

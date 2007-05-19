@@ -21,6 +21,8 @@ import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
 
+import de.uka.ipd.sdq.simucomframework.SimuComConfig;
+
 /**
  * @author admin
  *
@@ -60,7 +62,7 @@ public class SimuComConfigurationTab extends AbstractLaunchConfigurationTab {
 		
 		Label nameLabel = new Label(experimentrunGroup, SWT.NONE);
 		nameLabel.setLayoutData(new GridData(48, SWT.DEFAULT));
-		nameLabel.setText("Name:");
+		nameLabel.setText("Experiment Run Name:");
 
 		nameField = new Text(experimentrunGroup, SWT.BORDER);
 		final GridData gridData = new GridData(SWT.FILL, SWT.CENTER, true,
@@ -121,14 +123,14 @@ public class SimuComConfigurationTab extends AbstractLaunchConfigurationTab {
 	public void initializeFrom(ILaunchConfiguration configuration) {
 		try {
 			nameField.setText(configuration.getAttribute(
-					ResourceManagerTab.EXPERIMENT_RUN, ""));
+					SimuComConfig.EXPERIMENT_RUN, ""));
 		} catch (CoreException e) {
 			nameField.setText("CoreException e -> EXPERIMENT_RUN");
 		}
 
 		try {
 			timeField.setText(configuration.getAttribute(
-					ResourceManagerTab.SIMULATION_TIME, ""));
+					SimuComConfig.SIMULATION_TIME, ""));
 		} catch (CoreException e) {
 			nameField.setText("CoreException e -> SIMULATION_TIME");
 		}
@@ -139,9 +141,9 @@ public class SimuComConfigurationTab extends AbstractLaunchConfigurationTab {
 	 */
 	@Override
 	public void performApply(ILaunchConfigurationWorkingCopy configuration) {
-		configuration.setAttribute(ResourceManagerTab.EXPERIMENT_RUN,
+		configuration.setAttribute(SimuComConfig.EXPERIMENT_RUN,
 				nameField.getText());
-		configuration.setAttribute(ResourceManagerTab.SIMULATION_TIME,
+		configuration.setAttribute(SimuComConfig.SIMULATION_TIME,
 				timeField.getText());
 	}
 
@@ -150,8 +152,10 @@ public class SimuComConfigurationTab extends AbstractLaunchConfigurationTab {
 	 */
 	@Override
 	public void setDefaults(ILaunchConfigurationWorkingCopy configuration) {
-		// TODO Auto-generated method stub
-
+		configuration.setAttribute(SimuComConfig.EXPERIMENT_RUN,
+				"MyRun");
+		configuration.setAttribute(SimuComConfig.SIMULATION_TIME,
+				150000);
 	}
 
 	/* (non-Javadoc)

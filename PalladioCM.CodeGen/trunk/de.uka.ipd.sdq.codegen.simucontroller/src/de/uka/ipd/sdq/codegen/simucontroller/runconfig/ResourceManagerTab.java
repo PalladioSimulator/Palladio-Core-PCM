@@ -25,9 +25,6 @@ public class ResourceManagerTab {
 	public static String OUTPUT_PATH = "outpath";
 	public static String DELETE_PLUGIN = "clear";
 	
-	/** SimuCom configuration tab */
-	public static String EXPERIMENT_RUN = "experimentRun";
-	public static String SIMULATION_TIME = "simTime";
 
 	/** TODO */
 	private static String GENERATE_PLUGIN_PATH;

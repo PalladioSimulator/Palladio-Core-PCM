@@ -54,7 +54,8 @@ public class CreatePluginProjectJob implements ISimulationJob {
 			return;
 		}
 		try {
-			myProject.close(new NullProgressMonitor());
+			if (deleteProject)
+				myProject.close(new NullProgressMonitor());
 		} catch (CoreException e) {
 			throw new Exception("Closing plugin project failed", e);
 		}

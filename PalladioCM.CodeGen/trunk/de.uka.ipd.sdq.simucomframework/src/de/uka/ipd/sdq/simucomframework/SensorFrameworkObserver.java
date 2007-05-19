@@ -12,6 +12,7 @@ import de.uka.ipd.sdq.sensorfactory.entities.Experiment;
 import de.uka.ipd.sdq.sensorfactory.entities.ExperimentRun;
 import de.uka.ipd.sdq.sensorfactory.entities.Sensor;
 import de.uka.ipd.sdq.sensorfactory.entities.TimeSpanSensor;
+import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
 import de.uka.ipd.sdq.simucomframework.sensors.ISensorObserver;
 import de.uka.ipd.sdq.simucomframework.sensors.SensorAddedEvent;
 
@@ -45,21 +46,32 @@ public class SensorFrameworkObserver implements ISensorObserver {
 	private static Logger logger = 
 		Logger.getLogger(SensorFrameworkObserver.class.getName());
 	
-	private Experiment experiment = SensorFrameworkDataset.singleton().getMemoryDataset().createExperiment("Simucom Experiment");
+	private Experiment experiment = null;
 	protected HashMap<String, Sensor> sensors = new HashMap<String, Sensor>();
 	protected ExperimentRun run = null;
 	
-	public SensorFrameworkObserver() {
+	public SensorFrameworkObserver(SimuComModel model) {
+		experiment = SensorFrameworkDataset.singleton().getMemoryDataset().
+			createOrReuseExperiment(model.getConfig().getNameExperimentRun());
 		run = experiment.addExperimentRun("Run "+new Date());
 	}
 	
 	public void sensorAddedEvent(SensorAddedEvent e) {
 		if (!sensors.containsKey(e.getId())){
 			logger.info("Creating TimeSpan Sensor: "+e.getId());
-			TimeSpanSensor sensor = experiment.addTimeSpanSensor(e.getId());
+			TimeSpanSensor sensor = createOrReuseSensor(e.getId()); 
 			sensors.put(e.getId(),sensor);
 			e.getSupplier().addObserver(new SensorObserver(run,sensor));
 		}
+	}
+
+	private TimeSpanSensor createOrReuseSensor(String id) {
+		for (Sensor s : experiment.getSensors()) {
+			if (s.getSensorName().equals(id))
+				if (s instanceof TimeSpanSensor)
+					return (TimeSpanSensor)s;
+		}
+		return experiment.addTimeSpanSensor(id);
 	}
 
 	public void finish() {

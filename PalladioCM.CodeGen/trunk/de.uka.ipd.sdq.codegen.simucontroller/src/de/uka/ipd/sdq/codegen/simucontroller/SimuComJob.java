@@ -9,6 +9,7 @@ import org.eclipse.ui.PlatformUI;
 import de.uka.ipd.sdq.codegen.simucontroller.actions.ISimuComControl;
 import de.uka.ipd.sdq.codegen.simucontroller.views.SimuView;
 import de.uka.ipd.sdq.simucomframework.IStatusObserver;
+import de.uka.ipd.sdq.simucomframework.SimuComConfig;
 import de.uka.ipd.sdq.simucomframework.SimuComStatus;
 
 public class SimuComJob extends Job implements IStatusObserver {
@@ -20,13 +21,13 @@ public class SimuComJob extends Job implements IStatusObserver {
 	
 	private String errorMessage;
 	private SimuComStatus status;
-	private long maxSimulationTime;
+	private SimuComConfig config;
 
-	public SimuComJob(ISimuComControl control, long maxSimulationTime, SimuView myView) {
+	public SimuComJob(ISimuComControl control, SimuComConfig config, SimuView myView) {
 		super("Simulation Run");
 		this.control = control;
 		this.myView = myView;
-		this.maxSimulationTime = maxSimulationTime;
+		this.config = config;
 	}
 
 	@Override
@@ -35,7 +36,7 @@ public class SimuComJob extends Job implements IStatusObserver {
 		lastProgress = 0;
 		monitor.beginTask("Simulation Run", 100);
 		try {
-			status = control.startSimulation(maxSimulationTime, this);
+			status = control.startSimulation(config, this);
 		} catch (Exception e) {
 			return Status.CANCEL_STATUS;
 		} finally {
