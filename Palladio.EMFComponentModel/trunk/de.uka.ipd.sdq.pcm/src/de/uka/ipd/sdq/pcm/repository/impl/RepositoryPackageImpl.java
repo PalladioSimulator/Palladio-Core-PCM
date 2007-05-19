@@ -1025,7 +1025,6 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 		EntityPackage theEntityPackage = (EntityPackage)EPackage.Registry.INSTANCE.getEPackage(EntityPackage.eNS_URI);
 		ProtocolPackage theProtocolPackage = (ProtocolPackage)EPackage.Registry.INSTANCE.getEPackage(ProtocolPackage.eNS_URI);
 		ConnectorsPackage theConnectorsPackage = (ConnectorsPackage)EPackage.Registry.INSTANCE.getEPackage(ConnectorsPackage.eNS_URI);
-		CompositionPackage theCompositionPackage = (CompositionPackage)EPackage.Registry.INSTANCE.getEPackage(CompositionPackage.eNS_URI);
 		SeffPackage theSeffPackage = (SeffPackage)EPackage.Registry.INSTANCE.getEPackage(SeffPackage.eNS_URI);
 
 		// Create type parameters
@@ -1043,7 +1042,7 @@ public class RepositoryPackageImpl extends EPackageImpl implements RepositoryPac
 		completeComponentTypeEClass.getESuperTypes().add(this.getProvidesComponentType());
 		delegationConnectorEClass.getESuperTypes().add(theConnectorsPackage.getConnector());
 		compositeComponentEClass.getESuperTypes().add(this.getImplementationComponentType());
-		compositeComponentEClass.getESuperTypes().add(theCompositionPackage.getComposedStructure());
+		compositeComponentEClass.getESuperTypes().add(theEntityPackage.getComposedProvidingRequiringEntity());
 		basicComponentEClass.getESuperTypes().add(this.getImplementationComponentType());
 		primitiveDataTypeEClass.getESuperTypes().add(this.getDataType());
 		collectionDataTypeEClass.getESuperTypes().add(theEntityPackage.getEntity());

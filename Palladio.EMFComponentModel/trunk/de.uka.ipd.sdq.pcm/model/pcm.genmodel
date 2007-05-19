@@ -41,6 +41,7 @@
         <genClasses image="false" ecoreClass="pcm.ecore#//core/entity/InterfaceRequiringEntity">
           <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//core/entity/InterfaceRequiringEntity/requiredRoles_InterfaceRequiringEntity"/>
         </genClasses>
+        <genClasses image="false" ecoreClass="pcm.ecore#//core/entity/ComposedProvidingRequiringEntity"/>
       </nestedGenPackages>
       <nestedGenPackages prefix="Connectors" basePackage="de.uka.ipd.sdq.pcm.core"
           disposableProviderFactory="true" ecorePackage="pcm.ecore#//core/connectors">
@@ -338,9 +339,9 @@
       </genClasses>
       <genClasses ecoreClass="pcm.ecore#//seff/BranchAction">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//seff/BranchAction/branches_Branch"/>
-        <genOperations ecoreOperation="pcm.ecore#//seff/BranchAction/EitherGuardedBranchesorProbabilisiticBranchTransitions">
-          <genParameters ecoreParameter="pcm.ecore#//seff/BranchAction/EitherGuardedBranchesorProbabilisiticBranchTransitions/diagnostics"/>
-          <genParameters ecoreParameter="pcm.ecore#//seff/BranchAction/EitherGuardedBranchesorProbabilisiticBranchTransitions/context"/>
+        <genOperations ecoreOperation="pcm.ecore#//seff/BranchAction/EitherGuardedBranchesOrProbabilisiticBranchTransitions">
+          <genParameters ecoreParameter="pcm.ecore#//seff/BranchAction/EitherGuardedBranchesOrProbabilisiticBranchTransitions/diagnostics"/>
+          <genParameters ecoreParameter="pcm.ecore#//seff/BranchAction/EitherGuardedBranchesOrProbabilisiticBranchTransitions/context"/>
         </genOperations>
       </genClasses>
       <genClasses ecoreClass="pcm.ecore#//seff/AquireAction">

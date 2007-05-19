@@ -13,6 +13,7 @@ import de.uka.ipd.sdq.pcm.core.composition.ComposedStructure;
 import de.uka.ipd.sdq.pcm.core.composition.CompositionPackage;
 import de.uka.ipd.sdq.pcm.core.composition.ProvidedDelegationConnector;
 import de.uka.ipd.sdq.pcm.core.composition.RequiredDelegationConnector;
+import de.uka.ipd.sdq.pcm.core.entity.ComposedProvidingRequiringEntity;
 import de.uka.ipd.sdq.pcm.core.composition.impl.ComposedStructureImpl;
 
 import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
@@ -453,6 +454,11 @@ public class SystemImpl extends EntityImpl implements de.uka.ipd.sdq.pcm.system.
 				default: return -1;
 			}
 		}
+		if (baseClass == ComposedProvidingRequiringEntity.class) {
+			switch (derivedFeatureID) {
+				default: return -1;
+			}
+		}
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
 	}
 
@@ -485,6 +491,11 @@ public class SystemImpl extends EntityImpl implements de.uka.ipd.sdq.pcm.system.
 			}
 		}
 		if (baseClass == InterfaceProvidingRequiringEntity.class) {
+			switch (baseFeatureID) {
+				default: return -1;
+			}
+		}
+		if (baseClass == ComposedProvidingRequiringEntity.class) {
 			switch (baseFeatureID) {
 				default: return -1;
 			}

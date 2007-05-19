@@ -8,6 +8,7 @@ package de.uka.ipd.sdq.pcm.core.entity.util;
 
 import de.uka.ipd.sdq.identifier.Identifier;
 
+import de.uka.ipd.sdq.pcm.core.composition.ComposedStructure;
 import de.uka.ipd.sdq.pcm.core.entity.*;
 
 import org.eclipse.emf.common.notify.Adapter;
@@ -101,8 +102,16 @@ public class EntityAdapterFactory extends AdapterFactoryImpl {
 				return createInterfaceRequiringEntityAdapter();
 			}
 			@Override
+			public Adapter caseComposedProvidingRequiringEntity(ComposedProvidingRequiringEntity object) {
+				return createComposedProvidingRequiringEntityAdapter();
+			}
+			@Override
 			public Adapter caseIdentifier(Identifier object) {
 				return createIdentifierAdapter();
+			}
+			@Override
+			public Adapter caseComposedStructure(ComposedStructure object) {
+				return createComposedStructureAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -195,6 +204,20 @@ public class EntityAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.core.entity.ComposedProvidingRequiringEntity <em>Composed Providing Requiring Entity</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.pcm.core.entity.ComposedProvidingRequiringEntity
+	 * @generated
+	 */
+	public Adapter createComposedProvidingRequiringEntityAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.identifier.Identifier <em>Identifier</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -205,6 +228,20 @@ public class EntityAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createIdentifierAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.core.composition.ComposedStructure <em>Composed Structure</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.pcm.core.composition.ComposedStructure
+	 * @generated
+	 */
+	public Adapter createComposedStructureAdapter() {
 		return null;
 	}
 

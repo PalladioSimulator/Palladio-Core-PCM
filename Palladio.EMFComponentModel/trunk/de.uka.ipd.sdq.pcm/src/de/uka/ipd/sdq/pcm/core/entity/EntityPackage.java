@@ -8,6 +8,7 @@ package de.uka.ipd.sdq.pcm.core.entity;
 
 import de.uka.ipd.sdq.identifier.IdentifierPackage;
 
+import de.uka.ipd.sdq.pcm.core.composition.CompositionPackage;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
@@ -282,6 +283,98 @@ public interface EntityPackage extends EPackage {
 
 
 	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.core.entity.impl.ComposedProvidingRequiringEntityImpl <em>Composed Providing Requiring Entity</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.pcm.core.entity.impl.ComposedProvidingRequiringEntityImpl
+	 * @see de.uka.ipd.sdq.pcm.core.entity.impl.EntityPackageImpl#getComposedProvidingRequiringEntity()
+	 * @generated
+	 */
+	int COMPOSED_PROVIDING_REQUIRING_ENTITY = 5;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPOSED_PROVIDING_REQUIRING_ENTITY__ID = CompositionPackage.COMPOSED_STRUCTURE__ID;
+
+	/**
+	 * The feature id for the '<em><b>Entity Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPOSED_PROVIDING_REQUIRING_ENTITY__ENTITY_NAME = CompositionPackage.COMPOSED_STRUCTURE__ENTITY_NAME;
+
+	/**
+	 * The feature id for the '<em><b>Child Component Contexts Composed Structure</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPOSED_PROVIDING_REQUIRING_ENTITY__CHILD_COMPONENT_CONTEXTS_COMPOSED_STRUCTURE = CompositionPackage.COMPOSED_STRUCTURE__CHILD_COMPONENT_CONTEXTS_COMPOSED_STRUCTURE;
+
+	/**
+	 * The feature id for the '<em><b>Provided Delegation Connectors Composed Structure</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPOSED_PROVIDING_REQUIRING_ENTITY__PROVIDED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE = CompositionPackage.COMPOSED_STRUCTURE__PROVIDED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE;
+
+	/**
+	 * The feature id for the '<em><b>Required Delegation Connectors Composed Structure</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPOSED_PROVIDING_REQUIRING_ENTITY__REQUIRED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE = CompositionPackage.COMPOSED_STRUCTURE__REQUIRED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE;
+
+	/**
+	 * The feature id for the '<em><b>Composite Assembly Connectors Composed Structure</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPOSED_PROVIDING_REQUIRING_ENTITY__COMPOSITE_ASSEMBLY_CONNECTORS_COMPOSED_STRUCTURE = CompositionPackage.COMPOSED_STRUCTURE__COMPOSITE_ASSEMBLY_CONNECTORS_COMPOSED_STRUCTURE;
+
+	/**
+	 * The feature id for the '<em><b>Provided Roles Interface Providing Entity</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPOSED_PROVIDING_REQUIRING_ENTITY__PROVIDED_ROLES_INTERFACE_PROVIDING_ENTITY = CompositionPackage.COMPOSED_STRUCTURE_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Required Roles Interface Requiring Entity</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPOSED_PROVIDING_REQUIRING_ENTITY__REQUIRED_ROLES_INTERFACE_REQUIRING_ENTITY = CompositionPackage.COMPOSED_STRUCTURE_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Composed Providing Requiring Entity</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPOSED_PROVIDING_REQUIRING_ENTITY_FEATURE_COUNT = CompositionPackage.COMPOSED_STRUCTURE_FEATURE_COUNT + 2;
+
+
+	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.core.entity.Entity <em>Entity</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -363,6 +456,16 @@ public interface EntityPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getInterfaceRequiringEntity_RequiredRoles_InterfaceRequiringEntity();
+
+	/**
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.core.entity.ComposedProvidingRequiringEntity <em>Composed Providing Requiring Entity</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Composed Providing Requiring Entity</em>'.
+	 * @see de.uka.ipd.sdq.pcm.core.entity.ComposedProvidingRequiringEntity
+	 * @generated
+	 */
+	EClass getComposedProvidingRequiringEntity();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -459,6 +562,16 @@ public interface EntityPackage extends EPackage {
 		 * @generated
 		 */
 		EReference INTERFACE_REQUIRING_ENTITY__REQUIRED_ROLES_INTERFACE_REQUIRING_ENTITY = eINSTANCE.getInterfaceRequiringEntity_RequiredRoles_InterfaceRequiringEntity();
+
+		/**
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.core.entity.impl.ComposedProvidingRequiringEntityImpl <em>Composed Providing Requiring Entity</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.uka.ipd.sdq.pcm.core.entity.impl.ComposedProvidingRequiringEntityImpl
+		 * @see de.uka.ipd.sdq.pcm.core.entity.impl.EntityPackageImpl#getComposedProvidingRequiringEntity()
+		 * @generated
+		 */
+		EClass COMPOSED_PROVIDING_REQUIRING_ENTITY = eINSTANCE.getComposedProvidingRequiringEntity();
 
 	}
 

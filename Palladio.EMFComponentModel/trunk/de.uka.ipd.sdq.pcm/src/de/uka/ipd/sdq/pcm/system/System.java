@@ -7,6 +7,7 @@
  */
 package de.uka.ipd.sdq.pcm.system;
 
+import de.uka.ipd.sdq.pcm.core.entity.ComposedProvidingRequiringEntity;
 import de.uka.ipd.sdq.pcm.core.composition.ComposedStructure;
 
 import de.uka.ipd.sdq.pcm.core.entity.Entity;
@@ -32,7 +33,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface System extends Entity, ComposedStructure, InterfaceProvidingRequiringEntity {
+public interface System extends Entity, ComposedProvidingRequiringEntity {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -10,6 +10,7 @@ import de.uka.ipd.sdq.identifier.Identifier;
 
 import de.uka.ipd.sdq.pcm.core.composition.ComposedStructure;
 
+import de.uka.ipd.sdq.pcm.core.entity.ComposedProvidingRequiringEntity;
 import de.uka.ipd.sdq.pcm.core.entity.Entity;
 import de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingEntity;
 import de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingRequiringEntity;
@@ -119,6 +120,10 @@ public class SystemAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseInterfaceProvidingRequiringEntity(InterfaceProvidingRequiringEntity object) {
 				return createInterfaceProvidingRequiringEntityAdapter();
+			}
+			@Override
+			public Adapter caseComposedProvidingRequiringEntity(ComposedProvidingRequiringEntity object) {
+				return createComposedProvidingRequiringEntityAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -249,6 +254,20 @@ public class SystemAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createInterfaceProvidingRequiringEntityAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.core.entity.ComposedProvidingRequiringEntity <em>Composed Providing Requiring Entity</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.pcm.core.entity.ComposedProvidingRequiringEntity
+	 * @generated
+	 */
+	public Adapter createComposedProvidingRequiringEntityAdapter() {
 		return null;
 	}
 

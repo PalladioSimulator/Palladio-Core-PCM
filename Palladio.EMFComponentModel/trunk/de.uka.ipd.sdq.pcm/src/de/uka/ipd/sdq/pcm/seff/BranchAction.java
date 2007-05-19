@@ -55,11 +55,11 @@ public interface BranchAction extends AbstractResourceDemandingAction {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * self.branches_Branch->forAll(bt|bt.oclIsTypeOf(ProbabilisticBranchTransition) or self.branches_Branch->forAll(bt|bt.oclIsTypeOf(GuardedBranchTransition)
+	 * self.branches_Branch->forAll(bt|bt.oclIsTypeOf(ProbabilisticBranchTransition)) or self.branches_Branch->forAll(bt|bt.oclIsTypeOf(GuardedBranchTransition))
 	 * <!-- end-model-doc -->
 	 * @model
 	 * @generated
 	 */
-	boolean EitherGuardedBranchesorProbabilisiticBranchTransitions(DiagnosticChain diagnostics, Map<Object, Object> context);
+	boolean EitherGuardedBranchesOrProbabilisiticBranchTransitions(DiagnosticChain diagnostics, Map<Object, Object> context);
 
 } // BranchAction

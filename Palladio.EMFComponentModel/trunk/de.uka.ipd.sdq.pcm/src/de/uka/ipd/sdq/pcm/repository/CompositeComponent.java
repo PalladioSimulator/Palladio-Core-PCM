@@ -7,6 +7,7 @@
  */
 package de.uka.ipd.sdq.pcm.repository;
 
+import de.uka.ipd.sdq.pcm.core.entity.ComposedProvidingRequiringEntity;
 import de.uka.ipd.sdq.pcm.core.composition.ComposedStructure;
 
 import java.util.Map;
@@ -29,7 +30,7 @@ import org.eclipse.emf.common.util.DiagnosticChain;
  * @model
  * @generated
  */
-public interface CompositeComponent extends ImplementationComponentType, ComposedStructure {
+public interface CompositeComponent extends ImplementationComponentType, ComposedProvidingRequiringEntity {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

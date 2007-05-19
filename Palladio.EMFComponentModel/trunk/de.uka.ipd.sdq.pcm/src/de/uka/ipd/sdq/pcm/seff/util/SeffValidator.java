@@ -52,12 +52,12 @@ public class SeffValidator extends EObjectValidator {
 	public static final String DIAGNOSTIC_SOURCE = "de.uka.ipd.sdq.pcm.seff";
 
 	/**
-	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Either Guarded Branchesor Probabilisitic Branch Transitions' of 'Branch Action'.
+	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Either Guarded Branches Or Probabilisitic Branch Transitions' of 'Branch Action'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final int BRANCH_ACTION__EITHER_GUARDED_BRANCHESOR_PROBABILISITIC_BRANCH_TRANSITIONS = 1;
+	public static final int BRANCH_ACTION__EITHER_GUARDED_BRANCHES_OR_PROBABILISITIC_BRANCH_TRANSITIONS = 1;
 
 	/**
 	 * A constant with a fixed name that can be used as the base value for additional hand written constants.
@@ -427,18 +427,18 @@ public class SeffValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(branchAction, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(branchAction, diagnostics, context);
 		if (result || diagnostics != null) result &= identifierValidator.validateIdentifier_idHasToBeUnique(branchAction, diagnostics, context);
-		if (result || diagnostics != null) result &= validateBranchAction_EitherGuardedBranchesorProbabilisiticBranchTransitions(branchAction, diagnostics, context);
+		if (result || diagnostics != null) result &= validateBranchAction_EitherGuardedBranchesOrProbabilisiticBranchTransitions(branchAction, diagnostics, context);
 		return result;
 	}
 
 	/**
-	 * Validates the EitherGuardedBranchesorProbabilisiticBranchTransitions constraint of '<em>Branch Action</em>'.
+	 * Validates the EitherGuardedBranchesOrProbabilisiticBranchTransitions constraint of '<em>Branch Action</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateBranchAction_EitherGuardedBranchesorProbabilisiticBranchTransitions(BranchAction branchAction, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return branchAction.EitherGuardedBranchesorProbabilisiticBranchTransitions(diagnostics, context);
+	public boolean validateBranchAction_EitherGuardedBranchesOrProbabilisiticBranchTransitions(BranchAction branchAction, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return branchAction.EitherGuardedBranchesOrProbabilisiticBranchTransitions(diagnostics, context);
 	}
 
 	/**

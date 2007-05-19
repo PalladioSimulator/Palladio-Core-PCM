@@ -70,13 +70,13 @@ public class BranchActionImpl extends AbstractResourceDemandingActionImpl implem
 
 
 	/**
-	 * The parsed OCL expression for the definition of the '{@link #EitherGuardedBranchesorProbabilisiticBranchTransitions <em>Either Guarded Branchesor Probabilisitic Branch Transitions</em>}' invariant constraint.
+	 * The parsed OCL expression for the definition of the '{@link #EitherGuardedBranchesOrProbabilisiticBranchTransitions <em>Either Guarded Branches Or Probabilisitic Branch Transitions</em>}' invariant constraint.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #EitherGuardedBranchesorProbabilisiticBranchTransitions
+	 * @see #EitherGuardedBranchesOrProbabilisiticBranchTransitions
 	 * @generated
 	 */
-	private static OCLExpression EitherGuardedBranchesorProbabilisiticBranchTransitionsInvOCL;
+	private static OCLExpression EitherGuardedBranchesOrProbabilisiticBranchTransitionsInvOCL;
 
 	private static final String OCL_ANNOTATION_SOURCE = "http://www.eclipse.org/emf/2002/GenModel";
 
@@ -117,21 +117,21 @@ public class BranchActionImpl extends AbstractResourceDemandingActionImpl implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean EitherGuardedBranchesorProbabilisiticBranchTransitions(DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (EitherGuardedBranchesorProbabilisiticBranchTransitionsInvOCL == null) {
+	public boolean EitherGuardedBranchesOrProbabilisiticBranchTransitions(DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (EitherGuardedBranchesOrProbabilisiticBranchTransitionsInvOCL == null) {
 			Environment env = ExpressionsUtil.createClassifierContext(eClass());
 			
 			
 			String body = "self.branches_Branch->forAll(bt|bt.oclIsTypeOf(ProbabilisticBranchTransition)) or self.branches_Branch->forAll(bt|bt.oclIsTypeOf(GuardedBranchTransition)) ";
 			
 			try {
-				EitherGuardedBranchesorProbabilisiticBranchTransitionsInvOCL = ExpressionsUtil.createInvariant(env, body, true);
+				EitherGuardedBranchesOrProbabilisiticBranchTransitionsInvOCL = ExpressionsUtil.createInvariant(env, body, true);
 			} catch (ParserException e) {
 				throw new UnsupportedOperationException(e.getLocalizedMessage());
 			}
 		}
 		
-		Query query = QueryFactory.eINSTANCE.createQuery(EitherGuardedBranchesorProbabilisiticBranchTransitionsInvOCL);
+		Query query = QueryFactory.eINSTANCE.createQuery(EitherGuardedBranchesOrProbabilisiticBranchTransitionsInvOCL);
 		EvalEnvironment evalEnv = new EvalEnvironment();
 		query.setEvaluationEnvironment(evalEnv);
 		
@@ -141,8 +141,8 @@ public class BranchActionImpl extends AbstractResourceDemandingActionImpl implem
 					(new BasicDiagnostic
 						(Diagnostic.ERROR,
 						 SeffValidator.DIAGNOSTIC_SOURCE,
-						 SeffValidator.BRANCH_ACTION__EITHER_GUARDED_BRANCHESOR_PROBABILISITIC_BRANCH_TRANSITIONS,
-						 EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "EitherGuardedBranchesorProbabilisiticBranchTransitions", EObjectValidator.getObjectLabel(this, context) }),
+						 SeffValidator.BRANCH_ACTION__EITHER_GUARDED_BRANCHES_OR_PROBABILISITIC_BRANCH_TRANSITIONS,
+						 EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "EitherGuardedBranchesOrProbabilisiticBranchTransitions", EObjectValidator.getObjectLabel(this, context) }),
 						 new Object [] { this }));
 			}
 			return false;

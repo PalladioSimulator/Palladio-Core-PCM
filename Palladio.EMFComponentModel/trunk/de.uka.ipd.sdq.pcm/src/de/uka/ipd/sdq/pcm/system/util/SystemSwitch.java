@@ -10,6 +10,7 @@ import de.uka.ipd.sdq.identifier.Identifier;
 
 import de.uka.ipd.sdq.pcm.core.composition.ComposedStructure;
 
+import de.uka.ipd.sdq.pcm.core.entity.ComposedProvidingRequiringEntity;
 import de.uka.ipd.sdq.pcm.core.entity.Entity;
 import de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingEntity;
 import de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingRequiringEntity;
@@ -108,10 +109,11 @@ public class SystemSwitch<T> {
 				de.uka.ipd.sdq.pcm.system.System system = (de.uka.ipd.sdq.pcm.system.System)theEObject;
 				T result = caseSystem(system);
 				if (result == null) result = caseEntity(system);
-				if (result == null) result = caseComposedStructure(system);
-				if (result == null) result = caseInterfaceProvidingRequiringEntity(system);
+				if (result == null) result = caseComposedProvidingRequiringEntity(system);
 				if (result == null) result = caseIdentifier(system);
 				if (result == null) result = caseNamedElement(system);
+				if (result == null) result = caseComposedStructure(system);
+				if (result == null) result = caseInterfaceProvidingRequiringEntity(system);
 				if (result == null) result = caseInterfaceProvidingEntity(system);
 				if (result == null) result = caseInterfaceRequiringEntity(system);
 				if (result == null) result = defaultCase(theEObject);
@@ -238,6 +240,21 @@ public class SystemSwitch<T> {
 	 * @generated
 	 */
 	public T caseInterfaceProvidingRequiringEntity(InterfaceProvidingRequiringEntity object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpretting the object as an instance of '<em>Composed Providing Requiring Entity</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpretting the object as an instance of '<em>Composed Providing Requiring Entity</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseComposedProvidingRequiringEntity(ComposedProvidingRequiringEntity object) {
 		return null;
 	}
 

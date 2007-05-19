@@ -25,7 +25,7 @@ public class TestHibernateMain {
 		State idleState = stateSen.addState("Idle");
 		stateSen.setInitialState(idleState);
 		//boolean flag = false; double valueSum = 0;
-		for (int i=0; i<1000; i++) {
+		for (int i=0; i<100000; i++) {
 			double value = Math.random() * 5000;
 			er.addTimeSpanMeasurement(s, value, value);
 			//er.addStateMeasurement(stateSen, flag ? busyState : idleState, valueSum);

@@ -14,6 +14,7 @@ import de.uka.ipd.sdq.pcm.core.composition.CompositionPackage;
 import de.uka.ipd.sdq.pcm.core.composition.ProvidedDelegationConnector;
 import de.uka.ipd.sdq.pcm.core.composition.RequiredDelegationConnector;
 
+import de.uka.ipd.sdq.pcm.core.entity.ComposedProvidingRequiringEntity;
 import de.uka.ipd.sdq.pcm.repository.CompositeComponent;
 import de.uka.ipd.sdq.pcm.repository.ImplementationComponentType;
 import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
@@ -495,6 +496,11 @@ public class CompositeComponentImpl extends ImplementationComponentTypeImpl impl
 				default: return -1;
 			}
 		}
+		if (baseClass == ComposedProvidingRequiringEntity.class) {
+			switch (derivedFeatureID) {
+				default: return -1;
+			}
+		}
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
 	}
 
@@ -511,6 +517,11 @@ public class CompositeComponentImpl extends ImplementationComponentTypeImpl impl
 				case CompositionPackage.COMPOSED_STRUCTURE__PROVIDED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE: return RepositoryPackage.COMPOSITE_COMPONENT__PROVIDED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE;
 				case CompositionPackage.COMPOSED_STRUCTURE__REQUIRED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE: return RepositoryPackage.COMPOSITE_COMPONENT__REQUIRED_DELEGATION_CONNECTORS_COMPOSED_STRUCTURE;
 				case CompositionPackage.COMPOSED_STRUCTURE__COMPOSITE_ASSEMBLY_CONNECTORS_COMPOSED_STRUCTURE: return RepositoryPackage.COMPOSITE_COMPONENT__COMPOSITE_ASSEMBLY_CONNECTORS_COMPOSED_STRUCTURE;
+				default: return -1;
+			}
+		}
+		if (baseClass == ComposedProvidingRequiringEntity.class) {
+			switch (baseFeatureID) {
 				default: return -1;
 			}
 		}

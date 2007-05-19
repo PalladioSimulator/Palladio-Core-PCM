@@ -1027,7 +1027,7 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 		initEClass(branchActionEClass, BranchAction.class, "BranchAction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getBranchAction_Branches_Branch(), this.getAbstractBranchTransition(), null, "branches_Branch", null, 0, -1, BranchAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-		EOperation op = addEOperation(branchActionEClass, ecorePackage.getEBoolean(), "EitherGuardedBranchesorProbabilisiticBranchTransitions", 0, 1);
+		EOperation op = addEOperation(branchActionEClass, ecorePackage.getEBoolean(), "EitherGuardedBranchesOrProbabilisiticBranchTransitions", 0, 1);
 		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1);
 		EGenericType g1 = createEGenericType(ecorePackage.getEMap());
 		EGenericType g2 = createEGenericType(ecorePackage.getEJavaObject());

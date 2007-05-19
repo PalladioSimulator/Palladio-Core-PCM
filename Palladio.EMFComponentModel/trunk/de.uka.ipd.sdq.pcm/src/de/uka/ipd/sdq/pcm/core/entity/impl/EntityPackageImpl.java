@@ -20,6 +20,7 @@ import de.uka.ipd.sdq.pcm.core.connectors.ConnectorsPackage;
 
 import de.uka.ipd.sdq.pcm.core.connectors.impl.ConnectorsPackageImpl;
 
+import de.uka.ipd.sdq.pcm.core.entity.ComposedProvidingRequiringEntity;
 import de.uka.ipd.sdq.pcm.core.entity.Entity;
 import de.uka.ipd.sdq.pcm.core.entity.EntityFactory;
 import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
@@ -123,6 +124,13 @@ public class EntityPackageImpl extends EPackageImpl implements EntityPackage {
 	 * @generated
 	 */
 	private EClass interfaceRequiringEntityEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass composedProvidingRequiringEntityEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -312,6 +320,15 @@ public class EntityPackageImpl extends EPackageImpl implements EntityPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getComposedProvidingRequiringEntity() {
+		return composedProvidingRequiringEntityEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EntityFactory getEntityFactory() {
 		return (EntityFactory)getEFactoryInstance();
 	}
@@ -347,6 +364,8 @@ public class EntityPackageImpl extends EPackageImpl implements EntityPackage {
 
 		interfaceRequiringEntityEClass = createEClass(INTERFACE_REQUIRING_ENTITY);
 		createEReference(interfaceRequiringEntityEClass, INTERFACE_REQUIRING_ENTITY__REQUIRED_ROLES_INTERFACE_REQUIRING_ENTITY);
+
+		composedProvidingRequiringEntityEClass = createEClass(COMPOSED_PROVIDING_REQUIRING_ENTITY);
 	}
 
 	/**
@@ -375,6 +394,7 @@ public class EntityPackageImpl extends EPackageImpl implements EntityPackage {
 		// Obtain other dependent packages
 		IdentifierPackage theIdentifierPackage = (IdentifierPackage)EPackage.Registry.INSTANCE.getEPackage(IdentifierPackage.eNS_URI);
 		RepositoryPackage theRepositoryPackage = (RepositoryPackage)EPackage.Registry.INSTANCE.getEPackage(RepositoryPackage.eNS_URI);
+		CompositionPackage theCompositionPackage = (CompositionPackage)EPackage.Registry.INSTANCE.getEPackage(CompositionPackage.eNS_URI);
 
 		// Create type parameters
 
@@ -387,6 +407,8 @@ public class EntityPackageImpl extends EPackageImpl implements EntityPackage {
 		interfaceProvidingRequiringEntityEClass.getESuperTypes().add(this.getInterfaceProvidingEntity());
 		interfaceProvidingRequiringEntityEClass.getESuperTypes().add(this.getInterfaceRequiringEntity());
 		interfaceRequiringEntityEClass.getESuperTypes().add(this.getEntity());
+		composedProvidingRequiringEntityEClass.getESuperTypes().add(theCompositionPackage.getComposedStructure());
+		composedProvidingRequiringEntityEClass.getESuperTypes().add(this.getInterfaceProvidingRequiringEntity());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(entityEClass, Entity.class, "Entity", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -401,6 +423,8 @@ public class EntityPackageImpl extends EPackageImpl implements EntityPackage {
 
 		initEClass(interfaceRequiringEntityEClass, InterfaceRequiringEntity.class, "InterfaceRequiringEntity", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getInterfaceRequiringEntity_RequiredRoles_InterfaceRequiringEntity(), theRepositoryPackage.getRequiredRole(), theRepositoryPackage.getRequiredRole_RequiringEntity_RequiredRole(), "requiredRoles_InterfaceRequiringEntity", null, 0, -1, InterfaceRequiringEntity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+		initEClass(composedProvidingRequiringEntityEClass, ComposedProvidingRequiringEntity.class, "ComposedProvidingRequiringEntity", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);

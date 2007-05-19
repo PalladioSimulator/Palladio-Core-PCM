@@ -12,6 +12,7 @@ import de.uka.ipd.sdq.pcm.core.composition.ComposedStructure;
 
 import de.uka.ipd.sdq.pcm.core.connectors.Connector;
 
+import de.uka.ipd.sdq.pcm.core.entity.ComposedProvidingRequiringEntity;
 import de.uka.ipd.sdq.pcm.core.entity.Entity;
 import de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingEntity;
 import de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingRequiringEntity;
@@ -220,15 +221,16 @@ public class RepositorySwitch<T> {
 				CompositeComponent compositeComponent = (CompositeComponent)theEObject;
 				T result = caseCompositeComponent(compositeComponent);
 				if (result == null) result = caseImplementationComponentType(compositeComponent);
-				if (result == null) result = caseComposedStructure(compositeComponent);
+				if (result == null) result = caseComposedProvidingRequiringEntity(compositeComponent);
 				if (result == null) result = caseCompleteComponentType(compositeComponent);
-				if (result == null) result = caseEntity(compositeComponent);
-				if (result == null) result = caseProvidesComponentType(compositeComponent);
-				if (result == null) result = caseIdentifier(compositeComponent);
-				if (result == null) result = caseNamedElement(compositeComponent);
+				if (result == null) result = caseComposedStructure(compositeComponent);
 				if (result == null) result = caseInterfaceProvidingRequiringEntity(compositeComponent);
+				if (result == null) result = caseProvidesComponentType(compositeComponent);
+				if (result == null) result = caseEntity(compositeComponent);
 				if (result == null) result = caseInterfaceProvidingEntity(compositeComponent);
 				if (result == null) result = caseInterfaceRequiringEntity(compositeComponent);
+				if (result == null) result = caseIdentifier(compositeComponent);
+				if (result == null) result = caseNamedElement(compositeComponent);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -697,6 +699,21 @@ public class RepositorySwitch<T> {
 	 * @generated
 	 */
 	public T caseComposedStructure(ComposedStructure object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpretting the object as an instance of '<em>Composed Providing Requiring Entity</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpretting the object as an instance of '<em>Composed Providing Requiring Entity</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseComposedProvidingRequiringEntity(ComposedProvidingRequiringEntity object) {
 		return null;
 	}
 
