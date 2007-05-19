@@ -141,7 +141,7 @@ public class ProvidedRoleItemSemanticEditPolicy extends
 	}
 
 	/**
-	 * @generated
+	 * @generated not
 	 */
 	protected Command getCreateCompleteIncomingProvidedDelegationConnector_4003Command(
 			CreateRelationshipRequest req) {
@@ -169,6 +169,7 @@ public class ProvidedRoleItemSemanticEditPolicy extends
 					.setContainmentFeature(CompositionPackage.eINSTANCE
 							.getComposedStructure_ProvidedDelegationConnectors_ComposedStructure());
 		}
+		req.setParameter("CHILD_CONTEXT", ((View)getHost().getParent().getModel()).getElement());		
 		return getMSLWrapper(new ProvidedDelegationConnectorTypeLinkCreateCommand(
 				req, container, source, target));
 	}

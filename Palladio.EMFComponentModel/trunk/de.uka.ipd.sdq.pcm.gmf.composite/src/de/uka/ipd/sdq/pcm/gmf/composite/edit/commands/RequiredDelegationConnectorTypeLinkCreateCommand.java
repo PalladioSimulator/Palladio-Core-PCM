@@ -3,6 +3,7 @@
  */
 package de.uka.ipd.sdq.pcm.gmf.composite.edit.commands;
 
+import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
 import de.uka.ipd.sdq.pcm.core.composition.ComposedStructure;
 import de.uka.ipd.sdq.pcm.core.composition.CompositionPackage;
 import de.uka.ipd.sdq.pcm.core.composition.RequiredDelegationConnector;
@@ -86,7 +87,7 @@ public class RequiredDelegationConnectorTypeLinkCreateCommand extends
 	}
 
 	/**
-	 * @generated
+	 * @generated not
 	 */
 	protected EObject doDefaultElementCreation() {
 		RequiredDelegationConnector newElement = (RequiredDelegationConnector) super
@@ -96,6 +97,8 @@ public class RequiredDelegationConnectorTypeLinkCreateCommand extends
 					.setOuterRequiredRole_RequiredDelegationConnector(myTarget);
 			newElement
 					.setInnerRequiredRole_RequiredDelegationConnector(mySource);
+			CreateRelationshipRequest req = (CreateRelationshipRequest) this.getRequest();
+			newElement.setChildComponentContext_RequiredDelegationConnector((AssemblyContext) req.getParameter("CHILD_CONTEXT"));
 		}
 		return newElement;
 	}

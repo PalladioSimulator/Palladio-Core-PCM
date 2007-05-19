@@ -108,7 +108,7 @@ public class RequiredRoleItemSemanticEditPolicy extends
 	}
 
 	/**
-	 * @generated
+	 * @generated not
 	 */
 	protected Command getCreateStartOutgoingRequiredDelegationConnector_4002Command(
 			CreateRelationshipRequest req) {
@@ -123,6 +123,7 @@ public class RequiredRoleItemSemanticEditPolicy extends
 		if (container == null) {
 			return UnexecutableCommand.INSTANCE;
 		}
+		req.setParameter("CHILD_CONTEXT", ((View)getHost().getParent().getModel()).getElement());		
 		if (!PalladioComponentModelBaseItemSemanticEditPolicy.LinkConstraints
 				.canCreateRequiredDelegationConnector_4002(container, source,
 						null)) {

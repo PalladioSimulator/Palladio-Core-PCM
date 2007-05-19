@@ -64,10 +64,22 @@ Copyright 2007, SDQ, IPD, Uni Karlsruhe (TH)
    </extension>
 
    <extension point="org.eclipse.ui.popupMenus">
-      <?gmfgen generated="true"?>
+      <?gmfgen generated="false"?>
       <objectContribution
             id="de.uka.ipd.sdq.pcm.gmf.composite.InitDiagram"
             nameFilter="*.repository"
+            objectClass="org.eclipse.core.resources.IFile">
+         <action
+               label="%initDiagramActionLabel"
+               class="de.uka.ipd.sdq.pcm.gmf.composite.part.PalladioComponentModelInitDiagramFileAction"
+               menubarPath="additions"
+               enablesFor="1"
+               id="de.uka.ipd.sdq.pcm.gmf.composite.InitDiagramAction">
+         </action>
+      </objectContribution>
+      <objectContribution
+            id="de.uka.ipd.sdq.pcm.gmf.composite.InitDiagram"
+            nameFilter="*.system"
             objectClass="org.eclipse.core.resources.IFile">
          <action
                label="%initDiagramActionLabel"

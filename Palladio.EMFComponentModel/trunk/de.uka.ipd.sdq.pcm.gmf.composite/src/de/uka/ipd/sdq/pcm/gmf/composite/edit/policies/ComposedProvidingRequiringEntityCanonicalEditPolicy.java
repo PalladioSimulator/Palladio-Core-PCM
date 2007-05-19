@@ -7,8 +7,10 @@ package de.uka.ipd.sdq.pcm.gmf.composite.edit.policies;
 import java.util.List;
 import java.util.Collection;
 import org.eclipse.gmf.runtime.notation.Edge;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyConnector;
+import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
 import de.uka.ipd.sdq.pcm.core.composition.ComposedStructure;
 import de.uka.ipd.sdq.pcm.core.composition.CompositionPackage;
 import de.uka.ipd.sdq.pcm.core.composition.ProvidedDelegationConnector;
@@ -26,6 +28,7 @@ import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.RequiredRole2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.RequiredRoleEditPart;
 
 import de.uka.ipd.sdq.pcm.gmf.composite.part.PalladioComponentModelVisualIDRegistry;
+import de.uka.ipd.sdq.pcm.repository.Role;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -69,6 +72,7 @@ import org.eclipse.gmf.runtime.emf.core.util.EObjectAdapter;
 import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 
 import org.eclipse.gmf.runtime.notation.Diagram;
+import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
 
 /**
@@ -268,7 +272,7 @@ private EditPart getDiagramEditPart() {
 	}
 	
 	/**
-	 * @generated
+	 * @generated not
 	 */
 	private void collectAllLinks(View view) {
 		EObject modelElement = view.getElement();
@@ -285,15 +289,15 @@ private EditPart getDiagramEditPart() {
 		}
 		default: {
 		}
-		for (Iterator children = view.getChildren().iterator(); children.hasNext();) {
-			View childView = (View) children.next();
-			collectAllLinks(childView);
-		}
+//		for (Iterator children = view.getChildren().iterator(); children.hasNext();) {
+//			View childView = (View) children.next();
+//			collectAllLinks(childView);
+//		}
 		}
 	}
 
 	/**
-	 * @generated
+	 * @generated not
 	 */
 	private Collection createConnections(Collection linkDescriptors) {
 		if (linkDescriptors.isEmpty()) {
@@ -302,8 +306,23 @@ private EditPart getDiagramEditPart() {
 		List adapters = new LinkedList();
 		for (Iterator linkDescriptorsIterator = linkDescriptors.iterator(); linkDescriptorsIterator.hasNext();) {
 			final LinkDescriptor nextLinkDescriptor = (LinkDescriptor) linkDescriptorsIterator.next();
-			EditPart sourceEditPart = getEditPartFor(nextLinkDescriptor.getSource());
-			EditPart targetEditPart = getEditPartFor(nextLinkDescriptor.getDestination());
+			
+			EditPart sourceEditPart = null;
+			EditPart targetEditPart = null;
+			
+			if (nextLinkDescriptor.getLinkElement() instanceof AssemblyConnector) {
+				AssemblyConnector ctx = (AssemblyConnector) nextLinkDescriptor.getLinkElement();
+				sourceEditPart = myGetEditPartFor((Role)nextLinkDescriptor.getSource(),ctx.getRequiringChildComponentContext_CompositeAssemblyConnector());
+				targetEditPart = myGetEditPartFor((Role)nextLinkDescriptor.getDestination(),ctx.getProvidingChildComponentContext_CompositeAssemblyConnector());
+			} else if (nextLinkDescriptor.getLinkElement() instanceof ProvidedDelegationConnector) {
+				ProvidedDelegationConnector ctx = (ProvidedDelegationConnector) nextLinkDescriptor.getLinkElement();
+				sourceEditPart = myGetEditPartFor((Role)nextLinkDescriptor.getSource(),null);
+				targetEditPart = myGetEditPartFor((Role)nextLinkDescriptor.getDestination(),ctx.getChildComponentContext_ProvidedDelegationConnector());
+			} else {
+				RequiredDelegationConnector ctx = (RequiredDelegationConnector) nextLinkDescriptor.getLinkElement();
+				sourceEditPart = myGetEditPartFor((Role)nextLinkDescriptor.getSource(),ctx.getChildComponentContext_RequiredDelegationConnector());
+				targetEditPart = myGetEditPartFor((Role)nextLinkDescriptor.getDestination(),null);
+			}
 			if (sourceEditPart == null || targetEditPart == null) {
 				continue;
 			}
@@ -327,16 +346,61 @@ private EditPart getDiagramEditPart() {
 	}
 	
 	/**
-	 * @generated
+	 * @generated not
 	 */
-	private EditPart getEditPartFor(EObject modelElement) {
-		View view = (View) myEObject2ViewMap.get(modelElement);
+	private EditPart myGetEditPartFor(Role modelElement, AssemblyContext ctx) {
+		View view = null;
+		Diagram dia = (Diagram) getHost().getModel();
+		Node pseudoNode =  (Node) dia.getChildren().get(0);
+		if (ctx == null) {
+			for (Object n : pseudoNode.getChildren()) {
+				if (n instanceof Node){
+					Node node = (Node) n;
+					if (!node.getType().equals("7001") && node.getElement() == modelElement)
+						view = node;
+				}
+			}
+		} else {
+			Node compartment = getCompartmentNode(pseudoNode.getChildren());
+			for (Object n : compartment.getChildren()) {
+				if (n instanceof Node){
+					Node node = (Node) n;
+					if (node.getElement() == ctx){
+						view = getRoleChild(node,modelElement);
+					}
+				}
+			}
+		}
 		if (view != null) {
 			return (EditPart) getHost().getViewer().getEditPartRegistry().get(view);
 		}
 		return null;
 	}
 	
+private View getRoleChild(Node myNode, Role modelElement) {
+	for (Object n : myNode.getChildren()) {
+		if (n instanceof Node){
+			Node node = (Node) n;
+			if (node.getElement() == modelElement){
+				return node;
+			}
+		}
+	}
+		return null;
+	}
+
+private Node getCompartmentNode(EList children) {
+	for (Object n : children) {
+		if (n instanceof Node){
+			Node node = (Node) n;
+			if (node.getType().equals("7001"))
+				return node;
+				
+		}
+	}
+	return null;
+	}
+
 /**
  *@generated
  */
@@ -356,7 +420,7 @@ private void storeTypeModelFacetLinks(EObject container, EClass containerMetacla
 }
 		
 /**
- * @generated
+ * @generated not
  */
 private void storeTypeModelFacetLinks_AssemblyConnector_4001(EObject container, EClass containerMetaclass) {
 	if (CompositionPackage.eINSTANCE.getComposedStructure().isSuperTypeOf(containerMetaclass)) {		
@@ -370,7 +434,7 @@ private void storeTypeModelFacetLinks_AssemblyConnector_4001(EObject container, 
 				structuralFeatureResult = ((AssemblyConnector)nextValue).getProvidedRole_CompositeAssemblyConnector();				
 				if (structuralFeatureResult instanceof EObject) {
 					EObject src = (EObject) structuralFeatureResult;
-					myLinkDescriptors.add(new LinkDescriptor(src, dst, nextValue, de.uka.ipd.sdq.pcm.gmf.composite.providers.PalladioComponentModelElementTypes.AssemblyConnector_4001, linkVID));
+					myLinkDescriptors.add(new LinkDescriptor(dst, src, nextValue, de.uka.ipd.sdq.pcm.gmf.composite.providers.PalladioComponentModelElementTypes.AssemblyConnector_4001, linkVID));
 				}
 			}
 		}
