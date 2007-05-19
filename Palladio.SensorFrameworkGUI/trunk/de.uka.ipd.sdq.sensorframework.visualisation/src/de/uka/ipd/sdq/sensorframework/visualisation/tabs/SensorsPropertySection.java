@@ -56,7 +56,6 @@ public class SensorsPropertySection extends AbstractPropertySection implements
 	/* (non-Javadoc)
 	 * @see java.util.Observer#update(java.util.Observable, java.lang.Object)
 	 */
-	@Override
 	public void update(Observable subject, Object signal) {
 		refresh();
 		
@@ -141,7 +140,6 @@ public class SensorsPropertySection extends AbstractPropertySection implements
 		});
 		editors[SENSORS_COLUMN_INDEX] = new DialogCellEditor(table) {
 
-			@Override
 			protected Object openDialogBox(Control cellEditorWindow) {
 				SensorsDialog dialog = new SensorsDialog(cellEditorWindow
 						.getShell(), selectedEntry);

@@ -38,7 +38,6 @@ public class TreeContentProvider implements ITreeContentProvider {
 	/* (non-Javadoc)
 	 * @see org.eclipse.jface.viewers.ITreeContentProvider#getChildren(java.lang.Object)
 	 */
-	@Override
 	public Object[] getChildren(Object parent) {
 
 		/** List of root elements (DAO,...) */
@@ -86,7 +85,6 @@ public class TreeContentProvider implements ITreeContentProvider {
 	/* (non-Javadoc)
 	 * @see org.eclipse.jface.viewers.ITreeContentProvider#hasChildren(java.lang.Object)
 	 */
-	@Override
 	public boolean hasChildren(Object parent) {
 		if (parent instanceof TreeObject){
 			TreeObject object = (TreeObject) parent;
@@ -99,7 +97,6 @@ public class TreeContentProvider implements ITreeContentProvider {
 	/* (non-Javadoc)
 	 * @see org.eclipse.jface.viewers.IContentProvider#dispose()
 	 */
-	@Override
 	public void dispose() {
 		if (rootEntry != null)
 			rootEntry.clear();
@@ -114,7 +111,6 @@ public class TreeContentProvider implements ITreeContentProvider {
 	/* (non-Javadoc)
 	 * @see org.eclipse.jface.viewers.ITreeContentProvider#getParent(java.lang.Object)
 	 */
-	@Override
 	public Object getParent(Object child) {
 		// TODO Auto-generated method stub
 		return null;
