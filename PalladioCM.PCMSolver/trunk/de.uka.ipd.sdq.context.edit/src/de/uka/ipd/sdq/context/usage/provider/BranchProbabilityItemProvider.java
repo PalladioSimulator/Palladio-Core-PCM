@@ -4,37 +4,38 @@
  *
  * $Id$
  */
-package de.uka.ipd.sdq.context.allocation.provider;
+package de.uka.ipd.sdq.context.usage.provider;
 
 
-import de.uka.ipd.sdq.context.allocation.ActualResourceDemand;
+import de.uka.ipd.sdq.context.usage.BranchProbability;
+import de.uka.ipd.sdq.context.usage.UsagePackage;
+
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.common.util.ResourceLocator;
+
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
-
-import de.uka.ipd.sdq.context.allocation.AllocationPackage;
-import de.uka.ipd.sdq.context.usage.provider.ContextEditPlugin;
-
-import de.uka.ipd.sdq.stoex.provider.RandomVariableItemProvider;
+import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link de.uka.ipd.sdq.context.allocation.ActualResourceDemand} object.
+ * This is the item provider adapter for a {@link de.uka.ipd.sdq.context.usage.BranchProbability} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class ActualResourceDemandItemProvider
-	extends RandomVariableItemProvider
+public class BranchProbabilityItemProvider
+	extends ItemProviderAdapter
 	implements	
 		IEditingDomainItemProvider,	
 		IStructuredItemContentProvider,	
@@ -54,7 +55,7 @@ public class ActualResourceDemandItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ActualResourceDemandItemProvider(AdapterFactory adapterFactory) {
+	public BranchProbabilityItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -68,25 +69,48 @@ public class ActualResourceDemandItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addParametricResourceDemand_ActualResourceDemandPropertyDescriptor(object);
+			addProbabilityPropertyDescriptor(object);
+			addBranchtransition_BranchProbabilityPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Parametric Resource Demand Actual Resource Demand feature.
+	 * This adds a property descriptor for the Probability feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addParametricResourceDemand_ActualResourceDemandPropertyDescriptor(Object object) {
+	protected void addProbabilityPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ActualResourceDemand_parametricResourceDemand_ActualResourceDemand_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ActualResourceDemand_parametricResourceDemand_ActualResourceDemand_feature", "_UI_ActualResourceDemand_type"),
-				 AllocationPackage.Literals.ACTUAL_RESOURCE_DEMAND__PARAMETRIC_RESOURCE_DEMAND_ACTUAL_RESOURCE_DEMAND,
+				 getString("_UI_BranchProbability_probability_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_BranchProbability_probability_feature", "_UI_BranchProbability_type"),
+				 UsagePackage.Literals.BRANCH_PROBABILITY__PROBABILITY,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Branchtransition Branch Probability feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addBranchtransition_BranchProbabilityPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_BranchProbability_branchtransition_BranchProbability_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_BranchProbability_branchtransition_BranchProbability_feature", "_UI_BranchProbability_type"),
+				 UsagePackage.Literals.BRANCH_PROBABILITY__BRANCHTRANSITION_BRANCH_PROBABILITY,
 				 true,
 				 false,
 				 true,
@@ -96,13 +120,13 @@ public class ActualResourceDemandItemProvider
 	}
 
 	/**
-	 * This returns ActualResourceDemand.gif.
+	 * This returns BranchProbability.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/ActualResourceDemand"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/BranchProbability"));
 	}
 
 	/**
@@ -112,10 +136,8 @@ public class ActualResourceDemandItemProvider
 	 * @generated
 	 */
 	public String getText(Object object) {
-		String label = ((ActualResourceDemand)object).getSpecification();
-		return label == null || label.length() == 0 ?
-			getString("_UI_ActualResourceDemand_type") :
-			getString("_UI_ActualResourceDemand_type") + " " + label;
+		BranchProbability branchProbability = (BranchProbability)object;
+		return getString("_UI_BranchProbability_type") + " " + branchProbability.getProbability();
 	}
 
 	/**
@@ -127,6 +149,12 @@ public class ActualResourceDemandItemProvider
 	 */
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
+
+		switch (notification.getFeatureID(BranchProbability.class)) {
+			case UsagePackage.BRANCH_PROBABILITY__PROBABILITY:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+		}
 		super.notifyChanged(notification);
 	}
 

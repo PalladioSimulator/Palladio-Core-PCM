@@ -4,21 +4,24 @@
  *
  * $Id$
  */
-package de.uka.ipd.sdq.context.allocation.presentation;
+package de.uka.ipd.sdq.context.usage.presentation;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
 
 import org.eclipse.emf.common.ui.viewer.IViewerProvider;
+
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.domain.IEditingDomainProvider;
+
 import org.eclipse.emf.edit.ui.action.ControlAction;
 import org.eclipse.emf.edit.ui.action.CreateChildAction;
 import org.eclipse.emf.edit.ui.action.CreateSiblingAction;
 import org.eclipse.emf.edit.ui.action.EditingDomainActionBarContributor;
 import org.eclipse.emf.edit.ui.action.LoadResourceAction;
 import org.eclipse.emf.edit.ui.action.ValidateAction;
+
 import org.eclipse.jface.action.Action;
 import org.eclipse.jface.action.ActionContributionItem;
 import org.eclipse.jface.action.IAction;
@@ -30,24 +33,24 @@ import org.eclipse.jface.action.IToolBarManager;
 import org.eclipse.jface.action.MenuManager;
 import org.eclipse.jface.action.Separator;
 import org.eclipse.jface.action.SubContributionItem;
+
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
 import org.eclipse.jface.viewers.ISelectionProvider;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.Viewer;
+
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.PartInitException;
 
-import de.uka.ipd.sdq.context.usage.presentation.ContextEditorPlugin;
-
 /**
- * This is the action bar contributor for the Allocation model editor.
+ * This is the action bar contributor for the Usage model editor.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class AllocationActionBarContributor
+public class UsageActionBarContributor
 	extends EditingDomainActionBarContributor
 	implements ISelectionChangedListener {
 	/**
@@ -154,7 +157,7 @@ public class AllocationActionBarContributor
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public AllocationActionBarContributor() {
+	public UsageActionBarContributor() {
 		super(ADDITIONS_LAST_STYLE);
 		loadResourceAction = new LoadResourceAction();
 		validateAction = new ValidateAction();
@@ -168,8 +171,8 @@ public class AllocationActionBarContributor
 	 * @generated
 	 */
 	public void contributeToToolBar(IToolBarManager toolBarManager) {
-		toolBarManager.add(new Separator("allocation-settings"));
-		toolBarManager.add(new Separator("allocation-additions"));
+		toolBarManager.add(new Separator("usage-settings"));
+		toolBarManager.add(new Separator("usage-additions"));
 	}
 
 	/**
@@ -182,7 +185,7 @@ public class AllocationActionBarContributor
 	public void contributeToMenu(IMenuManager menuManager) {
 		super.contributeToMenu(menuManager);
 
-		IMenuManager submenuManager = new MenuManager(ContextEditorPlugin.INSTANCE.getString("_UI_AllocationEditor_menu"), "de.uka.ipd.sdq.context.allocationMenuID");
+		IMenuManager submenuManager = new MenuManager(ContextEditorPlugin.INSTANCE.getString("_UI_UsageEditor_menu"), "de.uka.ipd.sdq.context.usageMenuID");
 		menuManager.insertAfter("additions", submenuManager);
 		submenuManager.add(new Separator("settings"));
 		submenuManager.add(new Separator("actions"));

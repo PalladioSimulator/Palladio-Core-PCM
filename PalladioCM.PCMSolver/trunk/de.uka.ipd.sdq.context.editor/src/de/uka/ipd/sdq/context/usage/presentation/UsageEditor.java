@@ -4,11 +4,12 @@
  *
  * $Id$
  */
-package de.uka.ipd.sdq.context.allocation.presentation;
+package de.uka.ipd.sdq.context.usage.presentation;
 
 
 import java.io.IOException;
 import java.io.InputStream;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -27,53 +28,22 @@ import org.eclipse.core.resources.IResourceChangeListener;
 import org.eclipse.core.resources.IResourceDelta;
 import org.eclipse.core.resources.IResourceDeltaVisitor;
 import org.eclipse.core.resources.ResourcesPlugin;
+
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.NullProgressMonitor;
-import org.eclipse.emf.common.command.BasicCommandStack;
-import org.eclipse.emf.common.command.Command;
-import org.eclipse.emf.common.command.CommandStack;
-import org.eclipse.emf.common.command.CommandStackListener;
-import org.eclipse.emf.common.notify.AdapterFactory;
-import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.ui.MarkerHelper;
-import org.eclipse.emf.common.ui.ViewerPane;
-import org.eclipse.emf.common.ui.editor.ProblemEditorPart;
-import org.eclipse.emf.common.ui.viewer.IViewerProvider;
-import org.eclipse.emf.common.util.BasicDiagnostic;
-import org.eclipse.emf.common.util.Diagnostic;
-import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.EValidator;
-import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.emf.ecore.resource.ResourceSet;
-import org.eclipse.emf.ecore.util.EContentAdapter;
-import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
-import org.eclipse.emf.edit.domain.EditingDomain;
-import org.eclipse.emf.edit.domain.IEditingDomainProvider;
-import org.eclipse.emf.edit.provider.AdapterFactoryItemDelegator;
-import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
-import org.eclipse.emf.edit.provider.ReflectiveItemProviderAdapterFactory;
-import org.eclipse.emf.edit.provider.resource.ResourceItemProviderAdapterFactory;
-import org.eclipse.emf.edit.ui.action.EditingDomainActionBarContributor;
-import org.eclipse.emf.edit.ui.celleditor.AdapterFactoryTreeEditor;
-import org.eclipse.emf.edit.ui.dnd.EditingDomainViewerDropAdapter;
-import org.eclipse.emf.edit.ui.dnd.LocalTransfer;
-import org.eclipse.emf.edit.ui.dnd.ViewerDragAdapter;
-import org.eclipse.emf.edit.ui.provider.AdapterFactoryContentProvider;
-import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
-import org.eclipse.emf.edit.ui.util.EditUIMarkerHelper;
-import org.eclipse.emf.edit.ui.view.ExtendedPropertySheetPage;
+
 import org.eclipse.jface.action.IMenuListener;
 import org.eclipse.jface.action.IMenuManager;
 import org.eclipse.jface.action.IStatusLineManager;
 import org.eclipse.jface.action.IToolBarManager;
 import org.eclipse.jface.action.MenuManager;
 import org.eclipse.jface.action.Separator;
+
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.dialogs.ProgressMonitorDialog;
+
 import org.eclipse.jface.viewers.ColumnWeightData;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
@@ -87,20 +57,28 @@ import org.eclipse.jface.viewers.TableLayout;
 import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.jface.viewers.Viewer;
+
 import org.eclipse.swt.SWT;
+
 import org.eclipse.swt.custom.CTabFolder;
+
 import org.eclipse.swt.dnd.DND;
 import org.eclipse.swt.dnd.Transfer;
+
 import org.eclipse.swt.events.ControlAdapter;
 import org.eclipse.swt.events.ControlEvent;
+
 import org.eclipse.swt.graphics.Point;
+
 import org.eclipse.swt.layout.FillLayout;
+
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Menu;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.swt.widgets.Tree;
 import org.eclipse.swt.widgets.TreeColumn;
+
 import org.eclipse.ui.IActionBars;
 import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IEditorPart;
@@ -109,45 +87,119 @@ import org.eclipse.ui.IFileEditorInput;
 import org.eclipse.ui.IPartListener;
 import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.PartInitException;
-import org.eclipse.ui.actions.WorkspaceModifyOperation;
+
 import org.eclipse.ui.dialogs.SaveAsDialog;
+
 import org.eclipse.ui.ide.IGotoMarker;
+
 import org.eclipse.ui.part.FileEditorInput;
 import org.eclipse.ui.part.MultiPageEditorPart;
+
 import org.eclipse.ui.views.contentoutline.ContentOutline;
 import org.eclipse.ui.views.contentoutline.ContentOutlinePage;
 import org.eclipse.ui.views.contentoutline.IContentOutlinePage;
+
 import org.eclipse.ui.views.properties.IPropertySheetPage;
 import org.eclipse.ui.views.properties.PropertySheet;
 import org.eclipse.ui.views.properties.PropertySheetPage;
 
-import de.uka.ipd.sdq.context.allocation.provider.AllocationItemProviderAdapterFactory;
-import de.uka.ipd.sdq.context.usage.presentation.ContextEditorPlugin;
+import org.eclipse.emf.common.command.BasicCommandStack;
+import org.eclipse.emf.common.command.Command;
+import org.eclipse.emf.common.command.CommandStack;
+import org.eclipse.emf.common.command.CommandStackListener;
+
+import org.eclipse.emf.common.notify.AdapterFactory;
+import org.eclipse.emf.common.notify.Notification;
+
+import org.eclipse.emf.common.ui.MarkerHelper;
+import org.eclipse.emf.common.ui.ViewerPane;
+
+import org.eclipse.emf.common.ui.editor.ProblemEditorPart;
+
+import org.eclipse.emf.common.ui.viewer.IViewerProvider;
+
+import org.eclipse.emf.common.util.BasicDiagnostic;
+import org.eclipse.emf.common.util.Diagnostic;
+import org.eclipse.emf.common.util.URI;
+
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EValidator;
+
+import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.resource.ResourceSet;
+
+import org.eclipse.emf.ecore.util.EContentAdapter;
+import org.eclipse.emf.ecore.util.EcoreUtil;
+
+import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
+import org.eclipse.emf.edit.domain.EditingDomain;
+import org.eclipse.emf.edit.domain.IEditingDomainProvider;
+
+import org.eclipse.emf.edit.provider.AdapterFactoryItemDelegator;
+import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
+import org.eclipse.emf.edit.provider.ReflectiveItemProviderAdapterFactory;
+
+import org.eclipse.emf.edit.provider.resource.ResourceItemProviderAdapterFactory;
+
+import org.eclipse.emf.edit.ui.action.EditingDomainActionBarContributor;
+
+import org.eclipse.emf.edit.ui.celleditor.AdapterFactoryTreeEditor;
+
+import org.eclipse.emf.edit.ui.dnd.EditingDomainViewerDropAdapter;
+import org.eclipse.emf.edit.ui.dnd.LocalTransfer;
+import org.eclipse.emf.edit.ui.dnd.ViewerDragAdapter;
+
+import org.eclipse.emf.edit.ui.provider.AdapterFactoryContentProvider;
+import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
+
+import org.eclipse.emf.edit.ui.util.EditUIMarkerHelper;
+
+import org.eclipse.emf.edit.ui.view.ExtendedPropertySheetPage;
+
 import de.uka.ipd.sdq.context.usage.provider.UsageItemProviderAdapterFactory;
+
+import de.uka.ipd.sdq.context.allocation.provider.AllocationItemProviderAdapterFactory;
+
 import de.uka.ipd.sdq.identifier.provider.IdentifierItemProviderAdapterFactory;
+
 import de.uka.ipd.sdq.pcm.core.composition.provider.CompositionItemProviderAdapterFactory;
+
 import de.uka.ipd.sdq.pcm.core.connectors.provider.ConnectorsItemProviderAdapterFactory;
+
 import de.uka.ipd.sdq.pcm.core.entity.provider.EntityItemProviderAdapterFactory;
+
 import de.uka.ipd.sdq.pcm.parameter.provider.ParameterItemProviderAdapterFactory;
+
 import de.uka.ipd.sdq.pcm.protocol.provider.ProtocolItemProviderAdapterFactory;
+
 import de.uka.ipd.sdq.pcm.qosannotations.provider.QosannotationsItemProviderAdapterFactory;
+
 import de.uka.ipd.sdq.pcm.repository.provider.RepositoryItemProviderAdapterFactory;
+
 import de.uka.ipd.sdq.pcm.resourceenvironment.provider.ResourceenvironmentItemProviderAdapterFactory;
+
 import de.uka.ipd.sdq.pcm.resourcetype.provider.ResourcetypeItemProviderAdapterFactory;
+
 import de.uka.ipd.sdq.pcm.seff.provider.SeffItemProviderAdapterFactory;
+
 import de.uka.ipd.sdq.pcm.system.provider.SystemItemProviderAdapterFactory;
+
 import de.uka.ipd.sdq.pcm.usagemodel.provider.UsagemodelItemProviderAdapterFactory;
+
 import de.uka.ipd.sdq.probfunction.provider.ProbfunctionItemProviderAdapterFactory;
+
 import de.uka.ipd.sdq.stoex.provider.StoexItemProviderAdapterFactory;
+
+import org.eclipse.ui.actions.WorkspaceModifyOperation;
 
 
 /**
- * This is an example of a Allocation model editor.
+ * This is an example of a Usage model editor.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class AllocationEditor
+public class UsageEditor
 	extends MultiPageEditorPart
 	implements IEditingDomainProvider, ISelectionProvider, IMenuListener, IViewerProvider, IGotoMarker {
 	/**
@@ -316,18 +368,18 @@ public class AllocationEditor
 			public void partActivated(IWorkbenchPart p) {
 				if (p instanceof ContentOutline) {
 					if (((ContentOutline)p).getCurrentPage() == contentOutlinePage) {
-						getActionBarContributor().setActiveEditor(AllocationEditor.this);
+						getActionBarContributor().setActiveEditor(UsageEditor.this);
 
 						setCurrentViewer(contentOutlineViewer);
 					}
 				}
 				else if (p instanceof PropertySheet) {
 					if (((PropertySheet)p).getCurrentPage() == propertySheetPage) {
-						getActionBarContributor().setActiveEditor(AllocationEditor.this);
+						getActionBarContributor().setActiveEditor(UsageEditor.this);
 						handleActivate();
 					}
 				}
-				else if (p == AllocationEditor.this) {
+				else if (p == UsageEditor.this) {
 					handleActivate();
 				}
 			}
@@ -490,8 +542,8 @@ public class AllocationEditor
 								getSite().getShell().getDisplay().asyncExec
 									(new Runnable() {
 										 public void run() {
-											 getSite().getPage().closeEditor(AllocationEditor.this, false);
-											 AllocationEditor.this.dispose();
+											 getSite().getPage().closeEditor(UsageEditor.this, false);
+											 UsageEditor.this.dispose();
 										 }
 									 });
 							}
@@ -499,7 +551,7 @@ public class AllocationEditor
 
 						if (!visitor.getChangedResources().isEmpty()) {
 							changedResources.addAll(visitor.getChangedResources());
-							if (getSite().getPage().getActiveEditor() == AllocationEditor.this) {
+							if (getSite().getPage().getActiveEditor() == UsageEditor.this) {
 								getSite().getShell().getDisplay().asyncExec
 									(new Runnable() {
 										 public void run() {
@@ -535,8 +587,8 @@ public class AllocationEditor
 
 		if (!removedResources.isEmpty()) {
 			if (handleDirtyConflict()) {
-				getSite().getPage().closeEditor(AllocationEditor.this, false);
-				AllocationEditor.this.dispose();
+				getSite().getPage().closeEditor(UsageEditor.this, false);
+				UsageEditor.this.dispose();
 			}
 			else {
 				removedResources.clear();
@@ -660,7 +712,7 @@ public class AllocationEditor
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public AllocationEditor() {
+	public UsageEditor() {
 		super();
 
 		// Create an adapter factory that yields item providers.
@@ -780,25 +832,50 @@ public class AllocationEditor
 	 * @generated
 	 */
 	public class ReverseAdapterFactoryContentProvider extends AdapterFactoryContentProvider {
+		/**
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
 		public ReverseAdapterFactoryContentProvider(AdapterFactory adapterFactory) {
 			super(adapterFactory);
 		}
 
+		/**
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
 		public Object [] getElements(Object object) {
 			Object parent = super.getParent(object);
 			return (parent == null ? Collections.EMPTY_SET : Collections.singleton(parent)).toArray();
 		}
 
+		/**
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
 		public Object [] getChildren(Object object) {
 			Object parent = super.getParent(object);
 			return (parent == null ? Collections.EMPTY_SET : Collections.singleton(parent)).toArray();
 		}
 
+		/**
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
 		public boolean hasChildren(Object object) {
 			Object parent = super.getParent(object);
 			return parent != null;
 		}
 
+		/**
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
 		public Object getParent(Object object) {
 			return null;
 		}
@@ -978,7 +1055,7 @@ public class AllocationEditor
 			//
 			{
 				ViewerPane viewerPane =
-					new ViewerPane(getSite().getPage(), AllocationEditor.this) {
+					new ViewerPane(getSite().getPage(), UsageEditor.this) {
 						public Viewer createViewer(Composite composite) {
 							Tree tree = new Tree(composite, SWT.MULTI);
 							TreeViewer newTreeViewer = new TreeViewer(tree);
@@ -1010,7 +1087,7 @@ public class AllocationEditor
 			//
 			{
 				ViewerPane viewerPane =
-					new ViewerPane(getSite().getPage(), AllocationEditor.this) {
+					new ViewerPane(getSite().getPage(), UsageEditor.this) {
 						public Viewer createViewer(Composite composite) {
 							Tree tree = new Tree(composite, SWT.MULTI);
 							TreeViewer newTreeViewer = new TreeViewer(tree);
@@ -1037,7 +1114,7 @@ public class AllocationEditor
 			//
 			{
 				ViewerPane viewerPane =
-					new ViewerPane(getSite().getPage(), AllocationEditor.this) {
+					new ViewerPane(getSite().getPage(), UsageEditor.this) {
 						public Viewer createViewer(Composite composite) {
 							return new ListViewer(composite);
 						}
@@ -1060,7 +1137,7 @@ public class AllocationEditor
 			//
 			{
 				ViewerPane viewerPane =
-					new ViewerPane(getSite().getPage(), AllocationEditor.this) {
+					new ViewerPane(getSite().getPage(), UsageEditor.this) {
 						public Viewer createViewer(Composite composite) {
 							return new TreeViewer(composite);
 						}
@@ -1085,7 +1162,7 @@ public class AllocationEditor
 			//
 			{
 				ViewerPane viewerPane =
-					new ViewerPane(getSite().getPage(), AllocationEditor.this) {
+					new ViewerPane(getSite().getPage(), UsageEditor.this) {
 						public Viewer createViewer(Composite composite) {
 							return new TableViewer(composite);
 						}
@@ -1126,7 +1203,7 @@ public class AllocationEditor
 			//
 			{
 				ViewerPane viewerPane =
-					new ViewerPane(getSite().getPage(), AllocationEditor.this) {
+					new ViewerPane(getSite().getPage(), UsageEditor.this) {
 						public Viewer createViewer(Composite composite) {
 							return new TreeViewer(composite);
 						}
@@ -1327,8 +1404,8 @@ public class AllocationEditor
 			propertySheetPage =
 				new ExtendedPropertySheetPage(editingDomain) {
 					public void setSelectionToViewer(List selection) {
-						AllocationEditor.this.setSelectionToViewer(selection);
-						AllocationEditor.this.setFocus();
+						UsageEditor.this.setSelectionToViewer(selection);
+						UsageEditor.this.setFocus();
 					}
 
 					public void setActionBars(IActionBars actionBars) {
