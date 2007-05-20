@@ -129,7 +129,7 @@ public class SimuComConfigurationTab extends AbstractLaunchConfigurationTab {
 			timeField.setText(configuration.getAttribute(
 					SimuComConfig.SIMULATION_TIME, ""));
 		} catch (CoreException e) {
-			nameField.setText("CoreException e -> SIMULATION_TIME");
+			timeField.setText("CoreException e -> SIMULATION_TIME");
 		}
 	}
 
@@ -150,7 +150,7 @@ public class SimuComConfigurationTab extends AbstractLaunchConfigurationTab {
 		configuration.setAttribute(SimuComConfig.EXPERIMENT_RUN,
 				"MyRun");
 		configuration.setAttribute(SimuComConfig.SIMULATION_TIME,
-				150000);
+				"150000");
 	}
 
 	/* (non-Javadoc)
