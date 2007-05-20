@@ -43,6 +43,7 @@ Require-Bundle: org.eclipse.core.runtime,
  de.uka.ipd.sdq.stoex;visibility:=reexport,
  de.uka.ipd.sdq.stoex.edit;visibility:=reexport,
  org.eclipse.gmf.runtime.draw2d.ui;visibility:=reexport,
- org.eclipse.draw2d;visibility:=reexport
+ org.eclipse.draw2d;visibility:=reexport,
+ de.uka.ipd.sdq.dialogs
 Eclipse-LazyStart: true
 Bundle-RequiredExecutionEnvironment: J2SE-1.4

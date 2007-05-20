@@ -278,9 +278,7 @@ public class SelectEObjectDialog extends TitleAreaDialog {
 		
 		if (providedService == null)
 			return true;
-		String selectedType = object.getClass().getSimpleName();
-		String type = providedService.getSimpleName();
-		return (selectedType.contains(type));
+		return providedService.isAssignableFrom(object.getClass());
 	}
 	
 	/**
