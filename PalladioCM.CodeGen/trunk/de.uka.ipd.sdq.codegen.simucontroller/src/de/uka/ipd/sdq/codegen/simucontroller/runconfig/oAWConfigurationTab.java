@@ -47,6 +47,7 @@ public class oAWConfigurationTab extends AbstractLaunchConfigurationTab {
 	private String outputPath = "OUTPUT_PATH";
 	
 	private boolean CLEAR = true;
+	private boolean LOGGING = false;
 	/**
 	 * The default value for the 'height' Layout attribute.
 	 */
@@ -57,6 +58,7 @@ public class oAWConfigurationTab extends AbstractLaunchConfigurationTab {
 	private Button workspaceButton;
 	private Button fileSystemButton;
 	private Button clearButton;
+	private Button checkLoggingButton;
 
 	/* (non-Javadoc)
 	 * @see org.eclipse.debug.ui.ILaunchConfigurationTab#createControl(org.eclipse.swt.widgets.Composite)
@@ -170,6 +172,22 @@ public class oAWConfigurationTab extends AbstractLaunchConfigurationTab {
 			}
 		});
 		
+		/** verbose logging button */
+		checkLoggingButton = new Button(container, SWT.CHECK);
+		checkLoggingButton.setText("Enable verbose logging");
+		checkLoggingButton.addSelectionListener(new SelectionAdapter() {
+			
+			/* (non-Javadoc)
+			 * @see org.eclipse.swt.events.SelectionAdapter#widgetSelected(org.eclipse.swt.events.SelectionEvent)
+			 */
+			public void widgetSelected(SelectionEvent e) {
+				//oAWConfigurationTab.this.setDirty(true);
+				oAWConfigurationTab.this.updateLaunchConfigurationDialog();
+				// TODO
+			}
+		});
+		checkLoggingButton.setSelection(false);
+		
 		// --- setEnabled(false) ---
 		setElementsEnabled(false);
 
@@ -209,7 +227,13 @@ public class oAWConfigurationTab extends AbstractLaunchConfigurationTab {
 			clearButton.setSelection(configuration.getAttribute(
 					ResourceManagerTab.DELETE_PLUGIN, CLEAR));
 		} catch (CoreException e) {
-			clearButton.setSelection(true);
+			clearButton.setSelection(CLEAR);
+		}
+		try {
+			checkLoggingButton.setSelection(configuration.getAttribute(
+					ResourceManagerTab.VERBOSE_LOGGING, LOGGING));
+		} catch (CoreException e) {
+			checkLoggingButton.setSelection(LOGGING);
 		}
 	}
 
@@ -217,8 +241,12 @@ public class oAWConfigurationTab extends AbstractLaunchConfigurationTab {
 	 * @see org.eclipse.debug.ui.ILaunchConfigurationTab#performApply(org.eclipse.debug.core.ILaunchConfigurationWorkingCopy)
 	 */
 	public void performApply(ILaunchConfigurationWorkingCopy configuration) {
-		configuration.setAttribute(ResourceManagerTab.OUTPUT_PATH, outputPathField.getText());
-		configuration.setAttribute(ResourceManagerTab.DELETE_PLUGIN, clearButton.getSelection());
+		configuration.setAttribute(ResourceManagerTab.OUTPUT_PATH,
+				outputPathField.getText());
+		configuration.setAttribute(ResourceManagerTab.DELETE_PLUGIN,
+				clearButton.getSelection());
+		configuration.setAttribute(ResourceManagerTab.VERBOSE_LOGGING,
+				checkLoggingButton.getSelection());
 	}
 
 	/* (non-Javadoc)
