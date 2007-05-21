@@ -2,6 +2,10 @@ package de.uka.ipd.sdq.pcm.gmf.allocation.part;
 
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceEnvironment;
 
+/**
+ * This wizard page uses the regular resource selector page, but checks
+ * the type of the resource selected by the user to be a ResourceEnvironment.
+ */
 class ResourceEnvironmentSelectorPage extends ResourceSelectorPage {
 
 	private ResourceEnvironment myResourceEnvironment;

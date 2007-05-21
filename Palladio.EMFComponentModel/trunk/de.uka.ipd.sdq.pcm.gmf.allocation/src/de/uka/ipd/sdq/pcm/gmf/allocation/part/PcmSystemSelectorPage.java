@@ -2,6 +2,10 @@ package de.uka.ipd.sdq.pcm.gmf.allocation.part;
 
 import de.uka.ipd.sdq.pcm.system.System;
 
+/**
+ * This wizard page uses the regular resource selector page, but checks
+ * the type of the resource selected by the user to be a System.
+ */
 class SystemSelectorPage extends ResourceSelectorPage {
 
 		private System mySystem;

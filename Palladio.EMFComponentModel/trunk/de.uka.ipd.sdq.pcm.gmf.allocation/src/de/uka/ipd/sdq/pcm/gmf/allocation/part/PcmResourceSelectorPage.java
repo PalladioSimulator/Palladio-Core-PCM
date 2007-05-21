@@ -17,10 +17,20 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
 
+/**
+ * This wizard allows the user to select a resource. It can be passed an
+ * already selected resource which then can be changed. A value of null
+ * will leave it up to the user to locate the resource.
+ * 
+ * The dialog will only succeed if a valid resource file has been selected.
+ */
 class ResourceSelectorPage extends WizardPage {
 	private Text mySelectionText;
 	private EObject myResolvedObject;
 
+	/**
+	 * @return a valid resource, or null if no valid one has been selected
+	 */	
 	protected EObject getResolvedObject() {
 		return myResolvedObject;
 	}
@@ -43,7 +53,10 @@ class ResourceSelectorPage extends WizardPage {
 		createPageContent(topLevel);
 		setPageComplete(validatePage());
 	}
-
+	
+	/**
+	 * creates the SWT widgets used to select and display the resource and initializes them
+	 */
 	private void createPageContent(Composite parent) {
 		Composite panel = new Composite(parent, SWT.NONE);
 		panel.setLayoutData(new GridData(GridData.FILL_BOTH));
@@ -73,6 +86,9 @@ class ResourceSelectorPage extends WizardPage {
 		setPageComplete(validatePage());
 	}
 
+	/** 
+	 * @return true, if a valid resource file has been selected and resolved
+	 */	
 	protected boolean validatePage() {
 		if (myResolvedObject == null) {
 			setErrorMessage("No resource selected");
@@ -83,6 +99,9 @@ class ResourceSelectorPage extends WizardPage {
 		return true;
 	}
 
+	/**
+	 * checks if the selected file is a valid resource
+	 */	
 	private void resolveSelection() {
 		myResolvedObject = null;
 		TransactionalEditingDomain editingDomain = GMFEditingDomainFactory.INSTANCE

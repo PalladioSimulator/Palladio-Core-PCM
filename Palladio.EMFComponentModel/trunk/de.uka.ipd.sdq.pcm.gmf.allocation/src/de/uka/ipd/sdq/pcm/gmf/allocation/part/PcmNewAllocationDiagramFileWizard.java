@@ -22,6 +22,13 @@ import de.uka.ipd.sdq.pcm.allocation.Allocation;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceEnvironment;
 import de.uka.ipd.sdq.pcm.system.System;
 
+/**
+ * This wizard has added pages that require the user to select a System
+ * and a ResourceEnvironment, when initializing the diagram.
+ * 
+ * @author Philipp Meier
+ *
+ */
 public class PcmNewAllocationDiagramFileWizard 
 extends PalladioComponentModelNewDiagramFileWizard {
 
