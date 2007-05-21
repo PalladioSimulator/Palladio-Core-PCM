@@ -30,7 +30,7 @@ public class BranchActionBranchTransitionCompartment2ItemSemanticEditPolicy
 				req.setContainmentFeature(SeffPackage.eINSTANCE
 						.getBranchAction_Branches_Branch());
 			}
-			return getMSLWrapper(new ProbabilisticBranchTransitionCreateCommand(
+			return getGEFWrapper(new ProbabilisticBranchTransitionCreateCommand(
 					req));
 		}
 		if (PalladioComponentModelElementTypes.GuardedBranchTransition_3017 == req
@@ -39,7 +39,7 @@ public class BranchActionBranchTransitionCompartment2ItemSemanticEditPolicy
 				req.setContainmentFeature(SeffPackage.eINSTANCE
 						.getBranchAction_Branches_Branch());
 			}
-			return getMSLWrapper(new GuardedBranchTransitionCreateCommand(req));
+			return getGEFWrapper(new GuardedBranchTransitionCreateCommand(req));
 		}
 		return super.getCreateCommand(req);
 	}

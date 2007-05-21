@@ -9,8 +9,16 @@ import de.uka.ipd.sdq.pcm.gmf.seff.part.PalladioComponentModelDiagramEditorUtil;
 import de.uka.ipd.sdq.pcm.gmf.seff.part.PalladioComponentModelSeffDiagramEditorPlugin;
 import de.uka.ipd.sdq.pcm.gmf.seff.part.PalladioComponentModelVisualIDRegistry;
 
+import de.uka.ipd.sdq.pcm.gmf.seff.part.ValidateAction;
 import java.lang.reflect.InvocationTargetException;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 import org.eclipse.core.resources.IFile;
 
 import org.eclipse.core.runtime.IProgressMonitor;
@@ -29,6 +37,7 @@ import org.eclipse.emf.transaction.util.TransactionUtil;
 
 import org.eclipse.emf.validation.model.EvaluationMode;
 
+import org.eclipse.emf.validation.model.IConstraintStatus;
 import org.eclipse.emf.validation.service.IBatchValidator;
 import org.eclipse.emf.validation.service.ModelValidationService;
 
@@ -90,155 +99,30 @@ public class PalladioComponentModelValidationProvider extends
 	/**
 	 * @generated
 	 */
-	public static class ValidateAction extends Action {
-		/**
-		 * @generated
-		 */
-		public static final String VALIDATE_ACTION_KEY = "validateAction"; //$NON-NLS-1$
-		/**
-		 * @generated
-		 */
-		private IWorkbenchPartDescriptor workbenchPartDescriptor;
+	public static void runWithConstraints(View view, Runnable op) {
+		final Runnable fop = op;
+		Runnable task = new Runnable() {
 
-		/**
-		 * @generated
-		 */
-		public ValidateAction(IWorkbenchPartDescriptor workbenchPartDescriptor) {
-			setId(VALIDATE_ACTION_KEY);
-			setText("Validate");
-			this.workbenchPartDescriptor = workbenchPartDescriptor;
-		}
-
-		/**
-		 * @generated
-		 */
-		public void run() {
-			IWorkbenchPart workbenchPart = workbenchPartDescriptor
-					.getPartPage().getActivePart();
-			if (workbenchPart instanceof IDiagramWorkbenchPart) {
-				final IDiagramWorkbenchPart part = (IDiagramWorkbenchPart) workbenchPart;
+			public void run() {
 				try {
-					new WorkspaceModifyDelegatingOperation(
-							new IRunnableWithProgress() {
-								public void run(IProgressMonitor monitor)
-										throws InterruptedException,
-										InvocationTargetException {
-									runValidation(part.getDiagramEditPart(),
-											part.getDiagram());
-								}
-							}).run(new NullProgressMonitor());
-				} catch (Exception e) {
-					PalladioComponentModelSeffDiagramEditorPlugin.getInstance()
-							.logError("Validation action failed", e); //$NON-NLS-1$
+					constraintsActive = true;
+					fop.run();
+				} finally {
+					constraintsActive = false;
 				}
 			}
-		}
-
-		/** 
-		 * @generated
-		 */
-		public static void runValidation(View view) {
+		};
+		TransactionalEditingDomain txDomain = TransactionUtil
+				.getEditingDomain(view);
+		if (txDomain != null) {
 			try {
-				if (PalladioComponentModelDiagramEditorUtil.openDiagram(view
-						.eResource())) {
-					IEditorPart editorPart = PlatformUI.getWorkbench()
-							.getActiveWorkbenchWindow().getActivePage()
-							.getActiveEditor();
-					if (editorPart instanceof IDiagramWorkbenchPart) {
-						runValidation(((IDiagramWorkbenchPart) editorPart)
-								.getDiagramEditPart(), view);
-					} else {
-						runNonUIValidation(view);
-					}
-				}
+				txDomain.runExclusive(task);
 			} catch (Exception e) {
 				PalladioComponentModelSeffDiagramEditorPlugin.getInstance()
 						.logError("Validation action failed", e); //$NON-NLS-1$
 			}
-		}
-
-		/**
-		 * @generated
-		 */
-		public static void runNonUIValidation(View view) {
-			DiagramEditPart diagramEditPart = OffscreenEditPartFactory
-					.getInstance().createDiagramEditPart(view.getDiagram());
-			runValidation(diagramEditPart, view);
-		}
-
-		/**
-		 * @generated
-		 */
-		public static void runValidation(DiagramEditPart diagramEditPart,
-				View view) {
-			final View target = view;
-			final DiagramEditPart diagramPart = diagramEditPart;
-			Runnable task = new Runnable() {
-				public void run() {
-					try {
-						constraintsActive = true;
-						validate(diagramPart, target);
-					} finally {
-						constraintsActive = false;
-					}
-				}
-			};
-			TransactionalEditingDomain txDomain = TransactionUtil
-					.getEditingDomain(target);
-			if (txDomain != null) {
-				try {
-					txDomain.runExclusive(task);
-				} catch (Exception e) {
-					PalladioComponentModelSeffDiagramEditorPlugin.getInstance()
-							.logError("Validation action failed", e); //$NON-NLS-1$
-				}
-			} else {
-				task.run();
-			}
-		}
-
-		/**
-		 * @generated
-		 */
-		private static Diagnostic runEMFValidator(View target) {
-			if (target.isSetElement() && target.getElement() != null) {
-				return new Diagnostician() {
-					public String getObjectLabel(EObject eObject) {
-						return EMFCoreUtil.getQualifiedName(eObject, true);
-					}
-				}.validate(target.getElement());
-			}
-			return Diagnostic.OK_INSTANCE;
-		}
-
-		/**
-		 * @generated
-		 */
-		private static void validate(DiagramEditPart diagramEditPart,
-				View target) {
-			IFile diagramFile = (target.eResource() != null) ? WorkspaceSynchronizer
-					.getFile(target.eResource())
-					: null;
-			if (diagramFile != null) {
-				PalladioComponentModelMarkerNavigationProvider
-						.deleteMarkers(diagramFile);
-			}
-			Diagnostic diagnostic = runEMFValidator(target);
-			if (diagramFile != null) {
-				PalladioComponentModelMarkerNavigationProvider.createMarkers(
-						diagramFile, diagnostic, diagramEditPart);
-			}
-			IBatchValidator validator = (IBatchValidator) ModelValidationService
-					.getInstance().newValidator(EvaluationMode.BATCH);
-			validator.setIncludeLiveConstraints(true);
-			if (target.isSetElement() && target.getElement() != null) {
-				IStatus status = validator.validate(target.getElement());
-				if (diagramFile != null) {
-					PalladioComponentModelMarkerNavigationProvider
-							.createMarkers(diagramFile, status, diagramEditPart);
-				}
-			}
-
+		} else {
+			task.run();
 		}
 	}
 

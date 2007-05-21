@@ -207,7 +207,7 @@ public class PalladioComponentModelVisualIDRegistry {
 			EClass domainElementMetaclass) {
 		if (SeffPackage.eINSTANCE.getResourceDemandingSEFF().isSuperTypeOf(
 				domainElementMetaclass)
-				&& isDiagramResourceDemandingSEFF_1000((ResourceDemandingSEFF) domainElement)) {
+				&& isDiagram((ResourceDemandingSEFF) domainElement)) {
 			return ResourceDemandingSEFFEditPart.VISUAL_ID;
 		}
 		return getUnrecognizedDiagramID(domainElement);
@@ -231,21 +231,24 @@ public class PalladioComponentModelVisualIDRegistry {
 	public static int getNodeVisualID(View containerView,
 			EObject domainElement, EClass domainElementMetaclass,
 			String semanticHint) {
-		String containerModelID = getModelID(containerView);
+		String containerModelID = de.uka.ipd.sdq.pcm.gmf.seff.part.PalladioComponentModelVisualIDRegistry
+				.getModelID(containerView);
 		if (!ResourceDemandingSEFFEditPart.MODEL_ID.equals(containerModelID)) {
 			return -1;
 		}
 		int containerVisualID;
 		if (ResourceDemandingSEFFEditPart.MODEL_ID.equals(containerModelID)) {
-			containerVisualID = getVisualID(containerView);
+			containerVisualID = de.uka.ipd.sdq.pcm.gmf.seff.part.PalladioComponentModelVisualIDRegistry
+					.getVisualID(containerView);
 		} else {
 			if (containerView instanceof Diagram) {
-				containerVisualID = ResourceDemandingSEFFEditPart.VISUAL_ID;
+				containerVisualID = 1000;
 			} else {
 				return -1;
 			}
 		}
-		int nodeVisualID = semanticHint != null ? getVisualID(semanticHint)
+		int nodeVisualID = semanticHint != null ? de.uka.ipd.sdq.pcm.gmf.seff.part.PalladioComponentModelVisualIDRegistry
+				.getVisualID(semanticHint)
 				: -1;
 		switch (containerVisualID) {
 		case StartActionEditPart.VISUAL_ID:
@@ -275,8 +278,7 @@ public class PalladioComponentModelVisualIDRegistry {
 			}
 			if ((semanticHint == null || ResourceDemandingBehaviourEditPart.VISUAL_ID == nodeVisualID)
 					&& SeffPackage.eINSTANCE.getResourceDemandingBehaviour()
-							.isSuperTypeOf(domainElementMetaclass)
-					&& (domainElement == null || isNodeResourceDemandingBehaviour_3003((ResourceDemandingBehaviour) domainElement))) {
+							.isSuperTypeOf(domainElementMetaclass)) {
 				return ResourceDemandingBehaviourEditPart.VISUAL_ID;
 			}
 			return getUnrecognizedLoopAction_2004ChildNodeID(domainElement,
@@ -308,8 +310,7 @@ public class PalladioComponentModelVisualIDRegistry {
 			}
 			if ((semanticHint == null || ResourceDemandingBehaviour4EditPart.VISUAL_ID == nodeVisualID)
 					&& SeffPackage.eINSTANCE.getResourceDemandingBehaviour()
-							.isSuperTypeOf(domainElementMetaclass)
-					&& (domainElement == null || isNodeResourceDemandingBehaviour_3014((ResourceDemandingBehaviour) domainElement))) {
+							.isSuperTypeOf(domainElementMetaclass)) {
 				return ResourceDemandingBehaviour4EditPart.VISUAL_ID;
 			}
 			return getUnrecognizedCollectionIteratorAction_2007ChildNodeID(
@@ -389,8 +390,7 @@ public class PalladioComponentModelVisualIDRegistry {
 			}
 			if ((semanticHint == null || ResourceDemandingBehaviourEditPart.VISUAL_ID == nodeVisualID)
 					&& SeffPackage.eINSTANCE.getResourceDemandingBehaviour()
-							.isSuperTypeOf(domainElementMetaclass)
-					&& (domainElement == null || isNodeResourceDemandingBehaviour_3003((ResourceDemandingBehaviour) domainElement))) {
+							.isSuperTypeOf(domainElementMetaclass)) {
 				return ResourceDemandingBehaviourEditPart.VISUAL_ID;
 			}
 			return getUnrecognizedLoopAction_3006ChildNodeID(domainElement,
@@ -422,8 +422,7 @@ public class PalladioComponentModelVisualIDRegistry {
 			}
 			if ((semanticHint == null || ResourceDemandingBehaviour2EditPart.VISUAL_ID == nodeVisualID)
 					&& SeffPackage.eINSTANCE.getResourceDemandingBehaviour()
-							.isSuperTypeOf(domainElementMetaclass)
-					&& (domainElement == null || isNodeResourceDemandingBehaviour_3011((ResourceDemandingBehaviour) domainElement))) {
+							.isSuperTypeOf(domainElementMetaclass)) {
 				return ResourceDemandingBehaviour2EditPart.VISUAL_ID;
 			}
 			return getUnrecognizedProbabilisticBranchTransition_3010ChildNodeID(
@@ -482,8 +481,7 @@ public class PalladioComponentModelVisualIDRegistry {
 			}
 			if ((semanticHint == null || ResourceDemandingBehaviour4EditPart.VISUAL_ID == nodeVisualID)
 					&& SeffPackage.eINSTANCE.getResourceDemandingBehaviour()
-							.isSuperTypeOf(domainElementMetaclass)
-					&& (domainElement == null || isNodeResourceDemandingBehaviour_3014((ResourceDemandingBehaviour) domainElement))) {
+							.isSuperTypeOf(domainElementMetaclass)) {
 				return ResourceDemandingBehaviour4EditPart.VISUAL_ID;
 			}
 			return getUnrecognizedCollectionIteratorAction_3013ChildNodeID(
@@ -521,8 +519,7 @@ public class PalladioComponentModelVisualIDRegistry {
 			}
 			if ((semanticHint == null || ResourceDemandingBehaviour5EditPart.VISUAL_ID == nodeVisualID)
 					&& SeffPackage.eINSTANCE.getResourceDemandingBehaviour()
-							.isSuperTypeOf(domainElementMetaclass)
-					&& (domainElement == null || isNodeResourceDemandingBehaviour_3018((ResourceDemandingBehaviour) domainElement))) {
+							.isSuperTypeOf(domainElementMetaclass)) {
 				return ResourceDemandingBehaviour5EditPart.VISUAL_ID;
 			}
 			return getUnrecognizedGuardedBranchTransition_3017ChildNodeID(
@@ -536,8 +533,7 @@ public class PalladioComponentModelVisualIDRegistry {
 		case ExternalCallActionInputVariableUsageEditPart.VISUAL_ID:
 			if ((semanticHint == null || VariableUsageEditPart.VISUAL_ID == nodeVisualID)
 					&& ParameterPackage.eINSTANCE.getVariableUsage()
-							.isSuperTypeOf(domainElementMetaclass)
-					&& (domainElement == null || isNodeVariableUsage_3001((VariableUsage) domainElement))) {
+							.isSuperTypeOf(domainElementMetaclass)) {
 				return VariableUsageEditPart.VISUAL_ID;
 			}
 			return getUnrecognizedExternalCallActionInputVariableUsage_7001ChildNodeID(
@@ -545,8 +541,7 @@ public class PalladioComponentModelVisualIDRegistry {
 		case ExternalCallActionOutputVariableUsageEditPart.VISUAL_ID:
 			if ((semanticHint == null || VariableUsage2EditPart.VISUAL_ID == nodeVisualID)
 					&& ParameterPackage.eINSTANCE.getVariableUsage()
-							.isSuperTypeOf(domainElementMetaclass)
-					&& (domainElement == null || isNodeVariableUsage_3022((VariableUsage) domainElement))) {
+							.isSuperTypeOf(domainElementMetaclass)) {
 				return VariableUsage2EditPart.VISUAL_ID;
 			}
 			return getUnrecognizedExternalCallActionOutputVariableUsage_7021ChildNodeID(
@@ -554,8 +549,7 @@ public class PalladioComponentModelVisualIDRegistry {
 		case VariableUsageVariableCharacterisationEditPart.VISUAL_ID:
 			if ((semanticHint == null || VariableCharacterisationEditPart.VISUAL_ID == nodeVisualID)
 					&& ParameterPackage.eINSTANCE.getVariableCharacterisation()
-							.isSuperTypeOf(domainElementMetaclass)
-					&& (domainElement == null || isNodeVariableCharacterisation_3002((VariableCharacterisation) domainElement))) {
+							.isSuperTypeOf(domainElementMetaclass)) {
 				return VariableCharacterisationEditPart.VISUAL_ID;
 			}
 			return getUnrecognizedVariableUsageVariableCharacterisation_7002ChildNodeID(
@@ -563,8 +557,7 @@ public class PalladioComponentModelVisualIDRegistry {
 		case VariableUsageVariableCharacterisation2EditPart.VISUAL_ID:
 			if ((semanticHint == null || VariableCharacterisation2EditPart.VISUAL_ID == nodeVisualID)
 					&& ParameterPackage.eINSTANCE.getVariableCharacterisation()
-							.isSuperTypeOf(domainElementMetaclass)
-					&& (domainElement == null || isNodeVariableCharacterisation_3016((VariableCharacterisation) domainElement))) {
+							.isSuperTypeOf(domainElementMetaclass)) {
 				return VariableCharacterisation2EditPart.VISUAL_ID;
 			}
 			return getUnrecognizedVariableUsageVariableCharacterisation_7022ChildNodeID(
@@ -572,68 +565,57 @@ public class PalladioComponentModelVisualIDRegistry {
 		case ResourceDemandingBehaviourLoopCompartmentEditPart.VISUAL_ID:
 			if ((semanticHint == null || StartAction2EditPart.VISUAL_ID == nodeVisualID)
 					&& SeffPackage.eINSTANCE.getStartAction().isSuperTypeOf(
-							domainElementMetaclass)
-					&& (domainElement == null || isNodeStartAction_3004((StartAction) domainElement))) {
+							domainElementMetaclass)) {
 				return StartAction2EditPart.VISUAL_ID;
 			}
 			if ((semanticHint == null || StopAction2EditPart.VISUAL_ID == nodeVisualID)
 					&& SeffPackage.eINSTANCE.getStopAction().isSuperTypeOf(
-							domainElementMetaclass)
-					&& (domainElement == null || isNodeStopAction_3005((StopAction) domainElement))) {
+							domainElementMetaclass)) {
 				return StopAction2EditPart.VISUAL_ID;
 			}
 			if ((semanticHint == null || LoopAction2EditPart.VISUAL_ID == nodeVisualID)
 					&& SeffPackage.eINSTANCE.getLoopAction().isSuperTypeOf(
-							domainElementMetaclass)
-					&& (domainElement == null || isNodeLoopAction_3006((LoopAction) domainElement))) {
+							domainElementMetaclass)) {
 				return LoopAction2EditPart.VISUAL_ID;
 			}
 			if ((semanticHint == null || InternalActionEditPart.VISUAL_ID == nodeVisualID)
 					&& SeffPackage.eINSTANCE.getInternalAction().isSuperTypeOf(
-							domainElementMetaclass)
-					&& (domainElement == null || isNodeInternalAction_3007((InternalAction) domainElement))) {
+							domainElementMetaclass)) {
 				return InternalActionEditPart.VISUAL_ID;
 			}
 			if ((semanticHint == null || BranchActionEditPart.VISUAL_ID == nodeVisualID)
 					&& SeffPackage.eINSTANCE.getBranchAction().isSuperTypeOf(
-							domainElementMetaclass)
-					&& (domainElement == null || isNodeBranchAction_3009((BranchAction) domainElement))) {
+							domainElementMetaclass)) {
 				return BranchActionEditPart.VISUAL_ID;
 			}
 			if ((semanticHint == null || ExternalCallAction2EditPart.VISUAL_ID == nodeVisualID)
 					&& SeffPackage.eINSTANCE.getExternalCallAction()
-							.isSuperTypeOf(domainElementMetaclass)
-					&& (domainElement == null || isNodeExternalCallAction_3012((ExternalCallAction) domainElement))) {
+							.isSuperTypeOf(domainElementMetaclass)) {
 				return ExternalCallAction2EditPart.VISUAL_ID;
 			}
 			if ((semanticHint == null || CollectionIteratorActionEditPart.VISUAL_ID == nodeVisualID)
 					&& SeffPackage.eINSTANCE.getCollectionIteratorAction()
-							.isSuperTypeOf(domainElementMetaclass)
-					&& (domainElement == null || isNodeCollectionIteratorAction_3013((CollectionIteratorAction) domainElement))) {
+							.isSuperTypeOf(domainElementMetaclass)) {
 				return CollectionIteratorActionEditPart.VISUAL_ID;
 			}
 			if ((semanticHint == null || AquireActionEditPart.VISUAL_ID == nodeVisualID)
 					&& SeffPackage.eINSTANCE.getAquireAction().isSuperTypeOf(
-							domainElementMetaclass)
-					&& (domainElement == null || isNodeAquireAction_3019((AquireAction) domainElement))) {
+							domainElementMetaclass)) {
 				return AquireActionEditPart.VISUAL_ID;
 			}
 			if ((semanticHint == null || ReleaseActionEditPart.VISUAL_ID == nodeVisualID)
 					&& SeffPackage.eINSTANCE.getReleaseAction().isSuperTypeOf(
-							domainElementMetaclass)
-					&& (domainElement == null || isNodeReleaseAction_3020((ReleaseAction) domainElement))) {
+							domainElementMetaclass)) {
 				return ReleaseActionEditPart.VISUAL_ID;
 			}
 			if ((semanticHint == null || ForkActionEditPart.VISUAL_ID == nodeVisualID)
 					&& SeffPackage.eINSTANCE.getForkAction().isSuperTypeOf(
-							domainElementMetaclass)
-					&& (domainElement == null || isNodeForkAction_3023((ForkAction) domainElement))) {
+							domainElementMetaclass)) {
 				return ForkActionEditPart.VISUAL_ID;
 			}
 			if ((semanticHint == null || SetVariableActionEditPart.VISUAL_ID == nodeVisualID)
 					&& SeffPackage.eINSTANCE.getSetVariableAction()
-							.isSuperTypeOf(domainElementMetaclass)
-					&& (domainElement == null || isNodeSetVariableAction_3024((SetVariableAction) domainElement))) {
+							.isSuperTypeOf(domainElementMetaclass)) {
 				return SetVariableActionEditPart.VISUAL_ID;
 			}
 			return getUnrecognizedResourceDemandingBehaviourLoopCompartment_7004ChildNodeID(
@@ -641,8 +623,7 @@ public class PalladioComponentModelVisualIDRegistry {
 		case InternalActionResourceDemandEditPart.VISUAL_ID:
 			if ((semanticHint == null || ParametricResourceDemandEditPart.VISUAL_ID == nodeVisualID)
 					&& SeffPackage.eINSTANCE.getParametricResourceDemand()
-							.isSuperTypeOf(domainElementMetaclass)
-					&& (domainElement == null || isNodeParametricResourceDemand_3008((ParametricResourceDemand) domainElement))) {
+							.isSuperTypeOf(domainElementMetaclass)) {
 				return ParametricResourceDemandEditPart.VISUAL_ID;
 			}
 			return getUnrecognizedInternalActionResourceDemand_7006ChildNodeID(
@@ -650,14 +631,12 @@ public class PalladioComponentModelVisualIDRegistry {
 		case BranchActionBranchTransitionCompartmentEditPart.VISUAL_ID:
 			if ((semanticHint == null || ProbabilisticBranchTransitionEditPart.VISUAL_ID == nodeVisualID)
 					&& SeffPackage.eINSTANCE.getProbabilisticBranchTransition()
-							.isSuperTypeOf(domainElementMetaclass)
-					&& (domainElement == null || isNodeProbabilisticBranchTransition_3010((ProbabilisticBranchTransition) domainElement))) {
+							.isSuperTypeOf(domainElementMetaclass)) {
 				return ProbabilisticBranchTransitionEditPart.VISUAL_ID;
 			}
 			if ((semanticHint == null || GuardedBranchTransitionEditPart.VISUAL_ID == nodeVisualID)
 					&& SeffPackage.eINSTANCE.getGuardedBranchTransition()
-							.isSuperTypeOf(domainElementMetaclass)
-					&& (domainElement == null || isNodeGuardedBranchTransition_3017((GuardedBranchTransition) domainElement))) {
+							.isSuperTypeOf(domainElementMetaclass)) {
 				return GuardedBranchTransitionEditPart.VISUAL_ID;
 			}
 			return getUnrecognizedBranchActionBranchTransitionCompartment_7007ChildNodeID(
@@ -665,68 +644,57 @@ public class PalladioComponentModelVisualIDRegistry {
 		case ResourceDemandingBehaviourBranchCompartmentEditPart.VISUAL_ID:
 			if ((semanticHint == null || StartAction2EditPart.VISUAL_ID == nodeVisualID)
 					&& SeffPackage.eINSTANCE.getStartAction().isSuperTypeOf(
-							domainElementMetaclass)
-					&& (domainElement == null || isNodeStartAction_3004((StartAction) domainElement))) {
+							domainElementMetaclass)) {
 				return StartAction2EditPart.VISUAL_ID;
 			}
 			if ((semanticHint == null || StopAction2EditPart.VISUAL_ID == nodeVisualID)
 					&& SeffPackage.eINSTANCE.getStopAction().isSuperTypeOf(
-							domainElementMetaclass)
-					&& (domainElement == null || isNodeStopAction_3005((StopAction) domainElement))) {
+							domainElementMetaclass)) {
 				return StopAction2EditPart.VISUAL_ID;
 			}
 			if ((semanticHint == null || LoopAction2EditPart.VISUAL_ID == nodeVisualID)
 					&& SeffPackage.eINSTANCE.getLoopAction().isSuperTypeOf(
-							domainElementMetaclass)
-					&& (domainElement == null || isNodeLoopAction_3006((LoopAction) domainElement))) {
+							domainElementMetaclass)) {
 				return LoopAction2EditPart.VISUAL_ID;
 			}
 			if ((semanticHint == null || InternalActionEditPart.VISUAL_ID == nodeVisualID)
 					&& SeffPackage.eINSTANCE.getInternalAction().isSuperTypeOf(
-							domainElementMetaclass)
-					&& (domainElement == null || isNodeInternalAction_3007((InternalAction) domainElement))) {
+							domainElementMetaclass)) {
 				return InternalActionEditPart.VISUAL_ID;
 			}
 			if ((semanticHint == null || BranchActionEditPart.VISUAL_ID == nodeVisualID)
 					&& SeffPackage.eINSTANCE.getBranchAction().isSuperTypeOf(
-							domainElementMetaclass)
-					&& (domainElement == null || isNodeBranchAction_3009((BranchAction) domainElement))) {
+							domainElementMetaclass)) {
 				return BranchActionEditPart.VISUAL_ID;
 			}
 			if ((semanticHint == null || ExternalCallAction2EditPart.VISUAL_ID == nodeVisualID)
 					&& SeffPackage.eINSTANCE.getExternalCallAction()
-							.isSuperTypeOf(domainElementMetaclass)
-					&& (domainElement == null || isNodeExternalCallAction_3012((ExternalCallAction) domainElement))) {
+							.isSuperTypeOf(domainElementMetaclass)) {
 				return ExternalCallAction2EditPart.VISUAL_ID;
 			}
 			if ((semanticHint == null || AquireActionEditPart.VISUAL_ID == nodeVisualID)
 					&& SeffPackage.eINSTANCE.getAquireAction().isSuperTypeOf(
-							domainElementMetaclass)
-					&& (domainElement == null || isNodeAquireAction_3019((AquireAction) domainElement))) {
+							domainElementMetaclass)) {
 				return AquireActionEditPart.VISUAL_ID;
 			}
 			if ((semanticHint == null || ReleaseActionEditPart.VISUAL_ID == nodeVisualID)
 					&& SeffPackage.eINSTANCE.getReleaseAction().isSuperTypeOf(
-							domainElementMetaclass)
-					&& (domainElement == null || isNodeReleaseAction_3020((ReleaseAction) domainElement))) {
+							domainElementMetaclass)) {
 				return ReleaseActionEditPart.VISUAL_ID;
 			}
 			if ((semanticHint == null || ForkActionEditPart.VISUAL_ID == nodeVisualID)
 					&& SeffPackage.eINSTANCE.getForkAction().isSuperTypeOf(
-							domainElementMetaclass)
-					&& (domainElement == null || isNodeForkAction_3023((ForkAction) domainElement))) {
+							domainElementMetaclass)) {
 				return ForkActionEditPart.VISUAL_ID;
 			}
 			if ((semanticHint == null || CollectionIteratorActionEditPart.VISUAL_ID == nodeVisualID)
 					&& SeffPackage.eINSTANCE.getCollectionIteratorAction()
-							.isSuperTypeOf(domainElementMetaclass)
-					&& (domainElement == null || isNodeCollectionIteratorAction_3013((CollectionIteratorAction) domainElement))) {
+							.isSuperTypeOf(domainElementMetaclass)) {
 				return CollectionIteratorActionEditPart.VISUAL_ID;
 			}
 			if ((semanticHint == null || SetVariableActionEditPart.VISUAL_ID == nodeVisualID)
 					&& SeffPackage.eINSTANCE.getSetVariableAction()
-							.isSuperTypeOf(domainElementMetaclass)
-					&& (domainElement == null || isNodeSetVariableAction_3024((SetVariableAction) domainElement))) {
+							.isSuperTypeOf(domainElementMetaclass)) {
 				return SetVariableActionEditPart.VISUAL_ID;
 			}
 			return getUnrecognizedResourceDemandingBehaviourBranchCompartment_7009ChildNodeID(
@@ -734,8 +702,7 @@ public class PalladioComponentModelVisualIDRegistry {
 		case ExternalCallActionInputVariableUsage2EditPart.VISUAL_ID:
 			if ((semanticHint == null || VariableUsageEditPart.VISUAL_ID == nodeVisualID)
 					&& ParameterPackage.eINSTANCE.getVariableUsage()
-							.isSuperTypeOf(domainElementMetaclass)
-					&& (domainElement == null || isNodeVariableUsage_3001((VariableUsage) domainElement))) {
+							.isSuperTypeOf(domainElementMetaclass)) {
 				return VariableUsageEditPart.VISUAL_ID;
 			}
 			return getUnrecognizedExternalCallActionInputVariableUsage_7010ChildNodeID(
@@ -743,8 +710,7 @@ public class PalladioComponentModelVisualIDRegistry {
 		case ExternalCallActionOutputVariableUsage2EditPart.VISUAL_ID:
 			if ((semanticHint == null || VariableUsage2EditPart.VISUAL_ID == nodeVisualID)
 					&& ParameterPackage.eINSTANCE.getVariableUsage()
-							.isSuperTypeOf(domainElementMetaclass)
-					&& (domainElement == null || isNodeVariableUsage_3022((VariableUsage) domainElement))) {
+							.isSuperTypeOf(domainElementMetaclass)) {
 				return VariableUsage2EditPart.VISUAL_ID;
 			}
 			return getUnrecognizedExternalCallActionOutputVariableUsage_7023ChildNodeID(
@@ -752,8 +718,7 @@ public class PalladioComponentModelVisualIDRegistry {
 		case ForkActionForkedBehavioursEditPart.VISUAL_ID:
 			if ((semanticHint == null || ResourceDemandingBehaviour3EditPart.VISUAL_ID == nodeVisualID)
 					&& SeffPackage.eINSTANCE.getResourceDemandingBehaviour()
-							.isSuperTypeOf(domainElementMetaclass)
-					&& (domainElement == null || isNodeResourceDemandingBehaviour_3021((ResourceDemandingBehaviour) domainElement))) {
+							.isSuperTypeOf(domainElementMetaclass)) {
 				return ResourceDemandingBehaviour3EditPart.VISUAL_ID;
 			}
 			return getUnrecognizedForkActionForkedBehaviours_7024ChildNodeID(
@@ -761,62 +726,52 @@ public class PalladioComponentModelVisualIDRegistry {
 		case ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID:
 			if ((semanticHint == null || StartAction2EditPart.VISUAL_ID == nodeVisualID)
 					&& SeffPackage.eINSTANCE.getStartAction().isSuperTypeOf(
-							domainElementMetaclass)
-					&& (domainElement == null || isNodeStartAction_3004((StartAction) domainElement))) {
+							domainElementMetaclass)) {
 				return StartAction2EditPart.VISUAL_ID;
 			}
 			if ((semanticHint == null || StopAction2EditPart.VISUAL_ID == nodeVisualID)
 					&& SeffPackage.eINSTANCE.getStopAction().isSuperTypeOf(
-							domainElementMetaclass)
-					&& (domainElement == null || isNodeStopAction_3005((StopAction) domainElement))) {
+							domainElementMetaclass)) {
 				return StopAction2EditPart.VISUAL_ID;
 			}
 			if ((semanticHint == null || LoopAction2EditPart.VISUAL_ID == nodeVisualID)
 					&& SeffPackage.eINSTANCE.getLoopAction().isSuperTypeOf(
-							domainElementMetaclass)
-					&& (domainElement == null || isNodeLoopAction_3006((LoopAction) domainElement))) {
+							domainElementMetaclass)) {
 				return LoopAction2EditPart.VISUAL_ID;
 			}
 			if ((semanticHint == null || InternalActionEditPart.VISUAL_ID == nodeVisualID)
 					&& SeffPackage.eINSTANCE.getInternalAction().isSuperTypeOf(
-							domainElementMetaclass)
-					&& (domainElement == null || isNodeInternalAction_3007((InternalAction) domainElement))) {
+							domainElementMetaclass)) {
 				return InternalActionEditPart.VISUAL_ID;
 			}
 			if ((semanticHint == null || BranchActionEditPart.VISUAL_ID == nodeVisualID)
 					&& SeffPackage.eINSTANCE.getBranchAction().isSuperTypeOf(
-							domainElementMetaclass)
-					&& (domainElement == null || isNodeBranchAction_3009((BranchAction) domainElement))) {
+							domainElementMetaclass)) {
 				return BranchActionEditPart.VISUAL_ID;
 			}
 			if ((semanticHint == null || ExternalCallAction2EditPart.VISUAL_ID == nodeVisualID)
 					&& SeffPackage.eINSTANCE.getExternalCallAction()
-							.isSuperTypeOf(domainElementMetaclass)
-					&& (domainElement == null || isNodeExternalCallAction_3012((ExternalCallAction) domainElement))) {
+							.isSuperTypeOf(domainElementMetaclass)) {
 				return ExternalCallAction2EditPart.VISUAL_ID;
 			}
 			if ((semanticHint == null || CollectionIteratorActionEditPart.VISUAL_ID == nodeVisualID)
 					&& SeffPackage.eINSTANCE.getCollectionIteratorAction()
-							.isSuperTypeOf(domainElementMetaclass)
-					&& (domainElement == null || isNodeCollectionIteratorAction_3013((CollectionIteratorAction) domainElement))) {
+							.isSuperTypeOf(domainElementMetaclass)) {
 				return CollectionIteratorActionEditPart.VISUAL_ID;
 			}
 			if ((semanticHint == null || AquireActionEditPart.VISUAL_ID == nodeVisualID)
 					&& SeffPackage.eINSTANCE.getAquireAction().isSuperTypeOf(
-							domainElementMetaclass)
-					&& (domainElement == null || isNodeAquireAction_3019((AquireAction) domainElement))) {
+							domainElementMetaclass)) {
 				return AquireActionEditPart.VISUAL_ID;
 			}
 			if ((semanticHint == null || ReleaseActionEditPart.VISUAL_ID == nodeVisualID)
 					&& SeffPackage.eINSTANCE.getReleaseAction().isSuperTypeOf(
-							domainElementMetaclass)
-					&& (domainElement == null || isNodeReleaseAction_3020((ReleaseAction) domainElement))) {
+							domainElementMetaclass)) {
 				return ReleaseActionEditPart.VISUAL_ID;
 			}
 			if ((semanticHint == null || ForkActionEditPart.VISUAL_ID == nodeVisualID)
 					&& SeffPackage.eINSTANCE.getForkAction().isSuperTypeOf(
-							domainElementMetaclass)
-					&& (domainElement == null || isNodeForkAction_3023((ForkAction) domainElement))) {
+							domainElementMetaclass)) {
 				return ForkActionEditPart.VISUAL_ID;
 			}
 			return getUnrecognizedResourceDemandingBehaviourBehaviourCompartment_7020ChildNodeID(
@@ -824,62 +779,52 @@ public class PalladioComponentModelVisualIDRegistry {
 		case ResourceDemandingBehaviourLoopCompartment2EditPart.VISUAL_ID:
 			if ((semanticHint == null || StartAction2EditPart.VISUAL_ID == nodeVisualID)
 					&& SeffPackage.eINSTANCE.getStartAction().isSuperTypeOf(
-							domainElementMetaclass)
-					&& (domainElement == null || isNodeStartAction_3004((StartAction) domainElement))) {
+							domainElementMetaclass)) {
 				return StartAction2EditPart.VISUAL_ID;
 			}
 			if ((semanticHint == null || StopAction2EditPart.VISUAL_ID == nodeVisualID)
 					&& SeffPackage.eINSTANCE.getStopAction().isSuperTypeOf(
-							domainElementMetaclass)
-					&& (domainElement == null || isNodeStopAction_3005((StopAction) domainElement))) {
+							domainElementMetaclass)) {
 				return StopAction2EditPart.VISUAL_ID;
 			}
 			if ((semanticHint == null || LoopAction2EditPart.VISUAL_ID == nodeVisualID)
 					&& SeffPackage.eINSTANCE.getLoopAction().isSuperTypeOf(
-							domainElementMetaclass)
-					&& (domainElement == null || isNodeLoopAction_3006((LoopAction) domainElement))) {
+							domainElementMetaclass)) {
 				return LoopAction2EditPart.VISUAL_ID;
 			}
 			if ((semanticHint == null || InternalActionEditPart.VISUAL_ID == nodeVisualID)
 					&& SeffPackage.eINSTANCE.getInternalAction().isSuperTypeOf(
-							domainElementMetaclass)
-					&& (domainElement == null || isNodeInternalAction_3007((InternalAction) domainElement))) {
+							domainElementMetaclass)) {
 				return InternalActionEditPart.VISUAL_ID;
 			}
 			if ((semanticHint == null || BranchActionEditPart.VISUAL_ID == nodeVisualID)
 					&& SeffPackage.eINSTANCE.getBranchAction().isSuperTypeOf(
-							domainElementMetaclass)
-					&& (domainElement == null || isNodeBranchAction_3009((BranchAction) domainElement))) {
+							domainElementMetaclass)) {
 				return BranchActionEditPart.VISUAL_ID;
 			}
 			if ((semanticHint == null || ExternalCallAction2EditPart.VISUAL_ID == nodeVisualID)
 					&& SeffPackage.eINSTANCE.getExternalCallAction()
-							.isSuperTypeOf(domainElementMetaclass)
-					&& (domainElement == null || isNodeExternalCallAction_3012((ExternalCallAction) domainElement))) {
+							.isSuperTypeOf(domainElementMetaclass)) {
 				return ExternalCallAction2EditPart.VISUAL_ID;
 			}
 			if ((semanticHint == null || CollectionIteratorActionEditPart.VISUAL_ID == nodeVisualID)
 					&& SeffPackage.eINSTANCE.getCollectionIteratorAction()
-							.isSuperTypeOf(domainElementMetaclass)
-					&& (domainElement == null || isNodeCollectionIteratorAction_3013((CollectionIteratorAction) domainElement))) {
+							.isSuperTypeOf(domainElementMetaclass)) {
 				return CollectionIteratorActionEditPart.VISUAL_ID;
 			}
 			if ((semanticHint == null || AquireActionEditPart.VISUAL_ID == nodeVisualID)
 					&& SeffPackage.eINSTANCE.getAquireAction().isSuperTypeOf(
-							domainElementMetaclass)
-					&& (domainElement == null || isNodeAquireAction_3019((AquireAction) domainElement))) {
+							domainElementMetaclass)) {
 				return AquireActionEditPart.VISUAL_ID;
 			}
 			if ((semanticHint == null || ReleaseActionEditPart.VISUAL_ID == nodeVisualID)
 					&& SeffPackage.eINSTANCE.getReleaseAction().isSuperTypeOf(
-							domainElementMetaclass)
-					&& (domainElement == null || isNodeReleaseAction_3020((ReleaseAction) domainElement))) {
+							domainElementMetaclass)) {
 				return ReleaseActionEditPart.VISUAL_ID;
 			}
 			if ((semanticHint == null || ForkActionEditPart.VISUAL_ID == nodeVisualID)
 					&& SeffPackage.eINSTANCE.getForkAction().isSuperTypeOf(
-							domainElementMetaclass)
-					&& (domainElement == null || isNodeForkAction_3023((ForkAction) domainElement))) {
+							domainElementMetaclass)) {
 				return ForkActionEditPart.VISUAL_ID;
 			}
 			return getUnrecognizedResourceDemandingBehaviourLoopCompartment_7014ChildNodeID(
@@ -887,8 +832,7 @@ public class PalladioComponentModelVisualIDRegistry {
 		case SetVariableActionVariableSetterEditPart.VISUAL_ID:
 			if ((semanticHint == null || VariableUsage3EditPart.VISUAL_ID == nodeVisualID)
 					&& ParameterPackage.eINSTANCE.getVariableUsage()
-							.isSuperTypeOf(domainElementMetaclass)
-					&& (domainElement == null || isNodeVariableUsage_3015((VariableUsage) domainElement))) {
+							.isSuperTypeOf(domainElementMetaclass)) {
 				return VariableUsage3EditPart.VISUAL_ID;
 			}
 			return getUnrecognizedSetVariableActionVariableSetter_7025ChildNodeID(
@@ -896,8 +840,7 @@ public class PalladioComponentModelVisualIDRegistry {
 		case VariableUsageVariableCharacterisation3EditPart.VISUAL_ID:
 			if ((semanticHint == null || VariableCharacterisation3EditPart.VISUAL_ID == nodeVisualID)
 					&& ParameterPackage.eINSTANCE.getVariableCharacterisation()
-							.isSuperTypeOf(domainElementMetaclass)
-					&& (domainElement == null || isNodeVariableCharacterisation_3025((VariableCharacterisation) domainElement))) {
+							.isSuperTypeOf(domainElementMetaclass)) {
 				return VariableCharacterisation3EditPart.VISUAL_ID;
 			}
 			return getUnrecognizedVariableUsageVariableCharacterisation_7017ChildNodeID(
@@ -905,68 +848,57 @@ public class PalladioComponentModelVisualIDRegistry {
 		case ResourceDemandingBehaviourBranchCompartment2EditPart.VISUAL_ID:
 			if ((semanticHint == null || StartAction2EditPart.VISUAL_ID == nodeVisualID)
 					&& SeffPackage.eINSTANCE.getStartAction().isSuperTypeOf(
-							domainElementMetaclass)
-					&& (domainElement == null || isNodeStartAction_3004((StartAction) domainElement))) {
+							domainElementMetaclass)) {
 				return StartAction2EditPart.VISUAL_ID;
 			}
 			if ((semanticHint == null || StopAction2EditPart.VISUAL_ID == nodeVisualID)
 					&& SeffPackage.eINSTANCE.getStopAction().isSuperTypeOf(
-							domainElementMetaclass)
-					&& (domainElement == null || isNodeStopAction_3005((StopAction) domainElement))) {
+							domainElementMetaclass)) {
 				return StopAction2EditPart.VISUAL_ID;
 			}
 			if ((semanticHint == null || LoopAction2EditPart.VISUAL_ID == nodeVisualID)
 					&& SeffPackage.eINSTANCE.getLoopAction().isSuperTypeOf(
-							domainElementMetaclass)
-					&& (domainElement == null || isNodeLoopAction_3006((LoopAction) domainElement))) {
+							domainElementMetaclass)) {
 				return LoopAction2EditPart.VISUAL_ID;
 			}
 			if ((semanticHint == null || InternalActionEditPart.VISUAL_ID == nodeVisualID)
 					&& SeffPackage.eINSTANCE.getInternalAction().isSuperTypeOf(
-							domainElementMetaclass)
-					&& (domainElement == null || isNodeInternalAction_3007((InternalAction) domainElement))) {
+							domainElementMetaclass)) {
 				return InternalActionEditPart.VISUAL_ID;
 			}
 			if ((semanticHint == null || BranchActionEditPart.VISUAL_ID == nodeVisualID)
 					&& SeffPackage.eINSTANCE.getBranchAction().isSuperTypeOf(
-							domainElementMetaclass)
-					&& (domainElement == null || isNodeBranchAction_3009((BranchAction) domainElement))) {
+							domainElementMetaclass)) {
 				return BranchActionEditPart.VISUAL_ID;
 			}
 			if ((semanticHint == null || ExternalCallAction2EditPart.VISUAL_ID == nodeVisualID)
 					&& SeffPackage.eINSTANCE.getExternalCallAction()
-							.isSuperTypeOf(domainElementMetaclass)
-					&& (domainElement == null || isNodeExternalCallAction_3012((ExternalCallAction) domainElement))) {
+							.isSuperTypeOf(domainElementMetaclass)) {
 				return ExternalCallAction2EditPart.VISUAL_ID;
 			}
 			if ((semanticHint == null || AquireActionEditPart.VISUAL_ID == nodeVisualID)
 					&& SeffPackage.eINSTANCE.getAquireAction().isSuperTypeOf(
-							domainElementMetaclass)
-					&& (domainElement == null || isNodeAquireAction_3019((AquireAction) domainElement))) {
+							domainElementMetaclass)) {
 				return AquireActionEditPart.VISUAL_ID;
 			}
 			if ((semanticHint == null || ReleaseActionEditPart.VISUAL_ID == nodeVisualID)
 					&& SeffPackage.eINSTANCE.getReleaseAction().isSuperTypeOf(
-							domainElementMetaclass)
-					&& (domainElement == null || isNodeReleaseAction_3020((ReleaseAction) domainElement))) {
+							domainElementMetaclass)) {
 				return ReleaseActionEditPart.VISUAL_ID;
 			}
 			if ((semanticHint == null || ForkActionEditPart.VISUAL_ID == nodeVisualID)
 					&& SeffPackage.eINSTANCE.getForkAction().isSuperTypeOf(
-							domainElementMetaclass)
-					&& (domainElement == null || isNodeForkAction_3023((ForkAction) domainElement))) {
+							domainElementMetaclass)) {
 				return ForkActionEditPart.VISUAL_ID;
 			}
 			if ((semanticHint == null || CollectionIteratorActionEditPart.VISUAL_ID == nodeVisualID)
 					&& SeffPackage.eINSTANCE.getCollectionIteratorAction()
-							.isSuperTypeOf(domainElementMetaclass)
-					&& (domainElement == null || isNodeCollectionIteratorAction_3013((CollectionIteratorAction) domainElement))) {
+							.isSuperTypeOf(domainElementMetaclass)) {
 				return CollectionIteratorActionEditPart.VISUAL_ID;
 			}
 			if ((semanticHint == null || SetVariableActionEditPart.VISUAL_ID == nodeVisualID)
 					&& SeffPackage.eINSTANCE.getSetVariableAction()
-							.isSuperTypeOf(domainElementMetaclass)
-					&& (domainElement == null || isNodeSetVariableAction_3024((SetVariableAction) domainElement))) {
+							.isSuperTypeOf(domainElementMetaclass)) {
 				return SetVariableActionEditPart.VISUAL_ID;
 			}
 			return getUnrecognizedResourceDemandingBehaviourBranchCompartment_7018ChildNodeID(
@@ -974,14 +906,12 @@ public class PalladioComponentModelVisualIDRegistry {
 		case BranchActionBranchTransitionCompartment2EditPart.VISUAL_ID:
 			if ((semanticHint == null || ProbabilisticBranchTransitionEditPart.VISUAL_ID == nodeVisualID)
 					&& SeffPackage.eINSTANCE.getProbabilisticBranchTransition()
-							.isSuperTypeOf(domainElementMetaclass)
-					&& (domainElement == null || isNodeProbabilisticBranchTransition_3010((ProbabilisticBranchTransition) domainElement))) {
+							.isSuperTypeOf(domainElementMetaclass)) {
 				return ProbabilisticBranchTransitionEditPart.VISUAL_ID;
 			}
 			if ((semanticHint == null || GuardedBranchTransitionEditPart.VISUAL_ID == nodeVisualID)
 					&& SeffPackage.eINSTANCE.getGuardedBranchTransition()
-							.isSuperTypeOf(domainElementMetaclass)
-					&& (domainElement == null || isNodeGuardedBranchTransition_3017((GuardedBranchTransition) domainElement))) {
+							.isSuperTypeOf(domainElementMetaclass)) {
 				return GuardedBranchTransitionEditPart.VISUAL_ID;
 			}
 			return getUnrecognizedBranchActionBranchTransitionCompartment_7011ChildNodeID(
@@ -989,8 +919,7 @@ public class PalladioComponentModelVisualIDRegistry {
 		case InternalActionResourceDemand2EditPart.VISUAL_ID:
 			if ((semanticHint == null || ParametricResourceDemandEditPart.VISUAL_ID == nodeVisualID)
 					&& SeffPackage.eINSTANCE.getParametricResourceDemand()
-							.isSuperTypeOf(domainElementMetaclass)
-					&& (domainElement == null || isNodeParametricResourceDemand_3008((ParametricResourceDemand) domainElement))) {
+							.isSuperTypeOf(domainElementMetaclass)) {
 				return ParametricResourceDemandEditPart.VISUAL_ID;
 			}
 			return getUnrecognizedInternalActionResourceDemand_7012ChildNodeID(
@@ -998,8 +927,7 @@ public class PalladioComponentModelVisualIDRegistry {
 		case SetVariableActionVariableSetter2EditPart.VISUAL_ID:
 			if ((semanticHint == null || VariableUsage3EditPart.VISUAL_ID == nodeVisualID)
 					&& ParameterPackage.eINSTANCE.getVariableUsage()
-							.isSuperTypeOf(domainElementMetaclass)
-					&& (domainElement == null || isNodeVariableUsage_3015((VariableUsage) domainElement))) {
+							.isSuperTypeOf(domainElementMetaclass)) {
 				return VariableUsage3EditPart.VISUAL_ID;
 			}
 			return getUnrecognizedSetVariableActionVariableSetter_7016ChildNodeID(
@@ -1007,8 +935,7 @@ public class PalladioComponentModelVisualIDRegistry {
 		case ForkActionForkedBehaviours2EditPart.VISUAL_ID:
 			if ((semanticHint == null || ResourceDemandingBehaviour3EditPart.VISUAL_ID == nodeVisualID)
 					&& SeffPackage.eINSTANCE.getResourceDemandingBehaviour()
-							.isSuperTypeOf(domainElementMetaclass)
-					&& (domainElement == null || isNodeResourceDemandingBehaviour_3021((ResourceDemandingBehaviour) domainElement))) {
+							.isSuperTypeOf(domainElementMetaclass)) {
 				return ResourceDemandingBehaviour3EditPart.VISUAL_ID;
 			}
 			return getUnrecognizedForkActionForkedBehaviours_7019ChildNodeID(
@@ -1016,74 +943,63 @@ public class PalladioComponentModelVisualIDRegistry {
 		case ResourceDemandingSEFFEditPart.VISUAL_ID:
 			if ((semanticHint == null || StartActionEditPart.VISUAL_ID == nodeVisualID)
 					&& SeffPackage.eINSTANCE.getStartAction().isSuperTypeOf(
-							domainElementMetaclass)
-					&& (domainElement == null || isNodeStartAction_2001((StartAction) domainElement))) {
+							domainElementMetaclass)) {
 				return StartActionEditPart.VISUAL_ID;
 			}
 			if ((semanticHint == null || StopActionEditPart.VISUAL_ID == nodeVisualID)
 					&& SeffPackage.eINSTANCE.getStopAction().isSuperTypeOf(
-							domainElementMetaclass)
-					&& (domainElement == null || isNodeStopAction_2002((StopAction) domainElement))) {
+							domainElementMetaclass)) {
 				return StopActionEditPart.VISUAL_ID;
 			}
 			if ((semanticHint == null || ExternalCallActionEditPart.VISUAL_ID == nodeVisualID)
 					&& SeffPackage.eINSTANCE.getExternalCallAction()
-							.isSuperTypeOf(domainElementMetaclass)
-					&& (domainElement == null || isNodeExternalCallAction_2003((ExternalCallAction) domainElement))) {
+							.isSuperTypeOf(domainElementMetaclass)) {
 				return ExternalCallActionEditPart.VISUAL_ID;
 			}
 			if ((semanticHint == null || LoopActionEditPart.VISUAL_ID == nodeVisualID)
 					&& SeffPackage.eINSTANCE.getLoopAction().isSuperTypeOf(
-							domainElementMetaclass)
-					&& (domainElement == null || isNodeLoopAction_2004((LoopAction) domainElement))) {
+							domainElementMetaclass)) {
 				return LoopActionEditPart.VISUAL_ID;
 			}
 			if ((semanticHint == null || BranchAction2EditPart.VISUAL_ID == nodeVisualID)
 					&& SeffPackage.eINSTANCE.getBranchAction().isSuperTypeOf(
-							domainElementMetaclass)
-					&& (domainElement == null || isNodeBranchAction_2005((BranchAction) domainElement))) {
+							domainElementMetaclass)) {
 				return BranchAction2EditPart.VISUAL_ID;
 			}
 			if ((semanticHint == null || InternalAction2EditPart.VISUAL_ID == nodeVisualID)
 					&& SeffPackage.eINSTANCE.getInternalAction().isSuperTypeOf(
-							domainElementMetaclass)
-					&& (domainElement == null || isNodeInternalAction_2006((InternalAction) domainElement))) {
+							domainElementMetaclass)) {
 				return InternalAction2EditPart.VISUAL_ID;
 			}
 			if ((semanticHint == null || CollectionIteratorAction2EditPart.VISUAL_ID == nodeVisualID)
 					&& SeffPackage.eINSTANCE.getCollectionIteratorAction()
-							.isSuperTypeOf(domainElementMetaclass)
-					&& (domainElement == null || isNodeCollectionIteratorAction_2007((CollectionIteratorAction) domainElement))) {
+							.isSuperTypeOf(domainElementMetaclass)) {
 				return CollectionIteratorAction2EditPart.VISUAL_ID;
 			}
 			if ((semanticHint == null || SetVariableAction2EditPart.VISUAL_ID == nodeVisualID)
 					&& SeffPackage.eINSTANCE.getSetVariableAction()
-							.isSuperTypeOf(domainElementMetaclass)
-					&& (domainElement == null || isNodeSetVariableAction_2008((SetVariableAction) domainElement))) {
+							.isSuperTypeOf(domainElementMetaclass)) {
 				return SetVariableAction2EditPart.VISUAL_ID;
 			}
 			if ((semanticHint == null || AquireAction2EditPart.VISUAL_ID == nodeVisualID)
 					&& SeffPackage.eINSTANCE.getAquireAction().isSuperTypeOf(
-							domainElementMetaclass)
-					&& (domainElement == null || isNodeAquireAction_2009((AquireAction) domainElement))) {
+							domainElementMetaclass)) {
 				return AquireAction2EditPart.VISUAL_ID;
 			}
 			if ((semanticHint == null || ReleaseAction2EditPart.VISUAL_ID == nodeVisualID)
 					&& SeffPackage.eINSTANCE.getReleaseAction().isSuperTypeOf(
-							domainElementMetaclass)
-					&& (domainElement == null || isNodeReleaseAction_2010((ReleaseAction) domainElement))) {
+							domainElementMetaclass)) {
 				return ReleaseAction2EditPart.VISUAL_ID;
 			}
 			if ((semanticHint == null || ForkAction2EditPart.VISUAL_ID == nodeVisualID)
 					&& SeffPackage.eINSTANCE.getForkAction().isSuperTypeOf(
-							domainElementMetaclass)
-					&& (domainElement == null || isNodeForkAction_2011((ForkAction) domainElement))) {
+							domainElementMetaclass)) {
 				return ForkAction2EditPart.VISUAL_ID;
 			}
 			return getUnrecognizedResourceDemandingSEFF_1000ChildNodeID(
 					domainElement, semanticHint);
 		}
-		return -1;
+		return getUnrecognizedNodeID(containerView, domainElement);
 	}
 
 	/**
@@ -1102,19 +1018,16 @@ public class PalladioComponentModelVisualIDRegistry {
 	 */
 	public static int getLinkWithClassVisualID(EObject domainElement,
 			EClass domainElementMetaclass) {
-		{
-			return getUnrecognizedLinkWithClassID(domainElement);
-		}
+		return getUnrecognizedLinkWithClassID(domainElement);
 	}
 
 	/**
-	 * User can change implementation of this method to check some additional 
-	 * conditions here.
-	 *
+	 * User can change implementation of this method to handle some specific
+	 * situations not covered by default logic.
+	 * 
 	 * @generated
 	 */
-	private static boolean isDiagramResourceDemandingSEFF_1000(
-			ResourceDemandingSEFF element) {
+	private static boolean isDiagram(ResourceDemandingSEFF element) {
 		return true;
 	}
 
@@ -1129,380 +1042,14 @@ public class PalladioComponentModelVisualIDRegistry {
 	}
 
 	/**
-	 * User can change implementation of this method to check some additional 
-	 * conditions here.
-	 *
+	 * User can change implementation of this method to handle some specific
+	 * situations not covered by default logic.
+	 * 
 	 * @generated
 	 */
-	private static boolean isNodeStartAction_2001(StartAction element) {
-		return true;
-	}
-
-	/**
-	 * User can change implementation of this method to check some additional 
-	 * conditions here.
-	 *
-	 * @generated
-	 */
-	private static boolean isNodeStopAction_2002(StopAction element) {
-		return true;
-	}
-
-	/**
-	 * User can change implementation of this method to check some additional 
-	 * conditions here.
-	 *
-	 * @generated
-	 */
-	private static boolean isNodeExternalCallAction_2003(
-			ExternalCallAction element) {
-		return true;
-	}
-
-	/**
-	 * User can change implementation of this method to check some additional 
-	 * conditions here.
-	 *
-	 * @generated
-	 */
-	private static boolean isNodeLoopAction_2004(LoopAction element) {
-		return true;
-	}
-
-	/**
-	 * User can change implementation of this method to check some additional 
-	 * conditions here.
-	 *
-	 * @generated
-	 */
-	private static boolean isNodeBranchAction_2005(BranchAction element) {
-		return true;
-	}
-
-	/**
-	 * User can change implementation of this method to check some additional 
-	 * conditions here.
-	 *
-	 * @generated
-	 */
-	private static boolean isNodeInternalAction_2006(InternalAction element) {
-		return true;
-	}
-
-	/**
-	 * User can change implementation of this method to check some additional 
-	 * conditions here.
-	 *
-	 * @generated
-	 */
-	private static boolean isNodeCollectionIteratorAction_2007(
-			CollectionIteratorAction element) {
-		return true;
-	}
-
-	/**
-	 * User can change implementation of this method to check some additional 
-	 * conditions here.
-	 *
-	 * @generated
-	 */
-	private static boolean isNodeSetVariableAction_2008(
-			SetVariableAction element) {
-		return true;
-	}
-
-	/**
-	 * User can change implementation of this method to check some additional 
-	 * conditions here.
-	 *
-	 * @generated
-	 */
-	private static boolean isNodeAquireAction_2009(AquireAction element) {
-		return true;
-	}
-
-	/**
-	 * User can change implementation of this method to check some additional 
-	 * conditions here.
-	 *
-	 * @generated
-	 */
-	private static boolean isNodeReleaseAction_2010(ReleaseAction element) {
-		return true;
-	}
-
-	/**
-	 * User can change implementation of this method to check some additional 
-	 * conditions here.
-	 *
-	 * @generated
-	 */
-	private static boolean isNodeForkAction_2011(ForkAction element) {
-		return true;
-	}
-
-	/**
-	 * User can change implementation of this method to check some additional 
-	 * conditions here.
-	 *
-	 * @generated
-	 */
-	private static boolean isNodeVariableUsage_3001(VariableUsage element) {
-		return true;
-	}
-
-	/**
-	 * User can change implementation of this method to check some additional 
-	 * conditions here.
-	 *
-	 * @generated
-	 */
-	private static boolean isNodeVariableCharacterisation_3002(
-			VariableCharacterisation element) {
-		return true;
-	}
-
-	/**
-	 * User can change implementation of this method to check some additional 
-	 * conditions here.
-	 *
-	 * @generated
-	 */
-	private static boolean isNodeVariableUsage_3022(VariableUsage element) {
-		return true;
-	}
-
-	/**
-	 * User can change implementation of this method to check some additional 
-	 * conditions here.
-	 *
-	 * @generated
-	 */
-	private static boolean isNodeResourceDemandingBehaviour_3003(
-			ResourceDemandingBehaviour element) {
-		return true;
-	}
-
-	/**
-	 * User can change implementation of this method to check some additional 
-	 * conditions here.
-	 *
-	 * @generated
-	 */
-	private static boolean isNodeStartAction_3004(StartAction element) {
-		return true;
-	}
-
-	/**
-	 * User can change implementation of this method to check some additional 
-	 * conditions here.
-	 *
-	 * @generated
-	 */
-	private static boolean isNodeStopAction_3005(StopAction element) {
-		return true;
-	}
-
-	/**
-	 * User can change implementation of this method to check some additional 
-	 * conditions here.
-	 *
-	 * @generated
-	 */
-	private static boolean isNodeLoopAction_3006(LoopAction element) {
-		return true;
-	}
-
-	/**
-	 * User can change implementation of this method to check some additional 
-	 * conditions here.
-	 *
-	 * @generated
-	 */
-	private static boolean isNodeInternalAction_3007(InternalAction element) {
-		return true;
-	}
-
-	/**
-	 * User can change implementation of this method to check some additional 
-	 * conditions here.
-	 *
-	 * @generated
-	 */
-	private static boolean isNodeParametricResourceDemand_3008(
-			ParametricResourceDemand element) {
-		return true;
-	}
-
-	/**
-	 * User can change implementation of this method to check some additional 
-	 * conditions here.
-	 *
-	 * @generated
-	 */
-	private static boolean isNodeBranchAction_3009(BranchAction element) {
-		return true;
-	}
-
-	/**
-	 * User can change implementation of this method to check some additional 
-	 * conditions here.
-	 *
-	 * @generated
-	 */
-	private static boolean isNodeProbabilisticBranchTransition_3010(
-			ProbabilisticBranchTransition element) {
-		return true;
-	}
-
-	/**
-	 * User can change implementation of this method to check some additional 
-	 * conditions here.
-	 *
-	 * @generated
-	 */
-	private static boolean isNodeResourceDemandingBehaviour_3011(
-			ResourceDemandingBehaviour element) {
-		return true;
-	}
-
-	/**
-	 * User can change implementation of this method to check some additional 
-	 * conditions here.
-	 *
-	 * @generated
-	 */
-	private static boolean isNodeExternalCallAction_3012(
-			ExternalCallAction element) {
-		return true;
-	}
-
-	/**
-	 * User can change implementation of this method to check some additional 
-	 * conditions here.
-	 *
-	 * @generated
-	 */
-	private static boolean isNodeAquireAction_3019(AquireAction element) {
-		return true;
-	}
-
-	/**
-	 * User can change implementation of this method to check some additional 
-	 * conditions here.
-	 *
-	 * @generated
-	 */
-	private static boolean isNodeReleaseAction_3020(ReleaseAction element) {
-		return true;
-	}
-
-	/**
-	 * User can change implementation of this method to check some additional 
-	 * conditions here.
-	 *
-	 * @generated
-	 */
-	private static boolean isNodeForkAction_3023(ForkAction element) {
-		return true;
-	}
-
-	/**
-	 * User can change implementation of this method to check some additional 
-	 * conditions here.
-	 *
-	 * @generated
-	 */
-	private static boolean isNodeGuardedBranchTransition_3017(
-			GuardedBranchTransition element) {
-		return true;
-	}
-
-	/**
-	 * User can change implementation of this method to check some additional 
-	 * conditions here.
-	 *
-	 * @generated
-	 */
-	private static boolean isNodeResourceDemandingBehaviour_3018(
-			ResourceDemandingBehaviour element) {
-		return true;
-	}
-
-	/**
-	 * User can change implementation of this method to check some additional 
-	 * conditions here.
-	 *
-	 * @generated
-	 */
-	private static boolean isNodeCollectionIteratorAction_3013(
-			CollectionIteratorAction element) {
-		return true;
-	}
-
-	/**
-	 * User can change implementation of this method to check some additional 
-	 * conditions here.
-	 *
-	 * @generated
-	 */
-	private static boolean isNodeResourceDemandingBehaviour_3014(
-			ResourceDemandingBehaviour element) {
-		return true;
-	}
-
-	/**
-	 * User can change implementation of this method to check some additional 
-	 * conditions here.
-	 *
-	 * @generated
-	 */
-	private static boolean isNodeSetVariableAction_3024(
-			SetVariableAction element) {
-		return true;
-	}
-
-	/**
-	 * User can change implementation of this method to check some additional 
-	 * conditions here.
-	 *
-	 * @generated
-	 */
-	private static boolean isNodeVariableUsage_3015(VariableUsage element) {
-		return true;
-	}
-
-	/**
-	 * User can change implementation of this method to check some additional 
-	 * conditions here.
-	 *
-	 * @generated
-	 */
-	private static boolean isNodeVariableCharacterisation_3025(
-			VariableCharacterisation element) {
-		return true;
-	}
-
-	/**
-	 * User can change implementation of this method to check some additional 
-	 * conditions here.
-	 *
-	 * @generated
-	 */
-	private static boolean isNodeVariableCharacterisation_3016(
-			VariableCharacterisation element) {
-		return true;
-	}
-
-	/**
-	 * User can change implementation of this method to check some additional 
-	 * conditions here.
-	 *
-	 * @generated
-	 */
-	private static boolean isNodeResourceDemandingBehaviour_3021(
-			ResourceDemandingBehaviour element) {
-		return true;
+	private static int getUnrecognizedNodeID(View containerView,
+			EObject domainElement) {
+		return -1;
 	}
 
 	/**

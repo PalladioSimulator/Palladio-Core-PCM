@@ -30,7 +30,7 @@ public class ExternalCallActionOutputVariableUsageItemSemanticEditPolicy extends
 						.setContainmentFeature(SeffPackage.eINSTANCE
 								.getExternalCallAction_OutputVariableUsage_ExternalCallAction());
 			}
-			return getMSLWrapper(new VariableUsage2CreateCommand(req));
+			return getGEFWrapper(new VariableUsage2CreateCommand(req));
 		}
 		return super.getCreateCommand(req);
 	}

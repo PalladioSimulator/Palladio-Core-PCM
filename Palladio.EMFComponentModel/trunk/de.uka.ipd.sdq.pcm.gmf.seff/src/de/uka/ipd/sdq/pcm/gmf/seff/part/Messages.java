@@ -26,12 +26,137 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String DocumentProvider_isModifiable;
+	public static String PalladioComponentModelDiagramEditorUtil_OpenModelResourceErrorDialogTitle;
 
 	/**
 	 * @generated
 	 */
-	public static String DocumentProvider_handleElementContentChanged;
+	public static String PalladioComponentModelDiagramEditorUtil_OpenModelResourceErrorDialogMessage;
+
+	/**
+	 * @generated
+	 */
+	public static String PalladioComponentModelDiagramEditorUtil_CreateDiagramProgressTask;
+
+	/**
+	 * @generated
+	 */
+	public static String PalladioComponentModelDiagramEditorUtil_CreateDiagramCommandLabel;
+
+	/**
+	 * @generated
+	 */
+	public static String PalladioComponentModelDocumentProvider_isModifiable;
+
+	/**
+	 * @generated
+	 */
+	public static String PalladioComponentModelDocumentProvider_handleElementContentChanged;
+
+	/**
+	 * @generated
+	 */
+	public static String PalladioComponentModelDocumentProvider_IncorrectInputError;
+
+	/**
+	 * @generated
+	 */
+	public static String PalladioComponentModelDocumentProvider_NoDiagramInResourceError;
+
+	/**
+	 * @generated
+	 */
+	public static String PalladioComponentModelDocumentProvider_DiagramLoadingError;
+
+	/**
+	 * @generated
+	 */
+	public static String PalladioComponentModelDocumentProvider_UnsynchronizedFileSaveError;
+
+	/**
+	 * @generated
+	 */
+	public static String PalladioComponentModelDocumentProvider_SaveDiagramTask;
+
+	/**
+	 * @generated
+	 */
+	public static String PalladioComponentModelDocumentProvider_SaveNextResourceTask;
+
+	/**
+	 * @generated
+	 */
+	public static String PalladioComponentModelInitDiagramFileAction_InitDiagramFileResourceErrorDialogTitle;
+
+	/**
+	 * @generated
+	 */
+	public static String PalladioComponentModelInitDiagramFileAction_InitDiagramFileResourceErrorDialogMessage;
+
+	/**
+	 * @generated
+	 */
+	public static String PalladioComponentModelInitDiagramFileAction_InitDiagramFileWizardTitle;
+
+	/**
+	 * @generated
+	 */
+	public static String PalladioComponentModelInitDiagramFileAction_OpenModelFileDialogTitle;
+
+	/**
+	 * @generated
+	 */
+	public static String PalladioComponentModelNewDiagramFileWizard_CreationPageName;
+
+	/**
+	 * @generated
+	 */
+	public static String PalladioComponentModelNewDiagramFileWizard_CreationPageTitle;
+
+	/**
+	 * @generated
+	 */
+	public static String PalladioComponentModelNewDiagramFileWizard_CreationPageDescription;
+
+	/**
+	 * @generated
+	 */
+	public static String PalladioComponentModelNewDiagramFileWizard_RootSelectionPageName;
+
+	/**
+	 * @generated
+	 */
+	public static String PalladioComponentModelNewDiagramFileWizard_RootSelectionPageTitle;
+
+	/**
+	 * @generated
+	 */
+	public static String PalladioComponentModelNewDiagramFileWizard_RootSelectionPageDescription;
+
+	/**
+	 * @generated
+	 */
+	public static String PalladioComponentModelNewDiagramFileWizard_RootSelectionPageSelectionTitle;
+
+	/**
+	 * @generated
+	 */
+	public static String PalladioComponentModelNewDiagramFileWizard_RootSelectionPageNoSelectionMessage;
+
+	/**
+	 * @generated
+	 */
+	public static String PalladioComponentModelNewDiagramFileWizard_RootSelectionPageInvalidSelectionMessage;
+
+	/**
+	 * @generated
+	 */
+	public static String PalladioComponentModelNewDiagramFileWizard_InitDiagramCommand;
+
+	/**
+	 * @generated
+	 */
+	public static String PalladioComponentModelNewDiagramFileWizard_IncorrectRootError;
 
 	/**
 	 * @generated

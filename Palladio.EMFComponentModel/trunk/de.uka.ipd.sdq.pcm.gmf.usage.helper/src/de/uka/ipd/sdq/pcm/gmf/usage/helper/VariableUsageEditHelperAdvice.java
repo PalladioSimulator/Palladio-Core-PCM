@@ -22,6 +22,7 @@ import de.uka.ipd.sdq.dialogs.selection.PalladioSelectEObjectDialog;
 import de.uka.ipd.sdq.dialogs.stoex.InnerDeclarationContainer;
 import de.uka.ipd.sdq.dialogs.stoex.DataTypeContainer;
 import de.uka.ipd.sdq.dialogs.stoex.VariableUsageContentProvider;
+import de.uka.ipd.sdq.dialogs.stoex.VariableUsageInputParameterContentProvider;
 import de.uka.ipd.sdq.dialogs.stoex.VariableUsageItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
 import de.uka.ipd.sdq.pcm.repository.InnerDeclaration;
@@ -63,7 +64,7 @@ public class VariableUsageEditHelperAdvice extends AbstractEditHelperAdvice
 		/**
 		 * set a ContentProvider for dialog TreeViewer
 		 */
-		dialog.setViewerContentProvider(new VariableUsageContentProvider());
+		dialog.setViewerContentProvider(new VariableUsageInputParameterContentProvider());
 		ComposedAdapterFactory adapterFactory = new ComposedAdapterFactory();
 		adapterFactory
 				.addAdapterFactory(new ResourceItemProviderAdapterFactory());

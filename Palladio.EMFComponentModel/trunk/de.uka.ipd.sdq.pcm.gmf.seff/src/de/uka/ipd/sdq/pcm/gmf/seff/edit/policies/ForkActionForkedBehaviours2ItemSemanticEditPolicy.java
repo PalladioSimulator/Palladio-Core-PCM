@@ -29,7 +29,7 @@ public class ForkActionForkedBehaviours2ItemSemanticEditPolicy extends
 				req.setContainmentFeature(SeffPackage.eINSTANCE
 						.getForkAction_ForkedBehaviours_Fork());
 			}
-			return getMSLWrapper(new ResourceDemandingBehaviour3CreateCommand(
+			return getGEFWrapper(new ResourceDemandingBehaviour3CreateCommand(
 					req));
 		}
 		return super.getCreateCommand(req);

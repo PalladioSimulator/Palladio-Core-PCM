@@ -30,7 +30,7 @@ public class VariableUsageVariableCharacterisation2ItemSemanticEditPolicy
 						.setContainmentFeature(ParameterPackage.eINSTANCE
 								.getVariableUsage_VariableCharacterisation_VariableUsage());
 			}
-			return getMSLWrapper(new VariableCharacterisation2CreateCommand(req));
+			return getGEFWrapper(new VariableCharacterisation2CreateCommand(req));
 		}
 		return super.getCreateCommand(req);
 	}

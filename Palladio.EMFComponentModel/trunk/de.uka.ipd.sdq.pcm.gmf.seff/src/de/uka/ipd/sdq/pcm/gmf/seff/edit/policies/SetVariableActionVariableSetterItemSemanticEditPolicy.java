@@ -31,7 +31,7 @@ public class SetVariableActionVariableSetterItemSemanticEditPolicy extends
 						.setContainmentFeature(SeffPackage.eINSTANCE
 								.getSetVariableAction_VariableUsage_SetVariableAction());
 			}
-			return getMSLWrapper(new VariableUsage3CreateCommand(req));
+			return getGEFWrapper(new VariableUsage3CreateCommand(req));
 		}
 		return super.getCreateCommand(req);
 	}

@@ -30,7 +30,7 @@ public class InternalActionResourceDemand2ItemSemanticEditPolicy extends
 						.setContainmentFeature(SeffPackage.eINSTANCE
 								.getAbstractResourceDemandingAction_ResourceDemand_Action());
 			}
-			return getMSLWrapper(new ParametricResourceDemandCreateCommand(req));
+			return getGEFWrapper(new ParametricResourceDemandCreateCommand(req));
 		}
 		return super.getCreateCommand(req);
 	}

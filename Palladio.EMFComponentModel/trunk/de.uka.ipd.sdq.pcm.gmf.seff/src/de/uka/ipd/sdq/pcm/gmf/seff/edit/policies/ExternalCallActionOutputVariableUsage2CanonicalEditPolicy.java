@@ -3,18 +3,24 @@
  */
 package de.uka.ipd.sdq.pcm.gmf.seff.edit.policies;
 
+import java.util.Collection;
+import java.util.HashSet;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CanonicalEditPolicy;
 import org.eclipse.gmf.runtime.notation.View;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableUsage2EditPart;
 
+import de.uka.ipd.sdq.pcm.gmf.seff.part.PalladioComponentModelDiagramUpdater;
+import de.uka.ipd.sdq.pcm.gmf.seff.part.PalladioComponentModelNodeDescriptor;
 import de.uka.ipd.sdq.pcm.gmf.seff.part.PalladioComponentModelVisualIDRegistry;
 
 import de.uka.ipd.sdq.pcm.seff.ExternalCallAction;
 
+import de.uka.ipd.sdq.pcm.seff.SeffPackage;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
+import java.util.Set;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -26,21 +32,19 @@ public class ExternalCallActionOutputVariableUsage2CanonicalEditPolicy extends
 	/**
 	 * @generated
 	 */
+	Set myFeaturesToSynchronize;
+
+	/**
+	 * @generated
+	 */
 	protected List getSemanticChildrenList() {
-		List result = new LinkedList();
-		EObject modelObject = ((View) getHost().getModel()).getElement();
 		View viewObject = (View) getHost().getModel();
-		EObject nextValue;
-		int nodeVID;
-		for (Iterator values = ((ExternalCallAction) modelObject)
-				.getOutputVariableUsage_ExternalCallAction().iterator(); values
-				.hasNext();) {
-			nextValue = (EObject) values.next();
-			nodeVID = PalladioComponentModelVisualIDRegistry.getNodeVisualID(
-					viewObject, nextValue);
-			if (VariableUsage2EditPart.VISUAL_ID == nodeVID) {
-				result.add(nextValue);
-			}
+		List result = new LinkedList();
+		for (Iterator it = PalladioComponentModelDiagramUpdater
+				.getExternalCallActionOutputVariableUsage_7023SemanticChildren(
+						viewObject).iterator(); it.hasNext();) {
+			result.add(((PalladioComponentModelNodeDescriptor) it.next())
+					.getModelElement());
 		}
 		return result;
 	}
@@ -48,16 +52,14 @@ public class ExternalCallActionOutputVariableUsage2CanonicalEditPolicy extends
 	/**
 	 * @generated
 	 */
-	protected boolean shouldDeleteView(View view) {
-		if (view.getEAnnotation("Shortcut") != null) { //$NON-NLS-1$
-			return view.isSetElement()
-					&& (view.getElement() == null || view.getElement()
-							.eIsProxy());
-		}
-		int nodeVID = PalladioComponentModelVisualIDRegistry.getVisualID(view);
-		switch (nodeVID) {
+	protected boolean isOrphaned(Collection semanticChildren, final View view) {
+		int visualID = PalladioComponentModelVisualIDRegistry.getVisualID(view);
+		switch (visualID) {
 		case VariableUsage2EditPart.VISUAL_ID:
-			return true;
+			return !semanticChildren.contains(view.getElement())
+					|| visualID != PalladioComponentModelVisualIDRegistry
+							.getNodeVisualID((View) getHost().getModel(), view
+									.getElement());
 		}
 		return false;
 	}
@@ -67,6 +69,19 @@ public class ExternalCallActionOutputVariableUsage2CanonicalEditPolicy extends
 	 */
 	protected String getDefaultFactoryHint() {
 		return null;
+	}
+
+	/**
+	 * @generated
+	 */
+	protected Set getFeaturesToSynchronize() {
+		if (myFeaturesToSynchronize == null) {
+			myFeaturesToSynchronize = new HashSet();
+			myFeaturesToSynchronize
+					.add(SeffPackage.eINSTANCE
+							.getExternalCallAction_OutputVariableUsage_ExternalCallAction());
+		}
+		return myFeaturesToSynchronize;
 	}
 
 }

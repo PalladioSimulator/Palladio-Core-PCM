@@ -8,6 +8,7 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.Iterator;
 
+import org.eclipse.emf.ecore.EAnnotation;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.commands.Command;
@@ -21,11 +22,17 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.DestroyElementRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.ReorientReferenceRelationshipRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.SetRequest;
 import org.eclipse.gmf.runtime.notation.Edge;
+import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
 
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.commands.AbstractActionSuccessor_AbstractActionCreateCommand;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.commands.AbstractActionSuccessor_AbstractActionReorientCommand;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.AbstractActionSuccessor_AbstractActionEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.BranchActionBranchTransitionCompartmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.BranchActionEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.GuardedBranchTransitionEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ProbabilisticBranchTransitionEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.part.PalladioComponentModelVisualIDRegistry;
 import de.uka.ipd.sdq.pcm.gmf.seff.providers.PalladioComponentModelElementTypes;
 import de.uka.ipd.sdq.pcm.seff.AbstractAction;
 import de.uka.ipd.sdq.pcm.seff.SeffPackage;
@@ -40,79 +47,77 @@ public class BranchActionItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	protected Command getDestroyElementCommand(DestroyElementRequest req) {
-		CompoundCommand cc = new CompoundCommand();
-		Collection allEdges = new ArrayList();
+		CompoundCommand cc = getDestroyEdgesCommand();
+		addDestroyChildNodesCommand(cc);
+		cc.add(getGEFWrapper(new DestroyElementCommand(req)));
+		return cc.unwrap();
+	}
+
+	/**
+	 * @generated
+	 */
+	protected void addDestroyChildNodesCommand(CompoundCommand cmd) {
 		View view = (View) getHost().getModel();
-		allEdges.addAll(view.getSourceEdges());
-		allEdges.addAll(view.getTargetEdges());
-		for (Iterator it = allEdges.iterator(); it.hasNext();) {
-			Edge nextEdge = (Edge) it.next();
-			EditPart nextEditPart = (EditPart) getHost().getViewer()
-					.getEditPartRegistry().get(nextEdge);
-			EditCommandRequestWrapper editCommandRequest = new EditCommandRequestWrapper(
-					new DestroyElementRequest(
-							((BranchActionEditPart) getHost())
-									.getEditingDomain(), req
-									.isConfirmationRequired()),
-					Collections.EMPTY_MAP);
-			cc.add(nextEditPart.getCommand(editCommandRequest));
+		EAnnotation annotation = view.getEAnnotation("Shortcut"); //$NON-NLS-1$
+		if (annotation != null) {
+			return;
 		}
-		cc.add(getMSLWrapper(new DestroyElementCommand(req)));
-		return cc;
+		for (Iterator it = view.getChildren().iterator(); it.hasNext();) {
+			Node node = (Node) it.next();
+			switch (PalladioComponentModelVisualIDRegistry.getVisualID(node)) {
+			case BranchActionBranchTransitionCompartmentEditPart.VISUAL_ID:
+				for (Iterator cit = node.getChildren().iterator(); cit
+						.hasNext();) {
+					Node cnode = (Node) cit.next();
+					switch (PalladioComponentModelVisualIDRegistry
+							.getVisualID(cnode)) {
+					case ProbabilisticBranchTransitionEditPart.VISUAL_ID:
+						cmd.add(getDestroyElementCommand(cnode));
+						break;
+					case GuardedBranchTransitionEditPart.VISUAL_ID:
+						cmd.add(getDestroyElementCommand(cnode));
+						break;
+					}
+				}
+				break;
+			}
+		}
 	}
 
 	/**
 	 * @generated
 	 */
 	protected Command getCreateRelationshipCommand(CreateRelationshipRequest req) {
+		Command command = req.getTarget() == null ? getStartCreateRelationshipCommand(req)
+				: getCompleteCreateRelationshipCommand(req);
+		return command != null ? command : super
+				.getCreateRelationshipCommand(req);
+	}
+
+	/**
+	 * @generated
+	 */
+	protected Command getStartCreateRelationshipCommand(
+			CreateRelationshipRequest req) {
 		if (PalladioComponentModelElementTypes.AbstractActionSuccessor_AbstractAction_4001 == req
 				.getElementType()) {
-			return req.getTarget() == null ? getCreateStartOutgoingAbstractActionSuccessor_AbstractAction_4001Command(req)
-					: getCreateCompleteIncomingAbstractActionSuccessor_AbstractAction_4001Command(req);
+			return getGEFWrapper(new AbstractActionSuccessor_AbstractActionCreateCommand(
+					req, req.getSource(), req.getTarget()));
 		}
-		return super.getCreateRelationshipCommand(req);
+		return null;
 	}
 
 	/**
 	 * @generated
 	 */
-	protected Command getCreateStartOutgoingAbstractActionSuccessor_AbstractAction_4001Command(
+	protected Command getCompleteCreateRelationshipCommand(
 			CreateRelationshipRequest req) {
-		EObject sourceEObject = req.getSource();
-		if (false == sourceEObject instanceof AbstractAction) {
-			return UnexecutableCommand.INSTANCE;
+		if (PalladioComponentModelElementTypes.AbstractActionSuccessor_AbstractAction_4001 == req
+				.getElementType()) {
+			return getGEFWrapper(new AbstractActionSuccessor_AbstractActionCreateCommand(
+					req, req.getSource(), req.getTarget()));
 		}
-		AbstractAction source = (AbstractAction) sourceEObject;
-		if (!PalladioComponentModelBaseItemSemanticEditPolicy.LinkConstraints
-				.canCreateAbstractActionSuccessor_AbstractAction_4001(source,
-						null)) {
-			return UnexecutableCommand.INSTANCE;
-		}
-		return new Command() {
-		};
-	}
-
-	/**
-	 * @generated
-	 */
-	protected Command getCreateCompleteIncomingAbstractActionSuccessor_AbstractAction_4001Command(
-			CreateRelationshipRequest req) {
-		EObject sourceEObject = req.getSource();
-		EObject targetEObject = req.getTarget();
-		if (false == sourceEObject instanceof AbstractAction
-				|| false == targetEObject instanceof AbstractAction) {
-			return UnexecutableCommand.INSTANCE;
-		}
-		AbstractAction source = (AbstractAction) sourceEObject;
-		AbstractAction target = (AbstractAction) targetEObject;
-		if (!PalladioComponentModelBaseItemSemanticEditPolicy.LinkConstraints
-				.canCreateAbstractActionSuccessor_AbstractAction_4001(source,
-						target)) {
-			return UnexecutableCommand.INSTANCE;
-		}
-		SetRequest setReq = new SetRequest(sourceEObject, SeffPackage.eINSTANCE
-				.getAbstractAction_Successor_AbstractAction(), target);
-		return getMSLWrapper(new SetValueCommand(setReq));
+		return null;
 	}
 
 	/**
@@ -125,7 +130,7 @@ public class BranchActionItemSemanticEditPolicy extends
 			ReorientReferenceRelationshipRequest req) {
 		switch (getVisualID(req)) {
 		case AbstractActionSuccessor_AbstractActionEditPart.VISUAL_ID:
-			return getMSLWrapper(new AbstractActionSuccessor_AbstractActionReorientCommand(
+			return getGEFWrapper(new AbstractActionSuccessor_AbstractActionReorientCommand(
 					req));
 		}
 		return super.getReorientReferenceRelationshipCommand(req);

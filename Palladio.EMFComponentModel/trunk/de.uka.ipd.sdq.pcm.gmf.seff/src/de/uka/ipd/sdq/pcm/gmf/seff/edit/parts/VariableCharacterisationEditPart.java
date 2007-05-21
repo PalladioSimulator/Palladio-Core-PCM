@@ -6,6 +6,7 @@ package de.uka.ipd.sdq.pcm.gmf.seff.edit.parts;
 import java.util.Collections;
 import java.util.List;
 
+import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.Label;
 import org.eclipse.draw2d.geometry.Point;
@@ -55,6 +56,7 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.PalladioComponentModelTextNonRe
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.PalladioComponentModelTextSelectionEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.VariableCharacterisationItemSemanticEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.seff.providers.PalladioComponentModelElementTypes;
+import de.uka.ipd.sdq.pcm.gmf.seff.providers.PalladioComponentModelParserProvider;
 
 /**
  * @generated
@@ -314,16 +316,9 @@ public class VariableCharacterisationEditPart extends CompartmentEditPart
 	public IParser getParser() {
 		if (parser == null) {
 			String parserHint = ((View) getModel()).getType();
-			ParserHintAdapter hintAdapter = new ParserHintAdapter(
-					getParserElement(), parserHint) {
-
-				public Object getAdapter(Class adapter) {
-					if (IElementType.class.equals(adapter)) {
-						return PalladioComponentModelElementTypes.VariableCharacterisation_3002;
-					}
-					return super.getAdapter(adapter);
-				}
-			};
+			IAdaptable hintAdapter = new PalladioComponentModelParserProvider.HintAdapter(
+					PalladioComponentModelElementTypes.VariableCharacterisation_3002,
+					getParserElement(), parserHint);
 			parser = ParserService.getInstance().getParser(hintAdapter);
 		}
 		return parser;

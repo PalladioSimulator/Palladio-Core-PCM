@@ -9,6 +9,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 
 import org.eclipse.core.resources.IFile;
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
@@ -116,7 +117,7 @@ public class PalladioComponentModelDomainNavigatorContentProvider implements
 					}
 
 					public boolean handleResourceMoved(Resource resource,
-							final org.eclipse.emf.common.util.URI newURI) {
+							final URI newURI) {
 						for (Iterator it = myEditingDomain.getResourceSet()
 								.getResources().iterator(); it.hasNext();) {
 							Resource nextResource = (Resource) it.next();
@@ -185,9 +186,8 @@ public class PalladioComponentModelDomainNavigatorContentProvider implements
 	public Object[] getChildren(Object parentElement) {
 		if (parentElement instanceof IFile) {
 			IFile file = (IFile) parentElement;
-			org.eclipse.emf.common.util.URI fileURI = org.eclipse.emf.common.util.URI
-					.createPlatformResourceURI(file.getFullPath().toString(),
-							true);
+			URI fileURI = URI.createPlatformResourceURI(file.getFullPath()
+					.toString(), true);
 			Resource resource = myEditingDomain.getResourceSet().getResource(
 					fileURI, true);
 			return wrapEObjects(myAdapterFctoryContentProvier

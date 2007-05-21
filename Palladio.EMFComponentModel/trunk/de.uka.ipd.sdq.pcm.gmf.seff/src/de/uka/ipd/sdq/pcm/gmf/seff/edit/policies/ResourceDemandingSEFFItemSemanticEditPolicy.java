@@ -44,7 +44,7 @@ public class ResourceDemandingSEFFItemSemanticEditPolicy extends
 				req.setContainmentFeature(SeffPackage.eINSTANCE
 						.getResourceDemandingBehaviour_Steps_Behaviour());
 			}
-			return getMSLWrapper(new StartActionCreateCommand(req));
+			return getGEFWrapper(new StartActionCreateCommand(req));
 		}
 		if (PalladioComponentModelElementTypes.StopAction_2002 == req
 				.getElementType()) {
@@ -52,7 +52,7 @@ public class ResourceDemandingSEFFItemSemanticEditPolicy extends
 				req.setContainmentFeature(SeffPackage.eINSTANCE
 						.getResourceDemandingBehaviour_Steps_Behaviour());
 			}
-			return getMSLWrapper(new StopActionCreateCommand(req));
+			return getGEFWrapper(new StopActionCreateCommand(req));
 		}
 		if (PalladioComponentModelElementTypes.ExternalCallAction_2003 == req
 				.getElementType()) {
@@ -60,7 +60,7 @@ public class ResourceDemandingSEFFItemSemanticEditPolicy extends
 				req.setContainmentFeature(SeffPackage.eINSTANCE
 						.getResourceDemandingBehaviour_Steps_Behaviour());
 			}
-			return getMSLWrapper(new ExternalCallActionCreateCommand(req));
+			return getGEFWrapper(new ExternalCallActionCreateCommand(req));
 		}
 		if (PalladioComponentModelElementTypes.LoopAction_2004 == req
 				.getElementType()) {
@@ -68,7 +68,7 @@ public class ResourceDemandingSEFFItemSemanticEditPolicy extends
 				req.setContainmentFeature(SeffPackage.eINSTANCE
 						.getResourceDemandingBehaviour_Steps_Behaviour());
 			}
-			return getMSLWrapper(new LoopActionCreateCommand(req));
+			return getGEFWrapper(new LoopActionCreateCommand(req));
 		}
 		if (PalladioComponentModelElementTypes.BranchAction_2005 == req
 				.getElementType()) {
@@ -76,7 +76,7 @@ public class ResourceDemandingSEFFItemSemanticEditPolicy extends
 				req.setContainmentFeature(SeffPackage.eINSTANCE
 						.getResourceDemandingBehaviour_Steps_Behaviour());
 			}
-			return getMSLWrapper(new BranchAction2CreateCommand(req));
+			return getGEFWrapper(new BranchAction2CreateCommand(req));
 		}
 		if (PalladioComponentModelElementTypes.InternalAction_2006 == req
 				.getElementType()) {
@@ -84,7 +84,7 @@ public class ResourceDemandingSEFFItemSemanticEditPolicy extends
 				req.setContainmentFeature(SeffPackage.eINSTANCE
 						.getResourceDemandingBehaviour_Steps_Behaviour());
 			}
-			return getMSLWrapper(new InternalAction2CreateCommand(req));
+			return getGEFWrapper(new InternalAction2CreateCommand(req));
 		}
 		if (PalladioComponentModelElementTypes.CollectionIteratorAction_2007 == req
 				.getElementType()) {
@@ -92,7 +92,7 @@ public class ResourceDemandingSEFFItemSemanticEditPolicy extends
 				req.setContainmentFeature(SeffPackage.eINSTANCE
 						.getResourceDemandingBehaviour_Steps_Behaviour());
 			}
-			return getMSLWrapper(new CollectionIteratorAction2CreateCommand(req));
+			return getGEFWrapper(new CollectionIteratorAction2CreateCommand(req));
 		}
 		if (PalladioComponentModelElementTypes.SetVariableAction_2008 == req
 				.getElementType()) {
@@ -100,7 +100,7 @@ public class ResourceDemandingSEFFItemSemanticEditPolicy extends
 				req.setContainmentFeature(SeffPackage.eINSTANCE
 						.getResourceDemandingBehaviour_Steps_Behaviour());
 			}
-			return getMSLWrapper(new SetVariableAction2CreateCommand(req));
+			return getGEFWrapper(new SetVariableAction2CreateCommand(req));
 		}
 		if (PalladioComponentModelElementTypes.AquireAction_2009 == req
 				.getElementType()) {
@@ -108,7 +108,7 @@ public class ResourceDemandingSEFFItemSemanticEditPolicy extends
 				req.setContainmentFeature(SeffPackage.eINSTANCE
 						.getResourceDemandingBehaviour_Steps_Behaviour());
 			}
-			return getMSLWrapper(new AquireAction2CreateCommand(req));
+			return getGEFWrapper(new AquireAction2CreateCommand(req));
 		}
 		if (PalladioComponentModelElementTypes.ReleaseAction_2010 == req
 				.getElementType()) {
@@ -116,7 +116,7 @@ public class ResourceDemandingSEFFItemSemanticEditPolicy extends
 				req.setContainmentFeature(SeffPackage.eINSTANCE
 						.getResourceDemandingBehaviour_Steps_Behaviour());
 			}
-			return getMSLWrapper(new ReleaseAction2CreateCommand(req));
+			return getGEFWrapper(new ReleaseAction2CreateCommand(req));
 		}
 		if (PalladioComponentModelElementTypes.ForkAction_2011 == req
 				.getElementType()) {
@@ -124,7 +124,7 @@ public class ResourceDemandingSEFFItemSemanticEditPolicy extends
 				req.setContainmentFeature(SeffPackage.eINSTANCE
 						.getResourceDemandingBehaviour_Steps_Behaviour());
 			}
-			return getMSLWrapper(new ForkAction2CreateCommand(req));
+			return getGEFWrapper(new ForkAction2CreateCommand(req));
 		}
 		return super.getCreateCommand(req);
 	}
@@ -135,7 +135,7 @@ public class ResourceDemandingSEFFItemSemanticEditPolicy extends
 	protected Command getDuplicateCommand(DuplicateElementsRequest req) {
 		TransactionalEditingDomain editingDomain = ((IGraphicalEditPart) getHost())
 				.getEditingDomain();
-		return getMSLWrapper(new DuplicateAnythingCommand(editingDomain, req));
+		return getGEFWrapper(new DuplicateAnythingCommand(editingDomain, req));
 	}
 
 	/**
