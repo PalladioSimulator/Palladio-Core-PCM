@@ -72,6 +72,20 @@
           name="UsageBranchStereotypeLabelFigure"
           text="&lt;&lt;Branch>>"/>
     </figures>
+    <figures
+        xsi:type="gmfgraph:RoundedRectangle"
+        referencingElements="SystemCallNode SystemCallVariableUsageCompartment"
+        name="SystemCallFigure">
+      <children
+          xsi:type="gmfgraph:Label"
+          name="SystemCallStereotypeLabelFigure"
+          text="&lt;&lt;SystemCallAction>>"/>
+      <children
+          xsi:type="gmfgraph:Label"
+          referencingElements="SystemCallNameLabel"
+          name="SystemCallNameLabelFigure"
+          text=""/>
+    </figures>
   </figures>
   <nodes
       name="ScenarioBehaviour"
@@ -88,12 +102,18 @@
   <nodes
       name="UsageBranchNode"
       figure="UsageBranchFigure"/>
+  <nodes
+      name="SystemCallNode"
+      figure="SystemCallFigure"/>
   <compartments
       name="ScenarioBehaviourStepsCompartment"
       figure="ScenarioBehaviourFigure"/>
   <compartments
       name="UsageBranchTransitionsCompartment"
       figure="UsageBranchFigure"/>
+  <compartments
+      name="SystemCallVariableUsageCompartment"
+      figure="SystemCallFigure"/>
   <labels
       name="ClosedWorkloadPopulation"
       figure="ClosedWorkloadPopulationFigure"/>
@@ -113,4 +133,7 @@
   <labels
       name="OpenWorkloadSpecLabel"
       figure="OpenWorkloadSpecLabelFigure"/>
+  <labels
+      name="SystemCallNameLabel"
+      figure="SystemCallNameLabelFigure"/>
 </gmfgraph:Canvas>

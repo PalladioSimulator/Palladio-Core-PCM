@@ -30,7 +30,7 @@ public class EntryLevelSystemCallParameterUsageItemSemanticEditPolicy extends
 						.setContainmentFeature(UsagemodelPackage.eINSTANCE
 								.getEntryLevelSystemCall_ActualParameterUsage_EntryLevelSystemCall());
 			}
-			return getMSLWrapper(new VariableUsageCreateCommand(req));
+			return getGEFWrapper(new VariableUsageCreateCommand(req));
 		}
 		return super.getCreateCommand(req);
 	}

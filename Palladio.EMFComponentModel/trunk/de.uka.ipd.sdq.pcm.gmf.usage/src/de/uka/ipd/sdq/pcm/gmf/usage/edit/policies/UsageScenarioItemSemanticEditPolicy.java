@@ -34,7 +34,7 @@ public class UsageScenarioItemSemanticEditPolicy extends
 				req.setContainmentFeature(UsagemodelPackage.eINSTANCE
 						.getUsageScenario_ScenarioBehaviour_UsageScenario());
 			}
-			return getMSLWrapper(new ScenarioBehaviourCreateCommand(req));
+			return getGEFWrapper(new ScenarioBehaviourCreateCommand(req));
 		}
 		if (PalladioComponentModelElementTypes.ClosedWorkload_2002 == req
 				.getElementType()) {
@@ -42,7 +42,7 @@ public class UsageScenarioItemSemanticEditPolicy extends
 				req.setContainmentFeature(UsagemodelPackage.eINSTANCE
 						.getUsageScenario_Workload_UsageScenario());
 			}
-			return getMSLWrapper(new ClosedWorkloadCreateCommand(req));
+			return getGEFWrapper(new ClosedWorkloadCreateCommand(req));
 		}
 		if (PalladioComponentModelElementTypes.OpenWorkload_2003 == req
 				.getElementType()) {
@@ -50,7 +50,7 @@ public class UsageScenarioItemSemanticEditPolicy extends
 				req.setContainmentFeature(UsagemodelPackage.eINSTANCE
 						.getUsageScenario_Workload_UsageScenario());
 			}
-			return getMSLWrapper(new OpenWorkloadCreateCommand(req));
+			return getGEFWrapper(new OpenWorkloadCreateCommand(req));
 		}
 		return super.getCreateCommand(req);
 	}
@@ -61,7 +61,7 @@ public class UsageScenarioItemSemanticEditPolicy extends
 	protected Command getDuplicateCommand(DuplicateElementsRequest req) {
 		TransactionalEditingDomain editingDomain = ((IGraphicalEditPart) getHost())
 				.getEditingDomain();
-		return getMSLWrapper(new DuplicateAnythingCommand(editingDomain, req));
+		return getGEFWrapper(new DuplicateAnythingCommand(editingDomain, req));
 	}
 
 	/**

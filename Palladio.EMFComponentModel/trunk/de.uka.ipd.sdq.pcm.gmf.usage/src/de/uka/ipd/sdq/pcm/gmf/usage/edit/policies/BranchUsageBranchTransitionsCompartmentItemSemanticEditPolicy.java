@@ -29,7 +29,7 @@ public class BranchUsageBranchTransitionsCompartmentItemSemanticEditPolicy
 				req.setContainmentFeature(UsagemodelPackage.eINSTANCE
 						.getBranch_BranchTransitions_Branch());
 			}
-			return getMSLWrapper(new BranchTransitionCreateCommand(req));
+			return getGEFWrapper(new BranchTransitionCreateCommand(req));
 		}
 		return super.getCreateCommand(req);
 	}

@@ -150,7 +150,7 @@ public class PalladioComponentModelVisualIDRegistry {
 			EClass domainElementMetaclass) {
 		if (UsagemodelPackage.eINSTANCE.getUsageScenario().isSuperTypeOf(
 				domainElementMetaclass)
-				&& isDiagramUsageScenario_1000((UsageScenario) domainElement)) {
+				&& isDiagram((UsageScenario) domainElement)) {
 			return UsageScenarioEditPart.VISUAL_ID;
 		}
 		return getUnrecognizedDiagramID(domainElement);
@@ -174,21 +174,24 @@ public class PalladioComponentModelVisualIDRegistry {
 	public static int getNodeVisualID(View containerView,
 			EObject domainElement, EClass domainElementMetaclass,
 			String semanticHint) {
-		String containerModelID = getModelID(containerView);
+		String containerModelID = de.uka.ipd.sdq.pcm.gmf.usage.part.PalladioComponentModelVisualIDRegistry
+				.getModelID(containerView);
 		if (!UsageScenarioEditPart.MODEL_ID.equals(containerModelID)) {
 			return -1;
 		}
 		int containerVisualID;
 		if (UsageScenarioEditPart.MODEL_ID.equals(containerModelID)) {
-			containerVisualID = getVisualID(containerView);
+			containerVisualID = de.uka.ipd.sdq.pcm.gmf.usage.part.PalladioComponentModelVisualIDRegistry
+					.getVisualID(containerView);
 		} else {
 			if (containerView instanceof Diagram) {
-				containerVisualID = UsageScenarioEditPart.VISUAL_ID;
+				containerVisualID = 1000;
 			} else {
 				return -1;
 			}
 		}
-		int nodeVisualID = semanticHint != null ? getVisualID(semanticHint)
+		int nodeVisualID = semanticHint != null ? de.uka.ipd.sdq.pcm.gmf.usage.part.PalladioComponentModelVisualIDRegistry
+				.getVisualID(semanticHint)
 				: -1;
 		switch (containerVisualID) {
 		case ScenarioBehaviourEditPart.VISUAL_ID:
@@ -248,8 +251,7 @@ public class PalladioComponentModelVisualIDRegistry {
 			}
 			if ((semanticHint == null || ScenarioBehaviour2EditPart.VISUAL_ID == nodeVisualID)
 					&& UsagemodelPackage.eINSTANCE.getScenarioBehaviour()
-							.isSuperTypeOf(domainElementMetaclass)
-					&& (domainElement == null || isNodeScenarioBehaviour_3007((ScenarioBehaviour) domainElement))) {
+							.isSuperTypeOf(domainElementMetaclass)) {
 				return ScenarioBehaviour2EditPart.VISUAL_ID;
 			}
 			return getUnrecognizedLoop_3005ChildNodeID(domainElement,
@@ -275,8 +277,7 @@ public class PalladioComponentModelVisualIDRegistry {
 			}
 			if ((semanticHint == null || ScenarioBehaviour3EditPart.VISUAL_ID == nodeVisualID)
 					&& UsagemodelPackage.eINSTANCE.getScenarioBehaviour()
-							.isSuperTypeOf(domainElementMetaclass)
-					&& (domainElement == null || isNodeScenarioBehaviour_3010((ScenarioBehaviour) domainElement))) {
+							.isSuperTypeOf(domainElementMetaclass)) {
 				return ScenarioBehaviour3EditPart.VISUAL_ID;
 			}
 			return getUnrecognizedBranchTransition_3009ChildNodeID(
@@ -290,32 +291,27 @@ public class PalladioComponentModelVisualIDRegistry {
 		case ScenarioBehaviourScenarioBehaviourStepsCompartmentEditPart.VISUAL_ID:
 			if ((semanticHint == null || StartEditPart.VISUAL_ID == nodeVisualID)
 					&& UsagemodelPackage.eINSTANCE.getStart().isSuperTypeOf(
-							domainElementMetaclass)
-					&& (domainElement == null || isNodeStart_3001((Start) domainElement))) {
+							domainElementMetaclass)) {
 				return StartEditPart.VISUAL_ID;
 			}
 			if ((semanticHint == null || StopEditPart.VISUAL_ID == nodeVisualID)
 					&& UsagemodelPackage.eINSTANCE.getStop().isSuperTypeOf(
-							domainElementMetaclass)
-					&& (domainElement == null || isNodeStop_3002((Stop) domainElement))) {
+							domainElementMetaclass)) {
 				return StopEditPart.VISUAL_ID;
 			}
 			if ((semanticHint == null || EntryLevelSystemCallEditPart.VISUAL_ID == nodeVisualID)
 					&& UsagemodelPackage.eINSTANCE.getEntryLevelSystemCall()
-							.isSuperTypeOf(domainElementMetaclass)
-					&& (domainElement == null || isNodeEntryLevelSystemCall_3003((EntryLevelSystemCall) domainElement))) {
+							.isSuperTypeOf(domainElementMetaclass)) {
 				return EntryLevelSystemCallEditPart.VISUAL_ID;
 			}
 			if ((semanticHint == null || LoopEditPart.VISUAL_ID == nodeVisualID)
 					&& UsagemodelPackage.eINSTANCE.getLoop().isSuperTypeOf(
-							domainElementMetaclass)
-					&& (domainElement == null || isNodeLoop_3005((Loop) domainElement))) {
+							domainElementMetaclass)) {
 				return LoopEditPart.VISUAL_ID;
 			}
 			if ((semanticHint == null || BranchEditPart.VISUAL_ID == nodeVisualID)
 					&& UsagemodelPackage.eINSTANCE.getBranch().isSuperTypeOf(
-							domainElementMetaclass)
-					&& (domainElement == null || isNodeBranch_3008((Branch) domainElement))) {
+							domainElementMetaclass)) {
 				return BranchEditPart.VISUAL_ID;
 			}
 			return getUnrecognizedScenarioBehaviourScenarioBehaviourStepsCompartment_7001ChildNodeID(
@@ -323,17 +319,15 @@ public class PalladioComponentModelVisualIDRegistry {
 		case EntryLevelSystemCallParameterUsageEditPart.VISUAL_ID:
 			if ((semanticHint == null || VariableUsageEditPart.VISUAL_ID == nodeVisualID)
 					&& ParameterPackage.eINSTANCE.getVariableUsage()
-							.isSuperTypeOf(domainElementMetaclass)
-					&& (domainElement == null || isNodeVariableUsage_3004((VariableUsage) domainElement))) {
+							.isSuperTypeOf(domainElementMetaclass)) {
 				return VariableUsageEditPart.VISUAL_ID;
 			}
-			return getUnrecognizedEntryLevelSystemCallParameterUsage_7002ChildNodeID(
+			return getUnrecognizedEntryLevelSystemCallSystemCallVariableUsageCompartment_7002ChildNodeID(
 					domainElement, semanticHint);
 		case VariableUsageVariableCharacterisationEditPart.VISUAL_ID:
 			if ((semanticHint == null || VariableCharacterisationEditPart.VISUAL_ID == nodeVisualID)
 					&& ParameterPackage.eINSTANCE.getVariableCharacterisation()
-							.isSuperTypeOf(domainElementMetaclass)
-					&& (domainElement == null || isNodeVariableCharacterisation_3006((VariableCharacterisation) domainElement))) {
+							.isSuperTypeOf(domainElementMetaclass)) {
 				return VariableCharacterisationEditPart.VISUAL_ID;
 			}
 			return getUnrecognizedVariableUsageVariableCharacterisation_7003ChildNodeID(
@@ -341,32 +335,27 @@ public class PalladioComponentModelVisualIDRegistry {
 		case ScenarioBehaviourScenarioBehaviourStepsCompartment2EditPart.VISUAL_ID:
 			if ((semanticHint == null || StartEditPart.VISUAL_ID == nodeVisualID)
 					&& UsagemodelPackage.eINSTANCE.getStart().isSuperTypeOf(
-							domainElementMetaclass)
-					&& (domainElement == null || isNodeStart_3001((Start) domainElement))) {
+							domainElementMetaclass)) {
 				return StartEditPart.VISUAL_ID;
 			}
 			if ((semanticHint == null || StopEditPart.VISUAL_ID == nodeVisualID)
 					&& UsagemodelPackage.eINSTANCE.getStop().isSuperTypeOf(
-							domainElementMetaclass)
-					&& (domainElement == null || isNodeStop_3002((Stop) domainElement))) {
+							domainElementMetaclass)) {
 				return StopEditPart.VISUAL_ID;
 			}
 			if ((semanticHint == null || EntryLevelSystemCallEditPart.VISUAL_ID == nodeVisualID)
 					&& UsagemodelPackage.eINSTANCE.getEntryLevelSystemCall()
-							.isSuperTypeOf(domainElementMetaclass)
-					&& (domainElement == null || isNodeEntryLevelSystemCall_3003((EntryLevelSystemCall) domainElement))) {
+							.isSuperTypeOf(domainElementMetaclass)) {
 				return EntryLevelSystemCallEditPart.VISUAL_ID;
 			}
 			if ((semanticHint == null || LoopEditPart.VISUAL_ID == nodeVisualID)
 					&& UsagemodelPackage.eINSTANCE.getLoop().isSuperTypeOf(
-							domainElementMetaclass)
-					&& (domainElement == null || isNodeLoop_3005((Loop) domainElement))) {
+							domainElementMetaclass)) {
 				return LoopEditPart.VISUAL_ID;
 			}
 			if ((semanticHint == null || BranchEditPart.VISUAL_ID == nodeVisualID)
 					&& UsagemodelPackage.eINSTANCE.getBranch().isSuperTypeOf(
-							domainElementMetaclass)
-					&& (domainElement == null || isNodeBranch_3008((Branch) domainElement))) {
+							domainElementMetaclass)) {
 				return BranchEditPart.VISUAL_ID;
 			}
 			return getUnrecognizedScenarioBehaviourScenarioBehaviourStepsCompartment_7005ChildNodeID(
@@ -374,8 +363,7 @@ public class PalladioComponentModelVisualIDRegistry {
 		case BranchUsageBranchTransitionsCompartmentEditPart.VISUAL_ID:
 			if ((semanticHint == null || BranchTransitionEditPart.VISUAL_ID == nodeVisualID)
 					&& UsagemodelPackage.eINSTANCE.getBranchTransition()
-							.isSuperTypeOf(domainElementMetaclass)
-					&& (domainElement == null || isNodeBranchTransition_3009((BranchTransition) domainElement))) {
+							.isSuperTypeOf(domainElementMetaclass)) {
 				return BranchTransitionEditPart.VISUAL_ID;
 			}
 			return getUnrecognizedBranchUsageBranchTransitionsCompartment_7009ChildNodeID(
@@ -383,32 +371,27 @@ public class PalladioComponentModelVisualIDRegistry {
 		case ScenarioBehaviourScenarioBehaviourStepsCompartment3EditPart.VISUAL_ID:
 			if ((semanticHint == null || StartEditPart.VISUAL_ID == nodeVisualID)
 					&& UsagemodelPackage.eINSTANCE.getStart().isSuperTypeOf(
-							domainElementMetaclass)
-					&& (domainElement == null || isNodeStart_3001((Start) domainElement))) {
+							domainElementMetaclass)) {
 				return StartEditPart.VISUAL_ID;
 			}
 			if ((semanticHint == null || StopEditPart.VISUAL_ID == nodeVisualID)
 					&& UsagemodelPackage.eINSTANCE.getStop().isSuperTypeOf(
-							domainElementMetaclass)
-					&& (domainElement == null || isNodeStop_3002((Stop) domainElement))) {
+							domainElementMetaclass)) {
 				return StopEditPart.VISUAL_ID;
 			}
 			if ((semanticHint == null || EntryLevelSystemCallEditPart.VISUAL_ID == nodeVisualID)
 					&& UsagemodelPackage.eINSTANCE.getEntryLevelSystemCall()
-							.isSuperTypeOf(domainElementMetaclass)
-					&& (domainElement == null || isNodeEntryLevelSystemCall_3003((EntryLevelSystemCall) domainElement))) {
+							.isSuperTypeOf(domainElementMetaclass)) {
 				return EntryLevelSystemCallEditPart.VISUAL_ID;
 			}
 			if ((semanticHint == null || LoopEditPart.VISUAL_ID == nodeVisualID)
 					&& UsagemodelPackage.eINSTANCE.getLoop().isSuperTypeOf(
-							domainElementMetaclass)
-					&& (domainElement == null || isNodeLoop_3005((Loop) domainElement))) {
+							domainElementMetaclass)) {
 				return LoopEditPart.VISUAL_ID;
 			}
 			if ((semanticHint == null || BranchEditPart.VISUAL_ID == nodeVisualID)
 					&& UsagemodelPackage.eINSTANCE.getBranch().isSuperTypeOf(
-							domainElementMetaclass)
-					&& (domainElement == null || isNodeBranch_3008((Branch) domainElement))) {
+							domainElementMetaclass)) {
 				return BranchEditPart.VISUAL_ID;
 			}
 			return getUnrecognizedScenarioBehaviourScenarioBehaviourStepsCompartment_7008ChildNodeID(
@@ -416,26 +399,23 @@ public class PalladioComponentModelVisualIDRegistry {
 		case UsageScenarioEditPart.VISUAL_ID:
 			if ((semanticHint == null || ScenarioBehaviourEditPart.VISUAL_ID == nodeVisualID)
 					&& UsagemodelPackage.eINSTANCE.getScenarioBehaviour()
-							.isSuperTypeOf(domainElementMetaclass)
-					&& (domainElement == null || isNodeScenarioBehaviour_2001((ScenarioBehaviour) domainElement))) {
+							.isSuperTypeOf(domainElementMetaclass)) {
 				return ScenarioBehaviourEditPart.VISUAL_ID;
 			}
 			if ((semanticHint == null || ClosedWorkloadEditPart.VISUAL_ID == nodeVisualID)
 					&& UsagemodelPackage.eINSTANCE.getClosedWorkload()
-							.isSuperTypeOf(domainElementMetaclass)
-					&& (domainElement == null || isNodeClosedWorkload_2002((ClosedWorkload) domainElement))) {
+							.isSuperTypeOf(domainElementMetaclass)) {
 				return ClosedWorkloadEditPart.VISUAL_ID;
 			}
 			if ((semanticHint == null || OpenWorkloadEditPart.VISUAL_ID == nodeVisualID)
 					&& UsagemodelPackage.eINSTANCE.getOpenWorkload()
-							.isSuperTypeOf(domainElementMetaclass)
-					&& (domainElement == null || isNodeOpenWorkload_2003((OpenWorkload) domainElement))) {
+							.isSuperTypeOf(domainElementMetaclass)) {
 				return OpenWorkloadEditPart.VISUAL_ID;
 			}
 			return getUnrecognizedUsageScenario_1000ChildNodeID(domainElement,
 					semanticHint);
 		}
-		return -1;
+		return getUnrecognizedNodeID(containerView, domainElement);
 	}
 
 	/**
@@ -454,18 +434,16 @@ public class PalladioComponentModelVisualIDRegistry {
 	 */
 	public static int getLinkWithClassVisualID(EObject domainElement,
 			EClass domainElementMetaclass) {
-		{
-			return getUnrecognizedLinkWithClassID(domainElement);
-		}
+		return getUnrecognizedLinkWithClassID(domainElement);
 	}
 
 	/**
-	 * User can change implementation of this method to check some additional 
-	 * conditions here.
-	 *
+	 * User can change implementation of this method to handle some specific
+	 * situations not covered by default logic.
+	 * 
 	 * @generated
 	 */
-	private static boolean isDiagramUsageScenario_1000(UsageScenario element) {
+	private static boolean isDiagram(UsageScenario element) {
 		return true;
 	}
 
@@ -480,138 +458,14 @@ public class PalladioComponentModelVisualIDRegistry {
 	}
 
 	/**
-	 * User can change implementation of this method to check some additional 
-	 * conditions here.
-	 *
+	 * User can change implementation of this method to handle some specific
+	 * situations not covered by default logic.
+	 * 
 	 * @generated
 	 */
-	private static boolean isNodeScenarioBehaviour_2001(
-			ScenarioBehaviour element) {
-		return true;
-	}
-
-	/**
-	 * User can change implementation of this method to check some additional 
-	 * conditions here.
-	 *
-	 * @generated
-	 */
-	private static boolean isNodeClosedWorkload_2002(ClosedWorkload element) {
-		return true;
-	}
-
-	/**
-	 * User can change implementation of this method to check some additional 
-	 * conditions here.
-	 *
-	 * @generated
-	 */
-	private static boolean isNodeOpenWorkload_2003(OpenWorkload element) {
-		return true;
-	}
-
-	/**
-	 * User can change implementation of this method to check some additional 
-	 * conditions here.
-	 *
-	 * @generated
-	 */
-	private static boolean isNodeStart_3001(Start element) {
-		return true;
-	}
-
-	/**
-	 * User can change implementation of this method to check some additional 
-	 * conditions here.
-	 *
-	 * @generated
-	 */
-	private static boolean isNodeStop_3002(Stop element) {
-		return true;
-	}
-
-	/**
-	 * User can change implementation of this method to check some additional 
-	 * conditions here.
-	 *
-	 * @generated
-	 */
-	private static boolean isNodeEntryLevelSystemCall_3003(
-			EntryLevelSystemCall element) {
-		return true;
-	}
-
-	/**
-	 * User can change implementation of this method to check some additional 
-	 * conditions here.
-	 *
-	 * @generated
-	 */
-	private static boolean isNodeVariableUsage_3004(VariableUsage element) {
-		return true;
-	}
-
-	/**
-	 * User can change implementation of this method to check some additional 
-	 * conditions here.
-	 *
-	 * @generated
-	 */
-	private static boolean isNodeVariableCharacterisation_3006(
-			VariableCharacterisation element) {
-		return true;
-	}
-
-	/**
-	 * User can change implementation of this method to check some additional 
-	 * conditions here.
-	 *
-	 * @generated
-	 */
-	private static boolean isNodeLoop_3005(Loop element) {
-		return true;
-	}
-
-	/**
-	 * User can change implementation of this method to check some additional 
-	 * conditions here.
-	 *
-	 * @generated
-	 */
-	private static boolean isNodeScenarioBehaviour_3007(
-			ScenarioBehaviour element) {
-		return true;
-	}
-
-	/**
-	 * User can change implementation of this method to check some additional 
-	 * conditions here.
-	 *
-	 * @generated
-	 */
-	private static boolean isNodeBranch_3008(Branch element) {
-		return true;
-	}
-
-	/**
-	 * User can change implementation of this method to check some additional 
-	 * conditions here.
-	 *
-	 * @generated
-	 */
-	private static boolean isNodeBranchTransition_3009(BranchTransition element) {
-		return true;
-	}
-
-	/**
-	 * User can change implementation of this method to check some additional 
-	 * conditions here.
-	 *
-	 * @generated
-	 */
-	private static boolean isNodeScenarioBehaviour_3010(
-			ScenarioBehaviour element) {
-		return true;
+	private static int getUnrecognizedNodeID(View containerView,
+			EObject domainElement) {
+		return -1;
 	}
 
 	/**
@@ -771,10 +625,10 @@ public class PalladioComponentModelVisualIDRegistry {
 	/**
 	 * User can change implementation of this method to handle some specific
 	 * situations not covered by default logic.
-	 *
+	 * 
 	 * @generated
 	 */
-	private static int getUnrecognizedEntryLevelSystemCallParameterUsage_7002ChildNodeID(
+	private static int getUnrecognizedEntryLevelSystemCallSystemCallVariableUsageCompartment_7002ChildNodeID(
 			EObject domainElement, String semanticHint) {
 		return -1;
 	}

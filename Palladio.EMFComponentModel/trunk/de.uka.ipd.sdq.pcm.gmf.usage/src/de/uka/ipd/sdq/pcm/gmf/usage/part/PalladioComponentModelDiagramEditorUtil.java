@@ -24,12 +24,14 @@ import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.SubProgressMonitor;
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.xmi.XMIResource;
 import org.eclipse.emf.ecore.xmi.XMLResource;
 import org.eclipse.emf.edit.ui.util.EditUIUtil;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
+import org.eclipse.emf.workspace.util.WorkspaceSynchronizer;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gmf.runtime.common.core.command.CommandResult;
 import org.eclipse.gmf.runtime.diagram.core.services.ViewService;
@@ -47,8 +49,11 @@ import org.eclipse.jface.dialogs.IDialogSettings;
 import org.eclipse.jface.wizard.Wizard;
 import org.eclipse.jface.wizard.WizardDialog;
 import org.eclipse.swt.widgets.Shell;
+import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.PartInitException;
 
+import org.eclipse.ui.PlatformUI;
+import org.eclipse.ui.part.FileEditorInput;
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.UsageScenarioEditPart;
 import de.uka.ipd.sdq.pcm.usagemodel.UsageModel;
 import de.uka.ipd.sdq.pcm.usagemodel.UsageScenario;
@@ -62,16 +67,36 @@ public class PalladioComponentModelDiagramEditorUtil {
 	/**
 	 * @generated
 	 */
-	public static boolean openDiagram(Resource diagram)
-			throws PartInitException {
-		return EditUIUtil.openEditor((EObject) diagram.getContents().get(0));
+	public static Map getSaveOptions() {
+		Map saveOptions = new HashMap();
+		saveOptions.put(XMLResource.OPTION_ENCODING, "UTF-8"); //$NON-NLS-1$
+		saveOptions.put(Resource.OPTION_SAVE_ONLY_IF_CHANGED,
+				Resource.OPTION_SAVE_ONLY_IF_CHANGED_MEMORY_BUFFER);
+		return saveOptions;
 	}
 
 	/**
 	 * @generated
 	 */
-	private static void setCharset(org.eclipse.emf.common.util.URI uri) {
-		IFile file = getFile(uri);
+	public static boolean openDiagram(Resource diagram)
+			throws PartInitException {
+		String path = diagram.getURI().toPlatformString(true);
+		IResource workspaceResource = ResourcesPlugin.getWorkspace().getRoot()
+				.findMember(new Path(path));
+		if (workspaceResource instanceof IFile) {
+			IWorkbenchPage page = PlatformUI.getWorkbench()
+					.getActiveWorkbenchWindow().getActivePage();
+			return null != page.openEditor(new FileEditorInput(
+					(IFile) workspaceResource),
+					PalladioComponentModelUsageDiagramEditor.ID);
+		}
+		return false;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static void setCharset(IFile file) {
 		if (file == null) {
 			return;
 		}
@@ -83,22 +108,6 @@ public class PalladioComponentModelDiagramEditorUtil {
 					.logError(
 							"Unable to set charset for file " + file.getFullPath(), e); //$NON-NLS-1$
 		}
-	}
-
-	/**
-	 * @generated
-	 */
-	public static IFile getFile(org.eclipse.emf.common.util.URI uri) {
-		if (uri.toString().startsWith("platform:/resource")) { //$NON-NLS-1$
-			String path = uri.toString().substring(
-					"platform:/resource".length()); //$NON-NLS-1$
-			IResource workspaceResource = ResourcesPlugin.getWorkspace()
-					.getRoot().findMember(new Path(path));
-			if (workspaceResource instanceof IFile) {
-				return (IFile) workspaceResource;
-			}
-		}
-		return null;
 	}
 
 	/**
@@ -151,6 +160,7 @@ public class PalladioComponentModelDiagramEditorUtil {
 		dialog.open();
 	}
 
+
 	/**
 	 * This method should be called within a workspace modify operation since it creates resources.
 	 * @generated not
@@ -174,15 +184,18 @@ public class PalladioComponentModelDiagramEditorUtil {
 					IProgressMonitor monitor, IAdaptable info)
 					throws ExecutionException {
 				UsageModel model = createInitialModel();
-				UsageScenario scenario = UsagemodelFactory.eINSTANCE.createUsageScenario(); 
-				model.getUsageScenario_UsageModel().add(
-						scenario);
-				scenario.setScenarioBehaviour_UsageScenario(
-						UsagemodelFactory.eINSTANCE.createScenarioBehaviour());
-				scenario.getScenarioBehaviour_UsageScenario().getActions_ScenarioBehaviour().add(
-						UsagemodelFactory.eINSTANCE.createStart());
-				scenario.getScenarioBehaviour_UsageScenario().getActions_ScenarioBehaviour().add(
-						UsagemodelFactory.eINSTANCE.createStop());
+				UsageScenario scenario = UsagemodelFactory.eINSTANCE
+						.createUsageScenario();
+				model.getUsageScenario_UsageModel().add(scenario);
+				scenario
+						.setScenarioBehaviour_UsageScenario(UsagemodelFactory.eINSTANCE
+								.createScenarioBehaviour());
+				scenario.getScenarioBehaviour_UsageScenario()
+						.getActions_ScenarioBehaviour().add(
+								UsagemodelFactory.eINSTANCE.createStart());
+				scenario.getScenarioBehaviour_UsageScenario()
+						.getActions_ScenarioBehaviour().add(
+								UsagemodelFactory.eINSTANCE.createStop());
 				attachModelToResource(model, modelResource);
 
 				Diagram diagram = ViewService
@@ -218,8 +231,8 @@ public class PalladioComponentModelDiagramEditorUtil {
 			PalladioComponentModelUsageDiagramEditorPlugin.getInstance()
 					.logError("Unable to create model and diagram", e); //$NON-NLS-1$
 		}
-		setCharset(modelURI);
-		setCharset(diagramURI);
+		setCharset(WorkspaceSynchronizer.getFile(modelResource));
+		setCharset(WorkspaceSynchronizer.getFile(diagramResource));
 		return diagramResource;
 	}
 
@@ -231,6 +244,17 @@ public class PalladioComponentModelDiagramEditorUtil {
 	 */
 	private static UsageModel createInitialModel() {
 		return UsagemodelFactory.eINSTANCE.createUsageModel();
+	}
+
+	/**
+	 * Store model element in the resource.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private static void attachModelToResource(UsageScenario model,
+			Resource resource) {
+		resource.getContents().add(model);
 	}
 
 	/**

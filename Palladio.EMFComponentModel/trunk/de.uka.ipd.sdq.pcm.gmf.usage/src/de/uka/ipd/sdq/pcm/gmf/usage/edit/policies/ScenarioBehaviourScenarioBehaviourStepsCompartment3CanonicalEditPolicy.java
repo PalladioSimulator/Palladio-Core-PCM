@@ -3,6 +3,8 @@
  */
 package de.uka.ipd.sdq.pcm.gmf.usage.edit.policies;
 
+import java.util.Collection;
+import java.util.HashSet;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CanonicalEditPolicy;
 import org.eclipse.gmf.runtime.notation.View;
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.BranchEditPart;
@@ -11,14 +13,18 @@ import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.LoopEditPart;
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.StartEditPart;
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.StopEditPart;
 
+import de.uka.ipd.sdq.pcm.gmf.usage.part.PalladioComponentModelDiagramUpdater;
+import de.uka.ipd.sdq.pcm.gmf.usage.part.PalladioComponentModelNodeDescriptor;
 import de.uka.ipd.sdq.pcm.gmf.usage.part.PalladioComponentModelVisualIDRegistry;
 
 import de.uka.ipd.sdq.pcm.usagemodel.ScenarioBehaviour;
 
+import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
+import java.util.Set;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -30,39 +36,19 @@ public class ScenarioBehaviourScenarioBehaviourStepsCompartment3CanonicalEditPol
 	/**
 	 * @generated
 	 */
+	Set myFeaturesToSynchronize;
+
+	/**
+	 * @generated
+	 */
 	protected List getSemanticChildrenList() {
-		List result = new LinkedList();
-		EObject modelObject = ((View) getHost().getModel()).getElement();
 		View viewObject = (View) getHost().getModel();
-		EObject nextValue;
-		int nodeVID;
-		for (Iterator values = ((ScenarioBehaviour) modelObject)
-				.getActions_ScenarioBehaviour().iterator(); values.hasNext();) {
-			nextValue = (EObject) values.next();
-			nodeVID = PalladioComponentModelVisualIDRegistry.getNodeVisualID(
-					viewObject, nextValue);
-			switch (nodeVID) {
-			case StartEditPart.VISUAL_ID: {
-				result.add(nextValue);
-				break;
-			}
-			case StopEditPart.VISUAL_ID: {
-				result.add(nextValue);
-				break;
-			}
-			case EntryLevelSystemCallEditPart.VISUAL_ID: {
-				result.add(nextValue);
-				break;
-			}
-			case LoopEditPart.VISUAL_ID: {
-				result.add(nextValue);
-				break;
-			}
-			case BranchEditPart.VISUAL_ID: {
-				result.add(nextValue);
-				break;
-			}
-			}
+		List result = new LinkedList();
+		for (Iterator it = PalladioComponentModelDiagramUpdater
+				.getScenarioBehaviourScenarioBehaviourStepsCompartment_7008SemanticChildren(
+						viewObject).iterator(); it.hasNext();) {
+			result.add(((PalladioComponentModelNodeDescriptor) it.next())
+					.getModelElement());
 		}
 		return result;
 	}
@@ -70,20 +56,18 @@ public class ScenarioBehaviourScenarioBehaviourStepsCompartment3CanonicalEditPol
 	/**
 	 * @generated
 	 */
-	protected boolean shouldDeleteView(View view) {
-		if (view.getEAnnotation("Shortcut") != null) { //$NON-NLS-1$
-			return view.isSetElement()
-					&& (view.getElement() == null || view.getElement()
-							.eIsProxy());
-		}
-		int nodeVID = PalladioComponentModelVisualIDRegistry.getVisualID(view);
-		switch (nodeVID) {
+	protected boolean isOrphaned(Collection semanticChildren, final View view) {
+		int visualID = PalladioComponentModelVisualIDRegistry.getVisualID(view);
+		switch (visualID) {
 		case StartEditPart.VISUAL_ID:
 		case StopEditPart.VISUAL_ID:
 		case EntryLevelSystemCallEditPart.VISUAL_ID:
 		case LoopEditPart.VISUAL_ID:
 		case BranchEditPart.VISUAL_ID:
-			return true;
+			return !semanticChildren.contains(view.getElement())
+					|| visualID != PalladioComponentModelVisualIDRegistry
+							.getNodeVisualID((View) getHost().getModel(), view
+									.getElement());
 		}
 		return false;
 	}
@@ -93,6 +77,18 @@ public class ScenarioBehaviourScenarioBehaviourStepsCompartment3CanonicalEditPol
 	 */
 	protected String getDefaultFactoryHint() {
 		return null;
+	}
+
+	/**
+	 * @generated
+	 */
+	protected Set getFeaturesToSynchronize() {
+		if (myFeaturesToSynchronize == null) {
+			myFeaturesToSynchronize = new HashSet();
+			myFeaturesToSynchronize.add(UsagemodelPackage.eINSTANCE
+					.getScenarioBehaviour_Actions_ScenarioBehaviour());
+		}
+		return myFeaturesToSynchronize;
 	}
 
 }

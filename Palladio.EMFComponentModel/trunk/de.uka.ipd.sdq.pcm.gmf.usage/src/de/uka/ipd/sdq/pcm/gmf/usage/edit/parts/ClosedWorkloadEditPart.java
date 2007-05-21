@@ -113,13 +113,13 @@ public class ClosedWorkloadEditPart extends ShapeNodeEditPart {
 		if (childEditPart instanceof ClosedWorkloadTitleLabelEditPart) {
 			((ClosedWorkloadTitleLabelEditPart) childEditPart)
 					.setLabel(getPrimaryShape()
-							.getFigureClosedWorkloadTitleLabelFigure());
+							.getFigureClosedWorkloadPopulationFigure());
 			return true;
 		}
 		if (childEditPart instanceof ClosedWorkloadPopulationEditPart) {
 			((ClosedWorkloadPopulationEditPart) childEditPart)
 					.setLabel(getPrimaryShape()
-							.getFigureClosedWorkloadPopulationFigure());
+							.getFigureClosedWorkloadTitleLabelFigure());
 			return true;
 		}
 		if (childEditPart instanceof ClosedWorkloadThinkTimeLabelEditPart) {

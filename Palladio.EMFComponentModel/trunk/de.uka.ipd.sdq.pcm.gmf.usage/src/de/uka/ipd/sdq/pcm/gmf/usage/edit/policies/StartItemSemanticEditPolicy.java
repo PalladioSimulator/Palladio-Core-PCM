@@ -23,6 +23,7 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.SetRequest;
 import org.eclipse.gmf.runtime.notation.Edge;
 import org.eclipse.gmf.runtime.notation.View;
 
+import de.uka.ipd.sdq.pcm.gmf.usage.edit.commands.AbstractUserActionSuccessorCreateCommand;
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.commands.AbstractUserActionSuccessorReorientCommand;
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.commands.AbstractUserActionTypeLinkCreateCommand;
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.AbstractUserActionSuccessorEditPart;
@@ -42,76 +43,45 @@ public class StartItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	protected Command getDestroyElementCommand(DestroyElementRequest req) {
-		CompoundCommand cc = new CompoundCommand();
-		Collection allEdges = new ArrayList();
-		View view = (View) getHost().getModel();
-		allEdges.addAll(view.getSourceEdges());
-		allEdges.addAll(view.getTargetEdges());
-		for (Iterator it = allEdges.iterator(); it.hasNext();) {
-			Edge nextEdge = (Edge) it.next();
-			EditPart nextEditPart = (EditPart) getHost().getViewer()
-					.getEditPartRegistry().get(nextEdge);
-			EditCommandRequestWrapper editCommandRequest = new EditCommandRequestWrapper(
-					new DestroyElementRequest(((StartEditPart) getHost())
-							.getEditingDomain(), req.isConfirmationRequired()),
-					Collections.EMPTY_MAP);
-			cc.add(nextEditPart.getCommand(editCommandRequest));
-		}
-		cc.add(getMSLWrapper(new DestroyElementCommand(req)));
-		return cc;
+		CompoundCommand cc = getDestroyEdgesCommand();
+		cc.add(getGEFWrapper(new DestroyElementCommand(req)));
+		return cc.unwrap();
 	}
 
 	/**
 	 * @generated
 	 */
 	protected Command getCreateRelationshipCommand(CreateRelationshipRequest req) {
+		Command command = req.getTarget() == null ? getStartCreateRelationshipCommand(req)
+				: getCompleteCreateRelationshipCommand(req);
+		return command != null ? command : super
+				.getCreateRelationshipCommand(req);
+	}
+
+	/**
+	 * @generated
+	 */
+	protected Command getStartCreateRelationshipCommand(
+			CreateRelationshipRequest req) {
 		if (PalladioComponentModelElementTypes.AbstractUserActionSuccessor_4002 == req
 				.getElementType()) {
-			return req.getTarget() == null ? getCreateStartOutgoingAbstractUserActionSuccessor_4002Command(req)
-					: getCreateCompleteIncomingAbstractUserActionSuccessor_4002Command(req);
+			return getGEFWrapper(new AbstractUserActionSuccessorCreateCommand(
+					req, req.getSource(), req.getTarget()));
 		}
-		return super.getCreateRelationshipCommand(req);
+		return null;
 	}
 
 	/**
 	 * @generated
 	 */
-	protected Command getCreateStartOutgoingAbstractUserActionSuccessor_4002Command(
+	protected Command getCompleteCreateRelationshipCommand(
 			CreateRelationshipRequest req) {
-		EObject sourceEObject = req.getSource();
-		if (false == sourceEObject instanceof AbstractUserAction) {
-			return UnexecutableCommand.INSTANCE;
+		if (PalladioComponentModelElementTypes.AbstractUserActionSuccessor_4002 == req
+				.getElementType()) {
+			return getGEFWrapper(new AbstractUserActionSuccessorCreateCommand(
+					req, req.getSource(), req.getTarget()));
 		}
-		AbstractUserAction source = (AbstractUserAction) sourceEObject;
-		if (!PalladioComponentModelBaseItemSemanticEditPolicy.LinkConstraints
-				.canCreateAbstractUserActionSuccessor_4002(source, null)) {
-			return UnexecutableCommand.INSTANCE;
-		}
-		return new Command() {
-		};
-	}
-
-	/**
-	 * @generated
-	 */
-	protected Command getCreateCompleteIncomingAbstractUserActionSuccessor_4002Command(
-			CreateRelationshipRequest req) {
-		EObject sourceEObject = req.getSource();
-		EObject targetEObject = req.getTarget();
-		if (false == sourceEObject instanceof AbstractUserAction
-				|| false == targetEObject instanceof AbstractUserAction) {
-			return UnexecutableCommand.INSTANCE;
-		}
-		AbstractUserAction source = (AbstractUserAction) sourceEObject;
-		AbstractUserAction target = (AbstractUserAction) targetEObject;
-		if (!PalladioComponentModelBaseItemSemanticEditPolicy.LinkConstraints
-				.canCreateAbstractUserActionSuccessor_4002(source, target)) {
-			return UnexecutableCommand.INSTANCE;
-		}
-		SetRequest setReq = new SetRequest(sourceEObject,
-				UsagemodelPackage.eINSTANCE.getAbstractUserAction_Successor(),
-				target);
-		return getMSLWrapper(new SetValueCommand(setReq));
+		return null;
 	}
 
 	/**
@@ -124,7 +94,7 @@ public class StartItemSemanticEditPolicy extends
 			ReorientReferenceRelationshipRequest req) {
 		switch (getVisualID(req)) {
 		case AbstractUserActionSuccessorEditPart.VISUAL_ID:
-			return getMSLWrapper(new AbstractUserActionSuccessorReorientCommand(
+			return getGEFWrapper(new AbstractUserActionSuccessorReorientCommand(
 					req));
 		}
 		return super.getReorientReferenceRelationshipCommand(req);

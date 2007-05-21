@@ -1,10 +1,18 @@
 package de.uka.ipd.sdq.sensorframework.visualisation.jfreechartvisualisation;
 
+import java.awt.Color;
 import java.awt.Graphics2D;
+import java.awt.Paint;
 import java.awt.Rectangle;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+import java.io.Writer;
 
+import org.apache.batik.dom.GenericDOMImplementation;
+import org.apache.batik.svggen.SVGGraphics2D;
 import org.eclipse.jface.action.Action;
 import org.eclipse.jface.action.MenuManager;
 import org.eclipse.swt.events.PaintListener;
@@ -17,6 +25,8 @@ import org.eclipse.swt.widgets.FileDialog;
 import org.eclipse.ui.PlatformUI;
 import org.jfree.chart.ChartUtilities;
 import org.jfree.chart.JFreeChart;
+import org.w3c.dom.DOMImplementation;
+import org.w3c.dom.Document;
 
 import de.uka.ipd.sdq.codegen.simudatavisualisation.datatypes.Histogram;
 
@@ -45,6 +55,45 @@ class SaveImageAsAction extends Action {
 				ChartUtilities.saveChartAsPNG(f, chart, chartViewer.getBounds().width, chartViewer.getBounds().height);
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+	}
+}
+
+class SaveSVGAsAction extends Action {
+
+
+	private AbstractJFreeChartChart chartViewer;
+
+	public SaveSVGAsAction(AbstractJFreeChartChart abstractJFreeChartChart) {
+		super();
+		setText("Save Chart as SVG...");
+		this.chartViewer = abstractJFreeChartChart;
+	}
+	
+	@Override
+	public void run() {
+		FileDialog dialog = new FileDialog(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell());
+		dialog.setFilterExtensions(new String[]{"*.svg"});
+		dialog.setText("Enter the image file name");
+		dialog.open();
+		if (dialog.getFileName() != null){
+			String filename = dialog.getFilterPath()+File.separator+dialog.getFileName();
+			File f = new File(filename);
+			JFreeChart chart = chartViewer.getChart();
+			try {
+				DOMImplementation domI = new GenericDOMImplementation();
+				Document doc = domI.createDocument(null, "svg", null);
+				SVGGraphics2D svgRenderer = new SVGGraphics2D(doc);
+				Paint p = chart.getBackgroundPaint();
+				chart.setBackgroundPaint(new Color(0, 0, 0, 0));
+				chart.draw(svgRenderer, new Rectangle(0,0,640,480));
+				chart.setBackgroundPaint(p);
+				Writer out = new OutputStreamWriter(new FileOutputStream(f),"UTF-8");
+				svgRenderer.stream(out,true);
+				out.close();
+			} catch (IOException e) {
 				e.printStackTrace();
 			}
 		}
@@ -94,6 +143,7 @@ public abstract class AbstractJFreeChartChart extends Canvas {
 
 	protected void initializeContextMenu(MenuManager menu_manager) {
 		menu_manager.add(new SaveImageAsAction(this));
+		menu_manager.add(new SaveSVGAsAction(this));
 	}
 
 	protected abstract void initChart();

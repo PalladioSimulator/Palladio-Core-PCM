@@ -33,6 +33,15 @@
       <steps_Behaviour xsi:type="pcm.seff:SetVariableAction" id="_zXI0cABbEdyaQesd_AtJPw" entityName="xyz"/>
     </serviceEffectSpecifications__BasicComponent>
   </components__Repository>
+  <components__Repository xsi:type="pcm.repository:CompositeComponent" id="_REAeYAYtEdywPJFHUqResg" entityName="test">
+    <providedRoles_InterfaceProvidingEntity id="_QaPZkAY2EdywPJFHUqResg"/>
+    <requiredRoles_InterfaceRequiringEntity id="_KL8rUAY2EdywPJFHUqResg" requiredInterface__RequiredRole="_3YdhAP_8Edu5_5tCZjPAAA"/>
+    <childComponentContexts_ComposedStructure id="_chkG0AYtEdywPJFHUqResg" entityName="test1" encapsulatedComponent_ChildComponentContext="_V3B8QP_9Edu5_5tCZjPAAA"/>
+    <childComponentContexts_ComposedStructure id="_x8GVwAYtEdywPJFHUqResg" entityName="test2" encapsulatedComponent_ChildComponentContext="_V3B8QP_9Edu5_5tCZjPAAA"/>
+    <providedDelegationConnectors_ComposedStructure id="_L9OhEAZJEdyIptAqfF6SLA" innerProvidedRole_ProvidedDelegationConnector="_XfHUYP_9Edu5_5tCZjPAAA" outerProvidedRole_ProvidedDelegationConnector="_QaPZkAY2EdywPJFHUqResg" childComponentContext_ProvidedDelegationConnector="_chkG0AYtEdywPJFHUqResg"/>
+    <requiredDelegationConnectors_ComposedStructure id="_P0r60AZJEdyIptAqfF6SLA" innerRequiredRole_RequiredDelegationConnector="_X8oW0P_9Edu5_5tCZjPAAA" outerRequiredRole_RequiredDelegationConnector="_KL8rUAY2EdywPJFHUqResg" childComponentContext_RequiredDelegationConnector="_x8GVwAYtEdywPJFHUqResg"/>
+    <compositeAssemblyConnectors_ComposedStructure id="_eu3q4AY4EdywPJFHUqResg" requiringChildComponentContext_CompositeAssemblyConnector="_chkG0AYtEdywPJFHUqResg" providingChildComponentContext_CompositeAssemblyConnector="_x8GVwAYtEdywPJFHUqResg" providedRole_CompositeAssemblyConnector="_XfHUYP_9Edu5_5tCZjPAAA" requiredRole_CompositeAssemblyConnector="_X8oW0P_9Edu5_5tCZjPAAA"/>
+  </components__Repository>
   <interfaces__Repository id="_3YdhAP_8Edu5_5tCZjPAAA" entityName="IProvided">
     <signatures__Interface serviceName="setVariableClient"/>
   </interfaces__Repository>

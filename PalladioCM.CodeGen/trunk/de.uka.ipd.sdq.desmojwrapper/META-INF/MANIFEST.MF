@@ -12,4 +12,3 @@ Export-Package: desmoj.core.advancedModellingFeatures,
  desmoj.core.simulator,
  desmoj.core.statistic,
  desmoj.core.util
-Require-Bundle: org.eclipse.birt.chart.engine

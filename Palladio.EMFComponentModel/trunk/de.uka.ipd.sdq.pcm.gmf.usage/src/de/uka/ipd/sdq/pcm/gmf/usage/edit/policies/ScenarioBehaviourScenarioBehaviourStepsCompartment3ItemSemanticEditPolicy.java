@@ -33,7 +33,7 @@ public class ScenarioBehaviourScenarioBehaviourStepsCompartment3ItemSemanticEdit
 				req.setContainmentFeature(UsagemodelPackage.eINSTANCE
 						.getScenarioBehaviour_Actions_ScenarioBehaviour());
 			}
-			return getMSLWrapper(new StartCreateCommand(req));
+			return getGEFWrapper(new StartCreateCommand(req));
 		}
 		if (PalladioComponentModelElementTypes.Stop_3002 == req
 				.getElementType()) {
@@ -41,7 +41,7 @@ public class ScenarioBehaviourScenarioBehaviourStepsCompartment3ItemSemanticEdit
 				req.setContainmentFeature(UsagemodelPackage.eINSTANCE
 						.getScenarioBehaviour_Actions_ScenarioBehaviour());
 			}
-			return getMSLWrapper(new StopCreateCommand(req));
+			return getGEFWrapper(new StopCreateCommand(req));
 		}
 		if (PalladioComponentModelElementTypes.EntryLevelSystemCall_3003 == req
 				.getElementType()) {
@@ -49,7 +49,7 @@ public class ScenarioBehaviourScenarioBehaviourStepsCompartment3ItemSemanticEdit
 				req.setContainmentFeature(UsagemodelPackage.eINSTANCE
 						.getScenarioBehaviour_Actions_ScenarioBehaviour());
 			}
-			return getMSLWrapper(new EntryLevelSystemCallCreateCommand(req));
+			return getGEFWrapper(new EntryLevelSystemCallCreateCommand(req));
 		}
 		if (PalladioComponentModelElementTypes.Loop_3005 == req
 				.getElementType()) {
@@ -57,7 +57,7 @@ public class ScenarioBehaviourScenarioBehaviourStepsCompartment3ItemSemanticEdit
 				req.setContainmentFeature(UsagemodelPackage.eINSTANCE
 						.getScenarioBehaviour_Actions_ScenarioBehaviour());
 			}
-			return getMSLWrapper(new LoopCreateCommand(req));
+			return getGEFWrapper(new LoopCreateCommand(req));
 		}
 		if (PalladioComponentModelElementTypes.Branch_3008 == req
 				.getElementType()) {
@@ -65,7 +65,7 @@ public class ScenarioBehaviourScenarioBehaviourStepsCompartment3ItemSemanticEdit
 				req.setContainmentFeature(UsagemodelPackage.eINSTANCE
 						.getScenarioBehaviour_Actions_ScenarioBehaviour());
 			}
-			return getMSLWrapper(new BranchCreateCommand(req));
+			return getGEFWrapper(new BranchCreateCommand(req));
 		}
 		return super.getCreateCommand(req);
 	}

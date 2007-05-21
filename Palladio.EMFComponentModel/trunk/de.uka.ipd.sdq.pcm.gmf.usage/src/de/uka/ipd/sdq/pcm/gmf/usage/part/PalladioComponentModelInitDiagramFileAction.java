@@ -31,6 +31,7 @@ import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.jface.wizard.Wizard;
 import org.eclipse.jface.wizard.WizardDialog;
 
+import org.eclipse.osgi.util.NLS;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.IObjectActionDelegate;
 import org.eclipse.ui.IWorkbenchPart;
@@ -49,7 +50,7 @@ public class PalladioComponentModelInitDiagramFileAction implements
 	/**
 	 * @generated
 	 */
-	private org.eclipse.emf.common.util.URI domainModelURI;
+	private URI domainModelURI;
 
 	/**
 	 * @generated
@@ -70,8 +71,8 @@ public class PalladioComponentModelInitDiagramFileAction implements
 		}
 		IFile file = (IFile) ((IStructuredSelection) selection)
 				.getFirstElement();
-		domainModelURI = org.eclipse.emf.common.util.URI
-				.createPlatformResourceURI(file.getFullPath().toString(), true);
+		domainModelURI = URI.createPlatformResourceURI(file.getFullPath()
+				.toString(), true);
 		action.setEnabled(true);
 	}
 
@@ -95,17 +96,23 @@ public class PalladioComponentModelInitDiagramFileAction implements
 			diagramRoot = (EObject) resource.getContents().get(0);
 		} catch (WrappedException ex) {
 			PalladioComponentModelUsageDiagramEditorPlugin.getInstance()
-					.logError("Unable to load resource: " + domainModelURI, ex);
+					.logError("Unable to load resource: " + domainModelURI, ex); //$NON-NLS-1$
 		}
 		if (diagramRoot == null) {
-			MessageDialog.openError(getShell(), "Error",
-					"Model file loading failed");
+			MessageDialog
+					.openError(
+							getShell(),
+							Messages.PalladioComponentModelInitDiagramFileAction_InitDiagramFileResourceErrorDialogTitle,
+							Messages.PalladioComponentModelInitDiagramFileAction_InitDiagramFileResourceErrorDialogMessage);
 			return;
 		}
 		Wizard wizard = new PalladioComponentModelNewDiagramFileWizard(
 				domainModelURI, diagramRoot, editingDomain);
-		wizard.setWindowTitle("Initialize new "
-				+ UsageScenarioEditPart.MODEL_ID + " diagram file");
+		wizard
+				.setWindowTitle(NLS
+						.bind(
+								Messages.PalladioComponentModelInitDiagramFileAction_InitDiagramFileWizardTitle,
+								UsageScenarioEditPart.MODEL_ID));
 		PalladioComponentModelDiagramEditorUtil.runWizard(getShell(), wizard,
 				"InitDiagramFile"); //$NON-NLS-1$
 	}

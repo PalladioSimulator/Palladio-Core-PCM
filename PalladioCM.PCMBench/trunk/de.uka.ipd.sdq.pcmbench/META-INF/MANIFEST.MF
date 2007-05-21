@@ -42,8 +42,7 @@ Require-Bundle: org.eclipse.core.runtime,
  de.uka.ipd.sdq.pcmbench.ui,
  org.eclipse.pde.runtime,
  org.eclipse.debug.ui,
- de.uka.ipd.sdq.pcmbench.help,
- org.eclipse.birt.chart.ui
+ de.uka.ipd.sdq.pcmbench.help
 Eclipse-LazyStart: true
 Import-Package: org.eclipse.ui.dialogs
 Bundle-Activator: de.uka.ipd.sdq.pcmbench.PCMBenchActivator

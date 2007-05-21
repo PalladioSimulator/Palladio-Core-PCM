@@ -12,7 +12,11 @@ Require-Bundle: org.eclipse.ui,
  de.uka.ipd.sdq.sensorframework,
  de.uka.ipd.sdq.sensorframework.adapter,
  org.eclipse.ui.views.properties.tabbed,
- org.eclipse.draw2d
+ org.eclipse.draw2d,
+ org.apache.batik.dom,
+ org.apache.batik.dom.svg,
+ org.apache.batik.svggen,
+ org.apache.batik.ext.awt
 Eclipse-LazyStart: true
 Bundle-ClassPath: lib/jcommon-1.0.0.jar,
  lib/jfreechart-1.0.1.jar,

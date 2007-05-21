@@ -8,6 +8,7 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.Iterator;
 
+import org.eclipse.emf.ecore.EAnnotation;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.commands.Command;
@@ -22,12 +23,16 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.DestroyElementRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.ReorientReferenceRelationshipRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.SetRequest;
 import org.eclipse.gmf.runtime.notation.Edge;
+import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
 
+import de.uka.ipd.sdq.pcm.gmf.usage.edit.commands.AbstractUserActionSuccessorCreateCommand;
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.commands.AbstractUserActionSuccessorReorientCommand;
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.commands.ScenarioBehaviour2CreateCommand;
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.AbstractUserActionSuccessorEditPart;
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.LoopEditPart;
+import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.ScenarioBehaviour2EditPart;
+import de.uka.ipd.sdq.pcm.gmf.usage.part.PalladioComponentModelVisualIDRegistry;
 import de.uka.ipd.sdq.pcm.gmf.usage.providers.PalladioComponentModelElementTypes;
 import de.uka.ipd.sdq.pcm.usagemodel.AbstractUserAction;
 import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
@@ -48,7 +53,7 @@ public class LoopItemSemanticEditPolicy extends
 				req.setContainmentFeature(UsagemodelPackage.eINSTANCE
 						.getLoop_BodyBehaviour_Loop());
 			}
-			return getMSLWrapper(new ScenarioBehaviour2CreateCommand(req));
+			return getGEFWrapper(new ScenarioBehaviour2CreateCommand(req));
 		}
 		return super.getCreateCommand(req);
 	}
@@ -57,76 +62,65 @@ public class LoopItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	protected Command getDestroyElementCommand(DestroyElementRequest req) {
-		CompoundCommand cc = new CompoundCommand();
-		Collection allEdges = new ArrayList();
+		CompoundCommand cc = getDestroyEdgesCommand();
+		addDestroyChildNodesCommand(cc);
+		cc.add(getGEFWrapper(new DestroyElementCommand(req)));
+		return cc.unwrap();
+	}
+
+	/**
+	 * @generated
+	 */
+	protected void addDestroyChildNodesCommand(CompoundCommand cmd) {
 		View view = (View) getHost().getModel();
-		allEdges.addAll(view.getSourceEdges());
-		allEdges.addAll(view.getTargetEdges());
-		for (Iterator it = allEdges.iterator(); it.hasNext();) {
-			Edge nextEdge = (Edge) it.next();
-			EditPart nextEditPart = (EditPart) getHost().getViewer()
-					.getEditPartRegistry().get(nextEdge);
-			EditCommandRequestWrapper editCommandRequest = new EditCommandRequestWrapper(
-					new DestroyElementRequest(((LoopEditPart) getHost())
-							.getEditingDomain(), req.isConfirmationRequired()),
-					Collections.EMPTY_MAP);
-			cc.add(nextEditPart.getCommand(editCommandRequest));
+		EAnnotation annotation = view.getEAnnotation("Shortcut"); //$NON-NLS-1$
+		if (annotation != null) {
+			return;
 		}
-		cc.add(getMSLWrapper(new DestroyElementCommand(req)));
-		return cc;
+		for (Iterator it = view.getChildren().iterator(); it.hasNext();) {
+			Node node = (Node) it.next();
+			switch (PalladioComponentModelVisualIDRegistry.getVisualID(node)) {
+			case ScenarioBehaviour2EditPart.VISUAL_ID:
+				cmd.add(getDestroyElementCommand(node));
+				break;
+			}
+		}
 	}
 
 	/**
 	 * @generated
 	 */
 	protected Command getCreateRelationshipCommand(CreateRelationshipRequest req) {
+		Command command = req.getTarget() == null ? getStartCreateRelationshipCommand(req)
+				: getCompleteCreateRelationshipCommand(req);
+		return command != null ? command : super
+				.getCreateRelationshipCommand(req);
+	}
+
+	/**
+	 * @generated
+	 */
+	protected Command getStartCreateRelationshipCommand(
+			CreateRelationshipRequest req) {
 		if (PalladioComponentModelElementTypes.AbstractUserActionSuccessor_4002 == req
 				.getElementType()) {
-			return req.getTarget() == null ? getCreateStartOutgoingAbstractUserActionSuccessor_4002Command(req)
-					: getCreateCompleteIncomingAbstractUserActionSuccessor_4002Command(req);
+			return getGEFWrapper(new AbstractUserActionSuccessorCreateCommand(
+					req, req.getSource(), req.getTarget()));
 		}
-		return super.getCreateRelationshipCommand(req);
+		return null;
 	}
 
 	/**
 	 * @generated
 	 */
-	protected Command getCreateStartOutgoingAbstractUserActionSuccessor_4002Command(
+	protected Command getCompleteCreateRelationshipCommand(
 			CreateRelationshipRequest req) {
-		EObject sourceEObject = req.getSource();
-		if (false == sourceEObject instanceof AbstractUserAction) {
-			return UnexecutableCommand.INSTANCE;
+		if (PalladioComponentModelElementTypes.AbstractUserActionSuccessor_4002 == req
+				.getElementType()) {
+			return getGEFWrapper(new AbstractUserActionSuccessorCreateCommand(
+					req, req.getSource(), req.getTarget()));
 		}
-		AbstractUserAction source = (AbstractUserAction) sourceEObject;
-		if (!PalladioComponentModelBaseItemSemanticEditPolicy.LinkConstraints
-				.canCreateAbstractUserActionSuccessor_4002(source, null)) {
-			return UnexecutableCommand.INSTANCE;
-		}
-		return new Command() {
-		};
-	}
-
-	/**
-	 * @generated
-	 */
-	protected Command getCreateCompleteIncomingAbstractUserActionSuccessor_4002Command(
-			CreateRelationshipRequest req) {
-		EObject sourceEObject = req.getSource();
-		EObject targetEObject = req.getTarget();
-		if (false == sourceEObject instanceof AbstractUserAction
-				|| false == targetEObject instanceof AbstractUserAction) {
-			return UnexecutableCommand.INSTANCE;
-		}
-		AbstractUserAction source = (AbstractUserAction) sourceEObject;
-		AbstractUserAction target = (AbstractUserAction) targetEObject;
-		if (!PalladioComponentModelBaseItemSemanticEditPolicy.LinkConstraints
-				.canCreateAbstractUserActionSuccessor_4002(source, target)) {
-			return UnexecutableCommand.INSTANCE;
-		}
-		SetRequest setReq = new SetRequest(sourceEObject,
-				UsagemodelPackage.eINSTANCE.getAbstractUserAction_Successor(),
-				target);
-		return getMSLWrapper(new SetValueCommand(setReq));
+		return null;
 	}
 
 	/**
@@ -139,7 +133,7 @@ public class LoopItemSemanticEditPolicy extends
 			ReorientReferenceRelationshipRequest req) {
 		switch (getVisualID(req)) {
 		case AbstractUserActionSuccessorEditPart.VISUAL_ID:
-			return getMSLWrapper(new AbstractUserActionSuccessorReorientCommand(
+			return getGEFWrapper(new AbstractUserActionSuccessorReorientCommand(
 					req));
 		}
 		return super.getReorientReferenceRelationshipCommand(req);
