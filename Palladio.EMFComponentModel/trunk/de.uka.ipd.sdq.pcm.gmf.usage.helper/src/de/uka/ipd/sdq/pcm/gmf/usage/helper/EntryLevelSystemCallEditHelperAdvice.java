@@ -4,6 +4,7 @@
 package de.uka.ipd.sdq.pcm.gmf.usage.helper;
 
 import java.util.ArrayList;
+import java.util.Collection;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -68,7 +69,7 @@ public class EntryLevelSystemCallEditHelperAdvice extends
 	 */
 	private ProvidedRole getProvidedRoleToSignature(Signature signature,
 			TransactionalEditingDomain editingDomain) {
-		System system = null;
+		Collection<System> systems = new ArrayList<System>();
 		Interface signInterface = signature.getInterface_Signature();
 
 		/**
@@ -77,23 +78,26 @@ public class EntryLevelSystemCallEditHelperAdvice extends
 		EList<Resource> resources = editingDomain.getResourceSet()
 				.getResources();
 		for (Resource resource : resources)
-			if (resource.getContents().get(0) instanceof System)
-				system = (System) resource.getContents().get(0);
+			if (!resource.getContents().isEmpty()
+					&& resource.getContents().get(0) instanceof System)
+				systems.add((System) resource.getContents().get(0));
 
-		if (system == null)
+		if (systems.isEmpty())
 			return null;
 
 		/**
 		 * search the ProvidedRole in System
 		 */
-		EList<ProvidedRole> providedRoles = system
-				.getProvidedRoles_InterfaceProvidingEntity();
+		for (System system : systems) {
+			EList<ProvidedRole> providedRoles = system
+					.getProvidedRoles_InterfaceProvidingEntity();
 
-		for (ProvidedRole providedRole : providedRoles)
-			if (providedRole.getProvidedInterface__ProvidedRole().equals(
-					signInterface))
-				return providedRole;
-
+			for (ProvidedRole providedRole : providedRoles)
+				if (providedRole.getProvidedInterface__ProvidedRole().equals(
+						signInterface))
+					return providedRole;
+		}
+		
 		return null;
 	}
 }
