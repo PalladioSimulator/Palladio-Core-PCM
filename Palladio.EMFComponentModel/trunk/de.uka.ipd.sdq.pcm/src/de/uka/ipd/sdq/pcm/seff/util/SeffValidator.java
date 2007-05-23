@@ -114,6 +114,8 @@ public class SeffValidator extends EObjectValidator {
 	@Override
 	protected boolean validate(int classifierID, Object value, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		switch (classifierID) {
+			case SeffPackage.SERVICE_EFFECT_SPECIFICATION:
+				return validateServiceEffectSpecification((ServiceEffectSpecification)value, diagnostics, context);
 			case SeffPackage.STOP_ACTION:
 				return validateStopAction((StopAction)value, diagnostics, context);
 			case SeffPackage.ABSTRACT_RESOURCE_DEMANDING_ACTION:
@@ -144,8 +146,6 @@ public class SeffValidator extends EObjectValidator {
 				return validateExternalCallAction((ExternalCallAction)value, diagnostics, context);
 			case SeffPackage.PROBABILISTIC_BRANCH_TRANSITION:
 				return validateProbabilisticBranchTransition((ProbabilisticBranchTransition)value, diagnostics, context);
-			case SeffPackage.ABSTRACT_BRANCH_TRANSITION:
-				return validateAbstractBranchTransition((AbstractBranchTransition)value, diagnostics, context);
 			case SeffPackage.BRANCH_ACTION:
 				return validateBranchAction((BranchAction)value, diagnostics, context);
 			case SeffPackage.AQUIRE_ACTION:
@@ -158,8 +158,8 @@ public class SeffValidator extends EObjectValidator {
 				return validateGuardedBranchTransition((GuardedBranchTransition)value, diagnostics, context);
 			case SeffPackage.SET_VARIABLE_ACTION:
 				return validateSetVariableAction((SetVariableAction)value, diagnostics, context);
-			case SeffPackage.SERVICE_EFFECT_SPECIFICATION:
-				return validateServiceEffectSpecification((ServiceEffectSpecification)value, diagnostics, context);
+			case SeffPackage.ABSTRACT_BRANCH_TRANSITION:
+				return validateAbstractBranchTransition((AbstractBranchTransition)value, diagnostics, context);
 			default: 
 				return true;
 		}

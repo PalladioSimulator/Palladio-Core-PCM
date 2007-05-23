@@ -114,6 +114,16 @@ public class ResourcetypeSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case ResourcetypePackage.PROCESSING_RESOURCE_TYPE: {
+				ProcessingResourceType processingResourceType = (ProcessingResourceType)theEObject;
+				T result = caseProcessingResourceType(processingResourceType);
+				if (result == null) result = caseResourceType(processingResourceType);
+				if (result == null) result = caseEntity(processingResourceType);
+				if (result == null) result = caseIdentifier(processingResourceType);
+				if (result == null) result = caseNamedElement(processingResourceType);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case ResourcetypePackage.PASSIVE_RESOURCE_TYPE: {
 				PassiveResourceType passiveResourceType = (PassiveResourceType)theEObject;
 				T result = casePassiveResourceType(passiveResourceType);
@@ -132,16 +142,6 @@ public class ResourcetypeSwitch<T> {
 				if (result == null) result = caseEntity(communicationLinkResourceType);
 				if (result == null) result = caseIdentifier(communicationLinkResourceType);
 				if (result == null) result = caseNamedElement(communicationLinkResourceType);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case ResourcetypePackage.PROCESSING_RESOURCE_TYPE: {
-				ProcessingResourceType processingResourceType = (ProcessingResourceType)theEObject;
-				T result = caseProcessingResourceType(processingResourceType);
-				if (result == null) result = caseResourceType(processingResourceType);
-				if (result == null) result = caseEntity(processingResourceType);
-				if (result == null) result = caseIdentifier(processingResourceType);
-				if (result == null) result = caseNamedElement(processingResourceType);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}

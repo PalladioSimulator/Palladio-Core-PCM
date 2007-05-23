@@ -80,52 +80,7 @@ public interface SeffPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl#getAbstractAction()
 	 * @generated
 	 */
-	int ABSTRACT_ACTION = 2;
-
-	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ABSTRACT_ACTION__ID = EntityPackage.ENTITY__ID;
-
-	/**
-	 * The feature id for the '<em><b>Entity Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ABSTRACT_ACTION__ENTITY_NAME = EntityPackage.ENTITY__ENTITY_NAME;
-
-	/**
-	 * The feature id for the '<em><b>Predecessor Abstract Action</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ABSTRACT_ACTION__PREDECESSOR_ABSTRACT_ACTION = EntityPackage.ENTITY_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Successor Abstract Action</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ABSTRACT_ACTION__SUCCESSOR_ABSTRACT_ACTION = EntityPackage.ENTITY_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of structural features of the '<em>Abstract Action</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ABSTRACT_ACTION_FEATURE_COUNT = EntityPackage.ENTITY_FEATURE_COUNT + 2;
+	int ABSTRACT_ACTION = 3;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.seff.impl.AbstractResourceDemandingActionImpl <em>Abstract Resource Demanding Action</em>}' class.
@@ -135,61 +90,7 @@ public interface SeffPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl#getAbstractResourceDemandingAction()
 	 * @generated
 	 */
-	int ABSTRACT_RESOURCE_DEMANDING_ACTION = 1;
-
-	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ABSTRACT_RESOURCE_DEMANDING_ACTION__ID = ABSTRACT_ACTION__ID;
-
-	/**
-	 * The feature id for the '<em><b>Entity Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ABSTRACT_RESOURCE_DEMANDING_ACTION__ENTITY_NAME = ABSTRACT_ACTION__ENTITY_NAME;
-
-	/**
-	 * The feature id for the '<em><b>Predecessor Abstract Action</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ABSTRACT_RESOURCE_DEMANDING_ACTION__PREDECESSOR_ABSTRACT_ACTION = ABSTRACT_ACTION__PREDECESSOR_ABSTRACT_ACTION;
-
-	/**
-	 * The feature id for the '<em><b>Successor Abstract Action</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ABSTRACT_RESOURCE_DEMANDING_ACTION__SUCCESSOR_ABSTRACT_ACTION = ABSTRACT_ACTION__SUCCESSOR_ABSTRACT_ACTION;
-
-	/**
-	 * The feature id for the '<em><b>Resource Demand Action</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ABSTRACT_RESOURCE_DEMANDING_ACTION__RESOURCE_DEMAND_ACTION = ABSTRACT_ACTION_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>Abstract Resource Demanding Action</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ABSTRACT_RESOURCE_DEMANDING_ACTION_FEATURE_COUNT = ABSTRACT_ACTION_FEATURE_COUNT + 1;
+	int ABSTRACT_RESOURCE_DEMANDING_ACTION = 2;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.seff.impl.StopActionImpl <em>Stop Action</em>}' class.
@@ -199,61 +100,7 @@ public interface SeffPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl#getStopAction()
 	 * @generated
 	 */
-	int STOP_ACTION = 0;
-
-	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STOP_ACTION__ID = ABSTRACT_RESOURCE_DEMANDING_ACTION__ID;
-
-	/**
-	 * The feature id for the '<em><b>Entity Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STOP_ACTION__ENTITY_NAME = ABSTRACT_RESOURCE_DEMANDING_ACTION__ENTITY_NAME;
-
-	/**
-	 * The feature id for the '<em><b>Predecessor Abstract Action</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STOP_ACTION__PREDECESSOR_ABSTRACT_ACTION = ABSTRACT_RESOURCE_DEMANDING_ACTION__PREDECESSOR_ABSTRACT_ACTION;
-
-	/**
-	 * The feature id for the '<em><b>Successor Abstract Action</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STOP_ACTION__SUCCESSOR_ABSTRACT_ACTION = ABSTRACT_RESOURCE_DEMANDING_ACTION__SUCCESSOR_ABSTRACT_ACTION;
-
-	/**
-	 * The feature id for the '<em><b>Resource Demand Action</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STOP_ACTION__RESOURCE_DEMAND_ACTION = ABSTRACT_RESOURCE_DEMANDING_ACTION__RESOURCE_DEMAND_ACTION;
-
-	/**
-	 * The number of structural features of the '<em>Stop Action</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int STOP_ACTION_FEATURE_COUNT = ABSTRACT_RESOURCE_DEMANDING_ACTION_FEATURE_COUNT + 0;
+	int STOP_ACTION = 1;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.seff.impl.ParametricResourceDemandImpl <em>Parametric Resource Demand</em>}' class.
@@ -263,52 +110,7 @@ public interface SeffPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl#getParametricResourceDemand()
 	 * @generated
 	 */
-	int PARAMETRIC_RESOURCE_DEMAND = 3;
-
-	/**
-	 * The feature id for the '<em><b>Specification</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PARAMETRIC_RESOURCE_DEMAND__SPECIFICATION = StoexPackage.RANDOM_VARIABLE__SPECIFICATION;
-
-	/**
-	 * The feature id for the '<em><b>Unit</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PARAMETRIC_RESOURCE_DEMAND__UNIT = StoexPackage.RANDOM_VARIABLE_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Required Resource Parametric Resource Demand</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PARAMETRIC_RESOURCE_DEMAND__REQUIRED_RESOURCE_PARAMETRIC_RESOURCE_DEMAND = StoexPackage.RANDOM_VARIABLE_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Action Parametric Resource Demand</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PARAMETRIC_RESOURCE_DEMAND__ACTION_PARAMETRIC_RESOURCE_DEMAND = StoexPackage.RANDOM_VARIABLE_FEATURE_COUNT + 2;
-
-	/**
-	 * The number of structural features of the '<em>Parametric Resource Demand</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PARAMETRIC_RESOURCE_DEMAND_FEATURE_COUNT = StoexPackage.RANDOM_VARIABLE_FEATURE_COUNT + 3;
+	int PARAMETRIC_RESOURCE_DEMAND = 4;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.seff.impl.StartActionImpl <em>Start Action</em>}' class.
@@ -318,61 +120,7 @@ public interface SeffPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl#getStartAction()
 	 * @generated
 	 */
-	int START_ACTION = 4;
-
-	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int START_ACTION__ID = ABSTRACT_RESOURCE_DEMANDING_ACTION__ID;
-
-	/**
-	 * The feature id for the '<em><b>Entity Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int START_ACTION__ENTITY_NAME = ABSTRACT_RESOURCE_DEMANDING_ACTION__ENTITY_NAME;
-
-	/**
-	 * The feature id for the '<em><b>Predecessor Abstract Action</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int START_ACTION__PREDECESSOR_ABSTRACT_ACTION = ABSTRACT_RESOURCE_DEMANDING_ACTION__PREDECESSOR_ABSTRACT_ACTION;
-
-	/**
-	 * The feature id for the '<em><b>Successor Abstract Action</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int START_ACTION__SUCCESSOR_ABSTRACT_ACTION = ABSTRACT_RESOURCE_DEMANDING_ACTION__SUCCESSOR_ABSTRACT_ACTION;
-
-	/**
-	 * The feature id for the '<em><b>Resource Demand Action</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int START_ACTION__RESOURCE_DEMAND_ACTION = ABSTRACT_RESOURCE_DEMANDING_ACTION__RESOURCE_DEMAND_ACTION;
-
-	/**
-	 * The number of structural features of the '<em>Start Action</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int START_ACTION_FEATURE_COUNT = ABSTRACT_RESOURCE_DEMANDING_ACTION_FEATURE_COUNT + 0;
+	int START_ACTION = 5;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.seff.impl.ServiceEffectSpecificationImpl <em>Service Effect Specification</em>}' class.
@@ -382,7 +130,7 @@ public interface SeffPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl#getServiceEffectSpecification()
 	 * @generated
 	 */
-	int SERVICE_EFFECT_SPECIFICATION = 22;
+	int SERVICE_EFFECT_SPECIFICATION = 0;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.seff.impl.ResourceDemandingSEFFImpl <em>Resource Demanding SEFF</em>}' class.
@@ -392,7 +140,7 @@ public interface SeffPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl#getResourceDemandingSEFF()
 	 * @generated
 	 */
-	int RESOURCE_DEMANDING_SEFF = 5;
+	int RESOURCE_DEMANDING_SEFF = 6;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.seff.impl.ResourceDemandingBehaviourImpl <em>Resource Demanding Behaviour</em>}' class.
@@ -402,7 +150,7 @@ public interface SeffPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl#getResourceDemandingBehaviour()
 	 * @generated
 	 */
-	int RESOURCE_DEMANDING_BEHAVIOUR = 6;
+	int RESOURCE_DEMANDING_BEHAVIOUR = 7;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.seff.impl.ReleaseActionImpl <em>Release Action</em>}' class.
@@ -412,7 +160,7 @@ public interface SeffPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl#getReleaseAction()
 	 * @generated
 	 */
-	int RELEASE_ACTION = 7;
+	int RELEASE_ACTION = 8;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.seff.impl.AbstractLoopActionImpl <em>Abstract Loop Action</em>}' class.
@@ -422,7 +170,7 @@ public interface SeffPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl#getAbstractLoopAction()
 	 * @generated
 	 */
-	int ABSTRACT_LOOP_ACTION = 9;
+	int ABSTRACT_LOOP_ACTION = 10;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.seff.impl.LoopActionImpl <em>Loop Action</em>}' class.
@@ -432,7 +180,7 @@ public interface SeffPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl#getLoopAction()
 	 * @generated
 	 */
-	int LOOP_ACTION = 8;
+	int LOOP_ACTION = 9;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.seff.impl.IterationCountImpl <em>Iteration Count</em>}' class.
@@ -442,7 +190,7 @@ public interface SeffPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl#getIterationCount()
 	 * @generated
 	 */
-	int ITERATION_COUNT = 10;
+	int ITERATION_COUNT = 11;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.seff.impl.InternalActionImpl <em>Internal Action</em>}' class.
@@ -452,7 +200,7 @@ public interface SeffPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl#getInternalAction()
 	 * @generated
 	 */
-	int INTERNAL_ACTION = 11;
+	int INTERNAL_ACTION = 12;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.seff.impl.ForkActionImpl <em>Fork Action</em>}' class.
@@ -462,7 +210,7 @@ public interface SeffPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl#getForkAction()
 	 * @generated
 	 */
-	int FORK_ACTION = 12;
+	int FORK_ACTION = 13;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.seff.impl.ExternalCallActionImpl <em>External Call Action</em>}' class.
@@ -472,7 +220,7 @@ public interface SeffPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl#getExternalCallAction()
 	 * @generated
 	 */
-	int EXTERNAL_CALL_ACTION = 13;
+	int EXTERNAL_CALL_ACTION = 14;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.seff.impl.AbstractBranchTransitionImpl <em>Abstract Branch Transition</em>}' class.
@@ -482,7 +230,7 @@ public interface SeffPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl#getAbstractBranchTransition()
 	 * @generated
 	 */
-	int ABSTRACT_BRANCH_TRANSITION = 15;
+	int ABSTRACT_BRANCH_TRANSITION = 22;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.seff.impl.ProbabilisticBranchTransitionImpl <em>Probabilistic Branch Transition</em>}' class.
@@ -492,7 +240,7 @@ public interface SeffPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl#getProbabilisticBranchTransition()
 	 * @generated
 	 */
-	int PROBABILISTIC_BRANCH_TRANSITION = 14;
+	int PROBABILISTIC_BRANCH_TRANSITION = 15;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.seff.impl.BranchActionImpl <em>Branch Action</em>}' class.
@@ -553,6 +301,285 @@ public interface SeffPackage extends EPackage {
 	 * @generated
 	 */
 	int SET_VARIABLE_ACTION = 21;
+
+	/**
+	 * The feature id for the '<em><b>Seff Type ID</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERVICE_EFFECT_SPECIFICATION__SEFF_TYPE_ID = 0;
+
+	/**
+	 * The feature id for the '<em><b>Described Service SEFF</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERVICE_EFFECT_SPECIFICATION__DESCRIBED_SERVICE_SEFF = 1;
+
+	/**
+	 * The number of structural features of the '<em>Service Effect Specification</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERVICE_EFFECT_SPECIFICATION_FEATURE_COUNT = 2;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_ACTION__ID = EntityPackage.ENTITY__ID;
+
+	/**
+	 * The feature id for the '<em><b>Entity Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_ACTION__ENTITY_NAME = EntityPackage.ENTITY__ENTITY_NAME;
+
+	/**
+	 * The feature id for the '<em><b>Predecessor Abstract Action</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_ACTION__PREDECESSOR_ABSTRACT_ACTION = EntityPackage.ENTITY_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Successor Abstract Action</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_ACTION__SUCCESSOR_ABSTRACT_ACTION = EntityPackage.ENTITY_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Abstract Action</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_ACTION_FEATURE_COUNT = EntityPackage.ENTITY_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_RESOURCE_DEMANDING_ACTION__ID = ABSTRACT_ACTION__ID;
+
+	/**
+	 * The feature id for the '<em><b>Entity Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_RESOURCE_DEMANDING_ACTION__ENTITY_NAME = ABSTRACT_ACTION__ENTITY_NAME;
+
+	/**
+	 * The feature id for the '<em><b>Predecessor Abstract Action</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_RESOURCE_DEMANDING_ACTION__PREDECESSOR_ABSTRACT_ACTION = ABSTRACT_ACTION__PREDECESSOR_ABSTRACT_ACTION;
+
+	/**
+	 * The feature id for the '<em><b>Successor Abstract Action</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_RESOURCE_DEMANDING_ACTION__SUCCESSOR_ABSTRACT_ACTION = ABSTRACT_ACTION__SUCCESSOR_ABSTRACT_ACTION;
+
+	/**
+	 * The feature id for the '<em><b>Resource Demand Action</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_RESOURCE_DEMANDING_ACTION__RESOURCE_DEMAND_ACTION = ABSTRACT_ACTION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Abstract Resource Demanding Action</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_RESOURCE_DEMANDING_ACTION_FEATURE_COUNT = ABSTRACT_ACTION_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STOP_ACTION__ID = ABSTRACT_RESOURCE_DEMANDING_ACTION__ID;
+
+	/**
+	 * The feature id for the '<em><b>Entity Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STOP_ACTION__ENTITY_NAME = ABSTRACT_RESOURCE_DEMANDING_ACTION__ENTITY_NAME;
+
+	/**
+	 * The feature id for the '<em><b>Predecessor Abstract Action</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STOP_ACTION__PREDECESSOR_ABSTRACT_ACTION = ABSTRACT_RESOURCE_DEMANDING_ACTION__PREDECESSOR_ABSTRACT_ACTION;
+
+	/**
+	 * The feature id for the '<em><b>Successor Abstract Action</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STOP_ACTION__SUCCESSOR_ABSTRACT_ACTION = ABSTRACT_RESOURCE_DEMANDING_ACTION__SUCCESSOR_ABSTRACT_ACTION;
+
+	/**
+	 * The feature id for the '<em><b>Resource Demand Action</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STOP_ACTION__RESOURCE_DEMAND_ACTION = ABSTRACT_RESOURCE_DEMANDING_ACTION__RESOURCE_DEMAND_ACTION;
+
+	/**
+	 * The number of structural features of the '<em>Stop Action</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STOP_ACTION_FEATURE_COUNT = ABSTRACT_RESOURCE_DEMANDING_ACTION_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Specification</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETRIC_RESOURCE_DEMAND__SPECIFICATION = StoexPackage.RANDOM_VARIABLE__SPECIFICATION;
+
+	/**
+	 * The feature id for the '<em><b>Unit</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETRIC_RESOURCE_DEMAND__UNIT = StoexPackage.RANDOM_VARIABLE_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Required Resource Parametric Resource Demand</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETRIC_RESOURCE_DEMAND__REQUIRED_RESOURCE_PARAMETRIC_RESOURCE_DEMAND = StoexPackage.RANDOM_VARIABLE_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Action Parametric Resource Demand</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETRIC_RESOURCE_DEMAND__ACTION_PARAMETRIC_RESOURCE_DEMAND = StoexPackage.RANDOM_VARIABLE_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of structural features of the '<em>Parametric Resource Demand</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETRIC_RESOURCE_DEMAND_FEATURE_COUNT = StoexPackage.RANDOM_VARIABLE_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int START_ACTION__ID = ABSTRACT_RESOURCE_DEMANDING_ACTION__ID;
+
+	/**
+	 * The feature id for the '<em><b>Entity Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int START_ACTION__ENTITY_NAME = ABSTRACT_RESOURCE_DEMANDING_ACTION__ENTITY_NAME;
+
+	/**
+	 * The feature id for the '<em><b>Predecessor Abstract Action</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int START_ACTION__PREDECESSOR_ABSTRACT_ACTION = ABSTRACT_RESOURCE_DEMANDING_ACTION__PREDECESSOR_ABSTRACT_ACTION;
+
+	/**
+	 * The feature id for the '<em><b>Successor Abstract Action</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int START_ACTION__SUCCESSOR_ABSTRACT_ACTION = ABSTRACT_RESOURCE_DEMANDING_ACTION__SUCCESSOR_ABSTRACT_ACTION;
+
+	/**
+	 * The feature id for the '<em><b>Resource Demand Action</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int START_ACTION__RESOURCE_DEMAND_ACTION = ABSTRACT_RESOURCE_DEMANDING_ACTION__RESOURCE_DEMAND_ACTION;
+
+	/**
+	 * The number of structural features of the '<em>Start Action</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int START_ACTION_FEATURE_COUNT = ABSTRACT_RESOURCE_DEMANDING_ACTION_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1408,33 +1435,6 @@ public interface SeffPackage extends EPackage {
 	 * @ordered
 	 */
 	int SET_VARIABLE_ACTION_FEATURE_COUNT = ABSTRACT_RESOURCE_DEMANDING_ACTION_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Seff Type ID</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SERVICE_EFFECT_SPECIFICATION__SEFF_TYPE_ID = 0;
-
-	/**
-	 * The feature id for the '<em><b>Described Service SEFF</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SERVICE_EFFECT_SPECIFICATION__DESCRIBED_SERVICE_SEFF = 1;
-
-	/**
-	 * The number of structural features of the '<em>Service Effect Specification</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SERVICE_EFFECT_SPECIFICATION_FEATURE_COUNT = 2;
 
 
 	/**

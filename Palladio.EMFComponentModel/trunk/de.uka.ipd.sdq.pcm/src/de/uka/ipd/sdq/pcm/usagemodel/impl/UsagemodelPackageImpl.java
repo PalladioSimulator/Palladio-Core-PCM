@@ -280,12 +280,12 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
 		RepositoryPackageImpl theRepositoryPackage = (RepositoryPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(RepositoryPackage.eNS_URI) instanceof RepositoryPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(RepositoryPackage.eNS_URI) : RepositoryPackage.eINSTANCE);
 		ProtocolPackageImpl theProtocolPackage = (ProtocolPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ProtocolPackage.eNS_URI) instanceof ProtocolPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ProtocolPackage.eNS_URI) : ProtocolPackage.eINSTANCE);
 		ParameterPackageImpl theParameterPackage = (ParameterPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ParameterPackage.eNS_URI) instanceof ParameterPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ParameterPackage.eNS_URI) : ParameterPackage.eINSTANCE);
-		SeffPackageImpl theSeffPackage = (SeffPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(SeffPackage.eNS_URI) instanceof SeffPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(SeffPackage.eNS_URI) : SeffPackage.eINSTANCE);
-		ResourcetypePackageImpl theResourcetypePackage = (ResourcetypePackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ResourcetypePackage.eNS_URI) instanceof ResourcetypePackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ResourcetypePackage.eNS_URI) : ResourcetypePackage.eINSTANCE);
 		AllocationPackageImpl theAllocationPackage = (AllocationPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(AllocationPackage.eNS_URI) instanceof AllocationPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(AllocationPackage.eNS_URI) : AllocationPackage.eINSTANCE);
 		ResourceenvironmentPackageImpl theResourceenvironmentPackage = (ResourceenvironmentPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ResourceenvironmentPackage.eNS_URI) instanceof ResourceenvironmentPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ResourceenvironmentPackage.eNS_URI) : ResourceenvironmentPackage.eINSTANCE);
+		ResourcetypePackageImpl theResourcetypePackage = (ResourcetypePackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ResourcetypePackage.eNS_URI) instanceof ResourcetypePackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ResourcetypePackage.eNS_URI) : ResourcetypePackage.eINSTANCE);
 		SystemPackageImpl theSystemPackage = (SystemPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(SystemPackage.eNS_URI) instanceof SystemPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(SystemPackage.eNS_URI) : SystemPackage.eINSTANCE);
 		QosannotationsPackageImpl theQosannotationsPackage = (QosannotationsPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(QosannotationsPackage.eNS_URI) instanceof QosannotationsPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(QosannotationsPackage.eNS_URI) : QosannotationsPackage.eINSTANCE);
+		SeffPackageImpl theSeffPackage = (SeffPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(SeffPackage.eNS_URI) instanceof SeffPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(SeffPackage.eNS_URI) : SeffPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theUsagemodelPackage.createPackageContents();
@@ -295,12 +295,12 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
 		theRepositoryPackage.createPackageContents();
 		theProtocolPackage.createPackageContents();
 		theParameterPackage.createPackageContents();
-		theSeffPackage.createPackageContents();
-		theResourcetypePackage.createPackageContents();
 		theAllocationPackage.createPackageContents();
 		theResourceenvironmentPackage.createPackageContents();
+		theResourcetypePackage.createPackageContents();
 		theSystemPackage.createPackageContents();
 		theQosannotationsPackage.createPackageContents();
+		theSeffPackage.createPackageContents();
 
 		// Initialize created meta-data
 		theUsagemodelPackage.initializePackageContents();
@@ -310,12 +310,12 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
 		theRepositoryPackage.initializePackageContents();
 		theProtocolPackage.initializePackageContents();
 		theParameterPackage.initializePackageContents();
-		theSeffPackage.initializePackageContents();
-		theResourcetypePackage.initializePackageContents();
 		theAllocationPackage.initializePackageContents();
 		theResourceenvironmentPackage.initializePackageContents();
+		theResourcetypePackage.initializePackageContents();
 		theSystemPackage.initializePackageContents();
 		theQosannotationsPackage.initializePackageContents();
+		theSeffPackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		theUsagemodelPackage.freeze();

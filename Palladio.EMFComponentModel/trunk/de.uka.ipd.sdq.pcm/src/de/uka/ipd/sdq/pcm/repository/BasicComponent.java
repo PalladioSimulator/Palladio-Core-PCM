@@ -99,19 +99,19 @@ public interface BasicComponent extends ImplementationComponentType {
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * -- BC has to provide the same interfaces like the implementationComponentType (if set) #
-	 * self.providedRoles_InterfaceProvidingEntity->iterate(pr : ProvidedRole; acc1 : Bag(String) = Bag{} |
-	 *  acc1->union(pr.providedInterface__ProvidedRole.id->asBag())
-	 * )
-	 * =
 	 * if
 	 *   -- apply constraint only for non-empty ImplementationComponentTypes of a BC #
 	 *  self.implementationComponentType->notEmpty()
+	 *     and
+	 *  self.implementationComponentType.parentCompleteComponentTypes->notEmpty()
 	 * then
-	 *  self.implementationComponentType.providedRoles_InterfaceProvidingEntity->iterate(pr : ProvidedRole; acc2 : Bag(String) = Bag{} |
-	 *   acc2->union(pr.providedInterface__ProvidedRole.id->asBag())
-	 *  )
+	 *  --own interface IDs:
+	 *     self.providedRoles_InterfaceProvidingEntity->collect(pr : ProvidedRole | pr.providedInterface__ProvidedRole.id)->asSet()
+	 *     =
+	 *     --complete type interface IDs:
+	 *     self.implementationComponentType.parentCompleteComponentTypes->collect(pr | pr.providedRoles_InterfaceProvidingEntity.providedInterface__ProvidedRole.id)->asSet()
 	 * else
-	 *  Bag{}
+	 *  true
 	 * endif
 	 * <!-- end-model-doc -->
 	 * @model
@@ -124,19 +124,19 @@ public interface BasicComponent extends ImplementationComponentType {
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * -- BC has to require the same interfaces like the implementationComponentType (if set) #
-	 * self.requiredRoles_InterfaceRequiringEntity->iterate(pr : RequiredRole; acc1 : Bag(String) = Bag{} |
-	 *  acc1->union(pr.requiredInterface__RequiredRole.id->asBag())
-	 * )
-	 * =
 	 * if
 	 *   -- apply constraint only for non-empty ImplementationComponentTypes of a BC #
 	 *  self.implementationComponentType->notEmpty()
+	 *     and
+	 *  self.implementationComponentType.parentCompleteComponentTypes->notEmpty()
 	 * then
-	 *  self.implementationComponentType.requiredRoles_InterfaceRequiringEntity->iterate(pr : RequiredRole; acc2 : Bag(String) = Bag{} |
-	 *   acc2->union(pr.requiredInterface__RequiredRole.id->asBag())
-	 *  )
+	 *  --own interface IDs:
+	 *     self.requiredRoles_InterfaceRequiringEntity->collect(pr : RequiredRole | pr.requiredInterface__RequiredRole.id)->asSet()
+	 *     =
+	 *     --complete type interface IDs:
+	 *     self.implementationComponentType.parentCompleteComponentTypes->collect(cct : CompleteComponentType | cct.requiredRoles_InterfaceRequiringEntity.requiredInterface__RequiredRole.id)->asSet()
 	 * else
-	 *  Bag{}
+	 *  true
 	 * endif
 	 * <!-- end-model-doc -->
 	 * @model

@@ -371,7 +371,7 @@
       </eOperations>
       <eOperations name="ProvideSameInterfacesAsImplementationType" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value="-- BC has to provide the same interfaces like the implementationComponentType (if set) #&#xD;&#xA;self.providedRoles_InterfaceProvidingEntity->iterate(pr : ProvidedRole; acc1 : Bag(String) = Bag{} |&#xD;&#xA; acc1->union(pr.providedInterface__ProvidedRole.id->asBag())&#xD;&#xA;)&#xD;&#xA;=&#xD;&#xA;if&#xD;&#xA;  -- apply constraint only for non-empty ImplementationComponentTypes of a BC #&#xD;&#xA; self.implementationComponentType->notEmpty()&#xD;&#xA;then&#xD;&#xA; self.implementationComponentType.providedRoles_InterfaceProvidingEntity->iterate(pr : ProvidedRole; acc2 : Bag(String) = Bag{} |&#xD;&#xA;  acc2->union(pr.providedInterface__ProvidedRole.id->asBag())&#xD;&#xA; )&#xD;&#xA;else&#xD;&#xA; Bag{}&#xD;&#xA;endif"/>
+          <details key="documentation" value="-- BC has to provide the same interfaces like the implementationComponentType (if set) #&#xD;&#xA;if&#xD;&#xA;  -- apply constraint only for non-empty ImplementationComponentTypes of a BC #&#xD;&#xA; self.implementationComponentType->notEmpty()&#xD;&#xA;    and&#xD;&#xA; self.implementationComponentType.parentCompleteComponentTypes->notEmpty()&#xD;&#xA;then&#xD;&#xA; --own interface IDs:&#xD;&#xA;    self.providedRoles_InterfaceProvidingEntity->collect(pr : ProvidedRole | pr.providedInterface__ProvidedRole.id)->asSet()&#xD;&#xA;    =&#xD;&#xA;    --complete type interface IDs:&#xD;&#xA;    self.implementationComponentType.parentCompleteComponentTypes->collect(pr | pr.providedRoles_InterfaceProvidingEntity.providedInterface__ProvidedRole.id)->asSet()&#xD;&#xA;else&#xD;&#xA; true&#xD;&#xA;endif"/>
         </eAnnotations>
         <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain"/>
         <eParameters name="context">
@@ -383,7 +383,7 @@
       </eOperations>
       <eOperations name="RequireSameInterfacesAsImplementationType" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value="-- BC has to require the same interfaces like the implementationComponentType (if set) #&#xD;&#xA;self.requiredRoles_InterfaceRequiringEntity->iterate(pr : RequiredRole; acc1 : Bag(String) = Bag{} |&#xD;&#xA; acc1->union(pr.requiredInterface__RequiredRole.id->asBag())&#xD;&#xA;)&#xD;&#xA;=&#xD;&#xA;if&#xD;&#xA;  -- apply constraint only for non-empty ImplementationComponentTypes of a BC #&#xD;&#xA; self.implementationComponentType->notEmpty()&#xD;&#xA;then&#xD;&#xA; self.implementationComponentType.requiredRoles_InterfaceRequiringEntity->iterate(pr : RequiredRole; acc2 : Bag(String) = Bag{} |&#xD;&#xA;  acc2->union(pr.requiredInterface__RequiredRole.id->asBag())&#xD;&#xA; )&#xD;&#xA;else&#xD;&#xA; Bag{}&#xD;&#xA;endif"/>
+          <details key="documentation" value="-- BC has to require the same interfaces like the implementationComponentType (if set) #&#xD;&#xA;if&#xD;&#xA;  -- apply constraint only for non-empty ImplementationComponentTypes of a BC #&#xD;&#xA; self.implementationComponentType->notEmpty()&#xD;&#xA;    and&#xD;&#xA; self.implementationComponentType.parentCompleteComponentTypes->notEmpty()&#xD;&#xA;then&#xD;&#xA; --own interface IDs:&#xD;&#xA;    self.requiredRoles_InterfaceRequiringEntity->collect(pr : RequiredRole | pr.requiredInterface__RequiredRole.id)->asSet()&#xD;&#xA;    =&#xD;&#xA;    --complete type interface IDs:&#xD;&#xA;    self.implementationComponentType.parentCompleteComponentTypes->collect(cct : CompleteComponentType | cct.requiredRoles_InterfaceRequiringEntity.requiredInterface__RequiredRole.id)->asSet()&#xD;&#xA;else&#xD;&#xA; true&#xD;&#xA;endif"/>
         </eAnnotations>
         <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain"/>
         <eParameters name="context">
@@ -471,130 +471,6 @@
           containment="true"/>
     </eClassifiers>
   </eSubpackages>
-  <eSubpackages name="seff" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0"
-      nsPrefix="pcm.seff">
-    <eClassifiers xsi:type="ecore:EClass" name="StopAction" eSuperTypes="#//seff/AbstractResourceDemandingAction"/>
-    <eClassifiers xsi:type="ecore:EClass" name="AbstractResourceDemandingAction" abstract="true"
-        eSuperTypes="#//seff/AbstractAction">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="resourceDemand_Action"
-          ordered="false" upperBound="-1" eType="#//seff/ParametricResourceDemand"
-          containment="true" eOpposite="#//seff/ParametricResourceDemand/action_ParametricResourceDemand"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="AbstractAction" abstract="true" eSuperTypes="#//core/entity/Entity">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="predecessor_AbstractAction"
-          ordered="false" eType="#//seff/AbstractAction" eOpposite="#//seff/AbstractAction/successor_AbstractAction"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="successor_AbstractAction"
-          ordered="false" eType="#//seff/AbstractAction" eOpposite="#//seff/AbstractAction/predecessor_AbstractAction"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="ParametricResourceDemand" eSuperTypes="../../de.uka.ipd.sdq.stoex/model/stoex.ecore#//RandomVariable">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="unit" ordered="false"
-          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="requiredResource_ParametricResourceDemand"
-          ordered="false" lowerBound="1" eType="#//resourcetype/ProcessingResourceType"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="action_ParametricResourceDemand"
-          ordered="false" lowerBound="1" eType="#//seff/AbstractResourceDemandingAction"
-          eOpposite="#//seff/AbstractResourceDemandingAction/resourceDemand_Action"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="StartAction" eSuperTypes="#//seff/AbstractResourceDemandingAction"/>
-    <eClassifiers xsi:type="ecore:EClass" name="ResourceDemandingSEFF" eSuperTypes="../../de.uka.ipd.sdq.identifier/model/identifier.ecore#//Identifier #//seff/ServiceEffectSpecification #//seff/ResourceDemandingBehaviour"/>
-    <eClassifiers xsi:type="ecore:EClass" name="ResourceDemandingBehaviour">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="steps_Behaviour" ordered="false"
-          upperBound="-1" eType="#//seff/AbstractAction" containment="true"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="ReleaseAction" eSuperTypes="#//seff/AbstractResourceDemandingAction">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="resourceType_Release"
-          ordered="false" lowerBound="1" eType="#//resourcetype/PassiveResourceType"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="LoopAction" eSuperTypes="#//seff/AbstractLoopAction">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="iterations_LoopAction"
-          ordered="false" lowerBound="1" eType="#//seff/IterationCount" containment="true"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="AbstractLoopAction" abstract="true"
-        eSuperTypes="#//seff/AbstractResourceDemandingAction">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="bodyBehaviour_Loop" ordered="false"
-          lowerBound="1" eType="#//seff/ResourceDemandingBehaviour" containment="true"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="IterationCount" eSuperTypes="../../de.uka.ipd.sdq.stoex/model/stoex.ecore#//RandomVariable"/>
-    <eClassifiers xsi:type="ecore:EClass" name="InternalAction" eSuperTypes="#//seff/AbstractResourceDemandingAction">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="failureProbability" ordered="false"
-          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-          defaultValueLiteral="0"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="ForkAction" eSuperTypes="#//seff/AbstractResourceDemandingAction">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="forkedBehaviours_Fork"
-          ordered="false" upperBound="-1" eType="#//seff/ResourceDemandingBehaviour"
-          containment="true"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="ExternalCallAction" eSuperTypes="#//seff/AbstractAction">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="calledService_ExternalService"
-          ordered="false" lowerBound="1" eType="#//repository/Signature"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="parameterUsage_ExternalCallAction"
-          ordered="false" upperBound="-1" eType="#//parameter/VariableUsage" containment="true"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="outputVariableUsage_ExternalCallAction"
-          ordered="false" upperBound="-1" eType="#//parameter/VariableUsage" containment="true"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="ProbabilisticBranchTransition" eSuperTypes="#//seff/AbstractBranchTransition">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="branchProbability" ordered="false"
-          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="AbstractBranchTransition" abstract="true"
-        eSuperTypes="../../de.uka.ipd.sdq.identifier/model/identifier.ecore#//Identifier">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="branchBehaviour_BranchTransition"
-          ordered="false" lowerBound="1" eType="#//seff/ResourceDemandingBehaviour"
-          containment="true"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="BranchAction" eSuperTypes="#//seff/AbstractResourceDemandingAction">
-      <eOperations name="EitherGuardedBranchesOrProbabilisiticBranchTransitions" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
-        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value="self.branches_Branch->forAll(bt|bt.oclIsTypeOf(ProbabilisticBranchTransition)) or self.branches_Branch->forAll(bt|bt.oclIsTypeOf(GuardedBranchTransition))"/>
-        </eAnnotations>
-        <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain"/>
-        <eParameters name="context">
-          <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
-            <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
-            <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
-          </eGenericType>
-        </eParameters>
-      </eOperations>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="branches_Branch" ordered="false"
-          upperBound="-1" eType="#//seff/AbstractBranchTransition" containment="true"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="AquireAction" eSuperTypes="#//seff/AbstractResourceDemandingAction">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="resourceType_Aquire"
-          ordered="false" lowerBound="1" eType="#//resourcetype/PassiveResourceType"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="BranchCondition" eSuperTypes="../../de.uka.ipd.sdq.stoex/model/stoex.ecore#//RandomVariable"/>
-    <eClassifiers xsi:type="ecore:EClass" name="CollectionIteratorAction" eSuperTypes="#//seff/AbstractLoopAction">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="parameter_CollectionIteratorAction"
-          ordered="false" lowerBound="1" eType="#//repository/Parameter"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="GuardedBranchTransition" eSuperTypes="#//seff/AbstractBranchTransition">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="branchCondition_BranchTransition"
-          ordered="false" lowerBound="1" eType="#//seff/BranchCondition" containment="true"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="SetVariableAction" eSuperTypes="#//seff/AbstractResourceDemandingAction">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="variableUsage_SetVariableAction"
-          ordered="false" lowerBound="1" eType="#//parameter/VariableUsage" containment="true"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="ServiceEffectSpecification" abstract="true">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="seffTypeID" ordered="false"
-          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-          defaultValueLiteral="1"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="describedService__SEFF"
-          ordered="false" lowerBound="1" eType="#//repository/Signature"/>
-    </eClassifiers>
-  </eSubpackages>
-  <eSubpackages name="resourcetype" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/ResourceType/1.0"
-      nsPrefix="pcm.resourcetype">
-    <eClassifiers xsi:type="ecore:EClass" name="ResourceType" abstract="true" eSuperTypes="#//core/entity/Entity"/>
-    <eClassifiers xsi:type="ecore:EClass" name="ResourceRepository">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="availableResourceTypes_ResourceRepository"
-          ordered="false" upperBound="-1" eType="#//resourcetype/ResourceType" containment="true"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="PassiveResourceType" eSuperTypes="#//resourcetype/ResourceType"/>
-    <eClassifiers xsi:type="ecore:EClass" name="CommunicationLinkResourceType" eSuperTypes="#//resourcetype/ProcessingResourceType"/>
-    <eClassifiers xsi:type="ecore:EClass" name="ProcessingResourceType" eSuperTypes="#//resourcetype/ResourceType"/>
-  </eSubpackages>
   <eSubpackages name="allocation" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Allocation/1.0"
       nsPrefix="pcm.allocation">
     <eClassifiers xsi:type="ecore:EClass" name="AllocationContext" eSuperTypes="#//core/entity/Entity">
@@ -661,6 +537,17 @@
           ordered="false" upperBound="-1" eType="#//resourceenvironment/PassiveResourceSpecification"
           containment="true"/>
     </eClassifiers>
+  </eSubpackages>
+  <eSubpackages name="resourcetype" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/ResourceType/1.0"
+      nsPrefix="pcm.resourcetype">
+    <eClassifiers xsi:type="ecore:EClass" name="ResourceType" abstract="true" eSuperTypes="#//core/entity/Entity"/>
+    <eClassifiers xsi:type="ecore:EClass" name="ResourceRepository">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="availableResourceTypes_ResourceRepository"
+          ordered="false" upperBound="-1" eType="#//resourcetype/ResourceType" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ProcessingResourceType" eSuperTypes="#//resourcetype/ResourceType"/>
+    <eClassifiers xsi:type="ecore:EClass" name="PassiveResourceType" eSuperTypes="#//resourcetype/ResourceType"/>
+    <eClassifiers xsi:type="ecore:EClass" name="CommunicationLinkResourceType" eSuperTypes="#//resourcetype/ProcessingResourceType"/>
   </eSubpackages>
   <eSubpackages name="system" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/System/1.0"
       nsPrefix="pcm.system">
@@ -753,6 +640,119 @@
           lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="branchedBehaviour_BranchTransition"
           ordered="false" lowerBound="1" eType="#//usagemodel/ScenarioBehaviour" containment="true"/>
+    </eClassifiers>
+  </eSubpackages>
+  <eSubpackages name="seff" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0"
+      nsPrefix="pcm.seff">
+    <eClassifiers xsi:type="ecore:EClass" name="ServiceEffectSpecification" abstract="true">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="seffTypeID" ordered="false"
+          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          defaultValueLiteral="1"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="describedService__SEFF"
+          ordered="false" lowerBound="1" eType="#//repository/Signature"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="StopAction" eSuperTypes="#//seff/AbstractResourceDemandingAction"/>
+    <eClassifiers xsi:type="ecore:EClass" name="AbstractResourceDemandingAction" abstract="true"
+        eSuperTypes="#//seff/AbstractAction">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="resourceDemand_Action"
+          ordered="false" upperBound="-1" eType="#//seff/ParametricResourceDemand"
+          containment="true" eOpposite="#//seff/ParametricResourceDemand/action_ParametricResourceDemand"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="AbstractAction" abstract="true" eSuperTypes="#//core/entity/Entity">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="predecessor_AbstractAction"
+          ordered="false" eType="#//seff/AbstractAction" eOpposite="#//seff/AbstractAction/successor_AbstractAction"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="successor_AbstractAction"
+          ordered="false" eType="#//seff/AbstractAction" eOpposite="#//seff/AbstractAction/predecessor_AbstractAction"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ParametricResourceDemand" eSuperTypes="../../de.uka.ipd.sdq.stoex/model/stoex.ecore#//RandomVariable">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="unit" ordered="false"
+          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="requiredResource_ParametricResourceDemand"
+          ordered="false" lowerBound="1" eType="#//resourcetype/ProcessingResourceType"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="action_ParametricResourceDemand"
+          ordered="false" lowerBound="1" eType="#//seff/AbstractResourceDemandingAction"
+          eOpposite="#//seff/AbstractResourceDemandingAction/resourceDemand_Action"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="StartAction" eSuperTypes="#//seff/AbstractResourceDemandingAction"/>
+    <eClassifiers xsi:type="ecore:EClass" name="ResourceDemandingSEFF" eSuperTypes="../../de.uka.ipd.sdq.identifier/model/identifier.ecore#//Identifier #//seff/ServiceEffectSpecification #//seff/ResourceDemandingBehaviour"/>
+    <eClassifiers xsi:type="ecore:EClass" name="ResourceDemandingBehaviour">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="steps_Behaviour" ordered="false"
+          upperBound="-1" eType="#//seff/AbstractAction" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ReleaseAction" eSuperTypes="#//seff/AbstractResourceDemandingAction">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="resourceType_Release"
+          ordered="false" lowerBound="1" eType="#//resourcetype/PassiveResourceType"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="LoopAction" eSuperTypes="#//seff/AbstractLoopAction">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="iterations_LoopAction"
+          ordered="false" lowerBound="1" eType="#//seff/IterationCount" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="AbstractLoopAction" abstract="true"
+        eSuperTypes="#//seff/AbstractResourceDemandingAction">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="bodyBehaviour_Loop" ordered="false"
+          lowerBound="1" eType="#//seff/ResourceDemandingBehaviour" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="IterationCount" eSuperTypes="../../de.uka.ipd.sdq.stoex/model/stoex.ecore#//RandomVariable"/>
+    <eClassifiers xsi:type="ecore:EClass" name="InternalAction" eSuperTypes="#//seff/AbstractResourceDemandingAction">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="failureProbability" ordered="false"
+          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          defaultValueLiteral="0"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ForkAction" eSuperTypes="#//seff/AbstractResourceDemandingAction">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="forkedBehaviours_Fork"
+          ordered="false" upperBound="-1" eType="#//seff/ResourceDemandingBehaviour"
+          containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ExternalCallAction" eSuperTypes="#//seff/AbstractAction">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="calledService_ExternalService"
+          ordered="false" lowerBound="1" eType="#//repository/Signature"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="parameterUsage_ExternalCallAction"
+          ordered="false" upperBound="-1" eType="#//parameter/VariableUsage" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="outputVariableUsage_ExternalCallAction"
+          ordered="false" upperBound="-1" eType="#//parameter/VariableUsage" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ProbabilisticBranchTransition" eSuperTypes="#//seff/AbstractBranchTransition">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="branchProbability" ordered="false"
+          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="BranchAction" eSuperTypes="#//seff/AbstractResourceDemandingAction">
+      <eOperations name="EitherGuardedBranchesOrProbabilisiticBranchTransitions" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="self.branches_Branch->forAll(bt|bt.oclIsTypeOf(ProbabilisticBranchTransition)) or self.branches_Branch->forAll(bt|bt.oclIsTypeOf(GuardedBranchTransition))"/>
+        </eAnnotations>
+        <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain"/>
+        <eParameters name="context">
+          <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
+            <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+            <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+          </eGenericType>
+        </eParameters>
+      </eOperations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="branches_Branch" ordered="false"
+          upperBound="-1" eType="#//seff/AbstractBranchTransition" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="AquireAction" eSuperTypes="#//seff/AbstractResourceDemandingAction">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="resourceType_Aquire"
+          ordered="false" lowerBound="1" eType="#//resourcetype/PassiveResourceType"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="BranchCondition" eSuperTypes="../../de.uka.ipd.sdq.stoex/model/stoex.ecore#//RandomVariable"/>
+    <eClassifiers xsi:type="ecore:EClass" name="CollectionIteratorAction" eSuperTypes="#//seff/AbstractLoopAction">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="parameter_CollectionIteratorAction"
+          ordered="false" lowerBound="1" eType="#//repository/Parameter"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="GuardedBranchTransition" eSuperTypes="#//seff/AbstractBranchTransition">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="branchCondition_BranchTransition"
+          ordered="false" lowerBound="1" eType="#//seff/BranchCondition" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="SetVariableAction" eSuperTypes="#//seff/AbstractResourceDemandingAction">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="variableUsage_SetVariableAction"
+          ordered="false" lowerBound="1" eType="#//parameter/VariableUsage" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="AbstractBranchTransition" abstract="true"
+        eSuperTypes="../../de.uka.ipd.sdq.identifier/model/identifier.ecore#//Identifier">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="branchBehaviour_BranchTransition"
+          ordered="false" lowerBound="1" eType="#//seff/ResourceDemandingBehaviour"
+          containment="true"/>
     </eClassifiers>
   </eSubpackages>
 </ecore:EPackage>

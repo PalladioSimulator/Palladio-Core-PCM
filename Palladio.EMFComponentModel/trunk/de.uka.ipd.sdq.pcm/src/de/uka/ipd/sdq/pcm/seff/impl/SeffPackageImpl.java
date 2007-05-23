@@ -340,9 +340,9 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 		RepositoryPackageImpl theRepositoryPackage = (RepositoryPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(RepositoryPackage.eNS_URI) instanceof RepositoryPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(RepositoryPackage.eNS_URI) : RepositoryPackage.eINSTANCE);
 		ProtocolPackageImpl theProtocolPackage = (ProtocolPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ProtocolPackage.eNS_URI) instanceof ProtocolPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ProtocolPackage.eNS_URI) : ProtocolPackage.eINSTANCE);
 		ParameterPackageImpl theParameterPackage = (ParameterPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ParameterPackage.eNS_URI) instanceof ParameterPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ParameterPackage.eNS_URI) : ParameterPackage.eINSTANCE);
-		ResourcetypePackageImpl theResourcetypePackage = (ResourcetypePackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ResourcetypePackage.eNS_URI) instanceof ResourcetypePackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ResourcetypePackage.eNS_URI) : ResourcetypePackage.eINSTANCE);
 		AllocationPackageImpl theAllocationPackage = (AllocationPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(AllocationPackage.eNS_URI) instanceof AllocationPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(AllocationPackage.eNS_URI) : AllocationPackage.eINSTANCE);
 		ResourceenvironmentPackageImpl theResourceenvironmentPackage = (ResourceenvironmentPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ResourceenvironmentPackage.eNS_URI) instanceof ResourceenvironmentPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ResourceenvironmentPackage.eNS_URI) : ResourceenvironmentPackage.eINSTANCE);
+		ResourcetypePackageImpl theResourcetypePackage = (ResourcetypePackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ResourcetypePackage.eNS_URI) instanceof ResourcetypePackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ResourcetypePackage.eNS_URI) : ResourcetypePackage.eINSTANCE);
 		SystemPackageImpl theSystemPackage = (SystemPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(SystemPackage.eNS_URI) instanceof SystemPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(SystemPackage.eNS_URI) : SystemPackage.eINSTANCE);
 		QosannotationsPackageImpl theQosannotationsPackage = (QosannotationsPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(QosannotationsPackage.eNS_URI) instanceof QosannotationsPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(QosannotationsPackage.eNS_URI) : QosannotationsPackage.eINSTANCE);
 		UsagemodelPackageImpl theUsagemodelPackage = (UsagemodelPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(UsagemodelPackage.eNS_URI) instanceof UsagemodelPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(UsagemodelPackage.eNS_URI) : UsagemodelPackage.eINSTANCE);
@@ -355,9 +355,9 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 		theRepositoryPackage.createPackageContents();
 		theProtocolPackage.createPackageContents();
 		theParameterPackage.createPackageContents();
-		theResourcetypePackage.createPackageContents();
 		theAllocationPackage.createPackageContents();
 		theResourceenvironmentPackage.createPackageContents();
+		theResourcetypePackage.createPackageContents();
 		theSystemPackage.createPackageContents();
 		theQosannotationsPackage.createPackageContents();
 		theUsagemodelPackage.createPackageContents();
@@ -370,9 +370,9 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 		theRepositoryPackage.initializePackageContents();
 		theProtocolPackage.initializePackageContents();
 		theParameterPackage.initializePackageContents();
-		theResourcetypePackage.initializePackageContents();
 		theAllocationPackage.initializePackageContents();
 		theResourceenvironmentPackage.initializePackageContents();
+		theResourcetypePackage.initializePackageContents();
 		theSystemPackage.initializePackageContents();
 		theQosannotationsPackage.initializePackageContents();
 		theUsagemodelPackage.initializePackageContents();
@@ -843,6 +843,10 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 		isCreated = true;
 
 		// Create classes and their features
+		serviceEffectSpecificationEClass = createEClass(SERVICE_EFFECT_SPECIFICATION);
+		createEAttribute(serviceEffectSpecificationEClass, SERVICE_EFFECT_SPECIFICATION__SEFF_TYPE_ID);
+		createEReference(serviceEffectSpecificationEClass, SERVICE_EFFECT_SPECIFICATION__DESCRIBED_SERVICE_SEFF);
+
 		stopActionEClass = createEClass(STOP_ACTION);
 
 		abstractResourceDemandingActionEClass = createEClass(ABSTRACT_RESOURCE_DEMANDING_ACTION);
@@ -889,9 +893,6 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 		probabilisticBranchTransitionEClass = createEClass(PROBABILISTIC_BRANCH_TRANSITION);
 		createEAttribute(probabilisticBranchTransitionEClass, PROBABILISTIC_BRANCH_TRANSITION__BRANCH_PROBABILITY);
 
-		abstractBranchTransitionEClass = createEClass(ABSTRACT_BRANCH_TRANSITION);
-		createEReference(abstractBranchTransitionEClass, ABSTRACT_BRANCH_TRANSITION__BRANCH_BEHAVIOUR_BRANCH_TRANSITION);
-
 		branchActionEClass = createEClass(BRANCH_ACTION);
 		createEReference(branchActionEClass, BRANCH_ACTION__BRANCHES_BRANCH);
 
@@ -909,9 +910,8 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 		setVariableActionEClass = createEClass(SET_VARIABLE_ACTION);
 		createEReference(setVariableActionEClass, SET_VARIABLE_ACTION__VARIABLE_USAGE_SET_VARIABLE_ACTION);
 
-		serviceEffectSpecificationEClass = createEClass(SERVICE_EFFECT_SPECIFICATION);
-		createEAttribute(serviceEffectSpecificationEClass, SERVICE_EFFECT_SPECIFICATION__SEFF_TYPE_ID);
-		createEReference(serviceEffectSpecificationEClass, SERVICE_EFFECT_SPECIFICATION__DESCRIBED_SERVICE_SEFF);
+		abstractBranchTransitionEClass = createEClass(ABSTRACT_BRANCH_TRANSITION);
+		createEReference(abstractBranchTransitionEClass, ABSTRACT_BRANCH_TRANSITION__BRANCH_BEHAVIOUR_BRANCH_TRANSITION);
 	}
 
 	/**
@@ -938,11 +938,11 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 		setNsURI(eNS_URI);
 
 		// Obtain other dependent packages
+		RepositoryPackage theRepositoryPackage = (RepositoryPackage)EPackage.Registry.INSTANCE.getEPackage(RepositoryPackage.eNS_URI);
 		EntityPackage theEntityPackage = (EntityPackage)EPackage.Registry.INSTANCE.getEPackage(EntityPackage.eNS_URI);
 		StoexPackage theStoexPackage = (StoexPackage)EPackage.Registry.INSTANCE.getEPackage(StoexPackage.eNS_URI);
 		ResourcetypePackage theResourcetypePackage = (ResourcetypePackage)EPackage.Registry.INSTANCE.getEPackage(ResourcetypePackage.eNS_URI);
 		IdentifierPackage theIdentifierPackage = (IdentifierPackage)EPackage.Registry.INSTANCE.getEPackage(IdentifierPackage.eNS_URI);
-		RepositoryPackage theRepositoryPackage = (RepositoryPackage)EPackage.Registry.INSTANCE.getEPackage(RepositoryPackage.eNS_URI);
 		ParameterPackage theParameterPackage = (ParameterPackage)EPackage.Registry.INSTANCE.getEPackage(ParameterPackage.eNS_URI);
 
 		// Create type parameters
@@ -966,15 +966,19 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 		forkActionEClass.getESuperTypes().add(this.getAbstractResourceDemandingAction());
 		externalCallActionEClass.getESuperTypes().add(this.getAbstractAction());
 		probabilisticBranchTransitionEClass.getESuperTypes().add(this.getAbstractBranchTransition());
-		abstractBranchTransitionEClass.getESuperTypes().add(theIdentifierPackage.getIdentifier());
 		branchActionEClass.getESuperTypes().add(this.getAbstractResourceDemandingAction());
 		aquireActionEClass.getESuperTypes().add(this.getAbstractResourceDemandingAction());
 		branchConditionEClass.getESuperTypes().add(theStoexPackage.getRandomVariable());
 		collectionIteratorActionEClass.getESuperTypes().add(this.getAbstractLoopAction());
 		guardedBranchTransitionEClass.getESuperTypes().add(this.getAbstractBranchTransition());
 		setVariableActionEClass.getESuperTypes().add(this.getAbstractResourceDemandingAction());
+		abstractBranchTransitionEClass.getESuperTypes().add(theIdentifierPackage.getIdentifier());
 
 		// Initialize classes and features; add operations and parameters
+		initEClass(serviceEffectSpecificationEClass, ServiceEffectSpecification.class, "ServiceEffectSpecification", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getServiceEffectSpecification_SeffTypeID(), ecorePackage.getEString(), "seffTypeID", "1", 1, 1, ServiceEffectSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getServiceEffectSpecification_DescribedService__SEFF(), theRepositoryPackage.getSignature(), null, "describedService__SEFF", null, 1, 1, ServiceEffectSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
 		initEClass(stopActionEClass, StopAction.class, "StopAction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(abstractResourceDemandingActionEClass, AbstractResourceDemandingAction.class, "AbstractResourceDemandingAction", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1021,9 +1025,6 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 		initEClass(probabilisticBranchTransitionEClass, ProbabilisticBranchTransition.class, "ProbabilisticBranchTransition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getProbabilisticBranchTransition_BranchProbability(), ecorePackage.getEDouble(), "branchProbability", null, 1, 1, ProbabilisticBranchTransition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-		initEClass(abstractBranchTransitionEClass, AbstractBranchTransition.class, "AbstractBranchTransition", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getAbstractBranchTransition_BranchBehaviour_BranchTransition(), this.getResourceDemandingBehaviour(), null, "branchBehaviour_BranchTransition", null, 1, 1, AbstractBranchTransition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-
 		initEClass(branchActionEClass, BranchAction.class, "BranchAction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getBranchAction_Branches_Branch(), this.getAbstractBranchTransition(), null, "branches_Branch", null, 0, -1, BranchAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
@@ -1050,9 +1051,8 @@ public class SeffPackageImpl extends EPackageImpl implements SeffPackage {
 		initEClass(setVariableActionEClass, SetVariableAction.class, "SetVariableAction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSetVariableAction_VariableUsage_SetVariableAction(), theParameterPackage.getVariableUsage(), null, "variableUsage_SetVariableAction", null, 1, 1, SetVariableAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-		initEClass(serviceEffectSpecificationEClass, ServiceEffectSpecification.class, "ServiceEffectSpecification", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getServiceEffectSpecification_SeffTypeID(), ecorePackage.getEString(), "seffTypeID", "1", 1, 1, ServiceEffectSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getServiceEffectSpecification_DescribedService__SEFF(), theRepositoryPackage.getSignature(), null, "describedService__SEFF", null, 1, 1, ServiceEffectSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEClass(abstractBranchTransitionEClass, AbstractBranchTransition.class, "AbstractBranchTransition", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getAbstractBranchTransition_BranchBehaviour_BranchTransition(), this.getResourceDemandingBehaviour(), null, "branchBehaviour_BranchTransition", null, 1, 1, AbstractBranchTransition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);
