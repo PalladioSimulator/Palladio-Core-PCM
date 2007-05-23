@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Observer;
 
+import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.viewers.CellEditor;
 import org.eclipse.jface.viewers.DialogCellEditor;
 import org.eclipse.jface.viewers.ISelection;
@@ -238,14 +239,29 @@ public class SensorsPropertySection extends AbstractPropertySection implements
 
 				for (ConfigEntry re : configObject.getConfigEntrys()) {
 					for (Sensor s : re.getSensors()) {
-						list.add(re.getExperimentRun().getMeasurementsOfSensor(
-								s));
+						try {
+							list.add(re.getExperimentRun()
+									.getMeasurementsOfSensor(s));
+						} catch (Exception e1) {
+							showMessage(s.getSensorName(),
+									"Missing the Measurements of sensor!");
+						}
 					}
 				}
+
 				vis.setInput(list);
 			}
 		});
+		
 		updateButton.setEnabled(false);
+
+		/** set Observer to the ConfigObject */
+		AbstractReportView view = (AbstractReportView) SimuPlugin.getDefault()
+				.getWorkbench().getActiveWorkbenchWindow().getActivePage()
+				.getActiveEditor();
+		configObject = (ConfigEditorInput) view.getEditorInput();
+		configObject.addObserver(this);
+		
 	}
 
 	/* (non-Javadoc)
@@ -276,16 +292,17 @@ public class SensorsPropertySection extends AbstractPropertySection implements
 		if (part instanceof AbstractReportView) {
 			AbstractReportView view = (AbstractReportView) part;
 			configObject = (ConfigEditorInput) view.getEditorInput();
-			configObject.addObserver(this);
 			viewer.setInput(configObject);
 		}
 	}
 
-	/**
-	 * @param updateButton
-	 *            the updateButton to set
-	 */
 	public Button getUpdateButton() {
 		return updateButton;
+	}
+	
+	/** show exeption message */
+	private void showMessage(String title, String message) {
+		MessageDialog.openInformation(viewer.getControl().getShell(), title,
+				message);
 	}
 }
