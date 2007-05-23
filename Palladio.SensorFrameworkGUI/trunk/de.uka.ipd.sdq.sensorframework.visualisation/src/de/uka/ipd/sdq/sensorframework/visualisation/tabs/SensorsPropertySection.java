@@ -57,13 +57,14 @@ public class SensorsPropertySection extends AbstractPropertySection implements
 	 * @see java.util.Observer#update(java.util.Observable, java.lang.Object)
 	 */
 	public void update(Observable subject, Object signal) {
-		refresh();
-		
-		ConfigEditorInput input = (ConfigEditorInput) subject;
-		
-		if (!input.isEmpty())
-			updateButton.setEnabled(true);
-		else updateButton.setEnabled(false);
+		if (subject instanceof ConfigEditorInput) {
+			ConfigEditorInput input = (ConfigEditorInput) subject;
+			refresh();
+			if (!input.isEmpty())
+				updateButton.setEnabled(true);
+			else
+				updateButton.setEnabled(false);
+		}
 	}
 
 	private ConfigEditorInput configObject;
