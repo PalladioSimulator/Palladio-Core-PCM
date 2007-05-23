@@ -7,7 +7,6 @@ import org.eclipse.ui.part.*;
 import org.eclipse.jface.util.LocalSelectionTransfer;
 import org.eclipse.jface.viewers.*;
 import org.eclipse.jface.action.*;
-import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.ui.*;
 import org.eclipse.swt.widgets.Menu;
 import org.eclipse.swt.SWT;
@@ -29,7 +28,6 @@ public class ExperimentsView extends ViewPart {
 
 	private Action reloadView;
 	private Action collapseAll;
-	private Action doubleClickAction;
 
 	/**
 	 * The constructor.
@@ -60,7 +58,6 @@ public class ExperimentsView extends ViewPart {
 		
 		makeActions();
 		hookContextMenu();
-		hookDoubleClickAction();
 		contributeToActionBars();
 	}
 
@@ -125,29 +122,6 @@ public class ExperimentsView extends ViewPart {
 		collapseAll.setText("Collapse All");
 		collapseAll.setToolTipText("Collapse All");
 		collapseAll.setImageDescriptor(SimuPlugin.getImageDescriptor("/icons/collapseall.gif"));
-		
-		// TODO ???
-//		doubleClickAction = new Action() {
-//			public void run() {
-//				ISelection selection = viewer.getSelection();
-//				Object obj = ((IStructuredSelection) selection)
-//						.getFirstElement();
-//				//showMessage("Double-click detected on " + obj.toString());
-//			}
-//		};
-	}
-
-	private void hookDoubleClickAction() {
-		viewer.addDoubleClickListener(new IDoubleClickListener() {
-			public void doubleClick(DoubleClickEvent event) {
-				doubleClickAction.run();
-			}
-		});
-	}
-
-	private void showMessage(String message) {
-		MessageDialog.openInformation(viewer.getControl().getShell(),
-				"Experiments View", message);
 	}
 
 	/**
@@ -156,4 +130,10 @@ public class ExperimentsView extends ViewPart {
 	public void setFocus() {
 		viewer.getControl().setFocus();
 	}
+	
+//	private void showMessage(String message) {
+//		MessageDialog.openInformation(viewer.getControl().getShell(),
+//				"Experiments View", message);
+//	}
+
 }

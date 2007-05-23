@@ -1,6 +1,3 @@
-/**
- * 
- */
 package de.uka.ipd.sdq.sensorframework.visualisation.editor;
 
 import java.util.ArrayList;
@@ -15,10 +12,7 @@ import de.uka.ipd.sdq.sensorfactory.entities.Experiment;
 import de.uka.ipd.sdq.sensorfactory.entities.ExperimentRun;
 import de.uka.ipd.sdq.sensorfactory.entities.Sensor;
 
-/**
- * @author admin
- *
- */
+/** @author roman */
 public class ConfigEditorInput extends Observable
 		implements IEditorInput {
 	
@@ -42,17 +36,17 @@ public class ConfigEditorInput extends Observable
 			configEntrys.add(new ConfigEntry(run,experiment,sensor));
 		else
 			configEntry.setSensorChecked(sensor);
-		notify(null);
+		notifyObserver();
 	}
 	
 	public void addNewConfigEntry(ExperimentRun run, Experiment experiment){
 		configEntrys.add(new ConfigEntry(run, experiment));
-		notify(null);
+		notifyObserver();
 	}
 	
 	public void addNewConfigEntry(ConfigEntry runEntry){
 		configEntrys.add(runEntry);
-		notify(null);
+		notifyObserver();
 	}
 	
 	// TODO equals
@@ -61,12 +55,12 @@ public class ConfigEditorInput extends Observable
 			if (ce.getExperimentRun().equals(run))
 				configEntrys.remove(ce);
 		}
-		notify(null);
+		notifyObserver();
 	}
 	
 	public void removeConfigEntry(ConfigEntry entry){
 		configEntrys.remove(entry);
-		notify(null);
+		notifyObserver();
 	}
 	
 	public ConfigEntry getConfigEntryToRun(ExperimentRun run){
@@ -127,8 +121,8 @@ public class ConfigEditorInput extends Observable
 		return null;
 	}
 	
-	public void notify(Object signal){
+	public void notifyObserver(){
 		setChanged();
-		notifyObservers(signal);
+		notifyObservers();
 	}
 }
