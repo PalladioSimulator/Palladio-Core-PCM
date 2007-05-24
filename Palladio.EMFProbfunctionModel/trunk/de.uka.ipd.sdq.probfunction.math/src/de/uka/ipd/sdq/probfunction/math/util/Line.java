@@ -19,15 +19,11 @@ public class Line {
 		 * @param y2
 		 */
 		public Line(double x1, double y1, double x2, double y2) {
-			
+			if (x2-x1 == 0.0) {
+				throw new RuntimeException("Line has a=0!");
+			}
 			a = (y2 - y1) / (x2 - x1);
 			b = y1 - (a * x1);
-
-// HK
-//			if (x1 != 0)
-//				b = y1 - (a * x1);
-//			else
-//				b = y2 - (a * x2);
 		}
 		
 		/**
@@ -35,6 +31,7 @@ public class Line {
 		 * @return
 		 */
 		public double getX(double y) {
-			return (y-b)/a;
+			double result = (y-b)/a;
+			return result;
 		}
 }
