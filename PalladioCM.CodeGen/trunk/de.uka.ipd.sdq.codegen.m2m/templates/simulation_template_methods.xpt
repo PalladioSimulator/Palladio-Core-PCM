@@ -23,6 +23,14 @@
 	"«this.id»"
 «ENDAROUND»
 
+«AROUND m2t_transforms::composed_structure::ChildInitTM(ComposedStructure s) FOR AssemblyContext»
+	«EXPAND m2t_transforms::sim::composed_structure::ChildInitTM(s) FOR this»
+«ENDAROUND»
+
+«AROUND m2t_transforms::java_core::SpecificImplementationPartTM FOR ProvidesComponentType»
+	«EXPAND m2t_transforms::sim::java_core::SpecificImplementationPartTM FOR this»
+«ENDAROUND»
+
 «AROUND m2t_transforms::allocation::AllocationTM FOR Allocation»
 	«EXPAND m2t_transforms::sim::allocation::Allocation FOR this»
 «ENDAROUND»

@@ -38,5 +38,6 @@ public class JobArrivalEvent extends Event {
 			Event ev = new JobDoneEvent(getModel(), "JobDone", true);
 			ev.schedule(resource, nextEvent);
 		}
+		resource.setIdle(false);
 	}
 }

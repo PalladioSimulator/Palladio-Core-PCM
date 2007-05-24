@@ -19,7 +19,7 @@ public abstract class AbstractMain {
 
 	protected SimuComStatus run(final IStatusObserver statusObserver, SimuComConfig config)
 	{
-		initializeLogger();
+		initializeLogger(config);
 		
 		final long SIM_STOP_TIME = config.getSimuTime();
 		
@@ -41,10 +41,13 @@ public abstract class AbstractMain {
 		return model.getErrorStatus();
 	}
 	
-	private void initializeLogger() {
+	private void initializeLogger(SimuComConfig config) {
 		PatternLayout myLayout = new PatternLayout("%d{HH:mm:ss,SSS} [%t] %-5p %m [%c]%n");
 		ConsoleAppender myAppender = new ConsoleAppender(myLayout);
-		myAppender.setThreshold(Priority.WARN);
+		if (config.getVerboseLogging())
+			myAppender.setThreshold(Priority.DEBUG);
+		else
+			myAppender.setThreshold(Priority.WARN);
 		BasicConfigurator.resetConfiguration();
 		BasicConfigurator.configure(myAppender);
 		logger.debug("Simulation Logging enabled!");

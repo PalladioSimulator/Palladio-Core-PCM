@@ -9,7 +9,7 @@
 
 «DEFINE PreCall(List[VariableUsage] parameterUsages) FOR Signature»
 	«EXPAND PrepareSimulatedStackFrame(parameterUsages) FOR this»
-	«EXPAND m2t_transforms::sensors::StartResponseTimeMeasurementTM FOR "Usage_"+this.javaSignature()»
+	«EXPAND m2t_transforms::sensors::StartResponseTimeMeasurementTM FOR "Call_"+this.javaSignature()»
 	de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe callResult =	
 «ENDDEFINE»
 
@@ -35,10 +35,12 @@
 «ENDDEFINE»
 
 «DEFINE PostCall(List[VariableUsage] outParameterUsages) FOR Signature»
-	«EXPAND m2t_transforms::sensors::EndResponseTimeMeasurementTM FOR "Usage_"+this.javaSignature()»
+	// Stop the time measurement
+	«EXPAND m2t_transforms::sensors::EndResponseTimeMeasurementTM FOR "Call_"+this.javaSignature()»
  	ctx.getStack().removeStackFrame();
 	«FOREACH outParameterUsages AS pu»
 		«LET pu.parameterUsageLHS() AS lhs_prefix»
+			// Copy out parameter «lhs_prefix» to local stack frame
 			«FOREACH pu.variableCharacterisation_VariableUsage AS vc»
 				«IF pu.namedReference_VariableUsage.isInnerReference()»
 					methodBodyStackFrame.addValue("«lhs_prefix+'.'+vc.type.toString()»",

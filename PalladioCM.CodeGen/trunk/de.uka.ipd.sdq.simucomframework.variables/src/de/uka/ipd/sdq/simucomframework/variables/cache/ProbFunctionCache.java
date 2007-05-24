@@ -55,7 +55,7 @@ public class ProbFunctionCache {
 				pdf = IProbabilityFunctionFactory.eINSTANCE.transformToPDF(object);
 				pdf.checkConstrains();
 			} catch(Exception ex) {
-				RuntimeException ex2 = new RuntimeException("PMF not valid: "+new ProbFunctionPrettyPrint().doSwitch(object));
+				RuntimeException ex2 = new RuntimeException("PDF not valid: "+new ProbFunctionPrettyPrint().doSwitch(object)+". Caused by "+ex.getMessage());
 				logger.error("PMF not valid!", ex2);
 				throw ex2; 
 			}

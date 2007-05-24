@@ -79,7 +79,7 @@ de.uka.ipd.sdq.simucomframework.usage.ClosedWorkload(
 «DEFINE WorkloadClass(UsageScenario u) FOR OpenWorkload»
 de.uka.ipd.sdq.simucomframework.usage.OpenWorkload(getModel(),
 	new «u.implementationPackage()+"."+u.javaName()+"Factory"»(getModel()),
-	"«this.interArrivalTime_OpenWorkload.specification.javaString()»")
+	"«this.interArrivalTime_OpenWorkload.specification.specificationString()»")
 «ENDDEFINE»
 
 «DEFINE UsageScenarioConstructor(Allocation a) FOR UsageScenario»

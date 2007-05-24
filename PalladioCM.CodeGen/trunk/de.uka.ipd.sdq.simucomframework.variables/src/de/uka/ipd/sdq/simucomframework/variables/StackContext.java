@@ -56,6 +56,10 @@ public class StackContext implements Serializable {
 					.doSwitch(cacheEntry.getParsedExpression());
 	}
 
+	public static Object simpleEvaluate(String stoex) {
+		return evaluate(stoex, new SimulatedStackframe());
+	}
+	
 	/**
 	 * Evaluate all EvaluationProxies starting with "variable name" and store the 
 	 * results in the given stack frame

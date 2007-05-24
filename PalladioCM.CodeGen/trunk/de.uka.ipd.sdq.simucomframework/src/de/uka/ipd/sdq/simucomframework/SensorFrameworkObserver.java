@@ -47,13 +47,12 @@ public class SensorFrameworkObserver implements ISensorObserver {
 		Logger.getLogger(SensorFrameworkObserver.class.getName());
 	
 	private Experiment experiment = null;
-	protected HashMap<String, Sensor> sensors = new HashMap<String, Sensor>();
 	protected ExperimentRun run = null;
+	protected HashMap<String, Sensor> sensors = new HashMap<String, Sensor>();
 	
 	public SensorFrameworkObserver(SimuComModel model) {
-		experiment = SensorFrameworkDataset.singleton().getMemoryDataset().
-			createOrReuseExperiment(model.getConfig().getNameExperimentRun());
-		run = experiment.addExperimentRun("Run "+new Date());
+		experiment = model.getExperimentDatastore();
+		run = model.getCurrentExperimentRun();
 	}
 	
 	public void sensorAddedEvent(SensorAddedEvent e) {
@@ -72,11 +71,6 @@ public class SensorFrameworkObserver implements ISensorObserver {
 					return (TimeSpanSensor)s;
 		}
 		return experiment.addTimeSpanSensor(id);
-	}
-
-	public void finish() {
-		logger.info("Storing Experiment Results");
-		SensorFrameworkDataset.singleton().getMemoryDataset().storeExperiment(experiment);
 	}
 
 }

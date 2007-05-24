@@ -61,7 +61,7 @@ public class SimuComConfigurationTab extends AbstractLaunchConfigurationTab {
 		
 		Label nameLabel = new Label(experimentrunGroup, SWT.NONE);
 		nameLabel.setLayoutData(new GridData(48, SWT.DEFAULT));
-		nameLabel.setText("Experiment Run Name:");
+		nameLabel.setText("Experiment Name:");
 
 		nameField = new Text(experimentrunGroup, SWT.BORDER);
 		final GridData gridData = new GridData(SWT.FILL, SWT.CENTER, true,

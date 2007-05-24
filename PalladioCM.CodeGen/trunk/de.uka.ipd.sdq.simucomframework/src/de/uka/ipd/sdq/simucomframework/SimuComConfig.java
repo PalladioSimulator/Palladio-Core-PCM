@@ -12,10 +12,12 @@ public class SimuComConfig {
 	/** SimuCom configuration tab */
 	public static String EXPERIMENT_RUN = "experimentRun";
 	public static String SIMULATION_TIME = "simTime";
+	public static String VERBOSE_LOGGING = "verboseLogging";
 	
 	/** configuration options */
 	private String nameExperimentRun;
 	private long simuTime;
+	private boolean verboseLogging;
 
 	/**
 	 * @param ILaunchConfiguration
@@ -26,6 +28,8 @@ public class SimuComConfig {
 					EXPERIMENT_RUN);
 			this.simuTime = Long.valueOf((String)configuration.get(
 					SIMULATION_TIME));
+			this.verboseLogging = (Boolean)configuration.get(
+					VERBOSE_LOGGING);
 		} catch (Exception e) {
 			// TODO
 			this.nameExperimentRun = "ExceptionName";
@@ -40,6 +44,10 @@ public class SimuComConfig {
 
 	public long getSimuTime() {
 		return simuTime;
+	}
+
+	public boolean getVerboseLogging() {
+		return verboseLogging;
 	}
 
 }

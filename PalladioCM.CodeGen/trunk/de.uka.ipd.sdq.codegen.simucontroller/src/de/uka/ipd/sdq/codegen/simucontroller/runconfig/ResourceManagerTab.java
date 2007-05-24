@@ -24,7 +24,6 @@ public class ResourceManagerTab {
 	/** Configuration tab*/
 	public static String OUTPUT_PATH = "outpath";
 	public static String DELETE_PLUGIN = "clear";
-	public static String VERBOSE_LOGGING = "verboseLogging";
 	
 
 	/** TODO */

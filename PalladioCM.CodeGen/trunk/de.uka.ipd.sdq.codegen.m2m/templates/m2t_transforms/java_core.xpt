@@ -96,6 +96,7 @@ public class «this.javaName()»
       «EXPAND m2t_transforms::provided_ports::ProvidedPorts FOR this»
       «EXPAND m2t_transforms::context_pattern::RequiredInterfaces FOR this»
       «EXPAND InnerImplementation FOR this»
+	  «EXPAND SpecificImplementationPartTM FOR this»
    }
    «EXPAND ComponentImplementationChildClassTM FOR this»
 «ENDDEFINE»
@@ -112,6 +113,9 @@ public class «this.javaName()»
 «ENDDEFINE»
 
 «DEFINE ComponentImplementationChildClassTM FOR ProvidesComponentType»
+«ENDDEFINE»
+
+«DEFINE SpecificImplementationPartTM FOR ProvidesComponentType»
 «ENDDEFINE»
 
 «DEFINE SuperClassesTM FOR ProvidesComponentType»

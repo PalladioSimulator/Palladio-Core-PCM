@@ -23,6 +23,8 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.ui.dialogs.ContainerSelectionDialog;
 
+import de.uka.ipd.sdq.simucomframework.SimuComConfig;
+
 
 /**
  * @author admin
@@ -127,7 +129,7 @@ public class oAWConfigurationTab extends AbstractLaunchConfigurationTab {
 		clearButton = new Button(outputPathGroup,
 				SWT.CHECK);
 		clearButton.setLayoutData( new GridData());
-		clearButton.setText("Generated code at end delete");
+		clearButton.setText("Delete generated code at simulation end");
 		clearButton.setSelection(true);
 		clearButton.addSelectionListener(new SelectionAdapter() {
 			
@@ -231,7 +233,7 @@ public class oAWConfigurationTab extends AbstractLaunchConfigurationTab {
 		}
 		try {
 			checkLoggingButton.setSelection(configuration.getAttribute(
-					ResourceManagerTab.VERBOSE_LOGGING, LOGGING));
+					SimuComConfig.VERBOSE_LOGGING, LOGGING));
 		} catch (CoreException e) {
 			checkLoggingButton.setSelection(LOGGING);
 		}
@@ -245,7 +247,7 @@ public class oAWConfigurationTab extends AbstractLaunchConfigurationTab {
 				outputPathField.getText());
 		configuration.setAttribute(ResourceManagerTab.DELETE_PLUGIN,
 				clearButton.getSelection());
-		configuration.setAttribute(ResourceManagerTab.VERBOSE_LOGGING,
+		configuration.setAttribute(SimuComConfig.VERBOSE_LOGGING,
 				checkLoggingButton.getSelection());
 	}
 

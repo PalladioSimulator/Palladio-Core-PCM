@@ -4,6 +4,14 @@ import java.util.HashMap;
 
 import org.apache.log4j.Logger;
 
+import de.uka.ipd.sdq.sensorfactory.IExperimentDAO;
+import de.uka.ipd.sdq.sensorfactory.SensorFrameworkDataset;
+import de.uka.ipd.sdq.sensorfactory.entities.Experiment;
+import de.uka.ipd.sdq.sensorfactory.entities.ExperimentRun;
+import de.uka.ipd.sdq.sensorfactory.entities.Sensor;
+import de.uka.ipd.sdq.sensorfactory.entities.State;
+import de.uka.ipd.sdq.sensorfactory.entities.StateSensor;
+import de.uka.ipd.sdq.sensorfactory.entities.TimeSpanSensor;
 import de.uka.ipd.sdq.simucomframework.AbstractMain;
 import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
 import desmoj.core.simulator.Entity;
@@ -54,13 +62,24 @@ public class SimulatedActiveResource extends Entity {
 	private SimTime lastTimeOfAdjustingJobs;
 	
 	private double processingRate = 0;
-	private String units = null; 
+	private String units = null;
+	private boolean idle; 
+	private StateSensor stateSensor = null;
+	private State idleState;
+	private State busyState;
+	private ExperimentRun experimentRun = null;
 	
 	public SimulatedActiveResource(SimuComModel myModel, String typeID, double d, String units)
 	{
 		super (myModel, typeID, true);
 		this.processingRate = d;
 		this.units = units;
+		this.idle = true;
+		this.stateSensor = createOrReuseSensor(myModel.getExperimentDatastore(),"Utilisation of "+typeID);
+		this.idleState = createOrReuseState(stateSensor,"Idle");
+		this.busyState = createOrReuseState(stateSensor,"Busy");
+		this.stateSensor.setInitialState(idleState);
+		this.experimentRun = myModel.getCurrentExperimentRun();
 		
 		logger.info("Creating Simulated Active Resource: "+this.getName());
 		
@@ -86,6 +105,11 @@ public class SimulatedActiveResource extends Entity {
 		lastTimeOfAdjustingJobs = getModel().currentTime();
 	}
 	
+	public void deactivateResource()
+	{
+		logger.debug("Stopping Resource "+this.getName());
+		experimentRun.addStateMeasurement(stateSensor, idleState, getModel().currentTime().getTimeValue());
+	}
 
 	public void processPassedTime() {
 		double timePassed = getModel().currentTime().getTimeValue() - lastTimeOfAdjustingJobs.getTimeValue();
@@ -115,4 +139,34 @@ public class SimulatedActiveResource extends Entity {
 	{
 		return myStrategy.getTotalJobCount();
 	}
+
+	public void setIdle(boolean b) {
+		if (this.idle != b) {
+			if (b) {
+				experimentRun.addStateMeasurement(stateSensor, idleState, this.getModel().currentTime().getTimeValue());
+			} else {
+				experimentRun.addStateMeasurement(stateSensor, busyState, this.getModel().currentTime().getTimeValue());
+			}
+		}
+		this.idle=b;
+	}
+	
+	private StateSensor createOrReuseSensor(Experiment experiment, String id) {
+		for (Sensor s : experiment.getSensors()) {
+			if (s.getSensorName().equals(id))
+				if (s instanceof StateSensor)
+					return (StateSensor)s;
+		}
+		return experiment.addStateSensor(id);
+	}
+
+	private State createOrReuseState(StateSensor stateSensor, String id) {
+		for (State s : stateSensor.getSensorStates()) {
+			if (s.getStateLiteral().equals(id))
+				if (s instanceof State)
+					return (State)s;
+		}
+		return stateSensor.addState(id);
+	}
+
 }

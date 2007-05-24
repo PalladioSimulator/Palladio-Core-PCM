@@ -77,7 +77,11 @@
          «EXPAND PortQuery(s,this) FOREACH this.encapsulatedComponent_ChildComponentContext.requiredRoles_InterfaceRequiringEntity SEPARATOR ","»
       );
       my«this.javaName()».setContext(context);
+      «EXPAND ChildInitTM(s) FOR this»
    }
+«ENDDEFINE»
+
+«DEFINE ChildInitTM(ComposedStructure s) FOR AssemblyContext»
 «ENDDEFINE»
 
 // -----------------------------------

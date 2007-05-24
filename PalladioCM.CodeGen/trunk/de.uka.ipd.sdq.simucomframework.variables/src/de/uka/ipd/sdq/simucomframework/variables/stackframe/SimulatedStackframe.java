@@ -5,7 +5,14 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map.Entry;
 
+import org.apache.log4j.Logger;
+
+import de.uka.ipd.sdq.simucomframework.variables.cache.ProbFunctionCache;
+
 public class SimulatedStackframe <T> implements Serializable {
+
+	private static Logger logger = 
+		Logger.getLogger(SimulatedStackframe.class.getName());
 	
 	private SimulatedStackframe<T> parentFrame = null;
 	
@@ -70,7 +77,9 @@ public class SimulatedStackframe <T> implements Serializable {
 	}
 
 	public void addVariables(SimulatedStackframe<T> callResult) {
+		logger.debug("Adding "+callResult.getContents().size()+" value(s) to own stackframe");
 		for (Entry<String,T> e : callResult.contents.entrySet()) {
+			logger.debug("Adding "+e.getKey()+" with "+e.getValue());
 			this.addValue(e.getKey(), e.getValue());
 		}
 		

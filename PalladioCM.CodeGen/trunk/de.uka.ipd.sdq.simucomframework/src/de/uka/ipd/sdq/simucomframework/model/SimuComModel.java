@@ -1,5 +1,10 @@
 package de.uka.ipd.sdq.simucomframework.model;
 
+import java.util.Date;
+
+import de.uka.ipd.sdq.sensorfactory.SensorFrameworkDataset;
+import de.uka.ipd.sdq.sensorfactory.entities.Experiment;
+import de.uka.ipd.sdq.sensorfactory.entities.ExperimentRun;
 import de.uka.ipd.sdq.simucomframework.ResouceRegistry;
 import de.uka.ipd.sdq.simucomframework.SimuComConfig;
 import de.uka.ipd.sdq.simucomframework.SimuComStatus;
@@ -17,6 +22,8 @@ public class SimuComModel extends Model {
 	private SimuComStatus status = SimuComStatus.OK;
 	private String errorMessage = "";
 	private SimuComConfig config;
+	private Experiment experiment = null;
+	private ExperimentRun run = null;
 	
 	public SimuComModel(Model owner, String myName, boolean showInReport, boolean showInTrace) {
 		super(owner, myName, showInReport, showInTrace);
@@ -83,5 +90,16 @@ public class SimuComModel extends Model {
 
 	public void setConfig(SimuComConfig config) {
 		this.config = config;
+		experiment = SensorFrameworkDataset.singleton().getMemoryDataset().
+			createOrReuseExperiment(this.getConfig().getNameExperimentRun());
+		run = experiment.addExperimentRun("Run "+new Date());
+	}
+
+	public Experiment getExperimentDatastore() {
+		return experiment;
+	}
+
+	public ExperimentRun getCurrentExperimentRun() {
+		return run;
 	}
 }

@@ -44,4 +44,12 @@ public class ResouceRegistry {
 			}
 		}
 	}
+
+	public void deactivateAllActiveResources() {
+		for(SimulatedResourceContainer src : resourceContainerHash.values()) {
+			for (SimulatedActiveResource sar : src.getActiveResources()) {
+				sar.deactivateResource();
+			}
+		}
+	}
 }

@@ -1,5 +1,6 @@
 package de.uka.ipd.sdq.simucomframework;
 
+import de.uka.ipd.sdq.sensorfactory.SensorFrameworkDataset;
 import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
 import de.uka.ipd.sdq.simucomframework.sensors.SensorFactory;
 // import de.uka.ipd.sdq.simucomframework.swingui.MainUI;
@@ -15,9 +16,9 @@ public class ExperimentRunner {
 		exp.setShowProgressBar(false); // display a progress bar (or not)
 		exp.stop(new SimTime(simTime)); // set end of simulation at 1500 time
 										// units
-		exp.tracePeriod(new SimTime(0.0), new SimTime(simTime));
+		//exp.tracePeriod(new SimTime(0.0), new SimTime(simTime));
 		// set the period of the trace
-		exp.debugPeriod(new SimTime(0.0), new SimTime(simTime)); // and debug
+		//exp.debugPeriod(new SimTime(0.0), new SimTime(simTime)); // and debug
 																	// output
 		// ATTENTION!
 		// Don't use too long periods. Otherwise a huge HTML page will
@@ -38,6 +39,7 @@ public class ExperimentRunner {
 
 		// stop all threads still alive and close all output files
 		exp.finish();
-		sensorObserver.finish();
+		model.getResourceRegistry().deactivateAllActiveResources();
+		SensorFrameworkDataset.singleton().getMemoryDataset().storeExperiment(model.getExperimentDatastore());
 	}
 }
