@@ -21,7 +21,7 @@ public class TimeSpanToHistogramAdapter implements IAdapter {
 
 	public TimeSpanToHistogramAdapter(SensorAndMeasurements sensorAndMeasurements) {
 		this.myValues = sensorAndMeasurements;
-		this.myProperties.put(HISTOGRAM_WIDTH, 10.0);
+		this.myProperties.put(HISTOGRAM_WIDTH, 1.0);
 	}
 
 	public Object getAdaptedObject() {

@@ -33,13 +33,18 @@ public class StateToPieAdapter implements IAdapter {
 		HashMap<String, Double> newPie = new HashMap<String, Double>(); 
 		for(State state : ((StateSensor)myValues.getSensor()).getSensorStates())
 			newPie.put(state.getStateLiteral(), 0.0);
-		double lastChangeTime = 0.0;
+		double lastChangeTime = 0.0; State lastState = ((StateSensor)myValues.getSensor()).getInitialState();
+		double sum = 0;
 		for(Measurement m : myValues.getMeasurements()){
 			StateMeasurement sm = (StateMeasurement) m;
-			Double oldValue = newPie.get(sm.getSensorState().getStateLiteral());
-			double newValue = oldValue + (sm.getEventTime() - lastChangeTime);
+			Double oldValue = newPie.get(lastState.getStateLiteral());
+			double diff = sm.getEventTime() - lastChangeTime;
+			double newValue = oldValue + diff;
+			sum += diff;
+			newPie.put(lastState.getStateLiteral(), newValue);
+
 			lastChangeTime = sm.getEventTime();
-			newPie.put(sm.getSensorState().getStateLiteral(), newValue);
+			lastState = sm.getSensorState();
 		}
 		for(Entry<String,Double>e:newPie.entrySet()){
 			p.addEntity(new PieEntity(e.getValue(),e.getKey()));

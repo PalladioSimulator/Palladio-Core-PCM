@@ -10,6 +10,7 @@ import javax.persistence.Query;
 import de.uka.ipd.sdq.sensorfactory.SensorAndMeasurements;
 import de.uka.ipd.sdq.sensorfactory.entities.Measurement;
 import de.uka.ipd.sdq.sensorfactory.entities.Sensor;
+import de.uka.ipd.sdq.sensorfactory.entities.StateMeasurement;
 import de.uka.ipd.sdq.sensorfactory.entities.TimeSpanMeasurement;
 
 @javax.persistence.Entity
@@ -26,6 +27,11 @@ public class ExperimentRunImpl extends de.uka.ipd.sdq.sensorfactory.entities.Exp
 		for (Measurement m: this.getMeasurements()) {
 			if (m instanceof TimeSpanMeasurement) {
 				TimeSpanMeasurement tsm = (TimeSpanMeasurement) m;
+				if (tsm.getSensor() == sensor)
+					result.add(m);
+			}
+			if (m instanceof StateMeasurement) {
+				StateMeasurement tsm = (StateMeasurement) m;
 				if (tsm.getSensor() == sensor)
 					result.add(m);
 			}
