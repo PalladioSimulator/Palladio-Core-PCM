@@ -6,6 +6,7 @@ import java.util.List;
 import org.eclipse.core.runtime.Assert;
 import org.eclipse.emf.transaction.RecordingCommand;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
+import org.eclipse.emf.transaction.util.TransactionUtil;
 import org.eclipse.jface.viewers.ICellModifier;
 import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.swt.widgets.TableItem;
@@ -23,13 +24,6 @@ public class InnerDeclarationCellModifier implements ICellModifier {
 	private TableViewer viewer;
 	private List<String> columnNames;
 	private InnerDeclaration declaration;
-
-	/**
-	 * The transactional editing domain which is used to get the commands and
-	 * alter the model
-	 */
-	final protected TransactionalEditingDomain editingDomain = TransactionalEditingDomain.Registry.INSTANCE
-			.getEditingDomain(DialogRepository.EDITING_DOMAIN_ID);
 
 	public InnerDeclarationCellModifier(TableViewer viewer) {
 		this.viewer = viewer;
@@ -97,6 +91,7 @@ public class InnerDeclarationCellModifier implements ICellModifier {
 	 * @param type
 	 */
 	private void setDataType(DataType type) {
+		TransactionalEditingDomain editingDomain = TransactionUtil.getEditingDomain(type);
 		final DataType dataType = type;
 
 		RecordingCommand recCommand = new RecordingCommand(editingDomain) {
@@ -118,10 +113,12 @@ public class InnerDeclarationCellModifier implements ICellModifier {
 	 */
 	private void setDeclarationName(String valueString) {
 		final String value = valueString;
+		TransactionalEditingDomain editingDomain = TransactionUtil.getEditingDomain(declaration);
 
 		RecordingCommand recCommand = new RecordingCommand(editingDomain) {
 			@Override
 			protected void doExecute() {
+				
 				declaration.setEntityName(value);
 			}
 		};

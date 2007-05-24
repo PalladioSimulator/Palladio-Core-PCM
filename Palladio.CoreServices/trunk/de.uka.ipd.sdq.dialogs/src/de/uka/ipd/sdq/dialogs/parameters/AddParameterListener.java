@@ -4,6 +4,7 @@ import org.eclipse.core.runtime.Assert;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.transaction.RecordingCommand;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
+import org.eclipse.emf.transaction.util.TransactionUtil;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 
@@ -24,11 +25,11 @@ public class AddParameterListener extends SelectionAdapter{
 	 * The transactional editing domain which is used to get the commands and
 	 * alter the model
 	 */
-	final protected TransactionalEditingDomain editingDomain = TransactionalEditingDomain.Registry.INSTANCE
-			.getEditingDomain(DialogRepository.EDITING_DOMAIN_ID);
+	protected TransactionalEditingDomain editingDomain = null;
 
 	public AddParameterListener(Signature parentSignature) {
 		this.parentSignature = parentSignature;
+		this.editingDomain = TransactionUtil.getEditingDomain(parentSignature);
 	}
 
 	/*

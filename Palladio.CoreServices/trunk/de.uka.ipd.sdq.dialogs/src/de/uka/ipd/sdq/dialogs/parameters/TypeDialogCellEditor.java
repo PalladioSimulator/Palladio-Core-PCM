@@ -23,15 +23,15 @@ public class TypeDialogCellEditor extends DialogCellEditor {
 	 * alter the model
 	 */
 
-	final protected TransactionalEditingDomain editingDomain = TransactionalEditingDomain.Registry.INSTANCE
-			.getEditingDomain(DialogRepository.EDITING_DOMAIN_ID);
+	protected TransactionalEditingDomain editingDomain = null;
 
 	/*
 	 * @See org.eclipse.jface.viewers.DialogCellEditor#DialogCellEditor(org.eclipse.swt.widgets.Control
 	 *      parent)
 	 */
-	public TypeDialogCellEditor(Composite parent) {
+	public TypeDialogCellEditor(Composite parent, TransactionalEditingDomain editingDomain) {
 		super(parent);
+		this.editingDomain = editingDomain;
 	}
 
 	/*

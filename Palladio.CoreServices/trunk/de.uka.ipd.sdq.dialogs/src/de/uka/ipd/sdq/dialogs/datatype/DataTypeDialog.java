@@ -21,6 +21,8 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
 
+import de.uka.ipd.sdq.pcm.repository.CompositeDataType;
+
 /**
  * TODO
  * 
@@ -34,7 +36,7 @@ public abstract class DataTypeDialog extends TitleAreaDialog {
 	protected String collectionSignator = "COLLECTION";
 	protected String compositeSignator = "COMPOSITE";
 	private String dialogTitleNew = "Create new DataType..";
-	private String dialogTitleEdite = "Edite DataType..";
+	private String dialogTitleEdite = "Edit DataType..";
 	private String errorNsgName = "DataType name is empty.";
 	private String errorMsgInner = "Inner type/declaration is empty";
 	
@@ -99,7 +101,7 @@ public abstract class DataTypeDialog extends TitleAreaDialog {
 		reposetoryGroup.setLayoutData(new GridData(478, 30));
 		reposetoryGroup.setLayout(new GridLayout());
 
-		final Combo combo = new Combo(reposetoryGroup, SWT.NONE);
+		final Combo combo = new Combo(reposetoryGroup, SWT.DROP_DOWN|SWT.READ_ONLY);
 		combo.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
 		combo.addSelectionListener(new SelectionAdapter() {
 
@@ -184,17 +186,7 @@ public abstract class DataTypeDialog extends TitleAreaDialog {
 			 * @see org.eclipse.swt.events.ModifyListener#modifyText(org.eclipse.swt.events.ModifyEvent)
 			 */
 			public void modifyText(ModifyEvent e) {
-				entityName = nameField.getText();
-				setErrorMessage(null);
-				
-				if (entityName.equals(""))
-					setOKButtonDisabled();
-				if (collectionButton.isEnabled() && typeField.getText().equals(""))
-					setErrorMessage(errorMsgInner);
-				if (!typeField.getText().equals("") && !entityName.equals(""))
-					setOKButtonEnabled();
-				if (!collectionButton.isEnabled() && !entityName.equals(""))
-					setOKButtonEnabled();
+				validateInput();
 			}
 		});
 
@@ -377,5 +369,31 @@ public abstract class DataTypeDialog extends TitleAreaDialog {
 		stackLayout.topControl = collectionGroup;
 		composite.layout();
 		editeDataType = collectionSignator;
+	}
+	
+	public void validateInput() {
+		entityName = nameField.getText();
+		
+		if (entityName.equals("")) {
+			setOKButtonDisabled();
+			setErrorMessage("No name given for the new Type");
+			return;
+		}
+		if (collectionButton.getSelection()){
+			if (typeField.getText().equals("")) {
+				setOKButtonDisabled();
+				setErrorMessage(errorMsgInner);
+				return;
+			}
+		} else {
+			CompositeDataType parentDataType = DialogRepository.getNewCompositeDataType();
+			if (parentDataType.getInnerDeclaration_CompositeDataType().size() == 0) {
+				setOKButtonDisabled();
+				setErrorMessage(errorMsgInner);
+				return;
+			}
+		}
+		setErrorMessage(null);
+		setOKButtonEnabled();
 	}
 }

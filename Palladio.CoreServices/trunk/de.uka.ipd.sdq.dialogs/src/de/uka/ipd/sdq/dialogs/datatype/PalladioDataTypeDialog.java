@@ -10,6 +10,7 @@ import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryContentProvider;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
+import org.eclipse.emf.transaction.util.TransactionUtil;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Shell;
@@ -41,15 +42,15 @@ public class PalladioDataTypeDialog extends DataTypeDialog {
 	 * The transactional editing domain which is used to get the commands and
 	 * alter the model
 	 */
-	final protected TransactionalEditingDomain editingDomain = TransactionalEditingDomain.Registry.INSTANCE
-			.getEditingDomain(DialogRepository.EDITING_DOMAIN_ID);
+	protected TransactionalEditingDomain editingDomain = null;
 
 	/**
 	 * @param parentShell
 	 * @param editedDataType
 	 */
-	public PalladioDataTypeDialog(Shell parentShell) {
+	public PalladioDataTypeDialog(Shell parentShell,TransactionalEditingDomain editingDomain) {
 		super(parentShell);
+		this.editingDomain = editingDomain;
 	}
 
 	/**
@@ -61,6 +62,7 @@ public class PalladioDataTypeDialog extends DataTypeDialog {
 	 */
 	public PalladioDataTypeDialog(Shell parentShell, DataType editeDataType) {
 		super(parentShell);
+		this.editingDomain = TransactionUtil.getEditingDomain(editeDataType);
 		this.editedDataType = editeDataType;
 		initDialog(editeDataType);
 	}
@@ -184,7 +186,7 @@ public class PalladioDataTypeDialog extends DataTypeDialog {
 				.addAdapterFactory(new RepositoryItemProviderAdapterFactory());
 
 		CreateEditorContents editorContents = CreateEditorContents
-				.create(group);
+				.create(group,editingDomain);
 		editorContents
 				.setViewerContentProvider(new AdapterFactoryContentProvider(
 						adapterFactory));
@@ -196,10 +198,10 @@ public class PalladioDataTypeDialog extends DataTypeDialog {
 		editorContents.setViewerCellModifier(new InnerDeclarationCellModifier(
 				editorContents.getViewer()));
 		editorContents.setAddButtonActionListener(new AddInnerDataTypeListener(
-				this));
+				this,editingDomain));
 		editorContents
 				.setDeleteButtonActionListener(new DeleteInnerDataTypeListener(
-						this));
+						this,editingDomain));
 		editorContents.setViewerInput(editedDataType);
 		
 	}
@@ -253,5 +255,4 @@ public class PalladioDataTypeDialog extends DataTypeDialog {
 	public DataType getEditedDataType() {
 		return editedDataType;
 	}
-
 }

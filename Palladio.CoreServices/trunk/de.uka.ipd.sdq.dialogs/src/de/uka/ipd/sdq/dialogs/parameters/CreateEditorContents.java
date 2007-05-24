@@ -2,6 +2,7 @@ package de.uka.ipd.sdq.dialogs.parameters;
 
 import org.eclipse.core.runtime.Assert;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.jface.viewers.CellEditor;
 import org.eclipse.jface.viewers.IBaseLabelProvider;
 import org.eclipse.jface.viewers.ICellModifier;
@@ -35,6 +36,7 @@ public class CreateEditorContents {
 	// TODO
 	private TableViewer viewer;
 	private ToolItem addItem,deleteItem;
+	private TransactionalEditingDomain editingDomain;
 
 	public static final int ICON_COLUMN_INDEX = 0;
 	public static final int CONTEXT_COLUMN_INDEX = 1;
@@ -54,15 +56,16 @@ public class CreateEditorContents {
 	private static String[] columnNames = new String[] { ATTRIBUTE_ICON_COLUMN,
 			CONTEXT_COLUMN, NAME_COLUMN, TYPE_COLUMN };
 
-	private CreateEditorContents(Composite composite) {
+	private CreateEditorContents(Composite composite, TransactionalEditingDomain editingDomain) {
+		this.editingDomain = editingDomain;
 		init(composite);
 	}
 
 	/**
 	 * Factory Method
 	 */
-	public static CreateEditorContents create(Composite composite){
-		return new CreateEditorContents(composite);
+	public static CreateEditorContents create(Composite composite, TransactionalEditingDomain editingDomain){
+		return new CreateEditorContents(composite,editingDomain);
 	}
 	
 	
@@ -133,7 +136,7 @@ public class CreateEditorContents {
 		CellEditor[] editors = new CellEditor[columnNames.length];
 
 		editors[NAME_COLUMN_INDEX] = new TextCellEditor(table);
-		editors[TYPE_COLUMN_INDEX] = new TypeDialogCellEditor(table);
+		editors[TYPE_COLUMN_INDEX] = new TypeDialogCellEditor(table,editingDomain);
 
 		// Assign the cell editors to the viewer
 		viewer.setCellEditors(editors);

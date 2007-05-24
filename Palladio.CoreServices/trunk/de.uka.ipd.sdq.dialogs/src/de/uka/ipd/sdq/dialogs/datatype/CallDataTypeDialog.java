@@ -7,6 +7,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.transaction.RecordingCommand;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
+import org.eclipse.emf.transaction.util.TransactionUtil;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
@@ -36,8 +37,7 @@ public class CallDataTypeDialog extends PalladioSelectEObjectDialog {
 	 * alter the model
 	 */
 
-	final protected TransactionalEditingDomain editingDomain = TransactionalEditingDomain.Registry.INSTANCE
-			.getEditingDomain(DialogRepository.EDITING_DOMAIN_ID);
+	protected TransactionalEditingDomain editingDomain = null;
 
 	/**
 	 * @param parent
@@ -48,6 +48,7 @@ public class CallDataTypeDialog extends PalladioSelectEObjectDialog {
 	public CallDataTypeDialog(Shell parent, Collection<Object> filterList,
 			Collection<Object> additionalChildReferences,Object input) {
 		super(parent, filterList, additionalChildReferences, input);
+		this.editingDomain = TransactionUtil.getEditingDomain(input);
 	}
 
 	
@@ -94,7 +95,7 @@ public class CallDataTypeDialog extends PalladioSelectEObjectDialog {
 			public void widgetSelected(SelectionEvent e) {
 				Shell shell = e.widget.getDisplay().getActiveShell();
 				PalladioDataTypeDialog dialog = new PalladioDataTypeDialog(
-						shell);
+						shell,editingDomain);
 				dialog.open();
 			}
 

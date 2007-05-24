@@ -3,6 +3,7 @@ package de.uka.ipd.sdq.dialogs.datatype;
 import org.eclipse.core.runtime.Assert;
 import org.eclipse.emf.transaction.RecordingCommand;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
+import org.eclipse.emf.transaction.util.TransactionUtil;
 
 import de.uka.ipd.sdq.pcm.repository.CollectionDataType;
 import de.uka.ipd.sdq.pcm.repository.CompositeDataType;
@@ -19,8 +20,8 @@ public class DataTypeCommand {
 	 * The transactional editing domain which is used to get the commands and
 	 * alter the model
 	 */
-	final protected static TransactionalEditingDomain editingDomain = TransactionalEditingDomain.Registry.INSTANCE
-			.getEditingDomain(DialogRepository.EDITING_DOMAIN_ID);
+	final protected static TransactionalEditingDomain editingDomain = TransactionUtil.getEditingDomain(DialogRepository
+							.getEditedRepository());
 	
 
 	/* (non-Javadoc)

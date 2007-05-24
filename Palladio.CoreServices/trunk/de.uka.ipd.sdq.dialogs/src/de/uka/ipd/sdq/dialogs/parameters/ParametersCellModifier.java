@@ -28,13 +28,13 @@ public class ParametersCellModifier implements ICellModifier {
 	 * The transactional editing domain which is used to get the commands and
 	 * alter the model
 	 */
-	final protected TransactionalEditingDomain editingDomain = TransactionalEditingDomain.Registry.INSTANCE
-			.getEditingDomain(DialogRepository.EDITING_DOMAIN_ID);
+	protected TransactionalEditingDomain editingDomain = null;
 
-	public ParametersCellModifier(TableViewer viewer) {
+	public ParametersCellModifier(TableViewer viewer, TransactionalEditingDomain editingDomain) {
 		this.viewer = viewer;
 		this.columnNames = Arrays.asList(CreateEditorContents
 				.getColumnNames());
+		this.editingDomain = editingDomain;
 	}
 
 	/*

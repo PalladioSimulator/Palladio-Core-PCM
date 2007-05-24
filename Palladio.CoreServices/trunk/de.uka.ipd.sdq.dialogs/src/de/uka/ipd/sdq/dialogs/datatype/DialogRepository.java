@@ -12,9 +12,6 @@ import de.uka.ipd.sdq.pcm.repository.Repository;
  */
 public class DialogRepository {
 	
-	// TransaktionEditingDomain ID
-	public static final String EDITING_DOMAIN_ID = "de.uka.ipd.sdq.PCMBench.editingDomain";
-
 	// Srt the current in table selected object
 	private static EObject selectedEObject;
 

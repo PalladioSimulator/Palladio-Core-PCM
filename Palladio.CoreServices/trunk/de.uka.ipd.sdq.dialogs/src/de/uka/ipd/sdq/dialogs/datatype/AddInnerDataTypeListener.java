@@ -22,14 +22,14 @@ public class AddInnerDataTypeListener extends SelectionAdapter {
 	 * The transactional editing domain which is used to get the commands and
 	 * alter the model
 	 */
-	final protected TransactionalEditingDomain editingDomain = TransactionalEditingDomain.Registry.INSTANCE
-			.getEditingDomain(DialogRepository.EDITING_DOMAIN_ID);
+	protected TransactionalEditingDomain editingDomain = null;
 
 	/**
 	 * @param compositeDataType
 	 */
-	public AddInnerDataTypeListener(PalladioDataTypeDialog dialog) {
+	public AddInnerDataTypeListener(PalladioDataTypeDialog dialog, TransactionalEditingDomain editingDomain) {
 		this.dialog = dialog;
+		this.editingDomain = editingDomain;
 		
 		if (dialog.getEditedDataType() instanceof CompositeDataType)
 			compositeDataType = (CompositeDataType) dialog
@@ -77,7 +77,6 @@ public class AddInnerDataTypeListener extends SelectionAdapter {
 		DialogRepository.setNewCompositeDataType(compositeDataType);
 
 		// Set enabled OK button in dialog
-		dialog.setOKButtonEnabled();
-		dialog.setErrorMessage(null);
+		dialog.validateInput();
 	}
 }

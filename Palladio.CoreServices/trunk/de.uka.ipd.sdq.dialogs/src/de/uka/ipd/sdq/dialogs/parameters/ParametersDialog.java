@@ -3,6 +3,7 @@ package de.uka.ipd.sdq.dialogs.parameters;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryContentProvider;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
+import org.eclipse.emf.transaction.util.TransactionUtil;
 import org.eclipse.jface.dialogs.IDialogConstants;
 import org.eclipse.jface.dialogs.TitleAreaDialog;
 import org.eclipse.swt.SWT;
@@ -68,7 +69,7 @@ public class ParametersDialog extends TitleAreaDialog {
 				.addAdapterFactory(new RepositoryItemProviderAdapterFactory());
 
 		CreateEditorContents editorContents = CreateEditorContents
-				.create(container);
+				.create(container,TransactionUtil.getEditingDomain(signature));
 
 		editorContents
 				.setViewerContentProvider(new AdapterFactoryContentProvider(
@@ -79,7 +80,7 @@ public class ParametersDialog extends TitleAreaDialog {
 								new PalladioItemProviderAdapterFactory(
 										adapterFactory))));
 		editorContents.setViewerCellModifier(new ParametersCellModifier(
-				editorContents.getViewer()));
+				editorContents.getViewer(),TransactionUtil.getEditingDomain(signature)));
 		editorContents.setAddButtonActionListener(new AddParameterListener(
 				signature));
 		editorContents
