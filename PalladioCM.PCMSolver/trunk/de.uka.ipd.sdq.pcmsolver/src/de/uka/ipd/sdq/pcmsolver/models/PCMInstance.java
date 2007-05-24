@@ -278,8 +278,7 @@ public class PCMInstance {
 	}
 
 	public boolean isValid(){
-		if (storagePath.equals("") ||
-			allocation == null ||
+		if (allocation == null ||
 			repository == null ||
 			resourceEnvironment == null ||
 			resourceRepository == null ||

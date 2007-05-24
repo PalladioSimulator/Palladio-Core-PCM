@@ -24,7 +24,8 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.emf.transaction,
  de.uka.ipd.sdq.context,
  de.uka.ipd.sdq.spa.resourcemodel,
- de.uka.ipd.sdq.probfunction.math
+ de.uka.ipd.sdq.probfunction.math,
+ org.eclipse.emf.edit.ui
 Eclipse-LazyStart: true
 Bundle-ClassPath: .,
  lib/jcommon-1.0.8.jar,
