@@ -41,9 +41,9 @@ public class JFreeChartPieViewer extends AbstractJFreeChartChart {
 
 	protected void initChart() {
 		if(pieDataset != null)
-			myChart = ChartFactory.createPieChart3D("Pie", pieDataset, true, false, false);
+			chart = ChartFactory.createPieChart3D("Pie", pieDataset, true, false, false);
 		else
-			myChart = null;
+			chart = ChartFactory.createPieChart3D("Pie", new DefaultPieDataset(), true, false, false);
 	}
 
 	public void setPie(Pie data){
@@ -52,6 +52,6 @@ public class JFreeChartPieViewer extends AbstractJFreeChartChart {
 			pieDataset.setValue(pe.getLabel(), pe.getValue());
 		}
 		initChart();
-		this.redraw();
+		this.forceRedraw();
 	}
 }

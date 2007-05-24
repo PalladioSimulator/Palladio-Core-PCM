@@ -15,6 +15,7 @@ import org.apache.batik.dom.GenericDOMImplementation;
 import org.apache.batik.svggen.SVGGraphics2D;
 import org.eclipse.jface.action.Action;
 import org.eclipse.jface.action.MenuManager;
+import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.PaintListener;
 import org.eclipse.swt.graphics.GC;
 import org.eclipse.swt.graphics.Point;
@@ -22,9 +23,12 @@ import org.eclipse.swt.widgets.Canvas;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.FileDialog;
+import org.eclipse.swt.widgets.Menu;
+import org.eclipse.swt.widgets.MenuItem;
 import org.eclipse.ui.PlatformUI;
 import org.jfree.chart.ChartUtilities;
 import org.jfree.chart.JFreeChart;
+import org.jfree.experimental.chart.swt.ChartComposite;
 import org.w3c.dom.DOMImplementation;
 import org.w3c.dom.Document;
 
@@ -100,47 +104,49 @@ class SaveSVGAsAction extends Action {
 	}
 }
 
-public abstract class AbstractJFreeChartChart extends Canvas {
-	JFreeChart myChart = null;
+public abstract class AbstractJFreeChartChart extends ChartComposite {
 	
+	@Override
+	protected Menu createPopupMenu(boolean arg0, boolean arg1, boolean arg2,
+			boolean arg3) {
+		Menu parentMenu = super.createPopupMenu(arg0, arg1, arg2, arg3);
+		MenuManager menu_manager = new MenuManager("Additional Functions");
+	    initializeContextMenu(menu_manager);
+	    menu_manager.fill(parentMenu,SWT.NONE);
+	    return parentMenu;
+	}
+
 	public AbstractJFreeChartChart(Composite parent, int style) {
 		super(parent, style);
 		final Graphics2DRenderer renderer = new Graphics2DRenderer();
 		initChart();
+		
 
-		MenuManager menu_manager = new MenuManager();
-	    this.setMenu(menu_manager.createContextMenu(this));
-
-	    initializeContextMenu(menu_manager);
-	    
-		addPaintListener(new PaintListener() {
-
-			public void paintControl(org.eclipse.swt.events.PaintEvent e) {
-			    Point controlSize = ((Control) e.getSource()).getSize();
-
-			    GC gc = e.gc; // gets the SWT graphics context from the event
-
-			    renderer.prepareRendering(gc); // prepares the Graphics2D renderer
-
-			    // gets the Graphics2D context and switch on the antialiasing
-			    Graphics2D g2d = renderer.getGraphics2D();
-			    
-				if(myChart != null)
-					myChart.draw(g2d, new Rectangle(0,0,controlSize.x,controlSize.y));
-				else
-					g2d.drawString("No data yet", 5, 20);
-			    // now that we are done with Java 2D, renders Graphics2D operation
-			    // on the SWT graphics context
-			    renderer.render(gc);
-			    
-			  }
-		});
+//	    
+//		addPaintListener(new PaintListener() {
+//
+//			public void paintControl(org.eclipse.swt.events.PaintEvent e) {
+//			    Point controlSize = ((Control) e.getSource()).getSize();
+//
+//			    GC gc = e.gc; // gets the SWT graphics context from the event
+//
+//			    renderer.prepareRendering(gc); // prepares the Graphics2D renderer
+//
+//			    // gets the Graphics2D context and switch on the antialiasing
+//			    Graphics2D g2d = renderer.getGraphics2D();
+//			    
+//				if(myChart != null)
+//					myChart.draw(g2d, new Rectangle(0,0,controlSize.x,controlSize.y));
+//				else
+//					g2d.drawString("No data yet", 5, 20);
+//			    // now that we are done with Java 2D, renders Graphics2D operation
+//			    // on the SWT graphics context
+//			    renderer.render(gc);
+//			    
+//			  }
+//		});
 	}
 	
-	public JFreeChart getChart() {
-		return myChart;
-	}
-
 	protected void initializeContextMenu(MenuManager menu_manager) {
 		menu_manager.add(new SaveImageAsAction(this));
 		menu_manager.add(new SaveSVGAsAction(this));

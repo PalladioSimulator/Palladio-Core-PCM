@@ -72,9 +72,9 @@ public class JFreeChartCDFViewer extends AbstractJFreeChartChart implements IHis
 	DefaultTableXYDataset densityDataset=new DefaultTableXYDataset();
 
 	protected void initChart() {
-		myChart = ChartFactory.createXYLineChart("CDF", "Time", "Probability", densityDataset, PlotOrientation.VERTICAL, true, true, true);
+		this.chart = ChartFactory.createXYLineChart("CDF", "Time", "Probability", densityDataset, PlotOrientation.VERTICAL, true, true, true);
 
-		XYPlot plot = (XYPlot)myChart.getPlot();
+		XYPlot plot = (XYPlot)chart.getPlot();
 		plot.getRangeAxis().setAutoRange(true);
 		plot.getRenderer().setStroke(new BasicStroke(3));
 	}
@@ -115,6 +115,6 @@ public class JFreeChartCDFViewer extends AbstractJFreeChartChart implements IHis
 			densityDataset.addSeries(density);
 		}
 		initChart();
-		this.redraw();
+		this.forceRedraw();
 	}
 }

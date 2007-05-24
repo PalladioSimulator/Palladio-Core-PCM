@@ -10,6 +10,8 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.util.Collection;
+import java.util.Properties;
+import java.util.Vector;
 
 import org.eclipse.jface.action.AbstractAction;
 import org.eclipse.jface.action.Action;
@@ -59,19 +61,27 @@ public class JFreeChartHistogramViewer extends AbstractJFreeChartChart
 	}
 
 	DefaultTableXYDataset densityDataset=new DefaultTableXYDataset();
+	private double histogramWidth;
+	private Collection<IAdapter> lastData = new Vector<IAdapter>();
 
 	protected void initChart() {
-		myChart = ChartFactory.createHistogram("Histogram","Time [s]","Probability", densityDataset,PlotOrientation.VERTICAL,true,true,true);
+		JFreeChart chart = ChartFactory.createHistogram("Histogram","Time [s]","Probability", densityDataset,PlotOrientation.VERTICAL,true,true,true);
 
-		XYPlot plot = (XYPlot)myChart.getPlot();
+		XYPlot plot = (XYPlot)chart.getPlot();
 		plot.getRangeAxis().setAutoRange(true);
 		plot.setForegroundAlpha(0.8f); // for transparency
+		this.setChart(chart);
 	}
+
+	public static final String HISTOGRAM_WIDTH = "HISTOGRAM_WIDTH";
 
 	public void setHistograms(Collection<IAdapter> data){
 		densityDataset.removeAllSeries();
 		
 		for (IAdapter histAdapter : data) {
+			Properties p = new Properties();
+			p.put(HISTOGRAM_WIDTH, histogramWidth);
+			histAdapter.setProperties(p);
 			Histogram hist = (Histogram) histAdapter.getAdaptedObject();
 			XYSeries density = new XYSeries(hist.getLabel(),true,false);
 			for (HistogramEntity e : hist.getEntityList())
@@ -80,6 +90,12 @@ public class JFreeChartHistogramViewer extends AbstractJFreeChartChart
 		}
 		densityDataset.setAutoWidth(true);
 		initChart();
-		this.redraw();
+		this.forceRedraw();
+		lastData  = data;
+	}
+
+	public void setHistogramWidth(double width) {
+		this.histogramWidth = width;
+		setHistograms(lastData);
 	}
 }
