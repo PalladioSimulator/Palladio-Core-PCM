@@ -3,7 +3,10 @@ package de.uka.ipd.sdq.pcmbench.tabs.table;
 import java.text.MessageFormat;
 import java.util.ArrayList;
 
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
+import org.eclipse.emf.transaction.util.TransactionUtil;
 import org.eclipse.jface.viewers.DialogCellEditor;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.FocusEvent;
@@ -21,7 +24,6 @@ import org.eclipse.swt.widgets.Control;
 import de.uka.ipd.sdq.dialogs.datatype.CallDataTypeDialog;
 import de.uka.ipd.sdq.pcm.repository.DataType;
 import de.uka.ipd.sdq.pcm.repository.Repository;
-import de.uka.ipd.sdq.pcmbench.EditingDomainFactory;
 
 /**
  * @author admin
@@ -61,14 +63,19 @@ public class TypeDialogCellEditor extends DialogCellEditor {
 	 * alter the model
 	 */
 
-	final protected TransactionalEditingDomain editingDomain = TransactionalEditingDomain.Registry.INSTANCE
-			.getEditingDomain(EditingDomainFactory.EDITING_DOMAIN_ID);
+	protected TransactionalEditingDomain editingDomain = null; // TransactionalEditingDomain.Registry.INSTANCE
+	//		.getEditingDomain(EditingDomainFactory.EDITING_DOMAIN_ID);
+	
 
 	/* @See org.eclipse.jface.viewers.DialogCellEditor#DialogCellEditor(org.eclipse.swt.widgets.Control
 	 *      parent)
 	 */
 	public TypeDialogCellEditor(Composite parent) {
 		super(parent, SWT.DEL);
+	}
+
+	public void setEditingDomain(TransactionalEditingDomain editingDomain) {
+		this.editingDomain = editingDomain;
 	}
 	
 	/* (non-Javadoc)
@@ -206,6 +213,11 @@ public class TypeDialogCellEditor extends DialogCellEditor {
 	        
 	     // add a FocusListener to the button
 	     //selButton.addFocusListener(getButtonFocusListener());
+	}
+
+	@Override
+	protected void doSetValue(Object value) {
+		super.doSetValue(value);
 	}
 
 }

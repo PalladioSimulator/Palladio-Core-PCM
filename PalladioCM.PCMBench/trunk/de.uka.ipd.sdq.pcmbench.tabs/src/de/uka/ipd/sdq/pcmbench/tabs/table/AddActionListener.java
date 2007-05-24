@@ -3,14 +3,13 @@ package de.uka.ipd.sdq.pcmbench.tabs.table;
 import org.eclipse.core.runtime.Assert;
 import org.eclipse.emf.transaction.RecordingCommand;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
+import org.eclipse.emf.transaction.util.TransactionUtil;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 
 import de.uka.ipd.sdq.pcm.repository.Interface;
 import de.uka.ipd.sdq.pcm.repository.RepositoryFactory;
 import de.uka.ipd.sdq.pcm.repository.Signature;
-import de.uka.ipd.sdq.pcmbench.EditingDomainFactory;
-
 
 public class AddActionListener extends SelectionAdapter {
 
@@ -19,8 +18,7 @@ public class AddActionListener extends SelectionAdapter {
 	/**
 	 * The transactional editing domain which is used to get the commands and alter the model 
 	 */
-	final protected TransactionalEditingDomain editingDomain = TransactionalEditingDomain.Registry.INSTANCE
-	.getEditingDomain(EditingDomainFactory.EDITING_DOMAIN_ID);
+	 protected TransactionalEditingDomain editingDomain = null;
 	
 	/**
 	 * singleton design patterns
@@ -60,6 +58,7 @@ public class AddActionListener extends SelectionAdapter {
 	 */
 	public void setSelectedInterface(Interface selectedInterface) {
 		this.selectedInterface = selectedInterface;
+		this.editingDomain = TransactionUtil.getEditingDomain(this.selectedInterface);
 	}
 
 }

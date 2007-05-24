@@ -6,12 +6,12 @@ import java.util.List;
 import org.eclipse.core.runtime.Assert;
 import org.eclipse.emf.transaction.RecordingCommand;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
+import org.eclipse.emf.transaction.util.TransactionUtil;
 import org.eclipse.jface.viewers.ICellModifier;
 import org.eclipse.swt.widgets.TableItem;
 
 import de.uka.ipd.sdq.pcm.repository.DataType;
 import de.uka.ipd.sdq.pcm.repository.Signature;
-import de.uka.ipd.sdq.pcmbench.EditingDomainFactory;
 
 /**
  * @author roman
@@ -30,8 +30,7 @@ public class OperationsCellModifier implements ICellModifier {
 	 * The transactional editing domain which is used to get the commands and
 	 * alter the model
 	 */
-	final protected TransactionalEditingDomain editingDomain = TransactionalEditingDomain.Registry.INSTANCE
-			.getEditingDomain(EditingDomainFactory.EDITING_DOMAIN_ID);
+	protected TransactionalEditingDomain editingDomain = null;
 
 	public OperationsCellModifier() {
 		this.columnNames = Arrays.asList(OperationsTabViewer
@@ -61,6 +60,7 @@ public class OperationsCellModifier implements ICellModifier {
 		Assert.isNotNull(element);
 		TableItem item = (TableItem) element;
 		signature = (Signature) item.getData();
+		editingDomain = TransactionUtil.getEditingDomain(signature);
 
 		switch (columnIndex) {
 		case OperationsTabViewer.ICON_COLUMN_INDEX: // COMPLETED_COLUMN

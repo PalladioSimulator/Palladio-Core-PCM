@@ -1,6 +1,7 @@
 package de.uka.ipd.sdq.pcmbench.tabs.table;
 
 import org.eclipse.core.runtime.Assert;
+import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.jface.viewers.CellEditor;
 import org.eclipse.jface.viewers.DialogCellEditor;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
@@ -32,6 +33,8 @@ public class OperationsTabViewer {
 	private ToolItem addItem, deleteItem;
 	private Signature selectedSignature;
 	private String[] columnNames;
+	private TransactionalEditingDomain editingDomain;
+	private CellEditor[] editors;
 
 	public static final int ICON_COLUMN_INDEX = 0;
 	public static final int RETURNTYPE_COLUMN_INDEX = 1;
@@ -70,6 +73,10 @@ public class OperationsTabViewer {
 		this.createTableViewer(composite);
 	}
 
+	public void setEditingDomain(TransactionalEditingDomain editingDomain){
+		this.editingDomain = editingDomain;
+		((TypeDialogCellEditor)editors[RETURNTYPE_COLUMN_INDEX]).setEditingDomain(editingDomain);
+	}
 	public void createTable(Composite composite) {
 
 		// style the style of table to construct
@@ -110,7 +117,7 @@ public class OperationsTabViewer {
 		tableViewer.setColumnProperties(columnNames);
 
 		// Create the cell editors
-		CellEditor[] editors = new CellEditor[columnNames.length];
+		editors = new CellEditor[columnNames.length];
 
 		textEditor = new TextCellEditor(table);
 		editors[SIGNATURENAME_COLUMN_INDEX] = textEditor;

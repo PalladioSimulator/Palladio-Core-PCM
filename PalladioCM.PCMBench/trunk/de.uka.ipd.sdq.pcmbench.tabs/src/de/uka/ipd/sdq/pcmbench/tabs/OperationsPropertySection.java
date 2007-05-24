@@ -7,6 +7,7 @@ import org.eclipse.emf.edit.provider.ReflectiveItemProviderAdapterFactory;
 import org.eclipse.emf.edit.provider.resource.ResourceItemProviderAdapterFactory;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryContentProvider;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
+import org.eclipse.emf.transaction.util.TransactionUtil;
 import org.eclipse.gef.GraphicalEditPart;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.jface.viewers.ISelection;
@@ -90,6 +91,7 @@ public class OperationsPropertySection extends AbstractPropertySection {
 		}
 		Assert.isTrue(input instanceof EObject);
 		tableViewer.setInput(input);
+	    sectionTable.setEditingDomain(TransactionUtil.getEditingDomain(input));
 
 		/*
 		 * (non-Javadoc) set the current selection interface in the
