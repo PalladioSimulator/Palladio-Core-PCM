@@ -5,8 +5,10 @@
    <extension
          point="org.eclipse.ui.actionSets">
       <actionSet
+            description="PCM Wizards Toolbar"
+            id="de.uka.ipd.sdq.pcm.gfm.toolbar.actionSet"
             label="PCM New Wizards"
-            id="de.uka.ipd.sdq.pcm.gfm.toolbar.actionSet">
+            visible="true">
          <action
                label="New &amp;Repository Diagram"
                icon="icons/RepositoryDiagramFile.gif"

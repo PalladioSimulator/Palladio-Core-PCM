@@ -13,6 +13,7 @@ import org.eclipse.core.runtime.Platform;
 import org.eclipse.core.runtime.Status;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.ReflectiveItemProviderAdapterFactory;
@@ -128,8 +129,16 @@ public class PalladioComponentModelUsageDiagramEditorPlugin extends
 	protected AdapterFactory createAdapterFactory() {
 		List factories = new ArrayList();
 		fillItemProviderFactories(factories);
-		return new PalladioItemProviderAdapterFactory(
-				new ComposedAdapterFactory(factories));
+		ComposedAdapterFactory caf = new ComposedAdapterFactory(factories) {
+
+			@Override
+			public ComposeableAdapterFactory getRootAdapterFactory() {
+				// TODO Auto-generated method stub
+				return (PalladioItemProviderAdapterFactory)adapterFactory;
+			}
+			
+		};
+		return new PalladioItemProviderAdapterFactory(caf);
 	}
 
 	/**

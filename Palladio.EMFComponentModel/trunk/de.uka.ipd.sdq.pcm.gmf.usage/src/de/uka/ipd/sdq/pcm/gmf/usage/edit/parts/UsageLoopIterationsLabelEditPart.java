@@ -13,6 +13,7 @@ import org.eclipse.draw2d.Label;
 import org.eclipse.draw2d.geometry.Point;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.util.EContentAdapter;
 import org.eclipse.emf.transaction.RunnableWithResult;
 import org.eclipse.gef.AccessibleEditPart;
 import org.eclipse.gef.EditPolicy;
@@ -479,12 +480,26 @@ public class UsageLoopIterationsLabelEditPart extends CompartmentEditPart
 		getFigure().setForegroundColor(color);
 	}
 
+	private EContentAdapter changeListener = null;
+	private EObject adaptedElement = null;
+
 	/**
 	 * @generated not
 	 */
 	protected void addSemanticListeners() {
-		Loop loop = (Loop) resolveSemanticElement();
-		addListenerFilter("SemanticModel", this, loop.getIterations_Loop()); //$NON-NLS-1$
+		EObject element = resolveSemanticElement();
+		changeListener = new EContentAdapter() {
+
+			@Override
+			public void notifyChanged(Notification notification) {
+				super.notifyChanged(notification);
+				UsageLoopIterationsLabelEditPart.this.notifyChanged(notification);
+			}
+			
+		};
+		adaptedElement = element;
+		element.eAdapters().add(changeListener);
+		addListenerFilter("SemanticModel", this, element); //$NON-NLS-1$
 	}
 
 	/**
@@ -492,6 +507,7 @@ public class UsageLoopIterationsLabelEditPart extends CompartmentEditPart
 	 */
 	protected void removeSemanticListeners() {
 		removeListenerFilter("SemanticModel"); //$NON-NLS-1$
+		adaptedElement.eAdapters().remove(changeListener);
 	}
 
 	/**
@@ -533,7 +549,7 @@ public class UsageLoopIterationsLabelEditPart extends CompartmentEditPart
 	}
 
 	/**
-	 * @generated
+	 * @generated not
 	 */
 	protected void handleNotificationEvent(Notification event) {
 		Object feature = event.getFeature();
@@ -556,21 +572,7 @@ public class UsageLoopIterationsLabelEditPart extends CompartmentEditPart
 						feature)) {
 			refreshFont();
 		} else {
-			if (getParser() != null
-					&& getParser().isAffectingEvent(event,
-							getParserOptions().intValue())) {
-				refreshLabel();
-			}
-			if (getParser() instanceof ISemanticParser) {
-				ISemanticParser modelParser = (ISemanticParser) getParser();
-				if (modelParser.areSemanticElementsAffected(null, event)) {
-					removeSemanticListeners();
-					if (resolveSemanticElement() != null) {
-						addSemanticListeners();
-					}
-					refreshLabel();
-				}
-			}
+			refreshLabel();
 		}
 		super.handleNotificationEvent(event);
 	}

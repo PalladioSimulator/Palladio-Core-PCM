@@ -22,6 +22,8 @@ import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.views.properties.IPropertySource;
 import org.eclipse.ui.views.properties.IPropertySourceProvider;
 
+import de.uka.ipd.sdq.pcm.gmf.repository.part.PalladioComponentModelRepositoryDiagramEditorPlugin;
+
 /**
  * @generated
  */
@@ -101,20 +103,21 @@ public class PalladioComponentModelPropertySection extends
 	}
 
 	/**
-	 * @generated
+	 * @generated not
 	 */
 	protected AdapterFactory getAdapterFactory(Object object) {
-		if (getEditingDomain() instanceof AdapterFactoryEditingDomain) {
-			return ((AdapterFactoryEditingDomain) getEditingDomain())
-					.getAdapterFactory();
-		}
-		TransactionalEditingDomain editingDomain = TransactionUtil
-				.getEditingDomain(object);
-		if (editingDomain != null) {
-			return ((AdapterFactoryEditingDomain) editingDomain)
-					.getAdapterFactory();
-		}
-		return null;
+		return PalladioComponentModelRepositoryDiagramEditorPlugin.getInstance().getItemProvidersAdapterFactory();
+//		if (getEditingDomain() instanceof AdapterFactoryEditingDomain) {
+//			return ((AdapterFactoryEditingDomain) getEditingDomain())
+//					.getAdapterFactory();
+//		}
+//		TransactionalEditingDomain editingDomain = TransactionUtil
+//				.getEditingDomain(object);
+//		if (editingDomain != null) {
+//			return ((AdapterFactoryEditingDomain) editingDomain)
+//					.getAdapterFactory();
+//		}
+//		return null;
 	}
 
 }

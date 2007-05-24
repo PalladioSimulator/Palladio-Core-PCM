@@ -33,7 +33,6 @@ public class PalladioAdapterFactoryContentProvider extends
 
 	public PalladioAdapterFactoryContentProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override

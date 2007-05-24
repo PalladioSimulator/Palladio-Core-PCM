@@ -13,6 +13,7 @@ import org.eclipse.core.runtime.Platform;
 import org.eclipse.core.runtime.Status;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.ReflectiveItemProviderAdapterFactory;
@@ -50,6 +51,7 @@ import de.uka.ipd.sdq.pcm.seff.provider.SeffItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.system.provider.SystemItemProviderAdapterFactory;
 
 import de.uka.ipd.sdq.pcm.usagemodel.provider.UsagemodelItemProviderAdapterFactory;
+import de.uka.ipd.sdq.pcmbench.ui.provider.PalladioItemProviderAdapterFactory;
 
 import de.uka.ipd.sdq.probfunction.provider.ProbfunctionItemProviderAdapterFactory;
 
@@ -78,9 +80,9 @@ public class PalladioComponentModelComposedStructureDiagramEditorPlugin extends
 	private static PalladioComponentModelComposedStructureDiagramEditorPlugin instance;
 
 	/**
-	 * @generated
+	 * @generated not
 	 */
-	private ComposedAdapterFactory adapterFactory;
+	private AdapterFactory adapterFactory;
 
 	/**
 	 * @generated
@@ -105,10 +107,10 @@ public class PalladioComponentModelComposedStructureDiagramEditorPlugin extends
 	}
 
 	/**
-	 * @generated
+	 * @generated not
 	 */
 	public void stop(BundleContext context) throws Exception {
-		adapterFactory.dispose();
+		((PalladioItemProviderAdapterFactory)adapterFactory).dispose();
 		adapterFactory = null;
 		instance = null;
 		super.stop(context);
@@ -122,12 +124,21 @@ public class PalladioComponentModelComposedStructureDiagramEditorPlugin extends
 	}
 
 	/**
-	 * @generated
+	 * @generated not
 	 */
-	protected ComposedAdapterFactory createAdapterFactory() {
+	protected AdapterFactory createAdapterFactory() {
 		List factories = new ArrayList();
 		fillItemProviderFactories(factories);
-		return new ComposedAdapterFactory(factories);
+		ComposedAdapterFactory caf = new ComposedAdapterFactory(factories) {
+
+			@Override
+			public ComposeableAdapterFactory getRootAdapterFactory() {
+				// TODO Auto-generated method stub
+				return (PalladioItemProviderAdapterFactory)adapterFactory;
+			}
+			
+		};
+		return new PalladioItemProviderAdapterFactory(caf);
 	}
 
 	/**

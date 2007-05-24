@@ -706,7 +706,7 @@ public class PalladioComponentModelDocumentProvider extends
 		if (doc instanceof IDiagramDocument) {
 			return (IDiagramDocument) doc;
 		}
-		return null;
+		return null; 
 	}
 
 	/**

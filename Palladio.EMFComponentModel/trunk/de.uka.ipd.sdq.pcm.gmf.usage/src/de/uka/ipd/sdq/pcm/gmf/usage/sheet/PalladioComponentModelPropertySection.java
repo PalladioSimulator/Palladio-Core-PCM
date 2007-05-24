@@ -22,6 +22,7 @@ import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.views.properties.IPropertySource;
 import org.eclipse.ui.views.properties.IPropertySourceProvider;
 
+import de.uka.ipd.sdq.pcm.gmf.usage.part.PalladioComponentModelUsageDiagramEditorPlugin;
 import de.uka.ipd.sdq.pcmbench.propertytabs.PalladioAdapterFactoryContentProvider;
 import de.uka.ipd.sdq.pcmbench.ui.provider.PalladioItemProviderAdapterFactory;
 
@@ -32,7 +33,7 @@ public class PalladioComponentModelPropertySection extends
 		AdvancedPropertySection implements IPropertySourceProvider {
 
 	/**
-	 * @generated
+	 * @generated not
 	 */
 	public IPropertySource getPropertySource(Object object) {
 		if (object instanceof IPropertySource) {
@@ -40,11 +41,7 @@ public class PalladioComponentModelPropertySection extends
 		}
 		AdapterFactory af = getAdapterFactory(object);
 		if (af != null) {
-			IItemPropertySource ips = (IItemPropertySource) af.adapt(object,
-					IItemPropertySource.class);
-			if (ips != null) {
-				return new PropertySource(object, ips);
-			}
+			return new PalladioAdapterFactoryContentProvider(af).getPropertySource(object);
 		}
 		if (object instanceof IAdaptable) {
 			return (IPropertySource) ((IAdaptable) object)
@@ -104,20 +101,22 @@ public class PalladioComponentModelPropertySection extends
 	}
 
 	/**
-	 * @generated
+	 * @generated not
 	 */
 	protected AdapterFactory getAdapterFactory(Object object) {
-		if (getEditingDomain() instanceof AdapterFactoryEditingDomain) {
-			return ((AdapterFactoryEditingDomain) getEditingDomain())
-					.getAdapterFactory();
-		}
-		TransactionalEditingDomain editingDomain = TransactionUtil
-				.getEditingDomain(object);
-		if (editingDomain != null) {
-			return ((AdapterFactoryEditingDomain) editingDomain)
-					.getAdapterFactory();
-		}
-		return null;
+		return PalladioComponentModelUsageDiagramEditorPlugin.getInstance().getItemProvidersAdapterFactory();
+//		if (getEditingDomain() instanceof AdapterFactoryEditingDomain) {
+//			return ((AdapterFactoryEditingDomain) getEditingDomain())
+//					.getAdapterFactory();
+//		}
+//		TransactionalEditingDomain editingDomain = TransactionUtil
+//				.getEditingDomain(object);
+//		if (editingDomain != null) {
+//			return ((AdapterFactoryEditingDomain) editingDomain)
+//					.getAdapterFactory();
+//		}
+//		return null;
 	}
+
 
 }

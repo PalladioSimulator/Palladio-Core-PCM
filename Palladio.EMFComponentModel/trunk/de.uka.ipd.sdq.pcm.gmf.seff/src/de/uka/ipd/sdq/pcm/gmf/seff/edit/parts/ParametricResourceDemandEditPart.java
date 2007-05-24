@@ -225,15 +225,17 @@ public class ParametricResourceDemandEditPart extends CompartmentEditPart
 					new EObjectAdapter(getParserElement()),
 					getParserOptions().intValue());
 		}
-		ParametricResourceDemand demand = (ParametricResourceDemand) resolveSemanticElement();
-		if (demand.getRequiredResource_ParametricResourceDemand() != null) {
-			if (text == null)
-				text = "";
-			else
-				text += " ";
-			text += "<"
-					+ demand.getRequiredResource_ParametricResourceDemand()
-							.getEntityName() + ">";
+		if (resolveSemanticElement() instanceof ParametricResourceDemand){
+			ParametricResourceDemand demand = (ParametricResourceDemand) resolveSemanticElement();
+			if (demand.getRequiredResource_ParametricResourceDemand() != null) {
+				if (text == null)
+					text = "";
+				else
+					text += " ";
+				text += "<"
+						+ demand.getRequiredResource_ParametricResourceDemand()
+								.getEntityName() + ">";
+			}
 		}
 		if (text == null || text.length() == 0) {
 			text = defaultText;
@@ -489,6 +491,7 @@ public class ParametricResourceDemandEditPart extends CompartmentEditPart
 	}
 
 	private EContentAdapter changeListener = null;
+	private EObject adaptedElement = null;
 
 	/**
 	 * @generated not
@@ -504,6 +507,7 @@ public class ParametricResourceDemandEditPart extends CompartmentEditPart
 			}
 
 		};
+		adaptedElement = element;
 		element.eAdapters().add(changeListener);
 	}
 
@@ -511,8 +515,7 @@ public class ParametricResourceDemandEditPart extends CompartmentEditPart
 	 * @generated not
 	 */
 	protected void removeSemanticListeners() {
-		ParametricResourceDemand element = (ParametricResourceDemand) resolveSemanticElement();
-		element.eAdapters().remove(changeListener);
+		adaptedElement.eAdapters().remove(changeListener);
 	}
 
 	/**
