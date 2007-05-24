@@ -36,35 +36,8 @@
       </tools>
       <tools
           xsi:type="gmftool:CreationTool"
-          title="RequiredDelegationConnector"
-          description="Create new RequiredDelegationConnector">
-        <smallIcon
-            xsi:type="gmftool:DefaultImage"/>
-        <largeIcon
-            xsi:type="gmftool:DefaultImage"/>
-      </tools>
-      <tools
-          xsi:type="gmftool:CreationTool"
-          title="ChildComponentContext"
-          description="Create new ChildComponentContext">
-        <smallIcon
-            xsi:type="gmftool:DefaultImage"/>
-        <largeIcon
-            xsi:type="gmftool:DefaultImage"/>
-      </tools>
-      <tools
-          xsi:type="gmftool:CreationTool"
           title="ProvidedRole"
           description="Create new ProvidedRole">
-        <smallIcon
-            xsi:type="gmftool:DefaultImage"/>
-        <largeIcon
-            xsi:type="gmftool:DefaultImage"/>
-      </tools>
-      <tools
-          xsi:type="gmftool:CreationTool"
-          title="ProvidedDelegationConnector"
-          description="Create new ProvidedDelegationConnector">
         <smallIcon
             xsi:type="gmftool:DefaultImage"/>
         <largeIcon
@@ -83,15 +56,6 @@
           xsi:type="gmftool:CreationTool"
           title="CompositeComponent"
           description="Create new CompositeComponent">
-        <smallIcon
-            xsi:type="gmftool:DefaultImage"/>
-        <largeIcon
-            xsi:type="gmftool:DefaultImage"/>
-      </tools>
-      <tools
-          xsi:type="gmftool:CreationTool"
-          title="CompositeAssemblyConnector"
-          description="Create new CompositeAssemblyConnector">
         <smallIcon
             xsi:type="gmftool:DefaultImage"/>
         <largeIcon

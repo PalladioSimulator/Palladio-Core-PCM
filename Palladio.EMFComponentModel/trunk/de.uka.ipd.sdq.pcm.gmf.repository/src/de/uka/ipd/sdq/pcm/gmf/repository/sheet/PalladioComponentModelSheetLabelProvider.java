@@ -22,16 +22,12 @@ public class PalladioComponentModelSheetLabelProvider extends
 		DecoratingLabelProvider {
 
 	/**
-	 * @generated not
+	 * @generated
 	 */
 	public PalladioComponentModelSheetLabelProvider() {
-		super(
-				new AdapterFactoryLabelProvider(
-						new PalladioItemProviderAdapterFactory(
-								PalladioComponentModelRepositoryDiagramEditorPlugin
-										.getInstance()
-										.getItemProvidersAdapterFactory())),
-				null);
+		super(new AdapterFactoryLabelProvider(
+				PalladioComponentModelRepositoryDiagramEditorPlugin
+						.getInstance().getItemProvidersAdapterFactory()), null);
 	}
 
 	/**

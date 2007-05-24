@@ -26,7 +26,7 @@ public class InterfaceSignatureListItemSemanticEditPolicy extends
 				req.setContainmentFeature(RepositoryPackage.eINSTANCE
 						.getInterface_Signatures__Interface());
 			}
-			return getMSLWrapper(new SignatureCreateCommand(req));
+			return getGEFWrapper(new SignatureCreateCommand(req));
 		}
 		return super.getCreateCommand(req);
 	}

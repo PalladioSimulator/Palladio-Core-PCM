@@ -48,8 +48,8 @@ public class RepositoryEditPart extends DiagramEditPart {
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
 				new RepositoryItemSemanticEditPolicy());
 		// Make diagram unsynched
-		//installEditPolicy(EditPolicyRoles.CANONICAL_ROLE,
-		//		new RepositoryCanonicalEditPolicy());
+		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE,
+				new RepositoryCanonicalEditPolicy());
 		// Install an edit policy which also create links to the new created view
 		// according to the semantic model
 		installEditPolicy(EditPolicyRoles.CREATION_ROLE,

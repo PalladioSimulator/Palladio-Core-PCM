@@ -27,7 +27,7 @@ public class BasicComponentSEFFCompartmentItemSemanticEditPolicy extends
 						.setContainmentFeature(RepositoryPackage.eINSTANCE
 								.getBasicComponent_ServiceEffectSpecifications__BasicComponent());
 			}
-			return getMSLWrapper(new ResourceDemandingSEFFCreateCommand(req));
+			return getGEFWrapper(new ResourceDemandingSEFFCreateCommand(req));
 		}
 		return super.getCreateCommand(req);
 	}

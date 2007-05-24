@@ -102,15 +102,15 @@ public class PalladioComponentModelRepositoryDiagramEditor extends
 	}
 
 	/**
-	 * @generated NOT
+	 * @generated
 	 */
 	public TransactionalEditingDomain getEditingDomain() {
+		IDocument document = getEditorInput() != null ? getDocumentProvider()
+				.getDocument(getEditorInput()) : null;
+		if (document instanceof IDiagramDocument) {
+			return ((IDiagramDocument) document).getEditingDomain();
+		}
 		return super.getEditingDomain();
-	}
-
-	@Override
-	protected String getEditingDomainID() {
-		return "de.uka.ipd.sdq.PCMBench.editingDomain";
 	}
 
 	/**

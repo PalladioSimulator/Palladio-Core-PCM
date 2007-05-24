@@ -13,15 +13,6 @@
          </adviceBinding>
       </metamodel>
       <metamodel
-            nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0">
-         <adviceBinding 
-               class="de.uka.ipd.sdq.pcm.gmf.repository.helper.SeffEditHelperAdvice"
-               id="de.uka.ipd.sdq.pcm.gmf.repository.ResourceDemandingSEFFAdvice"
-               inheritance="all"
-               typeId="de.uka.ipd.sdq.pcm.gmf.seff.ResourceDemandingSEFF_1000">
-         </adviceBinding>
-      </metamodel>
-      <metamodel
             nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/1.0">
          <adviceBinding 
                class="de.uka.ipd.sdq.pcm.gmf.repository.helper.BasicComponentEditHelperAdvice"
@@ -52,22 +43,19 @@
 
    <extension
          point="org.eclipse.gmf.runtime.emf.type.core.elementTypeBindings">
-      <clientContext id="PCM SEFF ModelClientContext">
+      <clientContext id="PCM Repository ModelClientContext">
          <enablement>
             <test
                property="org.eclipse.gmf.runtime.emf.core.editingDomain"
-               value="de.uka.ipd.sdq.PCMBench.editingDomain"/>
+               value="de.uka.ipd.sdq.pcm.gmf.repository.EditingDomain"/>
          </enablement>
       </clientContext> 
-      <binding context="PCM SEFF ModelClientContext">
+      <binding context="PCM Repository ModelClientContext">
          <advice
                ref="de.uka.ipd.sdq.pcm.gmf.repository.BasicComponentAdvice">
          </advice>
          <advice
                ref="de.uka.ipd.sdq.pcm.gmf.repository.RepositoryEditorResourceDemandingSEFFAdvice">
-         </advice>
-         <advice
-               ref="de.uka.ipd.sdq.pcm.gmf.repository.ResourceDemandingSEFFAdvice">
          </advice>
          <advice
                ref="de.uka.ipd.sdq.pcm.gmf.repository.ProvidedRoleNameAdvice">

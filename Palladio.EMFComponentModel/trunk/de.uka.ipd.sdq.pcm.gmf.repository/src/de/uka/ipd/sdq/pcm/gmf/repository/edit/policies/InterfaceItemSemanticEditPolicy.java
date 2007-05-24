@@ -20,18 +20,24 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.CreateRelationshipRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.DestroyElementRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.ReorientRelationshipRequest;
 import org.eclipse.gmf.runtime.notation.Edge;
+import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
 
 import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
 import de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingEntity;
 import de.uka.ipd.sdq.pcm.core.entity.InterfaceRequiringEntity;
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.commands.ProvidedRoleCreateCommand;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.commands.ProvidedRoleReorientCommand;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.commands.ProvidedRoleTypeLinkCreateCommand;
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.commands.RequiredRoleCreateCommand;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.commands.RequiredRoleReorientCommand;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.commands.RequiredRoleTypeLinkCreateCommand;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.InterfaceEditPart;
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.InterfaceSignatureListEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.ProvidedRoleEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.RequiredRoleEditPart;
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.SignatureEditPart;
+import de.uka.ipd.sdq.pcm.gmf.repository.part.PalladioComponentModelVisualIDRegistry;
 import de.uka.ipd.sdq.pcm.gmf.repository.providers.PalladioComponentModelElementTypes;
 import de.uka.ipd.sdq.pcm.repository.Interface;
 
@@ -45,103 +51,86 @@ public class InterfaceItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	protected Command getDestroyElementCommand(DestroyElementRequest req) {
-		CompoundCommand cc = new CompoundCommand();
-		Collection allEdges = new ArrayList();
+		CompoundCommand cc = getDestroyEdgesCommand();
+		addDestroyChildNodesCommand(cc);
 		View view = (View) getHost().getModel();
-		allEdges.addAll(view.getSourceEdges());
-		allEdges.addAll(view.getTargetEdges());
-		for (Iterator it = allEdges.iterator(); it.hasNext();) {
-			Edge nextEdge = (Edge) it.next();
-			EditPart nextEditPart = (EditPart) getHost().getViewer()
-					.getEditPartRegistry().get(nextEdge);
-			EditCommandRequestWrapper editCommandRequest = new EditCommandRequestWrapper(
-					new DestroyElementRequest(((InterfaceEditPart) getHost())
-							.getEditingDomain(), req.isConfirmationRequired()),
-					Collections.EMPTY_MAP);
-			cc.add(nextEditPart.getCommand(editCommandRequest));
+		if (view.getEAnnotation("Shortcut") != null) { //$NON-NLS-1$
+			req.setElementToDestroy(view);
 		}
-		cc.add(getMSLWrapper(new DestroyElementCommand(req) {
+		cc.add(getGEFWrapper(new DestroyElementCommand(req)));
+		return cc.unwrap();
+	}
 
-			protected EObject getElementToDestroy() {
-				View view = (View) getHost().getModel();
-				EAnnotation annotation = view.getEAnnotation("Shortcut"); //$NON-NLS-1$
-				if (annotation != null) {
-					return view;
+	/**
+	 * @generated
+	 */
+	protected void addDestroyChildNodesCommand(CompoundCommand cmd) {
+		View view = (View) getHost().getModel();
+		EAnnotation annotation = view.getEAnnotation("Shortcut"); //$NON-NLS-1$
+		if (annotation != null) {
+			return;
+		}
+		for (Iterator it = view.getChildren().iterator(); it.hasNext();) {
+			Node node = (Node) it.next();
+			switch (PalladioComponentModelVisualIDRegistry.getVisualID(node)) {
+			case InterfaceSignatureListEditPart.VISUAL_ID:
+				for (Iterator cit = node.getChildren().iterator(); cit
+						.hasNext();) {
+					Node cnode = (Node) cit.next();
+					switch (PalladioComponentModelVisualIDRegistry
+							.getVisualID(cnode)) {
+					case SignatureEditPart.VISUAL_ID:
+						cmd.add(getDestroyElementCommand(cnode));
+						break;
+					}
 				}
-				return super.getElementToDestroy();
+				break;
 			}
-
-		}));
-		return cc;
+		}
 	}
 
 	/**
 	 * @generated
 	 */
 	protected Command getCreateRelationshipCommand(CreateRelationshipRequest req) {
+		Command command = req.getTarget() == null ? getStartCreateRelationshipCommand(req)
+				: getCompleteCreateRelationshipCommand(req);
+		return command != null ? command : super
+				.getCreateRelationshipCommand(req);
+	}
+
+	/**
+	 * @generated
+	 */
+	protected Command getStartCreateRelationshipCommand(
+			CreateRelationshipRequest req) {
 		if (PalladioComponentModelElementTypes.ProvidedRole_4101 == req
 				.getElementType()) {
-			return req.getTarget() == null ? null
-					: getCreateCompleteIncomingProvidedRole_4101Command(req);
+			return null;
 		}
 		if (PalladioComponentModelElementTypes.RequiredRole_4102 == req
 				.getElementType()) {
-			return req.getTarget() == null ? null
-					: getCreateCompleteIncomingRequiredRole_4102Command(req);
+			return null;
 		}
-		return super.getCreateRelationshipCommand(req);
+		return null;
 	}
 
 	/**
 	 * @generated
 	 */
-	protected Command getCreateCompleteIncomingProvidedRole_4101Command(
+	protected Command getCompleteCreateRelationshipCommand(
 			CreateRelationshipRequest req) {
-		EObject sourceEObject = req.getSource();
-		EObject targetEObject = req.getTarget();
-		if (false == sourceEObject instanceof InterfaceProvidingEntity
-				|| false == targetEObject instanceof Interface) {
-			return UnexecutableCommand.INSTANCE;
+		if (PalladioComponentModelElementTypes.ProvidedRole_4101 == req
+				.getElementType()) {
+			return getGEFWrapper(new ProvidedRoleCreateCommand(req, req
+					.getSource(), req.getTarget()));
 		}
-		InterfaceProvidingEntity source = (InterfaceProvidingEntity) sourceEObject;
-		Interface target = (Interface) targetEObject;
-		if (!PalladioComponentModelBaseItemSemanticEditPolicy.LinkConstraints
-				.canCreateProvidedRole_4101(source, target)) {
-			return UnexecutableCommand.INSTANCE;
+		if (PalladioComponentModelElementTypes.RequiredRole_4102 == req
+				.getElementType()) {
+			return getGEFWrapper(new RequiredRoleCreateCommand(req, req
+					.getSource(), req.getTarget()));
 		}
-		if (req.getContainmentFeature() == null) {
-			req
-					.setContainmentFeature(EntityPackage.eINSTANCE
-							.getInterfaceProvidingEntity_ProvidedRoles_InterfaceProvidingEntity());
-		}
-		return getMSLWrapper(new ProvidedRoleTypeLinkCreateCommand(req, source,
-				target));
-	}
-
-	/**
-	 * @generated
-	 */
-	protected Command getCreateCompleteIncomingRequiredRole_4102Command(
-			CreateRelationshipRequest req) {
-		EObject sourceEObject = req.getSource();
-		EObject targetEObject = req.getTarget();
-		if (false == sourceEObject instanceof InterfaceRequiringEntity
-				|| false == targetEObject instanceof Interface) {
-			return UnexecutableCommand.INSTANCE;
-		}
-		InterfaceRequiringEntity source = (InterfaceRequiringEntity) sourceEObject;
-		Interface target = (Interface) targetEObject;
-		if (!PalladioComponentModelBaseItemSemanticEditPolicy.LinkConstraints
-				.canCreateRequiredRole_4102(source, target)) {
-			return UnexecutableCommand.INSTANCE;
-		}
-		if (req.getContainmentFeature() == null) {
-			req
-					.setContainmentFeature(EntityPackage.eINSTANCE
-							.getInterfaceRequiringEntity_RequiredRoles_InterfaceRequiringEntity());
-		}
-		return getMSLWrapper(new RequiredRoleTypeLinkCreateCommand(req, source,
-				target));
+		return null;
 	}
 
 	/**
@@ -154,9 +143,9 @@ public class InterfaceItemSemanticEditPolicy extends
 			ReorientRelationshipRequest req) {
 		switch (getVisualID(req)) {
 		case ProvidedRoleEditPart.VISUAL_ID:
-			return getMSLWrapper(new ProvidedRoleReorientCommand(req));
+			return getGEFWrapper(new ProvidedRoleReorientCommand(req));
 		case RequiredRoleEditPart.VISUAL_ID:
-			return getMSLWrapper(new RequiredRoleReorientCommand(req));
+			return getGEFWrapper(new RequiredRoleReorientCommand(req));
 		}
 		return super.getReorientRelationshipCommand(req);
 	}

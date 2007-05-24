@@ -26,12 +26,137 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String DocumentProvider_isModifiable;
+	public static String PalladioComponentModelDiagramEditorUtil_OpenModelResourceErrorDialogTitle;
 
 	/**
 	 * @generated
 	 */
-	public static String DocumentProvider_handleElementContentChanged;
+	public static String PalladioComponentModelDiagramEditorUtil_OpenModelResourceErrorDialogMessage;
+
+	/**
+	 * @generated
+	 */
+	public static String PalladioComponentModelDiagramEditorUtil_CreateDiagramProgressTask;
+
+	/**
+	 * @generated
+	 */
+	public static String PalladioComponentModelDiagramEditorUtil_CreateDiagramCommandLabel;
+
+	/**
+	 * @generated
+	 */
+	public static String PalladioComponentModelDocumentProvider_isModifiable;
+
+	/**
+	 * @generated
+	 */
+	public static String PalladioComponentModelDocumentProvider_handleElementContentChanged;
+
+	/**
+	 * @generated
+	 */
+	public static String PalladioComponentModelDocumentProvider_IncorrectInputError;
+
+	/**
+	 * @generated
+	 */
+	public static String PalladioComponentModelDocumentProvider_NoDiagramInResourceError;
+
+	/**
+	 * @generated
+	 */
+	public static String PalladioComponentModelDocumentProvider_DiagramLoadingError;
+
+	/**
+	 * @generated
+	 */
+	public static String PalladioComponentModelDocumentProvider_UnsynchronizedFileSaveError;
+
+	/**
+	 * @generated
+	 */
+	public static String PalladioComponentModelDocumentProvider_SaveDiagramTask;
+
+	/**
+	 * @generated
+	 */
+	public static String PalladioComponentModelDocumentProvider_SaveNextResourceTask;
+
+	/**
+	 * @generated
+	 */
+	public static String PalladioComponentModelInitDiagramFileAction_InitDiagramFileResourceErrorDialogTitle;
+
+	/**
+	 * @generated
+	 */
+	public static String PalladioComponentModelInitDiagramFileAction_InitDiagramFileResourceErrorDialogMessage;
+
+	/**
+	 * @generated
+	 */
+	public static String PalladioComponentModelInitDiagramFileAction_InitDiagramFileWizardTitle;
+
+	/**
+	 * @generated
+	 */
+	public static String PalladioComponentModelInitDiagramFileAction_OpenModelFileDialogTitle;
+
+	/**
+	 * @generated
+	 */
+	public static String PalladioComponentModelNewDiagramFileWizard_CreationPageName;
+
+	/**
+	 * @generated
+	 */
+	public static String PalladioComponentModelNewDiagramFileWizard_CreationPageTitle;
+
+	/**
+	 * @generated
+	 */
+	public static String PalladioComponentModelNewDiagramFileWizard_CreationPageDescription;
+
+	/**
+	 * @generated
+	 */
+	public static String PalladioComponentModelNewDiagramFileWizard_RootSelectionPageName;
+
+	/**
+	 * @generated
+	 */
+	public static String PalladioComponentModelNewDiagramFileWizard_RootSelectionPageTitle;
+
+	/**
+	 * @generated
+	 */
+	public static String PalladioComponentModelNewDiagramFileWizard_RootSelectionPageDescription;
+
+	/**
+	 * @generated
+	 */
+	public static String PalladioComponentModelNewDiagramFileWizard_RootSelectionPageSelectionTitle;
+
+	/**
+	 * @generated
+	 */
+	public static String PalladioComponentModelNewDiagramFileWizard_RootSelectionPageNoSelectionMessage;
+
+	/**
+	 * @generated
+	 */
+	public static String PalladioComponentModelNewDiagramFileWizard_RootSelectionPageInvalidSelectionMessage;
+
+	/**
+	 * @generated
+	 */
+	public static String PalladioComponentModelNewDiagramFileWizard_InitDiagramCommand;
+
+	/**
+	 * @generated
+	 */
+	public static String PalladioComponentModelNewDiagramFileWizard_IncorrectRootError;
 
 	/**
 	 * @generated
@@ -71,122 +196,82 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
-	public static String RequiredDelegationConnector4CreationTool_title;
+	public static String ProvidedRole4CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String RequiredDelegationConnector4CreationTool_desc;
+	public static String ProvidedRole4CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String ChildComponentContext5CreationTool_title;
+	public static String CompleteComponentType5CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String ChildComponentContext5CreationTool_desc;
+	public static String CompleteComponentType5CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String ProvidedRole6CreationTool_title;
+	public static String CompositeComponent6CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String ProvidedRole6CreationTool_desc;
+	public static String CompositeComponent6CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String ProvidedDelegationConnector7CreationTool_title;
+	public static String BasicComponent7CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String ProvidedDelegationConnector7CreationTool_desc;
+	public static String BasicComponent7CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String CompleteComponentType8CreationTool_title;
+	public static String ProvidesComponentType8CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String CompleteComponentType8CreationTool_desc;
+	public static String ProvidesComponentType8CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String CompositeComponent9CreationTool_title;
+	public static String SEFF9CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String CompositeComponent9CreationTool_desc;
+	public static String SEFF9CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String CompositeAssemblyConnector10CreationTool_title;
+	public static String CompleteParentType10CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String CompositeAssemblyConnector10CreationTool_desc;
+	public static String CompleteParentType10CreationTool_desc;
 
 	/**
 	 * @generated
 	 */
-	public static String BasicComponent11CreationTool_title;
+	public static String ProvidesParentType11CreationTool_title;
 
 	/**
 	 * @generated
 	 */
-	public static String BasicComponent11CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String ProvidesComponentType12CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String ProvidesComponentType12CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String SEFF13CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String SEFF13CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String CompleteParentType14CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String CompleteParentType14CreationTool_desc;
-
-	/**
-	 * @generated
-	 */
-	public static String ProvidesParentType15CreationTool_title;
-
-	/**
-	 * @generated
-	 */
-	public static String ProvidesParentType15CreationTool_desc;
+	public static String ProvidesParentType11CreationTool_desc;
 
 	/**
 	 * @generated

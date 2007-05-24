@@ -27,9 +27,13 @@ import org.eclipse.gmf.runtime.notation.View;
 
 import de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingEntity;
 import de.uka.ipd.sdq.pcm.core.entity.InterfaceRequiringEntity;
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.commands.CompleteComponentTypeParentProvidesComponentTypesCreateCommand;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.commands.CompleteComponentTypeParentProvidesComponentTypesReorientCommand;
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.commands.ImplementationComponentTypeParentCompleteComponentTypesCreateCommand;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.commands.ImplementationComponentTypeParentCompleteComponentTypesReorientCommand;
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.commands.ProvidedRoleCreateCommand;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.commands.ProvidedRoleReorientCommand;
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.commands.RequiredRoleCreateCommand;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.commands.RequiredRoleReorientCommand;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.CompleteComponentTypeEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.CompleteComponentTypeParentProvidesComponentTypesEditPart;
@@ -52,170 +56,76 @@ public class CompleteComponentTypeItemSemanticEditPolicy extends
 	 * @generated
 	 */
 	protected Command getDestroyElementCommand(DestroyElementRequest req) {
-		CompoundCommand cc = new CompoundCommand();
-		Collection allEdges = new ArrayList();
+		CompoundCommand cc = getDestroyEdgesCommand();
 		View view = (View) getHost().getModel();
-		allEdges.addAll(view.getSourceEdges());
-		allEdges.addAll(view.getTargetEdges());
-		for (Iterator it = allEdges.iterator(); it.hasNext();) {
-			Edge nextEdge = (Edge) it.next();
-			EditPart nextEditPart = (EditPart) getHost().getViewer()
-					.getEditPartRegistry().get(nextEdge);
-			EditCommandRequestWrapper editCommandRequest = new EditCommandRequestWrapper(
-					new DestroyElementRequest(
-							((CompleteComponentTypeEditPart) getHost())
-									.getEditingDomain(), req
-									.isConfirmationRequired()),
-					Collections.EMPTY_MAP);
-			cc.add(nextEditPart.getCommand(editCommandRequest));
+		if (view.getEAnnotation("Shortcut") != null) { //$NON-NLS-1$
+			req.setElementToDestroy(view);
 		}
-		cc.add(getMSLWrapper(new DestroyElementCommand(req) {
-
-			protected EObject getElementToDestroy() {
-				View view = (View) getHost().getModel();
-				EAnnotation annotation = view.getEAnnotation("Shortcut"); //$NON-NLS-1$
-				if (annotation != null) {
-					return view;
-				}
-				return super.getElementToDestroy();
-			}
-
-		}));
-		return cc;
+		cc.add(getGEFWrapper(new DestroyElementCommand(req)));
+		return cc.unwrap();
 	}
 
 	/**
 	 * @generated
 	 */
 	protected Command getCreateRelationshipCommand(CreateRelationshipRequest req) {
+		Command command = req.getTarget() == null ? getStartCreateRelationshipCommand(req)
+				: getCompleteCreateRelationshipCommand(req);
+		return command != null ? command : super
+				.getCreateRelationshipCommand(req);
+	}
+
+	/**
+	 * @generated
+	 */
+	protected Command getStartCreateRelationshipCommand(
+			CreateRelationshipRequest req) {
 		if (PalladioComponentModelElementTypes.ProvidedRole_4101 == req
 				.getElementType()) {
-			return req.getTarget() == null ? getCreateStartOutgoingProvidedRole_4101Command(req)
-					: null;
+			return getGEFWrapper(new ProvidedRoleCreateCommand(req, req
+					.getSource(), req.getTarget()));
 		}
 		if (PalladioComponentModelElementTypes.RequiredRole_4102 == req
 				.getElementType()) {
-			return req.getTarget() == null ? getCreateStartOutgoingRequiredRole_4102Command(req)
-					: null;
+			return getGEFWrapper(new RequiredRoleCreateCommand(req, req
+					.getSource(), req.getTarget()));
 		}
 		if (PalladioComponentModelElementTypes.ImplementationComponentTypeParentCompleteComponentTypes_4103 == req
 				.getElementType()) {
-			return req.getTarget() == null ? null
-					: getCreateCompleteIncomingImplementationComponentTypeParentCompleteComponentTypes_4103Command(req);
+			return null;
 		}
 		if (PalladioComponentModelElementTypes.CompleteComponentTypeParentProvidesComponentTypes_4104 == req
 				.getElementType()) {
-			return req.getTarget() == null ? getCreateStartOutgoingCompleteComponentTypeParentProvidesComponentTypes_4104Command(req)
-					: getCreateCompleteIncomingCompleteComponentTypeParentProvidesComponentTypes_4104Command(req);
+			return getGEFWrapper(new CompleteComponentTypeParentProvidesComponentTypesCreateCommand(
+					req, req.getSource(), req.getTarget()));
 		}
-		return super.getCreateRelationshipCommand(req);
+		return null;
 	}
 
 	/**
 	 * @generated
 	 */
-	protected Command getCreateStartOutgoingProvidedRole_4101Command(
+	protected Command getCompleteCreateRelationshipCommand(
 			CreateRelationshipRequest req) {
-		EObject sourceEObject = req.getSource();
-		if (false == sourceEObject instanceof InterfaceProvidingEntity) {
-			return UnexecutableCommand.INSTANCE;
+		if (PalladioComponentModelElementTypes.ProvidedRole_4101 == req
+				.getElementType()) {
+			return null;
 		}
-		InterfaceProvidingEntity source = (InterfaceProvidingEntity) sourceEObject;
-		if (!PalladioComponentModelBaseItemSemanticEditPolicy.LinkConstraints
-				.canCreateProvidedRole_4101(source, null)) {
-			return UnexecutableCommand.INSTANCE;
+		if (PalladioComponentModelElementTypes.RequiredRole_4102 == req
+				.getElementType()) {
+			return null;
 		}
-		return new Command() {
-		};
-	}
-
-	/**
-	 * @generated
-	 */
-	protected Command getCreateStartOutgoingRequiredRole_4102Command(
-			CreateRelationshipRequest req) {
-		EObject sourceEObject = req.getSource();
-		if (false == sourceEObject instanceof InterfaceRequiringEntity) {
-			return UnexecutableCommand.INSTANCE;
+		if (PalladioComponentModelElementTypes.ImplementationComponentTypeParentCompleteComponentTypes_4103 == req
+				.getElementType()) {
+			return getGEFWrapper(new ImplementationComponentTypeParentCompleteComponentTypesCreateCommand(
+					req, req.getSource(), req.getTarget()));
 		}
-		InterfaceRequiringEntity source = (InterfaceRequiringEntity) sourceEObject;
-		if (!PalladioComponentModelBaseItemSemanticEditPolicy.LinkConstraints
-				.canCreateRequiredRole_4102(source, null)) {
-			return UnexecutableCommand.INSTANCE;
+		if (PalladioComponentModelElementTypes.CompleteComponentTypeParentProvidesComponentTypes_4104 == req
+				.getElementType()) {
+			return getGEFWrapper(new CompleteComponentTypeParentProvidesComponentTypesCreateCommand(
+					req, req.getSource(), req.getTarget()));
 		}
-		return new Command() {
-		};
-	}
-
-	/**
-	 * @generated
-	 */
-	protected Command getCreateCompleteIncomingImplementationComponentTypeParentCompleteComponentTypes_4103Command(
-			CreateRelationshipRequest req) {
-		EObject sourceEObject = req.getSource();
-		EObject targetEObject = req.getTarget();
-		if (false == sourceEObject instanceof ImplementationComponentType
-				|| false == targetEObject instanceof CompleteComponentType) {
-			return UnexecutableCommand.INSTANCE;
-		}
-		ImplementationComponentType source = (ImplementationComponentType) sourceEObject;
-		CompleteComponentType target = (CompleteComponentType) targetEObject;
-		if (!PalladioComponentModelBaseItemSemanticEditPolicy.LinkConstraints
-				.canCreateImplementationComponentTypeParentCompleteComponentTypes_4103(
-						source, target)) {
-			return UnexecutableCommand.INSTANCE;
-		}
-		SetRequest setReq = new SetRequest(
-				sourceEObject,
-				RepositoryPackage.eINSTANCE
-						.getImplementationComponentType_ParentCompleteComponentTypes(),
-				target);
-		return getMSLWrapper(new SetValueCommand(setReq));
-	}
-
-	/**
-	 * @generated
-	 */
-	protected Command getCreateStartOutgoingCompleteComponentTypeParentProvidesComponentTypes_4104Command(
-			CreateRelationshipRequest req) {
-		EObject sourceEObject = req.getSource();
-		if (false == sourceEObject instanceof CompleteComponentType) {
-			return UnexecutableCommand.INSTANCE;
-		}
-		CompleteComponentType source = (CompleteComponentType) sourceEObject;
-		if (!PalladioComponentModelBaseItemSemanticEditPolicy.LinkConstraints
-				.canCreateCompleteComponentTypeParentProvidesComponentTypes_4104(
-						source, null)) {
-			return UnexecutableCommand.INSTANCE;
-		}
-		return new Command() {
-		};
-	}
-
-	/**
-	 * @generated
-	 */
-	protected Command getCreateCompleteIncomingCompleteComponentTypeParentProvidesComponentTypes_4104Command(
-			CreateRelationshipRequest req) {
-		EObject sourceEObject = req.getSource();
-		EObject targetEObject = req.getTarget();
-		if (false == sourceEObject instanceof CompleteComponentType
-				|| false == targetEObject instanceof ProvidesComponentType) {
-			return UnexecutableCommand.INSTANCE;
-		}
-		CompleteComponentType source = (CompleteComponentType) sourceEObject;
-		ProvidesComponentType target = (ProvidesComponentType) targetEObject;
-		if (!PalladioComponentModelBaseItemSemanticEditPolicy.LinkConstraints
-				.canCreateCompleteComponentTypeParentProvidesComponentTypes_4104(
-						source, target)) {
-			return UnexecutableCommand.INSTANCE;
-		}
-		SetRequest setReq = new SetRequest(
-				sourceEObject,
-				RepositoryPackage.eINSTANCE
-						.getCompleteComponentType_ParentProvidesComponentTypes(),
-				target);
-		return getMSLWrapper(new SetValueCommand(setReq));
+		return null;
 	}
 
 	/**
@@ -228,9 +138,9 @@ public class CompleteComponentTypeItemSemanticEditPolicy extends
 			ReorientRelationshipRequest req) {
 		switch (getVisualID(req)) {
 		case ProvidedRoleEditPart.VISUAL_ID:
-			return getMSLWrapper(new ProvidedRoleReorientCommand(req));
+			return getGEFWrapper(new ProvidedRoleReorientCommand(req));
 		case RequiredRoleEditPart.VISUAL_ID:
-			return getMSLWrapper(new RequiredRoleReorientCommand(req));
+			return getGEFWrapper(new RequiredRoleReorientCommand(req));
 		}
 		return super.getReorientRelationshipCommand(req);
 	}
@@ -245,10 +155,10 @@ public class CompleteComponentTypeItemSemanticEditPolicy extends
 			ReorientReferenceRelationshipRequest req) {
 		switch (getVisualID(req)) {
 		case ImplementationComponentTypeParentCompleteComponentTypesEditPart.VISUAL_ID:
-			return getMSLWrapper(new ImplementationComponentTypeParentCompleteComponentTypesReorientCommand(
+			return getGEFWrapper(new ImplementationComponentTypeParentCompleteComponentTypesReorientCommand(
 					req));
 		case CompleteComponentTypeParentProvidesComponentTypesEditPart.VISUAL_ID:
-			return getMSLWrapper(new CompleteComponentTypeParentProvidesComponentTypesReorientCommand(
+			return getGEFWrapper(new CompleteComponentTypeParentProvidesComponentTypesReorientCommand(
 					req));
 		}
 		return super.getReorientReferenceRelationshipCommand(req);

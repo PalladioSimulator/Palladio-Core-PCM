@@ -6,6 +6,7 @@ package de.uka.ipd.sdq.pcm.gmf.repository.edit.parts;
 import java.util.Collections;
 import java.util.List;
 
+import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.Label;
 import org.eclipse.draw2d.geometry.Point;
@@ -55,6 +56,7 @@ import de.uka.ipd.sdq.pcm.gmf.repository.edit.policies.PalladioComponentModelTex
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.policies.PalladioComponentModelTextSelectionEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.policies.SignatureItemSemanticEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.repository.providers.PalladioComponentModelElementTypes;
+import de.uka.ipd.sdq.pcm.gmf.repository.providers.PalladioComponentModelParserProvider;
 import de.uka.ipd.sdq.pcm.repository.Signature;
 import de.uka.ipd.sdq.pcmbench.ui.provider.SignaturePrinter;
 
@@ -218,10 +220,13 @@ public class SignatureEditPart extends CompartmentEditPart implements
 	 */
 	protected String getLabelText() {
 		String text = "";
-		Signature sig = (Signature) resolveSemanticElement();
-		text = new SignaturePrinter().doSwitch(sig);
-		if (text.length() > MAX_SIGNATURE_DISPLAY_LENGTH)
-			text = text.substring(0, MAX_SIGNATURE_DISPLAY_LENGTH-1) + "...";
+		if (resolveSemanticElement() instanceof Signature) {
+			Signature sig = (Signature) resolveSemanticElement();
+			text = new SignaturePrinter().doSwitch(sig);
+			if (text.length() > MAX_SIGNATURE_DISPLAY_LENGTH)
+				text = text.substring(0, MAX_SIGNATURE_DISPLAY_LENGTH - 1)
+						+ "...";
+		}
 		if (text == null || text.length() == 0) {
 			text = defaultText;
 		}
@@ -316,16 +321,9 @@ public class SignatureEditPart extends CompartmentEditPart implements
 	public IParser getParser() {
 		if (parser == null) {
 			String parserHint = ((View) getModel()).getType();
-			ParserHintAdapter hintAdapter = new ParserHintAdapter(
-					getParserElement(), parserHint) {
-
-				public Object getAdapter(Class adapter) {
-					if (IElementType.class.equals(adapter)) {
-						return PalladioComponentModelElementTypes.Signature_3101;
-					}
-					return super.getAdapter(adapter);
-				}
-			};
+			IAdaptable hintAdapter = new PalladioComponentModelParserProvider.HintAdapter(
+					PalladioComponentModelElementTypes.Signature_3101,
+					getParserElement(), parserHint);
 			parser = ParserService.getInstance().getParser(hintAdapter);
 		}
 		return parser;
@@ -483,29 +481,33 @@ public class SignatureEditPart extends CompartmentEditPart implements
 	}
 
 	private EContentAdapter changeListener = null;
+	private EObject adaptedElement = null;
+
 	/**
 	 * @generated not
 	 */
 	protected void addSemanticListeners() {
-		Signature element = (Signature) resolveSemanticElement();
-		changeListener = new EContentAdapter(){
+		EObject element = resolveSemanticElement();
+		changeListener = new EContentAdapter() {
 
 			@Override
 			public void notifyChanged(Notification notification) {
 				super.notifyChanged(notification);
-				refreshLabel();
+				SignatureEditPart.this.notifyChanged(notification);
 			}
 			
 		};
+		adaptedElement = element;
 		element.eAdapters().add(changeListener);
+		addListenerFilter("SemanticModel", this, element); //$NON-NLS-1$
 	}
 
 	/**
 	 * @generated not
 	 */
 	protected void removeSemanticListeners() {
-		Signature element = (Signature) resolveSemanticElement();
-		element.eAdapters().remove(changeListener);
+		removeListenerFilter("SemanticModel"); //$NON-NLS-1$
+		adaptedElement.eAdapters().remove(changeListener);
 	}
 
 	/**

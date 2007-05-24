@@ -17,7 +17,7 @@ public class CompleteComponentTypeParentProvidesComponentTypesItemSemanticEditPo
 	 * @generated
 	 */
 	protected Command getDestroyReferenceCommand(DestroyReferenceRequest req) {
-		return getMSLWrapper(new DestroyReferenceCommand(req));
+		return getGEFWrapper(new DestroyReferenceCommand(req));
 	}
 
 }

@@ -323,12 +323,12 @@ Copyright 2007, IPD, SDQ, University of Karlsruhe
       <?gmfgen generated="true"?>
       <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/1.0">
          <metamodelType
-               id="de.uka.ipd.sdq.pcm.gmf.repository.Repository_1100"
-               name="%metatype.name.Repository_1100"
+               id="de.uka.ipd.sdq.pcm.gmf.repository.Repository_1000"
+               name="%metatype.name.Repository_1000"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
                eclass="Repository"
                edithelper="de.uka.ipd.sdq.pcm.gmf.repository.edit.helpers.RepositoryEditHelper">
-            <param name="semanticHint" value="1100"/>
+            <param name="semanticHint" value="1000"/>
          </metamodelType>
       </metamodel>
       <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/1.0">
@@ -392,14 +392,14 @@ Copyright 2007, IPD, SDQ, University of Karlsruhe
          </metamodelType>
       </metamodel>
       <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0">
-         <specializationType
+         <metamodelType
                id="de.uka.ipd.sdq.pcm.gmf.repository.ResourceDemandingSEFF_3102"
                name="%metatype.name.ResourceDemandingSEFF_3102"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
-               edithelperadvice="org.eclipse.gmf.runtime.emf.type.core.edithelper.AbstractEditHelperAdvice">
-            <specializes id="de.uka.ipd.sdq.pcm.gmf.seff.ResourceDemandingSEFF_1000"/>
+               eclass="ResourceDemandingSEFF"
+               edithelper="de.uka.ipd.sdq.pcm.gmf.repository.edit.helpers.ResourceDemandingSEFFEditHelper">
             <param name="semanticHint" value="3102"/>
-         </specializationType>
+         </metamodelType>
       </metamodel>
       <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/1.0">
          <metamodelType
@@ -445,15 +445,15 @@ Copyright 2007, IPD, SDQ, University of Karlsruhe
 
    <extension point="org.eclipse.gmf.runtime.emf.type.core.elementTypeBindings">
       <?gmfgen generated="true"?>
-      <clientContext id="PCM SEFF ModelClientContext">
+      <clientContext id="PCM Repository ModelClientContext">
          <enablement>
             <test
                property="org.eclipse.gmf.runtime.emf.core.editingDomain"
-               value="de.uka.ipd.sdq.PCMBench.editingDomain"/>
+               value="de.uka.ipd.sdq.pcm.gmf.repository.EditingDomain"/>
          </enablement>
       </clientContext> 
-      <binding context="PCM SEFF ModelClientContext">
-         <elementType ref="de.uka.ipd.sdq.pcm.gmf.repository.Repository_1100"/>
+      <binding context="PCM Repository ModelClientContext">
+         <elementType ref="de.uka.ipd.sdq.pcm.gmf.repository.Repository_1000"/>
          <elementType ref="de.uka.ipd.sdq.pcm.gmf.repository.Interface_2101"/>
          <elementType ref="de.uka.ipd.sdq.pcm.gmf.repository.BasicComponent_2102"/>
          <elementType ref="de.uka.ipd.sdq.pcm.gmf.repository.CompleteComponentType_2103"/>
@@ -594,7 +594,7 @@ Copyright 2007, IPD, SDQ, University of Karlsruhe
 <extension id="ValidationContributionItemProvider" name="Validation"
       point="org.eclipse.gmf.runtime.common.ui.services.action.contributionItemProviders">
       <?gmfgen generated="true"?>
-      <contributionItemProvider checkPluginLoaded="true"
+      <contributionItemProvider
          class="de.uka.ipd.sdq.pcm.gmf.repository.providers.PalladioComponentModelValidationProvider">
          <Priority name="Low"/>
          <partContribution id="de.uka.ipd.sdq.pcm.gmf.repository.part.PalladioComponentModelRepositoryDiagramEditorID">

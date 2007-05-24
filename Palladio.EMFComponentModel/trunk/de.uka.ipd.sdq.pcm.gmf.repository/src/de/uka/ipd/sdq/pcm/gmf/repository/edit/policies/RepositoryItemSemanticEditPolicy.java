@@ -34,7 +34,7 @@ public class RepositoryItemSemanticEditPolicy extends
 				req.setContainmentFeature(RepositoryPackage.eINSTANCE
 						.getRepository_Interfaces__Repository());
 			}
-			return getMSLWrapper(new InterfaceCreateCommand(req));
+			return getGEFWrapper(new InterfaceCreateCommand(req));
 		}
 		if (PalladioComponentModelElementTypes.BasicComponent_2102 == req
 				.getElementType()) {
@@ -42,7 +42,7 @@ public class RepositoryItemSemanticEditPolicy extends
 				req.setContainmentFeature(RepositoryPackage.eINSTANCE
 						.getRepository_Components__Repository());
 			}
-			return getMSLWrapper(new BasicComponentCreateCommand(req));
+			return getGEFWrapper(new BasicComponentCreateCommand(req));
 		}
 		if (PalladioComponentModelElementTypes.CompleteComponentType_2103 == req
 				.getElementType()) {
@@ -50,7 +50,7 @@ public class RepositoryItemSemanticEditPolicy extends
 				req.setContainmentFeature(RepositoryPackage.eINSTANCE
 						.getRepository_Components__Repository());
 			}
-			return getMSLWrapper(new CompleteComponentTypeCreateCommand(req));
+			return getGEFWrapper(new CompleteComponentTypeCreateCommand(req));
 		}
 		if (PalladioComponentModelElementTypes.ProvidesComponentType_2104 == req
 				.getElementType()) {
@@ -58,7 +58,7 @@ public class RepositoryItemSemanticEditPolicy extends
 				req.setContainmentFeature(RepositoryPackage.eINSTANCE
 						.getRepository_Components__Repository());
 			}
-			return getMSLWrapper(new ProvidesComponentTypeCreateCommand(req));
+			return getGEFWrapper(new ProvidesComponentTypeCreateCommand(req));
 		}
 		if (PalladioComponentModelElementTypes.CompositeComponent_2105 == req
 				.getElementType()) {
@@ -66,7 +66,7 @@ public class RepositoryItemSemanticEditPolicy extends
 				req.setContainmentFeature(RepositoryPackage.eINSTANCE
 						.getRepository_Components__Repository());
 			}
-			return getMSLWrapper(new CompositeComponentCreateCommand(req));
+			return getGEFWrapper(new CompositeComponentCreateCommand(req));
 		}
 		return super.getCreateCommand(req);
 	}
@@ -77,7 +77,7 @@ public class RepositoryItemSemanticEditPolicy extends
 	protected Command getDuplicateCommand(DuplicateElementsRequest req) {
 		TransactionalEditingDomain editingDomain = ((IGraphicalEditPart) getHost())
 				.getEditingDomain();
-		return getMSLWrapper(new DuplicateAnythingCommand(editingDomain, req));
+		return getGEFWrapper(new DuplicateAnythingCommand(editingDomain, req));
 	}
 
 	/**
