@@ -70,7 +70,7 @@ public class PCMInstance {
 				.createActualAllocation();
 		try {
 			this.storagePath = configuration.getAttribute("outputPath", ".");
-
+			
 			String filename = configuration.getAttribute("inputAllocation", "");
 			this.allocation = ((Allocation) loadFromXMIFile(filename));
 			filename = configuration.getAttribute("inputRepository", "");

@@ -11,6 +11,9 @@ import de.uka.ipd.sdq.context.usage.UsageContext;
 import de.uka.ipd.sdq.context.usage.UsageFactory;
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
 import de.uka.ipd.sdq.pcm.core.composition.ProvidedDelegationConnector;
+import de.uka.ipd.sdq.pcm.parameter.ParameterFactory;
+import de.uka.ipd.sdq.pcm.parameter.VariableCharacterisation;
+import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
 import de.uka.ipd.sdq.pcm.repository.BasicComponent;
 import de.uka.ipd.sdq.pcm.repository.ProvidedRole;
 import de.uka.ipd.sdq.pcm.repository.ProvidesComponentType;
@@ -26,6 +29,10 @@ import de.uka.ipd.sdq.pcm.usagemodel.Stop;
 import de.uka.ipd.sdq.pcm.usagemodel.util.UsagemodelSwitch;
 import de.uka.ipd.sdq.pcmsolver.models.Context;
 import de.uka.ipd.sdq.pcmsolver.models.PCMInstance;
+import de.uka.ipd.sdq.stoex.AbstractNamedReference;
+import de.uka.ipd.sdq.stoex.NamespaceReference;
+import de.uka.ipd.sdq.stoex.StoexFactory;
+import de.uka.ipd.sdq.stoex.VariableReference;
 
 /**
  * @author Koziolek
@@ -41,6 +48,8 @@ public class UsageModelVisitor extends UsagemodelSwitch {
 	private UsageFactory usageFactory;
 
 	private AllocationFactory actualAllocationFactory;
+	
+	private ParameterFactory parameterFactory;
 
 	/**
 	 * @param inst
@@ -50,6 +59,7 @@ public class UsageModelVisitor extends UsagemodelSwitch {
 		pcmInstance = inst;
 		usageFactory = UsageFactory.eINSTANCE;
 		actualAllocationFactory = AllocationFactory.eINSTANCE;
+		parameterFactory = ParameterFactory.eINSTANCE;
 		ActualAllocation all = actualAllocationFactory.createActualAllocation();
 		Usage usage = usageFactory.createUsage();
 	}
@@ -206,13 +216,19 @@ public class UsageModelVisitor extends UsagemodelSwitch {
 				.getChildComponentContext_ProvidedDelegationConnector());
 
 		UsageContext uc = usageFactory.createUsageContext();
-		EList parList = call.getActualParameterUsage_EntryLevelSystemCall();
-		uc.getActualParameterUsage_UsageContext().addAll(parList);
+		EList<VariableUsage> parList = call.getActualParameterUsage_EntryLevelSystemCall();
+		for (VariableUsage vu : parList){
+			copySolvedVariableUsageToUsageContext(uc, vu, callContext);
+		}
+		//uc.getActualParameterUsage_UsageContext().addAll(parList);
 
 		AssemblyContext assCtx = delegationConnector.getChildComponentContext_ProvidedDelegationConnector();
 		BasicComponent bc = (BasicComponent)assCtx.getEncapsulatedComponent_ChildComponentContext();
-		EList intParList = assCtx.getComponentParameterUsage_AssemblyContext();
-		uc.getActualParameterUsage_UsageContext().addAll(intParList);
+		EList<VariableUsage> intParList = assCtx.getComponentParameterUsage_AssemblyContext();
+		for (VariableUsage vu : intParList){
+			copySolvedVariableUsageToUsageContext(uc, vu, callContext);
+		}
+		//uc.getActualParameterUsage_UsageContext().addAll(intParList);
 		
 		callContext.setUsageContext(uc);
 
@@ -224,4 +240,43 @@ public class UsageModelVisitor extends UsagemodelSwitch {
 		return callContext;
 	}
 
+	private void copySolvedVariableUsageToUsageContext(UsageContext uc, VariableUsage oldUsage, Context callContext) {
+		VariableUsage newUsage = parameterFactory.createVariableUsage();
+		
+		newUsage.setNamedReference_VariableUsage(getReferenceCopy(oldUsage.getNamedReference_VariableUsage()));
+		//newUsage.setNamedReference_VariableUsage(oldUsage.getNamedReference_VariableUsage());
+
+		EList<VariableCharacterisation> characterisations = oldUsage.getVariableCharacterisation_VariableUsage();
+		for (VariableCharacterisation oldCharacterisation : characterisations){
+			String specification = oldCharacterisation.getSpecification();
+			String solvedSpecification = ExpressionHelper
+					.getSolvedExpressionAsString(specification, callContext); 
+
+			VariableCharacterisation solvedCharacterisation = parameterFactory
+					.createVariableCharacterisation();
+			solvedCharacterisation.setType(oldCharacterisation.getType());
+			solvedCharacterisation.setSpecification(solvedSpecification);
+			
+			newUsage.getVariableCharacterisation_VariableUsage().add(solvedCharacterisation);
+			
+		}
+		uc.getActualParameterUsage_UsageContext().add(newUsage);
+	}
+	
+	private AbstractNamedReference getReferenceCopy(AbstractNamedReference anr){
+		if (anr instanceof NamespaceReference){
+			NamespaceReference nr = (NamespaceReference)anr;
+			NamespaceReference newRef = StoexFactory.eINSTANCE.createNamespaceReference();
+			newRef.setReferenceName(nr.getReferenceName());
+			newRef.setInnerReference_NamespaceReference(getReferenceCopy(nr.getInnerReference_NamespaceReference()));
+			return newRef;
+		} else if (anr instanceof VariableReference){
+			VariableReference vr = (VariableReference)anr;
+			VariableReference varRef = StoexFactory.eINSTANCE.createVariableReference();
+			varRef.setReferenceName(vr.getReferenceName());
+			return varRef;
+		} else 
+			return null;
+	}
+	
 }
