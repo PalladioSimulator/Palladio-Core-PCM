@@ -162,7 +162,8 @@ public class PalladioDataTypeDialog extends DataTypeDialog {
 
 		// Provide a list with loaded resources without primitive DataType
 		for (Resource r : resources) {
-			if (r.getContents().get(0) instanceof Repository) {
+			if (!r.getContents().isEmpty()
+					&& r.getContents().get(0) instanceof Repository) {
 				Repository repository = (Repository) r.getContents().get(0);
 				String entityName = repository.getEntityName() == null ? "<Unnamed Repository>"
 						: repository.getEntityName();

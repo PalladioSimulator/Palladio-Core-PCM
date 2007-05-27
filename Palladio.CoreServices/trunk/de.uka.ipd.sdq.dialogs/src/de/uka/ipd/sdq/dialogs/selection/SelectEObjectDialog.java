@@ -1,8 +1,16 @@
 package de.uka.ipd.sdq.dialogs.selection;
 
+import java.util.ArrayList;
+import java.util.Collection;
+
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.emf.edit.ui.action.LoadResourceAction.LoadResourceDialog;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
 import org.eclipse.jface.dialogs.IDialogConstants;
+import org.eclipse.jface.dialogs.IMessageProvider;
+import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.dialogs.TitleAreaDialog;
 import org.eclipse.jface.viewers.IBaseLabelProvider;
 import org.eclipse.jface.viewers.IContentProvider;
@@ -32,30 +40,39 @@ import org.eclipse.swt.widgets.Tree;
 
 import de.uka.ipd.sdq.dialogs.DialogsImages;
 
+/** @author admin roman */
 public class SelectEObjectDialog extends TitleAreaDialog {
 
+	/** resource name */
+	private String resourceName = "";
+	
+	/** string values */
+	private String DIALOG_TITLE = "Select Object...";
+	private String DIALOG_WARNUNG_MSG = "Eventuell müssen weitere Modelle erst nachgeladen werden!";
+	
+	// inner elements
 	private ToolBar toolBar;
 	private ToolItem addItem, editItem, deleteItem;
-	private TreeViewer treeViewer;
+	private TreeViewer viewer;
 	private EObject selection;
 	private Class<?> providedService;
 	private Label label;
 	private Button OKbutton,CANCELbutton;
-	private String DIALOG_TITEL = "Select Object...";
-
-	/**
-	 * Create the dialog
-	 * @param parentShell
-	 */
+	private Button loadResourceButton;
+	
+	/** Create the dialog */
 	public SelectEObjectDialog(Shell parentShell) {
 		super(parentShell);
 		this.setShellStyle(SWT.RESIZE|SWT.MAX|SWT.CLOSE);
-		
 	}
-
+	
+	/* (non-Javadoc)
+	 * @see org.eclipse.jface.window.Window#configureShell(org.eclipse.swt.widgets.Shell)
+	 */
+	@Override
 	protected void configureShell(Shell newShell) {
 		super.configureShell(newShell);
-		newShell.setText(DIALOG_TITEL);
+		newShell.setText(DIALOG_TITLE);
 		newShell.addShellListener(new ShellAdapter(){
 
 			/* (non-Javadoc)
@@ -68,9 +85,8 @@ public class SelectEObjectDialog extends TitleAreaDialog {
 		});
 	}
 	
-	/**
-	 * Create contents of the dialog
-	 * @param parent
+	/* (non-Javadoc)
+	 * @see org.eclipse.jface.dialogs.TitleAreaDialog#createDialogArea(org.eclipse.swt.widgets.Composite)
 	 */
 	@Override
 	protected Control createDialogArea(Composite parent) {
@@ -79,16 +95,15 @@ public class SelectEObjectDialog extends TitleAreaDialog {
 		container.setLayout(new FormLayout());
 		container.setLayoutData(new GridData(GridData.FILL_BOTH));
 
-		setTitle(DIALOG_TITEL);
-		
-		treeViewer = new TreeViewer(container, SWT.BORDER);
-		treeViewer.addSelectionChangedListener(new ISelectionChangedListener() {
+		/** create a treeviewer */
+		viewer = new TreeViewer(container, SWT.BORDER);
+		viewer.addSelectionChangedListener(new ISelectionChangedListener() {
 			public void selectionChanged(SelectionChangedEvent event) {
 				IStructuredSelection sel = (IStructuredSelection) event
 						.getSelection();
 				selection = (EObject) sel.getFirstElement();
 				
-				label.setText(((AdapterFactoryLabelProvider) treeViewer
+				label.setText(((AdapterFactoryLabelProvider) viewer
 						.getLabelProvider()).getText(selection));
 				
 				if (selection != null && isInstanceOfProvidedService(selection))
@@ -99,33 +114,36 @@ public class SelectEObjectDialog extends TitleAreaDialog {
 			}
 
 		});
-		final Tree tree = treeViewer.getTree();
+		final Tree tree = viewer.getTree();
 		final FormData fd_tree = new FormData();
-		fd_tree.bottom = new FormAttachment(100, -36);
+		fd_tree.bottom = new FormAttachment(100, -61);
 		fd_tree.top = new FormAttachment(0, 5);
 		fd_tree.left = new FormAttachment(0, 5);
 		tree.setLayoutData(fd_tree);
 		
+		/** Select Object label */
 		final Label selectedObjectLabel = new Label(container, SWT.NONE);
 		final FormData fd_selectedObjectLabel = new FormData();
+		fd_selectedObjectLabel.bottom = new FormAttachment(100, -35);
+		fd_selectedObjectLabel.top = new FormAttachment(tree, 9, SWT.DEFAULT);
 		fd_selectedObjectLabel.left = new FormAttachment(0, 7);
 		fd_selectedObjectLabel.right = new FormAttachment(0, 85);
-		fd_selectedObjectLabel.bottom = new FormAttachment(100, -14);
-		fd_selectedObjectLabel.top = new FormAttachment(100, -27);
 		selectedObjectLabel.setLayoutData(fd_selectedObjectLabel);
 		selectedObjectLabel.setText("Selected object:");
 		selectedObjectLabel.setBounds(10, 260, 97, 13);
 
+		/** feld for selected object */
 		label = new Label(container, SWT.NONE);
 		final FormData fd_label = new FormData();
-		fd_label.bottom = new FormAttachment(100, -14);
-		fd_label.top = new FormAttachment(100, -27);
+		fd_label.bottom = new FormAttachment(100, -35);
+		fd_label.top = new FormAttachment(tree, 9, SWT.DEFAULT);
 		fd_label.right = new FormAttachment(0, 457);
 		fd_label.left = new FormAttachment(0, 100);
 		label.setLayoutData(fd_label);
 		label.setText("...");
 		label.setBounds(113, 260, 188, 13);
-
+		
+		/** create actions toolbar with items */
 		toolBar = new ToolBar(container,  SWT.VERTICAL);
 		fd_tree.right = new FormAttachment(toolBar, -5, SWT.LEFT);
 		final FormData fd_toolBar = new FormData();
@@ -147,23 +165,77 @@ public class SelectEObjectDialog extends TitleAreaDialog {
 		deleteItem.setImage(DialogsImages.imageRegistry
 				.get(DialogsImages.DELETE));
 		deleteItem.setEnabled(false);
-
+		
+		/** Separator */
 		Label separator;
 		separator = new Label(container, SWT.SEPARATOR|SWT.HORIZONTAL);
 		final FormData fd_separator = new FormData();
+		fd_separator.left = new FormAttachment(0, -2);
+		fd_separator.right = new FormAttachment(100, 4);
 		fd_separator.top = new FormAttachment(100, -7);
-		fd_separator.left = new FormAttachment(0, 5);
-		fd_separator.right = new FormAttachment(100, -7);
 		fd_separator.bottom = new FormAttachment(100, 1);
 		separator.setLayoutData(fd_separator);
+
+		/** Load resource button */
+		loadResourceButton = new Button(container, SWT.NONE);
+		final FormData fd_loadResourceButton = new FormData();
+		fd_loadResourceButton.left = new FormAttachment(100, -120);
+		fd_loadResourceButton.top = new FormAttachment(100, -33);
+		fd_loadResourceButton.bottom = new FormAttachment(separator, -3, SWT.DEFAULT);
+		fd_loadResourceButton.right = new FormAttachment(100, -9);
+		loadResourceButton.setLayoutData(fd_loadResourceButton);
+		loadResourceButton.setText("Load Resource...");
+		loadResourceButton.addSelectionListener(new SelectionAdapter(){
+
+			/* (non-Javadoc)
+			 * @see org.eclipse.swt.events.SelectionAdapter#widgetSelected(org.eclipse.swt.events.SelectionEvent)
+			 */
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				Shell shell = e.display.getActiveShell();
+				LoadResourceDialog dialog = new LoadResourceDialog(shell);
+				dialog.open();
+				String uri = dialog.getURIText();
+				if (uri != null){
+					addResourceToEditingDomain(shell, uri);
+					viewer.refresh();
+					viewer.expandAll();
+				}
+			}
+			
+		});
 		
 		//
 		return area;
 	}
-
-	/**
-	 * Create contents of the button bar
-	 * @param parent
+	
+	/** add new resource to editingdomain */
+	private void addResourceToEditingDomain(Shell shell, String uri) {
+		ResourceSet resourceSet = getResourceSet(viewer.getInput());
+		
+		if (resourceSet != null) {
+			URI model = URI.createURI(uri);
+			try {
+				resourceSet.getResource(model, true);
+			} catch (Throwable t) {
+				MessageDialog.openInformation(shell, "Resource Loader Error", t
+						.getMessage());
+			}
+		}
+	}
+	
+	private ResourceSet getResourceSet(Object object){
+		if (object instanceof ResourceSet)
+			return (ResourceSet) object;
+		if (object instanceof EObject)
+			return null; // TODO
+		return null;
+	}
+	
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see org.eclipse.jface.dialogs.Dialog#createButtonsForButtonBar(org.eclipse.swt.widgets.Composite)
 	 */
 	@Override
 	protected void createButtonsForButtonBar(Composite parent) {
@@ -186,6 +258,9 @@ public class SelectEObjectDialog extends TitleAreaDialog {
 		
 	}
 	
+	/* (non-Javadoc)
+	 * @see org.eclipse.jface.dialogs.Dialog#cancelPressed()
+	 */
 	@Override
 	protected void cancelPressed() {
 		super.cancelPressed();
@@ -198,11 +273,13 @@ public class SelectEObjectDialog extends TitleAreaDialog {
 		if (providedService == null)
 			OKbutton.setEnabled(true);
 
-		if (!enabled && providedService != null)
+		if (!enabled && providedService != null) {
 			setErrorMessage("No " + providedService.getSimpleName()
 					+ " selected!");
-		else
+		} else {
 			setErrorMessage(null);
+			setMessage(null, IMessageProvider.WARNING);
+		}
 	}
 
 	/**
@@ -214,17 +291,18 @@ public class SelectEObjectDialog extends TitleAreaDialog {
 	}
 	
 	public void setViewerContentProvider(IContentProvider provider){
-		treeViewer.setContentProvider(provider);
+		viewer.setContentProvider(provider);
 	}
 	
 	public void setViewerLabelProvider(IBaseLabelProvider labelProvider){
-		treeViewer.setLabelProvider(labelProvider);
+		viewer.setLabelProvider(labelProvider);
 	}
 	
 	public void setViewerInput(Object input){
-		treeViewer.setInput(input);
-		treeViewer.expandAll();
+		viewer.setInput(input);
+		viewer.expandAll();
 	}
+	
 	
 	/**
 	 * Activated an action border with that actions: Insert, an editing,
@@ -268,28 +346,65 @@ public class SelectEObjectDialog extends TitleAreaDialog {
 	 */
 	public void setProvidedService(Class<?> providedService) {
 		this.providedService = providedService;
-		setMessage("Select a " + providedService.getSimpleName() + "...");
+		setTitle("Select " + providedService.getSimpleName() + "...");
 	}
 	
 	/**
 	 * @param object - a candidate for return value
 	 */
 	private boolean isInstanceOfProvidedService(Object object) {
-		
 		if (providedService == null)
 			return true;
 		return providedService.isAssignableFrom(object.getClass());
 	}
 	
+	
 	/**
-	 * @return the treeViewer
+	 * Gives back a resource, which is necessary for this dialog.
+	 * 
+	 * @return - class name of the first elemnt in the filterList
 	 */
+	protected void setResourceName(Collection<Object> filterList) {
+		String system = "System";
+		String repository = "Repository";
+		String resourceRepository = "ResourceRepository";
+
+		ArrayList<Object> list = new ArrayList<Object>();
+		list.addAll(filterList);
+
+		if (!list.isEmpty()) {
+			for (Object object : list) {
+				Class<?> clazz = (Class<?>) object;
+				String name = clazz.getSimpleName();
+				if (name.equals(system) || name.equals(repository)
+						|| name.equals(resourceRepository)) {
+					resourceName = name;
+				}
+			}
+
+		}
+	}
+	
+	/* (non-Javadoc)
+	 * @see org.eclipse.jface.window.Window#open()
+	 */
+	@Override
+	public int open() {
+		if (resourceName.equals("")){
+			setMessage(DIALOG_WARNUNG_MSG, IMessageProvider.WARNING);
+		}
+		else{
+			setMessage(DIALOG_WARNUNG_MSG + " (*."+ resourceName.toLowerCase() + ")", IMessageProvider.WARNING);
+			loadResourceButton.setText("Load " + resourceName + "...");
+		}
+		return super.open();
+	}
+
 	public TreeViewer getTreeViewer() {
-		return treeViewer;
+		return viewer;
 	}
 	
 	public EObject getResult() {
 		return selection;
 	}
-
 }

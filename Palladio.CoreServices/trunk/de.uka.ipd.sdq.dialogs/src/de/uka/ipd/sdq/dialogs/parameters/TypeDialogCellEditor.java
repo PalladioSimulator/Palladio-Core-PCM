@@ -8,7 +8,6 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 
 import de.uka.ipd.sdq.dialogs.datatype.CallDataTypeDialog;
-import de.uka.ipd.sdq.dialogs.datatype.DialogRepository;
 import de.uka.ipd.sdq.pcm.repository.DataType;
 import de.uka.ipd.sdq.pcm.repository.Repository;
 
@@ -43,14 +42,14 @@ public class TypeDialogCellEditor extends DialogCellEditor {
 	protected Object openDialogBox(Control cellEditorWindow) {
 
 		ArrayList<Object> filterList = new ArrayList<Object>();
-		filterList.add(DataType.class);
 		filterList.add(Repository.class);
+		filterList.add(DataType.class);
 		ArrayList<Object> additionalReferences = new ArrayList<Object>();
 
 		CallDataTypeDialog dialog = new CallDataTypeDialog(cellEditorWindow
 				.getShell(), filterList, additionalReferences, editingDomain
 				.getResourceSet());
-
+		dialog.setProvidedService(DataType.class);
 		dialog.open();
 
 		if (!(dialog.getResult() instanceof DataType))

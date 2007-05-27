@@ -166,31 +166,27 @@ public class VariableUsageContentProvider implements ITreeContentProvider {
 	 * @see org.eclipse.jface.viewers.ITreeContentProvider#hasChildren(java.lang.Object)
 	 */
 	public boolean hasChildren(Object element) {
-		if (element instanceof ResourceDemandingSEFF)
-			return true;
-		if (element instanceof Signature)
-			return true;
-		if (element instanceof Parameter)
-			return true;
+		
+		if (element instanceof Parameter) {
+			Parameter parameter = (Parameter) element;
+			DataType dataType = parameter.getDatatype__Parameter();
+			return hasChildren(dataType);
+		}
+		
 		if (element instanceof DataTypeContainer){
 			DataType innerType = getTreeTypeInner(element);
-			if (innerType instanceof PrimitiveDataType)
-				return false;
-			return true;
+			return hasChildren(innerType);
 		}
+		
 		if (element instanceof InnerDeclarationContainer){
 			DataType dataType = getTreeDeclarationInner(element);
-			if (dataType instanceof CollectionDataType){
-				CollectionDataType collDataType = (CollectionDataType) dataType;
-				DataType innerType = collDataType.getInnerType_CollectionDataType();
-				if (innerType instanceof PrimitiveDataType)
-					return false;
-			}
-			if (dataType instanceof PrimitiveDataType)
-				return false;
-			return true;
+			return hasChildren(dataType);
 		}
-		return false;
+		
+		if (element instanceof PrimitiveDataType)
+			return false;
+		
+		return true;
 	}
 }
 

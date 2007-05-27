@@ -47,6 +47,7 @@ public class PalladioSelectEObjectDialog extends SelectEObjectDialog {
 		setViewerLabelProvider(new AdapterFactoryLabelProvider(
 				new PalladioItemProviderAdapterFactory(adapterFactory)));
 		setViewerInput(input);
+		setResourceName(filterList);
 	}
 
 	public PalladioSelectEObjectDialog(Shell parent,

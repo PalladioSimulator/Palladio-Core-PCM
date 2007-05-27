@@ -58,7 +58,7 @@ public class VariableUsageLabelProvider extends ItemProviderDecorator implements
 		
 		if (object instanceof DataTypeContainer) {
 			DataType dataType = getTreeTypeObject(object);
-			return "INNER: " + super.getText(dataType);
+			return "INNER: " + getNameDataType(dataType);
 		}
 		
 		if (object instanceof InnerDeclarationContainer) {
@@ -99,5 +99,11 @@ public class VariableUsageLabelProvider extends ItemProviderDecorator implements
 	private InnerDeclaration getTreeDeclarationObject(Object object) {
 		InnerDeclarationContainer treeDeclaration = (InnerDeclarationContainer) object;
 		return (InnerDeclaration) treeDeclaration.getObject();
+	}
+	
+	private String getNameDataType(DataType dataType) {
+		if (dataType != null)
+			return super.getText(dataType);
+		return "null";
 	}
 }
