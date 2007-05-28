@@ -61,18 +61,22 @@ public class PalladioComponentModelNewDiagramFileWizard extends Wizard {
 	/**
 	 * @generated not
 	 */
-	public PalladioComponentModelNewDiagramFileWizard(
-			org.eclipse.emf.common.util.URI domainModelURI,
+	public PalladioComponentModelNewDiagramFileWizard(URI domainModelURI,
 			EObject diagramRoot, TransactionalEditingDomain editingDomain) {
 		assert domainModelURI != null : "Domain model uri must be specified"; //$NON-NLS-1$
 		assert diagramRoot != null : "Doagram root element must be specified"; //$NON-NLS-1$
 		assert editingDomain != null : "Editing domain must be specified"; //$NON-NLS-1$
 
 		myFileCreationPage = new WizardNewFileCreationPage(
-				"Initialize new diagram file", StructuredSelection.EMPTY);
-		myFileCreationPage.setTitle("Diagram file");
-		myFileCreationPage.setDescription("Create new diagram based on "
-				+ ResourceDemandingSEFFEditPart.MODEL_ID + " model content");
+				Messages.PalladioComponentModelNewDiagramFileWizard_CreationPageName,
+				StructuredSelection.EMPTY);
+		myFileCreationPage
+				.setTitle(Messages.PalladioComponentModelNewDiagramFileWizard_CreationPageTitle);
+		myFileCreationPage
+				.setDescription(NLS
+						.bind(
+								Messages.PalladioComponentModelNewDiagramFileWizard_CreationPageDescription,
+								ResourceDemandingSEFFEditPart.MODEL_ID));
 		IPath filePath;
 		String fileName = domainModelURI.trimFileExtension().lastSegment();
 		if (domainModelURI.isPlatformResource()) {
@@ -82,18 +86,20 @@ public class PalladioComponentModelNewDiagramFileWizard extends Wizard {
 			filePath = new Path(domainModelURI.trimSegments(1).toFileString());
 		} else {
 			// TODO : use some default path
-			throw new IllegalArgumentException("Unsupported URI: "
-					+ domainModelURI);
+			throw new IllegalArgumentException(
+					"Unsupported URI: " + domainModelURI); //$NON-NLS-1$
 		}
 		myFileCreationPage.setContainerFullPath(filePath);
 		myFileCreationPage.setFileName(PalladioComponentModelDiagramEditorUtil
 				.getUniqueFileName(filePath, fileName, "seff_diagram")); //$NON-NLS-1$
 
 		diagramRootElementSelectionPage = new DiagramRootElementSelectionPage(
-				"Select diagram root element", diagramRoot);
-		diagramRootElementSelectionPage.setTitle("Diagram root element");
+				Messages.PalladioComponentModelNewDiagramFileWizard_RootSelectionPageName,
+				diagramRoot);
 		diagramRootElementSelectionPage
-				.setDescription("Select semantic model element to be depicted on diagram");
+				.setTitle(Messages.PalladioComponentModelNewDiagramFileWizard_RootSelectionPageTitle);
+		diagramRootElementSelectionPage
+				.setDescription(Messages.PalladioComponentModelNewDiagramFileWizard_RootSelectionPageDescription);
 
 		myEditingDomain = editingDomain;
 	}

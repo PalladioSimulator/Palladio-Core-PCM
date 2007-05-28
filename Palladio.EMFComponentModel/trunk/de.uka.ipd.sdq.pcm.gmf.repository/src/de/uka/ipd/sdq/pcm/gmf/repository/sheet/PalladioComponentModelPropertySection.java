@@ -106,7 +106,8 @@ public class PalladioComponentModelPropertySection extends
 	 * @generated not
 	 */
 	protected AdapterFactory getAdapterFactory(Object object) {
-		return PalladioComponentModelRepositoryDiagramEditorPlugin.getInstance().getItemProvidersAdapterFactory();
+		return PalladioComponentModelRepositoryDiagramEditorPlugin
+				.getInstance().getItemProvidersAdapterFactory();
 //		if (getEditingDomain() instanceof AdapterFactoryEditingDomain) {
 //			return ((AdapterFactoryEditingDomain) getEditingDomain())
 //					.getAdapterFactory();

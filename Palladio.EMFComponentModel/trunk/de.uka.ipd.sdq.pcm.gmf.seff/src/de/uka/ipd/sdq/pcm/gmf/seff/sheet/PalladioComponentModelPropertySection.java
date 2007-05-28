@@ -40,7 +40,8 @@ public class PalladioComponentModelPropertySection extends
 		}
 		AdapterFactory af = getAdapterFactory(object);
 		if (af != null) {
-			return new PalladioAdapterFactoryContentProvider(af).getPropertySource(object);
+			return new PalladioAdapterFactoryContentProvider(af)
+					.getPropertySource(object);
 		}
 		if (object instanceof IAdaptable) {
 			return (IPropertySource) ((IAdaptable) object)
@@ -103,7 +104,8 @@ public class PalladioComponentModelPropertySection extends
 	 * @generated not
 	 */
 	protected AdapterFactory getAdapterFactory(Object object) {
-		return PalladioComponentModelSeffDiagramEditorPlugin.getInstance().getItemProvidersAdapterFactory();
+		return PalladioComponentModelSeffDiagramEditorPlugin.getInstance()
+				.getItemProvidersAdapterFactory();
 //		if (getEditingDomain() instanceof AdapterFactoryEditingDomain) {
 //			return ((AdapterFactoryEditingDomain) getEditingDomain())
 //					.getAdapterFactory();
@@ -116,6 +118,5 @@ public class PalladioComponentModelPropertySection extends
 //		}
 //		return null;
 	}
-
 
 }

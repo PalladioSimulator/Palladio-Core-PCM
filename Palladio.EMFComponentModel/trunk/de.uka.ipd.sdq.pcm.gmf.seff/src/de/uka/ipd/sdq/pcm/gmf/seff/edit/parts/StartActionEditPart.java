@@ -4,12 +4,16 @@
 package de.uka.ipd.sdq.pcm.gmf.seff.edit.parts;
 
 import org.eclipse.draw2d.ColorConstants;
+import org.eclipse.draw2d.ConnectionAnchor;
 import org.eclipse.draw2d.Ellipse;
+import org.eclipse.draw2d.EllipseAnchor;
 import org.eclipse.draw2d.Graphics;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.PositionConstants;
 import org.eclipse.draw2d.StackLayout;
 import org.eclipse.draw2d.geometry.Dimension;
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.gef.ConnectionEditPart;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
 import org.eclipse.gef.Request;
@@ -23,6 +27,7 @@ import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
+import org.eclipse.gmf.runtime.gef.ui.internal.figures.CircleFigure;
 import org.eclipse.gmf.runtime.notation.View;
 
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.StartActionItemSemanticEditPolicy;
@@ -107,11 +112,18 @@ public class StartActionEditPart extends ShapeNodeEditPart {
 	}
 
 	/**
-	 * @generated
+	 * @generated not
 	 */
 	protected NodeFigure createNodePlate() {
 		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(getMapMode()
-				.DPtoLP(20), getMapMode().DPtoLP(20));
+				.DPtoLP(20), getMapMode().DPtoLP(20)){
+
+					@Override
+					protected ConnectionAnchor createDefaultAnchor() {
+						return new EllipseAnchor(this);
+					}
+			
+		};
 		return result;
 	}
 
@@ -208,5 +220,4 @@ public class StartActionEditPart extends ShapeNodeEditPart {
 		}
 
 	}
-
 }

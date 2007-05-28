@@ -156,14 +156,12 @@ public class PalladioComponentModelDocumentProvider extends
 	}
 
 	/**
-	 * @generated NOT
+	 * @generated
 	 */
 	private TransactionalEditingDomain createEditingDomain() {
-		//		TransactionalEditingDomain editingDomain = DiagramEditingDomainFactory
-		//				.getInstance().createEditingDomain();
-		//		editingDomain.setID("de.uka.ipd.sdq.PCMBench.editingDomain"); //$NON-NLS-1$
-		TransactionalEditingDomain editingDomain = TransactionalEditingDomain.Registry.INSTANCE
-				.getEditingDomain("de.uka.ipd.sdq.PCMBench.editingDomain");
+		TransactionalEditingDomain editingDomain = DiagramEditingDomainFactory
+				.getInstance().createEditingDomain();
+		editingDomain.setID("de.uka.ipd.sdq.pcm.gmf.seff.EditingDomain"); //$NON-NLS-1$
 		final NotificationFilter diagramResourceModifiedFilter = NotificationFilter
 				.createNotifierFilter(editingDomain.getResourceSet()).and(
 						NotificationFilter
@@ -706,7 +704,7 @@ public class PalladioComponentModelDocumentProvider extends
 		if (doc instanceof IDiagramDocument) {
 			return (IDiagramDocument) doc;
 		}
-		return null; 
+		return null;
 	}
 
 	/**
@@ -815,7 +813,7 @@ public class PalladioComponentModelDocumentProvider extends
 		}
 
 		/**
-		 * @generated not
+		 * @generated
 		 */
 		public void dispose() {
 			stopResourceListening();
@@ -823,8 +821,7 @@ public class PalladioComponentModelDocumentProvider extends
 			for (Iterator it = getResourceSet().getResources().iterator(); it
 					.hasNext();) {
 				Resource resource = (Resource) it.next();
-				// WORKAROUND for Bug 51
-				//resource.unload();
+				resource.unload();
 			}
 		}
 

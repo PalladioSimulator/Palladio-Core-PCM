@@ -15,7 +15,7 @@ import de.uka.ipd.sdq.sensorfactory.entities.TimeSpanMeasurement;
 
 public class TimeSpanToHistogramAdapter implements IAdapter {
 
-	private static final String HISTOGRAM_WIDTH = "HISTOGRAM_WIDTH";
+	public static final String HISTOGRAM_WIDTH = "HISTOGRAM_WIDTH";
 	private SensorAndMeasurements myValues;
 	private Properties myProperties = new Properties();
 
@@ -28,6 +28,9 @@ public class TimeSpanToHistogramAdapter implements IAdapter {
 		int maxHistClass = 0;
 		HashMap map = new HashMap();
 		double histWidth = (Double) myProperties.get(HISTOGRAM_WIDTH);
+		if (histWidth == 0) {
+			throw new RuntimeException("Histogram width must be > 0");
+		}
 		Histogram hist = new Histogram(myValues.getSensor().getSensorName());
 		for (Measurement m : myValues.getMeasurements()){
 			TimeSpanMeasurement tsm = (TimeSpanMeasurement)m;

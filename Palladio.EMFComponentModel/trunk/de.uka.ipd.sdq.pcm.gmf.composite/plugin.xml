@@ -93,6 +93,18 @@ Copyright 2007, SDQ, IPD, Uni Karlsruhe (TH)
                id="de.uka.ipd.sdq.pcm.gmf.composite.InitDiagramAction">
          </action>
       </objectContribution>
+      <objectContribution
+            id="de.uka.ipd.sdq.pcm.gmf.composite.InitDiagram"
+            nameFilter="*.completions"
+            objectClass="org.eclipse.core.resources.IFile">
+         <action
+               label="%initDiagramActionLabel"
+               class="de.uka.ipd.sdq.pcm.gmf.composite.part.PalladioComponentModelInitDiagramFileAction"
+               menubarPath="additions"
+               enablesFor="1"
+               id="de.uka.ipd.sdq.pcm.gmf.composite.InitDiagramAction">
+         </action>
+      </objectContribution>
    </extension>
 	
    <extension point="org.eclipse.gmf.runtime.common.ui.services.action.globalActionHandlerProviders">

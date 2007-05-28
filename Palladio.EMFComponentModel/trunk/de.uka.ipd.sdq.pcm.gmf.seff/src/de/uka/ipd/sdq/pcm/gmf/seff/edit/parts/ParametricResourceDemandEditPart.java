@@ -225,7 +225,7 @@ public class ParametricResourceDemandEditPart extends CompartmentEditPart
 					new EObjectAdapter(getParserElement()),
 					getParserOptions().intValue());
 		}
-		if (resolveSemanticElement() instanceof ParametricResourceDemand){
+		if (resolveSemanticElement() instanceof ParametricResourceDemand) {
 			ParametricResourceDemand demand = (ParametricResourceDemand) resolveSemanticElement();
 			if (demand.getRequiredResource_ParametricResourceDemand() != null) {
 				if (text == null)

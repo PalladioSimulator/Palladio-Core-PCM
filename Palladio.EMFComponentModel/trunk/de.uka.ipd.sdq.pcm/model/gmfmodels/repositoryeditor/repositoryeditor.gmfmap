@@ -97,6 +97,8 @@
             <features
                 href="../../pcm.ecore#//seff/ServiceEffectSpecification/seffTypeID"/>
           </labelMappings>
+          <relatedDiagrams
+              href="../seffeditor/seffeditor.gmfmap#//@diagram"/>
           <tool
               xsi:type="gmftool:CreationTool"
               href="repositoryeditor.gmftool#//@palette/@tools.0/@tools.8"/>

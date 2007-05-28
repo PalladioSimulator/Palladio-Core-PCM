@@ -165,6 +165,10 @@ public class ResourceDemandingSEFFCanonicalEditPolicy extends
 			myFeaturesToSynchronize = new HashSet();
 			myFeaturesToSynchronize.add(SeffPackage.eINSTANCE
 					.getResourceDemandingBehaviour_Steps_Behaviour());
+			myFeaturesToSynchronize.add(SeffPackage.eINSTANCE
+					.getAbstractAction_Successor_AbstractAction());
+			myFeaturesToSynchronize.add(SeffPackage.eINSTANCE
+					.getAbstractAction_Predecessor_AbstractAction());
 		}
 		return myFeaturesToSynchronize;
 	}

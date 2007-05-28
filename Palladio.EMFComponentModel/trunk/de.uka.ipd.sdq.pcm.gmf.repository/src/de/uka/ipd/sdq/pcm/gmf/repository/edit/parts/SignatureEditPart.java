@@ -495,7 +495,7 @@ public class SignatureEditPart extends CompartmentEditPart implements
 				super.notifyChanged(notification);
 				SignatureEditPart.this.notifyChanged(notification);
 			}
-			
+
 		};
 		adaptedElement = element;
 		element.eAdapters().add(changeListener);

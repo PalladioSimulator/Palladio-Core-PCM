@@ -134,9 +134,9 @@ public class PalladioComponentModelSeffDiagramEditorPlugin extends
 			@Override
 			public ComposeableAdapterFactory getRootAdapterFactory() {
 				// TODO Auto-generated method stub
-				return (PalladioItemProviderAdapterFactory)adapterFactory;
+				return (PalladioItemProviderAdapterFactory) adapterFactory;
 			}
-			
+
 		};
 		return new PalladioItemProviderAdapterFactory(caf);
 	}
@@ -151,13 +151,13 @@ public class PalladioComponentModelSeffDiagramEditorPlugin extends
 		factories.add(new RepositoryItemProviderAdapterFactory());
 		factories.add(new ProtocolItemProviderAdapterFactory());
 		factories.add(new ParameterItemProviderAdapterFactory());
-		factories.add(new SeffItemProviderAdapterFactory());
-		factories.add(new ResourcetypeItemProviderAdapterFactory());
 		factories.add(new AllocationItemProviderAdapterFactory());
 		factories.add(new ResourceenvironmentItemProviderAdapterFactory());
+		factories.add(new ResourcetypeItemProviderAdapterFactory());
 		factories.add(new SystemItemProviderAdapterFactory());
 		factories.add(new QosannotationsItemProviderAdapterFactory());
 		factories.add(new UsagemodelItemProviderAdapterFactory());
+		factories.add(new SeffItemProviderAdapterFactory());
 		factories.add(new IdentifierItemProviderAdapterFactory());
 		factories.add(new ProbfunctionItemProviderAdapterFactory());
 		factories.add(new StoexItemProviderAdapterFactory());

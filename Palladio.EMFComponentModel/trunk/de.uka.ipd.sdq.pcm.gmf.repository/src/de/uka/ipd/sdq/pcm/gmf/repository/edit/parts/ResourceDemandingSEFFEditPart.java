@@ -110,7 +110,7 @@ public class ResourceDemandingSEFFEditPart extends CompartmentEditPart
 	}
 
 	/**
-	 * @generated
+	 * @generated not
 	 */
 	protected void createDefaultEditPolicies() {
 		super.createDefaultEditPolicies();
@@ -122,6 +122,8 @@ public class ResourceDemandingSEFFEditPart extends CompartmentEditPart
 				new ListItemComponentEditPolicy());
 		installEditPolicy(EditPolicy.DIRECT_EDIT_ROLE,
 				new LabelDirectEditPolicy());
+		installEditPolicy(EditPolicyRoles.OPEN_ROLE,
+				new OpenSeffDiagramEditPolicy());
 	}
 
 	/**

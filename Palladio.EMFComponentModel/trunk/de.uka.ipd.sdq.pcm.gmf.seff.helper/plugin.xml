@@ -112,7 +112,7 @@
          <enablement>
             <test
                property="org.eclipse.gmf.runtime.emf.core.editingDomain"
-               value="de.uka.ipd.sdq.PCMBench.editingDomain"/>
+               value="de.uka.ipd.sdq.pcm.gmf.seff.EditingDomain"/>
          </enablement>
       </clientContext> 
       <binding context="PCM SEFF ModelClientContext">

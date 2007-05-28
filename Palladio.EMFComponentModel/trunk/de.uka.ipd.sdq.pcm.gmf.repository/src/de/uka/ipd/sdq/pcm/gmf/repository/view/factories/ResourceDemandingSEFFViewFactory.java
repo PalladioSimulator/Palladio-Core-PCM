@@ -10,6 +10,7 @@ import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.emf.ecore.EAnnotation;
 import org.eclipse.emf.ecore.EcoreFactory;
 import org.eclipse.gmf.runtime.diagram.ui.view.factories.AbstractLabelViewFactory;
+import org.eclipse.gmf.runtime.notation.NotationFactory;
 import org.eclipse.gmf.runtime.notation.View;
 
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.RepositoryEditPart;
@@ -22,10 +23,11 @@ import de.uka.ipd.sdq.pcm.gmf.repository.part.PalladioComponentModelVisualIDRegi
 public class ResourceDemandingSEFFViewFactory extends AbstractLabelViewFactory {
 
 	/**
-	 * @generated 
+	 * @generated not
 	 */
 	protected List createStyles(View view) {
 		List styles = new ArrayList();
+		styles.add(NotationFactory.eINSTANCE.createHintedDiagramLinkStyle());
 		return styles;
 	}
 

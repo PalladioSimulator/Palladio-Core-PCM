@@ -502,7 +502,7 @@ public class ProbabilityFunctionFactoryImpl
 
 	public IUnit transformToUnit(Unit eUnit) {
 		IUnit unit = createDefaultUnit();
-		unit.setUnitName(eUnit.getUnitName());
+		unit.setUnitName(eUnit == null?"":eUnit.getUnitName());
 		return unit;
 	}
 

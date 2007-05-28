@@ -4,7 +4,9 @@
 package de.uka.ipd.sdq.pcm.gmf.seff.edit.parts;
 
 import org.eclipse.draw2d.ColorConstants;
+import org.eclipse.draw2d.ConnectionAnchor;
 import org.eclipse.draw2d.Ellipse;
+import org.eclipse.draw2d.EllipseAnchor;
 import org.eclipse.draw2d.Graphics;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.PositionConstants;
@@ -107,11 +109,18 @@ public class StartAction2EditPart extends ShapeNodeEditPart {
 	}
 
 	/**
-	 * @generated
+	 * @generated not
 	 */
 	protected NodeFigure createNodePlate() {
 		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(getMapMode()
-				.DPtoLP(20), getMapMode().DPtoLP(20));
+				.DPtoLP(20), getMapMode().DPtoLP(20)){
+
+			@Override
+			protected ConnectionAnchor createDefaultAnchor() {
+				return new EllipseAnchor(this);
+			}
+
+		};
 		return result;
 	}
 

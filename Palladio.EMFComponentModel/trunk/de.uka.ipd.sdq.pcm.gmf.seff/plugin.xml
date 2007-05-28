@@ -671,7 +671,7 @@ Copyright 2006 SDQ Research Group, University of Karlsruhe (TH)
          <enablement>
             <test
                property="org.eclipse.gmf.runtime.emf.core.editingDomain"
-               value="de.uka.ipd.sdq.PCMBench.editingDomain"/>
+               value="de.uka.ipd.sdq.pcm.gmf.seff.EditingDomain"/>
          </enablement>
       </clientContext> 
       <binding context="PCM SEFF ModelClientContext">
@@ -861,7 +861,7 @@ Copyright 2006 SDQ Research Group, University of Karlsruhe (TH)
    </extension><extension id="ValidationContributionItemProvider" name="Validation"
       point="org.eclipse.gmf.runtime.common.ui.services.action.contributionItemProviders">
       <?gmfgen generated="true"?>
-      <contributionItemProvider checkPluginLoaded="true"
+      <contributionItemProvider
          class="de.uka.ipd.sdq.pcm.gmf.seff.providers.PalladioComponentModelValidationProvider">
          <Priority name="Low"/>
          <partContribution id="de.uka.ipd.sdq.pcm.gmf.seff.part.SeffDiagramEditorID">
