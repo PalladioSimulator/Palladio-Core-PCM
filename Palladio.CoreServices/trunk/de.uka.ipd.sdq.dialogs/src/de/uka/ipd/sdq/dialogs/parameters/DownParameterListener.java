@@ -8,17 +8,21 @@ import org.eclipse.emf.transaction.util.TransactionUtil;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 
+import de.uka.ipd.sdq.dialogs.datatype.DialogRepository;
 import de.uka.ipd.sdq.pcm.repository.Parameter;
-import de.uka.ipd.sdq.pcm.repository.RepositoryFactory;
 import de.uka.ipd.sdq.pcm.repository.Signature;
 
 /**
+ * TODO Refactaring?
+ * 
  * @author roman
+ * 
  */
-public class AddParameterListener extends SelectionAdapter{
+public class DownParameterListener extends SelectionAdapter {
 
 	private Signature parentSignature;
-	private String PARAMETER_NAME = "null";
+	private Parameter selectedParameter;
+	private EList<Parameter> parameters;
 
 	/**
 	 * The transactional editing domain which is used to get the commands and
@@ -26,9 +30,12 @@ public class AddParameterListener extends SelectionAdapter{
 	 */
 	protected TransactionalEditingDomain editingDomain = null;
 
-	public AddParameterListener(Signature parentSignature) {
-		this.parentSignature = parentSignature;
-		this.editingDomain = TransactionUtil.getEditingDomain(parentSignature);
+	/**
+	 * @param editingDomain
+	 */
+	public DownParameterListener(Signature signature) {
+		this.parentSignature = signature;
+		this.editingDomain = TransactionUtil.getEditingDomain(signature);
 	}
 
 	/*
@@ -37,22 +44,24 @@ public class AddParameterListener extends SelectionAdapter{
 	 * @see org.eclipse.swt.events.SelectionListener#widgetSelected(org.eclipse.swt.events.SelectionEvent)
 	 */
 	public void widgetSelected(SelectionEvent e) {
-		Assert.isNotNull(parentSignature);
+		this.selectedParameter = (Parameter) DialogRepository
+				.getSelectedEObject();
 
-		final EList<Parameter> parameters = parentSignature
-				.getParameters__Signature();
+		Assert.isNotNull(selectedParameter);
+
+		parameters = parentSignature.getParameters__Signature();
 
 		RecordingCommand recCommand = new RecordingCommand(editingDomain) {
 			@Override
 			protected void doExecute() {
-				Parameter parameter = RepositoryFactory.eINSTANCE
-						.createParameter();
-				parameter.setParameterName(PARAMETER_NAME);
-				parameters.add(parameter);
+				int index = parameters.indexOf(selectedParameter);
+				if (index < parameters.size()-1){
+					parameters.move(index, index + 1);
+				}
 			}
 		};
 
-		recCommand.setDescription("Add new parameter to the signature");
+		recCommand.setDescription("Down ...");
 		editingDomain.getCommandStack().execute(recCommand);
 	}
 }

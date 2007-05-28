@@ -35,7 +35,7 @@ import de.uka.ipd.sdq.dialogs.datatype.DialogRepository;
 public class CreateEditorContents {
 	// TODO
 	private TableViewer viewer;
-	private ToolItem addItem,deleteItem;
+	private ToolItem addItem,deleteItem,downItem,upItem;
 	private TransactionalEditingDomain editingDomain;
 
 	public static final int ICON_COLUMN_INDEX = 0;
@@ -89,6 +89,14 @@ public class CreateEditorContents {
 		deleteItem.addSelectionListener(listener);
 	}
 	
+	public void setUpButtonActionListener(SelectionListener listener){
+		upItem.addSelectionListener(listener);
+	}
+	
+	public void setDownButtonActionListener(SelectionListener listener){
+		downItem.addSelectionListener(listener);
+	}
+	
 	public void setViewerInput(Object input){
 		viewer.setInput(input);
 	}
@@ -114,6 +122,16 @@ public class CreateEditorContents {
 		deleteItem.setImage(DialogsImages.imageRegistry
 				.get(DialogsImages.DELETE));
 		deleteItem.setEnabled(false);
+		
+		upItem = new ToolItem(toolBar, SWT.PUSH);
+		upItem.setImage(DialogsImages.imageRegistry
+				.get(DialogsImages.UP));
+		upItem.setEnabled(false);
+		
+		downItem = new ToolItem(toolBar, SWT.PUSH);
+		downItem.setImage(DialogsImages.imageRegistry
+				.get(DialogsImages.DOWN));
+		downItem.setEnabled(false);
 
 		final FormData fdTableViewer = new FormData();
 		fdTableViewer.right = new FormAttachment(toolBar, -5, SWT.LEFT);
@@ -144,10 +162,11 @@ public class CreateEditorContents {
 				.addSelectionChangedListener(new ISelectionChangedListener() {
 					public void selectionChanged(SelectionChangedEvent event) {
 						if (!event.getSelection().isEmpty()) {
-							deleteItem.setEnabled(true);
+							setToolItemsEnabled(true);
 							setSelectionsEObject(event);
-						} else
-							deleteItem.setEnabled(false);
+						} else{
+							setToolItemsEnabled(false);
+						}
 					}
 				});
 
@@ -171,10 +190,20 @@ public class CreateEditorContents {
 		// Set the curent viewer for OperationsTabResources
 		DialogRepository.setParametersViewer(viewer);
 	}
+	
+	/** set ToolItems (deleteItem, upItem, downItem) enabled or disabled */
+	private void setToolItemsEnabled(boolean enabled) {
+		deleteItem.setEnabled(enabled);
+		upItem.setEnabled(enabled);
+		downItem.setEnabled(enabled);
+	}
+	
+	/** set ToolItems (deleteItem, upItem, downItem) enabled or disabled */
+	public void setUpItemsEnabled(boolean enabled) {
+		upItem.setEnabled(enabled);
+	}
+	
 
-	/**
-	 * @param container
-	 */
 	public void createSeparator(Composite composite) {
 
 		FormData formData = new FormData();

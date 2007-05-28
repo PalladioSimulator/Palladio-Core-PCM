@@ -1,16 +1,12 @@
 package de.uka.ipd.sdq.dialogs.selection;
 
-import java.util.ArrayList;
 import java.util.Collection;
 
-import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.edit.ui.action.LoadResourceAction.LoadResourceDialog;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
 import org.eclipse.jface.dialogs.IDialogConstants;
 import org.eclipse.jface.dialogs.IMessageProvider;
-import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.dialogs.TitleAreaDialog;
 import org.eclipse.jface.viewers.IBaseLabelProvider;
 import org.eclipse.jface.viewers.IContentProvider;
@@ -41,10 +37,10 @@ import org.eclipse.swt.widgets.Tree;
 import de.uka.ipd.sdq.dialogs.DialogsImages;
 
 /** @author admin roman */
-public class SelectEObjectDialog extends TitleAreaDialog {
+public abstract class SelectEObjectDialog extends TitleAreaDialog {
 
-	/** resource name */
-	private String resourceName = "";
+	/** input dialog resource name (Repository,System,..) */
+	protected String resourceName = "";
 	
 	/** string values */
 	private String DIALOG_TITLE = "Select Object...";
@@ -197,7 +193,7 @@ public class SelectEObjectDialog extends TitleAreaDialog {
 				dialog.open();
 				String uri = dialog.getURIText();
 				if (uri != null){
-					addResourceToEditingDomain(shell, uri);
+					addModelToResourceSet(shell, uri);
 					viewer.refresh();
 					viewer.expandAll();
 				}
@@ -209,32 +205,8 @@ public class SelectEObjectDialog extends TitleAreaDialog {
 		return area;
 	}
 	
-	/** add new resource to editingdomain */
-	private void addResourceToEditingDomain(Shell shell, String uri) {
-		ResourceSet resourceSet = getResourceSet(viewer.getInput());
-		
-		if (resourceSet != null) {
-			URI model = URI.createURI(uri);
-			try {
-				resourceSet.getResource(model, true);
-			} catch (Throwable t) {
-				MessageDialog.openInformation(shell, "Resource Loader Error", t
-						.getMessage());
-			}
-		}
-	}
 	
-	private ResourceSet getResourceSet(Object object){
-		if (object instanceof ResourceSet)
-			return (ResourceSet) object;
-		if (object instanceof EObject)
-			return null; // TODO
-		return null;
-	}
-	
-	/*
-	 * (non-Javadoc)
-	 * 
+	/* (non-Javadoc)
 	 * @see org.eclipse.jface.dialogs.Dialog#createButtonsForButtonBar(org.eclipse.swt.widgets.Composite)
 	 */
 	@Override
@@ -265,6 +237,21 @@ public class SelectEObjectDialog extends TitleAreaDialog {
 	protected void cancelPressed() {
 		super.cancelPressed();
 		this.selection = null;
+	}
+
+	/* (non-Javadoc)
+	 * @see org.eclipse.jface.window.Window#open()
+	 */
+	@Override
+	public int open() {
+		if (resourceName.equals("")) {
+			setMessage(DIALOG_WARNUNG_MSG, IMessageProvider.WARNING);
+		} else {
+			setMessage(DIALOG_WARNUNG_MSG + " (*." + resourceName.toLowerCase()
+					+ ")", IMessageProvider.WARNING);
+			loadResourceButton.setText("Load " + resourceName + "...");
+		}
+		return super.open();
 	}
 
 	private void setOkButtonEnabled(boolean enabled) {
@@ -350,7 +337,8 @@ public class SelectEObjectDialog extends TitleAreaDialog {
 	}
 	
 	/**
-	 * @param object - a candidate for return value
+	 * @param object -
+	 *            is a candidate for return value
 	 */
 	private boolean isInstanceOfProvidedService(Object object) {
 		if (providedService == null)
@@ -358,47 +346,17 @@ public class SelectEObjectDialog extends TitleAreaDialog {
 		return providedService.isAssignableFrom(object.getClass());
 	}
 	
-	
 	/**
-	 * Gives back a resource, which is necessary for this dialog.
+	 * Gives back a resource, which is necessary for this dialog. Delegetad on
+	 * the subclass
 	 * 
 	 * @return - class name of the first elemnt in the filterList
 	 */
-	protected void setResourceName(Collection<Object> filterList) {
-		String system = "System";
-		String repository = "Repository";
-		String resourceRepository = "ResourceRepository";
-
-		ArrayList<Object> list = new ArrayList<Object>();
-		list.addAll(filterList);
-
-		if (!list.isEmpty()) {
-			for (Object object : list) {
-				Class<?> clazz = (Class<?>) object;
-				String name = clazz.getSimpleName();
-				if (name.equals(system) || name.equals(repository)
-						|| name.equals(resourceRepository)) {
-					resourceName = name;
-				}
-			}
-
-		}
-	}
+	protected abstract void setInputDialogResourceName(Collection<Object> filterList);
 	
-	/* (non-Javadoc)
-	 * @see org.eclipse.jface.window.Window#open()
-	 */
-	@Override
-	public int open() {
-		if (resourceName.equals("")){
-			setMessage(DIALOG_WARNUNG_MSG, IMessageProvider.WARNING);
-		}
-		else{
-			setMessage(DIALOG_WARNUNG_MSG + " (*."+ resourceName.toLowerCase() + ")", IMessageProvider.WARNING);
-			loadResourceButton.setText("Load " + resourceName + "...");
-		}
-		return super.open();
-	}
+	/** add new resource to ResourceSet - delegetad on the subclass */
+	protected abstract void addModelToResourceSet(Shell shell, String uri);
+	
 
 	public TreeViewer getTreeViewer() {
 		return viewer;
@@ -406,5 +364,9 @@ public class SelectEObjectDialog extends TitleAreaDialog {
 	
 	public EObject getResult() {
 		return selection;
+	}
+
+	protected void setResourceName(String resourceName) {
+		this.resourceName = resourceName;
 	}
 }

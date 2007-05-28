@@ -49,15 +49,12 @@ public class ParametersDialog extends TitleAreaDialog {
 		setShellStyle(SWT.RESIZE|SWT.TITLE|SWT.CLOSE |SWT.MIN|SWT.MAX);
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
+	/* (non-Javadoc)
 	 * @see org.eclipse.jface.dialogs.TitleAreaDialog#createDialogArea(org.eclipse.swt.widgets.Composite)
 	 */
 	@Override
 	protected Control createDialogArea(Composite parent) {
 		setTitle(TITEL);
-		//setShellStyle(SWT.RESIZE);
 
 		Composite area = (Composite) super.createDialogArea(parent);
 		Composite container = new Composite(area, SWT.NONE);
@@ -68,8 +65,8 @@ public class ParametersDialog extends TitleAreaDialog {
 		adapterFactory
 				.addAdapterFactory(new RepositoryItemProviderAdapterFactory());
 
-		CreateEditorContents editorContents = CreateEditorContents
-				.create(container,TransactionUtil.getEditingDomain(signature));
+		CreateEditorContents editorContents = CreateEditorContents.create(
+				container, TransactionUtil.getEditingDomain(signature));
 
 		editorContents
 				.setViewerContentProvider(new AdapterFactoryContentProvider(
@@ -80,21 +77,23 @@ public class ParametersDialog extends TitleAreaDialog {
 								new PalladioItemProviderAdapterFactory(
 										adapterFactory))));
 		editorContents.setViewerCellModifier(new ParametersCellModifier(
-				editorContents.getViewer(),TransactionUtil.getEditingDomain(signature)));
+				editorContents.getViewer(), TransactionUtil
+						.getEditingDomain(signature)));
 		editorContents.setAddButtonActionListener(new AddParameterListener(
 				signature));
 		editorContents
 				.setDeleteButtonActionListener(new DeleteParameterListener(
 						signature));
+		editorContents.setUpButtonActionListener(new UpParameterListener(
+				signature));
+		editorContents.setDownButtonActionListener(new DownParameterListener(
+				signature));
 		editorContents.setViewerInput(signature);
-		
 
 		return area;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
+	/* (non-Javadoc)
 	 * @see org.eclipse.jface.dialogs.Dialog#createButtonsForButtonBar(org.eclipse.swt.widgets.Composite)
 	 */
 	@Override
@@ -103,9 +102,7 @@ public class ParametersDialog extends TitleAreaDialog {
 				false);
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
+	/* (non-Javadoc)
 	 * @see org.eclipse.jface.dialogs.TitleAreaDialog#getInitialSize()
 	 */
 	@Override

@@ -16,6 +16,8 @@ public class DialogsImages {
 	public static final String ADD 		= "add_action";
 	public static final String DELETE 	= "delete_action";
 	public static final String EDIT 	= "edit_action";
+	public static final String UP 		= "up_action";
+	public static final String DOWN 	= "down_action";
 
 	// For the toolbar images
 	public static ImageRegistry imageRegistry = new ImageRegistry();
@@ -24,7 +26,6 @@ public class DialogsImages {
 	 * Note: An image registry owns all of the image objects registered with it,
 	 * and automatically disposes of them the SWT Display is disposed.
 	 */
-
 	static {
 		String iconPath = "icons/";
 
@@ -33,6 +34,8 @@ public class DialogsImages {
 		imageRegistry.put(DELETE,
 				getImageDescriptor(iconPath + DELETE + ".gif"));
 		imageRegistry.put(EDIT, getImageDescriptor(iconPath + EDIT + ".gif"));
+		imageRegistry.put(DOWN, getImageDescriptor(iconPath + DOWN + ".gif"));
+		imageRegistry.put(UP, getImageDescriptor(iconPath + UP + ".gif"));
 	}
 
 	/**

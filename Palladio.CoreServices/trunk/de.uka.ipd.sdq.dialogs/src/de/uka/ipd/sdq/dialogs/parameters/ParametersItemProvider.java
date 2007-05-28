@@ -46,7 +46,6 @@ public class ParametersItemProvider extends ItemProviderDecorator implements
 	public String getColumnText(Object element, int columnIndex) {
 		String result = "";
 		Parameter parameter = (Parameter) element;
-		ParameterRepresentation parser = new ParameterRepresentation();
 
 		switch (columnIndex) {
 		case CreateEditorContents.ICON_COLUMN_INDEX:
@@ -61,12 +60,12 @@ public class ParametersItemProvider extends ItemProviderDecorator implements
 				result = "null";
 			break;
 		case CreateEditorContents.TYPE_COLUMN_INDEX:
-			result = parser.setDataTypeToString(parameter
+			result = ParameterRepresentation.setDataTypeToString(parameter
 					.getDatatype__Parameter());
 			break;
 		default:
 			break;
 		}
-		return parser.isNotNull(result);
+		return ParameterRepresentation.isNotNull(result);
 	}
 }

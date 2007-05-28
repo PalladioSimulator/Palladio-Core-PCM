@@ -96,6 +96,7 @@ public class PalladioDataTypeDialog extends DataTypeDialog {
 			reposetory = compositeDataType.getRepository_DataType()
 					.getEntityName();
 
+			DialogRepository.setNewCompositeDataType(compositeDataType);
 			// Call constructor of DataTypeDialog
 			super.init(compositeSignator, reposetory, entityName, null);
 		}
@@ -203,6 +204,10 @@ public class PalladioDataTypeDialog extends DataTypeDialog {
 		editorContents
 				.setDeleteButtonActionListener(new DeleteInnerDataTypeListener(
 						this,editingDomain));
+		editorContents.setUpButtonActionListener(new UpInnerDataTypeListener(
+				this, editingDomain));
+		editorContents.setDownButtonActionListener(new DownInnerDataTypeListener(
+				this, editingDomain));
 		editorContents.setViewerInput(editedDataType);
 		
 	}
@@ -240,8 +245,8 @@ public class PalladioDataTypeDialog extends DataTypeDialog {
 	 */
 	@Override
 	public void createCollectionDataType() {
-		DataTypeCommand.createCollectionDataType(editedDataType, innerDataType,
-				getEntityName());
+		new DataTypeCommand(editingDomain).createCollectionDataType(
+				editedDataType, innerDataType, getEntityName());
 	}
 
 	/* (non-Javadoc)
@@ -249,8 +254,8 @@ public class PalladioDataTypeDialog extends DataTypeDialog {
 	 */
 	@Override
 	public void createCompositeDataType() {
-		DataTypeCommand
-				.createCompositeDataType(editedDataType, getEntityName());
+		new DataTypeCommand(editingDomain).createCompositeDataType(
+				editedDataType, getEntityName());
 	}
 
 	public DataType getEditedDataType() {
