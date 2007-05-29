@@ -7,13 +7,11 @@ import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 
+import de.uka.ipd.sdq.dialogs.parameters.UpDownButtonsValidator;
 import de.uka.ipd.sdq.pcm.repository.CompositeDataType;
 import de.uka.ipd.sdq.pcm.repository.InnerDeclaration;
 
-/**
- * @author admin
- *
- */
+/** @author roman */
 public class UpInnerDataTypeListener extends SelectionAdapter {
 	
 	private PalladioDataTypeDialog dialog;
@@ -21,11 +19,7 @@ public class UpInnerDataTypeListener extends SelectionAdapter {
 	private CompositeDataType parentDataType;
 	private EList<InnerDeclaration> declarations;
 	private TransactionalEditingDomain editingDomain;
-	
-	/**
-	 * TODO
-	 * @param dialog
-	 */
+
 	public UpInnerDataTypeListener(PalladioDataTypeDialog dialog, TransactionalEditingDomain editingDomain) {
 		this.dialog = dialog;
 		this.editingDomain = editingDomain;
@@ -37,26 +31,33 @@ public class UpInnerDataTypeListener extends SelectionAdapter {
 	public void widgetSelected(SelectionEvent e) {
 
 		this.parentDataType = DialogRepository.getNewCompositeDataType();
-		this.selectedDeclaration = (InnerDeclaration) DialogRepository.getSelectedEObject();
-		
+		this.selectedDeclaration = (InnerDeclaration) DialogRepository
+				.getSelectedEObject();
+
 		Assert.isNotNull(parentDataType);
 		Assert.isNotNull(selectedDeclaration);
-		
+
 		declarations = parentDataType.getInnerDeclaration_CompositeDataType();
-		
+
 		RecordingCommand recCommand = new RecordingCommand(editingDomain) {
 			@Override
 			protected void doExecute() {
 				int index = declarations.indexOf(selectedDeclaration);
-				if (index > 0){
-					declarations.move(index, index-1);
+				if (index > 0) {
+					declarations.move(index, index - 1);
+					try {
+						UpDownButtonsValidator.getSingelton().validate(index - 1,
+								declarations.size());
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
 				}
-			}		
+			}
 		};
-		
+
 		recCommand.setDescription("Up ...");
 		editingDomain.getCommandStack().execute(recCommand);
-		
+
 		dialog.validateInput();
 	}
 

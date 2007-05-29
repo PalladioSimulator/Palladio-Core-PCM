@@ -23,12 +23,7 @@ import de.uka.ipd.sdq.pcm.repository.Repository;
 import de.uka.ipd.sdq.pcm.repository.provider.RepositoryItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcmbench.ui.provider.PalladioItemProviderAdapterFactory;
 
-/**
- * TODO
- * 
- * @author roman
- * 
- */
+/** @author roman */
 public class PalladioDataTypeDialog extends DataTypeDialog {
 
 	private ComposedAdapterFactory adapterFactory;
@@ -36,30 +31,17 @@ public class PalladioDataTypeDialog extends DataTypeDialog {
 	private DataType innerDataType;
 	private DataType editedDataType;
 
-	ParameterRepresentation representation = new ParameterRepresentation();
-
 	/**
 	 * The transactional editing domain which is used to get the commands and
 	 * alter the model
 	 */
 	protected TransactionalEditingDomain editingDomain = null;
 
-	/**
-	 * @param parentShell
-	 * @param editedDataType
-	 */
 	public PalladioDataTypeDialog(Shell parentShell,TransactionalEditingDomain editingDomain) {
 		super(parentShell);
 		this.editingDomain = editingDomain;
 	}
 
-	/**
-	 * @param parentShell
-	 * @param dialogTitele
-	 * @param reposetoryName
-	 * @param entityName
-	 * @param entityType
-	 */
 	public PalladioDataTypeDialog(Shell parentShell, DataType editeDataType) {
 		super(parentShell);
 		this.editingDomain = TransactionUtil.getEditingDomain(editeDataType);
@@ -67,6 +49,7 @@ public class PalladioDataTypeDialog extends DataTypeDialog {
 		initDialog(editeDataType);
 	}
 
+	/**call if datatype set (edite button)*/
 	private void initDialog(DataType editeDataType) {
 
 		String entityName;
@@ -102,9 +85,7 @@ public class PalladioDataTypeDialog extends DataTypeDialog {
 		}
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
+	/* (non-Javadoc)
 	 * @see de.uka.ipd.sdq.pcmbench.tabs.dialog.CreateDataTypeDialog#getLoadedReposetorys()
 	 */
 	@Override
@@ -127,33 +108,19 @@ public class PalladioDataTypeDialog extends DataTypeDialog {
 		return (String[]) tList.toArray(new String[tList.size()]);
 	}
 
-	/**
-	 * TODO
-	 * 
-	 * @param uri
-	 * @return
-	 */
 	private boolean hasRepositoryExtension(URI uri) {
 		if (uri.fileExtension().equals("repository"))
 			return true;
 		return false;
 	}
 
-	/**
-	 * TODO
-	 * 
-	 * @param uri
-	 * @return
-	 */
 	private boolean isPrimitiveTypesRepository(URI uri) {
 		if (uri.path().contains("PrimitiveTypes"))
 			return true;
 		return false;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
+	/* (non-Javadoc)
 	 * @see de.uka.ipd.sdq.pcmbench.tabs.dialogs.CreateDataTypeDialog#setEditedResource(java.lang.String)
 	 */
 	@Override
@@ -175,9 +142,7 @@ public class PalladioDataTypeDialog extends DataTypeDialog {
 		}
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
+	/* (non-Javadoc)
 	 * @see de.uka.ipd.sdq.pcmbench.tabs.dialog.CreateDataTypeDialog#innerSectionCompositeDataType(org.eclipse.swt.widgets.Composite)
 	 */
 	@Override

@@ -1,6 +1,5 @@
 package de.uka.ipd.sdq.dialogs.parameters;
 
-import org.eclipse.core.runtime.Assert;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.jface.viewers.CellEditor;
@@ -27,13 +26,23 @@ import de.uka.ipd.sdq.dialogs.DialogsImages;
 import de.uka.ipd.sdq.dialogs.datatype.DialogRepository;
 
 /**
- * TODO
+ * This class create a dialog area for Parameter-, DataTypeDialog. In order to
+ * make functionality possible from dialogue perfectly to, the following
+ * functions must be called:
+ * 
+ * setViewerContentProvider(IContentProvider contentProvider),
+ * setViewerLabelProvider(IBaseLabelProvider labelProvider),
+ * setViewerCellModifier(ICellModifier cellModifier),
+ * setAddButtonActionListener(SelectionListener listener),
+ * setDeleteButtonActionListener(SelectionListener listener),
+ * setUpButtonActionListener(SelectionListener listener),
+ * setDownButtonActionListener(SelectionListener listener),
+ * setViewerInput(Object input){
  * 
  * @author roman
- * 
  */
 public class CreateEditorContents {
-	// TODO
+	// local value
 	private TableViewer viewer;
 	private ToolItem addItem,deleteItem,downItem,upItem;
 	private TransactionalEditingDomain editingDomain;
@@ -46,7 +55,6 @@ public class CreateEditorContents {
 	/**
 	 * Columns of a table, which is used into ParameterEditDialog
 	 */
-
 	public final static String ATTRIBUTE_ICON_COLUMN = "";
 	public final static String CONTEXT_COLUMN = "Context";
 	public final static String TYPE_COLUMN = "Type";
@@ -61,9 +69,7 @@ public class CreateEditorContents {
 		init(composite);
 	}
 
-	/**
-	 * Factory Method
-	 */
+	/** Factory Method */
 	public static CreateEditorContents create(Composite composite, TransactionalEditingDomain editingDomain){
 		return new CreateEditorContents(composite,editingDomain);
 	}
@@ -101,9 +107,7 @@ public class CreateEditorContents {
 		viewer.setInput(input);
 	}
 
-	/**
-	 * TODO
-	 */
+	/** create dialog area 	 */
 	public void init(Composite composite) {
 
 		FormData fdToolBar = new FormData();
@@ -158,17 +162,18 @@ public class CreateEditorContents {
 
 		// Assign the cell editors to the viewer
 		viewer.setCellEditors(editors);
-		viewer
-				.addSelectionChangedListener(new ISelectionChangedListener() {
-					public void selectionChanged(SelectionChangedEvent event) {
-						if (!event.getSelection().isEmpty()) {
-							setToolItemsEnabled(true);
-							setSelectionsEObject(event);
-						} else{
-							setToolItemsEnabled(false);
-						}
-					}
-				});
+		viewer.addSelectionChangedListener(new ISelectionChangedListener() {
+			public void selectionChanged(SelectionChangedEvent event) {
+				IStructuredSelection sel = (IStructuredSelection) event
+						.getSelection();
+				Object selection = (Object) sel.getFirstElement();
+				/** make validation(Enabled/Unenabled) for delete-,up-,downToolItem*/
+				UpDownButtonsValidator.getSingelton().validateSelection(
+						selection);
+				if (selection != null)
+					setSelectionsEObject((EObject) selection);
+			}
+		});
 
 		// Definere the table columns
 		final TableColumn zeroColumn = new TableColumn(table, SWT.NONE);
@@ -189,21 +194,25 @@ public class CreateEditorContents {
 
 		// Set the curent viewer for OperationsTabResources
 		DialogRepository.setParametersViewer(viewer);
+		// Set EditorContent for Up/Down button validation
+		UpDownButtonsValidator.getSingelton().setContents(this);
 	}
 	
-	/** set ToolItems (deleteItem, upItem, downItem) enabled or disabled */
-	private void setToolItemsEnabled(boolean enabled) {
-		deleteItem.setEnabled(enabled);
-		upItem.setEnabled(enabled);
-		downItem.setEnabled(enabled);
-	}
-	
-	/** set ToolItems (deleteItem, upItem, downItem) enabled or disabled */
+	/** set upItem - ToolItem enabled or disabled */
 	public void setUpItemsEnabled(boolean enabled) {
 		upItem.setEnabled(enabled);
 	}
-	
 
+	/** set downItem - ToolItem enabled or disabled */
+	public void setDownItemsEnabled(boolean enabled) {
+		downItem.setEnabled(enabled);
+	}
+	
+	/** set deleteItem - ToolItem enabled or disabled */
+	public void setDeleteItemsEnabled(boolean enabled) {
+		deleteItem.setEnabled(enabled);
+	}
+	
 	public void createSeparator(Composite composite) {
 
 		FormData formData = new FormData();
@@ -216,32 +225,15 @@ public class CreateEditorContents {
 		separator.setLayoutData(formData);
 	}
 
-	/**
-	 * TODO
-	 * 
-	 * @param IStructuredSelection
-	 */
-	private void setSelectionsEObject(SelectionChangedEvent event) {
-
-		Object selected = ((IStructuredSelection) event.getSelection())
-				.getFirstElement();
-
-		Assert.isTrue(selected instanceof EObject);
-		DialogRepository.setSelectedEObject((EObject) selected);
+	private void setSelectionsEObject(EObject selection) {
+		DialogRepository.setSelectedEObject(selection);
 	}
 
-	/**
-	 * @return the columnNames
-	 */
 	public static String[] getColumnNames() {
 		return columnNames;
 	}
 
-	/**
-	 * @return the viewer
-	 */
 	public TableViewer getViewer() {
 		return viewer;
 	}
-
 }

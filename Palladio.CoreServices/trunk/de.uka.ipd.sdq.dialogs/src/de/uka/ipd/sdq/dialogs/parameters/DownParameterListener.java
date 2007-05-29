@@ -12,12 +12,14 @@ import de.uka.ipd.sdq.dialogs.datatype.DialogRepository;
 import de.uka.ipd.sdq.pcm.repository.Parameter;
 import de.uka.ipd.sdq.pcm.repository.Signature;
 
-/**
- * TODO Refactaring?
- * 
- * @author roman
- * 
- */
+ /**
+	 * This adapter class provides default implementations for the methods
+	 * described by the SelectionListener interface to downItem - Button in
+	 * the ParameterDialog.
+	 * 
+	 * @author roman
+	 * 
+	 */
 public class DownParameterListener extends SelectionAdapter {
 
 	private Signature parentSignature;
@@ -30,17 +32,12 @@ public class DownParameterListener extends SelectionAdapter {
 	 */
 	protected TransactionalEditingDomain editingDomain = null;
 
-	/**
-	 * @param editingDomain
-	 */
 	public DownParameterListener(Signature signature) {
 		this.parentSignature = signature;
 		this.editingDomain = TransactionUtil.getEditingDomain(signature);
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
+	/* (non-Javadoc)
 	 * @see org.eclipse.swt.events.SelectionListener#widgetSelected(org.eclipse.swt.events.SelectionEvent)
 	 */
 	public void widgetSelected(SelectionEvent e) {
@@ -55,8 +52,14 @@ public class DownParameterListener extends SelectionAdapter {
 			@Override
 			protected void doExecute() {
 				int index = parameters.indexOf(selectedParameter);
-				if (index < parameters.size()-1){
+				if (index < parameters.size() - 1) {
 					parameters.move(index, index + 1);
+					try {
+						UpDownButtonsValidator.getSingelton().validate(
+								index + 1, parameters.size());
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
 				}
 			}
 		};

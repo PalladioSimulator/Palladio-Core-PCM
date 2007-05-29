@@ -7,13 +7,11 @@ import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 
+import de.uka.ipd.sdq.dialogs.parameters.UpDownButtonsValidator;
 import de.uka.ipd.sdq.pcm.repository.CompositeDataType;
 import de.uka.ipd.sdq.pcm.repository.InnerDeclaration;
 
-/**
- * @author admin
- *
- */
+/** @author roman */
 public class DownInnerDataTypeListener extends SelectionAdapter {
 	
 	private PalladioDataTypeDialog dialog;
@@ -22,10 +20,6 @@ public class DownInnerDataTypeListener extends SelectionAdapter {
 	private EList<InnerDeclaration> declarations;
 	private TransactionalEditingDomain editingDomain;
 	
-	/**
-	 * TODO
-	 * @param dialog
-	 */
 	public DownInnerDataTypeListener(PalladioDataTypeDialog dialog, TransactionalEditingDomain editingDomain) {
 		this.dialog = dialog;
 		this.editingDomain = editingDomain;
@@ -35,7 +29,6 @@ public class DownInnerDataTypeListener extends SelectionAdapter {
 	 * @see org.eclipse.swt.events.SelectionListener#widgetSelected(org.eclipse.swt.events.SelectionEvent)
 	 */
 	public void widgetSelected(SelectionEvent e) {
-
 		this.parentDataType = DialogRepository.getNewCompositeDataType();
 		this.selectedDeclaration = (InnerDeclaration) DialogRepository.getSelectedEObject();
 		
@@ -48,10 +41,16 @@ public class DownInnerDataTypeListener extends SelectionAdapter {
 			@Override
 			protected void doExecute() {
 				int index = declarations.indexOf(selectedDeclaration);
-				if (index >= 0 && index <  declarations.size()-1){
-					 declarations.move(index, index + 1);
+				if (index >= 0 && index < declarations.size() - 1) {
+					declarations.move(index, index + 1);
+					try {
+						UpDownButtonsValidator.getSingelton().validate(index + 1,
+								declarations.size());
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
 				}
-			}		
+			}
 		};
 		
 		recCommand.setDescription("Down ...");
