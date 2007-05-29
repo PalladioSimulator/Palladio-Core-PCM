@@ -10,8 +10,11 @@ import java.util.LinkedList;
 import java.util.List;
 
 import java.util.Set;
+
+import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CanonicalEditPolicy;
+import org.eclipse.gmf.runtime.diagram.ui.requests.CreateViewRequest;
 import org.eclipse.gmf.runtime.notation.View;
 
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.ResourceDemandingSEFFEditPart;
@@ -82,4 +85,10 @@ public class BasicComponentSEFFCompartmentCanonicalEditPolicy extends
 		return myFeaturesToSynchronize;
 	}
 
+	protected CreateViewRequest.ViewDescriptor getViewDescriptor(
+			IAdaptable elementAdapter, Class viewKind, String hint, int index) {
+
+		return new CreateViewRequest.ViewDescriptor(elementAdapter, viewKind,
+				hint, index, true, host().getDiagramPreferencesHint());
+	}
 }

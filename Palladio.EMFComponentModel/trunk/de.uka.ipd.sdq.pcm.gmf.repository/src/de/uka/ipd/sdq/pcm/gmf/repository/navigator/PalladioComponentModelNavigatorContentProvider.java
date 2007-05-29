@@ -227,6 +227,7 @@ public class PalladioComponentModelNavigatorContentProvider implements
 
 		case RepositoryEditPart.VISUAL_ID: {
 			Collection result = new ArrayList();
+			result.addAll(getForeignShortcuts((Diagram) view, parentElement));
 			PalladioComponentModelNavigatorGroup links = new PalladioComponentModelNavigatorGroup(
 					Messages.NavigatorGroupName_Repository_1000_links,
 					"icons/linksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
@@ -748,6 +749,21 @@ public class PalladioComponentModelNavigatorContentProvider implements
 					(View) it.next(), parent, isLeafs));
 		}
 		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	private Collection getForeignShortcuts(Diagram diagram, Object parent) {
+		Collection result = new ArrayList();
+		for (Iterator it = diagram.getChildren().iterator(); it.hasNext();) {
+			View nextView = (View) it.next();
+			if (!isOwnView(nextView)
+					&& nextView.getEAnnotation("Shortcut") != null) { //$NON-NLS-1$
+				result.add(nextView);
+			}
+		}
+		return createNavigatorItems(result, parent, false);
 	}
 
 	/**

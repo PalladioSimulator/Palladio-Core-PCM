@@ -55,6 +55,18 @@ Copyright 2007, IPD, SDQ, University of Karlsruhe
       <?gmfgen generated="true"?>
       <objectContribution
             adaptable="false"
+            id="de.uka.ipd.sdq.pcm.gmf.repository.CreateShortcut"
+            objectClass="de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.RepositoryEditPart">
+         <action
+               class="de.uka.ipd.sdq.pcm.gmf.repository.part.PalladioComponentModelCreateShortcutAction"
+               enablesFor="1"
+               id="de.uka.ipd.sdq.pcm.gmf.repository.CreateShortcutAction"
+               label="%createShortcutActionLabel"
+               menubarPath="additions">
+         </action>
+      </objectContribution>                      
+      <objectContribution
+            adaptable="false"
             id="de.uka.ipd.sdq.pcm.gmf.repository.LoadResource"
             objectClass="de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.RepositoryEditPart">
          <action

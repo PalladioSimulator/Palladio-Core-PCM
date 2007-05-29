@@ -51,7 +51,7 @@ de.uka.ipd.sdq.simucomframework.usage.OpenWorkloadUserFactory
 «ENDDEFINE»
 
 «DEFINE FactoryConstructor FOR ClosedWorkload»
-	super(model,"«this.thinkTime_ClosedWorkload.specification.javaString()»");
+	super(model,"«this.thinkTime_ClosedWorkload.specification.specificationString()»");
 «ENDDEFINE»
 
 «DEFINE FactoryConstructor FOR OpenWorkload»

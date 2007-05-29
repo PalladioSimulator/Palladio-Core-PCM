@@ -85,16 +85,18 @@ public class RepositoryCanonicalEditPolicy extends
 	}
 
 	/**
-	 * @generated
+	 * @generated not
+	 * to fix gmf bug 189589
 	 */
 	protected boolean shouldDeleteView(View view) {
-		return true;
+		return view.getEAnnotation("Shortcut") == null;
 	}
 
 	/**
 	 * @generated
 	 */
 	protected boolean isOrphaned(Collection semanticChildren, final View view) {
+		PalladioComponentModelDiagramUpdater.isShortcutOrphaned(view);
 		int visualID = PalladioComponentModelVisualIDRegistry.getVisualID(view);
 		switch (visualID) {
 		case InterfaceEditPart.VISUAL_ID:

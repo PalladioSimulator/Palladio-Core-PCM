@@ -20,9 +20,17 @@ public class PalladioComponentModelNavigatorSorter extends ViewerSorter {
 	/**
 	 * @generated
 	 */
+	private static final int SHORTCUTS_CATEGORY = 7102;
+
+	/**
+	 * @generated
+	 */
 	public int category(Object element) {
 		if (element instanceof PalladioComponentModelNavigatorItem) {
 			PalladioComponentModelNavigatorItem item = (PalladioComponentModelNavigatorItem) element;
+			if (item.getView().getEAnnotation("Shortcut") != null) { //$NON-NLS-1$
+				return SHORTCUTS_CATEGORY;
+			}
 			return PalladioComponentModelVisualIDRegistry.getVisualID(item
 					.getView());
 		}

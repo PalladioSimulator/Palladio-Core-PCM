@@ -52,6 +52,13 @@ public class PalladioComponentModelDiagramUpdater {
 	/**
 	 * @generated
 	 */
+	public static boolean isShortcutOrphaned(View view) {
+		return view.getEAnnotation("Shortcut") != null && view.isSetElement() && (view.getElement() == null || view.getElement().eIsProxy()); //$NON-NLS-1$
+	}
+
+	/**
+	 * @generated
+	 */
 	public static List getSemanticChildren(View view) {
 		switch (PalladioComponentModelVisualIDRegistry.getVisualID(view)) {
 		case InterfaceSignatureListEditPart.VISUAL_ID:
