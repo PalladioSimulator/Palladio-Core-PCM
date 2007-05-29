@@ -171,11 +171,13 @@ public abstract class SelectEObjectDialog extends TitleAreaDialog {
 		fd_separator.top = new FormAttachment(100, -7);
 		fd_separator.bottom = new FormAttachment(100, 1);
 		separator.setLayoutData(fd_separator);
-
+		
+		
+		
 		/** Load resource button */
 		loadResourceButton = new Button(container, SWT.NONE);
 		final FormData fd_loadResourceButton = new FormData();
-		fd_loadResourceButton.left = new FormAttachment(100, -120);
+		fd_loadResourceButton.left = new FormAttachment(100, -130);
 		fd_loadResourceButton.top = new FormAttachment(100, -33);
 		fd_loadResourceButton.bottom = new FormAttachment(separator, -3, SWT.DEFAULT);
 		fd_loadResourceButton.right = new FormAttachment(100, -9);

@@ -79,9 +79,16 @@ public class PalladioSelectEObjectDialog extends SelectEObjectDialog {
 				String name = clazz.getSimpleName();
 				if (name.equals(system) || name.equals(repository)
 						|| name.equals(resourceRepository))
-					setResourceName(name);
+					setResourceName(correctionResourceRepositoryName(name));
 			}
 		}
+	}
+	
+	/** Correction the ResourceRepository to ResourceType */
+	private String correctionResourceRepositoryName(String name){
+		if (name.equals("ResourceRepository"))
+			return "ResourceType";
+		return name;
 	}
 	
 
