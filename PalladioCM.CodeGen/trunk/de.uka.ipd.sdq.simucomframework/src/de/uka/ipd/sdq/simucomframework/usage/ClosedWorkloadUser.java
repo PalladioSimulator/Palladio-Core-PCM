@@ -1,5 +1,9 @@
 package de.uka.ipd.sdq.simucomframework.usage;
 
+import java.io.PrintStream;
+import java.io.PrintWriter;
+import java.io.StringWriter;
+
 import org.apache.log4j.Logger;
 
 import de.uka.ipd.sdq.simucomframework.Context;
@@ -34,10 +38,12 @@ public class ClosedWorkloadUser extends SimProcess implements IUser {
 			}
 		} catch (SimFinishedException ex) {
 		} catch (Exception e) {
+			StringWriter sw = new StringWriter();
+			PrintWriter pw = new PrintWriter(sw);
 			this.getModel().getExperiment().stop();
+			e.printStackTrace(pw);
 			((SimuComModel)getModel()).setStatus(SimuComStatus.ERROR,
-					e.getMessage());
-			e.printStackTrace();
+					e.getMessage()+"\n"+sw.toString());
 		}
 	}
 

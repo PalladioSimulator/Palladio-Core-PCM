@@ -6,6 +6,7 @@ import java.util.Set;
 
 import org.apache.log4j.Logger;
 
+import de.uka.ipd.sdq.simucomframework.exceptions.ResourceContainerIsMissingRequiredResourceType;
 import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
 import desmoj.core.simulator.SimProcess;
 
@@ -32,6 +33,11 @@ public class SimulatedResourceContainer {
 	public void loadActiveResource(SimProcess requestingProcess, String typeID, double demand) {
 		logger.info(typeID + " loaded with "+demand);
 		SimulatedActiveResource resource = activeResources.get(typeID);
+		if (resource == null) {
+			logger.error("Resource container is missing a resource which was attempted to be loaded"+
+					" by a component. ID of resource type was: "+typeID);
+			throw new ResourceContainerIsMissingRequiredResourceType(typeID);
+		}
 		resource.consumeResource(requestingProcess, demand);
 	}
 

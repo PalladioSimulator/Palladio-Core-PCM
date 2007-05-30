@@ -26,7 +26,5 @@
 «ENDDEFINE»
 
 «DEFINE ComponentRoot FOR ProvidesComponentType»
-   «FILE this.getFileName()»
-	   «EXPAND m2t_transforms::java_core::ComponentImplementation FOR this»
-   «ENDFILE»
+   «EXPAND m2t_transforms::java_core::ComponentImplementation FOR this»
 «ENDDEFINE»
