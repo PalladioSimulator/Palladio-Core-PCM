@@ -7,6 +7,7 @@ import java.util.ArrayList;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
+import org.eclipse.emf.transaction.util.TransactionUtil;
 import org.eclipse.gmf.runtime.common.core.command.ICommand;
 import org.eclipse.gmf.runtime.emf.type.core.commands.SetValueCommand;
 import org.eclipse.gmf.runtime.emf.type.core.edithelper.AbstractEditHelperAdvice;
@@ -27,12 +28,6 @@ import de.uka.ipd.sdq.pcm.seff.SeffPackage;
 public class ParametricResourceDemandEditHelperAdvice extends
 		AbstractEditHelperAdvice implements IEditHelperAdvice {
 
-	final String EDITING_DOMAIN_ID = "de.uka.ipd.sdq.PCMBench.editingDomain";
-	/**
-	 * The transactional editing domain which is used to get the commands and alter the model 
-	 */
-	final TransactionalEditingDomain editingDomain = TransactionalEditingDomain.Registry.INSTANCE
-	.getEditingDomain(EDITING_DOMAIN_ID);
 
 	/* (non-Javadoc)
 	 * @see org.eclipse.gmf.runtime.emf.type.core.edithelper.AbstractEditHelperAdvice#getAfterConfigureCommand(org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest)
@@ -50,7 +45,7 @@ public class ParametricResourceDemandEditHelperAdvice extends
 				PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(),
 				filterList, 
 				additionalReferences,
-				editingDomain.getResourceSet());
+				request.getEditingDomain().getResourceSet());
 		dialog.setProvidedService(ProcessingResourceType.class);
 		dialog.open();
 		if (dialog.getResult() == null)

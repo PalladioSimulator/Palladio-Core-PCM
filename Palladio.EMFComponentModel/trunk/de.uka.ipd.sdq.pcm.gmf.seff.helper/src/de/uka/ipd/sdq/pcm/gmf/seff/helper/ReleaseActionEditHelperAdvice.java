@@ -27,14 +27,6 @@ import de.uka.ipd.sdq.pcm.seff.SeffPackage;
 public class ReleaseActionEditHelperAdvice extends AbstractEditHelperAdvice
 		implements IEditHelperAdvice {
 	
-	final String EDITING_DOMAIN_ID = "de.uka.ipd.sdq.PCMBench.editingDomain";
-	
-	/**
-	 * The transactional editing domain which is used to get the commands and alter the model 
-	 */
-	final TransactionalEditingDomain editingDomain = TransactionalEditingDomain.Registry.INSTANCE
-			.getEditingDomain(EDITING_DOMAIN_ID);
-	
 	/* (non-Javadoc)
 	 * @see org.eclipse.gmf.runtime.emf.type.core.edithelper.AbstractEditHelperAdvice#getAfterConfigureCommand(org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest)
 	 */
@@ -50,7 +42,7 @@ public class ReleaseActionEditHelperAdvice extends AbstractEditHelperAdvice
 				PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(),
 				filterList, 
 				additionalReferences,
-				editingDomain.getResourceSet());
+				request.getEditingDomain().getResourceSet());
 		dialog.setProvidedService(PassiveResourceType.class);
 		dialog.open();
 		if (dialog.getResult() == null)

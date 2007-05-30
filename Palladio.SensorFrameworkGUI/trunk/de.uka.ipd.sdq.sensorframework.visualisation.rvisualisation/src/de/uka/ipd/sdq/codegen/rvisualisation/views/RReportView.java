@@ -68,6 +68,8 @@ implements IVisualisation {
 				System.out.println("Data transfer done");
 				items.add(new PlotReportItem(new String[]{"density(sensor"+i+")"},sm.getSensor().getSensorName()));
 				data.add("density(sensor"+i+")");
+				rCommand = "length(sensor"+i+")\n";
+				items.add(new StatisticsReportItem(rCommand, "Number of observations of Sensor "+sm.getSensor().getSensorName()));
 				rCommand = "mean(sensor"+i+")\n";
 				items.add(new StatisticsReportItem(rCommand, "Mean of Sensor "+sm.getSensor().getSensorName()));
 				rCommand = "sd(sensor"+i+")\n";

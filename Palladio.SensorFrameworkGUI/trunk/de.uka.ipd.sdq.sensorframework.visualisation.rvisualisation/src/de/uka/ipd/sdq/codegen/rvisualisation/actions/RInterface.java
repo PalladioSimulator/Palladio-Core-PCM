@@ -88,7 +88,7 @@ public class RInterface {
 						"Error loading R",
 						null,
 						"Could not load R. You need to install R including rJava on your machine. Put R's binary "
-								+ "folder into your classpath. Add jri.jar to the java classpath",
+								+ "folder into your system path. Add jri.jar to the java classpath",
 						MessageDialog.ERROR, new String[] { "OK" }, 0).open();
 			} else {
 				RVisualisationPlugin.log(IStatus.INFO,
@@ -115,7 +115,7 @@ public class RInterface {
 							"Error loading R",
 							null,
 							"Could not load R. You need to install R including rJava on your machine. Put R's binary "
-									+ "folder into your classpath. Add jri.jar to the java classpath",
+									+ "folder into your system path. Add jri.dll to the java library path",
 							MessageDialog.ERROR, new String[] { "OK" }, 0).open();
 				}
 				engineAvailable = true;
@@ -132,7 +132,7 @@ public class RInterface {
 					"Error loading R",
 					null,
 					"Could not load R. You need to install R including rJava on your machine. Put R's binary "
-							+ "folder into your classpath. Ensure jri.dll is in java.library.path variable of the JVM.",
+							+ "folder into your system path. Ensure jri.dll is in java.library.path variable of the JVM.",
 					MessageDialog.ERROR, new String[] { "OK" }, 0).open();
 		}
 	}

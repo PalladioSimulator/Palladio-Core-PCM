@@ -60,13 +60,7 @@ public class PCMSolver {
 	
 	private static Logger logger = Logger.getLogger(PCMSolver.class.getName());
 	
-	public static final String EDITING_DOMAIN_ID = "de.uka.ipd.sdq.PCMBench.editingDomain";
-
 	private long overallDuration = 0;
-	
-	final protected TransactionalEditingDomain editingDomain = TransactionalEditingDomain.Registry.INSTANCE
-	.getEditingDomain(EDITING_DOMAIN_ID);
-
 	
 	public PCMSolver(ILaunchConfiguration configuration, IProgressMonitor monitor){
 		this.monitor = monitor;

@@ -6,6 +6,7 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.util.EContentAdapter;
 import org.eclipse.emf.transaction.RecordingCommand;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
+import org.eclipse.emf.transaction.util.TransactionUtil;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.CLabel;
 import org.eclipse.swt.layout.FormAttachment;
@@ -32,11 +33,6 @@ import org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetWidgetFactory;
  */
 public class EMFPropertyTextEdit implements IDisposable {
 
-	/**
-	 * ID of the editing domain which will be used to issue the commands if the
-	 * content of the text edit field is changed.
-	 */
-	public static final String EDITING_DOMAIN_ID = "de.uka.ipd.sdq.PCMBench.editingDomain";
 
 	private TabbedPropertySheetWidgetFactory factory;
 
@@ -49,8 +45,7 @@ public class EMFPropertyTextEdit implements IDisposable {
 	/**
 	 * The transactional editing domain which is used to get the commands and alter the model 
 	 */
-	final protected TransactionalEditingDomain editingDomain = TransactionalEditingDomain.Registry.INSTANCE
-					.getEditingDomain(EDITING_DOMAIN_ID);
+	protected TransactionalEditingDomain editingDomain = null;
 	
 	private EObject element;
 	private EStructuralFeature attribute;
@@ -160,6 +155,7 @@ public class EMFPropertyTextEdit implements IDisposable {
 	 */
 	public void setEObject(EObject object)
 	{
+		this.editingDomain = TransactionUtil.getEditingDomain(object);
 		this.element = object;
 		this.listeningAdapter = new EContentAdapter(){
 

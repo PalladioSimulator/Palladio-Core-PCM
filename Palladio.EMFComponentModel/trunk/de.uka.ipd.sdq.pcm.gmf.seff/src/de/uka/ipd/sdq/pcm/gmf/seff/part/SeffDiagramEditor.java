@@ -115,18 +115,6 @@ public class SeffDiagramEditor extends DiagramDocumentEditor implements
 	}
 
 	/**
-	 * @generated NOT
-	 */
-	protected TransactionalEditingDomain createEditingDomain() {
-		return super.createEditingDomain();
-	}
-
-	@Override
-	protected String getEditingDomainID() {
-		return "de.uka.ipd.sdq.PCMBench.editingDomain";
-	}
-
-	/**
 	 * @generated
 	 */
 	protected void setDocumentProvider(IEditorInput input) {

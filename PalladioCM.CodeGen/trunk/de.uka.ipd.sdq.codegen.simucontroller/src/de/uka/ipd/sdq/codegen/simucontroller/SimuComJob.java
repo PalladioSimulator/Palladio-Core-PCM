@@ -1,5 +1,8 @@
 package de.uka.ipd.sdq.codegen.simucontroller;
 
+import java.io.PrintWriter;
+import java.io.StringWriter;
+
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
@@ -38,6 +41,11 @@ public class SimuComJob extends Job implements IStatusObserver {
 		try {
 			status = control.startSimulation(config, this);
 		} catch (Exception e) {
+			this.status = SimuComStatus.ERROR;
+			StringWriter sw = new StringWriter();
+			PrintWriter pw = new PrintWriter(sw);
+			e.printStackTrace(pw);
+			this.errorMessage = e.getMessage()+"\n"+sw.toString();
 			return Status.CANCEL_STATUS;
 		} finally {
 			monitor.done();

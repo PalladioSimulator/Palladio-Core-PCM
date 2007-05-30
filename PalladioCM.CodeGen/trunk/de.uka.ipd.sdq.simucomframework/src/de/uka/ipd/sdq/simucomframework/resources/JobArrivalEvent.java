@@ -3,6 +3,7 @@
  */
 package de.uka.ipd.sdq.simucomframework.resources;
  
+import de.uka.ipd.sdq.simucomframework.exceptions.SchedulerReturnedNegativeTimeException;
 import de.uka.ipd.sdq.simucomframework.resources.SimulatedActiveResource.JobAndDemandStruct;
 import desmoj.core.simulator.Entity;
 import desmoj.core.simulator.Event;
@@ -16,6 +17,8 @@ import desmoj.core.simulator.SimTime;
 public class JobArrivalEvent extends Event {
 
 	private JobAndDemandStruct demand;
+	
+	public final static double EPSILON = Math.pow(10,-9);
 
 	public JobArrivalEvent(Model owner, JobAndDemandStruct jobAndDemandStruct, String name, boolean showInTrace) {
 		super(owner, name, showInTrace);
@@ -31,7 +34,14 @@ public class JobArrivalEvent extends Event {
 		SimulatedActiveResource resource = job.getResource();
 		resource.processPassedTime();
 		resource.addJob(demand);
-		SimTime nextEvent = new SimTime(resource.getTimeWhenNextJobIsDone());
+		double nextEventTime = resource.getTimeWhenNextJobIsDone();
+		if (nextEventTime < 0) {
+			if (Math.abs(nextEventTime)<EPSILON){
+				nextEventTime = 0.0;
+			} else 
+				new SchedulerReturnedNegativeTimeException();
+		}
+		SimTime nextEvent = new SimTime(nextEventTime);
 		if(resource.isScheduled())
 			resource.reSchedule(nextEvent);
 		else {

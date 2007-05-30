@@ -16,7 +16,12 @@ public class StatisticsReportItem implements IReportItem {
 	}
 	
 	public String getResult() {
-		return "" + x.asDouble();
+		if (x.rtype == REXP.INTSXP)
+			return "" + x.asInt();
+		else if (x.rtype == REXP.REALSXP)
+			return "" + x.asDouble();
+		else
+			return "N/A";
 	}
 	
 	public String getDescription(){
