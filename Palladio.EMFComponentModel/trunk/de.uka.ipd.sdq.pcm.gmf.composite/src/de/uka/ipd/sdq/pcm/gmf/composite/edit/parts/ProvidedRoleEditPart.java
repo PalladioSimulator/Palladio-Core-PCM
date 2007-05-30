@@ -3,12 +3,10 @@
  */
 package de.uka.ipd.sdq.pcm.gmf.composite.edit.parts;
 
-import org.eclipse.draw2d.Ellipse;
 import org.eclipse.draw2d.Graphics;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.PositionConstants;
 import org.eclipse.draw2d.RectangleFigure;
-import org.eclipse.draw2d.StackLayout;
 import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
@@ -24,10 +22,10 @@ import org.eclipse.gmf.runtime.diagram.ui.editpolicies.BorderItemSelectionEditPo
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.diagram.ui.figures.BorderItemLocator;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
-import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
 
+import de.uka.ipd.sdq.pcm.gmf.composite.BallFigure;
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.policies.ProvidedRoleItemSemanticEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.composite.part.PalladioComponentModelVisualIDRegistry;
 
@@ -131,12 +129,14 @@ public class ProvidedRoleEditPart extends BorderedBorderItemEditPart {
 	}
 
 	/**
-	 * @generated
+	 * @generated not
 	 */
 	protected NodeFigure createNodePlate() {
-		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(getMapMode()
-				.DPtoLP(20), getMapMode().DPtoLP(20));
+		//DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(getMapMode()
+		//		.DPtoLP(20), getMapMode().DPtoLP(20));
 
+		BallFigure result = new BallFigure(getMapMode().DPtoLP(30));
+		
 		//FIXME: workaround for #154536
 		result.getBounds().setSize(result.getPreferredSize());
 		return result;
@@ -160,14 +160,15 @@ public class ProvidedRoleEditPart extends BorderedBorderItemEditPart {
 	 * Body of this method does not depend on settings in generation model
 	 * so you may safely remove <i>generated</i> tag and modify it.
 	 * 
-	 * @generated
+	 * @generated not
 	 */
 	protected NodeFigure createMainFigure() {
 		NodeFigure figure = createNodePlate();
-		figure.setLayoutManager(new StackLayout());
-		IFigure shape = createNodeShape();
-		figure.add(shape);
-		contentPane = setupContentPane(shape);
+		//figure.setLayoutManager(new StackLayout());
+		//IFigure shape = createNodeShape();
+		//figure.add(shape);
+		//contentPane = setupContentPane(shape);
+		
 		return figure;
 	}
 

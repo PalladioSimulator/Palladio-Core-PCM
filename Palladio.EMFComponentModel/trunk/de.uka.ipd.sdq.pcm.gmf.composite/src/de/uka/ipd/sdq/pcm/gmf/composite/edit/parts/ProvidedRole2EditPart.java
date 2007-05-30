@@ -27,6 +27,7 @@ import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
 
+import de.uka.ipd.sdq.pcm.gmf.composite.BallFigure;
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.policies.ProvidedRole2ItemSemanticEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.composite.part.PalladioComponentModelVisualIDRegistry;
 
@@ -130,12 +131,14 @@ public class ProvidedRole2EditPart extends BorderedBorderItemEditPart {
 	}
 
 	/**
-	 * @generated
+	 * @generated not
 	 */
 	protected NodeFigure createNodePlate() {
-		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(getMapMode()
-				.DPtoLP(20), getMapMode().DPtoLP(20));
+		//DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(getMapMode()
+		//		.DPtoLP(20), getMapMode().DPtoLP(20));
 
+		BallFigure result = new BallFigure(getMapMode().DPtoLP(60));
+		
 		//FIXME: workaround for #154536
 		result.getBounds().setSize(result.getPreferredSize());
 		return result;
@@ -159,14 +162,15 @@ public class ProvidedRole2EditPart extends BorderedBorderItemEditPart {
 	 * Body of this method does not depend on settings in generation model
 	 * so you may safely remove <i>generated</i> tag and modify it.
 	 * 
-	 * @generated
+	 * @generated not
 	 */
 	protected NodeFigure createMainFigure() {
 		NodeFigure figure = createNodePlate();
-		figure.setLayoutManager(new StackLayout());
-		IFigure shape = createNodeShape();
-		figure.add(shape);
-		contentPane = setupContentPane(shape);
+		//figure.setLayoutManager(new StackLayout());
+		//IFigure shape = createNodeShape();
+		//figure.add(shape);
+		//contentPane = setupContentPane(shape);
+		
 		return figure;
 	}
 
