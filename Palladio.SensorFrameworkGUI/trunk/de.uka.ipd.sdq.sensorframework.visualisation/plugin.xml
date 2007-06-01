@@ -88,4 +88,11 @@
                type="java.lang.Object">
          </propertyTester>
       </extension>
+      <extension
+            point="org.eclipse.ui.elementFactories">
+         <factory
+               class="de.uka.ipd.sdq.sensorframework.visualisation.ConfigEditorInputFactory"
+               id="de.uka.ipd.sdq.sensorframework.visualisation.configEditorInputFactory">
+         </factory>
+      </extension>
 </plugin>

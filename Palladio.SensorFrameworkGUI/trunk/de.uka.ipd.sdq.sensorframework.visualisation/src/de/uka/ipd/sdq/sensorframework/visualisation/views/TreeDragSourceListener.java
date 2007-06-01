@@ -1,24 +1,19 @@
 package de.uka.ipd.sdq.sensorframework.visualisation.views;
 
-import org.eclipse.jface.action.ActionContributionItem;
-import org.eclipse.jface.action.IContributionItem;
+import org.eclipse.core.runtime.IConfigurationElement;
+import org.eclipse.core.runtime.Platform;
+import org.eclipse.jface.util.LocalSelectionTransfer;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.swt.dnd.DragSourceEvent;
 import org.eclipse.swt.dnd.DragSourceListener;
 import org.eclipse.swt.widgets.Shell;
-import org.eclipse.ui.IEditorPart;
-import org.eclipse.ui.IWorkbenchPage;
+import org.eclipse.ui.part.EditorInputTransfer;
 
-import de.uka.ipd.sdq.sensorfactory.entities.Experiment;
 import de.uka.ipd.sdq.sensorfactory.entities.ExperimentRun;
 import de.uka.ipd.sdq.sensorfactory.entities.Sensor;
-import de.uka.ipd.sdq.sensorframework.visualisation.SimuPlugin;
 import de.uka.ipd.sdq.sensorframework.visualisation.dialogs.ActionListSelectionDialog;
-import de.uka.ipd.sdq.sensorframework.visualisation.editor.AbstractReportView;
 import de.uka.ipd.sdq.sensorframework.visualisation.editor.ConfigEditorInput;
-import de.uka.ipd.sdq.sensorframework.visualisation.menu.OpenAction;
-import de.uka.ipd.sdq.sensorframework.visualisation.menu.VisualisationMenuItemContributions;
 
 /**
  * @author admin
@@ -38,67 +33,47 @@ public class TreeDragSourceListener implements DragSourceListener {
 		IStructuredSelection selection = (IStructuredSelection) viewer
 				.getSelection();
 		Object object = selection.getFirstElement();
-		IWorkbenchPage page = SimuPlugin.getDefault().getWorkbench()
-				.getActiveWorkbenchWindow().getActivePage();
-		IEditorPart editor = page.getActiveEditor();
-
-		if (object instanceof TreeObject) {
+		if (object instanceof TreeObject && ((TreeObject)object).getObject() instanceof Sensor) {
 			TreeObject treeObject = (TreeObject) object;
-			if (editor == null) {
-				OpenAction action = getSelectedAction(event.display
+			Sensor sensor = (Sensor) treeObject.getObject();
+			if (EditorInputTransfer.getInstance().isSupportedType(event.dataType)){
+
+				ConfigEditorInput editorInput = new ConfigEditorInput();
+				editorInput.editConfigEntry(treeObject.getRun(), treeObject
+							.getExperiment(), sensor);
+
+				IConfigurationElement action = getSelectedAction(event.display
 						.getActiveShell());
-				action.run();
-
-				editor = (AbstractReportView) page.getActiveEditor();
-			}
-
-			// create chart and initialisation with Experiment run
-			if (treeObject.getObject() instanceof ExperimentRun) {
-				ExperimentRun run = (ExperimentRun) treeObject.getObject();
-				Experiment experiment = treeObject.getExperiment();
-				ConfigEditorInput editorInput = (ConfigEditorInput) editor
-						.getEditorInput();
-				editorInput.addNewConfigEntry(run, experiment);
-
-			}
-
-			// create chart and initialisation with a sensor
-			if (treeObject.getObject() instanceof Sensor) {
-				Sensor sensor = (Sensor) treeObject.getObject();
-				ConfigEditorInput editorInput = (ConfigEditorInput) editor
-						.getEditorInput();
-				editorInput.editeConfigEntry(treeObject.getRun(), treeObject
-						.getExperiment(), sensor);
+				EditorInputTransfer.EditorInputData[] transferArray = new EditorInputTransfer.EditorInputData[]{
+						EditorInputTransfer.createEditorInputData(
+						action.getAttribute("editorID"), 
+						editorInput)};
+				event.data = transferArray;
+			} else if (LocalSelectionTransfer.getTransfer().isSupportedType(event.dataType)){
+				LocalSelectionTransfer.getTransfer().setSelection(selection);
 			}
 		}
 	}
 
 	/**
-	 * @return - choise Action from ActionListSelectionDialog
+	 * @return - choose Action from ActionListSelectionDialog
 	 */
-	private OpenAction getSelectedAction(Shell shell) {
+	private IConfigurationElement getSelectedAction(Shell shell) {
 		
 		ActionListSelectionDialog dialog = new ActionListSelectionDialog(shell);
 		dialog.setElements(getElements());
 		dialog.open();
 		Object[] results = dialog.getResult();
-		return (OpenAction) results[0];
+		return (IConfigurationElement) results[0];
 	}
 	
 	/**
 	 * @return - actions, which are present in Menu/Visualization
 	 */
 	private Object[] getElements() {
-		VisualisationMenuItemContributions contribution = new VisualisationMenuItemContributions();
-		IContributionItem[] items = contribution.getContributionItems();
-		Object[] actions = new Object[items.length];
-
-		for (int i = 0; i < items.length; i++) {
-			ActionContributionItem item = (ActionContributionItem) items[i];
-			actions[i] = item.getAction();
-		}
-
-		return actions;
+		IConfigurationElement[] configurationElements = Platform.getExtensionRegistry().
+		getConfigurationElementsFor("de.uka.ipd.sdq.sensorframework.visualisation");
+		return configurationElements;
 	}
 	
 	/* (non-Javadoc)
@@ -122,6 +97,5 @@ public class TreeDragSourceListener implements DragSourceListener {
 	}
 
 	public void dragFinished(DragSourceEvent event) {
-		// TODO Auto-generated method stub
 	}
 }

@@ -76,7 +76,7 @@ public class PalladioAdapterFactoryContentProvider extends
 							ParametricResourceDemand prd = (ParametricResourceDemand) randVar;
 							AbstractResourceDemandingAction a = prd.getAction_ParametricResourceDemand();
 							EObject container = a;
-							while (!((container = container.eContainer()) instanceof ResourceDemandingSEFF))
+							while (!(container instanceof ResourceDemandingSEFF))
 								container = container.eContainer();
 							ResourceDemandingSEFF seff = (ResourceDemandingSEFF) container;
 							Parameter[] parameters = new Parameter[]{};

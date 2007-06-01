@@ -63,11 +63,11 @@ implements IVisualisation {
 			for(int i=0; i<c.size();i++){
 				SensorAndMeasurements sm = (SensorAndMeasurements) it.next();
 				String rCommand = getRVector(sm,i) + "\n";
-				System.out.println("Data transfer");
 				t.execute(rCommand);
-				System.out.println("Data transfer done");
-				items.add(new PlotReportItem(new String[]{"density(sensor"+i+")"},sm.getSensor().getSensorName()));
 				data.add("density(sensor"+i+")");
+
+				items.add(new PlotReportItem(new String[]{"density(sensor"+i+")"},sm.getSensor().getSensorName()));
+
 				rCommand = "length(sensor"+i+")\n";
 				items.add(new StatisticsReportItem(rCommand, "Number of observations of Sensor "+sm.getSensor().getSensorName()));
 				rCommand = "mean(sensor"+i+")\n";

@@ -2,12 +2,13 @@ package de.uka.ipd.sdq.sensorframework.visualisation.editor;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Observable;
 
 import de.uka.ipd.sdq.sensorfactory.entities.Experiment;
 import de.uka.ipd.sdq.sensorfactory.entities.ExperimentRun;
 import de.uka.ipd.sdq.sensorfactory.entities.Sensor;
 
-public class ConfigEntry {
+public class ConfigEntry extends Observable {
 	private List<Sensor> sensors;
 	private ExperimentRun experimentRun;
 	private Experiment experiment;
@@ -31,12 +32,17 @@ public class ConfigEntry {
 	}
 
 	public void setSensorChecked(Sensor sensor) {
-		if (!isSensorChecked(sensor))
+		if (!isSensorChecked(sensor)){
 			sensors.add(sensor);
+			this.setChanged();
+		}
+		notifyObservers();
 	}
 
 	public void setSensorUnchecked(Sensor sensor) {
 		sensors.remove(sensor);
+		this.setChanged();
+		notifyObservers();
 	}
 
 	/**

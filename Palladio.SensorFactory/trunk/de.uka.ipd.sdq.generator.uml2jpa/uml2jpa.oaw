@@ -32,6 +32,7 @@
 		</metaModel>
 		<metaModel id="profile" class="org.openarchitectureware.uml2.profile.ProfileMetaModel">
 			<profile value="model/Persistence.profile.uml"/>
+			<errorIfStereotypeMissing value="false" />
 		</metaModel>
 		<metaModel class="org.openarchitectureware.uml2.UML2MetaModel"/>
 	   <fileEncoding value="ISO-8859-1"/>

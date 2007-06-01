@@ -1,6 +1,12 @@
 package de.uka.ipd.sdq.sensorframework.visualisation.editor;
 
+import java.util.ArrayList;
+import java.util.Observable;
+import java.util.Observer;
+
 import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.jface.dialogs.MessageDialog;
+import org.eclipse.jface.util.LocalSelectionTransfer;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
 import org.eclipse.jface.viewers.ISelectionProvider;
@@ -13,18 +19,21 @@ import org.eclipse.swt.widgets.Control;
 import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IEditorSite;
 import org.eclipse.ui.PartInitException;
-import org.eclipse.ui.part.EditorInputTransfer;
 import org.eclipse.ui.part.EditorPart;
 import org.eclipse.ui.views.properties.IPropertySheetPage;
 import org.eclipse.ui.views.properties.tabbed.ITabbedPropertySheetPageContributor;
 import org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage;
 
+import de.uka.ipd.sdq.sensorfactory.SensorAndMeasurements;
+import de.uka.ipd.sdq.sensorfactory.entities.Sensor;
+import de.uka.ipd.sdq.sensorframework.visualisation.IVisualisation;
 import de.uka.ipd.sdq.sensorframework.visualisation.views.ViewDropTargetListener;
 
 public abstract class AbstractReportView extends EditorPart implements
-		ITabbedPropertySheetPageContributor {
+		ITabbedPropertySheetPageContributor, IVisualisation, Observer {
 
 	public static String ABSTRACT_EDITOR_ID = "de.uka.ipd.sdq.codegen.simudatavisualization.views.ReportView";
+	private ConfigEditorInput myInput;
 	
 	public AbstractReportView() {
 		super();
@@ -46,8 +55,6 @@ public abstract class AbstractReportView extends EditorPart implements
 			}
 
 			public void setSelection(ISelection selection) {
-				// TODO Auto-generated method stub
-
 			}
 		});
 
@@ -63,10 +70,12 @@ public abstract class AbstractReportView extends EditorPart implements
 		int operations = DND.DROP_COPY | DND.DROP_DEFAULT;
 		DropTarget target = new DropTarget(control, operations);
 
-		Transfer[] transferTypes = new Transfer[] { EditorInputTransfer
-				.getInstance() };
+		Transfer[] transferTypes = new Transfer[] { 
+				LocalSelectionTransfer.getTransfer()
+		};
 		target.setTransfer(transferTypes);
-		target.addDropListener(new ViewDropTargetListener());
+		target.addDropListener(new ViewDropTargetListener(
+				this.getEditorInput()));
 	}
 
 	public Object getAdapter(Class adapter) {
@@ -95,6 +104,13 @@ public abstract class AbstractReportView extends EditorPart implements
 		setInput(input);
 	}
 
+	@Override
+	protected void setInput(IEditorInput input) {
+		super.setInput(input);
+		myInput = (ConfigEditorInput) input;
+		myInput.addObserver(this);
+	}
+
 	public boolean isDirty() {
 		return false;
 	}
@@ -103,4 +119,28 @@ public abstract class AbstractReportView extends EditorPart implements
 		return false;
 	}
 
+	public void update(Observable o, Object arg) {
+		getSite().getPage().activate(this);
+		ArrayList<SensorAndMeasurements> list = new ArrayList<SensorAndMeasurements>();
+		
+		for (ConfigEntry re : myInput.getConfigEntrys()) {
+			for (Sensor s : re.getSensors()) {
+				try {
+					list.add(re.getExperimentRun()
+							.getMeasurementsOfSensor(s));
+				} catch (Exception e1) {
+					showMessage(s.getSensorName(),
+							"Missing the Measurements of sensor!");
+				}
+			}
+		}
+
+		this.setInput(list);
+	}
+
+	/** show exeption message */
+	private void showMessage(String title, String message) {
+		MessageDialog.openInformation(this.getEditorSite().getShell(), title,
+				message);
+	}
 }

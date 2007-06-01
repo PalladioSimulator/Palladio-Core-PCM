@@ -3,9 +3,18 @@
  */
 package de.uka.ipd.sdq.sensorframework.visualisation.views;
 
+import org.eclipse.jface.viewers.ISelectionProvider;
+import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.swt.dnd.DND;
 import org.eclipse.swt.dnd.DropTargetAdapter;
 import org.eclipse.swt.dnd.DropTargetEvent;
+import org.eclipse.ui.IEditorInput;
+import org.eclipse.ui.ISelectionService;
+import org.eclipse.ui.part.EditorInputTransfer;
+import org.eclipse.ui.views.navigator.LocalSelectionTransfer;
+
+import de.uka.ipd.sdq.sensorfactory.entities.Sensor;
+import de.uka.ipd.sdq.sensorframework.visualisation.editor.ConfigEditorInput;
 
 /**
  * @author admin
@@ -13,6 +22,11 @@ import org.eclipse.swt.dnd.DropTargetEvent;
  */
 public class ViewDropTargetListener extends DropTargetAdapter {
 
+	private ConfigEditorInput configEditorInput;
+
+	public ViewDropTargetListener(IEditorInput editorInput) {
+		this.configEditorInput = (ConfigEditorInput)editorInput;
+	}
 
 	/* (non-Javadoc)
 	 * @see org.eclipse.swt.dnd.DropTargetListener#dragEnter(org.eclipse.swt.dnd.DropTargetEvent)
@@ -57,6 +71,15 @@ public class ViewDropTargetListener extends DropTargetAdapter {
 	 */
 	@Override
 	public void drop(DropTargetEvent event) {
+		IStructuredSelection selection = (IStructuredSelection)
+			LocalSelectionTransfer.getTransfer().getSelection();
+		Object object = selection.getFirstElement();
+		if (object instanceof TreeObject && ((TreeObject)object).getObject() instanceof Sensor) {
+			TreeObject treeObject = (TreeObject) object;
+			Sensor sensor = (Sensor) treeObject.getObject();
+			configEditorInput.editConfigEntry(treeObject.getRun(), treeObject
+					.getExperiment(), sensor);
+		}
 	}
 
 	/* (non-Javadoc)

@@ -3,6 +3,7 @@
  */
 package de.uka.ipd.sdq.sensorframework.visualisation.dialogs;
 
+import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.jface.viewers.LabelProvider;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Point;
@@ -64,9 +65,9 @@ class DialogLabaelProvider extends LabelProvider {
 	 */
 	@Override
 	public String getText(Object element) {
-		if (element instanceof OpenAction) {
-			OpenAction action = (OpenAction) element;
-			return action.getText();
+		if (element instanceof IConfigurationElement) {
+			IConfigurationElement action = (IConfigurationElement) element;
+			return action.getAttribute("displayName");
 		}
 		return super.getText(element);
 	}

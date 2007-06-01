@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<uml:Model xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Persistence_0="http:///Persistence_0_CpLmcIRuEdu0HNZg8bM6sQ.profile.uml2" xmlns:uml="http://www.eclipse.org/uml2/1.0.0/UML" xsi:schemaLocation="http:///Persistence_0_CpLmcIRuEdu0HNZg8bM6sQ.profile.uml2 ../../../../PalladioCM.CodeGen/my.hibernate.project/model/Persistence.profile.uml2#_CpkoRYRuEdu0HNZg8bM6sQ" xmi:id="_c8pf4a0WEdu-BsqEvw9tEg" name="SensorFactory" appliedProfile="_c8pf4q0WEdu-BsqEvw9tEg _c8pf5a0WEdu-BsqEvw9tEg _c8pf6K0WEdu-BsqEvw9tEg _c8pf7K0WEdu-BsqEvw9tEg">
+<uml:Model xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Persistence_0="http:///Persistence_0_CpLmcIRuEdu0HNZg8bM6sQ.profile.uml2" xmlns:uml="http://www.eclipse.org/uml2/1.0.0/UML" xsi:schemaLocation="http:///Persistence_0_CpLmcIRuEdu0HNZg8bM6sQ.profile.uml2 Persistence.profile.uml#_CpkoRYRuEdu0HNZg8bM6sQ" xmi:id="_c8pf4a0WEdu-BsqEvw9tEg" name="SensorFactory" appliedProfile="_c8pf4q0WEdu-BsqEvw9tEg _c8pf5a0WEdu-BsqEvw9tEg _c8pf6K0WEdu-BsqEvw9tEg _c8pf7K0WEdu-BsqEvw9tEg">
   <packageImport xmi:type="uml:ProfileApplication" xmi:id="_c8pf4q0WEdu-BsqEvw9tEg">
     <eAnnotations xmi:id="_c8pf460WEdu-BsqEvw9tEg" source="attributes">
       <details xmi:id="_c8pf5K0WEdu-BsqEvw9tEg" key="version" value="0"/>
@@ -28,8 +28,8 @@
     <eAnnotations xmi:id="_c8pf7a0WEdu-BsqEvw9tEg" source="attributes">
       <details xmi:id="_c8pf7q0WEdu-BsqEvw9tEg" key="version" value="0"/>
     </eAnnotations>
-    <importedPackage xmi:type="uml:Profile" href="../../../../PalladioCM.CodeGen/my.hibernate.project/model/Persistence.profile.uml2#_CpkoQYRuEdu0HNZg8bM6sQ"/>
-    <importedProfile href="../../../../PalladioCM.CodeGen/my.hibernate.project/model/Persistence.profile.uml2#_CpkoQYRuEdu0HNZg8bM6sQ"/>
+    <importedPackage xmi:type="uml:Profile" href="Persistence.profile.uml#_CpkoQYRuEdu0HNZg8bM6sQ"/>
+    <importedProfile href="Persistence.profile.uml#_CpkoQYRuEdu0HNZg8bM6sQ"/>
   </packageImport>
   <packageImport xmi:id="_c8pf760WEdu-BsqEvw9tEg">
     <importedPackage xmi:type="uml:Model" href="pathmap://UML2_LIBRARIES/JavaPrimitiveTypes.library.uml2#_RjmyoK86EdieaYgxtVWN8Q"/>

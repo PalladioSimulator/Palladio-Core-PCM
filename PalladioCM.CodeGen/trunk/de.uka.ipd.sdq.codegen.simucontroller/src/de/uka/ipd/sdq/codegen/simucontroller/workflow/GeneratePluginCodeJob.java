@@ -6,6 +6,8 @@ import java.util.Map;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.debug.core.ILaunchConfiguration;
 import org.openarchitectureware.workflow.WorkflowRunner;
+import org.openarchitectureware.workflow.issues.Issue;
+import org.openarchitectureware.workflow.issues.IssuesImpl;
 
 import de.uka.ipd.sdq.codegen.simucontroller.runconfig.ResourceManagerTab;
 
@@ -64,18 +66,21 @@ public class GeneratePluginCodeJob implements ISimulationJob {
 
 		for (String workflowFile : myWorkflowFiles) {
 			try {
+				IssuesImpl issues = new IssuesImpl();
 				WorkflowRunner runner = new WorkflowRunner();
-				if (!runner
-						.run(
-								workflowFile,
-								new org.openarchitectureware.workflow.monitor.NullProgressMonitor(),
-								properties, slotContents)) {
+				runner.prepare(workflowFile, null, properties);
+				
+				if (!runner.executeWorkflow(slotContents, issues)) {
+					String message = "";
+					for (Issue i : issues.getErrors()){
+						message += i.getMessage() + "\n";
+					}
 					throw new Exception("oAW workflow returned false: "
-							+ workflowFile);
+							+ workflowFile + "\nIssues given: "+message);
 				}
 			} catch (Exception e) {
 				throw new Exception("Running oAW workflow failed: "
-						+ workflowFile, e);
+						+ workflowFile+"\n Errors: "+e.getMessage()+". Please see the oAW console output for details!", e);
 			}
 		}
 	}
