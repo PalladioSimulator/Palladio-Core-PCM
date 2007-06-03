@@ -91,7 +91,7 @@
       <extension
             point="org.eclipse.ui.elementFactories">
          <factory
-               class="de.uka.ipd.sdq.sensorframework.visualisation.ConfigEditorInputFactory"
+               class="de.uka.ipd.sdq.sensorframework.visualisation.editor.ConfigEditorInputFactory"
                id="de.uka.ipd.sdq.sensorframework.visualisation.configEditorInputFactory">
          </factory>
       </extension>

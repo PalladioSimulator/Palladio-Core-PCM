@@ -1,13 +1,12 @@
 package de.uka.ipd.sdq.sensorframework.visualisation.editor;
 
-import java.io.IOException;
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Observable;
 import java.util.Observer;
 
 import org.eclipse.core.runtime.IAdaptable;
+import org.eclipse.core.runtime.IPath;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IMemento;
@@ -16,25 +15,22 @@ import org.eclipse.ui.IPersistableElement;
 import de.uka.ipd.sdq.sensorfactory.entities.Experiment;
 import de.uka.ipd.sdq.sensorfactory.entities.ExperimentRun;
 import de.uka.ipd.sdq.sensorfactory.entities.Sensor;
+import de.uka.ipd.sdq.sensorframework.visualisation.SimuPlugin;
 
 /** @author roman */
 public class ConfigEditorInput extends Observable
-		implements IEditorInput, IAdaptable, Observer {
+		implements IEditorInput, IPersistableElement,IAdaptable, Observer {
 	
-	/**
-	 * 
-	 */
 	private List<ConfigEntry> configEntrys;
 	
 	public ConfigEditorInput() {
 		this.configEntrys = new ArrayList<ConfigEntry>();
 	}
 	
-	public ConfigEditorInput(ExperimentRun run, Experiment experiment) {
+	public ConfigEditorInput(ConfigEntry configEntry) {
 		this.configEntrys = new ArrayList<ConfigEntry>();
-		ConfigEntry confEntry = new ConfigEntry(run,experiment);
-		confEntry.addObserver(this);
-		configEntrys.add(confEntry);
+		configEntry.addObserver(this);
+		configEntrys.add(configEntry);
 	}
 
 	/** Edit command of ConfigEctry	 */
@@ -54,22 +50,6 @@ public class ConfigEditorInput extends Observable
 		ConfigEntry confEntry = new ConfigEntry(run, experiment);
 		confEntry.addObserver(this);
 		configEntrys.add(confEntry);
-		notifyObserver();
-	}
-	
-//	public void addNewConfigEntry(ConfigEntry runEntry){
-//		configEntrys.add(runEntry);
-//		notifyObserver();
-//	}
-	
-	// TODO equals
-	public void removeConfigEntryToRun(ExperimentRun run){
-		for(ConfigEntry ce : configEntrys){
-			if (ce.getExperimentRun().equals(run)) {
-				ce.deleteObserver(this);
-				configEntrys.remove(ce);
-			}
-		}
 		notifyObserver();
 	}
 	
@@ -122,16 +102,7 @@ public class ConfigEditorInput extends Observable
 	 * @see org.eclipse.ui.IEditorInput#getPersistable()
 	 */
 	public IPersistableElement getPersistable() {
-		return new IPersistableElement (){
-
-			public String getFactoryId() {
-				return "de.uka.ipd.sdq.sensorframework.visualisation.configEditorInputFactory";
-			}
-
-			public void saveState(IMemento memento) {
-			}
-			
-		};
+		return this;
 	}
 
 	/* (non-Javadoc)
@@ -149,7 +120,25 @@ public class ConfigEditorInput extends Observable
 			return this;
 		return null;
 	}
+
 	
+	
+	/* (non-Javadoc)
+	 * @see org.eclipse.ui.IPersistableElement#getFactoryId()
+	 */
+	@Override
+	public String getFactoryId() {
+		return ConfigEditorInputFactory.getFactoryId();
+	}
+
+	/* (non-Javadoc)
+	 * @see org.eclipse.ui.IPersistable#saveState(org.eclipse.ui.IMemento)
+	 */
+	@Override
+	public void saveState(IMemento memento) {
+		ConfigEditorInputFactory.saveState(memento, this);
+	}
+
 	public void notifyObserver(){
 		setChanged();
 		notifyObservers();
@@ -159,5 +148,16 @@ public class ConfigEditorInput extends Observable
 	public void update(Observable o, Object arg) {
 		setChanged();
 		notifyObservers();
+	}
+	
+	/**
+	 * Return absolute path of the config file. It develops out location in the
+	 * local file system of the plug-in state area for this plug-in and defined
+	 * name.
+	 */
+	static String getPathToConfigFile() {
+		IPath path = SimuPlugin.getDefault().getStateLocation();
+
+		return path.toPortableString() + "/" + "persistable_element.xml";
 	}
 }
