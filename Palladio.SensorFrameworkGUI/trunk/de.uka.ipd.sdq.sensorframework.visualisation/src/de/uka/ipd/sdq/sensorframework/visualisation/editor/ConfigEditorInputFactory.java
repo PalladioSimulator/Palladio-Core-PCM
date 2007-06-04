@@ -1,9 +1,4 @@
-/**
- * 
- */
 package de.uka.ipd.sdq.sensorframework.visualisation.editor;
-
-import java.util.Collection;
 
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.ui.IElementFactory;
@@ -72,17 +67,19 @@ public class ConfigEditorInputFactory implements IElementFactory {
 	
     private Sensor getSensor(IMemento memento) {
 		String sensorId = memento.getString(SENSOR_ID);
-		String sensorName = memento.getString(SENSOR_NAME);
+		if (sensorId == null)
+			return null;
 
-		//TODO Datasource mit abspeichern
-		IDAOFactory data = SensorFrameworkDataset
-				.singleton().getMemoryDataset();
+		// TODO Datasource mit abspeichern
+		IDAOFactory data = SensorFrameworkDataset.singleton()
+				.getMemoryDataset();
 		return data.createSensorDAO().get(Long.parseLong(sensorId));
 	}
     
     private ExperimentRun getExperimentRun(IMemento memento) {
 		String experimentRun = memento.getString(EXPERIMENT_RUN);
-
+		if (experimentRun == null)
+			return null;
 		//TODO Datasource mit abspeichern
 		IDAOFactory data = SensorFrameworkDataset
 				.singleton().getMemoryDataset();
@@ -91,7 +88,8 @@ public class ConfigEditorInputFactory implements IElementFactory {
     
     private Experiment getExperiment(IMemento memento) {
 		String experiment = memento.getString(EXPERIMENT);
-
+		if (experiment == null)
+			return null;
 		//TODO Datasource mit abspeichern
 		IDAOFactory data = SensorFrameworkDataset
 				.singleton().getMemoryDataset();
