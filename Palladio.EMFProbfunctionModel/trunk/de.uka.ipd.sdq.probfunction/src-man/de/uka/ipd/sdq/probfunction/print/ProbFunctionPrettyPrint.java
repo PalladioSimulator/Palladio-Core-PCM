@@ -53,27 +53,28 @@ public class ProbFunctionPrettyPrint extends ProbfunctionSwitch {
 		
 		String pmfType = detectType(sample);
 		String sampleString = "";
-		String leftSeparator = "; ";
-		String rightSeparator = ")";
+		String leftSeparator = "";
+		String rightSeparator = ";";
+
+		if (pmfType.equals("EnumPMF")) {
+			leftSeparator = "\"";
+			rightSeparator = "\";";
+		}
 		
 		if (object.getUnit() != null && 
 		  !(object.getUnit().getUnitName().equals(""))){
 			pmfType += "(unit=\""+object.getUnit().getUnitName() + "\"";
 			
-			if ( sample.getValue() instanceof String) {
-				leftSeparator = "; \"";
-				rightSeparator = "\")";
-				if (object.isOrderedDomain()){
-					pmfType += "; ordered";
-				}
+			if (object.isOrderedDomain()){
+				pmfType += "; ordered";
 			}
 			
 			pmfType += ")";
 		}
 		
 		for (Sample s : (List<Sample>) object.getSamples()) {
-			sampleString += " (" + s.getValue() + leftSeparator
-			+ s.getProbability() + rightSeparator;
+			sampleString += " (" + leftSeparator + s.getValue() 
+			+ rightSeparator + s.getProbability() + ")";
 		}
 		return pmfType + "[" + sampleString + " ]";
 	}
