@@ -49,12 +49,10 @@ public class MemoryMeasurementDAO implements IMeasurementDAO {
 		return result;
 	}
 
-	@Override
 	public synchronized Measurement get(long id) {
 		return index.get(id);
 	}
 
-	@Override
 	public synchronized Collection<Measurement> getMeasurements() {
 		return Collections.unmodifiableCollection(index.values());
 	}

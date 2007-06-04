@@ -20,7 +20,6 @@ public class MemoryExperimentDAO implements IExperimentDAO {
 		this.factory = memoryDAOFactory;
 	}
 
-	@Override
 	public synchronized Experiment addExperiment(String p_experimentname) {
 		ExperimentImpl result = new ExperimentImpl(factory);
 		result.setExperimentID(nextID++);
