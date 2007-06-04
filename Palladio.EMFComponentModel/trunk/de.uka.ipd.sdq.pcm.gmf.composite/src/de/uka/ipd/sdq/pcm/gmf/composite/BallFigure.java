@@ -7,45 +7,22 @@ import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.PositionConstants;
 import org.eclipse.draw2d.geometry.Point;
 import org.eclipse.draw2d.geometry.Rectangle;
-import org.eclipse.gmf.runtime.draw2d.ui.figures.IBorderItemLocator;
-import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
-
 
 /**
  * Represents the UML style --( ) border figure
  * which rotates depending on the side the figure
- * is located in relation to it's parent. *
+ * is located in relation to it's parent.
  */
-public class BallFigure extends DefaultSizeNodeFigure {
+public class BallFigure extends AbstractBorderFigure {
 	
-	BallAnchor myAnchor;
-
 	/**
 	 * @param size width and hight of the figure in logical units (LP)
+	 * @param posType position type of the figure
 	 */
-	public BallFigure(int logicalSize) {
-		super(logicalSize, logicalSize);
-		myAnchor = new BallAnchor(this);
-	}
+	public BallFigure(int logicalSize, POSITION_TYPE posType) {
+		super(logicalSize, posType);
+	}	
 	
-	/**
-	 * Helper function to get the parent's border item locator
-	 * 
-	 * @return the parent's border item locator
-	 */
-	private IBorderItemLocator getBorderItemLocator() {
-		IFigure parentFigure = this.getParent().getParent();
-		if (parentFigure != null && parentFigure.getLayoutManager() != null) {
-			Object constraint = parentFigure.getLayoutManager().getConstraint(
-				this.getParent());
-			if (constraint instanceof IBorderItemLocator) {
-				return (IBorderItemLocator) constraint;
-			}
-		}
-		return null;
-	}
-	
-	@Override
 	protected void paintFigure(Graphics graphics) {
 		super.paintFigure(graphics);
 		int side = (getBorderItemLocator() == null ? PositionConstants.WEST : getBorderItemLocator().getCurrentSideOfParent());
@@ -101,13 +78,8 @@ public class BallFigure extends DefaultSizeNodeFigure {
 		return result;
 	}
 	
-	@Override
-	public ConnectionAnchor getConnectionAnchor(String terminal) {
-		return myAnchor;
-	}			
-	
 	/**
-	 * locates the anchor point around the ( ) part of the figure
+	 * places the anchor point around the ( ) part of the figure
 	 * which is closest to the reference point
 	 */
 	private class BallAnchor extends AbstractConnectionAnchor {
@@ -147,5 +119,13 @@ public class BallFigure extends DefaultSizeNodeFigure {
 			                                (int)(r.height * dy / Math.sqrt(1 + 1 / k)));
 		}		
 
-	};
+	}
+
+	protected ConnectionAnchor createAnchorInternal() {
+		return new BallAnchor(this);
+	}
+	
+	protected ConnectionAnchor createAnchorExternal() {
+		return new StemAnchor(this);
+	}
 }

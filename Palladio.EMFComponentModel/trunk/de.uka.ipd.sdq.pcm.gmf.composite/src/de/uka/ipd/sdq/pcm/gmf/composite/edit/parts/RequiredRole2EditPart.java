@@ -29,6 +29,7 @@ import org.eclipse.gmf.runtime.notation.View;
 
 import de.uka.ipd.sdq.pcm.gmf.composite.BallFigure;
 import de.uka.ipd.sdq.pcm.gmf.composite.SocketFigure;
+import de.uka.ipd.sdq.pcm.gmf.composite.AbstractBorderFigure.POSITION_TYPE;
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.policies.RequiredRole2ItemSemanticEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.composite.part.PalladioComponentModelVisualIDRegistry;
 
@@ -37,6 +38,11 @@ import de.uka.ipd.sdq.pcm.gmf.composite.part.PalladioComponentModelVisualIDRegis
  */
 public class RequiredRole2EditPart extends BorderedBorderItemEditPart {
 
+	/**
+	 * size of the figure in LP
+	 */
+	private static final int FIGURE_LOGICAL_SIZE = 60;
+	
 	/**
 	 * @generated
 	 */
@@ -138,7 +144,7 @@ public class RequiredRole2EditPart extends BorderedBorderItemEditPart {
 		//DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(getMapMode()
 		//		.DPtoLP(20), getMapMode().DPtoLP(20));
 
-		SocketFigure result = new SocketFigure(getMapMode().DPtoLP(60));
+		SocketFigure result = new SocketFigure(getMapMode().DPtoLP(FIGURE_LOGICAL_SIZE),POSITION_TYPE.POS_EXTERNAL);
 		
 		//FIXME: workaround for #154536
 		result.getBounds().setSize(result.getPreferredSize());

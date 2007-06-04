@@ -26,6 +26,7 @@ import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
 
 import de.uka.ipd.sdq.pcm.gmf.composite.BallFigure;
+import de.uka.ipd.sdq.pcm.gmf.composite.AbstractBorderFigure.POSITION_TYPE;
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.policies.ProvidedRoleItemSemanticEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.composite.part.PalladioComponentModelVisualIDRegistry;
 
@@ -34,6 +35,11 @@ import de.uka.ipd.sdq.pcm.gmf.composite.part.PalladioComponentModelVisualIDRegis
  */
 public class ProvidedRoleEditPart extends BorderedBorderItemEditPart {
 
+	/**
+	 * size of the figure in LP
+	 */
+	private static final int FIGURE_LOGICAL_SIZE = 30;
+	
 	/**
 	 * @generated
 	 */
@@ -135,7 +141,7 @@ public class ProvidedRoleEditPart extends BorderedBorderItemEditPart {
 		//DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(getMapMode()
 		//		.DPtoLP(20), getMapMode().DPtoLP(20));
 
-		BallFigure result = new BallFigure(getMapMode().DPtoLP(30));
+		BallFigure result = new BallFigure(getMapMode().DPtoLP(FIGURE_LOGICAL_SIZE),POSITION_TYPE.POS_INTERNAL);
 		
 		//FIXME: workaround for #154536
 		result.getBounds().setSize(result.getPreferredSize());

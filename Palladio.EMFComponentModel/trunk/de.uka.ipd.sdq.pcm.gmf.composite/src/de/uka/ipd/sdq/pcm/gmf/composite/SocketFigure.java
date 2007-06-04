@@ -7,45 +7,22 @@ import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.PositionConstants;
 import org.eclipse.draw2d.geometry.Point;
 import org.eclipse.draw2d.geometry.Rectangle;
-import org.eclipse.gmf.runtime.draw2d.ui.figures.IBorderItemLocator;
-import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
-
 
 /**
  * Represents the UML style --( border figure
  * which rotates depending on the side the figure
- * is located in relation to it's parent. *
+ * is located in relation to it's parent.
  */
-public class SocketFigure extends DefaultSizeNodeFigure {
+public class SocketFigure extends AbstractBorderFigure {
 	
-	BallAnchor myAnchor;
-
 	/**
 	 * @param size width and hight of the figure in logical units (LP)
+	 * @param posType position type of the figure
 	 */
-	public SocketFigure(int logicalSize) {
-		super(logicalSize, logicalSize);
-		myAnchor = new BallAnchor(this);
+	public SocketFigure(int logicalSize, POSITION_TYPE posType) {
+		super(logicalSize, posType);
 	}
-	
-	/**
-	 * Helper function to get the parent's border item locator
-	 * 
-	 * @return the parent's border item locator
-	 */
-	private IBorderItemLocator getBorderItemLocator() {
-		IFigure parentFigure = this.getParent().getParent();
-		if (parentFigure != null && parentFigure.getLayoutManager() != null) {
-			Object constraint = parentFigure.getLayoutManager().getConstraint(
-				this.getParent());
-			if (constraint instanceof IBorderItemLocator) {
-				return (IBorderItemLocator) constraint;
-			}
-		}
-		return null;
-	}
-	
-	@Override
+		
 	protected void paintFigure(Graphics graphics) {
 		super.paintFigure(graphics);
 		int side = (getBorderItemLocator() == null ? PositionConstants.WEST : getBorderItemLocator().getCurrentSideOfParent());
@@ -98,19 +75,14 @@ public class SocketFigure extends DefaultSizeNodeFigure {
 			break;
 		}
 		return result;
-	}
-	
-	@Override
-	public ConnectionAnchor getConnectionAnchor(String terminal) {
-		return myAnchor;
-	}			
+	}	
 	
 	/**
-	 * locates the anchor point at the center of the ( part of the figure
+	 * places the anchor point at the center of the ( part of the figure
 	 */
-	private class BallAnchor extends AbstractConnectionAnchor {
+	private class SocketAnchor extends AbstractConnectionAnchor {
 
-		public BallAnchor(IFigure owner) {
+		public SocketAnchor(IFigure owner) {
 			super(owner);
 		}
 		
@@ -119,5 +91,13 @@ public class SocketFigure extends DefaultSizeNodeFigure {
 			getOwner().translateToAbsolute(p);
 			return p;
 		}
-	};
+	}
+
+	protected ConnectionAnchor createAnchorInternal() {
+		return new SocketAnchor(this);
+	}
+	
+	protected ConnectionAnchor createAnchorExternal() {
+		return new StemAnchor(this);
+	}
 }
