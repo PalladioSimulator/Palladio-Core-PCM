@@ -1,4 +1,4 @@
-package de.uka.ipd.sdq.sensorfactory;
+package de.uka.ipd.sdq.sensorfactory.entities;
 
 import java.util.Collection;
 

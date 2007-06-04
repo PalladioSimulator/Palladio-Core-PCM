@@ -1,38 +1,26 @@
 package de.uka.ipd.sdq.sensorfactory.entities;
 
-@javax.persistence.Entity
-public abstract class StateMeasurement extends de.uka.ipd.sdq.sensorfactory.entities.Measurement {
-    /* Getter and Setter for Properties with cardinality 0..1 or 1 which are not a composition */
-    @javax.persistence.OneToOne()
-    @javax.persistence.JoinColumn(name = "FK_SENSORSTATE")
-    private de.uka.ipd.sdq.sensorfactory.entities.State m_sensorState;
-    @javax.persistence.OneToOne()
-    @javax.persistence.JoinColumn(name = "FK_SENSOR")
-    private de.uka.ipd.sdq.sensorfactory.entities.StateSensor m_sensor;
+public interface StateMeasurement
 
-    public de.uka.ipd.sdq.sensorfactory.entities.State getSensorState() {
-        return m_sensorState;
-    }
+extends de.uka.ipd.sdq.sensorfactory.entities.Measurement
 
-    public void setSensorState(
-        de.uka.ipd.sdq.sensorfactory.entities.State value) {
-        this.m_sensorState = value;
-    }
+{
+	/* Getter and Setter for Properties with cardinality 0..1 or 1 which are not a composition */
 
-    public de.uka.ipd.sdq.sensorfactory.entities.StateSensor getSensor() {
-        return m_sensor;
-    }
+	de.uka.ipd.sdq.sensorfactory.entities.State getSensorState();
 
-    public void setSensor(
-        de.uka.ipd.sdq.sensorfactory.entities.StateSensor value) {
-        this.m_sensor = value;
-    }
+	void setSensorState(de.uka.ipd.sdq.sensorfactory.entities.State value);;
 
-    /* Getter and Setter for Properties with cardinality 0..1 or 1 which are a composition */
+	de.uka.ipd.sdq.sensorfactory.entities.StateSensor getSensor();
 
-    /* Getter and Setter for Properties with cardinality 0..* which are not a composition */
+	void setSensor(de.uka.ipd.sdq.sensorfactory.entities.StateSensor value);
 
-    /* Getter and Setter for Properties with cardinality 0..* which are a composition */
+	/* Getter and Setter for Properties with cardinality 0..1 or 1 which are a composition */
 
-    /* Abstract Operations */
+	/* Getter and Setter for Properties with cardinality 0..* which are not a composition */
+
+	/* Getter and Setter for Properties with cardinality 0..* which are a composition */
+
+	/* Abstract Operations */
+
 }

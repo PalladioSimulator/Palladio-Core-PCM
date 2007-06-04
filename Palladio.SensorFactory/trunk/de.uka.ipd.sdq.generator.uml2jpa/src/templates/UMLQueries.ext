@@ -10,7 +10,7 @@ List[Property] getAllPrimitiveProperties(Class c):
 		union(c.superClass.getAllPrimitiveProperties());
 	
 List[Property] getAllProperties(Class c):
-	c.getAllPrimitiveProperties().addAll(c.getAllAssociationProperties());
+	c.getAllAssociationProperties().union(c.getAllPrimitiveProperties());
 		
 List[Class] getAllSubtypes(Class c):
 	{c}.union(c.getModel().eAllContents.typeSelect(Class).select(oc|oc.superClass.contains(c)));

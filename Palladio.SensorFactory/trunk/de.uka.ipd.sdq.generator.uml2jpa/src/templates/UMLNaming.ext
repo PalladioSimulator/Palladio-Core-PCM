@@ -34,7 +34,19 @@ cached String fqn (Classifier cls) :
 cached String implfqn (Classifier cls) :
 	packageName(cls).length>0 ? packageName(cls)+".impl."+cls.name+"Impl" : cls.name+"Impl";
 
-//Liefert den Namen der Implementierungsklasse zurück
-cached String basefqn (Classifier cls) :
+//Liefert den Namen des Interfaces zurück
+cached String iffqn (Classifier cls) :
 	packageName(cls).length>0 ? packageName(cls)+"."+cls.name : cls.name;
+
+// Name der abstrakten Baseclass
+cached String basefqn (Classifier cls) :
+	packageName(cls).length>0 ? packageName(cls)+".base."+cls.name : cls.name;
+
+// Name der abstrakten Baseclass
+cached String abstractbasefqn (Classifier cls) :
+	packageName(cls).length>0 ? packageName(cls)+".base.Abstract"+cls.name : cls.name;
+
+// Name der abstrakten Baseclass
+cached String daoiffqn (Classifier cls) :
+	packageName(cls).length>0 ? packageName(cls)+".dao.I"+cls.name+"DAO" : cls.name;
 	

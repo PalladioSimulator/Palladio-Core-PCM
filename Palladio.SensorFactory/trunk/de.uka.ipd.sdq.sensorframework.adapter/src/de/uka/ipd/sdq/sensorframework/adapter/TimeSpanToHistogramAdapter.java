@@ -1,16 +1,12 @@
 package de.uka.ipd.sdq.sensorframework.adapter;
 
-import java.util.ArrayList;
-import java.util.Collection;
 import java.util.HashMap;
 import java.util.Properties;
 
-import sun.nio.cs.HistoricallyNamedCharset;
-
 import de.uka.ipd.sdq.codegen.simudatavisualisation.datatypes.Histogram;
 import de.uka.ipd.sdq.codegen.simudatavisualisation.datatypes.HistogramEntity;
-import de.uka.ipd.sdq.sensorfactory.SensorAndMeasurements;
 import de.uka.ipd.sdq.sensorfactory.entities.Measurement;
+import de.uka.ipd.sdq.sensorfactory.entities.SensorAndMeasurements;
 import de.uka.ipd.sdq.sensorfactory.entities.TimeSpanMeasurement;
 
 public class TimeSpanToHistogramAdapter implements IAdapter {
@@ -26,8 +22,8 @@ public class TimeSpanToHistogramAdapter implements IAdapter {
 
 	public Object getAdaptedObject() {
 		int maxHistClass = 0;
-		HashMap map = new HashMap();
-		double histWidth = (Double) myProperties.get(HISTOGRAM_WIDTH);
+		HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
+		double histWidth = (Double)myProperties.get(HISTOGRAM_WIDTH);
 		if (histWidth == 0) {
 			throw new RuntimeException("Histogram width must be > 0");
 		}

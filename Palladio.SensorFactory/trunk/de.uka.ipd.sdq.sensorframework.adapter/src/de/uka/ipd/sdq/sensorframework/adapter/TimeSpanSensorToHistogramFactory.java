@@ -2,7 +2,7 @@ package de.uka.ipd.sdq.sensorframework.adapter;
 
 import java.util.Collection;
 
-import de.uka.ipd.sdq.sensorfactory.SensorAndMeasurements;
+import de.uka.ipd.sdq.sensorfactory.entities.SensorAndMeasurements;
 import de.uka.ipd.sdq.sensorfactory.entities.TimeSpanMeasurement;
 
 public class TimeSpanSensorToHistogramFactory implements IAdapterFactory {

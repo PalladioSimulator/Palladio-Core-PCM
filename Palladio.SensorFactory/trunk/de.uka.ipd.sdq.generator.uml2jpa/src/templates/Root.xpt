@@ -5,21 +5,78 @@
 
 «DEFINE Root FOR Model»
 	«EXPAND Classes FOREACH eAllContents.typeSelect(Entity)»
+	«EXPAND DAOFactory FOR eAllContents.typeSelect(Entity).select(t|t.superClass.size==0)»
+«ENDDEFINE»
+
+«DEFINE DAOFactory FOR List[Class]»
+	«FILE this.get(0).packageName().toPath()+"/dao/IDAOFactory.java"»
+		package «this.get(0).packageName()».dao;
+		public interface IDAOFactory {
+			String getName();
+			String getDescription();
+			«FOREACH this AS clazz»
+				«clazz.daoiffqn()» create«clazz.name»DAO();
+			«ENDFOREACH»
+		} 
+	«ENDFILE»
 «ENDDEFINE»
 
 «DEFINE Classes FOR Class»
+	«EXPAND Interface FOR this»
 	«EXPAND AbstractClass FOR this»
 	«IF !this.isAbstract»
 		«EXPAND Implementation FOR this»
 	«ENDIF»
+	«IF this.superClass.size == 0»
+		«EXPAND DAO FOR this»
+	«ENDIF»
+«ENDDEFINE»
+ 
+«DEFINE DAO FOR Class»
+	«FILE this.daoiffqn().toPath()+".java"»
+		package «this.packageName()».dao;
+		public interface I«this.name»DAO {
+			«FOREACH this.getAllSubtypes().select(c|!c.isAbstract) AS subtype»
+				«EXPAND AddCompositeDecl FOR subtype»;
+			«ENDFOREACH»
+
+			/* Finder methods to search for «this.name»s */
+			«EXPAND FinderDecl(this) FOREACH attribute.select(p|Findable.isInstance(p)) SEPARATOR ";"»;
+
+			«this.iffqn()» get(long id);
+			java.util.Collection<«this.iffqn()»> get«this.name.toFirstUpper()»s();
+		} 
+	«ENDFILE»
+«ENDDEFINE»
+ 
+«DEFINE FinderDecl(Class c) FOR Property»
+	java.util.Collection<«c.iffqn()»> findBy«this.name.toFirstUpper()»
+		(«EXPAND TypeDecl FOR this.type» searchKey);
 «ENDDEFINE»
  
 «DEFINE Interface FOR Class»
-	«FILE this.fqn().toPath()+".java"»
+	«FILE this.iffqn().toPath()+".java"»
 		package «this.packageName()»;
-		public interface «this.name» {
-			«EXPAND BasicDecl FOREACH attribute.select(p|!p.isMultivalued()) SEPARATOR ";"»
-			«EXPAND MultivaluedDecl FOREACH attribute.select(p|p.isMultivalued()) SEPARATOR ";"»
+		public interface «this.name» 
+		«IF this.superClass.size > 0»
+			extends «FOREACH this.superClass.iffqn() AS parent SEPARATOR ", "»«parent»«ENDFOREACH»
+		«ENDIF»
+		
+		{
+			/* Getter and Setter for Properties with cardinality 0..1 or 1 which are not a composition */
+			«EXPAND BasicDecl FOREACH attribute.select(p|!p.isMultivalued() && p.aggregation.toString() != "composite") SEPARATOR ";"»
+			
+			/* Getter and Setter for Properties with cardinality 0..1 or 1 which are a composition */
+			«EXPAND BasicCompositeDecl FOREACH attribute.select(p|!p.isMultivalued() && p.aggregation.toString() == "composite") SEPARATOR ";"»
+			
+			/* Getter and Setter for Properties with cardinality 0..* which are not a composition */
+			«EXPAND MultivaluedDecl FOREACH attribute.select(p|p.isMultivalued() && p.aggregation.toString() != "composite") SEPARATOR ";"»
+			
+			/* Getter and Setter for Properties with cardinality 0..* which are a composition */
+			«EXPAND MultivaluedCompositeDecl FOREACH attribute.select(p|p.isMultivalued() && p.aggregation.toString() == "composite") SEPARATOR ";"»
+			
+			/* Abstract Operations */
+			«EXPAND OperationDecl FOREACH ownedOperation»
 		}
 	«ENDFILE»
 «ENDDEFINE»
@@ -31,29 +88,29 @@
 «ENDDEFINE»
 
 «DEFINE AdderDecl FOR Property»
-	void add«this.name.toFirstUpper()»(«((Classifier)this.type).basefqn()» value)
+	void add«this.name.toFirstUpper()»(«((Classifier)this.type).iffqn()» value)
 «ENDDEFINE»
 
-«DEFINE AddCompositeDecl(Class c) FOR Property»
-	«c.basefqn()» add«c.name.toFirstUpper()»(
-		«EXPAND VariableInitialiser FOREACH c.getAllAssociationProperties() SEPARATOR "," -»
-		«IF c.getAllAssociationProperties().size > 0 && c.getAllPrimitiveProperties().size > 0 -»
-		,
+«DEFINE AddCompositeDecl FOR Class»
+	«this.iffqn()» add«this.name.toFirstUpper()»(
+		«EXPAND VariableInitialiser FOREACH this.getAllAssociationProperties() SEPARATOR "," -»
+		«IF this.getAllAssociationProperties().size > 0 && this.getAllPrimitiveProperties().size > 0»
+			,
 		«ENDIF»
-		«EXPAND VariableInitialiser FOREACH c.getAllPrimitiveProperties() SEPARATOR "," -»
+		«EXPAND VariableInitialiser FOREACH this.getAllPrimitiveProperties() SEPARATOR "," -»
 	)
 «ENDDEFINE»
 
 «DEFINE VariableInitialiser FOR Property»
-   «this.type.fqn()» p_«this.name.toLowerCase()»
+   «EXPAND TypeDecl FOR this.type» p_«this.name.toLowerCase()»
 «ENDDEFINE»
 
 «DEFINE RemoverDecl FOR Property»
-	void remove«this.name.toFirstUpper()»(«((Classifier)this.type).basefqn()» value)
+	void remove«this.name.toFirstUpper()»(«EXPAND TypeDecl FOR this.type» value)
 «ENDDEFINE»
 
 «DEFINE MultiGetterDecl FOR Property»
-	java.util.Collection<«((Classifier)this.type).basefqn()»> get«this.name.toFirstUpper()»s()
+	java.util.Collection<«EXPAND TypeDecl FOR this.type»> get«this.name.toFirstUpper()»s()
 «ENDDEFINE»
 
 «DEFINE BasicDecl FOR Property»
@@ -73,6 +130,10 @@
 	«this.fqn()»
 «ENDDEFINE»
 
+«DEFINE TypeDecl FOR Class»
+	«this.iffqn()»
+«ENDDEFINE»
+
 «DEFINE TypeDecl FOR PrimitiveType»
 	«this.name == "Integer" ? "int" : 
 	 (this.name == "Double" ? "double" : 
@@ -80,17 +141,29 @@
 «ENDDEFINE»
 
 «DEFINE AbstractClass FOR Class»
-	«FILE this.basefqn().toPath()+".java"»
-		package «this.packageName()»;
+	«FILE this.packageName().toPath()+"/base/Abstract"+this.name+".java"»
+		package «this.packageName()».base;
 		@javax.persistence.Entity
 		«IF this.superClass.size == 0»
 			@javax.persistence.Table(name="«this.name.toUpperCase()»")
 		«ENDIF»
-		public abstract class «this.name»
+		public abstract class Abstract«this.name»
 		«IF this.superClass.size > 0»
-			extends «this.superClass.get(0).basefqn()»
+			extends «this.superClass.get(0).abstractbasefqn()»
 		«ENDIF»
+		implements «EXPAND TypeDecl FOR this»
 		{
+			«IF this.superClass.size > 0»
+				public Abstract«this.name»(«this.packageName()».dao.IDAOFactory myFactory) {
+					super(myFactory);
+				}
+			«ELSE»
+				protected «this.packageName()».dao.IDAOFactory myDAOFactory = null;
+				public Abstract«this.name»(«this.packageName()».dao.IDAOFactory myFactory) {
+					this.myDAOFactory = myFactory;
+				}
+			«ENDIF»
+			
 			/* Getter and Setter for Properties with cardinality 0..1 or 1 which are not a composition */
 			«EXPAND Basic FOREACH attribute.select(p|!p.isMultivalued() && p.aggregation.toString() != "composite") SEPARATOR ";"»
 			
@@ -109,43 +182,69 @@
 	«ENDFILE»
 «ENDDEFINE»
 
-«DEFINE Operation FOR Operation»
-    public abstract
+«DEFINE OperationDecl FOR Operation»
     «IF this.hasReturnParameter()»
     	«IF this.returnParameter().isMultivalued()»
-    		java.util.Collection<«this.returnParameter().type.fqn()»>
+    		java.util.Collection<«EXPAND TypeDecl FOR this.returnParameter().type»>
     	«ELSE»
-    		«this.returnParameter().type.fqn()»
+    		«EXPAND TypeDecl FOR this.returnParameter().type»
     	«ENDIF»
     «ELSE»
     	void
     «ENDIF»	
 	«this.name» (
 		«FOREACH this.inputParameter() AS p SEPARATOR ","»
-			«p.type.fqn()» «p.name»
+			«EXPAND TypeDecl FOR p.type» «p.name»
 		«ENDFOREACH»
 	);
+«ENDDEFINE»
+
+«DEFINE Operation FOR Operation»
+    public abstract
+    «EXPAND OperationDecl FOR this»
 «ENDDEFINE»
 
 «DEFINE BasicComposite FOR Property»
 «ENDDEFINE»
 
+«DEFINE BasicCompositeDecl FOR Property»
+«ENDDEFINE»
+
+«DEFINE MultivaluedCompositeDecl FOR Property»
+	«FOREACH this.type.getAllSubtypes().select(c|!c.isAbstract) AS subtype»
+		«EXPAND AddCompositeDecl FOR subtype»;
+	«ENDFOREACH»
+	«EXPAND AdderDecl FOR this»;
+	«EXPAND MultiGetterDecl FOR this»;
+«ENDDEFINE»
+
 «DEFINE MultivaluedComposite FOR Property»
 	«EXPAND MultiAnnotations FOR this»
-	private java.util.Collection<«this.type.basefqn()»> m_«this.name»s 
-	   = new java.util.ArrayList<«this.type.basefqn()»>(10000);
+	private java.util.Collection<«EXPAND TypeDecl FOR this.type»> m_«this.name»s 
+	   = new java.util.ArrayList<«EXPAND TypeDecl FOR this.type»>(10000);
 	«FOREACH this.type.getAllSubtypes().select(c|!c.isAbstract) AS subtype»
-		public «EXPAND AddCompositeDecl(subtype) FOR this» {
-			«subtype.basefqn()» result = new «subtype.packageName()+".impl."+subtype.name.toFirstUpper()»Impl();
+		public «EXPAND AddCompositeDecl FOR subtype» {
+			«EXPAND TypeDecl FOR subtype» result = 
+				myDAOFactory.create«this.type.name.toFirstUpper()»DAO().add«subtype.name.toFirstUpper()»(
 
-			«FOREACH subtype.getAllProperties() AS p -»
-				result.set«p.name.toFirstUpper()»(p_«p.name.toLowerCase()»);
+
+			«FOREACH subtype.getAllAssociationProperties() AS p SEPARATOR ","-»
+				p_«p.name.toLowerCase()»
 			«ENDFOREACH»
+			«IF subtype.getAllAssociationProperties().size > 0 && subtype.getAllPrimitiveProperties().size > 0»
+				,
+			«ENDIF»
+			«FOREACH subtype.getAllPrimitiveProperties() AS p SEPARATOR ","-»
+				p_«p.name.toLowerCase()»
+			«ENDFOREACH»);
 
 			m_«this.name»s.add(result);
 			return result;
 		}
 	«ENDFOREACH»
+	public «EXPAND AdderDecl FOR this» {
+		this.m_«this.name»s.add(value);
+	}
 	public «EXPAND MultiGetterDecl FOR this» {
 		return this.m_«this.name»s;
 	}
@@ -153,8 +252,8 @@
 
 «DEFINE Multivalued FOR Property»
 	«EXPAND MultiAnnotations FOR this»
-	private java.util.Collection<«this.type.basefqn()»> m_«this.name»s 
-	   = new java.util.ArrayList<«this.type.basefqn()»>(10000);
+	private java.util.Collection<«EXPAND TypeDecl FOR this.type»> m_«this.name»s 
+	   = new java.util.ArrayList<«EXPAND TypeDecl FOR this.type»>(10000);
 	public «EXPAND AdderDecl FOR this» {
 		m_«this.name»s.add(value);
 	}
@@ -168,7 +267,7 @@
 
 «DEFINE Basic FOR Property»
 	«EXPAND FieldAnnotations FOR this»
-	private «this.type.fqn()» m_«this.name»;
+	private «EXPAND TypeDecl FOR this.type» m_«this.name»;
 	public «EXPAND GetterDecl FOR this» {
 		return m_«this.name»;
 	}
@@ -208,7 +307,7 @@
 		package «this.packageName()».impl;
 		
 		@javax.persistence.Entity
-	    public class «this.name»Impl extends «this.basefqn()» {
+	    public class «this.name»Impl extends «this.abstractbasefqn()» {
 	    }
 	«ENDFILE»
 «ENDDEFINE»

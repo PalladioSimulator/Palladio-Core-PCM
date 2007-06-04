@@ -7,14 +7,20 @@ import javax.persistence.EntityManager;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
 
-import de.uka.ipd.sdq.sensorfactory.SensorAndMeasurements;
 import de.uka.ipd.sdq.sensorfactory.entities.Measurement;
 import de.uka.ipd.sdq.sensorfactory.entities.Sensor;
+import de.uka.ipd.sdq.sensorfactory.entities.SensorAndMeasurements;
 import de.uka.ipd.sdq.sensorfactory.entities.StateMeasurement;
 import de.uka.ipd.sdq.sensorfactory.entities.TimeSpanMeasurement;
+import de.uka.ipd.sdq.sensorfactory.entities.dao.IDAOFactory;
 
 @javax.persistence.Entity
-public class ExperimentRunImpl extends de.uka.ipd.sdq.sensorfactory.entities.ExperimentRun {
+public class ExperimentRunImpl extends de.uka.ipd.sdq.sensorfactory.entities.base.AbstractExperimentRun {
+
+	public ExperimentRunImpl(IDAOFactory myFactory) {
+		super(myFactory);
+		// TODO Auto-generated constructor stub
+	}
 
 	@Override
 	public SensorAndMeasurements getMeasurementsOfSensor(Sensor sensor) {

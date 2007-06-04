@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xmi:XMI xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Persistence_0="http:///Persistence_0_CpLmcIRuEdu0HNZg8bM6sQ.profile.uml2" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/2.1.0/UML" xsi:schemaLocation="http:///Persistence_0_CpLmcIRuEdu0HNZg8bM6sQ.profile.uml2 Persistence.profile.uml#_CpkoRYRuEdu0HNZg8bM6sQ">
+<xmi:XMI xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Persistence="http:///schemas/Persistence/_akLFsBJlEdyX68LUGTZ_jw/1" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/2.1.0/UML" xsi:schemaLocation="http:///schemas/Persistence/_akLFsBJlEdyX68LUGTZ_jw/1 Persistence.profile.uml#_akgc4BJlEdyX68LUGTZ_jw">
   <uml:Model xmi:id="_c8pf4a0WEdu-BsqEvw9tEg" name="SensorFactory">
     <packageImport xmi:id="_c8pf660WEdu-BsqEvw9tEg">
       <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
@@ -107,8 +107,8 @@
         </ownedAttribute>
         <ownedOperation xmi:id="_c8zRBK0WEdu-BsqEvw9tEg" name="getMeasurementsOfSensor">
           <ownedParameter xmi:id="_c8zRBa0WEdu-BsqEvw9tEg" name="result" type="__vYk0BAEEdy3LYyDXUTCbw" direction="return">
-            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_c8zRBq0WEdu-BsqEvw9tEg" value="*"/>
-            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_c8zRB60WEdu-BsqEvw9tEg"/>
+            <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_c8zRBq0WEdu-BsqEvw9tEg" value="1"/>
+            <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_c8zRB60WEdu-BsqEvw9tEg" value="1"/>
           </ownedParameter>
           <ownedParameter xmi:id="_c8zRCa0WEdu-BsqEvw9tEg" name="sensor" type="_c8pf-K0WEdu-BsqEvw9tEg" effect="read"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_c8zRCK0WEdu-BsqEvw9tEg" value="*"/>
@@ -120,7 +120,13 @@
       <packagedElement xmi:type="uml:Association" xmi:id="_c8zRDK0WEdu-BsqEvw9tEg" memberEnd="_c8zQ860WEdu-BsqEvw9tEg _c8zRDa0WEdu-BsqEvw9tEg">
         <ownedEnd xmi:id="_c8zRDa0WEdu-BsqEvw9tEg" name="experiment" type="_c8zQ6a0WEdu-BsqEvw9tEg" association="_c8zRDK0WEdu-BsqEvw9tEg"/>
       </packagedElement>
-      <packagedElement xmi:type="uml:Class" xmi:id="__vYk0BAEEdy3LYyDXUTCbw" name="SensorAndMeasurements"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="__vYk0BAEEdy3LYyDXUTCbw" name="SensorAndMeasurements">
+        <ownedAttribute xmi:id="_Z5urABB3EdyX68LUGTZ_jw" name="measurement" type="_c8pf8a0WEdu-BsqEvw9tEg">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_dezUQBB3EdyX68LUGTZ_jw" value="*"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_cQr7UBB3EdyX68LUGTZ_jw"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_ip3q8BB3EdyX68LUGTZ_jw" name="sensor" type="_c8pf-K0WEdu-BsqEvw9tEg"/>
+      </packagedElement>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_c8zRDq0WEdu-BsqEvw9tEg" name="SensorFramework">
       <ownedOperation xmi:id="_c8zRD60WEdu-BsqEvw9tEg" name="init"/>
@@ -145,23 +151,26 @@
     </profileApplication>
     <profileApplication xmi:id="_c8pf7K0WEdu-BsqEvw9tEg">
       <eAnnotations xmi:id="_c8pf7a0WEdu-BsqEvw9tEg" source="http://www.eclipse.org/uml2/2.0.0/UML">
-        <references xmi:type="ecore:EPackage" href="Persistence.profile.uml#_CpkoRYRuEdu0HNZg8bM6sQ"/>
+        <references xmi:type="ecore:EPackage" href="Persistence.profile.uml#_akgc4BJlEdyX68LUGTZ_jw"/>
       </eAnnotations>
       <appliedProfile href="Persistence.profile.uml#_CpkoQYRuEdu0HNZg8bM6sQ"/>
     </profileApplication>
   </uml:Model>
-  <Persistence_0:Persistence__Entity xmi:id="_c8pf860WEdu-BsqEvw9tEg" base_Class="_c8pf8a0WEdu-BsqEvw9tEg"/>
-  <Persistence_0:Persistence__Key xmi:id="_c8pf9q0WEdu-BsqEvw9tEg" base_Property="_c8pf9K0WEdu-BsqEvw9tEg"/>
-  <Persistence_0:Persistence__Entity xmi:id="_c8pf-q0WEdu-BsqEvw9tEg" base_Class="_c8pf-K0WEdu-BsqEvw9tEg"/>
-  <Persistence_0:Persistence__Key xmi:id="_c8pf_q0WEdu-BsqEvw9tEg" base_Property="_c8pf_K0WEdu-BsqEvw9tEg"/>
-  <Persistence_0:Persistence__Entity xmi:id="_c8pgA60WEdu-BsqEvw9tEg" base_Class="_c8pgAa0WEdu-BsqEvw9tEg"/>
-  <Persistence_0:Persistence__Entity xmi:id="_c8pgB60WEdu-BsqEvw9tEg" base_Class="_c8pgBa0WEdu-BsqEvw9tEg"/>
-  <Persistence_0:Persistence__Entity xmi:id="_c8pgDa0WEdu-BsqEvw9tEg" base_Class="_c8pgC60WEdu-BsqEvw9tEg"/>
-  <Persistence_0:Persistence__Entity xmi:id="_c8zQ1K0WEdu-BsqEvw9tEg" base_Class="_c8zQ0q0WEdu-BsqEvw9tEg"/>
-  <Persistence_0:Persistence__Key xmi:id="_c8zQ160WEdu-BsqEvw9tEg" base_Property="_c8zQ1a0WEdu-BsqEvw9tEg"/>
-  <Persistence_0:Persistence__Entity xmi:id="_c8zQ3a0WEdu-BsqEvw9tEg" base_Class="_c8zQ260WEdu-BsqEvw9tEg"/>
-  <Persistence_0:Persistence__Entity xmi:id="_c8zQ660WEdu-BsqEvw9tEg" base_Class="_c8zQ6a0WEdu-BsqEvw9tEg"/>
-  <Persistence_0:Persistence__Key xmi:id="_c8zQ8a0WEdu-BsqEvw9tEg" base_Property="_c8zQ760WEdu-BsqEvw9tEg"/>
-  <Persistence_0:Persistence__Entity xmi:id="_c8zQ-q0WEdu-BsqEvw9tEg" base_Class="_c8zQ-K0WEdu-BsqEvw9tEg"/>
-  <Persistence_0:Persistence__Key xmi:id="_c8zRA60WEdu-BsqEvw9tEg" base_Property="_c8zRAa0WEdu-BsqEvw9tEg"/>
+  <Persistence:Entity xmi:id="_c8pf860WEdu-BsqEvw9tEg" tableName="" base_Class="_c8pf8a0WEdu-BsqEvw9tEg"/>
+  <Persistence:Key xmi:id="_c8pf9q0WEdu-BsqEvw9tEg" columnName="" nullable="" length="" precision="" base_Property="_c8pf9K0WEdu-BsqEvw9tEg"/>
+  <Persistence:Entity xmi:id="_c8pf-q0WEdu-BsqEvw9tEg" tableName="" base_Class="_c8pf-K0WEdu-BsqEvw9tEg"/>
+  <Persistence:Key xmi:id="_c8pf_q0WEdu-BsqEvw9tEg" columnName="" nullable="" length="" precision="" base_Property="_c8pf_K0WEdu-BsqEvw9tEg"/>
+  <Persistence:Entity xmi:id="_c8pgA60WEdu-BsqEvw9tEg" tableName="" base_Class="_c8pgAa0WEdu-BsqEvw9tEg"/>
+  <Persistence:Entity xmi:id="_c8pgB60WEdu-BsqEvw9tEg" tableName="" base_Class="_c8pgBa0WEdu-BsqEvw9tEg"/>
+  <Persistence:Entity xmi:id="_c8pgDa0WEdu-BsqEvw9tEg" tableName="" base_Class="_c8pgC60WEdu-BsqEvw9tEg"/>
+  <Persistence:Entity xmi:id="_c8zQ1K0WEdu-BsqEvw9tEg" tableName="" base_Class="_c8zQ0q0WEdu-BsqEvw9tEg"/>
+  <Persistence:Key xmi:id="_c8zQ160WEdu-BsqEvw9tEg" columnName="" nullable="" length="" precision="" base_Property="_c8zQ1a0WEdu-BsqEvw9tEg"/>
+  <Persistence:Entity xmi:id="_c8zQ3a0WEdu-BsqEvw9tEg" tableName="" base_Class="_c8zQ260WEdu-BsqEvw9tEg"/>
+  <Persistence:Entity xmi:id="_c8zQ660WEdu-BsqEvw9tEg" tableName="" base_Class="_c8zQ6a0WEdu-BsqEvw9tEg"/>
+  <Persistence:Key xmi:id="_c8zQ8a0WEdu-BsqEvw9tEg" columnName="" nullable="" length="" precision="" base_Property="_c8zQ760WEdu-BsqEvw9tEg"/>
+  <Persistence:Entity xmi:id="_c8zQ-q0WEdu-BsqEvw9tEg" tableName="" base_Class="_c8zQ-K0WEdu-BsqEvw9tEg"/>
+  <Persistence:Key xmi:id="_c8zRA60WEdu-BsqEvw9tEg" columnName="" nullable="" length="" precision="" base_Property="_c8zRAa0WEdu-BsqEvw9tEg"/>
+  <Persistence:Findable xmi:id="_S825kBJmEdyX68LUGTZ_jw" base_Property="_c8zQ8q0WEdu-BsqEvw9tEg"/>
+  <Persistence:Findable xmi:id="_5ci5UBJrEdyX68LUGTZ_jw" base_Property="_c8pf-60WEdu-BsqEvw9tEg"/>
+  <Persistence:Findable xmi:id="_VCru4BJsEdyX68LUGTZ_jw" base_Property="_c8zQ2K0WEdu-BsqEvw9tEg"/>
 </xmi:XMI>
