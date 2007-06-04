@@ -126,7 +126,6 @@ public class ConfigEditorInput extends Observable
 	/* (non-Javadoc)
 	 * @see org.eclipse.ui.IPersistableElement#getFactoryId()
 	 */
-	@Override
 	public String getFactoryId() {
 		return ConfigEditorInputFactory.getFactoryId();
 	}
@@ -134,7 +133,6 @@ public class ConfigEditorInput extends Observable
 	/* (non-Javadoc)
 	 * @see org.eclipse.ui.IPersistable#saveState(org.eclipse.ui.IMemento)
 	 */
-	@Override
 	public void saveState(IMemento memento) {
 		ConfigEditorInputFactory.saveState(memento, this);
 	}
@@ -144,7 +142,6 @@ public class ConfigEditorInput extends Observable
 		notifyObservers();
 	}
 
-	@Override
 	public void update(Observable o, Object arg) {
 		setChanged();
 		notifyObservers();

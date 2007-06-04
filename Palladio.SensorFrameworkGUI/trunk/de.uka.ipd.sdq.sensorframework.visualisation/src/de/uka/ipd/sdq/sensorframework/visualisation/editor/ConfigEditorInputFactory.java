@@ -36,7 +36,6 @@ public class ConfigEditorInputFactory implements IElementFactory {
 	/* (non-Javadoc)
 	 * @see org.eclipse.ui.IElementFactory#createElement(org.eclipse.ui.IMemento)
 	 */
-	@Override
 	public IAdaptable createElement(IMemento memento) {
 		ConfigEntry configEntry = new ConfigEntry(getExperimentRun(memento),
 				getExperiment(memento), getSensor(memento));
