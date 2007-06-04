@@ -27,6 +27,11 @@ public class ConfigEditorInput extends Observable
 		this.configEntrys = new ArrayList<ConfigEntry>();
 	}
 	
+	public ConfigEditorInput(ConfigEntry configEntry) {
+		this.configEntrys = new ArrayList<ConfigEntry>();
+		addConfigEntry(configEntry);
+	}
+	
 	/** Edit command of ConfigEctry	 */
 	public void editConfigEntry(ExperimentRun run, Experiment experiment, Sensor sensor) {
 		ConfigEntry configEntry = getConfigEntryToRun(run);

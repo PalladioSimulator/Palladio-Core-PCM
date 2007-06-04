@@ -1,13 +1,5 @@
-/**
- * 
- */
 package de.uka.ipd.sdq.sensorframework.visualisation.tabs;
 
-import java.util.ArrayList;
-import java.util.Observable;
-import java.util.Observer;
-
-import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.viewers.CellEditor;
 import org.eclipse.jface.viewers.DialogCellEditor;
 import org.eclipse.jface.viewers.ISelection;
@@ -22,7 +14,6 @@ import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.layout.FormAttachment;
 import org.eclipse.swt.layout.FormData;
 import org.eclipse.swt.layout.FormLayout;
-import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Table;
@@ -30,16 +21,11 @@ import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.swt.widgets.ToolBar;
 import org.eclipse.swt.widgets.ToolItem;
 import org.eclipse.ui.IWorkbenchPart;
-import org.eclipse.ui.part.EditorPart;
 import org.eclipse.ui.views.properties.tabbed.AbstractPropertySection;
 import org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage;
 
 import de.uka.ipd.sdq.sensorfactory.entities.ExperimentRun;
-import de.uka.ipd.sdq.sensorfactory.entities.Sensor;
-import de.uka.ipd.sdq.sensorfactory.entities.SensorAndMeasurements;
-import de.uka.ipd.sdq.sensorframework.visualisation.IVisualisation;
 import de.uka.ipd.sdq.sensorframework.visualisation.SimuImages;
-import de.uka.ipd.sdq.sensorframework.visualisation.SimuPlugin;
 import de.uka.ipd.sdq.sensorframework.visualisation.dialogs.ExperimentRunsDialog;
 import de.uka.ipd.sdq.sensorframework.visualisation.dialogs.SensorsDialog;
 import de.uka.ipd.sdq.sensorframework.visualisation.editor.AbstractReportView;
@@ -47,31 +33,12 @@ import de.uka.ipd.sdq.sensorframework.visualisation.editor.ConfigEditorInput;
 import de.uka.ipd.sdq.sensorframework.visualisation.editor.ConfigEntry;
 import de.uka.ipd.sdq.sensorframework.visualisation.views.TreeObject;
 
-/**
- * @author admin
- * 
- */
-public class SensorsPropertySection extends AbstractPropertySection implements
-		Observer {
-
-	/* (non-Javadoc)
-	 * @see java.util.Observer#update(java.util.Observable, java.lang.Object)
-	 */
-	public void update(Observable subject, Object signal) {
-		if (subject instanceof ConfigEditorInput) {
-			ConfigEditorInput input = (ConfigEditorInput) subject;
-			refresh();
-			if (!input.isEmpty())
-				updateButton.setEnabled(true);
-			else
-				updateButton.setEnabled(false);
-		}
-	}
+/** @author roman */
+public class SensorsPropertySection extends AbstractPropertySection {
 
 	private ConfigEditorInput configObject;
 	private ConfigEntry selectedEntry;
 	private TableViewer viewer;
-	private Button updateButton;
 	private ToolItem deleteRunItem;
 
 	public static final int ICON_COLUMN_INDEX = 0;
@@ -148,12 +115,6 @@ public class SensorsPropertySection extends AbstractPropertySection implements
 
 				if (dialog.open() == dialog.OK)
 					viewer.refresh();
-
-				if (!selectedEntry.getSensors().isEmpty())
-					updateButton.setEnabled(true);
-				else
-					updateButton.setEnabled(false);
-
 				return null;
 			}
 		};
@@ -198,9 +159,10 @@ public class SensorsPropertySection extends AbstractPropertySection implements
 						e.display.getActiveShell());
 				if (dialog.open() == Window.OK && dialog.getResult() != null) {
 					TreeObject object = dialog.getResult();
-					configObject.addNewConfigEntry(
+					ConfigEntry configEntry = new ConfigEntry(
 							(ExperimentRun) object.getObject(), object
-									.getExperiment());
+									.getExperiment(), null);
+					configObject.addConfigEntry(configEntry);
 					viewer.refresh();
 				}
 			}
@@ -220,48 +182,6 @@ public class SensorsPropertySection extends AbstractPropertySection implements
 			
 		});
 		deleteRunItem.setEnabled(false);
-
-		updateButton = new Button(composite, SWT.NONE);
-		final FormData fd_updateButton = new FormData();
-		fd_updateButton.right = new FormAttachment(0, 95);
-		fd_updateButton.top = new FormAttachment(table, 5, SWT.BOTTOM);
-		fd_updateButton.left = new FormAttachment(table, 0, SWT.LEFT);
-		updateButton.setLayoutData(fd_updateButton);
-		updateButton.setText("Update Chart");
-		updateButton.addSelectionListener(new SelectionAdapter() {
-			public void widgetSelected(SelectionEvent e) {
-				EditorPart editor = (EditorPart) SimuPlugin.getDefault()
-						.getWorkbench().getActiveWorkbenchWindow()
-						.getActivePage().getActiveEditor();
-				// ((ReportView) editor).getVisualization().initChart();
-				ArrayList<SensorAndMeasurements> list = new ArrayList<SensorAndMeasurements>();
-				IVisualisation vis = (IVisualisation) editor;
-
-				for (ConfigEntry re : configObject.getConfigEntrys()) {
-					for (Sensor s : re.getSensors()) {
-						try {
-							list.add(re.getExperimentRun()
-									.getMeasurementsOfSensor(s));
-						} catch (Exception e1) {
-							showMessage(s.getSensorName(),
-									"Missing the Measurements of sensor!");
-						}
-					}
-				}
-
-				vis.setInput(list);
-			}
-		});
-		
-		updateButton.setEnabled(false);
-
-		/** set Observer to the ConfigObject */
-		AbstractReportView view = (AbstractReportView) SimuPlugin.getDefault()
-				.getWorkbench().getActiveWorkbenchWindow().getActivePage()
-				.getActiveEditor();
-		configObject = (ConfigEditorInput) view.getEditorInput();
-		configObject.addObserver(this);
-		
 	}
 
 	/* (non-Javadoc)
@@ -294,15 +214,5 @@ public class SensorsPropertySection extends AbstractPropertySection implements
 			configObject = (ConfigEditorInput) view.getEditorInput();
 			viewer.setInput(configObject);
 		}
-	}
-
-	public Button getUpdateButton() {
-		return updateButton;
-	}
-	
-	/** show exeption message */
-	private void showMessage(String title, String message) {
-		MessageDialog.openInformation(viewer.getControl().getShell(), title,
-				message);
 	}
 }
