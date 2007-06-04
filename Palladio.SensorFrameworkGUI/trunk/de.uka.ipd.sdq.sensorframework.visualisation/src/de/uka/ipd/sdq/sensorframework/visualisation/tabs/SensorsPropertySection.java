@@ -1,5 +1,8 @@
 package de.uka.ipd.sdq.sensorframework.visualisation.tabs;
 
+import java.util.Observable;
+import java.util.Observer;
+
 import org.eclipse.jface.viewers.CellEditor;
 import org.eclipse.jface.viewers.DialogCellEditor;
 import org.eclipse.jface.viewers.ISelection;
@@ -26,6 +29,7 @@ import org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage;
 
 import de.uka.ipd.sdq.sensorfactory.entities.ExperimentRun;
 import de.uka.ipd.sdq.sensorframework.visualisation.SimuImages;
+import de.uka.ipd.sdq.sensorframework.visualisation.SimuPlugin;
 import de.uka.ipd.sdq.sensorframework.visualisation.dialogs.ExperimentRunsDialog;
 import de.uka.ipd.sdq.sensorframework.visualisation.dialogs.SensorsDialog;
 import de.uka.ipd.sdq.sensorframework.visualisation.editor.AbstractReportView;
@@ -33,8 +37,20 @@ import de.uka.ipd.sdq.sensorframework.visualisation.editor.ConfigEditorInput;
 import de.uka.ipd.sdq.sensorframework.visualisation.editor.ConfigEntry;
 import de.uka.ipd.sdq.sensorframework.visualisation.views.TreeObject;
 
-/** @author roman */
-public class SensorsPropertySection extends AbstractPropertySection {
+/**
+ * @author admin
+ * 
+ */
+public class SensorsPropertySection extends AbstractPropertySection implements
+		Observer {
+
+	/* (non-Javadoc)
+	 * @see java.util.Observer#update(java.util.Observable, java.lang.Object)
+	 */
+	public void update(Observable subject, Object signal) {
+		if (subject instanceof ConfigEditorInput)
+			refresh();
+	}
 
 	private ConfigEditorInput configObject;
 	private ConfigEntry selectedEntry;
@@ -182,6 +198,13 @@ public class SensorsPropertySection extends AbstractPropertySection {
 			
 		});
 		deleteRunItem.setEnabled(false);
+
+		/** set Observer to the ConfigObject */
+		AbstractReportView view = (AbstractReportView) SimuPlugin.getDefault()
+				.getWorkbench().getActiveWorkbenchWindow().getActivePage()
+				.getActiveEditor();
+		configObject = (ConfigEditorInput) view.getEditorInput();
+		configObject.addObserver(this);
 	}
 
 	/* (non-Javadoc)

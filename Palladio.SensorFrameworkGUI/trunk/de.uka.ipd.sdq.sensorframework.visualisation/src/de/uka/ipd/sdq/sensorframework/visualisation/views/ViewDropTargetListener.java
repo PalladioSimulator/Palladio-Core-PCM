@@ -7,8 +7,10 @@ import org.eclipse.swt.dnd.DropTargetEvent;
 import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.views.navigator.LocalSelectionTransfer;
 
+import de.uka.ipd.sdq.sensorfactory.entities.ExperimentRun;
 import de.uka.ipd.sdq.sensorfactory.entities.Sensor;
 import de.uka.ipd.sdq.sensorframework.visualisation.editor.ConfigEditorInput;
+import de.uka.ipd.sdq.sensorframework.visualisation.editor.ConfigEntry;
 
 /**
  * @author admin
@@ -65,14 +67,27 @@ public class ViewDropTargetListener extends DropTargetAdapter {
 	 */
 	@Override
 	public void drop(DropTargetEvent event) {
-		IStructuredSelection selection = (IStructuredSelection)
-			LocalSelectionTransfer.getTransfer().getSelection();
+		IStructuredSelection selection = (IStructuredSelection) LocalSelectionTransfer
+				.getTransfer().getSelection();
 		Object object = selection.getFirstElement();
-		if (object instanceof TreeObject && ((TreeObject)object).getObject() instanceof Sensor) {
+		if (object instanceof TreeObject) {
 			TreeObject treeObject = (TreeObject) object;
-			Sensor sensor = (Sensor) treeObject.getObject();
-			configEditorInput.editConfigEntry(treeObject.getRun(), treeObject
-					.getExperiment(), sensor);
+			Object innerObject = treeObject.getObject();
+			/** Drop a sensor */
+			if (innerObject instanceof Sensor) {
+				Sensor sensor = (Sensor) innerObject;
+				configEditorInput.editConfigEntry(treeObject.getRun(),
+						treeObject.getExperiment(), sensor);
+			}
+			/** Drop a experiment run */
+			if (innerObject instanceof ExperimentRun) {
+				ExperimentRun run = (ExperimentRun) innerObject;
+				if (configEditorInput.getConfigEntryToRun(run) == null) {
+					ConfigEntry configEntry = new ConfigEntry(run, treeObject
+							.getExperiment(), null);
+					configEditorInput.addConfigEntry(configEntry);
+				}
+			}
 		}
 	}
 
