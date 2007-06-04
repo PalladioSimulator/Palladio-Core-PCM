@@ -5,6 +5,7 @@ import java.util.Date;
 import de.uka.ipd.sdq.sensorfactory.SensorFrameworkDataset;
 import de.uka.ipd.sdq.sensorfactory.entities.Experiment;
 import de.uka.ipd.sdq.sensorfactory.entities.ExperimentRun;
+import de.uka.ipd.sdq.sensorfactory.entities.dao.IDAOFactory;
 import de.uka.ipd.sdq.simucomframework.ResouceRegistry;
 import de.uka.ipd.sdq.simucomframework.SimuComConfig;
 import de.uka.ipd.sdq.simucomframework.SimuComStatus;
@@ -24,6 +25,7 @@ public class SimuComModel extends Model {
 	private SimuComConfig config;
 	private Experiment experiment = null;
 	private ExperimentRun run = null;
+	private IDAOFactory daoFactory;
 	
 	public SimuComModel(Model owner, String myName, boolean showInReport, boolean showInTrace) {
 		super(owner, myName, showInReport, showInTrace);
@@ -90,11 +92,21 @@ public class SimuComModel extends Model {
 
 	public void setConfig(SimuComConfig config) {
 		this.config = config;
-		experiment = SensorFrameworkDataset.singleton().getMemoryDataset().
-			createOrReuseExperiment(this.getConfig().getNameExperimentRun());
+		this.daoFactory = SensorFrameworkDataset.singleton().getMemoryDataset(); 
+		if (daoFactory.createExperimentDAO().findByExperimentName(this.getConfig().getNameExperimentRun()).size() == 1){
+			experiment = daoFactory.createExperimentDAO().findByExperimentName(this.getConfig().getNameExperimentRun()).
+							iterator().next();
+		} else {
+			experiment = daoFactory.createExperimentDAO().addExperiment(
+				this.getConfig().getNameExperimentRun());
+		}
 		run = experiment.addExperimentRun("Run "+new Date());
 	}
 
+	public IDAOFactory getDAOFactory(){
+		return this.daoFactory;
+	}
+	
 	public Experiment getExperimentDatastore() {
 		return experiment;
 	}

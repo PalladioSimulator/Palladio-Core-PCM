@@ -37,7 +37,7 @@ class SensorObserver implements Observer {
 			}
 		}
 		if (!warmUpTime)
-			run.addTimeSpanMeasurement(mySensor, (Double)arg1, 0);
+			run.addTimeSpanMeasurement(mySensor, 0, (Double)arg1);
 	}
 	
 }

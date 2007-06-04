@@ -7,11 +7,12 @@ import java.util.List;
 import org.eclipse.jface.viewers.ITreeContentProvider;
 import org.eclipse.jface.viewers.Viewer;
 
-import de.uka.ipd.sdq.sensorfactory.IExperimentDAO;
 import de.uka.ipd.sdq.sensorfactory.SensorFrameworkDataset;
 import de.uka.ipd.sdq.sensorfactory.entities.Experiment;
 import de.uka.ipd.sdq.sensorfactory.entities.ExperimentRun;
 import de.uka.ipd.sdq.sensorfactory.entities.Sensor;
+import de.uka.ipd.sdq.sensorfactory.entities.dao.IDAOFactory;
+import de.uka.ipd.sdq.sensorfactory.entities.dao.IExperimentDAO;
 
 /**
  * TODO
@@ -22,14 +23,14 @@ public class TreeContentProvider implements ITreeContentProvider {
 	protected static final int EXPERIMENT_RUNS = 0;
 	protected static final int SENSORS = 1;
 
-	private List<IExperimentDAO> rootEntry;
+	private List<IDAOFactory> rootEntry;
 
 	/* (non-Javadoc)
 	 * @see org.eclipse.jface.viewers.IStructuredContentProvider#getElements(java.lang.Object)
 	 */
 	public Object[] getElements(Object parent) {
 		if (rootEntry == null) {
-			rootEntry = new ArrayList<IExperimentDAO>();
+			rootEntry = new ArrayList<IDAOFactory>();
 			rootEntry.addAll(SensorFrameworkDataset.singleton().getDataSources());
 		}
 		return getChildren(rootEntry);
@@ -42,12 +43,14 @@ public class TreeContentProvider implements ITreeContentProvider {
 
 		/** List of root elements (DAO,...) */
 		if (parent instanceof ArrayList)
-			return ((ArrayList<IExperimentDAO>) parent).toArray();
+			return ((ArrayList<IDAOFactory>) parent).toArray();
 
 		/** ExperimentDAO */
-		if (parent instanceof IExperimentDAO)
-			return ((IExperimentDAO) parent).getExperiments().toArray();
-
+		if (parent instanceof IDAOFactory){
+			IExperimentDAO experimentDAO = ((IDAOFactory)parent).createExperimentDAO();
+			return experimentDAO.getExperiments().toArray();
+		}
+		
 		/** Experiment */
 		if (parent instanceof Experiment) {
 			Experiment experiment = (Experiment) parent;

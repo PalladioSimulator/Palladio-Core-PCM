@@ -1,23 +1,14 @@
 package de.uka.ipd.sdq.codegen.rvisualisation.actions;
 
-import java.io.*;
-import java.awt.Frame;
 import java.awt.FileDialog;
+import java.awt.Frame;
 
-import java.util.Enumeration;
-
-import javax.print.attribute.standard.MediaSize.Engineering;
-
-import org.eclipse.core.internal.runtime.Log;
 import org.eclipse.core.runtime.IStatus;
-import org.eclipse.core.runtime.Status;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.ui.PlatformUI;
-import org.rosuda.JRI.Rengine;
 import org.rosuda.JRI.REXP;
-import org.rosuda.JRI.RList;
-import org.rosuda.JRI.RVector;
 import org.rosuda.JRI.RMainLoopCallbacks;
+import org.rosuda.JRI.Rengine;
 
 import de.uka.ipd.sdq.codegen.rvisualisation.RVisualisationPlugin;
 

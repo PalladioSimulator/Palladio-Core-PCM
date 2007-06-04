@@ -12,8 +12,6 @@ import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.dialogs.ElementListSelectionDialog;
 
-import de.uka.ipd.sdq.sensorframework.visualisation.menu.OpenAction;
-
 /**
  * @author roman Dialog possible make selection from actions in
  *         Menu/Visualasetions are contained

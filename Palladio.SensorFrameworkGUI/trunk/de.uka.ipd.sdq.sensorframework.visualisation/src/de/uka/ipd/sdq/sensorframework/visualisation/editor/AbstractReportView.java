@@ -24,8 +24,8 @@ import org.eclipse.ui.views.properties.IPropertySheetPage;
 import org.eclipse.ui.views.properties.tabbed.ITabbedPropertySheetPageContributor;
 import org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage;
 
-import de.uka.ipd.sdq.sensorfactory.SensorAndMeasurements;
 import de.uka.ipd.sdq.sensorfactory.entities.Sensor;
+import de.uka.ipd.sdq.sensorfactory.entities.SensorAndMeasurements;
 import de.uka.ipd.sdq.sensorframework.visualisation.IVisualisation;
 import de.uka.ipd.sdq.sensorframework.visualisation.views.ViewDropTargetListener;
 
@@ -61,6 +61,7 @@ public abstract class AbstractReportView extends EditorPart implements
 		addDropSupport(parent);
 
 		createReportControls(parent);
+		setViewerInput();
 	}
 
 	protected abstract void createReportControls(Composite parent);
@@ -121,6 +122,10 @@ public abstract class AbstractReportView extends EditorPart implements
 
 	public void update(Observable o, Object arg) {
 		getSite().getPage().activate(this);
+		setViewerInput();
+	}
+
+	private void setViewerInput() {
 		ArrayList<SensorAndMeasurements> list = new ArrayList<SensorAndMeasurements>();
 		
 		for (ConfigEntry re : myInput.getConfigEntrys()) {

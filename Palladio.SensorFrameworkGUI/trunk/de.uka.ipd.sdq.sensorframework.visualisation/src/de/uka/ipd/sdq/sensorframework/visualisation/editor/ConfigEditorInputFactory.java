@@ -9,11 +9,11 @@ import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.ui.IElementFactory;
 import org.eclipse.ui.IMemento;
 
-import de.uka.ipd.sdq.sensorfactory.IExperimentDAO;
 import de.uka.ipd.sdq.sensorfactory.SensorFrameworkDataset;
 import de.uka.ipd.sdq.sensorfactory.entities.Experiment;
 import de.uka.ipd.sdq.sensorfactory.entities.ExperimentRun;
 import de.uka.ipd.sdq.sensorfactory.entities.Sensor;
+import de.uka.ipd.sdq.sensorfactory.entities.dao.IDAOFactory;
 
 /**
  * @author roman
@@ -60,10 +60,10 @@ public class ConfigEditorInputFactory implements IElementFactory {
      */
     public static void saveState(IMemento memento, ConfigEditorInput input) {
 		for (ConfigEntry entry : input.getConfigEntrys()) {
-			memento.putString(EXPERIMENT, entry.getExperiment()
-					.getExperimentName());
-			memento.putString(EXPERIMENT_RUN, entry.getExperimentRun()
-					.getExperimentDateTime());
+			memento.putString(EXPERIMENT, Long.toString(entry.getExperiment()
+					.getExperimentID()));
+			memento.putString(EXPERIMENT_RUN, Long.toString(entry.getExperimentRun()
+					.getExperimentRunID()));
 			for (Sensor sensor : entry.getSensors()) {
 				memento.putString(SENSOR_NAME, sensor.getSensorName());
 				memento.putString(SENSOR_ID, sensor.getSensorID() + "");
@@ -75,48 +75,27 @@ public class ConfigEditorInputFactory implements IElementFactory {
 		String sensorId = memento.getString(SENSOR_ID);
 		String sensorName = memento.getString(SENSOR_NAME);
 
-		Collection<IExperimentDAO> dataSources = SensorFrameworkDataset
-				.singleton().getDataSources();
-		for (IExperimentDAO data : dataSources) {
-			for (Experiment e : data.getExperiments()) {
-				for (Sensor s : e.getSensors()) {
-					if (s.getSensorID() == new Long(sensorId)
-							&& s.getSensorName().equals(sensorName))
-						return s;
-				}
-			}
-
-		}
-		return null;
+		//TODO Datasource mit abspeichern
+		IDAOFactory data = SensorFrameworkDataset
+				.singleton().getMemoryDataset();
+		return data.createSensorDAO().get(Long.parseLong(sensorId));
 	}
     
     private ExperimentRun getExperimentRun(IMemento memento) {
 		String experimentRun = memento.getString(EXPERIMENT_RUN);
 
-		Collection<IExperimentDAO> dataSources = SensorFrameworkDataset
-				.singleton().getDataSources();
-		for (IExperimentDAO data : dataSources) {
-			for (Experiment e : data.getExperiments()) {
-				for (ExperimentRun run : e.getExperimentRuns()) {
-					if (run.getExperimentDateTime().equals(experimentRun))
-						return run;
-				}
-			}
-		}
-		return null;
+		//TODO Datasource mit abspeichern
+		IDAOFactory data = SensorFrameworkDataset
+				.singleton().getMemoryDataset();
+		return data.createExperimentRunDAO().get(Long.parseLong(experimentRun));
 	}
     
     private Experiment getExperiment(IMemento memento) {
 		String experiment = memento.getString(EXPERIMENT);
 
-		Collection<IExperimentDAO> dataSources = SensorFrameworkDataset
-				.singleton().getDataSources();
-		for (IExperimentDAO data : dataSources) {
-			for (Experiment e : data.getExperiments()) {
-				if (e.getExperimentName().equals(experiment))
-					return e;
-			}
-		}
-		return null;
+		//TODO Datasource mit abspeichern
+		IDAOFactory data = SensorFrameworkDataset
+				.singleton().getMemoryDataset();
+		return data.createExperimentDAO().get(Long.parseLong(experiment));
 	}
 }

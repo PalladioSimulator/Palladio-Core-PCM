@@ -40,6 +40,6 @@ public class ExperimentRunner {
 		// stop all threads still alive and close all output files
 		exp.finish();
 		model.getResourceRegistry().deactivateAllActiveResources();
-		SensorFrameworkDataset.singleton().getMemoryDataset().storeExperiment(model.getExperimentDatastore());
+		//TODO: SensorFrameworkDataset.singleton().getMemoryDataset().storeExperiment(model.getExperimentDatastore());
 	}
 }

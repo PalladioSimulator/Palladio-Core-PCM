@@ -1,23 +1,17 @@
 package de.uka.ipd.sdq.simucomframework.resources;
 
-import java.util.HashMap;
-
 import org.apache.log4j.Logger;
 
-import de.uka.ipd.sdq.sensorfactory.IExperimentDAO;
-import de.uka.ipd.sdq.sensorfactory.SensorFrameworkDataset;
 import de.uka.ipd.sdq.sensorfactory.entities.Experiment;
 import de.uka.ipd.sdq.sensorfactory.entities.ExperimentRun;
 import de.uka.ipd.sdq.sensorfactory.entities.Sensor;
 import de.uka.ipd.sdq.sensorfactory.entities.State;
 import de.uka.ipd.sdq.sensorfactory.entities.StateSensor;
-import de.uka.ipd.sdq.sensorfactory.entities.TimeSpanSensor;
-import de.uka.ipd.sdq.simucomframework.AbstractMain;
+import de.uka.ipd.sdq.sensorfactory.entities.dao.ISensorDAO;
+import de.uka.ipd.sdq.sensorfactory.entities.dao.IStateDAO;
 import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
 import desmoj.core.simulator.Entity;
 import desmoj.core.simulator.Event;
-import desmoj.core.simulator.ProcessQueue;
-import desmoj.core.simulator.Queue;
 import desmoj.core.simulator.SimProcess;
 import desmoj.core.simulator.SimTime;
 
@@ -75,18 +69,22 @@ public class SimulatedActiveResource extends Entity {
 		this.processingRate = d;
 		this.units = units;
 		this.idle = true;
-		this.stateSensor = createOrReuseSensor(myModel.getExperimentDatastore(),"Utilisation of "+typeID);
-		this.idleState = createOrReuseState(stateSensor,"Idle");
-		this.busyState = createOrReuseState(stateSensor,"Busy");
-		this.stateSensor.setInitialState(idleState);
+		
+		this.idleState = createOrReuseState(myModel.getDAOFactory().createStateDAO(), "Idle");
+		this.busyState = createOrReuseState(myModel.getDAOFactory().createStateDAO(), "Busy");
+
+		this.stateSensor = createOrReuseSensor(myModel.getExperimentDatastore(),"Utilisation of "+typeID,this.idleState);
+		this.stateSensor.addSensorState(idleState);
+		this.stateSensor.addSensorState(busyState);
+		
 		this.experimentRun = myModel.getCurrentExperimentRun();
 		
 		logger.info("Creating Simulated Active Resource: "+this.getName());
 		
-		//myStrategy = new RoundRobinStrategy();
-		//logger.info("Using RoundRobin Scheduler for Active Resource "+this.getName());
-		myStrategy = new FIFOStrategy(myModel,typeID);
-		logger.info("Using FIFO Scheduler for Active Resource "+this.getName());
+		myStrategy = new RoundRobinStrategy();
+		logger.info("Using RoundRobin Scheduler for Active Resource "+this.getName());
+		//myStrategy = new FIFOStrategy(myModel,typeID);
+		//logger.info("Using FIFO Scheduler for Active Resource "+this.getName());
 	}
 		
 	public void consumeResource(SimProcess thread, double demand)
@@ -151,22 +149,21 @@ public class SimulatedActiveResource extends Entity {
 		this.idle=b;
 	}
 	
-	private StateSensor createOrReuseSensor(Experiment experiment, String id) {
-		for (Sensor s : experiment.getSensors()) {
-			if (s.getSensorName().equals(id))
-				if (s instanceof StateSensor)
-					return (StateSensor)s;
+	private StateSensor createOrReuseSensor(Experiment experiment, String id, State initialState) {
+		ISensorDAO sensorDAO = ((SimuComModel)getModel()).getDAOFactory().createSensorDAO();
+		if (sensorDAO.findBySensorName(id).size() == 1) {
+			Sensor s = sensorDAO.findBySensorName(id).iterator().next();
+			if (s instanceof StateSensor && experiment.getSensors().contains(s))
+				return (StateSensor) s;
 		}
-		return experiment.addStateSensor(id);
+		return experiment.addStateSensor(initialState,id);
 	}
 
-	private State createOrReuseState(StateSensor stateSensor, String id) {
-		for (State s : stateSensor.getSensorStates()) {
-			if (s.getStateLiteral().equals(id))
-				if (s instanceof State)
-					return (State)s;
+	private State createOrReuseState(IStateDAO stateDAO, String id) {
+		if (stateDAO.findByStateLiteral(id).size() == 1) {
+			return stateDAO.findByStateLiteral(id).iterator().next();
 		}
-		return stateSensor.addState(id);
+		return stateDAO.addState(id);
 	}
 
 }
