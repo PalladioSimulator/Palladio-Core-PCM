@@ -27,12 +27,6 @@ public class ConfigEditorInput extends Observable
 		this.configEntrys = new ArrayList<ConfigEntry>();
 	}
 	
-	public ConfigEditorInput(ConfigEntry configEntry) {
-		this.configEntrys = new ArrayList<ConfigEntry>();
-		configEntry.addObserver(this);
-		configEntrys.add(configEntry);
-	}
-
 	/** Edit command of ConfigEctry	 */
 	public void editConfigEntry(ExperimentRun run, Experiment experiment, Sensor sensor) {
 		ConfigEntry configEntry = getConfigEntryToRun(run);
@@ -46,13 +40,14 @@ public class ConfigEditorInput extends Observable
 		notifyObserver();
 	}
 	
-	public void addNewConfigEntry(ExperimentRun run, Experiment experiment){
-		ConfigEntry confEntry = new ConfigEntry(run, experiment);
-		confEntry.addObserver(this);
-		configEntrys.add(confEntry);
+	/** Add new ConfigEntry */
+	public void addConfigEntry(ConfigEntry configEntry){
+		configEntry.addObserver(this);
+		configEntrys.add(configEntry);
 		notifyObserver();
 	}
 	
+	/** Remove a ConfigEntry */
 	public void removeConfigEntry(ConfigEntry entry){
 		if (configEntrys.contains(entry)){
 			entry.deleteObserver(this);
@@ -143,8 +138,7 @@ public class ConfigEditorInput extends Observable
 	}
 
 	public void update(Observable o, Object arg) {
-		setChanged();
-		notifyObservers();
+		notifyObserver();
 	}
 	
 	/**

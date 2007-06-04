@@ -13,18 +13,13 @@ public class ConfigEntry extends Observable {
 	private ExperimentRun experimentRun;
 	private Experiment experiment;
 
-	public ConfigEntry(ExperimentRun experimentRun, Experiment experiment) {
+	public ConfigEntry(ExperimentRun experimentRun, Experiment experiment,
+			Sensor sensor) {
 		this.experimentRun = experimentRun;
 		this.experiment = experiment;
 		this.sensors = new ArrayList<Sensor>();
-		this.sensors.addAll(experiment.getSensors());
-	}
-	
-	public ConfigEntry(ExperimentRun experimentRun, Experiment experiment, Sensor sensor) {
-		this.experimentRun = experimentRun;
-		this.experiment = experiment;
-		this.sensors = new ArrayList<Sensor>();
-		this.sensors.add(sensor);
+		if (sensor != null)
+			this.sensors.add(sensor);
 	}
 	
 	public List<Sensor> getSensors() {

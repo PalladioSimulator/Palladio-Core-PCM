@@ -105,12 +105,6 @@ public class TreeContentProvider implements ITreeContentProvider {
 			rootEntry.clear();
 	}
 
-	public static Collection<Sensor> getSensorsToTreeObject(TreeObject object){
-		Collection<Sensor> sensors = null;
-		Experiment experiment = object.getExperiment();
-		return sensors;
-	}
-	
 	/* (non-Javadoc)
 	 * @see org.eclipse.jface.viewers.ITreeContentProvider#getParent(java.lang.Object)
 	 */

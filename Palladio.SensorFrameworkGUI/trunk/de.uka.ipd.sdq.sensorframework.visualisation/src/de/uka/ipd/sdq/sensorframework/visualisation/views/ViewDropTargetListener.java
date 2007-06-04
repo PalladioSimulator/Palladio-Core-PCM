@@ -1,6 +1,3 @@
-/**
- * 
- */
 package de.uka.ipd.sdq.sensorframework.visualisation.views;
 
 import org.eclipse.jface.viewers.IStructuredSelection;

@@ -76,7 +76,7 @@ public class SensorsDialog extends TitleAreaDialog {
 		experimentColumn.setText(SENSOR_ID_COLUMN);
 
 		final TableColumn sensorColumn = new TableColumn(table, SWT.LEFT);
-		sensorColumn.setWidth(160);
+		sensorColumn.setWidth(260);
 		sensorColumn.setText(SENSOR_NAME_COLUMN);
 
 		CellEditor[] editors = new CellEditor[columnNames.length];

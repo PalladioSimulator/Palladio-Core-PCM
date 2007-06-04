@@ -15,11 +15,13 @@ public class TreeObject {
 	private Experiment experiment = null;
 	private ExperimentRun run = null;;
 
+	/** Experiment Run */
 	public TreeObject(Object object, Experiment experiment) {
 		this.object = object;
 		this.experiment = experiment;
 	}
 
+	/** Sensor*/
 	public TreeObject(Object object, Experiment experiment, ExperimentRun run) {
 		this.object = object;
 		this.experiment = experiment;

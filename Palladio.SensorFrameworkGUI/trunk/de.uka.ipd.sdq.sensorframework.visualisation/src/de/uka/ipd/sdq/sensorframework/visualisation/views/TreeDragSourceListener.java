@@ -14,6 +14,7 @@ import de.uka.ipd.sdq.sensorfactory.entities.ExperimentRun;
 import de.uka.ipd.sdq.sensorfactory.entities.Sensor;
 import de.uka.ipd.sdq.sensorframework.visualisation.dialogs.ActionListSelectionDialog;
 import de.uka.ipd.sdq.sensorframework.visualisation.editor.ConfigEditorInput;
+import de.uka.ipd.sdq.sensorframework.visualisation.editor.ConfigEntry;
 
 /**
  * @author admin
@@ -33,25 +34,38 @@ public class TreeDragSourceListener implements DragSourceListener {
 		IStructuredSelection selection = (IStructuredSelection) viewer
 				.getSelection();
 		Object object = selection.getFirstElement();
-		if (object instanceof TreeObject && ((TreeObject)object).getObject() instanceof Sensor) {
+		ConfigEditorInput editorInput = new ConfigEditorInput();
+
+		if (EditorInputTransfer.getInstance().isSupportedType(event.dataType)) {
 			TreeObject treeObject = (TreeObject) object;
-			Sensor sensor = (Sensor) treeObject.getObject();
-			if (EditorInputTransfer.getInstance().isSupportedType(event.dataType)){
+			Object innerObject = treeObject.getObject();
+			/** Sensor */
+			if (innerObject instanceof Sensor) {
+				Sensor sensor = (Sensor) innerObject;
 
-				ConfigEditorInput editorInput = new ConfigEditorInput();
-				editorInput.editConfigEntry(treeObject.getRun(), treeObject
-							.getExperiment(), sensor);
+				ConfigEntry configEntry = new ConfigEntry(treeObject.getRun(),
+						treeObject.getExperiment(), sensor);
+				editorInput.addConfigEntry(configEntry);
 
-				IConfigurationElement action = getSelectedAction(event.display
-						.getActiveShell());
-				EditorInputTransfer.EditorInputData[] transferArray = new EditorInputTransfer.EditorInputData[]{
-						EditorInputTransfer.createEditorInputData(
-						action.getAttribute("editorID"), 
-						editorInput)};
-				event.data = transferArray;
-			} else if (LocalSelectionTransfer.getTransfer().isSupportedType(event.dataType)){
-				LocalSelectionTransfer.getTransfer().setSelection(selection);
 			}
+			/** Experiment Run*/
+			if (innerObject instanceof ExperimentRun) {
+				ExperimentRun run = (ExperimentRun) innerObject;
+				ConfigEntry configEntry = new ConfigEntry(run, treeObject
+						.getExperiment(), null);
+				editorInput.addConfigEntry(configEntry);
+			}
+			
+			IConfigurationElement action = getSelectedAction(event.display
+					.getActiveShell());
+			EditorInputTransfer.EditorInputData[] transferArray = new EditorInputTransfer.EditorInputData[] { EditorInputTransfer
+					.createEditorInputData(action.getAttribute("editorID"),
+							editorInput) };
+			event.data = transferArray;
+
+		} else if (LocalSelectionTransfer.getTransfer().isSupportedType(
+				event.dataType)) {
+			LocalSelectionTransfer.getTransfer().setSelection(selection);
 		}
 	}
 
@@ -71,8 +85,9 @@ public class TreeDragSourceListener implements DragSourceListener {
 	 * @return - actions, which are present in Menu/Visualization
 	 */
 	private Object[] getElements() {
-		IConfigurationElement[] configurationElements = Platform.getExtensionRegistry().
-		getConfigurationElementsFor("de.uka.ipd.sdq.sensorframework.visualisation");
+		IConfigurationElement[] configurationElements = Platform
+				.getExtensionRegistry().getConfigurationElementsFor(
+						"de.uka.ipd.sdq.sensorframework.visualisation");
 		return configurationElements;
 	}
 	
