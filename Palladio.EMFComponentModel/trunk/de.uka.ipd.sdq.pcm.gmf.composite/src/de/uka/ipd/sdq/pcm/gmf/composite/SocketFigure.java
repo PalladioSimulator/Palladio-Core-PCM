@@ -114,7 +114,6 @@ public class SocketFigure extends DefaultSizeNodeFigure {
 			super(owner);
 		}
 		
-		@Override
 		public Point getLocation(Point reference) {
 			Point p = getArcCenter();
 			getOwner().translateToAbsolute(p);

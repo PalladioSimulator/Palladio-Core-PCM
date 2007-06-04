@@ -116,7 +116,6 @@ public class BallFigure extends DefaultSizeNodeFigure {
 			super(owner);
 		}
 		
-		@Override
 		public Point getLocation(Point reference) {
 			Point p = getAnchorPoint(reference);
 			return p;
