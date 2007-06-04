@@ -80,7 +80,7 @@ public interface SeffPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl#getAbstractAction()
 	 * @generated
 	 */
-	int ABSTRACT_ACTION = 3;
+	int ABSTRACT_ACTION = 2;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.seff.impl.AbstractResourceDemandingActionImpl <em>Abstract Resource Demanding Action</em>}' class.
@@ -90,7 +90,7 @@ public interface SeffPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl#getAbstractResourceDemandingAction()
 	 * @generated
 	 */
-	int ABSTRACT_RESOURCE_DEMANDING_ACTION = 2;
+	int ABSTRACT_RESOURCE_DEMANDING_ACTION = 1;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.seff.impl.StopActionImpl <em>Stop Action</em>}' class.
@@ -100,7 +100,7 @@ public interface SeffPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl#getStopAction()
 	 * @generated
 	 */
-	int STOP_ACTION = 1;
+	int STOP_ACTION = 0;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.seff.impl.ParametricResourceDemandImpl <em>Parametric Resource Demand</em>}' class.
@@ -110,7 +110,7 @@ public interface SeffPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl#getParametricResourceDemand()
 	 * @generated
 	 */
-	int PARAMETRIC_RESOURCE_DEMAND = 4;
+	int PARAMETRIC_RESOURCE_DEMAND = 3;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.seff.impl.StartActionImpl <em>Start Action</em>}' class.
@@ -120,7 +120,7 @@ public interface SeffPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl#getStartAction()
 	 * @generated
 	 */
-	int START_ACTION = 5;
+	int START_ACTION = 4;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.seff.impl.ServiceEffectSpecificationImpl <em>Service Effect Specification</em>}' class.
@@ -130,7 +130,7 @@ public interface SeffPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl#getServiceEffectSpecification()
 	 * @generated
 	 */
-	int SERVICE_EFFECT_SPECIFICATION = 0;
+	int SERVICE_EFFECT_SPECIFICATION = 22;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.seff.impl.ResourceDemandingSEFFImpl <em>Resource Demanding SEFF</em>}' class.
@@ -140,7 +140,7 @@ public interface SeffPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl#getResourceDemandingSEFF()
 	 * @generated
 	 */
-	int RESOURCE_DEMANDING_SEFF = 6;
+	int RESOURCE_DEMANDING_SEFF = 5;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.seff.impl.ResourceDemandingBehaviourImpl <em>Resource Demanding Behaviour</em>}' class.
@@ -150,7 +150,7 @@ public interface SeffPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl#getResourceDemandingBehaviour()
 	 * @generated
 	 */
-	int RESOURCE_DEMANDING_BEHAVIOUR = 7;
+	int RESOURCE_DEMANDING_BEHAVIOUR = 6;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.seff.impl.ReleaseActionImpl <em>Release Action</em>}' class.
@@ -160,7 +160,7 @@ public interface SeffPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl#getReleaseAction()
 	 * @generated
 	 */
-	int RELEASE_ACTION = 8;
+	int RELEASE_ACTION = 7;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.seff.impl.AbstractLoopActionImpl <em>Abstract Loop Action</em>}' class.
@@ -170,7 +170,7 @@ public interface SeffPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl#getAbstractLoopAction()
 	 * @generated
 	 */
-	int ABSTRACT_LOOP_ACTION = 10;
+	int ABSTRACT_LOOP_ACTION = 9;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.seff.impl.LoopActionImpl <em>Loop Action</em>}' class.
@@ -180,7 +180,7 @@ public interface SeffPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl#getLoopAction()
 	 * @generated
 	 */
-	int LOOP_ACTION = 9;
+	int LOOP_ACTION = 8;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.seff.impl.IterationCountImpl <em>Iteration Count</em>}' class.
@@ -190,7 +190,7 @@ public interface SeffPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl#getIterationCount()
 	 * @generated
 	 */
-	int ITERATION_COUNT = 11;
+	int ITERATION_COUNT = 10;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.seff.impl.InternalActionImpl <em>Internal Action</em>}' class.
@@ -200,7 +200,7 @@ public interface SeffPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl#getInternalAction()
 	 * @generated
 	 */
-	int INTERNAL_ACTION = 12;
+	int INTERNAL_ACTION = 11;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.seff.impl.ForkActionImpl <em>Fork Action</em>}' class.
@@ -210,7 +210,7 @@ public interface SeffPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl#getForkAction()
 	 * @generated
 	 */
-	int FORK_ACTION = 13;
+	int FORK_ACTION = 12;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.seff.impl.ExternalCallActionImpl <em>External Call Action</em>}' class.
@@ -220,7 +220,7 @@ public interface SeffPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl#getExternalCallAction()
 	 * @generated
 	 */
-	int EXTERNAL_CALL_ACTION = 14;
+	int EXTERNAL_CALL_ACTION = 13;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.seff.impl.AbstractBranchTransitionImpl <em>Abstract Branch Transition</em>}' class.
@@ -230,7 +230,7 @@ public interface SeffPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl#getAbstractBranchTransition()
 	 * @generated
 	 */
-	int ABSTRACT_BRANCH_TRANSITION = 22;
+	int ABSTRACT_BRANCH_TRANSITION = 15;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.seff.impl.ProbabilisticBranchTransitionImpl <em>Probabilistic Branch Transition</em>}' class.
@@ -240,7 +240,7 @@ public interface SeffPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.seff.impl.SeffPackageImpl#getProbabilisticBranchTransition()
 	 * @generated
 	 */
-	int PROBABILISTIC_BRANCH_TRANSITION = 15;
+	int PROBABILISTIC_BRANCH_TRANSITION = 14;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.seff.impl.BranchActionImpl <em>Branch Action</em>}' class.
@@ -301,33 +301,6 @@ public interface SeffPackage extends EPackage {
 	 * @generated
 	 */
 	int SET_VARIABLE_ACTION = 21;
-
-	/**
-	 * The feature id for the '<em><b>Seff Type ID</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SERVICE_EFFECT_SPECIFICATION__SEFF_TYPE_ID = 0;
-
-	/**
-	 * The feature id for the '<em><b>Described Service SEFF</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SERVICE_EFFECT_SPECIFICATION__DESCRIBED_SERVICE_SEFF = 1;
-
-	/**
-	 * The number of structural features of the '<em>Service Effect Specification</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SERVICE_EFFECT_SPECIFICATION_FEATURE_COUNT = 2;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1435,6 +1408,33 @@ public interface SeffPackage extends EPackage {
 	 * @ordered
 	 */
 	int SET_VARIABLE_ACTION_FEATURE_COUNT = ABSTRACT_RESOURCE_DEMANDING_ACTION_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Seff Type ID</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERVICE_EFFECT_SPECIFICATION__SEFF_TYPE_ID = 0;
+
+	/**
+	 * The feature id for the '<em><b>Described Service SEFF</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERVICE_EFFECT_SPECIFICATION__DESCRIBED_SERVICE_SEFF = 1;
+
+	/**
+	 * The number of structural features of the '<em>Service Effect Specification</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERVICE_EFFECT_SPECIFICATION_FEATURE_COUNT = 2;
 
 
 	/**

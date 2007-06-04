@@ -92,16 +92,16 @@ public class ResourcetypeAdapterFactory extends AdapterFactoryImpl {
 				return createResourceRepositoryAdapter();
 			}
 			@Override
-			public Adapter caseProcessingResourceType(ProcessingResourceType object) {
-				return createProcessingResourceTypeAdapter();
-			}
-			@Override
 			public Adapter casePassiveResourceType(PassiveResourceType object) {
 				return createPassiveResourceTypeAdapter();
 			}
 			@Override
 			public Adapter caseCommunicationLinkResourceType(CommunicationLinkResourceType object) {
 				return createCommunicationLinkResourceTypeAdapter();
+			}
+			@Override
+			public Adapter caseProcessingResourceType(ProcessingResourceType object) {
+				return createProcessingResourceTypeAdapter();
 			}
 			@Override
 			public Adapter caseIdentifier(Identifier object) {

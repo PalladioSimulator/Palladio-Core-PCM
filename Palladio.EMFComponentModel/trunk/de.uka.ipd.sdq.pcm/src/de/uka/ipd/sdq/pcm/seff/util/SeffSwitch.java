@@ -101,12 +101,6 @@ public class SeffSwitch<T> {
 	 */
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
-			case SeffPackage.SERVICE_EFFECT_SPECIFICATION: {
-				ServiceEffectSpecification serviceEffectSpecification = (ServiceEffectSpecification)theEObject;
-				T result = caseServiceEffectSpecification(serviceEffectSpecification);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case SeffPackage.STOP_ACTION: {
 				StopAction stopAction = (StopAction)theEObject;
 				T result = caseStopAction(stopAction);
@@ -251,6 +245,13 @@ public class SeffSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case SeffPackage.ABSTRACT_BRANCH_TRANSITION: {
+				AbstractBranchTransition abstractBranchTransition = (AbstractBranchTransition)theEObject;
+				T result = caseAbstractBranchTransition(abstractBranchTransition);
+				if (result == null) result = caseIdentifier(abstractBranchTransition);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case SeffPackage.BRANCH_ACTION: {
 				BranchAction branchAction = (BranchAction)theEObject;
 				T result = caseBranchAction(branchAction);
@@ -311,10 +312,9 @@ public class SeffSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case SeffPackage.ABSTRACT_BRANCH_TRANSITION: {
-				AbstractBranchTransition abstractBranchTransition = (AbstractBranchTransition)theEObject;
-				T result = caseAbstractBranchTransition(abstractBranchTransition);
-				if (result == null) result = caseIdentifier(abstractBranchTransition);
+			case SeffPackage.SERVICE_EFFECT_SPECIFICATION: {
+				ServiceEffectSpecification serviceEffectSpecification = (ServiceEffectSpecification)theEObject;
+				T result = caseServiceEffectSpecification(serviceEffectSpecification);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}

@@ -154,7 +154,7 @@ public VariableUsageParser(ParserSharedInputState state) {
 		
 		type=characterisation_keywords();
 		if(type.equals("TYPE"))
-				ct = VariableCharacterisationType.DATATYPE;
+				ct = VariableCharacterisationType.TYPE;
 			 else if(type.equals("BYTESIZE"))
 				ct = VariableCharacterisationType.BYTESIZE;
 			 else if(type.equals("NUMBER_OF_ELEMENTS"))

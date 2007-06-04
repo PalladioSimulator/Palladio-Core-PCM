@@ -22,6 +22,7 @@ import de.uka.ipd.sdq.stoex.ProbabilityFunctionLiteral;
 import de.uka.ipd.sdq.stoex.ProductExpression;
 import de.uka.ipd.sdq.stoex.ProductOperations;
 import de.uka.ipd.sdq.stoex.RandomVariable;
+import de.uka.ipd.sdq.stoex.StringLiteral;
 import de.uka.ipd.sdq.stoex.Term;
 import de.uka.ipd.sdq.stoex.TermExpression;
 import de.uka.ipd.sdq.stoex.TermOperations;
@@ -70,8 +71,18 @@ public class PCMStoExEvaluationVisitor extends PCMStoExSwitch {
 
 	@Override
 	public Object caseCompareExpression(CompareExpression object) {
+		TypeEnum leftType = typeInferer.getType(object.getLeft());
+		TypeEnum rightType = typeInferer.getType(object.getRight());
 		Object leftExpr = doSwitch(object.getLeft());
 		Object rightExpr = doSwitch(object.getRight());
+		if (leftType == TypeEnum.ANY) leftType = getDynamicType(leftExpr);
+		if (leftType == TypeEnum.ANY) rightType = getDynamicType(rightExpr);
+		
+		if (leftType == TypeEnum.INT && rightType == TypeEnum.DOUBLE)
+			leftExpr = Double.valueOf( (((Integer)leftExpr).intValue()));
+		if (rightType == TypeEnum.INT && leftType == TypeEnum.DOUBLE)
+			rightExpr = Double.valueOf( (((Integer)rightExpr).intValue()));
+		
 		int result = ((Comparable)leftExpr).compareTo(rightExpr);
 		switch(object.getOperation())
 		{
@@ -104,6 +115,11 @@ public class PCMStoExEvaluationVisitor extends PCMStoExSwitch {
 
 	@Override
 	public Object caseIntLiteral(IntLiteral object) {
+		return object.getValue();
+	}
+
+	@Override
+	public Object caseStringLiteral(StringLiteral object) {
 		return object.getValue();
 	}
 

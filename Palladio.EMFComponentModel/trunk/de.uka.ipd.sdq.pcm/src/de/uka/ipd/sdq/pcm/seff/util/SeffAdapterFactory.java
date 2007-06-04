@@ -86,10 +86,6 @@ public class SeffAdapterFactory extends AdapterFactoryImpl {
 	protected SeffSwitch<Adapter> modelSwitch =
 		new SeffSwitch<Adapter>() {
 			@Override
-			public Adapter caseServiceEffectSpecification(ServiceEffectSpecification object) {
-				return createServiceEffectSpecificationAdapter();
-			}
-			@Override
 			public Adapter caseStopAction(StopAction object) {
 				return createStopActionAdapter();
 			}
@@ -150,6 +146,10 @@ public class SeffAdapterFactory extends AdapterFactoryImpl {
 				return createProbabilisticBranchTransitionAdapter();
 			}
 			@Override
+			public Adapter caseAbstractBranchTransition(AbstractBranchTransition object) {
+				return createAbstractBranchTransitionAdapter();
+			}
+			@Override
 			public Adapter caseBranchAction(BranchAction object) {
 				return createBranchActionAdapter();
 			}
@@ -174,8 +174,8 @@ public class SeffAdapterFactory extends AdapterFactoryImpl {
 				return createSetVariableActionAdapter();
 			}
 			@Override
-			public Adapter caseAbstractBranchTransition(AbstractBranchTransition object) {
-				return createAbstractBranchTransitionAdapter();
+			public Adapter caseServiceEffectSpecification(ServiceEffectSpecification object) {
+				return createServiceEffectSpecificationAdapter();
 			}
 			@Override
 			public Adapter caseIdentifier(Identifier object) {

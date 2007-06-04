@@ -68,9 +68,9 @@ public class ResourcetypeFactoryImpl extends EFactoryImpl implements Resourcetyp
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
 			case ResourcetypePackage.RESOURCE_REPOSITORY: return createResourceRepository();
-			case ResourcetypePackage.PROCESSING_RESOURCE_TYPE: return createProcessingResourceType();
 			case ResourcetypePackage.PASSIVE_RESOURCE_TYPE: return createPassiveResourceType();
 			case ResourcetypePackage.COMMUNICATION_LINK_RESOURCE_TYPE: return createCommunicationLinkResourceType();
+			case ResourcetypePackage.PROCESSING_RESOURCE_TYPE: return createProcessingResourceType();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}

@@ -14371,7 +14371,7 @@
       <ownedLiteral xmi:id="_cSJS8PIZEdqqVosRZMrxNA" name="BYTESIZE">
         <specification xmi:type="uml:OpaqueExpression" xmi:id="_7emH4PIZEdqqVosRZMrxNA"/>
       </ownedLiteral>
-      <ownedLiteral xmi:id="_c3sQAPIZEdqqVosRZMrxNA" name="DATATYPE">
+      <ownedLiteral xmi:id="_c3sQAPIZEdqqVosRZMrxNA" name="TYPE">
         <specification xmi:type="uml:OpaqueExpression" xmi:id="_6s1TwPIZEdqqVosRZMrxNA"/>
       </ownedLiteral>
     </ownedMember>

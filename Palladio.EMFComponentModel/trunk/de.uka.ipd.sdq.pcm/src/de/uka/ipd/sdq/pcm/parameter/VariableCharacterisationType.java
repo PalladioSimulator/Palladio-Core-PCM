@@ -63,14 +63,14 @@ public enum VariableCharacterisationType implements Enumerator {
 	BYTESIZE(3, "BYTESIZE", "BYTESIZE"),
 
 	/**
-	 * The '<em><b>DATATYPE</b></em>' literal object.
+	 * The '<em><b>TYPE</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #DATATYPE_VALUE
+	 * @see #TYPE_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	DATATYPE(4, "DATATYPE", "DATATYPE");
+	TYPE(4, "TYPE", "TYPE");
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -140,19 +140,19 @@ public enum VariableCharacterisationType implements Enumerator {
 	public static final int BYTESIZE_VALUE = 3;
 
 	/**
-	 * The '<em><b>DATATYPE</b></em>' literal value.
+	 * The '<em><b>TYPE</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of '<em><b>DATATYPE</b></em>' literal object isn't clear,
+	 * If the meaning of '<em><b>TYPE</b></em>' literal object isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @see #DATATYPE
+	 * @see #TYPE
 	 * @model
 	 * @generated
 	 * @ordered
 	 */
-	public static final int DATATYPE_VALUE = 4;
+	public static final int TYPE_VALUE = 4;
 
 	/**
 	 * An array of all the '<em><b>Variable Characterisation Type</b></em>' enumerators.
@@ -166,7 +166,7 @@ public enum VariableCharacterisationType implements Enumerator {
 			NUMBER_OF_ELEMENTS,
 			VALUE,
 			BYTESIZE,
-			DATATYPE,
+			TYPE,
 		};
 
 	/**
@@ -221,7 +221,7 @@ public enum VariableCharacterisationType implements Enumerator {
 			case NUMBER_OF_ELEMENTS_VALUE: return NUMBER_OF_ELEMENTS;
 			case VALUE_VALUE: return VALUE;
 			case BYTESIZE_VALUE: return BYTESIZE;
-			case DATATYPE_VALUE: return DATATYPE;
+			case TYPE_VALUE: return TYPE;
 		}
 		return null;
 	}
