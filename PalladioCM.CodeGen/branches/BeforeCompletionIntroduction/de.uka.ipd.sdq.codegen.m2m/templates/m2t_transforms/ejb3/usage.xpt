@@ -1,0 +1,42 @@
+«EXTENSION m2t_transforms::java_names»
+«EXTENSION m2t_transforms::pcm»
+«IMPORT system»
+«IMPORT composition»
+«IMPORT usagemodel»
+«IMPORT entity»
+«IMPORT repository»
+«IMPORT allocation»
+
+«DEFINE UsageScenario(Allocation a) FOR UsageScenario»
+	«FILE this.implementationPackage().fqnToDirectoryPath() + "/" + this.javaName() + ".java"»
+		package «this.implementationPackage()»;
+		public class «this.javaName()» implements java.lang.Runnable
+		{
+			«EXPAND m2t_transforms::usage::SystemMemberVar FOREACH this.querySystemCalls().providedRole_EntryLevelSystemCall.toSet()»
+
+			public «this.javaName()»() {
+				ctx = new de.uka.ipd.sdq.simucomframework.variables.StackContext();
+			    javax.naming.InitialContext initial;
+		        try {
+		            initial = new javax.naming.InitialContext();
+		            javax.naming.Context context = (javax.naming.Context) initial.lookup("java:comp/env");
+		            «EXPAND ContextInit FOREACH this.querySystemCalls().providedRole_EntryLevelSystemCall.toSet()»
+		        } catch (javax.naming.NamingException e) {
+		            e.printStackTrace();
+		        }        
+			}
+			
+			«EXPAND m2t_transforms::pojo::usage::ScenarioRunner(this) FOR this.scenarioBehaviour_UsageScenario»
+			
+			public void run() {
+				scenarioRunner();
+			}
+		}
+	«ENDFILE»
+«ENDDEFINE» 
+
+«DEFINE ContextInit FOR ProvidedRole»
+	«this.portMemberVar()» = («this.providedInterface__ProvidedRole.fqn()»)
+		javax.rmi.PortableRemoteObject.narrow(
+			context.lookup("ejb/«this.providedInterface__ProvidedRole.javaName()»"),«this.providedInterface__ProvidedRole.fqn()».class);
+«ENDDEFINE»

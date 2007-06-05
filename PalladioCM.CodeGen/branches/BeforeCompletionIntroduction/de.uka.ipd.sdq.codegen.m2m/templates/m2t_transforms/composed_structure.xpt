@@ -1,0 +1,105 @@
+«IMPORT system»
+«IMPORT composition»
+«IMPORT repository»
+«IMPORT entities»
+«EXTENSION m2t_transforms::pcm»
+«EXTENSION m2t_transforms::java_names»
+ 
+ //-------------------------------------
+ // Generate the "implementation" of a 
+ // composed structure by creating an instance 
+ // of all components in their respective child
+ // assembly contexts
+ //-------------------------------------
+«DEFINE ComposedStructureStart FOR ComposedStructure»
+   package «this.implementationPackage()»;
+  
+   public class «this.className()» 
+   {
+		private static org.apache.log4j.Logger logger = 
+			org.apache.log4j.Logger.getLogger(«this.className()».class.getName());
+  
+      «EXPAND m2t_transforms::composed_structure::InnerImplementation FOR this»
+«ENDDEFINE»
+
+«DEFINE ComposedStructureEnd FOR ComposedStructure»
+   }
+«ENDDEFINE»
+
+//--------------------------------------
+// Template method to override the standard parameters
+// which can be passed to component child instances of
+// a composed structure
+//--------------------------------------
+«DEFINE ComponentConstructorParametersTM FOR AssemblyContext»
+	/* Add Parameters here */
+«ENDDEFINE»
+
+//--------------------------------------
+// Generate a member variable storing a component instance for a given
+// assembly context
+//--------------------------------------
+«DEFINE ChildMemberVar FOR AssemblyContext»
+   protected 
+      «this.encapsulatedComponent_ChildComponentContext.fqn()» 
+         my«this.javaName()» = null;
+«ENDDEFINE»
+
+«DEFINE ChildMemberVarInit FOR AssemblyContext»
+   my«this.javaName()» = new «this.encapsulatedComponent_ChildComponentContext.fqn()»
+         	(«EXPAND ComponentConstructorParametersTM FOR this»);
+«ENDDEFINE»
+
+«DEFINE InnerImplementation FOR ComposedStructure»
+      // Composed child components member variables
+      «EXPAND ChildMemberVar FOREACH this.childComponentContexts_ComposedStructure»
+            
+      /**
+      * Inner Structure initialisation
+      */
+      private void initInnerComponents() {
+	      «EXPAND ChildMemberVarInit FOREACH this.childComponentContexts_ComposedStructure»
+
+		  «FOREACH this.childComponentContexts_ComposedStructure AS child»
+			  init«child.javaName()»();
+		  «ENDFOREACH»
+      }
+
+      «EXPAND Init(this) FOREACH this.childComponentContexts_ComposedStructure»
+      /**
+      * Inner Structure initialisation end
+      */
+«ENDDEFINE»
+
+«DEFINE Init(ComposedStructure s) FOR AssemblyContext»
+   private void init«this.javaName()»() {
+      «this.encapsulatedComponent_ChildComponentContext.fqnContext()» context = new «this.encapsulatedComponent_ChildComponentContext.fqnContext()»(
+         «EXPAND PortQuery(s,this) FOREACH this.encapsulatedComponent_ChildComponentContext.requiredRoles_InterfaceRequiringEntity SEPARATOR ","»
+      );
+      my«this.javaName()».setContext(context);
+      «EXPAND ChildInitTM(s) FOR this»
+   }
+«ENDDEFINE»
+
+«DEFINE ChildInitTM(ComposedStructure s) FOR AssemblyContext»
+«ENDDEFINE»
+
+// -----------------------------------
+// Get the right port to bind
+// If the component is unbound, a null pointer is generated
+// -----------------------------------
+«DEFINE PortQuery(ComposedStructure s, AssemblyContext ctx) FOR RequiredRole»
+	«IF hasConnector(s,ctx,this)»
+		«LET getConnector(s,ctx,this) AS connector»
+			my«connector.providingChildComponentContext_CompositeAssemblyConnector.javaName()».«connector.providedRole_CompositeAssemblyConnector.portGetter()»()
+	   	«ENDLET»
+	«ELSE» 
+		«IF hasRequiredDelegationConnector(s,ctx,this)»
+			«LET getRequiredDelegationConnector(s,ctx,this) AS connector»
+				this.myContext.getRole«connector.outerRequiredRole_RequiredDelegationConnector.requiredInterface__RequiredRole.javaName()»()
+	   		«ENDLET»
+	    «ELSE»
+	        null
+	    «ENDIF» 
+    «ENDIF»
+«ENDDEFINE»

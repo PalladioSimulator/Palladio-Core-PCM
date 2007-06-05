@@ -1,0 +1,16 @@
+«IMPORT repository»
+«IMPORT seff»
+«IMPORT resourcetype»
+«IMPORT resourceenvironment»
+«EXTENSION m2t_transforms::java_names»
+«EXTENSION m2t_transforms::pcm»
+
+// For each resource demand load a resource
+«DEFINE ResourceDemands FOR AbstractResourceDemandingAction»
+	«EXPAND ResourceDemandTM FOREACH this.resourceDemand_Action»
+«ENDDEFINE»
+
+// What to do with the actual demand is target dependant
+«DEFINE ResourceDemandTM FOR ParametricResourceDemand»
+	«ERROR "ResourceDemandTM is a template method and must be overridden"»
+«ENDDEFINE»
