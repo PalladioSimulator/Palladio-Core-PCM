@@ -30,35 +30,37 @@
 
 «DEFINE Action FOR BranchAction»
 	{
-		«IF ProbabilisticBranchTransition.isInstance(this.branches_Branch.get(0))»
-			double u = Math.random();
-			double sum = 0;
-			«EXPAND BranchTransition FOREACH this.branches_Branch SEPARATOR ""»
-		«ELSE»
-			«EXPAND BranchTransition FOREACH this.branches_Branch SEPARATOR " else "»
-			else
-				throw new RuntimeException("No branch condition evaluated to true :-(");
-		«ENDIF»
+		«LET this.id.javaVariableName() AS counterID»
+			«IF ProbabilisticBranchTransition.isInstance(this.branches_Branch.get(0))»
+				double u«counterID» = Math.random();
+				double sum«counterID» = 0;
+				«EXPAND BranchTransition(counterID) FOREACH this.branches_Branch SEPARATOR ""»
+			«ELSE»
+				«EXPAND BranchTransition(counterID) FOREACH this.branches_Branch SEPARATOR " else "»
+				else
+					throw new RuntimeException("No branch condition evaluated to true :-(");
+			«ENDIF»
+		«ENDLET»
 	}
 «ENDDEFINE»
 
-«DEFINE BranchTransition FOR AbstractBranchTransition»
+«DEFINE BranchTransition(String counterNumber) FOR AbstractBranchTransition»
    «ERROR "Unknown branch transition found!"»
 «ENDDEFINE»
 
-«DEFINE BranchTransition FOR GuardedBranchTransition»
+«DEFINE BranchTransition(String counterNumber) FOR GuardedBranchTransition»
 	if ((Boolean)ctx.evaluate("«this.branchCondition_BranchTransition.specification.specificationString()»") == true)
 	{
 		«EXPAND m2t_transforms::java_core::Actions FOR this.branchBehaviour_BranchTransition.steps_Behaviour.findStart()»
 	}
 «ENDDEFINE»
 
-«DEFINE BranchTransition FOR ProbabilisticBranchTransition»
-	if (sum <= u && u < sum + «this.branchProbability» )
+«DEFINE BranchTransition(String counterNumber) FOR ProbabilisticBranchTransition»
+	if (sum«counterNumber» <= u«counterNumber» && u«counterNumber» < sum«counterNumber» + «this.branchProbability» )
 	{
 		«EXPAND m2t_transforms::java_core::Actions FOR this.branchBehaviour_BranchTransition.steps_Behaviour.findStart()»
 	}
-	sum += «this.branchProbability»;
+	sum«counterNumber» += «this.branchProbability»;
 «ENDDEFINE»
 
 «DEFINE Action FOR AquireAction»
