@@ -6,24 +6,26 @@
 «IMPORT entity»
 «IMPORT repository»
 «IMPORT parameter»
+«IMPORT seff»
 
 //-----------------------------------
 // Templates for the call to an external method
 // An instance of a port can be passed as prefix
 // The list of parameter usages characterises the paramter contents
 // ----------------------------------
-«DEFINE Call(String prefix, List[VariableUsage] parameterUsages, List[VariableUsage] outParameterUsages) FOR Signature»
-	«EXPAND PreCallTM(parameterUsages) FOR this»
+«DEFINE Call(Object call, String prefix, List[VariableUsage] parameterUsages, List[VariableUsage] outParameterUsages) FOR Signature»
+	«EXPAND PreCallTM(call, parameterUsages) FOR this»
    	«prefix»«this.javaSignature()» 
 	   	(«EXPAND m2t_transforms::java_core::ParameterUsageListTM FOR this»);
-	«EXPAND PostCallTM(outParameterUsages) FOR this»
+	«EXPAND PostCallTM(call, outParameterUsages) FOR this»
 «ENDDEFINE»
+
 
 // ----------------------------------
 // Template method for code to be executed before 
 // an external call
 // ----------------------------------
-«DEFINE PreCallTM(List[VariableUsage] parameterUsages) FOR Signature»
+«DEFINE PreCallTM(Object call, List[VariableUsage] parameterUsages) FOR Signature»
 «ENDDEFINE»
 
 
@@ -31,5 +33,5 @@
 // Template method for code to be executed after 
 // an external call
 // ----------------------------------
-«DEFINE PostCallTM(List[VariableUsage] outParameterUsages) FOR Signature»
+«DEFINE PostCallTM(Object call, List[VariableUsage] outParameterUsages) FOR Signature»
 «ENDDEFINE»

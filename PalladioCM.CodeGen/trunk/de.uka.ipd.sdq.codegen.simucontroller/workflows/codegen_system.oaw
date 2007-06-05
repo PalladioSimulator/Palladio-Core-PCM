@@ -46,6 +46,9 @@
 		<metaModel id="pcm.core.composition.emf" class="oaw.type.emf.EmfMetaModel">
 			<metaModelPackage value="de.uka.ipd.sdq.pcm.parameter.ParameterPackage"/>
 		</metaModel>
+		<metaModel id="pcm.core.completions" class="oaw.type.emf.EmfMetaModel">
+			<metaModelPackage value="de.uka.ipd.sdq.completions.CompletionsPackage"/>
+		</metaModel>
 		<expand value="m2t_transforms::system::Root FOR pcmmodel"/>
 			<outlet path="${outpath}">
 			</outlet>
@@ -95,6 +98,9 @@
 		</metaModel>
 		<metaModel id="pcm.core.composition.emf" class="oaw.type.emf.EmfMetaModel">
 			<metaModelPackage value="de.uka.ipd.sdq.pcm.parameter.ParameterPackage"/>
+		</metaModel>
+		<metaModel id="pcm.core.completions" class="oaw.type.emf.EmfMetaModel">
+			<metaModelPackage value="de.uka.ipd.sdq.completions.CompletionsPackage"/>
 		</metaModel>
 		<expand value="m2t_transforms::allocation::AllocationTM FOR allocation"/>
 			<outlet path="${outpath}">

@@ -3,6 +3,7 @@
 «IMPORT composition»
 
 «DEFINE Root FOR System»
+	«EXPAND m2t_transforms::completions::ExpandCompletions FOR this»
    «FILE this.getFileName()»
       «EXPAND System FOR this»
    «ENDFILE»

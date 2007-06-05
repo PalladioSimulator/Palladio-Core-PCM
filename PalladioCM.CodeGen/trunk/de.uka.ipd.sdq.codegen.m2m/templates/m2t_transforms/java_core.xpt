@@ -4,6 +4,7 @@
 «IMPORT seff»
 «IMPORT system»
 «IMPORT entity»
+«IMPORT completions»
 
 «DEFINE ClassHeader FOR ProvidesComponentType»
 public class «this.javaName()»

@@ -6,6 +6,7 @@ import composition;
 import usagemodel;
 import parameter;
 import stoex;
+import completions;
 
 findStart(List[AbstractAction] actions) :
    actions.typeSelect(StartAction).first();
@@ -81,3 +82,12 @@ hasSEFF(Signature service, ProvidesComponentType c):
 	
 getSEFF(Signature service, ProvidesComponentType c):
 	((BasicComponent)c).serviceEffectSpecifications__BasicComponent.select(e|e.describedService__SEFF==service).get(0);
+	
+getAllCompletions(ComposedStructure s):
+	s.childComponentContexts_ComposedStructure.encapsulatedComponent_ChildComponentContext.typeSelect(Completion).
+		 union(s.childComponentContexts_ComposedStructure.encapsulatedComponent_ChildComponentContext.
+		 		select(comp|comp != null && ComposedStructure.isInstance(comp) && !Completion.isInstance(comp)).
+		 		typeSelect(ComposedStructure).collect(cs|cs.getAllCompletions()));
+		 		
+AbstractAction findStopAction(AbstractAction a):
+	StopAction.isInstance(a) ? a : (a.successor_AbstractAction != null ? findStopAction(a.successor_AbstractAction) : null);

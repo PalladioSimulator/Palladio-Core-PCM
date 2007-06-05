@@ -16,11 +16,7 @@
    	«EXPAND PortGetter FOREACH this.providedRoles_InterfaceProvidingEntity»
 «ENDDEFINE»
 
-«DEFINE ProvidedPorts FOR System»
-	«EXPAND ContextPortGetter(this) FOREACH this.providedRoles_InterfaceProvidingEntity»
-«ENDDEFINE»
-
-«DEFINE ProvidedPorts FOR CompositeComponent»
+«DEFINE ProvidedPorts FOR ComposedProvidingRequiringEntity»
 	«EXPAND ContextPortGetter(this) FOREACH this.providedRoles_InterfaceProvidingEntity»
 «ENDDEFINE»
 

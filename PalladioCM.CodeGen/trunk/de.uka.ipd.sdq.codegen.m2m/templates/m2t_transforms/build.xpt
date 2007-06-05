@@ -63,11 +63,11 @@ output=output
 «ENDDEFINE»
 
 «DEFINE IncludeClasses FOR Repository»
-	<include name="«this.basePackageName().fqnToDirectoryPath()»/**/*.class" />
+	<include name="«this.javaName().toLowerCase().fqnToDirectoryPath()»/**/*.class" />
 «ENDDEFINE»
 
 «DEFINE IncludeClasses FOR System»
-	<include name="«this.basePackageName().fqnToDirectoryPath()»/**/*.class" />
+	<include name="«this.javaName().toLowerCase().fqnToDirectoryPath()»/**/*.class" />
 	«EXPAND IncludeClasses FOREACH this.collectRepositories()»  
 «ENDDEFINE»
 

@@ -6,10 +6,15 @@
 «IMPORT entity»
 «IMPORT repository»
 «IMPORT parameter»
+«IMPORT seff»
 
-«DEFINE PreCall(List[VariableUsage] parameterUsages) FOR Signature»
+«DEFINE PreCall(Object call, List[VariableUsage] parameterUsages) FOR Signature»
 	«EXPAND PrepareSimulatedStackFrame(parameterUsages) FOR this»
-	«EXPAND m2t_transforms::sensors::StartResponseTimeMeasurementTM FOR "Call_"+this.javaSignature()»
+	«IF ExternalCallAction.isInstance(call)»
+		«EXPAND m2t_transforms::sensors::StartResponseTimeMeasurementTM FOR "Call_"+this.javaSignature()+" <AssemblyCtx: \"+this.assemblyContextID+\", CallID: "+((ExternalCallAction)call).id+">"»
+	«ELSE»
+		«EXPAND m2t_transforms::sensors::StartResponseTimeMeasurementTM FOR "Call_"+this.javaSignature()»
+	«ENDIF»		
 	de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe callResult =	
 «ENDDEFINE»
 
@@ -34,9 +39,13 @@
 	«ENDFOREACH» 
 «ENDDEFINE»
 
-«DEFINE PostCall(List[VariableUsage] outParameterUsages) FOR Signature»
+«DEFINE PostCall(Object call, List[VariableUsage] outParameterUsages) FOR Signature»
 	// Stop the time measurement
-	«EXPAND m2t_transforms::sensors::EndResponseTimeMeasurementTM FOR "Call_"+this.javaSignature()»
+	«IF ExternalCallAction.isInstance(call)»
+		«EXPAND m2t_transforms::sensors::EndResponseTimeMeasurementTM FOR "Call_"+this.javaSignature()+" <AssemblyCtx: \"+this.assemblyContextID+\", CallID: "+((ExternalCallAction)call).id+">"»
+	«ELSE»
+		«EXPAND m2t_transforms::sensors::EndResponseTimeMeasurementTM FOR "Call_"+this.javaSignature()»
+	«ENDIF»		
  	ctx.getStack().removeStackFrame();
 	«FOREACH outParameterUsages AS pu»
 		«LET pu.parameterUsageLHS() AS lhs_prefix»

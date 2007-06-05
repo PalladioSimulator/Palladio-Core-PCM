@@ -1,0 +1,26 @@
+«EXTENSION m2t_transforms::java_names»
+«EXTENSION m2t_transforms::pcm»
+«IMPORT repository»
+«IMPORT entity»
+«IMPORT system»
+«IMPORT composition»
+«IMPORT completions»
+
+«DEFINE Root FOR CompletionRepository»
+   «EXPAND CompletionRoot FOREACH this.completions_CompletionRepository»
+«ENDDEFINE»
+
+«DEFINE ExpandCompletions FOR System»
+	«ERROR this.entityName»
+	«EXPAND CompletionRoot FOREACH this.getAllCompletions()»
+«ENDDEFINE»
+
+«DEFINE CompletionRoot FOR Completion»
+	«ERROR this.entityName»
+   	«FILE this.getFileName()»
+		«EXPAND m2t_transforms::composed_structure::ComposedStructureStart FOR this»
+	    «EXPAND m2t_transforms::provided_ports::ProvidedPorts FOR this»
+		«EXPAND m2t_transforms::context_pattern::RequiredInterfaces FOR this»
+		«EXPAND m2t_transforms::composed_structure::ComposedStructureEnd FOR this»
+	«ENDFILE»
+«ENDDEFINE»

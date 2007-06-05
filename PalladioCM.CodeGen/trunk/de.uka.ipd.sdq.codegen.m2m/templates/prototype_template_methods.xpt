@@ -59,12 +59,12 @@
 // Pre-/Post-Call TM
 //-------------------------
 
-«AROUND m2t_transforms::calls::PreCallTM(List[VariableUsage] parameterUsages) FOR Signature»
-	«EXPAND m2t_transforms::sim::calls::PreCall(parameterUsages) FOR this»
+«AROUND m2t_transforms::calls::PreCallTM(Object o, List[VariableUsage] parameterUsages) FOR Signature»
+	«EXPAND m2t_transforms::sim::calls::PreCall(o,parameterUsages) FOR this»
 «ENDAROUND»
  
-«AROUND m2t_transforms::calls::PostCallTM(List[VariableUsage] outParameterUsages) FOR Signature»
-	«EXPAND m2t_transforms::sim::calls::PostCall(outParameterUsages) FOR this»
+«AROUND m2t_transforms::calls::PostCallTM(Object o, List[VariableUsage] outParameterUsages) FOR Signature»
+	«EXPAND m2t_transforms::sim::calls::PostCall(o,outParameterUsages) FOR this»
 «ENDAROUND»
 
 // ----------------------------

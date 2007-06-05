@@ -20,11 +20,15 @@
 «ENDAROUND»
 
 «AROUND m2t_transforms::composed_structure::ComponentConstructorParametersTM FOR AssemblyContext»
-	"«this.id»"
+	«IF BasicComponent.isInstance(this.encapsulatedComponent_ChildComponentContext)»
+		"«this.id»"
+	«ENDIF»
 «ENDAROUND»
 
 «AROUND m2t_transforms::composed_structure::ChildInitTM(ComposedStructure s) FOR AssemblyContext»
-	«EXPAND m2t_transforms::sim::composed_structure::ChildInitTM(s) FOR this»
+	«IF BasicComponent.isInstance(this.encapsulatedComponent_ChildComponentContext)»
+		«EXPAND m2t_transforms::sim::composed_structure::ChildInitTM(s) FOR this»
+	«ENDIF»
 «ENDAROUND»
 
 «AROUND m2t_transforms::java_core::SpecificImplementationPartTM FOR ProvidesComponentType»
@@ -69,12 +73,12 @@
 // Pre-/Post-Call TM
 //-------------------------
 
-«AROUND m2t_transforms::calls::PreCallTM(List[VariableUsage] parameterUsages) FOR Signature»
-	«EXPAND m2t_transforms::sim::calls::PreCall(parameterUsages) FOR this»
+«AROUND m2t_transforms::calls::PreCallTM(Object call, List[VariableUsage] parameterUsages) FOR Signature»
+	«EXPAND m2t_transforms::sim::calls::PreCall(call, parameterUsages) FOR this»
 «ENDAROUND»
  
-«AROUND m2t_transforms::calls::PostCallTM(List[VariableUsage] outParameterUsages) FOR Signature»
-	«EXPAND m2t_transforms::sim::calls::PostCall(outParameterUsages) FOR this»
+«AROUND m2t_transforms::calls::PostCallTM(Object call, List[VariableUsage] outParameterUsages) FOR Signature»
+	«EXPAND m2t_transforms::sim::calls::PostCall(call, outParameterUsages) FOR this»
 «ENDAROUND» 
 
 // ----------------------------

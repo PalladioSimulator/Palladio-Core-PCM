@@ -4,14 +4,20 @@ import system;
 import composition;
 import usagemodel;
 import allocation;
+import completions;
 
 // Generate a java name by replacing all characters which are not java conform
 javaName(Entity e) :
-   e.entityName.replaceAll(" ","_");
+   e.entityName.replaceAll(" ","_").replaceAll("<","_").replaceAll(">","_");
 
 // Generate a java name by replacing all characters which are not java conform
 javaString(String s) :
-   s.replaceAll('"','\\\\"').replaceAll(' ','_');
+   s.replaceAll('"','\\\\"').replaceAll(' ','_').replaceAll("<","_").replaceAll(">","_").replaceAll(":","_")
+   .replaceAll("\\.","_");
+
+javaVariableName(String s) :
+   s.replaceAll('"','_').replaceAll(' ','_').replaceAll("<","_").replaceAll(">","_").replaceAll(":","_")
+   .replaceAll("\\.","_").replaceAll("\\,","_").replaceAll("\\+","_");
 
 specificationString(String s) :
    s.replaceAll('"','\\\\"');
@@ -56,7 +62,11 @@ implementationPackage(Interface i) :
    i.repository_Interface.basePackageName();
    
 // Base package of the implementation of a system
-implementationPackage(ComposedStructure s) :
+implementationPackage(System s) :
+   s.basePackageName()+".impl";
+  
+// Base package of the implementation of a system
+implementationPackage(Completion s) :
    s.basePackageName()+".impl";
   
 // Base package of the implementation of a system
@@ -68,7 +78,7 @@ implementationPackage(ProvidesComponentType c) :
    c.repository_ProvidesComponentType.basePackageName()+".impl";
 
 // Base package of a generated system   
-basePackageName(ComposedStructure s) :
+basePackageName(Entity s) :
    s.javaName().toLowerCase();
 
 // Name of the main class implementing a system
@@ -95,6 +105,9 @@ fqn(ProvidesComponentType c) :
   c.implementationPackage()+"."+c.javaName();
 
 fqn(ComposedStructure s) :
+  s.implementationPackage()+"."+s.javaName();
+
+fqn(Completion s) :
   s.implementationPackage()+"."+s.javaName();
 
 fqn(UsageScenario us) :
