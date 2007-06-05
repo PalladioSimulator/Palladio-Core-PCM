@@ -116,13 +116,13 @@ public class StartActionEditPart extends ShapeNodeEditPart {
 	 */
 	protected NodeFigure createNodePlate() {
 		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(getMapMode()
-				.DPtoLP(20), getMapMode().DPtoLP(20)){
+				.DPtoLP(20), getMapMode().DPtoLP(20)) {
 
-					@Override
-					protected ConnectionAnchor createDefaultAnchor() {
-						return new EllipseAnchor(this);
-					}
-			
+			@Override
+			protected ConnectionAnchor createDefaultAnchor() {
+				return new EllipseAnchor(this);
+			}
+
 		};
 		return result;
 	}

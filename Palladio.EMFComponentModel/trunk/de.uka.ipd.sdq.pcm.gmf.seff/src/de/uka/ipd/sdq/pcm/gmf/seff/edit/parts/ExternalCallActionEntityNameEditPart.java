@@ -54,6 +54,7 @@ import org.eclipse.swt.graphics.Image;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.PalladioComponentModelTextSelectionEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.seff.providers.PalladioComponentModelElementTypes;
 import de.uka.ipd.sdq.pcm.gmf.seff.providers.PalladioComponentModelParserProvider;
+import de.uka.ipd.sdq.pcm.repository.Interface;
 import de.uka.ipd.sdq.pcm.seff.ExternalCallAction;
 
 /**
@@ -215,9 +216,12 @@ public class ExternalCallActionEntityNameEditPart extends CompartmentEditPart
 	 */
 	protected String getLabelText() {
 		String text = null;
-		ExternalCallAction eca = (ExternalCallAction) resolveSemanticElement();
-		if (eca.getCalledService_ExternalService() != null) {
-			text = eca.getCalledService_ExternalService().getServiceName();
+		if (resolveSemanticElement() instanceof ExternalCallAction){
+			ExternalCallAction eca = (ExternalCallAction) resolveSemanticElement();
+			if (eca.getCalledService_ExternalService() != null) {
+				text = ((Interface)eca.getCalledService_ExternalService().eContainer()).getEntityName() + "." + 
+					eca.getCalledService_ExternalService().getServiceName();
+			}
 		}
 		if (text == null || text.length() == 0) {
 			text = defaultText;
@@ -253,7 +257,7 @@ public class ExternalCallActionEntityNameEditPart extends CompartmentEditPart
 	 * @generated
 	 */
 	protected boolean isEditable() {
-		return getParser() != null;
+		return false;
 	}
 
 	/**

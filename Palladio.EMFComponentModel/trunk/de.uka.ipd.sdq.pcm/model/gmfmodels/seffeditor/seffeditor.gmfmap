@@ -44,7 +44,10 @@
       <domainMetaElement
           href="../../pcm.ecore#//seff/ExternalCallAction"/>
       <labelMappings
-          xsi:type="gmfmap:FeatureLabelMapping">
+          xsi:type="gmfmap:FeatureLabelMapping"
+          readOnly="true"
+          editorPattern=""
+          editPattern="">
         <diagramLabel
             href="seffeditor.gmfgraph#ComponentExternalCallNameLabel"/>
         <features

@@ -113,7 +113,7 @@ public class StartAction2EditPart extends ShapeNodeEditPart {
 	 */
 	protected NodeFigure createNodePlate() {
 		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(getMapMode()
-				.DPtoLP(20), getMapMode().DPtoLP(20)){
+				.DPtoLP(20), getMapMode().DPtoLP(20)) {
 
 			@Override
 			protected ConnectionAnchor createDefaultAnchor() {

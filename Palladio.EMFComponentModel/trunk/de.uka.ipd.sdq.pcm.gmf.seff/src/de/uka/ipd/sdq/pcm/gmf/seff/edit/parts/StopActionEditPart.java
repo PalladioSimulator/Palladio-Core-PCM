@@ -114,7 +114,7 @@ public class StopActionEditPart extends ShapeNodeEditPart {
 	 */
 	protected NodeFigure createNodePlate() {
 		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(getMapMode()
-				.DPtoLP(30), getMapMode().DPtoLP(20)){
+				.DPtoLP(30), getMapMode().DPtoLP(20)) {
 
 			@Override
 			protected ConnectionAnchor createDefaultAnchor() {

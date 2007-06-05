@@ -649,6 +649,7 @@
           editPartClassName="ExternalCallActionEntityName2EditPart"
           itemSemanticEditPolicyClassName="ExternalCallActionEntityName2ItemSemanticEditPolicy"
           notationViewFactoryClassName="ExternalCallActionEntityName2ViewFactory"
+          readOnly="true"
           elementIcon="true">
         <diagramRunTimeClass
             href="../../../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
@@ -657,7 +658,9 @@
             getterName="getFigureComponentExternalCallName"
             figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel"/>
         <modelFacet
-            xsi:type="gmfgen:FeatureLabelModelFacet">
+            xsi:type="gmfgen:FeatureLabelModelFacet"
+            editorPattern=""
+            editPattern="">
           <metaFeatures
               href="../../pcm.genmodel#//pcm/core/entity/NamedElement/entityName"/>
         </modelFacet>
@@ -1270,6 +1273,7 @@
           editPartClassName="ExternalCallActionEntityNameEditPart"
           itemSemanticEditPolicyClassName="ExternalCallActionEntityNameItemSemanticEditPolicy"
           notationViewFactoryClassName="ExternalCallActionEntityNameViewFactory"
+          readOnly="true"
           elementIcon="true">
         <diagramRunTimeClass
             href="../../../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
@@ -1278,7 +1282,9 @@
             getterName="getFigureComponentExternalCallName"
             figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel"/>
         <modelFacet
-            xsi:type="gmfgen:FeatureLabelModelFacet">
+            xsi:type="gmfgen:FeatureLabelModelFacet"
+            editorPattern=""
+            editPattern="">
           <metaFeatures
               href="../../pcm.genmodel#//pcm/core/entity/NamedElement/entityName"/>
         </modelFacet>
