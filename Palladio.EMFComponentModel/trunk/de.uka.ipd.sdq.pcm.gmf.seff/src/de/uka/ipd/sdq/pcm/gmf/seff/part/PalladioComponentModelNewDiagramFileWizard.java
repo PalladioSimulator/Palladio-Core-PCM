@@ -46,6 +46,7 @@ import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.dialogs.WizardNewFileCreationPage;
 
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingSEFFEditPart;
+import de.uka.ipd.sdq.pcm.repository.BasicComponent;
 import de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF;
 
 /**
@@ -77,6 +78,7 @@ public class PalladioComponentModelNewDiagramFileWizard extends Wizard {
 						.bind(
 								Messages.PalladioComponentModelNewDiagramFileWizard_CreationPageDescription,
 								ResourceDemandingSEFFEditPart.MODEL_ID));
+	
 		IPath filePath;
 		String fileName = domainModelURI.trimFileExtension().lastSegment();
 		if (domainModelURI.isPlatformResource()) {
@@ -249,17 +251,42 @@ public class PalladioComponentModelNewDiagramFileWizard extends Wizard {
 
 			myCombo.removeAll();
 			for (ResourceDemandingSEFF seff : myFoundSeffs) {
-				//TODO find a better way to extract the container name
-				String containerName = seff.eContainer().toString();
-				containerName = containerName.substring(containerName
-						.lastIndexOf(" "), containerName.length() - 1);
 				myCombo.add("Container: "
-						+ containerName
+						+ getContainerNameFromSEFF(seff)
 						+ " - SEFF "
-						+ (seff.getDescribedService__SEFF() == null ? "" : seff
-								.getDescribedService__SEFF().getServiceName())
+						+ getServiceNameFromSEFF(seff)
 						+ " id: " + seff.getId());
 			}
+		}
+		
+		/**
+		 * helper function to determine the name of the component of a seff.
+		 * Assumes the seff can only be contained in a BasicComponent.
+		 * 
+		 * @param seff any seff
+		 * @return the name of the component the seff belongs to
+		 * or "" if the seff is not contained in a BasicComponent
+		 */
+		protected String getContainerNameFromSEFF(ResourceDemandingSEFF seff) {
+			EObject container = seff.eContainer();
+			if (container instanceof BasicComponent) {
+				BasicComponent component = (BasicComponent) container;
+				return component.getEntityName();
+			} else {
+				return "";
+			}
+		}
+		
+		/**
+		 * helper function to determine the name of the service of a seff
+		 * 
+		 * @param seff any seff
+		 * @return the name of the service the seff belongs to
+		 * or "" if the seff belongs to no service
+		 */
+		protected String getServiceNameFromSEFF(ResourceDemandingSEFF seff) {
+			return (seff.getDescribedService__SEFF() == null ? "" : seff
+					.getDescribedService__SEFF().getServiceName());
 		}
 
 		private void findSeffs() {
