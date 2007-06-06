@@ -78,6 +78,8 @@ public class PalladioComponentModelNewDiagramFileWizard extends Wizard {
 						.bind(
 								Messages.PalladioComponentModelNewDiagramFileWizard_CreationPageDescription,
 								ResourceDemandingSEFFEditPart.MODEL_ID));
+		//force correct file extension
+		myFileCreationPage.setFileExtension("seff_diagram");
 	
 		IPath filePath;
 		String fileName = domainModelURI.trimFileExtension().lastSegment();
