@@ -32,11 +32,12 @@ public class JFreeChartPieReport extends AbstractReportView implements
 	}
 
 	public void setInput(Collection c) {
-		IAdapter adapter = AdapterRegistry.singleton().getAdapter(c.iterator().next(),
-					Pie.class);
-		if (adapter != null){
-			myViewer.setPie((Pie)adapter.getAdaptedObject());
-		}
+		if (!c.isEmpty()) {
+			IAdapter adapter = AdapterRegistry.singleton().getAdapter(
+					c.iterator().next(), Pie.class);
+			if (adapter != null)
+				myViewer.setPie((Pie) adapter.getAdaptedObject());
+		} else
+			myViewer.setPie(new Pie());
 	}
-
 }
