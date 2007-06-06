@@ -9,6 +9,7 @@ import de.uka.ipd.sdq.sensorfactory.entities.State;
 import de.uka.ipd.sdq.sensorfactory.entities.StateSensor;
 import de.uka.ipd.sdq.sensorfactory.entities.dao.ISensorDAO;
 import de.uka.ipd.sdq.sensorfactory.entities.dao.IStateDAO;
+import de.uka.ipd.sdq.simucomframework.exceptions.SchedulerReturnedNegativeTimeException;
 import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
 import desmoj.core.simulator.Entity;
 import desmoj.core.simulator.Event;
@@ -120,9 +121,18 @@ public class SimulatedActiveResource extends Entity {
 	public void addJob(JobAndDemandStruct demand) {
 		myStrategy.addJob(demand);
 	}
+
+	public final static double EPSILON = Math.pow(10,-9);
 	
 	public double getTimeWhenNextJobIsDone() {
-		return myStrategy.getTimeWhenNextJobIsDone();
+		double result = myStrategy.getTimeWhenNextJobIsDone();
+		if (result < 0) {
+			if (Math.abs(result)<EPSILON){
+				result = 0.0;
+			} else 
+				new SchedulerReturnedNegativeTimeException();
+		}
+		return result;
 	}
 
 	public JobAndDemandStruct removeFinishedJob() {

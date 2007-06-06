@@ -17,8 +17,6 @@ import desmoj.core.simulator.SimTime;
 public class JobArrivalEvent extends Event {
 
 	private JobAndDemandStruct demand;
-	
-	public final static double EPSILON = Math.pow(10,-9);
 
 	public JobArrivalEvent(Model owner, JobAndDemandStruct jobAndDemandStruct, String name, boolean showInTrace) {
 		super(owner, name, showInTrace);
@@ -35,12 +33,6 @@ public class JobArrivalEvent extends Event {
 		resource.processPassedTime();
 		resource.addJob(demand);
 		double nextEventTime = resource.getTimeWhenNextJobIsDone();
-		if (nextEventTime < 0) {
-			if (Math.abs(nextEventTime)<EPSILON){
-				nextEventTime = 0.0;
-			} else 
-				new SchedulerReturnedNegativeTimeException();
-		}
 		SimTime nextEvent = new SimTime(nextEventTime);
 		if(resource.isScheduled())
 			resource.reSchedule(nextEvent);
