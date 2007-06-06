@@ -96,7 +96,7 @@ public class SensorsDialog extends TitleAreaDialog {
 		tableViewer.setCellModifier(new SensorsDialogCellModifier(entry));
 		tableViewer.setContentProvider(new SensorsDialogContentProvider());
 		tableViewer.setLabelProvider(new SensorsDialogLabelProvider(entry));
-		tableViewer.setInput(entry.getExperiment());
+		tableViewer.setInput(entry);
 		
 		//
 		return area;

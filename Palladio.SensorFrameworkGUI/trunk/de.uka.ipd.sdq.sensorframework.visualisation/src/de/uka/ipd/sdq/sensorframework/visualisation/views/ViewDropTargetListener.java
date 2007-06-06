@@ -7,15 +7,14 @@ import org.eclipse.swt.dnd.DropTargetEvent;
 import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.views.navigator.LocalSelectionTransfer;
 
+import de.uka.ipd.sdq.sensorfactory.entities.Experiment;
 import de.uka.ipd.sdq.sensorfactory.entities.ExperimentRun;
 import de.uka.ipd.sdq.sensorfactory.entities.Sensor;
 import de.uka.ipd.sdq.sensorframework.visualisation.editor.ConfigEditorInput;
 import de.uka.ipd.sdq.sensorframework.visualisation.editor.ConfigEntry;
+import de.uka.ipd.sdq.sensorframework.visualisation.editor.SensorValidationToView;
 
-/**
- * @author admin
- *
- */
+/** @author admin */
 public class ViewDropTargetListener extends DropTargetAdapter {
 
 	private ConfigEditorInput configEditorInput;
@@ -76,8 +75,18 @@ public class ViewDropTargetListener extends DropTargetAdapter {
 			/** Drop a sensor */
 			if (innerObject instanceof Sensor) {
 				Sensor sensor = (Sensor) innerObject;
-				configEditorInput.editConfigEntry(treeObject.getRun(),
-						treeObject.getExperiment(), sensor);
+				ExperimentRun run = treeObject.getRun();
+				Experiment experiment = treeObject.getExperiment();
+				/**
+				 * sensor validation - if view do support the representation of
+				 * the selected sensor
+				 */
+				if (SensorValidationToView.canViewSensor(run
+						.getMeasurementsOfSensor(sensor))) {
+					configEditorInput.editConfigEntry(run, experiment, sensor);
+				} else
+					SensorValidationToView.showMessage(event.display
+							.getActiveShell());
 			}
 			/** Drop a experiment run */
 			if (innerObject instanceof ExperimentRun) {
@@ -91,6 +100,7 @@ public class ViewDropTargetListener extends DropTargetAdapter {
 		}
 	}
 
+	
 	/* (non-Javadoc)
 	 * @see org.eclipse.swt.dnd.DropTargetListener#dropAccept(org.eclipse.swt.dnd.DropTargetEvent)
 	 */
@@ -98,5 +108,4 @@ public class ViewDropTargetListener extends DropTargetAdapter {
 	public void dropAccept(DropTargetEvent event) {
 		// TODO Auto-generated method stub
 	}
-
 }
