@@ -1058,7 +1058,7 @@
       <sourceEnd
           body="not self.oclIsTypeOf(StopAction)"/>
       <targetEnd
-          body="self.predecessor_AbstractAction = null and not self.oclIsTypeOf(StartAction) and self.eContainer = oppositeEnd.eContainer"/>
+          body="self.predecessor_AbstractAction = null and not self.oclIsTypeOf(StartAction)"/>
     </creationConstraints>
   </links>
   <diagram>

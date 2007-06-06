@@ -83,7 +83,7 @@ basePackageName(Entity s) :
 
 // Name of the main class implementing a system
 className(ComposedStructure s) :
-   s.javaName().toFirstUpper();
+   s.javaName();
 
 fqnAllocationContextPackage(Allocation a) :
    a.system_Allocation.implementationPackage()+".allocation";
