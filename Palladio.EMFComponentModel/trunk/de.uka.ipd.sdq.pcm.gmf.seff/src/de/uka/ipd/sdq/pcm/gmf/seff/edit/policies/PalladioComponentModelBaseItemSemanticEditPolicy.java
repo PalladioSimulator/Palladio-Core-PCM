@@ -4,7 +4,9 @@
 package de.uka.ipd.sdq.pcm.gmf.seff.edit.policies;
 
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.Iterator;
+import java.util.Map;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
@@ -43,8 +45,12 @@ import org.eclipse.gmf.runtime.notation.Edge;
 import org.eclipse.gmf.runtime.notation.View;
 
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.helpers.PalladioComponentModelBaseEditHelper;
+import de.uka.ipd.sdq.pcm.gmf.seff.expressions.PalladioComponentModelAbstractExpression;
+import de.uka.ipd.sdq.pcm.gmf.seff.expressions.PalladioComponentModelOCLFactory;
+import de.uka.ipd.sdq.pcm.gmf.seff.part.PalladioComponentModelSeffDiagramEditorPlugin;
 import de.uka.ipd.sdq.pcm.gmf.seff.part.PalladioComponentModelVisualIDRegistry;
 import de.uka.ipd.sdq.pcm.seff.AbstractAction;
+import de.uka.ipd.sdq.pcm.seff.SeffPackage;
 
 /**
  * @generated
@@ -331,6 +337,45 @@ public class PalladioComponentModelBaseItemSemanticEditPolicy extends
 		/**
 		 * @generated
 		 */
+		private static final String OPPOSITE_END_VAR = "oppositeEnd"; //$NON-NLS-1$
+		/**
+		 * @generated
+		 */
+		private static final PalladioComponentModelAbstractExpression AbstractActionSuccessor_AbstractAction_4001_SourceExpression;
+		/**
+		 * @generated
+		 */
+		private static final PalladioComponentModelAbstractExpression AbstractActionSuccessor_AbstractAction_4001_TargetExpression;
+
+		/**
+		 * @generated
+		 */
+		static {
+			Map env = new HashMap(3);
+			env
+					.put(OPPOSITE_END_VAR, SeffPackage.eINSTANCE
+							.getAbstractAction());
+			AbstractActionSuccessor_AbstractAction_4001_TargetExpression = PalladioComponentModelOCLFactory
+					.getExpression(
+							"self.predecessor_AbstractAction = null and not self.oclIsTypeOf(StartAction)", SeffPackage.eINSTANCE.getAbstractAction(), env); //$NON-NLS-1$
+		}
+
+		/**
+		 * @generated
+		 */
+		static {
+			Map env = new HashMap(3);
+			env
+					.put(OPPOSITE_END_VAR, SeffPackage.eINSTANCE
+							.getAbstractAction());
+			AbstractActionSuccessor_AbstractAction_4001_SourceExpression = PalladioComponentModelOCLFactory
+					.getExpression(
+							"not self.oclIsTypeOf(StopAction)", SeffPackage.eINSTANCE.getAbstractAction(), env); //$NON-NLS-1$
+		}
+
+		/**
+		 * @generated
+		 */
 		public static boolean canCreateAbstractActionSuccessor_AbstractAction_4001(
 				AbstractAction source, AbstractAction target) {
 			if (source != null) {
@@ -347,7 +392,39 @@ public class PalladioComponentModelBaseItemSemanticEditPolicy extends
 		 */
 		public static boolean canExistAbstractActionSuccessor_AbstractAction_4001(
 				AbstractAction source, AbstractAction target) {
+			if (!evaluate(
+					AbstractActionSuccessor_AbstractAction_4001_SourceExpression,
+					source, target, false)) {
+				return false;
+			}
+			if (!evaluate(
+					AbstractActionSuccessor_AbstractAction_4001_TargetExpression,
+					target, source, true)) {
+				return false;
+			}
 			return true;
+		}
+
+		/**
+		 * @generated
+		 */
+		private static boolean evaluate(
+				PalladioComponentModelAbstractExpression constraint,
+				Object sourceEnd, Object oppositeEnd, boolean clearEnv) {
+			if (sourceEnd == null) {
+				return true;
+			}
+			Map evalEnv = Collections.singletonMap(OPPOSITE_END_VAR,
+					oppositeEnd);
+			try {
+				Object val = constraint.evaluate(sourceEnd, evalEnv);
+				return (val instanceof Boolean) ? ((Boolean) val)
+						.booleanValue() : false;
+			} catch (Exception e) {
+				PalladioComponentModelSeffDiagramEditorPlugin.getInstance()
+						.logError("Link constraint evaluation error", e); //$NON-NLS-1$
+				return false;
+			}
 		}
 
 	}

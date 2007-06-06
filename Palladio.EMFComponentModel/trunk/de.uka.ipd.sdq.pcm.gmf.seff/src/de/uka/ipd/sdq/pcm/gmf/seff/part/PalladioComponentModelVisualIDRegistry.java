@@ -88,6 +88,7 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableUsageVariableCharacterisat
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableUsageVariableCharacterisation3EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableUsageVariableCharacterisationEditPart;
 
+import de.uka.ipd.sdq.pcm.gmf.seff.expressions.PalladioComponentModelAbstractExpression;
 import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
 import de.uka.ipd.sdq.pcm.parameter.VariableCharacterisation;
 import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
@@ -1677,6 +1678,15 @@ public class PalladioComponentModelVisualIDRegistry {
 	private static int getUnrecognizedResourceDemandingSEFF_1000ChildNodeID(
 			EObject domainElement, String semanticHint) {
 		return -1;
+	}
+
+	/**
+	 * @generated
+	 */
+	private static boolean evaluate(
+			PalladioComponentModelAbstractExpression expression, Object element) {
+		Object result = expression.evaluate(element);
+		return result instanceof Boolean && ((Boolean) result).booleanValue();
 	}
 
 	/**

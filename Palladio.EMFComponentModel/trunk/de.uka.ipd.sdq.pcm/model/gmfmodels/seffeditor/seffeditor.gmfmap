@@ -1054,6 +1054,12 @@
     <linkMetaFeature
         xsi:type="ecore:EReference"
         href="../../pcm.ecore#//seff/AbstractAction/successor_AbstractAction"/>
+    <creationConstraints>
+      <sourceEnd
+          body="not self.oclIsTypeOf(StopAction)"/>
+      <targetEnd
+          body="self.predecessor_AbstractAction = null and not self.oclIsTypeOf(StartAction) and self.eContainer = oppositeEnd.eContainer"/>
+    </creationConstraints>
   </links>
   <diagram>
     <diagramCanvas

@@ -1740,6 +1740,12 @@
         <metaFeature
             href="../../pcm.genmodel#//pcm/seff/AbstractAction/successor_AbstractAction"/>
       </modelFacet>
+      <creationConstraints>
+        <sourceEnd
+            body="not self.oclIsTypeOf(StopAction)"/>
+        <targetEnd
+            body="self.predecessor_AbstractAction = null and not self.oclIsTypeOf(StartAction)"/>
+      </creationConstraints>
     </links>
     <compartments
         visualID="7001"
@@ -3125,4 +3131,11 @@
   </propertySheet>
   <domainGenModel
       href="../../pcm.genmodel#/"/>
+  <expressionProviders>
+    <providers
+        xsi:type="gmfgen:GenExpressionInterpreter"
+        expressions="//@diagram/@links.0/@creationConstraints/@sourceEnd //@diagram/@links.0/@creationConstraints/@targetEnd">
+      <requiredPluginIDs>org.eclipse.ocl.ecore</requiredPluginIDs>
+    </providers>
+  </expressionProviders>
 </gmfgen:GenEditorGenerator>

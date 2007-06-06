@@ -49,6 +49,7 @@ Require-Bundle: org.eclipse.core.runtime,
  de.uka.ipd.sdq.dialogs,
  de.uka.ipd.sdq.pcm.stochasticexpressions,
  de.uka.ipd.sdq.stoex.analyser,
- de.uka.ipd.sdq.pcmbench.propertytabs
+ de.uka.ipd.sdq.pcmbench.propertytabs,
+ org.eclipse.ocl.ecore;visibility:=reexport
 Eclipse-LazyStart: true
 Bundle-RequiredExecutionEnvironment: J2SE-1.4

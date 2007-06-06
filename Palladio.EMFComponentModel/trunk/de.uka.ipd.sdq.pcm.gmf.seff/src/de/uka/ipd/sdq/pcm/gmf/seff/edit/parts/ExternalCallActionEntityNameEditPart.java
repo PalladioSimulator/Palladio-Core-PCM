@@ -216,11 +216,14 @@ public class ExternalCallActionEntityNameEditPart extends CompartmentEditPart
 	 */
 	protected String getLabelText() {
 		String text = null;
-		if (resolveSemanticElement() instanceof ExternalCallAction){
+		if (resolveSemanticElement() instanceof ExternalCallAction) {
 			ExternalCallAction eca = (ExternalCallAction) resolveSemanticElement();
 			if (eca.getCalledService_ExternalService() != null) {
-				text = ((Interface)eca.getCalledService_ExternalService().eContainer()).getEntityName() + "." + 
-					eca.getCalledService_ExternalService().getServiceName();
+				text = ((Interface) eca.getCalledService_ExternalService()
+						.eContainer()).getEntityName()
+						+ "."
+						+ eca.getCalledService_ExternalService()
+								.getServiceName();
 			}
 		}
 		if (text == null || text.length() == 0) {
