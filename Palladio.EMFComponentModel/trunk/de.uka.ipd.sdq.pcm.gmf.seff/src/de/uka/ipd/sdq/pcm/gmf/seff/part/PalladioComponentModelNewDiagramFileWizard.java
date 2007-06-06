@@ -30,6 +30,7 @@ import org.eclipse.gmf.runtime.diagram.core.services.view.CreateDiagramViewOpera
 import org.eclipse.gmf.runtime.emf.commands.core.command.AbstractTransactionalCommand;
 import org.eclipse.gmf.runtime.emf.core.util.EObjectAdapter;
 import org.eclipse.gmf.runtime.notation.Diagram;
+import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.jface.wizard.Wizard;
 import org.eclipse.jface.wizard.WizardPage;
@@ -41,9 +42,11 @@ import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.dialogs.WizardNewFileCreationPage;
+import org.eclipse.ui.internal.ide.IDEWorkbenchMessages;
 
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingSEFFEditPart;
 import de.uka.ipd.sdq.pcm.repository.BasicComponent;
@@ -58,6 +61,16 @@ public class PalladioComponentModelNewDiagramFileWizard extends Wizard {
 	 * @generated
 	 */
 	private TransactionalEditingDomain myEditingDomain;
+	
+	/**
+	 * @generated not
+	 */
+	private WizardNewFileCreationPage myDiagramFilenameSelectionPage;
+
+	/**
+	 * @generated not
+	 */
+	private DiagramRootElementSelectionPage myDiagramRootElementSelectionPage;
 
 	/**
 	 * @generated not
@@ -68,21 +81,20 @@ public class PalladioComponentModelNewDiagramFileWizard extends Wizard {
 		assert diagramRoot != null : "Doagram root element must be specified"; //$NON-NLS-1$
 		assert editingDomain != null : "Editing domain must be specified"; //$NON-NLS-1$
 
-		myFileCreationPage = new WizardNewFileCreationPage(
+		myDiagramFilenameSelectionPage = new WizardNewFileCreationPage(
 				Messages.PalladioComponentModelNewDiagramFileWizard_CreationPageName,
 				StructuredSelection.EMPTY);
-		myFileCreationPage
+		myDiagramFilenameSelectionPage
 				.setTitle(Messages.PalladioComponentModelNewDiagramFileWizard_CreationPageTitle);
-		myFileCreationPage
+		myDiagramFilenameSelectionPage
 				.setDescription(NLS
 						.bind(
 								Messages.PalladioComponentModelNewDiagramFileWizard_CreationPageDescription,
 								ResourceDemandingSEFFEditPart.MODEL_ID));
 		//force correct file extension
-		myFileCreationPage.setFileExtension("seff_diagram");
+		myDiagramFilenameSelectionPage.setFileExtension("seff_diagram");
 	
 		IPath filePath;
-		String fileName = domainModelURI.trimFileExtension().lastSegment();
 		if (domainModelURI.isPlatformResource()) {
 			filePath = new Path(domainModelURI.trimSegments(1)
 					.toPlatformString(true));
@@ -93,16 +105,14 @@ public class PalladioComponentModelNewDiagramFileWizard extends Wizard {
 			throw new IllegalArgumentException(
 					"Unsupported URI: " + domainModelURI); //$NON-NLS-1$
 		}
-		myFileCreationPage.setContainerFullPath(filePath);
-		myFileCreationPage.setFileName(PalladioComponentModelDiagramEditorUtil
-				.getUniqueFileName(filePath, fileName, "seff_diagram")); //$NON-NLS-1$
-
-		diagramRootElementSelectionPage = new DiagramRootElementSelectionPage(
+		myDiagramFilenameSelectionPage.setContainerFullPath(filePath);
+		
+		myDiagramRootElementSelectionPage = new DiagramRootElementSelectionPage(
 				Messages.PalladioComponentModelNewDiagramFileWizard_RootSelectionPageName,
 				diagramRoot);
-		diagramRootElementSelectionPage
+		myDiagramRootElementSelectionPage
 				.setTitle(Messages.PalladioComponentModelNewDiagramFileWizard_RootSelectionPageTitle);
-		diagramRootElementSelectionPage
+		myDiagramRootElementSelectionPage
 				.setDescription(Messages.PalladioComponentModelNewDiagramFileWizard_RootSelectionPageDescription);
 
 		myEditingDomain = editingDomain;
@@ -111,19 +121,9 @@ public class PalladioComponentModelNewDiagramFileWizard extends Wizard {
 	/**
 	 * @generated
 	 */
-	private WizardNewFileCreationPage myFileCreationPage;
-
-	/**
-	 * @generated not
-	 */
-	private DiagramRootElementSelectionPage diagramRootElementSelectionPage;
-
-	/**
-	 * @generated
-	 */
 	public void addPages() {
-		addPage(myFileCreationPage);
-		addPage(diagramRootElementSelectionPage);
+		addPage(myDiagramRootElementSelectionPage);
+		addPage(myDiagramFilenameSelectionPage);		
 	}
 
 	/**
@@ -131,7 +131,7 @@ public class PalladioComponentModelNewDiagramFileWizard extends Wizard {
 	 */
 	public boolean performFinish() {
 		List<IFile> affectedFiles = new LinkedList<IFile>();
-		IFile diagramFile = myFileCreationPage.createNewFile();
+		IFile diagramFile = myDiagramFilenameSelectionPage.createNewFile();
 		try {
 			diagramFile.setCharset("UTF-8", new NullProgressMonitor()); //$NON-NLS-1$
 		} catch (CoreException e) {
@@ -152,7 +152,7 @@ public class PalladioComponentModelNewDiagramFileWizard extends Wizard {
 					IProgressMonitor monitor, IAdaptable info)
 					throws ExecutionException {
 				int diagramVID = PalladioComponentModelVisualIDRegistry
-						.getDiagramVisualID(diagramRootElementSelectionPage
+						.getDiagramVisualID(myDiagramRootElementSelectionPage
 								.getSeff());
 				if (diagramVID != ResourceDemandingSEFFEditPart.VISUAL_ID) {
 					return CommandResult
@@ -160,7 +160,7 @@ public class PalladioComponentModelNewDiagramFileWizard extends Wizard {
 				}
 				Diagram diagram = ViewService
 						.createDiagram(
-								diagramRootElementSelectionPage.getSeff(),
+								myDiagramRootElementSelectionPage.getSeff(),
 								ResourceDemandingSEFFEditPart.MODEL_ID,
 								PalladioComponentModelSeffDiagramEditorPlugin.DIAGRAM_PREFERENCES_HINT);
 				diagramResource.getContents().add(diagram);
@@ -191,7 +191,7 @@ public class PalladioComponentModelNewDiagramFileWizard extends Wizard {
 	/**
 	 * @generated not
 	 */
-	private static class DiagramRootElementSelectionPage extends WizardPage {
+	private class DiagramRootElementSelectionPage extends WizardPage {
 
 		/**
 		 * @generated
@@ -254,7 +254,7 @@ public class PalladioComponentModelNewDiagramFileWizard extends Wizard {
 			myCombo.removeAll();
 			for (ResourceDemandingSEFF seff : myFoundSeffs) {
 				myCombo.add("Container: "
-						+ getContainerNameFromSEFF(seff)
+						+ getComponentNameFromSEFF(seff)
 						+ " - SEFF "
 						+ getServiceNameFromSEFF(seff)
 						+ " id: " + seff.getId());
@@ -269,7 +269,7 @@ public class PalladioComponentModelNewDiagramFileWizard extends Wizard {
 		 * @return the name of the component the seff belongs to
 		 * or "" if the seff is not contained in a BasicComponent
 		 */
-		protected String getContainerNameFromSEFF(ResourceDemandingSEFF seff) {
+		protected String getComponentNameFromSEFF(ResourceDemandingSEFF seff) {
 			EObject container = seff.eContainer();
 			if (container instanceof BasicComponent) {
 				BasicComponent component = (BasicComponent) container;
@@ -329,6 +329,13 @@ public class PalladioComponentModelNewDiagramFileWizard extends Wizard {
 			} catch (ArrayIndexOutOfBoundsException e) {
 				return false;
 			}
+			
+			//propose a name in the diagram filename selection page
+			String filename = getComponentNameFromSEFF(mySeff) + 
+								"." +
+								getServiceNameFromSEFF(mySeff) +
+								".seff_diagram";
+			myDiagramFilenameSelectionPage.setFileName(filename);
 
 			return true;
 		}
