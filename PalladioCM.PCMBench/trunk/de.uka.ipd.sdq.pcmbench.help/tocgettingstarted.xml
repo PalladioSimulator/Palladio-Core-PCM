@@ -4,7 +4,7 @@
 <toc label="Getting Started" link_to="toc.xml#gettingstarted"> 
 	<topic label="PCM Model"  href="html/gettingstarted/PCM_Model.html" > 
 	</topic> 
-	<topic label="Resource Typ Model" href="html/gettingstarted/ResourcetypeModel.htm">
+	<topic label="Resourcetyp Model" href="html/gettingstarted/ResourcetypeModel.htm">
 	</topic> 
 	<topic label="Repository Model" href="html/gettingstarted/RepositoryModel.htm">
 	</topic> 
