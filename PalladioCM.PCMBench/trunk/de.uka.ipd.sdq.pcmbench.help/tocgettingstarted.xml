@@ -3,9 +3,11 @@
 
 <toc label="Getting Started" link_to="toc.xml#gettingstarted"> 
 	<topic label="PCM Model"  href="html/gettingstarted/PCM_Model.html" /> 
-		<topic label="Sub Topic" href="html/gettingstarted/subtopic.html"> 
-	</topic>
-	<topic label="Main Topic 2">
-		<topic label="Sub Topic 2" href="html/gettingstarted/subtopic2.html">
+	<topic label="Sub Topic 2" href="html/gettingstarted/ResourcetypeModel.htm">
+	<topic label="Sub Topic 2" href="html/gettingstarted/RepositoryModel.htm">
+	<topic label="Sub Topic 2" href="html/gettingstarted/SystemModel.htm">
+	<topic label="Sub Topic 2" href="html/gettingstarted/ResourceenvironmentModel.htm">
+	<topic label="Sub Topic 2" href="html/AllocationModel.htm">
+	<topic label="Sub Topic 2" href="html/gettingstarted/UsageModel.htm">
 	</topic> 
 </toc>
