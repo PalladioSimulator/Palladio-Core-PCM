@@ -51,6 +51,9 @@
 		<metaModel id="pcm.core.qosannotations.emf" class="oaw.type.emf.EmfMetaModel">
 			<metaModelPackage value="de.uka.ipd.sdq.pcm.qosannotations.QosannotationsPackage"/>
 		</metaModel>
+		<metaModel id="pcm.core.completions" class="oaw.type.emf.EmfMetaModel">
+			<metaModelPackage value="de.uka.ipd.sdq.completions.CompletionsPackage"/>
+		</metaModel>
 		<expand value="m2t_transforms::usage::UsageModel(allocation) FOR pcmmodel"/>
 		<outlet path="${outpath}">
 			</outlet>
@@ -106,6 +109,9 @@
 		<metaModel id="pcm.core.qosannotations.emf" class="oaw.type.emf.EmfMetaModel">
 			<metaModelPackage value="de.uka.ipd.sdq.pcm.qosannotations.QosannotationsPackage"/>
 		</metaModel>
+		<metaModel id="pcm.core.completions" class="oaw.type.emf.EmfMetaModel">
+			<metaModelPackage value="de.uka.ipd.sdq.completions.CompletionsPackage"/>
+		</metaModel>		
 		<expand value="m2t_transforms::build::BuildScripts FOR pcmmodel"/>
 		<outlet path="${outpath}">
 			</outlet>
