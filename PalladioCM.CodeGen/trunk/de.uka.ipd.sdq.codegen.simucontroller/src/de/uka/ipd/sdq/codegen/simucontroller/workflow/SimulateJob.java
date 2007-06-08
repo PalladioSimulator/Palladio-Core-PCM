@@ -39,7 +39,7 @@ public class SimulateJob implements ISimulationJob {
 				}
 			}
 		} catch (Exception e) {
-			throw new Exception("Locating simulation plugin failed", e);
+			throw new Exception("Locating simulation plugin failed. Possibly the workspace path is too long.", e);
 		}
 
 		SimuComJob job = new SimuComJob(control, config, null);
