@@ -28,8 +28,8 @@ public class TreeLabelProvider extends LabelProvider {
 	 */
 	@Override
 	public String getText(Object obj) {
-		if (obj instanceof Experiment)
-			return ((Experiment) obj).getExperimentName();
+		if (obj instanceof ExperimentAndDAO)
+			return ((ExperimentAndDAO) obj).getExperiment().getExperimentName();
 
 		if (obj instanceof TreeContainer)
 			return ((TreeContainer) obj).getName();
@@ -62,7 +62,7 @@ public class TreeLabelProvider extends LabelProvider {
 	@Override
 	public Image getImage(Object obj) {
 
-		if (obj instanceof Experiment)
+		if (obj instanceof ExperimentAndDAO)
 			return SimuImages.imageRegistry.get(SimuImages.EXPERIMENT);
 
 		if (obj instanceof TreeContainer){

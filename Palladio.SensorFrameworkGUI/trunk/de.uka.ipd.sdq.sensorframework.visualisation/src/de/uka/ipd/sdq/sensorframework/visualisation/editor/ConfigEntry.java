@@ -7,14 +7,17 @@ import java.util.Observable;
 import de.uka.ipd.sdq.sensorfactory.entities.Experiment;
 import de.uka.ipd.sdq.sensorfactory.entities.ExperimentRun;
 import de.uka.ipd.sdq.sensorfactory.entities.Sensor;
+import de.uka.ipd.sdq.sensorfactory.entities.dao.IDAOFactory;
 
 public class ConfigEntry extends Observable {
 	private List<Sensor> sensors;
 	private ExperimentRun experimentRun;
 	private Experiment experiment;
+	private IDAOFactory datasource;
 
-	public ConfigEntry(ExperimentRun experimentRun, Experiment experiment,
+	public ConfigEntry(IDAOFactory factory, ExperimentRun experimentRun, Experiment experiment,
 			Sensor sensor) {
+		this.datasource = factory;
 		this.experimentRun = experimentRun;
 		this.experiment = experiment;
 		this.sensors = new ArrayList<Sensor>();
@@ -60,5 +63,9 @@ public class ConfigEntry extends Observable {
 
 	public void setExperiment(Experiment experiment) {
 		this.experiment = experiment;
+	}
+
+	public IDAOFactory getDatasource() {
+		return this.datasource;
 	}
 }

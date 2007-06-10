@@ -37,4 +37,7 @@ public class MemoryExperimentRunDAO implements IExperimentRunDAO {
 		return Collections.unmodifiableCollection(index.values());
 	}
 
+	public void store(ExperimentRun er) {
+	}
+
 }

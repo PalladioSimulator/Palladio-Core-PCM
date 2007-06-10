@@ -92,7 +92,7 @@ public class SimuComModel extends Model {
 
 	public void setConfig(SimuComConfig config) {
 		this.config = config;
-		this.daoFactory = SensorFrameworkDataset.singleton().getMemoryDataset(); 
+		this.daoFactory = SensorFrameworkDataset.singleton().getDataSourceByID(0); 
 		if (daoFactory.createExperimentDAO().findByExperimentName(this.getConfig().getNameExperimentRun()).size() == 1){
 			experiment = daoFactory.createExperimentDAO().findByExperimentName(this.getConfig().getNameExperimentRun()).
 							iterator().next();

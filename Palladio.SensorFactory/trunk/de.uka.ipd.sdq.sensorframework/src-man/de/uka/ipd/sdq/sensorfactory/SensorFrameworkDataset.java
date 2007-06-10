@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 
+import de.uka.ipd.sdq.sensorfactory.dao.db4o.DB4ODAOFactory;
 import de.uka.ipd.sdq.sensorfactory.dao.memory.MemoryDAOFactory;
 import de.uka.ipd.sdq.sensorfactory.entities.dao.IDAOFactory;
 
@@ -12,7 +13,8 @@ public class SensorFrameworkDataset {
 	private ArrayList<IDAOFactory> datasources = new ArrayList<IDAOFactory>();
 	
 	private SensorFrameworkDataset() {
-		datasources.add(new MemoryDAOFactory());
+		datasources.add(new MemoryDAOFactory(0));
+		//datasources.add(new DB4ODAOFactory(1,"C:\\temp\\test.db"));
 	}
 	
 	public static SensorFrameworkDataset singleton() {
@@ -27,7 +29,10 @@ public class SensorFrameworkDataset {
 		return datasources.get(0);
 	}
 	
-	public IDAOFactory getDataset(int pos){
-		return datasources.get(pos);
+	public IDAOFactory getDataSourceByID(long id){
+		for (IDAOFactory f:datasources)
+			if (f.getID() == id)
+				return f;
+		return null;
 	}
 }

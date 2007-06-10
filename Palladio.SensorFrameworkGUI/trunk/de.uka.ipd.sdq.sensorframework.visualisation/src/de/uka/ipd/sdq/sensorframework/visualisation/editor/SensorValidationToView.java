@@ -31,14 +31,14 @@ public class SensorValidationToView {
 
 		ArrayList<IConfigurationElement> views = new ArrayList<IConfigurationElement>();
 
-		IAdapter adapter = AdapterRegistry.singleton().getAdapter(
-				sensorAndMeasurements, null);
-		Object object = adapter.getAdaptedObject();
 		for (int i = 0; i < elements.length; i++) {
 			IConfigurationElement element = elements[i];
 			String executableObject = element.getAttribute("acceptsData");
 			try {
-				if (Class.forName(executableObject).isInstance(object))
+				Class viewerAcceptsClass = Class.forName(executableObject);
+				if (viewerAcceptsClass.isInstance(sensorAndMeasurements) ||
+						AdapterRegistry.singleton().canAdapt(sensorAndMeasurements,viewerAcceptsClass)
+						|| viewerAcceptsClass.isInstance(sensorAndMeasurements.getSensor()))
 					views.add(element);
 			} catch (ClassNotFoundException e) {
 				// catch exeption for TimeSpanSensor

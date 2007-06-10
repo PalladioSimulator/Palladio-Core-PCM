@@ -4,6 +4,10 @@ public interface IDAOFactory {
 	String getName();
 
 	String getDescription();
+	
+	long getID();
+	
+	void finalizeAndClose();
 
 	de.uka.ipd.sdq.sensorfactory.entities.dao.IExperimentDAO createExperimentDAO();
 

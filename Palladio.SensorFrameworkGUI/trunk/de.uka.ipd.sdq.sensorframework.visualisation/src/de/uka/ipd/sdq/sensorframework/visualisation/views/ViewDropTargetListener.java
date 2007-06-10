@@ -83,7 +83,7 @@ public class ViewDropTargetListener extends DropTargetAdapter {
 				 */
 				if (SensorValidationToView.canViewSensor(run
 						.getMeasurementsOfSensor(sensor))) {
-					configEditorInput.editConfigEntry(run, experiment, sensor);
+					configEditorInput.editConfigEntry(treeObject.getDatasource(), run, experiment, sensor);
 				} else
 					SensorValidationToView.showMessage(event.display
 							.getActiveShell());
@@ -92,7 +92,8 @@ public class ViewDropTargetListener extends DropTargetAdapter {
 			if (innerObject instanceof ExperimentRun) {
 				ExperimentRun run = (ExperimentRun) innerObject;
 				if (configEditorInput.getConfigEntryToRun(run) == null) {
-					ConfigEntry configEntry = new ConfigEntry(run, treeObject
+					ConfigEntry configEntry = new ConfigEntry(treeObject.getDatasource(),
+							run, treeObject
 							.getExperiment(), null);
 					configEditorInput.addConfigEntry(configEntry);
 				}

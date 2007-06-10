@@ -21,7 +21,12 @@ public class MemoryDAOFactory implements IDAOFactory {
 	private IMeasurementDAO measurementDAO;
 	private ISensorDAO sensorDAO;
 	private IStateDAO stateDAO;
+	private long id;
 
+	public MemoryDAOFactory(long id) {
+		this.id = id;
+	}
+	
 	/* (non-Javadoc)
 	 * @see de.uka.ipd.sdq.sensorfactory.entities.dao.IDAOFactory#createExperimentDAO()
 	 */
@@ -73,5 +78,12 @@ public class MemoryDAOFactory implements IDAOFactory {
 
 	public String getName() {
 		return "Memory Datasource";
+	}
+
+	public void finalizeAndClose() {
+	}
+
+	public long getID() {
+		return this.id;
 	}
 }

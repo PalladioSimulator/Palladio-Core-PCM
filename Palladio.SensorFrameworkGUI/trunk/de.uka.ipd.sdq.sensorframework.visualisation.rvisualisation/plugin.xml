@@ -4,7 +4,7 @@
       <extension
             point="de.uka.ipd.sdq.sensorframework.visualisation">
          <Visualisation
-               acceptsData="de.uka.ipd.sdq.sensorframework.TimeSpanSensor"
+               acceptsData="de.uka.ipd.sdq.sensorfactory.entities.TimeSpanSensor"
                acceptsMultiple="true"
                class="de.uka.ipd.sdq.codegen.rvisualisation.views.RReportView"
                displayName="R TimeSensor Report"

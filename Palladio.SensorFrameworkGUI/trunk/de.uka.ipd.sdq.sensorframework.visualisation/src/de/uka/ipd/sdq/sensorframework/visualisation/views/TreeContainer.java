@@ -9,6 +9,7 @@ import org.eclipse.core.runtime.IAdaptable;
 import de.uka.ipd.sdq.sensorfactory.entities.Experiment;
 import de.uka.ipd.sdq.sensorfactory.entities.ExperimentRun;
 import de.uka.ipd.sdq.sensorfactory.entities.Sensor;
+import de.uka.ipd.sdq.sensorfactory.entities.dao.IDAOFactory;
 
 /**
  * @author roman
@@ -32,7 +33,7 @@ public class TreeContainer implements IAdaptable {
 	 * REFACTORIN!!
 	 * @param experiment
 	 */
-	public TreeContainer(Experiment experiment, int type) {
+	public TreeContainer(IDAOFactory datasource, Experiment experiment, int type) {
 		this.experiment = experiment;
 		this.type = type;
 		this.elements = new ArrayList<TreeObject>();
@@ -40,14 +41,14 @@ public class TreeContainer implements IAdaptable {
 		if (type == TreeContentProvider.EXPERIMENT_RUNS){
 			Collection<ExperimentRun> runs = experiment.getExperimentRuns();
 			for(ExperimentRun r : runs)
-				elements.add(new TreeObject(r,experiment));
+				elements.add(new TreeObject(r,datasource,experiment));
 
 			this.name = EXPERIMENT_RUNS_NAME;
 		}
 		if (type == TreeContentProvider.SENSORS){
 			Collection<Sensor> sensors = experiment.getSensors();
 			for(Sensor s : sensors)
-				elements.add(new TreeObject(s,experiment));
+				elements.add(new TreeObject (s,datasource,experiment));
 			
 			this.name = SENSORS_NAME;
 		}

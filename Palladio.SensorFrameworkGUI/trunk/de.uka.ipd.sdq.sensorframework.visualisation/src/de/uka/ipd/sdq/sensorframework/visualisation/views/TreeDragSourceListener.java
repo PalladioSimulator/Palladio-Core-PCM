@@ -45,7 +45,9 @@ public class TreeDragSourceListener implements DragSourceListener {
 				Sensor sensor = (Sensor) innerObject;
 				ExperimentRun run = treeObject.getRun();
 
-				ConfigEntry configEntry = new ConfigEntry(treeObject.getRun(),
+				ConfigEntry configEntry = new ConfigEntry(
+						treeObject.getDatasource(),
+						treeObject.getRun(),
 						treeObject.getExperiment(), sensor);
 				editorInput.addConfigEntry(configEntry);
 
@@ -56,7 +58,8 @@ public class TreeDragSourceListener implements DragSourceListener {
 			/** Experiment Run */
 			if (innerObject instanceof ExperimentRun) {
 				ExperimentRun run = (ExperimentRun) innerObject;
-				ConfigEntry configEntry = new ConfigEntry(run, treeObject
+				ConfigEntry configEntry = new ConfigEntry(treeObject.getDatasource(),
+						run, treeObject
 						.getExperiment(), null);
 				editorInput.addConfigEntry(configEntry);
 				

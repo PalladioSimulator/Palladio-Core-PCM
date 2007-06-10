@@ -47,4 +47,7 @@ public class MemoryExperimentDAO implements IExperimentDAO {
 		return Collections.unmodifiableCollection(result);
 	}
 
+	public void store(Experiment e) {
+	}
+
 }

@@ -11,7 +11,7 @@
 
 		{
 			
-				protected de.uka.ipd.sdq.sensorfactory.entities.dao.IDAOFactory myDAOFactory = null;
+			protected transient de.uka.ipd.sdq.sensorfactory.entities.dao.IDAOFactory  myDAOFactory = null;
 				public AbstractMeasurement(de.uka.ipd.sdq.sensorfactory.entities.dao.IDAOFactory myFactory) {
 					this.myDAOFactory = myFactory;
 				}

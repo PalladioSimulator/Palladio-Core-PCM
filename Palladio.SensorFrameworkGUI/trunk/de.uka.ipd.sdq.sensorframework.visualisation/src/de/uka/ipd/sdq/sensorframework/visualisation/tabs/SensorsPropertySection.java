@@ -176,6 +176,7 @@ public class SensorsPropertySection extends AbstractPropertySection implements
 				if (dialog.open() == Window.OK && dialog.getResult() != null) {
 					TreeObject object = dialog.getResult();
 					ConfigEntry configEntry = new ConfigEntry(
+							object.getDatasource(),
 							(ExperimentRun) object.getObject(), object
 									.getExperiment(), null);
 					configObject.addConfigEntry(configEntry);

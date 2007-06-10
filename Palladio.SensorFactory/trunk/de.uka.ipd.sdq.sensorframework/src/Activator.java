@@ -1,10 +1,14 @@
 
 
+import java.util.Collection;
+
 import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.core.runtime.Plugin;
 import org.osgi.framework.BundleContext;
 
+import de.uka.ipd.sdq.sensorfactory.SensorFrameworkDataset;
+import de.uka.ipd.sdq.sensorfactory.entities.dao.IDAOFactory;
 import de.uka.ipd.sdq.sensorframework.adapter.AdapterRegistry;
 import de.uka.ipd.sdq.sensorframework.adapter.IAdapterFactory;
 
@@ -47,6 +51,9 @@ public class Activator extends Plugin {
 	 */
 	public void stop(BundleContext context) throws Exception {
 		plugin = null;
+		Collection<IDAOFactory> sources = SensorFrameworkDataset.singleton().getDataSources();
+		for (IDAOFactory source : sources) 
+			source.finalizeAndClose();
 		super.stop(context);
 	}
 

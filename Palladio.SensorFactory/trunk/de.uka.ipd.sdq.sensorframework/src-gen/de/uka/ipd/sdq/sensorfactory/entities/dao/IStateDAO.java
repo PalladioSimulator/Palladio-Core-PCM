@@ -1,5 +1,7 @@
 
 		package de.uka.ipd.sdq.sensorfactory.entities.dao;
+
+import de.uka.ipd.sdq.sensorfactory.entities.StateSensor;
 		public interface IStateDAO {
 			
 				
@@ -23,5 +25,8 @@
 
 			de.uka.ipd.sdq.sensorfactory.entities.State get(long id);
 			java.util.Collection<de.uka.ipd.sdq.sensorfactory.entities.State> getStates();
+
+
+			void store(StateSensor stateSen);
 		} 
 	

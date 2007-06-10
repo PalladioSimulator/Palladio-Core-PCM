@@ -19,4 +19,5 @@ Export-Package: de.uka.ipd.sdq.sensorfactory,
  de.uka.ipd.sdq.sensorframework.visualisation
 Bundle-ClassPath: src/,
  .,
- lib/cglib-2.2_beta1.jar
+ lib/cglib-2.2_beta1.jar,
+ lib/db4o-6.1-java5.jar

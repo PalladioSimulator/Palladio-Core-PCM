@@ -48,15 +48,15 @@ public class TreeContentProvider implements ITreeContentProvider {
 		/** ExperimentDAO */
 		if (parent instanceof IDAOFactory){
 			IExperimentDAO experimentDAO = ((IDAOFactory)parent).createExperimentDAO();
-			return experimentDAO.getExperiments().toArray();
+			return createExperimentAndDAOList((IDAOFactory)parent,experimentDAO.getExperiments()).toArray();
 		}
 		
 		/** Experiment */
-		if (parent instanceof Experiment) {
-			Experiment experiment = (Experiment) parent;
+		if (parent instanceof ExperimentAndDAO) {
+			ExperimentAndDAO experiment = (ExperimentAndDAO) parent;
 			Object[] objects = {
-					new TreeContainer(experiment, EXPERIMENT_RUNS),
-					new TreeContainer(experiment, SENSORS) };
+					new TreeContainer(experiment.getDatasource(), experiment.getExperiment(), EXPERIMENT_RUNS),
+					new TreeContainer(experiment.getDatasource(), experiment.getExperiment(), SENSORS) };
 			return objects;
 		}
 
@@ -72,7 +72,7 @@ public class TreeContentProvider implements ITreeContentProvider {
 				
 				int i = 0;
 				for (Sensor s : sensors)
-					objects[i++] = new TreeObject(s, experiment, run);
+					objects[i++] = new TreeObject(s, treeObject.getDatasource(), experiment, run);
 
 				return objects;
 			}
@@ -83,6 +83,14 @@ public class TreeContentProvider implements ITreeContentProvider {
 			return ((TreeContainer) parent).getElements().toArray();
 
 		return new Object[0];
+	}
+
+	private List<ExperimentAndDAO> createExperimentAndDAOList(
+			IDAOFactory dao, Collection<Experiment> experiments){
+		ArrayList<ExperimentAndDAO>result = new ArrayList<ExperimentAndDAO>();
+		for(Experiment e:experiments)
+			result.add(new ExperimentAndDAO(dao,e));
+		return result;
 	}
 
 	/* (non-Javadoc)

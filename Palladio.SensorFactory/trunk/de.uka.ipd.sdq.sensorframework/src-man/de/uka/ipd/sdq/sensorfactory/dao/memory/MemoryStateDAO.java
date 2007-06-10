@@ -10,6 +10,7 @@ import java.util.HashMap;
 
 import de.uka.ipd.sdq.sensorfactory.entities.Sensor;
 import de.uka.ipd.sdq.sensorfactory.entities.State;
+import de.uka.ipd.sdq.sensorfactory.entities.StateSensor;
 import de.uka.ipd.sdq.sensorfactory.entities.dao.IDAOFactory;
 import de.uka.ipd.sdq.sensorfactory.entities.dao.IStateDAO;
 import de.uka.ipd.sdq.sensorfactory.entities.impl.StateImpl;
@@ -55,6 +56,9 @@ public class MemoryStateDAO implements IStateDAO {
 				result.add(e);
 		}
 		return Collections.unmodifiableCollection(result);
+	}
+
+	public void store(StateSensor stateSen) {
 	}
 
 }
