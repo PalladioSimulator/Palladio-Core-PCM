@@ -47,7 +47,14 @@
                inheritance="all"
                typeId="de.uka.ipd.sdq.pcm.gmf.usage.VariableUsage_3004">
          </adviceBinding>
+       <adviceBinding 
+               class="de.uka.ipd.sdq.pcm.gmf.usage.helper.ScenarioBehaviourEditHelperAdvice"
+               id="de.uka.ipd.sdq.pcm.gmf.usage.ScenarioBehaviourAdvice"
+               inheritance="all"
+               typeId="de.uka.ipd.sdq.pcm.gmf.usage.ScenarioBehaviour_3007">
+         </adviceBinding>
       </metamodel>
+      
       <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/UsageModel/1.0">
          <metamodelType
                id="de.uka.ipd.sdq.pcm.gmf.usage.ThinkTime_9100"
@@ -110,6 +117,9 @@
          </advice>
           <advice
                ref="de.uka.ipd.sdq.pcm.gmf.usage.VariableUsageAdvice">
+         </advice>
+          <advice
+               ref="de.uka.ipd.sdq.pcm.gmf.usage.ScenarioBehaviourAdvice">
          </advice>      
        </binding>
    </extension>
