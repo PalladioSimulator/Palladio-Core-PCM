@@ -10,6 +10,7 @@ import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
 import de.uka.ipd.sdq.simucomframework.resources.SimulatedResourceContainer;
 import de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStack;
 import de.uka.ipd.sdq.simucomframework.variables.stoexvisitor.PCMStoExEvaluationVisitor;
+import desmoj.core.exception.SimFinishedException;
 import desmoj.core.simulator.Model;
 import desmoj.core.simulator.SimProcess;
 
@@ -61,6 +62,8 @@ public abstract class ForkedBehaviourProcess extends SimProcess {
 	public void lifeCycle() {
 		try {
 			executeBehaviour();
+		} catch(SimFinishedException ex) {
+			return;
 		} catch(Exception ex) {
 			logger.error("Error in executing forked behaviour!",ex);
 			((SimuComModel)this.getModel()).setStatus(SimuComStatus.ERROR, ex.getMessage());
