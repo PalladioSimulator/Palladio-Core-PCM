@@ -7,7 +7,8 @@
 «IMPORT repository»
 
 «DEFINE UserAction FOR AbstractUserAction»
-	// Unknown user action
+	// Unknown user action - bad!
+	«ERROR "ERROR: Unknown user action!"»
 «ENDDEFINE»
 
 «DEFINE UserAction FOR Start»
@@ -24,3 +25,8 @@
     	{}) FOR this.signature_EntryLevelSystemCall»
 «ENDDEFINE»
 
+«DEFINE UserAction FOR Loop»
+«ENDDEFINE»
+
+«DEFINE UserAction FOR Branch»
+«ENDDEFINE»

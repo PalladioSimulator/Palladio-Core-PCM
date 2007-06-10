@@ -82,7 +82,9 @@
 		<expand value="m2t_transforms::repository::Root FOR pcmmodel"/>
 			<outlet path="${outpath}">
 			</outlet>
-			<beautifier class="org.openarchitectureware.xpand2.output.JavaBeautifier"/>
+			<beautifier class="org.openarchitectureware.xpand2.output.JavaBeautifier">
+				<configFile value="org.eclipse.jdt.core.prefs"/>
+			</beautifier>
 			<!--
 	    	<beautifier class="org.hybridlabs.source.formatter.JavaImportBeautifier"
 				organizeImports="true"

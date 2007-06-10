@@ -35,8 +35,19 @@ hasRequiredDelegationConnector(ComposedStructure s, AssemblyContext ctx, Require
 getRequiredDelegationConnector(ComposedStructure s, AssemblyContext ctx, RequiredRole r) :
    s.requiredDelegationConnectors_ComposedStructure.select(dc|dc.innerRequiredRole_RequiredDelegationConnector ==  r).get(0);  
    
+List[EntryLevelSystemCall] querySytemCallsInLoops(ScenarioBehaviour scenBe):
+	scenBe.actions_ScenarioBehaviour.typeSelect(Loop).collect(l|querySystemCalls(l.bodyBehaviour_Loop)).flatten();
+
+List[EntryLevelSystemCall] querySytemCallsInBraches(ScenarioBehaviour scenBe):
+	scenBe.actions_ScenarioBehaviour.typeSelect(Branch).collect(b|b.branchTransitions_Branch.branchedBehaviour_BranchTransition.querySystemCalls()).flatten();
+	
+List[EntryLevelSystemCall] querySystemCalls(ScenarioBehaviour scenBe) :
+  scenBe.actions_ScenarioBehaviour.typeSelect(EntryLevelSystemCall).
+  union(scenBe.querySytemCallsInLoops()).
+  union(scenBe.querySytemCallsInBraches());
+
 querySystemCalls(UsageScenario us) :
-  us.scenarioBehaviour_UsageScenario.actions_ScenarioBehaviour.typeSelect(EntryLevelSystemCall);
+  querySystemCalls(us.scenarioBehaviour_UsageScenario);
   
 getID(VariableReference vr) :
   vr.referenceName;
