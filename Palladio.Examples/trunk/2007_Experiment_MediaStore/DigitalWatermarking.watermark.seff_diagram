@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.1/notation" xmlns:pcm.seff="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0" xmi:id="_WTBgYA-CEdyGE4DI06fd0Q" type="PCM SEFF Model" measurementUnit="Pixel">
+  <children xmi:type="notation:Node" xmi:id="_IbuoQBBlEdy9L-s_NBcS_w" type="2001">
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_IbuoQRBlEdy9L-s_NBcS_w"/>
+    <element xmi:type="pcm.seff:StartAction" href="MediaStore.repository#_LOPekaYqEdunyPSYvCWVNg"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_IbuoQhBlEdy9L-s_NBcS_w" x="1199"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_IbuoQxBlEdy9L-s_NBcS_w" type="2006">
+    <children xmi:type="notation:Node" xmi:id="_IbuoRhBlEdy9L-s_NBcS_w" type="5012"/>
+    <children xmi:type="notation:Node" xmi:id="_IbuoRxBlEdy9L-s_NBcS_w" type="7012">
+      <children xmi:type="notation:Node" xmi:id="_eB23IBaPEdy9faaHhrHjzA" type="3008">
+        <element xmi:type="pcm.seff:ParametricResourceDemand" href="MediaStore.repository#//@components__Repository.2/@serviceEffectSpecifications__BasicComponent.0/@steps_Behaviour.1/@resourceDemand_Action.0"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_eB23IRaPEdy9faaHhrHjzA"/>
+      </children>
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_IbuoSBBlEdy9L-s_NBcS_w"/>
+      <styles xmi:type="notation:TitleStyle" xmi:id="_IbuoSRBlEdy9L-s_NBcS_w" showTitle="true"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_IbuoShBlEdy9L-s_NBcS_w"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_IbuoSxBlEdy9L-s_NBcS_w"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_IbuoRBBlEdy9L-s_NBcS_w"/>
+    <element xmi:type="pcm.seff:InternalAction" href="MediaStore.repository#_Lt09lKYqEdunyPSYvCWVNg"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_IbuoRRBlEdy9L-s_NBcS_w" x="804" y="120"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_IbuoTBBlEdy9L-s_NBcS_w" type="2008">
+    <children xmi:type="notation:Node" xmi:id="_IbuoTxBlEdy9L-s_NBcS_w" type="5023"/>
+    <children xmi:type="notation:Node" xmi:id="_IbuoUBBlEdy9L-s_NBcS_w" type="7016">
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_IbuoURBlEdy9L-s_NBcS_w"/>
+      <styles xmi:type="notation:TitleStyle" xmi:id="_IbuoUhBlEdy9L-s_NBcS_w" showTitle="true"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_IbuoUxBlEdy9L-s_NBcS_w"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_IbuoVBBlEdy9L-s_NBcS_w"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_IbuoTRBlEdy9L-s_NBcS_w"/>
+    <element xmi:type="pcm.seff:SetVariableAction" href="MediaStore.repository#_M_VoyqYqEdunyPSYvCWVNg"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_IbuoThBlEdy9L-s_NBcS_w" x="1078" y="212"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_IbuoVRBlEdy9L-s_NBcS_w" type="2002">
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_IbuoVhBlEdy9L-s_NBcS_w"/>
+    <element xmi:type="pcm.seff:StopAction" href="MediaStore.repository#_NcjJMKYqEdunyPSYvCWVNg"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_IbuoVxBlEdy9L-s_NBcS_w" x="1194" y="390"/>
+  </children>
+  <styles xmi:type="notation:DiagramStyle" xmi:id="_WTBgYQ-CEdyGE4DI06fd0Q"/>
+  <element xmi:type="pcm.seff:ResourceDemandingSEFF" href="MediaStore.repository#_K6uFoqYqEdunyPSYvCWVNg"/>
+</notation:Diagram>

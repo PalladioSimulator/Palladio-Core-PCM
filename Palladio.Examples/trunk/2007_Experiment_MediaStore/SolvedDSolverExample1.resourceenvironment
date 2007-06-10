@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="ASCII"?>
+<pcm.resourceenvironment:ResourceEnvironment xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:pcm.resourceenvironment="http://sdq.ipd.uka.de/PalladioComponentModel/ResourceEnvironment/1.0">
+  <linkingresource toResourceContainer_LinkingResource="_35HNAKYVEduWZfldHy3B1Q" fromResourceContainer_LinkingResource="_2mkAAKYVEduWZfldHy3B1Q"/>
+  <resourceContainer_ResourceEnvironment id="_2mkAAKYVEduWZfldHy3B1Q" entityName="AppServer">
+    <activeResourceSpecifications_ResourceContainer processingRate="1.0" units="CPU cycles">
+      <activeResourceType_ActiveResourceSpecification href="MediaStore.resourcetype#_9-JuEaYUEduWZfldHy3B1Q"/>
+    </activeResourceSpecifications_ResourceContainer>
+  </resourceContainer_ResourceEnvironment>
+  <resourceContainer_ResourceEnvironment id="_35HNAKYVEduWZfldHy3B1Q" entityName="AudioDB">
+    <activeResourceSpecifications_ResourceContainer processingRate="1.0" units="CPU cycles">
+      <activeResourceType_ActiveResourceSpecification href="MediaStore.resourcetype#_AtY7gaYVEduWZfldHy3B1Q"/>
+    </activeResourceSpecifications_ResourceContainer>
+    <activeResourceSpecifications_ResourceContainer processingRate="1.0" units="Bytes per second">
+      <activeResourceType_ActiveResourceSpecification href="MediaStore.resourcetype#_DH6dMaYVEduWZfldHy3B1Q"/>
+    </activeResourceSpecifications_ResourceContainer>
+  </resourceContainer_ResourceEnvironment>
+</pcm.resourceenvironment:ResourceEnvironment>

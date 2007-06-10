@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.1/notation" xmlns:pcm.repository="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/1.0" xmi:id="_5U3H8A-BEdyGE4DI06fd0Q" type="PCM Repository Model" measurementUnit="Pixel">
+  <styles xmi:type="notation:DiagramStyle" xmi:id="_5U3H8Q-BEdyGE4DI06fd0Q"/>
+  <element xmi:type="pcm.repository:Repository" href="MediaStore.repository#_PFfcwKYFEduWZfldHy3B1Q"/>
+</notation:Diagram>
