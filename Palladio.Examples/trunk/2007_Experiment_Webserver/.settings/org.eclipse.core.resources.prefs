@@ -1,0 +1,13 @@
+#Mon Jun 11 10:30:12 CEST 2007
+eclipse.preferences.version=1
+encoding/Dispatcher.httpRequest.seff_diagram=UTF-8
+encoding/DynamicFileProvider.handleRequest.seff_diagram=UTF-8
+encoding/RequestAnalyser.parseRequest.seff_diagram=UTF-8
+encoding/StaticFileProvider.handleRequest.seff_diagram=UTF-8
+encoding/webserver.allocation=UTF-8
+encoding/webserver.allocation_diagram=UTF-8
+encoding/webserver.composite_diagram=UTF-8
+encoding/webserver.repository=UTF-8
+encoding/webserver.repository_diagram=UTF-8
+encoding/webserver.usagemodel=UTF-8
+encoding/webserver.usagemodel_diagram=UTF-8

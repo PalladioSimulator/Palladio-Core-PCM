@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pcm.repository:Repository xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pcm.repository="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/1.0" xmlns:pcm.seff="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0" xmlns:stoex="http://sdq.ipd.uka.de/StochasticExpressions/1.0" id="_UCtxUBfrEdyOTd0TiXzKCA" entityName="webserverRepository">
+  <components__Repository xsi:type="pcm.repository:BasicComponent" id="_6PCF8BfsEdyOTd0TiXzKCA" entityName="Dispatcher">
+    <providedRoles_InterfaceProvidingEntity id="_kyAHMBftEdyKnt4q4db7iw" entityName="Provided_IHTTP_Dispatcher" providedInterface__ProvidedRole="_jltTMBftEdyKnt4q4db7iw"/>
+    <requiredRoles_InterfaceRequiringEntity id="_SEbNwBftEdyOTd0TiXzKCA" entityName="Required_IRequestAnalysis_Dispatcher" requiredInterface__RequiredRole="_MgJF0BftEdyOTd0TiXzKCA"/>
+    <serviceEffectSpecifications__BasicComponent xsi:type="pcm.seff:ResourceDemandingSEFF" id="_Q21uYBfvEdyKnt4q4db7iw" describedService__SEFF="//@interfaces__Repository.2/@signatures__Interface.0">
+      <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_RIuIkBfvEdyKnt4q4db7iw" successor_AbstractAction="_b-VnQBfvEdyKnt4q4db7iw"/>
+      <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_RIuIkRfvEdyKnt4q4db7iw" predecessor_AbstractAction="_eYIwMBfvEdyKnt4q4db7iw"/>
+      <steps_Behaviour xsi:type="pcm.seff:AquireAction" id="_b-VnQBfvEdyKnt4q4db7iw" entityName="thread" predecessor_AbstractAction="_RIuIkBfvEdyKnt4q4db7iw" successor_AbstractAction="_faBD8BfvEdyKnt4q4db7iw">
+        <resourceType_Aquire href="Palladio.resourcetype#_Y-hnMBfvEdyKnt4q4db7iw"/>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="pcm.seff:ReleaseAction" id="_eYIwMBfvEdyKnt4q4db7iw" entityName="thread" predecessor_AbstractAction="_faBD8BfvEdyKnt4q4db7iw" successor_AbstractAction="_RIuIkRfvEdyKnt4q4db7iw">
+        <resourceType_Release href="Palladio.resourcetype#_Y-hnMBfvEdyKnt4q4db7iw"/>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="pcm.seff:ExternalCallAction" id="_faBD8BfvEdyKnt4q4db7iw" predecessor_AbstractAction="_b-VnQBfvEdyKnt4q4db7iw" successor_AbstractAction="_eYIwMBfvEdyKnt4q4db7iw" calledService_ExternalService="//@interfaces__Repository.0/@signatures__Interface.0">
+        <parameterUsage_ExternalCallAction>
+          <variableCharacterisation_VariableUsage specification="request.requestedContent.TYPE" type="TYPE"/>
+          <namedReference_VariableUsage xsi:type="stoex:NamespaceReference" referenceName="request">
+            <innerReference_NamespaceReference xsi:type="stoex:VariableReference" referenceName="requestedContent"/>
+          </namedReference_VariableUsage>
+        </parameterUsage_ExternalCallAction>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+  </components__Repository>
+  <components__Repository xsi:type="pcm.repository:BasicComponent" id="_7HD6IBfsEdyOTd0TiXzKCA" entityName="RequestAnalyser">
+    <providedRoles_InterfaceProvidingEntity id="_SXMYwBftEdyOTd0TiXzKCA" entityName="Provided_IRequestAnalysis_RequestAnalyser" providedInterface__ProvidedRole="_MgJF0BftEdyOTd0TiXzKCA"/>
+    <requiredRoles_InterfaceRequiringEntity id="_SuSqIBftEdyOTd0TiXzKCA" entityName="Required_IProvideContent_RequestAnalyser" requiredInterface__RequiredRole="_QPcpIBftEdyOTd0TiXzKCA"/>
+    <serviceEffectSpecifications__BasicComponent xsi:type="pcm.seff:ResourceDemandingSEFF" id="_RYqpEBfvEdyKnt4q4db7iw" describedService__SEFF="//@interfaces__Repository.0/@signatures__Interface.0">
+      <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_Rsye8BfvEdyKnt4q4db7iw" successor_AbstractAction="_X1VqMBfyEdyKnt4q4db7iw"/>
+      <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_Rsye8RfvEdyKnt4q4db7iw" predecessor_AbstractAction="_Y6xoQBfyEdyKnt4q4db7iw"/>
+      <steps_Behaviour xsi:type="pcm.seff:InternalAction" id="_X1VqMBfyEdyKnt4q4db7iw" entityName="parseRequest" predecessor_AbstractAction="_Rsye8BfvEdyKnt4q4db7iw" successor_AbstractAction="_Y6xoQBfyEdyKnt4q4db7iw">
+        <resourceDemand_Action specification="0.1" unit="seconds on">
+          <requiredResource_ParametricResourceDemand href="Palladio.resourcetype#cpu"/>
+        </resourceDemand_Action>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="pcm.seff:ExternalCallAction" id="_Y6xoQBfyEdyKnt4q4db7iw" predecessor_AbstractAction="_X1VqMBfyEdyKnt4q4db7iw" successor_AbstractAction="_Rsye8RfvEdyKnt4q4db7iw" calledService_ExternalService="//@interfaces__Repository.1/@signatures__Interface.0">
+        <parameterUsage_ExternalCallAction>
+          <variableCharacterisation_VariableUsage specification="request.requestedContent.TYPE" type="TYPE"/>
+          <namedReference_VariableUsage xsi:type="stoex:NamespaceReference" referenceName="request">
+            <innerReference_NamespaceReference xsi:type="stoex:VariableReference" referenceName="requestedContent"/>
+          </namedReference_VariableUsage>
+        </parameterUsage_ExternalCallAction>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+  </components__Repository>
+  <components__Repository xsi:type="pcm.repository:BasicComponent" id="_JsJUMBftEdyOTd0TiXzKCA" entityName="StaticFileProvider">
+    <providedRoles_InterfaceProvidingEntity id="_TSzFYBftEdyOTd0TiXzKCA" entityName="Provided_IProvideContent_StaticFileProvider" providedInterface__ProvidedRole="_QPcpIBftEdyOTd0TiXzKCA"/>
+    <requiredRoles_InterfaceRequiringEntity id="_T_M4YBftEdyOTd0TiXzKCA" entityName="Required_IProvideContent_StaticFileProvider" requiredInterface__RequiredRole="_QPcpIBftEdyOTd0TiXzKCA"/>
+    <serviceEffectSpecifications__BasicComponent xsi:type="pcm.seff:ResourceDemandingSEFF" id="_SAwj0BfvEdyKnt4q4db7iw" describedService__SEFF="//@interfaces__Repository.1/@signatures__Interface.0">
+      <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_SR5XIBfvEdyKnt4q4db7iw" successor_AbstractAction="_l_e0sBfyEdyKnt4q4db7iw"/>
+      <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_SR5XIRfvEdyKnt4q4db7iw" predecessor_AbstractAction="_l_e0sBfyEdyKnt4q4db7iw"/>
+      <steps_Behaviour xsi:type="pcm.seff:BranchAction" id="_l_e0sBfyEdyKnt4q4db7iw" entityName="canHandleIt" predecessor_AbstractAction="_SR5XIBfvEdyKnt4q4db7iw" successor_AbstractAction="_SR5XIRfvEdyKnt4q4db7iw">
+        <branches_Branch xsi:type="pcm.seff:GuardedBranchTransition" id="_oYONsBfyEdyKnt4q4db7iw">
+          <branchBehaviour_BranchTransition>
+            <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_oYONsRfyEdyKnt4q4db7iw" successor_AbstractAction="_hoRR8Bf0EdyKnt4q4db7iw"/>
+            <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_oYONshfyEdyKnt4q4db7iw" predecessor_AbstractAction="_hoRR8Bf0EdyKnt4q4db7iw"/>
+            <steps_Behaviour xsi:type="pcm.seff:InternalAction" id="_hoRR8Bf0EdyKnt4q4db7iw" entityName="handle" predecessor_AbstractAction="_oYONsRfyEdyKnt4q4db7iw" successor_AbstractAction="_oYONshfyEdyKnt4q4db7iw">
+              <resourceDemand_Action specification="100" unit="KB from ">
+                <requiredResource_ParametricResourceDemand href="Palladio.resourcetype#_BIjHoQ3KEdyouMqirZIhzQ"/>
+              </resourceDemand_Action>
+            </steps_Behaviour>
+          </branchBehaviour_BranchTransition>
+          <branchCondition_BranchTransition specification="request.requestedContent.TYPE == &quot;static&quot;"/>
+        </branches_Branch>
+        <branches_Branch xsi:type="pcm.seff:GuardedBranchTransition" id="_o-0ToBfyEdyKnt4q4db7iw">
+          <branchBehaviour_BranchTransition>
+            <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_o-0ToRfyEdyKnt4q4db7iw" successor_AbstractAction="_SkS8cBf0EdyKnt4q4db7iw"/>
+            <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_o-0TohfyEdyKnt4q4db7iw" predecessor_AbstractAction="_SkS8cBf0EdyKnt4q4db7iw"/>
+            <steps_Behaviour xsi:type="pcm.seff:ExternalCallAction" id="_SkS8cBf0EdyKnt4q4db7iw" predecessor_AbstractAction="_o-0ToRfyEdyKnt4q4db7iw" successor_AbstractAction="_o-0TohfyEdyKnt4q4db7iw" calledService_ExternalService="//@interfaces__Repository.1/@signatures__Interface.0">
+              <parameterUsage_ExternalCallAction>
+                <variableCharacterisation_VariableUsage specification="request.requestedContent.TYPE" type="TYPE"/>
+                <namedReference_VariableUsage xsi:type="stoex:NamespaceReference" referenceName="request">
+                  <innerReference_NamespaceReference xsi:type="stoex:VariableReference" referenceName="requestedContent"/>
+                </namedReference_VariableUsage>
+              </parameterUsage_ExternalCallAction>
+            </steps_Behaviour>
+          </branchBehaviour_BranchTransition>
+          <branchCondition_BranchTransition specification="request.requestedContent.TYPE == &quot;dynamic&quot;"/>
+        </branches_Branch>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+  </components__Repository>
+  <components__Repository xsi:type="pcm.repository:BasicComponent" id="_LSqmEBftEdyOTd0TiXzKCA" entityName="DynamicFileProvider">
+    <providedRoles_InterfaceProvidingEntity id="_ToHOEBftEdyOTd0TiXzKCA" entityName="Provided_IProvideContent_DynamicFileProvider" providedInterface__ProvidedRole="_QPcpIBftEdyOTd0TiXzKCA"/>
+    <serviceEffectSpecifications__BasicComponent xsi:type="pcm.seff:ResourceDemandingSEFF" id="_S-6OIBfvEdyKnt4q4db7iw" describedService__SEFF="//@interfaces__Repository.1/@signatures__Interface.0">
+      <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_TN9WwBfvEdyKnt4q4db7iw" successor_AbstractAction="_zPQ90Bf0EdyKnt4q4db7iw"/>
+      <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_TN9WwRfvEdyKnt4q4db7iw" predecessor_AbstractAction="_sAIdoBf0EdyKnt4q4db7iw"/>
+      <steps_Behaviour xsi:type="pcm.seff:InternalAction" id="_sAIdoBf0EdyKnt4q4db7iw" entityName="generateContent" predecessor_AbstractAction="_zPQ90Bf0EdyKnt4q4db7iw" successor_AbstractAction="_TN9WwRfvEdyKnt4q4db7iw">
+        <resourceDemand_Action specification="1" unit="seconds on">
+          <requiredResource_ParametricResourceDemand href="Palladio.resourcetype#cpu"/>
+        </resourceDemand_Action>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="pcm.seff:InternalAction" id="_zPQ90Bf0EdyKnt4q4db7iw" entityName="queryDB" predecessor_AbstractAction="_TN9WwBfvEdyKnt4q4db7iw" successor_AbstractAction="_sAIdoBf0EdyKnt4q4db7iw">
+        <resourceDemand_Action specification="50" unit="KB from">
+          <requiredResource_ParametricResourceDemand href="Palladio.resourcetype#_BIjHoQ3KEdyouMqirZIhzQ"/>
+        </resourceDemand_Action>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+  </components__Repository>
+  <components__Repository xsi:type="pcm.repository:BasicComponent" id="_EkaOQBgBEdya8Lml43JWcw" entityName="Monitor"/>
+  <interfaces__Repository id="_MgJF0BftEdyOTd0TiXzKCA" entityName="IRequestAnalysis">
+    <signatures__Interface serviceName="parseRequest" returntype__Signature="_a4765hfuEdyKnt4q4db7iw">
+      <parameters__Signature datatype__Parameter="_3GGJphftEdyKnt4q4db7iw" parameterName="request"/>
+    </signatures__Interface>
+  </interfaces__Repository>
+  <interfaces__Repository id="_QPcpIBftEdyOTd0TiXzKCA" entityName="IProvideContent">
+    <signatures__Interface serviceName="handleRequest" returntype__Signature="_A4JdFhfvEdyKnt4q4db7iw">
+      <parameters__Signature datatype__Parameter="_LPA_thfuEdyKnt4q4db7iw" parameterName="request"/>
+    </signatures__Interface>
+  </interfaces__Repository>
+  <interfaces__Repository id="_jltTMBftEdyKnt4q4db7iw" entityName="IHTTP">
+    <signatures__Interface serviceName="httpRequest" returntype__Signature="_a4765hfuEdyKnt4q4db7iw">
+      <parameters__Signature datatype__Parameter="_3GGJphftEdyKnt4q4db7iw" parameterName="request"/>
+    </signatures__Interface>
+  </interfaces__Repository>
+  <datatypes_Repository xsi:type="pcm.repository:CompositeDataType" id="_3GGJphftEdyKnt4q4db7iw" entityName="HTTPRequest">
+    <innerDeclaration_CompositeDataType entityName="type">
+      <datatype_InnerDeclaration xsi:type="pcm.repository:PrimitiveDataType" href="PrimitiveTypes.repository#//@datatypes_Repository.1"/>
+    </innerDeclaration_CompositeDataType>
+    <innerDeclaration_CompositeDataType entityName="requestedContent">
+      <datatype_InnerDeclaration xsi:type="pcm.repository:PrimitiveDataType" href="PrimitiveTypes.repository#//@datatypes_Repository.1"/>
+    </innerDeclaration_CompositeDataType>
+  </datatypes_Repository>
+  <datatypes_Repository xsi:type="pcm.repository:CompositeDataType" id="_LPA_thfuEdyKnt4q4db7iw" entityName="ParsedRequest">
+    <innerDeclaration_CompositeDataType entityName="type">
+      <datatype_InnerDeclaration xsi:type="pcm.repository:PrimitiveDataType" href="PrimitiveTypes.repository#//@datatypes_Repository.1"/>
+    </innerDeclaration_CompositeDataType>
+    <innerDeclaration_CompositeDataType entityName="requestedContent">
+      <datatype_InnerDeclaration xsi:type="pcm.repository:PrimitiveDataType" href="PrimitiveTypes.repository#//@datatypes_Repository.1"/>
+    </innerDeclaration_CompositeDataType>
+  </datatypes_Repository>
+  <datatypes_Repository xsi:type="pcm.repository:CompositeDataType" id="_a4765hfuEdyKnt4q4db7iw" entityName="HTTPResponse">
+    <innerDeclaration_CompositeDataType entityName="statuscode">
+      <datatype_InnerDeclaration xsi:type="pcm.repository:PrimitiveDataType" href="PrimitiveTypes.repository#//@datatypes_Repository.1"/>
+    </innerDeclaration_CompositeDataType>
+  </datatypes_Repository>
+  <datatypes_Repository xsi:type="pcm.repository:CompositeDataType" id="_A4JdFhfvEdyKnt4q4db7iw" entityName="Content">
+    <innerDeclaration_CompositeDataType entityName="type">
+      <datatype_InnerDeclaration xsi:type="pcm.repository:PrimitiveDataType" href="PrimitiveTypes.repository#//@datatypes_Repository.1"/>
+    </innerDeclaration_CompositeDataType>
+  </datatypes_Repository>
+</pcm.repository:Repository>

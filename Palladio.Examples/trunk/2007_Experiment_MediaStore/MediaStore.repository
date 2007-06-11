@@ -13,10 +13,9 @@
       </steps_Behaviour>
       <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_ggYrsKYYEduWZfldHy3B1Q" predecessor_AbstractAction="_ftICxqYYEduWZfldHy3B1Q"/>
     </serviceEffectSpecifications__BasicComponent>
-    <serviceEffectSpecifications__BasicComponent xsi:type="pcm.seff:ResourceDemandingSEFF" id="_oBuaQqx7EduuZPZbSE9EpQ" seffTypeID="">
-      <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_r6bKIax7EduuZPZbSE9EpQ" entityName="" successor_AbstractAction="_sn4GBqx7EduuZPZbSE9EpQ"/>
-      <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_sUzZAKx7EduuZPZbSE9EpQ" predecessor_AbstractAction="_sn4GBqx7EduuZPZbSE9EpQ"/>
-      <steps_Behaviour xsi:type="pcm.seff:ExternalCallAction" id="_sn4GBqx7EduuZPZbSE9EpQ" entityName="mediastore.queryAndGetFromDB" predecessor_AbstractAction="_r6bKIax7EduuZPZbSE9EpQ" successor_AbstractAction="_sUzZAKx7EduuZPZbSE9EpQ"/>
+    <serviceEffectSpecifications__BasicComponent xsi:type="pcm.seff:ResourceDemandingSEFF" id="_0dZOwBf9Edya8Lml43JWcw" describedService__SEFF="//@interfaces__Repository.0/@signatures__Interface.1">
+      <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_0zmvUBf9Edya8Lml43JWcw" successor_AbstractAction="_0zv5QBf9Edya8Lml43JWcw"/>
+      <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_0zv5QBf9Edya8Lml43JWcw" predecessor_AbstractAction="_0zmvUBf9Edya8Lml43JWcw"/>
     </serviceEffectSpecifications__BasicComponent>
   </components__Repository>
   <components__Repository xsi:type="pcm.repository:BasicComponent" id="_USFdc6YFEduWZfldHy3B1Q" entityName="MediaStore">
@@ -77,18 +76,17 @@
       </steps_Behaviour>
       <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_IpM-sKYZEduWZfldHy3B1Q" predecessor_AbstractAction="_8cIxqqYoEdunyPSYvCWVNg"/>
     </serviceEffectSpecifications__BasicComponent>
-    <serviceEffectSpecifications__BasicComponent xsi:type="pcm.seff:ResourceDemandingSEFF" id="_4lpfkqx7EduuZPZbSE9EpQ">
-      <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_42fX8ax7EduuZPZbSE9EpQ" successor_AbstractAction="_5sucZqx7EduuZPZbSE9EpQ"/>
-      <steps_Behaviour xsi:type="pcm.seff:ExternalCallAction" id="_5sucZqx7EduuZPZbSE9EpQ" entityName="audiodb.queryAndGetFromDB" predecessor_AbstractAction="_42fX8ax7EduuZPZbSE9EpQ" successor_AbstractAction="_6KhysKx7EduuZPZbSE9EpQ"/>
-      <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_6KhysKx7EduuZPZbSE9EpQ" predecessor_AbstractAction="_5sucZqx7EduuZPZbSE9EpQ"/>
+    <serviceEffectSpecifications__BasicComponent xsi:type="pcm.seff:ResourceDemandingSEFF" id="_1xSfkBf9Edya8Lml43JWcw" describedService__SEFF="//@interfaces__Repository.1/@signatures__Interface.1">
+      <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_2HDUMBf9Edya8Lml43JWcw" successor_AbstractAction="_2HDUMRf9Edya8Lml43JWcw"/>
+      <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_2HDUMRf9Edya8Lml43JWcw" predecessor_AbstractAction="_2HDUMBf9Edya8Lml43JWcw"/>
     </serviceEffectSpecifications__BasicComponent>
   </components__Repository>
   <components__Repository xsi:type="pcm.repository:BasicComponent" id="_V8B2w6YFEduWZfldHy3B1Q" entityName="DigitalWatermarking">
     <providedRoles_InterfaceProvidingEntity id="_XxtTEKYSEduWZfldHy3B1Q" providedInterface__ProvidedRole="_R63R9KYGEduWZfldHy3B1Q"/>
     <serviceEffectSpecifications__BasicComponent xsi:type="pcm.seff:ResourceDemandingSEFF" id="_K6uFoqYqEdunyPSYvCWVNg" describedService__SEFF="//@interfaces__Repository.2/@signatures__Interface.0">
       <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_LOPekaYqEdunyPSYvCWVNg" successor_AbstractAction="_Lt09lKYqEdunyPSYvCWVNg"/>
-      <steps_Behaviour xsi:type="pcm.seff:InternalAction" id="_Lt09lKYqEdunyPSYvCWVNg" predecessor_AbstractAction="_LOPekaYqEdunyPSYvCWVNg" successor_AbstractAction="_M_VoyqYqEdunyPSYvCWVNg">
-        <resourceDemand_Action specification="0.02726 + 1.406 / 100000000 * fileToMark.BYTESIZE">
+      <steps_Behaviour xsi:type="pcm.seff:InternalAction" id="_Lt09lKYqEdunyPSYvCWVNg" entityName="watermark" predecessor_AbstractAction="_LOPekaYqEdunyPSYvCWVNg" successor_AbstractAction="_M_VoyqYqEdunyPSYvCWVNg">
+        <resourceDemand_Action specification="0.02726 + ( 1.406 * fileToMark.BYTESIZE ) / 1000" unit="seconds on cpu">
           <requiredResource_ParametricResourceDemand href="MediaStore.resourcetype#_9-JuEaYUEduWZfldHy3B1Q"/>
         </resourceDemand_Action>
       </steps_Behaviour>
@@ -144,6 +142,10 @@
       </steps_Behaviour>
       <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_lcXnEKYkEduWZfldHy3B1Q" predecessor_AbstractAction="_PlkNuqY2EdudtvdezBq5JQ"/>
     </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="pcm.seff:ResourceDemandingSEFF" id="_8dtUQBf9Edya8Lml43JWcw" describedService__SEFF="//@interfaces__Repository.3/@signatures__Interface.1">
+      <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_8wLkUBf9Edya8Lml43JWcw" successor_AbstractAction="_8wLkURf9Edya8Lml43JWcw"/>
+      <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_8wLkURf9Edya8Lml43JWcw" predecessor_AbstractAction="_8wLkUBf9Edya8Lml43JWcw"/>
+    </serviceEffectSpecifications__BasicComponent>
   </components__Repository>
   <components__Repository xsi:type="pcm.repository:BasicComponent" id="_a5a906YFEduWZfldHy3B1Q" entityName="AudioDB">
     <providedRoles_InterfaceProvidingEntity id="_anzWcKYSEduWZfldHy3B1Q" providedInterface__ProvidedRole="_Wf-b66YGEduWZfldHy3B1Q"/>
@@ -185,15 +187,56 @@
         </bodyBehaviour_Loop>
       </steps_Behaviour>
     </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="pcm.seff:ResourceDemandingSEFF" id="_9GrYwBf9Edya8Lml43JWcw" describedService__SEFF="//@interfaces__Repository.4/@signatures__Interface.1">
+      <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_9b1wcBf9Edya8Lml43JWcw" successor_AbstractAction="_9b1wcRf9Edya8Lml43JWcw"/>
+      <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_9b1wcRf9Edya8Lml43JWcw" predecessor_AbstractAction="_9b1wcBf9Edya8Lml43JWcw"/>
+    </serviceEffectSpecifications__BasicComponent>
+  </components__Repository>
+  <components__Repository xsi:type="pcm.repository:BasicComponent" id="_lwHUQBf4EdyaK-mUy9AgLg" entityName="Encoding">
+    <providedRoles_InterfaceProvidingEntity id="_uAJQwBf4EdyaK-mUy9AgLg" entityName="Provided_IEncode_Encoding" providedInterface__ProvidedRole="_npsFABf4EdyaK-mUy9AgLg"/>
+    <serviceEffectSpecifications__BasicComponent xsi:type="pcm.seff:ResourceDemandingSEFF" id="_uAJQwRf4EdyaK-mUy9AgLg" describedService__SEFF="//@interfaces__Repository.5/@signatures__Interface.0">
+      <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_uAJQwhf4EdyaK-mUy9AgLg" successor_AbstractAction="_1yqx4Bf4EdyaK-mUy9AgLg"/>
+      <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_uAJQwxf4EdyaK-mUy9AgLg" predecessor_AbstractAction="_3l_JoBf4EdyaK-mUy9AgLg"/>
+      <steps_Behaviour xsi:type="pcm.seff:InternalAction" id="_1yqx4Bf4EdyaK-mUy9AgLg" entityName="decode" predecessor_AbstractAction="_uAJQwhf4EdyaK-mUy9AgLg" successor_AbstractAction="_3l_JoBf4EdyaK-mUy9AgLg"/>
+      <steps_Behaviour xsi:type="pcm.seff:InternalAction" id="_3l_JoBf4EdyaK-mUy9AgLg" entityName="encode" predecessor_AbstractAction="_1yqx4Bf4EdyaK-mUy9AgLg" successor_AbstractAction="_uAJQwxf4EdyaK-mUy9AgLg"/>
+    </serviceEffectSpecifications__BasicComponent>
+  </components__Repository>
+  <components__Repository xsi:type="pcm.repository:BasicComponent" id="_vWtbEBf4EdyaK-mUy9AgLg" entityName="MediaStoreWithEncode">
+    <providedRoles_InterfaceProvidingEntity id="_xgOFQBf4EdyaK-mUy9AgLg" entityName="Provided_IMediaStore_MediaStoreWithEncode" providedInterface__ProvidedRole="_QW4WtKYGEduWZfldHy3B1Q"/>
+    <requiredRoles_InterfaceRequiringEntity id="_yJMw0Bf4EdyaK-mUy9AgLg" entityName="Required_ISound_MediaStoreWithEncode" requiredInterface__RequiredRole="_R63R9KYGEduWZfldHy3B1Q"/>
+    <requiredRoles_InterfaceRequiringEntity id="_yj3TkBf4EdyaK-mUy9AgLg" entityName="Required_IEncode_MediaStoreWithEncode" requiredInterface__RequiredRole="_npsFABf4EdyaK-mUy9AgLg"/>
+    <requiredRoles_InterfaceRequiringEntity id="_JiedABf8Edya8Lml43JWcw" entityName="Required_IAudioDB_MediaStoreWithEncode" requiredInterface__RequiredRole="_Vpb1e6YGEduWZfldHy3B1Q"/>
+    <serviceEffectSpecifications__BasicComponent xsi:type="pcm.seff:ResourceDemandingSEFF" id="_xgOFQRf4EdyaK-mUy9AgLg" describedService__SEFF="//@interfaces__Repository.1/@signatures__Interface.0">
+      <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_xgOFQhf4EdyaK-mUy9AgLg" successor_AbstractAction="_Kvg34Bf8Edya8Lml43JWcw"/>
+      <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_xgOFQxf4EdyaK-mUy9AgLg" predecessor_AbstractAction="_MAbGIBf8Edya8Lml43JWcw"/>
+      <steps_Behaviour xsi:type="pcm.seff:ExternalCallAction" id="_Kvg34Bf8Edya8Lml43JWcw" predecessor_AbstractAction="_xgOFQhf4EdyaK-mUy9AgLg" successor_AbstractAction="_MAbGIBf8Edya8Lml43JWcw" calledService_ExternalService="//@interfaces__Repository.3/@signatures__Interface.0"/>
+      <steps_Behaviour xsi:type="pcm.seff:CollectionIteratorAction" id="_MAbGIBf8Edya8Lml43JWcw" predecessor_AbstractAction="_Kvg34Bf8Edya8Lml43JWcw" successor_AbstractAction="_xgOFQxf4EdyaK-mUy9AgLg" parameter_CollectionIteratorAction="//@interfaces__Repository.1/@signatures__Interface.0/@parameters__Signature.0">
+        <bodyBehaviour_Loop>
+          <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_MqTJkBf8Edya8Lml43JWcw" successor_AbstractAction="_N-CpYBf8Edya8Lml43JWcw"/>
+          <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_MqTJkRf8Edya8Lml43JWcw" predecessor_AbstractAction="_N-CpYBf8Edya8Lml43JWcw"/>
+          <steps_Behaviour xsi:type="pcm.seff:ExternalCallAction" id="_N-CpYBf8Edya8Lml43JWcw" predecessor_AbstractAction="_MqTJkBf8Edya8Lml43JWcw" successor_AbstractAction="_MqTJkRf8Edya8Lml43JWcw" calledService_ExternalService="//@interfaces__Repository.2/@signatures__Interface.0"/>
+        </bodyBehaviour_Loop>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="pcm.seff:ResourceDemandingSEFF" id="_7T8P0Bf9Edya8Lml43JWcw" describedService__SEFF="//@interfaces__Repository.1/@signatures__Interface.1">
+      <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_7jS6cBf9Edya8Lml43JWcw" successor_AbstractAction="_7jS6cRf9Edya8Lml43JWcw"/>
+      <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_7jS6cRf9Edya8Lml43JWcw" predecessor_AbstractAction="_7jS6cBf9Edya8Lml43JWcw"/>
+    </serviceEffectSpecifications__BasicComponent>
   </components__Repository>
   <interfaces__Repository id="_O42SdKYGEduWZfldHy3B1Q" entityName="IHTTP">
     <signatures__Interface serviceName="downloadHTTP" returntype__Signature="_sCx2BaYGEduWZfldHy3B1Q">
       <parameters__Signature datatype__Parameter="_tR_6BaY5EdudtvdezBq5JQ" parameterName="desiredFiles"/>
     </signatures__Interface>
+    <signatures__Interface serviceName="uploadHTTP">
+      <parameters__Signature datatype__Parameter="_sCx2BaYGEduWZfldHy3B1Q" parameterName="fileList"/>
+    </signatures__Interface>
   </interfaces__Repository>
   <interfaces__Repository id="_QW4WtKYGEduWZfldHy3B1Q" entityName="IMediaStore">
     <signatures__Interface serviceName="downloadFromDB" returntype__Signature="_sCx2BaYGEduWZfldHy3B1Q">
       <parameters__Signature datatype__Parameter="_tR_6BaY5EdudtvdezBq5JQ" parameterName="desiredFiles"/>
+    </signatures__Interface>
+    <signatures__Interface serviceName="uploadToDB">
+      <parameters__Signature datatype__Parameter="_sCx2BaYGEduWZfldHy3B1Q" parameterName="fileList"/>
     </signatures__Interface>
   </interfaces__Repository>
   <interfaces__Repository id="_R63R9KYGEduWZfldHy3B1Q" entityName="ISound">
@@ -205,10 +248,21 @@
     <signatures__Interface serviceName="queryDB" returntype__Signature="_sCx2BaYGEduWZfldHy3B1Q">
       <parameters__Signature datatype__Parameter="_tR_6BaY5EdudtvdezBq5JQ" parameterName="desiredFiles"/>
     </signatures__Interface>
+    <signatures__Interface serviceName="insert">
+      <parameters__Signature datatype__Parameter="_sCx2BaYGEduWZfldHy3B1Q" parameterName="fileList"/>
+    </signatures__Interface>
   </interfaces__Repository>
   <interfaces__Repository id="_Wf-b66YGEduWZfldHy3B1Q" entityName="IMySQL">
     <signatures__Interface serviceName="getFiles" returntype__Signature="_sCx2BaYGEduWZfldHy3B1Q">
       <parameters__Signature datatype__Parameter="_tR_6BaY5EdudtvdezBq5JQ" parameterName="FilesIDs"/>
+    </signatures__Interface>
+    <signatures__Interface serviceName="addFiles">
+      <parameters__Signature datatype__Parameter="_sCx2BaYGEduWZfldHy3B1Q" parameterName="fileList"/>
+    </signatures__Interface>
+  </interfaces__Repository>
+  <interfaces__Repository id="_npsFABf4EdyaK-mUy9AgLg" entityName="IEncode">
+    <signatures__Interface serviceName="encode" returntype__Signature="_t-PNZaYXEduWZfldHy3B1Q">
+      <parameters__Signature datatype__Parameter="_t-PNZaYXEduWZfldHy3B1Q" parameterName="file"/>
     </signatures__Interface>
   </interfaces__Repository>
   <datatypes_Repository xsi:type="pcm.repository:CollectionDataType" id="_t-PNZaYXEduWZfldHy3B1Q" entityName="FILE" innerType_CollectionDataType="//@datatypes_Repository.2"/>
