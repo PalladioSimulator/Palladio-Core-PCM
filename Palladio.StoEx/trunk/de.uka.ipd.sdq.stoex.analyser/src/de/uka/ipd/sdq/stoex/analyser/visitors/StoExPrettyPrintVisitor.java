@@ -1,5 +1,9 @@
 package de.uka.ipd.sdq.stoex.analyser.visitors;
 
+import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
+import java.util.Locale;
+
 import org.eclipse.emf.ecore.EObject;
 
 import de.uka.ipd.sdq.probfunction.print.ProbFunctionPrettyPrint;
@@ -69,7 +73,8 @@ public class StoExPrettyPrintVisitor extends StoexSwitch {
 	 */
 	@Override
 	public Object caseDoubleLiteral(DoubleLiteral object) {
-		return Double.toString(object.getValue());
+		DecimalFormat df = new DecimalFormat("#0.0###########", new DecimalFormatSymbols(Locale.US));
+		return df.format(object.getValue());
 	}
 
 	/* (non-Javadoc)
