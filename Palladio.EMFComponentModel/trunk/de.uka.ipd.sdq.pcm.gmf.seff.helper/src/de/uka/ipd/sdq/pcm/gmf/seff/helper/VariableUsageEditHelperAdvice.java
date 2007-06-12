@@ -25,6 +25,7 @@ import de.uka.ipd.sdq.dialogs.stoex.VariableUsageContentProvider;
 import de.uka.ipd.sdq.dialogs.stoex.VariableUsageInputParameterContentProvider;
 import de.uka.ipd.sdq.dialogs.stoex.VariableUsageItemProviderAdapterFactory;
 import de.uka.ipd.sdq.dialogs.stoex.VariableUsageOutputParameterContentProvider;
+import de.uka.ipd.sdq.pcm.gmf.seff.providers.PalladioComponentModelElementTypes;
 import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
 import de.uka.ipd.sdq.pcm.repository.InnerDeclaration;
 import de.uka.ipd.sdq.pcm.repository.Parameter;
@@ -54,11 +55,53 @@ public class VariableUsageEditHelperAdvice extends AbstractEditHelperAdvice
 	@Override
 	protected ICommand getAfterConfigureCommand(ConfigureRequest request) {
 		if (request.getElementToConfigure().eContainer() instanceof ExternalCallAction) {
-			return caseExternalCallActionInputParameter(request);
+			if (request.getTypeToConfigure() == PalladioComponentModelElementTypes.VariableUsage_3001){
+				// 3001 = VariableUsage for input variables
+				return caseExternalCallActionInputParameter(request);
+			} else if (request.getTypeToConfigure() == PalladioComponentModelElementTypes.VariableUsage_3022){
+				// 3022 = VariableUsage for output variables
+				return caseExternalCallActionOutputParameter(request);
+			} else {
+				return null;
+			}
 		} else if (request.getElementToConfigure().eContainer() instanceof SetVariableAction) {
 			return caseSetVariableAction(request);
 		} else
 			return new CanceledCommand();
+	}
+
+	private ICommand caseExternalCallActionOutputParameter(
+			ConfigureRequest request) {
+
+		SetOutputVariableNameDialog dialog = new SetOutputVariableNameDialog(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell());
+		dialog.open();
+		
+		String enteredName = dialog.getResult();
+		if (enteredName == null){
+			return new CanceledCommand();
+		}
+		
+		AbstractNamedReference namedReference = 
+			getOutputVariableReference(enteredName);
+
+		ICommand cmd = new SetValueCommand(new SetRequest(request
+				.getElementToConfigure(), ParameterPackage.eINSTANCE
+				.getVariableUsage_NamedReference_VariableUsage(),
+				namedReference));
+		return cmd;
+	}
+
+	private AbstractNamedReference getOutputVariableReference(String enteredName) {
+		String[] enteredNameSplitted = enteredName.split("\\.");
+		AbstractNamedReference namedReference = referenceFactory(
+				enteredNameSplitted[enteredNameSplitted.length - 1], true);
+
+		for (int i=enteredNameSplitted.length-2; i>=0; i--){
+			NamespaceReference nr = (NamespaceReference)referenceFactory(enteredNameSplitted[i], false);
+			nr.setInnerReference_NamespaceReference(namedReference);
+			namedReference = nr;
+		}
+		return namedReference;
 	}
 
 	private ICommand caseSetVariableAction(ConfigureRequest request) {
