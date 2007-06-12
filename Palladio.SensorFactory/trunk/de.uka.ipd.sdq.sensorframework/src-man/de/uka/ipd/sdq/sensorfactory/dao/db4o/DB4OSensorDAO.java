@@ -29,7 +29,6 @@ public class DB4OSensorDAO implements ISensorDAO {
 		this.idGen = idGen;
 	}
 
-	@Override
 	public StateSensor addStateSensor(State p_initialstate, String p_sensorname) {
 		StateSensor result = new StateSensorImpl(factory);
 		result.setSensorID(idGen.getNextSensorID());
@@ -41,7 +40,6 @@ public class DB4OSensorDAO implements ISensorDAO {
 		return result;
 	}
 
-	@Override
 	public TimeSpanSensor addTimeSpanSensor(String p_sensorname) {
 		TimeSpanSensor result = new TimeSpanSensorImpl(factory);
 		result.setSensorID(idGen.getNextSensorID());

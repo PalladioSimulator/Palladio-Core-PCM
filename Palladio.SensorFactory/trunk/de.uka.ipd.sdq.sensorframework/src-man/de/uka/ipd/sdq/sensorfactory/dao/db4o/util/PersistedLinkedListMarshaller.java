@@ -5,12 +5,10 @@ import com.db4o.foundation.PrimitiveCodec;
 
 public class PersistedLinkedListMarshaller implements ObjectMarshaller {
 
-	@Override
 	public int marshalledFieldLength() {
 		return PrimitiveCodec.LONG_LENGTH*2;
 	}
 
-	@Override
 	public void readFields(Object obj, byte[] slot, int offset) {
 		MyList list = (MyList) obj;
 		list.setHeadID(PrimitiveCodec.readLong(slot, offset));
@@ -19,7 +17,6 @@ public class PersistedLinkedListMarshaller implements ObjectMarshaller {
 		offset+= PrimitiveCodec.LONG_LENGTH;		
 	}
 
-	@Override
 	public void writeFields(Object obj, byte[] slot, int offset) {
 		MyList list = (MyList) obj;
 		list.flushList();

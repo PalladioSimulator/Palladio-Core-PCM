@@ -29,12 +29,10 @@ public class PersistedLinkedListIterator<T extends IByteSerialisable> implements
 		db.activate(current, 2);
 	}
 
-	@Override
 	public boolean hasNext() {
 		return pos < size;
 	}
 
-	@Override
 	public T next() {
 		if (pos % PersistedLinkedList.PAGESIZE == 0) {
 			byte[] data = current.getData();
@@ -73,7 +71,6 @@ public class PersistedLinkedListIterator<T extends IByteSerialisable> implements
 		return (T) o;
 	}
 
-	@Override
 	public void remove() {
 		throw new UnsupportedOperationException();
 	}

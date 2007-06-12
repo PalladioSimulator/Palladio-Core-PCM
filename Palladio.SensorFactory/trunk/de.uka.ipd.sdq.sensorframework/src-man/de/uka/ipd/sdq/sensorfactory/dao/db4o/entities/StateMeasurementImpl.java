@@ -24,14 +24,12 @@ implements IByteSerialisable {
 		this.myDAOFactory = DB4ODAOFactory.factoryRegistry.get(arg0);
 	}
 
-	@Override
 	public void fromBytes(DataInputStream stream) throws IOException {
 		this.setEventTime(stream.readDouble());
 		long id = stream.readLong();
 		this.setSensorState(this.myDAOFactory.createStateDAO().get(id));
 	}
 
-	@Override
 	public void toBytes(DataOutputStream stream) throws IOException {
 		stream.writeDouble(this.getEventTime());
 		stream.writeLong(this.getSensorState().getStateID());

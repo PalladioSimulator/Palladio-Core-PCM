@@ -56,7 +56,6 @@ public class DB4OExperimentDAO implements IExperimentDAO {
 		return Collections.unmodifiableCollection(resultList);
 	}
 
-	@Override
 	public void store(Experiment e) {
 		// Update this, the sensor collection and the run collection
 		((ExtObjectContainer)db).set(e,2);
