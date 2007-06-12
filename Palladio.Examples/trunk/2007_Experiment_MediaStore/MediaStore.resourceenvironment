@@ -5,6 +5,9 @@
     <activeResourceSpecifications_ResourceContainer processingRate="1.0" units="CPU cycles">
       <activeResourceType_ActiveResourceSpecification href="MediaStore.resourcetype#_9-JuEaYUEduWZfldHy3B1Q"/>
     </activeResourceSpecifications_ResourceContainer>
+    <activeResourceSpecifications_ResourceContainer processingRate="1.0">
+      <activeResourceType_ActiveResourceSpecification href="MediaStore.resourcetype#_DH6dMaYVEduWZfldHy3B1Q"/>
+    </activeResourceSpecifications_ResourceContainer>
   </resourceContainer_ResourceEnvironment>
   <resourceContainer_ResourceEnvironment id="_35HNAKYVEduWZfldHy3B1Q" entityName="AudioDB">
     <activeResourceSpecifications_ResourceContainer processingRate="1.0" units="CPU cycles">

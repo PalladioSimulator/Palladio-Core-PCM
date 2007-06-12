@@ -59,7 +59,7 @@
           </children>
           <styles xmi:type="notation:ShapeStyle" xmi:id="_MithNxBkEdy9L-s_NBcS_w"/>
           <element xmi:type="pcm.seff:InternalAction" href="MediaStore.repository#__fg_4KYkEduWZfldHy3B1Q"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_MithOBBkEdy9L-s_NBcS_w" x="31" y="149"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_MithOBBkEdy9L-s_NBcS_w" x="-437" y="149"/>
         </children>
         <children xmi:type="notation:Node" xmi:id="_Mh0JUxBkEdy9L-s_NBcS_w" type="2006">
           <children xmi:type="notation:Node" xmi:id="_Mh0JVhBkEdy9L-s_NBcS_w" type="5012"/>
@@ -82,7 +82,7 @@
     </children>
     <styles xmi:type="notation:ShapeStyle" xmi:id="_ofj3MxayEdy0k-X6fWSHag"/>
     <element xmi:type="pcm.seff:CollectionIteratorAction" href="MediaStore.repository#_n3ejgBayEdy0k-X6fWSHag"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ofj3NBayEdy0k-X6fWSHag" x="756" width="937" height="397"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ofj3NBayEdy0k-X6fWSHag" x="756" width="2149" height="397"/>
   </children>
   <styles xmi:type="notation:DiagramStyle" xmi:id="_CnRugQ-CEdyGE4DI06fd0Q"/>
   <element xmi:type="pcm.seff:ResourceDemandingSEFF" href="MediaStore.repository#_Z_JD9KYmEdunyPSYvCWVNg"/>

@@ -30,13 +30,13 @@
     <element xmi:type="pcm.usagemodel:ScenarioBehaviour" href="MediaStore.usagemodel#_gBOngaY5EdudtvdezBq5JQ"/>
     <layoutConstraint xmi:type="notation:Bounds" xmi:id="_oiXU4hBiEdy9L-s_NBcS_w" width="685" height="589"/>
   </children>
-  <children xmi:type="notation:Node" xmi:id="_CaP8sBdlEdyqXOkvORVsBA" type="2002">
-    <children xmi:type="notation:Node" xmi:id="_CaP8sxdlEdyqXOkvORVsBA" type="5002"/>
-    <children xmi:type="notation:Node" xmi:id="_CaP8tBdlEdyqXOkvORVsBA" type="5003"/>
-    <children xmi:type="notation:Node" xmi:id="_CaP8tRdlEdyqXOkvORVsBA" type="5009"/>
-    <styles xmi:type="notation:ShapeStyle" xmi:id="_CaP8sRdlEdyqXOkvORVsBA"/>
+  <children xmi:type="notation:Node" xmi:id="_yWQfEBjtEdybxqyfCnouKA" type="2002">
+    <children xmi:type="notation:Node" xmi:id="_yWQfExjtEdybxqyfCnouKA" type="5002"/>
+    <children xmi:type="notation:Node" xmi:id="_yWaQEBjtEdybxqyfCnouKA" type="5003"/>
+    <children xmi:type="notation:Node" xmi:id="_yWaQERjtEdybxqyfCnouKA" type="5009"/>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_yWQfERjtEdybxqyfCnouKA"/>
     <element xmi:type="pcm.usagemodel:ClosedWorkload" href="MediaStore.usagemodel#//@usageScenario_UsageModel.0/@workload_UsageScenario"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_CaP8shdlEdyqXOkvORVsBA" x="720" y="182"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_yWQfEhjtEdybxqyfCnouKA" x="564" y="594"/>
   </children>
   <styles xmi:type="notation:DiagramStyle" xmi:id="_nxyMgRBiEdy9L-s_NBcS_w"/>
   <element xmi:type="pcm.usagemodel:UsageScenario" href="MediaStore.usagemodel#_KOGcwKYVEduWZfldHy3B1Q"/>
