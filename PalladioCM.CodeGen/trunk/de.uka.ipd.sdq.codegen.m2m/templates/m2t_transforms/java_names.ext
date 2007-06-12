@@ -45,15 +45,7 @@ portMemberVar(ProvidedRole r) :
 // of the provided ports
 portGetter(ProvidedRole r) :
    "getPort"+r.providedInterface__ProvidedRole.javaName();
-   
-// Name of the base package which is generated from a repository model instance
-basePackageName(Repository r) :
-   r.javaName().toLowerCase();
-
-// Name of the base package which is generated from a repository model instance
-basePackageName(UsageScenario u) :
-   u.javaName().toLowerCase();
-   
+      
 implementationPackage(Entity e) :
    "should never be called!";
 

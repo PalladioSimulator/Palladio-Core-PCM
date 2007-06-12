@@ -122,14 +122,14 @@ public class SimuComConfigurationTab extends AbstractLaunchConfigurationTab {
 			nameField.setText(configuration.getAttribute(
 					SimuComConfig.EXPERIMENT_RUN, ""));
 		} catch (CoreException e) {
-			nameField.setText("CoreException e -> EXPERIMENT_RUN");
+			nameField.setText("MyRun");
 		}
 
 		try {
 			timeField.setText(configuration.getAttribute(
 					SimuComConfig.SIMULATION_TIME, ""));
 		} catch (CoreException e) {
-			timeField.setText("CoreException e -> SIMULATION_TIME");
+			timeField.setText("150000");
 		}
 	}
 
@@ -141,6 +141,8 @@ public class SimuComConfigurationTab extends AbstractLaunchConfigurationTab {
 				nameField.getText());
 		configuration.setAttribute(SimuComConfig.SIMULATION_TIME,
 				timeField.getText());
+		configuration.setAttribute(SimuComConfig.DATASOURCE_ID,
+				1/*TODO*/);
 	}
 
 	/* (non-Javadoc)
@@ -151,6 +153,8 @@ public class SimuComConfigurationTab extends AbstractLaunchConfigurationTab {
 				"MyRun");
 		configuration.setAttribute(SimuComConfig.SIMULATION_TIME,
 				"150000");
+		configuration.setAttribute(SimuComConfig.DATASOURCE_ID,
+				1/*TODO*/);
 	}
 
 	/* (non-Javadoc)

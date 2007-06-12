@@ -732,13 +732,13 @@ public class CompletionsEditor
 		adapterFactory.addAdapterFactory(new RepositoryItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new ProtocolItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new ParameterItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new SeffItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new ResourcetypeItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new AllocationItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new ResourceenvironmentItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new ResourcetypeItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new SystemItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new QosannotationsItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new UsagemodelItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new SeffItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new ProbfunctionItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new StoexItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());

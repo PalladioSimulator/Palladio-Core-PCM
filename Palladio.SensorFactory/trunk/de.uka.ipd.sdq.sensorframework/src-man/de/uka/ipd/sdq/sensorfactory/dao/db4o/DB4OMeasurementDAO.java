@@ -34,9 +34,7 @@ public class DB4OMeasurementDAO implements IMeasurementDAO {
 		result.setEventTime(p_eventtime);
 		result.setSensor(p_sensor);
 		result.setSensorState(p_sensorstate);
-		
-		db.set(result);
-		
+				
 		return result;
 	}
 
@@ -47,8 +45,6 @@ public class DB4OMeasurementDAO implements IMeasurementDAO {
 		result.setEventTime(p_eventtime);
 		result.setSensor(p_sensor);
 		result.setTimeSpan(p_timespan);
-
-		db.set(result);
 
 		return result;
 	}

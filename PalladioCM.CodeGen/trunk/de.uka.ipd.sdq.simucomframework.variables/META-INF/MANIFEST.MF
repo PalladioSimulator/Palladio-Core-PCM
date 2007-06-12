@@ -15,7 +15,7 @@ Require-Bundle: de.uka.ipd.sdq.pcm,
  de.uka.ipd.sdq.probfunction.math,
  de.uka.ipd.sdq.stoex.analyser,
  org.antlr;bundle-version="[2.7.6,2.7.6]",
- org.apache.jakarta_log4j,
- org.junit4
+ org.junit4,
+ org.apache.log4j
 Bundle-Vendor: sdq.ipd.uka.de
 Eclipse-LazyStart: true

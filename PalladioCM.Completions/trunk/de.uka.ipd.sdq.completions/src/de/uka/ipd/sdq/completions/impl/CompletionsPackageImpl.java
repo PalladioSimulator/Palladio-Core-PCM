@@ -11,6 +11,7 @@ import de.uka.ipd.sdq.completions.CompletionRepository;
 import de.uka.ipd.sdq.completions.CompletionsFactory;
 import de.uka.ipd.sdq.completions.CompletionsPackage;
 
+import de.uka.ipd.sdq.completions.DelegatingExternalCallAction;
 import de.uka.ipd.sdq.identifier.IdentifierPackage;
 
 import de.uka.ipd.sdq.pcm.allocation.AllocationPackage;
@@ -69,6 +70,13 @@ public class CompletionsPackageImpl extends EPackageImpl implements CompletionsP
 	 * @generated
 	 */
 	private EClass completionRepositoryEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass delegatingExternalCallActionEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -134,13 +142,13 @@ public class CompletionsPackageImpl extends EPackageImpl implements CompletionsP
 		RepositoryPackage.eINSTANCE.eClass();
 		ProtocolPackage.eINSTANCE.eClass();
 		ParameterPackage.eINSTANCE.eClass();
+		SeffPackage.eINSTANCE.eClass();
+		ResourcetypePackage.eINSTANCE.eClass();
 		AllocationPackage.eINSTANCE.eClass();
 		ResourceenvironmentPackage.eINSTANCE.eClass();
-		ResourcetypePackage.eINSTANCE.eClass();
 		SystemPackage.eINSTANCE.eClass();
 		QosannotationsPackage.eINSTANCE.eClass();
 		UsagemodelPackage.eINSTANCE.eClass();
-		SeffPackage.eINSTANCE.eClass();
 		ProbfunctionPackage.eINSTANCE.eClass();
 		StoexPackage.eINSTANCE.eClass();
 
@@ -188,6 +196,15 @@ public class CompletionsPackageImpl extends EPackageImpl implements CompletionsP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getDelegatingExternalCallAction() {
+		return delegatingExternalCallActionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public CompletionsFactory getCompletionsFactory() {
 		return (CompletionsFactory)getEFactoryInstance();
 	}
@@ -215,6 +232,8 @@ public class CompletionsPackageImpl extends EPackageImpl implements CompletionsP
 
 		completionRepositoryEClass = createEClass(COMPLETION_REPOSITORY);
 		createEReference(completionRepositoryEClass, COMPLETION_REPOSITORY__COMPLETIONS_COMPLETION_REPOSITORY);
+
+		delegatingExternalCallActionEClass = createEClass(DELEGATING_EXTERNAL_CALL_ACTION);
 	}
 
 	/**
@@ -243,6 +262,7 @@ public class CompletionsPackageImpl extends EPackageImpl implements CompletionsP
 		// Obtain other dependent packages
 		EntityPackage theEntityPackage = (EntityPackage)EPackage.Registry.INSTANCE.getEPackage(EntityPackage.eNS_URI);
 		RepositoryPackage theRepositoryPackage = (RepositoryPackage)EPackage.Registry.INSTANCE.getEPackage(RepositoryPackage.eNS_URI);
+		SeffPackage theSeffPackage = (SeffPackage)EPackage.Registry.INSTANCE.getEPackage(SeffPackage.eNS_URI);
 
 		// Create type parameters
 
@@ -251,12 +271,15 @@ public class CompletionsPackageImpl extends EPackageImpl implements CompletionsP
 		// Add supertypes to classes
 		completionEClass.getESuperTypes().add(theEntityPackage.getComposedProvidingRequiringEntity());
 		completionEClass.getESuperTypes().add(theRepositoryPackage.getImplementationComponentType());
+		delegatingExternalCallActionEClass.getESuperTypes().add(theSeffPackage.getExternalCallAction());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(completionEClass, Completion.class, "Completion", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(completionRepositoryEClass, CompletionRepository.class, "CompletionRepository", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getCompletionRepository_Completions_CompletionRepository(), this.getCompletion(), null, "completions_CompletionRepository", null, 0, -1, CompletionRepository.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+		initEClass(delegatingExternalCallActionEClass, DelegatingExternalCallAction.class, "DelegatingExternalCallAction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);

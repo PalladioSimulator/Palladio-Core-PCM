@@ -23,6 +23,8 @@ import de.uka.ipd.sdq.pcm.repository.CompleteComponentType;
 import de.uka.ipd.sdq.pcm.repository.ImplementationComponentType;
 import de.uka.ipd.sdq.pcm.repository.ProvidesComponentType;
 
+import de.uka.ipd.sdq.pcm.seff.AbstractAction;
+import de.uka.ipd.sdq.pcm.seff.ExternalCallAction;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 
@@ -95,6 +97,10 @@ public class CompletionsAdapterFactory extends AdapterFactoryImpl {
 				return createCompletionRepositoryAdapter();
 			}
 			@Override
+			public Adapter caseDelegatingExternalCallAction(DelegatingExternalCallAction object) {
+				return createDelegatingExternalCallActionAdapter();
+			}
+			@Override
 			public Adapter caseIdentifier(Identifier object) {
 				return createIdentifierAdapter();
 			}
@@ -137,6 +143,14 @@ public class CompletionsAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseImplementationComponentType(ImplementationComponentType object) {
 				return createImplementationComponentTypeAdapter();
+			}
+			@Override
+			public Adapter caseAbstractAction(AbstractAction object) {
+				return createAbstractActionAdapter();
+			}
+			@Override
+			public Adapter caseExternalCallAction(ExternalCallAction object) {
+				return createExternalCallActionAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -183,6 +197,20 @@ public class CompletionsAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createCompletionRepositoryAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.completions.DelegatingExternalCallAction <em>Delegating External Call Action</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.completions.DelegatingExternalCallAction
+	 * @generated
+	 */
+	public Adapter createDelegatingExternalCallActionAdapter() {
 		return null;
 	}
 
@@ -337,6 +365,34 @@ public class CompletionsAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createImplementationComponentTypeAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.seff.AbstractAction <em>Abstract Action</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.pcm.seff.AbstractAction
+	 * @generated
+	 */
+	public Adapter createAbstractActionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.seff.ExternalCallAction <em>External Call Action</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.pcm.seff.ExternalCallAction
+	 * @generated
+	 */
+	public Adapter createExternalCallActionAdapter() {
 		return null;
 	}
 

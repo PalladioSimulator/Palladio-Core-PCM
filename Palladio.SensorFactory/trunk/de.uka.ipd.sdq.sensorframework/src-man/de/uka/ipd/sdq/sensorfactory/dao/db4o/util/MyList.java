@@ -2,7 +2,7 @@ package de.uka.ipd.sdq.sensorfactory.dao.db4o.util;
 
 import java.util.Iterator;
 
-public interface MyList<E> {
+public interface MyList<E extends IByteSerialisable> {
 
 	public abstract void objectOnActivate(com.db4o.ObjectContainer arg0);
 
@@ -25,5 +25,7 @@ public interface MyList<E> {
 	public abstract long getLastID();
 
 	public abstract void setLast(long readLong);
+
+	public abstract void flushList();
 
 }

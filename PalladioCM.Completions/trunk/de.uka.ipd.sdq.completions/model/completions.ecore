@@ -8,4 +8,5 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="completions_CompletionRepository"
         ordered="false" upperBound="-1" eType="#//Completion" containment="true"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DelegatingExternalCallAction" eSuperTypes="platform:/plugin/de.uka.ipd.sdq.pcm/model/pcm.ecore#//seff/ExternalCallAction"/>
 </ecore:EPackage>

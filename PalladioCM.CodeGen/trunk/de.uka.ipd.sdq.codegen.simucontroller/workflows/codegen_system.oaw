@@ -13,11 +13,10 @@
 		<modelFile value="${allocationFile}"/>
 		<outputSlot value="allocation"/>
 	</component>
-    
+    <!--
     <component class="de.uka.sdq.pcm.transformations.TransformationWorkflowComponent">
 	</component>
 	
-	<!-- 
 	<component class="oaw.emf.XmiWriter">
 		<modelFile value="${systemFile}.intermediate.repository"/>
 		<inputSlot value="completionRepository"/>
@@ -27,8 +26,7 @@
 		<modelFile value="${systemFile}.intermediate.system"/>
 		<inputSlot value="pcmmodel"/>
 	</component>
- 	-->
-    
+    -->
 	<component id="generator" class="oaw.xpand2.Generator" skipOnErrors="true">
 		<fileEncoding value="ISO-8859-1"/>
 	    <metaModel id="pcm.repository.emf" class="oaw.type.emf.EmfMetaModel">
@@ -73,6 +71,7 @@
 				organizeImports="true"
 				format="true"/>	
 			-->
+			<prSrcPaths value="${outpath}"/>
 	</component>	
 	
 	<component adviceTarget="generator" id="reflectionAdvice" class="oaw.xpand2.GeneratorAdvice">

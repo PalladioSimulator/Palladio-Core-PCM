@@ -9,6 +9,7 @@ import java.util.Map;
  */
 public class SimuComConfig {
 
+	public static final String DATASOURCE_ID = "datasourceID";
 	/** SimuCom configuration tab */
 	public static String EXPERIMENT_RUN = "experimentRun";
 	public static String SIMULATION_TIME = "simTime";
@@ -18,6 +19,7 @@ public class SimuComConfig {
 	private String nameExperimentRun;
 	private long simuTime;
 	private boolean verboseLogging;
+	private long datasourceID;
 
 	/**
 	 * @param ILaunchConfiguration
@@ -30,11 +32,10 @@ public class SimuComConfig {
 					SIMULATION_TIME));
 			this.verboseLogging = (Boolean)configuration.get(
 					VERBOSE_LOGGING);
+			this.datasourceID = (Integer)configuration.get(
+					DATASOURCE_ID);
 		} catch (Exception e) {
-			// TODO
-			this.nameExperimentRun = "ExceptionName";
-			this.simuTime = 1500000;
-			//throw new Exception("Setting up properties failed", e);
+			throw new RuntimeException("Setting up properties failed, please check launch config", e);
 		}
 	}
 
@@ -48,6 +49,10 @@ public class SimuComConfig {
 
 	public boolean getVerboseLogging() {
 		return verboseLogging;
+	}
+
+	public long getDatasourceID() {
+		return this.datasourceID;
 	}
 
 }

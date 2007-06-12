@@ -23,6 +23,8 @@ import de.uka.ipd.sdq.pcm.repository.CompleteComponentType;
 import de.uka.ipd.sdq.pcm.repository.ImplementationComponentType;
 import de.uka.ipd.sdq.pcm.repository.ProvidesComponentType;
 
+import de.uka.ipd.sdq.pcm.seff.AbstractAction;
+import de.uka.ipd.sdq.pcm.seff.ExternalCallAction;
 import java.util.List;
 
 import org.eclipse.emf.ecore.EClass;
@@ -125,6 +127,17 @@ public class CompletionsSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case CompletionsPackage.DELEGATING_EXTERNAL_CALL_ACTION: {
+				DelegatingExternalCallAction delegatingExternalCallAction = (DelegatingExternalCallAction)theEObject;
+				T result = caseDelegatingExternalCallAction(delegatingExternalCallAction);
+				if (result == null) result = caseExternalCallAction(delegatingExternalCallAction);
+				if (result == null) result = caseAbstractAction(delegatingExternalCallAction);
+				if (result == null) result = caseEntity(delegatingExternalCallAction);
+				if (result == null) result = caseIdentifier(delegatingExternalCallAction);
+				if (result == null) result = caseNamedElement(delegatingExternalCallAction);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -156,6 +169,21 @@ public class CompletionsSwitch<T> {
 	 * @generated
 	 */
 	public T caseCompletionRepository(CompletionRepository object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpretting the object as an instance of '<em>Delegating External Call Action</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpretting the object as an instance of '<em>Delegating External Call Action</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDelegatingExternalCallAction(DelegatingExternalCallAction object) {
 		return null;
 	}
 
@@ -321,6 +349,36 @@ public class CompletionsSwitch<T> {
 	 * @generated
 	 */
 	public T caseImplementationComponentType(ImplementationComponentType object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpretting the object as an instance of '<em>Abstract Action</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpretting the object as an instance of '<em>Abstract Action</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseAbstractAction(AbstractAction object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpretting the object as an instance of '<em>External Call Action</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpretting the object as an instance of '<em>External Call Action</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseExternalCallAction(ExternalCallAction object) {
 		return null;
 	}
 

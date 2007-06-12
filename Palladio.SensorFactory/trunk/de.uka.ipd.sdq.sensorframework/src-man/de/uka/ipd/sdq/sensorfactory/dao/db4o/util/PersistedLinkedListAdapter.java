@@ -5,7 +5,7 @@ import java.util.Iterator;
 
 import com.db4o.ObjectContainer;
 
-public class PersistedLinkedListAdapter extends AbstractList {
+public class PersistedLinkedListAdapter<T extends IByteSerialisable> extends AbstractList<T> {
 
 	private MyList delegate = null;
 
@@ -13,12 +13,12 @@ public class PersistedLinkedListAdapter extends AbstractList {
 		delegate = persistedLinkedList;
 	}
 
-	public boolean add(Object e) {
+	public boolean add(T e) {
 		return delegate.add(e);
 	}
 
-	public Object get(int index) {
-		return delegate.get(index);
+	public T get(int index) {
+		return (T)delegate.get(index);
 	}
 
 	public Iterator iterator() {

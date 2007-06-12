@@ -67,7 +67,7 @@ public class ExperimentRunImpl extends AbstractExperimentRun {
 		List<Measurement> list = index.get(p_sensor.getSensorID());
 		if (list == null) {
 			backgroundIndex.put(p_sensor.getSensorID(), 
-					new PersistedLinkedList(db));
+					new PersistedLinkedList(myDAOFactory,db));
 					//db.ext().collections().newLinkedList());
 			index.put(p_sensor.getSensorID(), 
 					new PersistedLinkedListAdapter(backgroundIndex.get(p_sensor.getSensorID())));
@@ -100,8 +100,10 @@ public class ExperimentRunImpl extends AbstractExperimentRun {
 		this.myDAOFactory = DB4ODAOFactory.factoryRegistry.get(arg0);
 		db.activate(backgroundIndex, 2);
 		index = new HashMap<Long,PersistedLinkedListAdapter>();
-		for (Long id : backgroundIndex.keySet())
+		for (Long id : backgroundIndex.keySet()) {
 			index.put(id, new PersistedLinkedListAdapter(backgroundIndex.get(id)));
+			backgroundIndex.get(id).setDAOFactory(myDAOFactory);
+		}
 	}
 
 	@Override
@@ -109,5 +111,11 @@ public class ExperimentRunImpl extends AbstractExperimentRun {
 		Collection<Measurement> measurementsResult = index.get(sensor.getSensorID());
 		if (measurementsResult == null) measurementsResult = Collections.EMPTY_LIST;
 		return new SensorAndMeasurements(sensor, measurementsResult);
+	}
+
+	public void flushBuffers() {
+		for(PersistedLinkedList l : backgroundIndex.values()){
+			l.flushList();
+		}
 	}
 }

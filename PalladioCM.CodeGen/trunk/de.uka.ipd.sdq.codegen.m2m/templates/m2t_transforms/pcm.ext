@@ -15,7 +15,7 @@ connectors(ComposedStructure s) :
    s.compositeAssemblyConnectors_ComposedStructure;
 
 test(AssemblyConnector c, AssemblyContext ctx, RequiredRole r):
-   c.requiredRole_CompositeAssemblyConnector == r && c.requiringChildComponentContext_CompositeAssemblyConnector == ctx;
+   c.requiredRole_CompositeAssemblyConnector.id == r.id && c.requiringChildComponentContext_CompositeAssemblyConnector.id == ctx.id;
 
 hasConnector(ComposedStructure s, AssemblyContext ctx, RequiredRole r) :
    connectors(s).select(con|test(con,ctx,r)).size == 1; 

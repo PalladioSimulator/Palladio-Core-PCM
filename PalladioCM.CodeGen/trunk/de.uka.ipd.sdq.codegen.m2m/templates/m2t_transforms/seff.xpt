@@ -1,6 +1,7 @@
 «EXTENSION m2t_transforms::java_names»
 «EXTENSION m2t_transforms::pcm»
 «IMPORT seff»
+«IMPORT completions»
 
 // ----------------------------
 // General templates for parts of a SEFF
@@ -28,6 +29,9 @@
     «EXPAND m2t_transforms::calls::Call(this,
        	"myContext.getRole"+this.calledService_ExternalService.interface_Signature.javaName()+"().",
     	this.parameterUsage_ExternalCallAction, this.outputVariableUsage_ExternalCallAction) FOR this.calledService_ExternalService»
+«ENDDEFINE»
+
+«DEFINE Action FOR DelegatingExternalCallAction»
 «ENDDEFINE»
 
 «DEFINE Action FOR InternalAction»

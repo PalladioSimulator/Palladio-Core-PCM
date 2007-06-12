@@ -131,6 +131,11 @@
 «AROUND m2t_transforms::seff::Action FOR ForkAction»
 	«EXPAND m2t_transforms::sim::seff::Action FOR this»
 «ENDAROUND»
+
+«AROUND m2t_transforms::seff::Action FOR DelegatingExternalCallAction»
+	«EXPAND m2t_transforms::sim::seff::Action FOR this»
+«ENDAROUND»
+
 // ----------------------------
 // End of Actions Dispatcher 
 // ----------------------------

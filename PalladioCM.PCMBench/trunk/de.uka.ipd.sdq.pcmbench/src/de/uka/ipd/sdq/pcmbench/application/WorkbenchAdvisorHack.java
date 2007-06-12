@@ -151,8 +151,6 @@ public abstract class WorkbenchAdvisorHack extends WorkbenchAdvisor
 				PATH_ELOCALTOOL + "hierarchicalLayout.gif", true); //$NON-NLS-1$
 		declareWorkbenchImage(ideBundle, IDEInternalWorkbenchImages.IMG_ETOOL_PROBLEM_CATEGORY,
 				PATH_ETOOL + "problem_category.gif", true); //$NON-NLS-1$
-		declareWorkbenchImage(ideBundle, IDEInternalWorkbenchImages.IMG_LCL_LINKTO_HELP,
-				PATH_ELOCALTOOL + "linkto_help.gif", false); //$NON-NLS-1$
 	}
 
 	/**

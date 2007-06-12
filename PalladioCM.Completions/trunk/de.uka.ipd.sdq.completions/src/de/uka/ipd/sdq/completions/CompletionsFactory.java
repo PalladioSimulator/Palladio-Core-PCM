@@ -44,6 +44,15 @@ public interface CompletionsFactory extends EFactory {
 	CompletionRepository createCompletionRepository();
 
 	/**
+	 * Returns a new object of class '<em>Delegating External Call Action</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Delegating External Call Action</em>'.
+	 * @generated
+	 */
+	DelegatingExternalCallAction createDelegatingExternalCallAction();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

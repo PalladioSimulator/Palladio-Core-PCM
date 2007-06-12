@@ -209,7 +209,7 @@ public class PluginProject {
 		out.println(" org.eclipse.core.runtime,"); //$NON-NLS-1$
 		out.println(" de.uka.ipd.sdq.simucomframework,"); //$NON-NLS-1$
 		out.println(" de.uka.ipd.sdq.simucomframework.variables,"); //$NON-NLS-1$
-		out.println(" org.apache.jakarta_log4j,"); //$NON-NLS-1$
+		out.println(" org.apache.log4j,"); //$NON-NLS-1$
 		out.println(" de.uka.ipd.sdq.desmojwrapper,"); //$NON-NLS-1$
 		out.println(" de.uka.ipd.sdq.codegen.simucontroller"); //$NON-NLS-1$
 		out.println("Eclipse-LazyStart: true"); //$NON-NLS-1$

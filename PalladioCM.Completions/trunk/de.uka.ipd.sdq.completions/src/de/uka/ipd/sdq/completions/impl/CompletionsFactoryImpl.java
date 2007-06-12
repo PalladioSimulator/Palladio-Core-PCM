@@ -62,6 +62,7 @@ public class CompletionsFactoryImpl extends EFactoryImpl implements CompletionsF
 		switch (eClass.getClassifierID()) {
 			case CompletionsPackage.COMPLETION: return createCompletion();
 			case CompletionsPackage.COMPLETION_REPOSITORY: return createCompletionRepository();
+			case CompletionsPackage.DELEGATING_EXTERNAL_CALL_ACTION: return createDelegatingExternalCallAction();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -85,6 +86,16 @@ public class CompletionsFactoryImpl extends EFactoryImpl implements CompletionsF
 	public CompletionRepository createCompletionRepository() {
 		CompletionRepositoryImpl completionRepository = new CompletionRepositoryImpl();
 		return completionRepository;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DelegatingExternalCallAction createDelegatingExternalCallAction() {
+		DelegatingExternalCallActionImpl delegatingExternalCallAction = new DelegatingExternalCallActionImpl();
+		return delegatingExternalCallAction;
 	}
 
 	/**

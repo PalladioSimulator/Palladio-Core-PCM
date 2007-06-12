@@ -22,6 +22,7 @@ public class PersistedLinkedListMarshaller implements ObjectMarshaller {
 	@Override
 	public void writeFields(Object obj, byte[] slot, int offset) {
 		MyList list = (MyList) obj;
+		list.flushList();
 		PrimitiveCodec.writeLong(slot, offset, list.getHeadID());
 		offset+= PrimitiveCodec.LONG_LENGTH;		
 		PrimitiveCodec.writeLong(slot, offset, list.getLastID());

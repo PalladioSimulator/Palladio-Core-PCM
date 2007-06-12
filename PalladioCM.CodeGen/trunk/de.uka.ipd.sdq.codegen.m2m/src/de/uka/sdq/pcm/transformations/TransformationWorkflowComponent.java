@@ -1,8 +1,12 @@
 package de.uka.sdq.pcm.transformations;
 
+import java.util.Collections;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.query.ocl.conditions.BooleanOCLCondition;
 import org.eclipse.emf.query.statements.FROM;
 import org.eclipse.emf.query.statements.SET;
@@ -18,10 +22,16 @@ import org.openarchitectureware.workflow.monitor.ProgressMonitor;
 import de.uka.ipd.sdq.completions.Completion;
 import de.uka.ipd.sdq.completions.CompletionsFactory;
 import de.uka.ipd.sdq.completions.CompletionsPackage;
+import de.uka.ipd.sdq.completions.DelegatingExternalCallAction;
+import de.uka.ipd.sdq.pcm.allocation.Allocation;
+import de.uka.ipd.sdq.pcm.allocation.AllocationContext;
+import de.uka.ipd.sdq.pcm.allocation.AllocationFactory;
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyConnector;
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
 import de.uka.ipd.sdq.pcm.core.composition.CompositionFactory;
 import de.uka.ipd.sdq.pcm.core.composition.CompositionPackage;
+import de.uka.ipd.sdq.pcm.core.composition.ProvidedDelegationConnector;
+import de.uka.ipd.sdq.pcm.core.composition.RequiredDelegationConnector;
 import de.uka.ipd.sdq.pcm.repository.BasicComponent;
 import de.uka.ipd.sdq.pcm.repository.ProvidedRole;
 import de.uka.ipd.sdq.pcm.repository.ProvidesComponentType;
@@ -29,8 +39,17 @@ import de.uka.ipd.sdq.pcm.repository.Repository;
 import de.uka.ipd.sdq.pcm.repository.RepositoryFactory;
 import de.uka.ipd.sdq.pcm.repository.RequiredRole;
 import de.uka.ipd.sdq.pcm.repository.Signature;
+import de.uka.ipd.sdq.pcm.resourcetype.ProcessingResourceType;
+import de.uka.ipd.sdq.pcm.resourcetype.ResourceRepository;
+import de.uka.ipd.sdq.pcm.resourcetype.ResourceType;
+import de.uka.ipd.sdq.pcm.seff.AbstractAction;
+import de.uka.ipd.sdq.pcm.seff.InternalAction;
+import de.uka.ipd.sdq.pcm.seff.ParametricResourceDemand;
 import de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF;
 import de.uka.ipd.sdq.pcm.seff.SeffFactory;
+import de.uka.ipd.sdq.pcm.seff.SeffPackage;
+import de.uka.ipd.sdq.pcm.seff.StartAction;
+import de.uka.ipd.sdq.pcm.seff.StopAction;
 import de.uka.ipd.sdq.pcm.system.System;
 
 public class TransformationWorkflowComponent 
@@ -38,8 +57,9 @@ public class TransformationWorkflowComponent
 
 	System resource = null;
 	Repository completionRepository = null;
-	private boolean shouldProceed = false;
-	private static int counter = 0;
+	Allocation allocation = null;
+	private boolean shouldProceed = true;
+	private int counter = 0;
 	
 	@Override
 	protected void checkConfigurationInternal(Issues arg0) {
@@ -48,8 +68,9 @@ public class TransformationWorkflowComponent
 	@Override
 	protected void invokeInternal(WorkflowContext context, ProgressMonitor monitor,
 			Issues issues) {
-		if (shouldProceed ) {
+		if (shouldProceed) {
 			this.resource = (de.uka.ipd.sdq.pcm.system.System) context.get("pcmmodel");
+			this.allocation = (Allocation)context.get("allocation");
 			completionRepository = RepositoryFactory.eINSTANCE.createRepository();
 			completionRepository.setEntityName("CompletionsRepository");
 			performTransformation(issues);
@@ -85,32 +106,116 @@ public class TransformationWorkflowComponent
 
 		Completion completion = createCompletionFor(con,counter);
 		completionRepository.getComponents__Repository().add(completion);
-		
-		configureCompletion(completion);
-		
 		embedCompletionIntoSystem(con, completion);
+		
+		configureCompletion(con, completion);
 	}
 
-	private void configureCompletion(Completion completion) {
+	private void configureCompletion(AssemblyConnector con, Completion completion) {
+		BasicComponent bc = createBasicComponent(completion);
+		AllocationContext callingComponentAllocContext = findCallingComponentAllocationContext(con.getRequiringChildComponentContext_CompositeAssemblyConnector());
+		AllocationContext newContext = AllocationFactory.eINSTANCE.createAllocationContext();
+		
+		AssemblyContext assCtx = CompositionFactory.eINSTANCE.createAssemblyContext();
+		assCtx.setEncapsulatedComponent_ChildComponentContext(bc);
+		completion.getChildComponentContexts_ComposedStructure().add(assCtx);
+
+		newContext.setAssemblyContext_AllocationContext(assCtx);
+		newContext.setResourceContainer_AllocationContext(callingComponentAllocContext.getResourceContainer_AllocationContext());
+		allocation.getAllocationContexts_Allocation().add(newContext);
+		
+		ProvidedDelegationConnector delCon = CompositionFactory.eINSTANCE.createProvidedDelegationConnector();
+		delCon.setChildComponentContext_ProvidedDelegationConnector(assCtx);
+		delCon.setInnerProvidedRole_ProvidedDelegationConnector(bc.getProvidedRoles_InterfaceProvidingEntity().get(0));
+		delCon.setOuterProvidedRole_ProvidedDelegationConnector(completion.getProvidedRoles_InterfaceProvidingEntity().get(0));
+		
+		RequiredDelegationConnector reqDelCon = CompositionFactory.eINSTANCE.createRequiredDelegationConnector();
+		reqDelCon.setChildComponentContext_RequiredDelegationConnector(assCtx);
+		reqDelCon.setInnerRequiredRole_RequiredDelegationConnector(bc.getRequiredRoles_InterfaceRequiringEntity().get(0));
+		reqDelCon.setOuterRequiredRole_RequiredDelegationConnector(completion.getRequiredRoles_InterfaceRequiringEntity().get(0));
+		
+		completion.getRequiredDelegationConnectors_ComposedStructure().add(reqDelCon);
+		completion.getProvidedDelegationConnectors_ComposedStructure().add(delCon);
+	}
+
+	private AllocationContext findCallingComponentAllocationContext(
+			AssemblyContext requiringChildComponentContext_CompositeAssemblyConnector) {
+		for(AllocationContext context : allocation.getAllocationContexts_Allocation()) {
+			if (requiringChildComponentContext_CompositeAssemblyConnector.getId().equals(
+					context.getAssemblyContext_AllocationContext()))
+				return context;
+		}
+		return null;
+	}
+
+	private BasicComponent createBasicComponent(Completion completion) {
 		BasicComponent bc = RepositoryFactory.eINSTANCE.createBasicComponent();
-		bc.getProvidedRoles_InterfaceProvidingEntity().add(completion.getProvidedRoles_InterfaceProvidingEntity().get(0));
-		bc.getRequiredRoles_InterfaceRequiringEntity().add(completion.getRequiredRoles_InterfaceRequiringEntity().get(0));
+		bc.setEntityName("CompletionComponent"+counter); counter++;
+		
+		ProvidedRole provRole = RepositoryFactory.eINSTANCE.createProvidedRole();
+		provRole.setProvidedInterface__ProvidedRole(completion.getProvidedRoles_InterfaceProvidingEntity().get(0).getProvidedInterface__ProvidedRole());
+		bc.getProvidedRoles_InterfaceProvidingEntity().add(provRole);
+		
+		RequiredRole reqRole = RepositoryFactory.eINSTANCE.createRequiredRole();
+		reqRole.setRequiredInterface__RequiredRole(completion.getRequiredRoles_InterfaceRequiringEntity().get(0).getRequiredInterface__RequiredRole());
+		bc.getRequiredRoles_InterfaceRequiringEntity().add(reqRole);
+		
 		for (Signature providedService : bc.getProvidedRoles_InterfaceProvidingEntity().get(0).getProvidedInterface__ProvidedRole().getSignatures__Interface()){
 			ResourceDemandingSEFF seff = createDelegatingSEFF(providedService);
 			bc.getServiceEffectSpecifications__BasicComponent().add(seff);
 		}
+		this.completionRepository.getComponents__Repository().add(bc);
+		return bc;
 	}
 
 	private ResourceDemandingSEFF createDelegatingSEFF(Signature providedService) {
 		ResourceDemandingSEFF seff = SeffFactory.eINSTANCE.createResourceDemandingSEFF();
 		seff.setDescribedService__SEFF(providedService);
+		StartAction start = SeffFactory.eINSTANCE.createStartAction();
+		DelegatingExternalCallAction delegatingCall = CompletionsFactory.eINSTANCE.createDelegatingExternalCallAction();
+		delegatingCall.setCalledService_ExternalService(providedService);
+		
+		InternalAction brokerCall = SeffFactory.eINSTANCE.createInternalAction();
+		ParametricResourceDemand d = SeffFactory.eINSTANCE.createParametricResourceDemand();
+		d.setRequiredResource_ParametricResourceDemand(findCPUResourceType());
+		d.setSpecification("1000");
+		d.setUnit("Workunits");
+		brokerCall.getResourceDemand_Action().add(d);
+		
+		createControlFlow(start,brokerCall);
+		createControlFlow(brokerCall, delegatingCall);
+		StopAction stop = SeffFactory.eINSTANCE.createStopAction();
+		createControlFlow(delegatingCall, stop);
+		
+		Collections.addAll(seff.getSteps_Behaviour(), start,stop,delegatingCall);
 		
 		return seff;
+	}
+
+	private ProcessingResourceType findCPUResourceType() {
+		ResourceSet set = allocation.eResource().getResourceSet();
+		for (Resource r : set.getResources()) {
+			if (r.getContents().get(0) instanceof ResourceRepository) {
+				ResourceRepository resRep = (ResourceRepository) r.getContents().get(0);
+				for (ResourceType rt : resRep.getAvailableResourceTypes_ResourceRepository())
+				{
+					if (rt.getEntityName().toLowerCase().equals("cpu"))
+						return (ProcessingResourceType)rt;
+				}
+			}
+		}
+		return null;
+	}
+
+	private void createControlFlow(AbstractAction a,
+			AbstractAction b) {
+		a.setSuccessor_AbstractAction(b);
 	}
 
 	private void embedCompletionIntoSystem(AssemblyConnector con,
 			Completion completion) {
 		AssemblyContext completionContext = CompositionFactory.eINSTANCE.createAssemblyContext();
+		completionContext.setEntityName("CompletionContext"+counter); counter++;
 		completionContext.setEncapsulatedComponent_ChildComponentContext(completion);
 		
 		AssemblyConnector toCompletionConnector = CompositionFactory.eINSTANCE.createAssemblyConnector();
@@ -134,7 +239,7 @@ public class TransformationWorkflowComponent
 
 	private Completion createCompletionFor(AssemblyConnector con, int counter) {
 		Completion completion = CompletionsFactory.eINSTANCE.createCompletion();
-		completion.setEntityName("ConnectorCompletion"+counter);
+		completion.setEntityName("ConnectorCompletion"+counter); counter++;
 
 		ProvidedRole provRole = RepositoryFactory.eINSTANCE.createProvidedRole();
 		provRole.setProvidedInterface__ProvidedRole(con.getRequiredRole_CompositeAssemblyConnector().getRequiredInterface__RequiredRole());

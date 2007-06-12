@@ -122,6 +122,29 @@ public class CompletionsItemProviderAdapterFactory extends CompletionsAdapterFac
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.completions.DelegatingExternalCallAction} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected DelegatingExternalCallActionItemProvider delegatingExternalCallActionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.completions.DelegatingExternalCallAction}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createDelegatingExternalCallActionAdapter() {
+		if (delegatingExternalCallActionItemProvider == null) {
+			delegatingExternalCallActionItemProvider = new DelegatingExternalCallActionItemProvider(this);
+		}
+
+		return delegatingExternalCallActionItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -222,6 +245,7 @@ public class CompletionsItemProviderAdapterFactory extends CompletionsAdapterFac
 	public void dispose() {
 		if (completionItemProvider != null) completionItemProvider.dispose();
 		if (completionRepositoryItemProvider != null) completionRepositoryItemProvider.dispose();
+		if (delegatingExternalCallActionItemProvider != null) delegatingExternalCallActionItemProvider.dispose();
 	}
 
 }

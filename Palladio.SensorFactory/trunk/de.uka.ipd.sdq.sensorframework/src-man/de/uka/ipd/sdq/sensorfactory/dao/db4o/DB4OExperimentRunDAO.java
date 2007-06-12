@@ -46,6 +46,7 @@ public class DB4OExperimentRunDAO implements IExperimentRunDAO {
 	}
 
 	public void store(ExperimentRun er) {
+		((de.uka.ipd.sdq.sensorfactory.dao.db4o.entities.ExperimentRunImpl)er).flushBuffers();
 		((ExtObjectContainer)db).set(er,2);
 	}
 

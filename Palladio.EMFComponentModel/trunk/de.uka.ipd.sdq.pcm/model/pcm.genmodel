@@ -146,7 +146,7 @@
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//repository/Repository/datatypes_Repository"/>
       </genClasses>
       <genClasses ecoreClass="pcm.ecore#//repository/ProvidesComponentType">
-        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference pcm.ecore#//repository/ProvidesComponentType/repository_ProvidesComponentType"/>
+        <genFeatures property="Readonly" notify="false" createChild="false" ecoreFeature="ecore:EReference pcm.ecore#//repository/ProvidesComponentType/repository_ProvidesComponentType"/>
         <genOperations ecoreOperation="pcm.ecore#//repository/ProvidesComponentType/AtLeastOneInterfaceHasToBeProvidedByAUsefullProvidesComponentType">
           <genParameters ecoreParameter="pcm.ecore#//repository/ProvidesComponentType/AtLeastOneInterfaceHasToBeProvidedByAUsefullProvidesComponentType/diagnostics"/>
           <genParameters ecoreParameter="pcm.ecore#//repository/ProvidesComponentType/AtLeastOneInterfaceHasToBeProvidedByAUsefullProvidesComponentType/context"/>

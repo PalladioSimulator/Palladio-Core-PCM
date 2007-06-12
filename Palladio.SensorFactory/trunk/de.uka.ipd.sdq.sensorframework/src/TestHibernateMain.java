@@ -30,7 +30,7 @@ public class TestHibernateMain {
 		f.createStateDAO().store(stateSen);
 		boolean flag = false; double valueSum = 0;
 		long start = System.nanoTime();
-		for (int i=0; i<20000; i++) {
+		for (int i=0; i<200000; i++) {
 			if (i % 1000 == 0) System.out.print(".");
 			if (i % 100000 == 0) System.out.print("\n");
 			double value = Math.random() * 5000;

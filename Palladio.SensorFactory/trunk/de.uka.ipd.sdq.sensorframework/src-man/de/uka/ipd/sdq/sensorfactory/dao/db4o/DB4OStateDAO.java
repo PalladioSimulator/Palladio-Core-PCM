@@ -2,13 +2,16 @@ package de.uka.ipd.sdq.sensorfactory.dao.db4o;
 
 import java.util.Collection;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
 
 import com.db4o.ObjectContainer;
 import com.db4o.ext.ExtObjectContainer;
 import com.db4o.query.Predicate;
 
+import de.uka.ipd.sdq.sensorfactory.dao.db4o.entities.ExperimentImpl;
 import de.uka.ipd.sdq.sensorfactory.dao.db4o.entities.StateImpl;
+import de.uka.ipd.sdq.sensorfactory.entities.Experiment;
 import de.uka.ipd.sdq.sensorfactory.entities.Sensor;
 import de.uka.ipd.sdq.sensorfactory.entities.State;
 import de.uka.ipd.sdq.sensorfactory.entities.StateSensor;
@@ -47,9 +50,15 @@ public class DB4OStateDAO implements IStateDAO {
 		return Collections.unmodifiableCollection(resultList);
 	}
 
+	private HashMap<Long, State> cache = new HashMap<Long, State>();
+	
 	public State get(long id) {
-		// TODO Auto-generated method stub
-		return null;
+		if (!cache.containsKey(id)){
+			State result = new StateImpl(factory);
+			result.setStateID(id);
+			cache.put(id, (State) db.get(result).get(0));
+		}
+		return cache.get(id);
 	}
 
 	public Collection<State> getStates() {

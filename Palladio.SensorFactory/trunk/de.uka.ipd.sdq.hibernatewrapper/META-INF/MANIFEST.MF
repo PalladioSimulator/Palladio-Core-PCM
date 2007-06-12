@@ -120,7 +120,6 @@ Export-Package: antlr,
  org.hibernate.usertype,
  org.hibernate.util
 Require-Bundle: org.apache.commons.logging,
- org.apache.derby.core,
- org.apache.jakarta_log4j
+ org.apache.log4j
 Bundle-Vendor: sdq.ipd.uka.de
 Eclipse-LazyStart: true

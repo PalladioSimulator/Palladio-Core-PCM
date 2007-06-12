@@ -14,4 +14,4 @@ Export-Package: de.uka.ipd.sdq.simucomframework,
 Require-Bundle: de.uka.ipd.sdq.desmojwrapper,
  de.uka.ipd.sdq.simucomframework.variables,
  de.uka.ipd.sdq.sensorframework,
- org.apache.jakarta_log4j
+ org.apache.log4j

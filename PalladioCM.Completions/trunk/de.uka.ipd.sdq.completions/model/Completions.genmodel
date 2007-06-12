@@ -28,5 +28,6 @@
     <genClasses ecoreClass="completions.ecore#//CompletionRepository">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference completions.ecore#//CompletionRepository/completions_CompletionRepository"/>
     </genClasses>
+    <genClasses ecoreClass="completions.ecore#//DelegatingExternalCallAction"/>
   </genPackages>
 </genmodel:GenModel>

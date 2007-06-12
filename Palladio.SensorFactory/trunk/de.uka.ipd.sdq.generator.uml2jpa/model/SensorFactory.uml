@@ -173,4 +173,5 @@
   <Persistence:Findable xmi:id="_S825kBJmEdyX68LUGTZ_jw" base_Property="_c8zQ8q0WEdu-BsqEvw9tEg"/>
   <Persistence:Findable xmi:id="_5ci5UBJrEdyX68LUGTZ_jw" base_Property="_c8pf-60WEdu-BsqEvw9tEg"/>
   <Persistence:Findable xmi:id="_VCru4BJsEdyX68LUGTZ_jw" base_Property="_c8zQ2K0WEdu-BsqEvw9tEg"/>
+  <Persistence:Entity xmi:id="_N7mMsBcoEdyS6-njFe3_vg" base_Class="__vYk0BAEEdy3LYyDXUTCbw"/>
 </xmi:XMI>

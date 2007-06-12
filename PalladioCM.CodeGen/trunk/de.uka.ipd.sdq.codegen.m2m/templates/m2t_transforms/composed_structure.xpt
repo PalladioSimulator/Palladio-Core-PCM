@@ -60,7 +60,12 @@
       private void initInnerComponents() {
 	      «EXPAND ChildMemberVarInit FOREACH this.childComponentContexts_ComposedStructure»
 
-		  «FOREACH this.childComponentContexts_ComposedStructure AS child»
+		  /* First, initialise composite child structures */
+		  «FOREACH this.childComponentContexts_ComposedStructure.select(c|ComposedStructure.isInstance(c.encapsulatedComponent_ChildComponentContext)) AS child»
+			  init«child.javaName()»();
+		  «ENDFOREACH»
+		  /* Then initialise basic components */
+		  «FOREACH this.childComponentContexts_ComposedStructure.select(c|!ComposedStructure.isInstance(c.encapsulatedComponent_ChildComponentContext)) AS child»
 			  init«child.javaName()»();
 		  «ENDFOREACH»
       }
@@ -91,6 +96,7 @@
 «DEFINE PortQuery(ComposedStructure s, AssemblyContext ctx) FOR RequiredRole»
 	«IF hasConnector(s,ctx,this)»
 		«LET getConnector(s,ctx,this) AS connector»
+			/* From Connector «connector.id» */
 			my«connector.providingChildComponentContext_CompositeAssemblyConnector.javaName()».«connector.providedRole_CompositeAssemblyConnector.portGetter()»()
 	   	«ENDLET»
 	«ELSE» 

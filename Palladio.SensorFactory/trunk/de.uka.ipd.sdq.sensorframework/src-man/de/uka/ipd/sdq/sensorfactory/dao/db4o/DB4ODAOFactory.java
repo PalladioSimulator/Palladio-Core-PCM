@@ -42,7 +42,6 @@ public class DB4ODAOFactory implements IDAOFactory {
 	public DB4ODAOFactory(long id, String filename) {
 		this.filename = filename;
 		this.id = id;
-		Db4o.configure().flushFileBuffers(false);
 		Db4o.configure().objectClass(ExperimentRunImpl.class).maximumActivationDepth(3);
 		//Db4o.configure().objectClass(PersistedLinkedList.class).
 		//	translate(new PersistedLinkedListTranslator());

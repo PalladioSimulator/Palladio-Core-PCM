@@ -11,3 +11,5 @@ Package completions <http://sdq.ipd.uka.de/Completions/1.0>
 
   Class CompletionRepository
     Reference completions_CompletionRepository : Completion<<0..*>>
+
+  Class DelegatingExternalCallAction -> ExternalCallAction

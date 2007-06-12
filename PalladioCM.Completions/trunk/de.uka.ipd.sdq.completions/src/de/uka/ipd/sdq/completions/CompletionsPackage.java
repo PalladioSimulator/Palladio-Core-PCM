@@ -8,6 +8,7 @@ package de.uka.ipd.sdq.completions;
 
 import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
 
+import de.uka.ipd.sdq.pcm.seff.SeffPackage;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
@@ -208,6 +209,89 @@ public interface CompletionsPackage extends EPackage {
 
 
 	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.completions.impl.DelegatingExternalCallActionImpl <em>Delegating External Call Action</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.completions.impl.DelegatingExternalCallActionImpl
+	 * @see de.uka.ipd.sdq.completions.impl.CompletionsPackageImpl#getDelegatingExternalCallAction()
+	 * @generated
+	 */
+	int DELEGATING_EXTERNAL_CALL_ACTION = 2;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DELEGATING_EXTERNAL_CALL_ACTION__ID = SeffPackage.EXTERNAL_CALL_ACTION__ID;
+
+	/**
+	 * The feature id for the '<em><b>Entity Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DELEGATING_EXTERNAL_CALL_ACTION__ENTITY_NAME = SeffPackage.EXTERNAL_CALL_ACTION__ENTITY_NAME;
+
+	/**
+	 * The feature id for the '<em><b>Predecessor Abstract Action</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DELEGATING_EXTERNAL_CALL_ACTION__PREDECESSOR_ABSTRACT_ACTION = SeffPackage.EXTERNAL_CALL_ACTION__PREDECESSOR_ABSTRACT_ACTION;
+
+	/**
+	 * The feature id for the '<em><b>Successor Abstract Action</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DELEGATING_EXTERNAL_CALL_ACTION__SUCCESSOR_ABSTRACT_ACTION = SeffPackage.EXTERNAL_CALL_ACTION__SUCCESSOR_ABSTRACT_ACTION;
+
+	/**
+	 * The feature id for the '<em><b>Called Service External Service</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DELEGATING_EXTERNAL_CALL_ACTION__CALLED_SERVICE_EXTERNAL_SERVICE = SeffPackage.EXTERNAL_CALL_ACTION__CALLED_SERVICE_EXTERNAL_SERVICE;
+
+	/**
+	 * The feature id for the '<em><b>Parameter Usage External Call Action</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DELEGATING_EXTERNAL_CALL_ACTION__PARAMETER_USAGE_EXTERNAL_CALL_ACTION = SeffPackage.EXTERNAL_CALL_ACTION__PARAMETER_USAGE_EXTERNAL_CALL_ACTION;
+
+	/**
+	 * The feature id for the '<em><b>Output Variable Usage External Call Action</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DELEGATING_EXTERNAL_CALL_ACTION__OUTPUT_VARIABLE_USAGE_EXTERNAL_CALL_ACTION = SeffPackage.EXTERNAL_CALL_ACTION__OUTPUT_VARIABLE_USAGE_EXTERNAL_CALL_ACTION;
+
+	/**
+	 * The number of structural features of the '<em>Delegating External Call Action</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DELEGATING_EXTERNAL_CALL_ACTION_FEATURE_COUNT = SeffPackage.EXTERNAL_CALL_ACTION_FEATURE_COUNT + 0;
+
+
+	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.completions.Completion <em>Completion</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -237,6 +321,16 @@ public interface CompletionsPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getCompletionRepository_Completions_CompletionRepository();
+
+	/**
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.completions.DelegatingExternalCallAction <em>Delegating External Call Action</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Delegating External Call Action</em>'.
+	 * @see de.uka.ipd.sdq.completions.DelegatingExternalCallAction
+	 * @generated
+	 */
+	EClass getDelegatingExternalCallAction();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -287,6 +381,16 @@ public interface CompletionsPackage extends EPackage {
 		 * @generated
 		 */
 		EReference COMPLETION_REPOSITORY__COMPLETIONS_COMPLETION_REPOSITORY = eINSTANCE.getCompletionRepository_Completions_CompletionRepository();
+
+		/**
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.completions.impl.DelegatingExternalCallActionImpl <em>Delegating External Call Action</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.uka.ipd.sdq.completions.impl.DelegatingExternalCallActionImpl
+		 * @see de.uka.ipd.sdq.completions.impl.CompletionsPackageImpl#getDelegatingExternalCallAction()
+		 * @generated
+		 */
+		EClass DELEGATING_EXTERNAL_CALL_ACTION = eINSTANCE.getDelegatingExternalCallAction();
 
 	}
 
