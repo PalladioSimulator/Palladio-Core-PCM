@@ -53,7 +53,8 @@ public class PalladioComponentModelDiagramUpdater {
 	 * @generated
 	 */
 	public static boolean isShortcutOrphaned(View view) {
-		return view.getEAnnotation("Shortcut") != null && view.isSetElement() && (view.getElement() == null || view.getElement().eIsProxy()); //$NON-NLS-1$
+		return !view.isSetElement() || view.getElement() == null
+				|| view.getElement().eIsProxy();
 	}
 
 	/**
@@ -75,7 +76,14 @@ public class PalladioComponentModelDiagramUpdater {
 	 * @generated
 	 */
 	public static List getInterfaceSignatureList_7101SemanticChildren(View view) {
-		Interface modelElement = (Interface) view.getElement();
+		if (false == view.eContainer() instanceof View) {
+			return Collections.EMPTY_LIST;
+		}
+		View containerView = (View) view.eContainer();
+		if (!containerView.isSetElement()) {
+			return Collections.EMPTY_LIST;
+		}
+		Interface modelElement = (Interface) containerView.getElement();
 		List result = new LinkedList();
 		for (Iterator it = modelElement.getSignatures__Interface().iterator(); it
 				.hasNext();) {
@@ -85,6 +93,7 @@ public class PalladioComponentModelDiagramUpdater {
 			if (visualID == SignatureEditPart.VISUAL_ID) {
 				result.add(new PalladioComponentModelNodeDescriptor(
 						childElement, visualID));
+				continue;
 			}
 		}
 		return result;
@@ -95,7 +104,15 @@ public class PalladioComponentModelDiagramUpdater {
 	 */
 	public static List getBasicComponentSEFFCompartment_7102SemanticChildren(
 			View view) {
-		BasicComponent modelElement = (BasicComponent) view.getElement();
+		if (false == view.eContainer() instanceof View) {
+			return Collections.EMPTY_LIST;
+		}
+		View containerView = (View) view.eContainer();
+		if (!containerView.isSetElement()) {
+			return Collections.EMPTY_LIST;
+		}
+		BasicComponent modelElement = (BasicComponent) containerView
+				.getElement();
 		List result = new LinkedList();
 		for (Iterator it = modelElement
 				.getServiceEffectSpecifications__BasicComponent().iterator(); it
@@ -107,6 +124,7 @@ public class PalladioComponentModelDiagramUpdater {
 			if (visualID == ResourceDemandingSEFFEditPart.VISUAL_ID) {
 				result.add(new PalladioComponentModelNodeDescriptor(
 						childElement, visualID));
+				continue;
 			}
 		}
 		return result;
@@ -116,6 +134,9 @@ public class PalladioComponentModelDiagramUpdater {
 	 * @generated
 	 */
 	public static List getRepository_1000SemanticChildren(View view) {
+		if (!view.isSetElement()) {
+			return Collections.EMPTY_LIST;
+		}
 		Repository modelElement = (Repository) view.getElement();
 		List result = new LinkedList();
 		for (Iterator it = modelElement.getInterfaces__Repository().iterator(); it
@@ -126,6 +147,7 @@ public class PalladioComponentModelDiagramUpdater {
 			if (visualID == InterfaceEditPart.VISUAL_ID) {
 				result.add(new PalladioComponentModelNodeDescriptor(
 						childElement, visualID));
+				continue;
 			}
 		}
 		for (Iterator it = modelElement.getComponents__Repository().iterator(); it
@@ -137,18 +159,22 @@ public class PalladioComponentModelDiagramUpdater {
 			if (visualID == BasicComponentEditPart.VISUAL_ID) {
 				result.add(new PalladioComponentModelNodeDescriptor(
 						childElement, visualID));
+				continue;
 			}
 			if (visualID == CompleteComponentTypeEditPart.VISUAL_ID) {
 				result.add(new PalladioComponentModelNodeDescriptor(
 						childElement, visualID));
+				continue;
 			}
 			if (visualID == ProvidesComponentTypeEditPart.VISUAL_ID) {
 				result.add(new PalladioComponentModelNodeDescriptor(
 						childElement, visualID));
+				continue;
 			}
 			if (visualID == CompositeComponentEditPart.VISUAL_ID) {
 				result.add(new PalladioComponentModelNodeDescriptor(
 						childElement, visualID));
+				continue;
 			}
 		}
 		return result;
@@ -159,6 +185,8 @@ public class PalladioComponentModelDiagramUpdater {
 	 */
 	public static List getContainedLinks(View view) {
 		switch (PalladioComponentModelVisualIDRegistry.getVisualID(view)) {
+		case RepositoryEditPart.VISUAL_ID:
+			return getRepository_1000ContainedLinks(view);
 		case InterfaceEditPart.VISUAL_ID:
 			return getInterface_2101ContainedLinks(view);
 		case BasicComponentEditPart.VISUAL_ID:
@@ -232,6 +260,13 @@ public class PalladioComponentModelDiagramUpdater {
 		case RequiredRoleEditPart.VISUAL_ID:
 			return getRequiredRole_4102OutgoingLinks(view);
 		}
+		return Collections.EMPTY_LIST;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List getRepository_1000ContainedLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 

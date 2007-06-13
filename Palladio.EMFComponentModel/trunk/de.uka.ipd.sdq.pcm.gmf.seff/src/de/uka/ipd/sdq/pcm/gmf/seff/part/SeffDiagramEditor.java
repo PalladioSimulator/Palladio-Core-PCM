@@ -63,8 +63,20 @@ public class SeffDiagramEditor extends DiagramDocumentEditor implements
 	/**
 	 * @generated
 	 */
+	public static final String CONTEXT_ID = "de.uka.ipd.sdq.pcm.gmf.seff.ui.diagramContext"; //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
 	public SeffDiagramEditor() {
 		super(true);
+	}
+
+	/**
+	 * @generated
+	 */
+	protected String getContextID() {
+		return CONTEXT_ID;
 	}
 
 	/**

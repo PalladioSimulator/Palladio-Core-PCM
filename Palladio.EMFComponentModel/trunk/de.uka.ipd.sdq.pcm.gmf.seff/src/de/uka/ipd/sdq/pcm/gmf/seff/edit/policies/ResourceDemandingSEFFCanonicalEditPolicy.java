@@ -260,6 +260,12 @@ public class ResourceDemandingSEFFCanonicalEditPolicy extends
 	private Collection collectAllLinks(View view, Map domain2NotationMap) {
 		Collection result = new LinkedList();
 		switch (PalladioComponentModelVisualIDRegistry.getVisualID(view)) {
+		case ResourceDemandingSEFFEditPart.VISUAL_ID: {
+			domain2NotationMap.put(view.getElement(), view);
+			result.addAll(PalladioComponentModelDiagramUpdater
+					.getResourceDemandingSEFF_1000ContainedLinks(view));
+			break;
+		}
 		case StartActionEditPart.VISUAL_ID: {
 			domain2NotationMap.put(view.getElement(), view);
 			result.addAll(PalladioComponentModelDiagramUpdater

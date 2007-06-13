@@ -22,19 +22,19 @@ import de.uka.ipd.sdq.stoex.Variable;
 import de.uka.ipd.sdq.stoex.VariableReference;
 import de.uka.ipd.sdq.stoex.util.StoexSwitch;
 
-public class StoExPrettyPrintVisitor extends StoexSwitch {
+public class StoExPrettyPrintVisitor extends StoexSwitch<String> {
 	@Override
-	public Object caseBoolLiteral(BoolLiteral object) {
+	public String caseBoolLiteral(BoolLiteral object) {
 		return object.isValue() ? "true" : "false";
 	}
 
 	@Override
-	public Object casePowerExpression(PowerExpression object) {
+	public String casePowerExpression(PowerExpression object) {
 		return ((String)doSwitch(object.getBase()))+" ^ "+((String)doSwitch(object.getExponent()));
 	}
 
 	@Override
-	public Object caseStringLiteral(StringLiteral object) {
+	public String caseStringLiteral(StringLiteral object) {
 		return "\""+object.getValue()+"\"";
 	}
 
@@ -42,7 +42,7 @@ public class StoExPrettyPrintVisitor extends StoexSwitch {
 	 * @see de.uka.ipd.sdq.pcm.core.stochastics.util.StochasticsSwitch#caseCompareExpression(de.uka.ipd.sdq.pcm.core.stochastics.CompareExpression)
 	 */
 	@Override
-	public Object caseCompareExpression(CompareExpression object) {
+	public String caseCompareExpression(CompareExpression object) {
 		String op = "";
 		switch(object.getOperation())
 		{
@@ -72,7 +72,7 @@ public class StoExPrettyPrintVisitor extends StoexSwitch {
 	 * @see de.uka.ipd.sdq.pcm.core.stochastics.util.StochasticsSwitch#caseDoubleLiteral(de.uka.ipd.sdq.pcm.core.stochastics.DoubleLiteral)
 	 */
 	@Override
-	public Object caseDoubleLiteral(DoubleLiteral object) {
+	public String caseDoubleLiteral(DoubleLiteral object) {
 		DecimalFormat df = new DecimalFormat("#0.0###########", new DecimalFormatSymbols(Locale.US));
 		return df.format(object.getValue());
 	}
@@ -81,7 +81,7 @@ public class StoExPrettyPrintVisitor extends StoexSwitch {
 	 * @see de.uka.ipd.sdq.pcm.core.stochastics.util.StochasticsSwitch#caseIntLiteral(de.uka.ipd.sdq.pcm.core.stochastics.IntLiteral)
 	 */
 	@Override
-	public Object caseIntLiteral(IntLiteral object) {
+	public String caseIntLiteral(IntLiteral object) {
 		return Integer.toString(object.getValue());
 	}
 
@@ -89,7 +89,7 @@ public class StoExPrettyPrintVisitor extends StoexSwitch {
 	 * @see de.uka.ipd.sdq.pcm.core.stochastics.util.StochasticsSwitch#caseParantesis(de.uka.ipd.sdq.pcm.core.stochastics.Parantesis)
 	 */
 	@Override
-	public Object caseParenthesis(Parenthesis object) {
+	public String caseParenthesis(Parenthesis object) {
 		return "( " + (String)doSwitch(object.getInnerExpression())+" )";
 	}
 
@@ -97,7 +97,7 @@ public class StoExPrettyPrintVisitor extends StoexSwitch {
 	 * @see de.uka.ipd.sdq.pcm.core.stochastics.util.StochasticsSwitch#caseProbabilityFunctionLiteral(de.uka.ipd.sdq.pcm.core.stochastics.ProbabilityFunctionLiteral)
 	 */
 	@Override
-	public Object caseProbabilityFunctionLiteral(ProbabilityFunctionLiteral object) {
+	public String caseProbabilityFunctionLiteral(ProbabilityFunctionLiteral object) {
 		return new ProbFunctionPrettyPrint().doSwitch(object.getFunction_ProbabilityFunctionLiteral());
 	}
 
@@ -105,7 +105,7 @@ public class StoExPrettyPrintVisitor extends StoexSwitch {
 	 * @see de.uka.ipd.sdq.pcm.core.stochastics.util.StochasticsSwitch#caseProductExpression(de.uka.ipd.sdq.pcm.core.stochastics.ProductExpression)
 	 */
 	@Override
-	public Object caseProductExpression(ProductExpression object) {
+	public String caseProductExpression(ProductExpression object) {
 		String op = "";
 		switch(object.getOperation())
 		{
@@ -125,7 +125,7 @@ public class StoExPrettyPrintVisitor extends StoexSwitch {
 	 * @see de.uka.ipd.sdq.pcm.core.stochastics.util.StochasticsSwitch#caseTermExpression(de.uka.ipd.sdq.pcm.core.stochastics.TermExpression)
 	 */
 	@Override
-	public Object caseTermExpression(TermExpression object) {
+	public String caseTermExpression(TermExpression object) {
 		String op = "";
 		switch(object.getOperation())
 		{
@@ -143,7 +143,7 @@ public class StoExPrettyPrintVisitor extends StoexSwitch {
 	 * @see de.uka.ipd.sdq.pcm.parameter.util.ParameterSwitch#caseNamespaceReference(de.uka.ipd.sdq.pcm.parameter.NamespaceReference)
 	 */
 	@Override
-	public Object caseNamespaceReference(NamespaceReference object) {
+	public String caseNamespaceReference(NamespaceReference object) {
 		return object.getReferenceName()+"."+(String)doSwitch(object.getInnerReference_NamespaceReference());
 	}
 
@@ -151,7 +151,7 @@ public class StoExPrettyPrintVisitor extends StoexSwitch {
 	 * @see de.uka.ipd.sdq.pcm.parameter.util.ParameterSwitch#caseVariableReference(de.uka.ipd.sdq.pcm.parameter.VariableReference)
 	 */
 	@Override
-	public Object caseVariableReference(VariableReference object) {
+	public String caseVariableReference(VariableReference object) {
 		return object.getReferenceName();
 	}
 
@@ -159,7 +159,7 @@ public class StoExPrettyPrintVisitor extends StoexSwitch {
 	 * @see de.uka.ipd.sdq.pcm.core.stochastics.util.StochasticsSwitch#caseVariable(de.uka.ipd.sdq.pcm.core.stochastics.Variable)
 	 */
 	@Override
-	public Object caseVariable(Variable object) {
+	public String caseVariable(Variable object) {
 		String result = (String)doSwitch(object.getId_Variable());
 		// TODO: Move this part: result += "." + object.getCharacterisationType().getLiteral();
 		return result;

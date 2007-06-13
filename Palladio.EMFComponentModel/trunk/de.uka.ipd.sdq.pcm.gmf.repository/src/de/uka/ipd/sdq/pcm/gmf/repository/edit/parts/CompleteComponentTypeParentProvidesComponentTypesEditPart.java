@@ -11,6 +11,7 @@ import org.eclipse.draw2d.geometry.PointList;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ConnectionNodeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.PolylineConnectionEx;
+import org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel;
 import org.eclipse.gmf.runtime.notation.View;
 
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.policies.CompleteComponentTypeParentProvidesComponentTypesItemSemanticEditPolicy;
@@ -64,13 +65,12 @@ public class CompleteComponentTypeParentProvidesComponentTypesEditPart extends
 		/**
 		 * @generated
 		 */
+		private WrapLabel fFigureProvidesParentStereotypeLabelFigure;
+
+		/**
+		 * @generated
+		 */
 		public ParentProvidesTypeFigure() {
-			this.setFill(true);
-			this.setFillXOR(false);
-			this.setOutline(true);
-			this.setOutlineXOR(false);
-			this.setLineWidth(1);
-			this.setLineStyle(Graphics.LINE_SOLID);
 
 			setTargetDecoration(createTargetDecoration());
 		}
@@ -80,12 +80,6 @@ public class CompleteComponentTypeParentProvidesComponentTypesEditPart extends
 		 */
 		private RotatableDecoration createTargetDecoration() {
 			PolylineDecoration df = new PolylineDecoration();
-			df.setFill(true);
-			df.setFillXOR(false);
-			df.setOutline(true);
-			df.setOutlineXOR(false);
-			df.setLineWidth(1);
-			df.setLineStyle(Graphics.LINE_SOLID);
 			PointList pl = new PointList();
 			pl.addPoint(getMapMode().DPtoLP(-1), getMapMode().DPtoLP(-1));
 			pl.addPoint(getMapMode().DPtoLP(0), getMapMode().DPtoLP(0));
@@ -93,6 +87,13 @@ public class CompleteComponentTypeParentProvidesComponentTypesEditPart extends
 			df.setTemplate(pl);
 			df.setScale(getMapMode().DPtoLP(7), getMapMode().DPtoLP(3));
 			return df;
+		}
+
+		/**
+		 * @generated
+		 */
+		public WrapLabel getFigureProvidesParentStereotypeLabelFigure() {
+			return fFigureProvidesParentStereotypeLabelFigure;
 		}
 
 	}

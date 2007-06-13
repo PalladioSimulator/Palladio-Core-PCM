@@ -2,182 +2,229 @@
 <gmfgraph:Canvas xmi:version="2.0"
     xmlns:xmi="http://www.omg.org/XMI"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:gmfgraph="http://www.eclipse.org/gmf/2005/GraphicalDefinition" name="pcm">
+    xmlns:gmfgraph="http://www.eclipse.org/gmf/2006/GraphicalDefinition" name="pcm">
   <figures
       name="Default">
     <figures
-        xsi:type="gmfgraph:PolylineConnection"
-        referencingElements="RequiredRole"
-        name="RequiredRoleFigure"
-        targetDecoration="ArrowHead">
-      <children
-          xsi:type="gmfgraph:Label"
-          referencingElements="EntityEntityName"
-          name="EntityEntityNameFigure"
-          text="&lt;...>"/>
-      <children
-          xsi:type="gmfgraph:Label"
-          referencingElements="RequiresStereotypeLabel"
-          name="RequiresStereotypeLabelFigure"
-          text="&lt;&lt;Requires>>"/>
-    </figures>
-    <figures
-        xsi:type="gmfgraph:Rectangle"
-        referencingElements="Interface SignatureList"
-        name="InterfaceFigure">
-      <children
-          xsi:type="gmfgraph:Label"
-          referencingElements="Interface_Name_Label"
-          name="Interface_Name_LabelFigure"
-          text="&lt;...>"/>
-    </figures>
-    <figures
-        xsi:type="gmfgraph:PolylineConnection"
-        referencingElements="InterfaceParentInterface__Interface"
-        name="InterfaceParentInterface__InterfaceFigure"
-        targetDecoration="InterfaceParentInterface__InterfaceTargetDecoration"/>
-    <figures
         xsi:type="gmfgraph:PolylineDecoration"
         name="InterfaceParentInterface__InterfaceTargetDecoration"/>
-    <figures
-        xsi:type="gmfgraph:PolylineConnection"
-        referencingElements="RequiredDelegationConnector"
+    <descriptors
+        name="RequiredRoleFigure">
+      <actualFigure
+          xsi:type="gmfgraph:PolylineConnection"
+          name="RequiredRoleFigure"
+          targetDecoration="//@figures.0/@descriptors.5/@actualFigure/@children.1">
+        <children
+            xsi:type="gmfgraph:Label"
+            name="EntityEntityNameFigure"
+            text="&lt;...>"/>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="RequiresStereotypeLabelFigure"
+            text="&lt;&lt;Requires>>"/>
+      </actualFigure>
+      <accessors
+          figure="//@figures.0/@descriptors.0/@actualFigure/@children.0"/>
+      <accessors
+          figure="//@figures.0/@descriptors.0/@actualFigure/@children.1"/>
+    </descriptors>
+    <descriptors
+        name="InterfaceFigure">
+      <actualFigure
+          xsi:type="gmfgraph:Rectangle"
+          name="InterfaceFigure">
+        <children
+            xsi:type="gmfgraph:Label"
+            name="Interface_Name_LabelFigure"
+            text="&lt;...>"/>
+      </actualFigure>
+      <accessors
+          figure="//@figures.0/@descriptors.1/@actualFigure/@children.0"/>
+    </descriptors>
+    <descriptors
+        name="InterfaceParentInterface__InterfaceFigure">
+      <actualFigure
+          xsi:type="gmfgraph:PolylineConnection"
+          name="InterfaceParentInterface__InterfaceFigure"
+          targetDecoration="//@figures.0/@figures.0"/>
+    </descriptors>
+    <descriptors
         name="RequiredDelegationConnectorFigure">
-      <children
-          xsi:type="gmfgraph:Label"
-          referencingElements="EntityEntityName3"
-          name="EntityEntityName3Figure"
-          text="&lt;...>"/>
-    </figures>
-    <figures
-        xsi:type="gmfgraph:Rectangle"
-        referencingElements="ChildComponentContext"
+      <actualFigure
+          xsi:type="gmfgraph:PolylineConnection"
+          name="RequiredDelegationConnectorFigure">
+        <children
+            xsi:type="gmfgraph:Label"
+            name="EntityEntityName3Figure"
+            text="&lt;...>"/>
+      </actualFigure>
+      <accessors
+          figure="//@figures.0/@descriptors.3/@actualFigure/@children.0"/>
+    </descriptors>
+    <descriptors
         name="ChildComponentContextFigure">
-      <children
-          xsi:type="gmfgraph:Label"
-          referencingElements="EntityEntityName4"
-          name="EntityEntityName4Figure"
-          text="&lt;...>"/>
-    </figures>
-    <figures
-        xsi:type="gmfgraph:PolylineConnection"
-        referencingElements="ProvidedRole"
-        name="ProvidedRoleFigure"
-        targetDecoration="ArrowHead">
-      <children
-          xsi:type="gmfgraph:Label"
-          referencingElements="EntityEntityName5"
-          name="EntityEntityName5Figure"
-          text="&lt;...>"/>
-      <children
-          xsi:type="gmfgraph:PolylineDecoration"
-          name="ArrowHead">
-        <template
-            x="-1"
-            y="-1"/>
-        <template/>
-        <template
-            x="-1"
-            y="1"/>
-      </children>
-      <children
-          xsi:type="gmfgraph:Label"
-          referencingElements="ProvidesStereotypeLabel"
-          name="ProvidesStereotypeLabelFigure"
-          text="&lt;&lt;Provides>>"/>
-    </figures>
-    <figures
-        xsi:type="gmfgraph:PolylineConnection"
-        referencingElements="ProvidedDelegationConnector"
+      <actualFigure
+          xsi:type="gmfgraph:Rectangle"
+          name="ChildComponentContextFigure">
+        <children
+            xsi:type="gmfgraph:Label"
+            name="EntityEntityName4Figure"
+            text="&lt;...>"/>
+      </actualFigure>
+      <accessors
+          figure="//@figures.0/@descriptors.4/@actualFigure/@children.0"/>
+    </descriptors>
+    <descriptors
+        name="ProvidedRoleFigure">
+      <actualFigure
+          xsi:type="gmfgraph:PolylineConnection"
+          name="ProvidedRoleFigure"
+          targetDecoration="//@figures.0/@descriptors.5/@actualFigure/@children.1">
+        <children
+            xsi:type="gmfgraph:Label"
+            name="EntityEntityName5Figure"
+            text="&lt;...>"/>
+        <children
+            xsi:type="gmfgraph:PolylineDecoration"
+            name="ArrowHead">
+          <template
+              x="-1"
+              y="-1"/>
+          <template/>
+          <template
+              x="-1"
+              y="1"/>
+        </children>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="ProvidesStereotypeLabelFigure"
+            text="&lt;&lt;Provides>>"/>
+      </actualFigure>
+      <accessors
+          figure="//@figures.0/@descriptors.5/@actualFigure/@children.0"/>
+      <accessors
+          figure="//@figures.0/@descriptors.5/@actualFigure/@children.2"/>
+    </descriptors>
+    <descriptors
         name="ProvidedDelegationConnectorFigure">
-      <children
-          xsi:type="gmfgraph:Label"
-          referencingElements="EntityEntityName6"
-          name="EntityEntityName6Figure"
-          text="&lt;...>"/>
-    </figures>
-    <figures
-        xsi:type="gmfgraph:Rectangle"
-        referencingElements="CompleteComponentType"
+      <actualFigure
+          xsi:type="gmfgraph:PolylineConnection"
+          name="ProvidedDelegationConnectorFigure">
+        <children
+            xsi:type="gmfgraph:Label"
+            name="EntityEntityName6Figure"
+            text="&lt;...>"/>
+      </actualFigure>
+      <accessors
+          figure="//@figures.0/@descriptors.6/@actualFigure/@children.0"/>
+    </descriptors>
+    <descriptors
         name="CompleteComponentTypeFigure">
-      <children
-          xsi:type="gmfgraph:Label"
-          referencingElements="CompleteComponentTypeLabel"
-          name="CompleteComponentTypeLabelFigure"
-          text="&lt;...>"/>
-    </figures>
-    <figures
-        xsi:type="gmfgraph:Rectangle"
-        referencingElements="CompositeComponent"
+      <actualFigure
+          xsi:type="gmfgraph:Rectangle"
+          name="CompleteComponentTypeFigure">
+        <children
+            xsi:type="gmfgraph:Label"
+            name="CompleteComponentTypeLabelFigure"
+            text="&lt;...>"/>
+      </actualFigure>
+      <accessors
+          figure="//@figures.0/@descriptors.7/@actualFigure/@children.0"/>
+    </descriptors>
+    <descriptors
         name="CompositeComponentFigure">
-      <children
-          xsi:type="gmfgraph:Label"
-          referencingElements="EntityEntityName8"
-          name="EntityEntityName8Figure"
-          text="&lt;...>"/>
-    </figures>
-    <figures
-        xsi:type="gmfgraph:PolylineConnection"
-        referencingElements="CompositeAssemblyConnector"
+      <actualFigure
+          xsi:type="gmfgraph:Rectangle"
+          name="CompositeComponentFigure">
+        <children
+            xsi:type="gmfgraph:Label"
+            name="EntityEntityName8Figure"
+            text="&lt;...>"/>
+      </actualFigure>
+      <accessors
+          figure="//@figures.0/@descriptors.8/@actualFigure/@children.0"/>
+    </descriptors>
+    <descriptors
         name="CompositeAssemblyConnectorFigure">
-      <children
-          xsi:type="gmfgraph:Label"
-          referencingElements="EntityEntityName9"
-          name="EntityEntityName9Figure"
-          text="&lt;...>"/>
-    </figures>
-    <figures
-        xsi:type="gmfgraph:Rectangle"
-        referencingElements="BasicComponent SEFFCompartment"
+      <actualFigure
+          xsi:type="gmfgraph:PolylineConnection"
+          name="CompositeAssemblyConnectorFigure">
+        <children
+            xsi:type="gmfgraph:Label"
+            name="EntityEntityName9Figure"
+            text="&lt;...>"/>
+      </actualFigure>
+      <accessors
+          figure="//@figures.0/@descriptors.9/@actualFigure/@children.0"/>
+    </descriptors>
+    <descriptors
         name="BasicComponentFigure">
-      <children
-          xsi:type="gmfgraph:Label"
-          referencingElements="BasicComponent_Name_Label"
-          name="BasicComponent_Name_LabelFigure"
-          text="&lt;...>"/>
-    </figures>
-    <figures
-        xsi:type="gmfgraph:Rectangle"
-        referencingElements="ProvidesComponentType"
+      <actualFigure
+          xsi:type="gmfgraph:Rectangle"
+          name="BasicComponentFigure">
+        <children
+            xsi:type="gmfgraph:Label"
+            name="BasicComponent_Name_LabelFigure"
+            text="&lt;...>"/>
+      </actualFigure>
+      <accessors
+          figure="//@figures.0/@descriptors.10/@actualFigure/@children.0"/>
+    </descriptors>
+    <descriptors
         name="ProvidesComponentTypeFigure">
-      <children
+      <actualFigure
+          xsi:type="gmfgraph:Rectangle"
+          name="ProvidesComponentTypeFigure">
+        <children
+            xsi:type="gmfgraph:Label"
+            name="ProvidesComponentTypeLabelFigure"
+            text="&lt;...>"/>
+      </actualFigure>
+      <accessors
+          figure="//@figures.0/@descriptors.11/@actualFigure/@children.0"/>
+    </descriptors>
+    <descriptors
+        name="SignatureServiceNameFigure">
+      <actualFigure
           xsi:type="gmfgraph:Label"
-          referencingElements="ProvidesComponentTypeLabel"
-          name="ProvidesComponentTypeLabelFigure"
+          name="SignatureServiceNameFigure"
           text="&lt;...>"/>
-    </figures>
-    <figures
-        xsi:type="gmfgraph:Label"
-        referencingElements="SignatureServiceName"
-        name="SignatureServiceNameFigure"
-        text="&lt;...>"/>
-    <figures
-        xsi:type="gmfgraph:Label"
-        referencingElements="SEFFLabel"
-        name="SEFFLabelFigure"
-        text="SEFF"/>
-    <figures
-        xsi:type="gmfgraph:PolylineConnection"
-        referencingElements="ParentCompleteTypeConnection"
-        name="ParentCompleteTypeFigure"
-        targetDecoration="ArrowHead">
-      <children
+    </descriptors>
+    <descriptors
+        name="SEFFLabelFigure">
+      <actualFigure
           xsi:type="gmfgraph:Label"
-          referencingElements="CompleteParentStereotypeLabel"
-          name="CompleteParentStereotypeLabelFigure"
-          text="&lt;&lt;conforms>>"/>
-    </figures>
-    <figures
-        xsi:type="gmfgraph:PolylineConnection"
-        referencingElements="ParentProvidesTypeConnection"
-        name="ParentProvidesTypeFigure"
-        targetDecoration="ArrowHead">
-      <children
-          xsi:type="gmfgraph:Label"
-          referencingElements="ProvidesParentStereotypeLabel"
-          name="ProvidesParentStereotypeLabelFigure"
-          text="&lt;&lt;conforms>>"/>
-    </figures>
+          name="SEFFLabelFigure"
+          text="SEFF"/>
+    </descriptors>
+    <descriptors
+        name="ParentCompleteTypeFigure">
+      <actualFigure
+          xsi:type="gmfgraph:PolylineConnection"
+          name="ParentCompleteTypeFigure"
+          targetDecoration="//@figures.0/@descriptors.5/@actualFigure/@children.1">
+        <children
+            xsi:type="gmfgraph:Label"
+            name="CompleteParentStereotypeLabelFigure"
+            text="&lt;&lt;conforms>>"/>
+      </actualFigure>
+      <accessors
+          figure="//@figures.0/@descriptors.14/@actualFigure/@children.0"/>
+    </descriptors>
+    <descriptors
+        name="ParentProvidesTypeFigure">
+      <actualFigure
+          xsi:type="gmfgraph:PolylineConnection"
+          name="ParentProvidesTypeFigure"
+          targetDecoration="//@figures.0/@descriptors.5/@actualFigure/@children.1">
+        <children
+            xsi:type="gmfgraph:Label"
+            name="ProvidesParentStereotypeLabelFigure"
+            text="&lt;&lt;conforms>>"/>
+      </actualFigure>
+      <accessors
+          figure="//@figures.0/@descriptors.15/@actualFigure/@children.0"/>
+    </descriptors>
   </figures>
   <nodes
       name="Interface"
@@ -233,49 +280,62 @@
       figure="SignatureServiceNameFigure"/>
   <labels
       name="EntityEntityName"
-      figure="EntityEntityNameFigure"/>
+      figure="RequiredRoleFigure"
+      accessor="//@figures.0/@descriptors.0/@accessors.0"/>
   <labels
       name="Interface_Name_Label"
-      figure="Interface_Name_LabelFigure"/>
+      figure="InterfaceFigure"
+      accessor="//@figures.0/@descriptors.1/@accessors.0"/>
   <labels
       name="EntityEntityName3"
-      figure="EntityEntityName3Figure"/>
+      figure="RequiredDelegationConnectorFigure"
+      accessor="//@figures.0/@descriptors.3/@accessors.0"/>
   <labels
       name="EntityEntityName4"
-      figure="EntityEntityName4Figure"/>
+      figure="ChildComponentContextFigure"
+      accessor="//@figures.0/@descriptors.4/@accessors.0"/>
   <labels
       name="EntityEntityName5"
-      figure="EntityEntityName5Figure"/>
+      figure="ProvidedRoleFigure"
+      accessor="//@figures.0/@descriptors.5/@accessors.0"/>
   <labels
       name="EntityEntityName6"
-      figure="EntityEntityName6Figure"/>
+      figure="ProvidedDelegationConnectorFigure"
+      accessor="//@figures.0/@descriptors.6/@accessors.0"/>
   <labels
       name="CompleteComponentTypeLabel"
-      figure="CompleteComponentTypeLabelFigure"/>
+      figure="CompleteComponentTypeFigure"
+      accessor="//@figures.0/@descriptors.7/@accessors.0"/>
   <labels
       name="EntityEntityName8"
-      figure="EntityEntityName8Figure"/>
+      figure="CompositeComponentFigure"
+      accessor="//@figures.0/@descriptors.8/@accessors.0"/>
   <labels
       name="EntityEntityName9"
-      figure="EntityEntityName9Figure"/>
+      figure="CompositeAssemblyConnectorFigure"
+      accessor="//@figures.0/@descriptors.9/@accessors.0"/>
   <labels
       name="BasicComponent_Name_Label"
-      figure="BasicComponent_Name_LabelFigure"/>
+      figure="BasicComponentFigure"
+      accessor="//@figures.0/@descriptors.10/@accessors.0"/>
   <labels
       name="ProvidesComponentTypeLabel"
-      figure="ProvidesComponentTypeLabelFigure"/>
+      figure="ProvidesComponentTypeFigure"
+      accessor="//@figures.0/@descriptors.11/@accessors.0"/>
   <labels
       name="ProvidesStereotypeLabel"
-      figure="ProvidesStereotypeLabelFigure"
-      elementIcon="false">
+      figure="ProvidedRoleFigure"
+      elementIcon="false"
+      accessor="//@figures.0/@descriptors.5/@accessors.1">
     <facets
         xsi:type="gmfgraph:AlignmentFacet"
         alignment="CENTER"/>
   </labels>
   <labels
       name="RequiresStereotypeLabel"
-      figure="RequiresStereotypeLabelFigure"
-      elementIcon="false">
+      figure="RequiredRoleFigure"
+      elementIcon="false"
+      accessor="//@figures.0/@descriptors.0/@accessors.1">
     <facets
         xsi:type="gmfgraph:AlignmentFacet"
         alignment="CENTER"/>
@@ -285,16 +345,18 @@
       figure="SEFFLabelFigure"/>
   <labels
       name="CompleteParentStereotypeLabel"
-      figure="CompleteParentStereotypeLabelFigure"
-      elementIcon="false">
+      figure="ParentCompleteTypeFigure"
+      elementIcon="false"
+      accessor="//@figures.0/@descriptors.14/@accessors.0">
     <facets
         xsi:type="gmfgraph:AlignmentFacet"
         alignment="CENTER"/>
   </labels>
   <labels
       name="ProvidesParentStereotypeLabel"
-      figure="ProvidesParentStereotypeLabelFigure"
-      elementIcon="false">
+      figure="ParentProvidesTypeFigure"
+      elementIcon="false"
+      accessor="//@figures.0/@descriptors.15/@accessors.0">
     <facets
         xsi:type="gmfgraph:AlignmentFacet"
         alignment="CENTER"/>

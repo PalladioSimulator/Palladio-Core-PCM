@@ -6,12 +6,20 @@
  */
 package de.uka.ipd.sdq.probfunction.util;
 
-import de.uka.ipd.sdq.probfunction.*;
-
 import java.util.List;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
+
+import de.uka.ipd.sdq.probfunction.BoxedPDF;
+import de.uka.ipd.sdq.probfunction.ContinuousSample;
+import de.uka.ipd.sdq.probfunction.ProbabilityDensityFunction;
+import de.uka.ipd.sdq.probfunction.ProbabilityFunction;
+import de.uka.ipd.sdq.probfunction.ProbabilityMassFunction;
+import de.uka.ipd.sdq.probfunction.ProbfunctionPackage;
+import de.uka.ipd.sdq.probfunction.Sample;
+import de.uka.ipd.sdq.probfunction.SamplePDF;
+import de.uka.ipd.sdq.probfunction.Unit;
 
 /**
  * <!-- begin-user-doc -->

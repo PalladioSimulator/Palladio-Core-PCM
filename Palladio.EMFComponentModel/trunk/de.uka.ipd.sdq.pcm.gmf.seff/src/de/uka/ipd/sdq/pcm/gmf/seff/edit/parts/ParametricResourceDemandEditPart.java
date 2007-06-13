@@ -173,7 +173,7 @@ public class ParametricResourceDemandEditPart extends CompartmentEditPart
 	/**
 	 * @generated
 	 */
-	public void setLabel(IFigure figure) {
+	public void setLabel(WrapLabel figure) {
 		unregisterVisuals();
 		setFigure(figure);
 		defaultText = getLabelTextHelper(figure);
@@ -603,29 +603,8 @@ public class ParametricResourceDemandEditPart extends CompartmentEditPart
 	 * @generated
 	 */
 	protected IFigure createFigure() {
-		IFigure label = createFigurePrim();
-		defaultText = getLabelTextHelper(label);
-		return label;
-	}
-
-	/**
-	 * @generated
-	 */
-	protected IFigure createFigurePrim() {
-		return new ParametricResourceDemandDemandFigure();
-	}
-
-	/**
-	 * @generated
-	 */
-	public class ParametricResourceDemandDemandFigure extends WrapLabel {
-		/**
-		 * @generated
-		 */
-		public ParametricResourceDemandDemandFigure() {
-			this.setText("<...>");
-		}
-
+		// Parent should assign one using setLabel() method
+		return null;
 	}
 
 }

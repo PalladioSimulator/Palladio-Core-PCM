@@ -62,6 +62,8 @@ public class ForkActionEditPart extends ShapeNodeEditPart {
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
 				new ForkActionItemSemanticEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
+		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
+		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
 	}
 
 	/**
@@ -220,13 +222,12 @@ public class ForkActionEditPart extends ShapeNodeEditPart {
 		/**
 		 * @generated
 		 */
+		private WrapLabel fFigureForkFigureNameLabelFigure;
+
+		/**
+		 * @generated
+		 */
 		public ForkFigure() {
-			this.setFill(true);
-			this.setFillXOR(false);
-			this.setOutline(true);
-			this.setOutlineXOR(false);
-			this.setLineWidth(1);
-			this.setLineStyle(Graphics.LINE_SOLID);
 			createContents();
 		}
 
@@ -244,27 +245,15 @@ public class ForkActionEditPart extends ShapeNodeEditPart {
 			forkFigureNameLabelFigure0.setText("");
 
 			this.add(forkFigureNameLabelFigure0);
-			setFigureForkFigureNameLabelFigure(forkFigureNameLabelFigure0);
+			fFigureForkFigureNameLabelFigure = forkFigureNameLabelFigure0;
 
 		}
-
-		/**
-		 * @generated
-		 */
-		private WrapLabel fForkFigureNameLabelFigure;
 
 		/**
 		 * @generated
 		 */
 		public WrapLabel getFigureForkFigureNameLabelFigure() {
-			return fForkFigureNameLabelFigure;
-		}
-
-		/**
-		 * @generated
-		 */
-		private void setFigureForkFigureNameLabelFigure(WrapLabel fig) {
-			fForkFigureNameLabelFigure = fig;
+			return fFigureForkFigureNameLabelFigure;
 		}
 
 		/**

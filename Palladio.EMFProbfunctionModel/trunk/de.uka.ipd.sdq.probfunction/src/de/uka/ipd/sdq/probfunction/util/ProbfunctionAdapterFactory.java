@@ -6,14 +6,20 @@
  */
 package de.uka.ipd.sdq.probfunction.util;
 
-import de.uka.ipd.sdq.probfunction.*;
-
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
-
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
-
 import org.eclipse.emf.ecore.EObject;
+
+import de.uka.ipd.sdq.probfunction.BoxedPDF;
+import de.uka.ipd.sdq.probfunction.ContinuousSample;
+import de.uka.ipd.sdq.probfunction.ProbabilityDensityFunction;
+import de.uka.ipd.sdq.probfunction.ProbabilityFunction;
+import de.uka.ipd.sdq.probfunction.ProbabilityMassFunction;
+import de.uka.ipd.sdq.probfunction.ProbfunctionPackage;
+import de.uka.ipd.sdq.probfunction.Sample;
+import de.uka.ipd.sdq.probfunction.SamplePDF;
+import de.uka.ipd.sdq.probfunction.Unit;
 
 /**
  * <!-- begin-user-doc -->

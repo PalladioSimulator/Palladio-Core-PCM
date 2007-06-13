@@ -59,7 +59,7 @@ public class ProbfunctionItemProviderAdapterFactory extends ProbfunctionAdapterF
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected Collection supportedTypes = new ArrayList();
+	protected Collection<Object> supportedTypes = new ArrayList<Object>();
 
 	/**
 	 * This constructs an instance.
@@ -72,7 +72,7 @@ public class ProbfunctionItemProviderAdapterFactory extends ProbfunctionAdapterF
 		supportedTypes.add(IStructuredItemContentProvider.class);
 		supportedTypes.add(ITreeItemContentProvider.class);
 		supportedTypes.add(IItemLabelProvider.class);
-		supportedTypes.add(IItemPropertySource.class);		
+		supportedTypes.add(IItemPropertySource.class);
 	}
 
 	/**
@@ -89,6 +89,7 @@ public class ProbfunctionItemProviderAdapterFactory extends ProbfunctionAdapterF
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Adapter createBoxedPDFAdapter() {
 		if (boxedPDFItemProvider == null) {
 			boxedPDFItemProvider = new BoxedPDFItemProvider(this);
@@ -111,6 +112,7 @@ public class ProbfunctionItemProviderAdapterFactory extends ProbfunctionAdapterF
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Adapter createUnitAdapter() {
 		if (unitItemProvider == null) {
 			unitItemProvider = new UnitItemProvider(this);
@@ -133,6 +135,7 @@ public class ProbfunctionItemProviderAdapterFactory extends ProbfunctionAdapterF
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Adapter createContinuousSampleAdapter() {
 		if (continuousSampleItemProvider == null) {
 			continuousSampleItemProvider = new ContinuousSampleItemProvider(this);
@@ -155,6 +158,7 @@ public class ProbfunctionItemProviderAdapterFactory extends ProbfunctionAdapterF
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Adapter createProbabilityMassFunctionAdapter() {
 		if (probabilityMassFunctionItemProvider == null) {
 			probabilityMassFunctionItemProvider = new ProbabilityMassFunctionItemProvider(this);
@@ -177,6 +181,7 @@ public class ProbfunctionItemProviderAdapterFactory extends ProbfunctionAdapterF
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Adapter createSampleAdapter() {
 		if (sampleItemProvider == null) {
 			sampleItemProvider = new SampleItemProvider(this);
@@ -199,6 +204,7 @@ public class ProbfunctionItemProviderAdapterFactory extends ProbfunctionAdapterF
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Adapter createSamplePDFAdapter() {
 		if (samplePDFItemProvider == null) {
 			samplePDFItemProvider = new SamplePDFItemProvider(this);
@@ -232,6 +238,7 @@ public class ProbfunctionItemProviderAdapterFactory extends ProbfunctionAdapterF
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean isFactoryForType(Object type) {
 		return supportedTypes.contains(type) || super.isFactoryForType(type);
 	}
@@ -242,6 +249,7 @@ public class ProbfunctionItemProviderAdapterFactory extends ProbfunctionAdapterF
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Adapter adapt(Notifier notifier, Object type) {
 		return super.adapt(notifier, this);
 	}
@@ -251,10 +259,11 @@ public class ProbfunctionItemProviderAdapterFactory extends ProbfunctionAdapterF
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Object adapt(Object object, Object type) {
 		if (isFactoryForType(type)) {
 			Object adapter = super.adapt(object, type);
-			if (!(type instanceof Class) || (((Class)type).isInstance(adapter))) {
+			if (!(type instanceof Class) || (((Class<?>)type).isInstance(adapter))) {
 				return adapter;
 			}
 		}

@@ -72,6 +72,8 @@ public class CollectionIteratorAction2EditPart extends ShapeNodeEditPart {
 		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE,
 				new CollectionIteratorAction2CanonicalEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
+		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
+		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
 	}
 
 	/**
@@ -236,15 +238,18 @@ public class CollectionIteratorAction2EditPart extends ShapeNodeEditPart {
 		/**
 		 * @generated
 		 */
+		private WrapLabel fFigureCollectionIteratorNameLabelFigure;
+		/**
+		 * @generated
+		 */
+		private WrapLabel fFigureCollectionIteratorParameterLabelFigure;
+
+		/**
+		 * @generated
+		 */
 		public CollectionIteratorFigure() {
 			this.setCornerDimensions(new Dimension(getMapMode().DPtoLP(8),
 					getMapMode().DPtoLP(8)));
-			this.setFill(true);
-			this.setFillXOR(false);
-			this.setOutline(true);
-			this.setOutlineXOR(false);
-			this.setLineWidth(1);
-			this.setLineStyle(Graphics.LINE_SOLID);
 			createContents();
 		}
 
@@ -263,53 +268,28 @@ public class CollectionIteratorAction2EditPart extends ShapeNodeEditPart {
 			collectionIteratorNameLabelFigure0.setText("myLoop");
 
 			this.add(collectionIteratorNameLabelFigure0);
-			setFigureCollectionIteratorNameLabelFigure(collectionIteratorNameLabelFigure0);
+			fFigureCollectionIteratorNameLabelFigure = collectionIteratorNameLabelFigure0;
 
 			WrapLabel collectionIteratorParameterLabelFigure0 = new WrapLabel();
 			collectionIteratorParameterLabelFigure0.setText("");
 
 			this.add(collectionIteratorParameterLabelFigure0);
-			setFigureCollectionIteratorParameterLabelFigure(collectionIteratorParameterLabelFigure0);
+			fFigureCollectionIteratorParameterLabelFigure = collectionIteratorParameterLabelFigure0;
 
 		}
-
-		/**
-		 * @generated
-		 */
-		private WrapLabel fCollectionIteratorNameLabelFigure;
 
 		/**
 		 * @generated
 		 */
 		public WrapLabel getFigureCollectionIteratorNameLabelFigure() {
-			return fCollectionIteratorNameLabelFigure;
+			return fFigureCollectionIteratorNameLabelFigure;
 		}
-
-		/**
-		 * @generated
-		 */
-		private void setFigureCollectionIteratorNameLabelFigure(WrapLabel fig) {
-			fCollectionIteratorNameLabelFigure = fig;
-		}
-
-		/**
-		 * @generated
-		 */
-		private WrapLabel fCollectionIteratorParameterLabelFigure;
 
 		/**
 		 * @generated
 		 */
 		public WrapLabel getFigureCollectionIteratorParameterLabelFigure() {
-			return fCollectionIteratorParameterLabelFigure;
-		}
-
-		/**
-		 * @generated
-		 */
-		private void setFigureCollectionIteratorParameterLabelFigure(
-				WrapLabel fig) {
-			fCollectionIteratorParameterLabelFigure = fig;
+			return fFigureCollectionIteratorParameterLabelFigure;
 		}
 
 		/**

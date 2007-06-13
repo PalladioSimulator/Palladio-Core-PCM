@@ -44,7 +44,7 @@ public class BoxedPDFImpl extends ProbabilityDensityFunctionImpl implements Boxe
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<ContinuousSample> samples = null;
+	protected EList<ContinuousSample> samples;
 
 	/**
 	 * <!-- begin-user-doc -->

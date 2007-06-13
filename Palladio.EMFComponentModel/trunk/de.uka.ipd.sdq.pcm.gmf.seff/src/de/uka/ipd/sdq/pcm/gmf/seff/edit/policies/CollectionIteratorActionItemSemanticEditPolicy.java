@@ -66,6 +66,7 @@ public class CollectionIteratorActionItemSemanticEditPolicy extends
 	protected Command getDestroyElementCommand(DestroyElementRequest req) {
 		CompoundCommand cc = getDestroyEdgesCommand();
 		addDestroyChildNodesCommand(cc);
+		addDestroyShortcutsCommand(cc);
 		cc.add(getGEFWrapper(new DestroyElementCommand(req)));
 		return cc.unwrap();
 	}

@@ -53,19 +53,10 @@ public class ImplementationComponentTypeParentCompleteComponentTypesViewFactory
 		}
 		super.decorateView(containerView, view, semanticAdapter, semanticHint,
 				index, persisted);
-		if (!RepositoryEditPart.MODEL_ID
-				.equals(PalladioComponentModelVisualIDRegistry
-						.getModelID(containerView))) {
-			EAnnotation shortcutAnnotation = EcoreFactory.eINSTANCE
-					.createEAnnotation();
-			shortcutAnnotation.setSource("Shortcut"); //$NON-NLS-1$
-			shortcutAnnotation.getDetails().put(
-					"modelID", RepositoryEditPart.MODEL_ID); //$NON-NLS-1$
-			view.getEAnnotations().add(shortcutAnnotation);
-		}
+		IAdaptable eObjectAdapter = null;
 		getViewService()
 				.createNode(
-						semanticAdapter,
+						eObjectAdapter,
 						view,
 						PalladioComponentModelVisualIDRegistry
 								.getType(CompleteParentStereotypeLabelEditPart.VISUAL_ID),

@@ -63,7 +63,7 @@ import de.uka.ipd.sdq.stoex.util.StoexSwitch;
  * 
  * @author koziolek
  */
-public class ExpressionSolveVisitor extends StoexSwitch {
+public class ExpressionSolveVisitor extends StoexSwitch<Object> {
 
 	private static Logger logger = Logger
 			.getLogger(ExpressionSolveVisitor.class.getName());

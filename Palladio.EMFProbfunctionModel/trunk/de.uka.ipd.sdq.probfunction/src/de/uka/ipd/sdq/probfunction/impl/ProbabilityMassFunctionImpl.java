@@ -48,7 +48,7 @@ public class ProbabilityMassFunctionImpl extends ProbabilityFunctionImpl impleme
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Sample> samples = null;
+	protected EList<Sample> samples;
 
 	/**
 	 * The default value of the '{@link #isOrderedDomain() <em>Ordered Domain</em>}' attribute.

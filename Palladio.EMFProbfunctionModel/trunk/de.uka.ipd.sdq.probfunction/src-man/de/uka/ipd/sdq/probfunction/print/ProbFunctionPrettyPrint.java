@@ -11,7 +11,7 @@ import de.uka.ipd.sdq.probfunction.ProbabilityMassFunction;
 import de.uka.ipd.sdq.probfunction.Sample;
 import de.uka.ipd.sdq.probfunction.util.ProbfunctionSwitch;
 
-public class ProbFunctionPrettyPrint extends ProbfunctionSwitch {
+public class ProbFunctionPrettyPrint extends ProbfunctionSwitch<String> {
 
 	/*
 	 * (non-Javadoc)
@@ -19,7 +19,7 @@ public class ProbFunctionPrettyPrint extends ProbfunctionSwitch {
 	 * @see de.uka.ipd.sdq.probfunction.util.ProbfunctionSwitch#caseBoxedPDF(de.uka.ipd.sdq.probfunction.BoxedPDF)
 	 */
 	@Override
-	public Object caseBoxedPDF(BoxedPDF object) {
+	public String caseBoxedPDF(BoxedPDF object) {
 		String sampleString = "";
 		for (ContinuousSample s : (List<ContinuousSample>) object.getSamples()) {
 			double value = s.getProbability();
@@ -48,7 +48,7 @@ public class ProbFunctionPrettyPrint extends ProbfunctionSwitch {
 	 * @see de.uka.ipd.sdq.probfunction.util.ProbfunctionSwitch#caseProbabilityMassFunction(de.uka.ipd.sdq.probfunction.ProbabilityMassFunction)
 	 */
 	@Override
-	public Object caseProbabilityMassFunction(ProbabilityMassFunction object) {
+	public String caseProbabilityMassFunction(ProbabilityMassFunction object) {
 		Sample sample = (Sample)object.getSamples().get(0);
 		
 		String pmfType = detectType(sample);

@@ -63,11 +63,43 @@ public class ExternalCallAction2EditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected void createDefaultEditPolicies() {
+		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
+				new CreationEditPolicy() {
+					public Command getCommand(Request request) {
+						if (understandsRequest(request)) {
+							if (request instanceof CreateViewAndElementRequest) {
+								CreateElementRequestAdapter adapter = ((CreateViewAndElementRequest) request)
+										.getViewAndElementDescriptor()
+										.getCreateElementRequestAdapter();
+								IElementType type = (IElementType) adapter
+										.getAdapter(IElementType.class);
+								if (type == PalladioComponentModelElementTypes.VariableUsage_3001) {
+									EditPart compartmentEditPart = getChildBySemanticHint(PalladioComponentModelVisualIDRegistry
+											.getType(ExternalCallActionInputVariableUsage2EditPart.VISUAL_ID));
+									return compartmentEditPart == null ? null
+											: compartmentEditPart
+													.getCommand(request);
+								}
+								if (type == PalladioComponentModelElementTypes.VariableUsage_3022) {
+									EditPart compartmentEditPart = getChildBySemanticHint(PalladioComponentModelVisualIDRegistry
+											.getType(ExternalCallActionOutputVariableUsage2EditPart.VISUAL_ID));
+									return compartmentEditPart == null ? null
+											: compartmentEditPart
+													.getCommand(request);
+								}
+							}
+							return super.getCommand(request);
+						}
+						return null;
+					}
+				});
 
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
 				new ExternalCallAction2ItemSemanticEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
+		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
+		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
 	}
 
 	/**
@@ -226,15 +258,14 @@ public class ExternalCallAction2EditPart extends ShapeNodeEditPart {
 		/**
 		 * @generated
 		 */
+		private WrapLabel fFigureComponentExternalCallName;
+
+		/**
+		 * @generated
+		 */
 		public ExternalCallActionFigure() {
 			this.setCornerDimensions(new Dimension(getMapMode().DPtoLP(8),
 					getMapMode().DPtoLP(8)));
-			this.setFill(true);
-			this.setFillXOR(false);
-			this.setOutline(true);
-			this.setOutlineXOR(false);
-			this.setLineWidth(1);
-			this.setLineStyle(Graphics.LINE_SOLID);
 			createContents();
 		}
 
@@ -252,27 +283,15 @@ public class ExternalCallAction2EditPart extends ShapeNodeEditPart {
 			componentExternalCallName0.setText("myCall");
 
 			this.add(componentExternalCallName0);
-			setFigureComponentExternalCallName(componentExternalCallName0);
+			fFigureComponentExternalCallName = componentExternalCallName0;
 
 		}
-
-		/**
-		 * @generated
-		 */
-		private WrapLabel fComponentExternalCallName;
 
 		/**
 		 * @generated
 		 */
 		public WrapLabel getFigureComponentExternalCallName() {
-			return fComponentExternalCallName;
-		}
-
-		/**
-		 * @generated
-		 */
-		private void setFigureComponentExternalCallName(WrapLabel fig) {
-			fComponentExternalCallName = fig;
+			return fFigureComponentExternalCallName;
 		}
 
 		/**

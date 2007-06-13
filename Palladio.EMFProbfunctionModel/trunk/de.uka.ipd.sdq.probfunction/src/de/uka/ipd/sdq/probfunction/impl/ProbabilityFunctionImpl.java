@@ -41,7 +41,7 @@ public abstract class ProbabilityFunctionImpl extends EObjectImpl implements Pro
 	 * @generated
 	 * @ordered
 	 */
-	protected Unit unit = null;
+	protected Unit unit;
 
 	/**
 	 * <!-- begin-user-doc -->

@@ -7,7 +7,7 @@ import de.uka.ipd.sdq.pcm.parameter.CharacterisedVariable;
 import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
 import de.uka.ipd.sdq.stoex.util.StoexSwitch;
 
-public class PCMStoExSwitch extends StoexSwitch {
+public class PCMStoExSwitch extends StoexSwitch<Object> {
 
 	protected Object doSwitch(EClass theEClass, EObject theEObject) {
 		if (theEClass == ParameterPackage.eINSTANCE.getCharacterisedVariable()) {

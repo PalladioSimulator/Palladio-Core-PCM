@@ -38,7 +38,7 @@ import de.uka.ipd.sdq.stoex.util.StoexSwitch;
  * 
  * @author koziolek
  */
-public class ExpressionInferTypeVisitor extends StoexSwitch {
+public class ExpressionInferTypeVisitor extends StoexSwitch<Object> {
 
 	private static Logger logger = Logger
 			.getLogger(ExpressionInferTypeVisitor.class.getName());

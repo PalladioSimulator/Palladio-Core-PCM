@@ -64,7 +64,7 @@ public class SamplePDFImpl extends ProbabilityDensityFunctionImpl implements Sam
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Double> values = null;
+	protected EList<Double> values;
 
 	/**
 	 * <!-- begin-user-doc -->

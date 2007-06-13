@@ -86,6 +86,11 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String PalladioComponentModelDocumentProvider_SaveAsOperation;
+
+	/**
+	 * @generated
+	 */
 	public static String PalladioComponentModelInitDiagramFileAction_InitDiagramFileResourceErrorDialogTitle;
 
 	/**

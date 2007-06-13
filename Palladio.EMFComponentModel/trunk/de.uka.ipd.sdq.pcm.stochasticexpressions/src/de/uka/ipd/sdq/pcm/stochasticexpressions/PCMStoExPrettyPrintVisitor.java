@@ -9,7 +9,7 @@ import de.uka.ipd.sdq.stoex.analyser.visitors.StoExPrettyPrintVisitor;
 
 public class PCMStoExPrettyPrintVisitor extends StoExPrettyPrintVisitor {
 
-	protected Object doSwitch(EClass theEClass, EObject theEObject) {
+	protected String doSwitch(EClass theEClass, EObject theEObject) {
 		if (theEClass == ParameterPackage.eINSTANCE.getCharacterisedVariable()) {
 			return caseCharacterisedVariable((CharacterisedVariable)theEObject);
 		}
@@ -18,7 +18,7 @@ public class PCMStoExPrettyPrintVisitor extends StoExPrettyPrintVisitor {
 		}
 	}
 	
-	public Object caseCharacterisedVariable(CharacterisedVariable object) {
+	public String caseCharacterisedVariable(CharacterisedVariable object) {
 		String result = (String)doSwitch(object.getId_Variable());
 		result += "." + object.getCharacterisationType().getLiteral();
 		return result;
