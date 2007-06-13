@@ -43,10 +43,7 @@ public class SensorDataSetDialog extends DataSetDialog {
 			    WizardDialog dialog = new WizardDialog(SensorDataSetDialog.this.getShell(), w);
 			    dialog.create();
 			    dialog.setTitle("Select/create datastore");
-			    dialog.open();
-			    String result = w.getResult();
-			    SensorFrameworkDataset.singleton().addDataSource(new DB4ODAOFactory(result));
-			    
+			    dialog.open();			    
 			    refresh();
 			}
 			

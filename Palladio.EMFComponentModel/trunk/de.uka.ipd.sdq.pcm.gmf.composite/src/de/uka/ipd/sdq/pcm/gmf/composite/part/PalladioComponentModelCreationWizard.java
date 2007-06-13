@@ -102,7 +102,7 @@ public class PalladioComponentModelCreationWizard extends Wizard implements
 	}
 
 	/**
-	 * @generated
+	 * @generated not
 	 */
 	public void addPages() {
 		diagramModelFilePage = new PalladioComponentModelCreationWizardPage(
@@ -113,7 +113,7 @@ public class PalladioComponentModelCreationWizard extends Wizard implements
 		addPage(diagramModelFilePage);
 
 		domainModelFilePage = new PalladioComponentModelCreationWizardPage(
-				"DomainModelFile", getSelection(), "repository"); //$NON-NLS-1$ //$NON-NLS-2$
+				"DomainModelFile", getSelection(), "system"); //$NON-NLS-1$ //$NON-NLS-2$
 		domainModelFilePage.setTitle("Create CompositeModel Diagram");
 		domainModelFilePage
 				.setDescription("Select file that will contain domain model.");

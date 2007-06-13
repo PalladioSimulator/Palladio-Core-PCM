@@ -193,9 +193,10 @@ public class SimuComConfigurationTab extends AbstractLaunchConfigurationTab {
 		}
 		
 		try {
+			int id = configuration.getAttribute(SimuComConfig.DATASOURCE_ID, 0); 
+			this.selectedDataSourceID = id;
 			IDAOFactory f = SensorFrameworkDataset.singleton().getDataSourceByID(
-					configuration.getAttribute(
-							SimuComConfig.DATASOURCE_ID, 0));
+					id);
 			if (f != null)
 				dataField.setText(f.getName());
 			else
