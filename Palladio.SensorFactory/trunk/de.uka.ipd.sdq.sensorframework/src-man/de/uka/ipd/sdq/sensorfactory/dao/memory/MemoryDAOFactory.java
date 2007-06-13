@@ -95,7 +95,6 @@ public class MemoryDAOFactory implements IDAOFactory {
 		this.id = i;
 	}
 
-	@Override
 	public String getPersistendInfo() {
 		return "";
 	}
