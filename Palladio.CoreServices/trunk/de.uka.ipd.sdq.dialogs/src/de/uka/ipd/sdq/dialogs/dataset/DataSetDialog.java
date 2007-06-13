@@ -114,7 +114,6 @@ public class DataSetDialog extends TitleAreaDialog {
 		viewer.setLabelProvider(new DataSetLabelProvider());
 		viewer.addSelectionChangedListener(new ISelectionChangedListener(){
 
-			@Override
 			public void selectionChanged(SelectionChangedEvent event) {
 				ISelection selection = event.getSelection();
 				if (selection instanceof IStructuredSelection) {
