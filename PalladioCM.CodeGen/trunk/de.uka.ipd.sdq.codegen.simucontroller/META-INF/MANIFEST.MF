@@ -18,7 +18,9 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.pde.ui,
  org.eclipse.pde.core,
  org.openarchitectureware.workflow,
- org.openarchitectureware.core.workflow
+ org.openarchitectureware.core.workflow,
+ de.uka.ipd.sdq.dialogs,
+ de.uka.ipd.sdq.sensorframework
 Eclipse-LazyStart: true
 Export-Package: de.uka.ipd.sdq.codegen.simucontroller.actions
 Bundle-Vendor: sdq.ipd.uka.de
