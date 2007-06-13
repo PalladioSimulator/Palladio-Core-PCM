@@ -1,5 +1,8 @@
 package de.uka.ipd.sdq.simucomframework.variables.tests;
 
+import java.util.List;
+import java.util.Map.Entry;
+
 import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.ConsoleAppender;
 import org.apache.log4j.Logger;
@@ -9,6 +12,8 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import de.uka.ipd.sdq.simucomframework.variables.StackContext;
+import de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe;
+import de.uka.ipd.sdq.simucomframework.variables.stackframe.ValueNotInFrameException;
 
 public class StoExVisitorTests {
 	private static Logger logger = 
@@ -29,5 +34,26 @@ public class StoExVisitorTests {
 			Assert.assertTrue("Result must be greater 0, but was "+result,result >= 0);
 			Assert.assertTrue(result <= 12.1);
 		}
+	}
+	
+	
+	@Test public void getByteSizeFromStackframe(){
+		
+		SimulatedStackframe<Object> myFrame = new SimulatedStackframe<Object>();
+		myFrame.addValue("a.BYTESIZE", new Integer(2));
+		myFrame.addValue("b.BYTESIZE", new Integer(3));
+		myFrame.addValue("c.INNER.BYTESIZE", new Double(5));
+		myFrame.addValue("c.NUMBER_OF_ELEMENTS", new Double(10));
+		myFrame.addValue("d.e.f.BYTESIZE", new Double(10));
+		myFrame.addValue("g.h.BYTESIZE", new Double(10));
+		
+		SimulatedStackframe<Object> resultFrame = myFrame.getByteSizeOfFrame();
+		
+		try {
+			Assert.assertEquals(new Double(75), resultFrame.getValue("transferData.BYTESIZE"));
+		} catch (ValueNotInFrameException e1) {
+			e1.printStackTrace();
+		}
+		
 	}
 }

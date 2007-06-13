@@ -3,11 +3,10 @@ package de.uka.ipd.sdq.simucomframework.variables.stackframe;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map.Entry;
 
 import org.apache.log4j.Logger;
-
-import de.uka.ipd.sdq.simucomframework.variables.cache.ProbFunctionCache;
 
 public class SimulatedStackframe <T> implements Serializable {
 
@@ -83,5 +82,32 @@ public class SimulatedStackframe <T> implements Serializable {
 			this.addValue(e.getKey(), e.getValue());
 		}
 		
+	}
+	
+	public SimulatedStackframe<Object> getByteSizeOfFrame(){
+		Double result = 0.0;
+		List<Entry<String,T>> stackFrameContents = getContents();
+		for (Entry<String,T> e : stackFrameContents){
+			String key = e.getKey();
+			
+			if (key.endsWith("INNER.BYTESIZE")){ //Collection
+				String variableReference = key.substring(0, key.length()-15);
+				double numberOfElements = 0;
+				try {
+					numberOfElements = ((Number)this.getValue(variableReference+".NUMBER_OF_ELEMENTS")).doubleValue();
+				} catch (ValueNotInFrameException e1) {
+					e1.printStackTrace();
+				}
+				result += numberOfElements * ((Number)e.getValue()).doubleValue();
+			} else if (key.endsWith("BYTESIZE")){ // Primitive & Composite
+				result += ((Number)e.getValue()).doubleValue();
+			}
+		
+		}
+		
+		SimulatedStackframe<Object> resultFrame = new SimulatedStackframe<Object>();
+		resultFrame.addValue("transferData.BYTESIZE", result);
+		
+		return resultFrame;
 	}
 }
