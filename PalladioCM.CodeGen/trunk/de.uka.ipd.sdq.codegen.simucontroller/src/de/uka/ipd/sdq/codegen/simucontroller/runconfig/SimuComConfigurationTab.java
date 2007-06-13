@@ -25,6 +25,7 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
 
 import de.uka.ipd.sdq.dialogs.dataset.SensorDataSetDialog;
+import de.uka.ipd.sdq.sensorfactory.SensorFrameworkDataset;
 import de.uka.ipd.sdq.sensorfactory.entities.dao.IDAOFactory;
 import de.uka.ipd.sdq.simucomframework.SimuComConfig;
 
@@ -37,6 +38,8 @@ public class SimuComConfigurationTab extends AbstractLaunchConfigurationTab {
 	private Text nameField;
 	private Text timeField;
 	private Text dataField;
+
+	protected int selectedDataSourceID;
 
 	/* (non-Javadoc)
 	 * @see org.eclipse.debug.ui.ILaunchConfigurationTab#createControl(org.eclipse.swt.widgets.Composite)
@@ -124,7 +127,7 @@ public class SimuComConfigurationTab extends AbstractLaunchConfigurationTab {
 		dataSourceLabel.setLayoutData(fd_dataSourceLabel);
 		dataSourceLabel.setText("Data source:");
 
-		dataField = new Text(dataSetGroup, SWT.BORDER);
+		dataField = new Text(dataSetGroup, SWT.BORDER | SWT.READ_ONLY);
 		final FormData fd_text_1 = new FormData();
 		fd_text_1.right = new FormAttachment(0, 476);
 		fd_text_1.bottom = new FormAttachment(0, 26);
@@ -152,7 +155,11 @@ public class SimuComConfigurationTab extends AbstractLaunchConfigurationTab {
 						.getActiveShell());
 				if (dialog.open() == dialog.OK) {
 					IDAOFactory dataSet = (IDAOFactory) dialog.getResult();
-					dataField.setText(String.valueOf(dataSet.getID()));
+					selectedDataSourceID = (int)dataSet.getID();
+					dataField.setText(dataSet.getName());
+					
+					SimuComConfigurationTab.this.setDirty(true);
+					SimuComConfigurationTab.this.updateLaunchConfigurationDialog();
 				}
 			}
 		});
@@ -186,10 +193,15 @@ public class SimuComConfigurationTab extends AbstractLaunchConfigurationTab {
 		}
 		
 		try {
-			dataField.setText(configuration.getAttribute(
-					SimuComConfig.DATASOURCE_ID, ""));
+			IDAOFactory f = SensorFrameworkDataset.singleton().getDataSourceByID(
+					configuration.getAttribute(
+							SimuComConfig.DATASOURCE_ID, 0));
+			if (f != null)
+				dataField.setText(f.getName());
+			else
+				dataField.setText("");
 		} catch (CoreException e) {
-			dataField.setText("1");
+			dataField.setText("");
 		}
 	}
 
@@ -202,7 +214,7 @@ public class SimuComConfigurationTab extends AbstractLaunchConfigurationTab {
 		configuration.setAttribute(SimuComConfig.SIMULATION_TIME,
 				timeField.getText());
 		configuration.setAttribute(SimuComConfig.DATASOURCE_ID,
-				dataField.getText());
+				selectedDataSourceID);
 	}
 
 	/* (non-Javadoc)
@@ -214,7 +226,7 @@ public class SimuComConfigurationTab extends AbstractLaunchConfigurationTab {
 		configuration.setAttribute(SimuComConfig.SIMULATION_TIME,
 				"150000");
 		configuration.setAttribute(SimuComConfig.DATASOURCE_ID,
-				1/*TODO*/);
+				0);
 	}
 
 	/* (non-Javadoc)

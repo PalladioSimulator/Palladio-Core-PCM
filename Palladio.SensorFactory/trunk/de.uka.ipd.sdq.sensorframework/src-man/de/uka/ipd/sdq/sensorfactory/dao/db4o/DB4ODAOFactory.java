@@ -58,6 +58,10 @@ public class DB4ODAOFactory implements IDAOFactory {
 		this.factoryRegistry.put(db,this);
 	}
 	
+	public DB4ODAOFactory(String result) {
+		this(-1l,result);
+	}
+
 	/* (non-Javadoc)
 	 * @see de.uka.ipd.sdq.sensorfactory.entities.dao.IDAOFactory#createExperimentDAO()
 	 */
@@ -118,5 +122,13 @@ public class DB4ODAOFactory implements IDAOFactory {
 
 	public long getID() {
 		return this.id;
+	}
+
+	public void setID(int i) {
+		this.id = i;
+	}
+
+	public String getPersistendInfo() {
+		return filename;
 	}
 }

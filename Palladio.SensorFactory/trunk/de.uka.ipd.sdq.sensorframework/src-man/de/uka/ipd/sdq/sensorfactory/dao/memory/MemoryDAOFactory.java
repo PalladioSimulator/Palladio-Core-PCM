@@ -27,6 +27,10 @@ public class MemoryDAOFactory implements IDAOFactory {
 		this.id = id;
 	}
 	
+	public MemoryDAOFactory(String config) {
+		this(-1);
+	}
+	
 	/* (non-Javadoc)
 	 * @see de.uka.ipd.sdq.sensorfactory.entities.dao.IDAOFactory#createExperimentDAO()
 	 */
@@ -85,5 +89,14 @@ public class MemoryDAOFactory implements IDAOFactory {
 
 	public long getID() {
 		return this.id;
+	}
+
+	public void setID(int i) {
+		this.id = i;
+	}
+
+	@Override
+	public String getPersistendInfo() {
+		return "";
 	}
 }

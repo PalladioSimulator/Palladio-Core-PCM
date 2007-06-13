@@ -29,10 +29,8 @@ public class TreeContentProvider implements ITreeContentProvider {
 	 * @see org.eclipse.jface.viewers.IStructuredContentProvider#getElements(java.lang.Object)
 	 */
 	public Object[] getElements(Object parent) {
-		if (rootEntry == null) {
-			rootEntry = new ArrayList<IDAOFactory>();
-			rootEntry.addAll(SensorFrameworkDataset.singleton().getDataSources());
-		}
+		rootEntry = new ArrayList<IDAOFactory>();
+		rootEntry.addAll(SensorFrameworkDataset.singleton().getDataSources());
 		return getChildren(rootEntry);
 	}
 

@@ -80,7 +80,7 @@ public class DataSetDialog extends TitleAreaDialog {
 		fd_addButton.top = new FormAttachment(0, 5);
 		addButton.setLayoutData(fd_addButton);
 		addButton.setText("Add..");
-
+		
 		removeButton = new Button(container, SWT.NONE);
 		final FormData fd_removeButton = new FormData();
 		fd_removeButton.right = new FormAttachment(100, -5);

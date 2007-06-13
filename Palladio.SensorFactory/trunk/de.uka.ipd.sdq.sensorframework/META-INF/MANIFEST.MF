@@ -11,6 +11,7 @@ Require-Bundle: org.eclipse.core.runtime,
  de.uka.ipd.sdq.hibernatewrapper
 Eclipse-LazyStart: true
 Export-Package: de.uka.ipd.sdq.sensorfactory,
+ de.uka.ipd.sdq.sensorfactory.dao.db4o,
  de.uka.ipd.sdq.sensorfactory.entities,
  de.uka.ipd.sdq.sensorfactory.entities.dao,
  de.uka.ipd.sdq.sensorframework.adapter,

@@ -1,10 +1,13 @@
 package de.uka.ipd.sdq.dialogs.dataset;
 
+import org.eclipse.jface.wizard.WizardDialog;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.widgets.Shell;
+import org.eclipse.ui.PlatformUI;
 
 import de.uka.ipd.sdq.sensorfactory.SensorFrameworkDataset;
+import de.uka.ipd.sdq.sensorfactory.dao.db4o.DB4ODAOFactory;
 import de.uka.ipd.sdq.sensorfactory.entities.dao.IDAOFactory;
 
 /** @author roman */
@@ -21,11 +24,7 @@ public class SensorDataSetDialog extends DataSetDialog {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
 				IDAOFactory selectedSource = (IDAOFactory) getResult();
-				/** 
-				 * TODO 
-				 * implements remove of selectedSource
-				 * 
-				 */
+			    SensorFrameworkDataset.singleton().removeDataSource(selectedSource);
 				refresh();
 			}
 		});
@@ -37,11 +36,18 @@ public class SensorDataSetDialog extends DataSetDialog {
 			 */
 			@Override
 			public void widgetSelected(SelectionEvent e) {
-				/** 
-				 * TODO 
-				 * create a wisard (new data source)
-				 * 
-				 */
+				DataSetAddWizard w = new DataSetAddWizard();
+				//w.init(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getWorkbench(),
+			    //       null);
+			    // Instantiates the wizard container with the wizard and opens it
+			    WizardDialog dialog = new WizardDialog(SensorDataSetDialog.this.getShell(), w);
+			    dialog.create();
+			    dialog.setTitle("Select/create datastore");
+			    dialog.open();
+			    String result = w.getResult();
+			    SensorFrameworkDataset.singleton().addDataSource(new DB4ODAOFactory(result));
+			    
+			    refresh();
 			}
 			
 		});
