@@ -7,6 +7,7 @@ package de.uka.ipd.sdq.context.actual_allocation.util;
 
 import de.uka.ipd.sdq.context.actual_allocation.*;
 
+import de.uka.ipd.sdq.stoex.RandomVariable;
 import java.util.List;
 
 import org.eclipse.emf.ecore.EClass;
@@ -102,6 +103,7 @@ public class AllocationSwitch {
 			case AllocationPackage.ACTUAL_RESOURCE_DEMAND: {
 				ActualResourceDemand actualResourceDemand = (ActualResourceDemand)theEObject;
 				Object result = caseActualResourceDemand(actualResourceDemand);
+				if (result == null) result = caseRandomVariable(actualResourceDemand);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -157,6 +159,21 @@ public class AllocationSwitch {
 	 * @generated
 	 */
 	public Object caseActualAllocation(ActualAllocation object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpretting the object as an instance of '<em>Random Variable</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpretting the object as an instance of '<em>Random Variable</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public Object caseRandomVariable(RandomVariable object) {
 		return null;
 	}
 

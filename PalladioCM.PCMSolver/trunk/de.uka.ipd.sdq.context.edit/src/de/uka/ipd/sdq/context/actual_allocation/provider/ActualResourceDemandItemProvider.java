@@ -6,10 +6,12 @@
 package de.uka.ipd.sdq.context.actual_allocation.provider;
 
 
+import de.uka.ipd.sdq.context.actual_allocation.ActualResourceDemand;
 import de.uka.ipd.sdq.context.actual_allocation.AllocationPackage;
 
 import de.uka.ipd.sdq.context.usage.provider.ContextEditPlugin;
 
+import de.uka.ipd.sdq.stoex.provider.RandomVariableItemProvider;
 import java.util.Collection;
 import java.util.List;
 
@@ -33,7 +35,7 @@ import org.eclipse.emf.edit.provider.ItemProviderAdapter;
  * @generated
  */
 public class ActualResourceDemandItemProvider
-	extends ItemProviderAdapter
+	extends RandomVariableItemProvider
 	implements	
 		IEditingDomainItemProvider,	
 		IStructuredItemContentProvider,	
@@ -68,7 +70,6 @@ public class ActualResourceDemandItemProvider
 			super.getPropertyDescriptors(object);
 
 			addParametricResourceDemand_ActualResourceDemandPropertyDescriptor(object);
-			addRandomVariable_ActualResourceDemandPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -96,28 +97,6 @@ public class ActualResourceDemandItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Random Variable Actual Resource Demand feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addRandomVariable_ActualResourceDemandPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_ActualResourceDemand_randomVariable_ActualResourceDemand_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ActualResourceDemand_randomVariable_ActualResourceDemand_feature", "_UI_ActualResourceDemand_type"),
-				 AllocationPackage.Literals.ACTUAL_RESOURCE_DEMAND__RANDOM_VARIABLE_ACTUAL_RESOURCE_DEMAND,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
 	 * This returns ActualResourceDemand.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -134,7 +113,10 @@ public class ActualResourceDemandItemProvider
 	 * @generated
 	 */
 	public String getText(Object object) {
-		return getString("_UI_ActualResourceDemand_type");
+		String label = ((ActualResourceDemand)object).getSpecification();
+		return label == null || label.length() == 0 ?
+			getString("_UI_ActualResourceDemand_type") :
+			getString("_UI_ActualResourceDemand_type") + " " + label;
 	}
 
 	/**

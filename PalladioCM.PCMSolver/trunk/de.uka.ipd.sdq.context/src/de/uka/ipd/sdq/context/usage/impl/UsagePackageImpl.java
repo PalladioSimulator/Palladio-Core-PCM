@@ -272,15 +272,6 @@ public class UsagePackageImpl extends EPackageImpl implements UsagePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getLoopIteration_Iterations_LoopIteration() {
-		return (EReference)loopIterationEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getUsage() {
 		return usageEClass;
 	}
@@ -333,7 +324,6 @@ public class UsagePackageImpl extends EPackageImpl implements UsagePackage {
 
 		loopIterationEClass = createEClass(LOOP_ITERATION);
 		createEReference(loopIterationEClass, LOOP_ITERATION__LOOPACTION_LOOP_ITERATION);
-		createEReference(loopIterationEClass, LOOP_ITERATION__ITERATIONS_LOOP_ITERATION);
 
 		usageEClass = createEClass(USAGE);
 		createEReference(usageEClass, USAGE__USAGE_CONTEXTS_USAGE);
@@ -368,6 +358,7 @@ public class UsagePackageImpl extends EPackageImpl implements UsagePackage {
 		StoexPackage theStoexPackage = (StoexPackage)EPackage.Registry.INSTANCE.getEPackage(StoexPackage.eNS_URI);
 
 		// Add supertypes to classes
+		loopIterationEClass.getESuperTypes().add(theStoexPackage.getRandomVariable());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(usageContextEClass, UsageContext.class, "UsageContext", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -381,7 +372,6 @@ public class UsagePackageImpl extends EPackageImpl implements UsagePackage {
 
 		initEClass(loopIterationEClass, LoopIteration.class, "LoopIteration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getLoopIteration_Loopaction_LoopIteration(), theSeffPackage.getAbstractLoopAction(), null, "loopaction_LoopIteration", null, 1, 1, LoopIteration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getLoopIteration_Iterations_LoopIteration(), theStoexPackage.getRandomVariable(), null, "iterations_LoopIteration", null, 1, 1, LoopIteration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(usageEClass, Usage.class, "Usage", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getUsage_UsageContexts_Usage(), this.getUsageContext(), null, "usageContexts_Usage", null, 0, -1, Usage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);

@@ -9,6 +9,7 @@ package de.uka.ipd.sdq.context.usage.provider;
 import de.uka.ipd.sdq.context.usage.LoopIteration;
 import de.uka.ipd.sdq.context.usage.UsagePackage;
 
+import de.uka.ipd.sdq.stoex.provider.RandomVariableItemProvider;
 import de.uka.ipd.sdq.pcm.parameter.ParameterFactory;
 
 import de.uka.ipd.sdq.pcm.qosannotations.QosannotationsFactory;
@@ -45,7 +46,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * @generated
  */
 public class LoopIterationItemProvider
-	extends ItemProviderAdapter
+	extends RandomVariableItemProvider
 	implements	
 		IEditingDomainItemProvider,	
 		IStructuredItemContentProvider,	
@@ -107,34 +108,6 @@ public class LoopIterationItemProvider
 	}
 
 	/**
-	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
-	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
-	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Collection getChildrenFeatures(Object object) {
-		if (childrenFeatures == null) {
-			super.getChildrenFeatures(object);
-			childrenFeatures.add(UsagePackage.Literals.LOOP_ITERATION__ITERATIONS_LOOP_ITERATION);
-		}
-		return childrenFeatures;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected EStructuralFeature getChildFeature(Object object, Object child) {
-		// Check the type of the specified child object and return the proper feature to use for
-		// adding (see {@link AddCommand}) it as a child.
-
-		return super.getChildFeature(object, child);
-	}
-
-	/**
 	 * This returns LoopIteration.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -151,7 +124,10 @@ public class LoopIterationItemProvider
 	 * @generated
 	 */
 	public String getText(Object object) {
-		return getString("_UI_LoopIteration_type");
+		String label = ((LoopIteration)object).getSpecification();
+		return label == null || label.length() == 0 ?
+			getString("_UI_LoopIteration_type") :
+			getString("_UI_LoopIteration_type") + " " + label;
 	}
 
 	/**
@@ -163,12 +139,6 @@ public class LoopIterationItemProvider
 	 */
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
-
-		switch (notification.getFeatureID(LoopIteration.class)) {
-			case UsagePackage.LOOP_ITERATION__ITERATIONS_LOOP_ITERATION:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
-				return;
-		}
 		super.notifyChanged(notification);
 	}
 
@@ -181,56 +151,6 @@ public class LoopIterationItemProvider
 	 */
 	protected void collectNewChildDescriptors(Collection newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-
-		newChildDescriptors.add
-			(createChildParameter
-				(UsagePackage.Literals.LOOP_ITERATION__ITERATIONS_LOOP_ITERATION,
-				 ParameterFactory.eINSTANCE.createVariableCharacterisation()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(UsagePackage.Literals.LOOP_ITERATION__ITERATIONS_LOOP_ITERATION,
-				 SeffFactory.eINSTANCE.createParametricResourceDemand()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(UsagePackage.Literals.LOOP_ITERATION__ITERATIONS_LOOP_ITERATION,
-				 SeffFactory.eINSTANCE.createIterationCount()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(UsagePackage.Literals.LOOP_ITERATION__ITERATIONS_LOOP_ITERATION,
-				 SeffFactory.eINSTANCE.createBranchCondition()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(UsagePackage.Literals.LOOP_ITERATION__ITERATIONS_LOOP_ITERATION,
-				 QosannotationsFactory.eINSTANCE.createSystemSpecifiedExecutionTime()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(UsagePackage.Literals.LOOP_ITERATION__ITERATIONS_LOOP_ITERATION,
-				 QosannotationsFactory.eINSTANCE.createComponentSpecifiedExecutionTime()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(UsagePackage.Literals.LOOP_ITERATION__ITERATIONS_LOOP_ITERATION,
-				 UsagemodelFactory.eINSTANCE.createInterArrivalTime()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(UsagePackage.Literals.LOOP_ITERATION__ITERATIONS_LOOP_ITERATION,
-				 UsagemodelFactory.eINSTANCE.createLoopIterations()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(UsagePackage.Literals.LOOP_ITERATION__ITERATIONS_LOOP_ITERATION,
-				 UsagemodelFactory.eINSTANCE.createThinkTime()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(UsagePackage.Literals.LOOP_ITERATION__ITERATIONS_LOOP_ITERATION,
-				 StoexFactory.eINSTANCE.createRandomVariable()));
 	}
 
 	/**

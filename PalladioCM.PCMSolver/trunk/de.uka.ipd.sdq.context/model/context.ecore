@@ -19,12 +19,9 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="branchtransition_BranchProbability"
           ordered="false" lowerBound="1" eType="ecore:EClass platform:/plugin/de.uka.ipd.sdq.pcm/model/pcm.ecore#//seff/AbstractBranchTransition"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="LoopIteration">
+    <eClassifiers xsi:type="ecore:EClass" name="LoopIteration" eSuperTypes="platform:/plugin/de.uka.ipd.sdq.stoex/model/stoex.ecore#//RandomVariable">
       <eStructuralFeatures xsi:type="ecore:EReference" name="loopaction_LoopIteration"
           ordered="false" lowerBound="1" eType="ecore:EClass platform:/plugin/de.uka.ipd.sdq.pcm/model/pcm.ecore#//seff/AbstractLoopAction"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="iterations_LoopIteration"
-          ordered="false" lowerBound="1" eType="ecore:EClass platform:/plugin/de.uka.ipd.sdq.stoex/model/stoex.ecore#//RandomVariable"
-          containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Usage">
       <eStructuralFeatures xsi:type="ecore:EReference" name="usageContexts_Usage"
@@ -40,11 +37,9 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="usageContext_ActualAllocationContext"
           ordered="false" lowerBound="1" eType="#//usage/UsageContext"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="ActualResourceDemand">
+    <eClassifiers xsi:type="ecore:EClass" name="ActualResourceDemand" eSuperTypes="platform:/plugin/de.uka.ipd.sdq.stoex/model/stoex.ecore#//RandomVariable">
       <eStructuralFeatures xsi:type="ecore:EReference" name="parametricResourceDemand_ActualResourceDemand"
           ordered="false" lowerBound="1" eType="ecore:EClass platform:/plugin/de.uka.ipd.sdq.pcm/model/pcm.ecore#//seff/ParametricResourceDemand"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="randomVariable_ActualResourceDemand"
-          ordered="false" lowerBound="1" eType="ecore:EClass platform:/plugin/de.uka.ipd.sdq.stoex/model/stoex.ecore#//RandomVariable"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ActualAllocation">
       <eStructuralFeatures xsi:type="ecore:EReference" name="actualAllocationContexts_ActualAllocation"

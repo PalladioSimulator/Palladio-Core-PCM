@@ -227,15 +227,6 @@ public class AllocationPackageImpl extends EPackageImpl implements AllocationPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getActualResourceDemand_RandomVariable_ActualResourceDemand() {
-		return (EReference)actualResourceDemandEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getActualAllocation() {
 		return actualAllocationEClass;
 	}
@@ -283,7 +274,6 @@ public class AllocationPackageImpl extends EPackageImpl implements AllocationPac
 
 		actualResourceDemandEClass = createEClass(ACTUAL_RESOURCE_DEMAND);
 		createEReference(actualResourceDemandEClass, ACTUAL_RESOURCE_DEMAND__PARAMETRIC_RESOURCE_DEMAND_ACTUAL_RESOURCE_DEMAND);
-		createEReference(actualResourceDemandEClass, ACTUAL_RESOURCE_DEMAND__RANDOM_VARIABLE_ACTUAL_RESOURCE_DEMAND);
 
 		actualAllocationEClass = createEClass(ACTUAL_ALLOCATION);
 		createEReference(actualAllocationEClass, ACTUAL_ALLOCATION__ACTUAL_ALLOCATION_CONTEXTS_ACTUAL_ALLOCATION);
@@ -314,10 +304,11 @@ public class AllocationPackageImpl extends EPackageImpl implements AllocationPac
 
 		// Obtain other dependent packages
 		UsagePackage theUsagePackage = (UsagePackage)EPackage.Registry.INSTANCE.getEPackage(UsagePackage.eNS_URI);
-		SeffPackage theSeffPackage = (SeffPackage)EPackage.Registry.INSTANCE.getEPackage(SeffPackage.eNS_URI);
 		StoexPackage theStoexPackage = (StoexPackage)EPackage.Registry.INSTANCE.getEPackage(StoexPackage.eNS_URI);
+		SeffPackage theSeffPackage = (SeffPackage)EPackage.Registry.INSTANCE.getEPackage(SeffPackage.eNS_URI);
 
 		// Add supertypes to classes
+		actualResourceDemandEClass.getESuperTypes().add(theStoexPackage.getRandomVariable());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(actualAllocationContextEClass, ActualAllocationContext.class, "ActualAllocationContext", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -326,7 +317,6 @@ public class AllocationPackageImpl extends EPackageImpl implements AllocationPac
 
 		initEClass(actualResourceDemandEClass, ActualResourceDemand.class, "ActualResourceDemand", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getActualResourceDemand_ParametricResourceDemand_ActualResourceDemand(), theSeffPackage.getParametricResourceDemand(), null, "parametricResourceDemand_ActualResourceDemand", null, 1, 1, ActualResourceDemand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getActualResourceDemand_RandomVariable_ActualResourceDemand(), theStoexPackage.getRandomVariable(), null, "randomVariable_ActualResourceDemand", null, 1, 1, ActualResourceDemand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(actualAllocationEClass, ActualAllocation.class, "ActualAllocation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getActualAllocation_ActualAllocationContexts_ActualAllocation(), this.getActualAllocationContext(), null, "actualAllocationContexts_ActualAllocation", null, 0, -1, ActualAllocation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
