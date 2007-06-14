@@ -2,9 +2,9 @@ Please provide the mapping of subfolders to parts of PCM / Palladio in this file
 
 
 Palladio.CoreServices 			Core-Plugins which are needed more than once by other plugins
-Palladio.EMFAnalyticalModel 	TODO
+Palladio.EMFAnalyticalModel 	Contains the Version of the current Version of the process algebra.
 Palladio.EMFComponentModel 		The EMF based PCM plugins containing the PCM Meta-Model
-Palladio.EMFProbfunctionModel 	TODO
+Palladio.EMFProbfunctionModel 		Package to model probability distributions and perform basic computations on them
 Palladio.Examples 				Examples for the PCM and its tools
 Palladio.RSA-Models 			All RSA model files
 Palladio.SensorFactory 			Framework to place and store sensors in Simulations or to instrument code
