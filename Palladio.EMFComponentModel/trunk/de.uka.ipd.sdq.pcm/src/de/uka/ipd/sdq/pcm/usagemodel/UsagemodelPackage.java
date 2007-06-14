@@ -203,13 +203,31 @@ public interface UsagemodelPackage extends EPackage {
 	int ABSTRACT_USER_ACTION = 3;
 
 	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_USER_ACTION__ID = EntityPackage.ENTITY__ID;
+
+	/**
+	 * The feature id for the '<em><b>Entity Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_USER_ACTION__ENTITY_NAME = EntityPackage.ENTITY__ENTITY_NAME;
+
+	/**
 	 * The feature id for the '<em><b>Successor</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ABSTRACT_USER_ACTION__SUCCESSOR = 0;
+	int ABSTRACT_USER_ACTION__SUCCESSOR = EntityPackage.ENTITY_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Predecessor</b></em>' reference.
@@ -218,7 +236,7 @@ public interface UsagemodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ABSTRACT_USER_ACTION__PREDECESSOR = 1;
+	int ABSTRACT_USER_ACTION__PREDECESSOR = EntityPackage.ENTITY_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Abstract User Action</em>' class.
@@ -227,7 +245,7 @@ public interface UsagemodelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ABSTRACT_USER_ACTION_FEATURE_COUNT = 2;
+	int ABSTRACT_USER_ACTION_FEATURE_COUNT = EntityPackage.ENTITY_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.usagemodel.impl.UsageModelImpl <em>Usage Model</em>}' class.
@@ -268,6 +286,24 @@ public interface UsagemodelPackage extends EPackage {
 	int STOP = 5;
 
 	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STOP__ID = ABSTRACT_USER_ACTION__ID;
+
+	/**
+	 * The feature id for the '<em><b>Entity Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STOP__ENTITY_NAME = ABSTRACT_USER_ACTION__ENTITY_NAME;
+
+	/**
 	 * The feature id for the '<em><b>Successor</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -303,6 +339,24 @@ public interface UsagemodelPackage extends EPackage {
 	 * @generated
 	 */
 	int START = 6;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int START__ID = ABSTRACT_USER_ACTION__ID;
+
+	/**
+	 * The feature id for the '<em><b>Entity Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int START__ENTITY_NAME = ABSTRACT_USER_ACTION__ENTITY_NAME;
 
 	/**
 	 * The feature id for the '<em><b>Successor</b></em>' reference.
@@ -398,6 +452,24 @@ public interface UsagemodelPackage extends EPackage {
 	int LOOP = 9;
 
 	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LOOP__ID = ABSTRACT_USER_ACTION__ID;
+
+	/**
+	 * The feature id for the '<em><b>Entity Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LOOP__ENTITY_NAME = ABSTRACT_USER_ACTION__ENTITY_NAME;
+
+	/**
 	 * The feature id for the '<em><b>Successor</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -481,6 +553,24 @@ public interface UsagemodelPackage extends EPackage {
 	int ENTRY_LEVEL_SYSTEM_CALL = 11;
 
 	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENTRY_LEVEL_SYSTEM_CALL__ID = ABSTRACT_USER_ACTION__ID;
+
+	/**
+	 * The feature id for the '<em><b>Entity Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENTRY_LEVEL_SYSTEM_CALL__ENTITY_NAME = ABSTRACT_USER_ACTION__ENTITY_NAME;
+
+	/**
 	 * The feature id for the '<em><b>Successor</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -526,13 +616,22 @@ public interface UsagemodelPackage extends EPackage {
 	int ENTRY_LEVEL_SYSTEM_CALL__SIGNATURE_ENTRY_LEVEL_SYSTEM_CALL = ABSTRACT_USER_ACTION_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Output Parameter Usage Entry Level System Call</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENTRY_LEVEL_SYSTEM_CALL__OUTPUT_PARAMETER_USAGE_ENTRY_LEVEL_SYSTEM_CALL = ABSTRACT_USER_ACTION_FEATURE_COUNT + 3;
+
+	/**
 	 * The number of structural features of the '<em>Entry Level System Call</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ENTRY_LEVEL_SYSTEM_CALL_FEATURE_COUNT = ABSTRACT_USER_ACTION_FEATURE_COUNT + 3;
+	int ENTRY_LEVEL_SYSTEM_CALL_FEATURE_COUNT = ABSTRACT_USER_ACTION_FEATURE_COUNT + 4;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.usagemodel.impl.ClosedWorkloadImpl <em>Closed Workload</em>}' class.
@@ -610,6 +709,24 @@ public interface UsagemodelPackage extends EPackage {
 	int BRANCH = 14;
 
 	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BRANCH__ID = ABSTRACT_USER_ACTION__ID;
+
+	/**
+	 * The feature id for the '<em><b>Entity Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BRANCH__ENTITY_NAME = ABSTRACT_USER_ACTION__ENTITY_NAME;
+
+	/**
 	 * The feature id for the '<em><b>Successor</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -681,6 +798,99 @@ public interface UsagemodelPackage extends EPackage {
 	 * @ordered
 	 */
 	int BRANCH_TRANSITION_FEATURE_COUNT = 2;
+
+
+	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.usagemodel.impl.DelayImpl <em>Delay</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.pcm.usagemodel.impl.DelayImpl
+	 * @see de.uka.ipd.sdq.pcm.usagemodel.impl.UsagemodelPackageImpl#getDelay()
+	 * @generated
+	 */
+	int DELAY = 16;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DELAY__ID = ABSTRACT_USER_ACTION__ID;
+
+	/**
+	 * The feature id for the '<em><b>Entity Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DELAY__ENTITY_NAME = ABSTRACT_USER_ACTION__ENTITY_NAME;
+
+	/**
+	 * The feature id for the '<em><b>Successor</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DELAY__SUCCESSOR = ABSTRACT_USER_ACTION__SUCCESSOR;
+
+	/**
+	 * The feature id for the '<em><b>Predecessor</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DELAY__PREDECESSOR = ABSTRACT_USER_ACTION__PREDECESSOR;
+
+	/**
+	 * The feature id for the '<em><b>Time</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DELAY__TIME = ABSTRACT_USER_ACTION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Delay</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DELAY_FEATURE_COUNT = ABSTRACT_USER_ACTION_FEATURE_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.usagemodel.impl.DelayTimeImpl <em>Delay Time</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.pcm.usagemodel.impl.DelayTimeImpl
+	 * @see de.uka.ipd.sdq.pcm.usagemodel.impl.UsagemodelPackageImpl#getDelayTime()
+	 * @generated
+	 */
+	int DELAY_TIME = 17;
+
+	/**
+	 * The feature id for the '<em><b>Specification</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DELAY_TIME__SPECIFICATION = StoexPackage.RANDOM_VARIABLE__SPECIFICATION;
+
+	/**
+	 * The number of structural features of the '<em>Delay Time</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DELAY_TIME_FEATURE_COUNT = StoexPackage.RANDOM_VARIABLE_FEATURE_COUNT + 0;
 
 
 	/**
@@ -936,6 +1146,17 @@ public interface UsagemodelPackage extends EPackage {
 	EReference getEntryLevelSystemCall_Signature_EntryLevelSystemCall();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link de.uka.ipd.sdq.pcm.usagemodel.EntryLevelSystemCall#getOutputParameterUsage_EntryLevelSystemCall <em>Output Parameter Usage Entry Level System Call</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Output Parameter Usage Entry Level System Call</em>'.
+	 * @see de.uka.ipd.sdq.pcm.usagemodel.EntryLevelSystemCall#getOutputParameterUsage_EntryLevelSystemCall()
+	 * @see #getEntryLevelSystemCall()
+	 * @generated
+	 */
+	EReference getEntryLevelSystemCall_OutputParameterUsage_EntryLevelSystemCall();
+
+	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.usagemodel.ClosedWorkload <em>Closed Workload</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1029,6 +1250,37 @@ public interface UsagemodelPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getBranchTransition_BranchedBehaviour_BranchTransition();
+
+	/**
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.usagemodel.Delay <em>Delay</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Delay</em>'.
+	 * @see de.uka.ipd.sdq.pcm.usagemodel.Delay
+	 * @generated
+	 */
+	EClass getDelay();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link de.uka.ipd.sdq.pcm.usagemodel.Delay#getTime <em>Time</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Time</em>'.
+	 * @see de.uka.ipd.sdq.pcm.usagemodel.Delay#getTime()
+	 * @see #getDelay()
+	 * @generated
+	 */
+	EReference getDelay_Time();
+
+	/**
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.usagemodel.DelayTime <em>Delay Time</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Delay Time</em>'.
+	 * @see de.uka.ipd.sdq.pcm.usagemodel.DelayTime
+	 * @generated
+	 */
+	EClass getDelayTime();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -1269,6 +1521,14 @@ public interface UsagemodelPackage extends EPackage {
 		EReference ENTRY_LEVEL_SYSTEM_CALL__SIGNATURE_ENTRY_LEVEL_SYSTEM_CALL = eINSTANCE.getEntryLevelSystemCall_Signature_EntryLevelSystemCall();
 
 		/**
+		 * The meta object literal for the '<em><b>Output Parameter Usage Entry Level System Call</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ENTRY_LEVEL_SYSTEM_CALL__OUTPUT_PARAMETER_USAGE_ENTRY_LEVEL_SYSTEM_CALL = eINSTANCE.getEntryLevelSystemCall_OutputParameterUsage_EntryLevelSystemCall();
+
+		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.usagemodel.impl.ClosedWorkloadImpl <em>Closed Workload</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1347,6 +1607,34 @@ public interface UsagemodelPackage extends EPackage {
 		 * @generated
 		 */
 		EReference BRANCH_TRANSITION__BRANCHED_BEHAVIOUR_BRANCH_TRANSITION = eINSTANCE.getBranchTransition_BranchedBehaviour_BranchTransition();
+
+		/**
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.usagemodel.impl.DelayImpl <em>Delay</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.uka.ipd.sdq.pcm.usagemodel.impl.DelayImpl
+		 * @see de.uka.ipd.sdq.pcm.usagemodel.impl.UsagemodelPackageImpl#getDelay()
+		 * @generated
+		 */
+		EClass DELAY = eINSTANCE.getDelay();
+
+		/**
+		 * The meta object literal for the '<em><b>Time</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference DELAY__TIME = eINSTANCE.getDelay_Time();
+
+		/**
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.usagemodel.impl.DelayTimeImpl <em>Delay Time</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.uka.ipd.sdq.pcm.usagemodel.impl.DelayTimeImpl
+		 * @see de.uka.ipd.sdq.pcm.usagemodel.impl.UsagemodelPackageImpl#getDelayTime()
+		 * @generated
+		 */
+		EClass DELAY_TIME = eINSTANCE.getDelayTime();
 
 	}
 

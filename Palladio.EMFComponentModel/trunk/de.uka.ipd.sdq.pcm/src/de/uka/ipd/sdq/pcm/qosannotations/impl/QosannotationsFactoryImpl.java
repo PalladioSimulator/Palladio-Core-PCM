@@ -70,6 +70,7 @@ public class QosannotationsFactoryImpl extends EFactoryImpl implements Qosannota
 			case QosannotationsPackage.SPECIFIED_FAILURE_PROBABILITY: return createSpecifiedFailureProbability();
 			case QosannotationsPackage.SYSTEM_SPECIFIED_EXECUTION_TIME: return createSystemSpecifiedExecutionTime();
 			case QosannotationsPackage.COMPONENT_SPECIFIED_EXECUTION_TIME: return createComponentSpecifiedExecutionTime();
+			case QosannotationsPackage.SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION: return createSpecifiedOutputParameterAbstraction();
 			case QosannotationsPackage.QO_SANNOTATIONS: return createQoSAnnotations();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
@@ -104,6 +105,16 @@ public class QosannotationsFactoryImpl extends EFactoryImpl implements Qosannota
 	public ComponentSpecifiedExecutionTime createComponentSpecifiedExecutionTime() {
 		ComponentSpecifiedExecutionTimeImpl componentSpecifiedExecutionTime = new ComponentSpecifiedExecutionTimeImpl();
 		return componentSpecifiedExecutionTime;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SpecifiedOutputParameterAbstraction createSpecifiedOutputParameterAbstraction() {
+		SpecifiedOutputParameterAbstractionImpl specifiedOutputParameterAbstraction = new SpecifiedOutputParameterAbstractionImpl();
+		return specifiedOutputParameterAbstraction;
 	}
 
 	/**

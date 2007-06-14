@@ -8,8 +8,10 @@ package de.uka.ipd.sdq.pcm.resourceenvironment;
 
 import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
 
+import de.uka.ipd.sdq.stoex.StoexPackage;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -207,13 +209,50 @@ public interface ResourceenvironmentPackage extends EPackage {
 	int COMMUNICATION_LINK_RESOURCE_SPECIFICATION__UNITS = 2;
 
 	/**
+	 * The feature id for the '<em><b>Link Latency</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMMUNICATION_LINK_RESOURCE_SPECIFICATION__LINK_LATENCY = 3;
+
+	/**
 	 * The number of structural features of the '<em>Communication Link Resource Specification</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMMUNICATION_LINK_RESOURCE_SPECIFICATION_FEATURE_COUNT = 3;
+	int COMMUNICATION_LINK_RESOURCE_SPECIFICATION_FEATURE_COUNT = 4;
+
+	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.resourceenvironment.impl.LatencyImpl <em>Latency</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.impl.LatencyImpl
+	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.impl.ResourceenvironmentPackageImpl#getLatency()
+	 * @generated
+	 */
+	int LATENCY = 3;
+
+	/**
+	 * The feature id for the '<em><b>Specification</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LATENCY__SPECIFICATION = StoexPackage.RANDOM_VARIABLE__SPECIFICATION;
+
+	/**
+	 * The number of structural features of the '<em>Latency</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LATENCY_FEATURE_COUNT = StoexPackage.RANDOM_VARIABLE_FEATURE_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.resourceenvironment.impl.ProcessingResourceSpecificationImpl <em>Processing Resource Specification</em>}' class.
@@ -223,7 +262,16 @@ public interface ResourceenvironmentPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.impl.ResourceenvironmentPackageImpl#getProcessingResourceSpecification()
 	 * @generated
 	 */
-	int PROCESSING_RESOURCE_SPECIFICATION = 3;
+	int PROCESSING_RESOURCE_SPECIFICATION = 4;
+
+	/**
+	 * The feature id for the '<em><b>Scheduling Policy</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROCESSING_RESOURCE_SPECIFICATION__SCHEDULING_POLICY = 0;
 
 	/**
 	 * The feature id for the '<em><b>Active Resource Type Active Resource Specification</b></em>' reference.
@@ -232,7 +280,7 @@ public interface ResourceenvironmentPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROCESSING_RESOURCE_SPECIFICATION__ACTIVE_RESOURCE_TYPE_ACTIVE_RESOURCE_SPECIFICATION = 0;
+	int PROCESSING_RESOURCE_SPECIFICATION__ACTIVE_RESOURCE_TYPE_ACTIVE_RESOURCE_SPECIFICATION = 1;
 
 	/**
 	 * The feature id for the '<em><b>Processing Rate</b></em>' attribute.
@@ -241,7 +289,7 @@ public interface ResourceenvironmentPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROCESSING_RESOURCE_SPECIFICATION__PROCESSING_RATE = 1;
+	int PROCESSING_RESOURCE_SPECIFICATION__PROCESSING_RATE = 2;
 
 	/**
 	 * The feature id for the '<em><b>Units</b></em>' attribute.
@@ -250,7 +298,7 @@ public interface ResourceenvironmentPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROCESSING_RESOURCE_SPECIFICATION__UNITS = 2;
+	int PROCESSING_RESOURCE_SPECIFICATION__UNITS = 3;
 
 	/**
 	 * The number of structural features of the '<em>Processing Resource Specification</em>' class.
@@ -259,7 +307,7 @@ public interface ResourceenvironmentPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROCESSING_RESOURCE_SPECIFICATION_FEATURE_COUNT = 3;
+	int PROCESSING_RESOURCE_SPECIFICATION_FEATURE_COUNT = 4;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.resourceenvironment.impl.PassiveResourceSpecificationImpl <em>Passive Resource Specification</em>}' class.
@@ -269,7 +317,7 @@ public interface ResourceenvironmentPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.impl.ResourceenvironmentPackageImpl#getPassiveResourceSpecification()
 	 * @generated
 	 */
-	int PASSIVE_RESOURCE_SPECIFICATION = 4;
+	int PASSIVE_RESOURCE_SPECIFICATION = 5;
 
 	/**
 	 * The feature id for the '<em><b>Capacity</b></em>' attribute.
@@ -306,7 +354,7 @@ public interface ResourceenvironmentPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.impl.ResourceenvironmentPackageImpl#getResourceContainer()
 	 * @generated
 	 */
-	int RESOURCE_CONTAINER = 5;
+	int RESOURCE_CONTAINER = 6;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -352,6 +400,17 @@ public interface ResourceenvironmentPackage extends EPackage {
 	 * @ordered
 	 */
 	int RESOURCE_CONTAINER_FEATURE_COUNT = EntityPackage.ENTITY_FEATURE_COUNT + 2;
+
+
+	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.resourceenvironment.SchedulingPolicy <em>Scheduling Policy</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.SchedulingPolicy
+	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.impl.ResourceenvironmentPackageImpl#getSchedulingPolicy()
+	 * @generated
+	 */
+	int SCHEDULING_POLICY = 7;
 
 
 	/**
@@ -473,6 +532,27 @@ public interface ResourceenvironmentPackage extends EPackage {
 	EAttribute getCommunicationLinkResourceSpecification_Units();
 
 	/**
+	 * Returns the meta object for the containment reference '{@link de.uka.ipd.sdq.pcm.resourceenvironment.CommunicationLinkResourceSpecification#getLinkLatency <em>Link Latency</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Link Latency</em>'.
+	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.CommunicationLinkResourceSpecification#getLinkLatency()
+	 * @see #getCommunicationLinkResourceSpecification()
+	 * @generated
+	 */
+	EReference getCommunicationLinkResourceSpecification_LinkLatency();
+
+	/**
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.resourceenvironment.Latency <em>Latency</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Latency</em>'.
+	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.Latency
+	 * @generated
+	 */
+	EClass getLatency();
+
+	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification <em>Processing Resource Specification</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -481,6 +561,17 @@ public interface ResourceenvironmentPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getProcessingResourceSpecification();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification#getSchedulingPolicy <em>Scheduling Policy</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Scheduling Policy</em>'.
+	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification#getSchedulingPolicy()
+	 * @see #getProcessingResourceSpecification()
+	 * @generated
+	 */
+	EAttribute getProcessingResourceSpecification_SchedulingPolicy();
 
 	/**
 	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification#getActiveResourceType_ActiveResourceSpecification <em>Active Resource Type Active Resource Specification</em>}'.
@@ -578,6 +669,16 @@ public interface ResourceenvironmentPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getResourceContainer_PassiveResourceSpecifications_ResourceContainer();
+
+	/**
+	 * Returns the meta object for enum '{@link de.uka.ipd.sdq.pcm.resourceenvironment.SchedulingPolicy <em>Scheduling Policy</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Scheduling Policy</em>'.
+	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.SchedulingPolicy
+	 * @generated
+	 */
+	EEnum getSchedulingPolicy();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -696,6 +797,24 @@ public interface ResourceenvironmentPackage extends EPackage {
 		EAttribute COMMUNICATION_LINK_RESOURCE_SPECIFICATION__UNITS = eINSTANCE.getCommunicationLinkResourceSpecification_Units();
 
 		/**
+		 * The meta object literal for the '<em><b>Link Latency</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference COMMUNICATION_LINK_RESOURCE_SPECIFICATION__LINK_LATENCY = eINSTANCE.getCommunicationLinkResourceSpecification_LinkLatency();
+
+		/**
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.resourceenvironment.impl.LatencyImpl <em>Latency</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.uka.ipd.sdq.pcm.resourceenvironment.impl.LatencyImpl
+		 * @see de.uka.ipd.sdq.pcm.resourceenvironment.impl.ResourceenvironmentPackageImpl#getLatency()
+		 * @generated
+		 */
+		EClass LATENCY = eINSTANCE.getLatency();
+
+		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.resourceenvironment.impl.ProcessingResourceSpecificationImpl <em>Processing Resource Specification</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -704,6 +823,14 @@ public interface ResourceenvironmentPackage extends EPackage {
 		 * @generated
 		 */
 		EClass PROCESSING_RESOURCE_SPECIFICATION = eINSTANCE.getProcessingResourceSpecification();
+
+		/**
+		 * The meta object literal for the '<em><b>Scheduling Policy</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PROCESSING_RESOURCE_SPECIFICATION__SCHEDULING_POLICY = eINSTANCE.getProcessingResourceSpecification_SchedulingPolicy();
 
 		/**
 		 * The meta object literal for the '<em><b>Active Resource Type Active Resource Specification</b></em>' reference feature.
@@ -780,6 +907,16 @@ public interface ResourceenvironmentPackage extends EPackage {
 		 * @generated
 		 */
 		EReference RESOURCE_CONTAINER__PASSIVE_RESOURCE_SPECIFICATIONS_RESOURCE_CONTAINER = eINSTANCE.getResourceContainer_PassiveResourceSpecifications_ResourceContainer();
+
+		/**
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.resourceenvironment.SchedulingPolicy <em>Scheduling Policy</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.uka.ipd.sdq.pcm.resourceenvironment.SchedulingPolicy
+		 * @see de.uka.ipd.sdq.pcm.resourceenvironment.impl.ResourceenvironmentPackageImpl#getSchedulingPolicy()
+		 * @generated
+		 */
+		EEnum SCHEDULING_POLICY = eINSTANCE.getSchedulingPolicy();
 
 	}
 

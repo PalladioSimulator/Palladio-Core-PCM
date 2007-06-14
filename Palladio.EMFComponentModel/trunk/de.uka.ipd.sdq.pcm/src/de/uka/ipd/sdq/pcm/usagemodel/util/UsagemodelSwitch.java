@@ -128,6 +128,9 @@ public class UsagemodelSwitch<T> {
 			case UsagemodelPackage.ABSTRACT_USER_ACTION: {
 				AbstractUserAction abstractUserAction = (AbstractUserAction)theEObject;
 				T result = caseAbstractUserAction(abstractUserAction);
+				if (result == null) result = caseEntity(abstractUserAction);
+				if (result == null) result = caseIdentifier(abstractUserAction);
+				if (result == null) result = caseNamedElement(abstractUserAction);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -141,6 +144,9 @@ public class UsagemodelSwitch<T> {
 				Stop stop = (Stop)theEObject;
 				T result = caseStop(stop);
 				if (result == null) result = caseAbstractUserAction(stop);
+				if (result == null) result = caseEntity(stop);
+				if (result == null) result = caseIdentifier(stop);
+				if (result == null) result = caseNamedElement(stop);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -148,6 +154,9 @@ public class UsagemodelSwitch<T> {
 				Start start = (Start)theEObject;
 				T result = caseStart(start);
 				if (result == null) result = caseAbstractUserAction(start);
+				if (result == null) result = caseEntity(start);
+				if (result == null) result = caseIdentifier(start);
+				if (result == null) result = caseNamedElement(start);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -169,6 +178,9 @@ public class UsagemodelSwitch<T> {
 				Loop loop = (Loop)theEObject;
 				T result = caseLoop(loop);
 				if (result == null) result = caseAbstractUserAction(loop);
+				if (result == null) result = caseEntity(loop);
+				if (result == null) result = caseIdentifier(loop);
+				if (result == null) result = caseNamedElement(loop);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -183,6 +195,9 @@ public class UsagemodelSwitch<T> {
 				EntryLevelSystemCall entryLevelSystemCall = (EntryLevelSystemCall)theEObject;
 				T result = caseEntryLevelSystemCall(entryLevelSystemCall);
 				if (result == null) result = caseAbstractUserAction(entryLevelSystemCall);
+				if (result == null) result = caseEntity(entryLevelSystemCall);
+				if (result == null) result = caseIdentifier(entryLevelSystemCall);
+				if (result == null) result = caseNamedElement(entryLevelSystemCall);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -204,12 +219,32 @@ public class UsagemodelSwitch<T> {
 				Branch branch = (Branch)theEObject;
 				T result = caseBranch(branch);
 				if (result == null) result = caseAbstractUserAction(branch);
+				if (result == null) result = caseEntity(branch);
+				if (result == null) result = caseIdentifier(branch);
+				if (result == null) result = caseNamedElement(branch);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case UsagemodelPackage.BRANCH_TRANSITION: {
 				BranchTransition branchTransition = (BranchTransition)theEObject;
 				T result = caseBranchTransition(branchTransition);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case UsagemodelPackage.DELAY: {
+				Delay delay = (Delay)theEObject;
+				T result = caseDelay(delay);
+				if (result == null) result = caseAbstractUserAction(delay);
+				if (result == null) result = caseEntity(delay);
+				if (result == null) result = caseIdentifier(delay);
+				if (result == null) result = caseNamedElement(delay);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case UsagemodelPackage.DELAY_TIME: {
+				DelayTime delayTime = (DelayTime)theEObject;
+				T result = caseDelayTime(delayTime);
+				if (result == null) result = caseRandomVariable(delayTime);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -454,6 +489,36 @@ public class UsagemodelSwitch<T> {
 	 * @generated
 	 */
 	public T caseBranchTransition(BranchTransition object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpretting the object as an instance of '<em>Delay</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpretting the object as an instance of '<em>Delay</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDelay(Delay object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpretting the object as an instance of '<em>Delay Time</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpretting the object as an instance of '<em>Delay Time</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDelayTime(DelayTime object) {
 		return null;
 	}
 

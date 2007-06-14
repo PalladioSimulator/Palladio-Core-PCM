@@ -7,6 +7,8 @@
  */
 package de.uka.ipd.sdq.pcm.seff;
 
+import java.util.Map;
+import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EObject;
@@ -50,5 +52,38 @@ public interface ResourceDemandingBehaviour extends EObject {
 	 * @generated
 	 */
 	EList<AbstractAction> getSteps_Behaviour();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * self.steps_Behaviour->select(s|s.oclIsTypeOf(StopAction))->size() = 1
+	 * <!-- end-model-doc -->
+	 * @model
+	 * @generated
+	 */
+	boolean ExactlyOneStopAction(DiagnosticChain diagnostics, Map<Object, Object> context);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * self.steps_Behaviour->select(s|s.oclIsTypeOf(StartAction))->size() = 1
+	 * <!-- end-model-doc -->
+	 * @model
+	 * @generated
+	 */
+	boolean ExactlyOneStartAction(DiagnosticChain diagnostics, Map<Object, Object> context);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * not self.steps_Behaviour->select(s|not s.oclIsTypeOf(StartAction) and not s.oclIsTypeOf(StopAction))->exists(a|a.oclAsType(AbstractAction).predecessor_AbstractAction.oclIsUndefined()) and not self.steps_Behaviour->select(s|not s.oclIsTypeOf(StartAction) and not s.oclIsTypeOf(StopAction))->exists(a|a.oclAsType(AbstractAction).successor_AbstractAction.oclIsUndefined())
+	 * <!-- end-model-doc -->
+	 * @model
+	 * @generated
+	 */
+	boolean EachactionexceptStartActionandStopActionmusthaveapredecessorandsuccessor(DiagnosticChain diagnostics, Map<Object, Object> context);
 
 } // ResourceDemandingBehaviour

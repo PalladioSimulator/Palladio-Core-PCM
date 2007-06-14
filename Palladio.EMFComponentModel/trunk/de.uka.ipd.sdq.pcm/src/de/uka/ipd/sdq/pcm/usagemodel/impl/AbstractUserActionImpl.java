@@ -7,6 +7,7 @@
  */
 package de.uka.ipd.sdq.pcm.usagemodel.impl;
 
+import de.uka.ipd.sdq.pcm.core.entity.impl.EntityImpl;
 import de.uka.ipd.sdq.pcm.usagemodel.AbstractUserAction;
 import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
 
@@ -33,7 +34,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  *
  * @generated
  */
-public abstract class AbstractUserActionImpl extends EObjectImpl implements AbstractUserAction {
+public abstract class AbstractUserActionImpl extends EntityImpl implements AbstractUserAction {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

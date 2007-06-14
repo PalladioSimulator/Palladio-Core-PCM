@@ -22,6 +22,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link de.uka.ipd.sdq.pcm.resourceenvironment.CommunicationLinkResourceSpecification#getCommunicationLinkResourceType_CommunicationLinkResourceSpecification <em>Communication Link Resource Type Communication Link Resource Specification</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.resourceenvironment.CommunicationLinkResourceSpecification#getThroughput <em>Throughput</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.resourceenvironment.CommunicationLinkResourceSpecification#getUnits <em>Units</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.resourceenvironment.CommunicationLinkResourceSpecification#getLinkLatency <em>Link Latency</em>}</li>
  * </ul>
  * </p>
  *
@@ -114,5 +115,31 @@ public interface CommunicationLinkResourceSpecification extends EObject {
 	 * @generated
 	 */
 	void setUnits(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Link Latency</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Link Latency</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Link Latency</em>' containment reference.
+	 * @see #setLinkLatency(Latency)
+	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage#getCommunicationLinkResourceSpecification_LinkLatency()
+	 * @model containment="true" required="true" ordered="false"
+	 * @generated
+	 */
+	Latency getLinkLatency();
+
+	/**
+	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.resourceenvironment.CommunicationLinkResourceSpecification#getLinkLatency <em>Link Latency</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Link Latency</em>' containment reference.
+	 * @see #getLinkLatency()
+	 * @generated
+	 */
+	void setLinkLatency(Latency value);
 
 } // CommunicationLinkResourceSpecification

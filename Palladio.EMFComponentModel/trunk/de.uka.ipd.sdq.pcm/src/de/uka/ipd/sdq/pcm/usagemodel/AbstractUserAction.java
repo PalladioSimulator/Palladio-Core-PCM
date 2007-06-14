@@ -7,6 +7,7 @@
  */
 package de.uka.ipd.sdq.pcm.usagemodel;
 
+import de.uka.ipd.sdq.pcm.core.entity.Entity;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -26,7 +27,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model abstract="true"
  * @generated
  */
-public interface AbstractUserAction extends EObject {
+public interface AbstractUserAction extends Entity {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

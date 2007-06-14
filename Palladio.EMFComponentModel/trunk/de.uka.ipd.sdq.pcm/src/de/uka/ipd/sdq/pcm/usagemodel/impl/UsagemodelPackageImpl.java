@@ -60,6 +60,8 @@ import de.uka.ipd.sdq.pcm.usagemodel.AbstractUserAction;
 import de.uka.ipd.sdq.pcm.usagemodel.Branch;
 import de.uka.ipd.sdq.pcm.usagemodel.BranchTransition;
 import de.uka.ipd.sdq.pcm.usagemodel.ClosedWorkload;
+import de.uka.ipd.sdq.pcm.usagemodel.Delay;
+import de.uka.ipd.sdq.pcm.usagemodel.DelayTime;
 import de.uka.ipd.sdq.pcm.usagemodel.EntryLevelSystemCall;
 import de.uka.ipd.sdq.pcm.usagemodel.InterArrivalTime;
 import de.uka.ipd.sdq.pcm.usagemodel.Loop;
@@ -75,15 +77,19 @@ import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelFactory;
 import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
 import de.uka.ipd.sdq.pcm.usagemodel.Workload;
 
+import de.uka.ipd.sdq.pcm.usagemodel.util.UsagemodelValidator;
 import de.uka.ipd.sdq.probfunction.ProbfunctionPackage;
 
 import de.uka.ipd.sdq.stoex.StoexPackage;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EGenericType;
+import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
+import org.eclipse.emf.ecore.EValidator;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 /**
@@ -213,6 +219,20 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
 	private EClass branchTransitionEClass = null;
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass delayEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass delayTimeEClass = null;
+
+	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
 	 * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
 	 * package URI value.
@@ -316,6 +336,15 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
 		theResourceenvironmentPackage.initializePackageContents();
 		theSystemPackage.initializePackageContents();
 		theQosannotationsPackage.initializePackageContents();
+
+		// Register package validator
+		EValidator.Registry.INSTANCE.put
+			(theUsagemodelPackage, 
+			 new EValidator.Descriptor() {
+				 public EValidator getEValidator() {
+					 return UsagemodelValidator.INSTANCE;
+				 }
+			 });
 
 		// Mark meta-data to indicate it can't be changed
 		theUsagemodelPackage.freeze();
@@ -544,6 +573,15 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getEntryLevelSystemCall_OutputParameterUsage_EntryLevelSystemCall() {
+		return (EReference)entryLevelSystemCallEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getClosedWorkload() {
 		return closedWorkloadEClass;
 	}
@@ -625,6 +663,33 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getDelay() {
+		return delayEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getDelay_Time() {
+		return (EReference)delayEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getDelayTime() {
+		return delayTimeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public UsagemodelFactory getUsagemodelFactory() {
 		return (UsagemodelFactory)getEFactoryInstance();
 	}
@@ -683,6 +748,7 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
 		createEReference(entryLevelSystemCallEClass, ENTRY_LEVEL_SYSTEM_CALL__ACTUAL_PARAMETER_USAGE_ENTRY_LEVEL_SYSTEM_CALL);
 		createEReference(entryLevelSystemCallEClass, ENTRY_LEVEL_SYSTEM_CALL__PROVIDED_ROLE_ENTRY_LEVEL_SYSTEM_CALL);
 		createEReference(entryLevelSystemCallEClass, ENTRY_LEVEL_SYSTEM_CALL__SIGNATURE_ENTRY_LEVEL_SYSTEM_CALL);
+		createEReference(entryLevelSystemCallEClass, ENTRY_LEVEL_SYSTEM_CALL__OUTPUT_PARAMETER_USAGE_ENTRY_LEVEL_SYSTEM_CALL);
 
 		closedWorkloadEClass = createEClass(CLOSED_WORKLOAD);
 		createEAttribute(closedWorkloadEClass, CLOSED_WORKLOAD__POPULATION);
@@ -696,6 +762,11 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
 		branchTransitionEClass = createEClass(BRANCH_TRANSITION);
 		createEAttribute(branchTransitionEClass, BRANCH_TRANSITION__BRANCH_PROBABILITY);
 		createEReference(branchTransitionEClass, BRANCH_TRANSITION__BRANCHED_BEHAVIOUR_BRANCH_TRANSITION);
+
+		delayEClass = createEClass(DELAY);
+		createEReference(delayEClass, DELAY__TIME);
+
+		delayTimeEClass = createEClass(DELAY_TIME);
 	}
 
 	/**
@@ -734,6 +805,7 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
 		// Add supertypes to classes
 		usageScenarioEClass.getESuperTypes().add(theEntityPackage.getEntity());
 		scenarioBehaviourEClass.getESuperTypes().add(theEntityPackage.getEntity());
+		abstractUserActionEClass.getESuperTypes().add(theEntityPackage.getEntity());
 		stopEClass.getESuperTypes().add(this.getAbstractUserAction());
 		startEClass.getESuperTypes().add(this.getAbstractUserAction());
 		openWorkloadEClass.getESuperTypes().add(this.getWorkload());
@@ -744,6 +816,8 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
 		closedWorkloadEClass.getESuperTypes().add(this.getWorkload());
 		thinkTimeEClass.getESuperTypes().add(theStoexPackage.getRandomVariable());
 		branchEClass.getESuperTypes().add(this.getAbstractUserAction());
+		delayEClass.getESuperTypes().add(this.getAbstractUserAction());
+		delayTimeEClass.getESuperTypes().add(theStoexPackage.getRandomVariable());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(workloadEClass, Workload.class, "Workload", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -754,6 +828,24 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
 
 		initEClass(scenarioBehaviourEClass, ScenarioBehaviour.class, "ScenarioBehaviour", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getScenarioBehaviour_Actions_ScenarioBehaviour(), this.getAbstractUserAction(), null, "actions_ScenarioBehaviour", null, 0, -1, ScenarioBehaviour.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+		EOperation op = addEOperation(scenarioBehaviourEClass, ecorePackage.getEBoolean(), "Exactlyonestart", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
+		EGenericType g1 = createEGenericType(ecorePackage.getEMap());
+		EGenericType g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(scenarioBehaviourEClass, ecorePackage.getEBoolean(), "Exactlyonestop", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(ecorePackage.getEMap());
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(abstractUserActionEClass, AbstractUserAction.class, "AbstractUserAction", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getAbstractUserAction_Successor(), this.getAbstractUserAction(), this.getAbstractUserAction_Predecessor(), "successor", null, 0, 1, AbstractUserAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
@@ -781,6 +873,7 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
 		initEReference(getEntryLevelSystemCall_ActualParameterUsage_EntryLevelSystemCall(), theParameterPackage.getVariableUsage(), null, "actualParameterUsage_EntryLevelSystemCall", null, 0, -1, EntryLevelSystemCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getEntryLevelSystemCall_ProvidedRole_EntryLevelSystemCall(), theRepositoryPackage.getProvidedRole(), null, "providedRole_EntryLevelSystemCall", null, 1, 1, EntryLevelSystemCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getEntryLevelSystemCall_Signature_EntryLevelSystemCall(), theRepositoryPackage.getSignature(), null, "signature_EntryLevelSystemCall", null, 1, 1, EntryLevelSystemCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getEntryLevelSystemCall_OutputParameterUsage_EntryLevelSystemCall(), theParameterPackage.getVariableUsage(), null, "outputParameterUsage_EntryLevelSystemCall", null, 0, -1, EntryLevelSystemCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(closedWorkloadEClass, ClosedWorkload.class, "ClosedWorkload", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getClosedWorkload_Population(), ecorePackage.getEInt(), "population", null, 1, 1, ClosedWorkload.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
@@ -794,6 +887,11 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
 		initEClass(branchTransitionEClass, BranchTransition.class, "BranchTransition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getBranchTransition_BranchProbability(), ecorePackage.getEDouble(), "branchProbability", null, 1, 1, BranchTransition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getBranchTransition_BranchedBehaviour_BranchTransition(), this.getScenarioBehaviour(), null, "branchedBehaviour_BranchTransition", null, 1, 1, BranchTransition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+		initEClass(delayEClass, Delay.class, "Delay", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getDelay_Time(), this.getDelayTime(), null, "time", null, 1, 1, Delay.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+		initEClass(delayTimeEClass, DelayTime.class, "DelayTime", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);

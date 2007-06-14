@@ -183,6 +183,11 @@ public class ScenarioBehaviourItemProvider
 			(createChildParameter
 				(UsagemodelPackage.Literals.SCENARIO_BEHAVIOUR__ACTIONS_SCENARIO_BEHAVIOUR,
 				 UsagemodelFactory.eINSTANCE.createBranch()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(UsagemodelPackage.Literals.SCENARIO_BEHAVIOUR__ACTIONS_SCENARIO_BEHAVIOUR,
+				 UsagemodelFactory.eINSTANCE.createDelay()));
 	}
 
 	/**

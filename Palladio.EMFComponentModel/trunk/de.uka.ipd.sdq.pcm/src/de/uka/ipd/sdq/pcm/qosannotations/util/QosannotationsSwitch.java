@@ -11,6 +11,7 @@ import de.uka.ipd.sdq.identifier.Identifier;
 import de.uka.ipd.sdq.pcm.core.entity.Entity;
 import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
 
+import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
 import de.uka.ipd.sdq.pcm.qosannotations.*;
 
 import de.uka.ipd.sdq.stoex.RandomVariable;
@@ -130,6 +131,13 @@ public class QosannotationsSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case QosannotationsPackage.SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION: {
+				SpecifiedOutputParameterAbstraction specifiedOutputParameterAbstraction = (SpecifiedOutputParameterAbstraction)theEObject;
+				T result = caseSpecifiedOutputParameterAbstraction(specifiedOutputParameterAbstraction);
+				if (result == null) result = caseVariableUsage(specifiedOutputParameterAbstraction);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case QosannotationsPackage.QO_SANNOTATIONS: {
 				QoSAnnotations qoSAnnotations = (QoSAnnotations)theEObject;
 				T result = caseQoSAnnotations(qoSAnnotations);
@@ -204,6 +212,21 @@ public class QosannotationsSwitch<T> {
 	}
 
 	/**
+	 * Returns the result of interpretting the object as an instance of '<em>Specified Output Parameter Abstraction</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpretting the object as an instance of '<em>Specified Output Parameter Abstraction</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSpecifiedOutputParameterAbstraction(SpecifiedOutputParameterAbstraction object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpretting the object as an instance of '<em>Qo SAnnotations</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -230,6 +253,21 @@ public class QosannotationsSwitch<T> {
 	 * @generated
 	 */
 	public T caseRandomVariable(RandomVariable object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpretting the object as an instance of '<em>Variable Usage</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpretting the object as an instance of '<em>Variable Usage</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseVariableUsage(VariableUsage object) {
 		return null;
 	}
 

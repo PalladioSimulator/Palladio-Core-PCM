@@ -27,6 +27,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 import de.uka.ipd.sdq.pcm.core.entity.provider.PalladioComponentModelEditPlugin;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage;
+import de.uka.ipd.sdq.pcm.resourceenvironment.SchedulingPolicy;
 
 /**
  * This is the item provider adapter for a {@link de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification} object.
@@ -70,11 +71,34 @@ public class ProcessingResourceSpecificationItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addSchedulingPolicyPropertyDescriptor(object);
 			addActiveResourceType_ActiveResourceSpecificationPropertyDescriptor(object);
 			addProcessingRatePropertyDescriptor(object);
 			addUnitsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Scheduling Policy feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addSchedulingPolicyPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ProcessingResourceSpecification_schedulingPolicy_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ProcessingResourceSpecification_schedulingPolicy_feature", "_UI_ProcessingResourceSpecification_type"),
+				 ResourceenvironmentPackage.Literals.PROCESSING_RESOURCE_SPECIFICATION__SCHEDULING_POLICY,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -162,8 +186,11 @@ public class ProcessingResourceSpecificationItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		ProcessingResourceSpecification processingResourceSpecification = (ProcessingResourceSpecification)object;
-		return getString("_UI_ProcessingResourceSpecification_type") + " " + processingResourceSpecification.getProcessingRate();
+		SchedulingPolicy labelValue = ((ProcessingResourceSpecification)object).getSchedulingPolicy();
+		String label = labelValue == null ? null : labelValue.toString();
+		return label == null || label.length() == 0 ?
+			getString("_UI_ProcessingResourceSpecification_type") :
+			getString("_UI_ProcessingResourceSpecification_type") + " " + label;
 	}
 
 	/**
@@ -178,6 +205,7 @@ public class ProcessingResourceSpecificationItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(ProcessingResourceSpecification.class)) {
+			case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__SCHEDULING_POLICY:
 			case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__PROCESSING_RATE:
 			case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__UNITS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));

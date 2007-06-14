@@ -28,6 +28,7 @@ import de.uka.ipd.sdq.pcm.core.composition.CompositionPackage;
 import de.uka.ipd.sdq.pcm.core.entity.provider.EntityItemProvider;
 import de.uka.ipd.sdq.pcm.core.entity.provider.PalladioComponentModelEditPlugin;
 import de.uka.ipd.sdq.pcm.parameter.ParameterFactory;
+import de.uka.ipd.sdq.pcm.qosannotations.QosannotationsFactory;
 
 /**
  * This is the item provider adapter for a {@link de.uka.ipd.sdq.pcm.core.composition.AssemblyContext} object.
@@ -187,6 +188,11 @@ public class AssemblyContextItemProvider
 			(createChildParameter
 				(CompositionPackage.Literals.ASSEMBLY_CONTEXT__COMPONENT_PARAMETER_USAGE_ASSEMBLY_CONTEXT,
 				 ParameterFactory.eINSTANCE.createVariableUsage()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(CompositionPackage.Literals.ASSEMBLY_CONTEXT__COMPONENT_PARAMETER_USAGE_ASSEMBLY_CONTEXT,
+				 QosannotationsFactory.eINSTANCE.createSpecifiedOutputParameterAbstraction()));
 	}
 
 	/**

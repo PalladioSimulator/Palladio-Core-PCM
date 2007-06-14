@@ -38,6 +38,7 @@ import de.uka.ipd.sdq.pcm.qosannotations.QosannotationsFactory;
 import de.uka.ipd.sdq.pcm.qosannotations.QosannotationsPackage;
 import de.uka.ipd.sdq.pcm.qosannotations.SpecifiedExecutionTime;
 import de.uka.ipd.sdq.pcm.qosannotations.SpecifiedFailureProbability;
+import de.uka.ipd.sdq.pcm.qosannotations.SpecifiedOutputParameterAbstraction;
 import de.uka.ipd.sdq.pcm.qosannotations.SystemSpecifiedExecutionTime;
 
 import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
@@ -115,6 +116,13 @@ public class QosannotationsPackageImpl extends EPackageImpl implements Qosannota
 	 * @generated
 	 */
 	private EClass componentSpecifiedExecutionTimeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass specifiedOutputParameterAbstractionEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -302,6 +310,33 @@ public class QosannotationsPackageImpl extends EPackageImpl implements Qosannota
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getSpecifiedOutputParameterAbstraction() {
+		return specifiedOutputParameterAbstractionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSpecifiedOutputParameterAbstraction_Signature_SpecifiedOutputParameterAbstraction() {
+		return (EReference)specifiedOutputParameterAbstractionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSpecifiedOutputParameterAbstraction_Role_SpecifiedOutputParameterAbstraction() {
+		return (EReference)specifiedOutputParameterAbstractionEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getQoSAnnotations() {
 		return qoSAnnotationsEClass;
 	}
@@ -313,6 +348,15 @@ public class QosannotationsPackageImpl extends EPackageImpl implements Qosannota
 	 */
 	public EReference getQoSAnnotations_SpecifiedExecutionTimes_QoSAnnotations() {
 		return (EReference)qoSAnnotationsEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getQoSAnnotations_SpecifiedOutputParameterAbstractions_QoSAnnotations() {
+		return (EReference)qoSAnnotationsEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -354,8 +398,13 @@ public class QosannotationsPackageImpl extends EPackageImpl implements Qosannota
 		componentSpecifiedExecutionTimeEClass = createEClass(COMPONENT_SPECIFIED_EXECUTION_TIME);
 		createEReference(componentSpecifiedExecutionTimeEClass, COMPONENT_SPECIFIED_EXECUTION_TIME__ASSEMBLY_CONTEXT_COMPONENT_SPECIFIED_EXECUTION_TIME);
 
+		specifiedOutputParameterAbstractionEClass = createEClass(SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION);
+		createEReference(specifiedOutputParameterAbstractionEClass, SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION__SIGNATURE_SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION);
+		createEReference(specifiedOutputParameterAbstractionEClass, SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION__ROLE_SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION);
+
 		qoSAnnotationsEClass = createEClass(QO_SANNOTATIONS);
 		createEReference(qoSAnnotationsEClass, QO_SANNOTATIONS__SPECIFIED_EXECUTION_TIMES_QO_SANNOTATIONS);
+		createEReference(qoSAnnotationsEClass, QO_SANNOTATIONS__SPECIFIED_OUTPUT_PARAMETER_ABSTRACTIONS_QO_SANNOTATIONS);
 	}
 
 	/**
@@ -385,6 +434,7 @@ public class QosannotationsPackageImpl extends EPackageImpl implements Qosannota
 		StoexPackage theStoexPackage = (StoexPackage)EPackage.Registry.INSTANCE.getEPackage(StoexPackage.eNS_URI);
 		RepositoryPackage theRepositoryPackage = (RepositoryPackage)EPackage.Registry.INSTANCE.getEPackage(RepositoryPackage.eNS_URI);
 		CompositionPackage theCompositionPackage = (CompositionPackage)EPackage.Registry.INSTANCE.getEPackage(CompositionPackage.eNS_URI);
+		ParameterPackage theParameterPackage = (ParameterPackage)EPackage.Registry.INSTANCE.getEPackage(ParameterPackage.eNS_URI);
 		EntityPackage theEntityPackage = (EntityPackage)EPackage.Registry.INSTANCE.getEPackage(EntityPackage.eNS_URI);
 
 		// Create type parameters
@@ -395,6 +445,7 @@ public class QosannotationsPackageImpl extends EPackageImpl implements Qosannota
 		specifiedExecutionTimeEClass.getESuperTypes().add(theStoexPackage.getRandomVariable());
 		systemSpecifiedExecutionTimeEClass.getESuperTypes().add(this.getSpecifiedExecutionTime());
 		componentSpecifiedExecutionTimeEClass.getESuperTypes().add(this.getSpecifiedExecutionTime());
+		specifiedOutputParameterAbstractionEClass.getESuperTypes().add(theParameterPackage.getVariableUsage());
 		qoSAnnotationsEClass.getESuperTypes().add(theEntityPackage.getEntity());
 
 		// Initialize classes and features; add operations and parameters
@@ -409,8 +460,13 @@ public class QosannotationsPackageImpl extends EPackageImpl implements Qosannota
 		initEClass(componentSpecifiedExecutionTimeEClass, ComponentSpecifiedExecutionTime.class, "ComponentSpecifiedExecutionTime", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getComponentSpecifiedExecutionTime_AssemblyContext_ComponentSpecifiedExecutionTime(), theCompositionPackage.getAssemblyContext(), null, "assemblyContext_ComponentSpecifiedExecutionTime", null, 1, 1, ComponentSpecifiedExecutionTime.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
+		initEClass(specifiedOutputParameterAbstractionEClass, SpecifiedOutputParameterAbstraction.class, "SpecifiedOutputParameterAbstraction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getSpecifiedOutputParameterAbstraction_Signature_SpecifiedOutputParameterAbstraction(), theRepositoryPackage.getSignature(), null, "signature_SpecifiedOutputParameterAbstraction", null, 1, 1, SpecifiedOutputParameterAbstraction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getSpecifiedOutputParameterAbstraction_Role_SpecifiedOutputParameterAbstraction(), theRepositoryPackage.getRole(), null, "role_SpecifiedOutputParameterAbstraction", null, 1, 1, SpecifiedOutputParameterAbstraction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
 		initEClass(qoSAnnotationsEClass, QoSAnnotations.class, "QoSAnnotations", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getQoSAnnotations_SpecifiedExecutionTimes_QoSAnnotations(), this.getSpecifiedExecutionTime(), null, "specifiedExecutionTimes_QoSAnnotations", null, 0, -1, QoSAnnotations.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getQoSAnnotations_SpecifiedOutputParameterAbstractions_QoSAnnotations(), this.getSpecifiedOutputParameterAbstraction(), null, "specifiedOutputParameterAbstractions_QoSAnnotations", null, 0, -1, QoSAnnotations.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

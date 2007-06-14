@@ -152,6 +152,29 @@ public class ResourceenvironmentItemProviderAdapterFactory extends Resourceenvir
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.resourceenvironment.Latency} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected LatencyItemProvider latencyItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.resourceenvironment.Latency}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createLatencyAdapter() {
+		if (latencyItemProvider == null) {
+			latencyItemProvider = new LatencyItemProvider(this);
+		}
+
+		return latencyItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -322,6 +345,7 @@ public class ResourceenvironmentItemProviderAdapterFactory extends Resourceenvir
 		if (resourceEnvironmentItemProvider != null) resourceEnvironmentItemProvider.dispose();
 		if (linkingResourceItemProvider != null) linkingResourceItemProvider.dispose();
 		if (communicationLinkResourceSpecificationItemProvider != null) communicationLinkResourceSpecificationItemProvider.dispose();
+		if (latencyItemProvider != null) latencyItemProvider.dispose();
 		if (processingResourceSpecificationItemProvider != null) processingResourceSpecificationItemProvider.dispose();
 		if (passiveResourceSpecificationItemProvider != null) passiveResourceSpecificationItemProvider.dispose();
 		if (resourceContainerItemProvider != null) resourceContainerItemProvider.dispose();

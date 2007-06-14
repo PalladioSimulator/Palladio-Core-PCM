@@ -7,6 +7,7 @@
 package de.uka.ipd.sdq.pcm.usagemodel.provider;
 
 
+import de.uka.ipd.sdq.pcm.core.entity.provider.EntityItemProvider;
 import java.util.Collection;
 import java.util.List;
 
@@ -23,6 +24,7 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 
 import de.uka.ipd.sdq.pcm.core.entity.provider.PalladioComponentModelEditPlugin;
+import de.uka.ipd.sdq.pcm.usagemodel.AbstractUserAction;
 import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
 
 /**
@@ -32,7 +34,7 @@ import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
  * @generated
  */
 public class AbstractUserActionItemProvider
-	extends ItemProviderAdapter
+	extends EntityItemProvider
 	implements	
 		IEditingDomainItemProvider,	
 		IStructuredItemContentProvider,	
@@ -125,7 +127,10 @@ public class AbstractUserActionItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_AbstractUserAction_type");
+		String label = ((AbstractUserAction)object).getId();
+		return label == null || label.length() == 0 ?
+			getString("_UI_AbstractUserAction_type") :
+			getString("_UI_AbstractUserAction_type") + " " + label;
 	}
 
 	/**

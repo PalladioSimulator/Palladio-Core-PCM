@@ -25,6 +25,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link de.uka.ipd.sdq.pcm.usagemodel.EntryLevelSystemCall#getActualParameterUsage_EntryLevelSystemCall <em>Actual Parameter Usage Entry Level System Call</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.usagemodel.EntryLevelSystemCall#getProvidedRole_EntryLevelSystemCall <em>Provided Role Entry Level System Call</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.usagemodel.EntryLevelSystemCall#getSignature_EntryLevelSystemCall <em>Signature Entry Level System Call</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.usagemodel.EntryLevelSystemCall#getOutputParameterUsage_EntryLevelSystemCall <em>Output Parameter Usage Entry Level System Call</em>}</li>
  * </ul>
  * </p>
  *
@@ -107,5 +108,21 @@ public interface EntryLevelSystemCall extends AbstractUserAction {
 	 * @generated
 	 */
 	void setSignature_EntryLevelSystemCall(Signature value);
+
+	/**
+	 * Returns the value of the '<em><b>Output Parameter Usage Entry Level System Call</b></em>' containment reference list.
+	 * The list contents are of type {@link de.uka.ipd.sdq.pcm.parameter.VariableUsage}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Output Parameter Usage Entry Level System Call</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Output Parameter Usage Entry Level System Call</em>' containment reference list.
+	 * @see de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage#getEntryLevelSystemCall_OutputParameterUsage_EntryLevelSystemCall()
+	 * @model type="de.uka.ipd.sdq.pcm.parameter.VariableUsage" containment="true" ordered="false"
+	 * @generated
+	 */
+	EList<VariableUsage> getOutputParameterUsage_EntryLevelSystemCall();
 
 } // EntryLevelSystemCall

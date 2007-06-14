@@ -8,12 +8,14 @@
 package de.uka.ipd.sdq.pcm.resourceenvironment.impl;
 
 import de.uka.ipd.sdq.pcm.resourceenvironment.CommunicationLinkResourceSpecification;
+import de.uka.ipd.sdq.pcm.resourceenvironment.Latency;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage;
 
 import de.uka.ipd.sdq.pcm.resourcetype.CommunicationLinkResourceType;
 
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
@@ -30,6 +32,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  *   <li>{@link de.uka.ipd.sdq.pcm.resourceenvironment.impl.CommunicationLinkResourceSpecificationImpl#getCommunicationLinkResourceType_CommunicationLinkResourceSpecification <em>Communication Link Resource Type Communication Link Resource Specification</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.resourceenvironment.impl.CommunicationLinkResourceSpecificationImpl#getThroughput <em>Throughput</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.resourceenvironment.impl.CommunicationLinkResourceSpecificationImpl#getUnits <em>Units</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.resourceenvironment.impl.CommunicationLinkResourceSpecificationImpl#getLinkLatency <em>Link Latency</em>}</li>
  * </ul>
  * </p>
  *
@@ -92,6 +95,17 @@ public class CommunicationLinkResourceSpecificationImpl extends EObjectImpl impl
 	 * @ordered
 	 */
 	protected String units = UNITS_EDEFAULT;
+
+
+	/**
+	 * The cached value of the '{@link #getLinkLatency() <em>Link Latency</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLinkLatency()
+	 * @generated
+	 * @ordered
+	 */
+	protected Latency linkLatency;
 
 
 	/**
@@ -198,6 +212,63 @@ public class CommunicationLinkResourceSpecificationImpl extends EObjectImpl impl
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Latency getLinkLatency() {
+		return linkLatency;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetLinkLatency(Latency newLinkLatency, NotificationChain msgs) {
+		Latency oldLinkLatency = linkLatency;
+		linkLatency = newLinkLatency;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ResourceenvironmentPackage.COMMUNICATION_LINK_RESOURCE_SPECIFICATION__LINK_LATENCY, oldLinkLatency, newLinkLatency);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setLinkLatency(Latency newLinkLatency) {
+		if (newLinkLatency != linkLatency) {
+			NotificationChain msgs = null;
+			if (linkLatency != null)
+				msgs = ((InternalEObject)linkLatency).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ResourceenvironmentPackage.COMMUNICATION_LINK_RESOURCE_SPECIFICATION__LINK_LATENCY, null, msgs);
+			if (newLinkLatency != null)
+				msgs = ((InternalEObject)newLinkLatency).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ResourceenvironmentPackage.COMMUNICATION_LINK_RESOURCE_SPECIFICATION__LINK_LATENCY, null, msgs);
+			msgs = basicSetLinkLatency(newLinkLatency, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ResourceenvironmentPackage.COMMUNICATION_LINK_RESOURCE_SPECIFICATION__LINK_LATENCY, newLinkLatency, newLinkLatency));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case ResourceenvironmentPackage.COMMUNICATION_LINK_RESOURCE_SPECIFICATION__LINK_LATENCY:
+				return basicSetLinkLatency(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -208,6 +279,8 @@ public class CommunicationLinkResourceSpecificationImpl extends EObjectImpl impl
 				return new Double(getThroughput());
 			case ResourceenvironmentPackage.COMMUNICATION_LINK_RESOURCE_SPECIFICATION__UNITS:
 				return getUnits();
+			case ResourceenvironmentPackage.COMMUNICATION_LINK_RESOURCE_SPECIFICATION__LINK_LATENCY:
+				return getLinkLatency();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -228,6 +301,9 @@ public class CommunicationLinkResourceSpecificationImpl extends EObjectImpl impl
 				return;
 			case ResourceenvironmentPackage.COMMUNICATION_LINK_RESOURCE_SPECIFICATION__UNITS:
 				setUnits((String)newValue);
+				return;
+			case ResourceenvironmentPackage.COMMUNICATION_LINK_RESOURCE_SPECIFICATION__LINK_LATENCY:
+				setLinkLatency((Latency)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -250,6 +326,9 @@ public class CommunicationLinkResourceSpecificationImpl extends EObjectImpl impl
 			case ResourceenvironmentPackage.COMMUNICATION_LINK_RESOURCE_SPECIFICATION__UNITS:
 				setUnits(UNITS_EDEFAULT);
 				return;
+			case ResourceenvironmentPackage.COMMUNICATION_LINK_RESOURCE_SPECIFICATION__LINK_LATENCY:
+				setLinkLatency((Latency)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -268,6 +347,8 @@ public class CommunicationLinkResourceSpecificationImpl extends EObjectImpl impl
 				return throughput != THROUGHPUT_EDEFAULT;
 			case ResourceenvironmentPackage.COMMUNICATION_LINK_RESOURCE_SPECIFICATION__UNITS:
 				return UNITS_EDEFAULT == null ? units != null : !UNITS_EDEFAULT.equals(units);
+			case ResourceenvironmentPackage.COMMUNICATION_LINK_RESOURCE_SPECIFICATION__LINK_LATENCY:
+				return linkLatency != null;
 		}
 		return super.eIsSet(featureID);
 	}

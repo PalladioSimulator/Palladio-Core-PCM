@@ -24,6 +24,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import de.uka.ipd.sdq.pcm.core.entity.provider.PalladioComponentModelEditPlugin;
 import de.uka.ipd.sdq.pcm.parameter.ParameterFactory;
+import de.uka.ipd.sdq.pcm.qosannotations.QosannotationsFactory;
 import de.uka.ipd.sdq.pcm.seff.SeffPackage;
 import de.uka.ipd.sdq.pcm.seff.SetVariableAction;
 
@@ -162,6 +163,11 @@ public class SetVariableActionItemProvider
 			(createChildParameter
 				(SeffPackage.Literals.SET_VARIABLE_ACTION__VARIABLE_USAGE_SET_VARIABLE_ACTION,
 				 ParameterFactory.eINSTANCE.createVariableUsage()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(SeffPackage.Literals.SET_VARIABLE_ACTION__VARIABLE_USAGE_SET_VARIABLE_ACTION,
+				 QosannotationsFactory.eINSTANCE.createSpecifiedOutputParameterAbstraction()));
 	}
 
 	/**

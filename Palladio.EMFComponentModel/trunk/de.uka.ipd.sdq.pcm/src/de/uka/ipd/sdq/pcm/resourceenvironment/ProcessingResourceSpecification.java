@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
+ *   <li>{@link de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification#getSchedulingPolicy <em>Scheduling Policy</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification#getActiveResourceType_ActiveResourceSpecification <em>Active Resource Type Active Resource Specification</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification#getProcessingRate <em>Processing Rate</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification#getUnits <em>Units</em>}</li>
@@ -36,6 +37,35 @@ public interface ProcessingResourceSpecification extends EObject {
 	 * @generated
 	 */
 	String copyright = "Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany";
+
+	/**
+	 * Returns the value of the '<em><b>Scheduling Policy</b></em>' attribute.
+	 * The literals are from the enumeration {@link de.uka.ipd.sdq.pcm.resourceenvironment.SchedulingPolicy}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Scheduling Policy</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Scheduling Policy</em>' attribute.
+	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.SchedulingPolicy
+	 * @see #setSchedulingPolicy(SchedulingPolicy)
+	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage#getProcessingResourceSpecification_SchedulingPolicy()
+	 * @model required="true" ordered="false"
+	 * @generated
+	 */
+	SchedulingPolicy getSchedulingPolicy();
+
+	/**
+	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification#getSchedulingPolicy <em>Scheduling Policy</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Scheduling Policy</em>' attribute.
+	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.SchedulingPolicy
+	 * @see #getSchedulingPolicy()
+	 * @generated
+	 */
+	void setSchedulingPolicy(SchedulingPolicy value);
 
 	/**
 	 * Returns the value of the '<em><b>Active Resource Type Active Resource Specification</b></em>' reference.

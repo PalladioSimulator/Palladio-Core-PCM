@@ -62,4 +62,15 @@ public interface BranchAction extends AbstractResourceDemandingAction {
 	 */
 	boolean EitherGuardedBranchesOrProbabilisiticBranchTransitions(DiagnosticChain diagnostics, Map<Object, Object> context);
 
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * self.branches_Branch->select(pbt|pbt.oclIsTypeOf(ProbabilisticBranchTransition))->collect(pbt|pbt.oclAsType(ProbabilisticBranchTransition).branchProbability)->sum() > 0.999 and self.branches_Branch->select(pbt|pbt.oclIsTypeOf(ProbabilisticBranchTransition))->collect(pbt|pbt.oclAsType(ProbabilisticBranchTransition).branchProbability)->sum() < 1.001
+	 * <!-- end-model-doc -->
+	 * @model
+	 * @generated
+	 */
+	boolean AllProbabilisticBranchProbabilitiesmustsumupto1(DiagnosticChain diagnostics, Map<Object, Object> context);
+
 } // BranchAction

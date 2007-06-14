@@ -20,6 +20,7 @@ import de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF;
 import de.uka.ipd.sdq.pcm.seff.SeffPackage;
 
 import de.uka.ipd.sdq.pcm.seff.ServiceEffectSpecification;
+import de.uka.ipd.sdq.pcm.seff.util.SeffValidator;
 import java.util.Collection;
 import java.util.Map;
 
@@ -117,6 +118,33 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
 	protected EList<AbstractAction> steps_Behaviour;
 
 
+	/**
+	 * The parsed OCL expression for the definition of the '{@link #ExactlyOneStopAction <em>Exactly One Stop Action</em>}' invariant constraint.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #ExactlyOneStopAction
+	 * @generated
+	 */
+	private static OCLExpression ExactlyOneStopActionInvOCL;
+
+	/**
+	 * The parsed OCL expression for the definition of the '{@link #ExactlyOneStartAction <em>Exactly One Start Action</em>}' invariant constraint.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #ExactlyOneStartAction
+	 * @generated
+	 */
+	private static OCLExpression ExactlyOneStartActionInvOCL;
+
+	/**
+	 * The parsed OCL expression for the definition of the '{@link #EachactionexceptStartActionandStopActionmusthaveapredecessorandsuccessor <em>Eachactionexcept Start Actionand Stop Actionmusthaveapredecessorandsuccessor</em>}' invariant constraint.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #EachactionexceptStartActionandStopActionmusthaveapredecessorandsuccessor
+	 * @generated
+	 */
+	private static OCLExpression EachactionexceptStartActionandStopActionmusthaveapredecessorandsuccessorInvOCL;
+
 	private static final String OCL_ANNOTATION_SOURCE = "http://www.eclipse.org/emf/2002/GenModel";
 	
 	/**
@@ -209,6 +237,123 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
 		return steps_Behaviour;
 	}
 
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean ExactlyOneStopAction(DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (ExactlyOneStopActionInvOCL == null) {
+			Environment env = ExpressionsUtil.createClassifierContext(eClass());
+			
+			
+			String body = "self.steps_Behaviour->select(s|s.oclIsTypeOf(StopAction))->size() = 1 ";
+			
+			try {
+				ExactlyOneStopActionInvOCL = ExpressionsUtil.createInvariant(env, body, true);
+			} catch (ParserException e) {
+				throw new UnsupportedOperationException(e.getLocalizedMessage());
+			}
+		}
+		
+		Query query = QueryFactory.eINSTANCE.createQuery(ExactlyOneStopActionInvOCL);
+		EvalEnvironment evalEnv = new EvalEnvironment();
+		query.setEvaluationEnvironment(evalEnv);
+		
+		if (!query.check(this)) {
+			if (diagnostics != null) {
+				diagnostics.add
+					(new BasicDiagnostic
+						(Diagnostic.ERROR,
+						 SeffValidator.DIAGNOSTIC_SOURCE,
+						 SeffValidator.RESOURCE_DEMANDING_BEHAVIOUR__EXACTLY_ONE_STOP_ACTION,
+						 EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "ExactlyOneStopAction", EObjectValidator.getObjectLabel(this, context) }),
+						 new Object [] { this }));
+			}
+			return false;
+		}
+		return true;
+		
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean ExactlyOneStartAction(DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (ExactlyOneStartActionInvOCL == null) {
+			Environment env = ExpressionsUtil.createClassifierContext(eClass());
+			
+			
+			String body = "self.steps_Behaviour->select(s|s.oclIsTypeOf(StartAction))->size() = 1 ";
+			
+			try {
+				ExactlyOneStartActionInvOCL = ExpressionsUtil.createInvariant(env, body, true);
+			} catch (ParserException e) {
+				throw new UnsupportedOperationException(e.getLocalizedMessage());
+			}
+		}
+		
+		Query query = QueryFactory.eINSTANCE.createQuery(ExactlyOneStartActionInvOCL);
+		EvalEnvironment evalEnv = new EvalEnvironment();
+		query.setEvaluationEnvironment(evalEnv);
+		
+		if (!query.check(this)) {
+			if (diagnostics != null) {
+				diagnostics.add
+					(new BasicDiagnostic
+						(Diagnostic.ERROR,
+						 SeffValidator.DIAGNOSTIC_SOURCE,
+						 SeffValidator.RESOURCE_DEMANDING_BEHAVIOUR__EXACTLY_ONE_START_ACTION,
+						 EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "ExactlyOneStartAction", EObjectValidator.getObjectLabel(this, context) }),
+						 new Object [] { this }));
+			}
+			return false;
+		}
+		return true;
+		
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean EachactionexceptStartActionandStopActionmusthaveapredecessorandsuccessor(DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (EachactionexceptStartActionandStopActionmusthaveapredecessorandsuccessorInvOCL == null) {
+			Environment env = ExpressionsUtil.createClassifierContext(eClass());
+			
+			
+			String body = "not self.steps_Behaviour->select(s|not s.oclIsTypeOf(StartAction) and not s.oclIsTypeOf(StopAction))->exists(a|a.oclAsType(AbstractAction).predecessor_AbstractAction.oclIsUndefined()) and not self.steps_Behaviour->select(s|not s.oclIsTypeOf(StartAction) and not s.oclIsTypeOf(StopAction))->exists(a|a.oclAsType(AbstractAction).successor_AbstractAction.oclIsUndefined()) ";
+			
+			try {
+				EachactionexceptStartActionandStopActionmusthaveapredecessorandsuccessorInvOCL = ExpressionsUtil.createInvariant(env, body, true);
+			} catch (ParserException e) {
+				throw new UnsupportedOperationException(e.getLocalizedMessage());
+			}
+		}
+		
+		Query query = QueryFactory.eINSTANCE.createQuery(EachactionexceptStartActionandStopActionmusthaveapredecessorandsuccessorInvOCL);
+		EvalEnvironment evalEnv = new EvalEnvironment();
+		query.setEvaluationEnvironment(evalEnv);
+		
+		if (!query.check(this)) {
+			if (diagnostics != null) {
+				diagnostics.add
+					(new BasicDiagnostic
+						(Diagnostic.ERROR,
+						 SeffValidator.DIAGNOSTIC_SOURCE,
+						 SeffValidator.RESOURCE_DEMANDING_BEHAVIOUR__EACHACTIONEXCEPT_START_ACTIONAND_STOP_ACTIONMUSTHAVEAPREDECESSORANDSUCCESSOR,
+						 EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "EachactionexceptStartActionandStopActionmusthaveapredecessorandsuccessor", EObjectValidator.getObjectLabel(this, context) }),
+						 new Object [] { this }));
+			}
+			return false;
+		}
+		return true;
+		
+	}
 
 	/**
 	 * <!-- begin-user-doc -->

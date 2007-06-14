@@ -13,17 +13,31 @@ import de.uka.ipd.sdq.pcm.seff.AbstractResourceDemandingAction;
 import de.uka.ipd.sdq.pcm.seff.ParametricResourceDemand;
 import de.uka.ipd.sdq.pcm.seff.SeffPackage;
 
+import de.uka.ipd.sdq.pcm.seff.util.SeffValidator;
 import de.uka.ipd.sdq.stoex.impl.RandomVariableImpl;
 
+import java.util.Map;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
+import org.eclipse.emf.common.util.BasicDiagnostic;
+import org.eclipse.emf.common.util.Diagnostic;
+import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.eclipse.emf.ecore.plugin.EcorePlugin;
+import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.ocl.expressions.OCLExpression;
+import org.eclipse.emf.ocl.expressions.util.EvalEnvironment;
+import org.eclipse.emf.ocl.expressions.util.ExpressionsUtil;
+import org.eclipse.emf.ocl.parser.Environment;
+import org.eclipse.emf.ocl.parser.ParserException;
+import org.eclipse.emf.ocl.query.Query;
+import org.eclipse.emf.ocl.query.QueryFactory;
 
 /**
  * <!-- begin-user-doc -->
@@ -77,6 +91,18 @@ public class ParametricResourceDemandImpl extends RandomVariableImpl implements 
 	 * @ordered
 	 */
 	protected ProcessingResourceType requiredResource_ParametricResourceDemand;
+
+
+	/**
+	 * The parsed OCL expression for the definition of the '{@link #ParametricResourceDemandSpecificationmustnotbeNULL <em>Parametric Resource Demand Specificationmustnotbe NULL</em>}' invariant constraint.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #ParametricResourceDemandSpecificationmustnotbeNULL
+	 * @generated
+	 */
+	private static OCLExpression ParametricResourceDemandSpecificationmustnotbeNULLInvOCL;
+
+	private static final String OCL_ANNOTATION_SOURCE = "http://www.eclipse.org/emf/2002/GenModel";
 
 
 	/**
@@ -196,6 +222,45 @@ public class ParametricResourceDemandImpl extends RandomVariableImpl implements 
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, SeffPackage.PARAMETRIC_RESOURCE_DEMAND__ACTION_PARAMETRIC_RESOURCE_DEMAND, newAction_ParametricResourceDemand, newAction_ParametricResourceDemand));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean ParametricResourceDemandSpecificationmustnotbeNULL(DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (ParametricResourceDemandSpecificationmustnotbeNULLInvOCL == null) {
+			Environment env = ExpressionsUtil.createClassifierContext(eClass());
+			
+			
+			String body = "self.specification<>'' and not self.specification.oclIsUndefined()  ";
+			
+			try {
+				ParametricResourceDemandSpecificationmustnotbeNULLInvOCL = ExpressionsUtil.createInvariant(env, body, true);
+			} catch (ParserException e) {
+				throw new UnsupportedOperationException(e.getLocalizedMessage());
+			}
+		}
+		
+		Query query = QueryFactory.eINSTANCE.createQuery(ParametricResourceDemandSpecificationmustnotbeNULLInvOCL);
+		EvalEnvironment evalEnv = new EvalEnvironment();
+		query.setEvaluationEnvironment(evalEnv);
+		
+		if (!query.check(this)) {
+			if (diagnostics != null) {
+				diagnostics.add
+					(new BasicDiagnostic
+						(Diagnostic.ERROR,
+						 SeffValidator.DIAGNOSTIC_SOURCE,
+						 SeffValidator.PARAMETRIC_RESOURCE_DEMAND__PARAMETRIC_RESOURCE_DEMAND_SPECIFICATIONMUSTNOTBE_NULL,
+						 EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "ParametricResourceDemandSpecificationmustnotbeNULL", EObjectValidator.getObjectLabel(this, context) }),
+						 new Object [] { this }));
+			}
+			return false;
+		}
+		return true;
+		
 	}
 
 	/**

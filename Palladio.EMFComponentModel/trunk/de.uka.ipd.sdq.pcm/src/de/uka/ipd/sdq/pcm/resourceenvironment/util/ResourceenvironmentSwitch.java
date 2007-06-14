@@ -13,6 +13,7 @@ import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
 
 import de.uka.ipd.sdq.pcm.resourceenvironment.*;
 
+import de.uka.ipd.sdq.stoex.RandomVariable;
 import java.util.List;
 
 import org.eclipse.emf.ecore.EClass;
@@ -120,6 +121,13 @@ public class ResourceenvironmentSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case ResourceenvironmentPackage.LATENCY: {
+				Latency latency = (Latency)theEObject;
+				T result = caseLatency(latency);
+				if (result == null) result = caseRandomVariable(latency);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION: {
 				ProcessingResourceSpecification processingResourceSpecification = (ProcessingResourceSpecification)theEObject;
 				T result = caseProcessingResourceSpecification(processingResourceSpecification);
@@ -187,6 +195,21 @@ public class ResourceenvironmentSwitch<T> {
 	 * @generated
 	 */
 	public T caseCommunicationLinkResourceSpecification(CommunicationLinkResourceSpecification object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpretting the object as an instance of '<em>Latency</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpretting the object as an instance of '<em>Latency</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseLatency(Latency object) {
 		return null;
 	}
 
@@ -277,6 +300,21 @@ public class ResourceenvironmentSwitch<T> {
 	 * @generated
 	 */
 	public T caseEntity(Entity object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpretting the object as an instance of '<em>Random Variable</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpretting the object as an instance of '<em>Random Variable</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseRandomVariable(RandomVariable object) {
 		return null;
 	}
 

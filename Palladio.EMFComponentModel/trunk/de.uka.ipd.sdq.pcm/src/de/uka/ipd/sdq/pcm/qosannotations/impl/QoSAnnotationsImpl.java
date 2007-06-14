@@ -13,6 +13,7 @@ import de.uka.ipd.sdq.pcm.qosannotations.QoSAnnotations;
 import de.uka.ipd.sdq.pcm.qosannotations.QosannotationsPackage;
 import de.uka.ipd.sdq.pcm.qosannotations.SpecifiedExecutionTime;
 
+import de.uka.ipd.sdq.pcm.qosannotations.SpecifiedOutputParameterAbstraction;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -33,6 +34,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * <ul>
  *   <li>{@link de.uka.ipd.sdq.pcm.qosannotations.impl.QoSAnnotationsImpl#getSpecifiedExecutionTimes_QoSAnnotations <em>Specified Execution Times Qo SAnnotations</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.qosannotations.impl.QoSAnnotationsImpl#getSpecifiedOutputParameterAbstractions_QoSAnnotations <em>Specified Output Parameter Abstractions Qo SAnnotations</em>}</li>
  * </ul>
  * </p>
  *
@@ -55,6 +57,17 @@ public class QoSAnnotationsImpl extends EntityImpl implements QoSAnnotations {
 	 * @ordered
 	 */
 	protected EList<SpecifiedExecutionTime> specifiedExecutionTimes_QoSAnnotations;
+
+
+	/**
+	 * The cached value of the '{@link #getSpecifiedOutputParameterAbstractions_QoSAnnotations() <em>Specified Output Parameter Abstractions Qo SAnnotations</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSpecifiedOutputParameterAbstractions_QoSAnnotations()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<SpecifiedOutputParameterAbstraction> specifiedOutputParameterAbstractions_QoSAnnotations;
 
 
 	/**
@@ -93,11 +106,25 @@ public class QoSAnnotationsImpl extends EntityImpl implements QoSAnnotations {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<SpecifiedOutputParameterAbstraction> getSpecifiedOutputParameterAbstractions_QoSAnnotations() {
+		if (specifiedOutputParameterAbstractions_QoSAnnotations == null) {
+			specifiedOutputParameterAbstractions_QoSAnnotations = new EObjectContainmentEList<SpecifiedOutputParameterAbstraction>(SpecifiedOutputParameterAbstraction.class, this, QosannotationsPackage.QO_SANNOTATIONS__SPECIFIED_OUTPUT_PARAMETER_ABSTRACTIONS_QO_SANNOTATIONS);
+		}
+		return specifiedOutputParameterAbstractions_QoSAnnotations;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case QosannotationsPackage.QO_SANNOTATIONS__SPECIFIED_EXECUTION_TIMES_QO_SANNOTATIONS:
 				return ((InternalEList<?>)getSpecifiedExecutionTimes_QoSAnnotations()).basicRemove(otherEnd, msgs);
+			case QosannotationsPackage.QO_SANNOTATIONS__SPECIFIED_OUTPUT_PARAMETER_ABSTRACTIONS_QO_SANNOTATIONS:
+				return ((InternalEList<?>)getSpecifiedOutputParameterAbstractions_QoSAnnotations()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -112,6 +139,8 @@ public class QoSAnnotationsImpl extends EntityImpl implements QoSAnnotations {
 		switch (featureID) {
 			case QosannotationsPackage.QO_SANNOTATIONS__SPECIFIED_EXECUTION_TIMES_QO_SANNOTATIONS:
 				return getSpecifiedExecutionTimes_QoSAnnotations();
+			case QosannotationsPackage.QO_SANNOTATIONS__SPECIFIED_OUTPUT_PARAMETER_ABSTRACTIONS_QO_SANNOTATIONS:
+				return getSpecifiedOutputParameterAbstractions_QoSAnnotations();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -129,6 +158,10 @@ public class QoSAnnotationsImpl extends EntityImpl implements QoSAnnotations {
 				getSpecifiedExecutionTimes_QoSAnnotations().clear();
 				getSpecifiedExecutionTimes_QoSAnnotations().addAll((Collection<? extends SpecifiedExecutionTime>)newValue);
 				return;
+			case QosannotationsPackage.QO_SANNOTATIONS__SPECIFIED_OUTPUT_PARAMETER_ABSTRACTIONS_QO_SANNOTATIONS:
+				getSpecifiedOutputParameterAbstractions_QoSAnnotations().clear();
+				getSpecifiedOutputParameterAbstractions_QoSAnnotations().addAll((Collection<? extends SpecifiedOutputParameterAbstraction>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -144,6 +177,9 @@ public class QoSAnnotationsImpl extends EntityImpl implements QoSAnnotations {
 			case QosannotationsPackage.QO_SANNOTATIONS__SPECIFIED_EXECUTION_TIMES_QO_SANNOTATIONS:
 				getSpecifiedExecutionTimes_QoSAnnotations().clear();
 				return;
+			case QosannotationsPackage.QO_SANNOTATIONS__SPECIFIED_OUTPUT_PARAMETER_ABSTRACTIONS_QO_SANNOTATIONS:
+				getSpecifiedOutputParameterAbstractions_QoSAnnotations().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -158,6 +194,8 @@ public class QoSAnnotationsImpl extends EntityImpl implements QoSAnnotations {
 		switch (featureID) {
 			case QosannotationsPackage.QO_SANNOTATIONS__SPECIFIED_EXECUTION_TIMES_QO_SANNOTATIONS:
 				return specifiedExecutionTimes_QoSAnnotations != null && !specifiedExecutionTimes_QoSAnnotations.isEmpty();
+			case QosannotationsPackage.QO_SANNOTATIONS__SPECIFIED_OUTPUT_PARAMETER_ABSTRACTIONS_QO_SANNOTATIONS:
+				return specifiedOutputParameterAbstractions_QoSAnnotations != null && !specifiedOutputParameterAbstractions_QoSAnnotations.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

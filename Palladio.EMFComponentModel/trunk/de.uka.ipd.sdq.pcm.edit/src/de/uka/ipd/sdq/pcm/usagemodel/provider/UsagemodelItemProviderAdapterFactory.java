@@ -405,6 +405,52 @@ public class UsagemodelItemProviderAdapterFactory extends UsagemodelAdapterFacto
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.usagemodel.Delay} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected DelayItemProvider delayItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.usagemodel.Delay}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createDelayAdapter() {
+		if (delayItemProvider == null) {
+			delayItemProvider = new DelayItemProvider(this);
+		}
+
+		return delayItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.usagemodel.DelayTime} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected DelayTimeItemProvider delayTimeItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.usagemodel.DelayTime}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createDelayTimeAdapter() {
+		if (delayTimeItemProvider == null) {
+			delayTimeItemProvider = new DelayTimeItemProvider(this);
+		}
+
+		return delayTimeItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -517,6 +563,8 @@ public class UsagemodelItemProviderAdapterFactory extends UsagemodelAdapterFacto
 		if (thinkTimeItemProvider != null) thinkTimeItemProvider.dispose();
 		if (branchItemProvider != null) branchItemProvider.dispose();
 		if (branchTransitionItemProvider != null) branchTransitionItemProvider.dispose();
+		if (delayItemProvider != null) delayItemProvider.dispose();
+		if (delayTimeItemProvider != null) delayTimeItemProvider.dispose();
 	}
 
 }

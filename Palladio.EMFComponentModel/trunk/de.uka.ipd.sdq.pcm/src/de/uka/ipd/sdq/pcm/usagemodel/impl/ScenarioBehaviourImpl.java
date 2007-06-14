@@ -14,17 +14,31 @@ import de.uka.ipd.sdq.pcm.usagemodel.AbstractUserAction;
 import de.uka.ipd.sdq.pcm.usagemodel.ScenarioBehaviour;
 import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
 
+import de.uka.ipd.sdq.pcm.usagemodel.util.UsagemodelValidator;
 import java.util.Collection;
 
+import java.util.Map;
 import org.eclipse.emf.common.notify.NotificationChain;
 
+import org.eclipse.emf.common.util.BasicDiagnostic;
+import org.eclipse.emf.common.util.Diagnostic;
+import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
+import org.eclipse.emf.ecore.plugin.EcorePlugin;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.eclipse.emf.ecore.util.InternalEList;
+import org.eclipse.emf.ocl.expressions.OCLExpression;
+import org.eclipse.emf.ocl.expressions.util.EvalEnvironment;
+import org.eclipse.emf.ocl.expressions.util.ExpressionsUtil;
+import org.eclipse.emf.ocl.parser.Environment;
+import org.eclipse.emf.ocl.parser.ParserException;
+import org.eclipse.emf.ocl.query.Query;
+import org.eclipse.emf.ocl.query.QueryFactory;
 
 /**
  * <!-- begin-user-doc -->
@@ -59,6 +73,27 @@ public class ScenarioBehaviourImpl extends EntityImpl implements ScenarioBehavio
 
 
 	/**
+	 * The parsed OCL expression for the definition of the '{@link #Exactlyonestart <em>Exactlyonestart</em>}' invariant constraint.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #Exactlyonestart
+	 * @generated
+	 */
+	private static OCLExpression ExactlyonestartInvOCL;
+
+	/**
+	 * The parsed OCL expression for the definition of the '{@link #Exactlyonestop <em>Exactlyonestop</em>}' invariant constraint.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #Exactlyonestop
+	 * @generated
+	 */
+	private static OCLExpression ExactlyonestopInvOCL;
+
+	private static final String OCL_ANNOTATION_SOURCE = "http://www.eclipse.org/emf/2002/GenModel";
+
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -87,6 +122,84 @@ public class ScenarioBehaviourImpl extends EntityImpl implements ScenarioBehavio
 			actions_ScenarioBehaviour = new EObjectContainmentEList<AbstractUserAction>(AbstractUserAction.class, this, UsagemodelPackage.SCENARIO_BEHAVIOUR__ACTIONS_SCENARIO_BEHAVIOUR);
 		}
 		return actions_ScenarioBehaviour;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean Exactlyonestart(DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (ExactlyonestartInvOCL == null) {
+			Environment env = ExpressionsUtil.createClassifierContext(eClass());
+			
+			
+			String body = "self.actions_ScenarioBehaviour->select(s|s.oclIsTypeOf(Start))->size() = 1 ";
+			
+			try {
+				ExactlyonestartInvOCL = ExpressionsUtil.createInvariant(env, body, true);
+			} catch (ParserException e) {
+				throw new UnsupportedOperationException(e.getLocalizedMessage());
+			}
+		}
+		
+		Query query = QueryFactory.eINSTANCE.createQuery(ExactlyonestartInvOCL);
+		EvalEnvironment evalEnv = new EvalEnvironment();
+		query.setEvaluationEnvironment(evalEnv);
+		
+		if (!query.check(this)) {
+			if (diagnostics != null) {
+				diagnostics.add
+					(new BasicDiagnostic
+						(Diagnostic.ERROR,
+						 UsagemodelValidator.DIAGNOSTIC_SOURCE,
+						 UsagemodelValidator.SCENARIO_BEHAVIOUR__EXACTLYONESTART,
+						 EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "Exactlyonestart", EObjectValidator.getObjectLabel(this, context) }),
+						 new Object [] { this }));
+			}
+			return false;
+		}
+		return true;
+		
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean Exactlyonestop(DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (ExactlyonestopInvOCL == null) {
+			Environment env = ExpressionsUtil.createClassifierContext(eClass());
+			
+			
+			String body = "self.actions_ScenarioBehaviour->select(s|s.oclIsTypeOf(Stop))->size() = 1 ";
+			
+			try {
+				ExactlyonestopInvOCL = ExpressionsUtil.createInvariant(env, body, true);
+			} catch (ParserException e) {
+				throw new UnsupportedOperationException(e.getLocalizedMessage());
+			}
+		}
+		
+		Query query = QueryFactory.eINSTANCE.createQuery(ExactlyonestopInvOCL);
+		EvalEnvironment evalEnv = new EvalEnvironment();
+		query.setEvaluationEnvironment(evalEnv);
+		
+		if (!query.check(this)) {
+			if (diagnostics != null) {
+				diagnostics.add
+					(new BasicDiagnostic
+						(Diagnostic.ERROR,
+						 UsagemodelValidator.DIAGNOSTIC_SOURCE,
+						 UsagemodelValidator.SCENARIO_BEHAVIOUR__EXACTLYONESTOP,
+						 EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "Exactlyonestop", EObjectValidator.getObjectLabel(this, context) }),
+						 new Object [] { this }));
+			}
+			return false;
+		}
+		return true;
+		
 	}
 
 	/**

@@ -81,6 +81,8 @@ public class UsagemodelFactoryImpl extends EFactoryImpl implements UsagemodelFac
 			case UsagemodelPackage.THINK_TIME: return createThinkTime();
 			case UsagemodelPackage.BRANCH: return createBranch();
 			case UsagemodelPackage.BRANCH_TRANSITION: return createBranchTransition();
+			case UsagemodelPackage.DELAY: return createDelay();
+			case UsagemodelPackage.DELAY_TIME: return createDelayTime();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -224,6 +226,26 @@ public class UsagemodelFactoryImpl extends EFactoryImpl implements UsagemodelFac
 	public BranchTransition createBranchTransition() {
 		BranchTransitionImpl branchTransition = new BranchTransitionImpl();
 		return branchTransition;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Delay createDelay() {
+		DelayImpl delay = new DelayImpl();
+		return delay;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DelayTime createDelayTime() {
+		DelayTimeImpl delayTime = new DelayTimeImpl();
+		return delayTime;
 	}
 
 	/**

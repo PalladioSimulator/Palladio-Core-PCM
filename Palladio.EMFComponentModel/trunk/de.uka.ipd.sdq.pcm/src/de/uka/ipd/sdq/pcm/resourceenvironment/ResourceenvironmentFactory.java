@@ -60,6 +60,15 @@ public interface ResourceenvironmentFactory extends EFactory {
 	CommunicationLinkResourceSpecification createCommunicationLinkResourceSpecification();
 
 	/**
+	 * Returns a new object of class '<em>Latency</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Latency</em>'.
+	 * @generated
+	 */
+	Latency createLatency();
+
+	/**
 	 * Returns a new object of class '<em>Processing Resource Specification</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -21,6 +21,7 @@ import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 
 import de.uka.ipd.sdq.pcm.core.entity.provider.PalladioComponentModelEditPlugin;
+import de.uka.ipd.sdq.pcm.usagemodel.Stop;
 
 /**
  * This is the item provider adapter for a {@link de.uka.ipd.sdq.pcm.usagemodel.Stop} object.
@@ -87,7 +88,10 @@ public class StopItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_Stop_type");
+		String label = ((Stop)object).getId();
+		return label == null || label.length() == 0 ?
+			getString("_UI_Stop_type") :
+			getString("_UI_Stop_type") + " " + label;
 	}
 
 	/**

@@ -21,6 +21,7 @@ import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 
 import de.uka.ipd.sdq.pcm.core.entity.provider.PalladioComponentModelEditPlugin;
+import de.uka.ipd.sdq.pcm.usagemodel.Start;
 
 /**
  * This is the item provider adapter for a {@link de.uka.ipd.sdq.pcm.usagemodel.Start} object.
@@ -87,7 +88,10 @@ public class StartItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_Start_type");
+		String label = ((Start)object).getId();
+		return label == null || label.length() == 0 ?
+			getString("_UI_Start_type") :
+			getString("_UI_Start_type") + " " + label;
 	}
 
 	/**

@@ -22,7 +22,7 @@
     <details key="INVARIANT_CONSTRAINTS" value="PROCESS"/>
     <details key="OPERATION_BODIES" value="IGNORE"/>
   </genAnnotations>
-  <foreignModel>file:/C:/coding/gmf2/rsa_exports/pcm.uml2</foreignModel>
+  <foreignModel>file:/D:/Models/pcm.uml2</foreignModel>
   <modelPluginVariables>EMFT_OCL=org.eclipse.emf.ocl</modelPluginVariables>
   <genPackages prefix="Pcm" basePackage="de.uka.ipd.sdq" disposableProviderFactory="true"
       ecorePackage="pcm.ecore#/">
@@ -287,7 +287,12 @@
     </nestedGenPackages>
     <nestedGenPackages prefix="Seff" basePackage="de.uka.ipd.sdq.pcm" disposableProviderFactory="true"
         ecorePackage="pcm.ecore#//seff">
-      <genClasses ecoreClass="pcm.ecore#//seff/StopAction"/>
+      <genClasses ecoreClass="pcm.ecore#//seff/StopAction">
+        <genOperations ecoreOperation="pcm.ecore#//seff/StopAction/StopActionsuccessormustnotbedefined">
+          <genParameters ecoreParameter="pcm.ecore#//seff/StopAction/StopActionsuccessormustnotbedefined/diagnostics"/>
+          <genParameters ecoreParameter="pcm.ecore#//seff/StopAction/StopActionsuccessormustnotbedefined/context"/>
+        </genOperations>
+      </genClasses>
       <genClasses image="false" ecoreClass="pcm.ecore#//seff/AbstractResourceDemandingAction">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//seff/AbstractResourceDemandingAction/resourceDemand_Action"/>
       </genClasses>
@@ -302,11 +307,32 @@
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference pcm.ecore#//seff/ParametricResourceDemand/requiredResource_ParametricResourceDemand"/>
         <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference pcm.ecore#//seff/ParametricResourceDemand/action_ParametricResourceDemand"/>
+        <genOperations ecoreOperation="pcm.ecore#//seff/ParametricResourceDemand/ParametricResourceDemandSpecificationmustnotbeNULL">
+          <genParameters ecoreParameter="pcm.ecore#//seff/ParametricResourceDemand/ParametricResourceDemandSpecificationmustnotbeNULL/diagnostics"/>
+          <genParameters ecoreParameter="pcm.ecore#//seff/ParametricResourceDemand/ParametricResourceDemandSpecificationmustnotbeNULL/context"/>
+        </genOperations>
       </genClasses>
-      <genClasses ecoreClass="pcm.ecore#//seff/StartAction"/>
+      <genClasses ecoreClass="pcm.ecore#//seff/StartAction">
+        <genOperations ecoreOperation="pcm.ecore#//seff/StartAction/StartActionpredecessormustnotbedefinded">
+          <genParameters ecoreParameter="pcm.ecore#//seff/StartAction/StartActionpredecessormustnotbedefinded/diagnostics"/>
+          <genParameters ecoreParameter="pcm.ecore#//seff/StartAction/StartActionpredecessormustnotbedefinded/context"/>
+        </genOperations>
+      </genClasses>
       <genClasses ecoreClass="pcm.ecore#//seff/ResourceDemandingSEFF"/>
       <genClasses ecoreClass="pcm.ecore#//seff/ResourceDemandingBehaviour">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//seff/ResourceDemandingBehaviour/steps_Behaviour"/>
+        <genOperations ecoreOperation="pcm.ecore#//seff/ResourceDemandingBehaviour/ExactlyOneStopAction">
+          <genParameters ecoreParameter="pcm.ecore#//seff/ResourceDemandingBehaviour/ExactlyOneStopAction/diagnostics"/>
+          <genParameters ecoreParameter="pcm.ecore#//seff/ResourceDemandingBehaviour/ExactlyOneStopAction/context"/>
+        </genOperations>
+        <genOperations ecoreOperation="pcm.ecore#//seff/ResourceDemandingBehaviour/ExactlyOneStartAction">
+          <genParameters ecoreParameter="pcm.ecore#//seff/ResourceDemandingBehaviour/ExactlyOneStartAction/diagnostics"/>
+          <genParameters ecoreParameter="pcm.ecore#//seff/ResourceDemandingBehaviour/ExactlyOneStartAction/context"/>
+        </genOperations>
+        <genOperations ecoreOperation="pcm.ecore#//seff/ResourceDemandingBehaviour/EachactionexceptStartActionandStopActionmusthaveapredecessorandsuccessor">
+          <genParameters ecoreParameter="pcm.ecore#//seff/ResourceDemandingBehaviour/EachactionexceptStartActionandStopActionmusthaveapredecessorandsuccessor/diagnostics"/>
+          <genParameters ecoreParameter="pcm.ecore#//seff/ResourceDemandingBehaviour/EachactionexceptStartActionandStopActionmusthaveapredecessorandsuccessor/context"/>
+        </genOperations>
       </genClasses>
       <genClasses ecoreClass="pcm.ecore#//seff/ReleaseAction">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
@@ -342,6 +368,10 @@
         <genOperations ecoreOperation="pcm.ecore#//seff/BranchAction/EitherGuardedBranchesOrProbabilisiticBranchTransitions">
           <genParameters ecoreParameter="pcm.ecore#//seff/BranchAction/EitherGuardedBranchesOrProbabilisiticBranchTransitions/diagnostics"/>
           <genParameters ecoreParameter="pcm.ecore#//seff/BranchAction/EitherGuardedBranchesOrProbabilisiticBranchTransitions/context"/>
+        </genOperations>
+        <genOperations ecoreOperation="pcm.ecore#//seff/BranchAction/AllProbabilisticBranchProbabilitiesmustsumupto1">
+          <genParameters ecoreParameter="pcm.ecore#//seff/BranchAction/AllProbabilisticBranchProbabilitiesmustsumupto1/diagnostics"/>
+          <genParameters ecoreParameter="pcm.ecore#//seff/BranchAction/AllProbabilisticBranchProbabilitiesmustsumupto1/context"/>
         </genOperations>
       </genClasses>
       <genClasses ecoreClass="pcm.ecore#//seff/AquireAction">
@@ -393,6 +423,11 @@
     </nestedGenPackages>
     <nestedGenPackages prefix="Resourceenvironment" basePackage="de.uka.ipd.sdq.pcm"
         disposableProviderFactory="true" ecorePackage="pcm.ecore#//resourceenvironment">
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="pcm.ecore#//resourceenvironment/SchedulingPolicy">
+        <genEnumLiterals ecoreEnumLiteral="pcm.ecore#//resourceenvironment/SchedulingPolicy/DELAY"/>
+        <genEnumLiterals ecoreEnumLiteral="pcm.ecore#//resourceenvironment/SchedulingPolicy/PROCESSOR_SHARING"/>
+        <genEnumLiterals ecoreEnumLiteral="pcm.ecore#//resourceenvironment/SchedulingPolicy/FCFS"/>
+      </genEnums>
       <genClasses ecoreClass="pcm.ecore#//resourceenvironment/ResourceEnvironment">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//resourceenvironment/ResourceEnvironment/linkingresource"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//resourceenvironment/ResourceEnvironment/resourceContainer_ResourceEnvironment"/>
@@ -409,8 +444,11 @@
             ecoreFeature="ecore:EReference pcm.ecore#//resourceenvironment/CommunicationLinkResourceSpecification/communicationLinkResourceType_CommunicationLinkResourceSpecification"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pcm.ecore#//resourceenvironment/CommunicationLinkResourceSpecification/throughput"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pcm.ecore#//resourceenvironment/CommunicationLinkResourceSpecification/units"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//resourceenvironment/CommunicationLinkResourceSpecification/linkLatency"/>
       </genClasses>
+      <genClasses ecoreClass="pcm.ecore#//resourceenvironment/Latency"/>
       <genClasses ecoreClass="pcm.ecore#//resourceenvironment/ProcessingResourceSpecification">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pcm.ecore#//resourceenvironment/ProcessingResourceSpecification/schedulingPolicy"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference pcm.ecore#//resourceenvironment/ProcessingResourceSpecification/activeResourceType_ActiveResourceSpecification"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pcm.ecore#//resourceenvironment/ProcessingResourceSpecification/processingRate"/>
@@ -446,8 +484,15 @@
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference pcm.ecore#//qosannotations/ComponentSpecifiedExecutionTime/assemblyContext_ComponentSpecifiedExecutionTime"/>
       </genClasses>
+      <genClasses ecoreClass="pcm.ecore#//qosannotations/SpecifiedOutputParameterAbstraction">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference pcm.ecore#//qosannotations/SpecifiedOutputParameterAbstraction/signature_SpecifiedOutputParameterAbstraction"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference pcm.ecore#//qosannotations/SpecifiedOutputParameterAbstraction/role_SpecifiedOutputParameterAbstraction"/>
+      </genClasses>
       <genClasses ecoreClass="pcm.ecore#//qosannotations/QoSAnnotations">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//qosannotations/QoSAnnotations/specifiedExecutionTimes_QoSAnnotations"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//qosannotations/QoSAnnotations/specifiedOutputParameterAbstractions_QoSAnnotations"/>
       </genClasses>
     </nestedGenPackages>
     <nestedGenPackages prefix="Usagemodel" basePackage="de.uka.ipd.sdq.pcm" disposableProviderFactory="true"
@@ -459,6 +504,14 @@
       </genClasses>
       <genClasses ecoreClass="pcm.ecore#//usagemodel/ScenarioBehaviour">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//usagemodel/ScenarioBehaviour/actions_ScenarioBehaviour"/>
+        <genOperations ecoreOperation="pcm.ecore#//usagemodel/ScenarioBehaviour/Exactlyonestart">
+          <genParameters ecoreParameter="pcm.ecore#//usagemodel/ScenarioBehaviour/Exactlyonestart/diagnostics"/>
+          <genParameters ecoreParameter="pcm.ecore#//usagemodel/ScenarioBehaviour/Exactlyonestart/context"/>
+        </genOperations>
+        <genOperations ecoreOperation="pcm.ecore#//usagemodel/ScenarioBehaviour/Exactlyonestop">
+          <genParameters ecoreParameter="pcm.ecore#//usagemodel/ScenarioBehaviour/Exactlyonestop/diagnostics"/>
+          <genParameters ecoreParameter="pcm.ecore#//usagemodel/ScenarioBehaviour/Exactlyonestop/context"/>
+        </genOperations>
       </genClasses>
       <genClasses image="false" ecoreClass="pcm.ecore#//usagemodel/AbstractUserAction">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
@@ -486,6 +539,7 @@
             ecoreFeature="ecore:EReference pcm.ecore#//usagemodel/EntryLevelSystemCall/providedRole_EntryLevelSystemCall"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference pcm.ecore#//usagemodel/EntryLevelSystemCall/signature_EntryLevelSystemCall"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//usagemodel/EntryLevelSystemCall/outputParameterUsage_EntryLevelSystemCall"/>
       </genClasses>
       <genClasses ecoreClass="pcm.ecore#//usagemodel/ClosedWorkload">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pcm.ecore#//usagemodel/ClosedWorkload/population"/>
@@ -499,6 +553,10 @@
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pcm.ecore#//usagemodel/BranchTransition/branchProbability"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//usagemodel/BranchTransition/branchedBehaviour_BranchTransition"/>
       </genClasses>
+      <genClasses ecoreClass="pcm.ecore#//usagemodel/Delay">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//usagemodel/Delay/time"/>
+      </genClasses>
+      <genClasses ecoreClass="pcm.ecore#//usagemodel/DelayTime"/>
     </nestedGenPackages>
   </genPackages>
 </genmodel:GenModel>

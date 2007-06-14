@@ -41,6 +41,7 @@ import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
 import de.uka.ipd.sdq.pcm.repository.impl.RepositoryPackageImpl;
 
 import de.uka.ipd.sdq.pcm.resourceenvironment.CommunicationLinkResourceSpecification;
+import de.uka.ipd.sdq.pcm.resourceenvironment.Latency;
 import de.uka.ipd.sdq.pcm.resourceenvironment.LinkingResource;
 import de.uka.ipd.sdq.pcm.resourceenvironment.PassiveResourceSpecification;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification;
@@ -49,6 +50,7 @@ import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceEnvironment;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentFactory;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage;
 
+import de.uka.ipd.sdq.pcm.resourceenvironment.SchedulingPolicy;
 import de.uka.ipd.sdq.pcm.resourcetype.ResourcetypePackage;
 
 import de.uka.ipd.sdq.pcm.resourcetype.impl.ResourcetypePackageImpl;
@@ -71,6 +73,7 @@ import de.uka.ipd.sdq.stoex.StoexPackage;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -116,6 +119,13 @@ public class ResourceenvironmentPackageImpl extends EPackageImpl implements Reso
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass latencyEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass processingResourceSpecificationEClass = null;
 
 	/**
@@ -131,6 +141,13 @@ public class ResourceenvironmentPackageImpl extends EPackageImpl implements Reso
 	 * @generated
 	 */
 	private EClass resourceContainerEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum schedulingPolicyEEnum = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -347,6 +364,24 @@ public class ResourceenvironmentPackageImpl extends EPackageImpl implements Reso
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getCommunicationLinkResourceSpecification_LinkLatency() {
+		return (EReference)communicationLinkResourceSpecificationEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getLatency() {
+		return latencyEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getProcessingResourceSpecification() {
 		return processingResourceSpecificationEClass;
 	}
@@ -356,8 +391,17 @@ public class ResourceenvironmentPackageImpl extends EPackageImpl implements Reso
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getProcessingResourceSpecification_SchedulingPolicy() {
+		return (EAttribute)processingResourceSpecificationEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EReference getProcessingResourceSpecification_ActiveResourceType_ActiveResourceSpecification() {
-		return (EReference)processingResourceSpecificationEClass.getEStructuralFeatures().get(0);
+		return (EReference)processingResourceSpecificationEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -366,7 +410,7 @@ public class ResourceenvironmentPackageImpl extends EPackageImpl implements Reso
 	 * @generated
 	 */
 	public EAttribute getProcessingResourceSpecification_ProcessingRate() {
-		return (EAttribute)processingResourceSpecificationEClass.getEStructuralFeatures().get(1);
+		return (EAttribute)processingResourceSpecificationEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -375,7 +419,7 @@ public class ResourceenvironmentPackageImpl extends EPackageImpl implements Reso
 	 * @generated
 	 */
 	public EAttribute getProcessingResourceSpecification_Units() {
-		return (EAttribute)processingResourceSpecificationEClass.getEStructuralFeatures().get(2);
+		return (EAttribute)processingResourceSpecificationEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -437,6 +481,15 @@ public class ResourceenvironmentPackageImpl extends EPackageImpl implements Reso
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EEnum getSchedulingPolicy() {
+		return schedulingPolicyEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public ResourceenvironmentFactory getResourceenvironmentFactory() {
 		return (ResourceenvironmentFactory)getEFactoryInstance();
 	}
@@ -473,8 +526,12 @@ public class ResourceenvironmentPackageImpl extends EPackageImpl implements Reso
 		createEReference(communicationLinkResourceSpecificationEClass, COMMUNICATION_LINK_RESOURCE_SPECIFICATION__COMMUNICATION_LINK_RESOURCE_TYPE_COMMUNICATION_LINK_RESOURCE_SPECIFICATION);
 		createEAttribute(communicationLinkResourceSpecificationEClass, COMMUNICATION_LINK_RESOURCE_SPECIFICATION__THROUGHPUT);
 		createEAttribute(communicationLinkResourceSpecificationEClass, COMMUNICATION_LINK_RESOURCE_SPECIFICATION__UNITS);
+		createEReference(communicationLinkResourceSpecificationEClass, COMMUNICATION_LINK_RESOURCE_SPECIFICATION__LINK_LATENCY);
+
+		latencyEClass = createEClass(LATENCY);
 
 		processingResourceSpecificationEClass = createEClass(PROCESSING_RESOURCE_SPECIFICATION);
+		createEAttribute(processingResourceSpecificationEClass, PROCESSING_RESOURCE_SPECIFICATION__SCHEDULING_POLICY);
 		createEReference(processingResourceSpecificationEClass, PROCESSING_RESOURCE_SPECIFICATION__ACTIVE_RESOURCE_TYPE_ACTIVE_RESOURCE_SPECIFICATION);
 		createEAttribute(processingResourceSpecificationEClass, PROCESSING_RESOURCE_SPECIFICATION__PROCESSING_RATE);
 		createEAttribute(processingResourceSpecificationEClass, PROCESSING_RESOURCE_SPECIFICATION__UNITS);
@@ -486,6 +543,9 @@ public class ResourceenvironmentPackageImpl extends EPackageImpl implements Reso
 		resourceContainerEClass = createEClass(RESOURCE_CONTAINER);
 		createEReference(resourceContainerEClass, RESOURCE_CONTAINER__ACTIVE_RESOURCE_SPECIFICATIONS_RESOURCE_CONTAINER);
 		createEReference(resourceContainerEClass, RESOURCE_CONTAINER__PASSIVE_RESOURCE_SPECIFICATIONS_RESOURCE_CONTAINER);
+
+		// Create enums
+		schedulingPolicyEEnum = createEEnum(SCHEDULING_POLICY);
 	}
 
 	/**
@@ -514,6 +574,7 @@ public class ResourceenvironmentPackageImpl extends EPackageImpl implements Reso
 		// Obtain other dependent packages
 		EntityPackage theEntityPackage = (EntityPackage)EPackage.Registry.INSTANCE.getEPackage(EntityPackage.eNS_URI);
 		ResourcetypePackage theResourcetypePackage = (ResourcetypePackage)EPackage.Registry.INSTANCE.getEPackage(ResourcetypePackage.eNS_URI);
+		StoexPackage theStoexPackage = (StoexPackage)EPackage.Registry.INSTANCE.getEPackage(StoexPackage.eNS_URI);
 
 		// Create type parameters
 
@@ -521,6 +582,7 @@ public class ResourceenvironmentPackageImpl extends EPackageImpl implements Reso
 
 		// Add supertypes to classes
 		linkingResourceEClass.getESuperTypes().add(theEntityPackage.getEntity());
+		latencyEClass.getESuperTypes().add(theStoexPackage.getRandomVariable());
 		resourceContainerEClass.getESuperTypes().add(theEntityPackage.getEntity());
 
 		// Initialize classes and features; add operations and parameters
@@ -537,8 +599,12 @@ public class ResourceenvironmentPackageImpl extends EPackageImpl implements Reso
 		initEReference(getCommunicationLinkResourceSpecification_CommunicationLinkResourceType_CommunicationLinkResourceSpecification(), theResourcetypePackage.getCommunicationLinkResourceType(), null, "communicationLinkResourceType_CommunicationLinkResourceSpecification", null, 1, 1, CommunicationLinkResourceSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getCommunicationLinkResourceSpecification_Throughput(), ecorePackage.getEDouble(), "throughput", null, 1, 1, CommunicationLinkResourceSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getCommunicationLinkResourceSpecification_Units(), ecorePackage.getEString(), "units", null, 1, 1, CommunicationLinkResourceSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getCommunicationLinkResourceSpecification_LinkLatency(), this.getLatency(), null, "linkLatency", null, 1, 1, CommunicationLinkResourceSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+		initEClass(latencyEClass, Latency.class, "Latency", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(processingResourceSpecificationEClass, ProcessingResourceSpecification.class, "ProcessingResourceSpecification", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getProcessingResourceSpecification_SchedulingPolicy(), this.getSchedulingPolicy(), "schedulingPolicy", null, 1, 1, ProcessingResourceSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getProcessingResourceSpecification_ActiveResourceType_ActiveResourceSpecification(), theResourcetypePackage.getProcessingResourceType(), null, "activeResourceType_ActiveResourceSpecification", null, 1, 1, ProcessingResourceSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getProcessingResourceSpecification_ProcessingRate(), ecorePackage.getEDouble(), "processingRate", null, 1, 1, ProcessingResourceSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEAttribute(getProcessingResourceSpecification_Units(), ecorePackage.getEString(), "units", null, 1, 1, ProcessingResourceSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
@@ -550,6 +616,12 @@ public class ResourceenvironmentPackageImpl extends EPackageImpl implements Reso
 		initEClass(resourceContainerEClass, ResourceContainer.class, "ResourceContainer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getResourceContainer_ActiveResourceSpecifications_ResourceContainer(), this.getProcessingResourceSpecification(), null, "activeResourceSpecifications_ResourceContainer", null, 0, -1, ResourceContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getResourceContainer_PassiveResourceSpecifications_ResourceContainer(), this.getPassiveResourceSpecification(), null, "passiveResourceSpecifications_ResourceContainer", null, 0, -1, ResourceContainer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+		// Initialize enums and add enum literals
+		initEEnum(schedulingPolicyEEnum, SchedulingPolicy.class, "SchedulingPolicy");
+		addEEnumLiteral(schedulingPolicyEEnum, SchedulingPolicy.DELAY);
+		addEEnumLiteral(schedulingPolicyEEnum, SchedulingPolicy.PROCESSOR_SHARING);
+		addEEnumLiteral(schedulingPolicyEEnum, SchedulingPolicy.FCFS);
 
 		// Create resource
 		createResource(eNS_URI);

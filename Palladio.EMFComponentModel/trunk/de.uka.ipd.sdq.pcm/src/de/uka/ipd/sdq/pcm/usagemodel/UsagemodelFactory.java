@@ -159,6 +159,24 @@ public interface UsagemodelFactory extends EFactory {
 	BranchTransition createBranchTransition();
 
 	/**
+	 * Returns a new object of class '<em>Delay</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Delay</em>'.
+	 * @generated
+	 */
+	Delay createDelay();
+
+	/**
+	 * Returns a new object of class '<em>Delay Time</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Delay Time</em>'.
+	 * @generated
+	 */
+	DelayTime createDelayTime();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

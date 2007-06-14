@@ -10,6 +10,7 @@ package de.uka.ipd.sdq.pcm.resourceenvironment.impl;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage;
 
+import de.uka.ipd.sdq.pcm.resourceenvironment.SchedulingPolicy;
 import de.uka.ipd.sdq.pcm.resourcetype.ProcessingResourceType;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -27,6 +28,7 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link de.uka.ipd.sdq.pcm.resourceenvironment.impl.ProcessingResourceSpecificationImpl#getSchedulingPolicy <em>Scheduling Policy</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.resourceenvironment.impl.ProcessingResourceSpecificationImpl#getActiveResourceType_ActiveResourceSpecification <em>Active Resource Type Active Resource Specification</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.resourceenvironment.impl.ProcessingResourceSpecificationImpl#getProcessingRate <em>Processing Rate</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.resourceenvironment.impl.ProcessingResourceSpecificationImpl#getUnits <em>Units</em>}</li>
@@ -42,6 +44,26 @@ public class ProcessingResourceSpecificationImpl extends EObjectImpl implements 
 	 * @generated
 	 */
 	public static final String copyright = "Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany";
+
+	/**
+	 * The default value of the '{@link #getSchedulingPolicy() <em>Scheduling Policy</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSchedulingPolicy()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final SchedulingPolicy SCHEDULING_POLICY_EDEFAULT = SchedulingPolicy.DELAY;
+
+	/**
+	 * The cached value of the '{@link #getSchedulingPolicy() <em>Scheduling Policy</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSchedulingPolicy()
+	 * @generated
+	 * @ordered
+	 */
+	protected SchedulingPolicy schedulingPolicy = SCHEDULING_POLICY_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getActiveResourceType_ActiveResourceSpecification() <em>Active Resource Type Active Resource Specification</em>}' reference.
@@ -111,6 +133,27 @@ public class ProcessingResourceSpecificationImpl extends EObjectImpl implements 
 	@Override
 	protected EClass eStaticClass() {
 		return ResourceenvironmentPackage.Literals.PROCESSING_RESOURCE_SPECIFICATION;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SchedulingPolicy getSchedulingPolicy() {
+		return schedulingPolicy;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSchedulingPolicy(SchedulingPolicy newSchedulingPolicy) {
+		SchedulingPolicy oldSchedulingPolicy = schedulingPolicy;
+		schedulingPolicy = newSchedulingPolicy == null ? SCHEDULING_POLICY_EDEFAULT : newSchedulingPolicy;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__SCHEDULING_POLICY, oldSchedulingPolicy, schedulingPolicy));
 	}
 
 	/**
@@ -201,6 +244,8 @@ public class ProcessingResourceSpecificationImpl extends EObjectImpl implements 
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__SCHEDULING_POLICY:
+				return getSchedulingPolicy();
 			case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__ACTIVE_RESOURCE_TYPE_ACTIVE_RESOURCE_SPECIFICATION:
 				if (resolve) return getActiveResourceType_ActiveResourceSpecification();
 				return basicGetActiveResourceType_ActiveResourceSpecification();
@@ -220,6 +265,9 @@ public class ProcessingResourceSpecificationImpl extends EObjectImpl implements 
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__SCHEDULING_POLICY:
+				setSchedulingPolicy((SchedulingPolicy)newValue);
+				return;
 			case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__ACTIVE_RESOURCE_TYPE_ACTIVE_RESOURCE_SPECIFICATION:
 				setActiveResourceType_ActiveResourceSpecification((ProcessingResourceType)newValue);
 				return;
@@ -241,6 +289,9 @@ public class ProcessingResourceSpecificationImpl extends EObjectImpl implements 
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__SCHEDULING_POLICY:
+				setSchedulingPolicy(SCHEDULING_POLICY_EDEFAULT);
+				return;
 			case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__ACTIVE_RESOURCE_TYPE_ACTIVE_RESOURCE_SPECIFICATION:
 				setActiveResourceType_ActiveResourceSpecification((ProcessingResourceType)null);
 				return;
@@ -262,6 +313,8 @@ public class ProcessingResourceSpecificationImpl extends EObjectImpl implements 
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__SCHEDULING_POLICY:
+				return schedulingPolicy != SCHEDULING_POLICY_EDEFAULT;
 			case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__ACTIVE_RESOURCE_TYPE_ACTIVE_RESOURCE_SPECIFICATION:
 				return activeResourceType_ActiveResourceSpecification != null;
 			case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__PROCESSING_RATE:
@@ -282,7 +335,9 @@ public class ProcessingResourceSpecificationImpl extends EObjectImpl implements 
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (processingRate: ");
+		result.append(" (schedulingPolicy: ");
+		result.append(schedulingPolicy);
+		result.append(", processingRate: ");
 		result.append(processingRate);
 		result.append(", units: ");
 		result.append(units);

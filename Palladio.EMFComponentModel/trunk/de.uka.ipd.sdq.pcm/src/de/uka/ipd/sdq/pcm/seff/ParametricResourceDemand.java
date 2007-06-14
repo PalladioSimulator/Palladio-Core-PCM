@@ -10,6 +10,8 @@ package de.uka.ipd.sdq.pcm.seff;
 import de.uka.ipd.sdq.pcm.resourcetype.ProcessingResourceType;
 
 import de.uka.ipd.sdq.stoex.RandomVariable;
+import java.util.Map;
+import org.eclipse.emf.common.util.DiagnosticChain;
 
 /**
  * <!-- begin-user-doc -->
@@ -116,5 +118,17 @@ public interface ParametricResourceDemand extends RandomVariable {
 	 * @generated
 	 */
 	void setAction_ParametricResourceDemand(AbstractResourceDemandingAction value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * self.specification<>'' and not self.specification.oclIsUndefined()
+	 * 
+	 * <!-- end-model-doc -->
+	 * @model
+	 * @generated
+	 */
+	boolean ParametricResourceDemandSpecificationmustnotbeNULL(DiagnosticChain diagnostics, Map<Object, Object> context);
 
 } // ParametricResourceDemand

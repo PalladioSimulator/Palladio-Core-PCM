@@ -25,6 +25,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import de.uka.ipd.sdq.pcm.core.entity.provider.PalladioComponentModelEditPlugin;
 import de.uka.ipd.sdq.pcm.parameter.ParameterFactory;
+import de.uka.ipd.sdq.pcm.qosannotations.QosannotationsFactory;
 import de.uka.ipd.sdq.pcm.seff.ExternalCallAction;
 import de.uka.ipd.sdq.pcm.seff.SeffPackage;
 
@@ -191,8 +192,18 @@ public class ExternalCallActionItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
+				(SeffPackage.Literals.EXTERNAL_CALL_ACTION__PARAMETER_USAGE_EXTERNAL_CALL_ACTION,
+				 QosannotationsFactory.eINSTANCE.createSpecifiedOutputParameterAbstraction()));
+
+		newChildDescriptors.add
+			(createChildParameter
 				(SeffPackage.Literals.EXTERNAL_CALL_ACTION__OUTPUT_VARIABLE_USAGE_EXTERNAL_CALL_ACTION,
 				 ParameterFactory.eINSTANCE.createVariableUsage()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(SeffPackage.Literals.EXTERNAL_CALL_ACTION__OUTPUT_VARIABLE_USAGE_EXTERNAL_CALL_ACTION,
+				 QosannotationsFactory.eINSTANCE.createSpecifiedOutputParameterAbstraction()));
 	}
 
 	/**

@@ -40,6 +40,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link de.uka.ipd.sdq.pcm.usagemodel.impl.EntryLevelSystemCallImpl#getActualParameterUsage_EntryLevelSystemCall <em>Actual Parameter Usage Entry Level System Call</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.usagemodel.impl.EntryLevelSystemCallImpl#getProvidedRole_EntryLevelSystemCall <em>Provided Role Entry Level System Call</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.usagemodel.impl.EntryLevelSystemCallImpl#getSignature_EntryLevelSystemCall <em>Signature Entry Level System Call</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.usagemodel.impl.EntryLevelSystemCallImpl#getOutputParameterUsage_EntryLevelSystemCall <em>Output Parameter Usage Entry Level System Call</em>}</li>
  * </ul>
  * </p>
  *
@@ -82,6 +83,17 @@ public class EntryLevelSystemCallImpl extends AbstractUserActionImpl implements 
 	 * @ordered
 	 */
 	protected Signature signature_EntryLevelSystemCall;
+
+
+	/**
+	 * The cached value of the '{@link #getOutputParameterUsage_EntryLevelSystemCall() <em>Output Parameter Usage Entry Level System Call</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOutputParameterUsage_EntryLevelSystemCall()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<VariableUsage> outputParameterUsage_EntryLevelSystemCall;
 
 
 	/**
@@ -196,11 +208,25 @@ public class EntryLevelSystemCallImpl extends AbstractUserActionImpl implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<VariableUsage> getOutputParameterUsage_EntryLevelSystemCall() {
+		if (outputParameterUsage_EntryLevelSystemCall == null) {
+			outputParameterUsage_EntryLevelSystemCall = new EObjectContainmentEList<VariableUsage>(VariableUsage.class, this, UsagemodelPackage.ENTRY_LEVEL_SYSTEM_CALL__OUTPUT_PARAMETER_USAGE_ENTRY_LEVEL_SYSTEM_CALL);
+		}
+		return outputParameterUsage_EntryLevelSystemCall;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case UsagemodelPackage.ENTRY_LEVEL_SYSTEM_CALL__ACTUAL_PARAMETER_USAGE_ENTRY_LEVEL_SYSTEM_CALL:
 				return ((InternalEList<?>)getActualParameterUsage_EntryLevelSystemCall()).basicRemove(otherEnd, msgs);
+			case UsagemodelPackage.ENTRY_LEVEL_SYSTEM_CALL__OUTPUT_PARAMETER_USAGE_ENTRY_LEVEL_SYSTEM_CALL:
+				return ((InternalEList<?>)getOutputParameterUsage_EntryLevelSystemCall()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -221,6 +247,8 @@ public class EntryLevelSystemCallImpl extends AbstractUserActionImpl implements 
 			case UsagemodelPackage.ENTRY_LEVEL_SYSTEM_CALL__SIGNATURE_ENTRY_LEVEL_SYSTEM_CALL:
 				if (resolve) return getSignature_EntryLevelSystemCall();
 				return basicGetSignature_EntryLevelSystemCall();
+			case UsagemodelPackage.ENTRY_LEVEL_SYSTEM_CALL__OUTPUT_PARAMETER_USAGE_ENTRY_LEVEL_SYSTEM_CALL:
+				return getOutputParameterUsage_EntryLevelSystemCall();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -244,6 +272,10 @@ public class EntryLevelSystemCallImpl extends AbstractUserActionImpl implements 
 			case UsagemodelPackage.ENTRY_LEVEL_SYSTEM_CALL__SIGNATURE_ENTRY_LEVEL_SYSTEM_CALL:
 				setSignature_EntryLevelSystemCall((Signature)newValue);
 				return;
+			case UsagemodelPackage.ENTRY_LEVEL_SYSTEM_CALL__OUTPUT_PARAMETER_USAGE_ENTRY_LEVEL_SYSTEM_CALL:
+				getOutputParameterUsage_EntryLevelSystemCall().clear();
+				getOutputParameterUsage_EntryLevelSystemCall().addAll((Collection<? extends VariableUsage>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -265,6 +297,9 @@ public class EntryLevelSystemCallImpl extends AbstractUserActionImpl implements 
 			case UsagemodelPackage.ENTRY_LEVEL_SYSTEM_CALL__SIGNATURE_ENTRY_LEVEL_SYSTEM_CALL:
 				setSignature_EntryLevelSystemCall((Signature)null);
 				return;
+			case UsagemodelPackage.ENTRY_LEVEL_SYSTEM_CALL__OUTPUT_PARAMETER_USAGE_ENTRY_LEVEL_SYSTEM_CALL:
+				getOutputParameterUsage_EntryLevelSystemCall().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -283,6 +318,8 @@ public class EntryLevelSystemCallImpl extends AbstractUserActionImpl implements 
 				return providedRole_EntryLevelSystemCall != null;
 			case UsagemodelPackage.ENTRY_LEVEL_SYSTEM_CALL__SIGNATURE_ENTRY_LEVEL_SYSTEM_CALL:
 				return signature_EntryLevelSystemCall != null;
+			case UsagemodelPackage.ENTRY_LEVEL_SYSTEM_CALL__OUTPUT_PARAMETER_USAGE_ENTRY_LEVEL_SYSTEM_CALL:
+				return outputParameterUsage_EntryLevelSystemCall != null && !outputParameterUsage_EntryLevelSystemCall.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

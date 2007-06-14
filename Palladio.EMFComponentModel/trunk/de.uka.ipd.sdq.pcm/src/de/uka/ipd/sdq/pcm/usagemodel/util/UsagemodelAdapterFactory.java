@@ -150,6 +150,14 @@ public class UsagemodelAdapterFactory extends AdapterFactoryImpl {
 				return createBranchTransitionAdapter();
 			}
 			@Override
+			public Adapter caseDelay(Delay object) {
+				return createDelayAdapter();
+			}
+			@Override
+			public Adapter caseDelayTime(DelayTime object) {
+				return createDelayTimeAdapter();
+			}
+			@Override
 			public Adapter caseIdentifier(Identifier object) {
 				return createIdentifierAdapter();
 			}
@@ -406,6 +414,34 @@ public class UsagemodelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createBranchTransitionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.usagemodel.Delay <em>Delay</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.pcm.usagemodel.Delay
+	 * @generated
+	 */
+	public Adapter createDelayAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.pcm.usagemodel.DelayTime <em>Delay Time</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.pcm.usagemodel.DelayTime
+	 * @generated
+	 */
+	public Adapter createDelayTimeAdapter() {
 		return null;
 	}
 

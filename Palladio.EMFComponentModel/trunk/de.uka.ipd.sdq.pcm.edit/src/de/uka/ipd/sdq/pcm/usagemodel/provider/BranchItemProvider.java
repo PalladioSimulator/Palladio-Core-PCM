@@ -122,7 +122,10 @@ public class BranchItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_Branch_type");
+		String label = ((Branch)object).getId();
+		return label == null || label.length() == 0 ?
+			getString("_UI_Branch_type") :
+			getString("_UI_Branch_type") + " " + label;
 	}
 
 	/**

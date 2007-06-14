@@ -78,6 +78,15 @@ public class BranchActionImpl extends AbstractResourceDemandingActionImpl implem
 	 */
 	private static OCLExpression EitherGuardedBranchesOrProbabilisiticBranchTransitionsInvOCL;
 
+	/**
+	 * The parsed OCL expression for the definition of the '{@link #AllProbabilisticBranchProbabilitiesmustsumupto1 <em>All Probabilistic Branch Probabilitiesmustsumupto1</em>}' invariant constraint.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #AllProbabilisticBranchProbabilitiesmustsumupto1
+	 * @generated
+	 */
+	private static OCLExpression AllProbabilisticBranchProbabilitiesmustsumupto1InvOCL;
+
 	private static final String OCL_ANNOTATION_SOURCE = "http://www.eclipse.org/emf/2002/GenModel";
 
 
@@ -143,6 +152,45 @@ public class BranchActionImpl extends AbstractResourceDemandingActionImpl implem
 						 SeffValidator.DIAGNOSTIC_SOURCE,
 						 SeffValidator.BRANCH_ACTION__EITHER_GUARDED_BRANCHES_OR_PROBABILISITIC_BRANCH_TRANSITIONS,
 						 EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "EitherGuardedBranchesOrProbabilisiticBranchTransitions", EObjectValidator.getObjectLabel(this, context) }),
+						 new Object [] { this }));
+			}
+			return false;
+		}
+		return true;
+		
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean AllProbabilisticBranchProbabilitiesmustsumupto1(DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (AllProbabilisticBranchProbabilitiesmustsumupto1InvOCL == null) {
+			Environment env = ExpressionsUtil.createClassifierContext(eClass());
+			
+			
+			String body = "self.branches_Branch->select(pbt|pbt.oclIsTypeOf(ProbabilisticBranchTransition))->collect(pbt|pbt.oclAsType(ProbabilisticBranchTransition).branchProbability)->sum() > 0.999 and self.branches_Branch->select(pbt|pbt.oclIsTypeOf(ProbabilisticBranchTransition))->collect(pbt|pbt.oclAsType(ProbabilisticBranchTransition).branchProbability)->sum() < 1.001 ";
+			
+			try {
+				AllProbabilisticBranchProbabilitiesmustsumupto1InvOCL = ExpressionsUtil.createInvariant(env, body, true);
+			} catch (ParserException e) {
+				throw new UnsupportedOperationException(e.getLocalizedMessage());
+			}
+		}
+		
+		Query query = QueryFactory.eINSTANCE.createQuery(AllProbabilisticBranchProbabilitiesmustsumupto1InvOCL);
+		EvalEnvironment evalEnv = new EvalEnvironment();
+		query.setEvaluationEnvironment(evalEnv);
+		
+		if (!query.check(this)) {
+			if (diagnostics != null) {
+				diagnostics.add
+					(new BasicDiagnostic
+						(Diagnostic.ERROR,
+						 SeffValidator.DIAGNOSTIC_SOURCE,
+						 SeffValidator.BRANCH_ACTION__ALL_PROBABILISTIC_BRANCH_PROBABILITIESMUSTSUMUPTO1,
+						 EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "AllProbabilisticBranchProbabilitiesmustsumupto1", EObjectValidator.getObjectLabel(this, context) }),
 						 new Object [] { this }));
 			}
 			return false;

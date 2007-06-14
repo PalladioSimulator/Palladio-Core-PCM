@@ -152,6 +152,29 @@ public class QosannotationsItemProviderAdapterFactory extends QosannotationsAdap
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.qosannotations.SpecifiedOutputParameterAbstraction} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected SpecifiedOutputParameterAbstractionItemProvider specifiedOutputParameterAbstractionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.pcm.qosannotations.SpecifiedOutputParameterAbstraction}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createSpecifiedOutputParameterAbstractionAdapter() {
+		if (specifiedOutputParameterAbstractionItemProvider == null) {
+			specifiedOutputParameterAbstractionItemProvider = new SpecifiedOutputParameterAbstractionItemProvider(this);
+		}
+
+		return specifiedOutputParameterAbstractionItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.pcm.qosannotations.QoSAnnotations} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -276,6 +299,7 @@ public class QosannotationsItemProviderAdapterFactory extends QosannotationsAdap
 		if (specifiedFailureProbabilityItemProvider != null) specifiedFailureProbabilityItemProvider.dispose();
 		if (systemSpecifiedExecutionTimeItemProvider != null) systemSpecifiedExecutionTimeItemProvider.dispose();
 		if (componentSpecifiedExecutionTimeItemProvider != null) componentSpecifiedExecutionTimeItemProvider.dispose();
+		if (specifiedOutputParameterAbstractionItemProvider != null) specifiedOutputParameterAbstractionItemProvider.dispose();
 		if (qoSAnnotationsItemProvider != null) qoSAnnotationsItemProvider.dispose();
 	}
 

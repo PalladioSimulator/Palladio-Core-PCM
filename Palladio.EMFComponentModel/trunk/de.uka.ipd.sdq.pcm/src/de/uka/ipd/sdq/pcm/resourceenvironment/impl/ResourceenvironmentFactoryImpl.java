@@ -9,6 +9,7 @@ package de.uka.ipd.sdq.pcm.resourceenvironment.impl;
 import de.uka.ipd.sdq.pcm.resourceenvironment.*;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 
@@ -70,11 +71,42 @@ public class ResourceenvironmentFactoryImpl extends EFactoryImpl implements Reso
 			case ResourceenvironmentPackage.RESOURCE_ENVIRONMENT: return createResourceEnvironment();
 			case ResourceenvironmentPackage.LINKING_RESOURCE: return createLinkingResource();
 			case ResourceenvironmentPackage.COMMUNICATION_LINK_RESOURCE_SPECIFICATION: return createCommunicationLinkResourceSpecification();
+			case ResourceenvironmentPackage.LATENCY: return createLatency();
 			case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION: return createProcessingResourceSpecification();
 			case ResourceenvironmentPackage.PASSIVE_RESOURCE_SPECIFICATION: return createPassiveResourceSpecification();
 			case ResourceenvironmentPackage.RESOURCE_CONTAINER: return createResourceContainer();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object createFromString(EDataType eDataType, String initialValue) {
+		switch (eDataType.getClassifierID()) {
+			case ResourceenvironmentPackage.SCHEDULING_POLICY:
+				return createSchedulingPolicyFromString(eDataType, initialValue);
+			default:
+				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String convertToString(EDataType eDataType, Object instanceValue) {
+		switch (eDataType.getClassifierID()) {
+			case ResourceenvironmentPackage.SCHEDULING_POLICY:
+				return convertSchedulingPolicyToString(eDataType, instanceValue);
+			default:
+				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
 	}
 
@@ -113,6 +145,16 @@ public class ResourceenvironmentFactoryImpl extends EFactoryImpl implements Reso
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Latency createLatency() {
+		LatencyImpl latency = new LatencyImpl();
+		return latency;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public ProcessingResourceSpecification createProcessingResourceSpecification() {
 		ProcessingResourceSpecificationImpl processingResourceSpecification = new ProcessingResourceSpecificationImpl();
 		return processingResourceSpecification;
@@ -136,6 +178,26 @@ public class ResourceenvironmentFactoryImpl extends EFactoryImpl implements Reso
 	public ResourceContainer createResourceContainer() {
 		ResourceContainerImpl resourceContainer = new ResourceContainerImpl();
 		return resourceContainer;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SchedulingPolicy createSchedulingPolicyFromString(EDataType eDataType, String initialValue) {
+		SchedulingPolicy result = SchedulingPolicy.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertSchedulingPolicyToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
 	}
 
 	/**

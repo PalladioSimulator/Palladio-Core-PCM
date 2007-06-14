@@ -60,6 +60,15 @@ public interface QosannotationsFactory extends EFactory {
 	ComponentSpecifiedExecutionTime createComponentSpecifiedExecutionTime();
 
 	/**
+	 * Returns a new object of class '<em>Specified Output Parameter Abstraction</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Specified Output Parameter Abstraction</em>'.
+	 * @generated
+	 */
+	SpecifiedOutputParameterAbstraction createSpecifiedOutputParameterAbstraction();
+
+	/**
 	 * Returns a new object of class '<em>Qo SAnnotations</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
