@@ -129,11 +129,11 @@ public class PalladioComponentModelNewDiagramFileWizard extends Wizard {
 	}
 
 	/**
-	 * @generated
+	 * @generated not
 	 */
 	public void addPages() {
-		addPage(myFileCreationPage);
-		addPage(diagramRootElementSelectionPage);
+		addPage(myDiagramRootElementSelectionPage);
+		addPage(myDiagramFilenameSelectionPage);
 	}
 
 	/**
