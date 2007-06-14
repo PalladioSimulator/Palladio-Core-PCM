@@ -8908,6 +8908,12 @@
       <generalization xmi:id="_7ukSwOQREdqeH_WIC9QRew" general="_lA9SYOQREdqeH_WIC9QRew"/>
     </ownedMember>
     <ownedMember xmi:type="uml:Class" xmi:id="_HTuNcOQREdqeH_WIC9QRew" name="ScenarioBehaviour">
+      <ownedRule xmi:id="_DPrrQBpXEdy6GuPr1BGdtw" name="Exactly one start" constrainedElement="_HTuNcOQREdqeH_WIC9QRew">
+        <specification xmi:type="uml:OpaqueExpression" xmi:id="_DPrrQRpXEdy6GuPr1BGdtw" body="self.actions_ScenarioBehaviour->select(s|s.oclIsTypeOf(Start))->size() = 1" language="OCL"/>
+      </ownedRule>
+      <ownedRule xmi:id="_YmhF8BpXEdy6GuPr1BGdtw" name="Exactly one stop" constrainedElement="_HTuNcOQREdqeH_WIC9QRew">
+        <specification xmi:type="uml:OpaqueExpression" xmi:id="_YmhF8RpXEdy6GuPr1BGdtw" body="self.actions_ScenarioBehaviour->select(s|s.oclIsTypeOf(Stop))->size() = 1" language="OCL"/>
+      </ownedRule>
       <generalization xmi:id="_3YCZEJBEEduoRsekQFNE6A" general="_au_WlWA_EdqdHZdhXRxKVg"/>
       <ownedAttribute xmi:id="_qdDHoeQREdqeH_WIC9QRew" name="actions_ScenarioBehaviour" type="_lA9SYOQREdqeH_WIC9QRew" association="_qdDHoOQREdqeH_WIC9QRew" aggregation="composite">
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_qdDHpOQREdqeH_WIC9QRew" value="-1"/>
@@ -13056,10 +13062,10 @@
     </ownedMember>
     <ownedMember xmi:type="uml:Class" xmi:id="_-kKR4OKHEdq6IvzVMFpuzg" name="ResourceDemandingBehaviour">
       <ownedRule xmi:id="_GuAaQBm9EdyaJvvdhGgDYg" name="Exactly One Stop Action" constrainedElement="_-kKR4OKHEdq6IvzVMFpuzg">
-        <specification xmi:type="uml:OpaqueExpression" xmi:id="_GuAaQRm9EdyaJvvdhGgDYg" body="self.steps_Behaviour->select(s|s.oclIsTypeOf(StopAction))->size() == 1" language="OCL"/>
+        <specification xmi:type="uml:OpaqueExpression" xmi:id="_GuAaQRm9EdyaJvvdhGgDYg" body="self.steps_Behaviour->select(s|s.oclIsTypeOf(StopAction))->size() = 1" language="OCL"/>
       </ownedRule>
       <ownedRule xmi:id="_fMoMoBm6EdyaJvvdhGgDYg" name="Exactly One Start Action" constrainedElement="_-kKR4OKHEdq6IvzVMFpuzg">
-        <specification xmi:type="uml:OpaqueExpression" xmi:id="_fMoMoRm6EdyaJvvdhGgDYg" body="self.steps_Behaviour->select(s|s.oclIsTypeOf(StartAction))->size() == 1" language="OCL"/>
+        <specification xmi:type="uml:OpaqueExpression" xmi:id="_fMoMoRm6EdyaJvvdhGgDYg" body="self.steps_Behaviour->select(s|s.oclIsTypeOf(StartAction))->size() = 1" language="OCL"/>
       </ownedRule>
       <ownedRule xmi:id="_6p4-wBnVEdyaJvvdhGgDYg" name="Each action except StartAction and StopAction must have a predecessor and successor" constrainedElement="_-kKR4OKHEdq6IvzVMFpuzg">
         <specification xmi:type="uml:OpaqueExpression" xmi:id="_6p4-wRnVEdyaJvvdhGgDYg" body="not self.steps_Behaviour->select(s|not s.oclIsTypeOf(StartAction) and not s.oclIsTypeOf(StopAction))->exists(a|a.oclAsType(AbstractAction).predecessor_AbstractAction.oclIsUndefined()) and not self.steps_Behaviour->select(s|not s.oclIsTypeOf(StartAction) and not s.oclIsTypeOf(StopAction))->exists(a|a.oclAsType(AbstractAction).successor_AbstractAction.oclIsUndefined())" language="OCL"/>
