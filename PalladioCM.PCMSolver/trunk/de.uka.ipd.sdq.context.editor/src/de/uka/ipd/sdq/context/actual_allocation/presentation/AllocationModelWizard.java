@@ -3,7 +3,7 @@
  *
  * $Id$
  */
-package de.uka.ipd.sdq.context.usage.presentation;
+package de.uka.ipd.sdq.context.actual_allocation.presentation;
 
 
 import java.util.ArrayList;
@@ -70,10 +70,12 @@ import org.eclipse.ui.dialogs.WizardNewFileCreationPage;
 import org.eclipse.ui.part.FileEditorInput;
 import org.eclipse.ui.part.ISetSelectionTarget;
 
-import de.uka.ipd.sdq.context.usage.UsageFactory;
-import de.uka.ipd.sdq.context.usage.UsagePackage;
+import de.uka.ipd.sdq.context.actual_allocation.AllocationFactory;
+import de.uka.ipd.sdq.context.actual_allocation.AllocationPackage;
 import de.uka.ipd.sdq.context.usage.provider.ContextEditPlugin;
 
+
+import de.uka.ipd.sdq.context.usage.presentation.ContextEditorPlugin;
 
 import org.eclipse.core.runtime.Path;
 
@@ -92,7 +94,7 @@ import org.eclipse.ui.PartInitException;
  * <!-- end-user-doc -->
  * @generated
  */
-public class UsageModelWizard extends Wizard implements INewWizard {
+public class AllocationModelWizard extends Wizard implements INewWizard {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -106,7 +108,7 @@ public class UsageModelWizard extends Wizard implements INewWizard {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected UsagePackage usagePackage = UsagePackage.eINSTANCE;
+	protected AllocationPackage allocationPackage = AllocationPackage.eINSTANCE;
 
 	/**
 	 * This caches an instance of the model factory.
@@ -114,7 +116,7 @@ public class UsageModelWizard extends Wizard implements INewWizard {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected UsageFactory usageFactory = usagePackage.getUsageFactory();
+	protected AllocationFactory allocationFactory = allocationPackage.getAllocationFactory();
 
 	/**
 	 * This is the file creation page.
@@ -122,7 +124,7 @@ public class UsageModelWizard extends Wizard implements INewWizard {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected UsageModelWizardNewFileCreationPage newFileCreationPage;
+	protected AllocationModelWizardNewFileCreationPage newFileCreationPage;
 
 	/**
 	 * This is the initial object creation page.
@@ -130,7 +132,7 @@ public class UsageModelWizard extends Wizard implements INewWizard {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected UsageModelWizardInitialObjectCreationPage initialObjectCreationPage;
+	protected AllocationModelWizardInitialObjectCreationPage initialObjectCreationPage;
 
 	/**
 	 * Remember the selection during initialization for populating the default container.
@@ -166,7 +168,7 @@ public class UsageModelWizard extends Wizard implements INewWizard {
 		this.workbench = workbench;
 		this.selection = selection;
 		setWindowTitle(ContextEditorPlugin.INSTANCE.getString("_UI_Wizard_label"));
-		setDefaultPageImageDescriptor(ExtendedImageRegistry.INSTANCE.getImageDescriptor(ContextEditorPlugin.INSTANCE.getImage("full/wizban/NewUsage")));
+		setDefaultPageImageDescriptor(ExtendedImageRegistry.INSTANCE.getImageDescriptor(ContextEditorPlugin.INSTANCE.getImage("full/wizban/NewAllocation")));
 	}
 
 	/**
@@ -178,7 +180,7 @@ public class UsageModelWizard extends Wizard implements INewWizard {
 	protected Collection getInitialObjectNames() {
 		if (initialObjectNames == null) {
 			initialObjectNames = new ArrayList();
-			for (Iterator classifiers = usagePackage.getEClassifiers().iterator(); classifiers.hasNext(); ) {
+			for (Iterator classifiers = allocationPackage.getEClassifiers().iterator(); classifiers.hasNext(); ) {
 				EClassifier eClassifier = (EClassifier)classifiers.next();
 				if (eClassifier instanceof EClass) {
 					EClass eClass = (EClass)eClassifier;
@@ -199,8 +201,8 @@ public class UsageModelWizard extends Wizard implements INewWizard {
 	 * @generated
 	 */
 	protected EObject createInitialModel() {
-		EClass eClass = (EClass)usagePackage.getEClassifier(initialObjectCreationPage.getInitialObjectName());
-		EObject rootObject = usageFactory.create(eClass);
+		EClass eClass = (EClass)allocationPackage.getEClassifier(initialObjectCreationPage.getInitialObjectName());
+		EObject rootObject = allocationFactory.create(eClass);
 		return rootObject;
 	}
 
@@ -299,14 +301,14 @@ public class UsageModelWizard extends Wizard implements INewWizard {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public class UsageModelWizardNewFileCreationPage extends WizardNewFileCreationPage {
+	public class AllocationModelWizardNewFileCreationPage extends WizardNewFileCreationPage {
 		/**
 		 * Pass in the selection.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		public UsageModelWizardNewFileCreationPage(String pageId, IStructuredSelection selection) {
+		public AllocationModelWizardNewFileCreationPage(String pageId, IStructuredSelection selection) {
 			super(pageId, selection);
 		}
 
@@ -318,9 +320,9 @@ public class UsageModelWizard extends Wizard implements INewWizard {
 		 */
 		protected boolean validatePage() {
 			if (super.validatePage()) {
-				// Make sure the file ends in ".usage".
+				// Make sure the file ends in ".allocation".
 				//
-				String requiredExt = ContextEditorPlugin.INSTANCE.getString("_UI_UsageEditorFilenameExtension");
+				String requiredExt = ContextEditorPlugin.INSTANCE.getString("_UI_AllocationEditorFilenameExtension");
 				String enteredExt = new Path(getFileName()).getFileExtension();
 				if (enteredExt == null || !enteredExt.equals(requiredExt)) {
 					setErrorMessage(ContextEditorPlugin.INSTANCE.getString("_WARN_FilenameExtension", new Object [] { requiredExt }));
@@ -351,7 +353,7 @@ public class UsageModelWizard extends Wizard implements INewWizard {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public class UsageModelWizardInitialObjectCreationPage extends WizardPage {
+	public class AllocationModelWizardInitialObjectCreationPage extends WizardPage {
 		/**
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -379,7 +381,7 @@ public class UsageModelWizard extends Wizard implements INewWizard {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		public UsageModelWizardInitialObjectCreationPage(String pageId) {
+		public AllocationModelWizardInitialObjectCreationPage(String pageId) {
 			super(pageId);
 		}
 
@@ -563,10 +565,10 @@ public class UsageModelWizard extends Wizard implements INewWizard {
 	public void addPages() {
 		// Create a page, set the title, and the initial model file name.
 		//
-		newFileCreationPage = new UsageModelWizardNewFileCreationPage("Whatever", selection);
-		newFileCreationPage.setTitle(ContextEditorPlugin.INSTANCE.getString("_UI_UsageModelWizard_label"));
-		newFileCreationPage.setDescription(ContextEditorPlugin.INSTANCE.getString("_UI_UsageModelWizard_description"));
-		newFileCreationPage.setFileName(ContextEditorPlugin.INSTANCE.getString("_UI_UsageEditorFilenameDefaultBase") + "." + ContextEditorPlugin.INSTANCE.getString("_UI_UsageEditorFilenameExtension"));
+		newFileCreationPage = new AllocationModelWizardNewFileCreationPage("Whatever", selection);
+		newFileCreationPage.setTitle(ContextEditorPlugin.INSTANCE.getString("_UI_AllocationModelWizard_label"));
+		newFileCreationPage.setDescription(ContextEditorPlugin.INSTANCE.getString("_UI_AllocationModelWizard_description"));
+		newFileCreationPage.setFileName(ContextEditorPlugin.INSTANCE.getString("_UI_AllocationEditorFilenameDefaultBase") + "." + ContextEditorPlugin.INSTANCE.getString("_UI_AllocationEditorFilenameExtension"));
 		addPage(newFileCreationPage);
 
 		// Try and get the resource selection to determine a current directory for the file dialog.
@@ -592,8 +594,8 @@ public class UsageModelWizard extends Wizard implements INewWizard {
 
 					// Make up a unique new name here.
 					//
-					String defaultModelBaseFilename = ContextEditorPlugin.INSTANCE.getString("_UI_UsageEditorFilenameDefaultBase");
-					String defaultModelFilenameExtension = ContextEditorPlugin.INSTANCE.getString("_UI_UsageEditorFilenameExtension");
+					String defaultModelBaseFilename = ContextEditorPlugin.INSTANCE.getString("_UI_AllocationEditorFilenameDefaultBase");
+					String defaultModelFilenameExtension = ContextEditorPlugin.INSTANCE.getString("_UI_AllocationEditorFilenameExtension");
 					String modelFilename = defaultModelBaseFilename + "." + defaultModelFilenameExtension;
 					for (int i = 1; ((IContainer)selectedResource).findMember(modelFilename) != null; ++i) {
 						modelFilename = defaultModelBaseFilename + i + "." + defaultModelFilenameExtension;
@@ -602,8 +604,8 @@ public class UsageModelWizard extends Wizard implements INewWizard {
 				}
 			}
 		}
-		initialObjectCreationPage = new UsageModelWizardInitialObjectCreationPage("Whatever2");
-		initialObjectCreationPage.setTitle(ContextEditorPlugin.INSTANCE.getString("_UI_UsageModelWizard_label"));
+		initialObjectCreationPage = new AllocationModelWizardInitialObjectCreationPage("Whatever2");
+		initialObjectCreationPage.setTitle(ContextEditorPlugin.INSTANCE.getString("_UI_AllocationModelWizard_label"));
 		initialObjectCreationPage.setDescription(ContextEditorPlugin.INSTANCE.getString("_UI_Wizard_initial_object_description"));
 		addPage(initialObjectCreationPage);
 	}

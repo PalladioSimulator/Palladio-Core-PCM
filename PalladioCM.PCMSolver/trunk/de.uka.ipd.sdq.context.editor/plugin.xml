@@ -2,8 +2,7 @@
 <?eclipse version="3.0"?>
 
 <!--
- <copyright>
- </copyright>
+ Copyright 2006, SDQ Group, University Karlsruhe (TH)
 
  $Id$
 -->
@@ -46,9 +45,9 @@
       name="%_UI_Wizard_category">
     </category>
     <wizard
-      id = "de.uka.ipd.sdq.context.allocation.presentation.AllocationModelWizardID"
+      id = "de.uka.ipd.sdq.context.actual_allocation.presentation.AllocationModelWizardID"
       name = "%_UI_AllocationModelWizard_label"
-      class = "de.uka.ipd.sdq.context.allocation.presentation.AllocationModelWizard"
+      class = "de.uka.ipd.sdq.context.actual_allocation.presentation.AllocationModelWizard"
       category = "org.eclipse.emf.ecore.Wizard.category.ID"
       icon = "icons/full/obj16/AllocationModelFile.gif">
       <description>%_UI_AllocationModelWizard_description</description>
@@ -58,12 +57,12 @@
 
   <extension point = "org.eclipse.ui.editors">
     <editor
-        id = "de.uka.ipd.sdq.context.allocation.presentation.AllocationEditorID"
+        id = "de.uka.ipd.sdq.context.actual_allocation.presentation.AllocationEditorID"
         name = "%_UI_AllocationEditor_label"
         icon = "icons/full/obj16/AllocationModelFile.gif"
-        extensions = "actualallocation"
-        class = "de.uka.ipd.sdq.context.allocation.presentation.AllocationEditor" 
-        contributorClass="de.uka.ipd.sdq.context.allocation.presentation.AllocationActionBarContributor" >
+        extensions = "allocation"
+        class = "de.uka.ipd.sdq.context.actual_allocation.presentation.AllocationEditor" 
+        contributorClass="de.uka.ipd.sdq.context.actual_allocation.presentation.AllocationActionBarContributor" >
     </editor>
   </extension>    
 </plugin>

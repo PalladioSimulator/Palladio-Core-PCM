@@ -2,12 +2,12 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: de.uka.ipd.sdq.context.editor; singleton:=true
-Bundle-Version: 1.0.0.qualifier
+Bundle-Version: 1.0.0
 Bundle-ClassPath: .
 Bundle-Activator: de.uka.ipd.sdq.context.usage.presentation.ContextEditorPlugin$Implementation
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
-Export-Package: de.uka.ipd.sdq.context.allocation.presentation,
+Export-Package: de.uka.ipd.sdq.context.actual_allocation.presentation,
  de.uka.ipd.sdq.context.usage.presentation
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.core.resources;visibility:=reexport,
@@ -18,6 +18,5 @@ Require-Bundle: org.eclipse.core.runtime,
  de.uka.ipd.sdq.identifier.edit;visibility:=reexport,
  de.uka.ipd.sdq.pcm.edit;visibility:=reexport,
  de.uka.ipd.sdq.probfunction.edit;visibility:=reexport,
- de.uka.ipd.sdq.stoex,
- de.uka.ipd.sdq.stoex.edit
+ de.uka.ipd.sdq.stoex.edit;visibility:=reexport
 Eclipse-LazyStart: true

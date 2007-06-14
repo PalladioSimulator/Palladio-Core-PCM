@@ -3,7 +3,9 @@
  *
  * $Id$
  */
-package de.uka.ipd.sdq.context.usage.presentation;
+package de.uka.ipd.sdq.context.actual_allocation.presentation;
+
+import de.uka.ipd.sdq.context.usage.presentation.ContextEditorPlugin;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -44,12 +46,12 @@ import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.PartInitException;
 
 /**
- * This is the action bar contributor for the Usage model editor.
+ * This is the action bar contributor for the Allocation model editor.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class UsageActionBarContributor
+public class AllocationActionBarContributor
 	extends EditingDomainActionBarContributor
 	implements ISelectionChangedListener {
 	/**
@@ -156,7 +158,7 @@ public class UsageActionBarContributor
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public UsageActionBarContributor() {
+	public AllocationActionBarContributor() {
 		super(ADDITIONS_LAST_STYLE);
 		loadResourceAction = new LoadResourceAction();
 		validateAction = new ValidateAction();
@@ -170,8 +172,8 @@ public class UsageActionBarContributor
 	 * @generated
 	 */
 	public void contributeToToolBar(IToolBarManager toolBarManager) {
-		toolBarManager.add(new Separator("usage-settings"));
-		toolBarManager.add(new Separator("usage-additions"));
+		toolBarManager.add(new Separator("allocation-settings"));
+		toolBarManager.add(new Separator("allocation-additions"));
 	}
 
 	/**
@@ -184,7 +186,7 @@ public class UsageActionBarContributor
 	public void contributeToMenu(IMenuManager menuManager) {
 		super.contributeToMenu(menuManager);
 
-		IMenuManager submenuManager = new MenuManager(ContextEditorPlugin.INSTANCE.getString("_UI_UsageEditor_menu"), "de.uka.ipd.sdq.context.usageMenuID");
+		IMenuManager submenuManager = new MenuManager(ContextEditorPlugin.INSTANCE.getString("_UI_AllocationEditor_menu"), "de.uka.ipd.sdq.context.actual_allocationMenuID");
 		menuManager.insertAfter("additions", submenuManager);
 		submenuManager.add(new Separator("settings"));
 		submenuManager.add(new Separator("actions"));

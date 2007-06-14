@@ -3,7 +3,7 @@
  *
  * $Id$
  */
-package de.uka.ipd.sdq.context.usage.presentation;
+package de.uka.ipd.sdq.context.actual_allocation.presentation;
 
 
 import java.io.IOException;
@@ -156,9 +156,11 @@ import org.eclipse.emf.edit.ui.util.EditUIMarkerHelper;
 
 import org.eclipse.emf.edit.ui.view.ExtendedPropertySheetPage;
 
-import de.uka.ipd.sdq.context.usage.provider.UsageItemProviderAdapterFactory;
-
 import de.uka.ipd.sdq.context.actual_allocation.provider.AllocationItemProviderAdapterFactory;
+
+import de.uka.ipd.sdq.context.usage.presentation.ContextEditorPlugin;
+
+import de.uka.ipd.sdq.context.usage.provider.UsageItemProviderAdapterFactory;
 
 import de.uka.ipd.sdq.identifier.provider.IdentifierItemProviderAdapterFactory;
 
@@ -194,12 +196,12 @@ import org.eclipse.ui.actions.WorkspaceModifyOperation;
 
 
 /**
- * This is an example of a Usage model editor.
+ * This is an example of a Allocation model editor.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class UsageEditor
+public class AllocationEditor
 	extends MultiPageEditorPart
 	implements IEditingDomainProvider, ISelectionProvider, IMenuListener, IViewerProvider, IGotoMarker {
 	/**
@@ -368,18 +370,18 @@ public class UsageEditor
 			public void partActivated(IWorkbenchPart p) {
 				if (p instanceof ContentOutline) {
 					if (((ContentOutline)p).getCurrentPage() == contentOutlinePage) {
-						getActionBarContributor().setActiveEditor(UsageEditor.this);
+						getActionBarContributor().setActiveEditor(AllocationEditor.this);
 
 						setCurrentViewer(contentOutlineViewer);
 					}
 				}
 				else if (p instanceof PropertySheet) {
 					if (((PropertySheet)p).getCurrentPage() == propertySheetPage) {
-						getActionBarContributor().setActiveEditor(UsageEditor.this);
+						getActionBarContributor().setActiveEditor(AllocationEditor.this);
 						handleActivate();
 					}
 				}
-				else if (p == UsageEditor.this) {
+				else if (p == AllocationEditor.this) {
 					handleActivate();
 				}
 			}
@@ -542,8 +544,8 @@ public class UsageEditor
 								getSite().getShell().getDisplay().asyncExec
 									(new Runnable() {
 										 public void run() {
-											 getSite().getPage().closeEditor(UsageEditor.this, false);
-											 UsageEditor.this.dispose();
+											 getSite().getPage().closeEditor(AllocationEditor.this, false);
+											 AllocationEditor.this.dispose();
 										 }
 									 });
 							}
@@ -551,7 +553,7 @@ public class UsageEditor
 
 						if (!visitor.getChangedResources().isEmpty()) {
 							changedResources.addAll(visitor.getChangedResources());
-							if (getSite().getPage().getActiveEditor() == UsageEditor.this) {
+							if (getSite().getPage().getActiveEditor() == AllocationEditor.this) {
 								getSite().getShell().getDisplay().asyncExec
 									(new Runnable() {
 										 public void run() {
@@ -587,8 +589,8 @@ public class UsageEditor
 
 		if (!removedResources.isEmpty()) {
 			if (handleDirtyConflict()) {
-				getSite().getPage().closeEditor(UsageEditor.this, false);
-				UsageEditor.this.dispose();
+				getSite().getPage().closeEditor(AllocationEditor.this, false);
+				AllocationEditor.this.dispose();
 			}
 			else {
 				removedResources.clear();
@@ -712,7 +714,7 @@ public class UsageEditor
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public UsageEditor() {
+	public AllocationEditor() {
 		super();
 		initializeEditingDomain();
 	}
@@ -1063,7 +1065,7 @@ public class UsageEditor
 			//
 			{
 				ViewerPane viewerPane =
-					new ViewerPane(getSite().getPage(), UsageEditor.this) {
+					new ViewerPane(getSite().getPage(), AllocationEditor.this) {
 						public Viewer createViewer(Composite composite) {
 							Tree tree = new Tree(composite, SWT.MULTI);
 							TreeViewer newTreeViewer = new TreeViewer(tree);
@@ -1095,7 +1097,7 @@ public class UsageEditor
 			//
 			{
 				ViewerPane viewerPane =
-					new ViewerPane(getSite().getPage(), UsageEditor.this) {
+					new ViewerPane(getSite().getPage(), AllocationEditor.this) {
 						public Viewer createViewer(Composite composite) {
 							Tree tree = new Tree(composite, SWT.MULTI);
 							TreeViewer newTreeViewer = new TreeViewer(tree);
@@ -1122,7 +1124,7 @@ public class UsageEditor
 			//
 			{
 				ViewerPane viewerPane =
-					new ViewerPane(getSite().getPage(), UsageEditor.this) {
+					new ViewerPane(getSite().getPage(), AllocationEditor.this) {
 						public Viewer createViewer(Composite composite) {
 							return new ListViewer(composite);
 						}
@@ -1145,7 +1147,7 @@ public class UsageEditor
 			//
 			{
 				ViewerPane viewerPane =
-					new ViewerPane(getSite().getPage(), UsageEditor.this) {
+					new ViewerPane(getSite().getPage(), AllocationEditor.this) {
 						public Viewer createViewer(Composite composite) {
 							return new TreeViewer(composite);
 						}
@@ -1170,7 +1172,7 @@ public class UsageEditor
 			//
 			{
 				ViewerPane viewerPane =
-					new ViewerPane(getSite().getPage(), UsageEditor.this) {
+					new ViewerPane(getSite().getPage(), AllocationEditor.this) {
 						public Viewer createViewer(Composite composite) {
 							return new TableViewer(composite);
 						}
@@ -1211,7 +1213,7 @@ public class UsageEditor
 			//
 			{
 				ViewerPane viewerPane =
-					new ViewerPane(getSite().getPage(), UsageEditor.this) {
+					new ViewerPane(getSite().getPage(), AllocationEditor.this) {
 						public Viewer createViewer(Composite composite) {
 							return new TreeViewer(composite);
 						}
@@ -1412,8 +1414,8 @@ public class UsageEditor
 			propertySheetPage =
 				new ExtendedPropertySheetPage(editingDomain) {
 					public void setSelectionToViewer(List selection) {
-						UsageEditor.this.setSelectionToViewer(selection);
-						UsageEditor.this.setFocus();
+						AllocationEditor.this.setSelectionToViewer(selection);
+						AllocationEditor.this.setFocus();
 					}
 
 					public void setActionBars(IActionBars actionBars) {
