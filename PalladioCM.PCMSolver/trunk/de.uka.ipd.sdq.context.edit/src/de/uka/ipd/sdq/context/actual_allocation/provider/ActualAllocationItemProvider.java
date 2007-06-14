@@ -7,6 +7,8 @@ package de.uka.ipd.sdq.context.actual_allocation.provider;
 
 
 import de.uka.ipd.sdq.context.actual_allocation.ActualAllocation;
+import de.uka.ipd.sdq.context.actual_allocation.Actual_AllocationFactory;
+import de.uka.ipd.sdq.context.actual_allocation.Actual_AllocationPackage;
 import de.uka.ipd.sdq.context.actual_allocation.AllocationFactory;
 import de.uka.ipd.sdq.context.actual_allocation.AllocationPackage;
 
@@ -86,7 +88,7 @@ public class ActualAllocationItemProvider
 	public Collection getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(AllocationPackage.Literals.ACTUAL_ALLOCATION__ACTUAL_ALLOCATION_CONTEXTS_ACTUAL_ALLOCATION);
+			childrenFeatures.add(Actual_AllocationPackage.Literals.ACTUAL_ALLOCATION__ACTUAL_ALLOCATION_CONTEXTS_ACTUAL_ALLOCATION);
 		}
 		return childrenFeatures;
 	}
@@ -134,7 +136,7 @@ public class ActualAllocationItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(ActualAllocation.class)) {
-			case AllocationPackage.ACTUAL_ALLOCATION__ACTUAL_ALLOCATION_CONTEXTS_ACTUAL_ALLOCATION:
+			case Actual_AllocationPackage.ACTUAL_ALLOCATION__ACTUAL_ALLOCATION_CONTEXTS_ACTUAL_ALLOCATION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -153,8 +155,8 @@ public class ActualAllocationItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(AllocationPackage.Literals.ACTUAL_ALLOCATION__ACTUAL_ALLOCATION_CONTEXTS_ACTUAL_ALLOCATION,
-				 AllocationFactory.eINSTANCE.createActualAllocationContext()));
+				(Actual_AllocationPackage.Literals.ACTUAL_ALLOCATION__ACTUAL_ALLOCATION_CONTEXTS_ACTUAL_ALLOCATION,
+				 Actual_AllocationFactory.eINSTANCE.createActualAllocationContext()));
 	}
 
 	/**

@@ -21,7 +21,7 @@ import org.eclipse.emf.ecore.EObject;
  * </ul>
  * </p>
  *
- * @see de.uka.ipd.sdq.context.actual_allocation.AllocationPackage#getActualAllocation()
+ * @see de.uka.ipd.sdq.context.actual_allocation.Actual_AllocationPackage#getActualAllocation()
  * @model
  * @generated
  */
@@ -43,7 +43,7 @@ public interface ActualAllocation extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Actual Allocation Contexts Actual Allocation</em>' containment reference list.
-	 * @see de.uka.ipd.sdq.context.actual_allocation.AllocationPackage#getActualAllocation_ActualAllocationContexts_ActualAllocation()
+	 * @see de.uka.ipd.sdq.context.actual_allocation.Actual_AllocationPackage#getActualAllocation_ActualAllocationContexts_ActualAllocation()
 	 * @model type="de.uka.ipd.sdq.context.actual_allocation.ActualAllocationContext" containment="true" ordered="false"
 	 * @generated
 	 */

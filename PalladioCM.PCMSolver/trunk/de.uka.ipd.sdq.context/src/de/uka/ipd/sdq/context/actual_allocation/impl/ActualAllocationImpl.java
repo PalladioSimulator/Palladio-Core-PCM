@@ -7,6 +7,7 @@ package de.uka.ipd.sdq.context.actual_allocation.impl;
 
 import de.uka.ipd.sdq.context.actual_allocation.ActualAllocation;
 import de.uka.ipd.sdq.context.actual_allocation.ActualAllocationContext;
+import de.uka.ipd.sdq.context.actual_allocation.Actual_AllocationPackage;
 import de.uka.ipd.sdq.context.actual_allocation.AllocationPackage;
 
 import java.util.Collection;
@@ -69,7 +70,7 @@ public class ActualAllocationImpl extends EObjectImpl implements ActualAllocatio
 	 * @generated
 	 */
 	protected EClass eStaticClass() {
-		return AllocationPackage.Literals.ACTUAL_ALLOCATION;
+		return Actual_AllocationPackage.Literals.ACTUAL_ALLOCATION;
 	}
 
 	/**
@@ -79,7 +80,7 @@ public class ActualAllocationImpl extends EObjectImpl implements ActualAllocatio
 	 */
 	public EList getActualAllocationContexts_ActualAllocation() {
 		if (actualAllocationContexts_ActualAllocation == null) {
-			actualAllocationContexts_ActualAllocation = new EObjectContainmentEList(ActualAllocationContext.class, this, AllocationPackage.ACTUAL_ALLOCATION__ACTUAL_ALLOCATION_CONTEXTS_ACTUAL_ALLOCATION);
+			actualAllocationContexts_ActualAllocation = new EObjectContainmentEList(ActualAllocationContext.class, this, Actual_AllocationPackage.ACTUAL_ALLOCATION__ACTUAL_ALLOCATION_CONTEXTS_ACTUAL_ALLOCATION);
 		}
 		return actualAllocationContexts_ActualAllocation;
 	}
@@ -91,7 +92,7 @@ public class ActualAllocationImpl extends EObjectImpl implements ActualAllocatio
 	 */
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case AllocationPackage.ACTUAL_ALLOCATION__ACTUAL_ALLOCATION_CONTEXTS_ACTUAL_ALLOCATION:
+			case Actual_AllocationPackage.ACTUAL_ALLOCATION__ACTUAL_ALLOCATION_CONTEXTS_ACTUAL_ALLOCATION:
 				return ((InternalEList)getActualAllocationContexts_ActualAllocation()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -104,7 +105,7 @@ public class ActualAllocationImpl extends EObjectImpl implements ActualAllocatio
 	 */
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case AllocationPackage.ACTUAL_ALLOCATION__ACTUAL_ALLOCATION_CONTEXTS_ACTUAL_ALLOCATION:
+			case Actual_AllocationPackage.ACTUAL_ALLOCATION__ACTUAL_ALLOCATION_CONTEXTS_ACTUAL_ALLOCATION:
 				return getActualAllocationContexts_ActualAllocation();
 		}
 		return super.eGet(featureID, resolve, coreType);
@@ -117,7 +118,7 @@ public class ActualAllocationImpl extends EObjectImpl implements ActualAllocatio
 	 */
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case AllocationPackage.ACTUAL_ALLOCATION__ACTUAL_ALLOCATION_CONTEXTS_ACTUAL_ALLOCATION:
+			case Actual_AllocationPackage.ACTUAL_ALLOCATION__ACTUAL_ALLOCATION_CONTEXTS_ACTUAL_ALLOCATION:
 				getActualAllocationContexts_ActualAllocation().clear();
 				getActualAllocationContexts_ActualAllocation().addAll((Collection)newValue);
 				return;
@@ -132,7 +133,7 @@ public class ActualAllocationImpl extends EObjectImpl implements ActualAllocatio
 	 */
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case AllocationPackage.ACTUAL_ALLOCATION__ACTUAL_ALLOCATION_CONTEXTS_ACTUAL_ALLOCATION:
+			case Actual_AllocationPackage.ACTUAL_ALLOCATION__ACTUAL_ALLOCATION_CONTEXTS_ACTUAL_ALLOCATION:
 				getActualAllocationContexts_ActualAllocation().clear();
 				return;
 		}
@@ -146,7 +147,7 @@ public class ActualAllocationImpl extends EObjectImpl implements ActualAllocatio
 	 */
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case AllocationPackage.ACTUAL_ALLOCATION__ACTUAL_ALLOCATION_CONTEXTS_ACTUAL_ALLOCATION:
+			case Actual_AllocationPackage.ACTUAL_ALLOCATION__ACTUAL_ALLOCATION_CONTEXTS_ACTUAL_ALLOCATION:
 				return actualAllocationContexts_ActualAllocation != null && !actualAllocationContexts_ActualAllocation.isEmpty();
 		}
 		return super.eIsSet(featureID);

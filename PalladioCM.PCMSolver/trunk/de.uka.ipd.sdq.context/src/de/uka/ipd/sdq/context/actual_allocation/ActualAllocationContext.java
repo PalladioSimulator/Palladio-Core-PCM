@@ -24,7 +24,7 @@ import org.eclipse.emf.ecore.EObject;
  * </ul>
  * </p>
  *
- * @see de.uka.ipd.sdq.context.actual_allocation.AllocationPackage#getActualAllocationContext()
+ * @see de.uka.ipd.sdq.context.actual_allocation.Actual_AllocationPackage#getActualAllocationContext()
  * @model
  * @generated
  */
@@ -46,7 +46,7 @@ public interface ActualAllocationContext extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Actual Resource Demands Actual Allocation Context</em>' containment reference list.
-	 * @see de.uka.ipd.sdq.context.actual_allocation.AllocationPackage#getActualAllocationContext_ActualResourceDemands_ActualAllocationContext()
+	 * @see de.uka.ipd.sdq.context.actual_allocation.Actual_AllocationPackage#getActualAllocationContext_ActualResourceDemands_ActualAllocationContext()
 	 * @model type="de.uka.ipd.sdq.context.actual_allocation.ActualResourceDemand" containment="true" ordered="false"
 	 * @generated
 	 */
@@ -62,7 +62,7 @@ public interface ActualAllocationContext extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Usage Context Actual Allocation Context</em>' reference.
 	 * @see #setUsageContext_ActualAllocationContext(UsageContext)
-	 * @see de.uka.ipd.sdq.context.actual_allocation.AllocationPackage#getActualAllocationContext_UsageContext_ActualAllocationContext()
+	 * @see de.uka.ipd.sdq.context.actual_allocation.Actual_AllocationPackage#getActualAllocationContext_UsageContext_ActualAllocationContext()
 	 * @model required="true" ordered="false"
 	 * @generated
 	 */

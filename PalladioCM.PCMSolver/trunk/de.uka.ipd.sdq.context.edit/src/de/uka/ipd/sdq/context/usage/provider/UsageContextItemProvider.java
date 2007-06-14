@@ -12,6 +12,8 @@ import de.uka.ipd.sdq.context.usage.UsagePackage;
 
 import de.uka.ipd.sdq.pcm.parameter.ParameterFactory;
 
+import de.uka.ipd.sdq.pcm.qosannotations.QosannotationsFactory;
+
 import java.util.Collection;
 import java.util.List;
 
@@ -169,6 +171,11 @@ public class UsageContextItemProvider
 			(createChildParameter
 				(UsagePackage.Literals.USAGE_CONTEXT__ACTUAL_PARAMETER_USAGE_USAGE_CONTEXT,
 				 ParameterFactory.eINSTANCE.createVariableUsage()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(UsagePackage.Literals.USAGE_CONTEXT__ACTUAL_PARAMETER_USAGE_USAGE_CONTEXT,
+				 QosannotationsFactory.eINSTANCE.createSpecifiedOutputParameterAbstraction()));
 	}
 
 	/**

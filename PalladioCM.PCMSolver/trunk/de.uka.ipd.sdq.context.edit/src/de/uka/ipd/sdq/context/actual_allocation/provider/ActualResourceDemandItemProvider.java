@@ -7,11 +7,13 @@ package de.uka.ipd.sdq.context.actual_allocation.provider;
 
 
 import de.uka.ipd.sdq.context.actual_allocation.ActualResourceDemand;
+import de.uka.ipd.sdq.context.actual_allocation.Actual_AllocationPackage;
 import de.uka.ipd.sdq.context.actual_allocation.AllocationPackage;
 
 import de.uka.ipd.sdq.context.usage.provider.ContextEditPlugin;
 
 import de.uka.ipd.sdq.stoex.provider.RandomVariableItemProvider;
+
 import java.util.Collection;
 import java.util.List;
 
@@ -26,7 +28,6 @@ import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 
 /**
  * This is the item provider adapter for a {@link de.uka.ipd.sdq.context.actual_allocation.ActualResourceDemand} object.
@@ -87,7 +88,7 @@ public class ActualResourceDemandItemProvider
 				 getResourceLocator(),
 				 getString("_UI_ActualResourceDemand_parametricResourceDemand_ActualResourceDemand_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_ActualResourceDemand_parametricResourceDemand_ActualResourceDemand_feature", "_UI_ActualResourceDemand_type"),
-				 AllocationPackage.Literals.ACTUAL_RESOURCE_DEMAND__PARAMETRIC_RESOURCE_DEMAND_ACTUAL_RESOURCE_DEMAND,
+				 Actual_AllocationPackage.Literals.ACTUAL_RESOURCE_DEMAND__PARAMETRIC_RESOURCE_DEMAND_ACTUAL_RESOURCE_DEMAND,
 				 true,
 				 false,
 				 true,

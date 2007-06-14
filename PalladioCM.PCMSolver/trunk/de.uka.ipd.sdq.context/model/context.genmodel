@@ -44,8 +44,8 @@
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference context.ecore#//usage/Usage/usageContexts_Usage"/>
       </genClasses>
     </nestedGenPackages>
-    <nestedGenPackages prefix="Allocation" basePackage="de.uka.ipd.sdq.context" disposableProviderFactory="true"
-        ecorePackage="context.ecore#//actual_allocation">
+    <nestedGenPackages prefix="Actual_Allocation" basePackage="de.uka.ipd.sdq.context"
+        disposableProviderFactory="true" ecorePackage="context.ecore#//actual_allocation">
       <genClasses ecoreClass="context.ecore#//actual_allocation/ActualAllocationContext">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference context.ecore#//actual_allocation/ActualAllocationContext/actualResourceDemands_ActualAllocationContext"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"

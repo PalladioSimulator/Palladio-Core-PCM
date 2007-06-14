@@ -6,6 +6,7 @@
 package de.uka.ipd.sdq.context.actual_allocation.impl;
 
 import de.uka.ipd.sdq.context.actual_allocation.ActualResourceDemand;
+import de.uka.ipd.sdq.context.actual_allocation.Actual_AllocationPackage;
 import de.uka.ipd.sdq.context.actual_allocation.AllocationPackage;
 
 import de.uka.ipd.sdq.pcm.seff.ParametricResourceDemand;
@@ -67,7 +68,7 @@ public class ActualResourceDemandImpl extends RandomVariableImpl implements Actu
 	 * @generated
 	 */
 	protected EClass eStaticClass() {
-		return AllocationPackage.Literals.ACTUAL_RESOURCE_DEMAND;
+		return Actual_AllocationPackage.Literals.ACTUAL_RESOURCE_DEMAND;
 	}
 
 	/**
@@ -81,7 +82,7 @@ public class ActualResourceDemandImpl extends RandomVariableImpl implements Actu
 			parametricResourceDemand_ActualResourceDemand = (ParametricResourceDemand)eResolveProxy(oldParametricResourceDemand_ActualResourceDemand);
 			if (parametricResourceDemand_ActualResourceDemand != oldParametricResourceDemand_ActualResourceDemand) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, AllocationPackage.ACTUAL_RESOURCE_DEMAND__PARAMETRIC_RESOURCE_DEMAND_ACTUAL_RESOURCE_DEMAND, oldParametricResourceDemand_ActualResourceDemand, parametricResourceDemand_ActualResourceDemand));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, Actual_AllocationPackage.ACTUAL_RESOURCE_DEMAND__PARAMETRIC_RESOURCE_DEMAND_ACTUAL_RESOURCE_DEMAND, oldParametricResourceDemand_ActualResourceDemand, parametricResourceDemand_ActualResourceDemand));
 			}
 		}
 		return parametricResourceDemand_ActualResourceDemand;
@@ -105,7 +106,7 @@ public class ActualResourceDemandImpl extends RandomVariableImpl implements Actu
 		ParametricResourceDemand oldParametricResourceDemand_ActualResourceDemand = parametricResourceDemand_ActualResourceDemand;
 		parametricResourceDemand_ActualResourceDemand = newParametricResourceDemand_ActualResourceDemand;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AllocationPackage.ACTUAL_RESOURCE_DEMAND__PARAMETRIC_RESOURCE_DEMAND_ACTUAL_RESOURCE_DEMAND, oldParametricResourceDemand_ActualResourceDemand, parametricResourceDemand_ActualResourceDemand));
+			eNotify(new ENotificationImpl(this, Notification.SET, Actual_AllocationPackage.ACTUAL_RESOURCE_DEMAND__PARAMETRIC_RESOURCE_DEMAND_ACTUAL_RESOURCE_DEMAND, oldParametricResourceDemand_ActualResourceDemand, parametricResourceDemand_ActualResourceDemand));
 	}
 
 	/**
@@ -115,7 +116,7 @@ public class ActualResourceDemandImpl extends RandomVariableImpl implements Actu
 	 */
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case AllocationPackage.ACTUAL_RESOURCE_DEMAND__PARAMETRIC_RESOURCE_DEMAND_ACTUAL_RESOURCE_DEMAND:
+			case Actual_AllocationPackage.ACTUAL_RESOURCE_DEMAND__PARAMETRIC_RESOURCE_DEMAND_ACTUAL_RESOURCE_DEMAND:
 				if (resolve) return getParametricResourceDemand_ActualResourceDemand();
 				return basicGetParametricResourceDemand_ActualResourceDemand();
 		}
@@ -129,7 +130,7 @@ public class ActualResourceDemandImpl extends RandomVariableImpl implements Actu
 	 */
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case AllocationPackage.ACTUAL_RESOURCE_DEMAND__PARAMETRIC_RESOURCE_DEMAND_ACTUAL_RESOURCE_DEMAND:
+			case Actual_AllocationPackage.ACTUAL_RESOURCE_DEMAND__PARAMETRIC_RESOURCE_DEMAND_ACTUAL_RESOURCE_DEMAND:
 				setParametricResourceDemand_ActualResourceDemand((ParametricResourceDemand)newValue);
 				return;
 		}
@@ -143,7 +144,7 @@ public class ActualResourceDemandImpl extends RandomVariableImpl implements Actu
 	 */
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case AllocationPackage.ACTUAL_RESOURCE_DEMAND__PARAMETRIC_RESOURCE_DEMAND_ACTUAL_RESOURCE_DEMAND:
+			case Actual_AllocationPackage.ACTUAL_RESOURCE_DEMAND__PARAMETRIC_RESOURCE_DEMAND_ACTUAL_RESOURCE_DEMAND:
 				setParametricResourceDemand_ActualResourceDemand((ParametricResourceDemand)null);
 				return;
 		}
@@ -157,7 +158,7 @@ public class ActualResourceDemandImpl extends RandomVariableImpl implements Actu
 	 */
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case AllocationPackage.ACTUAL_RESOURCE_DEMAND__PARAMETRIC_RESOURCE_DEMAND_ACTUAL_RESOURCE_DEMAND:
+			case Actual_AllocationPackage.ACTUAL_RESOURCE_DEMAND__PARAMETRIC_RESOURCE_DEMAND_ACTUAL_RESOURCE_DEMAND:
 				return parametricResourceDemand_ActualResourceDemand != null;
 		}
 		return super.eIsSet(featureID);

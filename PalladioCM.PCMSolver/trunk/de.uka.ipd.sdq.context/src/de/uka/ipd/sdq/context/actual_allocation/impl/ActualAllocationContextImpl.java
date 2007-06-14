@@ -7,6 +7,7 @@ package de.uka.ipd.sdq.context.actual_allocation.impl;
 
 import de.uka.ipd.sdq.context.actual_allocation.ActualAllocationContext;
 import de.uka.ipd.sdq.context.actual_allocation.ActualResourceDemand;
+import de.uka.ipd.sdq.context.actual_allocation.Actual_AllocationPackage;
 import de.uka.ipd.sdq.context.actual_allocation.AllocationPackage;
 
 import de.uka.ipd.sdq.context.usage.UsageContext;
@@ -84,7 +85,7 @@ public class ActualAllocationContextImpl extends EObjectImpl implements ActualAl
 	 * @generated
 	 */
 	protected EClass eStaticClass() {
-		return AllocationPackage.Literals.ACTUAL_ALLOCATION_CONTEXT;
+		return Actual_AllocationPackage.Literals.ACTUAL_ALLOCATION_CONTEXT;
 	}
 
 	/**
@@ -94,7 +95,7 @@ public class ActualAllocationContextImpl extends EObjectImpl implements ActualAl
 	 */
 	public EList getActualResourceDemands_ActualAllocationContext() {
 		if (actualResourceDemands_ActualAllocationContext == null) {
-			actualResourceDemands_ActualAllocationContext = new EObjectContainmentEList(ActualResourceDemand.class, this, AllocationPackage.ACTUAL_ALLOCATION_CONTEXT__ACTUAL_RESOURCE_DEMANDS_ACTUAL_ALLOCATION_CONTEXT);
+			actualResourceDemands_ActualAllocationContext = new EObjectContainmentEList(ActualResourceDemand.class, this, Actual_AllocationPackage.ACTUAL_ALLOCATION_CONTEXT__ACTUAL_RESOURCE_DEMANDS_ACTUAL_ALLOCATION_CONTEXT);
 		}
 		return actualResourceDemands_ActualAllocationContext;
 	}
@@ -110,7 +111,7 @@ public class ActualAllocationContextImpl extends EObjectImpl implements ActualAl
 			usageContext_ActualAllocationContext = (UsageContext)eResolveProxy(oldUsageContext_ActualAllocationContext);
 			if (usageContext_ActualAllocationContext != oldUsageContext_ActualAllocationContext) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, AllocationPackage.ACTUAL_ALLOCATION_CONTEXT__USAGE_CONTEXT_ACTUAL_ALLOCATION_CONTEXT, oldUsageContext_ActualAllocationContext, usageContext_ActualAllocationContext));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, Actual_AllocationPackage.ACTUAL_ALLOCATION_CONTEXT__USAGE_CONTEXT_ACTUAL_ALLOCATION_CONTEXT, oldUsageContext_ActualAllocationContext, usageContext_ActualAllocationContext));
 			}
 		}
 		return usageContext_ActualAllocationContext;
@@ -134,7 +135,7 @@ public class ActualAllocationContextImpl extends EObjectImpl implements ActualAl
 		UsageContext oldUsageContext_ActualAllocationContext = usageContext_ActualAllocationContext;
 		usageContext_ActualAllocationContext = newUsageContext_ActualAllocationContext;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AllocationPackage.ACTUAL_ALLOCATION_CONTEXT__USAGE_CONTEXT_ACTUAL_ALLOCATION_CONTEXT, oldUsageContext_ActualAllocationContext, usageContext_ActualAllocationContext));
+			eNotify(new ENotificationImpl(this, Notification.SET, Actual_AllocationPackage.ACTUAL_ALLOCATION_CONTEXT__USAGE_CONTEXT_ACTUAL_ALLOCATION_CONTEXT, oldUsageContext_ActualAllocationContext, usageContext_ActualAllocationContext));
 	}
 
 	/**
@@ -144,7 +145,7 @@ public class ActualAllocationContextImpl extends EObjectImpl implements ActualAl
 	 */
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case AllocationPackage.ACTUAL_ALLOCATION_CONTEXT__ACTUAL_RESOURCE_DEMANDS_ACTUAL_ALLOCATION_CONTEXT:
+			case Actual_AllocationPackage.ACTUAL_ALLOCATION_CONTEXT__ACTUAL_RESOURCE_DEMANDS_ACTUAL_ALLOCATION_CONTEXT:
 				return ((InternalEList)getActualResourceDemands_ActualAllocationContext()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -157,9 +158,9 @@ public class ActualAllocationContextImpl extends EObjectImpl implements ActualAl
 	 */
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case AllocationPackage.ACTUAL_ALLOCATION_CONTEXT__ACTUAL_RESOURCE_DEMANDS_ACTUAL_ALLOCATION_CONTEXT:
+			case Actual_AllocationPackage.ACTUAL_ALLOCATION_CONTEXT__ACTUAL_RESOURCE_DEMANDS_ACTUAL_ALLOCATION_CONTEXT:
 				return getActualResourceDemands_ActualAllocationContext();
-			case AllocationPackage.ACTUAL_ALLOCATION_CONTEXT__USAGE_CONTEXT_ACTUAL_ALLOCATION_CONTEXT:
+			case Actual_AllocationPackage.ACTUAL_ALLOCATION_CONTEXT__USAGE_CONTEXT_ACTUAL_ALLOCATION_CONTEXT:
 				if (resolve) return getUsageContext_ActualAllocationContext();
 				return basicGetUsageContext_ActualAllocationContext();
 		}
@@ -173,11 +174,11 @@ public class ActualAllocationContextImpl extends EObjectImpl implements ActualAl
 	 */
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case AllocationPackage.ACTUAL_ALLOCATION_CONTEXT__ACTUAL_RESOURCE_DEMANDS_ACTUAL_ALLOCATION_CONTEXT:
+			case Actual_AllocationPackage.ACTUAL_ALLOCATION_CONTEXT__ACTUAL_RESOURCE_DEMANDS_ACTUAL_ALLOCATION_CONTEXT:
 				getActualResourceDemands_ActualAllocationContext().clear();
 				getActualResourceDemands_ActualAllocationContext().addAll((Collection)newValue);
 				return;
-			case AllocationPackage.ACTUAL_ALLOCATION_CONTEXT__USAGE_CONTEXT_ACTUAL_ALLOCATION_CONTEXT:
+			case Actual_AllocationPackage.ACTUAL_ALLOCATION_CONTEXT__USAGE_CONTEXT_ACTUAL_ALLOCATION_CONTEXT:
 				setUsageContext_ActualAllocationContext((UsageContext)newValue);
 				return;
 		}
@@ -191,10 +192,10 @@ public class ActualAllocationContextImpl extends EObjectImpl implements ActualAl
 	 */
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case AllocationPackage.ACTUAL_ALLOCATION_CONTEXT__ACTUAL_RESOURCE_DEMANDS_ACTUAL_ALLOCATION_CONTEXT:
+			case Actual_AllocationPackage.ACTUAL_ALLOCATION_CONTEXT__ACTUAL_RESOURCE_DEMANDS_ACTUAL_ALLOCATION_CONTEXT:
 				getActualResourceDemands_ActualAllocationContext().clear();
 				return;
-			case AllocationPackage.ACTUAL_ALLOCATION_CONTEXT__USAGE_CONTEXT_ACTUAL_ALLOCATION_CONTEXT:
+			case Actual_AllocationPackage.ACTUAL_ALLOCATION_CONTEXT__USAGE_CONTEXT_ACTUAL_ALLOCATION_CONTEXT:
 				setUsageContext_ActualAllocationContext((UsageContext)null);
 				return;
 		}
@@ -208,9 +209,9 @@ public class ActualAllocationContextImpl extends EObjectImpl implements ActualAl
 	 */
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case AllocationPackage.ACTUAL_ALLOCATION_CONTEXT__ACTUAL_RESOURCE_DEMANDS_ACTUAL_ALLOCATION_CONTEXT:
+			case Actual_AllocationPackage.ACTUAL_ALLOCATION_CONTEXT__ACTUAL_RESOURCE_DEMANDS_ACTUAL_ALLOCATION_CONTEXT:
 				return actualResourceDemands_ActualAllocationContext != null && !actualResourceDemands_ActualAllocationContext.isEmpty();
-			case AllocationPackage.ACTUAL_ALLOCATION_CONTEXT__USAGE_CONTEXT_ACTUAL_ALLOCATION_CONTEXT:
+			case Actual_AllocationPackage.ACTUAL_ALLOCATION_CONTEXT__USAGE_CONTEXT_ACTUAL_ALLOCATION_CONTEXT:
 				return usageContext_ActualAllocationContext != null;
 		}
 		return super.eIsSet(featureID);

@@ -5,6 +5,8 @@
  */
 package de.uka.ipd.sdq.context.usage.impl;
 
+import de.uka.ipd.sdq.context.actual_allocation.Actual_AllocationPackage;
+import de.uka.ipd.sdq.context.actual_allocation.impl.Actual_AllocationPackageImpl;
 import de.uka.ipd.sdq.context.actual_allocation.impl.AllocationPackageImpl;
 
 import de.uka.ipd.sdq.context.usage.BranchProbability;
@@ -170,15 +172,15 @@ public class UsagePackageImpl extends EPackageImpl implements UsagePackage {
 		StoexPackage.eINSTANCE.eClass();
 
 		// Obtain or create and register interdependencies
-		AllocationPackageImpl theAllocationPackage_1 = (AllocationPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(de.uka.ipd.sdq.context.actual_allocation.AllocationPackage.eNS_URI) instanceof AllocationPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(de.uka.ipd.sdq.context.actual_allocation.AllocationPackage.eNS_URI) : de.uka.ipd.sdq.context.actual_allocation.AllocationPackage.eINSTANCE);
+		Actual_AllocationPackageImpl theActual_AllocationPackage = (Actual_AllocationPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(Actual_AllocationPackage.eNS_URI) instanceof Actual_AllocationPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(Actual_AllocationPackage.eNS_URI) : Actual_AllocationPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theUsagePackage.createPackageContents();
-		theAllocationPackage_1.createPackageContents();
+		theActual_AllocationPackage.createPackageContents();
 
 		// Initialize created meta-data
 		theUsagePackage.initializePackageContents();
-		theAllocationPackage_1.initializePackageContents();
+		theActual_AllocationPackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		theUsagePackage.freeze();

@@ -158,9 +158,11 @@ import org.eclipse.emf.edit.ui.view.ExtendedPropertySheetPage;
 
 import de.uka.ipd.sdq.context.usage.provider.UsageItemProviderAdapterFactory;
 
-import de.uka.ipd.sdq.context.actual_allocation.provider.AllocationItemProviderAdapterFactory;
+import de.uka.ipd.sdq.context.actual_allocation.provider.Actual_AllocationItemProviderAdapterFactory;
 
 import de.uka.ipd.sdq.identifier.provider.IdentifierItemProviderAdapterFactory;
+
+import de.uka.ipd.sdq.pcm.allocation.provider.AllocationItemProviderAdapterFactory;
 
 import de.uka.ipd.sdq.pcm.core.composition.provider.CompositionItemProviderAdapterFactory;
 
@@ -730,7 +732,7 @@ public class UsageEditor
 
 		adapterFactory.addAdapterFactory(new ResourceItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new UsageItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new AllocationItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new Actual_AllocationItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new IdentifierItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new EntityItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new ConnectorsItemProviderAdapterFactory());
@@ -740,7 +742,7 @@ public class UsageEditor
 		adapterFactory.addAdapterFactory(new ParameterItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new SeffItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new ResourcetypeItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new de.uka.ipd.sdq.pcm.allocation.provider.AllocationItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new AllocationItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new ResourceenvironmentItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new SystemItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new QosannotationsItemProviderAdapterFactory());
@@ -1248,7 +1250,12 @@ public class UsageEditor
 				setPageText(pageIndex, getString("_UI_TreeWithColumnsPage_label"));
 			}
 
-			setActivePage(0);
+			getSite().getShell().getDisplay().asyncExec
+				(new Runnable() {
+					 public void run() {
+						 setActivePage(0);
+					 }
+				 });
 		}
 
 		// Ensures that this editor will only display the page's tab
@@ -1266,7 +1273,12 @@ public class UsageEditor
 				}
 			 });
 
-		updateProblemIndication();
+		getSite().getShell().getDisplay().asyncExec
+			(new Runnable() {
+				 public void run() {
+					 updateProblemIndication();
+				 }
+			 });
 	}
 
 	/**

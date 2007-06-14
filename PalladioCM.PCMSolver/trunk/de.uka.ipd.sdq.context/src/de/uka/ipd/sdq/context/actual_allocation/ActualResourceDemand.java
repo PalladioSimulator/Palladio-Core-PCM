@@ -23,7 +23,7 @@ import org.eclipse.emf.ecore.EObject;
  * </ul>
  * </p>
  *
- * @see de.uka.ipd.sdq.context.actual_allocation.AllocationPackage#getActualResourceDemand()
+ * @see de.uka.ipd.sdq.context.actual_allocation.Actual_AllocationPackage#getActualResourceDemand()
  * @model
  * @generated
  */
@@ -45,7 +45,7 @@ public interface ActualResourceDemand extends RandomVariable {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Parametric Resource Demand Actual Resource Demand</em>' reference.
 	 * @see #setParametricResourceDemand_ActualResourceDemand(ParametricResourceDemand)
-	 * @see de.uka.ipd.sdq.context.actual_allocation.AllocationPackage#getActualResourceDemand_ParametricResourceDemand_ActualResourceDemand()
+	 * @see de.uka.ipd.sdq.context.actual_allocation.Actual_AllocationPackage#getActualResourceDemand_ParametricResourceDemand_ActualResourceDemand()
 	 * @model required="true" ordered="false"
 	 * @generated
 	 */

@@ -7,6 +7,8 @@ package de.uka.ipd.sdq.context.actual_allocation.provider;
 
 
 import de.uka.ipd.sdq.context.actual_allocation.ActualAllocationContext;
+import de.uka.ipd.sdq.context.actual_allocation.Actual_AllocationFactory;
+import de.uka.ipd.sdq.context.actual_allocation.Actual_AllocationPackage;
 import de.uka.ipd.sdq.context.actual_allocation.AllocationFactory;
 import de.uka.ipd.sdq.context.actual_allocation.AllocationPackage;
 
@@ -90,7 +92,7 @@ public class ActualAllocationContextItemProvider
 				 getResourceLocator(),
 				 getString("_UI_ActualAllocationContext_usageContext_ActualAllocationContext_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_ActualAllocationContext_usageContext_ActualAllocationContext_feature", "_UI_ActualAllocationContext_type"),
-				 AllocationPackage.Literals.ACTUAL_ALLOCATION_CONTEXT__USAGE_CONTEXT_ACTUAL_ALLOCATION_CONTEXT,
+				 Actual_AllocationPackage.Literals.ACTUAL_ALLOCATION_CONTEXT__USAGE_CONTEXT_ACTUAL_ALLOCATION_CONTEXT,
 				 true,
 				 false,
 				 true,
@@ -110,7 +112,7 @@ public class ActualAllocationContextItemProvider
 	public Collection getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(AllocationPackage.Literals.ACTUAL_ALLOCATION_CONTEXT__ACTUAL_RESOURCE_DEMANDS_ACTUAL_ALLOCATION_CONTEXT);
+			childrenFeatures.add(Actual_AllocationPackage.Literals.ACTUAL_ALLOCATION_CONTEXT__ACTUAL_RESOURCE_DEMANDS_ACTUAL_ALLOCATION_CONTEXT);
 		}
 		return childrenFeatures;
 	}
@@ -158,7 +160,7 @@ public class ActualAllocationContextItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(ActualAllocationContext.class)) {
-			case AllocationPackage.ACTUAL_ALLOCATION_CONTEXT__ACTUAL_RESOURCE_DEMANDS_ACTUAL_ALLOCATION_CONTEXT:
+			case Actual_AllocationPackage.ACTUAL_ALLOCATION_CONTEXT__ACTUAL_RESOURCE_DEMANDS_ACTUAL_ALLOCATION_CONTEXT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -177,8 +179,8 @@ public class ActualAllocationContextItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(AllocationPackage.Literals.ACTUAL_ALLOCATION_CONTEXT__ACTUAL_RESOURCE_DEMANDS_ACTUAL_ALLOCATION_CONTEXT,
-				 AllocationFactory.eINSTANCE.createActualResourceDemand()));
+				(Actual_AllocationPackage.Literals.ACTUAL_ALLOCATION_CONTEXT__ACTUAL_RESOURCE_DEMANDS_ACTUAL_ALLOCATION_CONTEXT,
+				 Actual_AllocationFactory.eINSTANCE.createActualResourceDemand()));
 	}
 
 	/**
