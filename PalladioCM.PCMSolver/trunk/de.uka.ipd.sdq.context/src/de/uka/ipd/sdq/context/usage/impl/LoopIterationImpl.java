@@ -7,20 +7,14 @@
 package de.uka.ipd.sdq.context.usage.impl;
 
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.EObjectImpl;
 
 import de.uka.ipd.sdq.context.usage.LoopIteration;
 import de.uka.ipd.sdq.context.usage.UsagePackage;
 import de.uka.ipd.sdq.pcm.seff.AbstractLoopAction;
-
-import de.uka.ipd.sdq.pcm.seff.LoopAction;
 import de.uka.ipd.sdq.stoex.impl.RandomVariableImpl;
-
-import de.uka.ipd.sdq.stoex.RandomVariable;
 
 /**
  * <!-- begin-user-doc -->

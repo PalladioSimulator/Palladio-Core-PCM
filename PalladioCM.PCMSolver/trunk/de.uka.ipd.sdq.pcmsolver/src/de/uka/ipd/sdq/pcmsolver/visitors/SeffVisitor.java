@@ -6,7 +6,7 @@ package de.uka.ipd.sdq.pcmsolver.visitors;
 import org.apache.log4j.Logger;
 import org.eclipse.emf.common.util.EList;
 
-import de.uka.ipd.sdq.context.allocation.ActualAllocationContext;
+import de.uka.ipd.sdq.context.actual_allocation.ActualAllocationContext;
 import de.uka.ipd.sdq.context.usage.UsageContext;
 import de.uka.ipd.sdq.pcm.repository.PrimitiveDataType;
 import de.uka.ipd.sdq.pcm.repository.PrimitiveTypeEnum;

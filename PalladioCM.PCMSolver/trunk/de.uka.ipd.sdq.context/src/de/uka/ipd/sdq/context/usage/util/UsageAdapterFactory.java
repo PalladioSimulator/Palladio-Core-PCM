@@ -6,10 +6,6 @@
  */
 package de.uka.ipd.sdq.context.usage.util;
 
-import de.uka.ipd.sdq.context.usage.*;
-
-import de.uka.ipd.sdq.stoex.RandomVariable;
-
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
@@ -20,6 +16,7 @@ import de.uka.ipd.sdq.context.usage.LoopIteration;
 import de.uka.ipd.sdq.context.usage.Usage;
 import de.uka.ipd.sdq.context.usage.UsageContext;
 import de.uka.ipd.sdq.context.usage.UsagePackage;
+import de.uka.ipd.sdq.stoex.RandomVariable;
 
 /**
  * <!-- begin-user-doc -->

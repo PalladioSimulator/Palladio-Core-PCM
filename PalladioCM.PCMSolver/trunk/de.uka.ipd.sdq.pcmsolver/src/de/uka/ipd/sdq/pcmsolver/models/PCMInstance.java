@@ -16,8 +16,8 @@ import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 
-import de.uka.ipd.sdq.context.allocation.ActualAllocation;
-import de.uka.ipd.sdq.context.allocation.AllocationFactory;
+import de.uka.ipd.sdq.context.actual_allocation.ActualAllocation;
+import de.uka.ipd.sdq.context.actual_allocation.AllocationFactory;
 import de.uka.ipd.sdq.context.usage.Usage;
 import de.uka.ipd.sdq.context.usage.UsageFactory;
 import de.uka.ipd.sdq.pcm.allocation.Allocation;

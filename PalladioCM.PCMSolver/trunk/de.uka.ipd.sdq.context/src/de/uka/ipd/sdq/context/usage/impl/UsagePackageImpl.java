@@ -12,7 +12,7 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
-import de.uka.ipd.sdq.context.allocation.impl.AllocationPackageImpl;
+import de.uka.ipd.sdq.context.actual_allocation.impl.AllocationPackageImpl;
 import de.uka.ipd.sdq.context.usage.BranchProbability;
 import de.uka.ipd.sdq.context.usage.LoopIteration;
 import de.uka.ipd.sdq.context.usage.Usage;
@@ -153,7 +153,7 @@ public class UsagePackageImpl extends EPackageImpl implements UsagePackage {
 		StoexPackage.eINSTANCE.eClass();
 
 		// Obtain or create and register interdependencies
-		AllocationPackageImpl theAllocationPackage_1 = (AllocationPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(de.uka.ipd.sdq.context.allocation.AllocationPackage.eNS_URI) instanceof AllocationPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(de.uka.ipd.sdq.context.allocation.AllocationPackage.eNS_URI) : de.uka.ipd.sdq.context.allocation.AllocationPackage.eINSTANCE);
+		AllocationPackageImpl theAllocationPackage_1 = (AllocationPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(de.uka.ipd.sdq.context.actual_allocation.AllocationPackage.eNS_URI) instanceof AllocationPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(de.uka.ipd.sdq.context.actual_allocation.AllocationPackage.eNS_URI) : de.uka.ipd.sdq.context.actual_allocation.AllocationPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theUsagePackage.createPackageContents();

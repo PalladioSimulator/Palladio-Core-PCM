@@ -8,8 +8,8 @@ import java.util.List;
 import org.apache.log4j.Logger;
 import org.eclipse.emf.common.util.EList;
 
-import de.uka.ipd.sdq.context.allocation.ActualAllocationContext;
-import de.uka.ipd.sdq.context.allocation.ActualResourceDemand;
+import de.uka.ipd.sdq.context.actual_allocation.ActualAllocationContext;
+import de.uka.ipd.sdq.context.actual_allocation.ActualResourceDemand;
 import de.uka.ipd.sdq.context.usage.BranchProbability;
 import de.uka.ipd.sdq.context.usage.LoopIteration;
 import de.uka.ipd.sdq.context.usage.UsageContext;

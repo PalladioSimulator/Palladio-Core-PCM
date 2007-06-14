@@ -8,8 +8,8 @@ import java.util.Iterator;
 import org.apache.log4j.Logger;
 import org.eclipse.emf.common.util.EList;
 
-import de.uka.ipd.sdq.context.allocation.ActualResourceDemand;
-import de.uka.ipd.sdq.context.allocation.AllocationFactory;
+import de.uka.ipd.sdq.context.actual_allocation.ActualResourceDemand;
+import de.uka.ipd.sdq.context.actual_allocation.AllocationFactory;
 import de.uka.ipd.sdq.pcm.allocation.Allocation;
 import de.uka.ipd.sdq.pcm.allocation.AllocationContext;
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;

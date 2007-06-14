@@ -2,7 +2,7 @@ package de.uka.ipd.sdq.pcmsolver.models;
 
 import java.util.ArrayList;
 
-import de.uka.ipd.sdq.context.allocation.ActualAllocationContext;
+import de.uka.ipd.sdq.context.actual_allocation.ActualAllocationContext;
 import de.uka.ipd.sdq.context.usage.UsageContext;
 import de.uka.ipd.sdq.pcm.allocation.Allocation;
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;

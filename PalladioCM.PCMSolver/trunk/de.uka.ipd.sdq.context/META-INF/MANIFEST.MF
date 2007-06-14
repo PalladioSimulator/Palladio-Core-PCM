@@ -6,9 +6,9 @@ Bundle-Version: 1.0.0.qualifier
 Bundle-ClassPath: .
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
-Export-Package: de.uka.ipd.sdq.context.allocation,
- de.uka.ipd.sdq.context.allocation.impl,
- de.uka.ipd.sdq.context.allocation.util,
+Export-Package: de.uka.ipd.sdq.context.actual_allocation,
+ de.uka.ipd.sdq.context.actual_allocation.impl,
+ de.uka.ipd.sdq.context.actual_allocation.util,
  de.uka.ipd.sdq.context.usage,
  de.uka.ipd.sdq.context.usage.impl,
  de.uka.ipd.sdq.context.usage.util
