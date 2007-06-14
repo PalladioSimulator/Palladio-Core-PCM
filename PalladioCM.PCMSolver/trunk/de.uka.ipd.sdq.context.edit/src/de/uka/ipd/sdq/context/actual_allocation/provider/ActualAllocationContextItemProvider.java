@@ -3,11 +3,14 @@
  *
  * $Id$
  */
-package de.uka.ipd.sdq.context.usage.provider;
+package de.uka.ipd.sdq.context.actual_allocation.provider;
 
 
-import de.uka.ipd.sdq.context.usage.BranchProbability;
-import de.uka.ipd.sdq.context.usage.UsagePackage;
+import de.uka.ipd.sdq.context.actual_allocation.ActualAllocationContext;
+import de.uka.ipd.sdq.context.actual_allocation.AllocationFactory;
+import de.uka.ipd.sdq.context.actual_allocation.AllocationPackage;
+
+import de.uka.ipd.sdq.context.usage.provider.ContextEditPlugin;
 
 import java.util.Collection;
 import java.util.List;
@@ -17,23 +20,24 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
 
+import org.eclipse.emf.ecore.EStructuralFeature;
+
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link de.uka.ipd.sdq.context.usage.BranchProbability} object.
+ * This is the item provider adapter for a {@link de.uka.ipd.sdq.context.actual_allocation.ActualAllocationContext} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class BranchProbabilityItemProvider
+public class ActualAllocationContextItemProvider
 	extends ItemProviderAdapter
 	implements	
 		IEditingDomainItemProvider,	
@@ -54,7 +58,7 @@ public class BranchProbabilityItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public BranchProbabilityItemProvider(AdapterFactory adapterFactory) {
+	public ActualAllocationContextItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -68,48 +72,25 @@ public class BranchProbabilityItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addProbabilityPropertyDescriptor(object);
-			addBranchtransition_BranchProbabilityPropertyDescriptor(object);
+			addUsageContext_ActualAllocationContextPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Probability feature.
+	 * This adds a property descriptor for the Usage Context Actual Allocation Context feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addProbabilityPropertyDescriptor(Object object) {
+	protected void addUsageContext_ActualAllocationContextPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_BranchProbability_probability_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_BranchProbability_probability_feature", "_UI_BranchProbability_type"),
-				 UsagePackage.Literals.BRANCH_PROBABILITY__PROBABILITY,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.REAL_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Branchtransition Branch Probability feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addBranchtransition_BranchProbabilityPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_BranchProbability_branchtransition_BranchProbability_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_BranchProbability_branchtransition_BranchProbability_feature", "_UI_BranchProbability_type"),
-				 UsagePackage.Literals.BRANCH_PROBABILITY__BRANCHTRANSITION_BRANCH_PROBABILITY,
+				 getString("_UI_ActualAllocationContext_usageContext_ActualAllocationContext_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ActualAllocationContext_usageContext_ActualAllocationContext_feature", "_UI_ActualAllocationContext_type"),
+				 AllocationPackage.Literals.ACTUAL_ALLOCATION_CONTEXT__USAGE_CONTEXT_ACTUAL_ALLOCATION_CONTEXT,
 				 true,
 				 false,
 				 true,
@@ -119,13 +100,41 @@ public class BranchProbabilityItemProvider
 	}
 
 	/**
-	 * This returns BranchProbability.gif.
+	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
+	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
+	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Collection getChildrenFeatures(Object object) {
+		if (childrenFeatures == null) {
+			super.getChildrenFeatures(object);
+			childrenFeatures.add(AllocationPackage.Literals.ACTUAL_ALLOCATION_CONTEXT__ACTUAL_RESOURCE_DEMANDS_ACTUAL_ALLOCATION_CONTEXT);
+		}
+		return childrenFeatures;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected EStructuralFeature getChildFeature(Object object, Object child) {
+		// Check the type of the specified child object and return the proper feature to use for
+		// adding (see {@link AddCommand}) it as a child.
+
+		return super.getChildFeature(object, child);
+	}
+
+	/**
+	 * This returns ActualAllocationContext.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/BranchProbability"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/ActualAllocationContext"));
 	}
 
 	/**
@@ -135,8 +144,7 @@ public class BranchProbabilityItemProvider
 	 * @generated
 	 */
 	public String getText(Object object) {
-		BranchProbability branchProbability = (BranchProbability)object;
-		return getString("_UI_BranchProbability_type") + " " + branchProbability.getProbability();
+		return getString("_UI_ActualAllocationContext_type");
 	}
 
 	/**
@@ -149,9 +157,9 @@ public class BranchProbabilityItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(BranchProbability.class)) {
-			case UsagePackage.BRANCH_PROBABILITY__PROBABILITY:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+		switch (notification.getFeatureID(ActualAllocationContext.class)) {
+			case AllocationPackage.ACTUAL_ALLOCATION_CONTEXT__ACTUAL_RESOURCE_DEMANDS_ACTUAL_ALLOCATION_CONTEXT:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
 		super.notifyChanged(notification);
@@ -166,6 +174,11 @@ public class BranchProbabilityItemProvider
 	 */
 	protected void collectNewChildDescriptors(Collection newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+
+		newChildDescriptors.add
+			(createChildParameter
+				(AllocationPackage.Literals.ACTUAL_ALLOCATION_CONTEXT__ACTUAL_RESOURCE_DEMANDS_ACTUAL_ALLOCATION_CONTEXT,
+				 AllocationFactory.eINSTANCE.createActualResourceDemand()));
 	}
 
 	/**

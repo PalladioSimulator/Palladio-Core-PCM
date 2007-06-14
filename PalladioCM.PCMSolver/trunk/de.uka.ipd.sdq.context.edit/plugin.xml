@@ -2,8 +2,7 @@
 <?eclipse version="3.0"?>
 
 <!--
- <copyright>
- </copyright>
+ Copyright 2006, SDQ Group, University Karlsruhe (TH)
 
  $Id$
 -->
@@ -25,7 +24,7 @@
   <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
     <factory 
        uri = "http://sdq.ipd.uka.de/Context/Allocation/1.0" 
-       class = "de.uka.ipd.sdq.context.allocation.provider.AllocationItemProviderAdapterFactory" 
+       class = "de.uka.ipd.sdq.context.actual_allocation.provider.AllocationItemProviderAdapterFactory" 
        supportedTypes = 
          "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
           org.eclipse.emf.edit.provider.IStructuredItemContentProvider
@@ -35,4 +34,3 @@
   </extension>
 
 </plugin>
-

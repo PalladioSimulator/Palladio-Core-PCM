@@ -3,9 +3,9 @@
  *
  * $Id$
  */
-package de.uka.ipd.sdq.context.usage.provider;
+package de.uka.ipd.sdq.context.actual_allocation.provider;
 
-import de.uka.ipd.sdq.context.usage.util.UsageAdapterFactory;
+import de.uka.ipd.sdq.context.actual_allocation.util.AllocationAdapterFactory;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -35,7 +35,7 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
  * <!-- end-user-doc -->
  * @generated
  */
-public class UsageItemProviderAdapterFactory extends UsageAdapterFactory implements ComposeableAdapterFactory, IChangeNotifier, IDisposable {
+public class AllocationItemProviderAdapterFactory extends AllocationAdapterFactory implements ComposeableAdapterFactory, IChangeNotifier, IDisposable {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -73,7 +73,7 @@ public class UsageItemProviderAdapterFactory extends UsageAdapterFactory impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public UsageItemProviderAdapterFactory() {
+	public AllocationItemProviderAdapterFactory() {
 		supportedTypes.add(IEditingDomainItemProvider.class);
 		supportedTypes.add(IStructuredItemContentProvider.class);
 		supportedTypes.add(ITreeItemContentProvider.class);
@@ -82,91 +82,69 @@ public class UsageItemProviderAdapterFactory extends UsageAdapterFactory impleme
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.context.usage.UsageContext} instances.
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.context.actual_allocation.ActualAllocationContext} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected UsageContextItemProvider usageContextItemProvider;
+	protected ActualAllocationContextItemProvider actualAllocationContextItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link de.uka.ipd.sdq.context.usage.UsageContext}.
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.context.actual_allocation.ActualAllocationContext}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Adapter createUsageContextAdapter() {
-		if (usageContextItemProvider == null) {
-			usageContextItemProvider = new UsageContextItemProvider(this);
+	public Adapter createActualAllocationContextAdapter() {
+		if (actualAllocationContextItemProvider == null) {
+			actualAllocationContextItemProvider = new ActualAllocationContextItemProvider(this);
 		}
 
-		return usageContextItemProvider;
+		return actualAllocationContextItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.context.usage.BranchProbability} instances.
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.context.actual_allocation.ActualResourceDemand} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected BranchProbabilityItemProvider branchProbabilityItemProvider;
+	protected ActualResourceDemandItemProvider actualResourceDemandItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link de.uka.ipd.sdq.context.usage.BranchProbability}.
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.context.actual_allocation.ActualResourceDemand}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Adapter createBranchProbabilityAdapter() {
-		if (branchProbabilityItemProvider == null) {
-			branchProbabilityItemProvider = new BranchProbabilityItemProvider(this);
+	public Adapter createActualResourceDemandAdapter() {
+		if (actualResourceDemandItemProvider == null) {
+			actualResourceDemandItemProvider = new ActualResourceDemandItemProvider(this);
 		}
 
-		return branchProbabilityItemProvider;
+		return actualResourceDemandItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.context.usage.LoopIteration} instances.
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.context.actual_allocation.ActualAllocation} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected LoopIterationItemProvider loopIterationItemProvider;
+	protected ActualAllocationItemProvider actualAllocationItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link de.uka.ipd.sdq.context.usage.LoopIteration}.
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.context.actual_allocation.ActualAllocation}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Adapter createLoopIterationAdapter() {
-		if (loopIterationItemProvider == null) {
-			loopIterationItemProvider = new LoopIterationItemProvider(this);
+	public Adapter createActualAllocationAdapter() {
+		if (actualAllocationItemProvider == null) {
+			actualAllocationItemProvider = new ActualAllocationItemProvider(this);
 		}
 
-		return loopIterationItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.context.usage.Usage} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected UsageItemProvider usageItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link de.uka.ipd.sdq.context.usage.Usage}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Adapter createUsageAdapter() {
-		if (usageItemProvider == null) {
-			usageItemProvider = new UsageItemProvider(this);
-		}
-
-		return usageItemProvider;
+		return actualAllocationItemProvider;
 	}
 
 	/**
@@ -265,10 +243,9 @@ public class UsageItemProviderAdapterFactory extends UsageAdapterFactory impleme
 	 * @generated
 	 */
 	public void dispose() {
-		if (usageContextItemProvider != null) usageContextItemProvider.dispose();
-		if (branchProbabilityItemProvider != null) branchProbabilityItemProvider.dispose();
-		if (loopIterationItemProvider != null) loopIterationItemProvider.dispose();
-		if (usageItemProvider != null) usageItemProvider.dispose();
+		if (actualAllocationContextItemProvider != null) actualAllocationContextItemProvider.dispose();
+		if (actualResourceDemandItemProvider != null) actualResourceDemandItemProvider.dispose();
+		if (actualAllocationItemProvider != null) actualAllocationItemProvider.dispose();
 	}
 
 }
