@@ -13,6 +13,8 @@ import de.uka.ipd.sdq.codegen.simucontroller.SimuControllerImages;
  */
 public class ResourceManagerTab {
 
+	public static final String RESOURCETYPEREPOSITORY_FILE = "resourceTypeFile";
+
 	public static String GENERATE_PLUGIN_ID = "de.uka.ipd.sdq.codegen.simucominstance";
 
 	/** Models file name input tab */

@@ -45,11 +45,13 @@ public class ModelsFileNameInputTab extends AbstractLaunchConfigurationTab {
 	 * Set the file extensions which the dialog will use to filter the files it
 	 * shows to the argument.
 	 */
+	private final String[] RESOURCETYPE_EXTENSION = new String[] { "*.resourcetype" };
 	private final String[] REPOSITORY_EXTENSION = new String[] { "*.repository" };
 	private final String[] SYSTEM_EXTENSION 	= new String[] { "*.system" };
 	private final String[] ALLOCATION_EXTENSION = new String[] { "*.allocation" };
 	private final String[] USAGEMODEL_EXTENSION = new String[] { "*.usagemodel" };
 	
+	private Text textResourceTypeRepository;
 	private Text textRepository;
 	private Text textSystem;
 	private Text textAllocation;
@@ -72,6 +74,33 @@ public class ModelsFileNameInputTab extends AbstractLaunchConfigurationTab {
 		container.setLayout(new GridLayout());
 		
 		// Create reposetory section
+		final Group repositoryTypeFileGroup = new Group(container, SWT.NONE);
+		final GridLayout glReposetoryTypeGroup = new GridLayout();
+		glReposetoryTypeGroup.numColumns = 2;
+		repositoryTypeFileGroup.setLayout(glReposetoryTypeGroup);
+		repositoryTypeFileGroup.setText("Resource Type File");
+		repositoryTypeFileGroup.setLayoutData(new GridData(LAYOUT_WIDTH,
+				SWT.DEFAULT));
+
+		textResourceTypeRepository = new Text(repositoryTypeFileGroup, SWT.SINGLE
+				| SWT.BORDER);
+		textResourceTypeRepository.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true,
+				false));
+		textResourceTypeRepository.addModifyListener(modifyListener);
+
+		final Button buttonResourceTypeRepository = new Button(repositoryTypeFileGroup,
+				SWT.NONE);
+		buttonResourceTypeRepository.setText(BUTTON_NAME);
+		buttonResourceTypeRepository.addSelectionListener(new SelectionAdapter() {
+			/* (non-Javadoc)
+			 * @see org.eclipse.swt.events.SelectionAdapter#widgetSelected(org.eclipse.swt.events.SelectionEvent)
+			 */
+			public void widgetSelected(SelectionEvent e) {
+				textResourceTypeRepository.setText(openFileDialog(e, RESOURCETYPE_EXTENSION));
+			}
+		});
+
+		// Create reposetory section
 		final Group repositoryFileGroup = new Group(container, SWT.NONE);
 		final GridLayout glReposetoryGroup = new GridLayout();
 		glReposetoryGroup.numColumns = 2;
@@ -79,7 +108,7 @@ public class ModelsFileNameInputTab extends AbstractLaunchConfigurationTab {
 		repositoryFileGroup.setText("Repository File");
 		repositoryFileGroup.setLayoutData(new GridData(LAYOUT_WIDTH,
 				SWT.DEFAULT));
-
+		
 		textRepository = new Text(repositoryFileGroup, SWT.SINGLE
 				| SWT.BORDER);
 		textRepository.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true,
@@ -198,6 +227,12 @@ public class ModelsFileNameInputTab extends AbstractLaunchConfigurationTab {
 		} catch (CoreException e) {
 			textRepository.setText("CoreException e -> REPOSITORY_FILE");
 		}
+
+		try {
+			textResourceTypeRepository.setText(configuration.getAttribute(ResourceManagerTab.RESOURCETYPEREPOSITORY_FILE, ""));
+		} catch (CoreException e) {
+			textRepository.setText("CoreException e -> RESOURCETYPEREPOSITORY_FILE");
+		}
 		
 		try {
 			textSystem.setText(configuration.getAttribute(ResourceManagerTab.SYSTEM_FILE, ""));
@@ -216,6 +251,7 @@ public class ModelsFileNameInputTab extends AbstractLaunchConfigurationTab {
 	 * @see org.eclipse.debug.ui.ILaunchConfigurationTab#performApply(org.eclipse.debug.core.ILaunchConfigurationWorkingCopy)
 	 */
 	public void performApply(ILaunchConfigurationWorkingCopy configuration) {
+		configuration.setAttribute(ResourceManagerTab.RESOURCETYPEREPOSITORY_FILE, textResourceTypeRepository.getText());
 		configuration.setAttribute(ResourceManagerTab.REPOSITORY_FILE, textRepository.getText());
 		configuration.setAttribute(ResourceManagerTab.SYSTEM_FILE, textSystem.getText());
 		configuration.setAttribute(ResourceManagerTab.ALLOCATION_FILE, textAllocation.getText());
@@ -236,6 +272,10 @@ public class ModelsFileNameInputTab extends AbstractLaunchConfigurationTab {
 
 		if (textRepository.getText().equals("")){
 			setErrorMessage("Repository is missing!");
+			return false;
+		}
+		if (textResourceTypeRepository.getText().equals("")){
+			setErrorMessage("ResourceTypeRepository is missing!");
 			return false;
 		}
 		if (textSystem.getText().equals("")){

@@ -51,6 +51,8 @@ public class GeneratePluginCodeJob implements ISimulationJob {
 
 			properties.put(ResourceManagerTab.REPOSITORY_FILE, myConfiguration
 					.getAttribute(ResourceManagerTab.REPOSITORY_FILE, ""));
+			properties.put(ResourceManagerTab.RESOURCETYPEREPOSITORY_FILE, myConfiguration
+					.getAttribute(ResourceManagerTab.RESOURCETYPEREPOSITORY_FILE, ""));
 			properties.put(ResourceManagerTab.SYSTEM_FILE, myConfiguration
 					.getAttribute(ResourceManagerTab.SYSTEM_FILE, ""));
 			properties.put(ResourceManagerTab.ALLOCATION_FILE, myConfiguration

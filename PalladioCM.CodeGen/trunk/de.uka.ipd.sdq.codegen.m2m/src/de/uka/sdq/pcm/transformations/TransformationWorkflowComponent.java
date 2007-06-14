@@ -60,6 +60,7 @@ public class TransformationWorkflowComponent
 	Allocation allocation = null;
 	private boolean shouldProceed = true;
 	private int counter = 0;
+	private ResourceRepository resourceType;
 	
 	@Override
 	protected void checkConfigurationInternal(Issues arg0) {
@@ -71,6 +72,7 @@ public class TransformationWorkflowComponent
 		if (shouldProceed) {
 			this.resource = (de.uka.ipd.sdq.pcm.system.System) context.get("pcmmodel");
 			this.allocation = (Allocation)context.get("allocation");
+			this.resourceType = (ResourceRepository)context.get("resourceType");
 			completionRepository = RepositoryFactory.eINSTANCE.createRepository();
 			completionRepository.setEntityName("CompletionsRepository");
 			performTransformation(issues);
@@ -114,15 +116,15 @@ public class TransformationWorkflowComponent
 	private void configureCompletion(AssemblyConnector con, Completion completion) {
 		BasicComponent bc = createBasicComponent(completion);
 		AllocationContext callingComponentAllocContext = findCallingComponentAllocationContext(con.getRequiringChildComponentContext_CompositeAssemblyConnector());
-		AllocationContext newContext = AllocationFactory.eINSTANCE.createAllocationContext();
+		AllocationContext newAllocationContext = AllocationFactory.eINSTANCE.createAllocationContext();
 		
 		AssemblyContext assCtx = CompositionFactory.eINSTANCE.createAssemblyContext();
 		assCtx.setEncapsulatedComponent_ChildComponentContext(bc);
 		completion.getChildComponentContexts_ComposedStructure().add(assCtx);
 
-		newContext.setAssemblyContext_AllocationContext(assCtx);
-		newContext.setResourceContainer_AllocationContext(callingComponentAllocContext.getResourceContainer_AllocationContext());
-		allocation.getAllocationContexts_Allocation().add(newContext);
+		newAllocationContext.setAssemblyContext_AllocationContext(assCtx);
+		newAllocationContext.setResourceContainer_AllocationContext(callingComponentAllocContext.getResourceContainer_AllocationContext());
+		allocation.getAllocationContexts_Allocation().add(newAllocationContext);
 		
 		ProvidedDelegationConnector delCon = CompositionFactory.eINSTANCE.createProvidedDelegationConnector();
 		delCon.setChildComponentContext_ProvidedDelegationConnector(assCtx);
@@ -142,10 +144,10 @@ public class TransformationWorkflowComponent
 			AssemblyContext requiringChildComponentContext_CompositeAssemblyConnector) {
 		for(AllocationContext context : allocation.getAllocationContexts_Allocation()) {
 			if (requiringChildComponentContext_CompositeAssemblyConnector.getId().equals(
-					context.getAssemblyContext_AllocationContext()))
+					context.getAssemblyContext_AllocationContext().getId()))
 				return context;
 		}
-		return null;
+		throw new RuntimeException("Component Allocation Context not found");
 	}
 
 	private BasicComponent createBasicComponent(Completion completion) {
@@ -193,18 +195,11 @@ public class TransformationWorkflowComponent
 	}
 
 	private ProcessingResourceType findCPUResourceType() {
-		ResourceSet set = allocation.eResource().getResourceSet();
-		for (Resource r : set.getResources()) {
-			if (r.getContents().get(0) instanceof ResourceRepository) {
-				ResourceRepository resRep = (ResourceRepository) r.getContents().get(0);
-				for (ResourceType rt : resRep.getAvailableResourceTypes_ResourceRepository())
-				{
-					if (rt.getEntityName().toLowerCase().equals("cpu"))
-						return (ProcessingResourceType)rt;
-				}
-			}
+		for (ResourceType r : resourceType.getAvailableResourceTypes_ResourceRepository()) {
+			if (r.getEntityName().toLowerCase().equals("cpu"))
+				return (ProcessingResourceType)r;
 		}
-		return null;
+		throw new RuntimeException("Unable to find CPU resource type");
 	}
 
 	private void createControlFlow(AbstractAction a,
