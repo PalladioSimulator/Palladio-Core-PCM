@@ -1,8 +1,5 @@
 package de.uka.ipd.sdq.pcmsolver.pcm2regex;
 
-import org.apache.log4j.Logger;
-
-import de.uka.ipd.sdq.pcmsolver.PCMSolver;
 import de.uka.ipd.sdq.spa.expression.Alternative;
 import de.uka.ipd.sdq.spa.expression.Loop;
 import de.uka.ipd.sdq.spa.expression.Sequence;

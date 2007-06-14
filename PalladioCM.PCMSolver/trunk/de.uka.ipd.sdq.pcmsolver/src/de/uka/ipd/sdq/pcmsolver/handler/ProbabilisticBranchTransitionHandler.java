@@ -5,10 +5,7 @@ package de.uka.ipd.sdq.pcmsolver.handler;
 
 import org.apache.log4j.Logger;
 
-import de.uka.ipd.sdq.context.usage.BranchProbability;
-import de.uka.ipd.sdq.context.usage.UsageFactory;
 import de.uka.ipd.sdq.pcm.seff.ProbabilisticBranchTransition;
-import de.uka.ipd.sdq.pcm.seff.ResourceDemandingBehaviour;
 import de.uka.ipd.sdq.pcmsolver.visitors.SeffVisitor;
 
 /**

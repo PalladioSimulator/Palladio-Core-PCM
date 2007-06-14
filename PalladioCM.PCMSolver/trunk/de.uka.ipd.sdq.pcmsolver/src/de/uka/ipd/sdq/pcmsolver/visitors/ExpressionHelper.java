@@ -3,8 +3,11 @@ package de.uka.ipd.sdq.pcmsolver.visitors;
 import java.io.StringBufferInputStream;
 import java.util.HashMap;
 
-import antlr.RecognitionException;
-import antlr.TokenStreamException;
+import org.antlr.runtime.ANTLRStringStream;
+import org.antlr.runtime.CommonTokenStream;
+import org.antlr.runtime.RecognitionException;
+
+import de.uka.ipd.sdq.pcm.stochasticexpressions.parser.PCMStoExLexer;
 import de.uka.ipd.sdq.pcm.stochasticexpressions.parser.PCMStoExParser;
 import de.uka.ipd.sdq.pcmsolver.models.Context;
 import de.uka.ipd.sdq.stoex.Expression;
@@ -20,15 +23,12 @@ public class ExpressionHelper {
 	 */
 	public static Expression parseToExpression(String specification) {
 		Expression expression = null;
-		StochasticExpressionsLexer lexer = new StochasticExpressionsLexer(
-				new StringBufferInputStream(specification));
-		PCMStoExParser parser = new PCMStoExParser(lexer);
+		PCMStoExLexer lexer = new PCMStoExLexer(
+				new ANTLRStringStream(specification));
+		PCMStoExParser parser = new PCMStoExParser(new CommonTokenStream(lexer));
 		try {
 			expression = parser.expression();
 		} catch (RecognitionException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (TokenStreamException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}

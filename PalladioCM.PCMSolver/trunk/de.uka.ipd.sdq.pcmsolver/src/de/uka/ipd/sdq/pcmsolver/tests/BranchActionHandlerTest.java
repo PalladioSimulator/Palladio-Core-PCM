@@ -1,24 +1,5 @@
 package de.uka.ipd.sdq.pcmsolver.tests;
 
-import static org.junit.Assert.*;
-
-import java.util.ArrayList;
-import java.util.Iterator;
-
-import junit.framework.JUnit4TestAdapter;
-
-import org.eclipse.emf.common.util.EList;
-import org.junit.Before;
-import org.junit.Test;
-
-import de.uka.ipd.sdq.context.usage.BranchProbability;
-import de.uka.ipd.sdq.context.usage.UsageFactory;
-
-import de.uka.ipd.sdq.pcm.seff.BranchAction;
-import de.uka.ipd.sdq.pcm.seff.BranchCondition;
-import de.uka.ipd.sdq.pcm.seff.SeffFactory;
-import de.uka.ipd.sdq.pcmsolver.models.Context;
-import de.uka.ipd.sdq.pcmsolver.visitors.SeffVisitor;
 
 public class BranchActionHandlerTest {
 

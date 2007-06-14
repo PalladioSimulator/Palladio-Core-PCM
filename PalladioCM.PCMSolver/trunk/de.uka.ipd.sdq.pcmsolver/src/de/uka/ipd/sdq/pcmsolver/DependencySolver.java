@@ -3,15 +3,9 @@
  */
 package de.uka.ipd.sdq.pcmsolver;
 
-import java.io.BufferedWriter;
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Iterator;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
@@ -27,18 +21,13 @@ import de.uka.ipd.sdq.pcmsolver.pcm2regex.ExpressionPrinter;
 import de.uka.ipd.sdq.pcmsolver.pcm2regex.TransformUsageModelVisitor;
 import de.uka.ipd.sdq.pcmsolver.visitors.UsageModelVisitor;
 import de.uka.ipd.sdq.pcmsolver.visualisation.JFVisualisation;
-import de.uka.ipd.sdq.probfunction.SamplePDF;
 import de.uka.ipd.sdq.probfunction.math.IProbabilityDensityFunction;
 import de.uka.ipd.sdq.probfunction.math.IProbabilityFunctionFactory;
 import de.uka.ipd.sdq.probfunction.math.ISamplePDF;
-import de.uka.ipd.sdq.probfunction.math.ManagedPDF;
 import de.uka.ipd.sdq.probfunction.math.PDFConfiguration;
 import de.uka.ipd.sdq.probfunction.math.exception.ConfigurationNotSetException;
 import de.uka.ipd.sdq.probfunction.math.exception.ProbabilityFunctionException;
 import de.uka.ipd.sdq.probfunction.math.exception.UnknownPDFTypeException;
-//import de.uka.ipd.sdq.spa.basicsolver.heiko.ClassicSPASolver;
-import de.uka.ipd.sdq.spa.basicsolver.visitor.PerformanceVisitor;
-import de.uka.ipd.sdq.spa.basicsolver.visitor.perfhandler.PerformanceHandlerFactory;
 import de.uka.ipd.sdq.spa.expression.Expression;
 
 
