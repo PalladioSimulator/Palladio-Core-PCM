@@ -75,8 +75,6 @@ public class LoopActionEditPart extends ShapeNodeEditPart {
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
 		installEditPolicy(EditPolicyRoles.OPEN_ROLE,
 				new OpenLoopIterationsDialog());
-		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
-		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
 	}
 
 	/**
@@ -240,18 +238,15 @@ public class LoopActionEditPart extends ShapeNodeEditPart {
 		/**
 		 * @generated
 		 */
-		private WrapLabel fFigureLoopNameLabelFigure;
-		/**
-		 * @generated
-		 */
-		private WrapLabel fFigureLoopIterationsLabelFigure;
-
-		/**
-		 * @generated
-		 */
 		public LoopFigure() {
 			this.setCornerDimensions(new Dimension(getMapMode().DPtoLP(8),
 					getMapMode().DPtoLP(8)));
+			this.setFill(true);
+			this.setFillXOR(false);
+			this.setOutline(true);
+			this.setOutlineXOR(false);
+			this.setLineWidth(1);
+			this.setLineStyle(Graphics.LINE_SOLID);
 			createContents();
 		}
 
@@ -269,28 +264,52 @@ public class LoopActionEditPart extends ShapeNodeEditPart {
 			loopNameLabelFigure0.setText("myLoop");
 
 			this.add(loopNameLabelFigure0);
-			fFigureLoopNameLabelFigure = loopNameLabelFigure0;
+			setFigureLoopNameLabelFigure(loopNameLabelFigure0);
 
 			WrapLabel loopIterationsLabelFigure0 = new WrapLabel();
 			loopIterationsLabelFigure0.setText("");
 
 			this.add(loopIterationsLabelFigure0);
-			fFigureLoopIterationsLabelFigure = loopIterationsLabelFigure0;
+			setFigureLoopIterationsLabelFigure(loopIterationsLabelFigure0);
 
 		}
+
+		/**
+		 * @generated
+		 */
+		private WrapLabel fLoopNameLabelFigure;
 
 		/**
 		 * @generated
 		 */
 		public WrapLabel getFigureLoopNameLabelFigure() {
-			return fFigureLoopNameLabelFigure;
+			return fLoopNameLabelFigure;
 		}
 
 		/**
 		 * @generated
 		 */
+		private void setFigureLoopNameLabelFigure(WrapLabel fig) {
+			fLoopNameLabelFigure = fig;
+		}
+
+		/**
+		 * @generated
+		 */
+		private WrapLabel fLoopIterationsLabelFigure;
+
+		/**
+		 * @generated
+		 */
 		public WrapLabel getFigureLoopIterationsLabelFigure() {
-			return fFigureLoopIterationsLabelFigure;
+			return fLoopIterationsLabelFigure;
+		}
+
+		/**
+		 * @generated
+		 */
+		private void setFigureLoopIterationsLabelFigure(WrapLabel fig) {
+			fLoopIterationsLabelFigure = fig;
 		}
 
 		/**

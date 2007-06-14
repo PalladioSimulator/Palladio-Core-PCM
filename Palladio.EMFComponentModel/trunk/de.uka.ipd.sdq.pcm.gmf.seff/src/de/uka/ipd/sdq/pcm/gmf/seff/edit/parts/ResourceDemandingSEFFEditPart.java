@@ -41,6 +41,5 @@ public class ResourceDemandingSEFFEditPart extends DiagramEditPart {
 				new ResourceDemandingSEFFItemSemanticEditPolicy());
 		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE,
 				new ResourceDemandingSEFFCanonicalEditPolicy());
-		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.POPUPBAR_ROLE);
 	}
 }

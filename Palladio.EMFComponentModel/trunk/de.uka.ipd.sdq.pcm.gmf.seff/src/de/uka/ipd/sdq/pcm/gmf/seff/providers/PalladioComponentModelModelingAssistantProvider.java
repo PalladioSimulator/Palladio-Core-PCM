@@ -47,7 +47,6 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviourBranchCo
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviourLoopCompartment2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviourLoopCompartmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingSEFFEditPart;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.SetVariableAction2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.SetVariableActionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.SetVariableActionVariableSetter2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.SetVariableActionVariableSetterEditPart;
@@ -69,12 +68,6 @@ public class PalladioComponentModelModelingAssistantProvider extends
 	public List getTypesForPopupBar(IAdaptable host) {
 		IGraphicalEditPart editPart = (IGraphicalEditPart) host
 				.getAdapter(IGraphicalEditPart.class);
-		if (editPart instanceof ExternalCallActionEditPart) {
-			List types = new ArrayList();
-			types.add(PalladioComponentModelElementTypes.VariableUsage_3001);
-			types.add(PalladioComponentModelElementTypes.VariableUsage_3022);
-			return types;
-		}
 		if (editPart instanceof LoopActionEditPart) {
 			List types = new ArrayList();
 			types
@@ -91,11 +84,6 @@ public class PalladioComponentModelModelingAssistantProvider extends
 			List types = new ArrayList();
 			types
 					.add(PalladioComponentModelElementTypes.ResourceDemandingBehaviour_3014);
-			return types;
-		}
-		if (editPart instanceof SetVariableAction2EditPart) {
-			List types = new ArrayList();
-			types.add(PalladioComponentModelElementTypes.VariableUsage_3015);
 			return types;
 		}
 		if (editPart instanceof VariableUsageEditPart) {
@@ -128,21 +116,10 @@ public class PalladioComponentModelModelingAssistantProvider extends
 					.add(PalladioComponentModelElementTypes.ResourceDemandingBehaviour_3011);
 			return types;
 		}
-		if (editPart instanceof ExternalCallAction2EditPart) {
-			List types = new ArrayList();
-			types.add(PalladioComponentModelElementTypes.VariableUsage_3001);
-			types.add(PalladioComponentModelElementTypes.VariableUsage_3022);
-			return types;
-		}
 		if (editPart instanceof CollectionIteratorActionEditPart) {
 			List types = new ArrayList();
 			types
 					.add(PalladioComponentModelElementTypes.ResourceDemandingBehaviour_3014);
-			return types;
-		}
-		if (editPart instanceof SetVariableActionEditPart) {
-			List types = new ArrayList();
-			types.add(PalladioComponentModelElementTypes.VariableUsage_3015);
 			return types;
 		}
 		if (editPart instanceof VariableUsage3EditPart) {
@@ -155,6 +132,16 @@ public class PalladioComponentModelModelingAssistantProvider extends
 			List types = new ArrayList();
 			types
 					.add(PalladioComponentModelElementTypes.ResourceDemandingBehaviour_3018);
+			return types;
+		}
+		if (editPart instanceof ExternalCallActionInputVariableUsageEditPart) {
+			List types = new ArrayList();
+			types.add(PalladioComponentModelElementTypes.VariableUsage_3001);
+			return types;
+		}
+		if (editPart instanceof ExternalCallActionOutputVariableUsageEditPart) {
+			List types = new ArrayList();
+			types.add(PalladioComponentModelElementTypes.VariableUsage_3022);
 			return types;
 		}
 		if (editPart instanceof ResourceDemandingBehaviourLoopCompartmentEditPart) {
@@ -201,6 +188,16 @@ public class PalladioComponentModelModelingAssistantProvider extends
 					.add(PalladioComponentModelElementTypes.SetVariableAction_3024);
 			return types;
 		}
+		if (editPart instanceof ExternalCallActionInputVariableUsage2EditPart) {
+			List types = new ArrayList();
+			types.add(PalladioComponentModelElementTypes.VariableUsage_3001);
+			return types;
+		}
+		if (editPart instanceof ExternalCallActionOutputVariableUsage2EditPart) {
+			List types = new ArrayList();
+			types.add(PalladioComponentModelElementTypes.VariableUsage_3022);
+			return types;
+		}
 		if (editPart instanceof ForkActionForkedBehavioursEditPart) {
 			List types = new ArrayList();
 			types
@@ -239,6 +236,11 @@ public class PalladioComponentModelModelingAssistantProvider extends
 			types.add(PalladioComponentModelElementTypes.ForkAction_3023);
 			return types;
 		}
+		if (editPart instanceof SetVariableActionVariableSetterEditPart) {
+			List types = new ArrayList();
+			types.add(PalladioComponentModelElementTypes.VariableUsage_3015);
+			return types;
+		}
 		if (editPart instanceof ResourceDemandingBehaviourBranchCompartment2EditPart) {
 			List types = new ArrayList();
 			types.add(PalladioComponentModelElementTypes.StartAction_3004);
@@ -263,6 +265,11 @@ public class PalladioComponentModelModelingAssistantProvider extends
 					.add(PalladioComponentModelElementTypes.ProbabilisticBranchTransition_3010);
 			types
 					.add(PalladioComponentModelElementTypes.GuardedBranchTransition_3017);
+			return types;
+		}
+		if (editPart instanceof SetVariableActionVariableSetter2EditPart) {
+			List types = new ArrayList();
+			types.add(PalladioComponentModelElementTypes.VariableUsage_3015);
 			return types;
 		}
 		if (editPart instanceof ForkActionForkedBehaviours2EditPart) {

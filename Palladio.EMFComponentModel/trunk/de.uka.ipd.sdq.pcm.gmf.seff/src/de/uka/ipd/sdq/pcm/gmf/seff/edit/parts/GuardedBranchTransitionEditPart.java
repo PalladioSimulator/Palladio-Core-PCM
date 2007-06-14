@@ -74,8 +74,6 @@ public class GuardedBranchTransitionEditPart extends ShapeNodeEditPart {
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
 		installEditPolicy(EditPolicyRoles.OPEN_ROLE,
 				new OpenBranchConditionDialog());
-		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
-		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
 	}
 
 	/**
@@ -234,12 +232,11 @@ public class GuardedBranchTransitionEditPart extends ShapeNodeEditPart {
 		/**
 		 * @generated
 		 */
-		private WrapLabel fFigureBranchTransitionProbabilityLabel;
-
-		/**
-		 * @generated
-		 */
 		public BranchTransitionFigure() {
+			this.setFill(true);
+			this.setFillXOR(false);
+			this.setOutline(true);
+			this.setOutlineXOR(false);
 			this.setLineWidth(2);
 			this.setLineStyle(Graphics.LINE_DASH);
 			createContents();
@@ -254,15 +251,27 @@ public class GuardedBranchTransitionEditPart extends ShapeNodeEditPart {
 			branchTransitionProbabilityLabel0.setText("0.0");
 
 			this.add(branchTransitionProbabilityLabel0);
-			fFigureBranchTransitionProbabilityLabel = branchTransitionProbabilityLabel0;
+			setFigureBranchTransitionProbabilityLabel(branchTransitionProbabilityLabel0);
 
 		}
 
 		/**
 		 * @generated
 		 */
+		private WrapLabel fBranchTransitionProbabilityLabel;
+
+		/**
+		 * @generated
+		 */
 		public WrapLabel getFigureBranchTransitionProbabilityLabel() {
-			return fFigureBranchTransitionProbabilityLabel;
+			return fBranchTransitionProbabilityLabel;
+		}
+
+		/**
+		 * @generated
+		 */
+		private void setFigureBranchTransitionProbabilityLabel(WrapLabel fig) {
+			fBranchTransitionProbabilityLabel = fig;
 		}
 
 		/**

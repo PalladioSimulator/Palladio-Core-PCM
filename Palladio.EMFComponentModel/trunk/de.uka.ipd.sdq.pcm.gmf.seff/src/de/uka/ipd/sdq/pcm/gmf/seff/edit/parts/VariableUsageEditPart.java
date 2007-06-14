@@ -91,8 +91,6 @@ public class VariableUsageEditPart extends ShapeNodeEditPart {
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
 				new VariableUsageItemSemanticEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
-		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
-		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
 	}
 
 	/**
@@ -251,12 +249,13 @@ public class VariableUsageEditPart extends ShapeNodeEditPart {
 		/**
 		 * @generated
 		 */
-		private WrapLabel fFigureVariableUsageReferenceLabelFigure;
-
-		/**
-		 * @generated
-		 */
 		public ParametricParameterUsageFigure() {
+			this.setFill(true);
+			this.setFillXOR(false);
+			this.setOutline(true);
+			this.setOutlineXOR(false);
+			this.setLineWidth(1);
+			this.setLineStyle(Graphics.LINE_SOLID);
 			this.setBackgroundColor(ColorConstants.cyan);
 			createContents();
 		}
@@ -270,15 +269,27 @@ public class VariableUsageEditPart extends ShapeNodeEditPart {
 			variableUsageReferenceLabelFigure0.setText("<?>");
 
 			this.add(variableUsageReferenceLabelFigure0);
-			fFigureVariableUsageReferenceLabelFigure = variableUsageReferenceLabelFigure0;
+			setFigureVariableUsageReferenceLabelFigure(variableUsageReferenceLabelFigure0);
 
 		}
 
 		/**
 		 * @generated
 		 */
+		private WrapLabel fVariableUsageReferenceLabelFigure;
+
+		/**
+		 * @generated
+		 */
 		public WrapLabel getFigureVariableUsageReferenceLabelFigure() {
-			return fFigureVariableUsageReferenceLabelFigure;
+			return fVariableUsageReferenceLabelFigure;
+		}
+
+		/**
+		 * @generated
+		 */
+		private void setFigureVariableUsageReferenceLabelFigure(WrapLabel fig) {
+			fVariableUsageReferenceLabelFigure = fig;
 		}
 
 		/**

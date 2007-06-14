@@ -184,9 +184,7 @@ Copyright 2006 SDQ Research Group, University of Karlsruhe (TH)
 
    <extension point="org.eclipse.ui.views.properties.tabbed.propertyContributor">
       <?gmfgen generated="true"?>
-      <propertyContributor
-            contributorId="de.uka.ipd.sdq.pcm.gmf.seff"
-            labelProvider="de.uka.ipd.sdq.pcm.gmf.seff.sheet.PalladioComponentModelSheetLabelProvider">
+      <propertyContributor contributorId="de.uka.ipd.sdq.pcm.gmf.seff" labelProvider="de.uka.ipd.sdq.pcm.gmf.seff.sheet.PalladioComponentModelSheetLabelProvider">
          <propertyCategory category="domain"/>
          <propertyCategory category="visual"/>
          <propertyCategory category="extra"/>
@@ -892,33 +890,7 @@ Copyright 2006 SDQ Research Group, University of Karlsruhe (TH)
          <object class="org.eclipse.gmf.runtime.diagram.ui.editparts.IPrimaryEditPart(org.eclipse.gmf.runtime.diagram.ui)" id="PRIMARY_VIEW"/>
          <context decoratorTargets="PRIMARY_VIEW"/>
       </decoratorProvider>
-   </extension><extension point="org.eclipse.ui.contexts">
-      <?gmfgen generated="true"?>
-      <context
-         description="%context.description"
-         id="de.uka.ipd.sdq.pcm.gmf.seff.ui.diagramContext"
-         name="%context.name"
-         parentId="org.eclipse.gmf.runtime.diagram.ui.diagramContext">
-      </context>
    </extension>
-<extension point="org.eclipse.ui.commands">
-      <?gmfgen generated="true"?>
-      <command
-         categoryId="org.eclipse.ui.category.edit"
-         defaultHandler="de.uka.ipd.sdq.pcm.gmf.seff.part.PalladioComponentModelDiagramUpdateCommand"
-         description="%update.diagram.description"
-         id="de.uka.ipd.sdq.pcm.gmf.seff.updateDiagram"
-         name="%update.diagram.name"/>
-   </extension>
-<extension point="org.eclipse.ui.bindings">
-      <?gmfgen generated="true"?>
-      <key 
-         commandId="de.uka.ipd.sdq.pcm.gmf.seff.updateDiagram"
-         contextId="de.uka.ipd.sdq.pcm.gmf.seff.ui.diagramContext"
-         schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
-         sequence="F5"/>
-   </extension>
-
 
 
 </plugin>

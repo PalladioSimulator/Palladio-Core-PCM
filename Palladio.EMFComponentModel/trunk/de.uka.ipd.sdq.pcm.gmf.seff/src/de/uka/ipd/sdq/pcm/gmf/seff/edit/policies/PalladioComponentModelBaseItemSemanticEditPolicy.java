@@ -332,24 +332,6 @@ public class PalladioComponentModelBaseItemSemanticEditPolicy extends
 	/**
 	 * @generated
 	 */
-	protected void addDestroyShortcutsCommand(CompoundCommand command) {
-		View view = (View) getHost().getModel();
-		if (view.getEAnnotation("Shortcut") != null) { //$NON-NLS-1$
-			return;
-		}
-		for (Iterator it = view.getDiagram().getChildren().iterator(); it
-				.hasNext();) {
-			View nextView = (View) it.next();
-			if (nextView.getEAnnotation("Shortcut") == null || !nextView.isSetElement() || nextView.getElement() != view.getElement()) { //$NON-NLS-1$
-				continue;
-			}
-			command.add(getDestroyElementCommand(nextView));
-		}
-	}
-
-	/**
-	 * @generated
-	 */
 	public static class LinkConstraints {
 
 		/**
@@ -373,9 +355,9 @@ public class PalladioComponentModelBaseItemSemanticEditPolicy extends
 			env
 					.put(OPPOSITE_END_VAR, SeffPackage.eINSTANCE
 							.getAbstractAction());
-			AbstractActionSuccessor_AbstractAction_4001_SourceExpression = PalladioComponentModelOCLFactory
+			AbstractActionSuccessor_AbstractAction_4001_TargetExpression = PalladioComponentModelOCLFactory
 					.getExpression(
-							"not self.oclIsTypeOf(StopAction)", SeffPackage.eINSTANCE.getAbstractAction(), env); //$NON-NLS-1$
+							"self.predecessor_AbstractAction = null and not self.oclIsTypeOf(StartAction)", SeffPackage.eINSTANCE.getAbstractAction(), env); //$NON-NLS-1$
 		}
 
 		/**
@@ -386,9 +368,9 @@ public class PalladioComponentModelBaseItemSemanticEditPolicy extends
 			env
 					.put(OPPOSITE_END_VAR, SeffPackage.eINSTANCE
 							.getAbstractAction());
-			AbstractActionSuccessor_AbstractAction_4001_TargetExpression = PalladioComponentModelOCLFactory
+			AbstractActionSuccessor_AbstractAction_4001_SourceExpression = PalladioComponentModelOCLFactory
 					.getExpression(
-							"self.predecessor_AbstractAction = null and not self.oclIsTypeOf(StartAction)", SeffPackage.eINSTANCE.getAbstractAction(), env); //$NON-NLS-1$
+							"not self.oclIsTypeOf(StopAction)", SeffPackage.eINSTANCE.getAbstractAction(), env); //$NON-NLS-1$
 		}
 
 		/**

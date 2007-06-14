@@ -63,8 +63,6 @@ public class BranchAction2EditPart extends ShapeNodeEditPart {
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
 				new BranchAction2ItemSemanticEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
-		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
-		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
 	}
 
 	/**
@@ -223,14 +221,15 @@ public class BranchAction2EditPart extends ShapeNodeEditPart {
 		/**
 		 * @generated
 		 */
-		private WrapLabel fFigureBranchNameLabelFigure;
-
-		/**
-		 * @generated
-		 */
 		public BranchFigure() {
 			this.setCornerDimensions(new Dimension(getMapMode().DPtoLP(8),
 					getMapMode().DPtoLP(8)));
+			this.setFill(true);
+			this.setFillXOR(false);
+			this.setOutline(true);
+			this.setOutlineXOR(false);
+			this.setLineWidth(1);
+			this.setLineStyle(Graphics.LINE_SOLID);
 			createContents();
 		}
 
@@ -248,15 +247,27 @@ public class BranchAction2EditPart extends ShapeNodeEditPart {
 			branchNameLabelFigure0.setText("myBranch");
 
 			this.add(branchNameLabelFigure0);
-			fFigureBranchNameLabelFigure = branchNameLabelFigure0;
+			setFigureBranchNameLabelFigure(branchNameLabelFigure0);
 
 		}
 
 		/**
 		 * @generated
 		 */
+		private WrapLabel fBranchNameLabelFigure;
+
+		/**
+		 * @generated
+		 */
 		public WrapLabel getFigureBranchNameLabelFigure() {
-			return fFigureBranchNameLabelFigure;
+			return fBranchNameLabelFigure;
+		}
+
+		/**
+		 * @generated
+		 */
+		private void setFigureBranchNameLabelFigure(WrapLabel fig) {
+			fBranchNameLabelFigure = fig;
 		}
 
 		/**

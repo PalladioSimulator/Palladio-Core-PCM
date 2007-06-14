@@ -66,8 +66,6 @@ public class StopActionEditPart extends ShapeNodeEditPart {
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
 				new StopActionItemSemanticEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
-		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
-		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
 	}
 
 	/**
@@ -162,6 +160,11 @@ public class StopActionEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected IFigure setupContentPane(IFigure nodeShape) {
+		if (nodeShape.getLayoutManager() == null) {
+			ConstrainedToolbarLayout layout = new ConstrainedToolbarLayout();
+			layout.setSpacing(getMapMode().DPtoLP(5));
+			nodeShape.setLayoutManager(layout);
+		}
 		return nodeShape; // use nodeShape itself as contentPane
 	}
 
@@ -185,6 +188,12 @@ public class StopActionEditPart extends ShapeNodeEditPart {
 		public StopFigure() {
 
 			this.setLayoutManager(new StackLayout());
+			this.setFill(true);
+			this.setFillXOR(false);
+			this.setOutline(true);
+			this.setOutlineXOR(false);
+			this.setLineWidth(1);
+			this.setLineStyle(Graphics.LINE_SOLID);
 			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(30),
 					getMapMode().DPtoLP(30)));
 
@@ -200,6 +209,12 @@ public class StopActionEditPart extends ShapeNodeEditPart {
 		private void createContents() {
 
 			Ellipse innerCircle0 = new Ellipse();
+			innerCircle0.setFill(true);
+			innerCircle0.setFillXOR(false);
+			innerCircle0.setOutline(true);
+			innerCircle0.setOutlineXOR(false);
+			innerCircle0.setLineWidth(1);
+			innerCircle0.setLineStyle(Graphics.LINE_SOLID);
 			innerCircle0.setBackgroundColor(ColorConstants.black);
 
 			this.add(innerCircle0);

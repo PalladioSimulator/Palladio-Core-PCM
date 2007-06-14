@@ -60,18 +60,8 @@ public class PalladioComponentModelNewDiagramFileWizard extends Wizard {
 	/**
 	 * @generated
 	 */
-	private WizardNewFileCreationPage myFileCreationPage;
-
-	/**
-	 * @generated
-	 */
-	private ModelElementSelectionPage diagramRootElementSelectionPage;
-
-	/**
-	 * @generated
-	 */
 	private TransactionalEditingDomain myEditingDomain;
-
+	
 	/**
 	 * @generated not
 	 */
@@ -103,7 +93,7 @@ public class PalladioComponentModelNewDiagramFileWizard extends Wizard {
 								ResourceDemandingSEFFEditPart.MODEL_ID));
 		//force correct file extension
 		myDiagramFilenameSelectionPage.setFileExtension("seff_diagram");
-
+	
 		IPath filePath;
 		if (domainModelURI.isPlatformResource()) {
 			filePath = new Path(domainModelURI.trimSegments(1)
@@ -116,7 +106,7 @@ public class PalladioComponentModelNewDiagramFileWizard extends Wizard {
 					"Unsupported URI: " + domainModelURI); //$NON-NLS-1$
 		}
 		myDiagramFilenameSelectionPage.setContainerFullPath(filePath);
-
+		
 		myDiagramRootElementSelectionPage = new DiagramRootElementSelectionPage(
 				Messages.PalladioComponentModelNewDiagramFileWizard_RootSelectionPageName,
 				diagramRoot);
@@ -263,12 +253,14 @@ public class PalladioComponentModelNewDiagramFileWizard extends Wizard {
 
 			myCombo.removeAll();
 			for (ResourceDemandingSEFF seff : myFoundSeffs) {
-				myCombo.add("Container: " + getComponentNameFromSEFF(seff)
-						+ " - SEFF " + getServiceNameFromSEFF(seff) + " id: "
-						+ seff.getId());
+				myCombo.add("Container: "
+						+ getComponentNameFromSEFF(seff)
+						+ " - SEFF "
+						+ getServiceNameFromSEFF(seff)
+						+ " id: " + seff.getId());
 			}
 		}
-
+		
 		/**
 		 * helper function to determine the name of the component of a seff.
 		 * Assumes the seff can only be contained in a BasicComponent.
@@ -286,7 +278,7 @@ public class PalladioComponentModelNewDiagramFileWizard extends Wizard {
 				return "";
 			}
 		}
-
+		
 		/**
 		 * helper function to determine the name of the service of a seff
 		 * 
@@ -337,10 +329,12 @@ public class PalladioComponentModelNewDiagramFileWizard extends Wizard {
 			} catch (ArrayIndexOutOfBoundsException e) {
 				return false;
 			}
-
+			
 			//propose a name in the diagram filename selection page
-			String filename = getComponentNameFromSEFF(mySeff) + "."
-					+ getServiceNameFromSEFF(mySeff) + ".seff_diagram";
+			String filename = getComponentNameFromSEFF(mySeff) + 
+								"." +
+								getServiceNameFromSEFF(mySeff) +
+								".seff_diagram";
 			myDiagramFilenameSelectionPage.setFileName(filename);
 
 			return true;
