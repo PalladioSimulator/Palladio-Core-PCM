@@ -8,10 +8,13 @@ import org.eclipse.emf.ecore.EObject;
 
 import de.uka.ipd.sdq.probfunction.print.ProbFunctionPrettyPrint;
 import de.uka.ipd.sdq.stoex.BoolLiteral;
+import de.uka.ipd.sdq.stoex.BooleanOperatorExpression;
 import de.uka.ipd.sdq.stoex.CompareExpression;
 import de.uka.ipd.sdq.stoex.DoubleLiteral;
 import de.uka.ipd.sdq.stoex.IntLiteral;
 import de.uka.ipd.sdq.stoex.NamespaceReference;
+import de.uka.ipd.sdq.stoex.NegativeExpression;
+import de.uka.ipd.sdq.stoex.NotExpression;
 import de.uka.ipd.sdq.stoex.Parenthesis;
 import de.uka.ipd.sdq.stoex.PowerExpression;
 import de.uka.ipd.sdq.stoex.ProbabilityFunctionLiteral;
@@ -169,4 +172,23 @@ public class StoExPrettyPrintVisitor extends StoexSwitch<String> {
 	{
 		return (String)doSwitch(theObject);
 	}
+
+	@Override
+	public String caseBooleanOperatorExpression(BooleanOperatorExpression object) {
+		String result = this.doSwitch(object.getLeft());
+		result += " "+object.getOperation().getLiteral()+" ";
+		return result + this.doSwitch(object.getRight());
+	}
+
+	@Override
+	public String caseNegativeExpression(NegativeExpression object) {
+		return "-"+this.doSwitch(object.getInner());
+	}
+
+	@Override
+	public String caseNotExpression(NotExpression object) {
+		return "NOT ("+this.doSwitch(object.getInner())+")";
+	}
+	
+	
 }

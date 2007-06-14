@@ -38,6 +38,10 @@ public class StoExTokenMapper implements ITokenMapper {
 		case PCMStoExLexer.POW:
 		case PCMStoExLexer.LPAREN:
 		case PCMStoExLexer.RPAREN:
+		case PCMStoExLexer.AND:
+		case PCMStoExLexer.OR:
+		case PCMStoExLexer.XOR:
+		case PCMStoExLexer.NOT:
 			return new TextAttribute (new Color( null, new RGB(0,0,0) ), null, SWT.BOLD);
 		case PCMStoExLexer.DOUBLEPDF:
 		case PCMStoExLexer.INTPMF:
