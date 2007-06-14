@@ -62,8 +62,6 @@ public class CompleteComponentTypeEditPart extends ShapeNodeEditPart {
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
 				new CompleteComponentTypeItemSemanticEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
-		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
-		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
 	}
 
 	/**
@@ -189,6 +187,11 @@ public class CompleteComponentTypeEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected IFigure setupContentPane(IFigure nodeShape) {
+		if (nodeShape.getLayoutManager() == null) {
+			ConstrainedToolbarLayout layout = new ConstrainedToolbarLayout();
+			layout.setSpacing(getMapMode().DPtoLP(5));
+			nodeShape.setLayoutManager(layout);
+		}
 		return nodeShape; // use nodeShape itself as contentPane
 	}
 
@@ -217,12 +220,13 @@ public class CompleteComponentTypeEditPart extends ShapeNodeEditPart {
 		/**
 		 * @generated
 		 */
-		private WrapLabel fFigureCompleteComponentTypeLabelFigure;
-
-		/**
-		 * @generated
-		 */
 		public CompleteComponentTypeFigure() {
+			this.setFill(true);
+			this.setFillXOR(false);
+			this.setOutline(true);
+			this.setOutlineXOR(false);
+			this.setLineWidth(1);
+			this.setLineStyle(Graphics.LINE_SOLID);
 			createContents();
 		}
 
@@ -235,15 +239,27 @@ public class CompleteComponentTypeEditPart extends ShapeNodeEditPart {
 			completeComponentTypeLabelFigure0.setText("<...>");
 
 			this.add(completeComponentTypeLabelFigure0);
-			fFigureCompleteComponentTypeLabelFigure = completeComponentTypeLabelFigure0;
+			setFigureCompleteComponentTypeLabelFigure(completeComponentTypeLabelFigure0);
 
 		}
 
 		/**
 		 * @generated
 		 */
+		private WrapLabel fCompleteComponentTypeLabelFigure;
+
+		/**
+		 * @generated
+		 */
 		public WrapLabel getFigureCompleteComponentTypeLabelFigure() {
-			return fFigureCompleteComponentTypeLabelFigure;
+			return fCompleteComponentTypeLabelFigure;
+		}
+
+		/**
+		 * @generated
+		 */
+		private void setFigureCompleteComponentTypeLabelFigure(WrapLabel fig) {
+			fCompleteComponentTypeLabelFigure = fig;
 		}
 
 		/**

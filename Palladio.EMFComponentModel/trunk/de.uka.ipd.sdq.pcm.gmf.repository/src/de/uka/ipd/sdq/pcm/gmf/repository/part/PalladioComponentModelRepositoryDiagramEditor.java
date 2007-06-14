@@ -72,20 +72,8 @@ public class PalladioComponentModelRepositoryDiagramEditor extends
 	/**
 	 * @generated
 	 */
-	public static final String CONTEXT_ID = "de.uka.ipd.sdq.pcm.gmf.repository.ui.diagramContext"; //$NON-NLS-1$
-
-	/**
-	 * @generated
-	 */
 	public PalladioComponentModelRepositoryDiagramEditor() {
 		super(true);
-	}
-
-	/**
-	 * @generated
-	 */
-	protected String getContextID() {
-		return CONTEXT_ID;
 	}
 
 	/**
@@ -257,8 +245,7 @@ public class PalladioComponentModelRepositoryDiagramEditor extends
 
 		getDiagramGraphicalViewer().addDropTargetListener(
 				(TransferDropTargetListener) new DiagramDropTargetListener(
-						getDiagramGraphicalViewer(), LocalSelectionTransfer
-								.getTransfer()) {
+						getDiagramGraphicalViewer(), LocalSelectionTransfer.getTransfer()) {
 					protected List getObjectsBeingDropped() {
 						TransferData[] data = getCurrentEvent().dataTypes;
 						List eObjects = new ArrayList();

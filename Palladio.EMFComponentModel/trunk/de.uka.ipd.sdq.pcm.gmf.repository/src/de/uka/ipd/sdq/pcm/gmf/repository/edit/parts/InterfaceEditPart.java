@@ -90,8 +90,6 @@ public class InterfaceEditPart extends ShapeNodeEditPart {
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
 				new InterfaceItemSemanticEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
-		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
-		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
 	}
 
 	/**
@@ -250,12 +248,13 @@ public class InterfaceEditPart extends ShapeNodeEditPart {
 		/**
 		 * @generated
 		 */
-		private WrapLabel fFigureInterface_Name_LabelFigure;
-
-		/**
-		 * @generated
-		 */
 		public InterfaceFigure() {
+			this.setFill(true);
+			this.setFillXOR(false);
+			this.setOutline(true);
+			this.setOutlineXOR(false);
+			this.setLineWidth(1);
+			this.setLineStyle(Graphics.LINE_SOLID);
 			createContents();
 		}
 
@@ -268,15 +267,27 @@ public class InterfaceEditPart extends ShapeNodeEditPart {
 			interface_Name_LabelFigure0.setText("<...>");
 
 			this.add(interface_Name_LabelFigure0);
-			fFigureInterface_Name_LabelFigure = interface_Name_LabelFigure0;
+			setFigureInterface_Name_LabelFigure(interface_Name_LabelFigure0);
 
 		}
 
 		/**
 		 * @generated
 		 */
+		private WrapLabel fInterface_Name_LabelFigure;
+
+		/**
+		 * @generated
+		 */
 		public WrapLabel getFigureInterface_Name_LabelFigure() {
-			return fFigureInterface_Name_LabelFigure;
+			return fInterface_Name_LabelFigure;
+		}
+
+		/**
+		 * @generated
+		 */
+		private void setFigureInterface_Name_LabelFigure(WrapLabel fig) {
+			fInterface_Name_LabelFigure = fig;
 		}
 
 		/**

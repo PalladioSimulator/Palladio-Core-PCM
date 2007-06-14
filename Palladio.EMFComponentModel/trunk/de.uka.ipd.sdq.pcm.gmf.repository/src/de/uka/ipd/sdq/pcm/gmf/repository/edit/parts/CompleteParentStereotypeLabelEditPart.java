@@ -163,7 +163,7 @@ public class CompleteParentStereotypeLabelEditPart extends LabelEditPart
 	/**
 	 * @generated
 	 */
-	public void setLabel(WrapLabel figure) {
+	public void setLabel(IFigure figure) {
 		unregisterVisuals();
 		setFigure(figure);
 		defaultText = getLabelTextHelper(figure);
@@ -562,8 +562,29 @@ public class CompleteParentStereotypeLabelEditPart extends LabelEditPart
 	 * @generated
 	 */
 	protected IFigure createFigure() {
-		// Parent should assign one using setLabel() method
-		return null;
+		IFigure label = createFigurePrim();
+		defaultText = getLabelTextHelper(label);
+		return label;
+	}
+
+	/**
+	 * @generated
+	 */
+	protected IFigure createFigurePrim() {
+		return new CompleteParentStereotypeLabelFigure();
+	}
+
+	/**
+	 * @generated
+	 */
+	public class CompleteParentStereotypeLabelFigure extends WrapLabel {
+		/**
+		 * @generated
+		 */
+		public CompleteParentStereotypeLabelFigure() {
+			this.setText("<<conforms>>");
+		}
+
 	}
 
 }

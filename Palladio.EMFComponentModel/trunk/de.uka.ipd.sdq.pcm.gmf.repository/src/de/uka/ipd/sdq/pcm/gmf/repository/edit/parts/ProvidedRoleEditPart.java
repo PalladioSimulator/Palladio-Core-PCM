@@ -11,7 +11,6 @@ import org.eclipse.draw2d.geometry.PointList;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ConnectionNodeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.PolylineConnectionEx;
-import org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel;
 import org.eclipse.gmf.runtime.notation.View;
 
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.policies.ProvidedRoleItemSemanticEditPolicy;
@@ -63,16 +62,13 @@ public class ProvidedRoleEditPart extends ConnectionNodeEditPart {
 		/**
 		 * @generated
 		 */
-		private WrapLabel fFigureEntityEntityName5Figure;
-		/**
-		 * @generated
-		 */
-		private WrapLabel fFigureProvidesStereotypeLabelFigure;
-
-		/**
-		 * @generated
-		 */
 		public ProvidedRoleFigure() {
+			this.setFill(true);
+			this.setFillXOR(false);
+			this.setOutline(true);
+			this.setOutlineXOR(false);
+			this.setLineWidth(1);
+			this.setLineStyle(Graphics.LINE_SOLID);
 
 			setTargetDecoration(createTargetDecoration());
 		}
@@ -82,6 +78,12 @@ public class ProvidedRoleEditPart extends ConnectionNodeEditPart {
 		 */
 		private RotatableDecoration createTargetDecoration() {
 			PolylineDecoration df = new PolylineDecoration();
+			df.setFill(true);
+			df.setFillXOR(false);
+			df.setOutline(true);
+			df.setOutlineXOR(false);
+			df.setLineWidth(1);
+			df.setLineStyle(Graphics.LINE_SOLID);
 			PointList pl = new PointList();
 			pl.addPoint(getMapMode().DPtoLP(-1), getMapMode().DPtoLP(-1));
 			pl.addPoint(getMapMode().DPtoLP(0), getMapMode().DPtoLP(0));
@@ -89,20 +91,6 @@ public class ProvidedRoleEditPart extends ConnectionNodeEditPart {
 			df.setTemplate(pl);
 			df.setScale(getMapMode().DPtoLP(7), getMapMode().DPtoLP(3));
 			return df;
-		}
-
-		/**
-		 * @generated
-		 */
-		public WrapLabel getFigureEntityEntityName5Figure() {
-			return fFigureEntityEntityName5Figure;
-		}
-
-		/**
-		 * @generated
-		 */
-		public WrapLabel getFigureProvidesStereotypeLabelFigure() {
-			return fFigureProvidesStereotypeLabelFigure;
 		}
 
 	}

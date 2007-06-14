@@ -93,8 +93,6 @@ public class BasicComponentEditPart extends ShapeNodeEditPart {
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
 		installEditPolicy(EditPolicyRoles.OPEN_ROLE,
 				new OpenSeffDiagramEditPolicy());
-		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
-		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
 	}
 
 	/**
@@ -253,12 +251,13 @@ public class BasicComponentEditPart extends ShapeNodeEditPart {
 		/**
 		 * @generated
 		 */
-		private WrapLabel fFigureBasicComponent_Name_LabelFigure;
-
-		/**
-		 * @generated
-		 */
 		public BasicComponentFigure() {
+			this.setFill(true);
+			this.setFillXOR(false);
+			this.setOutline(true);
+			this.setOutlineXOR(false);
+			this.setLineWidth(1);
+			this.setLineStyle(Graphics.LINE_SOLID);
 			createContents();
 		}
 
@@ -271,15 +270,27 @@ public class BasicComponentEditPart extends ShapeNodeEditPart {
 			basicComponent_Name_LabelFigure0.setText("<...>");
 
 			this.add(basicComponent_Name_LabelFigure0);
-			fFigureBasicComponent_Name_LabelFigure = basicComponent_Name_LabelFigure0;
+			setFigureBasicComponent_Name_LabelFigure(basicComponent_Name_LabelFigure0);
 
 		}
 
 		/**
 		 * @generated
 		 */
+		private WrapLabel fBasicComponent_Name_LabelFigure;
+
+		/**
+		 * @generated
+		 */
 		public WrapLabel getFigureBasicComponent_Name_LabelFigure() {
-			return fFigureBasicComponent_Name_LabelFigure;
+			return fBasicComponent_Name_LabelFigure;
+		}
+
+		/**
+		 * @generated
+		 */
+		private void setFigureBasicComponent_Name_LabelFigure(WrapLabel fig) {
+			fBasicComponent_Name_LabelFigure = fig;
 		}
 
 		/**

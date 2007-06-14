@@ -60,8 +60,6 @@ public class CompositeComponentEditPart extends ShapeNodeEditPart {
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
 				new CompositeComponentItemSemanticEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
-		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
-		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
 	}
 
 	/**
@@ -138,6 +136,11 @@ public class CompositeComponentEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected IFigure setupContentPane(IFigure nodeShape) {
+		if (nodeShape.getLayoutManager() == null) {
+			ConstrainedToolbarLayout layout = new ConstrainedToolbarLayout();
+			layout.setSpacing(getMapMode().DPtoLP(5));
+			nodeShape.setLayoutManager(layout);
+		}
 		return nodeShape; // use nodeShape itself as contentPane
 	}
 
@@ -158,12 +161,13 @@ public class CompositeComponentEditPart extends ShapeNodeEditPart {
 		/**
 		 * @generated
 		 */
-		private WrapLabel fFigureEntityEntityName8Figure;
-
-		/**
-		 * @generated
-		 */
 		public CompositeComponentFigure() {
+			this.setFill(true);
+			this.setFillXOR(false);
+			this.setOutline(true);
+			this.setOutlineXOR(false);
+			this.setLineWidth(1);
+			this.setLineStyle(Graphics.LINE_SOLID);
 			createContents();
 		}
 
@@ -176,15 +180,27 @@ public class CompositeComponentEditPart extends ShapeNodeEditPart {
 			entityEntityName8Figure0.setText("<...>");
 
 			this.add(entityEntityName8Figure0);
-			fFigureEntityEntityName8Figure = entityEntityName8Figure0;
+			setFigureEntityEntityName8Figure(entityEntityName8Figure0);
 
 		}
 
 		/**
 		 * @generated
 		 */
+		private WrapLabel fEntityEntityName8Figure;
+
+		/**
+		 * @generated
+		 */
 		public WrapLabel getFigureEntityEntityName8Figure() {
-			return fFigureEntityEntityName8Figure;
+			return fEntityEntityName8Figure;
+		}
+
+		/**
+		 * @generated
+		 */
+		private void setFigureEntityEntityName8Figure(WrapLabel fig) {
+			fEntityEntityName8Figure = fig;
 		}
 
 		/**

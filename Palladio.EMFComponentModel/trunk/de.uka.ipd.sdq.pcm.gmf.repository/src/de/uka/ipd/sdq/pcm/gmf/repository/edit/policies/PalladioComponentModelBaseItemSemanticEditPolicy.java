@@ -331,24 +331,6 @@ public class PalladioComponentModelBaseItemSemanticEditPolicy extends
 	/**
 	 * @generated
 	 */
-	protected void addDestroyShortcutsCommand(CompoundCommand command) {
-		View view = (View) getHost().getModel();
-		if (view.getEAnnotation("Shortcut") != null) { //$NON-NLS-1$
-			return;
-		}
-		for (Iterator it = view.getDiagram().getChildren().iterator(); it
-				.hasNext();) {
-			View nextView = (View) it.next();
-			if (nextView.getEAnnotation("Shortcut") == null || !nextView.isSetElement() || nextView.getElement() != view.getElement()) { //$NON-NLS-1$
-				continue;
-			}
-			command.add(getDestroyElementCommand(nextView));
-		}
-	}
-
-	/**
-	 * @generated
-	 */
 	public static class LinkConstraints {
 
 		/**
