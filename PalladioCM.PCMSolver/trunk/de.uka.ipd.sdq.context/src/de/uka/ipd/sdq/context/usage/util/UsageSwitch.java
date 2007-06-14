@@ -1,22 +1,16 @@
 /**
- * <copyright>
- * </copyright>
+ * Copyright 2006, SDQ Group, University Karlsruhe (TH)
  *
  * $Id$
  */
 package de.uka.ipd.sdq.context.usage.util;
 
+import de.uka.ipd.sdq.context.usage.*;
+
 import java.util.List;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
-
-import de.uka.ipd.sdq.context.usage.BranchProbability;
-import de.uka.ipd.sdq.context.usage.LoopIteration;
-import de.uka.ipd.sdq.context.usage.Usage;
-import de.uka.ipd.sdq.context.usage.UsageContext;
-import de.uka.ipd.sdq.context.usage.UsagePackage;
-import de.uka.ipd.sdq.stoex.RandomVariable;
 
 /**
  * <!-- begin-user-doc -->
@@ -114,7 +108,6 @@ public class UsageSwitch {
 			case UsagePackage.LOOP_ITERATION: {
 				LoopIteration loopIteration = (LoopIteration)theEObject;
 				Object result = caseLoopIteration(loopIteration);
-				if (result == null) result = caseRandomVariable(loopIteration);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -185,21 +178,6 @@ public class UsageSwitch {
 	 * @generated
 	 */
 	public Object caseUsage(Usage object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Random Variable</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Random Variable</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public Object caseRandomVariable(RandomVariable object) {
 		return null;
 	}
 

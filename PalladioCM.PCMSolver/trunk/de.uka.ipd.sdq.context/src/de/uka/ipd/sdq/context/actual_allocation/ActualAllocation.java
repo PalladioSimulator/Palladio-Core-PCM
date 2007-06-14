@@ -1,12 +1,12 @@
 /**
- * <copyright>
- * </copyright>
+ * Copyright 2006, SDQ Group, University Karlsruhe (TH)
  *
  * $Id$
  */
 package de.uka.ipd.sdq.context.actual_allocation;
 
 import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -44,7 +44,7 @@ public interface ActualAllocation extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Actual Allocation Contexts Actual Allocation</em>' containment reference list.
 	 * @see de.uka.ipd.sdq.context.actual_allocation.AllocationPackage#getActualAllocation_ActualAllocationContexts_ActualAllocation()
-	 * @model type="de.uka.ipd.sdq.context.allocation.ActualAllocationContext" containment="true" ordered="false"
+	 * @model type="de.uka.ipd.sdq.context.actual_allocation.ActualAllocationContext" containment="true" ordered="false"
 	 * @generated
 	 */
 	EList getActualAllocationContexts_ActualAllocation();

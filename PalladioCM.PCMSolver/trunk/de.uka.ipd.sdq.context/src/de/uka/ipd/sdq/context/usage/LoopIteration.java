@@ -1,13 +1,15 @@
 /**
- * <copyright>
- * </copyright>
+ * Copyright 2006, SDQ Group, University Karlsruhe (TH)
  *
  * $Id$
  */
 package de.uka.ipd.sdq.context.usage;
 
 import de.uka.ipd.sdq.pcm.seff.AbstractLoopAction;
+
 import de.uka.ipd.sdq.stoex.RandomVariable;
+
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -18,6 +20,7 @@ import de.uka.ipd.sdq.stoex.RandomVariable;
  * The following features are supported:
  * <ul>
  *   <li>{@link de.uka.ipd.sdq.context.usage.LoopIteration#getLoopaction_LoopIteration <em>Loopaction Loop Iteration</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.context.usage.LoopIteration#getIterations_LoopIteration <em>Iterations Loop Iteration</em>}</li>
  * </ul>
  * </p>
  *
@@ -25,7 +28,7 @@ import de.uka.ipd.sdq.stoex.RandomVariable;
  * @model
  * @generated
  */
-public interface LoopIteration extends RandomVariable {
+public interface LoopIteration extends EObject {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -58,5 +61,31 @@ public interface LoopIteration extends RandomVariable {
 	 * @generated
 	 */
 	void setLoopaction_LoopIteration(AbstractLoopAction value);
+
+	/**
+	 * Returns the value of the '<em><b>Iterations Loop Iteration</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Iterations Loop Iteration</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Iterations Loop Iteration</em>' containment reference.
+	 * @see #setIterations_LoopIteration(RandomVariable)
+	 * @see de.uka.ipd.sdq.context.usage.UsagePackage#getLoopIteration_Iterations_LoopIteration()
+	 * @model containment="true" required="true" ordered="false"
+	 * @generated
+	 */
+	RandomVariable getIterations_LoopIteration();
+
+	/**
+	 * Sets the value of the '{@link de.uka.ipd.sdq.context.usage.LoopIteration#getIterations_LoopIteration <em>Iterations Loop Iteration</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Iterations Loop Iteration</em>' containment reference.
+	 * @see #getIterations_LoopIteration()
+	 * @generated
+	 */
+	void setIterations_LoopIteration(RandomVariable value);
 
 } // LoopIteration

@@ -1,22 +1,19 @@
 /**
- * <copyright>
- * </copyright>
+ * Copyright 2006, SDQ Group, University Karlsruhe (TH)
  *
  * $Id$
  */
 package de.uka.ipd.sdq.context.actual_allocation.impl;
 
+import de.uka.ipd.sdq.context.actual_allocation.*;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-import org.eclipse.emf.ecore.impl.EFactoryImpl;
-import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
-import de.uka.ipd.sdq.context.actual_allocation.ActualAllocation;
-import de.uka.ipd.sdq.context.actual_allocation.ActualAllocationContext;
-import de.uka.ipd.sdq.context.actual_allocation.ActualResourceDemand;
-import de.uka.ipd.sdq.context.actual_allocation.AllocationFactory;
-import de.uka.ipd.sdq.context.actual_allocation.AllocationPackage;
+import org.eclipse.emf.ecore.impl.EFactoryImpl;
+
+import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
 /**
  * <!-- begin-user-doc -->

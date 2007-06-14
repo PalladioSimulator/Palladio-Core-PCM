@@ -1,12 +1,12 @@
 /**
- * <copyright>
- * </copyright>
+ * Copyright 2006, SDQ Group, University Karlsruhe (TH)
  *
  * $Id$
  */
 package de.uka.ipd.sdq.context.usage;
 
 import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EObject;
 
 /**

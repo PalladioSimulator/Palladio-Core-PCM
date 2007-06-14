@@ -1,12 +1,12 @@
 /**
- * <copyright>
- * </copyright>
+ * Copyright 2006, SDQ Group, University Karlsruhe (TH)
  *
  * $Id$
  */
 package de.uka.ipd.sdq.context.usage;
 
 import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -72,7 +72,7 @@ public interface UsageContext extends EObject {
 	 * The list contents are of type {@link de.uka.ipd.sdq.pcm.parameter.VariableUsage}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Actual Parameter Usage Usage Context</em>' reference list isn't clear,
+	 * If the meaning of the '<em>Actual Parameter Usage Usage Context</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->

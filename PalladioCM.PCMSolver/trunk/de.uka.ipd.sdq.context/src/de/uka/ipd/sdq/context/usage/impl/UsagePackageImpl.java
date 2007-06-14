@@ -1,40 +1,57 @@
 /**
- * <copyright>
- * </copyright>
+ * Copyright 2006, SDQ Group, University Karlsruhe (TH)
  *
  * $Id$
  */
 package de.uka.ipd.sdq.context.usage.impl;
 
-import org.eclipse.emf.ecore.EAttribute;
-import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EPackage;
-import org.eclipse.emf.ecore.EReference;
-import org.eclipse.emf.ecore.impl.EPackageImpl;
-
 import de.uka.ipd.sdq.context.actual_allocation.impl.AllocationPackageImpl;
+
 import de.uka.ipd.sdq.context.usage.BranchProbability;
 import de.uka.ipd.sdq.context.usage.LoopIteration;
 import de.uka.ipd.sdq.context.usage.Usage;
 import de.uka.ipd.sdq.context.usage.UsageContext;
 import de.uka.ipd.sdq.context.usage.UsageFactory;
 import de.uka.ipd.sdq.context.usage.UsagePackage;
+
 import de.uka.ipd.sdq.identifier.IdentifierPackage;
+
 import de.uka.ipd.sdq.pcm.allocation.AllocationPackage;
+
 import de.uka.ipd.sdq.pcm.core.composition.CompositionPackage;
+
 import de.uka.ipd.sdq.pcm.core.connectors.ConnectorsPackage;
+
 import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
+
 import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
+
 import de.uka.ipd.sdq.pcm.protocol.ProtocolPackage;
+
 import de.uka.ipd.sdq.pcm.qosannotations.QosannotationsPackage;
+
 import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
+
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage;
+
 import de.uka.ipd.sdq.pcm.resourcetype.ResourcetypePackage;
+
 import de.uka.ipd.sdq.pcm.seff.SeffPackage;
+
 import de.uka.ipd.sdq.pcm.system.SystemPackage;
+
 import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
+
 import de.uka.ipd.sdq.probfunction.ProbfunctionPackage;
+
 import de.uka.ipd.sdq.stoex.StoexPackage;
+
+import org.eclipse.emf.ecore.EAttribute;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.EReference;
+
+import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -255,6 +272,15 @@ public class UsagePackageImpl extends EPackageImpl implements UsagePackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getLoopIteration_Iterations_LoopIteration() {
+		return (EReference)loopIterationEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getUsage() {
 		return usageEClass;
 	}
@@ -307,6 +333,7 @@ public class UsagePackageImpl extends EPackageImpl implements UsagePackage {
 
 		loopIterationEClass = createEClass(LOOP_ITERATION);
 		createEReference(loopIterationEClass, LOOP_ITERATION__LOOPACTION_LOOP_ITERATION);
+		createEReference(loopIterationEClass, LOOP_ITERATION__ITERATIONS_LOOP_ITERATION);
 
 		usageEClass = createEClass(USAGE);
 		createEReference(usageEClass, USAGE__USAGE_CONTEXTS_USAGE);
@@ -341,7 +368,6 @@ public class UsagePackageImpl extends EPackageImpl implements UsagePackage {
 		StoexPackage theStoexPackage = (StoexPackage)EPackage.Registry.INSTANCE.getEPackage(StoexPackage.eNS_URI);
 
 		// Add supertypes to classes
-		loopIterationEClass.getESuperTypes().add(theStoexPackage.getRandomVariable());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(usageContextEClass, UsageContext.class, "UsageContext", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -355,6 +381,7 @@ public class UsagePackageImpl extends EPackageImpl implements UsagePackage {
 
 		initEClass(loopIterationEClass, LoopIteration.class, "LoopIteration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getLoopIteration_Loopaction_LoopIteration(), theSeffPackage.getAbstractLoopAction(), null, "loopaction_LoopIteration", null, 1, 1, LoopIteration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getLoopIteration_Iterations_LoopIteration(), theStoexPackage.getRandomVariable(), null, "iterations_LoopIteration", null, 1, 1, LoopIteration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(usageEClass, Usage.class, "Usage", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getUsage_UsageContexts_Usage(), this.getUsageContext(), null, "usageContexts_Usage", null, 0, -1, Usage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);

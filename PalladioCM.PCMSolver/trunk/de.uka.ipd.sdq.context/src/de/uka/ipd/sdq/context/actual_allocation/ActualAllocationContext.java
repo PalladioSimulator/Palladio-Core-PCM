@@ -1,15 +1,15 @@
 /**
- * <copyright>
- * </copyright>
+ * Copyright 2006, SDQ Group, University Karlsruhe (TH)
  *
  * $Id$
  */
 package de.uka.ipd.sdq.context.actual_allocation;
 
-import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.ecore.EObject;
-
 import de.uka.ipd.sdq.context.usage.UsageContext;
+
+import org.eclipse.emf.common.util.EList;
+
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -47,7 +47,7 @@ public interface ActualAllocationContext extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Actual Resource Demands Actual Allocation Context</em>' containment reference list.
 	 * @see de.uka.ipd.sdq.context.actual_allocation.AllocationPackage#getActualAllocationContext_ActualResourceDemands_ActualAllocationContext()
-	 * @model type="de.uka.ipd.sdq.context.allocation.ActualResourceDemand" containment="true" ordered="false"
+	 * @model type="de.uka.ipd.sdq.context.actual_allocation.ActualResourceDemand" containment="true" ordered="false"
 	 * @generated
 	 */
 	EList getActualResourceDemands_ActualAllocationContext();

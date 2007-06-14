@@ -1,22 +1,18 @@
 /**
- * <copyright>
- * </copyright>
+ * Copyright 2006, SDQ Group, University Karlsruhe (TH)
  *
  * $Id$
  */
 package de.uka.ipd.sdq.context.usage.util;
 
+import de.uka.ipd.sdq.context.usage.*;
+
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
-import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
-import org.eclipse.emf.ecore.EObject;
 
-import de.uka.ipd.sdq.context.usage.BranchProbability;
-import de.uka.ipd.sdq.context.usage.LoopIteration;
-import de.uka.ipd.sdq.context.usage.Usage;
-import de.uka.ipd.sdq.context.usage.UsageContext;
-import de.uka.ipd.sdq.context.usage.UsagePackage;
-import de.uka.ipd.sdq.stoex.RandomVariable;
+import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
+
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -92,9 +88,6 @@ public class UsageAdapterFactory extends AdapterFactoryImpl {
 			public Object caseUsage(Usage object) {
 				return createUsageAdapter();
 			}
-			public Object caseRandomVariable(RandomVariable object) {
-				return createRandomVariableAdapter();
-			}
 			public Object defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -166,20 +159,6 @@ public class UsageAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createUsageAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.stoex.RandomVariable <em>Random Variable</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.stoex.RandomVariable
-	 * @generated
-	 */
-	public Adapter createRandomVariableAdapter() {
 		return null;
 	}
 
