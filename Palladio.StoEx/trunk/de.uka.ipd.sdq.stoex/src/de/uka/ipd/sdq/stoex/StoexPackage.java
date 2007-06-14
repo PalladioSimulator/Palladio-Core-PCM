@@ -161,7 +161,7 @@ public interface StoexPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.stoex.impl.StoexPackageImpl#getExpression()
 	 * @generated
 	 */
-	int EXPRESSION = 9;
+	int EXPRESSION = 11;
 
 	/**
 	 * The number of structural features of the '<em>Expression</em>' class.
@@ -173,6 +173,25 @@ public interface StoexPackage extends EPackage {
 	int EXPRESSION_FEATURE_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.stoex.impl.BooleanExpressionImpl <em>Boolean Expression</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.stoex.impl.BooleanExpressionImpl
+	 * @see de.uka.ipd.sdq.stoex.impl.StoexPackageImpl#getBooleanExpression()
+	 * @generated
+	 */
+	int BOOLEAN_EXPRESSION = 10;
+
+	/**
+	 * The number of structural features of the '<em>Boolean Expression</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_EXPRESSION_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.stoex.impl.ComparisonImpl <em>Comparison</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -180,7 +199,7 @@ public interface StoexPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.stoex.impl.StoexPackageImpl#getComparison()
 	 * @generated
 	 */
-	int COMPARISON = 8;
+	int COMPARISON = 9;
 
 	/**
 	 * The number of structural features of the '<em>Comparison</em>' class.
@@ -189,7 +208,7 @@ public interface StoexPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPARISON_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 0;
+	int COMPARISON_FEATURE_COUNT = BOOLEAN_EXPRESSION_FEATURE_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.stoex.impl.TermImpl <em>Term</em>}' class.
@@ -199,7 +218,7 @@ public interface StoexPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.stoex.impl.StoexPackageImpl#getTerm()
 	 * @generated
 	 */
-	int TERM = 7;
+	int TERM = 8;
 
 	/**
 	 * The number of structural features of the '<em>Term</em>' class.
@@ -218,7 +237,7 @@ public interface StoexPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.stoex.impl.StoexPackageImpl#getProduct()
 	 * @generated
 	 */
-	int PRODUCT = 6;
+	int PRODUCT = 7;
 
 	/**
 	 * The number of structural features of the '<em>Product</em>' class.
@@ -237,7 +256,7 @@ public interface StoexPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.stoex.impl.StoexPackageImpl#getPower()
 	 * @generated
 	 */
-	int POWER = 5;
+	int POWER = 6;
 
 	/**
 	 * The number of structural features of the '<em>Power</em>' class.
@@ -247,6 +266,25 @@ public interface StoexPackage extends EPackage {
 	 * @ordered
 	 */
 	int POWER_FEATURE_COUNT = PRODUCT_FEATURE_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.stoex.impl.UnaryImpl <em>Unary</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.stoex.impl.UnaryImpl
+	 * @see de.uka.ipd.sdq.stoex.impl.StoexPackageImpl#getUnary()
+	 * @generated
+	 */
+	int UNARY = 5;
+
+	/**
+	 * The number of structural features of the '<em>Unary</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNARY_FEATURE_COUNT = POWER_FEATURE_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.stoex.impl.AtomImpl <em>Atom</em>}' class.
@@ -265,7 +303,7 @@ public interface StoexPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ATOM_FEATURE_COUNT = POWER_FEATURE_COUNT + 0;
+	int ATOM_FEATURE_COUNT = UNARY_FEATURE_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.stoex.impl.VariableImpl <em>Variable</em>}' class.
@@ -303,7 +341,7 @@ public interface StoexPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.stoex.impl.StoexPackageImpl#getTermExpression()
 	 * @generated
 	 */
-	int TERM_EXPRESSION = 10;
+	int TERM_EXPRESSION = 12;
 
 	/**
 	 * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -349,7 +387,7 @@ public interface StoexPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.stoex.impl.StoexPackageImpl#getRandomVariable()
 	 * @generated
 	 */
-	int RANDOM_VARIABLE = 11;
+	int RANDOM_VARIABLE = 13;
 
 	/**
 	 * The feature id for the '<em><b>Specification</b></em>' attribute.
@@ -377,7 +415,7 @@ public interface StoexPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.stoex.impl.StoexPackageImpl#getProductExpression()
 	 * @generated
 	 */
-	int PRODUCT_EXPRESSION = 12;
+	int PRODUCT_EXPRESSION = 14;
 
 	/**
 	 * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -423,7 +461,7 @@ public interface StoexPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.stoex.impl.StoexPackageImpl#getProbabilityFunctionLiteral()
 	 * @generated
 	 */
-	int PROBABILITY_FUNCTION_LITERAL = 13;
+	int PROBABILITY_FUNCTION_LITERAL = 15;
 
 	/**
 	 * The feature id for the '<em><b>Function Probability Function Literal</b></em>' containment reference.
@@ -451,7 +489,7 @@ public interface StoexPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.stoex.impl.StoexPackageImpl#getParenthesis()
 	 * @generated
 	 */
-	int PARENTHESIS = 14;
+	int PARENTHESIS = 16;
 
 	/**
 	 * The feature id for the '<em><b>Inner Expression</b></em>' containment reference.
@@ -479,7 +517,7 @@ public interface StoexPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.stoex.impl.StoexPackageImpl#getNumericLiteral()
 	 * @generated
 	 */
-	int NUMERIC_LITERAL = 15;
+	int NUMERIC_LITERAL = 17;
 
 	/**
 	 * The number of structural features of the '<em>Numeric Literal</em>' class.
@@ -498,7 +536,7 @@ public interface StoexPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.stoex.impl.StoexPackageImpl#getIntLiteral()
 	 * @generated
 	 */
-	int INT_LITERAL = 16;
+	int INT_LITERAL = 18;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -526,7 +564,7 @@ public interface StoexPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.stoex.impl.StoexPackageImpl#getDoubleLiteral()
 	 * @generated
 	 */
-	int DOUBLE_LITERAL = 17;
+	int DOUBLE_LITERAL = 19;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -554,7 +592,7 @@ public interface StoexPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.stoex.impl.StoexPackageImpl#getCompareExpression()
 	 * @generated
 	 */
-	int COMPARE_EXPRESSION = 18;
+	int COMPARE_EXPRESSION = 20;
 
 	/**
 	 * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -600,7 +638,7 @@ public interface StoexPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.stoex.impl.StoexPackageImpl#getBoolLiteral()
 	 * @generated
 	 */
-	int BOOL_LITERAL = 19;
+	int BOOL_LITERAL = 21;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -628,7 +666,7 @@ public interface StoexPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.stoex.impl.StoexPackageImpl#getStringLiteral()
 	 * @generated
 	 */
-	int STRING_LITERAL = 20;
+	int STRING_LITERAL = 22;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -656,7 +694,7 @@ public interface StoexPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.stoex.impl.StoexPackageImpl#getPowerExpression()
 	 * @generated
 	 */
-	int POWER_EXPRESSION = 21;
+	int POWER_EXPRESSION = 23;
 
 	/**
 	 * The feature id for the '<em><b>Base</b></em>' containment reference.
@@ -686,6 +724,108 @@ public interface StoexPackage extends EPackage {
 	int POWER_EXPRESSION_FEATURE_COUNT = POWER_FEATURE_COUNT + 2;
 
 	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.stoex.impl.BooleanOperatorExpressionImpl <em>Boolean Operator Expression</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.stoex.impl.BooleanOperatorExpressionImpl
+	 * @see de.uka.ipd.sdq.stoex.impl.StoexPackageImpl#getBooleanOperatorExpression()
+	 * @generated
+	 */
+	int BOOLEAN_OPERATOR_EXPRESSION = 24;
+
+	/**
+	 * The feature id for the '<em><b>Left</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_OPERATOR_EXPRESSION__LEFT = BOOLEAN_EXPRESSION_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Right</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_OPERATOR_EXPRESSION__RIGHT = BOOLEAN_EXPRESSION_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Operation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_OPERATOR_EXPRESSION__OPERATION = BOOLEAN_EXPRESSION_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of structural features of the '<em>Boolean Operator Expression</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_OPERATOR_EXPRESSION_FEATURE_COUNT = BOOLEAN_EXPRESSION_FEATURE_COUNT + 3;
+
+	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.stoex.impl.NotExpressionImpl <em>Not Expression</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.stoex.impl.NotExpressionImpl
+	 * @see de.uka.ipd.sdq.stoex.impl.StoexPackageImpl#getNotExpression()
+	 * @generated
+	 */
+	int NOT_EXPRESSION = 25;
+
+	/**
+	 * The feature id for the '<em><b>Inner</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NOT_EXPRESSION__INNER = UNARY_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Not Expression</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NOT_EXPRESSION_FEATURE_COUNT = UNARY_FEATURE_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.stoex.impl.NegativeExpressionImpl <em>Negative Expression</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.stoex.impl.NegativeExpressionImpl
+	 * @see de.uka.ipd.sdq.stoex.impl.StoexPackageImpl#getNegativeExpression()
+	 * @generated
+	 */
+	int NEGATIVE_EXPRESSION = 26;
+
+	/**
+	 * The feature id for the '<em><b>Inner</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEGATIVE_EXPRESSION__INNER = UNARY_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Negative Expression</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NEGATIVE_EXPRESSION_FEATURE_COUNT = UNARY_FEATURE_COUNT + 1;
+
+	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.stoex.TermOperations <em>Term Operations</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -693,7 +833,7 @@ public interface StoexPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.stoex.impl.StoexPackageImpl#getTermOperations()
 	 * @generated
 	 */
-	int TERM_OPERATIONS = 22;
+	int TERM_OPERATIONS = 27;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.stoex.ProductOperations <em>Product Operations</em>}' enum.
@@ -703,7 +843,7 @@ public interface StoexPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.stoex.impl.StoexPackageImpl#getProductOperations()
 	 * @generated
 	 */
-	int PRODUCT_OPERATIONS = 23;
+	int PRODUCT_OPERATIONS = 28;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.stoex.CompareOperations <em>Compare Operations</em>}' enum.
@@ -713,7 +853,18 @@ public interface StoexPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.stoex.impl.StoexPackageImpl#getCompareOperations()
 	 * @generated
 	 */
-	int COMPARE_OPERATIONS = 24;
+	int COMPARE_OPERATIONS = 29;
+
+
+	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.stoex.BooleanOperations <em>Boolean Operations</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.stoex.BooleanOperations
+	 * @see de.uka.ipd.sdq.stoex.impl.StoexPackageImpl#getBooleanOperations()
+	 * @generated
+	 */
+	int BOOLEAN_OPERATIONS = 30;
 
 
 	/**
@@ -800,6 +951,16 @@ public interface StoexPackage extends EPackage {
 	EClass getAtom();
 
 	/**
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.stoex.Unary <em>Unary</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Unary</em>'.
+	 * @see de.uka.ipd.sdq.stoex.Unary
+	 * @generated
+	 */
+	EClass getUnary();
+
+	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.stoex.Power <em>Power</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -838,6 +999,16 @@ public interface StoexPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getComparison();
+
+	/**
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.stoex.BooleanExpression <em>Boolean Expression</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Boolean Expression</em>'.
+	 * @see de.uka.ipd.sdq.stoex.BooleanExpression
+	 * @generated
+	 */
+	EClass getBooleanExpression();
 
 	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.stoex.Expression <em>Expression</em>}'.
@@ -1168,6 +1339,91 @@ public interface StoexPackage extends EPackage {
 	EReference getPowerExpression_Exponent();
 
 	/**
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.stoex.BooleanOperatorExpression <em>Boolean Operator Expression</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Boolean Operator Expression</em>'.
+	 * @see de.uka.ipd.sdq.stoex.BooleanOperatorExpression
+	 * @generated
+	 */
+	EClass getBooleanOperatorExpression();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link de.uka.ipd.sdq.stoex.BooleanOperatorExpression#getLeft <em>Left</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Left</em>'.
+	 * @see de.uka.ipd.sdq.stoex.BooleanOperatorExpression#getLeft()
+	 * @see #getBooleanOperatorExpression()
+	 * @generated
+	 */
+	EReference getBooleanOperatorExpression_Left();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link de.uka.ipd.sdq.stoex.BooleanOperatorExpression#getRight <em>Right</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Right</em>'.
+	 * @see de.uka.ipd.sdq.stoex.BooleanOperatorExpression#getRight()
+	 * @see #getBooleanOperatorExpression()
+	 * @generated
+	 */
+	EReference getBooleanOperatorExpression_Right();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.stoex.BooleanOperatorExpression#getOperation <em>Operation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Operation</em>'.
+	 * @see de.uka.ipd.sdq.stoex.BooleanOperatorExpression#getOperation()
+	 * @see #getBooleanOperatorExpression()
+	 * @generated
+	 */
+	EAttribute getBooleanOperatorExpression_Operation();
+
+	/**
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.stoex.NotExpression <em>Not Expression</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Not Expression</em>'.
+	 * @see de.uka.ipd.sdq.stoex.NotExpression
+	 * @generated
+	 */
+	EClass getNotExpression();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link de.uka.ipd.sdq.stoex.NotExpression#getInner <em>Inner</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Inner</em>'.
+	 * @see de.uka.ipd.sdq.stoex.NotExpression#getInner()
+	 * @see #getNotExpression()
+	 * @generated
+	 */
+	EReference getNotExpression_Inner();
+
+	/**
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.stoex.NegativeExpression <em>Negative Expression</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Negative Expression</em>'.
+	 * @see de.uka.ipd.sdq.stoex.NegativeExpression
+	 * @generated
+	 */
+	EClass getNegativeExpression();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link de.uka.ipd.sdq.stoex.NegativeExpression#getInner <em>Inner</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Inner</em>'.
+	 * @see de.uka.ipd.sdq.stoex.NegativeExpression#getInner()
+	 * @see #getNegativeExpression()
+	 * @generated
+	 */
+	EReference getNegativeExpression_Inner();
+
+	/**
 	 * Returns the meta object for enum '{@link de.uka.ipd.sdq.stoex.TermOperations <em>Term Operations</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1196,6 +1452,16 @@ public interface StoexPackage extends EPackage {
 	 * @generated
 	 */
 	EEnum getCompareOperations();
+
+	/**
+	 * Returns the meta object for enum '{@link de.uka.ipd.sdq.stoex.BooleanOperations <em>Boolean Operations</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Boolean Operations</em>'.
+	 * @see de.uka.ipd.sdq.stoex.BooleanOperations
+	 * @generated
+	 */
+	EEnum getBooleanOperations();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -1294,6 +1560,16 @@ public interface StoexPackage extends EPackage {
 		EClass ATOM = eINSTANCE.getAtom();
 
 		/**
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.stoex.impl.UnaryImpl <em>Unary</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.uka.ipd.sdq.stoex.impl.UnaryImpl
+		 * @see de.uka.ipd.sdq.stoex.impl.StoexPackageImpl#getUnary()
+		 * @generated
+		 */
+		EClass UNARY = eINSTANCE.getUnary();
+
+		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.stoex.impl.PowerImpl <em>Power</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1332,6 +1608,16 @@ public interface StoexPackage extends EPackage {
 		 * @generated
 		 */
 		EClass COMPARISON = eINSTANCE.getComparison();
+
+		/**
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.stoex.impl.BooleanExpressionImpl <em>Boolean Expression</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.uka.ipd.sdq.stoex.impl.BooleanExpressionImpl
+		 * @see de.uka.ipd.sdq.stoex.impl.StoexPackageImpl#getBooleanExpression()
+		 * @generated
+		 */
+		EClass BOOLEAN_EXPRESSION = eINSTANCE.getBooleanExpression();
 
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.stoex.impl.ExpressionImpl <em>Expression</em>}' class.
@@ -1608,6 +1894,76 @@ public interface StoexPackage extends EPackage {
 		EReference POWER_EXPRESSION__EXPONENT = eINSTANCE.getPowerExpression_Exponent();
 
 		/**
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.stoex.impl.BooleanOperatorExpressionImpl <em>Boolean Operator Expression</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.uka.ipd.sdq.stoex.impl.BooleanOperatorExpressionImpl
+		 * @see de.uka.ipd.sdq.stoex.impl.StoexPackageImpl#getBooleanOperatorExpression()
+		 * @generated
+		 */
+		EClass BOOLEAN_OPERATOR_EXPRESSION = eINSTANCE.getBooleanOperatorExpression();
+
+		/**
+		 * The meta object literal for the '<em><b>Left</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference BOOLEAN_OPERATOR_EXPRESSION__LEFT = eINSTANCE.getBooleanOperatorExpression_Left();
+
+		/**
+		 * The meta object literal for the '<em><b>Right</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference BOOLEAN_OPERATOR_EXPRESSION__RIGHT = eINSTANCE.getBooleanOperatorExpression_Right();
+
+		/**
+		 * The meta object literal for the '<em><b>Operation</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute BOOLEAN_OPERATOR_EXPRESSION__OPERATION = eINSTANCE.getBooleanOperatorExpression_Operation();
+
+		/**
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.stoex.impl.NotExpressionImpl <em>Not Expression</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.uka.ipd.sdq.stoex.impl.NotExpressionImpl
+		 * @see de.uka.ipd.sdq.stoex.impl.StoexPackageImpl#getNotExpression()
+		 * @generated
+		 */
+		EClass NOT_EXPRESSION = eINSTANCE.getNotExpression();
+
+		/**
+		 * The meta object literal for the '<em><b>Inner</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference NOT_EXPRESSION__INNER = eINSTANCE.getNotExpression_Inner();
+
+		/**
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.stoex.impl.NegativeExpressionImpl <em>Negative Expression</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.uka.ipd.sdq.stoex.impl.NegativeExpressionImpl
+		 * @see de.uka.ipd.sdq.stoex.impl.StoexPackageImpl#getNegativeExpression()
+		 * @generated
+		 */
+		EClass NEGATIVE_EXPRESSION = eINSTANCE.getNegativeExpression();
+
+		/**
+		 * The meta object literal for the '<em><b>Inner</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference NEGATIVE_EXPRESSION__INNER = eINSTANCE.getNegativeExpression_Inner();
+
+		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.stoex.TermOperations <em>Term Operations</em>}' enum.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1636,6 +1992,16 @@ public interface StoexPackage extends EPackage {
 		 * @generated
 		 */
 		EEnum COMPARE_OPERATIONS = eINSTANCE.getCompareOperations();
+
+		/**
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.stoex.BooleanOperations <em>Boolean Operations</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.uka.ipd.sdq.stoex.BooleanOperations
+		 * @see de.uka.ipd.sdq.stoex.impl.StoexPackageImpl#getBooleanOperations()
+		 * @generated
+		 */
+		EEnum BOOLEAN_OPERATIONS = eINSTANCE.getBooleanOperations();
 
 	}
 

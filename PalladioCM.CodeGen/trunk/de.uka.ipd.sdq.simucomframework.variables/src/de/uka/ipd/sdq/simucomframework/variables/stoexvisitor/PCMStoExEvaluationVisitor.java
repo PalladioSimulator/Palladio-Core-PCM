@@ -11,13 +11,18 @@ import de.uka.ipd.sdq.simucomframework.variables.cache.ProbFunctionCache;
 import de.uka.ipd.sdq.simucomframework.variables.cache.StoExCache;
 import de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe;
 import de.uka.ipd.sdq.simucomframework.variables.stackframe.ValueNotInFrameException;
+import de.uka.ipd.sdq.stoex.BoolLiteral;
+import de.uka.ipd.sdq.stoex.BooleanOperatorExpression;
 import de.uka.ipd.sdq.stoex.CompareExpression;
 import de.uka.ipd.sdq.stoex.CompareOperations;
 import de.uka.ipd.sdq.stoex.DoubleLiteral;
 import de.uka.ipd.sdq.stoex.Expression;
 import de.uka.ipd.sdq.stoex.IntLiteral;
+import de.uka.ipd.sdq.stoex.NegativeExpression;
+import de.uka.ipd.sdq.stoex.NotExpression;
 import de.uka.ipd.sdq.stoex.Parenthesis;
 import de.uka.ipd.sdq.stoex.Power;
+import de.uka.ipd.sdq.stoex.PowerExpression;
 import de.uka.ipd.sdq.stoex.ProbabilityFunctionLiteral;
 import de.uka.ipd.sdq.stoex.ProductExpression;
 import de.uka.ipd.sdq.stoex.ProductOperations;
@@ -126,12 +131,6 @@ public class PCMStoExEvaluationVisitor extends PCMStoExSwitch {
 	@Override
 	public Object caseParenthesis(Parenthesis object) {
 		return doSwitch(object.getInnerExpression());
-	}
-
-	@Override
-	public Object casePower(Power object) {
-		// TODO Auto-generated method stub
-		return super.casePower(object);
 	}
 
 	@Override
@@ -247,6 +246,58 @@ public class PCMStoExEvaluationVisitor extends PCMStoExSwitch {
 	public Object caseVariable(Variable object) {
 		// TODO Auto-generated method stub
 		return super.caseVariable(object);
+	}
+
+	@Override
+	public Object caseBooleanOperatorExpression(BooleanOperatorExpression object) {
+		boolean b1 = (Boolean) this.doSwitch(object.getLeft());
+		boolean b2 = (Boolean) this.doSwitch(object.getRight());
+		switch(object.getOperation()) {
+		case OR:
+			return b1 || b2;
+		case AND:
+			return b1 && b2;
+		case XOR:
+			return b1 ^ b2;
+		}
+		throw new RuntimeException("This should never happen!");
+	}
+
+	@Override
+	public Object caseNegativeExpression(NegativeExpression object) {
+		Object value = this.doSwitch(object.getInner());
+		if (value instanceof Integer)
+			return -((Integer)value);
+		if (value instanceof Double)
+			return -((Double)value);
+		throw new RuntimeException("Type mismatch, unary minus only supported for numbers!");
+	}
+
+	@Override
+	public Object caseBoolLiteral(BoolLiteral object) {
+		return object.isValue();
+	}
+
+	@Override
+	public Object caseNotExpression(NotExpression object) {
+		Boolean b = (Boolean)this.doSwitch(object.getInner());
+		return !b;
+	}
+
+	@Override
+	public Object casePowerExpression(PowerExpression object) {
+		TypeEnum leftType = typeInferer.getType(object.getBase());
+		TypeEnum rightType = typeInferer.getType(object.getExponent());
+		Object leftExpr = doSwitch(object.getBase());
+		Object rightExpr = doSwitch(object.getExponent());
+		if (leftType == TypeEnum.ANY) leftType = getDynamicType(leftExpr);
+		if (leftType == TypeEnum.ANY) rightType = getDynamicType(rightExpr);
+		
+		if (leftType == TypeEnum.INT)
+			leftExpr = Double.valueOf( (((Integer)leftExpr).intValue()));
+		if (rightType == TypeEnum.INT)
+			rightExpr = Double.valueOf( (((Integer)rightExpr).intValue()));
+		return Math.pow((Double)leftExpr, (Double)rightExpr);
 	}
  
 }

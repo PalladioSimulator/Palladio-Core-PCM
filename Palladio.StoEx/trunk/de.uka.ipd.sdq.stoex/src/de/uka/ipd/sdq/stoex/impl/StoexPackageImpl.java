@@ -11,6 +11,9 @@ import de.uka.ipd.sdq.probfunction.ProbfunctionPackage;
 import de.uka.ipd.sdq.stoex.AbstractNamedReference;
 import de.uka.ipd.sdq.stoex.Atom;
 import de.uka.ipd.sdq.stoex.BoolLiteral;
+import de.uka.ipd.sdq.stoex.BooleanExpression;
+import de.uka.ipd.sdq.stoex.BooleanOperations;
+import de.uka.ipd.sdq.stoex.BooleanOperatorExpression;
 import de.uka.ipd.sdq.stoex.CompareExpression;
 import de.uka.ipd.sdq.stoex.CompareOperations;
 import de.uka.ipd.sdq.stoex.Comparison;
@@ -18,6 +21,8 @@ import de.uka.ipd.sdq.stoex.DoubleLiteral;
 import de.uka.ipd.sdq.stoex.Expression;
 import de.uka.ipd.sdq.stoex.IntLiteral;
 import de.uka.ipd.sdq.stoex.NamespaceReference;
+import de.uka.ipd.sdq.stoex.NegativeExpression;
+import de.uka.ipd.sdq.stoex.NotExpression;
 import de.uka.ipd.sdq.stoex.NumericLiteral;
 import de.uka.ipd.sdq.stoex.Parenthesis;
 import de.uka.ipd.sdq.stoex.Power;
@@ -33,6 +38,7 @@ import de.uka.ipd.sdq.stoex.StringLiteral;
 import de.uka.ipd.sdq.stoex.Term;
 import de.uka.ipd.sdq.stoex.TermExpression;
 import de.uka.ipd.sdq.stoex.TermOperations;
+import de.uka.ipd.sdq.stoex.Unary;
 import de.uka.ipd.sdq.stoex.Variable;
 import de.uka.ipd.sdq.stoex.VariableReference;
 
@@ -91,6 +97,13 @@ public class StoexPackageImpl extends EPackageImpl implements StoexPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass unaryEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass powerEClass = null;
 
 	/**
@@ -113,6 +126,13 @@ public class StoexPackageImpl extends EPackageImpl implements StoexPackage {
 	 * @generated
 	 */
 	private EClass comparisonEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass booleanExpressionEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -210,6 +230,27 @@ public class StoexPackageImpl extends EPackageImpl implements StoexPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass booleanOperatorExpressionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass notExpressionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass negativeExpressionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EEnum termOperationsEEnum = null;
 
 	/**
@@ -225,6 +266,13 @@ public class StoexPackageImpl extends EPackageImpl implements StoexPackage {
 	 * @generated
 	 */
 	private EEnum compareOperationsEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum booleanOperationsEEnum = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -374,6 +422,15 @@ public class StoexPackageImpl extends EPackageImpl implements StoexPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getUnary() {
+		return unaryEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getPower() {
 		return powerEClass;
 	}
@@ -403,6 +460,15 @@ public class StoexPackageImpl extends EPackageImpl implements StoexPackage {
 	 */
 	public EClass getComparison() {
 		return comparisonEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getBooleanExpression() {
+		return booleanExpressionEClass;
 	}
 
 	/**
@@ -689,6 +755,78 @@ public class StoexPackageImpl extends EPackageImpl implements StoexPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getBooleanOperatorExpression() {
+		return booleanOperatorExpressionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getBooleanOperatorExpression_Left() {
+		return (EReference)booleanOperatorExpressionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getBooleanOperatorExpression_Right() {
+		return (EReference)booleanOperatorExpressionEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getBooleanOperatorExpression_Operation() {
+		return (EAttribute)booleanOperatorExpressionEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getNotExpression() {
+		return notExpressionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getNotExpression_Inner() {
+		return (EReference)notExpressionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getNegativeExpression() {
+		return negativeExpressionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getNegativeExpression_Inner() {
+		return (EReference)negativeExpressionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getTermOperations() {
 		return termOperationsEEnum;
 	}
@@ -709,6 +847,15 @@ public class StoexPackageImpl extends EPackageImpl implements StoexPackage {
 	 */
 	public EEnum getCompareOperations() {
 		return compareOperationsEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getBooleanOperations() {
+		return booleanOperationsEEnum;
 	}
 
 	/**
@@ -752,6 +899,8 @@ public class StoexPackageImpl extends EPackageImpl implements StoexPackage {
 
 		atomEClass = createEClass(ATOM);
 
+		unaryEClass = createEClass(UNARY);
+
 		powerEClass = createEClass(POWER);
 
 		productEClass = createEClass(PRODUCT);
@@ -759,6 +908,8 @@ public class StoexPackageImpl extends EPackageImpl implements StoexPackage {
 		termEClass = createEClass(TERM);
 
 		comparisonEClass = createEClass(COMPARISON);
+
+		booleanExpressionEClass = createEClass(BOOLEAN_EXPRESSION);
 
 		expressionEClass = createEClass(EXPRESSION);
 
@@ -804,10 +955,22 @@ public class StoexPackageImpl extends EPackageImpl implements StoexPackage {
 		createEReference(powerExpressionEClass, POWER_EXPRESSION__BASE);
 		createEReference(powerExpressionEClass, POWER_EXPRESSION__EXPONENT);
 
+		booleanOperatorExpressionEClass = createEClass(BOOLEAN_OPERATOR_EXPRESSION);
+		createEReference(booleanOperatorExpressionEClass, BOOLEAN_OPERATOR_EXPRESSION__LEFT);
+		createEReference(booleanOperatorExpressionEClass, BOOLEAN_OPERATOR_EXPRESSION__RIGHT);
+		createEAttribute(booleanOperatorExpressionEClass, BOOLEAN_OPERATOR_EXPRESSION__OPERATION);
+
+		notExpressionEClass = createEClass(NOT_EXPRESSION);
+		createEReference(notExpressionEClass, NOT_EXPRESSION__INNER);
+
+		negativeExpressionEClass = createEClass(NEGATIVE_EXPRESSION);
+		createEReference(negativeExpressionEClass, NEGATIVE_EXPRESSION__INNER);
+
 		// Create enums
 		termOperationsEEnum = createEEnum(TERM_OPERATIONS);
 		productOperationsEEnum = createEEnum(PRODUCT_OPERATIONS);
 		compareOperationsEEnum = createEEnum(COMPARE_OPERATIONS);
+		booleanOperationsEEnum = createEEnum(BOOLEAN_OPERATIONS);
 	}
 
 	/**
@@ -844,11 +1007,13 @@ public class StoexPackageImpl extends EPackageImpl implements StoexPackage {
 		variableReferenceEClass.getESuperTypes().add(this.getAbstractNamedReference());
 		namespaceReferenceEClass.getESuperTypes().add(this.getAbstractNamedReference());
 		variableEClass.getESuperTypes().add(this.getAtom());
-		atomEClass.getESuperTypes().add(this.getPower());
+		atomEClass.getESuperTypes().add(this.getUnary());
+		unaryEClass.getESuperTypes().add(this.getPower());
 		powerEClass.getESuperTypes().add(this.getProduct());
 		productEClass.getESuperTypes().add(this.getTerm());
 		termEClass.getESuperTypes().add(this.getComparison());
-		comparisonEClass.getESuperTypes().add(this.getExpression());
+		comparisonEClass.getESuperTypes().add(this.getBooleanExpression());
+		booleanExpressionEClass.getESuperTypes().add(this.getExpression());
 		termExpressionEClass.getESuperTypes().add(this.getTerm());
 		productExpressionEClass.getESuperTypes().add(this.getProduct());
 		probabilityFunctionLiteralEClass.getESuperTypes().add(this.getAtom());
@@ -860,6 +1025,9 @@ public class StoexPackageImpl extends EPackageImpl implements StoexPackage {
 		boolLiteralEClass.getESuperTypes().add(this.getAtom());
 		stringLiteralEClass.getESuperTypes().add(this.getAtom());
 		powerExpressionEClass.getESuperTypes().add(this.getPower());
+		booleanOperatorExpressionEClass.getESuperTypes().add(this.getBooleanExpression());
+		notExpressionEClass.getESuperTypes().add(this.getUnary());
+		negativeExpressionEClass.getESuperTypes().add(this.getUnary());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(variableReferenceEClass, VariableReference.class, "VariableReference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -875,6 +1043,8 @@ public class StoexPackageImpl extends EPackageImpl implements StoexPackage {
 
 		initEClass(atomEClass, Atom.class, "Atom", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
+		initEClass(unaryEClass, Unary.class, "Unary", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
 		initEClass(powerEClass, Power.class, "Power", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(productEClass, Product.class, "Product", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -882,6 +1052,8 @@ public class StoexPackageImpl extends EPackageImpl implements StoexPackage {
 		initEClass(termEClass, Term.class, "Term", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(comparisonEClass, Comparison.class, "Comparison", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(booleanExpressionEClass, BooleanExpression.class, "BooleanExpression", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(expressionEClass, Expression.class, "Expression", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -925,7 +1097,18 @@ public class StoexPackageImpl extends EPackageImpl implements StoexPackage {
 
 		initEClass(powerExpressionEClass, PowerExpression.class, "PowerExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getPowerExpression_Base(), this.getPower(), null, "base", null, 1, 1, PowerExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getPowerExpression_Exponent(), this.getAtom(), null, "exponent", null, 1, 1, PowerExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getPowerExpression_Exponent(), this.getUnary(), null, "exponent", null, 1, 1, PowerExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+		initEClass(booleanOperatorExpressionEClass, BooleanOperatorExpression.class, "BooleanOperatorExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getBooleanOperatorExpression_Left(), this.getBooleanExpression(), null, "left", null, 1, 1, BooleanOperatorExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getBooleanOperatorExpression_Right(), this.getBooleanExpression(), null, "right", null, 1, 1, BooleanOperatorExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getBooleanOperatorExpression_Operation(), this.getBooleanOperations(), "operation", null, 1, 1, BooleanOperatorExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+		initEClass(notExpressionEClass, NotExpression.class, "NotExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getNotExpression_Inner(), this.getUnary(), null, "inner", null, 1, 1, NotExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+		initEClass(negativeExpressionEClass, NegativeExpression.class, "NegativeExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getNegativeExpression_Inner(), this.getUnary(), null, "inner", null, 1, 1, NegativeExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(termOperationsEEnum, TermOperations.class, "TermOperations");
@@ -944,6 +1127,11 @@ public class StoexPackageImpl extends EPackageImpl implements StoexPackage {
 		addEEnumLiteral(compareOperationsEEnum, CompareOperations.NOTEQUAL);
 		addEEnumLiteral(compareOperationsEEnum, CompareOperations.LESSEQUAL);
 		addEEnumLiteral(compareOperationsEEnum, CompareOperations.GREATEREQUAL);
+
+		initEEnum(booleanOperationsEEnum, BooleanOperations.class, "BooleanOperations");
+		addEEnumLiteral(booleanOperationsEEnum, BooleanOperations.AND);
+		addEEnumLiteral(booleanOperationsEEnum, BooleanOperations.OR);
+		addEEnumLiteral(booleanOperationsEEnum, BooleanOperations.XOR);
 
 		// Create resource
 		createResource(eNS_URI);

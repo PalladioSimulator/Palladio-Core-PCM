@@ -17,5 +17,5 @@ package de.uka.ipd.sdq.stoex;
  * @model abstract="true"
  * @generated
  */
-public interface Comparison extends Expression {
+public interface Comparison extends BooleanExpression {
 } // Comparison

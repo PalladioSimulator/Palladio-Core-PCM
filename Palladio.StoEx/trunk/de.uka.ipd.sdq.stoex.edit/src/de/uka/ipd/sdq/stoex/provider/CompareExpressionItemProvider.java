@@ -234,6 +234,16 @@ public class CompareExpressionItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
+				(StoexPackage.Literals.COMPARE_EXPRESSION__LEFT,
+				 StoexFactory.eINSTANCE.createNotExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(StoexPackage.Literals.COMPARE_EXPRESSION__LEFT,
+				 StoexFactory.eINSTANCE.createNegativeExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
 				(StoexPackage.Literals.COMPARE_EXPRESSION__RIGHT,
 				 StoexFactory.eINSTANCE.createVariable()));
 
@@ -281,6 +291,16 @@ public class CompareExpressionItemProvider
 			(createChildParameter
 				(StoexPackage.Literals.COMPARE_EXPRESSION__RIGHT,
 				 StoexFactory.eINSTANCE.createPowerExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(StoexPackage.Literals.COMPARE_EXPRESSION__RIGHT,
+				 StoexFactory.eINSTANCE.createNotExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(StoexPackage.Literals.COMPARE_EXPRESSION__RIGHT,
+				 StoexFactory.eINSTANCE.createNegativeExpression()));
 	}
 
 	/**

@@ -75,6 +75,9 @@ public class StoexFactoryImpl extends EFactoryImpl implements StoexFactory {
 			case StoexPackage.BOOL_LITERAL: return createBoolLiteral();
 			case StoexPackage.STRING_LITERAL: return createStringLiteral();
 			case StoexPackage.POWER_EXPRESSION: return createPowerExpression();
+			case StoexPackage.BOOLEAN_OPERATOR_EXPRESSION: return createBooleanOperatorExpression();
+			case StoexPackage.NOT_EXPRESSION: return createNotExpression();
+			case StoexPackage.NEGATIVE_EXPRESSION: return createNegativeExpression();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -94,6 +97,8 @@ public class StoexFactoryImpl extends EFactoryImpl implements StoexFactory {
 				return createProductOperationsFromString(eDataType, initialValue);
 			case StoexPackage.COMPARE_OPERATIONS:
 				return createCompareOperationsFromString(eDataType, initialValue);
+			case StoexPackage.BOOLEAN_OPERATIONS:
+				return createBooleanOperationsFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -113,6 +118,8 @@ public class StoexFactoryImpl extends EFactoryImpl implements StoexFactory {
 				return convertProductOperationsToString(eDataType, instanceValue);
 			case StoexPackage.COMPARE_OPERATIONS:
 				return convertCompareOperationsToString(eDataType, instanceValue);
+			case StoexPackage.BOOLEAN_OPERATIONS:
+				return convertBooleanOperationsToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -263,6 +270,36 @@ public class StoexFactoryImpl extends EFactoryImpl implements StoexFactory {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public BooleanOperatorExpression createBooleanOperatorExpression() {
+		BooleanOperatorExpressionImpl booleanOperatorExpression = new BooleanOperatorExpressionImpl();
+		return booleanOperatorExpression;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotExpression createNotExpression() {
+		NotExpressionImpl notExpression = new NotExpressionImpl();
+		return notExpression;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NegativeExpression createNegativeExpression() {
+		NegativeExpressionImpl negativeExpression = new NegativeExpressionImpl();
+		return negativeExpression;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public TermOperations createTermOperationsFromString(EDataType eDataType, String initialValue) {
 		TermOperations result = TermOperations.get(initialValue);
 		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
@@ -315,6 +352,26 @@ public class StoexFactoryImpl extends EFactoryImpl implements StoexFactory {
 	 * @generated
 	 */
 	public String convertCompareOperationsToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public BooleanOperations createBooleanOperationsFromString(EDataType eDataType, String initialValue) {
+		BooleanOperations result = BooleanOperations.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertBooleanOperationsToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

@@ -2,10 +2,12 @@ package de.uka.ipd.sdq.simucomframework.variables.cache;
 
 import java.io.StringReader;
 
+import org.antlr.runtime.ANTLRStringStream;
+import org.antlr.runtime.CommonTokenStream;
+import org.antlr.runtime.RecognitionException;
 import org.eclipse.emf.ecore.EObject;
 
-import antlr.RecognitionException;
-import antlr.TokenStreamException;
+import de.uka.ipd.sdq.pcm.stochasticexpressions.parser.PCMStoExLexer;
 import de.uka.ipd.sdq.pcm.stochasticexpressions.parser.PCMStoExParser;
 import de.uka.ipd.sdq.probfunction.math.IProbabilityFunction;
 import de.uka.ipd.sdq.simucomframework.variables.stoexvisitor.SimulationExpressionInferTypeVisitor;
@@ -23,17 +25,14 @@ public class StoExCacheEntry {
 
 	public StoExCacheEntry(String spec) {
 		this.spec = spec;
-		StochasticExpressionsLexer lexer = new StochasticExpressionsLexer(
-				new StringReader(spec));
+		PCMStoExLexer lexer = new PCMStoExLexer(
+				new ANTLRStringStream(spec));
 		Expression formula = null;
 		try {
-			formula = new PCMStoExParser(lexer).expression();
+			formula = new PCMStoExParser(new CommonTokenStream(lexer)).expression();
 			typeInferer = new SimulationExpressionInferTypeVisitor();
 			typeInferer.doSwitch(formula);
 		} catch (RecognitionException e) {
-			e.printStackTrace();
-			throw new RuntimeException("Expression not parsable "+spec);
-		} catch (TokenStreamException e) {
 			e.printStackTrace();
 			throw new RuntimeException("Expression not parsable "+spec);
 		} catch (Exception e) {

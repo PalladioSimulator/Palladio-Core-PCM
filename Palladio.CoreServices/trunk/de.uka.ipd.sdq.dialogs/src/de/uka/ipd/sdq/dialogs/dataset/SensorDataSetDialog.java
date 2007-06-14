@@ -4,10 +4,8 @@ import org.eclipse.jface.wizard.WizardDialog;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.widgets.Shell;
-import org.eclipse.ui.PlatformUI;
 
 import de.uka.ipd.sdq.sensorfactory.SensorFrameworkDataset;
-import de.uka.ipd.sdq.sensorfactory.dao.db4o.DB4ODAOFactory;
 import de.uka.ipd.sdq.sensorfactory.entities.dao.IDAOFactory;
 
 /** @author roman */

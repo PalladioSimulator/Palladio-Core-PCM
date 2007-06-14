@@ -7,14 +7,14 @@ import java.io.Reader;
 import java.io.StringReader;
 import java.lang.reflect.InvocationTargetException;
 
+import org.antlr.runtime.ANTLRStringStream;
+import org.antlr.runtime.CharStream;
+import org.antlr.runtime.Lexer;
+import org.antlr.runtime.RecognitionException;
 import org.eclipse.jface.text.BadLocationException;
 import org.eclipse.jface.text.IDocument;
 import org.eclipse.jface.text.rules.IToken;
 import org.eclipse.jface.text.rules.ITokenScanner;
-
-import antlr.CharScanner;
-import antlr.CharStreamException;
-import antlr.TokenStreamException;
 
 /**
  * @author Steffen Becker
@@ -28,7 +28,7 @@ public class ANTLRTokenScannerAdapter implements ITokenScanner {
 
 	private Class scannerClass;
 
-	private CharScanner scanner;
+	private Lexer scanner;
 
 	private String currentInput;
 
@@ -79,32 +79,31 @@ public class ANTLRTokenScannerAdapter implements ITokenScanner {
 		} else {
 			try {
 				wrapper = new ANTLRTokenWrapper(scanner.nextToken(), myMapper);
-			} catch (TokenStreamException e) {
-				try {
-					if (ParserHelper.positionToOffset(currentDocument, scanner.getLine(), scanner.getColumn()) + baseOffset <= currentDocument.get().length())
-					{
-						scanner.consume();
-						lastTokenLength = 1;
-					}
-					else
-					{
-						lastTokenLength = 0;
-					}
-				} catch (CharStreamException e1) {
-					e1.printStackTrace();
+			} catch (Exception e) {
+				if (ParserHelper.positionToOffset(currentDocument, scanner.getLine(), scanner.getCharPositionInLine()) + baseOffset <= currentDocument.get().length())
+				{
+					scanner.matchAny();
+					lastTokenLength = 1;
 				}
-				tokenOffset = ParserHelper.positionToOffset(currentDocument, scanner.getLine(), scanner.getColumn()) + baseOffset;
+				else
+				{
+					lastTokenLength = 0;
+				}
+
+				tokenOffset = ParserHelper.positionToOffset(currentDocument, scanner.getLine(), scanner.getCharPositionInLine()) + baseOffset;
 				return new ANTLRTokenWrapper(true,false);
 			}
-			if (ParserHelper.positionToOffset(currentDocument, wrapper.getToken().getLine(), wrapper.getToken().getColumn()) + baseOffset != tokenOffset+lastTokenLength) {
-				this.holdBackToken = wrapper;
-			    tokenOffset += lastTokenLength;
-			    lastTokenLength = ParserHelper.positionToOffset(currentDocument, wrapper.getToken().getLine(), wrapper.getToken().getColumn()) + baseOffset - tokenOffset;
-				return new ANTLRTokenWrapper(false,true);
+			if (!wrapper.isEOF()){
+				if (ParserHelper.positionToOffset(currentDocument, wrapper.getToken().getLine(), wrapper.getToken().getCharPositionInLine()) + baseOffset != tokenOffset+lastTokenLength) {
+					this.holdBackToken = wrapper;
+				    tokenOffset += lastTokenLength;
+				    lastTokenLength = ParserHelper.positionToOffset(currentDocument, wrapper.getToken().getLine(), wrapper.getToken().getCharPositionInLine()) + baseOffset - tokenOffset;
+					return new ANTLRTokenWrapper(false,true);
+				}
 			}
 		}
 		lastTokenLength = wrapper.getToken().getText() == null ? 0 : wrapper.getToken().getText().length();
-		tokenOffset = ParserHelper.positionToOffset(currentDocument, wrapper.getToken().getLine(), wrapper.getToken().getColumn())+baseOffset;
+		tokenOffset = ParserHelper.positionToOffset(currentDocument, wrapper.getToken().getLine(), wrapper.getToken().getCharPositionInLine())+baseOffset;
 		return wrapper;
 	}
 
@@ -125,9 +124,9 @@ public class ANTLRTokenScannerAdapter implements ITokenScanner {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
-		StringReader reader = new StringReader(currentInput);
+		ANTLRStringStream reader = new ANTLRStringStream(currentInput);
 		try {
-			scanner = (CharScanner) scannerClass.getConstructor(Reader.class)
+			scanner = (Lexer) scannerClass.getConstructor(CharStream.class)
 					.newInstance(new Object[] { reader });
 		} catch (IllegalArgumentException e) {
 			// TODO Auto-generated catch block

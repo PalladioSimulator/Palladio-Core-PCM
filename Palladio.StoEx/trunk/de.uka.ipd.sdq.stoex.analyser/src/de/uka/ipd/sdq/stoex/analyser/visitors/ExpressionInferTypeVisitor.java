@@ -11,10 +11,13 @@ import de.uka.ipd.sdq.probfunction.ProbabilityFunction;
 import de.uka.ipd.sdq.probfunction.ProbabilityMassFunction;
 import de.uka.ipd.sdq.probfunction.Sample;
 import de.uka.ipd.sdq.stoex.BoolLiteral;
+import de.uka.ipd.sdq.stoex.BooleanOperatorExpression;
 import de.uka.ipd.sdq.stoex.CompareExpression;
 import de.uka.ipd.sdq.stoex.DoubleLiteral;
 import de.uka.ipd.sdq.stoex.Expression;
 import de.uka.ipd.sdq.stoex.IntLiteral;
+import de.uka.ipd.sdq.stoex.NegativeExpression;
+import de.uka.ipd.sdq.stoex.NotExpression;
 import de.uka.ipd.sdq.stoex.Parenthesis;
 import de.uka.ipd.sdq.stoex.PowerExpression;
 import de.uka.ipd.sdq.stoex.ProbabilityFunctionLiteral;
@@ -93,6 +96,26 @@ public class ExpressionInferTypeVisitor extends StoexSwitch<Object> {
 			throw new UnsupportedOperationException();
 		
 		return expr;
+	}
+
+	@Override
+	public Object caseNegativeExpression(NegativeExpression object) {
+		this.doSwitch(object.getInner());
+		typeAnnotation.put(object,typeAnnotation.get(object.getInner()));
+		return object;
+	}
+
+	@Override
+	public Object caseBooleanOperatorExpression(BooleanOperatorExpression object) {
+		typeAnnotation.put(object,TypeEnum.BOOL);
+		return object;
+	}
+
+	@Override
+	public Object caseNotExpression(NotExpression object) {
+		this.doSwitch(object.getInner());
+		typeAnnotation.put(object,TypeEnum.BOOL);
+		return object;
 	}
 
 	/**

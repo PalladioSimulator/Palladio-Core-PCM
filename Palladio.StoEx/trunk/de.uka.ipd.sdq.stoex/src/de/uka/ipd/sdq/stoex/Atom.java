@@ -17,5 +17,5 @@ package de.uka.ipd.sdq.stoex;
  * @model abstract="true"
  * @generated
  */
-public interface Atom extends Power {
+public interface Atom extends Unary {
 } // Atom

@@ -20,7 +20,7 @@ import org.eclipse.emf.ecore.EClass;
  *
  * @generated
  */
-public abstract class ComparisonImpl extends ExpressionImpl implements Comparison {
+public abstract class ComparisonImpl extends BooleanExpressionImpl implements Comparison {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

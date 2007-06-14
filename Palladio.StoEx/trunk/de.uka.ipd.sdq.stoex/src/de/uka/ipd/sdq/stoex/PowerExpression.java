@@ -60,12 +60,12 @@ public interface PowerExpression extends Power {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Exponent</em>' containment reference.
-	 * @see #setExponent(Atom)
+	 * @see #setExponent(Unary)
 	 * @see de.uka.ipd.sdq.stoex.StoexPackage#getPowerExpression_Exponent()
 	 * @model containment="true" required="true" ordered="false"
 	 * @generated
 	 */
-	Atom getExponent();
+	Unary getExponent();
 
 	/**
 	 * Sets the value of the '{@link de.uka.ipd.sdq.stoex.PowerExpression#getExponent <em>Exponent</em>}' containment reference.
@@ -75,6 +75,6 @@ public interface PowerExpression extends Power {
 	 * @see #getExponent()
 	 * @generated
 	 */
-	void setExponent(Atom value);
+	void setExponent(Unary value);
 
 } // PowerExpression

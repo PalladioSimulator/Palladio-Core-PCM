@@ -1,8 +1,7 @@
 package de.uka.ipd.sdq.dialogs.stoex;
 
+import org.antlr.runtime.Token;
 import org.eclipse.jface.text.rules.IToken;
-
-import antlr.Token;
 
 public class ANTLRTokenWrapper implements IToken {
 
@@ -33,7 +32,7 @@ public class ANTLRTokenWrapper implements IToken {
 	public boolean isEOF() {
 		if (token == null)
 			return false;
-		return token.getType() == Token.EOF_TYPE;
+		return token == Token.EOF_TOKEN;
 	}
 
 	public boolean isOther() {

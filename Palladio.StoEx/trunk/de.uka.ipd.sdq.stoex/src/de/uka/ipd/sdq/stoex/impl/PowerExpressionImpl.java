@@ -11,6 +11,7 @@ import de.uka.ipd.sdq.stoex.Power;
 import de.uka.ipd.sdq.stoex.PowerExpression;
 import de.uka.ipd.sdq.stoex.StoexPackage;
 
+import de.uka.ipd.sdq.stoex.Unary;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -52,7 +53,7 @@ public class PowerExpressionImpl extends PowerImpl implements PowerExpression {
 	 * @generated
 	 * @ordered
 	 */
-	protected Atom exponent;
+	protected Unary exponent;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -121,7 +122,7 @@ public class PowerExpressionImpl extends PowerImpl implements PowerExpression {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Atom getExponent() {
+	public Unary getExponent() {
 		return exponent;
 	}
 
@@ -130,8 +131,8 @@ public class PowerExpressionImpl extends PowerImpl implements PowerExpression {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetExponent(Atom newExponent, NotificationChain msgs) {
-		Atom oldExponent = exponent;
+	public NotificationChain basicSetExponent(Unary newExponent, NotificationChain msgs) {
+		Unary oldExponent = exponent;
 		exponent = newExponent;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, StoexPackage.POWER_EXPRESSION__EXPONENT, oldExponent, newExponent);
@@ -145,7 +146,7 @@ public class PowerExpressionImpl extends PowerImpl implements PowerExpression {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setExponent(Atom newExponent) {
+	public void setExponent(Unary newExponent) {
 		if (newExponent != exponent) {
 			NotificationChain msgs = null;
 			if (exponent != null)
@@ -203,7 +204,7 @@ public class PowerExpressionImpl extends PowerImpl implements PowerExpression {
 				setBase((Power)newValue);
 				return;
 			case StoexPackage.POWER_EXPRESSION__EXPONENT:
-				setExponent((Atom)newValue);
+				setExponent((Unary)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -221,7 +222,7 @@ public class PowerExpressionImpl extends PowerImpl implements PowerExpression {
 				setBase((Power)null);
 				return;
 			case StoexPackage.POWER_EXPRESSION__EXPONENT:
-				setExponent((Atom)null);
+				setExponent((Unary)null);
 				return;
 		}
 		super.eUnset(featureID);

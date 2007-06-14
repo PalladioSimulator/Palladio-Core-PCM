@@ -20,7 +20,7 @@ import org.eclipse.emf.ecore.EClass;
  *
  * @generated
  */
-public abstract class AtomImpl extends PowerImpl implements Atom {
+public abstract class AtomImpl extends UnaryImpl implements Atom {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

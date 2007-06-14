@@ -1,9 +1,9 @@
 package de.uka.ipd.sdq.probfunction.math;
 
-import java.io.StringBufferInputStream;
+import org.antlr.runtime.ANTLRStringStream;
+import org.antlr.runtime.CommonTokenStream;
+import org.antlr.runtime.RecognitionException;
 
-import antlr.RecognitionException;
-import antlr.TokenStreamException;
 import de.uka.ipd.sdq.probfunction.BoxedPDF;
 import de.uka.ipd.sdq.probfunction.ProbabilityDensityFunction;
 import de.uka.ipd.sdq.probfunction.SamplePDF;
@@ -297,16 +297,19 @@ public class ManagedPDF {
 		return pdfAsString;
 	}
 
+	private static ProbabilityFunctionLiteral parse(String s) throws RecognitionException {
+		StochasticExpressionsLexer lexer = new StochasticExpressionsLexer(
+				new ANTLRStringStream(s));
+		StochasticExpressionsParser parser = new StochasticExpressionsParser(
+				new CommonTokenStream(lexer));
+		return (ProbabilityFunctionLiteral)parser.expression();
+	}
+	
 	@SuppressWarnings("deprecation")
 	public static ManagedPDF createFromString(String pdfAsString)
-			throws RecognitionException, TokenStreamException,
+			throws RecognitionException,
 			StringNotPDFException {
-		StochasticExpressionsLexer lexer = new StochasticExpressionsLexer(
-				new StringBufferInputStream("=" + pdfAsString));
-		StochasticExpressionsParser parser = new StochasticExpressionsParser(
-				lexer);
-		ProbabilityFunctionLiteral value = (ProbabilityFunctionLiteral) parser
-				.expression();
+		ProbabilityFunctionLiteral value = parse(pdfAsString);
 		try {
 			ProbabilityDensityFunction pdf = (ProbabilityDensityFunction) value
 					.getFunction_ProbabilityFunctionLiteral();

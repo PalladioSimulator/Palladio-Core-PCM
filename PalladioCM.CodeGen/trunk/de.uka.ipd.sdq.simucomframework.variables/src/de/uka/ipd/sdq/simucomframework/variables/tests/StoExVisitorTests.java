@@ -29,13 +29,59 @@ public class StoExVisitorTests {
 	
 	@Test public void doubleOperationsTest() {
 		logger.debug("Running Double Op Test");
-		for (int i = 0; i < 20000; i++){
+		for (int i = 0; i < 2000; i++){
 			double result = (Double)StackContext.simpleEvaluate("( ( DoublePDF(unit=\"unit\")[ (1.0; 0.02236114450589084) (2.0; 0.04664582832411637) (3.0; 0.10387112286607357) (4.0; 0.1606155325799471) (5.0; 0.20389516710747776) (6.0; 0.18826641019475834) (7.0; 0.11372926184178889) (8.0; 0.06852608800192354) (9.0; 0.02933397451310411) (10.0; 0.017311853811012263) (11.0; 0.009377254147631643) (12.0; 0.008896369319547967) (13.0; 0.004327963452753066) (14.0; 0.005049290694878576) (15.0; 0.0019235393123346958) (16.0; 0.002163981726376533) (17.0; 0.0012022120702091848) ] * 0.04 ) + 0.18 ) * 14");
 			Assert.assertTrue("Result must be greater 0, but was "+result,result >= 0);
 			Assert.assertTrue(result <= 12.1);
 		}
 	}
 	
+	@Test public void unary() {
+		int result = (Integer)StackContext.simpleEvaluate("-4");
+		Assert.assertEquals(-4, result);
+		boolean result2 = (Boolean)StackContext.simpleEvaluate("NOT true");
+		Assert.assertEquals(result2, false);
+	}
+	
+	@Test public void pow1() {
+		double result3 = (Double)StackContext.simpleEvaluate("10^3");
+		Assert.assertEquals(1000.0, result3);
+	}
+
+	@Test public void pow2() {
+		double result3 = (Double)StackContext.simpleEvaluate("10^-3");
+		Assert.assertEquals(0.001, result3);
+	}
+
+	@Test public void doubleTests() {
+		double result3 = (Double)StackContext.simpleEvaluate("1.0E-3");
+		Assert.assertEquals(0.001, result3);
+		result3 = (Double)StackContext.simpleEvaluate("0.4 + 0.6");
+		Assert.assertEquals(1.0, result3);
+		result3 = (Double)StackContext.simpleEvaluate("5 * 10.0");
+		Assert.assertEquals(50.0, result3);
+		result3 = (Double)StackContext.simpleEvaluate("20.0 / 10");
+		Assert.assertEquals(2.0, result3);
+		result3 = (Double)StackContext.simpleEvaluate("4.0^0.5");
+		Assert.assertEquals(2.0, result3);
+	}
+
+	@Test public void boolTests() {
+		boolean result = (Boolean)StackContext.simpleEvaluate("true");
+		Assert.assertEquals(true, result);
+		result = (Boolean)StackContext.simpleEvaluate("5 > 4");
+		Assert.assertEquals(true, result);
+		result = (Boolean)StackContext.simpleEvaluate("NOT (5 <= 4)");
+		Assert.assertEquals(true, result);
+		result = (Boolean)StackContext.simpleEvaluate("true AND false");
+		Assert.assertEquals(false, result);
+		result = (Boolean)StackContext.simpleEvaluate("true AND true");
+		Assert.assertEquals(true, result);
+		result = (Boolean)StackContext.simpleEvaluate("true OR false");
+		Assert.assertEquals(true, result);
+		result = (Boolean)StackContext.simpleEvaluate("true XOR true");
+		Assert.assertEquals(false, result);
+	}
 	
 	@Test public void getByteSizeFromStackframe(){
 		

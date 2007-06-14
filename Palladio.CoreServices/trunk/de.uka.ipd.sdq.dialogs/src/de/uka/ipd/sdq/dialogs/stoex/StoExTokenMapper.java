@@ -3,12 +3,13 @@
  */
 package de.uka.ipd.sdq.dialogs.stoex;
 
+import org.antlr.runtime.Token;
 import org.eclipse.jface.text.TextAttribute;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.RGB;
 
-import antlr.Token;
+import de.uka.ipd.sdq.pcm.stochasticexpressions.parser.PCMStoExLexer;
 import de.uka.ipd.sdq.stoex.parser.StochasticExpressionsParserTokenTypes;
 
 /**
@@ -29,34 +30,34 @@ public class StoExTokenMapper implements ITokenMapper {
 	 */
 	public Object mapColor(Token t) {
 		switch (t.getType()) {
-		case StochasticExpressionsParserTokenTypes.EQUAL:
-		case StochasticExpressionsParserTokenTypes.PLUS:
-		case StochasticExpressionsParserTokenTypes.MINUS:
-		case StochasticExpressionsParserTokenTypes.MUL:
-		case StochasticExpressionsParserTokenTypes.DIV:
-		case StochasticExpressionsParserTokenTypes.POW:
-		case StochasticExpressionsParserTokenTypes.LPAREN:
-		case StochasticExpressionsParserTokenTypes.RPAREN:
-			return null; //new TextAttribute (new Color( null, new RGB(255,255,0) ), null, SWT.BOLD);
-		case StochasticExpressionsParserTokenTypes.LITERAL_DoublePDF:
-		case StochasticExpressionsParserTokenTypes.LITERAL_IntPMF:
-		case StochasticExpressionsParserTokenTypes.LITERAL_EnumPMF:
-		case StochasticExpressionsParserTokenTypes.LITERAL_BoolPMF:			
-		case StochasticExpressionsParserTokenTypes.LITERAL_DoublePMF:
+		case PCMStoExLexer.EQUAL:
+		case PCMStoExLexer.PLUS:
+		case PCMStoExLexer.MINUS:
+		case PCMStoExLexer.MUL:
+		case PCMStoExLexer.DIV:
+		case PCMStoExLexer.POW:
+		case PCMStoExLexer.LPAREN:
+		case PCMStoExLexer.RPAREN:
+			return new TextAttribute (new Color( null, new RGB(0,0,0) ), null, SWT.BOLD);
+		case PCMStoExLexer.DOUBLEPDF:
+		case PCMStoExLexer.INTPMF:
+		case PCMStoExLexer.ENUMPMF:
+		case PCMStoExLexer.BOOLPMF:			
+		case PCMStoExLexer.DOUBLEPMF:
 			return new TextAttribute (new Color( null, new RGB(255,0,0) ), null, SWT.BOLD);
-		case StochasticExpressionsParserTokenTypes.NUMBER:
-		case StochasticExpressionsParserTokenTypes.STRING_LITERAL:
+		case PCMStoExLexer.NUMBER:
+		case PCMStoExLexer.STRING_LITERAL:
 			return new TextAttribute (new Color( null, new RGB(0,0,255) ), null, SWT.BOLD);
-		case StochasticExpressionsParserTokenTypes.LITERAL_BYTESIZE:
-		case StochasticExpressionsParserTokenTypes.LITERAL_NUMBER_OF_ELEMENTS:
-		case StochasticExpressionsParserTokenTypes.LITERAL_STRUCTURE:
-		case StochasticExpressionsParserTokenTypes.LITERAL_VALUE:
-		case StochasticExpressionsParserTokenTypes.LITERAL_TYPE:
-		case StochasticExpressionsParserTokenTypes.LITERAL_INNER:
-		case StochasticExpressionsParserTokenTypes.LITERAL_false:
-		case StochasticExpressionsParserTokenTypes.LITERAL_true:
+		case PCMStoExLexer.BYTESIZE:
+		case PCMStoExLexer.NUMBER_OF_ELEMENTS:
+		case PCMStoExLexer.STRUCTURE:
+		case PCMStoExLexer.VALUE:
+		case PCMStoExLexer.TYPE:
+		case PCMStoExLexer.INNER:
+		case PCMStoExLexer.FALSE:
+		case PCMStoExLexer.TRUE:
 			return new TextAttribute (new Color( null, new RGB(255,0,255) ), null, SWT.ITALIC);
-		case StochasticExpressionsParserTokenTypes.ID:
+		case PCMStoExLexer.ID:
 			return new TextAttribute (new Color( null, new RGB(255,0,255) ), null, SWT.NONE);
 		default:
 			return null;

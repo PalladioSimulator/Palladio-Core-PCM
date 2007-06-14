@@ -2,7 +2,6 @@ package de.uka.ipd.sdq.dialogs.stoex;
 
 import java.util.ArrayList;
 
-import de.uka.ipd.sdq.pcm.parameter.ParameterFactory;
 import de.uka.ipd.sdq.pcm.repository.Parameter;
 import de.uka.ipd.sdq.pcm.repository.ParameterModifier;
 import de.uka.ipd.sdq.pcm.repository.RepositoryFactory;

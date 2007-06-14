@@ -13,7 +13,7 @@ public class ParserHelper {
 		{
 			offset += lines[i].length()+EOL.length();
 		}
-		offset += column - 1;
+		offset += column;
 		return offset;
 	}
 

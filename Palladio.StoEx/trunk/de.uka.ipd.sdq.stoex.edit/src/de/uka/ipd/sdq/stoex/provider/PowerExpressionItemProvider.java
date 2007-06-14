@@ -191,6 +191,16 @@ public class PowerExpressionItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
+				(StoexPackage.Literals.POWER_EXPRESSION__BASE,
+				 StoexFactory.eINSTANCE.createNotExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(StoexPackage.Literals.POWER_EXPRESSION__BASE,
+				 StoexFactory.eINSTANCE.createNegativeExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
 				(StoexPackage.Literals.POWER_EXPRESSION__EXPONENT,
 				 StoexFactory.eINSTANCE.createVariable()));
 
@@ -223,6 +233,16 @@ public class PowerExpressionItemProvider
 			(createChildParameter
 				(StoexPackage.Literals.POWER_EXPRESSION__EXPONENT,
 				 StoexFactory.eINSTANCE.createStringLiteral()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(StoexPackage.Literals.POWER_EXPRESSION__EXPONENT,
+				 StoexFactory.eINSTANCE.createNotExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(StoexPackage.Literals.POWER_EXPRESSION__EXPONENT,
+				 StoexFactory.eINSTANCE.createNegativeExpression()));
 	}
 
 	/**

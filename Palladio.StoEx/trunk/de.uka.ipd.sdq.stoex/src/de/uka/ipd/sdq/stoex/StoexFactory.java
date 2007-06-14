@@ -152,6 +152,33 @@ public interface StoexFactory extends EFactory {
 	PowerExpression createPowerExpression();
 
 	/**
+	 * Returns a new object of class '<em>Boolean Operator Expression</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Boolean Operator Expression</em>'.
+	 * @generated
+	 */
+	BooleanOperatorExpression createBooleanOperatorExpression();
+
+	/**
+	 * Returns a new object of class '<em>Not Expression</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Not Expression</em>'.
+	 * @generated
+	 */
+	NotExpression createNotExpression();
+
+	/**
+	 * Returns a new object of class '<em>Negative Expression</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Negative Expression</em>'.
+	 * @generated
+	 */
+	NegativeExpression createNegativeExpression();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

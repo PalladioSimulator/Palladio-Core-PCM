@@ -10,8 +10,6 @@ import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Label;
 
-import de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF;
-
 public class WizardSelectDataTypePage extends WizardPage {
 
 	private Combo myCombo;

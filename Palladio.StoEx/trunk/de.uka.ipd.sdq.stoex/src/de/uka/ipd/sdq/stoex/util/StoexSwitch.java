@@ -111,10 +111,12 @@ public class StoexSwitch<T> {
 				Variable variable = (Variable)theEObject;
 				T result = caseVariable(variable);
 				if (result == null) result = caseAtom(variable);
+				if (result == null) result = caseUnary(variable);
 				if (result == null) result = casePower(variable);
 				if (result == null) result = caseProduct(variable);
 				if (result == null) result = caseTerm(variable);
 				if (result == null) result = caseComparison(variable);
+				if (result == null) result = caseBooleanExpression(variable);
 				if (result == null) result = caseExpression(variable);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -122,11 +124,25 @@ public class StoexSwitch<T> {
 			case StoexPackage.ATOM: {
 				Atom atom = (Atom)theEObject;
 				T result = caseAtom(atom);
+				if (result == null) result = caseUnary(atom);
 				if (result == null) result = casePower(atom);
 				if (result == null) result = caseProduct(atom);
 				if (result == null) result = caseTerm(atom);
 				if (result == null) result = caseComparison(atom);
+				if (result == null) result = caseBooleanExpression(atom);
 				if (result == null) result = caseExpression(atom);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case StoexPackage.UNARY: {
+				Unary unary = (Unary)theEObject;
+				T result = caseUnary(unary);
+				if (result == null) result = casePower(unary);
+				if (result == null) result = caseProduct(unary);
+				if (result == null) result = caseTerm(unary);
+				if (result == null) result = caseComparison(unary);
+				if (result == null) result = caseBooleanExpression(unary);
+				if (result == null) result = caseExpression(unary);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -136,6 +152,7 @@ public class StoexSwitch<T> {
 				if (result == null) result = caseProduct(power);
 				if (result == null) result = caseTerm(power);
 				if (result == null) result = caseComparison(power);
+				if (result == null) result = caseBooleanExpression(power);
 				if (result == null) result = caseExpression(power);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -145,6 +162,7 @@ public class StoexSwitch<T> {
 				T result = caseProduct(product);
 				if (result == null) result = caseTerm(product);
 				if (result == null) result = caseComparison(product);
+				if (result == null) result = caseBooleanExpression(product);
 				if (result == null) result = caseExpression(product);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -153,6 +171,7 @@ public class StoexSwitch<T> {
 				Term term = (Term)theEObject;
 				T result = caseTerm(term);
 				if (result == null) result = caseComparison(term);
+				if (result == null) result = caseBooleanExpression(term);
 				if (result == null) result = caseExpression(term);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -160,7 +179,15 @@ public class StoexSwitch<T> {
 			case StoexPackage.COMPARISON: {
 				Comparison comparison = (Comparison)theEObject;
 				T result = caseComparison(comparison);
+				if (result == null) result = caseBooleanExpression(comparison);
 				if (result == null) result = caseExpression(comparison);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case StoexPackage.BOOLEAN_EXPRESSION: {
+				BooleanExpression booleanExpression = (BooleanExpression)theEObject;
+				T result = caseBooleanExpression(booleanExpression);
+				if (result == null) result = caseExpression(booleanExpression);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -175,6 +202,7 @@ public class StoexSwitch<T> {
 				T result = caseTermExpression(termExpression);
 				if (result == null) result = caseTerm(termExpression);
 				if (result == null) result = caseComparison(termExpression);
+				if (result == null) result = caseBooleanExpression(termExpression);
 				if (result == null) result = caseExpression(termExpression);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -191,6 +219,7 @@ public class StoexSwitch<T> {
 				if (result == null) result = caseProduct(productExpression);
 				if (result == null) result = caseTerm(productExpression);
 				if (result == null) result = caseComparison(productExpression);
+				if (result == null) result = caseBooleanExpression(productExpression);
 				if (result == null) result = caseExpression(productExpression);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -199,10 +228,12 @@ public class StoexSwitch<T> {
 				ProbabilityFunctionLiteral probabilityFunctionLiteral = (ProbabilityFunctionLiteral)theEObject;
 				T result = caseProbabilityFunctionLiteral(probabilityFunctionLiteral);
 				if (result == null) result = caseAtom(probabilityFunctionLiteral);
+				if (result == null) result = caseUnary(probabilityFunctionLiteral);
 				if (result == null) result = casePower(probabilityFunctionLiteral);
 				if (result == null) result = caseProduct(probabilityFunctionLiteral);
 				if (result == null) result = caseTerm(probabilityFunctionLiteral);
 				if (result == null) result = caseComparison(probabilityFunctionLiteral);
+				if (result == null) result = caseBooleanExpression(probabilityFunctionLiteral);
 				if (result == null) result = caseExpression(probabilityFunctionLiteral);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -211,10 +242,12 @@ public class StoexSwitch<T> {
 				Parenthesis parenthesis = (Parenthesis)theEObject;
 				T result = caseParenthesis(parenthesis);
 				if (result == null) result = caseAtom(parenthesis);
+				if (result == null) result = caseUnary(parenthesis);
 				if (result == null) result = casePower(parenthesis);
 				if (result == null) result = caseProduct(parenthesis);
 				if (result == null) result = caseTerm(parenthesis);
 				if (result == null) result = caseComparison(parenthesis);
+				if (result == null) result = caseBooleanExpression(parenthesis);
 				if (result == null) result = caseExpression(parenthesis);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -223,10 +256,12 @@ public class StoexSwitch<T> {
 				NumericLiteral numericLiteral = (NumericLiteral)theEObject;
 				T result = caseNumericLiteral(numericLiteral);
 				if (result == null) result = caseAtom(numericLiteral);
+				if (result == null) result = caseUnary(numericLiteral);
 				if (result == null) result = casePower(numericLiteral);
 				if (result == null) result = caseProduct(numericLiteral);
 				if (result == null) result = caseTerm(numericLiteral);
 				if (result == null) result = caseComparison(numericLiteral);
+				if (result == null) result = caseBooleanExpression(numericLiteral);
 				if (result == null) result = caseExpression(numericLiteral);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -236,10 +271,12 @@ public class StoexSwitch<T> {
 				T result = caseIntLiteral(intLiteral);
 				if (result == null) result = caseNumericLiteral(intLiteral);
 				if (result == null) result = caseAtom(intLiteral);
+				if (result == null) result = caseUnary(intLiteral);
 				if (result == null) result = casePower(intLiteral);
 				if (result == null) result = caseProduct(intLiteral);
 				if (result == null) result = caseTerm(intLiteral);
 				if (result == null) result = caseComparison(intLiteral);
+				if (result == null) result = caseBooleanExpression(intLiteral);
 				if (result == null) result = caseExpression(intLiteral);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -249,10 +286,12 @@ public class StoexSwitch<T> {
 				T result = caseDoubleLiteral(doubleLiteral);
 				if (result == null) result = caseNumericLiteral(doubleLiteral);
 				if (result == null) result = caseAtom(doubleLiteral);
+				if (result == null) result = caseUnary(doubleLiteral);
 				if (result == null) result = casePower(doubleLiteral);
 				if (result == null) result = caseProduct(doubleLiteral);
 				if (result == null) result = caseTerm(doubleLiteral);
 				if (result == null) result = caseComparison(doubleLiteral);
+				if (result == null) result = caseBooleanExpression(doubleLiteral);
 				if (result == null) result = caseExpression(doubleLiteral);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -261,6 +300,7 @@ public class StoexSwitch<T> {
 				CompareExpression compareExpression = (CompareExpression)theEObject;
 				T result = caseCompareExpression(compareExpression);
 				if (result == null) result = caseComparison(compareExpression);
+				if (result == null) result = caseBooleanExpression(compareExpression);
 				if (result == null) result = caseExpression(compareExpression);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -269,10 +309,12 @@ public class StoexSwitch<T> {
 				BoolLiteral boolLiteral = (BoolLiteral)theEObject;
 				T result = caseBoolLiteral(boolLiteral);
 				if (result == null) result = caseAtom(boolLiteral);
+				if (result == null) result = caseUnary(boolLiteral);
 				if (result == null) result = casePower(boolLiteral);
 				if (result == null) result = caseProduct(boolLiteral);
 				if (result == null) result = caseTerm(boolLiteral);
 				if (result == null) result = caseComparison(boolLiteral);
+				if (result == null) result = caseBooleanExpression(boolLiteral);
 				if (result == null) result = caseExpression(boolLiteral);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -281,10 +323,12 @@ public class StoexSwitch<T> {
 				StringLiteral stringLiteral = (StringLiteral)theEObject;
 				T result = caseStringLiteral(stringLiteral);
 				if (result == null) result = caseAtom(stringLiteral);
+				if (result == null) result = caseUnary(stringLiteral);
 				if (result == null) result = casePower(stringLiteral);
 				if (result == null) result = caseProduct(stringLiteral);
 				if (result == null) result = caseTerm(stringLiteral);
 				if (result == null) result = caseComparison(stringLiteral);
+				if (result == null) result = caseBooleanExpression(stringLiteral);
 				if (result == null) result = caseExpression(stringLiteral);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -296,7 +340,42 @@ public class StoexSwitch<T> {
 				if (result == null) result = caseProduct(powerExpression);
 				if (result == null) result = caseTerm(powerExpression);
 				if (result == null) result = caseComparison(powerExpression);
+				if (result == null) result = caseBooleanExpression(powerExpression);
 				if (result == null) result = caseExpression(powerExpression);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case StoexPackage.BOOLEAN_OPERATOR_EXPRESSION: {
+				BooleanOperatorExpression booleanOperatorExpression = (BooleanOperatorExpression)theEObject;
+				T result = caseBooleanOperatorExpression(booleanOperatorExpression);
+				if (result == null) result = caseBooleanExpression(booleanOperatorExpression);
+				if (result == null) result = caseExpression(booleanOperatorExpression);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case StoexPackage.NOT_EXPRESSION: {
+				NotExpression notExpression = (NotExpression)theEObject;
+				T result = caseNotExpression(notExpression);
+				if (result == null) result = caseUnary(notExpression);
+				if (result == null) result = casePower(notExpression);
+				if (result == null) result = caseProduct(notExpression);
+				if (result == null) result = caseTerm(notExpression);
+				if (result == null) result = caseComparison(notExpression);
+				if (result == null) result = caseBooleanExpression(notExpression);
+				if (result == null) result = caseExpression(notExpression);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case StoexPackage.NEGATIVE_EXPRESSION: {
+				NegativeExpression negativeExpression = (NegativeExpression)theEObject;
+				T result = caseNegativeExpression(negativeExpression);
+				if (result == null) result = caseUnary(negativeExpression);
+				if (result == null) result = casePower(negativeExpression);
+				if (result == null) result = caseProduct(negativeExpression);
+				if (result == null) result = caseTerm(negativeExpression);
+				if (result == null) result = caseComparison(negativeExpression);
+				if (result == null) result = caseBooleanExpression(negativeExpression);
+				if (result == null) result = caseExpression(negativeExpression);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -380,6 +459,21 @@ public class StoexSwitch<T> {
 	}
 
 	/**
+	 * Returns the result of interpretting the object as an instance of '<em>Unary</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpretting the object as an instance of '<em>Unary</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseUnary(Unary object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpretting the object as an instance of '<em>Power</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -436,6 +530,21 @@ public class StoexSwitch<T> {
 	 * @generated
 	 */
 	public T caseComparison(Comparison object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpretting the object as an instance of '<em>Boolean Expression</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpretting the object as an instance of '<em>Boolean Expression</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseBooleanExpression(BooleanExpression object) {
 		return null;
 	}
 
@@ -631,6 +740,51 @@ public class StoexSwitch<T> {
 	 * @generated
 	 */
 	public T casePowerExpression(PowerExpression object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpretting the object as an instance of '<em>Boolean Operator Expression</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpretting the object as an instance of '<em>Boolean Operator Expression</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseBooleanOperatorExpression(BooleanOperatorExpression object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpretting the object as an instance of '<em>Not Expression</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpretting the object as an instance of '<em>Not Expression</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseNotExpression(NotExpression object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpretting the object as an instance of '<em>Negative Expression</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpretting the object as an instance of '<em>Negative Expression</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseNegativeExpression(NegativeExpression object) {
 		return null;
 	}
 

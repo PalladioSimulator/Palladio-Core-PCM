@@ -1,11 +1,12 @@
 package de.uka.ipd.sdq.probfunction.math;
 
-import java.io.StringBufferInputStream;
 import java.util.Comparator;
 import java.util.Iterator;
 
-import antlr.RecognitionException;
-import antlr.TokenStreamException;
+import org.antlr.runtime.ANTLRStringStream;
+import org.antlr.runtime.CommonTokenStream;
+import org.antlr.runtime.RecognitionException;
+
 import de.uka.ipd.sdq.probfunction.ProbabilityMassFunction;
 import de.uka.ipd.sdq.probfunction.math.exception.StringNotPDFException;
 import de.uka.ipd.sdq.probfunction.math.util.MathTools;
@@ -92,16 +93,19 @@ public class ManagedPMF {
 		}
 	}
 
+	private static ProbabilityFunctionLiteral parse(String s) throws RecognitionException {
+		StochasticExpressionsLexer lexer = new StochasticExpressionsLexer(
+				new ANTLRStringStream(s));
+		StochasticExpressionsParser parser = new StochasticExpressionsParser(
+				new CommonTokenStream(lexer));
+		return (ProbabilityFunctionLiteral)parser.expression();
+	}
+	
 	@SuppressWarnings("deprecation")
 	public static ManagedPMF createFromString(String pmfAsString)
-			throws RecognitionException, TokenStreamException,
+			throws RecognitionException,
 			StringNotPDFException {
-		StochasticExpressionsLexer lexer = new StochasticExpressionsLexer(
-				new StringBufferInputStream("=" + pmfAsString));
-		StochasticExpressionsParser parser = new StochasticExpressionsParser(
-				lexer);
-		ProbabilityFunctionLiteral value = (ProbabilityFunctionLiteral) parser
-				.expression();
+		ProbabilityFunctionLiteral value = parse(pmfAsString);
 		try {
 			ProbabilityMassFunction pmf = (ProbabilityMassFunction) value
 					.getFunction_ProbabilityFunctionLiteral();

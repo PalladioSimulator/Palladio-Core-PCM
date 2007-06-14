@@ -5,6 +5,11 @@
 	<property file='${propertyFile}'/>
 	-->
 	<component class="oaw.emf.XmiReader">
+		<modelFile value="${resourceTypeFile}"/>
+		<outputSlot value="resourceType"/>
+	</component>
+
+	<component class="oaw.emf.XmiReader">
 		<modelFile value="${systemFile}"/>
 		<outputSlot value="pcmmodel"/>
 	</component>
@@ -13,7 +18,7 @@
 		<modelFile value="${allocationFile}"/>
 		<outputSlot value="allocation"/>
 	</component>
-    <!--
+
     <component class="de.uka.sdq.pcm.transformations.TransformationWorkflowComponent">
 	</component>
 	
@@ -26,7 +31,7 @@
 		<modelFile value="${systemFile}.intermediate.system"/>
 		<inputSlot value="pcmmodel"/>
 	</component>
-    -->
+
 	<component id="generator" class="oaw.xpand2.Generator" skipOnErrors="true">
 		<fileEncoding value="ISO-8859-1"/>
 	    <metaModel id="pcm.repository.emf" class="oaw.type.emf.EmfMetaModel">

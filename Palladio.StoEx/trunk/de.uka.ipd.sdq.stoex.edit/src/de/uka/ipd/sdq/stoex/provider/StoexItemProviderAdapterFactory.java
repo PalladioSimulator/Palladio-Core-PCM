@@ -398,6 +398,75 @@ public class StoexItemProviderAdapterFactory extends StoexAdapterFactory impleme
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.stoex.BooleanOperatorExpression} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected BooleanOperatorExpressionItemProvider booleanOperatorExpressionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.stoex.BooleanOperatorExpression}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createBooleanOperatorExpressionAdapter() {
+		if (booleanOperatorExpressionItemProvider == null) {
+			booleanOperatorExpressionItemProvider = new BooleanOperatorExpressionItemProvider(this);
+		}
+
+		return booleanOperatorExpressionItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.stoex.NotExpression} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected NotExpressionItemProvider notExpressionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.stoex.NotExpression}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createNotExpressionAdapter() {
+		if (notExpressionItemProvider == null) {
+			notExpressionItemProvider = new NotExpressionItemProvider(this);
+		}
+
+		return notExpressionItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.stoex.NegativeExpression} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected NegativeExpressionItemProvider negativeExpressionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.stoex.NegativeExpression}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createNegativeExpressionAdapter() {
+		if (negativeExpressionItemProvider == null) {
+			negativeExpressionItemProvider = new NegativeExpressionItemProvider(this);
+		}
+
+		return negativeExpressionItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -510,6 +579,9 @@ public class StoexItemProviderAdapterFactory extends StoexAdapterFactory impleme
 		if (boolLiteralItemProvider != null) boolLiteralItemProvider.dispose();
 		if (stringLiteralItemProvider != null) stringLiteralItemProvider.dispose();
 		if (powerExpressionItemProvider != null) powerExpressionItemProvider.dispose();
+		if (booleanOperatorExpressionItemProvider != null) booleanOperatorExpressionItemProvider.dispose();
+		if (notExpressionItemProvider != null) notExpressionItemProvider.dispose();
+		if (negativeExpressionItemProvider != null) negativeExpressionItemProvider.dispose();
 	}
 
 }

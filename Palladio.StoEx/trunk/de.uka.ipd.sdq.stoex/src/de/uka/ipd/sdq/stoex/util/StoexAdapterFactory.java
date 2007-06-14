@@ -92,6 +92,10 @@ public class StoexAdapterFactory extends AdapterFactoryImpl {
 				return createAtomAdapter();
 			}
 			@Override
+			public Adapter caseUnary(Unary object) {
+				return createUnaryAdapter();
+			}
+			@Override
 			public Adapter casePower(Power object) {
 				return createPowerAdapter();
 			}
@@ -106,6 +110,10 @@ public class StoexAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseComparison(Comparison object) {
 				return createComparisonAdapter();
+			}
+			@Override
+			public Adapter caseBooleanExpression(BooleanExpression object) {
+				return createBooleanExpressionAdapter();
 			}
 			@Override
 			public Adapter caseExpression(Expression object) {
@@ -158,6 +166,18 @@ public class StoexAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter casePowerExpression(PowerExpression object) {
 				return createPowerExpressionAdapter();
+			}
+			@Override
+			public Adapter caseBooleanOperatorExpression(BooleanOperatorExpression object) {
+				return createBooleanOperatorExpressionAdapter();
+			}
+			@Override
+			public Adapter caseNotExpression(NotExpression object) {
+				return createNotExpressionAdapter();
+			}
+			@Override
+			public Adapter caseNegativeExpression(NegativeExpression object) {
+				return createNegativeExpressionAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -250,6 +270,20 @@ public class StoexAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.stoex.Unary <em>Unary</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.stoex.Unary
+	 * @generated
+	 */
+	public Adapter createUnaryAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.stoex.Power <em>Power</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -302,6 +336,20 @@ public class StoexAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createComparisonAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.stoex.BooleanExpression <em>Boolean Expression</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.stoex.BooleanExpression
+	 * @generated
+	 */
+	public Adapter createBooleanExpressionAdapter() {
 		return null;
 	}
 
@@ -484,6 +532,48 @@ public class StoexAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createPowerExpressionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.stoex.BooleanOperatorExpression <em>Boolean Operator Expression</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.stoex.BooleanOperatorExpression
+	 * @generated
+	 */
+	public Adapter createBooleanOperatorExpressionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.stoex.NotExpression <em>Not Expression</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.stoex.NotExpression
+	 * @generated
+	 */
+	public Adapter createNotExpressionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.stoex.NegativeExpression <em>Negative Expression</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.stoex.NegativeExpression
+	 * @generated
+	 */
+	public Adapter createNegativeExpressionAdapter() {
 		return null;
 	}
 

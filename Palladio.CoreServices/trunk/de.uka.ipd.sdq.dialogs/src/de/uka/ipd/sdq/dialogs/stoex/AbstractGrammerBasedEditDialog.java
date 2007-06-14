@@ -3,8 +3,9 @@
  */
 package de.uka.ipd.sdq.dialogs.stoex;
 
+import org.antlr.runtime.Lexer;
+import org.antlr.runtime.RecognitionException;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.jface.dialogs.Dialog;
 import org.eclipse.jface.dialogs.IDialogConstants;
 import org.eclipse.jface.dialogs.TitleAreaDialog;
 import org.eclipse.jface.text.Document;
@@ -27,11 +28,7 @@ import org.eclipse.swt.graphics.GC;
 import org.eclipse.swt.graphics.RGB;
 import org.eclipse.swt.graphics.Rectangle;
 import org.eclipse.swt.layout.FillLayout;
-import org.eclipse.swt.layout.FormAttachment;
-import org.eclipse.swt.layout.FormData;
-import org.eclipse.swt.layout.FormLayout;
 import org.eclipse.swt.layout.GridData;
-import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Canvas;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
@@ -41,13 +38,10 @@ import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Listener;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.PlatformUI;
-import org.eclipse.ui.internal.actions.HelpContentsAction;
 
-import antlr.CharScanner;
-import antlr.RecognitionException;
-import antlr.TokenStreamException;
 import de.uka.ipd.sdq.dialogs.SWTResourceManager;
 import de.uka.ipd.sdq.pcm.repository.Parameter;
+import de.uka.ipd.sdq.pcm.stochasticexpressions.parser.ErrorEntry;
 
 /**
  * @author Snowball
@@ -183,7 +177,7 @@ public abstract class AbstractGrammerBasedEditDialog extends TitleAreaDialog {
 	protected void parseInputAndRefreshAnnotations() {
 		EObject value = null;
 		fAnnotationModel.removeAllAnnotations();
-		CharScanner lexer = null;
+		Lexer lexer = null;
 		try {
 			String text = this.textViewer.getDocument().get();
 			lexer = getLexer(text);
@@ -191,8 +185,9 @@ public abstract class AbstractGrammerBasedEditDialog extends TitleAreaDialog {
 		} catch (RecognitionException e) {
 			showInputInvalidInfo(e);
 			return;
-		} catch (TokenStreamException e) {
-			showInputInvalidInfo(e,lexer);
+		} catch (StoExParserException e) {
+			for (ErrorEntry ex : e.getErrorList())
+				showInputInvalidInfo(ex);
 			return;
 		} catch (Exception e) {
 			showInputInvalidInfo(e);
@@ -203,18 +198,18 @@ public abstract class AbstractGrammerBasedEditDialog extends TitleAreaDialog {
 		result = value;
 	}
 
-	protected abstract CharScanner getLexer(String text);
-	protected abstract EObject parse(CharScanner lexer) throws RecognitionException,TokenStreamException;
+	protected abstract Lexer getLexer(String text);
+	protected abstract EObject parse(Lexer lexer) throws RecognitionException, StoExParserException;
 	
-	private void showInputInvalidInfo(TokenStreamException e,CharScanner scanner) {
-		result = null;
-		fAnnotationModel.addAnnotation(
-				new Annotation(ERROR_TYPE, false, 
-				e.getMessage()),
-				new Position(ParserHelper.positionToOffset(textViewer.getDocument(), scanner.getLine(), scanner.getColumn()),1));
-		this.getButton(IDialogConstants.OK_ID).setEnabled(false);
-		this.setErrorMessage("Entered stochastic expression is invalid. Cause given: "+e.getMessage());
-	}
+//	private void showInputInvalidInfo(TokenStreamException e,CharScanner scanner) {
+//		result = null;
+//		fAnnotationModel.addAnnotation(
+//				new Annotation(ERROR_TYPE, false, 
+//				e.getMessage()),
+//				new Position(ParserHelper.positionToOffset(textViewer.getDocument(), scanner.getLine(), scanner.getColumn()),1));
+//		this.getButton(IDialogConstants.OK_ID).setEnabled(false);
+//		this.setErrorMessage("Entered stochastic expression is invalid. Cause given: "+e.getMessage());
+//	}
 
 	/**
 	 * @param e
@@ -226,9 +221,19 @@ public abstract class AbstractGrammerBasedEditDialog extends TitleAreaDialog {
 				e.getMessage()),
 				guessPosition(e));
 		this.getButton(IDialogConstants.OK_ID).setEnabled(false);
-		this.setErrorMessage("Entered stochastic expression is invalid. Cause given: "+e.getMessage());
+		this.setErrorMessage("Entered stochastic expression is invalid. Cause given: "+e.getLocalizedMessage());
 	}
 
+	private void showInputInvalidInfo(ErrorEntry e) {
+		result = null;
+		fAnnotationModel.addAnnotation(
+				new Annotation(ERROR_TYPE, false, 
+				e.getErrorText()),
+				guessPosition(e.getEx()));
+		this.getButton(IDialogConstants.OK_ID).setEnabled(false);
+		this.setErrorMessage("Entered stochastic expression is invalid. Cause given: "+e.getErrorText());
+	}
+	
 	/**
 	 * @param e 
 	 * @return
@@ -237,9 +242,10 @@ public abstract class AbstractGrammerBasedEditDialog extends TitleAreaDialog {
 		if (e instanceof RecognitionException)
 		{
 			RecognitionException recException = (RecognitionException) e;
-			int col = recException.getColumn(); 
-			int line = recException.getLine();
+			int col = recException.charPositionInLine; 
+			int line = recException.line;
 			int offset = ParserHelper.positionToOffset(textViewer.getDocument(),line,col);
+			offset = offset < 0 ? 0 : offset;
 			return new Position(offset, textViewer.getDocument().getLength()-offset);
 		}
 		return new Position(0, textViewer.getDocument().getLength());
