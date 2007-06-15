@@ -57,8 +57,10 @@
 
 	public void fillLinkingResourceContainer(de.uka.ipd.sdq.simucomframework.resources.SimulatedLinkingResourceContainer rc) {
 		«EXPAND LinkingResourceCase FOREACH this.linkingresource SEPARATOR " else "»
+		«IF this.linkingresource.size > 0»
 		else
-			throw new RuntimeException("Unknown resource container should be initialised. This should never happen");	
+			throw new RuntimeException("Unknown resource container should be initialised. This should never happen");
+		«ENDIF»	
 	}
 
 «ENDDEFINE»
