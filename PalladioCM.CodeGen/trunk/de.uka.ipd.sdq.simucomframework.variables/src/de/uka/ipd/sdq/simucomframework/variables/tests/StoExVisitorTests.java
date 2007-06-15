@@ -22,7 +22,7 @@ public class StoExVisitorTests {
 	@Before public void setup() {
 		PatternLayout myLayout = new PatternLayout("%d{HH:mm:ss,SSS} [%t] %-5p %m [%c]%n");
 		ConsoleAppender ca = new ConsoleAppender(myLayout);
-		ca.setThreshold(Priority.DEBUG);
+		ca.setThreshold(Priority.INFO);
 		BasicConfigurator.resetConfiguration();
 		BasicConfigurator.configure(ca);
 	}
@@ -81,6 +81,24 @@ public class StoExVisitorTests {
 		Assert.assertEquals(true, result);
 		result = (Boolean)StackContext.simpleEvaluate("true XOR true");
 		Assert.assertEquals(false, result);
+	}
+	
+	@Test public void functionsTest() {
+		for (int i=0; i<2000; i++) {
+			double result3 = (Double)StackContext.simpleEvaluate("UniDouble(1,4)");
+			Assert.assertTrue(result3 >= 1 && result3 <= 4);
+		}
+		for (int i=0; i<2000; i++) {
+			int result3 = (Integer)StackContext.simpleEvaluate("UniInt(1,4)");
+			Assert.assertTrue(result3 >= 1 && result3 <= 4);
+		}
+		for (int i=0; i<200; i++) {
+			double result3 = (Double)StackContext.simpleEvaluate("Norm(0,1)");
+		}
+		for (int i=0; i<200; i++) {
+			double result3 = (Double)StackContext.simpleEvaluate("Exp(1)");
+			Assert.assertTrue(result3 >= 0);
+		}
 	}
 	
 	@Test public void getByteSizeFromStackframe(){

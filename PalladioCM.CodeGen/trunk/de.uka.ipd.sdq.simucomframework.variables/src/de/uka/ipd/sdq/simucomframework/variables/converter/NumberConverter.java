@@ -1,4 +1,4 @@
-package de.uka.ipd.sdq.simucomframework.converter;
+package de.uka.ipd.sdq.simucomframework.variables.converter;
 
 import javax.naming.OperationNotSupportedException;
 

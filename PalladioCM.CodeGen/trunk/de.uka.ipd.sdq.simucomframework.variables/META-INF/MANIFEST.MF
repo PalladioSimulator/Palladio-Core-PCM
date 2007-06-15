@@ -5,6 +5,8 @@ Bundle-SymbolicName: de.uka.ipd.sdq.simucomframework.variables
 Bundle-Version: 1.0.0.qualifier
 Export-Package: de.uka.ipd.sdq.simucomframework.variables,
  de.uka.ipd.sdq.simucomframework.variables.cache,
+ de.uka.ipd.sdq.simucomframework.variables.converter,
+ de.uka.ipd.sdq.simucomframework.variables.functions,
  de.uka.ipd.sdq.simucomframework.variables.stackframe,
  de.uka.ipd.sdq.simucomframework.variables.stoexvisitor
 Require-Bundle: de.uka.ipd.sdq.pcm,
@@ -19,3 +21,5 @@ Require-Bundle: de.uka.ipd.sdq.pcm,
  org.apache.log4j
 Bundle-Vendor: sdq.ipd.uka.de
 Eclipse-LazyStart: true
+Bundle-ClassPath: lib/ssj.jar,
+ .

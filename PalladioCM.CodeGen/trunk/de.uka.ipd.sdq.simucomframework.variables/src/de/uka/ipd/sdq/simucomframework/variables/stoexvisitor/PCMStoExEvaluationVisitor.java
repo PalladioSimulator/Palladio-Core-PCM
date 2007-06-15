@@ -1,5 +1,7 @@
 package de.uka.ipd.sdq.simucomframework.variables.stoexvisitor;
 
+import java.util.ArrayList;
+
 import org.apache.log4j.Logger;
 
 import de.uka.ipd.sdq.pcm.parameter.CharacterisedVariable;
@@ -9,6 +11,7 @@ import de.uka.ipd.sdq.simucomframework.variables.EvaluationProxy;
 import de.uka.ipd.sdq.simucomframework.variables.StackContext;
 import de.uka.ipd.sdq.simucomframework.variables.cache.ProbFunctionCache;
 import de.uka.ipd.sdq.simucomframework.variables.cache.StoExCache;
+import de.uka.ipd.sdq.simucomframework.variables.functions.FunctionLib;
 import de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe;
 import de.uka.ipd.sdq.simucomframework.variables.stackframe.ValueNotInFrameException;
 import de.uka.ipd.sdq.stoex.BoolLiteral;
@@ -17,6 +20,7 @@ import de.uka.ipd.sdq.stoex.CompareExpression;
 import de.uka.ipd.sdq.stoex.CompareOperations;
 import de.uka.ipd.sdq.stoex.DoubleLiteral;
 import de.uka.ipd.sdq.stoex.Expression;
+import de.uka.ipd.sdq.stoex.FunctionLiteral;
 import de.uka.ipd.sdq.stoex.IntLiteral;
 import de.uka.ipd.sdq.stoex.NegativeExpression;
 import de.uka.ipd.sdq.stoex.NotExpression;
@@ -46,12 +50,14 @@ public class PCMStoExEvaluationVisitor extends PCMStoExSwitch {
 	private ExpressionInferTypeVisitor typeInferer;
 	private static PCMStoExPrettyPrintVisitor printVisitor = new PCMStoExPrettyPrintVisitor();
 	private String stoex;
+	private FunctionLib functionLib = null;
 	
 	public PCMStoExEvaluationVisitor(String stoex, SimulatedStackframe<Object> frame) {
 		myStackFrame = frame;
 		this.typeInferer = StoExCache.singleton().getEntry(stoex).getTypeInferer();
 		this.stoex = stoex;
 		probfunctionVisitor = new PCMProbfunctionEvaluationVisitor(stoex);
+		functionLib = new FunctionLib();
 	}
 
 	@Override
@@ -299,5 +305,15 @@ public class PCMStoExEvaluationVisitor extends PCMStoExSwitch {
 			rightExpr = Double.valueOf( (((Integer)rightExpr).intValue()));
 		return Math.pow((Double)leftExpr, (Double)rightExpr);
 	}
- 
+
+	@Override
+	public Object caseFunctionLiteral(FunctionLiteral object) {
+		String functionID = object.getId();
+		ArrayList<Object> parameterValues = new ArrayList<Object>();
+		for (Expression e : object.getParameters_FunctionLiteral()) {
+			parameterValues.add(this.doSwitch(e));
+		}
+		return functionLib.evaluate(functionID,parameterValues);
+	}
+	
 }
