@@ -244,6 +244,11 @@ public class TermExpressionItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
+				(StoexPackage.Literals.TERM_EXPRESSION__LEFT,
+				 StoexFactory.eINSTANCE.createFunctionLiteral()));
+
+		newChildDescriptors.add
+			(createChildParameter
 				(StoexPackage.Literals.TERM_EXPRESSION__RIGHT,
 				 StoexFactory.eINSTANCE.createVariable()));
 
@@ -296,6 +301,11 @@ public class TermExpressionItemProvider
 			(createChildParameter
 				(StoexPackage.Literals.TERM_EXPRESSION__RIGHT,
 				 StoexFactory.eINSTANCE.createNegativeExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(StoexPackage.Literals.TERM_EXPRESSION__RIGHT,
+				 StoexFactory.eINSTANCE.createFunctionLiteral()));
 	}
 
 	/**

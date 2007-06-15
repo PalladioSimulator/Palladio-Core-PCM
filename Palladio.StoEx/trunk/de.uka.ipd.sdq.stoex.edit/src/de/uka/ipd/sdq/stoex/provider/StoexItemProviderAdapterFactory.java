@@ -467,6 +467,29 @@ public class StoexItemProviderAdapterFactory extends StoexAdapterFactory impleme
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.stoex.FunctionLiteral} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected FunctionLiteralItemProvider functionLiteralItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.stoex.FunctionLiteral}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createFunctionLiteralAdapter() {
+		if (functionLiteralItemProvider == null) {
+			functionLiteralItemProvider = new FunctionLiteralItemProvider(this);
+		}
+
+		return functionLiteralItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -582,6 +605,7 @@ public class StoexItemProviderAdapterFactory extends StoexAdapterFactory impleme
 		if (booleanOperatorExpressionItemProvider != null) booleanOperatorExpressionItemProvider.dispose();
 		if (notExpressionItemProvider != null) notExpressionItemProvider.dispose();
 		if (negativeExpressionItemProvider != null) negativeExpressionItemProvider.dispose();
+		if (functionLiteralItemProvider != null) functionLiteralItemProvider.dispose();
 	}
 
 }

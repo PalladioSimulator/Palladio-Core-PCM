@@ -194,6 +194,11 @@ public class NotExpressionItemProvider
 			(createChildParameter
 				(StoexPackage.Literals.NOT_EXPRESSION__INNER,
 				 StoexFactory.eINSTANCE.createNegativeExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(StoexPackage.Literals.NOT_EXPRESSION__INNER,
+				 StoexFactory.eINSTANCE.createFunctionLiteral()));
 	}
 
 	/**

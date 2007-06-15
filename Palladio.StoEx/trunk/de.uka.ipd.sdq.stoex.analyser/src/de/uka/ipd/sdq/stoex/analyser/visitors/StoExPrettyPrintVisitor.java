@@ -11,6 +11,7 @@ import de.uka.ipd.sdq.stoex.BoolLiteral;
 import de.uka.ipd.sdq.stoex.BooleanOperatorExpression;
 import de.uka.ipd.sdq.stoex.CompareExpression;
 import de.uka.ipd.sdq.stoex.DoubleLiteral;
+import de.uka.ipd.sdq.stoex.FunctionLiteral;
 import de.uka.ipd.sdq.stoex.IntLiteral;
 import de.uka.ipd.sdq.stoex.NamespaceReference;
 import de.uka.ipd.sdq.stoex.NegativeExpression;
@@ -189,6 +190,14 @@ public class StoExPrettyPrintVisitor extends StoexSwitch<String> {
 	public String caseNotExpression(NotExpression object) {
 		return "NOT ("+this.doSwitch(object.getInner())+")";
 	}
-	
+
+	@Override
+	public String caseFunctionLiteral(FunctionLiteral object) {
+		String result = object.getId() + "(";
+		for (int i=0; i < object.getParameters_FunctionLiteral().size()-1; i++)
+			result += this.doSwitch(object.getParameters_FunctionLiteral().get(i)) + ", ";
+		result += this.doSwitch(object.getParameters_FunctionLiteral().get(object.getParameters_FunctionLiteral().size()-1)) + ")";
+		return result;
+	}
 	
 }

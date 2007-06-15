@@ -8,6 +8,7 @@ grammar PCMStoEx;
 	import de.uka.ipd.sdq.probfunction.*;
 	import de.uka.ipd.sdq.pcm.parameter.*;
 	import java.util.ArrayList;
+	import java.util.Collection;
 	import de.uka.ipd.sdq.stoex.analyser.visitors.StoExPrettyPrintVisitor;
 }
 
@@ -119,13 +120,6 @@ atom returns [Atom a]
 				}
 			}
 		  |
-		  // variables
-		  id = scoped_id DOT type = characterisation 
-		 { a = ParameterFactory.eINSTANCE.createCharacterisedVariable();
-		  	((CharacterisedVariable)a).setId_Variable(id);
-		  	((CharacterisedVariable)a).setCharacterisationType(type);
-		  }
-		  | 
 		  // probability function literals
 		  def = definition
 		  {a=def;}
@@ -146,6 +140,20 @@ atom returns [Atom a]
 	   		a = boolLiteral;
 	   	  } 
 		  |
+		  // variables
+		  id = scoped_id DOT type = characterisation 
+		 { a = ParameterFactory.eINSTANCE.createCharacterisedVariable();
+		  	((CharacterisedVariable)a).setId_Variable(id);
+		  	((CharacterisedVariable)a).setCharacterisationType(type);
+		  }
+		  |
+		  // function call
+		  fid = ID {FunctionLiteral flit = StoexFactory.eINSTANCE.createFunctionLiteral();
+		  	    flit.setId(fid.getText());}
+		  	args = arguments
+		  	{flit.getParameters_FunctionLiteral().addAll(args);
+		  	a = flit;}
+		  | 
 		  // parenthesis expression
 		  LPAREN
 		  inner = compareExpr
@@ -158,6 +166,18 @@ atom returns [Atom a]
 	    ) 
 ;
      
+arguments returns [Collection<Expression> parameters]
+	@init{parameters = new ArrayList<Expression>();}    
+	:   
+	LPAREN paramList = expressionList? {parameters.addAll(paramList);} RPAREN
+	;
+	
+expressionList returns [Collection<Expression> parameters]
+	@init{parameters = new ArrayList<Expression>();}    
+	:   
+    		p1 = boolAndExpr {parameters.add(p1);} (COLON p2 = boolAndExpr {parameters.add(p2);})*
+    	;
+    
 characterisation returns [VariableCharacterisationType ct]
 	 :
 	type = characterisation_keywords
@@ -471,6 +491,7 @@ POW   : '^' ;
 LPAREN: '(' ;
 RPAREN: ')' ;
 SEMI  : ';' ;
+COLON 	:	',';
 DEFINITION : '=' ;
 ORDERED_DEF
 	:	'ordered';

@@ -1,6 +1,6 @@
 package de.uka.ipd.sdq.pcm.stochasticexpressions.parser;
 
-// $ANTLR 3.0 C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g 2007-06-14 21:42:21
+// $ANTLR 3.0 C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g 2007-06-15 07:31:11
 
 import org.antlr.runtime.*;
 import java.util.Stack;
@@ -8,55 +8,56 @@ import java.util.List;
 import java.util.ArrayList;
 
 public class PCMStoExLexer extends Lexer {
-    public static final int INNER=45;
+    public static final int INNER=46;
     public static final int MOD=17;
-    public static final int BOOLPMF=33;
-    public static final int ENUMPMF=29;
+    public static final int BOOLPMF=35;
+    public static final int ENUMPMF=31;
     public static final int GREATEREQUAL=11;
-    public static final int Exponent=47;
+    public static final int Exponent=48;
     public static final int NOT=19;
+    public static final int ID=23;
     public static final int AND=4;
-    public static final int ID=44;
     public static final int EOF=-1;
-    public static final int STRUCTURE=40;
-    public static final int LPAREN=23;
-    public static final int TYPE=42;
+    public static final int STRUCTURE=42;
+    public static final int LPAREN=24;
+    public static final int TYPE=44;
     public static final int NOTEQUAL=10;
-    public static final int RPAREN=24;
-    public static final int STRING_LITERAL=22;
+    public static final int RPAREN=25;
+    public static final int STRING_LITERAL=21;
     public static final int GREATER=7;
     public static final int POW=18;
     public static final int EQUAL=9;
     public static final int LESS=8;
-    public static final int DEFINITION=35;
+    public static final int DEFINITION=37;
     public static final int PLUS=13;
-    public static final int DIGIT=46;
-    public static final int COMMENT=50;
-    public static final int DOT=21;
-    public static final int DOUBLEPDF=32;
+    public static final int DIGIT=47;
+    public static final int COMMENT=51;
+    public static final int DOT=22;
+    public static final int DOUBLEPDF=34;
     public static final int XOR=6;
-    public static final int INTPMF=25;
-    public static final int LINE_COMMENT=51;
-    public static final int DOUBLEPMF=28;
+    public static final int INTPMF=27;
+    public static final int LINE_COMMENT=52;
+    public static final int DOUBLEPMF=30;
     public static final int NUMBER=20;
-    public static final int BOOL=36;
-    public static final int NUMBER_OF_ELEMENTS=41;
+    public static final int BOOL=38;
+    public static final int NUMBER_OF_ELEMENTS=43;
+    public static final int VALUE=45;
     public static final int MINUS=14;
-    public static final int VALUE=43;
-    public static final int Tokens=52;
+    public static final int Tokens=53;
     public static final int MUL=15;
-    public static final int SEMI=30;
-    public static final int TRUE=38;
-    public static final int ALPHA=48;
-    public static final int SQUARE_PAREN_R=27;
-    public static final int UNIT=34;
-    public static final int WS=49;
-    public static final int SQUARE_PAREN_L=26;
+    public static final int SEMI=32;
+    public static final int TRUE=40;
+    public static final int ALPHA=49;
+    public static final int COLON=26;
+    public static final int SQUARE_PAREN_R=29;
+    public static final int UNIT=36;
+    public static final int WS=50;
+    public static final int SQUARE_PAREN_L=28;
     public static final int OR=5;
-    public static final int BYTESIZE=39;
+    public static final int BYTESIZE=41;
     public static final int DIV=16;
-    public static final int ORDERED_DEF=31;
-    public static final int FALSE=37;
+    public static final int ORDERED_DEF=33;
+    public static final int FALSE=39;
     public static final int LESSEQUAL=12;
     public PCMStoExLexer() {;} 
     public PCMStoExLexer(CharStream input) {
@@ -68,8 +69,8 @@ public class PCMStoExLexer extends Lexer {
     public final void mOR() throws RecognitionException {
         try {
             int _type = OR;
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:390:4: ( 'OR' )
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:390:4: 'OR'
+            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:410:4: ( 'OR' )
+            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:410:4: 'OR'
             {
             match("OR"); 
 
@@ -87,8 +88,8 @@ public class PCMStoExLexer extends Lexer {
     public final void mXOR() throws RecognitionException {
         try {
             int _type = XOR;
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:394:4: ( 'XOR' )
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:394:4: 'XOR'
+            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:414:4: ( 'XOR' )
+            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:414:4: 'XOR'
             {
             match("XOR"); 
 
@@ -106,8 +107,8 @@ public class PCMStoExLexer extends Lexer {
     public final void mAND() throws RecognitionException {
         try {
             int _type = AND;
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:398:4: ( 'AND' )
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:398:4: 'AND'
+            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:418:4: ( 'AND' )
+            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:418:4: 'AND'
             {
             match("AND"); 
 
@@ -125,8 +126,8 @@ public class PCMStoExLexer extends Lexer {
     public final void mNOT() throws RecognitionException {
         try {
             int _type = NOT;
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:402:4: ( 'NOT' )
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:402:4: 'NOT'
+            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:422:4: ( 'NOT' )
+            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:422:4: 'NOT'
             {
             match("NOT"); 
 
@@ -144,8 +145,8 @@ public class PCMStoExLexer extends Lexer {
     public final void mINTPMF() throws RecognitionException {
         try {
             int _type = INTPMF;
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:406:4: ( 'IntPMF' )
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:406:4: 'IntPMF'
+            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:426:4: ( 'IntPMF' )
+            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:426:4: 'IntPMF'
             {
             match("IntPMF"); 
 
@@ -163,8 +164,8 @@ public class PCMStoExLexer extends Lexer {
     public final void mDOUBLEPMF() throws RecognitionException {
         try {
             int _type = DOUBLEPMF;
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:410:4: ( 'DoublePMF' )
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:410:4: 'DoublePMF'
+            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:430:4: ( 'DoublePMF' )
+            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:430:4: 'DoublePMF'
             {
             match("DoublePMF"); 
 
@@ -182,8 +183,8 @@ public class PCMStoExLexer extends Lexer {
     public final void mENUMPMF() throws RecognitionException {
         try {
             int _type = ENUMPMF;
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:414:4: ( 'EnumPMF' )
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:414:4: 'EnumPMF'
+            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:434:4: ( 'EnumPMF' )
+            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:434:4: 'EnumPMF'
             {
             match("EnumPMF"); 
 
@@ -201,8 +202,8 @@ public class PCMStoExLexer extends Lexer {
     public final void mDOUBLEPDF() throws RecognitionException {
         try {
             int _type = DOUBLEPDF;
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:418:4: ( 'DoublePDF' )
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:418:4: 'DoublePDF'
+            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:438:4: ( 'DoublePDF' )
+            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:438:4: 'DoublePDF'
             {
             match("DoublePDF"); 
 
@@ -220,8 +221,8 @@ public class PCMStoExLexer extends Lexer {
     public final void mBOOLPMF() throws RecognitionException {
         try {
             int _type = BOOLPMF;
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:422:4: ( 'BoolPMF' )
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:422:4: 'BoolPMF'
+            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:442:4: ( 'BoolPMF' )
+            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:442:4: 'BoolPMF'
             {
             match("BoolPMF"); 
 
@@ -239,8 +240,8 @@ public class PCMStoExLexer extends Lexer {
     public final void mUNIT() throws RecognitionException {
         try {
             int _type = UNIT;
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:426:4: ( 'unit' )
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:426:4: 'unit'
+            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:446:4: ( 'unit' )
+            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:446:4: 'unit'
             {
             match("unit"); 
 
@@ -258,8 +259,8 @@ public class PCMStoExLexer extends Lexer {
     public final void mBOOL() throws RecognitionException {
         try {
             int _type = BOOL;
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:430:4: ( '\"bool\"' )
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:430:4: '\"bool\"'
+            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:450:4: ( '\"bool\"' )
+            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:450:4: '\"bool\"'
             {
             match("\"bool\""); 
 
@@ -277,8 +278,8 @@ public class PCMStoExLexer extends Lexer {
     public final void mFALSE() throws RecognitionException {
         try {
             int _type = FALSE;
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:434:4: ( 'false' )
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:434:4: 'false'
+            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:454:4: ( 'false' )
+            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:454:4: 'false'
             {
             match("false"); 
 
@@ -296,8 +297,8 @@ public class PCMStoExLexer extends Lexer {
     public final void mTRUE() throws RecognitionException {
         try {
             int _type = TRUE;
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:438:4: ( 'true' )
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:438:4: 'true'
+            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:458:4: ( 'true' )
+            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:458:4: 'true'
             {
             match("true"); 
 
@@ -315,8 +316,8 @@ public class PCMStoExLexer extends Lexer {
     public final void mBYTESIZE() throws RecognitionException {
         try {
             int _type = BYTESIZE;
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:442:4: ( 'BYTESIZE' )
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:442:4: 'BYTESIZE'
+            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:462:4: ( 'BYTESIZE' )
+            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:462:4: 'BYTESIZE'
             {
             match("BYTESIZE"); 
 
@@ -334,8 +335,8 @@ public class PCMStoExLexer extends Lexer {
     public final void mSTRUCTURE() throws RecognitionException {
         try {
             int _type = STRUCTURE;
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:446:4: ( 'STRUCTURE' )
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:446:4: 'STRUCTURE'
+            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:466:4: ( 'STRUCTURE' )
+            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:466:4: 'STRUCTURE'
             {
             match("STRUCTURE"); 
 
@@ -353,8 +354,8 @@ public class PCMStoExLexer extends Lexer {
     public final void mNUMBER_OF_ELEMENTS() throws RecognitionException {
         try {
             int _type = NUMBER_OF_ELEMENTS;
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:450:4: ( 'NUMBER_OF_ELEMENTS' )
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:450:4: 'NUMBER_OF_ELEMENTS'
+            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:470:4: ( 'NUMBER_OF_ELEMENTS' )
+            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:470:4: 'NUMBER_OF_ELEMENTS'
             {
             match("NUMBER_OF_ELEMENTS"); 
 
@@ -372,8 +373,8 @@ public class PCMStoExLexer extends Lexer {
     public final void mTYPE() throws RecognitionException {
         try {
             int _type = TYPE;
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:454:4: ( 'TYPE' )
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:454:4: 'TYPE'
+            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:474:4: ( 'TYPE' )
+            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:474:4: 'TYPE'
             {
             match("TYPE"); 
 
@@ -391,8 +392,8 @@ public class PCMStoExLexer extends Lexer {
     public final void mVALUE() throws RecognitionException {
         try {
             int _type = VALUE;
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:458:4: ( 'VALUE' )
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:458:4: 'VALUE'
+            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:478:4: ( 'VALUE' )
+            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:478:4: 'VALUE'
             {
             match("VALUE"); 
 
@@ -410,8 +411,8 @@ public class PCMStoExLexer extends Lexer {
     public final void mINNER() throws RecognitionException {
         try {
             int _type = INNER;
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:462:4: ( 'INNER' )
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:462:4: 'INNER'
+            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:482:4: ( 'INNER' )
+            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:482:4: 'INNER'
             {
             match("INNER"); 
 
@@ -429,8 +430,8 @@ public class PCMStoExLexer extends Lexer {
     public final void mPLUS() throws RecognitionException {
         try {
             int _type = PLUS;
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:465:9: ( '+' )
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:465:9: '+'
+            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:485:9: ( '+' )
+            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:485:9: '+'
             {
             match('+'); 
 
@@ -447,8 +448,8 @@ public class PCMStoExLexer extends Lexer {
     public final void mMINUS() throws RecognitionException {
         try {
             int _type = MINUS;
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:466:9: ( '-' )
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:466:9: '-'
+            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:486:9: ( '-' )
+            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:486:9: '-'
             {
             match('-'); 
 
@@ -465,8 +466,8 @@ public class PCMStoExLexer extends Lexer {
     public final void mMUL() throws RecognitionException {
         try {
             int _type = MUL;
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:467:9: ( '*' )
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:467:9: '*'
+            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:487:9: ( '*' )
+            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:487:9: '*'
             {
             match('*'); 
 
@@ -483,8 +484,8 @@ public class PCMStoExLexer extends Lexer {
     public final void mDIV() throws RecognitionException {
         try {
             int _type = DIV;
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:468:9: ( '/' )
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:468:9: '/'
+            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:488:9: ( '/' )
+            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:488:9: '/'
             {
             match('/'); 
 
@@ -501,8 +502,8 @@ public class PCMStoExLexer extends Lexer {
     public final void mMOD() throws RecognitionException {
         try {
             int _type = MOD;
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:469:9: ( '%' )
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:469:9: '%'
+            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:489:9: ( '%' )
+            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:489:9: '%'
             {
             match('%'); 
 
@@ -519,8 +520,8 @@ public class PCMStoExLexer extends Lexer {
     public final void mPOW() throws RecognitionException {
         try {
             int _type = POW;
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:470:9: ( '^' )
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:470:9: '^'
+            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:490:9: ( '^' )
+            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:490:9: '^'
             {
             match('^'); 
 
@@ -537,8 +538,8 @@ public class PCMStoExLexer extends Lexer {
     public final void mLPAREN() throws RecognitionException {
         try {
             int _type = LPAREN;
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:471:9: ( '(' )
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:471:9: '('
+            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:491:9: ( '(' )
+            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:491:9: '('
             {
             match('('); 
 
@@ -555,8 +556,8 @@ public class PCMStoExLexer extends Lexer {
     public final void mRPAREN() throws RecognitionException {
         try {
             int _type = RPAREN;
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:472:9: ( ')' )
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:472:9: ')'
+            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:492:9: ( ')' )
+            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:492:9: ')'
             {
             match(')'); 
 
@@ -573,8 +574,8 @@ public class PCMStoExLexer extends Lexer {
     public final void mSEMI() throws RecognitionException {
         try {
             int _type = SEMI;
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:473:9: ( ';' )
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:473:9: ';'
+            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:493:9: ( ';' )
+            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:493:9: ';'
             {
             match(';'); 
 
@@ -587,12 +588,30 @@ public class PCMStoExLexer extends Lexer {
     }
     // $ANTLR end SEMI
 
+    // $ANTLR start COLON
+    public final void mCOLON() throws RecognitionException {
+        try {
+            int _type = COLON;
+            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:494:10: ( ',' )
+            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:494:10: ','
+            {
+            match(','); 
+
+            }
+
+            this.type = _type;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end COLON
+
     // $ANTLR start DEFINITION
     public final void mDEFINITION() throws RecognitionException {
         try {
             int _type = DEFINITION;
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:474:14: ( '=' )
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:474:14: '='
+            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:495:14: ( '=' )
+            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:495:14: '='
             {
             match('='); 
 
@@ -609,8 +628,8 @@ public class PCMStoExLexer extends Lexer {
     public final void mORDERED_DEF() throws RecognitionException {
         try {
             int _type = ORDERED_DEF;
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:476:4: ( 'ordered' )
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:476:4: 'ordered'
+            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:497:4: ( 'ordered' )
+            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:497:4: 'ordered'
             {
             match("ordered"); 
 
@@ -628,8 +647,8 @@ public class PCMStoExLexer extends Lexer {
     public final void mEQUAL() throws RecognitionException {
         try {
             int _type = EQUAL;
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:477:9: ( '==' )
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:477:9: '=='
+            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:498:9: ( '==' )
+            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:498:9: '=='
             {
             match("=="); 
 
@@ -647,8 +666,8 @@ public class PCMStoExLexer extends Lexer {
     public final void mSQUARE_PAREN_L() throws RecognitionException {
         try {
             int _type = SQUARE_PAREN_L;
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:478:18: ( '[' )
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:478:18: '['
+            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:499:18: ( '[' )
+            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:499:18: '['
             {
             match('['); 
 
@@ -665,8 +684,8 @@ public class PCMStoExLexer extends Lexer {
     public final void mSQUARE_PAREN_R() throws RecognitionException {
         try {
             int _type = SQUARE_PAREN_R;
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:479:18: ( ']' )
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:479:18: ']'
+            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:500:18: ( ']' )
+            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:500:18: ']'
             {
             match(']'); 
 
@@ -682,8 +701,8 @@ public class PCMStoExLexer extends Lexer {
     // $ANTLR start DIGIT
     public final void mDIGIT() throws RecognitionException {
         try {
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:480:18: ( '0' .. '9' )
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:480:18: '0' .. '9'
+            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:501:18: ( '0' .. '9' )
+            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:501:18: '0' .. '9'
             {
             matchRange('0','9'); 
 
@@ -699,10 +718,10 @@ public class PCMStoExLexer extends Lexer {
     public final void mNUMBER() throws RecognitionException {
         try {
             int _type = NUMBER;
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:481:10: ( ( DIGIT )+ ( '.' ( DIGIT )+ )? ( Exponent )? )
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:481:10: ( DIGIT )+ ( '.' ( DIGIT )+ )? ( Exponent )?
+            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:502:10: ( ( DIGIT )+ ( '.' ( DIGIT )+ )? ( Exponent )? )
+            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:502:10: ( DIGIT )+ ( '.' ( DIGIT )+ )? ( Exponent )?
             {
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:481:10: ( DIGIT )+
+            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:502:10: ( DIGIT )+
             int cnt1=0;
             loop1:
             do {
@@ -716,7 +735,7 @@ public class PCMStoExLexer extends Lexer {
 
                 switch (alt1) {
             	case 1 :
-            	    // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:481:11: DIGIT
+            	    // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:502:11: DIGIT
             	    {
             	    mDIGIT(); 
 
@@ -732,7 +751,7 @@ public class PCMStoExLexer extends Lexer {
                 cnt1++;
             } while (true);
 
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:481:19: ( '.' ( DIGIT )+ )?
+            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:502:19: ( '.' ( DIGIT )+ )?
             int alt3=2;
             int LA3_0 = input.LA(1);
 
@@ -741,10 +760,10 @@ public class PCMStoExLexer extends Lexer {
             }
             switch (alt3) {
                 case 1 :
-                    // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:481:20: '.' ( DIGIT )+
+                    // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:502:20: '.' ( DIGIT )+
                     {
                     match('.'); 
-                    // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:481:24: ( DIGIT )+
+                    // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:502:24: ( DIGIT )+
                     int cnt2=0;
                     loop2:
                     do {
@@ -758,7 +777,7 @@ public class PCMStoExLexer extends Lexer {
 
                         switch (alt2) {
                     	case 1 :
-                    	    // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:481:25: DIGIT
+                    	    // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:502:25: DIGIT
                     	    {
                     	    mDIGIT(); 
 
@@ -780,7 +799,7 @@ public class PCMStoExLexer extends Lexer {
 
             }
 
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:481:35: ( Exponent )?
+            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:502:35: ( Exponent )?
             int alt4=2;
             int LA4_0 = input.LA(1);
 
@@ -789,7 +808,7 @@ public class PCMStoExLexer extends Lexer {
             }
             switch (alt4) {
                 case 1 :
-                    // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:481:35: Exponent
+                    // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:502:35: Exponent
                     {
                     mExponent(); 
 
@@ -811,8 +830,8 @@ public class PCMStoExLexer extends Lexer {
     // $ANTLR start Exponent
     public final void mExponent() throws RecognitionException {
         try {
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:483:12: ( ( 'e' | 'E' ) ( '+' | '-' )? ( '0' .. '9' )+ )
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:483:12: ( 'e' | 'E' ) ( '+' | '-' )? ( '0' .. '9' )+
+            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:504:12: ( ( 'e' | 'E' ) ( '+' | '-' )? ( '0' .. '9' )+ )
+            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:504:12: ( 'e' | 'E' ) ( '+' | '-' )? ( '0' .. '9' )+
             {
             if ( input.LA(1)=='E'||input.LA(1)=='e' ) {
                 input.consume();
@@ -824,7 +843,7 @@ public class PCMStoExLexer extends Lexer {
                 recover(mse);    throw mse;
             }
 
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:483:22: ( '+' | '-' )?
+            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:504:22: ( '+' | '-' )?
             int alt5=2;
             int LA5_0 = input.LA(1);
 
@@ -851,7 +870,7 @@ public class PCMStoExLexer extends Lexer {
 
             }
 
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:483:33: ( '0' .. '9' )+
+            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:504:33: ( '0' .. '9' )+
             int cnt6=0;
             loop6:
             do {
@@ -865,7 +884,7 @@ public class PCMStoExLexer extends Lexer {
 
                 switch (alt6) {
             	case 1 :
-            	    // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:483:34: '0' .. '9'
+            	    // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:504:34: '0' .. '9'
             	    {
             	    matchRange('0','9'); 
 
@@ -893,7 +912,7 @@ public class PCMStoExLexer extends Lexer {
     // $ANTLR start ALPHA
     public final void mALPHA() throws RecognitionException {
         try {
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:484:18: ( 'a' .. 'z' | 'A' .. 'Z' )
+            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:505:18: ( 'a' .. 'z' | 'A' .. 'Z' )
             // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:
             {
             if ( (input.LA(1)>='A' && input.LA(1)<='Z')||(input.LA(1)>='a' && input.LA(1)<='z') ) {
@@ -919,8 +938,8 @@ public class PCMStoExLexer extends Lexer {
     public final void mNOTEQUAL() throws RecognitionException {
         try {
             int _type = NOTEQUAL;
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:485:12: ( '<>' )
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:485:12: '<>'
+            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:506:12: ( '<>' )
+            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:506:12: '<>'
             {
             match("<>"); 
 
@@ -938,8 +957,8 @@ public class PCMStoExLexer extends Lexer {
     public final void mGREATER() throws RecognitionException {
         try {
             int _type = GREATER;
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:486:11: ( '>' )
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:486:11: '>'
+            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:507:11: ( '>' )
+            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:507:11: '>'
             {
             match('>'); 
 
@@ -956,8 +975,8 @@ public class PCMStoExLexer extends Lexer {
     public final void mLESS() throws RecognitionException {
         try {
             int _type = LESS;
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:487:8: ( '<' )
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:487:8: '<'
+            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:508:8: ( '<' )
+            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:508:8: '<'
             {
             match('<'); 
 
@@ -974,8 +993,8 @@ public class PCMStoExLexer extends Lexer {
     public final void mGREATEREQUAL() throws RecognitionException {
         try {
             int _type = GREATEREQUAL;
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:488:16: ( '>=' )
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:488:16: '>='
+            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:509:16: ( '>=' )
+            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:509:16: '>='
             {
             match(">="); 
 
@@ -993,8 +1012,8 @@ public class PCMStoExLexer extends Lexer {
     public final void mLESSEQUAL() throws RecognitionException {
         try {
             int _type = LESSEQUAL;
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:489:13: ( '<=' )
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:489:13: '<='
+            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:510:13: ( '<=' )
+            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:510:13: '<='
             {
             match("<="); 
 
@@ -1012,11 +1031,11 @@ public class PCMStoExLexer extends Lexer {
     public final void mSTRING_LITERAL() throws RecognitionException {
         try {
             int _type = STRING_LITERAL;
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:490:18: ( '\\\"' ( ALPHA | '_' )+ '\\\"' )
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:490:18: '\\\"' ( ALPHA | '_' )+ '\\\"'
+            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:511:18: ( '\\\"' ( ALPHA | '_' )+ '\\\"' )
+            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:511:18: '\\\"' ( ALPHA | '_' )+ '\\\"'
             {
             match('\"'); 
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:490:23: ( ALPHA | '_' )+
+            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:511:23: ( ALPHA | '_' )+
             int cnt7=0;
             loop7:
             do {
@@ -1070,8 +1089,8 @@ public class PCMStoExLexer extends Lexer {
     public final void mDOT() throws RecognitionException {
         try {
             int _type = DOT;
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:491:6: ( '.' )
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:491:6: '.'
+            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:512:6: ( '.' )
+            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:512:6: '.'
             {
             match('.'); 
 
@@ -1088,10 +1107,10 @@ public class PCMStoExLexer extends Lexer {
     public final void mID() throws RecognitionException {
         try {
             int _type = ID;
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:492:4: ( ( ALPHA | '_' )+ )
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:492:4: ( ALPHA | '_' )+
+            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:513:4: ( ( ALPHA | '_' )+ )
+            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:513:4: ( ALPHA | '_' )+
             {
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:492:4: ( ALPHA | '_' )+
+            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:513:4: ( ALPHA | '_' )+
             int cnt8=0;
             loop8:
             do {
@@ -1144,8 +1163,8 @@ public class PCMStoExLexer extends Lexer {
     public final void mWS() throws RecognitionException {
         try {
             int _type = WS;
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:495:8: ( ( ' ' | '\\r' | '\\t' | '\\u000C' | '\\n' ) )
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:495:8: ( ' ' | '\\r' | '\\t' | '\\u000C' | '\\n' )
+            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:516:8: ( ( ' ' | '\\r' | '\\t' | '\\u000C' | '\\n' ) )
+            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:516:8: ( ' ' | '\\r' | '\\t' | '\\u000C' | '\\n' )
             {
             if ( (input.LA(1)>='\t' && input.LA(1)<='\n')||(input.LA(1)>='\f' && input.LA(1)<='\r')||input.LA(1)==' ' ) {
                 input.consume();
@@ -1172,12 +1191,12 @@ public class PCMStoExLexer extends Lexer {
     public final void mCOMMENT() throws RecognitionException {
         try {
             int _type = COMMENT;
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:499:9: ( '/*' ( options {greedy=false; } : . )* '*/' )
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:499:9: '/*' ( options {greedy=false; } : . )* '*/'
+            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:520:9: ( '/*' ( options {greedy=false; } : . )* '*/' )
+            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:520:9: '/*' ( options {greedy=false; } : . )* '*/'
             {
             match("/*"); 
 
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:499:14: ( options {greedy=false; } : . )*
+            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:520:14: ( options {greedy=false; } : . )*
             loop9:
             do {
                 int alt9=2;
@@ -1202,7 +1221,7 @@ public class PCMStoExLexer extends Lexer {
 
                 switch (alt9) {
             	case 1 :
-            	    // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:499:42: .
+            	    // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:520:42: .
             	    {
             	    matchAny(); 
 
@@ -1231,12 +1250,12 @@ public class PCMStoExLexer extends Lexer {
     public final void mLINE_COMMENT() throws RecognitionException {
         try {
             int _type = LINE_COMMENT;
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:503:7: ( '//' (~ ( '\\n' | '\\r' ) )* ( '\\r' )? '\\n' )
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:503:7: '//' (~ ( '\\n' | '\\r' ) )* ( '\\r' )? '\\n'
+            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:524:7: ( '//' (~ ( '\\n' | '\\r' ) )* ( '\\r' )? '\\n' )
+            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:524:7: '//' (~ ( '\\n' | '\\r' ) )* ( '\\r' )? '\\n'
             {
             match("//"); 
 
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:503:12: (~ ( '\\n' | '\\r' ) )*
+            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:524:12: (~ ( '\\n' | '\\r' ) )*
             loop10:
             do {
                 int alt10=2;
@@ -1249,7 +1268,7 @@ public class PCMStoExLexer extends Lexer {
 
                 switch (alt10) {
             	case 1 :
-            	    // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:503:12: ~ ( '\\n' | '\\r' )
+            	    // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:524:12: ~ ( '\\n' | '\\r' )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFE') ) {
             	        input.consume();
@@ -1270,7 +1289,7 @@ public class PCMStoExLexer extends Lexer {
                 }
             } while (true);
 
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:503:26: ( '\\r' )?
+            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:524:26: ( '\\r' )?
             int alt11=2;
             int LA11_0 = input.LA(1);
 
@@ -1279,7 +1298,7 @@ public class PCMStoExLexer extends Lexer {
             }
             switch (alt11) {
                 case 1 :
-                    // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:503:26: '\\r'
+                    // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:524:26: '\\r'
                     {
                     match('\r'); 
 
@@ -1301,24 +1320,24 @@ public class PCMStoExLexer extends Lexer {
     // $ANTLR end LINE_COMMENT
 
     public void mTokens() throws RecognitionException {
-        // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:10: ( OR | XOR | AND | NOT | INTPMF | DOUBLEPMF | ENUMPMF | DOUBLEPDF | BOOLPMF | UNIT | BOOL | FALSE | TRUE | BYTESIZE | STRUCTURE | NUMBER_OF_ELEMENTS | TYPE | VALUE | INNER | PLUS | MINUS | MUL | DIV | MOD | POW | LPAREN | RPAREN | SEMI | DEFINITION | ORDERED_DEF | EQUAL | SQUARE_PAREN_L | SQUARE_PAREN_R | NUMBER | NOTEQUAL | GREATER | LESS | GREATEREQUAL | LESSEQUAL | STRING_LITERAL | DOT | ID | WS | COMMENT | LINE_COMMENT )
-        int alt12=45;
+        // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:10: ( OR | XOR | AND | NOT | INTPMF | DOUBLEPMF | ENUMPMF | DOUBLEPDF | BOOLPMF | UNIT | BOOL | FALSE | TRUE | BYTESIZE | STRUCTURE | NUMBER_OF_ELEMENTS | TYPE | VALUE | INNER | PLUS | MINUS | MUL | DIV | MOD | POW | LPAREN | RPAREN | SEMI | COLON | DEFINITION | ORDERED_DEF | EQUAL | SQUARE_PAREN_L | SQUARE_PAREN_R | NUMBER | NOTEQUAL | GREATER | LESS | GREATEREQUAL | LESSEQUAL | STRING_LITERAL | DOT | ID | WS | COMMENT | LINE_COMMENT )
+        int alt12=46;
         switch ( input.LA(1) ) {
         case 'O':
             {
             int LA12_1 = input.LA(2);
 
             if ( (LA12_1=='R') ) {
-                int LA12_35 = input.LA(3);
+                int LA12_36 = input.LA(3);
 
-                if ( ((LA12_35>='A' && LA12_35<='Z')||LA12_35=='_'||(LA12_35>='a' && LA12_35<='z')) ) {
-                    alt12=42;
+                if ( ((LA12_36>='A' && LA12_36<='Z')||LA12_36=='_'||(LA12_36>='a' && LA12_36<='z')) ) {
+                    alt12=43;
                 }
                 else {
                     alt12=1;}
             }
             else {
-                alt12=42;}
+                alt12=43;}
             }
             break;
         case 'X':
@@ -1326,22 +1345,22 @@ public class PCMStoExLexer extends Lexer {
             int LA12_2 = input.LA(2);
 
             if ( (LA12_2=='O') ) {
-                int LA12_36 = input.LA(3);
+                int LA12_37 = input.LA(3);
 
-                if ( (LA12_36=='R') ) {
-                    int LA12_66 = input.LA(4);
+                if ( (LA12_37=='R') ) {
+                    int LA12_67 = input.LA(4);
 
-                    if ( ((LA12_66>='A' && LA12_66<='Z')||LA12_66=='_'||(LA12_66>='a' && LA12_66<='z')) ) {
-                        alt12=42;
+                    if ( ((LA12_67>='A' && LA12_67<='Z')||LA12_67=='_'||(LA12_67>='a' && LA12_67<='z')) ) {
+                        alt12=43;
                     }
                     else {
                         alt12=2;}
                 }
                 else {
-                    alt12=42;}
+                    alt12=43;}
             }
             else {
-                alt12=42;}
+                alt12=43;}
             }
             break;
         case 'A':
@@ -1349,22 +1368,22 @@ public class PCMStoExLexer extends Lexer {
             int LA12_3 = input.LA(2);
 
             if ( (LA12_3=='N') ) {
-                int LA12_37 = input.LA(3);
+                int LA12_38 = input.LA(3);
 
-                if ( (LA12_37=='D') ) {
-                    int LA12_67 = input.LA(4);
+                if ( (LA12_38=='D') ) {
+                    int LA12_68 = input.LA(4);
 
-                    if ( ((LA12_67>='A' && LA12_67<='Z')||LA12_67=='_'||(LA12_67>='a' && LA12_67<='z')) ) {
-                        alt12=42;
+                    if ( ((LA12_68>='A' && LA12_68<='Z')||LA12_68=='_'||(LA12_68>='a' && LA12_68<='z')) ) {
+                        alt12=43;
                     }
                     else {
                         alt12=3;}
                 }
                 else {
-                    alt12=42;}
+                    alt12=43;}
             }
             else {
-                alt12=42;}
+                alt12=43;}
             }
             break;
         case 'N':
@@ -1372,130 +1391,130 @@ public class PCMStoExLexer extends Lexer {
             switch ( input.LA(2) ) {
             case 'O':
                 {
-                int LA12_38 = input.LA(3);
+                int LA12_39 = input.LA(3);
 
-                if ( (LA12_38=='T') ) {
-                    int LA12_68 = input.LA(4);
+                if ( (LA12_39=='T') ) {
+                    int LA12_69 = input.LA(4);
 
-                    if ( ((LA12_68>='A' && LA12_68<='Z')||LA12_68=='_'||(LA12_68>='a' && LA12_68<='z')) ) {
-                        alt12=42;
+                    if ( ((LA12_69>='A' && LA12_69<='Z')||LA12_69=='_'||(LA12_69>='a' && LA12_69<='z')) ) {
+                        alt12=43;
                     }
                     else {
                         alt12=4;}
                 }
                 else {
-                    alt12=42;}
+                    alt12=43;}
                 }
                 break;
             case 'U':
                 {
-                int LA12_39 = input.LA(3);
+                int LA12_40 = input.LA(3);
 
-                if ( (LA12_39=='M') ) {
-                    int LA12_69 = input.LA(4);
+                if ( (LA12_40=='M') ) {
+                    int LA12_70 = input.LA(4);
 
-                    if ( (LA12_69=='B') ) {
-                        int LA12_87 = input.LA(5);
+                    if ( (LA12_70=='B') ) {
+                        int LA12_88 = input.LA(5);
 
-                        if ( (LA12_87=='E') ) {
-                            int LA12_102 = input.LA(6);
+                        if ( (LA12_88=='E') ) {
+                            int LA12_103 = input.LA(6);
 
-                            if ( (LA12_102=='R') ) {
-                                int LA12_117 = input.LA(7);
+                            if ( (LA12_103=='R') ) {
+                                int LA12_118 = input.LA(7);
 
-                                if ( (LA12_117=='_') ) {
-                                    int LA12_129 = input.LA(8);
+                                if ( (LA12_118=='_') ) {
+                                    int LA12_130 = input.LA(8);
 
-                                    if ( (LA12_129=='O') ) {
-                                        int LA12_138 = input.LA(9);
+                                    if ( (LA12_130=='O') ) {
+                                        int LA12_139 = input.LA(9);
 
-                                        if ( (LA12_138=='F') ) {
-                                            int LA12_146 = input.LA(10);
+                                        if ( (LA12_139=='F') ) {
+                                            int LA12_147 = input.LA(10);
 
-                                            if ( (LA12_146=='_') ) {
-                                                int LA12_151 = input.LA(11);
+                                            if ( (LA12_147=='_') ) {
+                                                int LA12_152 = input.LA(11);
 
-                                                if ( (LA12_151=='E') ) {
-                                                    int LA12_155 = input.LA(12);
+                                                if ( (LA12_152=='E') ) {
+                                                    int LA12_156 = input.LA(12);
 
-                                                    if ( (LA12_155=='L') ) {
-                                                        int LA12_156 = input.LA(13);
+                                                    if ( (LA12_156=='L') ) {
+                                                        int LA12_157 = input.LA(13);
 
-                                                        if ( (LA12_156=='E') ) {
-                                                            int LA12_157 = input.LA(14);
+                                                        if ( (LA12_157=='E') ) {
+                                                            int LA12_158 = input.LA(14);
 
-                                                            if ( (LA12_157=='M') ) {
-                                                                int LA12_158 = input.LA(15);
+                                                            if ( (LA12_158=='M') ) {
+                                                                int LA12_159 = input.LA(15);
 
-                                                                if ( (LA12_158=='E') ) {
-                                                                    int LA12_159 = input.LA(16);
+                                                                if ( (LA12_159=='E') ) {
+                                                                    int LA12_160 = input.LA(16);
 
-                                                                    if ( (LA12_159=='N') ) {
-                                                                        int LA12_160 = input.LA(17);
+                                                                    if ( (LA12_160=='N') ) {
+                                                                        int LA12_161 = input.LA(17);
 
-                                                                        if ( (LA12_160=='T') ) {
-                                                                            int LA12_161 = input.LA(18);
+                                                                        if ( (LA12_161=='T') ) {
+                                                                            int LA12_162 = input.LA(18);
 
-                                                                            if ( (LA12_161=='S') ) {
-                                                                                int LA12_162 = input.LA(19);
+                                                                            if ( (LA12_162=='S') ) {
+                                                                                int LA12_163 = input.LA(19);
 
-                                                                                if ( ((LA12_162>='A' && LA12_162<='Z')||LA12_162=='_'||(LA12_162>='a' && LA12_162<='z')) ) {
-                                                                                    alt12=42;
+                                                                                if ( ((LA12_163>='A' && LA12_163<='Z')||LA12_163=='_'||(LA12_163>='a' && LA12_163<='z')) ) {
+                                                                                    alt12=43;
                                                                                 }
                                                                                 else {
                                                                                     alt12=16;}
                                                                             }
                                                                             else {
-                                                                                alt12=42;}
+                                                                                alt12=43;}
                                                                         }
                                                                         else {
-                                                                            alt12=42;}
+                                                                            alt12=43;}
                                                                     }
                                                                     else {
-                                                                        alt12=42;}
+                                                                        alt12=43;}
                                                                 }
                                                                 else {
-                                                                    alt12=42;}
+                                                                    alt12=43;}
                                                             }
                                                             else {
-                                                                alt12=42;}
+                                                                alt12=43;}
                                                         }
                                                         else {
-                                                            alt12=42;}
+                                                            alt12=43;}
                                                     }
                                                     else {
-                                                        alt12=42;}
+                                                        alt12=43;}
                                                 }
                                                 else {
-                                                    alt12=42;}
+                                                    alt12=43;}
                                             }
                                             else {
-                                                alt12=42;}
+                                                alt12=43;}
                                         }
                                         else {
-                                            alt12=42;}
+                                            alt12=43;}
                                     }
                                     else {
-                                        alt12=42;}
+                                        alt12=43;}
                                 }
                                 else {
-                                    alt12=42;}
+                                    alt12=43;}
                             }
                             else {
-                                alt12=42;}
+                                alt12=43;}
                         }
                         else {
-                            alt12=42;}
+                            alt12=43;}
                     }
                     else {
-                        alt12=42;}
+                        alt12=43;}
                 }
                 else {
-                    alt12=42;}
+                    alt12=43;}
                 }
                 break;
             default:
-                alt12=42;}
+                alt12=43;}
 
             }
             break;
@@ -1504,70 +1523,70 @@ public class PCMStoExLexer extends Lexer {
             switch ( input.LA(2) ) {
             case 'n':
                 {
-                int LA12_40 = input.LA(3);
+                int LA12_41 = input.LA(3);
 
-                if ( (LA12_40=='t') ) {
-                    int LA12_70 = input.LA(4);
+                if ( (LA12_41=='t') ) {
+                    int LA12_71 = input.LA(4);
 
-                    if ( (LA12_70=='P') ) {
-                        int LA12_88 = input.LA(5);
+                    if ( (LA12_71=='P') ) {
+                        int LA12_89 = input.LA(5);
 
-                        if ( (LA12_88=='M') ) {
-                            int LA12_103 = input.LA(6);
+                        if ( (LA12_89=='M') ) {
+                            int LA12_104 = input.LA(6);
 
-                            if ( (LA12_103=='F') ) {
-                                int LA12_118 = input.LA(7);
+                            if ( (LA12_104=='F') ) {
+                                int LA12_119 = input.LA(7);
 
-                                if ( ((LA12_118>='A' && LA12_118<='Z')||LA12_118=='_'||(LA12_118>='a' && LA12_118<='z')) ) {
-                                    alt12=42;
+                                if ( ((LA12_119>='A' && LA12_119<='Z')||LA12_119=='_'||(LA12_119>='a' && LA12_119<='z')) ) {
+                                    alt12=43;
                                 }
                                 else {
                                     alt12=5;}
                             }
                             else {
-                                alt12=42;}
+                                alt12=43;}
                         }
                         else {
-                            alt12=42;}
+                            alt12=43;}
                     }
                     else {
-                        alt12=42;}
+                        alt12=43;}
                 }
                 else {
-                    alt12=42;}
+                    alt12=43;}
                 }
                 break;
             case 'N':
                 {
-                int LA12_41 = input.LA(3);
+                int LA12_42 = input.LA(3);
 
-                if ( (LA12_41=='N') ) {
-                    int LA12_71 = input.LA(4);
+                if ( (LA12_42=='N') ) {
+                    int LA12_72 = input.LA(4);
 
-                    if ( (LA12_71=='E') ) {
-                        int LA12_89 = input.LA(5);
+                    if ( (LA12_72=='E') ) {
+                        int LA12_90 = input.LA(5);
 
-                        if ( (LA12_89=='R') ) {
-                            int LA12_104 = input.LA(6);
+                        if ( (LA12_90=='R') ) {
+                            int LA12_105 = input.LA(6);
 
-                            if ( ((LA12_104>='A' && LA12_104<='Z')||LA12_104=='_'||(LA12_104>='a' && LA12_104<='z')) ) {
-                                alt12=42;
+                            if ( ((LA12_105>='A' && LA12_105<='Z')||LA12_105=='_'||(LA12_105>='a' && LA12_105<='z')) ) {
+                                alt12=43;
                             }
                             else {
                                 alt12=19;}
                         }
                         else {
-                            alt12=42;}
+                            alt12=43;}
                     }
                     else {
-                        alt12=42;}
+                        alt12=43;}
                 }
                 else {
-                    alt12=42;}
+                    alt12=43;}
                 }
                 break;
             default:
-                alt12=42;}
+                alt12=43;}
 
             }
             break;
@@ -1576,39 +1595,22 @@ public class PCMStoExLexer extends Lexer {
             int LA12_6 = input.LA(2);
 
             if ( (LA12_6=='o') ) {
-                int LA12_42 = input.LA(3);
+                int LA12_43 = input.LA(3);
 
-                if ( (LA12_42=='u') ) {
-                    int LA12_72 = input.LA(4);
+                if ( (LA12_43=='u') ) {
+                    int LA12_73 = input.LA(4);
 
-                    if ( (LA12_72=='b') ) {
-                        int LA12_90 = input.LA(5);
+                    if ( (LA12_73=='b') ) {
+                        int LA12_91 = input.LA(5);
 
-                        if ( (LA12_90=='l') ) {
-                            int LA12_105 = input.LA(6);
+                        if ( (LA12_91=='l') ) {
+                            int LA12_106 = input.LA(6);
 
-                            if ( (LA12_105=='e') ) {
-                                int LA12_120 = input.LA(7);
+                            if ( (LA12_106=='e') ) {
+                                int LA12_121 = input.LA(7);
 
-                                if ( (LA12_120=='P') ) {
+                                if ( (LA12_121=='P') ) {
                                     switch ( input.LA(8) ) {
-                                    case 'M':
-                                        {
-                                        int LA12_139 = input.LA(9);
-
-                                        if ( (LA12_139=='F') ) {
-                                            int LA12_147 = input.LA(10);
-
-                                            if ( ((LA12_147>='A' && LA12_147<='Z')||LA12_147=='_'||(LA12_147>='a' && LA12_147<='z')) ) {
-                                                alt12=42;
-                                            }
-                                            else {
-                                                alt12=6;}
-                                        }
-                                        else {
-                                            alt12=42;}
-                                        }
-                                        break;
                                     case 'D':
                                         {
                                         int LA12_140 = input.LA(9);
@@ -1617,36 +1619,53 @@ public class PCMStoExLexer extends Lexer {
                                             int LA12_148 = input.LA(10);
 
                                             if ( ((LA12_148>='A' && LA12_148<='Z')||LA12_148=='_'||(LA12_148>='a' && LA12_148<='z')) ) {
-                                                alt12=42;
+                                                alt12=43;
                                             }
                                             else {
                                                 alt12=8;}
                                         }
                                         else {
-                                            alt12=42;}
+                                            alt12=43;}
+                                        }
+                                        break;
+                                    case 'M':
+                                        {
+                                        int LA12_141 = input.LA(9);
+
+                                        if ( (LA12_141=='F') ) {
+                                            int LA12_149 = input.LA(10);
+
+                                            if ( ((LA12_149>='A' && LA12_149<='Z')||LA12_149=='_'||(LA12_149>='a' && LA12_149<='z')) ) {
+                                                alt12=43;
+                                            }
+                                            else {
+                                                alt12=6;}
+                                        }
+                                        else {
+                                            alt12=43;}
                                         }
                                         break;
                                     default:
-                                        alt12=42;}
+                                        alt12=43;}
 
                                 }
                                 else {
-                                    alt12=42;}
+                                    alt12=43;}
                             }
                             else {
-                                alt12=42;}
+                                alt12=43;}
                         }
                         else {
-                            alt12=42;}
+                            alt12=43;}
                     }
                     else {
-                        alt12=42;}
+                        alt12=43;}
                 }
                 else {
-                    alt12=42;}
+                    alt12=43;}
             }
             else {
-                alt12=42;}
+                alt12=43;}
             }
             break;
         case 'E':
@@ -1654,59 +1673,12 @@ public class PCMStoExLexer extends Lexer {
             int LA12_7 = input.LA(2);
 
             if ( (LA12_7=='n') ) {
-                int LA12_43 = input.LA(3);
-
-                if ( (LA12_43=='u') ) {
-                    int LA12_73 = input.LA(4);
-
-                    if ( (LA12_73=='m') ) {
-                        int LA12_91 = input.LA(5);
-
-                        if ( (LA12_91=='P') ) {
-                            int LA12_106 = input.LA(6);
-
-                            if ( (LA12_106=='M') ) {
-                                int LA12_121 = input.LA(7);
-
-                                if ( (LA12_121=='F') ) {
-                                    int LA12_132 = input.LA(8);
-
-                                    if ( ((LA12_132>='A' && LA12_132<='Z')||LA12_132=='_'||(LA12_132>='a' && LA12_132<='z')) ) {
-                                        alt12=42;
-                                    }
-                                    else {
-                                        alt12=7;}
-                                }
-                                else {
-                                    alt12=42;}
-                            }
-                            else {
-                                alt12=42;}
-                        }
-                        else {
-                            alt12=42;}
-                    }
-                    else {
-                        alt12=42;}
-                }
-                else {
-                    alt12=42;}
-            }
-            else {
-                alt12=42;}
-            }
-            break;
-        case 'B':
-            {
-            switch ( input.LA(2) ) {
-            case 'o':
-                {
                 int LA12_44 = input.LA(3);
 
-                if ( (LA12_44=='o') ) {
+                if ( (LA12_44=='u') ) {
                     int LA12_74 = input.LA(4);
 
-                    if ( (LA12_74=='l') ) {
+                    if ( (LA12_74=='m') ) {
                         int LA12_92 = input.LA(5);
 
                         if ( (LA12_92=='P') ) {
@@ -1719,76 +1691,123 @@ public class PCMStoExLexer extends Lexer {
                                     int LA12_133 = input.LA(8);
 
                                     if ( ((LA12_133>='A' && LA12_133<='Z')||LA12_133=='_'||(LA12_133>='a' && LA12_133<='z')) ) {
-                                        alt12=42;
+                                        alt12=43;
+                                    }
+                                    else {
+                                        alt12=7;}
+                                }
+                                else {
+                                    alt12=43;}
+                            }
+                            else {
+                                alt12=43;}
+                        }
+                        else {
+                            alt12=43;}
+                    }
+                    else {
+                        alt12=43;}
+                }
+                else {
+                    alt12=43;}
+            }
+            else {
+                alt12=43;}
+            }
+            break;
+        case 'B':
+            {
+            switch ( input.LA(2) ) {
+            case 'o':
+                {
+                int LA12_45 = input.LA(3);
+
+                if ( (LA12_45=='o') ) {
+                    int LA12_75 = input.LA(4);
+
+                    if ( (LA12_75=='l') ) {
+                        int LA12_93 = input.LA(5);
+
+                        if ( (LA12_93=='P') ) {
+                            int LA12_108 = input.LA(6);
+
+                            if ( (LA12_108=='M') ) {
+                                int LA12_123 = input.LA(7);
+
+                                if ( (LA12_123=='F') ) {
+                                    int LA12_134 = input.LA(8);
+
+                                    if ( ((LA12_134>='A' && LA12_134<='Z')||LA12_134=='_'||(LA12_134>='a' && LA12_134<='z')) ) {
+                                        alt12=43;
                                     }
                                     else {
                                         alt12=9;}
                                 }
                                 else {
-                                    alt12=42;}
+                                    alt12=43;}
                             }
                             else {
-                                alt12=42;}
+                                alt12=43;}
                         }
                         else {
-                            alt12=42;}
+                            alt12=43;}
                     }
                     else {
-                        alt12=42;}
+                        alt12=43;}
                 }
                 else {
-                    alt12=42;}
+                    alt12=43;}
                 }
                 break;
             case 'Y':
                 {
-                int LA12_45 = input.LA(3);
+                int LA12_46 = input.LA(3);
 
-                if ( (LA12_45=='T') ) {
-                    int LA12_75 = input.LA(4);
+                if ( (LA12_46=='T') ) {
+                    int LA12_76 = input.LA(4);
 
-                    if ( (LA12_75=='E') ) {
-                        int LA12_93 = input.LA(5);
+                    if ( (LA12_76=='E') ) {
+                        int LA12_94 = input.LA(5);
 
-                        if ( (LA12_93=='S') ) {
-                            int LA12_108 = input.LA(6);
+                        if ( (LA12_94=='S') ) {
+                            int LA12_109 = input.LA(6);
 
-                            if ( (LA12_108=='I') ) {
-                                int LA12_123 = input.LA(7);
+                            if ( (LA12_109=='I') ) {
+                                int LA12_124 = input.LA(7);
 
-                                if ( (LA12_123=='Z') ) {
-                                    int LA12_134 = input.LA(8);
+                                if ( (LA12_124=='Z') ) {
+                                    int LA12_135 = input.LA(8);
 
-                                    if ( (LA12_134=='E') ) {
-                                        int LA12_143 = input.LA(9);
+                                    if ( (LA12_135=='E') ) {
+                                        int LA12_144 = input.LA(9);
 
-                                        if ( ((LA12_143>='A' && LA12_143<='Z')||LA12_143=='_'||(LA12_143>='a' && LA12_143<='z')) ) {
-                                            alt12=42;
+                                        if ( ((LA12_144>='A' && LA12_144<='Z')||LA12_144=='_'||(LA12_144>='a' && LA12_144<='z')) ) {
+                                            alt12=43;
                                         }
                                         else {
                                             alt12=14;}
                                     }
                                     else {
-                                        alt12=42;}
+                                        alt12=43;}
                                 }
                                 else {
-                                    alt12=42;}
+                                    alt12=43;}
                             }
                             else {
-                                alt12=42;}
+                                alt12=43;}
                         }
                         else {
-                            alt12=42;}
+                            alt12=43;}
                     }
                     else {
-                        alt12=42;}
+                        alt12=43;}
                 }
                 else {
-                    alt12=42;}
+                    alt12=43;}
                 }
                 break;
             default:
-                alt12=42;}
+                alt12=43;}
 
             }
             break;
@@ -1797,28 +1816,28 @@ public class PCMStoExLexer extends Lexer {
             int LA12_9 = input.LA(2);
 
             if ( (LA12_9=='n') ) {
-                int LA12_46 = input.LA(3);
+                int LA12_47 = input.LA(3);
 
-                if ( (LA12_46=='i') ) {
-                    int LA12_76 = input.LA(4);
+                if ( (LA12_47=='i') ) {
+                    int LA12_77 = input.LA(4);
 
-                    if ( (LA12_76=='t') ) {
-                        int LA12_94 = input.LA(5);
+                    if ( (LA12_77=='t') ) {
+                        int LA12_95 = input.LA(5);
 
-                        if ( ((LA12_94>='A' && LA12_94<='Z')||LA12_94=='_'||(LA12_94>='a' && LA12_94<='z')) ) {
-                            alt12=42;
+                        if ( ((LA12_95>='A' && LA12_95<='Z')||LA12_95=='_'||(LA12_95>='a' && LA12_95<='z')) ) {
+                            alt12=43;
                         }
                         else {
                             alt12=10;}
                     }
                     else {
-                        alt12=42;}
+                        alt12=43;}
                 }
                 else {
-                    alt12=42;}
+                    alt12=43;}
             }
             else {
-                alt12=42;}
+                alt12=43;}
             }
             break;
         case '\"':
@@ -1826,66 +1845,66 @@ public class PCMStoExLexer extends Lexer {
             int LA12_10 = input.LA(2);
 
             if ( (LA12_10=='b') ) {
-                int LA12_47 = input.LA(3);
+                int LA12_48 = input.LA(3);
 
-                if ( (LA12_47=='o') ) {
-                    int LA12_77 = input.LA(4);
+                if ( (LA12_48=='o') ) {
+                    int LA12_78 = input.LA(4);
 
-                    if ( (LA12_77=='o') ) {
-                        int LA12_95 = input.LA(5);
+                    if ( (LA12_78=='o') ) {
+                        int LA12_96 = input.LA(5);
 
-                        if ( (LA12_95=='l') ) {
-                            int LA12_110 = input.LA(6);
+                        if ( (LA12_96=='l') ) {
+                            int LA12_111 = input.LA(6);
 
-                            if ( (LA12_110=='\"') ) {
+                            if ( (LA12_111=='\"') ) {
                                 alt12=11;
                             }
-                            else if ( ((LA12_110>='A' && LA12_110<='Z')||LA12_110=='_'||(LA12_110>='a' && LA12_110<='z')) ) {
-                                alt12=40;
+                            else if ( ((LA12_111>='A' && LA12_111<='Z')||LA12_111=='_'||(LA12_111>='a' && LA12_111<='z')) ) {
+                                alt12=41;
                             }
                             else {
                                 NoViableAltException nvae =
-                                    new NoViableAltException("1:1: Tokens : ( OR | XOR | AND | NOT | INTPMF | DOUBLEPMF | ENUMPMF | DOUBLEPDF | BOOLPMF | UNIT | BOOL | FALSE | TRUE | BYTESIZE | STRUCTURE | NUMBER_OF_ELEMENTS | TYPE | VALUE | INNER | PLUS | MINUS | MUL | DIV | MOD | POW | LPAREN | RPAREN | SEMI | DEFINITION | ORDERED_DEF | EQUAL | SQUARE_PAREN_L | SQUARE_PAREN_R | NUMBER | NOTEQUAL | GREATER | LESS | GREATEREQUAL | LESSEQUAL | STRING_LITERAL | DOT | ID | WS | COMMENT | LINE_COMMENT );", 12, 110, input);
+                                    new NoViableAltException("1:1: Tokens : ( OR | XOR | AND | NOT | INTPMF | DOUBLEPMF | ENUMPMF | DOUBLEPDF | BOOLPMF | UNIT | BOOL | FALSE | TRUE | BYTESIZE | STRUCTURE | NUMBER_OF_ELEMENTS | TYPE | VALUE | INNER | PLUS | MINUS | MUL | DIV | MOD | POW | LPAREN | RPAREN | SEMI | COLON | DEFINITION | ORDERED_DEF | EQUAL | SQUARE_PAREN_L | SQUARE_PAREN_R | NUMBER | NOTEQUAL | GREATER | LESS | GREATEREQUAL | LESSEQUAL | STRING_LITERAL | DOT | ID | WS | COMMENT | LINE_COMMENT );", 12, 111, input);
 
                                 throw nvae;
                             }
                         }
-                        else if ( (LA12_95=='\"'||(LA12_95>='A' && LA12_95<='Z')||LA12_95=='_'||(LA12_95>='a' && LA12_95<='k')||(LA12_95>='m' && LA12_95<='z')) ) {
-                            alt12=40;
+                        else if ( (LA12_96=='\"'||(LA12_96>='A' && LA12_96<='Z')||LA12_96=='_'||(LA12_96>='a' && LA12_96<='k')||(LA12_96>='m' && LA12_96<='z')) ) {
+                            alt12=41;
                         }
                         else {
                             NoViableAltException nvae =
-                                new NoViableAltException("1:1: Tokens : ( OR | XOR | AND | NOT | INTPMF | DOUBLEPMF | ENUMPMF | DOUBLEPDF | BOOLPMF | UNIT | BOOL | FALSE | TRUE | BYTESIZE | STRUCTURE | NUMBER_OF_ELEMENTS | TYPE | VALUE | INNER | PLUS | MINUS | MUL | DIV | MOD | POW | LPAREN | RPAREN | SEMI | DEFINITION | ORDERED_DEF | EQUAL | SQUARE_PAREN_L | SQUARE_PAREN_R | NUMBER | NOTEQUAL | GREATER | LESS | GREATEREQUAL | LESSEQUAL | STRING_LITERAL | DOT | ID | WS | COMMENT | LINE_COMMENT );", 12, 95, input);
+                                new NoViableAltException("1:1: Tokens : ( OR | XOR | AND | NOT | INTPMF | DOUBLEPMF | ENUMPMF | DOUBLEPDF | BOOLPMF | UNIT | BOOL | FALSE | TRUE | BYTESIZE | STRUCTURE | NUMBER_OF_ELEMENTS | TYPE | VALUE | INNER | PLUS | MINUS | MUL | DIV | MOD | POW | LPAREN | RPAREN | SEMI | COLON | DEFINITION | ORDERED_DEF | EQUAL | SQUARE_PAREN_L | SQUARE_PAREN_R | NUMBER | NOTEQUAL | GREATER | LESS | GREATEREQUAL | LESSEQUAL | STRING_LITERAL | DOT | ID | WS | COMMENT | LINE_COMMENT );", 12, 96, input);
 
                             throw nvae;
                         }
                     }
-                    else if ( (LA12_77=='\"'||(LA12_77>='A' && LA12_77<='Z')||LA12_77=='_'||(LA12_77>='a' && LA12_77<='n')||(LA12_77>='p' && LA12_77<='z')) ) {
-                        alt12=40;
+                    else if ( (LA12_78=='\"'||(LA12_78>='A' && LA12_78<='Z')||LA12_78=='_'||(LA12_78>='a' && LA12_78<='n')||(LA12_78>='p' && LA12_78<='z')) ) {
+                        alt12=41;
                     }
                     else {
                         NoViableAltException nvae =
-                            new NoViableAltException("1:1: Tokens : ( OR | XOR | AND | NOT | INTPMF | DOUBLEPMF | ENUMPMF | DOUBLEPDF | BOOLPMF | UNIT | BOOL | FALSE | TRUE | BYTESIZE | STRUCTURE | NUMBER_OF_ELEMENTS | TYPE | VALUE | INNER | PLUS | MINUS | MUL | DIV | MOD | POW | LPAREN | RPAREN | SEMI | DEFINITION | ORDERED_DEF | EQUAL | SQUARE_PAREN_L | SQUARE_PAREN_R | NUMBER | NOTEQUAL | GREATER | LESS | GREATEREQUAL | LESSEQUAL | STRING_LITERAL | DOT | ID | WS | COMMENT | LINE_COMMENT );", 12, 77, input);
+                            new NoViableAltException("1:1: Tokens : ( OR | XOR | AND | NOT | INTPMF | DOUBLEPMF | ENUMPMF | DOUBLEPDF | BOOLPMF | UNIT | BOOL | FALSE | TRUE | BYTESIZE | STRUCTURE | NUMBER_OF_ELEMENTS | TYPE | VALUE | INNER | PLUS | MINUS | MUL | DIV | MOD | POW | LPAREN | RPAREN | SEMI | COLON | DEFINITION | ORDERED_DEF | EQUAL | SQUARE_PAREN_L | SQUARE_PAREN_R | NUMBER | NOTEQUAL | GREATER | LESS | GREATEREQUAL | LESSEQUAL | STRING_LITERAL | DOT | ID | WS | COMMENT | LINE_COMMENT );", 12, 78, input);
 
                         throw nvae;
                     }
                 }
-                else if ( (LA12_47=='\"'||(LA12_47>='A' && LA12_47<='Z')||LA12_47=='_'||(LA12_47>='a' && LA12_47<='n')||(LA12_47>='p' && LA12_47<='z')) ) {
-                    alt12=40;
+                else if ( (LA12_48=='\"'||(LA12_48>='A' && LA12_48<='Z')||LA12_48=='_'||(LA12_48>='a' && LA12_48<='n')||(LA12_48>='p' && LA12_48<='z')) ) {
+                    alt12=41;
                 }
                 else {
                     NoViableAltException nvae =
-                        new NoViableAltException("1:1: Tokens : ( OR | XOR | AND | NOT | INTPMF | DOUBLEPMF | ENUMPMF | DOUBLEPDF | BOOLPMF | UNIT | BOOL | FALSE | TRUE | BYTESIZE | STRUCTURE | NUMBER_OF_ELEMENTS | TYPE | VALUE | INNER | PLUS | MINUS | MUL | DIV | MOD | POW | LPAREN | RPAREN | SEMI | DEFINITION | ORDERED_DEF | EQUAL | SQUARE_PAREN_L | SQUARE_PAREN_R | NUMBER | NOTEQUAL | GREATER | LESS | GREATEREQUAL | LESSEQUAL | STRING_LITERAL | DOT | ID | WS | COMMENT | LINE_COMMENT );", 12, 47, input);
+                        new NoViableAltException("1:1: Tokens : ( OR | XOR | AND | NOT | INTPMF | DOUBLEPMF | ENUMPMF | DOUBLEPDF | BOOLPMF | UNIT | BOOL | FALSE | TRUE | BYTESIZE | STRUCTURE | NUMBER_OF_ELEMENTS | TYPE | VALUE | INNER | PLUS | MINUS | MUL | DIV | MOD | POW | LPAREN | RPAREN | SEMI | COLON | DEFINITION | ORDERED_DEF | EQUAL | SQUARE_PAREN_L | SQUARE_PAREN_R | NUMBER | NOTEQUAL | GREATER | LESS | GREATEREQUAL | LESSEQUAL | STRING_LITERAL | DOT | ID | WS | COMMENT | LINE_COMMENT );", 12, 48, input);
 
                     throw nvae;
                 }
             }
             else if ( ((LA12_10>='A' && LA12_10<='Z')||LA12_10=='_'||LA12_10=='a'||(LA12_10>='c' && LA12_10<='z')) ) {
-                alt12=40;
+                alt12=41;
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("1:1: Tokens : ( OR | XOR | AND | NOT | INTPMF | DOUBLEPMF | ENUMPMF | DOUBLEPDF | BOOLPMF | UNIT | BOOL | FALSE | TRUE | BYTESIZE | STRUCTURE | NUMBER_OF_ELEMENTS | TYPE | VALUE | INNER | PLUS | MINUS | MUL | DIV | MOD | POW | LPAREN | RPAREN | SEMI | DEFINITION | ORDERED_DEF | EQUAL | SQUARE_PAREN_L | SQUARE_PAREN_R | NUMBER | NOTEQUAL | GREATER | LESS | GREATEREQUAL | LESSEQUAL | STRING_LITERAL | DOT | ID | WS | COMMENT | LINE_COMMENT );", 12, 10, input);
+                    new NoViableAltException("1:1: Tokens : ( OR | XOR | AND | NOT | INTPMF | DOUBLEPMF | ENUMPMF | DOUBLEPDF | BOOLPMF | UNIT | BOOL | FALSE | TRUE | BYTESIZE | STRUCTURE | NUMBER_OF_ELEMENTS | TYPE | VALUE | INNER | PLUS | MINUS | MUL | DIV | MOD | POW | LPAREN | RPAREN | SEMI | COLON | DEFINITION | ORDERED_DEF | EQUAL | SQUARE_PAREN_L | SQUARE_PAREN_R | NUMBER | NOTEQUAL | GREATER | LESS | GREATEREQUAL | LESSEQUAL | STRING_LITERAL | DOT | ID | WS | COMMENT | LINE_COMMENT );", 12, 10, input);
 
                 throw nvae;
             }
@@ -1896,34 +1915,34 @@ public class PCMStoExLexer extends Lexer {
             int LA12_11 = input.LA(2);
 
             if ( (LA12_11=='a') ) {
-                int LA12_49 = input.LA(3);
+                int LA12_50 = input.LA(3);
 
-                if ( (LA12_49=='l') ) {
-                    int LA12_78 = input.LA(4);
+                if ( (LA12_50=='l') ) {
+                    int LA12_79 = input.LA(4);
 
-                    if ( (LA12_78=='s') ) {
-                        int LA12_96 = input.LA(5);
+                    if ( (LA12_79=='s') ) {
+                        int LA12_97 = input.LA(5);
 
-                        if ( (LA12_96=='e') ) {
-                            int LA12_111 = input.LA(6);
+                        if ( (LA12_97=='e') ) {
+                            int LA12_112 = input.LA(6);
 
-                            if ( ((LA12_111>='A' && LA12_111<='Z')||LA12_111=='_'||(LA12_111>='a' && LA12_111<='z')) ) {
-                                alt12=42;
+                            if ( ((LA12_112>='A' && LA12_112<='Z')||LA12_112=='_'||(LA12_112>='a' && LA12_112<='z')) ) {
+                                alt12=43;
                             }
                             else {
                                 alt12=12;}
                         }
                         else {
-                            alt12=42;}
+                            alt12=43;}
                     }
                     else {
-                        alt12=42;}
+                        alt12=43;}
                 }
                 else {
-                    alt12=42;}
+                    alt12=43;}
             }
             else {
-                alt12=42;}
+                alt12=43;}
             }
             break;
         case 't':
@@ -1931,28 +1950,28 @@ public class PCMStoExLexer extends Lexer {
             int LA12_12 = input.LA(2);
 
             if ( (LA12_12=='r') ) {
-                int LA12_50 = input.LA(3);
+                int LA12_51 = input.LA(3);
 
-                if ( (LA12_50=='u') ) {
-                    int LA12_79 = input.LA(4);
+                if ( (LA12_51=='u') ) {
+                    int LA12_80 = input.LA(4);
 
-                    if ( (LA12_79=='e') ) {
-                        int LA12_97 = input.LA(5);
+                    if ( (LA12_80=='e') ) {
+                        int LA12_98 = input.LA(5);
 
-                        if ( ((LA12_97>='A' && LA12_97<='Z')||LA12_97=='_'||(LA12_97>='a' && LA12_97<='z')) ) {
-                            alt12=42;
+                        if ( ((LA12_98>='A' && LA12_98<='Z')||LA12_98=='_'||(LA12_98>='a' && LA12_98<='z')) ) {
+                            alt12=43;
                         }
                         else {
                             alt12=13;}
                     }
                     else {
-                        alt12=42;}
+                        alt12=43;}
                 }
                 else {
-                    alt12=42;}
+                    alt12=43;}
             }
             else {
-                alt12=42;}
+                alt12=43;}
             }
             break;
         case 'S':
@@ -1960,58 +1979,58 @@ public class PCMStoExLexer extends Lexer {
             int LA12_13 = input.LA(2);
 
             if ( (LA12_13=='T') ) {
-                int LA12_51 = input.LA(3);
+                int LA12_52 = input.LA(3);
 
-                if ( (LA12_51=='R') ) {
-                    int LA12_80 = input.LA(4);
+                if ( (LA12_52=='R') ) {
+                    int LA12_81 = input.LA(4);
 
-                    if ( (LA12_80=='U') ) {
-                        int LA12_98 = input.LA(5);
+                    if ( (LA12_81=='U') ) {
+                        int LA12_99 = input.LA(5);
 
-                        if ( (LA12_98=='C') ) {
-                            int LA12_113 = input.LA(6);
+                        if ( (LA12_99=='C') ) {
+                            int LA12_114 = input.LA(6);
 
-                            if ( (LA12_113=='T') ) {
-                                int LA12_126 = input.LA(7);
+                            if ( (LA12_114=='T') ) {
+                                int LA12_127 = input.LA(7);
 
-                                if ( (LA12_126=='U') ) {
-                                    int LA12_136 = input.LA(8);
+                                if ( (LA12_127=='U') ) {
+                                    int LA12_137 = input.LA(8);
 
-                                    if ( (LA12_136=='R') ) {
-                                        int LA12_144 = input.LA(9);
+                                    if ( (LA12_137=='R') ) {
+                                        int LA12_145 = input.LA(9);
 
-                                        if ( (LA12_144=='E') ) {
-                                            int LA12_150 = input.LA(10);
+                                        if ( (LA12_145=='E') ) {
+                                            int LA12_151 = input.LA(10);
 
-                                            if ( ((LA12_150>='A' && LA12_150<='Z')||LA12_150=='_'||(LA12_150>='a' && LA12_150<='z')) ) {
-                                                alt12=42;
+                                            if ( ((LA12_151>='A' && LA12_151<='Z')||LA12_151=='_'||(LA12_151>='a' && LA12_151<='z')) ) {
+                                                alt12=43;
                                             }
                                             else {
                                                 alt12=15;}
                                         }
                                         else {
-                                            alt12=42;}
+                                            alt12=43;}
                                     }
                                     else {
-                                        alt12=42;}
+                                        alt12=43;}
                                 }
                                 else {
-                                    alt12=42;}
+                                    alt12=43;}
                             }
                             else {
-                                alt12=42;}
+                                alt12=43;}
                         }
                         else {
-                            alt12=42;}
+                            alt12=43;}
                     }
                     else {
-                        alt12=42;}
+                        alt12=43;}
                 }
                 else {
-                    alt12=42;}
+                    alt12=43;}
             }
             else {
-                alt12=42;}
+                alt12=43;}
             }
             break;
         case 'T':
@@ -2019,28 +2038,28 @@ public class PCMStoExLexer extends Lexer {
             int LA12_14 = input.LA(2);
 
             if ( (LA12_14=='Y') ) {
-                int LA12_52 = input.LA(3);
+                int LA12_53 = input.LA(3);
 
-                if ( (LA12_52=='P') ) {
-                    int LA12_81 = input.LA(4);
+                if ( (LA12_53=='P') ) {
+                    int LA12_82 = input.LA(4);
 
-                    if ( (LA12_81=='E') ) {
-                        int LA12_99 = input.LA(5);
+                    if ( (LA12_82=='E') ) {
+                        int LA12_100 = input.LA(5);
 
-                        if ( ((LA12_99>='A' && LA12_99<='Z')||LA12_99=='_'||(LA12_99>='a' && LA12_99<='z')) ) {
-                            alt12=42;
+                        if ( ((LA12_100>='A' && LA12_100<='Z')||LA12_100=='_'||(LA12_100>='a' && LA12_100<='z')) ) {
+                            alt12=43;
                         }
                         else {
                             alt12=17;}
                     }
                     else {
-                        alt12=42;}
+                        alt12=43;}
                 }
                 else {
-                    alt12=42;}
+                    alt12=43;}
             }
             else {
-                alt12=42;}
+                alt12=43;}
             }
             break;
         case 'V':
@@ -2048,34 +2067,34 @@ public class PCMStoExLexer extends Lexer {
             int LA12_15 = input.LA(2);
 
             if ( (LA12_15=='A') ) {
-                int LA12_53 = input.LA(3);
+                int LA12_54 = input.LA(3);
 
-                if ( (LA12_53=='L') ) {
-                    int LA12_82 = input.LA(4);
+                if ( (LA12_54=='L') ) {
+                    int LA12_83 = input.LA(4);
 
-                    if ( (LA12_82=='U') ) {
-                        int LA12_100 = input.LA(5);
+                    if ( (LA12_83=='U') ) {
+                        int LA12_101 = input.LA(5);
 
-                        if ( (LA12_100=='E') ) {
-                            int LA12_115 = input.LA(6);
+                        if ( (LA12_101=='E') ) {
+                            int LA12_116 = input.LA(6);
 
-                            if ( ((LA12_115>='A' && LA12_115<='Z')||LA12_115=='_'||(LA12_115>='a' && LA12_115<='z')) ) {
-                                alt12=42;
+                            if ( ((LA12_116>='A' && LA12_116<='Z')||LA12_116=='_'||(LA12_116>='a' && LA12_116<='z')) ) {
+                                alt12=43;
                             }
                             else {
                                 alt12=18;}
                         }
                         else {
-                            alt12=42;}
+                            alt12=43;}
                     }
                     else {
-                        alt12=42;}
+                        alt12=43;}
                 }
                 else {
-                    alt12=42;}
+                    alt12=43;}
             }
             else {
-                alt12=42;}
+                alt12=43;}
             }
             break;
         case '+':
@@ -2098,12 +2117,12 @@ public class PCMStoExLexer extends Lexer {
             switch ( input.LA(2) ) {
             case '/':
                 {
-                alt12=45;
+                alt12=46;
                 }
                 break;
             case '*':
                 {
-                alt12=44;
+                alt12=45;
                 }
                 break;
             default:
@@ -2136,72 +2155,77 @@ public class PCMStoExLexer extends Lexer {
             alt12=28;
             }
             break;
+        case ',':
+            {
+            alt12=29;
+            }
+            break;
         case '=':
             {
-            int LA12_25 = input.LA(2);
+            int LA12_26 = input.LA(2);
 
-            if ( (LA12_25=='=') ) {
-                alt12=31;
+            if ( (LA12_26=='=') ) {
+                alt12=32;
             }
             else {
-                alt12=29;}
+                alt12=30;}
             }
             break;
         case 'o':
             {
-            int LA12_26 = input.LA(2);
+            int LA12_27 = input.LA(2);
 
-            if ( (LA12_26=='r') ) {
-                int LA12_59 = input.LA(3);
+            if ( (LA12_27=='r') ) {
+                int LA12_60 = input.LA(3);
 
-                if ( (LA12_59=='d') ) {
-                    int LA12_83 = input.LA(4);
+                if ( (LA12_60=='d') ) {
+                    int LA12_84 = input.LA(4);
 
-                    if ( (LA12_83=='e') ) {
-                        int LA12_101 = input.LA(5);
+                    if ( (LA12_84=='e') ) {
+                        int LA12_102 = input.LA(5);
 
-                        if ( (LA12_101=='r') ) {
-                            int LA12_116 = input.LA(6);
+                        if ( (LA12_102=='r') ) {
+                            int LA12_117 = input.LA(6);
 
-                            if ( (LA12_116=='e') ) {
-                                int LA12_128 = input.LA(7);
+                            if ( (LA12_117=='e') ) {
+                                int LA12_129 = input.LA(7);
 
-                                if ( (LA12_128=='d') ) {
-                                    int LA12_137 = input.LA(8);
+                                if ( (LA12_129=='d') ) {
+                                    int LA12_138 = input.LA(8);
 
-                                    if ( ((LA12_137>='A' && LA12_137<='Z')||LA12_137=='_'||(LA12_137>='a' && LA12_137<='z')) ) {
-                                        alt12=42;
+                                    if ( ((LA12_138>='A' && LA12_138<='Z')||LA12_138=='_'||(LA12_138>='a' && LA12_138<='z')) ) {
+                                        alt12=43;
                                     }
                                     else {
-                                        alt12=30;}
+                                        alt12=31;}
                                 }
                                 else {
-                                    alt12=42;}
+                                    alt12=43;}
                             }
                             else {
-                                alt12=42;}
+                                alt12=43;}
                         }
                         else {
-                            alt12=42;}
+                            alt12=43;}
                     }
                     else {
-                        alt12=42;}
+                        alt12=43;}
                 }
                 else {
-                    alt12=42;}
+                    alt12=43;}
             }
             else {
-                alt12=42;}
+                alt12=43;}
             }
             break;
         case '[':
             {
-            alt12=32;
+            alt12=33;
             }
             break;
         case ']':
             {
-            alt12=33;
+            alt12=34;
             }
             break;
         case '0':
@@ -2215,41 +2239,41 @@ public class PCMStoExLexer extends Lexer {
         case '8':
         case '9':
             {
-            alt12=34;
+            alt12=35;
             }
             break;
         case '<':
             {
             switch ( input.LA(2) ) {
-            case '=':
-                {
-                alt12=39;
-                }
-                break;
             case '>':
                 {
-                alt12=35;
+                alt12=36;
+                }
+                break;
+            case '=':
+                {
+                alt12=40;
                 }
                 break;
             default:
-                alt12=37;}
+                alt12=38;}
 
             }
             break;
         case '>':
             {
-            int LA12_31 = input.LA(2);
+            int LA12_32 = input.LA(2);
 
-            if ( (LA12_31=='=') ) {
-                alt12=38;
+            if ( (LA12_32=='=') ) {
+                alt12=39;
             }
             else {
-                alt12=36;}
+                alt12=37;}
             }
             break;
         case '.':
             {
-            alt12=41;
+            alt12=42;
             }
             break;
         case 'C':
@@ -2291,7 +2315,7 @@ public class PCMStoExLexer extends Lexer {
         case 'y':
         case 'z':
             {
-            alt12=42;
+            alt12=43;
             }
             break;
         case '\t':
@@ -2300,12 +2324,12 @@ public class PCMStoExLexer extends Lexer {
         case '\r':
         case ' ':
             {
-            alt12=43;
+            alt12=44;
             }
             break;
         default:
             NoViableAltException nvae =
-                new NoViableAltException("1:1: Tokens : ( OR | XOR | AND | NOT | INTPMF | DOUBLEPMF | ENUMPMF | DOUBLEPDF | BOOLPMF | UNIT | BOOL | FALSE | TRUE | BYTESIZE | STRUCTURE | NUMBER_OF_ELEMENTS | TYPE | VALUE | INNER | PLUS | MINUS | MUL | DIV | MOD | POW | LPAREN | RPAREN | SEMI | DEFINITION | ORDERED_DEF | EQUAL | SQUARE_PAREN_L | SQUARE_PAREN_R | NUMBER | NOTEQUAL | GREATER | LESS | GREATEREQUAL | LESSEQUAL | STRING_LITERAL | DOT | ID | WS | COMMENT | LINE_COMMENT );", 12, 0, input);
+                new NoViableAltException("1:1: Tokens : ( OR | XOR | AND | NOT | INTPMF | DOUBLEPMF | ENUMPMF | DOUBLEPDF | BOOLPMF | UNIT | BOOL | FALSE | TRUE | BYTESIZE | STRUCTURE | NUMBER_OF_ELEMENTS | TYPE | VALUE | INNER | PLUS | MINUS | MUL | DIV | MOD | POW | LPAREN | RPAREN | SEMI | COLON | DEFINITION | ORDERED_DEF | EQUAL | SQUARE_PAREN_L | SQUARE_PAREN_R | NUMBER | NOTEQUAL | GREATER | LESS | GREATEREQUAL | LESSEQUAL | STRING_LITERAL | DOT | ID | WS | COMMENT | LINE_COMMENT );", 12, 0, input);
 
             throw nvae;
         }
@@ -2508,119 +2532,126 @@ public class PCMStoExLexer extends Lexer {
                 }
                 break;
             case 29 :
-                // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:190: DEFINITION
+                // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:190: COLON
+                {
+                mCOLON(); 
+
+                }
+                break;
+            case 30 :
+                // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:196: DEFINITION
                 {
                 mDEFINITION(); 
 
                 }
                 break;
-            case 30 :
-                // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:201: ORDERED_DEF
+            case 31 :
+                // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:207: ORDERED_DEF
                 {
                 mORDERED_DEF(); 
 
                 }
                 break;
-            case 31 :
-                // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:213: EQUAL
+            case 32 :
+                // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:219: EQUAL
                 {
                 mEQUAL(); 
 
                 }
                 break;
-            case 32 :
-                // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:219: SQUARE_PAREN_L
+            case 33 :
+                // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:225: SQUARE_PAREN_L
                 {
                 mSQUARE_PAREN_L(); 
 
                 }
                 break;
-            case 33 :
-                // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:234: SQUARE_PAREN_R
+            case 34 :
+                // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:240: SQUARE_PAREN_R
                 {
                 mSQUARE_PAREN_R(); 
 
                 }
                 break;
-            case 34 :
-                // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:249: NUMBER
+            case 35 :
+                // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:255: NUMBER
                 {
                 mNUMBER(); 
 
                 }
                 break;
-            case 35 :
-                // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:256: NOTEQUAL
+            case 36 :
+                // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:262: NOTEQUAL
                 {
                 mNOTEQUAL(); 
 
                 }
                 break;
-            case 36 :
-                // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:265: GREATER
+            case 37 :
+                // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:271: GREATER
                 {
                 mGREATER(); 
 
                 }
                 break;
-            case 37 :
-                // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:273: LESS
+            case 38 :
+                // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:279: LESS
                 {
                 mLESS(); 
 
                 }
                 break;
-            case 38 :
-                // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:278: GREATEREQUAL
+            case 39 :
+                // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:284: GREATEREQUAL
                 {
                 mGREATEREQUAL(); 
 
                 }
                 break;
-            case 39 :
-                // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:291: LESSEQUAL
+            case 40 :
+                // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:297: LESSEQUAL
                 {
                 mLESSEQUAL(); 
 
                 }
                 break;
-            case 40 :
-                // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:301: STRING_LITERAL
+            case 41 :
+                // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:307: STRING_LITERAL
                 {
                 mSTRING_LITERAL(); 
 
                 }
                 break;
-            case 41 :
-                // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:316: DOT
+            case 42 :
+                // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:322: DOT
                 {
                 mDOT(); 
 
                 }
                 break;
-            case 42 :
-                // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:320: ID
+            case 43 :
+                // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:326: ID
                 {
                 mID(); 
 
                 }
                 break;
-            case 43 :
-                // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:323: WS
+            case 44 :
+                // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:329: WS
                 {
                 mWS(); 
 
                 }
                 break;
-            case 44 :
-                // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:326: COMMENT
+            case 45 :
+                // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:332: COMMENT
                 {
                 mCOMMENT(); 
 
                 }
                 break;
-            case 45 :
-                // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:334: LINE_COMMENT
+            case 46 :
+                // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:1:340: LINE_COMMENT
                 {
                 mLINE_COMMENT(); 
 

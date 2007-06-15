@@ -122,4 +122,10 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="inner" ordered="false"
         lowerBound="1" eType="#//Unary" containment="true"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="FunctionLiteral" eSuperTypes="#//Atom">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" ordered="false" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parameters_FunctionLiteral"
+        ordered="false" upperBound="-1" eType="#//Expression" containment="true"/>
+  </eClassifiers>
 </ecore:EPackage>

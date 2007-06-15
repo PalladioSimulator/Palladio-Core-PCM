@@ -179,6 +179,15 @@ public interface StoexFactory extends EFactory {
 	NegativeExpression createNegativeExpression();
 
 	/**
+	 * Returns a new object of class '<em>Function Literal</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Function Literal</em>'.
+	 * @generated
+	 */
+	FunctionLiteral createFunctionLiteral();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

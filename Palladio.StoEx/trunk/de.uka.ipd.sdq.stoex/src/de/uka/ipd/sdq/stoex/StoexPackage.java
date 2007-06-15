@@ -826,6 +826,43 @@ public interface StoexPackage extends EPackage {
 	int NEGATIVE_EXPRESSION_FEATURE_COUNT = UNARY_FEATURE_COUNT + 1;
 
 	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.stoex.impl.FunctionLiteralImpl <em>Function Literal</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.stoex.impl.FunctionLiteralImpl
+	 * @see de.uka.ipd.sdq.stoex.impl.StoexPackageImpl#getFunctionLiteral()
+	 * @generated
+	 */
+	int FUNCTION_LITERAL = 27;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FUNCTION_LITERAL__ID = ATOM_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Parameters Function Literal</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FUNCTION_LITERAL__PARAMETERS_FUNCTION_LITERAL = ATOM_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Function Literal</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FUNCTION_LITERAL_FEATURE_COUNT = ATOM_FEATURE_COUNT + 2;
+
+	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.stoex.TermOperations <em>Term Operations</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -833,7 +870,7 @@ public interface StoexPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.stoex.impl.StoexPackageImpl#getTermOperations()
 	 * @generated
 	 */
-	int TERM_OPERATIONS = 27;
+	int TERM_OPERATIONS = 28;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.stoex.ProductOperations <em>Product Operations</em>}' enum.
@@ -843,7 +880,7 @@ public interface StoexPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.stoex.impl.StoexPackageImpl#getProductOperations()
 	 * @generated
 	 */
-	int PRODUCT_OPERATIONS = 28;
+	int PRODUCT_OPERATIONS = 29;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.stoex.CompareOperations <em>Compare Operations</em>}' enum.
@@ -853,7 +890,7 @@ public interface StoexPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.stoex.impl.StoexPackageImpl#getCompareOperations()
 	 * @generated
 	 */
-	int COMPARE_OPERATIONS = 29;
+	int COMPARE_OPERATIONS = 30;
 
 
 	/**
@@ -864,7 +901,7 @@ public interface StoexPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.stoex.impl.StoexPackageImpl#getBooleanOperations()
 	 * @generated
 	 */
-	int BOOLEAN_OPERATIONS = 30;
+	int BOOLEAN_OPERATIONS = 31;
 
 
 	/**
@@ -1424,6 +1461,38 @@ public interface StoexPackage extends EPackage {
 	EReference getNegativeExpression_Inner();
 
 	/**
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.stoex.FunctionLiteral <em>Function Literal</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Function Literal</em>'.
+	 * @see de.uka.ipd.sdq.stoex.FunctionLiteral
+	 * @generated
+	 */
+	EClass getFunctionLiteral();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.stoex.FunctionLiteral#getId <em>Id</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Id</em>'.
+	 * @see de.uka.ipd.sdq.stoex.FunctionLiteral#getId()
+	 * @see #getFunctionLiteral()
+	 * @generated
+	 */
+	EAttribute getFunctionLiteral_Id();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link de.uka.ipd.sdq.stoex.FunctionLiteral#getParameters_FunctionLiteral <em>Parameters Function Literal</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Parameters Function Literal</em>'.
+	 * @see de.uka.ipd.sdq.stoex.FunctionLiteral#getParameters_FunctionLiteral()
+	 * @see #getFunctionLiteral()
+	 * @generated
+	 */
+	EReference getFunctionLiteral_Parameters_FunctionLiteral();
+
+	/**
 	 * Returns the meta object for enum '{@link de.uka.ipd.sdq.stoex.TermOperations <em>Term Operations</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1962,6 +2031,32 @@ public interface StoexPackage extends EPackage {
 		 * @generated
 		 */
 		EReference NEGATIVE_EXPRESSION__INNER = eINSTANCE.getNegativeExpression_Inner();
+
+		/**
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.stoex.impl.FunctionLiteralImpl <em>Function Literal</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.uka.ipd.sdq.stoex.impl.FunctionLiteralImpl
+		 * @see de.uka.ipd.sdq.stoex.impl.StoexPackageImpl#getFunctionLiteral()
+		 * @generated
+		 */
+		EClass FUNCTION_LITERAL = eINSTANCE.getFunctionLiteral();
+
+		/**
+		 * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute FUNCTION_LITERAL__ID = eINSTANCE.getFunctionLiteral_Id();
+
+		/**
+		 * The meta object literal for the '<em><b>Parameters Function Literal</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference FUNCTION_LITERAL__PARAMETERS_FUNCTION_LITERAL = eINSTANCE.getFunctionLiteral_Parameters_FunctionLiteral();
 
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.stoex.TermOperations <em>Term Operations</em>}' enum.

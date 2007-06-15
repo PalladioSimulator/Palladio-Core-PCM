@@ -239,6 +239,11 @@ public class ProductExpressionItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
+				(StoexPackage.Literals.PRODUCT_EXPRESSION__LEFT,
+				 StoexFactory.eINSTANCE.createFunctionLiteral()));
+
+		newChildDescriptors.add
+			(createChildParameter
 				(StoexPackage.Literals.PRODUCT_EXPRESSION__RIGHT,
 				 StoexFactory.eINSTANCE.createVariable()));
 
@@ -286,6 +291,11 @@ public class ProductExpressionItemProvider
 			(createChildParameter
 				(StoexPackage.Literals.PRODUCT_EXPRESSION__RIGHT,
 				 StoexFactory.eINSTANCE.createNegativeExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(StoexPackage.Literals.PRODUCT_EXPRESSION__RIGHT,
+				 StoexFactory.eINSTANCE.createFunctionLiteral()));
 	}
 
 	/**

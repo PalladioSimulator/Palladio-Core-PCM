@@ -116,5 +116,9 @@
     <genClasses ecoreClass="stoex.ecore#//NegativeExpression">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference stoex.ecore#//NegativeExpression/inner"/>
     </genClasses>
+    <genClasses ecoreClass="stoex.ecore#//FunctionLiteral">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute stoex.ecore#//FunctionLiteral/id"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference stoex.ecore#//FunctionLiteral/parameters_FunctionLiteral"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>

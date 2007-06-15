@@ -379,6 +379,20 @@ public class StoexSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case StoexPackage.FUNCTION_LITERAL: {
+				FunctionLiteral functionLiteral = (FunctionLiteral)theEObject;
+				T result = caseFunctionLiteral(functionLiteral);
+				if (result == null) result = caseAtom(functionLiteral);
+				if (result == null) result = caseUnary(functionLiteral);
+				if (result == null) result = casePower(functionLiteral);
+				if (result == null) result = caseProduct(functionLiteral);
+				if (result == null) result = caseTerm(functionLiteral);
+				if (result == null) result = caseComparison(functionLiteral);
+				if (result == null) result = caseBooleanExpression(functionLiteral);
+				if (result == null) result = caseExpression(functionLiteral);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -785,6 +799,21 @@ public class StoexSwitch<T> {
 	 * @generated
 	 */
 	public T caseNegativeExpression(NegativeExpression object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpretting the object as an instance of '<em>Function Literal</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpretting the object as an instance of '<em>Function Literal</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseFunctionLiteral(FunctionLiteral object) {
 		return null;
 	}
 

@@ -180,6 +180,10 @@ public class StoexAdapterFactory extends AdapterFactoryImpl {
 				return createNegativeExpressionAdapter();
 			}
 			@Override
+			public Adapter caseFunctionLiteral(FunctionLiteral object) {
+				return createFunctionLiteralAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -574,6 +578,20 @@ public class StoexAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createNegativeExpressionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.stoex.FunctionLiteral <em>Function Literal</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.stoex.FunctionLiteral
+	 * @generated
+	 */
+	public Adapter createFunctionLiteralAdapter() {
 		return null;
 	}
 

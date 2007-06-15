@@ -15,6 +15,7 @@ import de.uka.ipd.sdq.stoex.BooleanOperatorExpression;
 import de.uka.ipd.sdq.stoex.CompareExpression;
 import de.uka.ipd.sdq.stoex.DoubleLiteral;
 import de.uka.ipd.sdq.stoex.Expression;
+import de.uka.ipd.sdq.stoex.FunctionLiteral;
 import de.uka.ipd.sdq.stoex.IntLiteral;
 import de.uka.ipd.sdq.stoex.NegativeExpression;
 import de.uka.ipd.sdq.stoex.NotExpression;
@@ -320,4 +321,22 @@ public class ExpressionInferTypeVisitor extends StoexSwitch<Object> {
 		assert typeAnnotation.containsKey(e);
 		return typeAnnotation.get(e);
 	}
+
+	@Override
+	public Object caseFunctionLiteral(FunctionLiteral object) {
+		if (object.getId().equals("UniDouble")) {
+			typeAnnotation.put(object, TypeEnum.DOUBLE_PDF);
+		} else if (object.getId().equals("Norm")) {
+			typeAnnotation.put(object, TypeEnum.DOUBLE_PDF);
+		} else if (object.getId().equals("Exp")) {
+			typeAnnotation.put(object, TypeEnum.DOUBLE_PDF);
+		} else if (object.getId().equals("Pois")) {
+			typeAnnotation.put(object, TypeEnum.INT_PMF);
+		} else if (object.getId().equals("UniInt")) {
+			typeAnnotation.put(object, TypeEnum.INT_PMF);
+		}
+		return object;
+	}
+	
+	
 }

@@ -19,6 +19,7 @@ import de.uka.ipd.sdq.stoex.CompareOperations;
 import de.uka.ipd.sdq.stoex.Comparison;
 import de.uka.ipd.sdq.stoex.DoubleLiteral;
 import de.uka.ipd.sdq.stoex.Expression;
+import de.uka.ipd.sdq.stoex.FunctionLiteral;
 import de.uka.ipd.sdq.stoex.IntLiteral;
 import de.uka.ipd.sdq.stoex.NamespaceReference;
 import de.uka.ipd.sdq.stoex.NegativeExpression;
@@ -245,6 +246,13 @@ public class StoexPackageImpl extends EPackageImpl implements StoexPackage {
 	 * @generated
 	 */
 	private EClass negativeExpressionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass functionLiteralEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -827,6 +835,33 @@ public class StoexPackageImpl extends EPackageImpl implements StoexPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getFunctionLiteral() {
+		return functionLiteralEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getFunctionLiteral_Id() {
+		return (EAttribute)functionLiteralEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getFunctionLiteral_Parameters_FunctionLiteral() {
+		return (EReference)functionLiteralEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getTermOperations() {
 		return termOperationsEEnum;
 	}
@@ -966,6 +1001,10 @@ public class StoexPackageImpl extends EPackageImpl implements StoexPackage {
 		negativeExpressionEClass = createEClass(NEGATIVE_EXPRESSION);
 		createEReference(negativeExpressionEClass, NEGATIVE_EXPRESSION__INNER);
 
+		functionLiteralEClass = createEClass(FUNCTION_LITERAL);
+		createEAttribute(functionLiteralEClass, FUNCTION_LITERAL__ID);
+		createEReference(functionLiteralEClass, FUNCTION_LITERAL__PARAMETERS_FUNCTION_LITERAL);
+
 		// Create enums
 		termOperationsEEnum = createEEnum(TERM_OPERATIONS);
 		productOperationsEEnum = createEEnum(PRODUCT_OPERATIONS);
@@ -1028,6 +1067,7 @@ public class StoexPackageImpl extends EPackageImpl implements StoexPackage {
 		booleanOperatorExpressionEClass.getESuperTypes().add(this.getBooleanExpression());
 		notExpressionEClass.getESuperTypes().add(this.getUnary());
 		negativeExpressionEClass.getESuperTypes().add(this.getUnary());
+		functionLiteralEClass.getESuperTypes().add(this.getAtom());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(variableReferenceEClass, VariableReference.class, "VariableReference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1109,6 +1149,10 @@ public class StoexPackageImpl extends EPackageImpl implements StoexPackage {
 
 		initEClass(negativeExpressionEClass, NegativeExpression.class, "NegativeExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getNegativeExpression_Inner(), this.getUnary(), null, "inner", null, 1, 1, NegativeExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+		initEClass(functionLiteralEClass, FunctionLiteral.class, "FunctionLiteral", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getFunctionLiteral_Id(), ecorePackage.getEString(), "id", null, 1, 1, FunctionLiteral.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getFunctionLiteral_Parameters_FunctionLiteral(), this.getExpression(), null, "parameters_FunctionLiteral", null, 0, -1, FunctionLiteral.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(termOperationsEEnum, TermOperations.class, "TermOperations");

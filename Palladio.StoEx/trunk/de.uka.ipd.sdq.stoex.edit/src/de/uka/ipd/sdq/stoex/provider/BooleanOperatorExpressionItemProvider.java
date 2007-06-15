@@ -257,6 +257,11 @@ public class BooleanOperatorExpressionItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
+				(StoexPackage.Literals.BOOLEAN_OPERATOR_EXPRESSION__LEFT,
+				 StoexFactory.eINSTANCE.createFunctionLiteral()));
+
+		newChildDescriptors.add
+			(createChildParameter
 				(StoexPackage.Literals.BOOLEAN_OPERATOR_EXPRESSION__RIGHT,
 				 StoexFactory.eINSTANCE.createVariable()));
 
@@ -324,6 +329,11 @@ public class BooleanOperatorExpressionItemProvider
 			(createChildParameter
 				(StoexPackage.Literals.BOOLEAN_OPERATOR_EXPRESSION__RIGHT,
 				 StoexFactory.eINSTANCE.createNegativeExpression()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(StoexPackage.Literals.BOOLEAN_OPERATOR_EXPRESSION__RIGHT,
+				 StoexFactory.eINSTANCE.createFunctionLiteral()));
 	}
 
 	/**
