@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--xtools2_universal_type_manager-->
+<uml:Model xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Default_0="http:///Default_0.profile.uml2" xmlns:Ecore_0="http:///Ecore_0.profile.uml2" xmlns:uml="http://www.eclipse.org/uml2/1.0.0/UML" xsi:schemaLocation="http:///Default_0.profile.uml2 pathmap://UML2_MSL_PROFILES/Default.epx#_bA7Pc9WLEdiy4IqP8whjFA?Default/%3CEPackage%3E http:///Ecore_0.profile.uml2 pathmap://UML2_PROFILES/Ecore.profile.uml2#_v9VUsK87Edi5QpYeY_yIpg" xmi:id="_hFALoK6GEdqR97hrnpMlhg" name="identifier" appliedProfile="_hFALpK6GEdqR97hrnpMlhg _hFALp66GEdqR97hrnpMlhg _hFALqq6GEdqR97hrnpMlhg _hFALra6GEdqR97hrnpMlhg _hFALsK6GEdqR97hrnpMlhg _pKaxkCiuEduNHNn-nQsgCQ">
+  <eAnnotations xmi:id="_hFALoa6GEdqR97hrnpMlhg" source="uml2.diagrams"/>
+  <eAnnotations xmi:id="_jGBoMK6GEdqR97hrnpMlhg" source="http://www.eclipse.org/emf/2002/Ecore"/>
+  <eAnnotations xmi:id="_rjKKkCiuEduNHNn-nQsgCQ" source="appliedStereotypes">
+    <contents xmi:type="Ecore_0:Ecore__EPackage" xmi:id="_rjKKkSiuEduNHNn-nQsgCQ" nsPrefix="identifier" nsURI="http://sdq.ipd.uka.de/Identifier/1.0" basePackage="de.uka.ipd.sdq"/>
+  </eAnnotations>
+  <packageImport xmi:type="uml:ProfileApplication" xmi:id="_hFALpK6GEdqR97hrnpMlhg">
+    <eAnnotations xmi:id="_hFALpa6GEdqR97hrnpMlhg" source="attributes">
+      <details xmi:id="_hFALpq6GEdqR97hrnpMlhg" key="version" value="0"/>
+    </eAnnotations>
+    <importedPackage xmi:type="uml:Profile" href="pathmap://UML2_PROFILES/Basic.profile.uml2#_6mFRgK86Edih9-GG5afQ0g"/>
+    <importedProfile href="pathmap://UML2_PROFILES/Basic.profile.uml2#_6mFRgK86Edih9-GG5afQ0g"/>
+  </packageImport>
+  <packageImport xmi:type="uml:ProfileApplication" xmi:id="_hFALp66GEdqR97hrnpMlhg">
+    <eAnnotations xmi:id="_hFALqK6GEdqR97hrnpMlhg" source="attributes">
+      <details xmi:id="_hFALqa6GEdqR97hrnpMlhg" key="version" value="0"/>
+    </eAnnotations>
+    <importedPackage xmi:type="uml:Profile" href="pathmap://UML2_PROFILES/Intermediate.profile.uml2#_Cz7csK87Edih9-GG5afQ0g"/>
+    <importedProfile href="pathmap://UML2_PROFILES/Intermediate.profile.uml2#_Cz7csK87Edih9-GG5afQ0g"/>
+  </packageImport>
+  <packageImport xmi:type="uml:ProfileApplication" xmi:id="_hFALqq6GEdqR97hrnpMlhg">
+    <eAnnotations xmi:id="_hFALq66GEdqR97hrnpMlhg" source="attributes">
+      <details xmi:id="_hFALrK6GEdqR97hrnpMlhg" key="version" value="0"/>
+    </eAnnotations>
+    <importedPackage xmi:type="uml:Profile" href="pathmap://UML2_PROFILES/Complete.profile.uml2#_M7pTkK87Edih9-GG5afQ0g"/>
+    <importedProfile href="pathmap://UML2_PROFILES/Complete.profile.uml2#_M7pTkK87Edih9-GG5afQ0g"/>
+  </packageImport>
+  <packageImport xmi:type="uml:ProfileApplication" xmi:id="_hFALra6GEdqR97hrnpMlhg">
+    <eAnnotations xmi:id="_hFALrq6GEdqR97hrnpMlhg" source="attributes">
+      <details xmi:id="_hFALr66GEdqR97hrnpMlhg" key="version" value="0"/>
+    </eAnnotations>
+    <importedPackage xmi:type="uml:Profile" href="pathmap://UML2_MSL_PROFILES/Default.epx#_a_S3wNWLEdiy4IqP8whjFA?Default"/>
+    <importedProfile href="pathmap://UML2_MSL_PROFILES/Default.epx#_a_S3wNWLEdiy4IqP8whjFA?Default"/>
+  </packageImport>
+  <packageImport xmi:type="uml:ProfileApplication" xmi:id="_hFALsK6GEdqR97hrnpMlhg">
+    <eAnnotations xmi:id="_hFALsa6GEdqR97hrnpMlhg" source="attributes">
+      <details xmi:id="_hFALsq6GEdqR97hrnpMlhg" key="version" value="0"/>
+    </eAnnotations>
+    <importedPackage xmi:type="uml:Profile" href="pathmap://UML2_MSL_PROFILES/Deployment.epx#_vjbuwOvHEdiDX5bji0iVSA?Deployment"/>
+    <importedProfile href="pathmap://UML2_MSL_PROFILES/Deployment.epx#_vjbuwOvHEdiDX5bji0iVSA?Deployment"/>
+  </packageImport>
+  <packageImport xmi:id="_hFALs66GEdqR97hrnpMlhg">
+    <importedPackage xmi:type="uml:Model" href="pathmap://UML2_LIBRARIES/UML2PrimitiveTypes.library.uml2#_EfRZoK86EdieaYgxtVWN8Q"/>
+  </packageImport>
+  <packageImport xmi:type="uml:ProfileApplication" xmi:id="_pKaxkCiuEduNHNn-nQsgCQ">
+    <eAnnotations xmi:id="_pKaxkSiuEduNHNn-nQsgCQ" source="attributes">
+      <details xmi:id="_pKaxkiiuEduNHNn-nQsgCQ" key="version" value="0"/>
+    </eAnnotations>
+    <importedPackage xmi:type="uml:Profile" href="pathmap://UML2_PROFILES/Ecore.profile.uml2#_siPt4K87Edi5QpYeY_yIpg"/>
+    <importedProfile href="pathmap://UML2_PROFILES/Ecore.profile.uml2#_siPt4K87Edi5QpYeY_yIpg"/>
+  </packageImport>
+  <ownedMember xmi:type="uml:Class" xmi:id="_UMp04JMWEdqSSImFLKDkSg" name="Identifier" isAbstract="true">
+    <ownedComment xmi:id="_ozoGMJ1ZEdqX-LqEpACX-A" body="Identifiers are not fixed to one realization.&#xD;&#xA;GUIDs are recommend. GUIDs are described in their own model. See GUIDModel (GUID.emx).&#xD;&#xA;Identifier implementations can be found in external projects only." annotatedElement="_UMp04JMWEdqSSImFLKDkSg">
+      <eAnnotations xmi:id="_ozoGMZ1ZEdqX-LqEpACX-A" source="appliedStereotypes">
+        <contents xmi:type="Default_0:Default__Documentation" xmi:id="_ozoGMp1ZEdqX-LqEpACX-A"/>
+      </eAnnotations>
+    </ownedComment>
+    <ownedRule xmi:id="_wUOe8J1bEdqX-LqEpACX-A" name="idHasToBeUnique" constrainedElement="_UMp04JMWEdqSSImFLKDkSg">
+      <specification xmi:type="uml:OpaqueExpression" xmi:id="_wUOe8Z1bEdqX-LqEpACX-A" body="self.allInstances()->isUnique(p | p.id)" language="OCL"/>
+    </ownedRule>
+    <ownedAttribute xmi:id="_bTQrMJMWEdqSSImFLKDkSg" name="id">
+      <eAnnotations xmi:id="_qzgZ0CivEduNHNn-nQsgCQ" source="appliedStereotypes">
+        <contents xmi:type="Ecore_0:Ecore__EAttribute" xmi:id="_qzgZ0SivEduNHNn-nQsgCQ" isID="true"/>
+      </eAnnotations>
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML2_LIBRARIES/EcorePrimitiveTypes.library.uml2#_ORTUYa86EdieaYgxtVWN8Q"/>
+    </ownedAttribute>
+  </ownedMember>
+</uml:Model>
