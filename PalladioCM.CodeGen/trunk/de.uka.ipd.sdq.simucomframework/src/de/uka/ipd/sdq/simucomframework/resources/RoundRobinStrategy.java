@@ -2,8 +2,6 @@ package de.uka.ipd.sdq.simucomframework.resources;
 
 import java.util.ArrayList;
 
-import de.uka.ipd.sdq.simucomframework.resources.SimulatedActiveResource.JobAndDemandStruct;
-
 public class RoundRobinStrategy implements ISchedulingStrategy {
 
 	protected ArrayList<JobAndDemandStruct> runQueue = new ArrayList<JobAndDemandStruct>();

@@ -1,15 +1,12 @@
 package de.uka.ipd.sdq.simucomframework.resources;
 
 import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
-import de.uka.ipd.sdq.simucomframework.resources.SimulatedActiveResource.JobAndDemandStruct;
-import desmoj.core.simulator.Event;
 import desmoj.core.simulator.Queue;
-import desmoj.core.simulator.SimTime;
 
-public class FIFOStrategy implements ISchedulingStrategy {
+public class FCFSStrategy implements ISchedulingStrategy {
 	protected Queue runQueue = null;
 
-	public FIFOStrategy(SimuComModel myModel, String typeID){
+	public FCFSStrategy(SimuComModel myModel, String typeID){
 		runQueue = new Queue(myModel, "RunQueue "+typeID, true, true);
 	}
 

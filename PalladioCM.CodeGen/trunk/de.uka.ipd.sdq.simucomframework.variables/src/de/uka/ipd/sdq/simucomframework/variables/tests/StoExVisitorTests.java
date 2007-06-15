@@ -22,7 +22,7 @@ public class StoExVisitorTests {
 	@Before public void setup() {
 		PatternLayout myLayout = new PatternLayout("%d{HH:mm:ss,SSS} [%t] %-5p %m [%c]%n");
 		ConsoleAppender ca = new ConsoleAppender(myLayout);
-		ca.setThreshold(Priority.INFO);
+		ca.setThreshold(Priority.DEBUG);
 		BasicConfigurator.resetConfiguration();
 		BasicConfigurator.configure(ca);
 	}
@@ -84,21 +84,34 @@ public class StoExVisitorTests {
 	}
 	
 	@Test public void functionsTest() {
+		logger.info("UniDouble");
 		for (int i=0; i<2000; i++) {
 			double result3 = (Double)StackContext.simpleEvaluate("UniDouble(1,4)");
 			Assert.assertTrue(result3 >= 1 && result3 <= 4);
 		}
+		logger.info("UniInt");
 		for (int i=0; i<2000; i++) {
 			int result3 = (Integer)StackContext.simpleEvaluate("UniInt(1,4)");
 			Assert.assertTrue(result3 >= 1 && result3 <= 4);
 		}
+		logger.info("Norm");
 		for (int i=0; i<200; i++) {
 			double result3 = (Double)StackContext.simpleEvaluate("Norm(0,1)");
+			logger.debug(result3);
+			Assert.assertTrue(result3 >= -5 && result3 <= 5);
 		}
+		logger.info("Exp");
 		for (int i=0; i<200; i++) {
 			double result3 = (Double)StackContext.simpleEvaluate("Exp(1)");
 			Assert.assertTrue(result3 >= 0);
 		}
+	}
+	
+	@Test public void ifelseTest() {
+		int result = (Integer)StackContext.simpleEvaluate("true ? 3 : 4");
+		Assert.assertEquals(3, result);
+		result = (Integer)StackContext.simpleEvaluate("false ? 3 : 4");
+		Assert.assertEquals(4, result);
 	}
 	
 	@Test public void getByteSizeFromStackframe(){

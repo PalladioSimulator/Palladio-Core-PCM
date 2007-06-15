@@ -12,7 +12,7 @@
 // Load the resource demand on a simulated resource
 «DEFINE ResourceDemand FOR ParametricResourceDemand»
    {
-      double demand = de.uka.ipd.sdq.simucomframework.converter.NumberConverter.toDouble(ctx.evaluate("«this.specification.specificationString()»",Double.class));
+      double demand = de.uka.ipd.sdq.simucomframework.variables.converter.NumberConverter.toDouble(ctx.evaluate("«this.specification.specificationString()»",Double.class));
       ctx.findResource(this.assemblyContextID).loadActiveResource(ctx.getThread(),"«this.requiredResource_ParametricResourceDemand.entityName»",demand);
    }
 «ENDDEFINE»
@@ -40,12 +40,27 @@
 			«ENDFOREACH»
 		};
 	}
+
+	public String[] getLinkingResourceContainerIDList() {
+		return new String[] { 
+			«FOREACH this.linkingresource AS rc SEPARATOR ","»
+				"«rc.id»"
+			«ENDFOREACH»
+		};
+	}
 	
 	public void fillResourceContainer(de.uka.ipd.sdq.simucomframework.resources.SimulatedResourceContainer rc) {
 		«EXPAND ResourceContainerCase FOREACH this.resourceContainer_ResourceEnvironment SEPARATOR " else "»
 		else
 			throw new RuntimeException("Unknown resource container should be initialised. This should never happen");	
 	}
+
+	public void fillLinkingResourceContainer(de.uka.ipd.sdq.simucomframework.resources.SimulatedLinkingResourceContainer rc) {
+		«EXPAND LinkingResourceCase FOREACH this.linkingresource SEPARATOR " else "»
+		else
+			throw new RuntimeException("Unknown resource container should be initialised. This should never happen");	
+	}
+
 «ENDDEFINE»
 
 «DEFINE ResourceContainerCase FOR ResourceContainer»
@@ -55,11 +70,25 @@
 	}
 «ENDDEFINE»
 
+«DEFINE LinkingResourceCase FOR LinkingResource»
+	if (rc.getResourceContainerID().equals("«this.id»")) {
+		«EXPAND LinkingResourceAdd FOR this.communicationLinkResourceSpecifications_LinkingResource»
+	}
+«ENDDEFINE»
+
+«DEFINE LinkingResourceAdd FOR CommunicationLinkResourceSpecification»
+	rc.addActiveResource(
+		"«this.communicationLinkResourceType_CommunicationLinkResourceSpecification.entityName»",
+		«this.throughput»,
+		"«this.linkLatency.specification.specificationString()»");
+«ENDDEFINE»
+
 «DEFINE ActiveResourceAdd FOR ProcessingResourceSpecification»
 	rc.addActiveResource(
 		"«this.activeResourceType_ActiveResourceSpecification.entityName»",
 		«this.processingRate»,
-		"«this.units.javaString()»");
+		"«this.units.javaString()»",
+		de.uka.ipd.sdq.simucomframework.resources.SchedulingStrategy.«this.schedulingPolicy»);
 «ENDDEFINE»
 
 «DEFINE PassiveResourceAdd FOR PassiveResourceSpecification»

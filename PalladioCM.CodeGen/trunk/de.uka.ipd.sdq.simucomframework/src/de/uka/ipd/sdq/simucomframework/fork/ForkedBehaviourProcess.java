@@ -7,6 +7,7 @@ import com.sun.xml.internal.bind.v2.runtime.reflect.Accessor.SetterOnlyReflectio
 import de.uka.ipd.sdq.simucomframework.Context;
 import de.uka.ipd.sdq.simucomframework.SimuComStatus;
 import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
+import de.uka.ipd.sdq.simucomframework.resources.AbstractSimulatedResourceContainer;
 import de.uka.ipd.sdq.simucomframework.resources.SimulatedResourceContainer;
 import de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStack;
 import de.uka.ipd.sdq.simucomframework.variables.stoexvisitor.PCMStoExEvaluationVisitor;
@@ -33,7 +34,7 @@ class ForkContext extends Context {
 	private static final long serialVersionUID = 6701742993106975705L;
 
 	@Override
-	public SimulatedResourceContainer findResource(String assemblyContextID) {
+	public AbstractSimulatedResourceContainer findResource(String assemblyContextID) {
 		return parentContext.findResource(assemblyContextID);
 	}
 

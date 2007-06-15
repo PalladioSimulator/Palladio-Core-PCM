@@ -21,6 +21,7 @@ import de.uka.ipd.sdq.stoex.CompareOperations;
 import de.uka.ipd.sdq.stoex.DoubleLiteral;
 import de.uka.ipd.sdq.stoex.Expression;
 import de.uka.ipd.sdq.stoex.FunctionLiteral;
+import de.uka.ipd.sdq.stoex.IfElseExpression;
 import de.uka.ipd.sdq.stoex.IntLiteral;
 import de.uka.ipd.sdq.stoex.NegativeExpression;
 import de.uka.ipd.sdq.stoex.NotExpression;
@@ -314,6 +315,15 @@ public class PCMStoExEvaluationVisitor extends PCMStoExSwitch {
 			parameterValues.add(this.doSwitch(e));
 		}
 		return functionLib.evaluate(functionID,parameterValues);
+	}
+
+	@Override
+	public Object caseIfElseExpression(IfElseExpression object) {
+		boolean cond = (Boolean)this.doSwitch(object.getConditionExpression());
+		if (cond)
+			return this.doSwitch(object.getIfExpression());
+		else
+			return this.doSwitch(object.getElseExpression());
 	}
 	
 }

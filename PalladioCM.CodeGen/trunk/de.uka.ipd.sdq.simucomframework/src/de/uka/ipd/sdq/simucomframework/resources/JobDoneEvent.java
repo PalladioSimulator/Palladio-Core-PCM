@@ -1,6 +1,5 @@
 package de.uka.ipd.sdq.simucomframework.resources;
 
-import de.uka.ipd.sdq.simucomframework.resources.SimulatedActiveResource.JobAndDemandStruct;
 import desmoj.core.simulator.Entity;
 import desmoj.core.simulator.Event;
 import desmoj.core.simulator.Model;

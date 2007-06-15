@@ -3,8 +3,6 @@
  */
 package de.uka.ipd.sdq.simucomframework.resources;
  
-import de.uka.ipd.sdq.simucomframework.exceptions.SchedulerReturnedNegativeTimeException;
-import de.uka.ipd.sdq.simucomframework.resources.SimulatedActiveResource.JobAndDemandStruct;
 import desmoj.core.simulator.Entity;
 import desmoj.core.simulator.Event;
 import desmoj.core.simulator.Model;
@@ -29,7 +27,7 @@ public class JobArrivalEvent extends Event {
 	@Override
 	public void eventRoutine(Entity who) {
 		JobAndDemandStruct job = (JobAndDemandStruct)who;
-		SimulatedActiveResource resource = job.getResource();
+		AbstractScheduledResource resource = job.getResource();
 		resource.processPassedTime();
 		resource.addJob(demand);
 		double nextEventTime = resource.getTimeWhenNextJobIsDone();

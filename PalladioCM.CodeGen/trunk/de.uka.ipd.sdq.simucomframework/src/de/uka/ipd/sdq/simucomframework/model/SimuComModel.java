@@ -6,10 +6,11 @@ import de.uka.ipd.sdq.sensorfactory.SensorFrameworkDataset;
 import de.uka.ipd.sdq.sensorfactory.entities.Experiment;
 import de.uka.ipd.sdq.sensorfactory.entities.ExperimentRun;
 import de.uka.ipd.sdq.sensorfactory.entities.dao.IDAOFactory;
-import de.uka.ipd.sdq.simucomframework.ResouceRegistry;
+import de.uka.ipd.sdq.simucomframework.ResourceRegistry;
 import de.uka.ipd.sdq.simucomframework.SimuComConfig;
 import de.uka.ipd.sdq.simucomframework.SimuComStatus;
 import de.uka.ipd.sdq.simucomframework.resources.IResourceContainerFactory;
+import de.uka.ipd.sdq.simucomframework.resources.SimulatedLinkingResourceContainer;
 import de.uka.ipd.sdq.simucomframework.resources.SimulatedResourceContainer;
 import de.uka.ipd.sdq.simucomframework.sensors.SensorFactory;
 import de.uka.ipd.sdq.simucomframework.usage.IWorkloadDriver;
@@ -17,7 +18,7 @@ import desmoj.core.simulator.Model;
 
 public class SimuComModel extends Model {
 
-	protected ResouceRegistry resourceRegistry = null;
+	protected ResourceRegistry resourceRegistry = null;
 	protected SensorFactory sensorFactory = null;
 	private IWorkloadDriver[] workloadDrivers;
 	private SimuComStatus status = SimuComStatus.OK;
@@ -32,7 +33,7 @@ public class SimuComModel extends Model {
 		// DistributionObjectsStorage.getSingletonInstance().initializeModel(this);
 		sensorFactory = SensorFactory.singleton();
 		sensorFactory.setModel(this);
-		resourceRegistry = new ResouceRegistry(this);
+		resourceRegistry = new ResourceRegistry(this);
 	}
 
 	@Override
@@ -57,7 +58,7 @@ public class SimuComModel extends Model {
 		this.workloadDrivers = workload;
 	}
 
-	public ResouceRegistry getResourceRegistry() {
+	public ResourceRegistry getResourceRegistry() {
 		return resourceRegistry;
 	}
 
@@ -67,8 +68,12 @@ public class SimuComModel extends Model {
 
 	public void initialiseResourceContainer(IResourceContainerFactory resourceContainerFactory) {
 		for (String id : resourceContainerFactory.getResourceContainerIDList()) {
-			SimulatedResourceContainer rc = resourceRegistry.createResourceContainer(id);
+			SimulatedResourceContainer rc = (SimulatedResourceContainer) resourceRegistry.createResourceContainer(id);
 			resourceContainerFactory.fillResourceContainer(rc);
+		}
+		for (String id : resourceContainerFactory.getLinkingResourceContainerIDList()) {
+			SimulatedLinkingResourceContainer rc = (SimulatedLinkingResourceContainer) resourceRegistry.createLinkingResourceContainer(id);
+			resourceContainerFactory.fillLinkingResourceContainer(rc);
 		}
 		resourceRegistry.activateAllActiveResources();
 	}

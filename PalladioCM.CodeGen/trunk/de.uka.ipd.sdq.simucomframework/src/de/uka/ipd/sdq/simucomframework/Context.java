@@ -3,15 +3,16 @@ package de.uka.ipd.sdq.simucomframework;
 import java.util.HashMap;
 
 import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
+import de.uka.ipd.sdq.simucomframework.resources.AbstractSimulatedResourceContainer;
 import de.uka.ipd.sdq.simucomframework.resources.SimulatedResourceContainer;
 import de.uka.ipd.sdq.simucomframework.variables.StackContext;
 import desmoj.core.simulator.SimProcess;
 
 public abstract class Context extends StackContext {
 
-	private ResouceRegistry registry = null;
+	private ResourceRegistry registry = null;
 	// AssemblyContextID -> ResourceContainer Object (Deployment Link)
-	private HashMap<String, SimulatedResourceContainer> assemblyLinkHash = new HashMap<String, SimulatedResourceContainer>();
+	private HashMap<String, AbstractSimulatedResourceContainer> assemblyLinkHash = new HashMap<String, AbstractSimulatedResourceContainer>();
 
 	private SimProcess myThread = null;
 	private SimuComModel myModel = null;
@@ -26,8 +27,8 @@ public abstract class Context extends StackContext {
 		}
 	}
 
-	public SimulatedResourceContainer findResource(String assemblyContextID) {
-		SimulatedResourceContainer container = assemblyLinkHash
+	public AbstractSimulatedResourceContainer findResource(String assemblyContextID) {
+		AbstractSimulatedResourceContainer container = assemblyLinkHash
 				.get(assemblyContextID);
 		return container;
 	}
@@ -35,7 +36,7 @@ public abstract class Context extends StackContext {
 	protected void linkAssemblyContextAndResourceContainer(
 			String assemblyContextID, String resourceContainerID) {
 		assert registry.containsResourceContainer(resourceContainerID);
-		SimulatedResourceContainer container = registry
+		AbstractSimulatedResourceContainer container = registry
 				.getResourceContainer(resourceContainerID);
 		assemblyLinkHash.put(assemblyContextID, container);
 	}
