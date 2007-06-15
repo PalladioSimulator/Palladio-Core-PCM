@@ -28,20 +28,18 @@ public abstract class AbstractScheduledResource extends Entity {
 	private State busyState;
 	private ExperimentRun experimentRun = null;
 	protected ISchedulingStrategy myStrategy = null;
-	private String myTypeID;
 
 	private SimTime lastTimeOfAdjustingJobs;
 	
-	public AbstractScheduledResource(SimuComModel myModel, String typeID, SchedulingStrategy strategy)
+	public AbstractScheduledResource(SimuComModel myModel, String id, String description, SchedulingStrategy strategy)
 	{
-		super (myModel, typeID, true);
+		super (myModel, id, true);
 		this.idle = true;
-		this.myTypeID = typeID;
 		
 		this.idleState = createOrReuseState(myModel.getDAOFactory().createStateDAO(), "Idle");
 		this.busyState = createOrReuseState(myModel.getDAOFactory().createStateDAO(), "Busy");
 
-		this.stateSensor = createOrReuseSensor(myModel.getExperimentDatastore(),"Utilisation of "+typeID,this.idleState);
+		this.stateSensor = createOrReuseSensor(myModel.getExperimentDatastore(),"Utilisation of "+description,this.idleState);
 		this.stateSensor.addSensorState(idleState);
 		this.stateSensor.addSensorState(busyState);
 		
@@ -60,7 +58,7 @@ public abstract class AbstractScheduledResource extends Entity {
 			logger.info("Using RoundRobin Scheduler for Active Resource "+this.getName());
 			break;
 		case FCFS:
-			result = new FCFSStrategy((SimuComModel)this.getModel(),this.myTypeID);
+			result = new FCFSStrategy((SimuComModel)this.getModel());
 			logger.info("Using FIFO Scheduler for Active Resource "+this.getName());
 		case DELAY:
 			result = new DelayStrategy();

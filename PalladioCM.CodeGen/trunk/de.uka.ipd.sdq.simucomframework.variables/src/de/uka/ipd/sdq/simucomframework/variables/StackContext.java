@@ -13,6 +13,7 @@ import de.uka.ipd.sdq.simucomframework.variables.cache.StoExCacheEntry;
 import de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStack;
 import de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe;
 import de.uka.ipd.sdq.simucomframework.variables.stoexvisitor.PCMStoExEvaluationVisitor;
+import de.uka.ipd.sdq.simucomframework.variables.stoexvisitor.VariableMode;
 
 public class StackContext implements Serializable {
 
@@ -52,7 +53,7 @@ public class StackContext implements Serializable {
 
 	public static Object evaluate(String stoex, SimulatedStackframe currentFrame) {
 		StoExCacheEntry cacheEntry = StoExCache.singleton().getEntry(stoex);
-		return new PCMStoExEvaluationVisitor(stoex,currentFrame)
+		return new PCMStoExEvaluationVisitor(stoex,currentFrame,VariableMode.RETURN_DEFAULT_ON_NOT_FOUND)
 					.doSwitch(cacheEntry.getParsedExpression());
 	}
 

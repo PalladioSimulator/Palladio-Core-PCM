@@ -18,7 +18,7 @@ public class BytesizeComputationForSignature {
 		OUT
 	}
 	
-	public String getBytesizeForSignature(Signature sig, Modifier mod){
+	public static String getBytesizeForSignature(Signature sig, Modifier mod){
 		StringBuffer result = new StringBuffer();
 		
 		EList<Parameter> params = sig.getParameters__Signature();
@@ -53,7 +53,7 @@ public class BytesizeComputationForSignature {
 	}
 
 	
-	private String getCharacterisationString(DataType dataType, String name){
+	private static String getCharacterisationString(DataType dataType, String name){
 		StringBuffer result = new StringBuffer();
 		if (dataType instanceof PrimitiveDataType){
 			result.append(name+".BYTESIZE + ");

@@ -9,9 +9,9 @@ public class SimulatedLinkingResource extends AbstractScheduledResource {
 	private double throughput;
 	private String latencySpec;
 	
-	public SimulatedLinkingResource(SimuComModel myModel, String typeID, double throughput, String latencySpec)
+	public SimulatedLinkingResource(SimuComModel myModel, String typeID, String description, double throughput, String latencySpec)
 	{
-		super (myModel, typeID, SchedulingStrategy.FCFS);
+		super (myModel, typeID, description, SchedulingStrategy.FCFS);
 		this.latencySpec = latencySpec;
 		this.throughput = throughput;
 	}

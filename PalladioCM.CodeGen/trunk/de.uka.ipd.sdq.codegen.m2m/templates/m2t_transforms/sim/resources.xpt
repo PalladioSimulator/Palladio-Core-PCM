@@ -79,6 +79,7 @@
 «DEFINE LinkingResourceAdd FOR CommunicationLinkResourceSpecification»
 	rc.addActiveResource(
 		"«this.communicationLinkResourceType_CommunicationLinkResourceSpecification.entityName»",
+		"«this.eContainer.entityName.specificationString()» [«this.communicationLinkResourceType_CommunicationLinkResourceSpecification.entityName»] <«this.eContainer.id»>",
 		«this.throughput»,
 		"«this.linkLatency.specification.specificationString()»");
 «ENDDEFINE»
@@ -86,6 +87,7 @@
 «DEFINE ActiveResourceAdd FOR ProcessingResourceSpecification»
 	rc.addActiveResource(
 		"«this.activeResourceType_ActiveResourceSpecification.entityName»",
+		"«this.eContainer.entityName.specificationString()» [«this.activeResourceType_ActiveResourceSpecification.entityName»] <«this.eContainer.id»>",
 		«this.processingRate»,
 		"«this.units.javaString()»",
 		de.uka.ipd.sdq.simucomframework.resources.SchedulingStrategy.«this.schedulingPolicy»);

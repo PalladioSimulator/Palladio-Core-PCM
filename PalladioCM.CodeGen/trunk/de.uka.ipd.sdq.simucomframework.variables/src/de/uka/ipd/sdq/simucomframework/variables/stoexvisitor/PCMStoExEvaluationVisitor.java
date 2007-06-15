@@ -52,15 +52,26 @@ public class PCMStoExEvaluationVisitor extends PCMStoExSwitch {
 	private static PCMStoExPrettyPrintVisitor printVisitor = new PCMStoExPrettyPrintVisitor();
 	private String stoex;
 	private FunctionLib functionLib = null;
+
+	private VariableMode mode;
 	
-	public PCMStoExEvaluationVisitor(String stoex, SimulatedStackframe<Object> frame) {
+	public PCMStoExEvaluationVisitor(String stoex, SimulatedStackframe<Object> frame, VariableMode mode) {
 		myStackFrame = frame;
 		this.typeInferer = StoExCache.singleton().getEntry(stoex).getTypeInferer();
 		this.stoex = stoex;
+		this.mode = mode;
 		probfunctionVisitor = new PCMProbfunctionEvaluationVisitor(stoex);
 		functionLib = new FunctionLib();
 	}
 
+	public void setVariableMode(VariableMode mode) {
+		this.mode = mode;
+	}
+	
+	public VariableMode getVariableMode() {
+		return this.mode;
+	}
+	
 	@Override
 	public Object caseCharacterisedVariable(CharacterisedVariable object) {
 		String variableID = (String)printVisitor.caseCharacterisedVariable(object);
@@ -73,12 +84,30 @@ public class PCMStoExEvaluationVisitor extends PCMStoExSwitch {
 				return value;
 			}
 		} catch (ValueNotInFrameException e) {
-			logger.error("Value should be in stackframe, but it is not!",e);
-			e.printStackTrace();
+			if (mode == VariableMode.EXCEPTION_ON_NOT_FOUND) {
+				logger.error("Value should be in stackframe, but it is not!",e);
+				e.printStackTrace();
+			}
 		}
-		RuntimeException re = new RuntimeException("Architecture specification incomplete. Stackframe is missing id "+variableID);
-        logger.error("Value not found in specification",re);
-		throw re; 
+		if (mode == VariableMode.EXCEPTION_ON_NOT_FOUND) {
+			RuntimeException re = new RuntimeException("Architecture specification incomplete. Stackframe is missing id "+variableID);
+	        logger.error("Value not found in specification",re);
+			throw re; 
+		} else if (mode == VariableMode.RETURN_NULL_ON_NOT_FOUND) {
+			return null;
+		} else {
+			if (typeInferer.doSwitch(object) == TypeEnum.INT)
+				return 0;
+			if (typeInferer.doSwitch(object) == TypeEnum.DOUBLE)
+				return 0.0;
+			if (typeInferer.doSwitch(object) == TypeEnum.ENUM)
+				return "";
+			if (typeInferer.doSwitch(object) == TypeEnum.BOOL)
+				return false;
+			RuntimeException re = new RuntimeException("Architecture specification incomplete. Stackframe is missing id "+variableID);
+	        logger.error("Value not found in specification",re);
+			throw re; 
+		}
 	}
 
 	@Override

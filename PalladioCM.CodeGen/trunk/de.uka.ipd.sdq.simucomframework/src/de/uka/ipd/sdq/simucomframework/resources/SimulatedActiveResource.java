@@ -7,9 +7,9 @@ public class SimulatedActiveResource extends AbstractScheduledResource {
 	private double processingRate = 0;
 	private String units = null;
 	
-	public SimulatedActiveResource(SimuComModel myModel, String typeID, double d, String units, SchedulingStrategy strategy)
+	public SimulatedActiveResource(SimuComModel myModel, String typeID, String description, double d, String units, SchedulingStrategy strategy)
 	{
-		super (myModel, typeID, strategy);
+		super (myModel, typeID, description, strategy);
 		this.processingRate = d;
 		this.units = units;
 	}

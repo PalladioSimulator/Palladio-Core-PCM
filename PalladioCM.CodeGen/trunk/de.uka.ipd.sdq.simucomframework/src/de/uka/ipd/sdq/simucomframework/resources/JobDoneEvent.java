@@ -13,7 +13,7 @@ public class JobDoneEvent extends Event {
 
 	@Override
 	public void eventRoutine(Entity who) {
-		SimulatedActiveResource resource = (SimulatedActiveResource) who;
+		AbstractScheduledResource resource = (AbstractScheduledResource) who;
 		resource.processPassedTime();
 		JobAndDemandStruct job = resource.removeFinishedJob();
 		job.getJobParent().activate(SimTime.NOW);

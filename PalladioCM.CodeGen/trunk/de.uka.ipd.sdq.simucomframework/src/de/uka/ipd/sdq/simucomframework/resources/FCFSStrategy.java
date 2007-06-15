@@ -6,8 +6,8 @@ import desmoj.core.simulator.Queue;
 public class FCFSStrategy implements ISchedulingStrategy {
 	protected Queue runQueue = null;
 
-	public FCFSStrategy(SimuComModel myModel, String typeID){
-		runQueue = new Queue(myModel, "RunQueue "+typeID, true, true);
+	public FCFSStrategy(SimuComModel myModel){
+		runQueue = new Queue(myModel, "RunQueue", true, true);
 	}
 
 	public void processPassedTime(double timePassed) {

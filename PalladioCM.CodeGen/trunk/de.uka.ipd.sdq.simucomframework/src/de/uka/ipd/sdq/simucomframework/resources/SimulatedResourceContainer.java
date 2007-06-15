@@ -40,9 +40,9 @@ public class SimulatedResourceContainer extends AbstractSimulatedResourceContain
 		return passiveResources.values();
 	}
 
-	public void addActiveResource(String typeID, double d, String units, SchedulingStrategy strategy) {
+	public void addActiveResource(String typeID, String description, double d, String units, SchedulingStrategy strategy) {
 		activeResources.put(typeID, 
-				new SimulatedActiveResource(myModel, typeID, d, units, strategy));
+				new SimulatedActiveResource(myModel, typeID, description, d, units, strategy));
 	}
 	
 }

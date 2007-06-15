@@ -9,9 +9,9 @@ public class SimulatedLinkingResourceContainer extends
 		super(myModel, id);
 	}
 
-	public void addActiveResource(String typeID, double d, String latencySpec) {
+	public void addActiveResource(String typeID, String description, double d, String latencySpec) {
 		activeResources.put(typeID, 
-				new SimulatedLinkingResource(myModel, typeID, d, latencySpec));
+				new SimulatedLinkingResource(myModel, typeID, description, d, latencySpec));
 	}
 	
 }
