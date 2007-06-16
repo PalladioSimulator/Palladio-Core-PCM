@@ -150,7 +150,7 @@
           <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_awd4MRpbEdyxqpPYxT_m3w" predecessor_AbstractAction="_dY1BkBpbEdyxqpPYxT_m3w"/>
           <steps_Behaviour xsi:type="pcm.seff:InternalAction" id="_blW40BpbEdyxqpPYxT_m3w" entityName="getFilename" predecessor_AbstractAction="_awd4MBpbEdyxqpPYxT_m3w" successor_AbstractAction="_dY1BkBpbEdyxqpPYxT_m3w">
             <resourceDemand_Action specification="30" unit="work units">
-              <requiredResource_ParametricResourceDemand href="Palladio.resourcetype#cpu"/>
+              <requiredResource_ParametricResourceDemand href="Palladio.resourcetype#_3nrZgRwbEdym-derHwSMPw"/>
             </resourceDemand_Action>
           </steps_Behaviour>
           <steps_Behaviour xsi:type="pcm.seff:InternalAction" id="_dY1BkBpbEdyxqpPYxT_m3w" entityName="loadFromFileSystem" predecessor_AbstractAction="_blW40BpbEdyxqpPYxT_m3w" successor_AbstractAction="_awd4MRpbEdyxqpPYxT_m3w">
@@ -180,7 +180,7 @@
       <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_BzMXxhpaEdyxqpPYxT_m3w" predecessor_AbstractAction="_MiF4gBpcEdyxqpPYxT_m3w"/>
       <steps_Behaviour xsi:type="pcm.seff:InternalAction" id="_LjN1cBpcEdyxqpPYxT_m3w" entityName="addToDB" predecessor_AbstractAction="_BzMXxRpaEdyxqpPYxT_m3w" successor_AbstractAction="_MiF4gBpcEdyxqpPYxT_m3w">
         <resourceDemand_Action specification="10" unit="work units">
-          <requiredResource_ParametricResourceDemand href="Palladio.resourcetype#cpu"/>
+          <requiredResource_ParametricResourceDemand href="Palladio.resourcetype#_3nrZgRwbEdym-derHwSMPw"/>
         </resourceDemand_Action>
       </steps_Behaviour>
       <steps_Behaviour xsi:type="pcm.seff:InternalAction" id="_MiF4gBpcEdyxqpPYxT_m3w" entityName="writeToHD" predecessor_AbstractAction="_LjN1cBpcEdyxqpPYxT_m3w" successor_AbstractAction="_BzMXxhpaEdyxqpPYxT_m3w">
@@ -196,8 +196,8 @@
       <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_A1yUUhpaEdyxqpPYxT_m3w" successor_AbstractAction="_441OYBplEdyxqpPYxT_m3w"/>
       <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_A1yUUxpaEdyxqpPYxT_m3w" predecessor_AbstractAction="_TTcFABwTEdym-derHwSMPw"/>
       <steps_Behaviour xsi:type="pcm.seff:InternalAction" id="_441OYBplEdyxqpPYxT_m3w" entityName="watermark" predecessor_AbstractAction="_A1yUUhpaEdyxqpPYxT_m3w" successor_AbstractAction="_TTcFABwTEdym-derHwSMPw">
-        <resourceDemand_Action specification="25.0 + 15.0 * file.BYTESIZE / 1000.0">
-          <requiredResource_ParametricResourceDemand href="Palladio.resourcetype#cpu"/>
+        <resourceDemand_Action specification="25.0 + 15.0 * file.BYTESIZE / 1000.0" unit="ms on">
+          <requiredResource_ParametricResourceDemand href="Palladio.resourcetype#_3nrZgRwbEdym-derHwSMPw"/>
         </resourceDemand_Action>
       </steps_Behaviour>
       <steps_Behaviour xsi:type="pcm.seff:SetVariableAction" id="_TTcFABwTEdym-derHwSMPw" entityName="return" predecessor_AbstractAction="_441OYBplEdyxqpPYxT_m3w" successor_AbstractAction="_A1yUUxpaEdyxqpPYxT_m3w">
