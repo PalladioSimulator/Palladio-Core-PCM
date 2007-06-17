@@ -25,7 +25,6 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
 
 import de.uka.ipd.sdq.dialogs.dataset.SensorDataSetDialog;
-import de.uka.ipd.sdq.sensorfactory.SensorFrameworkDataset;
 import de.uka.ipd.sdq.sensorfactory.entities.dao.IDAOFactory;
 import de.uka.ipd.sdq.simucomframework.SimuComConfig;
 
@@ -34,6 +33,8 @@ public class SimuComConfigurationTab extends AbstractLaunchConfigurationTab {
 	
 	/** The default value for the 'height' Layout attribute. */
 	private final int LAYOUT_WIDTH = 554;
+	
+	private String nameDAO = "Memory Datasource";
 	
 	private Text nameField;
 	private Text timeField;
@@ -155,16 +156,11 @@ public class SimuComConfigurationTab extends AbstractLaunchConfigurationTab {
 						.getActiveShell());
 				if (dialog.open() == dialog.OK) {
 					IDAOFactory dataSet = (IDAOFactory) dialog.getResult();
-					selectedDataSourceID = (int)dataSet.getID();
+					selectedDataSourceID = (int) dataSet.getID();
 					dataField.setText(dataSet.getName());
-					
-					SimuComConfigurationTab.this.setDirty(true);
-					SimuComConfigurationTab.this.updateLaunchConfigurationDialog();
 				}
 			}
 		});
-
-
 	}
 
 	/* (non-Javadoc)
@@ -191,18 +187,12 @@ public class SimuComConfigurationTab extends AbstractLaunchConfigurationTab {
 		} catch (CoreException e) {
 			timeField.setText("150000");
 		}
-		
+
 		try {
-			int id = configuration.getAttribute(SimuComConfig.DATASOURCE_ID, 0); 
-			this.selectedDataSourceID = id;
-			IDAOFactory f = SensorFrameworkDataset.singleton().getDataSourceByID(
-					id);
-			if (f != null)
-				dataField.setText(f.getName());
-			else
-				dataField.setText("");
+			dataField.setText(configuration.getAttribute(
+					ResourceManagerTab.DATASOURCE_NAME, ""));
 		} catch (CoreException e) {
-			dataField.setText("");
+			dataField.setText(nameDAO);
 		}
 	}
 
@@ -216,6 +206,8 @@ public class SimuComConfigurationTab extends AbstractLaunchConfigurationTab {
 				timeField.getText());
 		configuration.setAttribute(SimuComConfig.DATASOURCE_ID,
 				selectedDataSourceID);
+		configuration.setAttribute(ResourceManagerTab.DATASOURCE_NAME,
+				dataField.getText());
 	}
 
 	/* (non-Javadoc)
@@ -228,6 +220,8 @@ public class SimuComConfigurationTab extends AbstractLaunchConfigurationTab {
 				"150000");
 		configuration.setAttribute(SimuComConfig.DATASOURCE_ID,
 				0);
+		configuration.setAttribute(ResourceManagerTab.DATASOURCE_NAME,
+				nameDAO);
 	}
 
 	/* (non-Javadoc)
