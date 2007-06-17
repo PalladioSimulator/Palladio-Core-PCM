@@ -37,10 +37,6 @@
     <providedRole_CompositeAssemblyConnector href="mediastore.repository#_AXPXIBpaEdyxqpPYxT_m3w"/>
     <requiredRole_CompositeAssemblyConnector href="mediastore.repository#_FVDAEBwqEdyg5YJN38bxwQ"/>
   </compositeAssemblyConnectors_ComposedStructure>
-  <compositeAssemblyConnectors_ComposedStructure id="_5K4zgBwtEdyg5YJN38bxwQ" entityName="Connector Assembly_DBAdapter &lt;DBAdapter> -> Assembly_AudioDB &lt;AudioDB>" requiringChildComponentContext_CompositeAssemblyConnector="_vaX7sBwtEdyg5YJN38bxwQ">
-    <providedRole_CompositeAssemblyConnector href="mediastore.repository#_BzMXwBpaEdyxqpPYxT_m3w"/>
-    <requiredRole_CompositeAssemblyConnector href="mediastore.repository#_Bfq-0BpaEdyxqpPYxT_m3w"/>
-  </compositeAssemblyConnectors_ComposedStructure>
   <compositeAssemblyConnectors_ComposedStructure id="_fEVssBzCEdyKuaYUVWXSJg" entityName="Connector Assembly_DBAdapter &lt;DBAdapter> -> Assembly_EncodedAudioDB &lt;EncodedAudioDB>" requiringChildComponentContext_CompositeAssemblyConnector="_vaX7sBwtEdyg5YJN38bxwQ" providingChildComponentContext_CompositeAssemblyConnector="_d2Z58BzCEdyKuaYUVWXSJg">
     <providedRole_CompositeAssemblyConnector href="mediastore.repository#_PV4egBy8EdyGKfwoWx-omg"/>
     <requiredRole_CompositeAssemblyConnector href="mediastore.repository#_Bfq-0BpaEdyxqpPYxT_m3w"/>

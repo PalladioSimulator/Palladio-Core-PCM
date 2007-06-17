@@ -1,4 +1,4 @@
-#Sun Jun 17 12:19:43 CEST 2007
+#Sun Jun 17 13:30:53 CEST 2007
 eclipse.preferences.version=1
 encoding/AudioDB.getFiles.seff_diagram=UTF-8
 encoding/AudioDB.insertFile.seff_diagram=UTF-8
@@ -8,6 +8,7 @@ encoding/DBCache.addFile.seff_diagram=UTF-8
 encoding/DBCache.queryDB.seff_diagram=UTF-8
 encoding/DigitalWatermarking.watermark.seff_diagram=UTF-8
 encoding/EncodedAudioDB.getFiles.seff_diagram=UTF-8
+encoding/EncodedAudioDB.insertFile.seff_diagram=UTF-8
 encoding/Encoding.encode.seff_diagram=UTF-8
 encoding/EncodingMediaStore.download.seff_diagram=UTF-8
 encoding/EncodingMediaStore.upload.seff_diagram=UTF-8

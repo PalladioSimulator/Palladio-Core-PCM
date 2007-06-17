@@ -476,7 +476,7 @@
       </steps_Behaviour>
       <steps_Behaviour xsi:type="pcm.seff:SetVariableAction" id="_w4r5EBy3EdyK8tsgv3Eumw" entityName="return.inner" predecessor_AbstractAction="_k2cPMBy3EdyK8tsgv3Eumw" successor_AbstractAction="_0s6YoBy3EdyK8tsgv3Eumw">
         <variableUsage_SetVariableAction>
-          <variableCharacterisation_VariableUsage specification="3.5 + 42 * DoublePDF[ (0.5; 0.00000000) (1.0; 0.05100000) (2.0; 0.13400000) (3.0; 0.19300000) (4.0; 0.21200000) (5.0; 0.22400000) (6.0; 0.18600000) ]" type="BYTESIZE"/>
+          <variableCharacterisation_VariableUsage specification="DoublePDF[ (0.5; 0.00000000) (1.0; 0.05100000) (2.0; 0.13400000) (3.0; 0.19300000) (4.0; 0.21200000) (5.0; 0.22400000) (6.0; 0.18600000) ] * 1000 * 1000" type="BYTESIZE"/>
           <namedReference_VariableUsage xsi:type="stoex:NamespaceReference" referenceName="RETURN">
             <innerReference_NamespaceReference xsi:type="stoex:VariableReference" referenceName="INNER"/>
           </namedReference_VariableUsage>
@@ -547,8 +547,16 @@
       </steps_Behaviour>
     </serviceEffectSpecifications__BasicComponent>
     <serviceEffectSpecifications__BasicComponent xsi:type="pcm.seff:ResourceDemandingSEFF" id="_PV4ehBy8EdyGKfwoWx-omg" describedService__SEFF="//@interfaces__Repository.4/@signatures__Interface.1">
-      <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_PV4ehRy8EdyGKfwoWx-omg" successor_AbstractAction="_PV4ehhy8EdyGKfwoWx-omg"/>
-      <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_PV4ehhy8EdyGKfwoWx-omg" predecessor_AbstractAction="_PV4ehRy8EdyGKfwoWx-omg"/>
+      <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_PV4ehRy8EdyGKfwoWx-omg" successor_AbstractAction="_OKyY0BzGEdy8rZewQ6MIbw"/>
+      <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_PV4ehhy8EdyGKfwoWx-omg" predecessor_AbstractAction="_OKyY0BzGEdy8rZewQ6MIbw"/>
+      <steps_Behaviour xsi:type="pcm.seff:InternalAction" id="_OKyY0BzGEdy8rZewQ6MIbw" entityName="insertFile" predecessor_AbstractAction="_PV4ehRy8EdyGKfwoWx-omg" successor_AbstractAction="_PV4ehhy8EdyGKfwoWx-omg">
+        <resourceDemand_Action specification="10" unit="wu">
+          <requiredResource_ParametricResourceDemand href="Palladio.resourcetype#_3nrZgRwbEdym-derHwSMPw"/>
+        </resourceDemand_Action>
+        <resourceDemand_Action specification="3.5 + 42.0 * file.BYTESIZE / 1000.0" unit="ms on">
+          <requiredResource_ParametricResourceDemand href="Palladio.resourcetype#_BIjHoQ3KEdyouMqirZIhzQ"/>
+        </resourceDemand_Action>
+      </steps_Behaviour>
     </serviceEffectSpecifications__BasicComponent>
   </components__Repository>
   <interfaces__Repository id="_wflM0BpXEdyxqpPYxT_m3w" entityName="IHTTP">

@@ -5,27 +5,41 @@
       <thinkTime_ClosedWorkload specification="0"/>
     </workload_UsageScenario>
     <scenarioBehaviour_UsageScenario id="_D2QKARwuEdyg5YJN38bxwQ">
-      <actions_ScenarioBehaviour xsi:type="pcm.usagemodel:Start" id="_D2QKAhwuEdyg5YJN38bxwQ" successor="_OGWg0BwuEdyg5YJN38bxwQ"/>
-      <actions_ScenarioBehaviour xsi:type="pcm.usagemodel:Stop" id="_D2QKAxwuEdyg5YJN38bxwQ" predecessor="_P-mb4BwuEdyg5YJN38bxwQ"/>
-      <actions_ScenarioBehaviour xsi:type="pcm.usagemodel:EntryLevelSystemCall" id="_P-mb4BwuEdyg5YJN38bxwQ" successor="_D2QKAxwuEdyg5YJN38bxwQ" predecessor="_OGWg0BwuEdyg5YJN38bxwQ">
-        <actualParameterUsage_EntryLevelSystemCall>
-          <variableCharacterisation_VariableUsage specification="IntPMF[ (2;0.2) (5;0.2) (8;0.3) (11;0.3) ]" type="NUMBER_OF_ELEMENTS"/>
-          <namedReference_VariableUsage xsi:type="stoex:NamespaceReference" referenceName="request">
-            <innerReference_NamespaceReference xsi:type="stoex:VariableReference" referenceName="requestedFiles"/>
-          </namedReference_VariableUsage>
-        </actualParameterUsage_EntryLevelSystemCall>
-        <providedRole_EntryLevelSystemCall href="mediastore-EA-2.system#_y1RVQBwtEdyg5YJN38bxwQ"/>
-        <signature_EntryLevelSystemCall href="mediastore.repository#//@interfaces__Repository.0/@signatures__Interface.0"/>
-      </actions_ScenarioBehaviour>
-      <actions_ScenarioBehaviour xsi:type="pcm.usagemodel:EntryLevelSystemCall" id="_OGWg0BwuEdyg5YJN38bxwQ" successor="_P-mb4BwuEdyg5YJN38bxwQ" predecessor="_D2QKAhwuEdyg5YJN38bxwQ">
-        <actualParameterUsage_EntryLevelSystemCall>
-          <variableCharacterisation_VariableUsage specification="DoublePDF[ (0.5; 0.00000000) (1.0; 0.05100000) (2.0; 0.13400000) (3.0; 0.19300000) (4.0; 0.21200000) (5.0; 0.22400000) (6.0; 0.18600000) ]" type="BYTESIZE"/>
-          <variableCharacterisation_VariableUsage specification="IntPMF[ (192;0.8) (1411;0.2) ]"/>
-          <variableCharacterisation_VariableUsage specification="EnumPMF[ (&quot;variable&quot;;0.7) (&quot;constant&quot;;0.3) ]" type="TYPE"/>
-          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="file"/>
-        </actualParameterUsage_EntryLevelSystemCall>
-        <providedRole_EntryLevelSystemCall href="mediastore-EA-2.system#_y1RVQBwtEdyg5YJN38bxwQ"/>
-        <signature_EntryLevelSystemCall href="mediastore.repository#//@interfaces__Repository.0/@signatures__Interface.1"/>
+      <actions_ScenarioBehaviour xsi:type="pcm.usagemodel:Start" id="_D2QKAhwuEdyg5YJN38bxwQ" successor="_zjJL0BzFEdy8rZewQ6MIbw"/>
+      <actions_ScenarioBehaviour xsi:type="pcm.usagemodel:Stop" id="_D2QKAxwuEdyg5YJN38bxwQ" predecessor="_zjJL0BzFEdy8rZewQ6MIbw"/>
+      <actions_ScenarioBehaviour xsi:type="pcm.usagemodel:Branch" id="_zjJL0BzFEdy8rZewQ6MIbw" successor="_D2QKAxwuEdyg5YJN38bxwQ" predecessor="_D2QKAhwuEdyg5YJN38bxwQ">
+        <branchTransitions_Branch>
+          <branchedBehaviour_BranchTransition id="_00gGABzFEdy8rZewQ6MIbw">
+            <actions_ScenarioBehaviour xsi:type="pcm.usagemodel:Start" id="_00gGARzFEdy8rZewQ6MIbw" successor="_P-mb4BwuEdyg5YJN38bxwQ"/>
+            <actions_ScenarioBehaviour xsi:type="pcm.usagemodel:Stop" id="_00gGAhzFEdy8rZewQ6MIbw" predecessor="_P-mb4BwuEdyg5YJN38bxwQ"/>
+            <actions_ScenarioBehaviour xsi:type="pcm.usagemodel:EntryLevelSystemCall" id="_P-mb4BwuEdyg5YJN38bxwQ" successor="_00gGAhzFEdy8rZewQ6MIbw" predecessor="_00gGARzFEdy8rZewQ6MIbw">
+              <actualParameterUsage_EntryLevelSystemCall>
+                <variableCharacterisation_VariableUsage specification="IntPMF[ (2;0.2) (5;0.2) (8;0.3) (11;0.3) ]" type="NUMBER_OF_ELEMENTS"/>
+                <namedReference_VariableUsage xsi:type="stoex:NamespaceReference" referenceName="request">
+                  <innerReference_NamespaceReference xsi:type="stoex:VariableReference" referenceName="requestedFiles"/>
+                </namedReference_VariableUsage>
+              </actualParameterUsage_EntryLevelSystemCall>
+              <providedRole_EntryLevelSystemCall href="mediastore-EA-2.system#_y1RVQBwtEdyg5YJN38bxwQ"/>
+              <signature_EntryLevelSystemCall href="mediastore.repository#//@interfaces__Repository.0/@signatures__Interface.0"/>
+            </actions_ScenarioBehaviour>
+          </branchedBehaviour_BranchTransition>
+        </branchTransitions_Branch>
+        <branchTransitions_Branch branchProbability="1.0">
+          <branchedBehaviour_BranchTransition id="_40WmwBzFEdy8rZewQ6MIbw">
+            <actions_ScenarioBehaviour xsi:type="pcm.usagemodel:Start" id="_40WmwRzFEdy8rZewQ6MIbw" successor="_OGWg0BwuEdyg5YJN38bxwQ"/>
+            <actions_ScenarioBehaviour xsi:type="pcm.usagemodel:Stop" id="_40WmwhzFEdy8rZewQ6MIbw" predecessor="_OGWg0BwuEdyg5YJN38bxwQ"/>
+            <actions_ScenarioBehaviour xsi:type="pcm.usagemodel:EntryLevelSystemCall" id="_OGWg0BwuEdyg5YJN38bxwQ" successor="_40WmwhzFEdy8rZewQ6MIbw" predecessor="_40WmwRzFEdy8rZewQ6MIbw">
+              <actualParameterUsage_EntryLevelSystemCall>
+                <variableCharacterisation_VariableUsage specification="DoublePDF[ (0.5; 0.00000000) (1.0; 0.05100000) (2.0; 0.13400000) (3.0; 0.19300000) (4.0; 0.21200000) (5.0; 0.22400000) (6.0; 0.18600000) ]" type="BYTESIZE"/>
+                <variableCharacterisation_VariableUsage specification="IntPMF[ (192;0.8) (1411;0.2) ]"/>
+                <variableCharacterisation_VariableUsage specification="EnumPMF[ (&quot;variable&quot;;0.7) (&quot;constant&quot;;0.3) ]" type="TYPE"/>
+                <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="file"/>
+              </actualParameterUsage_EntryLevelSystemCall>
+              <providedRole_EntryLevelSystemCall href="mediastore-EA-2.system#_y1RVQBwtEdyg5YJN38bxwQ"/>
+              <signature_EntryLevelSystemCall href="mediastore.repository#//@interfaces__Repository.0/@signatures__Interface.1"/>
+            </actions_ScenarioBehaviour>
+          </branchedBehaviour_BranchTransition>
+        </branchTransitions_Branch>
       </actions_ScenarioBehaviour>
     </scenarioBehaviour_UsageScenario>
   </usageScenario_UsageModel>
