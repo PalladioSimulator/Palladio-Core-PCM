@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<pcm.system:System xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:pcm.system="http://sdq.ipd.uka.de/PalladioComponentModel/System/1.0" id="_p1fW0BwtEdyg5YJN38bxwQ" entityName="mediastoreSystemEA2">
+<pcm.system:System xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:pcm.system="http://sdq.ipd.uka.de/PalladioComponentModel/System/1.0" id="_p1fW0BwtEdyg5YJN38bxwQ" entityName="mediastoreSystem">
   <childComponentContexts_ComposedStructure id="_rgCNEBwtEdyg5YJN38bxwQ" entityName="Assembly_WebGUI &lt;WebGUI>">
     <encapsulatedComponent_ChildComponentContext href="mediastore.repository#_q5WkIBpXEdyxqpPYxT_m3w"/>
   </childComponentContexts_ComposedStructure>

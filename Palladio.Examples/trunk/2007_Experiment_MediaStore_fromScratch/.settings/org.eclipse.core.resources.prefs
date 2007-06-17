@@ -1,4 +1,4 @@
-#Sun Jun 17 13:30:53 CEST 2007
+#Sun Jun 17 17:55:41 CEST 2007
 eclipse.preferences.version=1
 encoding/AudioDB.getFiles.seff_diagram=UTF-8
 encoding/AudioDB.insertFile.seff_diagram=UTF-8
@@ -21,18 +21,12 @@ encoding/WebGUI.HTTPRequestUpload.seff_diagram=UTF-8
 encoding/mediastore-EA-1.allocation=UTF-8
 encoding/mediastore-EA-1.allocation_diagram=UTF-8
 encoding/mediastore-EA-1.composite_diagram=UTF-8
-encoding/mediastore-EA-1.usagemodel=UTF-8
-encoding/mediastore-EA-1.usagemodel_diagram=UTF-8
 encoding/mediastore-EA-2.allocation=UTF-8
 encoding/mediastore-EA-2.allocation_diagram=UTF-8
 encoding/mediastore-EA-2.composite_diagram=UTF-8
-encoding/mediastore-EA-2.usagemodel=UTF-8
-encoding/mediastore-EA-2.usagemodel_diagram=UTF-8
 encoding/mediastore-EA-3.allocation=UTF-8
 encoding/mediastore-EA-3.allocation_diagram=UTF-8
 encoding/mediastore-EA-3.composite_diagram=UTF-8
-encoding/mediastore-EA-3.usagemodel=UTF-8
-encoding/mediastore-EA-3.usagemodel_diagram=UTF-8
 encoding/mediastore-EA-4.allocation=UTF-8
 encoding/mediastore-EA-4.allocation_diagram=UTF-8
 encoding/mediastore.allocation=UTF-8
