@@ -447,6 +447,96 @@
       </steps_Behaviour>
     </serviceEffectSpecifications__BasicComponent>
   </components__Repository>
+  <components__Repository xsi:type="pcm.repository:BasicComponent" id="_L1wY8By3EdyK8tsgv3Eumw" entityName="PoolingAudioDB">
+    <providedRoles_InterfaceProvidingEntity id="_M5tJQBy3EdyK8tsgv3Eumw" entityName="Provided_IFileDB_PoolingAudioDB" providedInterface__ProvidedRole="_zzB6kBpXEdyxqpPYxT_m3w"/>
+    <serviceEffectSpecifications__BasicComponent xsi:type="pcm.seff:ResourceDemandingSEFF" id="_M5tJQRy3EdyK8tsgv3Eumw" describedService__SEFF="//@interfaces__Repository.4/@signatures__Interface.0">
+      <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_M5tJQhy3EdyK8tsgv3Eumw" successor_AbstractAction="_k2cPMBy3EdyK8tsgv3Eumw"/>
+      <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_M5tJQxy3EdyK8tsgv3Eumw" predecessor_AbstractAction="_0s6YoBy3EdyK8tsgv3Eumw"/>
+      <steps_Behaviour xsi:type="pcm.seff:CollectionIteratorAction" id="_k2cPMBy3EdyK8tsgv3Eumw" predecessor_AbstractAction="_M5tJQhy3EdyK8tsgv3Eumw" successor_AbstractAction="_w4r5EBy3EdyK8tsgv3Eumw" parameter_CollectionIteratorAction="//@interfaces__Repository.4/@signatures__Interface.0/@parameters__Signature.0">
+        <bodyBehaviour_Loop>
+          <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_lGO-sBy3EdyK8tsgv3Eumw" successor_AbstractAction="_dugGsBy4EdyK8tsgv3Eumw"/>
+          <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_lGO-sRy3EdyK8tsgv3Eumw" predecessor_AbstractAction="_pDQ08By3EdyK8tsgv3Eumw"/>
+          <steps_Behaviour xsi:type="pcm.seff:InternalAction" id="_lozgQBy3EdyK8tsgv3Eumw" entityName="selectFiles" predecessor_AbstractAction="_dugGsBy4EdyK8tsgv3Eumw" successor_AbstractAction="_hlaG0By4EdyK8tsgv3Eumw">
+            <resourceDemand_Action specification="10" unit="ms on">
+              <requiredResource_ParametricResourceDemand href="Palladio.resourcetype#_3nrZgRwbEdym-derHwSMPw"/>
+            </resourceDemand_Action>
+          </steps_Behaviour>
+          <steps_Behaviour xsi:type="pcm.seff:InternalAction" id="_pDQ08By3EdyK8tsgv3Eumw" entityName="getFromDisk" predecessor_AbstractAction="_hlaG0By4EdyK8tsgv3Eumw" successor_AbstractAction="_lGO-sRy3EdyK8tsgv3Eumw">
+            <resourceDemand_Action specification="3.5 + 42 * DoublePDF[ (0.5; 0.00000000) (1.0; 0.05100000) (2.0; 0.13400000) (3.0; 0.19300000) (4.0; 0.21200000) (5.0; 0.22400000) (6.0; 0.18600000) ]">
+              <requiredResource_ParametricResourceDemand href="Palladio.resourcetype#_BIjHoQ3KEdyouMqirZIhzQ"/>
+            </resourceDemand_Action>
+          </steps_Behaviour>
+          <steps_Behaviour xsi:type="pcm.seff:AquireAction" id="_dugGsBy4EdyK8tsgv3Eumw" entityName="acquireDBConnection" predecessor_AbstractAction="_lGO-sBy3EdyK8tsgv3Eumw" successor_AbstractAction="_lozgQBy3EdyK8tsgv3Eumw">
+            <resourceType_Aquire href="Palladio.resourcetype#_Y-hnMBfvEdyKnt4q4db7iw"/>
+          </steps_Behaviour>
+          <steps_Behaviour xsi:type="pcm.seff:ReleaseAction" id="_hlaG0By4EdyK8tsgv3Eumw" entityName="releaseDBConn" predecessor_AbstractAction="_lozgQBy3EdyK8tsgv3Eumw" successor_AbstractAction="_pDQ08By3EdyK8tsgv3Eumw">
+            <resourceType_Release href="Palladio.resourcetype#_Y-hnMBfvEdyKnt4q4db7iw"/>
+          </steps_Behaviour>
+        </bodyBehaviour_Loop>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="pcm.seff:SetVariableAction" id="_w4r5EBy3EdyK8tsgv3Eumw" entityName="return.inner" predecessor_AbstractAction="_k2cPMBy3EdyK8tsgv3Eumw" successor_AbstractAction="_0s6YoBy3EdyK8tsgv3Eumw">
+        <variableUsage_SetVariableAction>
+          <variableCharacterisation_VariableUsage specification="3.5 + 42 * DoublePDF[ (0.5; 0.00000000) (1.0; 0.05100000) (2.0; 0.13400000) (3.0; 0.19300000) (4.0; 0.21200000) (5.0; 0.22400000) (6.0; 0.18600000) ]" type="BYTESIZE"/>
+          <namedReference_VariableUsage xsi:type="stoex:NamespaceReference" referenceName="RETURN">
+            <innerReference_NamespaceReference xsi:type="stoex:VariableReference" referenceName="INNER"/>
+          </namedReference_VariableUsage>
+        </variableUsage_SetVariableAction>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="pcm.seff:SetVariableAction" id="_0s6YoBy3EdyK8tsgv3Eumw" entityName="numberOfReturns" predecessor_AbstractAction="_w4r5EBy3EdyK8tsgv3Eumw" successor_AbstractAction="_M5tJQxy3EdyK8tsgv3Eumw">
+        <variableUsage_SetVariableAction>
+          <variableCharacterisation_VariableUsage specification="ids.NUMBER_OF_ELEMENTS" type="NUMBER_OF_ELEMENTS"/>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="RETURN"/>
+        </variableUsage_SetVariableAction>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="pcm.seff:ResourceDemandingSEFF" id="_M5tJRBy3EdyK8tsgv3Eumw" describedService__SEFF="//@interfaces__Repository.4/@signatures__Interface.1">
+      <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_M5tJRRy3EdyK8tsgv3Eumw" successor_AbstractAction="_ZSoYUBy4EdyK8tsgv3Eumw"/>
+      <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_M5tJRhy3EdyK8tsgv3Eumw" predecessor_AbstractAction="_Gp7-4By4EdyK8tsgv3Eumw"/>
+      <steps_Behaviour xsi:type="pcm.seff:InternalAction" id="_D8pSMBy4EdyK8tsgv3Eumw" entityName="insert" predecessor_AbstractAction="_ZSoYUBy4EdyK8tsgv3Eumw" successor_AbstractAction="_aWu5oBy4EdyK8tsgv3Eumw">
+        <resourceDemand_Action specification="5" unit="ms on">
+          <requiredResource_ParametricResourceDemand href="Palladio.resourcetype#_3nrZgRwbEdym-derHwSMPw"/>
+        </resourceDemand_Action>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="pcm.seff:InternalAction" id="_Gp7-4By4EdyK8tsgv3Eumw" entityName="write" predecessor_AbstractAction="_aWu5oBy4EdyK8tsgv3Eumw" successor_AbstractAction="_M5tJRhy3EdyK8tsgv3Eumw">
+        <resourceDemand_Action specification="3.5 + 42 * DoublePDF[ (0.5; 0.00000000) (1.0; 0.05100000) (2.0; 0.13400000) (3.0; 0.19300000) (4.0; 0.21200000) (5.0; 0.22400000) (6.0; 0.18600000) ]">
+          <requiredResource_ParametricResourceDemand href="Palladio.resourcetype#_BIjHoQ3KEdyouMqirZIhzQ"/>
+        </resourceDemand_Action>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="pcm.seff:AquireAction" id="_ZSoYUBy4EdyK8tsgv3Eumw" entityName="acquDBConn" predecessor_AbstractAction="_M5tJRRy3EdyK8tsgv3Eumw" successor_AbstractAction="_D8pSMBy4EdyK8tsgv3Eumw">
+        <resourceType_Aquire href="Palladio.resourcetype#_Y-hnMBfvEdyKnt4q4db7iw"/>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="pcm.seff:ReleaseAction" id="_aWu5oBy4EdyK8tsgv3Eumw" entityName="ReleaseDBConn" predecessor_AbstractAction="_D8pSMBy4EdyK8tsgv3Eumw" successor_AbstractAction="_Gp7-4By4EdyK8tsgv3Eumw">
+        <resourceType_Release href="Palladio.resourcetype#_Y-hnMBfvEdyKnt4q4db7iw"/>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+  </components__Repository>
+  <components__Repository xsi:type="pcm.repository:BasicComponent" id="_OMHaEBy8EdyGKfwoWx-omg" entityName="EncodedAudioDB">
+    <providedRoles_InterfaceProvidingEntity id="_PV4egBy8EdyGKfwoWx-omg" entityName="Provided_IFileDB_EncodedAudioDB" providedInterface__ProvidedRole="_zzB6kBpXEdyxqpPYxT_m3w"/>
+    <serviceEffectSpecifications__BasicComponent xsi:type="pcm.seff:ResourceDemandingSEFF" id="_PV4egRy8EdyGKfwoWx-omg" describedService__SEFF="//@interfaces__Repository.4/@signatures__Interface.0">
+      <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_PV4eghy8EdyGKfwoWx-omg"/>
+      <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_PV4egxy8EdyGKfwoWx-omg"/>
+      <steps_Behaviour xsi:type="pcm.seff:CollectionIteratorAction" id="_UUK9cBy8EdyGKfwoWx-omg" parameter_CollectionIteratorAction="//@interfaces__Repository.4/@signatures__Interface.0/@parameters__Signature.0">
+        <bodyBehaviour_Loop>
+          <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_UjqyABy8EdyGKfwoWx-omg"/>
+          <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_UjqyARy8EdyGKfwoWx-omg"/>
+          <steps_Behaviour xsi:type="pcm.seff:InternalAction" id="_VDs88By8EdyGKfwoWx-omg" entityName="getFilename">
+            <resourceDemand_Action specification="30" unit="ms on">
+              <requiredResource_ParametricResourceDemand href="Palladio.resourcetype#_3nrZgRwbEdym-derHwSMPw"/>
+            </resourceDemand_Action>
+          </steps_Behaviour>
+          <steps_Behaviour xsi:type="pcm.seff:InternalAction" id="_ZFWNcBy8EdyGKfwoWx-omg" entityName="loadFromDisk">
+            <resourceDemand_Action unit="ms on">
+              <requiredResource_ParametricResourceDemand href="Palladio.resourcetype#_BIjHoQ3KEdyouMqirZIhzQ"/>
+            </resourceDemand_Action>
+          </steps_Behaviour>
+        </bodyBehaviour_Loop>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="pcm.seff:ResourceDemandingSEFF" id="_PV4ehBy8EdyGKfwoWx-omg" describedService__SEFF="//@interfaces__Repository.4/@signatures__Interface.1">
+      <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_PV4ehRy8EdyGKfwoWx-omg" successor_AbstractAction="_PV4ehhy8EdyGKfwoWx-omg"/>
+      <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_PV4ehhy8EdyGKfwoWx-omg" predecessor_AbstractAction="_PV4ehRy8EdyGKfwoWx-omg"/>
+    </serviceEffectSpecifications__BasicComponent>
+  </components__Repository>
   <interfaces__Repository id="_wflM0BpXEdyxqpPYxT_m3w" entityName="IHTTP">
     <signatures__Interface serviceName="HTTPRequestDownload" returntype__Signature="_LirKRRpZEdyxqpPYxT_m3w">
       <parameters__Signature datatype__Parameter="_z9IcVhpYEdyxqpPYxT_m3w" parameterName="request"/>

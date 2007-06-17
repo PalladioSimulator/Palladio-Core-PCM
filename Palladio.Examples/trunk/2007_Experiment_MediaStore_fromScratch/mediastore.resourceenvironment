@@ -7,5 +7,8 @@
     <activeResourceSpecifications_ResourceContainer schedulingPolicy="PROCESSOR_SHARING" processingRate="1000.0" units="milliseconds on">
       <activeResourceType_ActiveResourceSpecification href="Palladio.resourcetype#_3nrZgRwbEdym-derHwSMPw"/>
     </activeResourceSpecifications_ResourceContainer>
+    <passiveResourceSpecifications_ResourceContainer capacity="5">
+      <passiveResourceType_PassiveResourceSpecification href="Palladio.resourcetype#_Y-hnMBfvEdyKnt4q4db7iw"/>
+    </passiveResourceSpecifications_ResourceContainer>
   </resourceContainer_ResourceEnvironment>
 </pcm.resourceenvironment:ResourceEnvironment>
