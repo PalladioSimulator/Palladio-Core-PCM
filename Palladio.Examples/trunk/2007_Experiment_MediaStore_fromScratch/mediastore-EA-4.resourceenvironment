@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pcm.resourceenvironment:ResourceEnvironment xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:pcm.resourceenvironment="http://sdq.ipd.uka.de/PalladioComponentModel/ResourceEnvironment/1.0">
+  <linkingresource id="_s3SY0By6EdyK8tsgv3Eumw" entityName="localLAN" toResourceContainer_LinkingResource="_kuCZwRy6EdyK8tsgv3Eumw" fromResourceContainer_LinkingResource="_bh5aURy6EdyK8tsgv3Eumw">
+    <communicationLinkResourceSpecifications_LinkingResource throughput="1.25E8" units="byte per second">
+      <communicationLinkResourceType_CommunicationLinkResourceSpecification href="Palladio.resourcetype#_5Jd8Ihy6EdyK8tsgv3Eumw"/>
+    </communicationLinkResourceSpecifications_LinkingResource>
+  </linkingresource>
+  <resourceContainer_ResourceEnvironment id="_bh5aURy6EdyK8tsgv3Eumw" entityName="AppServer">
+    <activeResourceSpecifications_ResourceContainer schedulingPolicy="PROCESSOR_SHARING" processingRate="1000.0" units="ms on">
+      <activeResourceType_ActiveResourceSpecification href="Palladio.resourcetype#_3nrZgRwbEdym-derHwSMPw"/>
+    </activeResourceSpecifications_ResourceContainer>
+    <activeResourceSpecifications_ResourceContainer schedulingPolicy="PROCESSOR_SHARING" processingRate="1000.0" units="ms on">
+      <activeResourceType_ActiveResourceSpecification href="Palladio.resourcetype#_BIjHoQ3KEdyouMqirZIhzQ"/>
+    </activeResourceSpecifications_ResourceContainer>
+    <passiveResourceSpecifications_ResourceContainer capacity="5">
+      <passiveResourceType_PassiveResourceSpecification href="Palladio.resourcetype#_Y-hnMBfvEdyKnt4q4db7iw"/>
+    </passiveResourceSpecifications_ResourceContainer>
+  </resourceContainer_ResourceEnvironment>
+  <resourceContainer_ResourceEnvironment id="_kuCZwRy6EdyK8tsgv3Eumw" entityName="DBServer">
+    <activeResourceSpecifications_ResourceContainer schedulingPolicy="PROCESSOR_SHARING" processingRate="1000.0" units="ms on">
+      <activeResourceType_ActiveResourceSpecification href="Palladio.resourcetype#_3nrZgRwbEdym-derHwSMPw"/>
+    </activeResourceSpecifications_ResourceContainer>
+    <activeResourceSpecifications_ResourceContainer schedulingPolicy="PROCESSOR_SHARING" processingRate="1000.0" units="ms on">
+      <activeResourceType_ActiveResourceSpecification href="Palladio.resourcetype#_BIjHoQ3KEdyouMqirZIhzQ"/>
+    </activeResourceSpecifications_ResourceContainer>
+    <passiveResourceSpecifications_ResourceContainer capacity="5">
+      <passiveResourceType_PassiveResourceSpecification href="Palladio.resourcetype#_Y-hnMBfvEdyKnt4q4db7iw"/>
+    </passiveResourceSpecifications_ResourceContainer>
+  </resourceContainer_ResourceEnvironment>
+</pcm.resourceenvironment:ResourceEnvironment>

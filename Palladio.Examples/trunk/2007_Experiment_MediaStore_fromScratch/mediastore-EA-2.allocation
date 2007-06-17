@@ -16,13 +16,13 @@
     <resourceContainer_AllocationContext href="mediastore.resourceenvironment#_5uTBUBpmEdyxqpPYxT_m3w"/>
     <assemblyContext_AllocationContext href="mediastore-EA-2.system#_vaX7sBwtEdyg5YJN38bxwQ"/>
   </allocationContexts_Allocation>
-  <allocationContexts_Allocation id="_AeVL8BwuEdyg5YJN38bxwQ" entityName="Allocation_Assembly_AudioDB &lt;AudioDB> &lt;AudioDB>">
-    <resourceContainer_AllocationContext href="mediastore.resourceenvironment#_5uTBUBpmEdyxqpPYxT_m3w"/>
-    <assemblyContext_AllocationContext href="mediastore-EA-2.system#_whc4gBwtEdyg5YJN38bxwQ"/>
-  </allocationContexts_Allocation>
   <allocationContexts_Allocation id="_BU3yYBwuEdyg5YJN38bxwQ" entityName="Allocation_Assembly_DigitalWatermarking &lt;DigitalWatermarking> &lt;DigitalWatermarking>">
     <resourceContainer_AllocationContext href="mediastore.resourceenvironment#_5uTBUBpmEdyxqpPYxT_m3w"/>
     <assemblyContext_AllocationContext href="mediastore-EA-2.system#_xqngABwtEdyg5YJN38bxwQ"/>
+  </allocationContexts_Allocation>
+  <allocationContexts_Allocation id="_gcQh4BzCEdyKuaYUVWXSJg" entityName="Allocation_Assembly_EncodedAudioDB &lt;EncodedAudioDB> &lt;EncodedAudioDB>">
+    <resourceContainer_AllocationContext href="mediastore.resourceenvironment#_5uTBUBpmEdyxqpPYxT_m3w"/>
+    <assemblyContext_AllocationContext href="mediastore-EA-2.system#_d2Z58BzCEdyKuaYUVWXSJg"/>
   </allocationContexts_Allocation>
   <targetResourceEnvironment_Allocation href="mediastore.resourceenvironment#/"/>
   <system_Allocation href="mediastore-EA-2.system#_p1fW0BwtEdyg5YJN38bxwQ"/>

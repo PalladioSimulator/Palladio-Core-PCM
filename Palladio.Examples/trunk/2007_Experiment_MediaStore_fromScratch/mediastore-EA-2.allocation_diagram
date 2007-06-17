@@ -43,16 +43,6 @@
         <element xmi:type="pcm.allocation:AllocationContext" href="mediastore-EA-2.allocation#_ACBDYBwuEdyg5YJN38bxwQ"/>
         <layoutConstraint xmi:type="notation:Bounds" xmi:id="_AUWJhRwuEdyg5YJN38bxwQ" x="138" y="307"/>
       </children>
-      <children xmi:type="notation:Node" xmi:id="_BGafoBwuEdyg5YJN38bxwQ" type="3001">
-        <children xmi:type="notation:Node" xmi:id="_BGafphwuEdyg5YJN38bxwQ" type="5001"/>
-        <children xmi:type="notation:Node" xmi:id="_BGafpxwuEdyg5YJN38bxwQ" type="5005"/>
-        <styles xmi:type="notation:FontStyle" xmi:id="_BGafoRwuEdyg5YJN38bxwQ"/>
-        <styles xmi:type="notation:DescriptionStyle" xmi:id="_BGafohwuEdyg5YJN38bxwQ"/>
-        <styles xmi:type="notation:FillStyle" xmi:id="_BGafoxwuEdyg5YJN38bxwQ"/>
-        <styles xmi:type="notation:LineStyle" xmi:id="_BGafpBwuEdyg5YJN38bxwQ"/>
-        <element xmi:type="pcm.allocation:AllocationContext" href="mediastore-EA-2.allocation#_AeVL8BwuEdyg5YJN38bxwQ"/>
-        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_BGafpRwuEdyg5YJN38bxwQ" x="243" y="397"/>
-      </children>
       <children xmi:type="notation:Node" xmi:id="_Bkqh4BwuEdyg5YJN38bxwQ" type="3001">
         <children xmi:type="notation:Node" xmi:id="_Bkqh5hwuEdyg5YJN38bxwQ" type="5001"/>
         <children xmi:type="notation:Node" xmi:id="_Bkqh5xwuEdyg5YJN38bxwQ" type="5005"/>
@@ -62,6 +52,16 @@
         <styles xmi:type="notation:LineStyle" xmi:id="_Bkqh5BwuEdyg5YJN38bxwQ"/>
         <element xmi:type="pcm.allocation:AllocationContext" href="mediastore-EA-2.allocation#_BU3yYBwuEdyg5YJN38bxwQ"/>
         <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Bkqh5RwuEdyg5YJN38bxwQ" x="173" y="480"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_gzD4UBzCEdyKuaYUVWXSJg" type="3001">
+        <children xmi:type="notation:Node" xmi:id="_gzD4VhzCEdyKuaYUVWXSJg" type="5001"/>
+        <children xmi:type="notation:Node" xmi:id="_gzD4VxzCEdyKuaYUVWXSJg" type="5005"/>
+        <styles xmi:type="notation:FontStyle" xmi:id="_gzD4URzCEdyKuaYUVWXSJg"/>
+        <styles xmi:type="notation:DescriptionStyle" xmi:id="_gzD4UhzCEdyKuaYUVWXSJg"/>
+        <styles xmi:type="notation:FillStyle" xmi:id="_gzD4UxzCEdyKuaYUVWXSJg"/>
+        <styles xmi:type="notation:LineStyle" xmi:id="_gzD4VBzCEdyKuaYUVWXSJg"/>
+        <element xmi:type="pcm.allocation:AllocationContext" href="mediastore-EA-2.allocation#_gcQh4BzCEdyKuaYUVWXSJg"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_gzD4VRzCEdyKuaYUVWXSJg" x="181" y="395"/>
       </children>
       <styles xmi:type="notation:SortingStyle" xmi:id="_-A-YuBwtEdyg5YJN38bxwQ"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_-A-YuRwtEdyg5YJN38bxwQ"/>
