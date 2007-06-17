@@ -53,15 +53,15 @@
         <element xmi:type="pcm.allocation:AllocationContext" href="mediastore-EA-2.allocation#_BU3yYBwuEdyg5YJN38bxwQ"/>
         <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Bkqh5RwuEdyg5YJN38bxwQ" x="173" y="480"/>
       </children>
-      <children xmi:type="notation:Node" xmi:id="_gzD4UBzCEdyKuaYUVWXSJg" type="3001">
-        <children xmi:type="notation:Node" xmi:id="_gzD4VhzCEdyKuaYUVWXSJg" type="5001"/>
-        <children xmi:type="notation:Node" xmi:id="_gzD4VxzCEdyKuaYUVWXSJg" type="5005"/>
-        <styles xmi:type="notation:FontStyle" xmi:id="_gzD4URzCEdyKuaYUVWXSJg"/>
-        <styles xmi:type="notation:DescriptionStyle" xmi:id="_gzD4UhzCEdyKuaYUVWXSJg"/>
-        <styles xmi:type="notation:FillStyle" xmi:id="_gzD4UxzCEdyKuaYUVWXSJg"/>
-        <styles xmi:type="notation:LineStyle" xmi:id="_gzD4VBzCEdyKuaYUVWXSJg"/>
-        <element xmi:type="pcm.allocation:AllocationContext" href="mediastore-EA-2.allocation#_gcQh4BzCEdyKuaYUVWXSJg"/>
-        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_gzD4VRzCEdyKuaYUVWXSJg" x="181" y="395"/>
+      <children xmi:type="notation:Node" xmi:id="_s2y0gB0FEdyNZPVRmORyoQ" type="3001">
+        <children xmi:type="notation:Node" xmi:id="_s2y0hh0FEdyNZPVRmORyoQ" type="5001"/>
+        <children xmi:type="notation:Node" xmi:id="_s2y0hx0FEdyNZPVRmORyoQ" type="5005"/>
+        <styles xmi:type="notation:FontStyle" xmi:id="_s2y0gR0FEdyNZPVRmORyoQ"/>
+        <styles xmi:type="notation:DescriptionStyle" xmi:id="_s2y0gh0FEdyNZPVRmORyoQ"/>
+        <styles xmi:type="notation:FillStyle" xmi:id="_s2y0gx0FEdyNZPVRmORyoQ"/>
+        <styles xmi:type="notation:LineStyle" xmi:id="_s2y0hB0FEdyNZPVRmORyoQ"/>
+        <element xmi:type="pcm.allocation:AllocationContext" href="mediastore-EA-2.allocation#_r0Lg8B0FEdyNZPVRmORyoQ"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_s2y0hR0FEdyNZPVRmORyoQ" x="222" y="380"/>
       </children>
       <styles xmi:type="notation:SortingStyle" xmi:id="_-A-YuBwtEdyg5YJN38bxwQ"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_-A-YuRwtEdyg5YJN38bxwQ"/>

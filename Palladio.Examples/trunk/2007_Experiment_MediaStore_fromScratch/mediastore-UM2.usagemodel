@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <pcm.usagemodel:UsageModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pcm.usagemodel="http://sdq.ipd.uka.de/PalladioComponentModel/UsageModel/1.0" xmlns:stoex="http://sdq.ipd.uka.de/StochasticExpressions/1.0">
   <usageScenario_UsageModel id="_e0ogIBzrEdyCp6x_iIQLDA" entityName="mediaStoreScenarioUM2">
-    <workload_UsageScenario xsi:type="pcm.usagemodel:ClosedWorkload" population="1">
-      <thinkTime_ClosedWorkload specification="0"/>
+    <workload_UsageScenario xsi:type="pcm.usagemodel:OpenWorkload">
+      <interArrivalTime_OpenWorkload specification="1"/>
     </workload_UsageScenario>
     <scenarioBehaviour_UsageScenario id="_e0ogIRzrEdyCp6x_iIQLDA" entityName="mediaStoreScenarioBehaviour">
       <actions_ScenarioBehaviour xsi:type="pcm.usagemodel:Start" id="_e0ogIhzrEdyCp6x_iIQLDA" successor="_gW1SsBzrEdyCp6x_iIQLDA"/>
@@ -17,6 +17,14 @@
                 <variableCharacterisation_VariableUsage specification="IntPMF[ (2;0.2) (5;0.2) (8;0.3) (11;0.3) ]" type="NUMBER_OF_ELEMENTS"/>
                 <namedReference_VariableUsage xsi:type="stoex:NamespaceReference" referenceName="request">
                   <innerReference_NamespaceReference xsi:type="stoex:VariableReference" referenceName="requestedFiles"/>
+                </namedReference_VariableUsage>
+              </actualParameterUsage_EntryLevelSystemCall>
+              <actualParameterUsage_EntryLevelSystemCall>
+                <variableCharacterisation_VariableUsage specification="DoublePDF[ (0.375; 0.00000000) (0.75; 0.05100000) (1.5; 0.13400000) (2.25; 0.19300000) (3.0; 0.21200000) (3.75; 0.22400000) (4.5; 0.18600000) ] * 1000 * 1000" type="VALUE"/>
+                <namedReference_VariableUsage xsi:type="stoex:NamespaceReference" referenceName="request">
+                  <innerReference_NamespaceReference xsi:type="stoex:NamespaceReference" referenceName="requestedFiles">
+                    <innerReference_NamespaceReference xsi:type="stoex:VariableReference" referenceName="INNER"/>
+                  </innerReference_NamespaceReference>
                 </namedReference_VariableUsage>
               </actualParameterUsage_EntryLevelSystemCall>
               <providedRole_EntryLevelSystemCall href="mediastore.system#_yLySMBwTEdym-derHwSMPw"/>

@@ -100,7 +100,23 @@
                         </children>
                         <styles xmi:type="notation:ShapeStyle" xmi:id="_HMIaURwmEdyigt_qJDxvbA"/>
                         <element xmi:type="pcm.parameter:VariableUsage" href="mediastore.repository#//@components__Repository.6/@serviceEffectSpecifications__BasicComponent.0/@steps_Behaviour.3/@bodyBehaviour_Loop/@steps_Behaviour.2/@branches_Branch.1/@branchBehaviour_BranchTransition/@steps_Behaviour.2/@parameterUsage_ExternalCallAction.0"/>
-                        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_HMIaUhwmEdyigt_qJDxvbA" x="20" y="11"/>
+                        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_HMIaUhwmEdyigt_qJDxvbA" x="7" y="13"/>
+                      </children>
+                      <children xmi:type="notation:Node" xmi:id="_5bCiwB0GEdyNZPVRmORyoQ" type="3001">
+                        <children xmi:type="notation:Node" xmi:id="_5bCiwx0GEdyNZPVRmORyoQ" type="5001"/>
+                        <children xmi:type="notation:Node" xmi:id="_5bCixB0GEdyNZPVRmORyoQ" type="7002">
+                          <children xmi:type="notation:Node" xmi:id="_6FgcEB0GEdyNZPVRmORyoQ" type="3002">
+                            <element xmi:type="pcm.parameter:VariableCharacterisation" href="mediastore.repository#//@components__Repository.6/@serviceEffectSpecifications__BasicComponent.0/@steps_Behaviour.3/@bodyBehaviour_Loop/@steps_Behaviour.2/@branches_Branch.1/@branchBehaviour_BranchTransition/@steps_Behaviour.2/@parameterUsage_ExternalCallAction.1/@variableCharacterisation_VariableUsage.0"/>
+                            <layoutConstraint xmi:type="notation:Location" xmi:id="_6FgcER0GEdyNZPVRmORyoQ"/>
+                          </children>
+                          <styles xmi:type="notation:DrawerStyle" xmi:id="_5bCixR0GEdyNZPVRmORyoQ"/>
+                          <styles xmi:type="notation:TitleStyle" xmi:id="_5bCixh0GEdyNZPVRmORyoQ" showTitle="true"/>
+                          <styles xmi:type="notation:SortingStyle" xmi:id="_5bCixx0GEdyNZPVRmORyoQ"/>
+                          <styles xmi:type="notation:FilteringStyle" xmi:id="_5bCiyB0GEdyNZPVRmORyoQ"/>
+                        </children>
+                        <styles xmi:type="notation:ShapeStyle" xmi:id="_5bCiwR0GEdyNZPVRmORyoQ"/>
+                        <element xmi:type="pcm.parameter:VariableUsage" href="mediastore.repository#//@components__Repository.6/@serviceEffectSpecifications__BasicComponent.0/@steps_Behaviour.3/@bodyBehaviour_Loop/@steps_Behaviour.2/@branches_Branch.1/@branchBehaviour_BranchTransition/@steps_Behaviour.2/@parameterUsage_ExternalCallAction.1"/>
+                        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_5bCiwh0GEdyNZPVRmORyoQ" x="7" y="71"/>
                       </children>
                       <styles xmi:type="notation:DrawerStyle" xmi:id="_F9dAtRwmEdyigt_qJDxvbA"/>
                       <styles xmi:type="notation:TitleStyle" xmi:id="_F9dAthwmEdyigt_qJDxvbA" showTitle="true"/>
@@ -115,7 +131,7 @@
                     </children>
                     <styles xmi:type="notation:ShapeStyle" xmi:id="_F9dAsRwmEdyigt_qJDxvbA"/>
                     <element xmi:type="pcm.seff:ExternalCallAction" href="mediastore.repository#_FmggUBwmEdyigt_qJDxvbA"/>
-                    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_F9dAshwmEdyigt_qJDxvbA" x="94" y="155"/>
+                    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_F9dAshwmEdyigt_qJDxvbA" x="94" y="117" width="241" height="301"/>
                   </children>
                   <styles xmi:type="notation:SortingStyle" xmi:id="_K6Rc2BwiEdyigt_qJDxvbA"/>
                   <styles xmi:type="notation:FilteringStyle" xmi:id="_K6Rc2RwiEdyigt_qJDxvbA"/>

@@ -4,13 +4,24 @@
     <providedRoles_InterfaceProvidingEntity id="_-BBGoBpZEdyxqpPYxT_m3w" entityName="Provided_IHTTP_WebGUI" providedInterface__ProvidedRole="_wflM0BpXEdyxqpPYxT_m3w"/>
     <requiredRoles_InterfaceRequiringEntity id="_-uB9oBpZEdyxqpPYxT_m3w" entityName="Required_IMediaStore_WebGUI" requiredInterface__RequiredRole="_xSi60BpXEdyxqpPYxT_m3w"/>
     <serviceEffectSpecifications__BasicComponent xsi:type="pcm.seff:ResourceDemandingSEFF" id="_-BBGoRpZEdyxqpPYxT_m3w" describedService__SEFF="//@interfaces__Repository.0/@signatures__Interface.0">
-      <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_-BK3oBpZEdyxqpPYxT_m3w" successor_AbstractAction="_Ex8n4BpaEdyxqpPYxT_m3w"/>
+      <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_-BK3oBpZEdyxqpPYxT_m3w" successor_AbstractAction="_1P-6wB0KEdyNZPVRmORyoQ"/>
       <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_-BK3oRpZEdyxqpPYxT_m3w" predecessor_AbstractAction="_Ex8n4BpaEdyxqpPYxT_m3w"/>
-      <steps_Behaviour xsi:type="pcm.seff:ExternalCallAction" id="_Ex8n4BpaEdyxqpPYxT_m3w" predecessor_AbstractAction="_-BK3oBpZEdyxqpPYxT_m3w" successor_AbstractAction="_-BK3oRpZEdyxqpPYxT_m3w" calledService_ExternalService="//@interfaces__Repository.1/@signatures__Interface.0">
+      <steps_Behaviour xsi:type="pcm.seff:ExternalCallAction" id="_Ex8n4BpaEdyxqpPYxT_m3w" predecessor_AbstractAction="_1P-6wB0KEdyNZPVRmORyoQ" successor_AbstractAction="_-BK3oRpZEdyxqpPYxT_m3w" calledService_ExternalService="//@interfaces__Repository.1/@signatures__Interface.0">
         <parameterUsage_ExternalCallAction>
           <variableCharacterisation_VariableUsage specification="request.requestedFiles.NUMBER_OF_ELEMENTS" type="NUMBER_OF_ELEMENTS"/>
           <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="ids"/>
         </parameterUsage_ExternalCallAction>
+        <parameterUsage_ExternalCallAction>
+          <variableCharacterisation_VariableUsage specification="request.requestedFiles.INNER.VALUE" type="VALUE"/>
+          <namedReference_VariableUsage xsi:type="stoex:NamespaceReference" referenceName="ids">
+            <innerReference_NamespaceReference xsi:type="stoex:VariableReference" referenceName="INNER"/>
+          </namedReference_VariableUsage>
+        </parameterUsage_ExternalCallAction>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="pcm.seff:InternalAction" id="_1P-6wB0KEdyNZPVRmORyoQ" predecessor_AbstractAction="_-BK3oBpZEdyxqpPYxT_m3w" successor_AbstractAction="_Ex8n4BpaEdyxqpPYxT_m3w">
+        <resourceDemand_Action specification="request.requestedFile.INNER.VALUE">
+          <requiredResource_ParametricResourceDemand href="Palladio.resourcetype#_3nrZgRwbEdym-derHwSMPw"/>
+        </resourceDemand_Action>
       </steps_Behaviour>
     </serviceEffectSpecifications__BasicComponent>
     <serviceEffectSpecifications__BasicComponent xsi:type="pcm.seff:ResourceDemandingSEFF" id="_-BUooBpZEdyxqpPYxT_m3w" describedService__SEFF="//@interfaces__Repository.0/@signatures__Interface.1">
@@ -37,6 +48,12 @@
         <parameterUsage_ExternalCallAction>
           <variableCharacterisation_VariableUsage specification="ids.NUMBER_OF_ELEMENTS" type="NUMBER_OF_ELEMENTS"/>
           <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="ids"/>
+        </parameterUsage_ExternalCallAction>
+        <parameterUsage_ExternalCallAction>
+          <variableCharacterisation_VariableUsage specification="ids.INNER.VALUE" type="VALUE"/>
+          <namedReference_VariableUsage xsi:type="stoex:NamespaceReference" referenceName="ids">
+            <innerReference_NamespaceReference xsi:type="stoex:VariableReference" referenceName="INNER"/>
+          </namedReference_VariableUsage>
         </parameterUsage_ExternalCallAction>
         <outputVariableUsage_ExternalCallAction>
           <variableCharacterisation_VariableUsage specification="RETURN.NUMBER_OF_ELEMENTS" type="NUMBER_OF_ELEMENTS"/>
@@ -104,6 +121,12 @@
           <variableCharacterisation_VariableUsage specification="ids.NUMBER_OF_ELEMENTS" type="NUMBER_OF_ELEMENTS"/>
           <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="ids"/>
         </parameterUsage_ExternalCallAction>
+        <parameterUsage_ExternalCallAction>
+          <variableCharacterisation_VariableUsage specification="ids.INNER.VALUE" type="VALUE"/>
+          <namedReference_VariableUsage xsi:type="stoex:NamespaceReference" referenceName="ids">
+            <innerReference_NamespaceReference xsi:type="stoex:VariableReference" referenceName="INNER"/>
+          </namedReference_VariableUsage>
+        </parameterUsage_ExternalCallAction>
         <outputVariableUsage_ExternalCallAction>
           <variableCharacterisation_VariableUsage specification="RETURN.INNER.BYTESIZE" type="BYTESIZE"/>
           <namedReference_VariableUsage xsi:type="stoex:NamespaceReference" referenceName="returnedFiles">
@@ -155,6 +178,11 @@
               <requiredResource_ParametricResourceDemand href="Palladio.resourcetype#_3nrZgRwbEdym-derHwSMPw"/>
             </resourceDemand_Action>
           </steps_Behaviour>
+          <steps_Behaviour xsi:type="pcm.seff:InternalAction" id="_dY1BkBpbEdyxqpPYxT_m3w" entityName="loadFromFileSystem" predecessor_AbstractAction="_blW40BpbEdyxqpPYxT_m3w" successor_AbstractAction="_awd4MRpbEdyxqpPYxT_m3w">
+            <resourceDemand_Action specification="3.5 + 42.0 * ( ids.INNER.VALUE / 10000000.0 )" unit="milliseconds on">
+              <requiredResource_ParametricResourceDemand href="Palladio.resourcetype#_BIjHoQ3KEdyouMqirZIhzQ"/>
+            </resourceDemand_Action>
+          </steps_Behaviour>
         </bodyBehaviour_Loop>
       </steps_Behaviour>
       <steps_Behaviour xsi:type="pcm.seff:SetVariableAction" id="_UN6eUBwVEdym-derHwSMPw" entityName="return.nof" predecessor_AbstractAction="_dgeO0BwVEdym-derHwSMPw" successor_AbstractAction="_BzMXwxpaEdyxqpPYxT_m3w">
@@ -165,16 +193,11 @@
       </steps_Behaviour>
       <steps_Behaviour xsi:type="pcm.seff:SetVariableAction" id="_dgeO0BwVEdym-derHwSMPw" predecessor_AbstractAction="_affc8BpbEdyxqpPYxT_m3w" successor_AbstractAction="_UN6eUBwVEdym-derHwSMPw">
         <variableUsage_SetVariableAction>
-          <variableCharacterisation_VariableUsage specification="DoublePDF[ (0.5; 0.00000000) (1.0; 0.05100000) (2.0; 0.13400000) (3.0; 0.19300000) (4.0; 0.21200000) (5.0; 0.22400000) (6.0; 0.18600000) ] * 1000 * 1000" type="BYTESIZE"/>
+          <variableCharacterisation_VariableUsage specification="ids.INNER.BYTESIZE" type="BYTESIZE"/>
           <namedReference_VariableUsage xsi:type="stoex:NamespaceReference" referenceName="RETURN">
             <innerReference_NamespaceReference xsi:type="stoex:VariableReference" referenceName="INNER"/>
           </namedReference_VariableUsage>
         </variableUsage_SetVariableAction>
-      </steps_Behaviour>
-      <steps_Behaviour xsi:type="pcm.seff:InternalAction" id="_dY1BkBpbEdyxqpPYxT_m3w" entityName="loadFromFileSystem" predecessor_AbstractAction="_blW40BpbEdyxqpPYxT_m3w" successor_AbstractAction="_awd4MRpbEdyxqpPYxT_m3w">
-        <resourceDemand_Action specification="3.5 + 42 * DoublePDF[ (0.5; 0.00000000) (1.0; 0.05100000) (2.0; 0.13400000) (3.0; 0.19300000) (4.0; 0.21200000) (5.0; 0.22400000) (6.0; 0.18600000) ]" unit="milliseconds on">
-          <requiredResource_ParametricResourceDemand href="Palladio.resourcetype#_BIjHoQ3KEdyouMqirZIhzQ"/>
-        </resourceDemand_Action>
       </steps_Behaviour>
     </serviceEffectSpecifications__BasicComponent>
     <serviceEffectSpecifications__BasicComponent xsi:type="pcm.seff:ResourceDemandingSEFF" id="_BzMXxBpaEdyxqpPYxT_m3w" describedService__SEFF="//@interfaces__Repository.4/@signatures__Interface.1">
@@ -335,6 +358,12 @@
                     <variableCharacterisation_VariableUsage specification="1" type="NUMBER_OF_ELEMENTS"/>
                     <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="ids"/>
                   </parameterUsage_ExternalCallAction>
+                  <parameterUsage_ExternalCallAction>
+                    <variableCharacterisation_VariableUsage specification="ids.INNER.VALUE" type="VALUE"/>
+                    <namedReference_VariableUsage xsi:type="stoex:NamespaceReference" referenceName="ids">
+                      <innerReference_NamespaceReference xsi:type="stoex:VariableReference" referenceName="INNER"/>
+                    </namedReference_VariableUsage>
+                  </parameterUsage_ExternalCallAction>
                 </steps_Behaviour>
               </branchBehaviour_BranchTransition>
             </branches_Branch>
@@ -379,6 +408,12 @@
         <parameterUsage_ExternalCallAction>
           <variableCharacterisation_VariableUsage specification="ids.NUMBER_OF_ELEMENTS" type="NUMBER_OF_ELEMENTS"/>
           <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="ids"/>
+        </parameterUsage_ExternalCallAction>
+        <parameterUsage_ExternalCallAction>
+          <variableCharacterisation_VariableUsage specification="ids.INNER.VALUE" type="VALUE"/>
+          <namedReference_VariableUsage xsi:type="stoex:NamespaceReference" referenceName="ids">
+            <innerReference_NamespaceReference xsi:type="stoex:VariableReference" referenceName="INNER"/>
+          </namedReference_VariableUsage>
         </parameterUsage_ExternalCallAction>
         <outputVariableUsage_ExternalCallAction>
           <variableCharacterisation_VariableUsage specification="RETURN.NUMBER_OF_ELEMENTS" type="NUMBER_OF_ELEMENTS"/>
@@ -507,55 +542,6 @@
       </steps_Behaviour>
       <steps_Behaviour xsi:type="pcm.seff:ReleaseAction" id="_aWu5oBy4EdyK8tsgv3Eumw" entityName="ReleaseDBConn" predecessor_AbstractAction="_D8pSMBy4EdyK8tsgv3Eumw" successor_AbstractAction="_Gp7-4By4EdyK8tsgv3Eumw">
         <resourceType_Release href="Palladio.resourcetype#_Y-hnMBfvEdyKnt4q4db7iw"/>
-      </steps_Behaviour>
-    </serviceEffectSpecifications__BasicComponent>
-  </components__Repository>
-  <components__Repository xsi:type="pcm.repository:BasicComponent" id="_OMHaEBy8EdyGKfwoWx-omg" entityName="EncodedAudioDB">
-    <providedRoles_InterfaceProvidingEntity id="_PV4egBy8EdyGKfwoWx-omg" entityName="Provided_IFileDB_EncodedAudioDB" providedInterface__ProvidedRole="_zzB6kBpXEdyxqpPYxT_m3w"/>
-    <serviceEffectSpecifications__BasicComponent xsi:type="pcm.seff:ResourceDemandingSEFF" id="_PV4egRy8EdyGKfwoWx-omg" describedService__SEFF="//@interfaces__Repository.4/@signatures__Interface.0">
-      <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_PV4eghy8EdyGKfwoWx-omg" successor_AbstractAction="_UUK9cBy8EdyGKfwoWx-omg"/>
-      <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_PV4egxy8EdyGKfwoWx-omg" predecessor_AbstractAction="_UrmXQBzCEdyKuaYUVWXSJg"/>
-      <steps_Behaviour xsi:type="pcm.seff:CollectionIteratorAction" id="_UUK9cBy8EdyGKfwoWx-omg" predecessor_AbstractAction="_PV4eghy8EdyGKfwoWx-omg" successor_AbstractAction="_M9n-8BzCEdyKuaYUVWXSJg" parameter_CollectionIteratorAction="//@interfaces__Repository.4/@signatures__Interface.0/@parameters__Signature.0">
-        <bodyBehaviour_Loop>
-          <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_UjqyABy8EdyGKfwoWx-omg" successor_AbstractAction="_VDs88By8EdyGKfwoWx-omg"/>
-          <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_UjqyARy8EdyGKfwoWx-omg" predecessor_AbstractAction="_ZFWNcBy8EdyGKfwoWx-omg"/>
-          <steps_Behaviour xsi:type="pcm.seff:InternalAction" id="_VDs88By8EdyGKfwoWx-omg" entityName="getFilename" predecessor_AbstractAction="_UjqyABy8EdyGKfwoWx-omg" successor_AbstractAction="_ZFWNcBy8EdyGKfwoWx-omg">
-            <resourceDemand_Action specification="30" unit="ms on">
-              <requiredResource_ParametricResourceDemand href="Palladio.resourcetype#_3nrZgRwbEdym-derHwSMPw"/>
-            </resourceDemand_Action>
-          </steps_Behaviour>
-          <steps_Behaviour xsi:type="pcm.seff:InternalAction" id="_ZFWNcBy8EdyGKfwoWx-omg" entityName="loadFromDisk" predecessor_AbstractAction="_VDs88By8EdyGKfwoWx-omg" successor_AbstractAction="_UjqyARy8EdyGKfwoWx-omg">
-            <resourceDemand_Action specification="3.5 + 42 * DoublePDF[ (0.375; 0.00000000) (0.75; 0.05100000) (1.5; 0.13400000) (2.25; 0.19300000) (3.0; 0.21200000) (3.75; 0.22400000) (4.5; 0.18600000) ]" unit="ms on">
-              <requiredResource_ParametricResourceDemand href="Palladio.resourcetype#_BIjHoQ3KEdyouMqirZIhzQ"/>
-            </resourceDemand_Action>
-          </steps_Behaviour>
-        </bodyBehaviour_Loop>
-      </steps_Behaviour>
-      <steps_Behaviour xsi:type="pcm.seff:SetVariableAction" id="_M9n-8BzCEdyKuaYUVWXSJg" entityName="filesize" predecessor_AbstractAction="_UUK9cBy8EdyGKfwoWx-omg" successor_AbstractAction="_UrmXQBzCEdyKuaYUVWXSJg">
-        <variableUsage_SetVariableAction>
-          <variableCharacterisation_VariableUsage specification="DoublePDF[ (0.5; 0.00000000) (1.0; 0.05100000) (2.0; 0.13400000) (3.0; 0.19300000) (4.0; 0.21200000) (5.0; 0.22400000) (6.0; 0.18600000) ] * 1000 * 1000" type="BYTESIZE"/>
-          <namedReference_VariableUsage xsi:type="stoex:NamespaceReference" referenceName="RETURN">
-            <innerReference_NamespaceReference xsi:type="stoex:VariableReference" referenceName="INNER"/>
-          </namedReference_VariableUsage>
-        </variableUsage_SetVariableAction>
-      </steps_Behaviour>
-      <steps_Behaviour xsi:type="pcm.seff:SetVariableAction" id="_UrmXQBzCEdyKuaYUVWXSJg" entityName="numberOfFiles" predecessor_AbstractAction="_M9n-8BzCEdyKuaYUVWXSJg" successor_AbstractAction="_PV4egxy8EdyGKfwoWx-omg">
-        <variableUsage_SetVariableAction>
-          <variableCharacterisation_VariableUsage specification="ids.NUMBER_OF_ELEMENTS" type="NUMBER_OF_ELEMENTS"/>
-          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="RETURN"/>
-        </variableUsage_SetVariableAction>
-      </steps_Behaviour>
-    </serviceEffectSpecifications__BasicComponent>
-    <serviceEffectSpecifications__BasicComponent xsi:type="pcm.seff:ResourceDemandingSEFF" id="_PV4ehBy8EdyGKfwoWx-omg" describedService__SEFF="//@interfaces__Repository.4/@signatures__Interface.1">
-      <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_PV4ehRy8EdyGKfwoWx-omg" successor_AbstractAction="_OKyY0BzGEdy8rZewQ6MIbw"/>
-      <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_PV4ehhy8EdyGKfwoWx-omg" predecessor_AbstractAction="_OKyY0BzGEdy8rZewQ6MIbw"/>
-      <steps_Behaviour xsi:type="pcm.seff:InternalAction" id="_OKyY0BzGEdy8rZewQ6MIbw" entityName="insertFile" predecessor_AbstractAction="_PV4ehRy8EdyGKfwoWx-omg" successor_AbstractAction="_PV4ehhy8EdyGKfwoWx-omg">
-        <resourceDemand_Action specification="10" unit="wu">
-          <requiredResource_ParametricResourceDemand href="Palladio.resourcetype#_3nrZgRwbEdym-derHwSMPw"/>
-        </resourceDemand_Action>
-        <resourceDemand_Action specification="3.5 + 42.0 * file.BYTESIZE / 1000000.0" unit="ms on">
-          <requiredResource_ParametricResourceDemand href="Palladio.resourcetype#_BIjHoQ3KEdyouMqirZIhzQ"/>
-        </resourceDemand_Action>
       </steps_Behaviour>
     </serviceEffectSpecifications__BasicComponent>
   </components__Repository>
