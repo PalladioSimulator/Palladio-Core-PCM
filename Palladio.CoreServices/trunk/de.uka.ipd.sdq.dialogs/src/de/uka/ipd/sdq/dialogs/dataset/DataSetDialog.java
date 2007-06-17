@@ -5,8 +5,8 @@ import org.eclipse.jface.dialogs.TitleAreaDialog;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
 import org.eclipse.jface.viewers.IStructuredSelection;
-import org.eclipse.jface.viewers.ListViewer;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
+import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionListener;
 import org.eclipse.swt.events.ShellAdapter;
@@ -20,9 +20,11 @@ import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Label;
-import org.eclipse.swt.widgets.List;
 import org.eclipse.swt.widgets.Shell;
+import org.eclipse.swt.widgets.Table;
 
+import de.uka.ipd.sdq.sensorfactory.dao.db4o.DB4ODAOFactory;
+import de.uka.ipd.sdq.sensorfactory.dao.memory.MemoryDAOFactory;
 import de.uka.ipd.sdq.sensorfactory.entities.dao.IDAOFactory;
 
 public class DataSetDialog extends TitleAreaDialog {
@@ -30,7 +32,7 @@ public class DataSetDialog extends TitleAreaDialog {
 	private Button addButton, removeButton, okButton;
 	private Object input;
 	private IDAOFactory selectedDataSet;
-	private ListViewer viewer;
+	private TableViewer viewer;
 	
 	/** Create the dialog */
 	public DataSetDialog(Shell parentShell, Object input) {
@@ -97,7 +99,7 @@ public class DataSetDialog extends TitleAreaDialog {
 		separator.setLayoutData(fd_label);
 		separator.setText("Label");
 
-		List list = new List(container, SWT.BORDER);
+		Table list = new Table(container, SWT.BORDER);
 		fd_label.top = new FormAttachment(list, 28, SWT.DEFAULT);
 		fd_removeButton.left = new FormAttachment(list, 6, SWT.DEFAULT);
 		fd_addButton.left = new FormAttachment(list, 6, SWT.DEFAULT);
@@ -109,7 +111,7 @@ public class DataSetDialog extends TitleAreaDialog {
 		list.setLayoutData(fd_list);
 
 		/** create a ListViewer */
-		viewer = new ListViewer(list);
+		viewer = new TableViewer(list);
 		viewer.setContentProvider(new DataSetContentProvider());
 		viewer.setLabelProvider(new DataSetLabelProvider());
 		viewer.addSelectionChangedListener(new ISelectionChangedListener(){
@@ -149,9 +151,20 @@ public class DataSetDialog extends TitleAreaDialog {
 		if (selection == null) {
 			okButton.setEnabled(false);
 			setErrorMessage("No Datasource selected!");
-		} else {
+		}
+		
+		if (selection instanceof MemoryDAOFactory) {
+			MemoryDAOFactory memoryDAO = (MemoryDAOFactory) selection;
 			setTitle("Description:");
-			setMessage(((IDAOFactory) selection).getDescription());
+			setMessage(memoryDAO.getDescription());
+		}
+		
+		if (selection instanceof DB4ODAOFactory) {
+			DB4ODAOFactory dbDAO = (DB4ODAOFactory) selection;
+			String file = dbDAO.getFileName();
+			setTitle("Description:");
+			setMessage(dbDAO.getDescription() + ". Object Database (.."
+					+ file.substring(file.length() - 40, file.length()) + ").");
 		}
 	}
 	
