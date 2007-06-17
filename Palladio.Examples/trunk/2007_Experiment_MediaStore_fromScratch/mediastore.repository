@@ -553,7 +553,7 @@
         <resourceDemand_Action specification="10" unit="wu">
           <requiredResource_ParametricResourceDemand href="Palladio.resourcetype#_3nrZgRwbEdym-derHwSMPw"/>
         </resourceDemand_Action>
-        <resourceDemand_Action specification="3.5 + 42.0 * file.BYTESIZE / 1000.0" unit="ms on">
+        <resourceDemand_Action specification="3.5 + 42.0 * file.BYTESIZE / 1000000.0" unit="ms on">
           <requiredResource_ParametricResourceDemand href="Palladio.resourcetype#_BIjHoQ3KEdyouMqirZIhzQ"/>
         </resourceDemand_Action>
       </steps_Behaviour>

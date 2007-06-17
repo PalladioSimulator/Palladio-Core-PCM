@@ -67,7 +67,7 @@
             </children>
             <styles xmi:type="notation:ShapeStyle" xmi:id="_00p3ARzFEdy8rZewQ6MIbw"/>
             <element xmi:type="pcm.usagemodel:BranchTransition" href="mediastore-EA-2.usagemodel#//@usageScenario_UsageModel.0/@scenarioBehaviour_UsageScenario/@actions_ScenarioBehaviour.2/@branchTransitions_Branch.0"/>
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_00p3AhzFEdy8rZewQ6MIbw" x="-5" y="-3" width="325" height="217"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_00p3AhzFEdy8rZewQ6MIbw" x="-5" y="-3" width="397" height="382"/>
           </children>
           <children xmi:type="notation:Node" xmi:id="_40WmwxzFEdy8rZewQ6MIbw" type="3009">
             <children xmi:type="notation:Node" xmi:id="_40gXwBzFEdy8rZewQ6MIbw" type="5007"/>
@@ -127,14 +127,14 @@
             </children>
             <styles xmi:type="notation:ShapeStyle" xmi:id="_40WmxBzFEdy8rZewQ6MIbw"/>
             <element xmi:type="pcm.usagemodel:BranchTransition" href="mediastore-EA-2.usagemodel#//@usageScenario_UsageModel.0/@scenarioBehaviour_UsageScenario/@actions_ScenarioBehaviour.2/@branchTransitions_Branch.1"/>
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_40WmxRzFEdy8rZewQ6MIbw" x="326" y="-3" width="301" height="217"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_40WmxRzFEdy8rZewQ6MIbw" x="391" y="-6" width="361" height="385"/>
           </children>
           <styles xmi:type="notation:SortingStyle" xmi:id="_zjSVxhzFEdy8rZewQ6MIbw"/>
           <styles xmi:type="notation:FilteringStyle" xmi:id="_zjSVxxzFEdy8rZewQ6MIbw"/>
         </children>
         <styles xmi:type="notation:ShapeStyle" xmi:id="_zjSVwRzFEdy8rZewQ6MIbw"/>
         <element xmi:type="pcm.usagemodel:Branch" href="mediastore-EA-2.usagemodel#_zjJL0BzFEdy8rZewQ6MIbw"/>
-        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_zjSVwhzFEdy8rZewQ6MIbw" x="117" y="306" width="661" height="241"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_zjSVwhzFEdy8rZewQ6MIbw" x="2" y="102" width="795" height="445"/>
       </children>
       <styles xmi:type="notation:SortingStyle" xmi:id="_D3vXwRwuEdyg5YJN38bxwQ"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_D3vXwhwuEdyg5YJN38bxwQ"/>
