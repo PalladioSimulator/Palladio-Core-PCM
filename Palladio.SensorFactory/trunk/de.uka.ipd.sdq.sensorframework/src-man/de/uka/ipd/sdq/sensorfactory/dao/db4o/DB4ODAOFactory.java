@@ -111,8 +111,12 @@ public class DB4ODAOFactory implements IDAOFactory {
 		return "A datasource based on the DB4O Object Data Base";
 	}
 
+	public String getFileName() {
+		return "Object Database " + filename;
+	}
+
 	public String getName() {
-		return "Object Database "+filename;
+		return "DB Datasource";
 	}
 
 	public void finalizeAndClose() {
