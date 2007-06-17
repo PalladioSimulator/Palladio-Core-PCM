@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pcm.system:System xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:pcm.system="http://sdq.ipd.uka.de/PalladioComponentModel/System/1.0" id="_p1fW0BwtEdyg5YJN38bxwQ" entityName="mediastoreSystem">
+  <childComponentContexts_ComposedStructure id="_rgCNEBwtEdyg5YJN38bxwQ" entityName="Assembly_WebGUI &lt;WebGUI>">
+    <encapsulatedComponent_ChildComponentContext href="mediastore.repository#_q5WkIBpXEdyxqpPYxT_m3w"/>
+  </childComponentContexts_ComposedStructure>
+  <childComponentContexts_ComposedStructure id="_tUHZ0BwtEdyg5YJN38bxwQ" entityName="Assembly_Encoding &lt;Encoding>">
+    <encapsulatedComponent_ChildComponentContext href="mediastore.repository#_vifScBpXEdyxqpPYxT_m3w"/>
+  </childComponentContexts_ComposedStructure>
+  <childComponentContexts_ComposedStructure id="_uWSBcBwtEdyg5YJN38bxwQ" entityName="Assembly_EncodingMediaStore &lt;EncodingMediaStore>">
+    <encapsulatedComponent_ChildComponentContext href="mediastore.repository#_CERy4BwqEdyg5YJN38bxwQ"/>
+  </childComponentContexts_ComposedStructure>
+  <childComponentContexts_ComposedStructure id="_vaX7sBwtEdyg5YJN38bxwQ" entityName="Assembly_DBAdapter &lt;DBAdapter>">
+    <encapsulatedComponent_ChildComponentContext href="mediastore.repository#_sb2RoBpXEdyxqpPYxT_m3w"/>
+  </childComponentContexts_ComposedStructure>
+  <childComponentContexts_ComposedStructure id="_whc4gBwtEdyg5YJN38bxwQ" entityName="Assembly_AudioDB &lt;AudioDB>">
+    <encapsulatedComponent_ChildComponentContext href="mediastore.repository#_tJKDkBpXEdyxqpPYxT_m3w"/>
+  </childComponentContexts_ComposedStructure>
+  <childComponentContexts_ComposedStructure id="_xqngABwtEdyg5YJN38bxwQ" entityName="Assembly_DigitalWatermarking &lt;DigitalWatermarking>">
+    <encapsulatedComponent_ChildComponentContext href="mediastore.repository#_t663sBpXEdyxqpPYxT_m3w"/>
+  </childComponentContexts_ComposedStructure>
+  <providedDelegationConnectors_ComposedStructure id="_zqno4BwtEdyg5YJN38bxwQ" entityName="ProvDelegation Provided_IHTTP -> Provided_IHTTP_WebGUI" outerProvidedRole_ProvidedDelegationConnector="_y1RVQBwtEdyg5YJN38bxwQ" childComponentContext_ProvidedDelegationConnector="_rgCNEBwtEdyg5YJN38bxwQ">
+    <innerProvidedRole_ProvidedDelegationConnector href="mediastore.repository#_-BBGoBpZEdyxqpPYxT_m3w"/>
+  </providedDelegationConnectors_ComposedStructure>
+  <compositeAssemblyConnectors_ComposedStructure id="_0GfFgBwtEdyg5YJN38bxwQ" entityName="Connector Assembly_WebGUI &lt;WebGUI> -> Assembly_EncodingMediaStore &lt;EncodingMediaStore>" requiringChildComponentContext_CompositeAssemblyConnector="_rgCNEBwtEdyg5YJN38bxwQ" providingChildComponentContext_CompositeAssemblyConnector="_uWSBcBwtEdyg5YJN38bxwQ">
+    <providedRole_CompositeAssemblyConnector href="mediastore.repository#_Dlu-kBwqEdyg5YJN38bxwQ"/>
+    <requiredRole_CompositeAssemblyConnector href="mediastore.repository#_-uB9oBpZEdyxqpPYxT_m3w"/>
+  </compositeAssemblyConnectors_ComposedStructure>
+  <compositeAssemblyConnectors_ComposedStructure id="_34CEgBwtEdyg5YJN38bxwQ" entityName="Connector Assembly_EncodingMediaStore &lt;EncodingMediaStore> -> Assembly_Encoding &lt;Encoding>" requiringChildComponentContext_CompositeAssemblyConnector="_uWSBcBwtEdyg5YJN38bxwQ" providingChildComponentContext_CompositeAssemblyConnector="_tUHZ0BwtEdyg5YJN38bxwQ">
+    <providedRole_CompositeAssemblyConnector href="mediastore.repository#_E_SygBwqEdyg5YJN38bxwQ"/>
+    <requiredRole_CompositeAssemblyConnector href="mediastore.repository#_EreeoBwqEdyg5YJN38bxwQ"/>
+  </compositeAssemblyConnectors_ComposedStructure>
+  <compositeAssemblyConnectors_ComposedStructure id="_4ammEBwtEdyg5YJN38bxwQ" entityName="Connector Assembly_EncodingMediaStore &lt;EncodingMediaStore> -> Assembly_DigitalWatermarking &lt;DigitalWatermarking>" requiringChildComponentContext_CompositeAssemblyConnector="_uWSBcBwtEdyg5YJN38bxwQ" providingChildComponentContext_CompositeAssemblyConnector="_xqngABwtEdyg5YJN38bxwQ">
+    <providedRole_CompositeAssemblyConnector href="mediastore.repository#_A1yUUBpaEdyxqpPYxT_m3w"/>
+    <requiredRole_CompositeAssemblyConnector href="mediastore.repository#_F0MaMBwqEdyg5YJN38bxwQ"/>
+  </compositeAssemblyConnectors_ComposedStructure>
+  <compositeAssemblyConnectors_ComposedStructure id="_40POEBwtEdyg5YJN38bxwQ" entityName="Connector Assembly_EncodingMediaStore &lt;EncodingMediaStore> -> Assembly_DBAdapter &lt;DBAdapter>" requiringChildComponentContext_CompositeAssemblyConnector="_uWSBcBwtEdyg5YJN38bxwQ" providingChildComponentContext_CompositeAssemblyConnector="_vaX7sBwtEdyg5YJN38bxwQ">
+    <providedRole_CompositeAssemblyConnector href="mediastore.repository#_AXPXIBpaEdyxqpPYxT_m3w"/>
+    <requiredRole_CompositeAssemblyConnector href="mediastore.repository#_FVDAEBwqEdyg5YJN38bxwQ"/>
+  </compositeAssemblyConnectors_ComposedStructure>
+  <compositeAssemblyConnectors_ComposedStructure id="_5K4zgBwtEdyg5YJN38bxwQ" entityName="Connector Assembly_DBAdapter &lt;DBAdapter> -> Assembly_AudioDB &lt;AudioDB>" requiringChildComponentContext_CompositeAssemblyConnector="_vaX7sBwtEdyg5YJN38bxwQ" providingChildComponentContext_CompositeAssemblyConnector="_whc4gBwtEdyg5YJN38bxwQ">
+    <providedRole_CompositeAssemblyConnector href="mediastore.repository#_BzMXwBpaEdyxqpPYxT_m3w"/>
+    <requiredRole_CompositeAssemblyConnector href="mediastore.repository#_Bfq-0BpaEdyxqpPYxT_m3w"/>
+  </compositeAssemblyConnectors_ComposedStructure>
+  <providedRoles_InterfaceProvidingEntity id="_y1RVQBwtEdyg5YJN38bxwQ" entityName="Provided_IHTTP">
+    <providedInterface__ProvidedRole href="mediastore.repository#_wflM0BpXEdyxqpPYxT_m3w"/>
+  </providedRoles_InterfaceProvidingEntity>
+</pcm.system:System>

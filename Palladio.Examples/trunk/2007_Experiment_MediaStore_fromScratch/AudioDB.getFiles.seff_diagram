@@ -3,12 +3,12 @@
   <children xmi:type="notation:Node" xmi:id="_R6LM8BpbEdyxqpPYxT_m3w" type="2001">
     <styles xmi:type="notation:ShapeStyle" xmi:id="_R6LM8RpbEdyxqpPYxT_m3w"/>
     <element xmi:type="pcm.seff:StartAction" href="mediastore.repository#_BzMXwhpaEdyxqpPYxT_m3w"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_R6LM8hpbEdyxqpPYxT_m3w" x="5"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_R6LM8hpbEdyxqpPYxT_m3w" x="228" y="-24"/>
   </children>
   <children xmi:type="notation:Node" xmi:id="_R6LM8xpbEdyxqpPYxT_m3w" type="2002">
     <styles xmi:type="notation:ShapeStyle" xmi:id="_R6LM9BpbEdyxqpPYxT_m3w"/>
     <element xmi:type="pcm.seff:StopAction" href="mediastore.repository#_BzMXwxpaEdyxqpPYxT_m3w"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_R6LM9RpbEdyxqpPYxT_m3w" x="588" y="396"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_R6LM9RpbEdyxqpPYxT_m3w" x="444" y="768"/>
   </children>
   <children xmi:type="notation:Node" xmi:id="_awd4MhpbEdyxqpPYxT_m3w" type="2007">
     <children xmi:type="notation:Node" xmi:id="_awd4NRpbEdyxqpPYxT_m3w" type="5015"/>
@@ -41,22 +41,6 @@
           <element xmi:type="pcm.seff:InternalAction" href="mediastore.repository#_blW40BpbEdyxqpPYxT_m3w"/>
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_blW40xpbEdyxqpPYxT_m3w" x="88" y="45"/>
         </children>
-        <children xmi:type="notation:Node" xmi:id="_dY1BkRpbEdyxqpPYxT_m3w" type="3007">
-          <children xmi:type="notation:Node" xmi:id="_dY1BlBpbEdyxqpPYxT_m3w" type="5005"/>
-          <children xmi:type="notation:Node" xmi:id="_dY1BlRpbEdyxqpPYxT_m3w" type="7006">
-            <children xmi:type="notation:Node" xmi:id="_kVQBIBpbEdyxqpPYxT_m3w" type="3008">
-              <element xmi:type="pcm.seff:ParametricResourceDemand" href="mediastore.repository#//@components__Repository.3/@serviceEffectSpecifications__BasicComponent.0/@steps_Behaviour.2/@bodyBehaviour_Loop/@steps_Behaviour.3/@resourceDemand_Action.0"/>
-              <layoutConstraint xmi:type="notation:Location" xmi:id="_kVQBIRpbEdyxqpPYxT_m3w"/>
-            </children>
-            <styles xmi:type="notation:DrawerStyle" xmi:id="_dY1BlhpbEdyxqpPYxT_m3w"/>
-            <styles xmi:type="notation:TitleStyle" xmi:id="_dY1BlxpbEdyxqpPYxT_m3w" showTitle="true"/>
-            <styles xmi:type="notation:SortingStyle" xmi:id="_dY1BmBpbEdyxqpPYxT_m3w"/>
-            <styles xmi:type="notation:FilteringStyle" xmi:id="_dY1BmRpbEdyxqpPYxT_m3w"/>
-          </children>
-          <styles xmi:type="notation:ShapeStyle" xmi:id="_dY1BkhpbEdyxqpPYxT_m3w"/>
-          <element xmi:type="pcm.seff:InternalAction" href="mediastore.repository#_dY1BkBpbEdyxqpPYxT_m3w"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_dY1BkxpbEdyxqpPYxT_m3w" x="55" y="197"/>
-        </children>
         <styles xmi:type="notation:SortingStyle" xmi:id="_awd4OxpbEdyxqpPYxT_m3w"/>
         <styles xmi:type="notation:FilteringStyle" xmi:id="_awd4PBpbEdyxqpPYxT_m3w"/>
       </children>
@@ -66,7 +50,7 @@
     </children>
     <styles xmi:type="notation:ShapeStyle" xmi:id="_awd4MxpbEdyxqpPYxT_m3w"/>
     <element xmi:type="pcm.seff:CollectionIteratorAction" href="mediastore.repository#_affc8BpbEdyxqpPYxT_m3w"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_awd4NBpbEdyxqpPYxT_m3w" x="132" y="12" width="337" height="433"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_awd4NBpbEdyxqpPYxT_m3w" x="-36" y="12" width="1105" height="433"/>
   </children>
   <children xmi:type="notation:Node" xmi:id="_UN6eURwVEdym-derHwSMPw" type="2008">
     <children xmi:type="notation:Node" xmi:id="_UN6eVBwVEdym-derHwSMPw" type="5023"/>
@@ -94,7 +78,7 @@
     </children>
     <styles xmi:type="notation:ShapeStyle" xmi:id="_UN6eUhwVEdym-derHwSMPw"/>
     <element xmi:type="pcm.seff:SetVariableAction" href="mediastore.repository#_UN6eUBwVEdym-derHwSMPw"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_UN6eUxwVEdym-derHwSMPw" x="492" y="240"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_UN6eUxwVEdym-derHwSMPw" x="168" y="636"/>
   </children>
   <children xmi:type="notation:Node" xmi:id="_dgeO0RwVEdym-derHwSMPw" type="2008">
     <children xmi:type="notation:Node" xmi:id="_dgeO1BwVEdym-derHwSMPw" type="5023"/>
@@ -122,7 +106,23 @@
     </children>
     <styles xmi:type="notation:ShapeStyle" xmi:id="_dgeO0hwVEdym-derHwSMPw"/>
     <element xmi:type="pcm.seff:SetVariableAction" href="mediastore.repository#_dgeO0BwVEdym-derHwSMPw"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_dgeO0xwVEdym-derHwSMPw" x="546" y="63"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_dgeO0xwVEdym-derHwSMPw" x="-36" y="468"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_dY1BkRpbEdyxqpPYxT_m3w" type="3007">
+    <children xmi:type="notation:Node" xmi:id="_dY1BlBpbEdyxqpPYxT_m3w" type="5005"/>
+    <children xmi:type="notation:Node" xmi:id="_dY1BlRpbEdyxqpPYxT_m3w" type="7006">
+      <children xmi:type="notation:Node" xmi:id="_kVQBIBpbEdyxqpPYxT_m3w" type="3008">
+        <element xmi:type="pcm.seff:ParametricResourceDemand" href="mediastore.repository#//@components__Repository.3/@serviceEffectSpecifications__BasicComponent.0/@steps_Behaviour.5/@resourceDemand_Action.0"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_kVQBIRpbEdyxqpPYxT_m3w"/>
+      </children>
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_dY1BlhpbEdyxqpPYxT_m3w"/>
+      <styles xmi:type="notation:TitleStyle" xmi:id="_dY1BlxpbEdyxqpPYxT_m3w" showTitle="true"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_dY1BmBpbEdyxqpPYxT_m3w"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_dY1BmRpbEdyxqpPYxT_m3w"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_dY1BkhpbEdyxqpPYxT_m3w"/>
+    <element xmi:type="pcm.seff:InternalAction" href="mediastore.repository#_dY1BkBpbEdyxqpPYxT_m3w"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_dY1BkxpbEdyxqpPYxT_m3w" y="276"/>
   </children>
   <styles xmi:type="notation:DiagramStyle" xmi:id="_R4ZEQRpbEdyxqpPYxT_m3w"/>
   <element xmi:type="pcm.seff:ResourceDemandingSEFF" href="mediastore.repository#_BzMXwRpaEdyxqpPYxT_m3w"/>

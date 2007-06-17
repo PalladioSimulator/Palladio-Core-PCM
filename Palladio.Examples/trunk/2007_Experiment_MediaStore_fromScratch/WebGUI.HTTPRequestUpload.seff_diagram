@@ -20,6 +20,14 @@
             <element xmi:type="pcm.parameter:VariableCharacterisation" href="mediastore.repository#//@components__Repository.0/@serviceEffectSpecifications__BasicComponent.1/@steps_Behaviour.2/@parameterUsage_ExternalCallAction.0/@variableCharacterisation_VariableUsage.0"/>
             <layoutConstraint xmi:type="notation:Location" xmi:id="_YZeoIRpaEdyxqpPYxT_m3w"/>
           </children>
+          <children xmi:type="notation:Node" xmi:id="_hle6YBwrEdyg5YJN38bxwQ" type="3002">
+            <element xmi:type="pcm.parameter:VariableCharacterisation" href="mediastore.repository#//@components__Repository.0/@serviceEffectSpecifications__BasicComponent.1/@steps_Behaviour.2/@parameterUsage_ExternalCallAction.0/@variableCharacterisation_VariableUsage.1"/>
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_hle6YRwrEdyg5YJN38bxwQ"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_zwhHcBwrEdyg5YJN38bxwQ" type="3002">
+            <element xmi:type="pcm.parameter:VariableCharacterisation" href="mediastore.repository#//@components__Repository.0/@serviceEffectSpecifications__BasicComponent.1/@steps_Behaviour.2/@parameterUsage_ExternalCallAction.0/@variableCharacterisation_VariableUsage.2"/>
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_zwhHcRwrEdyg5YJN38bxwQ"/>
+          </children>
           <styles xmi:type="notation:DrawerStyle" xmi:id="_XuaR5RpaEdyxqpPYxT_m3w"/>
           <styles xmi:type="notation:TitleStyle" xmi:id="_XuaR5hpaEdyxqpPYxT_m3w" showTitle="true"/>
           <styles xmi:type="notation:SortingStyle" xmi:id="_XuaR5xpaEdyxqpPYxT_m3w"/>
@@ -43,6 +51,28 @@
     <styles xmi:type="notation:ShapeStyle" xmi:id="_VhSTARpaEdyxqpPYxT_m3w"/>
     <element xmi:type="pcm.seff:ExternalCallAction" href="mediastore.repository#_VN6rEBpaEdyxqpPYxT_m3w"/>
     <layoutConstraint xmi:type="notation:Bounds" xmi:id="_VhSTAhpaEdyxqpPYxT_m3w" x="96" y="168"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_q2_iABwrEdyg5YJN38bxwQ" type="Note">
+    <children xmi:type="notation:Node" xmi:id="_q2_iAxwrEdyg5YJN38bxwQ" type="DiagramName">
+      <element xsi:nil="true"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_q2_iBBwrEdyg5YJN38bxwQ" type="Description">
+      <element xsi:nil="true"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_q2_iARwrEdyg5YJN38bxwQ" description="structure contains the byte rate" fillColor="13369343" lineColor="6737151"/>
+    <element xsi:nil="true"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_q2_iAhwrEdyg5YJN38bxwQ" x="387" y="204"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_10GIwBwrEdyg5YJN38bxwQ" type="Note">
+    <children xmi:type="notation:Node" xmi:id="_10GIwxwrEdyg5YJN38bxwQ" type="DiagramName">
+      <element xsi:nil="true"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_10GIxBwrEdyg5YJN38bxwQ" type="Description">
+      <element xsi:nil="true"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_10GIwRwrEdyg5YJN38bxwQ" description="type is constant or variable" fillColor="13369343" lineColor="6737151"/>
+    <element xsi:nil="true"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_10GIwhwrEdyg5YJN38bxwQ" x="403" y="320"/>
   </children>
   <styles xmi:type="notation:DiagramStyle" xmi:id="_UoDk8RpaEdyxqpPYxT_m3w"/>
   <element xmi:type="pcm.seff:ResourceDemandingSEFF" href="mediastore.repository#_-BUooBpZEdyxqpPYxT_m3w"/>

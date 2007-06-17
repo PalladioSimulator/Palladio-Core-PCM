@@ -74,7 +74,7 @@
     </children>
     <styles xmi:type="notation:ShapeStyle" xmi:id="_DOL5oRpbEdyxqpPYxT_m3w"/>
     <element xmi:type="pcm.seff:ExternalCallAction" href="mediastore.repository#_CzN04BpbEdyxqpPYxT_m3w"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_DOL5ohpbEdyxqpPYxT_m3w" x="156" y="114"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_DOL5ohpbEdyxqpPYxT_m3w" x="144" y="72"/>
   </children>
   <children xmi:type="notation:Node" xmi:id="_BXX2IRwVEdym-derHwSMPw" type="2008">
     <children xmi:type="notation:Node" xmi:id="_BXhAERwVEdym-derHwSMPw" type="5023"/>

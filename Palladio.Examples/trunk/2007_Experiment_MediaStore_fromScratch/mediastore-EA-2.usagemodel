@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pcm.usagemodel:UsageModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pcm.usagemodel="http://sdq.ipd.uka.de/PalladioComponentModel/UsageModel/1.0" xmlns:stoex="http://sdq.ipd.uka.de/StochasticExpressions/1.0">
+  <usageScenario_UsageModel id="_D2QKABwuEdyg5YJN38bxwQ" entityName="mediastoreEA2Scenario">
+    <workload_UsageScenario xsi:type="pcm.usagemodel:ClosedWorkload" population="1">
+      <thinkTime_ClosedWorkload specification="0"/>
+    </workload_UsageScenario>
+    <scenarioBehaviour_UsageScenario id="_D2QKARwuEdyg5YJN38bxwQ">
+      <actions_ScenarioBehaviour xsi:type="pcm.usagemodel:Start" id="_D2QKAhwuEdyg5YJN38bxwQ" successor="_OGWg0BwuEdyg5YJN38bxwQ"/>
+      <actions_ScenarioBehaviour xsi:type="pcm.usagemodel:Stop" id="_D2QKAxwuEdyg5YJN38bxwQ" predecessor="_P-mb4BwuEdyg5YJN38bxwQ"/>
+      <actions_ScenarioBehaviour xsi:type="pcm.usagemodel:EntryLevelSystemCall" id="_P-mb4BwuEdyg5YJN38bxwQ" successor="_D2QKAxwuEdyg5YJN38bxwQ" predecessor="_OGWg0BwuEdyg5YJN38bxwQ">
+        <actualParameterUsage_EntryLevelSystemCall>
+          <variableCharacterisation_VariableUsage specification="IntPMF[ (2;0.2) (5;0.2) (8;0.3) (11;0.3) ]" type="NUMBER_OF_ELEMENTS"/>
+          <namedReference_VariableUsage xsi:type="stoex:NamespaceReference" referenceName="request">
+            <innerReference_NamespaceReference xsi:type="stoex:VariableReference" referenceName="requestedFiles"/>
+          </namedReference_VariableUsage>
+        </actualParameterUsage_EntryLevelSystemCall>
+        <providedRole_EntryLevelSystemCall href="mediastore-EA-2.system#_y1RVQBwtEdyg5YJN38bxwQ"/>
+        <signature_EntryLevelSystemCall href="mediastore.repository#//@interfaces__Repository.0/@signatures__Interface.0"/>
+      </actions_ScenarioBehaviour>
+      <actions_ScenarioBehaviour xsi:type="pcm.usagemodel:EntryLevelSystemCall" id="_OGWg0BwuEdyg5YJN38bxwQ" successor="_P-mb4BwuEdyg5YJN38bxwQ" predecessor="_D2QKAhwuEdyg5YJN38bxwQ">
+        <actualParameterUsage_EntryLevelSystemCall>
+          <variableCharacterisation_VariableUsage specification="DoublePDF[ (0.5; 0.00000000) (1.0; 0.05100000) (2.0; 0.13400000) (3.0; 0.19300000) (4.0; 0.21200000) (5.0; 0.22400000) (6.0; 0.18600000) ]" type="BYTESIZE"/>
+          <variableCharacterisation_VariableUsage specification="IntPMF[ (192;0.8) (1411;0.2) ]"/>
+          <variableCharacterisation_VariableUsage specification="EnumPMF[ (&quot;variable&quot;;0.7) (&quot;constant&quot;;0.3) ]" type="TYPE"/>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="file"/>
+        </actualParameterUsage_EntryLevelSystemCall>
+        <providedRole_EntryLevelSystemCall href="mediastore-EA-2.system#_y1RVQBwtEdyg5YJN38bxwQ"/>
+        <signature_EntryLevelSystemCall href="mediastore.repository#//@interfaces__Repository.0/@signatures__Interface.1"/>
+      </actions_ScenarioBehaviour>
+    </scenarioBehaviour_UsageScenario>
+  </usageScenario_UsageModel>
+</pcm.usagemodel:UsageModel>
