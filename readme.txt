@@ -12,6 +12,8 @@ Palladio.SensorFrameworkGUI 		Visualisations for Sensors placed with the sensor 
 Palladio.StoEx 				Grammar and Parser tools for Stochastic Expressions
 PalladioCM.Builder 			Eclipse RelEng build scripts to build the complete PCMBench plugin set
 PalladioCM.CodeGen 			oAW based M2C Transformations to SimuCom, EJB, and Prototype. Example EJB Skeleton-Project
+PalladioCM.Completions		TODO
+PalladioCM.Derived Context	TODO
 PalladioCM.PCMBench 			RCP-Application and associated plugins
 PalladioCM.PCMSolver			TODO
 RSA-EMX-UML2 				RSA-Export fix tool
