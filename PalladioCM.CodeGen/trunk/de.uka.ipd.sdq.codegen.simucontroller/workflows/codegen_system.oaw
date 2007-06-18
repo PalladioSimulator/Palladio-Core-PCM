@@ -19,6 +19,7 @@
 		<outputSlot value="allocation"/>
 	</component>
 	
+	<!--
     <component class="de.uka.sdq.pcm.transformations.TransformationWorkflowComponent">
 	</component>
 	
@@ -31,7 +32,8 @@
 		<modelFile value="${systemFile}.intermediate.system"/>
 		<inputSlot value="pcmmodel"/>
 	</component>
-
+	-->
+	
 	<component id="generator" class="oaw.xpand2.Generator" skipOnErrors="true">
 		<fileEncoding value="ISO-8859-1"/>
 	    <metaModel id="pcm.repository.emf" class="oaw.type.emf.EmfMetaModel">

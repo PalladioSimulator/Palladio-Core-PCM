@@ -66,12 +66,14 @@
 
 «DEFINE Action FOR AquireAction»
 	// Aquire «this.resourceType_Aquire.entityName»
-	ctx.findResource(this.assemblyContextID).aquirePassiveResource(ctx.getThread(),"«this.resourceType_Aquire.entityName»");
+	((de.uka.ipd.sdq.simucomframework.resources.SimulatedResourceContainer)ctx.findResource(this.assemblyContextID))
+		.aquirePassiveResource(ctx.getThread(),"«this.resourceType_Aquire.entityName»");
 «ENDDEFINE»
 
 «DEFINE Action FOR ReleaseAction»
 	// Release «this.resourceType_Release.entityName»
-	ctx.findResource(this.assemblyContextID).releasePassiveResource("«this.resourceType_Release.entityName»");
+	((de.uka.ipd.sdq.simucomframework.resources.SimulatedResourceContainer)ctx.findResource(this.assemblyContextID))
+		.releasePassiveResource("«this.resourceType_Release.entityName»");
 «ENDDEFINE»
 
 «DEFINE Action FOR StartAction»
