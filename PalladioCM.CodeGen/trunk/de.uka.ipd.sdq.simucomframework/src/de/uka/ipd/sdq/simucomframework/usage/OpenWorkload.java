@@ -50,7 +50,7 @@ public class OpenWorkload extends SimProcess implements IWorkloadDriver {
 	}
 
 	private void waitForNextUser() {
-		double interArrivalTimeSample = (Double)Context.evaluate(interArrivalTime,Double.class,null);
+		double interArrivalTimeSample = (Double)Context.evaluateStatic(interArrivalTime,Double.class);
 		logger.info("Waiting for "+interArrivalTimeSample+" before spawing the next user");
 		this.hold(new SimTime(interArrivalTimeSample));
 	}

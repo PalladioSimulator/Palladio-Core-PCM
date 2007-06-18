@@ -34,20 +34,20 @@ public class StoExVisitorVariablesTest {
 	}
 	
 	@Test public void stackEvaluate() {
-		int i = (Integer)StackContext.evaluate("anInt.BYTESIZE", stackFrame);
+		int i = (Integer)StackContext.evaluateStatic("anInt.BYTESIZE", stackFrame);
 		Assert.assertEquals(i, 10);
-		boolean b = (Boolean)StackContext.evaluate("anBoolean.VALUE", stackFrame);
+		boolean b = (Boolean)StackContext.evaluateStatic("anBoolean.VALUE", stackFrame);
 		Assert.assertEquals(b, false);
-		double d = (Double)StackContext.evaluate("anDouble.VALUE", stackFrame);
+		double d = (Double)StackContext.evaluateStatic("anDouble.VALUE", stackFrame);
 		Assert.assertEquals(d, 10.0);
 	}
 	
 	@Test(expected=RuntimeException.class) public void invalidAccess() {
-		StackContext.evaluate("sssdffg.VALUE", stackFrame);
+		StackContext.evaluateStatic("sssdffg.VALUE", stackFrame);
 	}
 
 	@Test public void returnDefault() {
-		int bs = (Integer)StackContext.evaluate("a.BYTESIZE", stackFrame, VariableMode.RETURN_DEFAULT_ON_NOT_FOUND);
+		int bs = (Integer)StackContext.evaluateStatic("a.BYTESIZE", stackFrame, VariableMode.RETURN_DEFAULT_ON_NOT_FOUND);
 		Assert.assertEquals(bs, 0);
 	}
 

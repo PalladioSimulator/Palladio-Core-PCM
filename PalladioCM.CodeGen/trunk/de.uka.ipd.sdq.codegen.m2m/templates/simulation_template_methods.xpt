@@ -10,6 +10,7 @@
 «IMPORT allocation»
 «IMPORT parameter»
 «IMPORT qosannotations»
+«IMPORT completions»
 
 «AROUND m2t_transforms::java_core::ComponentConstructorTM FOR ProvidesComponentType»
 	private String assemblyContextID = null;
@@ -67,6 +68,10 @@
 
 «AROUND m2t_transforms::provided_ports::PortDelegationDelegatingCallTM FOR Signature»
    «EXPAND m2t_transforms::sim::provided_ports::PortDelegationDelegatingCall FOR this»
+«ENDAROUND»
+
+«AROUND m2t_transforms::provided_ports::ComposedStructurePortDelegationDelegatingCallTM(ComposedProvidingRequiringEntity cs) FOR Signature»
+   «EXPAND m2t_transforms::sim::provided_ports::ComposedStructurePortDelegationDelegatingCall(cs) FOR this»
 «ENDAROUND»
 
 //-------------------------

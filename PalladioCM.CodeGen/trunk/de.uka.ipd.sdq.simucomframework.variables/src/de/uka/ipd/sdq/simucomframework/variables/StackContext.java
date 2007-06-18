@@ -21,6 +21,7 @@ public class StackContext implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 2031992603442903211L;
+	private VariableMode mode = VariableMode.EXCEPTION_ON_NOT_FOUND;
 	
 	private static Logger logger = 
 		Logger.getLogger(StackContext.class.getName());
@@ -30,12 +31,46 @@ public class StackContext implements Serializable {
 	protected SimulatedStack<Object> stack = new SimulatedStack<Object>();
 
 	public Object evaluate(String string, Class expectedType) {
-		return evaluate(string,expectedType,stack.currentStackFrame());
+		return StackContext.evaluateStatic(string,expectedType,stack.currentStackFrame(),mode);
 	}
 
-	public static Object evaluate(String string, Class expectedType, SimulatedStackframe frame) {
+	public Object evaluate(String string) {
+		return evaluateStatic(string,stack.currentStackFrame(),mode);
+	}
+
+	public Object evaluate(String stoex, SimulatedStackframe currentFrame) {
+		StoExCacheEntry cacheEntry = StoExCache.singleton().getEntry(stoex);
+		return new PCMStoExEvaluationVisitor(stoex,currentFrame,mode)
+					.doSwitch(cacheEntry.getParsedExpression());
+	}
+
+	public static Object evaluateStatic(String stoex) {
+		return evaluateStatic(stoex, new SimulatedStackframe());
+	}
+
+	public static Object evaluateStatic(String stoex, SimulatedStackframe currentFrame) {
+		StoExCacheEntry cacheEntry = StoExCache.singleton().getEntry(stoex);
+		return new PCMStoExEvaluationVisitor(stoex,currentFrame,VariableMode.EXCEPTION_ON_NOT_FOUND)
+					.doSwitch(cacheEntry.getParsedExpression());
+	}
+
+	public static Object evaluateStatic(String stoex, SimulatedStackframe currentFrame, VariableMode mode) {
+		StoExCacheEntry cacheEntry = StoExCache.singleton().getEntry(stoex);
+		return new PCMStoExEvaluationVisitor(stoex,currentFrame,mode)
+					.doSwitch(cacheEntry.getParsedExpression());
+	}
+
+	public static Object evaluateStatic(String string, Class expectedType) {
+		return evaluateStatic(string,expectedType,new SimulatedStackframe(),VariableMode.EXCEPTION_ON_NOT_FOUND);
+	}
+
+	public static Object evaluateStatic(String string, Class expectedType, SimulatedStackframe frame) {
+		return evaluateStatic(string,expectedType,frame,VariableMode.EXCEPTION_ON_NOT_FOUND);
+	}
+	
+	public static Object evaluateStatic(String string, Class expectedType, SimulatedStackframe frame,VariableMode mode) {
 		logger.debug("About to evaluate "+string);
-		Object result = evaluate(string,frame);
+		Object result = evaluateStatic(string,frame,mode);
 		logger.debug("Result "+result);
 		if (expectedType.isInstance(result))
 			return result;
@@ -45,26 +80,6 @@ public class StackContext implements Serializable {
 				" but expected was "+expectedType.getCanonicalName()+ " and no conversion was available..."); 
 		logger.error("Evaluation of an expression resulted in wrong type!",ex);
 		throw ex; 
-	}
-
-	public Object evaluate(String string) {
-		return evaluate(string,stack.currentStackFrame());
-	}
-
-	public static Object evaluate(String stoex, SimulatedStackframe currentFrame) {
-		StoExCacheEntry cacheEntry = StoExCache.singleton().getEntry(stoex);
-		return new PCMStoExEvaluationVisitor(stoex,currentFrame,VariableMode.EXCEPTION_ON_NOT_FOUND)
-					.doSwitch(cacheEntry.getParsedExpression());
-	}
-
-	public static Object evaluate(String stoex, SimulatedStackframe currentFrame, VariableMode mode) {
-		StoExCacheEntry cacheEntry = StoExCache.singleton().getEntry(stoex);
-		return new PCMStoExEvaluationVisitor(stoex,currentFrame,mode)
-					.doSwitch(cacheEntry.getParsedExpression());
-	}
-
-	public static Object simpleEvaluate(String stoex) {
-		return evaluate(stoex, new SimulatedStackframe());
 	}
 	
 	/**
@@ -79,7 +94,7 @@ public class StackContext implements Serializable {
 			if (e.getKey().startsWith(variablename)) {
 				if (e.getValue() instanceof EvaluationProxy) {
 					EvaluationProxy proxy = (EvaluationProxy) e.getValue();
-					Object result = this.evaluate(proxy.getStoEx(), proxy.getStackFrame());
+					Object result = this.evaluateStatic(proxy.getStoEx(), proxy.getStackFrame(),mode);
 					frame.addValue(e.getKey(),result);
 				}
 			}
@@ -88,6 +103,14 @@ public class StackContext implements Serializable {
 
 	public SimulatedStack<Object> getStack(){
 		return stack;
+	}
+
+	public VariableMode getEvaluationMode() {
+		return mode;
+	}
+
+	public void setEvaluationMode(VariableMode mode) {
+		this.mode = mode;
 	}
 
 }

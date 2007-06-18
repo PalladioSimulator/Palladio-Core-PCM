@@ -79,7 +79,7 @@ public class PCMStoExEvaluationVisitor extends PCMStoExSwitch {
 			Object value = this.myStackFrame.getValue(variableID); 
 			if (value instanceof EvaluationProxy) {
 				EvaluationProxy proxy = (EvaluationProxy)value;
-				return StackContext.evaluate(proxy.getStoEx(), proxy.getStackFrame());
+				return StackContext.evaluateStatic(proxy.getStoEx(), proxy.getStackFrame());
 			} else {
 				return value;
 			}

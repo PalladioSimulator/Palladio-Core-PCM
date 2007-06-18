@@ -18,7 +18,7 @@ public class SimulatedLinkingResource extends AbstractScheduledResource {
 
 	@Override
 	protected double calculateDemand(double demand) {
-		return NumberConverter.toDouble(StackContext.simpleEvaluate(latencySpec)) + demand/throughput;
+		return NumberConverter.toDouble(StackContext.evaluateStatic(latencySpec)) + demand/throughput;
 	}
 
 }

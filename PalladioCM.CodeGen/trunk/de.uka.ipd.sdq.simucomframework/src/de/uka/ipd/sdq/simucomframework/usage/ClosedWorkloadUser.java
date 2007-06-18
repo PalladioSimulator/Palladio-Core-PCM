@@ -48,7 +48,7 @@ public class ClosedWorkloadUser extends SimProcess implements IUser {
 	}
 
 	public void scenarioRunner(SimProcess thread) {
-		double thinkTime = (Double)Context.evaluate(this.thinkTime,Double.class,null);
+		double thinkTime = (Double)Context.evaluateStatic(this.thinkTime,Double.class,null);
 		this.hold(new SimTime(thinkTime));
 		this.scenarioRunner.scenarioRunner(thread);
 	}

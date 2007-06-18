@@ -42,7 +42,7 @@ public class BytesizeComputationForSignature {
 		if (mod == Modifier.OUT){
 			DataType returnType = sig.getReturntype__Signature();	
 			if (returnType != null){
-				result.append(getCharacterisationString(returnType, sig.getServiceName()+".RETURN"));	
+				result.append(getCharacterisationString(returnType, "RETURN"));	
 			}
 		}
 		

@@ -1,7 +1,8 @@
 «IMPORT system»
 «IMPORT composition»
 «IMPORT repository»
-«IMPORT entities»
+«IMPORT entity»
+«IMPORT completions»
 «EXTENSION m2t_transforms::pcm»
 «EXTENSION m2t_transforms::java_names»
  
@@ -68,12 +69,27 @@
 		  «FOREACH this.childComponentContexts_ComposedStructure.select(c|!ComposedStructure.isInstance(c.encapsulatedComponent_ChildComponentContext)) AS child»
 			  init«child.javaName()»();
 		  «ENDFOREACH»
+		  «IF InterfaceProvidingEntity.isInstance(this)»
+			  /* And finally, my ports */
+			  «EXPAND PortInit(this) FOREACH ((InterfaceProvidingEntity)this).providedRoles_InterfaceProvidingEntity»
+		  «ENDIF»
       }
 
       «EXPAND Init(this) FOREACH this.childComponentContexts_ComposedStructure»
       /**
       * Inner Structure initialisation end
       */
+«ENDDEFINE»
+
+«DEFINE PortInit(ComposedStructure cs) FOR ProvidedRole»
+«this.portMemberVar()» = new «this.fqnPort()»(
+		«IF cs.hasProvidedDelegationConnector(this)»
+			my«cs.getProvidedDelegationConnector(this).childComponentContext_ProvidedDelegationConnector.javaName()».
+			«cs.getProvidedDelegationConnector(this).innerProvidedRole_ProvidedDelegationConnector.portGetter()»()
+		«ELSE»
+		   null
+		«ENDIF»
+		);
 «ENDDEFINE»
 
 «DEFINE Init(ComposedStructure s) FOR AssemblyContext»
@@ -94,6 +110,11 @@
 // If the component is unbound, a null pointer is generated
 // -----------------------------------
 «DEFINE PortQuery(ComposedStructure s, AssemblyContext ctx) FOR RequiredRole»
+	«IF Completion.isInstance(s)»
+		«EXPAND m2t_transforms::delegator_class::DelegatorClass(s.javaName()+"Delegator") FOR this.requiredInterface__RequiredRole»
+		new «this.requiredInterface__RequiredRole.implementationPackage()».delegates.«s.javaName()+"Delegator"»«this.requiredInterface__RequiredRole.javaName()»
+		(
+	«ENDIF»
 	«IF hasConnector(s,ctx,this)»
 		«LET getConnector(s,ctx,this) AS connector»
 			/* From Connector «connector.id» */
@@ -108,4 +129,7 @@
 	        null
 	    «ENDIF» 
     «ENDIF»
+	«IF Completion.isInstance(s)»
+	)
+	«ENDIF»
 «ENDDEFINE»
