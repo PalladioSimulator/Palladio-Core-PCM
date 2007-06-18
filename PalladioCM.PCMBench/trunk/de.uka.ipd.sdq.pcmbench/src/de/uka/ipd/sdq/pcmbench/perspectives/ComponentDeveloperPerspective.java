@@ -8,8 +8,6 @@ import org.eclipse.ui.IFolderLayout;
 import org.eclipse.ui.IPageLayout;
 import org.eclipse.ui.IPerspectiveFactory;
 
-import de.uka.ipd.sdq.pcmbench.views.ResourceView;
-
 
 /**
  * @author steffen, johann
@@ -45,7 +43,6 @@ public class ComponentDeveloperPerspective implements IPerspectiveFactory {
 
 		topLeft.addView(NAVIGATOR_VIEW);
 		topLeft.addView("org.eclipse.ui.navigator.ProjectExplorer");
-		bottomLeft.addView(ResourceView.ID);
 
 		right.addView(IPageLayout.ID_OUTLINE);
 

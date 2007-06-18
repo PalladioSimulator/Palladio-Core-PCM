@@ -31,21 +31,17 @@ import org.eclipse.ui.navigator.ICommonViewerSite;
 import org.eclipse.ui.navigator.ICommonViewerWorkbenchSite;
 
 import de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF;
-import de.uka.ipd.sdq.pcmbench.EditingDomainFactory;
-import de.uka.ipd.sdq.pcmbench.actions.OpenRepositoryAction;
-import de.uka.ipd.sdq.pcmbench.actions.OpenSEFFDiagramAction;
 import de.uka.ipd.sdq.pcmbench.ui.provider.categoryaware.GenericCategoryItemProvider;
 
 /**
  * @author Snowball
- *
+ * This class is OBSOLETE and only left for demonstration purposes.
  */
 public class ChildAddMenuProvider extends CommonActionProvider {
 
 	private Collection createChildActions;
 	private Collection createSiblingActions;
 	private IWorkbenchWindow workbenchWindow;
-	private OpenSEFFDiagramAction seffAction;
 
 	/**
 	 * 
@@ -66,9 +62,9 @@ public class ChildAddMenuProvider extends CommonActionProvider {
 		{
 			ICommonViewerWorkbenchSite workbench = (ICommonViewerWorkbenchSite)viewSite;
 			workbenchWindow = workbench.getWorkbenchWindow();
-			seffAction = new OpenSEFFDiagramAction(
-					workbenchWindow.getActivePage(), workbench.getSelectionProvider());
-			seffAction.init(workbenchWindow);
+//			seffAction = new OpenSEFFDiagramAction(
+//					workbenchWindow.getActivePage(), workbench.getSelectionProvider());
+//			seffAction.init(workbenchWindow);
 		}
 	}
 
@@ -82,8 +78,8 @@ public class ChildAddMenuProvider extends CommonActionProvider {
 
 		// Query the new selection for appropriate new child/sibling descriptors
 		//
-		final TransactionalEditingDomain domain = 
-			TransactionalEditingDomain.Registry.INSTANCE.getEditingDomain(EditingDomainFactory.EDITING_DOMAIN_ID);
+		final TransactionalEditingDomain domain = null; 
+//			TransactionalEditingDomain.Registry.INSTANCE.getEditingDomain(EditingDomainFactory.EDITING_DOMAIN_ID);
 
 		Collection newChildDescriptors = null;
 		Collection newSiblingDescriptors = null;
@@ -97,7 +93,7 @@ public class ChildAddMenuProvider extends CommonActionProvider {
 
 			if (object instanceof ResourceDemandingSEFF)
 			{
-				menu.add(seffAction);
+				// menu.add(seffAction);
 			}
 		}
 
@@ -205,14 +201,14 @@ public class ChildAddMenuProvider extends CommonActionProvider {
 			siblingSubmenu.update(true);
 		}
 		
-		OpenRepositoryAction ora = new OpenRepositoryAction();
-		ora.init(workbenchWindow);
-
-		menu.add(ora);
-		menu.insertBefore(ICommonMenuConstants.GROUP_EDIT, 
-				childSubmenu);
-		menu.insertBefore(ICommonMenuConstants.GROUP_EDIT, 
-				siblingSubmenu);
+//		OpenRepositoryAction ora = new OpenRepositoryAction();
+//		ora.init(workbenchWindow);
+//
+//		menu.add(ora);
+//		menu.insertBefore(ICommonMenuConstants.GROUP_EDIT, 
+//				childSubmenu);
+//		menu.insertBefore(ICommonMenuConstants.GROUP_EDIT, 
+//				siblingSubmenu);
 	}
 
 	/**
@@ -277,10 +273,10 @@ public class ChildAddMenuProvider extends CommonActionProvider {
 	 */
 	@Override
 	public void fillActionBars(IActionBars actionBars) {
-		// TODO Auto-generated method stub
-		super.fillActionBars(actionBars);
-		if (this.seffAction.isEnabled())
-			actionBars.setGlobalActionHandler(ICommonActionConstants.OPEN, seffAction);
+//		// TODO Auto-generated method stub
+//		super.fillActionBars(actionBars);
+//		if (this.seffAction.isEnabled())
+//			actionBars.setGlobalActionHandler(ICommonActionConstants.OPEN, seffAction);
 	}
 
 }

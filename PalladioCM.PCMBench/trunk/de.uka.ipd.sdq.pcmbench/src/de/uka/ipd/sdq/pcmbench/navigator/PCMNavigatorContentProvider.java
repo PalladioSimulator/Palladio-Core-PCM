@@ -39,7 +39,6 @@ import org.eclipse.ui.navigator.SaveablesProvider;
 import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
 import de.uka.ipd.sdq.pcm.repository.provider.RepositoryItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.seff.provider.SeffItemProviderAdapterFactory;
-import de.uka.ipd.sdq.pcmbench.EditingDomainFactory;
 import de.uka.ipd.sdq.pcmbench.ui.provider.categoryaware.CategoryAwareItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcmbench.ui.provider.categoryaware.GenericCategoryItemProvider;
 import de.uka.ipd.sdq.pcmbench.ui.provider.categoryaware.PalladioCategoryDescriptions;
@@ -201,13 +200,14 @@ class MySaveablesProvider extends SaveablesProvider {
 
 /**
  * @author Snowball
- *
+ * This class is OBSOLETE and only left for demonstration purposes.
  */
 public class PCMNavigatorContentProvider implements ITreeContentProvider, IAdaptable {
 
 	private Object input;
-	final protected TransactionalEditingDomain editingDomain = TransactionalEditingDomain.Registry.INSTANCE
-		.getEditingDomain(EditingDomainFactory.EDITING_DOMAIN_ID);
+	final protected TransactionalEditingDomain editingDomain = null;
+//		TransactionalEditingDomain.Registry.INSTANCE
+//		.getEditingDomain(EditingDomainFactory.EDITING_DOMAIN_ID);
 	private StructuredViewer viewer;
 	private ComposedAdapterFactory adapterFactory;
 	private AdapterFactoryContentProvider contentProvider;

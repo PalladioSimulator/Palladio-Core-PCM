@@ -5,13 +5,6 @@
    <extension
          point="org.eclipse.ui.perspectives">
       <perspective
-            class="de.uka.ipd.sdq.pcmbench.perspective.PCMBenchPerspective"
-            fixed="false"
-            icon="icons/palladio-logo.gif"
-            id="de.uka.ipd.sdq.PCMBench.perspective"
-            name="PCMBench">
-      </perspective>
-      <perspective
             class="de.uka.ipd.sdq.pcmbench.perspectives.ComponentDeveloperPerspective"
             icon="icons/brick.png"
             id="de.uka.ipd.sdq.pcmbench.componentdeveloper_perspective"
@@ -77,46 +70,6 @@
       </product>
    </extension>
    
-   <extension
-         point="org.eclipse.ui.views">
-      <view
-            class="de.uka.ipd.sdq.pcmbench.views.ResourceView"
-            icon="icons/palladio-logo.gif"
-            id="de.uka.ipd.sdq.pcmbench.view.ResourceView"
-            name="Resource View"/>
-      <view
-            allowMultiple="false"
-            class="org.eclipse.ui.navigator.CommonNavigator"
-            icon="icons/palladio-logo.gif"
-            id="de.uka.ipd.sdq.pcmbench.projectview"
-            name="PCM Project View"/>
-   </extension>
-   <extension
-         point="org.eclipse.emf.transaction.editingDomains">
-      <editingDomain
-            factory="org.eclipse.gmf.runtime.diagram.core.DiagramEditingDomainFactory"
-            id="de.uka.ipd.sdq.PCMBench.editingDomain"/>
-   </extension>
-   <extension
-         point="org.eclipse.ui.actionSets">
-      <actionSet
-            description="PCM Bench Main Actions"
-            id="de.uka.ipd.sdq.PCMBench.mainActionSet"
-            label="PCM Bench Main Actions"
-            visible="true">
-         <menu
-               id="de.uka.ipd.sdq.PCMBench.mainMenu"
-               label="&amp;PCM Bench">
-            <groupMarker name="mainGroupMarker"/>
-         </menu>
-         <action
-               class="de.uka.ipd.sdq.pcmbench.actions.OpenRepositoryAction"
-               id="de.uka.ipd.sdq.PCMBench.openRepositoryAction"
-               label="&amp;Open Repository..."
-               menubarPath="de.uka.ipd.sdq.PCMBench.mainMenu/mainGroupMarker"
-               style="push"/>
-      </actionSet>
-   </extension>
   
    <extension
          point="org.eclipse.ui.navigator.viewer">
@@ -195,28 +148,6 @@
                id="de.uka.ipd.sdq.pcmbench.ChildAddMenuProvider"/>
       </navigatorContent>
    </extension>
-   <extension
-         id="de.uka.ipd.sdq.pcmbench.nature"
-         name="Palladio Nature"
-         point="org.eclipse.core.resources.natures">
-      <runtime>
-         <run class="de.uka.ipd.sdq.pcmbench.nature.PalladioProjectNature"/>
-      </runtime>
-   </extension>
-   <extension
-         point="org.eclipse.ui.popupMenus">
-      <objectContribution
-            adaptable="false"
-            id="de.uka.ipd.sdq.pcmbench.addpcmnature"
-            objectClass="org.eclipse.core.resources.IProject">
-         <action
-               class="de.uka.ipd.sdq.pcmbench.actions.AddPalladioNatureAction"
-               enablesFor="1"
-               id="de.uka.ipd.sdq.pcmbench.addNatureAction"
-               label="Add Palladio Nature"
-               menubarPath="additions"/>
-      </objectContribution>
-   </extension>
    
    <extension
          point="org.eclipse.ui.newWizards">
@@ -224,18 +155,6 @@
             id="de.uka.ipd.sdq.pcmbench.palladio_category"
             name="Palladio Projects">
       </category>
-      <wizard
-            category="de.uka.ipd.sdq.pcmbench.palladio_category"
-            class="de.uka.ipd.sdq.pcmbench.wizards.NewPalladioProjectWizard"
-            descriptionImage="icons/palladio-logo.gif"
-            finalPerspective="de.uka.ipd.sdq.PCMBench.perspective"
-            icon="icons/palladio-logo.gif"
-            id="de.uka.ipd.sdq.pcmbench.newProjectWizard"
-            name="New Palladio Project Wizard"
-            preferredPerspectives="de.uka.ipd.sdq.PCMBench.perspective"
-            project="true">
-         <description>This wizard creates a new Palladio Modelling Project for CBSE based Quality of Service evaluations.</description>
-      </wizard>
       <wizard
             category="de.uka.ipd.sdq.pcmbench.palladio_category"
             class="de.uka.ipd.sdq.pcmbench.wizards.RepositoryProjectWizard"
@@ -283,22 +202,6 @@
    </extension>
    
    
-   <extension
-         point="org.eclipse.ui.decorators">
-      <decorator
-            adaptable="false"
-            class="de.uka.ipd.sdq.pcmbench.decorator.DecoratorLightwightLabelProvider"
-            icon="icons/palladio-logo-overlay.gif"
-            id="de.uka.ipd.sdq.pcmbench.projectdecorator"
-            label="Palladio Project Decorator"
-            lightweight="true"
-            location="TOP_RIGHT"
-            state="true">
-         <enablement>
-            <objectClass name="org.eclipse.core.resources.IProject"/>
-         </enablement>
-      </decorator>
-   </extension>
    <extension
          id="application"
          point="org.eclipse.core.runtime.applications">
