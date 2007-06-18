@@ -78,4 +78,8 @@ public class ConnectorCompletionBuilder {
 	public Completion getCompletion() {
 		return this.completion;
 	}
+
+	public boolean hasComponents() {
+		return !this.basicComponents.isEmpty();
+	}
 }

@@ -53,7 +53,13 @@ public class StackContext implements Serializable {
 
 	public static Object evaluate(String stoex, SimulatedStackframe currentFrame) {
 		StoExCacheEntry cacheEntry = StoExCache.singleton().getEntry(stoex);
-		return new PCMStoExEvaluationVisitor(stoex,currentFrame,VariableMode.RETURN_DEFAULT_ON_NOT_FOUND)
+		return new PCMStoExEvaluationVisitor(stoex,currentFrame,VariableMode.EXCEPTION_ON_NOT_FOUND)
+					.doSwitch(cacheEntry.getParsedExpression());
+	}
+
+	public static Object evaluate(String stoex, SimulatedStackframe currentFrame, VariableMode mode) {
+		StoExCacheEntry cacheEntry = StoExCache.singleton().getEntry(stoex);
+		return new PCMStoExEvaluationVisitor(stoex,currentFrame,mode)
 					.doSwitch(cacheEntry.getParsedExpression());
 	}
 
@@ -83,5 +89,5 @@ public class StackContext implements Serializable {
 	public SimulatedStack<Object> getStack(){
 		return stack;
 	}
-	
+
 }

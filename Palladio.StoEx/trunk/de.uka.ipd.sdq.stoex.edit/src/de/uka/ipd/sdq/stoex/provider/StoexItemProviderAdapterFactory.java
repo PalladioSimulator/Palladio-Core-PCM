@@ -490,6 +490,29 @@ public class StoexItemProviderAdapterFactory extends StoexAdapterFactory impleme
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link de.uka.ipd.sdq.stoex.IfElseExpression} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected IfElseExpressionItemProvider ifElseExpressionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.uka.ipd.sdq.stoex.IfElseExpression}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createIfElseExpressionAdapter() {
+		if (ifElseExpressionItemProvider == null) {
+			ifElseExpressionItemProvider = new IfElseExpressionItemProvider(this);
+		}
+
+		return ifElseExpressionItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -606,6 +629,7 @@ public class StoexItemProviderAdapterFactory extends StoexAdapterFactory impleme
 		if (notExpressionItemProvider != null) notExpressionItemProvider.dispose();
 		if (negativeExpressionItemProvider != null) negativeExpressionItemProvider.dispose();
 		if (functionLiteralItemProvider != null) functionLiteralItemProvider.dispose();
+		if (ifElseExpressionItemProvider != null) ifElseExpressionItemProvider.dispose();
 	}
 
 }

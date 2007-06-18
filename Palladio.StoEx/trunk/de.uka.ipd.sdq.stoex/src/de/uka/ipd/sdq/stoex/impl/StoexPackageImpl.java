@@ -20,6 +20,8 @@ import de.uka.ipd.sdq.stoex.Comparison;
 import de.uka.ipd.sdq.stoex.DoubleLiteral;
 import de.uka.ipd.sdq.stoex.Expression;
 import de.uka.ipd.sdq.stoex.FunctionLiteral;
+import de.uka.ipd.sdq.stoex.IfElse;
+import de.uka.ipd.sdq.stoex.IfElseExpression;
 import de.uka.ipd.sdq.stoex.IntLiteral;
 import de.uka.ipd.sdq.stoex.NamespaceReference;
 import de.uka.ipd.sdq.stoex.NegativeExpression;
@@ -140,6 +142,13 @@ public class StoexPackageImpl extends EPackageImpl implements StoexPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass ifElseEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass expressionEClass = null;
 
 	/**
@@ -253,6 +262,13 @@ public class StoexPackageImpl extends EPackageImpl implements StoexPackage {
 	 * @generated
 	 */
 	private EClass functionLiteralEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass ifElseExpressionEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -477,6 +493,15 @@ public class StoexPackageImpl extends EPackageImpl implements StoexPackage {
 	 */
 	public EClass getBooleanExpression() {
 		return booleanExpressionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getIfElse() {
+		return ifElseEClass;
 	}
 
 	/**
@@ -862,6 +887,42 @@ public class StoexPackageImpl extends EPackageImpl implements StoexPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getIfElseExpression() {
+		return ifElseExpressionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getIfElseExpression_IfExpression() {
+		return (EReference)ifElseExpressionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getIfElseExpression_ElseExpression() {
+		return (EReference)ifElseExpressionEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getIfElseExpression_ConditionExpression() {
+		return (EReference)ifElseExpressionEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getTermOperations() {
 		return termOperationsEEnum;
 	}
@@ -946,6 +1007,8 @@ public class StoexPackageImpl extends EPackageImpl implements StoexPackage {
 
 		booleanExpressionEClass = createEClass(BOOLEAN_EXPRESSION);
 
+		ifElseEClass = createEClass(IF_ELSE);
+
 		expressionEClass = createEClass(EXPRESSION);
 
 		termExpressionEClass = createEClass(TERM_EXPRESSION);
@@ -1005,6 +1068,11 @@ public class StoexPackageImpl extends EPackageImpl implements StoexPackage {
 		createEAttribute(functionLiteralEClass, FUNCTION_LITERAL__ID);
 		createEReference(functionLiteralEClass, FUNCTION_LITERAL__PARAMETERS_FUNCTION_LITERAL);
 
+		ifElseExpressionEClass = createEClass(IF_ELSE_EXPRESSION);
+		createEReference(ifElseExpressionEClass, IF_ELSE_EXPRESSION__IF_EXPRESSION);
+		createEReference(ifElseExpressionEClass, IF_ELSE_EXPRESSION__ELSE_EXPRESSION);
+		createEReference(ifElseExpressionEClass, IF_ELSE_EXPRESSION__CONDITION_EXPRESSION);
+
 		// Create enums
 		termOperationsEEnum = createEEnum(TERM_OPERATIONS);
 		productOperationsEEnum = createEEnum(PRODUCT_OPERATIONS);
@@ -1052,7 +1120,8 @@ public class StoexPackageImpl extends EPackageImpl implements StoexPackage {
 		productEClass.getESuperTypes().add(this.getTerm());
 		termEClass.getESuperTypes().add(this.getComparison());
 		comparisonEClass.getESuperTypes().add(this.getBooleanExpression());
-		booleanExpressionEClass.getESuperTypes().add(this.getExpression());
+		booleanExpressionEClass.getESuperTypes().add(this.getIfElse());
+		ifElseEClass.getESuperTypes().add(this.getExpression());
 		termExpressionEClass.getESuperTypes().add(this.getTerm());
 		productExpressionEClass.getESuperTypes().add(this.getProduct());
 		probabilityFunctionLiteralEClass.getESuperTypes().add(this.getAtom());
@@ -1068,6 +1137,7 @@ public class StoexPackageImpl extends EPackageImpl implements StoexPackage {
 		notExpressionEClass.getESuperTypes().add(this.getUnary());
 		negativeExpressionEClass.getESuperTypes().add(this.getUnary());
 		functionLiteralEClass.getESuperTypes().add(this.getAtom());
+		ifElseExpressionEClass.getESuperTypes().add(this.getIfElse());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(variableReferenceEClass, VariableReference.class, "VariableReference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1094,6 +1164,8 @@ public class StoexPackageImpl extends EPackageImpl implements StoexPackage {
 		initEClass(comparisonEClass, Comparison.class, "Comparison", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(booleanExpressionEClass, BooleanExpression.class, "BooleanExpression", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(ifElseEClass, IfElse.class, "IfElse", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(expressionEClass, Expression.class, "Expression", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1153,6 +1225,11 @@ public class StoexPackageImpl extends EPackageImpl implements StoexPackage {
 		initEClass(functionLiteralEClass, FunctionLiteral.class, "FunctionLiteral", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getFunctionLiteral_Id(), ecorePackage.getEString(), "id", null, 1, 1, FunctionLiteral.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getFunctionLiteral_Parameters_FunctionLiteral(), this.getExpression(), null, "parameters_FunctionLiteral", null, 0, -1, FunctionLiteral.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+		initEClass(ifElseExpressionEClass, IfElseExpression.class, "IfElseExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getIfElseExpression_IfExpression(), this.getBooleanExpression(), null, "ifExpression", null, 1, 1, IfElseExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getIfElseExpression_ElseExpression(), this.getBooleanExpression(), null, "elseExpression", null, 1, 1, IfElseExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getIfElseExpression_ConditionExpression(), this.getBooleanExpression(), null, "conditionExpression", null, 1, 1, IfElseExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(termOperationsEEnum, TermOperations.class, "TermOperations");

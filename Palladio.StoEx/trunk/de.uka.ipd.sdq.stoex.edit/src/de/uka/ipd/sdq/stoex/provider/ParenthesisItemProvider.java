@@ -221,6 +221,11 @@ public class ParenthesisItemProvider
 			(createChildParameter
 				(StoexPackage.Literals.PARENTHESIS__INNER_EXPRESSION,
 				 StoexFactory.eINSTANCE.createFunctionLiteral()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(StoexPackage.Literals.PARENTHESIS__INNER_EXPRESSION,
+				 StoexFactory.eINSTANCE.createIfElseExpression()));
 	}
 
 	/**

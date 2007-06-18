@@ -96,13 +96,13 @@ public class PCMStoExEvaluationVisitor extends PCMStoExSwitch {
 		} else if (mode == VariableMode.RETURN_NULL_ON_NOT_FOUND) {
 			return null;
 		} else {
-			if (typeInferer.doSwitch(object) == TypeEnum.INT)
+			if (typeInferer.getType(object) == TypeEnum.INT)
 				return 0;
-			if (typeInferer.doSwitch(object) == TypeEnum.DOUBLE)
+			if (typeInferer.getType(object) == TypeEnum.DOUBLE)
 				return 0.0;
-			if (typeInferer.doSwitch(object) == TypeEnum.ENUM)
+			if (typeInferer.getType(object) == TypeEnum.ENUM)
 				return "";
-			if (typeInferer.doSwitch(object) == TypeEnum.BOOL)
+			if (typeInferer.getType(object) == TypeEnum.BOOL)
 				return false;
 			RuntimeException re = new RuntimeException("Architecture specification incomplete. Stackframe is missing id "+variableID);
 	        logger.error("Value not found in specification",re);

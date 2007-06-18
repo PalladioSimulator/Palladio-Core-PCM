@@ -16,6 +16,7 @@ import de.uka.ipd.sdq.stoex.CompareExpression;
 import de.uka.ipd.sdq.stoex.DoubleLiteral;
 import de.uka.ipd.sdq.stoex.Expression;
 import de.uka.ipd.sdq.stoex.FunctionLiteral;
+import de.uka.ipd.sdq.stoex.IfElseExpression;
 import de.uka.ipd.sdq.stoex.IntLiteral;
 import de.uka.ipd.sdq.stoex.NegativeExpression;
 import de.uka.ipd.sdq.stoex.NotExpression;
@@ -337,6 +338,12 @@ public class ExpressionInferTypeVisitor extends StoexSwitch<Object> {
 		}
 		return object;
 	}
-	
+
+	@Override
+	public Object caseIfElseExpression(IfElseExpression object) {
+		// TODO: StB ganz klar ist mir die Inferenz hier nicht.
+		typeAnnotation.put(object, TypeEnum.ANY);
+		return object;
+	}
 	
 }

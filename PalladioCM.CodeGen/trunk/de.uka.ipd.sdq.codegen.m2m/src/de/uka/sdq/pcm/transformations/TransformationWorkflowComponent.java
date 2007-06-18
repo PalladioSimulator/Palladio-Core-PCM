@@ -94,8 +94,10 @@ public class TransformationWorkflowComponent
 		counter++;
 
 		ConnectorCompletionBuilder builder = configureCompletion(con);
-		builder.build();
-		embedCompletionIntoSystem(con, builder.getCompletion());
+		if (builder.hasComponents()){
+			builder.build();
+			embedCompletionIntoSystem(con, builder.getCompletion());
+		}
 	}
 
 	private ConnectorCompletionBuilder configureCompletion(AssemblyConnector con) {

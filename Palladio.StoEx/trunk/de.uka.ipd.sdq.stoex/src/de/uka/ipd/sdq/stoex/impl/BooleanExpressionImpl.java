@@ -20,7 +20,7 @@ import org.eclipse.emf.ecore.EClass;
  *
  * @generated
  */
-public abstract class BooleanExpressionImpl extends ExpressionImpl implements BooleanExpression {
+public abstract class BooleanExpressionImpl extends IfElseImpl implements BooleanExpression {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

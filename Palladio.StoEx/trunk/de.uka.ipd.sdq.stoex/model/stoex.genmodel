@@ -63,6 +63,7 @@
     <genClasses image="false" ecoreClass="stoex.ecore#//Term"/>
     <genClasses image="false" ecoreClass="stoex.ecore#//Comparison"/>
     <genClasses image="false" ecoreClass="stoex.ecore#//BooleanExpression"/>
+    <genClasses image="false" ecoreClass="stoex.ecore#//IfElse"/>
     <genClasses image="false" ecoreClass="stoex.ecore#//Expression"/>
     <genClasses ecoreClass="stoex.ecore#//TermExpression">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference stoex.ecore#//TermExpression/left"/>
@@ -119,6 +120,11 @@
     <genClasses ecoreClass="stoex.ecore#//FunctionLiteral">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute stoex.ecore#//FunctionLiteral/id"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference stoex.ecore#//FunctionLiteral/parameters_FunctionLiteral"/>
+    </genClasses>
+    <genClasses ecoreClass="stoex.ecore#//IfElseExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference stoex.ecore#//IfElseExpression/ifExpression"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference stoex.ecore#//IfElseExpression/elseExpression"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference stoex.ecore#//IfElseExpression/conditionExpression"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

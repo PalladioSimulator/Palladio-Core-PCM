@@ -14,9 +14,17 @@ grammar PCMStoEx;
 
 expression returns [Expression exp] 
 		:  
-		c=boolAndExpr EOF
+		c=ifelseExpr EOF
 		{exp = c;}; 
 
+ifelseExpr returns [IfElse ifelseExp]
+	:
+	cond = boolAndExpr {ifelseExp = cond;} 
+		({IfElseExpression newIfelseExp = StoexFactory.eINSTANCE.createIfElseExpression();
+		  newIfelseExp.setConditionExpression(cond);}
+		 '?' ifEx = boolAndExpr {newIfelseExp.setIfExpression(ifEx);} ':' elseEx = boolAndExpr {newIfelseExp.setElseExpression(elseEx);
+		 ifelseExp = newIfelseExp;})?
+	;
 
 boolAndExpr returns [BooleanExpression boolExp] 
 	:

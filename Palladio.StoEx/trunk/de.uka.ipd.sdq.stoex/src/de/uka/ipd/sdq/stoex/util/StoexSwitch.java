@@ -117,6 +117,7 @@ public class StoexSwitch<T> {
 				if (result == null) result = caseTerm(variable);
 				if (result == null) result = caseComparison(variable);
 				if (result == null) result = caseBooleanExpression(variable);
+				if (result == null) result = caseIfElse(variable);
 				if (result == null) result = caseExpression(variable);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -130,6 +131,7 @@ public class StoexSwitch<T> {
 				if (result == null) result = caseTerm(atom);
 				if (result == null) result = caseComparison(atom);
 				if (result == null) result = caseBooleanExpression(atom);
+				if (result == null) result = caseIfElse(atom);
 				if (result == null) result = caseExpression(atom);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -142,6 +144,7 @@ public class StoexSwitch<T> {
 				if (result == null) result = caseTerm(unary);
 				if (result == null) result = caseComparison(unary);
 				if (result == null) result = caseBooleanExpression(unary);
+				if (result == null) result = caseIfElse(unary);
 				if (result == null) result = caseExpression(unary);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -153,6 +156,7 @@ public class StoexSwitch<T> {
 				if (result == null) result = caseTerm(power);
 				if (result == null) result = caseComparison(power);
 				if (result == null) result = caseBooleanExpression(power);
+				if (result == null) result = caseIfElse(power);
 				if (result == null) result = caseExpression(power);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -163,6 +167,7 @@ public class StoexSwitch<T> {
 				if (result == null) result = caseTerm(product);
 				if (result == null) result = caseComparison(product);
 				if (result == null) result = caseBooleanExpression(product);
+				if (result == null) result = caseIfElse(product);
 				if (result == null) result = caseExpression(product);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -172,6 +177,7 @@ public class StoexSwitch<T> {
 				T result = caseTerm(term);
 				if (result == null) result = caseComparison(term);
 				if (result == null) result = caseBooleanExpression(term);
+				if (result == null) result = caseIfElse(term);
 				if (result == null) result = caseExpression(term);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -180,6 +186,7 @@ public class StoexSwitch<T> {
 				Comparison comparison = (Comparison)theEObject;
 				T result = caseComparison(comparison);
 				if (result == null) result = caseBooleanExpression(comparison);
+				if (result == null) result = caseIfElse(comparison);
 				if (result == null) result = caseExpression(comparison);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -187,7 +194,15 @@ public class StoexSwitch<T> {
 			case StoexPackage.BOOLEAN_EXPRESSION: {
 				BooleanExpression booleanExpression = (BooleanExpression)theEObject;
 				T result = caseBooleanExpression(booleanExpression);
+				if (result == null) result = caseIfElse(booleanExpression);
 				if (result == null) result = caseExpression(booleanExpression);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case StoexPackage.IF_ELSE: {
+				IfElse ifElse = (IfElse)theEObject;
+				T result = caseIfElse(ifElse);
+				if (result == null) result = caseExpression(ifElse);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -203,6 +218,7 @@ public class StoexSwitch<T> {
 				if (result == null) result = caseTerm(termExpression);
 				if (result == null) result = caseComparison(termExpression);
 				if (result == null) result = caseBooleanExpression(termExpression);
+				if (result == null) result = caseIfElse(termExpression);
 				if (result == null) result = caseExpression(termExpression);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -220,6 +236,7 @@ public class StoexSwitch<T> {
 				if (result == null) result = caseTerm(productExpression);
 				if (result == null) result = caseComparison(productExpression);
 				if (result == null) result = caseBooleanExpression(productExpression);
+				if (result == null) result = caseIfElse(productExpression);
 				if (result == null) result = caseExpression(productExpression);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -234,6 +251,7 @@ public class StoexSwitch<T> {
 				if (result == null) result = caseTerm(probabilityFunctionLiteral);
 				if (result == null) result = caseComparison(probabilityFunctionLiteral);
 				if (result == null) result = caseBooleanExpression(probabilityFunctionLiteral);
+				if (result == null) result = caseIfElse(probabilityFunctionLiteral);
 				if (result == null) result = caseExpression(probabilityFunctionLiteral);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -248,6 +266,7 @@ public class StoexSwitch<T> {
 				if (result == null) result = caseTerm(parenthesis);
 				if (result == null) result = caseComparison(parenthesis);
 				if (result == null) result = caseBooleanExpression(parenthesis);
+				if (result == null) result = caseIfElse(parenthesis);
 				if (result == null) result = caseExpression(parenthesis);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -262,6 +281,7 @@ public class StoexSwitch<T> {
 				if (result == null) result = caseTerm(numericLiteral);
 				if (result == null) result = caseComparison(numericLiteral);
 				if (result == null) result = caseBooleanExpression(numericLiteral);
+				if (result == null) result = caseIfElse(numericLiteral);
 				if (result == null) result = caseExpression(numericLiteral);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -277,6 +297,7 @@ public class StoexSwitch<T> {
 				if (result == null) result = caseTerm(intLiteral);
 				if (result == null) result = caseComparison(intLiteral);
 				if (result == null) result = caseBooleanExpression(intLiteral);
+				if (result == null) result = caseIfElse(intLiteral);
 				if (result == null) result = caseExpression(intLiteral);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -292,6 +313,7 @@ public class StoexSwitch<T> {
 				if (result == null) result = caseTerm(doubleLiteral);
 				if (result == null) result = caseComparison(doubleLiteral);
 				if (result == null) result = caseBooleanExpression(doubleLiteral);
+				if (result == null) result = caseIfElse(doubleLiteral);
 				if (result == null) result = caseExpression(doubleLiteral);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -301,6 +323,7 @@ public class StoexSwitch<T> {
 				T result = caseCompareExpression(compareExpression);
 				if (result == null) result = caseComparison(compareExpression);
 				if (result == null) result = caseBooleanExpression(compareExpression);
+				if (result == null) result = caseIfElse(compareExpression);
 				if (result == null) result = caseExpression(compareExpression);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -315,6 +338,7 @@ public class StoexSwitch<T> {
 				if (result == null) result = caseTerm(boolLiteral);
 				if (result == null) result = caseComparison(boolLiteral);
 				if (result == null) result = caseBooleanExpression(boolLiteral);
+				if (result == null) result = caseIfElse(boolLiteral);
 				if (result == null) result = caseExpression(boolLiteral);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -329,6 +353,7 @@ public class StoexSwitch<T> {
 				if (result == null) result = caseTerm(stringLiteral);
 				if (result == null) result = caseComparison(stringLiteral);
 				if (result == null) result = caseBooleanExpression(stringLiteral);
+				if (result == null) result = caseIfElse(stringLiteral);
 				if (result == null) result = caseExpression(stringLiteral);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -341,6 +366,7 @@ public class StoexSwitch<T> {
 				if (result == null) result = caseTerm(powerExpression);
 				if (result == null) result = caseComparison(powerExpression);
 				if (result == null) result = caseBooleanExpression(powerExpression);
+				if (result == null) result = caseIfElse(powerExpression);
 				if (result == null) result = caseExpression(powerExpression);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -349,6 +375,7 @@ public class StoexSwitch<T> {
 				BooleanOperatorExpression booleanOperatorExpression = (BooleanOperatorExpression)theEObject;
 				T result = caseBooleanOperatorExpression(booleanOperatorExpression);
 				if (result == null) result = caseBooleanExpression(booleanOperatorExpression);
+				if (result == null) result = caseIfElse(booleanOperatorExpression);
 				if (result == null) result = caseExpression(booleanOperatorExpression);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -362,6 +389,7 @@ public class StoexSwitch<T> {
 				if (result == null) result = caseTerm(notExpression);
 				if (result == null) result = caseComparison(notExpression);
 				if (result == null) result = caseBooleanExpression(notExpression);
+				if (result == null) result = caseIfElse(notExpression);
 				if (result == null) result = caseExpression(notExpression);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -375,6 +403,7 @@ public class StoexSwitch<T> {
 				if (result == null) result = caseTerm(negativeExpression);
 				if (result == null) result = caseComparison(negativeExpression);
 				if (result == null) result = caseBooleanExpression(negativeExpression);
+				if (result == null) result = caseIfElse(negativeExpression);
 				if (result == null) result = caseExpression(negativeExpression);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -389,7 +418,16 @@ public class StoexSwitch<T> {
 				if (result == null) result = caseTerm(functionLiteral);
 				if (result == null) result = caseComparison(functionLiteral);
 				if (result == null) result = caseBooleanExpression(functionLiteral);
+				if (result == null) result = caseIfElse(functionLiteral);
 				if (result == null) result = caseExpression(functionLiteral);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case StoexPackage.IF_ELSE_EXPRESSION: {
+				IfElseExpression ifElseExpression = (IfElseExpression)theEObject;
+				T result = caseIfElseExpression(ifElseExpression);
+				if (result == null) result = caseIfElse(ifElseExpression);
+				if (result == null) result = caseExpression(ifElseExpression);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -559,6 +597,21 @@ public class StoexSwitch<T> {
 	 * @generated
 	 */
 	public T caseBooleanExpression(BooleanExpression object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpretting the object as an instance of '<em>If Else</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpretting the object as an instance of '<em>If Else</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseIfElse(IfElse object) {
 		return null;
 	}
 
@@ -814,6 +867,21 @@ public class StoexSwitch<T> {
 	 * @generated
 	 */
 	public T caseFunctionLiteral(FunctionLiteral object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpretting the object as an instance of '<em>If Else Expression</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpretting the object as an instance of '<em>If Else Expression</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseIfElseExpression(IfElseExpression object) {
 		return null;
 	}
 

@@ -116,6 +116,10 @@ public class StoexAdapterFactory extends AdapterFactoryImpl {
 				return createBooleanExpressionAdapter();
 			}
 			@Override
+			public Adapter caseIfElse(IfElse object) {
+				return createIfElseAdapter();
+			}
+			@Override
 			public Adapter caseExpression(Expression object) {
 				return createExpressionAdapter();
 			}
@@ -182,6 +186,10 @@ public class StoexAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseFunctionLiteral(FunctionLiteral object) {
 				return createFunctionLiteralAdapter();
+			}
+			@Override
+			public Adapter caseIfElseExpression(IfElseExpression object) {
+				return createIfElseExpressionAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -354,6 +362,20 @@ public class StoexAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createBooleanExpressionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.stoex.IfElse <em>If Else</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.stoex.IfElse
+	 * @generated
+	 */
+	public Adapter createIfElseAdapter() {
 		return null;
 	}
 
@@ -592,6 +614,20 @@ public class StoexAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createFunctionLiteralAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.stoex.IfElseExpression <em>If Else Expression</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.stoex.IfElseExpression
+	 * @generated
+	 */
+	public Adapter createIfElseExpressionAdapter() {
 		return null;
 	}
 

@@ -22,7 +22,7 @@ public class StoExVisitorTests {
 	@Before public void setup() {
 		PatternLayout myLayout = new PatternLayout("%d{HH:mm:ss,SSS} [%t] %-5p %m [%c]%n");
 		ConsoleAppender ca = new ConsoleAppender(myLayout);
-		ca.setThreshold(Priority.DEBUG);
+		ca.setThreshold(Priority.INFO);
 		BasicConfigurator.resetConfiguration();
 		BasicConfigurator.configure(ca);
 	}
@@ -66,6 +66,18 @@ public class StoExVisitorTests {
 		Assert.assertEquals(2.0, result3);
 	}
 
+	@Test public void integerDivisionSemantics() {
+		double i = 25 + 15 * 10 / 1000;
+		double result3 = (Integer)StackContext.simpleEvaluate("25 + 15 * 10 / 1000");
+		Assert.assertEquals(result3, i);
+		Assert.assertEquals(result3, 25);
+
+		i = 25 + 15 * 10 / 1000.0;
+		result3 = (Double)StackContext.simpleEvaluate("25 + 15 * 10 / 1000.0");
+		Assert.assertEquals(result3, i);	
+		Assert.assertEquals(result3, 25.15);	
+	}
+	
 	@Test public void boolTests() {
 		boolean result = (Boolean)StackContext.simpleEvaluate("true");
 		Assert.assertEquals(true, result);

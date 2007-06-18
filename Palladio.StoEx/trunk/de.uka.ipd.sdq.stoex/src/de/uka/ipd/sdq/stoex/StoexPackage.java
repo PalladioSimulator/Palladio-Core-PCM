@@ -161,7 +161,7 @@ public interface StoexPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.stoex.impl.StoexPackageImpl#getExpression()
 	 * @generated
 	 */
-	int EXPRESSION = 11;
+	int EXPRESSION = 12;
 
 	/**
 	 * The number of structural features of the '<em>Expression</em>' class.
@@ -171,6 +171,25 @@ public interface StoexPackage extends EPackage {
 	 * @ordered
 	 */
 	int EXPRESSION_FEATURE_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.stoex.impl.IfElseImpl <em>If Else</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.stoex.impl.IfElseImpl
+	 * @see de.uka.ipd.sdq.stoex.impl.StoexPackageImpl#getIfElse()
+	 * @generated
+	 */
+	int IF_ELSE = 11;
+
+	/**
+	 * The number of structural features of the '<em>If Else</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IF_ELSE_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.stoex.impl.BooleanExpressionImpl <em>Boolean Expression</em>}' class.
@@ -189,7 +208,7 @@ public interface StoexPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOOLEAN_EXPRESSION_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 0;
+	int BOOLEAN_EXPRESSION_FEATURE_COUNT = IF_ELSE_FEATURE_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.stoex.impl.ComparisonImpl <em>Comparison</em>}' class.
@@ -341,7 +360,7 @@ public interface StoexPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.stoex.impl.StoexPackageImpl#getTermExpression()
 	 * @generated
 	 */
-	int TERM_EXPRESSION = 12;
+	int TERM_EXPRESSION = 13;
 
 	/**
 	 * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -387,7 +406,7 @@ public interface StoexPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.stoex.impl.StoexPackageImpl#getRandomVariable()
 	 * @generated
 	 */
-	int RANDOM_VARIABLE = 13;
+	int RANDOM_VARIABLE = 14;
 
 	/**
 	 * The feature id for the '<em><b>Specification</b></em>' attribute.
@@ -415,7 +434,7 @@ public interface StoexPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.stoex.impl.StoexPackageImpl#getProductExpression()
 	 * @generated
 	 */
-	int PRODUCT_EXPRESSION = 14;
+	int PRODUCT_EXPRESSION = 15;
 
 	/**
 	 * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -461,7 +480,7 @@ public interface StoexPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.stoex.impl.StoexPackageImpl#getProbabilityFunctionLiteral()
 	 * @generated
 	 */
-	int PROBABILITY_FUNCTION_LITERAL = 15;
+	int PROBABILITY_FUNCTION_LITERAL = 16;
 
 	/**
 	 * The feature id for the '<em><b>Function Probability Function Literal</b></em>' containment reference.
@@ -489,7 +508,7 @@ public interface StoexPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.stoex.impl.StoexPackageImpl#getParenthesis()
 	 * @generated
 	 */
-	int PARENTHESIS = 16;
+	int PARENTHESIS = 17;
 
 	/**
 	 * The feature id for the '<em><b>Inner Expression</b></em>' containment reference.
@@ -517,7 +536,7 @@ public interface StoexPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.stoex.impl.StoexPackageImpl#getNumericLiteral()
 	 * @generated
 	 */
-	int NUMERIC_LITERAL = 17;
+	int NUMERIC_LITERAL = 18;
 
 	/**
 	 * The number of structural features of the '<em>Numeric Literal</em>' class.
@@ -536,7 +555,7 @@ public interface StoexPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.stoex.impl.StoexPackageImpl#getIntLiteral()
 	 * @generated
 	 */
-	int INT_LITERAL = 18;
+	int INT_LITERAL = 19;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -564,7 +583,7 @@ public interface StoexPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.stoex.impl.StoexPackageImpl#getDoubleLiteral()
 	 * @generated
 	 */
-	int DOUBLE_LITERAL = 19;
+	int DOUBLE_LITERAL = 20;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -592,7 +611,7 @@ public interface StoexPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.stoex.impl.StoexPackageImpl#getCompareExpression()
 	 * @generated
 	 */
-	int COMPARE_EXPRESSION = 20;
+	int COMPARE_EXPRESSION = 21;
 
 	/**
 	 * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -638,7 +657,7 @@ public interface StoexPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.stoex.impl.StoexPackageImpl#getBoolLiteral()
 	 * @generated
 	 */
-	int BOOL_LITERAL = 21;
+	int BOOL_LITERAL = 22;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -666,7 +685,7 @@ public interface StoexPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.stoex.impl.StoexPackageImpl#getStringLiteral()
 	 * @generated
 	 */
-	int STRING_LITERAL = 22;
+	int STRING_LITERAL = 23;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -694,7 +713,7 @@ public interface StoexPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.stoex.impl.StoexPackageImpl#getPowerExpression()
 	 * @generated
 	 */
-	int POWER_EXPRESSION = 23;
+	int POWER_EXPRESSION = 24;
 
 	/**
 	 * The feature id for the '<em><b>Base</b></em>' containment reference.
@@ -731,7 +750,7 @@ public interface StoexPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.stoex.impl.StoexPackageImpl#getBooleanOperatorExpression()
 	 * @generated
 	 */
-	int BOOLEAN_OPERATOR_EXPRESSION = 24;
+	int BOOLEAN_OPERATOR_EXPRESSION = 25;
 
 	/**
 	 * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -777,7 +796,7 @@ public interface StoexPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.stoex.impl.StoexPackageImpl#getNotExpression()
 	 * @generated
 	 */
-	int NOT_EXPRESSION = 25;
+	int NOT_EXPRESSION = 26;
 
 	/**
 	 * The feature id for the '<em><b>Inner</b></em>' containment reference.
@@ -805,7 +824,7 @@ public interface StoexPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.stoex.impl.StoexPackageImpl#getNegativeExpression()
 	 * @generated
 	 */
-	int NEGATIVE_EXPRESSION = 26;
+	int NEGATIVE_EXPRESSION = 27;
 
 	/**
 	 * The feature id for the '<em><b>Inner</b></em>' containment reference.
@@ -833,7 +852,7 @@ public interface StoexPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.stoex.impl.StoexPackageImpl#getFunctionLiteral()
 	 * @generated
 	 */
-	int FUNCTION_LITERAL = 27;
+	int FUNCTION_LITERAL = 28;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -863,6 +882,52 @@ public interface StoexPackage extends EPackage {
 	int FUNCTION_LITERAL_FEATURE_COUNT = ATOM_FEATURE_COUNT + 2;
 
 	/**
+	 * The meta object id for the '{@link de.uka.ipd.sdq.stoex.impl.IfElseExpressionImpl <em>If Else Expression</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.uka.ipd.sdq.stoex.impl.IfElseExpressionImpl
+	 * @see de.uka.ipd.sdq.stoex.impl.StoexPackageImpl#getIfElseExpression()
+	 * @generated
+	 */
+	int IF_ELSE_EXPRESSION = 29;
+
+	/**
+	 * The feature id for the '<em><b>If Expression</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IF_ELSE_EXPRESSION__IF_EXPRESSION = IF_ELSE_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Else Expression</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IF_ELSE_EXPRESSION__ELSE_EXPRESSION = IF_ELSE_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Condition Expression</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IF_ELSE_EXPRESSION__CONDITION_EXPRESSION = IF_ELSE_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of structural features of the '<em>If Else Expression</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IF_ELSE_EXPRESSION_FEATURE_COUNT = IF_ELSE_FEATURE_COUNT + 3;
+
+	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.stoex.TermOperations <em>Term Operations</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -870,7 +935,7 @@ public interface StoexPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.stoex.impl.StoexPackageImpl#getTermOperations()
 	 * @generated
 	 */
-	int TERM_OPERATIONS = 28;
+	int TERM_OPERATIONS = 30;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.stoex.ProductOperations <em>Product Operations</em>}' enum.
@@ -880,7 +945,7 @@ public interface StoexPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.stoex.impl.StoexPackageImpl#getProductOperations()
 	 * @generated
 	 */
-	int PRODUCT_OPERATIONS = 29;
+	int PRODUCT_OPERATIONS = 31;
 
 	/**
 	 * The meta object id for the '{@link de.uka.ipd.sdq.stoex.CompareOperations <em>Compare Operations</em>}' enum.
@@ -890,7 +955,7 @@ public interface StoexPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.stoex.impl.StoexPackageImpl#getCompareOperations()
 	 * @generated
 	 */
-	int COMPARE_OPERATIONS = 30;
+	int COMPARE_OPERATIONS = 32;
 
 
 	/**
@@ -901,7 +966,7 @@ public interface StoexPackage extends EPackage {
 	 * @see de.uka.ipd.sdq.stoex.impl.StoexPackageImpl#getBooleanOperations()
 	 * @generated
 	 */
-	int BOOLEAN_OPERATIONS = 31;
+	int BOOLEAN_OPERATIONS = 33;
 
 
 	/**
@@ -1046,6 +1111,16 @@ public interface StoexPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getBooleanExpression();
+
+	/**
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.stoex.IfElse <em>If Else</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>If Else</em>'.
+	 * @see de.uka.ipd.sdq.stoex.IfElse
+	 * @generated
+	 */
+	EClass getIfElse();
 
 	/**
 	 * Returns the meta object for class '{@link de.uka.ipd.sdq.stoex.Expression <em>Expression</em>}'.
@@ -1493,6 +1568,49 @@ public interface StoexPackage extends EPackage {
 	EReference getFunctionLiteral_Parameters_FunctionLiteral();
 
 	/**
+	 * Returns the meta object for class '{@link de.uka.ipd.sdq.stoex.IfElseExpression <em>If Else Expression</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>If Else Expression</em>'.
+	 * @see de.uka.ipd.sdq.stoex.IfElseExpression
+	 * @generated
+	 */
+	EClass getIfElseExpression();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link de.uka.ipd.sdq.stoex.IfElseExpression#getIfExpression <em>If Expression</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>If Expression</em>'.
+	 * @see de.uka.ipd.sdq.stoex.IfElseExpression#getIfExpression()
+	 * @see #getIfElseExpression()
+	 * @generated
+	 */
+	EReference getIfElseExpression_IfExpression();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link de.uka.ipd.sdq.stoex.IfElseExpression#getElseExpression <em>Else Expression</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Else Expression</em>'.
+	 * @see de.uka.ipd.sdq.stoex.IfElseExpression#getElseExpression()
+	 * @see #getIfElseExpression()
+	 * @generated
+	 */
+	EReference getIfElseExpression_ElseExpression();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link de.uka.ipd.sdq.stoex.IfElseExpression#getConditionExpression <em>Condition Expression</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Condition Expression</em>'.
+	 * @see de.uka.ipd.sdq.stoex.IfElseExpression#getConditionExpression()
+	 * @see #getIfElseExpression()
+	 * @generated
+	 */
+	EReference getIfElseExpression_ConditionExpression();
+
+	/**
 	 * Returns the meta object for enum '{@link de.uka.ipd.sdq.stoex.TermOperations <em>Term Operations</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1687,6 +1805,16 @@ public interface StoexPackage extends EPackage {
 		 * @generated
 		 */
 		EClass BOOLEAN_EXPRESSION = eINSTANCE.getBooleanExpression();
+
+		/**
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.stoex.impl.IfElseImpl <em>If Else</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.uka.ipd.sdq.stoex.impl.IfElseImpl
+		 * @see de.uka.ipd.sdq.stoex.impl.StoexPackageImpl#getIfElse()
+		 * @generated
+		 */
+		EClass IF_ELSE = eINSTANCE.getIfElse();
 
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.stoex.impl.ExpressionImpl <em>Expression</em>}' class.
@@ -2057,6 +2185,40 @@ public interface StoexPackage extends EPackage {
 		 * @generated
 		 */
 		EReference FUNCTION_LITERAL__PARAMETERS_FUNCTION_LITERAL = eINSTANCE.getFunctionLiteral_Parameters_FunctionLiteral();
+
+		/**
+		 * The meta object literal for the '{@link de.uka.ipd.sdq.stoex.impl.IfElseExpressionImpl <em>If Else Expression</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.uka.ipd.sdq.stoex.impl.IfElseExpressionImpl
+		 * @see de.uka.ipd.sdq.stoex.impl.StoexPackageImpl#getIfElseExpression()
+		 * @generated
+		 */
+		EClass IF_ELSE_EXPRESSION = eINSTANCE.getIfElseExpression();
+
+		/**
+		 * The meta object literal for the '<em><b>If Expression</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference IF_ELSE_EXPRESSION__IF_EXPRESSION = eINSTANCE.getIfElseExpression_IfExpression();
+
+		/**
+		 * The meta object literal for the '<em><b>Else Expression</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference IF_ELSE_EXPRESSION__ELSE_EXPRESSION = eINSTANCE.getIfElseExpression_ElseExpression();
+
+		/**
+		 * The meta object literal for the '<em><b>Condition Expression</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference IF_ELSE_EXPRESSION__CONDITION_EXPRESSION = eINSTANCE.getIfElseExpression_ConditionExpression();
 
 		/**
 		 * The meta object literal for the '{@link de.uka.ipd.sdq.stoex.TermOperations <em>Term Operations</em>}' enum.

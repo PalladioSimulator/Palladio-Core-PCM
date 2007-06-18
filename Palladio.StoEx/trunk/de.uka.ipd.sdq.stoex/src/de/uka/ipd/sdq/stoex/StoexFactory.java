@@ -188,6 +188,15 @@ public interface StoexFactory extends EFactory {
 	FunctionLiteral createFunctionLiteral();
 
 	/**
+	 * Returns a new object of class '<em>If Else Expression</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>If Else Expression</em>'.
+	 * @generated
+	 */
+	IfElseExpression createIfElseExpression();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

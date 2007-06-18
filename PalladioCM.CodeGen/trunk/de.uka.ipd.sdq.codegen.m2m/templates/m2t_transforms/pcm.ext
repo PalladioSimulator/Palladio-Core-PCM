@@ -102,3 +102,11 @@ getAllCompletions(ComposedStructure s):
 		 		
 AbstractAction findStopAction(AbstractAction a):
 	StopAction.isInstance(a) ? a : (a.successor_AbstractAction != null ? findStopAction(a.successor_AbstractAction) : null);
+	
+List[InterfaceProvidingEntity] getProvidingEntities(List[ProvidedRole] pr) :
+	getProvidingEntitiesRecursive(pr,0);
+	
+List[InterfaceProvidingEntity] getProvidingEntitiesRecursive(List[ProvidedRole] pr, int i) :
+	i < pr.size
+		? (getProvidingEntitiesRecursive(pr,i+1).contains(pr.get(i).providingEntity_ProvidedRole) ? getProvidingEntitiesRecursive(pr,i+1) : getProvidingEntitiesRecursive(pr,i+1).union({pr.get(i).providingEntity_ProvidedRole}) ) 
+		: {};	

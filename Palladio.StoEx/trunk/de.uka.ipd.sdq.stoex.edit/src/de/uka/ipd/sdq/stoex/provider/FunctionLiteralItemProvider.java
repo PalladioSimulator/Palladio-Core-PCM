@@ -255,6 +255,11 @@ public class FunctionLiteralItemProvider
 			(createChildParameter
 				(StoexPackage.Literals.FUNCTION_LITERAL__PARAMETERS_FUNCTION_LITERAL,
 				 StoexFactory.eINSTANCE.createFunctionLiteral()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(StoexPackage.Literals.FUNCTION_LITERAL__PARAMETERS_FUNCTION_LITERAL,
+				 StoexFactory.eINSTANCE.createIfElseExpression()));
 	}
 
 	/**

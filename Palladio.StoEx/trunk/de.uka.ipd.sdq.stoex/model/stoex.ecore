@@ -39,7 +39,8 @@
   <eClassifiers xsi:type="ecore:EClass" name="Product" abstract="true" eSuperTypes="#//Term"/>
   <eClassifiers xsi:type="ecore:EClass" name="Term" abstract="true" eSuperTypes="#//Comparison"/>
   <eClassifiers xsi:type="ecore:EClass" name="Comparison" abstract="true" eSuperTypes="#//BooleanExpression"/>
-  <eClassifiers xsi:type="ecore:EClass" name="BooleanExpression" abstract="true" eSuperTypes="#//Expression"/>
+  <eClassifiers xsi:type="ecore:EClass" name="BooleanExpression" abstract="true" eSuperTypes="#//IfElse"/>
+  <eClassifiers xsi:type="ecore:EClass" name="IfElse" abstract="true" eSuperTypes="#//Expression"/>
   <eClassifiers xsi:type="ecore:EClass" name="Expression" abstract="true"/>
   <eClassifiers xsi:type="ecore:EClass" name="TermExpression" eSuperTypes="#//Term">
     <eStructuralFeatures xsi:type="ecore:EReference" name="left" ordered="false" lowerBound="1"
@@ -127,5 +128,13 @@
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="parameters_FunctionLiteral"
         ordered="false" upperBound="-1" eType="#//Expression" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="IfElseExpression" eSuperTypes="#//IfElse">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ifExpression" ordered="false"
+        lowerBound="1" eType="#//BooleanExpression" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="elseExpression" ordered="false"
+        lowerBound="1" eType="#//BooleanExpression" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="conditionExpression" ordered="false"
+        lowerBound="1" eType="#//BooleanExpression" containment="true"/>
   </eClassifiers>
 </ecore:EPackage>

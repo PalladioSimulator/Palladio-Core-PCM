@@ -79,6 +79,7 @@ public class StoexFactoryImpl extends EFactoryImpl implements StoexFactory {
 			case StoexPackage.NOT_EXPRESSION: return createNotExpression();
 			case StoexPackage.NEGATIVE_EXPRESSION: return createNegativeExpression();
 			case StoexPackage.FUNCTION_LITERAL: return createFunctionLiteral();
+			case StoexPackage.IF_ELSE_EXPRESSION: return createIfElseExpression();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -304,6 +305,16 @@ public class StoexFactoryImpl extends EFactoryImpl implements StoexFactory {
 	public FunctionLiteral createFunctionLiteral() {
 		FunctionLiteralImpl functionLiteral = new FunctionLiteralImpl();
 		return functionLiteral;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public IfElseExpression createIfElseExpression() {
+		IfElseExpressionImpl ifElseExpression = new IfElseExpressionImpl();
+		return ifElseExpression;
 	}
 
 	/**

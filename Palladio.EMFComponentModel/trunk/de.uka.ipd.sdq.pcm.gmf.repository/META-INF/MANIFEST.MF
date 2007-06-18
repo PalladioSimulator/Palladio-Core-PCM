@@ -45,7 +45,6 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.validation;visibility:=reexport,
  org.eclipse.gmf.runtime.draw2d.ui;visibility:=reexport,
  org.eclipse.draw2d;visibility:=reexport,
- de.uka.ipd.sdq.pcmbench,
  de.uka.ipd.sdq.pcmbench.ui,
  de.uka.ipd.sdq.pcmbench.tabs
 Eclipse-LazyStart: true
