@@ -55,6 +55,7 @@ import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.part.FileEditorInput;
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.UsageScenarioEditPart;
+import de.uka.ipd.sdq.pcm.usagemodel.ScenarioBehaviour;
 import de.uka.ipd.sdq.pcm.usagemodel.UsageModel;
 import de.uka.ipd.sdq.pcm.usagemodel.UsageScenario;
 import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelFactory;
@@ -186,16 +187,22 @@ public class PalladioComponentModelDiagramEditorUtil {
 				UsageModel model = createInitialModel();
 				UsageScenario scenario = UsagemodelFactory.eINSTANCE
 						.createUsageScenario();
+				
+				//set default scenario name
+				scenario.setEntityName("defaultUsageScenario"); //$NON-NLS-1$
+				
+				ScenarioBehaviour behaviour =
+					UsagemodelFactory.eINSTANCE.createScenarioBehaviour();
+				behaviour.getActions_ScenarioBehaviour().add(
+						UsagemodelFactory.eINSTANCE.createStart());
+				behaviour.getActions_ScenarioBehaviour().add(
+						UsagemodelFactory.eINSTANCE.createStop());
+				
+				//set default scenario behaviour name
+				behaviour.setEntityName("defaultUsageScenarioBehaviour"); //$NON-NLS-1$
+				
+				scenario.setScenarioBehaviour_UsageScenario(behaviour);
 				model.getUsageScenario_UsageModel().add(scenario);
-				scenario
-						.setScenarioBehaviour_UsageScenario(UsagemodelFactory.eINSTANCE
-								.createScenarioBehaviour());
-				scenario.getScenarioBehaviour_UsageScenario()
-						.getActions_ScenarioBehaviour().add(
-								UsagemodelFactory.eINSTANCE.createStart());
-				scenario.getScenarioBehaviour_UsageScenario()
-						.getActions_ScenarioBehaviour().add(
-								UsagemodelFactory.eINSTANCE.createStop());
 				attachModelToResource(model, modelResource);
 
 				Diagram diagram = ViewService

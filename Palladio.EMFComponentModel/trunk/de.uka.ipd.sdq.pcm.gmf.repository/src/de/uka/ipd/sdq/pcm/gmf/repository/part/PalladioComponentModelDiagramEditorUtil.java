@@ -229,10 +229,15 @@ public class PalladioComponentModelDiagramEditorUtil {
 	 * Create a new instance of domain element associated with canvas.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated not
 	 */
 	private static Repository createInitialModel() {
-		return RepositoryFactory.eINSTANCE.createRepository();
+		Repository rep = RepositoryFactory.eINSTANCE.createRepository();
+		
+		//set the default entity name
+		rep.setEntityName("defaultRepository"); //$NON-NLS-1$
+		
+		return rep; 
 	}
 
 	/**

@@ -284,10 +284,15 @@ public class PalladioComponentModelDiagramEditorUtil {
 	 * Create a new instance of domain element associated with canvas.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * @generated not
 	 */
 	private static Allocation createInitialModel() {
-		return AllocationFactory.eINSTANCE.createAllocation();
+		Allocation alloc = AllocationFactory.eINSTANCE.createAllocation();
+		
+		//set default entity name
+		alloc.setEntityName("defaultAllocation"); //$NON-NLS-1$
+		
+		return alloc;
 	}
 
 	/**

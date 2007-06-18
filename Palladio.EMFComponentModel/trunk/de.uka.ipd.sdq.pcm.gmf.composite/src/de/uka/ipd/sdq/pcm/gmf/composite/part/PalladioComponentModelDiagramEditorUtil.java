@@ -52,6 +52,7 @@ import org.eclipse.ui.PartInitException;
 import de.uka.ipd.sdq.pcm.core.entity.ComposedProvidingRequiringEntity;
 import de.uka.ipd.sdq.pcm.core.entity.EntityFactory;
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.ComposedProvidingRequiringEntityEditPart;
+import de.uka.ipd.sdq.pcm.system.System;
 import de.uka.ipd.sdq.pcm.system.SystemFactory;
 
 /**
@@ -221,7 +222,12 @@ public class PalladioComponentModelDiagramEditorUtil {
 	 * @generated not
 	 */
 	private static ComposedProvidingRequiringEntity createInitialModel() {
-		return SystemFactory.eINSTANCE.createSystem();
+		System system = SystemFactory.eINSTANCE.createSystem();
+		
+		//set default entity name
+		system.setEntityName("defaultSystem"); //$NON-NLS-1$
+		
+		return system;
 	}
 
 	/**
