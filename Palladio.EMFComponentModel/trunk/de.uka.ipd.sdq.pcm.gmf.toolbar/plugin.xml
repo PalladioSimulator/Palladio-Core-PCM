@@ -7,7 +7,7 @@
       <actionSet
             description="PCM Wizards Toolbar"
             id="de.uka.ipd.sdq.pcm.gfm.toolbar.actionSet"
-            label="PCM New Wizards"
+            label="PCM Wizards"
             visible="true">
          <action
                label="New &amp;Repository Diagram"
@@ -18,12 +18,12 @@
                id="de.uka.ipd.sdq.pcm.gfm.toolbar.actions.NewRepositoryDiagramActionID">
          </action>
          <action
-               label="New &amp;System Diagram"
-               icon="icons/SystemDiagramFile.gif"
-               class="de.uka.ipd.sdq.pcm.gfm.toolbar.actions.NewSystemDiagramAction"
-               tooltip="Create a new System Diagram and empty System Model."
+               label="New &amp;Composite Diagram"
+               icon="icons/CompositeDiagramFile.gif"
+               class="de.uka.ipd.sdq.pcm.gfm.toolbar.actions.NewCompositeDiagramAction"
+               tooltip="Create a new Composite Diagram and empty System Model."
                toolbarPath="newDiagramGroup"
-               id="de.uka.ipd.sdq.pcm.gfm.toolbar.actions.NewSystemDiagramActionID">
+               id="de.uka.ipd.sdq.pcm.gfm.toolbar.actions.NewCompositeDiagramActionID">
          </action>
          <action
                label="New &amp;Allocation Diagram"
@@ -68,16 +68,20 @@
                </selection>  
          </action>
           <action
-               class="de.uka.ipd.sdq.pcm.gfm.toolbar.actions.InitializeSystemDiagramAction"
+               class="de.uka.ipd.sdq.pcm.gfm.toolbar.actions.InitializeCompositeDiagramAction"
                enablesFor="1"
-               icon="icons/SystemDiagramFile.gif"
-               id="de.uka.ipd.sdq.pcm.gfm.toolbar.actions.InitializeSystemDiagramActionID"
-               label="Initialize Sys&amp;tem Diagram"
+               icon="icons/CompositeDiagramFile.gif"
+               id="de.uka.ipd.sdq.pcm.gfm.toolbar.actions.InitializeCompositeDiagramActionID"
+               label="Initialize &amp;Composite Diagram"
                toolbarPath="initializeDiagramGroup"
-               tooltip="Initialize a new System Diagram from the selected system.">
+               tooltip="Initialize a new Composite Diagram from the selected system or repository.">
                <selection
                     class="org.eclipse.core.resources.IFile"
                   	name="*.system">
+               </selection>  
+               <selection
+                    class="org.eclipse.core.resources.IFile"
+                  	name="*.repository">
                </selection>  
          </action>
           <action
