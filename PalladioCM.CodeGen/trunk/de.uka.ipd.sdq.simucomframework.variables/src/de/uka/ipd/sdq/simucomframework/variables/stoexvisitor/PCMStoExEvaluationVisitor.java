@@ -51,7 +51,7 @@ public class PCMStoExEvaluationVisitor extends PCMStoExSwitch {
 	private ExpressionInferTypeVisitor typeInferer;
 	private static PCMStoExPrettyPrintVisitor printVisitor = new PCMStoExPrettyPrintVisitor();
 	private String stoex;
-	private FunctionLib functionLib = null;
+	private static FunctionLib functionLib = null;
 
 	private VariableMode mode;
 	
@@ -61,7 +61,8 @@ public class PCMStoExEvaluationVisitor extends PCMStoExSwitch {
 		this.stoex = stoex;
 		this.mode = mode;
 		probfunctionVisitor = new PCMProbfunctionEvaluationVisitor(stoex);
-		functionLib = new FunctionLib();
+		if (functionLib == null)
+			functionLib = new FunctionLib();
 	}
 
 	public void setVariableMode(VariableMode mode) {
