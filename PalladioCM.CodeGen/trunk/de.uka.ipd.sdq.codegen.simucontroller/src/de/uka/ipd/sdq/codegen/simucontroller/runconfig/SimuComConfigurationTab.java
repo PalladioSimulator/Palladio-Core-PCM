@@ -25,6 +25,7 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
 
 import de.uka.ipd.sdq.dialogs.dataset.SensorDataSetDialog;
+import de.uka.ipd.sdq.sensorfactory.SensorFrameworkDataset;
 import de.uka.ipd.sdq.sensorfactory.entities.dao.IDAOFactory;
 import de.uka.ipd.sdq.simucomframework.SimuComConfig;
 
@@ -33,8 +34,6 @@ public class SimuComConfigurationTab extends AbstractLaunchConfigurationTab {
 	
 	/** The default value for the 'height' Layout attribute. */
 	private final int LAYOUT_WIDTH = 554;
-	
-	private String nameDAO = "Memory Datasource";
 	
 	private Text nameField;
 	private Text timeField;
@@ -189,10 +188,16 @@ public class SimuComConfigurationTab extends AbstractLaunchConfigurationTab {
 		}
 
 		try {
-			dataField.setText(configuration.getAttribute(
-					ResourceManagerTab.DATASOURCE_NAME, ""));
+			selectedDataSourceID = 
+				configuration.getAttribute(
+						SimuComConfig.DATASOURCE_ID, -1);
+			if (SensorFrameworkDataset.singleton().getDataSourceByID(selectedDataSourceID) == null)
+				dataField.setText("");
+			else
+				dataField.setText(SensorFrameworkDataset.singleton().getDataSourceByID(selectedDataSourceID).getName());
 		} catch (CoreException e) {
-			dataField.setText(nameDAO);
+			selectedDataSourceID = -1;
+			dataField.setText("");
 		}
 	}
 
@@ -206,8 +211,6 @@ public class SimuComConfigurationTab extends AbstractLaunchConfigurationTab {
 				timeField.getText());
 		configuration.setAttribute(SimuComConfig.DATASOURCE_ID,
 				selectedDataSourceID);
-		configuration.setAttribute(ResourceManagerTab.DATASOURCE_NAME,
-				dataField.getText());
 	}
 
 	/* (non-Javadoc)
@@ -219,9 +222,7 @@ public class SimuComConfigurationTab extends AbstractLaunchConfigurationTab {
 		configuration.setAttribute(SimuComConfig.SIMULATION_TIME,
 				"150000");
 		configuration.setAttribute(SimuComConfig.DATASOURCE_ID,
-				0);
-		configuration.setAttribute(ResourceManagerTab.DATASOURCE_NAME,
-				nameDAO);
+				-1);
 	}
 
 	/* (non-Javadoc)
@@ -247,7 +248,7 @@ public class SimuComConfigurationTab extends AbstractLaunchConfigurationTab {
 			setErrorMessage("Simulation time is missing!");
 			return false;
 		}
-		if (dataField.getText().equals("")){
+		if (SensorFrameworkDataset.singleton().getDataSourceByID(selectedDataSourceID) == null){
 			setErrorMessage("Data source is missing!");
 			return false;
 		}

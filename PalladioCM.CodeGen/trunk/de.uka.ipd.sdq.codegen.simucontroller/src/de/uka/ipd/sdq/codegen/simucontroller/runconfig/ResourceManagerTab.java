@@ -26,10 +26,6 @@ public class ResourceManagerTab {
 	/** Configuration tab*/
 	public static String OUTPUT_PATH = "outpath";
 	public static String DELETE_PLUGIN = "clear";
-	
-	/** SimuCom tab*/
-	public static String DATASOURCE_NAME = "dataSource";
-	
 
 	/** TODO */
 	private static String GENERATE_PLUGIN_PATH;
