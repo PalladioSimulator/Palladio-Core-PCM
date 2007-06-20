@@ -12,7 +12,8 @@
 	«FOREACH this.componentParameterUsage_AssemblyContext AS pu»
 		«FOREACH pu.variableCharacterisation_VariableUsage AS vc»
 			componentStackFrame.addValue("«pu.parameterUsageLHS()+'.'+vc.type.toString()»",
-			   	de.uka.ipd.sdq.simucomframework.variables.StackContext.evaluateStatic("«vc.specification.specificationString()»"));
+			   	new de.uka.ipd.sdq.simucomframework.variables.EvaluationProxy("«vc.specification.specificationString()»",
+			   	new de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe()));
 		«ENDFOREACH»
 	«ENDFOREACH»
 	my«this.javaName()».setComponentFrame(componentStackFrame);

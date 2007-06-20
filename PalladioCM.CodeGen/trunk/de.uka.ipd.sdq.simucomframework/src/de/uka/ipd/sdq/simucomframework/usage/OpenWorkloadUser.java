@@ -1,5 +1,8 @@
 package de.uka.ipd.sdq.simucomframework.usage;
 
+import java.io.PrintWriter;
+import java.io.StringWriter;
+
 import org.apache.log4j.Logger;
 
 import de.uka.ipd.sdq.simucomframework.SimuComStatus;
@@ -28,9 +31,12 @@ public class OpenWorkloadUser extends SimProcess implements IUser {
 			logger.debug(this.getName()+" done! I'm dying!!!");
 		} catch (SimFinishedException ex) {
 		} catch (Exception e) {
+			StringWriter sw = new StringWriter();
+			PrintWriter pw = new PrintWriter(sw);
 			this.getModel().getExperiment().stop();
+			e.printStackTrace(pw);
 			((SimuComModel)getModel()).setStatus(SimuComStatus.ERROR,
-					e.getMessage());
+					e.getMessage()+"\n"+sw.toString());
 		}
 	}
 
