@@ -2,6 +2,7 @@ package de.uka.ipd.sdq.simucomframework;
 
 import java.util.HashMap;
 
+import de.uka.ipd.sdq.simucomframework.exceptions.ResourceContainerNotFound;
 import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
 import de.uka.ipd.sdq.simucomframework.resources.AbstractSimulatedResourceContainer;
 import de.uka.ipd.sdq.simucomframework.resources.SimulatedResourceContainer;
@@ -30,6 +31,8 @@ public abstract class Context extends StackContext {
 	public AbstractSimulatedResourceContainer findResource(String assemblyContextID) {
 		AbstractSimulatedResourceContainer container = assemblyLinkHash
 				.get(assemblyContextID);
+		if (container == null)
+			throw new ResourceContainerNotFound("Resource container for assembly context "+assemblyContextID+" not found. Check your allocation model.");
 		return container;
 	}
 

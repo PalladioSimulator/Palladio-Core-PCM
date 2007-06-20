@@ -95,10 +95,17 @@
 «ENDDEFINE»
 
 «DEFINE Action FOR SetVariableAction»
-	«FOREACH this.variableUsage_SetVariableAction.variableCharacterisation_VariableUsage AS vc»
-	resultStackFrame.addValue("«this.variableUsage_SetVariableAction.parameterUsageLHS()».«vc.type.toString()»",
-		ctx.evaluate("«vc.specification.specificationString()»"));
-	«ENDFOREACH»
+	«LET this.variableUsage_SetVariableAction AS pu»
+		«FOREACH pu.variableCharacterisation_VariableUsage AS vc»
+			«IF pu.namedReference_VariableUsage.isInnerReference()»
+				resultStackFrame.addValue("«this.variableUsage_SetVariableAction.parameterUsageLHS()».«vc.type.toString()»",
+				   	new de.uka.ipd.sdq.simucomframework.variables.EvaluationProxy("«vc.specification.specificationString()»",methodBodyStackFrame.copyFrame()));
+			«ELSE»
+				resultStackFrame.addValue("«this.variableUsage_SetVariableAction.parameterUsageLHS()».«vc.type.toString()»",
+					ctx.evaluate("«vc.specification.specificationString()»"));
+			«ENDIF»
+		«ENDFOREACH»
+	«ENDLET»
 «ENDDEFINE»
 
 «DEFINE Action FOR ForkAction»
