@@ -8,6 +8,7 @@ import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.edit.ui.action.LoadResourceAction.LoadResourceDialog;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.gmf.runtime.emf.core.GMFEditingDomainFactory;
+import org.eclipse.jface.window.Window;
 import org.eclipse.jface.wizard.WizardPage;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.GridData;
@@ -91,7 +92,7 @@ class ResourceSelectorPage extends WizardPage {
 	 */	
 	protected boolean validatePage() {
 		if (myResolvedObject == null) {
-			setErrorMessage("No resource selected");
+			setErrorMessage("No or invalid resource selected");
 			return false;
 		}
 
@@ -113,10 +114,7 @@ class ResourceSelectorPage extends WizardPage {
 			myResolvedObject = (EObject) resource.getContents().get(0);
 
 		} catch (WrappedException ex) {
-			PalladioComponentModelAllocationDiagramEditorPlugin
-			.getInstance()
-			.logError(
-					"Unable to load resource: " + mySelectionText.getText(), ex); //$NON-NLS-1$
+			//do nothing
 		}	
 	}
 
@@ -125,22 +123,22 @@ class ResourceSelectorPage extends WizardPage {
 
 		public void mouseDoubleClick(org.eclipse.swt.events.MouseEvent e) {
 			//do nothing
-
 		}
 
 		public void mouseDown(org.eclipse.swt.events.MouseEvent e) {
 			LoadResourceDialog loadResourceDialog = new LoadResourceDialog(getShell());
-			loadResourceDialog.open();
-			mySelectionText.setText(loadResourceDialog.getURIText());
+			if (loadResourceDialog.open() == Window.OK) {
+				if (loadResourceDialog.getURIText() != "") {
+					mySelectionText.setText(loadResourceDialog.getURIText());
+				}
+			}
 			mySelectionText.pack();
 			resolveSelection();
 			setPageComplete(validatePage());
-
 		}
 
 		public void mouseUp(org.eclipse.swt.events.MouseEvent e) {
 			//do nothing
-
 		}
 	}	
 }
