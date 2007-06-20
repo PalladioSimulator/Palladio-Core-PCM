@@ -93,7 +93,9 @@ public class PalladioComponentModelElementChooserDialog extends Dialog {
 	 */
 	protected Control createDialogArea(Composite parent) {
 		Composite composite = (Composite) super.createDialogArea(parent);
-		getShell().setText("Select model element");
+		getShell()
+				.setText(
+						Messages.PalladioComponentModelElementChooserDialog_SelectModelElementTitle);
 		createModelBrowser(composite);
 		return composite;
 	}
@@ -136,7 +138,7 @@ public class PalladioComponentModelElementChooserDialog extends Dialog {
 	 */
 	private boolean isValidModelFile(IFile file) {
 		String fileExtension = file.getFullPath().getFileExtension();
-		return "repository".equals(fileExtension);
+		return "repository".equals(fileExtension); //$NON-NLS-1$
 	}
 
 	/**

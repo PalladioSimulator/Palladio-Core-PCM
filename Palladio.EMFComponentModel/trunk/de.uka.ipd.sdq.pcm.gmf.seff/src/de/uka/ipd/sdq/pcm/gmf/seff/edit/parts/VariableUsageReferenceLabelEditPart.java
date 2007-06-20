@@ -23,6 +23,7 @@ import org.eclipse.gef.editpolicies.NonResizableEditPolicy;
 import org.eclipse.gef.handles.NonResizableHandleKit;
 import org.eclipse.gef.requests.DirectEditRequest;
 import org.eclipse.gef.tools.DirectEditManager;
+import org.eclipse.gmf.runtime.common.ui.services.parser.CommonParserHint;
 import org.eclipse.gmf.runtime.common.ui.services.parser.IParser;
 import org.eclipse.gmf.runtime.common.ui.services.parser.IParserEditStatus;
 import org.eclipse.gmf.runtime.common.ui.services.parser.ParserEditStatus;
@@ -314,7 +315,7 @@ public class VariableUsageReferenceLabelEditPart extends CompartmentEditPart
 	 */
 	public IParser getParser() {
 		if (parser == null) {
-			String parserHint = ((View) getModel()).getType();
+			String parserHint = CommonParserHint.DESCRIPTION;
 			IAdaptable hintAdapter = new PalladioComponentModelParserProvider.HintAdapter(
 					PalladioComponentModelElementTypes.VariableUsage_3001,
 					getParserElement(), parserHint);

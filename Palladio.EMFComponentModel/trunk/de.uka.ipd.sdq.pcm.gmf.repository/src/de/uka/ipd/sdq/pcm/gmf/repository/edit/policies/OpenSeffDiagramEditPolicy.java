@@ -17,6 +17,7 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EAnnotation;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.transaction.util.TransactionUtil;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.Request;
@@ -98,10 +99,10 @@ public class OpenSeffDiagramEditPolicy extends OpenEditPolicy {
 				if (diagram == null) {
 					diagram = intializeNewDiagram();
 				}
-				URI uri = diagram.eResource().getURI();
-				uri = uri.appendFragment(diagram.eResource().getURIFragment(
-						diagram));
-				IEditorInput editorInput = new URIEditorInput(uri);
+				URI uri = EcoreUtil.getURI(diagram);
+				String editorName = uri.lastSegment()
+						+ "#" + diagram.eResource().getContents().indexOf(diagram); //$NON-NLS-1$
+				IEditorInput editorInput = new URIEditorInput(uri, editorName);
 				IWorkbenchPage page = PlatformUI.getWorkbench()
 						.getActiveWorkbenchWindow().getActivePage();
 				page.openEditor(editorInput, getEditorID());

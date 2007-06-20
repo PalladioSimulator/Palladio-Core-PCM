@@ -87,7 +87,7 @@ public class PalladioComponentModelSeffDiagramEditorPlugin extends
 	/**
 	 * @generated
 	 */
-	private PalladioComponentModelDocumentProvider myDocumentProvider;
+	private PalladioComponentModelDocumentProvider documentProvider;
 
 	/**
 	 * @generated
@@ -245,10 +245,10 @@ public class PalladioComponentModelSeffDiagramEditorPlugin extends
 	 * @generated
 	 */
 	public PalladioComponentModelDocumentProvider getDocumentProvider() {
-		if (myDocumentProvider == null) {
-			myDocumentProvider = new PalladioComponentModelDocumentProvider();
+		if (documentProvider == null) {
+			documentProvider = new PalladioComponentModelDocumentProvider();
 		}
-		return myDocumentProvider;
+		return documentProvider;
 	}
 
 	/**

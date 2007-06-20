@@ -256,7 +256,7 @@ public class VariableCharacterisationEditPart extends CompartmentEditPart
 	 * @generated
 	 */
 	protected boolean isEditable() {
-		return false;
+		return true;
 	}
 
 	/**

@@ -612,17 +612,18 @@ public class ParametricResourceDemandEditPart extends CompartmentEditPart
 	 * @generated
 	 */
 	protected IFigure createFigurePrim() {
-		return new ParametricResourceDemandDemandFigure();
+		return new ParametricResourceDemandFigure();
 	}
 
 	/**
 	 * @generated
 	 */
-	public class ParametricResourceDemandDemandFigure extends WrapLabel {
+	public class ParametricResourceDemandFigure extends WrapLabel {
+
 		/**
 		 * @generated
 		 */
-		public ParametricResourceDemandDemandFigure() {
+		public ParametricResourceDemandFigure() {
 			this.setText("<...>");
 		}
 

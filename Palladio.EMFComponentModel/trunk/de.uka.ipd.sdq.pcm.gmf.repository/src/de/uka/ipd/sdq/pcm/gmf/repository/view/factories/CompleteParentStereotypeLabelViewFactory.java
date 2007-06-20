@@ -9,6 +9,7 @@ import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.gmf.runtime.diagram.core.preferences.PreferencesHint;
 import org.eclipse.gmf.runtime.diagram.ui.view.factories.AbstractLabelViewFactory;
 import org.eclipse.gmf.runtime.notation.Node;
+import org.eclipse.gmf.runtime.notation.NotationFactory;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.gmf.runtime.diagram.ui.util.MeasurementUnitHelper;
 
@@ -43,6 +44,7 @@ public class CompleteParentStereotypeLabelViewFactory extends
 	 */
 	protected List createStyles(View view) {
 		List styles = new ArrayList();
+		styles.add(NotationFactory.eINSTANCE.createDescriptionStyle());
 		return styles;
 	}
 }

@@ -72,7 +72,7 @@ public class PalladioComponentModelRepositoryDiagramEditorPlugin extends
 	/**
 	 * @generated
 	 */
-	private PalladioComponentModelDocumentProvider myDocumentProvider;
+	private PalladioComponentModelDocumentProvider documentProvider;
 
 	/**
 	 * @generated
@@ -135,13 +135,13 @@ public class PalladioComponentModelRepositoryDiagramEditorPlugin extends
 		factories.add(new RepositoryItemProviderAdapterFactory());
 		factories.add(new ProtocolItemProviderAdapterFactory());
 		factories.add(new ParameterItemProviderAdapterFactory());
+		factories.add(new SeffItemProviderAdapterFactory());
+		factories.add(new ResourcetypeItemProviderAdapterFactory());
 		factories.add(new AllocationItemProviderAdapterFactory());
 		factories.add(new ResourceenvironmentItemProviderAdapterFactory());
-		factories.add(new ResourcetypeItemProviderAdapterFactory());
 		factories.add(new SystemItemProviderAdapterFactory());
 		factories.add(new QosannotationsItemProviderAdapterFactory());
 		factories.add(new UsagemodelItemProviderAdapterFactory());
-		factories.add(new SeffItemProviderAdapterFactory());
 		factories.add(new IdentifierItemProviderAdapterFactory());
 		factories.add(new ProbfunctionItemProviderAdapterFactory());
 		factories.add(new StoexItemProviderAdapterFactory());
@@ -229,10 +229,10 @@ public class PalladioComponentModelRepositoryDiagramEditorPlugin extends
 	 * @generated
 	 */
 	public PalladioComponentModelDocumentProvider getDocumentProvider() {
-		if (myDocumentProvider == null) {
-			myDocumentProvider = new PalladioComponentModelDocumentProvider();
+		if (documentProvider == null) {
+			documentProvider = new PalladioComponentModelDocumentProvider();
 		}
-		return myDocumentProvider;
+		return documentProvider;
 	}
 
 	/**

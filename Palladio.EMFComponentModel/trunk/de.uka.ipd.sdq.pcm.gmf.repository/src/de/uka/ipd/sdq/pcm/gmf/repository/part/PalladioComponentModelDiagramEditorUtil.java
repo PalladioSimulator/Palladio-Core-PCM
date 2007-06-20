@@ -233,11 +233,11 @@ public class PalladioComponentModelDiagramEditorUtil {
 	 */
 	private static Repository createInitialModel() {
 		Repository rep = RepositoryFactory.eINSTANCE.createRepository();
-		
+
 		//set the default entity name
 		rep.setEntityName("defaultRepository"); //$NON-NLS-1$
-		
-		return rep; 
+
+		return rep;
 	}
 
 	/**

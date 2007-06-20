@@ -96,7 +96,10 @@ public class RepositoryCanonicalEditPolicy extends
 	 * @generated
 	 */
 	protected boolean isOrphaned(Collection semanticChildren, final View view) {
-		PalladioComponentModelDiagramUpdater.isShortcutOrphaned(view);
+		if (view.getEAnnotation("Shortcut") != null) {//$NON-NLS-1$
+			return PalladioComponentModelDiagramUpdater
+					.isShortcutOrphaned(view);
+		}
 		int visualID = PalladioComponentModelVisualIDRegistry.getVisualID(view);
 		switch (visualID) {
 		case InterfaceEditPart.VISUAL_ID:
@@ -222,8 +225,18 @@ public class RepositoryCanonicalEditPolicy extends
 	 * @generated
 	 */
 	private Collection collectAllLinks(View view, Map domain2NotationMap) {
+		if (!RepositoryEditPart.MODEL_ID
+				.equals(PalladioComponentModelVisualIDRegistry.getModelID(view))) {
+			return Collections.EMPTY_LIST;
+		}
 		Collection result = new LinkedList();
 		switch (PalladioComponentModelVisualIDRegistry.getVisualID(view)) {
+		case RepositoryEditPart.VISUAL_ID: {
+			domain2NotationMap.put(view.getElement(), view);
+			result.addAll(PalladioComponentModelDiagramUpdater
+					.getRepository_1000ContainedLinks(view));
+			break;
+		}
 		case InterfaceEditPart.VISUAL_ID: {
 			domain2NotationMap.put(view.getElement(), view);
 			result.addAll(PalladioComponentModelDiagramUpdater

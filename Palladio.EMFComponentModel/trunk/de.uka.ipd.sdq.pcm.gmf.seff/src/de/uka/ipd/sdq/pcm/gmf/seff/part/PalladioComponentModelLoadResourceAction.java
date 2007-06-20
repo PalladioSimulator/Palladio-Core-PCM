@@ -3,6 +3,7 @@
  */
 package de.uka.ipd.sdq.pcm.gmf.seff.part;
 
+import org.eclipse.emf.edit.ui.action.LoadResourceAction;
 import org.eclipse.emf.edit.ui.action.LoadResourceAction.LoadResourceDialog;
 import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.viewers.ISelection;
@@ -39,8 +40,8 @@ public class PalladioComponentModelLoadResourceAction implements
 	 * @generated
 	 */
 	public void run(IAction action) {
-		LoadResourceDialog loadResourceDialog = new LoadResourceDialog(myShell,
-				mySelectedElement.getEditingDomain());
+		LoadResourceAction.LoadResourceDialog loadResourceDialog = new LoadResourceAction.LoadResourceDialog(
+				myShell, mySelectedElement.getEditingDomain());
 		loadResourceDialog.open();
 	}
 

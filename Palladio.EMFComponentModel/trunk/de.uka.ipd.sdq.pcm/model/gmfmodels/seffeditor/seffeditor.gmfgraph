@@ -35,18 +35,9 @@
     <descriptors
         name="ParametricResourceDemandFigure">
       <actualFigure
-          xsi:type="gmfgraph:Rectangle"
-          name="ParametricResourceDemandFigure">
-        <backgroundColor
-            xsi:type="gmfgraph:ConstantColor"
-            value="yellow"/>
-        <children
-            xsi:type="gmfgraph:Label"
-            name="ParametricResourceDemandDemandFigure"
-            text="&lt;...>"/>
-      </actualFigure>
-      <accessors
-          figure="//@figures.0/@descriptors.1/@actualFigure/@children.0"/>
+          xsi:type="gmfgraph:Label"
+          name="ParametricResourceDemandDemandFigure"
+          text="&lt;...>"/>
     </descriptors>
     <descriptors
         name="ActionResourceDemand_ActionFigure">
@@ -427,8 +418,7 @@
       accessor="//@figures.0/@descriptors.4/@accessors.0"/>
   <labels
       name="ParametricResourceDemandDemandLabel"
-      figure="ParametricResourceDemandFigure"
-      accessor="//@figures.0/@descriptors.1/@accessors.0"/>
+      figure="ParametricResourceDemandFigure"/>
   <labels
       name="InternalActionNameLabel"
       figure="InternalActionFigure"

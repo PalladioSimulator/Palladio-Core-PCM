@@ -9,6 +9,7 @@ import java.util.List;
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.emf.ecore.EAnnotation;
 import org.eclipse.emf.ecore.EcoreFactory;
+import org.eclipse.gmf.runtime.diagram.ui.view.factories.BasicNodeViewFactory;
 import org.eclipse.gmf.runtime.diagram.ui.view.factories.ListCompartmentViewFactory;
 import org.eclipse.gmf.runtime.notation.DrawerStyle;
 import org.eclipse.gmf.runtime.notation.NotationFactory;
@@ -24,7 +25,7 @@ import de.uka.ipd.sdq.pcm.gmf.repository.part.PalladioComponentModelVisualIDRegi
  * @generated
  */
 public class BasicComponentSEFFCompartmentViewFactory extends
-		ListCompartmentViewFactory {
+		BasicNodeViewFactory {
 
 	/**
 	 * @generated 
@@ -51,16 +52,6 @@ public class BasicComponentSEFFCompartmentViewFactory extends
 				index, persisted);
 		setupCompartmentTitle(view);
 		setupCompartmentCollapsed(view);
-		if (!RepositoryEditPart.MODEL_ID
-				.equals(PalladioComponentModelVisualIDRegistry
-						.getModelID(containerView))) {
-			EAnnotation shortcutAnnotation = EcoreFactory.eINSTANCE
-					.createEAnnotation();
-			shortcutAnnotation.setSource("Shortcut"); //$NON-NLS-1$
-			shortcutAnnotation.getDetails().put(
-					"modelID", RepositoryEditPart.MODEL_ID); //$NON-NLS-1$
-			view.getEAnnotations().add(shortcutAnnotation);
-		}
 	}
 
 	/**

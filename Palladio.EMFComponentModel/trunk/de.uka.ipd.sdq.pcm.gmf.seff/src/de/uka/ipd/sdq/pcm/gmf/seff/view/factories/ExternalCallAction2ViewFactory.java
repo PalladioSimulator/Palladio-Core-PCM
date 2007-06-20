@@ -17,12 +17,14 @@ import java.util.List;
 import org.eclipse.core.runtime.IAdaptable;
 
 import org.eclipse.emf.ecore.EAnnotation;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EcoreFactory;
 
 import org.eclipse.gmf.runtime.diagram.core.util.ViewUtil;
 
 import org.eclipse.gmf.runtime.diagram.ui.view.factories.AbstractShapeViewFactory;
 
+import org.eclipse.gmf.runtime.emf.core.util.EObjectAdapter;
 import org.eclipse.gmf.runtime.notation.NotationFactory;
 import org.eclipse.gmf.runtime.notation.View;
 
@@ -53,33 +55,28 @@ public class ExternalCallAction2ViewFactory extends AbstractShapeViewFactory {
 		}
 		super.decorateView(containerView, view, semanticAdapter, semanticHint,
 				index, persisted);
-		if (!ResourceDemandingSEFFEditPart.MODEL_ID
-				.equals(PalladioComponentModelVisualIDRegistry
-						.getModelID(containerView))) {
-			EAnnotation shortcutAnnotation = EcoreFactory.eINSTANCE
-					.createEAnnotation();
-			shortcutAnnotation.setSource("Shortcut"); //$NON-NLS-1$
-			shortcutAnnotation.getDetails().put(
-					"modelID", ResourceDemandingSEFFEditPart.MODEL_ID); //$NON-NLS-1$
-			view.getEAnnotations().add(shortcutAnnotation);
+		IAdaptable eObjectAdapter = null;
+		EObject eObject = (EObject) semanticAdapter.getAdapter(EObject.class);
+		if (eObject != null) {
+			eObjectAdapter = new EObjectAdapter(eObject);
 		}
 		getViewService()
 				.createNode(
-						semanticAdapter,
+						eObjectAdapter,
 						view,
 						PalladioComponentModelVisualIDRegistry
 								.getType(ExternalCallActionEntityName2EditPart.VISUAL_ID),
 						ViewUtil.APPEND, true, getPreferencesHint());
 		getViewService()
 				.createNode(
-						semanticAdapter,
+						eObjectAdapter,
 						view,
 						PalladioComponentModelVisualIDRegistry
 								.getType(ExternalCallActionInputVariableUsage2EditPart.VISUAL_ID),
 						ViewUtil.APPEND, true, getPreferencesHint());
 		getViewService()
 				.createNode(
-						semanticAdapter,
+						eObjectAdapter,
 						view,
 						PalladioComponentModelVisualIDRegistry
 								.getType(ExternalCallActionOutputVariableUsage2EditPart.VISUAL_ID),

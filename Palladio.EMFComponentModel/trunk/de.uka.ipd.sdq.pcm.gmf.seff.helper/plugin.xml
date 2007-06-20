@@ -163,4 +163,13 @@
          </elementType>
        </binding>
    </extension>
+   <extension
+         point="org.eclipse.gmf.runtime.common.ui.services.parserProviders">
+      <ParserProvider
+            class="de.uka.ipd.sdq.pcm.gmf.seff.helper.StoExParserProvider">
+         <Priority
+               name="Highest">
+         </Priority>
+      </ParserProvider>
+   </extension>
 </plugin>

@@ -8,7 +8,9 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.gmf.runtime.diagram.core.providers.AbstractViewProvider;
 import org.eclipse.gmf.runtime.notation.View;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.AbstractActionSuccessor_AbstractActionEditPart;
 import org.eclipse.gmf.runtime.emf.type.core.IElementType;
+import org.eclipse.gmf.runtime.emf.type.core.IHintedType;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.AquireAction2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.AquireActionEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.AquireActionEntityName2EditPart;
@@ -210,16 +212,327 @@ public class PalladioComponentModelViewProvider extends AbstractViewProvider {
 			return null;
 		}
 		IElementType elementType = getSemanticElementType(semanticAdapter);
-		if (elementType != null
-				&& !PalladioComponentModelElementTypes
-						.isKnownElementType(elementType)) {
+		EObject domainElement = getSemanticElement(semanticAdapter);
+		int visualID;
+		if (semanticHint == null) {
+			// Semantic hint is not specified. Can be a result of call from CanonicalEditPolicy.
+			// In this situation there should be NO elementType, visualID will be determined
+			// by VisualIDRegistry.getNodeVisualID() for domainElement.
+			if (elementType != null || domainElement == null) {
+				return null;
+			}
+			visualID = PalladioComponentModelVisualIDRegistry.getNodeVisualID(
+					containerView, domainElement);
+		} else {
+			visualID = PalladioComponentModelVisualIDRegistry
+					.getVisualID(semanticHint);
+			if (elementType != null) {
+				// Semantic hint is specified together with element type.
+				// Both parameters should describe exactly the same diagram element.
+				// In addition we check that visualID returned by VisualIDRegistry.getNodeVisualID() for
+				// domainElement (if specified) is the same as in element type.
+				if (!PalladioComponentModelElementTypes
+						.isKnownElementType(elementType)
+						|| (!(elementType instanceof IHintedType))) {
+					return null; // foreign element type
+				}
+				String elementTypeHint = ((IHintedType) elementType)
+						.getSemanticHint();
+				if (!semanticHint.equals(elementTypeHint)) {
+					return null; // if semantic hint is specified it should be the same as in element type
+				}
+				if (domainElement != null
+						&& visualID != PalladioComponentModelVisualIDRegistry
+								.getNodeVisualID(containerView, domainElement)) {
+					return null; // visual id for node EClass should match visual id from element type
+				}
+			} else {
+				// Element type is not specified. Domain element should be present.
+				// This method is called with EObjectAdapter as parameter from:
+				//   - ViewService.createNode(View container, EObject eObject, String type, PreferencesHint preferencesHint) 
+				//   - generated ViewFactory.decorateView() for parent element
+				if (!ResourceDemandingSEFFEditPart.MODEL_ID
+						.equals(PalladioComponentModelVisualIDRegistry
+								.getModelID(containerView))) {
+					return null; // foreign diagram
+				}
+				switch (visualID) {
+				case StartActionEditPart.VISUAL_ID:
+				case StopActionEditPart.VISUAL_ID:
+				case ExternalCallActionEditPart.VISUAL_ID:
+				case LoopActionEditPart.VISUAL_ID:
+				case BranchAction2EditPart.VISUAL_ID:
+				case InternalAction2EditPart.VISUAL_ID:
+				case CollectionIteratorAction2EditPart.VISUAL_ID:
+				case SetVariableAction2EditPart.VISUAL_ID:
+				case AquireAction2EditPart.VISUAL_ID:
+				case ReleaseAction2EditPart.VISUAL_ID:
+				case ForkAction2EditPart.VISUAL_ID:
+				case VariableUsageEditPart.VISUAL_ID:
+				case VariableCharacterisationEditPart.VISUAL_ID:
+				case VariableUsage2EditPart.VISUAL_ID:
+				case VariableCharacterisation2EditPart.VISUAL_ID:
+				case ResourceDemandingBehaviourEditPart.VISUAL_ID:
+				case StartAction2EditPart.VISUAL_ID:
+				case StopAction2EditPart.VISUAL_ID:
+				case LoopAction2EditPart.VISUAL_ID:
+				case InternalActionEditPart.VISUAL_ID:
+				case ParametricResourceDemandEditPart.VISUAL_ID:
+				case BranchActionEditPart.VISUAL_ID:
+				case ProbabilisticBranchTransitionEditPart.VISUAL_ID:
+				case ResourceDemandingBehaviour2EditPart.VISUAL_ID:
+				case ExternalCallAction2EditPart.VISUAL_ID:
+				case AquireActionEditPart.VISUAL_ID:
+				case ReleaseActionEditPart.VISUAL_ID:
+				case ForkActionEditPart.VISUAL_ID:
+				case ResourceDemandingBehaviour3EditPart.VISUAL_ID:
+				case CollectionIteratorActionEditPart.VISUAL_ID:
+				case ResourceDemandingBehaviour4EditPart.VISUAL_ID:
+				case SetVariableActionEditPart.VISUAL_ID:
+				case VariableUsage3EditPart.VISUAL_ID:
+				case VariableCharacterisation3EditPart.VISUAL_ID:
+				case GuardedBranchTransitionEditPart.VISUAL_ID:
+				case ResourceDemandingBehaviour5EditPart.VISUAL_ID:
+					if (domainElement == null
+							|| visualID != PalladioComponentModelVisualIDRegistry
+									.getNodeVisualID(containerView,
+											domainElement)) {
+						return null; // visual id in semantic hint should match visual id for domain element
+					}
+					break;
+				case ExternalCallActionEntityNameEditPart.VISUAL_ID:
+				case ExternalCallActionInputVariableUsageEditPart.VISUAL_ID:
+				case ExternalCallActionOutputVariableUsageEditPart.VISUAL_ID:
+					if (ExternalCallActionEditPart.VISUAL_ID != PalladioComponentModelVisualIDRegistry
+							.getVisualID(containerView)
+							|| containerView.getElement() != domainElement) {
+						return null; // wrong container
+					}
+					break;
+				case LoopActionEntityName2EditPart.VISUAL_ID:
+				case LoopIterationsLabel2EditPart.VISUAL_ID:
+					if (LoopActionEditPart.VISUAL_ID != PalladioComponentModelVisualIDRegistry
+							.getVisualID(containerView)
+							|| containerView.getElement() != domainElement) {
+						return null; // wrong container
+					}
+					break;
+				case BranchActionEntityName2EditPart.VISUAL_ID:
+				case BranchActionBranchTransitionCompartment2EditPart.VISUAL_ID:
+					if (BranchAction2EditPart.VISUAL_ID != PalladioComponentModelVisualIDRegistry
+							.getVisualID(containerView)
+							|| containerView.getElement() != domainElement) {
+						return null; // wrong container
+					}
+					break;
+				case InternalActionEntityName2EditPart.VISUAL_ID:
+				case InternalActionResourceDemand2EditPart.VISUAL_ID:
+					if (InternalAction2EditPart.VISUAL_ID != PalladioComponentModelVisualIDRegistry
+							.getVisualID(containerView)
+							|| containerView.getElement() != domainElement) {
+						return null; // wrong container
+					}
+					break;
+				case CollectionIteratorActionEntityName2EditPart.VISUAL_ID:
+				case CollectionIteratorParameterLabel2EditPart.VISUAL_ID:
+					if (CollectionIteratorAction2EditPart.VISUAL_ID != PalladioComponentModelVisualIDRegistry
+							.getVisualID(containerView)
+							|| containerView.getElement() != domainElement) {
+						return null; // wrong container
+					}
+					break;
+				case SetVariableActionEntityName2EditPart.VISUAL_ID:
+				case SetVariableActionVariableSetter2EditPart.VISUAL_ID:
+					if (SetVariableAction2EditPart.VISUAL_ID != PalladioComponentModelVisualIDRegistry
+							.getVisualID(containerView)
+							|| containerView.getElement() != domainElement) {
+						return null; // wrong container
+					}
+					break;
+				case AquireActionEntityName2EditPart.VISUAL_ID:
+					if (AquireAction2EditPart.VISUAL_ID != PalladioComponentModelVisualIDRegistry
+							.getVisualID(containerView)
+							|| containerView.getElement() != domainElement) {
+						return null; // wrong container
+					}
+					break;
+				case ReleaseActionEntityName2EditPart.VISUAL_ID:
+					if (ReleaseAction2EditPart.VISUAL_ID != PalladioComponentModelVisualIDRegistry
+							.getVisualID(containerView)
+							|| containerView.getElement() != domainElement) {
+						return null; // wrong container
+					}
+					break;
+				case ForkActionEntityName2EditPart.VISUAL_ID:
+				case ForkActionForkedBehaviours2EditPart.VISUAL_ID:
+					if (ForkAction2EditPart.VISUAL_ID != PalladioComponentModelVisualIDRegistry
+							.getVisualID(containerView)
+							|| containerView.getElement() != domainElement) {
+						return null; // wrong container
+					}
+					break;
+				case VariableUsageReferenceLabelEditPart.VISUAL_ID:
+				case VariableUsageVariableCharacterisationEditPart.VISUAL_ID:
+					if (VariableUsageEditPart.VISUAL_ID != PalladioComponentModelVisualIDRegistry
+							.getVisualID(containerView)
+							|| containerView.getElement() != domainElement) {
+						return null; // wrong container
+					}
+					break;
+				case VariableUsageReferenceLabel2EditPart.VISUAL_ID:
+				case VariableUsageVariableCharacterisation2EditPart.VISUAL_ID:
+					if (VariableUsage2EditPart.VISUAL_ID != PalladioComponentModelVisualIDRegistry
+							.getVisualID(containerView)
+							|| containerView.getElement() != domainElement) {
+						return null; // wrong container
+					}
+					break;
+				case ResourceDemandingBehaviourLoopCompartmentEditPart.VISUAL_ID:
+					if (ResourceDemandingBehaviourEditPart.VISUAL_ID != PalladioComponentModelVisualIDRegistry
+							.getVisualID(containerView)
+							|| containerView.getElement() != domainElement) {
+						return null; // wrong container
+					}
+					break;
+				case LoopActionEntityNameEditPart.VISUAL_ID:
+				case LoopIterationsLabelEditPart.VISUAL_ID:
+					if (LoopAction2EditPart.VISUAL_ID != PalladioComponentModelVisualIDRegistry
+							.getVisualID(containerView)
+							|| containerView.getElement() != domainElement) {
+						return null; // wrong container
+					}
+					break;
+				case InternalActionEntityNameEditPart.VISUAL_ID:
+				case InternalActionResourceDemandEditPart.VISUAL_ID:
+					if (InternalActionEditPart.VISUAL_ID != PalladioComponentModelVisualIDRegistry
+							.getVisualID(containerView)
+							|| containerView.getElement() != domainElement) {
+						return null; // wrong container
+					}
+					break;
+				case BranchActionEntityNameEditPart.VISUAL_ID:
+				case BranchActionBranchTransitionCompartmentEditPart.VISUAL_ID:
+					if (BranchActionEditPart.VISUAL_ID != PalladioComponentModelVisualIDRegistry
+							.getVisualID(containerView)
+							|| containerView.getElement() != domainElement) {
+						return null; // wrong container
+					}
+					break;
+				case ProbabilisticBranchTransitionBranchProbabilityEditPart.VISUAL_ID:
+					if (ProbabilisticBranchTransitionEditPart.VISUAL_ID != PalladioComponentModelVisualIDRegistry
+							.getVisualID(containerView)
+							|| containerView.getElement() != domainElement) {
+						return null; // wrong container
+					}
+					break;
+				case ResourceDemandingBehaviourBranchCompartmentEditPart.VISUAL_ID:
+					if (ResourceDemandingBehaviour2EditPart.VISUAL_ID != PalladioComponentModelVisualIDRegistry
+							.getVisualID(containerView)
+							|| containerView.getElement() != domainElement) {
+						return null; // wrong container
+					}
+					break;
+				case ExternalCallActionEntityName2EditPart.VISUAL_ID:
+				case ExternalCallActionInputVariableUsage2EditPart.VISUAL_ID:
+				case ExternalCallActionOutputVariableUsage2EditPart.VISUAL_ID:
+					if (ExternalCallAction2EditPart.VISUAL_ID != PalladioComponentModelVisualIDRegistry
+							.getVisualID(containerView)
+							|| containerView.getElement() != domainElement) {
+						return null; // wrong container
+					}
+					break;
+				case AquireActionEntityNameEditPart.VISUAL_ID:
+					if (AquireActionEditPart.VISUAL_ID != PalladioComponentModelVisualIDRegistry
+							.getVisualID(containerView)
+							|| containerView.getElement() != domainElement) {
+						return null; // wrong container
+					}
+					break;
+				case ReleaseActionEntityNameEditPart.VISUAL_ID:
+					if (ReleaseActionEditPart.VISUAL_ID != PalladioComponentModelVisualIDRegistry
+							.getVisualID(containerView)
+							|| containerView.getElement() != domainElement) {
+						return null; // wrong container
+					}
+					break;
+				case ForkActionEntityNameEditPart.VISUAL_ID:
+				case ForkActionForkedBehavioursEditPart.VISUAL_ID:
+					if (ForkActionEditPart.VISUAL_ID != PalladioComponentModelVisualIDRegistry
+							.getVisualID(containerView)
+							|| containerView.getElement() != domainElement) {
+						return null; // wrong container
+					}
+					break;
+				case ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID:
+					if (ResourceDemandingBehaviour3EditPart.VISUAL_ID != PalladioComponentModelVisualIDRegistry
+							.getVisualID(containerView)
+							|| containerView.getElement() != domainElement) {
+						return null; // wrong container
+					}
+					break;
+				case CollectionIteratorActionEntityNameEditPart.VISUAL_ID:
+				case CollectionIteratorParameterLabelEditPart.VISUAL_ID:
+					if (CollectionIteratorActionEditPart.VISUAL_ID != PalladioComponentModelVisualIDRegistry
+							.getVisualID(containerView)
+							|| containerView.getElement() != domainElement) {
+						return null; // wrong container
+					}
+					break;
+				case ResourceDemandingBehaviourLoopCompartment2EditPart.VISUAL_ID:
+					if (ResourceDemandingBehaviour4EditPart.VISUAL_ID != PalladioComponentModelVisualIDRegistry
+							.getVisualID(containerView)
+							|| containerView.getElement() != domainElement) {
+						return null; // wrong container
+					}
+					break;
+				case SetVariableActionEntityNameEditPart.VISUAL_ID:
+				case SetVariableActionVariableSetterEditPart.VISUAL_ID:
+					if (SetVariableActionEditPart.VISUAL_ID != PalladioComponentModelVisualIDRegistry
+							.getVisualID(containerView)
+							|| containerView.getElement() != domainElement) {
+						return null; // wrong container
+					}
+					break;
+				case VariableUsageReferenceLabel3EditPart.VISUAL_ID:
+				case VariableUsageVariableCharacterisation3EditPart.VISUAL_ID:
+					if (VariableUsage3EditPart.VISUAL_ID != PalladioComponentModelVisualIDRegistry
+							.getVisualID(containerView)
+							|| containerView.getElement() != domainElement) {
+						return null; // wrong container
+					}
+					break;
+				case GuardedBranchTransitionIdEditPart.VISUAL_ID:
+					if (GuardedBranchTransitionEditPart.VISUAL_ID != PalladioComponentModelVisualIDRegistry
+							.getVisualID(containerView)
+							|| containerView.getElement() != domainElement) {
+						return null; // wrong container
+					}
+					break;
+				case ResourceDemandingBehaviourBranchCompartment2EditPart.VISUAL_ID:
+					if (ResourceDemandingBehaviour5EditPart.VISUAL_ID != PalladioComponentModelVisualIDRegistry
+							.getVisualID(containerView)
+							|| containerView.getElement() != domainElement) {
+						return null; // wrong container
+					}
+					break;
+				default:
+					return null;
+				}
+			}
+		}
+		return getNodeViewClass(containerView, visualID);
+	}
+
+	/**
+	 * @generated
+	 */
+	protected Class getNodeViewClass(View containerView, int visualID) {
+		if (containerView == null
+				|| !PalladioComponentModelVisualIDRegistry.canCreateNode(
+						containerView, visualID)) {
 			return null;
 		}
-		EClass semanticType = getSemanticEClass(semanticAdapter);
-		EObject semanticElement = getSemanticElement(semanticAdapter);
-		int nodeVID = PalladioComponentModelVisualIDRegistry.getNodeVisualID(
-				containerView, semanticElement, semanticType, semanticHint);
-		switch (nodeVID) {
+		switch (visualID) {
 		case StartActionEditPart.VISUAL_ID:
 			return StartActionViewFactory.class;
 		case StopActionEditPart.VISUAL_ID:
@@ -396,26 +709,37 @@ public class PalladioComponentModelViewProvider extends AbstractViewProvider {
 	protected Class getEdgeViewClass(IAdaptable semanticAdapter,
 			View containerView, String semanticHint) {
 		IElementType elementType = getSemanticElementType(semanticAdapter);
-		if (elementType != null
-				&& !PalladioComponentModelElementTypes
-						.isKnownElementType(elementType)) {
-			return null;
+		if (!PalladioComponentModelElementTypes.isKnownElementType(elementType)
+				|| (!(elementType instanceof IHintedType))) {
+			return null; // foreign element type
 		}
-		if (PalladioComponentModelElementTypes.AbstractActionSuccessor_AbstractAction_4001
-				.equals(elementType)) {
+		String elementTypeHint = ((IHintedType) elementType).getSemanticHint();
+		if (elementTypeHint == null) {
+			return null; // our hint is visual id and must be specified
+		}
+		if (semanticHint != null && !semanticHint.equals(elementTypeHint)) {
+			return null; // if semantic hint is specified it should be the same as in element type
+		}
+		int visualID = PalladioComponentModelVisualIDRegistry
+				.getVisualID(elementTypeHint);
+		EObject domainElement = getSemanticElement(semanticAdapter);
+		if (domainElement != null
+				&& visualID != PalladioComponentModelVisualIDRegistry
+						.getLinkWithClassVisualID(domainElement)) {
+			return null; // visual id for link EClass should match visual id from element type
+		}
+		return getEdgeViewClass(visualID);
+	}
+
+	/**
+	 * @generated
+	 */
+	protected Class getEdgeViewClass(int visualID) {
+		switch (visualID) {
+		case AbstractActionSuccessor_AbstractActionEditPart.VISUAL_ID:
 			return AbstractActionSuccessor_AbstractActionViewFactory.class;
 		}
-		EClass semanticType = getSemanticEClass(semanticAdapter);
-		if (semanticType == null) {
-			return null;
-		}
-		EObject semanticElement = getSemanticElement(semanticAdapter);
-		int linkVID = PalladioComponentModelVisualIDRegistry
-				.getLinkWithClassVisualID(semanticElement, semanticType);
-		switch (linkVID) {
-		}
-		return getUnrecognizedConnectorViewClass(semanticAdapter,
-				containerView, semanticHint);
+		return null;
 	}
 
 	/**
@@ -426,15 +750,6 @@ public class PalladioComponentModelViewProvider extends AbstractViewProvider {
 			return null;
 		}
 		return (IElementType) semanticAdapter.getAdapter(IElementType.class);
-	}
-
-	/**
-	 * @generated
-	 */
-	private Class getUnrecognizedConnectorViewClass(IAdaptable semanticAdapter,
-			View containerView, String semanticHint) {
-		// Handle unrecognized child node classes here
-		return null;
 	}
 
 }

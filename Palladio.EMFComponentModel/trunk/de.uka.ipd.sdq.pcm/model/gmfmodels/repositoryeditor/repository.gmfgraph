@@ -8,16 +8,23 @@
     <figures
         xsi:type="gmfgraph:PolylineDecoration"
         name="InterfaceParentInterface__InterfaceTargetDecoration"/>
+    <figures
+        xsi:type="gmfgraph:PolylineDecoration"
+        name="ArrowHead">
+      <template
+          x="-1"
+          y="-1"/>
+      <template/>
+      <template
+          x="-1"
+          y="1"/>
+    </figures>
     <descriptors
         name="RequiredRoleFigure">
       <actualFigure
           xsi:type="gmfgraph:PolylineConnection"
           name="RequiredRoleFigure"
-          targetDecoration="//@figures.0/@descriptors.5/@actualFigure/@children.1">
-        <children
-            xsi:type="gmfgraph:Label"
-            name="EntityEntityNameFigure"
-            text="&lt;...>"/>
+          targetDecoration="//@figures.0/@figures.1">
         <children
             xsi:type="gmfgraph:Label"
             name="RequiresStereotypeLabelFigure"
@@ -25,8 +32,6 @@
       </actualFigure>
       <accessors
           figure="//@figures.0/@descriptors.0/@actualFigure/@children.0"/>
-      <accessors
-          figure="//@figures.0/@descriptors.0/@actualFigure/@children.1"/>
     </descriptors>
     <descriptors
         name="InterfaceFigure">
@@ -79,22 +84,7 @@
       <actualFigure
           xsi:type="gmfgraph:PolylineConnection"
           name="ProvidedRoleFigure"
-          targetDecoration="//@figures.0/@descriptors.5/@actualFigure/@children.1">
-        <children
-            xsi:type="gmfgraph:Label"
-            name="EntityEntityName5Figure"
-            text="&lt;...>"/>
-        <children
-            xsi:type="gmfgraph:PolylineDecoration"
-            name="ArrowHead">
-          <template
-              x="-1"
-              y="-1"/>
-          <template/>
-          <template
-              x="-1"
-              y="1"/>
-        </children>
+          targetDecoration="//@figures.0/@figures.1">
         <children
             xsi:type="gmfgraph:Label"
             name="ProvidesStereotypeLabelFigure"
@@ -102,8 +92,6 @@
       </actualFigure>
       <accessors
           figure="//@figures.0/@descriptors.5/@actualFigure/@children.0"/>
-      <accessors
-          figure="//@figures.0/@descriptors.5/@actualFigure/@children.2"/>
     </descriptors>
     <descriptors
         name="ProvidedDelegationConnectorFigure">
@@ -202,7 +190,7 @@
       <actualFigure
           xsi:type="gmfgraph:PolylineConnection"
           name="ParentCompleteTypeFigure"
-          targetDecoration="//@figures.0/@descriptors.5/@actualFigure/@children.1">
+          targetDecoration="//@figures.0/@figures.1">
         <children
             xsi:type="gmfgraph:Label"
             name="CompleteParentStereotypeLabelFigure"
@@ -216,7 +204,7 @@
       <actualFigure
           xsi:type="gmfgraph:PolylineConnection"
           name="ParentProvidesTypeFigure"
-          targetDecoration="//@figures.0/@descriptors.5/@actualFigure/@children.1">
+          targetDecoration="//@figures.0/@figures.1">
         <children
             xsi:type="gmfgraph:Label"
             name="ProvidesParentStereotypeLabelFigure"
@@ -280,8 +268,7 @@
       figure="SignatureServiceNameFigure"/>
   <labels
       name="EntityEntityName"
-      figure="RequiredRoleFigure"
-      accessor="//@figures.0/@descriptors.0/@accessors.0"/>
+      figure="RequiredRoleFigure"/>
   <labels
       name="Interface_Name_Label"
       figure="InterfaceFigure"
@@ -294,10 +281,6 @@
       name="EntityEntityName4"
       figure="ChildComponentContextFigure"
       accessor="//@figures.0/@descriptors.4/@accessors.0"/>
-  <labels
-      name="EntityEntityName5"
-      figure="ProvidedRoleFigure"
-      accessor="//@figures.0/@descriptors.5/@accessors.0"/>
   <labels
       name="EntityEntityName6"
       figure="ProvidedDelegationConnectorFigure"
@@ -326,7 +309,7 @@
       name="ProvidesStereotypeLabel"
       figure="ProvidedRoleFigure"
       elementIcon="false"
-      accessor="//@figures.0/@descriptors.5/@accessors.1">
+      accessor="//@figures.0/@descriptors.5/@accessors.0">
     <facets
         xsi:type="gmfgraph:AlignmentFacet"
         alignment="CENTER"/>
@@ -335,7 +318,7 @@
       name="RequiresStereotypeLabel"
       figure="RequiredRoleFigure"
       elementIcon="false"
-      accessor="//@figures.0/@descriptors.0/@accessors.1">
+      accessor="//@figures.0/@descriptors.0/@accessors.0">
     <facets
         xsi:type="gmfgraph:AlignmentFacet"
         alignment="CENTER"/>

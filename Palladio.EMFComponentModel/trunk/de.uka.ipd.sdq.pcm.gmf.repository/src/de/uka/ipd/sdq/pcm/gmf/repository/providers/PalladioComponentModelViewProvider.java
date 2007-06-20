@@ -8,6 +8,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.gmf.runtime.diagram.core.providers.AbstractViewProvider;
 import org.eclipse.gmf.runtime.emf.type.core.IElementType;
+import org.eclipse.gmf.runtime.emf.type.core.IHintedType;
 import org.eclipse.gmf.runtime.notation.View;
 
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.BasicComponentEditPart;
@@ -15,9 +16,11 @@ import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.BasicComponentEntityNameEdit
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.BasicComponentSEFFCompartmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.CompleteComponentTypeEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.CompleteComponentTypeEntityNameEditPart;
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.CompleteComponentTypeParentProvidesComponentTypesEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.CompleteParentStereotypeLabel2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.CompleteParentStereotypeLabelEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.CompositeComponentEditPart;
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.ImplementationComponentTypeParentCompleteComponentTypesEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.InterfaceEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.InterfaceEntityNameEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.InterfaceSignatureListEditPart;
@@ -84,16 +87,141 @@ public class PalladioComponentModelViewProvider extends AbstractViewProvider {
 			return null;
 		}
 		IElementType elementType = getSemanticElementType(semanticAdapter);
-		if (elementType != null
-				&& !PalladioComponentModelElementTypes
-						.isKnownElementType(elementType)) {
+		EObject domainElement = getSemanticElement(semanticAdapter);
+		int visualID;
+		if (semanticHint == null) {
+			// Semantic hint is not specified. Can be a result of call from CanonicalEditPolicy.
+			// In this situation there should be NO elementType, visualID will be determined
+			// by VisualIDRegistry.getNodeVisualID() for domainElement.
+			if (elementType != null || domainElement == null) {
+				return null;
+			}
+			visualID = PalladioComponentModelVisualIDRegistry.getNodeVisualID(
+					containerView, domainElement);
+		} else {
+			visualID = PalladioComponentModelVisualIDRegistry
+					.getVisualID(semanticHint);
+			if (elementType != null) {
+				// Semantic hint is specified together with element type.
+				// Both parameters should describe exactly the same diagram element.
+				// In addition we check that visualID returned by VisualIDRegistry.getNodeVisualID() for
+				// domainElement (if specified) is the same as in element type.
+				if (!PalladioComponentModelElementTypes
+						.isKnownElementType(elementType)
+						|| (!(elementType instanceof IHintedType))) {
+					return null; // foreign element type
+				}
+				String elementTypeHint = ((IHintedType) elementType)
+						.getSemanticHint();
+				if (!semanticHint.equals(elementTypeHint)) {
+					return null; // if semantic hint is specified it should be the same as in element type
+				}
+				if (domainElement != null
+						&& visualID != PalladioComponentModelVisualIDRegistry
+								.getNodeVisualID(containerView, domainElement)) {
+					return null; // visual id for node EClass should match visual id from element type
+				}
+			} else {
+				// Element type is not specified. Domain element should be present.
+				// This method is called with EObjectAdapter as parameter from:
+				//   - ViewService.createNode(View container, EObject eObject, String type, PreferencesHint preferencesHint) 
+				//   - generated ViewFactory.decorateView() for parent element
+				if (!RepositoryEditPart.MODEL_ID
+						.equals(PalladioComponentModelVisualIDRegistry
+								.getModelID(containerView))) {
+					return null; // foreign diagram
+				}
+				switch (visualID) {
+				case InterfaceEditPart.VISUAL_ID:
+				case BasicComponentEditPart.VISUAL_ID:
+				case CompleteComponentTypeEditPart.VISUAL_ID:
+				case ProvidesComponentTypeEditPart.VISUAL_ID:
+				case CompositeComponentEditPart.VISUAL_ID:
+				case SignatureEditPart.VISUAL_ID:
+				case ResourceDemandingSEFFEditPart.VISUAL_ID:
+					if (domainElement == null
+							|| visualID != PalladioComponentModelVisualIDRegistry
+									.getNodeVisualID(containerView,
+											domainElement)) {
+						return null; // visual id in semantic hint should match visual id for domain element
+					}
+					break;
+				case InterfaceEntityNameEditPart.VISUAL_ID:
+				case InterfaceSignatureListEditPart.VISUAL_ID:
+					if (InterfaceEditPart.VISUAL_ID != PalladioComponentModelVisualIDRegistry
+							.getVisualID(containerView)
+							|| containerView.getElement() != domainElement) {
+						return null; // wrong container
+					}
+					break;
+				case BasicComponentEntityNameEditPart.VISUAL_ID:
+				case BasicComponentSEFFCompartmentEditPart.VISUAL_ID:
+					if (BasicComponentEditPart.VISUAL_ID != PalladioComponentModelVisualIDRegistry
+							.getVisualID(containerView)
+							|| containerView.getElement() != domainElement) {
+						return null; // wrong container
+					}
+					break;
+				case CompleteComponentTypeEntityNameEditPart.VISUAL_ID:
+					if (CompleteComponentTypeEditPart.VISUAL_ID != PalladioComponentModelVisualIDRegistry
+							.getVisualID(containerView)
+							|| containerView.getElement() != domainElement) {
+						return null; // wrong container
+					}
+					break;
+				case ProvidesComponentTypeEntityNameEditPart.VISUAL_ID:
+					if (ProvidesComponentTypeEditPart.VISUAL_ID != PalladioComponentModelVisualIDRegistry
+							.getVisualID(containerView)
+							|| containerView.getElement() != domainElement) {
+						return null; // wrong container
+					}
+					break;
+				case ProvidesStereotypeLabelEditPart.VISUAL_ID:
+					if (ProvidedRoleEditPart.VISUAL_ID != PalladioComponentModelVisualIDRegistry
+							.getVisualID(containerView)
+							|| containerView.getElement() != domainElement) {
+						return null; // wrong container
+					}
+					break;
+				case RequiresStereotypeLabelEditPart.VISUAL_ID:
+					if (RequiredRoleEditPart.VISUAL_ID != PalladioComponentModelVisualIDRegistry
+							.getVisualID(containerView)
+							|| containerView.getElement() != domainElement) {
+						return null; // wrong container
+					}
+					break;
+				case CompleteParentStereotypeLabelEditPart.VISUAL_ID:
+					if (ImplementationComponentTypeParentCompleteComponentTypesEditPart.VISUAL_ID != PalladioComponentModelVisualIDRegistry
+							.getVisualID(containerView)
+							|| containerView.getElement() != domainElement) {
+						return null; // wrong container
+					}
+					break;
+				case ProvidesParentStereotypeLabelEditPart.VISUAL_ID:
+					if (CompleteComponentTypeParentProvidesComponentTypesEditPart.VISUAL_ID != PalladioComponentModelVisualIDRegistry
+							.getVisualID(containerView)
+							|| containerView.getElement() != domainElement) {
+						return null; // wrong container
+					}
+					break;
+				default:
+					return null;
+				}
+			}
+		}
+		return getNodeViewClass(containerView, visualID);
+	}
+
+	/**
+	 * @generated
+	 */
+	protected Class getNodeViewClass(View containerView, int visualID) {
+		if (containerView == null
+				|| !PalladioComponentModelVisualIDRegistry.canCreateNode(
+						containerView, visualID)) {
 			return null;
 		}
-		EClass semanticType = getSemanticEClass(semanticAdapter);
-		EObject semanticElement = getSemanticElement(semanticAdapter);
-		int nodeVID = PalladioComponentModelVisualIDRegistry.getNodeVisualID(
-				containerView, semanticElement, semanticType, semanticHint);
-		switch (nodeVID) {
+		switch (visualID) {
 		case InterfaceEditPart.VISUAL_ID:
 			return InterfaceViewFactory.class;
 		case InterfaceEntityNameEditPart.VISUAL_ID:
@@ -138,34 +266,43 @@ public class PalladioComponentModelViewProvider extends AbstractViewProvider {
 	protected Class getEdgeViewClass(IAdaptable semanticAdapter,
 			View containerView, String semanticHint) {
 		IElementType elementType = getSemanticElementType(semanticAdapter);
-		if (elementType != null
-				&& !PalladioComponentModelElementTypes
-						.isKnownElementType(elementType)) {
-			return null;
+		if (!PalladioComponentModelElementTypes.isKnownElementType(elementType)
+				|| (!(elementType instanceof IHintedType))) {
+			return null; // foreign element type
 		}
-		if (PalladioComponentModelElementTypes.ImplementationComponentTypeParentCompleteComponentTypes_4103
-				.equals(elementType)) {
-			return ImplementationComponentTypeParentCompleteComponentTypesViewFactory.class;
+		String elementTypeHint = ((IHintedType) elementType).getSemanticHint();
+		if (elementTypeHint == null) {
+			return null; // our hint is visual id and must be specified
 		}
-		if (PalladioComponentModelElementTypes.CompleteComponentTypeParentProvidesComponentTypes_4104
-				.equals(elementType)) {
-			return CompleteComponentTypeParentProvidesComponentTypesViewFactory.class;
+		if (semanticHint != null && !semanticHint.equals(elementTypeHint)) {
+			return null; // if semantic hint is specified it should be the same as in element type
 		}
-		EClass semanticType = getSemanticEClass(semanticAdapter);
-		if (semanticType == null) {
-			return null;
+		int visualID = PalladioComponentModelVisualIDRegistry
+				.getVisualID(elementTypeHint);
+		EObject domainElement = getSemanticElement(semanticAdapter);
+		if (domainElement != null
+				&& visualID != PalladioComponentModelVisualIDRegistry
+						.getLinkWithClassVisualID(domainElement)) {
+			return null; // visual id for link EClass should match visual id from element type
 		}
-		EObject semanticElement = getSemanticElement(semanticAdapter);
-		int linkVID = PalladioComponentModelVisualIDRegistry
-				.getLinkWithClassVisualID(semanticElement, semanticType);
-		switch (linkVID) {
+		return getEdgeViewClass(visualID);
+	}
+
+	/**
+	 * @generated
+	 */
+	protected Class getEdgeViewClass(int visualID) {
+		switch (visualID) {
 		case ProvidedRoleEditPart.VISUAL_ID:
 			return ProvidedRoleViewFactory.class;
 		case RequiredRoleEditPart.VISUAL_ID:
 			return RequiredRoleViewFactory.class;
+		case ImplementationComponentTypeParentCompleteComponentTypesEditPart.VISUAL_ID:
+			return ImplementationComponentTypeParentCompleteComponentTypesViewFactory.class;
+		case CompleteComponentTypeParentProvidesComponentTypesEditPart.VISUAL_ID:
+			return CompleteComponentTypeParentProvidesComponentTypesViewFactory.class;
 		}
-		return getUnrecognizedConnectorViewClass(semanticAdapter,
-				containerView, semanticHint);
+		return null;
 	}
 
 	/**
@@ -176,15 +313,6 @@ public class PalladioComponentModelViewProvider extends AbstractViewProvider {
 			return null;
 		}
 		return (IElementType) semanticAdapter.getAdapter(IElementType.class);
-	}
-
-	/**
-	 * @generated
-	 */
-	private Class getUnrecognizedConnectorViewClass(IAdaptable semanticAdapter,
-			View containerView, String semanticHint) {
-		// Handle unrecognized child node classes here
-		return null;
 	}
 
 }

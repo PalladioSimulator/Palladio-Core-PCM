@@ -62,6 +62,8 @@ public class ReleaseAction2EditPart extends ShapeNodeEditPart {
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
 				new ReleaseAction2ItemSemanticEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
+		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
+		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
 	}
 
 	/**
@@ -220,13 +222,12 @@ public class ReleaseAction2EditPart extends ShapeNodeEditPart {
 		/**
 		 * @generated
 		 */
+		private WrapLabel fFigureReleaseNameLabelFigure;
+
+		/**
+		 * @generated
+		 */
 		public ReleaseFigure() {
-			this.setFill(true);
-			this.setFillXOR(false);
-			this.setOutline(true);
-			this.setOutlineXOR(false);
-			this.setLineWidth(1);
-			this.setLineStyle(Graphics.LINE_SOLID);
 			createContents();
 		}
 
@@ -244,7 +245,7 @@ public class ReleaseAction2EditPart extends ShapeNodeEditPart {
 			releaseNameLabelFigure0.setText("<...>");
 
 			this.add(releaseNameLabelFigure0);
-			setFigureReleaseNameLabelFigure(releaseNameLabelFigure0);
+			fFigureReleaseNameLabelFigure = releaseNameLabelFigure0;
 
 			WrapLabel releaseResourceLabelFigure0 = new WrapLabel();
 			releaseResourceLabelFigure0.setText("");
@@ -256,20 +257,8 @@ public class ReleaseAction2EditPart extends ShapeNodeEditPart {
 		/**
 		 * @generated
 		 */
-		private WrapLabel fReleaseNameLabelFigure;
-
-		/**
-		 * @generated
-		 */
 		public WrapLabel getFigureReleaseNameLabelFigure() {
-			return fReleaseNameLabelFigure;
-		}
-
-		/**
-		 * @generated
-		 */
-		private void setFigureReleaseNameLabelFigure(WrapLabel fig) {
-			fReleaseNameLabelFigure = fig;
+			return fFigureReleaseNameLabelFigure;
 		}
 
 		/**

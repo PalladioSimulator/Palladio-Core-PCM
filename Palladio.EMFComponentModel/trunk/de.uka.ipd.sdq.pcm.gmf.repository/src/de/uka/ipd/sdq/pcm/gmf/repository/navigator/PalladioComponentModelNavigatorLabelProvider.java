@@ -1,10 +1,11 @@
 /*
- *Copyright 2007, IPD, SDQ, University of Karlsruhe
+ * Copyright 2007, IPD, SDQ, University of Karlsruhe
  */
 package de.uka.ipd.sdq.pcm.gmf.repository.navigator;
 
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.gmf.runtime.common.ui.services.parser.CommonParserHint;
 import org.eclipse.gmf.runtime.common.ui.services.parser.IParser;
 import org.eclipse.gmf.runtime.common.ui.services.parser.ParserOptions;
 import org.eclipse.gmf.runtime.common.ui.services.parser.ParserService;
@@ -48,6 +49,8 @@ import de.uka.ipd.sdq.pcm.gmf.repository.part.PalladioComponentModelRepositoryDi
 import de.uka.ipd.sdq.pcm.gmf.repository.part.PalladioComponentModelVisualIDRegistry;
 import de.uka.ipd.sdq.pcm.gmf.repository.providers.PalladioComponentModelElementTypes;
 import de.uka.ipd.sdq.pcm.gmf.repository.providers.PalladioComponentModelParserProvider;
+import de.uka.ipd.sdq.pcm.repository.CompositeComponent;
+import de.uka.ipd.sdq.pcm.repository.Repository;
 
 /**
  * @generated
@@ -59,15 +62,16 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 	 * @generated
 	 */
 	static {
-		PalladioComponentModelRepositoryDiagramEditorPlugin.getInstance()
-				.getImageRegistry().put("Navigator?InvalidElement",
-						ImageDescriptor.getMissingImageDescriptor());
-		PalladioComponentModelRepositoryDiagramEditorPlugin.getInstance()
-				.getImageRegistry().put("Navigator?UnknownElement",
-						ImageDescriptor.getMissingImageDescriptor());
-		PalladioComponentModelRepositoryDiagramEditorPlugin.getInstance()
-				.getImageRegistry().put("Navigator?ImageNotFound",
-						ImageDescriptor.getMissingImageDescriptor());
+		PalladioComponentModelRepositoryDiagramEditorPlugin
+				.getInstance()
+				.getImageRegistry()
+				.put(
+						"Navigator?UnknownElement", ImageDescriptor.getMissingImageDescriptor()); //$NON-NLS-1$
+		PalladioComponentModelRepositoryDiagramEditorPlugin
+				.getInstance()
+				.getImageRegistry()
+				.put(
+						"Navigator?ImageNotFound", ImageDescriptor.getMissingImageDescriptor()); //$NON-NLS-1$
 	}
 
 	/**
@@ -110,57 +114,44 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 	 */
 	public Image getImage(View view) {
 		switch (PalladioComponentModelVisualIDRegistry.getVisualID(view)) {
-		case InterfaceEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?TopLevelNode?http://sdq.ipd.uka.de/PalladioComponentModel/Repository/1.0?Interface",
-					PalladioComponentModelElementTypes.Interface_2101);
-		case BasicComponentEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?TopLevelNode?http://sdq.ipd.uka.de/PalladioComponentModel/Repository/1.0?BasicComponent",
-					PalladioComponentModelElementTypes.BasicComponent_2102);
-		case CompleteComponentTypeEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?TopLevelNode?http://sdq.ipd.uka.de/PalladioComponentModel/Repository/1.0?CompleteComponentType",
-					PalladioComponentModelElementTypes.CompleteComponentType_2103);
-		case ProvidesComponentTypeEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?TopLevelNode?http://sdq.ipd.uka.de/PalladioComponentModel/Repository/1.0?ProvidesComponentType",
-					PalladioComponentModelElementTypes.ProvidesComponentType_2104);
-		case CompositeComponentEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?TopLevelNode?http://sdq.ipd.uka.de/PalladioComponentModel/Repository/1.0?CompositeComponent",
-					PalladioComponentModelElementTypes.CompositeComponent_2105);
-		case SignatureEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Node?http://sdq.ipd.uka.de/PalladioComponentModel/Repository/1.0?Signature",
-					PalladioComponentModelElementTypes.Signature_3101);
-		case ResourceDemandingSEFFEditPart.VISUAL_ID:
-			return getImage(
-					"Navigator?Node?http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0?ResourceDemandingSEFF",
-					PalladioComponentModelElementTypes.ResourceDemandingSEFF_3102);
 		case RepositoryEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?Diagram?http://sdq.ipd.uka.de/PalladioComponentModel/Repository/1.0?Repository",
-					PalladioComponentModelElementTypes.Repository_1000);
+					"Navigator?Diagram?http://sdq.ipd.uka.de/PalladioComponentModel/Repository/1.0?Repository", PalladioComponentModelElementTypes.Repository_1000); //$NON-NLS-1$
+		case InterfaceEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?TopLevelNode?http://sdq.ipd.uka.de/PalladioComponentModel/Repository/1.0?Interface", PalladioComponentModelElementTypes.Interface_2101); //$NON-NLS-1$
+		case BasicComponentEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?TopLevelNode?http://sdq.ipd.uka.de/PalladioComponentModel/Repository/1.0?BasicComponent", PalladioComponentModelElementTypes.BasicComponent_2102); //$NON-NLS-1$
+		case CompleteComponentTypeEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?TopLevelNode?http://sdq.ipd.uka.de/PalladioComponentModel/Repository/1.0?CompleteComponentType", PalladioComponentModelElementTypes.CompleteComponentType_2103); //$NON-NLS-1$
+		case ProvidesComponentTypeEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?TopLevelNode?http://sdq.ipd.uka.de/PalladioComponentModel/Repository/1.0?ProvidesComponentType", PalladioComponentModelElementTypes.ProvidesComponentType_2104); //$NON-NLS-1$
+		case CompositeComponentEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?TopLevelNode?http://sdq.ipd.uka.de/PalladioComponentModel/Repository/1.0?CompositeComponent", PalladioComponentModelElementTypes.CompositeComponent_2105); //$NON-NLS-1$
+		case SignatureEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Node?http://sdq.ipd.uka.de/PalladioComponentModel/Repository/1.0?Signature", PalladioComponentModelElementTypes.Signature_3101); //$NON-NLS-1$
+		case ResourceDemandingSEFFEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Node?http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0?ResourceDemandingSEFF", PalladioComponentModelElementTypes.ResourceDemandingSEFF_3102); //$NON-NLS-1$
 		case ProvidedRoleEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?Link?http://sdq.ipd.uka.de/PalladioComponentModel/Repository/1.0?ProvidedRole",
-					PalladioComponentModelElementTypes.ProvidedRole_4101);
+					"Navigator?Link?http://sdq.ipd.uka.de/PalladioComponentModel/Repository/1.0?ProvidedRole", PalladioComponentModelElementTypes.ProvidedRole_4101); //$NON-NLS-1$
 		case RequiredRoleEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?Link?http://sdq.ipd.uka.de/PalladioComponentModel/Repository/1.0?RequiredRole",
-					PalladioComponentModelElementTypes.RequiredRole_4102);
+					"Navigator?Link?http://sdq.ipd.uka.de/PalladioComponentModel/Repository/1.0?RequiredRole", PalladioComponentModelElementTypes.RequiredRole_4102); //$NON-NLS-1$
 		case ImplementationComponentTypeParentCompleteComponentTypesEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?Link?http://sdq.ipd.uka.de/PalladioComponentModel/Repository/1.0?ImplementationComponentType?parentCompleteComponentTypes",
-					PalladioComponentModelElementTypes.ImplementationComponentTypeParentCompleteComponentTypes_4103);
+					"Navigator?Link?http://sdq.ipd.uka.de/PalladioComponentModel/Repository/1.0?ImplementationComponentType?parentCompleteComponentTypes", PalladioComponentModelElementTypes.ImplementationComponentTypeParentCompleteComponentTypes_4103); //$NON-NLS-1$
 		case CompleteComponentTypeParentProvidesComponentTypesEditPart.VISUAL_ID:
 			return getImage(
-					"Navigator?Link?http://sdq.ipd.uka.de/PalladioComponentModel/Repository/1.0?CompleteComponentType?parentProvidesComponentTypes",
-					PalladioComponentModelElementTypes.CompleteComponentTypeParentProvidesComponentTypes_4104);
-		default:
-			return getImage("Navigator?UnknownElement", null);
+					"Navigator?Link?http://sdq.ipd.uka.de/PalladioComponentModel/Repository/1.0?CompleteComponentType?parentProvidesComponentTypes", PalladioComponentModelElementTypes.CompleteComponentTypeParentProvidesComponentTypes_4104); //$NON-NLS-1$
 		}
+		return getImage("Navigator?UnknownElement", null); //$NON-NLS-1$
 	}
 
 	/**
@@ -179,7 +170,7 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 		}
 
 		if (image == null) {
-			image = imageRegistry.get("Navigator?ImageNotFound");
+			image = imageRegistry.get("Navigator?ImageNotFound"); //$NON-NLS-1$
 			imageRegistry.put(key, image);
 		}
 		return image;
@@ -213,6 +204,8 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 			return getUnresolvedDomainElementProxyText(view);
 		}
 		switch (PalladioComponentModelVisualIDRegistry.getVisualID(view)) {
+		case RepositoryEditPart.VISUAL_ID:
+			return getRepository_1000Text(view);
 		case InterfaceEditPart.VISUAL_ID:
 			return getInterface_2101Text(view);
 		case BasicComponentEditPart.VISUAL_ID:
@@ -227,8 +220,6 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 			return getSignature_3101Text(view);
 		case ResourceDemandingSEFFEditPart.VISUAL_ID:
 			return getResourceDemandingSEFF_3102Text(view);
-		case RepositoryEditPart.VISUAL_ID:
-			return getRepository_1000Text(view);
 		case ProvidedRoleEditPart.VISUAL_ID:
 			return getProvidedRole_4101Text(view);
 		case RequiredRoleEditPart.VISUAL_ID:
@@ -237,8 +228,23 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 			return getImplementationComponentTypeParentCompleteComponentTypes_4103Text(view);
 		case CompleteComponentTypeParentProvidesComponentTypesEditPart.VISUAL_ID:
 			return getCompleteComponentTypeParentProvidesComponentTypes_4104Text(view);
-		default:
-			return getUnknownElementText(view);
+		}
+		return getUnknownElementText(view);
+	}
+
+	/**
+	 * @generated
+	 */
+	private String getRepository_1000Text(View view) {
+		Repository domainModelElement = (Repository) view.getElement();
+		if (domainModelElement != null) {
+			return domainModelElement.getId();
+		} else {
+			PalladioComponentModelRepositoryDiagramEditorPlugin
+					.getInstance()
+					.logError(
+							"No domain element for view with visualID = " + 1000); //$NON-NLS-1$
+			return ""; //$NON-NLS-1$
 		}
 	}
 
@@ -258,8 +264,8 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 					.intValue());
 		} else {
 			PalladioComponentModelRepositoryDiagramEditorPlugin.getInstance()
-					.logError("Parser was not found for label " + 5101);
-			return "";
+					.logError("Parser was not found for label " + 5101); //$NON-NLS-1$
+			return ""; //$NON-NLS-1$
 		}
 	}
 
@@ -279,8 +285,8 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 					.intValue());
 		} else {
 			PalladioComponentModelRepositoryDiagramEditorPlugin.getInstance()
-					.logError("Parser was not found for label " + 5102);
-			return "";
+					.logError("Parser was not found for label " + 5102); //$NON-NLS-1$
+			return ""; //$NON-NLS-1$
 		}
 	}
 
@@ -300,8 +306,8 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 					.intValue());
 		} else {
 			PalladioComponentModelRepositoryDiagramEditorPlugin.getInstance()
-					.logError("Parser was not found for label " + 5103);
-			return "";
+					.logError("Parser was not found for label " + 5103); //$NON-NLS-1$
+			return ""; //$NON-NLS-1$
 		}
 	}
 
@@ -321,8 +327,8 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 					.intValue());
 		} else {
 			PalladioComponentModelRepositoryDiagramEditorPlugin.getInstance()
-					.logError("Parser was not found for label " + 5104);
-			return "";
+					.logError("Parser was not found for label " + 5104); //$NON-NLS-1$
+			return ""; //$NON-NLS-1$
 		}
 	}
 
@@ -330,15 +336,16 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 	 * @generated
 	 */
 	private String getCompositeComponent_2105Text(View view) {
-		EObject domainModelElement = view.getElement();
+		CompositeComponent domainModelElement = (CompositeComponent) view
+				.getElement();
 		if (domainModelElement != null) {
-			return ((Identifier) domainModelElement).getId();
+			return domainModelElement.getId();
 		} else {
 			PalladioComponentModelRepositoryDiagramEditorPlugin
 					.getInstance()
 					.logError(
-							"No domain element for view with visualID = " + 2105);
-			return "";
+							"No domain element for view with visualID = " + 2105); //$NON-NLS-1$
+			return ""; //$NON-NLS-1$
 		}
 	}
 
@@ -358,8 +365,8 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 					.intValue());
 		} else {
 			PalladioComponentModelRepositoryDiagramEditorPlugin.getInstance()
-					.logError("Parser was not found for label " + 3101);
-			return "";
+					.logError("Parser was not found for label " + 3101); //$NON-NLS-1$
+			return ""; //$NON-NLS-1$
 		}
 	}
 
@@ -379,24 +386,8 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 					.intValue());
 		} else {
 			PalladioComponentModelRepositoryDiagramEditorPlugin.getInstance()
-					.logError("Parser was not found for label " + 3102);
-			return "";
-		}
-	}
-
-	/**
-	 * @generated
-	 */
-	private String getRepository_1000Text(View view) {
-		EObject domainModelElement = view.getElement();
-		if (domainModelElement != null) {
-			return ((Identifier) domainModelElement).getId();
-		} else {
-			PalladioComponentModelRepositoryDiagramEditorPlugin
-					.getInstance()
-					.logError(
-							"No domain element for view with visualID = " + 1000);
-			return "";
+					.logError("Parser was not found for label " + 3102); //$NON-NLS-1$
+			return ""; //$NON-NLS-1$
 		}
 	}
 
@@ -407,8 +398,7 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 		IAdaptable hintAdapter = new PalladioComponentModelParserProvider.HintAdapter(
 				PalladioComponentModelElementTypes.ProvidedRole_4101, (view
 						.getElement() != null ? view.getElement() : view),
-				PalladioComponentModelVisualIDRegistry
-						.getType(ProvidesStereotypeLabelEditPart.VISUAL_ID));
+				CommonParserHint.DESCRIPTION);
 		IParser parser = ParserService.getInstance().getParser(hintAdapter);
 
 		if (parser != null) {
@@ -416,8 +406,8 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 					.intValue());
 		} else {
 			PalladioComponentModelRepositoryDiagramEditorPlugin.getInstance()
-					.logError("Parser was not found for label " + 6101);
-			return "";
+					.logError("Parser was not found for label " + 6101); //$NON-NLS-1$
+			return ""; //$NON-NLS-1$
 		}
 	}
 
@@ -428,8 +418,7 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 		IAdaptable hintAdapter = new PalladioComponentModelParserProvider.HintAdapter(
 				PalladioComponentModelElementTypes.RequiredRole_4102, (view
 						.getElement() != null ? view.getElement() : view),
-				PalladioComponentModelVisualIDRegistry
-						.getType(RequiresStereotypeLabelEditPart.VISUAL_ID));
+				CommonParserHint.DESCRIPTION);
 		IParser parser = ParserService.getInstance().getParser(hintAdapter);
 
 		if (parser != null) {
@@ -437,8 +426,8 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 					.intValue());
 		} else {
 			PalladioComponentModelRepositoryDiagramEditorPlugin.getInstance()
-					.logError("Parser was not found for label " + 6102);
-			return "";
+					.logError("Parser was not found for label " + 6102); //$NON-NLS-1$
+			return ""; //$NON-NLS-1$
 		}
 	}
 
@@ -450,8 +439,7 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 		IAdaptable hintAdapter = new PalladioComponentModelParserProvider.HintAdapter(
 				PalladioComponentModelElementTypes.ImplementationComponentTypeParentCompleteComponentTypes_4103,
 				(view.getElement() != null ? view.getElement() : view),
-				PalladioComponentModelVisualIDRegistry
-						.getType(CompleteParentStereotypeLabelEditPart.VISUAL_ID));
+				CommonParserHint.DESCRIPTION);
 		IParser parser = ParserService.getInstance().getParser(hintAdapter);
 
 		if (parser != null) {
@@ -459,8 +447,8 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 					.intValue());
 		} else {
 			PalladioComponentModelRepositoryDiagramEditorPlugin.getInstance()
-					.logError("Parser was not found for label " + 6103);
-			return "";
+					.logError("Parser was not found for label " + 6103); //$NON-NLS-1$
+			return ""; //$NON-NLS-1$
 		}
 	}
 
@@ -472,8 +460,7 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 		IAdaptable hintAdapter = new PalladioComponentModelParserProvider.HintAdapter(
 				PalladioComponentModelElementTypes.CompleteComponentTypeParentProvidesComponentTypes_4104,
 				(view.getElement() != null ? view.getElement() : view),
-				PalladioComponentModelVisualIDRegistry
-						.getType(ProvidesParentStereotypeLabelEditPart.VISUAL_ID));
+				CommonParserHint.DESCRIPTION);
 		IParser parser = ParserService.getInstance().getParser(hintAdapter);
 
 		if (parser != null) {
@@ -481,8 +468,8 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 					.intValue());
 		} else {
 			PalladioComponentModelRepositoryDiagramEditorPlugin.getInstance()
-					.logError("Parser was not found for label " + 6104);
-			return "";
+					.logError("Parser was not found for label " + 6104); //$NON-NLS-1$
+			return ""; //$NON-NLS-1$
 		}
 	}
 
@@ -490,14 +477,14 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 	 * @generated
 	 */
 	private String getUnknownElementText(View view) {
-		return "<UnknownElement Visual_ID = " + view.getType() + ">";
+		return "<UnknownElement Visual_ID = " + view.getType() + ">"; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
 	/**
 	 * @generated
 	 */
 	private String getUnresolvedDomainElementProxyText(View view) {
-		return "<Unresolved domain element Visual_ID = " + view.getType() + ">";
+		return "<Unresolved domain element Visual_ID = " + view.getType() + ">"; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
 	/**

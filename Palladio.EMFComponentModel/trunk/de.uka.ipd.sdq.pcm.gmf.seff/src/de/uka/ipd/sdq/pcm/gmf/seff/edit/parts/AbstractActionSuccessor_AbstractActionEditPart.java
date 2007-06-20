@@ -52,8 +52,14 @@ public class AbstractActionSuccessor_AbstractActionEditPart extends
 	 * @generated
 	 */
 	protected Connection createConnectionFigure() {
-
 		return new ControlFlowConnectionFigure();
+	}
+
+	/**
+	 * @generated
+	 */
+	public ControlFlowConnectionFigure getPrimaryShape() {
+		return (ControlFlowConnectionFigure) getFigure();
 	}
 
 	/**
@@ -65,12 +71,6 @@ public class AbstractActionSuccessor_AbstractActionEditPart extends
 		 * @generated
 		 */
 		public ControlFlowConnectionFigure() {
-			this.setFill(true);
-			this.setFillXOR(false);
-			this.setOutline(true);
-			this.setOutlineXOR(false);
-			this.setLineWidth(1);
-			this.setLineStyle(Graphics.LINE_SOLID);
 
 			setTargetDecoration(createTargetDecoration());
 		}
@@ -80,12 +80,6 @@ public class AbstractActionSuccessor_AbstractActionEditPart extends
 		 */
 		private RotatableDecoration createTargetDecoration() {
 			PolylineDecoration df = new PolylineDecoration();
-			df.setFill(true);
-			df.setFillXOR(false);
-			df.setOutline(true);
-			df.setOutlineXOR(false);
-			df.setLineWidth(1);
-			df.setLineStyle(Graphics.LINE_SOLID);
 			PointList pl = new PointList();
 			pl.addPoint(getMapMode().DPtoLP(-1), getMapMode().DPtoLP(1));
 			pl.addPoint(getMapMode().DPtoLP(0), getMapMode().DPtoLP(0));

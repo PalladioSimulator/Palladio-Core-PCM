@@ -27,6 +27,7 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.edit.ui.dnd.LocalTransfer;
 import org.eclipse.gef.EditPartViewer;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
+import org.eclipse.emf.workspace.util.WorkspaceSynchronizer;
 import de.uka.ipd.sdq.pcm.gmf.repository.navigator.PalladioComponentModelNavigatorItem;
 import org.eclipse.gef.palette.PaletteRoot;
 import org.eclipse.gmf.runtime.common.ui.services.marker.MarkerNavigationService;
@@ -37,12 +38,15 @@ import org.eclipse.gmf.runtime.diagram.ui.parts.DiagramDropTargetListener;
 import org.eclipse.gmf.runtime.diagram.ui.resources.editor.document.IDocumentProvider;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.gmf.runtime.diagram.ui.resources.editor.parts.DiagramDocumentEditor;
+import org.eclipse.gmf.runtime.notation.Diagram;
 import org.eclipse.jface.dialogs.ErrorDialog;
 import org.eclipse.jface.dialogs.IMessageProvider;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.util.LocalSelectionTransfer;
 import org.eclipse.jface.util.TransferDropTargetListener;
+import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
+import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.jface.window.Window;
 import org.eclipse.osgi.util.NLS;
 import org.eclipse.swt.dnd.DropTargetEvent;
@@ -56,7 +60,10 @@ import org.eclipse.ui.IFileEditorInput;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.dialogs.SaveAsDialog;
 import org.eclipse.ui.ide.IGotoMarker;
+import org.eclipse.ui.navigator.resources.ProjectExplorer;
 import org.eclipse.ui.part.FileEditorInput;
+import org.eclipse.ui.part.IShowInTargetList;
+import org.eclipse.ui.part.ShowInContext;
 
 /**
  * @generated
@@ -72,8 +79,20 @@ public class PalladioComponentModelRepositoryDiagramEditor extends
 	/**
 	 * @generated
 	 */
+	public static final String CONTEXT_ID = "de.uka.ipd.sdq.pcm.gmf.repository.ui.diagramContext"; //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
 	public PalladioComponentModelRepositoryDiagramEditor() {
 		super(true);
+	}
+
+	/**
+	 * @generated
+	 */
+	protected String getContextID() {
+		return CONTEXT_ID;
 	}
 
 	/**
@@ -97,6 +116,20 @@ public class PalladioComponentModelRepositoryDiagramEditor extends
 	 */
 	public String getContributorId() {
 		return PalladioComponentModelRepositoryDiagramEditorPlugin.ID;
+	}
+
+	/**
+	 * @generated
+	 */
+	public Object getAdapter(Class type) {
+		if (type == IShowInTargetList.class) {
+			return new IShowInTargetList() {
+				public String[] getShowInTargetIds() {
+					return new String[] { ProjectExplorer.VIEW_ID };
+				}
+			};
+		}
+		return super.getAdapter(type);
 	}
 
 	/**
@@ -177,9 +210,10 @@ public class PalladioComponentModelRepositoryDiagramEditor extends
 			return;
 		}
 		if (provider.isDeleted(input) && original != null) {
-			String message = NLS.bind(
-					"The original file ''{0}'' has been deleted.", original
-							.getName());
+			String message = NLS
+					.bind(
+							Messages.PalladioComponentModelRepositoryDiagramEditor_SavingDeletedFile,
+							original.getName());
 			dialog.setErrorMessage(null);
 			dialog.setMessage(message, IMessageProvider.WARNING);
 		}
@@ -208,8 +242,10 @@ public class PalladioComponentModelRepositoryDiagramEditor extends
 		for (int i = 0; i < editorRefs.length; i++) {
 			if (matchingStrategy.matches(editorRefs[i], newInput)) {
 				MessageDialog
-						.openWarning(shell, "Problem During Save As...",
-								"Save could not be completed. Target file is already open in another editor.");
+						.openWarning(
+								shell,
+								Messages.PalladioComponentModelRepositoryDiagramEditor_SaveAsErrorTitle,
+								Messages.PalladioComponentModelRepositoryDiagramEditor_SaveAsErrorMessage);
 				return;
 			}
 		}
@@ -223,8 +259,12 @@ public class PalladioComponentModelRepositoryDiagramEditor extends
 		} catch (CoreException x) {
 			IStatus status = x.getStatus();
 			if (status == null || status.getSeverity() != IStatus.CANCEL) {
-				ErrorDialog.openError(shell, "Save Problems",
-						"Could not save file.", x.getStatus());
+				ErrorDialog
+						.openError(
+								shell,
+								Messages.PalladioComponentModelRepositoryDiagramEditor_SaveErrorTitle,
+								Messages.PalladioComponentModelRepositoryDiagramEditor_SaveErrorMessage,
+								x.getStatus());
 			}
 		} finally {
 			provider.changed(newInput);
@@ -237,6 +277,31 @@ public class PalladioComponentModelRepositoryDiagramEditor extends
 		}
 	}
 
+	/**
+	 * @generated
+	 */
+	public ShowInContext getShowInContext() {
+		return new ShowInContext(getEditorInput(), getNavigatorSelection());
+	}
+
+	/**
+	 * @generated
+	 */
+	private ISelection getNavigatorSelection() {
+		IDiagramDocument document = getDiagramDocument();
+		if (document == null) {
+			return StructuredSelection.EMPTY;
+		}
+		Diagram diagram = document.getDiagram();
+		IFile file = WorkspaceSynchronizer.getFile(diagram.eResource());
+		if (file != null) {
+			PalladioComponentModelNavigatorItem item = new PalladioComponentModelNavigatorItem(
+					diagram, file, false);
+			return new StructuredSelection(item);
+		}
+		return StructuredSelection.EMPTY;
+	}
+
 	/* Manual code to enable drag and drop */
 	@Override
 	protected void initializeGraphicalViewer() {
@@ -245,7 +310,8 @@ public class PalladioComponentModelRepositoryDiagramEditor extends
 
 		getDiagramGraphicalViewer().addDropTargetListener(
 				(TransferDropTargetListener) new DiagramDropTargetListener(
-						getDiagramGraphicalViewer(), LocalSelectionTransfer.getTransfer()) {
+						getDiagramGraphicalViewer(), LocalSelectionTransfer
+								.getTransfer()) {
 					protected List getObjectsBeingDropped() {
 						TransferData[] data = getCurrentEvent().dataTypes;
 						List eObjects = new ArrayList();

@@ -91,6 +91,8 @@ public class InternalActionEditPart extends ShapeNodeEditPart {
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
 				new InternalActionItemSemanticEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
+		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
+		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
 	}
 
 	/**
@@ -249,15 +251,14 @@ public class InternalActionEditPart extends ShapeNodeEditPart {
 		/**
 		 * @generated
 		 */
+		private WrapLabel fFigureInternalActionFigureNameLabel;
+
+		/**
+		 * @generated
+		 */
 		public InternalActionFigure() {
 			this.setCornerDimensions(new Dimension(getMapMode().DPtoLP(8),
 					getMapMode().DPtoLP(8)));
-			this.setFill(true);
-			this.setFillXOR(false);
-			this.setOutline(true);
-			this.setOutlineXOR(false);
-			this.setLineWidth(1);
-			this.setLineStyle(Graphics.LINE_SOLID);
 			createContents();
 		}
 
@@ -275,27 +276,15 @@ public class InternalActionEditPart extends ShapeNodeEditPart {
 			internalActionFigureNameLabel0.setText("<myName>");
 
 			this.add(internalActionFigureNameLabel0);
-			setFigureInternalActionFigureNameLabel(internalActionFigureNameLabel0);
+			fFigureInternalActionFigureNameLabel = internalActionFigureNameLabel0;
 
 		}
-
-		/**
-		 * @generated
-		 */
-		private WrapLabel fInternalActionFigureNameLabel;
 
 		/**
 		 * @generated
 		 */
 		public WrapLabel getFigureInternalActionFigureNameLabel() {
-			return fInternalActionFigureNameLabel;
-		}
-
-		/**
-		 * @generated
-		 */
-		private void setFigureInternalActionFigureNameLabel(WrapLabel fig) {
-			fInternalActionFigureNameLabel = fig;
+			return fFigureInternalActionFigureNameLabel;
 		}
 
 		/**

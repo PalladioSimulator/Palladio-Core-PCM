@@ -86,6 +86,11 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String PalladioComponentModelDocumentProvider_SaveAsOperation;
+
+	/**
+	 * @generated
+	 */
 	public static String PalladioComponentModelInitDiagramFileAction_InitDiagramFileResourceErrorDialogTitle;
 
 	/**
@@ -157,6 +162,36 @@ public class Messages extends NLS {
 	 * @generated
 	 */
 	public static String PalladioComponentModelNewDiagramFileWizard_IncorrectRootError;
+
+	/**
+	 * @generated
+	 */
+	public static String PalladioComponentModelRepositoryDiagramEditor_SavingDeletedFile;
+
+	/**
+	 * @generated
+	 */
+	public static String PalladioComponentModelRepositoryDiagramEditor_SaveAsErrorTitle;
+
+	/**
+	 * @generated
+	 */
+	public static String PalladioComponentModelRepositoryDiagramEditor_SaveAsErrorMessage;
+
+	/**
+	 * @generated
+	 */
+	public static String PalladioComponentModelRepositoryDiagramEditor_SaveErrorTitle;
+
+	/**
+	 * @generated
+	 */
+	public static String PalladioComponentModelRepositoryDiagramEditor_SaveErrorMessage;
+
+	/**
+	 * @generated
+	 */
+	public static String PalladioComponentModelElementChooserDialog_SelectModelElementTitle;
 
 	/**
 	 * @generated
@@ -372,6 +407,11 @@ public class Messages extends NLS {
 	 * @generated
 	 */
 	public static String NavigatorGroupName_CompleteComponentTypeParentProvidesComponentTypes_4104_source;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorActionProvider_OpenDiagramActionName;
 
 	/**
 	 * @generated

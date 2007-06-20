@@ -8,9 +8,11 @@ import org.eclipse.draw2d.Graphics;
 import org.eclipse.draw2d.PolylineDecoration;
 import org.eclipse.draw2d.RotatableDecoration;
 import org.eclipse.draw2d.geometry.PointList;
+import org.eclipse.gef.EditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ConnectionNodeEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.PolylineConnectionEx;
+import org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel;
 import org.eclipse.gmf.runtime.notation.View;
 
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.policies.ImplementationComponentTypeParentCompleteComponentTypesItemSemanticEditPolicy;
@@ -45,6 +47,29 @@ public class ImplementationComponentTypeParentCompleteComponentTypesEditPart
 	}
 
 	/**
+	 * @generated
+	 */
+	protected boolean addFixedChild(EditPart childEditPart) {
+		if (childEditPart instanceof CompleteParentStereotypeLabelEditPart) {
+			((CompleteParentStereotypeLabelEditPart) childEditPart)
+					.setLabel(getPrimaryShape()
+							.getFigureCompleteParentStereotypeLabelFigure());
+			return true;
+		}
+		return false;
+	}
+
+	/**
+	 * @generated
+	 */
+	protected void addChildVisual(EditPart childEditPart, int index) {
+		if (addFixedChild(childEditPart)) {
+			return;
+		}
+		super.addChildVisual(childEditPart, -1);
+	}
+
+	/**
 	 * Creates figure for this edit part.
 	 * 
 	 * Body of this method does not depend on settings in generation model
@@ -53,8 +78,14 @@ public class ImplementationComponentTypeParentCompleteComponentTypesEditPart
 	 * @generated
 	 */
 	protected Connection createConnectionFigure() {
-
 		return new ParentCompleteTypeFigure();
+	}
+
+	/**
+	 * @generated
+	 */
+	public ParentCompleteTypeFigure getPrimaryShape() {
+		return (ParentCompleteTypeFigure) getFigure();
 	}
 
 	/**
@@ -65,15 +96,28 @@ public class ImplementationComponentTypeParentCompleteComponentTypesEditPart
 		/**
 		 * @generated
 		 */
-		public ParentCompleteTypeFigure() {
-			this.setFill(true);
-			this.setFillXOR(false);
-			this.setOutline(true);
-			this.setOutlineXOR(false);
-			this.setLineWidth(1);
-			this.setLineStyle(Graphics.LINE_SOLID);
+		private WrapLabel fFigureCompleteParentStereotypeLabelFigure;
 
+		/**
+		 * @generated
+		 */
+		public ParentCompleteTypeFigure() {
+
+			createContents();
 			setTargetDecoration(createTargetDecoration());
+		}
+
+		/**
+		 * @generated
+		 */
+		private void createContents() {
+
+			WrapLabel completeParentStereotypeLabelFigure0 = new WrapLabel();
+			completeParentStereotypeLabelFigure0.setText("<<conforms>>");
+
+			this.add(completeParentStereotypeLabelFigure0);
+			fFigureCompleteParentStereotypeLabelFigure = completeParentStereotypeLabelFigure0;
+
 		}
 
 		/**
@@ -81,12 +125,6 @@ public class ImplementationComponentTypeParentCompleteComponentTypesEditPart
 		 */
 		private RotatableDecoration createTargetDecoration() {
 			PolylineDecoration df = new PolylineDecoration();
-			df.setFill(true);
-			df.setFillXOR(false);
-			df.setOutline(true);
-			df.setOutlineXOR(false);
-			df.setLineWidth(1);
-			df.setLineStyle(Graphics.LINE_SOLID);
 			PointList pl = new PointList();
 			pl.addPoint(getMapMode().DPtoLP(-1), getMapMode().DPtoLP(-1));
 			pl.addPoint(getMapMode().DPtoLP(0), getMapMode().DPtoLP(0));
@@ -94,6 +132,13 @@ public class ImplementationComponentTypeParentCompleteComponentTypesEditPart
 			df.setTemplate(pl);
 			df.setScale(getMapMode().DPtoLP(7), getMapMode().DPtoLP(3));
 			return df;
+		}
+
+		/**
+		 * @generated
+		 */
+		public WrapLabel getFigureCompleteParentStereotypeLabelFigure() {
+			return fFigureCompleteParentStereotypeLabelFigure;
 		}
 
 	}

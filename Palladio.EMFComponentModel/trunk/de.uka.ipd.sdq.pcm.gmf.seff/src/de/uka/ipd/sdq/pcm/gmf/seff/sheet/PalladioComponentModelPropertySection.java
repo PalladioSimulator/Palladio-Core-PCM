@@ -106,17 +106,17 @@ public class PalladioComponentModelPropertySection extends
 	protected AdapterFactory getAdapterFactory(Object object) {
 		return PalladioComponentModelSeffDiagramEditorPlugin.getInstance()
 				.getItemProvidersAdapterFactory();
-//		if (getEditingDomain() instanceof AdapterFactoryEditingDomain) {
-//			return ((AdapterFactoryEditingDomain) getEditingDomain())
-//					.getAdapterFactory();
-//		}
-//		TransactionalEditingDomain editingDomain = TransactionUtil
-//				.getEditingDomain(object);
-//		if (editingDomain != null) {
-//			return ((AdapterFactoryEditingDomain) editingDomain)
-//					.getAdapterFactory();
-//		}
-//		return null;
+		//		if (getEditingDomain() instanceof AdapterFactoryEditingDomain) {
+		//			return ((AdapterFactoryEditingDomain) getEditingDomain())
+		//					.getAdapterFactory();
+		//		}
+		//		TransactionalEditingDomain editingDomain = TransactionUtil
+		//				.getEditingDomain(object);
+		//		if (editingDomain != null) {
+		//			return ((AdapterFactoryEditingDomain) editingDomain)
+		//					.getAdapterFactory();
+		//		}
+		//		return null;
 	}
 
 }

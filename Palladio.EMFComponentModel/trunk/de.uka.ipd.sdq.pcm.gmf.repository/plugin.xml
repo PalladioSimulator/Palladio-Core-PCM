@@ -655,6 +655,32 @@ Copyright 2007, IPD, SDQ, University of Karlsruhe
            properties="isDomainModelElement"
            class="de.uka.ipd.sdq.pcm.gmf.repository.part.PalladioComponentModelDomainModelElementTester">
        </propertyTester>
+   </extension><extension point="org.eclipse.ui.contexts">
+      <?gmfgen generated="true"?>
+      <context
+         description="%context.description"
+         id="de.uka.ipd.sdq.pcm.gmf.repository.ui.diagramContext"
+         name="%context.name"
+         parentId="org.eclipse.gmf.runtime.diagram.ui.diagramContext">
+      </context>
    </extension>
+<extension point="org.eclipse.ui.commands">
+      <?gmfgen generated="true"?>
+      <command
+         categoryId="org.eclipse.ui.category.edit"
+         defaultHandler="de.uka.ipd.sdq.pcm.gmf.repository.part.PalladioComponentModelDiagramUpdateCommand"
+         description="%update.diagram.description"
+         id="de.uka.ipd.sdq.pcm.gmf.repository.updateDiagram"
+         name="%update.diagram.name"/>
+   </extension>
+<extension point="org.eclipse.ui.bindings">
+      <?gmfgen generated="true"?>
+      <key 
+         commandId="de.uka.ipd.sdq.pcm.gmf.repository.updateDiagram"
+         contextId="de.uka.ipd.sdq.pcm.gmf.repository.ui.diagramContext"
+         schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+         sequence="F5"/>
+   </extension>
+
 
 </plugin>

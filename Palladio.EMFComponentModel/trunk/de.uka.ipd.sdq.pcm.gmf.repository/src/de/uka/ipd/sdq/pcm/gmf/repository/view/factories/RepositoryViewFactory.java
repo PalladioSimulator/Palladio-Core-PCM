@@ -20,6 +20,15 @@ public class RepositoryViewFactory extends DiagramViewFactory {
 	/**
 	 * @generated
 	 */
+	protected List createStyles(View view) {
+		List styles = new ArrayList();
+		styles.add(NotationFactory.eINSTANCE.createDiagramStyle());
+		return styles;
+	}
+
+	/**
+	 * @generated
+	 */
 	protected MeasurementUnit getMeasurementUnit() {
 		return MeasurementUnit.PIXEL_LITERAL;
 	}

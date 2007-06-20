@@ -258,8 +258,18 @@ public class ResourceDemandingSEFFCanonicalEditPolicy extends
 	 * @generated
 	 */
 	private Collection collectAllLinks(View view, Map domain2NotationMap) {
+		if (!ResourceDemandingSEFFEditPart.MODEL_ID
+				.equals(PalladioComponentModelVisualIDRegistry.getModelID(view))) {
+			return Collections.EMPTY_LIST;
+		}
 		Collection result = new LinkedList();
 		switch (PalladioComponentModelVisualIDRegistry.getVisualID(view)) {
+		case ResourceDemandingSEFFEditPart.VISUAL_ID: {
+			domain2NotationMap.put(view.getElement(), view);
+			result.addAll(PalladioComponentModelDiagramUpdater
+					.getResourceDemandingSEFF_1000ContainedLinks(view));
+			break;
+		}
 		case StartActionEditPart.VISUAL_ID: {
 			domain2NotationMap.put(view.getElement(), view);
 			result.addAll(PalladioComponentModelDiagramUpdater

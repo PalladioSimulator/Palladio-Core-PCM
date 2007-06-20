@@ -73,7 +73,8 @@ public class PalladioComponentModelVisualIDRegistry {
 				return -1;
 			}
 		}
-		return getVisualID(view.getType());
+		return de.uka.ipd.sdq.pcm.gmf.repository.part.PalladioComponentModelVisualIDRegistry
+				.getVisualID(view.getType());
 	}
 
 	/**
@@ -123,45 +124,72 @@ public class PalladioComponentModelVisualIDRegistry {
 		if (domainElement == null) {
 			return -1;
 		}
-		EClass domainElementMetaclass = domainElement.eClass();
-		return getDiagramVisualID(domainElement, domainElementMetaclass);
-	}
-
-	/**
-	 * @generated
-	 */
-	private static int getDiagramVisualID(EObject domainElement,
-			EClass domainElementMetaclass) {
 		if (RepositoryPackage.eINSTANCE.getRepository().isSuperTypeOf(
-				domainElementMetaclass)
+				domainElement.eClass())
 				&& isDiagram((Repository) domainElement)) {
 			return RepositoryEditPart.VISUAL_ID;
 		}
-		return getUnrecognizedDiagramID(domainElement);
+		return -1;
 	}
 
 	/**
 	 * @generated
 	 */
 	public static int getNodeVisualID(View containerView, EObject domainElement) {
-		if (domainElement == null) {
+		if (domainElement == null
+				|| !RepositoryEditPart.MODEL_ID
+						.equals(de.uka.ipd.sdq.pcm.gmf.repository.part.PalladioComponentModelVisualIDRegistry
+								.getModelID(containerView))) {
 			return -1;
 		}
-		EClass domainElementMetaclass = domainElement.eClass();
-		return getNodeVisualID(containerView, domainElement,
-				domainElementMetaclass, null);
+		switch (de.uka.ipd.sdq.pcm.gmf.repository.part.PalladioComponentModelVisualIDRegistry
+				.getVisualID(containerView)) {
+		case InterfaceSignatureListEditPart.VISUAL_ID:
+			if (RepositoryPackage.eINSTANCE.getSignature().isSuperTypeOf(
+					domainElement.eClass())) {
+				return SignatureEditPart.VISUAL_ID;
+			}
+			break;
+		case BasicComponentSEFFCompartmentEditPart.VISUAL_ID:
+			if (SeffPackage.eINSTANCE.getResourceDemandingSEFF().isSuperTypeOf(
+					domainElement.eClass())) {
+				return ResourceDemandingSEFFEditPart.VISUAL_ID;
+			}
+			break;
+		case RepositoryEditPart.VISUAL_ID:
+			if (RepositoryPackage.eINSTANCE.getInterface().isSuperTypeOf(
+					domainElement.eClass())) {
+				return InterfaceEditPart.VISUAL_ID;
+			}
+			if (RepositoryPackage.eINSTANCE.getBasicComponent().isSuperTypeOf(
+					domainElement.eClass())) {
+				return BasicComponentEditPart.VISUAL_ID;
+			}
+			if (RepositoryPackage.eINSTANCE.getCompleteComponentType()
+					.isSuperTypeOf(domainElement.eClass())) {
+				return CompleteComponentTypeEditPart.VISUAL_ID;
+			}
+			if (RepositoryPackage.eINSTANCE.getProvidesComponentType()
+					.isSuperTypeOf(domainElement.eClass())) {
+				return ProvidesComponentTypeEditPart.VISUAL_ID;
+			}
+			if (RepositoryPackage.eINSTANCE.getCompositeComponent()
+					.isSuperTypeOf(domainElement.eClass())) {
+				return CompositeComponentEditPart.VISUAL_ID;
+			}
+			break;
+		}
+		return -1;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static int getNodeVisualID(View containerView,
-			EObject domainElement, EClass domainElementMetaclass,
-			String semanticHint) {
+	public static boolean canCreateNode(View containerView, int nodeVisualID) {
 		String containerModelID = de.uka.ipd.sdq.pcm.gmf.repository.part.PalladioComponentModelVisualIDRegistry
 				.getModelID(containerView);
 		if (!RepositoryEditPart.MODEL_ID.equals(containerModelID)) {
-			return -1;
+			return false;
 		}
 		int containerVisualID;
 		if (RepositoryEditPart.MODEL_ID.equals(containerModelID)) {
@@ -169,120 +197,87 @@ public class PalladioComponentModelVisualIDRegistry {
 					.getVisualID(containerView);
 		} else {
 			if (containerView instanceof Diagram) {
-				containerVisualID = 1000;
+				containerVisualID = RepositoryEditPart.VISUAL_ID;
 			} else {
-				return -1;
+				return false;
 			}
 		}
-		int nodeVisualID = semanticHint != null ? de.uka.ipd.sdq.pcm.gmf.repository.part.PalladioComponentModelVisualIDRegistry
-				.getVisualID(semanticHint)
-				: -1;
 		switch (containerVisualID) {
 		case InterfaceEditPart.VISUAL_ID:
 			if (InterfaceEntityNameEditPart.VISUAL_ID == nodeVisualID) {
-				return InterfaceEntityNameEditPart.VISUAL_ID;
+				return true;
 			}
 			if (InterfaceSignatureListEditPart.VISUAL_ID == nodeVisualID) {
-				return InterfaceSignatureListEditPart.VISUAL_ID;
+				return true;
 			}
-			return getUnrecognizedInterface_2101ChildNodeID(domainElement,
-					semanticHint);
+			break;
 		case BasicComponentEditPart.VISUAL_ID:
 			if (BasicComponentEntityNameEditPart.VISUAL_ID == nodeVisualID) {
-				return BasicComponentEntityNameEditPart.VISUAL_ID;
+				return true;
 			}
 			if (BasicComponentSEFFCompartmentEditPart.VISUAL_ID == nodeVisualID) {
-				return BasicComponentSEFFCompartmentEditPart.VISUAL_ID;
+				return true;
 			}
-			return getUnrecognizedBasicComponent_2102ChildNodeID(domainElement,
-					semanticHint);
+			break;
 		case CompleteComponentTypeEditPart.VISUAL_ID:
 			if (CompleteComponentTypeEntityNameEditPart.VISUAL_ID == nodeVisualID) {
-				return CompleteComponentTypeEntityNameEditPart.VISUAL_ID;
+				return true;
 			}
-			return getUnrecognizedCompleteComponentType_2103ChildNodeID(
-					domainElement, semanticHint);
+			break;
 		case ProvidesComponentTypeEditPart.VISUAL_ID:
 			if (ProvidesComponentTypeEntityNameEditPart.VISUAL_ID == nodeVisualID) {
-				return ProvidesComponentTypeEntityNameEditPart.VISUAL_ID;
+				return true;
 			}
-			return getUnrecognizedProvidesComponentType_2104ChildNodeID(
-					domainElement, semanticHint);
-		case CompositeComponentEditPart.VISUAL_ID:
-			return getUnrecognizedCompositeComponent_2105ChildNodeID(
-					domainElement, semanticHint);
-		case SignatureEditPart.VISUAL_ID:
-			return getUnrecognizedSignature_3101ChildNodeID(domainElement,
-					semanticHint);
-		case ResourceDemandingSEFFEditPart.VISUAL_ID:
-			return getUnrecognizedResourceDemandingSEFF_3102ChildNodeID(
-					domainElement, semanticHint);
+			break;
 		case InterfaceSignatureListEditPart.VISUAL_ID:
-			if ((semanticHint == null || SignatureEditPart.VISUAL_ID == nodeVisualID)
-					&& RepositoryPackage.eINSTANCE.getSignature()
-							.isSuperTypeOf(domainElementMetaclass)) {
-				return SignatureEditPart.VISUAL_ID;
+			if (SignatureEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
 			}
-			return getUnrecognizedInterfaceSignatureList_7101ChildNodeID(
-					domainElement, semanticHint);
+			break;
 		case BasicComponentSEFFCompartmentEditPart.VISUAL_ID:
-			if ((semanticHint == null || ResourceDemandingSEFFEditPart.VISUAL_ID == nodeVisualID)
-					&& SeffPackage.eINSTANCE.getResourceDemandingSEFF()
-							.isSuperTypeOf(domainElementMetaclass)) {
-				return ResourceDemandingSEFFEditPart.VISUAL_ID;
+			if (ResourceDemandingSEFFEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
 			}
-			return getUnrecognizedBasicComponentSEFFCompartment_7102ChildNodeID(
-					domainElement, semanticHint);
+			break;
 		case RepositoryEditPart.VISUAL_ID:
-			if ((semanticHint == null || InterfaceEditPart.VISUAL_ID == nodeVisualID)
-					&& RepositoryPackage.eINSTANCE.getInterface()
-							.isSuperTypeOf(domainElementMetaclass)) {
-				return InterfaceEditPart.VISUAL_ID;
+			if (InterfaceEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
 			}
-			if ((semanticHint == null || BasicComponentEditPart.VISUAL_ID == nodeVisualID)
-					&& RepositoryPackage.eINSTANCE.getBasicComponent()
-							.isSuperTypeOf(domainElementMetaclass)) {
-				return BasicComponentEditPart.VISUAL_ID;
+			if (BasicComponentEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
 			}
-			if ((semanticHint == null || CompleteComponentTypeEditPart.VISUAL_ID == nodeVisualID)
-					&& RepositoryPackage.eINSTANCE.getCompleteComponentType()
-							.isSuperTypeOf(domainElementMetaclass)) {
-				return CompleteComponentTypeEditPart.VISUAL_ID;
+			if (CompleteComponentTypeEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
 			}
-			if ((semanticHint == null || ProvidesComponentTypeEditPart.VISUAL_ID == nodeVisualID)
-					&& RepositoryPackage.eINSTANCE.getProvidesComponentType()
-							.isSuperTypeOf(domainElementMetaclass)) {
-				return ProvidesComponentTypeEditPart.VISUAL_ID;
+			if (ProvidesComponentTypeEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
 			}
-			if ((semanticHint == null || CompositeComponentEditPart.VISUAL_ID == nodeVisualID)
-					&& RepositoryPackage.eINSTANCE.getCompositeComponent()
-							.isSuperTypeOf(domainElementMetaclass)) {
-				return CompositeComponentEditPart.VISUAL_ID;
+			if (CompositeComponentEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
 			}
-			return getUnrecognizedRepository_1000ChildNodeID(domainElement,
-					semanticHint);
+			break;
 		case ProvidedRoleEditPart.VISUAL_ID:
 			if (ProvidesStereotypeLabelEditPart.VISUAL_ID == nodeVisualID) {
-				return ProvidesStereotypeLabelEditPart.VISUAL_ID;
+				return true;
 			}
-			return getUnrecognizedProvidedRole_4101LinkLabelID(semanticHint);
+			break;
 		case RequiredRoleEditPart.VISUAL_ID:
 			if (RequiresStereotypeLabelEditPart.VISUAL_ID == nodeVisualID) {
-				return RequiresStereotypeLabelEditPart.VISUAL_ID;
+				return true;
 			}
-			return getUnrecognizedRequiredRole_4102LinkLabelID(semanticHint);
+			break;
 		case ImplementationComponentTypeParentCompleteComponentTypesEditPart.VISUAL_ID:
 			if (CompleteParentStereotypeLabelEditPart.VISUAL_ID == nodeVisualID) {
-				return CompleteParentStereotypeLabelEditPart.VISUAL_ID;
+				return true;
 			}
-			return getUnrecognizedImplementationComponentTypeParentCompleteComponentTypes_4103LinkLabelID(semanticHint);
+			break;
 		case CompleteComponentTypeParentProvidesComponentTypesEditPart.VISUAL_ID:
 			if (ProvidesParentStereotypeLabelEditPart.VISUAL_ID == nodeVisualID) {
-				return ProvidesParentStereotypeLabelEditPart.VISUAL_ID;
+				return true;
 			}
-			return getUnrecognizedCompleteComponentTypeParentProvidesComponentTypes_4104LinkLabelID(semanticHint);
+			break;
 		}
-		return getUnrecognizedNodeID(containerView, domainElement);
+		return false;
 	}
 
 	/**
@@ -292,24 +287,15 @@ public class PalladioComponentModelVisualIDRegistry {
 		if (domainElement == null) {
 			return -1;
 		}
-		EClass domainElementMetaclass = domainElement.eClass();
-		return getLinkWithClassVisualID(domainElement, domainElementMetaclass);
-	}
-
-	/**
-	 * @generated
-	 */
-	public static int getLinkWithClassVisualID(EObject domainElement,
-			EClass domainElementMetaclass) {
 		if (RepositoryPackage.eINSTANCE.getProvidedRole().isSuperTypeOf(
-				domainElementMetaclass)) {
+				domainElement.eClass())) {
 			return ProvidedRoleEditPart.VISUAL_ID;
 		}
 		if (RepositoryPackage.eINSTANCE.getRequiredRole().isSuperTypeOf(
-				domainElementMetaclass)) {
+				domainElement.eClass())) {
 			return RequiredRoleEditPart.VISUAL_ID;
 		}
-		return getUnrecognizedLinkWithClassID(domainElement);
+		return -1;
 	}
 
 	/**
@@ -320,190 +306,5 @@ public class PalladioComponentModelVisualIDRegistry {
 	 */
 	private static boolean isDiagram(Repository element) {
 		return true;
-	}
-
-	/**
-	 * User can change implementation of this method to handle some specific
-	 * situations not covered by default logic.
-	 *
-	 * @generated
-	 */
-	private static int getUnrecognizedDiagramID(EObject domainElement) {
-		return -1;
-	}
-
-	/**
-	 * User can change implementation of this method to handle some specific
-	 * situations not covered by default logic.
-	 * 
-	 * @generated
-	 */
-	private static int getUnrecognizedNodeID(View containerView,
-			EObject domainElement) {
-		return -1;
-	}
-
-	/**
-	 * User can change implementation of this method to handle some specific
-	 * situations not covered by default logic.
-	 *
-	 * @generated
-	 */
-	private static int getUnrecognizedInterface_2101ChildNodeID(
-			EObject domainElement, String semanticHint) {
-		return -1;
-	}
-
-	/**
-	 * User can change implementation of this method to handle some specific
-	 * situations not covered by default logic.
-	 *
-	 * @generated
-	 */
-	private static int getUnrecognizedBasicComponent_2102ChildNodeID(
-			EObject domainElement, String semanticHint) {
-		return -1;
-	}
-
-	/**
-	 * User can change implementation of this method to handle some specific
-	 * situations not covered by default logic.
-	 *
-	 * @generated
-	 */
-	private static int getUnrecognizedCompleteComponentType_2103ChildNodeID(
-			EObject domainElement, String semanticHint) {
-		return -1;
-	}
-
-	/**
-	 * User can change implementation of this method to handle some specific
-	 * situations not covered by default logic.
-	 *
-	 * @generated
-	 */
-	private static int getUnrecognizedProvidesComponentType_2104ChildNodeID(
-			EObject domainElement, String semanticHint) {
-		return -1;
-	}
-
-	/**
-	 * User can change implementation of this method to handle some specific
-	 * situations not covered by default logic.
-	 *
-	 * @generated
-	 */
-	private static int getUnrecognizedCompositeComponent_2105ChildNodeID(
-			EObject domainElement, String semanticHint) {
-		return -1;
-	}
-
-	/**
-	 * User can change implementation of this method to handle some specific
-	 * situations not covered by default logic.
-	 *
-	 * @generated
-	 */
-	private static int getUnrecognizedSignature_3101ChildNodeID(
-			EObject domainElement, String semanticHint) {
-		return -1;
-	}
-
-	/**
-	 * User can change implementation of this method to handle some specific
-	 * situations not covered by default logic.
-	 *
-	 * @generated
-	 */
-	private static int getUnrecognizedResourceDemandingSEFF_3102ChildNodeID(
-			EObject domainElement, String semanticHint) {
-		return -1;
-	}
-
-	/**
-	 * User can change implementation of this method to handle some specific
-	 * situations not covered by default logic.
-	 *
-	 * @generated
-	 */
-	private static int getUnrecognizedInterfaceSignatureList_7101ChildNodeID(
-			EObject domainElement, String semanticHint) {
-		return -1;
-	}
-
-	/**
-	 * User can change implementation of this method to handle some specific
-	 * situations not covered by default logic.
-	 *
-	 * @generated
-	 */
-	private static int getUnrecognizedBasicComponentSEFFCompartment_7102ChildNodeID(
-			EObject domainElement, String semanticHint) {
-		return -1;
-	}
-
-	/**
-	 * User can change implementation of this method to handle some specific
-	 * situations not covered by default logic.
-	 *
-	 * @generated
-	 */
-	private static int getUnrecognizedRepository_1000ChildNodeID(
-			EObject domainElement, String semanticHint) {
-		return -1;
-	}
-
-	/**
-	 * User can change implementation of this method to handle some specific
-	 * situations not covered by default logic.
-	 *
-	 * @generated
-	 */
-	private static int getUnrecognizedProvidedRole_4101LinkLabelID(
-			String semanticHint) {
-		return -1;
-	}
-
-	/**
-	 * User can change implementation of this method to handle some specific
-	 * situations not covered by default logic.
-	 *
-	 * @generated
-	 */
-	private static int getUnrecognizedRequiredRole_4102LinkLabelID(
-			String semanticHint) {
-		return -1;
-	}
-
-	/**
-	 * User can change implementation of this method to handle some specific
-	 * situations not covered by default logic.
-	 *
-	 * @generated
-	 */
-	private static int getUnrecognizedImplementationComponentTypeParentCompleteComponentTypes_4103LinkLabelID(
-			String semanticHint) {
-		return -1;
-	}
-
-	/**
-	 * User can change implementation of this method to handle some specific
-	 * situations not covered by default logic.
-	 *
-	 * @generated
-	 */
-	private static int getUnrecognizedCompleteComponentTypeParentProvidesComponentTypes_4104LinkLabelID(
-			String semanticHint) {
-		return -1;
-	}
-
-	/**
-	 * User can change implementation of this method to handle some specific
-	 * situations not covered by default logic.
-	 *
-	 * @generated
-	 */
-	private static int getUnrecognizedLinkWithClassID(EObject domainElement) {
-		return -1;
 	}
 }

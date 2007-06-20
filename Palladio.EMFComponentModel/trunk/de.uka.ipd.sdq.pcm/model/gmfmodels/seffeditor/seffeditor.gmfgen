@@ -74,6 +74,8 @@
             xsi:type="gmfgen:ParentAssignedViewmap"
             getterName="getFigureVariableUsageReferenceLabelFigure"
             figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel"/>
+        <modelFacet
+            xsi:type="gmfgen:DesignLabelModelFacet"/>
       </labels>
     </childNodes>
     <childNodes
@@ -168,6 +170,8 @@
             xsi:type="gmfgen:ParentAssignedViewmap"
             getterName="getFigureVariableUsageReferenceLabelFigure"
             figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel"/>
+        <modelFacet
+            xsi:type="gmfgen:DesignLabelModelFacet"/>
       </labels>
     </childNodes>
     <childNodes
@@ -459,9 +463,12 @@
           xsi:type="gmfgen:MetamodelType"
           editHelperClassName="ParametricResourceDemandEditHelper"/>
       <viewmap
-          xsi:type="gmfgen:ParentAssignedViewmap"
-          getterName="getFigureParametricResourceDemandDemandFigure"
-          figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel"/>
+          xsi:type="gmfgen:InnerClassViewmap"
+          className="ParametricResourceDemandFigure"
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class ParametricResourceDemandFigure extends org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel {&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public ParametricResourceDemandFigure() {&#xA;&#x9;&#x9;&#x9;&#x9;this.setText(&quot;&lt;...>&quot;);&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;">
+        <requiredPluginIDs>org.eclipse.draw2d</requiredPluginIDs>
+        <requiredPluginIDs>org.eclipse.gmf.runtime.draw2d.ui</requiredPluginIDs>
+      </viewmap>
       <behaviour
           xsi:type="gmfgen:CustomBehaviour"
           key="EditPolicyRoles.OPEN_ROLE"
@@ -1037,6 +1044,8 @@
             xsi:type="gmfgen:ParentAssignedViewmap"
             getterName="getFigureVariableUsageReferenceLabelFigure"
             figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel"/>
+        <modelFacet
+            xsi:type="gmfgen:DesignLabelModelFacet"/>
       </labels>
     </childNodes>
     <childNodes

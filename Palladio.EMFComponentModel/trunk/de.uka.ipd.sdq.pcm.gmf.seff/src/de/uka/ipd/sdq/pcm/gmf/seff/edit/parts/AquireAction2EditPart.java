@@ -62,6 +62,8 @@ public class AquireAction2EditPart extends ShapeNodeEditPart {
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
 				new AquireAction2ItemSemanticEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
+		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
+		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
 	}
 
 	/**
@@ -220,13 +222,12 @@ public class AquireAction2EditPart extends ShapeNodeEditPart {
 		/**
 		 * @generated
 		 */
+		private WrapLabel fFigureAquireNameLabelFigure;
+
+		/**
+		 * @generated
+		 */
 		public AquireFigure() {
-			this.setFill(true);
-			this.setFillXOR(false);
-			this.setOutline(true);
-			this.setOutlineXOR(false);
-			this.setLineWidth(1);
-			this.setLineStyle(Graphics.LINE_SOLID);
 			createContents();
 		}
 
@@ -244,7 +245,7 @@ public class AquireAction2EditPart extends ShapeNodeEditPart {
 			aquireNameLabelFigure0.setText("<...>");
 
 			this.add(aquireNameLabelFigure0);
-			setFigureAquireNameLabelFigure(aquireNameLabelFigure0);
+			fFigureAquireNameLabelFigure = aquireNameLabelFigure0;
 
 			WrapLabel aquireResourceLabelFigure0 = new WrapLabel();
 			aquireResourceLabelFigure0.setText("");
@@ -256,20 +257,8 @@ public class AquireAction2EditPart extends ShapeNodeEditPart {
 		/**
 		 * @generated
 		 */
-		private WrapLabel fAquireNameLabelFigure;
-
-		/**
-		 * @generated
-		 */
 		public WrapLabel getFigureAquireNameLabelFigure() {
-			return fAquireNameLabelFigure;
-		}
-
-		/**
-		 * @generated
-		 */
-		private void setFigureAquireNameLabelFigure(WrapLabel fig) {
-			fAquireNameLabelFigure = fig;
+			return fFigureAquireNameLabelFigure;
 		}
 
 		/**

@@ -86,6 +86,11 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String PalladioComponentModelDocumentProvider_SaveAsOperation;
+
+	/**
+	 * @generated
+	 */
 	public static String PalladioComponentModelInitDiagramFileAction_InitDiagramFileResourceErrorDialogTitle;
 
 	/**
@@ -157,6 +162,36 @@ public class Messages extends NLS {
 	 * @generated
 	 */
 	public static String PalladioComponentModelNewDiagramFileWizard_IncorrectRootError;
+
+	/**
+	 * @generated
+	 */
+	public static String SeffDiagramEditor_SavingDeletedFile;
+
+	/**
+	 * @generated
+	 */
+	public static String SeffDiagramEditor_SaveAsErrorTitle;
+
+	/**
+	 * @generated
+	 */
+	public static String SeffDiagramEditor_SaveAsErrorMessage;
+
+	/**
+	 * @generated
+	 */
+	public static String SeffDiagramEditor_SaveErrorTitle;
+
+	/**
+	 * @generated
+	 */
+	public static String SeffDiagramEditor_SaveErrorMessage;
+
+	/**
+	 * @generated
+	 */
+	public static String PalladioComponentModelElementChooserDialog_SelectModelElementTitle;
 
 	/**
 	 * @generated
@@ -692,6 +727,11 @@ public class Messages extends NLS {
 	 * @generated
 	 */
 	public static String NavigatorGroupName_AbstractActionSuccessor_AbstractAction_4001_source;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorActionProvider_OpenDiagramActionName;
 
 	/**
 	 * @generated

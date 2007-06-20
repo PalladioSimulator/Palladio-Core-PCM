@@ -20,7 +20,7 @@ public class PalladioComponentModelNavigatorSorter extends ViewerSorter {
 	/**
 	 * @generated
 	 */
-	private static final int SHORTCUTS_CATEGORY = 7102;
+	private static final int SHORTCUTS_CATEGORY = 7103;
 
 	/**
 	 * @generated

@@ -56,9 +56,8 @@ public abstract class AbstractParser implements IParser {
 	 * @generated
 	 */
 	public AbstractParser(EAttribute[] features) {
-		if (features == null || features.length == 0
-				|| Arrays.asList(features).contains(null)) {
-			throw new IllegalArgumentException(Arrays.toString(features));
+		if (features == null || Arrays.asList(features).contains(null)) {
+			throw new IllegalArgumentException();
 		}
 		this.features = features;
 	}

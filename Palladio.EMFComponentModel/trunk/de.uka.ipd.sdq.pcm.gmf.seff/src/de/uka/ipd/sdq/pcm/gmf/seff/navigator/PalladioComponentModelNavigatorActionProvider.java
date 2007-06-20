@@ -5,6 +5,7 @@ package de.uka.ipd.sdq.pcm.gmf.seff.navigator;
 
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingSEFFEditPart;
 
+import de.uka.ipd.sdq.pcm.gmf.seff.part.Messages;
 import de.uka.ipd.sdq.pcm.gmf.seff.part.PalladioComponentModelSeffDiagramEditorPlugin;
 import de.uka.ipd.sdq.pcm.gmf.seff.part.PalladioComponentModelVisualIDRegistry;
 import de.uka.ipd.sdq.pcm.gmf.seff.part.SeffDiagramEditor;
@@ -15,10 +16,12 @@ import org.eclipse.core.runtime.IAdaptable;
 
 import org.eclipse.emf.common.ui.URIEditorInput;
 
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 
 import org.eclipse.emf.ecore.resource.Resource;
 
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.workspace.util.WorkspaceSynchronizer;
 
 import org.eclipse.gmf.runtime.notation.Diagram;
@@ -118,7 +121,7 @@ public class PalladioComponentModelNavigatorActionProvider extends
 		 * @generated
 		 */
 		public OpenDiagramAction(ICommonViewerWorkbenchSite viewerSite) {
-			super("Open Diagram");
+			super(Messages.NavigatorActionProvider_OpenDiagramActionName);
 			myViewerSite = viewerSite;
 		}
 
@@ -162,7 +165,7 @@ public class PalladioComponentModelNavigatorActionProvider extends
 				page.openEditor(editorInput, SeffDiagramEditor.ID);
 			} catch (PartInitException e) {
 				PalladioComponentModelSeffDiagramEditorPlugin.getInstance()
-						.logError("Exception while openning diagram", e);
+						.logError("Exception while openning diagram", e); //$NON-NLS-1$
 			}
 		}
 
@@ -170,20 +173,22 @@ public class PalladioComponentModelNavigatorActionProvider extends
 		 * @generated
 		 */
 		private IEditorInput getEditorInput() {
-			Resource diagramResource = myDiagram.eResource();
-			for (Iterator it = diagramResource.getContents().iterator(); it
+			for (Iterator it = myDiagram.eResource().getContents().iterator(); it
 					.hasNext();) {
 				EObject nextEObject = (EObject) it.next();
 				if (nextEObject == myDiagram) {
 					return new FileEditorInput(WorkspaceSynchronizer
-							.getFile(diagramResource));
+							.getFile(myDiagram.eResource()));
 				}
 				if (nextEObject instanceof Diagram) {
 					break;
 				}
 			}
-			return new URIEditorInput(diagramResource.getURI().appendFragment(
-					diagramResource.getURIFragment(myDiagram)));
+			URI uri = EcoreUtil.getURI(myDiagram);
+			String editorName = uri.lastSegment()
+					+ "#" + myDiagram.eResource().getContents().indexOf(myDiagram); //$NON-NLS-1$
+			IEditorInput editorInput = new URIEditorInput(uri, editorName);
+			return editorInput;
 		}
 
 	}
