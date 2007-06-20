@@ -64,4 +64,8 @@ public class DB4OExperimentDAO implements IExperimentDAO {
 		db.commit();
 	}
 
+	public void removeExperiment(Experiment experiment) {
+		// TODO implement deletion of experiment
+	}
+
 }

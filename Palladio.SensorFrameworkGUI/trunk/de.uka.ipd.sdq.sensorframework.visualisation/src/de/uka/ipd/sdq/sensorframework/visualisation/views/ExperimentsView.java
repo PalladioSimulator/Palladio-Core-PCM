@@ -20,6 +20,8 @@ import org.eclipse.ui.part.DrillDownAdapter;
 import org.eclipse.ui.part.EditorInputTransfer;
 import org.eclipse.ui.part.ViewPart;
 
+import de.uka.ipd.sdq.sensorfactory.SensorFrameworkDataset;
+import de.uka.ipd.sdq.sensorfactory.entities.dao.IDAOFactory;
 import de.uka.ipd.sdq.sensorframework.visualisation.SimuPlugin;
 
 /**
@@ -34,6 +36,7 @@ public class ExperimentsView extends ViewPart {
 	private TreeViewer viewer;
 
 	private DrillDownAdapter drillDownAdapter;
+	private ExperimentsAdapter experimentsAdapter;
 
 	private Action reloadView;
 	private Action collapseAll;
@@ -56,6 +59,7 @@ public class ExperimentsView extends ViewPart {
 
 		viewer = new TreeViewer(parent, SWT.MULTI | SWT.H_SCROLL | SWT.V_SCROLL);
 		drillDownAdapter = new DrillDownAdapter(viewer);
+		experimentsAdapter = new ExperimentsAdapter(viewer);
 		viewer.setContentProvider(new TreeContentProvider());
 		viewer.setLabelProvider(new TreeLabelProvider());
 		viewer.setSorter(new NameSorter());
@@ -101,6 +105,8 @@ public class ExperimentsView extends ViewPart {
 		manager.add(collapseAll);
 		manager.add(new Separator());
 		drillDownAdapter.addNavigationActions(manager);
+		manager.add(new Separator());
+		experimentsAdapter.addNavigationActions(manager);
 		// Other plug-ins can contribute there actions here
 		manager.add(new Separator(IWorkbenchActionConstants.MB_ADDITIONS));
 	}
@@ -111,6 +117,8 @@ public class ExperimentsView extends ViewPart {
 		manager.add(collapseAll);
 		manager.add(new Separator());
 		drillDownAdapter.addNavigationActions(manager);
+		manager.add(new Separator());
+		experimentsAdapter.addNavigationActions(manager);
 	}
 
 	private void makeActions() {
@@ -144,5 +152,6 @@ public class ExperimentsView extends ViewPart {
 //		MessageDialog.openInformation(viewer.getControl().getShell(),
 //				"Experiments View", message);
 //	}
-
+	
+	
 }
