@@ -141,10 +141,10 @@
         <iterations_LoopAction specification="numberOfStores.VALUE"/>
       </steps_Behaviour>
       <steps_Behaviour xsi:type="pcm.seff:InternalAction" id="_EteToNL1EduQ7qbNANXHPw" entityName="time out realisation" predecessor_AbstractAction="_trQxsNLzEduQ7qbNANXHPw" successor_AbstractAction="_OpTDkNL1EduQ7qbNANXHPw"/>
-      <steps_Behaviour xsi:type="pcm.seff:InternalAction" id="_OpTDkNL1EduQ7qbNANXHPw" entityName="getProductIds" predecessor_AbstractAction="_EteToNL1EduQ7qbNANXHPw">
+      <steps_Behaviour xsi:type="pcm.seff:InternalAction" id="_OpTDkNL1EduQ7qbNANXHPw" entityName="getProductIds" predecessor_AbstractAction="_EteToNL1EduQ7qbNANXHPw" successor_AbstractAction="_7puwUNL2EduQ7qbNANXHPw">
         <resourceDemand_Action specification="1000" unit="ms"/>
       </steps_Behaviour>
-      <steps_Behaviour xsi:type="pcm.seff:BranchAction" id="_7puwUNL2EduQ7qbNANXHPw" entityName="requiredProductAmount.size() > 0" successor_AbstractAction="_RPZpgNL9EdujoZKiiOMQBA">
+      <steps_Behaviour xsi:type="pcm.seff:BranchAction" id="_7puwUNL2EduQ7qbNANXHPw" entityName="requiredProductAmount.size() > 0" predecessor_AbstractAction="_OpTDkNL1EduQ7qbNANXHPw" successor_AbstractAction="_RPZpgNL9EdujoZKiiOMQBA">
         <branches_Branch xsi:type="pcm.seff:GuardedBranchTransition" id="_e5nAEd7MEduAmOtZLewIEg">
           <branchBehaviour_BranchTransition>
             <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_5bVUMNL4EdujoZKiiOMQBA" successor_AbstractAction="_5us8INL4EdujoZKiiOMQBA"/>
@@ -172,7 +172,7 @@
                           <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_9g6XkNL6EdujoZKiiOMQBA" successor_AbstractAction="_97I1cNL6EdujoZKiiOMQBA"/>
                           <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_97I1cNL6EdujoZKiiOMQBA" predecessor_AbstractAction="_9g6XkNL6EdujoZKiiOMQBA"/>
                         </branchBehaviour_BranchTransition>
-                        <branchCondition_BranchTransition/>
+                        <branchCondition_BranchTransition specification="productAmounts.NUMBER_OF_ELEMENTS &lt;= 0"/>
                       </branches_Branch>
                       <branches_Branch xsi:type="pcm.seff:GuardedBranchTransition" id="_SGvfgR_QEdy87ZY8YXDpkA">
                         <branchBehaviour_BranchTransition>
@@ -181,7 +181,7 @@
                           <steps_Behaviour xsi:type="pcm.seff:ExternalCallAction" id="_EnQIINL7EdujoZKiiOMQBA" entityName="queryProductsById" predecessor_AbstractAction="_Bf3gcNL7EdujoZKiiOMQBA" successor_AbstractAction="_KdHvUNL7EdujoZKiiOMQBA" calledService_ExternalService="//@interfaces__Repository.3/@signatures__Interface.8"/>
                           <steps_Behaviour xsi:type="pcm.seff:InternalAction" id="_KdHvUNL7EdujoZKiiOMQBA" predecessor_AbstractAction="_EnQIINL7EdujoZKiiOMQBA" successor_AbstractAction="_CHNNQNL7EdujoZKiiOMQBA"/>
                         </branchBehaviour_BranchTransition>
-                        <branchCondition_BranchTransition/>
+                        <branchCondition_BranchTransition specification="productAmounts.NUMBER_OF_ELEMENTS > 0"/>
                       </branches_Branch>
                     </steps_Behaviour>
                     <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_c2KjMNL7EdujoZKiiOMQBA" predecessor_AbstractAction="_1EchkNL6EdujoZKiiOMQBA"/>

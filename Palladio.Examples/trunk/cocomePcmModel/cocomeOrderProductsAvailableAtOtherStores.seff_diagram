@@ -360,7 +360,7 @@
                               </children>
                               <styles xmi:type="notation:ShapeStyle" xmi:id="_B-msYR_SEdy87ZY8YXDpkA"/>
                               <element xmi:type="pcm.seff:GuardedBranchTransition" href="cocome.repository#_PjSEQR_QEdy87ZY8YXDpkA"/>
-                              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_B-msYh_SEdy87ZY8YXDpkA" x="3" y="5"/>
+                              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_B-msYh_SEdy87ZY8YXDpkA" x="3" y="5" width="108"/>
                             </children>
                             <children xmi:type="notation:Node" xmi:id="_B-msZB_SEdy87ZY8YXDpkA" type="3017">
                               <children xmi:type="notation:Node" xmi:id="_B-msZx_SEdy87ZY8YXDpkA" type="5018"/>
@@ -856,5 +856,13 @@
     <styles xmi:type="notation:FontStyle" xmi:id="_KlMuxh_SEdy87ZY8YXDpkA"/>
     <element xsi:nil="true"/>
     <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_KlMuxx_SEdy87ZY8YXDpkA" points="[0, 0, 0, 0]$[-1, -1, -1, -1]"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_HbPM0B_VEdybE9d5euW0Qw" type="4001" source="_Opc0kNL1EduQ7qbNANXHPw" target="_7puwUdL2EduQ7qbNANXHPw">
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="_HbPM0R_VEdybE9d5euW0Qw"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_HbPM0h_VEdybE9d5euW0Qw"/>
+    <element xsi:nil="true"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_HbPM0x_VEdybE9d5euW0Qw" points="[-19, 67, 19, -69]$[-38, 127, 0, -9]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_HbiHwB_VEdybE9d5euW0Qw" id="(0.39823008,0.06944445)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_HbiHwR_VEdybE9d5euW0Qw" id="(0.50970876,0.010123734)"/>
   </edges>
 </notation:Diagram>
