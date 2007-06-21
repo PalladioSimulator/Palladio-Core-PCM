@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <pcm.repository:Repository xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pcm.repository="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/1.0" xmlns:pcm.seff="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0" xmlns:stoex="http://sdq.ipd.uka.de/StochasticExpressions/1.0" id="_S4rTcNCXEduC9O_qbthgAg" entityName="cocome-Repository" repositoryDescription="see cocome.org">
-  <components__Repository xsi:type="pcm.repository:CompositeComponent" id="_LdjvSdCjEduC9O_qbthgAg" entityName="TradingSystem">
-    <childComponentContexts_ComposedStructure id="_ZO34ItClEduC9O_qbthgAg" entityName="TradingSystem.Inventory"/>
-  </components__Repository>
   <components__Repository xsi:type="pcm.repository:BasicComponent" id="_-3VggNCgEduC9O_qbthgAg" entityName="TradingSystem.Inventory.Data.Enterprise">
     <providedRoles_InterfaceProvidingEntity id="_d1Mf0NChEduC9O_qbthgAg" entityName="Enterprise.EnterpriseQueryIf" providedInterface__ProvidedRole="_Eldg8NChEduC9O_qbthgAg"/>
   </components__Repository>
@@ -110,8 +107,8 @@
     <requiredRoles_InterfaceRequiringEntity id="_GM-XsdCpEduC9O_qbthgAg" entityName="GUI.ReportingIf" requiredInterface__RequiredRole="_vebx9NCiEduC9O_qbthgAg"/>
     <childComponentContexts_ComposedStructure id="_8ei80tCjEduC9O_qbthgAg" entityName="TradingSystem.Inventory.GUI.Reporting" encapsulatedComponent_ChildComponentContext="_sGEvA9CiEduC9O_qbthgAg"/>
     <childComponentContexts_ComposedStructure id="__EPzwtCjEduC9O_qbthgAg" entityName="TradingSystem.Inventory.GUI.Store" encapsulatedComponent_ChildComponentContext="_zokQE9CiEduC9O_qbthgAg"/>
-    <requiredDelegationConnectors_ComposedStructure id="_iQJJtNC4EduW_YoCCnq0vw" entityName="ReportingIf" innerRequiredRole_RequiredDelegationConnector="_vsrnUdC4EduW_YoCCnq0vw" outerRequiredRole_RequiredDelegationConnector="_GM-XsdCpEduC9O_qbthgAg" childComponentContext_RequiredDelegationConnector="_8jQN8tC0EduW_YoCCnq0vw"/>
-    <requiredDelegationConnectors_ComposedStructure id="_ynPT9NC4EduW_YoCCnq0vw" entityName="StoreIf" innerRequiredRole_RequiredDelegationConnector="_1a8xsdC4EduW_YoCCnq0vw" outerRequiredRole_RequiredDelegationConnector="_Du39kdCpEduC9O_qbthgAg" childComponentContext_RequiredDelegationConnector="_8jQN8tC0EduW_YoCCnq0vw"/>
+    <requiredDelegationConnectors_ComposedStructure id="_iQJJtNC4EduW_YoCCnq0vw" entityName="ReportingIf" innerRequiredRole_RequiredDelegationConnector="_vsrnUdC4EduW_YoCCnq0vw" outerRequiredRole_RequiredDelegationConnector="_GM-XsdCpEduC9O_qbthgAg" childComponentContext_RequiredDelegationConnector="_8ei80tCjEduC9O_qbthgAg"/>
+    <requiredDelegationConnectors_ComposedStructure id="_ynPT9NC4EduW_YoCCnq0vw" entityName="StoreIf" innerRequiredRole_RequiredDelegationConnector="_1a8xsdC4EduW_YoCCnq0vw" outerRequiredRole_RequiredDelegationConnector="_Du39kdCpEduC9O_qbthgAg" childComponentContext_RequiredDelegationConnector="__EPzwtCjEduC9O_qbthgAg"/>
   </components__Repository>
   <components__Repository xsi:type="pcm.repository:BasicComponent" id="_XDTf09CiEduC9O_qbthgAg" entityName="TradingSystem.Inventory.Application.ProductDispatcher">
     <providedRoles_InterfaceProvidingEntity id="_gMw-sNCiEduC9O_qbthgAg" entityName="ProductDispatcher.ProductDispatcherIf" providedInterface__ProvidedRole="_dbS8pNCiEduC9O_qbthgAg"/>
