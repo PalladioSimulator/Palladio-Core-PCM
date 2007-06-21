@@ -71,6 +71,30 @@
       </steps_Behaviour>
       <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_MbflMB_WEdybE9d5euW0Qw" predecessor_AbstractAction="_STQW0N68EduAmOtZLewIEg"/>
     </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="pcm.seff:ResourceDemandingSEFF" id="_GqStsh_5Edy5k9ER1TBmjg" describedService__SEFF="//@interfaces__Repository.3/@signatures__Interface.1">
+      <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_IqlxgR_5Edy5k9ER1TBmjg" successor_AbstractAction="_JIsCwB_5Edy5k9ER1TBmjg"/>
+      <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_JIsCwB_5Edy5k9ER1TBmjg" predecessor_AbstractAction="_IqlxgR_5Edy5k9ER1TBmjg"/>
+    </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="pcm.seff:ResourceDemandingSEFF" id="_ZU7A0h_5Edy5k9ER1TBmjg" describedService__SEFF="//@interfaces__Repository.3/@signatures__Interface.2">
+      <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_jQmm0B_5Edy5k9ER1TBmjg" successor_AbstractAction="_jifBAB_5Edy5k9ER1TBmjg"/>
+      <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_jifBAB_5Edy5k9ER1TBmjg" predecessor_AbstractAction="_jQmm0B_5Edy5k9ER1TBmjg"/>
+    </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="pcm.seff:ResourceDemandingSEFF" id="_obZ3wh_5Edy5k9ER1TBmjg" describedService__SEFF="//@interfaces__Repository.3/@signatures__Interface.4">
+      <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_t0hRgB_5Edy5k9ER1TBmjg" successor_AbstractAction="_uOTDcB_5Edy5k9ER1TBmjg"/>
+      <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_uOTDcB_5Edy5k9ER1TBmjg" predecessor_AbstractAction="_t0hRgB_5Edy5k9ER1TBmjg"/>
+    </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="pcm.seff:ResourceDemandingSEFF" id="_x6oLQh_5Edy5k9ER1TBmjg" describedService__SEFF="//@interfaces__Repository.3/@signatures__Interface.5">
+      <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_11kW0B_5Edy5k9ER1TBmjg" successor_AbstractAction="_2AcKEB_5Edy5k9ER1TBmjg"/>
+      <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_2AcKEB_5Edy5k9ER1TBmjg" predecessor_AbstractAction="_11kW0B_5Edy5k9ER1TBmjg"/>
+    </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="pcm.seff:ResourceDemandingSEFF" id="_D4QOch_6Edy5k9ER1TBmjg" describedService__SEFF="//@interfaces__Repository.3/@signatures__Interface.8">
+      <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_HNo14B_6Edy5k9ER1TBmjg" successor_AbstractAction="_HV-5kB_6Edy5k9ER1TBmjg"/>
+      <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_HV-5kB_6Edy5k9ER1TBmjg" predecessor_AbstractAction="_HNo14B_6Edy5k9ER1TBmjg"/>
+    </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="pcm.seff:ResourceDemandingSEFF" id="_KX_5Eh_6Edy5k9ER1TBmjg" describedService__SEFF="//@interfaces__Repository.3/@signatures__Interface.9">
+      <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_ODvLAB_6Edy5k9ER1TBmjg" successor_AbstractAction="_OMFOsB_6Edy5k9ER1TBmjg"/>
+      <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_OMFOsB_6Edy5k9ER1TBmjg" predecessor_AbstractAction="_ODvLAB_6Edy5k9ER1TBmjg"/>
+    </serviceEffectSpecifications__BasicComponent>
   </components__Repository>
   <components__Repository xsi:type="pcm.repository:BasicComponent" id="_C5W7w9CyEduW_YoCCnq0vw" entityName="TradingSystem.Inventory.Data.Facade">
     <providedRoles_InterfaceProvidingEntity id="_JwDGwNCyEduW_YoCCnq0vw" entityName="Data.Facade.EnterpriseQueryIf" providedInterface__ProvidedRole="_Eldg8NChEduC9O_qbthgAg"/>
