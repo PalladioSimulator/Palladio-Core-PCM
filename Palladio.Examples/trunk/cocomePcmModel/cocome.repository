@@ -183,6 +183,7 @@
                     </steps_Behaviour>
                     <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_c2KjMNL7EdujoZKiiOMQBA" predecessor_AbstractAction="_1EchkNL6EdujoZKiiOMQBA"/>
                   </bodyBehaviour_Loop>
+                  <iterations_LoopAction specification="5"/>
                 </steps_Behaviour>
                 <steps_Behaviour xsi:type="pcm.seff:InternalAction" id="_pcULYNL7EdujoZKiiOMQBA" entityName="List.put" predecessor_AbstractAction="_XvDU4NL6EdujoZKiiOMQBA" successor_AbstractAction="_3oeaANL5EdujoZKiiOMQBA"/>
               </bodyBehaviour_Loop>
