@@ -33,34 +33,44 @@
       <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_aOgwANLxEduQ7qbNANXHPw" successor_AbstractAction="_diGnsNLxEduQ7qbNANXHPw"/>
       <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_aedQgNLxEduQ7qbNANXHPw" predecessor_AbstractAction="_diGnsNLxEduQ7qbNANXHPw"/>
       <steps_Behaviour xsi:type="pcm.seff:InternalAction" id="_diGnsNLxEduQ7qbNANXHPw" entityName="query using the entity manager" predecessor_AbstractAction="_aOgwANLxEduQ7qbNANXHPw" successor_AbstractAction="_aedQgNLxEduQ7qbNANXHPw">
-        <resourceDemand_Action specification="6" unit="ms"/>
+        <resourceDemand_Action specification="6" unit="ms">
+          <requiredResource_ParametricResourceDemand href="cocome.resourcetype#_Af748dO1EduL6bgulTgjzg"/>
+        </resourceDemand_Action>
       </steps_Behaviour>
     </serviceEffectSpecifications__BasicComponent>
     <serviceEffectSpecifications__BasicComponent xsi:type="pcm.seff:ResourceDemandingSEFF" id="queryStoreById" describedService__SEFF="//@interfaces__Repository.3/@signatures__Interface.0">
       <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_ywDMINLxEduQ7qbNANXHPw" successor_AbstractAction="_zJrNENLxEduQ7qbNANXHPw"/>
       <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_y7hcUNLxEduQ7qbNANXHPw" predecessor_AbstractAction="_zJrNENLxEduQ7qbNANXHPw"/>
       <steps_Behaviour xsi:type="pcm.seff:InternalAction" id="_zJrNENLxEduQ7qbNANXHPw" entityName="Query through EntityManager" predecessor_AbstractAction="_ywDMINLxEduQ7qbNANXHPw" successor_AbstractAction="_y7hcUNLxEduQ7qbNANXHPw">
-        <resourceDemand_Action specification="1" unit="ms"/>
+        <resourceDemand_Action specification="1" unit="ms">
+          <requiredResource_ParametricResourceDemand href="cocome.resourcetype#_Af748dO1EduL6bgulTgjzg"/>
+        </resourceDemand_Action>
       </steps_Behaviour>
     </serviceEffectSpecifications__BasicComponent>
     <serviceEffectSpecifications__BasicComponent xsi:type="pcm.seff:ResourceDemandingSEFF" id="queryStockItem" describedService__SEFF="//@interfaces__Repository.3/@signatures__Interface.6">
       <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_1i0i0NL-EdujoZKiiOMQBA" successor_AbstractAction="_2GlXMNL-EdujoZKiiOMQBA"/>
       <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_11mU4NL-EdujoZKiiOMQBA" predecessor_AbstractAction="_2GlXMNL-EdujoZKiiOMQBA"/>
       <steps_Behaviour xsi:type="pcm.seff:InternalAction" id="_2GlXMNL-EdujoZKiiOMQBA" entityName="EntityManager query" predecessor_AbstractAction="_1i0i0NL-EdujoZKiiOMQBA" successor_AbstractAction="_11mU4NL-EdujoZKiiOMQBA">
-        <resourceDemand_Action specification="1" unit="ms"/>
+        <resourceDemand_Action specification="1" unit="ms">
+          <requiredResource_ParametricResourceDemand href="cocome.resourcetype#_Af748dO1EduL6bgulTgjzg"/>
+        </resourceDemand_Action>
       </steps_Behaviour>
     </serviceEffectSpecifications__BasicComponent>
     <serviceEffectSpecifications__BasicComponent xsi:type="pcm.seff:ResourceDemandingSEFF" id="flushDatabase" seffTypeID="" describedService__SEFF="//@interfaces__Repository.6/@signatures__Interface.9">
       <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_V6e9MN6xEduAmOtZLewIEg" predecessor_AbstractAction="_WWfjwN6xEduAmOtZLewIEg"/>
       <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_WJFZ4N6xEduAmOtZLewIEg" successor_AbstractAction="_WWfjwN6xEduAmOtZLewIEg"/>
       <steps_Behaviour xsi:type="pcm.seff:InternalAction" id="_WWfjwN6xEduAmOtZLewIEg" entityName="Internal" predecessor_AbstractAction="_WJFZ4N6xEduAmOtZLewIEg" successor_AbstractAction="_V6e9MN6xEduAmOtZLewIEg">
-        <resourceDemand_Action specification="DoublePDF(unit=&quot;ms&quot;)[ (0.5; 0.5) (1.0; 0.5) ]" unit="ms"/>
+        <resourceDemand_Action specification="DoublePDF(unit=&quot;ms&quot;)[ (0.5; 0.5) (1.0; 0.5) ]" unit="ms">
+          <requiredResource_ParametricResourceDemand href="cocome.resourcetype#_Af748dO1EduL6bgulTgjzg"/>
+        </resourceDemand_Action>
       </steps_Behaviour>
     </serviceEffectSpecifications__BasicComponent>
     <serviceEffectSpecifications__BasicComponent xsi:type="pcm.seff:ResourceDemandingSEFF" id="markProductUnavailableInStock" seffTypeID="" describedService__SEFF="//@interfaces__Repository.6/@signatures__Interface.8">
       <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_R3Y6MN68EduAmOtZLewIEg" successor_AbstractAction="_STQW0N68EduAmOtZLewIEg"/>
       <steps_Behaviour xsi:type="pcm.seff:InternalAction" id="_STQW0N68EduAmOtZLewIEg" predecessor_AbstractAction="_R3Y6MN68EduAmOtZLewIEg" successor_AbstractAction="_MbflMB_WEdybE9d5euW0Qw">
-        <resourceDemand_Action specification="10" unit="ms"/>
+        <resourceDemand_Action specification="10" unit="ms">
+          <requiredResource_ParametricResourceDemand href="cocome.resourcetype#_Af748dO1EduL6bgulTgjzg"/>
+        </resourceDemand_Action>
       </steps_Behaviour>
       <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_MbflMB_WEdybE9d5euW0Qw" predecessor_AbstractAction="_STQW0N68EduAmOtZLewIEg"/>
     </serviceEffectSpecifications__BasicComponent>
@@ -114,7 +124,9 @@
       <steps_Behaviour xsi:type="pcm.seff:ExternalCallAction" id="_EJT-ANLyEduQ7qbNANXHPw" entityName="getPersistenceContext" predecessor_AbstractAction="_BHJ0kNLyEduQ7qbNANXHPw" successor_AbstractAction="__MsdkNLyEduQ7qbNANXHPw" calledService_ExternalService="//@interfaces__Repository.2/@signatures__Interface.0"/>
       <steps_Behaviour xsi:type="pcm.seff:ExternalCallAction" id="__MsdkNLyEduQ7qbNANXHPw" entityName="queryEnterpriseById" predecessor_AbstractAction="_EJT-ANLyEduQ7qbNANXHPw" successor_AbstractAction="_Y6-ZoNLzEduQ7qbNANXHPw" calledService_ExternalService="//@interfaces__Repository.1/@signatures__Interface.0"/>
       <steps_Behaviour xsi:type="pcm.seff:InternalAction" id="_Y6-ZoNLzEduQ7qbNANXHPw" entityName="removeCallingStore" predecessor_AbstractAction="__MsdkNLyEduQ7qbNANXHPw" successor_AbstractAction="_trQxsNLzEduQ7qbNANXHPw">
-        <resourceDemand_Action specification="1" unit="ms"/>
+        <resourceDemand_Action specification="1" unit="ms">
+          <requiredResource_ParametricResourceDemand href="cocome.resourcetype#_Af748dO1EduL6bgulTgjzg"/>
+        </resourceDemand_Action>
       </steps_Behaviour>
       <steps_Behaviour xsi:type="pcm.seff:LoopAction" id="_trQxsNLzEduQ7qbNANXHPw" entityName="IterateStores" predecessor_AbstractAction="_Y6-ZoNLzEduQ7qbNANXHPw" successor_AbstractAction="_EteToNL1EduQ7qbNANXHPw">
         <bodyBehaviour_Loop>
@@ -128,7 +140,9 @@
       </steps_Behaviour>
       <steps_Behaviour xsi:type="pcm.seff:InternalAction" id="_EteToNL1EduQ7qbNANXHPw" entityName="time out realisation" predecessor_AbstractAction="_trQxsNLzEduQ7qbNANXHPw" successor_AbstractAction="_OpTDkNL1EduQ7qbNANXHPw"/>
       <steps_Behaviour xsi:type="pcm.seff:InternalAction" id="_OpTDkNL1EduQ7qbNANXHPw" entityName="getProductIds" predecessor_AbstractAction="_EteToNL1EduQ7qbNANXHPw" successor_AbstractAction="_7puwUNL2EduQ7qbNANXHPw">
-        <resourceDemand_Action specification="1000" unit="ms"/>
+        <resourceDemand_Action specification="1000" unit="ms">
+          <requiredResource_ParametricResourceDemand href="cocome.resourcetype#_Af748dO1EduL6bgulTgjzg"/>
+        </resourceDemand_Action>
       </steps_Behaviour>
       <steps_Behaviour xsi:type="pcm.seff:BranchAction" id="_7puwUNL2EduQ7qbNANXHPw" entityName="requiredProductAmount.size() > 0" predecessor_AbstractAction="_OpTDkNL1EduQ7qbNANXHPw" successor_AbstractAction="_RPZpgNL9EdujoZKiiOMQBA">
         <branches_Branch xsi:type="pcm.seff:GuardedBranchTransition" id="_e5nAEd7MEduAmOtZLewIEg">
@@ -238,7 +252,9 @@
       </steps_Behaviour>
       <steps_Behaviour xsi:type="pcm.seff:ExternalCallAction" id="_YeyxANJQEduQ7qbNANXHPw" entityName="queryLowStockItemsWithRespectToIncomingProducts" predecessor_AbstractAction="_M7N1kNJPEduQ7qbNANXHPw" successor_AbstractAction="_qZcYsNJQEduQ7qbNANXHPw" calledService_ExternalService="//@interfaces__Repository.3/@signatures__Interface.3"/>
       <steps_Behaviour xsi:type="pcm.seff:InternalAction" id="_qZcYsNJQEduQ7qbNANXHPw" entityName="calculateProductAmounts" predecessor_AbstractAction="_YeyxANJQEduQ7qbNANXHPw" successor_AbstractAction="_1UJywNJQEduQ7qbNANXHPw">
-        <resourceDemand_Action specification="2" unit="ms"/>
+        <resourceDemand_Action specification="2" unit="ms">
+          <requiredResource_ParametricResourceDemand href="cocome.resourcetype#_Af748dO1EduL6bgulTgjzg"/>
+        </resourceDemand_Action>
       </steps_Behaviour>
       <steps_Behaviour xsi:type="pcm.seff:ExternalCallAction" id="_1UJywNJQEduQ7qbNANXHPw" entityName="queryStoreById" predecessor_AbstractAction="_qZcYsNJQEduQ7qbNANXHPw" successor_AbstractAction="_-2XI0NJQEduQ7qbNANXHPw" calledService_ExternalService="//@interfaces__Repository.3/@signatures__Interface.0"/>
       <steps_Behaviour xsi:type="pcm.seff:InternalAction" id="_-2XI0NJQEduQ7qbNANXHPw" entityName="prepare" predecessor_AbstractAction="_1UJywNJQEduQ7qbNANXHPw" successor_AbstractAction="_Gi_dUNJREduQ7qbNANXHPw"/>
@@ -253,7 +269,9 @@
           <branchBehaviour_BranchTransition>
             <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_61aUgNJTEduQ7qbNANXHPw" successor_AbstractAction="_7fIm8NJTEduQ7qbNANXHPw"/>
             <steps_Behaviour xsi:type="pcm.seff:InternalAction" id="_7fIm8NJTEduQ7qbNANXHPw" entityName="out" predecessor_AbstractAction="_61aUgNJTEduQ7qbNANXHPw" successor_AbstractAction="_80hFgNJTEduQ7qbNANXHPw">
-              <resourceDemand_Action specification="1" unit="ms"/>
+              <resourceDemand_Action specification="1" unit="ms">
+                <requiredResource_ParametricResourceDemand href="cocome.resourcetype#_Af748dO1EduL6bgulTgjzg"/>
+              </resourceDemand_Action>
             </steps_Behaviour>
             <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_80hFgNJTEduQ7qbNANXHPw" predecessor_AbstractAction="_7fIm8NJTEduQ7qbNANXHPw"/>
           </branchBehaviour_BranchTransition>
@@ -270,20 +288,26 @@
                 <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_bi_acNJTEduQ7qbNANXHPw" successor_AbstractAction="_dt3WkNJTEduQ7qbNANXHPw"/>
                 <steps_Behaviour xsi:type="pcm.seff:ExternalCallAction" id="_dt3WkNJTEduQ7qbNANXHPw" entityName="queryStockItem" predecessor_AbstractAction="_bi_acNJTEduQ7qbNANXHPw" successor_AbstractAction="_jFC2oNJTEduQ7qbNANXHPw" calledService_ExternalService="//@interfaces__Repository.3/@signatures__Interface.6"/>
                 <steps_Behaviour xsi:type="pcm.seff:InternalAction" id="_jFC2oNJTEduQ7qbNANXHPw" entityName="post" predecessor_AbstractAction="_dt3WkNJTEduQ7qbNANXHPw" successor_AbstractAction="_apeYgNJTEduQ7qbNANXHPw">
-                  <resourceDemand_Action specification="1" unit="ms"/>
+                  <resourceDemand_Action specification="1" unit="ms">
+                    <requiredResource_ParametricResourceDemand href="cocome.resourcetype#_Af748dO1EduL6bgulTgjzg"/>
+                  </resourceDemand_Action>
                 </steps_Behaviour>
               </bodyBehaviour_Loop>
               <iterations_LoopAction specification="productList.NUMBER_OF_ELEMENTS"/>
             </steps_Behaviour>
             <steps_Behaviour xsi:type="pcm.seff:InternalAction" id="_pG-j4NJTEduQ7qbNANXHPw" entityName="commit" predecessor_AbstractAction="_OtyCkNJTEduQ7qbNANXHPw" successor_AbstractAction="_In964NJTEduQ7qbNANXHPw">
-              <resourceDemand_Action specification="2" unit="ms"/>
+              <resourceDemand_Action specification="2" unit="ms">
+                <requiredResource_ParametricResourceDemand href="cocome.resourcetype#_Af748dO1EduL6bgulTgjzg"/>
+              </resourceDemand_Action>
             </steps_Behaviour>
           </branchBehaviour_BranchTransition>
           <branchCondition_BranchTransition specification="productList.NUMBER_OF_ELEMENTS > 0"/>
         </branches_Branch>
       </steps_Behaviour>
       <steps_Behaviour xsi:type="pcm.seff:InternalAction" id="_6lsvcNJREduQ7qbNANXHPw" entityName="catch rollback" predecessor_AbstractAction="_m2h2INJREduQ7qbNANXHPw" successor_AbstractAction="_c4EJQNJOEduQ7qbNANXHPw">
-        <resourceDemand_Action specification="2" unit="ms"/>
+        <resourceDemand_Action specification="2" unit="ms">
+          <requiredResource_ParametricResourceDemand href="cocome.resourcetype#_Af748dO1EduL6bgulTgjzg"/>
+        </resourceDemand_Action>
       </steps_Behaviour>
     </serviceEffectSpecifications__BasicComponent>
   </components__Repository>
