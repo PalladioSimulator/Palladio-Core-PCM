@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <pcm.system:System xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:pcm.system="http://sdq.ipd.uka.de/PalladioComponentModel/System/1.0" id="_p7UQMNC5EduW_YoCCnq0vw" entityName="">
-  <childComponentContexts_ComposedStructure id="_GD2LsNC7EduW_YoCCnq0vw">
+  <childComponentContexts_ComposedStructure id="_GD2LsNC7EduW_YoCCnq0vw" entityName="GUI">
     <encapsulatedComponent_ChildComponentContext href="cocome.repository#_5klGGNCjEduC9O_qbthgAg"/>
   </childComponentContexts_ComposedStructure>
-  <childComponentContexts_ComposedStructure id="_JR74UNC7EduW_YoCCnq0vw">
+  <childComponentContexts_ComposedStructure id="_JR74UNC7EduW_YoCCnq0vw" entityName="Application">
     <encapsulatedComponent_ChildComponentContext href="cocome.repository#_hfayBNClEduC9O_qbthgAg"/>
   </childComponentContexts_ComposedStructure>
-  <childComponentContexts_ComposedStructure id="_eVcuYNC7EduW_YoCCnq0vw">
+  <childComponentContexts_ComposedStructure id="_eVcuYNC7EduW_YoCCnq0vw" entityName="Data">
     <encapsulatedComponent_ChildComponentContext href="cocome.repository#_hNG20tChEduC9O_qbthgAg"/>
   </childComponentContexts_ComposedStructure>
   <providedDelegationConnectors_ComposedStructure id="_vAOCkNC7EduW_YoCCnq0vw" outerProvidedRole_ProvidedDelegationConnector="_tbwboNC6EduW_YoCCnq0vw" childComponentContext_ProvidedDelegationConnector="_JR74UNC7EduW_YoCCnq0vw">
