@@ -18,7 +18,6 @@
   </components__Repository>
   <components__Repository xsi:type="pcm.repository:BasicComponent" id="_-3VggNCgEduC9O_qbthgAg" entityName="TradingSystem.Inventory.Data.Enterprise">
     <providedRoles_InterfaceProvidingEntity id="_d1Mf0NChEduC9O_qbthgAg" entityName="Enterprise.EnterpriseQueryIf" providedInterface__ProvidedRole="_Eldg8NChEduC9O_qbthgAg"/>
-    <serviceEffectSpecifications__BasicComponent xsi:type="pcm.seff:ResourceDemandingSEFF" id="queryEnterpriseById" seffTypeID="" describedService__SEFF="//@interfaces__Repository.1/@signatures__Interface.0"/>
   </components__Repository>
   <components__Repository xsi:type="pcm.repository:BasicComponent" id="_B8esgNChEduC9O_qbthgAg" entityName="TradingSystem.Inventory.Data.Persistence">
     <providedRoles_InterfaceProvidingEntity id="_bT0IMNChEduC9O_qbthgAg" entityName="Persistence.PersistenceIf" providedInterface__ProvidedRole="_F8ovQNChEduC9O_qbthgAg"/>
@@ -73,10 +72,10 @@
     </serviceEffectSpecifications__BasicComponent>
     <serviceEffectSpecifications__BasicComponent xsi:type="pcm.seff:ResourceDemandingSEFF" id="markProductUnavailableInStock" seffTypeID="" describedService__SEFF="//@interfaces__Repository.6/@signatures__Interface.8">
       <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_R3Y6MN68EduAmOtZLewIEg" successor_AbstractAction="_STQW0N68EduAmOtZLewIEg"/>
-      <steps_Behaviour xsi:type="pcm.seff:InternalAction" id="_STQW0N68EduAmOtZLewIEg" predecessor_AbstractAction="_R3Y6MN68EduAmOtZLewIEg" successor_AbstractAction="_Sfe08N68EduAmOtZLewIEg">
+      <steps_Behaviour xsi:type="pcm.seff:InternalAction" id="_STQW0N68EduAmOtZLewIEg" predecessor_AbstractAction="_R3Y6MN68EduAmOtZLewIEg" successor_AbstractAction="_MbflMB_WEdybE9d5euW0Qw">
         <resourceDemand_Action specification="10" unit="ms"/>
       </steps_Behaviour>
-      <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_Sfe08N68EduAmOtZLewIEg" predecessor_AbstractAction="_STQW0N68EduAmOtZLewIEg"/>
+      <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_MbflMB_WEdybE9d5euW0Qw" predecessor_AbstractAction="_STQW0N68EduAmOtZLewIEg"/>
     </serviceEffectSpecifications__BasicComponent>
   </components__Repository>
   <components__Repository xsi:type="pcm.repository:BasicComponent" id="_C5W7w9CyEduW_YoCCnq0vw" entityName="TradingSystem.Inventory.Data.Facade">
