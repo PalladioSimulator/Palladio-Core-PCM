@@ -18,11 +18,11 @@
   </components__Repository>
   <components__Repository xsi:type="pcm.repository:BasicComponent" id="_-3VggNCgEduC9O_qbthgAg" entityName="TradingSystem.Inventory.Data.Enterprise">
     <providedRoles_InterfaceProvidingEntity id="_d1Mf0NChEduC9O_qbthgAg" entityName="Enterprise.EnterpriseQueryIf" providedInterface__ProvidedRole="_Eldg8NChEduC9O_qbthgAg"/>
-    <serviceEffectSpecifications__BasicComponent xsi:type="pcm.seff:ResourceDemandingSEFF" seffTypeID="" describedService__SEFF="//@interfaces__Repository.1/@signatures__Interface.0" id="queryEnterpriseById"/>
+    <serviceEffectSpecifications__BasicComponent xsi:type="pcm.seff:ResourceDemandingSEFF" id="queryEnterpriseById" seffTypeID="" describedService__SEFF="//@interfaces__Repository.1/@signatures__Interface.0"/>
   </components__Repository>
   <components__Repository xsi:type="pcm.repository:BasicComponent" id="_B8esgNChEduC9O_qbthgAg" entityName="TradingSystem.Inventory.Data.Persistence">
     <providedRoles_InterfaceProvidingEntity id="_bT0IMNChEduC9O_qbthgAg" entityName="Persistence.PersistenceIf" providedInterface__ProvidedRole="_F8ovQNChEduC9O_qbthgAg"/>
-    <serviceEffectSpecifications__BasicComponent xsi:type="pcm.seff:ResourceDemandingSEFF">
+    <serviceEffectSpecifications__BasicComponent xsi:type="pcm.seff:ResourceDemandingSEFF" id="_6ZfDVB8PEdyY_su_CT9KsQ">
       <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_-AeFYNLOEduQ7qbNANXHPw" successor_AbstractAction="_-oQeINLOEduQ7qbNANXHPw"/>
       <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_-UJPUNLOEduQ7qbNANXHPw" predecessor_AbstractAction="_-oQeINLOEduQ7qbNANXHPw"/>
       <steps_Behaviour xsi:type="pcm.seff:InternalAction" id="_-oQeINLOEduQ7qbNANXHPw" entityName="API Call to EnitityManager.createEntityManager()" predecessor_AbstractAction="_-AeFYNLOEduQ7qbNANXHPw" successor_AbstractAction="_-UJPUNLOEduQ7qbNANXHPw">
@@ -34,7 +34,7 @@
   </components__Repository>
   <components__Repository xsi:type="pcm.repository:BasicComponent" id="_C7qRkNChEduC9O_qbthgAg" entityName="TradingSystem.Inventory.Data.Store">
     <providedRoles_InterfaceProvidingEntity id="_OmzqENChEduC9O_qbthgAg" entityName="Store.StoreQueryIf" providedInterface__ProvidedRole="_HSKXwNChEduC9O_qbthgAg"/>
-    <serviceEffectSpecifications__BasicComponent xsi:type="pcm.seff:ResourceDemandingSEFF" describedService__SEFF="//@interfaces__Repository.3/@signatures__Interface.7" id="queryStockItemById">
+    <serviceEffectSpecifications__BasicComponent xsi:type="pcm.seff:ResourceDemandingSEFF" id="queryStockItemById" describedService__SEFF="//@interfaces__Repository.3/@signatures__Interface.7">
       <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_TNHoUNLaEduQ7qbNANXHPw" successor_AbstractAction="_T1zY8NLaEduQ7qbNANXHPw"/>
       <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_Tbk7ENLaEduQ7qbNANXHPw" predecessor_AbstractAction="_T1zY8NLaEduQ7qbNANXHPw"/>
       <steps_Behaviour xsi:type="pcm.seff:InternalAction" id="_T1zY8NLaEduQ7qbNANXHPw" entityName="interact with java EntityManager" predecessor_AbstractAction="_TNHoUNLaEduQ7qbNANXHPw" successor_AbstractAction="_Tbk7ENLaEduQ7qbNANXHPw">
@@ -43,35 +43,35 @@
         </resourceDemand_Action>
       </steps_Behaviour>
     </serviceEffectSpecifications__BasicComponent>
-    <serviceEffectSpecifications__BasicComponent xsi:type="pcm.seff:ResourceDemandingSEFF" seffTypeID="" describedService__SEFF="//@interfaces__Repository.3/@signatures__Interface.3" id="queryLowStockItemsWithRespectToIncomingProducts">
+    <serviceEffectSpecifications__BasicComponent xsi:type="pcm.seff:ResourceDemandingSEFF" id="queryLowStockItemsWithRespectToIncomingProducts" seffTypeID="" describedService__SEFF="//@interfaces__Repository.3/@signatures__Interface.3">
       <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_aOgwANLxEduQ7qbNANXHPw" successor_AbstractAction="_diGnsNLxEduQ7qbNANXHPw"/>
       <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_aedQgNLxEduQ7qbNANXHPw" predecessor_AbstractAction="_diGnsNLxEduQ7qbNANXHPw"/>
       <steps_Behaviour xsi:type="pcm.seff:InternalAction" id="_diGnsNLxEduQ7qbNANXHPw" entityName="query using the entity manager" predecessor_AbstractAction="_aOgwANLxEduQ7qbNANXHPw" successor_AbstractAction="_aedQgNLxEduQ7qbNANXHPw">
         <resourceDemand_Action specification="6" unit="ms"/>
       </steps_Behaviour>
     </serviceEffectSpecifications__BasicComponent>
-    <serviceEffectSpecifications__BasicComponent xsi:type="pcm.seff:ResourceDemandingSEFF" describedService__SEFF="//@interfaces__Repository.3/@signatures__Interface.0" id="queryStoreById">
+    <serviceEffectSpecifications__BasicComponent xsi:type="pcm.seff:ResourceDemandingSEFF" id="queryStoreById" describedService__SEFF="//@interfaces__Repository.3/@signatures__Interface.0">
       <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_ywDMINLxEduQ7qbNANXHPw" successor_AbstractAction="_zJrNENLxEduQ7qbNANXHPw"/>
       <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_y7hcUNLxEduQ7qbNANXHPw" predecessor_AbstractAction="_zJrNENLxEduQ7qbNANXHPw"/>
       <steps_Behaviour xsi:type="pcm.seff:InternalAction" id="_zJrNENLxEduQ7qbNANXHPw" entityName="Query through EntityManager" predecessor_AbstractAction="_ywDMINLxEduQ7qbNANXHPw" successor_AbstractAction="_y7hcUNLxEduQ7qbNANXHPw">
         <resourceDemand_Action specification="1" unit="ms"/>
       </steps_Behaviour>
     </serviceEffectSpecifications__BasicComponent>
-    <serviceEffectSpecifications__BasicComponent xsi:type="pcm.seff:ResourceDemandingSEFF" describedService__SEFF="//@interfaces__Repository.3/@signatures__Interface.6" id="queryStockItem">
+    <serviceEffectSpecifications__BasicComponent xsi:type="pcm.seff:ResourceDemandingSEFF" id="queryStockItem" describedService__SEFF="//@interfaces__Repository.3/@signatures__Interface.6">
       <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_1i0i0NL-EdujoZKiiOMQBA" successor_AbstractAction="_2GlXMNL-EdujoZKiiOMQBA"/>
       <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_11mU4NL-EdujoZKiiOMQBA" predecessor_AbstractAction="_2GlXMNL-EdujoZKiiOMQBA"/>
       <steps_Behaviour xsi:type="pcm.seff:InternalAction" id="_2GlXMNL-EdujoZKiiOMQBA" entityName="EntityManager query" predecessor_AbstractAction="_1i0i0NL-EdujoZKiiOMQBA" successor_AbstractAction="_11mU4NL-EdujoZKiiOMQBA">
         <resourceDemand_Action specification="1" unit="ms"/>
       </steps_Behaviour>
     </serviceEffectSpecifications__BasicComponent>
-    <serviceEffectSpecifications__BasicComponent xsi:type="pcm.seff:ResourceDemandingSEFF" seffTypeID="" describedService__SEFF="//@interfaces__Repository.6/@signatures__Interface.9" id="flushDatabase">
+    <serviceEffectSpecifications__BasicComponent xsi:type="pcm.seff:ResourceDemandingSEFF" id="flushDatabase" seffTypeID="" describedService__SEFF="//@interfaces__Repository.6/@signatures__Interface.9">
       <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_V6e9MN6xEduAmOtZLewIEg" predecessor_AbstractAction="_WWfjwN6xEduAmOtZLewIEg"/>
       <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_WJFZ4N6xEduAmOtZLewIEg" successor_AbstractAction="_WWfjwN6xEduAmOtZLewIEg"/>
       <steps_Behaviour xsi:type="pcm.seff:InternalAction" id="_WWfjwN6xEduAmOtZLewIEg" entityName="Internal" predecessor_AbstractAction="_WJFZ4N6xEduAmOtZLewIEg" successor_AbstractAction="_V6e9MN6xEduAmOtZLewIEg">
         <resourceDemand_Action specification="DoublePDF(unit=&quot;ms&quot;)[ (0.5; 0.5) (1.0; 0.5) ]" unit="ms"/>
       </steps_Behaviour>
     </serviceEffectSpecifications__BasicComponent>
-    <serviceEffectSpecifications__BasicComponent xsi:type="pcm.seff:ResourceDemandingSEFF" seffTypeID="" describedService__SEFF="//@interfaces__Repository.6/@signatures__Interface.8" id="markProductUnavailableInStock">
+    <serviceEffectSpecifications__BasicComponent xsi:type="pcm.seff:ResourceDemandingSEFF" id="markProductUnavailableInStock" seffTypeID="" describedService__SEFF="//@interfaces__Repository.6/@signatures__Interface.8">
       <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_R3Y6MN68EduAmOtZLewIEg" successor_AbstractAction="_STQW0N68EduAmOtZLewIEg"/>
       <steps_Behaviour xsi:type="pcm.seff:InternalAction" id="_STQW0N68EduAmOtZLewIEg" predecessor_AbstractAction="_R3Y6MN68EduAmOtZLewIEg" successor_AbstractAction="_Sfe08N68EduAmOtZLewIEg">
         <resourceDemand_Action specification="10" unit="ms"/>
@@ -122,7 +122,7 @@
     <requiredRoles_InterfaceRequiringEntity id="_h-Kq4dCiEduC9O_qbthgAg" entityName="ProductDispatcher.EnterpriseQueryIf" requiredInterface__RequiredRole="_Eldg8NChEduC9O_qbthgAg"/>
     <requiredRoles_InterfaceRequiringEntity id="_jJt4AdCiEduC9O_qbthgAg" entityName="ProductDispatcher.PersistenceIf" requiredInterface__RequiredRole="_F8ovQNChEduC9O_qbthgAg"/>
     <requiredRoles_InterfaceRequiringEntity id="_kzNlYdCiEduC9O_qbthgAg" entityName="ProductDispatcher.StoreQueryIf" requiredInterface__RequiredRole="_HSKXwNChEduC9O_qbthgAg"/>
-    <serviceEffectSpecifications__BasicComponent xsi:type="pcm.seff:ResourceDemandingSEFF" describedService__SEFF="//@interfaces__Repository.4/@signatures__Interface.0" id="orderProductsAvailableAtOtherStores">
+    <serviceEffectSpecifications__BasicComponent xsi:type="pcm.seff:ResourceDemandingSEFF" id="orderProductsAvailableAtOtherStores" describedService__SEFF="//@interfaces__Repository.4/@signatures__Interface.0">
       <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_BHJ0kNLyEduQ7qbNANXHPw" successor_AbstractAction="_EJT-ANLyEduQ7qbNANXHPw"/>
       <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_BYli0NLyEduQ7qbNANXHPw" predecessor_AbstractAction="_A2scgN7AEduAmOtZLewIEg"/>
       <steps_Behaviour xsi:type="pcm.seff:ExternalCallAction" id="_EJT-ANLyEduQ7qbNANXHPw" entityName="getPersistenceContext" predecessor_AbstractAction="_BHJ0kNLyEduQ7qbNANXHPw" successor_AbstractAction="__MsdkNLyEduQ7qbNANXHPw" calledService_ExternalService="//@interfaces__Repository.2/@signatures__Interface.0"/>
@@ -225,7 +225,7 @@
     <requiredRoles_InterfaceRequiringEntity id="_4OSEsdCnEduC9O_qbthgAg" entityName="Application.Store.StoreQueryIf" requiredInterface__RequiredRole="_HSKXwNChEduC9O_qbthgAg"/>
     <requiredRoles_InterfaceRequiringEntity id="_aa6McdCwEduW_YoCCnq0vw" entityName="Application.Store.SaleRegisteredEvent" requiredInterface__RequiredRole="_RQoSZNCpEduC9O_qbthgAg"/>
     <requiredRoles_InterfaceRequiringEntity id="_IpnV8dItEduQ7qbNANXHPw" entityName="Application.Store.ProductDispatcherIf" requiredInterface__RequiredRole="_dbS8pNCiEduC9O_qbthgAg"/>
-    <serviceEffectSpecifications__BasicComponent xsi:type="pcm.seff:ResourceDemandingSEFF" describedService__SEFF="//@interfaces__Repository.0/@signatures__Interface.0" id="bookSale">
+    <serviceEffectSpecifications__BasicComponent xsi:type="pcm.seff:ResourceDemandingSEFF" id="bookSale" describedService__SEFF="//@interfaces__Repository.0/@signatures__Interface.0">
       <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_ckGrcNJOEduQ7qbNANXHPw" successor_AbstractAction="_qPZWwNJOEduQ7qbNANXHPw"/>
       <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_c4EJQNJOEduQ7qbNANXHPw" predecessor_AbstractAction="_6lsvcNJREduQ7qbNANXHPw"/>
       <steps_Behaviour xsi:type="pcm.seff:InternalAction" id="_m1YuANJOEduQ7qbNANXHPw" entityName="persistence context setup" predecessor_AbstractAction="_qPZWwNJOEduQ7qbNANXHPw" successor_AbstractAction="_wAfysNJOEduQ7qbNANXHPw">
