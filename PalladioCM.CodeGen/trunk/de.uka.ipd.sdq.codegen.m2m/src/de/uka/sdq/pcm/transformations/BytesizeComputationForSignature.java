@@ -18,6 +18,18 @@ public class BytesizeComputationForSignature {
 		OUT
 	}
 	
+	/**
+	 * Composes a String, which includes the sum of BYTESIZE 
+	 * characterisation strings for all the parameters of a given signature.
+	 * For example: 
+	 * <code>void foo(int bar, File blub)</code>
+	 * would be tranformed into
+	 * <code>"bar.BYTESIZE + blub.BYTESIZE"</code>
+	 * 
+	 * @param sig
+	 * @param mod
+	 * @return
+	 */
 	public static String getBytesizeForSignature(Signature sig, Modifier mod){
 		StringBuffer result = new StringBuffer();
 		
@@ -59,6 +71,7 @@ public class BytesizeComputationForSignature {
 			result.append(name+".BYTESIZE + ");
 		} else if (dataType instanceof CollectionDataType){
 			CollectionDataType collDataType = (CollectionDataType)dataType;
+			result.append(name+".BYTESIZE + ");
 			DataType innerDataType = collDataType.getInnerType_CollectionDataType();
 			String innerSize = getCharacterisationString(innerDataType, name + ".INNER");
 			result.append(name+".NUMBER_OF_ELEMENTS * "+ innerSize);
@@ -66,6 +79,7 @@ public class BytesizeComputationForSignature {
 			CompositeDataType compDataType = (CompositeDataType)dataType;
 			EList<InnerDeclaration> innerList = compDataType.getInnerDeclaration_CompositeDataType();
 			result.append("(");
+			result.append(name+".BYTESIZE + ");
 			for (InnerDeclaration decl : innerList){
 				DataType innerDataType = decl.getDatatype_InnerDeclaration();
 				result.append(getCharacterisationString(innerDataType, name+"."+decl.getEntityName()));
