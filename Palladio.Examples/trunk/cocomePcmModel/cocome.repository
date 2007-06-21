@@ -5,7 +5,7 @@
   </components__Repository>
   <components__Repository xsi:type="pcm.repository:BasicComponent" id="_B8esgNChEduC9O_qbthgAg" entityName="TradingSystem.Inventory.Data.Persistence">
     <providedRoles_InterfaceProvidingEntity id="_bT0IMNChEduC9O_qbthgAg" entityName="Persistence.PersistenceIf" providedInterface__ProvidedRole="_F8ovQNChEduC9O_qbthgAg"/>
-    <serviceEffectSpecifications__BasicComponent xsi:type="pcm.seff:ResourceDemandingSEFF" id="_6ZfDVB8PEdyY_su_CT9KsQ">
+    <serviceEffectSpecifications__BasicComponent xsi:type="pcm.seff:ResourceDemandingSEFF" id="_6ZfDVB8PEdyY_su_CT9KsQ" describedService__SEFF="//@interfaces__Repository.2/@signatures__Interface.0">
       <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_-AeFYNLOEduQ7qbNANXHPw" successor_AbstractAction="_-oQeINLOEduQ7qbNANXHPw"/>
       <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_-UJPUNLOEduQ7qbNANXHPw" predecessor_AbstractAction="_-oQeINLOEduQ7qbNANXHPw"/>
       <steps_Behaviour xsi:type="pcm.seff:InternalAction" id="_-oQeINLOEduQ7qbNANXHPw" entityName="API Call to EnitityManager.createEntityManager()" predecessor_AbstractAction="_-AeFYNLOEduQ7qbNANXHPw" successor_AbstractAction="_-UJPUNLOEduQ7qbNANXHPw">
