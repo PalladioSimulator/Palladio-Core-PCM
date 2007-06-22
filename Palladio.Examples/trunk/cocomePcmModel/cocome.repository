@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="ASCII"?>
 <pcm.repository:Repository xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pcm.repository="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/1.0" xmlns:pcm.seff="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0" xmlns:stoex="http://sdq.ipd.uka.de/StochasticExpressions/1.0" id="_S4rTcNCXEduC9O_qbthgAg" entityName="cocome-Repository" repositoryDescription="see cocome.org">
   <components__Repository xsi:type="pcm.repository:BasicComponent" id="_-3VggNCgEduC9O_qbthgAg" entityName="TradingSystem.Inventory.Data.Enterprise">
     <providedRoles_InterfaceProvidingEntity id="_d1Mf0NChEduC9O_qbthgAg" entityName="Enterprise.EnterpriseQueryIf" providedInterface__ProvidedRole="_Eldg8NChEduC9O_qbthgAg"/>
@@ -111,6 +111,58 @@
     <requiredRoles_InterfaceRequiringEntity id="_lbprIdCyEduW_YoCCnq0vw" entityName="Data.Facade.EnterpriseQueryIf" requiredInterface__RequiredRole="_Eldg8NChEduC9O_qbthgAg"/>
     <requiredRoles_InterfaceRequiringEntity id="_oVdw4dCyEduW_YoCCnq0vw" entityName="Data.Facade.PersistenceIf" requiredInterface__RequiredRole="_F8ovQNChEduC9O_qbthgAg"/>
     <requiredRoles_InterfaceRequiringEntity id="_q9QSgdCyEduW_YoCCnq0vw" entityName="Data.Facade.StoreQueryIf" requiredInterface__RequiredRole="_HSKXwNChEduC9O_qbthgAg"/>
+    <serviceEffectSpecifications__BasicComponent xsi:type="pcm.seff:ResourceDemandingSEFF" id="_ifiR0CCfEdyrYp4aNf6BNw" describedService__SEFF="//@interfaces__Repository.1/@signatures__Interface.0">
+      <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_ifiR0SCfEdyrYp4aNf6BNw" successor_AbstractAction="_ifiR0iCfEdyrYp4aNf6BNw"/>
+      <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_ifiR0iCfEdyrYp4aNf6BNw" predecessor_AbstractAction="_ifiR0SCfEdyrYp4aNf6BNw"/>
+    </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="pcm.seff:ResourceDemandingSEFF" id="_ifiR0yCfEdyrYp4aNf6BNw" describedService__SEFF="//@interfaces__Repository.1/@signatures__Interface.1">
+      <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_ifiR1CCfEdyrYp4aNf6BNw" successor_AbstractAction="_ifiR1SCfEdyrYp4aNf6BNw"/>
+      <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_ifiR1SCfEdyrYp4aNf6BNw" predecessor_AbstractAction="_ifiR1CCfEdyrYp4aNf6BNw"/>
+    </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="pcm.seff:ResourceDemandingSEFF" id="_ifiR1iCfEdyrYp4aNf6BNw" describedService__SEFF="//@interfaces__Repository.2/@signatures__Interface.0">
+      <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_ifiR1yCfEdyrYp4aNf6BNw" successor_AbstractAction="_ifiR2CCfEdyrYp4aNf6BNw"/>
+      <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_ifiR2CCfEdyrYp4aNf6BNw" predecessor_AbstractAction="_ifiR1yCfEdyrYp4aNf6BNw"/>
+    </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="pcm.seff:ResourceDemandingSEFF" id="_ifiR2SCfEdyrYp4aNf6BNw" describedService__SEFF="//@interfaces__Repository.3/@signatures__Interface.0">
+      <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_ifiR2iCfEdyrYp4aNf6BNw" successor_AbstractAction="_ifiR2yCfEdyrYp4aNf6BNw"/>
+      <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_ifiR2yCfEdyrYp4aNf6BNw" predecessor_AbstractAction="_ifiR2iCfEdyrYp4aNf6BNw"/>
+    </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="pcm.seff:ResourceDemandingSEFF" id="_ifiR3CCfEdyrYp4aNf6BNw" describedService__SEFF="//@interfaces__Repository.3/@signatures__Interface.1">
+      <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_ifiR3SCfEdyrYp4aNf6BNw" successor_AbstractAction="_ifiR3iCfEdyrYp4aNf6BNw"/>
+      <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_ifiR3iCfEdyrYp4aNf6BNw" predecessor_AbstractAction="_ifiR3SCfEdyrYp4aNf6BNw"/>
+    </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="pcm.seff:ResourceDemandingSEFF" id="_ifiR3yCfEdyrYp4aNf6BNw" describedService__SEFF="//@interfaces__Repository.3/@signatures__Interface.2">
+      <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_ifiR4CCfEdyrYp4aNf6BNw" successor_AbstractAction="_ifiR4SCfEdyrYp4aNf6BNw"/>
+      <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_ifiR4SCfEdyrYp4aNf6BNw" predecessor_AbstractAction="_ifiR4CCfEdyrYp4aNf6BNw"/>
+    </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="pcm.seff:ResourceDemandingSEFF" id="_ifiR4iCfEdyrYp4aNf6BNw" describedService__SEFF="//@interfaces__Repository.3/@signatures__Interface.3">
+      <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_ifiR4yCfEdyrYp4aNf6BNw" successor_AbstractAction="_ifiR5CCfEdyrYp4aNf6BNw"/>
+      <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_ifiR5CCfEdyrYp4aNf6BNw" predecessor_AbstractAction="_ifiR4yCfEdyrYp4aNf6BNw"/>
+    </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="pcm.seff:ResourceDemandingSEFF" id="_ifiR5SCfEdyrYp4aNf6BNw" describedService__SEFF="//@interfaces__Repository.3/@signatures__Interface.4">
+      <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_ifiR5iCfEdyrYp4aNf6BNw" successor_AbstractAction="_ifiR5yCfEdyrYp4aNf6BNw"/>
+      <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_ifiR5yCfEdyrYp4aNf6BNw" predecessor_AbstractAction="_ifiR5iCfEdyrYp4aNf6BNw"/>
+    </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="pcm.seff:ResourceDemandingSEFF" id="_ifiR6CCfEdyrYp4aNf6BNw" describedService__SEFF="//@interfaces__Repository.3/@signatures__Interface.5">
+      <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_ifiR6SCfEdyrYp4aNf6BNw" successor_AbstractAction="_ifiR6iCfEdyrYp4aNf6BNw"/>
+      <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_ifiR6iCfEdyrYp4aNf6BNw" predecessor_AbstractAction="_ifiR6SCfEdyrYp4aNf6BNw"/>
+    </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="pcm.seff:ResourceDemandingSEFF" id="_ifiR6yCfEdyrYp4aNf6BNw" describedService__SEFF="//@interfaces__Repository.3/@signatures__Interface.6">
+      <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_ifiR7CCfEdyrYp4aNf6BNw" successor_AbstractAction="_ifiR7SCfEdyrYp4aNf6BNw"/>
+      <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_ifiR7SCfEdyrYp4aNf6BNw" predecessor_AbstractAction="_ifiR7CCfEdyrYp4aNf6BNw"/>
+    </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="pcm.seff:ResourceDemandingSEFF" id="_ifiR7iCfEdyrYp4aNf6BNw" describedService__SEFF="//@interfaces__Repository.3/@signatures__Interface.7">
+      <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_ifiR7yCfEdyrYp4aNf6BNw" successor_AbstractAction="_ifiR8CCfEdyrYp4aNf6BNw"/>
+      <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_ifiR8CCfEdyrYp4aNf6BNw" predecessor_AbstractAction="_ifiR7yCfEdyrYp4aNf6BNw"/>
+    </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="pcm.seff:ResourceDemandingSEFF" id="_ifiR8SCfEdyrYp4aNf6BNw" describedService__SEFF="//@interfaces__Repository.3/@signatures__Interface.8">
+      <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_ifiR8iCfEdyrYp4aNf6BNw" successor_AbstractAction="_ifiR8yCfEdyrYp4aNf6BNw"/>
+      <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_ifiR8yCfEdyrYp4aNf6BNw" predecessor_AbstractAction="_ifiR8iCfEdyrYp4aNf6BNw"/>
+    </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="pcm.seff:ResourceDemandingSEFF" id="_ifiR9CCfEdyrYp4aNf6BNw" describedService__SEFF="//@interfaces__Repository.3/@signatures__Interface.9">
+      <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_ifiR9SCfEdyrYp4aNf6BNw" successor_AbstractAction="_ifiR9iCfEdyrYp4aNf6BNw"/>
+      <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_ifiR9iCfEdyrYp4aNf6BNw" predecessor_AbstractAction="_ifiR9SCfEdyrYp4aNf6BNw"/>
+    </serviceEffectSpecifications__BasicComponent>
   </components__Repository>
   <components__Repository xsi:type="pcm.repository:CompositeComponent" id="_hNG20tChEduC9O_qbthgAg" entityName="TradingSystem.Inventory.Data">
     <providedRoles_InterfaceProvidingEntity id="_I9CIsNCiEduC9O_qbthgAg" entityName="Data.EnterpriseQueryIf" providedInterface__ProvidedRole="_Eldg8NChEduC9O_qbthgAg"/>
@@ -249,6 +301,18 @@
     <requiredRoles_InterfaceRequiringEntity id="_b-BUEdCnEduC9O_qbthgAg" entityName="Reporting.EnterpriseQueryIf" requiredInterface__RequiredRole="_Eldg8NChEduC9O_qbthgAg"/>
     <requiredRoles_InterfaceRequiringEntity id="_lmx-EdCnEduC9O_qbthgAg" entityName="Reporting.PersistenceIf" requiredInterface__RequiredRole="_F8ovQNChEduC9O_qbthgAg"/>
     <requiredRoles_InterfaceRequiringEntity id="_t5HAodCnEduC9O_qbthgAg" entityName="Reporting.StoreQueryIf" requiredInterface__RequiredRole="_HSKXwNChEduC9O_qbthgAg"/>
+    <serviceEffectSpecifications__BasicComponent xsi:type="pcm.seff:ResourceDemandingSEFF" id="_ifiR9yCfEdyrYp4aNf6BNw" describedService__SEFF="//@interfaces__Repository.5/@signatures__Interface.0">
+      <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_ifiR-CCfEdyrYp4aNf6BNw" successor_AbstractAction="_ifiR-SCfEdyrYp4aNf6BNw"/>
+      <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_ifiR-SCfEdyrYp4aNf6BNw" predecessor_AbstractAction="_ifiR-CCfEdyrYp4aNf6BNw"/>
+    </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="pcm.seff:ResourceDemandingSEFF" id="_ifiR-iCfEdyrYp4aNf6BNw" describedService__SEFF="//@interfaces__Repository.5/@signatures__Interface.1">
+      <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_ifiR-yCfEdyrYp4aNf6BNw" successor_AbstractAction="_ifiR_CCfEdyrYp4aNf6BNw"/>
+      <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_ifiR_CCfEdyrYp4aNf6BNw" predecessor_AbstractAction="_ifiR-yCfEdyrYp4aNf6BNw"/>
+    </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="pcm.seff:ResourceDemandingSEFF" id="_ifiR_SCfEdyrYp4aNf6BNw" describedService__SEFF="//@interfaces__Repository.5/@signatures__Interface.2">
+      <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_ifiR_iCfEdyrYp4aNf6BNw" successor_AbstractAction="_ifiR_yCfEdyrYp4aNf6BNw"/>
+      <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_ifiR_yCfEdyrYp4aNf6BNw" predecessor_AbstractAction="_ifiR_iCfEdyrYp4aNf6BNw"/>
+    </serviceEffectSpecifications__BasicComponent>
   </components__Repository>
   <components__Repository xsi:type="pcm.repository:BasicComponent" id="_6tZA5dCmEduC9O_qbthgAg" entityName="TradingSystem.Inventory.Application.Store">
     <providedRoles_InterfaceProvidingEntity id="_8phWYNCmEduC9O_qbthgAg" entityName="Application.Store.StoreIf" providedInterface__ProvidedRole="_4153pNCiEduC9O_qbthgAg"/>
@@ -392,6 +456,66 @@
     <requiredRoles_InterfaceRequiringEntity id="_NFajQdC2EduW_YoCCnq0vw" entityName="Application.Facade.StoreIf" requiredInterface__RequiredRole="_4153pNCiEduC9O_qbthgAg"/>
     <requiredRoles_InterfaceRequiringEntity id="_TH8tcdC2EduW_YoCCnq0vw" entityName="Application.Facade.ReportingIf" requiredInterface__RequiredRole="_vebx9NCiEduC9O_qbthgAg"/>
     <requiredRoles_InterfaceRequiringEntity id="_QdU6QdC2EduW_YoCCnq0vw" entityName="Application.Facade.CashDeskConnector" requiredInterface__RequiredRole="_WoD42tCjEduC9O_qbthgAg"/>
+    <serviceEffectSpecifications__BasicComponent xsi:type="pcm.seff:ResourceDemandingSEFF" id="_ifiSACCfEdyrYp4aNf6BNw" describedService__SEFF="//@interfaces__Repository.6/@signatures__Interface.0">
+      <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_ifiSASCfEdyrYp4aNf6BNw" successor_AbstractAction="_ifiSAiCfEdyrYp4aNf6BNw"/>
+      <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_ifiSAiCfEdyrYp4aNf6BNw" predecessor_AbstractAction="_ifiSASCfEdyrYp4aNf6BNw"/>
+    </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="pcm.seff:ResourceDemandingSEFF" id="_ifiSAyCfEdyrYp4aNf6BNw" describedService__SEFF="//@interfaces__Repository.6/@signatures__Interface.1">
+      <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_ifiSBCCfEdyrYp4aNf6BNw" successor_AbstractAction="_ifiSBSCfEdyrYp4aNf6BNw"/>
+      <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_ifiSBSCfEdyrYp4aNf6BNw" predecessor_AbstractAction="_ifiSBCCfEdyrYp4aNf6BNw"/>
+    </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="pcm.seff:ResourceDemandingSEFF" id="_ifiSBiCfEdyrYp4aNf6BNw" describedService__SEFF="//@interfaces__Repository.6/@signatures__Interface.2">
+      <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_ifiSByCfEdyrYp4aNf6BNw" successor_AbstractAction="_ifiSCCCfEdyrYp4aNf6BNw"/>
+      <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_ifiSCCCfEdyrYp4aNf6BNw" predecessor_AbstractAction="_ifiSByCfEdyrYp4aNf6BNw"/>
+    </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="pcm.seff:ResourceDemandingSEFF" id="_ifiSCSCfEdyrYp4aNf6BNw" describedService__SEFF="//@interfaces__Repository.6/@signatures__Interface.3">
+      <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_ifiSCiCfEdyrYp4aNf6BNw" successor_AbstractAction="_ifiSCyCfEdyrYp4aNf6BNw"/>
+      <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_ifiSCyCfEdyrYp4aNf6BNw" predecessor_AbstractAction="_ifiSCiCfEdyrYp4aNf6BNw"/>
+    </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="pcm.seff:ResourceDemandingSEFF" id="_ifiSDCCfEdyrYp4aNf6BNw" describedService__SEFF="//@interfaces__Repository.6/@signatures__Interface.4">
+      <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_ifiSDSCfEdyrYp4aNf6BNw" successor_AbstractAction="_ifiSDiCfEdyrYp4aNf6BNw"/>
+      <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_ifiSDiCfEdyrYp4aNf6BNw" predecessor_AbstractAction="_ifiSDSCfEdyrYp4aNf6BNw"/>
+    </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="pcm.seff:ResourceDemandingSEFF" id="_ifiSDyCfEdyrYp4aNf6BNw" describedService__SEFF="//@interfaces__Repository.6/@signatures__Interface.5">
+      <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_ifiSECCfEdyrYp4aNf6BNw" successor_AbstractAction="_ifiSESCfEdyrYp4aNf6BNw"/>
+      <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_ifiSESCfEdyrYp4aNf6BNw" predecessor_AbstractAction="_ifiSECCfEdyrYp4aNf6BNw"/>
+    </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="pcm.seff:ResourceDemandingSEFF" id="_ifiSEiCfEdyrYp4aNf6BNw" describedService__SEFF="//@interfaces__Repository.6/@signatures__Interface.6">
+      <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_ifiSEyCfEdyrYp4aNf6BNw" successor_AbstractAction="_ifiSFCCfEdyrYp4aNf6BNw"/>
+      <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_ifiSFCCfEdyrYp4aNf6BNw" predecessor_AbstractAction="_ifiSEyCfEdyrYp4aNf6BNw"/>
+    </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="pcm.seff:ResourceDemandingSEFF" id="_ifiSFSCfEdyrYp4aNf6BNw" describedService__SEFF="//@interfaces__Repository.6/@signatures__Interface.7">
+      <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_ifiSFiCfEdyrYp4aNf6BNw" successor_AbstractAction="_ifiSFyCfEdyrYp4aNf6BNw"/>
+      <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_ifiSFyCfEdyrYp4aNf6BNw" predecessor_AbstractAction="_ifiSFiCfEdyrYp4aNf6BNw"/>
+    </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="pcm.seff:ResourceDemandingSEFF" id="_ifiSGCCfEdyrYp4aNf6BNw" describedService__SEFF="//@interfaces__Repository.6/@signatures__Interface.8">
+      <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_ifiSGSCfEdyrYp4aNf6BNw" successor_AbstractAction="_ifiSGiCfEdyrYp4aNf6BNw"/>
+      <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_ifiSGiCfEdyrYp4aNf6BNw" predecessor_AbstractAction="_ifiSGSCfEdyrYp4aNf6BNw"/>
+    </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="pcm.seff:ResourceDemandingSEFF" id="_ifiSGyCfEdyrYp4aNf6BNw" describedService__SEFF="//@interfaces__Repository.6/@signatures__Interface.9">
+      <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_ifiSHCCfEdyrYp4aNf6BNw" successor_AbstractAction="_ifiSHSCfEdyrYp4aNf6BNw"/>
+      <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_ifiSHSCfEdyrYp4aNf6BNw" predecessor_AbstractAction="_ifiSHCCfEdyrYp4aNf6BNw"/>
+    </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="pcm.seff:ResourceDemandingSEFF" id="_ifiSHiCfEdyrYp4aNf6BNw" describedService__SEFF="//@interfaces__Repository.5/@signatures__Interface.0">
+      <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_ifiSHyCfEdyrYp4aNf6BNw" successor_AbstractAction="_ifiSICCfEdyrYp4aNf6BNw"/>
+      <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_ifiSICCfEdyrYp4aNf6BNw" predecessor_AbstractAction="_ifiSHyCfEdyrYp4aNf6BNw"/>
+    </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="pcm.seff:ResourceDemandingSEFF" id="_ifiSISCfEdyrYp4aNf6BNw" describedService__SEFF="//@interfaces__Repository.5/@signatures__Interface.1">
+      <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_ifiSIiCfEdyrYp4aNf6BNw" successor_AbstractAction="_ifiSIyCfEdyrYp4aNf6BNw"/>
+      <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_ifiSIyCfEdyrYp4aNf6BNw" predecessor_AbstractAction="_ifiSIiCfEdyrYp4aNf6BNw"/>
+    </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="pcm.seff:ResourceDemandingSEFF" id="_ifiSJCCfEdyrYp4aNf6BNw" describedService__SEFF="//@interfaces__Repository.5/@signatures__Interface.2">
+      <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_ifiSJSCfEdyrYp4aNf6BNw" successor_AbstractAction="_ifiSJiCfEdyrYp4aNf6BNw"/>
+      <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_ifiSJiCfEdyrYp4aNf6BNw" predecessor_AbstractAction="_ifiSJSCfEdyrYp4aNf6BNw"/>
+    </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="pcm.seff:ResourceDemandingSEFF" id="_ifiSJyCfEdyrYp4aNf6BNw" describedService__SEFF="//@interfaces__Repository.0/@signatures__Interface.0">
+      <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_ifiSKCCfEdyrYp4aNf6BNw" successor_AbstractAction="_ifiSKSCfEdyrYp4aNf6BNw"/>
+      <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_ifiSKSCfEdyrYp4aNf6BNw" predecessor_AbstractAction="_ifiSKCCfEdyrYp4aNf6BNw"/>
+    </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="pcm.seff:ResourceDemandingSEFF" id="_ifiSKiCfEdyrYp4aNf6BNw" describedService__SEFF="//@interfaces__Repository.0/@signatures__Interface.1">
+      <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_ifiSKyCfEdyrYp4aNf6BNw" successor_AbstractAction="_ifiSLCCfEdyrYp4aNf6BNw"/>
+      <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_ifiSLCCfEdyrYp4aNf6BNw" predecessor_AbstractAction="_ifiSKyCfEdyrYp4aNf6BNw"/>
+    </serviceEffectSpecifications__BasicComponent>
   </components__Repository>
   <components__Repository xsi:type="pcm.repository:CompositeComponent" id="_hfayBNClEduC9O_qbthgAg" entityName="TradingSystem.Inventory.Application">
     <providedRoles_InterfaceProvidingEntity id="_dgIVINCpEduC9O_qbthgAg" entityName="Application.StoreIf" providedInterface__ProvidedRole="_4153pNCiEduC9O_qbthgAg"/>
