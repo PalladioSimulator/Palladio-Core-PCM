@@ -34,13 +34,11 @@ public class FeatureOptionsTab extends AbstractLaunchConfigurationTab {
 		};
 		final SelectionListener selectionListener = new SelectionListener(){
 
-			@Override
 			public void widgetDefaultSelected(SelectionEvent e) {
 				FeatureOptionsTab.this.setDirty(true);
 				FeatureOptionsTab.this.updateLaunchConfigurationDialog();
 			}
 
-			@Override
 			public void widgetSelected(SelectionEvent e) {
 				FeatureOptionsTab.this.setDirty(true);
 				FeatureOptionsTab.this.updateLaunchConfigurationDialog();
