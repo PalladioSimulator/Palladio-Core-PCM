@@ -17,7 +17,8 @@ public class SimuTabGroup extends AbstractLaunchConfigurationTabGroup {
 		ILaunchConfigurationTab[] tabs = new ILaunchConfigurationTab[] {
 				new ModelsFileNameInputTab(),
 				new SimuComConfigurationTab(),
-				new oAWConfigurationTab()
+				new oAWConfigurationTab(),
+				new FeatureOptionsTab()
 		};
 		setTabs(tabs);
 

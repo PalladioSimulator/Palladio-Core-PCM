@@ -48,6 +48,19 @@ public class TransformationWorkflowComponent
 	private int counter = 0;
 	private ResourceRepository resourceType;
 	private boolean shouldCreateBrokerLookup = false;
+	private boolean respectLinkingResources = false;
+	
+	public void setBrokerLookup(String value) {
+		if (value.equals("true")) {
+			shouldCreateBrokerLookup = true;
+		}
+	}
+	
+	public void setRespectLinkingResources(String value){
+		if (value.equals("true")) {
+			respectLinkingResources  = true;
+		}
+	}
 	
 	@Override
 	protected void checkConfigurationInternal(Issues arg0) {
@@ -111,33 +124,35 @@ public class TransformationWorkflowComponent
 			seffBuilder.appendPreInternalAction(findCPUResourceType(), "1000");
 		}
 		
-		LinkingResource linkingRes = findLinkingResource(con);
-		if (linkingRes != null) {
-			ResourceContainer dummyContainer = ResourceenvironmentFactory.eINSTANCE.createResourceContainer();
-			dummyContainer.setId(linkingRes.getId());
-	
-			BasicComponentBuilder linkingResourceControllerBuilder = completionBuilder.addBasicComponentToChain(
-					dummyContainer,
-					this.allocation);
-			SeffBuilder seffBuilder = linkingResourceControllerBuilder.getSeffBuilder();
-			seffBuilder.appendPreInternalAction(new ISignatureDependentDemand(){
-				public String getDemand(Signature signature) {
-					return BytesizeComputationForSignature.getBytesizeForSignature(signature,Modifier.IN);
-				}
-	
-				public ProcessingResourceType getType() {
-					return findNETResourceType();
-				}
-			});
-			seffBuilder.appendPreInternalAction(new ISignatureDependentDemand(){
-				public String getDemand(Signature signature) {
-					return BytesizeComputationForSignature.getBytesizeForSignature(signature,Modifier.OUT);
-				}
-	
-				public ProcessingResourceType getType() {
-					return findNETResourceType();
-				}
-			});
+		if ( respectLinkingResources ) {
+			LinkingResource linkingRes = findLinkingResource(con);
+			if (linkingRes != null) {
+				ResourceContainer dummyContainer = ResourceenvironmentFactory.eINSTANCE.createResourceContainer();
+				dummyContainer.setId(linkingRes.getId());
+		
+				BasicComponentBuilder linkingResourceControllerBuilder = completionBuilder.addBasicComponentToChain(
+						dummyContainer,
+						this.allocation);
+				SeffBuilder seffBuilder = linkingResourceControllerBuilder.getSeffBuilder();
+				seffBuilder.appendPreInternalAction(new ISignatureDependentDemand(){
+					public String getDemand(Signature signature) {
+						return BytesizeComputationForSignature.getBytesizeForSignature(signature,Modifier.IN);
+					}
+		
+					public ProcessingResourceType getType() {
+						return findNETResourceType();
+					}
+				});
+				seffBuilder.appendPreInternalAction(new ISignatureDependentDemand(){
+					public String getDemand(Signature signature) {
+						return BytesizeComputationForSignature.getBytesizeForSignature(signature,Modifier.OUT);
+					}
+		
+					public ProcessingResourceType getType() {
+						return findNETResourceType();
+					}
+				});
+			}
 		}
 		return completionBuilder;
 	}

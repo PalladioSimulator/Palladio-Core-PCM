@@ -3,7 +3,9 @@
  */
 package de.uka.ipd.sdq.dialogs.stoex;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map.Entry;
 
@@ -15,6 +17,10 @@ import org.eclipse.jface.text.contentassist.IContentAssistProcessor;
 import org.eclipse.jface.text.contentassist.IContextInformation;
 import org.eclipse.jface.text.contentassist.IContextInformationValidator;
 
+import de.uka.ipd.sdq.pcm.repository.CollectionDataType;
+import de.uka.ipd.sdq.pcm.repository.CompositeDataType;
+import de.uka.ipd.sdq.pcm.repository.DataType;
+import de.uka.ipd.sdq.pcm.repository.InnerDeclaration;
 import de.uka.ipd.sdq.pcm.repository.Parameter;
 
 /**
@@ -44,9 +50,33 @@ public class StoExCompletionProcessor implements IContentAssistProcessor {
 		defaultCharacterisations.put("TYPE", "Characterise the type of a variable");
 
 		for (int i=0; i<context.length; i++){
-			parameterNames.put(context[i].getParameterName(), "Signature Parameter " + context[i].getParameterName());
+			String[] parameterPrefixes = getPrefixesFor(context[i]);
+			for (String parameterPrefix : parameterPrefixes) {
+				parameterNames.put(parameterPrefix, "Signature Parameter " + context[i].getParameterName());
+			}
 		}
 		
+	}
+
+	private String[] getPrefixesFor(Parameter parameter) {
+		ArrayList<String> prefixes = new ArrayList<String>();
+		prefixes.add(parameter.getParameterName());
+		appendDatatypePrefixes(prefixes,parameter.getParameterName(),parameter.getDatatype__Parameter());
+		return prefixes.toArray(new String[]{});
+	}
+
+	private void appendDatatypePrefixes(ArrayList<String> prefixes,
+			String parameterName, DataType datatype__Parameter) {
+		if (datatype__Parameter instanceof CollectionDataType) {
+			prefixes.add(parameterName+".INNER");
+			appendDatatypePrefixes(prefixes,parameterName+".INNER", ((CollectionDataType)datatype__Parameter).getInnerType_CollectionDataType());
+		} else if (datatype__Parameter instanceof CompositeDataType) {
+			CompositeDataType cdt = (CompositeDataType) datatype__Parameter;
+			for (InnerDeclaration inner : cdt.getInnerDeclaration_CompositeDataType()) {
+				prefixes.add(parameterName+"."+inner.getEntityName());
+				appendDatatypePrefixes(prefixes, parameterName+"."+inner.getEntityName(), inner.getDatatype_InnerDeclaration());
+			}
+		}
 	}
 
 	/* (non-Javadoc)

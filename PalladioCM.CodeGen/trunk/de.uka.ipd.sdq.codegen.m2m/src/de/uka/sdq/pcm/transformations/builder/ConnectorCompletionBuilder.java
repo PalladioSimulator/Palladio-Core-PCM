@@ -22,7 +22,7 @@ public class ConnectorCompletionBuilder {
 	private ArrayList<BasicComponentBuilder> basicComponents = new ArrayList<BasicComponentBuilder>();
 	
 	public ConnectorCompletionBuilder(Repository completionRepository, AssemblyConnector connector) {
-		this.completion = createCompletionFor(connector,counter);
+		this.completion = createCompletionFor(connector);
 		completionRepository.getComponents__Repository().add(completion);
 	}
 	
@@ -32,7 +32,7 @@ public class ConnectorCompletionBuilder {
 		return builder;
 	}
 	
-	private Completion createCompletionFor(AssemblyConnector con, int counter) {
+	private Completion createCompletionFor(AssemblyConnector con) {
 		Completion completion = CompletionsFactory.eINSTANCE.createCompletion();
 		completion.setEntityName("ConnectorCompletion"+counter); counter++;
 

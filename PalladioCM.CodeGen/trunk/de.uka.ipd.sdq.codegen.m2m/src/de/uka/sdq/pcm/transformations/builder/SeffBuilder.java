@@ -17,6 +17,24 @@ import de.uka.ipd.sdq.pcm.seff.SeffFactory;
 import de.uka.ipd.sdq.pcm.seff.StartAction;
 import de.uka.ipd.sdq.pcm.seff.StopAction;
 import de.uka.sdq.pcm.transformations.ISignatureDependentDemand;
+class InternalActionDescriptor {
+	private String resourceDemand;
+	private ProcessingResourceType resourceType;
+	public InternalActionDescriptor(String resourceDemand,
+			ProcessingResourceType resourceType) {
+		super();
+		this.resourceDemand = resourceDemand;
+		this.resourceType = resourceType;
+	}
+	public String getResourceDemand() {
+		return resourceDemand;
+	}
+	public ProcessingResourceType getResourceType() {
+		return resourceType;
+	}
+	
+	
+}
 
 public class SeffBuilder {
 	ArrayList<Object> preActions = new ArrayList<Object>();
@@ -28,13 +46,11 @@ public class SeffBuilder {
 	}
 
 	public void appendPreInternalAction(ProcessingResourceType type, String resourceDemandSpec) {
-		AbstractAction action = createInternalAction(type, resourceDemandSpec);
-		preActions.add(action);
+		preActions.add(new InternalActionDescriptor(resourceDemandSpec,type));
 	}
 	
 	public void appendPostInternalAction(ProcessingResourceType type, String resourceDemandSpec) {
-		AbstractAction action = createInternalAction(type, resourceDemandSpec);
-		postActions.add(action);
+		postActions.add(new InternalActionDescriptor(resourceDemandSpec,type));
 	}
 	
 	public void build() {
@@ -76,8 +92,10 @@ public class SeffBuilder {
 	}
 
 	private AbstractAction createAction(Object o, Signature signature) {
-		if (o instanceof AbstractAction)
-			return (AbstractAction)o;
+		if (o instanceof InternalActionDescriptor) {
+			InternalActionDescriptor descriptor = (InternalActionDescriptor) o;
+			return createInternalAction(descriptor.getResourceType(), descriptor.getResourceDemand());
+		}
 		if (o instanceof ISignatureDependentDemand)
 			return createInternalAction(((ISignatureDependentDemand)o).getType(), ((ISignatureDependentDemand)o).getDemand(signature));
 		return null;

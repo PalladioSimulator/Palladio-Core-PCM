@@ -9,6 +9,8 @@ import org.openarchitectureware.workflow.WorkflowRunner;
 import org.openarchitectureware.workflow.issues.Issue;
 import org.openarchitectureware.workflow.issues.IssuesImpl;
 
+import de.uka.ipd.sdq.codegen.simucontroller.runconfig.ComponentLookupEnum;
+import de.uka.ipd.sdq.codegen.simucontroller.runconfig.FeatureOptionsTab;
 import de.uka.ipd.sdq.codegen.simucontroller.runconfig.ResourceManagerTab;
 
 /**
@@ -61,6 +63,12 @@ public class GeneratePluginCodeJob implements ISimulationJob {
 					.getAttribute(ResourceManagerTab.USAGE_FILE, ""));
 			properties.put(ResourceManagerTab.OUTPUT_PATH, myConfiguration
 					.getAttribute(ResourceManagerTab.OUTPUT_PATH, ""));
+			properties.put("respectLinkingResources", myConfiguration
+					.getAttribute(FeatureOptionsTab.SIMULATE_LINKING_RESOURCES, true) ? "true" : "false");
+			properties.put("brokerLookup", myConfiguration
+					.getAttribute(FeatureOptionsTab.COMPONENT_LOOKUP, ComponentLookupEnum.DEPENDENCY_INJECTION.ordinal()) == ComponentLookupEnum.BROKER.ordinal() ?
+							"true" :
+							"false");
 
 		} catch (Exception e) {
 			throw new Exception("Setting up properties failed", e);

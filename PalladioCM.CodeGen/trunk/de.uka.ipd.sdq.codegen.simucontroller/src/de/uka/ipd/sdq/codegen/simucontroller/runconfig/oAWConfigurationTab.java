@@ -83,15 +83,17 @@ public class oAWConfigurationTab extends AbstractLaunchConfigurationTab {
 		final Group outputPathGroup = new Group(container, SWT.NONE);
 		outputPathGroup.setText("Output Path");
 		final GridLayout gridLayout = new GridLayout();
-		gridLayout.numColumns = 3;
+		gridLayout.numColumns = 4;
 		outputPathGroup.setLayout(gridLayout);
-		outputPathGroup.setLayoutData(new GridData(LAYOUT_WIDTH, 80));
+		final GridData gd_outputPathGroup = new GridData(SWT.FILL, SWT.CENTER, true, false);
+		gd_outputPathGroup.heightHint = 87;
+		gd_outputPathGroup.widthHint = 554;
+		outputPathGroup.setLayoutData(gd_outputPathGroup);
 
 		/** default location button */
 		final Button defaultLocationButton = new Button(outputPathGroup,
 				SWT.CHECK);
-		final GridData gridData_dl = new GridData(SWT.LEFT, SWT.CENTER, false,
-				false, 2, 1);
+		final GridData gridData_dl = new GridData(SWT.LEFT, SWT.CENTER, false, false, 4, 1);
 		defaultLocationButton.setLayoutData(gridData_dl);
 		defaultLocationButton.setText("Use default location");
 		defaultLocationButton.setSelection(true);
@@ -111,7 +113,6 @@ public class oAWConfigurationTab extends AbstractLaunchConfigurationTab {
 				}
 			}
 		});
-		new Label(outputPathGroup, SWT.NONE);
 
 		locationLabel = new Label(outputPathGroup, SWT.NONE);
 		locationLabel.setLayoutData(new GridData(48, SWT.DEFAULT));
@@ -119,16 +120,43 @@ public class oAWConfigurationTab extends AbstractLaunchConfigurationTab {
 
 		outputPathField = new Text(outputPathGroup, SWT.BORDER);
 		final GridData gridData = new GridData(SWT.FILL, SWT.CENTER, true,
-				false, 2, 1);
-		gridData.widthHint = 456;
+				false);
+		gridData.widthHint = 20;
 		outputPathField.setLayoutData(gridData);
 		outputPathField.setText(GENERATE_PLUGIN_PATH);
 		outputPathField.addModifyListener(modifyListener);
 		
 		/** clear button */
+		workspaceButton = new Button(outputPathGroup, SWT.NONE);
+		workspaceButton.setLayoutData(new GridData(SWT.RIGHT, SWT.CENTER, false,
+				false));
+		workspaceButton.setText("Workspace...");
+		workspaceButton.addSelectionListener(new SelectionAdapter() {
+			/* (non-Javadoc)
+			 * @see org.eclipse.swt.events.SelectionAdapter#widgetSelected(org.eclipse.swt.events.SelectionEvent)
+			 */
+			public void widgetSelected(SelectionEvent e) {
+				String pluginPath = openResourceDialog(e);
+				outputPathField.setText(workspace_location + pluginPath);
+				ResourceManagerTab.setGeneretePluginPath(pluginPath);
+			}
+		});
+		fileSystemButton = new Button(outputPathGroup, SWT.NONE);
+		fileSystemButton.setLayoutData(new GridData());
+		fileSystemButton.setText("File System...");
+		fileSystemButton.addSelectionListener(new SelectionAdapter() {
+			/* (non-Javadoc)
+			 * @see org.eclipse.swt.events.SelectionAdapter#widgetSelected(org.eclipse.swt.events.SelectionEvent)
+			 */
+			public void widgetSelected(SelectionEvent e) {
+				String pluginPath = openDirectoryDialog(e);
+				outputPathField.setText(pluginPath);
+				ResourceManagerTab.setGeneretePluginPath(pluginPath);
+			}
+		});
 		clearButton = new Button(outputPathGroup,
 				SWT.CHECK);
-		clearButton.setLayoutData( new GridData());
+		clearButton.setLayoutData( new GridData(SWT.LEFT, SWT.CENTER, false, false, 4, 1));
 		clearButton.setText("Delete generated code at simulation end");
 		clearButton.setSelection(true);
 		clearButton.addSelectionListener(new SelectionAdapter() {
@@ -144,38 +172,16 @@ public class oAWConfigurationTab extends AbstractLaunchConfigurationTab {
 		});
 		
 		/** workspace button */
-		workspaceButton = new Button(outputPathGroup, SWT.NONE);
-		workspaceButton.setLayoutData(new GridData(SWT.RIGHT, SWT.CENTER, true,
-				false));
-		workspaceButton.setText("Workspace...");
-		workspaceButton.addSelectionListener(new SelectionAdapter() {
-			/* (non-Javadoc)
-			 * @see org.eclipse.swt.events.SelectionAdapter#widgetSelected(org.eclipse.swt.events.SelectionEvent)
-			 */
-			public void widgetSelected(SelectionEvent e) {
-				String pluginPath = openResourceDialog(e);
-				outputPathField.setText(workspace_location + pluginPath);
-				ResourceManagerTab.setGeneretePluginPath(pluginPath);
-			}
-		});
 
 		/** filesystem button */
-		fileSystemButton = new Button(outputPathGroup, SWT.NONE);
-		fileSystemButton.setLayoutData(new GridData());
-		fileSystemButton.setText("File System...");
-		fileSystemButton.addSelectionListener(new SelectionAdapter() {
-			/* (non-Javadoc)
-			 * @see org.eclipse.swt.events.SelectionAdapter#widgetSelected(org.eclipse.swt.events.SelectionEvent)
-			 */
-			public void widgetSelected(SelectionEvent e) {
-				String pluginPath = openDirectoryDialog(e);
-				outputPathField.setText(pluginPath);
-				ResourceManagerTab.setGeneretePluginPath(pluginPath);
-			}
-		});
 		
 		/** verbose logging button */
-		checkLoggingButton = new Button(container, SWT.CHECK);
+
+		final Group simulationOptionsGroup = new Group(container, SWT.NONE);
+		simulationOptionsGroup.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false));
+		simulationOptionsGroup.setText("Simulation Options");
+		simulationOptionsGroup.setLayout(new GridLayout());
+		checkLoggingButton = new Button(simulationOptionsGroup, SWT.CHECK);
 		checkLoggingButton.setText("Enable verbose logging");
 		checkLoggingButton.addSelectionListener(new SelectionAdapter() {
 			
