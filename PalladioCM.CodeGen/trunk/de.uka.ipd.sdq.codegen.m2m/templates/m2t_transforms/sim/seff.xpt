@@ -19,8 +19,8 @@
 «ENDDEFINE»
 
 «DEFINE Action FOR LoopAction»
-   for (int iterationCount = 0, maxIterationCount = (Integer)ctx.evaluate("«this.iterations_LoopAction.specification.specificationString()»",Integer.class); 
-            iterationCount < maxIterationCount; iterationCount++){
+   for (int iterationCount«id.javaVariableName()» = 0, maxIterationCount«id.javaVariableName()» = (Integer)ctx.evaluate("«this.iterations_LoopAction.specification.specificationString()»",Integer.class); 
+            iterationCount«id.javaVariableName()» < maxIterationCount«id.javaVariableName()»; iterationCount«id.javaVariableName()»++){
        «EXPAND m2t_transforms::java_core::Actions FOR this.bodyBehaviour_Loop.steps_Behaviour.findStart()»
    } 
 «ENDDEFINE»
@@ -78,8 +78,8 @@
 
 «DEFINE Action FOR StartAction»
 	«IF ResourceDemandingSEFF.isInstance(this.eContainer)»
-		de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe resultStackFrame = 
-			new de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe();
+		de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe<Object> resultStackFrame = 
+			new de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe<Object>();
 		de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe methodBodyStackFrame = 
 			ctx.getStack().currentStackFrame();
 		if (this.myComponentStackFrame.getContents().size() > 0) {
@@ -125,7 +125,7 @@
 «ENDDEFINE»
 
 «DEFINE Action FOR DelegatingExternalCallAction»
-	de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe callResult =	
+	de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe<Object> callResult =	
    	myContext.getRole«this.calledService_ExternalService.interface_Signature.javaName()»().«this.calledService_ExternalService.javaSignature()» 
 	   	(«EXPAND m2t_transforms::java_core::ParameterUsageListTM FOR this.calledService_ExternalService»);
 	resultStackFrame = callResult;

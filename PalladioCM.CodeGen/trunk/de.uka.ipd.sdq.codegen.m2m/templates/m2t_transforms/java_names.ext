@@ -8,7 +8,8 @@ import completions;
 
 // Generate a java name by replacing all characters which are not java conform
 javaName(Entity e) :
-   e.entityName.replaceAll(" ","_").replaceAll("<","_").replaceAll(">","_");
+    e.entityName.replaceAll('"','_').replaceAll(' ','_').replaceAll("<","_").replaceAll(">","_").replaceAll(":","_")
+   .replaceAll("\\.","_").replaceAll("\\,","_").replaceAll("\\+","_").replaceAll("-","_");
 
 // Generate a java name by replacing all characters which are not java conform
 javaString(String s) :
@@ -23,8 +24,12 @@ specificationString(String s) :
    s.replaceAll('"','\\\\"');
  
 javaSignature(Signature s) :
-   s.serviceName.toFirstLower();
+   s.serviceName + s.posInInterface(0); // Ignore Java conventions and use user supplied name (s.serviceName.toFirstLower();)
          
+// TODO: Disable in Code Generations!
+posInInterface(Signature s, int pos) :
+	s.interface_Signature.signatures__Interface.get(pos) == s ? pos : s.posInInterface(pos+1); 
+	
 // ID of a single port class
 portClassName(ProvidedRole r) :
    r.providedInterface__ProvidedRole.javaName()+"_"+r.providingEntity_ProvidedRole.javaName();
@@ -96,11 +101,12 @@ fqn(Interface i) :
 fqn(ProvidesComponentType c) :
   c.implementationPackage()+"."+c.javaName();
 
-fqn(ComposedStructure s) :
+fqn(System s) :
   s.implementationPackage()+"."+s.javaName();
 
-fqn(Completion s) :
-  s.implementationPackage()+"."+s.javaName();
+// Completion should be matched by ProvidesComponentType
+//fqn(Completion s) :
+//  s.implementationPackage()+"."+s.javaName();
 
 fqn(UsageScenario us) :
   us.implementationPackage()+"."+us.javaName();

@@ -11,7 +11,7 @@
 «ENDDEFINE»
 
 «DEFINE ExpandCompletions FOR System»
-	«EXPAND CompletionRoot FOREACH this.getAllCompletions()»
+	«EXPAND CompletionRoot FOREACH this.getAllCompletions().flatten()»
 «ENDDEFINE»
 
 «DEFINE CompletionRoot FOR Completion»

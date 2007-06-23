@@ -19,8 +19,20 @@
    {
 		private static org.apache.log4j.Logger logger = 
 			org.apache.log4j.Logger.getLogger(«this.className()».class.getName());
-  
+	  «EXPAND Constructor FOR this»		
       «EXPAND m2t_transforms::composed_structure::InnerImplementation FOR this»
+«ENDDEFINE»
+
+«DEFINE Constructor FOR ComposedStructure»
+	public «this.className()»() {
+		logger.info("Creating composed structure «this.entityName»");
+		«EXPAND ChildMemberVarInit FOREACH this.childComponentContexts_ComposedStructure»
+	      
+		«IF InterfaceProvidingEntity.isInstance(this)»
+			/* And finally, my ports */
+			«EXPAND PortInit(this) FOREACH ((InterfaceProvidingEntity)this).providedRoles_InterfaceProvidingEntity»
+		«ENDIF»
+	}
 «ENDDEFINE»
 
 «DEFINE ComposedStructureEnd FOR ComposedStructure»
@@ -59,7 +71,6 @@
       * Inner Structure initialisation
       */
       private void initInnerComponents() {
-	      «EXPAND ChildMemberVarInit FOREACH this.childComponentContexts_ComposedStructure»
 
 		  /* First, initialise composite child structures */
 		  «FOREACH this.childComponentContexts_ComposedStructure.select(c|ComposedStructure.isInstance(c.encapsulatedComponent_ChildComponentContext)) AS child»
@@ -69,10 +80,6 @@
 		  «FOREACH this.childComponentContexts_ComposedStructure.select(c|!ComposedStructure.isInstance(c.encapsulatedComponent_ChildComponentContext)) AS child»
 			  init«child.javaName()»();
 		  «ENDFOREACH»
-		  «IF InterfaceProvidingEntity.isInstance(this)»
-			  /* And finally, my ports */
-			  «EXPAND PortInit(this) FOREACH ((InterfaceProvidingEntity)this).providedRoles_InterfaceProvidingEntity»
-		  «ENDIF»
       }
 
       «EXPAND Init(this) FOREACH this.childComponentContexts_ComposedStructure»

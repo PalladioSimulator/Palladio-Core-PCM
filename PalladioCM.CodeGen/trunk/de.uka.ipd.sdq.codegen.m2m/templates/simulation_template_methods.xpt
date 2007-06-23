@@ -63,7 +63,7 @@
 «ENDAROUND»
 
 «AROUND m2t_transforms::java_core::ReturnTypeTM FOR Signature»
-   de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe
+   de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe<Object>
 «ENDAROUND»
 
 «AROUND m2t_transforms::provided_ports::PortDelegationDelegatingCallTM FOR Signature»
