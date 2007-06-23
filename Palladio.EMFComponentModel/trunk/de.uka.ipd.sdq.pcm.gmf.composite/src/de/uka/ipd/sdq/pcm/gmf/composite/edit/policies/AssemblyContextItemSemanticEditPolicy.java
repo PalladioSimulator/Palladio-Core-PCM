@@ -11,6 +11,8 @@ import java.util.Iterator;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.commands.Command;
 import org.eclipse.gef.commands.CompoundCommand;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.BorderedBorderItemEditPart;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.requests.EditCommandRequestWrapper;
 import org.eclipse.gmf.runtime.emf.type.core.commands.DestroyElementCommand;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
@@ -22,6 +24,7 @@ import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.commands.ProvidedRoleCreateCommand;
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.commands.RequiredRoleCreateCommand;
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.AssemblyContextEditPart;
+import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.ProvidedRoleEditPart;
 import de.uka.ipd.sdq.pcm.gmf.composite.providers.PalladioComponentModelElementTypes;
 
 /**
@@ -56,14 +59,21 @@ public class AssemblyContextItemSemanticEditPolicy extends
 	}
 
 	/**
-	 * @generated
+	 * @generated not
 	 */
 	protected Command getDestroyElementCommand(DestroyElementRequest req) {
 		CompoundCommand cc = new CompoundCommand();
 		Collection allEdges = new ArrayList();
 		View view = (View) getHost().getModel();
-		allEdges.addAll(view.getSourceEdges());
-		allEdges.addAll(view.getTargetEdges());
+		for (Object p : getHost().getChildren()) {
+			if (p instanceof BorderedBorderItemEditPart) {
+				BorderedBorderItemEditPart borderItem = (BorderedBorderItemEditPart) p;
+				if (borderItem.getModel() != null && borderItem.getModel() instanceof View) {
+					allEdges.addAll(((View)borderItem.getModel()).getSourceEdges());
+					allEdges.addAll(((View)borderItem.getModel()).getTargetEdges());
+				}
+			}
+		}
 		for (Iterator it = allEdges.iterator(); it.hasNext();) {
 			Edge nextEdge = (Edge) it.next();
 			EditPart nextEditPart = (EditPart) getHost().getViewer()
