@@ -3,6 +3,7 @@ package de.uka.ipd.sdq.sensorfactory.dao.db4o.entities;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
@@ -91,8 +92,11 @@ public class ExperimentRunImpl extends AbstractExperimentRun {
 
 	@Override
 	public Collection<Measurement> getMeasurements() {
-		//return Collections.unmodifiableCollection(measurements);
-		return null;
+		List<Measurement> measurements = new LinkedList<Measurement>();
+		for(PersistedLinkedListAdapter adapter:index.values()) {
+			measurements.addAll(adapter);
+		}
+		return measurements;		
 	}
 
 	public void objectOnActivate(com.db4o.ObjectContainer arg0) {

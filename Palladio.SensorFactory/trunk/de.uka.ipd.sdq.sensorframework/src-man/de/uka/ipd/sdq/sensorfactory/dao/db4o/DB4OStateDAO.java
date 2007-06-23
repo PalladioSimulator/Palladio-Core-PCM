@@ -30,7 +30,7 @@ public class DB4OStateDAO implements IStateDAO {
 		this.idGen = idGen;
 	}
 
-	public State addState(String p_stateliteral) {
+	public synchronized State addState(String p_stateliteral) {
 		State result = new StateImpl(factory);
 		result.setStateID(idGen.getNextStateID());
 		result.setStateLiteral(p_stateliteral);
@@ -41,7 +41,7 @@ public class DB4OStateDAO implements IStateDAO {
 		return result;
 	}
 
-	public Collection<State> findByStateLiteral(final String searchKey) {
+	public synchronized Collection<State> findByStateLiteral(final String searchKey) {
 		List<State> resultList = db.query(new Predicate<State>() {
 	          public boolean match(State s) {
 	              return s.getStateLiteral().equals(searchKey);
@@ -52,7 +52,7 @@ public class DB4OStateDAO implements IStateDAO {
 
 	private HashMap<Long, State> cache = new HashMap<Long, State>();
 	
-	public State get(long id) {
+	public synchronized State get(long id) {
 		if (!cache.containsKey(id)){
 			State result = new StateImpl(factory);
 			result.setStateID(id);
@@ -66,8 +66,17 @@ public class DB4OStateDAO implements IStateDAO {
 		return null;
 	}
 
-	public void store(StateSensor stateSen) {
+	public synchronized void store(StateSensor stateSen) {
 		((ExtObjectContainer)db).set(stateSen,3);
+		db.commit();
+	}
+
+	public synchronized void removeState(State state, boolean doCascade) {
+		if (state == null) {
+			return;
+		}
+		
+		db.delete(state);
 		db.commit();
 	}
 

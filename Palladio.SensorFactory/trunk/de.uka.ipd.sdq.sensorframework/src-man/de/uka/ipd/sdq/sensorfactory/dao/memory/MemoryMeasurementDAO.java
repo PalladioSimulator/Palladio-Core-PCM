@@ -5,6 +5,7 @@ import java.util.Collections;
 import java.util.HashMap;
 
 import de.uka.ipd.sdq.sensorfactory.entities.Measurement;
+import de.uka.ipd.sdq.sensorfactory.entities.Sensor;
 import de.uka.ipd.sdq.sensorfactory.entities.State;
 import de.uka.ipd.sdq.sensorfactory.entities.StateMeasurement;
 import de.uka.ipd.sdq.sensorfactory.entities.StateSensor;
@@ -55,5 +56,30 @@ public class MemoryMeasurementDAO implements IMeasurementDAO {
 
 	public synchronized Collection<Measurement> getMeasurements() {
 		return Collections.unmodifiableCollection(index.values());
+	}
+
+	public synchronized void removeMeasurement(Measurement measurement, boolean doCascade) {
+		if (measurement == null) {
+			return;
+		}
+		
+		if ( doCascade == true ) {
+			if (measurement instanceof StateMeasurement) {
+				//remove the state
+				State state = ((StateMeasurement)measurement).getSensorState();
+				myFactory.createStateDAO().removeState(state, true);
+				
+				//remove the sensor
+				Sensor sensor = ((StateMeasurement)measurement).getSensor();
+				myFactory.createSensorDAO().removeSensor(sensor, true);
+			}
+			if (measurement instanceof TimeSpanMeasurement) {
+				//remove the sensor
+				Sensor sensor = ((TimeSpanMeasurement)measurement).getSensor();
+				myFactory.createSensorDAO().removeSensor(sensor, true);
+			}
+		}
+		
+		index.remove(measurement.getMeasurementID());		
 	}
 }

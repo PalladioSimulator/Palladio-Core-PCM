@@ -6,6 +6,8 @@ import java.util.Date;
 import java.util.HashMap;
 
 import de.uka.ipd.sdq.sensorfactory.entities.ExperimentRun;
+import de.uka.ipd.sdq.sensorfactory.entities.Measurement;
+import de.uka.ipd.sdq.sensorfactory.entities.Sensor;
 import de.uka.ipd.sdq.sensorfactory.entities.dao.IDAOFactory;
 import de.uka.ipd.sdq.sensorfactory.entities.dao.IExperimentRunDAO;
 import de.uka.ipd.sdq.sensorfactory.entities.impl.ExperimentRunImpl;
@@ -38,6 +40,21 @@ public class MemoryExperimentRunDAO implements IExperimentRunDAO {
 	}
 
 	public void store(ExperimentRun er) {
+	}
+
+	public synchronized void removeExperimentRun(ExperimentRun experimentRun,
+			boolean doCascade) {
+		if (experimentRun == null) {
+			return;
+		}
+		
+		if ( doCascade == true ) {
+			//remove all measurements
+			for (Measurement measurement:experimentRun.getMeasurements()) {
+				myFactory.createMeasurementDAO().removeMeasurement(measurement, true);
+			}
+		}
+		index.remove(experimentRun.getExperimentRunID());		
 	}
 
 }

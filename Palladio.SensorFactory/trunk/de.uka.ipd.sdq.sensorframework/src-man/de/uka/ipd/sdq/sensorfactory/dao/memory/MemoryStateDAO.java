@@ -49,7 +49,7 @@ public class MemoryStateDAO implements IStateDAO {
 		return Collections.unmodifiableCollection(index.values());
 	}
 
-	public Collection<State> findByStateLiteral(String searchKey) {
+	public synchronized Collection<State> findByStateLiteral(String searchKey) {
 		ArrayList<State> result = new ArrayList<State>();
 		for (State e:this.index.values()){
 			if (e.getStateLiteral().equals(searchKey))
@@ -59,6 +59,14 @@ public class MemoryStateDAO implements IStateDAO {
 	}
 
 	public void store(StateSensor stateSen) {
+	}
+
+	public synchronized void removeState(State state, boolean doCascade) {
+		if (state == null) {
+			return;
+		}
+		
+		index.remove(state.getStateID());
 	}
 
 }

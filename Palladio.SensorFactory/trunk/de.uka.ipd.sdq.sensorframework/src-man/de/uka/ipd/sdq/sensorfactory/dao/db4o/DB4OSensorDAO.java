@@ -29,7 +29,7 @@ public class DB4OSensorDAO implements ISensorDAO {
 		this.idGen = idGen;
 	}
 
-	public StateSensor addStateSensor(State p_initialstate, String p_sensorname) {
+	public synchronized StateSensor addStateSensor(State p_initialstate, String p_sensorname) {
 		StateSensor result = new StateSensorImpl(factory);
 		result.setSensorID(idGen.getNextSensorID());
 		result.setInitialState(p_initialstate);
@@ -40,7 +40,7 @@ public class DB4OSensorDAO implements ISensorDAO {
 		return result;
 	}
 
-	public TimeSpanSensor addTimeSpanSensor(String p_sensorname) {
+	public synchronized TimeSpanSensor addTimeSpanSensor(String p_sensorname) {
 		TimeSpanSensor result = new TimeSpanSensorImpl(factory);
 		result.setSensorID(idGen.getNextSensorID());
 		result.setSensorName(p_sensorname);
@@ -50,7 +50,7 @@ public class DB4OSensorDAO implements ISensorDAO {
 		return result;
 	}
 
-	public Collection<Sensor> findBySensorName(final String searchKey) {
+	public synchronized Collection<Sensor> findBySensorName(final String searchKey) {
 		List<Sensor> resultList = db.query(new Predicate<Sensor>() {
 	          public boolean match(Sensor s) {
 	              return s.getSensorName().equals(searchKey);
@@ -59,7 +59,7 @@ public class DB4OSensorDAO implements ISensorDAO {
 		return Collections.unmodifiableCollection(resultList);
 	}
 
-	public Sensor get(final long id) {
+	public synchronized Sensor get(final long id) {
 		List<Sensor> resultList = db.query(new Predicate<Sensor>() {
 	          public boolean match(Sensor s) {
 	              if (s instanceof TimeSpanSensor) {
@@ -77,6 +77,24 @@ public class DB4OSensorDAO implements ISensorDAO {
 	public Collection<Sensor> getSensors() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	public synchronized void removeSensor(Sensor sensor, boolean doCascade) {
+		if (sensor == null) {
+			return;
+		}
+		
+		if ( doCascade == true ) {
+			if (sensor instanceof StateSensor) {
+				//remove the states
+				for (State state: ((StateSensor)sensor).getSensorStates()) {
+					factory.createStateDAO().removeState(state, true);
+				}
+			}
+		}
+		
+		db.delete(sensor);
+		db.commit();
 	}
 
 }

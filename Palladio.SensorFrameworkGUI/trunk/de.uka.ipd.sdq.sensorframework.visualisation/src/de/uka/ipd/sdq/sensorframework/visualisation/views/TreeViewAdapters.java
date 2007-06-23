@@ -169,7 +169,7 @@ class ExperimentsAdapter implements ISelectionChangedListener {
 			while (it.hasNext()) {
 				ExperimentAndDAO toDel = it.next();
 				IExperimentDAO dao = toDel.getDatasource().createExperimentDAO();
-				dao.removeExperiment(toDel.getExperiment());
+				dao.removeExperiment(toDel.getExperiment(), true);
 				myChildTree.remove(toDel);
 			}
 		}
@@ -193,19 +193,23 @@ class ExperimentsAdapter implements ISelectionChangedListener {
 				return;
 			}
 			
-			List<Experiment> experiments = getSelectedExperiments();
-			if (experiments.isEmpty()) {
+			List<ExperimentAndDAO> expAndDAOs = getSelectedExperimentAndDAOs();
+			if (expAndDAOs.isEmpty()) {
 				return;
 			}
 			
 			//get the first (and only) selected experiment
-			Experiment experiment = experiments.get(0);
+			Experiment experiment = expAndDAOs.get(0).getExperiment();
 			
 			//ask the user for a new name
 			InputDialog dlg = new InputDialog(Display.getCurrent().getActiveShell(),
 		            "Rename experiment", "Enter the new experiment name!", experiment.getExperimentName(), new NameValidator());
 		    if (dlg.open() == Window.OK) {
 		        experiment.setExperimentName(dlg.getValue());
+		        
+		        //persist the experiment
+		        expAndDAOs.get(0).getDatasource().createExperimentDAO().store(experiment);
+		        
 		        myChildTree.refresh();
 		    }
 		}

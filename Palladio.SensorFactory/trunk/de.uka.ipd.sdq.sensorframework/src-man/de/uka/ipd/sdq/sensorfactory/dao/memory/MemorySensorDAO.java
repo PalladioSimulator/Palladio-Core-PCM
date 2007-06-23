@@ -6,9 +6,12 @@ import java.util.Collections;
 import java.util.HashMap;
 
 import de.uka.ipd.sdq.sensorfactory.entities.Experiment;
+import de.uka.ipd.sdq.sensorfactory.entities.Measurement;
 import de.uka.ipd.sdq.sensorfactory.entities.Sensor;
 import de.uka.ipd.sdq.sensorfactory.entities.State;
+import de.uka.ipd.sdq.sensorfactory.entities.StateMeasurement;
 import de.uka.ipd.sdq.sensorfactory.entities.StateSensor;
+import de.uka.ipd.sdq.sensorfactory.entities.TimeSpanMeasurement;
 import de.uka.ipd.sdq.sensorfactory.entities.TimeSpanSensor;
 import de.uka.ipd.sdq.sensorfactory.entities.dao.IDAOFactory;
 import de.uka.ipd.sdq.sensorfactory.entities.dao.ISensorDAO;
@@ -59,5 +62,22 @@ public class MemorySensorDAO implements ISensorDAO {
 				result.add(e);
 		}
 		return Collections.unmodifiableCollection(result);
+	}
+
+	public synchronized void removeSensor(Sensor sensor, boolean doCascade) {
+		if (sensor == null) {
+			return;
+		}
+		
+		if ( doCascade == true ) {
+			if (sensor instanceof StateSensor) {
+				//remove the states
+				for (State state: ((StateSensor)sensor).getSensorStates()) {
+					myFactory.createStateDAO().removeState(state, true);
+				}
+			}
+		}
+		
+		index.remove(sensor.getSensorID());
 	}
 }

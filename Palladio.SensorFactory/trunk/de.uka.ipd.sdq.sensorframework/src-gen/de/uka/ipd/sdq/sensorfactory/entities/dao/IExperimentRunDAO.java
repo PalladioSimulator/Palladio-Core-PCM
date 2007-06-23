@@ -1,27 +1,21 @@
-
-		package de.uka.ipd.sdq.sensorfactory.entities.dao;
+package de.uka.ipd.sdq.sensorfactory.entities.dao;
 
 import de.uka.ipd.sdq.sensorfactory.entities.ExperimentRun;
-		public interface IExperimentRunDAO {
-			
-				
+
+public interface IExperimentRunDAO {
+
 	de.uka.ipd.sdq.sensorfactory.entities.ExperimentRun addExperimentRun(
-		
-		
-   
-	String
- p_experimentdatetime
-	)
-;
-			
 
-			/* Finder methods to search for ExperimentRuns */
-			;
+	String p_experimentdatetime);
 
-			de.uka.ipd.sdq.sensorfactory.entities.ExperimentRun get(long id);
-			java.util.Collection<de.uka.ipd.sdq.sensorfactory.entities.ExperimentRun> getExperimentRuns();
-
-
-			void store(ExperimentRun er);
-		} 
+	/* Finder methods to search for ExperimentRuns */
+	;
 	
+	void removeExperimentRun(de.uka.ipd.sdq.sensorfactory.entities.ExperimentRun experimentRun, boolean doCascade);
+
+	de.uka.ipd.sdq.sensorfactory.entities.ExperimentRun get(long id);
+
+	java.util.Collection<de.uka.ipd.sdq.sensorfactory.entities.ExperimentRun> getExperimentRuns();
+
+	void store(ExperimentRun er);
+}

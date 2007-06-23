@@ -8,7 +8,12 @@ public interface IExperimentDAO {
 	de.uka.ipd.sdq.sensorfactory.entities.Experiment 
 		addExperiment(String p_experimentname);
 	
-	void removeExperiment(de.uka.ipd.sdq.sensorfactory.entities.Experiment experiment);
+	/**
+	 * delete the experiment data and remove it from the dao
+	 * @param experiment the experiment to remove
+	 * @param doCascade should the remove cascade down to children and remove them aswell
+	 */
+	void removeExperiment(de.uka.ipd.sdq.sensorfactory.entities.Experiment experiment, boolean doCascade);
 
 	/* Finder methods to search for Experiments */
 

@@ -6,6 +6,8 @@ import java.util.Collections;
 import java.util.HashMap;
 
 import de.uka.ipd.sdq.sensorfactory.entities.Experiment;
+import de.uka.ipd.sdq.sensorfactory.entities.ExperimentRun;
+import de.uka.ipd.sdq.sensorfactory.entities.Sensor;
 import de.uka.ipd.sdq.sensorfactory.entities.dao.IExperimentDAO;
 import de.uka.ipd.sdq.sensorfactory.entities.impl.ExperimentImpl;
 
@@ -38,7 +40,7 @@ public class MemoryExperimentDAO implements IExperimentDAO {
 		return Collections.unmodifiableCollection(index.values());
 	}
 
-	public Collection<Experiment> findByExperimentName(String searchKey) {
+	public synchronized Collection<Experiment> findByExperimentName(String searchKey) {
 		ArrayList<Experiment> result = new ArrayList<Experiment>();
 		for (Experiment e:this.index.values()){
 			if (e.getExperimentName().equals(searchKey))
@@ -50,8 +52,21 @@ public class MemoryExperimentDAO implements IExperimentDAO {
 	public void store(Experiment e) {
 	}
 
-	public void removeExperiment(Experiment experiment) {
+	public synchronized void removeExperiment(Experiment experiment, boolean doCascade) {
+		if (experiment == null) {
+			return;
+		}
+		
+		if ( doCascade == true ) {
+			//remove all experiment runs
+			for (ExperimentRun expRun:experiment.getExperimentRuns()) {
+				factory.createExperimentRunDAO().removeExperimentRun(expRun, true);
+			}
+			//remove all sensors
+			for (Sensor sensor:experiment.getSensors()) {
+				factory.createSensorDAO().removeSensor(sensor, true);
+			}
+		}
 		index.remove(experiment.getExperimentID());
 	}
-
 }
