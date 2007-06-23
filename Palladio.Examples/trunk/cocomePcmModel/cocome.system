@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<pcm.system:System xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:pcm.system="http://sdq.ipd.uka.de/PalladioComponentModel/System/1.0" id="_p7UQMNC5EduW_YoCCnq0vw" entityName="">
+<pcm.system:System xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:pcm.system="http://sdq.ipd.uka.de/PalladioComponentModel/System/1.0" id="_p7UQMNC5EduW_YoCCnq0vw" entityName="CocoMESystem">
   <childComponentContexts_ComposedStructure id="_GD2LsNC7EduW_YoCCnq0vw" entityName="GUI">
     <encapsulatedComponent_ChildComponentContext href="cocome.repository#_5klGGNCjEduC9O_qbthgAg"/>
   </childComponentContexts_ComposedStructure>

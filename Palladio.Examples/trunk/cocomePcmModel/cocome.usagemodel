@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <pcm.usagemodel:UsageModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pcm.usagemodel="http://sdq.ipd.uka.de/PalladioComponentModel/UsageModel/1.0" xmlns:stoex="http://sdq.ipd.uka.de/StochasticExpressions/1.0">
-  <usageScenario_UsageModel id="_-7SoIOEiEduBSuO8WivxSA" entityName="">
+  <usageScenario_UsageModel id="_-7SoIOEiEduBSuO8WivxSA" entityName="CoCoMeUsage">
     <workload_UsageScenario xsi:type="pcm.usagemodel:OpenWorkload">
       <interArrivalTime_OpenWorkload specification="11250"/>
     </workload_UsageScenario>
@@ -11,7 +11,7 @@
           <variableCharacterisation_VariableUsage specification="IntPMF[ (1;0.3) (8;0.1) (15;0.15) (25;0.15) (50;0.2) (75;0.1) ]" type="NUMBER_OF_ELEMENTS"/>
           <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="saleTO"/>
         </actualParameterUsage_EntryLevelSystemCall>
-        <providedRole_EntryLevelSystemCall href="cocome.repository#_3fx3kNC1EduW_YoCCnq0vw"/>
+        <providedRole_EntryLevelSystemCall href="cocome.system#_tbwboNC6EduW_YoCCnq0vw"/>
         <signature_EntryLevelSystemCall href="cocome.repository#//@interfaces__Repository.0/@signatures__Interface.0"/>
       </actions_ScenarioBehaviour>
       <actions_ScenarioBehaviour xsi:type="pcm.usagemodel:Stop" id="_zE5h5R88Edy8vbmreGRsqg" predecessor="_zE5h4x88Edy8vbmreGRsqg"/>
