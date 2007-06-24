@@ -2102,7 +2102,7 @@
       </eAnnotations>
       <ownedMember xmi:type="uml:Class" xmi:id="_hElNAJJ7EdqSSImFLKDkSg" name="ProvidedDelegationConnector">
         <ownedRule xmi:id="_wkJLAKVCEdqWue6EZILF7w" name="ProvidedDelegationConnector and the connected Component must be part of the same composite structure" constrainedElement="_hElNAJJ7EdqSSImFLKDkSg">
-          <specification xmi:type="uml:OpaqueExpression" xmi:id="_wkJLAaVCEdqWue6EZILF7w" body="self.parentStructure_ProvidedDelegationConnector = self.childComponentContext_ProvidedDelegationConnector" language="OCL"/>
+          <specification xmi:type="uml:OpaqueExpression" xmi:id="_wkJLAaVCEdqWue6EZILF7w" body="self.parentStructure_ProvidedDelegationConnector = self.childComponentContext_ProvidedDelegationConnector.parentStructure_AssemblyContext" language="OCL"/>
         </ownedRule>
         <generalization xmi:id="_vHOvoJQAEdqSSImFLKDkSg" general="_SdDqMJQAEdqSSImFLKDkSg"/>
         <ownedAttribute xmi:id="_jVZnAeM2EdqaQsPH3rPnBQ" name="innerProvidedRole_ProvidedDelegationConnector" type="_-M7kYJJIEdqSSImFLKDkSg" association="_jVZnAOM2EdqaQsPH3rPnBQ"/>
@@ -2111,8 +2111,8 @@
         <ownedAttribute xmi:id="_GK5a4mc8EduCGaQAxkcIwA" name="parentStructure_ProvidedDelegationConnector" type="_n_-J0Gc6EduCGaQAxkcIwA" association="_GK5a4Gc8EduCGaQAxkcIwA"/>
       </ownedMember>
       <ownedMember xmi:type="uml:Class" xmi:id="_jt-4MJJ7EdqSSImFLKDkSg" name="RequiredDelegationConnector">
-        <ownedRule xmi:id="_PJ6HgKVQEdqWue6EZILF7w" name="InnerContainingComponentEqualOuterRequiringComponent" constrainedElement="_jt-4MJJ7EdqSSImFLKDkSg">
-          <specification xmi:type="uml:OpaqueExpression" xmi:id="_PJ6HgaVQEdqWue6EZILF7w" body="self.parentStructure_RequiredDelegationConnector = self.childComponentContext_RequiredDelegationConnector" language="OCL"/>
+        <ownedRule xmi:id="_PJ6HgKVQEdqWue6EZILF7w" name="RequiredDelegationConnector and the connected Component must be part of the same composite structure" constrainedElement="_jt-4MJJ7EdqSSImFLKDkSg">
+          <specification xmi:type="uml:OpaqueExpression" xmi:id="_PJ6HgaVQEdqWue6EZILF7w" body="self.parentStructure_RequiredDelegationConnector = self.childComponentContext_RequiredDelegationConnector.parentStructure_AssemblyContext" language="OCL"/>
         </ownedRule>
         <generalization xmi:id="_vcDJEJQAEdqSSImFLKDkSg" general="_SdDqMJQAEdqSSImFLKDkSg"/>
         <ownedAttribute xmi:id="_x-rkkeM2EdqaQsPH3rPnBQ" name="innerRequiredRole_RequiredDelegationConnector" type="__o_5wJJIEdqSSImFLKDkSg" association="_x-rkkOM2EdqaQsPH3rPnBQ"/>
