@@ -23,11 +23,11 @@ javaVariableName(String s) :
 specificationString(String s) :
    s.replaceAll('"','\\\\"');
  
-javaSignature(Signature s) :
+String javaSignature(Signature s) :
    s.serviceName + s.posInInterface(0); // Ignore Java conventions and use user supplied name (s.serviceName.toFirstLower();)
          
 // TODO: Disable in Code Generations!
-posInInterface(Signature s, int pos) :
+String posInInterface(Signature s, int pos) :
 	s.interface_Signature.signatures__Interface.get(pos) == s ? pos : s.posInInterface(pos+1); 
 	
 // ID of a single port class
@@ -50,6 +50,10 @@ portMemberVar(ProvidedRole r) :
 // of the provided ports
 portGetter(ProvidedRole r) :
    "getPort"+r.providedInterface__ProvidedRole.javaName();
+
+// Base package of a generated system   
+basePackageName(Entity s) :
+   s.javaName().toLowerCase();
       
 implementationPackage(Entity e) :
    "should never be called!";
@@ -73,10 +77,6 @@ implementationPackage(UsageScenario u) :
 // Package name of the implementation classes implementing a component     
 implementationPackage(ProvidesComponentType c) :
    c.repository_ProvidesComponentType.basePackageName()+".impl";
-
-// Base package of a generated system   
-basePackageName(Entity s) :
-   s.javaName().toLowerCase();
 
 // Name of the main class implementing a system
 className(ComposedStructure s) :

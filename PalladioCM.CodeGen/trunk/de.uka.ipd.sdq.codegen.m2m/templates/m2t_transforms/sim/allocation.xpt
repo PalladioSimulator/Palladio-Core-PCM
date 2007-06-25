@@ -16,7 +16,7 @@
 //     current context
 //------------------------------
 «DEFINE Allocation FOR Allocation»
-	«EXPAND m2t_transforms::sim::resources::ResourceEnvironment FOR this.targetResourceEnvironment_Allocation»
+	«EXPAND m2t_transforms::sim::resources::ResourceEnvironmentRoot FOR this.targetResourceEnvironment_Allocation»
 	«FILE this.fqnAllocationContext().fqnToDirectoryPath()+".java"»
 		package «this.fqnAllocationContextPackage()»;
 		 
@@ -38,13 +38,13 @@
 «DEFINE AssemblyContextLink FOR AllocationContext»
 	linkAssemblyContextAndResourceContainer("«this.assemblyContext_AllocationContext.id»","«this.resourceContainer_AllocationContext.id»");
 	«IF CompositeComponent.isInstance(this.assemblyContext_AllocationContext.encapsulatedComponent_ChildComponentContext)»
-		«EXPAND CompositeAllocation(this) FOREACH this.assemblyContext_AllocationContext.encapsulatedComponent_ChildComponentContext.childComponentContexts_ComposedStructure»
+		«EXPAND CompositeAllocation(this) FOREACH ((CompositeComponent)this.assemblyContext_AllocationContext.encapsulatedComponent_ChildComponentContext).childComponentContexts_ComposedStructure»
 	«ENDIF»
 «ENDDEFINE»
 
 «DEFINE CompositeAllocation(AllocationContext allocCxt) FOR AssemblyContext»
 	linkAssemblyContextAndResourceContainer("«this.id»","«allocCxt.resourceContainer_AllocationContext.id»");
 	«IF CompositeComponent.isInstance(this.encapsulatedComponent_ChildComponentContext)»
-		«EXPAND CompositeAllocation(allocCxt) FOREACH this.encapsulatedComponent_ChildComponentContext.childComponentContexts_ComposedStructure»
+		«EXPAND CompositeAllocation(allocCxt) FOREACH ((CompositeComponent)this.encapsulatedComponent_ChildComponentContext).childComponentContexts_ComposedStructure»
 	«ENDIF»
 «ENDDEFINE»

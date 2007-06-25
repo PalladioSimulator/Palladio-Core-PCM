@@ -19,7 +19,7 @@ public class OpenWorkloadUser extends SimProcess implements IUser {
 		Logger.getLogger(OpenWorkloadUser.class.getName());
 
 	public OpenWorkloadUser(Model owner, String name, IScenarioRunner scenarioRunner) {
-		super(owner, name, true);
+		super(owner, name, false);
 		this.scenarioRunner = scenarioRunner;
 	}
 

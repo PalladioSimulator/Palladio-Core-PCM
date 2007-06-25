@@ -12,7 +12,7 @@ public class SimulatedPassiveResource extends SimProcess {
 	
 	public SimulatedPassiveResource(SimuComModel myModel, String typeID, int capacity)
 	{
-		super (myModel, typeID, true);
+		super (myModel, typeID, false);
 		associatedQueue = new ProcessQueue(
 				myModel, 
 				typeID+" WaitQueue",

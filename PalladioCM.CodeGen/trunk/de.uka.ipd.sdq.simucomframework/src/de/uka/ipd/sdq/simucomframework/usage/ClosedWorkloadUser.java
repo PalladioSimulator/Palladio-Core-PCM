@@ -24,7 +24,7 @@ public class ClosedWorkloadUser extends SimProcess implements IUser {
 	private String thinkTime;
 
 	public ClosedWorkloadUser(Model owner, String name, IScenarioRunner scenarioRunner2, String thinkTimeSpec) {
-		super(owner, name, true);
+		super(owner, name, false);
 		this.scenarioRunner = scenarioRunner2;
 		this.thinkTime = thinkTimeSpec;
 	}

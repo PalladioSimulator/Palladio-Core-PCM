@@ -33,7 +33,7 @@ public abstract class AbstractScheduledResource extends Entity {
 	
 	public AbstractScheduledResource(SimuComModel myModel, String id, String description, SchedulingStrategy strategy)
 	{
-		super (myModel, id, true);
+		super (myModel, id, false);
 		this.idle = true;
 		
 		this.idleState = createOrReuseState(myModel.getDAOFactory().createStateDAO(), "Idle");

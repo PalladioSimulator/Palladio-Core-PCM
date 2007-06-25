@@ -153,10 +153,10 @@
 		<metaModel id="pcm.core.composition.emf" class="oaw.type.emf.EmfMetaModel">
 			<metaModelPackage value="de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage"/>
 		</metaModel>		
-		<metaModel id="pcm.core.composition.emf" class="oaw.type.emf.EmfMetaModel">
+		<metaModel id="pcm.core.resourceenv" class="oaw.type.emf.EmfMetaModel">
 			<metaModelPackage value="de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage"/>
 		</metaModel>
-		<metaModel id="pcm.core.composition.emf" class="oaw.type.emf.EmfMetaModel">
+		<metaModel id="pcm.core.parameter" class="oaw.type.emf.EmfMetaModel">
 			<metaModelPackage value="de.uka.ipd.sdq.pcm.parameter.ParameterPackage"/>
 		</metaModel>
 		<metaModel id="pcm.core.completions" class="oaw.type.emf.EmfMetaModel">
