@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ASCII"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <pcm.repository:Repository xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pcm.repository="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/1.0" xmlns:pcm.seff="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0" xmlns:stoex="http://sdq.ipd.uka.de/StochasticExpressions/1.0" id="_S4rTcNCXEduC9O_qbthgAg" entityName="cocome-Repository" repositoryDescription="see cocome.org">
   <components__Repository xsi:type="pcm.repository:BasicComponent" id="_-3VggNCgEduC9O_qbthgAg" entityName="TradingSystem.Inventory.Data.Enterprise">
     <providedRoles_InterfaceProvidingEntity id="_d1Mf0NChEduC9O_qbthgAg" entityName="Enterprise.EnterpriseQueryIf" providedInterface__ProvidedRole="_Eldg8NChEduC9O_qbthgAg"/>
@@ -510,8 +510,9 @@
       <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_ifiSJiCfEdyrYp4aNf6BNw" predecessor_AbstractAction="_ifiSJSCfEdyrYp4aNf6BNw"/>
     </serviceEffectSpecifications__BasicComponent>
     <serviceEffectSpecifications__BasicComponent xsi:type="pcm.seff:ResourceDemandingSEFF" id="_ifiSJyCfEdyrYp4aNf6BNw" describedService__SEFF="//@interfaces__Repository.0/@signatures__Interface.0">
-      <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_ifiSKCCfEdyrYp4aNf6BNw" successor_AbstractAction="_ifiSKSCfEdyrYp4aNf6BNw"/>
-      <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_ifiSKSCfEdyrYp4aNf6BNw" predecessor_AbstractAction="_ifiSKCCfEdyrYp4aNf6BNw"/>
+      <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_ifiSKCCfEdyrYp4aNf6BNw" successor_AbstractAction="_iF_rMCPmEdyLBZREr9U8dw"/>
+      <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_ifiSKSCfEdyrYp4aNf6BNw" predecessor_AbstractAction="_iF_rMCPmEdyLBZREr9U8dw"/>
+      <steps_Behaviour xsi:type="pcm.seff:ExternalCallAction" id="_iF_rMCPmEdyLBZREr9U8dw" predecessor_AbstractAction="_ifiSKCCfEdyrYp4aNf6BNw" successor_AbstractAction="_ifiSKSCfEdyrYp4aNf6BNw" calledService_ExternalService="//@interfaces__Repository.0/@signatures__Interface.0"/>
     </serviceEffectSpecifications__BasicComponent>
     <serviceEffectSpecifications__BasicComponent xsi:type="pcm.seff:ResourceDemandingSEFF" id="_ifiSKiCfEdyrYp4aNf6BNw" describedService__SEFF="//@interfaces__Repository.0/@signatures__Interface.1">
       <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_ifiSKyCfEdyrYp4aNf6BNw" successor_AbstractAction="_ifiSLCCfEdyrYp4aNf6BNw"/>

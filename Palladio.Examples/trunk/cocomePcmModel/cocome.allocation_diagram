@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.1/notation" xmlns:pcm.allocation="http://sdq.ipd.uka.de/PalladioComponentModel/Allocation/1.0" xmlns:pcm.resourceenvironment="http://sdq.ipd.uka.de/PalladioComponentModel/ResourceEnvironment/1.0" xmi:id="_z4cZICPmEdyLBZREr9U8dw" type="allocation" measurementUnit="Pixel">
+  <children xmi:type="notation:Node" xmi:id="_z-joMCPmEdyLBZREr9U8dw" type="2002">
+    <children xmi:type="notation:Node" xmi:id="_z-joNiPmEdyLBZREr9U8dw" type="5003"/>
+    <children xmi:type="notation:Node" xmi:id="_z-joNyPmEdyLBZREr9U8dw" type="7002">
+      <children xmi:type="notation:Node" xmi:id="_7f3dgCPmEdyLBZREr9U8dw" type="3001">
+        <children xmi:type="notation:Node" xmi:id="_7f3dhiPmEdyLBZREr9U8dw" type="5001"/>
+        <children xmi:type="notation:Node" xmi:id="_7f3dhyPmEdyLBZREr9U8dw" type="5005"/>
+        <styles xmi:type="notation:FontStyle" xmi:id="_7f3dgSPmEdyLBZREr9U8dw"/>
+        <styles xmi:type="notation:DescriptionStyle" xmi:id="_7f3dgiPmEdyLBZREr9U8dw"/>
+        <styles xmi:type="notation:FillStyle" xmi:id="_7f3dgyPmEdyLBZREr9U8dw"/>
+        <styles xmi:type="notation:LineStyle" xmi:id="_7f3dhCPmEdyLBZREr9U8dw"/>
+        <element xmi:type="pcm.allocation:AllocationContext" href="cocome.allocation#_5l0ysCPmEdyLBZREr9U8dw"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_7f3dhSPmEdyLBZREr9U8dw" x="19" y="4"/>
+      </children>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_z-joOCPmEdyLBZREr9U8dw"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_z-joOSPmEdyLBZREr9U8dw"/>
+    </children>
+    <styles xmi:type="notation:FontStyle" xmi:id="_z-joMSPmEdyLBZREr9U8dw"/>
+    <styles xmi:type="notation:DescriptionStyle" xmi:id="_z-joMiPmEdyLBZREr9U8dw"/>
+    <styles xmi:type="notation:FillStyle" xmi:id="_z-joMyPmEdyLBZREr9U8dw"/>
+    <styles xmi:type="notation:LineStyle" xmi:id="_z-joNCPmEdyLBZREr9U8dw"/>
+    <element xmi:type="pcm.resourceenvironment:ResourceContainer" href="cocome.resourceenvironment#_mpMBEOEgEduBSuO8WivxSA"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_z-joNSPmEdyLBZREr9U8dw" x="60" y="276"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_z-joOiPmEdyLBZREr9U8dw" type="2002">
+    <children xmi:type="notation:Node" xmi:id="_z-joQCPmEdyLBZREr9U8dw" type="5003"/>
+    <children xmi:type="notation:Node" xmi:id="_z-joQSPmEdyLBZREr9U8dw" type="7002">
+      <styles xmi:type="notation:SortingStyle" xmi:id="_z-joQiPmEdyLBZREr9U8dw"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_z-joQyPmEdyLBZREr9U8dw"/>
+    </children>
+    <styles xmi:type="notation:FontStyle" xmi:id="_z-joOyPmEdyLBZREr9U8dw"/>
+    <styles xmi:type="notation:DescriptionStyle" xmi:id="_z-joPCPmEdyLBZREr9U8dw"/>
+    <styles xmi:type="notation:FillStyle" xmi:id="_z-joPSPmEdyLBZREr9U8dw"/>
+    <styles xmi:type="notation:LineStyle" xmi:id="_z-joPiPmEdyLBZREr9U8dw"/>
+    <element xmi:type="pcm.resourceenvironment:ResourceContainer" href="cocome.resourceenvironment#_W6WUMOEhEduBSuO8WivxSA"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_z-joPyPmEdyLBZREr9U8dw" x="60" y="24"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_z-joRCPmEdyLBZREr9U8dw" type="2002">
+    <children xmi:type="notation:Node" xmi:id="_z-joSiPmEdyLBZREr9U8dw" type="5003"/>
+    <children xmi:type="notation:Node" xmi:id="_z-joSyPmEdyLBZREr9U8dw" type="7002">
+      <children xmi:type="notation:Node" xmi:id="_9Q0dwCPmEdyLBZREr9U8dw" type="3001">
+        <children xmi:type="notation:Node" xmi:id="_9Q0dxiPmEdyLBZREr9U8dw" type="5001"/>
+        <children xmi:type="notation:Node" xmi:id="_9Q0dxyPmEdyLBZREr9U8dw" type="5005"/>
+        <styles xmi:type="notation:FontStyle" xmi:id="_9Q0dwSPmEdyLBZREr9U8dw"/>
+        <styles xmi:type="notation:DescriptionStyle" xmi:id="_9Q0dwiPmEdyLBZREr9U8dw"/>
+        <styles xmi:type="notation:FillStyle" xmi:id="_9Q0dwyPmEdyLBZREr9U8dw"/>
+        <styles xmi:type="notation:LineStyle" xmi:id="_9Q0dxCPmEdyLBZREr9U8dw"/>
+        <element xmi:type="pcm.allocation:AllocationContext" href="cocome.allocation#_8dj00CPmEdyLBZREr9U8dw"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_9Q0dxSPmEdyLBZREr9U8dw" x="30"/>
+      </children>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_z-joTCPmEdyLBZREr9U8dw"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_z-joTSPmEdyLBZREr9U8dw"/>
+    </children>
+    <styles xmi:type="notation:FontStyle" xmi:id="_z-joRSPmEdyLBZREr9U8dw"/>
+    <styles xmi:type="notation:DescriptionStyle" xmi:id="_z-joRiPmEdyLBZREr9U8dw"/>
+    <styles xmi:type="notation:FillStyle" xmi:id="_z-joRyPmEdyLBZREr9U8dw"/>
+    <styles xmi:type="notation:LineStyle" xmi:id="_z-joSCPmEdyLBZREr9U8dw"/>
+    <element xmi:type="pcm.resourceenvironment:ResourceContainer" href="cocome.resourceenvironment#_ZVdrwOEhEduBSuO8WivxSA"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_z-joSSPmEdyLBZREr9U8dw" x="60" y="192"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_z-joTiPmEdyLBZREr9U8dw" type="2002">
+    <children xmi:type="notation:Node" xmi:id="_z-joVCPmEdyLBZREr9U8dw" type="5003"/>
+    <children xmi:type="notation:Node" xmi:id="_z-joVSPmEdyLBZREr9U8dw" type="7002">
+      <children xmi:type="notation:Node" xmi:id="_-F3PYCPmEdyLBZREr9U8dw" type="3001">
+        <children xmi:type="notation:Node" xmi:id="_-F3PZiPmEdyLBZREr9U8dw" type="5001"/>
+        <children xmi:type="notation:Node" xmi:id="_-F3PZyPmEdyLBZREr9U8dw" type="5005"/>
+        <styles xmi:type="notation:FontStyle" xmi:id="_-F3PYSPmEdyLBZREr9U8dw"/>
+        <styles xmi:type="notation:DescriptionStyle" xmi:id="_-F3PYiPmEdyLBZREr9U8dw"/>
+        <styles xmi:type="notation:FillStyle" xmi:id="_-F3PYyPmEdyLBZREr9U8dw"/>
+        <styles xmi:type="notation:LineStyle" xmi:id="_-F3PZCPmEdyLBZREr9U8dw"/>
+        <element xmi:type="pcm.allocation:AllocationContext" href="cocome.allocation#_94AZkCPmEdyLBZREr9U8dw"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_-F3PZSPmEdyLBZREr9U8dw" x="54" y="2"/>
+      </children>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_z-joViPmEdyLBZREr9U8dw"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_z-joVyPmEdyLBZREr9U8dw"/>
+    </children>
+    <styles xmi:type="notation:FontStyle" xmi:id="_z-joTyPmEdyLBZREr9U8dw"/>
+    <styles xmi:type="notation:DescriptionStyle" xmi:id="_z-joUCPmEdyLBZREr9U8dw"/>
+    <styles xmi:type="notation:FillStyle" xmi:id="_z-joUSPmEdyLBZREr9U8dw"/>
+    <styles xmi:type="notation:LineStyle" xmi:id="_z-joUiPmEdyLBZREr9U8dw"/>
+    <element xmi:type="pcm.resourceenvironment:ResourceContainer" href="cocome.resourceenvironment#_bTYxAOEhEduBSuO8WivxSA"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_z-joUyPmEdyLBZREr9U8dw" x="60" y="96"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_z-joWCPmEdyLBZREr9U8dw" type="2002">
+    <children xmi:type="notation:Node" xmi:id="_z-joXiPmEdyLBZREr9U8dw" type="5003"/>
+    <children xmi:type="notation:Node" xmi:id="_z-joXyPmEdyLBZREr9U8dw" type="7002">
+      <styles xmi:type="notation:SortingStyle" xmi:id="_z-joYCPmEdyLBZREr9U8dw"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_z-joYSPmEdyLBZREr9U8dw"/>
+    </children>
+    <styles xmi:type="notation:FontStyle" xmi:id="_z-joWSPmEdyLBZREr9U8dw"/>
+    <styles xmi:type="notation:DescriptionStyle" xmi:id="_z-joWiPmEdyLBZREr9U8dw"/>
+    <styles xmi:type="notation:FillStyle" xmi:id="_z-joWyPmEdyLBZREr9U8dw"/>
+    <styles xmi:type="notation:LineStyle" xmi:id="_z-joXCPmEdyLBZREr9U8dw"/>
+    <element xmi:type="pcm.resourceenvironment:ResourceContainer" href="cocome.resourceenvironment#_cx26IOEhEduBSuO8WivxSA"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_z-joXSPmEdyLBZREr9U8dw" x="668"/>
+  </children>
+  <styles xmi:type="notation:PageStyle" xmi:id="_z4cZISPmEdyLBZREr9U8dw"/>
+  <styles xmi:type="notation:GuideStyle" xmi:id="_z4cZIiPmEdyLBZREr9U8dw"/>
+  <styles xmi:type="notation:DescriptionStyle" xmi:id="_z4cZIyPmEdyLBZREr9U8dw"/>
+  <element xmi:type="pcm.allocation:Allocation" href="cocome.allocation#_azBEUOEgEduBSuO8WivxSA"/>
+</notation:Diagram>
