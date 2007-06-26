@@ -152,11 +152,22 @@ public interface ProvidedDelegationConnector extends DelegationConnector {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * self.parentStructure_ProvidedDelegationConnector = self.childComponentContext_ProvidedDelegationConnector
+	 * self.parentStructure_ProvidedDelegationConnector = self.childComponentContext_ProvidedDelegationConnector.parentStructure_AssemblyContext
 	 * <!-- end-model-doc -->
 	 * @model
 	 * @generated
 	 */
 	boolean ProvidedDelegationConnectorandtheconnectedComponentmustbepartofthesamecompositestructure(DiagnosticChain diagnostics, Map<Object, Object> context);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * self.innerProvidedRole_ProvidedDelegationConnector.providingEntity_ProvidedRole = self.childComponentContext_ProvidedDelegationConnector.encapsulatedComponent_ChildComponentContext
+	 * <!-- end-model-doc -->
+	 * @model
+	 * @generated
+	 */
+	boolean ComponentOfChildComponentContextAndInnerRoleProvidingComponentNeedToBeTheSame(DiagnosticChain diagnostics, Map<Object, Object> context);
 
 } // ProvidedDelegationConnector

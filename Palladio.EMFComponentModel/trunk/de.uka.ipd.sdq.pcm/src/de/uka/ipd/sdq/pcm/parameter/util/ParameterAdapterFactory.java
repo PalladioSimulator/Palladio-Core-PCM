@@ -9,12 +9,15 @@ package de.uka.ipd.sdq.pcm.parameter.util;
 import de.uka.ipd.sdq.pcm.parameter.*;
 
 import de.uka.ipd.sdq.stoex.Atom;
+import de.uka.ipd.sdq.stoex.BooleanExpression;
 import de.uka.ipd.sdq.stoex.Comparison;
 import de.uka.ipd.sdq.stoex.Expression;
+import de.uka.ipd.sdq.stoex.IfElse;
 import de.uka.ipd.sdq.stoex.Power;
 import de.uka.ipd.sdq.stoex.Product;
 import de.uka.ipd.sdq.stoex.RandomVariable;
 import de.uka.ipd.sdq.stoex.Term;
+import de.uka.ipd.sdq.stoex.Unary;
 import de.uka.ipd.sdq.stoex.Variable;
 
 import org.eclipse.emf.common.notify.Adapter;
@@ -108,6 +111,14 @@ public class ParameterAdapterFactory extends AdapterFactoryImpl {
 				return createExpressionAdapter();
 			}
 			@Override
+			public Adapter caseIfElse(IfElse object) {
+				return createIfElseAdapter();
+			}
+			@Override
+			public Adapter caseBooleanExpression(BooleanExpression object) {
+				return createBooleanExpressionAdapter();
+			}
+			@Override
 			public Adapter caseComparison(Comparison object) {
 				return createComparisonAdapter();
 			}
@@ -122,6 +133,10 @@ public class ParameterAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter casePower(Power object) {
 				return createPowerAdapter();
+			}
+			@Override
+			public Adapter caseUnary(Unary object) {
+				return createUnaryAdapter();
 			}
 			@Override
 			public Adapter caseAtom(Atom object) {
@@ -222,6 +237,34 @@ public class ParameterAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.stoex.IfElse <em>If Else</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.stoex.IfElse
+	 * @generated
+	 */
+	public Adapter createIfElseAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.stoex.BooleanExpression <em>Boolean Expression</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.stoex.BooleanExpression
+	 * @generated
+	 */
+	public Adapter createBooleanExpressionAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.stoex.Comparison <em>Comparison</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -274,6 +317,20 @@ public class ParameterAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createPowerAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.stoex.Unary <em>Unary</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.uka.ipd.sdq.stoex.Unary
+	 * @generated
+	 */
+	public Adapter createUnaryAdapter() {
 		return null;
 	}
 

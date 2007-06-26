@@ -152,11 +152,22 @@ public interface RequiredDelegationConnector extends DelegationConnector {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * self.parentStructure_RequiredDelegationConnector = self.childComponentContext_RequiredDelegationConnector
+	 * self.parentStructure_RequiredDelegationConnector = self.childComponentContext_RequiredDelegationConnector.parentStructure_AssemblyContext
 	 * <!-- end-model-doc -->
 	 * @model
 	 * @generated
 	 */
-	boolean InnerContainingComponentEqualOuterRequiringComponent(DiagnosticChain diagnostics, Map<Object, Object> context);
+	boolean RequiredDelegationConnectorandtheconnectedComponentmustbepartofthesamecompositestructure(DiagnosticChain diagnostics, Map<Object, Object> context);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * self.innerRequiredRole_RequiredDelegationConnector.requiringEntity_RequiredRole = self.childComponentContext_RequiredDelegationConnector.encapsulatedComponent_ChildComponentContext
+	 * <!-- end-model-doc -->
+	 * @model
+	 * @generated
+	 */
+	boolean ComponentOfChildComponentContextAndInnerRoleRequiringComponentNeedToBeTheSame(DiagnosticChain diagnostics, Map<Object, Object> context);
 
 } // RequiredDelegationConnector

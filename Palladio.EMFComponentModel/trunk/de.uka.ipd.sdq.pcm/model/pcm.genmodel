@@ -22,7 +22,17 @@
     <details key="INVARIANT_CONSTRAINTS" value="PROCESS"/>
     <details key="OPERATION_BODIES" value="IGNORE"/>
   </genAnnotations>
-  <foreignModel>file:/D:/Models/pcm.uml2</foreignModel>
+  <foreignModel>file:/D:/Eigene%20Dateien/CVS-Module/EMF-PCM/trunk/RSA-Export/pcm.uml2</foreignModel>
+  <foreignModel>file:/D:/Eigene%20Dateien/CVS-Module/EMF-PCM/trunk/RSA-Export/stoex.uml2</foreignModel>
+  <foreignModel>file:/D:/Eigene%20Dateien/CVS-Module/EMF-PCM/trunk/RSA-Export/Basic.profile.uml2</foreignModel>
+  <foreignModel>file:/D:/Eigene%20Dateien/CVS-Module/EMF-PCM/trunk/RSA-Export/context.uml2</foreignModel>
+  <foreignModel>file:/D:/Eigene%20Dateien/CVS-Module/EMF-PCM/trunk/RSA-Export/EMFSensorFramework.uml2</foreignModel>
+  <foreignModel>file:/D:/Eigene%20Dateien/CVS-Module/EMF-PCM/trunk/RSA-Export/identifier.uml2</foreignModel>
+  <foreignModel>file:/D:/Eigene%20Dateien/CVS-Module/EMF-PCM/trunk/RSA-Export/ProbabilityFunction.uml2</foreignModel>
+  <foreignModel>file:/D:/Eigene%20Dateien/CVS-Module/EMF-PCM/trunk/RSA-Export/QNMResultModel.uml2</foreignModel>
+  <foreignModel>file:/D:/Eigene%20Dateien/CVS-Module/EMF-PCM/trunk/RSA-Export/QueueingNetworkModel.uml2</foreignModel>
+  <foreignModel>file:/D:/Eigene%20Dateien/CVS-Module/EMF-PCM/trunk/RSA-Export/ResourceModel.uml2</foreignModel>
+  <foreignModel>file:/D:/Eigene%20Dateien/CVS-Module/EMF-PCM/trunk/RSA-Export/StochasticProcessAlgebra.uml2</foreignModel>
   <modelPluginVariables>EMFT_OCL=org.eclipse.emf.ocl</modelPluginVariables>
   <genPackages prefix="Pcm" basePackage="de.uka.ipd.sdq" disposableProviderFactory="true"
       ecorePackage="pcm.ecore#/">
@@ -61,6 +71,10 @@
             <genParameters ecoreParameter="pcm.ecore#//core/composition/ProvidedDelegationConnector/ProvidedDelegationConnectorandtheconnectedComponentmustbepartofthesamecompositestructure/diagnostics"/>
             <genParameters ecoreParameter="pcm.ecore#//core/composition/ProvidedDelegationConnector/ProvidedDelegationConnectorandtheconnectedComponentmustbepartofthesamecompositestructure/context"/>
           </genOperations>
+          <genOperations ecoreOperation="pcm.ecore#//core/composition/ProvidedDelegationConnector/ComponentOfChildComponentContextAndInnerRoleProvidingComponentNeedToBeTheSame">
+            <genParameters ecoreParameter="pcm.ecore#//core/composition/ProvidedDelegationConnector/ComponentOfChildComponentContextAndInnerRoleProvidingComponentNeedToBeTheSame/diagnostics"/>
+            <genParameters ecoreParameter="pcm.ecore#//core/composition/ProvidedDelegationConnector/ComponentOfChildComponentContextAndInnerRoleProvidingComponentNeedToBeTheSame/context"/>
+          </genOperations>
         </genClasses>
         <genClasses ecoreClass="pcm.ecore#//core/composition/AssemblyContext">
           <genFeatures notify="false" createChild="false" propertySortChoices="true"
@@ -76,9 +90,13 @@
           <genFeatures notify="false" createChild="false" propertySortChoices="true"
               ecoreFeature="ecore:EReference pcm.ecore#//core/composition/RequiredDelegationConnector/childComponentContext_RequiredDelegationConnector"/>
           <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference pcm.ecore#//core/composition/RequiredDelegationConnector/parentStructure_RequiredDelegationConnector"/>
-          <genOperations ecoreOperation="pcm.ecore#//core/composition/RequiredDelegationConnector/InnerContainingComponentEqualOuterRequiringComponent">
-            <genParameters ecoreParameter="pcm.ecore#//core/composition/RequiredDelegationConnector/InnerContainingComponentEqualOuterRequiringComponent/diagnostics"/>
-            <genParameters ecoreParameter="pcm.ecore#//core/composition/RequiredDelegationConnector/InnerContainingComponentEqualOuterRequiringComponent/context"/>
+          <genOperations ecoreOperation="pcm.ecore#//core/composition/RequiredDelegationConnector/RequiredDelegationConnectorandtheconnectedComponentmustbepartofthesamecompositestructure">
+            <genParameters ecoreParameter="pcm.ecore#//core/composition/RequiredDelegationConnector/RequiredDelegationConnectorandtheconnectedComponentmustbepartofthesamecompositestructure/diagnostics"/>
+            <genParameters ecoreParameter="pcm.ecore#//core/composition/RequiredDelegationConnector/RequiredDelegationConnectorandtheconnectedComponentmustbepartofthesamecompositestructure/context"/>
+          </genOperations>
+          <genOperations ecoreOperation="pcm.ecore#//core/composition/RequiredDelegationConnector/ComponentOfChildComponentContextAndInnerRoleRequiringComponentNeedToBeTheSame">
+            <genParameters ecoreParameter="pcm.ecore#//core/composition/RequiredDelegationConnector/ComponentOfChildComponentContextAndInnerRoleRequiringComponentNeedToBeTheSame/diagnostics"/>
+            <genParameters ecoreParameter="pcm.ecore#//core/composition/RequiredDelegationConnector/ComponentOfChildComponentContextAndInnerRoleRequiringComponentNeedToBeTheSame/context"/>
           </genOperations>
         </genClasses>
         <genClasses ecoreClass="pcm.ecore#//core/composition/AssemblyConnector">

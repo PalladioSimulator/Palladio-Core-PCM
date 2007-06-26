@@ -104,14 +104,23 @@ public class RequiredDelegationConnectorImpl extends DelegationConnectorImpl imp
 
 
 	/**
-	 * The parsed OCL expression for the definition of the '{@link #InnerContainingComponentEqualOuterRequiringComponent <em>Inner Containing Component Equal Outer Requiring Component</em>}' invariant constraint.
+	 * The parsed OCL expression for the definition of the '{@link #RequiredDelegationConnectorandtheconnectedComponentmustbepartofthesamecompositestructure <em>Required Delegation Connectorandtheconnected Componentmustbepartofthesamecompositestructure</em>}' invariant constraint.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #InnerContainingComponentEqualOuterRequiringComponent
+	 * @see #RequiredDelegationConnectorandtheconnectedComponentmustbepartofthesamecompositestructure
 	 * @generated
 	 */
-	private static OCLExpression InnerContainingComponentEqualOuterRequiringComponentInvOCL;
-	
+	private static OCLExpression RequiredDelegationConnectorandtheconnectedComponentmustbepartofthesamecompositestructureInvOCL;
+
+	/**
+	 * The parsed OCL expression for the definition of the '{@link #ComponentOfChildComponentContextAndInnerRoleRequiringComponentNeedToBeTheSame <em>Component Of Child Component Context And Inner Role Requiring Component Need To Be The Same</em>}' invariant constraint.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #ComponentOfChildComponentContextAndInnerRoleRequiringComponentNeedToBeTheSame
+	 * @generated
+	 */
+	private static OCLExpression ComponentOfChildComponentContextAndInnerRoleRequiringComponentNeedToBeTheSameInvOCL;
+
 	private static final String OCL_ANNOTATION_SOURCE = "http://www.eclipse.org/emf/2002/GenModel";
 	
 	/**
@@ -294,21 +303,21 @@ public class RequiredDelegationConnectorImpl extends DelegationConnectorImpl imp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean InnerContainingComponentEqualOuterRequiringComponent(DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (InnerContainingComponentEqualOuterRequiringComponentInvOCL == null) {
+	public boolean RequiredDelegationConnectorandtheconnectedComponentmustbepartofthesamecompositestructure(DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (RequiredDelegationConnectorandtheconnectedComponentmustbepartofthesamecompositestructureInvOCL == null) {
 			Environment env = ExpressionsUtil.createClassifierContext(eClass());
 			
 			
-			String body = "self.parentStructure_RequiredDelegationConnector = self.childComponentContext_RequiredDelegationConnector ";
+			String body = "self.parentStructure_RequiredDelegationConnector = self.childComponentContext_RequiredDelegationConnector.parentStructure_AssemblyContext ";
 			
 			try {
-				InnerContainingComponentEqualOuterRequiringComponentInvOCL = ExpressionsUtil.createInvariant(env, body, true);
+				RequiredDelegationConnectorandtheconnectedComponentmustbepartofthesamecompositestructureInvOCL = ExpressionsUtil.createInvariant(env, body, true);
 			} catch (ParserException e) {
 				throw new UnsupportedOperationException(e.getLocalizedMessage());
 			}
 		}
 		
-		Query query = QueryFactory.eINSTANCE.createQuery(InnerContainingComponentEqualOuterRequiringComponentInvOCL);
+		Query query = QueryFactory.eINSTANCE.createQuery(RequiredDelegationConnectorandtheconnectedComponentmustbepartofthesamecompositestructureInvOCL);
 		EvalEnvironment evalEnv = new EvalEnvironment();
 		query.setEvaluationEnvironment(evalEnv);
 		
@@ -318,8 +327,47 @@ public class RequiredDelegationConnectorImpl extends DelegationConnectorImpl imp
 					(new BasicDiagnostic
 						(Diagnostic.ERROR,
 						 CompositionValidator.DIAGNOSTIC_SOURCE,
-						 CompositionValidator.REQUIRED_DELEGATION_CONNECTOR__INNER_CONTAINING_COMPONENT_EQUAL_OUTER_REQUIRING_COMPONENT,
-						 EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "InnerContainingComponentEqualOuterRequiringComponent", EObjectValidator.getObjectLabel(this, context) }),
+						 CompositionValidator.REQUIRED_DELEGATION_CONNECTOR__REQUIRED_DELEGATION_CONNECTORANDTHECONNECTED_COMPONENTMUSTBEPARTOFTHESAMECOMPOSITESTRUCTURE,
+						 EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "RequiredDelegationConnectorandtheconnectedComponentmustbepartofthesamecompositestructure", EObjectValidator.getObjectLabel(this, context) }),
+						 new Object [] { this }));
+			}
+			return false;
+		}
+		return true;
+		
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean ComponentOfChildComponentContextAndInnerRoleRequiringComponentNeedToBeTheSame(DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (ComponentOfChildComponentContextAndInnerRoleRequiringComponentNeedToBeTheSameInvOCL == null) {
+			Environment env = ExpressionsUtil.createClassifierContext(eClass());
+			
+			
+			String body = "self.innerRequiredRole_RequiredDelegationConnector.requiringEntity_RequiredRole = self.childComponentContext_RequiredDelegationConnector.encapsulatedComponent_ChildComponentContext ";
+			
+			try {
+				ComponentOfChildComponentContextAndInnerRoleRequiringComponentNeedToBeTheSameInvOCL = ExpressionsUtil.createInvariant(env, body, true);
+			} catch (ParserException e) {
+				throw new UnsupportedOperationException(e.getLocalizedMessage());
+			}
+		}
+		
+		Query query = QueryFactory.eINSTANCE.createQuery(ComponentOfChildComponentContextAndInnerRoleRequiringComponentNeedToBeTheSameInvOCL);
+		EvalEnvironment evalEnv = new EvalEnvironment();
+		query.setEvaluationEnvironment(evalEnv);
+		
+		if (!query.check(this)) {
+			if (diagnostics != null) {
+				diagnostics.add
+					(new BasicDiagnostic
+						(Diagnostic.ERROR,
+						 CompositionValidator.DIAGNOSTIC_SOURCE,
+						 CompositionValidator.REQUIRED_DELEGATION_CONNECTOR__COMPONENT_OF_CHILD_COMPONENT_CONTEXT_AND_INNER_ROLE_REQUIRING_COMPONENT_NEED_TO_BE_THE_SAME,
+						 EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "ComponentOfChildComponentContextAndInnerRoleRequiringComponentNeedToBeTheSame", EObjectValidator.getObjectLabel(this, context) }),
 						 new Object [] { this }));
 			}
 			return false;

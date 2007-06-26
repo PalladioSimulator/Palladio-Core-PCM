@@ -9,12 +9,15 @@ package de.uka.ipd.sdq.pcm.parameter.util;
 import de.uka.ipd.sdq.pcm.parameter.*;
 
 import de.uka.ipd.sdq.stoex.Atom;
+import de.uka.ipd.sdq.stoex.BooleanExpression;
 import de.uka.ipd.sdq.stoex.Comparison;
 import de.uka.ipd.sdq.stoex.Expression;
+import de.uka.ipd.sdq.stoex.IfElse;
 import de.uka.ipd.sdq.stoex.Power;
 import de.uka.ipd.sdq.stoex.Product;
 import de.uka.ipd.sdq.stoex.RandomVariable;
 import de.uka.ipd.sdq.stoex.Term;
+import de.uka.ipd.sdq.stoex.Unary;
 import de.uka.ipd.sdq.stoex.Variable;
 
 import java.util.List;
@@ -115,10 +118,13 @@ public class ParameterSwitch<T> {
 				T result = caseCharacterisedVariable(characterisedVariable);
 				if (result == null) result = caseVariable(characterisedVariable);
 				if (result == null) result = caseAtom(characterisedVariable);
+				if (result == null) result = caseUnary(characterisedVariable);
 				if (result == null) result = casePower(characterisedVariable);
 				if (result == null) result = caseProduct(characterisedVariable);
 				if (result == null) result = caseTerm(characterisedVariable);
 				if (result == null) result = caseComparison(characterisedVariable);
+				if (result == null) result = caseBooleanExpression(characterisedVariable);
+				if (result == null) result = caseIfElse(characterisedVariable);
 				if (result == null) result = caseExpression(characterisedVariable);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -209,6 +215,36 @@ public class ParameterSwitch<T> {
 	}
 
 	/**
+	 * Returns the result of interpretting the object as an instance of '<em>If Else</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpretting the object as an instance of '<em>If Else</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseIfElse(IfElse object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpretting the object as an instance of '<em>Boolean Expression</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpretting the object as an instance of '<em>Boolean Expression</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseBooleanExpression(BooleanExpression object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpretting the object as an instance of '<em>Comparison</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -265,6 +301,21 @@ public class ParameterSwitch<T> {
 	 * @generated
 	 */
 	public T casePower(Power object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpretting the object as an instance of '<em>Unary</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpretting the object as an instance of '<em>Unary</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseUnary(Unary object) {
 		return null;
 	}
 

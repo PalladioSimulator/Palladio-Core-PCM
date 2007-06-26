@@ -101,15 +101,13 @@ public interface BasicComponent extends ImplementationComponentType {
 	 * -- BC has to provide the same interfaces like the implementationComponentType (if set) #
 	 * if
 	 *   -- apply constraint only for non-empty ImplementationComponentTypes of a BC #
-	 *  self.implementationComponentType->notEmpty()
-	 *     and
-	 *  self.implementationComponentType.parentCompleteComponentTypes->notEmpty()
+	 *  self.parentCompleteComponentTypes->notEmpty()
 	 * then
 	 *  --own interface IDs:
 	 *     self.providedRoles_InterfaceProvidingEntity->collect(pr : ProvidedRole | pr.providedInterface__ProvidedRole.id)->asSet()
 	 *     =
 	 *     --complete type interface IDs:
-	 *     self.implementationComponentType.parentCompleteComponentTypes->collect(pr | pr.providedRoles_InterfaceProvidingEntity.providedInterface__ProvidedRole.id)->asSet()
+	 *     self.parentCompleteComponentTypes->collect(pr | pr.providedRoles_InterfaceProvidingEntity.providedInterface__ProvidedRole.id)->asSet()
 	 * else
 	 *  true
 	 * endif
@@ -126,15 +124,13 @@ public interface BasicComponent extends ImplementationComponentType {
 	 * -- BC has to require the same interfaces like the implementationComponentType (if set) #
 	 * if
 	 *   -- apply constraint only for non-empty ImplementationComponentTypes of a BC #
-	 *  self.implementationComponentType->notEmpty()
-	 *     and
-	 *  self.implementationComponentType.parentCompleteComponentTypes->notEmpty()
+	 *  self.parentCompleteComponentTypes->notEmpty()
 	 * then
 	 *  --own interface IDs:
-	 *     self.requiredRoles_InterfaceRequiringEntity->collect(pr : RequiredRole | pr.requiredInterface__RequiredRole.id)->asSet()
+	 *     self.requiredRoles_InterfaceRequiringEntity->collect(rr : RequiredRole | rr.requiredInterface__RequiredRole.id)->asSet()
 	 *     =
 	 *     --complete type interface IDs:
-	 *     self.implementationComponentType.parentCompleteComponentTypes->collect(cct : CompleteComponentType | cct.requiredRoles_InterfaceRequiringEntity.requiredInterface__RequiredRole.id)->asSet()
+	 *     self.parentCompleteComponentTypes->collect(rr | rr.requiredRoles_InterfaceRequiringEntity.requiredInterface__RequiredRole.id)->asSet()
 	 * else
 	 *  true
 	 * endif

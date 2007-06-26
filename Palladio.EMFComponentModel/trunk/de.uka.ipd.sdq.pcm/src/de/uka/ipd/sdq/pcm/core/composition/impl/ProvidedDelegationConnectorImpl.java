@@ -112,6 +112,15 @@ public class ProvidedDelegationConnectorImpl extends DelegationConnectorImpl imp
 	 */
 	private static OCLExpression ProvidedDelegationConnectorandtheconnectedComponentmustbepartofthesamecompositestructureInvOCL;
 	
+	/**
+	 * The parsed OCL expression for the definition of the '{@link #ComponentOfChildComponentContextAndInnerRoleProvidingComponentNeedToBeTheSame <em>Component Of Child Component Context And Inner Role Providing Component Need To Be The Same</em>}' invariant constraint.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #ComponentOfChildComponentContextAndInnerRoleProvidingComponentNeedToBeTheSame
+	 * @generated
+	 */
+	private static OCLExpression ComponentOfChildComponentContextAndInnerRoleProvidingComponentNeedToBeTheSameInvOCL;
+
 	private static final String OCL_ANNOTATION_SOURCE = "http://www.eclipse.org/emf/2002/GenModel";
 	
 	/**
@@ -299,7 +308,7 @@ public class ProvidedDelegationConnectorImpl extends DelegationConnectorImpl imp
 			Environment env = ExpressionsUtil.createClassifierContext(eClass());
 			
 			
-			String body = "self.parentStructure_ProvidedDelegationConnector = self.childComponentContext_ProvidedDelegationConnector ";
+			String body = "self.parentStructure_ProvidedDelegationConnector = self.childComponentContext_ProvidedDelegationConnector.parentStructure_AssemblyContext ";
 			
 			try {
 				ProvidedDelegationConnectorandtheconnectedComponentmustbepartofthesamecompositestructureInvOCL = ExpressionsUtil.createInvariant(env, body, true);
@@ -320,6 +329,45 @@ public class ProvidedDelegationConnectorImpl extends DelegationConnectorImpl imp
 						 CompositionValidator.DIAGNOSTIC_SOURCE,
 						 CompositionValidator.PROVIDED_DELEGATION_CONNECTOR__PROVIDED_DELEGATION_CONNECTORANDTHECONNECTED_COMPONENTMUSTBEPARTOFTHESAMECOMPOSITESTRUCTURE,
 						 EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "ProvidedDelegationConnectorandtheconnectedComponentmustbepartofthesamecompositestructure", EObjectValidator.getObjectLabel(this, context) }),
+						 new Object [] { this }));
+			}
+			return false;
+		}
+		return true;
+		
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean ComponentOfChildComponentContextAndInnerRoleProvidingComponentNeedToBeTheSame(DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (ComponentOfChildComponentContextAndInnerRoleProvidingComponentNeedToBeTheSameInvOCL == null) {
+			Environment env = ExpressionsUtil.createClassifierContext(eClass());
+			
+			
+			String body = "self.innerProvidedRole_ProvidedDelegationConnector.providingEntity_ProvidedRole = self.childComponentContext_ProvidedDelegationConnector.encapsulatedComponent_ChildComponentContext ";
+			
+			try {
+				ComponentOfChildComponentContextAndInnerRoleProvidingComponentNeedToBeTheSameInvOCL = ExpressionsUtil.createInvariant(env, body, true);
+			} catch (ParserException e) {
+				throw new UnsupportedOperationException(e.getLocalizedMessage());
+			}
+		}
+		
+		Query query = QueryFactory.eINSTANCE.createQuery(ComponentOfChildComponentContextAndInnerRoleProvidingComponentNeedToBeTheSameInvOCL);
+		EvalEnvironment evalEnv = new EvalEnvironment();
+		query.setEvaluationEnvironment(evalEnv);
+		
+		if (!query.check(this)) {
+			if (diagnostics != null) {
+				diagnostics.add
+					(new BasicDiagnostic
+						(Diagnostic.ERROR,
+						 CompositionValidator.DIAGNOSTIC_SOURCE,
+						 CompositionValidator.PROVIDED_DELEGATION_CONNECTOR__COMPONENT_OF_CHILD_COMPONENT_CONTEXT_AND_INNER_ROLE_PROVIDING_COMPONENT_NEED_TO_BE_THE_SAME,
+						 EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "ComponentOfChildComponentContextAndInnerRoleProvidingComponentNeedToBeTheSame", EObjectValidator.getObjectLabel(this, context) }),
 						 new Object [] { this }));
 			}
 			return false;
