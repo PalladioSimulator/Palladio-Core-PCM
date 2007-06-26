@@ -3,6 +3,7 @@ import seff;
 import repository;
 import composition;
 import system;
+import resourceenvironment;
 extension m2t_transforms::pcm;
 
 context VariableUsage ERROR 'LHS ID not set':
@@ -25,3 +26,6 @@ context ComposedStructure ERROR 'Composed Structure ' + this.entityName +': All 
 	
 context System ERROR 'System ' + this.entityName +': A system must contain at least one uppercase letter':
 	this.entityName != this.entityName.toLowerCase();
+	
+context CommunicationLinkResourceSpecification ERROR 'No latency specified for communication resource' :
+	this.linkLatency != null && this.linkLatency != '';

@@ -59,7 +59,10 @@ public class BytesizeComputationForSignature {
 		}
 		
 		int length = result.length();
-		if (length > 0) result.delete(length-3, length); // remove last " + "
+		if (length > 0) 
+			result.delete(length-3, length); // remove last " + "
+		else if (length == 0)
+			result.append("0");
 
 		return result.toString();
 	}

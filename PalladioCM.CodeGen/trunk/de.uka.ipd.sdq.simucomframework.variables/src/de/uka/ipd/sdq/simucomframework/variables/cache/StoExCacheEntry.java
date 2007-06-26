@@ -34,10 +34,10 @@ public class StoExCacheEntry {
 			typeInferer.doSwitch(formula);
 		} catch (RecognitionException e) {
 			e.printStackTrace();
-			throw new RuntimeException("Expression not parsable "+spec);
+			throw new RuntimeException("Expression not parsable \""+spec+"\"");
 		} catch (Exception e) {
 			e.printStackTrace();
-			throw new RuntimeException("Expression not parsable "+spec);
+			throw new RuntimeException("Expression not parsable \""+spec+"\"");
 		}
 		this.parsedExpression = formula;
 		this.probFunctionCache = new ProbFunctionCache(formula);

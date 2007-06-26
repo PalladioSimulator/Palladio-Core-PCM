@@ -81,7 +81,7 @@ public class TransformationWorkflowComponent
 	}
 
 	@SuppressWarnings("unchecked")
-	private void performTransformation(Issues issues) {
+	private void performTransformation(final Issues issues) {
 		OCL ocl = org.eclipse.ocl.ecore.OCL.newInstance();
 
 		try {
@@ -93,8 +93,14 @@ public class TransformationWorkflowComponent
 				        CompositionPackage.eINSTANCE.getAssemblyConnector())),
 				    new SET() {
 				        public boolean set(EObject eObject) {
-				        	transform(eObject);
-							return true;
+				        	try 
+				        	{
+				        		transform(eObject);
+				        		return true;
+				        	} catch (Exception ex) {
+				    			issues.addError("Exception during M2M transformation: "+ex.getMessage());
+				        	}
+				        	return false;
 				        }}).execute();
 		} catch (ParserException e) {
 			issues.addError("Parser error on OCL: "+e.getMessage());
@@ -195,10 +201,12 @@ public class TransformationWorkflowComponent
 
 	private CommunicationLinkResourceType findNETResourceType() {
 		for (ResourceType r : resourceType.getAvailableResourceTypes_ResourceRepository()) {
-			if (r.getEntityName().toLowerCase().equals("net"))
+			if (r.getEntityName().toLowerCase().contains("net") ||
+					r.getEntityName().toLowerCase().contains("lan") ||
+					r.getEntityName().toLowerCase().contains("wan"))
 				return (CommunicationLinkResourceType)r;
 		}
-		throw new RuntimeException("Unable to find NET resource type");
+		throw new RuntimeException("Unable to find NET resource type. Please use a resourcetype repository compatible with Palladio.resourcetype. Add at least a \"net\" resourcetype.");
 	}
 	
 
