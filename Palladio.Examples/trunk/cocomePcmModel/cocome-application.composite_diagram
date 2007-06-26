@@ -49,6 +49,17 @@
           <element xmi:type="pcm.repository:RequiredRole" href="cocome.repository#_kzNlYdCiEduC9O_qbthgAg"/>
           <layoutConstraint xmi:type="notation:Bounds" xmi:id="_vEGtLR_YEdyg4KefmN--bg" x="168" y="72"/>
         </children>
+        <children xmi:type="notation:Node" xmi:id="_kdeH0CQFEdyLBZREr9U8dw" type="3004">
+          <children xmi:type="notation:Node" xmi:id="_kdeH1iQFEdyLBZREr9U8dw" type="5005">
+            <layoutConstraint xmi:type="notation:Location" xmi:id="_kdeH1yQFEdyLBZREr9U8dw" y="5"/>
+          </children>
+          <styles xmi:type="notation:FontStyle" xmi:id="_kdeH0SQFEdyLBZREr9U8dw"/>
+          <styles xmi:type="notation:DescriptionStyle" xmi:id="_kdeH0iQFEdyLBZREr9U8dw"/>
+          <styles xmi:type="notation:FillStyle" xmi:id="_kdeH0yQFEdyLBZREr9U8dw"/>
+          <styles xmi:type="notation:LineStyle" xmi:id="_kdeH1CQFEdyLBZREr9U8dw"/>
+          <element xmi:type="pcm.repository:RequiredRole" href="cocome.repository#_AXZsESDlEdyyNLPIIGbfMQ"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_kdeH1SQFEdyLBZREr9U8dw" x="24" y="-29"/>
+        </children>
         <styles xmi:type="notation:FontStyle" xmi:id="_vDqBIR_YEdyg4KefmN--bg"/>
         <styles xmi:type="notation:DescriptionStyle" xmi:id="_vDqBIh_YEdyg4KefmN--bg"/>
         <styles xmi:type="notation:FillStyle" xmi:id="_vDqBIx_YEdyg4KefmN--bg"/>
@@ -120,7 +131,7 @@
           <styles xmi:type="notation:FillStyle" xmi:id="_vEsi8x_YEdyg4KefmN--bg"/>
           <styles xmi:type="notation:LineStyle" xmi:id="_vEsi9B_YEdyg4KefmN--bg"/>
           <element xmi:type="pcm.repository:ProvidedRole" href="cocome.repository#_8phWYNCmEduC9O_qbthgAg"/>
-          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_vEsi9R_YEdyg4KefmN--bg" x="-29" y="101"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_vEsi9R_YEdyg4KefmN--bg" x="-29" y="114"/>
         </children>
         <children xmi:type="notation:Node" xmi:id="_vEsi-B_YEdyg4KefmN--bg" type="3001">
           <children xmi:type="notation:Node" xmi:id="_vEsi_h_YEdyg4KefmN--bg" type="5001">
@@ -465,5 +476,14 @@
     <styles xmi:type="notation:LineStyle" xmi:id="_1egvRB_ZEdyg4KefmN--bg"/>
     <element xmi:type="pcm.core.composition:RequiredDelegationConnector" href="cocome.repository#_1egvQB_ZEdyg4KefmN--bg"/>
     <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_1egvRR_ZEdyg4KefmN--bg" points="[7, 0, -337, 332]$[314, -332, -30, 0]"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_mZl2QSQFEdyLBZREr9U8dw" type="4001" source="_kdeH0CQFEdyLBZREr9U8dw" target="_vEsi8B_YEdyg4KefmN--bg">
+    <styles xmi:type="notation:RoutingStyle" xmi:id="_mZl2QiQFEdyLBZREr9U8dw"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_mZl2QyQFEdyLBZREr9U8dw"/>
+    <styles xmi:type="notation:LineStyle" xmi:id="_mZl2RCQFEdyLBZREr9U8dw"/>
+    <element xmi:type="pcm.core.composition:AssemblyConnector" href="cocome.repository#_mZl2QCQFEdyLBZREr9U8dw"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_mZl2RSQFEdyLBZREr9U8dw" points="[0, -8, 65, 125]$[-69, -128, -4, 5]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_mZvnQCQFEdyLBZREr9U8dw" id="(0.6,0.2)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_mZvnQSQFEdyLBZREr9U8dw" id="(0.2,0.5)"/>
   </edges>
 </notation:Diagram>

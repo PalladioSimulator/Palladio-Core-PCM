@@ -286,13 +286,13 @@
           <steps_Behaviour xsi:type="pcm.seff:ExternalCallAction" id="_BmEuwNL-EdujoZKiiOMQBA" entityName="markProductsUnavailableInStock" predecessor_AbstractAction="_81y2oNL9EdujoZKiiOMQBA" successor_AbstractAction="_FOYSMNL-EdujoZKiiOMQBA" calledService_ExternalService="//@interfaces__Repository.6/@signatures__Interface.8"/>
           <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_FOYSMNL-EdujoZKiiOMQBA" predecessor_AbstractAction="_BmEuwNL-EdujoZKiiOMQBA"/>
         </bodyBehaviour_Loop>
-        <iterations_LoopAction specification="numberOfStores.VALUE * 0.05"/>
+        <iterations_LoopAction specification="numberOfStores.VALUE"/>
       </steps_Behaviour>
       <steps_Behaviour xsi:type="pcm.seff:InternalAction" id="_NeLlMNL-EdujoZKiiOMQBA" entityName="sumUp" predecessor_AbstractAction="_pbL4ENL9EdujoZKiiOMQBA" successor_AbstractAction="_A2scgN7AEduAmOtZLewIEg"/>
       <steps_Behaviour xsi:type="pcm.seff:SetVariableAction" id="_A2scgN7AEduAmOtZLewIEg" entityName="setReturnValue" predecessor_AbstractAction="_NeLlMNL-EdujoZKiiOMQBA" successor_AbstractAction="_BYli0NLyEduQ7qbNANXHPw">
         <variableUsage_SetVariableAction>
           <variableCharacterisation_VariableUsage specification="IntPMF(unit=&quot;NUMBER_OF_ELEMENTS&quot;)[ (1;0.1) (2;0.5) (3;0.2) (4;0.2) ]" type="NUMBER_OF_ELEMENTS"/>
-          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="orderProductsAvailableAtOtherStores.RETURN"/>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="RETURN"/>
         </variableUsage_SetVariableAction>
       </steps_Behaviour>
     </serviceEffectSpecifications__BasicComponent>
@@ -354,8 +354,12 @@
       <steps_Behaviour xsi:type="pcm.seff:ExternalCallAction" id="_1UJywNJQEduQ7qbNANXHPw" entityName="queryStoreById" predecessor_AbstractAction="_qZcYsNJQEduQ7qbNANXHPw" successor_AbstractAction="_-2XI0NJQEduQ7qbNANXHPw" calledService_ExternalService="//@interfaces__Repository.3/@signatures__Interface.0"/>
       <steps_Behaviour xsi:type="pcm.seff:InternalAction" id="_-2XI0NJQEduQ7qbNANXHPw" entityName="prepare" predecessor_AbstractAction="_1UJywNJQEduQ7qbNANXHPw" successor_AbstractAction="_Gi_dUNJREduQ7qbNANXHPw"/>
       <steps_Behaviour xsi:type="pcm.seff:ExternalCallAction" id="_Gi_dUNJREduQ7qbNANXHPw" entityName="orderProductsAvailableAtOtherStores" predecessor_AbstractAction="_-2XI0NJQEduQ7qbNANXHPw" successor_AbstractAction="_m2h2INJREduQ7qbNANXHPw" calledService_ExternalService="//@interfaces__Repository.4/@signatures__Interface.0">
+        <parameterUsage_ExternalCallAction>
+          <variableCharacterisation_VariableUsage specification="saleTO.NUMBER_OF_ELEMENTS" type="NUMBER_OF_ELEMENTS"/>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="productAmounts"/>
+        </parameterUsage_ExternalCallAction>
         <outputVariableUsage_ExternalCallAction>
-          <variableCharacterisation_VariableUsage specification="orderProductsAvailableAtOtherStores.RETURN.NUMBER_OF_ELEMENTS" type="NUMBER_OF_ELEMENTS"/>
+          <variableCharacterisation_VariableUsage specification="RETURN.NUMBER_OF_ELEMENTS" type="NUMBER_OF_ELEMENTS"/>
           <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="productList"/>
         </outputVariableUsage_ExternalCallAction>
       </steps_Behaviour>
@@ -512,7 +516,12 @@
     <serviceEffectSpecifications__BasicComponent xsi:type="pcm.seff:ResourceDemandingSEFF" id="_ifiSJyCfEdyrYp4aNf6BNw" describedService__SEFF="//@interfaces__Repository.0/@signatures__Interface.0">
       <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_ifiSKCCfEdyrYp4aNf6BNw" successor_AbstractAction="_iF_rMCPmEdyLBZREr9U8dw"/>
       <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_ifiSKSCfEdyrYp4aNf6BNw" predecessor_AbstractAction="_iF_rMCPmEdyLBZREr9U8dw"/>
-      <steps_Behaviour xsi:type="pcm.seff:ExternalCallAction" id="_iF_rMCPmEdyLBZREr9U8dw" predecessor_AbstractAction="_ifiSKCCfEdyrYp4aNf6BNw" successor_AbstractAction="_ifiSKSCfEdyrYp4aNf6BNw" calledService_ExternalService="//@interfaces__Repository.0/@signatures__Interface.0"/>
+      <steps_Behaviour xsi:type="pcm.seff:ExternalCallAction" id="_iF_rMCPmEdyLBZREr9U8dw" predecessor_AbstractAction="_ifiSKCCfEdyrYp4aNf6BNw" successor_AbstractAction="_ifiSKSCfEdyrYp4aNf6BNw" calledService_ExternalService="//@interfaces__Repository.0/@signatures__Interface.0">
+        <parameterUsage_ExternalCallAction>
+          <variableCharacterisation_VariableUsage specification="saleTO.NUMBER_OF_ELEMENTS" type="NUMBER_OF_ELEMENTS"/>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="saleTO"/>
+        </parameterUsage_ExternalCallAction>
+      </steps_Behaviour>
     </serviceEffectSpecifications__BasicComponent>
     <serviceEffectSpecifications__BasicComponent xsi:type="pcm.seff:ResourceDemandingSEFF" id="_ifiSKiCfEdyrYp4aNf6BNw" describedService__SEFF="//@interfaces__Repository.0/@signatures__Interface.1">
       <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_ifiSKyCfEdyrYp4aNf6BNw" successor_AbstractAction="_ifiSLCCfEdyrYp4aNf6BNw"/>
@@ -527,7 +536,12 @@
     <requiredRoles_InterfaceRequiringEntity id="_1SldsdCpEduC9O_qbthgAg" entityName="Application.PersistenceIf" requiredInterface__RequiredRole="_F8ovQNChEduC9O_qbthgAg"/>
     <requiredRoles_InterfaceRequiringEntity id="_3A29YdCpEduC9O_qbthgAg" entityName="Application.StoreQueryIf" requiredInterface__RequiredRole="_HSKXwNChEduC9O_qbthgAg"/>
     <requiredRoles_InterfaceRequiringEntity id="_XH0LYdCtEduW_YoCCnq0vw" entityName="Application.SaleRegisteredEvent" requiredInterface__RequiredRole="_RQoSZNCpEduC9O_qbthgAg"/>
-    <childComponentContexts_ComposedStructure id="_r5EUAtIyEduQ7qbNANXHPw" entityName="TradingSystem.Inventory.ProductDispatcher" encapsulatedComponent_ChildComponentContext="_XDTf09CiEduC9O_qbthgAg"/>
+    <childComponentContexts_ComposedStructure id="_r5EUAtIyEduQ7qbNANXHPw" entityName="TradingSystem.Inventory.ProductDispatcher" encapsulatedComponent_ChildComponentContext="_XDTf09CiEduC9O_qbthgAg">
+      <componentParameterUsage_AssemblyContext>
+        <variableCharacterisation_VariableUsage specification="200" type="VALUE"/>
+        <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="numberOfStores"/>
+      </componentParameterUsage_AssemblyContext>
+    </childComponentContexts_ComposedStructure>
     <childComponentContexts_ComposedStructure id="_F7D9wtCoEduC9O_qbthgAg" entityName="TradingSystem.Inventory.Application.Reporting" encapsulatedComponent_ChildComponentContext="_URW_1dCmEduC9O_qbthgAg"/>
     <childComponentContexts_ComposedStructure id="_IcmGYtCoEduC9O_qbthgAg" entityName="TradingSystem.Inventory.Application.Store" encapsulatedComponent_ChildComponentContext="_6tZA5dCmEduC9O_qbthgAg">
       <componentParameterUsage_AssemblyContext>
@@ -552,6 +566,7 @@
     <compositeAssemblyConnectors_ComposedStructure id="_4v0ttdC2EduW_YoCCnq0vw" entityName="CashDeskConnectorIf" requiringChildComponentContext_CompositeAssemblyConnector="_8jQN8tC0EduW_YoCCnq0vw" providingChildComponentContext_CompositeAssemblyConnector="_IcmGYtCoEduC9O_qbthgAg" providedRole_CompositeAssemblyConnector="__f6UsNCmEduC9O_qbthgAg" requiredRole_CompositeAssemblyConnector="_QdU6QdC2EduW_YoCCnq0vw"/>
     <compositeAssemblyConnectors_ComposedStructure id="_AlsdxdC3EduW_YoCCnq0vw" entityName="StoreIf" requiringChildComponentContext_CompositeAssemblyConnector="_8jQN8tC0EduW_YoCCnq0vw" providingChildComponentContext_CompositeAssemblyConnector="_IcmGYtCoEduC9O_qbthgAg" providedRole_CompositeAssemblyConnector="_8phWYNCmEduC9O_qbthgAg" requiredRole_CompositeAssemblyConnector="_NFajQdC2EduW_YoCCnq0vw"/>
     <compositeAssemblyConnectors_ComposedStructure id="_6CAkpdIyEduQ7qbNANXHPw" entityName="ProductDispatcherIf" requiringChildComponentContext_CompositeAssemblyConnector="_IcmGYtCoEduC9O_qbthgAg" providingChildComponentContext_CompositeAssemblyConnector="_r5EUAtIyEduQ7qbNANXHPw" providedRole_CompositeAssemblyConnector="_gMw-sNCiEduC9O_qbthgAg" requiredRole_CompositeAssemblyConnector="_IpnV8dItEduQ7qbNANXHPw"/>
+    <compositeAssemblyConnectors_ComposedStructure id="_mZl2QCQFEdyLBZREr9U8dw" entityName="Connector TradingSystem.Inventory.ProductDispatcher -> TradingSystem.Inventory.Application.Store" requiringChildComponentContext_CompositeAssemblyConnector="_r5EUAtIyEduQ7qbNANXHPw" providingChildComponentContext_CompositeAssemblyConnector="_IcmGYtCoEduC9O_qbthgAg" providedRole_CompositeAssemblyConnector="_8phWYNCmEduC9O_qbthgAg" requiredRole_CompositeAssemblyConnector="_AXZsESDlEdyyNLPIIGbfMQ"/>
   </components__Repository>
   <components__Repository xsi:type="pcm.repository:CompositeComponent" id="_NHccMtC5EduW_YoCCnq0vw" entityName="TradingSystem.CashDeskLine">
     <requiredRoles_InterfaceRequiringEntity id="_SXUaYdC5EduW_YoCCnq0vw" entityName="CashDeskLine.BankIf" requiredInterface__RequiredRole="_RDRYlNC5EduW_YoCCnq0vw"/>
