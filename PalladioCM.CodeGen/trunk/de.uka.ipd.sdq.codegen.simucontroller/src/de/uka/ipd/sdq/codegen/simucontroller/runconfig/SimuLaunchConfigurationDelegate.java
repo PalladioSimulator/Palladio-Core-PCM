@@ -60,7 +60,9 @@ public class SimuLaunchConfigurationDelegate implements
 	public void launch(ILaunchConfiguration configuration, String mode,
 			ILaunch launch, IProgressMonitor monitor) throws CoreException {
 		PrintStream outStream = System.out;
+		PrintStream errStream = System.err;
 		System.setOut(getPrintStream());
+		System.setErr(getPrintStream());
 
 		SimulationWorkflow workflow = new SimulationWorkflow(monitor);
 		SimuComConfig simuConfig = new SimuComConfig(configuration.getAttributes());
@@ -111,6 +113,7 @@ public class SimuLaunchConfigurationDelegate implements
 		workflow.rollback();
 
 		System.setOut(outStream);
+		System.setErr(errStream);
 		// ConsolePlugin.getDefault().getConsoleManager().removeConsoles(new IConsole[]{ console });
 	}
 }

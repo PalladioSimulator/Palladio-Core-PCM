@@ -359,7 +359,7 @@ boolsample returns [Sample s]
 		LPAREN
 			{s = ProbfunctionFactory.eINSTANCE.createSample();} 
 		str = boolean_keywords
-		{s.setValue(str);}
+		{s.setValue(str.equals("true"));}
 		SEMI
 		n=NUMBER 
 			{s.setProbability(Double.parseDouble(n.getText()));} 

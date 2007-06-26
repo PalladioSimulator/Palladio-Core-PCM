@@ -1,4 +1,4 @@
-// $ANTLR 3.0 C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g 2007-06-15 09:32:19
+// $ANTLR 3.0 C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g 2007-06-26 06:58:08
   
 	package de.uka.ipd.sdq.pcm.stochasticexpressions.parser;
 	import de.uka.ipd.sdq.stoex.*;
@@ -1956,7 +1956,7 @@ public class PCMStoExParser extends Parser {
             str=boolean_keywords();
             _fsp--;
 
-            s.setValue(str);
+            s.setValue(str.equals("true"));
             match(input,SEMI,FOLLOW_SEMI_in_boolsample1963); 
             n=(Token)input.LT(1);
             match(input,NUMBER,FOLLOW_NUMBER_in_boolsample1969); 

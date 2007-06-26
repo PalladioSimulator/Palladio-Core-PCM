@@ -1,6 +1,7 @@
 package de.uka.ipd.sdq.simucomframework.variables.stoexvisitor;
 
 import java.util.ArrayList;
+import java.util.Map.Entry;
 
 import org.apache.log4j.Logger;
 
@@ -91,7 +92,11 @@ public class PCMStoExEvaluationVisitor extends PCMStoExSwitch {
 			}
 		}
 		if (mode == VariableMode.EXCEPTION_ON_NOT_FOUND) {
-			RuntimeException re = new RuntimeException("Architecture specification incomplete. Stackframe is missing id "+variableID);
+			String availableIDs = "";
+			for (Entry<String, Object> e : this.myStackFrame.getContents()) {
+				availableIDs += "<"+e.getKey()+"> ";
+			}
+			RuntimeException re = new RuntimeException("Architecture specification incomplete. Stackframe is missing id "+variableID+"\nAvailable IDs are "+availableIDs);
 	        logger.error("Value not found in specification",re);
 			throw re; 
 		} else if (mode == VariableMode.RETURN_NULL_ON_NOT_FOUND) {

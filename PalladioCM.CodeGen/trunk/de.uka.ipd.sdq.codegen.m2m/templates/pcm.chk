@@ -1,6 +1,8 @@
 import parameter;
 import seff;
 import repository;
+import composition;
+import system;
 extension m2t_transforms::pcm;
 
 context VariableUsage ERROR 'LHS ID not set':
@@ -17,3 +19,9 @@ context ResourceDemandingBehaviour ERROR 'No route from start to stop action':
 	
 context BasicComponent ERROR this.entityName +': basic component must have at least a minimal SEFF for any provided method':
 	this.providedRoles_InterfaceProvidingEntity.providedInterface__ProvidedRole.signatures__Interface.forAll(s|s.hasSEFF(this));
+	
+context ComposedStructure ERROR 'Composed Structure ' + this.entityName +': All assembly contexts of a composite structure must have unique names':
+	this.childComponentContexts_ComposedStructure.forAll(ctx1|!this.childComponentContexts_ComposedStructure.exists(ctx2|ctx1 != ctx2 && ctx1.entityName == ctx2.entityName));
+	
+context System ERROR 'System ' + this.entityName +': A system must contain at least one uppercase letter':
+	this.entityName != this.entityName.toLowerCase();
