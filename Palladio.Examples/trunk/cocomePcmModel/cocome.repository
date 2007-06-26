@@ -291,7 +291,7 @@
       <steps_Behaviour xsi:type="pcm.seff:InternalAction" id="_NeLlMNL-EdujoZKiiOMQBA" entityName="sumUp" predecessor_AbstractAction="_pbL4ENL9EdujoZKiiOMQBA" successor_AbstractAction="_A2scgN7AEduAmOtZLewIEg"/>
       <steps_Behaviour xsi:type="pcm.seff:SetVariableAction" id="_A2scgN7AEduAmOtZLewIEg" entityName="setReturnValue" predecessor_AbstractAction="_NeLlMNL-EdujoZKiiOMQBA" successor_AbstractAction="_BYli0NLyEduQ7qbNANXHPw">
         <variableUsage_SetVariableAction>
-          <variableCharacterisation_VariableUsage specification="IntPMF(unit=&quot;NUMBER_OF_ELEMENTS&quot;)[ (1; 0.1) (2; 0.5) (3; 0.2) (4; 0.2) ]" type="NUMBER_OF_ELEMENTS"/>
+          <variableCharacterisation_VariableUsage specification="IntPMF(unit=&quot;NUMBER_OF_ELEMENTS&quot;)[ (1;0.1) (2;0.5) (3;0.2) (4;0.2) ]" type="NUMBER_OF_ELEMENTS"/>
           <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="orderProductsAvailableAtOtherStores.RETURN"/>
         </variableUsage_SetVariableAction>
       </steps_Behaviour>
