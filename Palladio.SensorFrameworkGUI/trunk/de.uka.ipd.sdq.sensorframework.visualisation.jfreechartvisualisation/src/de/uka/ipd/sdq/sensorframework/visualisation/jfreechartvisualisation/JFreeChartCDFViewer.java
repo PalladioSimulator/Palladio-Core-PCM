@@ -14,6 +14,7 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.Properties;
 
 import org.eclipse.jface.action.AbstractAction;
 import org.eclipse.jface.action.Action;
@@ -79,6 +80,10 @@ public class JFreeChartCDFViewer extends AbstractJFreeChartChart implements IHis
 		plot.getRenderer().setStroke(new BasicStroke(3));
 	}
 
+	private double histogramWidth = 1.0;
+	private Collection lastData;
+	public static final String HISTOGRAM_WIDTH = "HISTOGRAM_WIDTH";
+	
 	public void setCDFs(Collection data){
 		densityDataset.removeAllSeries();
 		
@@ -87,6 +92,9 @@ public class JFreeChartCDFViewer extends AbstractJFreeChartChart implements IHis
 			if (o instanceof IAdapter) {
 				IAdapter histAdapter = (IAdapter) o;
 				double sum = 0;
+				Properties p = new Properties();
+				p.put(HISTOGRAM_WIDTH, histogramWidth);
+				histAdapter.setProperties(p);
 				Histogram hist = (Histogram) histAdapter.getAdaptedObject();
 				density = new XYSeries(hist.getLabel(),true,false);
 				for (HistogramEntity e : hist.getEntityList()) {
@@ -116,5 +124,12 @@ public class JFreeChartCDFViewer extends AbstractJFreeChartChart implements IHis
 		}
 		initChart();
 		this.forceRedraw();
+		
+		lastData = data;
+	}
+	
+	public void setHistogramWidth(double width) {
+		this.histogramWidth = width;
+		setCDFs(lastData);
 	}
 }
