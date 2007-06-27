@@ -48,6 +48,9 @@
 		<metaModel id="pcm.core.completions" class="oaw.type.emf.EmfMetaModel">
 			<metaModelPackage value="de.uka.ipd.sdq.completions.CompletionsPackage"/>
 		</metaModel>
+		<metaModel id="pcm.core.resourceenv" class="oaw.type.emf.EmfMetaModel">
+			<metaModelPackage value="de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage"/>
+		</metaModel>
 		<checkFile value="pcm"/>
 		<expression value="pcmmodel.eAllContents"/>
 	</component>
