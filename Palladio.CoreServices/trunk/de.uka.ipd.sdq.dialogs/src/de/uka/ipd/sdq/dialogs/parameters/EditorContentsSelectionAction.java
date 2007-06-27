@@ -14,7 +14,6 @@ public class EditorContentsSelectionAction implements ISelectionChangedListener 
 	/* (non-Javadoc)
 	 * @see org.eclipse.jface.viewers.ISelectionChangedListener#selectionChanged(org.eclipse.jface.viewers.SelectionChangedEvent)
 	 */
-	@Override
 	public void selectionChanged(SelectionChangedEvent event) {
 		IStructuredSelection sel = (IStructuredSelection) event.getSelection();
 		Object selection = (Object) sel.getFirstElement();

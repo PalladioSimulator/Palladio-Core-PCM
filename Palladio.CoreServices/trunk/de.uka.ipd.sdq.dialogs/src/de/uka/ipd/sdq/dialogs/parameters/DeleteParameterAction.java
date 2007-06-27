@@ -48,7 +48,6 @@ public class DeleteParameterAction extends EditorContentsSelectionAction
 		editingDomain.getCommandStack().execute(recCommand);
 	}
 
-	@Override
 	public void widgetDefaultSelected(SelectionEvent e) {
 		// TODO Auto-generated method stub
 		

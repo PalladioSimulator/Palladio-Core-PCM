@@ -56,7 +56,6 @@ public class DownInnerDeclarationAction extends EditorContentsSelectionAction
 		dialog.validateInput();
 	}
 
-	@Override
 	public void widgetDefaultSelected(SelectionEvent e) {
 		// TODO Auto-generated method stub
 		
