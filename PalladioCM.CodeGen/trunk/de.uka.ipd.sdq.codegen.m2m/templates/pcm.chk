@@ -4,6 +4,7 @@ import repository;
 import composition;
 import system;
 import resourceenvironment;
+import usagemodel;
 extension m2t_transforms::pcm;
 
 context VariableUsage ERROR 'LHS ID not set':
@@ -25,6 +26,9 @@ context ComposedStructure ERROR 'Composed Structure ' + this.entityName +': All 
 	this.childComponentContexts_ComposedStructure.forAll(ctx1|!this.childComponentContexts_ComposedStructure.exists(ctx2|ctx1 != ctx2 && ctx1.entityName == ctx2.entityName));
 	
 context System ERROR 'System ' + this.entityName +': A system must contain at least one uppercase letter':
+	this.entityName != this.entityName.toLowerCase();
+
+context UsageScenario ERROR 'System ' + this.entityName +': A usage scenario must contain at least one uppercase letter':
 	this.entityName != this.entityName.toLowerCase();
 	
 context CommunicationLinkResourceSpecification ERROR 'No latency specified for communication resource' :

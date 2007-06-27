@@ -67,7 +67,7 @@ public class StoExPrettyPrintVisitor extends StoexSwitch<String> {
 			op = " <= ";
 			break;
 		case NOTEQUAL:
-			op = " != ";
+			op = " <> ";
 			break;
 		}
 		return ((String)doSwitch(object.getLeft()))+op+((String)doSwitch(object.getRight()));
