@@ -25,27 +25,27 @@
     </communicationLinkResourceSpecifications_LinkingResource>
   </linkingresource>
   <resourceContainer_ResourceEnvironment id="_mpMBEOEgEduBSuO8WivxSA" entityName="StoreClient">
-    <activeResourceSpecifications_ResourceContainer schedulingPolicy="PROCESSOR_SHARING" processingRate="100.0" units="CPU">
+    <activeResourceSpecifications_ResourceContainer schedulingPolicy="PROCESSOR_SHARING" processingRate="1.0" units="CPU">
       <activeResourceType_ActiveResourceSpecification href="cocome.resourcetype#_Af748dO1EduL6bgulTgjzg"/>
     </activeResourceSpecifications_ResourceContainer>
   </resourceContainer_ResourceEnvironment>
   <resourceContainer_ResourceEnvironment id="_W6WUMOEhEduBSuO8WivxSA" entityName="EnterpriseClient">
-    <activeResourceSpecifications_ResourceContainer schedulingPolicy="PROCESSOR_SHARING" processingRate="100.0" units="CPU">
+    <activeResourceSpecifications_ResourceContainer schedulingPolicy="PROCESSOR_SHARING" processingRate="1.0" units="CPU">
       <activeResourceType_ActiveResourceSpecification href="cocome.resourcetype#_Af748dO1EduL6bgulTgjzg"/>
     </activeResourceSpecifications_ResourceContainer>
   </resourceContainer_ResourceEnvironment>
   <resourceContainer_ResourceEnvironment id="_ZVdrwOEhEduBSuO8WivxSA" entityName="StoreServer">
-    <activeResourceSpecifications_ResourceContainer schedulingPolicy="PROCESSOR_SHARING" processingRate="100.0" units="CPU">
+    <activeResourceSpecifications_ResourceContainer schedulingPolicy="PROCESSOR_SHARING" processingRate="1.0" units="CPU">
       <activeResourceType_ActiveResourceSpecification href="cocome.resourcetype#_Af748dO1EduL6bgulTgjzg"/>
     </activeResourceSpecifications_ResourceContainer>
   </resourceContainer_ResourceEnvironment>
   <resourceContainer_ResourceEnvironment id="_bTYxAOEhEduBSuO8WivxSA" entityName="EnterpriseServer">
-    <activeResourceSpecifications_ResourceContainer schedulingPolicy="PROCESSOR_SHARING" processingRate="100.0" units="CPU">
+    <activeResourceSpecifications_ResourceContainer schedulingPolicy="PROCESSOR_SHARING" processingRate="1.0" units="CPU">
       <activeResourceType_ActiveResourceSpecification href="cocome.resourcetype#_Af748dO1EduL6bgulTgjzg"/>
     </activeResourceSpecifications_ResourceContainer>
   </resourceContainer_ResourceEnvironment>
   <resourceContainer_ResourceEnvironment id="_cx26IOEhEduBSuO8WivxSA" entityName="CashDeskPC">
-    <activeResourceSpecifications_ResourceContainer schedulingPolicy="PROCESSOR_SHARING" processingRate="100.0" units="CPU">
+    <activeResourceSpecifications_ResourceContainer schedulingPolicy="PROCESSOR_SHARING" processingRate="1.0" units="CPU">
       <activeResourceType_ActiveResourceSpecification href="cocome.resourcetype#_Af748dO1EduL6bgulTgjzg"/>
     </activeResourceSpecifications_ResourceContainer>
   </resourceContainer_ResourceEnvironment>
