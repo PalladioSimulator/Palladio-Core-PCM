@@ -16,8 +16,10 @@ import org.eclipse.ui.PlatformUI;
 
 import de.uka.ipd.sdq.dialogs.selection.PalladioSelectEObjectDialog;
 import de.uka.ipd.sdq.dialogs.stoex.StochasticExpressionEditDialog;
+import de.uka.ipd.sdq.pcm.repository.Parameter;
 import de.uka.ipd.sdq.pcm.resourcetype.ProcessingResourceType;
 import de.uka.ipd.sdq.pcm.resourcetype.ResourceRepository;
+import de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF;
 import de.uka.ipd.sdq.pcm.seff.SeffPackage;
 import de.uka.ipd.sdq.pcm.stochasticexpressions.PCMStoExPrettyPrintVisitor;
 import de.uka.ipd.sdq.stoex.StoexPackage;
@@ -88,21 +90,46 @@ public class ParametricResourceDemandConfigureCommand extends
 	}
 
 	private CommandResult setSpecifikation_ParametricResourceDemand(
-			IProgressMonitor monitor, IAdaptable info) throws ExecutionException {
+			IProgressMonitor monitor, IAdaptable info)
+			throws ExecutionException {
 
 		StochasticExpressionEditDialog dialog = new StochasticExpressionEditDialog(
-				PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell());
+				PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(),
+				getContext(request.getElementToConfigure()));
 		dialog.open();
 
 		if (dialog.getResult() == null)
 			return CommandResult.newCancelledCommandResult();
-		
-		ICommand cmd = new SetValueCommand(new SetRequest(
-				request.getElementToConfigure(),
-				StoexPackage.eINSTANCE.getRandomVariable_Specification(),
-				new PCMStoExPrettyPrintVisitor().prettyPrint(dialog.getResult())));
+
+		ICommand cmd = new SetValueCommand(new SetRequest(request
+				.getElementToConfigure(), StoexPackage.eINSTANCE
+				.getRandomVariable_Specification(),
+				new PCMStoExPrettyPrintVisitor()
+						.prettyPrint(dialog.getResult())));
 		cmd.execute(monitor, info);
 
 		return cmd.getCommandResult();
+	}
+	
+	private Parameter[] getContext(EObject rv) {
+		Parameter[] parameters = new Parameter[]{};
+
+		ResourceDemandingSEFF seff = getSEFF(
+				rv);
+
+		if (seff != null && seff.getDescribedService__SEFF() != null && seff.getDescribedService__SEFF().getParameters__Signature() != null)
+			parameters = (Parameter[]) seff.getDescribedService__SEFF().getParameters__Signature().toArray();
+
+		return parameters;
+	}
+
+	private ResourceDemandingSEFF getSEFF(EObject a) {
+		EObject container = a;
+		while (!(container instanceof ResourceDemandingSEFF))
+			container = container.eContainer();
+		if (!(container instanceof ResourceDemandingSEFF)) 
+			return null;
+		ResourceDemandingSEFF seff = (ResourceDemandingSEFF) container;
+		return seff;
 	}
 }
