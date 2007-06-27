@@ -39,10 +39,8 @@ class InternalActionDescriptor {
 public class SeffBuilder {
 	ArrayList<Object> preActions = new ArrayList<Object>();
 	ArrayList<Object> postActions = new ArrayList<Object>();
-	private BasicComponent basicComponent;
-	
-	public SeffBuilder(BasicComponent basicComponent) {
-		this.basicComponent = basicComponent;
+
+	public SeffBuilder() {
 	}
 
 	public void appendPreInternalAction(ProcessingResourceType type, String resourceDemandSpec) {
@@ -53,17 +51,17 @@ public class SeffBuilder {
 		postActions.add(new InternalActionDescriptor(resourceDemandSpec,type));
 	}
 	
-	public void build() {
-		for (ProvidedRole providedRole : this.basicComponent.getProvidedRoles_InterfaceProvidingEntity()) {
+	public void build(BasicComponent basicComponent) {
+		for (ProvidedRole providedRole : basicComponent.getProvidedRoles_InterfaceProvidingEntity()) {
 			for (Signature providedService : providedRole.getProvidedInterface__ProvidedRole().getSignatures__Interface()){
-				buildSeff(providedService);
+				ResourceDemandingSEFF seff = buildSeff(providedService);
+				basicComponent.getServiceEffectSpecifications__BasicComponent().add(seff);
 			}
 		}
 	}
 	
-	private void buildSeff(Signature signature) {
+	private ResourceDemandingSEFF buildSeff(Signature signature) {
 		ResourceDemandingSEFF seff = SeffFactory.eINSTANCE.createResourceDemandingSEFF();
-		basicComponent.getServiceEffectSpecifications__BasicComponent().add(seff);
 		seff.setDescribedService__SEFF(signature);
 		
 		StartAction start = SeffFactory.eINSTANCE.createStartAction();
@@ -89,6 +87,8 @@ public class SeffBuilder {
 		createControlFlow(lastAction, stop);
 		
 		Collections.addAll(seff.getSteps_Behaviour(), start,stop,delegatingCall);
+		
+		return seff;
 	}
 
 	private AbstractAction createAction(Object o, Signature signature) {
@@ -129,6 +129,11 @@ public class SeffBuilder {
 			AbstractAction b) {
 		a.setSuccessor_AbstractAction(b);
 		return b;
+	}
+
+	public void appendPostInternalAction(
+			ISignatureDependentDemand signatureDependentDemand) {
+		this.postActions.add(signatureDependentDemand);
 	}
 	
 }

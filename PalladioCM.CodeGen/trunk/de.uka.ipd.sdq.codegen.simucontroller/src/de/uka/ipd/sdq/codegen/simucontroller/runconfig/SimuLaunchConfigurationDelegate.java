@@ -4,6 +4,8 @@ import java.io.PrintStream;
 
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.IStatus;
+import org.eclipse.core.runtime.Status;
 import org.eclipse.debug.core.ILaunch;
 import org.eclipse.debug.core.ILaunchConfiguration;
 import org.eclipse.debug.core.model.ILaunchConfigurationDelegate;
@@ -13,13 +15,32 @@ import org.eclipse.ui.console.ConsolePlugin;
 import org.eclipse.ui.console.IConsole;
 import org.eclipse.ui.console.MessageConsole;
 
+import de.uka.ipd.sdq.codegen.simucontroller.SimuControllerPlugin;
 import de.uka.ipd.sdq.codegen.simucontroller.workflow.CompilePluginCodeJob;
 import de.uka.ipd.sdq.codegen.simucontroller.workflow.CreatePluginProjectJob;
 import de.uka.ipd.sdq.codegen.simucontroller.workflow.GeneratePluginCodeJob;
 import de.uka.ipd.sdq.codegen.simucontroller.workflow.LoadPluginJob;
 import de.uka.ipd.sdq.codegen.simucontroller.workflow.SimulateJob;
 import de.uka.ipd.sdq.codegen.simucontroller.workflow.SimulationWorkflow;
+import de.uka.ipd.sdq.dialogs.error.ErrorDisplayDialog;
 import de.uka.ipd.sdq.simucomframework.SimuComConfig;
+
+
+class ErrorDisplayRunner implements Runnable {
+	private Throwable e;
+
+	
+	public ErrorDisplayRunner(Throwable e) {
+		super();
+		this.e = e;
+	}
+
+	public void run() {
+		new ErrorDisplayDialog(PlatformUI.getWorkbench().getActiveWorkbenchWindow()
+				.getShell(), e).open();
+	}
+
+}
 
 /**
  * @author admin
@@ -63,6 +84,7 @@ public class SimuLaunchConfigurationDelegate implements
 		PrintStream errStream = System.err;
 		System.setOut(getPrintStream());
 		System.setErr(getPrintStream());
+		boolean shouldThrowException = configuration.getAttribute(SimuComConfig.SHOULD_THROW_EXCEPTION, false);
 
 		SimulationWorkflow workflow = new SimulationWorkflow(monitor);
 		SimuComConfig simuConfig = new SimuComConfig(configuration.getAttributes());
@@ -97,23 +119,20 @@ public class SimuLaunchConfigurationDelegate implements
 		try {
 			workflow.run();
 		} catch (final Exception e) {
-			PlatformUI.getWorkbench().getDisplay().syncExec(new Runnable() {
-				public void run() {
-					new MessageDialog(PlatformUI.getWorkbench()
-							.getActiveWorkbenchWindow().getShell(),
-							"Error running the simulation", null,
-							"Error running the simulation. Exception given: "
-									+ e.getMessage(), MessageDialog.ERROR,
-							new String[] { "OK" }, 0).open();
-				}
-			});
-			// throw new RuntimeException(e);
+			if (shouldThrowException)
+				throw new CoreException(new Status(IStatus.ERROR,SimuControllerPlugin.PLUGIN_ID,"Simulation failed",e));
+			PlatformUI.getWorkbench().getDisplay().syncExec(new ErrorDisplayRunner(e));
+		} finally {
+			//remove all files
+			try {
+				workflow.rollback();
+			} catch (Exception e) {
+				if (shouldThrowException)
+					throw new CoreException(new Status(IStatus.ERROR,SimuControllerPlugin.PLUGIN_ID,"Simulation failed",e));
+				PlatformUI.getWorkbench().getDisplay().syncExec(new ErrorDisplayRunner(e));
+			}
 		}
-		//remove all files
-		workflow.rollback();
-
 		System.setOut(outStream);
 		System.setErr(errStream);
-		// ConsolePlugin.getDefault().getConsoleManager().removeConsoles(new IConsole[]{ console });
 	}
 }

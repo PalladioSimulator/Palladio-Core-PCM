@@ -117,11 +117,6 @@
 // If the component is unbound, a null pointer is generated
 // -----------------------------------
 «DEFINE PortQuery(ComposedStructure s, AssemblyContext ctx) FOR RequiredRole»
-	«IF Completion.isInstance(s)»
-		«EXPAND m2t_transforms::delegator_class::DelegatorClass(s.javaName()+"Delegator") FOR this.requiredInterface__RequiredRole»
-		new «this.requiredInterface__RequiredRole.implementationPackage()».delegates.«s.javaName()+"Delegator"»«this.requiredInterface__RequiredRole.javaName()»
-		(
-	«ENDIF»
 	«IF hasConnector(s,ctx,this)»
 		«LET getConnector(s,ctx,this) AS connector»
 			/* From Connector «connector.id» */
@@ -129,14 +124,19 @@
 	   	«ENDLET»
 	«ELSE» 
 		«IF hasRequiredDelegationConnector(s,ctx,this)»
+			«IF Completion.isInstance(s)»
+				«EXPAND m2t_transforms::delegator_class::DelegatorClass(s.javaName()+"Delegator") FOR this.requiredInterface__RequiredRole»
+				new «this.requiredInterface__RequiredRole.implementationPackage()».delegates.«s.javaName()+"Delegator"»«this.requiredInterface__RequiredRole.javaName()»
+				(
+			«ENDIF»
 			«LET getRequiredDelegationConnector(s,ctx,this) AS connector»
 				this.myContext.getRole«connector.outerRequiredRole_RequiredDelegationConnector.requiredInterface__RequiredRole.javaName()»()
 	   		«ENDLET»
+			«IF Completion.isInstance(s)»
+				)
+			«ENDIF»
 	    «ELSE»
 	        null
 	    «ENDIF» 
     «ENDIF»
-	«IF Completion.isInstance(s)»
-	)
-	«ENDIF»
 «ENDDEFINE»

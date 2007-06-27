@@ -1,10 +1,13 @@
 package de.uka.sdq.pcm.transformations;
 
+import java.util.Set;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.query.ocl.conditions.BooleanOCLCondition;
 import org.eclipse.emf.query.statements.FROM;
+import org.eclipse.emf.query.statements.SELECT;
 import org.eclipse.emf.query.statements.SET;
 import org.eclipse.emf.query.statements.UPDATE;
 import org.eclipse.emf.query.statements.WHERE;
@@ -85,26 +88,18 @@ public class TransformationWorkflowComponent
 		OCL ocl = org.eclipse.ocl.ecore.OCL.newInstance();
 
 		try {
-			new UPDATE(
+			Set<EObject> result = new SELECT(
 				    new FROM(resource),
 				    new WHERE(new BooleanOCLCondition<EClassifier, EClass, EObject>(
 				    	ocl.getEnvironment(),
 				        "true",
-				        CompositionPackage.eINSTANCE.getAssemblyConnector())),
-				    new SET() {
-				        public boolean set(EObject eObject) {
-				        	try 
-				        	{
-				        		transform(eObject);
-				        		return true;
-				        	} catch (Exception ex) {
-				    			issues.addError("Exception during M2M transformation: "+ex.getMessage());
-				        	}
-				        	return false;
-				        }}).execute();
-		} catch (ParserException e) {
-			issues.addError("Parser error on OCL: "+e.getMessage());
-		}
+				        CompositionPackage.eINSTANCE.getAssemblyConnector()))).getEObjects();
+			for(EObject eObject : result) {
+        		transform(eObject);
+			}
+    	} catch (Exception ex) {
+			issues.addError("Exception during M2M transformation: "+ex.getMessage());
+    	}
 	}
 
 	protected void transform(EObject object) {
@@ -132,7 +127,8 @@ public class TransformationWorkflowComponent
 		
 		if ( respectLinkingResources ) {
 			LinkingResource linkingRes = findLinkingResource(con);
-			if (linkingRes != null) {
+			if (linkingRes != null) { // Is there a linking resource between the components?
+				final CommunicationLinkResourceType typeOfLink = linkingRes.getCommunicationLinkResourceSpecifications_LinkingResource().getCommunicationLinkResourceType_CommunicationLinkResourceSpecification();
 				ResourceContainer dummyContainer = ResourceenvironmentFactory.eINSTANCE.createResourceContainer();
 				dummyContainer.setId(linkingRes.getId());
 		
@@ -146,16 +142,16 @@ public class TransformationWorkflowComponent
 					}
 		
 					public ProcessingResourceType getType() {
-						return findNETResourceType();
+						return typeOfLink;
 					}
 				});
-				seffBuilder.appendPreInternalAction(new ISignatureDependentDemand(){
+				seffBuilder.appendPostInternalAction(new ISignatureDependentDemand(){
 					public String getDemand(Signature signature) {
 						return BytesizeComputationForSignature.getBytesizeForSignature(signature,Modifier.OUT);
 					}
 		
 					public ProcessingResourceType getType() {
-						return findNETResourceType();
+						return typeOfLink;
 					}
 				});
 			}
@@ -198,17 +194,6 @@ public class TransformationWorkflowComponent
 		}
 		throw new RuntimeException("Unable to find CPU resource type");
 	}
-
-	private CommunicationLinkResourceType findNETResourceType() {
-		for (ResourceType r : resourceType.getAvailableResourceTypes_ResourceRepository()) {
-			if (r.getEntityName().toLowerCase().contains("net") ||
-					r.getEntityName().toLowerCase().contains("lan") ||
-					r.getEntityName().toLowerCase().contains("wan"))
-				return (CommunicationLinkResourceType)r;
-		}
-		throw new RuntimeException("Unable to find NET resource type. Please use a resourcetype repository compatible with Palladio.resourcetype. Add at least a \"net\" resourcetype.");
-	}
-	
 
 	private void embedCompletionIntoSystem(AssemblyConnector con,
 			Completion completion) {

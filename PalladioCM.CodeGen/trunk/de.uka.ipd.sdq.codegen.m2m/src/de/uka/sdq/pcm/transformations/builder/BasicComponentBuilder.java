@@ -16,7 +16,7 @@ public class BasicComponentBuilder {
 
 	private static int counter = 0;
 	private BasicComponent basicComponent;
-	private SeffBuilder builder;
+	private SeffBuilder seffBuilder;
 	private ResourceContainer container;
 	private Completion completion;
 	private Allocation allocation;
@@ -24,11 +24,10 @@ public class BasicComponentBuilder {
 	private AllocationContext myAllocationContext;
 	
 	public BasicComponentBuilder(Completion completion, ResourceContainer container, Allocation allocation) {
-		this.basicComponent = createBasicComponent(completion); 
 		this.container = container;
 		this.completion = completion;
 		this.allocation = allocation;
-		this.builder = new SeffBuilder(this.basicComponent);
+		this.seffBuilder = new SeffBuilder();
 	}
 
 	private BasicComponent createBasicComponent(Completion completion) {
@@ -49,11 +48,12 @@ public class BasicComponentBuilder {
 	}
 	
 	public SeffBuilder getSeffBuilder() {
-		return builder;
+		return seffBuilder;
 	}
 	
 	public void build() {
-		this.builder.build();
+		this.basicComponent = createBasicComponent(this.completion);
+		this.seffBuilder.build(basicComponent);
 
 		this.myAssemblyContext = CompositionFactory.eINSTANCE.createAssemblyContext();
 		myAssemblyContext.setEntityName("AssemblyContext"+counter); counter++;

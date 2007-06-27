@@ -10,6 +10,7 @@ import java.util.Map;
 public class SimuComConfig {
 
 	public static final String DATASOURCE_ID = "datasourceID";
+	public static final String SHOULD_THROW_EXCEPTION = "shouldThrowException";
 	/** SimuCom configuration tab */
 	public static String EXPERIMENT_RUN = "experimentRun";
 	public static String SIMULATION_TIME = "simTime";

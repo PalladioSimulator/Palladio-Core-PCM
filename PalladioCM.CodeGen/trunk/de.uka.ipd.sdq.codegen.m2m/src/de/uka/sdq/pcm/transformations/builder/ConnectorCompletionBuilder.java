@@ -57,6 +57,8 @@ public class ConnectorCompletionBuilder {
 
 		for (int i=1; i<basicComponents.size(); i++) {
 			BasicComponentBuilder currentBuilder = basicComponents.get(i);
+			currentBuilder.build();
+			
 			AssemblyConnector acon = CompositionFactory.eINSTANCE.createAssemblyConnector();
 			acon.setParentStructure_AssemblyConnector(completion);
 			acon.setRequiredRole_CompositeAssemblyConnector(lastBuilder.getRequiredRole());

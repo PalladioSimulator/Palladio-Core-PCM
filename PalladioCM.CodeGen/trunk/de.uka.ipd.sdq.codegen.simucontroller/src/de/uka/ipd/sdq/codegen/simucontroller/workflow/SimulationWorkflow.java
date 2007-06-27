@@ -48,12 +48,13 @@ public class SimulationWorkflow {
 		myMonitor.done();
 	}
 
-	public void rollback() {
+	public void rollback() throws Exception {
 		while (!myExecutedJobs.empty()) {
 			try {
 				myExecutedJobs.pop().rollback();
 			} catch (Exception e) {
-				e.printStackTrace();
+				SimuControllerPlugin.log(IStatus.ERROR, e.getMessage());
+				throw e;
 			}
 		}
 	}
