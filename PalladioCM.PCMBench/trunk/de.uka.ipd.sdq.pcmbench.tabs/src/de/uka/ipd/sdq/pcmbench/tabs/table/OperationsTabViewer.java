@@ -20,7 +20,6 @@ import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.swt.widgets.ToolBar;
 import org.eclipse.swt.widgets.ToolItem;
 
-import de.uka.ipd.sdq.dialogs.datatype.DialogRepository;
 import de.uka.ipd.sdq.dialogs.parameters.ParametersDialog;
 import de.uka.ipd.sdq.pcm.repository.Signature;
 import de.uka.ipd.sdq.pcmbench.tabs.PCMBenchTabsImages;
@@ -133,7 +132,9 @@ public class OperationsTabViewer {
 				ParametersDialog dialog = new ParametersDialog(
 						cellEditorWindow.getShell(),
 						selectedSignature);
-				return dialog.open();
+				if (dialog.open() == dialog.OK)
+					tableViewer.refresh();
+				return null;
 			}
 		};
 
@@ -167,7 +168,6 @@ public class OperationsTabViewer {
 					}
 				});
 		// TODO
-		DialogRepository.setOperationsViewer(tableViewer);
 		OperationsTabRepository.setOperationsViewer(tableViewer);
 	}
 
