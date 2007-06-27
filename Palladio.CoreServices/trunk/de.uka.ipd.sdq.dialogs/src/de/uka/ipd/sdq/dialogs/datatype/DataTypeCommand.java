@@ -7,29 +7,25 @@ import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import de.uka.ipd.sdq.pcm.repository.CollectionDataType;
 import de.uka.ipd.sdq.pcm.repository.CompositeDataType;
 import de.uka.ipd.sdq.pcm.repository.DataType;
+import de.uka.ipd.sdq.pcm.repository.Repository;
 import de.uka.ipd.sdq.pcm.repository.RepositoryFactory;
 
-/**
- * @author roman
- */
+/** @author roman */
 public class DataTypeCommand {
 	
-	/**
-	 * The transactional editing domain which is used to get the commands and
-	 * alter the model
-	 */
-	protected TransactionalEditingDomain editingDomain;
+	/** The transactional editing domain which is used to get the commands */
+	TransactionalEditingDomain editingDomain;
 	
-	public DataTypeCommand(TransactionalEditingDomain editingDomain){
+	public DataTypeCommand(TransactionalEditingDomain editingDomain) {
 		this.editingDomain = editingDomain;
 	}
-	
 
 	/* (non-Javadoc)
 	 * @see de.uka.ipd.sdq.pcmbench.tabs.dialogs.CreateDataTypeDialog#createCollectionDataType()
 	 */
-	public void createCollectionDataType(final DataType dataType,
-			final DataType innerDataType, final String entityName) {
+	public void createCollectionDataType(final Repository repository,
+			final DataType dataType, final DataType innerDataType,
+			final String entityName) {
 
 		RecordingCommand recCommand = new RecordingCommand(editingDomain) {
 			@Override
@@ -54,8 +50,7 @@ public class DataTypeCommand {
 					// Create new DataType
 					collectionDataType = RepositoryFactory.eINSTANCE
 							.createCollectionDataType();
-					collectionDataType.setRepository_DataType(DialogRepository
-							.getEditedRepository());
+					collectionDataType.setRepository_DataType(repository);
 
 					Assert.isNotNull(collectionDataType);
 					Assert.isNotNull(innerDataType);
@@ -71,39 +66,24 @@ public class DataTypeCommand {
 		editingDomain.getCommandStack().execute(recCommand);
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
+	/* (non-Javadoc)
 	 * @see de.uka.ipd.sdq.pcmbench.tabs.dialogs.CreateDataTypeDialog#createCompositeDataType()
 	 */
-	public void createCompositeDataType(final DataType dataType,
-			final String entityName) {
+	public void createCompositeDataType(final Repository repository,
+			final CompositeDataType compositeDataType, final String entityName) {
+
 		RecordingCommand recCommand = new RecordingCommand(editingDomain) {
 			@Override
 			protected void doExecute() {
-				CompositeDataType compositeDataType;
+				Assert.isNotNull(compositeDataType);
 
-				if (dataType != null) {
-					// Edite existet DataType
-					compositeDataType = (CompositeDataType) dataType;
-
-					String typeName = compositeDataType.getEntityName();
-
-					if ((entityName != null) && (!typeName.equals(entityName)))
-						compositeDataType.setEntityName(entityName);
-
-				} else {
-					// Create new DataType
-					compositeDataType = DialogRepository
-							.getNewCompositeDataType();
-
-					Assert.isNotNull(compositeDataType);
-					Assert.isNotNull(entityName);
-
+				if ((entityName != null)
+						&& (!compositeDataType.getEntityName().equals(
+								entityName)))
 					compositeDataType.setEntityName(entityName);
-					compositeDataType.setRepository_DataType(DialogRepository
-							.getEditedRepository());
-				}
+
+				if (repository != null)
+					compositeDataType.setRepository_DataType(repository);
 			}
 		};
 

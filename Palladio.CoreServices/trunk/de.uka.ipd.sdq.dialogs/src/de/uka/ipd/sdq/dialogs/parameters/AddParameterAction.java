@@ -15,7 +15,7 @@ import de.uka.ipd.sdq.pcm.repository.Signature;
 /**
  * @author roman
  */
-public class AddParameterListener extends SelectionAdapter{
+public class AddParameterAction extends SelectionAdapter{
 
 	private Signature parentSignature;
 	private String PARAMETER_NAME = "null";
@@ -26,7 +26,7 @@ public class AddParameterListener extends SelectionAdapter{
 	 */
 	protected TransactionalEditingDomain editingDomain = null;
 
-	public AddParameterListener(Signature parentSignature) {
+	public AddParameterAction(Signature parentSignature) {
 		this.parentSignature = parentSignature;
 		this.editingDomain = TransactionUtil.getEditingDomain(parentSignature);
 	}

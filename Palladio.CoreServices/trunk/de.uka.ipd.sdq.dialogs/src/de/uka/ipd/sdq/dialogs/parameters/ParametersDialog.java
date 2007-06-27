@@ -79,17 +79,29 @@ public class ParametersDialog extends TitleAreaDialog {
 		editorContents.setViewerCellModifier(new ParametersCellModifier(
 				editorContents.getViewer(), TransactionUtil
 						.getEditingDomain(signature)));
-		editorContents.setAddButtonActionListener(new AddParameterListener(
+		editorContents.setAddButtonActionListener(new AddParameterAction(
 				signature));
-		editorContents
-				.setDeleteButtonActionListener(new DeleteParameterListener(
-						signature));
-		editorContents.setUpButtonActionListener(new UpParameterListener(
-				signature));
-		editorContents.setDownButtonActionListener(new DownParameterListener(
-				signature));
-		editorContents.setViewerInput(signature);
 
+		DeleteParameterAction deleteParameterAction = new DeleteParameterAction(
+				signature);
+		UpParameterAction upParameterAction = new UpParameterAction(
+				signature);
+		DownParameterAction downParameterAction = new DownParameterAction(
+				signature);
+
+		editorContents.setDeleteButtonActionListener(deleteParameterAction);
+		editorContents.setUpButtonActionListener(upParameterAction);
+		editorContents.setDownButtonActionListener(downParameterAction);
+
+		editorContents.setViewerSelectionChangedListener(deleteParameterAction);
+		editorContents.setViewerSelectionChangedListener(upParameterAction);
+		editorContents.setViewerSelectionChangedListener(downParameterAction);
+
+		editorContents.setViewerInput(signature);
+		
+		/**create separatot to button area */
+		((CreateEditorContents) editorContents).createSeparator(parent);
+		
 		return area;
 	}
 

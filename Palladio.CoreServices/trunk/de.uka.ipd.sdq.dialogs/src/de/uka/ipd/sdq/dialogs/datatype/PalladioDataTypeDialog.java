@@ -16,9 +16,11 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Shell;
 
 import de.uka.ipd.sdq.dialogs.parameters.CreateEditorContents;
+import de.uka.ipd.sdq.dialogs.parameters.UpDownButtonsValidator;
 import de.uka.ipd.sdq.pcm.repository.CollectionDataType;
 import de.uka.ipd.sdq.pcm.repository.CompositeDataType;
 import de.uka.ipd.sdq.pcm.repository.DataType;
+import de.uka.ipd.sdq.pcm.repository.InnerDeclaration;
 import de.uka.ipd.sdq.pcm.repository.Repository;
 import de.uka.ipd.sdq.pcm.repository.provider.RepositoryItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcmbench.ui.provider.PalladioItemProviderAdapterFactory;
@@ -30,6 +32,10 @@ public class PalladioDataTypeDialog extends DataTypeDialog {
 
 	private DataType innerDataType;
 	private DataType editedDataType;
+	private CreateEditorContents editorContents;
+
+	private Repository editedRepository;
+	private CompositeDataType compositeDataType;
 
 	/**
 	 * The transactional editing domain which is used to get the commands and
@@ -37,7 +43,8 @@ public class PalladioDataTypeDialog extends DataTypeDialog {
 	 */
 	protected TransactionalEditingDomain editingDomain = null;
 
-	public PalladioDataTypeDialog(Shell parentShell,TransactionalEditingDomain editingDomain) {
+	public PalladioDataTypeDialog(Shell parentShell,
+			TransactionalEditingDomain editingDomain) {
 		super(parentShell);
 		this.editingDomain = editingDomain;
 	}
@@ -49,39 +56,45 @@ public class PalladioDataTypeDialog extends DataTypeDialog {
 		initDialog(editeDataType);
 	}
 
-	/**call if datatype set (edite button)*/
+	/** call if datatype set (edite button) */
 	private void initDialog(DataType editeDataType) {
 
 		String entityName;
 		String entityInnerType;
-		String reposetory;
+		String repository;
 
 		if (editeDataType instanceof CollectionDataType) {
 			CollectionDataType collectionDataType = (CollectionDataType) editeDataType;
 
 			entityName = collectionDataType.getEntityName();
-			reposetory = collectionDataType.getRepository_DataType()
+			repository = collectionDataType.getRepository_DataType()
 					.getEntityName();
 
+			/**
+			 * PalladioLabelProvider - representation a inner DataType name whit
+			 * Palladio look
+			 */
 			entityInnerType = ParameterRepresentation
 					.setDataTypeToString(collectionDataType
 							.getInnerType_CollectionDataType());
 
+			// create DataTypeDialog
+			create();
 			// Call constructor of DataTypeDialog
-			super.init(collectionSignator, reposetory, entityName,
+			super.init(collectionSignator, repository, entityName,
 					entityInnerType);
 		}
 
 		if (editeDataType instanceof CompositeDataType) {
-			CompositeDataType compositeDataType = (CompositeDataType) editeDataType;
+			compositeDataType = (CompositeDataType) editeDataType;
 
 			entityName = compositeDataType.getEntityName();
-			reposetory = compositeDataType.getRepository_DataType()
+			repository = compositeDataType.getRepository_DataType()
 					.getEntityName();
-
-			DialogRepository.setNewCompositeDataType(compositeDataType);
+			// create DataTypeDialog
+			create();
 			// Call constructor of DataTypeDialog
-			super.init(compositeSignator, reposetory, entityName, null);
+			super.init(compositeSignator, repository, entityName, null);
 		}
 	}
 
@@ -104,7 +117,7 @@ public class PalladioDataTypeDialog extends DataTypeDialog {
 						: repositoryName);
 			}
 		}
-		// conver to String[]
+		// convert to String[]
 		return (String[]) tList.toArray(new String[tList.size()]);
 	}
 
@@ -137,7 +150,7 @@ public class PalladioDataTypeDialog extends DataTypeDialog {
 						: repository.getEntityName();
 
 				if (entityName.contains(repositoryName))
-					DialogRepository.setEditedRepository(repository);
+					editedRepository = repository;
 			}
 		}
 	}
@@ -152,8 +165,7 @@ public class PalladioDataTypeDialog extends DataTypeDialog {
 		adapterFactory
 				.addAdapterFactory(new RepositoryItemProviderAdapterFactory());
 
-		CreateEditorContents editorContents = CreateEditorContents
-				.create(group,editingDomain);
+		editorContents = CreateEditorContents.create(group, editingDomain);
 		editorContents
 				.setViewerContentProvider(new AdapterFactoryContentProvider(
 						adapterFactory));
@@ -163,18 +175,31 @@ public class PalladioDataTypeDialog extends DataTypeDialog {
 								new PalladioItemProviderAdapterFactory(
 										adapterFactory))));
 		editorContents.setViewerCellModifier(new InnerDeclarationCellModifier(
-				editorContents.getViewer()));
-		editorContents.setAddButtonActionListener(new AddInnerDataTypeListener(
-				this,editingDomain));
+				this, editingDomain));
 		editorContents
-				.setDeleteButtonActionListener(new DeleteInnerDataTypeListener(
-						this,editingDomain));
-		editorContents.setUpButtonActionListener(new UpInnerDataTypeListener(
-				this, editingDomain));
-		editorContents.setDownButtonActionListener(new DownInnerDataTypeListener(
-				this, editingDomain));
+				.setAddButtonActionListener(new AddInnerDeclarationAction(this,
+						editingDomain));
+
+		DeleteInnerDeclarationAction deleteInnerDeclarationAction = new DeleteInnerDeclarationAction(
+				this, editingDomain);
+		UpInnerDeclarationAction upInnerDeclarationAction = new UpInnerDeclarationAction(
+				this, editingDomain);
+		DownInnerDeclarationAction downInnerDeclarationAction = new DownInnerDeclarationAction(
+				this, editingDomain);
+
+		editorContents
+				.setDeleteButtonActionListener(deleteInnerDeclarationAction);
+		editorContents.setUpButtonActionListener(upInnerDeclarationAction);
+		editorContents.setDownButtonActionListener(downInnerDeclarationAction);
+		/** set SelectionChangedListener for viewer on the EditorContents */
+		editorContents
+				.setViewerSelectionChangedListener(deleteInnerDeclarationAction);
+		editorContents
+				.setViewerSelectionChangedListener(upInnerDeclarationAction);
+		editorContents
+				.setViewerSelectionChangedListener(downInnerDeclarationAction);
 		editorContents.setViewerInput(editedDataType);
-		
+
 	}
 
 	/* (non-Javadoc)
@@ -206,12 +231,36 @@ public class PalladioDataTypeDialog extends DataTypeDialog {
 	}
 
 	/* (non-Javadoc)
+	 * @see de.uka.ipd.sdq.dialogs.datatype.DataTypeDialog#validateCompositeDataType()
+	 */
+	@Override
+	public boolean validateCompositeDataType() {
+		boolean state = true;
+
+		if (compositeDataType == null
+				|| compositeDataType.getInnerDeclaration_CompositeDataType()
+						.isEmpty()) {
+			setErrorMessage(ERROR_MSG_INNER);
+			return false;
+		} else {
+			EList<InnerDeclaration> declarations = compositeDataType
+					.getInnerDeclaration_CompositeDataType();
+			for (InnerDeclaration declaration : declarations) {
+				state &= UpDownButtonsValidator.getSingelton()
+						.validdateDeclarationInnerDataType(declaration, this);
+			}
+		}
+		return state;
+	}
+
+	/* (non-Javadoc)
 	 * @see de.uka.ipd.sdq.pcmbench.tabs.dialogs.CreateDataTypeDialog#createCollectionDataType()
 	 */
 	@Override
 	public void createCollectionDataType() {
 		new DataTypeCommand(editingDomain).createCollectionDataType(
-				editedDataType, innerDataType, getEntityName());
+				editedRepository, editedDataType, innerDataType,
+				getEntityName());
 	}
 
 	/* (non-Javadoc)
@@ -220,10 +269,37 @@ public class PalladioDataTypeDialog extends DataTypeDialog {
 	@Override
 	public void createCompositeDataType() {
 		new DataTypeCommand(editingDomain).createCompositeDataType(
-				editedDataType, getEntityName());
+				editedRepository, compositeDataType, getEntityName());
 	}
 
 	public DataType getEditedDataType() {
 		return editedDataType;
+	}
+
+	/**
+	 * @return the compositeDataType
+	 */
+	public CompositeDataType getCompositeDataType() {
+		return compositeDataType;
+	}
+
+	/**
+	 * @param compositeDataType
+	 *            the compositeDataType to set
+	 */
+	public void setCompositeDataType(CompositeDataType compositeDataType) {
+		this.compositeDataType = compositeDataType;
+	}
+
+	/**
+	 * @return the editorContents
+	 */
+	public CreateEditorContents getEditorContents() {
+		return editorContents;
+	}
+
+	public void refresh() {
+		editorContents.getViewer().refresh();
+		validateInput();
 	}
 }

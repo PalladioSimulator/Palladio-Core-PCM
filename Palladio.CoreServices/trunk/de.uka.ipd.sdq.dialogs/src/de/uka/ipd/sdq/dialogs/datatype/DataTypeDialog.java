@@ -8,6 +8,8 @@ import org.eclipse.swt.events.ModifyEvent;
 import org.eclipse.swt.events.ModifyListener;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
+import org.eclipse.swt.events.ShellAdapter;
+import org.eclipse.swt.events.ShellEvent;
 import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.layout.FormLayout;
 import org.eclipse.swt.layout.GridData;
@@ -21,8 +23,6 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
 
-import de.uka.ipd.sdq.pcm.repository.CompositeDataType;
-
 /**
  * TODO
  * 
@@ -30,29 +30,31 @@ import de.uka.ipd.sdq.pcm.repository.CompositeDataType;
  * 
  */
 public abstract class DataTypeDialog extends TitleAreaDialog {
+	
 	/**
 	 * Define the Title,Message and ErrorMassage of Dialog
 	 */
+	private String DIALOG_TITLE_NEW 		= "Create a DataType";
+	private String DIALOG_TITLE_EDIT 		= "Edit a DataType";
+	private String SHELL_TITLE_NEW 			= "New DataType";
+	private String SHELL_TITLE_EDIT 		= "Edit DataType";
+	private String ERROR_MSG_NAME 			= "DataType name is empty.";
+	public String ERROR_MSG_INNER 		= "Inner type/declaration is empty";
+	public String ERROR_MSG_INNER_NAME 	= "InnerDeclaration DataType name is empty";
+	public String ERROR_MSG_INNER_TYPE 	= "InnerDeclaration DataType is empty";
+	
 	protected String collectionSignator = "COLLECTION";
 	protected String compositeSignator = "COMPOSITE";
-	private String dialogTitleNew = "Create new DataType..";
-	private String dialogTitleEdite = "Edit DataType..";
-	private String errorNsgName = "DataType name is empty.";
-	private String errorMsgInner = "Inner type/declaration is empty";
+	
+	/** Edited entity properties */
+	private String entityName;
 	
 	/**
-	 * Edited entity properies
-	 */
-	private String entityName;
-	private String entityType;
-	private String reposetoryName;
-	/**
-	 *  help value define edite DataType (collectionSignator ,compositeSignator)
+	 *  help value define edit DataType (collectionSignator ,compositeSignator)
 	 */
 	private String editeDataType;
 
 	// TODO
-	private Button okButton;
 	private Composite composite;
 	protected Group compositeGroup, collectionGroup;
 	private Button compositeButton;
@@ -62,7 +64,9 @@ public abstract class DataTypeDialog extends TitleAreaDialog {
 	private Text nameField, typeField;
 	private Button typeButton;
 	private StackLayout stackLayout;
-
+	private Combo combo;
+	private Shell shell;
+	
 	public DataTypeDialog(Shell parentShell) {
 		super(parentShell);
 	}
@@ -76,15 +80,41 @@ public abstract class DataTypeDialog extends TitleAreaDialog {
 	 */
 	protected void init(String editeDataType, String reposetoryName,
 			String entityName, String entityInnerType) {
-		this.reposetoryName = reposetoryName;
-		this.entityName = entityName;
-		this.entityType = entityInnerType;
 		this.editeDataType = editeDataType;
+		this.entityName = entityName;
+
+		setTitle(DIALOG_TITLE_EDIT);
+		shell.setText(SHELL_TITLE_EDIT);
+
+
+		collectionButton.setEnabled(false);
+		compositeButton.setEnabled(false);
+
+		if (editeDataType.equals(collectionSignator))
+			setTopCollectionLayout();
+		if (editeDataType.equals(compositeSignator))
+			setTopCompositeLayout();
+		// init the swt elements with edit datatype atributte
+		combo.setText(reposetoryName);
+		combo.setEnabled(false);
+		nameField.setText(entityName);
+		if (entityInnerType != null)
+			typeField.setText(entityInnerType);
+		setEnabled(true);
+		setOKButtonDisabled();
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
+	/* (non-Javadoc)
+	 * @see org.eclipse.jface.window.Window#configureShell(org.eclipse.swt.widgets.Shell)
+	 */
+	@Override
+	protected void configureShell(Shell newShell) {
+		super.configureShell(newShell);
+		shell = newShell;
+		newShell.setText(SHELL_TITLE_NEW);
+	}
+	
+	/* (non-Javadoc)
 	 * @see org.eclipse.jface.dialogs.TitleAreaDialog#createDialogArea(org.eclipse.swt.widgets.Composite)
 	 */
 	@Override
@@ -101,7 +131,7 @@ public abstract class DataTypeDialog extends TitleAreaDialog {
 		reposetoryGroup.setLayoutData(new GridData(478, 30));
 		reposetoryGroup.setLayout(new GridLayout());
 
-		final Combo combo = new Combo(reposetoryGroup, SWT.DROP_DOWN|SWT.READ_ONLY);
+		combo = new Combo(reposetoryGroup, SWT.DROP_DOWN|SWT.READ_ONLY);
 		combo.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
 		combo.addSelectionListener(new SelectionAdapter() {
 
@@ -112,9 +142,7 @@ public abstract class DataTypeDialog extends TitleAreaDialog {
 			public void widgetSelected(SelectionEvent e) {
 				setEditedResource(combo.getText());
 				setEnabled(true);
-
-				if (nameField.getText().equals(""))
-					setErrorMessage(errorNsgName);
+				validateInput();
 			}
 
 			/* (non-Javadoc)
@@ -124,11 +152,10 @@ public abstract class DataTypeDialog extends TitleAreaDialog {
 			public void widgetDefaultSelected(SelectionEvent e) {
 				setEditedResource(combo.getText());
 				setEnabled(true);
-				if (nameField.getText().equals(""))
-					setErrorMessage(errorNsgName);
+				validateInput();
 			}
-
 		});
+		combo.setItems(getLoadedReposetorys());
 
 		// RadioButtons section
 		final Group choiceTypeGroup = new Group(container, SWT.SHADOW_ETCHED_IN);
@@ -151,6 +178,7 @@ public abstract class DataTypeDialog extends TitleAreaDialog {
 		collectionButton.addSelectionListener(new SelectionAdapter() {
 			public void widgetSelected(SelectionEvent e) {
 				setTopCollectionLayout();
+				validateInput();
 			}
 		});
 		new Label(choiceTypeGroup, SWT.NONE);
@@ -161,6 +189,7 @@ public abstract class DataTypeDialog extends TitleAreaDialog {
 		compositeButton.addSelectionListener(new SelectionAdapter() {
 			public void widgetSelected(SelectionEvent e) {
 				setTopCompositeLayout();
+				validateInput();
 			}
 		});
 		new Label(choiceTypeGroup, SWT.NONE);
@@ -177,11 +206,8 @@ public abstract class DataTypeDialog extends TitleAreaDialog {
 				false);
 		gdNameField.widthHint = 334;
 		nameField.setLayoutData(gdNameField);
-		// TODO
-		if (entityName != null)
-			nameField.setText(entityName);
-		
 		nameField.addModifyListener(new ModifyListener() {
+			
 			/* (non-Javadoc)
 			 * @see org.eclipse.swt.events.ModifyListener#modifyText(org.eclipse.swt.events.ModifyEvent)
 			 */
@@ -213,18 +239,9 @@ public abstract class DataTypeDialog extends TitleAreaDialog {
 		typeField = new Text(collectionGroup, SWT.BORDER | SWT.SINGLE
 				| SWT.READ_ONLY);
 		typeField.setLayoutData(new GridData(200, 15));
-		if (entityType != null)
-			typeField.setText(entityType);
 		typeField.addModifyListener(new ModifyListener() {
 			public void modifyText(ModifyEvent e) {
-				if ((!typeField.getText().equals(""))
-						&& (!nameField.getText().equals(""))) {
-					setErrorMessage(null);
-					setOKButtonEnabled();
-				} else {
-					setOKButtonDisabled();
-				}
-				
+				validateInput();
 			}
 		});
 
@@ -241,25 +258,10 @@ public abstract class DataTypeDialog extends TitleAreaDialog {
 		final Label label = new Label(container, SWT.SEPARATOR | SWT.HORIZONTAL);
 		label.setLayoutData(new GridData(482, SWT.DEFAULT));
 
-		if (editeDataType != null) {
-			setTitle(dialogTitleEdite);
-			combo.setText(reposetoryName);
-			combo.setEnabled(false);
-			
-			collectionButton.setEnabled(false);
-			compositeButton.setEnabled(false);
-
-			if (editeDataType.equals(collectionSignator))
-				setTopCollectionLayout();
-			if (editeDataType.equals(compositeSignator))
-				setTopCompositeLayout();
-
-		} else {
-			setTitle(dialogTitleNew);
-			combo.setItems(getLoadedReposetorys());
-			setTopCollectionLayout();
-			setEnabled(false);
-		}
+		// set dialog default preferences
+		setTitle(DIALOG_TITLE_NEW);
+		setTopCollectionLayout();
+		setEnabled(false);
 
 		return container;
 	}
@@ -281,9 +283,7 @@ public abstract class DataTypeDialog extends TitleAreaDialog {
 		nameField.setEnabled(enabled);
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
+	/* (non-Javadoc)
 	 * @see org.eclipse.jface.dialogs.TitleAreaDialog#getInitialSize()
 	 */
 	@Override
@@ -291,18 +291,16 @@ public abstract class DataTypeDialog extends TitleAreaDialog {
 		return new Point(500, 446);
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
+	/* (non-Javadoc)
 	 * @see org.eclipse.jface.dialogs.Dialog#createButtonsForButtonBar(org.eclipse.swt.widgets.Composite)
 	 */
 	@Override
 	protected void createButtonsForButtonBar(Composite parent) {
 		createButton(parent, IDialogConstants.CANCEL_ID,
 				IDialogConstants.CANCEL_LABEL, false);
-		okButton = createButton(parent, IDialogConstants.OK_ID,
+		createButton(parent, IDialogConstants.OK_ID,
 				IDialogConstants.OK_LABEL, false);
-		okButton.addSelectionListener(new SelectionAdapter() {
+		getOKButton().addSelectionListener(new SelectionAdapter() {
 
 			/* (non-Javadoc)
 			 * @see org.eclipse.swt.events.SelectionAdapter#widgetSelected(org.eclipse.swt.events.SelectionEvent)
@@ -315,15 +313,15 @@ public abstract class DataTypeDialog extends TitleAreaDialog {
 					createCompositeDataType();
 			}
 		});
-		okButton.setEnabled(false);
+		setOKButtonDisabled();
 	}
 
 	protected void setOKButtonEnabled() {
-			okButton.setEnabled(true);
+		getOKButton().setEnabled(true);
 	}
 	
 	protected void setOKButtonDisabled() {
-			okButton.setEnabled(false);
+		getOKButton().setEnabled(false);
 	}
 
 	/**
@@ -340,16 +338,11 @@ public abstract class DataTypeDialog extends TitleAreaDialog {
 	public abstract void createCollectionDataType();
 
 	public abstract void createCompositeDataType();
+	
+	public abstract boolean validateCompositeDataType();
 
-	/**
-	 * @return the entityName
-	 */
 	protected String getEntityName() {
 		return entityName;
-	}
-
-	protected void callErrorMsgInner() {
-		setErrorMessage(errorMsgInner);
 	}
 
 	/**
@@ -371,29 +364,28 @@ public abstract class DataTypeDialog extends TitleAreaDialog {
 		editeDataType = collectionSignator;
 	}
 	
+	/**
+	 * TODO
+	 */
 	public void validateInput() {
 		entityName = nameField.getText();
-		
+
 		if (entityName.equals("")) {
 			setOKButtonDisabled();
-			setErrorMessage("No name given for the new Type");
+			setErrorMessage(ERROR_MSG_NAME);
 			return;
 		}
-		if (collectionButton.getSelection()){
-			if (typeField.getText().equals("")) {
-				setOKButtonDisabled();
-				setErrorMessage(errorMsgInner);
-				return;
-			}
+		
+		if (collectionButton.getSelection()
+				&& typeField.getText().equals("")) {
+			setOKButtonDisabled();
+			setErrorMessage(ERROR_MSG_INNER);
+		} else if (compositeButton.getSelection()
+				&& !validateCompositeDataType()) {
+			setOKButtonDisabled();
 		} else {
-			CompositeDataType parentDataType = DialogRepository.getNewCompositeDataType();
-			if (parentDataType.getInnerDeclaration_CompositeDataType().size() == 0) {
-				setOKButtonDisabled();
-				setErrorMessage(errorMsgInner);
-				return;
-			}
+			setErrorMessage(null);
+			setOKButtonEnabled();
 		}
-		setErrorMessage(null);
-		setOKButtonEnabled();
 	}
 }

@@ -1,32 +1,23 @@
 package de.uka.ipd.sdq.dialogs.datatype;
 
-import org.eclipse.core.runtime.Assert;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.transaction.RecordingCommand;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
-import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
+import org.eclipse.swt.events.SelectionListener;
 
+import de.uka.ipd.sdq.dialogs.parameters.EditorContentsSelectionAction;
 import de.uka.ipd.sdq.pcm.repository.CompositeDataType;
 import de.uka.ipd.sdq.pcm.repository.InnerDeclaration;
 
-/**
- * @author admin
- *
- */
-public class DeleteInnerDataTypeListener extends SelectionAdapter {
-	
+/** @author roman */
+public class DeleteInnerDeclarationAction extends EditorContentsSelectionAction
+		implements SelectionListener {
+
 	private PalladioDataTypeDialog dialog;
-	private InnerDeclaration selectedDeclaration;
-	private CompositeDataType parentDataType;
-	private EList<InnerDeclaration> declarations;
 	private TransactionalEditingDomain editingDomain;
-	
-	/**
-	 * TODO
-	 * @param dialog
-	 */
-	public DeleteInnerDataTypeListener(PalladioDataTypeDialog dialog, TransactionalEditingDomain editingDomain) {
+
+	public DeleteInnerDeclarationAction(PalladioDataTypeDialog dialog, TransactionalEditingDomain editingDomain) {
 		this.dialog = dialog;
 		this.editingDomain = editingDomain;
 	}
@@ -36,25 +27,28 @@ public class DeleteInnerDataTypeListener extends SelectionAdapter {
 	 */
 	public void widgetSelected(SelectionEvent e) {
 
-		this.parentDataType = DialogRepository.getNewCompositeDataType();
-		this.selectedDeclaration = (InnerDeclaration) DialogRepository.getSelectedEObject();
-		
-		Assert.isNotNull(parentDataType);
-		Assert.isNotNull(selectedDeclaration);
-		
-		declarations = parentDataType.getInnerDeclaration_CompositeDataType();
-		
+		final InnerDeclaration selectedDeclaration = (InnerDeclaration) getSelectedDeclaration();
+		CompositeDataType parentDataType = (CompositeDataType) selectedDeclaration
+				.eContainer();
+		final EList<InnerDeclaration> declarations = parentDataType
+				.getInnerDeclaration_CompositeDataType();
+
 		RecordingCommand recCommand = new RecordingCommand(editingDomain) {
 			@Override
 			protected void doExecute() {
 				declarations.remove(selectedDeclaration);
-			}		
+			}
 		};
-		
+
 		recCommand.setDescription("Delete ...");
 		editingDomain.getCommandStack().execute(recCommand);
-		
+		// validate the innerdeclaration
 		dialog.validateInput();
 	}
 
+	@Override
+	public void widgetDefaultSelected(SelectionEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
 }

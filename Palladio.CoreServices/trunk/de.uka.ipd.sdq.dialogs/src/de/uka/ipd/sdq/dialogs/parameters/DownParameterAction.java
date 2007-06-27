@@ -1,14 +1,12 @@
 package de.uka.ipd.sdq.dialogs.parameters;
 
-import org.eclipse.core.runtime.Assert;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.transaction.RecordingCommand;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.emf.transaction.util.TransactionUtil;
-import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
+import org.eclipse.swt.events.SelectionListener;
 
-import de.uka.ipd.sdq.dialogs.datatype.DialogRepository;
 import de.uka.ipd.sdq.pcm.repository.Parameter;
 import de.uka.ipd.sdq.pcm.repository.Signature;
 
@@ -20,11 +18,10 @@ import de.uka.ipd.sdq.pcm.repository.Signature;
 	 * @author roman
 	 * 
 	 */
-public class DownParameterListener extends SelectionAdapter {
+public class DownParameterAction extends EditorContentsSelectionAction
+		implements SelectionListener {
 
 	private Signature parentSignature;
-	private Parameter selectedParameter;
-	private EList<Parameter> parameters;
 
 	/**
 	 * The transactional editing domain which is used to get the commands and
@@ -32,7 +29,7 @@ public class DownParameterListener extends SelectionAdapter {
 	 */
 	protected TransactionalEditingDomain editingDomain = null;
 
-	public DownParameterListener(Signature signature) {
+	public DownParameterAction(Signature signature) {
 		this.parentSignature = signature;
 		this.editingDomain = TransactionUtil.getEditingDomain(signature);
 	}
@@ -41,12 +38,9 @@ public class DownParameterListener extends SelectionAdapter {
 	 * @see org.eclipse.swt.events.SelectionListener#widgetSelected(org.eclipse.swt.events.SelectionEvent)
 	 */
 	public void widgetSelected(SelectionEvent e) {
-		this.selectedParameter = (Parameter) DialogRepository
-				.getSelectedEObject();
-
-		Assert.isNotNull(selectedParameter);
-
-		parameters = parentSignature.getParameters__Signature();
+		final Parameter selectedParameter = (Parameter) getSelectedDeclaration();
+		final EList<Parameter> parameters = parentSignature
+				.getParameters__Signature();
 
 		RecordingCommand recCommand = new RecordingCommand(editingDomain) {
 			@Override
@@ -66,5 +60,11 @@ public class DownParameterListener extends SelectionAdapter {
 
 		recCommand.setDescription("Down ...");
 		editingDomain.getCommandStack().execute(recCommand);
+	}
+
+	@Override
+	public void widgetDefaultSelected(SelectionEvent e) {
+		// TODO Auto-generated method stub
+		
 	}
 }

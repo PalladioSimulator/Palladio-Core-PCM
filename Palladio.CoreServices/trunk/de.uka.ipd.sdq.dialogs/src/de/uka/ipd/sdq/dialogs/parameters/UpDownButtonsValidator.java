@@ -2,6 +2,7 @@ package de.uka.ipd.sdq.dialogs.parameters;
 
 import org.eclipse.emf.common.util.EList;
 
+import de.uka.ipd.sdq.dialogs.datatype.PalladioDataTypeDialog;
 import de.uka.ipd.sdq.pcm.repository.CompositeDataType;
 import de.uka.ipd.sdq.pcm.repository.InnerDeclaration;
 import de.uka.ipd.sdq.pcm.repository.Parameter;
@@ -88,6 +89,22 @@ public class UpDownButtonsValidator {
 					.getInnerDeclaration_CompositeDataType();
 			validate(declarations.indexOf(declaration), declarations.size());
 		}
+	}
+	
+	/**
+	 * 
+	 * @return
+	 */
+	public boolean validdateDeclarationInnerDataType(InnerDeclaration declaration, PalladioDataTypeDialog dialog){
+		if (declaration.getDatatype_InnerDeclaration() == null) {
+			dialog.setErrorMessage(dialog.ERROR_MSG_INNER_TYPE);
+			return false;
+		}
+		if (declaration.getEntityName().equals("")) {
+			dialog.setErrorMessage(dialog.ERROR_MSG_INNER_NAME);
+			return false;
+		}
+		return true;
 	}
 	
 	public static UpDownButtonsValidator getSingelton() {

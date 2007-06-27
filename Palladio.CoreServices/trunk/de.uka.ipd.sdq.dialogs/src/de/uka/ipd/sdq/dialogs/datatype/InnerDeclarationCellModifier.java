@@ -6,34 +6,30 @@ import java.util.List;
 import org.eclipse.core.runtime.Assert;
 import org.eclipse.emf.transaction.RecordingCommand;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
-import org.eclipse.emf.transaction.util.TransactionUtil;
 import org.eclipse.jface.viewers.ICellModifier;
-import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.swt.widgets.TableItem;
 
 import de.uka.ipd.sdq.dialogs.parameters.CreateEditorContents;
 import de.uka.ipd.sdq.pcm.repository.DataType;
 import de.uka.ipd.sdq.pcm.repository.InnerDeclaration;
 
-/**
- * @author admin
- * 
- */
+/** @author roman */
 public class InnerDeclarationCellModifier implements ICellModifier {
 
-	private TableViewer viewer;
+	private PalladioDataTypeDialog dialog;
 	private List<String> columnNames;
 	private InnerDeclaration declaration;
+	
+	private TransactionalEditingDomain editingDomain;
 
-	public InnerDeclarationCellModifier(TableViewer viewer) {
-		this.viewer = viewer;
+	public InnerDeclarationCellModifier(PalladioDataTypeDialog dialog, TransactionalEditingDomain editingDomain) {
+		this.editingDomain = editingDomain;
+		this.dialog = dialog;
 		this.columnNames = Arrays.asList(CreateEditorContents
 				.getColumnNames());
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
+	/* (non-Javadoc)
 	 * @see org.eclipse.jface.viewers.ICellModifier#canModify(java.lang.Object,
 	 *      java.lang.String)
 	 */
@@ -41,9 +37,7 @@ public class InnerDeclarationCellModifier implements ICellModifier {
 		return true;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
+	/* (non-Javadoc)
 	 * @see org.eclipse.jface.viewers.ICellModifier#getValue(java.lang.Object,
 	 *      java.lang.String)
 	 */
@@ -52,9 +46,7 @@ public class InnerDeclarationCellModifier implements ICellModifier {
 				columnNames.indexOf(property));
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
+	/* (non-Javadoc)
 	 * @see org.eclipse.jface.viewers.ICellModifier#modify(java.lang.Object,
 	 *      java.lang.String, java.lang.Object)
 	 */
@@ -86,13 +78,9 @@ public class InnerDeclarationCellModifier implements ICellModifier {
 	}
 
 	/**
-	 * TODO
-	 * 
-	 * @param type
+	 * @param - inner datatype of declaration
 	 */
-	private void setDataType(DataType type) {
-		TransactionalEditingDomain editingDomain = TransactionUtil.getEditingDomain(type);
-		final DataType dataType = type;
+	private void setDataType(final DataType dataType) {
 
 		RecordingCommand recCommand = new RecordingCommand(editingDomain) {
 			@Override
@@ -108,29 +96,28 @@ public class InnerDeclarationCellModifier implements ICellModifier {
 		reloadDeclarationViewer();
 	}
 
-	/*
-	 * TODO
+	/**
+	 * @param - name of innerdeclaration
 	 */
-	private void setDeclarationName(String valueString) {
-		final String value = valueString;
-		TransactionalEditingDomain editingDomain = TransactionUtil.getEditingDomain(declaration);
+	private void setDeclarationName(final String valueString) {
 
 		RecordingCommand recCommand = new RecordingCommand(editingDomain) {
 			@Override
 			protected void doExecute() {
-				
-				declaration.setEntityName(value);
+				declaration.setEntityName(valueString);
 			}
 		};
 
-		if (!value.equals(declaration.getEntityName())) {
+		if (!valueString.equals(declaration.getEntityName())) {
 			recCommand.setLabel("Set InnerDeclaration name");
 			editingDomain.getCommandStack().execute(recCommand);
 		}
+		
+		reloadDeclarationViewer();
 	}
 
 	private void reloadDeclarationViewer() {
-		viewer.refresh();
+		dialog.refresh();
 	}
 
 }

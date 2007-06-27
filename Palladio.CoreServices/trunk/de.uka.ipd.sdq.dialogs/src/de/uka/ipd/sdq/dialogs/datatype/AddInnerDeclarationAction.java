@@ -13,7 +13,7 @@ import de.uka.ipd.sdq.pcm.repository.RepositoryFactory;
  * @author roman
  * 
  */
-public class AddInnerDataTypeListener extends SelectionAdapter {
+public class AddInnerDeclarationAction extends SelectionAdapter {
 
 	private CompositeDataType compositeDataType;
 	private PalladioDataTypeDialog dialog;
@@ -27,13 +27,10 @@ public class AddInnerDataTypeListener extends SelectionAdapter {
 	/**
 	 * @param compositeDataType
 	 */
-	public AddInnerDataTypeListener(PalladioDataTypeDialog dialog, TransactionalEditingDomain editingDomain) {
+	public AddInnerDeclarationAction(PalladioDataTypeDialog dialog, TransactionalEditingDomain editingDomain) {
 		this.dialog = dialog;
 		this.editingDomain = editingDomain;
-		
-		if (dialog.getEditedDataType() instanceof CompositeDataType)
-			compositeDataType = (CompositeDataType) dialog
-					.getEditedDataType();
+		this.compositeDataType = dialog.getCompositeDataType();
 	}
 
 	/*
@@ -48,10 +45,11 @@ public class AddInnerDataTypeListener extends SelectionAdapter {
 			@Override
 			protected void doExecute() {
 
-				if (compositeDataType == null)
+				if (compositeDataType == null) {
 					// nur for own instance of the compositeDataType
 					compositeDataType = RepositoryFactory.eINSTANCE
 							.createCompositeDataType();
+				}
 				InnerDeclaration declaration = RepositoryFactory.eINSTANCE
 						.createInnerDeclaration();
 				// Build the name with count
@@ -72,10 +70,8 @@ public class AddInnerDataTypeListener extends SelectionAdapter {
 		/*
 		 * TODO
 		 */
-		// Set input for TableViewer
-		DialogRepository.getParametersViewer().setInput(compositeDataType);
-		DialogRepository.setNewCompositeDataType(compositeDataType);
-
+		dialog.setCompositeDataType(compositeDataType);
+		dialog.getEditorContents().setViewerInput(compositeDataType);
 		// Set enabled OK button in dialog
 		dialog.validateInput();
 	}

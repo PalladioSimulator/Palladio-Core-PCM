@@ -44,7 +44,6 @@ ITableItemLabelProvider, IItemLabelProvider {
 	@Override
 	public String getColumnText(Object element, int columnIndex) {
 		String result = "";
-		ParameterRepresentation parser = new ParameterRepresentation();
 
 		InnerDeclaration declaration = (InnerDeclaration) element;
 
@@ -59,12 +58,12 @@ ITableItemLabelProvider, IItemLabelProvider {
 				result = declaration.getEntityName();
 			break;
 		case CreateEditorContents.TYPE_COLUMN_INDEX:
-			result = parser.setDataTypeToString(declaration
+			result = ParameterRepresentation.setDataTypeToString(declaration
 					.getDatatype_InnerDeclaration());
 			break;
 		default:
 			break;
 		}
-		return parser.isNotNull(result);
+		return ParameterRepresentation.isNotNull(result);
 	}
 }

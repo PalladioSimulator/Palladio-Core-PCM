@@ -1,20 +1,20 @@
 package de.uka.ipd.sdq.dialogs.parameters;
 
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.jface.viewers.CellEditor;
 import org.eclipse.jface.viewers.IBaseLabelProvider;
 import org.eclipse.jface.viewers.ICellModifier;
 import org.eclipse.jface.viewers.IContentProvider;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
-import org.eclipse.jface.viewers.IStructuredSelection;
-import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.jface.viewers.TextCellEditor;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.events.SelectionAdapter;
+import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.events.SelectionListener;
 import org.eclipse.swt.layout.FormAttachment;
 import org.eclipse.swt.layout.FormData;
+import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Table;
@@ -23,7 +23,6 @@ import org.eclipse.swt.widgets.ToolBar;
 import org.eclipse.swt.widgets.ToolItem;
 
 import de.uka.ipd.sdq.dialogs.DialogsImages;
-import de.uka.ipd.sdq.dialogs.datatype.DialogRepository;
 
 /**
  * This class create a dialog area for Parameter-, DataTypeDialog. In order to
@@ -103,6 +102,10 @@ public class CreateEditorContents {
 		downItem.addSelectionListener(listener);
 	}
 	
+	public void setViewerSelectionChangedListener(ISelectionChangedListener listener){
+		viewer.addSelectionChangedListener(listener);
+	}
+	
 	public void setViewerInput(Object input){
 		viewer.setInput(input);
 	}
@@ -121,6 +124,16 @@ public class CreateEditorContents {
 
 		addItem = new ToolItem(toolBar, SWT.PUSH);
 		addItem.setImage(DialogsImages.imageRegistry.get(DialogsImages.ADD));
+		addItem.addSelectionListener(new SelectionAdapter(){
+
+			/* (non-Javadoc)
+			 * @see org.eclipse.swt.events.SelectionAdapter#widgetSelected(org.eclipse.swt.events.SelectionEvent)
+			 */
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				viewer.refresh();
+			}
+		});
 
 		deleteItem = new ToolItem(toolBar, SWT.PUSH);
 		deleteItem.setImage(DialogsImages.imageRegistry
@@ -162,18 +175,6 @@ public class CreateEditorContents {
 
 		// Assign the cell editors to the viewer
 		viewer.setCellEditors(editors);
-		viewer.addSelectionChangedListener(new ISelectionChangedListener() {
-			public void selectionChanged(SelectionChangedEvent event) {
-				IStructuredSelection sel = (IStructuredSelection) event
-						.getSelection();
-				Object selection = (Object) sel.getFirstElement();
-				/** make validation(Enabled/Unenabled) for delete-,up-,downToolItem*/
-				UpDownButtonsValidator.getSingelton().validateSelection(
-						selection);
-				if (selection != null)
-					setSelectionsEObject((EObject) selection);
-			}
-		});
 
 		// Definere the table columns
 		final TableColumn zeroColumn = new TableColumn(table, SWT.NONE);
@@ -192,8 +193,6 @@ public class CreateEditorContents {
 		nameColumn.setWidth(100);
 		nameColumn.setText(NAME_COLUMN);
 
-		// Set the curent viewer for OperationsTabResources
-		DialogRepository.setParametersViewer(viewer);
 		// Set EditorContent for Up/Down button validation
 		UpDownButtonsValidator.getSingelton().setContents(this);
 	}
@@ -214,19 +213,8 @@ public class CreateEditorContents {
 	}
 	
 	public void createSeparator(Composite composite) {
-
-		FormData formData = new FormData();
-		formData.left = new FormAttachment(0, 5);
-		formData.right = new FormAttachment(100, -7);
-		formData.bottom = new FormAttachment(100, -3);
-		formData.top = new FormAttachment(100, -8);
-
 		Label separator = new Label(composite, SWT.SEPARATOR | SWT.HORIZONTAL);
-		separator.setLayoutData(formData);
-	}
-
-	private void setSelectionsEObject(EObject selection) {
-		DialogRepository.setSelectedEObject(selection);
+		separator.setLayoutData(new GridData(492, SWT.DEFAULT));
 	}
 
 	public static String[] getColumnNames() {

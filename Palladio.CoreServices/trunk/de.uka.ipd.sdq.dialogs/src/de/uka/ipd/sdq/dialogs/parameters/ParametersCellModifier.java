@@ -10,7 +10,6 @@ import org.eclipse.jface.viewers.ICellModifier;
 import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.swt.widgets.TableItem;
 
-import de.uka.ipd.sdq.dialogs.datatype.DialogRepository;
 import de.uka.ipd.sdq.pcm.repository.DataType;
 import de.uka.ipd.sdq.pcm.repository.Parameter;
 
@@ -132,15 +131,9 @@ public class ParametersCellModifier implements ICellModifier {
 			recCommand.setLabel("Set ParameterName");
 			editingDomain.getCommandStack().execute(recCommand);
 		}
-		
-		reloadOperationsViewer();
 	}
 
 	private void reloadParametersViewer() {
 		viewer.refresh();
-	}
-	
-	private void reloadOperationsViewer() {
-		DialogRepository.getOperationsViewer().refresh();
 	}
 }

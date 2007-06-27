@@ -24,10 +24,7 @@ import de.uka.ipd.sdq.pcm.repository.CompositeDataType;
 import de.uka.ipd.sdq.pcm.repository.DataType;
 import de.uka.ipd.sdq.pcm.repository.Repository;
 
-/**
- * @author roman
- * 
- */
+/** @author roman */
 public class CallDataTypeDialog extends PalladioSelectEObjectDialog {
 
 	private DataType selectedDataType = null;
@@ -36,25 +33,15 @@ public class CallDataTypeDialog extends PalladioSelectEObjectDialog {
 	 * The transactional editing domain which is used to get the commands and
 	 * alter the model
 	 */
-
 	protected TransactionalEditingDomain editingDomain = null;
 
-	/**
-	 * @param parent
-	 * @param filterList
-	 * @param additionalChildReferences
-	 * @param input
-	 */
 	public CallDataTypeDialog(Shell parent, Collection<Object> filterList,
 			Collection<Object> additionalChildReferences,Object input) {
 		super(parent, filterList, additionalChildReferences, input);
 		this.editingDomain = TransactionUtil.getEditingDomain(input);
 	}
-
 	
-	/*
-	 * (non-Javadoc)
-	 * 
+	/* (non-Javadoc)
 	 * @see de.uka.ipd.sdq.dialogs.selection.SelectEObjectDialog#createDialogArea(Composite parent)
 	 */
 	@Override
@@ -88,6 +75,7 @@ public class CallDataTypeDialog extends PalladioSelectEObjectDialog {
 		});
 
 		setAddSelectionListener(new SelectionAdapter() {
+			
 			/* (non-Javadoc)
 			 * @see org.eclipse.swt.events.SelectionAdapter#widgetSelected(org.eclipse.swt.events.SelectionEvent)
 			 */
@@ -102,6 +90,7 @@ public class CallDataTypeDialog extends PalladioSelectEObjectDialog {
 		});
 
 		setDeleteSelectionListener(new SelectionAdapter() {
+			
 			/* (non-Javadoc)
 			 * @see org.eclipse.swt.events.SelectionAdapter#widgetSelected(org.eclipse.swt.events.SelectionEvent)
 			 */
@@ -131,6 +120,7 @@ public class CallDataTypeDialog extends PalladioSelectEObjectDialog {
 		});
 
 		setEditeSelectionListener(new SelectionAdapter() {
+			
 			/* (non-Javadoc)
 			 * @see org.eclipse.swt.events.SelectionAdapter#widgetSelected(org.eclipse.swt.events.SelectionEvent)
 			 */
