@@ -7,25 +7,21 @@ import org.eclipse.swt.graphics.Image;
 
 import de.uka.ipd.sdq.codegen.simucontroller.SimuControllerImages;
 
-/**
- * @author admin
- * 
- */
+/** @author roman */
 public class ResourceManagerTab {
-
-	public static final String RESOURCETYPEREPOSITORY_FILE = "resourceTypeFile";
 
 	public static String GENERATE_PLUGIN_ID = "de.uka.ipd.sdq.codegen.simucominstance";
 
 	/** Models file name input tab */
-	public static String REPOSITORY_FILE = "repositoryFile";
-	public static String SYSTEM_FILE = "systemFile";
-	public static String ALLOCATION_FILE = "allocationFile";
-	public static String USAGE_FILE = "usageFile";
+	public static final String RESOURCETYPEREPOSITORY_FILE = "resourceTypeFile";
+	public static final String REPOSITORY_FILE = "repositoryFile";
+	public static final String SYSTEM_FILE = "systemFile";
+	public static final String ALLOCATION_FILE = "allocationFile";
+	public static final String USAGE_FILE = "usageFile";
 
 	/** Configuration tab*/
-	public static String OUTPUT_PATH = "outpath";
-	public static String DELETE_PLUGIN = "clear";
+	public static final String OUTPUT_PATH = "outpath";
+	public static final String DELETE_PLUGIN = "clear";
 
 	/** TODO */
 	private static String GENERATE_PLUGIN_PATH;
