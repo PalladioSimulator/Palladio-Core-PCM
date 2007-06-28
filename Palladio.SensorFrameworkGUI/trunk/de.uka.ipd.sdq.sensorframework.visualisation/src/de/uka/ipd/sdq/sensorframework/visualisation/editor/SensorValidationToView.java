@@ -9,8 +9,8 @@ import org.eclipse.swt.widgets.Shell;
 
 import de.uka.ipd.sdq.sensorfactory.entities.SensorAndMeasurements;
 import de.uka.ipd.sdq.sensorframework.adapter.AdapterRegistry;
-import de.uka.ipd.sdq.sensorframework.adapter.IAdapter;
 import de.uka.ipd.sdq.sensorframework.visualisation.SimuPlugin;
+import de.uka.ipd.sdq.sensorframework.visualisation.dialogs.ActionListSelectionDialog;
 
 /**
  * This Klass offers the methods, which it for validating possible a 
@@ -86,5 +86,20 @@ public class SensorValidationToView {
 				.getTitle();
 
 		MessageDialog.openInformation(shell, editorName, msg);
+	}
+	
+	/**
+	 * @return - choose Action from ActionListSelectionDialog
+	 */
+	public static IConfigurationElement getSelectedAction(Shell shell,
+			Object[] elements) {
+		ActionListSelectionDialog dialog = new ActionListSelectionDialog(shell);
+
+		dialog.setElements(elements);
+		dialog.open();
+		Object[] results = dialog.getResult();
+		if (results != null)
+			return (IConfigurationElement) results[0];
+		else return null;
 	}
 }

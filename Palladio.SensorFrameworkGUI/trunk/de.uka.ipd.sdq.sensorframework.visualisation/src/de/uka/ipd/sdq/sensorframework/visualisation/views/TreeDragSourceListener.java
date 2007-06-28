@@ -6,12 +6,10 @@ import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.swt.dnd.DragSourceEvent;
 import org.eclipse.swt.dnd.DragSourceListener;
-import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.part.EditorInputTransfer;
 
 import de.uka.ipd.sdq.sensorfactory.entities.ExperimentRun;
 import de.uka.ipd.sdq.sensorfactory.entities.Sensor;
-import de.uka.ipd.sdq.sensorframework.visualisation.dialogs.ActionListSelectionDialog;
 import de.uka.ipd.sdq.sensorframework.visualisation.editor.ConfigEditorInput;
 import de.uka.ipd.sdq.sensorframework.visualisation.editor.ConfigEntry;
 import de.uka.ipd.sdq.sensorframework.visualisation.editor.SensorValidationToView;
@@ -67,7 +65,7 @@ public class TreeDragSourceListener implements DragSourceListener {
 				viewers = SensorValidationToView.getConfigurationElements();
 			}
 
-			IConfigurationElement action = getSelectedAction(event.display
+			IConfigurationElement action = SensorValidationToView.getSelectedAction(event.display
 					.getActiveShell(), viewers);
 			EditorInputTransfer.EditorInputData[] transferArray = new EditorInputTransfer.EditorInputData[] { EditorInputTransfer
 					.createEditorInputData(action.getAttribute("editorID"),
@@ -80,21 +78,6 @@ public class TreeDragSourceListener implements DragSourceListener {
 		}
 	}
 
-	/**
-	 * @return - choose Action from ActionListSelectionDialog
-	 */
-	private IConfigurationElement getSelectedAction(Shell shell,
-			Object[] elements) {
-		ActionListSelectionDialog dialog = new ActionListSelectionDialog(shell);
-
-		dialog.setElements(elements);
-		dialog.open();
-		Object[] results = dialog.getResult();
-		if (results != null)
-			return (IConfigurationElement) results[0];
-		else return null;
-	}
-	
 	/* (non-Javadoc)
 	 * @see org.eclipse.swt.dnd.DragSourceListener#dragStart(org.eclipse.swt.dnd.DragSourceEvent)
 	 */

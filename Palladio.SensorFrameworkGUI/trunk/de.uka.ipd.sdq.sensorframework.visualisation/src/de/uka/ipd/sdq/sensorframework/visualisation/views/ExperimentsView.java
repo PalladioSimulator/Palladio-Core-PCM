@@ -20,8 +20,6 @@ import org.eclipse.ui.part.DrillDownAdapter;
 import org.eclipse.ui.part.EditorInputTransfer;
 import org.eclipse.ui.part.ViewPart;
 
-import de.uka.ipd.sdq.sensorfactory.SensorFrameworkDataset;
-import de.uka.ipd.sdq.sensorfactory.entities.dao.IDAOFactory;
 import de.uka.ipd.sdq.sensorframework.visualisation.SimuPlugin;
 
 /**
@@ -40,10 +38,8 @@ public class ExperimentsView extends ViewPart {
 
 	private Action reloadView;
 	private Action collapseAll;
+	
 
-	/**
-	 * The constructor.
-	 */
 	public ExperimentsView() {
 	}
 
@@ -68,6 +64,7 @@ public class ExperimentsView extends ViewPart {
 		Transfer[] transfers = new Transfer[] {EditorInputTransfer.getInstance(),
 				LocalSelectionTransfer.getTransfer()};
 		viewer.addDragSupport(ops, transfers, new TreeDragSourceListener(viewer));
+		viewer.addDoubleClickListener(new DoubleClickListener());
 		
 		makeActions();
 		hookContextMenu();
@@ -122,6 +119,7 @@ public class ExperimentsView extends ViewPart {
 	}
 
 	private void makeActions() {
+		
 		reloadView = new Action() {
 			public void run() {
 				viewer.refresh();
@@ -139,6 +137,7 @@ public class ExperimentsView extends ViewPart {
 		collapseAll.setText("Collapse All");
 		collapseAll.setToolTipText("Collapse All");
 		collapseAll.setImageDescriptor(SimuPlugin.getImageDescriptor("/icons/collapseall.gif"));
+	
 	}
 
 	/**
@@ -147,11 +146,4 @@ public class ExperimentsView extends ViewPart {
 	public void setFocus() {
 		viewer.getControl().setFocus();
 	}
-	
-//	private void showMessage(String message) {
-//		MessageDialog.openInformation(viewer.getControl().getShell(),
-//				"Experiments View", message);
-//	}
-	
-	
 }
