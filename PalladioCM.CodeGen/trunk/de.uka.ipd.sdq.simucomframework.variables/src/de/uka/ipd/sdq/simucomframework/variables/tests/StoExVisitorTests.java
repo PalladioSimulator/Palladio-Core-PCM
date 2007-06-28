@@ -117,6 +117,12 @@ public class StoExVisitorTests {
 			double result3 = (Double)StackContext.evaluateStatic("Exp(1)");
 			Assert.assertTrue(result3 >= 0);
 		}
+		logger.info("Trunc");
+		int result4 = (Integer)StackContext.evaluateStatic("Trunc(2.5)");
+		Assert.assertEquals(2, result4);
+		logger.info("Round");
+		result4 = (Integer)StackContext.evaluateStatic("Round(2.5)");
+		Assert.assertEquals(3, result4);
 	}
 	
 	@Test public void ifelseTest() {

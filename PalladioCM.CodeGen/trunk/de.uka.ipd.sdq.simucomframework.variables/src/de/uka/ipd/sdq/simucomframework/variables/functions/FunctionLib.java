@@ -17,6 +17,8 @@ public class FunctionLib {
 		myFunctions.put("Pois",new PoissonDistFunction());
 		myFunctions.put("UniDouble",new UniDoubleDistFunction());
 		myFunctions.put("UniInt",new UniIntDistFunction());
+		myFunctions.put("Trunc",new TruncFunction());
+		myFunctions.put("Round",new RoundFunction());
 	}
 
 	public void addFunction(String id, IFunction f) {
