@@ -12,6 +12,9 @@ import de.uka.ipd.sdq.simucomframework.variables.EvaluationProxy;
 import de.uka.ipd.sdq.simucomframework.variables.StackContext;
 import de.uka.ipd.sdq.simucomframework.variables.cache.ProbFunctionCache;
 import de.uka.ipd.sdq.simucomframework.variables.cache.StoExCache;
+import de.uka.ipd.sdq.simucomframework.variables.exceptions.TypesIncompatibleInComparisionException;
+import de.uka.ipd.sdq.simucomframework.variables.exceptions.TypesIncompatibleInProductException;
+import de.uka.ipd.sdq.simucomframework.variables.exceptions.TypesIncompatibleInTermException;
 import de.uka.ipd.sdq.simucomframework.variables.functions.FunctionLib;
 import de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe;
 import de.uka.ipd.sdq.simucomframework.variables.stackframe.ValueNotInFrameException;
@@ -129,6 +132,11 @@ public class PCMStoExEvaluationVisitor extends PCMStoExSwitch {
 			leftExpr = Double.valueOf( (((Integer)leftExpr).intValue()));
 		if (rightType == TypeEnum.INT && leftType == TypeEnum.DOUBLE)
 			rightExpr = Double.valueOf( (((Integer)rightExpr).intValue()));
+
+		// If types still don't comply, give up!
+		if (leftExpr.getClass() != rightExpr.getClass()) {
+			throw new TypesIncompatibleInComparisionException("Can not compare "+leftExpr.getClass().getName()+" to "+rightExpr.getClass().getName());
+		}
 		
 		int result = ((Comparable)leftExpr).compareTo(rightExpr);
 		switch(object.getOperation())
@@ -189,6 +197,10 @@ public class PCMStoExEvaluationVisitor extends PCMStoExSwitch {
 		if (leftType == TypeEnum.ANY) leftType = getDynamicType(left);
 		if (leftType == TypeEnum.ANY) rightType = getDynamicType(right);
 		if (leftType == TypeEnum.INT &&	rightType == TypeEnum.INT) {
+			if (!(left instanceof Integer) || !(right instanceof Integer)) {
+				throw new TypesIncompatibleInProductException("Incompatible types in product expression. Expecting Integer!");
+			}
+			
 			int leftInt = (Integer)left;
 			int rightInt = (Integer)right;
 			switch(object.getOperation())
@@ -259,6 +271,9 @@ public class PCMStoExEvaluationVisitor extends PCMStoExSwitch {
 		if (leftType == TypeEnum.ANY) leftType = getDynamicType(left);
 		if (leftType == TypeEnum.ANY) rightType = getDynamicType(right);
 		if (leftType == TypeEnum.INT &&	rightType == TypeEnum.INT) {
+			if (!(left instanceof Integer) || !(right instanceof Integer)) {
+				throw new TypesIncompatibleInTermException("Incompatible types in term expression. Expecting Integer!");
+			}
 			int leftInt = (Integer)left;
 			int rightInt = (Integer)right;
 			switch(object.getOperation())

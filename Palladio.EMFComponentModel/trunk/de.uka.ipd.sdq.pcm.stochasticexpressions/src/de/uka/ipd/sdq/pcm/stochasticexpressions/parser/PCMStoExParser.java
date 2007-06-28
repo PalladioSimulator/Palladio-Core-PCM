@@ -1,4 +1,4 @@
-// $ANTLR 3.0 C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g 2007-06-26 06:58:08
+// $ANTLR 3.0 C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g 2007-06-28 11:36:18
   
 	package de.uka.ipd.sdq.pcm.stochasticexpressions.parser;
 	import de.uka.ipd.sdq.stoex.*;
@@ -874,7 +874,7 @@ public class PCMStoExParser extends Parser {
 
 
     // $ANTLR start atom
-    // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:110:1: atom returns [Atom a] : (number= NUMBER | def= definition | sl= STRING_LITERAL | bl= boolean_keywords | id= scoped_id DOT type= characterisation | fid= ID args= arguments | LPAREN inner= compareExpr RPAREN ) ;
+    // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:110:1: atom returns [Atom a] : (number= NUMBER | def= definition | sl= STRING_LITERAL | bl= boolean_keywords | id= scoped_id DOT type= characterisation | fid= ID args= arguments | LPAREN inner= ifelseExpr RPAREN ) ;
     public final Atom atom() throws RecognitionException {
         Atom a = null;
 
@@ -891,14 +891,14 @@ public class PCMStoExParser extends Parser {
 
         Collection<Expression> args = null;
 
-        Comparison inner = null;
+        IfElse inner = null;
 
 
         try {
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:112:3: ( (number= NUMBER | def= definition | sl= STRING_LITERAL | bl= boolean_keywords | id= scoped_id DOT type= characterisation | fid= ID args= arguments | LPAREN inner= compareExpr RPAREN ) )
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:112:3: (number= NUMBER | def= definition | sl= STRING_LITERAL | bl= boolean_keywords | id= scoped_id DOT type= characterisation | fid= ID args= arguments | LPAREN inner= compareExpr RPAREN )
+            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:112:3: ( (number= NUMBER | def= definition | sl= STRING_LITERAL | bl= boolean_keywords | id= scoped_id DOT type= characterisation | fid= ID args= arguments | LPAREN inner= ifelseExpr RPAREN ) )
+            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:112:3: (number= NUMBER | def= definition | sl= STRING_LITERAL | bl= boolean_keywords | id= scoped_id DOT type= characterisation | fid= ID args= arguments | LPAREN inner= ifelseExpr RPAREN )
             {
-            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:112:3: (number= NUMBER | def= definition | sl= STRING_LITERAL | bl= boolean_keywords | id= scoped_id DOT type= characterisation | fid= ID args= arguments | LPAREN inner= compareExpr RPAREN )
+            // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:112:3: (number= NUMBER | def= definition | sl= STRING_LITERAL | bl= boolean_keywords | id= scoped_id DOT type= characterisation | fid= ID args= arguments | LPAREN inner= ifelseExpr RPAREN )
             int alt13=7;
             switch ( input.LA(1) ) {
             case NUMBER:
@@ -938,7 +938,7 @@ public class PCMStoExParser extends Parser {
                 }
                 else {
                     NoViableAltException nvae =
-                        new NoViableAltException("112:3: (number= NUMBER | def= definition | sl= STRING_LITERAL | bl= boolean_keywords | id= scoped_id DOT type= characterisation | fid= ID args= arguments | LPAREN inner= compareExpr RPAREN )", 13, 5, input);
+                        new NoViableAltException("112:3: (number= NUMBER | def= definition | sl= STRING_LITERAL | bl= boolean_keywords | id= scoped_id DOT type= characterisation | fid= ID args= arguments | LPAREN inner= ifelseExpr RPAREN )", 13, 5, input);
 
                     throw nvae;
                 }
@@ -951,7 +951,7 @@ public class PCMStoExParser extends Parser {
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("112:3: (number= NUMBER | def= definition | sl= STRING_LITERAL | bl= boolean_keywords | id= scoped_id DOT type= characterisation | fid= ID args= arguments | LPAREN inner= compareExpr RPAREN )", 13, 0, input);
+                    new NoViableAltException("112:3: (number= NUMBER | def= definition | sl= STRING_LITERAL | bl= boolean_keywords | id= scoped_id DOT type= characterisation | fid= ID args= arguments | LPAREN inner= ifelseExpr RPAREN )", 13, 0, input);
 
                 throw nvae;
             }
@@ -1055,11 +1055,11 @@ public class PCMStoExParser extends Parser {
                     }
                     break;
                 case 7 :
-                    // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:166:5: LPAREN inner= compareExpr RPAREN
+                    // C:\\coding\\gmf2\\Palladio.EMFComponentModel\\trunk\\de.uka.ipd.sdq.pcm.stochasticexpressions\\src\\de\\uka\\ipd\\sdq\\pcm\\stochasticexpressions\\parser\\PCMStoEx.g:166:5: LPAREN inner= ifelseExpr RPAREN
                     {
                     match(input,LPAREN,FOLLOW_LPAREN_in_atom840); 
-                    pushFollow(FOLLOW_compareExpr_in_atom850);
-                    inner=compareExpr();
+                    pushFollow(FOLLOW_ifelseExpr_in_atom850);
+                    inner=ifelseExpr();
                     _fsp--;
 
                     match(input,RPAREN,FOLLOW_RPAREN_in_atom856); 
@@ -2314,7 +2314,7 @@ public class PCMStoExParser extends Parser {
     public static final BitSet FOLLOW_ID_in_atom802 = new BitSet(new long[]{0x0000000001000000L});
     public static final BitSet FOLLOW_arguments_in_atom815 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_LPAREN_in_atom840 = new BitSet(new long[]{0x0000018CC9B84000L});
-    public static final BitSet FOLLOW_compareExpr_in_atom850 = new BitSet(new long[]{0x0000000002000000L});
+    public static final BitSet FOLLOW_ifelseExpr_in_atom850 = new BitSet(new long[]{0x0000000002000000L});
     public static final BitSet FOLLOW_RPAREN_in_atom856 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_LPAREN_in_arguments902 = new BitSet(new long[]{0x0000018CCBB84000L});
     public static final BitSet FOLLOW_expressionList_in_arguments908 = new BitSet(new long[]{0x0000000002000000L});

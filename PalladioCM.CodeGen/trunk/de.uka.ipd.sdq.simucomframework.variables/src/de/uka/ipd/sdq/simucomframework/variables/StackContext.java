@@ -10,6 +10,7 @@ import org.apache.log4j.Logger;
 
 import de.uka.ipd.sdq.simucomframework.variables.cache.StoExCache;
 import de.uka.ipd.sdq.simucomframework.variables.cache.StoExCacheEntry;
+import de.uka.ipd.sdq.simucomframework.variables.exceptions.StochasticExpressionEvaluationFailedException;
 import de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStack;
 import de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe;
 import de.uka.ipd.sdq.simucomframework.variables.stoexvisitor.PCMStoExEvaluationVisitor;
@@ -40,8 +41,14 @@ public class StackContext implements Serializable {
 
 	public Object evaluate(String stoex, SimulatedStackframe currentFrame) {
 		StoExCacheEntry cacheEntry = StoExCache.singleton().getEntry(stoex);
-		return new PCMStoExEvaluationVisitor(stoex,currentFrame,mode)
-					.doSwitch(cacheEntry.getParsedExpression());
+		Object result = null;
+		try {
+			 result = new PCMStoExEvaluationVisitor(stoex,currentFrame,mode)
+						.doSwitch(cacheEntry.getParsedExpression());
+		} catch (Exception ex) {
+			throw new StochasticExpressionEvaluationFailedException("Evaluation of expression "+stoex+" failed.",ex);
+		}
+		return result;
 	}
 
 	public static Object evaluateStatic(String stoex) {
@@ -50,14 +57,26 @@ public class StackContext implements Serializable {
 
 	public static Object evaluateStatic(String stoex, SimulatedStackframe currentFrame) {
 		StoExCacheEntry cacheEntry = StoExCache.singleton().getEntry(stoex);
-		return new PCMStoExEvaluationVisitor(stoex,currentFrame,VariableMode.EXCEPTION_ON_NOT_FOUND)
+		Object result = null;
+		try {
+			result = new PCMStoExEvaluationVisitor(stoex,currentFrame,VariableMode.EXCEPTION_ON_NOT_FOUND)
 					.doSwitch(cacheEntry.getParsedExpression());
+		} catch (Exception ex) {
+			throw new StochasticExpressionEvaluationFailedException("Evaluation of expression "+stoex+" failed.",ex);
+		}
+		return result;
 	}
 
 	public static Object evaluateStatic(String stoex, SimulatedStackframe currentFrame, VariableMode mode) {
 		StoExCacheEntry cacheEntry = StoExCache.singleton().getEntry(stoex);
-		return new PCMStoExEvaluationVisitor(stoex,currentFrame,mode)
+		Object result = null;
+		try {
+			result = new PCMStoExEvaluationVisitor(stoex,currentFrame,mode)
 					.doSwitch(cacheEntry.getParsedExpression());
+		} catch (Exception ex) {
+			throw new StochasticExpressionEvaluationFailedException("Evaluation of expression "+stoex+" failed.",ex);
+		}
+		return result;
 	}
 
 	public static Object evaluateStatic(String string, Class expectedType) {

@@ -164,7 +164,7 @@ atom returns [Atom a]
 		  | 
 		  // parenthesis expression
 		  LPAREN
-		  inner = compareExpr
+		  inner = ifelseExpr
 		  RPAREN
 		  {
 			Parenthesis paren = StoexFactory.eINSTANCE.createParenthesis();

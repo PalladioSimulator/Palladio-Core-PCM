@@ -51,6 +51,8 @@ public class ExpressionInferTypeVisitor extends StoexSwitch<Object> {
 	private HashMap<Expression, TypeEnum> typeAnnotation = 
 		new HashMap<Expression, TypeEnum>();
 
+	
+	
 	/**
 	 * Result of a compare expression is always of type BOOL_PMF.
 	 */
@@ -109,6 +111,9 @@ public class ExpressionInferTypeVisitor extends StoexSwitch<Object> {
 
 	@Override
 	public Object caseBooleanOperatorExpression(BooleanOperatorExpression object) {
+		doSwitch(object.getLeft());
+		doSwitch(object.getRight());
+		
 		typeAnnotation.put(object,TypeEnum.BOOL);
 		return object;
 	}
@@ -281,6 +286,7 @@ public class ExpressionInferTypeVisitor extends StoexSwitch<Object> {
 	private boolean isDoubleIntAnyPMF(TypeEnum type) {
 		return (type == TypeEnum.DOUBLE 
 				 || type == TypeEnum.INT
+				 || type == TypeEnum.ANY
 				 || type == TypeEnum.INT_PMF 
 				 || type == TypeEnum.DOUBLE_PMF
 				 || type == TypeEnum.ANY_PMF);
@@ -325,6 +331,9 @@ public class ExpressionInferTypeVisitor extends StoexSwitch<Object> {
 
 	@Override
 	public Object caseFunctionLiteral(FunctionLiteral object) {
+		for (Expression e : object.getParameters_FunctionLiteral())
+			doSwitch(e);
+		
 		if (object.getId().equals("UniDouble")) {
 			typeAnnotation.put(object, TypeEnum.DOUBLE_PDF);
 		} else if (object.getId().equals("Norm")) {
@@ -335,13 +344,20 @@ public class ExpressionInferTypeVisitor extends StoexSwitch<Object> {
 			typeAnnotation.put(object, TypeEnum.INT_PMF);
 		} else if (object.getId().equals("UniInt")) {
 			typeAnnotation.put(object, TypeEnum.INT_PMF);
+		} else if (object.getId().equals("Trunc")) {
+			typeAnnotation.put(object, TypeEnum.INT_PMF);
+		} else if (object.getId().equals("Round")) {
+			typeAnnotation.put(object, TypeEnum.INT_PMF);
 		}
 		return object;
 	}
 
 	@Override
 	public Object caseIfElseExpression(IfElseExpression object) {
-		// TODO: StB ganz klar ist mir die Inferenz hier nicht.
+		doSwitch(object.getConditionExpression());
+		doSwitch(object.getElseExpression());
+		doSwitch(object.getIfExpression());
+		
 		typeAnnotation.put(object, TypeEnum.ANY);
 		return object;
 	}

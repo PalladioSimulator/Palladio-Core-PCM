@@ -129,4 +129,6 @@
    	myContext.getRole«this.calledService_ExternalService.interface_Signature.javaName()»().«this.calledService_ExternalService.javaSignature()» 
 	   	(«EXPAND m2t_transforms::java_core::ParameterUsageListTM FOR this.calledService_ExternalService»);
 	resultStackFrame = callResult;
+	// Copy the result variables in my own stack frame so that we can access them in the post actions
+	methodBodyStackFrame.addVariables(callResult);
 «ENDDEFINE»
