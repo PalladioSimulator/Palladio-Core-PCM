@@ -84,9 +84,9 @@ public class ModelsFileNameInputTab extends AbstractLaunchConfigurationTab {
 
 		textResourceType = new Text(repositoryTypeGroup, SWT.SINGLE
 				| SWT.BORDER);
-		final GridData gd_textResourceTypeRepository = new GridData(SWT.RIGHT,
+		final GridData gd_textResourceTypeRepository = new GridData(SWT.FILL,
 				SWT.CENTER, true, false);
-		gd_textResourceTypeRepository.widthHint = 476;
+		gd_textResourceTypeRepository.widthHint = 200;
 		textResourceType.setLayoutData(gd_textResourceTypeRepository);
 		textResourceType.addModifyListener(modifyListener);
 
@@ -98,8 +98,7 @@ public class ModelsFileNameInputTab extends AbstractLaunchConfigurationTab {
 
 		final Button buttonResourceTypeRepository = new Button(
 				repositoryTypeGroup, SWT.NONE);
-		buttonResourceTypeRepository.setLayoutData(new GridData(SWT.FILL,
-				SWT.CENTER, false, false));
+		buttonResourceTypeRepository.setLayoutData(new GridData());
 		buttonResourceTypeRepository.setText("File System...");
 		buttonResourceTypeRepository
 				.addSelectionListener(new SelectionAdapter() {
@@ -125,8 +124,10 @@ public class ModelsFileNameInputTab extends AbstractLaunchConfigurationTab {
 				false));
 
 		textRepository = new Text(repositoryGroup, SWT.SINGLE | SWT.BORDER);
-		textRepository.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true,
-				false));
+		final GridData gd_textRepository = new GridData(SWT.FILL, SWT.CENTER, true,
+				false);
+		gd_textRepository.widthHint = 200;
+		textRepository.setLayoutData(gd_textRepository);
 		textRepository.addModifyListener(modifyListener);
 
 		final Button workspaceButton_1 = new Button(repositoryGroup, SWT.NONE);
@@ -159,8 +160,10 @@ public class ModelsFileNameInputTab extends AbstractLaunchConfigurationTab {
 				false));
 
 		textSystem = new Text(systemGroup, SWT.SINGLE | SWT.BORDER);
+		final GridData gd_textSystem = new GridData(SWT.FILL, SWT.CENTER, true, false);
+		gd_textSystem.widthHint = 200;
 		textSystem
-				.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
+				.setLayoutData(gd_textSystem);
 		textSystem.addModifyListener(modifyListener);
 
 		final Button workspaceButton_2 = new Button(systemGroup, SWT.NONE);
@@ -193,8 +196,10 @@ public class ModelsFileNameInputTab extends AbstractLaunchConfigurationTab {
 				false));
 
 		textAllocation = new Text(allocationGroup, SWT.SINGLE | SWT.BORDER);
-		textAllocation.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true,
-				false));
+		final GridData gd_textAllocation = new GridData(SWT.FILL, SWT.CENTER, true,
+				false);
+		gd_textAllocation.widthHint = 200;
+		textAllocation.setLayoutData(gd_textAllocation);
 		textAllocation.addModifyListener(modifyListener);
 
 		final Button workspaceButton_3 = new Button(allocationGroup, SWT.NONE);
@@ -227,8 +232,10 @@ public class ModelsFileNameInputTab extends AbstractLaunchConfigurationTab {
 				.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
 
 		textUsage = new Text(usageGroup, SWT.SINGLE | SWT.BORDER);
+		final GridData gd_textUsage = new GridData(SWT.FILL, SWT.CENTER, true, false);
+		gd_textUsage.widthHint = 200;
 		textUsage
-				.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
+				.setLayoutData(gd_textUsage);
 		textUsage.addModifyListener(modifyListener);
 
 		final Button workspaceButton_4 = new Button(usageGroup, SWT.NONE);
