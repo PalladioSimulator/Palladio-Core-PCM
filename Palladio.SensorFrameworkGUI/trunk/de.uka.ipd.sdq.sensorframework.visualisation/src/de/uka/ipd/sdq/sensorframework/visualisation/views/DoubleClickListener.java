@@ -20,7 +20,6 @@ public class DoubleClickListener implements IDoubleClickListener {
 	/* (non-Javadoc)
 	 * @see org.eclipse.jface.viewers.IDoubleClickListener#doubleClick(org.eclipse.jface.viewers.DoubleClickEvent)
 	 */
-	@Override
 	public void doubleClick(DoubleClickEvent event) {
 		if (event.getSelection() instanceof IStructuredSelection) {
 			IStructuredSelection selection = (IStructuredSelection) event
