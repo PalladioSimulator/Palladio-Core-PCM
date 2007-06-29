@@ -58,7 +58,7 @@ public class SensorFrameworkObserver implements ISensorObserver {
 	public void sensorAddedEvent(SensorAddedEvent e) {
 		if (!sensors.containsKey(e.getId())){
 			logger.info("Creating TimeSpan Sensor: "+e.getId());
-			TimeSpanSensor sensor = createOrReuseSensor(e.getId()); 
+			TimeSpanSensor sensor = createOrReuseSensor(experiment.getExperimentName()+": " + e.getId()); 
 			sensors.put(e.getId(),sensor);
 			e.getSupplier().addObserver(new SensorObserver(run,sensor));
 		}

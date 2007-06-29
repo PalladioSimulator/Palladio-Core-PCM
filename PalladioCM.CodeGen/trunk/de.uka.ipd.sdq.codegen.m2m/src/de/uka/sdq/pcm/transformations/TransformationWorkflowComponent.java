@@ -122,7 +122,7 @@ public class TransformationWorkflowComponent
 					findCallingComponentResourceContainer(con.getRequiringChildComponentContext_CompositeAssemblyConnector()),
 					this.allocation);
 			SeffBuilder seffBuilder = componentBuilder.getSeffBuilder();
-			seffBuilder.appendPreInternalAction(findCPUResourceType(), "1000");
+			seffBuilder.appendPreInternalAction(findCPUResourceType(), "17");
 		}
 		
 		if ( respectLinkingResources ) {
