@@ -52,11 +52,14 @@ public class DB4OStateDAO implements IStateDAO {
 
 	private HashMap<Long, State> cache = new HashMap<Long, State>();
 	
-	public synchronized State get(long id) {
+	public synchronized State get(final long id) {
 		if (!cache.containsKey(id)){
-			State result = new StateImpl(factory);
-			result.setStateID(id);
-			cache.put(id, (State) db.get(result).get(0));
+			List<State> resultList = db.query(new Predicate<State>() {
+			          public boolean match(State state) {
+			              return state.getStateID() == id;
+			          }
+			});  
+			cache.put(id, resultList.get(0));
 		}
 		return cache.get(id);
 	}
@@ -76,7 +79,15 @@ public class DB4OStateDAO implements IStateDAO {
 			return;
 		}
 		
+		if (cache.containsKey(state.getStateID()))
+			cache.remove(cache.get(state.getStateID()));
+		
 		db.delete(state);
+		db.commit();
+	}
+
+	public void store(State st) {
+		db.set(st);
 		db.commit();
 	}
 

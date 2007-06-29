@@ -1,5 +1,7 @@
 package de.uka.ipd.sdq.sensorfactory.entities.dao;
 
+import de.uka.ipd.sdq.sensorfactory.entities.Sensor;
+
 public interface ISensorDAO {
 
 	de.uka.ipd.sdq.sensorfactory.entities.StateSensor addStateSensor(
@@ -24,4 +26,6 @@ public interface ISensorDAO {
 	java.util.Collection<de.uka.ipd.sdq.sensorfactory.entities.Sensor> getSensors();
 	
 	void removeSensor(de.uka.ipd.sdq.sensorfactory.entities.Sensor sensor, boolean doCascade);
+
+	void store(Sensor s);
 }

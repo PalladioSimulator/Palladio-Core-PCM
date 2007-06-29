@@ -52,6 +52,7 @@ public class JFreeChartPieViewer extends AbstractJFreeChartChart {
 			pieDataset.setValue(pe.getLabel(), pe.getValue());
 		}
 		initChart();
+		chart.setTitle(data.getLabel());
 		this.forceRedraw();
 	}
 }

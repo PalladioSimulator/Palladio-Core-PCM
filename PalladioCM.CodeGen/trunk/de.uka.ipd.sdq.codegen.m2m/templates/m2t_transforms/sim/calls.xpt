@@ -11,7 +11,7 @@
 «DEFINE PreCall(Object call, List[VariableUsage] parameterUsages) FOR Signature»
 	«EXPAND PrepareSimulatedStackFrame(parameterUsages) FOR this»
 	«IF ExternalCallAction.isInstance(call)»
-		«EXPAND m2t_transforms::sensors::StartResponseTimeMeasurementTM FOR "Call_"+this.javaSignature()+" <AssemblyCtx: \"+this.assemblyContextID+\", CallID: "+((ExternalCallAction)call).id+">"»
+		«EXPAND m2t_transforms::sensors::StartResponseTimeMeasurementTM FOR "Call "+this.interface_Signature.entityName+"."+this.javaSignature()+" <AssemblyCtx: \"+this.assemblyContextID+\", CallID: "+((ExternalCallAction)call).id+">"»
 	«ELSE»
 		«EXPAND m2t_transforms::sensors::StartResponseTimeMeasurementTM FOR "Call_"+this.javaSignature()»
 	«ENDIF»		
@@ -42,7 +42,7 @@
 «DEFINE PostCall(Object call, List[VariableUsage] outParameterUsages) FOR Signature»
 	// Stop the time measurement
 	«IF ExternalCallAction.isInstance(call)»
-		«EXPAND m2t_transforms::sensors::EndResponseTimeMeasurementTM FOR "Call_"+this.javaSignature()+" <AssemblyCtx: \"+this.assemblyContextID+\", CallID: "+((ExternalCallAction)call).id+">"»
+		«EXPAND m2t_transforms::sensors::EndResponseTimeMeasurementTM FOR "Call "+this.interface_Signature.entityName+"."+this.javaSignature()+" <AssemblyCtx: \"+this.assemblyContextID+\", CallID: "+((ExternalCallAction)call).id+">"»
 	«ELSE»
 		«EXPAND m2t_transforms::sensors::EndResponseTimeMeasurementTM FOR "Call_"+this.javaSignature()»
 	«ENDIF»		

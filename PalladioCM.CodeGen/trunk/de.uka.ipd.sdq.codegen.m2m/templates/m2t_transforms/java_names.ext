@@ -18,7 +18,7 @@ javaString(String s) :
 
 javaVariableName(String s) :
    s.replaceAll('"','_').replaceAll(' ','_').replaceAll("<","_").replaceAll(">","_").replaceAll(":","_")
-   .replaceAll("\\.","_").replaceAll("\\,","_").replaceAll("\\+","_").replaceAll("-","_");
+   .replaceAll("\\.","_").replaceAll("\\,","_").replaceAll("\\+","_").replaceAll("-","_").replaceAll("\\(","_").replaceAll("\\)","_");
 
 specificationString(String s) :
    s.replaceAll('"','\\\\"');

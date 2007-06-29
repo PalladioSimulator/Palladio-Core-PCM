@@ -1,8 +1,12 @@
 package de.uka.ipd.sdq.sensorframework.adapter;
 
+import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
+import java.text.Format;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Properties;
 import java.util.Map.Entry;
 
@@ -29,7 +33,7 @@ public class StateToPieAdapter implements IAdapter {
 	}
 
 	public Object getAdaptedObject() {
-		Pie p = new Pie();
+		Pie p = new Pie(((StateSensor)myValues.getSensor()).getSensorName());
 		HashMap<String, Double> newPie = new HashMap<String, Double>(); 
 		for(State state : ((StateSensor)myValues.getSensor()).getSensorStates())
 			newPie.put(state.getStateLiteral(), 0.0);
@@ -46,8 +50,9 @@ public class StateToPieAdapter implements IAdapter {
 			lastChangeTime = sm.getEventTime();
 			lastState = sm.getSensorState();
 		}
+		DecimalFormat df = new DecimalFormat("00.0", new DecimalFormatSymbols(Locale.US));
 		for(Entry<String,Double>e:newPie.entrySet()){
-			p.addEntity(new PieEntity(e.getValue(),e.getKey()));
+			p.addEntity(new PieEntity(e.getValue(),e.getKey()+" ("+df.format(e.getValue()*100/sum)+"%)"));
 		}
 		return p;
 	}

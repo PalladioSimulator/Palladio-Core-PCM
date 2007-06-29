@@ -5,6 +5,7 @@ import java.util.Collections;
 import java.util.List;
 
 import com.db4o.ObjectContainer;
+import com.db4o.ext.ExtObjectContainer;
 import com.db4o.query.Predicate;
 
 import de.uka.ipd.sdq.sensorfactory.dao.db4o.entities.StateSensorImpl;
@@ -95,6 +96,14 @@ public class DB4OSensorDAO implements ISensorDAO {
 		
 		db.delete(sensor);
 		db.commit();
+	}
+
+	public void store(Sensor s) {
+		((ExtObjectContainer)db).set(s,2);
+		if (s instanceof StateSensor) {
+			for (State st:((StateSensor)s).getSensorStates())
+				factory.createStateDAO().store(st);
+		}
 	}
 
 }

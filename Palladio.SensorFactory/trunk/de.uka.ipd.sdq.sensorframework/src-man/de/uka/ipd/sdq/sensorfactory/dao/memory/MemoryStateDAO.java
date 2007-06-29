@@ -69,4 +69,7 @@ public class MemoryStateDAO implements IStateDAO {
 		index.remove(state.getStateID());
 	}
 
+	public void store(State st) {
+	}
+
 }

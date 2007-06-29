@@ -80,4 +80,7 @@ public class MemorySensorDAO implements ISensorDAO {
 		
 		index.remove(sensor.getSensorID());
 	}
+
+	public void store(Sensor s) {
+	}
 }

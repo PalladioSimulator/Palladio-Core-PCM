@@ -38,6 +38,6 @@ public class JFreeChartPieReport extends AbstractReportView implements
 			if (adapter != null)
 				myViewer.setPie((Pie) adapter.getAdaptedObject());
 		} else
-			myViewer.setPie(new Pie());
+			myViewer.setPie(new Pie("Empty Datasource"));
 	}
 }

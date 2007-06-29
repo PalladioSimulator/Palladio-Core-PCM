@@ -60,6 +60,8 @@ public class DB4OExperimentDAO implements IExperimentDAO {
 	public synchronized void store(Experiment e) {
 		// Update this, the sensor collection and the run collection
 		((ExtObjectContainer)db).set(e,2);
+		for (Sensor s:e.getSensors())
+			factory.createSensorDAO().store(s);
 		for (ExperimentRun er:e.getExperimentRuns())
 			factory.createExperimentRunDAO().store(er);
 		db.commit();

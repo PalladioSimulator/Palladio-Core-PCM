@@ -5,8 +5,9 @@ import java.util.Collection;
 
 public class Pie {
 	protected Collection<PieEntity> entities = new ArrayList<PieEntity>();
-	public Pie(){
-		
+	private String label;
+	public Pie(String string){
+		this.label = string;
 	}
 	
 	public void addEntity(PieEntity e){
@@ -15,5 +16,9 @@ public class Pie {
 	
 	public Collection<PieEntity> getEntities(){
 		return entities;
+	}
+	
+	public String getLabel() {
+		return label;
 	}
 }

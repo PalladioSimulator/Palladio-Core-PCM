@@ -39,7 +39,7 @@ public abstract class AbstractScheduledResource extends Entity {
 		this.idleState = createOrReuseState(myModel.getDAOFactory().createStateDAO(), "Idle");
 		this.busyState = createOrReuseState(myModel.getDAOFactory().createStateDAO(), "Busy");
 
-		this.stateSensor = createOrReuseSensor(myModel.getExperimentDatastore(),"Utilisation of "+description,this.idleState);
+		this.stateSensor = createOrReuseSensor(myModel.getExperimentDatastore(),myModel.getExperimentDatastore().getExperimentName()+": Utilisation of "+description,this.idleState);
 		this.stateSensor.addSensorState(idleState);
 		this.stateSensor.addSensorState(busyState);
 		
@@ -69,10 +69,11 @@ public abstract class AbstractScheduledResource extends Entity {
 
 	private StateSensor createOrReuseSensor(Experiment experiment, String id, State initialState) {
 		ISensorDAO sensorDAO = ((SimuComModel)getModel()).getDAOFactory().createSensorDAO();
-		if (sensorDAO.findBySensorName(id).size() == 1) {
-			Sensor s = sensorDAO.findBySensorName(id).iterator().next();
-			if (s instanceof StateSensor && experiment.getSensors().contains(s))
-				return (StateSensor) s;
+		if (sensorDAO.findBySensorName(id).size() > 0) {
+			for (Sensor s : sensorDAO.findBySensorName(id)) {
+				if (s instanceof StateSensor && experiment.getSensors().contains(s))
+					return (StateSensor) s;
+			}
 		}
 		return experiment.addStateSensor(initialState,id);
 	}
