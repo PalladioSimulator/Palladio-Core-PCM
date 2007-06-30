@@ -8,8 +8,6 @@ import desmoj.core.statistic.Histogram;
 
 public class SensorFactory {
 
-	private static SensorFactory sensorFactory;
-
 	private HashMap<String, Histogram> histogramSensors = new HashMap<String, Histogram>();
 	private HashMap<String, ResponseTimeValueSupplier> histogramValueSupplier = new HashMap<String, ResponseTimeValueSupplier>();
 	private ArrayList<ISensorObserver> sensorObservers = new ArrayList<ISensorObserver>();
@@ -22,14 +20,8 @@ public class SensorFactory {
 		sensorObservers = new ArrayList<ISensorObserver>();
 	}
 	
-	static {
-		sensorFactory = new SensorFactory();
-	}
-
-	/**
-	 * Make this class static-only (Singleton-Pattern)
-	 */
-	private SensorFactory() {
+	public SensorFactory(SimuComModel simuComModel) {
+		this.model = simuComModel;
 	}
 
 	public void setModel(SimuComModel model) {
@@ -87,9 +79,9 @@ public class SensorFactory {
 			o.sensorAddedEvent(e);
 	}
 
-	public static SensorFactory singleton() {
-		return sensorFactory;
-	}
+	//public static SensorFactory singleton() {
+	//	return sensorFactory;
+	//}
 
 	public void addMeasurement(String id, double d) {
         this.safeGetValueSupplierForSensor(id)

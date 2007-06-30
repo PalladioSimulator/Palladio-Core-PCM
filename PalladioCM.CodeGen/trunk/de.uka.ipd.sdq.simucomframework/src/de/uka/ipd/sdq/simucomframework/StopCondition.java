@@ -7,6 +7,7 @@ import java.util.Observer;
 //import umontreal.iro.lecuyer.probdist.EmpiricalDist;
 //import umontreal.iro.lecuyer.probdist.StudentDist;
 
+import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
 import de.uka.ipd.sdq.simucomframework.sensors.ISensorObserver;
 import de.uka.ipd.sdq.simucomframework.sensors.SensorAddedEvent;
 import de.uka.ipd.sdq.simucomframework.sensors.SensorFactory;
@@ -20,7 +21,7 @@ public class StopCondition extends Condition implements Observer
 	
 	public StopCondition(Model owner, String name, final String myId, boolean showInTrace) {
 		super(owner, name, showInTrace);
-		SensorFactory.singleton().addSensorObserver(new ISensorObserver(){
+		((SimuComModel)owner).getSensorFactory().addSensorObserver(new ISensorObserver(){
 			public void sensorAddedEvent(SensorAddedEvent e)
 			{
 				if (e.getId().equals(myId)){

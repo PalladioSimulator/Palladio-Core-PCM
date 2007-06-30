@@ -25,10 +25,9 @@ public class ExperimentRunner {
 		// be created which crashes Netscape :-)
 
 		// new MainUI(model).setVisible(true);
-		SensorFactory.singleton().reset();
 		
 		SensorFrameworkObserver sensorObserver = new SensorFrameworkObserver(model);
-		SensorFactory.singleton().addSensorObserver(sensorObserver);
+		model.getSensorFactory().addSensorObserver(sensorObserver);
 		
 		// exp.stop(new StopCondition(model,"StopCondtion","Response Time of ConcurScenario",true));
 		

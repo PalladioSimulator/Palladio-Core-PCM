@@ -7,6 +7,7 @@ import de.uka.ipd.sdq.sensorfactory.entities.ExperimentRun;
 import de.uka.ipd.sdq.sensorfactory.entities.Sensor;
 import de.uka.ipd.sdq.sensorfactory.entities.State;
 import de.uka.ipd.sdq.sensorfactory.entities.StateSensor;
+import de.uka.ipd.sdq.sensorfactory.entities.TimeSpanSensor;
 import de.uka.ipd.sdq.sensorfactory.entities.dao.ISensorDAO;
 import de.uka.ipd.sdq.sensorfactory.entities.dao.IStateDAO;
 import de.uka.ipd.sdq.simucomframework.exceptions.NegativeDemandIssuedException;
@@ -25,11 +26,14 @@ public abstract class AbstractScheduledResource extends Entity {
 	private boolean idle; 
 	private StateSensor stateSensor = null;
 	private State idleState;
-	private State busyState;
+	private TimeSpanSensor waitTimeSensor = null;
+	//private State busyState;
 	private ExperimentRun experimentRun = null;
 	protected ISchedulingStrategy myStrategy = null;
 
 	private SimTime lastTimeOfAdjustingJobs;
+
+	private int lastCount;
 	
 	public AbstractScheduledResource(SimuComModel myModel, String id, String description, SchedulingStrategy strategy)
 	{
@@ -37,17 +41,31 @@ public abstract class AbstractScheduledResource extends Entity {
 		this.idle = true;
 		
 		this.idleState = createOrReuseState(myModel.getDAOFactory().createStateDAO(), "Idle");
-		this.busyState = createOrReuseState(myModel.getDAOFactory().createStateDAO(), "Busy");
+		//this.busyState = createOrReuseState(myModel.getDAOFactory().createStateDAO(), "Busy");
 
-		this.stateSensor = createOrReuseSensor(myModel.getExperimentDatastore(),myModel.getExperimentDatastore().getExperimentName()+": Utilisation of "+description,this.idleState);
-		this.stateSensor.addSensorState(idleState);
-		this.stateSensor.addSensorState(busyState);
+		this.stateSensor = createOrReuseStateSensor(myModel.getExperimentDatastore(),myModel.getExperimentDatastore().getExperimentName()+": Utilisation of "+description,this.idleState);
+		if (!this.stateSensor.getSensorStates().contains(idleState)) 
+			this.stateSensor.addSensorState(idleState);
+		//this.stateSensor.addSensorState(busyState);
+		this.waitTimeSensor = createOrReuseTimeSensor(myModel.getExperimentDatastore(),myModel.getExperimentDatastore().getExperimentName()+": Wait time at "+description);
 		
 		this.experimentRun = myModel.getCurrentExperimentRun();
 		
 		logger.info("Creating Simulated Active Resource: "+this.getName());
 		
 		myStrategy = getStrategy(strategy);
+	}
+
+	private TimeSpanSensor createOrReuseTimeSensor(
+			Experiment experimentDatastore, String id) {
+		ISensorDAO sensorDAO = ((SimuComModel)getModel()).getDAOFactory().createSensorDAO();
+		if (sensorDAO.findBySensorName(id).size() > 0) {
+			for (Sensor s : sensorDAO.findBySensorName(id)) {
+				if (s instanceof TimeSpanSensor && experimentDatastore.getSensors().contains(s))
+					return (TimeSpanSensor) s;
+			}
+		}
+		return experimentDatastore.addTimeSpanSensor(id);
 	}
 
 	protected ISchedulingStrategy getStrategy(SchedulingStrategy strategy) {
@@ -67,7 +85,7 @@ public abstract class AbstractScheduledResource extends Entity {
 		return result;
 	}
 
-	private StateSensor createOrReuseSensor(Experiment experiment, String id, State initialState) {
+	private StateSensor createOrReuseStateSensor(Experiment experiment, String id, State initialState) {
 		ISensorDAO sensorDAO = ((SimuComModel)getModel()).getDAOFactory().createSensorDAO();
 		if (sensorDAO.findBySensorName(id).size() > 0) {
 			for (Sensor s : sensorDAO.findBySensorName(id)) {
@@ -106,7 +124,7 @@ public abstract class AbstractScheduledResource extends Entity {
 	{
 		if (demand < 0)
 			throw new NegativeDemandIssuedException("A negative demand occured. Demand was "+demand);
-		JobAndDemandStruct job = new JobAndDemandStruct(thread,calculateDemand(demand),this);
+		JobAndDemandStruct job = new JobAndDemandStruct(thread,calculateDemand(demand),this,this.getModel().currentTime().getTimeValue());
 		Event ev = new JobArrivalEvent(this.getModel(),
 				job,"Arrival Event", true);
 		ev.schedule(job, SimTime.NOW);
@@ -115,7 +133,10 @@ public abstract class AbstractScheduledResource extends Entity {
 	}
 
 	public JobAndDemandStruct removeFinishedJob() {
-		return myStrategy.removeFinshedJob();
+		JobAndDemandStruct job = myStrategy.removeFinshedJob();
+		experimentRun.addTimeSpanMeasurement(waitTimeSensor, this.getModel().currentTime().getTimeValue(), 
+				job.getWaitTime(this.getModel().currentTime().getTimeValue()));
+		return job;
 	}
 
 	public boolean hasMoreJobs() {
@@ -128,11 +149,16 @@ public abstract class AbstractScheduledResource extends Entity {
 	}
 
 	public void setIdle(boolean b) {
-		if (this.idle != b) {
+		if (this.idle != b || lastCount != myStrategy.getTotalJobCount()) {
 			if (b) {
 				experimentRun.addStateMeasurement(stateSensor, idleState, this.getModel().currentTime().getTimeValue());
 			} else {
-				experimentRun.addStateMeasurement(stateSensor, busyState, this.getModel().currentTime().getTimeValue());
+				String stateLiteral = "Busy "+Integer.toString(myStrategy.getTotalJobCount())+" Job(s)";
+				lastCount = myStrategy.getTotalJobCount();
+				State nrState = createOrReuseState(((SimuComModel)this.getModel()).getDAOFactory().createStateDAO(), stateLiteral);
+				if (!stateSensor.getSensorStates().contains(nrState)) 
+					stateSensor.addSensorState(nrState);
+				experimentRun.addStateMeasurement(stateSensor, nrState, this.getModel().currentTime().getTimeValue());
 			}
 		}
 		this.idle=b;

@@ -61,8 +61,7 @@ implements de.uka.ipd.sdq.sensorfactory.entities.ExperimentRun
 
 	@javax.persistence.OneToMany(cascade = javax.persistence.CascadeType.ALL)
 	@javax.persistence.JoinTable(name = "ExperimentRun_measurements", joinColumns = { @javax.persistence.JoinColumn(name = "EXPERIMENTRUN_ID") }, inverseJoinColumns = { @javax.persistence.JoinColumn(name = "MEASUREMENT_ID") })
-	private java.util.Collection<de.uka.ipd.sdq.sensorfactory.entities.Measurement> m_measurements = new java.util.ArrayList<de.uka.ipd.sdq.sensorfactory.entities.Measurement>(
-			10000);
+	private java.util.Collection<de.uka.ipd.sdq.sensorfactory.entities.Measurement> m_measurements = new java.util.ArrayList<de.uka.ipd.sdq.sensorfactory.entities.Measurement>();
 
 	public de.uka.ipd.sdq.sensorfactory.entities.StateMeasurement addStateMeasurement(
 

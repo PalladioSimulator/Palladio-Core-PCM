@@ -49,8 +49,7 @@ implements de.uka.ipd.sdq.sensorfactory.entities.Experiment
 
 	@javax.persistence.OneToMany(cascade = javax.persistence.CascadeType.ALL)
 	@javax.persistence.JoinTable(name = "Experiment_sensors", joinColumns = { @javax.persistence.JoinColumn(name = "EXPERIMENT_ID") }, inverseJoinColumns = { @javax.persistence.JoinColumn(name = "SENSOR_ID") })
-	private java.util.Collection<de.uka.ipd.sdq.sensorfactory.entities.Sensor> m_sensors = new java.util.ArrayList<de.uka.ipd.sdq.sensorfactory.entities.Sensor>(
-			10000);
+	private java.util.Collection<de.uka.ipd.sdq.sensorfactory.entities.Sensor> m_sensors = new java.util.ArrayList<de.uka.ipd.sdq.sensorfactory.entities.Sensor>();
 
 	public de.uka.ipd.sdq.sensorfactory.entities.StateSensor addStateSensor(
 
@@ -96,8 +95,7 @@ implements de.uka.ipd.sdq.sensorfactory.entities.Experiment
 
 	@javax.persistence.OneToMany(cascade = javax.persistence.CascadeType.ALL)
 	@javax.persistence.JoinTable(name = "Experiment_experimentRuns", joinColumns = { @javax.persistence.JoinColumn(name = "EXPERIMENT_ID") }, inverseJoinColumns = { @javax.persistence.JoinColumn(name = "EXPERIMENTRUN_ID") })
-	private java.util.Collection<de.uka.ipd.sdq.sensorfactory.entities.ExperimentRun> m_experimentRuns = new java.util.ArrayList<de.uka.ipd.sdq.sensorfactory.entities.ExperimentRun>(
-			10000);
+	private java.util.Collection<de.uka.ipd.sdq.sensorfactory.entities.ExperimentRun> m_experimentRuns = new java.util.ArrayList<de.uka.ipd.sdq.sensorfactory.entities.ExperimentRun>();
 
 	public de.uka.ipd.sdq.sensorfactory.entities.ExperimentRun addExperimentRun(
 

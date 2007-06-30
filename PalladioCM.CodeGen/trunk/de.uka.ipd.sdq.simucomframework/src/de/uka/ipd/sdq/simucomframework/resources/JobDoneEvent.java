@@ -20,6 +20,7 @@ public class JobDoneEvent extends Event {
 	 	if (resource.hasMoreJobs()) {
 			Event ev = new JobDoneEvent(getModel(), "JobDone", true);
 			ev.schedule(resource, new SimTime(resource.getTimeWhenNextJobIsDone()));
+			resource.setIdle(false);
 		} else {
 			resource.setIdle(true);
 		}

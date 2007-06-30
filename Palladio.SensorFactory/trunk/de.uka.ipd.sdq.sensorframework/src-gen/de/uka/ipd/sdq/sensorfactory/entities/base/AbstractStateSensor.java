@@ -64,7 +64,7 @@
 > m_sensorStates 
 	   = new java.util.ArrayList<
 	de.uka.ipd.sdq.sensorfactory.entities.State
->(10000);
+>();
 	
 		public 
 	de.uka.ipd.sdq.sensorfactory.entities.State addState(

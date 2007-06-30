@@ -7,6 +7,8 @@ class JobAndDemandStruct extends Entity {
 	private double demand;
 	private SimProcess jobParent;
 	private AbstractScheduledResource resource;
+	private double originalDemand;
+	private double creationTime;
 	
 	public double getDemand() {
 		return demand;
@@ -16,9 +18,11 @@ class JobAndDemandStruct extends Entity {
 		return jobParent;
 	}
 
-	public JobAndDemandStruct(SimProcess jobParent, double demand, AbstractScheduledResource abstractScheduledResource){
+	public JobAndDemandStruct(SimProcess jobParent, double demand, AbstractScheduledResource abstractScheduledResource, double creationTime){
 		super(abstractScheduledResource.getModel(),"JobAndDemand",true);
+		this.creationTime = creationTime;
 		this.demand = demand;
+		this.originalDemand = demand;
 		this.jobParent = jobParent;
 		this.resource = abstractScheduledResource;
 	}
@@ -29,6 +33,18 @@ class JobAndDemandStruct extends Entity {
 
 	public AbstractScheduledResource getResource() {
 		return resource;
+	}
+	
+	public double getOriginalDemand(){
+		return this.originalDemand;
+	}
+	
+	public double getPassedTime(double now) {
+		return now - creationTime;
+	}
+
+	public double getWaitTime(double now) {
+		return now - creationTime - originalDemand;
 	}
 }
 

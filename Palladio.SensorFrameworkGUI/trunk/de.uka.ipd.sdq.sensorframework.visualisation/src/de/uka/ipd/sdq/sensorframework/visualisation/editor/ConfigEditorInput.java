@@ -34,7 +34,7 @@ public class ConfigEditorInput extends Observable
 	}
 	
 	/** Edit command of ConfigEctry	 */
-	public void editConfigEntry(IDAOFactory datasource,ExperimentRun run, Experiment experiment, Sensor sensor) {
+	public void editConfigEntry(IDAOFactory datasource, ExperimentRun run, Experiment experiment, Sensor sensor) {
 		ConfigEntry configEntry = getConfigEntryToRun(run);
 		
 		if (configEntry == null) {

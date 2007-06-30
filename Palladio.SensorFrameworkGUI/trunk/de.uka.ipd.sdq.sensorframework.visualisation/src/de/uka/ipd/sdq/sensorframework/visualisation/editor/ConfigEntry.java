@@ -4,41 +4,45 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Observable;
 
+import de.uka.ipd.sdq.sensorfactory.SensorFrameworkDataset;
 import de.uka.ipd.sdq.sensorfactory.entities.Experiment;
 import de.uka.ipd.sdq.sensorfactory.entities.ExperimentRun;
 import de.uka.ipd.sdq.sensorfactory.entities.Sensor;
 import de.uka.ipd.sdq.sensorfactory.entities.dao.IDAOFactory;
 
 public class ConfigEntry extends Observable {
-	private List<Sensor> sensors;
-	private ExperimentRun experimentRun;
-	private Experiment experiment;
-	private IDAOFactory datasource;
+	private List<Long> sensorIDs;
+	private long experimentRunID;
+	private long experimentID;
+	private long datasourceID;
 
 	public ConfigEntry(IDAOFactory factory, ExperimentRun experimentRun, Experiment experiment,
 			Sensor sensor) {
-		this.datasource = factory;
-		this.experimentRun = experimentRun;
-		this.experiment = experiment;
-		this.sensors = new ArrayList<Sensor>();
+		this.datasourceID = factory.getID();
+		this.experimentRunID = experimentRun.getExperimentRunID();
+		this.experimentID = experiment.getExperimentID();
+		this.sensorIDs = new ArrayList<Long>();
 		if (sensor != null)
-			this.sensors.add(sensor);
+			this.sensorIDs.add(sensor.getSensorID());
 	}
 	
 	public List<Sensor> getSensors() {
-		return sensors;
+		ArrayList<Sensor> result = new ArrayList<Sensor>();
+		for (long sensorID : this.sensorIDs)
+			result.add(getDatasource().createSensorDAO().get(sensorID));
+		return result;
 	}
 
 	public void setSensorChecked(Sensor sensor) {
 		if (!isSensorChecked(sensor)){
-			sensors.add(sensor);
+			sensorIDs.add(sensor.getSensorID());
 			this.setChanged();
 		}
 		notifyObservers();
 	}
 
 	public void setSensorUnchecked(Sensor sensor) {
-		sensors.remove(sensor);
+		sensorIDs.remove(sensor.getSensorID());
 		this.setChanged();
 		notifyObservers();
 	}
@@ -47,25 +51,25 @@ public class ConfigEntry extends Observable {
 	 * @return - status of sensor (checked/unchecked)
 	 */
 	public boolean isSensorChecked(Sensor sensor) {
-		if (sensors != null) {
-			return sensors.contains(sensor);
+		if (sensorIDs != null) {
+			return sensorIDs.contains(sensor.getSensorID());
 		}
 		return false;
 	}
 
 	public ExperimentRun getExperimentRun() {
-		return experimentRun;
+		return getDatasource().createExperimentRunDAO().get(experimentRunID);
 	}
 
 	public Experiment getExperiment() {
-		return experiment;
+		return getDatasource().createExperimentDAO().get(experimentID);
 	}
 
 	public void setExperiment(Experiment experiment) {
-		this.experiment = experiment;
+		this.experimentID = experiment.getExperimentID();
 	}
 
 	public IDAOFactory getDatasource() {
-		return this.datasource;
+		return SensorFrameworkDataset.singleton().getDataSourceByID(this.datasourceID);
 	}
 }

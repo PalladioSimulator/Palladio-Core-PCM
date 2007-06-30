@@ -31,8 +31,7 @@ public class SimuComModel extends Model {
 	public SimuComModel(Model owner, String myName, boolean showInReport, boolean showInTrace) {
 		super(owner, myName, showInReport, showInTrace);
 		// DistributionObjectsStorage.getSingletonInstance().initializeModel(this);
-		sensorFactory = SensorFactory.singleton();
-		sensorFactory.setModel(this);
+		sensorFactory = new SensorFactory(this);
 		resourceRegistry = new ResourceRegistry(this);
 	}
 

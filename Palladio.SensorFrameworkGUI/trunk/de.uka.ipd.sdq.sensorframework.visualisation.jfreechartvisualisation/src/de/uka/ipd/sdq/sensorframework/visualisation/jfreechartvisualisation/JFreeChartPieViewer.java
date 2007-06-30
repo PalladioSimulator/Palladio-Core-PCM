@@ -41,9 +41,9 @@ public class JFreeChartPieViewer extends AbstractJFreeChartChart {
 
 	protected void initChart() {
 		if(pieDataset != null)
-			chart = ChartFactory.createPieChart3D("Pie", pieDataset, true, false, false);
+			chart = ChartFactory.createPieChart3D("Pie", pieDataset, true, true, true);
 		else
-			chart = ChartFactory.createPieChart3D("Pie", new DefaultPieDataset(), true, false, false);
+			chart = ChartFactory.createPieChart3D("Pie", new DefaultPieDataset(), true, true, true);
 	}
 
 	public void setPie(Pie data){

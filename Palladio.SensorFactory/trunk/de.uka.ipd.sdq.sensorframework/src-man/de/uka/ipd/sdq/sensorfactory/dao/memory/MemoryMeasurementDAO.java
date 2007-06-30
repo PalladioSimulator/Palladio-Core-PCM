@@ -62,24 +62,7 @@ public class MemoryMeasurementDAO implements IMeasurementDAO {
 		if (measurement == null) {
 			return;
 		}
-		
-		if ( doCascade == true ) {
-			if (measurement instanceof StateMeasurement) {
-				//remove the state
-				State state = ((StateMeasurement)measurement).getSensorState();
-				myFactory.createStateDAO().removeState(state, true);
 				
-				//remove the sensor
-				Sensor sensor = ((StateMeasurement)measurement).getSensor();
-				myFactory.createSensorDAO().removeSensor(sensor, true);
-			}
-			if (measurement instanceof TimeSpanMeasurement) {
-				//remove the sensor
-				Sensor sensor = ((TimeSpanMeasurement)measurement).getSensor();
-				myFactory.createSensorDAO().removeSensor(sensor, true);
-			}
-		}
-		
 		index.remove(measurement.getMeasurementID());		
 	}
 }
