@@ -5,7 +5,6 @@ Bundle-SymbolicName: de.uka.ipd.sdq.pcmbench.ui
 Bundle-Version: 2.0.0.qualifier
 Bundle-Activator: de.uka.ipd.sdq.pcmbench.ui.Activator
 Bundle-Vendor: sdq.ipd.uka.de
-Bundle-Localization: plugin
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
  org.eclipse.emf.edit,

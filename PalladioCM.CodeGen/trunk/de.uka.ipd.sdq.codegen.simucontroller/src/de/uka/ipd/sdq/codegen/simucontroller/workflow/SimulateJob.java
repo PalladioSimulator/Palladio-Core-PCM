@@ -51,7 +51,7 @@ public class SimulateJob implements ISimulationJob {
 			throw new Exception("Simulation failed ", e);
 		}
 		if (job.getStatus() == SimuComStatus.ERROR)
-			throw new Exception(job.getErrorMessage());
+			throw new Exception("Simulation run failed",job.getErrorThrowable());
 	}
 
 	public String getName() {

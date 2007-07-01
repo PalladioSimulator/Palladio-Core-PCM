@@ -73,15 +73,6 @@
              toolbarPath="SimuCom Controll">
        </action>
        <action
-             class="de.uka.ipd.sdq.codegen.simucontroller.actions.DeletePluginAction22"
-             icon="icons/del_plugin.gif"
-             id="de.uka.ipd.sdq.codegen.simucontroller.DeletePluginAction"
-             label="&amp;Delete Plug-In"
-             menubarPath="separator"
-             style="push"
-             toolbarPath="separator">
-       </action>
-       <action
              class="de.uka.ipd.sdq.codegen.simucontroller.actions.ControllerActionDelegate"
              icon="icons/nav_stop.gif"
              id="StopAction"

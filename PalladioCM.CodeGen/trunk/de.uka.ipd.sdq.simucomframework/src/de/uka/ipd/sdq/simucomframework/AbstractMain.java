@@ -62,8 +62,8 @@ public abstract class AbstractMain {
 		return model;
 	}
 	
-	public String getErrorMessage(){
-		return model.getErrorMessage();
+	public Throwable getErrorThrowable(){
+		return model.getErrorThrowable();
 	}
 	
 	protected abstract IWorkloadDriver[] getWorkloads();

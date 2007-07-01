@@ -8,5 +8,5 @@ public interface ISimuComControl {
 
 	public SimuComStatus startSimulation(SimuComConfig config, IStatusObserver statusObserver);
 	public void stopSimulation();
-	public String getErrorMessage();
+	public Throwable getErrorThrowable();
 }

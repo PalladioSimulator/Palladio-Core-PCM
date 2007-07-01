@@ -22,7 +22,7 @@ public class SimuComModel extends Model {
 	protected SensorFactory sensorFactory = null;
 	private IWorkloadDriver[] workloadDrivers;
 	private SimuComStatus status = SimuComStatus.OK;
-	private String errorMessage = "";
+	private Throwable errorMessage = null;
 	private SimuComConfig config;
 	private Experiment experiment = null;
 	private ExperimentRun run = null;
@@ -77,16 +77,16 @@ public class SimuComModel extends Model {
 		resourceRegistry.activateAllActiveResources();
 	}
 
-	public void setStatus(SimuComStatus error, String message) {
+	public void setStatus(SimuComStatus error, Throwable t) {
 		this.status = error;
-		this.errorMessage = message;
+		this.errorMessage = t;
 	}
 	
 	public SimuComStatus getErrorStatus(){
 		return status;
 	}
 	
-	public String getErrorMessage(){
+	public Throwable getErrorThrowable(){
 		return this.errorMessage;
 	}
 

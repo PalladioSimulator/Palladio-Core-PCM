@@ -30,14 +30,16 @@ public class StoExCacheEntry {
 		Expression formula = null;
 		try {
 			formula = new PCMStoExParser(new CommonTokenStream(lexer)).expression();
+		} catch (RecognitionException e) {
+			throw new RuntimeException("Expression not parsable \""+spec+"\"",e);
+		} catch (Exception e) {
+			throw new RuntimeException("Expression not parsable \""+spec+"\"",e);
+		}
+		try {
 			typeInferer = new SimulationExpressionInferTypeVisitor();
 			typeInferer.doSwitch(formula);
-		} catch (RecognitionException e) {
-			e.printStackTrace();
-			throw new RuntimeException("Expression not parsable \""+spec+"\"");
 		} catch (Exception e) {
-			e.printStackTrace();
-			throw new RuntimeException("Expression not parsable \""+spec+"\"");
+			throw new RuntimeException("Expression not parsable \""+spec+"\"",e);
 		}
 		this.parsedExpression = formula;
 		this.probFunctionCache = new ProbFunctionCache(formula);

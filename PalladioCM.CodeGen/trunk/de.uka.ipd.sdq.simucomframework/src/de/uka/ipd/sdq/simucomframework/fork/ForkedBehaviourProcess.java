@@ -67,7 +67,7 @@ public abstract class ForkedBehaviourProcess extends SimProcess {
 			return;
 		} catch(Exception ex) {
 			logger.error("Error in executing forked behaviour!",ex);
-			((SimuComModel)this.getModel()).setStatus(SimuComStatus.ERROR, ex.getMessage());
+			((SimuComModel)this.getModel()).setStatus(SimuComStatus.ERROR, ex);
 			this.getModel().getExperiment().stop();
 		}
 		myParent.activateAfter(this);

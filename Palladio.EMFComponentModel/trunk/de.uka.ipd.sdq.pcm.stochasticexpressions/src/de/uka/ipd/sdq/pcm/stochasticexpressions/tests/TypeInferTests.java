@@ -57,6 +57,26 @@ public class TypeInferTests {
 		Assert.assertEquals(TypeEnum.DOUBLE,visitor.getType(expression.getParameters_FunctionLiteral().get(0)));
 	}	
 
+	@Test public void variableTest() throws RecognitionException {
+		ExpressionInferTypeVisitor visitor = new ExpressionInferTypeVisitor();
+		Expression expression = parser("file.TYPE");
+		infer(expression,visitor);
+		Assert.assertEquals(TypeEnum.ANY_PMF,visitor.getType(expression));
+	}
+
+	@Test public void parenthesisTest() throws RecognitionException {
+		ExpressionInferTypeVisitor visitor = new ExpressionInferTypeVisitor();
+		Expression expression = parser("file.BYTESIZE * ( file.TYPE / 192 )");
+		infer(expression,visitor);
+		Assert.assertEquals(TypeEnum.ANY_PMF,visitor.getType(expression));
+	}
+	
+	@Test public void tenaryOpTest() throws RecognitionException {
+		ExpressionInferTypeVisitor visitor = new ExpressionInferTypeVisitor();
+		IfElseExpression expression = (IfElseExpression) parser("file.TYPE > 192 ? file.BYTESIZE * ( file.TYPE / 192 ) : file.BYTESIZE");
+		infer(expression,visitor);
+	}
+	
 	private TypeEnum infer(String expression) throws RecognitionException{
 		return infer(expression, new ExpressionInferTypeVisitor());
 	}

@@ -83,11 +83,13 @@ public class GeneratePluginCodeJob implements ISimulationJob {
 				if (!runner.executeWorkflow(slotContents, issues)) {
 					String message = "";
 					for (Issue i : issues.getErrors()){
-						message += i.getMessage() + "\n";
+						message += i.getMessage() + " [" + i.getElement() + "]";
 					}
-					throw new Exception("oAW workflow returned false: "
-							+ workflowFile + "\nIssues given: "+message);
+					throw new OawFailedException("Generator failed, given model is most likely invalid in "
+							+ workflowFile + ". Issues given: "+message);
 				}
+			} catch (OawFailedException ex) {
+				throw ex;
 			} catch (Exception e) {
 				throw new Exception("Running oAW workflow failed: "
 						+ workflowFile+"\n Errors: "+e.getMessage()+". Please see the oAW console output for details!", e);

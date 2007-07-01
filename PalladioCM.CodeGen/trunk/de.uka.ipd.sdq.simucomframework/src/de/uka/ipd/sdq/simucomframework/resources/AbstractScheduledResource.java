@@ -10,6 +10,7 @@ import de.uka.ipd.sdq.sensorfactory.entities.StateSensor;
 import de.uka.ipd.sdq.sensorfactory.entities.TimeSpanSensor;
 import de.uka.ipd.sdq.sensorfactory.entities.dao.ISensorDAO;
 import de.uka.ipd.sdq.sensorfactory.entities.dao.IStateDAO;
+import de.uka.ipd.sdq.simucomframework.exceptions.DemandTooLargeException;
 import de.uka.ipd.sdq.simucomframework.exceptions.NegativeDemandIssuedException;
 import de.uka.ipd.sdq.simucomframework.exceptions.SchedulerReturnedNegativeTimeException;
 import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
@@ -125,6 +126,11 @@ public abstract class AbstractScheduledResource extends Entity {
 		if (demand < 0)
 			throw new NegativeDemandIssuedException("A negative demand occured. Demand was "+demand);
 		JobAndDemandStruct job = new JobAndDemandStruct(thread,calculateDemand(demand),this,this.getModel().currentTime().getTimeValue());
+		if (job.getDemand() > ((SimuComModel)this.getModel()).getConfig().getSimuTime())
+			throw new DemandTooLargeException("A demand calculated from a processing rate and a demand in the design model ("+
+					demand+") has been issued to resource "+
+					this.getName()+" which is larger than the total simulation time ("+
+					((SimuComModel)this.getModel()).getConfig().getSimuTime()+"). Check your models.");
 		Event ev = new JobArrivalEvent(this.getModel(),
 				job,"Arrival Event", true);
 		ev.schedule(job, SimTime.NOW);

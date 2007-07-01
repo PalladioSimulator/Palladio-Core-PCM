@@ -199,14 +199,13 @@ public class ExpressionInferTypeVisitor extends StoexSwitch<Object> {
 			CharacterisedVariable chVar = (CharacterisedVariable) var;
 			VariableCharacterisationType chType = chVar
 					.getCharacterisationType();
-			String chTypeString = chType.getName();
-			if (chTypeString.equals("VALUE") 
-			 || chTypeString.equals("DATATYPE")
-			 || chTypeString.equals("STRUCTURE")) {
+			if (chType == VariableCharacterisationType.VALUE 
+			 || chType == VariableCharacterisationType.TYPE
+			 || chType == VariableCharacterisationType.STRUCTURE) {
 				typeAnnotation.put(var, TypeEnum.ANY_PMF);
 				//logger.debug("Inferred to ENUM_PMF");
-			} else if (chTypeString.equals("NUMBER_OF_ELEMENTS")
-					|| chTypeString.equals("BYTESIZE")) {
+			} else if (chType == VariableCharacterisationType.NUMBER_OF_ELEMENTS
+					|| chType == VariableCharacterisationType.BYTESIZE) {
 				typeAnnotation.put(var, TypeEnum.INT_PMF);
 				//logger.debug("Inferred to INT_PMF");
 			}
@@ -250,7 +249,7 @@ public class ExpressionInferTypeVisitor extends StoexSwitch<Object> {
 		} else if (isDoubleIntPDF(leftType) && isDoubleIntPDF(rightType)){
 			typeAnnotation.put(expr, TypeEnum.DOUBLE_PDF);
 		} else {
-			throw new UnsupportedOperationException();
+			throw new UnsupportedOperationException("Type inference of Integer and Double failed.");
 		}
 	}
 
@@ -262,6 +261,8 @@ public class ExpressionInferTypeVisitor extends StoexSwitch<Object> {
 	private TypeEnum getTypeOfChild(Expression expr) {
 		Expression childExpr = (Expression)doSwitch(expr);
 		TypeEnum type = typeAnnotation.get(childExpr);
+		if (type == null)
+			throw new TypeInferenceFailedException(expr);
 		return type;
 	}
 	

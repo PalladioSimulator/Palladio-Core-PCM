@@ -16,7 +16,7 @@
 
 «DEFINE UserAction FOR Branch»
 	{
-		«LET "1" AS counterID»
+		«LET this.id.javaVariableName() AS counterID»
 			double u«counterID» = Math.random();
 			double sum«counterID» = 0;
 			«EXPAND BranchTransition(counterID) FOREACH this.branchTransitions_Branch SEPARATOR ""»

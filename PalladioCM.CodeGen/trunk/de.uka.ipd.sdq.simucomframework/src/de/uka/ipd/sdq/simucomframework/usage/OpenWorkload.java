@@ -46,12 +46,9 @@ public class OpenWorkload extends SimProcess implements IWorkloadDriver {
 			}
 		} catch (SimFinishedException ex) {
 		} catch (Exception e) {
-			StringWriter sw = new StringWriter();
-			PrintWriter pw = new PrintWriter(sw);
 			this.getModel().getExperiment().stop();
-			e.printStackTrace(pw);
 			((SimuComModel)getModel()).setStatus(SimuComStatus.ERROR,
-					e.getMessage()+"\n"+sw.toString());
+					e);
 		}
 	}
 

@@ -2,11 +2,15 @@ package de.uka.ipd.sdq.dialogs.error;
 
 import java.io.PrintWriter;
 import java.io.StringWriter;
+import java.util.ArrayList;
+import java.util.HashMap;
 
 import org.eclipse.jface.dialogs.Dialog;
 import org.eclipse.jface.dialogs.IDialogConstants;
 import org.eclipse.jface.window.Window;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.events.SelectionEvent;
+import org.eclipse.swt.events.SelectionListener;
 import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.layout.GridData;
@@ -15,13 +19,14 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Label;
+import org.eclipse.swt.widgets.List;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
 
 public class ErrorDisplayDialog extends Dialog {
 
-	private String errorMessage;
-	private String details;
+	private Throwable errorMessage;
+	private HashMap<Integer, Throwable> throwablesHash = new HashMap<Integer, Throwable>();
 	/**
 	 * Create the dialog
 	 * @param parentShell
@@ -29,11 +34,14 @@ public class ErrorDisplayDialog extends Dialog {
 	public ErrorDisplayDialog(Shell parentShell, Throwable t) {
 		super(parentShell);
 		setShellStyle(SWT.RESIZE|SWT.MAX);
-		this.errorMessage = t.getMessage();
+		this.errorMessage = t;
+	}
+
+	private String getStackTrace(Throwable t) {
 		StringWriter sw = new StringWriter();
 		PrintWriter pw = new PrintWriter(sw); 
 		t.printStackTrace(pw);
-		this.details = sw.toString();
+		return sw.toString();
 	}
 
 	/**
@@ -51,13 +59,25 @@ public class ErrorDisplayDialog extends Dialog {
 		gd_errorMessageGroup.heightHint = 128;
 		errorMessageGroup.setLayoutData(gd_errorMessageGroup);
 
-		final Text errorText = new Text(errorMessageGroup, SWT.WRAP | SWT.V_SCROLL | SWT.MULTI | SWT.H_SCROLL | SWT.BORDER);
+		final List errorText = new List(errorMessageGroup, SWT.V_SCROLL | SWT.H_SCROLL | SWT.BORDER);
 		final GridData gd_errorText = new GridData(SWT.FILL, SWT.FILL, true, true);
 		gd_errorText.heightHint = 92;
 		gd_errorText.widthHint = 100;
 		errorText.setLayoutData(gd_errorText);
-		errorText.setEditable(false);
-		errorText.setText(errorMessage);
+		Throwable t = this.errorMessage; int index = 0; ArrayList<Throwable> throwableErrors = new ArrayList<Throwable>();
+		do
+		{ 
+			throwableErrors.add(t);
+			t = t.getCause();
+		} while (t != null);
+		for (int i = throwableErrors.size()-1; i >= 0; i--) {
+			if (throwableErrors.get(i).getMessage() != null)
+				errorText.add(throwableErrors.get(i).getMessage());
+			else
+				errorText.add(throwableErrors.get(i).getClass().getName());
+			throwablesHash .put(index,throwableErrors.get(i));
+			index++;
+		}
 
 		final Group detailsGroup = new Group(container, SWT.NONE);
 		detailsGroup.setLayout(new GridLayout());
@@ -69,8 +89,25 @@ public class ErrorDisplayDialog extends Dialog {
 		gd_detailsText.widthHint = 100;
 		detailsText.setLayoutData(gd_detailsText);
 		detailsText.setEditable(false);
-		detailsText.setText(details);
+		detailsText.setText(getStackTrace(throwableErrors.get(throwableErrors.size()-1)));
 		//
+
+		errorText.addSelectionListener(new SelectionListener(){
+
+			public void widgetDefaultSelected(SelectionEvent e) {
+				detailsText.setText(getStackTrace(throwablesHash.get(errorText
+						.getSelectionIndex())));
+			}
+
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				detailsText.setText(getStackTrace(
+						throwablesHash.get(errorText.getSelectionIndex())));
+			}
+			
+		});
+		
+		errorText.select(0);
 		return container;
 	}
 
@@ -91,7 +128,7 @@ public class ErrorDisplayDialog extends Dialog {
 	 */
 	@Override
 	protected Point getInitialSize() {
-		return new Point(608, 506);
+		return new Point(800, 600);
 	}
 	protected void configureShell(Shell newShell) {
 		super.configureShell(newShell);

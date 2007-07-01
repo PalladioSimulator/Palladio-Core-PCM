@@ -22,9 +22,9 @@ public class SimuComJob extends Job implements IStatusObserver {
 	private SimuView myView;
 	private int lastProgress;
 	
-	private String errorMessage;
 	private SimuComStatus status;
 	private SimuComConfig config;
+	private Throwable errorThrowable;
 
 	public SimuComJob(ISimuComControl control, SimuComConfig config, SimuView myView) {
 		super("Simulation Run");
@@ -42,16 +42,13 @@ public class SimuComJob extends Job implements IStatusObserver {
 			status = control.startSimulation(config, this);
 		} catch (Exception e) {
 			this.status = SimuComStatus.ERROR;
-			StringWriter sw = new StringWriter();
-			PrintWriter pw = new PrintWriter(sw);
-			e.printStackTrace(pw);
-			this.errorMessage = e.getMessage()+"\n"+sw.toString();
+			this.errorThrowable = e;
 			return Status.CANCEL_STATUS;
 		} finally {
 			monitor.done();
 		}
 		if (status == SimuComStatus.ERROR){
-			this.errorMessage = control.getErrorMessage();
+			this.errorThrowable = control.getErrorThrowable();
 		}
 		return Status.OK_STATUS;
 	}
@@ -79,8 +76,8 @@ public class SimuComJob extends Job implements IStatusObserver {
 		}
 	}
 
-	public String getErrorMessage() {
-		return errorMessage;
+	public Throwable getErrorThrowable() {
+		return errorThrowable;
 	}
 
 	public SimuComStatus getStatus() {
