@@ -99,7 +99,6 @@ public class ErrorDisplayDialog extends Dialog {
 						.getSelectionIndex())));
 			}
 
-			@Override
 			public void widgetSelected(SelectionEvent e) {
 				detailsText.setText(getStackTrace(
 						throwablesHash.get(errorText.getSelectionIndex())));
