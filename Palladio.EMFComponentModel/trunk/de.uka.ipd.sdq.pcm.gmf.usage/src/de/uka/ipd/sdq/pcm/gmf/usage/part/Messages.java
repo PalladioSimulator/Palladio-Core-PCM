@@ -26,6 +26,46 @@ public class Messages extends NLS {
 	/**
 	 * @generated
 	 */
+	public static String PalladioComponentModelCreationWizardTitle;
+
+	/**
+	 * @generated
+	 */
+	public static String PalladioComponentModelCreationWizard_DiagramModelFilePageTitle;
+
+	/**
+	 * @generated
+	 */
+	public static String PalladioComponentModelCreationWizard_DiagramModelFilePageDescription;
+
+	/**
+	 * @generated
+	 */
+	public static String PalladioComponentModelCreationWizard_DomainModelFilePageTitle;
+
+	/**
+	 * @generated
+	 */
+	public static String PalladioComponentModelCreationWizard_DomainModelFilePageDescription;
+
+	/**
+	 * @generated
+	 */
+	public static String PalladioComponentModelCreationWizardOpenEditorError;
+
+	/**
+	 * @generated
+	 */
+	public static String PalladioComponentModelCreationWizardCreationError;
+
+	/**
+	 * @generated
+	 */
+	public static String PalladioComponentModelCreationWizardPageExtensionError;
+
+	/**
+	 * @generated
+	 */
 	public static String PalladioComponentModelDiagramEditorUtil_OpenModelResourceErrorDialogTitle;
 
 	/**
@@ -82,6 +122,11 @@ public class Messages extends NLS {
 	 * @generated
 	 */
 	public static String PalladioComponentModelDocumentProvider_SaveNextResourceTask;
+
+	/**
+	 * @generated
+	 */
+	public static String PalladioComponentModelDocumentProvider_SaveAsOperation;
 
 	/**
 	 * @generated
@@ -157,6 +202,46 @@ public class Messages extends NLS {
 	 * @generated
 	 */
 	public static String PalladioComponentModelNewDiagramFileWizard_IncorrectRootError;
+
+	/**
+	 * @generated
+	 */
+	public static String PalladioComponentModelUsageDiagramEditor_SavingDeletedFile;
+
+	/**
+	 * @generated
+	 */
+	public static String PalladioComponentModelUsageDiagramEditor_SaveAsErrorTitle;
+
+	/**
+	 * @generated
+	 */
+	public static String PalladioComponentModelUsageDiagramEditor_SaveAsErrorMessage;
+
+	/**
+	 * @generated
+	 */
+	public static String PalladioComponentModelUsageDiagramEditor_SaveErrorTitle;
+
+	/**
+	 * @generated
+	 */
+	public static String PalladioComponentModelUsageDiagramEditor_SaveErrorMessage;
+
+	/**
+	 * @generated
+	 */
+	public static String PalladioComponentModelElementChooserDialog_SelectModelElementTitle;
+
+	/**
+	 * @generated
+	 */
+	public static String ModelElementSelectionPageMessage;
+
+	/**
+	 * @generated
+	 */
+	public static String ValidateActionMessage;
 
 	/**
 	 * @generated
@@ -377,6 +462,41 @@ public class Messages extends NLS {
 	 * @generated
 	 */
 	public static String NavigatorGroupName_AbstractUserActionSuccessor_4002_source;
+
+	/**
+	 * @generated
+	 */
+	public static String NavigatorActionProvider_OpenDiagramActionName;
+
+	/**
+	 * @generated
+	 */
+	public static String AbstractParser_UnexpectedValueTypeMessage;
+
+	/**
+	 * @generated
+	 */
+	public static String AbstractParser_WrongStringConversionMessage;
+
+	/**
+	 * @generated
+	 */
+	public static String AbstractParser_UnknownLiteralMessage;
+
+	/**
+	 * @generated
+	 */
+	public static String MessageFormatParser_InvalidInputError;
+
+	/**
+	 * @generated
+	 */
+	public static String PalladioComponentModelModelingAssistantProviderTitle;
+
+	/**
+	 * @generated
+	 */
+	public static String PalladioComponentModelModelingAssistantProviderMessage;
 
 	/**
 	 * @generated

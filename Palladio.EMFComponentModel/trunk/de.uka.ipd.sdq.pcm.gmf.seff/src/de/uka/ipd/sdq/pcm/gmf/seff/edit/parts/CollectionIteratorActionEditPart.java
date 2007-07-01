@@ -264,17 +264,15 @@ public class CollectionIteratorActionEditPart extends ShapeNodeEditPart {
 
 			this.add(collectionIteratorStereotype0);
 
-			WrapLabel collectionIteratorNameLabelFigure0 = new WrapLabel();
-			collectionIteratorNameLabelFigure0.setText("myLoop");
+			fFigureCollectionIteratorNameLabelFigure = new WrapLabel();
+			fFigureCollectionIteratorNameLabelFigure.setText("myLoop");
 
-			this.add(collectionIteratorNameLabelFigure0);
-			fFigureCollectionIteratorNameLabelFigure = collectionIteratorNameLabelFigure0;
+			this.add(fFigureCollectionIteratorNameLabelFigure);
 
-			WrapLabel collectionIteratorParameterLabelFigure0 = new WrapLabel();
-			collectionIteratorParameterLabelFigure0.setText("");
+			fFigureCollectionIteratorParameterLabelFigure = new WrapLabel();
+			fFigureCollectionIteratorParameterLabelFigure.setText("");
 
-			this.add(collectionIteratorParameterLabelFigure0);
-			fFigureCollectionIteratorParameterLabelFigure = collectionIteratorParameterLabelFigure0;
+			this.add(fFigureCollectionIteratorParameterLabelFigure);
 
 		}
 

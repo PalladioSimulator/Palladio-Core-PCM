@@ -47,7 +47,7 @@ public interface CompositeDataType extends Entity, DataType {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Parent Type Composite Data Type</em>' reference list.
 	 * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getCompositeDataType_ParentType_CompositeDataType()
-	 * @model type="de.uka.ipd.sdq.pcm.repository.CompositeDataType" ordered="false"
+	 * @model ordered="false"
 	 * @generated
 	 */
 	EList<CompositeDataType> getParentType_CompositeDataType();
@@ -63,7 +63,7 @@ public interface CompositeDataType extends Entity, DataType {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Inner Declaration Composite Data Type</em>' containment reference list.
 	 * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getCompositeDataType_InnerDeclaration_CompositeDataType()
-	 * @model type="de.uka.ipd.sdq.pcm.repository.InnerDeclaration" containment="true" ordered="false"
+	 * @model containment="true" ordered="false"
 	 * @generated
 	 */
 	EList<InnerDeclaration> getInnerDeclaration_CompositeDataType();

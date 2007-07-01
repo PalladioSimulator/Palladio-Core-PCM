@@ -236,11 +236,10 @@ public class CompleteComponentTypeEditPart extends ShapeNodeEditPart {
 		 */
 		private void createContents() {
 
-			WrapLabel completeComponentTypeLabelFigure0 = new WrapLabel();
-			completeComponentTypeLabelFigure0.setText("<...>");
+			fFigureCompleteComponentTypeLabelFigure = new WrapLabel();
+			fFigureCompleteComponentTypeLabelFigure.setText("<...>");
 
-			this.add(completeComponentTypeLabelFigure0);
-			fFigureCompleteComponentTypeLabelFigure = completeComponentTypeLabelFigure0;
+			this.add(fFigureCompleteComponentTypeLabelFigure);
 
 		}
 

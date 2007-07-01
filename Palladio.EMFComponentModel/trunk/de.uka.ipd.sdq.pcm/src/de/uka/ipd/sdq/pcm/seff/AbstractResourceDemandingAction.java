@@ -46,7 +46,7 @@ public interface AbstractResourceDemandingAction extends AbstractAction {
 	 * @return the value of the '<em>Resource Demand Action</em>' containment reference list.
 	 * @see de.uka.ipd.sdq.pcm.seff.SeffPackage#getAbstractResourceDemandingAction_ResourceDemand_Action()
 	 * @see de.uka.ipd.sdq.pcm.seff.ParametricResourceDemand#getAction_ParametricResourceDemand
-	 * @model type="de.uka.ipd.sdq.pcm.seff.ParametricResourceDemand" opposite="action_ParametricResourceDemand" containment="true" ordered="false"
+	 * @model opposite="action_ParametricResourceDemand" containment="true" ordered="false"
 	 * @generated
 	 */
 	EList<ParametricResourceDemand> getResourceDemand_Action();

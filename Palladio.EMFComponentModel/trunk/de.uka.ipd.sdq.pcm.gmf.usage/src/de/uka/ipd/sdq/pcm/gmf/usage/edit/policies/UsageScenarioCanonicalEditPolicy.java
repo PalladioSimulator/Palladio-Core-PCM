@@ -230,8 +230,18 @@ public class UsageScenarioCanonicalEditPolicy extends
 	 * @generated
 	 */
 	private Collection collectAllLinks(View view, Map domain2NotationMap) {
+		if (!UsageScenarioEditPart.MODEL_ID
+				.equals(PalladioComponentModelVisualIDRegistry.getModelID(view))) {
+			return Collections.EMPTY_LIST;
+		}
 		Collection result = new LinkedList();
 		switch (PalladioComponentModelVisualIDRegistry.getVisualID(view)) {
+		case UsageScenarioEditPart.VISUAL_ID: {
+			domain2NotationMap.put(view.getElement(), view);
+			result.addAll(PalladioComponentModelDiagramUpdater
+					.getUsageScenario_1000ContainedLinks(view));
+			break;
+		}
 		case ScenarioBehaviourEditPart.VISUAL_ID: {
 			domain2NotationMap.put(view.getElement(), view);
 			result.addAll(PalladioComponentModelDiagramUpdater

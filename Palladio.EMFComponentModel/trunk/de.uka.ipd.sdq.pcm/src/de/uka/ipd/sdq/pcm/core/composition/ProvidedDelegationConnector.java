@@ -132,7 +132,7 @@ public interface ProvidedDelegationConnector extends DelegationConnector {
 	 * @see #setParentStructure_ProvidedDelegationConnector(ComposedStructure)
 	 * @see de.uka.ipd.sdq.pcm.core.composition.CompositionPackage#getProvidedDelegationConnector_ParentStructure_ProvidedDelegationConnector()
 	 * @see de.uka.ipd.sdq.pcm.core.composition.ComposedStructure#getProvidedDelegationConnectors_ComposedStructure
-	 * @model opposite="providedDelegationConnectors_ComposedStructure" required="true" ordered="false"
+	 * @model opposite="providedDelegationConnectors_ComposedStructure" required="true" transient="false" ordered="false"
 	 * @generated
 	 */
 	ComposedStructure getParentStructure_ProvidedDelegationConnector();

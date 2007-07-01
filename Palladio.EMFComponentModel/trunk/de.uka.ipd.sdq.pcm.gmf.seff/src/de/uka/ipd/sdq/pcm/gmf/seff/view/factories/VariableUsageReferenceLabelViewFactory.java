@@ -22,7 +22,6 @@ public class VariableUsageReferenceLabelViewFactory extends
 	 */
 	protected List createStyles(View view) {
 		List styles = new ArrayList();
-		styles.add(NotationFactory.eINSTANCE.createDescriptionStyle());
 		return styles;
 	}
 }

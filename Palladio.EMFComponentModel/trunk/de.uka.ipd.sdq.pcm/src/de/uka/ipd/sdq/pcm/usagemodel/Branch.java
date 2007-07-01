@@ -44,7 +44,7 @@ public interface Branch extends AbstractUserAction {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Branch Transitions Branch</em>' containment reference list.
 	 * @see de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage#getBranch_BranchTransitions_Branch()
-	 * @model type="de.uka.ipd.sdq.pcm.usagemodel.BranchTransition" containment="true" ordered="false"
+	 * @model containment="true" ordered="false"
 	 * @generated
 	 */
 	EList<BranchTransition> getBranchTransitions_Branch();

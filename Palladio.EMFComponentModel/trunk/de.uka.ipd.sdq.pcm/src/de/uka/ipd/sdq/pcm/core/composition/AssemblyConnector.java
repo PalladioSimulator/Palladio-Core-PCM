@@ -159,7 +159,7 @@ public interface AssemblyConnector extends Connector, Entity {
 	 * @see #setParentStructure_AssemblyConnector(ComposedStructure)
 	 * @see de.uka.ipd.sdq.pcm.core.composition.CompositionPackage#getAssemblyConnector_ParentStructure_AssemblyConnector()
 	 * @see de.uka.ipd.sdq.pcm.core.composition.ComposedStructure#getCompositeAssemblyConnectors_ComposedStructure
-	 * @model opposite="compositeAssemblyConnectors_ComposedStructure" required="true" ordered="false"
+	 * @model opposite="compositeAssemblyConnectors_ComposedStructure" required="true" transient="false" ordered="false"
 	 * @generated
 	 */
 	ComposedStructure getParentStructure_AssemblyConnector();

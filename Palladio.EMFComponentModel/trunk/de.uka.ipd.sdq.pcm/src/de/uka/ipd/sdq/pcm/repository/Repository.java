@@ -77,7 +77,7 @@ public interface Repository extends Entity {
 	 * @return the value of the '<em>Components Repository</em>' containment reference list.
 	 * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getRepository_Components__Repository()
 	 * @see de.uka.ipd.sdq.pcm.repository.ProvidesComponentType#getRepository_ProvidesComponentType
-	 * @model type="de.uka.ipd.sdq.pcm.repository.ProvidesComponentType" opposite="repository_ProvidesComponentType" containment="true" ordered="false"
+	 * @model opposite="repository_ProvidesComponentType" containment="true" ordered="false"
 	 * @generated
 	 */
 	EList<ProvidesComponentType> getComponents__Repository();
@@ -95,7 +95,7 @@ public interface Repository extends Entity {
 	 * @return the value of the '<em>Interfaces Repository</em>' containment reference list.
 	 * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getRepository_Interfaces__Repository()
 	 * @see de.uka.ipd.sdq.pcm.repository.Interface#getRepository_Interface
-	 * @model type="de.uka.ipd.sdq.pcm.repository.Interface" opposite="repository_Interface" containment="true" ordered="false"
+	 * @model opposite="repository_Interface" containment="true" ordered="false"
 	 * @generated
 	 */
 	EList<Interface> getInterfaces__Repository();
@@ -113,7 +113,7 @@ public interface Repository extends Entity {
 	 * @return the value of the '<em>Datatypes Repository</em>' containment reference list.
 	 * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getRepository_Datatypes_Repository()
 	 * @see de.uka.ipd.sdq.pcm.repository.DataType#getRepository_DataType
-	 * @model type="de.uka.ipd.sdq.pcm.repository.DataType" opposite="repository_DataType" containment="true" ordered="false"
+	 * @model opposite="repository_DataType" containment="true" ordered="false"
 	 * @generated
 	 */
 	EList<DataType> getDatatypes_Repository();

@@ -241,11 +241,10 @@ public class ForkAction2EditPart extends ShapeNodeEditPart {
 
 			this.add(stereotypeLabelFigure0);
 
-			WrapLabel forkFigureNameLabelFigure0 = new WrapLabel();
-			forkFigureNameLabelFigure0.setText("");
+			fFigureForkFigureNameLabelFigure = new WrapLabel();
+			fFigureForkFigureNameLabelFigure.setText("");
 
-			this.add(forkFigureNameLabelFigure0);
-			fFigureForkFigureNameLabelFigure = forkFigureNameLabelFigure0;
+			this.add(fFigureForkFigureNameLabelFigure);
 
 		}
 

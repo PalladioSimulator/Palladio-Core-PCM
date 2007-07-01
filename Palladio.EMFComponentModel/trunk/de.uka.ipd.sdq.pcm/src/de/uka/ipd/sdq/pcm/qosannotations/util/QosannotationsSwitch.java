@@ -152,13 +152,13 @@ public class QosannotationsSwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Specified Execution Time</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Specified Execution Time</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Specified Execution Time</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Specified Execution Time</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -167,13 +167,13 @@ public class QosannotationsSwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Specified Failure Probability</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Specified Failure Probability</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Specified Failure Probability</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Specified Failure Probability</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -182,13 +182,13 @@ public class QosannotationsSwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>System Specified Execution Time</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>System Specified Execution Time</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>System Specified Execution Time</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>System Specified Execution Time</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -197,13 +197,13 @@ public class QosannotationsSwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Component Specified Execution Time</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Component Specified Execution Time</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Component Specified Execution Time</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Component Specified Execution Time</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -212,13 +212,13 @@ public class QosannotationsSwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Specified Output Parameter Abstraction</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Specified Output Parameter Abstraction</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Specified Output Parameter Abstraction</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Specified Output Parameter Abstraction</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -227,13 +227,13 @@ public class QosannotationsSwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Qo SAnnotations</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Qo SAnnotations</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Qo SAnnotations</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Qo SAnnotations</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -242,13 +242,13 @@ public class QosannotationsSwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Random Variable</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Random Variable</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Random Variable</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Random Variable</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -257,13 +257,13 @@ public class QosannotationsSwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Variable Usage</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Variable Usage</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Variable Usage</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Variable Usage</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -272,13 +272,13 @@ public class QosannotationsSwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Identifier</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Identifier</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Identifier</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Identifier</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -287,13 +287,13 @@ public class QosannotationsSwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Named Element</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Named Element</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Named Element</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Named Element</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -302,13 +302,13 @@ public class QosannotationsSwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Entity</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Entity</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Entity</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Entity</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -317,13 +317,13 @@ public class QosannotationsSwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>EObject</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>EObject</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch, but this is the last case anyway.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>EObject</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>EObject</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject)
 	 * @generated
 	 */

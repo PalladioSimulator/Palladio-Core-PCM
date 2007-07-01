@@ -236,11 +236,10 @@ public class ProvidesComponentTypeEditPart extends ShapeNodeEditPart {
 		 */
 		private void createContents() {
 
-			WrapLabel providesComponentTypeLabelFigure0 = new WrapLabel();
-			providesComponentTypeLabelFigure0.setText("<...>");
+			fFigureProvidesComponentTypeLabelFigure = new WrapLabel();
+			fFigureProvidesComponentTypeLabelFigure.setText("<...>");
 
-			this.add(providesComponentTypeLabelFigure0);
-			fFigureProvidesComponentTypeLabelFigure = providesComponentTypeLabelFigure0;
+			this.add(fFigureProvidesComponentTypeLabelFigure);
 
 		}
 

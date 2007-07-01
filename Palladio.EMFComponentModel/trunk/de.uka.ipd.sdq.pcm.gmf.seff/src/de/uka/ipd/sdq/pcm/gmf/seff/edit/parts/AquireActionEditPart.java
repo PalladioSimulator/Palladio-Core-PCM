@@ -241,11 +241,10 @@ public class AquireActionEditPart extends ShapeNodeEditPart {
 
 			this.add(aquireStereotypeLabel0);
 
-			WrapLabel aquireNameLabelFigure0 = new WrapLabel();
-			aquireNameLabelFigure0.setText("<...>");
+			fFigureAquireNameLabelFigure = new WrapLabel();
+			fFigureAquireNameLabelFigure.setText("<...>");
 
-			this.add(aquireNameLabelFigure0);
-			fFigureAquireNameLabelFigure = aquireNameLabelFigure0;
+			this.add(fFigureAquireNameLabelFigure);
 
 			WrapLabel aquireResourceLabelFigure0 = new WrapLabel();
 			aquireResourceLabelFigure0.setText("");

@@ -201,6 +201,7 @@ public class UsageLoopIterationsLabelEditPart extends CompartmentEditPart
 	 * @generated
 	 */
 	protected EObject getParserElement() {
+
 		EObject element = resolveSemanticElement();
 		return element != null ? element : (View) getModel();
 	}
@@ -249,7 +250,7 @@ public class UsageLoopIterationsLabelEditPart extends CompartmentEditPart
 	 * @generated
 	 */
 	public String getEditText() {
-		if (getParser() == null) {
+		if (getParserElement() == null || getParser() == null) {
 			return ""; //$NON-NLS-1$
 		}
 		return getParser().getEditString(
@@ -301,7 +302,7 @@ public class UsageLoopIterationsLabelEditPart extends CompartmentEditPart
 	 * @generated
 	 */
 	public IContentAssistProcessor getCompletionProcessor() {
-		if (getParser() == null) {
+		if (getParserElement() == null || getParser() == null) {
 			return null;
 		}
 		return getParser().getCompletionProcessor(
@@ -493,9 +494,10 @@ public class UsageLoopIterationsLabelEditPart extends CompartmentEditPart
 			@Override
 			public void notifyChanged(Notification notification) {
 				super.notifyChanged(notification);
-				UsageLoopIterationsLabelEditPart.this.notifyChanged(notification);
+				UsageLoopIterationsLabelEditPart.this
+						.notifyChanged(notification);
 			}
-			
+
 		};
 		adaptedElement = element;
 		element.eAdapters().add(changeListener);

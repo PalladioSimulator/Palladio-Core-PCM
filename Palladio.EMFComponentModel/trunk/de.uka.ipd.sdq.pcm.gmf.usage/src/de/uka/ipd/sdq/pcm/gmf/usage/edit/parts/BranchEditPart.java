@@ -66,6 +66,8 @@ public class BranchEditPart extends ShapeNodeEditPart {
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
 				new BranchItemSemanticEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
+		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
+		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
 	}
 
 	/**
@@ -224,15 +226,14 @@ public class BranchEditPart extends ShapeNodeEditPart {
 		/**
 		 * @generated
 		 */
+		private WrapLabel fFigureUsageBranchStereotypeLabelFigure;
+
+		/**
+		 * @generated
+		 */
 		public UsageBranchFigure() {
 			this.setCornerDimensions(new Dimension(getMapMode().DPtoLP(8),
 					getMapMode().DPtoLP(8)));
-			this.setFill(true);
-			this.setFillXOR(false);
-			this.setOutline(true);
-			this.setOutlineXOR(false);
-			this.setLineWidth(1);
-			this.setLineStyle(Graphics.LINE_SOLID);
 			createContents();
 		}
 
@@ -241,31 +242,18 @@ public class BranchEditPart extends ShapeNodeEditPart {
 		 */
 		private void createContents() {
 
-			WrapLabel usageBranchStereotypeLabelFigure0 = new WrapLabel();
-			usageBranchStereotypeLabelFigure0.setText("<<Branch>>");
+			fFigureUsageBranchStereotypeLabelFigure = new WrapLabel();
+			fFigureUsageBranchStereotypeLabelFigure.setText("<<Branch>>");
 
-			this.add(usageBranchStereotypeLabelFigure0);
-			setFigureUsageBranchStereotypeLabelFigure(usageBranchStereotypeLabelFigure0);
+			this.add(fFigureUsageBranchStereotypeLabelFigure);
 
 		}
-
-		/**
-		 * @generated
-		 */
-		private WrapLabel fUsageBranchStereotypeLabelFigure;
 
 		/**
 		 * @generated
 		 */
 		public WrapLabel getFigureUsageBranchStereotypeLabelFigure() {
-			return fUsageBranchStereotypeLabelFigure;
-		}
-
-		/**
-		 * @generated
-		 */
-		private void setFigureUsageBranchStereotypeLabelFigure(WrapLabel fig) {
-			fUsageBranchStereotypeLabelFigure = fig;
+			return fFigureUsageBranchStereotypeLabelFigure;
 		}
 
 		/**

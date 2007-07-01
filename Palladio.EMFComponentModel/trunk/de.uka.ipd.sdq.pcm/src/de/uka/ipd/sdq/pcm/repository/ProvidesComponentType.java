@@ -51,7 +51,7 @@ public interface ProvidesComponentType extends Entity, InterfaceProvidingRequiri
 	 * @see #setRepository_ProvidesComponentType(Repository)
 	 * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getProvidesComponentType_Repository_ProvidesComponentType()
 	 * @see de.uka.ipd.sdq.pcm.repository.Repository#getComponents__Repository
-	 * @model opposite="components__Repository" required="true" ordered="false"
+	 * @model opposite="components__Repository" required="true" transient="false" ordered="false"
 	 * @generated
 	 */
 	Repository getRepository_ProvidesComponentType();

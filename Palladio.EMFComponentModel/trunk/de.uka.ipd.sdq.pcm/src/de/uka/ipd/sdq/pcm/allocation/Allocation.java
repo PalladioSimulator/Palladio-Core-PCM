@@ -50,7 +50,7 @@ public interface Allocation extends Entity {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Allocation Contexts Allocation</em>' containment reference list.
 	 * @see de.uka.ipd.sdq.pcm.allocation.AllocationPackage#getAllocation_AllocationContexts_Allocation()
-	 * @model type="de.uka.ipd.sdq.pcm.allocation.AllocationContext" containment="true" ordered="false"
+	 * @model containment="true" ordered="false"
 	 * @generated
 	 */
 	EList<AllocationContext> getAllocationContexts_Allocation();

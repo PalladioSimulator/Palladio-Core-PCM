@@ -36,6 +36,7 @@ import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.ScenarioBehaviourScenarioBehaviou
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.UsageScenarioEditPart;
 
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.VariableUsageEditPart;
+import de.uka.ipd.sdq.pcm.gmf.usage.part.Messages;
 import de.uka.ipd.sdq.pcm.gmf.usage.part.PalladioComponentModelUsageDiagramEditorPlugin;
 
 /**
@@ -50,11 +51,6 @@ public class PalladioComponentModelModelingAssistantProvider extends
 	public List getTypesForPopupBar(IAdaptable host) {
 		IGraphicalEditPart editPart = (IGraphicalEditPart) host
 				.getAdapter(IGraphicalEditPart.class);
-		if (editPart instanceof EntryLevelSystemCallEditPart) {
-			List types = new ArrayList();
-			types.add(PalladioComponentModelElementTypes.VariableUsage_3004);
-			return types;
-		}
 		if (editPart instanceof VariableUsageEditPart) {
 			List types = new ArrayList();
 			types
@@ -81,6 +77,11 @@ public class PalladioComponentModelModelingAssistantProvider extends
 					.add(PalladioComponentModelElementTypes.EntryLevelSystemCall_3003);
 			types.add(PalladioComponentModelElementTypes.Loop_3005);
 			types.add(PalladioComponentModelElementTypes.Branch_3008);
+			return types;
+		}
+		if (editPart instanceof EntryLevelSystemCallParameterUsageEditPart) {
+			List types = new ArrayList();
+			types.add(PalladioComponentModelElementTypes.VariableUsage_3004);
 			return types;
 		}
 		if (editPart instanceof ScenarioBehaviourScenarioBehaviourStepsCompartment2EditPart) {
@@ -123,6 +124,8 @@ public class PalladioComponentModelModelingAssistantProvider extends
 	 * @generated
 	 */
 	public List getRelTypesOnSource(IAdaptable source) {
+		IGraphicalEditPart sourceEditPart = (IGraphicalEditPart) source
+				.getAdapter(IGraphicalEditPart.class);
 		return Collections.EMPTY_LIST;
 	}
 
@@ -130,6 +133,8 @@ public class PalladioComponentModelModelingAssistantProvider extends
 	 * @generated
 	 */
 	public List getRelTypesOnTarget(IAdaptable target) {
+		IGraphicalEditPart targetEditPart = (IGraphicalEditPart) target
+				.getAdapter(IGraphicalEditPart.class);
 		return Collections.EMPTY_LIST;
 	}
 
@@ -138,6 +143,10 @@ public class PalladioComponentModelModelingAssistantProvider extends
 	 */
 	public List getRelTypesOnSourceAndTarget(IAdaptable source,
 			IAdaptable target) {
+		IGraphicalEditPart sourceEditPart = (IGraphicalEditPart) source
+				.getAdapter(IGraphicalEditPart.class);
+		IGraphicalEditPart targetEditPart = (IGraphicalEditPart) target
+				.getAdapter(IGraphicalEditPart.class);
 		return Collections.EMPTY_LIST;
 	}
 
@@ -146,6 +155,8 @@ public class PalladioComponentModelModelingAssistantProvider extends
 	 */
 	public List getTypesForSource(IAdaptable target,
 			IElementType relationshipType) {
+		IGraphicalEditPart targetEditPart = (IGraphicalEditPart) target
+				.getAdapter(IGraphicalEditPart.class);
 		return Collections.EMPTY_LIST;
 	}
 
@@ -154,6 +165,8 @@ public class PalladioComponentModelModelingAssistantProvider extends
 	 */
 	public List getTypesForTarget(IAdaptable source,
 			IElementType relationshipType) {
+		IGraphicalEditPart sourceEditPart = (IGraphicalEditPart) source
+				.getAdapter(IGraphicalEditPart.class);
 		return Collections.EMPTY_LIST;
 	}
 
@@ -221,8 +234,10 @@ public class PalladioComponentModelModelingAssistantProvider extends
 						.getItemProvidersAdapterFactory());
 		ElementListSelectionDialog dialog = new ElementListSelectionDialog(
 				shell, labelProvider);
-		dialog.setMessage("Available domain model elements:");
-		dialog.setTitle("Select domain model element");
+		dialog
+				.setMessage(Messages.PalladioComponentModelModelingAssistantProviderMessage);
+		dialog
+				.setTitle(Messages.PalladioComponentModelModelingAssistantProviderTitle);
 		dialog.setMultipleSelection(false);
 		dialog.setElements(elements);
 		EObject selected = null;

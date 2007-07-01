@@ -161,7 +161,6 @@ public class PalladioComponentModelDiagramEditorUtil {
 		dialog.open();
 	}
 
-
 	/**
 	 * This method should be called within a workspace modify operation since it creates resources.
 	 * @generated not
@@ -187,20 +186,20 @@ public class PalladioComponentModelDiagramEditorUtil {
 				UsageModel model = createInitialModel();
 				UsageScenario scenario = UsagemodelFactory.eINSTANCE
 						.createUsageScenario();
-				
+
 				//set default scenario name
 				scenario.setEntityName("defaultUsageScenario"); //$NON-NLS-1$
-				
-				ScenarioBehaviour behaviour =
-					UsagemodelFactory.eINSTANCE.createScenarioBehaviour();
+
+				ScenarioBehaviour behaviour = UsagemodelFactory.eINSTANCE
+						.createScenarioBehaviour();
 				behaviour.getActions_ScenarioBehaviour().add(
 						UsagemodelFactory.eINSTANCE.createStart());
 				behaviour.getActions_ScenarioBehaviour().add(
 						UsagemodelFactory.eINSTANCE.createStop());
-				
+
 				//set default scenario behaviour name
 				behaviour.setEntityName("defaultUsageScenarioBehaviour"); //$NON-NLS-1$
-				
+
 				scenario.setScenarioBehaviour_UsageScenario(behaviour);
 				model.getUsageScenario_UsageModel().add(scenario);
 				attachModelToResource(model, modelResource);

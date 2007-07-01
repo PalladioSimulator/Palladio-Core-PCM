@@ -63,29 +63,6 @@ public class SetVariableActionEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected void createDefaultEditPolicies() {
-		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
-				new CreationEditPolicy() {
-					public Command getCommand(Request request) {
-						if (understandsRequest(request)) {
-							if (request instanceof CreateViewAndElementRequest) {
-								CreateElementRequestAdapter adapter = ((CreateViewAndElementRequest) request)
-										.getViewAndElementDescriptor()
-										.getCreateElementRequestAdapter();
-								IElementType type = (IElementType) adapter
-										.getAdapter(IElementType.class);
-								if (type == PalladioComponentModelElementTypes.VariableUsage_3015) {
-									EditPart compartmentEditPart = getChildBySemanticHint(PalladioComponentModelVisualIDRegistry
-											.getType(SetVariableActionVariableSetterEditPart.VISUAL_ID));
-									return compartmentEditPart == null ? null
-											: compartmentEditPart
-													.getCommand(request);
-								}
-							}
-							return super.getCommand(request);
-						}
-						return null;
-					}
-				});
 
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
@@ -273,11 +250,10 @@ public class SetVariableActionEditPart extends ShapeNodeEditPart {
 
 			this.add(setVariableActionStereotypeLabelFigure0);
 
-			WrapLabel setVariableNameLabelFigure0 = new WrapLabel();
-			setVariableNameLabelFigure0.setText("");
+			fFigureSetVariableNameLabelFigure = new WrapLabel();
+			fFigureSetVariableNameLabelFigure.setText("");
 
-			this.add(setVariableNameLabelFigure0);
-			fFigureSetVariableNameLabelFigure = setVariableNameLabelFigure0;
+			this.add(fFigureSetVariableNameLabelFigure);
 
 		}
 

@@ -44,6 +44,7 @@ public class StopItemSemanticEditPolicy extends
 	 */
 	protected Command getDestroyElementCommand(DestroyElementRequest req) {
 		CompoundCommand cc = getDestroyEdgesCommand();
+		addDestroyShortcutsCommand(cc);
 		cc.add(getGEFWrapper(new DestroyElementCommand(req)));
 		return cc.unwrap();
 	}

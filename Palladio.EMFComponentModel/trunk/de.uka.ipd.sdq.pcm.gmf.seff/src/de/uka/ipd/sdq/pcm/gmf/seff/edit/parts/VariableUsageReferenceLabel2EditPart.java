@@ -196,6 +196,7 @@ public class VariableUsageReferenceLabel2EditPart extends CompartmentEditPart
 	 * @generated
 	 */
 	protected EObject getParserElement() {
+
 		EObject element = resolveSemanticElement();
 		return element != null ? element : (View) getModel();
 	}
@@ -244,7 +245,7 @@ public class VariableUsageReferenceLabel2EditPart extends CompartmentEditPart
 	 * @generated
 	 */
 	public String getEditText() {
-		if (getParser() == null) {
+		if (getParserElement() == null || getParser() == null) {
 			return ""; //$NON-NLS-1$
 		}
 		return getParser().getEditString(
@@ -296,7 +297,7 @@ public class VariableUsageReferenceLabel2EditPart extends CompartmentEditPart
 	 * @generated
 	 */
 	public IContentAssistProcessor getCompletionProcessor() {
-		if (getParser() == null) {
+		if (getParserElement() == null || getParser() == null) {
 			return null;
 		}
 		return getParser().getCompletionProcessor(
@@ -315,7 +316,7 @@ public class VariableUsageReferenceLabel2EditPart extends CompartmentEditPart
 	 */
 	public IParser getParser() {
 		if (parser == null) {
-			String parserHint = CommonParserHint.DESCRIPTION;
+			String parserHint = ((View) getModel()).getType();
 			IAdaptable hintAdapter = new PalladioComponentModelParserProvider.HintAdapter(
 					PalladioComponentModelElementTypes.VariableUsage_3022,
 					getParserElement(), parserHint);

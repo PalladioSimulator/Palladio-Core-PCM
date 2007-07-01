@@ -63,34 +63,13 @@ public class EntryLevelSystemCallEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected void createDefaultEditPolicies() {
-		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
-				new CreationEditPolicy() {
-					public Command getCommand(Request request) {
-						if (understandsRequest(request)) {
-							if (request instanceof CreateViewAndElementRequest) {
-								CreateElementRequestAdapter adapter = ((CreateViewAndElementRequest) request)
-										.getViewAndElementDescriptor()
-										.getCreateElementRequestAdapter();
-								IElementType type = (IElementType) adapter
-										.getAdapter(IElementType.class);
-								if (type == PalladioComponentModelElementTypes.VariableUsage_3004) {
-									EditPart compartmentEditPart = getChildBySemanticHint(PalladioComponentModelVisualIDRegistry
-											.getType(EntryLevelSystemCallParameterUsageEditPart.VISUAL_ID));
-									return compartmentEditPart == null ? null
-											: compartmentEditPart
-													.getCommand(request);
-								}
-							}
-							return super.getCommand(request);
-						}
-						return null;
-					}
-				});
 
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
 				new EntryLevelSystemCallItemSemanticEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
+		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
+		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
 	}
 
 	/**
@@ -249,15 +228,14 @@ public class EntryLevelSystemCallEditPart extends ShapeNodeEditPart {
 		/**
 		 * @generated
 		 */
+		private WrapLabel fFigureSystemCallNameLabelFigure;
+
+		/**
+		 * @generated
+		 */
 		public SystemCallFigure() {
 			this.setCornerDimensions(new Dimension(getMapMode().DPtoLP(8),
 					getMapMode().DPtoLP(8)));
-			this.setFill(true);
-			this.setFillXOR(false);
-			this.setOutline(true);
-			this.setOutlineXOR(false);
-			this.setLineWidth(1);
-			this.setLineStyle(Graphics.LINE_SOLID);
 			createContents();
 		}
 
@@ -271,31 +249,18 @@ public class EntryLevelSystemCallEditPart extends ShapeNodeEditPart {
 
 			this.add(systemCallStereotypeLabelFigure0);
 
-			WrapLabel systemCallNameLabelFigure0 = new WrapLabel();
-			systemCallNameLabelFigure0.setText("");
+			fFigureSystemCallNameLabelFigure = new WrapLabel();
+			fFigureSystemCallNameLabelFigure.setText("");
 
-			this.add(systemCallNameLabelFigure0);
-			setFigureSystemCallNameLabelFigure(systemCallNameLabelFigure0);
+			this.add(fFigureSystemCallNameLabelFigure);
 
 		}
-
-		/**
-		 * @generated
-		 */
-		private WrapLabel fSystemCallNameLabelFigure;
 
 		/**
 		 * @generated
 		 */
 		public WrapLabel getFigureSystemCallNameLabelFigure() {
-			return fSystemCallNameLabelFigure;
-		}
-
-		/**
-		 * @generated
-		 */
-		private void setFigureSystemCallNameLabelFigure(WrapLabel fig) {
-			fSystemCallNameLabelFigure = fig;
+			return fFigureSystemCallNameLabelFigure;
 		}
 
 		/**

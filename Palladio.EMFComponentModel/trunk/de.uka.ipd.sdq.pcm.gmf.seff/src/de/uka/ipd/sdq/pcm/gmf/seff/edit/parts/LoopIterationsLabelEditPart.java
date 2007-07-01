@@ -197,6 +197,7 @@ public class LoopIterationsLabelEditPart extends CompartmentEditPart implements
 	 * @generated
 	 */
 	protected EObject getParserElement() {
+
 		EObject element = resolveSemanticElement();
 		return element != null ? element : (View) getModel();
 	}
@@ -243,7 +244,7 @@ public class LoopIterationsLabelEditPart extends CompartmentEditPart implements
 	 * @generated
 	 */
 	public String getEditText() {
-		if (getParser() == null) {
+		if (getParserElement() == null || getParser() == null) {
 			return ""; //$NON-NLS-1$
 		}
 		return getParser().getEditString(
@@ -295,7 +296,7 @@ public class LoopIterationsLabelEditPart extends CompartmentEditPart implements
 	 * @generated
 	 */
 	public IContentAssistProcessor getCompletionProcessor() {
-		if (getParser() == null) {
+		if (getParserElement() == null || getParser() == null) {
 			return null;
 		}
 		return getParser().getCompletionProcessor(

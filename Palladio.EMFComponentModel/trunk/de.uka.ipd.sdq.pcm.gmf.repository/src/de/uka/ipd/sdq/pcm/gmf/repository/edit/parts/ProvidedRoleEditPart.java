@@ -109,11 +109,10 @@ public class ProvidedRoleEditPart extends ConnectionNodeEditPart {
 		 */
 		private void createContents() {
 
-			WrapLabel providesStereotypeLabelFigure0 = new WrapLabel();
-			providesStereotypeLabelFigure0.setText("<<Provides>>");
+			fFigureProvidesStereotypeLabelFigure = new WrapLabel();
+			fFigureProvidesStereotypeLabelFigure.setText("<<Provides>>");
 
-			this.add(providesStereotypeLabelFigure0);
-			fFigureProvidesStereotypeLabelFigure = providesStereotypeLabelFigure0;
+			this.add(fFigureProvidesStereotypeLabelFigure);
 
 		}
 

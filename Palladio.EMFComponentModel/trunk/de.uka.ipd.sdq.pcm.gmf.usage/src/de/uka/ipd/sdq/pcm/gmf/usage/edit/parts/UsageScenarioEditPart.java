@@ -41,5 +41,6 @@ public class UsageScenarioEditPart extends DiagramEditPart {
 				new UsageScenarioItemSemanticEditPolicy());
 		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE,
 				new UsageScenarioCanonicalEditPolicy());
+		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.POPUPBAR_ROLE);
 	}
 }

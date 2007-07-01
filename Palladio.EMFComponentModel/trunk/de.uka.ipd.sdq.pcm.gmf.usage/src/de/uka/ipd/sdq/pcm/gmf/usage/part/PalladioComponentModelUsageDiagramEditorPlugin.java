@@ -87,7 +87,7 @@ public class PalladioComponentModelUsageDiagramEditorPlugin extends
 	/**
 	 * @generated
 	 */
-	private PalladioComponentModelDocumentProvider myDocumentProvider;
+	private PalladioComponentModelDocumentProvider documentProvider;
 
 	/**
 	 * @generated
@@ -134,9 +134,9 @@ public class PalladioComponentModelUsageDiagramEditorPlugin extends
 			@Override
 			public ComposeableAdapterFactory getRootAdapterFactory() {
 				// TODO Auto-generated method stub
-				return (PalladioItemProviderAdapterFactory)adapterFactory;
+				return (PalladioItemProviderAdapterFactory) adapterFactory;
 			}
-			
+
 		};
 		return new PalladioItemProviderAdapterFactory(caf);
 	}
@@ -245,10 +245,10 @@ public class PalladioComponentModelUsageDiagramEditorPlugin extends
 	 * @generated
 	 */
 	public PalladioComponentModelDocumentProvider getDocumentProvider() {
-		if (myDocumentProvider == null) {
-			myDocumentProvider = new PalladioComponentModelDocumentProvider();
+		if (documentProvider == null) {
+			documentProvider = new PalladioComponentModelDocumentProvider();
 		}
-		return myDocumentProvider;
+		return documentProvider;
 	}
 
 	/**

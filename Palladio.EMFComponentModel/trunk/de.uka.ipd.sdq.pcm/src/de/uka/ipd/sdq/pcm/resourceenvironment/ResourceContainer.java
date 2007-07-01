@@ -47,7 +47,7 @@ public interface ResourceContainer extends Entity {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Active Resource Specifications Resource Container</em>' containment reference list.
 	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage#getResourceContainer_ActiveResourceSpecifications_ResourceContainer()
-	 * @model type="de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification" containment="true" ordered="false"
+	 * @model containment="true" ordered="false"
 	 * @generated
 	 */
 	EList<ProcessingResourceSpecification> getActiveResourceSpecifications_ResourceContainer();
@@ -63,7 +63,7 @@ public interface ResourceContainer extends Entity {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Passive Resource Specifications Resource Container</em>' containment reference list.
 	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage#getResourceContainer_PassiveResourceSpecifications_ResourceContainer()
-	 * @model type="de.uka.ipd.sdq.pcm.resourceenvironment.PassiveResourceSpecification" containment="true" ordered="false"
+	 * @model containment="true" ordered="false"
 	 * @generated
 	 */
 	EList<PassiveResourceSpecification> getPassiveResourceSpecifications_ResourceContainer();

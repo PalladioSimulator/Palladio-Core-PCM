@@ -44,7 +44,7 @@ public interface ForkAction extends AbstractResourceDemandingAction {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Forked Behaviours Fork</em>' containment reference list.
 	 * @see de.uka.ipd.sdq.pcm.seff.SeffPackage#getForkAction_ForkedBehaviours_Fork()
-	 * @model type="de.uka.ipd.sdq.pcm.seff.ResourceDemandingBehaviour" containment="true" ordered="false"
+	 * @model containment="true" ordered="false"
 	 * @generated
 	 */
 	EList<ResourceDemandingBehaviour> getForkedBehaviours_Fork();

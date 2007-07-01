@@ -86,6 +86,9 @@ public class PalladioComponentModelDiagramUpdater {
 	 * @generated
 	 */
 	public static List getLoop_3005SemanticChildren(View view) {
+		if (!view.isSetElement()) {
+			return Collections.EMPTY_LIST;
+		}
 		Loop modelElement = (Loop) view.getElement();
 		List result = new LinkedList();
 		{
@@ -105,6 +108,9 @@ public class PalladioComponentModelDiagramUpdater {
 	 * @generated
 	 */
 	public static List getBranchTransition_3009SemanticChildren(View view) {
+		if (!view.isSetElement()) {
+			return Collections.EMPTY_LIST;
+		}
 		BranchTransition modelElement = (BranchTransition) view.getElement();
 		List result = new LinkedList();
 		{
@@ -125,7 +131,15 @@ public class PalladioComponentModelDiagramUpdater {
 	 */
 	public static List getScenarioBehaviourScenarioBehaviourStepsCompartment_7001SemanticChildren(
 			View view) {
-		ScenarioBehaviour modelElement = (ScenarioBehaviour) view.getElement();
+		if (false == view.eContainer() instanceof View) {
+			return Collections.EMPTY_LIST;
+		}
+		View containerView = (View) view.eContainer();
+		if (!containerView.isSetElement()) {
+			return Collections.EMPTY_LIST;
+		}
+		ScenarioBehaviour modelElement = (ScenarioBehaviour) containerView
+				.getElement();
 		List result = new LinkedList();
 		for (Iterator it = modelElement.getActions_ScenarioBehaviour()
 				.iterator(); it.hasNext();) {
@@ -135,22 +149,27 @@ public class PalladioComponentModelDiagramUpdater {
 			if (visualID == StartEditPart.VISUAL_ID) {
 				result.add(new PalladioComponentModelNodeDescriptor(
 						childElement, visualID));
+				continue;
 			}
 			if (visualID == StopEditPart.VISUAL_ID) {
 				result.add(new PalladioComponentModelNodeDescriptor(
 						childElement, visualID));
+				continue;
 			}
 			if (visualID == EntryLevelSystemCallEditPart.VISUAL_ID) {
 				result.add(new PalladioComponentModelNodeDescriptor(
 						childElement, visualID));
+				continue;
 			}
 			if (visualID == LoopEditPart.VISUAL_ID) {
 				result.add(new PalladioComponentModelNodeDescriptor(
 						childElement, visualID));
+				continue;
 			}
 			if (visualID == BranchEditPart.VISUAL_ID) {
 				result.add(new PalladioComponentModelNodeDescriptor(
 						childElement, visualID));
+				continue;
 			}
 		}
 		return result;
@@ -161,7 +180,14 @@ public class PalladioComponentModelDiagramUpdater {
 	 */
 	public static List getEntryLevelSystemCallSystemCallVariableUsageCompartment_7002SemanticChildren(
 			View view) {
-		EntryLevelSystemCall modelElement = (EntryLevelSystemCall) view
+		if (false == view.eContainer() instanceof View) {
+			return Collections.EMPTY_LIST;
+		}
+		View containerView = (View) view.eContainer();
+		if (!containerView.isSetElement()) {
+			return Collections.EMPTY_LIST;
+		}
+		EntryLevelSystemCall modelElement = (EntryLevelSystemCall) containerView
 				.getElement();
 		List result = new LinkedList();
 		for (Iterator it = modelElement
@@ -173,6 +199,7 @@ public class PalladioComponentModelDiagramUpdater {
 			if (visualID == VariableUsageEditPart.VISUAL_ID) {
 				result.add(new PalladioComponentModelNodeDescriptor(
 						childElement, visualID));
+				continue;
 			}
 		}
 		return result;
@@ -183,7 +210,14 @@ public class PalladioComponentModelDiagramUpdater {
 	 */
 	public static List getVariableUsageVariableCharacterisation_7003SemanticChildren(
 			View view) {
-		VariableUsage modelElement = (VariableUsage) view.getElement();
+		if (false == view.eContainer() instanceof View) {
+			return Collections.EMPTY_LIST;
+		}
+		View containerView = (View) view.eContainer();
+		if (!containerView.isSetElement()) {
+			return Collections.EMPTY_LIST;
+		}
+		VariableUsage modelElement = (VariableUsage) containerView.getElement();
 		List result = new LinkedList();
 		for (Iterator it = modelElement
 				.getVariableCharacterisation_VariableUsage().iterator(); it
@@ -195,6 +229,7 @@ public class PalladioComponentModelDiagramUpdater {
 			if (visualID == VariableCharacterisationEditPart.VISUAL_ID) {
 				result.add(new PalladioComponentModelNodeDescriptor(
 						childElement, visualID));
+				continue;
 			}
 		}
 		return result;
@@ -205,7 +240,15 @@ public class PalladioComponentModelDiagramUpdater {
 	 */
 	public static List getScenarioBehaviourScenarioBehaviourStepsCompartment_7005SemanticChildren(
 			View view) {
-		ScenarioBehaviour modelElement = (ScenarioBehaviour) view.getElement();
+		if (false == view.eContainer() instanceof View) {
+			return Collections.EMPTY_LIST;
+		}
+		View containerView = (View) view.eContainer();
+		if (!containerView.isSetElement()) {
+			return Collections.EMPTY_LIST;
+		}
+		ScenarioBehaviour modelElement = (ScenarioBehaviour) containerView
+				.getElement();
 		List result = new LinkedList();
 		for (Iterator it = modelElement.getActions_ScenarioBehaviour()
 				.iterator(); it.hasNext();) {
@@ -215,22 +258,27 @@ public class PalladioComponentModelDiagramUpdater {
 			if (visualID == StartEditPart.VISUAL_ID) {
 				result.add(new PalladioComponentModelNodeDescriptor(
 						childElement, visualID));
+				continue;
 			}
 			if (visualID == StopEditPart.VISUAL_ID) {
 				result.add(new PalladioComponentModelNodeDescriptor(
 						childElement, visualID));
+				continue;
 			}
 			if (visualID == EntryLevelSystemCallEditPart.VISUAL_ID) {
 				result.add(new PalladioComponentModelNodeDescriptor(
 						childElement, visualID));
+				continue;
 			}
 			if (visualID == LoopEditPart.VISUAL_ID) {
 				result.add(new PalladioComponentModelNodeDescriptor(
 						childElement, visualID));
+				continue;
 			}
 			if (visualID == BranchEditPart.VISUAL_ID) {
 				result.add(new PalladioComponentModelNodeDescriptor(
 						childElement, visualID));
+				continue;
 			}
 		}
 		return result;
@@ -241,7 +289,14 @@ public class PalladioComponentModelDiagramUpdater {
 	 */
 	public static List getBranchUsageBranchTransitionsCompartment_7009SemanticChildren(
 			View view) {
-		Branch modelElement = (Branch) view.getElement();
+		if (false == view.eContainer() instanceof View) {
+			return Collections.EMPTY_LIST;
+		}
+		View containerView = (View) view.eContainer();
+		if (!containerView.isSetElement()) {
+			return Collections.EMPTY_LIST;
+		}
+		Branch modelElement = (Branch) containerView.getElement();
 		List result = new LinkedList();
 		for (Iterator it = modelElement.getBranchTransitions_Branch()
 				.iterator(); it.hasNext();) {
@@ -251,6 +306,7 @@ public class PalladioComponentModelDiagramUpdater {
 			if (visualID == BranchTransitionEditPart.VISUAL_ID) {
 				result.add(new PalladioComponentModelNodeDescriptor(
 						childElement, visualID));
+				continue;
 			}
 		}
 		return result;
@@ -261,7 +317,15 @@ public class PalladioComponentModelDiagramUpdater {
 	 */
 	public static List getScenarioBehaviourScenarioBehaviourStepsCompartment_7008SemanticChildren(
 			View view) {
-		ScenarioBehaviour modelElement = (ScenarioBehaviour) view.getElement();
+		if (false == view.eContainer() instanceof View) {
+			return Collections.EMPTY_LIST;
+		}
+		View containerView = (View) view.eContainer();
+		if (!containerView.isSetElement()) {
+			return Collections.EMPTY_LIST;
+		}
+		ScenarioBehaviour modelElement = (ScenarioBehaviour) containerView
+				.getElement();
 		List result = new LinkedList();
 		for (Iterator it = modelElement.getActions_ScenarioBehaviour()
 				.iterator(); it.hasNext();) {
@@ -271,22 +335,27 @@ public class PalladioComponentModelDiagramUpdater {
 			if (visualID == StartEditPart.VISUAL_ID) {
 				result.add(new PalladioComponentModelNodeDescriptor(
 						childElement, visualID));
+				continue;
 			}
 			if (visualID == StopEditPart.VISUAL_ID) {
 				result.add(new PalladioComponentModelNodeDescriptor(
 						childElement, visualID));
+				continue;
 			}
 			if (visualID == EntryLevelSystemCallEditPart.VISUAL_ID) {
 				result.add(new PalladioComponentModelNodeDescriptor(
 						childElement, visualID));
+				continue;
 			}
 			if (visualID == LoopEditPart.VISUAL_ID) {
 				result.add(new PalladioComponentModelNodeDescriptor(
 						childElement, visualID));
+				continue;
 			}
 			if (visualID == BranchEditPart.VISUAL_ID) {
 				result.add(new PalladioComponentModelNodeDescriptor(
 						childElement, visualID));
+				continue;
 			}
 		}
 		return result;
@@ -296,6 +365,9 @@ public class PalladioComponentModelDiagramUpdater {
 	 * @generated
 	 */
 	public static List getUsageScenario_1000SemanticChildren(View view) {
+		if (!view.isSetElement()) {
+			return Collections.EMPTY_LIST;
+		}
 		UsageScenario modelElement = (UsageScenario) view.getElement();
 		List result = new LinkedList();
 		{
@@ -329,6 +401,8 @@ public class PalladioComponentModelDiagramUpdater {
 	 */
 	public static List getContainedLinks(View view) {
 		switch (PalladioComponentModelVisualIDRegistry.getVisualID(view)) {
+		case UsageScenarioEditPart.VISUAL_ID:
+			return getUsageScenario_1000ContainedLinks(view);
 		case ScenarioBehaviourEditPart.VISUAL_ID:
 			return getScenarioBehaviour_2001ContainedLinks(view);
 		case ClosedWorkloadEditPart.VISUAL_ID:
@@ -426,6 +500,13 @@ public class PalladioComponentModelDiagramUpdater {
 		case ScenarioBehaviour3EditPart.VISUAL_ID:
 			return getScenarioBehaviour_3010OutgoingLinks(view);
 		}
+		return Collections.EMPTY_LIST;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List getUsageScenario_1000ContainedLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
 

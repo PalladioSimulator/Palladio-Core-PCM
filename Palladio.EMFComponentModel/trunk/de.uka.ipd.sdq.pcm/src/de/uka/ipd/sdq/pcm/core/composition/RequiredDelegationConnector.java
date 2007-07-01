@@ -132,7 +132,7 @@ public interface RequiredDelegationConnector extends DelegationConnector {
 	 * @see #setParentStructure_RequiredDelegationConnector(ComposedStructure)
 	 * @see de.uka.ipd.sdq.pcm.core.composition.CompositionPackage#getRequiredDelegationConnector_ParentStructure_RequiredDelegationConnector()
 	 * @see de.uka.ipd.sdq.pcm.core.composition.ComposedStructure#getRequiredDelegationConnectors_ComposedStructure
-	 * @model opposite="requiredDelegationConnectors_ComposedStructure" required="true" ordered="false"
+	 * @model opposite="requiredDelegationConnectors_ComposedStructure" required="true" transient="false" ordered="false"
 	 * @generated
 	 */
 	ComposedStructure getParentStructure_RequiredDelegationConnector();

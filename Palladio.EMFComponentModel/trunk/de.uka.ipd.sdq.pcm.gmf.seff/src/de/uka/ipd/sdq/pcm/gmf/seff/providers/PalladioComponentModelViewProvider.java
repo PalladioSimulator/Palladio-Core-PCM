@@ -247,7 +247,7 @@ public class PalladioComponentModelViewProvider extends AbstractViewProvider {
 					return null; // visual id for node EClass should match visual id from element type
 				}
 			} else {
-				// Element type is not specified. Domain element should be present.
+				// Element type is not specified. Domain element should be present (except pure design elements).
 				// This method is called with EObjectAdapter as parameter from:
 				//   - ViewService.createNode(View container, EObject eObject, String type, PreferencesHint preferencesHint) 
 				//   - generated ViewFactory.decorateView() for parent element
@@ -261,6 +261,19 @@ public class PalladioComponentModelViewProvider extends AbstractViewProvider {
 				case StopActionEditPart.VISUAL_ID:
 				case ExternalCallActionEditPart.VISUAL_ID:
 				case LoopActionEditPart.VISUAL_ID:
+				case VariableUsageEditPart.VISUAL_ID:
+				case VariableCharacterisationEditPart.VISUAL_ID:
+				case ResourceDemandingBehaviourEditPart.VISUAL_ID:
+				case InternalActionEditPart.VISUAL_ID:
+				case ParametricResourceDemandEditPart.VISUAL_ID:
+				case BranchActionEditPart.VISUAL_ID:
+				case ProbabilisticBranchTransitionEditPart.VISUAL_ID:
+				case AquireActionEditPart.VISUAL_ID:
+				case ReleaseActionEditPart.VISUAL_ID:
+				case ForkActionEditPart.VISUAL_ID:
+				case CollectionIteratorActionEditPart.VISUAL_ID:
+				case SetVariableActionEditPart.VISUAL_ID:
+				case GuardedBranchTransitionEditPart.VISUAL_ID:
 				case BranchAction2EditPart.VISUAL_ID:
 				case InternalAction2EditPart.VISUAL_ID:
 				case CollectionIteratorAction2EditPart.VISUAL_ID:
@@ -268,30 +281,17 @@ public class PalladioComponentModelViewProvider extends AbstractViewProvider {
 				case AquireAction2EditPart.VISUAL_ID:
 				case ReleaseAction2EditPart.VISUAL_ID:
 				case ForkAction2EditPart.VISUAL_ID:
-				case VariableUsageEditPart.VISUAL_ID:
-				case VariableCharacterisationEditPart.VISUAL_ID:
 				case VariableUsage2EditPart.VISUAL_ID:
 				case VariableCharacterisation2EditPart.VISUAL_ID:
-				case ResourceDemandingBehaviourEditPart.VISUAL_ID:
 				case StartAction2EditPart.VISUAL_ID:
 				case StopAction2EditPart.VISUAL_ID:
 				case LoopAction2EditPart.VISUAL_ID:
-				case InternalActionEditPart.VISUAL_ID:
-				case ParametricResourceDemandEditPart.VISUAL_ID:
-				case BranchActionEditPart.VISUAL_ID:
-				case ProbabilisticBranchTransitionEditPart.VISUAL_ID:
 				case ResourceDemandingBehaviour2EditPart.VISUAL_ID:
 				case ExternalCallAction2EditPart.VISUAL_ID:
-				case AquireActionEditPart.VISUAL_ID:
-				case ReleaseActionEditPart.VISUAL_ID:
-				case ForkActionEditPart.VISUAL_ID:
 				case ResourceDemandingBehaviour3EditPart.VISUAL_ID:
-				case CollectionIteratorActionEditPart.VISUAL_ID:
 				case ResourceDemandingBehaviour4EditPart.VISUAL_ID:
-				case SetVariableActionEditPart.VISUAL_ID:
 				case VariableUsage3EditPart.VISUAL_ID:
 				case VariableCharacterisation3EditPart.VISUAL_ID:
-				case GuardedBranchTransitionEditPart.VISUAL_ID:
 				case ResourceDemandingBehaviour5EditPart.VISUAL_ID:
 					if (domainElement == null
 							|| visualID != PalladioComponentModelVisualIDRegistry

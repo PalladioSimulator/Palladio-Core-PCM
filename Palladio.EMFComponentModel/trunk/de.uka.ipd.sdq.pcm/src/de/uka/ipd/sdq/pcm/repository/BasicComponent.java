@@ -76,7 +76,7 @@ public interface BasicComponent extends ImplementationComponentType {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Service Effect Specifications Basic Component</em>' containment reference list.
 	 * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getBasicComponent_ServiceEffectSpecifications__BasicComponent()
-	 * @model type="de.uka.ipd.sdq.pcm.seff.ServiceEffectSpecification" containment="true" ordered="false"
+	 * @model containment="true" ordered="false"
 	 * @generated
 	 */
 	EList<ServiceEffectSpecification> getServiceEffectSpecifications__BasicComponent();

@@ -49,7 +49,7 @@ public interface ScenarioBehaviour extends Entity {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Actions Scenario Behaviour</em>' containment reference list.
 	 * @see de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage#getScenarioBehaviour_Actions_ScenarioBehaviour()
-	 * @model type="de.uka.ipd.sdq.pcm.usagemodel.AbstractUserAction" containment="true" ordered="false"
+	 * @model containment="true" ordered="false"
 	 * @generated
 	 */
 	EList<AbstractUserAction> getActions_ScenarioBehaviour();

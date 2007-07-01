@@ -48,7 +48,7 @@ public interface InterfaceRequiringEntity extends Entity {
 	 * @return the value of the '<em>Required Roles Interface Requiring Entity</em>' containment reference list.
 	 * @see de.uka.ipd.sdq.pcm.core.entity.EntityPackage#getInterfaceRequiringEntity_RequiredRoles_InterfaceRequiringEntity()
 	 * @see de.uka.ipd.sdq.pcm.repository.RequiredRole#getRequiringEntity_RequiredRole
-	 * @model type="de.uka.ipd.sdq.pcm.repository.RequiredRole" opposite="requiringEntity_RequiredRole" containment="true" ordered="false"
+	 * @model opposite="requiringEntity_RequiredRole" containment="true" ordered="false"
 	 * @generated
 	 */
 	EList<RequiredRole> getRequiredRoles_InterfaceRequiringEntity();

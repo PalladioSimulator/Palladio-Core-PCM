@@ -46,7 +46,7 @@ public interface ResourceRepository extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Available Resource Types Resource Repository</em>' containment reference list.
 	 * @see de.uka.ipd.sdq.pcm.resourcetype.ResourcetypePackage#getResourceRepository_AvailableResourceTypes_ResourceRepository()
-	 * @model type="de.uka.ipd.sdq.pcm.resourcetype.ResourceType" containment="true" ordered="false"
+	 * @model containment="true" ordered="false"
 	 * @generated
 	 */
 	EList<ResourceType> getAvailableResourceTypes_ResourceRepository();

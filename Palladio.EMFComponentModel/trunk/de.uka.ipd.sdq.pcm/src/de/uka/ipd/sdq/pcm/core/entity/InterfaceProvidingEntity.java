@@ -48,7 +48,7 @@ public interface InterfaceProvidingEntity extends Entity {
 	 * @return the value of the '<em>Provided Roles Interface Providing Entity</em>' containment reference list.
 	 * @see de.uka.ipd.sdq.pcm.core.entity.EntityPackage#getInterfaceProvidingEntity_ProvidedRoles_InterfaceProvidingEntity()
 	 * @see de.uka.ipd.sdq.pcm.repository.ProvidedRole#getProvidingEntity_ProvidedRole
-	 * @model type="de.uka.ipd.sdq.pcm.repository.ProvidedRole" opposite="providingEntity_ProvidedRole" containment="true" ordered="false"
+	 * @model opposite="providingEntity_ProvidedRole" containment="true" ordered="false"
 	 * @generated
 	 */
 	EList<ProvidedRole> getProvidedRoles_InterfaceProvidingEntity();

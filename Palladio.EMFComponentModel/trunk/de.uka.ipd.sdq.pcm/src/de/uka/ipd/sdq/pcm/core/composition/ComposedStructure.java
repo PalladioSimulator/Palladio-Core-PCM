@@ -51,7 +51,7 @@ public interface ComposedStructure extends Entity {
 	 * @return the value of the '<em>Child Component Contexts Composed Structure</em>' containment reference list.
 	 * @see de.uka.ipd.sdq.pcm.core.composition.CompositionPackage#getComposedStructure_ChildComponentContexts_ComposedStructure()
 	 * @see de.uka.ipd.sdq.pcm.core.composition.AssemblyContext#getParentStructure_AssemblyContext
-	 * @model type="de.uka.ipd.sdq.pcm.core.composition.AssemblyContext" opposite="parentStructure_AssemblyContext" containment="true" ordered="false"
+	 * @model opposite="parentStructure_AssemblyContext" containment="true" ordered="false"
 	 * @generated
 	 */
 	EList<AssemblyContext> getChildComponentContexts_ComposedStructure();
@@ -69,7 +69,7 @@ public interface ComposedStructure extends Entity {
 	 * @return the value of the '<em>Provided Delegation Connectors Composed Structure</em>' containment reference list.
 	 * @see de.uka.ipd.sdq.pcm.core.composition.CompositionPackage#getComposedStructure_ProvidedDelegationConnectors_ComposedStructure()
 	 * @see de.uka.ipd.sdq.pcm.core.composition.ProvidedDelegationConnector#getParentStructure_ProvidedDelegationConnector
-	 * @model type="de.uka.ipd.sdq.pcm.core.composition.ProvidedDelegationConnector" opposite="parentStructure_ProvidedDelegationConnector" containment="true" ordered="false"
+	 * @model opposite="parentStructure_ProvidedDelegationConnector" containment="true" ordered="false"
 	 * @generated
 	 */
 	EList<ProvidedDelegationConnector> getProvidedDelegationConnectors_ComposedStructure();
@@ -87,7 +87,7 @@ public interface ComposedStructure extends Entity {
 	 * @return the value of the '<em>Required Delegation Connectors Composed Structure</em>' containment reference list.
 	 * @see de.uka.ipd.sdq.pcm.core.composition.CompositionPackage#getComposedStructure_RequiredDelegationConnectors_ComposedStructure()
 	 * @see de.uka.ipd.sdq.pcm.core.composition.RequiredDelegationConnector#getParentStructure_RequiredDelegationConnector
-	 * @model type="de.uka.ipd.sdq.pcm.core.composition.RequiredDelegationConnector" opposite="parentStructure_RequiredDelegationConnector" containment="true" ordered="false"
+	 * @model opposite="parentStructure_RequiredDelegationConnector" containment="true" ordered="false"
 	 * @generated
 	 */
 	EList<RequiredDelegationConnector> getRequiredDelegationConnectors_ComposedStructure();
@@ -105,7 +105,7 @@ public interface ComposedStructure extends Entity {
 	 * @return the value of the '<em>Composite Assembly Connectors Composed Structure</em>' containment reference list.
 	 * @see de.uka.ipd.sdq.pcm.core.composition.CompositionPackage#getComposedStructure_CompositeAssemblyConnectors_ComposedStructure()
 	 * @see de.uka.ipd.sdq.pcm.core.composition.AssemblyConnector#getParentStructure_AssemblyConnector
-	 * @model type="de.uka.ipd.sdq.pcm.core.composition.AssemblyConnector" opposite="parentStructure_AssemblyConnector" containment="true" ordered="false"
+	 * @model opposite="parentStructure_AssemblyConnector" containment="true" ordered="false"
 	 * @generated
 	 */
 	EList<AssemblyConnector> getCompositeAssemblyConnectors_ComposedStructure();

@@ -55,7 +55,7 @@ public interface Interface extends Entity {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Parent Interface Interface</em>' reference list.
 	 * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getInterface_ParentInterface__Interface()
-	 * @model type="de.uka.ipd.sdq.pcm.repository.Interface" ordered="false"
+	 * @model ordered="false"
 	 * @generated
 	 */
 	EList<Interface> getParentInterface__Interface();
@@ -71,7 +71,7 @@ public interface Interface extends Entity {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Anchestor Interfaces Interface</em>' reference list.
 	 * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getInterface_AnchestorInterfaces_Interface()
-	 * @model type="de.uka.ipd.sdq.pcm.repository.Interface" ordered="false"
+	 * @model ordered="false"
 	 * @generated
 	 */
 	EList<Interface> getAnchestorInterfaces_Interface();
@@ -87,7 +87,7 @@ public interface Interface extends Entity {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Protocols Interface</em>' containment reference list.
 	 * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getInterface_Protocols__Interface()
-	 * @model type="de.uka.ipd.sdq.pcm.protocol.Protocol" containment="true" ordered="false"
+	 * @model containment="true" ordered="false"
 	 * @generated
 	 */
 	EList<Protocol> getProtocols__Interface();
@@ -105,7 +105,7 @@ public interface Interface extends Entity {
 	 * @return the value of the '<em>Signatures Interface</em>' containment reference list.
 	 * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getInterface_Signatures__Interface()
 	 * @see de.uka.ipd.sdq.pcm.repository.Signature#getInterface_Signature
-	 * @model type="de.uka.ipd.sdq.pcm.repository.Signature" opposite="interface_Signature" containment="true" ordered="false"
+	 * @model opposite="interface_Signature" containment="true" ordered="false"
 	 * @generated
 	 */
 	EList<Signature> getSignatures__Interface();
@@ -123,7 +123,7 @@ public interface Interface extends Entity {
 	 * @see #setRepository_Interface(Repository)
 	 * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getInterface_Repository_Interface()
 	 * @see de.uka.ipd.sdq.pcm.repository.Repository#getInterfaces__Repository
-	 * @model opposite="interfaces__Repository" required="true" ordered="false"
+	 * @model opposite="interfaces__Repository" required="true" transient="false" ordered="false"
 	 * @generated
 	 */
 	Repository getRepository_Interface();

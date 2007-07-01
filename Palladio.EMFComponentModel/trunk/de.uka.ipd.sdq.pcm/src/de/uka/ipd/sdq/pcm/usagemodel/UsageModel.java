@@ -46,7 +46,7 @@ public interface UsageModel extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Usage Scenario Usage Model</em>' containment reference list.
 	 * @see de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage#getUsageModel_UsageScenario_UsageModel()
-	 * @model type="de.uka.ipd.sdq.pcm.usagemodel.UsageScenario" containment="true" ordered="false"
+	 * @model containment="true" ordered="false"
 	 * @generated
 	 */
 	EList<UsageScenario> getUsageScenario_UsageModel();

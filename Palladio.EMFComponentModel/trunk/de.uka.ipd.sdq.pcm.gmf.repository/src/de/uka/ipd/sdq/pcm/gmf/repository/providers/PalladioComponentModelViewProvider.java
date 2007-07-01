@@ -122,7 +122,7 @@ public class PalladioComponentModelViewProvider extends AbstractViewProvider {
 					return null; // visual id for node EClass should match visual id from element type
 				}
 			} else {
-				// Element type is not specified. Domain element should be present.
+				// Element type is not specified. Domain element should be present (except pure design elements).
 				// This method is called with EObjectAdapter as parameter from:
 				//   - ViewService.createNode(View container, EObject eObject, String type, PreferencesHint preferencesHint) 
 				//   - generated ViewFactory.decorateView() for parent element

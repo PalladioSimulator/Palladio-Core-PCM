@@ -46,7 +46,7 @@ public interface DataType extends EObject {
 	 * @see #setRepository_DataType(Repository)
 	 * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getDataType_Repository_DataType()
 	 * @see de.uka.ipd.sdq.pcm.repository.Repository#getDatatypes_Repository
-	 * @model opposite="datatypes_Repository" required="true" ordered="false"
+	 * @model opposite="datatypes_Repository" required="true" transient="false" ordered="false"
 	 * @generated
 	 */
 	Repository getRepository_DataType();

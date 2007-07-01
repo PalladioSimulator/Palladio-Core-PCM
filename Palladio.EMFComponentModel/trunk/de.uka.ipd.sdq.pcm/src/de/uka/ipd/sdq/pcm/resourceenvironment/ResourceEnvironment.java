@@ -47,7 +47,7 @@ public interface ResourceEnvironment extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Linkingresource</em>' containment reference list.
 	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage#getResourceEnvironment_Linkingresource()
-	 * @model type="de.uka.ipd.sdq.pcm.resourceenvironment.LinkingResource" containment="true" ordered="false"
+	 * @model containment="true" ordered="false"
 	 * @generated
 	 */
 	EList<LinkingResource> getLinkingresource();
@@ -63,7 +63,7 @@ public interface ResourceEnvironment extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Resource Container Resource Environment</em>' containment reference list.
 	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage#getResourceEnvironment_ResourceContainer_ResourceEnvironment()
-	 * @model type="de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer" containment="true" ordered="false"
+	 * @model containment="true" ordered="false"
 	 * @generated
 	 */
 	EList<ResourceContainer> getResourceContainer_ResourceEnvironment();

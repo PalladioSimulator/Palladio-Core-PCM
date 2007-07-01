@@ -244,11 +244,10 @@ public class BranchAction2EditPart extends ShapeNodeEditPart {
 
 			this.add(branchStereotype0);
 
-			WrapLabel branchNameLabelFigure0 = new WrapLabel();
-			branchNameLabelFigure0.setText("myBranch");
+			fFigureBranchNameLabelFigure = new WrapLabel();
+			fFigureBranchNameLabelFigure.setText("myBranch");
 
-			this.add(branchNameLabelFigure0);
-			fFigureBranchNameLabelFigure = branchNameLabelFigure0;
+			this.add(fFigureBranchNameLabelFigure);
 
 		}
 

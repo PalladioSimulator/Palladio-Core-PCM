@@ -267,6 +267,7 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 					.logError("Parser was not found for label " + 5101); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
+
 	}
 
 	/**
@@ -288,6 +289,7 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 					.logError("Parser was not found for label " + 5102); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
+
 	}
 
 	/**
@@ -309,6 +311,7 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 					.logError("Parser was not found for label " + 5103); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
+
 	}
 
 	/**
@@ -330,6 +333,7 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 					.logError("Parser was not found for label " + 5104); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
+
 	}
 
 	/**
@@ -395,40 +399,40 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 	 * @generated
 	 */
 	private String getProvidedRole_4101Text(View view) {
+
 		IAdaptable hintAdapter = new PalladioComponentModelParserProvider.HintAdapter(
 				PalladioComponentModelElementTypes.ProvidedRole_4101, (view
 						.getElement() != null ? view.getElement() : view),
-				CommonParserHint.DESCRIPTION);
+				PalladioComponentModelVisualIDRegistry
+						.getType(ProvidesStereotypeLabelEditPart.VISUAL_ID));
 		IParser parser = ParserService.getInstance().getParser(hintAdapter);
-
 		if (parser != null) {
 			return parser.getPrintString(hintAdapter, ParserOptions.NONE
 					.intValue());
 		} else {
-			PalladioComponentModelRepositoryDiagramEditorPlugin.getInstance()
-					.logError("Parser was not found for label " + 6101); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
+
 	}
 
 	/**
 	 * @generated
 	 */
 	private String getRequiredRole_4102Text(View view) {
+
 		IAdaptable hintAdapter = new PalladioComponentModelParserProvider.HintAdapter(
 				PalladioComponentModelElementTypes.RequiredRole_4102, (view
 						.getElement() != null ? view.getElement() : view),
-				CommonParserHint.DESCRIPTION);
+				PalladioComponentModelVisualIDRegistry
+						.getType(RequiresStereotypeLabelEditPart.VISUAL_ID));
 		IParser parser = ParserService.getInstance().getParser(hintAdapter);
-
 		if (parser != null) {
 			return parser.getPrintString(hintAdapter, ParserOptions.NONE
 					.intValue());
 		} else {
-			PalladioComponentModelRepositoryDiagramEditorPlugin.getInstance()
-					.logError("Parser was not found for label " + 6102); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
+
 	}
 
 	/**
@@ -436,20 +440,20 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 	 */
 	private String getImplementationComponentTypeParentCompleteComponentTypes_4103Text(
 			View view) {
+
 		IAdaptable hintAdapter = new PalladioComponentModelParserProvider.HintAdapter(
 				PalladioComponentModelElementTypes.ImplementationComponentTypeParentCompleteComponentTypes_4103,
 				(view.getElement() != null ? view.getElement() : view),
-				CommonParserHint.DESCRIPTION);
+				PalladioComponentModelVisualIDRegistry
+						.getType(CompleteParentStereotypeLabelEditPart.VISUAL_ID));
 		IParser parser = ParserService.getInstance().getParser(hintAdapter);
-
 		if (parser != null) {
 			return parser.getPrintString(hintAdapter, ParserOptions.NONE
 					.intValue());
 		} else {
-			PalladioComponentModelRepositoryDiagramEditorPlugin.getInstance()
-					.logError("Parser was not found for label " + 6103); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
+
 	}
 
 	/**
@@ -457,20 +461,20 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 	 */
 	private String getCompleteComponentTypeParentProvidesComponentTypes_4104Text(
 			View view) {
+
 		IAdaptable hintAdapter = new PalladioComponentModelParserProvider.HintAdapter(
 				PalladioComponentModelElementTypes.CompleteComponentTypeParentProvidesComponentTypes_4104,
 				(view.getElement() != null ? view.getElement() : view),
-				CommonParserHint.DESCRIPTION);
+				PalladioComponentModelVisualIDRegistry
+						.getType(ProvidesParentStereotypeLabelEditPart.VISUAL_ID));
 		IParser parser = ParserService.getInstance().getParser(hintAdapter);
-
 		if (parser != null) {
 			return parser.getPrintString(hintAdapter, ParserOptions.NONE
 					.intValue());
 		} else {
-			PalladioComponentModelRepositoryDiagramEditorPlugin.getInstance()
-					.logError("Parser was not found for label " + 6104); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
+
 	}
 
 	/**

@@ -104,7 +104,7 @@ public interface ParametricResourceDemand extends RandomVariable {
 	 * @see #setAction_ParametricResourceDemand(AbstractResourceDemandingAction)
 	 * @see de.uka.ipd.sdq.pcm.seff.SeffPackage#getParametricResourceDemand_Action_ParametricResourceDemand()
 	 * @see de.uka.ipd.sdq.pcm.seff.AbstractResourceDemandingAction#getResourceDemand_Action
-	 * @model opposite="resourceDemand_Action" required="true" ordered="false"
+	 * @model opposite="resourceDemand_Action" required="true" transient="false" ordered="false"
 	 * @generated
 	 */
 	AbstractResourceDemandingAction getAction_ParametricResourceDemand();

@@ -48,7 +48,7 @@ public interface ResourceDemandingBehaviour extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Steps Behaviour</em>' containment reference list.
 	 * @see de.uka.ipd.sdq.pcm.seff.SeffPackage#getResourceDemandingBehaviour_Steps_Behaviour()
-	 * @model type="de.uka.ipd.sdq.pcm.seff.AbstractAction" containment="true" ordered="false"
+	 * @model containment="true" ordered="false"
 	 * @generated
 	 */
 	EList<AbstractAction> getSteps_Behaviour();

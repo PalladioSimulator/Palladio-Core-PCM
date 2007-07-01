@@ -111,11 +111,10 @@ public class CompleteComponentTypeParentProvidesComponentTypesEditPart extends
 		 */
 		private void createContents() {
 
-			WrapLabel providesParentStereotypeLabelFigure0 = new WrapLabel();
-			providesParentStereotypeLabelFigure0.setText("<<conforms>>");
+			fFigureProvidesParentStereotypeLabelFigure = new WrapLabel();
+			fFigureProvidesParentStereotypeLabelFigure.setText("<<conforms>>");
 
-			this.add(providesParentStereotypeLabelFigure0);
-			fFigureProvidesParentStereotypeLabelFigure = providesParentStereotypeLabelFigure0;
+			this.add(fFigureProvidesParentStereotypeLabelFigure);
 
 		}
 

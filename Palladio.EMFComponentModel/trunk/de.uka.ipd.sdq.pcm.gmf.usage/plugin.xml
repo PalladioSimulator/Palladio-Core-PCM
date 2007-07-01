@@ -184,7 +184,9 @@ Copyright 2007, SDQ, IPD, University of Karlsruhe
 
    <extension point="org.eclipse.ui.views.properties.tabbed.propertyContributor">
       <?gmfgen generated="true"?>
-      <propertyContributor contributorId="de.uka.ipd.sdq.pcm.gmf.usage" labelProvider="de.uka.ipd.sdq.pcm.gmf.usage.sheet.PalladioComponentModelSheetLabelProvider">
+      <propertyContributor
+            contributorId="de.uka.ipd.sdq.pcm.gmf.usage"
+            labelProvider="de.uka.ipd.sdq.pcm.gmf.usage.sheet.PalladioComponentModelSheetLabelProvider">
          <propertyCategory category="domain"/>
          <propertyCategory category="visual"/>
          <propertyCategory category="extra"/>
@@ -605,6 +607,65 @@ Copyright 2007, SDQ, IPD, University of Karlsruhe
            properties="isDomainModelElement"
            class="de.uka.ipd.sdq.pcm.gmf.usage.part.PalladioComponentModelDomainModelElementTester">
        </propertyTester>
+   </extension><extension point="org.eclipse.ui.contexts">
+      <?gmfgen generated="true"?>
+      <context
+         description="%context.description"
+         id="de.uka.ipd.sdq.pcm.gmf.usage.ui.diagramContext"
+         name="%context.name"
+         parentId="org.eclipse.gmf.runtime.diagram.ui.diagramContext">
+      </context>
    </extension>
+<extension id="ValidationContributionItemProvider" name="Validation"
+      point="org.eclipse.gmf.runtime.common.ui.services.action.contributionItemProviders">
+      <?gmfgen generated="true"?>
+      <contributionItemProvider
+         class="de.uka.ipd.sdq.pcm.gmf.usage.providers.PalladioComponentModelValidationProvider">
+         <Priority name="Low"/>
+         <partContribution id="de.uka.ipd.sdq.pcm.gmf.usage.part.PalladioComponentModelUsageDiagramEditorID">
+            <partMenuGroup menubarPath="/diagramMenu/" id="validationGroup"/>
+            <partAction id="validateAction" menubarPath="/diagramMenu/validationGroup"/>
+         </partContribution>
+      </contributionItemProvider>
+   </extension>
+<extension point="org.eclipse.gmf.runtime.common.ui.services.markerNavigationProviders">
+      <?gmfgen generated="true"?>
+      <MarkerNavigationProvider class="de.uka.ipd.sdq.pcm.gmf.usage.providers.PalladioComponentModelMarkerNavigationProvider">
+         <MarkerType name="de.uka.ipd.sdq.pcm.gmf.usage.diagnostic"/>
+         <Priority name="Lowest"/>
+      </MarkerNavigationProvider>
+   </extension>
+<extension id="diagnostic" name="PalladioComponentModel Usage Model Diagram Plugin problems" point="org.eclipse.core.resources.markers">
+      <?gmfgen generated="true"?>
+      <super type="org.eclipse.core.resources.problemmarker"/>
+      <super type="org.eclipse.gmf.runtime.common.ui.services.marker"/>
+      <persistent value="true"/>
+   </extension>
+<extension id="validationDecoratorProvider" name="ValidationDecorations" point="org.eclipse.gmf.runtime.diagram.ui.decoratorProviders">
+      <?gmfgen generated="true"?>
+      <decoratorProvider class="de.uka.ipd.sdq.pcm.gmf.usage.providers.PalladioComponentModelValidationDecoratorProvider">
+         <Priority name="Lowest"/>
+         <object class="org.eclipse.gmf.runtime.diagram.ui.editparts.IPrimaryEditPart(org.eclipse.gmf.runtime.diagram.ui)" id="PRIMARY_VIEW"/>
+         <context decoratorTargets="PRIMARY_VIEW"/>
+      </decoratorProvider>
+   </extension>
+<extension point="org.eclipse.ui.commands">
+      <?gmfgen generated="true"?>
+      <command
+         categoryId="org.eclipse.ui.category.edit"
+         defaultHandler="de.uka.ipd.sdq.pcm.gmf.usage.part.PalladioComponentModelDiagramUpdateCommand"
+         description="%update.diagram.description"
+         id="de.uka.ipd.sdq.pcm.gmf.usage.updateDiagram"
+         name="%update.diagram.name"/>
+   </extension>
+<extension point="org.eclipse.ui.bindings">
+      <?gmfgen generated="true"?>
+      <key 
+         commandId="de.uka.ipd.sdq.pcm.gmf.usage.updateDiagram"
+         contextId="de.uka.ipd.sdq.pcm.gmf.usage.ui.diagramContext"
+         schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+         sequence="F5"/>
+   </extension>
+
 
 </plugin>

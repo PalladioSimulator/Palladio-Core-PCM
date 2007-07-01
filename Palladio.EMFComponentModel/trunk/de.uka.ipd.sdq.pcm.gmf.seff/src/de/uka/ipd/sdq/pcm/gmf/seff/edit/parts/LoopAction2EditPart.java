@@ -265,17 +265,15 @@ public class LoopAction2EditPart extends ShapeNodeEditPart {
 
 			this.add(loopStereotype0);
 
-			WrapLabel loopNameLabelFigure0 = new WrapLabel();
-			loopNameLabelFigure0.setText("myLoop");
+			fFigureLoopNameLabelFigure = new WrapLabel();
+			fFigureLoopNameLabelFigure.setText("myLoop");
 
-			this.add(loopNameLabelFigure0);
-			fFigureLoopNameLabelFigure = loopNameLabelFigure0;
+			this.add(fFigureLoopNameLabelFigure);
 
-			WrapLabel loopIterationsLabelFigure0 = new WrapLabel();
-			loopIterationsLabelFigure0.setText("");
+			fFigureLoopIterationsLabelFigure = new WrapLabel();
+			fFigureLoopIterationsLabelFigure.setText("");
 
-			this.add(loopIterationsLabelFigure0);
-			fFigureLoopIterationsLabelFigure = loopIterationsLabelFigure0;
+			this.add(fFigureLoopIterationsLabelFigure);
 
 		}
 

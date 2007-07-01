@@ -172,11 +172,10 @@ public class CompositeComponentEditPart extends ShapeNodeEditPart {
 		 */
 		private void createContents() {
 
-			WrapLabel entityEntityName8Figure0 = new WrapLabel();
-			entityEntityName8Figure0.setText("<...>");
+			fFigureEntityEntityName8Figure = new WrapLabel();
+			fFigureEntityEntityName8Figure.setText("<...>");
 
-			this.add(entityEntityName8Figure0);
-			fFigureEntityEntityName8Figure = entityEntityName8Figure0;
+			this.add(fFigureEntityEntityName8Figure);
 
 		}
 

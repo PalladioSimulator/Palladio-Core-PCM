@@ -95,7 +95,7 @@ public class PalladioComponentModelCreationWizard extends Wizard implements
 	public void init(IWorkbench workbench, IStructuredSelection selection) {
 		this.workbench = workbench;
 		this.selection = selection;
-		setWindowTitle("New PCM SEFF Model Diagram");
+		setWindowTitle(Messages.PalladioComponentModelCreationWizardTitle);
 		setDefaultPageImageDescriptor(PalladioComponentModelSeffDiagramEditorPlugin
 				.getBundledImageDescriptor("icons/wizban/NewSeffWizard.gif")); //$NON-NLS-1$
 		setNeedsProgressMonitor(true);
@@ -107,16 +107,18 @@ public class PalladioComponentModelCreationWizard extends Wizard implements
 	public void addPages() {
 		diagramModelFilePage = new PalladioComponentModelCreationWizardPage(
 				"DiagramModelFile", getSelection(), "seff_diagram"); //$NON-NLS-1$ //$NON-NLS-2$
-		diagramModelFilePage.setTitle("Create PCM SEFF Model Diagram");
 		diagramModelFilePage
-				.setDescription("Select file that will contain diagram model.");
+				.setTitle(Messages.PalladioComponentModelCreationWizard_DiagramModelFilePageTitle);
+		diagramModelFilePage
+				.setDescription(Messages.PalladioComponentModelCreationWizard_DiagramModelFilePageDescription);
 		addPage(diagramModelFilePage);
 
 		domainModelFilePage = new PalladioComponentModelCreationWizardPage(
 				"DomainModelFile", getSelection(), "repository"); //$NON-NLS-1$ //$NON-NLS-2$
-		domainModelFilePage.setTitle("Create PCM SEFF Model Diagram");
 		domainModelFilePage
-				.setDescription("Select file that will contain domain model.");
+				.setTitle(Messages.PalladioComponentModelCreationWizard_DomainModelFilePageTitle);
+		domainModelFilePage
+				.setDescription(Messages.PalladioComponentModelCreationWizard_DomainModelFilePageDescription);
 		addPage(domainModelFilePage);
 	}
 
@@ -136,9 +138,11 @@ public class PalladioComponentModelCreationWizard extends Wizard implements
 						PalladioComponentModelDiagramEditorUtil
 								.openDiagram(diagram);
 					} catch (PartInitException e) {
-						ErrorDialog.openError(getContainer().getShell(),
-								"Error opening diagram editor", null, e
-										.getStatus());
+						ErrorDialog
+								.openError(
+										getContainer().getShell(),
+										Messages.PalladioComponentModelCreationWizardOpenEditorError,
+										null, e.getStatus());
 					}
 				}
 			}
@@ -149,9 +153,12 @@ public class PalladioComponentModelCreationWizard extends Wizard implements
 			return false;
 		} catch (InvocationTargetException e) {
 			if (e.getTargetException() instanceof CoreException) {
-				ErrorDialog.openError(getContainer().getShell(),
-						"Creation Problems", null, ((CoreException) e
-								.getTargetException()).getStatus());
+				ErrorDialog
+						.openError(
+								getContainer().getShell(),
+								Messages.PalladioComponentModelCreationWizardCreationError,
+								null, ((CoreException) e.getTargetException())
+										.getStatus());
 			} else {
 				PalladioComponentModelSeffDiagramEditorPlugin
 						.getInstance()

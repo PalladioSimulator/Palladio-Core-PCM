@@ -82,8 +82,10 @@ public class PalladioComponentModelCreationWizardPage extends
 		String extension = getExtension();
 		if (extension != null
 				&& !getFilePath().toString().endsWith("." + extension)) {
-			setErrorMessage(NLS.bind(
-					"File name should have ''{0}'' extension.", extension));
+			setErrorMessage(NLS
+					.bind(
+							Messages.PalladioComponentModelCreationWizardPageExtensionError,
+							extension));
 			return false;
 		}
 		return true;

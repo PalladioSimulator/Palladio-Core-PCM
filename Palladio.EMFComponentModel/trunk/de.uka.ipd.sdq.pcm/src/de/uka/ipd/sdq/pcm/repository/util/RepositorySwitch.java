@@ -298,13 +298,13 @@ public class RepositorySwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Signature</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Signature</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Signature</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Signature</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -313,13 +313,13 @@ public class RepositorySwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Parameter</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Parameter</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Parameter</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Parameter</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -328,13 +328,13 @@ public class RepositorySwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Data Type</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Data Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Data Type</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Data Type</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -343,13 +343,13 @@ public class RepositorySwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Repository</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Repository</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Repository</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Repository</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -358,13 +358,13 @@ public class RepositorySwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Provides Component Type</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Provides Component Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Provides Component Type</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Provides Component Type</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -373,13 +373,13 @@ public class RepositorySwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Required Role</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Required Role</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Required Role</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Required Role</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -388,13 +388,13 @@ public class RepositorySwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Role</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Role</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Role</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Role</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -403,13 +403,13 @@ public class RepositorySwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Interface</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Interface</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Interface</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Interface</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -418,13 +418,13 @@ public class RepositorySwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Exception Type</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Exception Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Exception Type</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Exception Type</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -433,13 +433,13 @@ public class RepositorySwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Implementation Component Type</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Implementation Component Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Implementation Component Type</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Implementation Component Type</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -448,13 +448,13 @@ public class RepositorySwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Complete Component Type</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Complete Component Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Complete Component Type</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Complete Component Type</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -463,13 +463,13 @@ public class RepositorySwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Delegation Connector</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Delegation Connector</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Delegation Connector</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Delegation Connector</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -478,13 +478,13 @@ public class RepositorySwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Composite Component</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Composite Component</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Composite Component</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Composite Component</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -493,13 +493,13 @@ public class RepositorySwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Basic Component</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Basic Component</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Basic Component</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Basic Component</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -508,13 +508,13 @@ public class RepositorySwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Primitive Data Type</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Primitive Data Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Primitive Data Type</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Primitive Data Type</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -523,13 +523,13 @@ public class RepositorySwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Collection Data Type</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Collection Data Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Collection Data Type</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Collection Data Type</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -538,13 +538,13 @@ public class RepositorySwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Composite Data Type</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Composite Data Type</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Composite Data Type</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Composite Data Type</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -553,13 +553,13 @@ public class RepositorySwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Inner Declaration</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Inner Declaration</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Inner Declaration</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Inner Declaration</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -568,13 +568,13 @@ public class RepositorySwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Provided Role</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Provided Role</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Provided Role</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Provided Role</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -583,13 +583,13 @@ public class RepositorySwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Identifier</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Identifier</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Identifier</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Identifier</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -598,13 +598,13 @@ public class RepositorySwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Named Element</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Named Element</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Named Element</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Named Element</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -613,13 +613,13 @@ public class RepositorySwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Entity</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Entity</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Entity</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Entity</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -628,13 +628,13 @@ public class RepositorySwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Interface Providing Entity</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Interface Providing Entity</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Interface Providing Entity</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Interface Providing Entity</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -643,13 +643,13 @@ public class RepositorySwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Interface Requiring Entity</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Interface Requiring Entity</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Interface Requiring Entity</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Interface Requiring Entity</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -658,13 +658,13 @@ public class RepositorySwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Interface Providing Requiring Entity</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Interface Providing Requiring Entity</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Interface Providing Requiring Entity</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Interface Providing Requiring Entity</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -673,13 +673,13 @@ public class RepositorySwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Connector</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Connector</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Connector</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Connector</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -688,13 +688,13 @@ public class RepositorySwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Composed Structure</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Composed Structure</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Composed Structure</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Composed Structure</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -703,13 +703,13 @@ public class RepositorySwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Composed Providing Requiring Entity</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Composed Providing Requiring Entity</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Composed Providing Requiring Entity</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Composed Providing Requiring Entity</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -718,13 +718,13 @@ public class RepositorySwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>EObject</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>EObject</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch, but this is the last case anyway.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>EObject</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>EObject</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject)
 	 * @generated
 	 */

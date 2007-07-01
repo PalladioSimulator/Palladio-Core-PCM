@@ -47,7 +47,7 @@ public interface QoSAnnotations extends Entity {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Specified Execution Times Qo SAnnotations</em>' containment reference list.
 	 * @see de.uka.ipd.sdq.pcm.qosannotations.QosannotationsPackage#getQoSAnnotations_SpecifiedExecutionTimes_QoSAnnotations()
-	 * @model type="de.uka.ipd.sdq.pcm.qosannotations.SpecifiedExecutionTime" containment="true" ordered="false"
+	 * @model containment="true" ordered="false"
 	 * @generated
 	 */
 	EList<SpecifiedExecutionTime> getSpecifiedExecutionTimes_QoSAnnotations();
@@ -63,7 +63,7 @@ public interface QoSAnnotations extends Entity {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Specified Output Parameter Abstractions Qo SAnnotations</em>' containment reference list.
 	 * @see de.uka.ipd.sdq.pcm.qosannotations.QosannotationsPackage#getQoSAnnotations_SpecifiedOutputParameterAbstractions_QoSAnnotations()
-	 * @model type="de.uka.ipd.sdq.pcm.qosannotations.SpecifiedOutputParameterAbstraction" containment="true" ordered="false"
+	 * @model containment="true" ordered="false"
 	 * @generated
 	 */
 	EList<SpecifiedOutputParameterAbstraction> getSpecifiedOutputParameterAbstractions_QoSAnnotations();

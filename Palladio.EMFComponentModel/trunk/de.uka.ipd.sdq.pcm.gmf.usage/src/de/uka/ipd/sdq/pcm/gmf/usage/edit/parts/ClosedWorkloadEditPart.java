@@ -63,6 +63,8 @@ public class ClosedWorkloadEditPart extends ShapeNodeEditPart {
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
 				new ClosedWorkloadItemSemanticEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
+		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
+		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
 	}
 
 	/**
@@ -233,13 +235,20 @@ public class ClosedWorkloadEditPart extends ShapeNodeEditPart {
 		/**
 		 * @generated
 		 */
+		private WrapLabel fFigureClosedWorkloadTitleLabelFigure;
+		/**
+		 * @generated
+		 */
+		private WrapLabel fFigureClosedWorkloadPopulationFigure;
+		/**
+		 * @generated
+		 */
+		private WrapLabel fFigureClosedWorkloadThinkTimeLabelFigure;
+
+		/**
+		 * @generated
+		 */
 		public ClosedWorkloadFigure() {
-			this.setFill(true);
-			this.setFillXOR(false);
-			this.setOutline(true);
-			this.setOutlineXOR(false);
-			this.setLineWidth(1);
-			this.setLineStyle(Graphics.LINE_SOLID);
 			this.setBackgroundColor(ColorConstants.yellow);
 			createContents();
 		}
@@ -249,81 +258,42 @@ public class ClosedWorkloadEditPart extends ShapeNodeEditPart {
 		 */
 		private void createContents() {
 
-			WrapLabel closedWorkloadTitleLabelFigure0 = new WrapLabel();
-			closedWorkloadTitleLabelFigure0.setText("<<ClosedWorkload>>");
+			fFigureClosedWorkloadTitleLabelFigure = new WrapLabel();
+			fFigureClosedWorkloadTitleLabelFigure.setText("<<ClosedWorkload>>");
 
-			this.add(closedWorkloadTitleLabelFigure0);
-			setFigureClosedWorkloadTitleLabelFigure(closedWorkloadTitleLabelFigure0);
+			this.add(fFigureClosedWorkloadTitleLabelFigure);
 
-			WrapLabel closedWorkloadPopulationFigure0 = new WrapLabel();
-			closedWorkloadPopulationFigure0.setText("<...>");
+			fFigureClosedWorkloadPopulationFigure = new WrapLabel();
+			fFigureClosedWorkloadPopulationFigure.setText("<...>");
 
-			this.add(closedWorkloadPopulationFigure0);
-			setFigureClosedWorkloadPopulationFigure(closedWorkloadPopulationFigure0);
+			this.add(fFigureClosedWorkloadPopulationFigure);
 
-			WrapLabel closedWorkloadThinkTimeLabelFigure0 = new WrapLabel();
-			closedWorkloadThinkTimeLabelFigure0.setText("");
+			fFigureClosedWorkloadThinkTimeLabelFigure = new WrapLabel();
+			fFigureClosedWorkloadThinkTimeLabelFigure.setText("");
 
-			this.add(closedWorkloadThinkTimeLabelFigure0);
-			setFigureClosedWorkloadThinkTimeLabelFigure(closedWorkloadThinkTimeLabelFigure0);
+			this.add(fFigureClosedWorkloadThinkTimeLabelFigure);
 
 		}
-
-		/**
-		 * @generated
-		 */
-		private WrapLabel fClosedWorkloadPopulationFigure;
 
 		/**
 		 * @generated
 		 */
 		public WrapLabel getFigureClosedWorkloadPopulationFigure() {
-			return fClosedWorkloadPopulationFigure;
+			return fFigureClosedWorkloadPopulationFigure;
 		}
-
-		/**
-		 * @generated
-		 */
-		private void setFigureClosedWorkloadPopulationFigure(WrapLabel fig) {
-			fClosedWorkloadPopulationFigure = fig;
-		}
-
-		/**
-		 * @generated
-		 */
-		private WrapLabel fClosedWorkloadThinkTimeLabelFigure;
 
 		/**
 		 * @generated
 		 */
 		public WrapLabel getFigureClosedWorkloadThinkTimeLabelFigure() {
-			return fClosedWorkloadThinkTimeLabelFigure;
+			return fFigureClosedWorkloadThinkTimeLabelFigure;
 		}
-
-		/**
-		 * @generated
-		 */
-		private void setFigureClosedWorkloadThinkTimeLabelFigure(WrapLabel fig) {
-			fClosedWorkloadThinkTimeLabelFigure = fig;
-		}
-
-		/**
-		 * @generated
-		 */
-		private WrapLabel fClosedWorkloadTitleLabelFigure;
 
 		/**
 		 * @generated
 		 */
 		public WrapLabel getFigureClosedWorkloadTitleLabelFigure() {
-			return fClosedWorkloadTitleLabelFigure;
-		}
-
-		/**
-		 * @generated
-		 */
-		private void setFigureClosedWorkloadTitleLabelFigure(WrapLabel fig) {
-			fClosedWorkloadTitleLabelFigure = fig;
+			return fFigureClosedWorkloadTitleLabelFigure;
 		}
 
 		/**

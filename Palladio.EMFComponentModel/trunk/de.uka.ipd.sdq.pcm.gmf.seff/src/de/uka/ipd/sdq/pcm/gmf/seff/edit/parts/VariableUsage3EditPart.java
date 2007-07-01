@@ -266,11 +266,10 @@ public class VariableUsage3EditPart extends ShapeNodeEditPart {
 		 */
 		private void createContents() {
 
-			WrapLabel variableUsageReferenceLabelFigure0 = new WrapLabel();
-			variableUsageReferenceLabelFigure0.setText("<?>");
+			fFigureVariableUsageReferenceLabelFigure = new WrapLabel();
+			fFigureVariableUsageReferenceLabelFigure.setText("<?>");
 
-			this.add(variableUsageReferenceLabelFigure0);
-			fFigureVariableUsageReferenceLabelFigure = variableUsageReferenceLabelFigure0;
+			this.add(fFigureVariableUsageReferenceLabelFigure);
 
 		}
 

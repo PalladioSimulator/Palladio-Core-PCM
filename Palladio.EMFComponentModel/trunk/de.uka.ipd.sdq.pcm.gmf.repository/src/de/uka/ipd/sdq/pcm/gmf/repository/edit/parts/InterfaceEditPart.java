@@ -264,11 +264,10 @@ public class InterfaceEditPart extends ShapeNodeEditPart {
 		 */
 		private void createContents() {
 
-			WrapLabel interface_Name_LabelFigure0 = new WrapLabel();
-			interface_Name_LabelFigure0.setText("<...>");
+			fFigureInterface_Name_LabelFigure = new WrapLabel();
+			fFigureInterface_Name_LabelFigure.setText("<...>");
 
-			this.add(interface_Name_LabelFigure0);
-			fFigureInterface_Name_LabelFigure = interface_Name_LabelFigure0;
+			this.add(fFigureInterface_Name_LabelFigure);
 
 		}
 

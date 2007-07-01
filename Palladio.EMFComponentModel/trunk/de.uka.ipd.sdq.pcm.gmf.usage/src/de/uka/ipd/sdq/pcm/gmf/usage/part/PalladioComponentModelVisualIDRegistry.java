@@ -89,7 +89,8 @@ public class PalladioComponentModelVisualIDRegistry {
 				return -1;
 			}
 		}
-		return getVisualID(view.getType());
+		return de.uka.ipd.sdq.pcm.gmf.usage.part.PalladioComponentModelVisualIDRegistry
+				.getVisualID(view.getType());
 	}
 
 	/**
@@ -139,45 +140,148 @@ public class PalladioComponentModelVisualIDRegistry {
 		if (domainElement == null) {
 			return -1;
 		}
-		EClass domainElementMetaclass = domainElement.eClass();
-		return getDiagramVisualID(domainElement, domainElementMetaclass);
-	}
-
-	/**
-	 * @generated
-	 */
-	private static int getDiagramVisualID(EObject domainElement,
-			EClass domainElementMetaclass) {
 		if (UsagemodelPackage.eINSTANCE.getUsageScenario().isSuperTypeOf(
-				domainElementMetaclass)
+				domainElement.eClass())
 				&& isDiagram((UsageScenario) domainElement)) {
 			return UsageScenarioEditPart.VISUAL_ID;
 		}
-		return getUnrecognizedDiagramID(domainElement);
+		return -1;
 	}
 
 	/**
 	 * @generated
 	 */
 	public static int getNodeVisualID(View containerView, EObject domainElement) {
-		if (domainElement == null) {
+		if (domainElement == null
+				|| !UsageScenarioEditPart.MODEL_ID
+						.equals(de.uka.ipd.sdq.pcm.gmf.usage.part.PalladioComponentModelVisualIDRegistry
+								.getModelID(containerView))) {
 			return -1;
 		}
-		EClass domainElementMetaclass = domainElement.eClass();
-		return getNodeVisualID(containerView, domainElement,
-				domainElementMetaclass, null);
+		switch (de.uka.ipd.sdq.pcm.gmf.usage.part.PalladioComponentModelVisualIDRegistry
+				.getVisualID(containerView)) {
+		case LoopEditPart.VISUAL_ID:
+			if (UsagemodelPackage.eINSTANCE.getScenarioBehaviour()
+					.isSuperTypeOf(domainElement.eClass())) {
+				return ScenarioBehaviour2EditPart.VISUAL_ID;
+			}
+			break;
+		case BranchTransitionEditPart.VISUAL_ID:
+			if (UsagemodelPackage.eINSTANCE.getScenarioBehaviour()
+					.isSuperTypeOf(domainElement.eClass())) {
+				return ScenarioBehaviour3EditPart.VISUAL_ID;
+			}
+			break;
+		case ScenarioBehaviourScenarioBehaviourStepsCompartmentEditPart.VISUAL_ID:
+			if (UsagemodelPackage.eINSTANCE.getStart().isSuperTypeOf(
+					domainElement.eClass())) {
+				return StartEditPart.VISUAL_ID;
+			}
+			if (UsagemodelPackage.eINSTANCE.getStop().isSuperTypeOf(
+					domainElement.eClass())) {
+				return StopEditPart.VISUAL_ID;
+			}
+			if (UsagemodelPackage.eINSTANCE.getEntryLevelSystemCall()
+					.isSuperTypeOf(domainElement.eClass())) {
+				return EntryLevelSystemCallEditPart.VISUAL_ID;
+			}
+			if (UsagemodelPackage.eINSTANCE.getLoop().isSuperTypeOf(
+					domainElement.eClass())) {
+				return LoopEditPart.VISUAL_ID;
+			}
+			if (UsagemodelPackage.eINSTANCE.getBranch().isSuperTypeOf(
+					domainElement.eClass())) {
+				return BranchEditPart.VISUAL_ID;
+			}
+			break;
+		case EntryLevelSystemCallParameterUsageEditPart.VISUAL_ID:
+			if (ParameterPackage.eINSTANCE.getVariableUsage().isSuperTypeOf(
+					domainElement.eClass())) {
+				return VariableUsageEditPart.VISUAL_ID;
+			}
+			break;
+		case VariableUsageVariableCharacterisationEditPart.VISUAL_ID:
+			if (ParameterPackage.eINSTANCE.getVariableCharacterisation()
+					.isSuperTypeOf(domainElement.eClass())) {
+				return VariableCharacterisationEditPart.VISUAL_ID;
+			}
+			break;
+		case ScenarioBehaviourScenarioBehaviourStepsCompartment2EditPart.VISUAL_ID:
+			if (UsagemodelPackage.eINSTANCE.getStart().isSuperTypeOf(
+					domainElement.eClass())) {
+				return StartEditPart.VISUAL_ID;
+			}
+			if (UsagemodelPackage.eINSTANCE.getStop().isSuperTypeOf(
+					domainElement.eClass())) {
+				return StopEditPart.VISUAL_ID;
+			}
+			if (UsagemodelPackage.eINSTANCE.getEntryLevelSystemCall()
+					.isSuperTypeOf(domainElement.eClass())) {
+				return EntryLevelSystemCallEditPart.VISUAL_ID;
+			}
+			if (UsagemodelPackage.eINSTANCE.getLoop().isSuperTypeOf(
+					domainElement.eClass())) {
+				return LoopEditPart.VISUAL_ID;
+			}
+			if (UsagemodelPackage.eINSTANCE.getBranch().isSuperTypeOf(
+					domainElement.eClass())) {
+				return BranchEditPart.VISUAL_ID;
+			}
+			break;
+		case BranchUsageBranchTransitionsCompartmentEditPart.VISUAL_ID:
+			if (UsagemodelPackage.eINSTANCE.getBranchTransition()
+					.isSuperTypeOf(domainElement.eClass())) {
+				return BranchTransitionEditPart.VISUAL_ID;
+			}
+			break;
+		case ScenarioBehaviourScenarioBehaviourStepsCompartment3EditPart.VISUAL_ID:
+			if (UsagemodelPackage.eINSTANCE.getStart().isSuperTypeOf(
+					domainElement.eClass())) {
+				return StartEditPart.VISUAL_ID;
+			}
+			if (UsagemodelPackage.eINSTANCE.getStop().isSuperTypeOf(
+					domainElement.eClass())) {
+				return StopEditPart.VISUAL_ID;
+			}
+			if (UsagemodelPackage.eINSTANCE.getEntryLevelSystemCall()
+					.isSuperTypeOf(domainElement.eClass())) {
+				return EntryLevelSystemCallEditPart.VISUAL_ID;
+			}
+			if (UsagemodelPackage.eINSTANCE.getLoop().isSuperTypeOf(
+					domainElement.eClass())) {
+				return LoopEditPart.VISUAL_ID;
+			}
+			if (UsagemodelPackage.eINSTANCE.getBranch().isSuperTypeOf(
+					domainElement.eClass())) {
+				return BranchEditPart.VISUAL_ID;
+			}
+			break;
+		case UsageScenarioEditPart.VISUAL_ID:
+			if (UsagemodelPackage.eINSTANCE.getScenarioBehaviour()
+					.isSuperTypeOf(domainElement.eClass())) {
+				return ScenarioBehaviourEditPart.VISUAL_ID;
+			}
+			if (UsagemodelPackage.eINSTANCE.getClosedWorkload().isSuperTypeOf(
+					domainElement.eClass())) {
+				return ClosedWorkloadEditPart.VISUAL_ID;
+			}
+			if (UsagemodelPackage.eINSTANCE.getOpenWorkload().isSuperTypeOf(
+					domainElement.eClass())) {
+				return OpenWorkloadEditPart.VISUAL_ID;
+			}
+			break;
+		}
+		return -1;
 	}
 
 	/**
 	 * @generated
 	 */
-	public static int getNodeVisualID(View containerView,
-			EObject domainElement, EClass domainElementMetaclass,
-			String semanticHint) {
+	public static boolean canCreateNode(View containerView, int nodeVisualID) {
 		String containerModelID = de.uka.ipd.sdq.pcm.gmf.usage.part.PalladioComponentModelVisualIDRegistry
 				.getModelID(containerView);
 		if (!UsageScenarioEditPart.MODEL_ID.equals(containerModelID)) {
-			return -1;
+			return false;
 		}
 		int containerVisualID;
 		if (UsageScenarioEditPart.MODEL_ID.equals(containerModelID)) {
@@ -185,237 +289,162 @@ public class PalladioComponentModelVisualIDRegistry {
 					.getVisualID(containerView);
 		} else {
 			if (containerView instanceof Diagram) {
-				containerVisualID = 1000;
+				containerVisualID = UsageScenarioEditPart.VISUAL_ID;
 			} else {
-				return -1;
+				return false;
 			}
 		}
-		int nodeVisualID = semanticHint != null ? de.uka.ipd.sdq.pcm.gmf.usage.part.PalladioComponentModelVisualIDRegistry
-				.getVisualID(semanticHint)
-				: -1;
 		switch (containerVisualID) {
 		case ScenarioBehaviourEditPart.VISUAL_ID:
 			if (ScenarioBehaviourScenarioBehaviourStepsCompartmentEditPart.VISUAL_ID == nodeVisualID) {
-				return ScenarioBehaviourScenarioBehaviourStepsCompartmentEditPart.VISUAL_ID;
+				return true;
 			}
-			return getUnrecognizedScenarioBehaviour_2001ChildNodeID(
-					domainElement, semanticHint);
+			break;
 		case ClosedWorkloadEditPart.VISUAL_ID:
 			if (ClosedWorkloadTitleLabelEditPart.VISUAL_ID == nodeVisualID) {
-				return ClosedWorkloadTitleLabelEditPart.VISUAL_ID;
+				return true;
 			}
 			if (ClosedWorkloadPopulationEditPart.VISUAL_ID == nodeVisualID) {
-				return ClosedWorkloadPopulationEditPart.VISUAL_ID;
+				return true;
 			}
 			if (ClosedWorkloadThinkTimeLabelEditPart.VISUAL_ID == nodeVisualID) {
-				return ClosedWorkloadThinkTimeLabelEditPart.VISUAL_ID;
+				return true;
 			}
-			return getUnrecognizedClosedWorkload_2002ChildNodeID(domainElement,
-					semanticHint);
+			break;
 		case OpenWorkloadEditPart.VISUAL_ID:
 			if (OpenWorkloadSpecLabelEditPart.VISUAL_ID == nodeVisualID) {
-				return OpenWorkloadSpecLabelEditPart.VISUAL_ID;
+				return true;
 			}
-			return getUnrecognizedOpenWorkload_2003ChildNodeID(domainElement,
-					semanticHint);
-		case StartEditPart.VISUAL_ID:
-			return getUnrecognizedStart_3001ChildNodeID(domainElement,
-					semanticHint);
-		case StopEditPart.VISUAL_ID:
-			return getUnrecognizedStop_3002ChildNodeID(domainElement,
-					semanticHint);
+			break;
 		case EntryLevelSystemCallEditPart.VISUAL_ID:
 			if (ComponentExternalCallNameLabelEditPart.VISUAL_ID == nodeVisualID) {
-				return ComponentExternalCallNameLabelEditPart.VISUAL_ID;
+				return true;
 			}
 			if (EntryLevelSystemCallParameterUsageEditPart.VISUAL_ID == nodeVisualID) {
-				return EntryLevelSystemCallParameterUsageEditPart.VISUAL_ID;
+				return true;
 			}
-			return getUnrecognizedEntryLevelSystemCall_3003ChildNodeID(
-					domainElement, semanticHint);
+			break;
 		case VariableUsageEditPart.VISUAL_ID:
 			if (VariableUsageReferenceLabelEditPart.VISUAL_ID == nodeVisualID) {
-				return VariableUsageReferenceLabelEditPart.VISUAL_ID;
+				return true;
 			}
 			if (VariableUsageVariableCharacterisationEditPart.VISUAL_ID == nodeVisualID) {
-				return VariableUsageVariableCharacterisationEditPart.VISUAL_ID;
+				return true;
 			}
-			return getUnrecognizedVariableUsage_3004ChildNodeID(domainElement,
-					semanticHint);
-		case VariableCharacterisationEditPart.VISUAL_ID:
-			return getUnrecognizedVariableCharacterisation_3006ChildNodeID(
-					domainElement, semanticHint);
+			break;
 		case LoopEditPart.VISUAL_ID:
 			if (UsageLoopIterationsLabelEditPart.VISUAL_ID == nodeVisualID) {
-				return UsageLoopIterationsLabelEditPart.VISUAL_ID;
+				return true;
 			}
-			if ((semanticHint == null || ScenarioBehaviour2EditPart.VISUAL_ID == nodeVisualID)
-					&& UsagemodelPackage.eINSTANCE.getScenarioBehaviour()
-							.isSuperTypeOf(domainElementMetaclass)) {
-				return ScenarioBehaviour2EditPart.VISUAL_ID;
+			if (ScenarioBehaviour2EditPart.VISUAL_ID == nodeVisualID) {
+				return true;
 			}
-			return getUnrecognizedLoop_3005ChildNodeID(domainElement,
-					semanticHint);
+			break;
 		case ScenarioBehaviour2EditPart.VISUAL_ID:
 			if (ScenarioBehaviourScenarioBehaviourStepsCompartment2EditPart.VISUAL_ID == nodeVisualID) {
-				return ScenarioBehaviourScenarioBehaviourStepsCompartment2EditPart.VISUAL_ID;
+				return true;
 			}
-			return getUnrecognizedScenarioBehaviour_3007ChildNodeID(
-					domainElement, semanticHint);
+			break;
 		case BranchEditPart.VISUAL_ID:
 			if (UsageBranchStereotypeLabelEditPart.VISUAL_ID == nodeVisualID) {
-				return UsageBranchStereotypeLabelEditPart.VISUAL_ID;
+				return true;
 			}
 			if (BranchUsageBranchTransitionsCompartmentEditPart.VISUAL_ID == nodeVisualID) {
-				return BranchUsageBranchTransitionsCompartmentEditPart.VISUAL_ID;
+				return true;
 			}
-			return getUnrecognizedBranch_3008ChildNodeID(domainElement,
-					semanticHint);
+			break;
 		case BranchTransitionEditPart.VISUAL_ID:
 			if (BranchTransitionBranchProbabilityEditPart.VISUAL_ID == nodeVisualID) {
-				return BranchTransitionBranchProbabilityEditPart.VISUAL_ID;
+				return true;
 			}
-			if ((semanticHint == null || ScenarioBehaviour3EditPart.VISUAL_ID == nodeVisualID)
-					&& UsagemodelPackage.eINSTANCE.getScenarioBehaviour()
-							.isSuperTypeOf(domainElementMetaclass)) {
-				return ScenarioBehaviour3EditPart.VISUAL_ID;
+			if (ScenarioBehaviour3EditPart.VISUAL_ID == nodeVisualID) {
+				return true;
 			}
-			return getUnrecognizedBranchTransition_3009ChildNodeID(
-					domainElement, semanticHint);
+			break;
 		case ScenarioBehaviour3EditPart.VISUAL_ID:
 			if (ScenarioBehaviourScenarioBehaviourStepsCompartment3EditPart.VISUAL_ID == nodeVisualID) {
-				return ScenarioBehaviourScenarioBehaviourStepsCompartment3EditPart.VISUAL_ID;
+				return true;
 			}
-			return getUnrecognizedScenarioBehaviour_3010ChildNodeID(
-					domainElement, semanticHint);
+			break;
 		case ScenarioBehaviourScenarioBehaviourStepsCompartmentEditPart.VISUAL_ID:
-			if ((semanticHint == null || StartEditPart.VISUAL_ID == nodeVisualID)
-					&& UsagemodelPackage.eINSTANCE.getStart().isSuperTypeOf(
-							domainElementMetaclass)) {
-				return StartEditPart.VISUAL_ID;
+			if (StartEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
 			}
-			if ((semanticHint == null || StopEditPart.VISUAL_ID == nodeVisualID)
-					&& UsagemodelPackage.eINSTANCE.getStop().isSuperTypeOf(
-							domainElementMetaclass)) {
-				return StopEditPart.VISUAL_ID;
+			if (StopEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
 			}
-			if ((semanticHint == null || EntryLevelSystemCallEditPart.VISUAL_ID == nodeVisualID)
-					&& UsagemodelPackage.eINSTANCE.getEntryLevelSystemCall()
-							.isSuperTypeOf(domainElementMetaclass)) {
-				return EntryLevelSystemCallEditPart.VISUAL_ID;
+			if (EntryLevelSystemCallEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
 			}
-			if ((semanticHint == null || LoopEditPart.VISUAL_ID == nodeVisualID)
-					&& UsagemodelPackage.eINSTANCE.getLoop().isSuperTypeOf(
-							domainElementMetaclass)) {
-				return LoopEditPart.VISUAL_ID;
+			if (LoopEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
 			}
-			if ((semanticHint == null || BranchEditPart.VISUAL_ID == nodeVisualID)
-					&& UsagemodelPackage.eINSTANCE.getBranch().isSuperTypeOf(
-							domainElementMetaclass)) {
-				return BranchEditPart.VISUAL_ID;
+			if (BranchEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
 			}
-			return getUnrecognizedScenarioBehaviourScenarioBehaviourStepsCompartment_7001ChildNodeID(
-					domainElement, semanticHint);
+			break;
 		case EntryLevelSystemCallParameterUsageEditPart.VISUAL_ID:
-			if ((semanticHint == null || VariableUsageEditPart.VISUAL_ID == nodeVisualID)
-					&& ParameterPackage.eINSTANCE.getVariableUsage()
-							.isSuperTypeOf(domainElementMetaclass)) {
-				return VariableUsageEditPart.VISUAL_ID;
+			if (VariableUsageEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
 			}
-			return getUnrecognizedEntryLevelSystemCallSystemCallVariableUsageCompartment_7002ChildNodeID(
-					domainElement, semanticHint);
+			break;
 		case VariableUsageVariableCharacterisationEditPart.VISUAL_ID:
-			if ((semanticHint == null || VariableCharacterisationEditPart.VISUAL_ID == nodeVisualID)
-					&& ParameterPackage.eINSTANCE.getVariableCharacterisation()
-							.isSuperTypeOf(domainElementMetaclass)) {
-				return VariableCharacterisationEditPart.VISUAL_ID;
+			if (VariableCharacterisationEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
 			}
-			return getUnrecognizedVariableUsageVariableCharacterisation_7003ChildNodeID(
-					domainElement, semanticHint);
+			break;
 		case ScenarioBehaviourScenarioBehaviourStepsCompartment2EditPart.VISUAL_ID:
-			if ((semanticHint == null || StartEditPart.VISUAL_ID == nodeVisualID)
-					&& UsagemodelPackage.eINSTANCE.getStart().isSuperTypeOf(
-							domainElementMetaclass)) {
-				return StartEditPart.VISUAL_ID;
+			if (StartEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
 			}
-			if ((semanticHint == null || StopEditPart.VISUAL_ID == nodeVisualID)
-					&& UsagemodelPackage.eINSTANCE.getStop().isSuperTypeOf(
-							domainElementMetaclass)) {
-				return StopEditPart.VISUAL_ID;
+			if (StopEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
 			}
-			if ((semanticHint == null || EntryLevelSystemCallEditPart.VISUAL_ID == nodeVisualID)
-					&& UsagemodelPackage.eINSTANCE.getEntryLevelSystemCall()
-							.isSuperTypeOf(domainElementMetaclass)) {
-				return EntryLevelSystemCallEditPart.VISUAL_ID;
+			if (EntryLevelSystemCallEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
 			}
-			if ((semanticHint == null || LoopEditPart.VISUAL_ID == nodeVisualID)
-					&& UsagemodelPackage.eINSTANCE.getLoop().isSuperTypeOf(
-							domainElementMetaclass)) {
-				return LoopEditPart.VISUAL_ID;
+			if (LoopEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
 			}
-			if ((semanticHint == null || BranchEditPart.VISUAL_ID == nodeVisualID)
-					&& UsagemodelPackage.eINSTANCE.getBranch().isSuperTypeOf(
-							domainElementMetaclass)) {
-				return BranchEditPart.VISUAL_ID;
+			if (BranchEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
 			}
-			return getUnrecognizedScenarioBehaviourScenarioBehaviourStepsCompartment_7005ChildNodeID(
-					domainElement, semanticHint);
+			break;
 		case BranchUsageBranchTransitionsCompartmentEditPart.VISUAL_ID:
-			if ((semanticHint == null || BranchTransitionEditPart.VISUAL_ID == nodeVisualID)
-					&& UsagemodelPackage.eINSTANCE.getBranchTransition()
-							.isSuperTypeOf(domainElementMetaclass)) {
-				return BranchTransitionEditPart.VISUAL_ID;
+			if (BranchTransitionEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
 			}
-			return getUnrecognizedBranchUsageBranchTransitionsCompartment_7009ChildNodeID(
-					domainElement, semanticHint);
+			break;
 		case ScenarioBehaviourScenarioBehaviourStepsCompartment3EditPart.VISUAL_ID:
-			if ((semanticHint == null || StartEditPart.VISUAL_ID == nodeVisualID)
-					&& UsagemodelPackage.eINSTANCE.getStart().isSuperTypeOf(
-							domainElementMetaclass)) {
-				return StartEditPart.VISUAL_ID;
+			if (StartEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
 			}
-			if ((semanticHint == null || StopEditPart.VISUAL_ID == nodeVisualID)
-					&& UsagemodelPackage.eINSTANCE.getStop().isSuperTypeOf(
-							domainElementMetaclass)) {
-				return StopEditPart.VISUAL_ID;
+			if (StopEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
 			}
-			if ((semanticHint == null || EntryLevelSystemCallEditPart.VISUAL_ID == nodeVisualID)
-					&& UsagemodelPackage.eINSTANCE.getEntryLevelSystemCall()
-							.isSuperTypeOf(domainElementMetaclass)) {
-				return EntryLevelSystemCallEditPart.VISUAL_ID;
+			if (EntryLevelSystemCallEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
 			}
-			if ((semanticHint == null || LoopEditPart.VISUAL_ID == nodeVisualID)
-					&& UsagemodelPackage.eINSTANCE.getLoop().isSuperTypeOf(
-							domainElementMetaclass)) {
-				return LoopEditPart.VISUAL_ID;
+			if (LoopEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
 			}
-			if ((semanticHint == null || BranchEditPart.VISUAL_ID == nodeVisualID)
-					&& UsagemodelPackage.eINSTANCE.getBranch().isSuperTypeOf(
-							domainElementMetaclass)) {
-				return BranchEditPart.VISUAL_ID;
+			if (BranchEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
 			}
-			return getUnrecognizedScenarioBehaviourScenarioBehaviourStepsCompartment_7008ChildNodeID(
-					domainElement, semanticHint);
+			break;
 		case UsageScenarioEditPart.VISUAL_ID:
-			if ((semanticHint == null || ScenarioBehaviourEditPart.VISUAL_ID == nodeVisualID)
-					&& UsagemodelPackage.eINSTANCE.getScenarioBehaviour()
-							.isSuperTypeOf(domainElementMetaclass)) {
-				return ScenarioBehaviourEditPart.VISUAL_ID;
+			if (ScenarioBehaviourEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
 			}
-			if ((semanticHint == null || ClosedWorkloadEditPart.VISUAL_ID == nodeVisualID)
-					&& UsagemodelPackage.eINSTANCE.getClosedWorkload()
-							.isSuperTypeOf(domainElementMetaclass)) {
-				return ClosedWorkloadEditPart.VISUAL_ID;
+			if (ClosedWorkloadEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
 			}
-			if ((semanticHint == null || OpenWorkloadEditPart.VISUAL_ID == nodeVisualID)
-					&& UsagemodelPackage.eINSTANCE.getOpenWorkload()
-							.isSuperTypeOf(domainElementMetaclass)) {
-				return OpenWorkloadEditPart.VISUAL_ID;
+			if (OpenWorkloadEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
 			}
-			return getUnrecognizedUsageScenario_1000ChildNodeID(domainElement,
-					semanticHint);
+			break;
 		}
-		return getUnrecognizedNodeID(containerView, domainElement);
+		return false;
 	}
 
 	/**
@@ -425,16 +454,7 @@ public class PalladioComponentModelVisualIDRegistry {
 		if (domainElement == null) {
 			return -1;
 		}
-		EClass domainElementMetaclass = domainElement.eClass();
-		return getLinkWithClassVisualID(domainElement, domainElementMetaclass);
-	}
-
-	/**
-	 * @generated
-	 */
-	public static int getLinkWithClassVisualID(EObject domainElement,
-			EClass domainElementMetaclass) {
-		return getUnrecognizedLinkWithClassID(domainElement);
+		return -1;
 	}
 
 	/**
@@ -445,256 +465,5 @@ public class PalladioComponentModelVisualIDRegistry {
 	 */
 	private static boolean isDiagram(UsageScenario element) {
 		return true;
-	}
-
-	/**
-	 * User can change implementation of this method to handle some specific
-	 * situations not covered by default logic.
-	 *
-	 * @generated
-	 */
-	private static int getUnrecognizedDiagramID(EObject domainElement) {
-		return -1;
-	}
-
-	/**
-	 * User can change implementation of this method to handle some specific
-	 * situations not covered by default logic.
-	 * 
-	 * @generated
-	 */
-	private static int getUnrecognizedNodeID(View containerView,
-			EObject domainElement) {
-		return -1;
-	}
-
-	/**
-	 * User can change implementation of this method to handle some specific
-	 * situations not covered by default logic.
-	 *
-	 * @generated
-	 */
-	private static int getUnrecognizedScenarioBehaviour_2001ChildNodeID(
-			EObject domainElement, String semanticHint) {
-		return -1;
-	}
-
-	/**
-	 * User can change implementation of this method to handle some specific
-	 * situations not covered by default logic.
-	 *
-	 * @generated
-	 */
-	private static int getUnrecognizedClosedWorkload_2002ChildNodeID(
-			EObject domainElement, String semanticHint) {
-		return -1;
-	}
-
-	/**
-	 * User can change implementation of this method to handle some specific
-	 * situations not covered by default logic.
-	 *
-	 * @generated
-	 */
-	private static int getUnrecognizedOpenWorkload_2003ChildNodeID(
-			EObject domainElement, String semanticHint) {
-		return -1;
-	}
-
-	/**
-	 * User can change implementation of this method to handle some specific
-	 * situations not covered by default logic.
-	 *
-	 * @generated
-	 */
-	private static int getUnrecognizedStart_3001ChildNodeID(
-			EObject domainElement, String semanticHint) {
-		return -1;
-	}
-
-	/**
-	 * User can change implementation of this method to handle some specific
-	 * situations not covered by default logic.
-	 *
-	 * @generated
-	 */
-	private static int getUnrecognizedStop_3002ChildNodeID(
-			EObject domainElement, String semanticHint) {
-		return -1;
-	}
-
-	/**
-	 * User can change implementation of this method to handle some specific
-	 * situations not covered by default logic.
-	 *
-	 * @generated
-	 */
-	private static int getUnrecognizedEntryLevelSystemCall_3003ChildNodeID(
-			EObject domainElement, String semanticHint) {
-		return -1;
-	}
-
-	/**
-	 * User can change implementation of this method to handle some specific
-	 * situations not covered by default logic.
-	 *
-	 * @generated
-	 */
-	private static int getUnrecognizedVariableUsage_3004ChildNodeID(
-			EObject domainElement, String semanticHint) {
-		return -1;
-	}
-
-	/**
-	 * User can change implementation of this method to handle some specific
-	 * situations not covered by default logic.
-	 *
-	 * @generated
-	 */
-	private static int getUnrecognizedVariableCharacterisation_3006ChildNodeID(
-			EObject domainElement, String semanticHint) {
-		return -1;
-	}
-
-	/**
-	 * User can change implementation of this method to handle some specific
-	 * situations not covered by default logic.
-	 *
-	 * @generated
-	 */
-	private static int getUnrecognizedLoop_3005ChildNodeID(
-			EObject domainElement, String semanticHint) {
-		return -1;
-	}
-
-	/**
-	 * User can change implementation of this method to handle some specific
-	 * situations not covered by default logic.
-	 *
-	 * @generated
-	 */
-	private static int getUnrecognizedScenarioBehaviour_3007ChildNodeID(
-			EObject domainElement, String semanticHint) {
-		return -1;
-	}
-
-	/**
-	 * User can change implementation of this method to handle some specific
-	 * situations not covered by default logic.
-	 *
-	 * @generated
-	 */
-	private static int getUnrecognizedBranch_3008ChildNodeID(
-			EObject domainElement, String semanticHint) {
-		return -1;
-	}
-
-	/**
-	 * User can change implementation of this method to handle some specific
-	 * situations not covered by default logic.
-	 *
-	 * @generated
-	 */
-	private static int getUnrecognizedBranchTransition_3009ChildNodeID(
-			EObject domainElement, String semanticHint) {
-		return -1;
-	}
-
-	/**
-	 * User can change implementation of this method to handle some specific
-	 * situations not covered by default logic.
-	 *
-	 * @generated
-	 */
-	private static int getUnrecognizedScenarioBehaviour_3010ChildNodeID(
-			EObject domainElement, String semanticHint) {
-		return -1;
-	}
-
-	/**
-	 * User can change implementation of this method to handle some specific
-	 * situations not covered by default logic.
-	 *
-	 * @generated
-	 */
-	private static int getUnrecognizedScenarioBehaviourScenarioBehaviourStepsCompartment_7001ChildNodeID(
-			EObject domainElement, String semanticHint) {
-		return -1;
-	}
-
-	/**
-	 * User can change implementation of this method to handle some specific
-	 * situations not covered by default logic.
-	 * 
-	 * @generated
-	 */
-	private static int getUnrecognizedEntryLevelSystemCallSystemCallVariableUsageCompartment_7002ChildNodeID(
-			EObject domainElement, String semanticHint) {
-		return -1;
-	}
-
-	/**
-	 * User can change implementation of this method to handle some specific
-	 * situations not covered by default logic.
-	 *
-	 * @generated
-	 */
-	private static int getUnrecognizedVariableUsageVariableCharacterisation_7003ChildNodeID(
-			EObject domainElement, String semanticHint) {
-		return -1;
-	}
-
-	/**
-	 * User can change implementation of this method to handle some specific
-	 * situations not covered by default logic.
-	 *
-	 * @generated
-	 */
-	private static int getUnrecognizedScenarioBehaviourScenarioBehaviourStepsCompartment_7005ChildNodeID(
-			EObject domainElement, String semanticHint) {
-		return -1;
-	}
-
-	/**
-	 * User can change implementation of this method to handle some specific
-	 * situations not covered by default logic.
-	 *
-	 * @generated
-	 */
-	private static int getUnrecognizedBranchUsageBranchTransitionsCompartment_7009ChildNodeID(
-			EObject domainElement, String semanticHint) {
-		return -1;
-	}
-
-	/**
-	 * User can change implementation of this method to handle some specific
-	 * situations not covered by default logic.
-	 *
-	 * @generated
-	 */
-	private static int getUnrecognizedScenarioBehaviourScenarioBehaviourStepsCompartment_7008ChildNodeID(
-			EObject domainElement, String semanticHint) {
-		return -1;
-	}
-
-	/**
-	 * User can change implementation of this method to handle some specific
-	 * situations not covered by default logic.
-	 *
-	 * @generated
-	 */
-	private static int getUnrecognizedUsageScenario_1000ChildNodeID(
-			EObject domainElement, String semanticHint) {
-		return -1;
-	}
-
-	/**
-	 * User can change implementation of this method to handle some specific
-	 * situations not covered by default logic.
-	 *
-	 * @generated
-	 */
-	private static int getUnrecognizedLinkWithClassID(EObject domainElement) {
-		return -1;
 	}
 }

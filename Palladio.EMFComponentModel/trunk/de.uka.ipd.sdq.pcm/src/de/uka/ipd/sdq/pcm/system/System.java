@@ -52,7 +52,7 @@ public interface System extends Entity, ComposedProvidingRequiringEntity {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Qos Annotations System</em>' containment reference list.
 	 * @see de.uka.ipd.sdq.pcm.system.SystemPackage#getSystem_QosAnnotations_System()
-	 * @model type="de.uka.ipd.sdq.pcm.qosannotations.QoSAnnotations" containment="true" ordered="false"
+	 * @model containment="true" ordered="false"
 	 * @generated
 	 */
 	EList<QoSAnnotations> getQosAnnotations_System();

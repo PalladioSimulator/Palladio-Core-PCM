@@ -63,36 +63,6 @@ public class ExternalCallActionEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected void createDefaultEditPolicies() {
-		installEditPolicy(EditPolicyRoles.CREATION_ROLE,
-				new CreationEditPolicy() {
-					public Command getCommand(Request request) {
-						if (understandsRequest(request)) {
-							if (request instanceof CreateViewAndElementRequest) {
-								CreateElementRequestAdapter adapter = ((CreateViewAndElementRequest) request)
-										.getViewAndElementDescriptor()
-										.getCreateElementRequestAdapter();
-								IElementType type = (IElementType) adapter
-										.getAdapter(IElementType.class);
-								if (type == PalladioComponentModelElementTypes.VariableUsage_3001) {
-									EditPart compartmentEditPart = getChildBySemanticHint(PalladioComponentModelVisualIDRegistry
-											.getType(ExternalCallActionInputVariableUsageEditPart.VISUAL_ID));
-									return compartmentEditPart == null ? null
-											: compartmentEditPart
-													.getCommand(request);
-								}
-								if (type == PalladioComponentModelElementTypes.VariableUsage_3022) {
-									EditPart compartmentEditPart = getChildBySemanticHint(PalladioComponentModelVisualIDRegistry
-											.getType(ExternalCallActionOutputVariableUsageEditPart.VISUAL_ID));
-									return compartmentEditPart == null ? null
-											: compartmentEditPart
-													.getCommand(request);
-								}
-							}
-							return super.getCommand(request);
-						}
-						return null;
-					}
-				});
 
 		super.createDefaultEditPolicies();
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
@@ -279,11 +249,10 @@ public class ExternalCallActionEditPart extends ShapeNodeEditPart {
 
 			this.add(stereotypeLabel0);
 
-			WrapLabel componentExternalCallName0 = new WrapLabel();
-			componentExternalCallName0.setText("myCall");
+			fFigureComponentExternalCallName = new WrapLabel();
+			fFigureComponentExternalCallName.setText("myCall");
 
-			this.add(componentExternalCallName0);
-			fFigureComponentExternalCallName = componentExternalCallName0;
+			this.add(fFigureComponentExternalCallName);
 
 		}
 

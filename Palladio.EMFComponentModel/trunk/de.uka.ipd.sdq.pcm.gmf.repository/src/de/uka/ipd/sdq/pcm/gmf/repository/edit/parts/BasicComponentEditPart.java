@@ -267,11 +267,10 @@ public class BasicComponentEditPart extends ShapeNodeEditPart {
 		 */
 		private void createContents() {
 
-			WrapLabel basicComponent_Name_LabelFigure0 = new WrapLabel();
-			basicComponent_Name_LabelFigure0.setText("<...>");
+			fFigureBasicComponent_Name_LabelFigure = new WrapLabel();
+			fFigureBasicComponent_Name_LabelFigure.setText("<...>");
 
-			this.add(basicComponent_Name_LabelFigure0);
-			fFigureBasicComponent_Name_LabelFigure = basicComponent_Name_LabelFigure0;
+			this.add(fFigureBasicComponent_Name_LabelFigure);
 
 		}
 

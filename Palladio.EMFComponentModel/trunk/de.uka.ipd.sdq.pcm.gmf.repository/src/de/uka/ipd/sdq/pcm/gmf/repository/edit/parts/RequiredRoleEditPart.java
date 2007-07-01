@@ -109,11 +109,10 @@ public class RequiredRoleEditPart extends ConnectionNodeEditPart {
 		 */
 		private void createContents() {
 
-			WrapLabel requiresStereotypeLabelFigure0 = new WrapLabel();
-			requiresStereotypeLabelFigure0.setText("<<Requires>>");
+			fFigureRequiresStereotypeLabelFigure = new WrapLabel();
+			fFigureRequiresStereotypeLabelFigure.setText("<<Requires>>");
 
-			this.add(requiresStereotypeLabelFigure0);
-			fFigureRequiresStereotypeLabelFigure = requiresStereotypeLabelFigure0;
+			this.add(fFigureRequiresStereotypeLabelFigure);
 
 		}
 

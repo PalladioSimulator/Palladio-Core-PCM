@@ -49,7 +49,7 @@ public interface VariableUsage extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Variable Characterisation Variable Usage</em>' containment reference list.
 	 * @see de.uka.ipd.sdq.pcm.parameter.ParameterPackage#getVariableUsage_VariableCharacterisation_VariableUsage()
-	 * @model type="de.uka.ipd.sdq.pcm.parameter.VariableCharacterisation" containment="true" ordered="false"
+	 * @model containment="true" ordered="false"
 	 * @generated
 	 */
 	EList<VariableCharacterisation> getVariableCharacterisation_VariableUsage();

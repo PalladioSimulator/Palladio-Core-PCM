@@ -63,6 +63,8 @@ public class OpenWorkloadEditPart extends ShapeNodeEditPart {
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
 				new OpenWorkloadItemSemanticEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
+		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
+		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
 	}
 
 	/**
@@ -221,13 +223,12 @@ public class OpenWorkloadEditPart extends ShapeNodeEditPart {
 		/**
 		 * @generated
 		 */
+		private WrapLabel fFigureOpenWorkloadSpecLabelFigure;
+
+		/**
+		 * @generated
+		 */
 		public OpenWorkloadFigure() {
-			this.setFill(true);
-			this.setFillXOR(false);
-			this.setOutline(true);
-			this.setOutlineXOR(false);
-			this.setLineWidth(1);
-			this.setLineStyle(Graphics.LINE_SOLID);
 			this.setBackgroundColor(ColorConstants.yellow);
 			createContents();
 		}
@@ -242,31 +243,18 @@ public class OpenWorkloadEditPart extends ShapeNodeEditPart {
 
 			this.add(openWorkloadStereotypeLabelFigure0);
 
-			WrapLabel openWorkloadSpecLabelFigure0 = new WrapLabel();
-			openWorkloadSpecLabelFigure0.setText("<spec>");
+			fFigureOpenWorkloadSpecLabelFigure = new WrapLabel();
+			fFigureOpenWorkloadSpecLabelFigure.setText("<spec>");
 
-			this.add(openWorkloadSpecLabelFigure0);
-			setFigureOpenWorkloadSpecLabelFigure(openWorkloadSpecLabelFigure0);
+			this.add(fFigureOpenWorkloadSpecLabelFigure);
 
 		}
-
-		/**
-		 * @generated
-		 */
-		private WrapLabel fOpenWorkloadSpecLabelFigure;
 
 		/**
 		 * @generated
 		 */
 		public WrapLabel getFigureOpenWorkloadSpecLabelFigure() {
-			return fOpenWorkloadSpecLabelFigure;
-		}
-
-		/**
-		 * @generated
-		 */
-		private void setFigureOpenWorkloadSpecLabelFigure(WrapLabel fig) {
-			fOpenWorkloadSpecLabelFigure = fig;
+			return fFigureOpenWorkloadSpecLabelFigure;
 		}
 
 		/**

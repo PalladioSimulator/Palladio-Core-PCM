@@ -120,7 +120,7 @@ public class ModelElementSelectionPage extends WizardPage {
 	 * @generated
 	 */
 	protected String getSelectionTitle() {
-		return "Select model element:";
+		return Messages.ModelElementSelectionPageMessage;
 	}
 
 	/**

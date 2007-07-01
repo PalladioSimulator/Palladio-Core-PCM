@@ -272,11 +272,10 @@ public class InternalAction2EditPart extends ShapeNodeEditPart {
 
 			this.add(internalActionStereotypeLabelFigure0);
 
-			WrapLabel internalActionFigureNameLabel0 = new WrapLabel();
-			internalActionFigureNameLabel0.setText("<myName>");
+			fFigureInternalActionFigureNameLabel = new WrapLabel();
+			fFigureInternalActionFigureNameLabel.setText("<myName>");
 
-			this.add(internalActionFigureNameLabel0);
-			fFigureInternalActionFigureNameLabel = internalActionFigureNameLabel0;
+			this.add(fFigureInternalActionFigureNameLabel);
 
 		}
 

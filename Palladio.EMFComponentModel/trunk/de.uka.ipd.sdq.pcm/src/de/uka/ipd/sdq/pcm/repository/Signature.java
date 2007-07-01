@@ -81,7 +81,7 @@ public interface Signature extends EObject {
 	 * @return the value of the '<em>Parameters Signature</em>' containment reference list.
 	 * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getSignature_Parameters__Signature()
 	 * @see de.uka.ipd.sdq.pcm.repository.Parameter#getSignature_Parameter
-	 * @model type="de.uka.ipd.sdq.pcm.repository.Parameter" opposite="signature_Parameter" containment="true"
+	 * @model opposite="signature_Parameter" containment="true"
 	 * @generated
 	 */
 	EList<Parameter> getParameters__Signature();
@@ -99,7 +99,7 @@ public interface Signature extends EObject {
 	 * @see #setInterface_Signature(Interface)
 	 * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getSignature_Interface_Signature()
 	 * @see de.uka.ipd.sdq.pcm.repository.Interface#getSignatures__Interface
-	 * @model opposite="signatures__Interface" required="true" ordered="false"
+	 * @model opposite="signatures__Interface" required="true" transient="false" ordered="false"
 	 * @generated
 	 */
 	Interface getInterface_Signature();
@@ -151,7 +151,7 @@ public interface Signature extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Exceptions Signature</em>' containment reference list.
 	 * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getSignature_Exceptions__Signature()
-	 * @model type="de.uka.ipd.sdq.pcm.repository.ExceptionType" containment="true" ordered="false"
+	 * @model containment="true" ordered="false"
 	 * @generated
 	 */
 	EList<ExceptionType> getExceptions__Signature();

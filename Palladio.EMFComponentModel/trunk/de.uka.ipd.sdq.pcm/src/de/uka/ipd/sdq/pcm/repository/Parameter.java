@@ -130,7 +130,7 @@ public interface Parameter extends EObject {
 	 * @see #setSignature_Parameter(Signature)
 	 * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getParameter_Signature_Parameter()
 	 * @see de.uka.ipd.sdq.pcm.repository.Signature#getParameters__Signature
-	 * @model opposite="parameters__Signature" required="true" ordered="false"
+	 * @model opposite="parameters__Signature" required="true" transient="false" ordered="false"
 	 * @generated
 	 */
 	Signature getSignature_Parameter();

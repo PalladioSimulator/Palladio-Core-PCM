@@ -78,7 +78,7 @@ public interface AssemblyContext extends Entity {
 	 * @see #setParentStructure_AssemblyContext(ComposedStructure)
 	 * @see de.uka.ipd.sdq.pcm.core.composition.CompositionPackage#getAssemblyContext_ParentStructure_AssemblyContext()
 	 * @see de.uka.ipd.sdq.pcm.core.composition.ComposedStructure#getChildComponentContexts_ComposedStructure
-	 * @model opposite="childComponentContexts_ComposedStructure" required="true" ordered="false"
+	 * @model opposite="childComponentContexts_ComposedStructure" required="true" transient="false" ordered="false"
 	 * @generated
 	 */
 	ComposedStructure getParentStructure_AssemblyContext();
@@ -104,7 +104,7 @@ public interface AssemblyContext extends Entity {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Component Parameter Usage Assembly Context</em>' containment reference list.
 	 * @see de.uka.ipd.sdq.pcm.core.composition.CompositionPackage#getAssemblyContext_ComponentParameterUsage_AssemblyContext()
-	 * @model type="de.uka.ipd.sdq.pcm.parameter.VariableUsage" containment="true" ordered="false"
+	 * @model containment="true" ordered="false"
 	 * @generated
 	 */
 	EList<VariableUsage> getComponentParameterUsage_AssemblyContext();

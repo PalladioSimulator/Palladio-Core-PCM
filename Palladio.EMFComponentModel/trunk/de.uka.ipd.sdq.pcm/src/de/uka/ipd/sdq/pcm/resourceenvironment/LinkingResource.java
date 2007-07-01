@@ -49,7 +49,7 @@ public interface LinkingResource extends Entity {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>To Resource Container Linking Resource</em>' reference list.
 	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage#getLinkingResource_ToResourceContainer_LinkingResource()
-	 * @model type="de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer" ordered="false"
+	 * @model ordered="false"
 	 * @generated
 	 */
 	EList<ResourceContainer> getToResourceContainer_LinkingResource();
@@ -65,7 +65,7 @@ public interface LinkingResource extends Entity {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>From Resource Container Linking Resource</em>' reference list.
 	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage#getLinkingResource_FromResourceContainer_LinkingResource()
-	 * @model type="de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer" ordered="false"
+	 * @model ordered="false"
 	 * @generated
 	 */
 	EList<ResourceContainer> getFromResourceContainer_LinkingResource();

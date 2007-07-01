@@ -73,7 +73,7 @@ public interface ProvidedRole extends Role {
 	 * @see #setProvidingEntity_ProvidedRole(InterfaceProvidingEntity)
 	 * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getProvidedRole_ProvidingEntity_ProvidedRole()
 	 * @see de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingEntity#getProvidedRoles_InterfaceProvidingEntity
-	 * @model opposite="providedRoles_InterfaceProvidingEntity" required="true" ordered="false"
+	 * @model opposite="providedRoles_InterfaceProvidingEntity" required="true" transient="false" ordered="false"
 	 * @generated
 	 */
 	InterfaceProvidingEntity getProvidingEntity_ProvidedRole();

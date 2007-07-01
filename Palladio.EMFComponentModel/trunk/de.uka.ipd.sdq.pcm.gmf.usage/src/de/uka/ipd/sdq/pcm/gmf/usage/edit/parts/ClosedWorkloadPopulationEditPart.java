@@ -193,6 +193,7 @@ public class ClosedWorkloadPopulationEditPart extends CompartmentEditPart
 	 * @generated
 	 */
 	protected EObject getParserElement() {
+
 		EObject element = resolveSemanticElement();
 		return element != null ? element : (View) getModel();
 	}
@@ -209,9 +210,10 @@ public class ClosedWorkloadPopulationEditPart extends CompartmentEditPart
 	 */
 	protected String getLabelText() {
 		String text = null;
-		if (getParser() != null) {
+		EObject parserElement = getParserElement();
+		if (parserElement != null && getParser() != null) {
 			text = getParser().getPrintString(
-					new EObjectAdapter(getParserElement()),
+					new EObjectAdapter(parserElement),
 					getParserOptions().intValue());
 		}
 		if (text == null || text.length() == 0) {
@@ -236,7 +238,7 @@ public class ClosedWorkloadPopulationEditPart extends CompartmentEditPart
 	 * @generated
 	 */
 	public String getEditText() {
-		if (getParser() == null) {
+		if (getParserElement() == null || getParser() == null) {
 			return ""; //$NON-NLS-1$
 		}
 		return getParser().getEditString(
@@ -288,7 +290,7 @@ public class ClosedWorkloadPopulationEditPart extends CompartmentEditPart
 	 * @generated
 	 */
 	public IContentAssistProcessor getCompletionProcessor() {
-		if (getParser() == null) {
+		if (getParserElement() == null || getParser() == null) {
 			return null;
 		}
 		return getParser().getCompletionProcessor(

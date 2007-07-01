@@ -47,7 +47,7 @@ public interface CompleteComponentType extends ProvidesComponentType {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Parent Provides Component Types</em>' reference list.
 	 * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getCompleteComponentType_ParentProvidesComponentTypes()
-	 * @model type="de.uka.ipd.sdq.pcm.repository.ProvidesComponentType" ordered="false"
+	 * @model ordered="false"
 	 * @generated
 	 */
 	EList<ProvidesComponentType> getParentProvidesComponentTypes();

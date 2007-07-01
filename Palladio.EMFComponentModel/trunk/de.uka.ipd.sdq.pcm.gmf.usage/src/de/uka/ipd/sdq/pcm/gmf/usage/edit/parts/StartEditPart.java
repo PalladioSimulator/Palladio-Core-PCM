@@ -63,6 +63,8 @@ public class StartEditPart extends ShapeNodeEditPart {
 		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
 				new StartItemSemanticEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
+		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
+		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
 	}
 
 	/**
@@ -151,11 +153,6 @@ public class StartEditPart extends ShapeNodeEditPart {
 	 * @generated
 	 */
 	protected IFigure setupContentPane(IFigure nodeShape) {
-		if (nodeShape.getLayoutManager() == null) {
-			ConstrainedToolbarLayout layout = new ConstrainedToolbarLayout();
-			layout.setSpacing(getMapMode().DPtoLP(5));
-			nodeShape.setLayoutManager(layout);
-		}
 		return nodeShape; // use nodeShape itself as contentPane
 	}
 
@@ -177,12 +174,6 @@ public class StartEditPart extends ShapeNodeEditPart {
 		 * @generated
 		 */
 		public StartFigure() {
-			this.setFill(true);
-			this.setFillXOR(false);
-			this.setOutline(true);
-			this.setOutlineXOR(false);
-			this.setLineWidth(1);
-			this.setLineStyle(Graphics.LINE_SOLID);
 			this.setBackgroundColor(ColorConstants.black);
 			this.setPreferredSize(new Dimension(getMapMode().DPtoLP(20),
 					getMapMode().DPtoLP(20)));

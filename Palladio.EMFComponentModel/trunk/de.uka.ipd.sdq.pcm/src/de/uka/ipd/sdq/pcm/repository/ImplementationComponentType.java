@@ -47,7 +47,7 @@ public interface ImplementationComponentType extends CompleteComponentType {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Parent Complete Component Types</em>' reference list.
 	 * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getImplementationComponentType_ParentCompleteComponentTypes()
-	 * @model type="de.uka.ipd.sdq.pcm.repository.CompleteComponentType" ordered="false"
+	 * @model ordered="false"
 	 * @generated
 	 */
 	EList<CompleteComponentType> getParentCompleteComponentTypes();

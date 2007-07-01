@@ -76,7 +76,7 @@ public interface ExternalCallAction extends AbstractAction {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Parameter Usage External Call Action</em>' containment reference list.
 	 * @see de.uka.ipd.sdq.pcm.seff.SeffPackage#getExternalCallAction_ParameterUsage_ExternalCallAction()
-	 * @model type="de.uka.ipd.sdq.pcm.parameter.VariableUsage" containment="true" ordered="false"
+	 * @model containment="true" ordered="false"
 	 * @generated
 	 */
 	EList<VariableUsage> getParameterUsage_ExternalCallAction();
@@ -92,7 +92,7 @@ public interface ExternalCallAction extends AbstractAction {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Output Variable Usage External Call Action</em>' containment reference list.
 	 * @see de.uka.ipd.sdq.pcm.seff.SeffPackage#getExternalCallAction_OutputVariableUsage_ExternalCallAction()
-	 * @model type="de.uka.ipd.sdq.pcm.parameter.VariableUsage" containment="true" ordered="false"
+	 * @model containment="true" ordered="false"
 	 * @generated
 	 */
 	EList<VariableUsage> getOutputVariableUsage_ExternalCallAction();

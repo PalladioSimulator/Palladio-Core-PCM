@@ -241,11 +241,10 @@ public class ReleaseActionEditPart extends ShapeNodeEditPart {
 
 			this.add(releaseStereotypeLabel0);
 
-			WrapLabel releaseNameLabelFigure0 = new WrapLabel();
-			releaseNameLabelFigure0.setText("<...>");
+			fFigureReleaseNameLabelFigure = new WrapLabel();
+			fFigureReleaseNameLabelFigure.setText("<...>");
 
-			this.add(releaseNameLabelFigure0);
-			fFigureReleaseNameLabelFigure = releaseNameLabelFigure0;
+			this.add(fFigureReleaseNameLabelFigure);
 
 			WrapLabel releaseResourceLabelFigure0 = new WrapLabel();
 			releaseResourceLabelFigure0.setText("");

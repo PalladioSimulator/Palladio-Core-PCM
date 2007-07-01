@@ -113,7 +113,7 @@ public class UsagemodelValidator extends EObjectValidator {
 	}
 
 	/**
-	 * Calls <code>validateXXX</code> for the corresonding classifier of the model.
+	 * Calls <code>validateXXX</code> for the corresponding classifier of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated

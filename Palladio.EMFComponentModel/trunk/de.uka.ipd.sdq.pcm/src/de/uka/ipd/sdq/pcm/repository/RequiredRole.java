@@ -73,7 +73,7 @@ public interface RequiredRole extends Role {
 	 * @see #setRequiringEntity_RequiredRole(InterfaceRequiringEntity)
 	 * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getRequiredRole_RequiringEntity_RequiredRole()
 	 * @see de.uka.ipd.sdq.pcm.core.entity.InterfaceRequiringEntity#getRequiredRoles_InterfaceRequiringEntity
-	 * @model opposite="requiredRoles_InterfaceRequiringEntity" required="true" ordered="false"
+	 * @model opposite="requiredRoles_InterfaceRequiringEntity" required="true" transient="false" ordered="false"
 	 * @generated
 	 */
 	InterfaceRequiringEntity getRequiringEntity_RequiredRole();

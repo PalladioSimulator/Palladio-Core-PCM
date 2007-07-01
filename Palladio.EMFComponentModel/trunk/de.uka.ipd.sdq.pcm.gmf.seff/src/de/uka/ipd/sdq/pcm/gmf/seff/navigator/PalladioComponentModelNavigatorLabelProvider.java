@@ -79,6 +79,9 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableCharacterisationEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableUsage2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableUsage3EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableUsageEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableUsageReferenceLabel2EditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableUsageReferenceLabel3EditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableUsageReferenceLabelEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.part.PalladioComponentModelSeffDiagramEditorPlugin;
 import de.uka.ipd.sdq.pcm.gmf.seff.part.PalladioComponentModelVisualIDRegistry;
 import de.uka.ipd.sdq.pcm.gmf.seff.providers.PalladioComponentModelElementTypes;
@@ -465,6 +468,7 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 					.logError("Parser was not found for label " + 5002); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
+
 	}
 
 	/**
@@ -486,6 +490,7 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 					.logError("Parser was not found for label " + 5009); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
+
 	}
 
 	/**
@@ -507,6 +512,7 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 					.logError("Parser was not found for label " + 5011); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
+
 	}
 
 	/**
@@ -528,6 +534,7 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 					.logError("Parser was not found for label " + 5012); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
+
 	}
 
 	/**
@@ -549,6 +556,7 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 					.logError("Parser was not found for label " + 5015); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
+
 	}
 
 	/**
@@ -570,6 +578,7 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 					.logError("Parser was not found for label " + 5023); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
+
 	}
 
 	/**
@@ -591,6 +600,7 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 					.logError("Parser was not found for label " + 5021); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
+
 	}
 
 	/**
@@ -612,6 +622,7 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 					.logError("Parser was not found for label " + 5022); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
+
 	}
 
 	/**
@@ -633,26 +644,27 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 					.logError("Parser was not found for label " + 5024); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
+
 	}
 
 	/**
 	 * @generated
 	 */
 	private String getVariableUsage_3001Text(View view) {
+
 		IAdaptable hintAdapter = new PalladioComponentModelParserProvider.HintAdapter(
 				PalladioComponentModelElementTypes.VariableUsage_3001, (view
 						.getElement() != null ? view.getElement() : view),
-				CommonParserHint.DESCRIPTION);
+				PalladioComponentModelVisualIDRegistry
+						.getType(VariableUsageReferenceLabelEditPart.VISUAL_ID));
 		IParser parser = ParserService.getInstance().getParser(hintAdapter);
-
 		if (parser != null) {
 			return parser.getPrintString(hintAdapter, ParserOptions.NONE
 					.intValue());
 		} else {
-			PalladioComponentModelSeffDiagramEditorPlugin.getInstance()
-					.logError("Parser was not found for label " + 5001); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
+
 	}
 
 	/**
@@ -680,20 +692,20 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 	 * @generated
 	 */
 	private String getVariableUsage_3022Text(View view) {
-		IAdaptable hintAdapter = new PalladioComponentModelParserProvider.HintAdapter(
-				PalladioComponentModelElementTypes.VariableUsage_3022, (view
-						.getElement() != null ? view.getElement() : view),
-				CommonParserHint.DESCRIPTION);
-		IParser parser = ParserService.getInstance().getParser(hintAdapter);
 
+		IAdaptable hintAdapter = new PalladioComponentModelParserProvider.HintAdapter(
+				PalladioComponentModelElementTypes.VariableUsage_3022,
+				(view.getElement() != null ? view.getElement() : view),
+				PalladioComponentModelVisualIDRegistry
+						.getType(VariableUsageReferenceLabel2EditPart.VISUAL_ID));
+		IParser parser = ParserService.getInstance().getParser(hintAdapter);
 		if (parser != null) {
 			return parser.getPrintString(hintAdapter, ParserOptions.NONE
 					.intValue());
 		} else {
-			PalladioComponentModelSeffDiagramEditorPlugin.getInstance()
-					.logError("Parser was not found for label " + 5025); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
+
 	}
 
 	/**
@@ -775,6 +787,7 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 					.logError("Parser was not found for label " + 5003); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
+
 	}
 
 	/**
@@ -796,6 +809,7 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 					.logError("Parser was not found for label " + 5005); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
+
 	}
 
 	/**
@@ -838,6 +852,7 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 					.logError("Parser was not found for label " + 5008); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
+
 	}
 
 	/**
@@ -859,6 +874,7 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 					.logError("Parser was not found for label " + 5007); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
+
 	}
 
 	/**
@@ -887,6 +903,7 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 					.logError("Parser was not found for label " + 5006); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
+
 	}
 
 	/**
@@ -908,6 +925,7 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 					.logError("Parser was not found for label " + 5019); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
+
 	}
 
 	/**
@@ -929,6 +947,7 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 					.logError("Parser was not found for label " + 5020); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
+
 	}
 
 	/**
@@ -950,6 +969,7 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 					.logError("Parser was not found for label " + 5026); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
+
 	}
 
 	/**
@@ -978,6 +998,7 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 					.logError("Parser was not found for label " + 5013); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
+
 	}
 
 	/**
@@ -1006,26 +1027,27 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 					.logError("Parser was not found for label " + 5027); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
+
 	}
 
 	/**
 	 * @generated
 	 */
 	private String getVariableUsage_3015Text(View view) {
-		IAdaptable hintAdapter = new PalladioComponentModelParserProvider.HintAdapter(
-				PalladioComponentModelElementTypes.VariableUsage_3015, (view
-						.getElement() != null ? view.getElement() : view),
-				CommonParserHint.DESCRIPTION);
-		IParser parser = ParserService.getInstance().getParser(hintAdapter);
 
+		IAdaptable hintAdapter = new PalladioComponentModelParserProvider.HintAdapter(
+				PalladioComponentModelElementTypes.VariableUsage_3015,
+				(view.getElement() != null ? view.getElement() : view),
+				PalladioComponentModelVisualIDRegistry
+						.getType(VariableUsageReferenceLabel3EditPart.VISUAL_ID));
+		IParser parser = ParserService.getInstance().getParser(hintAdapter);
 		if (parser != null) {
 			return parser.getPrintString(hintAdapter, ParserOptions.NONE
 					.intValue());
 		} else {
-			PalladioComponentModelSeffDiagramEditorPlugin.getInstance()
-					.logError("Parser was not found for label " + 5017); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
+
 	}
 
 	/**
@@ -1068,6 +1090,7 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 					.logError("Parser was not found for label " + 5018); //$NON-NLS-1$
 			return ""; //$NON-NLS-1$
 		}
+
 	}
 
 	/**

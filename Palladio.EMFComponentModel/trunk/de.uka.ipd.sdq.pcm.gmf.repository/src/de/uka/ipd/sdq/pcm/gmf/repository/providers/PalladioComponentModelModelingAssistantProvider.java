@@ -29,6 +29,7 @@ import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.CompleteComponentTypeEditPar
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.InterfaceEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.ProvidesComponentTypeEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.RepositoryEditPart;
+import de.uka.ipd.sdq.pcm.gmf.repository.part.Messages;
 import de.uka.ipd.sdq.pcm.gmf.repository.part.PalladioComponentModelRepositoryDiagramEditorPlugin;
 
 /**
@@ -239,8 +240,10 @@ public class PalladioComponentModelModelingAssistantProvider extends
 						.getInstance().getItemProvidersAdapterFactory());
 		ElementListSelectionDialog dialog = new ElementListSelectionDialog(
 				shell, labelProvider);
-		dialog.setMessage("Available domain model elements:");
-		dialog.setTitle("Select domain model element");
+		dialog
+				.setMessage(Messages.PalladioComponentModelModelingAssistantProviderMessage);
+		dialog
+				.setTitle(Messages.PalladioComponentModelModelingAssistantProviderTitle);
 		dialog.setMultipleSelection(false);
 		dialog.setElements(elements);
 		EObject selected = null;

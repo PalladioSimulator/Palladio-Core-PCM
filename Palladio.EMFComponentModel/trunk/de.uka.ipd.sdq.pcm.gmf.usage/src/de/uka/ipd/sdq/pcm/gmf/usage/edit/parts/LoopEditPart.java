@@ -72,6 +72,8 @@ public class LoopEditPart extends ShapeNodeEditPart {
 		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE,
 				new LoopCanonicalEditPolicy());
 		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
+		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
+		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
 	}
 
 	/**
@@ -230,15 +232,14 @@ public class LoopEditPart extends ShapeNodeEditPart {
 		/**
 		 * @generated
 		 */
+		private WrapLabel fFigureUsageLoopIterationsLabelFigure;
+
+		/**
+		 * @generated
+		 */
 		public UsageLoopFigure() {
 			this.setCornerDimensions(new Dimension(getMapMode().DPtoLP(8),
 					getMapMode().DPtoLP(8)));
-			this.setFill(true);
-			this.setFillXOR(false);
-			this.setOutline(true);
-			this.setOutlineXOR(false);
-			this.setLineWidth(1);
-			this.setLineStyle(Graphics.LINE_SOLID);
 			createContents();
 		}
 
@@ -252,31 +253,18 @@ public class LoopEditPart extends ShapeNodeEditPart {
 
 			this.add(usageLoopStereotypeLabelFigure0);
 
-			WrapLabel usageLoopIterationsLabelFigure0 = new WrapLabel();
-			usageLoopIterationsLabelFigure0.setText("");
+			fFigureUsageLoopIterationsLabelFigure = new WrapLabel();
+			fFigureUsageLoopIterationsLabelFigure.setText("");
 
-			this.add(usageLoopIterationsLabelFigure0);
-			setFigureUsageLoopIterationsLabelFigure(usageLoopIterationsLabelFigure0);
+			this.add(fFigureUsageLoopIterationsLabelFigure);
 
 		}
-
-		/**
-		 * @generated
-		 */
-		private WrapLabel fUsageLoopIterationsLabelFigure;
 
 		/**
 		 * @generated
 		 */
 		public WrapLabel getFigureUsageLoopIterationsLabelFigure() {
-			return fUsageLoopIterationsLabelFigure;
-		}
-
-		/**
-		 * @generated
-		 */
-		private void setFigureUsageLoopIterationsLabelFigure(WrapLabel fig) {
-			fUsageLoopIterationsLabelFigure = fig;
+			return fFigureUsageLoopIterationsLabelFigure;
 		}
 
 		/**

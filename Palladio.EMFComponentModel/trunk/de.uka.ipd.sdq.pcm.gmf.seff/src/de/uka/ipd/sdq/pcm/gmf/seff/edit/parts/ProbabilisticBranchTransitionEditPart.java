@@ -247,11 +247,10 @@ public class ProbabilisticBranchTransitionEditPart extends ShapeNodeEditPart {
 		 */
 		private void createContents() {
 
-			WrapLabel branchTransitionProbabilityLabel0 = new WrapLabel();
-			branchTransitionProbabilityLabel0.setText("0.0");
+			fFigureBranchTransitionProbabilityLabel = new WrapLabel();
+			fFigureBranchTransitionProbabilityLabel.setText("0.0");
 
-			this.add(branchTransitionProbabilityLabel0);
-			fFigureBranchTransitionProbabilityLabel = branchTransitionProbabilityLabel0;
+			this.add(fFigureBranchTransitionProbabilityLabel);
 
 		}
 

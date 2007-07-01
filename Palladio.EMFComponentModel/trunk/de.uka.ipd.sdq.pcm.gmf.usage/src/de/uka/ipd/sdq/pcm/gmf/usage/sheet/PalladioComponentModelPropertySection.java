@@ -41,7 +41,8 @@ public class PalladioComponentModelPropertySection extends
 		}
 		AdapterFactory af = getAdapterFactory(object);
 		if (af != null) {
-			return new PalladioAdapterFactoryContentProvider(af).getPropertySource(object);
+			return new PalladioAdapterFactoryContentProvider(af)
+					.getPropertySource(object);
 		}
 		if (object instanceof IAdaptable) {
 			return (IPropertySource) ((IAdaptable) object)
@@ -104,19 +105,19 @@ public class PalladioComponentModelPropertySection extends
 	 * @generated not
 	 */
 	protected AdapterFactory getAdapterFactory(Object object) {
-		return PalladioComponentModelUsageDiagramEditorPlugin.getInstance().getItemProvidersAdapterFactory();
-//		if (getEditingDomain() instanceof AdapterFactoryEditingDomain) {
-//			return ((AdapterFactoryEditingDomain) getEditingDomain())
-//					.getAdapterFactory();
-//		}
-//		TransactionalEditingDomain editingDomain = TransactionUtil
-//				.getEditingDomain(object);
-//		if (editingDomain != null) {
-//			return ((AdapterFactoryEditingDomain) editingDomain)
-//					.getAdapterFactory();
-//		}
-//		return null;
+		return PalladioComponentModelUsageDiagramEditorPlugin.getInstance()
+				.getItemProvidersAdapterFactory();
+		//		if (getEditingDomain() instanceof AdapterFactoryEditingDomain) {
+		//			return ((AdapterFactoryEditingDomain) getEditingDomain())
+		//					.getAdapterFactory();
+		//		}
+		//		TransactionalEditingDomain editingDomain = TransactionUtil
+		//				.getEditingDomain(object);
+		//		if (editingDomain != null) {
+		//			return ((AdapterFactoryEditingDomain) editingDomain)
+		//					.getAdapterFactory();
+		//		}
+		//		return null;
 	}
-
 
 }

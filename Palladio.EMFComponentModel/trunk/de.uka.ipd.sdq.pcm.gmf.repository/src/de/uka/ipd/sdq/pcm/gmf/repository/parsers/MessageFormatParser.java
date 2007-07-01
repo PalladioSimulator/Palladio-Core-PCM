@@ -14,6 +14,8 @@ import org.eclipse.gmf.runtime.common.core.command.ICommand;
 import org.eclipse.gmf.runtime.common.ui.services.parser.IParserEditStatus;
 import org.eclipse.gmf.runtime.common.ui.services.parser.ParserEditStatus;
 
+import org.eclipse.osgi.util.NLS;
+import de.uka.ipd.sdq.pcm.gmf.repository.part.Messages;
 import de.uka.ipd.sdq.pcm.gmf.repository.part.PalladioComponentModelRepositoryDiagramEditorPlugin;
 
 /**
@@ -194,8 +196,9 @@ public class MessageFormatParser extends AbstractParser {
 		if (values == null) {
 			return new ParserEditStatus(
 					PalladioComponentModelRepositoryDiagramEditorPlugin.ID,
-					IParserEditStatus.UNEDITABLE, "Invalid input at "
-							+ pos.getErrorIndex());
+					IParserEditStatus.UNEDITABLE, NLS.bind(
+							Messages.MessageFormatParser_InvalidInputError,
+							new Integer(pos.getErrorIndex())));
 		}
 		return validateNewValues(values);
 	}
