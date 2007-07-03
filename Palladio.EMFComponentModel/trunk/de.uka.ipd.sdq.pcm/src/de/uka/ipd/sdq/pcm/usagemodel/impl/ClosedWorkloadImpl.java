@@ -11,13 +11,27 @@ import de.uka.ipd.sdq.pcm.usagemodel.ClosedWorkload;
 import de.uka.ipd.sdq.pcm.usagemodel.ThinkTime;
 import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
 
+import de.uka.ipd.sdq.pcm.usagemodel.util.UsagemodelValidator;
+import java.util.Map;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
+import org.eclipse.emf.common.util.BasicDiagnostic;
+import org.eclipse.emf.common.util.Diagnostic;
+import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.plugin.EcorePlugin;
+import org.eclipse.emf.ecore.util.EObjectValidator;
+import org.eclipse.emf.ocl.expressions.OCLExpression;
+import org.eclipse.emf.ocl.expressions.util.EvalEnvironment;
+import org.eclipse.emf.ocl.expressions.util.ExpressionsUtil;
+import org.eclipse.emf.ocl.parser.Environment;
+import org.eclipse.emf.ocl.parser.ParserException;
+import org.eclipse.emf.ocl.query.Query;
+import org.eclipse.emf.ocl.query.QueryFactory;
 
 /**
  * <!-- begin-user-doc -->
@@ -70,6 +84,27 @@ public class ClosedWorkloadImpl extends WorkloadImpl implements ClosedWorkload {
 	 * @ordered
 	 */
 	protected ThinkTime thinkTime_ClosedWorkload;
+
+
+	/**
+	 * The parsed OCL expression for the definition of the '{@link #PopulationinClosedWorkloadneedstobespecified <em>Populationin Closed Workloadneedstobespecified</em>}' invariant constraint.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #PopulationinClosedWorkloadneedstobespecified
+	 * @generated
+	 */
+	private static OCLExpression PopulationinClosedWorkloadneedstobespecifiedInvOCL;
+
+	/**
+	 * The parsed OCL expression for the definition of the '{@link #ThinkTimeinClosedWorkloadneedstobespecified <em>Think Timein Closed Workloadneedstobespecified</em>}' invariant constraint.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #ThinkTimeinClosedWorkloadneedstobespecified
+	 * @generated
+	 */
+	private static OCLExpression ThinkTimeinClosedWorkloadneedstobespecifiedInvOCL;
+
+	private static final String OCL_ANNOTATION_SOURCE = "http://www.eclipse.org/emf/2002/GenModel";
 
 
 	/**
@@ -153,6 +188,84 @@ public class ClosedWorkloadImpl extends WorkloadImpl implements ClosedWorkload {
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, UsagemodelPackage.CLOSED_WORKLOAD__THINK_TIME_CLOSED_WORKLOAD, newThinkTime_ClosedWorkload, newThinkTime_ClosedWorkload));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean PopulationinClosedWorkloadneedstobespecified(DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (PopulationinClosedWorkloadneedstobespecifiedInvOCL == null) {
+			Environment env = ExpressionsUtil.createClassifierContext(eClass());
+			
+			
+			String body = "not self.population.oclIsUndefined() and self.population <> '' ";
+			
+			try {
+				PopulationinClosedWorkloadneedstobespecifiedInvOCL = ExpressionsUtil.createInvariant(env, body, true);
+			} catch (ParserException e) {
+				throw new UnsupportedOperationException(e.getLocalizedMessage());
+			}
+		}
+		
+		Query query = QueryFactory.eINSTANCE.createQuery(PopulationinClosedWorkloadneedstobespecifiedInvOCL);
+		EvalEnvironment evalEnv = new EvalEnvironment();
+		query.setEvaluationEnvironment(evalEnv);
+		
+		if (!query.check(this)) {
+			if (diagnostics != null) {
+				diagnostics.add
+					(new BasicDiagnostic
+						(Diagnostic.ERROR,
+						 UsagemodelValidator.DIAGNOSTIC_SOURCE,
+						 UsagemodelValidator.CLOSED_WORKLOAD__POPULATIONIN_CLOSED_WORKLOADNEEDSTOBESPECIFIED,
+						 EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "PopulationinClosedWorkloadneedstobespecified", EObjectValidator.getObjectLabel(this, context) }),
+						 new Object [] { this }));
+			}
+			return false;
+		}
+		return true;
+		
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean ThinkTimeinClosedWorkloadneedstobespecified(DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (ThinkTimeinClosedWorkloadneedstobespecifiedInvOCL == null) {
+			Environment env = ExpressionsUtil.createClassifierContext(eClass());
+			
+			
+			String body = "not self.thinkTime_ClosedWorkload.oclIsUndefined() and self.thinkTime_ClosedWorkload.specification <> '' ";
+			
+			try {
+				ThinkTimeinClosedWorkloadneedstobespecifiedInvOCL = ExpressionsUtil.createInvariant(env, body, true);
+			} catch (ParserException e) {
+				throw new UnsupportedOperationException(e.getLocalizedMessage());
+			}
+		}
+		
+		Query query = QueryFactory.eINSTANCE.createQuery(ThinkTimeinClosedWorkloadneedstobespecifiedInvOCL);
+		EvalEnvironment evalEnv = new EvalEnvironment();
+		query.setEvaluationEnvironment(evalEnv);
+		
+		if (!query.check(this)) {
+			if (diagnostics != null) {
+				diagnostics.add
+					(new BasicDiagnostic
+						(Diagnostic.ERROR,
+						 UsagemodelValidator.DIAGNOSTIC_SOURCE,
+						 UsagemodelValidator.CLOSED_WORKLOAD__THINK_TIMEIN_CLOSED_WORKLOADNEEDSTOBESPECIFIED,
+						 EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "ThinkTimeinClosedWorkloadneedstobespecified", EObjectValidator.getObjectLabel(this, context) }),
+						 new Object [] { this }));
+			}
+			return false;
+		}
+		return true;
+		
 	}
 
 	/**

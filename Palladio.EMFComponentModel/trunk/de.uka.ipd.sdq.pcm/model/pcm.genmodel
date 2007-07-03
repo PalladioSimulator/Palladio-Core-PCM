@@ -22,17 +22,7 @@
     <details key="INVARIANT_CONSTRAINTS" value="PROCESS"/>
     <details key="OPERATION_BODIES" value="IGNORE"/>
   </genAnnotations>
-  <foreignModel>file:/D:/Eigene%20Dateien/CVS-Module/EMF-PCM/trunk/RSA-Export/pcm.uml2</foreignModel>
-  <foreignModel>file:/D:/Eigene%20Dateien/CVS-Module/EMF-PCM/trunk/RSA-Export/stoex.uml2</foreignModel>
-  <foreignModel>file:/D:/Eigene%20Dateien/CVS-Module/EMF-PCM/trunk/RSA-Export/Basic.profile.uml2</foreignModel>
-  <foreignModel>file:/D:/Eigene%20Dateien/CVS-Module/EMF-PCM/trunk/RSA-Export/context.uml2</foreignModel>
-  <foreignModel>file:/D:/Eigene%20Dateien/CVS-Module/EMF-PCM/trunk/RSA-Export/EMFSensorFramework.uml2</foreignModel>
-  <foreignModel>file:/D:/Eigene%20Dateien/CVS-Module/EMF-PCM/trunk/RSA-Export/identifier.uml2</foreignModel>
-  <foreignModel>file:/D:/Eigene%20Dateien/CVS-Module/EMF-PCM/trunk/RSA-Export/ProbabilityFunction.uml2</foreignModel>
-  <foreignModel>file:/D:/Eigene%20Dateien/CVS-Module/EMF-PCM/trunk/RSA-Export/QNMResultModel.uml2</foreignModel>
-  <foreignModel>file:/D:/Eigene%20Dateien/CVS-Module/EMF-PCM/trunk/RSA-Export/QueueingNetworkModel.uml2</foreignModel>
-  <foreignModel>file:/D:/Eigene%20Dateien/CVS-Module/EMF-PCM/trunk/RSA-Export/ResourceModel.uml2</foreignModel>
-  <foreignModel>file:/D:/Eigene%20Dateien/CVS-Module/EMF-PCM/trunk/RSA-Export/StochasticProcessAlgebra.uml2</foreignModel>
+  <foreignModel>file:/D:/Models/pcm.uml2</foreignModel>
   <modelPluginVariables>EMFT_OCL=org.eclipse.emf.ocl</modelPluginVariables>
   <genPackages prefix="Pcm" basePackage="de.uka.ipd.sdq" disposableProviderFactory="true"
       ecorePackage="pcm.ecore#/">
@@ -471,6 +461,10 @@
             ecoreFeature="ecore:EReference pcm.ecore#//resourceenvironment/ProcessingResourceSpecification/activeResourceType_ActiveResourceSpecification"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pcm.ecore#//resourceenvironment/ProcessingResourceSpecification/processingRate"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pcm.ecore#//resourceenvironment/ProcessingResourceSpecification/units"/>
+        <genOperations ecoreOperation="pcm.ecore#//resourceenvironment/ProcessingResourceSpecification/ProcessingRatemustbelargerthanzero">
+          <genParameters ecoreParameter="pcm.ecore#//resourceenvironment/ProcessingResourceSpecification/ProcessingRatemustbelargerthanzero/diagnostics"/>
+          <genParameters ecoreParameter="pcm.ecore#//resourceenvironment/ProcessingResourceSpecification/ProcessingRatemustbelargerthanzero/context"/>
+        </genOperations>
       </genClasses>
       <genClasses ecoreClass="pcm.ecore#//resourceenvironment/PassiveResourceSpecification">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pcm.ecore#//resourceenvironment/PassiveResourceSpecification/capacity"/>
@@ -530,6 +524,10 @@
           <genParameters ecoreParameter="pcm.ecore#//usagemodel/ScenarioBehaviour/Exactlyonestop/diagnostics"/>
           <genParameters ecoreParameter="pcm.ecore#//usagemodel/ScenarioBehaviour/Exactlyonestop/context"/>
         </genOperations>
+        <genOperations ecoreOperation="pcm.ecore#//usagemodel/ScenarioBehaviour/EachuseractionexceptStartandStopmusthaveapredecessorandsuccessor">
+          <genParameters ecoreParameter="pcm.ecore#//usagemodel/ScenarioBehaviour/EachuseractionexceptStartandStopmusthaveapredecessorandsuccessor/diagnostics"/>
+          <genParameters ecoreParameter="pcm.ecore#//usagemodel/ScenarioBehaviour/EachuseractionexceptStartandStopmusthaveapredecessorandsuccessor/context"/>
+        </genOperations>
       </genClasses>
       <genClasses image="false" ecoreClass="pcm.ecore#//usagemodel/AbstractUserAction">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
@@ -540,10 +538,24 @@
       <genClasses ecoreClass="pcm.ecore#//usagemodel/UsageModel">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//usagemodel/UsageModel/usageScenario_UsageModel"/>
       </genClasses>
-      <genClasses ecoreClass="pcm.ecore#//usagemodel/Stop"/>
-      <genClasses ecoreClass="pcm.ecore#//usagemodel/Start"/>
+      <genClasses ecoreClass="pcm.ecore#//usagemodel/Stop">
+        <genOperations ecoreOperation="pcm.ecore#//usagemodel/Stop/Stophasnosuccessor">
+          <genParameters ecoreParameter="pcm.ecore#//usagemodel/Stop/Stophasnosuccessor/diagnostics"/>
+          <genParameters ecoreParameter="pcm.ecore#//usagemodel/Stop/Stophasnosuccessor/context"/>
+        </genOperations>
+      </genClasses>
+      <genClasses ecoreClass="pcm.ecore#//usagemodel/Start">
+        <genOperations ecoreOperation="pcm.ecore#//usagemodel/Start/Starthasnopredecessor">
+          <genParameters ecoreParameter="pcm.ecore#//usagemodel/Start/Starthasnopredecessor/diagnostics"/>
+          <genParameters ecoreParameter="pcm.ecore#//usagemodel/Start/Starthasnopredecessor/context"/>
+        </genOperations>
+      </genClasses>
       <genClasses ecoreClass="pcm.ecore#//usagemodel/OpenWorkload">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//usagemodel/OpenWorkload/interArrivalTime_OpenWorkload"/>
+        <genOperations ecoreOperation="pcm.ecore#//usagemodel/OpenWorkload/InterArrivalTimeinOpenWorkloadneedstobespecified">
+          <genParameters ecoreParameter="pcm.ecore#//usagemodel/OpenWorkload/InterArrivalTimeinOpenWorkloadneedstobespecified/diagnostics"/>
+          <genParameters ecoreParameter="pcm.ecore#//usagemodel/OpenWorkload/InterArrivalTimeinOpenWorkloadneedstobespecified/context"/>
+        </genOperations>
       </genClasses>
       <genClasses ecoreClass="pcm.ecore#//usagemodel/InterArrivalTime"/>
       <genClasses ecoreClass="pcm.ecore#//usagemodel/Loop">
@@ -562,10 +574,22 @@
       <genClasses ecoreClass="pcm.ecore#//usagemodel/ClosedWorkload">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pcm.ecore#//usagemodel/ClosedWorkload/population"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//usagemodel/ClosedWorkload/thinkTime_ClosedWorkload"/>
+        <genOperations ecoreOperation="pcm.ecore#//usagemodel/ClosedWorkload/PopulationinClosedWorkloadneedstobespecified">
+          <genParameters ecoreParameter="pcm.ecore#//usagemodel/ClosedWorkload/PopulationinClosedWorkloadneedstobespecified/diagnostics"/>
+          <genParameters ecoreParameter="pcm.ecore#//usagemodel/ClosedWorkload/PopulationinClosedWorkloadneedstobespecified/context"/>
+        </genOperations>
+        <genOperations ecoreOperation="pcm.ecore#//usagemodel/ClosedWorkload/ThinkTimeinClosedWorkloadneedstobespecified">
+          <genParameters ecoreParameter="pcm.ecore#//usagemodel/ClosedWorkload/ThinkTimeinClosedWorkloadneedstobespecified/diagnostics"/>
+          <genParameters ecoreParameter="pcm.ecore#//usagemodel/ClosedWorkload/ThinkTimeinClosedWorkloadneedstobespecified/context"/>
+        </genOperations>
       </genClasses>
       <genClasses ecoreClass="pcm.ecore#//usagemodel/ThinkTime"/>
       <genClasses ecoreClass="pcm.ecore#//usagemodel/Branch">
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//usagemodel/Branch/branchTransitions_Branch"/>
+        <genOperations ecoreOperation="pcm.ecore#//usagemodel/Branch/AllBranchProbabilitiesmustsumupto1">
+          <genParameters ecoreParameter="pcm.ecore#//usagemodel/Branch/AllBranchProbabilitiesmustsumupto1/diagnostics"/>
+          <genParameters ecoreParameter="pcm.ecore#//usagemodel/Branch/AllBranchProbabilitiesmustsumupto1/context"/>
+        </genOperations>
       </genClasses>
       <genClasses ecoreClass="pcm.ecore#//usagemodel/BranchTransition">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute pcm.ecore#//usagemodel/BranchTransition/branchProbability"/>

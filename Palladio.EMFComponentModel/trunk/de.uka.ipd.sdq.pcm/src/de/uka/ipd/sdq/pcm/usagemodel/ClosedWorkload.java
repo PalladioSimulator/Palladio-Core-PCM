@@ -7,6 +7,9 @@
  */
 package de.uka.ipd.sdq.pcm.usagemodel;
 
+import java.util.Map;
+import org.eclipse.emf.common.util.DiagnosticChain;
+
 
 /**
  * <!-- begin-user-doc -->
@@ -84,5 +87,27 @@ public interface ClosedWorkload extends Workload {
 	 * @generated
 	 */
 	void setThinkTime_ClosedWorkload(ThinkTime value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * not self.population.oclIsUndefined() and self.population <> ''
+	 * <!-- end-model-doc -->
+	 * @model
+	 * @generated
+	 */
+	boolean PopulationinClosedWorkloadneedstobespecified(DiagnosticChain diagnostics, Map<Object, Object> context);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * not self.thinkTime_ClosedWorkload.oclIsUndefined() and self.thinkTime_ClosedWorkload.specification <> ''
+	 * <!-- end-model-doc -->
+	 * @model
+	 * @generated
+	 */
+	boolean ThinkTimeinClosedWorkloadneedstobespecified(DiagnosticChain diagnostics, Map<Object, Object> context);
 
 } // ClosedWorkload

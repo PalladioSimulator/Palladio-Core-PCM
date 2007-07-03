@@ -7,6 +7,8 @@
  */
 package de.uka.ipd.sdq.pcm.usagemodel;
 
+import java.util.Map;
+import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
 
 /**
@@ -48,5 +50,16 @@ public interface Branch extends AbstractUserAction {
 	 * @generated
 	 */
 	EList<BranchTransition> getBranchTransitions_Branch();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * self->collect(branchTransitions_Branch.branchProbability)->sum() > 0.999 and self->collect(branchTransitions_Branch.branchProbability)->sum() <1.001
+	 * <!-- end-model-doc -->
+	 * @model
+	 * @generated
+	 */
+	boolean AllBranchProbabilitiesmustsumupto1(DiagnosticChain diagnostics, Map<Object, Object> context);
 
 } // Branch

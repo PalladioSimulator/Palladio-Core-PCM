@@ -101,7 +101,7 @@ public interface CommunicationLinkResourceSpecification extends EObject {
 	 * @return the value of the '<em>Units</em>' attribute.
 	 * @see #setUnits(String)
 	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage#getCommunicationLinkResourceSpecification_Units()
-	 * @model required="true" ordered="false"
+	 * @model ordered="false"
 	 * @generated
 	 */
 	String getUnits();

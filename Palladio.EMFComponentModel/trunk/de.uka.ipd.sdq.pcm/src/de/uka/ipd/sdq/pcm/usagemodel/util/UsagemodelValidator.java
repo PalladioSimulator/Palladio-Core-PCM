@@ -67,12 +67,68 @@ public class UsagemodelValidator extends EObjectValidator {
 	public static final int SCENARIO_BEHAVIOUR__EXACTLYONESTOP = 2;
 
 	/**
+	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Eachuseractionexcept Startand Stopmusthaveapredecessorandsuccessor' of 'Scenario Behaviour'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final int SCENARIO_BEHAVIOUR__EACHUSERACTIONEXCEPT_STARTAND_STOPMUSTHAVEAPREDECESSORANDSUCCESSOR = 3;
+
+	/**
+	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Stophasnosuccessor' of 'Stop'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final int STOP__STOPHASNOSUCCESSOR = 4;
+
+	/**
+	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Starthasnopredecessor' of 'Start'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final int START__STARTHASNOPREDECESSOR = 5;
+
+	/**
+	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Inter Arrival Timein Open Workloadneedstobespecified' of 'Open Workload'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final int OPEN_WORKLOAD__INTER_ARRIVAL_TIMEIN_OPEN_WORKLOADNEEDSTOBESPECIFIED = 6;
+
+	/**
+	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Populationin Closed Workloadneedstobespecified' of 'Closed Workload'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final int CLOSED_WORKLOAD__POPULATIONIN_CLOSED_WORKLOADNEEDSTOBESPECIFIED = 7;
+
+	/**
+	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Think Timein Closed Workloadneedstobespecified' of 'Closed Workload'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final int CLOSED_WORKLOAD__THINK_TIMEIN_CLOSED_WORKLOADNEEDSTOBESPECIFIED = 8;
+
+	/**
+	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'All Branch Probabilitiesmustsumupto1' of 'Branch'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final int BRANCH__ALL_BRANCH_PROBABILITIESMUSTSUMUPTO1 = 9;
+
+	/**
 	 * A constant with a fixed name that can be used as the base value for additional hand written constants.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private static final int GENERATED_DIAGNOSTIC_CODE_COUNT = 2;
+	private static final int GENERATED_DIAGNOSTIC_CODE_COUNT = 9;
 
 	/**
 	 * A constant with a fixed name that can be used as the base value for additional hand written constants in a derived class.
@@ -204,6 +260,7 @@ public class UsagemodelValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= identifierValidator.validateIdentifier_idHasToBeUnique(scenarioBehaviour, diagnostics, context);
 		if (result || diagnostics != null) result &= validateScenarioBehaviour_Exactlyonestart(scenarioBehaviour, diagnostics, context);
 		if (result || diagnostics != null) result &= validateScenarioBehaviour_Exactlyonestop(scenarioBehaviour, diagnostics, context);
+		if (result || diagnostics != null) result &= validateScenarioBehaviour_EachuseractionexceptStartandStopmusthaveapredecessorandsuccessor(scenarioBehaviour, diagnostics, context);
 		return result;
 	}
 
@@ -225,6 +282,16 @@ public class UsagemodelValidator extends EObjectValidator {
 	 */
 	public boolean validateScenarioBehaviour_Exactlyonestop(ScenarioBehaviour scenarioBehaviour, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return scenarioBehaviour.Exactlyonestop(diagnostics, context);
+	}
+
+	/**
+	 * Validates the EachuseractionexceptStartandStopmusthaveapredecessorandsuccessor constraint of '<em>Scenario Behaviour</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateScenarioBehaviour_EachuseractionexceptStartandStopmusthaveapredecessorandsuccessor(ScenarioBehaviour scenarioBehaviour, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return scenarioBehaviour.EachuseractionexceptStartandStopmusthaveapredecessorandsuccessor(diagnostics, context);
 	}
 
 	/**
@@ -267,7 +334,18 @@ public class UsagemodelValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(stop, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(stop, diagnostics, context);
 		if (result || diagnostics != null) result &= identifierValidator.validateIdentifier_idHasToBeUnique(stop, diagnostics, context);
+		if (result || diagnostics != null) result &= validateStop_Stophasnosuccessor(stop, diagnostics, context);
 		return result;
+	}
+
+	/**
+	 * Validates the Stophasnosuccessor constraint of '<em>Stop</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateStop_Stophasnosuccessor(Stop stop, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return stop.Stophasnosuccessor(diagnostics, context);
 	}
 
 	/**
@@ -284,7 +362,18 @@ public class UsagemodelValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(start, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(start, diagnostics, context);
 		if (result || diagnostics != null) result &= identifierValidator.validateIdentifier_idHasToBeUnique(start, diagnostics, context);
+		if (result || diagnostics != null) result &= validateStart_Starthasnopredecessor(start, diagnostics, context);
 		return result;
+	}
+
+	/**
+	 * Validates the Starthasnopredecessor constraint of '<em>Start</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateStart_Starthasnopredecessor(Start start, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return start.Starthasnopredecessor(diagnostics, context);
 	}
 
 	/**
@@ -293,7 +382,25 @@ public class UsagemodelValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateOpenWorkload(OpenWorkload openWorkload, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(openWorkload, diagnostics, context);
+		boolean result = validate_EveryMultiplicityConforms(openWorkload, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(openWorkload, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(openWorkload, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(openWorkload, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(openWorkload, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(openWorkload, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(openWorkload, diagnostics, context);
+		if (result || diagnostics != null) result &= validateOpenWorkload_InterArrivalTimeinOpenWorkloadneedstobespecified(openWorkload, diagnostics, context);
+		return result;
+	}
+
+	/**
+	 * Validates the InterArrivalTimeinOpenWorkloadneedstobespecified constraint of '<em>Open Workload</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateOpenWorkload_InterArrivalTimeinOpenWorkloadneedstobespecified(OpenWorkload openWorkload, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return openWorkload.InterArrivalTimeinOpenWorkloadneedstobespecified(diagnostics, context);
 	}
 
 	/**
@@ -354,7 +461,36 @@ public class UsagemodelValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateClosedWorkload(ClosedWorkload closedWorkload, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(closedWorkload, diagnostics, context);
+		boolean result = validate_EveryMultiplicityConforms(closedWorkload, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(closedWorkload, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(closedWorkload, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(closedWorkload, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(closedWorkload, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(closedWorkload, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(closedWorkload, diagnostics, context);
+		if (result || diagnostics != null) result &= validateClosedWorkload_PopulationinClosedWorkloadneedstobespecified(closedWorkload, diagnostics, context);
+		if (result || diagnostics != null) result &= validateClosedWorkload_ThinkTimeinClosedWorkloadneedstobespecified(closedWorkload, diagnostics, context);
+		return result;
+	}
+
+	/**
+	 * Validates the PopulationinClosedWorkloadneedstobespecified constraint of '<em>Closed Workload</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateClosedWorkload_PopulationinClosedWorkloadneedstobespecified(ClosedWorkload closedWorkload, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return closedWorkload.PopulationinClosedWorkloadneedstobespecified(diagnostics, context);
+	}
+
+	/**
+	 * Validates the ThinkTimeinClosedWorkloadneedstobespecified constraint of '<em>Closed Workload</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateClosedWorkload_ThinkTimeinClosedWorkloadneedstobespecified(ClosedWorkload closedWorkload, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return closedWorkload.ThinkTimeinClosedWorkloadneedstobespecified(diagnostics, context);
 	}
 
 	/**
@@ -380,7 +516,18 @@ public class UsagemodelValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(branch, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(branch, diagnostics, context);
 		if (result || diagnostics != null) result &= identifierValidator.validateIdentifier_idHasToBeUnique(branch, diagnostics, context);
+		if (result || diagnostics != null) result &= validateBranch_AllBranchProbabilitiesmustsumupto1(branch, diagnostics, context);
 		return result;
+	}
+
+	/**
+	 * Validates the AllBranchProbabilitiesmustsumupto1 constraint of '<em>Branch</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateBranch_AllBranchProbabilitiesmustsumupto1(Branch branch, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return branch.AllBranchProbabilitiesmustsumupto1(diagnostics, context);
 	}
 
 	/**

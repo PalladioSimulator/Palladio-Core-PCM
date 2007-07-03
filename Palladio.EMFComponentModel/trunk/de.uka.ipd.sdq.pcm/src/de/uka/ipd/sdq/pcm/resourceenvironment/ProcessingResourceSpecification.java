@@ -9,6 +9,8 @@ package de.uka.ipd.sdq.pcm.resourceenvironment;
 
 import de.uka.ipd.sdq.pcm.resourcetype.ProcessingResourceType;
 
+import java.util.Map;
+import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -130,7 +132,7 @@ public interface ProcessingResourceSpecification extends EObject {
 	 * @return the value of the '<em>Units</em>' attribute.
 	 * @see #setUnits(String)
 	 * @see de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage#getProcessingResourceSpecification_Units()
-	 * @model required="true" ordered="false"
+	 * @model ordered="false"
 	 * @generated
 	 */
 	String getUnits();
@@ -144,5 +146,16 @@ public interface ProcessingResourceSpecification extends EObject {
 	 * @generated
 	 */
 	void setUnits(String value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * self.processingRate > 0.0
+	 * <!-- end-model-doc -->
+	 * @model
+	 * @generated
+	 */
+	boolean ProcessingRatemustbelargerthanzero(DiagnosticChain diagnostics, Map<Object, Object> context);
 
 } // ProcessingResourceSpecification

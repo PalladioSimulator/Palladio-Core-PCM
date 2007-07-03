@@ -7,6 +7,9 @@
  */
 package de.uka.ipd.sdq.pcm.usagemodel;
 
+import java.util.Map;
+import org.eclipse.emf.common.util.DiagnosticChain;
+
 
 /**
  * <!-- begin-user-doc -->
@@ -25,5 +28,16 @@ public interface Stop extends AbstractUserAction {
 	 * @generated
 	 */
 	String copyright = "Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany";
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * self.successor.oclIsUndefined()
+	 * <!-- end-model-doc -->
+	 * @model
+	 * @generated
+	 */
+	boolean Stophasnosuccessor(DiagnosticChain diagnostics, Map<Object, Object> context);
 
 } // Stop

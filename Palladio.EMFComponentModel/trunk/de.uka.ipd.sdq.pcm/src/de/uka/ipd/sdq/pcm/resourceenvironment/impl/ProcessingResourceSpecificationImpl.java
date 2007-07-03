@@ -11,15 +11,29 @@ import de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage;
 
 import de.uka.ipd.sdq.pcm.resourceenvironment.SchedulingPolicy;
+import de.uka.ipd.sdq.pcm.resourceenvironment.util.ResourceenvironmentValidator;
 import de.uka.ipd.sdq.pcm.resourcetype.ProcessingResourceType;
 
+import java.util.Map;
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.util.BasicDiagnostic;
+import org.eclipse.emf.common.util.Diagnostic;
+import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
+import org.eclipse.emf.ecore.plugin.EcorePlugin;
+import org.eclipse.emf.ecore.util.EObjectValidator;
+import org.eclipse.emf.ocl.expressions.OCLExpression;
+import org.eclipse.emf.ocl.expressions.util.EvalEnvironment;
+import org.eclipse.emf.ocl.expressions.util.ExpressionsUtil;
+import org.eclipse.emf.ocl.parser.Environment;
+import org.eclipse.emf.ocl.parser.ParserException;
+import org.eclipse.emf.ocl.query.Query;
+import org.eclipse.emf.ocl.query.QueryFactory;
 
 /**
  * <!-- begin-user-doc -->
@@ -114,6 +128,18 @@ public class ProcessingResourceSpecificationImpl extends EObjectImpl implements 
 	 * @ordered
 	 */
 	protected String units = UNITS_EDEFAULT;
+
+
+	/**
+	 * The parsed OCL expression for the definition of the '{@link #ProcessingRatemustbelargerthanzero <em>Processing Ratemustbelargerthanzero</em>}' invariant constraint.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #ProcessingRatemustbelargerthanzero
+	 * @generated
+	 */
+	private static OCLExpression ProcessingRatemustbelargerthanzeroInvOCL;
+
+	private static final String OCL_ANNOTATION_SOURCE = "http://www.eclipse.org/emf/2002/GenModel";
 
 
 	/**
@@ -234,6 +260,45 @@ public class ProcessingResourceSpecificationImpl extends EObjectImpl implements 
 		units = newUnits;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__UNITS, oldUnits, units));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean ProcessingRatemustbelargerthanzero(DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (ProcessingRatemustbelargerthanzeroInvOCL == null) {
+			Environment env = ExpressionsUtil.createClassifierContext(eClass());
+			
+			
+			String body = "self.processingRate > 0.0 ";
+			
+			try {
+				ProcessingRatemustbelargerthanzeroInvOCL = ExpressionsUtil.createInvariant(env, body, true);
+			} catch (ParserException e) {
+				throw new UnsupportedOperationException(e.getLocalizedMessage());
+			}
+		}
+		
+		Query query = QueryFactory.eINSTANCE.createQuery(ProcessingRatemustbelargerthanzeroInvOCL);
+		EvalEnvironment evalEnv = new EvalEnvironment();
+		query.setEvaluationEnvironment(evalEnv);
+		
+		if (!query.check(this)) {
+			if (diagnostics != null) {
+				diagnostics.add
+					(new BasicDiagnostic
+						(Diagnostic.ERROR,
+						 ResourceenvironmentValidator.DIAGNOSTIC_SOURCE,
+						 ResourceenvironmentValidator.PROCESSING_RESOURCE_SPECIFICATION__PROCESSING_RATEMUSTBELARGERTHANZERO,
+						 EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "ProcessingRatemustbelargerthanzero", EObjectValidator.getObjectLabel(this, context) }),
+						 new Object [] { this }));
+			}
+			return false;
+		}
+		return true;
+		
 	}
 
 	/**

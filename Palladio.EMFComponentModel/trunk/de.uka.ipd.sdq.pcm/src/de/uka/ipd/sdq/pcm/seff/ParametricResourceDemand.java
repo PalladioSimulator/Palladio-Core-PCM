@@ -50,7 +50,7 @@ public interface ParametricResourceDemand extends RandomVariable {
 	 * @return the value of the '<em>Unit</em>' attribute.
 	 * @see #setUnit(String)
 	 * @see de.uka.ipd.sdq.pcm.seff.SeffPackage#getParametricResourceDemand_Unit()
-	 * @model required="true" ordered="false"
+	 * @model ordered="false"
 	 * @generated
 	 */
 	String getUnit();

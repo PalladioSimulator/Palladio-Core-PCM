@@ -11,13 +11,27 @@ import de.uka.ipd.sdq.pcm.usagemodel.InterArrivalTime;
 import de.uka.ipd.sdq.pcm.usagemodel.OpenWorkload;
 import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
 
+import de.uka.ipd.sdq.pcm.usagemodel.util.UsagemodelValidator;
+import java.util.Map;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
+import org.eclipse.emf.common.util.BasicDiagnostic;
+import org.eclipse.emf.common.util.Diagnostic;
+import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.plugin.EcorePlugin;
+import org.eclipse.emf.ecore.util.EObjectValidator;
+import org.eclipse.emf.ocl.expressions.OCLExpression;
+import org.eclipse.emf.ocl.expressions.util.EvalEnvironment;
+import org.eclipse.emf.ocl.expressions.util.ExpressionsUtil;
+import org.eclipse.emf.ocl.parser.Environment;
+import org.eclipse.emf.ocl.parser.ParserException;
+import org.eclipse.emf.ocl.query.Query;
+import org.eclipse.emf.ocl.query.QueryFactory;
 
 /**
  * <!-- begin-user-doc -->
@@ -49,6 +63,18 @@ public class OpenWorkloadImpl extends WorkloadImpl implements OpenWorkload {
 	 * @ordered
 	 */
 	protected InterArrivalTime interArrivalTime_OpenWorkload;
+
+
+	/**
+	 * The parsed OCL expression for the definition of the '{@link #InterArrivalTimeinOpenWorkloadneedstobespecified <em>Inter Arrival Timein Open Workloadneedstobespecified</em>}' invariant constraint.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #InterArrivalTimeinOpenWorkloadneedstobespecified
+	 * @generated
+	 */
+	private static OCLExpression InterArrivalTimeinOpenWorkloadneedstobespecifiedInvOCL;
+
+	private static final String OCL_ANNOTATION_SOURCE = "http://www.eclipse.org/emf/2002/GenModel";
 
 
 	/**
@@ -111,6 +137,45 @@ public class OpenWorkloadImpl extends WorkloadImpl implements OpenWorkload {
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, UsagemodelPackage.OPEN_WORKLOAD__INTER_ARRIVAL_TIME_OPEN_WORKLOAD, newInterArrivalTime_OpenWorkload, newInterArrivalTime_OpenWorkload));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean InterArrivalTimeinOpenWorkloadneedstobespecified(DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (InterArrivalTimeinOpenWorkloadneedstobespecifiedInvOCL == null) {
+			Environment env = ExpressionsUtil.createClassifierContext(eClass());
+			
+			
+			String body = "not self.interArrivalTime_OpenWorkload.oclIsUndefined() and self.interArrivalTime_OpenWorkload.specification <> '' ";
+			
+			try {
+				InterArrivalTimeinOpenWorkloadneedstobespecifiedInvOCL = ExpressionsUtil.createInvariant(env, body, true);
+			} catch (ParserException e) {
+				throw new UnsupportedOperationException(e.getLocalizedMessage());
+			}
+		}
+		
+		Query query = QueryFactory.eINSTANCE.createQuery(InterArrivalTimeinOpenWorkloadneedstobespecifiedInvOCL);
+		EvalEnvironment evalEnv = new EvalEnvironment();
+		query.setEvaluationEnvironment(evalEnv);
+		
+		if (!query.check(this)) {
+			if (diagnostics != null) {
+				diagnostics.add
+					(new BasicDiagnostic
+						(Diagnostic.ERROR,
+						 UsagemodelValidator.DIAGNOSTIC_SOURCE,
+						 UsagemodelValidator.OPEN_WORKLOAD__INTER_ARRIVAL_TIMEIN_OPEN_WORKLOADNEEDSTOBESPECIFIED,
+						 EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "InterArrivalTimeinOpenWorkloadneedstobespecified", EObjectValidator.getObjectLabel(this, context) }),
+						 new Object [] { this }));
+			}
+			return false;
+		}
+		return true;
+		
 	}
 
 	/**

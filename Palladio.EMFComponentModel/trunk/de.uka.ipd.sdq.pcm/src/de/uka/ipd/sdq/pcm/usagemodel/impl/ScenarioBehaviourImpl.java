@@ -90,6 +90,15 @@ public class ScenarioBehaviourImpl extends EntityImpl implements ScenarioBehavio
 	 */
 	private static OCLExpression ExactlyonestopInvOCL;
 
+	/**
+	 * The parsed OCL expression for the definition of the '{@link #EachuseractionexceptStartandStopmusthaveapredecessorandsuccessor <em>Eachuseractionexcept Startand Stopmusthaveapredecessorandsuccessor</em>}' invariant constraint.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #EachuseractionexceptStartandStopmusthaveapredecessorandsuccessor
+	 * @generated
+	 */
+	private static OCLExpression EachuseractionexceptStartandStopmusthaveapredecessorandsuccessorInvOCL;
+
 	private static final String OCL_ANNOTATION_SOURCE = "http://www.eclipse.org/emf/2002/GenModel";
 
 
@@ -194,6 +203,45 @@ public class ScenarioBehaviourImpl extends EntityImpl implements ScenarioBehavio
 						 UsagemodelValidator.DIAGNOSTIC_SOURCE,
 						 UsagemodelValidator.SCENARIO_BEHAVIOUR__EXACTLYONESTOP,
 						 EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "Exactlyonestop", EObjectValidator.getObjectLabel(this, context) }),
+						 new Object [] { this }));
+			}
+			return false;
+		}
+		return true;
+		
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean EachuseractionexceptStartandStopmusthaveapredecessorandsuccessor(DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (EachuseractionexceptStartandStopmusthaveapredecessorandsuccessorInvOCL == null) {
+			Environment env = ExpressionsUtil.createClassifierContext(eClass());
+			
+			
+			String body = "not self.actions_ScenarioBehaviour->select(s|not s.oclIsTypeOf(Start) and not s.oclIsTypeOf(Stop))->exists(a|a.oclAsType(AbstractUserAction).predecessor.oclIsUndefined()) and not self.actions_ScenarioBehaviour->select(s|not s.oclIsTypeOf(Start) and not s.oclIsTypeOf(Stop))->exists(a|a.oclAsType(AbstractUserAction).successor.oclIsUndefined()) ";
+			
+			try {
+				EachuseractionexceptStartandStopmusthaveapredecessorandsuccessorInvOCL = ExpressionsUtil.createInvariant(env, body, true);
+			} catch (ParserException e) {
+				throw new UnsupportedOperationException(e.getLocalizedMessage());
+			}
+		}
+		
+		Query query = QueryFactory.eINSTANCE.createQuery(EachuseractionexceptStartandStopmusthaveapredecessorandsuccessorInvOCL);
+		EvalEnvironment evalEnv = new EvalEnvironment();
+		query.setEvaluationEnvironment(evalEnv);
+		
+		if (!query.check(this)) {
+			if (diagnostics != null) {
+				diagnostics.add
+					(new BasicDiagnostic
+						(Diagnostic.ERROR,
+						 UsagemodelValidator.DIAGNOSTIC_SOURCE,
+						 UsagemodelValidator.SCENARIO_BEHAVIOUR__EACHUSERACTIONEXCEPT_STARTAND_STOPMUSTHAVEAPREDECESSORANDSUCCESSOR,
+						 EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "EachuseractionexceptStartandStopmusthaveapredecessorandsuccessor", EObjectValidator.getObjectLabel(this, context) }),
 						 new Object [] { this }));
 			}
 			return false;

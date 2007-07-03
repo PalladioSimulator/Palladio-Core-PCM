@@ -7,6 +7,9 @@
  */
 package de.uka.ipd.sdq.pcm.usagemodel;
 
+import java.util.Map;
+import org.eclipse.emf.common.util.DiagnosticChain;
+
 
 /**
  * <!-- begin-user-doc -->
@@ -57,5 +60,16 @@ public interface OpenWorkload extends Workload {
 	 * @generated
 	 */
 	void setInterArrivalTime_OpenWorkload(InterArrivalTime value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * not self.interArrivalTime_OpenWorkload.oclIsUndefined() and self.interArrivalTime_OpenWorkload.specification <> ''
+	 * <!-- end-model-doc -->
+	 * @model
+	 * @generated
+	 */
+	boolean InterArrivalTimeinOpenWorkloadneedstobespecified(DiagnosticChain diagnostics, Map<Object, Object> context);
 
 } // OpenWorkload
