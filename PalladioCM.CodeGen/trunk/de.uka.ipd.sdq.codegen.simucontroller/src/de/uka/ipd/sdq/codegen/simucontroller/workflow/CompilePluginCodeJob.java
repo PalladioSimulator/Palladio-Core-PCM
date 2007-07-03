@@ -15,7 +15,7 @@ public class CompilePluginCodeJob implements ISimulationJob {
 		myCreatePluginProjectJob = createPluginProjectJob;
 	}
 
-	public void execute() throws Exception {
+	public boolean execute() throws Exception {
 		assert (myCreatePluginProjectJob != null);
 
 		IProject project = myCreatePluginProjectJob.getProject();
@@ -52,6 +52,7 @@ public class CompilePluginCodeJob implements ISimulationJob {
 						"Unable to build the simulation plugin. Failure Messages: "
 								+ errorList);
 		}
+		return true;
 	}
 
 	public String getName() {

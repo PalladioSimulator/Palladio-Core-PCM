@@ -21,7 +21,7 @@ public class LoadPluginJob implements ISimulationJob {
 		myCreatePluginProjectJob = createPluginProjectJob;
 	}
 
-	public void execute() throws Exception {
+	public boolean execute() throws Exception {
 		assert (myCreatePluginProjectJob != null);
 
 		IProject project = myCreatePluginProjectJob.getProject();
@@ -55,6 +55,8 @@ public class LoadPluginJob implements ISimulationJob {
 		} catch (Exception e) {
 			throw new Exception("Loading of generated plugin failed", e);
 		}
+		
+		return true;
 	}
 
 	public String getName() {

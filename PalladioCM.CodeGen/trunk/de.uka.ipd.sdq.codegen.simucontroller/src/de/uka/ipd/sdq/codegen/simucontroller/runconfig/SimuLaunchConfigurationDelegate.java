@@ -16,6 +16,7 @@ import org.eclipse.ui.console.IConsole;
 import org.eclipse.ui.console.MessageConsole;
 
 import de.uka.ipd.sdq.codegen.simucontroller.SimuControllerPlugin;
+import de.uka.ipd.sdq.codegen.simucontroller.workflow.CheckOAWConstraints;
 import de.uka.ipd.sdq.codegen.simucontroller.workflow.CompilePluginCodeJob;
 import de.uka.ipd.sdq.codegen.simucontroller.workflow.CreatePluginProjectJob;
 import de.uka.ipd.sdq.codegen.simucontroller.workflow.GeneratePluginCodeJob;
@@ -89,6 +90,9 @@ public class SimuLaunchConfigurationDelegate implements
 		SimulationWorkflow workflow = new SimulationWorkflow(monitor);
 		SimuComConfig simuConfig = new SimuComConfig(configuration.getAttributes());
 
+		CheckOAWConstraints constraintsJob = new CheckOAWConstraints(configuration);
+		workflow.addJob(constraintsJob);
+		
 		/**
 		 * Step 1: Create container Plugin 
 		 */

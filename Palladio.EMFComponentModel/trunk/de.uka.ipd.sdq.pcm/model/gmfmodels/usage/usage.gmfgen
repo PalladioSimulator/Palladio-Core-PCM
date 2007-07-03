@@ -655,8 +655,7 @@
         title="SystemCallVariableUsageCompartment"
         canCollapse="false"
         needsTitle="false"
-        node="//@diagram/@childNodes.2"
-        listLayout="false">
+        node="//@diagram/@childNodes.2">
       <diagramRunTimeClass
           href="../../../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <viewmap

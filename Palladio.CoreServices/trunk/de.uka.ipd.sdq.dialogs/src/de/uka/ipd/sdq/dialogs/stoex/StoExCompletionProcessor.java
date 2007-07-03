@@ -104,9 +104,9 @@ public class StoExCompletionProcessor implements IContentAssistProcessor {
 		// compute template completions (i.e., IntPMF, DoublePDF, etc.)
 		if (isStartOfAtom(offset, currentText)) {
 			for (ICompletionProposal p : templateProcessor.computeCompletionProposals(viewer, offset)){
-//				if (p.getDisplayString().toUpperCase().startsWith(currentText.toUpperCase())){
+				if (p.getDisplayString().toUpperCase().startsWith(currentText.toUpperCase())){
 					resultList.add(p);
-//				}
+				}
 			}
 		}
 			

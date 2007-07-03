@@ -42,16 +42,17 @@ public class SimulationWorkflow {
 	 */
 	public void run() throws Exception {
 		myMonitor.beginTask("Simulation Run", myJobs.size());
-
+		boolean shouldContinue = true; 
 		for (ISimulationJob job : myJobs) {
 			try {
-				if (myMonitor.isCanceled()) {
+				if (myMonitor.isCanceled() || !shouldContinue) {
 					return;
 				}
 
 				myMonitor.subTask(job.getName());
 				myExecutedJobs.push(job);
-				job.execute();
+				if (job.execute() == false)
+					shouldContinue = false;
 				myMonitor.worked(1);
 
 			} catch (Exception e) {

@@ -19,6 +19,8 @@ public class DialogsImages {
 	public static final String UP 		= "up_action";
 	public static final String DOWN 	= "down_action";
 	public static final String TREEROOT = "tree_root";
+	public static final String ERROR = "error";
+	public static final String WARNING = "warning";
 
 	// For the toolbar images
 	public static ImageRegistry imageRegistry = new ImageRegistry();
@@ -39,6 +41,10 @@ public class DialogsImages {
 		imageRegistry.put(UP, getImageDescriptor(iconPath + UP + ".gif"));
 		imageRegistry.put(TREEROOT,
 				 getImageDescriptor(iconPath + TREEROOT + ".gif"));
+		imageRegistry.put(ERROR,
+				 getImageDescriptor(iconPath + ERROR + ".gif"));
+		imageRegistry.put(WARNING,
+				 getImageDescriptor(iconPath + WARNING + ".gif"));
 	}
 
 	/**

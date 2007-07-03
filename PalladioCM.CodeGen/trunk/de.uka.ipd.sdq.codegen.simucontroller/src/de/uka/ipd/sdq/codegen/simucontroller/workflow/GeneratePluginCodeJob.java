@@ -32,7 +32,7 @@ public class GeneratePluginCodeJob implements ISimulationJob {
 		myConfiguration = configuration;
 	}
 
-	public void execute() throws Exception {
+	public boolean execute() throws Exception {
 		assert (myConfiguration != null);
 
 		Map<String, String> properties = new HashMap<String, String>();
@@ -95,6 +95,7 @@ public class GeneratePluginCodeJob implements ISimulationJob {
 						+ workflowFile+"\n Errors: "+e.getMessage()+". Please see the oAW console output for details!", e);
 			}
 		}
+		return true;
 	}
 
 	public String getName() {

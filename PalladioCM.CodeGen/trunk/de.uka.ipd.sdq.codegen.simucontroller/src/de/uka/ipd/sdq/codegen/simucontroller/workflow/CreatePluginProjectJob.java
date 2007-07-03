@@ -30,13 +30,14 @@ public class CreatePluginProjectJob implements ISimulationJob {
 	/* (non-Javadoc)
 	 * @see de.uka.ipd.sdq.codegen.simucontroller.runconfig.ISimuComJob#execute()
 	 */
-	public void execute() throws Exception {
+	public boolean execute() throws Exception {
 		try {
 			myProject = PluginProject.createInstance().createContainerPlugin(
 					new NullProgressMonitor());
 		} catch (CoreException e) {
 			throw new Exception("Creating plugin project failed", e);
 		}
+		return true;
 	}
 
 	/* (non-Javadoc)

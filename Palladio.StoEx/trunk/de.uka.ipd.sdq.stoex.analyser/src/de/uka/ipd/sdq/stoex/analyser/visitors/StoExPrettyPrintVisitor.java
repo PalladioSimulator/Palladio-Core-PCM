@@ -189,7 +189,7 @@ public class StoExPrettyPrintVisitor extends StoexSwitch<String> {
 
 	@Override
 	public String caseNotExpression(NotExpression object) {
-		return "NOT ("+this.doSwitch(object.getInner())+")";
+		return "NOT "+this.doSwitch(object.getInner())+"";
 	}
 
 	@Override

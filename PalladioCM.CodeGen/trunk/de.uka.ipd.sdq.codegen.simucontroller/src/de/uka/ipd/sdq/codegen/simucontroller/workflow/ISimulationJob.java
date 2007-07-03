@@ -6,12 +6,15 @@ package de.uka.ipd.sdq.codegen.simucontroller.workflow;
 
 public interface ISimulationJob {
 	/**
+	public boolean execute() throws Exception;
 	 * Execute the job. In case of an error throw an exception
 	 * with a meaningful name which can be understood by a user.
-	 * 
+	 * @return false If this job did finish without exception, however, the
+	 * 				user canceled the execution
+	 * 			true otherwise
 	 * @throws Exception
 	 */
-	public void execute() throws Exception;
+	public boolean execute() throws Exception;
 	
 	/**
 	 * Return to the state before the execute() method was called.

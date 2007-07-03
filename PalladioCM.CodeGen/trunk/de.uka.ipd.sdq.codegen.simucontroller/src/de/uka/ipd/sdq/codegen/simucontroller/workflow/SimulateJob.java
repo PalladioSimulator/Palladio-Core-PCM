@@ -24,7 +24,7 @@ public class SimulateJob implements ISimulationJob {
 		this.config = config;
 	}
 
-	public void execute() throws Exception {
+	public boolean execute() throws Exception {
 		ISimuComControl control = null;
 
 		try {
@@ -52,6 +52,7 @@ public class SimulateJob implements ISimulationJob {
 		}
 		if (job.getStatus() == SimuComStatus.ERROR)
 			throw new Exception("Simulation run failed",job.getErrorThrowable());
+		return true;
 	}
 
 	public String getName() {

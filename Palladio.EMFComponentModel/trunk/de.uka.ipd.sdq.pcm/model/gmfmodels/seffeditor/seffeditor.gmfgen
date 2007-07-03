@@ -1763,8 +1763,7 @@
         canonicalEditPolicyClassName="ExternalCallActionInputVariableUsageCanonicalEditPolicy"
         childNodes="//@diagram/@childNodes.0"
         title="InputVariableUsage"
-        node="//@diagram/@topLevelNodes.2"
-        listLayout="false">
+        node="//@diagram/@topLevelNodes.2">
       <diagramRunTimeClass
           href="../../../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <viewmap
@@ -1783,8 +1782,7 @@
         canonicalEditPolicyClassName="ExternalCallActionOutputVariableUsageCanonicalEditPolicy"
         childNodes="//@diagram/@childNodes.2"
         title="OutputVariableUsage"
-        node="//@diagram/@topLevelNodes.2"
-        listLayout="false">
+        node="//@diagram/@topLevelNodes.2">
       <diagramRunTimeClass
           href="../../../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <viewmap
@@ -1932,8 +1930,7 @@
         canonicalEditPolicyClassName="ExternalCallActionInputVariableUsage2CanonicalEditPolicy"
         childNodes="//@diagram/@childNodes.0"
         title="InputVariableUsage"
-        node="//@diagram/@childNodes.13"
-        listLayout="false">
+        node="//@diagram/@childNodes.13">
       <diagramRunTimeClass
           href="../../../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <viewmap
@@ -1952,8 +1949,7 @@
         canonicalEditPolicyClassName="ExternalCallActionOutputVariableUsage2CanonicalEditPolicy"
         childNodes="//@diagram/@childNodes.2"
         title="OutputVariableUsage"
-        node="//@diagram/@childNodes.13"
-        listLayout="false">
+        node="//@diagram/@childNodes.13">
       <diagramRunTimeClass
           href="../../../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <viewmap
@@ -2035,8 +2031,7 @@
         canonicalEditPolicyClassName="SetVariableActionVariableSetterCanonicalEditPolicy"
         childNodes="//@diagram/@childNodes.21"
         title="VariableSetter"
-        node="//@diagram/@childNodes.20"
-        listLayout="false">
+        node="//@diagram/@childNodes.20">
       <diagramRunTimeClass
           href="../../../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <viewmap
@@ -2140,8 +2135,7 @@
         canonicalEditPolicyClassName="SetVariableActionVariableSetter2CanonicalEditPolicy"
         childNodes="//@diagram/@childNodes.21"
         title="VariableSetter"
-        node="//@diagram/@topLevelNodes.7"
-        listLayout="false">
+        node="//@diagram/@topLevelNodes.7">
       <diagramRunTimeClass
           href="../../../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
       <viewmap
