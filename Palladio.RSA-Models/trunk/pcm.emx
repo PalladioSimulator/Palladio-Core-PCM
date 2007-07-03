@@ -5874,6 +5874,9 @@
       </ownedAttribute>
     </ownedMember>
     <ownedMember xmi:type="uml:Class" xmi:id="_wru2gODnEdq8ysXH3gTiEg" name="ProcessingResourceSpecification">
+      <ownedRule xmi:id="_gU-wkCl4Edyrvvvi0J2Ocw" name="Processing Rate must be larger than zero" constrainedElement="_wru2gODnEdq8ysXH3gTiEg">
+        <specification xmi:type="uml:OpaqueExpression" xmi:id="_gU_XoCl4Edyrvvvi0J2Ocw" body="self.processingRate > 0.0" language="OCL"/>
+      </ownedRule>
       <ownedAttribute xmi:id="_CRHygBmtEdyaJvvdhGgDYg" name="schedulingPolicy" visibility="private" type="_wuNVYBmsEdyaJvvdhGgDYg"/>
       <ownedAttribute xmi:id="_CPbWweDoEdq8ysXH3gTiEg" name="activeResourceType_ActiveResourceSpecification" type="_n2nAMOD4Edq8ysXH3gTiEg" association="_CPbWwODoEdq8ysXH3gTiEg">
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_lbQGIeD6Edq8ysXH3gTiEg" value="1"/>
@@ -5884,6 +5887,8 @@
       </ownedAttribute>
       <ownedAttribute xmi:id="_LQ2T8ODoEdq8ysXH3gTiEg" name="units" visibility="private">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML2_LIBRARIES/UML2PrimitiveTypes.library.uml2#_IXlH8a86EdieaYgxtVWN8Q"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_7u69MSl4Edyrvvvi0J2Ocw" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_7u69MCl4Edyrvvvi0J2Ocw"/>
       </ownedAttribute>
     </ownedMember>
     <ownedMember xmi:type="uml:Class" xmi:id="_9APFUOD4Edq8ysXH3gTiEg" name="PassiveResourceSpecification">
@@ -5920,6 +5925,8 @@
       </ownedAttribute>
       <ownedAttribute xmi:id="_hm25AOMfEdqaQsPH3rPnBQ" name="units" visibility="private">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML2_LIBRARIES/UML2PrimitiveTypes.library.uml2#_IXlH8a86EdieaYgxtVWN8Q"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_8UiywSl4Edyrvvvi0J2Ocw" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_8UiywCl4Edyrvvvi0J2Ocw"/>
       </ownedAttribute>
       <ownedAttribute xmi:id="_Oy4cMRmoEdyaJvvdhGgDYg" name="linkLatency" type="_MjX3sBmoEdyaJvvdhGgDYg" association="_Oy4cMBmoEdyaJvvdhGgDYg" aggregation="composite">
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Oy5DQRmoEdyaJvvdhGgDYg" value="1"/>
@@ -8908,9 +8915,15 @@
       </ownedAttribute>
     </ownedMember>
     <ownedMember xmi:type="uml:Class" xmi:id="_5NVsIOQREdqeH_WIC9QRew" name="Stop">
+      <ownedRule xmi:id="_hvKhgCl2Edyrvvvi0J2Ocw" name="Stop has no successor" constrainedElement="_5NVsIOQREdqeH_WIC9QRew">
+        <specification xmi:type="uml:OpaqueExpression" xmi:id="_hvLIkCl2Edyrvvvi0J2Ocw" body="self.successor.oclIsUndefined()" language="OCL"/>
+      </ownedRule>
       <generalization xmi:id="_67nL0OQREdqeH_WIC9QRew" general="_lA9SYOQREdqeH_WIC9QRew"/>
     </ownedMember>
     <ownedMember xmi:type="uml:Class" xmi:id="_4qxKkOQREdqeH_WIC9QRew" name="Start">
+      <ownedRule xmi:id="_Y9a_ECl2Edyrvvvi0J2Ocw" name="Start has no predecessor" constrainedElement="_4qxKkOQREdqeH_WIC9QRew">
+        <specification xmi:type="uml:OpaqueExpression" xmi:id="_Y9a_ESl2Edyrvvvi0J2Ocw" body="self.predecessor.oclIsUndefined()" language="OCL"/>
+      </ownedRule>
       <generalization xmi:id="_7ukSwOQREdqeH_WIC9QRew" general="_lA9SYOQREdqeH_WIC9QRew"/>
     </ownedMember>
     <ownedMember xmi:type="uml:Class" xmi:id="_HTuNcOQREdqeH_WIC9QRew" name="ScenarioBehaviour">
@@ -8920,6 +8933,9 @@
       <ownedRule xmi:id="_YmhF8BpXEdy6GuPr1BGdtw" name="Exactly one stop" constrainedElement="_HTuNcOQREdqeH_WIC9QRew">
         <specification xmi:type="uml:OpaqueExpression" xmi:id="_YmhF8RpXEdy6GuPr1BGdtw" body="self.actions_ScenarioBehaviour->select(s|s.oclIsTypeOf(Stop))->size() = 1" language="OCL"/>
       </ownedRule>
+      <ownedRule xmi:id="_p4Vm4ClcEdyrvvvi0J2Ocw" name="Each user action except Start and Stop must have a predecessor and successor" constrainedElement="_HTuNcOQREdqeH_WIC9QRew">
+        <specification xmi:type="uml:OpaqueExpression" xmi:id="_p4Vm4SlcEdyrvvvi0J2Ocw" body="not self.actions_ScenarioBehaviour->select(s|not s.oclIsTypeOf(Start) and not s.oclIsTypeOf(Stop))->exists(a|a.oclAsType(AbstractUserAction).predecessor.oclIsUndefined()) and not self.actions_ScenarioBehaviour->select(s|not s.oclIsTypeOf(Start) and not s.oclIsTypeOf(Stop))->exists(a|a.oclAsType(AbstractUserAction).successor.oclIsUndefined())" language="OCL"/>
+      </ownedRule>
       <generalization xmi:id="_3YCZEJBEEduoRsekQFNE6A" general="_au_WlWA_EdqdHZdhXRxKVg"/>
       <ownedAttribute xmi:id="_qdDHoeQREdqeH_WIC9QRew" name="actions_ScenarioBehaviour" type="_lA9SYOQREdqeH_WIC9QRew" association="_qdDHoOQREdqeH_WIC9QRew" aggregation="composite">
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_qdDHpOQREdqeH_WIC9QRew" value="-1"/>
@@ -8927,6 +8943,9 @@
       </ownedAttribute>
     </ownedMember>
     <ownedMember xmi:type="uml:Class" xmi:id="_fJ3YoOQQEdqeH_WIC9QRew" name="OpenWorkload">
+      <ownedRule xmi:id="_MOY1wCl4Edyrvvvi0J2Ocw" name="InterArrivalTime in OpenWorkload needs to be specified" constrainedElement="_fJ3YoOQQEdqeH_WIC9QRew">
+        <specification xmi:type="uml:OpaqueExpression" xmi:id="_MOY1wSl4Edyrvvvi0J2Ocw" body="not self.interArrivalTime_OpenWorkload.oclIsUndefined() and self.interArrivalTime_OpenWorkload.specification &lt;> ''" language="OCL"/>
+      </ownedRule>
       <generalization xmi:id="_gU950OQQEdqeH_WIC9QRew" general="_cX8qoOQQEdqeH_WIC9QRew"/>
       <ownedAttribute xmi:id="_fjmgYYnqEducPr8SMhBkpQ" name="interArrivalTime_OpenWorkload" type="_aKyooInqEducPr8SMhBkpQ" association="_fjmgYInqEducPr8SMhBkpQ" aggregation="composite">
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_fjmgZInqEducPr8SMhBkpQ" value="1"/>
@@ -8955,6 +8974,12 @@
       </ownedAttribute>
     </ownedMember>
     <ownedMember xmi:type="uml:Class" xmi:id="_ffBwUOQQEdqeH_WIC9QRew" name="ClosedWorkload">
+      <ownedRule xmi:id="_15AIICl3Edyrvvvi0J2Ocw" name="Population in ClosedWorkload needs to be specified" constrainedElement="_ffBwUOQQEdqeH_WIC9QRew">
+        <specification xmi:type="uml:OpaqueExpression" xmi:id="_15AIISl3Edyrvvvi0J2Ocw" body="not self.population.oclIsUndefined() and self.population &lt;> ''" language="OCL"/>
+      </ownedRule>
+      <ownedRule xmi:id="_HXKoICl4Edyrvvvi0J2Ocw" name="Think Time in Closed Workload needs to be specified" constrainedElement="_ffBwUOQQEdqeH_WIC9QRew">
+        <specification xmi:type="uml:OpaqueExpression" xmi:id="_HXLPMCl4Edyrvvvi0J2Ocw" body="not self.thinkTime_ClosedWorkload.oclIsUndefined() and self.thinkTime_ClosedWorkload.specification &lt;> ''" language="OCL"/>
+      </ownedRule>
       <generalization xmi:id="_guTm4OQQEdqeH_WIC9QRew" general="_cX8qoOQQEdqeH_WIC9QRew"/>
       <ownedAttribute xmi:id="_1FaC4OQQEdqeH_WIC9QRew" name="population" visibility="private">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML2_LIBRARIES/EcorePrimitiveTypes.library.uml2#_ORBAhK86EdieaYgxtVWN8Q"/>
@@ -8965,6 +8990,9 @@
       </ownedAttribute>
     </ownedMember>
     <ownedMember xmi:type="uml:Class" xmi:id="_3ZHVcOQREdqeH_WIC9QRew" name="Branch">
+      <ownedRule xmi:id="_w6kUsCl2Edyrvvvi0J2Ocw" name="All Branch Probabilities must sum up to 1" constrainedElement="_3ZHVcOQREdqeH_WIC9QRew">
+        <specification xmi:type="uml:OpaqueExpression" xmi:id="_w6kUsSl2Edyrvvvi0J2Ocw" body="self->collect(branchTransitions_Branch.branchProbability)->sum() > 0.999 and self->collect(branchTransitions_Branch.branchProbability)->sum() &lt;1.001" language="OCL"/>
+      </ownedRule>
       <generalization xmi:id="_8hrxwOQREdqeH_WIC9QRew" general="_lA9SYOQREdqeH_WIC9QRew"/>
       <ownedAttribute xmi:id="_ntmscXDHEdur9cZft9T4NQ" name="branchTransitions_Branch" type="_KYXQwHDHEdur9cZft9T4NQ" association="_ntmscHDHEdur9cZft9T4NQ" aggregation="composite">
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ntmsdHDHEdur9cZft9T4NQ" value="-1"/>
@@ -13095,6 +13123,8 @@
       <ownedAttribute xmi:id="_fT2xcuD3Edq8ysXH3gTiEg" name="action_ParametricResourceDemand" type="_kmntkODhEdq8ysXH3gTiEg" association="_fT2xcOD3Edq8ysXH3gTiEg"/>
       <ownedAttribute xmi:id="_sZACwOD3Edq8ysXH3gTiEg" name="unit" visibility="private">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML2_LIBRARIES/UML2PrimitiveTypes.library.uml2#_IXlH8a86EdieaYgxtVWN8Q"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_AL9wQSl5Edyrvvvi0J2Ocw" value="1"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_AL9wQCl5Edyrvvvi0J2Ocw"/>
       </ownedAttribute>
       <ownedAttribute xmi:id="_LyYC0eKMEdq6IvzVMFpuzg" name="requiredResource_ParametricResourceDemand" type="_n2nAMOD4Edq8ysXH3gTiEg" association="_LyYC0OKMEdq6IvzVMFpuzg"/>
     </ownedMember>
@@ -13144,7 +13174,7 @@
         <specification xmi:type="uml:OpaqueExpression" xmi:id="_2gC44YnoEducPr8SMhBkpQ" body="self.branches_Branch->forAll(bt|bt.oclIsTypeOf(ProbabilisticBranchTransition)) or self.branches_Branch->forAll(bt|bt.oclIsTypeOf(GuardedBranchTransition))" language="OCL"/>
       </ownedRule>
       <ownedRule xmi:id="_2UE5QBnOEdyaJvvdhGgDYg" name="All Probabilistic Branch Probabilities must sum up to 1" constrainedElement="_6EgLcODhEdq8ysXH3gTiEg">
-        <specification xmi:type="uml:OpaqueExpression" xmi:id="_2UE5QRnOEdyaJvvdhGgDYg" body="self.branches_Branch->select(pbt|pbt.oclIsTypeOf(ProbabilisticBranchTransition))->collect(pbt|pbt.oclAsType(ProbabilisticBranchTransition).branchProbability)->sum() > 0.999 and self.branches_Branch->select(pbt|pbt.oclIsTypeOf(ProbabilisticBranchTransition))->collect(pbt|pbt.oclAsType(ProbabilisticBranchTransition).branchProbability)->sum() &lt; 1.001" language="OCL"/>
+        <specification xmi:type="uml:OpaqueExpression" xmi:id="_2UE5QRnOEdyaJvvdhGgDYg" body="if self.branches_Branch->forAll(oclIsTypeOf(ProbabilisticBranchTransition)) then self.branches_Branch->select(pbt|pbt.oclIsTypeOf(ProbabilisticBranchTransition))->collect(pbt|pbt.oclAsType(ProbabilisticBranchTransition).branchProbability)->sum() > 0.999 and self.branches_Branch->select(pbt|pbt.oclIsTypeOf(ProbabilisticBranchTransition))->collect(pbt|pbt.oclAsType(ProbabilisticBranchTransition).branchProbability)->sum() &lt; 1.001 else true endif" language="OCL"/>
       </ownedRule>
       <generalization xmi:id="_7WdikODhEdq8ysXH3gTiEg" general="_kmntkODhEdq8ysXH3gTiEg"/>
       <ownedAttribute xmi:id="_RcaZ0eTDEdq49qz7R-l1Hg" name="branches_Branch" type="_eX2J0InoEducPr8SMhBkpQ" association="_RcaZ0OTDEdq49qz7R-l1Hg" aggregation="composite">
