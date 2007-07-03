@@ -6,7 +6,6 @@ Bundle-Version: 1.0.0
 Bundle-ClassPath: .
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: de.uka.ipd.sdq.completions,
  de.uka.ipd.sdq.completions.impl,
  de.uka.ipd.sdq.completions.util
