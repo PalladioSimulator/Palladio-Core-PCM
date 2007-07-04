@@ -2021,6 +2021,9 @@
     <generalization xmi:id="_lzELEDpQEduKtOWw2f6nDA" general="_SRTboDpQEduKtOWw2f6nDA"/>
   </ownedMember>
   <ownedMember xmi:type="uml:Class" xmi:id="_GIDLsPdxEdqB_7dkOscBPA" name="RandomVariable">
+    <ownedRule xmi:id="_QUWVkCooEdyENO6Lndj6uA" name="SpecificationMustNotBeNULL" constrainedElement="_GIDLsPdxEdqB_7dkOscBPA">
+      <specification xmi:type="uml:OpaqueExpression" xmi:id="_QUW8oCooEdyENO6Lndj6uA" body="not self.specification.oclIsUndefined() and self.specification &lt;> ''" language="OCL"/>
+    </ownedRule>
     <ownedAttribute xmi:id="_Hj--MPdxEdqB_7dkOscBPA" name="specification">
       <type xmi:type="uml:PrimitiveType" href="pathmap://UML2_LIBRARIES/UML2PrimitiveTypes.library.uml2#_IXlH8a86EdieaYgxtVWN8Q"/>
     </ownedAttribute>
