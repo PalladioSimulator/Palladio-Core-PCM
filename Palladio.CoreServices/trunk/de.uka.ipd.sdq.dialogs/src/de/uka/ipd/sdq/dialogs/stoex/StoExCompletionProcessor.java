@@ -158,7 +158,7 @@ public class StoExCompletionProcessor implements IContentAssistProcessor {
 		
 		boolean hasOnlyChars = true;
 		for (int i=0; i<trimText.length(); i++){
-			if (!Character.isLetter(trimText.charAt(i))) hasOnlyChars = false;
+			if (!Character.isLetter(trimText.charAt(i)) && trimText.charAt(i) != '.') hasOnlyChars = false;
 		}
 		if (hasOnlyChars) return true;
 		
