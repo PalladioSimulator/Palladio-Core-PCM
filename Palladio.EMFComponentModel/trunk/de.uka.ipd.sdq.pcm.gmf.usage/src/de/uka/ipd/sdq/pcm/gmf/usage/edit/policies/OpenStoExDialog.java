@@ -15,6 +15,7 @@ import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.ui.PlatformUI;
 
 import de.uka.ipd.sdq.dialogs.stoex.StochasticExpressionEditDialog;
+import de.uka.ipd.sdq.pcm.parameter.VariableCharacterisation;
 import de.uka.ipd.sdq.pcm.repository.Parameter;
 import de.uka.ipd.sdq.pcm.seff.AbstractResourceDemandingAction;
 import de.uka.ipd.sdq.pcm.seff.ParametricResourceDemand;
@@ -22,6 +23,7 @@ import de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF;
 import de.uka.ipd.sdq.pcm.stochasticexpressions.PCMStoExPrettyPrintVisitor;
 import de.uka.ipd.sdq.stoex.RandomVariable;
 import de.uka.ipd.sdq.stoex.StoexPackage;
+import de.uka.ipd.sdq.stoex.analyser.visitors.TypeEnum;
 
 // Manually written open policy to open the StoEx Dialog. It's
 // called via a CustomBehaviour in the genmap
@@ -37,7 +39,8 @@ public class OpenStoExDialog extends OpenEditPolicy {
 		IGraphicalEditPart host = (IGraphicalEditPart) getHost();
 		RandomVariable rv = getRandomVariable(((View)host.getModel()).getElement());
 		StochasticExpressionEditDialog dialog = new StochasticExpressionEditDialog(
-				PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell());
+				PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(),
+				getExpectedType(rv));
 		dialog.setInitialExpression(rv);
 		dialog.open();
 		if (dialog.getResult() != null) {
@@ -51,6 +54,14 @@ public class OpenStoExDialog extends OpenEditPolicy {
 		return null;
 	}
 
+	protected TypeEnum getExpectedType(RandomVariable rv) {
+		TypeEnum expectedType = TypeEnum.ANY; 
+		if (rv instanceof VariableCharacterisation){
+			expectedType = StochasticExpressionEditDialog.getTypeFromVariableCharacterisation((VariableCharacterisation) rv);
+		}
+		return expectedType;
+	}
+	
 	private Parameter[] getContext(EObject rv) {
 		Parameter[] parameters = new Parameter[]{};
 

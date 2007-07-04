@@ -20,6 +20,7 @@ import org.eclipse.ui.views.properties.IPropertyDescriptor;
 import org.eclipse.ui.views.properties.IPropertySource;
 
 import de.uka.ipd.sdq.dialogs.stoex.StochasticExpressionEditDialog;
+import de.uka.ipd.sdq.pcm.parameter.VariableCharacterisation;
 import de.uka.ipd.sdq.pcm.repository.Parameter;
 import de.uka.ipd.sdq.pcm.seff.AbstractResourceDemandingAction;
 import de.uka.ipd.sdq.pcm.seff.ParametricResourceDemand;
@@ -27,6 +28,7 @@ import de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF;
 import de.uka.ipd.sdq.pcm.stochasticexpressions.PCMStoExPrettyPrintVisitor;
 import de.uka.ipd.sdq.stoex.RandomVariable;
 import de.uka.ipd.sdq.stoex.StoexPackage;
+import de.uka.ipd.sdq.stoex.analyser.visitors.TypeEnum;
 
 public class PalladioAdapterFactoryContentProvider extends
 		AdapterFactoryContentProvider {
@@ -82,9 +84,9 @@ public class PalladioAdapterFactoryContentProvider extends
 							Parameter[] parameters = new Parameter[]{};
 							if (seff.getDescribedService__SEFF() != null && seff.getDescribedService__SEFF().getParameters__Signature() != null)
 								parameters = (Parameter[]) seff.getDescribedService__SEFF().getParameters__Signature().toArray();
-							dialog = new StochasticExpressionEditDialog(cellEditorWindow.getShell(),parameters);
+							dialog = new StochasticExpressionEditDialog(cellEditorWindow.getShell(),getExpectedType(randVar),parameters);
 						} else {
-							dialog = new StochasticExpressionEditDialog(cellEditorWindow.getShell());
+							dialog = new StochasticExpressionEditDialog(cellEditorWindow.getShell(),getExpectedType(randVar));
 						}
 						dialog.setInitialExpression(randVar);
 						dialog.open();
@@ -100,5 +102,12 @@ public class PalladioAdapterFactoryContentProvider extends
 			}
 		};
 	}
-	
+
+	protected TypeEnum getExpectedType(RandomVariable rv) {
+		TypeEnum expectedType = TypeEnum.ANY; 
+		if (rv instanceof VariableCharacterisation){
+			expectedType = StochasticExpressionEditDialog.getTypeFromVariableCharacterisation((VariableCharacterisation) rv);
+		}
+		return expectedType;
+	}	
 }

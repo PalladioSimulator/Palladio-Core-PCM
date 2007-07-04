@@ -23,6 +23,7 @@ import de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF;
 import de.uka.ipd.sdq.pcm.seff.SeffPackage;
 import de.uka.ipd.sdq.pcm.stochasticexpressions.PCMStoExPrettyPrintVisitor;
 import de.uka.ipd.sdq.stoex.StoexPackage;
+import de.uka.ipd.sdq.stoex.analyser.visitors.TypeEnum;
 
 /** @author roman */
 public class ParametricResourceDemandConfigureCommand extends
@@ -95,7 +96,7 @@ public class ParametricResourceDemandConfigureCommand extends
 
 		StochasticExpressionEditDialog dialog = new StochasticExpressionEditDialog(
 				PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(),
-				getContext(request.getElementToConfigure()));
+				TypeEnum.DOUBLE, getContext(request.getElementToConfigure()));
 		dialog.open();
 
 		if (dialog.getResult() == null)

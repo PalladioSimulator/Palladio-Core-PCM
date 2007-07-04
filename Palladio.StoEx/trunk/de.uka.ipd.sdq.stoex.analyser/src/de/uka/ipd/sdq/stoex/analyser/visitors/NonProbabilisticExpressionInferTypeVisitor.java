@@ -1,23 +1,21 @@
 /**
  * 
  */
-package de.uka.ipd.sdq.simucomframework.variables.stoexvisitor;
+package de.uka.ipd.sdq.stoex.analyser.visitors;
 
 import de.uka.ipd.sdq.stoex.Expression;
-import de.uka.ipd.sdq.stoex.analyser.visitors.ExpressionInferTypeVisitor;
-import de.uka.ipd.sdq.stoex.analyser.visitors.TypeEnum;
 
 /**
  * @author Steffen
  *
  */
-public class SimulationExpressionInferTypeVisitor extends
+public class NonProbabilisticExpressionInferTypeVisitor extends
 		ExpressionInferTypeVisitor {
 
 	/**
 	 * 
 	 */
-	public SimulationExpressionInferTypeVisitor() {
+	public NonProbabilisticExpressionInferTypeVisitor() {
 		super();
 	}
 

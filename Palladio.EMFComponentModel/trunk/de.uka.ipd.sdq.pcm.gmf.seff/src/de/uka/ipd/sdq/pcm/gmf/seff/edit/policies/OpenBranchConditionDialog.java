@@ -2,8 +2,11 @@ package de.uka.ipd.sdq.pcm.gmf.seff.edit.policies;
 
 import org.eclipse.emf.ecore.EObject;
 
+import de.uka.ipd.sdq.dialogs.stoex.StochasticExpressionEditDialog;
+import de.uka.ipd.sdq.pcm.parameter.VariableCharacterisation;
 import de.uka.ipd.sdq.pcm.seff.GuardedBranchTransition;
 import de.uka.ipd.sdq.stoex.RandomVariable;
+import de.uka.ipd.sdq.stoex.analyser.visitors.TypeEnum;
 
 // Manually written open policy to open the StoEx Dialog. It's
 // called via a CustomBehaviour in the genmap
@@ -16,4 +19,10 @@ public class OpenBranchConditionDialog extends OpenStoExDialog {
 		RandomVariable rv = transition.getBranchCondition_BranchTransition();
 		return rv;
 	}
+	
+	@Override
+	protected TypeEnum getExpectedType(RandomVariable rv) {
+		return TypeEnum.BOOL;
+	}
+	
 }

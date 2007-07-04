@@ -31,6 +31,7 @@ import org.openarchitectureware.workflow.issues.Issue;
 import org.openarchitectureware.workflow.issues.Issues;
 
 import de.uka.ipd.sdq.dialogs.DialogsImages;
+import de.uka.ipd.sdq.errorhandling.SeverityAndIssue;
 
 public class IssuesDialog extends Dialog {
 

@@ -4,17 +4,23 @@ import java.util.ArrayList;
 
 import org.antlr.runtime.RecognitionException;
 
+import de.uka.ipd.sdq.errorhandling.IIssue;
 import de.uka.ipd.sdq.pcm.stochasticexpressions.parser.ErrorEntry;
 
 public class StoExParserException extends Exception {
 
-	private ArrayList<ErrorEntry> errorList;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -7815748573923222680L;
+	
+	private ArrayList<IIssue> errorList;
 
-	public StoExParserException(ArrayList<ErrorEntry> errorList2) {
+	public StoExParserException(ArrayList<IIssue> errorList2) {
 		this.errorList = errorList2;
 	}
 
-	public ArrayList<ErrorEntry> getErrorList() {
+	public ArrayList<IIssue> getIssuesList() {
 		return errorList;
 	}
 

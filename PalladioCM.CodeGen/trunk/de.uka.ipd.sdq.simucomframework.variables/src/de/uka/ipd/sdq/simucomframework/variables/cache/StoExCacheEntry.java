@@ -10,9 +10,9 @@ import org.eclipse.emf.ecore.EObject;
 import de.uka.ipd.sdq.pcm.stochasticexpressions.parser.PCMStoExLexer;
 import de.uka.ipd.sdq.pcm.stochasticexpressions.parser.PCMStoExParser;
 import de.uka.ipd.sdq.probfunction.math.IProbabilityFunction;
-import de.uka.ipd.sdq.simucomframework.variables.stoexvisitor.SimulationExpressionInferTypeVisitor;
 import de.uka.ipd.sdq.stoex.Expression;
 import de.uka.ipd.sdq.stoex.analyser.visitors.ExpressionInferTypeVisitor;
+import de.uka.ipd.sdq.stoex.analyser.visitors.NonProbabilisticExpressionInferTypeVisitor;
 import de.uka.ipd.sdq.stoex.analyser.visitors.TypeEnum;
 import de.uka.ipd.sdq.stoex.parser.StochasticExpressionsLexer;
 
@@ -36,7 +36,7 @@ public class StoExCacheEntry {
 			throw new RuntimeException("Expression not parsable \""+spec+"\"",e);
 		}
 		try {
-			typeInferer = new SimulationExpressionInferTypeVisitor();
+			typeInferer = new NonProbabilisticExpressionInferTypeVisitor();
 			typeInferer.doSwitch(formula);
 		} catch (Exception e) {
 			throw new RuntimeException("Expression not parsable \""+spec+"\"",e);

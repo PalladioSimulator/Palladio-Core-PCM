@@ -34,7 +34,7 @@ import org.openarchitectureware.workflow.issues.IssuesImpl;
 
 import de.uka.ipd.sdq.codegen.simucontroller.runconfig.ResourceManagerTab;
 import de.uka.ipd.sdq.dialogs.issues.IssuesDialog;
-import de.uka.ipd.sdq.dialogs.issues.SeverityAndIssue;
+import de.uka.ipd.sdq.errorhandling.SeverityAndIssue;
 import de.uka.ipd.sdq.pcm.allocation.AllocationPackage;
 import de.uka.ipd.sdq.pcm.core.composition.CompositionPackage;
 import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;

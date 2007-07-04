@@ -7,6 +7,7 @@ import org.antlr.runtime.Lexer;
 import org.antlr.runtime.RecognitionException;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.jface.dialogs.IDialogConstants;
+import org.eclipse.jface.dialogs.IMessageProvider;
 import org.eclipse.jface.dialogs.TitleAreaDialog;
 import org.eclipse.jface.text.Document;
 import org.eclipse.jface.text.ITextListener;
@@ -39,7 +40,9 @@ import org.eclipse.swt.widgets.Listener;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.PlatformUI;
 
+import de.uka.ipd.sdq.dialogs.DialogsImages;
 import de.uka.ipd.sdq.dialogs.SWTResourceManager;
+import de.uka.ipd.sdq.errorhandling.IIssue;
 import de.uka.ipd.sdq.pcm.repository.Parameter;
 import de.uka.ipd.sdq.pcm.stochasticexpressions.parser.ErrorEntry;
 
@@ -52,6 +55,7 @@ public abstract class AbstractGrammerBasedEditDialog extends TitleAreaDialog {
 	private static final String DIALOG_TITLE = "Edit a stochastic expression";
 
 	public static final String ERROR_TYPE = "ERROR";
+	public static final String WARNING_TYPE = "WARNING";
 
 	// private Text editText;
 	private SourceViewer textViewer;
@@ -119,6 +123,7 @@ public abstract class AbstractGrammerBasedEditDialog extends TitleAreaDialog {
 
 		// add what types are show on the different rulers
 		annotationRuler.addAnnotationType(ERROR_TYPE);
+		annotationRuler.addAnnotationType(WARNING_TYPE);
 		textViewer = new SourceViewer(editStochasticExpressionGroup,
 				fCompositeRuler, SWT.V_SCROLL | SWT.MULTI | SWT.H_SCROLL | SWT.RESIZE);
 		final StyledText styledText = textViewer.getTextWidget();
@@ -143,6 +148,9 @@ public abstract class AbstractGrammerBasedEditDialog extends TitleAreaDialog {
 		ap.addAnnotationType(ERROR_TYPE);
 		ap.setAnnotationTypeColor(ERROR_TYPE, new Color(Display.getDefault(),
 				new RGB(255, 0, 0)));
+		ap.addAnnotationType(WARNING_TYPE);
+		ap.setAnnotationTypeColor(WARNING_TYPE, new Color(Display.getDefault(),
+				new RGB(255, 255, 0)));
 
 		// this will draw the squigglies under the text
 		textViewer.addPainter(ap);
@@ -178,6 +186,7 @@ public abstract class AbstractGrammerBasedEditDialog extends TitleAreaDialog {
 		EObject value = null;
 		fAnnotationModel.removeAllAnnotations();
 		Lexer lexer = null;
+		boolean hasErrors = false, hasWarnings = false;
 		try {
 			String text = this.textViewer.getDocument().get();
 			lexer = getLexer(text);
@@ -186,16 +195,37 @@ public abstract class AbstractGrammerBasedEditDialog extends TitleAreaDialog {
 			showInputInvalidInfo(e);
 			return;
 		} catch (StoExParserException e) {
-			for (ErrorEntry ex : e.getErrorList())
-				showInputInvalidInfo(ex);
-			return;
+			for (IIssue ex : e.getIssuesList()) {
+				if (ex instanceof ErrorEntry) {
+					showInputInvalidInfo((ErrorEntry)ex);
+					hasErrors = true;
+				}
+				else {
+					hasWarnings = true;
+					showInputWarning(ex);
+				}
+			}
+			if (hasErrors) 
+				return;
+			else if (hasWarnings)
+				this.setMessage(e.getIssuesList().get(0).getMessage(), IMessageProvider.WARNING);
 		} catch (Exception e) {
 			showInputInvalidInfo(e);
 			return;
 		}
 		this.getButton(IDialogConstants.OK_ID).setEnabled(true);
-		this.setErrorMessage(null);
+		if (!hasErrors)
+			this.setErrorMessage(null);
+		if (!hasWarnings)
+			this.setMessage(null);
 		result = value;
+	}
+
+	private void showInputWarning(IIssue ex) {
+		fAnnotationModel.addAnnotation(
+				new Annotation(WARNING_TYPE, false, 
+				ex.getMessage()),
+				new Position(0, textViewer.getDocument().getLength()));
 	}
 
 	protected abstract Lexer getLexer(String text);
@@ -228,10 +258,10 @@ public abstract class AbstractGrammerBasedEditDialog extends TitleAreaDialog {
 		result = null;
 		fAnnotationModel.addAnnotation(
 				new Annotation(ERROR_TYPE, false, 
-				e.getErrorText()),
+				e.getMessage()),
 				guessPosition(e.getEx()));
 		this.getButton(IDialogConstants.OK_ID).setEnabled(false);
-		this.setErrorMessage("Entered stochastic expression is invalid. Cause given: "+e.getErrorText());
+		this.setErrorMessage("Entered stochastic expression is invalid. Cause given: "+e.getMessage());
 	}
 	
 	/**
@@ -264,7 +294,8 @@ public abstract class AbstractGrammerBasedEditDialog extends TitleAreaDialog {
 
 class AnnotationMarkerAccess implements IAnnotationAccess,
 		IAnnotationAccessExtension {
-	public Object getType(Annotation annotation) {
+	
+	public String getType(Annotation annotation) {
 		return annotation.getType();
 	}
 
@@ -277,9 +308,10 @@ class AnnotationMarkerAccess implements IAnnotationAccess,
 	}
 
 	public String getTypeLabel(Annotation annotation) {
-		if (annotation instanceof Annotation)
+		if (getType(annotation).equals(AbstractGrammerBasedEditDialog.ERROR_TYPE))
 			return "Errors";
-
+		if (getType(annotation).equals(AbstractGrammerBasedEditDialog.WARNING_TYPE))
+			return "Warnings";
 		return null;
 	}
 
@@ -289,8 +321,12 @@ class AnnotationMarkerAccess implements IAnnotationAccess,
 
 	public void paint(Annotation annotation, GC gc, Canvas canvas,
 			Rectangle bounds) {
-		ImageUtilities.drawImage(SWTResourceManager.getImage("xxx.gif"),
-				gc, canvas, bounds, SWT.CENTER, SWT.TOP);
+		if (getType(annotation).equals(AbstractGrammerBasedEditDialog.ERROR_TYPE))
+			ImageUtilities.drawImage(
+				DialogsImages.imageRegistry.get(DialogsImages.ERROR),gc,canvas,bounds,SWT.CENTER);
+		else if (getType(annotation).equals(AbstractGrammerBasedEditDialog.WARNING_TYPE))
+			ImageUtilities.drawImage(
+					DialogsImages.imageRegistry.get(DialogsImages.WARNING),gc,canvas,bounds,SWT.CENTER);
 	}
 
 	public boolean isPaintable(Annotation annotation) {
