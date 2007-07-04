@@ -63,7 +63,7 @@ public interface FunctionLiteral extends Atom {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Parameters Function Literal</em>' containment reference list.
 	 * @see de.uka.ipd.sdq.stoex.StoexPackage#getFunctionLiteral_Parameters_FunctionLiteral()
-	 * @model type="de.uka.ipd.sdq.stoex.Expression" containment="true" ordered="false"
+	 * @model containment="true" ordered="false"
 	 * @generated
 	 */
 	EList<Expression> getParameters_FunctionLiteral();

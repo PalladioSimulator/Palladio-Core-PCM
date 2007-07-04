@@ -21,7 +21,7 @@
     <details key="INVARIANT_CONSTRAINTS" value="PROCESS"/>
     <details key="OPERATION_BODIES" value="IGNORE"/>
   </genAnnotations>
-  <foreignModel>file:/C:/coding/gmf2.bak/rsa_exports/stoex.uml2</foreignModel>
+  <foreignModel>file:/D:/Models/stoex.uml2</foreignModel>
   <genPackages prefix="Stoex" basePackage="de.uka.ipd.sdq" disposableProviderFactory="true"
       ecorePackage="stoex.ecore#/">
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="stoex.ecore#//TermOperations">
@@ -72,6 +72,10 @@
     </genClasses>
     <genClasses ecoreClass="stoex.ecore#//RandomVariable">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute stoex.ecore#//RandomVariable/specification"/>
+      <genOperations ecoreOperation="stoex.ecore#//RandomVariable/SpecificationMustNotBeNULL">
+        <genParameters ecoreParameter="stoex.ecore#//RandomVariable/SpecificationMustNotBeNULL/diagnostics"/>
+        <genParameters ecoreParameter="stoex.ecore#//RandomVariable/SpecificationMustNotBeNULL/context"/>
+      </genOperations>
     </genClasses>
     <genClasses ecoreClass="stoex.ecore#//ProductExpression">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference stoex.ecore#//ProductExpression/left"/>

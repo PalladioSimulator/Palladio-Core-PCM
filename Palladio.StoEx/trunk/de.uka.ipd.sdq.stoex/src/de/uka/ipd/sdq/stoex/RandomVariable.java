@@ -6,6 +6,8 @@
  */
 package de.uka.ipd.sdq.stoex;
 
+import java.util.Map;
+import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -50,5 +52,18 @@ public interface RandomVariable extends EObject {
 	 * @generated
 	 */
 	void setSpecification(String value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * not self.specification.oclIsUndefined() and self.specification <> ''
+	 * @param diagnostics The chain of diagnostics to which problems are to be appended.
+	 * @param context The cache of context-specific information.
+	 * <!-- end-model-doc -->
+	 * @model
+	 * @generated
+	 */
+	boolean SpecificationMustNotBeNULL(DiagnosticChain diagnostics, Map<Object, Object> context);
 
 } // RandomVariable
