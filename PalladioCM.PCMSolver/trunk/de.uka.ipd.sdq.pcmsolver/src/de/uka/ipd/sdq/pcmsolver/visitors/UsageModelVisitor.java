@@ -5,7 +5,7 @@ import org.eclipse.emf.common.util.EList;
 
 import de.uka.ipd.sdq.context.actual_allocation.ActualAllocation;
 import de.uka.ipd.sdq.context.actual_allocation.ActualAllocationContext;
-import de.uka.ipd.sdq.context.actual_allocation.AllocationFactory;
+import de.uka.ipd.sdq.context.actual_allocation.Actual_AllocationFactory;
 import de.uka.ipd.sdq.context.usage.Usage;
 import de.uka.ipd.sdq.context.usage.UsageContext;
 import de.uka.ipd.sdq.context.usage.UsageFactory;
@@ -47,7 +47,7 @@ public class UsageModelVisitor extends UsagemodelSwitch {
 
 	private UsageFactory usageFactory;
 
-	private AllocationFactory actualAllocationFactory;
+	private Actual_AllocationFactory actualAllocationFactory;
 	
 	private ParameterFactory parameterFactory;
 
@@ -58,7 +58,7 @@ public class UsageModelVisitor extends UsagemodelSwitch {
 	public UsageModelVisitor(PCMInstance inst) {
 		pcmInstance = inst;
 		usageFactory = UsageFactory.eINSTANCE;
-		actualAllocationFactory = AllocationFactory.eINSTANCE;
+		actualAllocationFactory = Actual_AllocationFactory.eINSTANCE;
 		parameterFactory = ParameterFactory.eINSTANCE;
 		ActualAllocation all = actualAllocationFactory.createActualAllocation();
 		Usage usage = usageFactory.createUsage();

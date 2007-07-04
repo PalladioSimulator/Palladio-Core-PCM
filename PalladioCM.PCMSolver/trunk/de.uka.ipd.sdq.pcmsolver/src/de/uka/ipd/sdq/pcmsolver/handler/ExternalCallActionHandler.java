@@ -6,7 +6,7 @@ import org.apache.log4j.Logger;
 import org.eclipse.emf.common.util.EList;
 
 import de.uka.ipd.sdq.context.actual_allocation.ActualAllocationContext;
-import de.uka.ipd.sdq.context.actual_allocation.AllocationFactory;
+import de.uka.ipd.sdq.context.actual_allocation.Actual_AllocationFactory;
 import de.uka.ipd.sdq.context.usage.UsageContext;
 import de.uka.ipd.sdq.context.usage.UsageFactory;
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyConnector;
@@ -48,7 +48,7 @@ public class ExternalCallActionHandler {
 	
 	private UsageFactory usageFactory = UsageFactory.eINSTANCE;
 	
-	private AllocationFactory actualAllocationFactory = AllocationFactory.eINSTANCE;
+	private Actual_AllocationFactory actualAllocationFactory = Actual_AllocationFactory.eINSTANCE;
 	
 	private ParameterFactory parameterFactory = ParameterFactory.eINSTANCE;
 	

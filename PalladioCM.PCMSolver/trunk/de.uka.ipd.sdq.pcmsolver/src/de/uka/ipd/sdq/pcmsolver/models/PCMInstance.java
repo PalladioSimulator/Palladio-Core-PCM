@@ -17,7 +17,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 
 import de.uka.ipd.sdq.context.actual_allocation.ActualAllocation;
-import de.uka.ipd.sdq.context.actual_allocation.AllocationFactory;
+import de.uka.ipd.sdq.context.actual_allocation.Actual_AllocationFactory;
 import de.uka.ipd.sdq.context.usage.Usage;
 import de.uka.ipd.sdq.context.usage.UsageFactory;
 import de.uka.ipd.sdq.pcm.allocation.Allocation;
@@ -60,13 +60,13 @@ public class PCMInstance {
 	public PCMInstance(Properties config) {
 		this.storagePath = config.getProperty("Storage_Path");
 		this.usage = UsageFactory.eINSTANCE.createUsage();
-		this.actualAllocation = AllocationFactory.eINSTANCE.createActualAllocation();
+		this.actualAllocation = Actual_AllocationFactory.eINSTANCE.createActualAllocation();
 		loadFromFiles(config);
 	}
 
 	public PCMInstance(ILaunchConfiguration configuration) {
 		this.usage = UsageFactory.eINSTANCE.createUsage();
-		this.actualAllocation = AllocationFactory.eINSTANCE
+		this.actualAllocation = Actual_AllocationFactory.eINSTANCE
 				.createActualAllocation();
 		try {
 			this.storagePath = configuration.getAttribute("outputPath", ".");

@@ -9,7 +9,7 @@ import org.apache.log4j.Logger;
 import org.eclipse.emf.common.util.EList;
 
 import de.uka.ipd.sdq.context.actual_allocation.ActualResourceDemand;
-import de.uka.ipd.sdq.context.actual_allocation.AllocationFactory;
+import de.uka.ipd.sdq.context.actual_allocation.Actual_AllocationFactory;
 import de.uka.ipd.sdq.pcm.allocation.Allocation;
 import de.uka.ipd.sdq.pcm.allocation.AllocationContext;
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
@@ -30,7 +30,7 @@ public class InternalActionHandler{
 	
 	private static Logger logger = Logger.getLogger(InternalActionHandler.class.getName());
 	
-	private AllocationFactory actualAllocationFactory = AllocationFactory.eINSTANCE;
+	private Actual_AllocationFactory actualAllocationFactory = Actual_AllocationFactory.eINSTANCE;
 
 	private SeffVisitor visitor; 
 	
