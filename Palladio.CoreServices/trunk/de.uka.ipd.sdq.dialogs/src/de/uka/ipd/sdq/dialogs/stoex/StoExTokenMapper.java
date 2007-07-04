@@ -63,6 +63,9 @@ public class StoExTokenMapper implements ITokenMapper {
 			return new TextAttribute (new Color( null, new RGB(255,0,255) ), null, SWT.ITALIC);
 		case PCMStoExLexer.ID:
 			return new TextAttribute (new Color( null, new RGB(255,0,255) ), null, SWT.NONE);
+		case PCMStoExLexer.LINE_COMMENT:
+		case PCMStoExLexer.COMMENT:
+			return new TextAttribute (new Color( null, new RGB(190,190,190) ), null, SWT.NONE);
 		default:
 			return null;
 		}

@@ -167,7 +167,7 @@ COMMENT
 
 // $ANTLR src "C:\coding\gmf2\Palladio.EMFComponentModel\trunk\de.uka.ipd.sdq.pcm.stochasticexpressions\src\de\uka\ipd\sdq\pcm\stochasticexpressions\parser\PCMStoEx.g" 531
 LINE_COMMENT
-    : '//' ~('\n'|'\r')* '\r'? '\n' {$channel=HIDDEN;}
+    : '//' ~('\n'|'\r')* '\r'? ('\n'|EOF) {$channel=HIDDEN;}
     ;
 
 

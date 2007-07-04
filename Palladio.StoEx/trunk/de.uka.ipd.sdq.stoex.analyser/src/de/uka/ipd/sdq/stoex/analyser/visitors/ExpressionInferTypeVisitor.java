@@ -77,8 +77,7 @@ public class ExpressionInferTypeVisitor extends StoexSwitch<Object> {
 			// may result in ints or doubles
 			inferIntAndDouble(expr, leftType, rightType);
 		} else if (op.getName().equals("MOD")){
-			//TODO
-			throw new UnsupportedOperationException();
+			this.typeAnnotation.put(expr, TypeEnum.INT_PMF);
 		} else
 			throw new UnsupportedOperationException();
 		logger.info(expr.getOperation().toString());
@@ -349,7 +348,8 @@ public class ExpressionInferTypeVisitor extends StoexSwitch<Object> {
 			typeAnnotation.put(object, TypeEnum.INT_PMF);
 		} else if (object.getId().equals("Round")) {
 			typeAnnotation.put(object, TypeEnum.INT_PMF);
-		}
+		} else 
+			throw new UnsupportedOperationException("Function "+object.getId()+" not supported!");
 		return object;
 	}
 

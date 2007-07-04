@@ -248,7 +248,7 @@ public abstract class AbstractGrammerBasedEditDialog extends TitleAreaDialog {
 		result = null;
 		fAnnotationModel.addAnnotation(
 				new Annotation(ERROR_TYPE, false, 
-				e.getMessage()),
+				e.getMessage() == null ? e.getClass().getName() : e.getMessage()),
 				guessPosition(e));
 		this.getButton(IDialogConstants.OK_ID).setEnabled(false);
 		this.setErrorMessage("Entered stochastic expression is invalid. Cause given: "+e.getLocalizedMessage());

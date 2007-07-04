@@ -18,11 +18,6 @@ public class ANTLRTokenWrapper implements IToken {
 		this.mapper = myMapper;
 	}
 	
-	public ANTLRTokenWrapper(boolean isUndefined, boolean isWhitespace) {
-		this.isWhitespace = isWhitespace;
-		this.isUndefined = isUndefined;
-	}
-
 	public Object getData() {
 		if (mapper == null)
 			return null;
@@ -47,6 +42,10 @@ public class ANTLRTokenWrapper implements IToken {
 		return isWhitespace;
 	}
 
+	public void setIsWhitespace(boolean isWhitespace) {
+		this.isWhitespace = isWhitespace;
+	}
+	
 	public Token getToken() {
 		return token;
 	}

@@ -76,11 +76,12 @@ public class StochasticExpressionEditDialog extends
 		errorList.addAll(((MyPCMStoExLexer)lexer).getErrors());
 		errorList.addAll(parser.getErrors());
 		
-		NonProbabilisticExpressionInferTypeVisitor typeVisitor = new NonProbabilisticExpressionInferTypeVisitor();
-		typeVisitor.doSwitch(result);
-		errorList.addAll(checkTypes(result,typeVisitor));
-		errorList.addAll(assertType(result,typeVisitor,expectedType));
-
+		if (errorList.size() == 0) {
+			NonProbabilisticExpressionInferTypeVisitor typeVisitor = new NonProbabilisticExpressionInferTypeVisitor();
+			typeVisitor.doSwitch(result);
+			errorList.addAll(checkTypes(result,typeVisitor));
+			errorList.addAll(assertType(result,typeVisitor,expectedType));
+		}
 		if (errorList.size() > 0)
 			throw new StoExParserException(errorList);
 		return result;
