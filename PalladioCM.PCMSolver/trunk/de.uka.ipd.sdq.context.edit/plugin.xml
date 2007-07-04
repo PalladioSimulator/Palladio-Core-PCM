@@ -24,7 +24,7 @@
   <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
     <factory 
        uri = "http://sdq.ipd.uka.de/Context/Allocation/1.0" 
-       class = "de.uka.ipd.sdq.context.actual_allocation.provider.AllocationItemProviderAdapterFactory" 
+       class = "de.uka.ipd.sdq.context.actual_allocation.provider.Actual_AllocationItemProviderAdapterFactory" 
        supportedTypes = 
          "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
           org.eclipse.emf.edit.provider.IStructuredItemContentProvider

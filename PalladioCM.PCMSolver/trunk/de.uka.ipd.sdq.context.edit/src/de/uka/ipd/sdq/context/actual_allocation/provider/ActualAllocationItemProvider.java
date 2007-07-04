@@ -9,8 +9,6 @@ package de.uka.ipd.sdq.context.actual_allocation.provider;
 import de.uka.ipd.sdq.context.actual_allocation.ActualAllocation;
 import de.uka.ipd.sdq.context.actual_allocation.Actual_AllocationFactory;
 import de.uka.ipd.sdq.context.actual_allocation.Actual_AllocationPackage;
-import de.uka.ipd.sdq.context.actual_allocation.AllocationFactory;
-import de.uka.ipd.sdq.context.actual_allocation.AllocationPackage;
 
 import de.uka.ipd.sdq.context.usage.provider.ContextEditPlugin;
 
