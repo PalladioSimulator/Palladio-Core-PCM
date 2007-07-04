@@ -7,5 +7,6 @@ Bundle-Vendor: sdq.ipd.uka.de
 Require-Bundle: org.eclipse.ui,
  org.eclipse.help,
  org.eclipse.help.ui,
-  org.eclipse.ui.intro,
- org.eclipse.help.webapp
+ org.eclipse.ui.intro,
+ org.eclipse.help.webapp,
+ org.eclipse.ui.intro.universal

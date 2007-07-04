@@ -24,4 +24,11 @@
            file="contexts.xml">
      </contexts>
   </extension>
+  <extension
+        point="org.eclipse.ui.intro.configExtension">
+     <configExtension
+           configId="org.eclipse.ui.intro.universalConfig"
+           content="intro/pcm.xml">
+     </configExtension>
+  </extension>
 </plugin>
