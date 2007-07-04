@@ -45,13 +45,15 @@ public class StopActionImpl extends AbstractResourceDemandingActionImpl implemen
 
 
 	/**
-	 * The parsed OCL expression for the definition of the '{@link #StopActionsuccessormustnotbedefined <em>Stop Actionsuccessormustnotbedefined</em>}' invariant constraint.
+	 * The parsed OCL expression for the definition of the '{@link #StopActionSuccessorMustNotBeDefined <em>Stop Action Successor Must Not Be Defined</em>}' invariant constraint.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #StopActionsuccessormustnotbedefined
+	 * @see #StopActionSuccessorMustNotBeDefined
 	 * @generated
 	 */
-	private static OCLExpression StopActionsuccessormustnotbedefinedInvOCL;
+	private static OCLExpression StopActionSuccessorMustNotBeDefinedInvOCL;
+
+
 	private static final String OCL_ANNOTATION_SOURCE = "http://www.eclipse.org/emf/2002/GenModel";
 
 
@@ -79,21 +81,21 @@ public class StopActionImpl extends AbstractResourceDemandingActionImpl implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean StopActionsuccessormustnotbedefined(DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (StopActionsuccessormustnotbedefinedInvOCL == null) {
+	public boolean StopActionSuccessorMustNotBeDefined(DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (StopActionSuccessorMustNotBeDefinedInvOCL == null) {
 			Environment env = ExpressionsUtil.createClassifierContext(eClass());
 			
 			
 			String body = "self.successor_AbstractAction.oclIsUndefined() ";
 			
 			try {
-				StopActionsuccessormustnotbedefinedInvOCL = ExpressionsUtil.createInvariant(env, body, true);
+				StopActionSuccessorMustNotBeDefinedInvOCL = ExpressionsUtil.createInvariant(env, body, true);
 			} catch (ParserException e) {
 				throw new UnsupportedOperationException(e.getLocalizedMessage());
 			}
 		}
 		
-		Query query = QueryFactory.eINSTANCE.createQuery(StopActionsuccessormustnotbedefinedInvOCL);
+		Query query = QueryFactory.eINSTANCE.createQuery(StopActionSuccessorMustNotBeDefinedInvOCL);
 		EvalEnvironment evalEnv = new EvalEnvironment();
 		query.setEvaluationEnvironment(evalEnv);
 		
@@ -103,8 +105,8 @@ public class StopActionImpl extends AbstractResourceDemandingActionImpl implemen
 					(new BasicDiagnostic
 						(Diagnostic.ERROR,
 						 SeffValidator.DIAGNOSTIC_SOURCE,
-						 SeffValidator.STOP_ACTION__STOP_ACTIONSUCCESSORMUSTNOTBEDEFINED,
-						 EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "StopActionsuccessormustnotbedefined", EObjectValidator.getObjectLabel(this, context) }),
+						 SeffValidator.STOP_ACTION__STOP_ACTION_SUCCESSOR_MUST_NOT_BE_DEFINED,
+						 EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "StopActionSuccessorMustNotBeDefined", EObjectValidator.getObjectLabel(this, context) }),
 						 new Object [] { this }));
 			}
 			return false;

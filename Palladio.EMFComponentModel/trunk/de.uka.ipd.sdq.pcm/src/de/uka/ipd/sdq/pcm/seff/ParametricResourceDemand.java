@@ -129,6 +129,6 @@ public interface ParametricResourceDemand extends RandomVariable {
 	 * @model
 	 * @generated
 	 */
-	boolean ParametricResourceDemandSpecificationmustnotbeNULL(DiagnosticChain diagnostics, Map<Object, Object> context);
+	boolean ParametricResourceDemandSpecificationMustNotBeNULL(DiagnosticChain diagnostics, Map<Object, Object> context);
 
 } // ParametricResourceDemand

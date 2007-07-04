@@ -52,28 +52,28 @@ public class SeffValidator extends EObjectValidator {
 	public static final String DIAGNOSTIC_SOURCE = "de.uka.ipd.sdq.pcm.seff";
 
 	/**
-	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Stop Actionsuccessormustnotbedefined' of 'Stop Action'.
+	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Stop Action Successor Must Not Be Defined' of 'Stop Action'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final int STOP_ACTION__STOP_ACTIONSUCCESSORMUSTNOTBEDEFINED = 1;
+	public static final int STOP_ACTION__STOP_ACTION_SUCCESSOR_MUST_NOT_BE_DEFINED = 1;
 
 	/**
-	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Parametric Resource Demand Specificationmustnotbe NULL' of 'Parametric Resource Demand'.
+	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Parametric Resource Demand Specification Must Not Be NULL' of 'Parametric Resource Demand'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final int PARAMETRIC_RESOURCE_DEMAND__PARAMETRIC_RESOURCE_DEMAND_SPECIFICATIONMUSTNOTBE_NULL = 2;
+	public static final int PARAMETRIC_RESOURCE_DEMAND__PARAMETRIC_RESOURCE_DEMAND_SPECIFICATION_MUST_NOT_BE_NULL = 2;
 
 	/**
-	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Start Actionpredecessormustnotbedefinded' of 'Start Action'.
+	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Start Action Predecessor Must Not Be Defined' of 'Start Action'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final int START_ACTION__START_ACTIONPREDECESSORMUSTNOTBEDEFINDED = 3;
+	public static final int START_ACTION__START_ACTION_PREDECESSOR_MUST_NOT_BE_DEFINED = 3;
 
 	/**
 	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Exactly One Stop Action' of 'Resource Demanding Behaviour'.
@@ -92,12 +92,12 @@ public class SeffValidator extends EObjectValidator {
 	public static final int RESOURCE_DEMANDING_BEHAVIOUR__EXACTLY_ONE_START_ACTION = 5;
 
 	/**
-	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Eachactionexcept Start Actionand Stop Actionmusthaveapredecessorandsuccessor' of 'Resource Demanding Behaviour'.
+	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Each Action Except Start Actionand Stop Action Must Hhave APredecessor And Successor' of 'Resource Demanding Behaviour'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final int RESOURCE_DEMANDING_BEHAVIOUR__EACHACTIONEXCEPT_START_ACTIONAND_STOP_ACTIONMUSTHAVEAPREDECESSORANDSUCCESSOR = 6;
+	public static final int RESOURCE_DEMANDING_BEHAVIOUR__EACH_ACTION_EXCEPT_START_ACTIONAND_STOP_ACTION_MUST_HHAVE_APREDECESSOR_AND_SUCCESSOR = 6;
 
 	/**
 	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Either Guarded Branches Or Probabilisitic Branch Transitions' of 'Branch Action'.
@@ -108,12 +108,12 @@ public class SeffValidator extends EObjectValidator {
 	public static final int BRANCH_ACTION__EITHER_GUARDED_BRANCHES_OR_PROBABILISITIC_BRANCH_TRANSITIONS = 7;
 
 	/**
-	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'All Probabilistic Branch Probabilitiesmustsumupto1' of 'Branch Action'.
+	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'All Probabilistic Branch Probabilities Must Sum Up To1' of 'Branch Action'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final int BRANCH_ACTION__ALL_PROBABILISTIC_BRANCH_PROBABILITIESMUSTSUMUPTO1 = 8;
+	public static final int BRANCH_ACTION__ALL_PROBABILISTIC_BRANCH_PROBABILITIES_MUST_SUM_UP_TO1 = 8;
 
 	/**
 	 * A constant with a fixed name that can be used as the base value for additional hand written constants.
@@ -235,18 +235,18 @@ public class SeffValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(stopAction, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(stopAction, diagnostics, context);
 		if (result || diagnostics != null) result &= identifierValidator.validateIdentifier_idHasToBeUnique(stopAction, diagnostics, context);
-		if (result || diagnostics != null) result &= validateStopAction_StopActionsuccessormustnotbedefined(stopAction, diagnostics, context);
+		if (result || diagnostics != null) result &= validateStopAction_StopActionSuccessorMustNotBeDefined(stopAction, diagnostics, context);
 		return result;
 	}
 
 	/**
-	 * Validates the StopActionsuccessormustnotbedefined constraint of '<em>Stop Action</em>'.
+	 * Validates the StopActionSuccessorMustNotBeDefined constraint of '<em>Stop Action</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateStopAction_StopActionsuccessormustnotbedefined(StopAction stopAction, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return stopAction.StopActionsuccessormustnotbedefined(diagnostics, context);
+	public boolean validateStopAction_StopActionSuccessorMustNotBeDefined(StopAction stopAction, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return stopAction.StopActionSuccessorMustNotBeDefined(diagnostics, context);
 	}
 
 	/**
@@ -296,18 +296,18 @@ public class SeffValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_UniqueID(parametricResourceDemand, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(parametricResourceDemand, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(parametricResourceDemand, diagnostics, context);
-		if (result || diagnostics != null) result &= validateParametricResourceDemand_ParametricResourceDemandSpecificationmustnotbeNULL(parametricResourceDemand, diagnostics, context);
+		if (result || diagnostics != null) result &= validateParametricResourceDemand_ParametricResourceDemandSpecificationMustNotBeNULL(parametricResourceDemand, diagnostics, context);
 		return result;
 	}
 
 	/**
-	 * Validates the ParametricResourceDemandSpecificationmustnotbeNULL constraint of '<em>Parametric Resource Demand</em>'.
+	 * Validates the ParametricResourceDemandSpecificationMustNotBeNULL constraint of '<em>Parametric Resource Demand</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateParametricResourceDemand_ParametricResourceDemandSpecificationmustnotbeNULL(ParametricResourceDemand parametricResourceDemand, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return parametricResourceDemand.ParametricResourceDemandSpecificationmustnotbeNULL(diagnostics, context);
+	public boolean validateParametricResourceDemand_ParametricResourceDemandSpecificationMustNotBeNULL(ParametricResourceDemand parametricResourceDemand, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return parametricResourceDemand.ParametricResourceDemandSpecificationMustNotBeNULL(diagnostics, context);
 	}
 
 	/**
@@ -324,18 +324,18 @@ public class SeffValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(startAction, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(startAction, diagnostics, context);
 		if (result || diagnostics != null) result &= identifierValidator.validateIdentifier_idHasToBeUnique(startAction, diagnostics, context);
-		if (result || diagnostics != null) result &= validateStartAction_StartActionpredecessormustnotbedefinded(startAction, diagnostics, context);
+		if (result || diagnostics != null) result &= validateStartAction_StartActionPredecessorMustNotBeDefined(startAction, diagnostics, context);
 		return result;
 	}
 
 	/**
-	 * Validates the StartActionpredecessormustnotbedefinded constraint of '<em>Start Action</em>'.
+	 * Validates the StartActionPredecessorMustNotBeDefined constraint of '<em>Start Action</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateStartAction_StartActionpredecessormustnotbedefinded(StartAction startAction, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return startAction.StartActionpredecessormustnotbedefinded(diagnostics, context);
+	public boolean validateStartAction_StartActionPredecessorMustNotBeDefined(StartAction startAction, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return startAction.StartActionPredecessorMustNotBeDefined(diagnostics, context);
 	}
 
 	/**
@@ -354,7 +354,7 @@ public class SeffValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= identifierValidator.validateIdentifier_idHasToBeUnique(resourceDemandingSEFF, diagnostics, context);
 		if (result || diagnostics != null) result &= validateResourceDemandingBehaviour_ExactlyOneStopAction(resourceDemandingSEFF, diagnostics, context);
 		if (result || diagnostics != null) result &= validateResourceDemandingBehaviour_ExactlyOneStartAction(resourceDemandingSEFF, diagnostics, context);
-		if (result || diagnostics != null) result &= validateResourceDemandingBehaviour_EachactionexceptStartActionandStopActionmusthaveapredecessorandsuccessor(resourceDemandingSEFF, diagnostics, context);
+		if (result || diagnostics != null) result &= validateResourceDemandingBehaviour_EachActionExceptStartActionandStopActionMustHhaveAPredecessorAndSuccessor(resourceDemandingSEFF, diagnostics, context);
 		return result;
 	}
 
@@ -373,7 +373,7 @@ public class SeffValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(resourceDemandingBehaviour, diagnostics, context);
 		if (result || diagnostics != null) result &= validateResourceDemandingBehaviour_ExactlyOneStopAction(resourceDemandingBehaviour, diagnostics, context);
 		if (result || diagnostics != null) result &= validateResourceDemandingBehaviour_ExactlyOneStartAction(resourceDemandingBehaviour, diagnostics, context);
-		if (result || diagnostics != null) result &= validateResourceDemandingBehaviour_EachactionexceptStartActionandStopActionmusthaveapredecessorandsuccessor(resourceDemandingBehaviour, diagnostics, context);
+		if (result || diagnostics != null) result &= validateResourceDemandingBehaviour_EachActionExceptStartActionandStopActionMustHhaveAPredecessorAndSuccessor(resourceDemandingBehaviour, diagnostics, context);
 		return result;
 	}
 
@@ -398,13 +398,13 @@ public class SeffValidator extends EObjectValidator {
 	}
 
 	/**
-	 * Validates the EachactionexceptStartActionandStopActionmusthaveapredecessorandsuccessor constraint of '<em>Resource Demanding Behaviour</em>'.
+	 * Validates the EachActionExceptStartActionandStopActionMustHhaveAPredecessorAndSuccessor constraint of '<em>Resource Demanding Behaviour</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateResourceDemandingBehaviour_EachactionexceptStartActionandStopActionmusthaveapredecessorandsuccessor(ResourceDemandingBehaviour resourceDemandingBehaviour, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return resourceDemandingBehaviour.EachactionexceptStartActionandStopActionmusthaveapredecessorandsuccessor(diagnostics, context);
+	public boolean validateResourceDemandingBehaviour_EachActionExceptStartActionandStopActionMustHhaveAPredecessorAndSuccessor(ResourceDemandingBehaviour resourceDemandingBehaviour, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return resourceDemandingBehaviour.EachActionExceptStartActionandStopActionMustHhaveAPredecessorAndSuccessor(diagnostics, context);
 	}
 
 	/**
@@ -567,7 +567,7 @@ public class SeffValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(branchAction, diagnostics, context);
 		if (result || diagnostics != null) result &= identifierValidator.validateIdentifier_idHasToBeUnique(branchAction, diagnostics, context);
 		if (result || diagnostics != null) result &= validateBranchAction_EitherGuardedBranchesOrProbabilisiticBranchTransitions(branchAction, diagnostics, context);
-		if (result || diagnostics != null) result &= validateBranchAction_AllProbabilisticBranchProbabilitiesmustsumupto1(branchAction, diagnostics, context);
+		if (result || diagnostics != null) result &= validateBranchAction_AllProbabilisticBranchProbabilitiesMustSumUpTo1(branchAction, diagnostics, context);
 		return result;
 	}
 
@@ -582,13 +582,13 @@ public class SeffValidator extends EObjectValidator {
 	}
 
 	/**
-	 * Validates the AllProbabilisticBranchProbabilitiesmustsumupto1 constraint of '<em>Branch Action</em>'.
+	 * Validates the AllProbabilisticBranchProbabilitiesMustSumUpTo1 constraint of '<em>Branch Action</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateBranchAction_AllProbabilisticBranchProbabilitiesmustsumupto1(BranchAction branchAction, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return branchAction.AllProbabilisticBranchProbabilitiesmustsumupto1(diagnostics, context);
+	public boolean validateBranchAction_AllProbabilisticBranchProbabilitiesMustSumUpTo1(BranchAction branchAction, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return branchAction.AllProbabilisticBranchProbabilitiesMustSumUpTo1(diagnostics, context);
 	}
 
 	/**

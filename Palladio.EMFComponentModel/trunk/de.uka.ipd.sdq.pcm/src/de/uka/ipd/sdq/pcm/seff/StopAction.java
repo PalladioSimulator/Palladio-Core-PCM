@@ -38,6 +38,6 @@ public interface StopAction extends AbstractResourceDemandingAction {
 	 * @model
 	 * @generated
 	 */
-	boolean StopActionsuccessormustnotbedefined(DiagnosticChain diagnostics, Map<Object, Object> context);
+	boolean StopActionSuccessorMustNotBeDefined(DiagnosticChain diagnostics, Map<Object, Object> context);
 
 } // StopAction

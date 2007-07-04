@@ -90,13 +90,13 @@ public class ResourceDemandingBehaviourImpl extends EObjectImpl implements Resou
 	private static OCLExpression ExactlyOneStartActionInvOCL;
 
 	/**
-	 * The parsed OCL expression for the definition of the '{@link #EachactionexceptStartActionandStopActionmusthaveapredecessorandsuccessor <em>Eachactionexcept Start Actionand Stop Actionmusthaveapredecessorandsuccessor</em>}' invariant constraint.
+	 * The parsed OCL expression for the definition of the '{@link #EachActionExceptStartActionandStopActionMustHhaveAPredecessorAndSuccessor <em>Each Action Except Start Actionand Stop Action Must Hhave APredecessor And Successor</em>}' invariant constraint.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #EachactionexceptStartActionandStopActionmusthaveapredecessorandsuccessor
+	 * @see #EachActionExceptStartActionandStopActionMustHhaveAPredecessorAndSuccessor
 	 * @generated
 	 */
-	private static OCLExpression EachactionexceptStartActionandStopActionmusthaveapredecessorandsuccessorInvOCL;
+	private static OCLExpression EachActionExceptStartActionandStopActionMustHhaveAPredecessorAndSuccessorInvOCL;
 
 	private static final String OCL_ANNOTATION_SOURCE = "http://www.eclipse.org/emf/2002/GenModel";
 
@@ -215,21 +215,21 @@ public class ResourceDemandingBehaviourImpl extends EObjectImpl implements Resou
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean EachactionexceptStartActionandStopActionmusthaveapredecessorandsuccessor(DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (EachactionexceptStartActionandStopActionmusthaveapredecessorandsuccessorInvOCL == null) {
+	public boolean EachActionExceptStartActionandStopActionMustHhaveAPredecessorAndSuccessor(DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (EachActionExceptStartActionandStopActionMustHhaveAPredecessorAndSuccessorInvOCL == null) {
 			Environment env = ExpressionsUtil.createClassifierContext(eClass());
 			
 			
 			String body = "not self.steps_Behaviour->select(s|not s.oclIsTypeOf(StartAction) and not s.oclIsTypeOf(StopAction))->exists(a|a.oclAsType(AbstractAction).predecessor_AbstractAction.oclIsUndefined()) and not self.steps_Behaviour->select(s|not s.oclIsTypeOf(StartAction) and not s.oclIsTypeOf(StopAction))->exists(a|a.oclAsType(AbstractAction).successor_AbstractAction.oclIsUndefined()) ";
 			
 			try {
-				EachactionexceptStartActionandStopActionmusthaveapredecessorandsuccessorInvOCL = ExpressionsUtil.createInvariant(env, body, true);
+				EachActionExceptStartActionandStopActionMustHhaveAPredecessorAndSuccessorInvOCL = ExpressionsUtil.createInvariant(env, body, true);
 			} catch (ParserException e) {
 				throw new UnsupportedOperationException(e.getLocalizedMessage());
 			}
 		}
 		
-		Query query = QueryFactory.eINSTANCE.createQuery(EachactionexceptStartActionandStopActionmusthaveapredecessorandsuccessorInvOCL);
+		Query query = QueryFactory.eINSTANCE.createQuery(EachActionExceptStartActionandStopActionMustHhaveAPredecessorAndSuccessorInvOCL);
 		EvalEnvironment evalEnv = new EvalEnvironment();
 		query.setEvaluationEnvironment(evalEnv);
 		
@@ -239,8 +239,8 @@ public class ResourceDemandingBehaviourImpl extends EObjectImpl implements Resou
 					(new BasicDiagnostic
 						(Diagnostic.ERROR,
 						 SeffValidator.DIAGNOSTIC_SOURCE,
-						 SeffValidator.RESOURCE_DEMANDING_BEHAVIOUR__EACHACTIONEXCEPT_START_ACTIONAND_STOP_ACTIONMUSTHAVEAPREDECESSORANDSUCCESSOR,
-						 EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "EachactionexceptStartActionandStopActionmusthaveapredecessorandsuccessor", EObjectValidator.getObjectLabel(this, context) }),
+						 SeffValidator.RESOURCE_DEMANDING_BEHAVIOUR__EACH_ACTION_EXCEPT_START_ACTIONAND_STOP_ACTION_MUST_HHAVE_APREDECESSOR_AND_SUCCESSOR,
+						 EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "EachActionExceptStartActionandStopActionMustHhaveAPredecessorAndSuccessor", EObjectValidator.getObjectLabel(this, context) }),
 						 new Object [] { this }));
 			}
 			return false;

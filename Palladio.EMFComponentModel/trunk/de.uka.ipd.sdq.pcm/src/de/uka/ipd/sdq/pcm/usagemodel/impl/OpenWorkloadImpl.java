@@ -66,13 +66,13 @@ public class OpenWorkloadImpl extends WorkloadImpl implements OpenWorkload {
 
 
 	/**
-	 * The parsed OCL expression for the definition of the '{@link #InterArrivalTimeinOpenWorkloadneedstobespecified <em>Inter Arrival Timein Open Workloadneedstobespecified</em>}' invariant constraint.
+	 * The parsed OCL expression for the definition of the '{@link #InterArrivalTimeInOpenWorkloadNeedsToBeSpecified <em>Inter Arrival Time In Open Workload Needs To Be Specified</em>}' invariant constraint.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #InterArrivalTimeinOpenWorkloadneedstobespecified
+	 * @see #InterArrivalTimeInOpenWorkloadNeedsToBeSpecified
 	 * @generated
 	 */
-	private static OCLExpression InterArrivalTimeinOpenWorkloadneedstobespecifiedInvOCL;
+	private static OCLExpression InterArrivalTimeInOpenWorkloadNeedsToBeSpecifiedInvOCL;
 
 	private static final String OCL_ANNOTATION_SOURCE = "http://www.eclipse.org/emf/2002/GenModel";
 
@@ -144,21 +144,21 @@ public class OpenWorkloadImpl extends WorkloadImpl implements OpenWorkload {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean InterArrivalTimeinOpenWorkloadneedstobespecified(DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (InterArrivalTimeinOpenWorkloadneedstobespecifiedInvOCL == null) {
+	public boolean InterArrivalTimeInOpenWorkloadNeedsToBeSpecified(DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (InterArrivalTimeInOpenWorkloadNeedsToBeSpecifiedInvOCL == null) {
 			Environment env = ExpressionsUtil.createClassifierContext(eClass());
 			
 			
 			String body = "not self.interArrivalTime_OpenWorkload.oclIsUndefined() and self.interArrivalTime_OpenWorkload.specification <> '' ";
 			
 			try {
-				InterArrivalTimeinOpenWorkloadneedstobespecifiedInvOCL = ExpressionsUtil.createInvariant(env, body, true);
+				InterArrivalTimeInOpenWorkloadNeedsToBeSpecifiedInvOCL = ExpressionsUtil.createInvariant(env, body, true);
 			} catch (ParserException e) {
 				throw new UnsupportedOperationException(e.getLocalizedMessage());
 			}
 		}
 		
-		Query query = QueryFactory.eINSTANCE.createQuery(InterArrivalTimeinOpenWorkloadneedstobespecifiedInvOCL);
+		Query query = QueryFactory.eINSTANCE.createQuery(InterArrivalTimeInOpenWorkloadNeedsToBeSpecifiedInvOCL);
 		EvalEnvironment evalEnv = new EvalEnvironment();
 		query.setEvaluationEnvironment(evalEnv);
 		
@@ -168,8 +168,8 @@ public class OpenWorkloadImpl extends WorkloadImpl implements OpenWorkload {
 					(new BasicDiagnostic
 						(Diagnostic.ERROR,
 						 UsagemodelValidator.DIAGNOSTIC_SOURCE,
-						 UsagemodelValidator.OPEN_WORKLOAD__INTER_ARRIVAL_TIMEIN_OPEN_WORKLOADNEEDSTOBESPECIFIED,
-						 EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "InterArrivalTimeinOpenWorkloadneedstobespecified", EObjectValidator.getObjectLabel(this, context) }),
+						 UsagemodelValidator.OPEN_WORKLOAD__INTER_ARRIVAL_TIME_IN_OPEN_WORKLOAD_NEEDS_TO_BE_SPECIFIED,
+						 EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "InterArrivalTimeInOpenWorkloadNeedsToBeSpecified", EObjectValidator.getObjectLabel(this, context) }),
 						 new Object [] { this }));
 			}
 			return false;

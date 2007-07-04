@@ -38,6 +38,6 @@ public interface Stop extends AbstractUserAction {
 	 * @model
 	 * @generated
 	 */
-	boolean Stophasnosuccessor(DiagnosticChain diagnostics, Map<Object, Object> context);
+	boolean StopHasNoSuccessor(DiagnosticChain diagnostics, Map<Object, Object> context);
 
 } // Stop

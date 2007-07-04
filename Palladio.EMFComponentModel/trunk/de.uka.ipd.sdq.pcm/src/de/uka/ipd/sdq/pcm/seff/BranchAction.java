@@ -71,6 +71,6 @@ public interface BranchAction extends AbstractResourceDemandingAction {
 	 * @model
 	 * @generated
 	 */
-	boolean AllProbabilisticBranchProbabilitiesmustsumupto1(DiagnosticChain diagnostics, Map<Object, Object> context);
+	boolean AllProbabilisticBranchProbabilitiesMustSumUpTo1(DiagnosticChain diagnostics, Map<Object, Object> context);
 
 } // BranchAction

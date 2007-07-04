@@ -84,6 +84,6 @@ public interface ResourceDemandingBehaviour extends EObject {
 	 * @model
 	 * @generated
 	 */
-	boolean EachactionexceptStartActionandStopActionmusthaveapredecessorandsuccessor(DiagnosticChain diagnostics, Map<Object, Object> context);
+	boolean EachActionExceptStartActionandStopActionMustHhaveAPredecessorAndSuccessor(DiagnosticChain diagnostics, Map<Object, Object> context);
 
 } // ResourceDemandingBehaviour

@@ -97,7 +97,7 @@ public interface ClosedWorkload extends Workload {
 	 * @model
 	 * @generated
 	 */
-	boolean PopulationinClosedWorkloadneedstobespecified(DiagnosticChain diagnostics, Map<Object, Object> context);
+	boolean PopulationInClosedWorkloadNeedsToBeSpecified(DiagnosticChain diagnostics, Map<Object, Object> context);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -108,6 +108,6 @@ public interface ClosedWorkload extends Workload {
 	 * @model
 	 * @generated
 	 */
-	boolean ThinkTimeinClosedWorkloadneedstobespecified(DiagnosticChain diagnostics, Map<Object, Object> context);
+	boolean ThinkTimeInClosedWorkloadNeedsToBeSpecified(DiagnosticChain diagnostics, Map<Object, Object> context);
 
 } // ClosedWorkload

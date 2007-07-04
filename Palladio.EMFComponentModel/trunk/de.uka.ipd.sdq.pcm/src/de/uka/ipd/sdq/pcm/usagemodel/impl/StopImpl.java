@@ -45,13 +45,15 @@ public class StopImpl extends AbstractUserActionImpl implements Stop {
 
 
 	/**
-	 * The parsed OCL expression for the definition of the '{@link #Stophasnosuccessor <em>Stophasnosuccessor</em>}' invariant constraint.
+	 * The parsed OCL expression for the definition of the '{@link #StopHasNoSuccessor <em>Stop Has No Successor</em>}' invariant constraint.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #Stophasnosuccessor
+	 * @see #StopHasNoSuccessor
 	 * @generated
 	 */
-	private static OCLExpression StophasnosuccessorInvOCL;
+	private static OCLExpression StopHasNoSuccessorInvOCL;
+
+
 	private static final String OCL_ANNOTATION_SOURCE = "http://www.eclipse.org/emf/2002/GenModel";
 
 
@@ -79,21 +81,21 @@ public class StopImpl extends AbstractUserActionImpl implements Stop {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean Stophasnosuccessor(DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (StophasnosuccessorInvOCL == null) {
+	public boolean StopHasNoSuccessor(DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (StopHasNoSuccessorInvOCL == null) {
 			Environment env = ExpressionsUtil.createClassifierContext(eClass());
 			
 			
 			String body = "self.successor.oclIsUndefined() ";
 			
 			try {
-				StophasnosuccessorInvOCL = ExpressionsUtil.createInvariant(env, body, true);
+				StopHasNoSuccessorInvOCL = ExpressionsUtil.createInvariant(env, body, true);
 			} catch (ParserException e) {
 				throw new UnsupportedOperationException(e.getLocalizedMessage());
 			}
 		}
 		
-		Query query = QueryFactory.eINSTANCE.createQuery(StophasnosuccessorInvOCL);
+		Query query = QueryFactory.eINSTANCE.createQuery(StopHasNoSuccessorInvOCL);
 		EvalEnvironment evalEnv = new EvalEnvironment();
 		query.setEvaluationEnvironment(evalEnv);
 		
@@ -103,8 +105,8 @@ public class StopImpl extends AbstractUserActionImpl implements Stop {
 					(new BasicDiagnostic
 						(Diagnostic.ERROR,
 						 UsagemodelValidator.DIAGNOSTIC_SOURCE,
-						 UsagemodelValidator.STOP__STOPHASNOSUCCESSOR,
-						 EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "Stophasnosuccessor", EObjectValidator.getObjectLabel(this, context) }),
+						 UsagemodelValidator.STOP__STOP_HAS_NO_SUCCESSOR,
+						 EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "StopHasNoSuccessor", EObjectValidator.getObjectLabel(this, context) }),
 						 new Object [] { this }));
 			}
 			return false;

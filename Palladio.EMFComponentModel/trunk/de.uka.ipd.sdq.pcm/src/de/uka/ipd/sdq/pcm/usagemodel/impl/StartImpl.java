@@ -45,13 +45,15 @@ public class StartImpl extends AbstractUserActionImpl implements Start {
 
 
 	/**
-	 * The parsed OCL expression for the definition of the '{@link #Starthasnopredecessor <em>Starthasnopredecessor</em>}' invariant constraint.
+	 * The parsed OCL expression for the definition of the '{@link #StartHasNoPredecessor <em>Start Has No Predecessor</em>}' invariant constraint.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #Starthasnopredecessor
+	 * @see #StartHasNoPredecessor
 	 * @generated
 	 */
-	private static OCLExpression StarthasnopredecessorInvOCL;
+	private static OCLExpression StartHasNoPredecessorInvOCL;
+
+
 	private static final String OCL_ANNOTATION_SOURCE = "http://www.eclipse.org/emf/2002/GenModel";
 
 
@@ -79,21 +81,21 @@ public class StartImpl extends AbstractUserActionImpl implements Start {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean Starthasnopredecessor(DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (StarthasnopredecessorInvOCL == null) {
+	public boolean StartHasNoPredecessor(DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (StartHasNoPredecessorInvOCL == null) {
 			Environment env = ExpressionsUtil.createClassifierContext(eClass());
 			
 			
 			String body = "self.predecessor.oclIsUndefined() ";
 			
 			try {
-				StarthasnopredecessorInvOCL = ExpressionsUtil.createInvariant(env, body, true);
+				StartHasNoPredecessorInvOCL = ExpressionsUtil.createInvariant(env, body, true);
 			} catch (ParserException e) {
 				throw new UnsupportedOperationException(e.getLocalizedMessage());
 			}
 		}
 		
-		Query query = QueryFactory.eINSTANCE.createQuery(StarthasnopredecessorInvOCL);
+		Query query = QueryFactory.eINSTANCE.createQuery(StartHasNoPredecessorInvOCL);
 		EvalEnvironment evalEnv = new EvalEnvironment();
 		query.setEvaluationEnvironment(evalEnv);
 		
@@ -103,8 +105,8 @@ public class StartImpl extends AbstractUserActionImpl implements Start {
 					(new BasicDiagnostic
 						(Diagnostic.ERROR,
 						 UsagemodelValidator.DIAGNOSTIC_SOURCE,
-						 UsagemodelValidator.START__STARTHASNOPREDECESSOR,
-						 EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "Starthasnopredecessor", EObjectValidator.getObjectLabel(this, context) }),
+						 UsagemodelValidator.START__START_HAS_NO_PREDECESSOR,
+						 EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "StartHasNoPredecessor", EObjectValidator.getObjectLabel(this, context) }),
 						 new Object [] { this }));
 			}
 			return false;

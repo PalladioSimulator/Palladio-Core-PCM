@@ -70,6 +70,6 @@ public interface OpenWorkload extends Workload {
 	 * @model
 	 * @generated
 	 */
-	boolean InterArrivalTimeinOpenWorkloadneedstobespecified(DiagnosticChain diagnostics, Map<Object, Object> context);
+	boolean InterArrivalTimeInOpenWorkloadNeedsToBeSpecified(DiagnosticChain diagnostics, Map<Object, Object> context);
 
 } // OpenWorkload

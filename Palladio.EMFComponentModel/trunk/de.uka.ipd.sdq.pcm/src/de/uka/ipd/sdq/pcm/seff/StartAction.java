@@ -38,6 +38,6 @@ public interface StartAction extends AbstractResourceDemandingAction {
 	 * @model
 	 * @generated
 	 */
-	boolean StartActionpredecessormustnotbedefinded(DiagnosticChain diagnostics, Map<Object, Object> context);
+	boolean StartActionPredecessorMustNotBeDefined(DiagnosticChain diagnostics, Map<Object, Object> context);
 
 } // StartAction

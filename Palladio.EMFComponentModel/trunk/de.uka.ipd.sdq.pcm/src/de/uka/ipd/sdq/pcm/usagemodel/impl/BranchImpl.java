@@ -70,13 +70,13 @@ public class BranchImpl extends AbstractUserActionImpl implements Branch {
 
 
 	/**
-	 * The parsed OCL expression for the definition of the '{@link #AllBranchProbabilitiesmustsumupto1 <em>All Branch Probabilitiesmustsumupto1</em>}' invariant constraint.
+	 * The parsed OCL expression for the definition of the '{@link #AllBranchProbabilitiesMustSumUpTo1 <em>All Branch Probabilities Must Sum Up To1</em>}' invariant constraint.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #AllBranchProbabilitiesmustsumupto1
+	 * @see #AllBranchProbabilitiesMustSumUpTo1
 	 * @generated
 	 */
-	private static OCLExpression AllBranchProbabilitiesmustsumupto1InvOCL;
+	private static OCLExpression AllBranchProbabilitiesMustSumUpTo1InvOCL;
 
 	private static final String OCL_ANNOTATION_SOURCE = "http://www.eclipse.org/emf/2002/GenModel";
 
@@ -117,21 +117,21 @@ public class BranchImpl extends AbstractUserActionImpl implements Branch {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean AllBranchProbabilitiesmustsumupto1(DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (AllBranchProbabilitiesmustsumupto1InvOCL == null) {
+	public boolean AllBranchProbabilitiesMustSumUpTo1(DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (AllBranchProbabilitiesMustSumUpTo1InvOCL == null) {
 			Environment env = ExpressionsUtil.createClassifierContext(eClass());
 			
 			
 			String body = "self->collect(branchTransitions_Branch.branchProbability)->sum() > 0.999 and self->collect(branchTransitions_Branch.branchProbability)->sum() <1.001 ";
 			
 			try {
-				AllBranchProbabilitiesmustsumupto1InvOCL = ExpressionsUtil.createInvariant(env, body, true);
+				AllBranchProbabilitiesMustSumUpTo1InvOCL = ExpressionsUtil.createInvariant(env, body, true);
 			} catch (ParserException e) {
 				throw new UnsupportedOperationException(e.getLocalizedMessage());
 			}
 		}
 		
-		Query query = QueryFactory.eINSTANCE.createQuery(AllBranchProbabilitiesmustsumupto1InvOCL);
+		Query query = QueryFactory.eINSTANCE.createQuery(AllBranchProbabilitiesMustSumUpTo1InvOCL);
 		EvalEnvironment evalEnv = new EvalEnvironment();
 		query.setEvaluationEnvironment(evalEnv);
 		
@@ -141,8 +141,8 @@ public class BranchImpl extends AbstractUserActionImpl implements Branch {
 					(new BasicDiagnostic
 						(Diagnostic.ERROR,
 						 UsagemodelValidator.DIAGNOSTIC_SOURCE,
-						 UsagemodelValidator.BRANCH__ALL_BRANCH_PROBABILITIESMUSTSUMUPTO1,
-						 EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "AllBranchProbabilitiesmustsumupto1", EObjectValidator.getObjectLabel(this, context) }),
+						 UsagemodelValidator.BRANCH__ALL_BRANCH_PROBABILITIES_MUST_SUM_UP_TO1,
+						 EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "AllBranchProbabilitiesMustSumUpTo1", EObjectValidator.getObjectLabel(this, context) }),
 						 new Object [] { this }));
 			}
 			return false;

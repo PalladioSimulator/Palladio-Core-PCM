@@ -60,6 +60,6 @@ public interface Branch extends AbstractUserAction {
 	 * @model
 	 * @generated
 	 */
-	boolean AllBranchProbabilitiesmustsumupto1(DiagnosticChain diagnostics, Map<Object, Object> context);
+	boolean AllBranchProbabilitiesMustSumUpTo1(DiagnosticChain diagnostics, Map<Object, Object> context);
 
 } // Branch

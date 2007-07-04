@@ -79,13 +79,13 @@ public class BranchActionImpl extends AbstractResourceDemandingActionImpl implem
 	private static OCLExpression EitherGuardedBranchesOrProbabilisiticBranchTransitionsInvOCL;
 
 	/**
-	 * The parsed OCL expression for the definition of the '{@link #AllProbabilisticBranchProbabilitiesmustsumupto1 <em>All Probabilistic Branch Probabilitiesmustsumupto1</em>}' invariant constraint.
+	 * The parsed OCL expression for the definition of the '{@link #AllProbabilisticBranchProbabilitiesMustSumUpTo1 <em>All Probabilistic Branch Probabilities Must Sum Up To1</em>}' invariant constraint.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #AllProbabilisticBranchProbabilitiesmustsumupto1
+	 * @see #AllProbabilisticBranchProbabilitiesMustSumUpTo1
 	 * @generated
 	 */
-	private static OCLExpression AllProbabilisticBranchProbabilitiesmustsumupto1InvOCL;
+	private static OCLExpression AllProbabilisticBranchProbabilitiesMustSumUpTo1InvOCL;
 
 	private static final String OCL_ANNOTATION_SOURCE = "http://www.eclipse.org/emf/2002/GenModel";
 
@@ -165,21 +165,21 @@ public class BranchActionImpl extends AbstractResourceDemandingActionImpl implem
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean AllProbabilisticBranchProbabilitiesmustsumupto1(DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (AllProbabilisticBranchProbabilitiesmustsumupto1InvOCL == null) {
+	public boolean AllProbabilisticBranchProbabilitiesMustSumUpTo1(DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (AllProbabilisticBranchProbabilitiesMustSumUpTo1InvOCL == null) {
 			Environment env = ExpressionsUtil.createClassifierContext(eClass());
 			
 			
 			String body = "if self.branches_Branch->forAll(oclIsTypeOf(ProbabilisticBranchTransition)) then self.branches_Branch->select(pbt|pbt.oclIsTypeOf(ProbabilisticBranchTransition))->collect(pbt|pbt.oclAsType(ProbabilisticBranchTransition).branchProbability)->sum() > 0.999 and self.branches_Branch->select(pbt|pbt.oclIsTypeOf(ProbabilisticBranchTransition))->collect(pbt|pbt.oclAsType(ProbabilisticBranchTransition).branchProbability)->sum() < 1.001 else true endif ";
 			
 			try {
-				AllProbabilisticBranchProbabilitiesmustsumupto1InvOCL = ExpressionsUtil.createInvariant(env, body, true);
+				AllProbabilisticBranchProbabilitiesMustSumUpTo1InvOCL = ExpressionsUtil.createInvariant(env, body, true);
 			} catch (ParserException e) {
 				throw new UnsupportedOperationException(e.getLocalizedMessage());
 			}
 		}
 		
-		Query query = QueryFactory.eINSTANCE.createQuery(AllProbabilisticBranchProbabilitiesmustsumupto1InvOCL);
+		Query query = QueryFactory.eINSTANCE.createQuery(AllProbabilisticBranchProbabilitiesMustSumUpTo1InvOCL);
 		EvalEnvironment evalEnv = new EvalEnvironment();
 		query.setEvaluationEnvironment(evalEnv);
 		
@@ -189,8 +189,8 @@ public class BranchActionImpl extends AbstractResourceDemandingActionImpl implem
 					(new BasicDiagnostic
 						(Diagnostic.ERROR,
 						 SeffValidator.DIAGNOSTIC_SOURCE,
-						 SeffValidator.BRANCH_ACTION__ALL_PROBABILISTIC_BRANCH_PROBABILITIESMUSTSUMUPTO1,
-						 EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "AllProbabilisticBranchProbabilitiesmustsumupto1", EObjectValidator.getObjectLabel(this, context) }),
+						 SeffValidator.BRANCH_ACTION__ALL_PROBABILISTIC_BRANCH_PROBABILITIES_MUST_SUM_UP_TO1,
+						 EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "AllProbabilisticBranchProbabilitiesMustSumUpTo1", EObjectValidator.getObjectLabel(this, context) }),
 						 new Object [] { this }));
 			}
 			return false;

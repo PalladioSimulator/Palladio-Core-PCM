@@ -38,6 +38,6 @@ public interface Start extends AbstractUserAction {
 	 * @model
 	 * @generated
 	 */
-	boolean Starthasnopredecessor(DiagnosticChain diagnostics, Map<Object, Object> context);
+	boolean StartHasNoPredecessor(DiagnosticChain diagnostics, Map<Object, Object> context);
 
 } // Start
