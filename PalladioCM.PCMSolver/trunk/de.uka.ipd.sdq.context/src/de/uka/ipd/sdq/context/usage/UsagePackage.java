@@ -6,6 +6,7 @@
 package de.uka.ipd.sdq.context.usage;
 
 import de.uka.ipd.sdq.stoex.StoexPackage;
+
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;

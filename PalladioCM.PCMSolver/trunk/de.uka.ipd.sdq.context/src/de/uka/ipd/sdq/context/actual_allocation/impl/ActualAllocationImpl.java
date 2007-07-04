@@ -8,7 +8,6 @@ package de.uka.ipd.sdq.context.actual_allocation.impl;
 import de.uka.ipd.sdq.context.actual_allocation.ActualAllocation;
 import de.uka.ipd.sdq.context.actual_allocation.ActualAllocationContext;
 import de.uka.ipd.sdq.context.actual_allocation.Actual_AllocationPackage;
-import de.uka.ipd.sdq.context.actual_allocation.AllocationPackage;
 
 import java.util.Collection;
 

@@ -2,8 +2,7 @@
 <?eclipse version="3.0"?>
 
 <!--
- <copyright>
- </copyright>
+ Copyright 2006, SDQ Group, University Karlsruhe (TH)
 
  $Id$
 -->
@@ -20,9 +19,8 @@
   <extension point="org.eclipse.emf.ecore.generated_package">
     <package 
        uri = "http://sdq.ipd.uka.de/Context/Allocation/1.0" 
-       class = "de.uka.ipd.sdq.context.allocation.AllocationPackage"
+       class = "de.uka.ipd.sdq.context.actual_allocation.Actual_AllocationPackage"
        genModel = "model/context.genmodel" /> 
   </extension>
 
 </plugin>
-

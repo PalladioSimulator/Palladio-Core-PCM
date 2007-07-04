@@ -9,8 +9,6 @@ import de.uka.ipd.sdq.pcm.seff.AbstractLoopAction;
 
 import de.uka.ipd.sdq.stoex.RandomVariable;
 
-import org.eclipse.emf.ecore.EObject;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Loop Iteration</b></em>'.

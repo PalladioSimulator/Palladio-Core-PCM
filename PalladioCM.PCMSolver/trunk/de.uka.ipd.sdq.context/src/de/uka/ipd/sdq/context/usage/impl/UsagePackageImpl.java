@@ -6,8 +6,8 @@
 package de.uka.ipd.sdq.context.usage.impl;
 
 import de.uka.ipd.sdq.context.actual_allocation.Actual_AllocationPackage;
+
 import de.uka.ipd.sdq.context.actual_allocation.impl.Actual_AllocationPackageImpl;
-import de.uka.ipd.sdq.context.actual_allocation.impl.AllocationPackageImpl;
 
 import de.uka.ipd.sdq.context.usage.BranchProbability;
 import de.uka.ipd.sdq.context.usage.LoopIteration;

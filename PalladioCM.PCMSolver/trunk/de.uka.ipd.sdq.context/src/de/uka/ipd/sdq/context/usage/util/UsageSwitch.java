@@ -8,6 +8,7 @@ package de.uka.ipd.sdq.context.usage.util;
 import de.uka.ipd.sdq.context.usage.*;
 
 import de.uka.ipd.sdq.stoex.RandomVariable;
+
 import java.util.List;
 
 import org.eclipse.emf.ecore.EClass;
@@ -124,13 +125,13 @@ public class UsageSwitch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Context</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Context</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Context</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Context</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -139,13 +140,13 @@ public class UsageSwitch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Branch Probability</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Branch Probability</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Branch Probability</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Branch Probability</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -154,13 +155,13 @@ public class UsageSwitch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Loop Iteration</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Loop Iteration</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Loop Iteration</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Loop Iteration</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -169,13 +170,13 @@ public class UsageSwitch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Usage</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Usage</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Usage</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Usage</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -184,13 +185,13 @@ public class UsageSwitch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>Random Variable</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Random Variable</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>Random Variable</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Random Variable</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -199,13 +200,13 @@ public class UsageSwitch {
 	}
 
 	/**
-	 * Returns the result of interpretting the object as an instance of '<em>EObject</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>EObject</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch, but this is the last case anyway.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpretting the object as an instance of '<em>EObject</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>EObject</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject)
 	 * @generated
 	 */

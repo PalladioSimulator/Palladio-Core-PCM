@@ -8,6 +8,7 @@ package de.uka.ipd.sdq.context.usage.util;
 import de.uka.ipd.sdq.context.usage.*;
 
 import de.uka.ipd.sdq.stoex.RandomVariable;
+
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 

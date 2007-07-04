@@ -7,12 +7,10 @@ package de.uka.ipd.sdq.context.actual_allocation.impl;
 
 import de.uka.ipd.sdq.context.actual_allocation.ActualResourceDemand;
 import de.uka.ipd.sdq.context.actual_allocation.Actual_AllocationPackage;
-import de.uka.ipd.sdq.context.actual_allocation.AllocationPackage;
 
 import de.uka.ipd.sdq.pcm.seff.ParametricResourceDemand;
 
 import de.uka.ipd.sdq.stoex.impl.RandomVariableImpl;
-import de.uka.ipd.sdq.stoex.RandomVariable;
 
 import org.eclipse.emf.common.notify.Notification;
 
@@ -20,7 +18,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.EObjectImpl;
 
 /**
  * <!-- begin-user-doc -->

@@ -9,8 +9,6 @@ import de.uka.ipd.sdq.pcm.seff.ParametricResourceDemand;
 
 import de.uka.ipd.sdq.stoex.RandomVariable;
 
-import org.eclipse.emf.ecore.EObject;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Actual Resource Demand</b></em>'.
