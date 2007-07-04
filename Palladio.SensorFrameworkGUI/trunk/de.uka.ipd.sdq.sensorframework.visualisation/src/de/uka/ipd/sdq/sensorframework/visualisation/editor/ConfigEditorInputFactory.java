@@ -33,11 +33,17 @@ public class ConfigEditorInputFactory implements IElementFactory {
 	 * @see org.eclipse.ui.IElementFactory#createElement(org.eclipse.ui.IMemento)
 	 */
 	public IAdaptable createElement(IMemento memento) {
-		ConfigEntry configEntry = new ConfigEntry(
+		ConfigEntry configEntry = null;
+		try
+		{
+			configEntry =new ConfigEntry(
 				getDatasource(memento),
 				getExperimentRun(memento),
 				getExperiment(memento), 
 				getSensor(memento));
+		} catch(Exception e) {
+			return null;
+		}
 		return new ConfigEditorInput(configEntry);
 	}
 

@@ -8,6 +8,8 @@ import de.uka.ipd.sdq.stoex.BooleanOperatorExpression;
 import de.uka.ipd.sdq.stoex.IfElseExpression;
 import de.uka.ipd.sdq.stoex.NotExpression;
 import de.uka.ipd.sdq.stoex.Product;
+import de.uka.ipd.sdq.stoex.ProductExpression;
+import de.uka.ipd.sdq.stoex.TermExpression;
 import de.uka.ipd.sdq.stoex.analyser.exceptions.ExpectedTypeMismatchIssue;
 import de.uka.ipd.sdq.stoex.util.StoexSwitch;
 
@@ -43,6 +45,24 @@ public class TypeCheckVisitor extends StoexSwitch<Object> {
 		return super.caseNotExpression(object);
 	}
 
+	@Override
+	public Object caseProductExpression(ProductExpression object) {
+		if (!isNummericType(typeVisitor.getType(object.getLeft())))
+			issues.add(new ExpectedTypeMismatchIssue("Numeric",typeVisitor.getType(object.getLeft())));
+		if (!isNummericType(typeVisitor.getType(object.getRight())))
+			issues.add(new ExpectedTypeMismatchIssue("Numeric",typeVisitor.getType(object.getRight())));
+		return super.caseProductExpression(object);
+	}
+
+	@Override
+	public Object caseTermExpression(TermExpression object) {
+		if (!isNummericType(typeVisitor.getType(object.getLeft())))
+			issues.add(new ExpectedTypeMismatchIssue("Numeric",typeVisitor.getType(object.getLeft())));
+		if (!isNummericType(typeVisitor.getType(object.getRight())))
+			issues.add(new ExpectedTypeMismatchIssue("Numeric",typeVisitor.getType(object.getRight())));
+		return super.caseTermExpression(object);
+	}
+
 	public static boolean typesCompatible(TypeEnum expectedType, TypeEnum foundType) {
 		if (expectedType == TypeEnum.ANY)
 			return true;
@@ -55,6 +75,14 @@ public class TypeCheckVisitor extends StoexSwitch<Object> {
 		return false;
 	}
 
+	private boolean isNummericType(TypeEnum type) {
+		if (type == TypeEnum.INT ||
+			type == TypeEnum.DOUBLE ||
+			type == TypeEnum.ANY)
+			return true;
+		return false;
+	}
+	
 	public Collection<IIssue> getIssues() {
 		return this.issues;
 	}

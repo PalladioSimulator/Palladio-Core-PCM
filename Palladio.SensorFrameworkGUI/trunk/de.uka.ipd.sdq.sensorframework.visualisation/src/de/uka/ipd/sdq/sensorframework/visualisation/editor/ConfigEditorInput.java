@@ -135,7 +135,12 @@ public class ConfigEditorInput extends Observable
 	 * @see org.eclipse.ui.IPersistable#saveState(org.eclipse.ui.IMemento)
 	 */
 	public void saveState(IMemento memento) {
-		ConfigEditorInputFactory.saveState(memento, this);
+		try
+		{
+			ConfigEditorInputFactory.saveState(memento, this);
+		} catch (Exception e) {
+			// ignore errors if they happen, most likly the corresponding sensor enties have been deleted meanwhile
+		}
 	}
 
 	public void notifyObserver(){

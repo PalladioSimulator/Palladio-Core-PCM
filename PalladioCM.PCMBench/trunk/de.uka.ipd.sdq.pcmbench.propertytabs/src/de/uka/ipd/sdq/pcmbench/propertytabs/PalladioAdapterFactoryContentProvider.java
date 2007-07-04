@@ -74,13 +74,8 @@ public class PalladioAdapterFactoryContentProvider extends
 					protected Object openDialogBox(Control cellEditorWindow) {
 						RandomVariable randVar = (RandomVariable) object;
 						StochasticExpressionEditDialog dialog = null;
-						if (randVar instanceof ParametricResourceDemand) {
-							ParametricResourceDemand prd = (ParametricResourceDemand) randVar;
-							AbstractResourceDemandingAction a = prd.getAction_ParametricResourceDemand();
-							EObject container = a;
-							while (!(container instanceof ResourceDemandingSEFF))
-								container = container.eContainer();
-							ResourceDemandingSEFF seff = (ResourceDemandingSEFF) container;
+						ResourceDemandingSEFF seff = findSEFF(randVar);
+						if (seff != null) {
 							Parameter[] parameters = new Parameter[]{};
 							if (seff.getDescribedService__SEFF() != null && seff.getDescribedService__SEFF().getParameters__Signature() != null)
 								parameters = (Parameter[]) seff.getDescribedService__SEFF().getParameters__Signature().toArray();
@@ -95,6 +90,15 @@ public class PalladioAdapterFactoryContentProvider extends
 							return result;
 						}
 						return null;
+					}
+
+					private ResourceDemandingSEFF findSEFF(
+							RandomVariable randVar) {
+						EObject container = randVar;
+						while (!(container instanceof ResourceDemandingSEFF) && container != null)
+							container = container.eContainer();
+						ResourceDemandingSEFF seff = (ResourceDemandingSEFF) container;
+						return seff;
 					}
 
 				};

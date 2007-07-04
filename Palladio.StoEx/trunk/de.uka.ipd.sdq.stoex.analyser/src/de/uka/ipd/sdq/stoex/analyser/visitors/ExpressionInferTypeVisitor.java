@@ -249,7 +249,7 @@ public class ExpressionInferTypeVisitor extends StoexSwitch<Object> {
 		} else if (isDoubleIntPDF(leftType) && isDoubleIntPDF(rightType)){
 			typeAnnotation.put(expr, TypeEnum.DOUBLE_PDF);
 		} else {
-			throw new UnsupportedOperationException("Type inference of Integer and Double failed.");
+			throw new UnsupportedOperationException("Type inference of "+leftType.name()+" and "+rightType.name()+" failed.");
 		}
 	}
 
