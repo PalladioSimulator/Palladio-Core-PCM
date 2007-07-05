@@ -29,14 +29,17 @@ public class Pie {
 	
 	private Collection<PieEntity> getAggregatedPie(int maxCount) {
 		ArrayList<PieEntity> newEntities = new ArrayList<PieEntity>();
-		int i;
-		for (i=entities.size()-1; i >= entities.size() - maxCount; i++)
+		int i; double sum = 0;
+		for (i=entities.size()-1; i >= entities.size() - maxCount; i--) {
 			newEntities.add(entities.get(i));
+			sum += entities.get(i).getValue();
+		}
 		double remaining = 0;
-		for (; i >= 0; i++)
+		for (; i >= 0; i--)
 			remaining += entities.get(i).getValue();
+		sum += remaining;
 		DecimalFormat df = new DecimalFormat("#0.0", new DecimalFormatSymbols(Locale.US));
-		newEntities.add(new PieEntity(remaining, "Other ("+df.format(remaining)+"%)"));
+		newEntities.add(new PieEntity(remaining, "Other ("+df.format(remaining * 100.0 / sum)+"%)"));
 		Collections.sort(newEntities);
 		return newEntities;
 	}
