@@ -45,6 +45,8 @@ public class LoopImpl extends OperationImpl implements Loop {
 	 * @ordered
 	 */
 	protected Expression regExp = null;
+	
+	protected ProbabilityMassFunction iterationsPMF;
 
 	/**
 	 * The default value of the '{@link #getIterationsString() <em>Iterations String</em>}' attribute.
@@ -136,7 +138,7 @@ public class LoopImpl extends OperationImpl implements Loop {
 	public ProbabilityMassFunction getIterationsPMF() {
 		// TODO: implement this method to return the 'Iterations PMF' containment reference
 		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+		return null;
 	}
 
 	/**
@@ -156,12 +158,10 @@ public class LoopImpl extends OperationImpl implements Loop {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
 	 */
 	public void setIterationsPMF(ProbabilityMassFunction newIterationsPMF) {
 		// TODO: implement this method to set the 'Iterations PMF' containment reference
 		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
 	}
 
 	/**
