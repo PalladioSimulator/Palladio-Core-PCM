@@ -35,6 +35,7 @@ import org.openarchitectureware.workflow.issues.IssuesImpl;
 import de.uka.ipd.sdq.codegen.simucontroller.runconfig.ResourceManagerTab;
 import de.uka.ipd.sdq.dialogs.issues.IssuesDialog;
 import de.uka.ipd.sdq.errorhandling.SeverityAndIssue;
+import de.uka.ipd.sdq.pcm.allocation.Allocation;
 import de.uka.ipd.sdq.pcm.allocation.AllocationPackage;
 import de.uka.ipd.sdq.pcm.core.composition.CompositionPackage;
 import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
@@ -137,6 +138,17 @@ public class CheckOAWConstraints implements ISimulationJob {
 		for (;items.hasNext();) {
 			result.add(items.next());
 		}
+		// TODO: Temporary workaround. In the end, we should check all files referenced directly or indirectly...
+		if (resource.getContents().get(0) instanceof Allocation){
+			Allocation a = (Allocation) resource.getContents().get(0);
+			if (a.getTargetResourceEnvironment_Allocation() != null){
+				result.add(a.getTargetResourceEnvironment_Allocation());
+				items = a.getTargetResourceEnvironment_Allocation().eAllContents();
+				for (;items.hasNext();) {
+					result.add(items.next());
+				}
+			}
+		}
 		return result;
 	}
 
@@ -185,6 +197,14 @@ public class CheckOAWConstraints implements ISimulationJob {
 	    Diagnostician diagnostician = new Diagnostician();
     	Diagnostic d = diagnostician.validate(r.getContents().get(0));
     	appendSeverityAndIssueFromDiagnostic(result,d);
+		// TODO: Temporary workaround...
+    	if (r.getContents().get(0) instanceof Allocation){
+			Allocation a = (Allocation) r.getContents().get(0);
+			if (a.getTargetResourceEnvironment_Allocation() != null){
+		    	d = diagnostician.validate(a.getTargetResourceEnvironment_Allocation());
+		    	appendSeverityAndIssueFromDiagnostic(result,d);
+			}
+		}
 
 		return result;
 	}

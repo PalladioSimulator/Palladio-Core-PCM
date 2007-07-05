@@ -1,6 +1,6 @@
 package de.uka.ipd.sdq.codegen.simudatavisualisation.datatypes;
 
-public class PieEntity {
+public class PieEntity implements Comparable<PieEntity> {
 	private double value = 0;
 	private String label = "";
 	
@@ -15,6 +15,10 @@ public class PieEntity {
 	}
 	public String getLabel() {
 		return label;
+	}
+
+	public int compareTo(PieEntity other) {
+		return Double.compare(this.value, other.value);
 	}
 	
 }

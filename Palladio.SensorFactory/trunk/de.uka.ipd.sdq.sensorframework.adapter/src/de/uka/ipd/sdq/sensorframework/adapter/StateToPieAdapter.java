@@ -50,7 +50,7 @@ public class StateToPieAdapter implements IAdapter {
 			lastChangeTime = sm.getEventTime();
 			lastState = sm.getSensorState();
 		}
-		DecimalFormat df = new DecimalFormat("00.0", new DecimalFormatSymbols(Locale.US));
+		DecimalFormat df = new DecimalFormat("#0.0", new DecimalFormatSymbols(Locale.US));
 		for(Entry<String,Double>e:newPie.entrySet()){
 			p.addEntity(new PieEntity(e.getValue(),e.getKey()+" ("+df.format(e.getValue()*100/sum)+"%)"));
 		}

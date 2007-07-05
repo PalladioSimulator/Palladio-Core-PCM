@@ -48,7 +48,7 @@ public class JFreeChartPieViewer extends AbstractJFreeChartChart {
 
 	public void setPie(Pie data){
 		pieDataset = new DefaultPieDataset();
-		for (PieEntity pe : data.getEntities()){
+		for (PieEntity pe : data.getEntities(40)){
 			pieDataset.setValue(pe.getLabel(), pe.getValue());
 		}
 		initChart();

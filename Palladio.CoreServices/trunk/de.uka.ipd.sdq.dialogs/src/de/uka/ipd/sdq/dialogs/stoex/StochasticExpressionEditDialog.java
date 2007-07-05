@@ -177,9 +177,9 @@ public class StochasticExpressionEditDialog extends
 
 	private ResourceDemandingSEFF getSEFF(EObject a) {
 		EObject container = a;
-		while (!(container instanceof ResourceDemandingSEFF))
+		while (container != null && !(container instanceof ResourceDemandingSEFF))
 			container = container.eContainer();
-		if (!(container instanceof ResourceDemandingSEFF)) 
+		if (container == null || !(container instanceof ResourceDemandingSEFF)) 
 			return null;
 		ResourceDemandingSEFF seff = (ResourceDemandingSEFF) container;
 		return seff;

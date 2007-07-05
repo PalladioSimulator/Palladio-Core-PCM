@@ -28,6 +28,7 @@ import org.eclipse.swt.widgets.MenuItem;
 import org.eclipse.ui.PlatformUI;
 import org.jfree.chart.ChartUtilities;
 import org.jfree.chart.JFreeChart;
+import org.jfree.chart.title.LegendTitle;
 import org.jfree.experimental.chart.swt.ChartComposite;
 import org.w3c.dom.DOMImplementation;
 import org.w3c.dom.Document;
@@ -62,6 +63,32 @@ class SaveImageAsAction extends Action {
 				e.printStackTrace();
 			}
 		}
+	}
+}
+
+class ToggleLegendAction extends Action {
+
+
+	private AbstractJFreeChartChart chartViewer;
+	private LegendTitle chartLegend;
+
+	public ToggleLegendAction(AbstractJFreeChartChart abstractJFreeChartChart) {
+		super();
+		setText("Enable/Disable Legend");
+		this.chartViewer = abstractJFreeChartChart;
+		this.chartLegend = null;
+	}
+	
+	@Override
+	public void run() {
+		if (chartLegend == null) {
+			chartLegend = this.chartViewer.getChart().getLegend();
+			this.chartViewer.getChart().removeLegend();
+		} else {
+			this.chartViewer.getChart().addLegend(chartLegend);
+			chartLegend = null;
+		}
+		this.chartViewer.forceRedraw();
 	}
 }
 
@@ -148,6 +175,7 @@ public abstract class AbstractJFreeChartChart extends ChartComposite {
 	}
 	
 	protected void initializeContextMenu(MenuManager menu_manager) {
+		menu_manager.add(new ToggleLegendAction(this));
 		menu_manager.add(new SaveImageAsAction(this));
 		menu_manager.add(new SaveSVGAsAction(this));
 	}
