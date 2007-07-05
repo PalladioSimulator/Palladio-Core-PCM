@@ -12,6 +12,10 @@
     <resourceContainer_AllocationContext href="cocome.resourceenvironment#_bTYxAOEhEduBSuO8WivxSA"/>
     <assemblyContext_AllocationContext href="cocome.system#_eVcuYNC7EduW_YoCCnq0vw"/>
   </allocationContexts_Allocation>
+  <allocationContexts_Allocation id="_kdHjICsDEdyXnf-q2r-6tg" entityName="Allocation_Application &lt;TradingSystem.Inventory.Application>">
+    <resourceContainer_AllocationContext href="cocome.resourceenvironment#_ZVdrwOEhEduBSuO8WivxSA"/>
+    <assemblyContext_AllocationContext href="cocome.system#_JR74UNC7EduW_YoCCnq0vw"/>
+  </allocationContexts_Allocation>
   <targetResourceEnvironment_Allocation href="cocome.resourceenvironment#/"/>
   <system_Allocation href="cocome.system#_p7UQMNC5EduW_YoCCnq0vw"/>
 </pcm.allocation:Allocation>

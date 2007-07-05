@@ -95,6 +95,29 @@
     <element xmi:type="pcm.resourceenvironment:ResourceContainer" href="cocome.resourceenvironment#_cx26IOEhEduBSuO8WivxSA"/>
     <layoutConstraint xmi:type="notation:Bounds" xmi:id="_z-joXSPmEdyLBZREr9U8dw" x="668"/>
   </children>
+  <children xmi:type="notation:Node" xmi:id="_ic0fUCsDEdyXnf-q2r-6tg" type="2002">
+    <children xmi:type="notation:Node" xmi:id="_ic0fVisDEdyXnf-q2r-6tg" type="5003"/>
+    <children xmi:type="notation:Node" xmi:id="_ic-QUCsDEdyXnf-q2r-6tg" type="7002">
+      <children xmi:type="notation:Node" xmi:id="_ml6boCsDEdyXnf-q2r-6tg" type="3001">
+        <children xmi:type="notation:Node" xmi:id="_ml6bpisDEdyXnf-q2r-6tg" type="5001"/>
+        <children xmi:type="notation:Node" xmi:id="_ml6bpysDEdyXnf-q2r-6tg" type="5005"/>
+        <styles xmi:type="notation:FontStyle" xmi:id="_ml6boSsDEdyXnf-q2r-6tg"/>
+        <styles xmi:type="notation:DescriptionStyle" xmi:id="_ml6boisDEdyXnf-q2r-6tg"/>
+        <styles xmi:type="notation:FillStyle" xmi:id="_ml6boysDEdyXnf-q2r-6tg"/>
+        <styles xmi:type="notation:LineStyle" xmi:id="_ml6bpCsDEdyXnf-q2r-6tg"/>
+        <element xmi:type="pcm.allocation:AllocationContext" href="cocome.allocation#_kdHjICsDEdyXnf-q2r-6tg"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ml6bpSsDEdyXnf-q2r-6tg" x="43" y="9"/>
+      </children>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_ic-QUSsDEdyXnf-q2r-6tg"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_ic-QUisDEdyXnf-q2r-6tg"/>
+    </children>
+    <styles xmi:type="notation:FontStyle" xmi:id="_ic0fUSsDEdyXnf-q2r-6tg"/>
+    <styles xmi:type="notation:DescriptionStyle" xmi:id="_ic0fUisDEdyXnf-q2r-6tg"/>
+    <styles xmi:type="notation:FillStyle" xmi:id="_ic0fUysDEdyXnf-q2r-6tg"/>
+    <styles xmi:type="notation:LineStyle" xmi:id="_ic0fVCsDEdyXnf-q2r-6tg"/>
+    <element xmi:type="pcm.resourceenvironment:ResourceContainer" href="cocome.resourceenvironment#_ZVdrwOEhEduBSuO8WivxSA"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ic0fVSsDEdyXnf-q2r-6tg" x="60" y="384" width="433" height="109"/>
+  </children>
   <styles xmi:type="notation:PageStyle" xmi:id="_z4cZISPmEdyLBZREr9U8dw"/>
   <styles xmi:type="notation:GuideStyle" xmi:id="_z4cZIiPmEdyLBZREr9U8dw"/>
   <styles xmi:type="notation:DescriptionStyle" xmi:id="_z4cZIyPmEdyLBZREr9U8dw"/>
