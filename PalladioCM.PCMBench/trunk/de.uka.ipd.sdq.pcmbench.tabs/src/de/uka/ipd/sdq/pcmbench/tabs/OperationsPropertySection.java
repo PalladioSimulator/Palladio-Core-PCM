@@ -19,6 +19,7 @@ import org.eclipse.ui.views.properties.tabbed.AbstractPropertySection;
 import org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage;
 
 import de.uka.ipd.sdq.pcm.repository.Interface;
+import de.uka.ipd.sdq.pcm.repository.Signature;
 import de.uka.ipd.sdq.pcm.repository.provider.RepositoryItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.seff.provider.SeffItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcmbench.tabs.table.AddActionListener;
@@ -81,20 +82,23 @@ public class OperationsPropertySection extends AbstractPropertySection {
 		super.setInput(part, selection);
 		Assert.isTrue(selection instanceof IStructuredSelection);
 		Object input = ((IStructuredSelection) selection).getFirstElement();
-		if (input instanceof GraphicalEditPart)
-		{
+		if (input instanceof GraphicalEditPart){
 			GraphicalEditPart ep = (GraphicalEditPart)input;
 			input = ep.getModel();
 		}
 		if (input instanceof View){
 			input = ((View)input).getElement();
 		}
+		if (input instanceof Signature) {
+			Signature signature = (Signature) input;
+			input = signature.getInterface_Signature();
+		}
+		
 		Assert.isTrue(input instanceof EObject);
 		tableViewer.setInput(input);
 	    sectionTable.setEditingDomain(TransactionUtil.getEditingDomain(input));
 
-		/*
-		 * (non-Javadoc) set the current selection interface in the
+		/* (non-Javadoc) set the current selection interface in the
 		 * AddActionListener, DeleteActionListener
 		 * 
 		 * @See de.uka.ipd.sdq.pcmbench.tabs.table.AddActionListener#setSelectedInterface(Interace)
