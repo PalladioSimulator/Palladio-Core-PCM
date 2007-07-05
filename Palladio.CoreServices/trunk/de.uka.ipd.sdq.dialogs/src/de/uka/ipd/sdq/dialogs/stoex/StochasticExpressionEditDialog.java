@@ -14,8 +14,13 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.swt.widgets.Shell;
 
 import de.uka.ipd.sdq.errorhandling.IIssue;
+import de.uka.ipd.sdq.pcm.parameter.ParameterFactory;
 import de.uka.ipd.sdq.pcm.parameter.VariableCharacterisation;
+import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
 import de.uka.ipd.sdq.pcm.repository.Parameter;
+import de.uka.ipd.sdq.pcm.repository.RepositoryFactory;
+import de.uka.ipd.sdq.pcm.seff.ExternalCallAction;
+import de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF;
 import de.uka.ipd.sdq.pcm.stochasticexpressions.parser.ErrorEntry;
 import de.uka.ipd.sdq.pcm.stochasticexpressions.parser.MyPCMStoExLexer;
 import de.uka.ipd.sdq.pcm.stochasticexpressions.parser.MyPCMStoExParser;
@@ -43,6 +48,18 @@ public class StochasticExpressionEditDialog extends
 	public StochasticExpressionEditDialog(Shell parent, TypeEnum expectedType, Parameter[] context) {
 		super(parent,context);
 		this.expectedType = expectedType;
+	}
+
+	/**
+	 * @param parent The parent shell
+	 * @param expectedType The type of the expression to be entered
+	 * @param contextObject An EObject from which a parameter context is derived by
+	 * 		searching for its parent SEFF and taking this SEFFs signature into account
+	 */
+	public StochasticExpressionEditDialog(Shell parent, TypeEnum expectedType, EObject contextObject) {
+		super(parent);
+		this.expectedType = expectedType;
+		this.context = getContext(contextObject);
 	}
 	
 	public void setInitialExpression(RandomVariable ex) {
@@ -127,4 +144,55 @@ public class StochasticExpressionEditDialog extends
 		}
 		return TypeEnum.ANY;
  	}
+	
+	private Parameter[] getContext(EObject rv) {
+		Parameter[] parameters = new Parameter[]{};
+
+		ResourceDemandingSEFF seff = getSEFF(
+				rv);
+
+		if (seff != null && seff.getDescribedService__SEFF() != null && seff.getDescribedService__SEFF().getParameters__Signature() != null) {
+			parameters = (Parameter[]) seff.getDescribedService__SEFF().getParameters__Signature().toArray();
+			ExternalCallAction eca = getParentCallAction(rv);
+			if (eca != null && isOutputCharacterisation(eca,rv) && eca.getCalledService_ExternalService() != null &&
+					eca.getCalledService_ExternalService().getReturntype__Signature() != null) {
+				Parameter[] parametersWithReturn = new Parameter[parameters.length+1];
+				System.arraycopy(parameters,0,parametersWithReturn,0,parameters.length);
+				parametersWithReturn[parameters.length] = RepositoryFactory.eINSTANCE.createParameter();
+				parametersWithReturn[parameters.length].setDatatype__Parameter(eca.getCalledService_ExternalService().getReturntype__Signature());
+				parametersWithReturn[parameters.length].setParameterName("RETURN");
+				parameters = parametersWithReturn;
+			}
+		}
+		return parameters;
+	}
+
+	private boolean isOutputCharacterisation(ExternalCallAction eca, EObject rv) {
+		for (VariableUsage vu : eca.getOutputVariableUsage_ExternalCallAction()){
+			if (vu.getVariableCharacterisation_VariableUsage().contains(rv))
+				return true;
+		}
+		return false;
+	}
+
+	private ResourceDemandingSEFF getSEFF(EObject a) {
+		EObject container = a;
+		while (!(container instanceof ResourceDemandingSEFF))
+			container = container.eContainer();
+		if (!(container instanceof ResourceDemandingSEFF)) 
+			return null;
+		ResourceDemandingSEFF seff = (ResourceDemandingSEFF) container;
+		return seff;
+	}
+
+	private ExternalCallAction getParentCallAction(EObject a) {
+		EObject container = a;
+		while (!(container instanceof ResourceDemandingSEFF) && !(container instanceof ExternalCallAction))
+			container = container.eContainer();
+		if (!(container instanceof ExternalCallAction)) 
+			return null;
+		ExternalCallAction call = (ExternalCallAction) container;
+		return call;
+	}
+	
 }

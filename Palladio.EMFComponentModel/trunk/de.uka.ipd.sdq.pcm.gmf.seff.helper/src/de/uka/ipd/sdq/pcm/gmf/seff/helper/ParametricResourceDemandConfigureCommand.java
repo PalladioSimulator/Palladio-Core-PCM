@@ -12,6 +12,7 @@ import org.eclipse.gmf.runtime.emf.type.core.commands.ConfigureElementCommand;
 import org.eclipse.gmf.runtime.emf.type.core.commands.SetValueCommand;
 import org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.SetRequest;
+import org.eclipse.jface.dialogs.Dialog;
 import org.eclipse.ui.PlatformUI;
 
 import de.uka.ipd.sdq.dialogs.selection.PalladioSelectEObjectDialog;
@@ -96,10 +97,10 @@ public class ParametricResourceDemandConfigureCommand extends
 
 		StochasticExpressionEditDialog dialog = new StochasticExpressionEditDialog(
 				PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(),
-				TypeEnum.DOUBLE, getContext(request.getElementToConfigure()));
+				TypeEnum.DOUBLE, request.getElementToConfigure());
 		dialog.open();
 
-		if (dialog.getResult() == null)
+		if (dialog.getReturnCode() == Dialog.CANCEL)
 			return CommandResult.newCancelledCommandResult();
 
 		ICommand cmd = new SetValueCommand(new SetRequest(request
@@ -110,27 +111,5 @@ public class ParametricResourceDemandConfigureCommand extends
 		cmd.execute(monitor, info);
 
 		return cmd.getCommandResult();
-	}
-	
-	private Parameter[] getContext(EObject rv) {
-		Parameter[] parameters = new Parameter[]{};
-
-		ResourceDemandingSEFF seff = getSEFF(
-				rv);
-
-		if (seff != null && seff.getDescribedService__SEFF() != null && seff.getDescribedService__SEFF().getParameters__Signature() != null)
-			parameters = (Parameter[]) seff.getDescribedService__SEFF().getParameters__Signature().toArray();
-
-		return parameters;
-	}
-
-	private ResourceDemandingSEFF getSEFF(EObject a) {
-		EObject container = a;
-		while (!(container instanceof ResourceDemandingSEFF))
-			container = container.eContainer();
-		if (!(container instanceof ResourceDemandingSEFF)) 
-			return null;
-		ResourceDemandingSEFF seff = (ResourceDemandingSEFF) container;
-		return seff;
 	}
 }

@@ -12,6 +12,7 @@ import org.eclipse.gmf.runtime.diagram.ui.editpolicies.OpenEditPolicy;
 import org.eclipse.gmf.runtime.emf.type.core.commands.SetValueCommand;
 import org.eclipse.gmf.runtime.emf.type.core.requests.SetRequest;
 import org.eclipse.gmf.runtime.notation.View;
+import org.eclipse.jface.dialogs.Dialog;
 import org.eclipse.ui.PlatformUI;
 
 import de.uka.ipd.sdq.dialogs.stoex.StochasticExpressionEditDialog;
@@ -43,7 +44,7 @@ public class OpenStoExDialog extends OpenEditPolicy {
 				getExpectedType(rv));
 		dialog.setInitialExpression(rv);
 		dialog.open();
-		if (dialog.getResult() != null) {
+		if (dialog.getReturnCode() == Dialog.OK) {
 			SetRequest setRequest = new SetRequest(
 					rv, 
 					StoexPackage.eINSTANCE.getRandomVariable_Specification(), 

@@ -66,7 +66,7 @@ public abstract class AbstractGrammerBasedEditDialog extends TitleAreaDialog {
 	
 	private Object result = null;
 	
-	private Parameter[] context = null;
+	protected Parameter[] context = null;
 
 	/**
 	 * @param parent

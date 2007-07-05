@@ -9,6 +9,7 @@ import org.eclipse.gmf.runtime.diagram.ui.editpolicies.OpenEditPolicy;
 import org.eclipse.gmf.runtime.emf.type.core.commands.SetValueCommand;
 import org.eclipse.gmf.runtime.emf.type.core.requests.SetRequest;
 import org.eclipse.gmf.runtime.notation.View;
+import org.eclipse.jface.dialogs.Dialog;
 import org.eclipse.ui.PlatformUI;
 
 import de.uka.ipd.sdq.dialogs.stoex.StochasticExpressionEditDialog;
@@ -35,10 +36,10 @@ public class OpenStoExDialog extends OpenEditPolicy {
 		RandomVariable rv = getRandomVariable(((View)host.getModel()).getElement());
 		StochasticExpressionEditDialog dialog = new StochasticExpressionEditDialog(
 				PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(),
-				getExpectedType(rv),getContext(rv));
+				getExpectedType(rv),rv);
 		dialog.setInitialExpression(rv);
 		dialog.open();
-		if (dialog.getResult() != null) {
+		if (dialog.getReturnCode() == Dialog.OK) {
 			SetRequest setRequest = new SetRequest(
 					rv, 
 					StoexPackage.eINSTANCE.getRandomVariable_Specification(), 
@@ -55,28 +56,6 @@ public class OpenStoExDialog extends OpenEditPolicy {
 			expectedType = StochasticExpressionEditDialog.getTypeFromVariableCharacterisation((VariableCharacterisation) rv);
 		}
 		return expectedType;
-	}
-
-	private Parameter[] getContext(EObject rv) {
-		Parameter[] parameters = new Parameter[]{};
-
-		ResourceDemandingSEFF seff = getSEFF(
-				rv);
-
-		if (seff != null && seff.getDescribedService__SEFF() != null && seff.getDescribedService__SEFF().getParameters__Signature() != null)
-			parameters = (Parameter[]) seff.getDescribedService__SEFF().getParameters__Signature().toArray();
-
-		return parameters;
-	}
-
-	private ResourceDemandingSEFF getSEFF(EObject a) {
-		EObject container = a;
-		while (!(container instanceof ResourceDemandingSEFF))
-			container = container.eContainer();
-		if (!(container instanceof ResourceDemandingSEFF)) 
-			return null;
-		ResourceDemandingSEFF seff = (ResourceDemandingSEFF) container;
-		return seff;
 	}
 
 }

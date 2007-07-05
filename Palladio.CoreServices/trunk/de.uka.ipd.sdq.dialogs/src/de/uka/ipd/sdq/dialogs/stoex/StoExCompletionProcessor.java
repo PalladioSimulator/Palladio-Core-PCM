@@ -51,7 +51,10 @@ public class StoExCompletionProcessor implements IContentAssistProcessor {
 		for (int i=0; i<context.length; i++){
 			String[] parameterPrefixes = getPrefixesFor(context[i]);
 			for (String parameterPrefix : parameterPrefixes) {
-				parameterNames.put(parameterPrefix, "Signature Parameter " + context[i].getParameterName());
+				if (parameterPrefix.startsWith("RETURN"))
+					parameterNames.put(parameterPrefix, "Call Result " + context[i].getParameterName());
+				else
+					parameterNames.put(parameterPrefix, "Signature Parameter " + context[i].getParameterName());
 			}
 		}
 		

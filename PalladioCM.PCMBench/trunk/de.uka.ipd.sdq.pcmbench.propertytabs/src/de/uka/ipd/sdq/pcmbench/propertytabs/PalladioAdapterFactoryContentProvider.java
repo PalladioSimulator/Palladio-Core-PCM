@@ -13,6 +13,7 @@ import org.eclipse.emf.edit.ui.provider.AdapterFactoryContentProvider;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
 import org.eclipse.emf.edit.ui.provider.PropertyDescriptor;
 import org.eclipse.emf.edit.ui.provider.PropertySource;
+import org.eclipse.jface.dialogs.Dialog;
 import org.eclipse.jface.viewers.CellEditor;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
@@ -73,34 +74,19 @@ public class PalladioAdapterFactoryContentProvider extends
 					@Override
 					protected Object openDialogBox(Control cellEditorWindow) {
 						RandomVariable randVar = (RandomVariable) object;
-						StochasticExpressionEditDialog dialog = null;
-						ResourceDemandingSEFF seff = findSEFF(randVar);
-						if (seff != null) {
-							Parameter[] parameters = new Parameter[]{};
-							if (seff.getDescribedService__SEFF() != null && seff.getDescribedService__SEFF().getParameters__Signature() != null)
-								parameters = (Parameter[]) seff.getDescribedService__SEFF().getParameters__Signature().toArray();
-							dialog = new StochasticExpressionEditDialog(cellEditorWindow.getShell(),getExpectedType(randVar),parameters);
-						} else {
-							dialog = new StochasticExpressionEditDialog(cellEditorWindow.getShell(),getExpectedType(randVar));
-						}
+						StochasticExpressionEditDialog dialog =
+							new StochasticExpressionEditDialog(
+									cellEditorWindow.getShell(),
+									getExpectedType(randVar),
+									randVar);
 						dialog.setInitialExpression(randVar);
 						dialog.open();
-						if (dialog.getResult() != null) {
+						if (dialog.getReturnCode() == Dialog.OK) {
 							String result = new PCMStoExPrettyPrintVisitor().prettyPrint(dialog.getResult());
 							return result;
 						}
 						return null;
 					}
-
-					private ResourceDemandingSEFF findSEFF(
-							RandomVariable randVar) {
-						EObject container = randVar;
-						while (!(container instanceof ResourceDemandingSEFF) && container != null)
-							container = container.eContainer();
-						ResourceDemandingSEFF seff = (ResourceDemandingSEFF) container;
-						return seff;
-					}
-
 				};
 				return result;
 			}
