@@ -18,7 +18,9 @@ import org.eclipse.ui.console.MessageConsoleStream;
 import de.uka.ipd.sdq.pcm.usagemodel.UsageScenario;
 import de.uka.ipd.sdq.pcmsolver.exprsolver.ExpressionSolver;
 import de.uka.ipd.sdq.pcmsolver.models.PCMInstance;
+import de.uka.ipd.sdq.pcmsolver.transformations.SolverStrategy;
 import de.uka.ipd.sdq.pcmsolver.transformations.pcm2regex.ExpressionPrinter;
+import de.uka.ipd.sdq.pcmsolver.transformations.pcm2regex.Pcm2RegExStrategy;
 import de.uka.ipd.sdq.pcmsolver.transformations.pcm2regex.TransformUsageModelVisitor;
 import de.uka.ipd.sdq.pcmsolver.visitors.UsageModelVisitor;
 import de.uka.ipd.sdq.pcmsolver.visualisation.JFVisualisation;
@@ -63,36 +65,23 @@ public class PCMSolver {
 	}
 	
 	public void start(){
-//		ResourceSet set = editingDomain.getResourceSet();
-//		EcoreUtil.getObjectByType(, arg1)
-		
+
 		if (!currentModel.isValid()){
 			logger.error("PCM Instance invalid! Check filenames.");
 			return;
 		}
-		
-		
-		monitor.beginTask("Analysis", 100);
-		
-		runDSolver();
-		monitor.worked(33);
-		
-		
-		
-		
-		Expression result = runPcm2RegEx();
-		monitor.worked(33);
-		
-		IProbabilityDensityFunction iPDF = runCalculation(result);
 
-		ManagedPDF resultPDF = new ManagedPDF(iPDF);
-		//System.out.println(resultPDF);
 		
-		monitor.worked(33);
+		SolverStrategy strat = new Pcm2RegExStrategy();
 		
-		monitor.done();
+
+		monitor.beginTask("Analysis", 100);
+		strat.transform(currentModel);
+		monitor.worked(50);
+		strat.solve();
+		monitor.worked(50);
 		
-		visualize(iPDF);
+
 		
 		logger.warn("Completed Analysis:\t\t"+ overallDuration + " ms overall");
 	}
