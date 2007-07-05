@@ -24,17 +24,18 @@ Require-Bundle: org.eclipse.ui,
  de.uka.ipd.sdq.spa.resourcemodel,
  de.uka.ipd.sdq.probfunction.math,
  org.eclipse.emf.edit.ui,
- org.apache.log4j
+ org.apache.log4j,
+ de.uka.ipd.sdq.capra
 Eclipse-LazyStart: true
 Bundle-ClassPath: .,
  lib/jcommon-1.0.8.jar,
  lib/jfreechart-1.0.4.jar
-Export-Package: de.uka.ipd.sdq.pcmsolver.visitors,
- de.uka.ipd.sdq.pcmsolver.handler,
- de.uka.ipd.sdq.pcmsolver.pcm2regex,
+Export-Package: de.uka.ipd.sdq.pcmsolver,
  de.uka.ipd.sdq.pcmsolver.exprsolver,
- de.uka.ipd.sdq.pcmsolver,
+ de.uka.ipd.sdq.pcmsolver.handler,
  de.uka.ipd.sdq.pcmsolver.models,
  de.uka.ipd.sdq.pcmsolver.runconfig,
  de.uka.ipd.sdq.pcmsolver.tests,
+ de.uka.ipd.sdq.pcmsolver.transformations.pcm2regex,
+ de.uka.ipd.sdq.pcmsolver.visitors,
  de.uka.ipd.sdq.pcmsolver.visualisation

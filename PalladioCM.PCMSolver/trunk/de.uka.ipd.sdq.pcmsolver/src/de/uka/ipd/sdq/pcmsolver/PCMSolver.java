@@ -18,8 +18,8 @@ import org.eclipse.ui.console.MessageConsoleStream;
 import de.uka.ipd.sdq.pcm.usagemodel.UsageScenario;
 import de.uka.ipd.sdq.pcmsolver.exprsolver.ExpressionSolver;
 import de.uka.ipd.sdq.pcmsolver.models.PCMInstance;
-import de.uka.ipd.sdq.pcmsolver.pcm2regex.ExpressionPrinter;
-import de.uka.ipd.sdq.pcmsolver.pcm2regex.TransformUsageModelVisitor;
+import de.uka.ipd.sdq.pcmsolver.transformations.pcm2regex.ExpressionPrinter;
+import de.uka.ipd.sdq.pcmsolver.transformations.pcm2regex.TransformUsageModelVisitor;
 import de.uka.ipd.sdq.pcmsolver.visitors.UsageModelVisitor;
 import de.uka.ipd.sdq.pcmsolver.visualisation.JFVisualisation;
 import de.uka.ipd.sdq.probfunction.math.IProbabilityDensityFunction;
@@ -76,6 +76,9 @@ public class PCMSolver {
 		
 		runDSolver();
 		monitor.worked(33);
+		
+		
+		
 		
 		Expression result = runPcm2RegEx();
 		monitor.worked(33);
