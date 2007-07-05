@@ -17,6 +17,17 @@ import de.uka.ipd.sdq.stoex.analyser.visitors.TypeEnum;
 
 public class TypeInferTests {
 
+	@Test public void testEnums() throws RecognitionException{
+		ExpressionInferTypeVisitor visitor = new ExpressionInferTypeVisitor();
+		Expression expression = parser("\"blah\"");
+		infer(expression,visitor);
+		Assert.assertEquals(TypeEnum.ENUM, visitor.getType(expression));
+		visitor = new ExpressionInferTypeVisitor();
+		expression = parser("EnumPMF[(\"blah\";0.4)(\"blub\";0.6)]");
+		infer(expression,visitor);
+		Assert.assertEquals(TypeEnum.ENUM_PMF, visitor.getType(expression));
+	}
+
 	@Test public void testDoubleAnyCompare() throws RecognitionException{
 		ExpressionInferTypeVisitor visitor = new ExpressionInferTypeVisitor();
 		Expression expression = parser("192.0 / file.STRUCTURE < 1");

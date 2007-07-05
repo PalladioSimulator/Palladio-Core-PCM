@@ -32,7 +32,7 @@ public class StoExCompletionProcessor implements IContentAssistProcessor {
 	private HashMap<String,String> defaultCharacterisations = new HashMap<String, String>();
 	private HashMap<String,String> parameterNames = new HashMap<String, String>();
 
-	private String templatePrefixes = "+-*/%(";
+	private String templatePrefixes = "+-*/%(?:";
 	
 	private StoExTemplateCompletionProcessor templateProcessor;
 
@@ -42,7 +42,6 @@ public class StoExCompletionProcessor implements IContentAssistProcessor {
 	public StoExCompletionProcessor(Parameter[] context) {
 		templateProcessor = new StoExTemplateCompletionProcessor();
 		
-		defaultCharacterisations.put("INNER", "Characterise an inner element of a collection datatype");
 		defaultCharacterisations.put("BYTESIZE", "Characterise the memory footprint in bytes");
 		defaultCharacterisations.put("NUMBER_OF_ELEMENTS", "Characterise the number of elements of a collection datatype");
 		defaultCharacterisations.put("STRUCTURE", "Characterise the structure of a datastructure");
@@ -102,9 +101,10 @@ public class StoExCompletionProcessor implements IContentAssistProcessor {
 			addCompletionProposalsString(resultList, lastIndex, typedFragment, parameterNames);
 		}
 		// compute template completions (i.e., IntPMF, DoublePDF, etc.)
-		if (isStartOfAtom(offset, currentText)) {
+		if (isStartOfAtom(lastIndex, currentText)) {
+			String typedFragment = currentText.substring(lastIndex+1, offset).trim();
 			for (ICompletionProposal p : templateProcessor.computeCompletionProposals(viewer, offset)){
-				if (p.getDisplayString().toUpperCase().startsWith(currentText.toUpperCase())){
+				if (p.getDisplayString().toUpperCase().startsWith(typedFragment.toUpperCase())){
 					resultList.add(p);
 				}
 			}
@@ -140,9 +140,9 @@ public class StoExCompletionProcessor implements IContentAssistProcessor {
 	 * @return
 	 */
 	private boolean isStartOfAtom(int offset, String currentText) {
-		if (offset-1 < currentText.length()-1  	// cursor is not at last character 
-			&& offset-1 >= 0){ 					// cursor is not at first character
-			currentText = currentText.substring(offset-1); // cut of everything before cursor
+		if (offset+1 < currentText.length()  	// cursor is not at last character 
+			&& offset+1 >= 0){ 					// cursor is not at first character
+			currentText = currentText.substring(offset+1); // cut of everything before cursor
 		}
 		
 		String trimText = currentText.trim();

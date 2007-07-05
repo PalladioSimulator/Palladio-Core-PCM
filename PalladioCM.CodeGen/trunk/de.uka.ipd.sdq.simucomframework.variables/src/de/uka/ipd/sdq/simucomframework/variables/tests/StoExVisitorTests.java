@@ -120,8 +120,12 @@ public class StoExVisitorTests {
 		logger.info("Trunc");
 		int result4 = (Integer)StackContext.evaluateStatic("Trunc(2.5)");
 		Assert.assertEquals(2, result4);
+		result4 = (Integer)StackContext.evaluateStatic("Trunc(2)");
+		Assert.assertEquals(2, result4);
 		logger.info("Round");
 		result4 = (Integer)StackContext.evaluateStatic("Round(2.5)");
+		Assert.assertEquals(3, result4);
+		result4 = (Integer)StackContext.evaluateStatic("Round(3)");
 		Assert.assertEquals(3, result4);
 	}
 	

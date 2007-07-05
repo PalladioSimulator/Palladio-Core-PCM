@@ -25,6 +25,7 @@ import de.uka.ipd.sdq.stoex.PowerExpression;
 import de.uka.ipd.sdq.stoex.ProbabilityFunctionLiteral;
 import de.uka.ipd.sdq.stoex.ProductExpression;
 import de.uka.ipd.sdq.stoex.ProductOperations;
+import de.uka.ipd.sdq.stoex.StringLiteral;
 import de.uka.ipd.sdq.stoex.TermExpression;
 import de.uka.ipd.sdq.stoex.TermOperations;
 import de.uka.ipd.sdq.stoex.Variable;
@@ -248,7 +249,7 @@ public class ExpressionInferTypeVisitor extends StoexSwitch<Object> {
 		} else if (isDoubleIntPDF(leftType) && isDoubleIntPDF(rightType)){
 			typeAnnotation.put(expr, TypeEnum.DOUBLE_PDF);
 		} else {
-			throw new UnsupportedOperationException("Type inference of "+leftType.name()+" and "+rightType.name()+" failed.");
+			throw new UnsupportedOperationException("Type inference of "+leftType.name()+" and "+rightType.name()+" failed. Incompatible types for operation.");
 		}
 	}
 
@@ -360,6 +361,12 @@ public class ExpressionInferTypeVisitor extends StoexSwitch<Object> {
 		doSwitch(object.getIfExpression());
 		
 		typeAnnotation.put(object, TypeEnum.ANY);
+		return object;
+	}
+
+	@Override
+	public Object caseStringLiteral(StringLiteral object) {
+		typeAnnotation.put(object,TypeEnum.ENUM);
 		return object;
 	}
 	
