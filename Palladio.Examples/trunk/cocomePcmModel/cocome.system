@@ -38,13 +38,13 @@
     <providedRole_CompositeAssemblyConnector href="cocome.repository#_dgIVINCpEduC9O_qbthgAg"/>
     <requiredRole_CompositeAssemblyConnector href="cocome.repository#_Du39kdCpEduC9O_qbthgAg"/>
   </compositeAssemblyConnectors_ComposedStructure>
-  <providedRoles_InterfaceProvidingEntity id="_tbwboNC6EduW_YoCCnq0vw">
+  <providedRoles_InterfaceProvidingEntity id="_tbwboNC6EduW_YoCCnq0vw" entityName="CashDeskConnectorIf-SystemRole">
     <providedInterface__ProvidedRole href="cocome.repository#_WoD42tCjEduC9O_qbthgAg"/>
   </providedRoles_InterfaceProvidingEntity>
-  <requiredRoles_InterfaceRequiringEntity id="_rIYq0NC6EduW_YoCCnq0vw">
+  <requiredRoles_InterfaceRequiringEntity id="_rIYq0NC6EduW_YoCCnq0vw" entityName="JDBC">
     <requiredInterface__RequiredRole href="cocome.repository#_D62rdNCmEduC9O_qbthgAg"/>
   </requiredRoles_InterfaceRequiringEntity>
-  <requiredRoles_InterfaceRequiringEntity id="_2CgPANC6EduW_YoCCnq0vw">
+  <requiredRoles_InterfaceRequiringEntity id="_2CgPANC6EduW_YoCCnq0vw" entityName="SaleRegisteredEvent">
     <requiredInterface__RequiredRole href="cocome.repository#_RQoSZNCpEduC9O_qbthgAg"/>
   </requiredRoles_InterfaceRequiringEntity>
 </pcm.system:System>

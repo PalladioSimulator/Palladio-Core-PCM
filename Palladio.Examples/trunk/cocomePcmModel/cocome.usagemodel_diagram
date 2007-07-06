@@ -5,7 +5,7 @@
       <children xmi:type="notation:Node" xmi:id="_bvP2oSQJEdyhBpSbCwtctA" type="3001">
         <styles xmi:type="notation:ShapeStyle" xmi:id="_bvP2oiQJEdyhBpSbCwtctA"/>
         <element xmi:type="pcm.usagemodel:Start" href="cocome.usagemodel#_zE5h4h88Edy8vbmreGRsqg"/>
-        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_bvP2oyQJEdyhBpSbCwtctA" x="316" y="55"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_bvP2oyQJEdyhBpSbCwtctA" x="276" y="23"/>
       </children>
       <children xmi:type="notation:Node" xmi:id="_bvP2pCQJEdyhBpSbCwtctA" type="3003">
         <children xmi:type="notation:Node" xmi:id="_bvP2pyQJEdyhBpSbCwtctA" type="5004"/>
@@ -16,12 +16,12 @@
         </children>
         <styles xmi:type="notation:ShapeStyle" xmi:id="_bvP2pSQJEdyhBpSbCwtctA"/>
         <element xmi:type="pcm.usagemodel:EntryLevelSystemCall" href="cocome.usagemodel#_zE5h4x88Edy8vbmreGRsqg"/>
-        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_bvP2piQJEdyhBpSbCwtctA" x="55" y="135"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_bvP2piQJEdyhBpSbCwtctA" x="12" y="95"/>
       </children>
       <children xmi:type="notation:Node" xmi:id="_bvP2rCQJEdyhBpSbCwtctA" type="3002">
         <styles xmi:type="notation:ShapeStyle" xmi:id="_bvP2rSQJEdyhBpSbCwtctA"/>
         <element xmi:type="pcm.usagemodel:Stop" href="cocome.usagemodel#_zE5h5R88Edy8vbmreGRsqg"/>
-        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_bvP2riQJEdyhBpSbCwtctA" x="311" y="291"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_bvP2riQJEdyhBpSbCwtctA" x="268" y="251"/>
       </children>
       <styles xmi:type="notation:SortingStyle" xmi:id="_bvGFpCQJEdyhBpSbCwtctA"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_bvGFpSQJEdyhBpSbCwtctA"/>

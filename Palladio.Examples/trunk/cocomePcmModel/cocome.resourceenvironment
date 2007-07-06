@@ -49,7 +49,7 @@
       <activeResourceType_ActiveResourceSpecification href="cocome.resourcetype#_Af748dO1EduL6bgulTgjzg"/>
     </activeResourceSpecifications_ResourceContainer>
   </resourceContainer_ResourceEnvironment>
-  <resourceContainer_ResourceEnvironment id="_ZVdrwOEhEduBSuO8WivxSA" entityName="StoreServerProcessorShare">
+  <resourceContainer_ResourceEnvironment id="_ZVdrwOEhEduBSuO7WivxSA" entityName="StoreServerProcessorShare">
     <activeResourceSpecifications_ResourceContainer schedulingPolicy="PROCESSOR_SHARING" processingRate="1.0" units="CPU">
       <activeResourceType_ActiveResourceSpecification href="cocome.resourcetype#_Af748dO1EduL6bgulTgjzg"/>
     </activeResourceSpecifications_ResourceContainer>
