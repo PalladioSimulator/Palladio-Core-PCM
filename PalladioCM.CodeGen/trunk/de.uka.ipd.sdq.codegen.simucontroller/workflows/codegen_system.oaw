@@ -24,6 +24,7 @@
     	<brokerLookup value="${brokerLookup}"/>
 	</component>
 	
+	<!-- 
 	<component class="oaw.emf.XmiWriter">
 		<modelFile value="${systemFile}.intermediate.repository"/>
 		<inputSlot value="completionRepository"/>
@@ -33,7 +34,8 @@
 		<modelFile value="${systemFile}.intermediate.system"/>
 		<inputSlot value="pcmmodel"/>
 	</component>
-
+ 	-->
+ 	
 	<component
 		class="org.openarchitectureware.check.CheckComponent">
 	    <metaModel id="pcm.repository.emf" class="oaw.type.emf.EmfMetaModel">

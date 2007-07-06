@@ -151,8 +151,7 @@ public class BytesizeComputationForSignatureTest {
 	
 	@Test
 	public void testGetByteSize(){
-		BytesizeComputationForSignature blah = new BytesizeComputationForSignature();
-		String actual = blah.getBytesizeForSignature(testSig1, BytesizeComputationForSignature.Modifier.IN);
+		String actual = BytesizeComputationForSignature.getBytesizeForSignature(testSig1, BytesizeComputationForSignature.Modifier.IN);
 		Assert.assertEquals("param1.BYTESIZE + " +
 				"param2.NUMBER_OF_ELEMENTS * param2.INNER.BYTESIZE + " + 
 				"(param3.innerParam1.BYTESIZE + " + 
@@ -163,8 +162,7 @@ public class BytesizeComputationForSignatureTest {
 		
 	@Test
 	public void testGetByteSize2(){
-		BytesizeComputationForSignature foo = new BytesizeComputationForSignature();
-		String actual2 = foo.getBytesizeForSignature(testSig2, BytesizeComputationForSignature.Modifier.IN);
+		String actual2 = BytesizeComputationForSignature.getBytesizeForSignature(testSig2, BytesizeComputationForSignature.Modifier.IN);
 		Assert.assertEquals("param1.BYTESIZE + " +
 				"param2.NUMBER_OF_ELEMENTS * param2.INNER.NUMBER_OF_ELEMENTS * param2.INNER.INNER.BYTESIZE", actual2);
 
@@ -172,8 +170,7 @@ public class BytesizeComputationForSignatureTest {
 	
 	@Test
 	public void testGetByteSize3(){
-		BytesizeComputationForSignature foo = new BytesizeComputationForSignature();
-		String actual = foo.getBytesizeForSignature(testSig3, BytesizeComputationForSignature.Modifier.IN);
+		String actual = BytesizeComputationForSignature.getBytesizeForSignature(testSig3, BytesizeComputationForSignature.Modifier.IN);
 		Assert.assertEquals("param1.BYTESIZE + " +
 				"param2.NUMBER_OF_ELEMENTS * (param2.INNER.innerParam1.BYTESIZE + param2.INNER.innerParam2.BYTESIZE)", actual);
 

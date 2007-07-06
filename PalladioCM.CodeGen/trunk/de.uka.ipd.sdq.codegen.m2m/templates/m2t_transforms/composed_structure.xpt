@@ -12,7 +12,7 @@
  // of all components in their respective child
  // assembly contexts
  //-------------------------------------
-«DEFINE ComposedStructureStart FOR ComposedStructure»
+«DEFINE ComposedStructureStart FOR ComposedProvidingRequiringEntity»
    package «this.implementationPackage()»;
   
    public class «this.className()» 
@@ -23,14 +23,14 @@
       «EXPAND m2t_transforms::composed_structure::InnerImplementation FOR this»
 «ENDDEFINE»
 
-«DEFINE Constructor FOR ComposedStructure»
+«DEFINE Constructor FOR ComposedProvidingRequiringEntity»
 	public «this.className()»() {
 		logger.info("Creating composed structure «this.entityName»");
 		«EXPAND ChildMemberVarInit FOREACH this.childComponentContexts_ComposedStructure»
 	      
 		«IF InterfaceProvidingEntity.isInstance(this)»
 			/* And finally, my ports */
-			«EXPAND PortInit(this) FOREACH ((InterfaceProvidingEntity)this).providedRoles_InterfaceProvidingEntity»
+			«EXPAND PortInit(this) FOREACH this.providedRoles_InterfaceProvidingEntity»
 		«ENDIF»
 	}
 «ENDDEFINE»
