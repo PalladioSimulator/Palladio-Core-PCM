@@ -3,7 +3,8 @@
       id="de.uka.ipd.sdq.sensorframework.feature"
       label="Sensor Framework Feature"
       version="1.0.0.qualifier"
-      provider-name="sdq.ipd.uka.de">
+      provider-name="sdq.ipd.uka.de"
+      plugin="de.uka.ipd.sdq.branding">
 
    <description url="http://sdq.ipd.uka.de">
       Framework for sensors for measureing time spans, state changes, etc.

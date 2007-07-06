@@ -3,7 +3,8 @@
       id="de.uka.ipd.sdq.simucom.feature"
       label="SimuCom CBSE Simulation"
       version="1.0.0.qualifier"
-      provider-name="sdq.ipd.uka.de">
+      provider-name="sdq.ipd.uka.de"
+      plugin="de.uka.ipd.sdq.branding">
 
    <description url="http://sdq.ipd.uka.de">
       Simulation framework for PCM instances. Uses Model-2-Text transformation
@@ -227,8 +228,7 @@ litigation.
          id="de.uka.ipd.sdq.pcm.codegen.m2m"
          download-size="0"
          install-size="0"
-         version="0.0.0"
-         unpack="true"/>
+         version="0.0.0"/>
 
    <plugin
          id="de.uka.ipd.sdq.simucomframework"

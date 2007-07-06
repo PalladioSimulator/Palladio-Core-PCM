@@ -3,7 +3,8 @@
       id="de.uka.ipd.sdq.pcm.diagram.feature"
       label="Palladio Component Model Diagramming Feature"
       version="2.0.0.qualifier"
-      provider-name="sdq.ipd.uka.de">
+      provider-name="sdq.ipd.uka.de"
+      plugin="de.uka.ipd.sdq.branding">
 
    <description url="http://i43pc12.ipd.uka.de/eclipse/PCM/">
       This plugin adds graphical (GMF-based) diagrams to the Palladio Component Model. This allows to model component model instances graphically.

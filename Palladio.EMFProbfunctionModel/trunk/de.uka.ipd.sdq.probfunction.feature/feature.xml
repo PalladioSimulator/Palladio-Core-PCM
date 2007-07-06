@@ -3,12 +3,13 @@
       id="de.uka.ipd.sdq.probfunction.feature"
       label="ProbFunction Feature"
       version="2.0.0.qualifier"
-      provider-name="sdq.ipd.uka.de">
+      provider-name="sdq.ipd.uka.de"
+      plugin="de.uka.ipd.sdq.branding">
 
    <description url="http://sdq.ip.uka.de">
       Pluginset for modelling and analysing probability mass and density functions
    </description>
-   
+
    <copyright url="http://i43pc12.ipd.uka.de/eclipse/PCM/">
       This plugin is protected by copyright held by the members of
 the Palladio Research Group, University of Karlsruhe.
