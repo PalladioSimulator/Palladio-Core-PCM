@@ -24,8 +24,7 @@ Require-Bundle: org.eclipse.ui,
  de.uka.ipd.sdq.spa.resourcemodel,
  de.uka.ipd.sdq.probfunction.math,
  org.eclipse.emf.edit.ui,
- org.apache.log4j,
- de.uka.ipd.sdq.capra
+ org.apache.log4j
 Eclipse-LazyStart: true
 Bundle-ClassPath: .,
  lib/jcommon-1.0.8.jar,
