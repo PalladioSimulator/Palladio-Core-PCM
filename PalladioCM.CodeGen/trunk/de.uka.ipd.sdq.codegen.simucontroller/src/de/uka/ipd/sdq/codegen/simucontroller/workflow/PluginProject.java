@@ -2,6 +2,7 @@ package de.uka.ipd.sdq.codegen.simucontroller.workflow;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
+import java.io.File;
 import java.io.PrintStream;
 
 import org.eclipse.core.internal.events.BuildCommand;
@@ -10,6 +11,7 @@ import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IProjectDescription;
+import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IPath;
@@ -22,7 +24,6 @@ import org.eclipse.jdt.launching.JavaRuntime;
 import org.eclipse.pde.core.plugin.PluginRegistry;
 import org.eclipse.pde.internal.core.natures.PDE;
 import org.eclipse.pde.internal.ui.wizards.plugin.ClasspathComputer;
-import org.eclipse.pde.internal.ui.wizards.tools.UpdateClasspathJob;
 
 /**
  * @author roman
@@ -56,6 +57,65 @@ public class PluginProject {
 	}
 	
 	/**
+	 * deletes a folder and all of its contents recursively
+	 * 
+	 * @param folder the folder to be deleted
+	 * @return true on success, false otherwise
+	 */
+	private boolean deleteFolder(File folder) {
+		if (folder.isDirectory()) {
+			for(File child:folder.listFiles()) {
+				System.out.println(child.toString());
+				if (!deleteFolder(child)) {
+					return false;
+				}
+	        }	       
+	    }
+		
+		 // empty folders can be deleted directly
+        return folder.delete();
+	}
+	
+	/**
+	 * clears the simulation plugin folder
+	 */	
+	private void clearPluginFolder() {
+		File pluginFolder = ResourcesPlugin
+		.getWorkspace()
+		.getRoot()
+		.getRawLocation()
+		.append(PROJECT_ID)
+		.toFile();
+	
+		deleteFolder(pluginFolder);
+	}
+	
+	/**
+	 * removes the simulation plugin project from the workspace
+	 * if it exists
+	 * @throws CoreException 
+	 */
+	private void deleteSimulationProject(IProgressMonitor monitor) throws CoreException {
+		for (IProject project:ResourcesPlugin.getWorkspace().getRoot().getProjects()) {
+			if (project.getName().equals(PROJECT_ID)) {
+				IResource[] projects = {project};
+				ResourcesPlugin.getWorkspace().delete(projects, true, monitor);
+			}
+		}
+	}
+	
+	/**
+	 * returns a new project to be used for the simulation
+	 * 
+	 * @return a handle to the project to be used for the simulation
+	 */
+	private IProject createSimulationProject() {
+						
+		return ResourcesPlugin.getWorkspace().getRoot().getProject(
+				PROJECT_ID);
+	}
+	
+	/**
 	 * The function implements all steps, which are necessary for the production
 	 * a Plugin Project
 	 * 
@@ -63,8 +123,11 @@ public class PluginProject {
 	 */
 	public IProject createContainerPlugin(IProgressMonitor monitor) throws CoreException {
 
-		IProject project = ResourcesPlugin.getWorkspace().getRoot().getProject(
-				PROJECT_ID);
+		// remove any existing project references and files
+		deleteSimulationProject(monitor);		
+		clearPluginFolder();
+		
+		IProject project = createSimulationProject();
 
 		IFolder srcFolder = project.getFolder("src");
 		IFolder manifestFolder = project.getFolder("META-INF");
