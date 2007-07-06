@@ -27,13 +27,11 @@ public class Pcm2RegExStrategy implements SolverStrategy {
 	
 	private static Logger logger = Logger.getLogger(Pcm2RegExStrategy.class.getName());
 	
-	@Override
 	public void loadTransformedModel(String fileName) {
 		// TODO Auto-generated method stub
 
 	}
 
-	@Override
 	public void solve() {
 		if (stoRegEx != null){
 			ExpressionSolver solver = new ExpressionSolver();
@@ -43,11 +41,9 @@ public class Pcm2RegExStrategy implements SolverStrategy {
 			logger.error("No StochasticRegularExpression available for solution!");
 	}
 
-	@Override
 	public void storeTransformedModel(String fileName) {
 	}
 
-	@Override
 	public void transform(PCMInstance model) {
 		runDSolver(model);
 		runPcm2RegEx(model);
