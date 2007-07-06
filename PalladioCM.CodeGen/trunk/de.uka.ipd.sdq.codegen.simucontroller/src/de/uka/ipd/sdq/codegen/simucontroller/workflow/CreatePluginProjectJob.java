@@ -127,7 +127,7 @@ public class CreatePluginProjectJob implements ISimulationJob {
 					PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(),
 					"Simulation project folder already exists",
 					null,
-					"The folder used for the simulation project already exists. Should " + PluginProject.PROJECT_ID + " and all of its contents will be deleted?",
+					"The folder used for the simulation project already exists. Should " + PluginProject.PROJECT_ID + " and all of its contents be deleted?",
 					MessageDialog.QUESTION,
 					options,
 					1
