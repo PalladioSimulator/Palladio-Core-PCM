@@ -1,0 +1,59 @@
+«EXTENSION m2t_transforms::java_names»
+«EXTENSION m2t_transforms::pcm»
+«IMPORT system»
+«IMPORT composition»
+«IMPORT usagemodel»
+«IMPORT entity»
+«IMPORT repository»
+«IMPORT allocation»
+
+//------------------------------------
+// Generate a factory which can generate closed 
+// or open workload users for simucom
+//------------------------------------
+«DEFINE UsageScenarioFactory FOR UsageScenario»
+	«FILE this.implementationPackage().fqnToDirectoryPath() + "/" + this.javaName() + "Factory.java"»
+		package «this.implementationPackage()»;
+		public class «this.javaName()+"Factory"» 
+		extends «EXPAND UsageFactoryBaseClass FOR this.workload_UsageScenario»
+		{
+			«EXPAND FactoryConstructor FOR this»
+			
+			public de.uka.ipd.sdq.simucomframework.usage.IScenarioRunner createScenarioRunner() {
+				return new «this.implementationPackage()+"."+this.javaName()»(model);
+			}
+		}
+	«ENDFILE»
+«ENDDEFINE» 
+
+«DEFINE UsageFactoryBaseClass FOR Workload»
+	«ERROR "AbstractWorkload found! This is imposible!"»
+«ENDDEFINE»
+
+«DEFINE UsageFactoryBaseClass FOR ClosedWorkload»
+de.uka.ipd.sdq.simucomframework.usage.ClosedWorkloadUserFactory
+«ENDDEFINE»
+
+«DEFINE UsageFactoryBaseClass FOR OpenWorkload»
+de.uka.ipd.sdq.simucomframework.usage.OpenWorkloadUserFactory
+«ENDDEFINE»
+
+«DEFINE FactoryConstructor FOR UsageScenario»
+	private de.uka.ipd.sdq.simucomframework.model.SimuComModel model = null;
+	public «this.javaName()+"Factory"»(de.uka.ipd.sdq.simucomframework.model.SimuComModel model){
+		«EXPAND FactoryConstructor FOR this.workload_UsageScenario»
+		this.model = model;
+	}
+«ENDDEFINE»
+
+«DEFINE FactoryConstructor FOR Workload»
+	«ERROR "AbstractWorkload found! This is imposible!"»
+«ENDDEFINE»
+
+«DEFINE FactoryConstructor FOR ClosedWorkload»
+	super(model,"«this.thinkTime_ClosedWorkload.specification.specificationString()»");
+«ENDDEFINE»
+
+«DEFINE FactoryConstructor FOR OpenWorkload»
+	super(model);
+«ENDDEFINE»

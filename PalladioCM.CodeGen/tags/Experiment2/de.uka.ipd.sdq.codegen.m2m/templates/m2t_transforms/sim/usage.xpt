@@ -1,0 +1,92 @@
+«EXTENSION m2t_transforms::java_names»
+«EXTENSION m2t_transforms::pcm»
+«IMPORT system»
+«IMPORT composition»
+«IMPORT usagemodel»
+«IMPORT entity»
+«IMPORT repository»
+«IMPORT allocation»
+
+«DEFINE Main FOR UsageModel»
+	«FILE "main/SimuComControl.java"»
+		package main;
+		
+		public class SimuComControl extends de.uka.ipd.sdq.simucomframework.AbstractMain 
+				implements de.uka.ipd.sdq.codegen.simucontroller.actions.ISimuComControl{
+						
+			public de.uka.ipd.sdq.simucomframework.SimuComStatus startSimulation(
+				de.uka.ipd.sdq.simucomframework.SimuComConfig config, de.uka.ipd.sdq.simucomframework.IStatusObserver observer) {
+				return run(observer,config);
+			}	
+
+			public void stopSimulation() {
+				stop();
+			}
+			
+			protected de.uka.ipd.sdq.simucomframework.usage.IWorkloadDriver[] getWorkloads() {
+				return new de.uka.ipd.sdq.simucomframework.usage.IWorkloadDriver[] {
+					«EXPAND WorkloadDriver FOREACH this.usageScenario_UsageModel SEPARATOR ","»
+				};
+			}
+			
+			protected de.uka.ipd.sdq.simucomframework.resources.IResourceContainerFactory getResourceContainerFactory(){
+				return new ResourceEnvironment();
+			}
+		}
+	«ENDFILE»
+«ENDDEFINE»
+
+«DEFINE UsageScenario(Allocation a) FOR UsageScenario»
+	«EXPAND m2t_transforms::sim::usage_factory::UsageScenarioFactory FOR this»
+	«FILE this.implementationPackage().fqnToDirectoryPath() + "/" + this.javaName() + ".java"»
+		package «this.implementationPackage()»;
+		public class «this.javaName()» 
+		implements de.uka.ipd.sdq.simucomframework.usage.IScenarioRunner
+		{
+			«EXPAND m2t_transforms::usage::SystemMemberVar FOREACH this.querySystemCalls().providedRole_EntryLevelSystemCall.toSet()»
+			private de.uka.ipd.sdq.simucomframework.Context ctx = null;
+			«EXPAND UsageScenarioConstructor(a) FOR this»
+			
+			«EXPAND ScenarioRunner(this) FOR this.scenarioBehaviour_UsageScenario»
+		}
+	«ENDFILE»
+«ENDDEFINE» 
+
+«DEFINE ScenarioRunner(UsageScenario us) FOR ScenarioBehaviour»
+	public void scenarioRunner(desmoj.core.simulator.SimProcess thread) {
+		ctx.setSimProcess(thread);
+		«EXPAND m2t_transforms::sensors::StartResponseTimeMeasurementTM FOR us.entityName.javaString()»
+		{
+			«EXPAND m2t_transforms::usage::UserActions FOR this.actions_ScenarioBehaviour.typeSelect(Start).get(0)»
+		}
+		«EXPAND m2t_transforms::sensors::EndResponseTimeMeasurementTM FOR us.entityName.javaString()»
+	}
+«ENDDEFINE»
+
+«DEFINE WorkloadDriver FOR UsageScenario»
+	new «EXPAND WorkloadClass(this) FOR this.workload_UsageScenario»
+«ENDDEFINE»
+
+«DEFINE WorkloadClass(UsageScenario u) FOR Workload»
+	«ERROR "AbstractWorkload found! This is imposible!"»
+«ENDDEFINE»
+
+«DEFINE WorkloadClass(UsageScenario u) FOR ClosedWorkload»
+de.uka.ipd.sdq.simucomframework.usage.ClosedWorkload(
+	new «u.implementationPackage()+"."+u.javaName()+"Factory"»(getModel()),«this.population»)
+«ENDDEFINE»
+
+«DEFINE WorkloadClass(UsageScenario u) FOR OpenWorkload»
+de.uka.ipd.sdq.simucomframework.usage.OpenWorkload(getModel(),
+	new «u.implementationPackage()+"."+u.javaName()+"Factory"»(getModel()),
+	"«this.interArrivalTime_OpenWorkload.specification.specificationString()»")
+«ENDDEFINE»
+
+«DEFINE UsageScenarioConstructor(Allocation a) FOR UsageScenario»
+public «this.javaName()»(de.uka.ipd.sdq.simucomframework.model.SimuComModel model) {
+	ctx = new «a.fqnAllocationContext()»(model);
+	ctx.getStack().createAndPushNewStackFrame();
+	«EXPAND m2t_transforms::usage::UsageScenarioConstructorContextInit(a) FOR this»
+}
+«ENDDEFINE»
+

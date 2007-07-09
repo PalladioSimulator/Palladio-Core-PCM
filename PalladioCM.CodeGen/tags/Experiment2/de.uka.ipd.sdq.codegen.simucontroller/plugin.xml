@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+   <extension-point id="controller" name="SimuCom Controller" schema="schema/controller.exsd"/>
+	<extension point="org.eclipse.debug.core.launchConfigurationTypes">
+	    <launchConfigurationType
+           delegate="de.uka.ipd.sdq.codegen.simucontroller.runconfig.SimuLaunchConfigurationDelegate"
+           id="de.uka.ipd.sdq.simucontroller.SimuLaunching"
+           modes="run"
+           name="SimuBench"
+           public="true">        
+	    </launchConfigurationType>
+	</extension>
+	<extension point="org.eclipse.debug.ui.launchConfigurationTypeImages">
+	    <launchConfigurationTypeImage
+	        icon="icons/app_simucim.gif"
+	        configTypeID="de.uka.ipd.sdq.simucontroller.SimuLaunching"
+	        id="de.uka.ipd.sdq.simucontroller.launchConfigurationTypeImage">
+	    </launchConfigurationTypeImage>
+	</extension>
+	<extension point="org.eclipse.debug.ui.launchConfigurationTabGroups">
+	    <launchConfigurationTabGroup
+	        type="de.uka.ipd.sdq.simucontroller.SimuLaunching"
+	        class="de.uka.ipd.sdq.codegen.simucontroller.runconfig.SimuTabGroup"
+	        id="de.uka.ipd.sdq.simucontroller.launchConfigurationTabGroup">
+	    </launchConfigurationTabGroup>
+	</extension>
+	<extension point="org.eclipse.debug.ui.launchShortcuts">
+	    <shortcut
+	        id="de.uka.ipd.sdq.simucontroller.SimuShortcut"
+	        class="de.uka.ipd.sdq.codegen.simucontroller.runconfig.SimuLaunchShortcut"
+	        label="SimuBench"
+	        icon="icons/app_simucim.gif"
+	        modes="run">
+	    </shortcut>
+	</extension>
+ <extension
+       point="org.eclipse.ui.views">
+    <category
+          id="de.uka.ipd.sdq.codegen.simucontroller"
+          name="SimuController">
+    </category>
+    <view
+          category="de.uka.ipd.sdq.codegen.simucontroller"
+          class="de.uka.ipd.sdq.codegen.simucontroller.views.SimuView"
+          icon="icons/app_simucim.gif"
+          id="de.uka.ipd.sdq.codegen.simucontroller.views.SumuView"
+          name="SimuController View">
+    </view>
+ </extension>
+ <extension
+       point="org.eclipse.ui.viewActions">
+    <viewContribution
+          id="de.uka.ipd.sdq.codegen.simucontroller.ViewActions"
+          targetID="de.uka.ipd.sdq.codegen.simucontroller.views.SumuView">
+       <menu
+             id="Controller Menu"
+             label="&amp;Controller Menu">
+          <groupMarker
+                name="SimuCom Controll">
+          </groupMarker>
+          <separator
+                name="separator">
+          </separator>
+       </menu>
+       <action
+             class="de.uka.ipd.sdq.codegen.simucontroller.actions.GeneratePluginAction"
+             icon="icons/new_plugin.gif"
+             id="GeneratePluginAction"
+             label="&amp;Generate Plug-In"
+             menubarPath="Controller Menu"
+             style="push"
+             toolbarPath="SimuCom Controll">
+       </action>
+       <action
+             class="de.uka.ipd.sdq.codegen.simucontroller.actions.ControllerActionDelegate"
+             icon="icons/nav_stop.gif"
+             id="StopAction"
+             label="&amp;Stop Simulation"
+             menubarPath="Controller Menu"
+             style="push"
+             toolbarPath="SimuCom Controll">
+       </action>
+       <action
+             class="de.uka.ipd.sdq.codegen.simucontroller.actions.ControllerActionDelegate"
+             icon="icons/nav_start.gif"
+             id="StartAction"
+             label="&amp;Start Simulation"
+             menubarPath="Controller Menu"
+             style="push"
+             toolbarPath="SimuCom Controll">
+       </action>
+    </viewContribution>
+ </extension>
+
+	
+</plugin>

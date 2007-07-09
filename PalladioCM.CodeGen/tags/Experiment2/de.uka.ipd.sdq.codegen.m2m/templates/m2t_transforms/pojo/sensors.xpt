@@ -1,0 +1,11 @@
+«DEFINE StartResponseTimeMeasurement FOR String»
+	// Start a response time measurement
+	long startTime«this» = System.nanoTime();
+«ENDDEFINE»
+
+«DEFINE EndResponseTimeMeasurement FOR String»
+	// Stop the response time measurement
+	long endTime«this» = System.nanoTime();
+	long result«this» = endTime«this» - startTime«this»;
+	System.out.println("«this»: "+result«this»);
+«ENDDEFINE»
