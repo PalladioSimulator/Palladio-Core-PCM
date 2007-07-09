@@ -224,6 +224,13 @@ litigation.
          id="de.uka.ipd.sdq.sensorframework.feature"
          version="0.0.0"/>
 
+   <requires>
+      <import feature="org.openarchitectureware.core.feature" version="4.2.0.200707070801"/>
+      <import feature="org.openarchitectureware.plugins.feature" version="4.2.0.200707070801"/>
+      <import feature="org.openarchitectureware.util.stdlib.feature" version="4.2.0.200707070801"/>
+      <import plugin="org.apache.log4j"/>
+   </requires>
+
    <plugin
          id="de.uka.ipd.sdq.pcm.codegen.m2m"
          download-size="0"
