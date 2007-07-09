@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pcm.repository:Repository xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pcm.repository="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/1.0" xmlns:pcm.seff="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0" id="_VbE38N0-EduyyPV1EeYaOQ" entityName="ConcurRepository">
+  <components__Repository xsi:type="pcm.repository:BasicComponent" id="_ZTukgN0-EduyyPV1EeYaOQ" entityName="Component">
+    <providedRoles_InterfaceProvidingEntity id="_exmicN0-EduyyPV1EeYaOQ" providedInterface__ProvidedRole="_YbGTYN0-EduyyPV1EeYaOQ"/>
+    <serviceEffectSpecifications__BasicComponent xsi:type="pcm.seff:ResourceDemandingSEFF" describedService__SEFF="//@interfaces__Repository.0/@signatures__Interface.0">
+      <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_sV5N4N0-EduyyPV1EeYaOQ" successor_AbstractAction="_0Dd9kN0-EduyyPV1EeYaOQ"/>
+      <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_sV5N4d0-EduyyPV1EeYaOQ" predecessor_AbstractAction="_B7u4cN1AEduyyPV1EeYaOQ"/>
+      <steps_Behaviour xsi:type="pcm.seff:BranchAction" id="_0Dd9kN0-EduyyPV1EeYaOQ" predecessor_AbstractAction="_sV5N4N0-EduyyPV1EeYaOQ" successor_AbstractAction="_ykMGsN0_EduyyPV1EeYaOQ">
+        <branches_Branch xsi:type="pcm.seff:ProbabilisticBranchTransition" id="_2EzjMN0-EduyyPV1EeYaOQ" branchProbability="0.7">
+          <branchBehaviour_BranchTransition>
+            <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_-7DLIN0-EduyyPV1EeYaOQ" successor_AbstractAction="__R2hkN0-EduyyPV1EeYaOQ"/>
+            <steps_Behaviour xsi:type="pcm.seff:InternalAction" id="__R2hkN0-EduyyPV1EeYaOQ" entityName="action1" predecessor_AbstractAction="_-7DLIN0-EduyyPV1EeYaOQ" successor_AbstractAction="_EhRz0N0_EduyyPV1EeYaOQ">
+              <resourceDemand_Action specification="DoublePDF(unit=&quot;ms&quot;)[ (1.0; 0.2) (2.0; 0.6) (3.0; 0.2) ]">
+                <requiredResource_ParametricResourceDemand href="My.resourcetype#_kYiq4N1AEduyyPV1EeYaOQ"/>
+              </resourceDemand_Action>
+            </steps_Behaviour>
+            <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_EhRz0N0_EduyyPV1EeYaOQ" predecessor_AbstractAction="__R2hkN0-EduyyPV1EeYaOQ"/>
+          </branchBehaviour_BranchTransition>
+        </branches_Branch>
+        <branches_Branch xsi:type="pcm.seff:ProbabilisticBranchTransition" id="_4JbtYN0-EduyyPV1EeYaOQ" branchProbability="0.3">
+          <branchBehaviour_BranchTransition>
+            <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_gbifQN0_EduyyPV1EeYaOQ" successor_AbstractAction="_hjXqAN0_EduyyPV1EeYaOQ"/>
+            <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_gzFckN0_EduyyPV1EeYaOQ" predecessor_AbstractAction="_hjXqAN0_EduyyPV1EeYaOQ"/>
+            <steps_Behaviour xsi:type="pcm.seff:InternalAction" id="_hjXqAN0_EduyyPV1EeYaOQ" entityName="action2" predecessor_AbstractAction="_gbifQN0_EduyyPV1EeYaOQ" successor_AbstractAction="_gzFckN0_EduyyPV1EeYaOQ">
+              <resourceDemand_Action specification="DoublePDF(unit=&quot;ms&quot;)[ (95.0; 0.2) (100.0; 0.6) (105.0; 0.2) ]">
+                <requiredResource_ParametricResourceDemand href="My.resourcetype#_kYiq4N1AEduyyPV1EeYaOQ"/>
+              </resourceDemand_Action>
+            </steps_Behaviour>
+          </branchBehaviour_BranchTransition>
+        </branches_Branch>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="pcm.seff:InternalAction" id="_ykMGsN0_EduyyPV1EeYaOQ" entityName="Do" predecessor_AbstractAction="_0Dd9kN0-EduyyPV1EeYaOQ" successor_AbstractAction="_B7u4cN1AEduyyPV1EeYaOQ">
+        <resourceDemand_Action specification="DoublePDF(unit=&quot;ms&quot;)[ (5.0; 0.3) (15.0; 0.4) (20.0; 0.3) ]">
+          <requiredResource_ParametricResourceDemand href="My.resourcetype#_kYiq4N1AEduyyPV1EeYaOQ"/>
+        </resourceDemand_Action>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="pcm.seff:LoopAction" id="_B7u4cN1AEduyyPV1EeYaOQ" predecessor_AbstractAction="_ykMGsN0_EduyyPV1EeYaOQ" successor_AbstractAction="_sV5N4d0-EduyyPV1EeYaOQ">
+        <bodyBehaviour_Loop>
+          <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_KwyNkN1AEduyyPV1EeYaOQ" successor_AbstractAction="_LqKFkN1AEduyyPV1EeYaOQ"/>
+          <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_LC-JwN1AEduyyPV1EeYaOQ" predecessor_AbstractAction="_LqKFkN1AEduyyPV1EeYaOQ"/>
+          <steps_Behaviour xsi:type="pcm.seff:InternalAction" id="_LqKFkN1AEduyyPV1EeYaOQ" entityName="loopAction" predecessor_AbstractAction="_KwyNkN1AEduyyPV1EeYaOQ" successor_AbstractAction="_LC-JwN1AEduyyPV1EeYaOQ">
+            <resourceDemand_Action specification="DoublePDF(unit=&quot;ms&quot;)[ (5.0; 0.3) (36.0; 0.7) ]">
+              <requiredResource_ParametricResourceDemand href="My.resourcetype#_kYiq4N1AEduyyPV1EeYaOQ"/>
+            </resourceDemand_Action>
+          </steps_Behaviour>
+        </bodyBehaviour_Loop>
+        <iterations_LoopAction specification="27"/>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="pcm.seff:ResourceDemandingSEFF" describedService__SEFF="//@interfaces__Repository.0/@signatures__Interface.1" id="">
+      <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_ssoKYd7UEduAv64V-CNRNA" successor_AbstractAction="_t0JzJN7UEduAv64V-CNRNA"/>
+      <steps_Behaviour xsi:type="pcm.seff:InternalAction" id="_t0JzJN7UEduAv64V-CNRNA" entityName="" predecessor_AbstractAction="_ssoKYd7UEduAv64V-CNRNA" successor_AbstractAction="_uS_rQN7UEduAv64V-CNRNA">
+        <resourceDemand_Action specification="DoublePDF(unit=&quot;ms&quot;)[ (297.0; 0.001) (298.0; 0.001) (299.0; 0.001) (300.0; 0.001) (301.0; 0.001) (302.0; 0.001) (303.0; 0.001) (304.0; 0.001) (305.0; 0.001) (306.0; 0.001) (307.0; 0.001) (308.0; 0.001) (309.0; 0.001) (310.0; 0.001) (311.0; 0.001) (312.0; 0.001) (313.0; 0.001) (314.0; 0.001) (315.0; 0.001) (316.0; 0.001) (317.0; 0.001) (318.0; 0.001) (319.0; 0.001) (320.0; 0.001) (321.0; 0.001) (322.0; 0.001) (323.0; 0.001) (324.0; 0.001) (325.0; 0.001) (326.0; 0.001) (327.0; 0.001) (328.0; 0.001) (329.0; 0.001) (330.0; 0.002) (331.0; 0.002) (332.0; 0.002) (333.0; 0.002) (334.0; 0.002) (335.0; 0.002) (336.0; 0.002) (337.0; 0.002) (338.0; 0.002) (339.0; 0.002) (340.0; 0.002) (341.0; 0.002) (342.0; 0.002) (343.0; 0.002) (344.0; 0.002) (345.0; 0.002) (346.0; 0.002) (347.0; 0.002) (348.0; 0.002) (349.0; 0.002) (350.0; 0.002) (351.0; 0.002) (352.0; 0.003) (353.0; 0.003) (354.0; 0.003) (355.0; 0.003) (356.0; 0.003) (357.0; 0.003) (358.0; 0.003) (359.0; 0.003) (360.0; 0.003) (361.0; 0.003) (362.0; 0.003) (363.0; 0.003) (364.0; 0.003) (365.0; 0.003) (366.0; 0.003) (367.0; 0.003) (368.0; 0.003) (369.0; 0.003) (370.0; 0.003) (371.0; 0.004) (372.0; 0.004) (373.0; 0.004) (374.0; 0.004) (375.0; 0.004) (376.0; 0.004) (377.0; 0.004) (378.0; 0.004) (379.0; 0.004) (380.0; 0.004) (381.0; 0.004) (382.0; 0.004) (383.0; 0.004) (384.0; 0.004) (385.0; 0.004) (386.0; 0.004) (387.0; 0.004) (388.0; 0.004) (389.0; 0.004) (390.0; 0.004) (391.0; 0.004) (392.0; 0.005) (393.0; 0.005) (394.0; 0.005) (395.0; 0.005) (396.0; 0.005) (397.0; 0.005) (398.0; 0.005) (399.0; 0.005) (400.0; 0.005) (401.0; 0.005) (402.0; 0.005) (403.0; 0.005) (404.0; 0.005) (405.0; 0.005) (406.0; 0.005) (407.0; 0.005) (408.0; 0.005) (409.0; 0.005) (410.0; 0.005) (411.0; 0.005) (412.0; 0.005) (413.0; 0.005) (414.0; 0.005) (415.0; 0.005) (416.0; 0.005) (417.0; 0.005) (418.0; 0.005) (419.0; 0.005) (420.0; 0.005) (421.0; 0.005) (422.0; 0.005) (423.0; 0.005) (424.0; 0.005) (425.0; 0.005) (426.0; 0.005) (427.0; 0.005) (428.0; 0.005) (429.0; 0.005) (430.0; 0.005) (431.0; 0.005) (432.0; 0.005) (433.0; 0.005) (434.0; 0.005) (435.0; 0.005) (436.0; 0.005) (437.0; 0.005) (438.0; 0.005) (439.0; 0.005) (440.0; 0.005) (441.0; 0.005) (442.0; 0.005) (443.0; 0.005) (444.0; 0.005) (445.0; 0.005) (446.0; 0.005) (447.0; 0.005) (448.0; 0.005) (449.0; 0.005) (450.0; 0.005) (451.0; 0.005) (452.0; 0.005) (453.0; 0.005) (454.0; 0.005) (455.0; 0.005) (456.0; 0.005) (457.0; 0.005) (458.0; 0.005) (459.0; 0.005) (460.0; 0.005) (461.0; 0.005) (462.0; 0.005) (463.0; 0.005) (464.0; 0.005) (465.0; 0.005) (466.0; 0.005) (467.0; 0.005) (468.0; 0.005) (469.0; 0.005) (470.0; 0.005) (471.0; 0.005) (472.0; 0.005) (473.0; 0.005) (474.0; 0.005) (475.0; 0.005) (476.0; 0.004) (477.0; 0.004) (478.0; 0.004) (479.0; 0.004) (480.0; 0.004) (481.0; 0.004) (482.0; 0.004) (483.0; 0.004) (484.0; 0.004) (485.0; 0.004) (486.0; 0.004) (487.0; 0.004) (488.0; 0.004) (489.0; 0.004) (490.0; 0.004) (491.0; 0.004) (492.0; 0.004) (493.0; 0.004) (494.0; 0.004) (495.0; 0.004) (496.0; 0.004) (497.0; 0.004) (498.0; 0.004) (499.0; 0.004) (500.0; 0.004) (501.0; 0.004) (502.0; 0.004) (503.0; 0.004) (504.0; 0.003) (505.0; 0.003) (506.0; 0.003) (507.0; 0.003) (508.0; 0.003) (509.0; 0.003) (510.0; 0.003) (511.0; 0.003) (512.0; 0.003) (513.0; 0.003) (514.0; 0.003) (515.0; 0.003) (516.0; 0.003) (517.0; 0.003) (518.0; 0.003) (519.0; 0.003) (520.0; 0.003) (521.0; 0.003) (522.0; 0.003) (523.0; 0.003) (524.0; 0.003) (525.0; 0.003) (526.0; 0.003) (527.0; 0.003) (528.0; 0.003) (529.0; 0.003) (530.0; 0.003) (531.0; 0.003) (532.0; 0.002) (533.0; 0.002) (534.0; 0.002) (535.0; 0.002) (536.0; 0.002) (537.0; 0.002) (538.0; 0.002) (539.0; 0.002) (540.0; 0.002) (541.0; 0.002) (542.0; 0.002) (543.0; 0.002) (544.0; 0.002) (545.0; 0.002) (546.0; 0.002) (547.0; 0.002) (548.0; 0.002) (549.0; 0.002) (550.0; 0.002) (551.0; 0.002) (552.0; 0.002) (553.0; 0.002) (554.0; 0.002) (555.0; 0.002) (556.0; 0.002) (557.0; 0.002) (558.0; 0.002) (559.0; 0.002) (560.0; 0.002) (561.0; 0.002) (562.0; 0.002) (563.0; 0.002) (564.0; 0.001) (565.0; 0.001) (566.0; 0.001) (567.0; 0.001) (568.0; 0.001) (569.0; 0.001) (570.0; 0.001) (571.0; 0.001) (572.0; 0.001) (573.0; 0.001) (574.0; 0.001) (575.0; 0.001) (576.0; 0.001) (577.0; 0.001) (578.0; 0.001) (579.0; 0.001) (580.0; 0.001) (581.0; 0.001) (582.0; 0.001) (583.0; 0.001) (584.0; 0.001) (585.0; 0.001) (586.0; 0.001) (587.0; 0.001) (588.0; 0.001) (589.0; 0.001) (590.0; 0.001) (591.0; 0.001) (592.0; 0.001) (593.0; 0.001) (594.0; 0.001) (595.0; 0.001) (596.0; 0.001) (597.0; 0.001) (598.0; 0.001) (599.0; 0.001) (600.0; 0.001) (601.0; 0.001) (602.0; 0.001) (603.0; 0.001) (604.0; 0.001) (605.0; 0.001) (606.0; 0.001) (607.0; 0.001) (608.0; 0.001) (609.0; 0.001) (610.0; 0.001) ]" unit="ms">
+          <requiredResource_ParametricResourceDemand href="My.resourcetype#_kYiq4N1AEduyyPV1EeYaOQ"/>
+        </resourceDemand_Action>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_uS_rQN7UEduAv64V-CNRNA" predecessor_AbstractAction="_t0JzJN7UEduAv64V-CNRNA"/>
+    </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="pcm.seff:ResourceDemandingSEFF" seffTypeID="" describedService__SEFF="//@interfaces__Repository.0/@signatures__Interface.2" id="">
+      <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_g8_yweNvEducIYKvCli7qg" successor_AbstractAction="_hxS9g-NvEducIYKvCli7qg"/>
+      <steps_Behaviour xsi:type="pcm.seff:LoopAction" id="_hxS9g-NvEducIYKvCli7qg" predecessor_AbstractAction="_g8_yweNvEducIYKvCli7qg" successor_AbstractAction="_hWLHwONvEducIYKvCli7qg">
+        <bodyBehaviour_Loop>
+          <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_-w78oeNvEducIYKvCli7qg" successor_AbstractAction="_vP7F1ONvEducIYKvCli7qg"/>
+          <steps_Behaviour xsi:type="pcm.seff:InternalAction" id="_vP7F1ONvEducIYKvCli7qg" predecessor_AbstractAction="_-w78oeNvEducIYKvCli7qg" successor_AbstractAction="_uz6fQONvEducIYKvCli7qg">
+            <resourceDemand_Action specification="DoublePDF(unit=&quot;ms&quot;)[ (100.0; 0.20000000) (200.0; 0.30000000) (300.0; 0.50000000) ]" unit="ms">
+              <requiredResource_ParametricResourceDemand href="My.resourcetype#_kYiq4N1AEduyyPV1EeYaOQ"/>
+            </resourceDemand_Action>
+          </steps_Behaviour>
+          <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_uz6fQONvEducIYKvCli7qg" predecessor_AbstractAction="_vP7F1ONvEducIYKvCli7qg"/>
+        </bodyBehaviour_Loop>
+        <iterations_LoopAction specification="IntPMF(unit=&quot;s&quot;)[ (1; 0.09876543) (2; 0.0877915) (3; 0.07803688) (4; 0.06936612) (5; 0.06165877) (6; 0.0548078) (7; 0.04871804) (8; 0.04330493) (9; 0.03849327) (10; 0.03421624) ]"/>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_hWLHwONvEducIYKvCli7qg" predecessor_AbstractAction="_hxS9g-NvEducIYKvCli7qg"/>
+    </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="pcm.seff:ResourceDemandingSEFF" seffTypeID="" describedService__SEFF="//@interfaces__Repository.0/@signatures__Interface.3">
+      <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_Odm0YONxEduOX9gGpwrUFA" successor_AbstractAction="_O-YmMONxEduOX9gGpwrUFA"/>
+      <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_OvyJgONxEduOX9gGpwrUFA" predecessor_AbstractAction="_O-YmMONxEduOX9gGpwrUFA"/>
+      <steps_Behaviour xsi:type="pcm.seff:BranchAction" id="_O-YmMONxEduOX9gGpwrUFA" predecessor_AbstractAction="_Odm0YONxEduOX9gGpwrUFA" successor_AbstractAction="_OvyJgONxEduOX9gGpwrUFA">
+        <branches_Branch xsi:type="pcm.seff:ProbabilisticBranchTransition" id="_TCkNUONxEduOX9gGpwrUFA" branchProbability="0.1">
+          <branchBehaviour_BranchTransition>
+            <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_lNS4YONxEduOX9gGpwrUFA" successor_AbstractAction="_li58AONxEduOX9gGpwrUFA"/>
+            <steps_Behaviour xsi:type="pcm.seff:InternalAction" id="_li58AONxEduOX9gGpwrUFA" predecessor_AbstractAction="_lNS4YONxEduOX9gGpwrUFA" successor_AbstractAction="_mSlsgONxEduOX9gGpwrUFA">
+              <resourceDemand_Action specification="DoublePDF(unit=&quot;ms&quot;)[ (100.0; 0.0)(110.0; 0.20000000) (120.0; 0.30000000) (130.0; 0.50000000) ]" unit="ms">
+                <requiredResource_ParametricResourceDemand href="My.resourcetype#_kYiq4N1AEduyyPV1EeYaOQ"/>
+              </resourceDemand_Action>
+            </steps_Behaviour>
+            <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_mSlsgONxEduOX9gGpwrUFA" predecessor_AbstractAction="_li58AONxEduOX9gGpwrUFA"/>
+          </branchBehaviour_BranchTransition>
+        </branches_Branch>
+        <branches_Branch xsi:type="pcm.seff:ProbabilisticBranchTransition" id="_XB-CIONxEduOX9gGpwrUFA" branchProbability="0.9">
+          <branchBehaviour_BranchTransition>
+            <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_rx9fQONxEduOX9gGpwrUFA" successor_AbstractAction="_sElgUONxEduOX9gGpwrUFA"/>
+            <steps_Behaviour xsi:type="pcm.seff:InternalAction" id="_sElgUONxEduOX9gGpwrUFA" predecessor_AbstractAction="_rx9fQONxEduOX9gGpwrUFA" successor_AbstractAction="_szX48ONxEduOX9gGpwrUFA">
+              <resourceDemand_Action specification="DoublePDF(unit=&quot;ms&quot;)[ (10.0; 0.20000000) (20.0; 0.30000000) (30.0; 0.50000000) ]" unit="ms">
+                <requiredResource_ParametricResourceDemand href="My.resourcetype#_kYiq4N1AEduyyPV1EeYaOQ"/>
+              </resourceDemand_Action>
+            </steps_Behaviour>
+            <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_szX48ONxEduOX9gGpwrUFA" predecessor_AbstractAction="_sElgUONxEduOX9gGpwrUFA"/>
+          </branchBehaviour_BranchTransition>
+        </branches_Branch>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="pcm.seff:ResourceDemandingSEFF" describedService__SEFF="//@interfaces__Repository.0/@signatures__Interface.4">
+      <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_9pUiYONxEduOX9gGpwrUFA" successor_AbstractAction="_93oEIONxEduOX9gGpwrUFA"/>
+      <steps_Behaviour xsi:type="pcm.seff:InternalAction" id="_93oEIONxEduOX9gGpwrUFA" predecessor_AbstractAction="_9pUiYONxEduOX9gGpwrUFA" successor_AbstractAction="_-DjAQONxEduOX9gGpwrUFA">
+        <resourceDemand_Action specification="100" unit="ms">
+          <requiredResource_ParametricResourceDemand href="My.resourcetype#_kYiq4N1AEduyyPV1EeYaOQ"/>
+        </resourceDemand_Action>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_-DjAQONxEduOX9gGpwrUFA" predecessor_AbstractAction="_93oEIONxEduOX9gGpwrUFA"/>
+    </serviceEffectSpecifications__BasicComponent>
+  </components__Repository>
+  <interfaces__Repository id="_YbGTYN0-EduyyPV1EeYaOQ" entityName="IComponent">
+    <signatures__Interface serviceName="aMethod"/>
+    <signatures__Interface serviceName="bMethod"/>
+    <signatures__Interface serviceName="loopMethod"/>
+    <signatures__Interface serviceName="choiceMethod"/>
+    <signatures__Interface serviceName="scheduleMethod"/>
+  </interfaces__Repository>
+</pcm.repository:Repository>

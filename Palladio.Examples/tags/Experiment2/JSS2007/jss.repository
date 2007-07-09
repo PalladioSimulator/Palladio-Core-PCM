@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pcm.repository:Repository xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pcm.repository="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/1.0" xmlns:pcm.seff="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0" id="_dpvKsPlGEduS7MhpizGF9A" entityName="ExampleRepository">
+  <components__Repository xsi:type="pcm.repository:BasicComponent" id="_qbIZkPlGEduS7MhpizGF9A" entityName="A">
+    <requiredRoles_InterfaceRequiringEntity id="_Wt3IQPlHEduS7MhpizGF9A" entityName="Required_Interface1_A" requiredInterface__RequiredRole="_1geWUPlGEduS7MhpizGF9A"/>
+  </components__Repository>
+  <components__Repository xsi:type="pcm.repository:BasicComponent" id="_yVjScPlGEduS7MhpizGF9A" entityName="B">
+    <providedRoles_InterfaceProvidingEntity id="_Vn5lwPlHEduS7MhpizGF9A" entityName="Provided_Interface1_B" providedInterface__ProvidedRole="_1geWUPlGEduS7MhpizGF9A"/>
+    <requiredRoles_InterfaceRequiringEntity id="_NS9eofu5EduJffuVvDC1iA" requiredInterface__RequiredRole="_gjxdcPlHEduS7MhpizGF9A"/>
+    <serviceEffectSpecifications__BasicComponent xsi:type="pcm.seff:ResourceDemandingSEFF" id="_PsoEsvu5EduJffuVvDC1iA" describedService__SEFF="//@interfaces__Repository.0/@signatures__Interface.0">
+      <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_Vc72cPu5EduJffuVvDC1iA" successor_AbstractAction="_W61X0Pu5EduJffuVvDC1iA"/>
+      <steps_Behaviour xsi:type="pcm.seff:ExternalCallAction" id="_W61X0Pu5EduJffuVvDC1iA" entityName="requiredService1" predecessor_AbstractAction="_Vc72cPu5EduJffuVvDC1iA" successor_AbstractAction="_Z-cSwPu5EduJffuVvDC1iA" calledService_ExternalService="//@interfaces__Repository.1/@signatures__Interface.0"/>
+      <steps_Behaviour xsi:type="pcm.seff:InternalAction" id="_Z-cSwPu5EduJffuVvDC1iA" entityName="innerMethod" predecessor_AbstractAction="_W61X0Pu5EduJffuVvDC1iA" successor_AbstractAction="_hF-WIPu5EduJffuVvDC1iA">
+        <resourceDemand_Action specification="1000">
+          <requiredResource_ParametricResourceDemand href="../QoSA2007_MediaStore/MediaStore.resourcetype#_9-JuEaYUEduWZfldHy3B1Q"/>
+        </resourceDemand_Action>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="pcm.seff:BranchAction" id="_hF-WIPu5EduJffuVvDC1iA" entityName="branch" predecessor_AbstractAction="_Z-cSwPu5EduJffuVvDC1iA" successor_AbstractAction="_XX2ZEPu7EduJffuVvDC1iA">
+        <branches_Branch xsi:type="pcm.seff:GuardedBranchTransition" id="_m4H68Pu5EduJffuVvDC1iA">
+          <branchBehaviour_BranchTransition>
+            <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_m4KXMPu5EduJffuVvDC1iA" successor_AbstractAction="_v9iAQPu5EduJffuVvDC1iA"/>
+            <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_m4K-QPu5EduJffuVvDC1iA" predecessor_AbstractAction="_v9iAQPu5EduJffuVvDC1iA"/>
+            <steps_Behaviour xsi:type="pcm.seff:ExternalCallAction" id="_v9iAQPu5EduJffuVvDC1iA" predecessor_AbstractAction="_m4KXMPu5EduJffuVvDC1iA" successor_AbstractAction="_m4K-QPu5EduJffuVvDC1iA" calledService_ExternalService="//@interfaces__Repository.1/@signatures__Interface.2"/>
+          </branchBehaviour_BranchTransition>
+          <branchCondition_BranchTransition specification="number.VALUE &lt; 0"/>
+        </branches_Branch>
+        <branches_Branch xsi:type="pcm.seff:GuardedBranchTransition" id="_8jdmAPu5EduJffuVvDC1iA">
+          <branchBehaviour_BranchTransition>
+            <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_8jeNEPu5EduJffuVvDC1iA" successor_AbstractAction="_AXcN8Pu6EduJffuVvDC1iA"/>
+            <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_8je0IPu5EduJffuVvDC1iA" predecessor_AbstractAction="_AXcN8Pu6EduJffuVvDC1iA"/>
+            <steps_Behaviour xsi:type="pcm.seff:LoopAction" id="_AXcN8Pu6EduJffuVvDC1iA" entityName="loop" predecessor_AbstractAction="_8jeNEPu5EduJffuVvDC1iA" successor_AbstractAction="_8je0IPu5EduJffuVvDC1iA">
+              <bodyBehaviour_Loop>
+                <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_AXdcEPu6EduJffuVvDC1iA" successor_AbstractAction="_iaRaIPu6EduJffuVvDC1iA"/>
+                <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_AXeDIPu6EduJffuVvDC1iA"/>
+                <steps_Behaviour xsi:type="pcm.seff:ExternalCallAction" id="_iaRaIPu6EduJffuVvDC1iA" entityName="requireService12" predecessor_AbstractAction="_AXdcEPu6EduJffuVvDC1iA" calledService_ExternalService="//@interfaces__Repository.1/@signatures__Interface.1"/>
+              </bodyBehaviour_Loop>
+              <iterations_LoopAction specification="array.NUMBER_OF_ELEMENTS"/>
+            </steps_Behaviour>
+          </branchBehaviour_BranchTransition>
+          <branchCondition_BranchTransition specification="number.VALUE >= 0"/>
+        </branches_Branch>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_XX2ZEPu7EduJffuVvDC1iA" predecessor_AbstractAction="_hF-WIPu5EduJffuVvDC1iA"/>
+    </serviceEffectSpecifications__BasicComponent>
+  </components__Repository>
+  <components__Repository xsi:type="pcm.repository:BasicComponent" id="_q-xcsPlHEduS7MhpizGF9A" entityName="C"/>
+  <interfaces__Repository id="_1geWUPlGEduS7MhpizGF9A" entityName="Interface1">
+    <signatures__Interface serviceName="execute">
+      <parameters__Signature datatype__Parameter="_37v7YPu2EduYFc1RrvjPBg" parameterName="input1" modifier__Parameter="in"/>
+      <parameters__Signature parameterName="input2" modifier__Parameter="in">
+        <datatype__Parameter xsi:type="pcm.repository:PrimitiveDataType" href="../QoSA2007_MediaStore/MediaStore.repository#//@datatypes_Repository.3"/>
+      </parameters__Signature>
+      <parameters__Signature datatype__Parameter="_CFeH9fu4EduYFc1RrvjPBg" parameterName="input3" modifier__Parameter="in"/>
+      <returntype__Signature xsi:type="pcm.repository:PrimitiveDataType" href="../QoSA2007_MediaStore/MediaStore.repository#//@datatypes_Repository.3"/>
+    </signatures__Interface>
+  </interfaces__Repository>
+  <interfaces__Repository id="_gjxdcPlHEduS7MhpizGF9A" entityName="Interface2">
+    <signatures__Interface serviceName="requiredService1"/>
+    <signatures__Interface serviceName="requiredService2"/>
+    <signatures__Interface serviceName="requiredService3">
+      <parameters__Signature datatype__Parameter="_37v7YPu2EduYFc1RrvjPBg" parameterName="input4" modifier__Parameter="in"/>
+    </signatures__Interface>
+  </interfaces__Repository>
+  <datatypes_Repository xsi:type="pcm.repository:CollectionDataType" id="_j3ZgoPljEduxs-KcfQv6_A" entityName="INTARRAY">
+    <innerType_CollectionDataType xsi:type="pcm.repository:PrimitiveDataType" href="../QoSA2007_MediaStore/MediaStore.repository#//@datatypes_Repository.3"/>
+  </datatypes_Repository>
+  <datatypes_Repository xsi:type="pcm.repository:CollectionDataType" id="_37v7YPu2EduYFc1RrvjPBg" entityName="FILE">
+    <innerType_CollectionDataType xsi:type="pcm.repository:PrimitiveDataType" href="../QoSA2007_MediaStore/MediaStore.repository#//@datatypes_Repository.2"/>
+  </datatypes_Repository>
+  <datatypes_Repository xsi:type="pcm.repository:CollectionDataType" id="_CFeH9fu4EduYFc1RrvjPBg" entityName="LIST">
+    <innerType_CollectionDataType xsi:type="pcm.repository:PrimitiveDataType" href="../QoSA2007_MediaStore/MediaStore.repository#//@datatypes_Repository.3"/>
+  </datatypes_Repository>
+</pcm.repository:Repository>

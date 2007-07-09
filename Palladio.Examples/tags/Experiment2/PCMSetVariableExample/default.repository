@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pcm.repository:Repository xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pcm.repository="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/1.0" xmlns:pcm.seff="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0" xmlns:stoex="http://sdq.ipd.uka.de/StochasticExpressions/1.0" id="_u_u7gP_8Edu5_5tCZjPAAA" entityName="SetVariableRepository">
+  <components__Repository xsi:type="pcm.repository:BasicComponent" id="_V3B8QP_9Edu5_5tCZjPAAA" entityName="Client">
+    <providedRoles_InterfaceProvidingEntity id="_XfHUYP_9Edu5_5tCZjPAAA" entityName="Provided_IProvided_Client" providedInterface__ProvidedRole="_3YdhAP_8Edu5_5tCZjPAAA"/>
+    <requiredRoles_InterfaceRequiringEntity id="_X8oW0P_9Edu5_5tCZjPAAA" entityName="Required_IProvidedServer_Client" requiredInterface__RequiredRole="_Gy09QP_9Edu5_5tCZjPAAA"/>
+    <serviceEffectSpecifications__BasicComponent xsi:type="pcm.seff:ResourceDemandingSEFF" id="_XfJwoP_9Edu5_5tCZjPAAA" describedService__SEFF="//@interfaces__Repository.0/@signatures__Interface.0">
+      <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_Xfz38P_9Edu5_5tCZjPAAA" successor_AbstractAction="_tjfKgP_9Edu5_5tCZjPAAA"/>
+      <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_Xf27QP_9Edu5_5tCZjPAAA" predecessor_AbstractAction="_5jeKkP_9Edu5_5tCZjPAAA"/>
+      <steps_Behaviour xsi:type="pcm.seff:ExternalCallAction" id="_tjfKgP_9Edu5_5tCZjPAAA" predecessor_AbstractAction="_Xfz38P_9Edu5_5tCZjPAAA" successor_AbstractAction="_5jeKkP_9Edu5_5tCZjPAAA" calledService_ExternalService="//@interfaces__Repository.1/@signatures__Interface.0">
+        <outputVariableUsage_ExternalCallAction>
+          <variableCharacterisation_VariableUsage specification="RETURN.VALUE" type="VALUE"/>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="result"/>
+        </outputVariableUsage_ExternalCallAction>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="pcm.seff:InternalAction" id="_5jeKkP_9Edu5_5tCZjPAAA" entityName="demand" predecessor_AbstractAction="_tjfKgP_9Edu5_5tCZjPAAA" successor_AbstractAction="_Xf27QP_9Edu5_5tCZjPAAA">
+        <resourceDemand_Action specification="result.VALUE * 5">
+          <requiredResource_ParametricResourceDemand href="Palladio.resourcetype#cpu"/>
+        </resourceDemand_Action>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+  </components__Repository>
+  <components__Repository xsi:type="pcm.repository:BasicComponent" id="_YSvJsP_9Edu5_5tCZjPAAA" entityName="Server">
+    <providedRoles_InterfaceProvidingEntity id="_ZJr_0P_9Edu5_5tCZjPAAA" entityName="Provided_IProvidedServer_Server" providedInterface__ProvidedRole="_Gy09QP_9Edu5_5tCZjPAAA"/>
+    <serviceEffectSpecifications__BasicComponent xsi:type="pcm.seff:ResourceDemandingSEFF" id="_ZJsm4P_9Edu5_5tCZjPAAA" describedService__SEFF="//@interfaces__Repository.1/@signatures__Interface.0">
+      <steps_Behaviour xsi:type="pcm.seff:StartAction" id="_ZJtN8P_9Edu5_5tCZjPAAA" successor_AbstractAction="_bwktEP_-Edu5_5tCZjPAAA"/>
+      <steps_Behaviour xsi:type="pcm.seff:StopAction" id="_ZJt1AP_9Edu5_5tCZjPAAA" predecessor_AbstractAction="_bwktEP_-Edu5_5tCZjPAAA"/>
+      <steps_Behaviour xsi:type="pcm.seff:SetVariableAction" id="_bwktEP_-Edu5_5tCZjPAAA" predecessor_AbstractAction="_ZJtN8P_9Edu5_5tCZjPAAA" successor_AbstractAction="_ZJt1AP_9Edu5_5tCZjPAAA">
+        <variableUsage_SetVariableAction>
+          <variableCharacterisation_VariableUsage specification="IntPMF(unit=&quot;blah&quot;)[ (4; 0.1) (5; 0.3) (10; 0.6) ]" type="VALUE"/>
+          <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="RETURN"/>
+        </variableUsage_SetVariableAction>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="pcm.seff:SetVariableAction" id="_zXI0cABbEdyaQesd_AtJPw" entityName="xyz"/>
+    </serviceEffectSpecifications__BasicComponent>
+  </components__Repository>
+  <components__Repository xsi:type="pcm.repository:CompositeComponent" id="_REAeYAYtEdywPJFHUqResg" entityName="test">
+    <providedRoles_InterfaceProvidingEntity id="_QaPZkAY2EdywPJFHUqResg"/>
+    <requiredRoles_InterfaceRequiringEntity id="_KL8rUAY2EdywPJFHUqResg" requiredInterface__RequiredRole="_3YdhAP_8Edu5_5tCZjPAAA"/>
+    <childComponentContexts_ComposedStructure id="_chkG0AYtEdywPJFHUqResg" entityName="test1" encapsulatedComponent_ChildComponentContext="_V3B8QP_9Edu5_5tCZjPAAA"/>
+    <childComponentContexts_ComposedStructure id="_x8GVwAYtEdywPJFHUqResg" entityName="test2" encapsulatedComponent_ChildComponentContext="_V3B8QP_9Edu5_5tCZjPAAA"/>
+    <providedDelegationConnectors_ComposedStructure id="_L9OhEAZJEdyIptAqfF6SLA" innerProvidedRole_ProvidedDelegationConnector="_XfHUYP_9Edu5_5tCZjPAAA" outerProvidedRole_ProvidedDelegationConnector="_QaPZkAY2EdywPJFHUqResg" childComponentContext_ProvidedDelegationConnector="_chkG0AYtEdywPJFHUqResg"/>
+    <requiredDelegationConnectors_ComposedStructure id="_P0r60AZJEdyIptAqfF6SLA" innerRequiredRole_RequiredDelegationConnector="_X8oW0P_9Edu5_5tCZjPAAA" outerRequiredRole_RequiredDelegationConnector="_KL8rUAY2EdywPJFHUqResg" childComponentContext_RequiredDelegationConnector="_x8GVwAYtEdywPJFHUqResg"/>
+    <compositeAssemblyConnectors_ComposedStructure id="_eu3q4AY4EdywPJFHUqResg" requiringChildComponentContext_CompositeAssemblyConnector="_chkG0AYtEdywPJFHUqResg" providingChildComponentContext_CompositeAssemblyConnector="_x8GVwAYtEdywPJFHUqResg" providedRole_CompositeAssemblyConnector="_XfHUYP_9Edu5_5tCZjPAAA" requiredRole_CompositeAssemblyConnector="_X8oW0P_9Edu5_5tCZjPAAA"/>
+  </components__Repository>
+  <interfaces__Repository id="_3YdhAP_8Edu5_5tCZjPAAA" entityName="IProvided">
+    <signatures__Interface serviceName="setVariableClient"/>
+  </interfaces__Repository>
+  <interfaces__Repository id="_Gy09QP_9Edu5_5tCZjPAAA" entityName="IProvidedServer">
+    <signatures__Interface serviceName="serverService">
+      <returntype__Signature xsi:type="pcm.repository:PrimitiveDataType" href="PrimitiveTypes.repository#//@datatypes_Repository.0"/>
+    </signatures__Interface>
+  </interfaces__Repository>
+</pcm.repository:Repository>

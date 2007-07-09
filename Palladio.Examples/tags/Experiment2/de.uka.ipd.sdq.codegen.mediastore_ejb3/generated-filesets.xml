@@ -1,0 +1,25 @@
+
+<project name="generated-filesets">
+
+	<fileset id="client-classes" dir="${dist-dir}">
+		
+		<include name="downloadfiles/**/*.class" />
+		
+		<include name="*.class" />
+		<include name="META-INF/application-client.xml" />
+	</fileset>
+
+	<fileset id="ejb-classes" dir="${dist-dir}">
+		
+	<include name="mediastore_system/**/*.class" />
+	
+	<include name="mediastorerepository/**/*.class" />
+	<include name="mediarepository/**/*.class" />
+  
+
+		<include name="META-INF/ejb-jar.xml" />
+		<include name="META-INF/persistence.xml" />
+	</fileset>
+
+</project>	
+	

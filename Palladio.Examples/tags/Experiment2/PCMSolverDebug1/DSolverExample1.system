@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pcm.system:System xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:pcm.system="http://sdq.ipd.uka.de/PalladioComponentModel/System/1.0" id="0" entityName="DSolverExample1System">
+  <childComponentContexts_ComposedStructure id="_fKfcwHcmEdugqbdw26ZvAA" entityName="Context_Component1">
+    <encapsulatedComponent_ChildComponentContext href="DSolverExample1.repository#_empqNDQaEduaPaOP6VcQiw"/>
+  </childComponentContexts_ComposedStructure>
+  <childComponentContexts_ComposedStructure id="_j6xU4HcmEdugqbdw26ZvAA" entityName="Context_Component2">
+    <encapsulatedComponent_ChildComponentContext href="DSolverExample1.repository#_hj5edDQaEduaPaOP6VcQiw"/>
+  </childComponentContexts_ComposedStructure>
+  <providedDelegationConnectors_ComposedStructure id="_lomIoHcmEdugqbdw26ZvAA" entityName="MyProvDelConn" outerProvidedRole_ProvidedDelegationConnector="_i6s_AHcmEdugqbdw26ZvAA" childComponentContext_ProvidedDelegationConnector="_fKfcwHcmEdugqbdw26ZvAA">
+    <innerProvidedRole_ProvidedDelegationConnector href="DSolverExample1.repository#_2rc3kHckEdugqbdw26ZvAA"/>
+  </providedDelegationConnectors_ComposedStructure>
+  <compositeAssemblyConnectors_ComposedStructure id="_mS64AHcmEdugqbdw26ZvAA" entityName="Component1_Component2" requiringChildComponentContext_CompositeAssemblyConnector="_fKfcwHcmEdugqbdw26ZvAA" providingChildComponentContext_CompositeAssemblyConnector="_j6xU4HcmEdugqbdw26ZvAA">
+    <providedRole_CompositeAssemblyConnector href="DSolverExample1.repository#_6nku4HckEdugqbdw26ZvAA"/>
+    <requiredRole_CompositeAssemblyConnector href="DSolverExample1.repository#_8P4wgXckEdugqbdw26ZvAA"/>
+  </compositeAssemblyConnectors_ComposedStructure>
+  <providedRoles_InterfaceProvidingEntity id="_i6s_AHcmEdugqbdw26ZvAA" entityName="MySystemProvidedRole">
+    <providedInterface__ProvidedRole href="DSolverExample1.repository#_iu2OpTQaEduaPaOP6VcQiw"/>
+  </providedRoles_InterfaceProvidingEntity>
+</pcm.system:System>
