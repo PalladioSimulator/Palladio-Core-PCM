@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/de.uka.ipd.sdq.stoex/src"
+    modelPluginID="de.uka.ipd.sdq.stoex" modelName="Stoex" importerID="org.eclipse.uml2.uml.ecore.importer"
+    complianceLevel="6.0" usedGenPackages="../../de.uka.ipd.sdq.probfunction/model/ProbabilityFunction.genmodel#//probfunction">
+  <genAnnotations source="http://www.eclipse.org/emf/2002/GenModel/importer/org.eclipse.uml2.uml.ecore.importer">
+    <details key="REDEFINING_PROPERTIES" value="REPORT"/>
+    <details key="UNION_PROPERTIES" value="REPORT"/>
+    <details key="ECORE_TAGGED_VALUES" value="PROCESS"/>
+    <details key="SUBSETTING_PROPERTIES" value="REPORT"/>
+    <details key="DUPLICATE_FEATURES" value="DISCARD"/>
+    <details key="ANNOTATION_DETAILS" value="PROCESS"/>
+    <details key="REDEFINING_OPERATIONS" value="REPORT"/>
+    <details key="DUPLICATE_OPERATION_INHERITANCE" value="DISCARD"/>
+    <details key="DERIVED_FEATURES" value="PROCESS"/>
+    <details key="DUPLICATE_OPERATIONS" value="DISCARD"/>
+    <details key="DUPLICATE_FEATURE_INHERITANCE" value="DISCARD"/>
+    <details key="SUPER_CLASS_ORDER" value="PROCESS"/>
+    <details key="COMMENTS" value="PROCESS"/>
+    <details key="INVARIANT_CONSTRAINTS" value="PROCESS"/>
+    <details key="OPERATION_BODIES" value="IGNORE"/>
+  </genAnnotations>
+  <foreignModel>file:/D:/Models/stoex.uml2</foreignModel>
+  <genPackages prefix="Stoex" basePackage="de.uka.ipd.sdq" disposableProviderFactory="true"
+      ecorePackage="stoex.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="stoex.ecore#//TermOperations">
+      <genEnumLiterals ecoreEnumLiteral="stoex.ecore#//TermOperations/ADD"/>
+      <genEnumLiterals ecoreEnumLiteral="stoex.ecore#//TermOperations/SUB"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="stoex.ecore#//ProductOperations">
+      <genEnumLiterals ecoreEnumLiteral="stoex.ecore#//ProductOperations/MULT"/>
+      <genEnumLiterals ecoreEnumLiteral="stoex.ecore#//ProductOperations/DIV"/>
+      <genEnumLiterals ecoreEnumLiteral="stoex.ecore#//ProductOperations/MOD"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="stoex.ecore#//CompareOperations">
+      <genEnumLiterals ecoreEnumLiteral="stoex.ecore#//CompareOperations/GREATER"/>
+      <genEnumLiterals ecoreEnumLiteral="stoex.ecore#//CompareOperations/EQUALS"/>
+      <genEnumLiterals ecoreEnumLiteral="stoex.ecore#//CompareOperations/LESS"/>
+      <genEnumLiterals ecoreEnumLiteral="stoex.ecore#//CompareOperations/NOTEQUAL"/>
+      <genEnumLiterals ecoreEnumLiteral="stoex.ecore#//CompareOperations/LESSEQUAL"/>
+      <genEnumLiterals ecoreEnumLiteral="stoex.ecore#//CompareOperations/GREATEREQUAL"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="stoex.ecore#//BooleanOperations">
+      <genEnumLiterals ecoreEnumLiteral="stoex.ecore#//BooleanOperations/AND"/>
+      <genEnumLiterals ecoreEnumLiteral="stoex.ecore#//BooleanOperations/OR"/>
+      <genEnumLiterals ecoreEnumLiteral="stoex.ecore#//BooleanOperations/XOR"/>
+    </genEnums>
+    <genClasses ecoreClass="stoex.ecore#//VariableReference"/>
+    <genClasses image="false" ecoreClass="stoex.ecore#//AbstractNamedReference">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute stoex.ecore#//AbstractNamedReference/referenceName"/>
+    </genClasses>
+    <genClasses ecoreClass="stoex.ecore#//NamespaceReference">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference stoex.ecore#//NamespaceReference/innerReference_NamespaceReference"/>
+    </genClasses>
+    <genClasses ecoreClass="stoex.ecore#//Variable">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference stoex.ecore#//Variable/id_Variable"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="stoex.ecore#//Atom"/>
+    <genClasses image="false" ecoreClass="stoex.ecore#//Unary"/>
+    <genClasses image="false" ecoreClass="stoex.ecore#//Power"/>
+    <genClasses image="false" ecoreClass="stoex.ecore#//Product"/>
+    <genClasses image="false" ecoreClass="stoex.ecore#//Term"/>
+    <genClasses image="false" ecoreClass="stoex.ecore#//Comparison"/>
+    <genClasses image="false" ecoreClass="stoex.ecore#//BooleanExpression"/>
+    <genClasses image="false" ecoreClass="stoex.ecore#//IfElse"/>
+    <genClasses image="false" ecoreClass="stoex.ecore#//Expression"/>
+    <genClasses ecoreClass="stoex.ecore#//TermExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference stoex.ecore#//TermExpression/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference stoex.ecore#//TermExpression/right"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute stoex.ecore#//TermExpression/operation"/>
+    </genClasses>
+    <genClasses ecoreClass="stoex.ecore#//RandomVariable">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute stoex.ecore#//RandomVariable/specification"/>
+      <genOperations ecoreOperation="stoex.ecore#//RandomVariable/SpecificationMustNotBeNULL">
+        <genParameters ecoreParameter="stoex.ecore#//RandomVariable/SpecificationMustNotBeNULL/diagnostics"/>
+        <genParameters ecoreParameter="stoex.ecore#//RandomVariable/SpecificationMustNotBeNULL/context"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="stoex.ecore#//ProductExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference stoex.ecore#//ProductExpression/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference stoex.ecore#//ProductExpression/right"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute stoex.ecore#//ProductExpression/operation"/>
+    </genClasses>
+    <genClasses ecoreClass="stoex.ecore#//ProbabilityFunctionLiteral">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference stoex.ecore#//ProbabilityFunctionLiteral/function_ProbabilityFunctionLiteral"/>
+    </genClasses>
+    <genClasses ecoreClass="stoex.ecore#//Parenthesis">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference stoex.ecore#//Parenthesis/innerExpression"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="stoex.ecore#//NumericLiteral"/>
+    <genClasses ecoreClass="stoex.ecore#//IntLiteral">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute stoex.ecore#//IntLiteral/value"/>
+    </genClasses>
+    <genClasses ecoreClass="stoex.ecore#//DoubleLiteral">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute stoex.ecore#//DoubleLiteral/value"/>
+    </genClasses>
+    <genClasses ecoreClass="stoex.ecore#//CompareExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference stoex.ecore#//CompareExpression/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference stoex.ecore#//CompareExpression/right"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute stoex.ecore#//CompareExpression/operation"/>
+    </genClasses>
+    <genClasses ecoreClass="stoex.ecore#//BoolLiteral">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute stoex.ecore#//BoolLiteral/value"/>
+    </genClasses>
+    <genClasses ecoreClass="stoex.ecore#//StringLiteral">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute stoex.ecore#//StringLiteral/value"/>
+    </genClasses>
+    <genClasses ecoreClass="stoex.ecore#//PowerExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference stoex.ecore#//PowerExpression/base"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference stoex.ecore#//PowerExpression/exponent"/>
+    </genClasses>
+    <genClasses ecoreClass="stoex.ecore#//BooleanOperatorExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference stoex.ecore#//BooleanOperatorExpression/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference stoex.ecore#//BooleanOperatorExpression/right"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute stoex.ecore#//BooleanOperatorExpression/operation"/>
+    </genClasses>
+    <genClasses ecoreClass="stoex.ecore#//NotExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference stoex.ecore#//NotExpression/inner"/>
+    </genClasses>
+    <genClasses ecoreClass="stoex.ecore#//NegativeExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference stoex.ecore#//NegativeExpression/inner"/>
+    </genClasses>
+    <genClasses ecoreClass="stoex.ecore#//FunctionLiteral">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute stoex.ecore#//FunctionLiteral/id"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference stoex.ecore#//FunctionLiteral/parameters_FunctionLiteral"/>
+    </genClasses>
+    <genClasses ecoreClass="stoex.ecore#//IfElseExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference stoex.ecore#//IfElseExpression/ifExpression"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference stoex.ecore#//IfElseExpression/elseExpression"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference stoex.ecore#//IfElseExpression/conditionExpression"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>
