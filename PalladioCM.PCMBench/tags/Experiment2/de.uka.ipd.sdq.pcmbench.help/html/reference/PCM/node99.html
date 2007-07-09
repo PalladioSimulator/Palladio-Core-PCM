@@ -1,0 +1,88 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>m:1</TITLE>
+<META NAME="description" CONTENT="m:1">
+<META NAME="keywords" CONTENT="PCM">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="PCM.css">
+
+<LINK REL="next" HREF="node100.html">
+<LINK REL="previous" HREF="node98.html">
+<LINK REL="up" HREF="node97.html">
+<LINK REL="next" HREF="node100.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html1975"
+  HREF="node100.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:///C|/programme/latex2html/icons/next.png"></A> 
+<A NAME="tex2html1969"
+  HREF="node97.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:///C|/programme/latex2html/icons/up.png"></A> 
+<A NAME="tex2html1963"
+  HREF="node98.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:///C|/programme/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html1971"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="file:///C|/programme/latex2html/icons/contents.png"></A> 
+<A NAME="tex2html1973"
+  HREF="node178.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="file:///C|/programme/latex2html/icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1976"
+  HREF="node100.html">m:n</A>
+<B> Up:</B> <A NAME="tex2html1970"
+  HREF="node97.html">Quantities of Sub-Type-Relations</A>
+<B> Previous:</B> <A NAME="tex2html1964"
+  HREF="node98.html">1:n</A>
+ &nbsp; <B>  <A NAME="tex2html1972"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html1974"
+  HREF="node178.html">Index</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H4><A NAME="SECTION00425520000000000000">
+m:1</A>
+</H4>
+Figure&nbsp;<A HREF="node81.html#fig:cm-type-levels-01">3.3</A> shows another characteristic of the relation between the type layers. One complete type can be the sub-type of an arbitrary number (0..*) of provides types and one implementation type can be sub-type of an arbitrary number of complete types.
+
+<P>
+The <I>m:1</I>-relation between provides type and complete type is possible, because a complete type can provide interfaces that are not specified by a concrete provides type. These interfaces, which are not provided by the first concrete provides type still can be provided by another provides type. After all, the complete type is a sub-type of <I>m</I> provides types.
+
+<P>
+<P>
+<DIV><I>Example  3.4</I> (m:1)  &nbsp; 
+A short example illustrates the <I>m:1</I>-relation. Assume a complete type that provides <TT>I1</TT> and <TT>I2</TT>. Then there can be two provides types of which the first provides <TT>I1</TT> and the second <TT>I2</TT>. This causes two super-types for one complete types; in general <I>m</I> super-types are possible.</DIV><P></P>
+
+<P>
+The <I>m:1</I>-relation between complete type and implementation type originates from the same reasons.
+
+<P>
+<BR><HR>
+<ADDRESS>
+Snowball
+2007-03-16
+</ADDRESS>
+</BODY>
+</HTML>

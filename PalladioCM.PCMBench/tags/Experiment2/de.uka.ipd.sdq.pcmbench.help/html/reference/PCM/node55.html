@@ -1,0 +1,159 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Components</TITLE>
+<META NAME="description" CONTENT="Components">
+<META NAME="keywords" CONTENT="PCM">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="PCM.css">
+
+<LINK REL="next" HREF="node62.html">
+<LINK REL="previous" HREF="node49.html">
+<LINK REL="up" HREF="node47.html">
+<LINK REL="next" HREF="node56.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html1258"
+  HREF="node56.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:///C|/programme/latex2html/icons/next.png"></A> 
+<A NAME="tex2html1252"
+  HREF="node47.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:///C|/programme/latex2html/icons/up.png"></A> 
+<A NAME="tex2html1246"
+  HREF="node54.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:///C|/programme/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html1254"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="file:///C|/programme/latex2html/icons/contents.png"></A> 
+<A NAME="tex2html1256"
+  HREF="node178.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="file:///C|/programme/latex2html/icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1259"
+  HREF="node56.html">Implementation Component Type</A>
+<B> Up:</B> <A NAME="tex2html1253"
+  HREF="node47.html">Component Developer</A>
+<B> Previous:</B> <A NAME="tex2html1247"
+  HREF="node54.html">Interface Inheritance</A>
+ &nbsp; <B>  <A NAME="tex2html1255"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html1257"
+  HREF="node178.html">Index</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION00413000000000000000">
+Components</A>
+</H2>
+
+<P>
+Components in the Software Development Process
+often a mixture of top-down and bottom-up
+
+<P>
+- some are already implemented and specified
+- for some components only the idea exists of what they should do
+must be specifiable in a software architecture
+
+<P>
+we distinguish three abstraction levels for software components (from abstract to concrete): provided types, complete types, and implementation types. 
+
+<P>
+implementation types represent fully specified components, also the internal structure of the component is known. 
+complete types fully specify a component's required and provided interfaces, but does not make any statements about its internal structure
+provided types only specify a component's provided interfaces leaving its requirements and implementation open.
+
+<P>
+concreter levels are refinements of abstract ones
+defined relationship
+
+<P>
+Section provides an overview on the different component types and their relationship.
+two part: first ideas and concepts of the type hierarchy, second meta modelling constructs and OCL-constraints
+
+<P>
+First part begins with the concepts of the three types, starting with the most concrete implementation type. Then the more abstract concepts of complete and provided type are motivated and introduced.
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL>
+<LI><A NAME="tex2html1260"
+  HREF="node56.html">Implementation Component Type</A>
+<UL>
+<LI><A NAME="tex2html1261"
+  HREF="node57.html">Basic Components</A>
+<LI><A NAME="tex2html1262"
+  HREF="node58.html">Composite Components</A>
+</UL>
+<BR>
+<LI><A NAME="tex2html1263"
+  HREF="node59.html">Complete Component Type</A>
+<LI><A NAME="tex2html1264"
+  HREF="node60.html">Provided Component Type</A>
+<LI><A NAME="tex2html1265"
+  HREF="node61.html">Type Hierarchy</A>
+</UL>
+<!--End of Table of Child-Links-->
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1258"
+  HREF="node56.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:///C|/programme/latex2html/icons/next.png"></A> 
+<A NAME="tex2html1252"
+  HREF="node47.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:///C|/programme/latex2html/icons/up.png"></A> 
+<A NAME="tex2html1246"
+  HREF="node54.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:///C|/programme/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html1254"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="file:///C|/programme/latex2html/icons/contents.png"></A> 
+<A NAME="tex2html1256"
+  HREF="node178.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="file:///C|/programme/latex2html/icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1259"
+  HREF="node56.html">Implementation Component Type</A>
+<B> Up:</B> <A NAME="tex2html1253"
+  HREF="node47.html">Component Developer</A>
+<B> Previous:</B> <A NAME="tex2html1247"
+  HREF="node54.html">Interface Inheritance</A>
+ &nbsp; <B>  <A NAME="tex2html1255"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html1257"
+  HREF="node178.html">Index</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+Snowball
+2007-03-16
+</ADDRESS>
+</BODY>
+</HTML>

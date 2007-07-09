@@ -1,0 +1,376 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Interoperability Checks, Substitutability Checks and Classical Contracts for Software Components</TITLE>
+<META NAME="description" CONTENT="Interoperability Checks, Substitutability Checks and Classical Contracts for Software Components">
+<META NAME="keywords" CONTENT="PCM">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="PCM.css">
+
+<LINK REL="next" HREF="node27.html">
+<LINK REL="previous" HREF="node25.html">
+<LINK REL="up" HREF="node25.html">
+<LINK REL="next" HREF="node27.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html712"
+  HREF="node27.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:///C|/programme/latex2html/icons/next.png"></A> 
+<A NAME="tex2html706"
+  HREF="node25.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:///C|/programme/latex2html/icons/up.png"></A> 
+<A NAME="tex2html700"
+  HREF="node25.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:///C|/programme/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html708"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="file:///C|/programme/latex2html/icons/contents.png"></A> 
+<A NAME="tex2html710"
+  HREF="node178.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="file:///C|/programme/latex2html/icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html713"
+  HREF="node27.html">Parameterised Contracts as Generalisation</A>
+<B> Up:</B> <A NAME="tex2html707"
+  HREF="node25.html">Parametric Contracts</A>
+<B> Previous:</B> <A NAME="tex2html701"
+  HREF="node25.html">Parametric Contracts</A>
+ &nbsp; <B>  <A NAME="tex2html709"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html711"
+  HREF="node178.html">Index</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION00341000000000000000">
+Interoperability Checks, Substitutability Checks 
+  and Classical Contracts for Software Components</A>
+</H2> 
+Before defining contracts
+for components, we briefly review B. Meyer's design-by-contract principle from
+an abstract point of view.  According to [, p.  342], a contract
+between the client and the supplier consists of two obligations:
+
+<UL>
+<LI>The client has to satisfy the precondition of the supplier.
+</LI>
+<LI>The supplier has to fulfil its postcondition, if the
+precondition was met be the client.
+</LI>
+</UL>
+Each of the above obligations can be seen as the benefit for the other
+party. (The client can count on the postcondition if the precondition
+was fulfilled, while the supplier can count on the
+precondition). Putting it in one sentence: 
+<BLOCKQUOTE>
+If the client fulfils the
+  precondition of the supplier, the supplier will fulfil its
+  postcondition.
+
+</BLOCKQUOTE>
+The used component plays the role of a supplier. But to formulate contracts
+for components, we also have to identify the pre- and postconditions and the
+user of a component. But what is to be considered a precondition,
+postcondition and user depends whether the component is used at run-time or
+configuration-time. Let's first consider the component's use at run-time.
+Using a component at run-time is calling its services.  Hence, the user of a
+component <IMG
+ WIDTH="18" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="$ C$"> is the set of all components connected to <IMG
+ WIDTH="18" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="$ C$">'s provides-interface(s).
+
+<P>
+The precondition for that kind of use is the precondition of the service,
+likewise the postcondition is the postcondition of the service. Actually, that
+shows that this kind of use of a component is nothing different as using a
+method. Therefore, the author considers this case as the use of a
+<I>component service</I>, but <I>not</I> as the use of a <I>component</I>.
+Likewise, the contract to be fulfilled here from client and supplier is a
+<I>method contract</I> as described by B. Meyer already in 1992.
+This is not the contract for using the <I>component</I>! 
+
+<P>
+The other case of component usage (usage at composition-time) is actually the
+relevant case when talking about the contractual use of components. This is
+the important case when architecting systems out of components or deploying
+components within existing systems for reconfigurations. Again, in this case a
+component <IMG
+ WIDTH="18" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="$ C$"> is acting as a supplier and the environment as a client. The
+component <IMG
+ WIDTH="18" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="$ C$"> offers services to the environment (i.e., the components
+connected to <IMG
+ WIDTH="18" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="$ C$">'s provides-interface(s)). According to the above discussion
+of contracts, these offered services are the postcondition of the component,
+i.e., what the client can expect from a working component. Also
+according to B. Meyer's above mentioned description of contracts, the precondition is what the component <IMG
+ WIDTH="18" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="$ C$"> expects from its environment (actually all
+components connected to <IMG
+ WIDTH="18" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="$ C$">'s requires-interface(s)) to be provided by the
+environment, in order to enable <IMG
+ WIDTH="18" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img2.png"
+ ALT="$ C$"> to offer its services (as stated in its
+postcondition). Hence, the precondition of a component is stated in its
+requires-interfaces.  Analogously to the above single sentence formulation of
+a contract, we can state:
+<BLOCKQUOTE>
+If the user of a component fulfils the component's requires-interface
+  (offers the right environment) the component will offer its services as
+  described in the provides-interface.  
+
+</BLOCKQUOTE>
+Let's denote with <IMG
+ WIDTH="36" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img3.png"
+ ALT="$ pre_c$"> the precondition of a component <IMG
+ WIDTH="12" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img4.png"
+ ALT="$ c$"> and with
+<IMG
+ WIDTH="43" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img5.png"
+ ALT="$ post_c$"> the postcondition of a component <IMG
+ WIDTH="12" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img4.png"
+ ALT="$ c$">. For checking check whether a
+component <IMG
+ WIDTH="12" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img4.png"
+ ALT="$ c$"> can be replaced safely by a component <IMG
+ WIDTH="16" HEIGHT="20" ALIGN="BOTTOM" BORDER="0"
+ SRC="img6.png"
+ ALT="$ c'$">, one has to ensure
+that the contract of <IMG
+ WIDTH="16" HEIGHT="20" ALIGN="BOTTOM" BORDER="0"
+ SRC="img6.png"
+ ALT="$ c'$"> is a subcontract of <IMG
+ WIDTH="12" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img4.png"
+ ALT="$ c$">. The notion of a subcontract
+is described in [, p. 573] like contravariant typing for methods:
+A contract <IMG
+ WIDTH="16" HEIGHT="20" ALIGN="BOTTOM" BORDER="0"
+ SRC="img6.png"
+ ALT="$ c'$"> is a subcontract of contract <IMG
+ WIDTH="12" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img4.png"
+ ALT="$ c$"> iff 
+<P></P>
+<DIV ALIGN="CENTER"><A NAME="eq:subst"></A><!-- MATH
+ \begin{equation}
+pre_{c'} \trianglelefteq pre_c
+  \wedge post_{c'} \trianglerighteq post_c
+\end{equation}
+ -->
+<TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="219" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img7.png"
+ ALT="$\displaystyle pre_{c'} \trianglelefteq pre_c \wedge post_{c'} \trianglerighteq post_c$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+(2.1)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+(Where <!-- MATH
+ $\trianglerighteq$
+ -->
+<IMG
+ WIDTH="18" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img8.png"
+ ALT="$ \trianglerighteq $"> means ``stronger'', i.e., if <IMG
+ WIDTH="36" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img3.png"
+ ALT="$ pre_c$"> and <IMG
+ WIDTH="43" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img5.png"
+ ALT="$ post_c$"> are
+predicates,<!-- MATH
+ $\trianglerighteq$
+ -->
+<IMG
+ WIDTH="18" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img8.png"
+ ALT="$ \trianglerighteq $"> is <!-- MATH
+ $\Rightarrow$
+ -->
+<IMG
+ WIDTH="22" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img9.png"
+ ALT="$ \Rightarrow$">. In the set semantics of pre- and
+postcondition below, <!-- MATH
+ $\trianglerighteq$
+ -->
+<IMG
+ WIDTH="18" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img8.png"
+ ALT="$ \trianglerighteq $"> is the inclusion <IMG
+ WIDTH="18" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img10.png"
+ ALT="$ \supseteq$">.)
+
+<P>
+To check the interoperability between components <IMG
+ WIDTH="12" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img4.png"
+ ALT="$ c$"> and <IMG
+ WIDTH="16" HEIGHT="20" ALIGN="BOTTOM" BORDER="0"
+ SRC="img6.png"
+ ALT="$ c'$"> (see point (1)
+in figure <A HREF="node27.html#fig:comp-env">2.7</A>), one has to check whether
+<P></P>
+<DIV ALIGN="CENTER"><A NAME="eq:interop"></A><!-- MATH
+ \begin{equation}
+pre_c \trianglelefteq post_{c'}
+\end{equation}
+ -->
+<TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="102" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img11.png"
+ ALT="$\displaystyle pre_c \trianglelefteq post_{c'}$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+(2.2)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+Coming back to protocol-modelling interfaces, we can consider the precondition
+of a component as the set of required method call sequences, while the
+postcondition is the set of offered call sequences. In this case, the checks
+described in the above formulas (<A HREF="#eq:subst">2.1</A>) and (<A HREF="#eq:interop">2.2</A>) boiled
+down to checking the inclusion relationship between the sets of call
+sequences, i.e., for the substitutability check we have:
+<P></P>
+<DIV ALIGN="CENTER"><A NAME="eq:subst-set"></A><!-- MATH
+ \begin{equation}
+pre_{c'} \subseteq pre_c
+  \wedge post_{c'} \supseteq post_c
+\end{equation}
+ -->
+<TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="219" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img12.png"
+ ALT="$\displaystyle pre_{c'} \subseteq pre_c \wedge post_{c'} \supseteq post_c$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+(2.3)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+and for the interoperability check:
+<P></P>
+<DIV ALIGN="CENTER"><A NAME="eq:interop-set"></A><!-- MATH
+ \begin{equation}
+pre_c \subseteq post_{c'}
+\end{equation}
+ -->
+<TABLE CELLPADDING="0" WIDTH="100%" ALIGN="CENTER">
+<TR VALIGN="MIDDLE">
+<TD NOWRAP ALIGN="CENTER"><IMG
+ WIDTH="102" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img13.png"
+ ALT="$\displaystyle pre_c \subseteq post_{c'}$"></TD>
+<TD NOWRAP WIDTH="10" ALIGN="RIGHT">
+(2.4)</TD></TR>
+</TABLE></DIV>
+<BR CLEAR="ALL"><P></P>
+For arbitrary sets <IMG
+ WIDTH="17" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img14.png"
+ ALT="$ A$"> and <IMG
+ WIDTH="18" HEIGHT="15" ALIGN="BOTTOM" BORDER="0"
+ SRC="img15.png"
+ ALT="$ B$"> holds <!-- MATH
+ $A \subseteq B \Longleftrightarrow A
+\cap B = A$
+ -->
+<IMG
+ WIDTH="179" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img16.png"
+ ALT="$ A \subseteq B \Longleftrightarrow A
+\cap B = A $">. Hence, the inclusion check we need for checking interoperability
+and substitutability can be reduced to computing the intersection and
+equivalence of sets of call sequences. One of the main reasons for choosing
+finite state machines as a model to specify these sets of call sequences was
+the existence of efficient algorithms for computing the intersection of two
+FSMs and checking their equivalence. Of course, more powerful models than FSMs
+exist (in the sense that they can describe protocols which cannot be
+described by FSMs) but for many of these models (like the various push-down
+automata) the equivalence is not decidable. Hence, one can use these models
+for specifying component interfaces, but that does not help to check their
+interoperbaility or substitutability at configuration-time.
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html712"
+  HREF="node27.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:///C|/programme/latex2html/icons/next.png"></A> 
+<A NAME="tex2html706"
+  HREF="node25.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:///C|/programme/latex2html/icons/up.png"></A> 
+<A NAME="tex2html700"
+  HREF="node25.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:///C|/programme/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html708"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="file:///C|/programme/latex2html/icons/contents.png"></A> 
+<A NAME="tex2html710"
+  HREF="node178.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="file:///C|/programme/latex2html/icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html713"
+  HREF="node27.html">Parameterised Contracts as Generalisation</A>
+<B> Up:</B> <A NAME="tex2html707"
+  HREF="node25.html">Parametric Contracts</A>
+<B> Previous:</B> <A NAME="tex2html701"
+  HREF="node25.html">Parametric Contracts</A>
+ &nbsp; <B>  <A NAME="tex2html709"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html711"
+  HREF="node178.html">Index</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+Snowball
+2007-03-16
+</ADDRESS>
+</BODY>
+</HTML>

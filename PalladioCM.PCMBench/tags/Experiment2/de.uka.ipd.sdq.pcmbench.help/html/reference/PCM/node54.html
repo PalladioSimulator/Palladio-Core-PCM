@@ -1,0 +1,80 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Interface Inheritance</TITLE>
+<META NAME="description" CONTENT="Interface Inheritance">
+<META NAME="keywords" CONTENT="PCM">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="PCM.css">
+
+<LINK REL="previous" HREF="node53.html">
+<LINK REL="up" HREF="node49.html">
+<LINK REL="next" HREF="node55.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html1244"
+  HREF="node55.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:///C|/programme/latex2html/icons/next.png"></A> 
+<A NAME="tex2html1238"
+  HREF="node49.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:///C|/programme/latex2html/icons/up.png"></A> 
+<A NAME="tex2html1234"
+  HREF="node53.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:///C|/programme/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html1240"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="file:///C|/programme/latex2html/icons/contents.png"></A> 
+<A NAME="tex2html1242"
+  HREF="node178.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="file:///C|/programme/latex2html/icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1245"
+  HREF="node55.html">Components</A>
+<B> Up:</B> <A NAME="tex2html1239"
+  HREF="node49.html">Interfaces</A>
+<B> Previous:</B> <A NAME="tex2html1235"
+  HREF="node53.html">Contracts</A>
+ &nbsp; <B>  <A NAME="tex2html1241"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html1243"
+  HREF="node178.html">Index</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H3><A NAME="SECTION00412500000000000000">
+Interface Inheritance</A>
+</H3>
+As in object oriented languages, which also have the concept of interfaces, they can be used to build a type system. In our model, interfaces can have an arbitrary amount of super-interfaces. A common constraint for the hierarchy of interfaces is that any given interface can not be supertype of itself, which gives us a acyclic subtype hierarchy.
+
+<P>
+In order to define a subtype relationship on interfaces, consider an interface taken from a well-known programming language like Java or C#. In these languages, an interface specifies a set of signatures, consisting of an signature name, its parameter names and datatype, return types and exceptions. We use the same set of describing elements but in our model we have some constraints on the datatypes which can be used. As the external view of components is characterized by its interfaces, only interface references and an extensible set of basic data types (i.e., integer, string, ...) are allowed, but no component references.
+
+<P>
+
+<BR><HR>
+<ADDRESS>
+Snowball
+2007-03-16
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,164 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Allocation Context</TITLE>
+<META NAME="description" CONTENT="Allocation Context">
+<META NAME="keywords" CONTENT="PCM">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="PCM.css">
+
+<LINK REL="next" HREF="node143.html">
+<LINK REL="previous" HREF="node140.html">
+<LINK REL="up" HREF="node136.html">
+<LINK REL="next" HREF="node143.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2600"
+  HREF="node143.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:///C|/programme/latex2html/icons/next.png"></A> 
+<A NAME="tex2html2594"
+  HREF="node136.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:///C|/programme/latex2html/icons/up.png"></A> 
+<A NAME="tex2html2588"
+  HREF="node141.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:///C|/programme/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html2596"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="file:///C|/programme/latex2html/icons/contents.png"></A> 
+<A NAME="tex2html2598"
+  HREF="node178.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="file:///C|/programme/latex2html/icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html2601"
+  HREF="node143.html">Open Issues and Future</A>
+<B> Up:</B> <A NAME="tex2html2595"
+  HREF="node136.html">System Deployer</A>
+<B> Previous:</B> <A NAME="tex2html2589"
+  HREF="node141.html">Passive and Processing Resources</A>
+ &nbsp; <B>  <A NAME="tex2html2597"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html2599"
+  HREF="node178.html">Index</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION00445000000000000000"></A>
+<A NAME="sec:System_Deployer:Allocation_Context"></A>
+<BR>
+Allocation Context
+</H2>
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="fig:System_Deployer:ResourceEnvironment2"></A><A NAME="2852"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 3.30:</STRONG>
+Alternative allocation for figure <A HREF="node140.html#fig:System_Deployer:ResourceEnvironment">3.27</A>.</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">	<IMG
+  WIDTH="1146" HEIGHT="833" ALIGN="BOTTOM" BORDER="0"
+ SRC="./ResourceEnvironment2.gif"
+ ALT="Image ResourceEnvironment2">
+	</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+After introducing different resource types and means to specify execution environments, which provide the infrastructure to an application, components have to be allocated on the available resource containers. For this purpose, the PCM uses the <I>allocation context</I>. In section <A HREF="node131.html#sec:Software_Architect:Assemby_Context">3.3.3</A>, we described how a component is integrated in a system assembly using assembly contexts. The idea of allocation contexts is similar. Each component integrated in an assembly might be allocated on multiple resource environments. Thus, for each component in an assembly context, there can be multiple allocation contexts that place the component on different resource containers. For example, a possible alternative of the allocation in figure <A HREF="node140.html#fig:System_Deployer:ResourceEnvironment">3.27</A> is shown in figure <A HREF="#fig:System_Deployer:ResourceEnvironment2">3.30</A>.
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="fig:System_Deployer:AllocationEnvironment"></A><A NAME="2840"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 3.31:</STRONG>
+Allocation of a component on multiple resource environments (simplified).
+</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">	<IMG
+  WIDTH="1310" HEIGHT="491" ALIGN="BOTTOM" BORDER="0"
+ SRC="./AllocationContext.gif"
+ ALT="Image AllocationContext">
+	</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+Figure <A HREF="#fig:System_Deployer:AllocationEnvironment">3.31</A> shows a simplified instance of the PCM that realises the allocation shown in figure <A HREF="#fig:System_Deployer:ResourceEnvironment2">3.30</A>. The allocation context is an association class that links a component to a resource environment. The allocation context allows to specify the placement of the same component on multiple resource environments. In reality, a copy of the component is created for each machine. Furthermore, the allocation context stores QoS related information that depends on the resources used by a component. For example, if an internal action of a component uses 5000 cycles on a <TT>Processor</TT> resource, this can be transformed to an execution time of <!-- MATH
+ $1.\overline{6}\mu s$
+ -->
+<IMG
+ WIDTH="45" HEIGHT="38" ALIGN="MIDDLE" BORDER="0"
+ SRC="img106.png"
+ ALT="$ 1.\overline{6}\mu s$"> for a processor with 3GHz ( <!-- MATH
+ $1 / (3 * 10^9 s^{-1}) * 5000$
+ -->
+<IMG
+ WIDTH="163" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
+ SRC="img107.png"
+ ALT="$ 1 / (3 * 10^9 s^{-1}) * 5000 $"> ). As the execution time of internal actions depends on the resources the component is allocated on, these information are handled by the allocation context.
+
+<P>
+In the PCM, resource environments are described using resource containers holding an arbitrary number of processing and passive resources. Linking resources connect resource containers with each other and provide a communication resource for sending data from one container to another. Resource types can be used to specify which kinds of passive, processing and communication resources exist. 
+Components that are integrated into an assembly can be allocated on resource containers using allocation contexts. These allow us to allocate one component on multiple resource containers and store QoS relevant information, which depends on the container, independent of the component. So, the PCM provides a complete infrastructure to specify the environment of an application and its allocation. However, there are a lot of open issues that need to be addressed in the future. We will discuss some of them in the following.
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2600"
+  HREF="node143.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:///C|/programme/latex2html/icons/next.png"></A> 
+<A NAME="tex2html2594"
+  HREF="node136.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:///C|/programme/latex2html/icons/up.png"></A> 
+<A NAME="tex2html2588"
+  HREF="node141.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:///C|/programme/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html2596"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="file:///C|/programme/latex2html/icons/contents.png"></A> 
+<A NAME="tex2html2598"
+  HREF="node178.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="file:///C|/programme/latex2html/icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html2601"
+  HREF="node143.html">Open Issues and Future</A>
+<B> Up:</B> <A NAME="tex2html2595"
+  HREF="node136.html">System Deployer</A>
+<B> Previous:</B> <A NAME="tex2html2589"
+  HREF="node141.html">Passive and Processing Resources</A>
+ &nbsp; <B>  <A NAME="tex2html2597"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html2599"
+  HREF="node178.html">Index</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+Snowball
+2007-03-16
+</ADDRESS>
+</BODY>
+</HTML>
