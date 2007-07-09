@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+      <extension
+            point="de.uka.ipd.sdq.sensorframework.visualisation">
+         <Visualisation
+               acceptsData="de.uka.ipd.sdq.sensorfactory.entities.TimeSpanSensor"
+               acceptsMultiple="true"
+               class="de.uka.ipd.sdq.codegen.rvisualisation.views.RReportView"
+               displayName="R TimeSensor Report"
+               editorID="de.uka.ipd.sdq.codegen.rvisualization.views.ReportView">
+         </Visualisation>
+      </extension>
+
+      <extension
+            point="org.eclipse.ui.editors">
+         <editor
+               class="de.uka.ipd.sdq.codegen.rvisualisation.views.RReportView"
+               icon="icons/sample.gif"
+               id="de.uka.ipd.sdq.codegen.rvisualization.views.ReportView"
+               name="R Report">
+         </editor>
+      </extension>
+
+
+</plugin>
