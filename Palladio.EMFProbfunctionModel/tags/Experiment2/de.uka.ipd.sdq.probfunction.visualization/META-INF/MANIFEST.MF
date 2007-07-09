@@ -1,0 +1,14 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Visualization Plug-in
+Bundle-SymbolicName: de.uka.ipd.sdq.probfunction.visualization
+Bundle-Version: 2.0.0.qualifier
+Bundle-Localization: plugin
+Require-Bundle: org.eclipse.birt.chart,
+ org.eclipse.birt.chart.device.swt,
+ org.eclipse.birt,
+ org.eclipse.birt.chart.engine,
+ org.eclipse.swt,
+ de.uka.ipd.sdq.probfunction.math,
+ org.eclipse.emf.ecore.xmi,
+ de.uka.ipd.sdq.probfunction
