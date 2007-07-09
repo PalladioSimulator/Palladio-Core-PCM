@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+  <extension
+         point="org.eclipse.gmf.runtime.emf.type.core.elementTypes">
+      <metamodel
+            nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/UsageModel/1.0">
+         <adviceBinding 
+               class="de.uka.ipd.sdq.pcm.gmf.usage.helper.CreateThinkTimeEditHelperAdvice"
+               id="de.uka.ipd.sdq.pcm.gmf.usage.ThinkTimeActionAdvice"
+               inheritance="all"
+               typeId="de.uka.ipd.sdq.pcm.gmf.usage.ClosedWorkload_2002">
+         </adviceBinding>
+         <adviceBinding 
+               class="de.uka.ipd.sdq.pcm.gmf.usage.helper.CreateArrivalRateEditHelperAdvice"
+               id="de.uka.ipd.sdq.pcm.gmf.usage.ArrivalRateActionAdvice"
+               inheritance="all"
+               typeId="de.uka.ipd.sdq.pcm.gmf.usage.OpenWorkload_2003">
+         </adviceBinding>
+         <adviceBinding 
+               class="de.uka.ipd.sdq.pcm.gmf.usage.helper.CreateLoopIterationsEditHelperAdvice"
+               id="de.uka.ipd.sdq.pcm.gmf.usage.LoopIterationsActionAdvice"
+               inheritance="all"
+               typeId="de.uka.ipd.sdq.pcm.gmf.usage.Loop_3005">
+         </adviceBinding>
+         <adviceBinding 
+               class="de.uka.ipd.sdq.pcm.gmf.usage.helper.IncludeBehaviourEditHelperAdvice"
+               id="de.uka.ipd.sdq.pcm.gmf.usage.LoopAdvice"
+               inheritance="all"
+               typeId="de.uka.ipd.sdq.pcm.gmf.usage.Loop_3005">
+         </adviceBinding>
+         <adviceBinding 
+               class="de.uka.ipd.sdq.pcm.gmf.usage.helper.IncludeBehaviourEditHelperAdvice"
+               id="de.uka.ipd.sdq.pcm.gmf.usage.BranchTransitionAdvice"
+               inheritance="all"
+               typeId="de.uka.ipd.sdq.pcm.gmf.usage.BranchTransition_3009">
+         </adviceBinding>
+         <adviceBinding 
+               class="de.uka.ipd.sdq.pcm.gmf.usage.helper.EntryLevelSystemCallEditHelperAdvice"
+               id="de.uka.ipd.sdq.pcm.gmf.usage.EntryLevelSystemCallAdvice"
+               inheritance="all"
+               typeId="de.uka.ipd.sdq.pcm.gmf.usage.EntryLevelSystemCall_3003">
+         </adviceBinding>
+          <adviceBinding 
+               class="de.uka.ipd.sdq.pcm.gmf.usage.helper.VariableUsageEditHelperAdvice"
+               id="de.uka.ipd.sdq.pcm.gmf.usage.VariableUsageAdvice"
+               inheritance="all"
+               typeId="de.uka.ipd.sdq.pcm.gmf.usage.VariableUsage_3004">
+         </adviceBinding>
+       <adviceBinding 
+               class="de.uka.ipd.sdq.pcm.gmf.usage.helper.ScenarioBehaviourEditHelperAdvice"
+               id="de.uka.ipd.sdq.pcm.gmf.usage.ScenarioBehaviourAdvice"
+               inheritance="all"
+               typeId="de.uka.ipd.sdq.pcm.gmf.usage.ScenarioBehaviour_3007">
+         </adviceBinding>
+      </metamodel>
+      
+      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/UsageModel/1.0">
+         <metamodelType
+               id="de.uka.ipd.sdq.pcm.gmf.usage.ThinkTime_9100"
+               name="ThinkTime"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="ThinkTime"
+               edithelper="de.uka.ipd.sdq.pcm.gmf.usage.helper.ThinkTimeEditHelper">
+            <param name="semanticHint" value="9100"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/UsageModel/1.0">
+         <metamodelType
+               id="de.uka.ipd.sdq.pcm.gmf.usage.LoopIterations_9101"
+               name="LoopIterations"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="LoopIterations"
+               edithelper="de.uka.ipd.sdq.pcm.gmf.usage.helper.LoopIterationsEditHelper">
+            <param name="semanticHint" value="9101"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/UsageModel/1.0">
+         <metamodelType
+               id="de.uka.ipd.sdq.pcm.gmf.usage.ArrivalRate_9102"
+               name="ArrivalRate"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="InterArrivalTime"
+               edithelper="de.uka.ipd.sdq.pcm.gmf.usage.helper.InterArrivalTimeEditHelper">
+            <param name="semanticHint" value="9102"/>
+         </metamodelType>
+      </metamodel>
+   </extension>
+
+   <extension
+         point="org.eclipse.gmf.runtime.emf.type.core.elementTypeBindings">
+      <clientContext id="PCM Usage ModelClientContext">
+         <enablement>
+            <test
+               property="org.eclipse.gmf.runtime.emf.core.editingDomain"
+               value="de.uka.ipd.sdq.pcm.gmf.usage.EditingDomain"/>
+         </enablement>
+      </clientContext> 
+      <binding context="PCM Usage ModelClientContext">
+         <advice
+               ref="de.uka.ipd.sdq.pcm.gmf.usage.LoopAdvice">
+         </advice>
+          <advice
+               ref="de.uka.ipd.sdq.pcm.gmf.usage.BranchTransitionAdvice">
+         </advice>
+         <advice
+               ref="de.uka.ipd.sdq.pcm.gmf.usage.EntryLevelSystemCallAdvice">
+         </advice>
+         <advice
+               ref="de.uka.ipd.sdq.pcm.gmf.usage.ThinkTimeActionAdvice">
+         </advice>
+         <advice
+               ref="de.uka.ipd.sdq.pcm.gmf.usage.LoopIterationsActionAdvice">
+         </advice>      
+         <advice
+               ref="de.uka.ipd.sdq.pcm.gmf.usage.ArrivalRateActionAdvice">
+         </advice>
+          <advice
+               ref="de.uka.ipd.sdq.pcm.gmf.usage.VariableUsageAdvice">
+         </advice>
+          <advice
+               ref="de.uka.ipd.sdq.pcm.gmf.usage.ScenarioBehaviourAdvice">
+         </advice>      
+       </binding>
+   </extension>
+</plugin>

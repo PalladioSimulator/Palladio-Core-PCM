@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Palladio
+Bundle-SymbolicName: de.uka.ipd.sdq.branding
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: de.uka.ipd.sdq.branding.Activator
+Bundle-Vendor: sdq.ipd.uka.de
+Require-Bundle: org.eclipse.core.runtime
+Eclipse-LazyStart: true
