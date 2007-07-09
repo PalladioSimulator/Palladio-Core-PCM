@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="ASCII"?>
+<context.usage:Usage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context.usage="http://sdq.ipd.uka.de/Context/Usage/1.0" xmlns:pcm.seff="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/1.0" xmlns:stoex="http://sdq.ipd.uka.de/StochasticExpressions/1.0">
+  <usageContexts_Usage>
+    <loopiterations_UsageContext specification="10">
+      <loopaction_LoopIteration xsi:type="pcm.seff:LoopAction" href="DSolverExample1.repository#_CRToczQeEduaPaOP6VcQiw"/>
+    </loopiterations_UsageContext>
+    <loopiterations_UsageContext specification="10">
+      <loopaction_LoopIteration xsi:type="pcm.seff:CollectionIteratorAction" href="DSolverExample1.repository#_6ilhuYIbEduSjvx9OYljwQ"/>
+    </loopiterations_UsageContext>
+    <actualParameterUsage_UsageContext>
+      <variableCharacterisation_VariableUsage specification="IntPMF(unit=&quot;bytes&quot;)[ (50; 0.4) (60; 0.6) ]" type="BYTESIZE"/>
+      <namedReference_VariableUsage xsi:type="stoex:NamespaceReference" referenceName="someCollection">
+        <innerReference_NamespaceReference xsi:type="stoex:VariableReference" referenceName="INNER"/>
+      </namedReference_VariableUsage>
+    </actualParameterUsage_UsageContext>
+    <actualParameterUsage_UsageContext>
+      <variableCharacterisation_VariableUsage specification="10" type="NUMBER_OF_ELEMENTS"/>
+      <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="someCollection"/>
+    </actualParameterUsage_UsageContext>
+  </usageContexts_Usage>
+  <usageContexts_Usage>
+    <branchprobabilities_UsageContext probability="0.2">
+      <branchtransition_BranchProbability xsi:type="pcm.seff:GuardedBranchTransition" href="DSolverExample1.repository#_L0a-FoRaEduMitCaSna7dg"/>
+    </branchprobabilities_UsageContext>
+    <branchprobabilities_UsageContext probability="0.8">
+      <branchtransition_BranchProbability xsi:type="pcm.seff:GuardedBranchTransition" href="DSolverExample1.repository#_L0kvE4RaEduMitCaSna7dg"/>
+    </branchprobabilities_UsageContext>
+    <branchprobabilities_UsageContext>
+      <branchtransition_BranchProbability xsi:type="pcm.seff:GuardedBranchTransition" href="DSolverExample1.repository#_L0kvGIRaEduMitCaSna7dg"/>
+    </branchprobabilities_UsageContext>
+    <actualParameterUsage_UsageContext>
+      <variableCharacterisation_VariableUsage specification="IntPMF(unit=&quot;zimtsterne&quot;)[ (9; 0.2) (10; 0.5) (11; 0.3) ]" type="VALUE"/>
+      <namedReference_VariableUsage xsi:type="stoex:VariableReference" referenceName="number"/>
+    </actualParameterUsage_UsageContext>
+  </usageContexts_Usage>
+</context.usage:Usage>

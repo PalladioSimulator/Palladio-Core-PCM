@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.0/notation" xmlns:pcm.repository="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/1.0" xmi:id="_7SpqUIk6Edu-dYY_7CQedg" type="repository_model" measurementUnit="Pixel">
+  <children xmi:type="notation:Node" xmi:id="_8O2z4Ik6Edu-dYY_7CQedg" type="1001">
+    <children xmi:type="notation:Node" xmi:id="_8O2z5ok6Edu-dYY_7CQedg" type="4001"/>
+    <children xmi:type="notation:Node" xmi:id="_8O2z54k6Edu-dYY_7CQedg" type="5001">
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_8O2z6Ik6Edu-dYY_7CQedg"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_8O2z6Yk6Edu-dYY_7CQedg"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_8O2z6ok6Edu-dYY_7CQedg"/>
+    </children>
+    <styles xmi:type="notation:FontStyle" xmi:id="_8O2z4Yk6Edu-dYY_7CQedg"/>
+    <styles xmi:type="notation:DescriptionStyle" xmi:id="_8O2z4ok6Edu-dYY_7CQedg"/>
+    <styles xmi:type="notation:FillStyle" xmi:id="_8O2z44k6Edu-dYY_7CQedg"/>
+    <styles xmi:type="notation:LineStyle" xmi:id="_8O2z5Ik6Edu-dYY_7CQedg"/>
+    <element xmi:type="pcm.repository:Interface" href="DSolverExample1.repository#_iu2OpTQaEduaPaOP6VcQiw"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_8O2z5Yk6Edu-dYY_7CQedg" x="7" y="100"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_8O2z64k6Edu-dYY_7CQedg" type="1001">
+    <children xmi:type="notation:Node" xmi:id="_8O2z8Yk6Edu-dYY_7CQedg" type="4001"/>
+    <children xmi:type="notation:Node" xmi:id="_8O2z8ok6Edu-dYY_7CQedg" type="5001">
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_8O2z84k6Edu-dYY_7CQedg"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_8O2z9Ik6Edu-dYY_7CQedg"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_8O2z9Yk6Edu-dYY_7CQedg"/>
+    </children>
+    <styles xmi:type="notation:FontStyle" xmi:id="_8O2z7Ik6Edu-dYY_7CQedg"/>
+    <styles xmi:type="notation:DescriptionStyle" xmi:id="_8O2z7Yk6Edu-dYY_7CQedg"/>
+    <styles xmi:type="notation:FillStyle" xmi:id="_8O2z7ok6Edu-dYY_7CQedg"/>
+    <styles xmi:type="notation:LineStyle" xmi:id="_8O2z74k6Edu-dYY_7CQedg"/>
+    <element xmi:type="pcm.repository:Interface" href="DSolverExample1.repository#_pIeqNDQaEduaPaOP6VcQiw"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_8O2z8Ik6Edu-dYY_7CQedg" x="158" y="100"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_8O2z9ok6Edu-dYY_7CQedg" type="1002">
+    <children xmi:type="notation:Node" xmi:id="_8O2z_Ik6Edu-dYY_7CQedg" type="4002"/>
+    <children xmi:type="notation:Node" xmi:id="_8O2z_Yk6Edu-dYY_7CQedg" type="5002">
+      <styles xmi:type="notation:SortingStyle" xmi:id="_8O2z_ok6Edu-dYY_7CQedg"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_8O2z_4k6Edu-dYY_7CQedg"/>
+    </children>
+    <styles xmi:type="notation:FontStyle" xmi:id="_8O2z94k6Edu-dYY_7CQedg"/>
+    <styles xmi:type="notation:DescriptionStyle" xmi:id="_8O2z-Ik6Edu-dYY_7CQedg"/>
+    <styles xmi:type="notation:FillStyle" xmi:id="_8O2z-Yk6Edu-dYY_7CQedg"/>
+    <styles xmi:type="notation:LineStyle" xmi:id="_8O2z-ok6Edu-dYY_7CQedg"/>
+    <element xmi:type="pcm.repository:BasicComponent" href="DSolverExample1.repository#_empqNDQaEduaPaOP6VcQiw"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_8O2z-4k6Edu-dYY_7CQedg"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_8O20AIk6Edu-dYY_7CQedg" type="1002">
+    <children xmi:type="notation:Node" xmi:id="_8O20Bok6Edu-dYY_7CQedg" type="4002"/>
+    <children xmi:type="notation:Node" xmi:id="_8O20B4k6Edu-dYY_7CQedg" type="5002">
+      <styles xmi:type="notation:SortingStyle" xmi:id="_8O20CIk6Edu-dYY_7CQedg"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_8O20CYk6Edu-dYY_7CQedg"/>
+    </children>
+    <styles xmi:type="notation:FontStyle" xmi:id="_8O20AYk6Edu-dYY_7CQedg"/>
+    <styles xmi:type="notation:DescriptionStyle" xmi:id="_8O20Aok6Edu-dYY_7CQedg"/>
+    <styles xmi:type="notation:FillStyle" xmi:id="_8O20A4k6Edu-dYY_7CQedg"/>
+    <styles xmi:type="notation:LineStyle" xmi:id="_8O20BIk6Edu-dYY_7CQedg"/>
+    <element xmi:type="pcm.repository:BasicComponent" href="DSolverExample1.repository#_hj5edDQaEduaPaOP6VcQiw"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_8O20BYk6Edu-dYY_7CQedg" x="165"/>
+  </children>
+  <styles xmi:type="notation:PageStyle" xmi:id="_7SpqUYk6Edu-dYY_7CQedg"/>
+  <styles xmi:type="notation:GuideStyle" xmi:id="_7SpqUok6Edu-dYY_7CQedg"/>
+  <styles xmi:type="notation:DescriptionStyle" xmi:id="_7SpqU4k6Edu-dYY_7CQedg"/>
+  <element xmi:type="pcm.repository:Repository" href="DSolverExample1.repository#_4tVDbH6xEdud8MGZ5QaR_Q"/>
+  <edges xmi:type="notation:Edge" xmi:id="_8S4YQIk6Edu-dYY_7CQedg" type="3001" source="_8O2z9ok6Edu-dYY_7CQedg" target="_8O2z4Ik6Edu-dYY_7CQedg">
+    <children xmi:type="notation:Node" xmi:id="_8S4YRYk6Edu-dYY_7CQedg" type="4005">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_8S4YRok6Edu-dYY_7CQedg" y="40"/>
+    </children>
+    <styles xmi:type="notation:RoutingStyle" xmi:id="_8S4YQYk6Edu-dYY_7CQedg"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_8S4YQok6Edu-dYY_7CQedg"/>
+    <styles xmi:type="notation:LineStyle" xmi:id="_8S4YQ4k6Edu-dYY_7CQedg"/>
+    <element xmi:type="pcm.repository:ProvidedRole" href="DSolverExample1.repository#_2rc3kHckEdugqbdw26ZvAA"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_8S4YRIk6Edu-dYY_7CQedg" points="[0, 20, 0, -80]$[0, 80, 0, -20]"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_8U9b4Ik6Edu-dYY_7CQedg" type="3002" source="_8O2z9ok6Edu-dYY_7CQedg" target="_8O2z64k6Edu-dYY_7CQedg">
+    <children xmi:type="notation:Node" xmi:id="_8U9b5Yk6Edu-dYY_7CQedg" type="4006">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_8U9b5ok6Edu-dYY_7CQedg" x="-21" y="23"/>
+    </children>
+    <styles xmi:type="notation:RoutingStyle" xmi:id="_8U9b4Yk6Edu-dYY_7CQedg"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_8U9b4ok6Edu-dYY_7CQedg"/>
+    <styles xmi:type="notation:LineStyle" xmi:id="_8U9b44k6Edu-dYY_7CQedg"/>
+    <element xmi:type="pcm.repository:RequiredRole" href="DSolverExample1.repository#_8P4wgXckEdugqbdw26ZvAA"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_8U9b5Ik6Edu-dYY_7CQedg" points="[0, 20, -161, -80]$[161, 80, 0, -20]"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_8VHM4Ik6Edu-dYY_7CQedg" type="3001" source="_8O20AIk6Edu-dYY_7CQedg" target="_8O2z64k6Edu-dYY_7CQedg">
+    <children xmi:type="notation:Node" xmi:id="_8VHM5Yk6Edu-dYY_7CQedg" type="4005">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_8VHM5ok6Edu-dYY_7CQedg" y="40"/>
+    </children>
+    <styles xmi:type="notation:RoutingStyle" xmi:id="_8VHM4Yk6Edu-dYY_7CQedg"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_8VHM4ok6Edu-dYY_7CQedg"/>
+    <styles xmi:type="notation:LineStyle" xmi:id="_8VHM44k6Edu-dYY_7CQedg"/>
+    <element xmi:type="pcm.repository:ProvidedRole" href="DSolverExample1.repository#_6nku4HckEdugqbdw26ZvAA"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_8VHM5Ik6Edu-dYY_7CQedg" points="[0, 20, 14, -80]$[-14, 80, 0, -20]"/>
+  </edges>
+</notation:Diagram>
