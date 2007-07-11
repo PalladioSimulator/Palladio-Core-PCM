@@ -11,6 +11,10 @@
 «IMPORT parameter»
 «IMPORT qosannotations»
 
+«AROUND m2t_transforms::system::SystemAdditionsTM FOR System»
+	«EXPAND m2t_transforms::ejb3::system::DeploymentDescriptor FOR this»
+«ENDAROUND»
+
 «AROUND m2t_transforms::java_core::ComponentImplementationChildClassTM FOR ProvidesComponentType»
 	«EXPAND m2t_transforms::ejb3::bean::Bean FOR this» 
 «ENDAROUND»
