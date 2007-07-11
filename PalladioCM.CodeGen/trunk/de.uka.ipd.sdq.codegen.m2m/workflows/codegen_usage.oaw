@@ -65,6 +65,7 @@
 			-->
 		<!-- protected regions configuration -->
 		<prSrcPaths value="${outpath}"/>
+        <prExcludes value=".svn"/>		
 	</component>	
 
 	<component adviceTarget="generator" id="reflectionAdvice" class="oaw.xpand2.GeneratorAdvice">
@@ -117,6 +118,7 @@
 			</outlet>
 		<!-- protected regions configuration -->
 		<prSrcPaths value="${outpath}"/>
+        <prExcludes value=".svn"/>		
 	</component>	
 
 </workflow>

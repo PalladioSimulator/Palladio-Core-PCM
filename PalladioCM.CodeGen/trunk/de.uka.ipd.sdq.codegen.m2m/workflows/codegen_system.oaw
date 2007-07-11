@@ -57,6 +57,7 @@
 				organizeImports="true"
 				format="true"/>	
 			-->
+        <prExcludes value=".svn"/>		
 	</component>	
 	
 	<component adviceTarget="generator" id="reflectionAdvice" class="oaw.xpand2.GeneratorAdvice">
@@ -107,6 +108,7 @@
 				organizeImports="true"
 				format="true"/>	
 			-->
+        <prExcludes value=".svn"/>		
 	</component>	
 
 	<component adviceTarget="generator2" id="reflectionAdvice" class="oaw.xpand2.GeneratorAdvice">
