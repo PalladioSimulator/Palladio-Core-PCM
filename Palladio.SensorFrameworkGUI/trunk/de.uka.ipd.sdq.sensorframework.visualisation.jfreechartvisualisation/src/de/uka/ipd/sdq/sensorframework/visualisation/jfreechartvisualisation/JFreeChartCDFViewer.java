@@ -12,9 +12,6 @@ import java.io.File;
 import java.io.FileReader;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.Properties;
 
 import org.eclipse.jface.action.AbstractAction;
 import org.eclipse.jface.action.Action;
@@ -36,13 +33,9 @@ import org.jfree.data.xy.XYSeries;
 
 import de.uka.ipd.sdq.codegen.simudatavisualisation.datatypes.Histogram;
 import de.uka.ipd.sdq.codegen.simudatavisualisation.datatypes.HistogramEntity;
-import de.uka.ipd.sdq.sensorfactory.entities.Measurement;
-import de.uka.ipd.sdq.sensorfactory.entities.SensorAndMeasurements;
-import de.uka.ipd.sdq.sensorfactory.entities.TimeSpanMeasurement;
-import de.uka.ipd.sdq.sensorframework.adapter.IAdapter;
 
 
-public class JFreeChartCDFViewer extends AbstractJFreeChartChart implements IHistogramAccepter {
+public class JFreeChartCDFViewer extends AbstractJFreeChartWidthViewer implements IHistogramAccepter {
 	
 
 	public JFreeChartCDFViewer(Composite parent, int style) {
@@ -70,7 +63,6 @@ public class JFreeChartCDFViewer extends AbstractJFreeChartChart implements IHis
 		this.redraw();
 	}
 
-	DefaultTableXYDataset densityDataset=new DefaultTableXYDataset();
 
 	protected void initChart() {
 		this.chart = ChartFactory.createXYLineChart("CDF", "Time", "Probability", densityDataset, PlotOrientation.VERTICAL, true, true, true);
@@ -79,57 +71,16 @@ public class JFreeChartCDFViewer extends AbstractJFreeChartChart implements IHis
 		plot.getRangeAxis().setAutoRange(true);
 		plot.getRenderer().setStroke(new BasicStroke(3));
 	}
-
-	private double histogramWidth = 1.0;
-	private Collection lastData;
-	public static final String HISTOGRAM_WIDTH = "HISTOGRAM_WIDTH";
 	
-	public void setCDFs(Collection data){
-		densityDataset.removeAllSeries();
-		
-		for (Object o : data) {
-			XYSeries density = null;
-			if (o instanceof IAdapter) {
-				IAdapter histAdapter = (IAdapter) o;
-				double sum = 0;
-				Properties p = new Properties();
-				p.put(HISTOGRAM_WIDTH, histogramWidth);
-				histAdapter.setProperties(p);
-				Histogram hist = (Histogram) histAdapter.getAdaptedObject();
-				density = new XYSeries(hist.getLabel(),true,false);
-				for (HistogramEntity e : hist.getEntityList()) {
-					sum += e.getProbability();
-					density.add(e.getValue(), sum);
-				} 
-			} else if (o instanceof SensorAndMeasurements) {
-				SensorAndMeasurements sam = (SensorAndMeasurements) o;
-				double sum = 0;
-				density = new XYSeries(sam.getSensor().getSensorName(),true,false);
-				double[] values = new double[sam.getMeasurements().size()]; int i = 0;
-				for (Measurement m : sam.getMeasurements()) {
-					TimeSpanMeasurement tsm = (TimeSpanMeasurement) m;
-					values[i] = tsm.getTimeSpan();
-					i++;
-				} 
-				Arrays.sort(values);
-				for (i=0; i<values.length;)	{
-					int j = i+1;
-					while (j < values.length && values[i]==values[j])
-						j++;
-					density.add(values[i], ((double)j) / values.length);
-					i=j;
-				}
-			}
-			densityDataset.addSeries(density);
+	protected XYSeries computeDensities(Histogram hist) {
+		double sum = 0;
+		XYSeries density;
+		density = new XYSeries(hist.getLabel(),true,false);
+		for (HistogramEntity e : hist.getEntityList()) {
+			sum += e.getProbability();
+			density.add(e.getValue(), sum);
 		}
-		initChart();
-		this.forceRedraw();
-		
-		lastData = data;
+		return density;
 	}
-	
-	public void setHistogramWidth(double width) {
-		this.histogramWidth = width;
-		setCDFs(lastData);
-	}
+
 }

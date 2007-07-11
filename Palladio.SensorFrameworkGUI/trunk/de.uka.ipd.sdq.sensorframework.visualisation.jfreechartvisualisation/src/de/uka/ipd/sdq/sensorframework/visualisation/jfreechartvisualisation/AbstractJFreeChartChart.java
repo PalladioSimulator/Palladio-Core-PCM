@@ -1,30 +1,23 @@
 package de.uka.ipd.sdq.sensorframework.visualisation.jfreechartvisualisation;
 
 import java.awt.Color;
-import java.awt.Graphics2D;
 import java.awt.Paint;
 import java.awt.Rectangle;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.io.Writer;
+import java.util.Collection;
 
 import org.apache.batik.dom.GenericDOMImplementation;
 import org.apache.batik.svggen.SVGGraphics2D;
 import org.eclipse.jface.action.Action;
 import org.eclipse.jface.action.MenuManager;
 import org.eclipse.swt.SWT;
-import org.eclipse.swt.events.PaintListener;
-import org.eclipse.swt.graphics.GC;
-import org.eclipse.swt.graphics.Point;
-import org.eclipse.swt.widgets.Canvas;
 import org.eclipse.swt.widgets.Composite;
-import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.FileDialog;
 import org.eclipse.swt.widgets.Menu;
-import org.eclipse.swt.widgets.MenuItem;
 import org.eclipse.ui.PlatformUI;
 import org.jfree.chart.ChartUtilities;
 import org.jfree.chart.JFreeChart;
@@ -32,8 +25,6 @@ import org.jfree.chart.title.LegendTitle;
 import org.jfree.experimental.chart.swt.ChartComposite;
 import org.w3c.dom.DOMImplementation;
 import org.w3c.dom.Document;
-
-import de.uka.ipd.sdq.codegen.simudatavisualisation.datatypes.Histogram;
 
 class SaveImageAsAction extends Action {
 
@@ -181,4 +172,7 @@ public abstract class AbstractJFreeChartChart extends ChartComposite {
 	}
 
 	protected abstract void initChart();
+	
+	public abstract void setData(Collection<?> data);
+	
 }

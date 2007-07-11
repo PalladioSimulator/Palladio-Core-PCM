@@ -4,44 +4,9 @@
 package de.uka.ipd.sdq.sensorframework.visualisation.birt.tabs;
 
 import java.io.File;
-import java.io.IOException;
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
 
-import org.eclipse.birt.chart.exception.ChartException;
-import org.eclipse.birt.chart.model.Chart;
 import org.eclipse.birt.chart.model.ChartWithAxes;
 import org.eclipse.birt.chart.model.ModelPackage;
-import org.eclipse.birt.chart.model.attribute.DataType;
-import org.eclipse.birt.chart.model.attribute.impl.ColorDefinitionImpl;
-import org.eclipse.birt.chart.model.component.Axis;
-import org.eclipse.birt.chart.model.component.Series;
-import org.eclipse.birt.chart.model.component.impl.SeriesImpl;
-import org.eclipse.birt.chart.model.data.BaseSampleData;
-import org.eclipse.birt.chart.model.data.DataFactory;
-import org.eclipse.birt.chart.model.data.DataSet;
-import org.eclipse.birt.chart.model.data.NumberDataSet;
-import org.eclipse.birt.chart.model.data.OrthogonalSampleData;
-import org.eclipse.birt.chart.model.data.Query;
-import org.eclipse.birt.chart.model.data.SampleData;
-import org.eclipse.birt.chart.model.data.SeriesDefinition;
-import org.eclipse.birt.chart.model.data.TextDataSet;
-import org.eclipse.birt.chart.model.data.impl.NumberDataSetImpl;
-import org.eclipse.birt.chart.model.data.impl.QueryImpl;
-import org.eclipse.birt.chart.model.data.impl.SeriesDefinitionImpl;
-import org.eclipse.birt.chart.model.data.impl.TextDataSetImpl;
-import org.eclipse.birt.chart.model.type.BarSeries;
-import org.eclipse.birt.chart.model.type.impl.BarSeriesImpl;
-import org.eclipse.birt.chart.ui.swt.interfaces.IDataServiceProvider;
-import org.eclipse.birt.chart.ui.swt.interfaces.IUIServiceProvider;
-import org.eclipse.birt.chart.ui.swt.wizard.ChartWizard;
-import org.eclipse.birt.chart.ui.swt.wizard.ChartWizardContext;
-import org.eclipse.core.runtime.FileLocator;
-import org.eclipse.core.runtime.IPath;
-import org.eclipse.core.runtime.Path;
-import org.eclipse.core.runtime.Plugin;
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -60,17 +25,9 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.IWorkbenchPart;
-import org.eclipse.ui.PlatformUI;
-import org.eclipse.ui.part.EditorPart;
 import org.eclipse.ui.views.properties.PropertySheetPage;
 import org.eclipse.ui.views.properties.tabbed.AbstractPropertySection;
 import org.eclipse.ui.views.properties.tabbed.TabbedPropertySheetPage;
-
-import de.uka.ipd.sdq.sensorfactory.SensorAndMeasurements;
-import de.uka.ipd.sdq.sensorfactory.entities.Sensor;
-import de.uka.ipd.sdq.sensorframework.visualisation.IVisualisation;
-import de.uka.ipd.sdq.sensorframework.visualisation.editor.ConfigEditorInput;
-import de.uka.ipd.sdq.sensorframework.visualisation.editor.RunEntry;
 
 /**
  * @author admin
