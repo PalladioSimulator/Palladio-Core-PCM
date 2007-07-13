@@ -6,7 +6,7 @@ public interface IConsumerStrategy {
 	
 	/**
 	 * Initialise the strategy to the passed processing rate in units/sec
-	 * @param processingRate The rate to initialse to
+	 * @param processingRate The rate to initialise to
 	 */
 	void initialiseStrategy(double processingRate);
 	

@@ -10,6 +10,11 @@ public class StrategiesRegistry {
 	private static StrategiesRegistry singletonInstance = new StrategiesRegistry();
 	
 	private StrategiesRegistry() {
+		IConsumerStrategy strat = new FibonacciCPUStrategy();
+		//TODO: inject the real processing rate
+		strat.initialiseStrategy(1000);
+		registerStrategyFor(ResourceTypeEnum.CPU, strat);
+		
 	}
 
 	public static StrategiesRegistry singleton() {
