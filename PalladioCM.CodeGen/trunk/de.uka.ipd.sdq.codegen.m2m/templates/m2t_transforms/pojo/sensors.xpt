@@ -1,11 +1,13 @@
+«EXTENSION m2t_transforms::java_names»
+
 «DEFINE StartResponseTimeMeasurement FOR String»
 	// Start a response time measurement
-	long startTime«this» = System.nanoTime();
+	long startTime«this.javaVariableName()» = System.nanoTime();
 «ENDDEFINE»
 
 «DEFINE EndResponseTimeMeasurement FOR String»
 	// Stop the response time measurement
-	long endTime«this» = System.nanoTime();
-	long result«this» = endTime«this» - startTime«this»;
-	System.out.println("«this»: "+result«this»);
+	long endTime«this.javaVariableName()» = System.nanoTime();
+	long result«this.javaVariableName()» = endTime«this.javaVariableName()» - startTime«this.javaVariableName()»;
+	//System.out.println("«this.javaVariableName()»: "+result«this.javaVariableName()»);
 «ENDDEFINE»

@@ -12,11 +12,15 @@
 // Load the resource demand on a simulated resource
 «DEFINE ResourceDemand FOR ParametricResourceDemand»
    {
-      double demand = (Double) ctx.evaluate("«this.specification.javaString()»",Double.class);
+      double demand = (Double) ctx.evaluate("«this.specification.specificationString()»",Double.class);
       // TODO: Consume different resource types actively
       try {
-		Thread.sleep((long) (demand * 1000));
-	  } catch (InterruptedException e) {
+		//Thread.sleep((long) (demand * 1000));
+		//TODO: Erstmal nur CPU, sonst hier unterscheiden!
+		de.uka.ipd.sdq.prototype.framework.strategies.StrategiesRegistry.singleton()
+		  .getStrategyFor(de.uka.ipd.sdq.prototype.framework.resourcetypes.ResourceTypeEnum.CPU).consume(demand);
+		
+	  } catch (Exception e) {
 		e.printStackTrace();
 		System.exit(-1);
 	  }

@@ -85,7 +85,7 @@
 «ENDDEFINE»
 
 «DEFINE ComposedStructurePortDelegationDelegatingCallTM(ComposedProvidingRequiringEntity cs) FOR Signature»
-	«ERROR "PortDelegationDelegatingCallTM must be overridden"»
+	«ERROR "ComposedStructurePortDelegationDelegatingCallTM must be overridden"»
 «ENDDEFINE»
 
 «DEFINE PortMemberVars FOR ProvidedRole»

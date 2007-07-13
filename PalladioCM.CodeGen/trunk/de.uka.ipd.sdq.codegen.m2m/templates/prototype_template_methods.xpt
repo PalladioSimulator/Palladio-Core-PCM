@@ -25,6 +25,16 @@
 «AROUND m2t_transforms::composed_structure::ComponentConstructorParametersTM FOR AssemblyContext»
 «ENDAROUND»
 
+«AROUND m2t_transforms::java_core::SpecificImplementationPartTM FOR ProvidesComponentType»
+	«EXPAND m2t_transforms::sim::java_core::SpecificImplementationPartTM FOR this»
+«ENDAROUND»
+
+«AROUND m2t_transforms::composed_structure::ChildInitTM(ComposedStructure s) FOR AssemblyContext»
+	«IF BasicComponent.isInstance(this.encapsulatedComponent_ChildComponentContext)»
+		«EXPAND m2t_transforms::sim::composed_structure::ChildInitTM(s) FOR this»
+	«ENDIF»
+«ENDAROUND»
+
 //-------------------------
 // Sensors TM
 //-------------------------
@@ -55,16 +65,21 @@
    «EXPAND m2t_transforms::sim::provided_ports::PortDelegationDelegatingCall FOR this»
 «ENDAROUND»
 
+«AROUND m2t_transforms::provided_ports::ComposedStructurePortDelegationDelegatingCallTM(ComposedProvidingRequiringEntity cs) FOR Signature»
+   «EXPAND m2t_transforms::sim::provided_ports::ComposedStructurePortDelegationDelegatingCall(cs) FOR this»
+«ENDAROUND»
+
+
 //-------------------------
 // Pre-/Post-Call TM
 //-------------------------
 
-«AROUND m2t_transforms::calls::PreCallTM(Object o, List[VariableUsage] parameterUsages) FOR Signature»
-	«EXPAND m2t_transforms::sim::calls::PreCall(o,parameterUsages) FOR this»
+«AROUND m2t_transforms::calls::PreCallTM(Object call, List[VariableUsage] parameterUsages) FOR Signature»
+	«EXPAND m2t_transforms::sim::calls::PreCall(call,parameterUsages) FOR this»
 «ENDAROUND»
  
-«AROUND m2t_transforms::calls::PostCallTM(Object o, List[VariableUsage] outParameterUsages) FOR Signature»
-	«EXPAND m2t_transforms::sim::calls::PostCall(o,outParameterUsages) FOR this»
+«AROUND m2t_transforms::calls::PostCallTM(Object call, List[VariableUsage] outParameterUsages) FOR Signature»
+	«EXPAND m2t_transforms::sim::calls::PostCall(call,outParameterUsages) FOR this»
 «ENDAROUND»
 
 // ----------------------------
@@ -137,8 +152,10 @@
 «ENDAROUND»
 
 «AROUND m2t_transforms::usage::UsageScenarioTM(Allocation a) FOR UsageScenario»
-	«EXPAND m2t_transforms::ejb3::usage::UsageScenario(a) FOR this»
+	«EXPAND m2t_transforms::pojo::usage::UsageScenario(a) FOR this»
 «ENDAROUND»
+
+
 
 //----------------------------
 // Method override: Add a context to the scenario runner
