@@ -6,5 +6,6 @@
 	<classpathentry kind="lib" path="lib/j2ee.jar"/>
 	<classpathentry kind="lib" path="lib/javaee.jar"/>
 	<classpathentry kind="lib" path="lib/ssj.jar"/>
+	<classpathentry kind="lib" path="lib/db4o-6.1-java5.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

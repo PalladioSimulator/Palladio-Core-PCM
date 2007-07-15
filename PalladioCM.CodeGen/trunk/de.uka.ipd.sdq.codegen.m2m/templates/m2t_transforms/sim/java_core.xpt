@@ -7,9 +7,9 @@
 
 «DEFINE SpecificImplementationPartTM FOR ProvidesComponentType»
 	// Component Parameter setter
-	protected de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe myComponentStackFrame = null;
+	protected de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe<Object> myComponentStackFrame = null;
 	
-	public void setComponentFrame(de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe myComponentStackFrame) {
+	public void setComponentFrame(de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe<Object> myComponentStackFrame) {
 		this.myComponentStackFrame = myComponentStackFrame;	
 	}
 «ENDDEFINE»

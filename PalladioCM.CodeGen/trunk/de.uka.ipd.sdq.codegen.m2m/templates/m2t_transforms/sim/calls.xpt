@@ -15,15 +15,15 @@
 	«ELSE»
 		«EXPAND m2t_transforms::sensors::StartResponseTimeMeasurementTM FOR "Call_"+this.javaSignature()»
 	«ENDIF»		
-	de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe callResult =	
+	de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe<Object> callResult =	
 «ENDDEFINE»
 
 «DEFINE PrepareSimulatedStackFrame(List[VariableUsage] parameterUsages) FOR Signature»
 	// Start Simulate an external call
 	{
-	de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe currentFrame = ctx.getStack().currentStackFrame();
+	de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe<Object> currentFrame = ctx.getStack().currentStackFrame();
 	// prepare stackframe
-	de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe stackframe = ctx.getStack().createAndPushNewStackFrame();
+	de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe<Object> stackframe = ctx.getStack().createAndPushNewStackFrame();
 	«FOREACH parameterUsages AS pu»
 		«LET pu.parameterUsageLHS() AS lhs_prefix»
 			«FOREACH pu.variableCharacterisation_VariableUsage AS vc»

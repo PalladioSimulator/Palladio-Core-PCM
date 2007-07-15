@@ -10,7 +10,7 @@
 «DEFINE Action FOR CollectionIteratorAction»
    for (int iterationCount = 0, maxIterationCount = (Integer)ctx.evaluate("«this.parameter_CollectionIteratorAction.parameterName».NUMBER_OF_ELEMENTS",Integer.class); 
             iterationCount < maxIterationCount; iterationCount++){
-       	de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe loopFrame = ctx.getStack().createAndPushNewStackFrame(ctx.getStack().currentStackFrame());
+       	de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe<Object> loopFrame = ctx.getStack().createAndPushNewStackFrame(ctx.getStack().currentStackFrame());
        	ctx.evaluateInner(loopFrame, "«this.parameter_CollectionIteratorAction.parameterName».INNER");
 
        «EXPAND m2t_transforms::java_core::Actions FOR this.bodyBehaviour_Loop.steps_Behaviour.findStart()»
@@ -80,7 +80,7 @@
 	«IF ResourceDemandingSEFF.isInstance(this.eContainer)»
 		de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe<Object> resultStackFrame = 
 			new de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe<Object>();
-		de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe methodBodyStackFrame = 
+		de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe<Object> methodBodyStackFrame = 
 			ctx.getStack().currentStackFrame();
 		if (this.myComponentStackFrame.getContents().size() > 0) {
 			methodBodyStackFrame.addVariables(this.myComponentStackFrame);

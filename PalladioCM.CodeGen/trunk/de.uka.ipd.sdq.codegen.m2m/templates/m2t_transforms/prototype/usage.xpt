@@ -20,7 +20,8 @@
 		public class Main {
 			public static de.uka.ipd.sdq.sensorfactory.entities.Experiment exp = null;
 			public static void main(String[] args) {
-				exp = de.uka.ipd.sdq.sensorfactory.entities.impl.ExperimentDAO.singleton().createExperiment("test");
+				de.uka.ipd.sdq.sensorfactory.entities.dao.IDAOFactory datasource = new de.uka.ipd.sdq.sensorfactory.dao.db4o.DB4ODAOFactory("C:/temp.db");
+				exp = datasource.createExperimentDAO().addExperiment("test");
 				java.util.ArrayList<Thread> threads = new java.util.ArrayList<Thread>();
 				«FOREACH this.usageScenario_UsageModel AS us»
 					«EXPAND WorkloadDriver(us) FOR us.workload_UsageScenario»
@@ -47,7 +48,7 @@
 						e.printStackTrace();
 					}
 				}
-				de.uka.ipd.sdq.sensorfactory.entities.impl.ExperimentDAO.singleton().storeExperiment(exp);
+				datasource.createExperimentDAO().store(exp);
 			}
 		}
 	«ENDFILE»
@@ -64,10 +65,16 @@
 «DEFINE WorkloadDriverClass(UsageScenario u) FOR OpenWorkload»
     //TODO: Fix me
 	new Thread(new java.lang.Runnable(){
+	
+		private static org.apache.log4j.Logger logger = 
+			org.apache.log4j.Logger.getLogger("User Log");
+		
 		public void run() {
 			while (true) {
 				«u.fqn()» us = new «u.fqn()»();
+				logger.debug("Starting my scenario");
 				new Thread(us).run();
+				logger.debug("Finished my scenario");
                 try {
                 	// TODO: Wait for specified model time
 					Thread.sleep(200);
@@ -89,6 +96,10 @@
 
 «DEFINE WorkloadDriverClass(UsageScenario u) FOR ClosedWorkload»
 class «u.javaName()»Thread extends Thread implements IStopable {
+	private static org.apache.log4j.Logger logger = 
+		org.apache.log4j.Logger.getLogger(«u.javaName()»Thread.class.getName());
+		
+
     de.uka.ipd.sdq.sensorfactory.entities.TimeSpanSensor tss = null;
     «u.fqn()» us = null;
     de.uka.ipd.sdq.sensorfactory.entities.ExperimentRun experimentRun = null;
@@ -107,9 +118,13 @@ class «u.javaName()»Thread extends Thread implements IStopable {
     
     public void run() {
 	    while (shouldContinue) {
+			logger.debug("Starting my scenario");
         	long start = System.nanoTime();
 			us.run();
-            experimentRun.addTimeSpanMeasurement(tss, System.nanoTime(),(System.nanoTime()-start)/Math.pow(10,9));
+			double measuredTimeSpan = (System.nanoTime()-start)/Math.pow(10,9);
+            experimentRun.addTimeSpanMeasurement(tss, System.nanoTime(),measuredTimeSpan);
+			logger.debug("Finished my scenario");
+			logger.info("Execution of scenario took: "+measuredTimeSpan+" seconds");
             try {
             	// TODO: Wait for think time of the model instance
 				Thread.sleep(200);

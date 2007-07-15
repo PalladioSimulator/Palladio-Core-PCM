@@ -6,4 +6,5 @@ Bundle-Version: 1.0.0
 Export-Package: de.uka.ipd.sdq.prototype.framework.resourcetypes,
  de.uka.ipd.sdq.prototype.framework.strategies,
  de.uka.ipd.sdq.prototype.framework.tests
-Require-Bundle: org.junit4
+Require-Bundle: org.junit4,
+ org.apache.log4j

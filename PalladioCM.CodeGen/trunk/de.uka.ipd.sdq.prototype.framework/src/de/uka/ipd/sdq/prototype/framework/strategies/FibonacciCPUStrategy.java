@@ -1,9 +1,14 @@
 package de.uka.ipd.sdq.prototype.framework.strategies;
 
+import org.apache.log4j.Logger;
+
 import de.uka.ipd.sdq.prototype.framework.resourcetypes.ResourceTypeEnum;
 
 public class FibonacciCPUStrategy implements IConsumerStrategy {
 
+	private static Logger logger = 
+		Logger.getLogger(FibonacciCPUStrategy.class.getName());
+	
 	/** which fibonacci number is calculated for the test */
 	private static final int TEST_ITERATION_COUNT = 100000;
 	
@@ -23,12 +28,10 @@ public class FibonacciCPUStrategy implements IConsumerStrategy {
 
 	@Override
 	public void consume(double demand) {
-		//assert iterationsPerUnit > 0;
-		
-		// iterationCount = Math.round(demand * iterationsPerUnit);
-
+		logger.debug("Consume Fibonacci CPU demand: "+demand);
+		logger.debug("Calculating "+demand * iterationsPerUnit+" Fibonacci numbers");
 		this.lastResult = fibonacci(demand * iterationsPerUnit);
-		
+		logger.debug("Demand consumed");
 	}
 
 	@Override
@@ -38,6 +41,7 @@ public class FibonacciCPUStrategy implements IConsumerStrategy {
 
 	@Override
 	public void initialiseStrategy(double processingRate) {
+		logger.debug("Initialising Fibonacci CPU strategy");
 		for (int i = 0; i < WARM_UP_CYCLES; i++)
 			lastResult = fibonacci(TEST_ITERATION_COUNT);
 		
@@ -47,7 +51,8 @@ public class FibonacciCPUStrategy implements IConsumerStrategy {
 		double iterationsPerSecond = TEST_ITERATION_COUNT / (seconds - secondsOffset);
 		iterationsPerUnit = iterationsPerSecond / processingRate;
 		
-		System.out.println("Iterations per unit: "+iterationsPerUnit);
+		logger.debug("Iterations per unit for Fibonacci CPU strategy: "+iterationsPerUnit);
+		logger.debug("Fibonacci CPU strategy initialised");
 	}
 
 	private double measure(int iterationCount) {
