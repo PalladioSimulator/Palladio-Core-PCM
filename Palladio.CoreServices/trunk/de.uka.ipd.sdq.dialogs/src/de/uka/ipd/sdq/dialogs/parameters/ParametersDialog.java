@@ -1,5 +1,7 @@
 package de.uka.ipd.sdq.dialogs.parameters;
 
+import java.util.ArrayList;
+
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryContentProvider;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
@@ -14,6 +16,8 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Shell;
 
+import de.uka.ipd.sdq.dialogs.selection.FilteredItemsAdapterFactory;
+import de.uka.ipd.sdq.pcm.repository.Parameter;
 import de.uka.ipd.sdq.pcm.repository.Signature;
 import de.uka.ipd.sdq.pcm.repository.provider.RepositoryItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcmbench.ui.provider.PalladioItemProviderAdapterFactory;
@@ -27,7 +31,7 @@ import de.uka.ipd.sdq.pcmbench.ui.provider.PalladioItemProviderAdapterFactory;
 public class ParametersDialog extends TitleAreaDialog {
 
 	private ComposedAdapterFactory adapterFactory;
-	private String TITEL = "OwnedParameters";
+	private final String TITLE_DIALOG = "Create/Edit a Parameter...";
 
 	private Signature signature;
 
@@ -50,16 +54,29 @@ public class ParametersDialog extends TitleAreaDialog {
 	}
 
 	/* (non-Javadoc)
+	 * @see org.eclipse.jface.window.Window#configureShell(org.eclipse.swt.widgets.Shell)
+	 */
+	@Override
+	protected void configureShell(Shell newShell) {
+		super.configureShell(newShell);
+		newShell.setText("OwnedParameters");
+	}
+	
+	/* (non-Javadoc)
 	 * @see org.eclipse.jface.dialogs.TitleAreaDialog#createDialogArea(org.eclipse.swt.widgets.Composite)
 	 */
 	@Override
 	protected Control createDialogArea(Composite parent) {
-		setTitle(TITEL);
+		setTitle(TITLE_DIALOG);
 
 		Composite area = (Composite) super.createDialogArea(parent);
 		Composite container = new Composite(area, SWT.NONE);
 		container.setLayout(new FormLayout());
 		container.setLayoutData(new GridData(GridData.FILL_BOTH));
+		
+		ArrayList<Object> filterList = new ArrayList<Object>();
+		filterList.add(Parameter.class);
+		ArrayList<Object> additionalReferences = new ArrayList<Object>();
 
 		adapterFactory = new ComposedAdapterFactory();
 		adapterFactory
@@ -68,9 +85,11 @@ public class ParametersDialog extends TitleAreaDialog {
 		CreateEditorContents editorContents = CreateEditorContents.create(
 				container, TransactionUtil.getEditingDomain(signature));
 
+		
 		editorContents
 				.setViewerContentProvider(new AdapterFactoryContentProvider(
-						adapterFactory));
+						new FilteredItemsAdapterFactory(adapterFactory,
+								filterList, additionalReferences)));
 		editorContents
 				.setViewerLabelProvider(new AdapterFactoryLabelProvider(
 						new ParametersItemProviderAdapterFactory(
