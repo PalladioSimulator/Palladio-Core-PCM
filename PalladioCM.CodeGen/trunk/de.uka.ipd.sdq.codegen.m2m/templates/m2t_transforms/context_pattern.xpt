@@ -67,37 +67,37 @@
 «ENDDEFINE»
 
 «DEFINE ContextInterfaceVar FOR RequiredRole»
-   «this.requiredInterface__RequiredRole.fqn()» «this.requiredInterface__RequiredRole.javaName().toFirstLower()»
+   «this.requiredInterface__RequiredRole.fqn()» «this.javaName().toFirstLower()»
 «ENDDEFINE»
 
 «DEFINE ContextInterfaceInitialisation FOR RequiredRole»
-   this.«this.requiredInterface__RequiredRole.javaName().toFirstLower()» = «this.requiredInterface__RequiredRole.javaName().toFirstLower()»;
+   this.«this.javaName().toFirstLower()» = «this.javaName().toFirstLower()»;
 «ENDDEFINE»
 
 «DEFINE ContextInterfaceMemberVar FOR RequiredRole»
-   protected «this.requiredInterface__RequiredRole.fqn()» «this.requiredInterface__RequiredRole.javaName().toFirstLower()» = null;
+   protected «this.requiredInterface__RequiredRole.fqn()» «this.javaName().toFirstLower()» = null;
 «ENDDEFINE»
 
 «DEFINE ContextInterfaceGetter FOR RequiredRole»
-   public «this.requiredInterface__RequiredRole.fqn()» getRole«this.requiredInterface__RequiredRole.javaName()»() {
-   	  if («this.requiredInterface__RequiredRole.javaName().toFirstLower()» == null) {
+   public «this.requiredInterface__RequiredRole.fqn()» getRole«this.javaName()»() {
+   	  if («this.javaName().toFirstLower()» == null) {
    	  	  throw new RuntimeException("Attempt to retrieve unbounded port. Check your architecture! "+
    	  	  		"Role «this.entityName» <«this.id»> RequiringEntity «this.requiringEntity_RequiredRole.entityName»");
       }
-      return «this.requiredInterface__RequiredRole.javaName().toFirstLower()»;
+      return «this.javaName().toFirstLower()»;
    }
 «ENDDEFINE»
 
 «DEFINE ContextInterfaceSetter FOR RequiredRole»
-   public void setRole«this.requiredInterface__RequiredRole.javaName()»(«this.requiredInterface__RequiredRole.fqn()» newValue) {
-      this.«this.requiredInterface__RequiredRole.javaName().toFirstLower()» = newValue;
+   public void setRole«this.javaName()»(«this.requiredInterface__RequiredRole.fqn()» newValue) {
+      this.«this.javaName().toFirstLower()» = newValue;
    }
 «ENDDEFINE»
 
 «DEFINE ContextInterfaceGetterSignature FOR RequiredRole»
-   «this.requiredInterface__RequiredRole.fqn()» getRole«this.requiredInterface__RequiredRole.javaName()»();
+   «this.requiredInterface__RequiredRole.fqn()» getRole«this.javaName()»();
 «ENDDEFINE»
 
 «DEFINE ContextInterfaceSetterSignature FOR RequiredRole»
-   void setRole«this.requiredInterface__RequiredRole.javaName()»(«this.requiredInterface__RequiredRole.fqn()» newValue);
+   void setRole«this.javaName()»(«this.requiredInterface__RequiredRole.fqn()» newValue);
 «ENDDEFINE»

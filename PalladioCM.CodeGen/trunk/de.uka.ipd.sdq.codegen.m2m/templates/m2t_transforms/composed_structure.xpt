@@ -130,7 +130,7 @@
 				(
 			«ENDIF»
 			«LET getRequiredDelegationConnector(s,ctx,this) AS connector»
-				this.myContext.getRole«connector.outerRequiredRole_RequiredDelegationConnector.requiredInterface__RequiredRole.javaName()»()
+				this.myContext.getRole«connector.outerRequiredRole_RequiredDelegationConnector.javaName()»()
 	   		«ENDLET»
 			«IF Completion.isInstance(s)»
 				)
