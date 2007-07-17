@@ -11,6 +11,8 @@ import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 
 /**
  * Baseclass for both --( and --() type UML style border figures
+ * 
+ * @author Philipp Meier
  */
 abstract public class AbstractBorderFigure extends DefaultSizeNodeFigure {
 

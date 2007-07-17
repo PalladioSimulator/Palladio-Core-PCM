@@ -12,6 +12,8 @@ import org.eclipse.draw2d.geometry.Rectangle;
  * Represents the UML style --( ) border figure
  * which rotates depending on the side the figure
  * is located in relation to it's parent.
+ *
+ * @author Philipp Meier
  */
 public class BallFigure extends AbstractBorderFigure {
 	
