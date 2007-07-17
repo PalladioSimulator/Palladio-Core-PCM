@@ -1,4 +1,4 @@
-package de.uka.ipd.sdq.codegen.simucontroller.workflow;
+package de.uka.ipd.sdq.codegen.simucontroller.workflow.jobs;
 
 import org.eclipse.core.resources.IProject;
 import org.osgi.framework.Bundle;
@@ -6,13 +6,16 @@ import org.osgi.framework.BundleContext;
 import org.osgi.framework.BundleException;
 
 import de.uka.ipd.sdq.codegen.simucontroller.SimuControllerPlugin;
+import de.uka.ipd.sdq.codegen.simucontroller.workflow.IJob;
+import de.uka.ipd.sdq.codegen.simucontroller.workflow.JobFailedException;
+import de.uka.ipd.sdq.codegen.simucontroller.workflow.RollbackFailedException;
 
 /**
  * Installs a Plug-In from the specified location string with use a bundeles
  * context.The context is used to grant access to other methods so that this
  * bundle can interact with the Framework.
  */
-public class LoadPluginJob implements ISimulationJob {
+public class LoadPluginJob implements IJob {
 
 	private CreatePluginProjectJob myCreatePluginProjectJob;
 	private Bundle myBundle;
@@ -21,7 +24,7 @@ public class LoadPluginJob implements ISimulationJob {
 		myCreatePluginProjectJob = createPluginProjectJob;
 	}
 
-	public boolean execute() throws Exception {
+	public void execute() throws JobFailedException {
 		assert (myCreatePluginProjectJob != null);
 
 		IProject project = myCreatePluginProjectJob.getProject();
@@ -36,7 +39,7 @@ public class LoadPluginJob implements ISimulationJob {
 			// see https://bugs.eclipse.org/bugs/show_bug.cgi?id=184620
 
 		} catch (Exception e) {
-			throw new Exception("Getting project location failed", e);
+			throw new JobFailedException("Getting project location failed", e);
 		}
 
 		BundleContext bundleContext = null;
@@ -45,7 +48,7 @@ public class LoadPluginJob implements ISimulationJob {
 					.getBundleContext();
 
 		} catch (Exception e) {
-			throw new Exception("Getting bundle context failed", e);
+			throw new JobFailedException("Getting bundle context failed", e);
 		}
 
 		try {
@@ -53,17 +56,15 @@ public class LoadPluginJob implements ISimulationJob {
 			myBundle.start();
 			myBundle.update();
 		} catch (Exception e) {
-			throw new Exception("Loading of generated plugin failed", e);
+			throw new JobFailedException("Loading of generated plugin failed", e);
 		}
-		
-		return true;
 	}
 
 	public String getName() {
 		return "Load Plugin";
 	}
 
-	public void rollback() throws Exception {
+	public void rollback() throws RollbackFailedException {
 		if (myBundle == null) {
 			return;
 		}
@@ -72,7 +73,7 @@ public class LoadPluginJob implements ISimulationJob {
 			myBundle.stop();
 			myBundle.uninstall();
 		} catch (BundleException e) {
-			throw new Exception("Unloading bundle failed", e);
+			throw new RollbackFailedException("Unloading bundle failed", e);
 		}
 	}
 }

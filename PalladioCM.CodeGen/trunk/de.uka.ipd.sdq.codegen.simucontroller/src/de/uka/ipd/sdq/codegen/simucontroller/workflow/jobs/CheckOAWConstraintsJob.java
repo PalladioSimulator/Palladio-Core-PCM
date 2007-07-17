@@ -1,7 +1,7 @@
 /**
  * 
  */
-package de.uka.ipd.sdq.codegen.simucontroller.workflow;
+package de.uka.ipd.sdq.codegen.simucontroller.workflow.jobs;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -33,6 +33,9 @@ import org.openarchitectureware.workflow.issues.Issues;
 import org.openarchitectureware.workflow.issues.IssuesImpl;
 
 import de.uka.ipd.sdq.codegen.simucontroller.runconfig.ResourceManagerTab;
+import de.uka.ipd.sdq.codegen.simucontroller.workflow.IJob;
+import de.uka.ipd.sdq.codegen.simucontroller.workflow.JobFailedException;
+import de.uka.ipd.sdq.codegen.simucontroller.workflow.UserCanceledException;
 import de.uka.ipd.sdq.dialogs.issues.IssuesDialog;
 import de.uka.ipd.sdq.errorhandling.SeverityAndIssue;
 import de.uka.ipd.sdq.pcm.allocation.Allocation;
@@ -76,7 +79,7 @@ class ErrorDisplayRunner implements Runnable {
  * @author Snowball
  *
  */
-public class CheckOAWConstraints implements ISimulationJob {
+public class CheckOAWConstraintsJob implements IJob {
 
 	private ExecutionContextImpl ctx;
 	private ILaunchConfiguration config;
@@ -98,28 +101,36 @@ public class CheckOAWConstraints implements ISimulationJob {
 	/* (non-Javadoc)
 	 * @see de.uka.ipd.sdq.codegen.simucontroller.workflow.ISimulationJob#execute()
 	 */
-	public CheckOAWConstraints(ILaunchConfiguration configuration) {
+	public CheckOAWConstraintsJob(ILaunchConfiguration configuration) {
 		this.config = configuration;
 	}
 
-	public boolean execute() throws Exception {
+	public void execute() throws JobFailedException, UserCanceledException{
 		ArrayList<SeverityAndIssue> overallResult = new ArrayList<SeverityAndIssue>();
-		List<String> files = getFiles(config);
+		
+		List<String> files;
+		try {
+			files = getFiles(config);
+		} catch (Exception e) {
+			throw new JobFailedException("Checking OAW constraints failes: Could not get files from config.");
+		}
+		
 		for (String file:files) {
 			ArrayList<SeverityAndIssue> result = checkElements(file);
 			overallResult.addAll(result);
 		}
 		
 		if (overallResult.size() > 0) {
-			return displayValidationErrors(overallResult);
+			displayValidationErrors(overallResult);
 		}
-		return true;
 	}
 
-	private boolean displayValidationErrors(ArrayList<SeverityAndIssue> overallResult) {
+	private void displayValidationErrors(ArrayList<SeverityAndIssue> overallResult) throws UserCanceledException {
 		ErrorDisplayRunner runner = new ErrorDisplayRunner(overallResult);
 		PlatformUI.getWorkbench().getDisplay().syncExec(runner);
-		return runner.shouldProceedAfterErrorDialog();
+		if (!runner.shouldProceedAfterErrorDialog()) {
+			throw new UserCanceledException();
+		}
 	}
 
 	private ArrayList<SeverityAndIssue> getSeverityAndIssues(
@@ -181,7 +192,7 @@ public class CheckOAWConstraints implements ISimulationJob {
 	/* (non-Javadoc)
 	 * @see de.uka.ipd.sdq.codegen.simucontroller.workflow.ISimulationJob#rollback()
 	 */
-	public void rollback() throws Exception {
+	public void rollback() {
 		// Nothing to do here
 	}
 

@@ -1,4 +1,4 @@
-package de.uka.ipd.sdq.codegen.simucontroller.workflow;
+package de.uka.ipd.sdq.codegen.simucontroller.workflow.jobs;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;

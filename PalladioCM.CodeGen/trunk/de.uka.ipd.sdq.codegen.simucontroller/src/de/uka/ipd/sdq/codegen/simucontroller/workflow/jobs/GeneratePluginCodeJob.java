@@ -1,4 +1,4 @@
-package de.uka.ipd.sdq.codegen.simucontroller.workflow;
+package de.uka.ipd.sdq.codegen.simucontroller.workflow.jobs;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -12,11 +12,13 @@ import org.openarchitectureware.workflow.issues.IssuesImpl;
 import de.uka.ipd.sdq.codegen.simucontroller.runconfig.ComponentLookupEnum;
 import de.uka.ipd.sdq.codegen.simucontroller.runconfig.FeatureOptionsTab;
 import de.uka.ipd.sdq.codegen.simucontroller.runconfig.ResourceManagerTab;
+import de.uka.ipd.sdq.codegen.simucontroller.workflow.IJob;
+import de.uka.ipd.sdq.codegen.simucontroller.workflow.JobFailedException;
 
 /**
  * Start the Workflow-Engine of oAW - Generator
  */
-public class GeneratePluginCodeJob implements ISimulationJob {
+public class GeneratePluginCodeJob implements IJob {
 
 	private final static String REPOSITORY_FILE = "codegen_repository.oaw";
 	private final static String SYSTEM_FILE = "codegen_system.oaw";
@@ -32,7 +34,7 @@ public class GeneratePluginCodeJob implements ISimulationJob {
 		myConfiguration = configuration;
 	}
 
-	public boolean execute() throws Exception {
+	public void execute() throws JobFailedException {
 		assert (myConfiguration != null);
 
 		Map<String, String> properties = new HashMap<String, String>();
@@ -44,7 +46,7 @@ public class GeneratePluginCodeJob implements ISimulationJob {
 			workspaceLocation = ResourcesPlugin.getWorkspace().getRoot()
 					.getRawLocationURI().getPath();
 		} catch (Exception e) {
-			throw new Exception("Getting workspace location failed", e);
+			throw new JobFailedException("Getting workspace location failed", e);
 		}
 
 		try {
@@ -71,7 +73,7 @@ public class GeneratePluginCodeJob implements ISimulationJob {
 							"false");
 
 		} catch (Exception e) {
-			throw new Exception("Setting up properties failed", e);
+			throw new JobFailedException("Setting up properties failed", e);
 		}
 
 		for (String workflowFile : myWorkflowFiles) {
@@ -88,20 +90,18 @@ public class GeneratePluginCodeJob implements ISimulationJob {
 					throw new OawFailedException("Generator failed, given model is most likely invalid in "
 							+ workflowFile + ". Issues given: "+message);
 				}
-			} catch (OawFailedException ex) {
-				throw ex;
 			} catch (Exception e) {
-				throw new Exception("Running oAW workflow failed: "
+				throw new JobFailedException("Running oAW workflow failed: "
 						+ workflowFile+"\n Errors: "+e.getMessage()+". Please see the oAW console output for details!", e);
 			}
 		}
-		return true;
 	}
 
 	public String getName() {
 		return "Generate Plugin Code";
 	}
 
-	public void rollback() throws Exception {
+	public void rollback() {
+		// do nothing
 	}
 }

@@ -1,4 +1,4 @@
-package de.uka.ipd.sdq.codegen.simucontroller.workflow;
+package de.uka.ipd.sdq.codegen.simucontroller.workflow.jobs;
 
 import java.io.File;
 
@@ -12,9 +12,13 @@ import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.ui.PlatformUI;
 
 import de.uka.ipd.sdq.codegen.simucontroller.runconfig.ResourceManagerTab;
+import de.uka.ipd.sdq.codegen.simucontroller.workflow.IJob;
+import de.uka.ipd.sdq.codegen.simucontroller.workflow.JobFailedException;
+import de.uka.ipd.sdq.codegen.simucontroller.workflow.RollbackFailedException;
+import de.uka.ipd.sdq.codegen.simucontroller.workflow.UserCanceledException;
 
 
-public class CreatePluginProjectJob implements ISimulationJob {
+public class CreatePluginProjectJob implements IJob {
 
 	private IProject myProject;
 	private boolean deleteProject;
@@ -35,11 +39,11 @@ public class CreatePluginProjectJob implements ISimulationJob {
 	/* (non-Javadoc)
 	 * @see de.uka.ipd.sdq.codegen.simucontroller.runconfig.ISimuComJob#execute()
 	 */
-	public boolean execute() throws Exception {
+	public void execute() throws UserCanceledException, JobFailedException{
 		if (pluginFolderExists()) {
 			if (!userAcceptsDelete()) {
 				// abort execution
-				throw new Exception("Aborted by user");
+				throw new UserCanceledException("Aborted by user");
 			}
 		}
 			
@@ -47,9 +51,8 @@ public class CreatePluginProjectJob implements ISimulationJob {
 			myProject = PluginProject.createInstance().createContainerPlugin(
 					new NullProgressMonitor());
 		} catch (CoreException e) {
-			throw new Exception("Creating plugin project failed", e);
+			throw new JobFailedException("Creating plugin project failed", e);
 		}
-		return true;
 	}
 	
 	/** 
@@ -89,7 +92,7 @@ public class CreatePluginProjectJob implements ISimulationJob {
 	/* (non-Javadoc)
 	 * @see de.uka.ipd.sdq.codegen.simucontroller.runconfig.ISimuComJob#rollback()
 	 */
-	public void rollback() throws Exception {
+	public void rollback() throws RollbackFailedException {
 		if (myProject == null) {
 			return;
 		}
@@ -97,7 +100,7 @@ public class CreatePluginProjectJob implements ISimulationJob {
 			if (deleteProject)
 				myProject.close(new NullProgressMonitor());
 		} catch (CoreException e) {
-			throw new Exception("Closing plugin project failed", e);
+			throw new RollbackFailedException("Closing plugin project failed", e);
 		}
 
 		try {
@@ -105,10 +108,17 @@ public class CreatePluginProjectJob implements ISimulationJob {
 				myProject.delete(IResource.ALWAYS_DELETE_PROJECT_CONTENT,
 						new NullProgressMonitor());
 		} catch (CoreException e) {
-			throw new Exception("Deleting plugin project failed", e);
+			throw new RollbackFailedException("Deleting plugin project failed", e);
 		}
 	}
 	
+	/**
+	 * Helper class that allows a message box to
+	 * appear from a non user interface thread because the
+	 * workbench shell is otherwise not accessible.
+	 * 
+	 * @author Philipp Meier
+	 */
 	private class UserMessageRunner implements Runnable {
 		private boolean myshouldDelete = false;
 

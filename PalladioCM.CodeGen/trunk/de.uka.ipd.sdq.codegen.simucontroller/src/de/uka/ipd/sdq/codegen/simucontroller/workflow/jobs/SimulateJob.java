@@ -1,14 +1,16 @@
-package de.uka.ipd.sdq.codegen.simucontroller.workflow;
+package de.uka.ipd.sdq.codegen.simucontroller.workflow.jobs;
 
 import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.core.runtime.Platform;
 
 import de.uka.ipd.sdq.codegen.simucontroller.SimuComJob;
 import de.uka.ipd.sdq.codegen.simucontroller.actions.ISimuComControl;
+import de.uka.ipd.sdq.codegen.simucontroller.workflow.IJob;
+import de.uka.ipd.sdq.codegen.simucontroller.workflow.JobFailedException;
 import de.uka.ipd.sdq.simucomframework.SimuComConfig;
 import de.uka.ipd.sdq.simucomframework.SimuComStatus;
 
-public class SimulateJob implements ISimulationJob {
+public class SimulateJob implements IJob {
 
 	/** PID-Plug-In ID */
 	private static final String PID = "de.uka.ipd.sdq.codegen.simucontroller";
@@ -24,7 +26,7 @@ public class SimulateJob implements ISimulationJob {
 		this.config = config;
 	}
 
-	public boolean execute() throws Exception {
+	public void execute() throws JobFailedException {
 		ISimuComControl control = null;
 
 		try {
@@ -39,7 +41,7 @@ public class SimulateJob implements ISimulationJob {
 				}
 			}
 		} catch (Exception e) {
-			throw new Exception("Locating simulation plugin failed. Possibly the workspace path is too long.", e);
+			throw new JobFailedException("Locating simulation plugin failed. Possibly the workspace path is too long.", e);
 		}
 
 		SimuComJob job = new SimuComJob(control, config, null);
@@ -48,17 +50,17 @@ public class SimulateJob implements ISimulationJob {
 			job.schedule();
 			job.join();
 		} catch (Exception e) {
-			throw new Exception("Simulation failed ", e);
+			throw new JobFailedException("Simulation failed ", e);
 		}
 		if (job.getStatus() == SimuComStatus.ERROR)
-			throw new Exception("Simulation run failed",job.getErrorThrowable());
-		return true;
+			throw new JobFailedException("Simulation run failed",job.getErrorThrowable());
 	}
 
 	public String getName() {
 		return "Simulate";
 	}
 
-	public void rollback() throws Exception {
+	public void rollback() {
+		// do nothing
 	}
 }
