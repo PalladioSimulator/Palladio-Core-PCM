@@ -25,11 +25,20 @@ public class SocketFigure extends AbstractBorderFigure {
 		
 	protected void paintFigure(Graphics graphics) {
 		super.paintFigure(graphics);
+		
+		if (getBorderItemLocator() == null) {
+			System.out.println("border item locator null in SocketFigure.paintFigure");
+		}
+		
+		// determine the side the border item is located relative to it's parent
 		int side = (getBorderItemLocator() == null ? PositionConstants.WEST : getBorderItemLocator().getCurrentSideOfParent());
 		
 		Rectangle rect = new Rectangle();
 		graphics.getClip(rect);
 	
+		// depending on the side draw a line from the center of the side of the bounding box touching the parent
+		// to the center of the bounding box and then draw a half circle in the remaining half of the bounding box
+		// so that the open side points away from the parent
 		switch(side){
 		case PositionConstants.EAST:
 			graphics.drawLine(rect.getLeft().x,rect.getCenter().y,rect.getCenter().x,rect.getCenter().y);

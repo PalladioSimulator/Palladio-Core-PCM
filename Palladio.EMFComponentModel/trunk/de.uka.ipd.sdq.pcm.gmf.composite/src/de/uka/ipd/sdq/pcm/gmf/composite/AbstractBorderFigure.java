@@ -32,7 +32,7 @@ abstract public class AbstractBorderFigure extends DefaultSizeNodeFigure {
 	/**
 	 * reference to the anchor to be used.
 	 */
-	private ConnectionAnchor myAnchor;
+	private ConnectionAnchor myAnchor = null;
 	
 	/**
 	 * @param size width and hight of the figure in logical units (LP)
@@ -40,8 +40,6 @@ abstract public class AbstractBorderFigure extends DefaultSizeNodeFigure {
 	public AbstractBorderFigure(int logicalSize, POSITION_TYPE posType) {
 		super(logicalSize, logicalSize);
 		myPosType = posType;
-		
-		myAnchor = null;
 	}
 	
 	/**
@@ -65,7 +63,7 @@ abstract public class AbstractBorderFigure extends DefaultSizeNodeFigure {
 	 * factory method for the anchor to be used when figure is
 	 * in an internal position
 	 * 
-	 * @return a reference to the new anchor
+	 * @return a reference to the new anchor. must not be null
 	 */
 	abstract protected ConnectionAnchor createAnchorInternal();
 	
@@ -73,7 +71,7 @@ abstract public class AbstractBorderFigure extends DefaultSizeNodeFigure {
 	 * factory method for the anchor to be used when figure is
 	 * in an external position
 	 * 
-	 * @return a reference to the new anchor
+	 * @return a reference to the new anchor. must not be null
 	 */
 	abstract protected ConnectionAnchor createAnchorExternal();
 	
@@ -87,6 +85,8 @@ abstract public class AbstractBorderFigure extends DefaultSizeNodeFigure {
 				myAnchor = createAnchorExternal();
 			}
 		}
+		assert(myAnchor != null);
+		
 		return myAnchor;
 	}		
 	

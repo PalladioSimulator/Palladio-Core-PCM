@@ -25,12 +25,22 @@ public class BallFigure extends AbstractBorderFigure {
 	
 	protected void paintFigure(Graphics graphics) {
 		super.paintFigure(graphics);
+		
+		if (getBorderItemLocator() == null) {
+			System.out.println("border item locator null in BallFigure.paintFigure");
+		}
+		
+		// determine the side the border item is located relative to it's parent
 		int side = (getBorderItemLocator() == null ? PositionConstants.WEST : getBorderItemLocator().getCurrentSideOfParent());
 		
 		Rectangle rect = new Rectangle();
 		graphics.getClip(rect);
+		
+		// shrink rect so the last pixel of the circle is not clipped by the bounding box
 		rect.shrink(1, 1);
 		
+		// depending on the side draw a line from the center of the side of the bounding box touching the parent
+		// to the center of the bounding box and then draw a circle in the remaining half of the bounding box
 		switch(side){
 		case PositionConstants.EAST:
 			graphics.drawLine(rect.getLeft().x,rect.getCenter().y,rect.getCenter().x,rect.getCenter().y);
