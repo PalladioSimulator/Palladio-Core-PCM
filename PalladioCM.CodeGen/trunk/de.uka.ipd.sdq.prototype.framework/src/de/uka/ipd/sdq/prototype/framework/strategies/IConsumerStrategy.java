@@ -20,5 +20,5 @@ public interface IConsumerStrategy {
 	 * Get the resource this strategy is able to simulate
 	 * @return The resource type we can simulate
 	 */
-	ResourceTypeEnum getStrategiesResource();
+	ResourceTypeEnum getStrategysResource();
 }

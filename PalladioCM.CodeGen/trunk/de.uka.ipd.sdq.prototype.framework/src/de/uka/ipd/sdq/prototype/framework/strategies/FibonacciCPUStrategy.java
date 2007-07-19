@@ -35,7 +35,7 @@ public class FibonacciCPUStrategy implements IConsumerStrategy {
 	}
 
 	@Override
-	public ResourceTypeEnum getStrategiesResource() {
+	public ResourceTypeEnum getStrategysResource() {
 		return ResourceTypeEnum.CPU;
 	}
 
