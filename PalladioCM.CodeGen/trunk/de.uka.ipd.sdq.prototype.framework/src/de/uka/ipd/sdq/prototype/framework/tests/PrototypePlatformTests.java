@@ -8,6 +8,7 @@ import org.junit.Before;
 import de.uka.ipd.sdq.prototype.framework.resourcetypes.ResourceTypeEnum;
 import de.uka.ipd.sdq.prototype.framework.strategies.FibonacciCPUStrategy;
 import de.uka.ipd.sdq.prototype.framework.strategies.IConsumerStrategy;
+import de.uka.ipd.sdq.prototype.framework.strategies.ReadLargeChunksHDDStrategy;
 import de.uka.ipd.sdq.prototype.framework.strategies.StrategiesRegistry;
 
 public class PrototypePlatformTests {
@@ -16,10 +17,11 @@ public class PrototypePlatformTests {
 
 	@Before
 	public void initialise() {
+		/*This is done by the Strategy Register itself at the moment, but will be needed later.
 		IConsumerStrategy cpuStrategy = new FibonacciCPUStrategy();
 		cpuStrategy.initialiseStrategy(CPU_PROCESSING_RATE);
 		StrategiesRegistry.singleton().registerStrategyFor(
-				ResourceTypeEnum.CPU, cpuStrategy);
+				ResourceTypeEnum.CPU, cpuStrategy);*/
 	}
 
 	@Test
@@ -33,16 +35,16 @@ public class PrototypePlatformTests {
 		// outside bounds
 
 		for (long unitsToConsume = 1; unitsToConsume <= 2048; unitsToConsume = unitsToConsume * 2) {
-			testConsumeUnits(ERROR_LEVEL, TEST_ITERATIONS, OUTLIER_RATIO,
+			testConsumeCPUUnits(ERROR_LEVEL, TEST_ITERATIONS, OUTLIER_RATIO,
 					unitsToConsume);
 
 		}
 	}
 
-	private void testConsumeUnits(final double ERROR_LEVEL,
+	private void testConsumeCPUUnits(final double ERROR_LEVEL,
 			final int TEST_ITERATIONS, final double OUTLIER_RATIO,
 			long unitsToConsume) {
-		
+
 		double lowerAcceptanceBound = (unitsToConsume - (unitsToConsume
 				* ERROR_LEVEL / 2))
 				/ CPU_PROCESSING_RATE;
@@ -55,13 +57,13 @@ public class PrototypePlatformTests {
 
 		int countOutliers = 0;
 		for (int i = 0; i < TEST_ITERATIONS; i++) {
-			
+
 			long start = System.nanoTime();
 			cpuStrategy.consume(unitsToConsume);
 			long end = System.nanoTime();
-			
+
 			double timeConsumptionInSeconds = (end - start) / 1.0E9;
-			
+
 			if (timeConsumptionInSeconds < lowerAcceptanceBound
 					|| timeConsumptionInSeconds > upperAcceptanceBound) {
 				countOutliers++;
@@ -92,4 +94,27 @@ public class PrototypePlatformTests {
 				+ " work units: " + countOutliers,
 				countOutliers <= TEST_ITERATIONS * OUTLIER_RATIO);
 	}
+
+	@Test
+	public void testConsumeHDD() {
+		IConsumerStrategy hddStrategy = StrategiesRegistry.singleton()
+				.getStrategyFor(ResourceTypeEnum.HDD);
+
+		Assert.assertEquals(hddStrategy.getClass(),
+				ReadLargeChunksHDDStrategy.class);
+
+		hddStrategy.initialiseStrategy(0.0);
+
+		for (int i = 0; i < 510; i++) {
+			long startTime = System.nanoTime();
+			hddStrategy.consume(1000000);
+			long endTime = System.nanoTime();
+
+			System.out.println(i+": Reading 1000000 bytes took "
+					+ (endTime - startTime)+" ns.");
+		}
+
+		//TODO: Noch mehr Tests. 
+	}
+
 }

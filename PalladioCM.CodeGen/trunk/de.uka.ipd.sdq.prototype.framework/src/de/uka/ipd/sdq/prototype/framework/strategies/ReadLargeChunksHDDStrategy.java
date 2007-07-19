@@ -32,11 +32,11 @@ public class ReadLargeChunksHDDStrategy implements IConsumerStrategy {
 	/* Configuration */
 	private int maxFileSize = 8000000;
 
-	private File fileDirectory = new File("C:/tmp/ReadLargeChunksHDDStrategy");
+	private File fileDirectory = new File("C:/tmp/"+ReadLargeChunksHDDStrategy.class.getName());
 	private int numberOfFiles = 100;
 
 	/** Stores some files sorted by size for fast access */
-	private List<File> files = Collections.synchronizedList(new LinkedList<File>());
+	private List<File> files = new LinkedList<File>();
 	private Iterator<File> iterator = null;
 	
 	/** Or just store lots of files that are large enough in a linked list.*/
@@ -44,10 +44,6 @@ public class ReadLargeChunksHDDStrategy implements IConsumerStrategy {
 	private static Logger logger = Logger
 			.getLogger(ReadLargeChunksHDDStrategy.class.getName());
 	
-	public ReadLargeChunksHDDStrategy(){
-		this.iterator = files.iterator();
-	}
-
 	@Override
 	public void consume(double demand) {
 		try {
@@ -72,7 +68,7 @@ public class ReadLargeChunksHDDStrategy implements IConsumerStrategy {
 	 * the list is empty. For performance reasons, however, this is not checked. 
 	 * @return The next file. 
 	 */
-	private File nextFile() {
+	private synchronized File nextFile() {
 		if (iterator.hasNext())
 			return iterator.next();
 		iterator = this.files.iterator();
@@ -86,6 +82,7 @@ public class ReadLargeChunksHDDStrategy implements IConsumerStrategy {
 
 	@Override
 	public void initialiseStrategy(double processingRate) {
+		logger.debug("Initialising strategy writing to "+this.fileDirectory);
 		if (!fileDirectory.exists()) {
 			try {
 				writeTestFiles();
@@ -93,16 +90,25 @@ public class ReadLargeChunksHDDStrategy implements IConsumerStrategy {
 				logger.error(e);
 				e.printStackTrace();
 			}
+		} else if (fileDirectory.isDirectory()){
+			initialiseFileList(fileDirectory); 
 		} else {
-			initialiseFileList(); 
+			logger.error("There already is a file at "+fileDirectory.getAbsolutePath());
 		}
+		
+		if (this.files.size() < 1){
+			logger.error("The strategy could not be initialised as there are no files to read.");
+		} else {
+			this.iterator = this.files.iterator(); 
+			logger.debug("Strategy initialised with "+files.size() + " files.");
+		}
+		
 	}
 
 	private boolean writeTestFiles() throws IOException {
 
 		if (!fileDirectory.mkdirs()) {
-			logger
-					.error("File directory could not be created during initialisation.");
+			logger.error("File directory could not be created during initialisation.");
 			return false;
 		}
 
@@ -124,8 +130,17 @@ public class ReadLargeChunksHDDStrategy implements IConsumerStrategy {
 		return true;
 	}
 
-	private void initialiseFileList() {
-		//TODO
+	private void initialiseFileList(File files) {
+		File[] childFiles = files.listFiles();
+		for (File file : childFiles){
+			if (file.isDirectory()){
+				initialiseFileList(file);
+			} else {
+				if (file.length() >= this.maxFileSize){
+					this.files.add(file);
+				}
+			}
+		}
 	}
 
 }
