@@ -26,10 +26,7 @@ import org.eclipse.ui.dialogs.ContainerSelectionDialog;
 import de.uka.ipd.sdq.simucomframework.SimuComConfig;
 
 
-/**
- * @author admin
- * 
- */
+/** @author roman */
 public class oAWConfigurationTab extends AbstractLaunchConfigurationTab {
 
 	/* (non-Javadoc)
@@ -39,21 +36,14 @@ public class oAWConfigurationTab extends AbstractLaunchConfigurationTab {
 		return ResourceManagerTab.getConfigurationImage();
 	}
 
-	/**
-	 * TODO
-	 */
+	/** General value */
 	private String workspace_location = ResourcesPlugin.getWorkspace()
 			.getRoot().getLocation().toString();
 	private String GENERATE_PLUGIN_PATH = workspace_location
 			+ "/de.uka.ipd.sdq.codegen.simucominstance/src";
 	private String outputPath = "OUTPUT_PATH";
-	
 	private boolean CLEAR = true;
 	private boolean LOGGING = false;
-	/**
-	 * The default value for the 'height' Layout attribute.
-	 */
-	private final int LAYOUT_WIDTH = 554;
 
 	private Text outputPathField;
 	private Label locationLabel;
@@ -171,12 +161,6 @@ public class oAWConfigurationTab extends AbstractLaunchConfigurationTab {
 			}
 		});
 		
-		/** workspace button */
-
-		/** filesystem button */
-		
-		/** verbose logging button */
-
 		final Group simulationOptionsGroup = new Group(container, SWT.NONE);
 		simulationOptionsGroup.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false));
 		simulationOptionsGroup.setText("Simulation Options");
@@ -277,7 +261,7 @@ public class oAWConfigurationTab extends AbstractLaunchConfigurationTab {
 	 * The function calls the DirectoryDialog and give back absolute path to the
 	 * directory as String
 	 * 
-	 * @return absolute path to ordner
+	 * @return absolute path to directory
 	 */
 	private String openDirectoryDialog(SelectionEvent e) {
 
@@ -297,7 +281,7 @@ public class oAWConfigurationTab extends AbstractLaunchConfigurationTab {
 	 * The function calls the ContainerSelectionDialog and give back relative to
 	 * the workspace
 	 * 
-	 * @return relative path to ordner
+	 * @return relative path to directory
 	 */
 	private String openResourceDialog(SelectionEvent e) {
 		String message = "Choose a location relative to the workspace: "; // openResourceDialog(e);

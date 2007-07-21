@@ -21,6 +21,7 @@ import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
 
+import de.uka.ipd.sdq.dialogs.dataset.DataSetLabelProvider;
 import de.uka.ipd.sdq.dialogs.dataset.SensorDataSetDialog;
 import de.uka.ipd.sdq.sensorfactory.SensorFrameworkDataset;
 import de.uka.ipd.sdq.sensorfactory.entities.dao.IDAOFactory;
@@ -115,7 +116,7 @@ public class SimuComConfigurationTab extends AbstractLaunchConfigurationTab {
 				if (dialog.open() == dialog.OK) {
 					IDAOFactory dataSet = (IDAOFactory) dialog.getResult();
 					selectedDataSourceID = (int) dataSet.getID();
-					dataField.setText(dataSet.getName());
+					dataField.setText(dataSet.getName() + " [" + dataSet.getID() + " ]");
 				}
 			}
 		});
@@ -152,8 +153,10 @@ public class SimuComConfigurationTab extends AbstractLaunchConfigurationTab {
 						SimuComConfig.DATASOURCE_ID, -1);
 			if (SensorFrameworkDataset.singleton().getDataSourceByID(selectedDataSourceID) == null)
 				dataField.setText("");
-			else
-				dataField.setText(SensorFrameworkDataset.singleton().getDataSourceByID(selectedDataSourceID).getName());
+			else {
+				IDAOFactory factory = SensorFrameworkDataset.singleton().getDataSourceByID(selectedDataSourceID);
+				dataField.setText(DataSetLabelProvider.dataSetRepresentation(factory));
+			}
 		} catch (CoreException e) {
 			selectedDataSourceID = -1;
 			dataField.setText("");

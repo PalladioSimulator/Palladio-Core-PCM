@@ -4,32 +4,19 @@ import java.io.PrintStream;
 
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
-import org.eclipse.core.runtime.IStatus;
-import org.eclipse.core.runtime.Status;
 import org.eclipse.debug.core.ILaunch;
 import org.eclipse.debug.core.ILaunchConfiguration;
 import org.eclipse.debug.core.model.ILaunchConfigurationDelegate;
-import org.eclipse.jface.dialogs.MessageDialog;
-import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.console.ConsolePlugin;
 import org.eclipse.ui.console.IConsole;
 import org.eclipse.ui.console.MessageConsole;
-import org.openarchitectureware.workflow.debug.WorkflowElementAdapter;
 
-import de.uka.ipd.sdq.codegen.simucontroller.SimuControllerPlugin;
 import de.uka.ipd.sdq.codegen.simucontroller.workflow.JobFailedException;
 import de.uka.ipd.sdq.codegen.simucontroller.workflow.RollbackFailedException;
 import de.uka.ipd.sdq.codegen.simucontroller.workflow.UserCanceledException;
 import de.uka.ipd.sdq.codegen.simucontroller.workflow.Workflow;
 import de.uka.ipd.sdq.codegen.simucontroller.workflow.WorkflowExceptionHandler;
-import de.uka.ipd.sdq.codegen.simucontroller.workflow.jobs.CheckOAWConstraintsJob;
-import de.uka.ipd.sdq.codegen.simucontroller.workflow.jobs.CompilePluginCodeJob;
-import de.uka.ipd.sdq.codegen.simucontroller.workflow.jobs.CreatePluginProjectJob;
-import de.uka.ipd.sdq.codegen.simucontroller.workflow.jobs.GeneratePluginCodeJob;
-import de.uka.ipd.sdq.codegen.simucontroller.workflow.jobs.LoadPluginJob;
-import de.uka.ipd.sdq.codegen.simucontroller.workflow.jobs.SimulateJob;
 import de.uka.ipd.sdq.codegen.simucontroller.workflow.jobs.SimulationRunCompositeJob;
-import de.uka.ipd.sdq.dialogs.error.ErrorDisplayDialog;
 import de.uka.ipd.sdq.simucomframework.SimuComConfig;
 
 /**
