@@ -33,5 +33,8 @@ public class DataSetLabelProvider extends LabelProvider {
 			return DialogsImages.imageRegistry.get(DialogsImages.TREEROOT);
 		return super.getImage(element);
 	}
-
+	
+	public static String dataSetRepresentation(IDAOFactory dataSet){
+		return dataSet.getName() + " [" + dataSet.getID()+ "]"; 
+	}
 }

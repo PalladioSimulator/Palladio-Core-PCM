@@ -29,7 +29,7 @@ import de.uka.ipd.sdq.sensorfactory.entities.dao.IDAOFactory;
 
 public class DataSetDialog extends TitleAreaDialog {
 
-	private Button addButton, removeButton, okButton;
+	private Button addButton, removeButton, okButton, openButton;
 	private Object input;
 	private IDAOFactory selectedDataSet;
 	private TableViewer viewer;
@@ -75,6 +75,7 @@ public class DataSetDialog extends TitleAreaDialog {
 		container.setLayout(new FormLayout());
 		container.setLayoutData(new GridData(GridData.FILL_BOTH));
 
+		/** 'Add..' button */
 		addButton = new Button(container, SWT.NONE);
 		final FormData fd_addButton = new FormData();
 		fd_addButton.right = new FormAttachment(100, -5);
@@ -83,6 +84,7 @@ public class DataSetDialog extends TitleAreaDialog {
 		addButton.setLayoutData(fd_addButton);
 		addButton.setText("Add..");
 		
+		/** 'Remove' button */
 		removeButton = new Button(container, SWT.NONE);
 		final FormData fd_removeButton = new FormData();
 		fd_removeButton.right = new FormAttachment(100, -5);
@@ -90,6 +92,16 @@ public class DataSetDialog extends TitleAreaDialog {
 		fd_removeButton.top = new FormAttachment(0, 35);
 		removeButton.setLayoutData(fd_removeButton);
 		removeButton.setText("Remove");
+
+		/** 'Open..' button */
+		openButton = new Button(container, SWT.NONE);
+		final FormData fd_openButton = new FormData();
+		fd_openButton.left = new FormAttachment(100, -84);
+		fd_openButton.right = new FormAttachment(100, -5);
+		fd_openButton.bottom = new FormAttachment(0, 91);
+		fd_openButton.top = new FormAttachment(0, 65);
+		openButton.setLayoutData(fd_openButton);
+		openButton.setText("Open..");
 
 		Label separator = new Label(container, SWT.SEPARATOR | SWT.HORIZONTAL);
 		final FormData fd_label = new FormData();
@@ -128,6 +140,7 @@ public class DataSetDialog extends TitleAreaDialog {
 			}
 		});
 		viewer.setInput(input);
+
 		//
 		return container;
 	}
@@ -174,6 +187,10 @@ public class DataSetDialog extends TitleAreaDialog {
 	
 	protected void setRemoveButtonAction(SelectionListener listener){
 		removeButton.addSelectionListener(listener);
+	}
+	
+	protected void setOpenButtonAction(SelectionListener listener){
+		openButton.addSelectionListener(listener);
 	}
 
 	/* (non-Javadoc)
