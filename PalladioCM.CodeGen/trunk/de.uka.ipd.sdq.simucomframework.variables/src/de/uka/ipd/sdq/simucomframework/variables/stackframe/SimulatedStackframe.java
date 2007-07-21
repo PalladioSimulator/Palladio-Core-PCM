@@ -3,12 +3,31 @@ package de.uka.ipd.sdq.simucomframework.variables.stackframe;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map.Entry;
 
 import org.apache.log4j.Logger;
 
+import de.uka.ipd.sdq.simucomframework.variables.exceptions.ValueNotInFrameException;
+
+/**
+ * A stackframe as used in compiler construction to realise variable scopes.
+ * It is similar to a hashmap hashing variable IDs on variable values. However,
+ * this map can query its parent maps if the value is not found in it
+ * @author Steffen Becker
+ *
+ * @param <T>
+ */
+/**
+ * @author Steffen Becker
+ *
+ * @param <T>
+ */
 public class SimulatedStackframe <T> implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 547392494342021941L;
 
 	private static Logger logger = 
 		Logger.getLogger(SimulatedStackframe.class.getName());
@@ -28,11 +47,24 @@ public class SimulatedStackframe <T> implements Serializable {
 		this.parentFrame = null;
 	}
 
+	/**
+	 * Add a value to this stackframe
+	 * @param id ID of the value
+	 * @param value The actual value
+	 */
 	public void addValue(String id, T value)
 	{
 		contents.put(id,value);
 	}
 	
+	/**
+	 * Retrieve a value from this stackframe. If the value is not part of this
+	 * stackframe the parent stackframe is queried automatically
+	 * @param id ID of the variable value to retrieve
+	 * @return The value of the variable with id ID.
+	 * @throws ValueNotInFrameException Is throw if this frame and all parent frames 
+	 * do not contain the id ID
+	 */
 	public T getValue(String id) throws ValueNotInFrameException
 	{
 		if (this.contents.containsKey(id))
@@ -42,6 +74,10 @@ public class SimulatedStackframe <T> implements Serializable {
 		throw new ValueNotInFrameException("Identifier "+id+" not found in stackframe!");
 	}
 	
+	/**
+	 * Clone this stackframe
+	 * @return A clone of the stackframe. The parent frames are copies as well
+	 */
 	public SimulatedStackframe<T> copyFrame()
 	{
 		SimulatedStackframe<T> copy = new SimulatedStackframe<T>();
@@ -57,8 +93,11 @@ public class SimulatedStackframe <T> implements Serializable {
 		this.parentFrame = frame;
 	}
 	
-	public ArrayList<Entry<String,T>> getContents()
-	{
+	/**
+	 * @return All IDs and their value in the current frame. For debugging 
+	 * and error reporting cases
+	 */
+	public ArrayList<Entry<String,T>> getContents() {
 		return getContentsRecursive(new HashMap<String, T>());
 	}
 	
@@ -75,6 +114,10 @@ public class SimulatedStackframe <T> implements Serializable {
 		return result;
 	}
 
+	/**
+	 * Add all variables and their values in the given frame to this frame
+	 * @param callResult The frame whose contents will be copied into this frame
+	 */
 	public void addVariables(SimulatedStackframe<T> callResult) {
 		logger.debug("Adding "+callResult.getContents().size()+" value(s) to own stackframe");
 		for (Entry<String,T> e : callResult.contents.entrySet()) {
@@ -83,31 +126,5 @@ public class SimulatedStackframe <T> implements Serializable {
 		}
 		
 	}
-	
-	public SimulatedStackframe<Object> getByteSizeOfFrame(){
-		Double result = 0.0;
-		List<Entry<String,T>> stackFrameContents = getContents();
-		for (Entry<String,T> e : stackFrameContents){
-			String key = e.getKey();
-			
-			if (key.endsWith("INNER.BYTESIZE")){ //Collection
-				String variableReference = key.substring(0, key.length()-15);
-				double numberOfElements = 0;
-				try {
-					numberOfElements = ((Number)this.getValue(variableReference+".NUMBER_OF_ELEMENTS")).doubleValue();
-				} catch (ValueNotInFrameException e1) {
-					e1.printStackTrace();
-				}
-				result += numberOfElements * ((Number)e.getValue()).doubleValue();
-			} else if (key.endsWith("BYTESIZE")){ // Primitive & Composite
-				result += ((Number)e.getValue()).doubleValue();
-			}
-		
-		}
-		
-		SimulatedStackframe<Object> resultFrame = new SimulatedStackframe<Object>();
-		resultFrame.addValue("transferData.BYTESIZE", result);
-		
-		return resultFrame;
-	}
+
 }

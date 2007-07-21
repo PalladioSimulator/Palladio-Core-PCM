@@ -9,6 +9,8 @@ import desmoj.core.simulator.Model;
 import desmoj.core.simulator.SimTime;
 
 /**
+ * Event triggered when a new job arrives at a simulated resource and
+ * demands processing its resource demand
  * @author Snowball
  *
  */

@@ -15,6 +15,12 @@ import desmoj.core.simulator.Condition;
 import desmoj.core.simulator.Entity;
 import desmoj.core.simulator.Model;
 
+/**
+ * Simulation stop condition based on the confidence intervall of the measured
+ * mean. Currently disabled
+ * @author Steffen Becker
+ *
+ */
 public class StopCondition extends Condition implements Observer
 {
 	private ArrayList values = new ArrayList();

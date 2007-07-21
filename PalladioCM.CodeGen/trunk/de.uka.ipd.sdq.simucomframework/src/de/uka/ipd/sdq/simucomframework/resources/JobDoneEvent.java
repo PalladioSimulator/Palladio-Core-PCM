@@ -5,6 +5,12 @@ import desmoj.core.simulator.Event;
 import desmoj.core.simulator.Model;
 import desmoj.core.simulator.SimTime;
 
+/**
+ * Event triggered by the simulation when a job is finished in one of the resources
+ * scheduling algorithms
+ * @author Snowball
+ *
+ */
 public class JobDoneEvent extends Event {
 
 	public JobDoneEvent(Model owner, String name, boolean showInTrace) {

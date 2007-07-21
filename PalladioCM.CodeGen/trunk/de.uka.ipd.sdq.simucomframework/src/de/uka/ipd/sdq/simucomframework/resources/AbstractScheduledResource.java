@@ -19,6 +19,13 @@ import desmoj.core.simulator.Event;
 import desmoj.core.simulator.SimProcess;
 import desmoj.core.simulator.SimTime;
 
+/**
+ * Base class of all resources which have their own scheduler, i.e., active
+ * resources in the PCM. Contains generic code to instrument the resource
+ * to report its results to the sensorframework
+ * @author Steffen Becker
+ *
+ */
 public abstract class AbstractScheduledResource extends Entity {
 	
 	protected static Logger logger = 
@@ -104,12 +111,22 @@ public abstract class AbstractScheduledResource extends Entity {
 		return stateDAO.addState(id);
 	}
 
+	/**
+	 * Add a job and its corresponding demand to the processing queue of
+	 * this resource. Delegates the task to its strategy
+	 * @param demand The job and its demand to add to our queue
+	 */
 	public void addJob(JobAndDemandStruct demand) {
 		myStrategy.addJob(demand);
 	}
 
 	public final static double EPSILON = Math.pow(10,-9);
 	
+	
+	/**
+	 * @return The time in the future when the next job would be finished
+	 * in case no further interrupts occur
+	 */
 	public double getTimeWhenNextJobIsDone() {
 		double result = myStrategy.getTimeWhenNextJobIsDone();
 		if (result < 0) {
@@ -121,6 +138,13 @@ public abstract class AbstractScheduledResource extends Entity {
 		return result;
 	}
 	
+	/**
+	 * Called by client of this resource to make the resource simulate
+	 * resource processing. This is the queueing network service center part
+	 * of our simulation
+	 * @param thread The thread or job requesting the processing of its demand
+	 * @param demand The resource demand the client wishes to be processed by the resource
+	 */
 	public void consumeResource(SimProcess thread, double demand)
 	{
 		if (demand < 0)
@@ -138,6 +162,11 @@ public abstract class AbstractScheduledResource extends Entity {
 		thread.passivate();
 	}
 
+	/**
+	 * Removes the job from the processing queue which signalled that it is finished
+	 * via an event. Report the waiting time to a sensor
+	 * @return The job and its demand which just finished execution
+	 */
 	public JobAndDemandStruct removeFinishedJob() {
 		JobAndDemandStruct job = myStrategy.removeFinshedJob();
 		experimentRun.addTimeSpanMeasurement(waitTimeSensor, this.getModel().currentTime().getTimeValue(), 
@@ -145,15 +174,26 @@ public abstract class AbstractScheduledResource extends Entity {
 		return job;
 	}
 
+	/**
+	 * @return True if there are more jobs in the process queue of this resource
+	 */
 	public boolean hasMoreJobs() {
 		return myStrategy.hasMoreJobs();
 	}
 	
+	/**
+	 * @return The number of jobs currently processed by this resource
+	 */
 	public int getTotalJobCount()
 	{
 		return myStrategy.getTotalJobCount();
 	}
 
+	/**
+	 * Wake up or put this resource into sleep mode. Mainly used for reporting
+	 * reasons
+	 * @param b True if the resource gets idle, false if it has to execute jobs
+	 */
 	public void setIdle(boolean b) {
 		if (this.idle != b || lastCount != myStrategy.getTotalJobCount()) {
 			if (b) {
@@ -170,20 +210,40 @@ public abstract class AbstractScheduledResource extends Entity {
 		this.idle=b;
 	}
 	
+	/**
+	 * Template method. Implemententers have to use the given demand and return
+	 * the time span needed to process the demand on this resource.
+	 * @param demand The demand issued to this resource in units understood by 
+	 * the resource
+	 * @return The service time, given in seconds
+	 */
 	protected abstract double calculateDemand(double demand);
 	
+	
+	/**
+	 * Called by the framework to inform that the resource should start
+	 * its lifecycle 
+	 */
 	public void activateResource()
 	{
 		logger.debug("Starting Resource "+this.getName());
 		lastTimeOfAdjustingJobs = getModel().currentTime();
 	}
 	
+	/**
+	 * Called by the framework to inform the resource that the simulation
+	 * has been stopped
+	 */
 	public void deactivateResource()
 	{
 		logger.debug("Stopping Resource "+this.getName());
 		experimentRun.addStateMeasurement(stateSensor, idleState, getModel().currentTime().getTimeValue());
 	}
 
+	/**
+	 * Called by JobArriaval or JobDoneEvents to update the process queue and
+	 * their remaining demands   
+	 */
 	public void processPassedTime() {
 		double timePassed = getModel().currentTime().getTimeValue() - lastTimeOfAdjustingJobs.getTimeValue();
 		

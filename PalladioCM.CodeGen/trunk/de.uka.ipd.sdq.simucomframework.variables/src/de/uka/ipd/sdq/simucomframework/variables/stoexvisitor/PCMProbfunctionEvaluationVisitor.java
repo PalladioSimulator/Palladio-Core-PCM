@@ -9,9 +9,13 @@ import de.uka.ipd.sdq.probfunction.math.IProbabilityFunction;
 import de.uka.ipd.sdq.probfunction.math.IProbabilityMassFunction;
 import de.uka.ipd.sdq.probfunction.util.ProbfunctionSwitch;
 import de.uka.ipd.sdq.simucomframework.variables.cache.StoExCache;
-import de.uka.ipd.sdq.simucomframework.variables.tests.StoExVisitorTests;
 
-public class PCMProbfunctionEvaluationVisitor extends ProbfunctionSwitch {
+/**
+ * Visitor to visit probfunctions and evaluate them to return a sample
+ * @author Steffen Becker
+ *
+ */
+public class PCMProbfunctionEvaluationVisitor extends ProbfunctionSwitch<Object> {
 	private static Logger logger = 
 		Logger.getLogger(PCMProbfunctionEvaluationVisitor.class.getName());
 

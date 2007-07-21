@@ -3,6 +3,12 @@ package de.uka.ipd.sdq.simucomframework.resources;
 import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
 import desmoj.core.simulator.Queue;
 
+/**
+ * First-come, first-serve scheduling strategy. The first job is executed fully
+ * before the next job gets the resource, and so on...
+ * @author Steffen Becker
+ *
+ */
 public class FCFSStrategy implements ISchedulingStrategy {
 	protected Queue runQueue = null;
 

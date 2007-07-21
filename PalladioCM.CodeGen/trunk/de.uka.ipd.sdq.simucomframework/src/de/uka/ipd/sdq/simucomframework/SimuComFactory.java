@@ -3,8 +3,21 @@ package de.uka.ipd.sdq.simucomframework;
 import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
 import desmoj.core.simulator.Experiment;
 
+/**
+ * Factory for creating simulation objects. The created objects are already attached
+ * to a desmo-j experiment
+ * @author Steffen Becker
+ *
+ */
 public class SimuComFactory {
 
+	/**
+	 * Create a new simulation model as needed by desmo-j
+	 * @param name The name of the simulation model
+	 * @param showInReport Should desmoj report on our experiment
+	 * @param showInTrance Should desmoj trace our experiment
+	 * @return The created simulation model 
+	 */
 	public static SimuComModel getSimuComModel(String name,
 			boolean showInReport, boolean showInTrance) {
 		

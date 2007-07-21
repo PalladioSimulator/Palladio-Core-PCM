@@ -2,6 +2,11 @@ package de.uka.ipd.sdq.simucomframework.variables.cache;
 
 import java.util.HashMap;
 
+/**
+ * A cache for Stoex. This saves the time to parse the stoex again
+ * @author Steffen Becker
+ *
+ */
 public class StoExCache {
 
 	private HashMap<String,StoExCacheEntry> cache = new HashMap<String,StoExCacheEntry>();

@@ -2,29 +2,37 @@ package de.uka.ipd.sdq.simucomframework.fork;
 
 import org.apache.log4j.Logger;
 
-import com.sun.xml.internal.bind.v2.runtime.reflect.Accessor.SetterOnlyReflection;
-
 import de.uka.ipd.sdq.simucomframework.Context;
 import de.uka.ipd.sdq.simucomframework.SimuComStatus;
 import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
 import de.uka.ipd.sdq.simucomframework.resources.AbstractSimulatedResourceContainer;
-import de.uka.ipd.sdq.simucomframework.resources.SimulatedResourceContainer;
 import de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStack;
-import de.uka.ipd.sdq.simucomframework.variables.stoexvisitor.PCMStoExEvaluationVisitor;
 import desmoj.core.exception.SimFinishedException;
-import desmoj.core.simulator.Model;
 import desmoj.core.simulator.SimProcess;
 
+/**
+ * Context for forked behaviours
+ * @author Steffen Becker
+ *
+ */
 class ForkContext extends Context {
-
 	
 	private Context parentContext;
 
+	/**
+	 * Constructor of the parallel process
+	 * @param parentContext The current context of the parent thread.
+	 * Used to evaluate variables in the parallel process 
+	 * @param parent The parent process
+	 */
 	public ForkContext(Context parentContext, SimProcess parent) {
 		super(parentContext.getModel());
 		this.setSimProcess(parent);
 		this.parentContext = parentContext;
 		this.stack = new SimulatedStack<Object>();
+
+		// Run this thread with a copy of the parents stackframe
+		// Likely subject to change in later PCM versions
 		this.stack.pushStackFrame(parentContext.getStack().currentStackFrame().copyFrame());
 	}
 
@@ -35,14 +43,22 @@ class ForkContext extends Context {
 
 	@Override
 	public AbstractSimulatedResourceContainer findResource(String assemblyContextID) {
+		// Use my parents allocation information to do my look ups
 		return parentContext.findResource(assemblyContextID);
 	}
 
 	@Override
 	protected void initialiseAssemblyContextLookup() {
+		// Emtpy as we use our parents allocation lookup
 	}
 }
 
+/**
+ * Base class for ForkBehaviours. Generator creates a specialisation of this and
+ * uses it to execute actions in parallel
+ * @author Steffen Becker
+ *
+ */
 public abstract class ForkedBehaviourProcess extends SimProcess {
 
 	protected Context ctx;
@@ -73,6 +89,11 @@ public abstract class ForkedBehaviourProcess extends SimProcess {
 		myParent.activateAfter(this);
 	}
 
+	
+	/**
+	 * Template method filled by the generate with the parallel behaviour specified
+	 * in the PCM's fork action
+	 */
 	protected abstract void executeBehaviour();
 
 }

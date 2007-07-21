@@ -2,6 +2,12 @@ package de.uka.ipd.sdq.simucomframework.resources;
 
 import java.util.ArrayList;
 
+/**
+ * Scheduler strategy for resources which exist in unlimited amounts. It
+ * simply delays execution without causing wait times
+ * @author Steffen Becker
+ *
+ */
 public class DelayStrategy implements ISchedulingStrategy {
 
 	private ArrayList<JobAndDemandStruct> jobs = new ArrayList<JobAndDemandStruct>();

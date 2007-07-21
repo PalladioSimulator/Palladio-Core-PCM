@@ -42,6 +42,12 @@ class SensorObserver implements Observer {
 	
 }
 
+/**
+ * Sensorframework observer for the old sensor framework which logs into the new
+ * sensorframework. 
+ * @author Steffen Becker
+ *
+ */
 public class SensorFrameworkObserver implements ISensorObserver {
 	private static Logger logger = 
 		Logger.getLogger(SensorFrameworkObserver.class.getName());

@@ -1,8 +1,5 @@
 package de.uka.ipd.sdq.simucomframework.usage;
 
-import java.io.PrintWriter;
-import java.io.StringWriter;
-
 import org.apache.log4j.Logger;
 
 import de.uka.ipd.sdq.simucomframework.Context;
@@ -13,6 +10,11 @@ import desmoj.core.simulator.SimProcess;
 import desmoj.core.simulator.SimTime;
 
 
+/**
+ * Implementation of the workload driver interface for open workloads
+ * @author Steffen Becker
+ *
+ */
 public class OpenWorkload extends SimProcess implements IWorkloadDriver {
 
 	private static final int USER_THRESHHOLD = 1000;
@@ -22,6 +24,12 @@ public class OpenWorkload extends SimProcess implements IWorkloadDriver {
 	private static Logger logger = 
 		Logger.getLogger(OpenWorkload.class.getName());
 	
+	/**
+	 * Constructor of the open workload driver
+	 * @param model The simulation model this driver belongs to
+	 * @param userFactory The factory which is used to bread the users
+	 * @param interArrivalTime The time to wait between leaving a new user to its fate
+	 */
 	public OpenWorkload(SimuComModel model, IUserFactory userFactory, String interArrivalTime) {
 		super(model,"OpenWorkloadUserMaturationChamber",true);
 		this.interArrivalTime = interArrivalTime;

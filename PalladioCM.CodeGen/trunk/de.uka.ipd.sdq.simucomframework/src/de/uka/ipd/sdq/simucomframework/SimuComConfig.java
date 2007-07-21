@@ -5,7 +5,7 @@ import java.util.Map;
 /**
  * @author roman
  * 
- * The class encases all configuration options for SimuCom.
+ * The class encapsulates all configuration options for SimuCom.
  */
 public class SimuComConfig {
 
@@ -23,9 +23,9 @@ public class SimuComConfig {
 	private long datasourceID;
 
 	/**
-	 * @param ILaunchConfiguration
+	 * @param a map which maps configuation option IDs to their values
 	 */
-	public SimuComConfig(Map configuration){
+	public SimuComConfig(Map<String,Object> configuration){
 		try {
 			this.nameExperimentRun = (String) configuration.get(
 					EXPERIMENT_RUN);

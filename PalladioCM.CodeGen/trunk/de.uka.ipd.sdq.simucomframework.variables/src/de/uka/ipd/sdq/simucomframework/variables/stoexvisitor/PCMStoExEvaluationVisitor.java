@@ -10,18 +10,16 @@ import de.uka.ipd.sdq.pcm.stochasticexpressions.PCMStoExPrettyPrintVisitor;
 import de.uka.ipd.sdq.pcm.stochasticexpressions.PCMStoExSwitch;
 import de.uka.ipd.sdq.simucomframework.variables.EvaluationProxy;
 import de.uka.ipd.sdq.simucomframework.variables.StackContext;
-import de.uka.ipd.sdq.simucomframework.variables.cache.ProbFunctionCache;
 import de.uka.ipd.sdq.simucomframework.variables.cache.StoExCache;
 import de.uka.ipd.sdq.simucomframework.variables.exceptions.TypesIncompatibleInComparisionException;
 import de.uka.ipd.sdq.simucomframework.variables.exceptions.TypesIncompatibleInProductException;
 import de.uka.ipd.sdq.simucomframework.variables.exceptions.TypesIncompatibleInTermException;
+import de.uka.ipd.sdq.simucomframework.variables.exceptions.ValueNotInFrameException;
 import de.uka.ipd.sdq.simucomframework.variables.functions.FunctionLib;
 import de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe;
-import de.uka.ipd.sdq.simucomframework.variables.stackframe.ValueNotInFrameException;
 import de.uka.ipd.sdq.stoex.BoolLiteral;
 import de.uka.ipd.sdq.stoex.BooleanOperatorExpression;
 import de.uka.ipd.sdq.stoex.CompareExpression;
-import de.uka.ipd.sdq.stoex.CompareOperations;
 import de.uka.ipd.sdq.stoex.DoubleLiteral;
 import de.uka.ipd.sdq.stoex.Expression;
 import de.uka.ipd.sdq.stoex.FunctionLiteral;
@@ -30,21 +28,22 @@ import de.uka.ipd.sdq.stoex.IntLiteral;
 import de.uka.ipd.sdq.stoex.NegativeExpression;
 import de.uka.ipd.sdq.stoex.NotExpression;
 import de.uka.ipd.sdq.stoex.Parenthesis;
-import de.uka.ipd.sdq.stoex.Power;
 import de.uka.ipd.sdq.stoex.PowerExpression;
 import de.uka.ipd.sdq.stoex.ProbabilityFunctionLiteral;
 import de.uka.ipd.sdq.stoex.ProductExpression;
-import de.uka.ipd.sdq.stoex.ProductOperations;
-import de.uka.ipd.sdq.stoex.RandomVariable;
 import de.uka.ipd.sdq.stoex.StringLiteral;
-import de.uka.ipd.sdq.stoex.Term;
 import de.uka.ipd.sdq.stoex.TermExpression;
-import de.uka.ipd.sdq.stoex.TermOperations;
-import de.uka.ipd.sdq.stoex.Variable;
 import de.uka.ipd.sdq.stoex.analyser.visitors.ExpressionInferTypeVisitor;
 import de.uka.ipd.sdq.stoex.analyser.visitors.TypeEnum;
 
 
+/**
+ * Visitor to evaluate stoex. It executes the corresponding Java mathematical 
+ * operations at each operator. It partially relies on the types infered
+ * to do its casts 
+ * @author Steffen Becker
+ *
+ */
 public class PCMStoExEvaluationVisitor extends PCMStoExSwitch {
 
 	private static Logger logger = 
@@ -54,7 +53,6 @@ public class PCMStoExEvaluationVisitor extends PCMStoExSwitch {
 	private SimulatedStackframe<Object> myStackFrame;
 	private ExpressionInferTypeVisitor typeInferer;
 	private static PCMStoExPrettyPrintVisitor printVisitor = new PCMStoExPrettyPrintVisitor();
-	private String stoex;
 	private static FunctionLib functionLib = null;
 
 	private VariableMode mode;
@@ -62,7 +60,6 @@ public class PCMStoExEvaluationVisitor extends PCMStoExSwitch {
 	public PCMStoExEvaluationVisitor(String stoex, SimulatedStackframe<Object> frame, VariableMode mode) {
 		myStackFrame = frame;
 		this.typeInferer = StoExCache.singleton().getEntry(stoex).getTypeInferer();
-		this.stoex = stoex;
 		this.mode = mode;
 		probfunctionVisitor = new PCMProbfunctionEvaluationVisitor(stoex);
 		if (functionLib == null)
@@ -119,6 +116,7 @@ public class PCMStoExEvaluationVisitor extends PCMStoExSwitch {
 		}
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public Object caseCompareExpression(CompareExpression object) {
 		TypeEnum leftType = typeInferer.getType(object.getLeft());
@@ -160,12 +158,6 @@ public class PCMStoExEvaluationVisitor extends PCMStoExSwitch {
 	@Override
 	public Object caseDoubleLiteral(DoubleLiteral object) {
 		return object.getValue();
-	}
-
-	@Override
-	public Object caseExpression(Expression object) {
-		// TODO Auto-generated method stub
-		return super.caseExpression(object);
 	}
 
 	@Override
@@ -251,18 +243,6 @@ public class PCMStoExEvaluationVisitor extends PCMStoExSwitch {
 	}
 
 	@Override
-	public Object caseRandomVariable(RandomVariable object) {
-		// TODO Auto-generated method stub
-		return super.caseRandomVariable(object);
-	}
-
-	@Override
-	public Object caseTerm(Term object) {
-		// TODO Auto-generated method stub
-		return super.caseTerm(object);
-	}
-
-	@Override
 	public Object caseTermExpression(TermExpression object) {
 		TypeEnum leftType = typeInferer.getType(object.getLeft());
 		TypeEnum rightType = typeInferer.getType(object.getRight());
@@ -297,12 +277,6 @@ public class PCMStoExEvaluationVisitor extends PCMStoExSwitch {
 			}
 			throw new RuntimeException("This should never happen!");
 		}
-	}
-
-	@Override
-	public Object caseVariable(Variable object) {
-		// TODO Auto-generated method stub
-		return super.caseVariable(object);
 	}
 
 	@Override

@@ -11,8 +11,8 @@ import org.junit.Before;
 import org.junit.Test;
 
 import de.uka.ipd.sdq.simucomframework.variables.StackContext;
+import de.uka.ipd.sdq.simucomframework.variables.exceptions.ValueNotInFrameException;
 import de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe;
-import de.uka.ipd.sdq.simucomframework.variables.stackframe.ValueNotInFrameException;
 import de.uka.ipd.sdq.simucomframework.variables.stoexvisitor.VariableMode;
 
 public class StoExVisitorVariablesTest {

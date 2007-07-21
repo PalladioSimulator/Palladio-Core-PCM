@@ -13,29 +13,50 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import de.uka.ipd.sdq.probfunction.BoxedPDF;
 import de.uka.ipd.sdq.probfunction.ContinuousSample;
 import de.uka.ipd.sdq.probfunction.ProbabilityMassFunction;
-import de.uka.ipd.sdq.probfunction.ProbfunctionFactory;
 import de.uka.ipd.sdq.probfunction.Sample;
 import de.uka.ipd.sdq.probfunction.math.IProbabilityDensityFunction;
 import de.uka.ipd.sdq.probfunction.math.IProbabilityFunction;
 import de.uka.ipd.sdq.probfunction.math.IProbabilityFunctionFactory;
 import de.uka.ipd.sdq.probfunction.math.IProbabilityMassFunction;
-import de.uka.ipd.sdq.probfunction.math.exception.DoubleSampleException;
-import de.uka.ipd.sdq.probfunction.math.exception.ProbabilitySumNotOneException;
-import de.uka.ipd.sdq.probfunction.math.exception.UnknownPDFTypeException;
 import de.uka.ipd.sdq.probfunction.print.ProbFunctionPrettyPrint;
 import de.uka.ipd.sdq.probfunction.util.ProbfunctionSwitch;
-import de.uka.ipd.sdq.simucomframework.variables.StackContext;
 import de.uka.ipd.sdq.stoex.Expression;
 
+/**
+ * A cache for Probability Functions. This saves the time to calculate the 
+ * inverse commulative distribution function every time again
+ * @author Steffen Becker
+ *
+ */
 public class ProbFunctionCache {
 	private static Logger logger = 
 		Logger.getLogger(ProbFunctionCache.class.getName());
 
 	private HashMap<EObject,IProbabilityFunction> probFunctions = new HashMap<EObject,IProbabilityFunction>();
-	private ProbfunctionSwitch probFunctionAnnotator = new ProbfunctionSwitch() {
+	
+	
+	/**
+	 * Polymorphic switch to analyse and store probability functions 
+	 */
+	private ProbfunctionSwitch<Object> probFunctionAnnotator = new ProbfunctionSwitch<Object>() {
 		@Override
 		public Object caseBoxedPDF(BoxedPDF object) {
-			// TODO: Quick fix. Adjust wrong PDFs
+			adjustPDF(object);
+			IProbabilityDensityFunction pdf = null;
+			try {
+				pdf = IProbabilityFunctionFactory.eINSTANCE.transformToPDF(object);
+				pdf.checkConstrains();
+			} catch(Exception ex) {
+				RuntimeException ex2 = new RuntimeException("PDF not valid: "+new ProbFunctionPrettyPrint().doSwitch(object)+". Caused by "+ex.getMessage());
+				logger.error("PMF not valid!", ex2);
+				throw ex2; 
+			}
+			probFunctions.put(object, pdf);
+			return super.caseBoxedPDF(object);
+		}
+
+		private void adjustPDF(BoxedPDF object) {
+			// Adjust PDFs which do not sum up to 1. Issue a warning if needed
 			EList<ContinuousSample> samples = object.getSamples();
 			double sum = 0;
 			for(ContinuousSample sample : samples) {
@@ -49,18 +70,7 @@ public class ProbFunctionCache {
 				}
 				logger.warn("Probfunction needed adjustment as it didn't sum up to 1! Fix your input specification!!");
 			}
-			// END TODO: Quick fix. Adjust wrong PDFs
-			IProbabilityDensityFunction pdf = null;
-			try {
-				pdf = IProbabilityFunctionFactory.eINSTANCE.transformToPDF(object);
-				pdf.checkConstrains();
-			} catch(Exception ex) {
-				RuntimeException ex2 = new RuntimeException("PDF not valid: "+new ProbFunctionPrettyPrint().doSwitch(object)+". Caused by "+ex.getMessage());
-				logger.error("PMF not valid!", ex2);
-				throw ex2; 
-			}
-			probFunctions.put(object, pdf);
-			return super.caseBoxedPDF(object);
+			// Adjust wrong PDFs
 		}
 
 		private double countNonZeroContiniousSamples(EList<ContinuousSample> samples) {
@@ -81,7 +91,22 @@ public class ProbFunctionCache {
 		
 		@Override
 		public Object caseProbabilityMassFunction(ProbabilityMassFunction object) {
-			// TODO: Quick fix. Adjust wrong PDFs
+			adjustPMF(object);
+
+			IProbabilityMassFunction pmf = IProbabilityFunctionFactory.eINSTANCE.transformToPMF(object);		
+			try {
+				pmf.checkConstrains();
+			} catch(Exception ex) {
+				RuntimeException ex2 = new RuntimeException("PMF not valid: "+new ProbFunctionPrettyPrint().doSwitch(object));
+				logger.error("PMF not valid!", ex2);
+				throw ex2; 
+			}
+			probFunctions.put(object, pmf);
+			return super.caseProbabilityMassFunction(object);
+		}
+
+		private void adjustPMF(ProbabilityMassFunction object) {
+			// Adjust wrong PMFs
 			EList<Sample> samples = object.getSamples();
 			double sum = 0;
 			for(Sample sample : (Collection<Sample>)samples) {
@@ -95,29 +120,30 @@ public class ProbFunctionCache {
 				}
 				logger.warn("Probfunction needed adjustment as it didn't sum up to 1! Fix your input specification!!");
 			}
-			// END TODO: Quick fix. Adjust wrong PDFs
-
-			IProbabilityMassFunction pmf = IProbabilityFunctionFactory.eINSTANCE.transformToPMF(object);		
-			try {
-				pmf.checkConstrains();
-			} catch(Exception ex) {
-				RuntimeException ex2 = new RuntimeException("PMF not valid: "+new ProbFunctionPrettyPrint().doSwitch(object));
-				logger.error("PMF not valid!", ex2);
-				throw ex2; 
-			}
-			probFunctions.put(object, pmf);
-			return super.caseProbabilityMassFunction(object);
 		}
 	};
 	
+	
+	/**
+	 * Initialise the probfunctition cache for all probfunctions in the 
+	 * given expression. A visitor is used to search for and cache all 
+	 * probfuntions
+	 * @param ex The stoex to analyse
+	 */
 	public ProbFunctionCache(Expression ex) {
-		for (Iterator it=EcoreUtil.getAllContents(Collections.singleton(ex));
+		for (Iterator<EObject> it=EcoreUtil.getAllContents(Collections.singleton(ex));
 			it.hasNext(); ) {
-			EObject eObject = (EObject) it.next();
-			probFunctionAnnotator.doSwitch(eObject);
+			probFunctionAnnotator.doSwitch(it.next());
 		}
 	}
 
+	
+	/**
+	 * Return the cached probfuntion for partial expression e
+	 * @param e SubExpession which has to be a probfunction literal for
+	 * which to query the cache
+	 * @return Cached probfunction
+	 */
 	public IProbabilityFunction getProbFunction(EObject e) {
 		assert probFunctions.containsKey(e);
 		return probFunctions.get(e);

@@ -1,5 +1,18 @@
 package de.uka.ipd.sdq.simucomframework;
 
+/**
+ * Status enum signaling simulation success or failure
+ * @author Steffen Becker
+ *
+ */
 public enum SimuComStatus {
-	ERROR, OK; 
+	/**
+	 * Simulation caused an error most likly by raising an exception 
+	 */
+	ERROR, 
+	
+	/**
+	 * Simulation terminated successfully
+	 */
+	OK; 
 }

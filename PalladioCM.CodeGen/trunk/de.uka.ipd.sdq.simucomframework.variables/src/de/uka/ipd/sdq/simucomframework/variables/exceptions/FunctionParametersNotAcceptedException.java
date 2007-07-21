@@ -1,4 +1,4 @@
-package de.uka.ipd.sdq.simucomframework.variables.functions;
+package de.uka.ipd.sdq.simucomframework.variables.exceptions;
 
 public class FunctionParametersNotAcceptedException extends RuntimeException {
 
