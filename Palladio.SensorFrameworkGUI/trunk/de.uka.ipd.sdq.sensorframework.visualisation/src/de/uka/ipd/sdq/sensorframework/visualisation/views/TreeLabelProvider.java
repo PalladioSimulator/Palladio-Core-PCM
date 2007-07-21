@@ -5,7 +5,7 @@ import org.eclipse.swt.graphics.Image;
 import org.eclipse.ui.ISharedImages;
 import org.eclipse.ui.PlatformUI;
 
-import de.uka.ipd.sdq.sensorfactory.entities.Experiment;
+import de.uka.ipd.sdq.dialogs.dataset.DataSetLabelProvider;
 import de.uka.ipd.sdq.sensorfactory.entities.ExperimentRun;
 import de.uka.ipd.sdq.sensorfactory.entities.Sensor;
 import de.uka.ipd.sdq.sensorfactory.entities.dao.IDAOFactory;
@@ -21,9 +21,7 @@ import de.uka.ipd.sdq.sensorframework.visualisation.SimuImages;
  */
 public class TreeLabelProvider extends LabelProvider {
 
-	/*
-	 * (non-Javadoc)
-	 * 
+	/* (non-Javadoc)
 	 * @see org.eclipse.jface.viewers.LabelProvider#getText(java.lang.Object)
 	 */
 	@Override
@@ -48,8 +46,10 @@ public class TreeLabelProvider extends LabelProvider {
 			}
 		}
 			
-		if (obj instanceof IDAOFactory)
-			return ((IDAOFactory)obj).getName();
+		if (obj instanceof IDAOFactory) {
+			IDAOFactory factory = (IDAOFactory) obj;
+			return DataSetLabelProvider.dataSetRepresentation(factory);
+		}
 
 		return obj.toString();
 	}

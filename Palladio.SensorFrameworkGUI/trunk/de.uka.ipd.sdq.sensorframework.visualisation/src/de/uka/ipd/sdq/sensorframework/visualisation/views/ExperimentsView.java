@@ -16,10 +16,10 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Menu;
 import org.eclipse.ui.IActionBars;
 import org.eclipse.ui.IWorkbenchActionConstants;
-import org.eclipse.ui.part.DrillDownAdapter;
 import org.eclipse.ui.part.EditorInputTransfer;
 import org.eclipse.ui.part.ViewPart;
 
+import de.uka.ipd.sdq.dialogs.dataset.SensorDataSetDialog;
 import de.uka.ipd.sdq.sensorframework.visualisation.SimuPlugin;
 
 /**
@@ -33,11 +33,13 @@ import de.uka.ipd.sdq.sensorframework.visualisation.SimuPlugin;
 public class ExperimentsView extends ViewPart {
 	private TreeViewer viewer;
 
-	private DrillDownAdapter drillDownAdapter;
-	private ExperimentsAdapter experimentsAdapter;
+//	private DrillDownAdapter drillDownAdapter;
+//	private ExperimentsAdapter experimentsAdapter;
 
 	private Action reloadView;
 	private Action collapseAll;
+	private Action expandAll;
+	private Action openDataSet;
 	
 
 	public ExperimentsView() {
@@ -54,8 +56,8 @@ public class ExperimentsView extends ViewPart {
 		int ops = DND.DROP_COPY | DND.DROP_MOVE;
 
 		viewer = new TreeViewer(parent, SWT.MULTI | SWT.H_SCROLL | SWT.V_SCROLL);
-		drillDownAdapter = new DrillDownAdapter(viewer);
-		experimentsAdapter = new ExperimentsAdapter(viewer);
+//		drillDownAdapter = new DrillDownAdapter(viewer);
+//		experimentsAdapter = new ExperimentsAdapter(viewer);
 		viewer.setContentProvider(new TreeContentProvider());
 		viewer.setLabelProvider(new TreeLabelProvider());
 		viewer.setSorter(new NameSorter());
@@ -91,35 +93,42 @@ public class ExperimentsView extends ViewPart {
 	}
 
 	private void fillLocalPullDown(IMenuManager manager) {
+		manager.add(openDataSet);
 		manager.add(reloadView);
 		manager.add(new Separator());
 		manager.add(collapseAll);
+		manager.add(expandAll);
 	}
 
 	private void fillContextMenu(IMenuManager manager) {
+		manager.add(openDataSet);
 		manager.add(reloadView);
 		manager.add(new Separator());
 		manager.add(collapseAll);
+		manager.add(expandAll);
 		manager.add(new Separator());
-		drillDownAdapter.addNavigationActions(manager);
-		manager.add(new Separator());
-		experimentsAdapter.addNavigationActions(manager);
+//		drillDownAdapter.addNavigationActions(manager);
+//		manager.add(new Separator());
+//		experimentsAdapter.addNavigationActions(manager);
 		// Other plug-ins can contribute there actions here
 		manager.add(new Separator(IWorkbenchActionConstants.MB_ADDITIONS));
 	}
 
 	private void fillLocalToolBar(IToolBarManager manager) {
+		manager.add(openDataSet);
 		manager.add(reloadView);
 		manager.add(new Separator());
 		manager.add(collapseAll);
+		manager.add(expandAll);
 		manager.add(new Separator());
-		drillDownAdapter.addNavigationActions(manager);
-		manager.add(new Separator());
-		experimentsAdapter.addNavigationActions(manager);
+//		drillDownAdapter.addNavigationActions(manager);
+//		manager.add(new Separator());
+//		experimentsAdapter.addNavigationActions(manager);
 	}
 
 	private void makeActions() {
 		
+		/** Reload viewer action*/
 		reloadView = new Action() {
 			public void run() {
 				viewer.refresh();
@@ -129,6 +138,7 @@ public class ExperimentsView extends ViewPart {
 		reloadView.setToolTipText("Reload View");
 		reloadView.setImageDescriptor(SimuPlugin.getImageDescriptor("/icons/db_reload_obj.gif"));
 
+		/** Collapse all action*/
 		collapseAll = new Action() {
 			public void run() {
 				viewer.collapseAll();
@@ -137,6 +147,28 @@ public class ExperimentsView extends ViewPart {
 		collapseAll.setText("Collapse All");
 		collapseAll.setToolTipText("Collapse All");
 		collapseAll.setImageDescriptor(SimuPlugin.getImageDescriptor("/icons/collapseall.gif"));
+		
+		/** Expand all action*/
+		expandAll = new Action() {
+			public void run() {
+				viewer.expandAll();
+			}
+		};
+		expandAll.setText("Expand All");
+		expandAll.setToolTipText("Expand All");
+		expandAll.setImageDescriptor(SimuPlugin.getImageDescriptor("/icons/expandall.gif"));
+		
+		/** Open DataSet action*/
+		openDataSet = new Action() {
+			public void run() {
+				SensorDataSetDialog dialog = new SensorDataSetDialog(getSite().getShell());
+				if (dialog.open() == dialog.OK)
+					viewer.refresh();
+			}
+		};
+		openDataSet.setText("Open existing DataSet");
+		openDataSet.setToolTipText("Open existing DataSet");
+		openDataSet.setImageDescriptor(SimuPlugin.getImageDescriptor("/icons/add_datasource.gif"));
 	
 	}
 

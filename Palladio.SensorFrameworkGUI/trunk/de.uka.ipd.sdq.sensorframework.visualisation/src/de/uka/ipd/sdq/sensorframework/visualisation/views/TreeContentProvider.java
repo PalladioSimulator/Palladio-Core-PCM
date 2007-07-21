@@ -100,6 +100,11 @@ public class TreeContentProvider implements ITreeContentProvider {
 			if (object.getObject() instanceof Sensor)
 				return false;
 		}
+		
+		if (parent instanceof IDAOFactory) {
+			IExperimentDAO experimentDAO = ((IDAOFactory)parent).createExperimentDAO();
+			return !experimentDAO.getExperiments().isEmpty();
+		}
 		return true;
 	}
 
