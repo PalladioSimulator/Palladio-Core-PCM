@@ -1,0 +1,44 @@
+<workflow>
+	<property file='codegen.properties'/>
+	<property file='${propertyFile}'/>
+
+	<property name='outpath_original' value='${outpath}'/>
+	<property name='refinedDirectory' value='${outpath}.refined\'/>
+	<property name='simDirectory' value='${outpath}.sim'/>
+	<property name='aop_templates' value='simulation_template_methods'/>
+
+	<component class="de.uka.ipd.sdq.completion.CompletionWorkflowComponent">
+		<outputDirectory value='${refinedDirectory}'/>
+		<middlewareModelFileName value='${middlewareFile}'/>
+		<systemRepositoryFileName value='${repositoryFile}'/>
+		<systemModelFileName value='${systemFile}'/>
+		<allocationFileName value='${allocationFile}'/>
+		<usageModelFileName value='${usageFile}'/>
+		<resourceTypeFileName value='${resourceTypeFile}'/>
+		<resourceEnvironmentFileName value='${resourceEnvironmentFile}'/>
+ 	</component>
+ 
+	<cartridge file="codegen_repository.oaw">
+		<outpath value='${simDirectory}'/>
+		<repositoryFile value='${refinedDirectory}/RefinedArchitecture.repository'/>
+	</cartridge>
+	<cartridge file="codegen_repository.oaw">
+		<outpath value='${simDirectory}'/>
+		<repositoryFile value='${middlewareFile}'/>
+	</cartridge>
+	<cartridge file="codegen_completions.oaw">
+		<outpath value='${simDirectory}'/>
+		<completionsFile value='${refinedDirectory}/Completions.repository'/>
+	</cartridge>
+	<cartridge file="codegen_system.oaw">
+		<outpath value='${simDirectory}'/>
+		<systemFile value='${refinedDirectory}/RefinedArchitecture.system'/>
+		<allocationFile value='${refinedDirectory}/RefinedArchitecture.allocation'/>
+		<resourceTypeFile value='${refinedDirectory}/RefinedArchitecture.resourcetype'/>
+	</cartridge>
+	<cartridge file="codegen_usage.oaw">
+		<outpath value='${simDirectory}'/>
+		<usageFile value='${refinedDirectory}/RefinedArchitecture.usagemodel'/>
+		<allocationFile value='${refinedDirectory}/RefinedArchitecture.allocation'/>
+	</cartridge>
+</workflow>

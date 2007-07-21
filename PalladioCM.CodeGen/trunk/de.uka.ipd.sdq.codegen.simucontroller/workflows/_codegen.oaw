@@ -1,0 +1,27 @@
+<workflow>
+
+	<property file='codegen.properties'/>
+	<property file='${propertyFile}'/>
+
+	<property name='codeDirectory' value='${outpath}.code/src'/>
+	<property name='aop_templates' value='pojo_template_methods'/>
+
+	<cartridge file="./../de.uka.ipd.sdq.codegen.m2m/workflows/codegen_repository.oaw">
+		<outpath value='${codeDirectory}'/>
+		<repositoryFile value='${repositoryFile}'/>
+	</cartridge>
+	<cartridge file="./../de.uka.ipd.sdq.codegen.m2m/workflows/codegen_system.oaw">
+		<outpath value='${codeDirectory}'/>
+		<repositoryFile value='${repositoryFile}'/>
+		<systemFile value='${systemFile}'/>
+		<allocationFile value='${allocationFile}'/>
+		<resourceTypeFile value='${resourceTypeFile}'/>
+	</cartridge>
+	<cartridge file="./../de.uka.ipd.sdq.codegen.m2m/workflows/codegen_usage.oaw">
+		<outpath value='${codeDirectory}'/>
+		<repositoryFile value='${repositoryFile}'/>
+		<usageFile value='${usageFile}'/>
+		<allocationFile value='${allocationFile}'/>
+	</cartridge>
+
+</workflow>
